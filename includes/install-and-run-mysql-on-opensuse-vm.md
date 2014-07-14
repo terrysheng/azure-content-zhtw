@@ -26,11 +26,7 @@
 
 		# rcmysql stop
 
-5.  警告！安裝之後，MySQL 根密碼預設為空白。建議您執行
-    **mysql\_secure\_installation**，該指令碼有助於保護 MySQL 的安全。執行
-    **mysql\_secure\_installation** 時，系統會提示您變更 MySQL
-    根密碼、移除匿名使用者帳戶、停用遠端根登入、移除測試資料庫，以及重新載入權限資料表。建議您對所有的選項回答 [是]
-    並且變更根密碼。執行下列命令以執行指令碼：
+5.  警告！安裝之後，MySQL 根密碼預設為空白。建議您執行 **mysql\_secure\_installation**，該指令碼有助於保護 MySQL 的安全。執行 **mysql\_secure\_installation** 時，系統會提示您變更 MySQL 根密碼、移除匿名使用者帳戶、停用遠端根登入、移除測試資料庫，以及重新載入權限資料表。建議您對所有的選項回答 [是] 並且變更根密碼。執行下列命令以執行指令碼：
     
          $ mysql_secure_installation
 
@@ -63,17 +59,17 @@
     
         quit
 
-11. 安裝 MySQL 後，您必須設定端點，以便遠端存取 MySQL。登入 [Azure 管理入口網站][1]。在 Azure
-    入口網站，依序按一下 **虛擬機器**、新 VM 的名稱及 **端點**。
+11. 安裝 MySQL 後，您必須設定端點，以便遠端存取 MySQL。登入 [Azure 管理入口網站][1]。在 Azure 入口網站，依序按一下 **虛擬機器**、新 VM 的名稱及 **端點**。
     
     ![端點](./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpoint.png)
 
-12. 按一下頁面底部的
-    **新增端點**。![端點](./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpoint2.png)
+12. 按一下頁面底部的 **新增端點**。
 
-13. 新增一個名稱為 "MySQL" 的端點、採用通訊協定 **TCP**，且 **公用** 和 **私人** 連接埠均設定為
-    "3306"。如此一來，即可遠端存取
-    MySQL。![端點](./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png)
+	![端點](./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpoint2.png)
+
+13. 新增一個名稱為 "MySQL" 的端點、採用通訊協定 **TCP**，且 **公用** 和 **私人** 連接埠均設定為 "3306"。如此一來，即可遠端存取 MySQL。
+
+	![端點](./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png)
 
 14. 若要從遠端連線到在 Azure 中的 OpenSUSE 虛擬機器上執行的 MySQL，請在本機電腦上執行下列命令：
     

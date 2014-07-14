@@ -4,12 +4,15 @@
 
 2.  按一下 **[資料]** 索引標籤，然後按一下 **[建立]**。
     
-        ![mobile-data-tab-empty](./media/mobile-services-create-new-service-data-2/mobile-data-tab-empty.png)
-        這將顯示 [建立新資料表] 對話方塊。
+	![mobile-data-tab-empty](./media/mobile-services-create-new-service-data-2/mobile-data-tab-empty.png)
+
+	這將顯示 [建立新資料表] 對話方塊。
 
 3.  在 **[資料表名稱]** 中輸入 *TodoItem*，然後按一下核取按鈕。
 
- ![mobile-create-todoitem-table](./media/mobile-services-create-new-service-data-2/mobile-create-todoitem-table.png) 這會建立包含預設權限集的新儲存資料表 **TodoItem**。這表示擁有應用程式金鑰 (隨應用程式散佈) 的人都可以存取與變更資料表中的資料。
+ ![mobile-create-todoitem-table](./media/mobile-services-create-new-service-data-2/mobile-create-todoitem-table.png)
+
+這會建立包含預設權限集的新儲存資料表 **TodoItem**。這表示擁有應用程式金鑰 (隨應用程式散佈) 的人都可以存取與變更資料表中的資料。
 
 > [WACOM.NOTE]
 > 行動服務快速入門中使用相同的資料表名稱。不過，每個資料表都會在指定行動服務特定的結構描述下建立。目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。
@@ -76,4 +79,3 @@
 
 
 現在您已準備好將新的行動服務作為應用程式的資料儲存區使用。
-

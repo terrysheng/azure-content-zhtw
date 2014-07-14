@@ -13,7 +13,9 @@
     ![](./media/mobile-services-create-custom-api/mobile-custom-api-create-dialog2.png)
     
     這樣做會建立新的 API。
-    
+
+
+   
     > [WACOM.NOTE] 已設定預設權限，這表示應用程式的任何使用者均可呼叫自訂
     > API。不過，應用程式金鑰並未安全地發佈或儲存，所以無法視為安全的認證。因此，您應考慮僅限通過驗證的使用者存取可修改資料或影響行動服務的操作。
 
@@ -35,8 +37,7 @@
              })
          };
     
-    此程式碼使用 [mssql 物件][2]直接存取 **todoitem** 資料表，以在所有項目上設定完成旗標。因為使用了
-    **exports.post** 函數，所以用戶端會傳送 POST 要求以執行此操作。系統會以整數值將變更的列數傳回給用戶端。
+    此程式碼使用 [mssql 物件][2]直接存取 **todoitem** 資料表，以在所有項目上設定完成旗標。因為使用了 **exports.post** 函數，所以用戶端會傳送 POST 要求以執行此操作。系統會以整數值將變更的列數傳回給用戶端。
 
 > [WACOM.NOTE] [Express.js 程式庫][3]會實作提供給自訂 API 函數的 [request][4] 和 [response][5] 物件。如需相關資訊，請參閱[自訂 API][6]。
 

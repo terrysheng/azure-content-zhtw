@@ -8,8 +8,7 @@
 
    	這會為您的應用程式建立新的 Windows 市集註冊。
 
-3.	在 Visual Studio 2012 Express for Windows 8
-    中，開啟您在完成[開始使用行動服務](/en-us/develop/mobile/tutorials/get-started/#create-new-service)教學課程時所建立的專案。
+3.	在 Visual Studio 2012 Express for Windows 8 中，開啟您在完成[開始使用行動服務](/en-us/develop/mobile/tutorials/get-started/#create-new-service)教學課程時所建立的專案。
 
 4.  在 [方案總管] 中，以滑鼠右鍵按一下此專案，然後依序按一下 **市集** 和 **將應用程式與市集建立關聯**。
 
@@ -36,18 +35,19 @@
 5.  按一下 **驗證您的服務**，並記下 **用戶端密碼** 和 **封裝安全性識別碼 (SID)** 的值。
     
 	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth.png)
-    
+
+
+   
     > [WACOM.NOTE]用戶端密碼和封裝 SID 是重要的安全性認證。請勿與任何人共用這些密碼，或與您的應用程式一起散發密碼。
 
 6.  登入 [Azure 管理入口網站][2]，按一下 [行動服務**，然後按一下您的應用程式。
 
-![](./media/mobile-services-register-windows-store-app/mobile-services-selection.png) 
+	![](./media/mobile-services-register-windows-store-app/mobile-services-selection.png) 
 
 
-11.按一下 **[推送]** 索引標籤，輸入您在步驟 4 中從 WNS 取得的 **用戶端密碼** 和 **封裝 SID** 值，然後按一下 **儲存**。
+11. 按一下 **[推送]** 索引標籤，輸入您在步驟 4 中從 WNS 取得的 **用戶端密碼** 和 **封裝 SID** 值，然後按一下 **儲存**。
 
-
-   ![](./media/mobile-services-register-windows-store-app/mobile-push-tab.png) <!-- Anchors. -->
+	![](./media/mobile-services-register-windows-store-app/mobile-push-tab.png) 
 
 
 <!-- Images. -->

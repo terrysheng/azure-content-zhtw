@@ -1,5 +1,4 @@
-組件庫提供由 Microsoft、協力廠商公司及開放原始碼軟體計劃所開發的各種熱門 Web 應用程式。除了用來連線到 Azure
-管理入口網站的瀏覽器以外，從組件庫中建立的 Web 應用程式不需要安裝任何軟體。
+組件庫提供由 Microsoft、協力廠商公司及開放原始碼軟體計劃所開發的各種熱門 Web 應用程式。除了用來連線到 Azure 管理入口網站的瀏覽器以外，從組件庫中建立的 Web 應用程式不需要安裝任何軟體。
 
 在本教學課程中，您將了解：
 
@@ -11,8 +10,9 @@
 
 ![Wordpress 部落格](./media/website-from-gallery/wordpressgallery-09.png)
 <div class="dev-callout"><strong>注意</strong>
-<p>若要完成此教學課程，您需要 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資料，請參閱＜<a  href="http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">建立 Azure 帳戶</a>＞。</p>
+<p>若要完成此教學課程，您需要 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資料，請參閱＜<a href="http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">建立 Azure 帳戶</a>＞。</p>
 </div>
+
 ## 在入口網站中建立網站
 
 1.  登入 [Azure 管理入口網站][1]。
@@ -40,14 +40,12 @@
 
 1.  然後按 **下一步**。
 
-2.  在 **建立新的資料庫** 頁面上，您可以為此新的 MySQL
-    資料庫指定名稱或使用預設名稱。選取最靠近您的區域來作為主控位置。勾選畫面底部的方塊，即表示同意 ClearDB 針對主控 MySQL
-    資料庫的使用條款。然後按一下核取記號以完成網站建立。
+2.  在 **建立新的資料庫** 頁面上，您可以為此新的 MySQL 資料庫指定名稱或使用預設名稱。選取最靠近您的區域來作為主控位置。勾選畫面底部的方塊，即表示同意 ClearDB 針對主控 MySQL 資料庫的使用條款。然後按一下核取記號以完成網站建立。
     
     ![建立資料庫](./media/website-from-gallery/wordpressgallery-05.png)
 
-按一下 **完成** 之後，Azure 便會初始建立和部署操作。在建立和部署網站的同時，[網站]
-頁面底部會顯示這些操作的狀態。在執行完所有操作之後，會在已順利部署網站時出現一則最終狀態訊息。
+按一下 **完成** 之後，Azure 便會初始建立和部署操作。在建立和部署網站的同時，[網站] 頁面底部會顯示這些操作的狀態。在執行完所有操作之後，會在已順利部署網站時出現一則最終狀態訊息。
+
 ## 啟動和管理您的 WordPress 網站
 
 1.  從 **網站** 頁面中按一下您的新網站，以開啟該網站的儀表板。

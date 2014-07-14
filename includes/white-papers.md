@@ -11,7 +11,7 @@
     <tbody>
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9751405">開發 Azure 應用程式的安全性最佳作法</a>
+<a href="http://go.microsoft.com/?linkid=9751405">開發 Azure 應用程式的安全性最佳作法</a>
 
         </td>
 
@@ -21,7 +21,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf">Azure 安全性概觀</a>
+<a href="http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf">Azure 安全性概觀</a>
 
         </td>
 
@@ -31,7 +31,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://download.microsoft.com/download/F/2/6/F26E80C5-C43B-4913-99AB-F2E4DFBFCBBF/Single%20Sign-On%20from%20Active%20Directory%20to%20a%20Windows%20Azure%20Application%20Whitepaper-RTW.pdf">從 Active Directory 單一登入 Azure 應用程式白皮書</a>
+<a href="http://download.microsoft.com/download/F/2/6/F26E80C5-C43B-4913-99AB-F2E4DFBFCBBF/Single%20Sign-On%20from%20Active%20Directory%20to%20a%20Windows%20Azure%20Application%20Whitepaper-RTW.pdf">從 Active Directory 單一登入 Azure 應用程式白皮書</a>
 
         </td>
 
@@ -41,7 +41,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/fwlink/?LinkId=153401">Azure 資料表 - 程式設計資料表儲存體</a>
+<a href="http://go.microsoft.com/fwlink/?LinkId=153401">Azure 資料表 - 程式設計資料表儲存體</a>
 
         </td>
 
@@ -51,7 +51,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9751403">Service Bus for the Azure AppFabric 的開發人員指南</a>
+<a href="http://go.microsoft.com/?linkid=9751403">Service Bus for the Azure AppFabric 的開發人員指南</a>
 
         </td>
 
@@ -61,7 +61,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/fwlink/?LinkId=153402">Azure 佇列 - 程式設計佇列儲存體</a>
+<a href="http://go.microsoft.com/fwlink/?LinkId=153402">Azure 佇列 - 程式設計佇列儲存體</a>
 
         </td>
 
@@ -71,7 +71,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9710117">Azure 磁碟機技術白皮書- 在 NTFS 雲端應用程式中使用持久磁碟機</a>
+<a href="http://go.microsoft.com/?linkid=9710117">Azure 磁碟機技術白皮書- 在 NTFS 雲端應用程式中使用持久磁碟機</a>
 
         </td>
 
@@ -81,7 +81,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9682907">Azure 簡介</a>
+<a href="http://go.microsoft.com/?linkid=9682907">Azure 簡介</a>
 
         </td>
 
@@ -91,7 +91,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/fwlink/?LinkId=153400">Azure 二進位大型物件 - 程式設計二進位大型物件儲存體</a>
+<a href="http://go.microsoft.com/fwlink/?LinkId=153400">Azure 二進位大型物件 - 程式設計二進位大型物件儲存體</a>
 
         </td>
 
@@ -101,7 +101,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9751501">Azure 程式設計模型</a>
+<a href="http://go.microsoft.com/?linkid=9751501">Azure 程式設計模型</a>
 
         </td>
 
@@ -112,7 +112,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9752158">Windows HPC Server 和 Azure</a>
+<a href="http://go.microsoft.com/?linkid=9752158">Windows HPC Server 和 Azure</a>
 
         </td>
 
@@ -122,7 +122,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9692818">相似性與差異性 - SQL Azure 與 SQL Server</a>
+<a href="http://go.microsoft.com/?linkid=9692818">相似性與差異性 - SQL Azure 與 SQL Server</a>
 
         </td>
 
@@ -132,7 +132,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9752188">IT 即服務</a>
+<a href="http://go.microsoft.com/?linkid=9752188">IT 即服務</a>
 
         </td>
 
@@ -142,7 +142,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9736945">SQL Azure 的安全性方針</a>
+<a href="http://go.microsoft.com/?linkid=9736945">SQL Azure 的安全性方針</a>
 
         </td>
 
@@ -152,7 +152,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://download.microsoft.com/download/E/B/5/EB512F2E-7771-40A3-8025-0DC6D9429951/An%20Introduction%20to%20Windows%20Azure%20platform%20AppFabric%20for%20Developers.docx">適用於開發人員的 Azure AppFabric 簡介</a>
+<a href="http://download.microsoft.com/download/E/B/5/EB512F2E-7771-40A3-8025-0DC6D9429951/An%20Introduction%20to%20Windows%20Azure%20platform%20AppFabric%20for%20Developers.docx">適用於開發人員的 Azure AppFabric 簡介</a>
 
         </td>
 
@@ -162,7 +162,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://download.microsoft.com/download/F/9/E/F9EAD956-18D1-42D8-AB1C-7F119856ABBF/Windows%20Azure%20for%20ISVs,%20v1.2--Chappell.pdf">Azure 和 ISV - 適用於決策者的指南</a>
+<a href="http://download.microsoft.com/download/F/9/E/F9EAD956-18D1-42D8-AB1C-7F119856ABBF/Windows%20Azure%20for%20ISVs,%20v1.2--Chappell.pdf">Azure 和 ISV - 適用於決策者的指南</a>
 
         </td>
 
@@ -172,7 +172,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9751401">雲端最佳化 - 建立雲端運算業務決策的架構</a>
+<a href="http://go.microsoft.com/?linkid=9751401">雲端最佳化 - 建立雲端運算業務決策的架構</a>
 
         </td>
 
@@ -182,7 +182,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://download.microsoft.com/download/C/A/7/CA7A9801-736E-421E-A386-16B37C83FFE8/Windows-Azure-AppFabric-PDC10-Overview.docx">Azure AppFabric 概觀</a>
+<a href="http://download.microsoft.com/download/C/A/7/CA7A9801-736E-421E-A386-16B37C83FFE8/Windows-Azure-AppFabric-PDC10-Overview.docx">Azure AppFabric 概觀</a>
 
         </td>
 
@@ -192,7 +192,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9752190">雲端經濟體系</a>
+<a href="http://go.microsoft.com/?linkid=9752190">雲端經濟體系</a>
 
         </td>
 
@@ -202,7 +202,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9696879">系統整合器技術白皮書</a>
+<a href="http://go.microsoft.com/?linkid=9696879">系統整合器技術白皮書</a>
 
         </td>
 
@@ -212,7 +212,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9761001">適合業務領導層的雲端平台</a>
+<a href="http://go.microsoft.com/?linkid=9761001">適合業務領導層的雲端平台</a>
 
         </td>
 
@@ -222,7 +222,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9776229">架構使用 Azure AppFabric 快取的應用程式</a>
+<a href="http://go.microsoft.com/?linkid=9776229">架構使用 Azure AppFabric 快取的應用程式</a>
 
         </td>
 
@@ -232,7 +232,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9686976">Microsoft SQL Azure 概觀</a>
+<a href="http://go.microsoft.com/?linkid=9686976">Microsoft SQL Azure 概觀</a>
 
         </td>
 
@@ -242,7 +242,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9737837">自訂 IIS Web/Microsoft SQL Server 應用程式移轉案例</a>
+<a href="http://go.microsoft.com/?linkid=9737837">自訂 IIS Web/Microsoft SQL Server 應用程式移轉案例</a>
 
         </td>
 
@@ -252,7 +252,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9737839">自訂 Web (快速擴充焦點) 應用程式移轉案例</a>
+<a href="http://go.microsoft.com/?linkid=9737839">自訂 Web (快速擴充焦點) 應用程式移轉案例</a>
 
         </td>
 
@@ -262,7 +262,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9737838">自訂電子商務 (彈性焦點) 應用程式移轉案例</a>
+<a href="http://go.microsoft.com/?linkid=9737838">自訂電子商務 (彈性焦點) 應用程式移轉案例</a>
 
         </td>
 
@@ -272,7 +272,7 @@
 
       <tr>
         <td  style="width: 200px;">
-<a  href="http://go.microsoft.com/?linkid=9736946">使用 SQL Azure 進行開發和部署</a>
+<a href="http://go.microsoft.com/?linkid=9736946">使用 SQL Azure 進行開發和部署</a>
 
         </td>
 
@@ -283,4 +283,3 @@
   
 </tbody>
 </table>
-

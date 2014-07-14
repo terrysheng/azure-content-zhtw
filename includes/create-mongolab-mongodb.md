@@ -1,13 +1,11 @@
+
 # 如何在 Azure 中建立 MongoDB 資料庫
 
-本文將示範如何從 [Azure 市集](/en-us/store/overview/)使用 [MongoLab][1] 建立 MongoDB
-資料庫。[MongoLab][1] 是一項「MongoDB 即服務」提供者，可讓您在 Azure 資料中心內執行和管理 MongoDB
-資料庫，以及從任何應用程式連線至這些資料庫。
+本文將示範如何從 [Azure 市集](/en-us/store/overview/)使用 [MongoLab][1] 建立 MongoDB 資料庫。[MongoLab][1] 是一項「MongoDB 即服務」提供者，可讓您在 Azure 資料中心內執行和管理 MongoDB 資料庫，以及從任何應用程式連線至這些資料庫。
 
 若要從 [Azure 市集](/en-us/store/overview/)建立 MongoDB 資料庫，請執行下列動作：
 
-1.  登入 [Azure 管理入口網站][2]。
-2.  按一下頁面底部的 **+新增**，然後選取 **市集**。
+1.  登入 [Azure 管理入口網站][2]。 2.  按一下頁面底部的 **+新增**，然後選取 **市集**。
     
     ![從市集中選取附加元件](./media/create-mongolab-mongodb/select-store.png)
 

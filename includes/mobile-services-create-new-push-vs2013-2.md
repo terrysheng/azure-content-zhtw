@@ -14,8 +14,7 @@
     
     當您將變更儲存到 insert.js 檔案時，新版的指令碼會上傳到您的行動服務。
 
-2.  在 [伺服器總管] 中，展開 TodoItem 資料表、開啟 insert.js 檔案，並使用下列程式碼來取代目前的 insert
-    函數，然後儲存變更：
+2.  在 [伺服器總管] 中，展開 TodoItem 資料表、開啟 insert.js 檔案，並使用下列程式碼來取代目前的 insert 函數，然後儲存變更：
     
          function insert(item, user, request) {
         request.execute({
@@ -44,4 +43,3 @@
          }
     
     現在當您插入新的 TodoItem 時，所有已註冊裝置都會收到推送通知。
-

@@ -41,6 +41,7 @@
 
 若要在新的命名空間上執行管理作業，例如建立主題或訂閱，您必須取得命名空間的管理認證。您可以從管理入口網站或 Visual Studio
 伺服器總管取得這些認證。
+
 ### 從入口網站取得管理認證
 
 1.  在左方瀏覽窗格中，按一下 **服務匯流排** 節點，以顯示可用的命名空間清單：   
@@ -53,6 +54,7 @@
      ![](./media/howto-service-bus-topics/sb-queues-06.png)
 
 4.  在 **Access connection information** 對話方塊中，找出 **Default Issuer** 和 **Default Key** 項目。請記下這些值，接下來會利用此資訊對命名空間執行作業。
+
 ### 從伺服器總管取得管理認證
 
 若要使用 Visual Studio 而非管理入口網站取得連線資訊，請遵循[這裡][2]所述的程序，請見標題**從 Visual Studio

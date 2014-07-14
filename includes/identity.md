@@ -1,3 +1,4 @@
+
 # Azure 身分識別
 
 身分識別管理在公用雲端與內部部署中同等重要。Azure 支援數種不同的雲端身分識別技術，協助進行身分識別管理。這些選項包括：
@@ -12,6 +13,7 @@
   Facebook、Google、Microsoft 和其他身分識別提供者的身分識別進行登入。
 
 本文詳細說明下列三個選項。
+
 ## 目錄
 
 * [在 VM 中執行 Windows Server Active Directory](#adinvm)
@@ -19,6 +21,7 @@
 * [使用 Azure Active Directory](#ad)
 
 * [使用 Azure Active Directory 存取控制](#ac)
+
 ## <a name="adinvm"></a>在 VM 中執行 Windows Server Active Directory
 
 在 Azure VM 中執行 Windows Server AD，與在內部部署中執行 Windows Server AD 極為類似。[圖
@@ -34,8 +37,7 @@ Directory](./media/identity/identity_01_ADinVM.png)
 VM 和其他幾部 VM 會群組成已使用 Azure 虛擬網路連線到內部部署資料中心的虛擬網路 (VNET)。VNET
 會分割出一組透過虛擬私人網路 (VPN) 連線與內部部署網路進行互動的雲端 VM。如此一來，這些 Azure VM
 看起來就像內部部署資料中心的另一個子網路。如圖所示，其中兩個 VM 正在執行 Windows Server AD 網域控制站。VNET 中的其他
-VM 可能正在執行應用程式 (例如 SharePoint)，或正以其他方式使用 (例如開發和測試)。內部部署資料中心也會執行兩個 Windows
-Server AD 網域控制站。
+VM 可能正在執行應用程式 (例如 SharePoint)，或正以其他方式使用 (例如開發和測試)。內部部署資料中心也會執行兩個 Windows Server AD 網域控制站。
 
 連接雲端的網域控制站與在內部部署執行的網域控制站時，有數個選項可供選擇。這些選項包括：
 
@@ -69,6 +71,7 @@ AD 站台中，以便系統管理員安排複寫的頻率。Azure 會列計從 A
 (例如，他們全都以雲端型身分識別單獨登入) 提供服務的 SharePoint 伺服器陣列，您可以在 Azure
 上建立一個獨立樹系。您使用此技術的方式取決於您的目的。(如需使用 Windows Server AD 搭配 Azure
 的詳細指引，[請參閱這裡][1])。
+
 ## <a name="ad"></a>使用 Azure Active Directory
 
 隨著 SaaS 應用程式日益普及，因而引發一個明顯的問題：這些雲端型應用程式應使用哪種目錄服務？Azure Active Directory 是
@@ -113,19 +116,15 @@ API 查詢 Azure AD，即可得知此資訊。
 (這就是稱為圖形 API 的原因)。為了要針對圖形 API 要求向 Azure AD 驗證本身，應用程式會使用 OAuth 2.0。
 
 如果組織未使用 Windows Server Active Directory (該組織沒有內部部署伺服器或網域)，且唯獨依賴採用 Azure
-AD 的雲端應用程式，則只需要使用此雲端目錄，就可以將所有雲端應用程式的單一登入提供給公司的使用者。雖然此種情況日益普遍，但大多數組織仍使用以
-Windows Server Active Directory 建立的內部部署網域。Azure AD 在此也扮演了有用的角色，如[圖
-3](#fig3) 所示。
+AD 的雲端應用程式，則只需要使用此雲端目錄，就可以將所有雲端應用程式的單一登入提供給公司的使用者。雖然此種情況日益普遍，但大多數組織仍使用以 Windows Server Active Directory 建立的內部部署網域。Azure AD 在此也扮演了有用的角色，如[圖 3](#fig3) 所示。
 
-![虛擬機器中的 Azure Active Directory](./media/identity/identity_03_AD.png) <a
- id="fig3" ></a>圖 3：組織可以聯合 Windows Server Active
+![虛擬機器中的 Azure Active Directory](./media/identity/identity_03_AD.png) <a id="fig3" ></a>圖 3：組織可以聯合 Windows Server Active
 Directory 與 Azure Active Directory，將 SaaS 應用程式的單一登入提供給其使用者。
 
 在此案例中，組織 B 的使用者希望存取 SaaS 應用程式。在使用者這麼做之前，組織的目錄管理員必須先使用 AD FS 來與 Azure AD
 建立同盟關係 (如圖所示)。這些管理員也必須設定組織的內部部署 Windows Server AD 與 Azure AD
 之間的資料同步處理。資料同步處理會自動將使用者和群組資訊從內部部署目錄複製到 Azure
-AD。請注意，這麼一來：組織會實際將其內部部署目錄擴充到雲端。以此方式聯合 Windows Server AD 與 Azure
-AD，組織即可擁有一項可當作單一實體管理的目錄服務，但仍可支配內部部署和雲端。
+AD。請注意，這麼一來：組織會實際將其內部部署目錄擴充到雲端。以此方式聯合 Windows Server AD 與 Azure AD，組織即可擁有一項可當作單一實體管理的目錄服務，但仍可支配內部部署和雲端。
 
 為了使用 Azure AD，使用者會先如往常般登入自己的內部部署 Active Directory 網域 (步驟 1)。當他嘗試存取 SaaS
 應用程式時 (步驟 2)，同盟程序會導致 Azure AD 對他簽發此應用程式的權杖 (步驟 3)。(如需同盟運作方式的詳細資訊，請參閱
@@ -133,11 +132,10 @@ AD，組織即可擁有一項可當作單一實體管理的目錄服務，但仍
 進行數位簽章。然後，此權杖會被傳送至 SaaS 應用程式 (步驟 4)，以便驗證權杖的簽章並使用其內容 (步驟 5)。在先前的案例中，SaaS
 應用程式可以視需要使用圖形 API 來深入了解此使用者 (步驟 6)。
 
-Azure AD 目前並未完全取代內部部署 Windows Server
-AD。如先前所述，雲端目錄的架構簡單許多，但也有所欠缺，例如群組原則、儲存電腦相關資訊的功能，以及對 LDAP 的支援。(事實上，無法將
-Windows 電腦設定成讓使用者僅使用 Azure AD 進行登入 - 不支援此案例)。Azure AD
+Azure AD 目前並未完全取代內部部署 Windows Server AD。如先前所述，雲端目錄的架構簡單許多，但也有所欠缺，例如群組原則、儲存電腦相關資訊的功能，以及對 LDAP 的支援。(事實上，無法將 Windows 電腦設定成讓使用者僅使用 Azure AD 進行登入 - 不支援此案例)。Azure AD
 的最初目標包括讓企業使用者不需維護個別的登入，並且讓內部部署目錄管理員不需手動同步處理其內部部署目錄與其組織所用的每個 SaaS
 應用程式，即可存取雲端的應用程式。但是，過一段時間後，便期望此雲端目錄服務能處理更廣泛的案例。
+
 ## <a name="ac"></a>使用 Azure Active Directory 存取控制
 
 雲端型身分識別技術可用於解決各種問題。舉例來說，Azure Active Directory 可將多個 SaaS
@@ -154,8 +152,7 @@ Facebook、Google 和 Microsoft 等提供者簽發之權杖的應用程式，面
 Active Directory 存取控制就是這麼做，在雲端提供一個媒介以便處理各種權杖。[圖 4](#fig4) 顯示其運作方式
 
 ![虛擬機器中的 Azure Active
-Directory](./media/identity/identity_04_IdentityProviders.png) <a
- id="fig4" ></a>圖 4：Azure Active Directory
+Directory](./media/identity/identity_04_IdentityProviders.png) <a id="fig4" ></a>圖 4：Azure Active Directory
 存取控制讓應用程式能輕鬆地接受由不同身分識別提供者所簽發的身分識別權杖。
 
 此程序會在使用者嘗試透過瀏覽器存取應用程式時開始。應用程式將使用者重新導向至其所選的 IdP (而且也是應用程式所信任的
@@ -167,8 +164,7 @@ Windows Live ID) 及任何 OpenID 提供者所建立的帳戶)。此外，還支
 (不論是由雲端或內部部署的 IdP 所簽發)。
 
 一旦使用者的瀏覽器擁有來自其所選 IdP 的 IdP 權杖，瀏覽器便會將此權杖傳送至存取控制 (步驟
-3)。存取控制會驗證此權杖，確定該權杖真的是由此 IdP 所簽發，然後根據對此應用程式定義的規則建立新的權杖。如同 Azure Active
-Directory，存取控制是一項多租用戶服務，但這些租用戶是應用程式而非客戶組織。每個應用程式都可取得自己的命名空間
+3)。存取控制會驗證此權杖，確定該權杖真的是由此 IdP 所簽發，然後根據對此應用程式定義的規則建立新的權杖。如同 Azure Active Directory，存取控制是一項多租用戶服務，但這些租用戶是應用程式而非客戶組織。每個應用程式都可取得自己的命名空間
 (如圖所示)，而且可以定義有關授權等的各種規則。
 
 每個應用程式的管理員可利用這些規則來定義應如何將各種 IdP 提供的權杖轉換為存取控制權杖。例如，如果不同 IdP
@@ -186,6 +182,7 @@ IdP，存取控制 (一個值得信任的應用程式) 會維護這些信任關�
 
 對於幾乎所有應用程式而言，處理身分識別是相當重要的。存取控制的目的在於讓開發人員能夠更輕鬆地建立可接受各種身分識別提供者所提供之身分識別的應用程式。Microsoft
 將此服務放在雲端，以供在任何平台上執行的任何應用程式使用。
+
 ## 關於作者
 
 David Chappell 是 Chappell & Associates [www.davidchappell.com][4]

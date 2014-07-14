@@ -3,8 +3,7 @@
 
 首先，安裝 Azure SDK for .NET，以設定您的開發環境。
 
-1.  若要安裝 SDK，請按下面的連結。本教學課程需要 Visual Studio 2012。如果您未安裝 Visual Studio，則
-    Visual Studio Express for Web 將隨著 SDK 一起安裝。
+1.  若要安裝 SDK，請按下面的連結。本教學課程需要 Visual Studio 2012。如果您未安裝 Visual Studio，則 Visual Studio Express for Web 將隨著 SDK 一起安裝。
     
     * [Azure SDK for Visual Studio 2012][1]
     

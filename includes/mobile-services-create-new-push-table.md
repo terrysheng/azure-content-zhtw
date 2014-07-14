@@ -8,8 +8,7 @@
     
     這樣做會顯示 **建立新資料表** 對話方塊。
 
-3.  保留所有權限的預設 **具有應用程式金鑰的任何人** 設定，在 **資料表名稱** 中輸入
-    *Registrations*，然後按一下檢查按鈕。
+3.  保留所有權限的預設 **具有應用程式金鑰的任何人** 設定，在 **資料表名稱** 中輸入 *Registrations*，然後按一下檢查按鈕。
     
     ![](./media/mobile-services-create-new-push-table/mobile-create-registrations-table.png)
 

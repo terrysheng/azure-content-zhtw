@@ -5,4 +5,3 @@
 
 ![Azure
 網站](./media/create-azure-account/freetrialonwindowsazurehomepage.png)
-

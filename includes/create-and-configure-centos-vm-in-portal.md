@@ -1,11 +1,9 @@
 <properties  writer="kathydav" editor="tysonn" manager="jeffreyg" />
 
 **注意**：本文所建立的虛擬機器並未連線到虛擬網路。如果您想要讓虛擬機器使用虛擬網路 (以便您日後能根據主機名稱來直接連線至虛擬機器)
-或設定跨部署連線，請改用 **從藝廊** 方法，在建立虛擬機器時指定虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure
-虛擬網路概觀][1]。
+或設定跨部署連線，請改用 **從藝廊** 方法，在建立虛擬機器時指定虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀][1]。
 
-1.  使用您的 Azure 帳戶，登入 Azure 管理入口網站。
-2.  在管理入口網站中，依序按一下網頁左下角的 **+新增**、**虛擬機器** 和 **從藝廊**。
+1.  使用您的 Azure 帳戶，登入 Azure 管理入口網站。 2.  在管理入口網站中，依序按一下網頁左下角的 **+新增**、**虛擬機器** 和 **從藝廊**。
     
     ![建立新的虛擬機器](./media/create-and-configure-centos-vm-in-portal/CreateVM.png)
 
@@ -33,6 +31,7 @@
     按一下打勾記號繼續。
 
 7.  等待 Azure 準備好您的虛擬機器。
+
 ## 設定端點
 
 建立虛擬機器之後，請設定端點以便進行遠端連線。
@@ -40,9 +39,11 @@
 1.  在管理入口網站中，按一下 **虛擬機器**，按一下新虛擬機器的名稱，然後按一下 **端點**。
 
 2.  按一下頁面底部的 **編輯端點**，並編輯 SSH 端點，使其 **公用連接埠** 為 22。
+
 ## 連線至虛擬機器
 
 在佈建好虛擬機器並設定好端點之後，您可以使用 SSH 或 PuTTY 連線到該虛擬機器。
+
 ### 使用 SSH 進行連線
 
 如果您是使用 Linux，請使用 SSH 連線至虛擬機器。在命令提示字元下，執行：
@@ -50,15 +51,15 @@
     $ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180
 
 輸入使用者的密碼。
+
 ### 使用 PuTTY 進行連線
 
 如果您是使用 Windows 電腦，請使用 PuTTY 連線至 VM。PuTTY 可自 [PuTTY 下載頁面][3]下載取得。
 
 1.  下載 **putty.exe** 並將其儲存至您電腦上的目錄中。開啟命令提示字元，瀏覽至該資料夾，然後執行 **putty.exe**。
 
-2.  在 **Host Name** 中輸入 "testlinuxvm.cloudapp.net"，並在 **Port**
-    中輸入 "22"。![PuTTY
-    畫面](./media/create-and-configure-centos-vm-in-portal/putty.png)
+2.  在 **Host Name** 中輸入 "testlinuxvm.cloudapp.net"，並在 **Port** 中輸入 "22"。![PuTTY 畫面](./media/create-and-configure-centos-vm-in-portal/putty.png)
+
 ## 更新虛擬機器 (選用)
 
 連線至虛擬機器之後，您可以選擇性地安裝更新。請執行：

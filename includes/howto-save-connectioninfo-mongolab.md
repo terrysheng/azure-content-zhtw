@@ -1,5 +1,4 @@
-雖然可以將 MongoLab URI 貼在程式碼中，但建議在環境中設定，以方便管理。如此一來，當 URI 變更時，只要透過 Azure
-入口網站來更新即可，不必處理程式碼。
+雖然可以將 MongoLab URI 貼在程式碼中，但建議在環境中設定，以方便管理。如此一來，當 URI 變更時，只要透過 Azure 入口網站來更新即可，不必處理程式碼。
 
 1.  在 Azure 入口網站中，選取 **網站**。
 2.  在網站清單中，按一下網站的名稱。  
@@ -19,6 +18,4 @@
 8.  按一下工具列的 **儲存**。  
     ![SaveWebSite](./media/howto-save-connectioninfo-mongolab/button-website-save.png)
 
-**注意：**Azure 會在此變數前面加上 **CUSTOMCONNSTR\_**，所以上述程式碼會參考
-**CUSTOMCONNSTR\_MONGOLAB\_URI**。
-
+**注意:** Azure 會在此變數前面加上 **CUSTOMCONNSTR\_**，所以上述程式碼會參考 **CUSTOMCONNSTR\_MONGOLAB\_URI**。

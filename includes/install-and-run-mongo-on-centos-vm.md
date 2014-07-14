@@ -3,11 +3,10 @@
  
 <div  class="dev-callout">
 <b>警告</b>
-<p>MongoDB 安全性功能，例如驗證和 IP 位址繫結，均非預設為已啟用。安全性功能應該在將 MongoDB 部署到生產環境前加以啟用。請參閱<a  href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">安全性與驗證</a>以取得詳細資訊。</p>
+<p>MongoDB 安全性功能，例如驗證和 IP 位址繫結，均非預設為已啟用。安全性功能應該在將 MongoDB 部署到生產環境前加以啟用。請參閱<a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">安全性與驗證</a>以取得詳細資訊。</p>
 </div>
 
- 1.  設定套件管理系統 (YUM)，以使安裝 MongoDB。建立一個 */etc/yum.repos.d/10gen.repo*
-    檔案，保留您的儲存機制並新增以下項目：
+ 1.  設定套件管理系統 (YUM)，以使安裝 MongoDB。建立一個 */etc/yum.repos.d/10gen.repo* 檔案，保留您的儲存機制並新增以下項目：
     
          [10gen]
         name=10gen Repository
@@ -36,9 +35,7 @@
     
          $ mongod --dbpath /mnt/datadrive/data --logpath /mnt/datadrive/data/mongod.log
     
-    在 MongoDB 伺服器啟動和預先配置日誌檔案時，所有記錄訊息都會傳送至
-    */mnt/datadrive/data/mongod.log* 檔案。MongoDB
-    可能需要花費數分鐘來預先配置日誌檔案，並開始接聽連線。
+    在 MongoDB 伺服器啟動和預先配置日誌檔案時，所有記錄訊息都會傳送至 */mnt/datadrive/data/mongod.log* 檔案。MongoDB 可能需要花費數分鐘來預先配置日誌檔案，並開始接聽連線。
 
 6.  若要啟動 MongoDB 管理殼層，請先個別開啟 SSH 或 PuTTY 視窗並執行：
     
@@ -54,8 +51,7 @@
     
     資料庫由插入項目建立。
 
-7.  一旦 MongoDB 安裝完成，您必須設定端點，讓 MongoDB 可以遠端存取。在 [管理入口網站] 中，按一下
-    **虛擬機器**，接著按一下新虛擬機器的名稱，再按一下 **端點**。
+7.  一旦 MongoDB 安裝完成，您必須設定端點，讓 MongoDB 可以遠端存取。在 [管理入口網站] 中，按一下 **虛擬機器**，接著按一下新虛擬機器的名稱，再按一下 **端點**。
     
     ![端點](./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png)
 
@@ -63,8 +59,7 @@
     
     ![端點](./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png)
 
-9.  新增名為 "Mongo" 的端點，通訊協定為 **TCP**，且**公開**以及**私人**連接埠均設為 "27017"。這樣可允許
-    MongoDB 遠端存取。
+9.  新增名為 "Mongo" 的端點，通訊協定為 **TCP**，且**公開**以及**私人**連接埠均設為 "27017"。這樣可允許  MongoDB 遠端存取。
     
     ![端點](./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint3.png)
 

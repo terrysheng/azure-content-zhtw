@@ -256,39 +256,39 @@ Azure。這需要修改您的組建定義所使用的流程範本，使其在工
     
     對應的 XAML 看起來如下：
     
-        <Activity   _ />
-        <x data-morhtml="true":Members>
-        <x data-morhtml="true":Property Name="BuildSettings" Type="InArgument(mtbwa:BuildSettings)" />
-        <x data-morhtml="true":Property Name="TestSpecs" Type="InArgument(mtbwa:TestSpecList)" />
-        <x data-morhtml="true":Property Name="BuildNumberFormat" Type="InArgument(x:String)" />
-        <x data-morhtml="true":Property Name="CleanWorkspace" Type="InArgument(mtbwa:CleanWorkspaceOption)" />
-        <x data-morhtml="true":Property Name="RunCodeAnalysis" Type="InArgument(mtbwa:CodeAnalysisOption)" />
-        <x data-morhtml="true":Property Name="SourceAndSymbolServerSettings" Type="InArgument(mtbwa:SourceAndSymbolServerSettings)" />
-        <x data-morhtml="true":Property Name="AgentSettings" Type="InArgument(mtbwa:AgentSettings)" />
-        <x data-morhtml="true":Property Name="AssociateChangesetsAndWorkItems" Type="InArgument(x:Boolean)" />
-        <x data-morhtml="true":Property Name="CreateWorkItem" Type="InArgument(x:Boolean)" />
-        <x data-morhtml="true":Property Name="DropBuild" Type="InArgument(x:Boolean)" />
-        <x data-morhtml="true":Property Name="MSBuildArguments" Type="InArgument(x:String)" />
-        <x data-morhtml="true":Property Name="MSBuildPlatform" Type="InArgument(mtbwa:ToolPlatform)" />
-        <x data-morhtml="true":Property Name="PerformTestImpactAnalysis" Type="InArgument(x:Boolean)" />
-        <x data-morhtml="true":Property Name="CreateLabel" Type="InArgument(x:Boolean)" />
-        <x data-morhtml="true":Property Name="DisableTests" Type="InArgument(x:Boolean)" />
-        <x data-morhtml="true":Property Name="GetVersion" Type="InArgument(x:String)" />
-        <x data-morhtml="true":Property Name="PrivateDropLocation" Type="InArgument(x:String)" />
-        <x data-morhtml="true":Property Name="Verbosity" Type="InArgument(mtbw:BuildVerbosity)" />
-        <x data-morhtml="true":Property Name="Metadata" Type="mtbw:ProcessParameterMetadataCollection" />
-        <x data-morhtml="true":Property Name="SupportedReasons" Type="mtbc:BuildReason" />
-        <x data-morhtml="true":Property Name="SubscriptionName" Type="InArgument(x:String)" />
-        <x data-morhtml="true":Property Name="StorageAccountName" Type="InArgument(x:String)" />
-        <x data-morhtml="true":Property Name="CloudConfigLocation" Type="InArgument(x:String)" />
-        <x data-morhtml="true":Property Name="PackageLocation" Type="InArgument(x:String)" />
-        <x data-morhtml="true":Property Name="Environment" Type="InArgument(x:String)" />
-        <x data-morhtml="true":Property Name="SubscriptionDataFileLocation" Type="InArgument(x:String)" />
-        <x data-morhtml="true":Property Name="PublishScriptLocation" Type="InArgument(x:String)" />
-        <x data-morhtml="true":Property Name="ServiceName" Type="InArgument(x:String)" />
-        </x:Members>
+		<Activity   _ />
+			<x:Members>
+				<x:Property Name="BuildSettings" Type="InArgument(mtbwa:BuildSettings)" />
+        		<x:Property Name="TestSpecs" Type="InArgument(mtbwa:TestSpecList)" />
+        		<x:Property Name="BuildNumberFormat" Type="InArgument(x:String)" />
+        		<x:Property Name="CleanWorkspace" Type="InArgument(mtbwa:CleanWorkspaceOption)" />
+        		<x:Property Name="RunCodeAnalysis" Type="InArgument(mtbwa:CodeAnalysisOption)" />
+        		<x:Property Name="SourceAndSymbolServerSettings" Type="InArgument(mtbwa:SourceAndSymbolServerSettings)" />
+        		<x:Property Name="AgentSettings" Type="InArgument(mtbwa:AgentSettings)" />
+        		<x:Property Name="AssociateChangesetsAndWorkItems" Type="InArgument(x:Boolean)" />
+        		<x:Property Name="CreateWorkItem" Type="InArgument(x:Boolean)" />
+        		<x:Property Name="DropBuild" Type="InArgument(x:Boolean)" />
+        		<x:Property Name="MSBuildArguments" Type="InArgument(x:String)" />
+        		<x:Property Name="MSBuildPlatform" Type="InArgument(mtbwa:ToolPlatform)" />
+        		<x:Property Name="PerformTestImpactAnalysis" Type="InArgument(x:Boolean)" />
+        		<x:Property Name="CreateLabel" Type="InArgument(x:Boolean)" />
+        		<x:Property Name="DisableTests" Type="InArgument(x:Boolean)" />
+        		<x:Property Name="GetVersion" Type="InArgument(x:String)" />
+        		<x:Property Name="PrivateDropLocation" Type="InArgument(x:String)" />
+        		<x:Property Name="Verbosity" Type="InArgument(mtbw:BuildVerbosity)" />
+        		<x:Property Name="Metadata" Type="mtbw:ProcessParameterMetadataCollection" />
+        		<x:Property Name="SupportedReasons" Type="mtbc:BuildReason" />
+        		<x:Property Name="SubscriptionName" Type="InArgument(x:String)" />
+        		<x:Property Name="StorageAccountName" Type="InArgument(x:String)" />
+        		<x:Property Name="CloudConfigLocation" Type="InArgument(x:String)" />
+        		<x:Property Name="PackageLocation" Type="InArgument(x:String)" />
+        		<x:Property Name="Environment" Type="InArgument(x:String)" />
+        		<x:Property Name="SubscriptionDataFileLocation" Type="InArgument(x:String)" />
+       			<x:Property Name="PublishScriptLocation" Type="InArgument(x:String)" />
+        		<x:Property Name="ServiceName" Type="InArgument(x:String)" />
+        	</x:Members>
         
-        <this data-morhtml="true":Process.MSBuildArguments>
+        <this:Process.MSBuildArguments>
 
 6.  在 [在代理程式上執行] 結尾新增一個順序：
     
@@ -355,46 +355,46 @@ Azure。這需要修改您的組建定義所使用的流程範本，使其在工
     在 XAML 中，發佈工作流程活動的最終結果將看起來如下：
     
         	</TryCatch>
-        <If  Condition="[Not String.IsNullOrEmpty(PublishScriptLocation)]" sap:VirtualizedContainerService.HintSize="1539,552">
-        <If data-morhtml="true".Then>
-        <Sequence  DisplayName="Start publish" sap:VirtualizedContainerService.HintSize="297,446">
-        <Sequence data-morhtml="true".Variables>
-        <Variable  x:TypeArguments="x:String" Name="PublishScriptFilePath" />
-        <Variable  x:TypeArguments="x:String" Name="SubscriptionDataFilePath" />
-        </Sequence.Variables>
-        <sap data-morhtml="true":WorkflowViewStateService.ViewState>
-        <scg data-morhtml="true":Dictionary x:TypeArguments="x:String, x:Object">
-        <x data-morhtml="true":Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-        <mtbwa data-morhtml="true":ConvertWorkspaceItem DisplayName="Convert publish script filename" sap:VirtualizedContainerService.HintSize="234,22" Input="[PublishScriptLocation]" Result="[PublishScriptFilePath]" Workspace="[Workspace]" />
-        <mtbwa data-morhtml="true":ConvertWorkspaceItem DisplayName="Convert subscription data file filename" sap:VirtualizedContainerService.HintSize="234,22" Input="[SubscriptionDataFileLocation]" Result="[SubscriptionDataFilePath]" Workspace="[Workspace]" />
-        <mtbwa data-morhtml="true":InvokeProcess Arguments="[String.Format(" -File ""{0}"" -serviceName {1} -storageAccountName {2} -packageLocation ""{3}"" -cloudConfigLocation ""{4}"" -subscriptionDataFile ""{5}"" -selectedSubscription {6} -environment ""{7}""", PublishScriptFilePath, ServiceName, StorageAccountName, PackageLocation, CloudConfigLocation, SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="Execute publish script" FileName="PowerShell" sap:VirtualizedContainerService.HintSize="234,198">
-        <mtbwa data-morhtml="true":InvokeProcess.ErrorDataReceived>
-        <ActivityAction  x:TypeArguments="x:String">
-        <ActivityAction data-morhtml="true".Argument>
-        <DelegateInArgument  x:TypeArguments="x:String" Name="data" />
-        </ActivityAction.Argument>
-        <mtbwa data-morhtml="true":WriteBuildError sap:VirtualizedContainerService.HintSize="200,22" Message="[data]" />
-        </ActivityAction>
-        </mtbwa:InvokeProcess.ErrorDataReceived>
-        <mtbwa data-morhtml="true":InvokeProcess.OutputDataReceived>
-        <ActivityAction  x:TypeArguments="x:String">
-        <ActivityAction data-morhtml="true".Argument>
-        <DelegateInArgument  x:TypeArguments="x:String" Name="data" />
-        </ActivityAction.Argument>
-        <mtbwa data-morhtml="true":WriteBuildMessage sap:VirtualizedContainerService.HintSize="200,22" Importance="[Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High]" Message="[data]" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" />
-        </ActivityAction>
-        </mtbwa:InvokeProcess.OutputDataReceived>
-        </mtbwa:InvokeProcess>
-        </Sequence>
-        </If.Then>
-        </If>
-        </mtbwa:AgentScope>
-        <mtbwa data-morhtml="true":InvokeForReason DisplayName="Check In Gated Changes for CheckInShelveset Builds" sap:VirtualizedContainerService.HintSize="1370,146" Reason="CheckInShelveset">
-        <mtbwa data-morhtml="true":CheckInGatedChanges DisplayName="Check In Gated Changes" sap:VirtualizedContainerService.HintSize="200,22" />
-        </mtbwa:InvokeForReason>
-        </Sequence>
+              <If Condition="[Not String.IsNullOrEmpty(PublishScriptLocation)]" sap:VirtualizedContainerService.HintSize="1539,552">
+                <If.Then>
+                  <Sequence DisplayName="Start publish" sap:VirtualizedContainerService.HintSize="297,446">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="PublishScriptFilePath" />
+                      <Variable x:TypeArguments="x:String" Name="SubscriptionDataFilePath" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <mtbwa:ConvertWorkspaceItem DisplayName="Convert publish script filename" sap:VirtualizedContainerService.HintSize="234,22" Input="[PublishScriptLocation]" Result="[PublishScriptFilePath]" Workspace="[Workspace]" />
+                    <mtbwa:ConvertWorkspaceItem DisplayName="Convert subscription data file filename" sap:VirtualizedContainerService.HintSize="234,22" Input="[SubscriptionDataFileLocation]" Result="[SubscriptionDataFilePath]" Workspace="[Workspace]" />
+                    <mtbwa:InvokeProcess Arguments="[String.Format(" -File ""{0}"" -serviceName {1} -storageAccountName {2} -packageLocation ""{3}"" -cloudConfigLocation ""{4}"" -subscriptionDataFile ""{5}"" -selectedSubscription {6} -environment ""{7}""", PublishScriptFilePath, ServiceName, StorageAccountName, PackageLocation, CloudConfigLocation, SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="Execute publish script" FileName="PowerShell" sap:VirtualizedContainerService.HintSize="234,198">
+                      <mtbwa:InvokeProcess.ErrorDataReceived>
+                        <ActivityAction x:TypeArguments="x:String">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:String" Name="data" />
+                          </ActivityAction.Argument>
+                          <mtbwa:WriteBuildError sap:VirtualizedContainerService.HintSize="200,22" Message="[data]" />
+                        </ActivityAction>
+                      </mtbwa:InvokeProcess.ErrorDataReceived>
+                      <mtbwa:InvokeProcess.OutputDataReceived>
+                        <ActivityAction x:TypeArguments="x:String">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:String" Name="data" />
+                          </ActivityAction.Argument>
+                          <mtbwa:WriteBuildMessage sap:VirtualizedContainerService.HintSize="200,22" Importance="[Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High]" Message="[data]" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" />
+                        </ActivityAction>
+                      </mtbwa:InvokeProcess.OutputDataReceived>
+                    </mtbwa:InvokeProcess>
+                  </Sequence>
+                </If.Then>
+              </If>
+            </mtbwa:AgentScope>
+            <mtbwa:InvokeForReason DisplayName="Check In Gated Changes for CheckInShelveset Builds" sap:VirtualizedContainerService.HintSize="1370,146" Reason="CheckInShelveset">
+              <mtbwa:CheckInGatedChanges DisplayName="Check In Gated Changes" sap:VirtualizedContainerService.HintSize="200,22" />
+            </mtbwa:InvokeForReason>
+          </Sequence>
         </Activity>
 
 7.  儲存 DefaultTemplateAzure 工作流程，並簽入此檔案。
@@ -631,18 +631,22 @@ Publish
 $deployment = Get-AzureDeployment -slot $slot -serviceName $servicename
 $deploymentUrl = $deployment.Url
 
-Write-Output "$(Get-Date -f $timeStampFormat) - Created Cloud Service with URL $deploymentUrl." Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script finished."
+Write-Output "$(Get-Date -f $timeStampFormat) - Created Cloud Service with URL $deploymentUrl." 
+Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script finished."
 </pre>
 
-[Windows Azure 程式庫][]：http://go.microsoft.com/fwlink/?LinkId=257862
 
 
 
 
-[1]: http://go.microsoft.com/fwlink/p/?LinkId=239963
-[2]: http://go.microsoft.com/fwlink/?LinkId=239538
-[3]: http://go.microsoft.com/fwlink/?LinkId=245484
-[4]: http://go.microsoft.com/fwlink/?LinkId=239600
+
+
+
+
+ 
+  
+  
+
 
 
   [Continuous Delivery to Azure by Using Team Foundation Service]: ../cloud-services-continuous-delivery-use-vso/
@@ -655,7 +659,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Created Cloud Service with URL $
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
   [Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
-
+  [Windows Azure 程式庫][]：http://go.microsoft.com/fwlink/?LinkId=257862
   [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
   [MSBuild Command Line Reference]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
@@ -666,8 +670,13 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Created Cloud Service with URL $
   [Azure PowerShell cmdlets]: http://go.microsoft.com/fwlink/?LinkId=256262
   [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
   [end of this article]: #script
-  
+
   [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png
   [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
+
+[1]: http://go.microsoft.com/fwlink/p/?LinkId=239963
+[2]: http://go.microsoft.com/fwlink/?LinkId=239538
+[3]: http://go.microsoft.com/fwlink/?LinkId=245484
+[4]: http://go.microsoft.com/fwlink/?LinkId=239600

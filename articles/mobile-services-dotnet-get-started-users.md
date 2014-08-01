@@ -144,14 +144,15 @@
 在下一個教學課程[以指令碼授權使用者](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet)中，您將使用由行動服務根據經驗證的使用者而提供的使用者 ID 值，來篩選行動服務傳回的資料。如需深入了解如何使用行動服務與 .NET，請參閱[行動服務 .NET 作法概念參考](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)。
 
 <!-- Anchors. -->
+[註冊應用程式進行驗證，並設定行動服務]: #register
+[限制只有經驗證的使用者具有資料表的權限]: #permissions
+[新增驗證至應用程式]: #add-authentication
+[後續步驟]:#next-steps
 
 <!-- Images. -->
 
-<!-- URLs. -->
 
 
-
-[1]: https://manage.windowsazure.com/
 
 [4]: ./media/mobile-services-dotnet-get-started-users/mobile-services-selection.png
 [5]: ./media/mobile-services-dotnet-get-started-users/mobile-service-uri.png
@@ -165,3 +166,20 @@
 [13]: ./media/mobile-services-dotnet-get-started-users/mobile-identity-tab.png
 [14]: ./media/mobile-services-dotnet-get-started-users/mobile-portal-data-tables.png
 [15]: ./media/mobile-services-dotnet-get-started-users/mobile-portal-change-table-perms.png
+
+
+<!-- URLs. -->
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Single sign-on for Windows Store apps by using Live Connect]: ./mobile-services-single-sign-on-win8-dotnet.md
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
+[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
+[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js
+
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+[Register your Windows Store app package for Microsoft authentication]: /en-us/develop/mobile/how-to-guides/register-windows-store-app-package

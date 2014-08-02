@@ -1,172 +1,170 @@
 <properties  linkid="manage-services-getting-started-with-sqldbs" urlDisplayName="How to create & provision" pageTitle="Getting started with SQL Database - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="" solutions="" writer="" manager="" editor="" />
 
-# 開始使用 Azure SQL 資料庫
+# Azure SQL 데이터베이스 시작
 
-在本教學課程中，您將透過 Azure 管理入口網站了解 Azure SQL Database 管理的基本概念。如果您不熟悉資料庫管理，您可以依照這些課程操作，在 30 分鐘內了解基本技能。
+이 자습서에서는 Azure 관리 포털을 사용하여 Azure SQL 데이터베이스 관리의 기본 내용에 대해 알아봅니다. 처음으로 데이터베이스 관리를 접하는 경우 다음 단원의 내용을 따라 대략 30분 만에 핵심적인 기술을 배워볼 수 있습니다. 
+이 자습서에서는 사용자가 이전에 SQL Server 또는 Azure SQL 데이터베이스를 다루어 본 적이 없다고 가정합니다. 이 자습서를 완료하면 Azure에 샘플 데이터베이스를 만들고 관리 포털을 사용하여 기본적인 관리 작업을 수행하는 방법을 이해할 수 있게 됩니다.
 
-本教學課程會假設您先前沒有使用 SQL Server 或 Azure SQL Database 的使用經驗。完成本教學課程後，您將擁有一個在 Azure 上的範例資料庫，並了解如何使用管理入口網站來執行基本的管理工作。
+Excel 및 기타 응용 프로그램을 사용하여 Azure의 샘플 데이터베이스와 쿼리 시스템 및 사용자 데이터를 만들고 프로비전하게 됩니다.
 
-您將使用 Excel 和其他應用程式，在 Azure 上建立與佈建範例資料庫、查詢系統和使用者資料。
+## 목차
 
-## 目錄
+* [1단계: Azure 계정 만들기](#Subscribe)
+* [2단계: Azure에 연결 및 데이터베이스 만들기](#Connect)
+* [3단계: 방화벽 구성](#ConfigFirewall)
+* [4단계: Transact-SQL 스크립트를 사용하여 데이터 및 스키마 추가](#AddData)
+* [5단계: 스키마 만들기](#createschema)
+* [6단계: 데이터 삽입](#insertData)
+* [7단계: 관리 포털의 SQL 데이터베이스용 쿼리 샘플 및 시스템 데이터](#QueryDBSysData)
+* [8단계: 데이터베이스 로그인 만들기 및 권한 할당](#DBLogin)
+* [9단계: 다른 응용 프로그램에서 연결](#ClientConnection)
+* [10단계: SQL 데이터 동기화 구성](#ConfigureDataSync)
 
-* [步驟 1：建立 Azure 帳戶](#Subscribe)
-* [步驟 2：連線到 Azure 並建立資料庫](#Connect)
-* [步驟 3：設定防火牆](#ConfigFirewall)
-* [步驟 4：使用 Transact-SQL 指令碼新增資料和結構描述](#AddData)
-* [步驟 5：建立結構描述](#createschema)
-* [步驟 6：插入資料](#insertData)
-* [步驟 7：在 SQL Database 適用的管理入口網站中查詢範例和系統資料](#QueryDBSysData)
-* [步驟 8：建立資料庫登入和指派權限](#DBLogin)
-* [步驟 9：從其他應用程式連線](#ClientConnection)
-* [步驟 10：設定 SQL 資料同步](#ConfigureDataSync)
-
-<h2><a id="Subscribe" ></a>步驟 1：建立 Azure 帳戶</h2>
-
-
-1.  開啟網頁瀏覽器，並瀏覽到 [http://www.windowsazure.com][1]。若要開始使用免費帳戶，請按一下右上角的 [免費試用]，並依照步驟進行。
-
-2.  現在已建立您的帳戶。您可以隨時開始使用。
-
-<h2><a id="Connect" ></a>步驟 2：連線到 Azure 並建立資料庫</h2>
+<h2><a id="Subscribe" ></a>1단계: Azure 계정 만들기</h2>
 
 
-1.  登入[管理入口網站][2]。您應該會看到如下所示的導覽窗格。
+1.  웹 브라우저를 열고 [http://www.windowsazure.com][1]으로 이동합니다. 무료 계정으로 시작하려면 오른쪽 위에 있는 무료 평가판을 클릭하고 안내되는 단계를 따르십시오.
+
+2.  이제 계정이 만들어집니다. 시작할 준비가 되었습니다.
+
+<h2><a id="Connect" ></a>2단계: Azure에 연결 및 데이터베이스 만들기</h2>
+
+
+1.  [관리 포털][2]에 로그인합니다. 다음과 같은 탐색 창이 표시됩니다.
     
     ![Image1](./media/sql-database-get-started/1NavPaneDBSelected_SQLTut.png)
 
-2.  按一下頁面底部的 **新增**。按一下 **新增** 時，螢幕上會出現顯示可建立項目的清單。
+2.  페이지 아래쪽에서 **새로 만들기**를 클릭합니다. **새로 만들기**를 클릭하면 사용자가 만들 수 있는 항목의 목록이 화면 위로 표시됩니다.
 
-3.  按一下 **SQL Database**，再按一下 **Custom Create**。
+3.  **SQL 데이터베이스**를 클릭한 후 **사용자 지정 만들기**를 클릭합니다.
     
     ![Image2](./media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.png)
     
-    以您是系統管理員的身分來選擇此選項，可讓您同時建立新的伺服器。身為系統管理員，您可以執行更多工作，包括連線到 SQL Database
-    適用的管理入口網站 (您稍後將在本教學課程中執行此作業)。
+    이 옵션을 선택하면 관리자 권한으로 새 서버를 만들 수 있습니다. 시스템 관리자는 SQL 데이터베이스용 관리 포털에 연결하는 등 더 많은 작업을 수행할 수 있습니다. 관리 포털에 연결하는 작업은 자습서의 뒷부분에서 수행합니다.
 
-4.  按一下 **Custom Create** 時，[資料庫設定] 頁面會隨即出現。在此頁面中，您可以提供在伺服器上建立空白資料庫的基本資訊。我們將在稍後的步驟中介紹新增資料表和資料。
+4.  **사용자 지정 만들기**를 클릭하면 데이터베이스 설정 페이지가 나타납니다. 이 페이지에서 서버에 빈 데이터베이스를 만드는 기본 정보를 제공합니다. 테이블 및 데이터 추가는 뒷부분의 단계에서 수행합니다.
     
-    填寫 [資料庫設定] 頁面，如下所示：
+    데이터베이스 설정 페이지를 다음과 같이 작성합니다.
     
     ![Image3](./media/sql-database-get-started/3DatabaseSettings_SQLTut.PNG)
     
-    * 在資料庫名稱中輸入 **School**。
+    * 데이터베이스 이름으로 **School**을 입력합니다.
     
-    * 對版本、大小上限和定序使用預設值。
+    * 버전, 최대 크기 및 데이터 정렬에는 기본 설정을 사용합니다.
     
-    * 選擇 **New SQL Database Server**。選取新增伺服器即會新增第二個頁面，我們可使用該頁面來設定系統管理員帳戶和區域。
+    * **새 SQL 데이터베이스 서버**를 선택합니다. 새 서버를 선택하면 관리자 계정 및 지역을 설정할 수 있는 두 번째 페이지가 추가됩니다.
     
-    * 完成時，按一下箭號前往下一頁。
+    * 모든 항목을 작성한 경우 화살표를 클릭하여 다음 페이지로 이동합니다.
 
-5.  填寫 [伺服器設定] 頁面，如下所示：
+5.  서버 설정 페이지를 다음과 같이 작성합니다.
     
     ![Image4](./media/sql-database-get-started/4ServerSettings_SQLTut.PNG)
     
-    * 以一個字且不含空格的方式輸入系統管理員名稱。SQL Database 會對加密連線使用 SQL 驗證來驗證使用者身分識別。將使用您所提供的名稱，建立具備系統管理員權限的新 SQL Server 驗證登入。系統管理員名稱不可以是 Windows 使用者，也不得為 Windows Live ID。SQL Database 不支援 Windows 驗證。
+    * 관리자 이름을 공백 없이 한 단어로 입력합니다. SQL 데이터베이스는 암호화된 연결을 통해 SQL 인증을 사용하여 사용자 ID를 확인합니다. 입력한 이름을 사용하여 관리자 권한이 있는 새 SQL Server 인증 로그인이 만들어집니다. 관리자 이름은 Windows 사용자가 될 수 없고, Windows Live ID여서도 안 됩니다. Windows 인증은 SQL 데이터베이스에서 지원되지 않습니다.
     
-    * 提供八個字元以上，使用大小寫值和數字或符號組合的強式密碼。
+    * 대문자 및 소문자 값과 숫자 또는 기호를 조합하여 8자 이상의 강력한 암호를 입력합니다.
     
-    * 選擇區域。區域可決定伺服器的地理位置。您無法輕易地切換區域，所以請選擇一個適合此伺服器的區域。選擇一個最靠近您或您的使用者的位置。將 Azure 應用程式和資料庫放在相同區域，可節省對外頻寬的成本並縮短資料延遲。
+    * 지역을 선택합니다. 지역은 서버의 지리적 위치를 결정합니다. 지역은 쉽게 바꿀 수 없으므로 이 서버에 맞는 지역을 선택하십시오. 즉, 현재 지역이나 사용자가 위치한 지역에 가장 가까운 곳을 선택하십시오. Azure 응용 프로그램 및 데이터베이스를 동일한 지역에 유지하면 발신용 대역폭 비용과 데이터 대기 시간이 절약됩니다.
     
-    * 請務必將 **Allow Azure Services to access this server** 核取方塊保持勾選，以方便您使用 SQL Database 適用的管理入口網站、Office 365 中的 Excel 或 Azure SQL Reporting 連線到此資料庫。
+    * SQL 데이터베이스용 관리 포털, Office 365의 Excel 또는 Azure SQL 보고를 사용하여 이 데이터베이스에 연결할 수 있도록 **Azure 서비스가 서버에 액세스할 수 있도록 허용합니다.** 확인란을 선택한 상태를 유지해야 합니다.
     
-    * 完成時，請按一下頁面底部的核取記號。
+    * 완료하면 페이지 맨 아래에 있는 확인 표시를 클릭합니다.
     
-    請注意，您未指定伺服器名稱。因為 SQL Database 伺服器必須可供全球存取，SQL Database 會在伺服器建立時設定適當的 DNS 項目。所產生的名稱可確保不會與其他 DNS 項目產生名稱衝突。您無法變更 SQL Database 伺服器的名稱。
+    서버 이름을 지정하지 않았다는 점에 유의하십시오. 전 세계에서 SQL 데이터베이스 서버에 액세스할 수 있어야 하므로, SQL 데이터베이스는 서버가 만들어질 때 적절한 DNS 항목을 구성합니다. 이 이름은 다른 DNS 항목과의 이름 충돌이 발생하지 않도록 생성됩니다. SQL 데이터베이스 서버의 이름은 변경할 수 없습니다.
     
-    在下一個步驟中，您將設定防火牆，以允許來自電腦上執行的應用程式連線可存取 SQL Database 伺服器上的資料庫。
+    다음 단계에서는, SQL 데이터베이스 서버의 데이터베이스에 액세스할 수 있게 컴퓨터에서 실행 중인 응용 프로그램의 연결이 허용되도록 방화벽을 구성합니다.
 
-<h2><a id="ConfigFirewall" ></a>步驟 3：設定防火牆</h2>
+<h2><a id="ConfigFirewall" ></a>3단계: 방화벽 구성</h2>
 
 
-若要設定防火牆，以便允許連線通過，請在伺服器頁面上輸入資訊。
+연결이 허용되도록 방화벽을 구성하려면 서버 페이지에 정보를 입력합니다.
 
-**注意：**SQL Database 服務僅支援 TDS 通訊協定所使用的 TCP 連接埠 1433，因此請確認網路上的防火牆和本機電腦允許在連接埠 1433 的連出 TCP 通訊。如需詳細資訊，請參閱 [SQL Database 防火牆][3]。
+**참고:** SQL 데이터베이스 서비스는 TDS 프로토콜에 사용되는 TCP 포트 1433에서만 사용 가능하므로 네트워크 및 로컬 컴퓨터의 방화벽에서 포트 1433의 나가는 TCP 통신을 허용하는지 확인하십시오. 자세한 내용은 [SQL 데이터베이스 방화벽][3]을 참조하십시오.
 
-1.  在左側的導覽窗格中，按一下 **SQL Database**。
+1.  왼쪽의 탐색 창에서 **SQL 데이터베이스**를 클릭합니다.
 
-2.  按一下頁面頂端的 **伺服器**。接著，按一下您剛剛建立的伺服器，即可在右側看到白色箭號。按一下此箭號以開啟伺服器頁面。
+2.  페이지 위쪽에서 **서버**를 클릭합니다. 그런 다음, 오른쪽을 향한 흰색 화살표가 나타나도록 방금 만든 서버를 클릭합니다. 화살표를 클릭하여 서버 페이지를 엽니다.
     
     ![Image5](./media/sql-database-get-started/5DBPortalDatabasesServers_SQLTut.PNG)
 
-3.  在伺服器頁面上，按一下 **設定** 以開啟防火牆組態設定並指定規則，如下所示：
+3.  서버 페이지에서 **구성**을 클릭하여 방화벽 구성 설정을 열고 다음과 같이 규칙을 지정합니다.
     
     ![Image6](./media/sql-database-get-started/6DBConfigFirewall_SQLTut.png)
     
-    * 複製目前的用戶端 IP 位址。這是您的路由器或 Proxy 伺服器正在接聽的 IP 位址。SQL Database 會偵測目前連線所使用的 IP 位址，因此您可以建立防火牆規則以接受來自此裝置的連線要求。
+    * 현재 클라이언트 IP 주소를 복사합니다. 이 주소는 라우터 또는 프록시 서버가 수신 대기 중인 IP 주소입니다. SQL 데이터베이스는 이 장치의 연결 요청을 허용하는 방화벽 규칙을 만들 수 있도록 현재 연결에 사용되는 IP 주소를 검색합니다.
     
-    * 將此 IP 位址貼入起始和結束範圍。稍後，如果您遇到連線錯誤，指出範圍太過狹窄，您可以編輯此規則將範圍擴大。
+    * 시작과 종료 범위 모두에 IP 주소를 붙여넣습니다. 나중에, 범위가 너무 좁다는 연결 오류가 발생할 경우 이 규칙을 편집하여 범위를 넓힐 수 있습니다.
     
-    * 為此防火牆規則輸入名稱，例如您的電腦或公司名稱。
+    * 방화벽 규칙의 이름(예: 컴퓨터 또는 회사의 이름)을 입력합니다.
     
-    * 按一下核取記號以儲存規則。
+    * 확인 표시를 클릭하여 규칙을 저장합니다.
     
-    儲存規則之後，您的頁面看起來會類似下面的螢幕擷取畫面。
+    규칙을 저장하면 다음 스크린샷과 유사한 페이지가 나타납니다.
     
     ![Image7](./media/sql-database-get-started/7DBConfigFirewallSAVE_SQLTut.png)
 
-4.  按一下頁面底部的 **儲存** 以完成此步驟。如果您沒有看到 **儲存**，請重新整理瀏覽器頁面。
+4.  페이지 아래쪽에서 **저장**을 클릭하여 단계를 완료합니다. **저장** 단추가 나타나지 않으면 브라우저 페이지를 새로고칩니다.
 
-您現在擁有在 Azure 上的 SQL Database 伺服器、允許存取該伺服器的防火牆規則、資料庫物件，及系統管理員登入資訊。接著，您將使用 SQL Database 適用的管理入口網站的查詢視窗，執行 Transact-SQL 指令碼以建立預先定義的資料庫。
+이제 Azure의 SQL 데이터베이스 서버, 서버에 대한 액세스를 허용하는 방화벽 규칙, 데이터베이스 개체 및 관리자 로그인을 만들었습니다. 이번에는 SQL 데이터베이스용 관리 포털의 쿼리 창에서 Transact-SQL 스크립트를 실행하여 미리 정의된 데이터베이스를 만들어 보겠습니다.
 
-隨著技能逐漸增長，您會想要探索建立資料庫的其他方式，包括程式設計方法或 SQL Server Data Tools 中的設計程式。如果本機伺服器上已經執行某個現有 SQL Server 資料庫，則您可以輕易地將該資料庫移轉到剛設定好的 Azure 伺服器。使用本教學課程結尾所提供的連結來找到作法。
+관리 포털 사용 기술이 늘어나면서 SQL Server Data Tools의 디자이너 또는 프로그래밍 접근 방법을 포함하여 데이터베이스를 만들 수 있는 다른 방법도 알아볼 수 있습니다. 로컬 서버에서 실행되는 기존 SQL Server 데이터베이스가 이미 있는 경우 방금 설정한 Azure 서버에 이 데이터베이스를 쉽게 마이그레이션할 수 있습니다. 이 자습서의 끝 부분에 나오는 링크에서 마이그레이션 방법을 알아볼 수 있습니다.
 
-<h2><a id="AddData" ></a>步驟 4：使用 Transact-SQL 指令碼新增資料和結構描述</h2>
+<h2><a id="AddData" ></a>4단계: Transact-SQL 스크립트를 사용하여 데이터 및 스키마 추가</h2>
 
 
-在此步驟中，您將執行兩個指令碼。第一個指令碼會建立定義資料表、資料欄及關係的結構描述。第二個指令碼會新增資料。每個步驟都會在個別連線上獨立執行。如果您曾經在 SQL Server 中建立過資料庫，則您將注意到在 SQL Database 中的其中一個差異是，您必須在個別批次中執行 CREATE 和 INSERT 命令。SQL Database 施行此要求以便將轉換時對資料的攻擊降至最低。
+이 단계에서는 두 개의 스크립트를 실행합니다. 첫 번째 스크립트는 테이블, 열 및 관계를 정의하는 스키마를 만듭니다. 두 번째 스크립트는 데이터를 추가합니다. 각 단계는 개별 연결과 상관없이 수행됩니다. SQL Server에서 이전에 데이터베이스를 만들어 본 적이 있는 경우 SQL 데이터베이스의 유일한 차이점 중 하나는 CREATE 및 INSERT 명령을 개별 배치로 실행해야 한다는 것입니다. SQL 데이터베이스는 전송 중인 데이터에 대한 공격을 최소화하기 위해 이 요구 사항을 설정합니다.
 
-**注意：**此結構描述和資料值取自 [MSDN 文章][4]，且已為和 SQL Database 搭配使用而進行修改。
+**참고:** 스키마 및 데이터 값은 이 [MSDN 문서][4]에서 가져온 것이며, SQL 데이터베이스에 사용하기 위해 수정했습니다.
 
-1.  前往首頁。在[管理入口網站][2]中，**School** 資料庫會顯示在首頁的項目清單中。
+1.  홈 페이지로 이동합니다. [관리 포털][2]에서, **School** 데이터베이스가 홈 페이지의 항목 목록에 나타납니다.
     
     ![Image8](./media/sql-database-get-started/8MainPageHome_SQLTut.png)
 
-2.  按一下 **School**，即可在右側看到白色箭號。按一下此箭號以開啟資料庫頁面。
+2.  오른쪽을 향한 흰색 화살표가 나타나도록 **School**을 클릭합니다. 화살표를 클릭하여 데이터베이스 페이지를 엽니다.
     
     ![Image9](./media/sql-database-get-started/9DBListSchool_SQLTut.png)
 
-3.  按一下頁面底部的 **管理**。如果看不到此選訹，請重新整理瀏覽器視窗。這將會開啟「SQL Database 適用的管理入口網站」。此入口網站與 Azure 管理入口網站不同。您將使用此入口網站來執行 Transact-SQL 命令和查詢。
+3.  페이지 아래쪽에서 **관리**를 클릭합니다. 관리 단추가 표시되지 않으면 브라우저 창을 새로 고칩니다. 그러면 SQL 데이터베이스용 관리 포털이 열립니다. 이 포털은 Azure 관리 포털과 별개입니다. 이 포털에서 Transact-SQL 명령 및 쿼리를 실행합니다.
     
     ![Image10](./media/sql-database-get-started/10DBPortalManageButton_SQLTut.png)
 
-4.  輸入系統管理員登入名稱和密碼。這是指您在建立伺服器時所指定的系統管理員登入資訊。
+4.  관리자 로그인 이름 및 암호를 입력합니다. 이는 서버를 만들 때 지정한 관리자 로그인입니다.
     
     ![Image11](./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.png)
 
-5.  在 SQL Database 適用的管理入口網站中按一下 **新增查詢**。工作區中即會開啟一個空白的查詢視窗。在下一個步驟中，您將使用此視窗貼上一系列可將結構和資料新增至空白資料庫的預先定義指令碼。
+5.  SQL 데이터베이스용 관리 포털에서 **새 쿼리**를 클릭합니다. 빈 쿼리 창이 작업 영역에서 열립니다. 다음 단계에서는, 이 창에서 빈 데이터베이스에 구조체 및 데이터를 추가하는 미리 정의된 일련의 스크립트를 복사해 넣습니다.
     
     ![Image12](./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.PNG)
 
-<h2><a id="createschema" ></a>步驟 5：建立結構描述</h2>
+<h2><a id="createschema" ></a>5단계: 스키마 만들기</h2>
 
 
-在此步驟中，您將使用下列指令碼來建立結構描述。指令碼首先會檢查是否有相同名稱的現有資料表，以確保不會產生名稱衝突，並使用 [CREATE TABLE][5] 陳述式建立資料表。此外，此指令碼會使用 [ALTER TABLE][6] 陳述式來指定主要索引鍵和資料表關係。
+이 단계에서 다음 스크립트를 사용하여 스키마를 만듭니다. 이 스크립트는 먼저 동일한 이름의 기존 테이블을 검사하여 이름 충돌이 발생하지 않는지 확인하고, [CREATE TABLE][5] 문을 사용하여 테이블을 만듭니다. 더 나아가, 이 스크립트는 [ALTER TABLE][6] 문을 사용하여 기본 키 및 테이블 관계를 지정합니다.
 
-複製指令碼並將它貼入查詢視窗。按一下視窗頂端的 **執行**，以執行此指令碼。
+다음 스크립트를 복사하여 쿼리 창에 붙여넣습니다. 창의 위쪽에서 **실행**을 클릭하여 스크립트를 실행합니다.
 
  
 <div  style="width:auto; height:600px; overflow:auto"><pre>
-	-- 建立 Department 資料表。
+	-- Create the Department table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Department]') 
 		AND type in (N'U'))
-	BEGIN
-	CREATE TABLE [dbo].[Department](
+   	BEGIN
+  	CREATE TABLE [dbo].[Department](
 		[DepartmentID] [int] NOT NULL,
 		[Name] [nvarchar](50) NOT NULL,
 		[Budget] [money] NOT NULL,
 		[StartDate] [datetime] NOT NULL,
 		[Administrator] [int] NULL,
-CONSTRAINT [PK_Department] PRIMARY KEY CLUSTERED 
+     CONSTRAINT [PK_Department] PRIMARY KEY CLUSTERED 
     (
 	[DepartmentID] ASC
-)WITH (IGNORE_DUP_KEY = OFF)
+    )WITH (IGNORE_DUP_KEY = OFF)
     )
-END;
+    END;
 	GO
 
-	-- 建立 Person 資料表。
+	-- Create the Person table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Person]') 
 		AND type in (N'U'))
@@ -177,7 +175,7 @@ END;
 		[FirstName] [nvarchar](50) NOT NULL,
 		[HireDate] [datetime] NULL,
 		[EnrollmentDate] [datetime] NULL,
-	 CONSTRAINT [PK_School.Student] PRIMARY KEY CLUSTERED 	
+ 	 CONSTRAINT [PK_School.Student] PRIMARY KEY CLUSTERED 	
 	(
 	[PersonID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
@@ -185,7 +183,7 @@ END;
 	END;
 	GO
 
-	-- 建立 OnsiteCourse 資料表。
+	-- Create the OnsiteCourse table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]') 
 		AND type in (N'U'))
@@ -195,7 +193,7 @@ END;
 		[Location] [nvarchar](50) NOT NULL,
 		[Days] [nvarchar](50) NOT NULL,
 		[Time] [smalldatetime] NOT NULL,
-	 CONSTRAINT [PK_OnsiteCourse] PRIMARY KEY CLUSTERED 
+ 	 CONSTRAINT [PK_OnsiteCourse] PRIMARY KEY CLUSTERED 
 	(
 		[CourseID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
@@ -203,7 +201,7 @@ END;
 	END;
 	GO
 
-	-- 建立 OnlineCourse 資料表。
+	-- Create the OnlineCourse table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OnlineCourse]') 
 		AND type in (N'U'))
@@ -211,7 +209,7 @@ END;
 	CREATE TABLE [dbo].[OnlineCourse](
 		[CourseID] [int] NOT NULL,
 		[URL] [nvarchar](100) NOT NULL,
-	 CONSTRAINT [PK_OnlineCourse] PRIMARY KEY CLUSTERED 
+ 	 CONSTRAINT [PK_OnlineCourse] PRIMARY KEY CLUSTERED 
 	(
 		[CourseID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
@@ -219,7 +217,7 @@ END;
 	END;
 	GO
 
-	--建立 StudentGrade 資料表。
+	--Create the StudentGrade table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[StudentGrade]') 
 		AND type in (N'U'))
@@ -237,7 +235,7 @@ END;
 	END;
 	GO
 
-	-- 建立 CourseInstructor 資料表。
+	-- Create the CourseInstructor table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[CourseInstructor]') 
 		AND type in (N'U'))
@@ -254,7 +252,7 @@ END;
 	END;
 	GO
 
-	-- 建立 Course 資料表。
+	-- Create the Course table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Course]') 
 		AND type in (N'U'))
@@ -264,7 +262,7 @@ END;
 		[Title] [nvarchar](100) NOT NULL,
 		[Credits] [int] NOT NULL,
 		[DepartmentID] [int] NOT NULL,
-	 CONSTRAINT [PK_School.Course] PRIMARY KEY CLUSTERED 
+ 	 CONSTRAINT [PK_School.Course] PRIMARY KEY CLUSTERED 
 	(
 		[CourseID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
@@ -272,7 +270,7 @@ END;
 	END;
 	GO
 
-	-- 建立 OfficeAssignment 資料表。
+	-- Create the OfficeAssignment table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]')
 		AND type in (N'U'))
@@ -281,7 +279,7 @@ END;
 		[InstructorID] [int] NOT NULL,
 		[Location] [nvarchar](50) NOT NULL,
 		[Timestamp] [timestamp] NOT NULL,
-	 CONSTRAINT [PK_OfficeAssignment] PRIMARY KEY CLUSTERED 
+ 	 CONSTRAINT [PK_OfficeAssignment] PRIMARY KEY CLUSTERED 
 	(
 		[InstructorID] ASC
 	)WITH (IGNORE_DUP_KEY = OFF)
@@ -289,104 +287,109 @@ END;
 	END;
 	GO
 
-	-- 定義 OnsiteCourse 和 Course 之間的關係。
+	-- Define the relationship between OnsiteCourse and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
-WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnsiteCourse_Course]') AND parent_object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]'))
+       WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnsiteCourse_Course]')
+       AND parent_object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]'))
 	ALTER TABLE [dbo].[OnsiteCourse]  WITH CHECK ADD  
-CONSTRAINT [FK_OnsiteCourse_Course] FOREIGN KEY([CourseID])
+       CONSTRAINT [FK_OnsiteCourse_Course] FOREIGN KEY([CourseID])
 	REFERENCES [dbo].[Course] ([CourseID]);
 	GO
 	ALTER TABLE [dbo].[OnsiteCourse] CHECK 
-CONSTRAINT [FK_OnsiteCourse_Course];
+       CONSTRAINT [FK_OnsiteCourse_Course];
 	GO
 
-	-- 定義 OnlineCourse 和 Course 之間的關係。
+	-- Define the relationship between OnlineCourse and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
-WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnlineCourse_Course]') AND parent_object_id = OBJECT_ID(N'[dbo].[OnlineCourse]'))
+       WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnlineCourse_Course]')
+       AND parent_object_id = OBJECT_ID(N'[dbo].[OnlineCourse]'))
 	ALTER TABLE [dbo].[OnlineCourse]  WITH CHECK ADD  
-CONSTRAINT [FK_OnlineCourse_Course] FOREIGN KEY([CourseID])
+       CONSTRAINT [FK_OnlineCourse_Course] FOREIGN KEY([CourseID])
 	REFERENCES [dbo].[Course] ([CourseID]);
 	GO
 	ALTER TABLE [dbo].[OnlineCourse] CHECK 
-CONSTRAINT [FK_OnlineCourse_Course];
+       CONSTRAINT [FK_OnlineCourse_Course];
 	GO
-	-- 定義 StudentGrade 和 Course 之間的關係。
+	-- Define the relationship between StudentGrade and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
-WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Course]') AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))
+       WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Course]')
+       AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))
 	ALTER TABLE [dbo].[StudentGrade]  WITH CHECK ADD  
-CONSTRAINT [FK_StudentGrade_Course] FOREIGN KEY([CourseID])
+       CONSTRAINT [FK_StudentGrade_Course] FOREIGN KEY([CourseID])
 	REFERENCES [dbo].[Course] ([CourseID]);
 	GO
 	ALTER TABLE [dbo].[StudentGrade] CHECK 
-CONSTRAINT [FK_StudentGrade_Course];
+       CONSTRAINT [FK_StudentGrade_Course];
 	GO
 
-	--定義 StudentGrade 和 Student 之間的關係。
+	--Define the relationship between StudentGrade and Student.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
-WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Student]') AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))	
+       WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Student]')
+       AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))	
 	ALTER TABLE [dbo].[StudentGrade]  WITH CHECK ADD  
-CONSTRAINT [FK_StudentGrade_Student] FOREIGN KEY([StudentID])
+       CONSTRAINT [FK_StudentGrade_Student] FOREIGN KEY([StudentID])
 	REFERENCES [dbo].[Person] ([PersonID]);
 	GO
 	ALTER TABLE [dbo].[StudentGrade] CHECK 
-CONSTRAINT [FK_StudentGrade_Student];
+       CONSTRAINT [FK_StudentGrade_Student];
 	GO
 
-	-- 定義 CourseInstructor 和 Course 之間的關係。
+	-- Define the relationship between CourseInstructor and Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
-	 WHERE object_id = OBJECT_ID(N'[dbo].[FK_CourseInstructor_Course]')
-	 AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'))
+  	 WHERE object_id = OBJECT_ID(N'[dbo].[FK_CourseInstructor_Course]')
+  	 AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'))
 	ALTER TABLE [dbo].[CourseInstructor]  WITH CHECK ADD  
-	 CONSTRAINT [FK_CourseInstructor_Course] FOREIGN KEY([CourseID])
+  	 CONSTRAINT [FK_CourseInstructor_Course] FOREIGN KEY([CourseID])
 	REFERENCES [dbo].[Course] ([CourseID]);
 	GO
 	ALTER TABLE [dbo].[CourseInstructor] CHECK 
-	  CONSTRAINT [FK_CourseInstructor_Course];
+ 	  CONSTRAINT [FK_CourseInstructor_Course];
 	GO
 
-	-- 定義 CourseInstructor 和 Person 之間的關係。
+	-- Define the relationship between CourseInstructor and Person.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
-	  WHERE object_id = OBJECT_ID(N'[dbo].[FK_CourseInstructor_Person]')
+ 	  WHERE object_id = OBJECT_ID(N'[dbo].[FK_CourseInstructor_Person]')
 	   AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'))
 	ALTER TABLE [dbo].[CourseInstructor]  WITH CHECK ADD  
-	  CONSTRAINT [FK_CourseInstructor_Person] FOREIGN KEY([PersonID])
+ 	  CONSTRAINT [FK_CourseInstructor_Person] FOREIGN KEY([PersonID])
 	REFERENCES [dbo].[Person] ([PersonID]);
 	GO
 	ALTER TABLE [dbo].[CourseInstructor] CHECK 
-	 CONSTRAINT [FK_CourseInstructor_Person];
+  	 CONSTRAINT [FK_CourseInstructor_Person];
 	GO
 
-	-- 定義 Course 和 Department 之間的關係。
+	-- Define the relationship between Course and Department.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
-WHERE object_id = OBJECT_ID(N'[dbo].[FK_Course_Department]') AND parent_object_id = OBJECT_ID(N'[dbo].[Course]'))
+       WHERE object_id = OBJECT_ID(N'[dbo].[FK_Course_Department]')
+       AND parent_object_id = OBJECT_ID(N'[dbo].[Course]'))
 	ALTER TABLE [dbo].[Course]  WITH CHECK ADD  
-CONSTRAINT [FK_Course_Department] FOREIGN KEY([DepartmentID])
+       CONSTRAINT [FK_Course_Department] FOREIGN KEY([DepartmentID])
 	REFERENCES [dbo].[Department] ([DepartmentID]);
 	GO
 	ALTER TABLE [dbo].[Course] CHECK CONSTRAINT [FK_Course_Department];
 	GO
 
-	--定義 OfficeAssignment 和 Person 之間的關係。
+	--Define the relationship between OfficeAssignment and Person.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
 	  WHERE object_id = OBJECT_ID(N'[dbo].[FK_OfficeAssignment_Person]')
-	  AND parent_object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]'))
+ 	  AND parent_object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]'))
 	ALTER TABLE [dbo].[OfficeAssignment]  WITH CHECK ADD  
-	  CONSTRAINT [FK_OfficeAssignment_Person] FOREIGN KEY([InstructorID])
+ 	  CONSTRAINT [FK_OfficeAssignment_Person] FOREIGN KEY([InstructorID])
 	REFERENCES [dbo].[Person] ([PersonID]);
 	GO
 	ALTER TABLE [dbo].[OfficeAssignment] CHECK 
-	 CONSTRAINT [FK_OfficeAssignment_Person];
+   	 CONSTRAINT [FK_OfficeAssignment_Person];
 	GO
 </pre></div>
 
- <h2><a id="insertData" ></a>步驟 6：插入資料</h2>
+ <h2><a id="insertData" ></a>6단계: 데이터 삽입</h2>
 
 
-開啟新的查詢視窗，然後貼上下列指令碼。執行指令碼以插入資料。此指令碼會使用 [INSERT][7] 陳述式將值新增至每個資料欄。
+새 쿼리 창을 연 후 다음 스크립트를 붙여넣습니다. 스크립트를 실행하여 데이터를 삽입합니다. 이 스크립트는 [INSERT][7] 문을 사용하여 각 열에 값을 추가합니다.
 
  
 <div  style="width:auto; height:600px; overflow:auto"><pre>
-	-- 將資料插入 Person 資料表。
+	-- Insert data into the Person table.
 	SET IDENTITY_INSERT dbo.Person ON;
 	GO
 	INSERT INTO dbo.Person (PersonID, LastName, FirstName, HireDate, EnrollmentDate)
@@ -460,7 +463,7 @@ CONSTRAINT [FK_Course_Department] FOREIGN KEY([DepartmentID])
 	GO
 	SET IDENTITY_INSERT dbo.Person OFF;
 	GO
-	-- 將資料插入 Department 資料表。
+	-- Insert data into the Department table.
 	INSERT INTO dbo.Department (DepartmentID, [Name], Budget, StartDate, Administrator)
 	VALUES (1, 'Engineering', 350000.00, '2007-09-01', 2);
 	INSERT INTO dbo.Department (DepartmentID, [Name], Budget, StartDate, Administrator)
@@ -470,7 +473,7 @@ CONSTRAINT [FK_Course_Department] FOREIGN KEY([DepartmentID])
 	INSERT INTO dbo.Department (DepartmentID, [Name], Budget, StartDate, Administrator)
 	VALUES (7, 'Mathematics', 250000.00, '2007-09-01', 3);
 	GO
-	-- 將資料插入 Course 資料表。
+	-- Insert data into the Course table.
 	INSERT INTO dbo.Course (CourseID, Title, Credits, DepartmentID)
 	VALUES (1050, 'Chemistry', 4, 1);
 	INSERT INTO dbo.Course (CourseID, Title, Credits, DepartmentID)
@@ -492,7 +495,7 @@ CONSTRAINT [FK_Course_Department] FOREIGN KEY([DepartmentID])
 	INSERT INTO dbo.Course (CourseID, Title, Credits, DepartmentID)
 	VALUES (3141, 'Trigonometry', 4, 7);
 	GO
-	-- 將資料插入 OnlineCourse 資料表。
+	-- Insert data into the OnlineCourse table.
 	INSERT INTO dbo.OnlineCourse (CourseID, URL)
 	VALUES (2030, 'http://www.fineartschool.net/Poetry');
 	INSERT INTO dbo.OnlineCourse (CourseID, URL)
@@ -501,7 +504,7 @@ CONSTRAINT [FK_Course_Department] FOREIGN KEY([DepartmentID])
 	VALUES (4041, 'http://www.fineartschool.net/Macroeconomics');
 	INSERT INTO dbo.OnlineCourse (CourseID, URL)
 	VALUES (3141, 'http://www.fineartschool.net/Trigonometry');
-	-- 將資料插入 OnsiteCourse 資料表。
+	--Insert data into OnsiteCourse table.
 	INSERT INTO dbo.OnsiteCourse (CourseID, Location, Days, [Time])
 	VALUES (1050, '123 Smith', 'MTWH', '11:30');
 	INSERT INTO dbo.OnsiteCourse (CourseID, Location, Days, [Time])
@@ -514,7 +517,7 @@ CONSTRAINT [FK_Course_Department] FOREIGN KEY([DepartmentID])
 	VALUES (2042, '225 Adams', 'MTWH', '11:00');
 	INSERT INTO dbo.OnsiteCourse (CourseID, Location, Days, [Time])
 	VALUES (4022, '23 Williams', 'MWF', '9:00');
-	-- 將資料插入 CourseInstructor 資料表。
+	-- Insert data into the CourseInstructor table.
 	INSERT INTO dbo.CourseInstructor(CourseID, PersonID)
 	VALUES (1050, 1);
 	INSERT INTO dbo.CourseInstructor(CourseID, PersonID)
@@ -534,7 +537,7 @@ CONSTRAINT [FK_Course_Department] FOREIGN KEY([DepartmentID])
 	INSERT INTO dbo.CourseInstructor(CourseID, PersonID)
 	VALUES (4061, 34);
 	GO
-	-- 將資料插入 OfficeAssignment 資料表。
+	--Insert data into the OfficeAssignment table.
 	INSERT INTO dbo.OfficeAssignment(InstructorID, Location)
 	VALUES (1, '17 Smith');
 	INSERT INTO dbo.OfficeAssignment(InstructorID, Location)
@@ -553,7 +556,7 @@ CONSTRAINT [FK_Course_Department] FOREIGN KEY([DepartmentID])
 	VALUES (32, '203 Williams');
 	INSERT INTO dbo.OfficeAssignment(InstructorID, Location)
 	VALUES (34, '213 Smith');
-	-- 將資料插入 StudentGrade 資料表。
+	-- Insert data into the StudentGrade table.
 	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
 	VALUES (2021, 2, 4);
 	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
@@ -637,189 +640,190 @@ CONSTRAINT [FK_Course_Department] FOREIGN KEY([DepartmentID])
 	GO
 </pre></div>
 
- <h2><a id="QueryDBSysData" ></a>步驟 7：在 SQL Database 適用的管理入口網站中查詢範例和系統資料</h2>
+ <h2><a id="QueryDBSysData" ></a>7단계: 관리 포털의 SQL 데이터베이스용 쿼리 샘플 및 시스템 데이터</h2>
 
 
-若要檢查您的工作，請執行可傳回您剛輸入資料的查詢。您也可以執行內建預存程序和資料管理檢視，以提供 SQL Database 伺服器上所執行的資料庫相關資訊。
+작업을 확인하기 위해 방금 입력한 데이터를 반환하는 쿼리를 실행할 수 있습니다. 또한 SQL 데이터베이스 서버에서 실행 중인 데이터베이스에 대한 정보를 제공하는 기본 제공 저장 프로시저 및 데이터 관리를 실행할 수도 있습니다.
 
-<h4><a id="QueryDB" ></a>查詢範例資料</h4>
+<h4><a id="QueryDB" ></a>쿼리 샘플 데이터</h4>
 
 
-在新的查詢視窗中，複製並執行下列 Transact-SQL 指令碼，以擷取您剛新增的部分資料。
+새 쿼리 창에서 다음 Transact-SQL 스크립트를 복사하고 실행하여 방금 추가한 일부 데이터를 검색해 봅니다.
 
  
 <div  style="width:auto; height:auto; overflow:auto"><pre>
 	SELECT
 		Course.Title as "Course Title"
-		,Department.Name as "Department"
-		,Person.LastName as "Instructor"
-		,OnsiteCourse.Location as "Location"
-		,OnsiteCourse.Days as "Days"
-		,OnsiteCourse.Time as "Time"
+  		,Department.Name as "Department"
+  		,Person.LastName as "Instructor"
+  		,OnsiteCourse.Location as "Location"
+  		,OnsiteCourse.Days as "Days"
+  		,OnsiteCourse.Time as "Time"
 	FROM
-	 Course
-	 INNER JOIN Department
-	  ON Course.DepartmentID = Department.DepartmentID
-	 INNER JOIN CourseInstructor
-	   ON Course.CourseID = CourseInstructor.CourseID
-	 INNER JOIN Person
-	   ON CourseInstructor.PersonID = Person.PersonID
-	 INNER JOIN OnsiteCourse
+ 	 Course
+ 	 INNER JOIN Department
+  	  ON Course.DepartmentID = Department.DepartmentID
+ 	 INNER JOIN CourseInstructor
+ 	   ON Course.CourseID = CourseInstructor.CourseID
+ 	 INNER JOIN Person
+ 	   ON CourseInstructor.PersonID = Person.PersonID
+ 	 INNER JOIN OnsiteCourse
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
 </pre></div>
 
- 您應該會看到如下圖所示的結果集。
+ 다음 이미지와 같은 결과 집합이 표시됩니다.
 
 ![Image13](./media/sql-database-get-started/13DBQueryResults_SQLTut.PNG)
 
-<h4><a id="QuerySys" ></a>查詢系統資料</h4>
+<h4><a id="QuerySys" ></a>쿼리 시스템 데이터</h4>
 
 
-您也可以使用系統檢視和內建預存程序來從伺服器取得資訊。就本教學課程的目的而言，您將嘗試幾個命令。
+또한 시스템 보기 및 기본 제공 저장 프로시저를 사용하여 서버에서 정보를 가져올 수도 있습니다. 이 자습서에서는 몇 가지 명령을 시도해 보겠습니다.
 
-執行下列命令，以找出伺服器上的可用資料庫。
+다음 명령을 실행하여 서버에서 사용 가능한 데이터베이스를 확인합니다.
 
-    SELECT * FROM sys.databases  
+    SELECT * FROM sys.databases;  
 
-執行下列命令，以傳回目前連線到此伺服器的使用者清單。
+이 명령을 실행하여 현재 서버에 연결된 사용자 목록을 반환합니다.
 
     SELECT user_name(),suser_sname()
 
-執行下列預存程序，以傳回 **School** 資料庫中的所有物件清單。
+이 저장 프로시저를 실행하여 **School** 데이터베이스의 모든 개체 목록을 반환합니다.
 
     EXEC SP_help
 
-請勿關閉連至 **School** 資料庫的入口網站連線。您在幾分鐘後將會再次使用此連線。
+**School** 데이터베이스에 대한 포털 연결을 닫지 마십시오. 잠시 뒤에 다시 포털 연결이 필요합니다.
 
-<h2><a id="DBLogin" ></a>步驟 8：建立資料庫登入和指派權限</h2>
-
-
-在 SQL Database 中，您可以使用 Transact-SQL 建立登入資訊和授與權限。在本課程中，您可以使用 Transact-SQL 來執行三項作業：建立 SQL Server 驗證登入、建立資料庫使用者，及透過角色成員資格授與權限。
-
-SQL Server 驗證登入資訊可用於伺服器連線。存取 SQL Database 伺服器上資料庫的所有使用者都必須執行此作業，方法是提供 SQL Server 驗證登入名稱和密碼。
-
-若要建立登入，您必須先連線到 **主要** 資料庫。
-
-<h4><a id="CreateLogin" ></a>建立 SQL Server 驗證登入</h4>
+<h2><a id="DBLogin" ></a>8단계: 데이터베이스 로그인 만들기 및 권한 할당</h2>
 
 
-1.  在**管理入口網站][2]中，選取 [SQL Databases**、按一下 **伺服器**、選擇伺服器，然後按一下白色箭號以開啟伺服器頁面。
+SQL 데이터베이스에서 로그인을 만들고 Transact-SQL을 사용하여 권한을 부여할 수 있습니다. 이 단원에서는 Transact-SQL을 사용하여 세 가지 작업 즉, SQL Server 인증 로그인, 데이터베이스 사용자 만들기 및 역할 구성원을 통한 권한 부여를 수행합니다.
+
+SQL Server 인증 로그인은 서버 연결에 사용됩니다. SQL 데이터베이스 서버의 데이터베이스에 액세스하는 모든 사용자는 SQL Server 인증 로그인 이름 및 암호를 제공하여 연결합니다.
+
+로그인을 만들려면 먼저 **master** 데이터베이스에 연결해야 합니다.
+
+<h4><a id="CreateLogin" ></a>SQL Server 인증 로그인 만들기</h4>
+
+
+1.  [관리 포털][2]에서, **SQL 데이터베이스**를 선택하고, **서버**를 클릭하고, 서버를 선택한 후 흰색 화살표를 클릭하여 서버 페이지를 엽니다.
     
     ![Image5](./media/sql-database-get-started/5DBPortalDatabasesServers_SQLTut.PNG)
 
-2.  在 **快速啟動] 頁面上按一下 [管理伺服器**，以開啟與 SQL Database 適用的管理入口網站的新連線。
+2.  빠른 시작 페이지에서 **서버 관리**를 클릭하여 SQL 데이터베이스용 관리 포털에 대한 새 연결을 엽니다.
 
-3.  輸入系統管理員名稱和密碼。這是指您在建立伺服器時所指定的系統管理員登入資訊。
+3.  관리자 이름 및 암호를 입력합니다. 이는 서버를 만들 때 지정한 관리자 로그인입니다.
     
     ![Image20](./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.png)
 
-4.  SQL Database 管理入口網站會在新的瀏覽器視窗中開啟。按一下頂端的 **選取資料庫**，然後按一下 **主要**。
+4.  SQL 데이터베이스 관리 포털이 새 브라우저 창에서 열립니다. 맨 위에 있는 **데이터베이스 선택**을 클릭하고 **master**를 클릭합니다.
     
     ![Image14](./media/sql-database-get-started/14DBPortalConnectMaster_SQLTut.PNG)
 
-5.  如果您在頁面上看到類似以下的錯誤，請忽略它。按一下 **新增查詢**，以開啟可在 **主要** 資料庫上執行 Transact-SQL 命令的查詢視窗。
+5.  페이지에 다음과 유사한 오류가 나타날 경우 무시합니다. **새 쿼리**를 클릭하여 **master** 데이터베이스에서 Transact-SQL 명령을 실행할 수 있는 쿼리 창을 엽니다.
     
     ![Image15](./media/sql-database-get-started/15DBPortalConnectMasterErr_SQLTut.PNG)
 
-6.  複製下列命令並將其貼入查詢視窗。
+6.  다음 명령을 복사하여 쿼리 창에 붙여넣습니다.
     
          CREATE LOGIN SQLDBLogin WITH password='Password1';
 
-7.  執行此命令，以建立名為 'SQLDBLogin' 的新 SQL Server 登入。
+7.  이 명령을 실행하여 \'SQLDBLogin\'이라는 새 SQL Server 로그인을 만듭니다.
 
-<h4><a id="CreateDBuser" ></a>建立資料庫使用者和指派權限</h4>
+<h4><a id="CreateDBuser" ></a>데이터베이스 로그인 만들기 및 권한 할당</h4>
 
 
-建立 SQL Server 驗證登入之後，下一步是指派與此登入相關的資料庫和權限層級。您可以透過在每個資料庫上建立**資料庫使用者**來達到此目的。
+SQL Server 인증 로그인을 만든 후 다음 단계는 로그인과 연결된 데이터베이스 및 권한 수준을 할당하는 것입니다. 각 데이터베이스에서 **데이터베이스 사용자**를 만들어 그렇게 할 수 있습니다.
 
-1.  回到與 **School** 資料庫連線的 SQL Database 管理入口網站頁面。如果您已關閉此瀏覽器視窗，請使用上一節課程「使用 Transact-SQL 指令碼新增資料和結構描述」中的步驟來啟動與 **School** 資料庫的新連線。
+1.  **School** 데이터베이스에 연결하는 SQL 데이터베이스 관리 포털 페이지로 다시 돌아갑니다. 브라우저 창을 닫으면 앞부분의 단원인 "Transact-SQL 스크립트를 사용하여 데이터 및 스키마 추가"의 단계에 따라 **School** 데이터베이스에 대한 새 연결을 시작합니다.
     
-    在 SQL Database 管理入口網站頁面上，您可以在左上角看到 **School** 資料庫名稱。
+    SQL 데이터베이스 관리 포털 페이지에서 **School** 데이터베이스 이름이 맨 위 왼쪽 모서리에 표시됩니다.
     
     ![Image12](./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.PNG)
 
-2.  按一下 **新增查詢**，以開啟新的查詢視窗並複製貼上下列陳述式。
+2.  **새 쿼리**를 클릭하여 새 쿼리 창을 열고 다음 문을 복사해 넣습니다.
     
          CREATE USER SQLDBUser FROM LOGIN SQLDBLogin;
 
-3.  執行指令碼。此指令碼會根據登入建立新的資料庫使用者。
+3.  스크립트를 실행합니다. 이 스크립트는 로그인을 기반으로 하여 새 데이터베이스 사용자를 만듭니다.
     
-    接著，您將使用 db\_datareader 角色來指派權限。指派給此角色的資料庫使用者可以讀取資料庫中所有使用者資料表中的所有資料。
+    이제 db\_datareader 역할을 사용하여 권한을 할당합니다. 이 역할에 할당된 데이터베이스 사용자는 데이터베이스의 모든 사용자 테이블에서 모든 데이터를 읽을 수 있습니다.
 
-4.  開啟新的查詢視窗，然後輸入並執行下一個陳述式。此陳述式會執行內建預存程序，來將 db\_datareader 角色指派給您剛建立的新使用者。
+4.  새 쿼리 창을 연 후 다음 문을 입력하여 실행합니다. 이 문은 방금 만든 새 사용자에 db\_datareader 역할을 할당하는 기본 제공 저장 프로시저를 실행합니다.
     
          EXEC sp_addrolemember 'db_datareader', 'SQLDBUser';
     
-    您現在便擁有具備 **School** 資料庫唯讀權限的新 SQL Server 驗證登入。透過這些步驟，您可以建立其他 SQL Server 驗證登入，以允許對資料的不同層級存取。
+    이제 **School** 데이터베이스에 대한 읽기 전용 권한이 있는 새 SQL Server 인증 로그인이 만들어졌습니다. 이러한 단계에 따라 SQL Server 인증 로그인을 만들어 데이터에 대한 다른 수준의 액세스를 허용할 수 있습니다.
 
-<h2><a id="ClientConnection" ></a>步驟 9：從其他應用程式連線</h2>
-
-
-現在您擁有一個操作資料庫，您可以從 Excel 活頁簿與它連線。
-
-<h4>從 Excel 連線</h4>
+<h2><a id="ClientConnection" ></a>9단계: 다른 응용 프로그램에서 연결</h2>
 
 
-如果您的電腦上已安裝 Excel 2010，則可以使用下列步驟來與您的範例資料庫連線。
+운영 데이터베이스를 만들었으므로, Excel 통합 문서에서 이 데이터베이스에 연결할 수 있습니다.
 
-1.  在 Excel 的 **資料] 索引標籤中，按一下 [從其他來源** 然後按一下 **從 SQL Server**。
+<h4>Excel에서 연결</h4>
 
-2.  在 [資料連線精靈] 中，輸入您 SQL Database 伺服器的完整網域名稱，後面接著輸入具備資料庫存取權限的 SQL Server 驗證登入。
 
-您可以在 **資料庫** 頁面的 **快速連結** 下找到伺服器名稱。您也可以在 Azure 管理入口網站上，SQL Database **伺服器] 頁面的 [儀表板] 上，於 [管理 URL** 中找到此伺服器名稱。
+Excel 2010이 컴퓨터에 설치되어 있는 경우 다음 단계에 따라 샘플 데이터베이스에 연결할 수 있습니다.
 
-伺服器名稱包含一系列的字母和數字，後面接著 '.database.windows.net'。在 [資料庫連線精靈] 中指定此名稱。指定名稱時請勿包含 http:// 或 https:// 前置詞。
+1.  Excel의 데이터 탭에서 **기타 원본**을 클릭한 후 **SQL Server**를 클릭합니다.
 
-輸入 SQL Server 驗證登入。針對測試目的，您可以使用在設定伺服器時所建立的系統管理員登入。針對一般資料存取目的，請使用與您剛剛所建立的類似資料庫使用者登入。
+2.  데이터 연결 마법사에서 SQL 데이터베이스 서버의 정규화된 도메인 이름과 데이터베이스에 대한 액세스 권한이 있는 SQL Server 인증 로그인을 차례로 입력합니다.
+
+**데이터베이스** 페이지의 **빠른 연결**에서 서버 이름을 확인할 수 있습니다. 또한 서버 이름은 Azure 관리 포털, SQL 데이터베이스, 서버 페이지, 대시보드의 **URL 관리**에서도 확인할 수 있습니다.
+
+서버 이름은 일련의 문자 및 숫자와 그 뒤에 오는 \'.database.windows.net\'으로 구성됩니다. 데이터베이스 연결 마법사에서 이 이름을 지정합니다. 이름을 지정할 때 http:// 또는 https:// 접두사를 포함하지 마십시오.
+
+SQL Server 인증 로그인을 입력합니다. 테스트를 위해서는 서버를 설정할 때 만든 관리자 로그인을 사용할 수 있습니다. 일반적인 데이터 액세스를 위해서는 방금 만든 것과 유사한 데이터베이스 사용자 로그인을 사용하십시오.
 
 ![Image16](./media/sql-database-get-started/16ExcelConnect_SQLTut.png)
 
-1.  在下一頁上選擇 **School** 資料庫，然後選擇 **Course**。按一下 **完成**。
+1.  다음 페이지에서, **School** 데이터베이스를 선택한 후 **Course**를 선택합니다. **마침**을 클릭합니다.
     
     ![Image17](./media/sql-database-get-started/17ExcelSelect_SQLTut.png)
 
-2.  **匯入資料] 對話方塊會隨即出現，並提示您選取要匯入資料的方式和位置。在選取預設選項的情況下，按一下 [確定**。
+2.  데이터 가져오기 대화 상자가 나타나 데이터를 가져오는 방법과 위치를 묻습니다. 기본 옵션을 선택하고 **확인**을 클릭합니다.
     
     ![Image19](./media/sql-database-get-started/19ExcelImport_SQLTut.png)
 
-3.  在工作表中，您應該會看到類似如下的資料表。
+3.  워크시트에 다음과 유사한 테이블이 표시됩니다.
     
     ![Image18](./media/sql-database-get-started/18ExcelTable_SQLTut.PNG)
 
-單單使用 Excel 的話，您一次只能匯入一個資料表。使用 PowerPivot for Excel 增益集是比較理想的方法，它可讓您匯入多個資料表並以單一資料集的形式加以處理。使用 PowerPivot 已超出本教學課程的範圍，但您可以在 [Microsoft 網站][8]上取得更多資訊。
+Excel을 사용할 경우 테이블을 한 번에 하나만 가져올 수 있습니다. PowerPivot for Excel 추가 기능을 사용하는 것이 더 좋습니다. 이 추가 기능을 사용하면 여러 테이블을 단일 데이터 집합으로 가져와서 작업할 수 있습니다. PowerPivot 사용에 관한 자세한 내용은 본 자습서에서는 다루지 않으며 [Microsoft 웹 사이트][8]에서 확인할 수 있습니다.
 
-<h2><a id="ConfigureDataSync" ></a>步驟 10：設定 SQL 資料同步</h2>
-
-
-<h4>SQL 資料同步</h4>
+<h2><a id="ConfigureDataSync" ></a>10단계: SQL 데이터 동기화 구성</h2>
 
 
-現在您已完成建立 SQL Database 執行個體，您可以運用「SQL 資料同步」，將高價值資料在多個位置中保持同步。
-
-「SQL 資料同步」是 SQL Database 的一個功能，可讓您按排程或指定同步選取的資料，而無需撰寫任何程式碼或指令碼。SQL 資料同步支援 SQL Database 執行個體或混合拓撲 (包含 SQL Databases 和 SQL Server 執行個體) 之間的同步處理。
-
-如需 SQL 資料同步的詳細資訊，請參閱[開始使用 SQL 資料同步][9]。
-
-<h2><a id="NextSteps" ></a>後續步驟</h2>
+<h4>SQL 데이터 동기화</h4>
 
 
-現在您對 SQL Database 和管理入口網站已有一定程度的了解，您可以嘗試 SQL Server 資料庫管理員所使用的其他工具和技巧。
+SQL 데이터베이스 인스턴스를 만들었으므로 SQL 데이터 동기화를 활용하여 여러 위치에 걸쳐 중요한 데이터를 동기화할 수 있습니다.
 
-若要主動管理您的新資料庫，請考慮安裝並使用 SQL Server Management Studio。Management Studio 是管理 SQL Server 資料庫 (包括在 Azure 上執行的資料庫) 的主要資料庫管理工具。透過 Management Studio，您可以儲存查詢以供日後使用、新增資料表和預存程序，並在豐富的指令碼環境 (包括語法檢查程式、IntelliSense 及範本) 中提高您的 Transact-SQL 技巧。若要開始使用，請依照[使用 SQL Server Management Studio 管理 SQL Database][10] 中的指示進行。
+SQL 데이터 동기화는 코드나 스크립트를 작성하지 않고도 예약에 따라 또는 요청 시 선택한 데이터를 동기화할 수 있는 SQL 데이터베이스의 한 기능입니다. SQL 데이터 동기화는 SQL 데이터베이스 인스턴스나 SQL 데이터베이스가 포함된 하이브리드 토폴로지와 SQL Server 간의 동기화를 지원합니다.
 
-精通 Transact-SQL 查詢和資料定義語言是資料庫管理員的基本條件。如果您不熟悉 Transact-SQL，請從[教學課程：撰寫 Transact-SQL 陳述式][11]開始，了解一些基本技能。
+SQL 데이터 동기화에 대한 자세한 내용은 [SQL 데이터 동기화 시작][9]을 참조하십시오.
 
-還有其他方法可以將內部部署資料庫移至 SQL Database。如果您具備現有的資料庫，或如果您已下載範例資料庫來練習，請嘗試下列替代方法：
+<h2><a id="NextSteps" ></a>다음 단계</h2>
 
-* [將資料庫移轉至 SQL Database][12]
-* [在 SQL Database 中複製資料庫][13]
+
+SQL 데이터베이스 및 관리 포털에 익숙해졌으므로, SQL Server 데이터베이스 관리자가 사용하는 기타 도구 및 기술을 시도해 볼 수 있습니다.
+
+새 데이터베이스를 적극적으로 관리하기 위해 SQL Server Management Studio를 설치하여 사용해 볼 수 있습니다.
+Management Studio는 Azure에서 실행되는 데이터베이스를 포함하여 SQL Server 데이터베이스를 관리할 수 있는 주 데이터베이스 관리 도구입니다. Management Studio를 사용하여 쿼리를 나중에 사용하도록 저장하고, 새 테이블 및 저장 프로시저를 추가하고, 구문 검사기, IntelliSense 및 템플릿을 포함하는 다양한 스크립팅 환경에서 Transact-SQL 기술을 익힐 수 있습니다. 시작하려면 [SQL Server Management Studio를 사용하여 SQL 데이터베이스 관리][10](영문)의 지침을 따르십시오.
+
+데이터베이스 관리자는 Transact-SQL 쿼리 및 데이터 정의 언어에 능숙해야 합니다. Transact-SQL을 처음 사용한다면 [자습서: Transact-SQL 문 쓰기][11]를 시작하여 기본 기술을 더 익혀 보십시오.
+
+다른 방법으로도 SQL 데이터베이스로 온-프레미스 데이터베이스를 이동할 수 있습니다. 기존 데이터베이스가 있거나 샘플 데이터베이스를 다운로드하여 연습하는 경우 다음과 같은 다른 방법을 시도해 보십시오.
+
+* [SQL 데이터베이스로 데이터베이스 마이그레이션][12]
+* [SQL 데이터베이스에서 데이터베이스 복사][13]
 
 
 
 [1]: http://www.windowsazure.com
 [2]: http://manage.windowsazure.com
 [3]: http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-en-us.aspx
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621790.aspx "MSDN 文章"
+[4]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621790.aspx "MSDN 문서"
 [5]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336258.aspx
 [6]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336286.aspx
 [7]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336284.aspx

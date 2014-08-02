@@ -1,3 +1,5 @@
-Setting a custom domain name on a web site that is load balanced by Traffic Manager is only available for Standard mode web sites. Before switching a web site from the Free web site mode to the Shared, Basic or Standard mode, you must first remove spending caps in place for your Web Site subscription. 
 
-For more information on the Web Site modes modes, including how to change the mode of your site, see [How to scale web sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/).
+只有標準模式網站，才能在流量管理員所負載平衡的網站上設定自訂網域名稱。將網站從免費網站模式切換到「共用」、「基本」或「標準」模式之前，您必須先移除網站訂閱的支出上限。
+
+如需網站模式的詳細資訊，包括如何變更網站的模式，請參閱[如何調整網站](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/) (英文)。
+

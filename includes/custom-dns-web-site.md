@@ -68,7 +68,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
     <!--![][standardmode4]-->
     
     **注意**  
-     如果發生「設定網站 \'web site name\' 的大小失敗」錯誤，您可以利用詳細資料按鈕來取得其他資訊。
+     如果發生「設定網站 'web site name' 的大小失敗」錯誤，您可以利用詳細資料按鈕來取得其他資訊。
 
 <a name="trafficmanager"></a><h2>(選用) 將網站新增至流量管理員</h2>
 
@@ -139,7 +139,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 3.  現在，找出可選取或輸入 CNAME 記錄的地方。您可能需要從下拉式清單中或移至進階設定頁面，才能選取記錄類型。請尋找 **CNAME**、**Alias** 或 **Subdomains** 之類的字。
 
-4.  您也必須為 CNAME 提供網域或子網域別名。例如，若要建立 **www.customdomain.com** 的別名，請提供 **www**。如果要建立根網域的別名，註冊機構的 DNS 工具中可能會以 \'**@**\' 符號列出此別名。
+4.  您也必須為 CNAME 提供網域或子網域別名。例如，若要建立 **www.customdomain.com** 的別名，請提供 **www**。如果要建立根網域的別名，註冊機構的 DNS 工具中可能會以 '**@**' 符號列出此別名。
 
 5.  您也必須提供主機名稱，做為此 CNAME 別名的正式網域名稱。這是您網站的 **.azurewebsite.net** 名稱。
 
@@ -231,9 +231,9 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 7.  執行下列步驟來建立 A 記錄：
     
-    1.  選取或輸入將使用 A 記錄的網域或子網域。例如，若要建立 **www.customdomain.com** 的別名，請選取 **www**。如果要為所有子網域建立萬用字元項目，請輸入 \'**\***\'。這將會涵蓋所有子網域，例如 **mail.customdomain.com**、**login.customdomain.com** 和 **www.customdomain.com**。
+    1.  選取或輸入將使用 A 記錄的網域或子網域。例如，若要建立 **www.customdomain.com** 的別名，請選取 **www**。如果要為所有子網域建立萬用字元項目，請輸入 '**\***'。這將會涵蓋所有子網域，例如 **mail.customdomain.com**、**login.customdomain.com** 和 **www.customdomain.com**。
         
-        如果要建立根網域的 A 記錄，註冊機構的 DNS 工具中可能會以 \'**@**\' 符號列出此記錄。
+        如果要建立根網域的 A 記錄，註冊機構的 DNS 工具中可能會以 '**@**' 符號列出此記錄。
     
     2.  在提供的欄位中，輸入雲端服務的 IP 位址。這樣會將 A 記錄中使用的網域項目與雲端服務部署的 IP 位址產生關聯。
         
@@ -258,7 +258,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
         
          </table>
         
-        此範例示範建立根網域的 A 記錄。如果想要建立萬用字元項目來涵蓋所有子網域，請輸入 \'**\***\' 做為子網域。
+        此範例示範建立根網域的 A 記錄。如果想要建立萬用字元項目來涵蓋所有子網域，請輸入 '**\***' 做為子網域。
 
 8.  接下來，建立具有別名 **awverify** 和您稍早取得之正式網域 **awverify.mysite.azurewebsites.net** 的 CNAME 記錄。
 

@@ -1,7 +1,10 @@
-After the records for your domain name have propagated, you should be able to use your browser to verify that your custom domain name can be used to access your web site.
+<p>傳播網域名稱的記錄後，您應該要能夠使用瀏覽器來確認您自訂的網域名稱可用來存取網站。</p>
 
-> [WACOM.NOTE] It can take some time for your CNAME to propagate through the DNS system. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
+傳播網域名稱的記錄後，您應該要能夠使用瀏覽器來確認您自訂的網域名稱可用來存取網站。
 
-If you have not already added your web site as a Traffic Manager endpoint, you must do this before name resolution will work, as the custom domain name routes to Traffic Manager. Traffic Manager then routes to your web site. Use the information in [Add or Delete Endpoints](http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx) to add your web site as an endpoint in your Traffic Manager profile.
+> [WACOM.NOTE] 需要一些時間，CNAME 才能傳播至整個 DNS 系統。您可以使用 <http://www.digwebinterface.com/> 之類的服務來驗證 CNAME 已生效。
 
-> [WACOM.NOTE] If your web site is not listed when adding an endpoint, verify that it is configured for Standard mode. You must use Standard mode for your web site in order to work with Traffic Manager.
+若尚未新增網站作為流量管理員端點，則必須先執行此作業，名稱解析才能正常運作，因為自訂網域名稱會路由至流量管理員。接著會將流量管理員路由至您的網站。請使用[新增或刪除端點](http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx)中的資訊，將網站新增為流量管理員設定檔中的端點。
+
+> [WACOM.NOTE] 如果在新增端點時未列出您的網站，請確認模式是設為標準模式。您必須讓網站使用標準模式，才能與流量管理員搭配使用。
+

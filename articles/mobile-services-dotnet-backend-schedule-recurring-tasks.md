@@ -1,0 +1,289 @@
+<properties pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="" solutions="" writer="" manager="" editor="" />
+
+在行動服務中為週期性工作排程
+============================
+
+[.NET 後端](/en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ ".NET 後端") | [JavaScript 後端](/en-us/documentation/articles/mobile-services-schedule-recurring-tasks/ "JavaScript 後端")
+
+本主題將示範如何在管理入口網站中使用工作排程器功能，以根據您所定義的排程來，從而定義要執行的伺服器指令碼。在此情況下，指令碼會定期向遠端服務 (在此案例中為 Twitter) 查詢，並將結果儲存在新資料表中。可排定的其他一些定期工作包括：
+
+-   封存老舊或重複的資料記錄。
+-   要求或儲存外部資料，例如推文、RSS 項目和位置資訊。
+-   處理或調整儲存影像的大小。
+
+本教學課程將逐步引導您完成下列步驟，以瞭解如何使用工作排程器，來建立向 Twitter 要求推文資料並在新的 Updates 資料表中儲存推文的排定工作：
+
+-   [註冊以取得 Twitter 存取權與儲存認證](#get-oauth-credentials)
+-   [下載並安裝 LINQ to Twitter 程式庫](#install-linq2twitter)
+-   [建立新的 Updates 資料表](#create-table)
+-   [建立新的排定工作](#add-job)
+-   [在本機測試排定工作](#run-job-locally)
+-   [發佈服務及註冊工作](#register-job)
+
+> [WACOM.NOTE]本教學課程採用第三方 LINQ to Twitter 程式庫，以簡化對 Twitter v1.1. API 的 OAuth 2.0 存取。您必須下載並安裝 LINQ to Twitter NuGet 封裝，才能完成本教學課程。如需詳細資訊，請參閱 [LINQ to Twitter CodePlex 專案](http://linqtotwitter.codeplex.com/)。
+
+註冊以取得 Twitter v1.1 API 的存取權與儲存認證
+----------------------------------------------
+
+[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
+
+1.  在 Visual Studio 的 [方案總管] 中，開啟行動服務專案的 web.config 檔案，找出 **MS\_TwitterConsumerKey** 和 **MS\_TwitterConsumerSecret** 應用程式設定，並將這些金鑰的值取代為您在入口網站中設定的 Twitter 消費者金鑰值和消費者密碼值。
+
+2.  在相同的區段中新增下列應用程式設定，並將預留位置取代為您在入口網站中設為應用程式設定的 Twitter 存取權杖和存取權杖密碼值：
+
+    ``` {}
+    <add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
+    <add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" />
+    ```
+
+    行動服務在執行於本機電腦時會使用這些儲存的設定，讓您能夠先測試排定工作，再加以發佈。在 Azure 中執行時，行動服務會改用在入口網站中設定的值，並忽略這些專案設定。
+
+下載並安裝 LINQ to Twitter 程式庫
+---------------------------------
+
+1.  在 Visual Studio 的 **[方案總管]** 中以滑鼠右鍵按一下專案名稱，然後選取 **[管理 NuGet 封裝]**。
+
+2.  在左窗格中選取 **[線上]** 類別、搜尋 `linq2twitter`，按一下 **linqtotwitter** 封裝上的 **[安裝]**，然後閱讀並接受授權合約。
+
+	![](./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png) 
+
+	這會將 Linq to Twitter 程式庫新增至您的行動服務專案。
+
+接下來，您必須建立要儲存推文的新資料表。
+
+建立新的 Updates 資料表
+-----------------------
+
+1.  在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下 DataObjects 資料夾、展開 **[新增]**、按一下 **[類別]**、在 **[名稱]** 中輸入 `Updates`，然後按一下 **[新增]**。
+
+    這會為 Updates 類別建立新的專案檔案。
+
+2.  在此新類別中，新增下列 **using** 陳述式：
+
+         using Microsoft.WindowsAzure.Mobile.Service;
+        using System.ComponentModel.DataAnnotations;
+
+3.  以下列程式碼取代 **Updates** 類別定義：
+
+         public class Updates 
+         {
+        [Key]
+        public int UpdateId { get; set; }
+        public long TweetId { get; set; }
+        public string Text { get; set; }
+        public string Author { get; set; }
+        public DateTime Date { get; set; }
+    	}
+
+4.  展開 Models 資料夾、開啟資料模型內容檔案 (名為 *service\_name*Context.cs)，然後新增下列會傳回型別 **DbSet** 的屬性：
+
+         public DbSet<Updates> Updates { get; set; }
+
+    服務會使用 Updates 資料表 (在第一次存取 DbSet 時建立於資料庫中) 儲存推文資料。
+
+    > [WACOM.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。無法針對 Azure 中的 SQL Database 使用預設的初始設定式。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations) (英文)。
+
+接下來，請建立可存取 Twitter 並將推文資料儲存於全新 Updates 資料表中的排定工作。
+
+建立新的排定工作
+----------------
+
+1.  展開 ScheduledJobs 資料夾，並開啟 SampleJob.cs 專案檔案。
+
+    在 Azure 管理入口網站中，此類別 (繼承自 **ScheduledJob**) 代表可依排程定期執行或隨選執行的工作。
+
+2.  以下列程式碼取代 SampleJob.cs 的內容：
+
+         using System;
+        using System.Linq;
+        using System.Threading;
+        using System.Threading.Tasks;
+        using System.Web.Http;
+        using Microsoft.WindowsAzure.Mobile.Service;
+        using Microsoft.WindowsAzure.Mobile.Service.ScheduledJobs;
+        using LinqToTwitter;
+        using todolistService.Models;
+        using todolistService.DataObjects;
+            
+        namespace todolistService
+         {
+        // A simple scheduled job which can be invoked manually by submitting an HTTP
+        // POST request to the path "/jobs/sample".
+        public class SampleJob :ScheduledJob
+             {
+        private todolistContext context;
+        private string accessToken;
+        private string accessTokenSecret;
+            
+        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, CancellationToken cancellationToken)
+                 {
+        base.Initialize(scheduledJobDescriptor, cancellationToken);
+            
+        // Create a new context with the supplied schema name.
+        context = new todolistContext(Services.Settings.Name);
+                 }
+            
+        public async override Task ExecuteAsync()
+                 {            
+        // Try to get the stored Twitter access token from app settings.  
+        if (!(Services.Settings.TryGetValue("TWITTER_ACCESS_TOKEN", out accessToken) |
+        Services.Settings.TryGetValue("TWITTER_ACCESS_TOKEN_SECRET", out accessTokenSecret)))
+                     {
+        Services.Log.Error("Could not retrieve Twitter access credentials.");
+                     }
+            
+        // Create a new authorizer to access Twitter v1.1 APIs
+        // using single-user OAUth 2.0 credentials.
+        MvcAuthorizer auth = new MvcAuthorizer();
+        SingleUserInMemoryCredentialStore store = 
+        new SingleUserInMemoryCredentialStore()
+                     {
+        ConsumerKey = Services.Settings.TwitterConsumerKey,
+        ConsumerSecret = Services.Settings.TwitterConsumerSecret,
+        OAuthToken = accessToken,
+        OAuthTokenSecret = accessTokenSecret
+                     };
+            
+        // Set the credentials for the authorizer.
+        auth.CredentialStore = store;
+            
+        // Create a new LINQ to Twitter context.
+        TwitterContext twitter = new TwitterContext(auth);
+            
+        // Get the ID of the most recent stored tweet.
+        long lastTweetId = 0;
+        if (context.Updates.Count() > 0)
+                     {
+        lastTweetId = (from u in context.Updates
+        orderby u.TweetId descending
+        select u).Take(1).SingleOrDefault()
+        .TweetId;
+                     }
+            
+        // Execute a search that returns a filtered result.
+        var response = await (from s in twitter.Search
+        where s.Type == SearchType.Search
+        && s.Query == "%23mobileservices"
+        && s.SinceID == Convert.ToUInt64(lastTweetId + 1)
+        && s.ResultType == ResultType.Recent
+        select s).SingleOrDefaultAsync();
+            
+        // Remove retweets and replies and log the number of tweets.
+        var filteredTweets = response.Statuses
+        .Where(t => !t.Text.StartsWith("RT") && t.InReplyToUserID == 0);
+        Services.Log.Info("Fetched " + filteredTweets.Count()
+        + " new tweets from Twitter.");
+            
+        // Store new tweets in the Updates table.
+        foreach (Status tweet in filteredTweets)
+                     {
+        Updates newTweet =
+        new Updates
+                             {
+        TweetId = Convert.ToInt64(tweet.StatusID),
+        Text = tweet.Text,
+        Author = tweet.User.Name,
+        Date = tweet.CreatedAt
+                             };
+            
+        context.Updates.Add(newTweet);
+                     }
+            
+        await context.SaveChangesAsync();
+                 }
+        protected override void Dispose(bool disposing)
+                 {
+        base.Dispose(disposing);
+        if (disposing)
+                     {
+        context.Dispose();
+                     }
+                 }
+             }
+         }
+
+    在前述程式碼中，您必須將字串 *todolistService* 和 *todolistContext* 取代為您已下載之專案的命名空間和 DbContext，分別是 *mobile\_service\_name*Service 和 *mobile\_service\_name*Context。
+
+    在前述指令碼中，**ExecuteAsync** 覆寫方法會使用儲存的認證來呼叫 Twitter 查詢 API，以要求包含雜湊標記 `#mobileservices` 的最新推文。在重複的推文和回覆被儲存於資料表之前，系統會先將它們從結果中移除。
+
+在本機測試排定工作
+------------------
+
+排程工作可先在本機進行測試，再發佈至 Azure，以及在入口網站中註冊。
+
+1.  在 Visual Studio 中，將行動服務專案設為起始專案，然後按 F5。
+
+    這會啟動行動服務專案，以及顯示歡迎使用頁面的新瀏覽器視窗。
+
+2.  從開啟的瀏覽器視窗複製行動服務 URL、將 `/tables/samplejob` 路徑附加至 URL，然後使用 HTTP 公用程式 (例如 Fiddler) 對此 URL 執行新的 POST 要求。
+
+    *\*ExecuteAsync*\* 方法會在本機電腦上啟動。
+
+3.  在 [伺服器總管] 中，依序展開 **[資料連線]**、**[MSTableConnectionString]** 和 **[資料表]**，以滑鼠右鍵按一下 **[更新]**，然後按一下 **[顯示資料表資料]**。
+
+    新的推文會以資料列的形式輸入資料表中。
+
+發佈服務及註冊新工作
+--------------------
+
+工作必須在 **[排程器]** 索引標籤中註冊，行動服務才能依據您定義的排程加以執行。
+
+1.  將行動服務專案重新發佈至 Azure。
+
+2.  在[Azure 管理入口網站](https://manage.windowsazure.com/)中，按一下 [行動服務]，然後按一下您的應用程式。
+
+    ![](./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-services-selection.png)
+
+3.  按一下 **[排程器]** 索引標籤，然後按一下 **[建立]**。
+
+	![][3]
+
+    > [WACOM.NOTE]當您在*免費*層中執行行動服務時，您一次只能執行一個排定工作。在付費層中，您一次可以執行多達十個排定工作。
+
+4.  在排程器對話方塊的 **[工作名稱]** 中輸入 *SampleJob*、設定排程間隔和單位，然後按一下核取按鈕。
+
+	![][4]
+
+	這會建立名為 **SampleJob** 的新工作 
+
+5.  按一下您剛建立的新工作，然後按一下 **[執行一次]**，以測試指令碼。
+
+	![](./media/mobile-services-dotnet-backend-schedule-recurring-tasks/sample-job-run-once.png) 
+
+	這會執行在排程器中仍處於停用狀態的工作。在此頁面上，您可以隨時啟用工作及變更其排程。
+
+    >[WACOM.NOTE]A POST request can still be used to start the scheduled job.However, the authorization defaults to user, which means that the request must include the application key in the header.
+
+1.  (選用)在 [Azure 管理入口網站](https://manage.windowsazure.com/)中，對您行動服務的相關資料庫按一下 [管理]。
+
+    ![](./media/mobile-services-dotnet-backend-schedule-recurring-tasks/manage-sql-azure-database.png)
+
+2.  在管理入口網站中執行查詢，以檢視應用程式所做的變更。您的查詢會與下列查詢相類似，但將以您的行動服務名稱做為結構描述名稱，而非 `todolist`。
+
+         SELECT * FROM [todolist].[Updates]
+
+恭喜！您已順利地在行動服務上建立新的排定工作。系統會依排程執行此工作，直到您停用或修改此工作為止。
+
+<!-- Anchors. -->
+[Register for Twitter access and store credentials]: #get-oauth-credentials
+[Download and install the LINQ to Twitter library]: #install-linq2twitter
+[Create the new Updates table]: #create-table
+[Create a new scheduled job]: #add-job
+[Test the scheduled job locally]: #run-job-locally
+[Publish the service and register the job]: #register-job
+[Next steps]: #next-steps
+
+<!-- Images. -->
+[1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
+[2]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-services-selection.png
+[3]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
+[4]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/create-new-job.png
+[5]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/sample-job-run-once.png
+[6]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/manage-sql-azure-database.png
+
+<!-- URLs. -->
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Register your apps for Twitter login with Mobile Services]: /en-us/documentation/articles/mobile-services-how-to-register-twitter-authentication
+[Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[LINQ to Twitter CodePlex project]: http://linqtotwitter.codeplex.com/

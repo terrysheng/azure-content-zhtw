@@ -24,7 +24,7 @@
 
 **基本憑證**是指，憑證的一般名稱 (CN) 是設定為用戶端用來造訪網站的特定網域或子網域。例如，**www.contoso.com**。這些憑證只會保護 CN 所指定的單一網域名稱。
 
-**萬用憑證**是指，憑證的 CN 在子網域層級使用萬用字元 \'\*\'。如此一來，憑證便適用於給定網域的單層子網域。例如，**\*.contoso.com** 的萬用憑證適用於 **www.contoso.com**、**payment.contoso.com** 和 **login.contoso.com**。但不適用於 **test.login.contoso.com**，因為這多了一層子網域。也不適用於 **contoso.com**，因為這只有根網域層級，而沒有子網域。
+**萬用憑證**是指，憑證的 CN 在子網域層級使用萬用字元 '\*'。如此一來，憑證便適用於給定網域的單層子網域。例如，**\*.contoso.com** 的萬用憑證適用於 **www.contoso.com**、**payment.contoso.com** 和 **login.contoso.com**。但不適用於 **test.login.contoso.com**，因為這多了一層子網域。也不適用於 **contoso.com**，因為這只有根網域層級，而沒有子網域。
 
 Microsof 針對自動為您網站建立的 \*.azurewebsites.net 網域名稱，提供了萬用憑證。
 
@@ -240,7 +240,7 @@ Certreq.exe 是一項用來建立憑證要求的 Windows 公用程式。自 Wind
 
 
    
-    > [WACOM.NOTE] 如果您收到 [設定網站 \'<site name>\' 的調整失敗]
+    > [WACOM.NOTE] 如果您收到 [設定網站 '<site name>' 的調整失敗]
     > 錯誤，可以使用詳細資料按鈕以取得更多資訊。您可能會收到 [可用標準執行個體伺服器不足，無法滿足此要求]
     > 錯誤。如果您收到此錯誤，請連絡 [Azure 支援][6]。
 
@@ -318,7 +318,7 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 		subjectAltName=DNS:ftp.mydomain.com,DNS:blog.mydomain.com,DNS:*.mydomain.com
 		# -------------- END custom sancert.cnf -----
     
-    請注意開頭為 \'subjectAltName\' 的那行。請將目前列出的網域名稱取代為您除了一般名稱外，還想要支援的網域名稱。例如：
+    請注意開頭為 'subjectAltName' 的那行。請將目前列出的網域名稱取代為您除了一般名稱外，還想要支援的網域名稱。例如：
     
          subjectAltName=DNS:sales.contoso.com,DNS:support.contoso.com,DNS:fabrikam.com
     

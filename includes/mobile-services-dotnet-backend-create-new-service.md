@@ -1,40 +1,37 @@
 
 
-Follow these steps to create a new mobile service.
+依照下列步驟即可建立新的行動服務。
 
-1.	Log into the [Management Portal]. 
+1.  登入[管理入口網站](https://manage.windowsazure.com/)。
 
-2.	At the bottom of the navigation pane, click **+NEW**.
+2.  在導覽窗格的底端，按一下 **[新增]**。
 
-	![](./media/mobile-services-dotnet-backend-create-new-service/plus-new.png)
+    ![](./media/mobile-services-dotnet-backend-create-new-service/plus-new.png)
 
-3.	Expand **Compute** and **Mobile Service**, then click **Create**.
+3.  展開 **[運算]** 和 **[行動服務]**，然後按一下 **[建立]**。
 
-	![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create.png)
+    ![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create.png)
 
-	This displays the **New Mobile Service** dialog.
+    隨即出現 **[新增行動服務]** 對話方塊。
 
-4.	In the **Create a mobile service** page, select **Create a free 20 MB SQL Database**, select **.NET** runtime, then type a subdomain name for the new mobile service in the **URL** textbox and wait for name verification. Once name verification completes, click the right arrow button to go to the next page.	
+4.  在 **[建立行動服務]** 頁面中，依序選取 **[Create a free 20 MB SQL database]** 和 **[.NET]** 執行階段，然後在 **[URL]** 文字方塊中輸入新行動服務的子網域名稱，並等候進行名稱驗證。一旦名稱驗證完成之後，按一下向右鍵按鈕前往下一頁。
 
-	![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page1.png)
+    ![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page1.png)
 
-   	This displays the **Specify database settings** page.
+   	這將顯示 **[指定資料庫設定]** 頁面。
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose <strong>Use existing Database</strong> and then select that database. The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.</p></div>	
+    <div class="dev-callout"> 
+    <b>Note</b> 
+    <p>As part of this tutorial, you create a new SQL Database instance and server.You can reuse this new database and administer it as you would any other SQL Database instance.If you already have a database in the same region as the new mobile service, you can instead choose <strong>Use existing Database</strong> and then select that database.The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.</p></div>   
 
-6.	In **Name**, type the name of the new database, then type **Login name**, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the check button to complete the process.
+1.  在 **[名稱]** 中輸入新資料庫的名稱，然後輸入 **[登入名稱]** (也就是新 SQL Database 伺服器的系統管理員登入名稱)，輸入並確認密碼，然後按一下核取按鈕以完成程序。
 
-	![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page2.png)
+    ![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page2.png)
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>When the password that you supply does not meet the minimum requirements or when there is a mismatch, a warning is displayed. <br/>We recommend that you make a note of the administrator login name and password that you specify; you will need this information to reuse the SQL Database instance or the server in the future.</p> 
-	</div>
+    **注意**
 
-You have now created a new mobile service that can be used by your mobile apps.
+    當您所提供的密碼不符合最低需求或密碼不相符時，便會顯示一則警告。
+    建議您記下您所指定的系統管理員登入名稱和密碼；您日後需要此資訊才能重複使用 SQL Database 執行個體或伺服器。
 
+您現在已經建立可供行動應用程式使用的新行動服務。
 
-<!-- URLs. -->
-[Management Portal]: https://manage.windowsazure.com/

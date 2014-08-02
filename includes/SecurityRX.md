@@ -442,7 +442,7 @@ Identity Foundation (WIF) 安全性 - 威脅與對策][65]。
 
 * **IssuerNameRegistry**。指定信任的安全性權杖服務 (STS)。請確認只會列出信任的 STS。
 * **cookieHandler requireSsl="true"**。指定是否透過 SSL 通訊協定傳送工作階段 Cookie。
-* **wsFederation\'s requireHttps="true"**。指定是否透過 SSL
+* **wsFederation's requireHttps="true"**。指定是否透過 SSL
   通訊協定執行與身分識別提供者的同盟通訊協定通訊。
 * **tokenReplayDetection
   enabled="true"**。指定是否啟用權杖重新執行偵測功能。請注意，因為此功能管理已使用權杖的本機複本，所以它會建立伺服器相似性。

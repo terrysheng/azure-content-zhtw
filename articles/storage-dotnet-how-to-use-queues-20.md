@@ -146,7 +146,7 @@ Azure Storage Client Library for .NET 可支援使用儲存體連接字串，來
  <h2><a name="insert-message"> </a><span  class="short-header">插入訊息</span>作法：將訊息插入佇列</h2>
 
 
- 若要將訊息插入現有佇列，請先建立新的 **CloudQueueMessage**。接著，呼叫 **AddMessage** 方法。您可以從字串 (採用 UTF-8 格式) 或**位元組**陣列建立 **CloudQueueMessage**。以下是建立佇列 (如果佇列不存在) 並插入訊息 \'Hello, World\' 的程式碼：
+ 若要將訊息插入現有佇列，請先建立新的 **CloudQueueMessage**。接著，呼叫 **AddMessage** 方法。您可以從字串 (採用 UTF-8 格式) 或**位元組**陣列建立 **CloudQueueMessage**。以下是建立佇列 (如果佇列不存在) 並插入訊息 'Hello, World' 的程式碼：
 
     // 從連接字串擷取儲存體帳戶。
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(

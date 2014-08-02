@@ -1,38 +1,37 @@
 
 
-<p></p>
+**注意**
 
-<div class="dev-callout"><b>Note</b>
-<p>To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
-</div> 
+若要完成本主題的程序，您必須具有已通過電子郵件地址驗證的 Google 帳戶。若要建立新的 Google 帳戶，請前往 [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302)。
 
-1. Navigate to the <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> web site, sign-in with your Google account credentials, and then click **CREATE PROJECT**.
+1.  導覽至 [Google 雲端主控台](http://cloud.google.com/console) (英文) 網站，並使用 Google 帳戶認證登入，然後按一下 **[建立專案]**。
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
 
-	<div class="dev-callout"><b>Note</b>
-	<p>When you already have an existing project, you are directed to the <strong>Projects</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
-    </div>
+    **注意**
 
-2. Enter a project name, accept the terms of service, and click **Create**. Carry out the requested SMS Verification, and click **Create** again.
+    如果您現已有專案，登入後會將您重新導向至 **[專案]** 頁面。若要從 [Dashboard] 建立新的專案，請展開 **[API Project]**，並按一下 **[Other projects]** 下的 **[Create...]**，然後輸入專案名稱，並按一下 **[Create project]**。
 
-3. Make a note of the project number in the **Projects** section. 
+2.  輸入專案名稱，接受服務條款，然後按一下 **[建立]**。執行要求的簡訊驗證，然後再按一下 **[建立]**。
 
-	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
+3.  記下 **[專案]** 區段中的專案號碼。
 
-4. In the left column, click **APIs & auth**, then scoll down and click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
+    在本教學課程的稍後內容中，您會設定這個值作為用戶端中的 PROJECT\_ID 變數。
 
-	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
+4.  在左側欄位中按一下 **[APIs & auth]**，然後向下捲動並按一下切換開關以啟用 **[Google Cloud Messaging for Android]**，並接受服務條款。
 
-5. Click **Credentials**, and then click **CREATE NEW KEY** 
+    ![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
+
+5.  按一下 **[認證]**，然後按一下 **[CREATE NEW KEY]**
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
-6. In **Create a new key**, click **Server key**. In the next window click **Create**.
+6.  在 **[Create a new key]** 中，按一下 **[伺服器金鑰]**。在下一個視窗中，按一下 **[建立]**。
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
 
-7. Make a note of the **API key** value.
+7.  記下 **[API key]** 值。
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
+
 

@@ -1,28 +1,30 @@
 
 
-1. Open the project file QSTodoListViewController.m and in the **viewDidLoad** method, remove the following code that reloads the data into the table:
+1.  開啟專案檔案 QSTodoListViewController.m，並在 **viewDidLoad** 方法中，移除會將資料重新載入至資料表的下列程式碼：
 
-        [self refresh];
+         [self refresh];
 
-2.	Just after the **viewDidLoad** method, add the following code:  
+2.  在 **viewDidLoad** 方法的正後方新增下列程式碼：
 
         - (void)viewDidAppear:(BOOL)animated
         {
-            MSClient *client = self.todoService.client;
-            
-            if (client.currentUser != nil) {
-                return;
+        MSClient *client = self.todoService.client;
+                
+        if (client.currentUser != nil) {
+        return;
             }
-            
-            [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
-                [self refresh];
+                
+        [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
+        [self refresh];
             }];
         }
 
-    <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Facebook, change the value passed to <strong>loginWithProvider</strong> above to one of the following: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, or <em>google</em>.</p>
-    </div>
-		
-3. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
+    **注意**
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+    如果您使用的身分識別提供者不是 Facebook，請將傳給上述 **loginWithProvider** 的值變更為下列其中一個：*microsoftaccount*、*facebook*、*twitter* 或 *google*。
+
+3.  按 **[執行]** 按鈕以建置專案，並在 iPhone 模擬器中啟動應用程式，然後使用您選擇的身分識別提供者進行登入。
+
+	當您成功登入之後，應該會執行應用程式且不會發生錯誤，而且您應該能夠查詢行動服務並更新資料。
+
+

@@ -275,10 +275,10 @@ Visual Studio **屬性** 窗格中所顯示，與此命名空間相關聯的連�
 8.  現在，您將變更應用程式的顯示名稱。在 **方案總管** 中，按兩下
     **Views\\Shared\\\_Layout.cshtml** 檔案以在 Visual Studio 編輯器中開啟。
 
-9.  將所有出現的 **My ASP.NET MVC Application** 取代為 **LITWARE\'S Awesome
+9.  將所有出現的 **My ASP.NET MVC Application** 取代為 **LITWARE'S Awesome
     Products**。
 
-10. 將 **"your logo here"** 取代為 **LITWARE\'S Awesome Products**：
+10. 將 **"your logo here"** 取代為 **LITWARE'S Awesome Products**：
     
     ![](./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-35.png)
 

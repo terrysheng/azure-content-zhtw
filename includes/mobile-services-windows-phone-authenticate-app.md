@@ -1,53 +1,57 @@
-1. Open the project file mainpage.xaml.cs and add the following code snippet to the MainPage class:
-	
-        private MobileServiceUser user;
+<ol>
+
+1.  開啟專案檔案 mainpage.xaml.cs，然後將下列程式碼片段新增至 MainPage 類別：
+
+         private MobileServiceUser user;
         private async System.Threading.Tasks.Task Authenticate()
-        {
-            while (user == null)
-            {
-                string message;
-                try
-                {
-                    user = await App.MobileService
-                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-                    message =
-                        string.Format("You are now logged in - {0}", user.UserId);
-                }
-                catch (InvalidOperationException)
-                {
-                    message = "You must log in. Login Required";
-                }
+         {
+        while (user == null)
+             {
+        string message;
+        try
+                 {
+        user = await App.MobileService
+        .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+        message =
+        string.Format("You are now logged in - {0}", user.UserId);
+                 }
+        catch (InvalidOperationException)
+                 {
+        message = "You must log in. Login Required";
+                 }
 
-                MessageBox.Show(message);
-            }
-        }
+        MessageBox.Show(message);
+             }
+         }
 
-    This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login.
+    如此會建立一個成員變數來存放目前使用者，並建立一個方法來處理驗證程序。使用者透過 Facebook 登入來驗證。
 
-    >[WACOM.NOTE]If you are using an identity provider other than Facebook, change the value of <strong>MobileServiceAuthenticationProvider</strong> above to the value for your provider.</p>
-    </div>
+    > [WACOM.NOTE] 如果您打算使用除了 Facebook 以外的識別提供者，請將上方的 **MobileServiceAuthenticationProvider** 值變更成您提供的值。&lt;/p\>
 
-2. Delete or comment-out the existing **OnNavigatedTo** method override and replace it with the following method that handles the **Loaded** event for the page. 
 
-        async void MainPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            await Authenticate();
-            RefreshTodoItems();
-        }
+2.  刪除或註解化現有的 **OnNavigatedTo** 方法，這將會以下列處理頁面上 **Loaded** 事件的方法覆寫和取代該現有方法。
 
-   	This method calls the new **Authenticate** method. 
+         async void MainPage_Loaded(object sender, RoutedEventArgs e)
+         {
+        await Authenticate();
+        RefreshTodoItems();
+         }
 
-3. Replace the MainPage constructor with the following code:
+	此方法會呼叫新的 **Authenticate** 方法。 
 
-        // Constructor
+3.  以下列程式碼取代 MainPage 建構函式：
+
+         // Constructor
         public MainPage()
-        {
-            InitializeComponent();
-            this.Loaded += MainPage_Loaded;
-        }
+         {
+        InitializeComponent();
+        this.Loaded += MainPage_Loaded;
+         }
 
-   	This constructor also registers the handler for the Loaded event.
-		
-4. Press the F5 key to run the app and sign into the app with your chosen identity provider. 
+ 	This constructor also registers the handler for the Loaded event.
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+4.  按 F5 鍵執行應用程式，並以您選擇的身分識別提供者登入應用程式。
+
+	當您成功登入之後，應該會執行應用程式且不會發生錯誤，而且您應該能夠查詢行動服務並更新資料。
+
+

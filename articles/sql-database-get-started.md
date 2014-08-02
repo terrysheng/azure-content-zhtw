@@ -725,7 +725,7 @@ SQL Server 驗證登入資訊可用於伺服器連線。存取 SQL Database 伺�
     
          CREATE LOGIN SQLDBLogin WITH password='Password1';
 
-7.  執行此命令，以建立名為 \'SQLDBLogin\' 的新 SQL Server 登入。
+7.  執行此命令，以建立名為 'SQLDBLogin' 的新 SQL Server 登入。
 
 <h4><a id="CreateDBuser" ></a>建立資料庫使用者和指派權限</h4>
 
@@ -768,7 +768,7 @@ SQL Server 驗證登入資訊可用於伺服器連線。存取 SQL Database 伺�
 
 您可以在 **資料庫** 頁面的 **快速連結** 下找到伺服器名稱。您也可以在 Azure 管理入口網站上，SQL Database **伺服器] 頁面的 [儀表板] 上，於 [管理 URL** 中找到此伺服器名稱。
 
-伺服器名稱包含一系列的字母和數字，後面接著 \'.database.windows.net\'。在 [資料庫連線精靈] 中指定此名稱。指定名稱時請勿包含 http:// 或 https:// 前置詞。
+伺服器名稱包含一系列的字母和數字，後面接著 '.database.windows.net'。在 [資料庫連線精靈] 中指定此名稱。指定名稱時請勿包含 http:// 或 https:// 前置詞。
 
 輸入 SQL Server 驗證登入。針對測試目的，您可以使用在設定伺服器時所建立的系統管理員登入。針對一般資料存取目的，請使用與您剛剛所建立的類似資料庫使用者登入。
 

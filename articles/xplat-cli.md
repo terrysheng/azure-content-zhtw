@@ -292,7 +292,7 @@ xplat-cli 可讓您輕鬆地管理 Azure 服務。在以下範例中，您將學
 
 
    
-    > [WACOM.NOTE] 如果遇到錯誤指出 \'site\' 不是 Azure 命令，則 xplat-cli
+    > [WACOM.NOTE] 如果遇到錯誤指出 'site' 不是 Azure 命令，則 xplat-cli
     > 很可能處於資源群組模式。若要切換回資源模式，請使用 `azure config mode asm` 命令。
 
 2.  　

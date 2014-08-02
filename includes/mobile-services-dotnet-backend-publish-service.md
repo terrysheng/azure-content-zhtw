@@ -1,24 +1,27 @@
 
 
-After testing the Windows Store app against the local mobile service, the final stage of this tutorial is to publish the mobile service to Azure and run the app against the live service.
+對本機行動服務測試 Windows 市集應用程式之後，本教學課程的最後階段是將行動服務發佈至 Azure，以及對即時服務執行應用程式。
 
-1. In Solution Explorer, right-click the mobile service project and click **Publish**
+1.  在 [方案總管] 中，以滑鼠右鍵按一下行動服務專案，然後按一下 **[發佈]**。
 
-	![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish.png)
+    ![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish.png)
 
-	This displays the Publish Web dialog box.
+    此時會顯示 [Publish Web] 對話方塊。
 
-2. Click **Import**, click **Browse**, navigate to the location where you earlier saved the publish profile file, Select the publish profile file, click **OK**.
+2.  依序按一下 **[匯入]** 和 **[瀏覽]**，導覽至您先前儲存發佈設定檔的位置，選取發佈設定檔，然後按一下 **[確定]**。
 
-	![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-import-profile.png)
+    ![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-import-profile.png)
 
-	This loads the information needed by Visual Studio to publish your mobile service to Azure. 
-	
-	<div class="dev-callout"><strong>Security note</strong> <p>After importing the publish profile, consider deleting the downloaded file as it contains information that can be used by others to access your services.</p></div>
+    這會載入 Visual Studio 將您的行動服務發佈至 Azure 所需的資訊。
 
-3. Click **Validate connection** to verify that publishing is correctly configured, then click **Publish**.
+    **安全性注意事項**
 
-	![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-2.png)
+    在匯入發佈設定檔之後，請考慮刪除下載的檔案，因為其中包含他人可用來存取您的服務的資訊。
 
-	After publishing succeeds, you will again see the confirmation page that the mobile service is up and running, this time in Azure.
+3.  按一下 **[驗證連線]** 以驗證發佈已正確設定，然後按一下 **[發佈]**。
+
+    ![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-2.png)
+
+    發佈成功後，您會再次看到行動服務已啟動並執行的確認頁面，而這次是在 Azure 中。
+
 

@@ -1,101 +1,98 @@
 
-##<a name="update-app"></a>Update the app to call the custom API
 
-1. We will add a button labelled "Complete All" next to the existing button, and move both buttons down a line. In Eclipse, open the *res\layout\activity_to_do.xml* file in your quickstart project, locate the **LinearLayout** element that contains the **Button** element named `buttonAddToDo`. Copy the **LinearLayout** and paste it immediately following the original one. Delete the **Button** element from the first **LinearLayout**.
+更新應用程式以呼叫自訂 API
+--------------------------
 
-2. In the second **LinearLayout**, delete the **EditText** element, and add the following  code immediately following the existing **Button** element: 
+1.  我們將在現有的按鈕旁新增標示為 [Complete All] 的按鈕，並將兩個按鈕下移一行。在 Eclipse 中，開啟快速入門專案中的 *res\\layout\\activity\_to\_do.xml* 檔案，尋找 **LinearLayout** 元素，此元素包含名為 `buttonAddToDo` 的 **Button** 元素。複製 **LinearLayout** 並將其緊貼在原始元素後方。從第一個 **LinearLayout** 刪除 **Button** 元素。
 
-        <Button
-            android:id="@+id/buttonCompleteItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="completeItem"
-            android:text="@string/complete_button_text" />
+2.  在第二個 **LinearLayout** 中，刪除 **EditText** 元素，並緊接著現有 **Button** 元素新增下列程式碼：
 
-	This adds a new button to the page, on a separate line, next to the existing button.
+         <Button android:id="@+id/buttonCompleteItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="completeItem"
+        android:text="@string/complete_button_text" />
 
-3. The second **LinearLayout** now looks like this:
+    這會將新按鈕新增至頁面上不同行的現有按鈕旁邊。
 
-	     <LinearLayout
-	        android:layout_width="match_parent" 
-	        android:layout_height="wrap_content" 
-	        android:background="#71BCFA"
-	        android:padding="6dip"  >
-	        <Button
-	            android:id="@+id/buttonAddToDo"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:onClick="addItem"
-	            android:text="@string/add_button_text" />
-	        <Button
-	            android:id="@+id/buttonCompleteItem"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:onClick="completeItem"
-	            android:text="@string/complete_button_text" />
-	    </LinearLayout>
-	
+3.  第二個 **LinearLayout** 目前如下所示：
 
-4. Open the res\values\string.xml file and add the following line of code:
+          <LinearLayout android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:background="#71BCFA"
+        android:padding="6dip"  >
+        <Button android:id="@+id/buttonAddToDo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="addItem"
+        android:text="@string/add_button_text" />
+        <Button android:id="@+id/buttonCompleteItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="completeItem"
+        android:text="@string/complete_button_text" />
+        </LinearLayout>
 
-    	<string name="complete_button_text">Complete All</string>
+4.  開啟 res\\values\\string.xml 檔案並新增下列程式碼行：
 
+    Complete All
 
-5. In Package Explorer, right click the project name in the *src* folder (`com.example.{your projects name}`), choose **New** then **Class**. In the dialog, enter **MarkAllResult** in the class name field, choose OK, and replace the resulting class definition with the following code:
+5.  在 [封裝總管] 中，以滑鼠右鍵按一下 *src* 資料夾的專案名稱 (`com.example.{your projects name}`)，依序選擇 **[新增]** 及 **[類別]**。在對話方塊的類別名稱欄位中輸入 **MarkAllResult**，選擇 [確定]，然後以下列程式碼取代導出的類別定義：
 
-		import com.google.gson.annotations.SerializedName;
-		
-		public class MarkAllResult {
-		    @SerializedName("count")
-		    public int mCount;
-		    
-		    public int getCount() {
-		        return mCount;
-			}
-		
-			public void setCount(int count) {
-			        this.mCount = count;
-			}
-		}
+         import com.google.gson.annotations.SerializedName;
+            
+        public class MarkAllResult {
+        @SerializedName("count")
+        public int mCount;
+                
+        public int getCount() {
+        return mCount;
+             }
+            
+        public void setCount(int count) {
+        this.mCount = count;
+             }
+         }
 
-	This class is used to hold the row count value returned by the custom API. 
+    此類別是用來保留自訂 API 傳回的資料列計數值。
 
-6. Locate the **refreshItemsFromTable** method in the **ToDoActivity.java** file, and make sure that the first line of code starts out like this:
+6.  找出 **ToDoActivity.java** 檔案中的 **refreshItemsFromTable** 方法，並確定程式碼的第一行類似：
 
-        mToDoTable.where().field("complete").eq(false)
+         mToDoTable.where().field("complete").eq(false)
 
-	This filters the items so that completed items are not returned by the query.
+    這會篩選項目，如此一來，查詢就不會傳回已完成的項目。
 
-7. In the **ToDoActivity.java** file, add the following method:
+7.  在 **ToDoActivity.java** 檔案中，新增下列方法：
 
-		public void completeItem(View view) {
-			mClient.invokeApi("completeAll", MarkAllResult.class, new ApiOperationCallback<MarkAllResult>() {
-		        @Override
-		        public void onCompleted(MarkAllResult result, Exception error, ServiceFilterResponse response) {
-		            if (error != null) {
-						createAndShowDialog(error, "Error");
-		            } else {
-						createAndShowDialog(result.getCount() + " item(s) marked as complete.", "Completed Items");
-						refreshItemsFromTable();
-		            }
-		        }
-		    });
-		}
-	
-	This method handles the **Click** event for the new button. The **invokeApi** method is called on the client, which sends a POST request to the new custom API. The result returned by the custom API is displayed in a message dialog, as are any errors.
+         public void completeItem(View view) {
+        mClient.invokeApi("completeAll", MarkAllResult.class, new ApiOperationCallback<MarkAllResult>() {
+        @Override
+        public void onCompleted(MarkAllResult result, Exception error, ServiceFilterResponse response) {
+        if (error != null) {
+        createAndShowDialog(error, "Error");
+        } else {
+        createAndShowDialog(result.getCount() + " item(s) marked as complete.", "Completed Items");
+        refreshItemsFromTable();
+                     }
+                 }
+             });
+         }
 
-## Test the app
+    此方法會處理新按鈕的 **Click** 事件。**invokeApi** 方法是在用戶端上呼叫，可將 POST 要求傳送給新的自訂 API。如有任何錯誤，自訂 API 傳回的結果會顯示在訊息對話方塊中。
 
-1. From the **Run** menu, click **Run** to start the project in the Android emulator.
+測試應用程式
+------------
 
-	This executes your app, built with the Android SDK, that uses the client library to send a query that returns items from your mobile service.
+1.  從 **[執行]** 功能表中，按一下 **[執行]** 在 Android 模擬器中啟動專案。
 
-2. In the app, type some text in **Insert a TodoItem**, then click **Add**.
+    這樣會執行您的應用程式 (以 Android SDK 建立)，該應用程式利用用戶端程式庫傳送查詢，然後從您的行動服務傳回項目。
 
-3. Repeat the previous step until you have added several todo items to the list.
+2.  在應用程式的 **[Insert a TodoItem]** 中鍵入一些文字，然後按一下 **[新增]**。
 
-4. Click the **Complete All** button.
+3.  重複前一個步驟，直到將數個 Todo 項目新增至清單為止。
 
-  	![](./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png)
+4.  按一下 **[Complete All]** 按鈕。
 
-	A message dialog is displayed that indicates the number of items marked complete and the filtered query is executed again, which clears all items from the list.
+	![](./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png)
+
+    出現訊息對話方塊，指出標示為完成的項目數，並重新執行篩選查詢，以便清除清單的所有項目。

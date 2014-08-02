@@ -231,7 +231,7 @@ Azure Storage Client Library for .NET 可支援使用儲存體連接字串，來
  <h2><a name="retrieve-all-entities"></a><span  class="short-header">擷取所有實體</span>作法：擷取資料分割中的所有實體</h2>
 
 
- 若要向資料表查詢資料分割中的所有實體，請使用 **TableQuery** 物件。下列程式碼範例會指定篩選器來篩選出資料分割索引鍵為 \'Smith\' 的實體。此範例會將查詢結果中每個實體的欄位列印至主控台。
+ 若要向資料表查詢資料分割中的所有實體，請使用 **TableQuery** 物件。下列程式碼範例會指定篩選器來篩選出資料分割索引鍵為 'Smith' 的實體。此範例會將查詢結果中每個實體的欄位列印至主控台。
 
 	    // 從連接字串擷取儲存體帳戶。
 	    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -256,7 +256,7 @@ Azure Storage Client Library for .NET 可支援使用儲存體連接字串，來
  <h2><a name="retrieve-range-entities"></a><span  class="short-header">擷取某個範圍的實體</span>作法：擷取資料分割中某個範圍的實體</h2>
 
 
- 如果您不想要查詢資料分割中的所有實體，可結合資料分割索引鍵篩選器與資料列索引鍵篩選器來指定範圍。下列程式碼範例會使用兩個篩選器來取得資料分割 \'Smith\' 中，資料列索引鍵 (名字) 是以字母 \'E\' 前之字母為開頭的所有實體，然後會列印查詢結果。
+ 如果您不想要查詢資料分割中的所有實體，可結合資料分割索引鍵篩選器與資料列索引鍵篩選器來指定範圍。下列程式碼範例會使用兩個篩選器來取得資料分割 'Smith' 中，資料列索引鍵 (名字) 是以字母 'E' 前之字母為開頭的所有實體，然後會列印查詢結果。
 
 	    // 從連接字串擷取儲存體帳戶。
 	    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -285,7 +285,7 @@ Azure Storage Client Library for .NET 可支援使用儲存體連接字串，來
  <h2><a name="retrieve-single-entity"></a><span  class="short-header">擷取單一實體</span>作法：擷取單一實體</h2>
 
 
- 您可以撰寫查詢來擷取單一特定實體。下列程式碼範例使用 **TableOperation** 來指定客戶 \'Ben Smith\'。此方法只會傳回一個實體而非一個集合，且 **TableResult.Result** 中的傳回值會是 **CustomerEntity**。若要從資料表服務中擷取單一實體，最快的方法是在查詢中同時指定資料分割索引鍵和資料列索引鍵。
+ 您可以撰寫查詢來擷取單一特定實體。下列程式碼範例使用 **TableOperation** 來指定客戶 'Ben Smith'。此方法只會傳回一個實體而非一個集合，且 **TableResult.Result** 中的傳回值會是 **CustomerEntity**。若要從資料表服務中擷取單一實體，最快的方法是在查詢中同時指定資料分割索引鍵和資料列索引鍵。
 
 	    // 從連接字串擷取儲存體帳戶。
 	    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(

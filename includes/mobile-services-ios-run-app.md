@@ -1,19 +1,19 @@
 
 
+本教學課程的最後階段是建立並執行新的應用程式。
 
-The final stage of this tutorial is to build and run your new app.
-
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the project file using Xcode.
+1.  瀏覽至儲存壓縮專案檔案的位置，在電腦上展開檔案，然後使用 Xcode 開啟專案檔案。
 
    	![](./media/mobile-services-ios-run-app/mobile-xcode-project.png)
 
-2. Press the **Run** button to build the project and start the app in the iPhone emulator, which is the default for this project.
+2.  按 **[執行]** 按鈕以建立專案，並在 iPhone 模擬器中啟動應用程式 (此專案的預設選項)。
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon.
+3.  在應用程式中輸入有意義的文字 (例如 *Complete the tutorial*)，然後按一下加號 (**+**) 圖示。
 
    	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
-   	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+   	This sends a POST request to the new mobile service hosted in Azure.Data from the request is inserted into the TodoItem table.Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
-	>[WACOM.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.</p> 
- 	</div>
+    > [WACOM.NOTE]您可以檢閱存取行動服務來查詢和插入資料的程式碼，這可以在 TodoService.m 檔案中找到。
+
+

@@ -1,43 +1,45 @@
 
 
-1. Open the project file default.js and in the **app.OnActivated** method overload, replace the last call to the **refreshTodoItems** method with the following code: 
-	
-        var userId = null;
+1.  開啟專案檔案 default.js，然後在 **app.OnActivated** 方法多載中，以下列程式碼取代對 **refreshTodoItems** 方法最後的呼叫：
+
+         var userId = null;
 
         // Request authentication from Mobile Services using a Facebook login.
         var login = function () {
-            return new WinJS.Promise(function (complete) {
-                client.login("facebook").done(function (results) {
-                    userId = results.userId;
-                    refreshTodoItems();
-                    var message = "You are now logged in as: " + userId;
-                    var dialog = new Windows.UI.Popups.MessageDialog(message);
-                    dialog.showAsync().done(complete);
-                }, function (error) {
-                    userId = null;
-                    var dialog = new Windows.UI.Popups
-                        .MessageDialog("An error occurred during login", "Login Required");
-                    dialog.showAsync().done(complete);
-                });
-            });
-        }            
+        return new WinJS.Promise(function (complete) {
+        client.login("facebook").done(function (results) {
+        userId = results.userId;
+        refreshTodoItems();
+        var message = "You are now logged in as:" + userId;
+        var dialog = new Windows.UI.Popups.MessageDialog(message);
+        dialog.showAsync().done(complete);
+        }, function(error) {
+        userId = null;
+        var dialog = new Windows.UI.Popups
+        .MessageDialog("An error occurred during login", "Login Required");
+        dialog.showAsync().done(complete);
+                 });
+             });
+         }            
 
         var authenticate = function () {
-            login().then(function () {
-                if (userId === null) {
+        login().then(function () {
+        if (userId === null) {
 
-                    // Authentication failed, try again.
-                    authenticate();
-                }
-            });
-        }
+        // Authentication failed, try again.
+        authenticate();
+                 }
+             });
+         }
 
         authenticate();
 
-    This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login. If you are using an identity provider other than Facebook, change the value passed to the <strong>login</strong> method above to one of the following: _microsoftaccount_, _twitter_, or _google_.
+    如此會建立一個成員變數來存放目前使用者，並建立一個方法來處理驗證程序。使用者透過 Facebook 登入來驗證。如果您使用的身分識別提供者不是 Facebook，請將傳給上述 **login** 方法的值變更為下列其中一個：*microsoftaccount*、*twitter* 或 *google*。
 
-    >[WACOM.NOTE]If you registered your Windows Store app package information with Mobile Services, you should call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> method by supplying a value of <strong>true</strong> for the <em>useSingleSignOn</em> parameter. If you do not do this, your users will still be presented with a login prompt every time that the login method is called.
+    > [WACOM.NOTE]如果您已向行動服務註冊您的 Windows 市集應用程式封裝資訊，則應該為 *useSingleSignOn* 參數提供 **true** 值以呼叫 [login](http://go.microsoft.com/fwlink/p/?LinkId=322050) 方法。若您沒有這麼做，您的使用者將在每次呼叫登入方法時都看到登入提示。
 
-9. Press the F5 key to run the app and sign into the app with your chosen identity provider. 
+2.  按 F5 鍵執行應用程式，並以您選擇的身分識別提供者登入應用程式。
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+   	當您成功登入之後，應該會執行應用程式且不會發生錯誤，而且您應該能夠查詢行動服務並更新資料。
+
+

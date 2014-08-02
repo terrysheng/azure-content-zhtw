@@ -1,3 +1,5 @@
-Setting a custom domain name on a web site is only available for the Shared, Basic and Standard modes for Azure Web Sites. Before switching a web site from the Free web site mode to the Shared, Basic or Standard mode, you must first remove spending caps in place for your Web Site subscription. 
 
-For more information on the Web Site modes modes, including how to change the mode of your site, see [How to scale web sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/).
+只有在 Azure 網站的「共用」、「基本」和「標準」模式下，才能在網站上設定自訂網域名稱。將網站從免費網站模式切換到「共用」、「基本」或「標準」模式之前，您必須先移除網站訂閱的支出上限。
+
+如需網站模式的詳細資訊，包括如何變更網站的模式，請參閱[如何調整網站](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/) (英文)。
+

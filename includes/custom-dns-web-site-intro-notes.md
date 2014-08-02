@@ -1,10 +1,8 @@
-> [WACOM.NOTE] The procedures in this task apply to Web Sites; for Cloud Services, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Azure</a>.
+<blockquote>
 
+> [WACOM.NOTE] 此工作中的程序適用於網站。若為雲端服務，請參閱[在 Azure 中設定自訂網域名稱](http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/)。
 
-> [WACOM.NOTE] The steps in this task are specific to Web Sites that do not use Traffic Manager to load balance traffic. If your web site uses Traffic Manager, use the selector at the top of this article to select the Traffic Manager specific steps.
+> [WACOM.NOTE] 此工作的步驟專屬於不使用流量管理員來負載平衡流量的網站。如果網站使用流量管理員，請使用本文頂端的選取器來選取流量管理員特定步驟。
 
-
-> [WACOM.NOTE] The steps in this task require you to configure your web sites for Shared, Basic, or Standard mode, which may change how much you are billed for your subscription. See <a href="http://www.windowsazure.com/en-us/pricing/details/web-sites/">Web Sites Pricing Details</a> for more information.
-
-
+> [WACOM.NOTE] 您需要將網站設定為「共用」、「基本」或「標準」模式，才能執行此工作中的步驟，但這可能會變更您的訂閱費用。如需詳細資訊，請參閱[網站定價詳細資料](http://www.windowsazure.com/en-us/pricing/details/web-sites/)。
 

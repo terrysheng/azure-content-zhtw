@@ -1,21 +1,24 @@
-After the records for your domain name have propagated, you must associate them with your web site. Use the following steps to enable the domain names using your web browser.
+<p>當網域名稱的記錄傳播完成時，您必須將此記錄與網站產生關聯。利用下列步驟，使用網頁瀏覽器啟用網域名稱。</p>
 
-> [WACOM.NOTE] It can take some time for CNAME records created in the previous steps to propagate through the DNS system. You cannot add the domain name of to your Azure Web Site until the CNAME has propagated. If you are using an A record, you cannot add the A record domain name to the your Azure Web Site until the **awverify.www** or **www** CNAME records created in the previous step have propagated.
-> 
-> You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
+當網域名稱的記錄傳播完成時，您必須將此記錄與網站產生關聯。利用下列步驟，使用網頁瀏覽器啟用網域名稱。
 
-1. In your browser, open the [Azure Management Portal](https://manage.windowsazure.com).
+> [WACOM.NOTE] 需要一些時間，上述步驟建立的 CNAME 記錄才能傳播至整個 DNS 系統。完成 CNAME 傳播前，您無法將網域名稱新增至 Azure 網站。如果您正在使用 A 記錄，則在傳播上個步驟建立的 **awverify.www** 或 **www** CNAME 記錄後，才能將 A 記錄網域名稱新增至 Azure 網站。
+>
+> 您可以使用 <http://www.digwebinterface.com/> 之類的服務來驗證 CNAME 已生效。
 
-2. In the **Web Sites** tab, click the name of your site, select **Dashboard**, and then select **Manage Domains** from the bottom of the page.
+1.  在瀏覽器中開啟 [Azure 管理入口網站](https://manage.windowsazure.com)。
 
-	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+2.  在 **[網站]** 索引標籤中，按一下網站名稱，選取 **[儀表板]**，然後從頁面底部選取 **[管理網域]**。
 
-6. Use the **DOMAIN NAMES** text boxes to enter the domain names to associate with this web site. 
+    ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-	![](./media/custom-dns-web-site/dncmntask-cname-7.png)
+3.  使用 **[網域名稱]** 文字方塊來輸入此網站所關聯的網域名稱。
 
-6. Click the check mark in the lower right corner to save the domain name configuration.
+    ![](./media/custom-dns-web-site/dncmntask-cname-7.png)
 
-	Once configuration has completed, the custom domain name will be listed in the **domain names** section of the **Configure** page of your web site.
+4.  按一下右下角的核取符號來儲存網域名稱設定。
 
-At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your Azure Web Site. 
+    完成設定之後，自訂網域名稱會列在網站 **[設定]** 頁面的 **[網域名稱]** 區段中。
+
+此時，您必須能在瀏覽器中輸入自訂網域名稱，並且能成功移至您的 Azure 網站。
+

@@ -214,7 +214,7 @@ Azure Storage Client Library for .NET 可支援使用儲存體連接字串，來
     2011/architecture/description.txt
     2011/photo7.jpg
 
- 當您在 \'photos\' 容器上呼叫 **ListBlobs** (如以上範例所示)，傳回的集合將包含 **CloudBlobDirectory** 和 **CloudBlockBlob** 物件，其分別代表最上層所包含的目錄和 Blob。以下是最終得到的輸出：
+ 當您在 'photos' 容器上呼叫 **ListBlobs** (如以上範例所示)，傳回的集合將包含 **CloudBlobDirectory** 和 **CloudBlockBlob** 物件，其分別代表最上層所包含的目錄和 Blob。以下是最終得到的輸出：
 
     Directory: https://<a ccountname>.blob.core.windows.net/photos/2010/
     Directory: https://<a ccountname>.blob.core.windows.net/photos/2011/

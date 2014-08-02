@@ -1,43 +1,44 @@
 
 
-Now that authentication is required to access data in the TodoItem table, you can use the userID value assigned by Mobile Services to filter returned data.
+既然需要驗證才能存取 TodoItem 資料表的資料，您可以使用行動服務指派的 userID 值來篩選傳回的資料。
 
->[WACOM.NOTE]The methods below should have the **RequiresAuthorizationAttribute** applied at the **User** **Authorizationlevel**. This restricts table access to only authenticated users.
+> [WACOM.NOTE] 下列方法應該在 **User** **Authorizationlevel** 上套用 **RequiresAuthorizationAttribute**。這會限制只有經過驗證的使用者才可以存取資料表。
 
-1. In Visual Studio 2013, open your mobile service project, expand the DataObjects folder, then open the TodoItem.cs project file.
+1.  在 Visual Studio 2013，開啟行動服務專案，展開 DataObjects 資料夾，然後開啟 TodoItem.cs project 檔案。
 
-	The TodoItem class defines the data object, and you need to add a UserId property to use for filtering.
+    TodoItem 類別可定義資料物件，而且您需要新增 UserId 屬性才能使用於篩選。
 
-2. Add the following new UserId property to the **TodoItem** class:
+2.  將下列新 UserId 屬性新增至 **TodoItem** 類別：
 
-		public string UserId { get; set; }
+         public string UserId { get; set; }
 
-	>[WACOM.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. The default initializer cannot be used against a SQL Database in Azure. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).
+    > [WACOM.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。無法針對 Azure 中的 SQL Database 使用預設的初始設定式。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations) (英文)。
 
-3. In Solution Explorer, expand the Controllers folder, open the TodoItemController.cs project file, and add the following **using** statement:
+3.  在 [方案總管] 中，展開 Controllers 資料夾，開啟 TodoItemController.cs 專案檔案，再加入下列 **using** 陳述式：
 
-		using Microsoft.WindowsAzure.Mobile.Service.Security;
+         using Microsoft.WindowsAzure.Mobile.Service.Security;
 
-	The **TodoItemController** class implements data access for the TodoItem table. 
- 
-4. Locate the **PostTodoItem** method and add the following code at the end right before the **return** statement:
+    **TodoItemController** 類別會實作 TodoItem 資料表的資料存取。
 
-		// Get the logged-in user.
-	    var currentUser = User as ServiceUser;
-	
-	    // Set the user ID on the item.
-	    item.UserId = currentUser.Id;
+4.  尋找 **PostTodoItem** 方法，並在 **return** 陳述式前的最右側新增下列程式碼：
 
-    This code adds a UserId value to the item, which is the user ID of the authenticated user, before it is inserted into the TodoItem table. 
-	
+         // Get the logged-in user.
+        var currentUser = User as ServiceUser;
 
-5. Locate the **GetAllTodoItems** method and replace the existing **return** statement with the following line of code:
+        // Set the user ID on the item.
+        item.UserId = currentUser.Id;
 
-        // Get the logged-in user.
+    在將 UserId 值 (這就是經驗證使用者的使用者識別碼) 插入 TodoItem 資料表之前，此程式碼會先將此值新增至項目。
+
+5.  尋找 **GetAllTodoItems** 方法，並使用下行程式碼取代現有的 **return** 陳述式：
+
+         // Get the logged-in user.
         var currentUser = User as ServiceUser;
 
         return Query().Where(todo => todo.UserId == currentUser.Id);
 
-   	This query filters the returned TodoItem objects so that each user only receives the items that they inserted. You can optionally 
+	此查詢會篩選傳回的 TodoItem 物件，因此每位使用者只會收到他們所插入的項目。
 
-6. Republish the mobile service project to Azure.
+6.  將行動服務專案重新發佈至 Azure。
+
+

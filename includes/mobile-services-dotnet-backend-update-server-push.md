@@ -1,25 +1,29 @@
-1. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile service project. Open TodoItemController.cs and update the `PostTodoItem` method definition with the following code:  
+<ol>
 
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-        {
-            TodoItem current = await InsertAsync(item);
-            WindowsPushMessage message = new WindowsPushMessage();
-            message.XmlPayload = @"<?xml version=""1.0"" encoding=""utf-8""?>" +
-                                 @"<toast><visual><binding template=""ToastText01"">" +
-                                 @"<text id=""1"">" + item.Text + @"</text>" +
-                                 @"</binding></visual></toast>";
-            try
-            {
-                var result = await Services.Push.SendAsync(message);
-                Services.Log.Info(result.State.ToString());
-            }
-            catch (System.Exception ex)
-            {
-                Services.Log.Error(ex.Message, null, "Push.SendAsync Error");
-            }
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
-        }
+1.  在 Visual Studio 的 [方案總管] 中，展開行動服務專案中的 **Controllers** 資料夾。開啟 TodoItemController.cs，並以下列程式碼更新 `PostTodoItem` 方法定義：
 
-    This code will send a push notification (with the text of the inserted item) after inserting a todo item. In the event of an error, the code will add an error log entry which is viewable on the **Logs** tab of the mobile service in the Management Portal.
+         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
+         {
+        TodoItem current = await InsertAsync(item);
+        WindowsPushMessage message = new WindowsPushMessage();
+        message.XmlPayload = @"<
+         xml version=""1.0"" encoding=""utf-8""
+         >" +
+        @"<toast><visual><binding template=""ToastText01"">" +
+        @"<text id=""1"">" + item.Text + @"</text>" +
+        @"</binding></visual></toast>";
+        try
+             {
+        var result = await Services.Push.SendAsync(message);
+        Services.Log.Info(result.State.ToString());
+             }
+        catch (System.Exception ex)
+             {
+        Services.Log.Error(ex.Message, null, "Push.SendAsync Error");
+             }
+        return CreatedAtRoute("Tables", new { id = current.Id }, current);
+         }
+
+    此程式碼會在插入 Todo 項目之後傳送推播通知 (含所插入項目的文字)。如果發生錯誤，程式碼將會新增可透過管理入口網站從行動服務的 **[記錄檔]** 索引標籤來檢視的錯誤記錄項目。
 
 

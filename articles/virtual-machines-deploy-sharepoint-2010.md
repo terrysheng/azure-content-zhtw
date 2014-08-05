@@ -1,414 +1,414 @@
 <properties linkid="manage-windows-other-resource-sharepoint-wp" urlDisplayName="SharePoint on Azure" pageTitle="SharePoint 2010 Deployment on Azure Virtual Machines" metaKeywords="" description="Understand the supported scenarios for using SharePoint 2010 on Azure virtual machines." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint Deployment on Azure Virtual Machines" authors="" solutions="" manager="" editor="" />
 
-Azure 가상 컴퓨터에 SharePoint 배포
-===================================
+在 Azure 虛擬機器上部署 SharePoint
+==================================
 
-요약
-----
+執行摘要
+--------
 
-Microsoft SharePoint Server 2010은 조직에서 비즈니스 요구와 목표에 맞춰 올바른 배포 시나리오를 결정할 수 있도록 다양한 배포 유연성을 제공합니다. 클라우드에서 호스트되고 관리되는 Azure 가상 컴퓨터는 완전하고 신뢰할 수 있으며 사용 가능한 인프라를 제공하여 다양한 주문형 응용 프로그램 및 데이터베이스 작업(예: Microsoft SQL Server 및 SharePoint 배포)을 지원합니다.
+Microsoft SharePoint Server 2010 提供充足的部署彈性，可協助組織依據其商業需求和目標，擬定出正確的部署方式。Azure 虛擬機器產品在雲端中受到代管與管理，能夠提供完整、可靠而適用的基礎結構來支援不同的隨需應用程式和資料庫工作負載，例如 Microsoft SQL Server 和 SharePoint 部署。
 
-Azure 가상 컴퓨터는 여러 작업을 지원하지만 이 문서에서는 SharePoint 배포에 중점을 둡니다. Azure 가상 컴퓨터를 통해 조직은 SharePoint 인프라를 만들고 관리하여 거의 모든 호스트를 빠르게 프로비전하고 해당 호스트에 액세스할 수 있습니다. 또한 SharePoint VM(가상 컴퓨터)의 프로세서, RAM, CPU 범위 및 기타 리소스에 대해 모든 권한을 갖고 관리할 수 있습니다.
+雖然 Azure 虛擬機器支援多種工作負載，但此文件將著重於 SharePoint 部署。Azure 虛擬機器可讓組織快速建立及管理其 SharePoint 基礎結構，而幾乎對所有類型的主機都可佈建和存取。它可用來充分掌控及管理 SharePoint 虛擬機器 (VM) 的處理器、RAM、CPU 範圍和其他資源。
 
-Azure 가상 컴퓨터가 하드웨어에 대한 요구를 줄여주므로 조직은 높은 선행 투자 비용과 복잡성 처리에서 적정 규모의 인프라 빌드 및 관리로 관심사를 전환할 수 있습니다. 즉, 며칠 또는 몇 주가 걸리던 기존 배포를 몇 시간 내로 혁신하고 실험해 보고 반복할 수 있습니다.
+Azure 虛擬機器可降低硬體需求，讓組織無須再煩惱先期成本和複雜性偏高的問題，而專注於建置及管理具規模的基礎結構。這表示，他們可在短短幾小時內完成新方案的採納、實驗和檢測，而不像傳統部署需要數天或數週。
 
-### 이 문서의 대상
+### 哪些人應閱讀此文件？
 
-이 문서는 IT 전문가를 대상으로 합니다. 또한 시스템 설계자 및 관리자와 같은 기술 관련 의제 결정권자는 이 문서의 정보와 제공된 시나리오를 사용하여 Azure에서 가상화된 SharePoint 인프라를 계획하고 설계할 수 있습니다.
+本文件的適用對象是 IT 專業人員。再者，技術決策人員 (例如架構設計人員和系統管理員) 也可利用這項資訊和提供的案例，在 Azure 上規劃及設計虛擬化的 SharePoint 基礎結構。
 
-### 이 문서를 읽어야 하는 이유
+### 為何要閱讀此文件？
 
-이 문서에서는 조직이 Azure 가상 컴퓨터 내에서 SharePoint를 설정하고 배포할 수 있는 방법을 설명합니다. 또한 이런 유형의 배포가 다양한 규모의 조직에 유용할 수 있는 이유에 대해서도 논의합니다.
+此文件將說明組織如何在 Azure 虛擬機器內設定及部署 SharePoint。此外也會討論此類型的部署為何對多種規模的組織都有好處。
 
-클라우드 컴퓨팅으로 이동
-------------------------
+改用雲端運算
+------------
 
-Gartner에 따르면 클라우드 컴퓨팅은 "인터넷 기술을 사용하여 외부 고객에게 방대하게 확장 가능한 IT 사용 기능을 '서비스로' 제공하는 컴퓨팅 스타일"로 정의할 수 있습니다. 이 정의에서 중요한 단어는 확장 가능성, 서비스 및 인터넷입니다. 요약하면 클라우드 컴퓨팅은 **인터넷을 통해 배포 및 제공되며** **주문형으로 확장 가능한** IT 서비스로 정의할 수 있습니다.
+根據 Gartner 的定義，雲端運算是指「透過網際網路技術，以服務的形式將高度延展性的 IT 功能遞送給外部客戶的運算模式」。在此定義中，最重要的就是延展性、服務和網際網路這三個詞彙。簡言之，雲端運算可定義為**透過網際網路部署及遞送**、並且**可隨需延展**的 IT 服務。
 
-명백하게 클라우드 컴퓨팅은 오늘날 IT의 중요한 변화를 나타냅니다. 얼마 전까지만 해도 통합과 비용이 주요 관심사였습니다. 그러나 오늘날의 담론은 클라우드 컴퓨팅에서 제공할 수 있는 새로운 종류의 혜택에 대한 것입니다. 즉, IT에서 새로운 유형의 기능을 활용하여 조직에 제공하는 방법을 완전히 바꾸는 것에 대해서만 얘기합니다. 클라우드 컴퓨팅은 IT 세계를 근본적으로 변화시켜 서비스 공급자와 시스템 설계자로부터 개발자와 최종 사용자에 이르기까지 모든 역할에 영향을 주고 있습니다.
+不可否認，雲端運算顯示出現今的 IT 環境正面臨重大轉變。過去，大家都在談整合和成本。而現在，我們關心的是雲端運算能帶來哪些新型態的優勢。大家都想知道，如何運用這股新力量，轉變 IT 為組織提供服務的方式。雲端運算完全改變了 IT 世界，且影響所及遍佈於各種角色，從服務提供者、系統架構設計人員、開發人員到一般使用者，都受到影響。
 
-연구 결과에 따르면 기민성, 집중성 및 경제성이 클라우드 채택의 세 가지 주요 요인입니다.
+據研究顯示，靈活性、專注性和經濟性是大家採用雲端的三大誘因：
 
--   **기민성**: 클라우드 컴퓨팅은 새로운 기회를 활용하고 비즈니스 요구의 변화에 대응하는 조직의 능력을 가속화할 수 있습니다.
+-   **靈活性**：雲端運算有助於組織快速掌握新商機，以及因應商業需求的變動。
 
--   **집중성**: 클라우드 컴퓨팅은 IT 부서가 인프라 비용을 확연하게 줄일 수 있도록 합니다. 인프라를 추출하고 리소스를 풀링하므로 IT 부서가 복잡한 서비스와 시스템 모음이 아니라 유틸리티처럼 실행됩니다. 또한 IT 부서는 더 획기적이고 전략적인 역할로 전환할 수 있습니다.
+-   **專注性**：雲端運算讓 IT 部門的基礎結構成本得以大幅下降。在基礎結構精簡化和資源集區化後，IT 的運作模式比較像是公用程式，而不再是各種複雜服務和系統的集合。此外，IT 現在已可轉換為較具創造力和策略性的角色。
 
--   **경제성**: 클라우드 컴퓨팅은 IT를 제공하는 비용을 낮추고 데이터 센터의 사용률과 효율성을 높입니다. 클라우드 컴퓨팅을 통해 응용 프로그램 및 리소스가 셀프 서비스 방식이 되고 이러한 리소스의 사용이 새롭고 정확한 방식으로 측정 가능하게 되므로 배달 비용이 줄어듭니다. 또한 이제는 인프라 리소스(저장, 계산 및 네트워크)를 풀링하고 간소화하므로 하드웨어 사용률도 증가합니다.
+-   **經濟性**：雲端運算可降低遞送 IT 資源的成本，並提高資料中心的利用率與效益。遞送成本之所以能下降，是因為採用雲端運算時，應用程式和資源都變得可自助使用，且這些資源的使用也可藉由更新、更精確的方式變得更為恰當。硬體使用率也得以提升，因為基礎結構資源 (儲存體、運算工具和網路) 現已集區化和精簡化。
 
-클라우드 서비스의 배달 모델
----------------------------
+雲端服務的遞送模式
+------------------
 
-간단히 말하면 클라우드 컴퓨팅은 IT 서비스를 추출한 것입니다. 이러한 서비스의 범위는 기본 인프라에서 완전한 응용 프로그램까지 다양할 수 있습니다. 최종 사용자는 추출된 서비스를 구성하는 요소를 관리할(또는 요소에 대해 완벽하게 알) 필요없이 해당 서비스를 요청하고 사용합니다. 현재 업계에서는 클라우드 서비스로 다음과 같은 세 가지 배달 모델을 인정하며, 각 모델은 제어/유연성과 총비용 측면에서 뚜렷한 장단점을 제공합니다.
+簡單來說，雲端運算就是 IT 服務的擷取。這些服務的範圍很廣，從基本的基礎結構到完整的應用程式，都包含在內。使用者可直接要求及取用擷取的服務，而無須管理 (甚至完全不用瞭解) 這些服務的組成要素。業界目前認可的雲端服務遞送模式有三種，每種模式在控制性/彈性與整體成本之間各有不同的取捨：
 
--   **IaaS(Infrastructure as a Service)**: 가상 컴퓨터와 대부분의 기존 응용 프로그램을 호스트하는 가상 인프라
+-   **基礎結構即服務** (IaaS)：代管虛擬機器和大多數現有應用程式的虛擬基礎結構。
 
--   **PaaS(Platform as a Service)**: 주문형 응용 프로그램 호스팅 환경을 제공하는 클라우드 응용 프로그램 인프라
+-   **平台即服務** (PaaS)：可提供隨需應用程式代管環境的雲端應用程式基礎結構。
 
--   **SaaS(Software as a Service)**: 응용 프로그램이 인터넷을 통해 제공되며 고객은 사용량에 따라 결제하는 클라우드 서비스 모델(예: Microsoft Office 365 또는 Microsoft CRM Online)
+-   **軟體即服務** (SaaS)：在這種雲端服務模式中，應用程式會透過網際網路來遞送，而客戶則依使用量付款 (例如 Microsoft Office 365 或 Microsoft CRM Online)。
 
-그림 1은 클라우드 서비스 분류법 및 IT 인프라의 구성 요소에 매핑하는 방법을 보여 줍니다. 온-프레미스 모델에서 고객은 네트워크 연결부터 응용 프로그램까지 전체 스택을 관리하는 책임이 있습니다. IaaS에서는 고객이 응용 프로그램을 통해 운영 체제를 관리하는 책임이 있지만 낮은 수준의 스택은 공급업체에서 관리합니다. PaaS에서는 플랫폼 공급업체가 런타임을 통해 네트워크 연결의 모든 요소를 제공하고 관리합니다. 고객은 응용 프로그램 및 데이터만 관리하면 됩니다. Azure 제공은 이 모델에 가장 적합합니다. 마지막으로 SaaS에서는 공급업체가 응용 프로그램을 제공하며 모든 기본 구성 요소의 모든 서비스를 추출합니다.
+圖 1 說明雲端服務的分類，以及這些分類如何對應至 IT 基礎結構中的元件。在內部部署模式中，客戶須負責管理整個架構，包括網路連線乃至於應用程式。使用 IaaS 時，較低層級的架構可由供應商管理，而客戶則負責管理作業系統和應用程式。使用 PaaS 時，從網路連線到執行階段一切都由平台供應商負責提供及管理。客戶只需管理應用程式和資料即可。(Azure 產品最適合採用此模式。)最後，在 SaaS 中，供應商會負責提供應用程式，以及擷取來自各種基礎元件的所有服務。
 
-그림 1: 클라우드 서비스 분류법
+圖 1：雲端服務分類
 
 ![azure-sharepoint-wp-1](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-1.png)
 
-Azure 가상 컴퓨터
------------------
+Azure 虛擬機器
+--------------
 
-Azure 가상 컴퓨터는 광범위한 가상 네트워킹과 함께 VM에 대해 모든 권한을 갖고 관리할 수 있는 기능을 도입했습니다. 이러한 제공은 조직에 다음과 같은 강력한 혜택을 제공할 수 있습니다.
+Azure 虛擬機器所提供的功能，可充分掌控及管理 VM 和範圍廣大的虛擬網路。這項產品可為組織帶來可觀的效益，例如：
 
--   **관리**: 모든 권한을 갖고 클라우드의 VM을 중앙에서 관리하여 인프라를 구성하고 관리할 수 있습니다.
+-   **管理**：以充分的控制能力集中管理 VM，以設定和維護基礎結構。
 
--   **응용 프로그램 이동성**: VHD(가상 하드 드라이브)를 온-프레미스와 클라우드 기반 환경 간에 서로 이동할 수 있습니다. 클라우드에서 응용 프로그램을 실행하기 위해 다시 빌드하지 않아도 됩니다.
+-   **應用程式行動性**：讓虛擬硬碟 (VHD) 能夠往返於內部部署與雲端環境之間。應用程式無須重新建置，即可在雲端中執行。
 
--   **Microsoft 서버 응용 프로그램에 액세스**: Microsoft SQL Server, SharePoint Server, Windows Server 및 Active Directory를 포함하여 클라우드에서 동일한 온-프레미스 응용 프로그램 및 인프라를 실행할 수 있습니다.
+-   **對 Microsoft 伺服器應用程式的存取**：在雲端中可執行相同的內部部署應用程式和基礎結構，包括 Microsoft SQL Server、SharePoint Server、Windows Server 和 Active Directory。
 
-Azure 가상 컴퓨터는 조직에서 Windows Server 및 Linux VM을 몇 분 내에 배포하여 실행할 수 있는 간편하고 유연하며 강력한 개방형 플랫폼입니다.
+Azure 虛擬機器是簡單、開放、彈性而功能強大的平台，讓組織在短短幾分鐘內即可部署及執行 Windows Server 和 Linux VM：
 
--   **간편성**: Azure 가상 컴퓨터를 통해 클라우드에서 VM을 쉽고 간단하게 빌드하고 마이그레이션하고 배포하고 관리할 수 있습니다. 조직은 기존 코드를 변경하지 않고도 작업을 Azure로 마이그레이션할 수 있으며 몇 번의 클릭만으로 Azure에서 새 VM을 설정할 수 있습니다. 또한 이 제공은 Azure의 IaaS 및 PaaS 기능을 통합하여 새 클라우드 응용 프로그램 개발을 위한 지원을 제공합니다.
+-   **簡單**：透過 Azure 虛擬機器，將可輕易地在雲端中建置、移轉、部署及管理 VM。組織可直接將工作負載移轉至 Azure 而無須變更現有程式碼，也可以透過簡單的操作在 Azure 中設定新的 VM。此產品也可整合 Azure 的 IaaS 與 PaaS 功能，以利開發新的雲端應用程式。
 
--   **개방성 및 유연성**: Azure는 조직에 유연성을 제공하는 개방형 플랫폼입니다. 이미지 갤러리의 미리 빌드된 이미지에서 시작하거나, 사용자 지정된 온-프레미스 VHD를 만들어 사용하고 이미지 라이브러리로 업로드할 수 있습니다. Linux의 커뮤니티 및 상용 버전도 사용할 수 있습니다.
+-   **開放且彈性**：Azure 是一個為組織提供充分彈性的開放平台。組織可使用映像庫中預先建置的映像，也可以建立及使用自訂和內部部署 VHD，並將其上傳至映像庫。此外也可使用 Linux 的社群和商用版本。
 
--   **강력함**: Azure는 클라우드에서 SQL Server, SharePoint Server 또는 Active Directory와 같은 응용 프로그램을 실행하는 기업에도 적합한 클라우드 플랫폼입니다. 조직은 Azure 데이터 센터와 자체 네트워크 간 VPN 연결을 사용하여 온-프레미스와 클라우드의 하이브리드 솔루션을 만들 수 있습니다.
+-   **功能強大**：Azure 是一個企業級的雲端平台，可用來在雲端中執行 SQL Server、SharePoint Server 或 Active Directory 等應用程式。組織可透過 VPN 連線，在 Azure 資料中心與本身的網路之間建立混合式內部部署和雲端解決方案。
 
-Azure 가상 컴퓨터의 SharePoint
-------------------------------
+Azure 虛擬機器上的 SharePoint
+-----------------------------
 
-SharePoint 2010은 Azure 가상 컴퓨터 배포의 대부분 작업을 유연하게 지원합니다. Azure 가상 컴퓨터는 FIS(인터넷 사이트용 SharePoint Server) 및 개발 시나리오에 최적입니다. 마찬가지로 핵심 SharePoint 작업도 지원합니다. 클라우드에서 가상화를 위한 옵션을 활용하는 동안 자체 SharePoint 2010 구현을 관리하고 제어하려는 경우 Azure 가상 컴퓨터가 배포에 가장 적합합니다.
+SharePoint 2010 可彈性支援 Azure 虛擬機器部署中大部分的工作負載。對 FIS (SharePoint Server for Internet Sites) 與開發而言，Azure 虛擬機器是絕佳的搭配。同樣地，核心 SharePoint 工作負載也受支援。如果組織想要控管本身的 SharePoint 2010 實作，同時利用雲端中的虛擬化功能，在 Azure 虛擬機器上部署將是理想的選擇。
 
-Azure 가상 컴퓨터 제공은 클라우드에서 호스트되고 관리됩니다. 따라서 배포 유연성이 확보되며 하드웨어 조달에 따른 자본 지출이 줄어들어 전반적인 비용이 감소됩니다. 또한 인프라 기민성이 늘어나 SharePoint Server를 며칠 또는 몇 주가 아닌 몇 시간 내에 배포할 수 있습니다. Azure 가상 컴퓨터를 통해 "종량제" 모델을 사용하여 클라우드에서 SharePoint 작업을 배포할 수도 있습니다. SharePoint 작업이 증가함에 따라 인프라를 빠르게 확장할 수 있으며, 이후 컴퓨팅 요구가 줄어들 경우 더 이상 필요하지 않은 리소스를 반환할 수 있으므로 사용하고 있는 리소스에 대해서만 결제할 수 있습니다.
+Azure 虛擬機器產品會在雲端中受到託管和管理。此方式可提供部署彈性，並減少因硬體購置而產生的資本支出，進而降低成本。受惠於基礎結構靈活性的提升，組織將可在短短幾小時內完成 SharePoint Server 的部署，而不需要數天或數週。Azure 虛擬機器也可讓組織採用「隨收隨付」模式，在雲端中部署 SharePoint 工作負載。當 SharePoint 工作負載增加時，組織可以快速擴充基礎結構；而在運算需求下降時，組織則可退回無須再使用的資源，而僅就使用的部分付費。
 
-### IT 중점의 이동
+### IT 焦點的轉移
 
-대부분의 조직은 SharePoint Server와 같은 중요 업무용 응용 프로그램의 제어를 유지 관리하면서 하드웨어, 운영 체제, 보안, 데이터 저장소 및 백업과 같은 IT 인프라 및 관리의 일반 구성 요소는 외부 업체에 맡기는 계약을 합니다. IT 플랫폼의 중요하지 않은 모든 업무용 서비스 계층을 가상 공급자에게 위임함으로써 핵심적인 중요 업무용 SharePoint 서비스로 IT 중점을 이동하여 인프라를 설정하는 데 많은 시간을 소비하는 대신 SharePoint 프로젝트로 비즈니스 가치를 제공할 수 있습니다.
+有許多組織將其 IT 基礎結構和管理的一般元件委外處理 (例如硬體、作業系統、安全性、資料儲存和備份)，而對於關鍵應用程式則選擇自行控管 (例如 SharePoint Server)。將 IT 平台的所有非關鍵服務層面委派給虛擬服務提供者後，組織即可將其 IT 重點工作轉移至關鍵的核心 SharePoint 服務，並且以 SharePoint 專案提供商業價值，而無須在基礎結構的設定上耗費太多時間。
 
-### 신속한 배포
+### 更快速的部署
 
-대규모 SharePoint 인프라를 지원하고 배포하는 작업은 비즈니스 요구 사항을 지원하기 위해 빠르게 이동하는 IT 기능을 제한할 수 있습니다. SharePoint 서버 및 팜을 빌드, 테스트 및 준비하고 프로덕션 환경에 배포하는 데 필요한 시간은 조직의 프로세스 및 제약 조건에 따라 몇 주 또는 심지어 몇 개월이 걸릴 수 있습니다. Azure 가상 컴퓨터를 통해 조직은 하드웨어에 대한 자본 지출 없이 SharePoint 작업을 빠르게 배포할 수 있습니다. 이런 방식으로 인프라 기민성을 활용하여 며칠 또는 몇 주가 아니라 몇 시간 내에 배포할 수 있습니다.
+支援及部署大型 SharePoint 基礎結構，可能會拖累 IT 快速支援商業需求的機動性。要建置、測試及準備 SharePoint 伺服器和伺服器陣列，並將其部署至實際執行環境，可能需要數週甚至數個月的時間，視組織的處理程序和限制而定。Azure 虛擬機器可讓組織快速部署其 SharePoint 工作負載，且無須額外購置硬體。如此，組織將可充分利用基礎結構的靈活性，在短短幾小時內完成部署，而不需要數天或數週。
 
-### 확장성
+### 延展性
 
-조직은 실제 SharePoint 서버 및 팜을 배포, 테스트 및 준비할 필요없이 컴퓨팅 용량을 즉시 주문형으로 확장하고 계약할 수 있습니다. SharePoint 작업 요구 사항이 증가함에 따라 클라우드에서 인프라를 빠르게 확장할 수 있습니다. 마찬가지로 컴퓨팅 요구가 감소하는 경우 리소스를 줄이고 사용하는 리소스에 대해서만 결제할 수 있습니다. Azure 가상 컴퓨터가 선행 투자 경비와 장기간 비용 투입을 줄여주므로 SharePoint 인프라를 적절한 규모로 빌드하고 관리할 수 있습니다. 다시 한 번 말하자면, 조직은 며칠 또는 몇 주가 아니라 몇 시간 내에 기존 배포를 혁신하고 실험해 보고 반복할 수 있습니다.
+組織在省去部署、測試及準備實體 SharePoint 伺服器和伺服器陣列等工作後，將可依需求即時擴充及縮減運算容量。當 SharePoint 工作負載需求上升時，組織可快速擴充其雲端中的基礎結構。同理，當運算需求減少時，組織可以縮減資源，而僅就使用的部分付費。Azure 虛擬機器可降低先期費用和長期負擔，讓組織得以建置及管理具規模的 SharePoint 基礎結構。同樣地，這表示這些組織可在短短幾小時內完成新方案的採納、實驗和檢測，而不像傳統部署需要數天或數週。
 
-### 요금제 사용
+### 使用計量
 
-Azure 가상 컴퓨터는 일반적으로 리소스 사용에 따라 가격이 책정되는 SharePoint 시나리오의 컴퓨팅 기능, 메모리 및 저장소를 제공합니다. 조직은 사용하는 항목에 대해서만 결제하며, 서비스는 SharePoint 인프라를 실행하는 데 필요한 모든 용량을 제공합니다. 가격 책정 및 대금 청구에 대한 자세한 내용을 보려면 [Azure 가격 책정 세부 정보](/en-us/pricing/details/)로 이동하십시오. 온-프레미스 네트워크에서 Azure 클라우드 외부로 이동하는 저장소 및 데이터에 대해서는 명목상의 요금만 청구합니다. 그러나 데이터 업로드 요금은 청구하지 않습니다.
+Azure 虛擬機器可為 SharePoint 案例提供運算功能、記憶體和儲存體，而其價格通常以資源用量為基礎。組織僅需就使用的部分付費，且服務會提供所有執行 SharePoint 基礎結構所需的功能。如需定價和計費的詳細資訊，請參閱 [Azure 定價詳細資料](/en-us/pricing/details/)。請注意，從內部部署網路將 Azure 雲端中的儲存體和資料移出時，須收取少許費用。但 Azure 不會對上傳資料收費。
 
-### 유연성
+### 彈性
 
-Azure 가상 컴퓨터는 .NET, Node.js, Java 및 PHP에 대한 공식적인 지원을 통해 개발자에게 원하는 언어 또는 런타임 환경을 선택할 수 있는 유연성을 제공합니다. 또한 개발자는 Microsoft Visual Studio, WebMatrix, Eclipse 및 텍스트 편집기를 지원하는 자신의 도구를 선택할 수 있습니다. 더 나아가 Microsoft는 장치 및 위치를 통해 BI(비즈니스 인텔리전스)에 대한 액세스를 제공하여 클라우드에 저비용, 저위험 경로를 제공하며 클라우드 보고 요구를 위해 비용 효율적인 간편한 프로비전 및 배포를 지원합니다. 마지막으로 Azure 제공을 통해 사용자는 적절한 라이선스를 보유하고 있는 한 VHD를 클라우드로 이동할 수 있으며 VHD를 다시 복사하여 로컬에서 또는 다른 클라우드 공급자를 통해 실행할 수 있습니다.
+Azure 虛擬機器可讓開發人員有彈性地選擇其所需的語言或執行階段環境，並且也提供對 .NET、Node.js、Java 和 PHP 的正式支援。開發人員也可選擇支援 Microsoft Visual Studio、WebMatrix、Eclipse 和文字編輯器的工具。此外，Microsoft 也提供低成本、低風險的雲端使用途徑，以及易於佈建和部署的雲端報告功能，讓使用者能夠在各種裝置和位置上存取商業智慧 (BI)。最後，透過 Azure 產品，使用者不僅可將 VHD 移至雲端，也可將 VHD 重新複製到本機上執行，或透過其他雲端提供者執行 (必須取得相關授權)。
 
-프로비전 프로세스
------------------
+佈建程序
+--------
 
-이 하위 섹션에서는 Azure의 기본적인 강점에 대해 논의합니다. Azure의 **이미지 갤러리**는 미리 구성된 사용 가능한 VM의 목록을 제공합니다. 사용자는 SharePoint Server, SQL Server, Windows Server 및 기타 ISO/VHD를 이미지 갤러리에 게시할 수 있습니다. VM 만들기를 간소화하기 위해 기본 이미지를 만들어 라이브러리에 게시했습니다. 권한 있는 사용자는 이러한 이미지를 사용하여 원하는 VM을 생성할 수 있습니다. 자세한 내용을 보려면 Azure 사이트의 [Windows Server 2008 R2를 실행하는 가상 컴퓨터 만들기](/en-us/manage/windows/tutorials/virtual-machine-from-gallery/)로 이동하십시오. 그림 2는 Azure 관리 포털에서 VM을 만드는 기본 단계를 보여 줍니다.
+本小節將討論 Azure 的基本架構。Azure 中的**映像庫**會提供預先配置的可用 VM 清單。使用者可將 SharePoint Server、SQL Server、Windows Server 和其他 ISO/VHD 發佈至映像庫。為簡化 VM 的建立作業，系統會建立基礎映像，並將其發佈至映像庫。授權使用者可使用這些映像產生所需的 VM。如需詳細資訊，請移至 Azure 網站上的[建立執行 Windows Server 2008 R2 的虛擬機器](/en-us/manage/windows/tutorials/virtual-machine-from-gallery/)。圖 2 顯示使用 Azure 管理入口網站建立 VM 的基本步驟：
 
-그림 2: VM을 만드는 단계 개요
+圖 2：VM 建立步驟概觀
 
 ![azure-sharepoint-wp-2](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png)
 
-사용자는 Azure 관리 포털에서 Sysprep을 실행한 이미지를 업로드할 수도 있습니다. 자세한 내용을 보려면 [가상 하드 디스크 만들기 및 업로드](/en-us/manage/windows/common-tasks/upload-a-vhd/)로 이동하십시오. 그림 3은 VM을 만들 이미지를 업로드하는 기본 단계를 보여 줍니다.
+使用者也可在 Azure 管理入口網站上傳已執行過 Sysprep 的映像。如需詳細資訊，請移至[建立和上傳虛擬硬碟](/en-us/manage/windows/common-tasks/upload-a-vhd/)。圖 3 顯示上傳映像以建立 VM 的基本步驟：
 
-그림 3: 이미지 업로드 단계 개요
+圖 3：映像上傳步驟概觀
 
 ![azure-sharepoint-wp-3](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-3.png)
 
-### Azure에서 SharePoint 2010 배포
+### 在 Azure 上部署 SharePoint 2010
 
-다음 단계에 따라 Azure에서 SharePoint 2010을 배포할 수 있습니다.
+您可以依照下列步驟，在 Azure 上部署 SharePoint 2010：
 
-1.  계정을 사용하여 [Azure 관리 포털](http://manage.windowsazure.com/)에 로그온합니다.
-    -   Azure 계정이 없는 경우 [Azure 무료 평가판에 등록합니다](http://www.windowsazure.com/en-us/pricing/free-trial/).
+1.  使用您的帳戶登入 [Azure 管理入口網站](http://manage.windowsazure.com/)。
+    -   如果您沒有 Azure 帳戶，請[註冊 Azure 的免費試用版](http://www.windowsazure.com/en-us/pricing/free-trial/)。
 
-2.  기본 운영 체제가 있는 VM 만들기: Azure 관리 포털에서 **+새로 만들기**를 클릭하고 **가상 컴퓨터**를 클릭한 다음 **갤러리에서**를 클릭합니다. ![azure-sharepoint-wp-4](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-4.png)
-3.  **VM OS 선택** 대화 상자가 나타납니다. **플랫폼 이미지**를 클릭하고 **Windows Server 2008 R2 SP1** 플랫폼 이미지를 선택합니다. ![azure-sharepoint-wp-5](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-5.png)
-4.  ***VM 구성*** 대화 상자가 나타납니다. 다음 정보를 지정합니다.
-    -   **가상 컴퓨터 이름**을 입력합니다.
-        -   이 가상 컴퓨터 이름은 전 세계적으로 고유해야 합니다.
-    -   **새 사용자 이름** 상자의 Administrator를 그대로 둡니다.
-    -   **새 암호** 상자에 강력한 암호를 입력합니다.
-    -   **암호 확인** 상자에 암호를 다시 입력합니다.
-    -   해당 **크기**를 선택합니다.
-        -   프로덕션 환경(SharePoint 응용 프로그램 서버 및 데이터베이스)의 경우 대규모*(4 코어, 7GB 메모리)*를 사용하는 것이 좋습니다.
+2.  以基礎作業系統建立 VM：在 Azure 管理入口網站上，依序按一下 **[+新增]**、**[虛擬機器]** 和 **[從組件庫]**。![azure-sharepoint-wp-4](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-4.png)
+3.  **[VM OS Selection]** 對話方塊隨即顯示。按一下 **[平台映像]**，然後選取 **Windows Server 2008 R2 SP1** 平台映像。![azure-sharepoint-wp-5](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-5.png)
+4.  ***[VM Configuration]*** 對話方塊隨即顯示。請提供下列資訊：
+    -   輸入 **[虛擬機器名稱]**。
+        -   此機器名稱應具有全域唯一性。
+    -   將 **[新增使用者名稱]** 方塊保留為 Administrator。
+    -   在 **[新密碼]** 方塊中，輸入強式密碼。
+    -   在 **[確認密碼]** 方塊中，重新輸入密碼。
+    -   選取適當的 **[大小]**。
+        -   對於實際執行環境 (SharePoint 應用程式伺服器和資料庫)，建議使用 [大] *(4 核心、7GB 記憶體)*。
 
     ![azure-sharepoint-wp-6](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-6.png)
-5.  ***VM 모드*** 대화 상자가 나타납니다. 다음 정보를 지정합니다.
-    -   독립 실행형 가상 컴퓨터를 선택합니다.
-    -   **DNS 이름** 상자에 선택한 DNS 이름의 첫 번째 부분을 입력합니다.
-        -   이 부분이 MyService1.cloudapp.net 형식의 이름을 완성합니다.
-    -   **저장소 계정** 상자에서 다음 중 하나를 선택합니다.
-        -   VHD 파일이 저장된 저장소 계정을 선택합니다.
-        -   저장소 계정을 자동으로 만들도록 선택합니다.
-            -   영역당 하나의 저장소 계정만 자동으로 만들어집니다. 이 설정으로 만든 다른 모든 VM이 이 저장소 계정에 저장됩니다.
-            -   20개의 저장소 계정으로 제한됩니다.
-            -   자세한 내용을 보려면 [Azure에서 저장소 계정 만들기](/en-us/manage/windows/common-tasks/upload-a-vhd/#createstorage)로 이동하십시오.
-    -   **지역/선호도 그룹/가상 네트워크** 상자에서 가상 이미지를 호스트할 영역을 선택합니다.
+5.  ***[VM Mode]*** 對話方塊隨即顯示。請提供下列資訊：
+    -   選取 [獨立虛擬機器]。
+    -   在 **[DNS 名稱]** 方塊中，提供您所選擇之 DNS 名稱的第一個部分。
+        -   此部分會以 MyService1.cloudapp.net 的格式完成名稱。
+    -   在 **[儲存體帳戶]** 方塊中，選擇下列其中一項：
+        -   選取用來存放 VHD 檔案的儲存體帳戶。
+        -   選擇自動建立儲存體帳戶。
+            -   每個區域只會自動建立一個儲存體帳戶。以此設定建立的所有其他 VM 都會在此儲存體帳戶中。
+            -   您的儲存體帳戶限制為 20 個。
+            -   如需詳細資訊，請移至[在 Azure 中建立儲存體帳戶](/en-us/manage/windows/common-tasks/upload-a-vhd/#createstorage)。
+    -   在 **[區域/同質群組/虛擬網路]** 方塊中，選取要代管此虛擬映像的區域。
 
     ![azure-sharepoint-wp-7](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-7.png)
-6.  ***VM 옵션*** 대화 상자가 나타납니다. 다음 정보를 지정합니다.
-    -   **가용성 집합** 상자에서 (없음)을 선택합니다.
-    -   약관을 읽고 동의합니다.
-    -   확인 표시를 클릭하여 VM을 만듭니다.
+6.  ***[VM Options]*** 對話方塊隨即顯示。請提供下列資訊：
+    -   在 **[可用性設定組]** 方塊中，選取 [(無)]。
+    -   閱讀並接受法律條款。
+    -   按一下核取記號以建立 VM。
 
     ![azure-sharepoint-wp-8](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-8.png)
-7.  ***VM 인스턴스*** 페이지가 나타납니다. VM이 만들어졌는지 확인합니다. ![azure-sharepoint-wp-9](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-9.png)
-8.  다음과 같이 VM 설정을 완료합니다.
-    -   원격 데스크톱을 사용하여 VM을 엽니다.
-    -   Azure 관리 포털에서 VM을 선택한 후 **대시보드** 페이지를 선택합니다.
-    -   **연결**을 클릭합니다.
+7.  ***[VM Instances]*** 頁面隨即顯示。驗證您的 VM 已成功建立。 ![azure-sharepoint-wp-9](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-9.png)
+8.  完成 VM 設定：
+    -   使用遠端桌面開啟 VM。
+    -   在 Azure 管理入口網站上選取您的 VM，然後選取 **[儀表板]** 頁面。
+    -   按一下 **[連接]**。
 
     ![azure-sharepoint-wp-10](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-10.png)
-9.  다음 옵션 중 하나를 사용하여 SQL Server VM을 빌드합니다.
-    -   위의 1 - 7단계에 따라(**3단계**는 예외) SQL Server 2012 VM을 만들어 Windows Server 2008 R2 SP1 이미지 대신 SQL Server 2012 이미지를 사용합니다. 자세한 내용을 보려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](/en-us/manage/windows/common-tasks/install-sql-server/)으로 이동하십시오.
-        -   이 옵션을 선택한 경우 설치를 사용자 지정할 수 있도록 프로비전 프로세스에서 SQL Server 2012 설치 파일의 복사본을 *C:\\SQLServer\_11.0\_Full* 디렉터리 경로에 저장합니다. 예를 들어 SQL Server 2012의 평가판 설치를, 라이선스 키를 사용하여 사용이 허가된 버전으로 변환할 수 있습니다.
-    -   SQL Server 시스템 준비 도구(SysPrep)를 사용하여 기본 운영 체제가 있는 VM(위의 1 - 7단계)에 SQL Server를 설치합니다. 자세한 내용을 보려면 [SysPrep을 사용하여 SQL Server 2012 설치](http://msdn.microsoft.com/en-us/library/ee210664.aspx)로 이동하십시오.
-    -   명령 프롬프트를 사용하여 SQL Server를 설치합니다. 자세한 내용을 보려면 [명령 프롬프트에서 SQL Server 2012 설치](http://msdn.microsoft.com/en-us/library/ms144259.aspx#SysPrep)로 이동하십시오.
-    -   지원되는 SQL Server 미디어와 라이선스 키를 사용하여 기본 운영 체제가 있는 VM(위의 1 - 7단계)에 SQL Server를 설치합니다.
+9.  使用下列任何選項建置 SQL Server VM：
+    -   依照前述的步驟 1 到 7 來建立 SQL Server 2012 VM，但**步驟 3** 除外；請使用 SQL Server 2012 映像，而不要使用 Windows Server 2008 R2 SP1 映像。如需詳細資訊，請移至[在 Azure 上佈建 SQL Server 虛擬機器](/en-us/manage/windows/common-tasks/install-sql-server/)。
+        -   當您選擇此選項時，佈建程序會在 *C:\\SQLServer\_11.0\_Full* 目錄路徑中保存 SQL Server 2012 安裝檔案的複本，供您自訂安裝之用。例如，您可以使用授權金鑰，將 SQL Server 2012 的評估版安裝轉換為授權版本。
+    -   使用 SQL Server 系統準備 (SysPrep) 工具，在基礎作業系統的 VM 上安裝 SQL Server (如前述步驟 1 到 7 所說明)。如需詳細資訊，請移至[使用 SysPrep 安裝 SQL Server 2012](http://msdn.microsoft.com/en-us/library/ee210664.aspx)。
+    -   使用命令提示字元安裝 SQL Server。如需詳細資訊，請移至[使用命令提示字元安裝 SQL Server 2012](http://msdn.microsoft.com/en-us/library/ms144259.aspx#SysPrep)。
+    -   使用支援的 SQL Server 媒體和您的授權金鑰，在基礎作業系統的 VM 上安裝 SQL Server (如前述步驟 1 到 7 所說明)。
 
-10. 다음 하위 단계를 사용하여 SharePoint 팜을 빌드합니다.
-    -   하위 단계 1: 스크립트 파일을 사용하여 Azure 구독을 구성합니다.
-    -   하위 단계 2: 기본 운영 체제가 있는 다른 VM을 만들어(위의 1 - 7단계) SharePoint 서버를 프로비전합니다. 이 VM에서 SharePoint 서버를 빌드하려면 다음 옵션 중 하나를 선택합니다.
-        -   SharePoint GUI를 사용하여 프로비전:
-            -   SharePoint 팜을 만들어 프로비전하려면 [Microsoft SharePoint Server 팜 만들기](http://technet.microsoft.com/en-us/library/ee805948.aspx#CreateConfigure)로 이동하십시오.
-            -   웹 서버 또는 응용 프로그램 서버를 팜에 추가하려면 [팜(SharePoint Server 2010)에 웹 서버 또는 응용 프로그램 서버 추가](http://technet.microsoft.com/en-us/library/cc261752.aspx)로 이동하십시오.
-            -   데이터베이스 서버를 기존 팜에 추가하려면 [기존 팜에 데이터베이스 서버 추가](http://technet.microsoft.com/en-us/library/cc262781)로 이동하십시오.
+10. 使用下列子步驟建置 SharePoint 伺服器陣列：
+    -   子步驟 1：使用指令檔設定 Azure 訂閱。
+    -   子步驟 2：以基礎作業系統建立另一個 VM (如前述步驟 1 到 7 所說明)，以佈建 SharePoint 伺服器。若要在此 VM 上建置 SharePoint 伺服器，請選擇下列其中一項：
+        -   使用 SharePoint GUI 進行佈建：
+            -   若要建立及佈建 SharePoint 伺服器陣列，請移至[建立 Microsoft SharePoint Server 伺服器陣列](http://technet.microsoft.com/en-us/library/ee805948.aspx#CreateConfigure)。
+            -   若要在伺服器陣列中新增 Web 或應用程式伺服器，請移至[新增 Web 或應用程式伺服器至伺服器陣列 (SharePoint Server 2010)](http://technet.microsoft.com/en-us/library/cc261752.aspx)。
+            -   若要在現有的伺服器陣列中新增資料庫伺服器，請移至[新增資料庫伺服器至現有的伺服器陣列](http://technet.microsoft.com/en-us/library/cc262781)。
 
-                -   SharePoint 팜에 SQL Server 2012를 사용하려면 응용 프로그램을 설치하고 서버를 구성하지 않도록 선택한 후 SharePoint Server 2010 서비스 팩 1을 다운로드하여 설치해야 합니다. 자세한 내용을 보려면 [SharePoint Server 2010 서비스 팩 1](http://www.microsoft.com/en-us/download/details.aspx?id=26623)로 이동하십시오.
-                -   SQL Server BI 기능을 활용하려면 독립 실행형 서버 대신 서버 팜으로 SharePoint Server를 설치하는 것이 좋습니다. 자세한 내용을 보려면 [SQL Server 2012 비즈니스 인텔리전스 기능 설치](http://technet.microsoft.com/en-us/library/hh231681(v=sql.110).aspx)로 이동하십시오.
+                -   若要將 SQL Server 2012 用於您的 SharePoint 伺服器陣列，您必須在安裝應用程式並選擇不設定伺服器之後，安裝 SharePoint Server 2010 的 Service Pack 1。如需詳細資訊，請移至 [SharePoint Server 2010 的 Service Pack 1](http://www.microsoft.com/en-us/download/details.aspx?id=26623)。
+                -   若要使用 SQL Server BI 功能，建議您將 SharePoint Server 安裝為伺服器陣列，而不是獨立伺服器。如需詳細資訊，請移至[安裝 SQL Server 2012 Business Intelligence 功能](http://technet.microsoft.com/en-us/library/hh231681(v=sql.110).aspx)。
 
-        -   Microsoft Windows PowerShell을 사용하여 프로비전: Psconfig 명령줄 도구를 대체 인터페이스로 사용하여 SharePoint 2010 제품을 프로비전하는 방법을 제어하는 여러 작업을 수행할 수 있습니다. 자세한 내용을 보려면 [Psconfig 명령줄 참조](http://technet.microsoft.com/en-us/library/cc263093.aspx)로 이동하십시오.
-    -   하위 단계 3: SharePoint를 구성합니다. 각 SharePoint VM이 준비 상태에 있으면 다음 옵션 중 하나를 사용하여 각 서버에서 SharePoint Server를 구성합니다.
-        -   GUI에서 SharePoint를 구성합니다.
-        -   Windows PowerShell을 사용하여 SharePoint를 구성합니다. 자세한 내용을 보려면 [Windows PowerShell을 사용하여 SharePoint Server 2010 설치](http://technet.microsoft.com/en-us/library/cc262839.aspx)로 이동하십시오.
-            -   또한 Windows PowerShell 스크립트, XML 입력 파일 및 Microsoft Windows 표준 배치 파일로 구성된 CodePlex 프로젝트의 AutoSPInstaller를 사용할 수도 있습니다. AutoSPInstaller는 Windows PowerShell을 기반으로 하여 SharePoint 2010 설치 스크립트용 프레임워크를 제공합니다. 자세한 내용을 보려면 [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/)(영문)로 이동하십시오. **참고**: 관리 포털 끝점에서 보안을 구성하고 VM의 Windows 방화벽에 인바운드 포트를 설정하십시오. 그런 다음 관리자 자격 증명으로 Windows PowerShell 세션을 열어서 SharePoint 응용 프로그램 서버 중 하나에 대해 원격 Windows PowerShell 세션을 시작할 수 있는지 확인합니다.
+        -   使用 Microsoft Windows PowerShell 進行佈建：您可以將 Psconfig 命令列工具作為替代介面，用以執行幾項控制 SharePoint 2010 產品之佈建方式的作業。如需詳細資訊，請移至 [Psconfig 命令列參照](http://technet.microsoft.com/en-us/library/cc263093.aspx)。
+    -   子步驟 3：設定 SharePoint。在每個 SharePoint VM 都處於就緒狀態後，請使用下列其中一項，在每部伺服器上設定 SharePoint Server：
+        -   從 GUI 設定 SharePoint。
+        -   使用 Windows PowerShell 設定 SharePoint。如需詳細資訊，請移至[使用 Windows PowerShell 安裝 SharePoint Server 2010](http://technet.microsoft.com/en-us/library/cc262839.aspx)。
+            -   您也可以使用 CodePlex 專案的 AutoSPInstaller；其中包含 Windows PowerShell 指令碼、一個 XML 輸入檔，和一個標準 Microsoft Windows 批次檔。AutoSPInstaller 會根據 Windows PowerShell 提供適用於 SharePoint 2010 安裝指令碼的架構。如需詳細資訊，請移至 [CodePlex：AutoSPInstaller](http://autospinstaller.codeplex.com/)。 **注意**：請務必設定管理入口網站端點的安全性，並在 VM 的 Windows 防火牆上設定輸入連接埠。接著，請以系統管理員認證開啟 Windows PowerShell 工作階段，以確認您可以對其中一個 SharePoint 應用程式伺服器啟動遠端 Windows PowerShell 工作階段。
 
-11. 스크립트가 완료되면 VM 대시보드를 사용하여 VM에 연결합니다.
-12. SharePoint 구성 확인: SharePoint 서버에 로그온한 후 중앙 관리를 사용하여 구성을 확인합니다.
+11. 指令碼執行完成後，請使用 VM 儀表板連接到 VM。
+12. 驗證 SharePoint 組態：登入 SharePoint 伺服器，然後使用「管理中心」來驗證組態。
 
-### 가상 하드 디스크 만들기 및 업로드
+### 建立及上傳虛擬硬碟
 
-또한 고유한 이미지를 만들어 Azure에 VHD 파일로 업로드할 수도 있습니다. Azure에서 VHD 파일을 만들어 업로드하려면 다음 단계를 따르십시오.
+您也可以建立自己的映像，並將其上傳至 Azure 作為 VHD 檔案。若要在 Azure 上建立及上傳 VHD 檔案，請執行下列步驟：
 
-1.  Hyper-V 사용 이미지 만들기: Hyper-V 관리자를 사용하여 Hyper-V 사용 VHD를 만듭니다. 자세한 내용을 보려면 [가상 하드 디스크 만들기](http://technet.microsoft.com/en-us/library/cc742509)로 이동하십시오.
-2.  Azure에서 저장소 계정 만들기: VM을 만드는 데 사용할 수 있는 VHD 파일을 업로드하려면 Azure 저장소 계정이 필요합니다. 이 계정은 Azure 관리 포털을 사용하여 만들 수 있습니다. 자세한 내용을 보려면 [Azure에서 저장소 계정 만들기](/en-us/manage/windows/common-tasks/upload-a-vhd/)로 이동하십시오.
-3.  업로드할 이미지 준비: Azure에 이미지를 업로드하려면 먼저 SysPrep 명령을 사용하여 범용화해야 합니다. 자세한 내용을 보려면 [SysPrep의 사용법: 소개](http://technet.microsoft.com/en-us/library/bb457073.aspx)(영문)를 참조하십시오.
-4.  Azure에 이미지 업로드: VHD 파일에 포함된 이미지를 업로드하려면 관리 인증서를 만들고 설치해야 합니다. 인증서의 지문 및 구독 ID를 확보합니다. 연결을 설정하고 CSUpload 명령줄 도구를 사용하여 VHD 파일을 업로드합니다. 자세한 내용을 보려면 [Azure에 이미지 업로드](/en-us/manage/windows/common-tasks/upload-a-vhd/)로 이동하십시오.
+1.  建立具有 Hyper-V 功能的映像：使用 Hyper-V 管理員建立具有 Hyper-V 功能的 VHD。如需詳細資訊，請移至[建立虛擬硬碟](http://technet.microsoft.com/en-us/library/cc742509)。
+2.  在 Azure 中建立儲存體帳戶：必須要有 Azure 中的儲存體帳戶，才能上傳可用來建立 VM 的 VHD 檔案。此帳戶可使用 Azure 管理入口網站來建立。如需詳細資訊，請移至[在 Azure 中建立儲存體帳戶](/en-us/manage/windows/common-tasks/upload-a-vhd/)。
+3.  準備要上傳的映像：映像在上傳至 Azure 之前，必須使用 SysPrep 命令進行一般化。如需詳細資訊，請移至[如何使用 SysPrep：簡介](http://technet.microsoft.com/en-us/library/bb457073.aspx) (英文)。
+4.  將映像上傳至 Azure：若要上傳 VHD 檔案中包含的映像，您必須建立並安裝管理憑證。請取得憑證的指模和訂閱 ID。請設定連線，並使用 CSUpload 命令列工具上傳 VHD 檔案。如需詳細資訊，請移至[將映像上傳至 Azure](/en-us/manage/windows/common-tasks/upload-a-vhd/)。
 
-사용 시나리오
--------------
+使用案例
+--------
 
-이 섹션에서는 Azure 가상 컴퓨터를 사용하여 SharePoint를 배포하는 주요 고객 시나리오에 대해 논의합니다. 각 시나리오는 시나리오에 대한 간략한 설명과 시작 단계의 두 부분으로 구성되어 있습니다.
+本節將討論主要客戶使用 Azure 虛擬機器部署 SharePoint 的案例。每個案例都分成兩部分：關於案例的簡短說明，以及實際執行的步驟。
 
-### 시나리오 1: 단순한 SharePoint 개발 및 테스트 환경
+### 案例 1：簡單的 SharePoint 部署和測試環境
 
-#### 설명
+#### 說明
 
-조직들은 더욱 민첩하게 SharePoint 응용 프로그램을 만들고 국내/해외 개발 및 테스트를 위한 SharePoint 환경을 설정하는 방법을 찾고 있습니다. 기본적으로는 SharePoint 응용 프로그램 개발 프로젝트를 설정하는 데 필요한 시간을 단축하고, 자체 테스트 환경을 더 많이 사용하여 비용을 절감하고자 합니다. 예를 들어 조직에서 SharePoint Server에서 주문형 부하 테스트를 수행하고 여러 지역에 더 많은 동시 사용자를 분산한 상태로 UAT(사용자 수용 테스트)를 실행할 수 있습니다. 마찬가지로 국내 팀과 해외 팀의 통합은 현재 대부분의 조직에서 증가하고 있는 중요한 비즈니스 요구입니다.
+組織期望能以更便捷的方式建立 SharePoint 應用程式及設定 SharePoint 環境，以供境內/境外的開發與測試使用。基本上，他們想要縮短設定 SharePoint 應用程式開發專案的所需時間，並藉由測試環境使用率的提升來降低成本。例如，組織可能會想要在 SharePoint Server 上執行隨需負載測試，並以更多位於不同地理位置的並行使用者執行使用者接受度測試 (UAT)。同樣地，對現今許多組織而言，境內/境外工作團隊的整合，也是重要性漸增的商業需求。
 
-이 시나리오에서는 조직이 개발 및 테스트 작업에 미리 구성된 SharePoint 팜을 사용하는 방법에 대해 설명합니다. SharePoint 배포 토폴로지는 온-프레미스에서 배포를 가상화한 것과 같은 모양과 느낌입니다. 기존 IT 기술이 1:1 배포를 Azure 가상 컴퓨터 배포로 변환하면서 거의 모든 비용이 자본 지출에서 운영 지출로 전환되는 혜택을 누릴 수 있습니다. 즉, 물리적 서버 구매에 비용을 선행 투자할 필요가 없습니다. 조직은 서버 하드웨어에 대한 자본 비용을 없앨 수 있으며, 테스트 및 개발 환경을 위해 SharePoint 팜을 만들거나 설정하거나 확장하는 데 필요한 프로비전 시간을 크게 줄여 유연성을 얻을 수 있습니다. IT 부서에서는 용량을 동적으로 추가하고 제거하여 테스트 및 개발의 변화하는 요구를 지원할 수 있습니다. 또한 SharePoint 프로젝트로 비즈니스 가치를 전달하는 데 더 집중하고 인프라를 관리하는 데에는 덜 집중할 수 있습니다.
+此案例說明，組織如何使用預先設定的 SharePoint 伺服器陣列進行開發與測試工作。SharePoint 部署拓撲的外觀和操作性會與內部部署的虛擬化部署完全相同。現有的 IT 技能可完全對等地轉換至 Azure 虛擬機器部署，而其主要的優點反映在成本上：資本支出幾乎可完全轉化為營運支出，因為沒有先期購置實體伺服器的必要。組織的伺服器硬體資金成本得以減除，且因為用於測試和開發環境的 SharePoint 伺服器陣列在建立、設定或擴充上所需的佈建時間皆大幅縮短，組織將更具彈性。IT 可依據持續變動的測試和開發需求，以動態方式增加或移除容量。此外，IT 也可更加專注於 SharePoint 專案的商業價值傳遞，而無須耗費太多時間在基礎結構的管理上。
 
-부하 테스트 컴퓨터를 완벽하게 활용하기 위해 조직은 Azure에서 Windows Sever 2008 R2에 대한 운영 체제 지원으로 SharePoint가 가상화된 개발 및 테스트 컴퓨터를 구성할 수 있습니다. 이를 통해 개발 팀은 응용 프로그램을 만들고 테스트할 수 있으며, 코드 변경 없이 온-프레미스 또는 클라우드 프로덕션 환경으로 쉽게 마이그레이션할 수 있습니다. 온-프레미스 및 클라우드에서 동일한 프레임워크 및 도구 집합을 사용할 수 있으므로 분산된 팀에서 동일한 환경에 액세스할 수 있습니다. 또한 사용자는 VPN 직접 연결을 설정하여 온-프레미스 데이터 및 응용 프로그램에 액세스할 수 있습니다.
+為了充分運用負載測試機器，組織可藉由 Windows Sever 2008 R2 的作業系統支援，在 Azure 上設定 SharePoint 虛擬化開發和測試機器。這可讓開發團隊建立及測試應用程式，並輕易地移轉至內部部署或雲端實際執行環境，而無須變更程式碼。相同的架構和工具集在內部部署與雲端中皆可使用，使分散於各處的團隊可存取相同的環境。使用者也可建立直接 VPN 連線，以存取內部部署的資料和應用程式。
 
-#### 시작하기
+#### 開始使用
 
-그림 4는 Azure VM의 SharePoint 개발 및 테스트 환경을 보여 줍니다. 이 배포를 빌드하려면 먼저 응용 프로그램을 개발하는 데 사용한 것과 동일한 온-프레미스 SharePoint 개발 및 테스트 환경을 사용합니다. 그런 다음 테스트 및 개발을 위한 Azure VM에 응용 프로그램을 업로드하여 배포합니다. 조직에서 응용 프로그램을 다시 온-프레미스로 이동하기로 한 경우 응용 프로그램을 수정하지 않고 이동할 수 있습니다.
+圖 4 顯示 Azure VM 中的 SharePoint 開發與測試環境。若要建置此部署，首先請使用開發應用程式時所使用的相同內部部署 SharePoint 開發與測試環境。接著，請將應用程式上傳並部署至 Azure VM，以供測試與開發之用。如果您的組織決定將應用程式移回內部部署，應用程式並不需修改，即可將之移回。
 
-그림 4: Azure 가상 컴퓨터의 SharePoint 개발 및 테스트 환경
+圖 4：Azure 虛擬機器中的 SharePoint 開發與測試環境
 
 ![azure-sharepoint-wp-11](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-11.png)
 
-#### 시나리오 환경 설정
+#### 設定案例環境
 
-Azure에서 SharePoint 개발 및 테스트 환경을 구현하려면 다음 단계를 따르십시오.
+若要在 Azure 上實作 SharePoint 開發與測試環境，請執行下列步驟：
 
-1.  *프로비전*: 먼저, Azure 가상 네트워크를 사용하여 온-프레미스와 Azure 간의 VPN 연결을 프로비전합니다. 여기에서는 Active Directory를 사용하지 않으므로 VPN 터널이 필요합니다. 자세한 내용을 보려면 [Azure 가상 네트워크(디자인 고려 사항 및 보안 연결 시나리오)](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)로 이동하십시오. 그런 다음 관리 포털을 사용하여 이미지 라이브러리의 기존 이미지를 사용해 새 VM을 프로비전합니다.
-    -   온-프레미스 SharePoint 개발 및 테스트 VM을 Azure 저장소 계정으로 업로드하고, 이미지 라이브러리를 통해 해당 VM을 참조하여 필요한 환경을 빌드할 수 있습니다.
-    -   Windows Server 2008 R2 SP1 이미지 대신 SQL Server 2012 이미지를 사용할 수 있습니다. 자세한 내용을 보려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](/en-us/manage/windows/common-tasks/install-sql-server/)으로 이동하십시오.
+1.  *佈建*：首先，請使用 Azure 虛擬網路佈建內部部署與 Azure 之間的 VPN 連線。(由於此處不會使用 Active Directory，因此需要有 VPN 通道。)如需詳細資訊，請移至 [Azure 虛擬網路 (設計考量和安全連線情境)](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)。接著，請在管理入口網站上使用映像庫中儲存的映像佈建新的 VM。
+    -   您可以將內部部署的 SharePoint 開發與測試 VM 上傳至您的 Azure 儲存體帳戶，並透過映像庫參照這些 VM，以建置必要的環境。
+    -   您可以使用 SQL Server 2012 映像，而不使用 Windows Server 2008 R2 SP1 映像。如需詳細資訊，請移至[在 Azure 上佈建 SQL Server 虛擬機器](/en-us/manage/windows/common-tasks/install-sql-server/)。
 
-2.  *설치*: 원격 데스크톱 연결을 사용하여 VM에 SharePoint Server, Visual Studio 및 SQL Server를 설치합니다.
-    -   SharePoint Server 설치 옵션을 다음과 같이 선택합니다.
-        -   SharePoint 2010 간편 설치 스크립트를 사용하여 SharePoint 개발자 컴퓨터를 빌드합니다. 자세한 내용을 보려면 [SharePoint 2010 간편 설치 스크립트](http://www.microsoft.com/en-us/download/details.aspx?id=23415)(영문)로 이동하십시오.
-        -   Windows PowerShell을 사용합니다. 자세한 내용을 보려면 [Windows PowerShell을 사용하여 SharePoint Server 2010 설치](http://technet.microsoft.com/en-us/library/cc262839.aspx)로 이동하십시오.
-        -   CodePlex 프로젝트의 AutoSPInstaller를 사용합니다. 자세한 내용을 보려면 [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/)(영문)로 이동하십시오.
-    -   Visual Studio를 설치합니다. 자세한 내용을 보려면 [Visual Studio 설치](http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx)로 이동하십시오.
-    -   SQL Server를 설치합니다. 자세한 내용을 보려면 [SysPrep을 사용하여 SQL Server 설치](http://msdn.microsoft.com/en-us/library/ee210664.aspx)로 이동하십시오.
-        -   SharePoint 팜 배포를 위해 SQL Server 2012를 만들어 구성하는 과정에 대해서는 실습 교육 [Azure에서 SharePoint에 대해 SQL Server 2012 구성](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint)(영문)을 참조하십시오.
-        -   Active Directory를 구성하고 단일 SQL Server 데이터베이스를 사용하여 SharePoint 팜을 만드는 과정에 대해서는 실습 교육 [Azure 가상 컴퓨터로 SharePoint 팜 배포](https://github.com/WindowsAzure-TrainingKit/HOL-DeploySharePointVMs)(영문)를 참조하십시오.
+2.  *安裝*：使用遠端桌面連線，在 VM 上安裝 SharePoint Server、Visual Studio 和 SQL Server。
+    -   選擇 SharePoint Server 的安裝選項：
+        -   使用 SharePoint 2010 的檢視設定指令碼 (Easy Setup Script) 建置 SharePoint 開發人員機器。如需詳細資訊，請移至 [SharePoint 2010 簡易設定指令碼](http://www.microsoft.com/en-us/download/details.aspx?id=23415)。
+        -   使用 Windows PowerShell。如需詳細資訊，請移至[使用 Windows PowerShell 安裝 SharePoint Server 2010](http://technet.microsoft.com/en-us/library/cc262839.aspx)。
+        -   使用 CodePlex 專案的 AutoSPInstaller。如需詳細資訊，請移至 [CodePlex：AutoSPInstaller](http://autospinstaller.codeplex.com/)。
+    -   安裝 Visual Studio。如需詳細資訊，請移至 [Visual Studio 安裝](http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx)。
+    -   安裝 SQL Server。如需詳細資訊，請移至[使用 SysPrep 安裝 SQL Server](http://msdn.microsoft.com/en-us/library/ee210664.aspx)。
+        -   參考為 SharePoint 伺服器陣列部署建立及設定 SQL Server 2012 的實際操作實驗室。[為 Azure 中的 SharePoint 設定 SQL Server 2012](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint)。
+        -   參考藉由設定 Active Directory 及使用單一 SQL Server 資料庫來建立 SharePoint 伺服器陣列的實際操作實驗室。[使用 Azure 虛擬機器部署 SharePoint 伺服器陣列](https://github.com/WindowsAzure-TrainingKit/HOL-DeploySharePointVMs)。
 
-3.  *응용 프로그램 및 데이터베이스용 배포 패키지 및 스크립트 개발*: 이미지 라이브러리에서 사용 가능한 VM을 사용하려는 경우 Azure 가상 컴퓨터에서 필요한 온-프레미스 응용 프로그램 및 데이터베이스를 배포할 수 있습니다.
-    -   SQL Server Data Tools 및 Visual Studio를 사용하여 기존 온-프레미스 응용 프로그램 및 데이터베이스용 배포 패키지를 만듭니다.
-    -   이러한 패키지를 사용하여 Azure 가상 컴퓨터에서 응용 프로그램 및 데이터베이스를 배포합니다.
+3.  *開發應用程式和資料庫的部署封裝和指令碼*：如果您預計要使用映像庫中的可用 VM，所需的內部部署應用程式和資料庫將可部署在 Azure 虛擬機器上：
+    -   使用 SQL Server Data Tools 和 Visual Studio，建立現有內部部署應用程式和資料庫的部署封裝。
+    -   使用這些封裝，將應用程式和資料庫部署在 Azure 虛擬機器上。
 
-4.  *SharePoint 응용 프로그램 및 데이터베이스 배포*:
-    -   관리 포털 끝점에 보안을 구성하고 VM의 Windows 방화벽에 인바운드 포트를 설정합니다.
-    -   3단계에서 만든 배포 패키지 및 스크립트를 사용하여 SharePoint 응용 프로그램 및 데이터베이스를 Azure 가상 컴퓨터에 배포합니다.
-    -   배포한 응용 프로그램 및 데이터베이스를 테스트합니다.
+4.  *部署 SharePoint 應用程式和資料庫*：
+    -   設定管理入口網站端點的安全性，並在 VM 的 Windows 防火牆中設定輸入連接埠。
+    -   使用在步驟 3 中建立的部署封裝和指令碼，將 SharePoint 應用程式和資料庫部署至 Azure 虛擬機器。
+    -   測試已部署的應用程式和資料庫。
 
-5.  *VM 관리*:
-    -   관리 포털을 사용하여 VM을 모니터링합니다.
-    -   Visual Studio 및 SQL Server Management Studio를 사용하여 응용 프로그램을 모니터링합니다.
-    -   Microsoft System Center - Operations Manager와 같은 온-프레미스 관리 소프트웨어를 사용하여 VM을 모니터링하고 관리할 수도 있습니다.
+5.  *管理 VM*：
+    -   使用管理入口網站監視 VM。
+    -   使用 Visual Studio 和 SQL Server Management Studio 監視應用程式。
+    -   您也可以使用 Microsoft System Center Operations Manager 之類的內部部署管理軟體，來監視及管理 VM。
 
-### 시나리오 2: 사용자 지정 공용 SharePoint 팜
+### 案例 2：自訂的公用端 SharePoint 伺服器陣列
 
-#### 설명
+#### 說明
 
-조직들은 보통 클라우드에서 호스트되며 요구 및 수요에 따라 쉽게 확장할 수 있는 인터넷을 만들려고 합니다. 또한 공동 작업을 위해 파트너 엑스트라넷 웹 사이트를 만들고 웹 사이트 콘텐츠의 분산된 제작 및 승인을 위한 간편한 프로세스도 구현하려고 합니다. 마지막으로 이러한 조직들은 증가하는 로드를 처리하기 위해 웹 사이트에 주문형 용량을 제공하길 원합니다.
+組織想建立在雲端中託管、並且可依據需求輕易擴充的網際網路平台服務。他們也想建立用來溝通協調的合作夥伴內部網站，並實作可在不同位置對網站內容進行撰寫和核准的簡單程序。最後，為了處理漸增的負載，這些組織想為其網站隨需提供容量。
 
-이 시나리오에서는 공용 웹 사이트를 호스트하기 위한 기반으로 SharePoint Server를 사용합니다. 이를 통해 조직은 안전하고 확장 가능한 클라우드 인프라에서 기업 웹 사이트를 빠르게 배포하고 사용자 지정하고 호스트할 수 있습니다. 조직은 Azure의 SharePoint 공용 웹 사이트를 사용하여 트래픽 증가에 맞춰 확장하고 사용하는 리소스에 대해서만 결제할 수 있습니다. 또한 Azure의 SharePoint를 사용하여 콘텐츠 제작, 워크플로 및 승인에 온-프레미스에서 사용하는 것과 비슷한 일반 도구를 사용할 수 있습니다.
+此案例會以 SharePoint Server 作為代管公用端網站的基礎。如此，組織即可在安全而可擴充的雲端基礎結構上，快速部署、自訂及代管其商業網站。透過 Azure 上的 SharePoint 公用端網站，組織將可隨著流量成長進行調整，並僅就使用的部分付費。常用工具與內部部署所使用的相類似，可供 Azure 上的 SharePoint 用於內容撰寫、工作流程和核准。
 
-더 나아가 Azure 가상 컴퓨터를 사용하는 조직은 VM에서 실행되는 스테이징 환경 및 프로덕션 환경을 쉽게 구성할 수 있습니다. Azure에서 만든 SharePoint 공용 VM을 가상 저장소로 백업할 수 있습니다. 또한 "지역에서 연속 복제" 기능을 통해 조직은 재해 복구를 위해 한 데이터 센터의 VM 작업을 멀리 떨어진 다른 데이터 센터로 자동으로 백업할 수 있습니다. 지역에서 복제에 대한 자세한 내용을 보려면 [Azure 저장소의 지역에서 복제 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx)(영문)로 이동하십시오.
+除此之外，使用 Azure 虛擬機器也可讓組織輕鬆設定執行於 VM 的執行環境和實際執行環境。在 Azure 中建立的 SharePoint 公用端 VM 可備份至虛擬儲存體。此外，可供災害復原之用的「連續地理區域複寫」功能，可讓組織將執行於某個資料中心的 VM 自動備份至遠處的另一個資料中心。(如需地理區域複寫的詳細資訊，請移至 [Azure 儲存體的地理區域複寫簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx))。
 
-SQL Server 및 SharePoint Server와 같은 다른 Microsoft 제품으로 작업할 수 있도록 Azure 인프라의 VM을 확인하고 지원합니다. Azure와 SharePoint Server를 함께 사용하면 더 좋습니다. 둘 다 Microsoft 제품군의 일부이며 최적의 환경을 제공하도록 함께 철저히 통합, 지원 및 테스트되었기 때문입니다. 둘 다 SharePoint 응용 프로그램 및 Azure 인프라 지원을 위한 단일 지점이 있습니다.
+Azure 基礎結構中的 VM 經驗證可有效與其他 Microsoft 產品搭配運作，例如 SQL Server 與 SharePoint Server。Azure 與 SharePoint Server 的搭配運作性較佳：兩者同屬 Microsoft 系列，並且已密切整合、相互支援並測試，可提供最理想的使用性。兩者對於 SharePoint 應用程式和 Azure 基礎結構具有單一支援點。
 
-#### 시작하기
+#### 開始使用
 
-이 시나리오에서는 추가 트래픽을 지원하기 위해 SharePoint Server용 프런트 엔드 서버를 여러 대 추가해야 합니다. 사용자 인증 및 권한 부여를 지원하려면 이러한 서버에 강화된 보안 및 Active Directory 도메인 서비스 도메인 컨트롤러가 필요합니다. 그림 5는 이 시나리오의 레이아웃을 보여 줍니다.
+在此案例中必須為 SharePoint Server 新增更多前端 Web 伺服器，以支援額外的流量。這些伺服器必須具有進階的安全性和「Active Directory 網域服務」網域控制站，以支援使用者驗證和授權。圖 5 顯示此案例的配置。
 
-그림 5: 사용자 지정 공용 SharePoint 팜
+圖 5：自訂的公用端 SharePoint 伺服器陣列
 
 ![azure-sharepoint-wp-12](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-12.png)
 
-#### 시나리오 환경 설정
+#### 設定案例環境
 
-Azure에서 공용 SharePoint 팜을 구현하려면 다음 단계를 따르십시오.
+若要在 Azure 上實作公用端 SharePoint 伺服器陣列，請執行下列步驟：
 
-1.  *Active Directory 배포*: Azure 가상 컴퓨터에서 Active Directory를 배포하기 위해 충족해야 하는 기본 요구 사항은 온-프레미스 VM(및 어느 정도까지는 물리적 컴퓨터)에서 배포하는 경우와 유사하지만 "동일하지는 않습니다". 차이점, 지침 및 기타 고려 사항에 대한 자세한 내용을 보려면 [Azure 가상 컴퓨터에 Active Directory를 배포하기 위한 지침](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090)으로 이동하십시오. Azure에서 Active Directory를 배포하려면 다음을 수행합니다.
-    -   VM을 특정 서브넷에 할당할 수 있는 가상 네트워크를 정의하고 만듭니다. 자세한 내용을 보려면 [가상 네트워킹 구성](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md)(영문)으로 이동하십시오.
-    -   Azure에서 관리 포털을 사용하여 새 VM에서 도메인 컨트롤러를 만들고 배포합니다. 자세한 내용을 보려면 [도메인 컨트롤러 만들기 및 배포](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md)(영문)로 이동하십시오.
-        -   또한 Azure 가상 컴퓨터 및 가상 네트워크를 사용하는 클라우드에서 Windows PowerShell 스크립트를 참조하여 독립 실행형 도메인을 배포할 수도 있습니다. 자세한 내용을 보려면 [Azure에서 Active Directory 배포(Windows PowerShell)](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS)(영문)로 이동하십시오.
-        -   Azure 가상 네트워크의 VM에서 새 Active Directory 포리스트를 만드는 방법에 대한 자세한 내용을 보려면 [Azure에서 새 Active Directory 포리스트 설치](/en-us/manage/services/networking/active-directory-forest/)(영문)로 이동하십시오.
+1.  *部署 Active Directory*：在 Azure 虛擬機器上部署 Active Directory 的基本需求，類似於 (但不等同於) 在內部部署 VM (和某些實體機器) 上的部署。如需其差異的詳細資訊，以及相關指引和其他注意事項，請移至[在 Azure 虛擬機器上部署 Active Directory 的指引](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090)。若要在 Azure 中部署 Active Directory：
+    -   定義及建立可讓 VM 指派至特定子網路的虛擬網路。如需詳細資訊，請移至[設定虛擬網路](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md)。
+    -   使用管理入口網站，在 Azure 中的新 VM 上建立及部署網域控制站。如需詳細資訊，請移至[部署及建立網域控制站](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md)。
+        -   您也可以參照 Windows PowerShell 指令碼，使用 Azure 虛擬機器和虛擬網路在雲端中部署獨立網域。如需詳細資訊，請移至[在 Azure 中部署 Active Directory (Windows PowerShell)](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS)。
+        -   如需使用 Azure 虛擬網路在 VM 上建立新 Active Directory 樹系的詳細資訊，請移至[在 Azure 中安裝新的 Active Directory 樹系](/en-us/manage/services/networking/active-directory-forest/)。
 
-2.  *VM 프로비전*: 관리 포털을 사용하여 이미지 라이브러리의 기존 이미지에서 새 VM을 프로비전합니다.
-3.  *SharePoint 팜 배포*:
-    -   새로 프로비전한 VM을 사용하여 SharePoint를 설치하고 재사용 가능 이미지를 생성합니다. SharePoint Server 설치에 대한 자세한 내용을 보려면 [Windows PowerShell을 사용하여 SharePoint Server 2010 설치 및 구성](http://technet.microsoft.com/en-us/library/cc262839.aspx) 또는 [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/)(영문)로 이동하십시오.
-    -   SharePoint VM을 구성하여 SharePoint 팜을 만들고 연결합니다.
-    -   관리 포털을 사용하여 부하 분산을 구성합니다.
-        -   VM 끝점을 구성하고 기존 끝점에서 트래픽 부하를 분산하는 옵션을 선택한 후 부하 분산된 VM의 이름을 지정합니다.
-        -   다른 프런트 엔드 웹 VM을 추가 트래픽을 위해 기존 SharePoint 팜에 추가합니다.
+2.  *佈建 VM*：使用管理入口網站，從映像庫中儲存的映像佈建新的 VM。
+3.  *部署 SharePoint 伺服器陣列*：
+    -   使用新佈建的 VM 來安裝 SharePoint 及產生可重複使用的映像。如需安裝 SharePoint Server 的詳細資訊，請移至[使用 Windows PowerShell 安裝及設定 SharePoint Server 2010](http://technet.microsoft.com/en-us/library/cc262839.aspx) 或 [CodePlex：AutoSPInstaller](http://autospinstaller.codeplex.com/)。
+    -   設定要建立並連接到 SharePoint 伺服器陣列的 SharePoint VM。
+    -   使用管理入口網站設定負載平衡。
+        -   設定 VM 端點，選取要對現有端點的流量進行負載平衡的選項，然後指定負載平衡 VM 的名稱。
+        -   在現有的 SharePoint 伺服器陣列中新增其他前端 Web VM，以因應額外流量。
 
-4.  *VM 관리*:
-    -   관리 포털을 사용하여 VM을 모니터링합니다.
-    -   중앙 관리를 사용하여 SharePoint 팜을 모니터링합니다.
+4.  *管理 VM*：
+    -   使用管理入口網站監視 VM。
+    -   使用「管理中心」監視 SharePoint 伺服器陣列。
 
-### 시나리오 3: 추가 BI 서비스를 위해 확장된 팜
+### 案例 3：擴充以因應更多 BI 服務的伺服器陣列
 
-#### 설명
+#### 說明
 
-비즈니스 인텔리전스는 핵심 내용을 이해하고 타당한 결정을 빠르게 내리는 데 매우 중요합니다. 조직은 온-프레미스 접근 방식에서 전환할 때 기존 BI 응용 프로그램을 클라우드에 배포하는 동안 BI 환경의 변화를 원하지 않습니다. 또한 유지 관리에 많은 시간과 예산을 사용하지 않으면서 BI 응용 프로그램에 대해 모든 권한을 유지한 상태로 지속성 및 가용성이 뛰어난 환경에서 SSAS(SQL Server Analysis Services) 또는 SSRS(SQL Server Reporting Services)의 보고서를 호스트하려고 합니다.
+要想認清重要情勢，並做出迅速而健全的決策，商業智慧是不可或缺的。隨著組織改採內部部署以外的方式，他們將現有的 BI 應用程式部署到雲端時，並不想要變更原有的 BI 環境。他們想要在高持續性和高可用性的環境中，控管來自 SQL Server Analysis Services (SSAS) 或 SQL Server Reporting Services (SSRS) 的報告，同時保有對 BI 應用程式的完整掌控，且在維護方面都不需要耗費太多時間與預算。
 
-이 시나리오에서는 조직이 Azure 가상 컴퓨터를 사용하여 중요 업무용 BI 응용 프로그램을 호스트하는 방법에 대해 설명합니다. 조직은 Azure 가상 컴퓨터에서 SharePoint 팜을 배포하고 응용 프로그램 서버 VM의 BI 구성 요소(예: SSRS 또는 Excel Services)를 확장할 수 있습니다. 또한 클라우드에서 리소스를 많이 사용하는 구성 요소를 확장하여 특수한 작업을 훨씬 효율적으로 쉽게 지원할 수 있습니다. 작은 규모의 설치에서 매우 큰 규모의 설치에 이르기까지 SQL Server 인스턴스를 쉽게 확장할 수 있으므로 Azure 가상 컴퓨터의 SQL Server는 뛰어난 성능을 제공합니다. 따라서 즉각적인 작업 요구 사항에 따라 BI 인스턴스를 동적으로 프로비전(확장)하거나 프로비전을 해제(축소)할 수 있는 탄력성을 얻을 수 있습니다.
+此案例說明組織如何使用 Azure 虛擬機器來代管關鍵 BI 應用程式。組織可在 Azure 虛擬機器中部署 SharePoint 伺服器陣列，並擴充應用程式伺服器 VM 的 BI 元件，例如 SSRS 或 Excel Services。將耗費資源的元件調節到雲端後，組織將可更輕鬆而有效地支援特殊工作負載。請留意到，Azure 虛擬機器中的 SQL Server 具有良好的執行效能，因為 SQL Server 執行個體可以輕易調整，從小型到超大型安裝皆可。隨之而來的彈性，讓組織得以根據即時的工作負載需求，動態佈建 (擴充) 或取消佈建 (縮減) BI 執行個體。
 
-기존 BI 응용 프로그램을 Azure로 마이그레이션하면 규모를 더욱 쉽게 조정할 수 있습니다. 조직은 SSAS, SSRS 및 SharePoint Server의 기능을 사용하여 확장 또는 축소되는 강력한 BI 및 보고 응용 프로그램과 대시보드를 만들 수 있습니다. 또한 이러한 응용 프로그램 및 대시보드는 온-프레미스 데이터 및 응용 프로그램과 더욱 안전하게 통합될 수 있습니다. Azure는 데이터 센터가 ISO 27001에 대한 지원을 준수하도록 합니다. 자세한 내용을 보려면 [Azure 보안 센터](/en-us/support/trust-center/compliance/)로 이동하십시오.
+將現有的 BI 應用程式移轉至 Azure，可達到更有效的調整。藉由 SSAS、SSRS 和 SharePoint Server 的支援，組織將可建立功能強大、並且可向上或向下調整的 BI 和報告應用程式與儀表板。這些應用程式和儀表板也將可更安全地與內部部署資料和應用程式整合。Azure 可確保資料中心符合並支援 ISO 27001。如需詳細資訊，請移至 [Azure 信任中心](/en-us/support/trust-center/compliance/)。
 
-#### 시작하기
+#### 開始使用
 
-BI 구성 요소 배포를 확장하려면 PowerPivot, Power View, Excel Services 또는 PerformancePoint Services와 같은 서비스를 제공하는 새 응용 프로그램 서버를 설치해야 합니다. 또는 추가적인 쿼리 처리를 지원하기 위해 SSAS 또는 SSRS와 같은 SQL Server BI 인스턴스를 기존 팜에 추가해야 합니다. SharePoint 2010 Server 또는 SQL Server를 설치한 새 Azure VM으로 서버를 추가할 수 있습니다. 그런 다음 해당 서버에서 BI 구성 요소를 설치하고 배포하고 구성할 수 있습니다(그림 6).
+若要擴充 BI 元件的部署，必須安裝具有 PowerPivot、Power View、Excel Services 或 PerformancePoint Services 等服務的新應用程式伺服器。或者，必須在現有的伺服器陣列中新增 SSAS 或 SSRS 之類的 SQL Server BI 執行個體，以支援更多查詢處理。已安裝 SharePoint 2010 Server 或 SQL Server 的伺服器，可新增為新的 Azure VM。接著，可以在該伺服器上安裝、部署及設定 BI 元件 (圖 6)。
 
-그림 6: 추가 BI 서비스를 위해 확장된 SharePoint
+圖 6：擴充以因應更多 BI 服務的 SharePoint 伺服器陣列
 
 ![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-13.png)
 
-#### 시나리오 환경 설정
+#### 設定案例環境
 
-Azure에서 BI 환경을 확장하려면 다음 단계를 따르십시오.
+若要在 Azure 上擴充 BI 環境，請執行下列步驟：
 
-1.  *프로비전*:
-    -   Azure 가상 네트워크를 사용하여 온-프레미스와 Azure 간 VPN 연결을 프로비전합니다. 자세한 내용을 보려면 [Azure 가상 네트워크(디자인 고려 사항 및 보안 연결 시나리오)](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)로 이동하십시오.
-    -   관리 포털을 사용하여 이미지 라이브러리의 기존 이미지에서 새 VM을 프로비전합니다.
-        -   SharePoint Server 또는 SQL Server BI 작업 이미지를 이미지 갤러리에 업로드할 수 있으며, 권한 있는 사용자는 해당 BI 구성 요소 VM을 선택하여 확장된 환경을 빌드할 수 있습니다.
+1.  *佈建*：
+    -   使用 Azure 虛擬網路，佈建內部部署與 Azure 之間的 VPN 連線。如需詳細資訊，請移至 [Azure 虛擬網路 (設計考量和安全連線情境)](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)。
+    -   使用管理入口網站，從映像庫中儲存的映像佈建新的 VM。
+        -   您可以將 SharePoint Server 或 SQL Server BI 工作負載映像上傳至映像庫，且任何授權使用者皆可選用這些 BI 元件 VM 來建置擴充的環境。
 
-2.  *설치*: 조직에 SharePoint Server 또는 SQL Server BI 구성 요소의 미리 빌드된 이미지가 없는 경우 원격 데스크톱 연결을 사용하여 SharePoint Server 및 SQL Server를 VM에 설치합니다.
-    -   SharePoint 설치에 대한 자세한 내용을 보려면 [Windows PowerShell을 사용하여 SharePoint Server 2010 설치](http://technet.microsoft.com/en-us/library/cc262839.aspx) 또는 [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/)(영문)로 이동하십시오.
-    -   SQL Server를 설치하는 방법에 대한 자세한 내용을 보려면 [SysPrep을 사용하여 SQL Server 설치](http://msdn.microsoft.com/en-us/library/ee210664.aspx)로 이동하십시오.
-    -   SharePoint 팜 배포를 위해 SQL Server 2012를 만들어 구성하는 과정에 대해서는 실습 교육 [Azure에서 SharePoint에 대해 SQL Server 2012 구성](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint)(영문)을 참조하십시오.
-    -   Active Directory를 구성하고 단일 SQL Server 데이터베이스를 사용하여 SharePoint 팜을 만드는 과정에 대해서는 실습 교육 [Azure 가상 컴퓨터로 SharePoint 팜 배포](https://github.com/WindowsAzure-TrainingKit/HOL-DeploySharePointVMs)(영문)를 참조하십시오.
+2.  *安裝*：如果您的組織沒有預先建置的 SharePoint Server 或 SQL Server BI 元件映像，請使用遠端桌面連線在 VM 上安裝 SharePoint Server 和 SQL Server。
+    -   如需安裝 SharePoint 的詳細資訊，請移至[使用 Windows PowerShell 安裝 SharePoint Server 2010](http://technet.microsoft.com/en-us/library/cc262839.aspx) 或 [CodePlex：AutoSPInstaller](http://autospinstaller.codeplex.com/)。
+    -   如需安裝 SQL Server 的詳細資訊，請移至[使用 SysPrep 安裝 SQL Server](http://msdn.microsoft.com/en-us/library/ee210664.aspx)。
+    -   參考為 SharePoint 伺服器陣列部署建立及設定 SQL Server 2012 的實際操作實驗室。[為 Azure 中的 SharePoint 設定 SQL Server 2012](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint)。
+    -   參考藉由設定 Active Directory 及使用單一 SQL Server 資料庫來建立 SharePoint 伺服器陣列的實際操作實驗室。[使用 Azure 虛擬機器部署 SharePoint 伺服器陣列](https://github.com/WindowsAzure-TrainingKit/HOL-DeploySharePointVMs)。
 
-3.  *BI VM 추가*:
-    -   관리 포털 끝점에 보안을 구성하고 VM의 Windows 방화벽에 인바운드 포트를 설정합니다.
-    -   새로 만든 BI VM을 기존 SharePoint 또는 SQL Server 팜에 추가합니다.
+3.  *新增 BI VM*：
+    -   設定管理入口網站端點的安全性，並在 VM 的 Windows 防火牆中設定輸入連接埠。
+    -   將新建立的 BI VM 新增至現有的 SharePoint 或 SQL Server 伺服器陣列。
 
-4.  *VM 관리*:
-    -   관리 포털을 사용하여 VM을 모니터링합니다.
-    -   중앙 관리를 사용하여 SharePoint 팜을 모니터링합니다.
-    -   Microsoft System Center - Operations Manager와 같은 온-프레미스 관리 소프트웨어를 사용하여 VM을 모니터링하고 관리합니다.
+4.  *管理 VM*：
+    -   使用管理入口網站監視 VM。
+    -   使用「管理中心」監視 SharePoint 伺服器陣列。
+    -   使用 Microsoft System Center Operations Manager 之類的內部部署管理軟體，來監視及管理 VM。
 
-### 시나리오 4: 완전히 사용자 지정된 SharePoint 기반 웹 사이트
+### 案例 4：完全自訂的 SharePoint 型網站
 
-#### 설명
+#### 說明
 
-점점 더 많은 조직이 클라우드에서 완전히 사용자 지정된 SharePoint 웹 사이트를 만들길 원합니다. 이러한 조직들은 클라우드에서 실행되는 복잡한 응용 프로그램을 관리할 수 있는 모든 권한을 제공하면서 지속성과 가용성이 뛰어난 환경을 요구하지만, 많은 시간과 예산을 사용하지는 않으려고 합니다.
+有愈來愈多的組織想要在雲端中建立完整自訂的 SharePoint 網站。他們需要高持續性與高可用性的環境，以便有充分的掌控力可維護在雲端中執行的複雜應用程式，但並不想為此花費大把的時間和預算。
 
-이 시나리오의 조직은 클라우드에서 전체 SharePoint 팜을 배포하고 동적으로 모든 구성 요소를 확장하여 추가 용량을 확보하거나, 온-프레미스 배포를 클라우드로 확장하여 필요한 경우에 용량을 늘리고 성능을 개선할 수 있습니다. 이 시나리오는 응용 프로그램 개발 및 엔터프라이즈 콘텐츠 관리를 위해 전체 "SharePoint 환경"을 원하는 조직에 초점을 맞추고 있습니다. 또한 더욱 복잡한 사이트에는 종단 간, 전체 기능에 대한 고급 보고, 파워 뷰, PerformancePoint, PowerPivot, 심층 차트, 그 외에 SharePoint 사이트 기능 중 대부분도 포함될 수 있습니다.
+在此案例中，組織可將其整個 SharePoint 伺服器陣列部署至雲端中，並動態調整所有元件以取得更多容量，或是在必要時，將其內部部署延伸至雲端，以提升容量並改善效能。此案例的主要適用對象，是想要在應用程式開發與企業內容管理上獲得完整 SharePoint 使用性的組織。更複雜的網站也可納入增強式報告、Power View、PerformancePoint、PowerPivot、深入圖表和其他大部分的 SharePoint 網站功能，以取得端對端的完整功能。
 
-조직은 Azure 가상 컴퓨터를 사용하여 비용 효율적이며 보안이 강화된 클라우드 인프라에서 사용자 지정된 응용 프로그램 및 연결된 구성 요소를 호스트할 수 있습니다. 또한 온-프레미스 Microsoft System Center를 온-프레미스 및 클라우드 응용 프로그램의 일반 관리 도구로 사용할 수도 있습니다.
+組織可用 Azure 虛擬機器，在符合成本效益、具有高度安全性的雲端基礎結構中代管自訂的應用程式和相關聯的元件。他們也可使用內部部署的 Microsoft System Center，作為內部部署和雲端應用程式的一般管理工具。
 
-#### 시작하기
+#### 開始使用
 
-Azure에서 완전히 사용자 지정된 SharePoint 웹 사이트를 구현하기 위해 조직은 클라우드에서 Active Directory 도메인을 배포하고 새 VM을 이 도메인에 프로비전해야 합니다. 그런 다음 SQL Server 2012를 실행하는 VM을 SharePoint 팜의 일부로 만들어 구성해야 합니다. 마지막으로 SharePoint 팜을 만들고 부하를 분산하고 Active Directory 및 SQL Server에 연결해야 합니다(그림 7).
+若要在 Azure 上實作完全自訂的 SharePoint 網站，組織必須在雲端中部署 Active Directory 網域，並在該網域中佈建新的 VM。接著，必須要建立執行 SQL Server 2012 的 VM，並將其設定為 SharePoint 伺服器陣列的一部分。最後，必須建立 SharePoint 伺服器陣列、為其進行負載平衡，然後連接到 Active Directory 和 SQL Server (圖 7)。
 
-그림 7: 완전히 사용자 지정된 SharePoint 기반 웹 사이트
+圖 7：完全自訂的 SharePoint 型網站
 
 ![azure-sharepoint-wp-14](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-14.png)
 
-#### 시나리오 환경 설정
+#### 設定案例環境
 
-다음 단계는 이미지 라이브러리의 미리 빌드된 이미지에서 사용자 지정된 SharePoint 팜 환경을 만드는 방법을 보여 줍니다. 그러나 SharePoint 팜 VM을 이미지 라이브러리로 업로드할 수도 있으며, 권한 있는 사용자는 해당 VM을 선택하여 Azure에서 필요한 SharePoint 팜을 빌드할 수 있습니다.
+下列步驟說明，如何從映像庫中預先建置的可用映像建立自訂的 SharePoint 伺服器陣列環境。但請注意，您也可以將 SharePoint 伺服器陣列 VM 上傳至映像庫，而授權使用者則可以選用這些 VM，在 Azure 上建置必要的 SharePoint 伺服器陣列。
 
-1.  Active Directory 배포*: Azure 가상 컴퓨터에서 Active Directory를 배포하기 위해 충족해야 하는 기본 요구 사항은 온-프레미스 VM(및 어느 정도까지는 물리적 컴퓨터)에서 배포하는 경우와 유사하지만 "동일하지는 않습니다". 차이점, 지침 및 기타 고려 사항에 대한 자세한 내용을 보려면 [Azure 가상 컴퓨터에 Active Directory를 배포하기 위한 지침](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090)으로 이동하십시오. Azure에서 Active Directory를 배포하려면 다음을 수행하십시오.*
-    -   VM을 특정 서브넷에 할당할 수 있는 가상 네트워크를 정의하고 만듭니다. 자세한 내용을 보려면 [가상 네트워킹 구성](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md)(영문)으로 이동하십시오.
-    -   Azure에서 관리 포털을 사용하여 새 VM에서 도메인 컨트롤러를 만들고 배포합니다. 자세한 내용을 보려면 [도메인 컨트롤러 만들기 및 배포](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md)(영문)로 이동하십시오.
-        -   또한 Azure 가상 컴퓨터 및 가상 네트워크를 사용하는 클라우드에서 Windows PowerShell 스크립트를 참조하여 독립 실행형 도메인을 배포할 수도 있습니다. 자세한 내용을 보려면 [Azure에서 Active Directory 배포(Windows PowerShell)](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS)(영문)로 이동하십시오.
-        -   Azure 가상 네트워크의 VM에서 새 Active Directory 포리스트를 만드는 방법에 대한 자세한 내용을 보려면 [Azure에서 새 Active Directory 포리스트 설치](/en-us/manage/services/networking/active-directory-forest/)(영문)로 이동하십시오.
+1.  部署 Active Directory*：在 Azure 虛擬機器上部署 Active Directory 的基本需求，類似於 (但不等同於) 在內部部署 VM (和某些實體機器) 上的部署。如需其差異的詳細資訊，以及相關指引和其他注意事項，請移至[在 Azure 虛擬機器上部署 Active Directory 的指引](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090)。若要在 Azure 中部署 Active Directory：*
+    -   定義及建立可讓 VM 指派至特定子網路的虛擬網路。如需詳細資訊，請移至[設定虛擬網路](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md)。
+    -   使用管理入口網站，在 Azure 中的新 VM 上建立及部署網域控制站。如需詳細資訊，請移至[部署及建立網域控制站](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md)。
+        -   您也可以參照 Windows PowerShell 指令碼，使用 Azure 虛擬機器和虛擬網路在雲端中部署獨立網域。如需詳細資訊，請移至[在 Azure 中部署 Active Directory (Windows PowerShell)](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS)。
+        -   如需使用 Azure 虛擬網路在 VM 上建立新 Active Directory 樹系的詳細資訊，請移至[在 Azure 中安裝新的 Active Directory 樹系](/en-us/manage/services/networking/active-directory-forest/)。
 
-2.  *SQL Server 배포*:
-    -   관리 포털을 사용하여 이미지 라이브러리의 기존 이미지에서 새 VM을 프로비전합니다.
-    -   VM에서 SQL Server를 구성합니다. 자세한 내용을 보려면 [SysPrep을 사용하여 SQL Server 설치](http://msdn.microsoft.com/en-us/library/ee210664.aspx)로 이동하십시오.
-    -   새로 만든 Active Directory 도메인에 VM을 가입합니다.
+2.  *部署 SQL Server*：
+    -   使用管理入口網站，從映像庫中儲存的映像佈建新的 VM。
+    -   在 VM 上設定 SQL Server。如需詳細資訊，請移至[使用 SysPrep 安裝 SQL Server](http://msdn.microsoft.com/en-us/library/ee210664.aspx)。
+    -   將 VM 加入新建立的 Active Directory 網域中。
 
-3.  *다중 서버 SharePoint 팜 배포*:
-    -   가상 네트워크를 만듭니다. 자세한 내용을 보려면 [Azure 가상 네트워크(디자인 고려 사항 및 보안 연결 시나리오)](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)로 이동하십시오.
-        -   SharePoint VM을 배포할 때 프로비전하는 동안 로컬 Active Directory 상자의 DNS 주소를 사용할 수 있도록 SharePoint Server에 입력한 서브넷을 기록해 놓아야 합니다.
-    -   관리 포털을 사용하여 VM을 만듭니다.
-    -   이 VM에 SharePoint Server를 설치하고 재사용 가능 이미지를 생성합니다. SharePoint Server 설치에 대한 자세한 내용을 보려면 [Windows PowerShell을 사용하여 SharePoint Server 2010 설치 및 구성](http://technet.microsoft.com/en-us/library/cc262839.aspx) 또는 [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/)(영문)로 이동하십시오.
-    -   SharePoint VM을 구성하여 SharePoint 팜을 만들고 [Join-SharePointFarm](http://technet.microsoft.com/en-us/library/ff607979.aspx) 명령을 사용하여 연결합니다.
-    -   다음과 같이 관리 포털을 사용하여 부하 분산을 구성합니다.
-        -   VM 끝점을 구성하고 기존 끝점에서 트래픽 부하를 분산하는 옵션을 선택한 후 부하 분산된 VM의 이름을 지정합니다.
-            -   Azure 가상 컴퓨터에서 SharePoint 팜 배포에 대한 자세한 내용을 알아보려면 [TechEd North America 2012 동영상](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2012/AZR327)(영문)을 시청하십시오.
+3.  *部署多伺服器 SharePoint 伺服器陣列*：
+    -   建立虛擬網路。如需詳細資訊，請移至 [Azure 虛擬網路 (設計考量和安全連線情境)](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)。
+        -   在部署 SharePoint VM 時，您必須為 SharePoint Server 提供子網路，如此，本機 Active Directory 方塊中的 DNS 位址在佈建期間才可供使用。
+    -   使用管理入口網站建立 VM。
+    -   在此 VM 上安裝 SharePoint Server，並產生可重複使用的映像。如需安裝 SharePoint Server 的詳細資訊，請移至[使用 Windows PowerShell 安裝及設定 SharePoint Server 2010](http://technet.microsoft.com/en-us/library/cc262839.aspx) 或 [CodePlex：AutoSPInstaller](http://autospinstaller.codeplex.com/)。
+    -   設定要建立的 SharePoint VM，並使用 [Join-SharePointFarm](http://technet.microsoft.com/en-us/library/ff607979.aspx) 命令連接到 SharePoint 伺服器陣列。
+    -   使用管理入口網站設定負載平衡：
+        -   設定 VM 端點，選取要對現有端點的流量進行負載平衡的選項，然後指定負載平衡 VM 的名稱。
+            -   如需在 Azure 虛擬機器上部署 SharePoint 伺服器陣列的詳細資訊，請檢視此 [TechEd North America 2012 視訊](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2012/AZR327)。
 
-4.  *System Center를 통해 SharePoint 팜 관리*:
-    -   Operations Manager 에이전트 및 새로운 Azure 통합 팩을 사용하여 온-프레미스 System Center를 Azure 가상 컴퓨터에 연결합니다.
-    -   관리 기능을 위해 온-프레미스 App Controller 및 Orchestrator를 사용합니다.
+4.  *透過 System Center 管理 SharePoint 伺服器陣列*：
+    -   使用 Operations Manager 代理程式和新的 Azure Integration Pack，將您的內部部署 System Center 連接到 Azure 虛擬機器。
+    -   使用內部部署 App Controller 和 Orchestrator 執行管理功能。
 
-결론
+結論
 ----
 
-클라우드 컴퓨팅은 IT 부서가 조직에 서비스를 제공하는 방법을 바꾸고 있습니다. 클라우드 컴퓨팅은 IT 부서의 집중성, 민첩성 및 유연성 향상과 함께 상당한 비용 절감 효과를 비롯하여 새로운 차원의 이점을 활용할 수 있기 때문입니다. Azure는 쉽고 유연하며 강력한 개방형 가상 인프라를 제공하여 클라우드 컴퓨팅을 선도하고 있습니다. Azure 가상 컴퓨터가 하드웨어에 대한 요구를 줄여주므로 조직은 모든 권한을 갖고 효율적인 관리 방식을 사용하여 인프라를 적절한 규모로 빌드함으로써 비용과 복잡성을 줄일 수 있습니다.
+雲端運算正在轉變 IT 為組織提供服務的方式。這是因為雲端運算可帶來新形態的優勢，其中包括大幅降低成本，同時提高 IT 專注性、靈活性和彈性。Azure 提供了簡單、開放、彈性而強大的虛擬基礎結構，可說是雲端運算領域的先行者。Azure 虛擬機器可降低硬體需求，讓組織得以建置具規模的基礎結構，而降低成本和複雜性，同時保有充分的掌控力和精簡的管理。
 
-Azure 가상 컴퓨터는 SharePoint 배포의 완전한 연속성을 제공합니다. Azure 가상 컴퓨터는 다른 Microsoft 응용 프로그램과의 최적의 환경을 제공하도록 완벽하게 지원되며 테스트되었습니다. 따라서 조직은 Azure에서 SharePoint Server를 쉽게 설치하고 배포하여 새 SharePoint 배포를 위한 인프라를 프로비전하거나 기존 인프라를 확장할 수 있습니다. 비즈니스 작업이 증가함에 따라 조직은 SharePoint 인프라를 빠르게 확장할 수 있습니다. 마찬가지로 작업 요구가 감소하면 조직은 주문형 리소스를 계약하여 사용하는 리소스에 대해서만 결제할 수 있습니다. 이 문서에서 논의한 네 가지 SharePoint 기반 시나리오에서 알 수 있듯이 Azure 가상 컴퓨터는 광범위한 비즈니스 요구 사항에 탁월한 인프라를 제공합니다.
+Azure 虛擬機器可用來執行完整而連續的 SharePoint 部署。Azure 經測試可與其他 Microsoft 應用程式密切搭配運作，提供最理想的使用性。因此，組織將可在 Azure 內設定及部署 SharePoint Server，無論是為新的 SharePoint 部署佈建基礎結構，還是擴充現有部署，皆可輕易完成。當業務工作負載增加時，組織可以快速擴充其 SharePoint 基礎結構。同理，當工作負載需求下降時，組織則可依需求縮減資源，而僅就使用的部分付費。Azure 虛擬機器可為各式各樣的商業需求提供絕佳的基礎結構，如本文先前討論的四種 SharePoint 案例所說明。
 
-Azure 가상 컴퓨터에서 SharePoint Server를 성공적으로 배포하려면 확실한 계획이 필요하며, 특히 중요 팜 아키텍처의 범위 및 배포 옵션을 고려해야 합니다. 이 문서에서 설명한 통찰력과 모범 사례가 SharePoint 배포를 구현하도록 결정하는 데 지침이 될 수 있습니다.
+要在 Azure 虛擬機器上成功部署 SharePoint Server，必須經過縝密的規劃，尤其是要考量關鍵伺服器陣列基礎結構和部署選項的範圍。本文提供的深入探討和最佳作法，可協助組織擬定決策，以實作完善的 SharePoint 部署。
 
-추가 리소스
------------
+其他資源
+--------
 
--   Azure 트레이닝 키트: 실습 교육 및 프레젠테이션(영문)
+-   Azure 訓練套件：實際操作實驗室和簡報
 
     <http://windowsazure-trainingkit.github.com/labs.htm>
 
--   Azure PowerShell로 시작
+-   開始使用 Azure PowerShell
 
     <http://msdn.microsoft.com/en-us/library/windowsazure/jj156055>
 
--   Azure 관리 Cmdlet(영문)
+-   Azure 管理 Cmdlet
 
     <http://msdn.microsoft.com/en-us/library/windowsazure/jj152841>
 
--   여러 운영 체제용 명령줄 도구 및 PowerShell Cmdlet(영문)
+-   適用於不同作業系統的命令列工具和 PowerShell Cmdlet
 
     [https://www.windowsazure.com/en-us/manage/downloads/](/en-us/manage/downloads/)
 
--   방법 안내 가이드 및 모범 사례 설명서(영문)
+-   使用說明和最佳作法文件
 
     [https://www.windowsazure.com/en-us/manage/windows/](/en-us/manage/windows/)
 

@@ -1,222 +1,219 @@
 <properties  linkid="register-for-facebook-auth" urlDisplayName="Mobile Services" pageTitle="Work with server scripts in Mobile Services" metaKeywords="server scripts, mobile devices, Azure, scheduler" description="Provides examples on how to define, register, and use server scripts in Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
-# 모바일 서비스에서 서버 스크립트 작업
+# 在行動服務中使用伺服器指令碼
 
-이 문서에서는 Azure 모바일 서비스에서 서버 스크립트 작업을 수행하는 방법에 대한 자세한 정보와 예를 제공합니다. 이 토픽의
-내용은 다음과 같습니다.
+本文提供如何在 Azure 行動服務中使用伺服器指令碼的詳細資訊以及範例。本主題分成這些小節：
 
-* [소개](#intro)
-* [테이블 작업](#table-scripts)
-  * [방법: 테이블 작업 등록](#register-table-scripts)
-  * [방법: 기본 응답 재정의](#override-response)
-  * [방법: execute success 재정의](#override-success)
-  * [방법: 기본 오류 처리 재정의](#override-error)
-  * [방법: 사용자 지정 매개 변수 추가](#access-headers)
-  * [방법: 테이블 사용자 작업](#work-with-users)
+* [簡介](#intro)
+* [資料表作業](#table-scripts)
+  * [作法：註冊資料表作業](#register-table-scripts)
+  * [作法：覆寫預設回應](#override-response)
+  * [作法：覆寫執行成功](#override-success)
+  * [作法：覆寫預設的錯誤處理](#override-error)
+  * [作法：新增自訂參數](#access-headers)
+  * [作法：使用資料表使用者](#work-with-users)
 
-* [사용자 지정 API](#custom-api)
-  * [방법: 사용자 지정 API 정의](#define-custom-api)
-  * [방법: HTTP 메서드 구현](#handle-methods)
-  * [방법: XML로 데이터 보내기 및 받기](#api-return-xml)
-  * [방법: 사용자 지정 API에서 사용자 및 헤더 작업](#get-api-user)
-  * [방법: 사용자 지정 API에서 여러 경로 정의](#api-routes)
+* [自訂 API](#custom-api)
+  * [作法：定義自訂 API](#define-custom-api)
+  * [作法：實作 HTTP 方法](#handle-methods)
+  * [作法：以 XML 傳送及接收資料](#api-return-xml)
+  * [作法：在自訂 API 中使用 user 和 header](#get-api-user)
+  * [作法：在自訂 API 中定義多個路由](#api-routes)
 
-* [작업 스케줄러](#scheduler-scripts)
-  * [방법: 예약된 작업 스크립트 정의](#scheduler-scripts)
+* [工作排程器](#scheduler-scripts)
+  * [作法：定義排程工作指令碼](#scheduler-scripts)
 
-* [소스 제어, 공유 코드 및 도우미 함수](#shared-code)
-  * [방법: Node.js 모듈 로드](#modules-helper-functions)
-  * [방법: 도우미 함수 사용](#helper-functions)
-  * [방법: 소스 제어를 사용하여 코드 공유](#shared-code-source-control)
-  * [방법: 앱 설정 작업](#app-settings)
+* [原始檔控制、共用程式碼及協助程式函數](#shared-code)
+  * [作法：載入 Node.js 模組](#modules-helper-functions)
+  * [作法：使用協助程式函數](#helper-functions)
+  * [作法：使用原始檔控制共用程式碼](#shared-code-source-control)
+  * [作法：使用應用程式設定](#app-settings)
 
-* [명령줄 도구 사용](#command-prompt)
-* [테이블 작업](#working-with-tables)
-  * [방법: 스크립트에서 테이블 액세스](#access-tables)
-  * [방법: 대량 삽입 수행](#bulk-inserts)
-  * [방법: JSON 형식을 데이터베이스 형식에 매핑](#JSON-types)
-  * [Transact-SQL을 사용하여 테이블 액세스](#TSQL)
+* [使用命令列工具](#command-prompt)
+* [使用資料表](#working-with-tables)
+  * [作法：從指令碼存取資料表](#access-tables)
+  * [作法：執行大量插入](#bulk-inserts)
+  * [作法：對應 JSON 類型至資料庫類型](#JSON-types)
+  * [使用 Transact-SQL 存取資料表](#TSQL)
 
-* [디버그 및 문제 해결](#debugging)
-  * [방법: 모바일 서비스 로그에 출력 쓰기](#write-to-logs)
+* [偵錯與疑難排解](#debugging)
+  * [作法：將輸出寫入行動服務記錄檔](#write-to-logs)
 
-## <a name="intro"></a>소개
+## <a name="intro"></a>簡介
 
-모바일 서비스에서 사용자 지정 비즈니스 논리를 서버에 저장 및 실행되는 JavaScript 코드로 정의할 수 있습니다. 이 서버 스크립트 코드는 다음과 같은 서버 기능 중 하나에 할당됩니다.
+在行動服務中，您可以定義自訂業務邏輯的 JavaScript 程式碼，儲存在伺服器上並執行。將此伺服器指令碼指派給下列伺服器功能之一：
 
-* [주어진 테이블에 대한 삽입, 읽기, 업데이트 또는 삭제 작업](#table-scripts)
-* [예약된 작업](#scheduler-scripts)
-* [사용자 지정 API에서 정의된 HTTP 메서드](#custom-api)
+* [指定資料表上的插入、讀取、更新或刪除作業](#table-scripts)。
+* [排程的工作](#scheduler-scripts)。
+* [在自訂 API 中定義的 HTTP 方法](#custom-api)。
 
-서버 스크립트에서 main 함수의 서명은 스크립트가 사용되는 위치의 컨텍스트에 따라 달라집니다. 일반 스크립트 코드를 스크립트 간에 공유되는 nodes.js 모듈로 정의할 수도 있습니다. 자세한 내용은 [소스 제어 및 공유 코드](#shared-code)를 참조하십시오.
+伺服器指令碼中主要函數的特徵依指令碼的使用情境而異。您也可以將常用指令碼定義為 nodes.js
+模組，由指令碼共用。如需詳細資訊，請參閱[原始檔控制與共用程式碼](#shared-code)。
 
-개별 서버 스크립트 개체 및 함수에 대한 설명은 [모바일 서비스 서버 스크립트 참조][1]를 참조하십시오.
+如需個別伺服器指令碼物件和函數的說明，請參閱[行動服務伺服器指令碼參考][1]。
 
-## <a name="table-scripts"></a>테이블 작업
+## <a name="table-scripts"></a>資料表作業
 
-테이블 작업 스크립트는 삽입, 읽기, 업데이트, 삭제(*del*) 등의 테이블 작업에 등록된 서버 스크립트입니다. 스크립트 이름은 등록된 작업 종류와 일치해야 합니다. 주어진 테이블 작업에 대해 하나의 스크립트만 등록할 수 있습니다. 주어진 작업이 REST 요청에 의해 호출될 때마다(예: 테이블에 항목을 삽입하는 POST 요청이 수신될 때) 스크립트가 실행됩니다. 모바일 서비스는 스크립트 실행 간에 상태를 유지하지 않습니다. 스크립트가 실행될 때마다 새 전역 컨텍스트가 만들어지기 때문에 스크립트에 정의된 모든 상태 변수가 다시 초기화됩니다. 요청 간에 상태를 저장하려면 모바일 서비스에서 테이블을 만든 후 상태를 읽고 테이블에 씁니다. 자세한 내용은 [방법: 스크립트에서 테이블 액세스](#access-tables)를 참조하십시오.
+資料表作業指令碼是伺服器指令碼，註冊至資料表的作業 -- 插入、讀取、更新或刪除 (*del*)。指令碼的名稱必須符合註冊之作業的種類。一個指定資料表作業只能註冊一個指令碼。每次 REST 要求叫用該指定作業時，就會執行其指令碼，例如，收到要在資料表中插入項目的 POST 要求時。行動服務不會保留指令碼執行之間的狀態。因為指令碼每次執行都會建立新的全域內容，指令碼中定義的所有狀態變數都會重新初始化。如果您想儲存兩個不同要求之間的狀態，請在行動服務中建立資料表，讀取狀態並將狀態寫入資料表。如需詳細資訊，請參閱[作法：從指令碼存取資料表](#access-tables)。
 
-작업이 실행될 때 사용자 지정 비즈니스 논리를 적용해야 하는 경우 테이블 작업 스크립트를 작성합니다. 예를 들어 다음 스크립트는
-`text` 필드의 문자열 길이가 10보다 큰 경우 삽입 작업을 거부합니다.
+如果需要在執行作業時強制採用自訂的業務邏輯，請編寫資料表作業指令碼。例如，當 `text` 欄位的字串長度超過 10 個字元時，以下指令碼會拒絕插入作業：
 
     function insert(item, user, request) {
-        if (item.text.length > 10) {
-            request.respond(statusCodes.BAD_REQUEST, 
+    if (item.text.length > 10) {
+    request.respond(statusCodes.BAD_REQUEST, 
     			'Text length must be less than 10 characters');
-        } else {
-            request.execute();
+    } else {
+    request.execute();
         }
     }
 
-테이블 스크립트 함수는 항상 3개의 인수를 사용합니다.
+資料表指令碼函數一律有三個引數。
 
-* 첫 번째 인수는 테이블 작업에 따라 달라집니다.
+* 第一個引數依資料表作業而異。
   
-  * 삽입 및 업데이트의 경우 작업의 영향을 받는 행의 JSON 표현인 **항목** 개체입니다. 이 개체를 사용하면 *item.Owner* 등의 이름으로 열 값에 액세스할 수 있습니다. 여기서 *Owner*는 JSON 표현의 이름 중 하나입니다.
-  * 삭제의 경우 삭제할 레코드의 ID입니다.
-  * 읽기의 경우 반환할 행 집합을 지정하는 [query 개체][2]입니다.
+  * 若是插入或更新，則為 **item** 物件，這是受到作業影響之資料列的 JSON 表示法。它可讓您依名稱存取欄的值，例如 *item.Owner*，其中 *Owner* 是 JSON 表示法中的名稱之一。
+  * 若是刪除，則為要刪除之記錄的 ID。
+  * 若是讀取，則為 [query 物件][2]，此物件指定要傳回的資料列集。
 
-* 두 번째 인수는 항상 요청을 제출한 사용자를 나타내는 [user 개체][3]입니다.
+* 第二個引數一律是 [user 物件][3]，此物件表示提交要求的使用者。
 
-* 세 번째 인수는 항상 [request 개체][4]입니다. 이 개체를 통해 요청된 작업의 실행 및 클라이언트에 전송되는 응답을 제어할 수 있습니다.
+* 第三個引數一律是 [request 物件][4]，您以此物件控制要求之作業的執行以及傳送給用戶端的回應。
 
-다음은 테이블 작업에 대한 정식 main 함수 서명입니다.
+以下是資料表作業的標準主要函數特徵：
 
-* [Insert][5]: `function insert (item, user, request) { ... }`
-* [Update][6]: `function update (item, user, request) { ... }`
-* [Delete][7]: `function del (id, user, request) { ... }`
-* [Read][8]: `function read (query, user, request) { ... }`
+* [insert 函數][5]：`function insert (item, user, request) { ... }`
+* [update 函數][6]：`function update (item, user, request) { ... }`
+* [delete 函數][7]：`function del (id, user, request) { ... }`
+* [read 函數][8]：`function read (query, user, request) { ... }`
 
-> [WACOM.NOTE]삭제 작업에 등록된 함수는 JavaScript에서 delete가 예약된 키워드이기 때문에 이름이
-> *del*로 지정되어야 합니다.
+> [WACOM.NOTE]註冊至刪除作業的函數必須命名為 *del*，因為 delete 是 JavaScript 的保留關鍵字。
 
-모든 서버 스크립트는 main 함수를 포함하며 선택적 도우미 함수가 있을 수도 있습니다. 서버 스크립트가 특정 테이블에 대해 만들어진 경우에도 동일한 데이터베이스의 다른 테이블을 참조할 수 있습니다. 공통 함수를 스크립트 간에 공유되는 모듈로 정의할 수도
-있습니다. 자세한 내용은 [소스 제어 및 공유 코드](#shared-code)를 참조하십시오.
+每個伺服器指令碼都有主要函數，可能也有選擇性的協助程式函數。雖然伺服器指令碼可能是為了特定資料表而建立，它也可以參考相同資料庫中的其他資料表。您也可以將常用函數定義為模組，讓所有指令碼共用。如需詳細資訊，請參閱[原始檔控制與共用程式碼](#shared-code)。
 
-### <a name="register-table-scripts"></a>방법: 테이블 스크립트 등록
+### <a name="register-table-scripts"></a>作法：註冊資料表指令碼
 
-다음 방법 중 하나로 테이블 작업에 등록된 서버 스크립트를 정의할 수 있습니다.
+您可以用下列方式之一定義註冊到資料表作業的伺服器指令碼：
 
-* [Azure 관리 포털][9]에서. 테이블 작업 스크립트는 주어진 테이블에 대한 **스크립트** 탭에서 액세스합니다. 다음은   `TodoItem` 테이블에 대한 삽입 스크립트에 등록된 기본 코드를 보여 줍니다. 이 코드를 고유한 사용자 지정 비즈니스 논리로 재정의할 수 있습니다.
+* 使用 **Azure 管理入口網站][9]。可在指定資料表的 [指令碼** 索引標籤中存取資料表作業的指令碼。以下為註冊到
+  `TodoItem` 資料表之 insert 指令碼的預設程式碼。您可用自己的自訂業務邏輯覆寫此程式碼。
   
-    ![1](./media/mobile-services-how-to-use-server-scripts/1-mobile-insert-script-users.png)
+  ![1](./media/mobile-services-how-to-use-server-scripts/1-mobile-insert-script-users.png)
   
-    작업 방법은 [모바일 서비스에서 서버 스크립트를 사용하여 데이터 유효성 검사 및 수정](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/)을 참조하십시오.
+  若要知道怎麼做，請參閱[使用伺服器指令碼驗證及修改行動服務中的資料](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/)。
 
-* 소스 제어 사용. 소스 제어가 사용하도록 설정된 경우 giet 리포지토리의 .\\service\\table 하위 폴더에 *`<table>`*.*`<operation>`*.js라는 파일을 만듭니다. 여기서 *`<table>`*는 테이블 이름이고 *`<operation>`*는 등록되는 테이블 작업입니다. 자세한 내용은 [소스 제어 및 공유 코드](#shared-code)를 참조하십시오.
+* 使用原始檔控制。啟用原始檔控制後，只要在 git 儲存機制的 .\\service\\table 子資料夾中建立名為 *`<table>`*.*`<operation>`*.js 的檔案，其中 *`<table>`* 是資料表的名稱、*`<operation>
+*`是註冊的資料表作業。如需詳細資訊，請參閱[原始檔控制與共用程式碼](#shared-code)。
 
-* 명령 프롬프트에서 Azure 명령줄 도구 사용. 자세한 내용은 [명령줄 도구 사용](#command-prompt)을 참조하십시오.
+* 從命令提示字元使用 Azure 命令列工具。如需詳細資訊，請參閱[使用命令列工具](#command-prompt)。
 
-테이블 작업 스크립트는 [request 개체][4]의 다음 함수 중 하나 이상을 호출하여 클라이언트가 응답을 받는지 확인해야 합니다.
+資料表作業指令碼至少必須呼叫 [request 物件][4]的下列函數之一，以確保用戶端收到回應。
 
-* **execute 함수**: 작업이 요청한 대로 완료되고 표준 응답이 반환됩니다.
+* **execute 函數**：作業已如要求完成，並已傳回標準回應。
 
-* **respond 함수**: 사용자 지정 응답이 반환됩니다.
+* **respond 函數**：已傳回自訂回應。
+<div class="dev-callout"><strong>重要事項</strong>
+<p>當指令碼的程式碼路徑中的 <b>execute</b> 和 <b>respond</b> 都沒被叫用，可能是操作無回應。</p></div>
 
- 
-<div  class="dev-callout"><strong>중요</strong>
-<p>스크립트에 <b>execute</b> 또는 <b>respond</b>가 호출되지 않는 코드 경로가 있는 경우 작업이 응답하지 않을 수도 있습니다.</p></div>
+ 以下指令碼會呼叫 **execute** 函數來完成用戶端要求的資料作業：
 
- 다음 스크립트는 **execute** 함수를 호출하여 클라이언트가 요청한 데이터 작업을 완료합니다.
+	    function insert(item, user, request) { 
+	    request.execute(); 
+	    }
+
+此範例會將項目插入資料庫，並將適當的狀態代碼傳回給使用者。
+
+在呼叫 **execute** 函數時，傳遞給指令碼函數的第一個引數 (`item`、[query][2] 或 `id` 值) 將用於執行作業。若是插入、更新或查詢作業，可以在呼叫 **execute** 前先修改 item 或 query：
 
     function insert(item, user, request) { 
-        request.execute(); 
-    }
-
-이 예제에서는 항목이 데이터베이스에 삽입되고 해당 상태 코드가 사용자에게 반환됩니다.
-
-**execute** 함수가 호출될 때 첫 번째 인수로 스크립트 함수에 전달된 `item`, [query][2] 또는 `id` 값이 작업을 수행하는 데 사용됩니다. 삽입, 업데이트 또는 쿼리 작업의 경우 **execute**를 호출하기 전에 항목이나 쿼리를 수정할 수 있습니다.
-
-    function insert(item, user, request) { 
-        item.scriptComment =
+    item.scriptComment =
     		'this was added by a script and will be saved to the database'; 
-        request.execute(); 
+    request.execute(); 
     } 
      
     function update(item, user, request) { 
-        item.scriptComment = 
+    item.scriptComment = 
     		'this was added by a script and will be saved to the database'; 
-        request.execute(); 
+    request.execute(); 
     } 
     
     function read(query, user, request) { 
     	// Only return records for the current user 	    
-    	query.where({ userid: user.userId}); 
-        request.execute(); 
+    	query.where({ userid:user.userId}); 
+    request.execute(); 
     }
 
-> [WACOM.NOTE]삭제 스크립트에서 제공된 userId 변수의 값을 변경해도 삭제되는 레코드에는 영향을 주지 않습니다.
+> [WACOM.NOTE]在刪除指令碼中，變更提供的 userId 變數值不影響哪一個記錄會被刪除。
 
-추가 예제는 [데이터 읽기 및 쓰기][10], [요청 수정][11] 및 [데이터 유효성 검사][12]를 참조하십시오.
+如需詳細資訊，請參閱[讀取和寫入資料][10]、[修改要求][11]、[驗證資料][12]。
 
-### <a name="override-response"></a>방법: 기본 응답 재정의
+### <a name="override-response"></a>作法：覆寫預設回應
 
-스크립트를 사용하여 기본 응답 동작을 재정의할 수 있는 유효성 검사 논리를 구현할 수도 있습니다. 유효성 검사에 실패하는 경우 **execute** 함수 대신 **respond** 함수를 호출하고 응답을 클라이언트에 씁니다.
+您也可以使用指令碼實作可以覆寫預設回應行為的驗證邏輯。如果驗證失敗，只要呼叫 **respond** 函數來代替 **execute** 函數，然後將回應寫入用戶端：
 
     function insert(item, user, request) {
-        if (item.userId !== user.userId) {
-            request.respond(statusCodes.FORBIDDEN, 
-            'You may only insert records with your userId.');
-        } else {
-            request.execute();
+    if (item.userId !== user.userId) {
+    request.respond(statusCodes.FORBIDDEN, 
+    'You may only insert records with your userId.');
+    } else {
+    request.execute();
         }
     }
 
-이 예제에서는 삽입된 항목의 `userId` 속성이 인증된 클라이언트에 대해 제공된 [user 개체][3]의 `userId`와 일치하지 않을 경우 요청이 거부됩니다. 이 경우 데이터베이스 작업(*insert*)이 발생하지 않으며 403 HTTP 상태 코드와 사용자 지정 오류 메시지가 포함된 응답이 클라이언트에 반환됩니다. 추가 예제는 [응답 수정][13]을 참조하십시오.
+在此範例中，當插入項目的 `userId` 屬性不符合提供給已驗證用戶端之 [user 物件][3]的 `userId`，就會拒絕要求。在此情況下，資料庫作業 (*insert*) 不會發生，且會將含 403 HTTP 狀態代碼的回應和自訂錯誤訊息傳回用戶端。如需詳細資訊，請參閱[修改回應][13]。
 
-### <a name="override-success"></a>방법: execute success 재정의
+### <a name="override-success"></a>作法：覆寫執行成功
 
-기본적으로 테이블 작업에서 **execute** 함수는 자동으로 응답을 씁니다. 그러나 성공 및/또는 오류 시 동작을 재정의하는 두 개의 선택적 매개 변수를 execute 함수에 전달할 수 있습니다.
+依預設，在資料表作業中，**execute** 函數會自動寫入回應。不過，您可以傳遞兩個選擇性參數給 execute 函數，以覆寫其成功及/或發生錯誤時的行為。
 
-execute를 호출할 때 **success** 처리기를 전달하면 쿼리 결과를 응답에 쓰기 전에 수정할 수 있습니다. 다음 예제에서는 `execute({ success: function(results) { ... })`을 호출하여 데이터베이스에서 데이터를 읽은 후 응답을 쓰기 전에 추가 작업을 수행합니다.
+若在呼叫 execute 時傳遞 **success** 處理常式，可在將 query 的結果寫入回應之前先加以修改。以下範例會呼叫 `execute({ success:function(results) { ...})`，在從資料庫讀取資料之後、寫入回應之前執行更多工作：
 
     function read(query, user, request) {
-        request.execute({
-            success: function(results) {
-                results.forEach(function(r) {
-                    r.scriptComment = 
-                    'this was added by a script after querying the database';
+    request.execute({
+    success:function(results) {
+    results.forEach(function(r) {
+    r.scriptComment = 
+    'this was added by a script after querying the database';
                 });
-                request.respond();
+    request.respond();
             }
         });
     }
 
-**execute** 함수에 **success** 처리기를 제공할 때 **success** 처리기의 일부로 **respond** 함수도 호출하여 런타임에 스크립트가 완료되었으며 응답을 쓸 수 있음을 알려야 합니다. 인수를 전달하지 않고 **respond**를 호출하면 모바일 서비스에서 기본 응답을 생성합니다.
+當您提供 **success** 處理常式給 **execute** 函數時，也必須呼叫 **respond** 函數做為 **success** 處理常式的一部分，讓執行階段知道指令碼已完成且可以寫入回應。若呼叫 **respond** 時未傳遞任何引數，行動服務會產生預設回應。
 
-> [WACOM.NOTE]먼저 **execute** 함수를 호출한 후에만 인수 없이 **respond**를 호출하여 기본
-> 응답을 호출할 수 있습니다.
+> [WACOM.NOTE]您只能在第一次呼叫 **execute** 函數後以無引數呼叫 **respond** 的方式叫用預設回應。
 
-### <a name="override-error"></a>방법: 기본 오류 처리 재정의
+### <a name="override-error"></a>作法：覆寫預設的錯誤處理
 
-데이터베이스 연결 끊김이나 잘못된 개체 또는 쿼리가 있는 경우 **execute** 함수가 실패할 수 있습니다. 기본적으로 오류가 발생하면 서버 스크립트에서 오류를 기록하고 오류 결과를 응답에 씁니다. 모바일 서비스에서 기본 오류 처리를 제공하기 때문에 서비스에서 발생할 수 있는 오류를 처리할 필요는 없습니다.
+如果與資料庫的連線中斷、物件無效，或查詢不正確，**execute** 函數就會失敗。依預設，當錯誤發生時，伺服器指令碼會記錄錯誤，並將錯誤結果寫入回應。因為行動服務提供預設的錯誤處理，您不必處理服務可能發生的錯誤。
 
-특정 보상 작업을 원하는 경우 또는 전역 콘솔 개체를 사용하여 자세한 정보를 로그에 쓰려는 경우 명시적 오류 처리를 구현하여 기본 오류 처리를 재정의할 수 있습니다. 이렇게 하려면 **execute** 함수에 **error** 처리기를 제공합니다.
+如果想要在發生錯誤時採取特定的補償動作，或者想要使用全域主控台物件在記錄檔內寫入更詳細的資訊，您可以實作明確的錯誤處理，覆寫預設的錯誤處理。作法是提供 **error** 處理常式給 **execute** 函數：
 
     function update(item, user, request) { 
-      request.execute({ 
-        error: function(err) { 
-          // Do some custom logging, then call respond. 
-          request.respond(); 
+    request.execute({ 
+    error:function(err) { 
+    // Do some custom logging, then call respond. 
+    request.respond(); 
         } 
       }); 
     }
 
-오류 처리기를 제공하면 **respond**가 호출될 때 모바일 서비스에서 오류 결과를 클라이언트에 반환합니다.
+若有提供錯誤處理常式，在呼叫 **respond** 時，行動服務會將錯誤結果傳回用戶端。
 
-원하는 경우 **success** 및 **error** 처리기를 둘 다 제공할 수도 있습니다.
+如有需要，也可以同時提供 **success** 和 **error** 處理常式。
 
-### <a name="access-headers"></a>방법: 사용자 지정 매개 변수 액세스
+### <a name="access-headers"></a>作法：存取自訂參數
 
-모바일 서비스에 요청을 보낼 때 사용자 지정 매개 변수를 요청 URI에 포함하여 테이블 작업 스크립트에 주어진 요청을 처리하는 방법을 지시할 수 있습니다. 그런 다음 매개 변수를 검사하여 처리 경로를 확인하도록 스크립트를 수정합니다.
+當您傳送要求給行動服務，可以在要求的 URI
+中加入自訂參數，指示您的資料表作業指令碼如何處理指定的要求。然後修改指令碼，使其檢查參數以決定處理路徑。
 
-예를 들어 POST 요청에 대한 다음 URI는 동일한 텍스트 값이 포함된 새 *TodoItem*의 삽입을 허용하지 않도록 서비스에 지시합니다.
+例如，以下是 POST 要求的 URI，它告訴服務不要允許插入擁有相同文字值的新 *TodoItem*：
 
     	https://todolist.azure-mobile.net/tables/TodoItem?duplicateText=false
 
-이러한 사용자 지정 쿼리 매개 변수는 [request 개체][4]의 **parameters** 속성에서 JSON 값으로 액세스합니다. 모바일 서비스는 테이블 작업에 등록된 모든 함수에 **request** 개체를 제공합니다. 삽입 작업에 대한 다음 서버 스크립트는 삽입 작업이 실행되기 전에 `duplicateText` 매개 변수의 값을 확인합니다.
+[request 要求][4]的 **parameters** 屬性會將這些自訂的查詢參數當做 JSON 值存取。行動服務會提供 **request** 物件給任何已註冊至資料表作業的函數。以下的插入作業伺服器指令碼會先檢查 `duplicateText` 參數的值再執行插入作業：
 
-    	function insert(item, user, request) {
+    function insert(item, user, request) {
     	    var todoItemTable = tables.getTable('TodoItem');
     	    // Check the supplied custom parameter to see if
     	    // we should allow duplicate text items to be inserted.		   
@@ -224,10 +221,10 @@ execute를 호출할 때 **success** 처리기를 전달하면 쿼리 결과를 
     	        // Find all existing items with the same text
     	        // and that are not marked 'complete'. 
     	        todoItemTable.where({
-    	            text: item.text,
-    	            complete: false
+    	            text:item.text,
+    	            complete:false
     	        }).read({
-    	            success: insertItemIfNotComplete
+    	            success:insertItemIfNotComplete
     	        });
     	    } else {
     	        request.execute();
@@ -236,7 +233,7 @@ execute를 호출할 때 **success** 처리기를 전달하면 쿼리 결과를 
     	    function insertItemIfNotComplete(existingItems) {
     	        if (existingItems.length > 0) {
     	            request.respond(statusCodes.CONFLICT, 
-                        "Duplicate items are not allowed.");
+    "Duplicate items are not allowed.");
     	        } else {
     	            // Insert the item as normal. 
     	            request.execute();
@@ -244,73 +241,73 @@ execute를 호출할 때 **success** 처리기를 전달하면 쿼리 결과를 
     	    }
     	}
 
-**insertItemIfNotComplete**에서는 중복 텍스트가 없는 경우 [request 개체][4]의 **execute** 함수가 호출되어 항목을 삽입하고, 그렇지 않으면 **respond** 함수가 호출되어 클라이언트에 중복을 알립니다.
+請注意在 **insertItemIfNotComplete** 中，當沒有重複文字時，會叫用 [request 物件][4]的 **execute** 函數以插入項目；否則會叫用 **respond** 函數以通知用戶端有重複文字。
 
-위 코드에서 **success** 함수 호출 구문은 다음과 같습니다.
+請注意上述程式碼中呼叫 **success** 函數的語法：
 
  		        }).read({
 		            success: insertItemIfNotComplete
 		        });
 
-JavaScript에서 다음과 같은 긴 동등 항목의 간결한 버전입니다.
+在 JavaScript 中這是精簡版，等同於以下這段較長的程式碼：
 
-    	success: function(results) 
+    	success:function(results) 
     	{ 
     		insertItemIfNotComplete(results); 
     	}
 
-### <a name="work-with-users"></a>방법: 사용자 작업
+### <a name="work-with-users"></a>作法：使用 user
 
-Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 수 있습니다. 자세한 내용은 [인증 시작][14](영문)을 참조하십시오. 인증된 사용자가 테이블 작업을 호출하면 모바일 서비스에서 [user 개체][3]를 사용하여 등록된 스크립트 함수에 사용자 정보를 제공합니다. **userId** 속성을 사용하여 사용자별 정보를 저장하고 검색할 수 있습니다. 다음 예제에서는 인증된 사용자의 userId를 기준으로 항목의 owner 속성을 설정합니다.
+在 Azure 行動服務中，您可以使用身分識別提供者來驗證使用者。如需詳細資訊，請參閱[開始使用驗證][14] (英文)。當已驗證使用者叫用資料表作業時，行動服務會使用 [user 物件][3]將使用者資訊提供給註冊的指令碼函數。**userId** 屬性可用於儲存及擷取使用者特定資訊。以下範例會根據已驗證使用者的 userId 設定項目的 owner 屬性：
 
     function insert(item, user, request) {
-        item.owner = user.userId;
-        request.execute();
+    item.owner = user.userId;
+    request.execute();
     }
 
-다음 예제에서는 인증된 사용자의 **userId**를 기준으로 쿼리에 다른 필터를 추가합니다. 이 필터는 결과를 현재 사용자에 속하는 항목으로만 제한합니다.
+下一個範例會根據已驗證使用者的 **userId** 替查詢額外增加一個篩選條件。此篩選條件限制結果為只屬於目前使用者的項目：
 
     function read(query, user, request) {
-        query.where({
-            owner: user.userId
+    query.where({
+    owner:user.userId
         });
-        request.execute();
+    request.execute();
     }
 
-## <a name="custom-api"></a>사용자 지정 API
+## <a name="custom-api"></a>自訂 API
 
-사용자 지정 API는 GET, POST, PUT, PATCH, DELETE 등의 표준 HTTP 메서드 중 하나 이상에 의해 액세스되는 모바일 서비스의 끝점입니다. 사용자 지정 API에서 지원하는 각 HTTP 메서드에 대해 별도의 함수 내보내기를 단일 스크립트 파일에서 모두 정의할 수 있습니다. 주어진 메서드를 사용한 사용자 지정 API 요청이 수신되면 등록된 스크립트가 호출됩니다. 자세한 내용은 [사용자 지정 API][15]를 참조하십시오.
+自訂 API 是行動服務中的端點，被一或多個標準 HTTP 方法存取：GET、POST、PUT、PATCH、DELETE。可以為自訂 API 支援的每個 HTTP 方法另外定義一個 export 函數，全部放在同一個指令碼檔案中。當使用指定方法的自訂 API 收到要求，會叫用註冊的指令碼。如需相關資訊，請參閱[自訂 API][15]。
 
-모바일 서비스 런타임에서 사용자 지정 API 함수를 호출하는 경우 [request][4] 및 [response][16] 개체가 둘 다 제공됩니다. 이러한 개체는 스크립트에서 활용할 수 있는 [express.js 라이브러리][17]의 기능을 노출합니다. **hello**라는 다음 사용자 지정 API는 POST 요청에 대한 응답으로 *Hello, world!*를 반환하는 간단한 예제입니다.
+行動服務執行階段呼叫自訂 API 函數時，會提供 [request 物件][4]和 [response 物件][16]。這些物件公開 [express.js library][17] 的功能，而您的指令碼可加以利用。以下名為 **hello** 的自訂 API 是一個很簡單的範例，會傳回 *Hello, world!* 回應 POST 要求：
 
-    	exports.post = function(request, response) {
-    	    response.send(200, "{ message: 'Hello, world!' }");
+    exports.post = function(request, response) {
+    	    response.send(200, "{ message:'Hello, world!' }");
     	} 
 
-[response 개체][16]의 **send** 함수는 원하는 응답을 클라이언트에 반환합니다. 이 코드는 POST 요청을 다음 URL로 전송하여 호출됩니다.
+[response 物件][16]上的 **send** 函數將您想要的回應傳回用戶端。傳送 POST 要求給以下 URL 就會叫用此程式碼：
 
     	https://todolist.azure-mobile.net/api/hello  
 
-실행 간에 전역 상태가 유지됩니다.
+執行之間的全域狀態會被保留下來。
 
-### <a name="define-custom-api"></a>방법: 사용자 지정 API 정의
+### <a name="define-custom-api"></a>作法：定義自訂 API
 
-다음 방법 중 하나로 사용자 지정 API 끝점의 HTTP 메서드에 등록된 서버 스크립트를 정의할 수 있습니다.
+您可以用下列方式之一，定義註冊到自訂 API 端點中 HTTP 方法的伺服器指令碼：
 
-* [Azure 관리 포털][9]에서. 사용자 지정 API 스크립트는 **API** 탭에서 생성 및 수정됩니다. 서버 스크립트   코드는 주어진 사용자 지정 API의 **스크립트** 탭에 있습니다. 다음은 `CompleteAll` 사용자 지정 API 끝점에 대한 POST 요청에서 호출되는 스크립트를 보여 줍니다.
+* 使用 **Azure 管理入口網站][9]。在 [API** 索引標籤中建立及修改自訂 API 指令碼。伺服器指令碼位於指定自訂 API 的 [指令碼] ** 索引標籤下**。以下是要求 `CompleteAll` 自訂 API 端點的 POST 要求所叫用的指令碼。
   
-    ![2](./media/mobile-services-how-to-use-server-scripts/2-mobile-custom-api-script.png)
+  ![2](./media/mobile-services-how-to-use-server-scripts/2-mobile-custom-api-script.png)
   
-    사용자 지정 API 메서드에 대한 액세스 권한은 사용 권한 탭에서 할당됩니다. 이 사용자 지정 API가 생성된 방법을 확인하려면 
-   [클라이언트에서 사용자 지정 API 호출](/en-us/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api)을 참조하십시오.
+  在 [權限] 索引標籤中指派對自訂 API 方法的存取權限。若要了解此自訂 API 是如何建立的，請參閱[從用戶端呼叫自訂 API](/en-us/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api)。
 
-* 소스 제어 사용. 소스 제어가 사용하도록 설정된 경우 giet 리포지토리의 .\\service\\api 하위 폴더에 *`<custom _api>`*.js라는 파일을 만듭니다. 여기서 *`<custom _api>`*는 등록되는 사용자 지정 API의 이름입니다. 이 스크립트 파일에는 사용자 지정 API에 의해 노출되는 각 HTTP 메서드에 대한 *exported* 함수가 포함되어 있습니다. 사용 권한은 도우미 .json 파일에서 정의됩니다. 자세한 내용은 [소스 제어 및 공유 코드](#shared-code)를 참조하십시오.
+* 使用原始檔控制。啟用原始檔控制後，只要在 git 儲存機制的 .\\service\\table 子資料夾中建立名為 *`<custom
+  _api>`*.js 的檔案，其中 *`<custom_api>`* 是所註冊之自訂 API 的名稱。此指令碼檔案包含 *exported* 函數，用於自訂 API 公開的每個 HTTP 方法。權限是在伴隨的 .json 檔案中定義。如需詳細資訊，請參閱[原始檔控制與共用程式碼](#shared-code)。
 
-* 명령 프롬프트에서 Azure 명령줄 도구 사용. 자세한 내용은 [명령줄 도구 사용](#command-prompt)을 참조하십시오.
+* 從命令提示字元使用 Azure 命令列工具。如需詳細資訊，請參閱[使用命令列工具](#command-prompt)。
 
-### <a name="handle-methods"></a>방법: HTTP 메서드 구현
+### <a name="handle-methods"></a>作法：實作 HTTP 方法
 
-사용자 지정 API는 GET, POST, PUT, PATCH, DELETE 등의 HTTP 메서드 중 하나 이상을 처리할 수 있습니다. 사용자 지정 API에서 처리되는 각 HTTP 메서드에 대해 exported 함수가 정의됩니다. 단일 사용자 지정 API 코드 파일에서 다음 함수 중 하나 또는 모두를 내보낼 수 있습니다.
+自訂 API 可以處理一或多個 HTTP 方法：GET、POST、PUT、PATCH 和 DELETE。為自訂 API 處理的每個 HTTP 方法定義 exported 函數。單一自訂 API 程式碼檔案可以匯出下列其中一個函數或所有函數：
 
     	exports.get = function(request, response) { ... };
     	exports.post = function(request, response) { ... };
@@ -318,13 +315,14 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
     	exports.put = function(request, response) { ... };
     	exports.delete = function(request, response) { ... };
 
-서버 스크립트에 구현되지 않은 HTTP 메서드를 사용하여 사용자 지정 API 끝점을 호출할 수 없으며 405(메서드가 허용되지 않음) 오류 응답이 반환됩니다. 각 지원 HTTP 메서드에 별도의 사용 권한 수준을 할당할 수 있습니다.
+在伺服器指令碼中未實作的 HTTP 方法無法呼叫自訂 API 端點，且會傳回 405 (不允許方法) 錯誤回應。可以對每個支援 HTTP
+方法指派不同的權限層級。
 
-### <a name="api-return-xml"></a>방법: XML로 데이터 보내기 및 받기
+### <a name="api-return-xml"></a>作法：以 XML 傳送及接收資料
 
-클라이언트가 데이터를 저장 및 검색할 때 모바일 서비스는 JSON(JavaScript Object Notation)을 사용하여 메시지 본문의 데이터를 나타냅니다. 그러나 XML 페이로드를 대신 사용하려는 시나리오도 있습니다. 예를 들어 Windows 스토어 앱에는 서비스에서 XML을 내보내야 하는 기본 제공 정기 알림 기능이 있습니다. 자세한 내용은 [정기 알림을 지원하는 사용자 지정 API 정의](/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet/)를 참조하십시오.
+用戶端儲存和擷取資料時，行動服務使用 JavaScript Object Notation (JSON) 來表現訊息主體中的資料。不過，有些情況下您會想使用 XML 來裝載資料。例如，Windows 市集應用程式的內建定期通知功能需要服務發出 XML。如需詳細資訊，請參閱[定義支援定期通知的自訂 API](/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet/)。
 
-다음 **OrderPizza** 사용자 지정 API 함수는 간단한 XML 문서를 응답 페이로드로 반환합니다.
+下方的 **OrderPizza** 自訂 API 函數會傳回簡單的 XML 文件做為回應裝載：
 
     	exports.get = function(request, response) {
     	  response.set('content-type', 'application/xml');
@@ -332,20 +330,20 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
     	  response.send(200, xml);
     	};
 
-이 사용자 지정 API 함수는 다음 끝점에 대한 HTTP GET 요청에 의해 호출됩니다.
+傳送至以下端點的 HTTP GET 要求會叫用這個自訂 API 函數：
 
     	https://todolist.azure-mobile.net/api/orderpizza
 
-### <a name="get-api-user"></a>방법: 사용자 지정 API에서 사용자 및 헤더 작업
+### <a name="get-api-user"></a>作法：在自訂 API 中使用 user 和 header
 
-Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 수 있습니다. 자세한 내용은 [인증 시작][14](영문)을 참조하십시오. 인증된 사용자가 사용자 지정 API를 요청하면 모바일 서비스에서 [user 개체][3]를 사용하여 사용자 지정 API 코드에 사용자 정보를 제공합니다. [user 개체][3]는 [request 개체][4]의 user 속성에서 액세스합니다. **userId** 속성을 사용하여 사용자별 정보를 저장하고 검색할 수 있습니다.
+在 Azure 行動服務中，您可以使用身分識別提供者來驗證使用者。如需詳細資訊，請參閱[開始使用驗證][14] (英文)。當已驗證使用者要求自訂 API 時，行動服務會使用 [user 物件][3]將有關使用者的資訊提供給自訂 API 程式碼。要從 [request 物件][4]的 user 屬性存取 [user 物件][3]。**userId** 屬性可用於儲存及擷取使用者特定資訊。
 
-다음 **OrderPizza** 사용자 지정 API 함수는 인증된 사용자의 userId를 기준으로 항목의 owner 속성을 설정합니다.
+以下的 **OrderPizza** 自訂 API 函數會根據已驗證使用者的 userId 設定項目的 owner 屬性：
 
-    	exports.post = function(request, response) {
+    exports.post = function(request, response) {
     		var userTable = request.service.tables.getTable('user');
     		userTable.lookup(request.user.userId, {
-    			success: function(userRecord) {
+    			success:function(userRecord) {
     				callPizzaAPI(userRecord, request.body, function(orderResult) {
     					response.send(201, orderResult);
     				});
@@ -354,27 +352,27 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
     	
     	};
 
-이 사용자 지정 API 함수는 다음 끝점에 대한 HTTP POST 요청에 의해 호출됩니다.
+傳送至以下端點的 HTTP POST 要求會叫用這個自訂 API 函數：
 
-    	https://<service>.azure-mobile.net/api/orderpizzaㄷ
+    	https://<service>.azure-mobile.net/api/orderpizza
 
-다음 코드와 같이 [request 개체][4]에서 특정 HTTP 헤더에 액세스할 수도 있습니다.
+您也可以從 [request 物件][4]存取特定 HTTP 標頭，如以下程式碼所示：
 
     	exports.get = function(request, response) {    
     		var header = request.header('my-custom-header');
-    		response.send(200, "You sent: " + header);
+    		response.send(200, "You sent:" + header);
     	};
 
-이 간단한 예제에서는 `my-custom-header`라는 사용자 지정 헤더를 읽은 후 이 값을 응답에 반환합니다.
+這個簡單的範例會讀取名為 `my-custom-header` 的自訂標頭，然後在回應中傳回值。
 
-### <a name="api-routes"></a>방법: 사용자 지정 API에서 여러 경로 정의
+### <a name="api-routes"></a>作法：在自訂 API 中定義多個路由
 
-모바일 서비스를 사용하면 사용자 지정 API에 여러 경로를 정의할 수 있습니다. 예를 들어 **calculator** 사용자 지정 API의 다음 URL에 대한 HTTP GET 요청은 각각 **add** 또는 **subtract** 함수를 호출합니다.
+行動服務可讓您在自訂 API 中定義多個路徑 (或稱為路由)。例如，傳送至以下 **calculator** 自訂 API 中 URL 的 HTTP GET 要求將分別叫用 **add** 或 **subtract** 函數：
 
-+ `https://<service>.azure-mobile.net/api/calculator/add`
-+ `https://<service>.azure-mobile.net/api/calculator/sub`
+* `https://<service >.azure-mobile.net/api/calculator/add`
+* `https://<service >.azure-mobile.net/api/calculator/sub`
 
-**register** 함수 내보내기에 의해 여러 경로가 정의됩니다. 이 함수에는 사용자 지정 API 끝점 아래에 경로를 등록하는 데 사용되는 **api** 개체([express.js][18]의 표현 개체와 유사)가 전달됩니다. 다음 예제에서는 **calculator** 사용자 지정 API의 **add** 및 **sub** 메서드를 구현합니다.
+可以藉由匯出 **register** 函數定義多個路由，此函數會收到 **api** 物件 (類似 [express.js 中的 express 物件][18])，用來在自訂 API 端點之下註冊路由。以下範例在 **calculator** 自訂 API 中實作 **add** 和 **sub** 方法：
 
     	exports.register = function (api) {
     	    api.get('add', add);
@@ -383,125 +381,116 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
     	
     	function add(req, res) {
     	    var result = parseInt(req.query.a) + parseInt(req.query.b);
-    	    res.send(200, { result: result });
+    	    res.send(200, { result:result });
     	}
     	
     	function subtract(req, res) {
     	    var result = parseInt(req.query.a) - parseInt(req.query.b);
-    	    res.send(200, { result: result });
+    	    res.send(200, { result:result });
     	}
 
-**register** 함수에 전달된 **api** 개체는 각 HTTP 메서드(**get**, **post**, **put**, **patch**, **delete**)에 대한 함수를 노출합니다. 이러한 함수는 특정 HTTP 메서드에 대해 정의된 함수에 경로를 등록합니다. 각 함수는 두 개의 매개 변수를 사용합니다. 첫 번째 매개 변수는 경로 이름이고 두 번째 매개 변수는 경로에 등록된 함수입니다.
+傳遞給 **register** 函數的 **api** 物件會公開每個 HTTP 方法的函數 (**get**、**post**、**put**、**patch**、**delete**)。這些函數會註冊特定 HTTP 方法之已定義函數的路由。每個函數都有兩個參數，第一個是路由名稱，第二個是註冊到路由的函數。
 
-다음과 같이 HTTP GET 요청에 의해 사용자 지정 API 예제의 두 경로를 호출할 수 있습니다(응답과 함께 표시됨).
+HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也顯示回應)：
 
-+ `https://<service>.azure-mobile.net/api/calculator/add?a=1&b=2`
-
-		{"result":3}
-
-+ `https://<service>.azure-mobile.net/api/calculator/sub?a=3&b=5`
-
-		{"result":-2}
-
-## <a name="scheduler-scripts"></a>작업 스케줄러
-
-모바일 서비스를 사용하면 관리 포털에서 주문형 또는 정해진 일정의 작업으로 실행되는 서버 스크립트를 정의할 수 있습니다. 예약된 작업은 테이블 데이터 정리, 일괄 처리 등의 정기 작업을 수행하는 데 유용합니다. 자세한 내용은 [작업 예약][19]을 참조하십시오.
-
-예약된 작업에 등록된 스크립트에는 예약된 작업과 동일한 이름의 main 함수가 있습니다. 예약된 스크립트는 HTTP 요청에 의해 호출되지 않으므로 서버 런타임에서 전달할 수 있는 컨텍스트가 없으며 함수가 매개 변수를 사용하지 않습니다. 다른 종류의 스크립트와 마찬가지로 서브루틴 함수를 사용할 수 있으며 공유 모듈이 필요할 수 있습니다. 자세한 내용은 [소스 제어, 공유 코드 및 도우미 함수](#shared-code)를 참조하십시오.
-
-### <a name="scheduler-scripts"></a>방법: 예약된 작업 스크립트 정의
-
-모바일 서비스 스케줄러에서 정의된 작업에 서버 스크립트를 할당할 수 있습니다. 이러한 스크립트는 작업에 속하며 작업 일정에 따라 실행됩니다. [관리 포털][9]을 사용하여 주문형 작업을 실행할 수도 있습니다. 모바일 서비스에서 데이터를 전달하지 않기 때문에 예약된 작업을 정의하는 스크립트에는 매개 변수가 없습니다. 일반적인 JavaScript 함수로 실행되며 모바일 서비스와 직접 상호 작용하지 않습니다.
-
-다음 방법 중 하나로 예약된 작업을 정의합니다.
-
-* [Azure 관리 포털][9]에서 스케줄러의 **스크립트** 탭을 통해
+* `https://<service>.azure-mobile.net/api/calculator/add?a=1&b=2`
   
-    ![3](./media/mobile-services-how-to-use-server-scripts/3-mobile-schedule-job-script.png)
+        {"result":3}
+
+* `https://<service>.azure-mobile.net/api/calculator/sub?a=3&b=5`
   
-    작업 방법에 대한 자세한 내용은 [모바일 서비스에서 백 엔드 작업 예약](/en-us/develop/mobile/tutorials/schedule-backend-tasks/)을 참조하십시오.
+        {"result":-2}
 
-* 명령 프롬프트에서 Azure 명령줄 도구 사용. 자세한 내용은 [명령줄 도구 사용](#command-prompt)을 참조하십시오.
+## <a name="scheduler-scripts"></a>工作排程器
 
-> [WACOM.NOTE]소스 제어가 사용하도록 설정된 경우 git 리포지토리의 .\\service\\scheduler 하위
-> 폴더에서 직접 예약된 작업 스크립트를 편집할 수 있습니다. 자세한 내용은 [방법: 소스 제어를 사용하여 코드
-> 공유](#shared-code-source-control)를 참조하십시오.
+行動服務可讓您定義伺服器指令碼是要當做按照固定排程執行的工作，或是從管理入口網站視需要執行。排程工作對於執行定期工作來說很實用，例如清除資料表資料、批次處理。如需詳細資訊，請參閱[排程作業][19]。
 
-## <a name="shared-code"></a>소스 제어, 공유 코드 및 도우미 함수
+註冊到排程工作的指令碼有一個主要函數，其名稱與排程的工作相同。由於排程的指令碼不是由 HTTP 要求叫用，因此伺服器執行階段沒有內容可傳遞，函數不帶參數。和其他種類的指令碼一樣，您可以有子常式函數、需要共用模組。如需詳細資訊，請參閱[原始檔控制、共用程式碼及協助程式函數](#shared-code)。
 
-모바일 서비스에서 서버의 Node.js를 사용하기 때문에 스크립트는 기본 제공 Node.js 모듈에 이미 액세스할 수 있습니다. 소스 제어를 사용하여 고유한 모듈을 정의하거나 서비스에 다른 Node.js 모듈을 추가할 수도 있습니다.
+### <a name="scheduler-scripts"></a>作法：定義排程工作指令碼
 
-다음은 전역 **require** 함수를 사용하여 스크립트에서 활용할 수 있는 유용한 모듈 중 일부입니다.
+可將伺服器指令碼指派至行動服務排程器中定義的工作。這些指令碼屬於該工作，會依照工作的排程執行。(您也可以使用[管理入口網站][9]視需要執行工作。)定義排程工作的指令碼沒有參數，因為行動服務不會傳遞任何資料給它；它就像 JavaScript 的一般函數一樣執行，且不會與行動服務直接互動。
 
-* **azure**: Node.js에 대한 Azure SDK의 기능을 노출합니다. 자세한 내용은 [Node.js에 대한 Azure SDK][20](영문)를 참조하십시오.
-* **crypto**: OpenSSL의 암호화 기능을 제공합니다. 자세한 내용은 [Node.js 설명서][21](영문)를 참조하십시오.
-* **path**: 파일 경로 작업을 위한 유틸리티가 포함되어 있습니다. 자세한 내용은 [Node.js 설명서][22](영문)를 참조하십시오.
-* **querystring**: 쿼리 문자열 작업을 위한 유틸리티가 포함되어 있습니다. 자세한 내용은 [Node.js
-  설명서][23](영문)를 참조하십시오.
-* **request**: Twitter, Facebook 등의 외부 REST 서비스에 HTTP 요청을 보냅니다. 자세한 내용은
-  [HTTP 요청 보내기][24]를 참조하십시오.
-* **sendgrid**: Azure의 Sendgrid 전자 메일 서비스를 사용하여 전자 메일을 보냅니다. 자세한 내용은
-  [SendGrid를 사용하여 모바일 서비스에서 전자 메일
-  보내기](/en-us/develop/mobile/tutorials/send-email-with-sendgrid/)를
-  참조하십시오.
-* **url**: URL을 구문 분석하고 확인하는 유틸리티가 포함되어 있습니다. 자세한 내용은 [Node.js
-  설명서][25](영문)를 참조하십시오.
-* **util**: 문자열 서식 지정, 개체 형식 검사 등의 다양한 유틸리티가 포함되어 있습니다. 자세한 내용은
-  [Node.js 설명서][26](영문)를 참조하십시오.
-* **zlib**: gzip, deflate 등의 압축 기능을 노출합니다. 자세한 내용은 [Node.js
-  설명서][27](영문)를 참조하십시오.
+以下列方式之一定義排程工作：
 
-### <a name="modules-helper-functions"></a>방법: 모듈 활용
+* 在 **Azure 管理入口網站][9] 上排程器的 [指令碼** 索引標籤中：
+  
+  ![3](./media/mobile-services-how-to-use-server-scripts/3-mobile-schedule-job-script.png)
+  
+  如需相關作法的詳細資訊，請參閱[在行動服務中排程後端工作](/en-us/develop/mobile/tutorials/schedule-backend-tasks/)。
 
-모바일 서비스는 전역 **require** 함수를 사용하여 스크립트에서 로드할 수 있는 모듈 집합을 노출합니다. 예를 들어 스크립트에서 HTTP 요청을 하려면 **request**가 필요할 수 있습니다.
+* 從命令提示字元使用 Azure 命令列工具。如需詳細資訊，請參閱[使用命令列工具](#command-prompt)。
+
+> [WACOM.NOTE]啟用原始檔控制後，可以直接在 git 儲存機制的 .\\service\\scheduler
+> 子資料夾中編輯排程工作指令碼。如需詳細資訊，請參閱[作法：使用原始檔控制共用程式碼](#shared-code-source-control)。
+
+## <a name="shared-code"></a>原始檔控制、共用程式碼及協助程式函數
+
+因為行動服務使用伺服器上的 Node.js，所以您的指令碼可以存取內建的 Node.js 模組。您也可以使用原始檔控制來定義您自己的模組或新增其他 Node.js 模組至您的服務。
+
+以下列出其中一些您的指令碼可透過全域 **require** 函數運用的實用模組：
+
+* **azure**：公開 Azure SDK for Node.js 的功能。如需詳細資訊，請參閱 [Azure SDK for Node.js][20]。
+* **crypto**：提供 OpenSSL 的加密功能。如需詳細資訊，請參閱 [Node.js 文件][21]。
+* **path**：包含用於處理檔案路徑的公用程式。如需詳細資訊，請參閱 [Node.js 文件][22]。
+* **querystring**：包含用於處理查詢字串的公用程式。如需詳細資訊，請參閱 [Node.js 文件][23]。
+* **request**：傳送 HTTP 要求給外部 REST 服務，如 Twitter、Facebook。如需詳細資訊，請參閱[傳送 HTTP 要求][24]。
+* **sendgrid**：在 Azure 中使用 Sendgrid 電子郵件服務傳送電子郵件。如需詳細資訊，請參閱[使用 SendGrid 從行動服務傳送電子郵件](/en-us/develop/mobile/tutorials/send-email-with-sendgrid/)。
+* **url**：包含用於剖析及解析 URL 的公用程式。如需詳細資訊，請參閱 [Node.js 文件][25]。
+* **util**：包含各種公用程式，如字串格式化、物件類型檢查。如需詳細資訊，請參閱 [Node.js 文件][26]。
+* **zlib**：公開壓縮功能，如 gzip、deflate。如需詳細資訊，請參閱 [Node.js 文件][27]。
+
+### <a name="modules-helper-functions"></a>作法：運用模組
+
+行動服務公開一組模組，指令碼可使用全域 **require** 函數載入它們。例如，指令碼可以要 **request** 進行 HTTP 要求：
 
     function update(item, user, request) { 
-        var httpRequest = require('request'); 
-        httpRequest('http://www.google.com', function(err, response, body) { 
+    var httpRequest = require('request'); 
+    httpRequest('http://www.google.com', function(err, response, body) { 
         	... 
         }); 
     } 
 
-### <a name="shared-code-source-control"></a>방법: 소스 제어를 사용하여 코드 공유
+### <a name="shared-code-source-control"></a>作法：使用原始檔控制共用程式碼
 
-npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바일 서비스에서 사용할 수 있는 모듈을 제어할 수 있습니다. 이 작업을 수행하는 방법에는 다음 두 가지가 있습니다.
+您可以使用原始檔控制搭配 Node.js 封裝管理員 (npm) 來控制您的行動服務可使用哪些模組。作法有二：
 
-* npm에 게시되고 npm에 의해 설치되는 모듈의 경우 package.json 파일을 사용하여 모바일 서비스에서 설치하려는 패키지를 선언합니다. 그러면 서비스에서 항상 최신 버전의 필수 패키지에 액세스할 수 있습니다. package.json 파일은 `.\service` 디렉터리에 있습니다. 자세한 내용은 [Azure 모바일 서비스에서 package.json 지원][28](영문)을 참조하십시오.
+* 針對發行至 npm 以及由 npm 安裝的模組，使用 package.json 檔案宣告哪些封裝要由您的行動服務安裝。這麼做時，您的服務一律有權存取所需封裝的最新版本。package.json 檔案位於 `.\service` 目錄中。如需詳細資訊，請參閱 [Azure 行動服務對 package.json 的支援][28] (英文)。
 
-* 개인 또는 사용자 지정 모듈의 경우 npm을 사용하여 소스 제어의 `.\service\node_modules` 디렉터리에 수동으로 모듈을 설치할 수 있습니다. 수동으로 모듈을 업로드하는 방법의 예제는 [서버 스크립트에서 공유 코드 및 Node.js 모듈 활용](/en-us/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm)을 참조하십시오.
+* 針對私人或自訂模組，可使用 npm 手動將模組安裝至原始檔控制的 `.\service\node_modules` 目錄中。如需手動上傳模組的範例，請參閱[在伺服器指令碼中運用共用程式碼和 Node.js 模組](/en-us/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm)。
 
 
  
-    > [WACOM.NOTE]디렉터리 계층 구조에 `node_modules`가 이미 있는 경우 NPM은 리포지토리에 새
-    > `node_modules`를 만드는 대신 `\node-uuid` 하위 디렉터리를 만듭니다. 이 경우 기존
-    > `node_modules` 디렉터리를 삭제합니다.
+  > [WACOM.NOTE]若目錄階層中已有 `node_modules`，NPM 將改為建立在 `\node-uuid`
+  > 子目錄中，而不是在儲存機制中建立新的 `node_modules`。在此情況下，只要刪除現有的 `node_modules` 目錄。
 
-모바일 서비스에 대한 리포지토리에 package.json 파일 또는 사용자 지정 모듈을 커밋한 후 **require**를 사용하여 모듈을 이름으로 참조합니다.
+在您認可 package.json 檔案或自訂模組進入行動服務的儲存機制後，使用 **require** 依名稱參考該模組。
 
-> [WACOM.NOTE] package.json에 지정하거나 모바일 서비스에 업로드한 모듈은 서버 스크립트 코드에서만
-> 사용됩니다. 이러한 모듈은 모바일 서비스 런타임에서 사용되지 않습니다.
+> [WACOM.NOTE] 您在 package.json
+> 中指定的模組或上傳至行動服務的模組，只能在您的伺服器指令碼中使用。行動服務執行階段不會使用這些模組。
 
-### <a name="helper-functions"></a>방법: 도우미 함수 사용
+### <a name="helper-functions"></a>作法：使用協助程式函數
 
-개별 서버 스크립트에는 모듈이 필요할 뿐 아니라 도우미 함수가 포함될 수 있습니다. 이러한 함수는 main 함수와 별개이며 스크립트에서 코드를 분해하는 데 사용할 수 있습니다.
+除了需要模組，個別伺服器指令碼還可以包含協助程式函數。這是與主要函數分開的函數，可用於分解指令碼中的程式碼。
 
-다음 예제에서는 테이블 스크립트가 도우미 함수 **handleUnapprovedItem**을 포함하는 삽입 작업에 등록됩니다.
+以下範例會註冊資料表指令碼至插入作業，其中包含協助程式函數 **handleUnapprovedItem**：
 
     function insert(item, user, request) {
-        if (!item.approved) {
-            handleUnapprovedItem(item, user, request);
-        } else {
-            request.execute();
+    if (!item.approved) {
+    handleUnapprovedItem(item, user, request);
+    } else {
+    request.execute();
         }
     }
     
     function handleUnapprovedItem(item, user, request) {
-        // Do something with the supplied item, user, or request objects.
+    // Do something with the supplied item, user, or request objects.
     }
 
-스크립트에서 도우미 함수는 main 함수 뒤에 선언되어야 합니다. 스크립트에서 모든 변수를 선언해야 합니다. 선언되지 않은 변수는 오류를 발생시킵니다.
+在指令碼中，必須在主要函數後宣告協助程式函數。您必須在指令碼中宣告所有變數。未宣告的變數可能會導致錯誤。
 
-도우미 함수를 한 번 정의한 후 서버 스크립트 간에 공유할 수도 있습니다. 스크립트 간에 함수를 공유하려면 함수를 내보내야 하며 `.\service\shared\` 디렉터리에 스크립트 파일이 있어야 합니다. 다음은 `.\services\shared\helpers.js` 파일에 공유 함수를 내보내는 방법에 대한 템플릿입니다.
+也可以定義協助程式函數一次，然後在伺服器指令碼之間共用。若要在指令碼之間共用函數，必須將函數匯出，且在 `.\service\shared\`
+目錄中必須有指令碼檔案。以下範本示範如何匯出 `.\services\shared\helpers.js` 檔案中的共用函數：
 
     	exports.handleUnapprovedItem = function (tables, user, callback) {
     	    
@@ -509,9 +498,9 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
     		// return a value to the callback function.
     	};
 
-그런 다음 테이블 작업 스크립트에서 다음과 같은 함수를 사용할 수 있습니다.
+然後在資料表作業指令碼中使用如下的函數：
 
-    	function insert(item, user, request) {
+    function insert(item, user, request) {
     	    var helper = require('../shared/helper');
     	    helper.handleUnapprovedItem(tables, user, function(result) {
     	        	
@@ -521,15 +510,15 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
     	    }
     	}
 
-이 예제에서는 [tables 개체][29] 및 [user 개체][3] 둘 다를 공유 함수에 전달해야 합니다. 공유 스크립트에서 전역 [tables 개체][29]에 액세스할 수 없고 [user 개체][3]가 요청 컨텍스트에만 있기 때문입니다.
+在此範例中，您必須將 [tables 物件][29]和 [user 物件][3]傳遞給共用的函數。這是因為共用指令碼無法存取只存在於要求內容中的全域 [tables 物件][29]和 [user 物件][3]。
 
-스크립트 파일은 [소스 제어](#shared-code-source-control) 또는 [명령줄 도구](#command-prompt)를 사용하여 공유 디렉터리에 업로드됩니다.
+使用[原始檔控制](#shared-code-source-control)或使用[命令列工具](#command-prompt)將指令碼檔案上傳到共用的目錄。
 
-### <a name="app-settings"></a>방법: 앱 설정 작업
+### <a name="app-settings"></a>作法：使用應用程式設定
 
-모바일 서비스를 사용하면 런타임에 서버 스크립트에서 액세스할 수 있는 앱 설정으로 안전하게 값을 저장할 수 있습니다. 모바일 서비스의 앱 설정에 데이터를 추가하면 이름/값 쌍이 암호화된 상태로 저장되며, 스크립트 파일에 하드 코딩하지 않아도 서버 스크립트에서 액세스할 수 있습니다. 자세한 내용은 [앱 설정][30]을 참조하십시오.
+行動服務可安全地把值儲存為應用程式設定，再由您的伺服器指令碼在執行階段存取。當您新增資料至行動服務的應用程式設定，名稱/值組會被加密儲存，您可以用伺服器指令碼存取它們，不需將它們硬式編碼至指令碼檔案中。如需詳細資訊，請參閱[應用程式設定][30]。
 
-다음 사용자 지정 API 예제에서는 제공된 [service 개체][31]를 사용하여 앱 설정 값을 검색합니다.
+以下的自訂 API 範例使用提供的 [service 物件][31]擷取應用程式設定值。
 
     	exports.get = function(request, response) {
     	
@@ -541,7 +530,7 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
     
     	}
 
-다음 코드에서는 구성 모듈을 사용하여 앱 설정에 저장된 Twitter 액세스 토큰 값을 검색합니다. 이 값은 예약된 작업 스크립트에 사용됩니다.
+以下程式碼使用組態模組擷取 Twitter 存取權杖值，這些值儲存在應用程式設定中，用於排程工作指令碼：
 
     	// Get the service configuration module.
     	var config = require('mobileservice-config');
@@ -553,86 +542,84 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
     	var accessToken= config.appSettings.TWITTER_ACCESS_TOKEN,
     	    accessTokenSecret = config.appSettings.TWITTER_ACCESS_TOKEN_SECRET;
 
-이 코드는 포털의 **ID** 탭에 저장된 Twitter 소비자 키 값도 검색합니다. **config 개체**는 테이블 작업 및 예약된 작업 스크립트에 사용할 수 없으므로 구성 모듈에서 앱 설정에 액세스해야 합니다. 전체 예제는 [모바일 서비스에서 백 엔드 작업 예약](/en-us/develop/mobile/tutorials/schedule-backend-tasks/)을 참조하십시오.
+請注意，此程式碼也會擷取入口網站中 **身分識別** 索引標籤中的 Twitter 消費者金鑰值。因為資料表作業和排程工作指令碼中沒有 **config 物件**，您必須要求組態模組存取應用程式設定。如需完整範例，請參閱[在行動服務中排程後端工作](/en-us/develop/mobile/tutorials/schedule-backend-tasks/)。
 
-<h2><a name="command-prompt"></a>명령줄 도구 사용</h2>
+<h2><a name="command-prompt"></a>使用命令列工具</h2>
 
 
-모바일 서비스에서 Azure 명령줄 도구를 사용하여 서버 스크립트를 만들고 수정 및 삭제할 수 있습니다. 스크립트를 업로드하기 전에 다음과 같은 디렉터리 구조를 사용 중인지 확인합니다.
+在行動服務中，可以使用 Azure 命令列工具建立、修改及刪除伺服器指令碼。上傳指令碼前，請確定您使用以下的目錄結構：
 
 ![4](./media/mobile-services-how-to-use-server-scripts/4-mobile-source-local-cli.png)
 
-이 디렉터리 구조는 소스 제어를 사용할 때의 git 리포지토리와 같습니다.
+請注意，此目錄結構和使用原始檔控制時的 git 儲存機制相同。
 
-명령줄 도구에서 스크립트 파일을 업로드하는 경우 먼저 `.\services\` 디렉터리로 이동해야 합니다. 다음 명령은 `table` 하위 디렉터리에서 `todoitem.insert.js`라는 스크립트를 업로드합니다.
+從命令列工具上傳指令碼檔案時，必須先瀏覽到 `.\services\` 目錄。以下命令會從 `table` 子目錄上傳名為 `todoitem.insert.js` 的指令碼：
 
     	~$azure mobile script upload todolist table/todoitem.insert.js
-    	info:    Executing command mobile script upload
-    	info:    mobile script upload command OK
+    	info:Executing command mobile script upload
+    	info:mobile script upload command OK
 
-다음 명령은 모바일 서비스에서 유지 관리되는 모든 스크립트 파일에 대한 정보를 반환합니다.
+以下命令會傳回行動服務維護的每個指令碼檔案的相關資訊：
 
     	~$ azure mobile script list todolist
-    	info:    Executing command mobile script list
+    	info:Executing command mobile script list
     	+ Retrieving script information
-    	info:    Table scripts
-    	data:    Name                       Size
+    	info:Table scripts
+    	data:Name                       Size
     	data:    -------------------------  ----
-    	data:    table/channels.insert      1980
-    	data:    table/TodoItem.insert      5504
-    	data:    table/TodoItem.read        64
-    	info:    Shared scripts
-    	data:    Name              Size
+    	data:table/channels.insert      1980
+    	data:table/TodoItem.insert      5504
+    	data:table/TodoItem.read        64
+    	info:Shared scripts
+    	data:Name              Size
     	data:    ----------------  ----
-    	data:    shared/helper.js  62
-    	data:    shared/uuid.js    7452
-    	info:    Scheduled job scripts
-    	data:    Job name    Script name           Status    Interval     Last run  Next run
+    	data:shared/helper.js  62
+    	data:shared/uuid.js    7452
+    	info:Scheduled job scripts
+    	data:Job name    Script name           Status    Interval     Last run  Next run
     	data:    ----------  --------------------  --------  -----------  --------  --------
-    	data:    getUpdates  scheduler/getUpdates  disabled  15 [minute]  N/A       N/A
-    	info:    Custom API scripts
-    	data:    Name                    Get          Put          Post         Patch        Delete
+    	data:getUpdates  scheduler/getUpdates  disabled  15 [minute]  N/A       N/A
+    	info:Custom API scripts
+    	data:Name                    Get          Put          Post         Patch        Delete
     	data:    ----------------------  -----------  -----------  -----------  -----------  -----------
-    	data:    completeall             application  application  application  application  application
-    	data:    register_notifications  application  application  user         application  application
-    	info:    mobile script list command OK
+    	data:completeall             application  application  application  application  application
+    	data:register_notifications  application  application  user         application  application
+    	info:mobile script list command OK
 
-자세한 내용은 [Azure 모바일 서비스 관리 명령](/en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts)을 참조하십시오.
+如需詳細資訊，請參閱[用於管理 zure 行動服務的命令](/en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts)。
 
-## <a name="working-with-tables"></a>테이블 작업
+## <a name="working-with-tables"></a>使用資料表
 
-모바일 서비스의 시나리오에서는 대체로 서버 스크립트가 데이터베이스의 테이블에 액세스해야 합니다. 예를 들어 모바일 서비스는 스크립트 실행 간에 상태를 유지하지 않으므로 스크립트 실행 간에 지속되어야 하는 모든 데이터를 테이블에 저장해야 합니다. permissions 테이블의 항목을 검사하거나 감사 데이터를 로그에 쓰는 대신 저장할 수도 있습니다. 로그에 쓰는 경우 데이터 유지 기간이 제한되며 프로그래밍 방식으로 액세스할 수 없습니다.
+行動服務中許多案例都需要伺服器指令碼存取資料庫中的資料表。例如，因為行動服務不會保存指令碼執行之間的狀態，在執行之間需要存留的任何資料皆必須儲存在資料表之中。您可能也會想檢查權限資料表中的項目，或儲存稽核資料，而不只是寫入記錄檔；記錄檔中的資料有持續時間限制，且無法以編寫程式碼的方式存取。
 
-모바일 서비스에서 테이블에 액세스하는 방법에는 두 가지가 있습니다. [table 개체][32] 프록시를 사용하거나 [mssql 개체][33]를 사용하여 Transact-SQL 쿼리를 작성하는 것입니다. [table 개체][32]를 사용하면 서버 스크립트 코드에서 테이블 데이터에 쉽게 액세스할 수 있지만 [mssql 개체][33]는 더 복잡한 데이터 작업을 지원하며 유연성이 가장 뛰어납니다.
+行動服務可以兩種方式存取資料表：使用 [table 物件][32] Proxy 或是使用 [mssql 物件][33] 編輯 Transact-SQL 查詢。使用 [table 物件][32]可以輕鬆地從伺服器指令碼存取資料表的資料，使用 [mssql 物件][33]則支援較複雜的資料作業並更有彈性。
 
-### <a name="access-tables"></a>방법: 스크립트에서 테이블 액세스
+### <a name="access-tables"></a>作法：從指令碼存取資料表
 
-스크립트에서 테이블에 액세스하는 가장 쉬운 방법은 [table 개체][29]를 사용하는 것입니다. **getTable** 함수는 요청된 테이블에 액세스하기 위한 프록시인 [table 개체][32] 인스턴스를 반환합니다. 프록시에서 함수를 호출하여 데이터에 액세스하고 변경할 수 있습니다.
+若要從指令碼存取資料表，最簡單的作法是使用 [tables 物件][29]。**getTable** 函數會傳回 [table 物件][32]執行個體，此執行個體是存取要求之資料的 Proxy。然後您可以呼叫 Proxy 上的函數來存取及變更資料。
 
-테이블 작업과 예약된 작업 둘 다에 등록된 스크립트는 전역 개체로 [table 개체][29]에 액세스할 수 있습니다. 다음 코드 줄은 전역 [table 개체][29]에서 *TodoItems* 테이블에 대한 프록시를 가져옵니다.
+同時註冊到資料表作業和排程工作的指令碼可以存取 [tables 物件][29]，如同全域物件。這一行程式碼會從全域 [tables 物件][29]取得 *TodoItems* 資料表的 Proxy：
 
     	var todoItemsTable = tables.getTable('TodoItems');
 
-사용자 지정 API 스크립트는 제공된 [request 개체][4]의 **service** 속성에서 [table 개체][29]에 액세스할 수 있습니다. 다음 코드 줄은 요청에서 [table 개체][29]를 가져옵니다.
+自訂 API 指令碼可以存取提供之 [request 物件][4]的 **service** 屬性中的 [tables 物件][29]。這一行程式碼會從 request 取得 [tables 物件][29]：
 
     	var todoItemsTable = request.service.tables.getTable('TodoItem');
+<div class="dev-callout"><strong>注意</strong>
+<p>共用的函數無法直接存取 <strong>tables</strong> 物件。在共用的函數中，您必須將 tables 物件傳遞給函數。</p></div>
 
- 
-<div  class="dev-callout"><strong>참고</strong>
-<p>공유 함수는 <strong>테이블</strong> 개체에 직접 액세스할 수 없습니다. 공유 함수에서 테이블 개체를 함수에 전달해야 합니다.</p></div>
-
- [table 개체][32]가 있으면 insert, update, delete, read 등의 테이블 작업 함수를 하나 이상 호출할 수 있습니다. 다음 예제에서는 permissions 테이블에서 사용자 권한을 읽습니다.
+ 一旦有了 [table 物件][32]，就可以呼叫一或多個資料表作業函數：insert、update、delete 或 read。此範例會讀取權限資料表中的使用者權限：
 
     function insert(item, user, request) {
     	var permissionsTable = tables.getTable('permissions');
     
     	permissionsTable
-    		.where({ userId: user.userId, permission: 'submit order'})
-    		.read({ success: checkPermissions });
+    		.where({ userId:user.userId, permission:'submit order'})
+    		.read({ success:checkPermissions });
     		
     	function checkPermissions(results) {
     		if(results.length > 0) {
-    			// Permission record was found. Continue normal execution.
+    			// Permission record was found.Continue normal execution.
     			request.execute();
     		} else {
     			console.log('User %s attempted to submit an order without permissions.', user.userId);
@@ -641,21 +628,21 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
     	}
     }
 
-다음 예제에서는 **audit** 테이블에 감사 정보를 씁니다.
+下一個範例會將稽核資訊寫入 **audit** 資料表：
 
     function update(item, user, request) {
-    	request.execute({ success: insertAuditEntry });
+    	request.execute({ success:insertAuditEntry });
     	
     	function insertAuditEntry() {
     		var auditTable = tables.getTable('audit');
     		var audit = {
-    			record: 'checkins',
-    			recordId: item.id,
-    			timestamp: new Date(),
-    			values: JSON.stringify(item)
+    			record:'checkins',
+    			recordId:item.id,
+    			timestamp:new Date(),
+    			values:JSON.stringify(item)
     		};
     		auditTable.insert(audit, {
-    			success: function() {
+    			success:function() {
     				// Write to the response now that all data operations are complete
     				request.respond();
     			}
@@ -663,13 +650,13 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
     	}
     }
 
-최종 예제는 [방법: 사용자 지정 매개 변수 액세스](#access-headers)의 코드 샘플에 있습니다.
+可在此處找到最終的範例程式碼：[作法：存取自訂參數](#access-headers)。
 
-### <a name="bulk-inserts"></a>방법: 대량 삽입 수행
+### <a name="bulk-inserts"></a>作法：執行大量插入
 
-**for** 또는 **while** 루프를 사용하여 다수의 항목(예: 1000개)을 테이블에 직접 삽입하는 경우 SQL 연결 제한이 발생하여 일부 삽입 작업이 실패할 수 있습니다. 요청이 완료되지 않거나 요청에서 HTTP 500 내부 서버 오류를 반환할 수도 있습니다. 이 문제를 방지하기 위해 10개 정도의 일괄 처리로 항목을 삽입할 수 있습니다. 첫 번째 일괄 처리가 삽입된 후 다음 일괄 처리를 제출합니다.
+若您使用 **for** 或 **while** 迴圈直接在資料表中大量插入項目 (例如 1000 個)，可能會遇到 SQL 連線限制造成部分插入失敗。您的要求可能永遠不會完成，或者可能傳回 HTTP 500 內部伺服器錯誤。若要避免這個問題，可以用一次 10 個項目的方式，批次插入項目。插入第一個批次後，再提交下一個批次，依此類推。
 
-다음 스크립트를 사용하여 병렬로 삽입할 레코드 일괄 처리의 크기를 설정할 수 있습니다. 레코드 수를 적게 유지하는 것이 좋습니다. 비동기 삽입 일괄 처리가 완료되면 **insertItems** 함수가 재귀적으로 호출됩니다. 끝에 있는 for 루프는 한 번에 하나의 레코드를 삽입하며 성공 시 **insertComplete**를 호출하고 오류 시 **errorHandler**를 호출합니다. **insertComplete**는 다음 일괄 처리를 위해 **insertItems**를 재귀적으로 호출할지 또는 작업을 완료하고 스크립트를 종료할지 여부를 제어합니다.
+您可以使用以下指令碼，設定平行插入記錄的批次大小。建議您設定較小的記錄數目。當非同步插入批次完成時，函數 **insertItems** 會遞迴呼叫它自己。最後的 for 迴圈會一次插入一個記錄，然後在成功時呼叫 **insertComplete**，或在錯誤時呼叫 **errorHandler**。**insertComplete** 控制了下一個批次是否會遞迴呼叫 **insertItems**，或控制工作是否完成、指令碼是否應該結束。
 
     	var todoTable = tables.getTable('TodoItem');
     	var recordsToInsert = 1000;
@@ -690,7 +677,7 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
     	            } else { 
     	                // or we are done, report the status of the job 
     	                // to the log and don't do any more processing 
-    	                console.log("Insert complete. %d Records processed. There were %d errors.", totalCount, errorCount); 
+    	                console.log("Insert complete.%d Records processed.There were %d errors.", totalCount, errorCount); 
     	            } 
     	        } 
     	    }; 
@@ -702,37 +689,37 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
     	    };
     	
     	    for(var i = 0; i < batchSize; i++) { 
-    	        var item = { text: "This is item number: " + totalCount + i }; 
+    	        var item = { text:"This is item number:" + totalCount + i }; 
     	        todoTable.insert(item, { 
-    	            success: insertComplete, 
-    	            error: errorHandler 
+    	            success:insertComplete, 
+    	            error:errorHandler 
     	        }); 
     	    } 
     	} 
     	
     	insertItems(); 
 
-전체 코드 샘플 및 해당 설명은 이 [블로그 게시물][34](영문)에서 확인할 수 있습니다. 이 코드를 사용하는 경우 특정 상황에 맞게 조정하고 철저하게 테스트할 수 있습니다.
+在這篇[部落格文章][34] (英文) 中可以找到完整的程式碼範例以及相關的討論。如果您使用此程式碼，可以根據您的特定情況調整，並徹底測試。
 
-### <a name="JSON-types"></a>방법: JSON 형식을 데이터베이스 형식에 매핑
+### <a name="JSON-types"></a>作法：對應 JSON 類型至資料庫類型
 
-클라이언트와 모바일 서비스 데이터베이스 테이블의 데이터 형식 모음은 서로 다릅니다. 때로는 서로 쉽게 매핑되지만 그렇지 않은 경우도 있습니다. 모바일 서비스는 매핑 시 다음과 같은 많은 형식 변환을 수행합니다.
+在用戶端上以及在行動服務資料庫資料表中的資料類型集合並不相同。有時候它們很容易彼此對應，有時則不然。行動服務會在對應中執行一些類型轉換：
 
-* 클라이언트 언어별 형식은 JSON으로 직렬화됩니다.
-* JSON 표현은 서버 스크립트에 표시되기 전에 JavaScript로 변환됩니다.
-* JavaScript 데이터 형식은 [tables 개체][29]를 사용하여 저장할 때 SQL 데이터베이스 형식으로 변환됩니다.
+* 用戶端的語言特定類型會序列化放入 JSON 中。
+* JSON 表現法出現在伺服器指令碼之前，會先被轉譯為 JavaScript。
+* 使用 [tables 物件][29]儲存 JavaScript 資料類型時，資料會轉換為 SQL 資料庫類型。
 
-클라이언트 스키마에서 JSON으로의 변환은 플랫폼마다 다릅니다. JSON.NET은 Windows 스토어 및 Windows Phone 클라이언트에서 사용됩니다. Android 클라이언트는 gson 라이브러리를 사용합니다. iOS 클라이언트는 NSJSONSerialization 클래스를 사용합니다. 날짜 개체가 ISO 8601을 사용하여 인코딩된 날짜를 포함하는 JSON 문자열로 변환된다는 점을 제외하고 각 라이브러리의 기본 직렬화 동작이 사용됩니다.
+從用戶端結構描述轉換為 JSON 的過程依平台而異。Windows 市集和 Windows Phone 用戶端使用 JSON.NET。Android 用戶端使用 gson 程式庫。iOS 用戶端使用 NSJSONSerialization 類別。過程中將使用這些程式庫各自的預設序列化行為，唯有日期物件除外，它會轉換為 JSON 字串，包含以 ISO 8601 編碼的日期。
 
-[insert][5], [update][6], [read][8] 또는 [delete][7] 함수를 사용하는 서버 스크립트를 작성하는 경우 데이터의 JavaScript 표현에 액세스할 수 있습니다. 모바일 서비스는 Node.js의 역직렬화 함수([JSON.parse][35])를 사용하여 네트워크상의 JSON을 JavaScript 개체로 변환합니다. 그러나 모바일 서비스는 ISO 8601 문자열에서 **Date** 개체를 추출하는 변환을 수행합니다.
+當您編寫使用 [insert 函數][5]、[update 函數][6]、[read 函數][8] 或 [delete 函數][7]的伺服器指令碼時，可以存取您的資料的 JavaScript 表示法。行動服務使用 Node.js 的還原序列化函數 ([JSON.parse][35]) 線上將 JSON 轉換為 JavaScript 物件。不過，行動服務會進行轉換，以從 ISO 8601 字串擷取 **Date** 物件。
 
-[tables 개체][29] 또는 [mssql 개체][33]를 사용하거나 테이블 스크립트가 실행되도록 하면 역직렬화된 JavaScript 개체가 SQL 데이터베이스에 삽입됩니다. 해당 프로세스에서 개체 속성은 다음과 같이 T-SQL 형식에 매핑됩니다.
+當您使用 [tables 物件][29]或 [mssql 物件][33]時，或者單純執行資料表指令碼時，已還原序列化的 JavaScript 物件會插入您的 SQL 資料庫。在這個程序中，物件屬性會對應到 T-SQL 類型：
 
 <table  border="1">
 <tr>
-<td>JavaScript 속성</td>
+<td>JavaScript 屬性</td>
 
-<td>T-SQL 형식</td>
+<td>T-SQL 類型</td>
 
 </tr>
 <tr>
@@ -764,143 +751,139 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 <tr>
 <td>Buffer</td>
 
-<td>지원되지 않음</td>
+<td>不支援</td>
 
 </tr>
 <tr>
 <td>Object</td>
 
-<td>지원되지 않음</td>
+<td>不支援</td>
 
 </tr>
 <tr>
 <td>Array</td>
 
-<td>지원되지 않음</td>
+<td>不支援</td>
 
 </tr>
 <tr>
 <td>Stream</td>
 
-<td>지원되지 않음</td>
+<td>不支援</td>
 
 </tr>
 
 </table>
 
-### <a name="TSQL"></a>Transact-SQL을 사용하여 테이블 액세스
+### <a name="TSQL"></a>使用 Transact-SQL 存取資料表
 
-서버 스크립트에서 테이블 데이터 작업을 수행하는 가장 쉬운 방법은 [tables 개체][32] 프록시를 사용하는 것입니다. 그러나 조인 쿼리 및 기타 복잡한 쿼리, 저장 프로시저 호출 등 [tables 개체][32]에서 지원되지 않는 고급 시나리오가 있습니다. 이 경우 [mssql 개체][33]를 사용하여 관계형 테이블에 대해 직접 Transact-SQL 문을 실행해야 합니다. 이 개체는 다음 함수를 제공합니다.
+若要從伺服器指令碼使用資料表資料，最簡單的作法是使用 [table 物件][32] Proxy。不過，[table 物件][32]不支援某些進階的案例，例如聯結查詢和其他複雜的查詢、叫用儲存的程序。在這些情況下，您必須使用 [mssql 物件][33]針對關聯式資料表直接執行 Transact-SQL 陳述式。此物件提供下列函數：
 
-* **query**: TSQL 문자열에 지정된 쿼리를 실행합니다. 결과는 **options** 개체의 **success**
-  콜백에 반환됩니다. *params* 매개 변수가 있는 경우 쿼리에 매개 변수가 포함될 수 있습니다.
-* **queryRaw**: 쿼리에서 반환된 결과 집합이 "원시" 형식이라는 점을 제외하고 *query*와 같습니다(아래 예제
-  참조).
-* **open**: 모바일 서비스 데이터베이스에 연결하는 데 사용되며, 연결 개체를 사용하여 트랜잭션 등의 데이터베이스 작업을
-  호출할 수 있습니다.
+* **query**：執行由 TSQL 字串指定的查詢；結果傳回給在 **options** 物件上回呼的 **success**。若有 *params* 參數，則 query 可以包含參數。
+* **queryRaw**：和 *query* 一樣，但是從 query 傳回的結果集為未經處理的格式 (請看下方範例)。
+* **open**：用來取得行動服務資料庫的連線，然後您可以使用連線物件叫用資料庫作業，例如交易。
 
-이러한 메서드는 쿼리 처리보다 훨씬 강력한 하위 수준 제어를 제공합니다.
+這些方法讓您對查詢過程有更多低層級的控制。
 
-* [방법: 정적 쿼리 실행](#static-query)
-* [방법: 동적 쿼리 실행](#dynamic-query)
-* [방법: 관계형 테이블 조인](#joins)
-* [방법: *원시* 결과를 반환하는 쿼리 실행](#raw)
-* [방법: 데이터베이스 연결 액세스](#connection)
+* [作法：執行靜態查詢](#static-query)
+* [作法：執行動態查詢](#dynamic-query)
+* [作法：聯結關聯式資料表](#joins)
+* [作法：執行查詢並傳回*未經處理*的結果](#raw)
+* [作法：存取資料庫連線](#connection)
 
-#### <a name="static-query"></a>방법: 정적 쿼리 실행
+#### <a name="static-query"></a>作法：執行靜態查詢
 
-다음 쿼리는 매개 변수가 없으며 `statusupdate` 테이블의 레코드 3개를 반환합니다. 행 집합은 표준 JSON 형식을
-사용합니다.
+以下查詢沒有參數，會傳回 `statusupdate` 資料表中的三個記錄。資料列集為標準 JSON 格式。
 
     	mssql.query('select top 3 * from statusupdates', {
-    	    success: function(results) {
+    	    success:function(results) {
     	        console.log(results);
     	    },
-            error: function(err) {
-                console.log("error is: " + err);
+    error:function(err) {
+    console.log("error is:" + err);
     		}
     	});
 
-#### <a name="dynamic-query"></a>방법: 매개 변수가 있는 동적 쿼리 실행
+#### <a name="dynamic-query"></a>作法：執行動態參數化查詢
 
-다음 예제에서는 permissions 테이블에서 각 사용자의 사용 권한을 읽어 사용자 지정 권한 부여를 구현합니다. 쿼리를 실행할 때 자리 표시자(?)가 제공된 매개 변수로 바뀝니다.
+以下範例實作的自訂授權，是從權限資料表中讀取各個使用者的權限。執行查詢時，會以提供的參數取代預留位置 (?)。
 
-    	    var sql = "SELECT _id FROM permissions WHERE userId = ? AND permission = 'submit order'";
+    	    var sql = "SELECT _id FROM permissions WHERE userId = ?AND permission = 'submit order'";
     	    mssql.query(sql, [user.userId], {
-    	        success: function(results) {
+    	        success:function(results) {
     	            if (results.length > 0) {
-    	                // Permission record was found. Continue normal execution. 
+    	                // Permission record was found.Continue normal execution. 
     	                request.execute();
     	            } else {
     	                console.log('User %s attempted to submit an order without permissions.', user.userId);
     	                request.respond(statusCodes.FORBIDDEN, 'You do not have permission to submit orders.');
     	            }
     	        },
-            	error: function(err) {
-                	console.log("error is: " + err);
+    	error:function(err) {
+    	console.log("error is:" + err);
     			}	
     	    });
 
-#### <a name="joins"></a>방법: 관계형 테이블 조인
+#### <a name="joins"></a>作法：聯結關聯式資料表
 
-조인을 구현하는 TSQL 코드에 전달할 [mssql 개체][33]의 **query** 메서드를 사용하여 두 테이블을 조인할 수 있습니다. **ToDoItem** 테이블에 몇 개의 항목이 있고 테이블의 각 항목에 테이블의 열에 해당하는 **priority** 속성이 있다고 가정합니다. 항목은 다음과 같이 표시될 수 있습니다.
+您可以使用在實作聯結的 TSQL 程式碼中傳遞之 [mssql 物件][33]的 **query** 方法，聯結兩個資料表。假設在我們的 **ToDoItem** 資料表中有一些項目，每個項目都有 **priority** 屬性，對應到資料表中的欄。項目可能看來像這樣：
 
-    	{ text: 'Take out the trash', complete: false, priority: 1}
+    	{ text:'Take out the trash', complete:false, priority: 1}
 
-또한 우선 순위 **number**와 텍스트 **description**이 포함된 행을 가진 **Priority**라는 추가 테이블이 있다고 가정합니다. 예를 들어 우선 순위 번호 1에 "Critical"이라는 설명이 있을 수 있으며, 개체는 다음과 같이 표시됩니다.
+再假設我們有另一個資料表 **Priority**，其資料列包含優先順序 **number** 和文字 **description**。例如，優先順序 number 為 1 且 description 為 "Critical" 的物件看起來像這樣：
 
-    	{ number: 1, description: 'Critical'}
+    	{ number:1, description:'Critical'}
 
-이제 항목의 **priority** 번호를 우선 순위 번호에 대한 텍스트 설명으로 바꿀 수 있습니다. 이 작업은 두 테이블의 관계형 조인을 사용하여 수행합니다.
+現在，可以用優先順序 number 的文字 description 取代我們的項目中的 **priority** 數字。作法是將兩個資料表做關聯式聯結。
 
     	mssql.query('SELECT t.text, t.complete, p.description FROM ToDoItem as t INNER JOIN Priority as p ON t.priority = p.number', {
-    		success: function(results) {
+    		success:function(results) {
     			console.log(results);
     		},
-            error: function(err) {
-                console.log("error is: " + err);
+    error:function(err) {
+    console.log("error is:" + err);
     	});
 
-스크립트에서 두 테이블을 조인하고 결과를 로그에 씁니다. 결과 개체는 다음과 같이 표시될 수 있습니다.
+此指令碼會聯結兩個資料表，並將結果寫入記錄檔。結果物件看起來像這樣：
 
-    	{ text: 'Take out the trash', complete: false, description: 'Critical'}
+    	{ text:'Take out the trash', complete:false, description:'Critical'}
 
-#### <a name="raw"></a>방법: *원시* 결과를 반환하는 쿼리 실행
+#### <a name="raw"></a>作法：執行查詢並傳回*未經處理*的結果
 
-이 예제에서는 이전처럼 쿼리를 실행하지만 행 단위 및 열 단위로 구문 분석해야 하는 "원시" 형식으로 결과 집합을 반환합니다. 이러한 경우의 가능한 시나리오는 모바일 서비스에서 지원하지 않는 데이터 형식에 대한 액세스가 필요한 경우입니다. 다음 코드는 원시 형식을 검사할 수 있도록 출력을 콘솔에 씁니다.
+此範例會如同前文所述執行查詢，但傳回未經處理格式的結果集，您需要逐列逐欄剖析結果集。可能的應用案例之一，是您需要存取行動服務不支援的資料類型。此程式碼只會將輸出寫入主控台記錄檔，因此您可以檢查未經處理的格式。
 
     	mssql.queryRaw('SELECT * FROM ToDoItem', {
-    	    success: function(results) {
+    	    success:function(results) {
     	        console.log(results);
     	    },
-            error: function(err) {
-                console.log("error is: " + err);
+    error:function(err) {
+    console.log("error is:" + err);
     		}
     	});
 
-다음은 이 쿼리를 실행하여 표시되는 출력입니다. 테이블의 각 열에 대한 메타데이터가 포함되어 있으며 뒤에 행과 열이 표시됩니다.
+以下是執行此查詢的輸出。其中包含資料表各欄的中繼資料，以及資料列和欄的表示法。
 
     	{ meta: 
-    	   [ { name: 'id',
+    	   [ { name:'id',
     	       size: 19,
-    	       nullable: false,
-    	       type: 'number',
-    	       sqlType: 'bigint identity' },
-    	     { name: 'text',
+    	       nullable:false,
+    	       type:'number',
+    	       sqlType:'bigint identity' },
+    	     { name:'text',
     	       size: 0,
-    	       nullable: true,
-    	       type: 'text',
-    	       sqlType: 'nvarchar' },
-    	     { name: 'complete',
+    	       nullable:true,
+    	       type:'text',
+    	       sqlType:'nvarchar' },
+    	     { name:'complete',
     	       size: 1,
-    	       nullable: true,
-    	       type: 'boolean',
-    	       sqlType: 'bit' },
-    	     { name: 'priority',
+    	       nullable:true,
+    	       type:'boolean',
+    	       sqlType:'bit' },
+    	     { name:'priority',
     	       size: 53,
-    	       nullable: true,
-    	       type: 'number',
-    	       sqlType: 'float' } ],
+    	       nullable:true,
+    	       type:'number',
+    	       sqlType:'float' } ],
     	  rows: 
     	   [ [ 1, 'good idea for the future', null, 3 ],
     	     [ 2, 'this is important but not so much', null, 2 ],
@@ -908,43 +891,41 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
     	     [ 4, 'we need to fix this one real soon now', null, 1 ],
     	   ] }
 
-#### <a name="connection"></a>방법: 데이터베이스 연결 액세스
+#### <a name="connection"></a>作法：存取資料庫連線
 
-**open** 메서드를 사용하여 데이터베이스 연결에 액세스할 수 있습니다. 데이터베이스 트랜잭션을 사용해야 하는 이 작업이 필요할 수 있습니다.
+您可以使用 **open** 方法取得對資料庫連線的存取權。這麼做的可能原因之一是您需要使用資料庫交易。
 
-**open**을 성공적으로 실행하면 데이터베이스 연결이 **success** 함수에 매개 변수로 전달됩니다. **connection** 개체에 대해 *close*, *queryRaw*, *query*, *beginTransaction*, *commit* 및 *rollback* 함수를 호출할 수 있습니다.
+**open** 執行成功會將資料庫連線當做參數傳遞給 **success** 函數。您可以在 **connection** 物件上叫用以下任何函數：*close*、*queryRaw*、*query*、*beginTransaction*、*commit*、*rollback*。
 
     	    mssql.open({
-    	        success: function(connection) {
+    	        success:function(connection) {
     	            connection.query(//query to execute);
     	        },
-                error: function(err) {
-                    console.log("error is: " + err);
+    error:function(err) {
+    console.log("error is:" + err);
     			}
     	    });
 
-## <a name="debugging"></a>디버그 및 문제 해결
+## <a name="debugging"></a>偵錯與疑難排解
 
-서버 스크립트를 디버그하고 문제를 해결하는 주요 방법은 서비스 로그에 쓰는 것입니다. 기본적으로 모바일 서비스는 서비스 스크립트를 실행하는 동안 발생하는 오류를 서비스 로그에 씁니다. 스크립트에서 로그에 쓸 수도 있습니다. 로그에 쓰는 것은 스크립트를 디버그하고 원하는 대로 동작하는지 확인하는 효율적인 방법입니다.
+替伺服器指令碼偵錯和疑難排解的主要方法是寫入服務記錄檔。依預設，行動服務會將服務指令碼執行期間發生的錯誤寫入服務記錄檔。您的指令碼也可以寫入記錄檔。寫入記錄檔是替指令碼偵錯並確定其行為是否如預期的好方法
 
-### <a name="write-to-logs"></a>방법: 모바일 서비스 로그에 출력 쓰기
+### <a name="write-to-logs"></a>作法：將輸出寫入行動服務記錄檔
 
-로그에 쓰려면 전역 [console 개체][36]를 사용합니다. **log** 또는 **info** 함수를 사용하여 정보 수준의 경고를 기록할 수 있습니다. **warning** 및 **error** 함수는 로그에서 호출되는 해당 수준을 기록합니다.
+若要寫入記錄檔，使用全域 [console 物件][36]。使用 **log** 或 **info** 函數記錄資訊層級的警告。**warning** 和 **error** 函數會各自記錄其層級的資訊 (在記錄檔中呼叫層級)。
+<div class="dev-callout"><strong>注意</strong>
+<p>若要檢視行動服務的記錄檔，請登入<a href="https://manage.windowsazure.com/">管理入口網站</a>，選取您的行動服務，然後選擇 [記錄檔]<strong></strong> 索引標籤。</p></div>
 
- 
-<div  class="dev-callout"><strong>참고</strong>
-<p>모바일 서비스에 대한 로그를 보려면 <a href="https://manage.windowsazure.com/">관리 포털</a>에 로그온하여 모바일 서비스를 선택한 후 <strong>로그</strong> 탭을 선택합니다.</p></div>
-
- [console 개체][36]의 로깅 함수를 사용하여 매개 변수를 통해 메시지 서식을 지정할 수도 있습니다. 다음 예제에서는 JSON 개체를 메시지 문자열에 매개 변수로 제공합니다.
+ 您也可以使用 [console 物件][36]的登入函數，使用參數將您的訊息格式化。以下範例提供 JSON 物件做為訊息字串的參數：
 
     function insert(item, user, request) {
-        console.log("Inserting item '%j' for user '%j'.", item, user);  
-        request.execute();
+    console.log("Inserting item '%j' for user '%j'.", item, user);  
+    request.execute();
     }
 
-`%j` 문자열은 JSON 개체의 자리 표시자로 사용되고 매개 변수는 순차적으로 제공됩니다.
+請注意，字串 `%j` 是 JSON 物件的預留位置，其參數將依序提供。
 
-로그가 오버로드되지 않도록 하려면 프로덕션 사용에 필요하지 않은 console.log() 호출을 제거하거나 사용하지 않도록 설정해야 합니다.
+為防止登入超載，您應該移除或停用在生產中不必要的 console.log() 呼叫。
 
 <!-- Anchors. -->
 

@@ -1,587 +1,586 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-2-download-and-run" urlDisplayName="Step 2: Download and Run" pageTitle="ASP.NET Multi-tier Web Application with Azure - Step 2: Download and run" metaKeywords="Azure tutorial, deploying email service app, publishing email service" description="The second tutorial in a series that teaches how to configure your computer for Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Configuring and Deploying the Azure Email Service application - 2 of 5" authors="riande,tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
-Azure 전자 메일 서비스 응용 프로그램 구성 및 배포 - 2/5
-=======================================================
+設定和部署 Azure 電子郵件服務應用程式 - 第 2 課 (共 5 課)
+=========================================================
 
-Azure 전자 메일 서비스 샘플 응용 프로그램을 빌드하고 배포하는 방법을 설명하는 5개 시리즈 중 두 번째 자습서입니다. 응용 프로그램 및 자습서 시리즈에 대한 자세한 내용은 [시리즈의 첫 번째 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)를 참조하십시오.
+這是由五個教學課程組成的系列中的第二個教學課程，示範如何建置和部署 Azure 電子郵件服務範例應用程式。如需本應用程式和教學課程系列的詳細資訊，請參閱[本系列的第一個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)。
 
-이 자습서에서는 Azure 개발을 위해 컴퓨터를 구성하는 방법과 다음 제품을 사용하여 Azure 전자 메일 서비스 응용 프로그램을 Azure 클라우드 서비스에 배포하는 방법을 설명합니다.
+本教學課程示範如何設定電腦進行 Azure 開發，以及如何使用下列任一產品，將 Azure 電子郵件服務應用程式部署至 Windows Azure 雲端服務：
 
 -   Visual Studio 2012
 -   Visual Studio 2012 Express for Web
 -   Visual Studio 2010
--   Visual Web Developer Express 2010.
+-   Visual Web Developer Express 2010
 
-> [WACOM.NOTE] 이 자습서를 작성한 후에 Visual Studio 2013이 출시되었으며 Azure 관리 포털과 SDK가 업데이트되었습니다. Visual Studio 2013 및 최신 SDK를 사용하는 경우 달리 작업해야 하는 지점에 참고 사항이 추가되었습니다. 이 참고 사항은 2014년 3월에 작성되었으며, 수정된 절차를 SDK 버전 2.3에서 테스트했습니다.
+> [WACOM.NOTE] Visual Studio 2013 是在本教學課程撰寫完畢後才發行，而 Azure 管理入口網站和 SDK 已予以更新。如果您是使用 Visual Studio 2013 和最新 SDK，我們已在您必須以不同方式執行作業的地方新增像這樣的注意事項。注意事項是在 2014 年 3 月撰寫的，且經過修訂的程序已利用 SDK 2.3 版測試過。
 
-Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 없는 경우 SDK에서 Web Express용 Visual Studio 2013을 자동으로 설치합니다. 따라서 Azure용 개발을 무료로 시작할 수 있습니다.
+您可以免費申請 Azure 帳戶，而且如果您還沒有 Visual Studio 2013，SDK 會自動安裝 Visual Studio 2013 for Web Express。如此您就能開始免費進行 Azure 相關開發。
 
-이 자습서에서는 다음에 대해 알아봅니다.
+在本教學課程中，您將了解：
 
--   Azure SDK를 설치하여 개발자 컴퓨터에서 Azure를 개발할 수 있도록 설정하는 방법
--   로컬 컴퓨터에서 Azure 전자 메일 서비스 응용 프로그램을 구성하고 테스트하는 방법
--   응용 프로그램을 Azure에 게시하는 방법
--   Visual Studio 또는 Azure 저장소 탐색기를 사용하여 Azure 테이블, 큐 및 Blob을 보고 편집하는 방법.
--   추적을 구성하고 추적 데이터를 보는 방법
--   작업자 역할 인스턴스 수를 늘려 응용 프로그램을 확장하는 방법
+-   如何安裝 Azure SDK 來設定電腦進行 Azure 開發。
+-   如何在本機電腦上設定和測試 Azure 電子郵件服務應用程式。
+-   如何將應用程式發佈至 Azure。
+-   如何使用 Visual Studio 或 Azure 儲存體總管，來檢視並編輯 Azure 資料表、佇列和 Blob。
+-   如何設定追蹤和檢視追蹤資料。
+-   如何增加背景工作角色執行個體的數目來調整應用程式。
 
-**참고**
+**注意**
 
-이 자습서를 완료하려면 Azure 계정이 필요합니다. [무료 평가판 계정](/en-us/pricing/free-trial/)을 만들거나 [MSDN 구독자 혜택을 활성화](/en-us/pricing/member-offers/msdn-benefits/)할 수 있습니다.
+若要完成此教學課程，您需要 Azure 帳戶。您可以建立[免費試用帳戶](/en-us/pricing/free-trial/)或[啟用 MSDN 訂戶權益](/en-us/pricing/member-offers/msdn-benefits/)。
 
-### 자습서 세그먼트
+### 教學課程區段
 
--   [개발 환경 설정](#setupdevenv)
--   [무료 Azure 계정 설정](#setupwindowsazure)
--   [Azure 저장소 계정 만들기](#createWASA)
--   [Azure 저장소 탐색기 설치](#installASE)
--   [클라우드 서비스 만들기](#createcloudsvc)
--   [완료된 솔루션 다운로드 및 실행](#downloadcnfg)
--   [Visual Studio에서 개발자 저장소 보기](#StorageExpVS)
--   [Azure 저장소에 맞게 응용 프로그램 구성](#conf4azureStorage)
--   [Azure에 응용 프로그램 배포](#deployAz)
--   [스테이징에서 프로덕션으로 응용 프로그램 수준 올리기](#swap)
--   [SendGrid를 사용하도록 응용 프로그램 구성](#sendGrid)
--   [추적 데이터 구성 및 보기](#trace)
--   [증가한 로드를 처리하도록 다른 작업자 역할 인스턴스 추가](#addRole)
+-   [設定開發環境](#setupdevenv)
+-   [設定免費 Azure 帳戶](#setupwindowsazure)
+-   [建立 Azure 儲存體帳戶](#createWASA)
+-   [安裝 Azure 儲存體總管](#installASE)
+-   [建立雲端服務](#createcloudsvc)
+-   [下載並執行已完成的方案](#downloadcnfg)
+-   [檢視 Visual Studio 中的開發人員儲存體](#StorageExpVS)
+-   [設定 Azure 儲存體的應用程式](#conf4azureStorage)
+-   [將應用程式部署至 Azure](#deployAz)
+-   [將應用程式從預備提升至實際執行](#swap)
+-   [將應用程式設為使用 SendGrid](#sendGrid)
+-   [設定和檢視追蹤資料](#trace)
+-   [新增另一個背景工作角色執行個體來處理增加的負載](#addRole)
 
-> [WACOM.NOTE] SDK 설치에 대한 다음 섹션에서 Visual Studio 2013 사용 시 올바른 링크는 <http://go.microsoft.com/fwlink/?LinkID=324322>입니다.
+> [WACOM.NOTE] 在關於 SDK 安裝的下節中，如果您是使用 Visual Studio 2013，則正確連結為 <http://go.microsoft.com/fwlink/?LinkID=324322>。
 
 [WACOM.INCLUDE [install-sdk-2012-only](../includes/install-sdk-2012-only.md)]
 
-저장소 계정 만들기Azure 저장소 계정 만들기
-------------------------------------------
+建立儲存體帳戶建立 Azure 儲存體帳戶
+-----------------------------------
 
-Visual Studio에서 샘플 응용 프로그램을 실행할 때 Azure 개발 저장소 또는 클라우드의 Azure 저장소 계정에서 테이블, 큐 및 Blob에 액세스할 수 있습니다. 개발 저장소는 SQL Server Express LocalDB 데이터베이스를 사용하여 클라우드에서 Azure 저장소가 작동하는 방식을 에뮬레이트합니다. 이 자습서에서는 개발 저장소를 사용하여 시작한 후에 응용 프로그램이 Visual Studio에서 실행될 때 클라우드 저장소 계정을 사용하도록 응용 프로그램을 구성하는 방법을 알아봅니다. 이 자습서 섹션에서는 Azure 저장소 계정을 만듭니다. 자습서 뒷부분에서 이 계정을 사용하도록 Visual Studio를 구성하게 됩니다.
+在 Visual Studio 執行範例應用程式時，您可以存取 Azure 開發儲存體中的資料表、佇列和 Blob，或雲端中的 Azure 儲存體帳戶。開發儲存體會使用 SQL Server Express LocalDB 資料庫，來模擬 Azure 儲存體在雲端的運作方式。在本教學課程中，您會從使用開發儲存體來開始著手，然後了解如何設定應用程式，讓它在 Visual Studio 執行時使用雲端儲存體帳戶。在教學課程的這一節當中，您會建立 Azure 儲存體帳戶，並設定 Visual Studio，以在稍後的教學課程中使用。
 
-1.  브라우저에서 [Azure 관리 포털](http://manage.windowsazure.com)을 엽니다.
+1.  在瀏覽器中開啟 [Azure 管理入口網站](http://manage.windowsazure.com)。
 
-2.  [Azure 관리 포털](http://manage.windowsazure.com)에서 **저장소**를 클릭한 후 **새로 만들기**를 클릭합니다.
+2.  在 [Azure 管理入口網站](http://manage.windowsazure.com)中，按一下 **[儲存體]**，然後按一下 **[新增]**。
 
-    ![새 저장소](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-portal-new-storage.png)
+    ![New Storage](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-portal-new-storage.png)
 
-3.  **빠른 생성**을 클릭합니다.
+3.  按一下 **[快速建立]**。
 
-    ![빠른 생성](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-storage-quick.png)
+    ![Quick Create](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-storage-quick.png)
 
-4.  URL 입력 상자에 URL 접두사를 입력합니다.
+4.  在 URL 輸入方塊中，輸入 URL 前置詞。
 
-    이 접두사와 상자 아래에 표시되는 텍스트가 저장소 계정의 고유 URL이 됩니다. 입력한 접두사를 이미 누군가가 사용하고 있는 경우 텍스트 상자 위에 "The storage name is already in use"가 표시되며 다른 접두사를 선택해야 합니다.
+    此前置詞加上您在方塊下面看到的文字，就是儲存體帳戶的唯一 URL。如果您輸入的前置詞已被他人使用，則您將在文字方塊上面看到「此儲存體名稱已在使用」，而必須選擇不同的前置詞。
 
-5.  응용 프로그램을 배포하려는 곳으로 지역을 설정합니다.
+5.  將區域設為您要部署應用程式的區域。
 
-6.  **복제** 드롭다운 상자를 **로컬 중복**으로 설정합니다.
+6.  將 **[複寫]** 下拉式方塊設為 **[Locally redundant]**。
 
-    저장소 계정에 대해 지역에서 복제를 사용하는 경우에는 저장된 콘텐츠가 보조 위치에 복제되어 기본 위치에서 주요 재해가 발생하는 경우 보조 위치로 장애 조치(Failover)할 수 있도록 합니다. 지역에서 복제는 추가 비용을 발생시킬 수 있습니다. 테스트 및 개발 계정의 경우 일반적으로 지역에서 복제 비용을 지불하지 않는 것이 좋습니다. 자세한 내용은 [저장소 계정을 관리하는 방법](/en-us/manage/services/storage/how-to-manage-a-storage-account/)을 참조하십시오.
+    對儲存體帳戶啟用地理區域複寫時，儲存內容會複寫至次要位置，以便能在主要位置發生嚴重災難時容錯移轉至該位置。地理區域複寫會引發額外成本。對於測試和開發帳戶，您通常不會想要付費使用地理區域複寫功能。如需詳細資訊，請參閱[如何管理儲存體帳戶](/en-us/manage/services/storage/how-to-manage-a-storage-account/)。
 
-7.  **저장소 계정 만들기**를 클릭합니다.
+7.  按一下 **[建立儲存體帳戶]**。
 
-    아래 이미지에서는 URL `aestest3.core.windows.net`을 사용하여 저장소 계정이 생성되었습니다.
+    在下面的影像中，已建立 URL 為 `aestest3.core.windows.net` 的儲存體帳戶。
 
-    ![URL 접두사를 사용하여 저장소 만들기](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create-storage-url-test.png)
+    ![create storage with URL prefix](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create-storage-url-test.png)
 
-    이 단계를 완료하는 데는 몇 분 정도 걸릴 수 있습니다. 기다리는 동안 이 단계를 반복하여 프로덕션 저장소 계정을 만들 수 있습니다. 로컬 개발용으로 사용할 테스트 저장소 계정, Azure에서 테스트용으로 사용할 다른 테스트 저장소 계정, 그리고 프로덕션 저장소 계정을 따로 사용하는 것이 편리한 경우가 많습니다.
+    此步驟可能需要幾分鐘時間才能完成。等待時，您可以重複這些步驟，並建立實際執行儲存體帳戶。具有一個用於本機開發的測試儲存體帳戶、另一個用於 Azure 測試的測試儲存體帳戶，以及一個實際執行儲存體帳戶，通常可為你帶來便利。
 
-8.  이전 단계에서 만든 테스트 계정을 클릭한 후 **액세스 키 관리** 아이콘을 클릭합니다.
+8.  按一下您在前一個步驟中建立的測試帳戶，然後按一下 **[Manage Access Keys]** 圖示。
 
-    ![키 관리](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-manage-keys.png)
+    ![Manage Keys](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-manage-keys.png)
 
-    ![키 GUID](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-guid-keys.PNG)
+    ![Keys GUID](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-guid-keys.PNG)
 
-    이 자습서 전체에서 **기본 액세스 키** 또는 **보조 액세스 키**가 필요합니다. 이러한 키 중 하나를 저장소 연결 문자열에 사용할 수 있습니다.
+    在本教學課程中，您將需要 **[主要存取金鑰]** 或 **[次要存取金鑰]**。您可以在儲存體連接字串中使用上述任何一個金鑰。
 
-    응용 프로그램에 제공되는 서비스를 중단시키지 않고도 사용 중인 키를 주기적으로 변경할 수 있도록 두 가지 키가 있습니다. 사용하고 있지 않은 키를 다시 생성한 후에 다시 생성된 키를 사용하도록 응용 프로그램에서 연결 문자열을 변경할 수 있습니다. 키가 한 개만 있는 경우에는 키를 다시 생성하면 응용 프로그램에서 저장소 계정 연결이 끊어집니다. 이미지에 표시된 키는 이미지 캡처 후에 다시 생성되었기 때문에 더 이상 유효하지 않습니다.
+    金鑰有兩個，這樣您才能定期變更使用的金鑰，而不會中斷對即時應用程式的服務。您可以重新產生未使用的金鑰，然後在應用程式中變更連接字串，使用重新產生的金鑰。如果金鑰只有一個，則在重新產生金鑰時，應用程式將會失去與儲存體帳戶的連接。影像中顯示的金鑰已不再有效，因為在擷取影像後已予以重新產生。
 
-9.  다음 섹션에서 사용하도록 이 키 중 하나를 클립보드에 복사해 두십시오.
+9.  將其中一個金鑰複製到剪貼簿，以用於下一節。
 
-ASE 설치Azure 저장소 탐색기 설치
+安裝 ASE安裝 Azure 儲存體總管
+-----------------------------
+
+**Azure 儲存體總管** (ASE) 是可用來查詢和更新 Azure 儲存體資料表、佇列和 Blob 的工具。您將會在這些教學課程中一路使用它，以確認資料是否有正確更新，並建立測試資料。
+
+1.  安裝 [Azure 儲存體總管](http://azurestorageexplorer.codeplex.com/) (英文)。
+
+    螢幕擷取畫面顯示 ASE 4，但是如果喜歡的話，您可以安裝 ASE 5。
+
+2.  啟動 **[Azure 儲存體總管]**，然後按一下 **[新增帳戶]**。
+
+    ![Add ASE Account](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-ase-add.png)
+
+3.  輸入測試儲存體帳戶的名稱，並貼上您先前複製的金鑰。
+
+4.  按一下 **[Add Storage Account]**。
+
+    ![Add ASE Account](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-ase-add2.png)
+
+可使用 Azure 儲存體的工具不只這項。如需詳細資訊，請參閱 [Azure 儲存體總管 (2014)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) (英文)。
+
+建立雲端服務建立雲端服務
+------------------------
+
+1.  在瀏覽器中開啟 [Azure 管理入口網站](http://manage.windowsazure.com)。
+
+2.  按一下 **[雲端服務]**，然後按一下 **[新增]** 圖示。
+
+    ![Quick Cloud](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-new-cloud.png)
+
+3.  按一下 **[快速建立]**。
+
+4.  在 URL 輸入方塊中，輸入 URL 前置詞。
+
+    如同儲存體 URL，此 URL 必須是唯一的，而且如果他人已使用您選擇的前置詞，您會收到錯誤訊息。
+
+5.  將區域設為您要部署應用程式的區域。
+
+    您應該在先前建立儲存體帳戶的相同區域中建立雲端服務。當雲端服務與儲存體帳戶位於不同的資料中心 (不同的區域) 時，延遲時間會增加，而且您將由於使用資料中心外的頻寬而付費。資料中心內的頻寬則是免費的。
+
+    Azure 同質群組提供一種機制，可將資料中心內的資源之間的距離縮至最短，因而可以減少延遲時間。本教學課程不會使用同質群組。如需詳細資訊，請參閱[如何在 Azure 中建立同質群組](http://msdn.microsoft.com/en-us/library/jj156209.aspx) (英文)。
+
+6.  按一下 **[建立雲端服務]**。
+
+    在下面的影像中，已建立 URL 為 aescloud.cloudapp.net 的雲端服務。
+
+    ![create storage with URL prefix](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create-cloud.png)
+
+    您可以移至下一個步驟，無需等待此步驟完成。
+
+下載並執行下載並執行已完成的方案
 --------------------------------
 
-ASE(**Azure 저장소 탐색기**)는 Azure 저장소 테이블, 큐 및 Blob을 쿼리하고 업데이트하는 데 사용할 수 있는 도구입니다. 이 자습서 전체에서 이 도구를 사용하여 해당 데이터가 올바르게 업데이트되었는지 확인하고 테스트 데이터를 만들게 됩니다.
+1.  下載並解壓縮[已完成的方案](http://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) (英文)。
 
-1.  [Azure 저장소 탐색기](http://azurestorageexplorer.codeplex.com/)를 설치합니다.
+2.  以提高的權限啟動 Visual Studio。
 
-    스크린샷은 ASE 4이지만, 원하는 경우 ASE 5를 설치할 수 있습니다.
+    可讓 Visual Studio 在本機執行 Azure 專案的運算模擬器需要使用提高的權限。
 
-2.  **Azure 저장소 탐색기**를 시작하고 **계정 추가**를 클릭합니다.
+    > [WACOM.NOTE] 使用 SDK 2.3 和更新版本時，預設 Azure 運算模擬器不需要使用提高的權限，但是此專案仍會設定為使用原始運算模擬器，因此仍需要使用提高的權限。
 
-    ![ASE 계정 추가](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-ase-add.png)
+3.  還原 NuGet 套件。
 
-3.  테스트 저장소 계정의 이름을 입력하고 이전에 복사해 둔 키를 붙여 넣습니다.
+    為了讓下載的方案內容不要太大，所提供的已完成方案將沒有已安裝的 NuGet 套件的組件或其他內容。當您開啟並建置方案時，NuGet 會自動取得所有套件內容。為了讓此作業能夠運作，您必須在 Visual Studio 啟用 NuGet 套件還原選項。如果尚未啟用 NuGet 套件還原選項，請執行下列步驟。
 
-4.  **저장소 계정 추가**를 클릭합니다.
-
-    ![ASE 계정 추가](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-ase-add2.png)
-
-Azure 저장소와 함께 작동하는 다른 도구도 사용할 수 있습니다. 자세한 내용은 [Azure 저장소 탐색기(2014)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)를 참조하십시오.
-
-클라우드 서비스 만들기클라우드 서비스 만들기
---------------------------------------------
-
-1.  브라우저에서 [Azure 관리 포털](http://manage.windowsazure.com)을 엽니다.
-
-2.  **클라우드 서비스**를 클릭한 후 **새로 만들기** 아이콘을 클릭합니다.
-
-    ![빠른 클라우드](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-new-cloud.png)
-
-3.  **빠른 생성**을 클릭합니다.
-
-4.  URL 입력 상자에 URL 접두사를 입력합니다.
-
-    이 URL은 저장소 URL과 마찬가지로 고유해야 하므로, 선택한 접두사를 이미 누군가가 사용 중인 경우에는 오류 메시지가 나타납니다.
-
-5.  응용 프로그램을 배포하려는 곳으로 지역을 설정합니다.
-
-    저장소 계정을 만든 것과 동일한 지역에서 클라우드 서비스를 만들어야 합니다. 클라우드 서비스와 저장소 계정이 서로 다른 데이터 센터, 즉 서로 다른 지역에 있는 경우 대기 시간이 길어지고 데이터 센터 외부 대역폭에 대한 요금이 발생합니다. 데이터 센터 내부 대역폭은 무료입니다.
-
-    Azure 선호도 그룹은 데이터 센터 리소스 사이의 거리를 최소화하는 메커니즘을 제공하며, 이로 인해 대기 시간이 줄어들 수 있습니다. 이 자습서는 선호도 그룹을 사용하지 않습니다. 자세한 내용은 [Azure에서 선호도 그룹을 만드는 방법](http://msdn.microsoft.com/en-us/library/jj156209.aspx)을 참조하십시오.
-
-6.  **클라우드 서비스 만들기**를 클릭합니다.
-
-    다음 이미지에서는 aescloud.cloudapp.net이라는 URL을 사용하여 클라우드 서비스가 생성되었습니다.
-
-    ![URL 접두사를 사용하여 저장소 만들기](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create-cloud.png)
-
-    이 단계가 완료되도록 기다리지 않고도 다음 단계로 진행할 수 있습니다.
-
-다운로드 및 실행완료된 솔루션 다운로드 및 실행
-----------------------------------------------
-
-1.  [완료된 솔루션](http://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36)을 다운로드하고 압축 해제합니다.
-
-2.  관리자 권한으로 Visual Studio를 시작합니다.
-
-    Visual Studio가 로컬에서 Azure 프로젝트를 실행할 수 있게 하는 계산 에뮬레이터에는 관리자 권한이 필요합니다.
-
-    > [WACOM.NOTE] SDK 2.3 이상에서는 기본 Azure 계산 에뮬레이터에 관리자 권한이 필요 없지만, 이 프로젝트는 여전히 원래 계산 에뮬레이터를 사용하도록 구성되어 있으므로 관리자 권한이 필요합니다.
-
-3.  NuGet 패키지를 복원합니다.
-
-    다운로드 크기를 작게 유지하기 위해, 완료된 솔루션이 어셈블리 또는 설치된 NuGet 패키지의 다른 콘텐츠 없이 제공됩니다. 솔루션을 열고 빌드하면 NuGet은 모든 패키지 콘텐츠를 자동으로 가져옵니다. 이 기능이 작동하려면 Visual Studio에서 NuGet 패키지 복원 옵션을 사용하도록 설정해야 합니다. 아직 NuGet 패키지 복원을 사용하도록 설정하지 않은 경우 다음 단계를 수행하십시오.
-
-    > [WACOM.NOTE] Visual Studio 2013에서 기본 설정은 자동 패키지 복원을 사용하는 것입니다. 하지만 Visual Studio 2012 프로젝트를 열기 때문에 복원이 자동으로 이루어지지 않습니다. 기다렸다가 솔루션을 연 후 아래 지침대로 **NuGet 패키지 관리** 대화 상자를 엽니다. 오른쪽 위에 **복원** 단추가 표시됩니다. 이 단추를 클릭하여 패키지를 복원합니다.
+    > [WACOM.NOTE] 在 Visual Studio 2013 中，預設設定為啟用自動套件還原選項，但因為您是開啟 Visual Studio 2012 專案，所以還原作業不會自動進行。請稍候片刻，並於方案開啟後，依下列指示開啟 **[Manage NuGet Packages]** 對話方塊。您將在右上方看到 **[還原]** 按鈕：按一下該按鈕以還原套件。
 
          1. From the **Tools** menu, click **Library Package Manager**, and then click **Manage NuGet Packages for Solution**. 
 
-         2. In the lower left corner of the **Manage NuGet Packages** dialog, click **Settings**.
+        2. In the lower left corner of the **Manage NuGet Packages** dialog, click **Settings**.
 
-         3. In the left pane of the **Options** dialog box, select **General** under **Package Manager**.
+        3. In the left pane of the **Options** dialog box, select **General** under **Package Manager**.
 
-         4. Select **Allow NuGet to download missing packages during build**.
+        4. Select **Allow NuGet to download missing packages during build**.
 
-    ![NuGet 패키지 복원 사용](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/NuGetPkgRestore.png)
+    ![Enabling NuGet package restore](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/NuGetPkgRestore.png)
 
-4.  **파일** 메뉴에서 **프로젝트 열기**를 선택하고 솔루션을 다운로드한 위치로 이동한 후 솔루션 파일을 엽니다.
+4.  從 **[檔案]** 功能表中，選擇 **[開啟專案]**，導覽至方案的下載位置，然後開啟方案檔。
 
-5.  **솔루션 탐색기**에서 시작 프로젝트로 **AzureEmailService**가 선택되었는지 확인합니다.
+5.  在 **[方案總管]** 中，確定已選取 **AzureEmailService** 作為啟動專案。
 
-6.  Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
+6.  按 CTRL+F5 執行應用程式。
 
-    > [WACOM.NOTE] 솔루션이 빌드되도록 하려면 현재 SDK 어셈블리에 참조를 추가해야 합니다. 솔루션 탐색기에서 MvcWebRole 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **추가** -- **참조**를 클릭합니다. **어셈블리**에서 **확장**을 클릭합니다. *Microsoft.WindowsAzure.Diagnostics* 및 *Microsoft.WindowsAzure.ServiceRuntime*을 선택한 후 **확인**을 클릭합니다. WorkerRoleA 및 WorkerRoleB 프로젝트에도 동일한 단계를 수행합니다.
+    > [WACOM.NOTE] 為了能夠建置方案，您將需要新增現行 SDK 組件的參考。在 [方案總管] 的 MvcWebRole 專案上按一下滑鼠右鍵，然後按一下 **[新增]** -- **[參考]**。在 **[組件]** 下按一下 **[擴充]**。選取 *Microsoft.WindowsAzure.Diagnostics* 和 *Microsoft.WindowsAzure.ServiceRuntime*，然後按一下 **[確定]**。對 WorkerRoleA 和 WorkerRoleB 專案執行相同的動作。
 
-    응용 프로그램 홈페이지가 브라우저에 나타납니다.
+    應用程式首頁隨即出現在瀏覽器中。
 
-    ![앱을 실행합니다.](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-mailinglist1.png)
+    ![Run the App.](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-mailinglist1.png)
 
-7.  **새로 만들기**를 클릭합니다.
+7.  按一下 **[新建]**。
 
-8.  일부 테스트 데이터를 입력한 후 **만들기**를 클릭합니다.
+8.  輸入部分測試資料，然後按一下 **[建立]**。
 
-    ![앱을 실행합니다.](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create1.png)
+    ![Run the App.](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create1.png)
 
-9.  메일 그룹 항목을 몇 가지 더 만듭니다.
+9.  建立幾個郵寄清單項目。
 
-    ![메일 그룹 인덱스 페이지](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-mailing-list-index-page.png)
+    ![Mailing List Index Page](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-mailing-list-index-page.png)
 
-10. **Subscribers**를 클릭한 후 일부 구독자를 추가합니다. **Verified**를 `true`로 설정합니다.
+10. 按一下 **[訂閱者]**，然後新增一些訂閱者。將 **[已驗證]** 設為 `true`。
 
-    ![구독자 인덱스 페이지](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-subscribers-index-page.png)
+    ![Subscriber Index Page](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-subscribers-index-page.png)
 
-11. 보내려는 전자 메일의 본문이 포함된 *.txt* 파일을 만들어 메시지를 추가하도록 준비합니다. 그런 다음, 동일한 텍스트가 포함되어 있지만 일부 HTML(예; 메시지의 단어 중 하나를 굵은 글꼴이나 기울임꼴로 만들기)이 있는 *.htm* 파일을 만듭니다. 이 파일을 다음 단계에서 사용할 것입니다.
+11. 準備新增訊息，方法是建立一個 *.txt* 檔案，包含您要傳送的電子郵件本文。然後建立一個 *.htm* 檔案，包含相同文字，但具有一些 HTML (例如，使訊息的其中一個字變為粗體或斜體)。您將在下一個步驟中使用這些檔案。
 
-12. **메시지**를 클릭한 후 일부 메시지를 추가합니다. 이전 단계에서 만든 파일을 선택합니다. 기본적으로 향후 일주일 후로 설정되어 있는 예약 날짜를 변경하지 마십시오. SendGrid를 구성할 때까지는 응용 프로그램이 메시지를 보낼 수 없습니다.
+12. 按一下 **[訊息]**，然後新增一些訊息。選取您在前一個步驟中建立的檔案。請勿變更預設為未來一週的排程日期。等到您設定 SendGrid 後，應用程式才會傳送訊息。
 
-    ![메시지 작성 페이지](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-message-create-page.png)
-
+    ![Message Create Page](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-message-create-page.png)
 	<br/><br/>
+     ![Message Index Page](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-message-index-page.png)
 
-     ![메시지 인덱스 페이지](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-message-index-page.png)
+您輸入和檢視的資料將會儲存在 Azure 開發儲存體中。開發儲存體會使用 SQL Server Express LocalDB 資料庫，來模擬 Azure 儲存體在雲端的運作方式。應用程式使用開發儲存體的原因是，那是您在下載專案時設定要使用的儲存體。此設定儲存在 **AzureEmailService** 專案的 *.cscfg* 檔案中。*ServiceConfiguration.Local.cscfg* 檔案會決定當您在 Visual Studio 本機執行應用程式時使用的項目，而 *ServiceConfiguration.Cloud.cscfg* 檔案則會決定當您將應用程式部署至雲端時使用的項目。稍後您將看到如何設定應用程式，來使用您先前建立的 Azure 儲存體帳戶。
 
-입력하고 본 데이터는 Azure 개발 저장소에 저장됩니다. 개발 저장소는 SQL Server Express LocalDB 데이터베이스를 사용하여 클라우드에서 Azure 저장소가 작동하는 방식을 에뮬레이트합니다. 프로젝트를 다운로드하면 프로젝트에서 사용하도록 구성된 곳이 개발 저장소이기 때문에, 응용 프로그램이 개발 저장소를 사용합니다. 이 설정은 **AzureEmailService** 프로젝트의 *.cscfg* 파일에 저장되어 있습니다. *ServiceConfiguration.Local.cscfg* 파일은 로컬에서 Visual Studio에서 응용 프로그램을 실행할 때 사용되는 항목을 결정하고, *ServiceConfiguration.Cloud.cscfg* 파일은 응용 프로그램을 클라우드에 배포할 때 사용되는 항목을 결정합니다. 이전에 만든 Azure 저장소 계정을 사용하도록 응용 프로그램을 구성하는 방법을 뒷부분에서 알아보겠습니다.
+開發人員儲存體檢視 Visual Studio 中的開發人員儲存體
+---------------------------------------------------
 
-개발자 저장소Visual Studio에서 개발자 저장소 보기
--------------------------------------------------
+**[伺服器總管]** 中的 **Azure 儲存體**瀏覽器可提供便利的 Azure 儲存體資源唯讀檢視。
 
-**서버 탐색기**의 **Azure 저장소** 브라우저를 통해 읽기 전용으로 Azure 저장소 리소스를 편리하게 볼 수 있습니다.
+1.  從 Visual Studio 中的 **[檢視]** 功能表，選擇 **[伺服器總管]**。
 
-1.  Visual Studio의 **보기** 메뉴에서 **서버 탐색기**를 선택합니다.
+2.  展開 **[Azure 儲存體]** 節點下的 **[(開發)]** 節點。
 
-2.  **Azure 저장소** 노드 아래의 **(개발)** 노드를 확장합니다.
+    > [WACOM.NOTE] 在目前的 SDK 中，展開 **[Azure]** / **[儲存體]** / **[(開發)]**。
 
-    > [WACOM.NOTE] 현재 SDK의 경우 **Azure** / **저장소** / **(개발)**을 확장합니다.
+3.  展開 **[資料表]**，以查看您在先前步驟中建立的資料表。
 
-3.  **테이블**을 확장하여 이전 단계에서 만든 테이블을 표시합니다.
+    ![Server Explorer](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-serverExplorer.png)
 
-    ![서버 탐색기](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-serverExplorer.png)
+4.  按兩下 **[郵寄清單]** 資料表。
 
-4.  **MailingList** 테이블을 두 번 클릭합니다.
+    ![VS storage explorer](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-wasVSdata.png)
 
-    ![VS 저장소 탐색기](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-wasVSdata.png)
+    請注意視窗如何顯示資料表中的不同結構描述。`MailingList` 實體具有 `Description` 和 `FromEmailAddress` 屬性，而 `Subscriber` 實體具有 `Verified` 屬性 (以及 `SubscriberGUID` 屬性，影像寬度不夠所以未顯示此屬性)。在資料表中，所有屬性都有對應的資料欄，而且如果特定的資料表列是用於沒有特定屬性的實體，則該資料格會空白。
 
-    창의 테이블에서 다른 스키마가 표시되는 것을 볼 수 있습니다. `MailingList` 엔터티에는 `Description` 및 `FromEmailAddress` 속성이 있고, `Subscriber` 엔터티에는 `Verified` 속성(및 이미지에서는 폭이 좁아서 표시되지 않는 `SubscriberGUID`)이 있습니다. 테이블에는 모든 속성에 해당하는 열이 있으며, 특정 테이블 열이 특정 속성을 가지지 않은 엔터티와 관련된 경우 해당 셀은 비어 있습니다.
+您無法使用 Visual Studio 中的儲存體瀏覽器，來更新或刪除 Azure 儲存體資源。您可以使用 [Azure 儲存體總管](http://azurestorageexplorer.codeplex.com/) (英文) 來更新或刪除開發儲存體資源。(若要設定 Azure 儲存體總管來使用開發儲存體，請按一下 **[Add Storage Account]** 對話方塊中的 **[Developer Storage]** 核取方塊。)
 
-Visual Studio에서 저장소 브라우저를 사용하여 Azure 저장소 리소스를 업데이트하거나 삭제할 수 없습니다. [Azure 저장소 탐색기](http://azurestorageexplorer.codeplex.com/)를 사용하여 개발 저장소 리소스를 업데이트하거나 삭제할 수 있습니다. 개발 저장소를 사용하도록 Azure 저장소 탐색기를 구성하려면 **저장소 계정 추가** 대화 상자에서 **개발자 저장소** 확인란을 클릭합니다.
+> [WACOM.NOTE] 在最新的 SDK 中，您可以更新 **[伺服器總管]** 中的開發儲存體。
 
-> [WACOM.NOTE] 최신 SDK의 경우 **서버 탐색기**에서 개발 저장소를 업데이트할 수 있습니다.
+使用您的儲存體帳戶設定應用程式來使用您的 Azure 儲存體帳戶
+---------------------------------------------------------
 
-저장소 계정 사용Azure 저장소 계정을 사용하도록 응용 프로그램 구성
------------------------------------------------------------------
+接著，您將看到如何設定應用程式，以便它能夠在 Visual Studio 中執行時使用您的 Azure 儲存體帳戶，而不是使用開發儲存體。想在 Visual Studio 中進行此作業有新舊兩種作法，新作法是在 SDK 1.8 版中引進，舊作法則需要從 Azure 管理入口網站複製和貼上設定。下列步驟示範新作法，也就是配置儲存體帳戶設定。
 
-다음으로, Visual Studio에서 실행될 때 개발 저장소 대신 Azure 저장소 계정을 사용하도록 응용 프로그램을 구성하는 방법을 알아봅니다. Visual Studio에서는 SDK 1.8 버전에 이를 수행할 수 있는 최신 방법이 도입되었으며, Azure 관리 포털에서 설정을 복사 및 붙여 넣는 이전 방식도 있습니다. 다음 단계는 저장소 계정 설정을 구성하는 최신 방법을 보여 줍니다.
+1.  在 **[方案總管]** 中，於 **AzureEmailService** 專案的 **[角色]** 下的 **MvcWebRole** 上按一下滑鼠右鍵，然後按一下 **[屬性]**。
 
-1.  **솔루션 탐색기**에서 **AzureEmailService** 프로젝트의 **역할** 아래에 있는 **MvcWebRole**을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
+    ![Right Click Properties](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-rt-prop.png)
 
-    ![마우스 오른쪽 단추 클릭 속성](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-rt-prop.png)
+2.  按一下 **[設定]** 索引標籤。在 **[服務組態]** 下拉式方塊中，選取 **[本機]**。
 
-2.  **설정** 탭을 클릭합니다. **서비스 구성** 드롭다운 상자에서 **로컬**을 선택합니다.
+3.  選取 **StorageConnectionString** 項目，該行右端就會出現省略符號 (**...**) 按鈕。按一下省略符號按鈕，開啟 **[儲存體帳戶連接字串]** 對話方塊。
 
-3.  **StorageConnectionString** 항목을 선택하면 줄 오른쪽 끝에 줄임표(**...**) 단추가 표시됩니다. 줄임표 단추를 클릭하여 **저장소 계정 연결 문자열** 대화 상자를 엽니다.
+    ![Right Click Properties](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-elip.png)
 
-    ![마우스 오른쪽 단추 클릭 속성](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-elip.png)
+4.  在 **[Create Storage Connection String]** 對話方塊中，按一下 **[Your subscription]**，然後按一下 **[Download Publish Settings]**。
 
-4.  **저장소 연결 문자열 만들기** 대화 상자에서 **구독**을 클릭한 후 **게시 설정 다운로드**를 클릭합니다.
+    > [WACOM.NOTE] 在最新的 SDK 中，此對話方塊可讓您登入 Azure，而且只選取您要使用的儲存體帳戶。
 
-    > [WACOM.NOTE] 최신 SDK의 경우 이 대화 상자에서 Azure에 로그인하고 사용할 저장소 계정을 간단히 선택할 수 있습니다.
+    ![Right Click Properties](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-enter.png)
 
-    ![마우스 오른쪽 단추 클릭 속성](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-enter.png)
+    Visual Studio 會以 Azure 入口網站下載發佈設定頁面的 URL，啟動新的預設瀏覽器執行個體。如果您未登入入口網站，系統會提示您登入。一旦登入，您的瀏覽器就會提示您儲存發佈設定。請記下設定的儲存位置。
 
-    Visual Studio에서 Azure 포털 다운로드 게시 설정 페이지의 URL이 있는 기본 브라우저 인스턴스를 새로 시작합니다. 포털에 로그인하지 않은 경우 로그인하라는 메시지가 나타납니다. 로그인하고 나면 브라우저에서 게시 설정을 저장하라는 메시지가 나타납니다. 설정을 저장한 위치를 기록해 둡니다.
+    ![publish settings](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-3.png)
 
-    ![게시 설정](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-3.png)
+5.  在 **[Create Storage Connection String]** 對話方塊中，按一下 **[匯入]**，然後瀏覽到前一個步驟中儲存的發佈設定檔案。
 
-5.  **저장소 연결 문자열 만들기** 대화 상자에서 **가져오기**를 클릭한 후 이전 단계에서 저장한 게시 설정 파일로 이동합니다.
+6.  選取想要使用的訂閱和儲存體帳戶，然後按一下 **[確定]**。
 
-6.  사용하려는 구독 및 저장소 계정을 선택하고 **확인**을 클릭합니다.
+    ![select storage account](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-5.png)
 
-    ![저장소 계정 선택](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-5.png)
+7.  依照用於 `StorageConnectionString` 連接字串的相同程序，設定 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 連接字串。
 
-7.  `StorageConnectionString` 연결 문자열에 사용한 것과 동일한 절차에 따라 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 연결 문자열을 설정합니다.
+    您不需要重新下載發行設定檔案。當您按一下 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 連接字串的省略符號時，會發現 **[Create Storage Connection String]** 對話方塊記得您的訂閱資訊。當您按一下 **[Your subscription]** 選項按鈕時，只需要選取先前選取的相同 **[訂閱]** 和 **[帳戶名稱]**，然後按一下 **[確定]**。
 
-    게시 설정 파일을 다시 다운로드할 필요가 없습니다. `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 연결 문자열의 줄임표를 클릭하면 **저장소 연결 문자열 만들기** 대화 상자에 구독 정보가 기억되어 있음을 알 수 있습니다. **구독** 라디오 단추를 클릭하는 경우 이전에 선택한 것과 동일한 **구독** 및 **계정 이름**을 선택하고 **확인**을 클릭하면 됩니다.
+8.  遵循您對 MvcWebRole 角色的兩個連接字串所使用的相同程序，來設定 WorkerRoleA 角色和 workerRoleB 角色的連接字串。
 
-8.  두 연결 문자열에 사용한 것과 동일한 절차에 따라 MvcWebRole 역할에서 WorkerRoleA 역할 및 workerRoleB 역할의 연결 문자열을 설정합니다.
+### 儲存體帳戶認證的手動設定方法
 
-### 저장소 계정 자격 증명을 수동으로 구성하는 방법
+下列程序示範如何手動設定儲存體帳戶設定。如果您已使用前一個程序中示範的自動方法，則可跳過此程序，您也可以閱讀此程序的內容，以了解自動方法在背後為您做了哪些工作。
 
-다음 절차는 저장소 계정 설정을 구성하는 수동 방법을 보여 줍니다. 이전 절차에서 설명한 자동 방법을 사용한 경우에는 이 절차를 건너뛰어도 됩니다. 또는 이전 절차를 자세히 읽어 보고 자동 방법에서 수행한 내용을 확인해도 좋습니다.
+1.  在瀏覽器中開啟 [Azure 管理入口網站](http://manage.windowsazure.com)。
 
-1.  브라우저에서 [Azure 관리 포털](http://manage.windowsazure.com)을 엽니다.
+2.  按一下 **[儲存體]** 索引標籤，再按一下您在前一個步驟中建立的測試帳戶，然後按一下 **[管理金鑰]** 圖示。
 
-2.  **저장소** 탭을 클릭한 후 이전 단계에서 만든 테스트 계정을 클릭하고 **키 관리** 아이콘을 클릭합니다.
+    ![Manage Keys](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-manage-keys.png)
 
-    ![키 관리](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-manage-keys.png)
+    ![Keys GUID](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-guid-keys.PNG)
 
-    ![키 GUID](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-guid-keys.PNG)
+3.  複製主要或次要存取金鑰。
 
-3.  기본 및 보조 액세스 키를 복사합니다.
+4.  在 **[方案總管]** 中，於 **AzureEmailService** 專案的 **[角色]** 下的 **MvcWebRole** 上按一下滑鼠右鍵，然後按一下 **[屬性]**。
 
-4.  **솔루션 탐색기**에서 **AzureEmailService** 프로젝트의 **역할** 아래에 있는 **MvcWebRole**을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
+    ![Right Click Properties](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-rt-prop.png)
 
-    ![마우스 오른쪽 단추 클릭 속성](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-rt-prop.png)
+5.  按一下 **[設定]** 索引標籤。在 **[服務組態]** 下拉式方塊中，選取 **[本機]**。
 
-5.  **설정** 탭을 클릭합니다. **서비스 구성** 드롭다운 상자에서 **로컬**을 선택합니다.
+6.  選取 **StorageConnectionString** 項目，該行右端就會出現省略符號 (**...**) 按鈕。按一下省略符號按鈕，開啟 **[儲存體帳戶連接字串]** 對話方塊。
 
-6.  **StorageConnectionString** 항목을 선택하면 줄 오른쪽 끝에 줄임표(**...**) 단추가 표시됩니다. 줄임표 단추를 클릭하여 **저장소 계정 연결 문자열** 대화 상자를 엽니다.
+    ![Right Click Properties](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-elip.png)
 
-    ![마우스 오른쪽 단추 클릭 속성](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-elip.png)
+7.  在 **[Create Storage Connection String]** 對話方塊中，選取 **[Manually entered credentials]** 選項按鈕。輸入儲存體帳戶名稱，以及您從入口網站複製的主要或次要存取金鑰。
 
-7.  **저장소 연결 문자열 만들기** 대화 상자에서 **Manually entered credentials** 라디오 단추를 선택합니다. 저장소 계정 이름 및 포털에서 복사한 기본 또는 보조 액세스 키를 입력합니다.
+8.  按一下 **[確定]**。
 
-8.  **확인**을 클릭합니다.
+您可以使用相同程序，來設定背景工作角色的設定，也可以編輯組態檔，將 Web 角色設定傳播至背景工作角色。下列步驟說明如何編輯組態檔。(這仍是儲存體認證的手動設定方法的一部分，因此，如果已使用自動方法將設定傳播至背景工作角色，則不必進行此步驟。)
 
-동일한 절차를 사용하여 작업자 역할의 설정을 구성할 수 있습니다. 또는 구성 파일을 편집하여 웹 역할 설정을 작업자 역할에 전파할 수도 있습니다. 다음 단계는 구성 파일을 편집하는 방법을 설명합니다. (저장소 자격 증명을 설정하는 수동 방법의 일부이며 자동 방법을 통해 이미 작업자 역할에 설정을 전파한 경우에는 이를 수행할 필요가 없습니다.)
+1.  開啟位於 **AzureEmailService** 專案的 **ServiceConfiguration.Local.cscfg** 檔案。
 
-1.  **AzureEmailService** 프로젝트에 위치한 **ServiceConfiguration.Local.cscfg** 파일을 엽니다.
-
-    `MvcWebRole`의 `Role` 요소에 Visual Studio UI를 사용해 업데이트한 설정이 있는 `ConfigurationSettings` 요소가 표시됩니다.
+    在`MvcWebRole` 的 `Role` 元素中，您將看到 `ConfigurationSettings` 元素，此元素具有使用 Visual Studio UI 更新的設定。
 
            <Role name="MvcWebRole">
-             <Instances count="1" />
-             <ConfigurationSettings>
-               <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[Key]" />
-               <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=aestest;AccountKey=[Key]" />
-             </ConfigurationSettings>
-           </Role>
+        <Instances count="1" />
+        <ConfigurationSettings>
+        <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[Key]" />
+        <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=aestest;AccountKey=[Key]" />
+        </ConfigurationSettings>
+        </Role>
 
-    두 작업자 역할의 `Role` 요소에 동일한 두 개의 연결 문자열이 표시됩니다.
+    在兩個背景工作角色的 `Role` 元素中，您會看到相同的兩個連接字串。
 
-2.  `WorkerRoleA` 및 `WorkerRoleB` 요소에서 이 두 가지 연결 문자열의 `Setting` 요소를 삭제한 후 `MvcWebRole` 요소에서 `Setting` 요소를 복사하여 제자리에 붙여 넣습니다.
+2.  從 `WorkerRoleA` 和 `WorkerRoleB` 元素中刪除這兩個連接字串的 `Setting` 元素，然後從 `MvcWebRole` 元素中複製 `Setting` 元素，並在這些元素的位置貼上複製的內容。
 
-구성 파일에 대한 자세한 내용은 [Azure 프로젝트 구성](http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx)을 참조하십시오.
+如需組態檔的詳細資訊，請參閱[設定 Azure 專案](http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx)。
 
-### 저장소 계정을 사용하도록 구성된 응용 프로그램 테스트
+### 測試已設定為使用儲存體帳戶的應用程式
 
-1.  Ctrl+F5를 눌러 응용 프로그램을 실행합니다. 이 자습서 앞부분에서 한 것처럼 **Mailing Lists**, **Subscribers** 및 **Messages** 링크를 클릭하여 일부 데이터를 입력합니다.
+1.  按 CTRL+F5 執行應用程式。輸入一些資料，方法為按一下 **[郵寄清單]**、**[訂閱者]** 和 **[訊息]** 連結，如同您先前在本教學課程中所做一般。
 
-이제 **Azure 저장소 탐색기** 또는 **서버 탐색기**를 사용하여 응용 프로그램이 Azure 테이블에 입력한 데이터를 볼 수 있습니다.
+現在您可以使用 **[Azure 儲存體總管]** 或 **[伺服器總管]** 來檢視應用程式在 Azure 資料表中輸入的資料。
 
-### Azure 저장소 탐색기를 사용하여 저장소 계정에 입력된 데이터 보기
+### 使用 Azure 儲存體總管來檢視已輸入至儲存體帳戶的資料
 
-1.  **Azure 저장소 탐색기**를 엽니다.
+1.  開啟 **[Azure 儲存體總管]**。
 
-2.  이전에 자격 증명을 입력한 저장소 계정을 선택합니다.
+2.  選取您先前為其輸入認證的儲存體帳戶。
 
-3.  **저장소 형식**에서 **테이블**을 선택합니다.
+3.  在 **[儲存體類型]** 下，選取 **[資料表]**。
 
-4.  `MailingList` 테이블을 선택한 후 **쿼리**를 클릭하여 응용 프로그램의 **Mailing List** 및     **Subscriber** 페이지에 입력한 데이터를 표시합니다.
+4.  選取 `MailingList` 資料表，然後按一下 **[查詢]**，以查看您在應用程式的 **[郵寄清單]** 和 **[訂閱者]** 頁面上輸入的資料。
 
-    ![ASE](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-ase1.png)
+	![ASE](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-ase1.png)
 
-### 서버 탐색기를 사용하여 저장소 계정에 입력된 데이터 보기
+### 使用伺服器總管來檢視已輸入至儲存體帳戶的資料
 
-1.  **서버 탐색기**(또는 **데이터베이스 탐색기**)에서 **Azure 저장소**를 마우스 오른쪽 단추로 클릭하고 **새 저장소 계정 추가**를 클릭합니다.
+1.  在 **[伺服器總管]** (或 **[資料庫總管]**) 中，於 **[Azure 儲存體]** 上按一下滑鼠右鍵，然後按一下 **[加入新的儲存體帳戶]**。
 
-2.  이전에 사용한 것과 동일한 절차에 따라 저장소 계정 자격 증명을 설정합니다.
+2.  遵循您先前使用的相同程序，設定儲存體帳戶認證。
 
-3.  **Azure 저장소** 아래의 새 노드를 확장하여 Azure 저장소 계정에 저장된 데이터를 봅니다.
+3.  展開 **[Azure 儲存體]** 下的新節點，以檢視 Azure 儲存體帳戶中儲存的資料。
 
     ![ASE](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-se3.png)
 
-### Azure 저장소 에뮬레이터 자동 시작을 사용하지 않도록 설정하는 선택적 단계
+### 停用 Azure 儲存體模擬器自動啟動的選用步驟
 
-저장소 에뮬레이터를 사용하고 있지 않은 경우 Azure 저장소 에뮬레이터의 자동 시작을 사용하지 않도록 설정함으로써 프로젝트 시작 시간을 단축하고 로컬 리소스를 사용량을 줄일 수 있습니다.
+如果您不是使用儲存體模擬器，則可以停用 Azure 儲存體模擬器的自動啟動，來減少專案啟動時間，並減少使用的本機資源。
 
-1.  **솔루션 탐색기**에서 **AzureEmailService** 클라우드 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **속성**을 선택합니다.
+1.  在 **[方案總管]** 的 **AzureEmailService** 雲端專案上按一下滑鼠右鍵，然後選取 **[屬性]**。
 
-    ![클라우드 프로젝트 속성 선택](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-aesp.png)
+    ![Selecting cloud project properties](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-aesp.png)
 
-2.  **개발** 탭을 선택합니다.
+2.  選取 **[開發]** 索引標籤。
 
-3.  **Start Azure storage emulator**를 **False**로 설정합니다.
+3.  將 **[Start Azure storage emulator]** 設為 **False**。
 
-    ![저장소 에뮬레이터 자동 시작 사용 안 함](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-1.png)
+    ![停用儲存體模擬器自動啟動](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-1.png)
 
-    **참고**: 저장소 에뮬레이터를 사용하지 않는 경우에는 이 옵션을 false로만 설정해야 합니다.
+    **注意**：只有在不是使用儲存體模擬器時，才可將此屬性設為 false。
 
-    이 창에서는 로컬에서 응용 프로그램을 실행할 때 사용되는 **서비스 구성** 파일을 **로컬**에서 **클라우드**로 변경할 수도 있습니다(*ServiceConfiguration.Local.cscfg*에서 *ServiceConfiguration.Cloud.cscfg*로).
+    此視窗也提供一種方法，將您在本機執行應用程式時使用的 **[服務組態]** 檔案，從 **[本機]** 變更為 **[雲端]** (從 *ServiceConfiguration.Local.cscfg* 變更為 *ServiceConfiguration.Cloud.cscfg*)。
 
-4.  Windows 시스템 트레이에서 계산 에뮬레이터 아이콘을 마우스 오른쪽 단추로 클릭하고 **Shutdown Storage Emulator**를 클릭합니다.
+4.  在 Windows 系統匣的運算模擬器圖示上按一下滑鼠右鍵，然後按一下 **[Shutdown Storage Emulator]**。
 
     ![ASE](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-se4.png)
 
-SendGridSendGrid를 사용하도록 응용 프로그램 구성
-------------------------------------------------
+SendGrid將應用程式設為使用 SendGrid
+-----------------------------------
 
-샘플 응용 프로그램은 SendGrid를 사용하여 전자 메일을 보냅니다. SendGrid를 사용하여 전자 메일을 보내려면 SendGrid 계정을 설정해야 하며 그런 다음 SendGrid 자격 증명으로 구성 파일을 업데이트해야 합니다.
+範例應用程式會使用 SendGrid 來傳送電子郵件。為了能使用 SendGrid 來傳送電子郵件，您必須設定 SendGrid 帳戶，然後必須利用 SendGrid 認證來更新組態檔。
 
-**참고:** SendGrid를 사용하지 않으려는 경우나 SendGrid를 사용할 수 없는 경우에는 고유한 전자 메일 서비스를 쉽게 대체할 수 있습니다. SendGrid를 사용하는 코드는 작업자 역할 B에서 두 가지 방법으로 격리됩니다. [자습서 5][tut5]에서는 다른 전자 메일 전송 방법을 구현하기 위해 변경해야 할 사항을 설명합니다. 다른 전자 메일 전송 방법을 구현하려는 경우 이 절차를 건너뛰고 이 자습서를 계속 진행하십시오. 응용 프로그램에서 실제 전자 메일 전송을 제외하고 다른 모든 기능(웹 페이지, 전자 메일 예약 등)이 작동합니다.
+**注意：**如果不想使用 SendGrid，或無法使用 SendGrid，您可以輕易地替換為自己的電子郵件服務。在背景工作角色 B 的兩種方法中，使用 SendGrid 的程式碼都有區隔開來。[教學課程 5][tut5] 會說明您必須變更什麼，才能實作不同的電子郵件傳送方法。如果您想這麼做，則可跳過此程序，並繼續本教學課程的後續內容；應用程式除了不能實際傳送電子郵件外，其他一切功能都將正常運作 (網頁、電子郵件排程等)。
 
-### SendGrid 계정 만들기
+### 建立 SendGrid 帳戶
 
-1.  [Azure와 함께 SendGrid를 사용하여 전자 메일을 보내는 방법](http://www.windowsazure.com/en-us/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid")(영문)의 지침에 따라 무료 계정을 등록합니다.
+1.  遵循[如何在 Azure 使用 SendGrid 來傳送電子郵件](http://www.windowsazure.com/en-us/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid") (英文) 中的指示，來註冊免費帳戶。
 
-### 작업자 역할 속성에서 SendGrid 자격 증명 업데이트
+### 更新背景工作角色屬性中的 SendGrid 認證
 
-자습서 앞부분에서 웹 역할 및 두 개의 작업자 역할에 대해 저장소 계정 자격 증명을 설정할 때 작업자 역할 B에 웹 역할이나 작업 역할 A에는 없는 세 가지 설정이 있음을 발견하셨을 수 있습니다. 이제 동일한 UI를 사용하여 이 세 가지 설정을 구성할 수 있습니다(**서비스 구성** 드롭다운 목록에서 **클라우드** 선택).
+稍早當您在教學課程中設定 Web 角色及兩個背景工作角色的儲存體帳戶認證時，您可能已經注意到，背景工作角色 B 具有三個 Web 角色或背景工作角色 A 所沒有的設定。現在您可以使用該相同 UI，設定那三個設定 (在 **[服務組態]** 下拉式清單中選取 **[雲端]**)。
 
-다음 단계는 구성 파일을 편집하여 속성을 설정하는 대체 방법을 보여 줍니다.
+下列步驟顯示替代的屬性設定方法，那就是透過編輯組態檔。
 
-1.  `AzureEmailService` 프로젝트에서 *ServiceConfiguration.Cloud.cscfg* 파일을 편집하고 이전 단계에서 구한 SendGrid 사용자 이름 및 암호 값을 이 설정이 포함된 `WorkerRoleB` 요소에 입력합니다. 다음 코드는 WorkerRoleB 요소를 보여 줍니다.
+1.  編輯 `AzureEmailService` 專案中的 *ServiceConfiguration.Cloud.cscfg* 檔案，並將您在前一個步驟取得的 SendGrid 使用者名稱和密碼值輸入至具有三個設定的 `WorkerRoleB` 元素。下列程式碼顯示 WorkerRoleB 元素。
 
     ![SendGridSettings](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-sg.png)
 
-2.  AzureMailServiceURL 설정도 있습니다. 이 값을 Azure 클라우드 서비스 생성 시 선택한 URL로 설정합니다. 예를 들어 "http://aescloud.cloudapp.net"입니다.
+2.  還有一個 AzureMailServiceURL 設定。將此值設為您在建立 Azure 雲端服務時選取的 URL，例如："http://aescloud.cloudapp.net"。
 
-클라우드 구성 파일을 업데이트하면 클라우드에서 응용 프로그램을 실행할 때 사용될 설정이 구성됩니다. 응용 프로그램이 로컬에서 실행되는 동안 전자 메일을 보내도록 하려는 경우 *ServiceConfiguration.Local.cscfg* 파일도 업데이트해야 합니다.
+您可以更新雲端組態檔，藉此來設定應用程式在雲端執行時將使用的設定。如果想要應用程式在本機執行時傳送電子郵件，則您也須更新 *ServiceConfiguration.Local.cscfg* 檔案。
 
-Azure에 배포Azure에 응용 프로그램 배포
+部署至 Azure將應用程式部署至 Azure
+----------------------------------
+
+若要部署應用程式，您可以在 Visual Studio 建立一個套件，然後使用 Azure 管理入口網站來上傳它，或可從 Visual Studio 直接發佈。在本教學課程中，您將使用發佈方法。
+
+首先您將發佈應用程式至預備環境，之後再將預備部署提升至實際執行。
+
+### 實作 IP 限制
+
+當部署至預備環境時，任何知道此 URL 的使用者都可以公開存取此應用程式。因此，第一步要實作 IP 限制，以確定未獲授權的人員不得使用它。在實際執行應用程式中，您將實作驗證與授權機制，如 ASP.NET 成員資格系統，但是範例應用程式已略過這些功能，以確保設定、部署和測試簡單易行。
+
+1.  開啟位於 `MvcWebRole` 專案根資料夾的 *Web.Release.config* 檔案，並將 **ipAddress** 屬性值 127.0.0.1 取代為您的 IP 位址。(若要在 **[方案總管]** 中查看 **Web.Release.config** 檔案，您必須展開 *Web.config* 檔案。)
+
+    您可以利用 [Bing](http://www.bing.com/search?q=find+my+IP&qs=n&form=QBLH&pq=find+my+ip&sc=8-10&sp=-1&sk= "find my IP") 或其他搜尋引擎搜尋 "Find my IP"，來尋找您的 IP 位址。
+
+    當應用程式發佈時，即會套用 *Web.release.config* 檔案中指定的轉換，並在部署至雲端的 *web.config* 檔案中更新 IP 限制元素。在建立套件之後，您可以在 *AzureEmailService\\MvcWebRole\\obj\\Release\\TransformWebConfig\\transformed* 資料夾中檢視已轉換的 *web.config* 檔案。
+
+### 將應用程式設為在雲端執行時使用儲存體帳戶
+
+稍早當您在教學課程中設定 Web 角色及兩個背景工作角色的儲存體帳戶認證時，您將認證設為在本機執行應用程式時使用。現在您需要將儲存體帳戶認證設為在雲端執行應用程式時使用。
+
+在這個測試回合中，您將對用於本機執行的雲端使用相同認證。如果您是部署實際執行應用程式，則用於實際執行的帳戶通常會不同於用於測試的帳戶。實際執行還有一個最佳作法，那就是對診斷連接字串和儲存體連接字串使用不同的帳戶，但是在這個測試回合中，您會使用相同帳戶。
+
+您可以使用相同 UI，來設定連接字串 (只需確定您在 **[服務組態]** 下拉式清單中選取 **[雲端]**)。或者，您可以依下列步驟所述編輯組態檔。
+
+1.  開啟 **AzureEmailService** 專案中的 *ServiceConfiguration.Local.cscfg* 檔案，並複製 `StorageConnectionString` 和 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 的 `Setting` 元素。
+
+2.  開啟 **AzureEmailService** 專案中的 *ServiceConfiguration.Cloud.cscfg* 檔案，並將複製的元素貼入 `MvcWebRole`、`WorkerRoleA` 和 `WorkerRoleB` 的 `Configuration Settings` 元素，取代原本在那的 `Setting` 元素。
+
+3.  確認 Web 角色和兩個背景工作角色元素全都定義相同的連接字串。
+
+### 發佈應用程式
+
+1.  以系統管理員身分啟動 Visual Studio，並開啟 **AzureEmailService** 方案 (如果尚未開啟)。
+
+2.  在 **AzureEmailService** 雲端專案上按一下滑鼠右鍵，然後選取 **[發佈]**。
+
+    ![Package](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-6.png)
+
+    **[Publish Azure Application]** 對話方塊隨即出現。
+
+    ![Cloud Package](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-16.png)
+
+3.  如果先前已使用自動方法來匯入儲存體帳戶認證，則下拉式清單中會有 Azure 訂閱可供您加以選取，然後按 **[下一步]**。否則，按一下 **[Sign in to download credentials]**，並遵循[設定 Azure 儲存體的應用程式](#conf4azureStorage)中的指示，下載並匯入您的發佈設定。
+
+4.  在 **[一般設定]** 索引標籤中，驗證 **[雲端服務]** 下拉式清單中的設定。
+
+5.  在 **[環境]** 下拉式清單中，將 **[實際執行]** 變更為 **[預備]**。
+
+    ![Dashboard](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-7.png)
+
+6.  保留 **[組建組態]** 的預設 **[發行]** 設定，以及 **[服務組態]** 的 **[雲端]** 設定。
+
+    **[進階]** 索引標籤中的預設設定適用於本教學課程。**[進階]** 索引標籤上有幾個對開發和測試有用的設定。如需進階索引標籤的詳細資訊，請參閱[發佈 Windows Azure 應用程式精靈](http://msdn.microsoft.com/library/windowsazure/hh535756.aspx "pub wiz")。
+
+7.  按 **[下一步]**。
+
+8.  在精靈的 **[摘要]** 步驟中，按一下 **[儲存]** 圖示 (顯示在 [目標設定檔] 下拉式清單右邊的磁片圖示) 來儲存發佈設定。
+
+    下次發佈應用程式時就會使用儲存的設定，不必再重新執行發佈精靈。
+
+9.  檢閱設定，然後按一下 **[發佈]**。
+
+    ![pub](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-8.png)
+
+    **[Azure 活動記錄檔]** 視窗即會在 Visual Studio 開啟。
+
+10. 按一下向右箭頭圖示以展開部署詳細資料。
+
+    ![pub](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-11.png)
+<br/><br/>
+     ![pub](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-9.png)
+
+    完成部署可能需要大約 5 分鐘或更久的時間。
+
+11. 當部署狀態為完成時，按一下 **[網站 URL]** 來啟動應用程式。
+
+    ![Dashboard](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c55.png)
+
+12. 在 **[郵寄清單]**、**[訂閱者]** 和 **[訊息]** 網頁中輸入一些資料來測試應用程式。
+
+    **注意**：應用程式測試完成後，請予以刪除，以免需要支付您未使用的資源。如果您是使用 [Azure 免費試用帳戶](http://www.windowsazure.com/en-us/pricing/free-trial/ "免費試用帳戶")，已部署的三個角色會在數週內用光您的每月限制。 若要使用 Azure 管理入口網站刪除部署，請選取雲端服務，並按一下頁面底部的 **[刪除]**，然後選取實際執行或預備部署。
+
+    ![pub](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-19.png)
+
+13. 在 Visual studio 的 [Azure 活動記錄檔] 中，選取 **[在伺服器總管中開啟]**。
+
+    在 **[伺服器總管]** 的 **[Azure 運算]** 下，您可以監視部署。如果已在 **[Publish Azure Application]** 精靈中選取 **[Enable Remote Desktop for all roles]**，則可在角色執行個體上按一下滑鼠右鍵，然後選取 **[Connect using Remote Desktop]**。
+
+    ![pub](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-12.png)
+
+實際執行將應用程式從預備提升至實際執行
 --------------------------------------
 
-응용 프로그램을 배포하려면 Visual Studio에서 패키지를 만들고 Azure 관리 포털을 사용하여 업로드하거나 Visual Studio에서 직접 게시하면 됩니다. 이 자습서에서는 게시 방법을 사용합니다.
+1.  在 [Azure 管理入口網站](http://manage.windowsazure.com)中，按一下左窗格中的 **[雲端服務]** 圖示，然後選取您的雲端服務。
 
-먼저 스테이징 환경에 응용 프로그램을 게시한 후에 스테이징에서 프로덕션으로 배포 수준을 올립니다.
+2.  按一下 **[交換]**。
 
-### IP 제한 구현
+3.  按一下 **[是]** 以完成 VIP (虛擬 IP) 交換。此步驟可能需要幾分鐘時間才能完成。
 
-스테이징에 배포하면 응용 프로그램은 URL을 아는 사람이 공개적으로 액세스할 수 있게 됩니다. 따라서 첫 번째 단계는 권한 없는 사용자가 응용 프로그램을 사용할 수 없도록 IP 제한을 구현하는 것입니다. 프로덕션 응용 프로그램에서는 ASP.NET 멤버 자격 시스템과 같은 인증 및 권한 부여 메커니즘을 구현합니다. 하지만 샘플 응용 프로그램에서는 설정, 배포, 테스트를 간소하게 유지하기 위해 이런 기능을 생략했습니다.
+    ![Dashboard](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c6.png)
 
-1.  `MvcWebRole` 프로젝트의 루트 폴더에 있는 *Web.Release.config* 파일을 열고 **ipAddress** 특성 값 127.0.0.1을 IP 주소로 바꿉니다. **솔루션 탐색기**에서 **Web.Release.config** 파일을 보려면 *Web.config* 파일을 확장해야 합니다.
+4.  交換完成時，請按一下左窗格中的 **[雲端服務]** 圖示，然後選取您的雲端服務。
 
-    [Bing](http://www.bing.com/search?q=find+my+IP&qs=n&form=QBLH&pq=find+my+ip&sc=8-10&sp=-1&sk= "내 IP 찾기") 또는 다른 검색 엔진에서 "내 IP 찾기"를 검색하면 자신의 IP 주소를 찾을 수 있습니다.
+5.  將 **[實際執行]** 部署的 **[儀表板]** 索引標籤向下捲動至頁面右下方的 **[quick glance]** 區段。請注意，**[網站 URL]** 已從 GUID 前置詞變更為您的雲端服務名稱。
 
-    응용 프로그램이 게시되면 *Web.release.config* 파일에 지정된 변환이 적용되며 클라우드에 배포된 *web.config* 파일에서 IP 제한 요소가 업데이트됩니다. 변환된 *web.config* 파일은 패키지가 만들어진 후 *AzureEmailService\\MvcWebRole\\obj\\Release\\TransformWebConfig\\transformed* 폴더에서 볼 수 있습니다.
+    ![Dashboard](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c7.png)
 
-### 클라우드에서 실행될 때 저장소 계정을 사용하도록 응용 프로그램 구성
+6.  按一下 **[網站 URL]** 下的連結，或將它複製並貼到瀏覽器，以在實際執行環境中測試應用程式。
 
-자습서 앞부분에서 웹 역할 및 두 작업자 역할의 저장소 계정 자격 증명을 설정할 때 응용 프로그램 로컬 실행 시 사용할 자격 증명을 설정했습니다. 이제 클라우드에서 응용 프로그램을 실행할 때 사용할 저장소 계정 자격 증명을 설정해야 합니다.
+    如果還沒變更儲存體帳戶設定，則當您在雲端執行應用程式時，即會顯示測試應用程式的預備版本時所輸入的資料。
 
-이 테스트 실행을 위해 로컬에서 실행하는 데 사용한 것과 동일한 자격 증명을 클라우드에 사용합니다. 프로덕션 응용 프로그램을 배포하는 경우 일반적으로 테스트에 사용하는 것과 다른 계정을 프로덕션에 사용합니다. 또한 프로덕션의 경우 진단 connectionString에 저장소 연결 문자열과 다른 계정을 사용하는 것이 모범 사례입니다. 하지만 이 테스트의 경우 동일한 계정을 사용하겠습니다.
+追蹤設定和檢視追蹤資料
+----------------------
 
-동일한 UI를 사용하여 연결 문자열을 구성합니다(**서비스 구성** 드롭다운 목록에서 **클라우드** 선택). 대신 다음 단계의 설명대로 구성 파일을 편집해도 됩니다.
+追蹤工具非常適合用於偵錯雲端應用程式。在教學課程的這一節當中，您將看到如何檢視追蹤資料。
 
-1.  **AzureEmailService** 프로젝트의 *ServiceConfiguration.Local.cscfg* 파일을 열고 `StorageConnectionString` 및 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`의 `Setting` 요소를 복사합니다.
+1.  確認診斷連接字串已設為使用 Azure 儲存體帳戶，而非開發儲存體。
 
-2.  **AzureEmailService** 프로젝트의 *ServiceConfiguration.Cloud.cscfg* 파일을 열고 복사한 요소를 `MvcWebRole`, `WorkerRoleA` 및 `WorkerRoleB`의 `Configuration Settings` 요소에 붙여 넣어 기존에 있던 `Setting` 요소를 바꿉니다.
+    如果您已遵循教學課程中的先前指示，它們將會相同。您可以使用 Visual Studio UI (角色的 **[屬性]** 中的 **[設定]** 索引標籤)，或查看 *ServiceConfiguration.\*.cscfg* 檔案，以確認它們是否相同。
 
-3.  웹 역할 및 두 작업자 역할 요소가 모두 동일한 연결 문자열을 정의하는지 확인합니다.
+    **注意：**最佳作法是對追蹤資料和實際執行資料使用不同的儲存體帳戶，但在本教學課程中為求簡化，您已對追蹤工具設定相同帳戶。
 
-### 응용 프로그램 게시
-
-1.  아직 열려 있지 않은 경우 관리자 권한으로 Visual Studio를 시작하고 **AzureEmailService** 솔루션을 엽니다.
-
-2.  **AzureEmailService** 클라우드 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
-
-    ![패키지](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-6.png)
-
-    **Publish Azure Application** 대화 상자가 나타납니다.
-
-    ![클라우드 패키지](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-16.png)
-
-3.  앞부분에서 저장소 계정 자격 증명을 가져오는 데 자동 방법을 사용한 경우 Azure 구독이 드롭다운 목록에 나타납니다. 이를 선택한 후 **다음**.을 클릭하면 됩니다. 그렇지 않으면 **Sign in to download credentials**를 클릭하여 [Azure 저장소에 맞게 응용 프로그램 구성](#conf4azureStorage)의 지침에 따라 게시 설정을 다운로드하고 가져옵니다.
-
-4.  **Common Settings** 탭에서 **클라우드 서비스** 드롭다운 목록의 설정을 확인합니다.
-
-5.  **환경** 드롭다운 목록에서 **프로덕션**을 **스테이징**으로 변경합니다.
-
-    ![대시보드](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-7.png)
-
-6.  **빌드 구성**의 기본 **릴리스** 설정을 그대로 두고 **서비스 구성**은 **클라우드**로 선택합니다.
-
-    **고급** 탭의 기본 설정은 이 자습서 내용에 적합합니다. **고급** 탭에는 개발 및 테스트에 유용한 몇 가지 설정이 있습니다. 고급 탭에 대한 자세한 내용은 [Azure 응용 프로그램 게시 마법사](http://msdn.microsoft.com/library/windowsazure/hh535756.aspx "게시 마법사")를 참조하십시오.
-
-7.  **다음**을 클릭합니다.
-
-8.  마법사의 **요약** 단계에서 **저장** 아이콘(대상 프로필 드롭다운 목록 오른쪽에 표시되는 디스켓 아이콘)을 클릭하여 게시 설정을 저장합니다.
-
-    다음에 응용 프로그램을 게시할 때 저장된 설정이 사용되므로, 다시 게시 마법사 절차를 진행할 필요가 없습니다.
-
-9.  설정을 검토한 후 **게시**를 클릭합니다.
-
-    ![게시](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-8.png)
-
-    Visual Studio에서 **Azure Activity Log** 창이 열립니다.
-
-10. 오른쪽 화살표 아이콘을 클릭하여 배포 세부 정보를 확장합니다.
-
-    ![게시](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-11.png)
-<br></br>
-     ![게시](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-9.png)
-
-    배포가 완료되는 데 약 5분 이상 걸릴 수 있습니다.
-
-11. 배포 완료 상태가 되면 **웹 사이트 URL**을 클릭하여 응용 프로그램을 시작합니다.
-
-    ![대시보드](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c55.png)
-
-12. **Mailing List**, **Subscriber** 및 **Message** 웹 페이지에 일부 데이터를 입력하여 응용 프로그램을 테스트합니다.
-
-    **참고**: 테스트를 완료한 후에는 사용하지 않는 리소스에 대해 비용을 부담하지 않도록 응용 프로그램을 삭제하십시오. [Azure 무료 평가판 계정](http://www.windowsazure.com/en-us/pricing/free-trial/ "무료 평가판 계정")을 사용하는 경우에는 배포된 세 개의 역할이 몇 주 만에 월 한도를 소진합니다. Azure 관리 포털을 사용하여 배포를 삭제하려면 클라우드 서비스를 선택하고 페이지 아래쪽에 있는 **삭제**를 클릭한 다음 프로덕션 배포나 스테이징 배포를 선택합니다.
-
-    ![게시](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-19.png)
-
-13. Visual Studio에서 Azure 활동 로그에 있는 **서버 탐색기에서 열기**를 선택합니다.
-
-    **서버 탐색기**의 **Azure Compute**에서 배포를 모니터링할 수 있습니다. **Publish Azure Application** 마법사에서 **Enable Remote Desktop for all roles**를 선택한 경우 역할 인스턴스를 마우스 오른쪽 단추로 클릭하여 **Connect using Remote Desktop**을 선택할 수 있습니다.
-
-    ![게시](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-12.png)
-
-프로덕션스테이징에서 프로덕션으로 응용 프로그램 수준 올리기
------------------------------------------------------------
-
-1.  [Azure 관리 포털](http://manage.windowsazure.com)에서 왼쪽 창의 **클라우드 서비스** 아이콘을 클릭한 후 클라우드 서비스를 선택합니다.
-
-2.  **교환**을 클릭합니다.
-
-3.  **예**를 클릭하여 VIP(가상 IP) 교환을 완료합니다. 이 단계를 완료하는 데는 몇 분 정도 걸릴 수 있습니다.
-
-    ![대시보드](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c6.png)
-
-4.  교환이 완료되면 왼쪽 창의 **클라우드 서비스** 아이콘을 클릭한 후 클라우드 서비스를 선택합니다.
-
-5.  **프로덕션** 배포의 **대시보드** 탭에서 페이지 오른쪽 아래에 있는 **간략 상태** 섹션으로 스크롤합니다. **사이트 URL**이 GUID 접두사에서 클라우드 서비스 이름으로 변경된 것을 확인하게 됩니다.
-
-    ![대시보드](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c7.png)
-
-6.  **사이트 URL** 아래의 링크를 클릭하거나 링크를 복사해서 브라우저에 붙여 넣어 프로덕션에서 응용 프로그램을 테스트합니다.
-
-    저장소 계정 설정을 변경하지 않은 경우 스테이징된 버전의 응용 프로그램을 테스트하는 동안 입력한 데이터가 클라우드에서 응용 프로그램을 실행할 때 표시됩니다.
-
-추적추적 데이터 구성 및 보기
-----------------------------
-
-추적은 클라우드 응용 프로그램 디버깅에 중요한 도구입니다. 이 자습서 섹션에서는 추적 데이터를 보는 방법을 알아봅니다.
-
-1.  진단 연결 문자열이 개발 저장소가 아니라 Azure 저장소 계정을 사용하도록 구성되어 있는지 확인합니다.
-
-    자습서 앞부분의 지침을 따랐다면 이 계정은 동일합니다. Visual Studio UI(역할의 **속성**에 있는 **설정** 탭)를 사용하거나 *ServiceConfiguration.\*.cscfg* 파일을 검토하면 계정이 동일한지 확인할 수 있습니다.
-
-    **참고:** 추적 데이터의 저장소 계정을 프로덕션 데이터의 저장소 계정과 달리 사용하는 것이 좋습니다. 하지만 편의상 이 자습서에서는 추적에 동일한 계정을 구성했습니다.
-
-2.  Visual Studio에서 **WorkerRoleA** 프로젝트의 *WorkerRoleA.cs*를 열고 `ConfigureDiagnostics`를 검색한 후 `ConfigureDiagnostics` 메서드를 검토합니다.
+2.  在 Visual Studio 中，開啟 **WorkerRoleA** 專案中的 *WorkerRoleA.cs*、搜尋 `ConfigureDiagnostics`，然後檢查 `ConfigureDiagnostics` 方法。
 
          private void ConfigureDiagnostics()
          {
-             DiagnosticMonitorConfiguration config = DiagnosticMonitor.GetDefaultInitialConfiguration();
-             config.ConfigurationChangePollInterval = TimeSpan.FromMinutes(1d);
-             config.Logs.BufferQuotaInMB = 500;
-             config.Logs.ScheduledTransferLogLevelFilter = LogLevel.Verbose;
-             config.Logs.ScheduledTransferPeriod = TimeSpan.FromMinutes(1d);
+        DiagnosticMonitorConfiguration config = DiagnosticMonitor.GetDefaultInitialConfiguration();
+        config.ConfigurationChangePollInterval = TimeSpan.FromMinutes(1d);
+        config.Logs.BufferQuotaInMB = 500;
+        config.Logs.ScheduledTransferLogLevelFilter = LogLevel.Verbose;
+        config.Logs.ScheduledTransferPeriod = TimeSpan.FromMinutes(1d);
 
-             DiagnosticMonitor.Start(
-                 "Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString",
-                 config);
+        DiagnosticMonitor.Start(
+        "Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString",
+        config);
          }
 
-    이 코드에서는 최대 500MB의 추적 정보를 저장(500MB를 넘으면 가장 오래된 데이터를 덮어씀)하고 모든 추적 메시지를 저장(LogLevel.Verbose)하도록 `DiagnosticMonitor`가 구성되어 있습니다. `ScheduledTransferPeriod`는 일 분마다 추적 데이터를 저장소로 전송합니다. 추적 데이터를 저장하려면 `ScheduledTransferPeriod`를 설정해야 합니다.
+    在此程式碼中，`DiagnosticMonitor` 會設為最多儲存 500 MB 的追蹤資訊 (超過 500 MB 後會覆寫存在最久的資料)，並設為儲存所有追蹤訊息 (LogLevel.Verbose)。`ScheduledTransferPeriod` 會每分鐘將追蹤資料傳送至儲存體。您必須設定 `ScheduledTransferPeriod` 以便儲存追蹤資料。
 
-    각 작업자 역할 및 웹 역할의 `ConfigureDiagnostics` 메서드는 추적 API 호출 시 데이터를 기록하도록 추적 리스너를 구성합니다. 자세한 내용은 [Azure 클라우드 응용 프로그램에서 추적 사용](http://blogs.msdn.com/b/windowsazure/archive/2012/10/24/using-trace-in-windows-azure-cloud-applications-1.aspx "Azure에서 추적 사용")(영문)을 참조하십시오.
+    每一個背景工作和 Web 角色中的 `ConfigureDiagnostics` 方法會將追蹤接聽程式設為在呼叫追蹤 API 時記錄資料。如需詳細資訊，請參閱[在 Azure 雲端應用程式中使用追蹤](http://blogs.msdn.com/b/windowsazure/archive/2012/10/24/using-trace-in-windows-azure-cloud-applications-1.aspx "在 Azure 中使用追蹤") (英文)。
 
-3.  **서버 탐색기**에서 이전에 추가한 저장소 계정의 **WADLogsTable**을 두 번 클릭합니다(**저장소** / **yourstorageaccountname** / **테이블** 확장). [WCF 데이터 서비스 필터](http://msdn.microsoft.com/en-us/library/windowsazure/ff683669.aspx "WCF 필터")를 입력하여 표시 엔터티를 제한할 수 있습니다. 다음 이미지에는 경고 및 오류 메시지만 표시되어 있습니다.
+3.  在 **[伺服器總管]** 中，按兩下 **WADLogsTable** (展開 **[儲存體]** / **[yourstorageaccountname]** / **[資料表]**)，以取得先前新增的儲存體帳戶。您可以輸入[為資料表設計工具建構篩選條件字串](http://msdn.microsoft.com/en-us/library/windowsazure/ff683669.aspx "WCF 篩選條件")，以限制顯示的實體。下列影像只顯示警告和錯誤訊息。
 
-    ![대시보드](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-trc.png)
+    ![Dashboard](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-trc.png)
 
-역할 인스턴스 추가증가한 로드를 처리하도록 다른 작업자 역할 인스턴스 추가
--------------------------------------------------------------------------
+新增角色執行個體新增另一個背景工作角色執行個體來處理增加的負載
+--------------------------------------------------------------
 
-Azure 역할에서 계산 리소스를 확장하는 데는 두 가지 방법이 있습니다. 즉, [가상 컴퓨터 크기](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "VM 크기")를 지정하거나 실행 중인 가상 컴퓨터 인스턴스 수를 지정합니다.
+有兩種方法可擴充 Azure 角色中的運算資源，那就是指定[設定雲端服務的大小](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "虛擬機器大小") 和 (或) 指定執行中虛擬機器的執行個體計數。
 
-VM(가상 컴퓨터) 크기는 *ServiceDefinition.csdef* 파일에 있는 `WebRole` 또는 `WorkerRole` 요소의 `vmsize` 특성에서 지정됩니다. 기본 설정은 `Small`로서 코어 하나 및 1.75GB RAM을 제공합니다. 다중 스레드이며 많은 메모리, 디스크, 대역폭을 사용하는 응용 프로그램의 경우 성능 향상을 위해 VM 크기를 늘릴 수 있습니다. 예를 들어 `ExtraLarge` VM에는 8개의 CPU 코어와 14GB RAM이 있습니다. 단일 컴퓨터에서 메모리, CPU 코어, 디스크 및 대역폭을 높이는 것을 *강화*라고 합니다. [비동기 메서드](http://www.asp.net/mvc/tutorials/mvc-4/using-asynchronous-methods-in-aspnet-mvc-4 "비동기 MVC")를 사용하는 ASP.NET 웹 응용 프로그램의 경우 강화가 필요합니다. VM 크기별로 제공되는 리소스에 대한 설명은 [Virtual 가상 컴퓨터 크기](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "VM 크기")를 참조하십시오.
+虛擬機器 (VM) 大小是指定在 *ServiceDefinition.csdef* 檔案中 `WebRole` 或 `WorkerRole` 元素的 `vmsize` 屬性中。預設設定為 `Small`，此設定會提供一個核心和 1.75 GB 的 RAM。對於使用大量記憶體、磁碟和頻寬的多執行緒應用程式，您可以增加虛擬機器大小以提高效能。例如，`ExtraLarge` 虛擬機器有 8 個 CPU 核心和 14 GB 的 RAM。對單一電腦增加記憶體、CPU 核心、磁碟和頻寬即為「擴充 (硬體資源)」**。適合進行擴充的候選對象包括使用[非同步方法](http://www.asp.net/mvc/tutorials/mvc-4/using-asynchronous-methods-in-aspnet-mvc-4 "非同步 MVC") (英文)的 ASP.NET Web 應用程式。如需每一個虛擬機器大小所提供資源的說明，請參閱[設定雲端服務的大小](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "虛擬機器大小")。
 
-이 응용 프로그램의 작업자 역할 B는 전자 메일 보내기 작업을 하므로 큰 부하를 받는 제한적 구성 요소입니다. (작업자 역할 A는 큐 메시지를 만들기만 하므로 리소스를 많이 사용하지 않습니다.) 작업자 역할 B는 다중 스레드가 아니며 메모리 사용 공간이 크지 않기 때문에 적합한 강화 대상이 아닙니다. 작업자 역할 B는 인스턴스 수를 늘려 선형적으로(즉, 인스턴스를 두 배로 늘리면 성능도 거의 두 배가 됨) 확장할 수 있습니다. 계산 인스턴스 수를 늘리는 것을 *규모 확장*이라고 합니다. 인스턴스별로 비용이 발생하므로, 응용 프로그램에 필요할 때만 규모를 확장해야 합니다.
+此應用程式中的背景工作角色 B 為高負載下的限制元件，因為它會執行傳送電子郵件的工作。(背景工作角色 A 只建立佇列訊息，不會大量耗用資源。)因為背景工作角色 B 不是多執行緒，而且沒有大量記憶體，因此不適合進行擴充。背景工作角色 B 可藉由增加執行個體計數，以線性方式進行擴充 (亦即，執行個體加倍時，效能也幾乎加倍)。增加運算執行個體數目即為「擴充 (機器數量)」**。每一個執行個體都需要成本，因此請在應用程式有需要時再擴充。
 
-Visual Studio UI에서 설정을 업데이트하거나 *ServiceConfiguration.\*.cscfg* 파일을 직접 편집하여 웹 역할이나 작업자 역할의 규모를 확장할 수 있습니다. 인스턴스 수는 역할 **속성** 창의 **구성** 탭 및 *.cscfg* 파일의 `Instances` 요소에서 지정됩니다. 설정을 업데이트하는 경우 변경 내용이 적용되려면 업데이트된 구성 파일을 배포해야 합니다. 또는 일시적인 로드 증가의 경우 Azure 관리 포털에서 역할 인스턴스 수를 변경할 수 있습니다. Azure 관리 API를 사용하여 인스턴스 수를 구성할 수도 있습니다. 마지막으로, [자동 크기 조정 응용 프로그램 블록](/en-us/develop/net/how-to-guides/autoscaling/)을 사용하면 늘어난 로드에 부합하도록 자동으로 규모를 확장할 수 있습니다. 자동 크기 조정에 대한 자세한 내용은 [이 시리즈의 마지막 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/) 끝에 있는 링크를 참조하십시오.
+您可以更新 Visual Studio UI 中的設定，或直接編輯 *ServiceConfiguration.\*.cscfg* 檔案，來擴充 Web 角色或背景工作角色。執行個體計數是指定在角色 **[屬性]** 視窗的 **[組態]** 索引標籤中，以及指定在 *.cscfg* 檔案的 `Instances` 元素中。更新設定時必須部署已更新的組態檔，變更才能生效。或者，對於短暫增加的負載，您可以變更 Azure 管理入口網站中的角色執行個體數目。您也可以使用 Azure 管理 API 設定執行個體數目。最後，您可以使用[自動擴充應用程式區塊](/en-us/develop/net/how-to-guides/autoscaling/) (英文)，來自動擴充以因應增加的負載。如需自動擴充的詳細資訊，請參閱[此系列中最後一個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/)結尾處的連結。
 
-이 자습서 섹션에서는 관리 포털을 사용하여 작업자 역할 B의 규모를 확장합니다. 하지만 먼저 Visual Studio에서 이를 수행하는 방법을 알아봅니다.
+在教學課程的這一節當中，您將使用管理入口網站擴充背景工作角色 B，但是您會先看到如何在 Visual Studio 執行此作業。
 
-Visual Studio에서 수행하려면 클라우드 프로젝트의 **역할** 아래에서 역할을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
+若要在 Visual Studio 執行此作業，您需要在雲端專案的 **[角色]** 下，對某個角色按一下滑鼠右鍵，並選取 **[屬性]**。
 
-![마우스 오른쪽 단추 클릭 속성](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-rt-prop.png)
+![Right Click Properties](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-rt-prop.png)
 
-그런 다음, 왼쪽에 있는 **구성** 탭을 선택하고 **서비스 구성** 드롭다운에서 **클라우드**를 선택합니다.
+然後，您需要選取左邊的 **[組態]** 索引標籤，並在 **[服務組態]** 下拉式清單中選取 **[雲端]**。
 
-![인스턴스 수](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-instanceCnt.png)
+![執行個體計數](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-instanceCnt.png)
 
-이 탭에서 VM 크기를 구성할 수도 있습니다.
+請注意，您也可以在此索引標籤中設定虛擬機器大小。
 
-다음 단계는 Azure 관리 포털을 사용한 규모 확장 방법을 설명합니다.
+下列步驟說明如何使用 Azure 管理入口網站來進行擴充。
 
-1.  Azure 관리 포털에서 클라우드 서비스를 선택한 후 **크기 조정**을 클릭합니다.
+1.  在 Azure 管理入口網站中，選取您的雲端服務，然後按一下 **[擴充]**。
 
-2.  작업자 역할 B의 인스턴스 수를 늘린 후 **저장**을 클릭합니다.
+2.  增加背景工作角色 B 的執行個體數目，然後按一下 **[儲存]**。
 
-    ![인스턴스 증가](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-in3.png)
+    ![增加執行個體](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-in3.png)
 
-    새로운 VM이 프로비전되는 데는 몇 분 정도 걸릴 수 있습니다.
+    佈建新的虛擬機器可能需要數分鐘的時間。
 
-3.  응용 프로그램의 각 역할 인스턴스를 보려면 **인스턴스** 탭을 선택합니다.
+3.  選取 **[執行個體]** 索引標籤，以在應用程式中查看每一個角色執行個體。
 
-    ![인스턴스 보기](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-in2.png)
+    ![view instances](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-in2.png)
 
-다음 단계다음 단계
-------------------
+後續步驟後續步驟
+----------------
 
-완료된 응용 프로그램을 구성, 배포 및 확장하는 방법을 알아보았습니다. 다음 자습서는 응용 프로그램을 처음부터 빌드하는 방법을 보여 줍니다. [다음 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/)에서는 웹 역할을 작성합니다.
+現在您已看到如何設定、部署及擴充已完成的應用程式。後續的教學課程會示範如何從頭組建應用程式。在[下一個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/)中，您將組建 Web 角色。
 
-Azure 저장소 테이블, 큐 및 Blob 작업 관련 추가 리소스에 대한 링크는 [이 시리즈의 마지막 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/) 끝 부분을 참조하십시오.
-[자습서 3](/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/)
+如需使用 Azure 儲存體資料表、佇列和 Blob 的其他資源連結，請參閱[本系列的最後一個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/)結尾。
+
+[教學課程 3](/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/)
 

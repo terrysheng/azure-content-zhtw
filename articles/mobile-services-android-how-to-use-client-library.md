@@ -1,52 +1,52 @@
 <properties linkid="develop-mobile-how-to-guides/work-with-android-client-library" urlDisplayName="Android Client Library" pageTitle="Working with the Mobile Services Android Client Library" metaKeywords="" description="Learn how to use an Android client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the Android client library for Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
-모바일 서비스용 Android 클라이언트 라이브러리를 사용하는 방법
-=============================================================
+如何使用行動服務的 Android 用戶端程式庫
+=======================================
 
 [.NET Framework](/en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework")[HTML/JavaScript](/en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
 
-이 가이드에서는 Azure 모바일 서비스용 Android 클라이언트를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 데이터 쿼리, 삽입, 업데이트, 삭제 및 사용자 인증, 오류 처리 및 클라이언트 사용자 지정이 포함됩니다. 모바일 서비스를 처음 접하는 경우 먼저 [모바일 서비스 빠른 시작](/en-us/develop/mobile/tutorials/get-started-android/)을 완료하는 것이 좋습니다. 빠른 시작 자습서를 참조하여 계정을 구성하고 첫 모바일 서비스를 만들 수 있습니다.
+本指南將說明如何使用 Azure 行動服務的 Android 用戶端執行一般案例。所涵蓋的案例包括查詢資料，以及插入、更新和刪除資料、驗證使用者、處理錯誤和自訂用戶端。如果您先前未使用過行動服務，建議您先完成[行動服務快速入門](/en-us/develop/mobile/tutorials/get-started-android/)。快速入門教學課程可協助您設定帳戶，並建立您的第一個行動服務。
 
-샘플은 Java로 작성되었으며 [모바일 서비스 SDK](http://go.microsoft.com/fwlink/p/?linkid=280126)가 필요합니다. 이 자습서에는 Eclipse IDE(통합 개발 환경) 및 ADT(Android 개발자 도구) 플러그 인이 포함되어 있는 [Android SDK](https://go.microsoft.com/fwLink/p/?LinkID=280125&clcid=0x409)(영문)도 필요합니다. 모바일 서비스 SDK는 Android 버전 2.2 이상을 지원하지만, Android 버전 4.2 이상에 대해 빌드하는 것이 좋습니다.
+相關範例以 Java 撰寫，且必須使用[行動服務 SDK](http://go.microsoft.com/fwlink/p/?linkid=280126)。本教學課程也須使用包含 Eclipse 整合式開發環境 (IDE) 和 Android Developer Tools (ADT) 外掛程式的 [Android SDK](https://go.microsoft.com/fwLink/p/?LinkID=280125&clcid=0x409)。行動服務 SDK 支援 Android 2.2 版或更新版本，但建議您以 Android 4.2 版或更新版本作為建置基礎。
 
-목차
+目錄
 ----
 
--   [모바일 서비스 정의](#what-is)
--   [개념](#concepts)
--   [설정 및 필수 조건](#setup)
--   [방법: 모바일 서비스 클라이언트 만들기](#create-client)
--   [방법: 테이블 참조 만들기](#instantiating)
-    -   [API 구조](#api)
--   [방법: 모바일 서비스에서 데이터 쿼리](#querying)
-    -   [반환된 데이터 필터링](#filtering)
-    -   [반환된 데이터 정렬](#sorting)
-    -   [페이지에서 데이터 반환](#paging)
-    -   [특정 열 선택](#selecting)
-    -   [방법: 쿼리 메서드 연결](#chaining)
--   [방법: 모바일 서비스에 데이터 삽입](#inserting)
--   [방법: 모바일 서비스의 데이터 업데이트](#updating)
--   [방법: 모바일 서비스의 데이터 삭제](#deleting)
--   [방법: 특정 항목 조회](#lookup)
--   [방법: 형식화되지 않은 데이터 작업](#untyped)
--   [방법: 사용자 인터페이스에 데이터 바인딩](#binding)
-    -   [방법: 레이아웃 정의](#layout)
-    -   [방법: 어댑터 정의](#adapter)
-    -   [방법: 어댑터 사용](#use-adapter)
--   [방법: 사용자 인증](#authentication)
-    -   [인증 토큰 캐시](#caching)
--   [방법: 오류 처리](#errors)
--   [방법: 클라이언트 사용자 지정](#customizing)
-    -   [요청 헤더 사용자 지정](#headers)
-    -   [serialization 사용자 지정](#serialization)
--   [다음 단계](#next-steps)
+-   [什麼是行動服務](#what-is)
+-   [概念](#concepts)
+-   [設定和必要條件](#setup)
+-   [作法：建立行動服務用戶端](#create-client)
+-   [作法：建立資料表參考](#instantiating)
+    -   [API 結構](#api)
+-   [作法：查詢行動服務中的資料](#querying)
+    -   [篩選傳回的資料](#filtering)
+    -   [排序傳回的資料](#sorting)
+    -   [傳回分頁資料](#paging)
+    -   [選取特定資料行](#selecting)
+    -   [作法：串連查詢方法](#chaining)
+-   [作法：將資料插入行動服務](#inserting)
+-   [作法：更新行動服務中的資料](#updating)
+-   [作法：刪除行動服務中的資料](#deleting)
+-   [作法：查閱特定項目](#lookup)
+-   [作法：使用不具型別的資料](#untyped)
+-   [作法：將資料繫結到使用者介面](#binding)
+    -   [作法：定義配置](#layout)
+    -   [作法：定義配接器](#adapter)
+    -   [作法：使用配接器](#use-adapter)
+-   [作法：驗證使用者](#authentication)
+    -   [快取驗證權杖](#caching)
+-   [作法：處理錯誤](#errors)
+-   [作法：自訂用戶端](#customizing)
+    -   [自訂要求標頭](#headers)
+    -   [自訂序列化](#serialization)
+-   [後續步驟](#next-steps)
 
 [WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
-설정설정 및 필수 조건
----------------------
+設定設定和必要條件
+------------------
 
-이미 모바일 서비스 및 테이블을 만들었다고 가정합니다. 자세한 내용은 [테이블 만들기](http://go.microsoft.com/fwlink/p/?LinkId=298592)를 참조하십시오. 이 항목에서 사용되는 코드에서 테이블 이름이 *ToDoItem*이고 테이블에 다음과 같은 열이 있다고 가정합니다.
+我們假設您已建立行動服務和資料表。如需詳細資訊，請參閱[建立資料表](http://go.microsoft.com/fwlink/p/?LinkId=298592)。在本主題所使用的程式碼中，我們假設資料表的名稱為 *ToDoItem*，且其中包含下列資料行：
 
 -   id
 -   text
@@ -54,7 +54,7 @@
 -   due
 -   duration
 
-해당 형식화된 클라이언트 쪽 개체는 다음과 같습니다.
+對應的型別用戶端物件如下：
 
     public class ToDoItem {
         private String id;
@@ -64,179 +64,179 @@
         private Integer duration;
     }
 
-동적 스키마가 사용하도록 설정된 경우 Azure 모바일 서비스에서 삽입 또는 업데이트 요청의 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마](http://go.microsoft.com/fwlink/p/?LinkId=296271)를 참조하십시오.
+啟用動態結構描述時，Azure 行動服務會根據插入或更新要求中的物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://go.microsoft.com/fwlink/p/?LinkId=296271)。
 
-모바일 서비스 클라이언트 만들기방법: 모바일 서비스 클라이언트 만들기
---------------------------------------------------------------------
-
-다음 코드는 모바일 서비스에 액세스하는 데 사용되는 [MobileServiceClient](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html) 개체를 만듭니다.
-
-         	MobileServiceClient mClient = new MobileServiceClient(
-                    "MobileServiceUrl", // Replace with the above Site URL
-                    "AppKey",             // replace with the Application Key 
-                    this)
-
-위 코드에서 `MobileServiceUrl` 및 `AppKey`를 모바일 서비스 URL 및 응용 프로그램 키로 바꿉니다(두 항목 순서 유지). 이 두 항목은 모두 Azure 관리 포털에서 사용할 수 있습니다. 모바일 서비스를 선택한 후 *대시보드*를 클릭하면 됩니다.
-
-테이블 참조 만들기방법: 테이블 참조 만들기
+建立行動服務用戶端作法：建立行動服務用戶端
 ------------------------------------------
 
-모바일 서비스에서 데이터를 쿼리하거나 수정하는 가장 쉬운 방법은 *형식화된 프로그래밍 모델*을 사용하는 것입니다. Java는 강력한 형식의 언어이기 때문입니다(*형식화되지 않은* 모델에 대해서는 나중에 다룸). 이 모델에서는 클라이언트와 모바일 서비스 간에 데이터를 전송할 때 [gson](%20http://go.microsoft.com/fwlink/p/?LinkId=290801) 라이브러리를 사용하여 JSON에서 원활한 serialization 및 역직렬화가 가능합니다. 개발자는 아무 것도 할 필요가 없으며, 프레임워크에서 모든 것이 처리됩니다.
+下列程式碼會建立用來存取行動服務的 [MobileServiceClient](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html) 物件。
 
-데이터를 쿼리하거나 수정하기 위해 처음으로 하는 일은 [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html)에 대해 **getTable** 메서드를 호출하여 [MobileServiceTable](http://go.microsoft.com/fwlink/p/?LinkId=296835) 개체를 만드는 것입니다. 이 메서드의 오버로드 두 가지를 살펴보겠습니다.
+         MobileServiceClient mClient = new MobileServiceClient(
+                    "MobileServiceUrl", // Replace with the above Site URL
+                    "AppKey",         // replace with the Application Key 
+                    this)
+
+在上述程式碼中，請將 `MobileServiceUrl` 和 `AppKey` 依序取代為行動服務 URL 和應用程式金鑰。這兩個項目都可從管理入口網站取得，只要選取您的行動服務，再按一下 [儀表板]** 即可。
+
+建立資料表參考作法：建立資料表參考
+----------------------------------
+
+要查詢或修改行動服務中的資料，最簡單的方式就是使用*型別程式設計模型*，因為 Java 屬於強型別語言 (後續我們將討論*不具型別的*模型)。此模型在用戶端與行動服務之間傳送資料時，可使用 [gson](%20http://go.microsoft.com/fwlink/p/?LinkId=290801) 程式庫對 JSON 進行緊密的序列化和還原序列化：完全不需要開發人員介入，全都可由架構處理。
+
+查詢或修改資料的第一步，是要在 [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html) 上呼叫 **getTable** 方法，以建立 [MobileServiceTable](http://go.microsoft.com/fwlink/p/?LinkId=296835) 物件。我們將考量此方法的兩個多載：
 
     public class MobileServiceClient {
-        public <E> MobileServiceTable<E> getTable(Class<E> clazz);
-        public <E> MobileServiceTable<E> getTable(String name, Class<E> clazz);
+    public <E> MobileServiceTable<E> getTable(Class<E> clazz);
+    public <E> MobileServiceTable<E> getTable(String name, Class<E> clazz);
     }
 
-다음 코드에서 *mClient*는 모바일 서비스 클라이언트에 대한 참조입니다.
+在下列程式碼中，*mClient* 是對您的行動服務用戶端的參考。
 
-[첫 번째 오버로드](http://go.microsoft.com/fwlink/p/?LinkId=296839)는 클래스 이름과 테이블 이름이 같을 때 사용합니다.
+[第一個多載](http://go.microsoft.com/fwlink/p/?LinkId=296839)會在類別名稱與資料表名稱相同的情況下使用：
 
-     	MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
+     MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 
-[두 번째 오버로드](http://go.microsoft.com/fwlink/p/?LinkId=296840)는 테이블 이름이 형식 이름과 다를 때 사용합니다.
+[第二個多載](http://go.microsoft.com/fwlink/p/?LinkId=296840)會在資料表名稱與類型名稱不同時使用。
 
-     	MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
+     MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
-### API 구조
+### API 結構
 
-모바일 서비스 테이블 작업에서는 비동기 콜백 모델을 사용합니다. 쿼리 및 삽입, 업데이트, 삭제와 같은 작업과 관련된 모든 메서드에는 콜백 개체인 매개 변수가 있습니다. 이 개체에는 항상 **OnCompleted** 메서드가 포함됩니다. **onCompleted** 메서드에는 **Exception** 개체인 매개 변수 하나가 포함되며, 이 매개 변수를 테스트하여 메서드 호출 성공을 확인할 수 있습니다. null **Exception** 개체는 성공을 나타내고, 그렇지 않으면 **Exception** 개체가 실패의 원인을 설명합니다.
+行動服務資料表作業會使用非同步的回呼模型。涉及查詢和作業 (例如插入、更新和刪除) 的方法，都會有一個參數是回呼物件。此物件一律會包含 **OnCompleted** 方法。**onCompleted** 方法會有一個參數是 **Exception** 物件，而您可以測試此物件以判別方法呼叫是否成功。Null **Exception** 物件表示成功，否則會以 **Exception** 物件說明失敗的原因。
 
-다수의 다른 콜백 개체가 있으며, 어느 것을 사용할지는 데이터를 쿼리하는지, 수정하는지 아니면 삭제하는지에 달려 있습니다. *onCompleted* 메서드의 매개 변수는 메서드가 속한 콜백 개체에 따라 다양합니다.
+目前有數種不同的回呼物件，您應採用哪一種，取決於您要查詢、修改還是刪除資料。*onCompleted* 方法的參數會隨著其所屬的回呼物件而不同。
 
-데이터 쿼리방법: 모바일 서비스에서 데이터 쿼리
-----------------------------------------------
+查詢資料作法：查詢行動服務中的資料
+----------------------------------
 
-이 섹션에서는 모바일 서비스에 대한 쿼리를 실행하는 방법을 설명합니다. 하위 섹션에서는 정렬, 필터링, 페이징과 같은 다양한 측면에 대해 설명합니다. 마지막으로 이 작업을 연결할 수 있는 방법을 알아봅니다.
+本節說明如何對行動服務發出查詢。各小節將說明不同的層面，例如排序、篩選和分頁等。最後，我們將討論如何將這些作業串連在一起。
 
-다음 코드는 *ToDoItem* 테이블의 모든 항목을 반환합니다.
+下列程式碼會傳回 *ToDoItem* 資料表中的所有項目。
 
-     	mToDoTable.execute(new TableQueryCallback<ToDoItem>() {
+     mToDoTable.execute(new TableQueryCallback<ToDoItem>() {
                 public void onCompleted(List<ToDoItem> result, int count,
                     Exception exception, ServiceFilterResponse response) {
                     if (exception == null) {
-                        for (ToDoItem item : result) {
-                            Log.i(TAG, "Read object with ID " + item.id);  
+                        for (ToDoItem item :result) {
+                Log.i(TAG, "Read object with ID " + item.id);  
                         }
                     }
                 }
             });
 
-이와 같은 쿼리는 [**TableQueryCallback&lt;E\>**](http://go.microsoft.com/fwlink/p/?LinkId=296849) 콜백 개체를 사용합니다.
+此類查詢會使用 [**TableQueryCallback&lt;E\>**](http://go.microsoft.com/fwlink/p/?LinkId=296849) 回呼物件。
 
-*result* 매개 변수는 쿼리에서 결과 집합을 반환하며, *exception* 테스트의 성공 분기 내부에 있는 코드는 개별 행을 구문 분석하는 방법을 보여 줍니다.
+*result* 參數會傳回查詢的結果集，而*例外狀況*測試之成功分支內的程式碼會顯示如何剖析個別資料列。
 
-### 방법: 반환된 데이터 필터링
+### 作法：篩選傳回的資料
 
-다음 코드는 *ToDoItem* 테이블에서 *complete* 필드가 *false*와 일치하는 모든 항목을 반환합니다. *mToDoTable*은 이전에 만들어진 모바일 서비스 테이블에 대한 참조입니다.
+下列程式碼會從 *complete* 欄位等於 *false* 的 *ToDoItem* 資料表傳回所有項目。*mToDoTable* 是我們先前建立的行動服務資料表的參考。
 
-     	mToDoTable.where().field("complete").eq(false)
+     mToDoTable.where().field("complete").eq(false)
                   .execute(new TableQueryCallback<ToDoItem>() {
                         public void onCompleted(List<ToDoItem> result, 
                                                 int count, 
                                                 Exception exception,
                                                 ServiceFilterResponse response) {
                 if (exception == null) {
-                    for (ToDoItem item : result) {
-                        Log.i(TAG, "Read object with ID " + item.id);  
+                    for (ToDoItem item :result) {
+            Log.i(TAG, "Read object with ID " + item.id);  
                     }
                 } 
             }
         });
 
-테이블 참조에 대한 [**where**](http://go.microsoft.com/fwlink/p/?LinkId=296867) 메서드 호출에서 필터를 시작합니다. 그 뒤에 [**field**](http://go.microsoft.com/fwlink/p/?LinkId=296869) 메서드 호출, 논리 조건자를 지정하는 메서드 호출을 차례로 사용합니다. 가능한 조건자 메서드에는 [**eq**](http://go.microsoft.com/fwlink/p/?LinkId=298461), [**ne**](http://go.microsoft.com/fwlink/p/?LinkId=298462), [**gt**](http://go.microsoft.com/fwlink/p/?LinkId=298463), [**ge**](http://go.microsoft.com/fwlink/p/?LinkId=298464), [**lt**](http://go.microsoft.com/fwlink/p/?LinkId=298465), [**le**](http://go.microsoft.com/fwlink/p/?LinkId=298466) 등이 포함됩니다.
+您使用 [**where**](http://go.microsoft.com/fwlink/p/?LinkId=296867) 方法呼叫，對資料表參考執行篩選。接著您又依序使用 [**field**](http://go.microsoft.com/fwlink/p/?LinkId=296869) 方法呼叫，以及指定邏輯述詞的方法呼叫。可能的數詞方法包括 [**eq**](http://go.microsoft.com/fwlink/p/?LinkId=298461)、[**ne**](http://go.microsoft.com/fwlink/p/?LinkId=298462)、[**gt**](http://go.microsoft.com/fwlink/p/?LinkId=298463)、[**ge**](http://go.microsoft.com/fwlink/p/?LinkId=298464)、[**lt**](http://go.microsoft.com/fwlink/p/?LinkId=298465)、[**le**](http://go.microsoft.com/fwlink/p/?LinkId=298466) 等。
 
-이는 숫자 및 문자열 필드를 특정 값과 비교하기에 충분합니다. 하지만 훨씬 더 많은 기능을 사용할 수 있습니다.
+這已足以用來比較數字/字串欄位與特定值。但您能做的絕對不僅止於此。
 
-예를 들어 날짜를 기준으로 필터링할 수 있습니다. 전체 날짜 필드를 비교할 수 있으며 [**year**](http://go.microsoft.com/fwlink/p/?LinkId=298467), [**month**](http://go.microsoft.com/fwlink/p/?LinkId=298468), [**day**](http://go.microsoft.com/fwlink/p/?LinkId=298469), [**hour**](http://go.microsoft.com/fwlink/p/?LinkId=298470), [**minute**](http://go.microsoft.com/fwlink/p/?LinkId=298471), [**second**](http://go.microsoft.com/fwlink/p/?LinkId=298472) 등의 메서드를 사용하여 날짜의 부분을 비교할 수도 있습니다. 다음 부분 코드는 *기한*이 2013과 같은 항목에 해당하는 필터를 추가합니다.
+例如，您可以依日期進行篩選。您可以比較整個日期欄位，也可以使用下列方法比較日期的某些部分：[**year**](http://go.microsoft.com/fwlink/p/?LinkId=298467)、[**month**](http://go.microsoft.com/fwlink/p/?LinkId=298468)、[**day**](http://go.microsoft.com/fwlink/p/?LinkId=298469)、[**hour**](http://go.microsoft.com/fwlink/p/?LinkId=298470)、[**minute**](http://go.microsoft.com/fwlink/p/?LinkId=298471) 和 [**second**](http://go.microsoft.com/fwlink/p/?LinkId=298472)。下列節錄的程式碼會為*到期日*為 2013 年的項目新增篩選器。
 
-     	mToDoTable.where().year("due").eq(2013)
+     mToDoTable.where().year("due").eq(2013)
 
-[**startsWith**](http://go.microsoft.com/fwlink/p/?LinkId=298473), [**endsWith**](http://go.microsoft.com/fwlink/p/?LinkId=298474), [**concat**](http://go.microsoft.com/fwlink/p/?LinkId=298475), [**subString**](http://go.microsoft.com/fwlink/p/?LinkId=298477), [**indexOf**](http://go.microsoft.com/fwlink/p/?LinkId=298488), [**replace**](http://go.microsoft.com/fwlink/p/?LinkId=298491), [**toLower**](http://go.microsoft.com/fwlink/p/?LinkId=298492), [**toUpper**](http://go.microsoft.com/fwlink/p/?LinkId=298493), [**trim**](http://go.microsoft.com/fwlink/p/?LinkId=298495), [**length**](http://go.microsoft.com/fwlink/p/?LinkId=298496) 등의 메서드를 사용하여 문자열 필드에 다양한 복합 필터를 적용할 수 있습니다. 다음 부분 코드는 *text* 열이 "PRI0"으로 시작되는 테이블 행을 필터링합니다.
+您可以使用 [**startsWith**](http://go.microsoft.com/fwlink/p/?LinkId=298473)、[**endsWith**](http://go.microsoft.com/fwlink/p/?LinkId=298474)、[**concat**](http://go.microsoft.com/fwlink/p/?LinkId=298475)、[**subString**](http://go.microsoft.com/fwlink/p/?LinkId=298477)、[**indexOf**](http://go.microsoft.com/fwlink/p/?LinkId=298488)、[**replace**](http://go.microsoft.com/fwlink/p/?LinkId=298491)、[**toLower**](http://go.microsoft.com/fwlink/p/?LinkId=298492)、[**toUpper**](http://go.microsoft.com/fwlink/p/?LinkId=298493)、[**trim**](http://go.microsoft.com/fwlink/p/?LinkId=298495) 和 [**length**](http://go.microsoft.com/fwlink/p/?LinkId=298496) 等方法，對字串欄位執行多種複雜的篩選。下列節錄的程式碼會對 *text* 資料行的開頭為 "PRI0" 的資料表資料列進行篩選。
 
-     	mToDoTable.where().startsWith("text", "PRI0")
+     mToDoTable.where().startsWith("text", "PRI0")
 
-숫자 필드에도 [**add**](http://go.microsoft.com/fwlink/p/?LinkId=298497), [**sub**](http://go.microsoft.com/fwlink/p/?LinkId=298499), [**mul**](http://go.microsoft.com/fwlink/p/?LinkId=298500), [**div**](http://go.microsoft.com/fwlink/p/?LinkId=298502), [**mod**](http://go.microsoft.com/fwlink/p/?LinkId=298503), [**floor**](http://go.microsoft.com/fwlink/p/?LinkId=298505), [**ceiling**](http://go.microsoft.com/fwlink/p/?LinkId=298506), [**round**](http://go.microsoft.com/fwlink/p/?LinkId=298507) 등의 메서드를 사용하여 다양한 복합 필터를 적용할 수 있습니다. 다음 부분 코드는 *duration*이 짝수인 테이블 행을 필터링합니다.
+數字欄位也可透過 [**add**](http://go.microsoft.com/fwlink/p/?LinkId=298497)、[**sub**](http://go.microsoft.com/fwlink/p/?LinkId=298499)、[**mul**](http://go.microsoft.com/fwlink/p/?LinkId=298500)、[**div**](http://go.microsoft.com/fwlink/p/?LinkId=298502)、[**mod**](http://go.microsoft.com/fwlink/p/?LinkId=298503)、[**floor**](http://go.microsoft.com/fwlink/p/?LinkId=298505)、[**ceiling**](http://go.microsoft.com/fwlink/p/?LinkId=298506) 和 [**round**](http://go.microsoft.com/fwlink/p/?LinkId=298507) 等方法，進行多種更複雜的篩選。下列節錄的程式碼會對 *duration* 為偶數的資料表資料列進行篩選。
 
-     	mToDoTable.where().field("duration").mod(2).eq(0)
+     mToDoTable.where().field("duration").mod(2).eq(0)
 
-조건자를 [**and**](http://go.microsoft.com/fwlink/p/?LinkId=298512), [**or**](http://go.microsoft.com/fwlink/p/?LinkId=298514), [**not**](http://go.microsoft.com/fwlink/p/?LinkId=298515) 등의 메서드와 결합할 수 있습니다. 다음 부분 코드는 위의 예 중 두 가지를 결합합니다.
+您可以將述詞與 [**and**](http://go.microsoft.com/fwlink/p/?LinkId=298512)、[**or**](http://go.microsoft.com/fwlink/p/?LinkId=298514)、[**not**](http://go.microsoft.com/fwlink/p/?LinkId=298515) 等方法相結合。下列節錄的程式碼會結合前述的兩個範例。
 
-     	mToDoTable.where().year("due").eq(2013).and().startsWith("text", "PRI0")
+     mToDoTable.where().year("due").eq(2013).and().startsWith("text", "PRI0")
 
-다음 부분 코드에서 볼 수 있는 것처럼 논리 연산자를 그룹화하고 중첩할 수 있습니다.
+此外，您也可以將邏輯運算子分組和內嵌，如下列節錄的程式碼所示：
 
-     	mToDoTable.where()
+     mToDoTable.where()
                     .year("due").eq(2013)
                         .and
                     (startsWith("text", "PRI0").or().field("duration").gt(10))
 
-필터링에 대한 자세한 내용과 예를 보려면 [모바일 서비스 Android 클라이언트 쿼리 모델의 다양한 기능 알아보기](http://hashtagfail.com/post/46493261719/mobile-services-android-querying)(영문)를 참조하십시오.
+如需篩選的詳細討論與範例，請參閱[探索功能豐富的行動服務 Android 用戶端查詢模型](http://hashtagfail.com/post/46493261719/mobile-services-android-querying) (英文)。
 
-### 방법: 반환된 데이터 정렬
+### 作法：排序傳回的資料
 
-다음 코드는 *ToDoItems* 테이블에서 *text* 필드를 기준으로 오름차순 정렬된 모든 항목을 반환합니다. *mToDoTable*은 이전에 만든 모바일 서비스 테이블에 대한 참조입니다.
+下列程式碼會傳回 *ToDoItems* 資料表中的所有項目，並依 *text* 欄位遞增排序。*mToDoTable* 是您先前建立的行動服務資料表的參考。
 
-     	mToDoTable.orderBy("text", QueryOrder.Ascending)
+     mToDoTable.orderBy("text", QueryOrder.Ascending)
             .execute(new TableQueryCallback<ToDoItem>() { 
                 /* same implementation as above */ 
             }); 
 
-[**orderBy**](http://go.microsoft.com/fwlink/p/?LinkId=298519) 메서드의 첫 번째 매개 변수는 정렬 기준이 되는 필드의 이름과 동일한 문자열입니다.
+[**orderBy**](http://go.microsoft.com/fwlink/p/?LinkId=298519) 方法的第一個參數是一個字串，代表作為排序依據的欄位名稱。
 
-두 번째 매개 변수는 [**QueryOrder**](http://go.microsoft.com/fwlink/p/?LinkId=298521) 열거형을 사용하여 오름차순이나 내림차순으로 정렬할지를 지정합니다.
+第二個參數會使用 [**QueryOrder**](http://go.microsoft.com/fwlink/p/?LinkId=298521) 列舉，指定要進行遞增還是遞減排序。
 
-***where*** 메서드를 사용하여 필터링하려는 경우 ***orderBy*** 메서드 이전에 ***where*** 메서드를 호출해야 합니다.
+請注意，如果您使用 ***where*** 方法進行篩選，***where*** 方法必須要在 ***orderBy*** 方法之前叫用。
 
-### 방법: 페이지에서 데이터 반환
+### 作法：傳回分頁資料
 
-첫 번째 예는 테이블에서 상위 5개 항목을 선택하는 방법을 보여 줍니다. 쿼리는 *ToDoItems* 테이블에서 항목을 반환합니다. *mToDoTable*은 이전에 만든 모바일 서비스 테이블에 대한 참조입니다.
+第一個範例將說明如何從資料表中選取前 5 個項目。查詢會傳回 *ToDoItems* 資料表中的項目。*mToDoTable* 是您先前建立的行動服務資料表的參考。
 
-     	mToDoTable.top(5)
-                .execute(new TableQueryCallback<ToDoItem>() {   
-                public void onCompleted(List<ToDoItem> result, 
+     mToDoTable.top(5)
+    .execute(new TableQueryCallback<ToDoItem>() {   
+    public void onCompleted(List<ToDoItem> result, 
                                         int count,
-                                        Exception exception, 
+                    Exception exception, 
                                         ServiceFilterResponse response) {
-                    if (exception == null) {
-                        for (ToDoItem item : result) {
-                            Log.i(TAG, "Read object with ID " + item.id);  
+    if (exception == null) {
+    for (ToDoItem item :result) {
+                Log.i(TAG, "Read object with ID " + item.id);  
                         }
                     } 
                 }
             });
 
-다음으로, 첫 5 항목을 건너뛴 후 다음 5개를 반환하는 쿼리를 정의합니다.
+接著，我們定義略過前 5 個項目，而傳回後續 5 個項目的查詢。
 
-     	mToDoTable.skip(5).top(5)
-                .execute(new TableQueryCallback<ToDoItem>() {   
-                // implement onCompleted logic here
+     mToDoTable.skip(5).top(5)
+    .execute(new TableQueryCallback<ToDoItem>() {   
+    // implement onCompleted logic here
             });
 
-### 방법: 특정 열 선택
+### 作法：選取特定資料行
 
-다음 코드는 *ToDoItems* 테이블에서 모든 항목을 반환하지만 *complete* 및 *text* 필드만 표시하는 방법을 보여 줍니다. *mToDoTable*은 이전에 만든 모바일 서비스 테이블에 대한 참조입니다.
+下列程式碼將說明如何傳回 *ToDoItems* 資料表中的所有項目，但僅顯示 *complete* 和 *text* 欄位。*mToDoTable* 是我們先前建立的行動服務資料表的參考。
 
-     	mToDoTable.select("complete", "text")
-                .execute(new TableQueryCallback<ToDoItem>() { 
+     mToDoTable.select("complete", "text")
+    .execute(new TableQueryCallback<ToDoItem>() { 
                     /* same implementation as above */ 
             }); 
 
-여기서 select 함수의 매개 변수는 반환하려는 테이블 열의 문자열 이름입니다.
+在此，select 函數的參數是您要傳回之資料表資料行的字串名稱。
 
-[**select**](http://go.microsoft.com/fwlink/p/?LinkId=290689) 메서드는 [**where**](http://go.microsoft.com/fwlink/p/?LinkId=296296), [**orderBy**](http://go.microsoft.com/fwlink/p/?LinkId=296313) 등의 메서드(있는 경우) 뒤에 나와야 합니다. 그 뒤에 [**top**](http://go.microsoft.com/fwlink/p/?LinkId=298731) 등의 메서드가 나올 수 있습니다.
+如果有 [**where**](http://go.microsoft.com/fwlink/p/?LinkId=296296) 和 [**orderBy**](http://go.microsoft.com/fwlink/p/?LinkId=296313) 等方法存在，[**select**](http://go.microsoft.com/fwlink/p/?LinkId=290689) 方法就必須跟隨在這些方法之後。而其後可以跟隨 [**top**](http://go.microsoft.com/fwlink/p/?LinkId=298731) 之類的方法。
 
-### 방법: 쿼리 메서드 연결
+### 作法：串連查詢方法
 
-모바일 서비스 테이블을 쿼리하는 데 사용되는 메서드를 연결할 수 있습니다. 이를 통해 예를 들어 정렬 및 페이징되는 필터링된 행의 특정 열을 선택할 수 있습니다. 상당히 복잡한 논리 필터를 만들 수 있습니다.
+用來查詢行動服務資料表的方法是可以串連的。這可讓您從排序和分頁的篩選資料列中選取特定資料行，或執行類似作業。您可以建立複雜的邏輯篩選器。
 
-사용하는 쿼리 메서드가 [**MobileServiceQuery&lt;T\>**](http://go.microsoft.com/fwlink/p/?LinkId=298551) 개체를 반환하며 이 개체에 대해 호출되는 추가 메서드가 있을 수 있기 때문에 이런 작업이 가능합니다. 일련의 메서드를 종료하고 실제로 쿼리를 실행하려면 [**execute**](http://go.microsoft.com/fwlink/p/?LinkId=298554) 메서드를 호출합니다.
+之所以能有此效用，是因為您所使用的查詢方法會傳回 [**MobileServiceQuery&lt;T\>**](http://go.microsoft.com/fwlink/p/?LinkId=298551) 物件，而這些物件後續又可供其他方法加以叫用。若要結束這一系列的方法，而實際執行查詢，您可以呼叫 [**execute**](http://go.microsoft.com/fwlink/p/?LinkId=298554) 方法。
 
-다음은 *mToDoTable*이 모바일 서비스 *ToDoItem* 테이블에 대한 참조인 코드 샘플입니다.
+在下列程式碼範例中，*mToDoTable* 是行動服務 *ToDoItem* 資料表的參考。
 
-     	mToDoTable.where().year("due").eq(2013)
+     mToDoTable.where().year("due").eq(2013)
                         .and().startsWith("text", "PRI0")
                         .or().field("duration").gt(10)
                     .select("id", "complete", "text", "duration")
@@ -245,53 +245,53 @@
                         /* code to execute */ 
                 });
 
-메서드를 연결하는 데 있어 기본적인 요구 사항은 *where* 메서드 및 조건자가 먼저 나와야 한다는 것입니다. 그 뒤에 응용 프로그램의 요구 사항에 가장 부합하는 순서로 후속 메서드를 호출할 수 있습니다.
+要將方法鏈結在一起，最主要的要求是必須先使用 *where* 方法和述詞。其後，您可以依據應用程式的需求，以最適當的順序呼叫後續方法。
 
-데이터 삽입방법: 모바일 서비스에 데이터 삽입
---------------------------------------------
+插入資料作法：將資料插入行動服務
+--------------------------------
 
-다음 코드는 테이블에 새 행을 삽입하는 방법을 보여 줍니다.
+下列程式碼說明如何在資料表中插入新的資料列。
 
-먼저 *ToDoItem* 클래스 인스턴스를 인스턴스화하고 해당 속성을 설정합니다.
+首先，您將 *ToDoItem* 類別的執行個體具現化，並設定其屬性。
 
-     	ToDoItem mToDoItem = new ToDoItem();
+     ToDoItem mToDoItem = new ToDoItem();
         mToDoItem.text = "Test Program";
         mToDoItem.complete = false;
         mToDoItem.duration = 5; 
 
-그런 다음, [**insert**](http://go.microsoft.com/fwlink/p/?LinkId=296862) 메서드를 호출합니다.
+接著，您呼叫 [**insert**](http://go.microsoft.com/fwlink/p/?LinkId=296862) 方法。
 
-     	mToDoTable.insert(mToDoItem, new TableOperationCallback<ToDoItem>() {
+     mToDoTable.insert(mToDoItem, new TableOperationCallback<ToDoItem>() {
             public void onCompleted(ToDoItem entity, 
                                 Exception exception, 
                                 ServiceFilterResponse response) {   
                 if (exception == null) {
-                        Log.i(TAG, "Read object with ID " + entity.id);  
+            Log.i(TAG, "Read object with ID " + entity.id);  
                 } 
             }
         });
 
-**insert** 작업의 경우 콜백 개체는 [**TableOperationCallback&lt;ToDoItem\>**](http://go.microsoft.com/fwlink/p/?LinkId=296865)입니다.
+在**插入**作業中，回呼物件為 [**TableOperationCallback&lt;ToDoItem\>**](http://go.microsoft.com/fwlink/p/?LinkId=296865)。
 
-**onCompleted** 메서드의 엔터티 매개 변수에는 새로 삽입된 개체가 포함됩니다. 성공적인 코드에서는 삽입된 행의 *id*에 액세스하는 방법을 보여 줍니다.
+**onCompleted** 方法的實體參數包含新插入的物件。成功的程式碼會顯示如何存取插入之資料列的 *id*。
 
-모바일 서비스는 테이블 ID용으로 고유한 사용자 지정 문자열 값을 지원합니다. 이에 따라, 응용 프로그램에서 전자 메일 주소나 사용자 이름과 같은 사용자 지정 값을 모바일 서비스 테이블의 ID 행에 사용할 수 있습니다. 예를 들어 각 레코드를 전자 메일 주소로 식별하려는 경우 다음과 같은 JSON 개체를 사용합니다.
+行動服務支援使用唯一自訂字串值的資料表 ID。這可讓應用程式在行動服務資料表的 ID 資料行中使用電子郵件地址或使用者名稱之類的自訂值。例如，如果您想要根據電子郵件地址來識別每筆記錄，您可以使用下列 JSON 物件。
 
-     	ToDoItem mToDoItem = new ToDoItem();
+     ToDoItem mToDoItem = new ToDoItem();
         mToDoItem.id = "myemail@mydomain.com";
         mToDoItem.text = "Test Program";
         mToDoItem.complete = false;
         mToDoItem.duration = 5; 
 
-새 레코드를 테이블에 삽입할 때 문자열 ID 값이 제공되지 않는 경우 모바일 서비스는 ID용으로 고유한 값을 생성합니다.
+如果將新記錄插入資料表時未提供字串識別碼值，行動服務將會為識別碼產生唯一值。
 
-문자열 ID 지원은 개발자에게 다음과 같은 이점이 있습니다.
+支援字串識別碼可提供開發人員下列好處
 
--   데이터베이스에 대한 왕복 없이도 ID를 생성할 수 있습니다.
--   여러 테이블 또는 데이터베이스의 레코드를 병합하기가 더 쉽습니다.
--   응용 프로그램의 논리를 통해 ID 값이 더 효율적으로 통합될 수 있습니다.
+-   不需往返於資料庫，即可產生識別碼。
+-   更容易從不同的資料表或資料庫合併記錄。
+-   識別碼值可與應用程式的邏輯進行更佳的整合。
 
-서버 스크립트를 사용하여 ID 값을 설정할 수도 있습니다. 다음 스크립트 예제는 사용자 지정 GUID를 생성하여 새 레코드의 ID에 할당합니다. 이는 레코드 ID용으로 값을 전달하지 않은 경우 모바일 서비스에서 생성되는 ID 값과 비슷합니다.
+您也可以使用伺服器指令碼來設定識別碼值。下列指令碼範例將產生自訂 GUID，並將其指派給新記錄的識別碼。此識別碼與行動服務在您未傳入記錄識別碼值時所將產生的識別碼值相類似。
 
     //Example of generating an id. This is not required since Mobile Services
     //will generate an id if one is not passed in.
@@ -304,153 +304,153 @@
         return (hex4() + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + hex4() + hex4());
     }
 
-응용 프로그램에서 ID용 값을 제공하는 경우, 모바일 서비스는 값을 있는 그대로 저장합니다. 여기에는 선행 또는 후행 공백이 포함됩니다. 공백이 값에서 제거되지 않습니다.
+當應用程式提供識別碼值時，行動服務會依原狀加以儲存。這包括開頭或結尾的空白字元。空白字元不會從值中剪除。
 
-`id`의 값은 고유해야 하며 다음과 같은 문자를 포함해서는 안 됩니다.
+`id` 的值必須是唯一的，且不可包含下列字集中的字元：
 
--   제어 문자: [0x0000-0x001F] 및 [0x007F-0x009F]. 자세한 내용은 [ASCII 제어 코드 C0 및 C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set)(영문)을 참조하십시오.
--   인쇄 가능한 문자: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
--   ID "." 및 ".."
+-   控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]。如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set) (英文)。
+-   可以列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?**(0x003F)、**\\** (0x005C)、**\`** (0x0060)
+-   識別碼 "." 和 ".."
 
-또는 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `--integerId` 옵션을 사용하는 `mobile table create` 명령으로 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables)(영문)를 참조하십시오.
+您可以讓資料表改用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令可與 Azure 的命令列介面 (CLI) 搭配使用。如需使用 CLI 的詳細資訊，請參閱[管理行動服務資料表的 CLI](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables) (英文)。
 
-데이터 업데이트방법: 모바일 서비스의 데이터 업데이트
-----------------------------------------------------
+更新資料作法：更新行動服務中的資料
+----------------------------------
 
-다음 코드는 테이블의 데이터를 업데이트하는 방법을 보여 줍니다. 이 예에서 *mToDoItem*은 *ToDoItem* 테이블의 항목에 대한 참조입니다. 해당 *duration* 속성을 업데이트합니다.
+下列程式碼說明如何更新資料表中的資料。在此範例中，*mToDoItem* 是 *ToDoItem* 資料表項目的參考，我們將更新其 *duration* 屬性。
 
-     	mToDoItem.duration = 5;
+     mToDoItem.duration = 5;
         mToDoTable.update(mToDoItem, new TableOperationCallback<ToDoItem>() {
             public void onCompleted(ToDoItem entity, 
                                     Exception exception, 
                                     ServiceFilterResponse response) {
                 if (exception == null) {
-                        Log.i(TAG, "Read object with ID " + entity.id);  
+                Log.i(TAG, "Read object with ID " + entity.id);  
                 } 
             }
         });
 
-콜백 개체 및 *onCompleted* 메서드의 매개 변수는 삽입할 때와 동일합니다.
+請注意，回呼物件和 *onCompleted* 方法的參數是和我們執行插入時相同的。
 
-데이터 삭제방법: 모바일 서비스의 데이터 삭제
---------------------------------------------
+刪除資料作法：刪除行動服務中的資料
+----------------------------------
 
-다음 코드는 테이블에서 데이터를 삭제하는 방법을 보여 줍니다. 이 코드는 ToDoItem 테이블에서 기존 항목에 대한 참조를 사용하여 항목을 삭제합니다(이 예에서는 *mToDoItem*).
+下列程式碼說明如何刪除資料表中的資料。此範例會使用項目的參考 (在此案例中為 *mToDoItem*)，從 ToDoItem 資料表中刪除現有項目。
 
-     	mToDoTable.delete(mToDoItem, new TableDeleteCallback() {
+     mToDoTable.delete(mToDoItem, new TableDeleteCallback() {
             public void onCompleted(Exception exception,
                                     ServiceFilterResponse response) {
-                if (exception == null) {
+                if(exception == null){
                     Log.i(TAG, "Object deleted");
                 }
             }
         });
 
-*delete*의 경우, 콜백 개체는 [**TableDeleteCallback**](http://go.microsoft.com/fwlink/p/?LinkId=296858)이며 테이블 행이 반환되지 않는다는 점에서 **onCompleted** 메서드가 약간 다릅니다.
+請注意，在*刪除*案例中，回呼物件為 [**TableDeleteCallback**](http://go.microsoft.com/fwlink/p/?LinkId=296858)，而 **onCompleted** 方法則因為不會傳回資料表資料列，有些許不同。
 
-다음 코드는 이를 수행하는 다른 방법을 보여 줍니다. 이 코드는 삭제할 행의 id 필드 값을 지정하여("37BBF396-11F0-4B39-85C8-B319C729AF6D"와 동일하다고 가정함) ToDoItem 테이블의 기존 항목을 삭제합니다.
+下列程式碼將說明另一種執行方式。此方式會指定要刪除之資料列的 ID 欄位值 (假設等於 "37BBF396-11F0-4B39-85C8-B319C729AF6D")，以刪除 ToDoItem 資料表中的現有項目。
 
-     	mToDoTable.delete("37BBF396-11F0-4B39-85C8-B319C729AF6D", new TableDeleteCallback() {
+     mToDoTable.delete("37BBF396-11F0-4B39-85C8-B319C729AF6D", new TableDeleteCallback() {
             public void onCompleted(Exception exception, 
                     ServiceFilterResponse response) {
-                if (exception == null) {
+                if(exception == null){
                     Log.i(TAG, "Object deleted");
                 }
             }
         });
 
-데이터 조회방법: 특정 항목 조회
--------------------------------
+查閱資料作法：查閱特定項目
+--------------------------
 
-일반적으로 일부 조건을 충족하는 항목 컬렉션을 가져오는 쿼리와 달리, *id*를 기준으로 특정 항목을 조회하려는 경우가 있습니다. 다음 코드는 *id* = "37BBF396-11F0-4B39-85C8-B319C729AF6D"에 대해 이를 수행하는 방법을 보여 줍니다.
+有時候，您會想要依據 *id* 來查閱特定項目；此方式不像查詢通常會產生符合某個條件的項目集合。下列程式碼將說明如何以 *id* "37BBF396-11F0-4B39-85C8-B319C729AF6D" 執行這種查閱。
 
-     	mToDoTable.lookUp("37BBF396-11F0-4B39-85C8-B319C729AF6D", new TableOperationCallback<ToDoItem>() {
+     mToDoTable.lookUp("37BBF396-11F0-4B39-85C8-B319C729AF6D", new TableOperationCallback<ToDoItem>() {
             public void onCompleted(item entity, Exception exception,
                     ServiceFilterResponse response) {
-                if (exception == null) {
+                if(exception == null){
                     Log.i(TAG, "Read object with ID " + entity.id);    
                 }
             }
         });
 
-형식화되지 않은 데이터 작업방법: 형식화되지 않은 데이터 작업
-------------------------------------------------------------
+使用不具型別的資料作法：使用不具型別的資料
+------------------------------------------
 
-형식화되지 않은 프로그래밍 모델에서는 JSON serialization을 정확히 제어할 수 있으며, 이 모델을 사용할 수 있는 일부 시나리오가 있습니다. 예를 들어 모바일 서비스 테이블에 포함된 다수의 열 중에서 몇 개만 참조해야 하는 경우를 들 수 있습니다. 형식화된 모델을 사용하려면 모바일 서비스 테이블의 모든 열을 데이터 클래스에서 정의해야 합니다. 하지만 형식화되지 않은 모델에서는 사용해야 하는 열만 정의합니다.
+不具型別的程式設計模型可讓您精確掌控 JSON 序列化，因此在某些情況下，您可能會想加以使用，例如：您的行動服務資料表包含大量資料行，但您只需要參考其中幾個而已。使用型別模型時，您必須在資料類別中定義所有行動服務資料表的資料行。但在使用不具型別的模型時，您只需定義需要使用的資料行即可。
 
-형식화된 모델과 유사하게 테이블 참조를 가져와서 시작합니다. 하지만 이 경우에는 이 참조가 [MobileServicesJsonTable](http://go.microsoft.com/fwlink/p/?LinkId=298733) 개체입니다. 모바일 서비스 클라이언트 인스턴스에 대해 [getTable()](http://go.microsoft.com/fwlink/p/?LinkId=298734) 메서드를 호출하여 참조를 가져옵니다.
+和型別模型一樣，首先您必須取得資料表參考，但在此案例中這會是 [MobileServicesJsonTable](http://go.microsoft.com/fwlink/p/?LinkId=298733) 物件。您在行動服務用戶端的執行個體上呼叫 [getTable()](http://go.microsoft.com/fwlink/p/?LinkId=298734) 方法，以取得參考。
 
-다음과 같은 이 메서드 오버로드를 사용합니다. 형식화되지 않은 JSON 기반 프로그래밍 모델 작업에 사용되는 오버로드입니다.
+您使用此方法的下列過載，因為這是不具型別的 JSON 型程式設計模型所適用的：
 
-     	public class MobileServiceClient {
+     public class MobileServiceClient {
             public MobileServiceJsonTable getTable(String name);
         }
 
-데이터에 액세스하는 대부분의 API 호출은 형식화된 프로그래밍 호출과 유사합니다. 주요 차이점은 형식화되지 않은 모델에서는 **MobileServiceTable** 개체 대신 **MobileServiceJsonTable** 개체에 대해 메서드를 호출한다는 점입니다. 콜백 개체 및 **onCompleted** 메서드 사용법은 형식화된 모델과 유사합니다.
+用來存取資料的 API 呼叫大多會與型別程式設計呼叫相類似。主要的差別在於，在不具型別的模型中，您會叫用 **MobileServiceJsonTable** 物件的方法，而不是 **MobileServiceTable** 物件。回呼物件和 **onCompleted** 方法的使用方式，都與型別模型非常類似。
 
-### 방법: 형식화되지 않은 테이블 인스턴스 만들기
+### 作法：建立不具型別的資料表執行個體
 
-모바일 서비스 클라이언트 인스턴스(여기서는 *mClient* 변수)를 만든 후에는 다음 코드를 사용하여 **MobileServiceJsonTable** 인스턴스를 만듭니다.
+在您建立行動服務用戶端的執行個體後 (此範例中為 *mClient* 變數)，接下來您可以使用下列程式碼建立 **MobileServiceJsonTable** 的執行個體。
 
-     	MobileServiceJsonTable mTable = mClient.getTable("ToDoItem");
+     MobileServiceJsonTable mTable = mClient.getTable("ToDoItem");
 
-**MobileServiceJsonTable** 인스턴스를 만들고 나면 형식화된 프로그래밍 모델에서 할 수 있는 거의 모든 메서드를 이 인스턴스에 대해 호출할 수 있습니다. 하지만 일부 경우 메서드는 다음 예처럼 형식화되지 않은 매개 변수를 사용합니다.
+在您建立 **MobileServiceJsonTable** 的執行個體後，您在使用型別程式設計模型時所能呼叫的各種方法，幾乎都可在此執行個體上呼叫。但在某些情況下，方法會採用不具型別的參數，如下列範例所示。
 
-### 방법: 형식화되지 않은 테이블에 삽입
+### 作法：插入不具型別的資料表中
 
-다음 코드는 삽입하는 방법을 보여 줍니다. 첫 번째 단계는 [gson](%20http://go.microsoft.com/fwlink/p/?LinkId=290801) 라이브러리의 일부인 [**JsonObject**](http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/JsonObject.html)를 만드는 것입니다.
+下列程式碼將說明如何執行插入。第一個步驟是建立屬於 [gson](%20http://go.microsoft.com/fwlink/p/?LinkId=290801) 程式庫的 [**JsonObject**](http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/JsonObject.html)。
 
-     	JsonObject task = new JsonObject();
+     JsonObject task = new JsonObject();
         task.addProperty("text", "Wake up");
         task.addProperty("complete", false);
         task.addProperty("duration", 5);
 
-다음 단계는 개체를 삽입하는 것입니다. [**insert**](http://go.microsoft.com/fwlink/p/?LinkId=298535) 메서드에 전달되는 콜백 함수는 [**TableJsonOperationCallback**](http://go.microsoft.com/fwlink/p/?LinkId=298532) 클래스의 인스턴스입니다. *onCompleted* 메서드의 첫 번째 매개 변수는 JsonObject입니다.
+下一個步驟是插入物件。傳至 [**insert**](http://go.microsoft.com/fwlink/p/?LinkId=298535) 方法的回呼函數是 [**TableJsonOperationCallback**](http://go.microsoft.com/fwlink/p/?LinkId=298532) 類別的執行個體。請留意 JsonObject 如何成為 *onCompleted* 方法的第一個參數。
 
-     	mTable.insert(task, new TableJsonOperationCallback() {
+     mTable.insert(task, new TableJsonOperationCallback() {
             public void onCompleted(JsonObject jsonObject, 
                                     Exception exception,
                                     ServiceFilterResponse response) {
-                if (exception == null) {
+                if(exception == null){
                     Log.i(TAG, "Object inserted with ID " + 
                 jsonObject.getAsJsonPrimitive("id").getAsString());
                 }
             }
         });
 
-다음 메서드 호출을 통해 삽입된 개체의 ID를 가져옵니다.
+請留意我們如何透過此方法呼叫取得插入物件的 ID：
 
-             	jsonObject.getAsJsonPrimitive("id").getAsInt());
+             jsonObject.getAsJsonPrimitive("id").getAsInt());
 
-### 방법: 형식화되지 않은 테이블에서 삭제
+### 作法：在不具型別的資料表中進行刪除
 
-다음 코드는 인스턴스를 삭제하는 방법을 보여 줍니다. 이 경우에는 앞의 *insert* 예에서 만들어진 것과 동일한 **JsonObject** 인스턴스를 삭제합니다. 콜백 개체인 **TableDeleteCallback**은 형식화된 프로그래밍 모델에서 사용되는 것과 동일한 개체이며, **onCompleted** 메서드의 서명은 **insert** 예에서 사용된 것과 다릅니다.
+下列程式碼將說明如何刪除執行個體 (在此案例中，即為在前述*插入*範例中建立的同一個 **JsonObject** 執行個體)。請留意到，回呼物件 **TableDeleteCallback** 即為型別程式設計模型中所使用的相同物件，而其 **onCompleted** 方法的簽章與**插入**範例中所使用的不同。
 
-     	mTable.delete(task, new TableDeleteCallback() {
+     mTable.delete(task, new TableDeleteCallback() {
             public void onCompleted(Exception exception, 
                                     ServiceFilterResponse response) {
-                if (exception == null) {
+                if(exception == null){
                     Log.i(TAG, "Object deleted");
                 }
             }
         });
 
-ID를 사용하여 직접 인스턴스를 삭제할 수도 있습니다.
+您也可以直接使用 ID 來刪除執行個體：
 
-     	mTable.delete(task.getAsJsonPrimitive("id").getAsString(), ...)
+     mTable.delete(task.getAsJsonPrimitive("id").getAsString(), ...)
 
-### 방법: 형식화되지 않은 테이블에서 모든 행 반환
+### 作法：從不具型別的資料表傳回所有資料列
 
-다음 코드는 전체 테이블을 검색하는 방법을 보여 줍니다. 형식화되지 않은 프로그래밍 모델은 다른 콜백 개체인 [**TableJsonQueryCallback**](http://go.microsoft.com/fwlink/p/?LinkId=298543)을 사용합니다.
+下列程式碼將說明如何擷取整個資料表。請留意到，不具型別的程式設計模型會使用不同的回呼物件：[**TableJsonQueryCallback**](http://go.microsoft.com/fwlink/p/?LinkId=298543)。
 
-     	mTable.execute(new TableJsonQueryCallback() {
+     mTable.execute(new TableJsonQueryCallback() {
             public void onCompleted(JsonElement result, 
                                     int count, 
                                     Exception exception,
                                     ServiceFilterResponse response) {
-                if (exception == null) {
+                if(exception == null){
                     JsonArray results = result.getAsJsonArray();
-                    for(JsonElement item : results){
+                    for(JsonElement item :results){
                         Log.i(TAG, "Read object with ID " + 
                     item.getAsJsonObject().getAsJsonPrimitive("id").getAsInt());
                     }
@@ -458,56 +458,57 @@ ID를 사용하여 직접 인스턴스를 삭제할 수도 있습니다.
             }
         });
 
-형식화된 프로그래밍 모델에 사용되는 것과 같은 이름을 가진 메서드를 연결하여 필터링, 정렬, 페이징할 수 있습니다.
+如果方法的名稱與型別程式設計模型中所使用的相同，您即可串連這些方法，以執行篩選、排序和分頁。
 
-데이터 바인딩방법: 사용자 인터페이스에 데이터 바인딩
-----------------------------------------------------
+繫結資料作法：將資料繫結至使用者介面
+------------------------------------
 
-데이터 바인딩에는 세 가지 구성 요소가 필요합니다.
+資料繫結牽涉到三項要件：
 
--   데이터 원본
--   화면 레이아웃
--   두 요소를 연결하는 어댑터
+-   資料來源
+-   畫面配置
+-   將這兩個項目連結在一起的配接器。
 
-샘플 코드에서는 모바일 서비스 테이블 *ToDoItem*의 데이터를 배열로 반환합니다. 데이터 응용 프로그램에서 매우 흔한 패턴은 데이터베이스 쿼리가 일반적으로 클라이언트에서 목록 또는 배열로 가져오는 행 컬렉션을 반환하는 것입니다. 이 샘플에서 배열은 데이터 원본입니다.
+在範例程式碼中，我們會將行動服務資料表 *ToDoItem* 中的資料傳回陣列中。這是一種十分常見的資料應用模式：資料庫查詢通常會傳回資料列集合，讓用戶端在清單或陣列中取得。在此範例中，陣列是資料來源。
 
-코드는 장치에 나타나는 데이터 뷰를 정의하는 화면 레이아웃을 지정합니다.
+程式碼會指定一個畫面配置，以定義裝置上將會出現的資料檢視。
 
-이 두 요소는 어댑터(이 코드에서 *ArrayAdapter&lt;ToDoItem\>* 클래스의 확장)를 통해 바인딩됩니다.
+此外，這兩個項目會透過配接器繫結在一起；在此程式碼中，配接器會是 *ArrayAdapter&lt;ToDoItem\>* 類別的擴充功能。
 
-### 방법: 레이아웃 정의
+### 作法：定義配置
 
-레이아웃은 다수의 XML 코드 조각으로 정의됩니다. 기존 레이아웃을 고려할 때 다음 코드는 서버 데이터로 채울 **ListView**를 나타낸다고 가정하겠습니다.
+配置可使用數個 XML 程式碼片段來定義。在現有配置下，我們假設下列程式碼會顯示我們要以伺服器資料填入的 **ListView**。
 
         <ListView android:id="@+id/listViewToDo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/row_list_to_do" >
-        </ListView>
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:listitem="@layout/row_list_to_do" >
+    </ListView>
 
-위의 코드에서 *listitem* 특성은 목록의 개별 행에 대한 레이아웃의 ID를 지정합니다. 다음은 확인란 및 관련 텍스트를 지정하는 코드입니다. 이 코드는 목록의 항목별로 한 번씩 인스턴스화됩니다. 더 복잡한 레이아웃은 디스플레이의 추가 필드를 지정합니다. 이 코드는 *row\_list\_to\_do.xml* 파일에 있습니다.
+在上述程式碼中，*listitem* 屬性會指定清單中個別資料列的配置 ID。以下提供會指定核取方塊及其相關文字的程式碼。清單中的每個項目會分別使其具現化一次。更複雜的配置將會指定顯示畫面中的其他欄位。此程式碼位於 *row\_list\_to\_do.xml* 檔案中。
 
-     	<?xml version="1.0" encoding="utf-8"?>
+     <
+        xml version="1.0" encoding="utf-8"
+        >
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">          
-            <CheckBox 
-				android:id="@+id/checkToDoItem"
+            <CheckBox android:id="@+id/checkToDoItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/checkbox_text" />
         </LinearLayout>
 
-### 방법: 어댑터 정의
+### 作法：定義配接器
 
-이 뷰의 데이터 원본은 *ToDoItem*의 배열이기 때문에, *ArrayAdapter&lt;ToDoItem\>* 클래스에서 어댑터의 서브클래스를 지정합니다. 이 서브클래스는 *row\_list\_to\_do* 레이아웃을 사용하는 모든 *ToDoItem*의 뷰를 생성합니다.
+由於我們的檢視資料來源是 *ToDoItem* 的陣列，因此我們將配接器設為 *ArrayAdapter&lt;ToDoItem\>* 類別的子類別。這個子類別會為每個使用 *row\_list\_to\_do* 配置的 *ToDoItem* 產生一個檢視。
 
-이 예제 코드에서 *ArrayAdapter&lt;E\>* 클래스의 확장인 다음 클래스를 정의합니다.
+我們在程式碼中定義了下列類別，這是 *ArrayAdapter&lt;E\>* 類別的擴充功能：
 
-     	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
+     public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
-어댑터의 *getView* 메서드를 다시 정의해야 합니다. 다음 샘플 코드는 그 방법을 보여 주는 예이며, 세부 사항은 응용 프로그램에 따라 다릅니다.
+您必須覆寫配接器的 *getView* 方法。此範例程式碼是執行此覆寫的範例：詳細情形會隨著您的應用方式而不同。
 
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
@@ -529,125 +530,125 @@ ID를 사용하여 직접 인스턴스를 삭제할 수도 있습니다.
         return row;
     }
 
-작업에서 다음과 같이 이 클래스의 인스턴스를 만듭니다.
+我們在「活動」中建立此類別的執行個體，如下所示：
 
-     	ToDoItemAdapter mAdapter;
+     ToDoItemAdapter mAdapter;
         mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 
-ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 참조입니다. 생성자 호출 뒤에 다음 코드가 나옵니다. 다음 코드는 먼저 **ListView**에 대한 참조를 가져온 후 *setAdapter*를 호출하여 방금 만든 어댑터를 사용하도록 자체 구성합니다.
+請留意到，ToDoItemAdapter 建構函式的第二個參數是配置的參考。對建構函式的呼叫會在下列程式碼之後執行，而此程式碼會先取得 **ListView** 的參考，然後呼叫 *setAdapter*，以將本身設定成使用我們剛建立的配接器：
 
-     	ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
+     ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
         listViewToDo.setAdapter(mAdapter);
 
-### 방법: 어댑터 사용
+### 作法：使用配接器
 
-이제 데이터 바인딩을 사용할 준비가 되었습니다. 다음 코드는 모바일 서비스 테이블의 항목을 가져오고, 어댑터를 비운 후, 어댑터의 *add* 메서드를 호출하여 반환된 항목으로 어댑터를 채우는 방법을 보여 줍니다.
+您現在已可使用資料繫結。下列程式碼將說明如何取得行動服務資料表中的項目、清除配接器，然後呼叫配接器的 *add* 方法以填入傳回的項目。
 
-     	mToDoTable.execute(new TableQueryCallback<ToDoItem>() {
+     mToDoTable.execute(new TableQueryCallback<ToDoItem>() {
             public void onCompleted(List<ToDoItem> result, int count, Exception exception, ServiceFilterResponse response) {
                 if (exception == null) {
                     mAdapter.clear();
-                    for (ToDoItem item : result) {
+                    for (ToDoItem item :result) {
                         mAdapter.add(item);
                     }
                 } 
             }
         });
 
-또한 *ToDoItem* 테이블을 수정할 때 그 결과를 표시하려면 언제든지 어댑터를 호출해야 합니다. 수정은 레코드별로 이루어지기 때문에 컬렉션이 아니라 단일 행을 다루게 됩니다. 항목을 삽입할 때는 어댑터에 대해 *add* 메서드를 호출하고, 삭제할 때는 *remove* 메서드를 호출합니다.
+您也必須在每次修改過 *ToDoItem* 資料表後呼叫配接器 (如果您要顯示其執行結果)。修改是對個別記錄逐一執行的，因此您將會處理單一資料列，而不是集合。在插入項目時，您會對配接器呼叫 *add* 方法，刪除時則呼叫 *remove* 方法。
 
-인증방법: 사용자 인증
----------------------
+驗證作法：驗證使用者
+--------------------
 
-모바일 서비스는 Facebook, Google, Microsoft 계정, Twitter, Azure Active Directory 등 다양한 외부 ID 공급자를 사용하는 앱 사용자에 대한 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [인증 시작](http://go.microsoft.com/fwlink/p/?LinkId=296316)(영문)을 참조하십시오.
+行動服務支援以多種外部身分識別提供者進行應用程式使用者的驗證和授權：Facebook、Google、Microsoft 帳戶、Twitter 和 Azure Active Directory。您可以設定資料表的權限，以限定只有已驗證的使用者才能存取特定作業。您也可以使用已驗證使用者的身分識別，以伺服器指令碼實作授權規則。如需詳細資訊，請參閱[開始使用驗證](http://go.microsoft.com/fwlink/p/?LinkId=296316) (英文)。
 
-두 가지의 인증 흐름, 즉 *서버* 흐름과 *클라이언트* 흐름이 지원됩니다. 서버 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 흐름의 경우 공급자 특정 장치별 SDK를 사용하므로 Single Sign-On과 같은 장치 특정 기능을 통해 깊이 있는 통합이 가능합니다.
+目前支援兩種驗證流程：*伺服器*流程和*用戶端*流程。伺服器流程可提供最簡單的驗證程序，因為此流程使用的是提供者的 Web 驗證介面。用戶端流程可支援裝置特定功能 (例如單一登入) 的深入整合，因為此流程使用的是提供者特定裝置的專用 SDK。
 
-앱에서 인증을 사용하도록 설정하려면 세 가지 단계가 필요합니다.
+要在您的應用程式中啟用驗證，必須執行三個步驟：
 
-1.  인증을 위해 공급자에 앱 등록 및 모바일 서비스 구성
-2.  테이블 사용 권한을 인증된 사용자로만 제한
-3.  앱에 인증 코드 추가
+1.  對提供者註冊應用程式以進行驗證，並設定行動服務
+2.  限制只有經驗證的使用者具有資料表的權限
+3.  將驗證碼新增至您的應用程式
 
-모바일 서비스는 사용자를 인증하는 데 사용할 수 있는 다음과 같은 기존 ID 공급자를 지원합니다.
+行動服務支援下列可讓您用來驗證使用者的現有身分識別提供者：
 
--   Microsoft 계정
+-   Microsoft 帳戶
 -   Facebook
 -   Twitter
 -   Google
 -   Azure Active Directory
 
-테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 요청을 수정할 수도 있습니다.
+您可以設定資料表的權限，以限定只有已驗證的使用者才能存取特定作業。您也可以使用已驗證的使用者 ID 來修改要求。
 
-처음 두 가지 작업은 [Azure 관리 포털](https://manage.windowsazure.com/)을 사용하여 수행합니다. 자세한 내용은 [인증 시작](http://go.microsoft.com/fwlink/p/?LinkId=296316)(영문)을 참조하십시오.
+前兩項工作可使用 [Azure 管理入口網站](https://manage.windowsazure.com/)來完成。如需詳細資訊，請參閱[開始使用驗證](http://go.microsoft.com/fwlink/p/?LinkId=296316) (英文)。
 
-### 방법: 앱에 인증 코드 추가
+### 作法：將驗證碼新增至您的應用程式
 
-1.  앱의 활동 파일에 다음 import 문을 추가합니다.
+1.  將下列 Import 陳述式新增至應用程式的活動檔案。
 
         import com.microsoft.windowsazure.mobileservices.MobileServiceUser;
         import com.microsoft.windowsazure.mobileservices.MobileServiceAuthenticationProvider;
         import com.microsoft.windowsazure.mobileservices.UserAuthenticationCallback;
 
-2.  활동 클래스의 **onCreate** 메서드에서 `MobileServiceClient` 개체를 만드는 코드 다음에 다음 코드 줄을 추가합니다. `MobileServiceClient` 개체에 대한 참조가 *mClient*라고 가정합니다.
+2.  在活動類別的 **onCreate** 方法中，在建立 `MobileServiceClient` 物件的程式碼後面加上下列程式碼行：我們假設 `MobileServiceClient` 物件的參考是 *mClient*。
 
              // Login using the Google provider.
-             mClient.login(MobileServiceAuthenticationProvider.Google,
-                     new UserAuthenticationCallback() {
-                         @Override
-                         public void onCompleted(MobileServiceUser user,
-                                 Exception exception, ServiceFilterResponse response) { 
-                             if (exception == null) {
-                                 /* User now logged in, you can get their identity via user.getUserId() */ 
-                             } else {
-                                 /* Login error */
+        mClient.login(MobileServiceAuthenticationProvider.Google,
+        new UserAuthenticationCallback() {
+        @Override
+        public void onCompleted(MobileServiceUser user,
+        Exception exception, ServiceFilterResponse response) {  
+        if (exception == null) {
+        /* User now logged in, you can get their identity via user.getUserId() */ 
+        } else {
+        /* Login error */
                              }
                          }
                      });
 
-    이 코드는 Google 로그인을 사용하는 사용자를 인증합니다. 인증된 사용자의 ID를 표시하는 대화 상자가 나타납니다. 양성 인증 없이는 진행할 수 없습니다.
+    此程式碼會使用 Google 登入來驗證使用者。此時會出現對話方塊，顯示已驗證的使用者 ID。若未通過驗證，即無法繼續作業。
 
-    **참고**
+    **注意**
 
-    Google 이외의 ID 공급자를 사용하는 경우 위의 **login** 메서드에 전달된 값을 다음 중 하나로 변경합니다. *MicrosoftAccount*, *Facebook*, *Twitter* 또는 *WindowsAzureActiveDirectory*.
+    如果您使用 Google 以外的身分識別提供者，請將上述傳至 **login** 方法的值變更為下列其中一項：*MicrosoftAccount*、*Facebook*、*Twitter* 或 *WindowsAzureActiveDirectory*。
 
-3.  앱을 실행할 때는 선택한 ID 공급자로 로그인합니다.
+3.  當您執行應用程式時，請以您選擇的身分識別提供者登入。
 
-### 방법: 인증 토큰 캐시
+### 作法：快取驗證權杖
 
-이 섹션에서는 인증 토큰을 캐시하는 방법을 보여 줍니다. 인증 토큰을 캐시하면 토큰의 유효성이 유지되는 동안 앱이 오랫동안 사용되지 않은 경우 사용자가 다시 인증받을 필요가 없습니다.
+本節將說明如何快取驗證權杖。執行此動作，可讓使用者在應用程式「休眠」、但權杖仍有效的情況下無須再次驗證。
 
-이렇게 하려면 사용자 ID 및 인증 토큰을 장치에 로컬로 저장해야 합니다. 다음에 앱이 시작될 때 캐시를 확인하여 이 값이 있는 경우 로그인 절차를 건너뛰고 이 데이터로 클라이언트를 리하이드레이션할 수 있습니다. 하지만 이 데이터는 중요하므로 휴대폰을 분실하는 경우 안전을 위해 암호화하여 저장해야 합니다.
+若要執行此動作，您必須將使用者 ID 和驗證權杖儲存在本機裝置上。當應用程式下次啟動時，您只需確認這些值仍存在於快取中，即可略過登入程序，並使用這項資料還原用戶端。但這項資料具有敏感性，因此應加密儲存，以確保在手機失竊的狀況下仍保有安全性。
 
-토큰이 만료되면 어떻게 될까요? 이 경우에는 연결하기 위해 토큰을 사용하려고 하면 *401 권한 없음* 응답을 받습니다. 그러면 사용자는 로그인하여 새 토큰을 획득해야 합니다. 모바일 서비스 호출 및 모바일 서비스에서 나오는 응답을 차단할 수 있게 하는 필터를 사용하면 앱에서 모바일 서비스를 호출하는 모든 위치에서 이를 처리하는 코드를 작성할 필요가 없습니다. 필터 코드가 401의 응답을 테스트하고 필요한 경우 로그인 프로세스를 트리거한 후 401을 생성한 요청을 다시 시작합니다.
+權杖過期將有何影響？在此情況下，當您嘗試使用權杖進行連接時，將會出現 *401 未授權*的回應。使用者將必須登入，以取得新權杖。您可以使用篩選器攔截對行動服務的呼叫和行動服務的回應，如此，您即無須逐一在呼叫行動服務的應用程式中撰寫處理此狀況的程式碼。篩選器程式碼將會測試 401 的回應，並視需要觸發登入程序，然後繼續執行產生 401 的要求。
 
-오류 처리방법: 오류 처리
-------------------------
+錯誤處理作法：處理錯誤
+----------------------
 
-유효성 검사 및 오류 처리의 예를 [여기](https://www.windowsazure.com/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/)에서 볼 수 있습니다. 오류에 대한 예외를 반환하는 서버 스크립트를 통해 유효성 검사를 구현하며, 예외를 처리하는 클라이언트 코드도 제공됩니다.
+您可以在[此處](https://www.windowsazure.com/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/)檢視執行驗證和處理錯誤的範例；此範例的驗證是透過會傳回錯誤例外狀況的伺服器指令碼，以及會處理例外狀況的用戶端程式碼來實作的。
 
-*global* 오류 처리기를 제공하는 방법도 있습니다. 앞에서 봤던, 모바일 서비스 테이블에 액세스하는 코드에는 세 가지의 콜백 개체가 관련됩니다.
+另一種方式是提供*全域*錯誤處理常式。前述存取行動服務資料表的程式碼，牽涉到三種不同的回呼物件：
 
 -   **TableQueryCallback** / **TableQueryJsonCallback**
 -   **TableOperationCallback** / **TableJsonOperationCallback**
 -   **TableDeleteCallback**
 
-이 개체 각각에는 두 번째 매개 변수가 **java.lang.Exception** 개체인 **OnCompleted** 메서드가 있습니다. 이 콜백 개체에 서브클래스를 지정하고 예외 매개 변수가 null인지 여부를 확인하는 고유한 **onCompleted** 메서드를 구현할 수 있습니다. null인 경우 오류가 없으며 **super.OnCompleted()**를 호출하면 됩니다.
+這三種物件都具有以 **java.lang.Exception** 物件作為第二個參數的 **OnCompleted** 方法。您可以將這些回呼物件設為子類別，並實作您自己的 **onCompleted** 方法，以檢查例外狀況參數是否為 Null。如果是則表示沒有錯誤，您只要呼叫 **super.OnCompleted()** 即可。
 
-**Exception** 개체가 null이 아닌 경우 오류에 대한 더 자세한 정보를 표시하는 일반적인 오류 처리를 수행합니다. 다음 코드 조각은 더 자세한 정보를 보여 주는 한 가지 방법입니다.
+如果 **Exception** 物件不是 Null，請執行一般錯誤處理，以顯示關於錯誤的詳細資訊。下列程式碼片段將說明顯示詳細資訊的方式之一。
 
-     	String msg = exception.getCause().getMessage();
+     String msg = exception.getCause().getMessage();
 
-이제 개발자는 서브클래스로 지정된 콜백을 사용할 수 있으며 모든 콜백 인스턴스에 대해 하나의 중앙 위치(\#2)에서 예외가 처리되므로 예외 확인에 대해 걱정할 필요가 없습니다.
+現在，開發人員將可使用其設為子類別的回呼，而無須擔心檢查例外狀況的問題，因為所有回呼執行個體的例外狀況檢查都已由單一位置 (\#2) 集中處理。
 
-클라이언트 사용자 지정방법: 클라이언트 사용자 지정
---------------------------------------------------
+自訂用戶端作法：自訂用戶端
+--------------------------
 
-### 방법: 요청 헤더 사용자 지정
+### 作法：自訂要求標頭
 
-모든 보내는 요청에 사용자 지정 헤더를 추가할 수 있습니다. 다음과 같이 ServiceFilter를 구성하면 됩니다.
+您可能會想要將自訂標頭附加至每個外送要求。您只需依照下列方式設定 ServiceFilter 即可：
 
-     	client = client.withFilter(new ServiceFilter() {
+     client = client.withFilter(new ServiceFilter() {
         
             @Override
             public void handleRequest(ServiceFilterRequest request,
@@ -658,27 +659,27 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
             }
         });
 
-### 방법: serialization 사용자 지정
+### 作法：自訂序列化
 
-모바일 서비스에서는 기본적으로 서버의 테이블 이름, 열 이름, 데이터 형식이 모두 클라이언트와 정확히 일치한다고 가정합니다. 하지만 서버와 클라이언트의 이름이 일치하지 않는 이유가 있을 수 있습니다. 한 가지 예로 경쟁 제품 대신 Azure 모바일 서비스를 사용하도록 기존 클라이언트를 변경하려는 경우를 들 수 있습니다.
+根據預設，行動服務會假設伺服器上的資料表名稱、資料行名稱和資料類型，全都會與用戶端上的對應項目完全相符。但實際上卻有各種原因可能導致伺服器與用戶端的名稱不相符。例如，如果您要變更現有的用戶端，使其改用 Azure 行動服務，而不再使用其他品牌的產品，就會造成名稱不符。
 
-다음과 같은 종류의 사용자 지정을 수행할 수 있습니다.
+您可能會想要執行下列類型的自訂：
 
--   모바일 서비스 테이블에서 사용되는 열 이름이 클라이언트에서 사용 중인 이름과 일치하지 않음
--   클라이언트에서 매핑되는 클래스와 다른 이름을 가진 모바일 서비스 테이블 사용
--   속성 자동 대문자 표시 설정
--   개체에 복합 속성 추가
+-   行動服務資料表中的資料行名稱不符合您在用戶端中使用的名稱
+-   使用名稱與用戶端中的對應類別不同的行動服務資料表
+-   開啟自動使用大寫屬性
+-   將複雜屬性新增至物件
 
-### 방법: 다른 클라이언트 및 서버 이름 매핑
+### 作法：對應不同的用戶端和伺服器名稱
 
-Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 표준 Java 스타일 이름이 사용된다고 가정하겠습니다.
+假設您的 Java 用戶端程式碼對 *ToDoItem* 物件屬性使用標準 Java 樣式名稱，如下所示。
 
 -   mId
 -   mText
 -   mComplete
 -   mDuration
 
-클라이언트 이름을 서버에 있는 *ToDoItem* 테이블의 열 이름과 일치하는 JSON 이름으로 직렬화해야 합니다. 다음 코드는 [gson](%20http://go.microsoft.com/fwlink/p/?LinkId=290801) 라이브러리를 이용하여 이를 수행합니다.
+您必須將用戶端名稱序列化為 JSON 名稱，且這些名稱必須與伺服器上的 *ToDoItem* 資料表的資料行名稱相符。下列使用 [gson](%20http://go.microsoft.com/fwlink/p/?LinkId=290801) 程式庫的程式碼會執行此動作。
 
     @com.google.gson.annotations.SerializedName("text")
     private String mText;
@@ -692,87 +693,44 @@ Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 �
     @com.google.gson.annotations.SerializedName("duration")
     private String mDuration;
 
-### 방법: 클라이언트 및 모바일 서비스 간에 다른 테이블 이름 매핑
+### 作法：在用戶端與行動服務之間對應不同的資料表名稱
 
-클라이언트 테이블 이름을 다른 모바일 서비스 테이블 이름에 매핑하는 작업은 쉽습니다. 다음 코드에 나온 것처럼 [getTable()](http://go.microsoft.com/fwlink/p/?LinkId=296840) 함수의 재정의 중 하나를 사용하면 됩니다.
+要將用戶端資料表名稱對應至不同的行動服務資料表名稱並不難，只要使用 [getTable()](http://go.microsoft.com/fwlink/p/?LinkId=296840) 函數的其中一項覆寫即可，如下列程式碼所示。
 
-     	mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
+     mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
-### 방법: 열 이름 매핑 자동화
+### 作法：自動化資料行名稱對應
 
-열이 몇 개뿐인 작은 테이블의 열 이름을 매핑하는 일은 이전 섹션에서 보았듯이 어렵지 않습니다. 하지만 테이블에 예를 들어 20개나 30개 정도의 많은 열이 있는 경우, [gson](%20http://go.microsoft.com/fwlink/p/?LinkId=290801) API를 호출하고 모든 열에 적용되는 변환 전략을 지정하여 모든 열 이름에 주석을 달 필요를 없앨 수 있습니다.
+在上一節中我們了解到，要為一個只有幾個資料行的小型資料表對應資料行名稱，並不困難。但假設我們的資料表有許多資料行，例如 20 或 30 個。此時，我們可以呼叫 [gson](%20http://go.microsoft.com/fwlink/p/?LinkId=290801) API，並指定會套用至每個資料行的轉換策略，而無須為每一個資料行名稱加註。
 
-이렇게 하려면 Android 클라이언트 라이브러리리에서 자동으로 Java 개체를 JSON 데이터에 직렬화하여 Azure 모바일 서비스로 전송하는 데 사용하는 [gson](%20http://go.microsoft.com/fwlink/p/?LinkId=290801) 라이브러리를 사용합니다.
+若要這麼做，我們可以使用 Android 用戶端程式庫在背景用來將 Java 物件序列化為 JSON 資料 (會傳送至 Azure 行動服務) 的 [gson](%20http://go.microsoft.com/fwlink/p/?LinkId=290801) 程式庫。
 
-다음 코드에서는 *setFieldNamingStrategy()* 메서드가 사용되며, 이 메서드에서 *FieldNamingStrategy()* 메서드를 정의합니다. 이 메서드는 시작 문자("m")를 삭제한 후 각 필드 이름에 대해 다음 문자를 소문자로 처리하도록 지시합니다. 이 코드는 또한 출력 JSON이 보기 쉽게 인쇄되도록 합니다.
+下列程式碼會使用 *setFieldNamingStrategy()* 方法 (在此方法中可定義 *FieldNamingStrategy()* 方法)。此方法會刪除每個欄位名稱的起始字元 ("m")，然後將下一個字元轉換為小寫。此程式碼也會啟用輸出 JSON 的美化顯示功能。
 
     client.setGsonBuilder(
-        MobileServiceClient
-        .createMobileServiceGsonBuilder()
-        .setFieldNamingStrategy(new FieldNamingStrategy() {
-            public String translateName(Field field) {
-                String name = field.getName();
-                return Character.toLowerCase(name.charAt(1))
-                   	+ name.substring(2);
+    MobileServiceClient
+    .createMobileServiceGsonBuilder()
+    .setFieldNamingStrategy(new FieldNamingStrategy() {
+    public String translateName(Field field) {
+    String name = field.getName();
+    return Character.toLowerCase(name.charAt(1))
+    + name.substring(2);
                 }
             })
-            .setPrettyPrinting());
+    .setPrettyPrinting());
 
-이 코드는 모바일 서비스 클라이언트 개체에 대한 모든 메서드 호출 이전에 실행해야 합니다.
+此程式碼必須在對行動服務用戶端物件呼叫任何方法之前執行。
 
-### 방법: 테이블에 개체 또는 배열 속성 저장
+### 作法：將物件或陣列屬性儲存在資料表中
 
-지금까지 모든 serialization 예에는 정수 및 JSON뿐만 아니라 모바일 서비스 테이블에도 쉽게 직렬화되는 문자열과 같은 기본 형식이 사용되었습니다. JSON 및 테이블에 자동으로 직렬화되지 않는 클라이언트 유형에 복합 개체를 추가하려는 경우를 가정하겠습니다. 예를 들어 클라이언트 개체에 문자열 배열을 추가할 수 있습니다. 이제 serialization 수행 방법 및 모바일 서비스 테이블에 배열을 저장하는 방법을 지정하면 됩니다.
+到目前為止，我們的序列化範例所示範的，都是能夠輕易序列化為 JSON 和行動服務資料表的基本類型，例如整數和字串。假設我們想要將複雜的物件新增至用戶端類型，而該物件無法自動序列化為 JSON 和資料表。例如，我們可能想要將字串陣列新增至用戶端物件。現在，要如何執行序列化，以及如何將陣列儲存到行動服務資料表中，全都可由我們指定。
 
-이를 수행하는 방법의 예를 보려면 블로그 게시물인 [모바일 서비스 Android 클라이언트에서](http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson)[gson](%20http://go.microsoft.com/fwlink/p/?LinkId=290801) 라이브러리를 사용하여 serialization 사용자 지정(영문)을 확인하십시오.
+若要檢視其執行範例，請參閱部落格貼文[在行動服務 Android 用戶端中使用](http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson)[gson](%20http://go.microsoft.com/fwlink/p/?LinkId=290801) 程式庫自訂序列化 (英文)。
 
-이 일반적인 방법은 자동으로 JSON 및 모바일 서비스 테이블에 직렬화할 수 없는 복합 개체가 있을 때마다 사용할 수 있습니다.
+只要有無法自動序列化為 JSON 和行動服務資料表的複雜物件出現時，我們即可使用此一般方法。
 
-다음 단계
----------
+後續步驟
+--------
 
-Android 클라이언트 API에 대한 Javadoc 참조는 [http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/package-summary.html](http://go.microsoft.com/fwlink/p/?LinkId=298735 "여기")(영문)에서 제공됩니다.
+如需 Android 用戶端 API 的 Javadocs 參考，請至[http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/package-summary.html](http://go.microsoft.com/fwlink/p/?LinkId=298735 "此處")
 
-
-<!-- Anchors. -->
-
-[What is Mobile Services]: #what-is
-[Concepts]: #concepts
-[How to: Create the Mobile Services client]: #create-client
-[How to: Create a table reference]: #instantiating
-[The API structure]: #api
-[How to: Query data from a mobile service]: #querying
-[Filter returned data]: #filtering
-[Sort returned data]: #sorting
-[Return data in pages]: #paging
-[Select specific columns]: #selecting
-[How to: Concatenate query methods]: #chaining
-[How to: Bind data to the user interface]: #binding
-[How to: Define the layout]: #layout
-[How to: Define the adapter]: #adapter
-[How to: Use the adapter]: #use-adapter
-[How to: Insert data into a mobile service]: #inserting
-[How to: update data in a mobile service]: #updating
-[How to: Delete data in a mobile service]: #deleting
-[How to: Look up a specific item]: #lookup
-[How to: Work with untyped data]: #untyped
-[How to: Authenticate users]: #authentication
-[Cache authentication tokens]: #caching
-[How to: Handle errors]: #errors
-[How to: Design unit tests]: #tests
-[How to: Customize the client]: #customizing
-[Customize request headers]: #headers
-[Customize serialization]: #serialization
-[Next Steps]: #next-steps
-[Setup and Prerequisites]: #setup
-
-<!-- Images. -->
-
-
-
-<!-- URLs. -->
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-android/
-[Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-android/
-[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables

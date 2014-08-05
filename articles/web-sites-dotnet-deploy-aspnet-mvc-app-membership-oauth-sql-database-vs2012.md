@@ -1,717 +1,707 @@
 <properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title=" OAuth" authors="riande" solutions="" manager="wpickett" editor="mollybos" />
 
-Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스를 포함한 보안 ASP.NET MVC 앱 배포
-========================================================================================
+將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 應用程式部署至 Azure 網站
+==================================================================================
 
-***저자: [Rick Anderson](https://twitter.com/RickAndMSFT) 및 Tom Dykstra. 2013년 10월 15일 업데이트됨***
+***作者：[Rick Anderson](https://twitter.com/RickAndMSFT) 和 Tom Dykstra。2013 年 10 月 15 日更新。***
 [Visual Studio 2013](/en-us/develop/net/tutorials/web-site-with-sql-database/ "Visual Studio 2013")[Visual Studio 2012](/en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/ "Visual Studio 2012")
 
-**참고**
+**注意**
 
-[이 자습서의 최신 버전](/en-us/develop/net/tutorials/web-site-with-sql-database/)을 사용할 수 있습니다. Visual Studio 2012를 사용하는 경우 이 버전의 내용을 계속 따를 수 있지만 최신 버전이 훨씬 더 쉽습니다.
+現已提供[新版的教學課程](/en-us/develop/net/tutorials/web-site-with-sql-database/)。如果您想要使用 Visual Studio 2012，仍舊可以遵循此版本步驟進行，但是新版課程的步驟將大幅簡化許多。
 
-이 자습서는 사용자가 Facebook, Yahoo 및 Google 자격 증명을 사용하여 로그인할 수 있는 보안 ASP.NET MVC 4 웹앱을 빌드하는 방법을 보여 줍니다. 또한 Azure에 응용 프로그램을 배포합니다.
+本教學課程將示範如何建立可讓使用者以 Facebook、Yahoo 與 Google 認證登入的安全 ASP.NET MVC 4 Web 應用程式。您也會將應用程式部署至 Azure。
 
-Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2012이 아직 없는 경우 SDK에서 Web Express용 Visual Studio 2012를 자동으로 설치합니다. Azure용 개발을 무료로 시작할 수 있습니다.
+您可以免費申請 Azure 帳戶，而且如果您還沒有 Visual Studio 2012，SDK 會自動安裝 Visual Studio 2012 for Web Express。您可以開始免費進行 Azure 相關開發。
 
-이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이 자습서를 완료하면 클라우드에서 클라우드 데이터베이스를 사용하는 보안 데이터 기반 웹 응용 프로그램을 실행할 수 있습니다.
+本教學課程假設您先前沒有使用 Azure 的經驗。完成此教學課程後，您將有個安全的資料驅動 Web 應用程式已在雲端中啟動並執行、並已在使用雲端資料庫。
 
-다음 내용을 배웁니다.
+您將了解：
 
--   Azure SDK를 설치하여 사용자 컴퓨터에서 Azure를 개발할 수 있도록 하는 방법
--   보안 ASP.NET MVC 4 프로젝트를 만들고 Azure 웹 사이트에 게시하는 방법
--   OAuth 및 ASP.NET 멤버 자격 데이터베이스를 사용하여 응용 프로그램 보안을 유지하는 방법
--   Azure에 멤버 자격 데이터베이스를 배포하는 방법
--   SQL 데이터베이스를 사용하여 Azure에 데이터를 저장하는 방법
--   Visual Studio를 사용하여 멤버 자격 데이터베이스를 업데이트하고 관리하는 방법
+-   如何安裝 Azure SDK 好讓電腦適合用於進行 Azure 開發。
+-   如何建立安全的 ASP.NET MVC 4 專案，並將該專案發行至 Azure 網站。
+-   如何使用 OAuth 與 ASP.NET 成員資格資料庫來確保您的應用程式安全。
+-   如何將成員資格資料庫部署至 Azure。
+-   如何使用 SQL 資料庫在 Azure 中儲存資料。
+-   如何使用 Visual Studio 來更新與管理成員資格資料庫。
 
-ASP.NET MVC 4에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity Framework를 사용하는 간단한 연락처 목록 웹 응용 프로그램을 빌드합니다. 다음 그림은 완성된 응용 프로그램에 대한 로그인 페이지를 보여 줍니다.
+您將建立一個簡單的連絡人清單 Web 應用程式，該應用程式建立於 ASP.NET MVC 4 之上，並使用 ADO.NET Entity Framework 進行資料庫存取。下圖顯示完成之應用程式的登入頁面：
 
-![로그인 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxb.png)
+![login page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxb.png)
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-이 자습서에서는 다음을 수행합니다.
+本教學課程內容：
 
--   [개발 환경 설정](#bkmk_setupdevenv)
--   [Azure 환경 설정](#bkmk_setupwindowsazure)
--   [ASP.NET MVC 4 응용 프로그램 만들기](#bkmk_createmvc4app)
--   [Azure에 응용 프로그램 배포](#bkmk_deploytowindowsazure1)
--   [응용 프로그램에 데이터베이스 추가](#bkmk_addadatabase)
--   [OAuth 공급자 추가](#addOauth)
--   [멤버 자격 데이터베이스에 역할 추가](#mbrDB)
--   [데이터 배포 스크립트 작성](#ppd)
--   [Azure에 앱 배포](#bkmk_deploytowindowsazure11)
--   [멤버 자격 데이터베이스 업데이트](#ppd2)
--   [다음 단계](#nextsteps)
+-   [設定開發環境](#bkmk_setupdevenv)
+-   [設定 Azure 環境](#bkmk_setupwindowsazure)
+-   [建立 ASP.NET MVC 4 應用程式](#bkmk_createmvc4app)
+-   [將應用程式部署至 Azure](#bkmk_deploytowindowsazure1)
+-   [新增資料庫至應用程式](#bkmk_addadatabase)
+-   [新增 OAuth 提供者](#addOauth)
+-   [新增角色至成員資格資料庫](#mbrDB)
+-   [建立資料部署指令碼](#ppd)
+-   [將應用程式部署至 Azure](#bkmk_deploytowindowsazure11)
+-   [更新成員資格資料庫](#ppd2)
+-   [後續步驟](#nextsteps)
 
-개발 환경 설정
---------------
+設定開發環境
+------------
 
-시작하려면 Azure SDK for the .NET Framework를 설치하여 개발 환경 설정을 설정합니다.
+首先，安裝 Azure SDK for the .NET Framework，以設定您的開發環境。
 
-1.  Azure SDK for .NET을 설치하려면 아래 링크를 클릭합니다. Visual Studio 2012가 아직 설치되어 있지 않은 경우 링크를 통해 설치됩니다. 이 자습서는 Visual Studio 2012가 필요합니다. [Azure SDK for Visual Studio 2012](http://go.microsoft.com/fwlink/?LinkId=254364)
-2.  실행 가능한 설치 프로그램을 실행할지 또는 저장할지 묻는 메시지가 표시되면 **실행**을 클릭합니다.
-3.  웹 플랫폼 설치 관리자 창에서 **설치**를 클릭하여 설치를 계속합니다.
+1.  若要安裝 Azure SDK for .NET，請按一下底下連結：如果您尚未安裝 Visual Studio 2012，按下該連結會進行安裝。本教學課程需要安裝 Visual Studio 2012。[Azure SDK for Visual Studio 2012](http://go.microsoft.com/fwlink/?LinkId=254364) (英文)
+2.  當系統提示您執行或儲存安裝可執行檔時，請按一下 **[執行]**。
+3.  在 [Web Platform Installer] 視窗中，按一下 **[安裝]** 並繼續進行安裝。
 
-![웹 플랫폼 설치 관리자 - Azure SDK for .NET](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/WebPIAzureSdk20NetVS12.png)
+![Web Platform Installer - Azure SDK for .NET](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/WebPIAzureSdk20NetVS12.png)
 
-설치가 완료되면 개발을 시작하는 데 필요한 내용이 모두 준비된 것입니다.
+安裝完成時，您即可開始進行開發。
 
-Azure 환경 설정
+設定 Azure 環境
 ---------------
 
-이제 Azure 웹 사이트와 SQL 데이터베이스를 만들어 Azure 환경을 설정합니다.
+接下來，建立一個 Azure 網站和一個 SQL 資料庫來設定 Azure 環境。
 
-### Azure에서 웹 사이트 및 SQL 데이터베이스 만들기
+### 在 Azure 中建立網站和 SQL 資料庫
 
-Azure 웹 사이트는 공유 호스팅 환경에서 실행되므로 다른 Azure 클라이언트와 공유되는 VM(가상 컴퓨터)에서 실행됩니다. 공유 호스팅 환경은 클라우드를 시작하는 저비용 방법입니다. 나중에 웹 트래픽이 증가하면 응용 프로그램이 전용 VM에서 실행되어 요구에 맞게 확장될 수 있습니다. 더 복잡한 아키텍처가 필요한 경우 Azure 클라우드 서비스로 마이그레이션할 수 있습니다. 클라우드 서비스는 요구에 따라 구성할 수 있는 전용 VM에서 실행됩니다.
+您的 Azure 網站會在共用主控環境中執行，意即其會在與其他 Azure 用戶端共用的虛擬機器 (VM) 上執行。共用主控環境是一種在雲端中開始營運的低成本方法。因為應用程式是在專用 VM 上執行，所以如果日後您的 Web 流量增加，可依需求對應用程式進行延展。如果您需要更複雜的架構，可以移轉至 Azure 雲端服務。雲端服務是執行於您可視本身需求來設定的專用 VM 上。
 
-Azure SQL 데이터베이스는 SQL Server 기술로 구축된 클라우드 기반의 관계형 데이터베이스 서비스입니다. SQL Server에서 작동하는 도구와 응용 프로그램은 SQL 데이터베이스에서도 작동합니다.
+Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯式資料庫服務。工具和應用程式如果使用 SQL Server，同樣也可以使用 SQL Database。
 
-1.  [Azure 관리 포털](https://manage.windowsazure.com)의 왼쪽 탭에서 **웹 사이트**를 클릭한 다음 **새로 만들기**를 클릭합니다.
+1.  在 [Azure 管理入口網站](https://manage.windowsazure.com)中，按一下左側索引標籤的 **[網站]**，再按一下 **[新增]**。
 
-![관리 포털의 New 단추](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxWSnew2.png)
+	![New button in Management Portal](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxWSnew2.png)
 
-1.  **사용자 지정 만들기**를 클릭합니다.
+1.  按一下 **[Custom Create]**。
 
-    ![관리 포털의 데이터베이스 링크를 사용하여 만들기](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxCreateWSwithDB.png)
+    ![Create with Database link in Management Portal](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxCreateWSwithDB.png)
 
-**새 웹 사이트 - 사용자 지정 만들기** 마법사가 열립니다.
+**[新網站 - 自訂建立]** 精靈隨即開啟。
 
-1.  마법사의 **새 웹 사이트** 단계에서 응용 프로그램의 고유 URL로 사용할 문자열을 **URL** 상자에 입력합니다. 전체 URL은 여기에 입력한 문자열과 텍스트 상자 옆에 표시되는 접미사로 구성됩니다. 그림에는 "contactmgr2"가 표시되지만 이 URL은 이미 사용되고 있을 수 있으므로 다른 URL을 선택해야 합니다.
+1.  在精靈的 **[新網站]** 步驟中，於 **[URL]** 方塊中輸入字串作為應用程式的唯一 URL。完整的 URL 將包含您在此處輸入的字串，加上您在文字方塊旁看到的尾碼。下圖顯示 "contactmgr2"，不過該 URL 可能已被佔用，因此您必須選擇不同的 URL。
 
-    ![관리 포털의 데이터베이스 링크를 사용하여 만들기](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxCreateWSwithDB_2.png)
+    ![Create with Database link in Management Portal](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxCreateWSwithDB_2.png)
 
-2.  **데이터베이스** 드롭다운 목록에서 **새 SQL 데이터베이스 만들기**를 선택합니다.
+2.  在 **[資料庫]** 下拉式清單中，選擇 **[Create a new SQL database]**。
 
-3.  **Region** 드롭다운 목록에서 웹 사이트에 대해 선택한 것과 동일한 지역을 선택합니다. 이 설정은 VM이 실행되는 데이터 센터를 지정합니다. **DB 연결 문자열 이름**에 *connectionString1*을 입력합니다.
+3.  從 **[區域]** 下拉式清單中，選擇您已為網站選取的相同區域。此設定會指定您的 VM 將在哪個資料庫中執行。請在 **[DB CONNECTION STRING NAME]** 中，輸入 *connectionString1*。
 
-    ![새 웹 사이트 - 데이터베이스를 사용하여 만들기 마법사의 새 웹 사이트 만들기 단계](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxCreateWSwithDB_2.png)
+    ![Create a New Web Site step of New Web Site - Create with Database wizard](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxCreateWSwithDB_2.png)
 
-4.  상자 맨 아래에서 오른쪽을 가리키는 화살표를 클릭합니다. 마법사의 **데이터베이스 설정** 단계로 이동됩니다.
+4.  按一下指向方塊右下角的箭號。精靈隨即前進至 **[資料庫設定]** 步驟。
 
-5.  **이름** 상자에 *ContactDB*를 입력합니다.
+5.  在 **[名稱]** 方塊中，輸入 *ContactDB*
 
-6.  **서버** 상자에서 **새 SQL 데이터베이스 서버**를 선택합니다. 또는 이전에 SQL Server 데이터베이스를 만든 경우 드롭다운 컨트롤에서 SQL Server를 선택할 수 있습니다.
+6.  在 **[伺服器]** 方塊中，選取 **[New SQL Database server]** 或者，如果您已建立 SQL Server 資料庫，可從下拉式清單控制項選取該 SQL Server。
 
-7.  관리자 **로그인 이름** 및 **암호**를 입력합니다. **새 SQL 데이터베이스 서버**를 선택한 경우 여기서 기존 이름과 암호를 입력하지 않고 나중에 데이터베이스에 액세스할 때 사용하기 위해 지금 정의하는 새 이름과 암호를 입력합니다. 이전에 만든 SQL Server를 선택한 경우 이전에 만든 SQL Server 계정 이름의 암호를 묻는 메시지가 표시됩니다. 이 자습서에서는 **고급** 확인란을 선택하지 않습니다. **고급** 확인란을 사용하면 DB 크기 및 데이터 정렬을 설정할 수 있습니다. 참고로, DB 크기 기본값은 1GB이지만 이는 150GB로 높일 수 있습니다.
+7.  輸入系統管理員的 **[登入名稱]** 和 **[密碼]**。如果選取 **[New SQL Database server]**，則不要在此處輸入現有的名稱和密碼，而是輸入新的名稱和密碼；您現在定義的名稱和密碼將供未來存取資料庫時使用。如果選取先前建立的 SQL Server，系統會提示您提供先前建立之 SQL Server 帳戶名稱的密碼。在本教學課程中，我們不會核取 [**Advanced**] 方塊。[**Advanced**] 方塊可讓您設定資料庫大小 (預設值為 1 GB，不過您可以增加到 150 GB) 和定序。
 
-8.  상자 아래쪽에 있는 확인 표시를 클릭하여 마쳤음을 표시합니다.
+8.  按一下方塊底部的核取方塊來表示完成。
 
-    ![새 웹 사이트의 데이터베이스 설정 단계 - 데이터베이스 마법사를 사용하여 만들기](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-setup-azure-site-004.png)
+    ![Database Settings step of New Web Site - Create with Database wizard](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-setup-azure-site-004.png)
 
-    다음 이미지는 기존 SQL Server와 로그인 사용을 보여 줍니다. ![새 웹 사이트의 데이터베이스 설정 단계 - 데이터베이스 마법사를 사용하여 만들기](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxPrevDB.png)
+    下圖顯示如何使用現有的 SQL Server 和登入。![Database Settings step of New Web Site - Create with Database wizard](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxPrevDB.png)
 
-    관리 포털이 웹 사이트 페이지로 돌아가고 **상태** 열에 사이트를 만드는 중이라고 표시됩니다. 잠시(일반적으로 1분 미만) 후에 **상태** 열에 사이트를 만들었다고 표시됩니다. 왼쪽의 탐색 모음에서 계정에 보유한 사이트 수가 **웹 사이트** 아이콘 옆에 표시되고 데이터베이스 수가 **SQL 데이터베이스** 아이콘 옆에 표시됩니다.
+    [管理入口網站] 隨即返回 [網站] 頁面，且 **[狀態]** 欄顯示正在建立網站。稍待片刻 (通常不到一分鐘)，**[狀態]** 欄就會顯示建立網站成功。在左側的導覽列中，**[網站]** 圖示旁會出現您帳戶中已有的網站數；**[SQL Database]** 圖示旁則出現資料庫數目。
 
-ASP.NET MVC 4 응용 프로그램 만들기
-----------------------------------
+建立 ASP.NET MVC 4 應用程式
+---------------------------
 
-Azure 웹 사이트를 만들었지만 아직 콘텐츠가 없습니다. 다음 단계에서는 Azure에 게시할 Visual Studio 웹 응용 프로그램 프로젝트를 만듭니다.
+您已建立 Azure 網站，但網站中還沒有內容。接下來的步驟是建立要發行至 Azure 的 Visual Studio Web 應用程式。
 
-### 프로젝트 만들기
+### 建立專案
 
-1.  Visual Studio 2012를 시작합니다.
-2.  **파일** 메뉴에서 **새 프로젝트**를 클릭합니다.
-3.  **새 프로젝트** 대화 상자에서 **Visual C\#**을 확장하고 **설치된 템플릿** 아래의 **웹**을 선택한 다음 **ASP.NET MVC 4 웹 응용 프로그램**을 선택합니다. 기본값인 **.NET Framework 4.5**를 그대로 유지합니다. 응용 프로그램 이름을 **ContactManager**로 지정하고 **확인**을 클릭합니다.
+1.  啟動 Visual Studio 2012。
+2.  從 **[檔案]** 功能表，按一下 **[新增專案]**。
+3.  在 **[新增專案]** 對話方塊中，展開 **[Visual C\#]** 並選取 **[已安裝的範本]** 下的 **[Web]**，再選取 **[ASP.NET MVC 4 Web 應用程式]**。保留預設值 **[.NET Framework 4.5]**。將應用程式命名為 **ContactManager**，再按一下 **[確定]**。
 
-    ![새 프로젝트 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-createapp-002.png)
+    ![New Project dialog box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-createapp-002.png)
 
-4.  **새 ASP.NET MVC 4 프로젝트** 대화 상자에서 **인터넷 응용 프로그램** 템플릿을 선택합니다. 기본 Razor **뷰 엔진**을 유지하고 **확인**을 클릭합니다.
+4.  在 **[New ASP.NET MVC 4 Project]** 對話方塊中，選取 **[網際網路應用程式]** 範本。保留預設的 Razor **[檢視引擎]**，然後按一下 **[確定]**。
 
-    ![새 ASP.NET MVC 4 프로젝트 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxb2.png)
+    ![New ASP.NET MVC 4 Project dialog box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxb2.png)
 
-### 페이지 머리글 및 바닥글 설정
+### 設定頁首及頁尾
 
-1.  **솔루션 탐색기**에서 Views\\Shared 폴더를 확장하고 *\_Layout.cshtml* 파일을 엽니다.
+1.  在 **[方案總管]** 中，展開 Views\\Shared 資料夾，然後開啟 *\_Layout.cshtml* 檔案。
 
-    ![솔루션 탐색기의 \_Layout.cshtml](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-createapp-004.png)
+    ![\_Layout.cshtml in Solution Explorer](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-createapp-004.png)
 
-2.  표시되는 "My ASP.NET MVC Application"을 "Contact Manager"로 바꿉니다.
-3.  "your logo here"를 "CM Demo"로 바꿉니다.
+2.  以 "Contact Manager" 取代每次出現的 "My ASP.NET MVC Application" 字樣。
+3.  以 "CM Demo" 取代 "your logo here"。
 
-### 로컬에서 응용 프로그램 실행
+### 在本機執行應用程式
 
-1.  Ctrl+F5를 눌러 응용 프로그램을 실행합니다. 응용 프로그램 홈페이지가 기본 브라우저에 나타납니다.
+1.  按 CTRL+F5 執行應用程式。應用程式首頁隨即出現在預設瀏覽器中。
+    ![To Do List home page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxa.png)
 
-    ![할 일 모음 홈페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxa.png)
+只需執行上述作業，即可建立稍後要部署至 Azure 的應用程式。稍後您將新增資料庫功能。
 
-Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 하는 작업은 이것뿐입니다. 나중에 데이터베이스 기능을 추가하겠습니다.
+將應用程式部署至 Azure
+----------------------
 
-Azure에 응용 프로그램 배포
---------------------------
+1.  在瀏覽器中開啟 [Azure 管理入口網站](http://manage.windowsazure.com "入口網站")。
 
-1.  브라우저에서 [Azure 관리 포털](http://manage.windowsazure.com "포털")을 엽니다.
+2.  在 **[網站]** 索引標籤中，按一下您先前建立的網站名稱。
 
-2.  **웹 사이트** 탭에서 이전에 만든 사이트의 이름을 클릭합니다.
+    ![Contact manager application in Management Portal Web Sites tab](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-setup-azure-site-006.png)
 
-    ![관리 포털 웹 사이트 탭의 Contact manager 응용 프로그램](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-setup-azure-site-006.png)
+3.  在視窗右側，按一下 **[Download publish profile]**。
 
-3.  창의 오른쪽에서 **Download publish profile**을 클릭합니다.
+    ![Quickstart tab and Download Publishing Profile button](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-deploy1-download-profile.png)
 
-    ![빠른 시작 탭 및 게시 프로필 다운로드 단추](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-deploy1-download-profile.png)
+    此步驟會下載一個檔案，內含您要將應用程式部署至網站所需要的所有設定。您將把此檔案匯入 Visual Studio，這樣您就不用手動輸入此資訊。
 
-    이 단계에서는 웹 사이트에 응용 프로그램을 배포하기 위해 필요한 모든 설정이 들어 있는 파일을 다운로드합니다. 이 파일을 Visual Studio로 가져오므로 이 정보를 직접 입력할 필요가 없습니다.
+4.  將 .*publishsettings* 檔案儲存到資料夾中，以便您從 Visual Studio 存取。
 
-4.  Visual Studio에서 액세스할 수 있는 폴더에 .*publishsettings* 파일을 저장합니다.
-
-    ![.publishsettings 파일 저장](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-deploy1-save-profile.png)
+    ![saving the .publishsettings file](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-deploy1-save-profile.png)
 
     [WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
 
-5.  Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **게시**를 선택합니다.
+5.  在 Visual Studio 的 **[方案總管]** 中以滑鼠右鍵按一下專案，再選取內容功能表中的 **[發行]**。
 
-    ![프로젝트 상황에 맞는 메뉴의 게시](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/PublishVSSolution.png)
+    ![Publish in project context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/PublishVSSolution.png)
 
-    **웹 게시** 마법사가 열립니다.
+    此時會開啟 **[發行 Web]** 精靈。
 
-6.  **웹 게시** 마법사의 **프로필** 탭에서 **가져오기**를 클릭합니다.
+6.  在 **[Publish Web]** 精靈的 **[設定檔]** 索引標籤中，按一下 **[匯入]**。
 
-    ![게시 설정 가져오기](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/ImportPublishSettings.png)
+    ![Import publish settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/ImportPublishSettings.png)
 
-    **게시 프로필 가져오기** 대화 상자가 나타납니다.
+    **[匯入發行設定檔]** 對話方塊隨即出現。
 
-7.  이전에 Visual Studio에 Azure 구독을 추가하지 않은 경우 다음 단계를 수행하십시오. 이들 단계에서 구독을 추가하여 **Azure 웹 사이트에서 가져오기** 아래의 드롭다운 목록에 웹 사이트를 포함합니다.
+7.  如果您之前尚未將 Azure 訂閱新增至 Visual Studio，請執行下列步驟。在以下步驟中，您將新增訂閱，以便讓 **[從 Azure 網站匯入]** 下方的下拉式清單納入您的網站。
 
-    a. **Import Publish Profile** 대화 상자에서 **Add Azure subscription**을 클릭합니다.
+    a. 在 **[匯入發行設定檔]** 對話方塊中，按一下 **[新增 Azure 訂閱]**。
 
-    ![win az 구독 추가](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzAddWAsub.png)
+    ![add win az sub](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzAddWAsub.png)
 
-    b. **Import Azure Subscriptions** 대화 상자에서 **구독 파일 다운로드**를 클릭합니다.
+    b. 在 **[匯入 Azure 訂閱]** 對話方塊中，按一下 **[下載訂閱檔案]**。
 
-    ![구독 다운로드](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzDownLoad.png)
+    ![download sub](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzDownLoad.png)
 
-    c. 브라우저 창에서 *.publishsettings* 파일을 저장합니다.
+    c. 在您的瀏覽器視窗中，儲存 *.publishsettings* 檔案。
 
-    ![게시 파일 다운로드](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzDown2.png)
+    ![download pub file](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzDown2.png)
 
-    > [WACOM.NOTE]
-    > .publishsettings 파일에는 Azure 구독 및 서비스를 관리하는 데 사용되는 자격 증명(인코딩 해제)이 포함되어 있습니다. 이 파일의 보안을 유지하는 가장 좋은 방법은 소스 디렉터리 밖(예: 라이브러리\\문서 폴더)에 임시로 파일을 저장한 다음 일단 가져오기가 완료되면 삭제하는 것입니다. 악의적인 사용자가 .publishsettings 파일에 액세스할 경우 Azure 서비스를 편집, 생성 및 삭제할 수 있습니다.
+    > [WACOM.NOTE] .publishsettings 檔案包含用來管理 Azure 訂閱和服務的認證 (未編碼)。這個檔案的安全性最佳作法是暫時儲存在來源目錄之外 (例如在 Libraries\\Documents 資料夾)，然後在匯入完成後予以刪除。惡意使用者若取得 .publishsettings 檔案的存取權，就可以編輯、建立和刪除您的 Azure 服務。
 
-    d. **Import Azure Subscriptions** 대화 상자에서 **찾아보기**를 클릭하고 *.publishsettings* 파일로 이동합니다.
+    d. 在 **[匯入 Azure 訂閱]** 對話方塊中，按一下 **[瀏覽]** 並瀏覽至 *.publishsettings* 檔案。
 
-    ![구독 다운로드](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzDownLoad.png)
+    ![download sub](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzDownLoad.png)
 
-    e. **가져오기**를 클릭합니다.
+    e. 按一下 **[匯入]**。
 
-    ![가져오기](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzImp.png)
+    ![import](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzImp.png)
 
-8.  **게시 프로필 가져오기** 대화 상자에서 **Azure 웹 사이트에서 가져오기**를 선택하고 드롭다운 목록에서 웹 사이트를 선택한 후 **확인**을 클릭합니다.
+8.  在 **[匯入發行設定檔]** 對話方塊中，選取 **[從 Azure 網站匯入]**，接著從下拉式清單選取網站，再按一下 **[確定]**。
 
-    ![게시 프로필 가져오기](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/ImportPublishProfile.png)
+    ![Import Publish Profile](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/ImportPublishProfile.png)
 
-    만든 응용 프로그램이 이제 클라우드에서 실행되고 있습니다. 다음에 응용 프로그램을 배포할 때는 변경된(또는 새) 파일만 배포됩니다.
+    您建立的應用程式現在正在雲端中執行。下次您部署應用程式時，只會部署變更的 (或新的) 檔案。
 
-    ![Azure에서 실행하는 할 일 모음 홈페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/newapp005.png)
+    ![To Do List home page running in Azure](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/newapp005.png)
 
-응용 프로그램에 데이터베이스 추가
----------------------------------
+新增資料庫至應用程式
+--------------------
 
-이제 MVC 응용 프로그램을 업데이트하여 연락처를 표시 및 업데이트하고 데이터베이스에 데이터를 저장하는 기능을 추가하겠습니다. 응용 프로그램은 Entity Framework를 사용하여 데이터베이스를 만들며 데이터베이스에서 데이터를 읽고 업데이트합니다.
+接下來，您將更新 MVC 應用程式，以加上顯示和更新資料庫中的連絡人，以及在資料庫中儲存資料的能力。應用程式將使用 Entity Framework，以建立資料庫以及讀取和更新資料庫中的資料。
 
-### 연락처에 대한 데이터 모델 클래스 추가
+### 新增連絡人的資料模型類別
 
-먼저 코드로 간단한 데이터 모델을 만듭니다.
+首先，您會在程式碼中建立簡單的資料模型。
 
-1.  **솔루션 탐색기**에서 모델 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **클래스**를 클릭합니다.
+1.  在 **[方案總管]**，於 Models 資料夾上按一下滑鼠右鍵，按一下 **[新增]**，再按一下 **[類別]**。
 
-![모델 폴더 상황에 맞는 메뉴의 클래스 추가](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-adddatabase-001.png)
+	![Add Class in Models folder context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-adddatabase-001.png)
 
-1.  **새 항목 추가** 대화 상자에서 새 클래스 파일의 이름을 *Contact.cs*로 지정하고 **추가**를 클릭합니다.
+1.  在 **[加入新項目]** 對話方塊中，將新的類別檔案命名為 *Contact.cs*，再按一下 **[新增]**。
 
-![새 항목 추가 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-adddatabase-002.png)
+	![Add New Item dialog box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-adddatabase-002.png)
 
-1.  Contacts.cs 파일 내용을 다음 코드로 바꿉니다.
+1.  以下列程式碼取代 Contacts.cs 檔案的內容。
 
          using System.ComponentModel.DataAnnotations;
-         using System.Globalization;
-         namespace ContactManager.Models
+        using System.Globalization;
+        namespace ContactManager.Models
          {
-             public class Contact
+        public class Contact
              {
-                 public int ContactId { get; set; }
-                 public string Name { get; set; }
-                 public string Address { get; set; }
-                 public string City { get; set; }
-                 public string State { get; set; }
-                 public string Zip { get; set; }
-                 [DataType(DataType.EmailAddress)]
-                 public string Email { get; set; }
+        public int ContactId { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zip { get; set; }
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
              }
          }
 
-**Contacts** 클래스는 각 연락처에 대해 저장할 데이터와 데이터베이스에 필요한 기본 키 *ContactID*를 정의합니다.
+**Contacts** 類別定義您將為每個連絡人儲存的資料，加上資料庫需要的主要索引鍵 *ContactID*。
 
-### 앱 사용자가 연락처 작업을 수행할 수 있는 웹 페이지 만들기
+### 建立可讓應用程式使用者使用連絡人的網頁
 
-ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행하는 코드를 자동으로 생성할 수 있습니다.
+ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更新和刪除 (CRUD) 動作。
 
-데이터에 대한 컨트롤러 및 뷰 추가
----------------------------------
+新增控制器和資料檢視
+--------------------
 
-1.  프로젝트를 빌드합니다**(Ctrl+Shift+B)**. 스캐폴딩 메커니즘을 사용하기 전에 프로젝트를 빌드해야 합니다.
-2.  **솔루션 탐색기**에서 컨트롤러 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **컨트롤러**를 클릭합니다.
+1.  建置專案 **(Ctrl+Shift+B)**。(使用樣板機制前必須先建置專案。)
+2.  在 **[方案總管]**，於 Controllers 資料夾上按一下滑鼠右鍵，按一下 **[新增]**，再按一下 **[控制器]**。
 
-    ![컨트롤러 폴더 상황에 맞는 메뉴의 컨트롤러 추가](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-controller-add-context-menu.png)
+    ![Add Controller in Controllers folder context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-controller-add-context-menu.png)
 
-3.  **컨트롤러 추가** 대화 상자에서 컨트롤러 이름으로 "HomeController"를 입력합니다.
-4.  **스캐폴딩 옵션** 템플릿을 **MVC Controller with read/write actions and views, using Entity Framework**로 설정합니다.
-5.  모델 클래스로 **Contact**를 선택하고 데이터 컨텍스트 클래스로 **&lt;새 데이터 컨텍스트...\>**를 선택합니다.
+3.  在 **[加入控制器]** 對話方塊中，輸入 "HomeController" 作為控制器名稱。
+4.  將 **[Scaffolding options]** 範本設定為 **[MVC Controller with read/write actions and views, using Entity Framework]**。
+5.  選取 **[連絡人]** 作為您的模型類別，並選取 **[&lt;New data context...\>]** 作為您的資料內容類別。
 
-    ![컨트롤러 추가 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-controller-add-controller-dialog.png)
+    ![Add Controller dialog box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-controller-add-controller-dialog.png)
 
-6.  **새 데이터 컨텍스트** 대화 상자에서 기본값인 *ContactManager.Models.ContactManagerContext*를 수락합니다.
+6.  在 **[New Data Context]** 對話方塊中，接受預設值 *ContactManager.Models.ContactManagerContext*。![Add Controller dialog box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxNewCtx.png)
 
-    ![컨트롤러 추가 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxNewCtx.png)
+7.  按一下 **[確定]**，然後在 [新增控制器] 對話方塊中按一下 **[新增]**。
+8.  在 [新增控制器] 覆寫對話方塊****中，確保所有選項皆已勾選，然後按一下 **[確定]**。
 
-7.  **확인**을 클릭한 다음 **컨트롤러 추가** 대화 상자에서 **추가**를 클릭합니다.
-8.  **컨트롤러 추가** 대화 상자에서 옵션이 모두 선택되었는지 확인하고 **확인**을 클릭합니다.
+    ![Add Controller message box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxOverwrite.png)
 
-    ![컨트롤러 추가 메시지 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxOverwrite.png)
+Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立控制器方法與檢視。
 
-Visual Studio에서 **Contact** 개체에 대한 CRUD 데이터베이스 작업의 컨트롤러 메서드와 뷰를 만듭니다.
+啟用移轉、建立資料庫、新增範例資料和資料初始設定式
+--------------------------------------------------
 
-마이그레이션 사용, 데이터베이스 만들기, 샘플 데이터 및 데이터 이니셜라이저 추가
--------------------------------------------------------------------------------
+下一個工作是啟用 [Code First 移轉](http://msdn.microsoft.com/library/hh770484.aspx)功能，以便根據建立的資料模型建立資料庫。
 
-다음 작업은 만든 데이터 모델에 따라 데이터베이스를 만들기 위해 [Code First 마이그레이션](http://msdn.microsoft.com/library/hh770484.aspx)(영문) 기능을 사용하도록 설정하는 것입니다.
+1.  在 **[工具]** 功能表中，依序選取 **[Library Package Manager]** 及 **[Package Manager Console]**。
 
-1.  **도구** 메뉴에서 **라이브러리 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다.
+    ![Package Manager Console in Tools menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-migrations-package-manager-menu.png)
 
-    ![도구 메뉴의 패키지 관리자 콘솔](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-migrations-package-manager-menu.png)
-
-2.  **패키지 관리자 콘솔** 창에서 다음 명령을 입력합니다.
+2.  在 **[Package Manager Console]** 視窗中，輸入下列命令：
 
          enable-migrations -ContextTypeName ContactManagerContext
 
     ![enable-migrations](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxE.png) 
-    프로젝트에 두 [DbContext](http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) 파생 클래스(방금 추가한 **ContactManagerContext** 및 멤버 자격 데이터베이스에 대해 사용되는 **UsersContext**)가 들어 있기 때문에 컨텍스트 형식 이름(**ContactManagerContext**)을 지정해야 합니다. **ContactManagerContext** 클래스는 Visual Studio 스캐폴딩 마법사가 추가했습니다.
+	您必須指定內容類型名稱 (**ContactManagerContext**)，因為該專案包含兩個 [DbContext](http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) 衍生的類別，包括我們剛建立的 **ContactManagerContext**，以及用在成員資格資料庫的 **UsersContext**。**ContactManagerContext** 類別已由 Visual Studio 硬板精靈新增。
 
-    **enable-migrations** 명령은 *Migrations* 폴더를 만들고 해당 폴더에 *Configuration.cs* 파일을 넣습니다. 이 파일을 편집하여 마이그레이션을 구성할 수 있습니다.
+    **enable-migrations** 命令會建立 *Migrations* 資料夾，並在該資料夾置入 *Configuration.cs* 檔案，您可以編輯該檔案來設定 [移轉]。
 
-3.  **패키지 관리자 콘솔** 창에서 다음 명령을 입력합니다.
+3.  在 **[Package Manager Console]** 視窗中，輸入下列命令：
 
          add-migration Initial
 
-    **add-migration Initial** 명령은 데이터베이스를 만든 *Migrations* 폴더에 **&lt;date\_stamp\>Initial**이라는 파일을 생성합니다. 첫 번째 매개 변수(**Initial**)는 임의이며 파일 이름을 만드는 데 사용됩니다. **솔루션 탐색기**에서 새 클래스 파일을 볼 수 있습니다.
+    **add-migration Initial** 命令會在 *Migrations* 資料夾中產生名為 **&lt;date\_stamp\>Initial** 的檔案，此檔案會建立資料庫。第一個參數 (**Initial**) 是任意的，用於建立檔案的名稱。您可以在 **[方案總管]** 中看到新的類別檔案。
 
-    **Initial** 클래스의 **Up** 메서드는 Contacts 테이블을 만들고 이전 상태로 돌아가려는 경우 사용되는 **Down** 메서드는 테이블을 삭제합니다.
+    在 **Initial** 類別中，**Up** 方法會建立 Contacts 資料表，**Down** 方法 (當您希望返回前個狀態時使用) 則會捨棄該資料表。
 
-4.  *Migrations\\Configuration.cs* 파일을 엽니다.
-5.  다음 네임스페이스를 추가합니다.
+4.  開啟 *Migrations\\Configuration.cs* 檔案。
+5.  新增下列命名空間。
 
-    	 using ContactManager.Models;
+    using ContactManager.Models;
 
-6.  *Seed* 메서드를 다음 코드로 바꿉니다.
+6.  以下列程式碼取代 *Seed* 方法：
 
          protected override void Seed(ContactManager.Models.ContactManagerContext context)
          {
-             context.Contacts.AddOrUpdate(p => p.Name,
-                new Contact
+        context.Contacts.AddOrUpdate(p => p.Name,
+        new Contact
                 {
-                    Name = "Debra Garcia",
-                    Address = "1234 Main St",
-                    City = "Redmond",
-                    State = "WA",
-                    Zip = "10999",
-                    Email = "debra@example.com",
+        Name = "Debra Garcia",
+        Address = "1234 Main St",
+        City = "Redmond",
+        State = "WA",
+        Zip = "10999",
+        Email = "debra@example.com",
                 },
-                 new Contact
+        new Contact
                  {
-                     Name = "Thorsten Weinrich",
-                     Address = "5678 1st Ave W",
-                     City = "Redmond",
-                     State = "WA",
-                     Zip = "10999",
-                     Email = "thorsten@example.com",
+        Name = "Thorsten Weinrich",
+        Address = "5678 1st Ave W",
+        City = "Redmond",
+        State = "WA",
+        Zip = "10999",
+        Email = "thorsten@example.com",
                  },
-                 new Contact
+        new Contact
                  {
-                     Name = "Yuhong Li",
-                     Address = "9012 State st",
-                     City = "Redmond",
-                     State = "WA",
-                     Zip = "10999",
-                     Email = "yuhong@example.com",
+        Name = "Yuhong Li",
+        Address = "9012 State st",
+        City = "Redmond",
+        State = "WA",
+        Zip = "10999",
+        Email = "yuhong@example.com",
                  },
-                 new Contact
+        new Contact
                  {
-                     Name = "Jon Orton",
-                     Address = "3456 Maple St",
-                     City = "Redmond",
-                     State = "WA",
-                     Zip = "10999",
-                     Email = "jon@example.com",
+        Name = "Jon Orton",
+        Address = "3456 Maple St",
+        City = "Redmond",
+        State = "WA",
+        Zip = "10999",
+        Email = "jon@example.com",
                  },
-                 new Contact
+        new Contact
                  {
-                     Name = "Diliana Alexieva-Bosseva",
-                     Address = "7890 2nd Ave E",
-                     City = "Redmond",
-                     State = "WA",
-                     Zip = "10999",
-                     Email = "diliana@example.com",
+        Name = "Diliana Alexieva-Bosseva",
+        Address = "7890 2nd Ave E",
+        City = "Redmond",
+        State = "WA",
+        Zip = "10999",
+        Email = "diliana@example.com",
                  }
                  );
          }
 
-    이 코드는 연락처 정보가 있는 데이터베이스를 초기화합니다. 데이터베이스 시드에 대한 자세한 내용은 [EF(Entity Framework) DB 시드 및 디버그](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)(영문)를 참조하십시오.
+    以上的這個程式碼會以連絡人資訊初始化資料庫。如需植入資料庫的詳細資訊，請參閱[植入及偵錯 Entity Framework (EF) DB](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)。
 
-7.  **패키지 관리자 콘솔**에서 다음 명령을 입력합니다.
+7.  在 **[Package Manager Console]** 中輸入命令：
 
          update-database
 
-    ![패키지 관리자 콘솔 명령](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-migrations-package-manager-console.png)
+    ![Package Manager Console commands](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-migrations-package-manager-console.png)
 
-    **update-database**는 데이터베이스를 만드는 첫 번째 마이그레이션을 실행합니다. 기본적으로 데이터베이스는 SQL Server Express LocalDB 데이터베이스로 생성됩니다. (SQL Server Express를 설치한 경우 데이터베이스는 SQL Server Express 인스턴스를 사용하여 생성됩니다.)
+    **update-database** 會執行第一次移轉，使資料庫建立。根據預設，資料庫會以 SQL Server Express LocalDB 資料庫的形式建立。(除非您已安裝 SQL Server Express，這樣就能使用 SQL Server Express 執行個體來建立資料庫。)
 
-8.  Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
+8.  按 CTRL+F5 執行應用程式。
 
-응용 프로그램에서 시드 데이터를 표시하고 편집, 세부 정보 및 삭제 링크를 제공합니다.
+應用程式隨即顯示種子資料並提供編輯、詳細資料和刪除連結。
 
-![MVC 데이터 뷰](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx2.png)
+![MVC view of data](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx2.png)
 
-OAuthAdd an OAuth Provider
---------------------------
+OAuth新增 OAuth 提供者
+----------------------
 
-[OAuth](http://oauth.net/ "http://oauth.net/")는 웹, 모바일 및 데스크톱 응용 프로그램에서 간단한 표준 메서드로 보안 권한 부여를 허용하는 개방형 프로토콜입니다. ASP.NET MVC 인터넷 템플릿은 OAuth를 사용하여 Facebook, Twitter, Google, Yahoo 및 Microsoft를 인증 공급자로 표시합니다. 이 자습서에서는 인증 공급자로 Facebook, Google 및 Yahoo만 사용하지만 간단히 코드를 수정하여 다른 공급자를 사용할 수 있습니다. 다른 공급자를 구현하는 단계도 이 자습서에 표시되는 단계와 매우 비슷합니다.
+[OAuth](http://oauth.net/ "http://oauth.net/") 是一種開放式通訊協定，可讓 Web、行動和桌面應用程式以簡單、標準的方法執行安全授權。ASP.NET MVC 網際網路範本使用 OAuth 來公開 Facebook、Twitter、Google、Yahoo 和 Microsoft 的驗證提供者身分。雖然本教學課程僅使用 Facebook、Google 與 Yahoo 作為驗證提供者，但您可以輕易修改程式碼來使用任何提供者。實作其他提供者的步驟，與您將在本教學課程中看到的步驟極為類似。
 
-자습서에서는 인증 외에도 역할을 사용하여 권한 부여를 구현합니다. canEdit 역할에 추가한 사용자만 연락처를 만들거나 편집하거나 삭제할 수 있습니다.
+除了驗證，本教學課程也會使用角色來實作授權。只有您新增至 canEdit 角色的使用者才能建立、編輯或刪除連絡人。
 
-외부 공급자 등록
-----------------
+使用外部提供者註冊
+------------------
 
-외부 공급자의 자격 증명을 사용하여 사용자를 인증하려면 공급자와 함께 웹 사이트를 등록하고 키와 연결 암호를 받아야 합니다. Google 및 Yahoo의 경우 등록하고 키를 받을 필요가 없습니다.
+若要以一些外部提供者的認證來驗證使用者，您必須向網站註冊提供者並取得金鑰與連線密碼。Google 與 Yahoo 不會要求您註冊並取得金鑰。
 
-이 자습서는 이러한 공급자를 등록하기 위해 수행해야 할 단계를 모두 보여 주지 않습니다. 그러한 단계는 일반적으로 어렵지 않습니다. 사이트를 성공적으로 등록하려면 해당 사이트에 제공된 지침을 따르십시오. 사이트 등록을 시작하려면 개발자 사이트를 참조하십시오.
+本教學課程不會顯示註冊這些提供者時必須執行的所有步驟。這些步驟都很普通，不會非常困難。若要成功註冊您的網站，只需遵循這些網站上所提供的步驟即可。要開始註冊您的網站，請參閱以下提供者網站：
 
 -   [Facebook](http://developers.facebook.com/)
 -   [Microsoft](http://go.microsoft.com/fwlink/?LinkID=144070)
 -   [Twitter](http://dev.twitter.com/)
 
-필요한 경우 [https://developers.facebook.com/apps](https://developers.facebook.com/apps/) 페이지로 이동한 다음 로그인합니다. **Register as a Developer** 단추를 클릭하고 등록 프로세스를 완료합니다. 등록을 완료했으면 **Create New App**을 클릭합니다. 앱의 이름을 입력합니다. 앱 네임스페이스를 입력할 필요는 없습니다.
+瀏覽至 [https://developers.facebook.com/apps](https://developers.facebook.com/apps/) 頁面，必要時請登入。按一下 **[Register as a Developer]** 按鈕並完成註冊程序。完成註冊後，按一下 **[Create New App]**。輸入應用程式的名稱。您不需要輸入應用程式命名空間。
 
-![새 FB 앱 만들기](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBapp.png)
+![Create New FB app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBapp.png)
 
-**App Domain**에 localhost를 입력하고 **Site URL**에 http://localhost/를 입력합니다. **Sandbox Mode**에 대해 **Enabled**를 클릭한 다음 **Save Changes**를 클릭합니다.
+在 **[App Domain]** 中輸入 localhost，並在 [網站 URL] 中輸入 http://localhost/****。針對 [Sandbox Mode] 按一下 **[啟用]**，再按 **[儲存變更]**。
 
-이 응용 프로그램에서 OAuth를 실행하려면 **App ID** 및 **App Secret**이 필요합니다. ![새 FB 앱](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFB.png)
+您需要 **[應用程式識別碼]** 與 **[應用程式密鑰]** 以便在此應用程式中實作 OAuth。![New FB app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFB.png)
 
-테스트 사용자 만들기
---------------------
+建立測試使用者
+--------------
 
-왼쪽 창에서 **Settings** 아래의 **Developer Roles**를 클릭합니다. **Test Users** 행(**Testers** 행 아님)에서 **Create** 링크를 클릭합니다.
+在左窗格的 **[設定]** 下方，按一下 **[Developer Roles]**。按一下 **[測試使用者]** 列 (而非 **[測試者]** 列) 上的 **[建立]**連結 。
 
-![FB 테스터](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBt.png)
+![FB testers](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBt.png)
 
-**Modify** 링크를 클릭하여 테스트 사용자 전자 메일(응용 프로그램에 로그인하는 데 사용)을 받습니다. **See More** 링크를 클릭한 다음 **Edit**을 클릭하여 테스트 사용자 암호를 설정합니다.
+按一下 **[修改]** 連結以取得測試使用者電子郵件 (以便您用來登入應用程式)。按一下 **[See More]** 連結，然後按一下 **[編輯]** 來設定測試使用者密碼。
 
-공급자에서 응용 프로그램 ID 및 암호 추가
-----------------------------------------
+新增來自提供者的應用程式識別碼與密碼
+------------------------------------
 
-*App\_Start\\AuthConfig.cs* 파일을 엽니다. *RegisterFacebookClient* 메서드에서 주석 문자를 제거하고 앱 ID 및 앱 암호를 추가합니다. 받은 값을 사용합니다. 아래에 표시된 값은 작동하지 않습니다. 아래와 같이 *OAuthWebSecurity.RegisterGoogleClient* 호출에서 주석 문자를 제거하고 *OAuthWebSecurity.RegisterYahooClient*를 추가합니다. Google 및 Yahoo 공급자의 경우 등록하고 키를 받을 필요가 없습니다. 
-경고: 앱 ID 및 암호를 안전하게 보관하십시오. 앱 ID 및 암호를 아는 악의적인 사용자가 응용 프로그램을 사용할 수 있습니다.
+開啟 *App\_Start\\AuthConfig.cs* 檔案。從 *RegisterFacebookClient* 方法中移除註解字元，然後新增應用程式識別碼與密碼。使用您取得的值，以下所示的值將無法運作。移除 *OAuthWebSecurity.RegisterGoogleClient* 呼叫中的註解字元，然後如下所示新增 *OAuthWebSecurity.RegisterYahooClient*。Google 與 Yahoo 提供者不會要求您註冊並取得金鑰。警告：將您的應用程式識別碼與密碼放在安全的地方。擁有您的應用程式識別碼與密碼的惡意使用者將可假冒為您的應用程式。
 
      public static void RegisterAuth()
         {
-            OAuthWebSecurity.RegisterFacebookClient(
-                appId: "여기에 숫자 키 입력",
-                appSecret: "여기에 숫자 암호 입력");
+    OAuthWebSecurity.RegisterFacebookClient(
+    appId:"enter numeric key here",
+    appSecret:"enter numeric secret here");
 
-            OAuthWebSecurity.RegisterGoogleClient();
-            OAuthWebSecurity.RegisterYahooClient();
+    OAuthWebSecurity.RegisterGoogleClient();
+    OAuthWebSecurity.RegisterYahooClient();
         }
 
-1.  응용 프로그램을 실행하고 **Log In** 링크를 클릭합니다.
-2.  **Facebook** 단추를 클릭합니다.
-3.  Facebook 자격 증명 또는 테스트 사용자 자격 증명 중 하나를 입력합니다.
-4.  **확인**을 클릭하여 응용 프로그램이 Facebook 리소스에 액세스하도록 허용합니다.
-5.  등록 페이지로 리디렉션됩니다. 테스트 계정을 사용하여 로그인한 경우 **사용자 이름**을 더 짧게(예: "Bill FB test") 변경할 수 있습니다. **등록** 단추를 클릭하면 사용자 이름 및 전자 메일 별칭이 멤버 자격 데이터베이스에 저장됩니다.
-6.  다른 사용자를 등록합니다. 현재 로그인 시스템의 버그 때문에 로그오프한 다음 같은 공급자를 사용하여 다른 사용자로 로그인하지 못하고 있습니다(즉 Facebook 계정을 로그오프한 다음 다른 Facebook 계정을 사용하여 다시 로그인할 수 없음). 이 문제를 해결하기 위해 다른 브라우저를 사용하여 사이트로 이동한 다음 다른 사용자를 등록합니다. 사용자 한 명이 관리자 역할에 추가되고 응용 프로그램에 대해 편집 권한을 가지게 됩니다. 다른 사용자는 사이트에서 편집할 수 없는 메서드에만 액세스할 수 있습니다. 익명 사용자는 홈페이지에만 액세스할 수 있습니다.
-7.  다른 공급자를 사용하여 다른 사용자를 등록합니다.
-8.  **선택 사항**: 공급자와 연결되지 않은 로컬 계정을 만들 수도 있습니다. 자습서의 뒷부분에서 로컬 계정을 만드는 기능을 제거할 것입니다. 로컬 계정을 만들려면 **로그아웃** 링크(로그인된 경우)를 클릭한 다음 **등록** 링크를 클릭합니다. 외부 인증 공급자와 연결되지 않은 관리용 로컬 계정을 만들 수 있습니다.
+1.  執行應用程式並按一下 **[登入]** 連結。
+2.  按一下 **[Facebook]** 按鈕。
+3.  輸入您的 Facebook 認證或是其中一個測試使用者認證。
+4.  按一下 **[確定]** 允許您的應用程式存取您的 Facebook 資源。
+5.  系統會將您重新導向至 [註冊] 頁面。如果您是使用測試帳戶登入，則您可以將 **[使用者名稱]** 變更為較短的字串，例如 "Bill FB test"。按一下 **[註冊]** 按鈕，會將使用者名稱與電子郵件別名儲存至成員資格資料庫。
+6.  註冊另一位使用者。目前登入系統內的程式錯誤，將無法讓您登出後以另一位使用者身分重新登入相同的服務提供者 (亦即，您無法登出 Facebook 帳戶後，以另一位 Facebook 帳戶身分重新登入)。若要解決這個問題，請使用不同的瀏覽器登入網站，並註冊另一位使用者。系統會將一位使用者新增至管理員角色，使其得以編輯應用程式，而另一位使用者則只能存取網站上的非編輯方法。匿名使用者只能存取首頁。
+7.  向不同的提供者註冊另一位使用者。
+8.  **選擇性**：您也可以建立與其中一個提供者沒有關聯的本機帳戶。本教學課程稍後將移除建立本機帳戶的能力。若要建立本機帳戶，按一下 **[登出]** 連結 (如果您目前登入的話)，然後按 **[Register link]**。您可能會想要建立未與任何外部驗證提供者關聯的本機帳戶以利進行管理。
 
-멤버 자격 DB멤버 자격 데이터베이스에 역할 추가
-----------------------------------------------
+成員資格資料庫新增角色至成員資格資料庫
+--------------------------------------
 
-이 섹션에서는 멤버 자격 데이터베이스에 *canEdit* 역할을 추가합니다. canEdit 역할의 사용자만 데이터를 편집할 수 있습니다. 수행하는 작업별로 역할의 이름을 지정하는 것이 좋으므로 *admin* 역할보다 *canEdit*이 우선합니다. 응용 프로그램이 발전함에 따라 *superAdmin*보다 *canDeleteMembers* 등의 새 역할을 추가할 수 있습니다.
+在本節中，您會將 *canEdit* 角色新增至成員資格資料庫。只有 canEdit 角色中的使用者才能編輯資料。最佳做法是依角色可執行的動作來命名角色，因此將角色命名為 *canEdit* 會較命名為 *admin* 更好。隨著應用程式發展，您可以新增如 *canDeleteMembers* 等新角色，而非 *superAdmin*。
 
-1.  **보기** 메뉴에서 **서버 탐색기**를 클릭합니다.
+1.  在 **[檢視]** 功能表中，按一下 **[伺服器總管]**。
 
-2.  **서버 탐색기**에서 **DefaultConnection**을 확장한 후 **테이블**을 확장합니다.
+2.  在 **[伺服器總管]** 中，展開 **[DefaultConnection]**，然後展開 **[資料表]**。
 
-3.  **UserProfile**을 마우스 오른쪽 단추로 클릭한 다음 **테이블 데이터 표시**를 클릭합니다.
+3.  以滑鼠右鍵按一下 **[UserProfile]**，然後按一下 **[Show Table Data]**。
 
-    ![테이블 데이터 표시](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSTD.png)
+    ![Show table data](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSTD.png)
 
-4.  canEdit 역할을 가질 사용자에 대해 **UserId**를 기록합니다. 아래 이미지에서 **UserId** 2를 가진 사용자 *ricka*가 사이트에 대해 canEdit 역할을 가집니다.
+4.  記下即將擁有 canEdit 角色的使用者之 **UserId**。在下圖中，具有 **UserId** 2 的使用者 *ricka* 將擁有該網站的 canEdit 角色。
 
-    ![사용자 ID](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxUid.png)
+    ![user IDs](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxUid.png)
 
-5.  **webpages\_Roles**를 마우스 오른쪽 단추로 클릭한 다음 **테이블 데이터 표시**를 클릭합니다.
-6.  **RoleName** 셀에 **canEdit**을 입력합니다. 역할을 처음 추가하는 경우 **RoleId**가 1이 됩니다. RoleID를 기록합니다. 후행 공백 문자가 없어야 합니다. 역할 테이블의 "canEdit "은 컨트롤러 코드의 "canEdit"과 일치하지 않습니다.
+5.  以滑鼠右鍵按一下 **[webpages\_Roles]**，然後按一下 **[Show Table Data]**。
+6.  在 **RoleName** 儲存格中輸入 **canEdit**。如果這是您首次新增角色，則 **RoleId** 將為 1。記下 RoleID。請記得裡面沒有尾端字元空格，角色資料表中的 "canEdit " 與控制器程式碼中的 "canEdit" 並不相符。
 
     ![roleID](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxRoleID.png)
 
-7.  **webpages UsersInRoles**를 마우스 오른쪽 단추로 클릭한 다음 **테이블 데이터 표시**를 클릭합니다. *canEdit* 액세스 권한 및 **RoleId**를 부여할 사용자에 대해 **UserId**를 입력합니다.
+7.  以滑鼠右鍵按一下 **[webpages UsersInRoles]**，然後按一下 **[Show Table Data]**。針對您想要授予 *canEdit* 存取權的使用者輸入 **UserId** 與 **RoleId**。
 
-    ![사용자 역할 ID tbl](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxUR.png)
+    ![usr role ID tbl](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxUR.png)
 
-**webpages\_OAuthMembership** 테이블에는 OAuth 공급자, 공급자 UserID 및 등록된 각 OAuth 사용자의 UserID가 들어 있습니다. **webpages-Membership** 테이블에는 ASP.NET 멤버 자격 테이블이 들어 있습니다. 등록 링크를 사용하여 이 테이블에 사용자를 추가할 수 있습니다. 타사 인증 공급자를 이용할 수 없는 경우에도 *canEdit* 액세스 권한을 항상 보유할 수 있으므로, Facebook 또는 다른 타사 인증 공급자와 연결되지 않은 *canEdit* 역할을 가진 사용자를 추가하는 것은 좋은 생각입니다. 자습서의 뒷부분에서 ASP.NET 멤버 자격 등록을 비활성화할 것입니다.
+**webpages\_OAuthMembership** 資料表內含每一位註冊之 OAuth 使用者的 OAuth 提供者、提供者 UserID 與 UserID。**webpages-Membership** 資料表包含 ASP.NET 成員資格角色。您可以透過註冊連結將使用者新增至此資料表。使用未與 Facebook 或另一個第三方授權提供者關聯的 *canEdit* 角色新增使用者是很理想的辦法，因為這樣一來，即便第三方授權提供者無法提供服務，您還是隨時擁有 *canEdit* 存取權。本教學課程稍後將停用 ASP.NET 成員資格註冊。
 
-Authorize 특성을 사용하여 응용 프로그램 보호
---------------------------------------------
+使用 Authorize 屬性保護應用程式
+-------------------------------
 
-이 섹션에서는 [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 특성을 적용하여 작업 메서드에 대한 액세스를 제한합니다. 익명 사용자는 홈페이지만 볼 수 있습니다. 등록된 사용자는 연락처 세부 정보, 정보 및 연락처 페이지를 볼 수 있습니다. *canEdit* 역할의 사용자만 데이터를 변경하는 작업 메서드에 액세스할 수 있습니다.
+在本節中，我們將套用 [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 屬性來限制對動作方法的存取。匿名使用者將只能檢視首頁。註冊使用者將能檢視連絡人詳細資料、關於頁面與連絡人頁面。只有 *canEdit* 角色中的使用者才能存取用來變更資料的動作方法。
 
-1.  응용 프로그램에 [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 필터와 [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) 필터를 추가합니다. 또 다른 방법은 각 컨트롤러에 [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 특성과 [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) 특성을 추가하는 것이지만 전체 응용 프로그램에 적용하는 것이 보안상 더 좋은 모범 사례입니다. 전체적으로 추가하면 새로 추가된 모든 컨트롤러와 작업 메서드가 자동으로 보호되므로 따로 적용할 필요가 없습니다. 자세한 내용은 [ASP.NET MVC 4 앱 및 새 AllowAnonymous 특성 보안 유지](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)(영문)를 참조하십시오. *App\_Start\\FilterConfig.cs* 파일을 열고 *RegisterGlobalFilters* 메서드를 다음으로 바꿉니다.
+1.  將 [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 篩選器和 [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) 篩選器新增至應用程式。替代的方法是將 [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 屬性和 [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) 屬性新增至每個控制器，但將這些屬性套用至整個應用程式是最安全的做法。藉由全面新增這些屬性，您所新增的每個新控制器和動作方法都會自動受到保護，而不需要您記得哪些已套用、哪些未套用。如需詳細資訊，請參閱[保護您的 ASP.NET MVC 4 應用程式和新 AllowAnonymous 屬性](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)。開啟 *App\_Start\\FilterConfig.cs* 檔案並使用下列方法取代 *RegisterGlobalFilters* 方法。
 
          public static void
-         RegisterGlobalFilters(GlobalFilterCollection filters)
+        RegisterGlobalFilters(GlobalFilterCollection filters)
          {
-             filters.Add(new HandleErrorAttribute());
-             filters.Add(new System.Web.Mvc.AuthorizeAttribute());
-             filters.Add(new RequireHttpsAttribute());
+        filters.Add(new HandleErrorAttribute());
+        filters.Add(new System.Web.Mvc.AuthorizeAttribute());
+        filters.Add(new RequireHttpsAttribute());
          }
 
-2.  [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 특성을 **Index** 메서드에 추가합니다. [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 특성을 사용하여 권한 부여에서 옵트아웃(opt out)하려는 메서드를 허용 목록에 추가할 수 있습니다.
-3.  [Authorize(Roles = "canEdit")]를 데이터를 변경(생성, 편집, 삭제)하는 Get 및 Post 메서드에 추가합니다.
-4.  *About* 및 *Contact* 메서드를 추가합니다. 아래에는 완성된 코드의 일부가 표시되어 있습니다.
+2.  將 [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性新增至 **Index** 方法。[AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 屬性能讓您將想要選擇略過授權的方法加到白名單。
+3.  將 [Authorize(Roles = "canEdit")] 新增至可改變資料 (建立、編輯、刪除) 的 Get 與 Post 方法中。
+4.  新增 *About* 與 *Contact* 方法。以下顯示完整程式碼的片段內容。
 
-         public class HomeController : Controller
+         public class HomeController :Controller
          {
-             private ContactManagerContext db = new ContactManagerContext();
-             [AllowAnonymous]
-             public ActionResult Index()
+        private ContactManagerContext db = new ContactManagerContext();
+        [AllowAnonymous]
+        public ActionResult Index()
              {
-                 return View(db.Contacts.ToList());
+        return View(db.Contacts.ToList());
              }
 
-             public ActionResult About()
+        public ActionResult About()
              {
-                 return View();
+        return View();
              }
 
-             public ActionResult Contact()
+        public ActionResult Contact()
              {
-                 return View();
+        return View();
              }
 
-             [Authorize(Roles = "canEdit")]
-             public ActionResult Create()
+        [Authorize(Roles = "canEdit")]
+        public ActionResult Create()
              {
-                 return View();
+        return View();
              }
-             // Methods moved and omitted for clarity.
+        // Methods moved and omitted for clarity.
          }
 
-5.  ASP.NET 멤버 자격 등록을 제거합니다. 프로젝트의 현재 ASP.NET 멤버 자격 등록은 암호 재설정을 지원하지 않으며 사람이 등록하고 있는지 확인하지 않습니다(예: [CAPTCHA](http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership) 사용). 사용자가 타사 공급자 중 하나를 사용하여 인증된 경우 등록할 수 있습니다. AccountController에서 GET 및 POST *Register* 메서드의 *[AllowAnonymous]*를 제거합니다. 이렇게 하면 보트 및 익명 사용자가 등록할 수 없습니다.
-6.  *Views\\Account\\Login.cshtml*에서 등록 작업 링크를 제거합니다.
-7.  SSL을 사용하도록 설정합니다. 솔루션 탐색기에서 **ContactManager** 프로젝트를 클릭한 다음 F4 키를 클릭하여 속성 대화 상자를 표시합니다. **SSL 사용**을 true로 변경합니다. **SSL URL**을 복사합니다.
+5.  移除 ASP.NET 成員資格註冊。專案中目前的 ASP.NET 成員資格註冊並未支援密碼重設，且不會確認註冊者是否為真人 (例如使用 [CAPTCHA](http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership))。使用者只要以其中一家協力廠商提供者通過驗證後，即可註冊。在 AccountController 中，從 GET 和 POST *Register* 方法移除 *[AllowAnonymous]*。它們將防止 Bot 和匿名使用者進行註冊。
+6.  在 *Views\\Shared\_LoginPartial.cshtml* 中移除 Register 動作連結。
+7.  啟用 SSL。在 [方案總管]，按一下 **[ContactManager]** 專案，再按一下 F4 帶出 [屬性] 對話方塊。將 **[SSL 已啟用]** 變更為 true。複製 **[SSL URL]**。
 
-    ![SSL 사용](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSSL.png)
+    ![enable SSL](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSSL.png)
 
-8.  솔루션 탐색기에서 **Contact Manager** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
-9.  왼쪽 탭에서 **웹**을 클릭합니다.
-10. **프로젝트 URL**을 변경하여 **SSL URL**을 사용합니다.
-11. **가상 디렉터리 만들기**를 클릭합니다.
+8.  在 [方案總管]，於 **[Contact Manager]** 專案上按一下滑鼠右鍵，再按一下 **[屬性]**。
+9.  在左側索引標籤中按一下 **[Web]**。
+10. 將 **[專案 URL]** 變更為使用 **[SSL URL]**。
+11. 按一下 **[建立虛擬目錄]**。
 
-    ![SSL 사용](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxS2.png)
+    ![enable SSL](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxS2.png)
 
-12. Ctrl+F5를 눌러 응용 프로그램을 실행합니다. 브라우저에 인증서 경고가 표시됩니다. 이 응용 프로그램에서는 **이 웹 사이트를 계속 탐색합니다.** 링크를 클릭해도 안전합니다. *canEdit* 역할의 사용자만 데이터를 변경할 수 있는지 확인합니다. 익명 사용자는 홈페이지만 볼 수 있는지 확인합니다.
+12. 按 CTRL+F5 執行應用程式。瀏覽器將顯示憑證警告。就我們的應用程式而言，您可以放心地按一下 **[繼續瀏覽此網站]** 連結。確認只有 *canEdit* 角色中的使用者才能變更資料。確認匿名使用者只能檢視首頁。
 
-    ![인증서 경고](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxNOT.png)
+    ![cert Warn](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxNOT.png)
 
-    ![인증서 경고](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxNOT2.png)
+    ![cert Warn](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxNOT2.png)
 
-Azure 웹 사이트에는 유효한 보안 인증서가 포함되어 있으므로 Azure에 배포할 때 이 경고가 표시되지 않습니다.
+Azure 網站內含有效的安全憑證，因此當您部署至 Azure 時，不會看到這個警告。
 
-DB 준비데이터 배포 스크립트 작성
---------------------------------
+準備資料庫建立資料部署指令碼
+----------------------------
 
-멤버 자격 데이터베이스는 Entity Framework Code First에서 관리하지 않으므로 마이그레이션을 사용하여 배포할 수 없습니다. [dbDacFx](http://msdn.microsoft.com/en-us/library/dd394698.aspx) 공급자를 사용하여 데이터베이스 스키마를 배포하고, 게시 프로필을 구성하여 최초 멤버 자격 데이터를 멤버 자격 테이블에 삽입할 스크립트를 실행할 것입니다.
+成員資格資料庫並不是由 Entity Framework Code First 管理，因此您無法使用 Migrations 方式來加以部署。我們將使用 [dbDacFx](http://msdn.microsoft.com/en-us/library/dd394698.aspx) 提供者來部署資料庫結構描述，並將發行設定檔設定為執行可將初始成員資格資料插入成員資格資料表中的指令碼。
 
-이 자습서는 SQL Server Management Studio(SSMS)를 사용하여 데이터 배포 스크립트를 작성합니다.
+本教學課程將使用 SQL Server Management Studio (SSMS) 來建立資料部署指令碼。
 
-[Microsoft SQL Server 2012 Express 다운로드 센터](http://www.microsoft.com/en-us/download/details.aspx?id=29062)(영문)에서 SSMS를 설치합니다.
+從 [Microsoft SQL Server 2012 Express 下載中心](http://www.microsoft.com/en-us/download/details.aspx?id=29062)安裝 SSMS：
 
--   64비트 시스템의 경우 [ENU\\x64\\SQLManagementStudio\_x64\_ENU.exe](http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe)
--   32비트 시스템의 경우 [ENU\\x86\\SQLManagementStudio\_x86\_ENU.exe](http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe)
+-   適用 64 位元系統的 [ENU\\x64\\SQLManagementStudio\_x64\_ENU.exe](http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe)。
+-   適用 32 位元系統[ENU\\x86\\SQLManagementStudio\_x86\_ENU.exe](http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe)。
 
- 파일을 잘못 선택하면 설치가 되지 않으며 다른 파일을 선택할 수 있습니다.
+如果您選擇了系統無法使用的程式，該程式將無法安裝，這時請嘗試下載另一個程式。
 
-(600메가바이트 다운로드입니다. 설치하는 데 시간이 걸릴 수 있으며 컴퓨터를 다시 부팅해야 합니다.)
+(請注意，此下載檔案大小有 600 MB。需要一些時間來安裝，並可能需要重新啟動電腦。)
 
-SQL Server 설치 센터의 첫 페이지에서 **새 SQL Server 독립 실행형 설치 또는 기존 설치에 기능 추가**를 클릭한 다음 지침에 따라 기본 설정을 수락합니다. 다음 이미지는 SSMS 설치 단계를 보여 줍니다.
+在 SQL Server 安裝中心的第一頁，按一下 **[新的 SQL Server 獨立安裝或將功能加入到現有安裝]**，然後遵循指示進行，並接受預設選擇。下圖顯示會安裝 SSMS 的步驟。
 
-![SQL 설치](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSS.png)
+![SQL Install](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSS.png)
 
-### 개발 데이터베이스 스크립트 작성
+### 建立開發資料庫指令碼
 
-1.  SSMS를 실행합니다.
-2.  **서버에 연결** 대화 상자에 서버 이름으로 *(localdb)\\v11.0*을 입력하고 **인증** 설정은 **Windows 인증**으로 둔 다음 **연결**을 클릭합니다. SQL Express를 설치한 경우 **.\\SQLEXPRESS**를 입력합니다.
+1.  執行 SSMS。
+2.  在 **[Connect to Server]** 對話方塊中，輸入 *(localdb)\\v11.0* 作為伺服器名稱，並保留 **[驗證]** 設定為 **[Windows 驗證]**，然後按一下 **[連線]**。如果您已安裝 SQL Express，請輸入 **.\\SQLEXPRESS**。
 
-    ![서버에 연결 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxC2S.png)
+    ![con to srvr dlg](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxC2S.png)
 
-3.  **개체 탐색기** 창에서 **데이터베이스**를 확장하고 **aspnet-ContactManager**를 마우스 오른쪽 단추로 클릭한 다음 **작업**, **스크립트 생성**을 차례로 클릭합니다.
+3.  在 **[物件總管]** 視窗中，展開 **[資料庫]** 並以滑鼠右鍵按一下 **[aspnet-ContactManager]**，接著依序按一下 **[工作]** 及 **[產生指令碼]**。
 
-    ![스크립트 생성](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxGenScripts.png)
+    ![Gen Scripts](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxGenScripts.png)
 
-4.  **스크립트 생성 및 게시** 대화 상자에서 **스크립팅 옵션 설정**을 클릭합니다.
-전체 데이터베이스 및 모든 데이터베이스 개체 스크립팅이 기본값이며 원하는 설정이므로 **개체 선택** 단계를 건너뛸 수 있습니다.
+4.  在 **[產生和發佈指令碼]** 對話方塊中，按一下 **[設定指令碼編寫選項]**。您可以略過 **[選擇物件]** 步驟，因為預設是對整個資料庫與所有資料庫物件編寫指令碼，而這正是您要的結果。
 
-5.  **고급**을 클릭합니다.
+5.  按一下 **[進階]**。
 
-    ![스크립팅 옵션 설정](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx11.png)
+    ![Set scripting options](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx11.png)
 
-6.  **고급 스크립팅 옵션** 대화 상자에서 **스크립팅할 데이터 형식**까지 아래로 스크롤한 다음 드롭다운 목록에서 **데이터만** 옵션을 클릭합니다. (다음 단계 아래의 이미지 참조)
+6.  在 **[進階編寫指令碼選項]** 對話方塊中，向下捲動至 **[要編寫指令碼的資料類型]**，然後按一下下拉式清單中的 **[Data only]** 選項。(請參閱下個步驟下方的圖片)。
 
-7.  **USE DATABASE 스크립팅**을 **False**로 변경합니다. USE 문은 Azure SQL 데이터베이스에 대해 유효하지 않으며 테스트 환경에서 SQL Server Express에 배포의 경우 필요하지 않습니다.
+7.  將 **[編寫 USE DATABASE 的指令碼]** 變更為 **[False]**。請在測試環境中，使用不適用 Azure SQL Database 且不需要部署至 SQL Server Express 中的陳述式。
 
-    ![스크립팅 옵션 설정](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxAdv.png)
+    ![Set scripting options](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxAdv.png)
 
-8.  **확인**을 클릭합니다.
-9.  **스크립트 생성 및 게시** 대화 상자에서 **파일 이름** 상자는 스크립트가 생성되는 곳을 지정합니다. 솔루션 폴더(*Contacts.sln* 파일이 있는 폴더)에 대한 경로를 변경하고 파일 이름을 *aspnet-data-membership.sql*로 변경합니다.
-10. **다음**을 클릭하여 **요약** 탭으로 이동한 후 **다음**을 다시 클릭하여 스크립트를 작성합니다.
+8.  按一下 **[確定]**。
+9.  在 **[產生並發佈指令碼]** 對話方塊中，**[檔案名稱]** 方塊指定了要建立指令碼的位置。將路徑變更為您的解決方案資料夾 (內含您的 *Contacts.sln* 檔案的資料夾)，並將檔名變更為 *aspnet-data-membership.sql*。
+10. 按一下 **[下一步]** 前往 **[摘要]** 索引標籤，然後再按 **[下一步]** 建立指令碼。
 
-    ![저장 또는 게시](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx1.png)
+    ![Save or pub](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx1.png)
 
-11. **마침**을 클릭합니다.
+11. 按一下 **[完成]**。
 
-Azure에 앱 배포
----------------
+將應用程式部署至 Azure
+----------------------
 
-1.  응용 프로그램 루트 *Web.config* 파일을 엽니다. *DefaultConnection* 태그를 찾은 다음 복사하여 *DefaultConnection* 태그 줄에 붙여넣습니다. 복사한 요소 *DefaultConnectionDeploy*의 이름을 다시 지정합니다. 멤버 자격 데이터베이스의 사용자 데이터를 배포하기 위해 이 연결 문자열이 필요합니다.
+1.  開啟應用程式根目錄 *Web.config* 檔案。找到 *DefaultConnection* 標記，然後將其複製並貼上 *DefaultConnection* 標記線下方。重新命名複製的元素 *DefaultConnectionDeploy*。您將需要這個連接字串，以便將使用者資料部署至成員資格資料庫。![3 cons str](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxd.png)
 
-    ![연결 문자열 3개](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxd.png)
+2.  建置應用程式。
+3.  在 Visual Studio 的 **[方案總管]** 中以滑鼠右鍵按一下專案，再選取內容功能表中的 **[發行]**。
 
-2.  응용 프로그램을 빌드합니다.
-3.  Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **게시**를 선택합니다.
+    ![Publish in project context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-deploy1-publish-001.png)
 
-    ![프로젝트 상황에 맞는 메뉴의 게시](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-deploy1-publish-001.png)
+此時會開啟 **[發行 Web]** 精靈。
 
-**웹 게시** 마법사가 열립니다.
+1.  按一下 **[設定]** 索引標籤。按一下 **[v]** 圖示，為 **ContactManagerContext** 與 **DefaultConnectionDeploy** 選取 **[遠端連接字串]**。列出的這三個資料庫將使用相同的連接字串。**ContactManagerContext** 資料庫會儲存連絡人，**DefaultConnectionDeploy** 則僅用來將使用者帳戶資料部署至成員資格資料庫，而 **UsersContext** 資料庫則是成員資格資料庫。
 
-1.  **설정** 탭을 클릭합니다. **v** 아이콘을 클릭하여 **ContactManagerContext** 및 **DefaultConnectionDeploy**에 대한 **원격 연결 문자열**을 선택합니다. 나열된 세 데이터베이스는 모두 같은 연결 문자열을 사용합니다. **ContactManagerContext** 데이터베이스는 연락처를 저장하고, **DefaultConnectionDeploy**는 사용자 계정 데이터를 멤버 자격 데이터베이스에 배포하는 데에만 사용되며, **UsersContext** 데이터베이스는 멤버 자격 데이터베이스입니다.
+    ![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxD2.png)
 
-    ![설정](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxD2.png)
+2.  在 **[ContactManagerContext]** 下勾選 **[Execute Code First Migrations]**。
 
-2.  **ContactManagerContext**에서 **Code First 마이그레이션 실행**을 선택합니다.
+    ![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSettings.png)
 
-    ![설정](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSettings.png)
+3.  在 **DefaultConnectionDeploy** 下方勾選 **[更新資料庫]**，然後按一下 **[Configure database updates]** 連結。
+4.  按一下 **[加入 SQL 指令碼]** 連結，並瀏覽至 *aspnet-data-membership.sql* 檔案。您只需要做一次這個動作。下次部署時，您可以取消勾選 **[更新資料庫]**，因為您不會需要將使用者資料新增至成員資格資料表中。
 
-3.  **DefaultConnectionDeploy**에서 **데이터베이스 업데이트**를 선택한 다음 **Configure database updates** 링크를 클릭합니다.
-4.  **SQL 스크립트 추가** 링크를 클릭하고 *aspnet-data-membership.sql* 파일을 탐색합니다. 이 작업은 한 번만 필요합니다. 다음 배포 시에는 멤버 자격 테이블에 사용자 데이터를 추가할 필요가 없기 때문에 **데이터베이스 업데이트**를 선택 취소합니다.
+    ![add sql](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxAddSQL2.png)
 
-    ![sql 추가](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxAddSQL2.png)
+5.  按一下 **[發行]**。
+6.  瀏覽至 [https://developers.facebook.com/apps](https://developers.facebook.com/apps/) 頁面並將 **[新增網域]** 與 **[網站 URL]** 設定變更為 Azure URL。
+7.  測試應用程式。確認只有 *canEdit* 角色中的使用者才能變更資料。確認匿名使用者只能檢視首頁。確認驗證的使用者能夠瀏覽至不會變更資料的所有連結。
+8.  下次當您發行應用程式時，請務必取消勾選 **DefaultConnectionDeploy** 下方的 [更新資料庫]。
 
-5.  **게시**를 클릭합니다.
-6.  [https://developers.facebook.com/apps](https://developers.facebook.com/apps/) 페이지로 이동한 다음 **App Domains** 및 **Site URL** 설정을 Azure URL로 변경합니다.
-7.  응용 프로그램을 테스트합니다. *canEdit* 역할의 사용자만 데이터를 변경할 수 있는지 확인합니다. 익명 사용자는 홈페이지만 볼 수 있는지 확인합니다. 인증된 사용자가 데이터를 변경하지 않은 모든 링크로 이동할 수 있는지 확인합니다.
-8.  다음에 응용 프로그램을 배포할 때에는 **DefaultConnectionDeploy** 아래의 **데이터베이스 업데이트**를 선택 취소합니다.
+    ![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSettings.png)
 
-    ![설정](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSettings.png)
+更新資料庫更新成員資格資料庫
+----------------------------
 
-DB 업데이트멤버 자격 데이터베이스 업데이트
-------------------------------------------
+一旦網站部署至 Azure，而且您增加了更多的註冊使用者，您可能想要將某些使用者新增為 *canEdit* 角色的成員。本節將使用 Visual Studio 連接至 SQL 資料庫，並將使用者新增至 *canEdit* 角色。
 
-사이트를 Azure에 배포하고 등록된 사용자가 많아지면 사용자 중 일부를 *canEdit* 역할의 멤버로 만들 수 있습니다. 이 섹션에서는 Visual Studio를 사용하여 SQL 데이터베이스에 연결하고 *canEdit* 역할에 사용자를 추가합니다.
+![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSettings.png)
 
-![설정](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSettings.png)
+1.  在 **[方案總管]** 中，於專案上按一下滑鼠右鍵，再按一下 **[發行]**。
+    ![Publish](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxP.png)
 
-1.  **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다. 
-    ![게시](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxP.png)
+2.  按一下 **[設定]** 索引標籤。
+3.  複製連接字串。例如，本範例使用以下連接字串：Data Source=tcp:d015leqjqx.database.windows.net,1433; Initial Catalog=ContactDB2;User Id=ricka0@d015lxyze;Password=xyzxyz
+4.  關閉發行對話方塊。
+5.  在 **[檢視]** 功能表中，按一下 **[伺服器總管]**。
 
-2.  **설정** 탭을 클릭합니다.
-3.  연결 문자열을 복사합니다. 예를 들어 이 샘플에서 사용된 연결 문자열은 다음과 같습니다. Data Source=tcp:d015leqjqx.database.windows.net,1433; Initial Catalog=ContactDB2;User Id=ricka0@d015lxyze;Password=xyzxyz
-4.  게시 대화 상자를 닫습니다.
-5.  **보기** 메뉴에서 **서버 탐색기**를 클릭합니다.
+6.  按一下 **[連接至資料庫]** 圖示。
 
-6.  **데이터베이스에 연결** 아이콘을 클릭합니다.
+    ![Publish](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxc.png)
 
-    ![게시](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxc.png)
+7.  如果系統提示您輸入 [資料來源]，按一下 **[Microsoft SQL Server]**。
+    ![Publish](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx3.png)
 
-7.  데이터 원본에 대해 메시지가 표시되는 경우 **Microsoft SQL Server**를 클릭합니다. 
-    ![게시](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx3.png)
+8.  複製並貼上前面帶有 *tcp* 字樣的 **[伺服器名稱]** (請參見下圖)。
+9.  按一下 **[使用 SQL Server 驗證]**
+10. 輸入您的 **[使用者名稱]** 與 **[密碼]** (內含在您所複製的連接字串裡面)。
+11. 輸入資料庫名稱 (ContactDB，如果您的資料庫不叫做 ContactDB 的話，則為資料庫中 "Initial Catalog=" 之後的字串)。如果出現錯誤對話方塊，請參閱下一節。
+12. 按一下 **[測試連接]**。如果出現錯誤對話方塊，請參閱下一節。![add con dlg](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx4.png)
 
-8.  *tcp*로 시작하는 **서버 이름**을 복사하여 붙여넣습니다(아래 이미지 참조).
-9.  **SQL Server 인증 사용**을 클릭합니다.
-10. 복사한 연결 문자열에 있는 **사용자 이름** 및 **암호**를 입력합니다.
-11. 데이터베이스 이름(ContactDB 또는 ContactDB로 이름을 지정하지 않은 경우 데이터베이스에서 "Initial Catalog=" 다음의 문자열)을 입력합니다. 오류 대화 상자가 나타나는 경우 다음 섹션을 참조하십시오.
-12. **연결 테스트**를 클릭합니다. 오류 대화 상자가 나타나는 경우 다음 섹션을 참조하십시오. 
+無法開啟伺服器登入錯誤
+----------------------
 
-    ![연결 추가 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx4.png)
+如果出現「無法開啟伺服器」開頭字串的錯誤對話方塊，則您需要將 IP 位址新增至允許的 IP 清單中。
 
-서버를 열 수 없음 로그인 오류
------------------------------
+![firewall error](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx5.png)
 
-"서버를 열 수 없음" 오류 대화 상자가 표시되는 경우 허용된 IP에 IP 주소를 추가해야 합니다.
+1.  在 Azure 入口網站，選取左側索引標籤中的 **[SQL Database]**。
 
-![방화벽 오류](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx5.png)
+    ![Select SQL](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx6.png)
 
-1.  Azure 포털의 왼쪽 탭에서 **SQL Databases**를 선택합니다.
+2.  選取要開啟的資料庫。
 
-    ![SQL 선택](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx6.png)
+3.  按一下 **[Set up Azure firewall rules for this IP address]** 連結。
 
-2.  열려는 데이터베이스를 선택합니다.
+    ![firewall rules](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx7.png)
 
-3.  **이 IP 주소에 대한 Azure 방화벽 규칙 설정** 링크를 클릭합니다.
+4.  當系統提示您「現有的防火牆規則不含目前的 IP 位址 xxx.xxx.xxx.xxx。是否要更新防火牆規則？」時，請按一下 **[是]**。新增此位址一般來說還不夠，您需要新增一段 IP 位址範圍。
 
-    ![방화벽 규칙](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx7.png)
+新增一段允許的 IP 位址範圍
+--------------------------
 
-4.  "현재 IP 주소 xxx.xxx.xxx.xxx이(가) 기존 방화벽 규칙에 포함되어 있지 않습니다. 방화벽 규칙을 업데이트하시겠습니까?"라는 메시지가 표시되면 **Yes**를 클릭합니다. 이 주소를 추가해도 종종 문제가 해결되지 않습니다. IP 주소의 범위를 추가해야 합니다.
+1.  在 Azure 入口網站，按一下 **[SQL Database]**。
+2.  按一下主控您資料庫的 **[伺服器]**。
 
-허용된 IP 주소 범위 추가
-------------------------
+    ![db server](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx8.png)
 
-1.  Azure 포털에서 **SQL 데이터베이스**를 클릭합니다.
-2.  데이터베이스를 호스트하는 **서버**를 클릭합니다.
+3.  按一下頁面頂端的 **[設定]**。
+4.  新增規則名稱以及開頭與結尾 IP 位址。
+    ![ip range](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx9.png)
 
-    ![db 서버](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx8.png)
+5.  按一下頁面底部的 **[儲存]**。
+6.  您現在可以使用上述的步驟編輯成員資格資料庫。
 
-3.  페이지 위쪽에서 **구성**을 클릭합니다.
-4.  규칙 이름, 시작 및 끝 IP 주소를 추가합니다.
-    ![ip 범위](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx9.png)
+後續步驟後續步驟
+----------------
 
-5.  페이지 맨 아래에 있는 **저장**을 클릭합니다.
-6.  이제 이전에 설명한 단계에 따라 멤버 자격 데이터베이스를 편집할 수 있습니다.
+本教學課程和範例應用程式是由 [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) 在 Tom Dykstra、Tom FitzMacken 和 Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)) 的協助下所撰寫。
 
-다음 단계다음 단계
-------------------
+如果您發現喜歡的地方或希望我們改善的地方 (不論是針對本教學課程或其示範的產品)，歡迎留下意見反應。您的意見反應將協助我們訂出優先改善要務。我們非常希望能了解您對於將設定和部署成員資格資料庫之程序更進一步自動化的期待為何。
 
-이 자습서 및 샘플 응용 프로그램은 [Rick Anderson](http://blogs.msdn.com/b/rickandy/)(Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT))에 의해 작성되었으며, Tom Dykstra, Tom FitzMacken 및 Barry Dorrans(Twitter [@blowdart](https://twitter.com/blowdart))의 도움을 받았습니다.
+若要檢視色彩豐富的 Facebook、Google 與 Yahoo 登入按鈕，請參閱部落格文章[自訂 ASP.NET MVC 4 中的外部登入按鈕](http://www.beabigrockstar.com/customizing-external-login-buttons-in-asp-net-mvc-4/) (英文)。如需使用 Windows 驗證的詳細資訊，請參閱以下說明：
 
-자습서 자체뿐 아니라 설명된 제품과 관련해서 좋아한 사항이나 바라는 개선 사항에 대한 의견을 남겨주십시오. 사용자 의견은 개선 사항의 우선 순위를 지정하는 데 도움이 됩니다. 특히 멤버 자격 데이터베이스를 구성하고 배포하는 프로세스 자동화에 대한 사용자의 관심도가 어느 정도인지 파악하는 데 유용합니다.
+-   [Azure 驗證](http://www.asp.net/vnext/overview/fall-2012-update/windows-azure-authentication)
+-   [如何使用 ASP.NET MVC 建立內部網站](http://msdn.microsoft.com/en-us/library/gg703322(v=vs.98).aspx)
 
-다양한 Facebook, Google 및 Yahoo 로그온 단추를 받으려면 블로그 게시물 [ASP.NET MVC 4에서 외부 로그인 단추 사용자 지정](http://www.beabigrockstar.com/customizing-external-login-buttons-in-asp-net-mvc-4/)(영문)을 참조하십시오. Windows 인증 사용에 대한 자세한 내용은 다음을 참조하십시오.
+另一個儲存 Azure 應用程式資料的方法是使用 Azure 儲存體，它能以 Blob 和資料表的形式提供非關聯式的資料儲存。以下連結提供 ASP.NET MVC 及 Window Azure 的詳細資訊。
 
--   [Azure 인증(영문)](http://www.asp.net/vnext/overview/fall-2012-update/windows-azure-authentication)
--   [ASP.NET MVC를 사용하여 인트라넷 사이트를 만드는 방법(영문)](http://msdn.microsoft.com/en-us/library/gg703322(v=vs.98).aspx)
+-   [使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式](http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)。
+-   [ASP.NET MVC 4 入門](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4)
+-   [使用 MVC 的 Entity Framework 入門](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)
+-   [OAuth 2.0 與登入](http://blogs.msdn.com/b/vbertocci/archive/2013/01/02/oauth-2-0-and-sign-in.aspx)
 
-Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azure 저장소를 사용하는 것입니다. Azure 저장소는 비관계형 데이터 저장소를 Blob 및 테이블 형식으로 제공합니다. ASP.NET MVC 및 Azure에 대한 자세한 내용은 다음 링크를 참조하십시오.
+您已了解如何將 Web 應用程式部署至 Azure 網站。如需深入了解如何設定、管理與調整 Azure 網站大小，請參閱[常見工作](http://www.windowsazure.com/en-us/develop/net/common-tasks/)頁面上的〈作法〉主題。
 
--   [저장소 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 응용 프로그램](http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)(영문)
--   [ASP.NET MVC 4 소개(영문)](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4)
--   [MVC를 사용하여 Entity Framework 시작(영문)](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)
--   [OAuth 2.0 및 로그인(영문)](http://blogs.msdn.com/b/vbertocci/archive/2013/01/02/oauth-2-0-and-sign-in.aspx)
+如需瞭解如何偵錯 Azure 網站，請參閱[在 Visual Studio 中疑難排解 Azure 網站](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)。
 
-Azure 웹 사이트에 웹 응용 프로그램을 배포하는 방법을 확인했습니다. Azure 웹 사이트를 구성하고, 관리하고, 크기를 조정하는 방법에 대해 알아보려면 [일반 작업](http://www.windowsazure.com/en-us/develop/net/common-tasks/)(영문) 페이지에서 방법 항목을 참조하십시오.
+如需瞭解如何將應用程式部署至 Azure 雲端服務，請參閱[本教學課程的雲端版本](http://www.windowsazure.com/en-us/develop/net/tutorials/cloud-service-with-sql-database/)與[使用 Azure 開發 Web 應用程式](http://msdn.microsoft.com/en-us/library/Hh674484)。您可能會因為下列某些原因，選擇在 Azure 雲端服務下 (而不是使用 Azure 網站) 執行 ASP.NET Web 應用程式：
 
-Azure 웹 사이트를 디버그하는 방법에 대해 알아보려면 [Visual Studio에서 Azure 웹 사이트 문제 해결](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)(영문)을 참조하십시오.
+-   您想要取得執行該應用程式的 Web 伺服器管理員權限。
+-   您想要使用遠端桌面連線存取執行該應用程式的 Web 伺服器。
+-   您的應用程式為多層次，而您想要將工作平均分配到多個虛擬伺服器上 (Web 與工作者)。
 
-Azure 클라우드 서비스에 응용 프로그램을 배포하는 방법에 대해 알아보려면 [이 자습서의 클라우드 서비스 버전](http://www.windowsazure.com/en-us/develop/net/tutorials/cloud-service-with-sql-database/)(영문) 및 [Azure를 사용하여 웹 응용 프로그램 개발](http://msdn.microsoft.com/en-us/library/Hh674484)(영문)을 참조하십시오. Azure 웹 사이트 대신 Azure 클라우드 서비스에서 ASP.NET 웹 응용 프로그램을 실행하는 경우는 다음과 같습니다.
+如需同時瞭解 SQL Database 與 Azure 儲存體的詳細資訊，請參閱 [Azure 的資料儲存方案](http://social.technet.microsoft.com/wiki/contents/articles/data-storage-offerings-on-the-windows-azure-platform.aspx) (英文)。
 
--   응용 프로그램을 실행하는 웹 서버의 관리자 권한을 원하는 경우
--   원격 데스크톱 연결을 사용하여 응용 프로그램을 실행하는 웹 서버에 액세스하려는 경우
--   응용 프로그램이 다중 계층이고 여러 가상 서버(웹 및 작업자)에 작업을 분산하려는 경우
+如需深入了解如何使用 SQL Database，請參閱[在 ASP.NET 資料存取內容地圖中使用 Azure SQL Database](http://go.microsoft.com/fwlink/p/?LinkId=282414#ssdb) (英文)。
 
-SQL 데이터베이스 및 Azure 저장소에 대한 자세한 내용은 [Azure에서 데이터 저장소 제공](http://social.technet.microsoft.com/wiki/contents/articles/data-storage-offerings-on-the-windows-azure-platform.aspx)(영문)을 참조하십시오.
+如需深入了解 Entity Framework 與 Code First 移轉，請參閱下列資源：
 
-SQL 데이터베이스 사용 방법에 대한 자세한 내용은 [ASP.NET 데이터 액세스 콘텐츠 맵에서 Azure SQL 데이터베이스 사용](http://go.microsoft.com/fwlink/p/?LinkId=282414#ssdb)(영문)을 참조하십시오.
-
-Entity Framework 및 Code First 마이그레이션에 대한 자세한 내용은 다음 리소스를 참조하십시오.
-
--   [MVC를 사용하여 Entity Framework 시작(영문)](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)
--   [Code First 마이그레이션(영문)](http://msdn.microsoft.com/en-us/library/hh770484)
+-   [使用 MVC 的 Entity Framework 入門](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)
+-   [Code First 移轉](http://msdn.microsoft.com/en-us/library/hh770484)
 

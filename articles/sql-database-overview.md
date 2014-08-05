@@ -1,146 +1,146 @@
 
 
-Azure의 SQL 데이터베이스를 관리하는 방법
-========================================
+如何管理 Azure 上的 SQL Database
+================================
 
-이 가이드에서는 Azure SQL 데이터베이스에서 논리 서버 및 데이터베이스 인스턴스의 관리 작업을 수행하는 방법을 보여 줍니다.
+本指南將說明如何在 Azure SQL Database 上執行邏輯伺服器和資料課執行個體的管理工作。
 
-SQL 데이터베이스 정의
+什麼是 SQL Database？
 ---------------------
 
-SQL 데이터베이스는 Azure에 관계형 데이터베이스 관리 서비스를 제공하며 SQL Server 기술을 기반으로 합니다. SQL 데이터베이스를 사용하여 쉽게 클라우드에 데이터베이스 인스턴스를 프로비전하고 배포할 수 있으며 데이터 보호와 자동 복구가 기본 제공되는 혜택을 갖춘 엔터프라이즈급 가용성, 확장성, 보안을 제공하는 분산 데이터 센터를 활용할 수 있습니다.
+SQL Database 可在 Azure 上提供關聯式資料庫管理服務，並以 SQL Server 技術為基礎。在 SQL Database 中，您可以輕鬆地佈建及部署資料庫執行個體，並充分利用分散式資料中心，而該資料中心可提供企業級的可用性、延展性和安全性，以及內建資料防護和自我修復功能。
 
-목차
+目錄
 ----
 
--   [Azure에 로그인](#PreReq1)
--   [SQL 데이터베이스 구성](#PreReq2)
--   [Management Studio를 사용하여 연결](#PreReq3)
--   [Azure에 데이터베이스 배포](#HowTo1)
--   [로그인 및 사용자 추가](#HowTo2)
--   [SQL 데이터베이스 솔루션 확장](#HowTo4)
--   [논리 서버 및 데이터베이스 인스턴스 모니터링](#HowTo3)
--   [다음 단계](#NextSteps)
+-   [登入 Azure](#PreReq1)
+-   [設定 SQL Database](#PreReq2)
+-   [使用 Management Studio 進行連接](#PreReq3)
+-   [將資料庫部署至 Azure](#HowTo1)
+-   [新增登入和使用者](#HowTo2)
+-   [調整 SQL Database 解決方案](#HowTo4)
+-   [監視邏輯伺服器和資料庫執行個體](#HowTo3)
+-   [後續步驟](#NextSteps)
 
-Azure에 로그인
---------------
+登入 Azure
+----------
 
-SQL 데이터베이스를 통해 Azure에서 관계형 데이터 저장소, 액세스 및 관리 서비스를 사용할 수 있습니다. 그러려면 Azure 구독이 필요합니다.
+SQL Database 可在 Azure 上提供關聯式資料儲存體、存取和管理服務。若要加以使用，您必須要有 Azure 訂閱。
 
-1.  웹 브라우저를 열고 <http://www.windowsazure.com>으로 이동합니다. 무료 계정으로 시작하려면 오른쪽 위에 있는 무료 평가판을 클릭하고 안내되는 단계를 따르십시오.
+1.  開啟網頁瀏覽器，並瀏覽到 <http://www.windowsazure.com>。若要開始使用免費帳戶，請按一下右上角的 [免費試用]，並依照步驟進行。
 
-2.  이제 계정이 만들어집니다. 시작할 준비가 되었습니다.
+2.  現在已建立您的帳戶。您可以隨時開始使用。
 
-SQL 데이터베이스 만들기 및 구성
+建立及設定 SQL Database
+-----------------------
+
+接著，您將逐步完成邏輯伺服器的建立和設定。在新的 Azure (Preview) 管理入口網站中，經過修訂的工作流程可讓您先建立資料庫，然後再建立伺服器。
+
+在本指南中，您將會先建立伺服器。如果您想要上傳現有的 SQL Server 資料庫，可能會偏好這個方法。
+
+### 建立邏輯伺服器
+
+1.  在 <http://www.windowsazure.com> 進行登入，
+
+2.  按一下 **[SQL Database]**，再按一下 SQL Database 首頁的 **[伺服器]**。
+
+3.  按一下頁面底部的 **[新增]**。
+
+4.  在 [伺服器設定] 中，以一個字且不含空格的方式輸入系統管理員名稱。
+
+    SQL Database 會針對加密連線使用 SQL 驗證。系統將使用您提供的名稱，建立指派給系統管理員 (sysadmin) 固定伺服器角色的新 SQL Server 驗證登入。
+
+    登入不可以是電子郵件地址、Windows 使用者帳戶，也不得為 Windows Live ID。SQL Database 不支援 Claims 或 Windows 驗證。
+
+5.  提供八個字元以上，使用大小寫值和數字或符號組合的強式密碼。
+
+6.  選擇區域。區域可決定伺服器的地理位置。您無法輕易地切換區域，所以請選擇一個適合此伺服器的區域。選擇一個最靠近您的位置。將 Azure 應用程式和資料庫放在相同區域，可節省對外頻寬的成本並縮短資料延遲。
+
+7.  請務必將 **[Allow Services]** 選項保持選取狀態，以便使用 SQL Database 適用的管理入口網站、儲存體服務和 Azure 上的其他服務連接此資料庫。
+
+8.  完成時，請按一下頁面底部的核取記號。
+
+請注意，您未指定伺服器名稱。SQL Database 會自動產生伺服器名稱，以確保沒有重複的 DNS 項目。伺服器名稱是十個字元的英數字元字串。您無法變更 SQL Database 伺服器的名稱。
+
+在下一個步驟中，您將設定防火牆，以允許在網路上執行之應用程式的連線存取。
+
+### 設定邏輯伺服器的防火牆
+
+1.  依序按一下 **[SQL Database]**、**[伺服器]**，以及您剛剛建立的伺服器。
+
+2.  按一下 **[設定]**。
+
+3.  複製目前的用戶端 IP 位址。如果您從網路連接，這是路由器或 Proxy 伺服器正在接聽的 IP 位址。SQL Database 會偵測目前連線所使用的 IP 位址，因此您可以建立防火牆規則以接受來自此裝置的連線要求。
+
+4.  將此 IP 位址貼入起始和結束範圍。稍後，如果您遇到連線錯誤，指出範圍太過狹窄，您可以編輯此規則將範圍擴大。
+
+    如果用戶端電腦使用動態指派的 IP 位址，您指定的範圍必須足以容納指派給網路中電腦的 IP 位址。一開始請使用較狹窄的範圍，待需要時再將範圍延伸。
+
+5.  為此防火牆規則輸入名稱，例如您的電腦或公司名稱。
+
+6.  按一下核取記號以儲存規則。
+
+7.  按一下頁面底部的 **[儲存]** 以完成此步驟。如果您沒有看到 **[儲存]**，請重新整理瀏覽器頁面。
+
+您現在擁有邏輯伺服器、允許來自 IP 位址之輸入連線的防火牆規則及系統管理員登入資訊。在下一個步驟中，您將會切換本機電腦以完成剩餘的設定步驟。
+
+**注意：**您剛剛建立的邏輯伺服器是暫時性的，它會動態地託管於資料中心內的實體伺服器上。在刪除伺服器之前，您應該知道這是無法復原的動作。請務必備份後續上傳至伺服器的所有資料庫。
+
+使用 Management Studio 進行連接
 -------------------------------
 
-다음으로, 논리 서버 만들기 및 구성을 단계별로 안내합니다. 새 Azure(미리 보기) 관리 포털에서 수정된 워크플로를 통해 먼저 데이터베이스를 만든 후 서버를 만들 수 있습니다.
+Management Studio 是一項管理工具，可讓您在單一工作區中管理多個 SQL Server 執行個體和伺服器。如果您已有內部部署 SQL Server 執行個體，您可以在 Azure 上同時建立對內部部署執行個體和邏輯伺服器的連線，以並行方式執行工作。
 
-이 가이드에서는 서버를 먼저 만듭니다. 업로드할 기존 SQL Server 데이터베이스가 있는 경우 이 접근 방법을 선호할 수 있습니다.
+Management Studio 具有目前無法在管理入口網站中使用的功能，例如語法檢查程式，以及儲存指令碼和具名查詢以供重複使用的功能。SQL Database 是表格式資料流 (TDS) 端點。任何可用於 TDS 的工具 (包括 Management Studio)，都適用於 SQL Database 作業。您為內部部署伺服器開發的指令碼，將會在 SQL Database 邏輯伺服器上執行。
 
-### 논리 서버 만들기
+在下列步驟中，您將使用 Management Studio 連接到 Azure 上的邏輯伺服器。要執行此步驟，您必須具備 SQL Server Management Studio 2008 R2 或 2012 版。如果您需要下載或連接到 Management Studio 方面的協助，請參閱此網站上的[使用 Management Studio 管理 SQL Database](http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/)。
 
-1.  <http://www.windowsazure.com>에 로그인합니다.
+在某些情況下，您必須先建立防火牆例外狀況，使本機系統的連接埠 1433 允許輸出要求，您才能進行連接。依預設受到保護的電腦通常不會開放連接埠 1433。
 
-2.  SQL 데이터베이스 홈페이지에서 **SQL 데이터베이스**를 클릭한 후 **서버**를 클릭합니다.
+### 設定內部部署伺服器的防火牆
 
-3.  페이지 맨 아래에 있는 **추가**를 클릭합니다.
+1.  在具備進階安全性的 Windows 防火牆中，建立新的輸出規則。
 
-4.  서버 설정에서 관리자 이름을 공백 없이 한 단어로 입력합니다.
+2.  選擇 **[連接埠]**、指定 TCP 1433、指定 **[允許連線]**，並確定已選取 **[公用]** 設定檔。
 
-    SQL 데이터베이스는 암호화된 연결을 통해 SQL 인증을 사용합니다. sysadmin 고정 서버 역할에 할당된 새 SQL Server 인증 로그인은 사용자가 제공한 이름을 사용하여 만들어집니다.
+3.  提供有意義的名稱，例如 *WindowsAzureSQLDatabase (tcp-out) port 1433*。
 
-    이 로그인은 전자 메일 주소, Windows 사용자 계정 또는 Windows Live ID일 수 없습니다. SQL 데이터베이스에서는 클레임과 Windows 인증 모두 지원되지 않습니다.
+### 連接到邏輯伺服器
 
-5.  대문자 및 소문자 값과 숫자 또는 기호를 조합하여 8자 이상의 강력한 암호를 입력합니다.
+1.  在 Management Studio 的 [連接到伺服器] 中，確定已選取 Database Engine，然後輸入下列格式的邏輯伺服器名稱：*servername*.database.widnows.net
 
-6.  지역을 선택합니다. 지역은 서버의 지리적 위치를 결정합니다. 지역은 쉽게 바꿀 수 없으므로 이 서버에 맞는 지역을 선택하십시오. 사용자에게 가장 가까운 위치를 선택합니다. Azure 응용 프로그램 및 데이터베이스를 동일한 지역에 유지하면 발신용 대역폭 비용과 데이터 대기 시간이 절약됩니다.
+    您也可以在管理入口網站中、伺服器儀表板上或 [管理 URL] 中取得完整的伺服器名稱。
 
-7.  SQL 데이터베이스 관리 포털, 저장소 서비스 및 Azure의 기타 서비스를 사용하여 이 데이터베이스에 연결할 수 있도록 **서비스 허용** 옵션을 선택된 상태로 둬야 합니다.
+2.  在 [驗證] 中選擇 **[SQL Server 驗證]**，然後輸入您在設定邏輯伺服器時建立的系統管理員登入。
 
-8.  완료하면 페이지 맨 아래에 있는 확인 표시를 클릭합니다.
+3.  按一下 **[選項]**。
 
-서버 이름을 지정하지 않았다는 점에 유의하십시오. SQL 데이터베이스는 서버 이름을 자동 생성하여 중복 DNS 항목이 없도록 합니다. 서버 이름은 10자로 된 영숫자 문자열입니다. SQL 데이터베이스 서버의 이름은 변경할 수 없습니다.
+4.  在 [連接到資料庫] 中，指定 **[主要]**。
 
-다음 단계에서는 네트워크에서 실행 중인 응용 프로그램의 연결이 허용된 액세스가 되도록 방화벽을 구성합니다.
+### 連接到內部部署伺服器
 
-### 논리 서버용 방화벽 구성
+1.  在 Management Studio 的 [連接到伺服器] 中，確定已選取 Database Engine，然後以下列格式輸入邏輯執行個體的名稱：*servername*\\*instancename*。如果伺服器是本機的預設執行個體，請輸入 *localhost*。
 
-1.  **SQL 데이터베이스**를 클릭하고 **서버**를 클릭한 후 방금 만든 서버를 클릭합니다.
+2.  在 [驗證] 中選擇 **[Windows 驗證]**，然後輸入屬於 sysadmin 角色之成員的 Windows 帳戶。
 
-2.  **구성**을 클릭합니다.
+將資料庫部署至 Azure
+--------------------
 
-3.  현재 클라이언트 IP 주소를 복사합니다. 네트워크에서 연결하는 경우 이 주소는 라우터 또는 프록시 서버가 수신 대기하는 IP 주소입니다. SQL 데이터베이스는 이 장치의 연결 요청을 허용하는 방화벽 규칙을 만들 수 있도록 현재 연결에 사용되는 IP 주소를 검색합니다.
+有多種方式可將內部部署 SQL Server 資料庫移至 Azure。在此工作中，您將使用 [Deploy Database to SQL Database] 精靈來上傳範例資料庫。
 
-4.  시작과 종료 범위 모두에 IP 주소를 붙여넣습니다. 나중에, 범위가 너무 좁다는 연결 오류가 발생할 경우 이 규칙을 편집하여 범위를 넓힐 수 있습니다.
+School 範例資料庫非常簡便，其所有物件都與 SQL Database 相容，排除了修改或準備資料庫進行移轉的需求。作為新的系統管理員，在使用自己的資料庫之前，首先嘗試部署簡單的資料庫以熟悉步驟。
 
-    클라이언트 컴퓨터가 동적으로 할당된 IP 주소를 사용하는 경우 네트워크의 컴퓨터에 할당된 IP 주소를 포함하기에 충분히 넓은 범위를 지정해야 합니다. 좁은 범위로 시작한 후 필요한 경우에만 확장합니다.
+**注意：** 檢閱《SQL Database 移轉指南》以取得如何準備內部部署資料庫以移轉至 Azure 的詳細指示。另外，請考慮下載 Azure 訓練套件。它包括顯示移轉內部部署資料庫替代方法的實驗室。
 
-5.  방화벽 규칙의 이름(예: 컴퓨터 또는 회사의 이름)을 입력합니다.
+### 在內部部署伺服器上建立 school 資料庫
 
-6.  확인 표시를 클릭하여 규칙을 저장합니다.
+您可以在[開始使用 SQL Database 管理](http://www.windowsazure.com/en-us/manage/tutorials/sql-azure-management/)中找到建立此資料庫的指令碼。在此指南中，您將在 Management Studio 中執行這些指令碼，以建立內部部署版本的 school 資料庫。
 
-7.  페이지 아래쪽에서 **저장**을 클릭하여 단계를 완료합니다. **저장** 단추가 나타나지 않으면 브라우저 페이지를 새로 고칩니다.
+1.  在 Management Studio 中，連接到內部部署伺服器。以滑鼠右鍵按一下 **[資料庫]**，按一下 **[新增資料庫]**，並輸入 *school*。
 
-이제 논리 서버, IP 주소의 인바운드 연결을 허용하는 방화벽 규칙 및 관리자 로그인이 있습니다. 다음 단계에서는 로컬 컴퓨터로 전환하여 나머지 구성 단계를 완료합니다.
+2.  以滑鼠右鍵按一下 *school*，並按一下 **[新增查詢]**。
 
-**참고:** 방금 만든 논리 서버는 일시적이며 데이터 센터의 물리적 서버에서 동적으로 호스트됩니다. 이 서버를 삭제하는 경우 이러한 삭제 작업은 복구할 수 없는 작업임을 미리 알고 있어야 합니다. 이후에 서버에 업로드할 모든 데이터베이스를 백업해야 합니다.
-
-Management Studio를 사용하여 연결
----------------------------------
-
-Management Studio는 단일 작업 영역에서 여러 SQL Server 인스턴스 및 서버를 관리할 수 있는 관리 도구입니다. 온-프레미스 SQL Server 인스턴스가 이미 있는 경우 온-프레미스 인스턴스 및 Azure의 논리 서버에 대한 연결을 모두 열어 작업을 병렬로 처리할 수 있습니다.
-
-Management Studio에는 구문 검사기, 다시 사용하기 위해 스크립트 및 명명된 쿼리를 저장하는 기능과 같이 현재 관리 포털에서 사용할 수 없는 기능이 포함되어 있습니다. SQL 데이터베이스는 단순히 TDS(Tabular Data Stream) 끝점입니다. Management Studio를 비롯하여 TDS를 사용하여 작업하는 도구는 SQL 데이터베이스 작업에 사용할 수 있습니다. 온-프레미스 서버용으로 개발하는 스크립트는 SQL 데이터베이스 논리 서버에서 실행됩니다.
-
-다음 단계에서는 Management Studio를 사용하여 Azure의 논리 서버에 연결합니다. 이 단계를 수행하려면 SQL Server Management Studio 2008 R2 또는 2012 버전이 있어야 합니다. Management Studio를 다운로드하거나 연결하는 데 도움말이 필요한 경우 이 사이트의 [Management Studio를 사용하여 SQL 데이터베이스 관리](http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/)(영문)를 참조하십시오.
-
-연결하려면 먼저 로컬 시스템에서 포트 1433에 대한 아웃바운드 요청을 허용하는 방화벽 예외를 만들어야 하는 경우가 있습니다. 기본적으로 안전한 컴퓨터의 경우 일반적으로 포트 1433이 열려 있지 않습니다.
-
-### 온-프레미스 서버용 방화벽 구성
-
-1.  고급 보안이 포함된 Windows 방화벽에서 새 아웃바운드 규칙을 만듭니다.
-
-2.  **포트**를 선택하고 TCP 1433를 지정하고 **연결 허용**을 지정한 후 **공용** 프로필이 선택되었는지 확인합니다.
-
-3.  *WindowsAzureSQLDatabase (tcp-out) port 1433*과 같이 의미 있는 이름을 지정합니다.
-
-### 논리 서버에 연결
-
-1.  Management Studio의 서버에 연결에서 데이터베이스 엔진이 선택되어 있는지 확인한 후 논리 서버 이름을 *servername*.database.widnows.net 형식으로 입력합니다.
-
-    관리 포털, 서버 대시보드, MANAGE URL에서 정규화된 서버 이름을 가져올 수도 있습니다.
-
-2.  인증에서 **SQL Server 인증**을 선택한 후 논리 서버를 구성할 때 만든 관리자 로그인을 입력합니다.
-
-3.  **옵션**을 클릭합니다.
-
-4.  데이터베이스에 연결에서 **master**를 지정합니다.
-
-### 온-프레미스 서버에 연결
-
-1.  Management Studio의 서버에 연결에서 데이터베이스 엔진이 선택되어 있는지 확인한 후 로컬 인스턴스 이름을 *servername*\\*instancename* 형식으로 입력합니다. 서버가 로컬이며 기본 인스턴스인 경우 *localhost*를 입력합니다.
-
-2.  인증에서 **Windows 인증**을 선택한 후 sysadmin 역할의 구성원인 Windows 계정을 입력합니다.
-
-Azure에 데이터베이스 배포
--------------------------
-
-온-프레미스 SQL Server 데이터베이스를 Azure로 이동하는 여러 방법이 있습니다. 이 작업에서는 Deploy Database to SQL Database 마법사를 사용하여 샘플 데이터베이스를 업로드합니다.
-
-School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개체는 SQL 데이터베이스와 호환되므로 마이그레이션을 위해 데이터베이스를 수정하거나 준비할 필요가 없습니다. 새 관리자는 소유한 데이터베이스를 사용하기 전에 먼저 단순 데이터베이스를 배포해서 단계를 알아보십시오.
-
-**참고:** Azure로 마이그레이션하기 위해 온-프레미스 데이터베이스를 준비하는 방법에 대한 자세한 지침은 SQL 데이터베이스 마이그레이션 가이드를 참조하십시오. 또한 Azure 트레이닝 키트 다운로드를 고려하십시오. 이 키트에는 온-프레미스 데이터베이스를 마이그레이션하는 다른 방법을 보여 주는 랩이 포함되어 있습니다.
-
-### 온-프레미스 서버에서 school 데이터베이스 만들기
-
-이 데이터베이스를 만드는 스크립트는 [SQL 데이터베이스 관리 시작](http://www.windowsazure.com/en-us/manage/tutorials/sql-azure-management/)(영문)에서 찾을 수 있습니다. 이 가이드에서는 Management Studio에서 이러한 스크립트를 실행하여 school 데이터베이스의 온-프레미스 버전을 만듭니다.
-
-1.  Management Studio에서 온-프레미스 서버에 연결합니다. **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **새 데이터베이스**를 클릭한 후 *school*을 입력합니다.
-
-2.  *school*을 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다.
-
-3.  자습서에서 스키마 만들기 스크립트를 복사한 후 실행합니다.
+3.  複製然後執行教學課程中的建立結構描述指令碼。
 
 ``` {}
     -- Create the Department table.
@@ -148,18 +148,18 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
         WHERE object_id = OBJECT_ID(N'[dbo].[Department]') 
         AND type in (N'U'))
     BEGIN
-    CREATE TABLE [dbo].[Department](
+CREATE TABLE [dbo].[Department](
         [DepartmentID] [int] NOT NULL,
         [Name] [nvarchar](50) NOT NULL,
         [Budget] [money] NOT NULL,
         [StartDate] [datetime] NOT NULL,
         [Administrator] [int] NULL,
-     CONSTRAINT [PK_Department] PRIMARY KEY CLUSTERED 
+CONSTRAINT [PK_Department] PRIMARY KEY CLUSTERED 
     (
     [DepartmentID] ASC
-    )WITH (IGNORE_DUP_KEY = OFF)
+)WITH (IGNORE_DUP_KEY = OFF)
     )
-    END;
+END;
     GO
 
     -- Create the Person table.
@@ -287,49 +287,49 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 
     -- Define the relationship between OnsiteCourse and Course.
     IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
-       WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnsiteCourse_Course]')
-       AND parent_object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]'))
+WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnsiteCourse_Course]')
+AND parent_object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]'))
     ALTER TABLE [dbo].[OnsiteCourse]  WITH CHECK ADD  
-       CONSTRAINT [FK_OnsiteCourse_Course] FOREIGN KEY([CourseID])
+CONSTRAINT [FK_OnsiteCourse_Course] FOREIGN KEY([CourseID])
     REFERENCES [dbo].[Course] ([CourseID]);
     GO
     ALTER TABLE [dbo].[OnsiteCourse] CHECK 
-       CONSTRAINT [FK_OnsiteCourse_Course];
+CONSTRAINT [FK_OnsiteCourse_Course];
     GO
 
     -- Define the relationship between OnlineCourse and Course.
     IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
-       WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnlineCourse_Course]')
-       AND parent_object_id = OBJECT_ID(N'[dbo].[OnlineCourse]'))
+WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnlineCourse_Course]')
+AND parent_object_id = OBJECT_ID(N'[dbo].[OnlineCourse]'))
     ALTER TABLE [dbo].[OnlineCourse]  WITH CHECK ADD  
-       CONSTRAINT [FK_OnlineCourse_Course] FOREIGN KEY([CourseID])
+CONSTRAINT [FK_OnlineCourse_Course] FOREIGN KEY([CourseID])
     REFERENCES [dbo].[Course] ([CourseID]);
     GO
     ALTER TABLE [dbo].[OnlineCourse] CHECK 
-       CONSTRAINT [FK_OnlineCourse_Course];
+CONSTRAINT [FK_OnlineCourse_Course];
     GO
     -- Define the relationship between StudentGrade and Course.
     IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
-       WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Course]')
-       AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))
+WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Course]')
+AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))
     ALTER TABLE [dbo].[StudentGrade]  WITH CHECK ADD  
-       CONSTRAINT [FK_StudentGrade_Course] FOREIGN KEY([CourseID])
+CONSTRAINT [FK_StudentGrade_Course] FOREIGN KEY([CourseID])
     REFERENCES [dbo].[Course] ([CourseID]);
     GO
     ALTER TABLE [dbo].[StudentGrade] CHECK 
-       CONSTRAINT [FK_StudentGrade_Course];
+CONSTRAINT [FK_StudentGrade_Course];
     GO
 
     --Define the relationship between StudentGrade and Student.
     IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
-       WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Student]')
-       AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))   
+WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Student]')
+AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))  
     ALTER TABLE [dbo].[StudentGrade]  WITH CHECK ADD  
-       CONSTRAINT [FK_StudentGrade_Student] FOREIGN KEY([StudentID])
+CONSTRAINT [FK_StudentGrade_Student] FOREIGN KEY([StudentID])
     REFERENCES [dbo].[Person] ([PersonID]);
     GO
     ALTER TABLE [dbo].[StudentGrade] CHECK 
-       CONSTRAINT [FK_StudentGrade_Student];
+CONSTRAINT [FK_StudentGrade_Student];
     GO
 
     -- Define the relationship between CourseInstructor and Course.
@@ -358,10 +358,10 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
 
     -- Define the relationship between Course and Department.
     IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
-       WHERE object_id = OBJECT_ID(N'[dbo].[FK_Course_Department]')
-       AND parent_object_id = OBJECT_ID(N'[dbo].[Course]'))
+WHERE object_id = OBJECT_ID(N'[dbo].[FK_Course_Department]')
+AND parent_object_id = OBJECT_ID(N'[dbo].[Course]'))
     ALTER TABLE [dbo].[Course]  WITH CHECK ADD  
-       CONSTRAINT [FK_Course_Department] FOREIGN KEY([DepartmentID])
+CONSTRAINT [FK_Course_Department] FOREIGN KEY([DepartmentID])
     REFERENCES [dbo].[Department] ([DepartmentID]);
     GO
     ALTER TABLE [dbo].[Course] CHECK CONSTRAINT [FK_Course_Department];
@@ -380,7 +380,7 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
     GO
 ```
 
-이제 데이터 삽입 스크립트를 복사한 후 실행합니다.
+接下來，複製並執行插入資料指令碼。
 
 ``` {}
     -- Insert data into the Person table.
@@ -634,43 +634,43 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
     GO
 ```
 
-이제 Azure로 내보낼 수 있는 온-프레미스 데이터베이스가 있습니다. 다음 단계로 .bacpacxt 파일을 만들어 이 파일을 Azure에 로드하고 SQL 데이터베이스로 가져오는 마법사를 실행합니다.
+您現在擁有一個可匯出至 Azure 的內部部署資料庫。接著，您將執行可建立 .bacpac 檔案、將它載入 Azure 以及將它匯入 SQL Database 的精靈。
 
-### SQL 데이터베이스에 배포
+### 部署至 SQL Database
 
-1.  Management Studio에서 마이그레이션할 데이터베이스가 포함된 온-프레미스 SQL Server 인스턴스에 연결합니다.
+1.  在 Management Studio 中，連接到有您要移轉之資料庫的內部部署 SQL Server 執行個體。
 
-2.  방금 만든 school 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **작업**을 가리킨 후 **Deploy Database to SQL Database**를 클릭합니다.
+2.  以滑鼠右鍵按一下您剛才建立的 school 資料庫，指向 **[工作]**，然後按一下 **[將資料庫部署到 SQL Database]**。
 
-3.  배포 설정에서 데이터베이스의 이름을 입력합니다(예: *school*).
+3.  在 [部署設定] 中，輸入資料庫的名稱 (例如 *school*)。
 
-4.  **연결**을 클릭합니다.
+4.  按一下 **[連接]**。
 
-5.  서버 이름에 10자로 된 서버 이름을 입력하고 뒤에 .databases.windows.net을 입력합니다.
+5.  在 [伺服器名稱] 中，輸入 10 個字元的伺服器名稱，後面接著 .databases.windows.net。
 
-6.  인증에서 **SQL Server 인증**을 선택합니다.
+6.  在 [驗證] 中，選擇 **[SQL Server 驗證]**。
 
-7.  SQL 데이터베이스 논리 서버를 만들 때 프로비전한 관리자 로그인 이름 및 암호를 입력합니다.
+7.  輸入您在建立 SQL Database 邏輯伺服器時所佈建的系統管理員登入名稱和密碼。
 
-8.  **옵션**을 클릭합니다.
+8.  按一下 **[選項]**。
 
-9.  연결 속성에서 데이터베이스에 연결에 **master**를 입력합니다.
+9.  在 [連接屬性] 的 [連接到資料庫] 中，輸入 **master**。
 
-10. **연결**을 클릭합니다. 이 단계는 연결 사양을 끝내며 사용자는 다시 마법사로 돌아갑니다.
+10. 按一下 **[連接]**。此步驟會以連接規格作為總結，並引導您回到精靈。
 
-11. **다음**을 클릭하고 **마침**을 클릭하여 마법사를 실행합니다.
+11. 按 **[下一步]**，然後按一下 **[完成]** 以執行精靈。
 
-### 데이터베이스 배포 확인
+### 驗證資料庫部署
 
-1.  Management Studio에서 논리 서버에 연결합니다. 이미 연결이 열려 있는 경우 연결을 닫고 새로 열 수 있습니다. 기존 연결은 연결이 만들어질 때 실행 중이던 데이터베이스만 표시합니다.
+1.  在 Management Studio 中，連接到邏輯伺服器。如果您已有開啟的連線，您可以將其關閉，並開啟新連線。現有的連線只會顯示在連線建立時處於執行狀態的資料庫。
 
-    논리 서버에 연결하는 방법에 대한 자세한 내용은 이 문서의 [Management Studio를 사용하여 연결](#PreReq3)을 참조하십시오.
+    如需如何連接到邏輯伺服器的指示，請參閱本文中的[使用 Management Studio 進行連接](#PreReq3)。
 
-2.  데이터베이스 폴더를 확장합니다. 목록에 school 데이터베이스가 표시되어야 합니다.
+2.  展開 [資料庫] 資料夾。您應該會在清單中看見 school 資料庫。
 
-3.  school 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다.
+3.  以滑鼠右鍵按一下 school 資料庫，並按一下 **[新增查詢]**。
 
-4.  다음 쿼리를 실행하여 데이터에 액세스할 수 있는지 확인합니다.
+4.  執行下列查詢以驗證該資料是否可以存取。
 
 ``` {}
     SELECT
@@ -692,120 +692,120 @@ School 샘플 데이터베이스는 편의상 단순합니다. 모든 해당 개
         ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
 ```
 
-로그인 및 사용자 추가
----------------------
+新增登入和使用者
+----------------
 
-데이터베이스를 배포한 후에는 로그인을 구성하고 권한을 할당해야 합니다. 이 단계에서는 두 개의 스크립트를 실행합니다.
+部署資料庫後，您必須設定登入並指派權限。在下一個步驟中，您將執行兩個指令碼。
 
-첫 번째 스크립트의 경우 마스터에 연결하여 로그인을 만드는 스크립트를 실행합니다. 로그인을 사용하여 읽기 및 쓰기 작업을 지원하고 ‘sa’ 권한 없이 시스템 쿼리를 실행하는 기능과 같은 운영 작업을 위임합니다.
+執行第一個指令碼時，您將會連接到主要資料庫，並執行會建立登入的指令碼。登入將用來支援讀取與寫入作業，以及委派營運工作，例如在不具 â€˜saâ€? 權限的情況下執行系統查詢的功能。
 
-만드는 로그인은 SQL Server 인증 로그인이어야 합니다. Windows 사용자 ID 또는 클레임 ID를 사용하는 스크립트가 이미 만들어져 있는 경우 해당 스크립트는 SQL 데이터베이스에 대해 작동하지 않습니다.
+您所建立的登入必須是 SQL Server 驗證登入。如果您已有使用 Windows 使用者身分識別或宣告身分識別的現成指令碼，該指令碼將無法在 SQL Database 上運作。
 
-두 번째 스크립트는 데이터베이스 사용자 권한을 할당합니다. 이 스크립트의 경우 이미 Azure에 로드된 데이터베이스에 연결됩니다.
+第二個指令碼會指派資料庫使用者權限。執行此指令碼時，您會連接到已在 Azure 上載入的資料庫。
 
-### 로그인 만들기
+### 建立登入
 
-1.  Management Studio에서 Azure의 논리 서버에 연결하고 데이터베이스 폴더를 확장한 후 **master**를 마우스 오른쪽 단추로 클릭하여 **새 쿼리**를 선택합니다.
+1.  在 Management Studio 中連接到 Azure 上的邏輯伺服器、展開 [資料庫] 資料夾、以滑鼠右鍵按一下 **[主要]**，然後選取 **[新增查詢]**。
 
-2.  다음 Transact-SQL 문을 사용하여 로그인을 만듭니다. 암호를 올바른 암호로 바꿉니다. 각각을 개별적으로 선택한 후 **실행**을 클릭합니다. 나머지 로그인에 대해 위 절차를 반복합니다.
-
-``` {}
-    -- run on master, execute each line separately
-    -- use this login to manage other logins on this server
-    CREATE LOGIN sqladmin WITH password='<ProvidePassword>'; 
-    CREATE USER sqladmin FROM LOGIN sqladmin;
-    EXEC sp_addrolemember 'loginmanager', 'sqladmin';
-
-    -- use this login to create or copy a database
-    CREATE LOGIN sqlops WITH password='<ProvidePassword>';
-    CREATE USER sqlops FROM LOGIN sqlops;
-    EXEC sp_addrolemember 'dbmanager', 'sqlops';
-```
-
-### 데이터베이스 사용자 만들기
-
-1.  데이터베이스 폴더를 확장하고 **school**을 마우스 오른쪽 단추로 클릭한 후 **새 쿼리**를 선택합니다.
-
-2.  다음 Transact-SQL 문을 사용하여 데이터베이스 사용자를 추가합니다. 암호를 올바른 암호로 바꿉니다.
+2.  使用下列 Transact-SQL 陳述式建立登入。請將密碼取代為有效密碼。請逐一選取每個密碼，然後按一下 **[執行]**。為其餘登入重複此步驟。
 
 ``` {}
-    -- run on a regular database, execute each line separately
-    -- use this login for read operations
-    CREATE LOGIN sqlreader WITH password='<ProvidePassword>';
-    CREATE USER sqlreader FROM LOGIN sqlreader;
-    EXEC sp_addrolemember 'db_datareader', 'sqlreader';
+-- run on master, execute each line separately
+-- use this login to manage other logins on this server
+CREATE LOGIN sqladmin WITH password='<ProvidePassword>'; 
+CREATE USER sqladmin FROM LOGIN sqladmin;
+EXEC sp_addrolemember 'loginmanager', 'sqladmin';
 
-    -- use this login for write operations
-    CREATE LOGIN sqlwriter WITH password='<ProvidePassword>';
-    CREATE USER sqlwriter FROM LOGIN sqlwriter;
-    EXEC sp_addrolemember 'db_datawriter', 'sqlwriter';
-
-    -- grant DMV permissions on the school database to 'sqlops'
-    GRANT VIEW DATABASE STATE to 'sqlops';
+-- use this login to create or copy a database
+CREATE LOGIN sqlops WITH password='<ProvidePassword>';
+CREATE USER sqlops FROM LOGIN sqlops;
+EXEC sp_addrolemember 'dbmanager', 'sqlops';
 ```
 
-### 로그인 보기 및 테스트
+### 建立資料庫使用者
 
-1.  새 쿼리 창에서 **master**에 연결하고 다음 문을 실행합니다.
+1.  展開 [資料庫] 資料夾、以滑鼠右鍵按一下 **school**，然後選取 **[新增查詢]**。
+
+2.  使用下列 Transact-SQL 陳述式新增資料庫使用者。請將密碼取代為有效密碼。
+
+``` {}
+-- run on a regular database, execute each line separately
+-- use this login for read operations
+CREATE LOGIN sqlreader WITH password='<ProvidePassword>';
+CREATE USER sqlreader FROM LOGIN sqlreader;
+EXEC sp_addrolemember 'db_datareader', 'sqlreader';
+
+-- use this login for write operations
+CREATE LOGIN sqlwriter WITH password='<ProvidePassword>';
+CREATE USER sqlwriter FROM LOGIN sqlwriter;
+EXEC sp_addrolemember 'db_datawriter', 'sqlwriter';
+
+-- grant DMV permissions on the school database to 'sqlops'
+GRANT VIEW DATABASE STATE to 'sqlops';
+```
+
+### 檢視並測試登入
+
+1.  在新的查詢視窗中連接到 **[主要]**，然後執行下列陳述式：
 
          SELECT * from sys.sql_logins;
 
-2.  Management Studio에서 **school** 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
+2.  在 Management Studio 中，以滑鼠右鍵按一下 **school** 資料庫，然後選取 **[新增查詢]**。
 
-3.  쿼리 메뉴에서 **연결**을 가리킨 후 **연결 변경**을 클릭합니다.
+3.  在 [查詢] 功能表中指向 **[連線]**，然後按一下 **[變更連線]**。
 
-4.  *sqlreader*로 로그인합니다.
+4.  以 *sqlreader* 的身分登入。
 
-5.  다음 문을 복사하여 실행합니다. 개체가 존재하지 않는다는 오류가 나타납니다.
+5.  複製下列陳述式，並嘗試加以執行。此時應會顯示錯誤，指出物件不存在。
 
          INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
-         VALUES (1061, 30, 9);
+        VALUES (1061, 30, 9);
 
-6.  두 번째 쿼리 창을 열고 연결 컨텍스트를 *sqlwriter*로 변경합니다. 동일한 쿼리가 이제 성공적으로 실행됩니다.
+6.  開啟第二個查詢視窗，並將連線內容變更為 *sqlwriter*。此時，相同的查詢應可成功執行。
 
-이제 몇 가지 로그인을 만들고 테스트했습니다. 자세한 내용은 [SQL 데이터베이스에서 데이터베이스 및 로그인 관리](http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx) 및 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링](http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx)을 참조하십시오.
+現在，您已建立並測試數個登入。如需詳細資訊，請參閱[管理 SQL Database 中的資料庫和登入](http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx)和[使用動態管理檢視監視 SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx)。
 
-논리 서버 및 데이터베이스 인스턴스 모니터링
--------------------------------------------
+監視邏輯伺服器和資料庫執行個體
+------------------------------
 
-로그인 감사, 추적 실행 및 성능 카운터 사용처럼 온-프레미스 서버에서 사용하는 것에 익숙한 모니터링 도구 및 기술은 SQL 데이터베이스에 대해 사용할 수 없습니다. Azure에서는 DMV(Data Management View)를 사용하여 데이터 용량, 쿼리 문제 및 현재 연결을 모니터링할 수 있습니다.
+您在內部部署伺服器上慣用的監視工具和技術 (例如稽核登入、執行追蹤以及使用效能計數器)，並不適用於 SQL Database。在 Azure 上，您可以使用資料管理檢視 (DMV) 來監視資料容量、查詢問題和目前的連線。
 
-자세한 내용은 [동적 관리 뷰를 사용하여 SQL 데이터베이스 모니터링](http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx)(영문)을 참조하십시오.
+如需詳細資訊，請參閱[使用動態管理檢視監視 SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx)。
 
-SQL 데이터베이스 솔루션 확장
-----------------------------
+調整 SQL Database 解決方案
+--------------------------
 
-Azure에서 데이터베이스 확장성은 규모 확장과 같은 말입니다. 규모 확장에서는 작업이 데이터 센터의 여러 상용 서버로 재분산됩니다. 규모 확장은 데이터 용량 또는 성능 문제를 해결하기 위한 전략입니다. 고성장 궤적을 그리는 초대형 데이터베이스의 경우에는 이러한 데이터베이스에 액세스하는 사용자 수가 많건 적건 관계없이 결국 규모 확장 전략이 필요하게 됩니다.
+在 Azure 上，資料庫延展性和向外延展是同義詞，意指將工作負載重新分配在資料中心內的多部商業伺服器上。向外延伸是解決資料容量或效能的策略。資料成長幅度高的超大型資料庫終究會需要向外延伸策略，不論存取的使用者人數多寡，皆是如此。
 
-Azure에서는 페더레이션을 통해 규모 확장이 가장 잘 수행됩니다. SQL 데이터베이스 페더레이션은 행 분할을 기반으로 합니다. 행 분할에서는 하나 이상의 테이블이 행으로 분할되어 여러 페더레이션 멤버에 분배됩니다.
+同盟是在 Azure 上達成向外延伸目標的最佳方法。SQL Database 同盟是以水平分區化為基礎，意指按照資料列來分割一或多個資料表，然後再分配到多個同盟成員中。
 
-페더레이션이 모든 확장성 문제에 대한 유일한 해결책은 아닙니다. 경우에 따라 데이터 또는 응용 프로그램 요구 사항의 특성으로 인해 보다 간단한 접근 방법이 필요합니다. 다음 목록은 복잡도에 따른 잠재적 솔루션을 보여 줍니다.
+同盟不是所有延伸性問題的解答。有時候，資料特性或應用程式需求會指向更簡單的方法。以下清單是按照複雜性排列的潛在方案。
 
-**데이터베이스 크기 늘리기**
+**增加資料庫的大小**
 
-데이터베이스는 각 버전에서 설정한 최대값에 따라 고정 크기로 만들어집니다. Web Edition의 경우 데이터베이스를 최대 5GB까지 늘릴 수 있습니다. Business Edition의 경우 최대 데이터베이스 크기는 150GB입니다. 데이터 용량을 늘리는 가장 확실한 방법은 버전과 최대 크기를 변경하는 것입니다.
+建立的資料庫有其固定大小，其受限於每個版本施行的上限。對於 Web Edition，您可以將資料庫增加為 5 GB 的上限。對於 Business Edition，資料庫大小上限為 150 GB。增加資料容量最明顯的方法是變更版本和大小上限：
 
      ALTER DATABASE school MODIFY (EDITION = 'Business', MAXSIZE=10GB);
 
-**여러 데이터베이스 사용 및 사용자 할당**
+**使用多個資料庫及分配使用者**
 
-제한된 시나리오에서는 데이터베이스의 복사본을 만든 후 각 데이터베이스에 로그인 및 사용자를 할당할 수 있습니다. 페더레이션이 옵션으로 가능하기 이전에는 이러한 방법이 작업을 재분산하는 일반적인 접근 방법이었습니다. 이 접근 방법은 단기간 사용한 후 나중에 온-프레미스에 유지하는 주 데이터베이스에 병합하는 데이터베이스의 경우와 읽기 전용 데이터를 제공하는 솔루션의 경우 실행 가능합니다.
+在有限的情況下，您可以建立資料庫複本，再將登入和使用者分配到每個資料庫。在考慮同盟選項之前，這是重新分配工作負載常用的方法。這個方法適用於短期使用、後續會併入內部部署之主要資料庫的資料庫，以及適用於提供唯讀資料的方案。
 
-**페더레이션 사용**
+**使用同盟**
 
-SQL 데이터베이스에서 페더레이션은 확장성과 성능을 향상시키는 데 사용됩니다. 한 데이터베이스 내의 하나 이상의 테이블이 행으로 분할되어 여러 데이터베이스(페더레이션 멤버)에 분배됩니다. 이러한 유형의 행 분할을 흔히 '분할'이라고 합니다. 이러한 분할이 유용한 기본 시나리오는 확장성과 성능을 향상시키거나 용량을 관리해야 하는 경우입니다.
+SQL Database 中的同盟可用來實現成效較高的延伸性和效能。其意指按照資料列來分割一或多個資料表，然後再分配到多部資料庫 (同盟成員) 中。這種類型的水平分割通常稱為「分區化」。凡是需要實現延伸性、效能或需要管理容量的情況都可以說是適用於這個方法的主要案例。
 
-페더레이션은 Business Edition에서 지원됩니다. 자세한 내용은 [SQL 데이터베이스의 페더레이션](http://msdn.microsoft.com/en-us/library/windowsazure/hh597452.aspx) 및 [SQL 데이터베이스 페더레이션 자습서 - DBA](http://msdn.microsoft.com/en-us/library/windowsazure/hh778416.aspx)를 참조하십시오.
+Business Edition 支援同盟。如需詳細資訊，請參閱 [SQL 資料庫中的同盟](http://msdn.microsoft.com/en-us/library/windowsazure/hh597452.aspx) (英文) 和 [SQL Database 同盟教學課程 - DBA](http://msdn.microsoft.com/en-us/library/windowsazure/hh778416.aspx) (英文)。
 
-**다른 형식의 저장소 고려**
+**考慮其他形式的儲存體**
 
-Azure는 테이블 저장소 및 Blob 저장소를 비롯한 여러 형식의 데이터 저장소를 지원합니다. 관계형 기능이 필요하지 않은 경우 테이블 또는 Blob 저장소가 더 경제적일 수 있습니다.
+請記住，Azure 支援多種形式的資料儲存體，包括資料表儲存體和 Blob 儲存體。如果您不需要關聯性功能，資料表或 Blob 儲存體是比較經濟實惠的選擇。
 
-다음 단계
----------
+後續步驟
+--------
 
-이제 SQL 데이터베이스 관리의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 관리 작업을 수행하는 방법을 알아보십시오.
+了解 SQL Database 管理的基礎概念之後，請參考下列連結，以了解如何執行更複雜的管理工作。
 
--   MSDN에서 [SQL 데이터베이스](http://msdn.microsoft.com/en-us/library/windowsazure/gg619386) 참조
--   [SQL 데이터베이스 TechNet WIKI](http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-en-us.aspx)(영문) 방문
+-   請參閱 MSDN 上的 [SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/gg619386)
+-   造訪 [SQL Database TechNet WIKI](http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-en-us.aspx)
 

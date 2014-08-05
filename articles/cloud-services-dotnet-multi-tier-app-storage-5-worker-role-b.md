@@ -1,611 +1,645 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-5-worker-role-b" urlDisplayName="Step 5: Worker Role B" pageTitle="ASP.NET Multi-tier Web Application with Azure - Step 5: Worker role B" metaKeywords="Azure tutorial, adding working role cloud service, C# worker role" description="The fifth tutorial in a series that teaches how to configure your computer for Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Building worker role B (email sender) for the Azure Email Service application - 5 of 5." authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-Azure 전자 메일 서비스 응용 프로그램에 대한 작업자 역할 B(전자 메일 보낸 사람) 구축 - 5/5.
-==========================================================================================
+建置 Azure Email Service 應用程式的背景工作角色 B (電子郵件寄件者) - 5/5
+========================================================================
 
-Azure 전자 메일 서비스 샘플 응용 프로그램을 빌드 및 배포하는 방법을 보여 주는 5개 자습서 시리즈의 다섯 번째 자습서입니다. 이 응용 프로그램 및 자습서 시리즈에 대한 자세한 내용은 [시리즈의 첫 번째 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)를 참조하십시오.
+這是一系列教學課程的第五個教學課程 (共五個)，顯示如何建置和部署 Azure Email Service 範例應用程式。如需應用程式和教學課程系列的詳細資訊，請參閱[系列的第一個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)。
 
-이 자습서에서는 다음에 대해 알아봅니다.
+在本教學課程中，您將了解：
 
--   작업자 역할을 클라우드 서비스 프로젝트에 추가하는 방법
--   큐를 폴링하고 큐의 작업 항목을 처리하는 방법
--   SendGrid를 사용하여 전자 메일을 보내는 방법
--   `OnStop` 메서드를 재정의하여 계획된 종료를 처리하는 방법
--   중복 전자 메일이 전송되지 않았는지 확인하여 계획되지 않은 종료를 처리하는 방법
+-   如何將背景工作角色新增至雲端服務專案。
+-   如何輪詢佇列以及處理佇列中的工作項目。
+-   如何使用 SendGrid 傳送電子郵件。
+-   如何透過覆寫 `OnStop` 方法來處理計劃關閉。
+-   如何透過確定未傳送重複電子郵件來處理非計劃關閉。
 
-작업자 역할 B 추가솔루션에 작업자 역할 B 프로젝트 추가
-------------------------------------------------------
+新增背景工作角色 B將背景工作角色 B 專案新增至方案
+-------------------------------------------------
 
-1.  솔루션 탐색기에서 클라우드 서비스 프로젝트를 마우스 오른쪽 단추로 클릭하고 **새 작업자 역할 프로젝트**를 선택합니다.
+1.  在 [方案總管] 中，以滑鼠右鍵按一下雲端服務專案，然後選擇 **[新的背景工作角色專案]**。
 
-    ![새 작업자 역할 프로젝트 메뉴](./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-new-worker-role-project.png)
+    ![New worker role project menu](./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-new-worker-role-project.png)
 
-2.  **새 역할 프로젝트 추가** 대화 상자에서 **C\#**을 선택하고 **작업자 역할**을 선택하고 프로젝트 이름을 WorkerRoleB로 지정한 후 **추가**를 클릭합니다.
+2.  在 **[新增角色專案]** 對話方塊中，依序選取 **[C\#]**、**[背景工作角色]**，將專案命名為 WorkerRoleB，然後按一下 **[新增]**。
 
-    ![새 역할 프로젝트 대화 상자](./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-add-new-role-project-dialog.png)
+    ![New role project dialog box](./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-add-new-role-project-dialog.png)
 
-참조 추가웹 프로젝트에 참조 추가
---------------------------------
+新增參考新增 Web 專案參考
+-------------------------
 
-엔터티 클래스가 정의되어 있기 때문에 웹 프로젝트에 대한 참조가 필요합니다. 작업자 역할 B에서도 동일한 엔터티 클래스를 사용하여 응용 프로그램에서 사용되는 Azure 테이블의 데이터를 읽고 쓰게 됩니다.
+您需要 Web 專案參考，因為這是定義實體類別的位置。您在背景工作角色 B 中將使用實體類別，讀取和寫入 Azure 資料表中由應用程式使用的資料。
 
-1.  WorkerRoleB 프로젝트를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 선택합니다.
+1.  在 WorkerRoleB 專案上按一下滑鼠右鍵，然後選擇 **[新增參考]**。
 
-    ![WorkerRoleB 프로젝트에 참조 추가](./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-add-reference-menu.png)
+    ![Add reference in WorkerRoleB project](./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-add-reference-menu.png)
 
-2.  **참조 관리자**에서 MvcWebRole 프로젝트에(또는 Azure 웹 사이트에서 웹 UI를 실행 중인 경우 웹 응용 프로그램 프로젝트에) 참조를 추가합니다.
+2.  在 **[參考管理員]** 中，新增 MvcWebRole 專案參考 (如果您是在 Azure 網站中執行 Web UI，則是 Web 應用程式專案參考)。
 
-    ![MvcWebRole에 참조 추가](./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-reference-manager.png)
+    ![Add reference to MvcWebRole](./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-reference-manager.png)
 
+新增 SCL 2.0 封裝將儲存體用戶端程式庫 2.0 NuGet 封裝新增至專案
+--------------------------------------------------------------
 
-SCL 2.0 패키지 추가프로젝트에 Storage Client Library 2.0 NuGet 패키지 추가
---------------------------------------------------------------------------
+> [WACOM.NOTE] 對於 Visual Studio 2013，您可以略過本節，因為目前的 Azure 儲存體封裝會安裝在新的背景工作角色專案中。
 
-> [WACOM.NOTE] 현재 Azure 저장소 패키지가 새 작업자 역할 프로젝트에 설치되어 있으므로 Visual Studio 2013에서는 이 섹션을 건너뛸 수 있습니다.
+當您新增專案時，專案並不會自動取得儲存體用戶端程式庫 NuGet 封裝的更新版本。它會取得舊有的 1.7 版封裝，因為這是專案範本中所包含的版本。現在，方案會提供兩種版本的 Azure 儲存體 NuGet 封裝：MvcWebRole 和 WorkerRoleA 專案中的 2.0 版，以及 WorkerRoleB 專案中的 1.7 版。在 WorkerRoleB 專案中，您必須解除安裝 1.7 版，並安裝 2.0 版。
 
-프로젝트가 추가될 때 Storage Client Library NuGet 패키지의 업데이트 버전을 자동으로 가져오지 않습니다. 대신 패키지의 이전 1.7 버전이 프로젝트 템플릿에 포함되어 있으므로 이 버전을 가져왔습니다. 이제 솔루션에 두 가지 버전의 Azure 저장소 NuGet 패키지(MvcWebRole 및 WorkerRoleA 프로젝트의 2.0 버전과 WorkerRoleB 프로젝트의 1.7 버전)가 있습니다. WorkerRoleB 프로젝트에서 1.7 버전을 제거하고 2.0 버전을 설치해야 합니다.
+1.  從 **[工具]** 功能表中選擇 **[Library Package Manager]**，然後選擇 **[Manage NuGet Packages for Solution]**。
 
-1.  **도구** 메뉴에서 **라이브러리 패키지 관리자**, **솔루션의 NuGet 패키지 관리**를 차례로 선택합니다.
+2.  在左窗格中選取 **[Installed Packages]**，然後向下捲動至 Azure 儲存體封裝。
 
-2.  왼쪽 창에서 선택된 **설치된 패키지**에서 Azure 저장소 패키지를 찾을 때까지 아래로 스크롤합니다.
+    您會看見該封裝列出兩次；1.7 版和 2.0 版各有一個。
 
-    패키지가 1.7 버전용과 2.0 버전용으로 두 번 나열됩니다.
+3.  選取 1.7 版的封裝，然後按一下 **[管理]**。
 
-3.  1.7 버전의 패키지를 선택하고 **관리**를 클릭합니다.
+    此時會清除 MvcWebRole 和 WorkerRoleB 的核取方塊，並選取 WorkerRoleB 的核取方塊。
 
-    MvcWebRole 및 WorkerRoleB의 확인란은 선택이 취소되어 있고 WorkerRoleB의 확인란이 선택되어 있습니다.
+4.  清除 WorkerRoleB 的核取方塊，然後按一下 **[確定]**。
 
-4.  WorkerRoleB의 확인란 선택을 취소한 다음 **확인**을 클릭합니다.
+5.  系統詢問您是否要解除安裝相依封裝時，請按一下 **[否]**。
 
-5.  종속 패키지를 제거할지 묻는 메시지가 나타나면 **아니요**를 클릭합니다.
+    解除安裝完成後，您的 NuGet 對話方塊中只會有 2.0 版的封裝。
 
-    제거가 완료되면 NuGet 대화 상자에 2.0 버전의 패키지만 남습니다.
+6.  對 2.0 版的封裝按一下 **[管理]**。
 
-6.  2.0 버전의 패키지에 대해 **관리**를 클릭합니다.
+    此時會選取 MvcWebRole 和 WorkerRoleA 的核取方塊，並清除 WorkerRoleA 的核取方塊。
 
-    MvcWebRole 및 WorkerRoleA의 확인란이 선택되어 있고, WorkerRoleA의 확인란은 선택이 취소되어 있습니다.
+7.  選取 WorkerRoleA 的核取方塊，然後按一下 **[確定]**。
 
-7.  WorkerRoleA의 확인란을 선택한 다음 **확인**을 클릭합니다.
+新增 SCL 1.7 參考新增 SCL 1.7 組件參考
+--------------------------------------
 
+> [WACOM.NOTE] 如果您已安裝最新的 SDK，並使用 Visual Studio 2013，請略過本節。
 
-SCL 1.7 참조 추가SCL 1.7 어셈블리에 대한 참조 추가
+2.0 版的儲存體用戶端程式庫 (SCL) 並未具備診斷所需的所有項目，因此您必須新增其中一個 1.7 版組件的參考，如同您先前為其他兩個專案所做的一樣。
+
+1.  在 WorkerRoleB 專案上按一下滑鼠右鍵，然後選擇 **[新增參考]**。
+
+2.  按一下對話方塊底部的 **[瀏覽]** 按鈕。
+
+3.  瀏覽到下列資料夾：
+
+         C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK012-10\ref
+
+4.  選取 *Microsoft.WindowsAzure.StorageClient.dll*，然後按一下 **[新增]**。
+
+5.  在 **[參考管理員]** 對話方塊中，按一下 **[確定]**。
+
+新增 SendGrid 封裝將 SendGrid NuGet 封裝新增至專案
 --------------------------------------------------
 
-> [WACOM.NOTE] 최신 SDK를 설치했으며 Visual Studio 2013을 사용 중이면 이 섹션을 건너뛰십시오.
+若要使用 SendGrid 傳送電子郵件，您必須安裝 SendGrid NuGet 封裝。
 
-SCL(Storage Client Library) 2.0 버전에는 진단에 필요한 사항 중 일부만 있습니다. 따라서 다른 두 프로젝트에 대해 앞서 수행한 것처럼 1.7 어셈블리 중 하나에 대한 참조를 추가해야 합니다.
+1.  在 **[方案總管]** 中以滑鼠右鍵按一下 WorkerRoleB 專案，然後選擇 **[管理 NuGet 封裝]**。
 
-1.  WorkerRoleB 프로젝트를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 선택합니다.
+    ![Manage NuGet Packages](./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-manage-nuget.png)
 
-2.  대화 상자 아래쪽에 있는 **찾아보기...** 단추를 클릭합니다.
+2.  在 **[管理 NuGet 封裝]** 對話方塊中，選取 **[線上]** 索引標籤，在搜尋方塊中輸入 "sendgrid"，然後按 Enter 鍵。
 
-3.  다음 폴더로 이동합니다.
+3.  在 **SendGrid** 封裝上按一下 **[安裝]**。
 
-         C:\Program Files\Microsoft SDKs\Azure\.NET SDK012-10\ref
+    ![Install the Sendgrid package](./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-install-sendgrid.png)
 
-4.  *Microsoft.WindowsAzure.StorageClient.dll*을 선택한 후 **추가**를 클릭합니다.
+4.  關閉對話方塊。
 
-5.  **참조 관리자** 대화 상자에서 **확인**을 클릭합니다.
+新增專案設定新增專案設定
+------------------------
 
-SendGrid 패키지 추가프로젝트에 SendGrid NuGet 패키지 추가
----------------------------------------------------------
+如同背景工作角色 A，背景工作角色 B 也必須要有儲存帳號認證，才能使用資料表、佇列和 Blob。此外，若要傳送電子郵件，背景工作角色必須將認證內嵌在對 SendGrid 服務的呼叫中。而若要建構要在傳送的電子郵件中加入的取消訂閱連結，背景工作角色必須得知應用程式的 URL。這些值均儲存在專案設定中。
 
-SendGrid를 사용하여 전자 메일을 보내려면 SendGrid NuGet 패키지를 설치해야 합니다.
+儲存帳號認證的相關程序，與[第三個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/#configstorage)所提供的程序相同。
 
-1.  **솔루션 탐색기**에서 WorkerRoleB 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+1.  在 **[方案總管]** 中，於雲端專案中的 **[角色]** 下，以滑鼠右鍵按一下 **WorkerRoleB**，然後選擇 **[屬性]**。
 
-    ![NuGet 패키지 관리](./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-manage-nuget.png)
+2.  選取 **[設定]** 索引標籤。
 
-2.  **NuGet 패키지 관리** 대화 상자에서 **온라인** 탭을 선택하고 검색 상자에 "sendgrid"를 입력하고 Enter 키를 누릅니다.
+3.  確定已選取 **[服務組態]** 下拉式清單中的 **[所有組態]**。
 
-3.  **SendGrid** 패키지에서 **설치**를 클릭합니다.
+4.  選取 **[設定]** 索引標籤，然後按一下 **[加入設定]**。
 
-    ![Sendgrid 패키지를 설치합니다.](./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-install-sendgrid.png)
+5.  在 **[名稱]** 欄位中，輸入 "StorageConnectionString"。
 
-4.  대화 상자를 닫습니다.
+6.  選取 **[類型]** 下拉式清單中的 **[連接字串]**。
 
-프로젝트 설정 추가프로젝트 설정 추가
-------------------------------------
+7.  按一下該行右邊的省略符號 (**...**) 按鈕，以開啟 **[儲存體帳戶連接字串]** 對話方塊。
 
-작업자 역할 A와 마찬가지로 작업자 역할 B에 저장소 계정 자격 증명이 있어야 테이블, 큐, Blob 작업을 할 수 있습니다. 또한 전자 메일을 보내려면 작업자 역할에 SendGrid 서비스에 대한 호출에 포함할 자격 증명이 있어야 합니다. 보내는 전자 메일에 구독 취소 링크를 생성하려면 작업자 역할에서 응용 프로그램의 URL을 알아야 합니다. 이러한 값은 프로젝트 설정에 저장되어 있습니다.
+8.  在 **[Create Storage Connection String]** 對話方塊中，按一下 **[Your subscription]** 選項按鈕。
 
-저장소 계정 자격 증명 절차는 [세 번째 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/#configstorage)에서 보았던 절차와 동일합니다.
+9.  選擇您為 Web 角色和背景工作角色 A 選擇的相同 **[訂閱]** 和 **[Account name]**。
 
-1.  **솔루션 탐색기**에서 클라우드 프로젝트의 **역할** 아래에서 **WorkerRoleB**를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
+10. 依照相同的程序，進行 **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString** 連接字串的設定。
 
-2.  **설정** 탭을 선택합니다.
+    接著，您必須建立並設定背景工作角色 B 專用的三項新設定。
 
-3.  **서비스 구성** 드롭다운 목록에서 **모든 구성**이 선택되어 있는지 확인합니다.
+11. 在 **[屬性]** 視窗的 **[設定]** 索引標籤中，按一下 **[新增設定]**，然後新增 **[字串]** 類型的三項新設定：
 
-4.  **설정** 탭을 선택한 후 **설정 추가**를 클릭합니다.
+    -   **名稱**：SendGridUserName、**值**：您在[第二個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/)中建立的 SendGrid 使用者名稱。
 
-5.  **이름** 열에 "StorageConnectionString"을 입력합니다.
+    -   **名稱**：SendGridPassword、**值**：SendGrid 密碼。
 
-6.  **형식** 드롭다운 목록에서 **연결 문자열**을 선택합니다.
+    -   **名稱**：AzureMailServiceURL、**值**：應用程式在您加以部署時所將具備的基礎 URL，例如：http://sampleurl.cloudapp.net。
 
-7.  줄의 오른쪽 끝에 있는 줄임표(**...**) 단추를 클릭하여 **저장소 계정 연결 문자열** 대화 상자를 엽니다.
+    ![New settings in WorkerRoleB project](./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-settings.png)
 
-8.  **저장소 연결 문자열 만들기** 대화 상자에서 **구독** 라디오 단추를 선택합니다.
+### 新增在背景工作角色啟動時所執行的程式碼
 
-9.  웹 역할과 작업자 역할 A에 대해 선택한 것과 동일한 **구독** 및 **계정 이름**을 선택합니다.
+1.  在 WorkerRoleB 專案中，刪除 WorkerRole.cs。
 
-10. 동일한 절차에 따라 **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString** 연결 문자열의 설정을 구성합니다.
+2.  在 WorkerRoleB 專案上按一下滑鼠右鍵，然後選擇 **[新增現有項目]**。
 
-    그런 다음 작업자 역할 B만 사용하는 새로운 설정 세 가지를 만들고 구성합니다.
+    ![Add existing item to Worker Role B](./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-add-existing.png)
 
-11. **속성** 창의 **설정** 탭에서 **설정 추가**를 클릭한 다음 **문자열** 형식의 새 설정 세 가지를 추가합니다.
+3.  瀏覽到範例應用程式下載到的資料夾，並在 WorkerRoleB 專案中選取 WorkerRoleB.cs 檔案，然後按一下 **[新增]**。
 
-    -   **이름**: SendGridUserName, **값**: [두 번째 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/)에서 만든 SendGrid 사용자 이름입니다.
+> [WACOM.NOTE] 對於具有最新 SDK 和最新 SendGrid NuGet 封裝的 Visual Studio 2013，請開啟 *WorkerRoleB.cs*，並對程式碼進行下列變更：(1) 刪除 `SendGridMail.Transport` 的 `using` 陳述式。(2) 將 `SendGrid.GenerateInstance` 的兩個執行個體都變更為 `SendGrid.GetInstance`。(3) 將 `REST.GetInstance` 的兩個執行個體都變更為 `Web.GetInstance`。
 
-    -   **이름**: SendGridPassword, **값**: SendGrid 암호입니다.
+1.  開啟 WorkerRoleB.cs，並檢查程式碼。
 
-    -   **이름**: AzureMailServiceURL, **값**: 응용 프로그램이 배포될 때 갖는 기준 URL입니다. 예: http://sampleurl.cloudapp.net.
+    如同您在背景工作角色 A 中看到的，`OnStart` 方法會初始化使用 Azure 儲存體實體所需的內容類別。此方法也可確定您在 `Run` 方法中所需的所有資料表、佇列和 Blob 容器確實存在。
 
-    ![WorkerRoleB 프로젝트의 새 설정](./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-settings.png)
-
-### 작업자 역할 시작 시 실행되는 코드 추가
-
-1.  WorkerRoleB 프로젝트에서 WorkerRole.cs를 삭제합니다.
-
-2.  WorkerRoleB 프로젝트를 마우스 오른쪽 단추로 클릭하고 **기존 항목 추가**를 선택합니다.
-
-    ![작업자 역할 B에 기존 항목 추가](./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-add-existing.png)
-
-3.  샘플 응용 프로그램을 다운로드한 폴더로 이동하여 WorkerRoleB 프로젝트에서 WorkerRoleB.cs 파일을 선택한 후 **추가**를 클릭합니다.
-
-> [WACOM.NOTE] 최신 SDK 및 SendGrid NuGet 패키지가 설치된 Visual Studio 2013의 경우 *WorkerRoleB.cs*를 열고 다음과 같이 코드를 변경합니다. (1) `SendGridMail.Transport`의 `using` 문을 삭제합니다. (2) `SendGrid.GenerateInstance`의 인스턴스를 둘 다 `SendGrid.GetInstance`로 변경합니다. (3) `REST.GetInstance`의 인스턴스를 둘 다 `Web.GetInstance`로 변경합니다.
-
-1.  WorkerRoleB.cs를 열고 코드를 검토합니다.
-
-    작업자 역할 A에서 본 것처럼 `OnStart` 메서드는 Azure 저장소 엔터티와 작동하기 위해 필요한 컨텍스트 클래스를 초기화합니다. 또한 `Run` 메서드에서 필요한 모든 테이블, 큐 및 Blob 컨테이너가 존재하도록 합니다.
-
-    작업자 역할 A와의 차이는 Blob 컨테이너 및 구독 큐가 없을 경우 리소스 사이에서 이들을 추가하여 만든다는 점입니다. Blob 컨테이너를 사용하여 전자 메일 본문의 일반 텍스트 및 HTML이 포함된 파일을 가져옵니다. 구독 큐는 구독 확인 전자 메일을 보내는 데 사용됩니다.
+    與背景工作角色 A 的差別在於，背景工作角色 B 新增了 Blob 容器，且在資源間尚無訂閱佇列存在時必須加以建立。您將會使用 Blob 容器取得內含 HTML 和純文字郵件本文的檔案。訂閱佇列則會用來傳送訂閱確認電子郵件。
 
          public override bool OnStart()
          {
-             ServicePointManager.DefaultConnectionLimit = Environment.ProcessorCount;
+        ServicePointManager.DefaultConnectionLimit = Environment.ProcessorCount;
 
-             // Read storage account configuration settings
-             ConfigureDiagnostics();
-             Trace.TraceInformation("Initializing storage account in worker role B");
-             var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        // Read storage account configuration settings
+        ConfigureDiagnostics();
+        Trace.TraceInformation("Initializing storage account in worker role B");
+        var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
 
-             // Initialize queue storage 
-             Trace.TraceInformation("Creating queue client.");
-             CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-             this.sendEmailQueue = queueClient.GetQueueReference("azuremailqueue");
-             this.subscribeQueue = queueClient.GetQueueReference("azuremailsubscribequeue");
+        // Initialize queue storage 
+        Trace.TraceInformation("Creating queue client.");
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+        this.sendEmailQueue = queueClient.GetQueueReference("azuremailqueue");
+        this.subscribeQueue = queueClient.GetQueueReference("azuremailsubscribequeue");
 
-             // Initialize blob storage
-             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-             this.blobContainer = blobClient.GetContainerReference("azuremailblobcontainer");
+        // Initialize blob storage
+        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+        this.blobContainer = blobClient.GetContainerReference("azuremailblobcontainer");
 
-             // Initialize table storage
-             var tableClient = storageAccount.CreateCloudTableClient();
-             tableServiceContext = tableClient.GetDataServiceContext();
+        // Initialize table storage
+        var tableClient = storageAccount.CreateCloudTableClient();
+        tableServiceContext = tableClient.GetDataServiceContext();
 
-             Trace.TraceInformation("WorkerB: Creating blob container, queue, tables, if they don't exist.");
-             this.blobContainer.CreateIfNotExists();
-             this.sendEmailQueue.CreateIfNotExists();
-             this.subscribeQueue.CreateIfNotExists();
-             var messageTable = tableClient.GetTableReference("Message");
-             messageTable.CreateIfNotExists();
-             var mailingListTable = tableClient.GetTableReference("MailingList");
-             mailingListTable.CreateIfNotExists();
+        Trace.TraceInformation("WorkerB:Creating blob container, queue, tables, if they don't exist.");
+        this.blobContainer.CreateIfNotExists();
+        this.sendEmailQueue.CreateIfNotExists();
+        this.subscribeQueue.CreateIfNotExists();
+        var messageTable = tableClient.GetTableReference("Message");
+        messageTable.CreateIfNotExists();
+        var mailingListTable = tableClient.GetTableReference("MailingList");
+        mailingListTable.CreateIfNotExists();
 
-             return base.OnStart();
+        return base.OnStart();
          }
 
-    `Run` 메서드는 두 가지 큐의 작업 항목을 처리하는 데, 하나는 전자 메일 목록에 보낸 메시지(작업자 역할 A가 만든 작업 항목)에 사용되는 큐이고 다른 하나는 구독 확인 전자 메일(MvcWebRole 프로젝트의 구독 API 메서드가 만든 작업 항목)에 사용되는 큐입니다.
+    `Run` 方法會處理來自兩個佇列的工作項目：傳送至電子郵件清單的訊息 (背景工作角色 A 所建立的工作項目) 所使用的佇列，以及用於訂閱確認電子郵件 (MvcWebRole 專案中的訂閱 API 方法所建立的工作項目) 的佇列。
 
          public override void Run()
          {
-             CloudQueueMessage msg = null;
+        CloudQueueMessage msg = null;
 
-             Trace.TraceInformation("WorkerRoleB start of Run()");
-             while (true)
+        Trace.TraceInformation("WorkerRoleB start of Run()");
+        while (true)
              {
-                 try
+        try
                  {
-                     bool messageFound = false;
+        bool messageFound = false;
 
-                     // If OnStop has been called, return to do a graceful shutdown.
-                     if (onStopCalled == true)
+        // If OnStop has been called, return to do a graceful shutdown.
+        if (onStopCalled == true)
                      {
-                         Trace.TraceInformation("onStopCalled WorkerRoleB");
-                         returnedFromRunMethod = true;
-                         return;
+        Trace.TraceInformation("onStopCalled WorkerRoleB");
+        returnedFromRunMethod = true;
+        return;
                      }
-                     // Retrieve and process a new message from the send-email-to-list queue.
-                     msg = sendEmailQueue.GetMessage();
-                     if (msg != null)
+        // Retrieve and process a new message from the send-email-to-list queue.
+        msg = sendEmailQueue.GetMessage();
+        if (msg != null)
                      {
-                         ProcessQueueMessage(msg);
-                         messageFound = true;
-                     }
-
-                     // Retrieve and process a new message from the subscribe queue.
-                     msg = subscribeQueue.GetMessage();
-                     if (msg != null)
-                     {
-                         ProcessSubscribeQueueMessage(msg);
-                         messageFound = true;
+        ProcessQueueMessage(msg);
+        messageFound = true;
                      }
 
-                     if (messageFound == false)
+        // Retrieve and process a new message from the subscribe queue.
+        msg = subscribeQueue.GetMessage();
+        if (msg != null)
                      {
-                         System.Threading.Thread.Sleep(1000*60);
+        ProcessSubscribeQueueMessage(msg);
+        messageFound = true;
+                     }
+
+        if (messageFound == false)
+                     {
+        System.Threading.Thread.Sleep(1000*60);
                      }
                  }
-                 catch (Exception ex)
+        catch (Exception ex)
                  {
-                     string err = ex.Message;
-                     if (ex.InnerException != null)
+        string err = ex.Message;
+        if (ex.InnerException != null)
                      {
-                         err += " Inner Exception: " + ex.InnerException.Message;
+        err += " Inner Exception:" + ex.InnerException.Message;
                      }
-                     if (msg != null)
+        if (msg != null)
                      {
-                         err += " Last queue message retrieved: " + msg.AsString;
+        err += " Last queue message retrieved:" + msg.AsString;
                      }
-                     Trace.TraceError(err);
-                     // Don't fill up Trace storage if we have a bug in either process loop.
-                     System.Threading.Thread.Sleep(1000*60);
+        Trace.TraceError(err);
+        // Don't fill up Trace storage if we have a bug in either process loop.
+        System.Threading.Thread.Sleep(1000*60);
                  }
              }
          }
 
-    이 코드는 작업자 역할이 종료될 때까지 무한 루프 상태에서 실행됩니다. 주 큐에 작업 항목이 있으면 코드는 그 항목을 처리한 다음 구독 큐를 확인합니다.
+    此程式碼會在無限迴圈中執行，直到背景工作角色關閉為止。如果在主要佇列中發現工作項目，程式碼會加以處理，然後檢查訂閱佇列。
 
                      // Retrieve and process a new message from the send-email-to-list queue.
-                     msg = this.sendEmailQueue.GetMessage();
-                     if (msg != null)
+        msg = this.sendEmailQueue.GetMessage();
+        if (msg != null)
                      {
-                         ProcessQueueMessage(msg);
-                         messageFound = true;
+        ProcessQueueMessage(msg);
+        messageFound = true;
                      }
 
-                     // Retrieve and process a new message from the subscribe queue.
-                     msg = this.subscribeQueue.GetMessage();
-                     if (msg != null)
+        // Retrieve and process a new message from the subscribe queue.
+        msg = this.subscribeQueue.GetMessage();
+        if (msg != null)
                      {
-                         ProcessSubscribeQueueMessage(msg);
-                         messageFound = true;
+        ProcessSubscribeQueueMessage(msg);
+        messageFound = true;
                      }
 
-    두 큐 모두 대기가 없으면 코드는 루프를 계속하기 전에 60초 동안 유휴 상태가 됩니다.
+    如果兩個佇列中都沒有等候的項目，程式碼會在睡眠 60 秒後繼續執行迴圈。
 
                      if (messageFound == false)
                      {
-                         System.Threading.Thread.Sleep(1000*60);
+        System.Threading.Thread.Sleep(1000*60);
                      }
 
-    절전 모드 시간의 목적은 [이전 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/)에 설명된 대로 Azure 저장소 트랜잭션 비용을 최소화하기 위한 것입니다.
+    設置睡眠時間的目的，是要盡可能降低 Azure 儲存體交易成本，如[上一個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/)所說明。
 
-    [GetMessage](http://msdn.microsoft.com/en-us/library/windowsazure/ee741827.aspx) 메서드가 큐 항목을 큐에서 끌어올 때 이 큐 항목은 큐에 액세스하는 다른 모든 작업자 및 웹 역할에게 30초 동안 보이지 않습니다. 이는 하나의 작업자 역할 인스턴스만 지정된 큐 메시지를 선택해서 처리하도록 하기 위함입니다. [표시 제한 시간](http://msdn.microsoft.com/en-us/library/windowsazure/ee758454.aspx) 매개 변수를 `GetMessage` 메서드로 전달하여 이 *단독 임대* 시간(큐 항목이 안 보이는 시간)을 명시적으로 설정할 수 있습니다. 작업자 역할이 큐 메시지를 처리하는 데 30초 이상 걸리면 다른 역할 인스턴스가 동일한 메시지를 처리하지 못하도록 단독 임대 시간을 늘려야 합니다.
+    當 [GetMessage](http://msdn.microsoft.com/en-us/library/windowsazure/ee741827.aspx) 方法從佇列中提取佇列項目時，所有存取該佇列的其他背景工作和 Web 角色將有 30 秒的時間看不見該佇列項目。這是為了確保只有一個背景工作角色執行個體可提取給定的佇列訊息，以進行處理。您可以將[可見度逾時](http://msdn.microsoft.com/en-us/library/windowsazure/ee758454.aspx)參數傳至 `GetMessage` 方法，以明確設定此*獨佔租用*時間 (看不見佇列項目的時間)。如果背景工作角色處理佇列訊息所需的時間可能超過 30 秒，您應增加獨佔租用時間，以防止其他角色執行個體處理相同訊息。
 
-    반면, 단독 임대 시간을 아주 큰 값으로 설정하지는 않습니다. 예를 들어 단독 임대 시간이 48시간으로 설정되어 있고 큐에서 메시지를 제거한 후 작업자 역할이 예기치 않게 종료되면 다른 작업자 역할이 48시간 동안 메시지를 처리하지 못하게 됩니다. 단독 임대 최대값은 7일입니다.
+    另一方面，獨佔租用時間也不應設為過大的值。例如，如果獨佔租用時間設為 48 小時，而您的背景工作角色在清除佇列中的訊息後非預期地關閉，則其他背景工作角色將有 48 小時無法處理訊息。獨佔租用上限為 7 天。
 
-    [GetMessages](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx) 메서드(이름 끝에 "s"가 있음)를 사용하여 한 번의 호출로 최대 32개의 메시지를 큐에서 끌어올 수 있습니다. 큐에 액세스할 때마다 약간의 트랜잭션 비용이 발생하고 메시지가 32개 반환되거나 하나도 반환되지 않거나 이 트랜잭션 비용은 같습니다. 다음 코드는 한 번의 호출로 메시지를 최대 32개까지 가져와 처리합니다.
+    [GetMessages](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx) 方法 (請留意名稱結尾加了 "s") 在一次呼叫中最多可從佇列中提取 32 個訊息。每次佇列存取都會產生少許交易成本，且無論傳回了 32 個訊息還是零個訊息，交易成本都是一樣的。下列程式碼會在一次呼叫中擷取最多 32 個訊息，並加以處理。
 
-    	foreach (CloudQueueMessage msg in sendEmailQueue.GetMessages(32))
+    foreach (CloudQueueMessage msg in sendEmailQueue.GetMessages(32))
+
          {
-             ProcessQueueMessage(msg);
-             messageFound = true;
+        ProcessQueueMessage(msg);
+        messageFound = true;
          }
 
-    `GetMessages`를 사용하여 여러 메시지를 제거하는 경우 응용 프로그램에 모든 메시지를 처리하기에 충분한 표시 제한 시간이 제공되는지 확인합니다. 표시 제한 시간이 만료되면 다른 역할 인스턴스가 메시지에 액세스할 수 있고 그렇게 되면 첫 번째 인스턴스는 작업 항목 처리를 완료했을 때 메시지를 삭제할 수 없게 됩니다.
+    在使用 `GetMessages` 移除多個訊息時，請確定可見度逾時可讓您的應用程式有足夠的時間處理所有訊息。可見度逾時到期後，其他角色執行個體即可存取訊息，而一旦開始存取，第一個執行個體即無法在完成工作項目的處理後刪除訊息。
 
-    `Run` 메서드는 주 큐에서 작업 항목을 찾으면 `ProcessQueueMessage`를 호출합니다.
+    `Run` 方法在主要佇列中發現工作項目時，會呼叫 `ProcessQueueMessage`：
 
          private void ProcessQueueMessage(CloudQueueMessage msg)
          {
-             // Log and delete if this is a "poison" queue message (repeatedly processed
-             // and always causes an error that prevents processing from completing).
-             // Production applications should move the "poison" message to a "dead message"
-             // queue for analysis rather than deleting the message.           
-             if (msg.DequeueCount > 5)
+        // Log and delete if this is a "poison" queue message (repeatedly processed
+        // and always causes an error that prevents processing from completing).
+        // Production applications should move the "poison" message to a "dead message"
+        // queue for analysis rather than deleting the message.           
+        if (msg.DequeueCount > 5)
              {
-                 Trace.TraceError("Deleting poison message:    message {0} Role Instance {1}.",
-                     msg.ToString(), GetRoleInstance());
-                 sendEmailQueue.DeleteMessage(msg);
-                 return;
+        Trace.TraceError("Deleting poison message:message {0} Role Instance {1}.",
+        msg.ToString(), GetRoleInstance());
+        sendEmailQueue.DeleteMessage(msg);
+        return;
              }
-             // Parse message retrieved from queue.
-             // Example:  2012-01-01,0123456789email@domain.com,0
-             var messageParts = msg.AsString.Split(new char[] { ',' });
-             var partitionKey = messageParts[0];
-             var rowKey = messageParts[1];
-             var restartFlag = messageParts[2];
-             Trace.TraceInformation("ProcessQueueMessage start:  partitionKey {0} rowKey {1} Role Instance {2}.",
-                 partitionKey, rowKey, GetRoleInstance());
-             // If this is a restart, verify that the email hasn't already been sent.
-             if (restartFlag == "1")
+        // Parse message retrieved from queue.
+        // Example:2012-01-01,0123456789email@domain.com,0
+        var messageParts = msg.AsString.Split(new char[] { ',' });
+        var partitionKey = messageParts[0];
+        var rowKey = messageParts[1];
+        var restartFlag = messageParts[2];
+        Trace.TraceInformation("ProcessQueueMessage start:partitionKey {0} rowKey {1} Role Instance {2}.",
+        partitionKey, rowKey, GetRoleInstance());
+        // If this is a restart, verify that the email hasn't already been sent.
+        if (restartFlag == "1")
              {
-                 var retrieveOperationForRestart = TableOperation.Retrieve<SendEmail>(partitionKey, rowKey);
-                 var retrievedResultForRestart = messagearchiveTable.Execute(retrieveOperationForRestart);
-                 var messagearchiveRow = retrievedResultForRestart.Result as SendEmail;
-                 if (messagearchiveRow != null)
+        var retrieveOperationForRestart = TableOperation.Retrieve<SendEmail>(partitionKey, rowKey);
+        var retrievedResultForRestart = messagearchiveTable.Execute(retrieveOperationForRestart);
+        var messagearchiveRow = retrievedResultForRestart.Result as SendEmail;
+        if (messagearchiveRow != null)
                  {
-                     // SendEmail row is in archive, so email is already sent. 
-                     // If there's a SendEmail Row in message table, delete it,
-                     // and delete the queue message.
-                     Trace.TraceInformation("Email already sent: partitionKey=" + partitionKey + " rowKey= " + rowKey);
-                     var deleteOperation = TableOperation.Delete(new SendEmail { PartitionKey = partitionKey, RowKey = rowKey, ETag = "*" });
-                     try
+        // SendEmail row is in archive, so email is already sent. 
+        // If there's a SendEmail Row in message table, delete it,
+        // and delete the queue message.
+        Trace.TraceInformation("Email already sent:partitionKey=" + partitionKey + " rowKey= " + rowKey);
+        var deleteOperation = TableOperation.Delete(new SendEmail { PartitionKey = partitionKey, RowKey = rowKey, ETag = "*" });
+        try
                      {
-                         messageTable.Execute(deleteOperation);
+        messageTable.Execute(deleteOperation);
                      }
-                     catch
+        catch
                      {
                      }
-                     sendEmailQueue.DeleteMessage(msg);
-                     return;
+        sendEmailQueue.DeleteMessage(msg);
+        return;
                  }
              }
-                         // Get the row in the Message table that has data we need to send the email.
-             var retrieveOperation = TableOperation.Retrieve<SendEmail>(partitionKey, rowKey);
-             var retrievedResult = messageTable.Execute(retrieveOperation);
-             var emailRowInMessageTable = retrievedResult.Result as SendEmail;
-             if (emailRowInMessageTable == null)
+        // Get the row in the Message table that has data we need to send the email.
+        var retrieveOperation = TableOperation.Retrieve<SendEmail>(partitionKey, rowKey);
+        var retrievedResult = messageTable.Execute(retrieveOperation);
+        var emailRowInMessageTable = retrievedResult.Result as SendEmail;
+        if (emailRowInMessageTable == null)
              {
-                 Trace.TraceError("SendEmail row not found:  partitionKey {0} rowKey {1} Role Instance {2}.",
-                     partitionKey, rowKey, GetRoleInstance());
-                 return;
+        Trace.TraceError("SendEmail row not found:partitionKey {0} rowKey {1} Role Instance {2}.",
+        partitionKey, rowKey, GetRoleInstance());
+        return;
              }
-             // Derive blob names from the MessageRef.
-             var htmlMessageBodyRef = emailRowInMessageTable.MessageRef + ".htm";
-             var textMessageBodyRef = emailRowInMessageTable.MessageRef + ".txt";
-             // If the email hasn't already been sent, send email and archive the table row.
-             if (emailRowInMessageTable.EmailSent != true)
+        // Derive blob names from the MessageRef.
+        var htmlMessageBodyRef = emailRowInMessageTable.MessageRef + ".htm";
+        var textMessageBodyRef = emailRowInMessageTable.MessageRef + ".txt";
+        // If the email hasn't already been sent, send email and archive the table row.
+        if (emailRowInMessageTable.EmailSent != true)
              {
-                 SendEmailToList(emailRowInMessageTable, htmlMessageBodyRef, textMessageBodyRef);
+        SendEmailToList(emailRowInMessageTable, htmlMessageBodyRef, textMessageBodyRef);
 
-                 var emailRowToDelete = new SendEmail { PartitionKey = partitionKey, RowKey = rowKey, ETag = "*" };
-                 emailRowInMessageTable.EmailSent = true;
+        var emailRowToDelete = new SendEmail { PartitionKey = partitionKey, RowKey = rowKey, ETag = "*" };
+        emailRowInMessageTable.EmailSent = true;
 
-                 var upsertOperation = TableOperation.InsertOrReplace(emailRowInMessageTable);
-                 messagearchiveTable.Execute(upsertOperation);
-                 var deleteOperation = TableOperation.Delete(emailRowToDelete);
-                 messageTable.Execute(deleteOperation);
+        var upsertOperation = TableOperation.InsertOrReplace(emailRowInMessageTable);
+        messagearchiveTable.Execute(upsertOperation);
+        var deleteOperation = TableOperation.Delete(emailRowToDelete);
+        messageTable.Execute(deleteOperation);
              }
 
-             // Delete the queue message.
-             sendEmailQueue.DeleteMessage(msg);
+        // Delete the queue message.
+        sendEmailQueue.DeleteMessage(msg);
 
-             Trace.TraceInformation("ProcessQueueMessage complete:  partitionKey {0} rowKey {1} Role Instance {2}.",
-                partitionKey, rowKey, GetRoleInstance());
+        Trace.TraceInformation("ProcessQueueMessage complete:partitionKey {0} rowKey {1} Role Instance {2}.",
+        partitionKey, rowKey, GetRoleInstance());
          }
 
-    포이즌 메시지는 처리될 때 응용 프로그램에서 예외를 throw하게 만드는 메시지입니다. 큐에서 메시지를 6번 이상 끌어왔으면 그 메시지를 처리할 수 없다고 간주하고 계속 처리 시도하지 않도록 큐에서 제거합니다. 메시지를 삭제하는 대신 분석하기 위해 프로덕션 응용 프로그램에서 포이즌 메시지를 "데드 메시지" 큐로 이동하는 것이 좋습니다.
+    有害訊息是指在進行處理時會導致應用程式擲回例外狀況的訊息。如果某個訊息從佇列中提取的次數超過五次，我們即假設該訊息無法處理，並且會從佇列中移除該訊息，而不再嘗試加以處理。生產應用程式應考慮將有害訊息移至「無效訊息」佇列進行分析，而不應刪除訊息。
 
-    코드는 파티션 키와 SendEmail 행을 검색하는 데 필요한 행 키 및 다시 시작 플래그로 큐 메시지를 구문 분석합니다.
+    下列程式碼會將佇列訊息剖析為擷取 SendEmail 資料列所需的分割索引鍵和資料列索引鍵，然後重新啟動旗標。
 
              var messageParts = msg.AsString.Split(new char[] { ',' });
-             var partitionKey = messageParts[0];
-             var rowKey = messageParts[1];
-             var restartFlag = messageParts[2];
+        var partitionKey = messageParts[0];
+        var rowKey = messageParts[1];
+        var restartFlag = messageParts[2];
 
-    예기치 않은 종료 후에 이 메시지 처리를 다시 시작했으면 코드는 `messagearchive` 테이블을 검사하여 이 전자 메일이 이미 보내졌는지 확인합니다. 전자 메일이 이미 보내진 경우 `SendEmail` 행이 있으면 코드는 이 행을 삭제하고 큐 메시지를 삭제합니다.
+    如果此訊息在非預期的關閉後重新啟動，程式碼將會檢查 `messagearchive` 資料表，以判斷此電子郵件是否已傳送。如果已傳送，則程式碼會刪除 `SendEmail` 資料列 (如果存在)，並刪除佇列訊息。
 
              if (restartFlag == "1")
              {
-                 var retrieveOperationForRestart = TableOperation.Retrieve<SendEmail>(partitionKey, rowKey);
-                 var retrievedResultForRestart = messagearchiveTable.Execute(retrieveOperationForRestart);
-                 var messagearchiveRow = retrievedResultForRestart.Result as SendEmail;
-                 if (messagearchiveRow != null)
+        var retrieveOperationForRestart = TableOperation.Retrieve<SendEmail>(partitionKey, rowKey);
+        var retrievedResultForRestart = messagearchiveTable.Execute(retrieveOperationForRestart);
+        var messagearchiveRow = retrievedResultForRestart.Result as SendEmail;
+        if (messagearchiveRow != null)
                  {
-                     Trace.TraceInformation("Email already sent: partitionKey=" + partitionKey + " rowKey= " + rowKey);
-                     var deleteOperation = TableOperation.Delete(new SendEmail { PartitionKey = partitionKey, RowKey = rowKey, ETag = "*" });
-                     try
+        Trace.TraceInformation("Email already sent:partitionKey=" + partitionKey + " rowKey= " + rowKey);
+        var deleteOperation = TableOperation.Delete(new SendEmail { PartitionKey = partitionKey, RowKey = rowKey, ETag = "*" });
+        try
                      {
-                         messageTable.Execute(deleteOperation);
+        messageTable.Execute(deleteOperation);
                      }
-                     catch
+        catch
                      {
                      }
-                     sendEmailQueue.DeleteMessage(msg);
-                     return;
+        sendEmailQueue.DeleteMessage(msg);
+        return;
                  }
              }
 
-    그런 다음 `message` 테이블에서 `SendEmail` 행을 가져옵니다. 이 행에는 전자 메일을 보내는 데 필요한 모든 정보(전자 메일의 일반 텍스트 본문 및 HTML이 포함된 Blob 제외)가 들어 있습니다.
+    接下來，我們要取得 `message` 資料表中的 `SendEmail` 資料列。此資料列具有傳送電子郵件所需的所有資訊 (包含 HTML 和純文字電子郵件本文的 Blob 除外)。
 
              var retrieveOperation = TableOperation.Retrieve<SendEmail>(partitionKey, rowKey);
-             var retrievedResult = messageTable.Execute(retrieveOperation);
-             var emailRowInMessageTable = retrievedResult.Result as SendEmail;
-             if (emailRowInMessageTable == null)
+        var retrievedResult = messageTable.Execute(retrieveOperation);
+        var emailRowInMessageTable = retrievedResult.Result as SendEmail;
+        if (emailRowInMessageTable == null)
              {
-                 Trace.TraceError("SendEmail row not found:  partitionKey {0} rowKey {1} Role Instance {2}.",
-                     partitionKey, rowKey, GetRoleInstance());
-                 return;
+        Trace.TraceError("SendEmail row not found:partitionKey {0} rowKey {1} Role Instance {2}.",
+        partitionKey, rowKey, GetRoleInstance());
+        return;
              }
 
-    그러면 코드는 전자 메일을 보내고 `SendEmail` 행을 보관합니다.
+    接著，程式碼會傳送電子郵件並封存 `SendEmail` 資料列。
 
              if (emailRowInMessageTable.EmailSent != true)
              {
-                 SendEmailToList(emailRowInMessageTable, htmlMessageBodyRef, textMessageBodyRef);
+        SendEmailToList(emailRowInMessageTable, htmlMessageBodyRef, textMessageBodyRef);
 
-                 var emailRowToDelete = new SendEmail { PartitionKey = partitionKey, RowKey = rowKey, ETag = "*" };
-                 emailRowInMessageTable.EmailSent = true;
+        var emailRowToDelete = new SendEmail { PartitionKey = partitionKey, RowKey = rowKey, ETag = "*" };
+        emailRowInMessageTable.EmailSent = true;
 
-                 var upsertOperation = TableOperation.InsertOrReplace(emailRowInMessageTable);
-                 messagearchiveTable.Execute(upsertOperation);
-                 var deleteOperation = TableOperation.Delete(emailRowToDelete);
-                 messageTable.Execute(deleteOperation);
+        var upsertOperation = TableOperation.InsertOrReplace(emailRowInMessageTable);
+        messagearchiveTable.Execute(upsertOperation);
+        var deleteOperation = TableOperation.Delete(emailRowToDelete);
+        messageTable.Execute(deleteOperation);
              }
 
-    트랜잭션에서는 행을 messagearchive 테이블로 이동하면 여러 테이블에 영향을 주므로 이동할 수 없습니다.
+    在交易中無法將資料列移至 messagearchive 資料表，因為這會對多個資料表造成影響。
 
-    마지막으로, 다른 나머지를 모두 성공하면 큐 메시지가 삭제됩니다.
+    最後，如果其他各項皆成功執行，則會刪除佇列訊息。
 
              sendEmailQueue.DeleteMessage(msg);
 
-    SendGrid를 사용하여 전자 메일을 보내는 실제 작업은 `SendEmailToList` 메서드를 통해 이루어집니다. SendGrid가 아닌 다른 서비스를 사용하려면 이 메서드에서 코드를 변경하기만 하면 됩니다.
+    使用 SendGrid 傳送電子郵件的實際工作，可藉由 `SendEmailToList` 方法來完成。如果您要使用 SendGrid 以外的服務，您只需變更此方法中的程式碼即可。
 
-    **참고:** 프로젝트 설정의 자격 증명이 잘못되었으면 SendGrid 호출은 실패하지만 응용 프로그램은 실패 알림을 받지 않습니다. 프로덕션 응용 프로그램에서 SendGrid를 사용하면 관리자가 SendGrid 사용자 계정 암호를 변경할 때 자동으로 실패하는 것을 방지하기 위해 웹 API에 대해 별도의 자격 증명을 설정하는 것이 좋습니다. 자세한 내용은 [SendGrid MultiAuth - 여러 계정 자격 증명](http://support.sendgrid.com/entries/21658978-sendgrid-multiauth-multiple-account-credentials)(영문)을 참조하십시오. <https://sendgrid.com/credentials>(영문)에서 자격 증명을 설정할 수 있습니다.
+    **注意：**如果您在專案設定中的認證無效，您對 SendGrid 的呼叫將會失敗，但系統不會指出應用程式的失敗。如果您在生產應用程式中使用 SendGrid，請考慮為 Web API 設定個別的認證，以避免在系統管理員變更其 SendGrid 使用者帳號密碼時導致無訊息失敗。如需詳細資訊，請參閱 [SendGrid MultiAuth - 多個帳號認證](http://support.sendgrid.com/entries/21658978-sendgrid-multiauth-multiple-account-credentials)。您可以在 <https://sendgrid.com/credentials> 上設定認證。
 
          private void SendEmailToList(string emailAddress, string fromEmailAddress, string subjectLine,
-             string htmlMessageBodyRef, string textMessageBodyRef)
+        string htmlMessageBodyRef, string textMessageBodyRef)
          {
-             var email = SendGrid.GenerateInstance();
-             email.From = new MailAddress(fromEmailAddress);
-             email.AddTo(emailAddress);
-             email.Html = GetBlobText(htmlMessageBodyRef);
-             email.Text = GetBlobText(textMessageBodyRef);
-             email.Subject = subjectLine;
-             var credentials = new NetworkCredential(RoleEnvironment.GetConfigurationSettingValue("SendGridUserName"),
-                 RoleEnvironment.GetConfigurationSettingValue("SendGridPassword"));
-             var transportREST = REST.GetInstance(credentials);
-             transportREST.Deliver(email);
+        var email = SendGrid.GenerateInstance();
+        email.From = new MailAddress(fromEmailAddress);
+        email.AddTo(emailAddress);
+        email.Html = GetBlobText(htmlMessageBodyRef);
+        email.Text = GetBlobText(textMessageBodyRef);
+        email.Subject = subjectLine;
+        var credentials = new NetworkCredential(RoleEnvironment.GetConfigurationSettingValue("SendGridUserName"),
+        RoleEnvironment.GetConfigurationSettingValue("SendGridPassword"));
+        var transportREST = REST.GetInstance(credentials);
+        transportREST.Deliver(email);
          }
 
-         private string GetBlobText(string blogRef)
+        private string GetBlobText(string blogRef)
          {
-             var blob = blobContainer.GetBlockBlobReference(blogRef);
-             blob.FetchAttributes();
-             var blobSize = blob.Properties.Length;
-             using (var memoryStream = new MemoryStream((int)blobSize))
+        var blob = blobContainer.GetBlockBlobReference(blogRef);
+        blob.FetchAttributes();
+        var blobSize = blob.Properties.Length;
+        using (var memoryStream = new MemoryStream((int)blobSize))
              {
-                 blob.DownloadToStream(memoryStream);
-                 return System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
+        blob.DownloadToStream(memoryStream);
+        return System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
              }
          }
 
-    `GetBlobText` 메서드에서 코드는 Blob 크기를 가져온 다음 성능 상의 이유로 그 값을 사용하여 `MemoryStream` 개체를 초기화합니다. 크기를 제공하지 않으면 `MemoryStream`은 256바이트를 할당한 후 다운로드가 그 값을 초과하면 512바이트를 더 할당하는 등 매번 두 배의 양을 할당합니다. 큰 Blob의 경우 이 프로세스는 다운로드 시작 시 올바른 양을 할당하는 것에 비해 비효율적입니다.
+    在 `GetBlobText` 方法中，程式碼會取得 Blob 大小，然後使用該值初始化 `MemoryStream` 物件，以確保效能。如果您未提供此大小，`MemoryStream` 將會配置 256 位元組，後續若下載項目超出此值，則會再配置 512 位元組，依此類推，每次配置的數量都倍增。就大型 Blob 而言，相較於在下載之初即配置正確數量，前述程序較無效率。
 
-    `Run` 메서드는 구독 큐에서 작업 항목을 찾을 때 `ProcessSubscribeQueueMessage`를 호출합니다.
+    `Run` 方法在訂閱佇列中發現工作項目時，會呼叫 `ProcessSubscribeQueueMessage`：
 
          private void ProcessSubscribeQueueMessage(CloudQueueMessage msg)
          {
-             // Log and delete if this is a "poison" queue message (repeatedly processed
-             // and always causes an error that prevents processing from completing).
-             // Production applications should move the "poison" message to a "dead message"
-             // queue for analysis rather than deleting the message.  
-             if (msg.DequeueCount > 5)
+        // Log and delete if this is a "poison" queue message (repeatedly processed
+        // and always causes an error that prevents processing from completing).
+        // Production applications should move the "poison" message to a "dead message"
+        // queue for analysis rather than deleting the message.  
+        if (msg.DequeueCount > 5)
              {
-                 Trace.TraceError("Deleting poison subscribe message:    message {0}.",
-                     msg.AsString, GetRoleInstance());
-                 subscribeQueue.DeleteMessage(msg);
-                 return;
+        Trace.TraceError("Deleting poison subscribe message:message {0}.",
+        msg.AsString, GetRoleInstance());
+        subscribeQueue.DeleteMessage(msg);
+        return;
              }
-             // Parse message retrieved from queue. Message consists of
-             // subscriber GUID and list name.
-             // Example:  57ab4c4b-d564-40e3-9a3f-81835b3e102e,contoso1
-             var messageParts = msg.AsString.Split(new char[] { ',' });
-             var subscriberGUID = messageParts[0];
-             var listName = messageParts[1];
-             Trace.TraceInformation("ProcessSubscribeQueueMessage start:    subscriber GUID {0} listName {1} Role Instance {2}.",
-                 subscriberGUID, listName, GetRoleInstance());
-             // Get subscriber info. 
-             string filter = TableQuery.CombineFilters(
-                 TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, listName),
-                 TableOperators.And,
-                 TableQuery.GenerateFilterCondition("SubscriberGUID", QueryComparisons.Equal, subscriberGUID));
-             var query = new TableQuery<Subscriber>().Where(filter);
-             var subscriber = mailingListTable.ExecuteQuery(query).ToList().Single();
-             // Get mailing list info.
-             var retrieveOperation = TableOperation.Retrieve<MailingList>(subscriber.ListName, "mailinglist");
-             var retrievedResult = mailingListTable.Execute(retrieveOperation);
-             var mailingList = retrievedResult.Result as MailingList;
+        // Parse message retrieved from queue.Message consists of
+        // subscriber GUID and list name.
+        // Example:57ab4c4b-d564-40e3-9a3f-81835b3e102e,contoso1
+        var messageParts = msg.AsString.Split(new char[] { ',' });
+        var subscriberGUID = messageParts[0];
+        var listName = messageParts[1];
+        Trace.TraceInformation("ProcessSubscribeQueueMessage start:subscriber GUID {0} listName {1} Role Instance {2}.",
+        subscriberGUID, listName, GetRoleInstance());
+        // Get subscriber info. 
+        string filter = TableQuery.CombineFilters(
+        TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, listName),
+        TableOperators.And,
+        TableQuery.GenerateFilterCondition("SubscriberGUID", QueryComparisons.Equal, subscriberGUID));
+        var query = new TableQuery<Subscriber>().Where(filter);
+        var subscriber = mailingListTable.ExecuteQuery(query).ToList().Single();
+        // Get mailing list info.
+        var retrieveOperation = TableOperation.Retrieve<MailingList>(subscriber.ListName, "mailinglist");
+        var retrievedResult = mailingListTable.Execute(retrieveOperation);
+        var mailingList = retrievedResult.Result as MailingList;
 
-             SendSubscribeEmail(subscriberGUID, subscriber, mailingList);
+        SendSubscribeEmail(subscriberGUID, subscriber, mailingList);
 
-             subscribeQueue.DeleteMessage(msg);
+        subscribeQueue.DeleteMessage(msg);
 
-             Trace.TraceInformation("ProcessSubscribeQueueMessage complete: subscriber GUID {0} Role Instance {1}.",
-                 subscriberGUID, GetRoleInstance());
+        Trace.TraceInformation("ProcessSubscribeQueueMessage complete:subscriber GUID {0} Role Instance {1}.",
+        subscriberGUID, GetRoleInstance());
          }
 
-    이 메서드는 다음 작업을 수행합니다.
+    此方法會執行下列工作：
 
-    -   메시지가 "포이즌" 메시지이면 로그하고 삭제합니다.
-    -   큐 메시지에서 구독자 GUID를 가져옵니다.
-    -   GUID를 사용하여 MailingList 테이블에서 구독자 정보를 가져옵니다.
-    -   새 구독자에게 확인 전자 메일을 보냅니다.
-    -   큐 메시지를 삭제합니다.
+    -   如果訊息是「有害」訊息，則加以記錄並刪除。
+    -   從佇列訊息中取得訂閱者 GUID。
+    -   使用 GUID 從 MailingList 資料表中取得訂閱者資訊。
+    -   將確認電子郵件傳送給新的訂閱者。
+    -   刪除佇列訊息。
 
-    전자 메일을 목록에 보내는 것과 마찬가지로, 전자 메일을 실제로 보내는 것은 별개의 메서드로 전송되어 원할 경우 다른 전자 메일 서비스로 변경하기 쉽습니다.
+    如同傳送至清單的電子郵件，電子郵件的實際傳送也會以個別方法執行，以便您在需要時對不同的電子郵件服務進行變更。
 
          private static void SendSubscribeEmail(string subscriberGUID, Subscriber subscriber, MailingList mailingList)
          {
-             var email = SendGrid.GenerateInstance();
-             email.From = new MailAddress(mailingList.FromEmailAddress);
-             email.AddTo(subscriber.EmailAddress);
-             string subscribeURL = RoleEnvironment.GetConfigurationSettingValue("AzureMailServiceURL") +
-                 "/subscribe?id=" + subscriberGUID + "&listName=" + subscriber.ListName;
-             email.Html = String.Format("<p>Click the link below to subscribe to {0}. " +
-                 "If you don't confirm your subscription, you won't be subscribed to the list.</p>" +
-                 "<a href=\"{1}\">Confirm Subscription</a>", mailingList.Description, subscribeURL);
-             email.Text = String.Format("Copy and paste the following URL into your browser in order to subscribe to {0}. " +
-                 "If you don't confirm your subscription, you won't be subscribed to the list.\n" +
-                 "{1}", mailingList.Description, subscribeURL);
-             email.Subject = "Subscribe to " + mailingList.Description;
-             var credentials = new NetworkCredential(RoleEnvironment.GetConfigurationSettingValue("SendGridUserName"), RoleEnvironment.GetConfigurationSettingValue("SendGridPassword"));
-             var transportREST = REST.GetInstance(credentials);
-             transportREST.Deliver(email);
+        var email = SendGrid.GenerateInstance();
+        email.From = new MailAddress(mailingList.FromEmailAddress);
+        email.AddTo(subscriber.EmailAddress);
+        string subscribeURL = RoleEnvironment.GetConfigurationSettingValue("AzureMailServiceURL") +
+        "/subscribe
+         id=" + subscriberGUID + "&listName=" + subscriber.ListName;
+        email.Html = String.Format("<p>Click the link below to subscribe to {0}. " +
+        "If you don't confirm your subscription, you won't be subscribed to the list.</p>" +
+        "<a href= private static void SendSubscribeEmail(string subscriberGUID, Subscriber subscriber, MailingList mailingList)
+         {
+        var email = SendGrid.GenerateInstance();
+        email.From = new MailAddress(mailingList.FromEmailAddress);
+        email.AddTo(subscriber.EmailAddress);
+        string subscribeURL = RoleEnvironment.GetConfigurationSettingValue("AzureMailServiceURL") +
+        "/subscribe?id=" + subscriberGUID + "&listName=" + subscriber.ListName;
+        email.Html = String.Format("<p>Click the link below to subscribe to {0}. " +
+        "If you don't confirm your subscription, you won't be subscribed to the list.</p>" +
+        "<a href=\"{1}\">Confirm Subscription</a>", mailingList.Description, subscribeURL);
+        email.Text = String.Format("Copy and paste the following URL into your browser in order to subscribe to {0}. " +
+        "If you don't confirm your subscription, you won't be subscribed to the list.\n" +
+        "{1}", mailingList.Description, subscribeURL);
+        email.Subject = "Subscribe to " + mailingList.Description;
+        var credentials = new NetworkCredential(RoleEnvironment.GetConfigurationSettingValue("SendGridUserName"), RoleEnvironment.GetConfigurationSettingValue("SendGridPassword"));
+        var transportREST = REST.GetInstance(credentials);
+        transportREST.Deliver(email);
+         }
+        quot;{1} private static void SendSubscribeEmail(string subscriberGUID, Subscriber subscriber, MailingList mailingList)
+         {
+        var email = SendGrid.GenerateInstance();
+        email.From = new MailAddress(mailingList.FromEmailAddress);
+        email.AddTo(subscriber.EmailAddress);
+        string subscribeURL = RoleEnvironment.GetConfigurationSettingValue("AzureMailServiceURL") +
+        "/subscribe?id=" + subscriberGUID + "&listName=" + subscriber.ListName;
+        email.Html = String.Format("<p>Click the link below to subscribe to {0}. " +
+        "If you don't confirm your subscription, you won't be subscribed to the list.</p>" +
+        "<a href=\"{1}\">Confirm Subscription</a>", mailingList.Description, subscribeURL);
+        email.Text = String.Format("Copy and paste the following URL into your browser in order to subscribe to {0}. " +
+        "If you don't confirm your subscription, you won't be subscribed to the list.\n" +
+        "{1}", mailingList.Description, subscribeURL);
+        email.Subject = "Subscribe to " + mailingList.Description;
+        var credentials = new NetworkCredential(RoleEnvironment.GetConfigurationSettingValue("SendGridUserName"), RoleEnvironment.GetConfigurationSettingValue("SendGridPassword"));
+        var transportREST = REST.GetInstance(credentials);
+        transportREST.Deliver(email);
+         }
+        quot;>Confirm Subscription</a>", mailingList.Description, subscribeURL);
+        email.Text = String.Format("Copy and paste the following URL into your browser in order to subscribe to {0}. " +
+        "If you don't confirm your subscription, you won't be subscribed to the list.\n" +
+        "{1}", mailingList.Description, subscribeURL);
+        email.Subject = "Subscribe to " + mailingList.Description;
+        var credentials = new NetworkCredential(RoleEnvironment.GetConfigurationSettingValue("SendGridUserName"), RoleEnvironment.GetConfigurationSettingValue("SendGridPassword"));
+        var transportREST = REST.GetInstance(credentials);
+        transportREST.Deliver(email);
          }
 
+測試測試背景工作角色 B
+----------------------
 
-테스트작업자 역할 B 테스트
---------------------------
+1.  按 F5 鍵執行應用程式。
 
-1.  F5 키를 눌러 응용 프로그램을 실행합니다.
+2.  移至 **[訊息]** 頁面，以檢視您建立用以測試背景工作角色 A 的訊息。約一分鐘後，請重新整理網頁，您會發現資料列已從清單中消失，因為該資料列已封存。
 
-2.  **메시지** 페이지로 이동하여 작업자 역할 A를 테스트하기 위해 만든 메시지를 봅니다. 몇 분 후 웹 페이지를 새로 고치면 해당 행이 보관되어 목록에서 보이지 않습니다.
+3.  查看您預期會收到電子郵件的電子郵件收件匣。請注意，使用 SendGrid 的電子郵件傳送或對您電子郵件用戶端的傳遞可能會有所延遲，因此可能要稍候片刻才能看到電子郵件。您也可能需要查看垃圾郵件資料夾。
 
-3.  전자 메일을 받을 전자 메일 받은 편지함을 확인합니다. 전자 메일 클라이언트로 전송 또는 SendGrid를 통한 전자 메일 전송이 지연될 수 있으므로 전자 메일을 보려면 조금 기다려야 할 수 있습니다. 또한 정크 메일 폴더를 확인해야 할 수도 있습니다.
+後續步驟後續步驟
+----------------
 
+現在您已從頭建置 Azure Email Service 應用程式，而其結果與下載已完成的專案相同。若要部署至雲端、在雲端中測試，並升級至生產環境，您可以使用[第二個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/)中的相同程序。如果您選擇建置替代架構，請參閱 [Azure 網站開始使用教學課程](/en-us/develop/net/tutorials/get-started)，以了解如何將 MVC 專案部署至 Azure 網站。
 
-다음 단계다음 단계
-------------------
+若要深入了解 Azure 儲存體，請參閱下列資源：
 
-이제 Azure 전자 메일 서비스 응용 프로그램이 빌드되었으며 다운로드한 완료된 프로젝트와 동일합니다. 클라우드로 배포하고 클라우드에서 테스트하고 프로덕션으로 수준을 올리기 위해 [두 번째 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/)에서 본 것과 동일한 절차를 사용할 수 있습니다. 다른 아키텍처를 빌드하도록 선택한 경우 Azure 웹 사이트로 MVC 프로젝트를 배포하는 방법에 대한 정보는 [Azure 웹 사이트 시작 자습서](/en-us/develop/net/tutorials/get-started)를 참조하십시오.
+-   [Windows Azure 儲存體須知](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-windows-azure-storage.aspx) (Bruno Terkaly 的部落格)
 
-Azure 저장소에 대한 자세한 내용은 다음 리소스를 참조하십시오.
+若要深入了解 Azure 資料表服務，請參閱下列資源：
 
--   [Azure 저장소 필수 지식](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-windows-azure-storage.aspx)(Bruno Terkaly의 블로그)(영문)
+-   [Azure 資料表儲存體須知](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-azure-table-storage.aspx) (Bruno Terkaly 的部落格) (英文)
+-   [如何充分發揮 Windows Azure 資料表的效益](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx) (Azure 儲存體團隊部落格) (英文)
+-   [如何在 .NET 中使用資料表儲存體服務](http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/)
+-   [Windows Azure 儲存體用戶端程式庫 2.0 資料表深入探討](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx) (Azure 儲存體團隊部落格) (英文)
+-   [Real World:設計 Azure 資料表儲存體的可調整分割策略](http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx) (英文)
 
-Azure 테이블 서비스에 대한 자세한 내용은 다음 리소스를 참조하십시오.
+若要深入了解 Azure 佇列服務和 Azure 服務匯流排佇列，請參閱下列資源：
 
--   [Azure 테이블 저장소 필수 지식](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-azure-table-storage.aspx)(Bruno Terkaly의 블로그)(영문)
--   [Azure 테이블을 최대한 활용하는 방법](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx)(Azure 저장소 팀 블로그)(영문)
--   [.NET에서 테이블 저장소 서비스를 사용하는 방법](http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/)
--   [Azure Storage Client Library 2.0 테이블 자세히 알아보기](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx)(Azure 저장소 팀 블로그)(영문)
--   [실제 사용: Azure 테이블 저장소에 대한 확장 가능한 분할 전략 설계](http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx)(영문)를 참조하십시오.
+-   [以佇列為中心的工作模式 (運用 Windows Azure 建構真實的雲端應用程式)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)
+-   [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)
+-   [如何在 .NET 中使用佇列儲存體服務](/en-us/develop/net/how-to-guides/queue-service/)
 
-Azure 큐 서비스 및 Azure 서비스 버스 큐에 대한 자세한 내용은 다음 리소스를 참조하십시오.
+若要深入了解 Azure Blob 服務，請參閱下列資源：
 
--   [큐 중심 작업 패턴(Azure에서 실제 클라우드 앱 빌드)(영문)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)
--   [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)
--   [.NET에서 큐 저장소 서비스를 사용하는 방법](/en-us/develop/net/how-to-guides/queue-service/)
+-   [非結構化 Blob 儲存體 (運用 Windows Azure 建構真實的雲端應用程式)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)
+-   [如何在 .NET 中使用 Azure Blob 儲存體服務](/en-us/develop/net/how-to-guides/blob-storage/)
 
-Azure Blob 서비스에 대한 자세한 내용은 다음 리소스를 참조하십시오.
+若要深入了解 Azure 雲端服務角色的自動調整，請參閱下列資源：
 
--   [구조화되지 않은 Blob 저장소(Azure에서 실제 클라우드 앱 빌드)(영문)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)
--   [.NET에서 Azure Blob 저장소 서비스를 사용하는 방법](/en-us/develop/net/how-to-guides/blob-storage/)
+-   [如何使用自動調整應用程式區塊](/en-us/develop/net/how-to-guides/autoscaling/)
+-   [自動調整與 Azure](http://msdn.microsoft.com/en-us/library/hh680945(v=PandP.50).aspx)
+-   [使用 Azure 建置彈性、可自動調整的方案](http://channel9.msdn.com/Events/WindowsAzureConf/2012/B04) (MSDN 第 9 頻道視訊)
 
-Azure 클라우드 서비스 역할 자동 크기 조정에 대한 자세한 내용은 다음 리소스를 참조하십시오.
+答謝答謝
+--------
 
--   [자동 크기 조정 응용 프로그램 블록을 사용하는 방법](/en-us/develop/net/how-to-guides/autoscaling/)
--   [자동 크기 조정 및 Azure(영문)](http://msdn.microsoft.com/en-us/library/hh680945(v=PandP.50).aspx)
--   [Azure에서 탄력적이고 크기를 자동으로 조정할 수 있는 솔루션 빌드](http://channel9.msdn.com/Events/WindowsAzureConf/2012/B04)(MSDN channel 9 동영상)(영문)
+這些教學課程和範例應用程式由 [Rick Anderson](http://blogs.msdn.com/b/rickandy/) 和 Tom Dykstra 所撰寫。在此答謝下列人員的協助：
 
-감사의 말감사의 말
-------------------
-
-이러한 자습서 및 샘플 응용 프로그램은 [Rick Anderson](http://blogs.msdn.com/b/rickandy/)과 Tom Dykstra가 작성하였습니다. 협력해 주신 다음 분들께 감사드립니다.
-
--   Barry Dorrans(Twitter [@blowdart](https://twitter.com/blowdart))
--   [Cory Fowler](http://blog.syntaxc4.net/)(Twitter [@SyntaxC4](https://twitter.com/SyntaxC4) )
+-   Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart))
+-   [Cory Fowler](http://blog.syntaxc4.net/) (Twitter [@SyntaxC4](https://twitter.com/SyntaxC4) )
 -   [Joe Giardino](http://blogs.msdn.com/b/windowsazurestorage/)
 -   Don Glover
 -   Jai Haridas
--   [Scott Hunter](http://blogs.msdn.com/b/scothu/)(Twitter: [@coolcsh](http://twitter.com/coolcsh))
+-   [Scott Hunter](http://blogs.msdn.com/b/scothu/) (Twitter：[@coolcsh](http://twitter.com/coolcsh))
 -   [Brian Swan](http://blogs.msdn.com/b/brian_swan/)
 -   [Daniel Wang](http://blogs.msdn.com/b/daniwang/)
--   다음은 피드백을 제공해 준 Developer Advisory Council의 멤버입니다.
+-   提供意見反應的 Developer Advisory Council 成員：
     -   Damir Arh
     -   Jean-Luc Boucho
     -   Carlos dos Santos
@@ -619,30 +653,3 @@ Azure 클라우드 서비스 역할 자동 크기 조정에 대한 자세한 내
     -   Perez Jones Tsisah
     -   Michiel van Otegem
 
-
-
-
-[firsttutorial]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
-[tut2]: /en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
-[tut3configstorage]: /en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/#configstorage
-[tut4]: /en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
-[queuehowto]: /en-us/develop/net/how-to-guides/queue-service/
-
-[blobhowto]: /en-us/develop/net/how-to-guides/blob-storage/
-[GetMessage]: http://msdn.microsoft.com/en-us/library/windowsazure/ee741827.aspx
-[getstartedtutorial]: /en-us/develop/net/tutorials/get-started
-[sbqueuecomparison]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
-[autoscalingappblock]: /en-us/develop/net/how-to-guides/autoscaling/
-
-
-[mtas-new-worker-role-project]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-new-worker-role-project.png
-[mtas-add-new-role-project-dialog]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-add-new-role-project-dialog.png
-[mtas-worker-b-add-existing]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-add-existing.png
-[mtas-worker-b-add-reference-menu]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-add-reference-menu.png
-[mtas-worker-b-reference-manager]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-reference-manager.png
-[mtas-worker-b-manage-nuget]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-manage-nuget.png
-[mtas-worker-b-install-sendgrid]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-install-sendgrid.png
-
-
-[mtas-worker-b-settings]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-settings.png
-[autoscaling-and-windows-azure]: http://msdn.microsoft.com/en-us/library/hh680945(v=PandP.50).aspx

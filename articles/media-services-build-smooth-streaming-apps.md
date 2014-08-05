@@ -1,110 +1,109 @@
 <properties linkid="develop-media-services-tutorials-smooth-streaming-windows-store-app" urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Smooth Streaming Windows Store App - Azure .NET tutorials" metaKeywords="" description="Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content." metaCanonical="" services="media-services" documentationCenter="" title="How to Build a Smooth Streaming Windows Store Application" authors="" solutions="" manager="" editor="" />
 
-부드러운 스트리밍 Windows 스토어 응용 프로그램을 빌드하는 방법
-==============================================================
+如何建置 Smooth Streaming Windows 市集應用程式
+==============================================
 
-Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형 및 Live Smooth Streaming 콘텐츠를 재생할 수 있는 Windows 스토어 응용 프로그램을 빌드할 수 있습니다. 부드러운 스트리밍 콘텐츠의 기본 재생뿐 아니라 SDK는 Microsoft PlayReady 보호, 품질 수준 제한, Live DVR, 오디오 스트림 전환, 상태 업데이트(예: 품질 수준 변경) 수신 대기, 오류 이벤트 등의 풍부한 기능도 제공합니다. 지원되는 기능에 대한 자세한 내용은 [릴리스 정보](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes)를 참조하십시오.
+Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放隨選與即時 Smooth Streaming 內容的 Windows 市集應用程式。除了將 Smooth Streaming 內容進行基本播放，SDK 也提供 Microsoft PlayReady 保護、品質等級限制、Live DVR、音訊資料流切換、接聽狀態更新 (例如品質等級變更) 和錯誤事件等這類豐富的功能。如需所支援功能的詳細資訊，請參閱[版本資訊](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes) (英文)。
 
-이 자습서에서는 API를 다룹니다. 플레이어를 개발하는 경우 [Player Framework for Windows 8](http://playerframework.codeplex.com/)을 사용하는 것이 좋습니다. 플레이어 프레임워크를 통해 응용 프로그램을 더 쉽게 빌드할 수 있으며 많은 추가 기능이 제공됩니다.
+本教學課程涵蓋 API。對於播放程式開發，Microsoft 強裂建議使用 [Player Framework for Windows 8](http://playerframework.codeplex.com/) (英文)。播放程式架構可讓應用程式建置起來更容易，並可提供許多其他功能。
 
-이 자습서에는 4개 단원이 포함되어 있습니다.
+本教學課程包含四個課程：
 
-1.  기본 부드러운 스트리밍 스토어 응용 프로그램 만들기
-2.  미디어 진행을 제어하는 슬라이더 막대 추가
-3.  부드러운 스트리밍 스트림 선택
-4.  부드러운 스트리밍 트랙 선택
+1.  建立基本的 Smooth Streaming 市集應用程式
+2.  新增滑動軸以控制媒體進度
+3.  選取 Smooth Streaming 資料流
+4.  選取 Smooth Streaming 曲目
 
-필수 조건
-=========
+必要條件
+========
 
--   Windows 8 32비트 또는 64비트. MSDN에서 [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/en-us/evalcenter/jj554510.aspx)을 다운로드할 수 있습니다.
--   Windows 8에 설치된 Visual Studio 2012 또는 Visual Studio Express 2012 for Windows 8. [여기서](http://www.microsoft.com/visualstudio/11/en-us/downloads) 평가판을 다운로드할 수 있습니다.
--   [Microsoft Smooth Streaming Client SDK for Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)
+-   Windows 8 32 位元或 64 位元。您可以從 MSDN 取得 [Windows 8 Enterprise 評估版](http://msdn.microsoft.com/en-us/evalcenter/jj554510.aspx)。
+-   Windows 8 上已安裝 Visual Studio 2012 或 Visual Studio Express 2012 for Windows 8。您可以從[這裡](http://www.microsoft.com/visualstudio/11/en-us/downloads)取得試用版。
+-   [Microsoft Smooth Streaming Client SDK for Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home) (英文)。
 
-각 단원에 대해 완성된 솔루션은 MSDN 개발자 코드 샘플(코드 갤러리)에서 다운로드할 수 있습니다. [단원 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "간단한 Windows 8 부드러운 스트리밍 미디어 플레이어"), [단원 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "슬라이더 막대 컨트롤이 포함된 간단한 Windows 8 부드러운 스트리밍 미디어 플레이어"), [단원 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "스트림 선택이 포함된 Windows 8 부드러운 스트리밍 미디어 플레이어") 및 [단원 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "트랙 선택이 포함된 Windows 8 부드러운 스트리밍 미디어 플레이어")
+您可以從 MSDN 開發人員程式碼範例 (Code Gallery) 下載每個課程的已完成解答：[課程 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "簡單 Windows 8 Smooth Streaming Media Player") (英文)、[課程 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "具有滑動軸控制項的簡單 Windows 8 Smooth Streaming Media Player") (英文)、[課程 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "可選擇資訊流的 Windows 8 Smooth Streaming Media Player") (英文) 和[課程 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "可選擇曲目的 Windows 8 Smooth Streaming Media Player") (英文)。
 
-단원 1: 기본 부드러운 스트리밍 스토어 응용 프로그램 만들기
-==========================================================
+課程 1：建立基本的 Smooth Streaming 市集應用程式
+================================================
 
-이 단원에서는 부드러운 스트림 콘텐츠를 재생하기 위해 MediaElement 컨트롤이 포함된 Windows 스토어 응용 프로그램을 만듭니다. 실행 중인 응용 프로그램은 다음과 같이 표시됩니다.
+在本課程中，您將建立 Windows 市集應用程式，並使其具有 MediaElement 控制項來播放 Smooth Stream 內容。執行中的應用程式看起來如下：
 
-![부드러운 스트리밍 Windows 스토어 응용 프로그램 예](./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png)
+![Smooth Streaming Windows Store application example](./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png)
 
-Windows 스토어 응용 프로그램 개발에 대한 자세한 내용은 [유용한 Windows 8용 앱 개발](http://msdn.microsoft.com/en-us/windows/apps/br229512.aspx)을 참조하십시오. 이 단원에는 다음 절차가 포함되어 있습니다.
+如需關於開發 Windows 市集應用程式的詳細資訊，請參閱[開發 Windows 8 適用的好用應用程式](http://msdn.microsoft.com/en-us/windows/apps/br229512.aspx)。本課程包含下列程序：
 
-1.  Windows 스토어 프로젝트 만들기
-2.  사용자 인터페이스 디자인(XAML)
-3.  코드 숨김 파일 수정
-4.  응용 프로그램 컴파일 및 테스트
+1.  建立 Windows 市集專案
+2.  設計使用者介面 (XAML)
+3.  修改程式碼後置檔案
+4.  編譯和測試應用程式
 
-**Windows 스토어 프로젝트를 만들려면**
+**建立 Windows 市集專案**
 
-1.  Visual Studio 2012를 실행합니다.
-2.  **파일** 메뉴에서 **새로 만들기**를 클릭한 후 **프로젝트**를 클릭합니다.
-3.  새 프로젝트 대화 상자에서 다음 값을 입력하거나 선택합니다.
+1.  執行 Visual Studio 2012
+2.  從 **[檔案]** 功能表中，按一下 **[新增]**，然後按一下 **[專案]**。
+3.  從 [新增專案] 對話方塊中，輸入或選取下列值：
 
 	<table border="1">
 	<tr>
-		<th>이름</th>
-		<th>값</th>
+		<th>名稱</th>
+		<th>值</th>
 	</tr>
 	<tr>
-		<td>템플릿 그룹</td>
-		<td>Installed/Templates/Visual C#/Windows Store</td>
+		<td>範本群組</td>
+		<td>已安裝/範本/Visual C#/Windows 市集</td>
 	</tr>
 	<tr>
-		<td>템플릿</td>
-		<td>새 응용 프로그램(XAML))</td>
+		<td>範本</td>
+		<td>空白應用程式 (XAML)</td>
 	</tr>
 	<tr>
-		<td>이름</td>
+		<td>名稱</td>
 		<td>SSPlayer</td>
 	</tr>
 	<tr>
-		<td>위치</td>
+		<td>位置</td>
 		<td>C:\SSTutorials</td>
 	</tr>
 	<tr>
-		<td>솔루션 이름</td>
+		<td>方案名稱</td>
 		<td>SSPlayer</td>
 	</tr>
 	<tr>
-		<td>솔루션용 디렉터리 만들기</td>
-		<td>(선택됨)</td>
+		<td>建立方案的目錄</td>
+		<td>(已選取)</td>
 	</tr>
 	</table>
 
-4.  **확인**을 클릭합니다.
+4.  按一下 **[確定]**。
 
-**부드러운 스트리밍 클라이언트 SDK에 대한 참조를 추가하려면**
+**新增 Smooth Streaming Client SDK 的參考**
 
-1.  솔루션 탐색기에서 **SSPlayer**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭합니다.
-2.  다음 값을 입력하거나 선택합니다.
+1.  從 [方案總管] 中，在 **[SSPlayer]** 上按一下滑鼠右鍵，然後按一下 **[加入參考]**。
+2.  輸入或選取下列值：
 
 	<table border="1">
 	<tr>
-		<th>이름</th>
-		<th>값</th>
+		<th>名稱</th>
+		<th>值</th>
 	</tr>
 	<tr>
-		<td>참조 그룹</td>
-		<td>Windows/Extensions</td>
+		<td>參考群組</td>
+		<td>Windows/延伸</td>
 	</tr>
 	<tr>
-		<td>참조</td>
-		<td>Microsoft Smooth Streaming Client SDK for Windows 8 및 Microsoft Visual C++ 런타임 패키지 선택 
-		</td>
+		<td>參考</td>
+		<td>選取 Microsoft Smooth Streaming Client SDK for Windows 8 和 Microsoft Visual C++ Runtime Package</td>
 	</tr>
 	</table>
 
-3.  **확인**을 클릭합니다.
+3.  按一下 **[確定]**。
 
-참조를 추가한 후 대상 플랫폼(x64 또는 x86)을 선택해야 합니다. 임의 CPU 플랫폼 구성에서는 참조 추가가 작동하지 않습니다. 솔루션 탐색기에서 추가된 이 참조에 대해 노란색 경고 표시가 나타납니다.
+加入參考之後，您必須選取目標平台 (x64 或 x86)，而加入參考在「任何 CPU 平台」組態中將沒有作用。在方案總管中，您會看到這些加入的參考具有黃色警告標記。
 
-**플레이어 사용자 인터페이스를 디자인하려면**
+**設計播放程式使用者介面**
 
-1.  솔루션 탐색기에서 **MainPage.xaml**을 두 번 클릭하여 디자인 보기에서 엽니다.
-2.  XAML 파일에서 **&lt;Grid\>** 및 **&lt;/Grid\>** 태그를 찾아 두 태그 사이에 다음 코드를 붙여넣습니다.
+1.  從 [方案總管] 中，按兩下 **[MainPage.xaml]**，以設計檢視來開啟它。
+2.  在 XAML 檔案中找到 **&lt;Grid\>** 和 **&lt;/Grid\>** 標籤，然後在這兩個標籤之間貼上下列程式碼：
 
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>    <!-- spacer -->
@@ -115,7 +114,7 @@ Windows 스토어 응용 프로그램 개발에 대한 자세한 내용은 [유�
         </Grid.RowDefinitions>
             
         <StackPanel Name="spMediaControl" Grid.Row="1" Orientation="Horizontal">
-            <TextBlock x:Name="tbSource" Text="Source :  " FontSize="16" FontWeight="Bold" VerticalAlignment="Center" />
+            <TextBlock x:Name="tbSource" Text="Source :" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" />
             <TextBox x:Name="txtMediaSource" Text="http://ecn.channel9.msdn.com/o9/content/smf/smoothcontent/elephantsdream/Elephants_Dream_1024-h264-st-aac.ism/manifest" FontSize="10" Width="700" Margin="0,4,0,10" />
             <Button x:Name="btnSetSource" Content="Set Source" Width="111" Height="43" Click="btnSetSource_Click"/>
             <Button x:Name="btnPlay" Content="Play" Width="111" Height="43" Click="btnPlay_Click"/>
@@ -148,31 +147,31 @@ Windows 스토어 응용 프로그램 개발에 대한 자세한 내용은 [유�
             <TextBox x:Name="txtStatus" FontSize="10" Width="700" VerticalAlignment="Center"/>
         </StackPanel>
 
-    MediaElement 컨트롤은 미디어를 재생하는 데 사용됩니다. sliderProgress라는 슬라이더 컨트롤은 다음 단원에서 미디어 진행을 제어하는 데 사용됩니다.
+    MediaElement 控制項會用來播放媒體。下一個課程將使用名稱為 sliderProgress 的滑動軸控制項來控制媒體進度。
 
-3.  **Ctrl+S**를 눌러 파일을 저장합니다.
+3.  按 **CTRL+S** 儲存檔案。
 
-MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를 지원하지 않습니다. 부드러운 스트리밍 지원을 사용하도록 설정하려면 파일 이름 확장명과 MIME 형식으로 부드러운 스트리밍 바이트 스트림 처리기를 등록해야 합니다. 등록하려면 Windows.Media 네임스페이스의 MediaExtensionManager.RegisterByteStremHandler 메서드를 사용합니다.
+MediaElement 控制項預設不支援 Smooth Streaming 內容。若要啟用 Smooth Streaming 支援，您必須依副檔名和 MIME 類型來註冊 Smooth Streaming 位元組資料流處理常式。若要註冊，請使用 Windows.Media 命名空間的 MediaExtensionManager.RegisterByteStremHandler 方法。
 
-이 XAML 파일에서는 일부 이벤트 처리기가 컨트롤과 연결되어 있습니다. 해당 이벤트 처리기를 정의해야 합니다.
+在此 XAML 檔案中，有些事件處理常式會與控制項相關聯。您必須定義那些事件處理常式。
 
-**코드 숨김 파일을 수정하려면**
+**修改程式碼後置檔案**
 
-1.  솔루션 탐색기에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
-2.  파일 맨 위에 다음 using 문을 추가합니다.
+1.  從 [方案總管] 中，在 **[MainPage.xaml]** 上按一下滑鼠右鍵，然後按一下 **[檢視程式碼]**。
+2.  在檔案的頂端，新增下列 using 陳述式：
 
         using Windows.Media;
 
-3.  **MainPage** 클래스의 시작 부분에 다음 데이터 멤버를 추가합니다.
+3.  在 **MainPage** 類別的開頭，新增下列資料成員：
 
         private MediaExtensionManager extensions = new MediaExtensionManager();
 
-4.  **MainPage** 생성자의 끝에 다음 두 줄을 추가합니다.
+4.  在 **MainPage** 建構函式的結尾，新增下列兩行：
 
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
 
-5.  **MainPage** 클래스의 끝에 다음 코드를 붙여넣습니다.
+5.  在 **MainPage** 類別的結尾，貼上下列程式碼：
 
         #region UI Button Click Events
         private void btnPlay_Click(object sender, RoutedEventArgs e)
@@ -215,56 +214,56 @@ MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를
         }
         # endregion
 
-    여기에는 sliderProgress\_PointerPressed 이벤트 처리기가 정의되어 있습니다. 작동하는 데 필요한 추가 작업이 있으며, 이 자습서의 다음 단원에서 설명합니다.
+    這裡在定義 sliderProgress\_PointerPressed 事件處理常式。還需要進行其他工作，才能讓它運作，在本教學課程的下一個課程中，將會涵蓋這項資訊。
 
-6.  **Ctrl+S**를 눌러 파일을 저장합니다.
+6.  按 **CTRL+S** 儲存檔案。
 
-완성된 코드 숨김 파일은 다음과 같이 표시됩니다.
+完成的程式碼後置檔案看起來像這樣：
 
-![부드러운 스트리밍 Windows 스토어 응용 프로그램에 대한 Visual Studio의 Codeview](./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png)
+![Codeview in Visual Studio of Smooth Streaming Windows Store application](./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png)
 
-**응용 프로그램을 컴파일 및 테스트하려면**
+**編譯和測試應用程式**
 
-1.  **빌드** 메뉴에서 **구성 관리자**를 클릭합니다.
-2.  개발 플랫폼과 일치하도록 **활성 솔루션 플랫폼**을 변경합니다.
-3.  **F6** 키를 눌러 프로젝트를 컴파일합니다.
-4.  **F5** 키를 눌러 응용 프로그램을 실행합니다.
-5.  응용 프로그램 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다.
-6.  **원본 설정**을 클릭합니다. 기본적으로 **자동 재생**이 사용되기 때문에 미디어가 자동으로 재생됩니다. **재생**, **일시 중지** 및 **중지** 단추를 사용하여 미디어를 제어할 수 있습니다. 세로 슬라이더를 사용하여 미디어 볼륨을 제어할 수 있습니다. 그러나 미디어 진행을 제어하기 위한 가로 슬라이더는 아직 완전히 구현되지 않았습니다.
+1.  從 **[建置]** 功能表中，按一下 **[組態管理員]**。
+2.  變更 **[使用中的方案平台]**，以符合您的開發平台。
+3.  按 **F6** 鍵編譯專案。
+4.  按 **F5** 鍵執行應用程式。
+5.  在應用程式頂端，您可以使用預設 Smooth Streaming URL，或輸入不同的 Smooth Streaming URL。
+6.  按一下 **[設定來源]**。因為預設會啟用 **[自動播放]**，所以應該會自動播放媒體。您可以使用 **[播放]**、**[暫停]** 和 **[停止]** 按鈕來控制媒體。您可以使用垂直滑動軸來控制媒體音量。不過，尚未完整實作用於控制媒體進度的水平滑動軸。
 
-lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사용하여 부드러운 스트리밍 콘텐츠를 재생합니다. 다음 단원에서는 부드러운 스트리밍 콘텐츠 진행을 제어하는 슬라이더를 추가합니다.
+您已完成課程 1。在本課程中，您使用 MediaElement 控制項來播放 Smooth Streaming 內容。在下一個課程中，您將新增滑動軸來控制 Smooth Streaming 內容的進度。
 
-단원 2: 미디어 진행을 제어하는 슬라이더 막대 추가
-=================================================
+課程 2：新增滑動軸以控制媒體進度
+================================
 
-단원 1에서는 부드러운 스트리밍 미디어 콘텐츠를 재생하기 위해 MediaElement XAML 컨트롤이 포함된 Windows 스토어 응용 프로그램을 만들었습니다. 시작, 중지, 일시 중지 등의 기본 미디어 기능이 제공됩니다. 이 단원에서는 응용 프로그램에 슬라이더 막대 컨트롤을 추가합니다.
+在課程 1 中，您已建立 Windows 市集應用程式，並使其具有 MediaElement XAML 控制項來播放 Smooth Streaming 媒體內容。它包含一些基本媒體功能 (例如啟動、停止和暫停)。在本課程中，您將在應用程式中新增滑動軸控制項。
 
-이 자습서에서는 타이머를 사용하여 MediaElement 컨트롤의 현재 위치에 따라 슬라이더 위치를 업데이트합니다. 라이브 콘텐츠의 경우 슬라이더 시작 및 종료 시간도 업데이트해야 합니다. 이 작업은 적응 원본 업데이트 이벤트를 통해 더 효율적으로 처리할 수 있습니다.
+在本教學課程中，我們將使用計時器，以根據 MediaElement 控制項的目前位置來更新滑動軸位置。如果是即時內容，則還需要更新滑動軸開始和結束時間。這可以透過調適性來源更新事件獲得更恰當的處理。
 
-미디어 원본은 미디어 데이터를 생성하는 개체입니다. 원본 확인자는 URL 또는 바이트 스트림을 사용하고 해당 콘텐츠에 적합한 미디어 원본을 만듭니다. 원본 확인자는 응용 프로그램에서 미디어 원본을 만드는 표준 방법입니다.
+媒體來源是一種產生媒體資料的物件。來源解析程式會接受 URL 或位元組資料流，然後為該內容建立適當的媒體來源。來源解析程式是應用程式建立媒體來源的標準方式。
 
-이 단원에는 다음 절차가 포함되어 있습니다.
+本課程包含下列程序：
 
-1.  부드러운 스트리밍 처리기 등록
-2.  적응 원본 관리자 수준 이벤트 처리기 추가
-3.  적응 원본 수준 이벤트 처리기 추가
-4.  MediaElement 이벤트 처리기 추가
-5.  슬라이더 막대 관련 코드 추가
-6.  응용 프로그램 컴파일 및 테스트
+1.  註冊 Smooth Streaming 處理常式
+2.  新增調適性來源管理員層級事件處理常式
+3.  新增調適性來源層級事件處理常式
+4.  新增 MediaElement 事件處理常式
+5.  新增滑動軸相關程式碼
+6.  編譯和測試應用程式
 
-**부드러운 스트리밍 바이트 스트림 처리기를 등록하고 propertyset를 전달하려면**
+**註冊 Smooth Streaming 位元組資料流處理常式並傳遞屬性集**
 
-1.  솔루션 탐색기에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
-2.  파일의 시작 부분에 다음 using 문을 추가합니다.
+1.  從 [方案總管] 中，在 **[MainPage.xaml]** 上按一下滑鼠右鍵，然後按一下 **[檢視程式碼]**。
+2.  在檔案的開頭，新增下列 using 陳述式：
 
         using Microsoft.Media.AdaptiveStreaming;
 
-3.  MainPage 클래스의 시작 부분에 다음 데이터 멤버를 추가합니다.
+3.  在 MainPage 類別的開頭，新增下列資料成員：
 
         private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
         private IAdaptiveSourceManager adaptiveSourceManager;
 
-4.  **MainPage** 생성자 내에서 **this.Initialize Components();** 줄과 이전 단원에서 작성된 등록 코드 줄 뒤에 다음 코드를 추가합니다.
+4.  在 **MainPage** 建構函式內，於 **this.Initialize Components();** 行以及上一個課程中所寫的註冊程式碼行的後面新增下列程式碼：
 
         // Gets the default instance of AdaptiveSourceManager which manages Smooth 
         //Streaming media sources.
@@ -273,7 +272,7 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
         // {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
         propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
 
-5.  **MainPage** 생성자 내에서 RegisterByteStreamHandler 메서드 두 개를 수정하여 네 번째 매개 변수를 추가합니다.
+5.  在 **MainPage** 建構函式內，修改兩個 RegisterByteStreamHandler 方法以新增 forth 參數：
 
         // Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
         // "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
@@ -287,18 +286,18 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
             "Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", 
             ".ism", 
             "application/vnd.ms-sstr+xml", 
-        propertySet);
+        propertySet );
 
-6.  **Ctrl+S**를 눌러 파일을 저장합니다.
+6.  按 **CTRL+S** 儲存檔案。
 
-**적응 원본 관리자 수준 이벤트 처리기를 추가하려면**
+**新增調適性來源管理員層級事件處理常式**
 
-1.  솔루션 탐색기에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
-2.  **MainPage** 클래스 내에 다음 데이터 멤버를 추가합니다.
+1.  從 [方案總管] 中，在 **[MainPage.xaml]** 上按一下滑鼠右鍵，然後按一下 **[檢視程式碼]**。
+2.  在 **[MainPage]** 類別內，新增下列資料成員：
 
         private AdaptiveSource adaptiveSource = null;
 
-3.  **MainPage** 클래스의 끝에 다음 이벤트 처리기를 추가합니다.
+3.  在 **MainPage** 類別的結尾，新增下列事件處理常式：
 
         #region Adaptive Source Manager Level Events
         private void mediaElement_AdaptiveSourceOpened(AdaptiveSource sender, AdaptiveSourceOpenedEventArgs args)
@@ -307,21 +306,21 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
         }
         #endregion Adaptive Source Manager Level Events
 
-4.  **MainPage** 생성자의 끝에 다음 줄을 추가하여 적응 원본 열기 이벤트를 구독합니다.
+4.  在 **MainPage** 建構函式的結尾，新增下行以訂閱調適性來源開放事件：
 
     adaptiveSourceManager.AdaptiveSourceOpenedEvent += new AdaptiveSourceOpenedEventHandler(mediaElement\_AdaptiveSourceOpened);
 
-5.  **Ctrl+S**를 눌러 파일을 저장합니다.
+5.  按 **CTRL+S** 儲存檔案。
 
-**적응 원본 수준 이벤트 처리기를 추가하려면**
+**新增調適性來源層級事件處理常式**
 
-1.  솔루션 탐색기에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
-2.  **MainPage** 클래스 내에 다음 데이터 멤버를 추가합니다.
+1.  從 [方案總管] 中，在 **[MainPage.xaml]** 上按一下滑鼠右鍵，然後按一下 **[檢視程式碼]**。
+2.  在 **[MainPage]** 類別內，新增下列資料成員：
 
         private AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate; 
         private Manifest manifestObject;
 
-3.  **MainPage** 클래스의 끝에 다음 이벤트 처리기를 추가합니다.
+3.  在 **MainPage** 類別的結尾，新增下列事件處理常式：
 
         #region Adaptive Source Level Events
         private void mediaElement_ManifestReady(AdaptiveSource sender, ManifestReadyEventArgs args)
@@ -337,11 +336,11 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
             
         private void mediaElement_AdaptiveSourceFailed(AdaptiveSource sender, AdaptiveSourceFailedEventArgs args)
         {
-            txtStatus.Text = "Error: " + args.HttpResponse;
+            txtStatus.Text = "Error:" + args.HttpResponse;
         }
         #endregion Adaptive Source Level Events
 
-4.  **mediaElement AdaptiveSourceOpened** 메서드의 끝에 다음 코드를 추가하여 이벤트를 구독합니다.
+4.  在 **mediaElement AdaptiveSourceOpened** 方法的結尾，新增下列程式碼以訂閱事件：
 
         adaptiveSource.ManifestReadyEvent +=
                     mediaElement_ManifestReady;
@@ -350,14 +349,14 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
         adaptiveSource.AdaptiveSourceFailedEvent += 
             mediaElement_AdaptiveSourceFailed;
 
-5.  **Ctrl+S**를 눌러 파일을 저장합니다.
+5.  按 **CTRL+S** 儲存檔案。
 
-앱의 모든 미디어 요소에 공통된 기능을 처리하는 데 사용할 수 있는 적응 원본 관리자 수준에서도 동일한 이벤트를 사용할 수 있습니다. 각 AdaptiveSource에는 고유한 이벤트가 포함되어 있으며 모든 AdaptiveSource 이벤트가 AdaptiveSourceManager 아래에 계단식으로 표시됩니다.
+在調適性來源管理員層級也有相同的事件，可用於處理應用程式中所有媒體元素通用的功能。每個 AdaptiveSource 都包含自己專屬的事件，而且所有 AdaptiveSource 事件都會在 AdaptiveSourceManager 下階層式列出。
 
-**미디어 요소 이벤트 처리기를 추가하려면**
+**新增媒體元素事件處理常式**
 
-1.  솔루션 탐색기에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
-2.  **MainPage** 클래스의 끝에 다음 이벤트 처리기를 추가합니다.
+1.  從 [方案總管] 中，在 **[MainPage.xaml]** 上按一下滑鼠右鍵，然後按一下 **[檢視程式碼]**。
+2.  在 **MainPage** 類別的結尾，新增下列事件處理常式：
 
         #region Media Element Event Handlers 
         private void MediaOpened(object sender, RoutedEventArgs e)
@@ -367,42 +366,42 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
             
         private void MediaFailed(object sender, ExceptionRoutedEventArgs e)
         {
-            txtStatus.Text= "MediaElement failed: " + e.ErrorMessage;
+           txtStatus.Text= "MediaElement failed:" + e.ErrorMessage;
         }
             
         private void MediaEnded(object sender, RoutedEventArgs e)
         {
-            txtStatus.Text ="MediaElement ended.";
+           txtStatus.Text ="MediaElement ended.";
         }
         #endregion Media Element Event Handlers
 
-3.  **MainPage** 생성자의 끝에 다음 코드를 추가하여 이벤트를 구독합니다.
+3.  在 **MainPage** 建構函式的結尾，新增下列程式碼以訂閱事件：
 
         mediaElement.MediaOpened += MediaOpened;
         mediaElement.MediaEnded += MediaEnded;
         mediaElement.MediaFailed += MediaFailed;
 
-4.  **Ctrl+S**를 눌러 파일을 저장합니다.
+4.  按 **CTRL+S** 儲存檔案。
 
-**슬라이더 막대 관련 코드를 추가하려면**
+**新增滑動軸相關程式碼**
 
-1.  솔루션 탐색기에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
-2.  파일의 시작 부분에 다음 using 문을 추가합니다.
+1.  從 [方案總管] 中，在 **[MainPage.xaml]** 上按一下滑鼠右鍵，然後按一下 **[檢視程式碼]**。
+2.  在檔案的開頭，新增下列 using 陳述式：
 
         using Windows.UI.Core;
 
-3.  **MainPage** 클래스 내에 다음 데이터 멤버를 추가합니다.
+3.  在 **[MainPage]** 類別內，新增下列資料成員：
 
         public static CoreDispatcher _dispatcher;
         private DispatcherTimer sliderPositionUpdateDispatcher;
 
-4.  **MainPage** 생성자의 끝에 다음 코드를 추가합니다.
+4.  在 **MainPage** 建構函式的結尾，新增下列程式碼：
 
         _dispatcher = Window.Current.Dispatcher;
         PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);
         sliderProgress.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);    
 
-5.  **MainPage** 클래스의 끝에 다음 코드를 추가합니다.
+5.  在 **MainPage** 類別的結尾，新增下列程式碼：
 
         #region sliderMediaPlayer
         private double SliderFrequency(TimeSpan timevalue)
@@ -479,514 +478,516 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
         }
         #endregion sliderMediaPlayer
 
-    **참고:** CoreDispatcher는 비UI 스레드에서 UI 스레드를 변경하는 데 사용됩니다. 디스패처 스레드에서 병목이 발생할 경우 개발자는 업데이트하려는 UI 요소에서 제공하는 디스패처를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
+    **注意：** CoreDispatcher 用來從非 UI 執行緒對 UI 執行緒進行變更。如果發送器執行緒發生瓶頸，開發人員可以選擇使用自己想要更新之 UI-element 所提供的發送器。例如：
 
         await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
           timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 
-        double absvalue  = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero); 
+        double absvalue = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero); 
           sliderProgress.Maximum = absvalue; }); 
 
-6.  **mediaElement\_AdaptiveSourceStatusUpdated** 메서드의 끝에 다음 코드를 추가합니다.
+6.  在 **mediaElement\_AdaptiveSourceStatusUpdated** 方法的結尾，新增下列程式碼：
 
         setSliderStartTime(args.StartTime);
         setSliderEndTime(args.EndTime);
 
-7.  **MediaOpened** 메서드의 끝에 다음 코드를 추가합니다.
+7.  在 **MediaOpened** 方法的結尾，新增下列程式碼：
 
-    sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan); sliderProgress.Width = mediaElement.Width; setupTimer();
+    sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
+    sliderProgress.Width = mediaElement.Width;
+    setupTimer();
 
-8.  **Ctrl+S**를 눌러 파일을 저장합니다.
+8.  按 **CTRL+S** 儲存檔案。
 
-**응용 프로그램을 컴파일 및 테스트하려면**
+**編譯和測試應用程式**
 
-1.  **F6** 키를 눌러 프로젝트를 컴파일합니다.
-2.  **F5** 키를 눌러 응용 프로그램을 실행합니다.
-3.  응용 프로그램 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다.
-4.  **원본 설정**을 클릭합니다.
-5.  슬라이더 막대를 테스트합니다.
+1.  按 **F6** 鍵編譯專案。
+2.  按 **F5** 鍵執行應用程式。
+3.  在應用程式頂端，您可以使用預設 Smooth Streaming URL，或輸入不同的 Smooth Streaming URL。
+4.  按一下 **[設定來源]**。
+5.  測試滑動軸。
 
-단원 2를 완료했습니다. 이 단원에서는 응용 프로그램에 슬라이더를 추가했습니다.
+您已完成課程 2。在本課程中，您已在應用程式中新增滑動軸。
 
-단원 3: 부드러운 스트리밍 스트림 선택
-=====================================
+課程 3：選取 Smooth Streaming 資料流
+====================================
 
-부드러운 스트리밍은 사용자가 선택할 수 있는 여러 언어 오디오 트랙으로 콘텐츠를 스트림할 수 있습니다. 이 단원에서는 사용자가 스트림을 선택할 수 있도록 설정합니다. 이 단원에는 다음 절차가 포함되어 있습니다.
+Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。在本課程中，您將讓檢視器選取資料流。本課程包含下列程序：
 
-1.  XAML 파일 수정
-2.  코드 숨김 파일 수정
-3.  응용 프로그램 컴파일 및 테스트
+1.  修改 XAML 檔案
+2.  修改程式碼後置檔案
+3.  編譯和測試應用程式
 
-**XAML 파일을 수정하려면**
+**修改 XAML 檔案**
 
-1.  솔루션 탐색기에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **디자이너 보기**를 클릭합니다.
-2.  &lt;Grid.RowDefinitions\>를 찾은 후 RowDefinitions를 다음과 같이 수정합니다.
+1.  從 [方案總管] 中，在 **[MainPage.xaml]** 上按一下滑鼠右鍵，然後按一下 **[檢視設計工具]**。
+2.  找到 &lt;Grid.RowDefinitions\>，並修改 RowDefinitions，讓它們看起來如下：
 
-         <Grid.RowDefinitions>            
-             <RowDefinition Height="20"/>
-             <RowDefinition Height="50"/>
-             <RowDefinition Height="100"/>
-             <RowDefinition Height="80"/>
-             <RowDefinition Height="50"/>
-         </Grid.RowDefinitions>
+        <Grid.RowDefinitions>            
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
 
-3.  &lt;Grid\>&lt;/Grid\> 태그 내에 목록 상자 컨트롤을 정의하는 다음 코드를 추가하여 사용자가 사용 가능한 스트림 목록을 보고 스트림을 선택할 수 있게 합니다.
+3.  在 &lt;Grid\>&lt;/Grid\> 標籤內，新增下列程式碼以定義 listbox 控制項，讓使用者可以看到可用資料流清單並選取資料流：
 
-         <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
-             <Grid.RowDefinitions>
-                 <RowDefinition Height="300"/>
-             </Grid.RowDefinitions>
-             <Grid.ColumnDefinitions>
-                 <ColumnDefinition Width="250*"/>
-                 <ColumnDefinition Width="250*"/>
-             </Grid.ColumnDefinitions>
-             <StackPanel Name="spStreamSelection" Grid.Row="1" Grid.Column="0">
-                 <StackPanel Orientation="Horizontal">
-                     <TextBlock Name="tbAvailableStreams" Text="Available Streams:" FontSize="16" VerticalAlignment="Center"></TextBlock>
-                     <Button Name="btnChangeStreams" Content="Submit" Click="btnChangeStream_Click"/>
+        <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250*"/>
+                <ColumnDefinition Width="250*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Name="spStreamSelection" Grid.Row="1" Grid.Column="0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="tbAvailableStreams" Text="Available Streams:"FontSize="16" VerticalAlignment="Center"></TextBlock>
+                    <Button Name="btnChangeStreams" Content="Submit" Click="btnChangeStream_Click"/>
                  </StackPanel>
                  <ListBox x:Name="lbAvailableStreams" Height="200" Width="200" Background="Transparent" HorizontalAlignment="Left" 
                     ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Visible">
-                     <ListBox.ItemTemplate>
-                         <DataTemplate>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
                             <CheckBox Content="{Binding Name}" IsChecked="{Binding isChecked, Mode=TwoWay}" />
-                         </DataTemplate>
-                     </ListBox.ItemTemplate>
-                 </ListBox>
-             </StackPanel>
-         </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </Grid>
 
-4.  **Ctrl+S**를 눌러 변경 내용을 저장합니다.
+4.  按 **CTRL+S** 儲存變更。
 
-**코드 숨김 파일을 수정하려면**
+**修改程式碼後置檔案**
 
-1.  솔루션 탐색기에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
-2.  SSPlayer 네임스페이스 내에 새 클래스를 추가합니다. \#region class Stream
+1.  從 [方案總管] 中，在 **[MainPage.xaml]** 上按一下滑鼠右鍵，然後按一下 **[檢視程式碼]**。
+2.  在 SSPlayer 命名空間內，新增類別：\#region class Stream
 
-         public class Stream
+        public class Stream
          {
-             private IManifestStream stream;
-             public bool isCheckedValue;
-             public string name;
+            private IManifestStream stream;
+            public bool isCheckedValue;
+            public string name;
 
-             public string Name
-             {
-                 get { return name; }
-                 set { name = value; }
-             }
+            public string Name
+            {
+                get { return name; }
+                set { name = value; }
+            }
 
-             public IManifestStream ManifestStream
-             {
-                 get { return stream; }
-                 set { stream = value; }
-             }
+            public IManifestStream ManifestStream
+            {
+                get { return stream; }
+                set { stream = value; }
+            }
 
              public bool isChecked
-             {
-                 get { return isCheckedValue; }
-                 set
-                 {
-                     // mMke the video stream always checked.
-                     if (stream.Type == MediaStreamType.Video)
-                     {
-                         isCheckedValue = true;
-                     }
-                     else
-                     {
-                         isCheckedValue = value;
-                     }
-                 }
-             }
+            {
+                get { return isCheckedValue; }
+                set
+                {
+                    // mMke the video stream always checked.
+                    if (stream.Type == MediaStreamType.Video)
+                    {
+                        isCheckedValue = true;
+                    }
+                    else
+                    {
+                        isCheckedValue = value;
+                    }
+                }
+            }
 
-             public Stream(IManifestStream streamIn)
-             {
-                 stream = streamIn;
-                 name = stream.Name;
-             }
-         }
-         #endregion class Stream
+            public Stream(IManifestStream streamIn)
+            {
+               stream = streamIn;
+               name = stream.Name;
+            }
+        }
+        #endregion class Stream
 
-3.  MainPage 클래스의 시작 부분에 다음 변수 정의를 추가합니다.
+3.  在 MainPage 類別的開頭，新增下列變數定義：
 
-         private List<Stream> availableStreams;
-         private List<Stream> availableAudioStreams;
-         private List<Stream> availableTextStreams;
-         private List<Stream> availableVideoStreams;
+        private List<Stream> availableStreams;
+        private List<Stream> availableAudioStreams;
+        private List<Stream> availableTextStreams;
+        private List<Stream> availableVideoStreams;
 
-4.  MainPage 클래스 내에 다음 지역을 추가합니다.
+4.  在 MainPage 類別內，新增下列區域：
 
-         #region stream selection
-         ///<summary>
-         ///Functionality to select streams from IManifestStream available streams
-         /// </summary>
-            
-         // This function is called from the mediaElement_ManifestReady event handler 
-         // to retrieve the streams and populate them to the local data members.
-         public void getStreams(Manifest manifestObject)
-         {
-             availableStreams = new List<Stream>();
-             availableVideoStreams = new List<Stream>();
-             availableAudioStreams = new List<Stream>();
-             availableTextStreams = new List<Stream>();
-            
-             try
-             {
-                 for (int i = 0; i<manifestObject.AvailableStreams.Count; i++)
-                 {
-                     Stream newStream = new Stream(manifestObject.AvailableStreams[i]);
-                     newStream.isChecked = false;
-            
-                     //populate the stream lists based on the types
-                     availableStreams.Add(newStream);
-            
-                     switch (newStream.ManifestStream.Type)
-                     {
-                         case MediaStreamType.Video:
-                             availableVideoStreams.Add(newStream);
-                             break;
-                         case MediaStreamType.Audio:
-                             availableAudioStreams.Add(newStream);
-                             break;
-                         case MediaStreamType.Text:
-                             availableTextStreams.Add(newStream);
-                             break;
-                     }
-            
-                     // Select the default selected streams from the manifest.
-                     for (int j = 0; j<manifestObject.SelectedStreams.Count; j++)
-                     {
-                         string selectedStreamName = manifestObject.SelectedStreams[j].Name;
-                         if (selectedStreamName.Equals(newStream.Name))
-                         {
-                             newStream.isChecked = true;
-                             break;
-                         }
-                     }
-                 }
-             }
-             catch (Exception e)
-             {
-                 txtStatus.Text = "Error: " + e.Message;
-             }
-         }
-            
-         // This function set the list box ItemSource
-         private async void refreshAvailableStreamsListBoxItemSource()
-         {
-             try
-             {
-                 //update the stream check box list on the UI
-                 await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, ()
-                     => { lbAvailableStreams.ItemsSource = availableStreams; });
-             }
-             catch (Exception e)
-             {
-                 txtStatus.Text = "Error: " + e.Message;
-             }
-         }
-            
-         // This function creates a selected streams list
-         private void createSelectedStreamsList(List<IManifestStream> selectedStreams)
-         {
-             bool isOneVideoSelected = false;
-             bool isOneAudioSelected = false;
-            
-             // Only one video stream can be selected
-             for (int j = 0; j<availableVideoStreams.Count; j++)
-             {
-                 if (availableVideoStreams[j].isChecked && (!isOneVideoSelected))
-                 {
-                     selectedStreams.Add(availableVideoStreams[j].ManifestStream);
-                     isOneVideoSelected = true;
-                 }
-             }
-            
-             // Select the frist video stream from the list if no video stream is selected
-             if (!isOneVideoSelected)
-             {
-                 availableVideoStreams[0].isChecked = true;
-                 selectedStreams.Add(availableVideoStreams[0].ManifestStream);
-             }
-            
-             // Only one audio stream can be selected
-             for (int j = 0; j<availableAudioStreams.Count; j++)
-             {
-                 if (availableAudioStreams[j].isChecked && (!isOneAudioSelected))
-                 {
-                     selectedStreams.Add(availableAudioStreams[j].ManifestStream);
-                     isOneAudioSelected = true;
-                     txtStatus.Text = "The audio stream is changed to " + availableAudioStreams[j].ManifestStream.Name;
-                 }
-             }
-            
-             // Select the frist audio stream from the list if no audio steam is selected.
-             if (!isOneAudioSelected)
-             {
-                 availableAudioStreams[0].isChecked = true;
-                 selectedStreams.Add(availableAudioStreams[0].ManifestStream);
-             }
-            
-             // Multiple text streams are supported.
-             for (int j = 0; j < availableTextStreams.Count; j++)
-             {
-                 if (availableTextStreams[j].isChecked)
-                 {
-                     selectedStreams.Add(availableTextStreams[j].ManifestStream);
-                 }
-             }
-         }
-            
-         // Change streams on a smooth streaming presentation with multiple video streams.
-         private async void changeStreams(List<IManifestStream> selectStreams)
-         {
-             try
-             {
-                 IReadOnlyList<IStreamChangedResult> returnArgs =
-                     await manifestObject.SelectStreamsAsync(selectStreams);
-             }
-             catch (Exception e)
-             {
-                 txtStatus.Text = "Error: " + e.Message;
-             }
-         }
-         #endregion stream selection
+		#region stream selection
+		///<summary>
+		///Functionality to select streams from IManifestStream available streams
+		/// </summary>
+		
+		// This function is called from the mediaElement_ManifestReady event handler 
+		// to retrieve the streams and populate them to the local data members.
+		public void getStreams(Manifest manifestObject)
+		{
+		    availableStreams = new List<Stream>();
+		    availableVideoStreams = new List<Stream>();
+		    availableAudioStreams = new List<Stream>();
+		    availableTextStreams = new List<Stream>();
+		
+		    try
+		    {
+		        for (int i = 0; i<manifestObject.AvailableStreams.Count; i++)
+		        {
+		            Stream newStream = new Stream(manifestObject.AvailableStreams[i]);
+		            newStream.isChecked = false;
+		
+		            //populate the stream lists based on the types
+		            availableStreams.Add(newStream);
+		
+		            switch (newStream.ManifestStream.Type)
+		            {
+		                case MediaStreamType.Video:
+		                    availableVideoStreams.Add(newStream);
+		                    break;
+		                case MediaStreamType.Audio:
+		                    availableAudioStreams.Add(newStream);
+		                    break;
+		                case MediaStreamType.Text:
+		                    availableTextStreams.Add(newStream);
+		                    break;
+		            }
+		
+		            // Select the default selected streams from the manifest.
+		            for (int j = 0; j<manifestObject.SelectedStreams.Count; j++)
+		            {
+		                string selectedStreamName = manifestObject.SelectedStreams[j].Name;
+		                if (selectedStreamName.Equals(newStream.Name))
+		                {
+		                    newStream.isChecked = true;
+		                    break;
+		                }
+		            }
+		        }
+		    }
+		    catch (Exception e)
+		    {
+		        txtStatus.Text = "Error: " + e.Message;
+		    }
+		}
+		
+		// This function set the list box ItemSource
+		private async void refreshAvailableStreamsListBoxItemSource()
+		{
+		    try
+		    {
+		        //update the stream check box list on the UI
+		        await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, ()
+		            => { lbAvailableStreams.ItemsSource = availableStreams; });
+		    }
+		    catch (Exception e)
+		    {
+		        txtStatus.Text = "Error: " + e.Message;
+		    }
+		}
+		
+		// This function creates a selected streams list
+		private void createSelectedStreamsList(List<IManifestStream> selectedStreams)
+		{
+		    bool isOneVideoSelected = false;
+		    bool isOneAudioSelected = false;
+		
+		    // Only one video stream can be selected
+		    for (int j = 0; j<availableVideoStreams.Count; j++)
+		    {
+		        if (availableVideoStreams[j].isChecked && (!isOneVideoSelected))
+		        {
+		            selectedStreams.Add(availableVideoStreams[j].ManifestStream);
+		            isOneVideoSelected = true;
+		        }
+		    }
+		
+		    // Select the frist video stream from the list if no video stream is selected
+		    if (!isOneVideoSelected)
+		    {
+		        availableVideoStreams[0].isChecked = true;
+		        selectedStreams.Add(availableVideoStreams[0].ManifestStream);
+		    }
+		
+		    // Only one audio stream can be selected
+		    for (int j = 0; j<availableAudioStreams.Count; j++)
+		    {
+		        if (availableAudioStreams[j].isChecked && (!isOneAudioSelected))
+		        {
+		            selectedStreams.Add(availableAudioStreams[j].ManifestStream);
+		            isOneAudioSelected = true;
+		            txtStatus.Text = "The audio stream is changed to " + availableAudioStreams[j].ManifestStream.Name;
+		        }
+		    }
+		
+		    // Select the frist audio stream from the list if no audio steam is selected.
+		    if (!isOneAudioSelected)
+		    {
+		        availableAudioStreams[0].isChecked = true;
+		        selectedStreams.Add(availableAudioStreams[0].ManifestStream);
+		    }
+		
+		    // Multiple text streams are supported.
+		    for (int j = 0; j < availableTextStreams.Count; j++)
+		    {
+		        if (availableTextStreams[j].isChecked)
+		        {
+		            selectedStreams.Add(availableTextStreams[j].ManifestStream);
+		        }
+		    }
+		}
+		
+		// Change streams on a smooth streaming presentation with multiple video streams.
+		private async void changeStreams(List<IManifestStream> selectStreams)
+		{
+		    try
+		    {
+		        IReadOnlyList<IStreamChangedResult> returnArgs =
+		            await manifestObject.SelectStreamsAsync(selectStreams);
+		    }
+		    catch (Exception e)
+		    {
+		        txtStatus.Text = "Error: " + e.Message;
+		    }
+		}
+		#endregion stream selection
 
-5.  mediaElement\_ManifestReady 메서드를 찾은 후 함수의 끝에 다음 코드를 추가합니다.
+5.  找到 mediaElement\_ManifestReady 方法，並在函數的結尾附加下列程式碼：
 
-         getStreams(manifestObject);
-         refreshAvailableStreamsListBoxItemSource();
+        getStreams(manifestObject);
+        refreshAvailableStreamsListBoxItemSource();
 
-    따라서 MediaElement 매니페스트가 준비되면 코드가 사용 가능한 스트림 목록을 가져오고 UI 목록 상자에 목록을 채웁니다.
+    因此，當 MediaElement 資訊清單就緒時，程式碼會取得可用資料流清單，並將這份清單填入 UI 清單方塊。
 
-6.  MainPage 클래스 내에서 UI 단추 클릭 이벤트 지역을 찾은 후 다음 함수 정의를 추가합니다.
+6.  Inside the MainPage class, locate the UI buttons click events region, and then add the following function definition:
 
-         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
-         {
-             List<IManifestStream> selectedStreams = new List<IManifestStream>();
+        private void btnChangeStream_Click(object sender, RoutedEventArgs e)
+        {
+            List<IManifestStream> selectedStreams = new List<IManifestStream>();
 
-             // Create a list of the selected streams
-             createSelectedStreamsList(selectedStreams);
+            // Create a list of the selected streams
+            createSelectedStreamsList(selectedStreams);
 
-             // Change streams on the presentation
-             changeStreams(selectedStreams);
-         }
+            // Change streams on the presentation
+            changeStreams(selectedStreams);
+        }
 
-**응용 프로그램을 컴파일 및 테스트하려면**
+**編譯和測試應用程式**
 
-1.  **F6** 키를 눌러 프로젝트를 컴파일합니다.
-2.  **F5** 키를 눌러 응용 프로그램을 실행합니다.
-3.  응용 프로그램 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다.
-4.  **원본 설정**을 클릭합니다.
-5.  기본 언어는 audio\_eng입니다. audio\_eng와 audio\_es 간에 전환해 보십시오. 새 스트림을 선택할 때마다 제출 단추를 클릭해야 합니다.
+1.  按 **F6** 鍵編譯專案。
+2.  按 **F5** 鍵執行應用程式。
+3.  在應用程式頂端，您可以使用預設 Smooth Streaming URL，或輸入不同的 Smooth Streaming URL。
+4.  按一下 **[設定來源]**。
+5.  預設語言是 audio\_eng。請嘗試在 audio\_eng 與 audio\_es 之間進行切換。每次您選取新的資料流時，都必須按一下 [提交] 按鈕。
 
-단원 3을 완료했습니다. 이 단원에서는 스트림 선택 기능을 추가했습니다.
+您已完成課程 3。在本課程中，您新增了選擇資料流的功能。
 
-단원 4: 부드러운 스트리밍 트랙 선택
-===================================
+課程 4：選取 Smooth Streaming 曲目
+==================================
 
-부드러운 스트리밍 프레젠테이션에는 여러 품질 수준(비트 전송률) 및 해상도로 인코딩된 여러 비디오 파일이 포함될 수 있습니다. 이 단원에서는 사용자가 트랙을 선택할 수 있도록 설정합니다. 이 단원에는 다음 절차가 포함되어 있습니다.
+Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) 和解析度編碼的視訊檔案。在本課程中，您將讓使用者選取曲目。本課程包含下列程序：
 
-1.  XAML 파일 수정
-2.  코드 숨김 파일 수정
-3.  응용 프로그램 컴파일 및 테스트
+1.  修改 XAML 檔案
+2.  修改程式碼後置檔案
+3.  編譯和測試應用程式
 
-**XAML 파일을 수정하려면**
+**修改 XAML 檔案**
 
-1.  솔루션 탐색기에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **디자이너 보기**를 클릭합니다.
-2.  이름이 **gridStreamAndBitrateSelection**인 &lt;Grid\> 태그를 찾은 후 태그의 끝에 다음 코드를 추가합니다.
+1.  從 [方案總管] 中，在 **[MainPage.xaml]** 上按一下滑鼠右鍵，然後按一下 **[檢視設計工具]**。
+2.  找到名稱為 **gridStreamAndBitrateSelection** 的 &lt;Grid\> 標籤，並在標籤的結尾附加下列程式碼：
 
-         <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
-          <StackPanel Orientation="Horizontal">
-              <TextBlock Name="tbBitRate" Text="Available Bitrates:" FontSize="16" VerticalAlignment="Center"/>
-              <Button Name="btnChangeTracks" Content="Submit" Click="btnChangeTrack_Click" />
-          </StackPanel>
-          <ListBox x:Name="lbAvailableVideoTracks" Height="200" Width="200" Background="Transparent" HorizontalAlignment="Left" 
-                   ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Visible">
-              <ListBox.ItemTemplate>
-                  <DataTemplate>
-                      <CheckBox Content="{Binding Bitrate}" IsChecked="{Binding isChecked, Mode=TwoWay}"/>
-                  </DataTemplate>
-              </ListBox.ItemTemplate>
-          </ListBox>
-         </StackPanel>
+		<StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
+		 <StackPanel Orientation="Horizontal">
+		     <TextBlock Name="tbBitRate" Text="Available Bitrates:" FontSize="16" VerticalAlignment="Center"/>
+		     <Button Name="btnChangeTracks" Content="Submit" Click="btnChangeTrack_Click" />
+		 </StackPanel>
+		 <ListBox x:Name="lbAvailableVideoTracks" Height="200" Width="200" Background="Transparent" HorizontalAlignment="Left" 
+		          ScrollViewer.VerticalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Visible">
+		     <ListBox.ItemTemplate>
+		         <DataTemplate>
+		             <CheckBox Content="{Binding Bitrate}" IsChecked="{Binding isChecked, Mode=TwoWay}"/>
+		         </DataTemplate>
+		     </ListBox.ItemTemplate>
+		 </ListBox>
+		</StackPanel>
 
-3.  **Ctrl+S**를 눌러 변경 내용을 저장합니다.
+3.  按 **CTRL+S** 儲存變更。
 
-**코드 숨김 파일을 수정하려면**
+**修改程式碼後置檔案**
 
-1.  솔루션 탐색기에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
-2.  SSPlayer 네임스페이스 내에 새 클래스를 추가합니다.
+1.  從 [方案總管] 中，在 **[MainPage.xaml]** 上按一下滑鼠右鍵，然後按一下 **[檢視程式碼]**。
+2.  在 SSPlayer 命名空間內，新增類別：
 
-         #region class Track
-         public class Track
-         {
-             private IManifestTrack trackInfo;
-             public string _bitrate;
-             public bool isCheckedValue;
+		#region class Track
+	    public class Track
+	    {
+	        private IManifestTrack trackInfo;
+	        public string _bitrate;
+	        public bool isCheckedValue;
+	
+	        public IManifestTrack TrackInfo
+	        {
+	            get { return trackInfo; }
+	            set { trackInfo = value; }
+	        }
+	
+	        public string Bitrate
+	        {
+	            get { return _bitrate; }
+	            set { _bitrate = value; }
+	        }
+	
+	        public bool isChecked
+	        {
+	            get { return isCheckedValue; }
+	            set
+	            {
+	                isCheckedValue = value;
+	            }
+	        }
+	
+	        public Track(IManifestTrack trackInfoIn)
+	        {
+	            trackInfo = trackInfoIn;
+	            _bitrate = trackInfoIn.Bitrate.ToString();
+	        }
+	        //public Track() { }
+	    }
+	    #endregion class Track
 
-             public IManifestTrack TrackInfo
-             {
-                 get { return trackInfo; }
-                 set { trackInfo = value; }
-             }
+3.  在 MainPage 類別的開頭，新增下列變數定義：
 
-             public string Bitrate
-             {
-                 get { return _bitrate; }
-                 set { _bitrate = value; }
-             }
+        private List<Track> availableTracks;
 
-             public bool isChecked
-             {
-                 get { return isCheckedValue; }
-                 set
-                 {
-                     isCheckedValue = value;
-                 }
-             }
+4.  在 MainPage 類別內，新增下列區域：
 
-             public Track(IManifestTrack trackInfoIn)
-             {
-                 trackInfo = trackInfoIn;
-                 _bitrate = trackInfoIn.Bitrate.ToString();
-             }
-             //public Track() { }
-         }
-         #endregion class Track
+		#region track selection
+        /// <summary>
+        /// Functionality to select video streams
+        /// </summary>
 
-3.  MainPage 클래스의 시작 부분에 다음 변수 정의를 추가합니다.
+        /// This Function gets the tracks for the selected video stream
+        public void getTracks(Manifest manifestObject)
+        {
+            availableTracks = new List<Track>();
 
-         private List<Track> availableTracks;
+            IManifestStream videoStream = getVideoStream();
+            IReadOnlyList<IManifestTrack> availableTracksLocal = videoStream.AvailableTracks;
+            IReadOnlyList<IManifestTrack> selectedTracksLocal = videoStream.SelectedTracks;
 
-4.  MainPage 클래스 내에 다음 지역을 추가합니다.
+            try
+            {
+                for (int i = 0; i < availableTracksLocal.Count; i++)
+                {
+                    Track thisTrack = new Track(availableTracksLocal[i]);
+                    thisTrack.isChecked = true;
 
-         #region track selection
-         /// <summary>
-         /// Functionality to select video streams
-         /// </summary>
+                    for (int j = 0; j < selectedTracksLocal.Count; j++)
+                    {
+                        string selectedTrackName = selectedTracksLocal[j].Bitrate.ToString();
+                        if (selectedTrackName.Equals(thisTrack.Bitrate))
+                        {
+                            thisTrack.isChecked = true;
+                            break;
+                        }
+                    }
+                    availableTracks.Add(thisTrack);
+                }
+            }
+            catch (Exception e)
+            {
+                txtStatus.Text = e.Message;
+            }
+        }
 
-         /// This Function gets the tracks for the selected video stream
-         public void getTracks(Manifest manifestObject)
-         {
-             availableTracks = new List<Track>();
+		// This function gets the video stream that is playing
+        private IManifestStream getVideoStream()
+        {
+            IManifestStream videoStream = null;
+            for (int i = 0; i < manifestObject.SelectedStreams.Count; i++)
+            {
+                if (manifestObject.SelectedStreams[i].Type == MediaStreamType.Video)
+                {
+                    videoStream = manifestObject.SelectedStreams[i];
+                    break;
+                }
+            }
+            return videoStream;
+        }
 
-             IManifestStream videoStream = getVideoStream();
-             IReadOnlyList<IManifestTrack> availableTracksLocal = videoStream.AvailableTracks;
-             IReadOnlyList<IManifestTrack> selectedTracksLocal = videoStream.SelectedTracks;
+		// This function set the UI list box control ItemSource
+        private async void refreshAvailableTracksListBoxItemSource()
+        {
+            try
+            {
+                // Update the track check box list on the UI 
+                await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, ()
+                    => { lbAvailableVideoTracks.ItemsSource = availableTracks; });
+            }
+            catch (Exception e)
+            {
+                txtStatus.Text = "Error: " + e.Message;
+            }        
+        }
 
-             try
-             {
-                 for (int i = 0; i < availableTracksLocal.Count; i++)
-                 {
-                     Track thisTrack = new Track(availableTracksLocal[i]);
-                     thisTrack.isChecked = true;
+		// This function creates a list of the selected tracks.
+        private void createSelectedTracksList(List<IManifestTrack> selectedTracks)
+        {
+            // Create a list of selected tracks
+            for (int j = 0; j < availableTracks.Count; j++)
+            {
+                if (availableTracks[j].isCheckedValue == true)
+                {
+                    selectedTracks.Add(availableTracks[j].TrackInfo);
+                }
+            }
+        }
 
-                     for (int j = 0; j < selectedTracksLocal.Count; j++)
-                     {
-                         string selectedTrackName = selectedTracksLocal[j].Bitrate.ToString();
-                         if (selectedTrackName.Equals(thisTrack.Bitrate))
-                         {
-                             thisTrack.isChecked = true;
-                             break;
-                         }
-                     }
-                     availableTracks.Add(thisTrack);
-                 }
-             }
-             catch (Exception e)
-             {
-                 txtStatus.Text = e.Message;
-             }
-         }
+		// This function selects the tracks based on user selection 
+        private void changeTracks(List<IManifestTrack> selectedTracks)
+        {
+            IManifestStream videoStream = getVideoStream();
+            try
+            {
+                videoStream.SelectTracks(selectedTracks);
+            }
+            catch (Exception ex)
+            {
+                txtStatus.Text = ex.Message;
+            }
+        }
+        #endregion track selection
 
-         // This function gets the video stream that is playing
-         private IManifestStream getVideoStream()
-         {
-             IManifestStream videoStream = null;
-             for (int i = 0; i < manifestObject.SelectedStreams.Count; i++)
-             {
-                 if (manifestObject.SelectedStreams[i].Type == MediaStreamType.Video)
-                 {
-                     videoStream = manifestObject.SelectedStreams[i];
-                     break;
-                 }
-             }
-             return videoStream;
-         }
+5.  找到 mediaElement\_ManifestReady 方法，並在函數的結尾附加下列程式碼：
 
-         // This function set the UI list box control ItemSource
-         private async void refreshAvailableTracksListBoxItemSource()
-         {
-             try
-             {
-                 // Update the track check box list on the UI 
-                 await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, ()
-                     => { lbAvailableVideoTracks.ItemsSource = availableTracks; });
-             }
-             catch (Exception e)
-             {
-                 txtStatus.Text = "Error: " + e.Message;
-             }        
-         }
+        getTracks(manifestObject);
+        refreshAvailableTracksListBoxItemSource();
 
-         // This function creates a list of the selected tracks.
-         private void createSelectedTracksList(List<IManifestTrack> selectedTracks)
-         {
-             // Create a list of selected tracks
-             for (int j = 0; j < availableTracks.Count; j++)
-             {
-                 if (availableTracks[j].isCheckedValue == true)
-                 {
-                     selectedTracks.Add(availableTracks[j].TrackInfo);
-                 }
-             }
-         }
+6.  Inside the MainPage class, locate the UI buttons click events region, and then add the following function definition:
 
-         // This function selects the tracks based on user selection 
-         private void changeTracks(List<IManifestTrack> selectedTracks)
-         {
-             IManifestStream videoStream = getVideoStream();
-             try
-             {
-                 videoStream.SelectTracks(selectedTracks);
-             }
-             catch (Exception ex)
-             {
-                 txtStatus.Text = ex.Message;
-             }
-         }
-         #endregion track selection
+        private void btnChangeStream_Click(object sender, RoutedEventArgs e)
+        {
+            List<IManifestStream> selectedStreams = new List<IManifestStream>();
 
-5.  mediaElement\_ManifestReady 메서드를 찾은 후 함수의 끝에 다음 코드를 추가합니다.
+            // Create a list of the selected streams
+            createSelectedStreamsList(selectedStreams);
 
-         getTracks(manifestObject);
-         refreshAvailableTracksListBoxItemSource();
+           // Change streams on the presentation
+           changeStreams(selectedStreams);
+        }
 
-6.  MainPage 클래스 내에서 UI 단추 클릭 이벤트 지역을 찾은 후 다음 함수 정의를 추가합니다.
+**編譯和測試應用程式**
 
-         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
-         {
-             List<IManifestStream> selectedStreams = new List<IManifestStream>();
+1.  按 **F6** 鍵編譯專案。
+2.  按 **F5** 鍵執行應用程式。
+3.  在應用程式頂端，您可以使用預設 Smooth Streaming URL，或輸入不同的 Smooth Streaming URL。
+4.  按一下 **[設定來源]**。
+5.  預設會選取視訊資料流的所有曲目。若要試驗位元速率變更，您可以選取可用的最低位元速率，然後選取可用的最高位元速率。您必須在每次變更之後按一下 [提交]。您可以看到視訊品質變更。
 
-             // Create a list of the selected streams
-             createSelectedStreamsList(selectedStreams);
+您已完成課程 4。在本課程中，您新增了選擇曲目的功能。
 
-             // Change streams on the presentation
-             changeStreams(selectedStreams);
-         }
+其他資源：
+==========
 
-**응용 프로그램을 컴파일 및 테스트하려면**
-
-1.  **F6** 키를 눌러 프로젝트를 컴파일합니다.
-2.  **F5** 키를 눌러 응용 프로그램을 실행합니다.
-3.  응용 프로그램 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다.
-4.  **원본 설정**을 클릭합니다.
-5.  기본적으로 비디오 스트림의 모든 트랙이 선택됩니다. 비트 전송률 변경을 실험하려면 사용 가능한 가장 낮은 비트 전송률을 선택한 후 사용 가능한 가장 높은 비트 전송률을 선택합니다. 각 변경 후에 제출을 클릭해야 합니다. 비디오 품질 변경을 확인할 수 있습니다.
-
-단원 4를 완료했습니다. 이 단원에서는 트랙 선택 기능을 추가했습니다.
-
-기타 리소스:
-============
-
--   [고급 기능이 포함된 부드러운 스트리밍 Windows 8 JavaScript 응용 프로그램을 빌드하는 방법](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
--   [부드러운 스트리밍 기술 개요](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
+-   [如何建置具有進階功能的 Smooth Streaming Windows 8 JavaScript 應用程式 (英文)](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
+-   [Smooth Streaming 技術概觀 (英文)](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 

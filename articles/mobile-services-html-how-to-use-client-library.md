@@ -1,95 +1,95 @@
 <properties linkid="mobile-services-how-to-html-client" urlDisplayName="HTML Client" pageTitle="How to use an HTML client - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="Learn how to use an HTML client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-Azure 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하는 방법
-================================================================
+如何使用 Azure 行動服務的 HTML/JavaScript 用戶端
+================================================
 
 [.NET Framework](/en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework")[HTML/JavaScript](/en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
 
-이 가이드에서는 Azure 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 데이터 쿼리, 삽입, 업데이트, 삭제 및 사용자 인증과 오류 처리가 포함됩니다. 모바일 서비스를 처음으로 접하는 경우 먼저 모바일 서비스 [Windows 스토어 JavaScript 빠른 시작](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started) 또는 [HTML 빠른 시작](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-html)을 완료해야 합니다. 빠른 시작 자습서를 참조하여 계정을 구성하고 첫 모바일 서비스를 만들 수 있습니다.
+本指南顯示使用 Azure 行動服務的 HTML/JavaScript 用戶端來執行常見的案例。涵蓋的案例包括查詢資料、插入、更新和刪除資料、驗證使用者，以及處理錯誤。如果您不熟悉行動服務，請考慮先完成行動服務 [Windows 市集 JavaScript 快速入門](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started) (英文) 或 [HTML 快速入門](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-html) (英文)。快速入門教學課程協助您設定帳戶和建立第一個行動服務。
 
-목차
+目錄
 ----
 
--   [모바일 서비스 정의](#what-is)
--   [개념](#concepts)
--   [방법: 모바일 서비스 클라이언트 만들기](#create-client)
--   [방법: 모바일 서비스에서 데이터 쿼리](#querying)
-    -   [반환된 데이터 필터링](#filtering)
-    -   [반환된 데이터 정렬](#sorting)
-    -   [페이지에서 데이터 반환](#paging)
-    -   [특정 열 선택](#selecting)
-    -   [ID를 기준으로 데이터 조회](#lookingup)
--   [방법: 모바일 서비스에 데이터 삽입](#inserting)
--   [방법: 모바일 서비스의 데이터 수정](#modifying)
--   [방법: 모바일 서비스의 데이터 삭제](#deleting)
--   [방법: 사용자 인터페이스에 데이터 표시](#binding)
--   [방법: 사용자 인증](#caching)
--   [방법: 오류 처리](#errors)
--   [방법: promise 사용](#promises)
--   [방법: 요청 헤더 사용자 지정](#customizing)
--   [방법: Cross Origin Resource Sharing 사용](#hostnames)
--   [다음 단계](#nextsteps)
+-   [什麼是行動服務](#what-is)
+-   [概念](#concepts)
+-   [作法：建立行動服務用戶端](#create-client)
+-   [作法：從行動服務查詢資料](#querying)
+    -   [篩選傳回的資料](#filtering)
+    -   [排序傳回的資料](#sorting)
+    -   [以分頁方式傳回資料](#paging)
+    -   [選取特定資料欄](#selecting)
+    -   [依識別碼查詢資料](#lookingup)
+-   [作法：將資料插入行動服務](#inserting)
+-   [作法：修改行動服務中的資料](#modifying)
+-   [作法：刪除行動服務中的資料](#deleting)
+-   [作法：在使用者介面中顯示資料](#binding)
+-   [作法：驗證使用者](#caching)
+-   [作法：處理錯誤](#errors)
+-   [作法：使用 Promise](#promises)
+-   [作法：自訂要求標頭](#customizing)
+-   [作法：使用跨原始來源資源分享](#hostnames)
+-   [後續步驟](#nextsteps)
 
 [WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
-모바일 서비스 클라이언트 만들기방법: 모바일 서비스 클라이언트 만들기
---------------------------------------------------------------------
+建立行動服務用戶端作法：建立行動服務用戶端
+------------------------------------------
 
-다음 코드는 모바일 서비스 클라이언트 개체를 인스턴스화합니다.
+下列程式碼具現化行動服務用戶端物件。
 
-웹 편집기에서 HTML 파일을 열고 페이지의 스크립트 참조에 다음 코드를 추가하십시오.
+在 Web 編輯器中，開啟 HTML 檔案，將下列程式碼加入至頁面的指令碼參考：
 
             <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
 
-편집기에서 JavaScript 파일을 열거나 만들고 `MobileServiceClient` 변수를 정의하는 다음 코드를 추가하고 `MobileServiceClient` 생성자에 모바일 서비스의 응용 프로그램 URL 및 응용 프로그램 키를 이 순서대로 제공합니다. 자리 표시자 `AppUrl`을 모바일 서비스의 응용 프로그램 URL 및 응용 프로그램 키가 있는 `AppKey`로 바꿔야 합니다. 모바일 서비스의 응용 프로그램 URL 및 응용 프로그램 키를 구하는 방법에 대한 자세한 내용은 [Windows 스토어 JavaScript에서 데이터 시작](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-js)(영문) 또는 [HTML/JavaScript에서 데이터 시작](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/)(영문) 자습서를 참조하십시오.
+在編輯器中，開啟或建立 JavaScript 檔案，新增下列程式碼來定義 `MobileServiceClient` 變數，並在 `MobileServiceClient` 建構函式中依序提供行動服務的應用程式 URL 和應用程式金鑰。您必須將預留位置 `AppUrl` 換成行動服務的應用程式 URL，將 `AppKey` 換成應用程式金鑰。若要了解如何取得行動服務的應用程式 URL 和應用程式金鑰，請參閱教學課程[在 Windows 市集 JavaScript 中開始使用資料](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-js) (英文) 或[在 HTML/JavaScript 中開始使用資料](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/) (英文)。
 
             var MobileServiceClient = WindowsAzure.MobileServiceClient;
             var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-데이터 쿼리방법: 모바일 서비스에서 데이터 쿼리
-----------------------------------------------
+查詢資料作法：從行動服務查詢資料
+--------------------------------
 
-SQL Database 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체에 대한 함수를 호출합니다. `MobileServiceClient` 인스턴스에 대해 `getTable()` 함수를 호출하여 테이블에 대한 참조를 구합니다.
+所有存取或修改 SQL Database 資料表中的資料的程式碼都會在 `MobileServiceTable` 物件上呼叫函數。您需要在 `MobileServiceClient` 執行個體上呼叫 `getTable()` 函數來取得資料表的參考。
 
          var todoItemTable = client.getTable('todoitem');
 
-### 방법: 반환된 데이터 필터링
+### 作法：篩選傳回的資料
 
-다음 코드는 쿼리에 `where` 절을 포함하여 데이터를 필터링하는 방법을 보여 줍니다. `todoItemTable`에서 완료 필드가 `false`와 동일한 모든 항목을 반환합니다. `todoItemTable`은 이전에 만든 모바일 서비스 테이블에 대한 참조입니다. where 함수는 테이블에 대한 쿼리에 행 필터링 조건자를 적용합니다. JSON 개체나 행 필터를 정의하는 함수를 인수로 허용하며 추가로 작성할 수 있는 쿼리를 반환합니다.
+下列程式碼將說明如何在查詢中包含 `where` 子句來篩選資料。它會從 `todoItemTable` 傳回 complete 欄位等於 `false` 的所有項目。`todoItemTable` 是先前建立的行動服務資料表的參考。where 函數會套用資料列篩選述語來查詢資料表。它接受一個定義資料列篩選器的 JSON 物件或函數做為引數，然後傳回可進一步編寫的查詢。
 
            var query = todoItemTable.where({
-                complete: false
+                complete:false
             }).read().done(function (results) {
                 alert(JSON.stringify(results));
             }, function (err) {
-                alert("Error: " + err);
+                alert("Error:" + err);
             });
 
-Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달하여 모바일 서비스에서 `complete` 열에 `false` 값이 포함된 행만 반환하도록 지정합니다. 또한 다음 요청 URI에서 알 수 있듯이 쿼리 문자열 자체를 수정합니다.
+加上在 Query 物件上呼叫 `where` 並傳遞物件做為參數，我們指示行動服務只傳回 `complete` 資料行包含 `false` 值的資料列。另外請看下列的要求 URI，請注意，我們修改查詢字串本身：
 
          GET /tables/todoitem$filter=(complete+eq+false) HTTP/1.1            
 
-브라우저 개발 도구 또는 Fiddler와 같은 메시지 검사 소프트웨어를 사용하여 모바일 서비스에 전송된 요청의 URI를 볼 수 있습니다.
+您可以使用訊息檢查軟體，例如瀏覽器開發人員工具或 Fiddler，以檢視傳送至行動服務的要求的 URI。
 
-이 요청은 일반적으로 다음과 같은 서버 쪽 SQL 쿼리로 변환됩니다.
+此要求在伺服器端通常大致上會轉譯成下列 SQL 查詢：
 
             SELECT * 
             FROM TodoItem           
             WHERE ISNULL(complete, 0) = 0
 
-`where` 메서드에 전달되는 개체에는 임의의 수의 매개 변수가 있을 수 있으며, 이 매개 변수는 모두 쿼리에 대한 AND 절로 변환됩니다. 다음 줄을 예로 들겠습니다.
+傳遞至 `where` 方法的物件可以有任意數量的參數，而參數會解譯成查詢的 AND 子句。以下面的程式碼行為例：
 
            query.where({
-               complete: false,
-               assignee: "david",
-               difficulty: "medium"
+               complete:false,
+               assignee:"david",
+               difficulty:"medium"
             }).read().done(function (results) {
                alert(JSON.stringify(results));
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
             });
 
-이 줄은 다음으로 변환됩니다(앞에서 나온 것과 동일한 요청에 대해).
+大致上會轉譯成 (針對先前所示的相同要求)
 
             SELECT * 
             FROM TodoItem 
@@ -97,55 +97,55 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
                   AND assignee = 'david'
                   AND difficulty = 'medium'
 
-위의 `where` 문과 SQL 쿼리는 "david"에게 할당되었으며 난이도가 "medium"인 완료되지 않은 항목을 찾습니다.
+上述 `where` 陳述式和上述 SQL 查詢會尋找指派給 "david" 且難度為 "medium" 的未完成項目。
 
-하지만 동일한 쿼리를 작성하는 다른 방법이 있습니다. Query 개체에 대한 `.where` 호출은 `WHERE` 절에 `AND` 식을 추가하므로, 다음과 같이 세 줄에 이 호출을 작성해도 됩니다.
-
-           query.where({
-               complete: false
-            });
-            query.where({
-               assignee: "david"
-            });
-            query.where({
-               difficulty: "medium"
-            });
-
-또는 다음과 같이 흐름 API를 사용합니다.
+不過，還有另一種方式可撰寫同樣的查詢。Query 物件上的 `.where` 呼叫會將 `AND` 運算式加入至 `WHERE` 子句，因此我們可以改為分成三行來撰寫：
 
            query.where({
-               complete: false
-            })
-               .where({
-               assignee: "david"
-            })
-               .where({
-               difficulty: "medium"
+               complete:false
+            });
+            query.where({
+               assignee:"david"
+            });
+            query.where({
+               difficulty:"medium"
             });
 
-두 메서드는 동등하며 서로 교환해서 사용할 수 있습니다. 지금까지 모든 `where` 호출은 일부 매개 변수가 있는 개체를 사용하며 데이터베이스의 데이터에 대해 같음 비교가 이루어집니다. 하지만 query 메서드에 대한 다른 오버로드도 있으며, 여기서는 개체 대신 함수가 사용됩니다. 이 함수에서는 같지 않음과 같은 연산자 및 기타 관계형 연산을 사용하여 더 복잡한 식을 작성할 수 있습니다. 이 함수에서는 키워드 `this`가 서버 개체에 바인딩됩니다.
+或者，使用 fluent API：
 
-함수 본문은 쿼리 문자열 매개 변수에 전달되는 OData 부울 식으로 변환됩니다. 매개 변수를 취하지 않는 함수에 전달할 수 있으며, 다음과 같습니다.
+         query.where({
+               complete:false
+            })
+               .where({
+               assignee:"david"
+            })
+               .where({
+               difficulty:"medium"
+            });
 
-            query.where(function () {
+這兩種方法是相同的，而且可以交換使用。目前為止的所有 `where` 呼叫都接受物件及一些參數，且都在比較資料庫中的資料是否等於某個值。然而，query 方法還有另一種多載，可接受函數而非物件。然後，在此函數中，我們可以利用運算子，例如不等式和其他關聯式運算，以撰寫更複雜的運算式。在這些函數中，關鍵字 `this` 繫結至伺服器物件。
+
+函數主體會轉譯成 OData 布林運算式，再傳遞至查詢字串參數。可傳入沒有參數的函數，如下所示：
+
+           query.where(function () {
                return this.assignee == "david" && (this.difficulty == "medium" || this.difficulty == "low");
             }).read().done(function (results) {
                alert(JSON.stringify(results));
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
             });
 
-매개 변수가 있는 함수에 전달하는 경우, `where` 절 뒤의 인수는 함수 매개 변수에 순서대로 바인딩됩니다. 이 함수 범위 외부에서 가져온 개체는 반드시 매개 변수로 전달해야 합니다. 함수가 외부 변수를 캡처할 수 없기 때문입니다. 다음 두 개의 예제에서 인수 "david"은 매개 변수 `name`에 바인딩되며, 첫 번째 예제에서 인수 "medium"도 매개 변수 `level`에 바인딩됩니다. 또한 함수는 지원되는 식이 포함된 단일 `return` 식으로 구성되어야 합니다. 다음과 같습니다.
+如果傳入有參數的函數，則 `where` 子句後面的任何引數會依序繫結至函數參數。來自函數範圍外的任何物件「必須」以參數形式傳遞，函數無法擷取任何外部變數。在接下來兩個範例中，引數 "david" 繫結至參數 `name`，而在第一個範例中，引數 "medium" 也繫結至參數 `level`。另外，函數必須由單一 `return` 陳述式組成，陳述式中有支援的運算式，如下所示：
 
-             query.where(function (name, level) {
+            query.where(function (name, level) {
                 return this.assignee == name && this.difficulty == level;
              }, "david", "medium").read().done(function (results) {
                 alert(JSON.stringify(results));
              }, function (err) {
-                alert("Error: " + err);
+                alert("Error:" + err);
              });
 
-따라서 규칙을 따르는 한, 다음과 같이 더 복잡한 필터를 데이터베이스 쿼리에 추가할 수 있습니다.
+只要遵守規則，我們可以將更複雜的篩選器加入至資料庫查詢，如下所示：
 
            query.where(function (name) {
                return this.assignee == name &&
@@ -153,79 +153,79 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
             }, "david").read().done(function (results) {
                alert(JSON.stringify(results));
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
             });
 
-`where`와 `orderBy`, `take` 및 `skip`을 결합할 수 있습니다. 자세한 내용은 다음 섹션을 참조하십시오.
+`where` 可以結合 `orderBy`、`take` 和 `skip`。如需詳細資料，請參閱下一節。
 
-### 방법: 반환된 데이터 정렬
+### 作法：排序傳回的資料
 
-다음 코드는 쿼리에 `orderBy` 또는 `orderByDescending` 함수를 포함하여 데이터를 정렬하는 방법을 보여 줍니다. `todoItemTable`의 항목을 `text` 필드를 기준으로 오름차순 정렬한 항목을 반환합니다. 기본적으로 서버는 첫 50개 요소만 반환합니다.
+下列程式碼將說明如何透過在查詢中加上 `orderBy` 或 `orderByDescending` 函數來排序資料。它會從 `todoItemTable` 傳回項目並依據 `text` 欄位以遞增順序排列。依預設，伺服器只傳回前 50 個元素。
 
-**참고**
+**注意**
 
-모든 요소가 반환되는 것을 방지하기 위해 기본적으로 서버 기반 페이지 크기가 사용됩니다. 그러면 대규모 데이터 집합에 대한 기본 요청이 서비스에 부정적인 영향을 미치지 않습니다.
+預設會使用伺服器控制的頁面大小，以防止傳回所有元素。如此可避免大型資料集的預設要求對服務造成負面影響。
 
-> 다음 섹션의 설명대로 `take`를 호출하면 호출할 항목 수를 늘릴 수 있습니다. `todoItemTable`은 이전에 만든 모바일 서비스 테이블에 대한 참조입니다.
+> 如下一節所述，您可以呼叫 `take` 來增加要傳回的項目數。`todoItemTable` 是我們先前建立的行動服務資料表的參考。
 
            var ascendingSortedTable = todoItemTable.orderBy("text").read().done(function (results) {
                alert(JSON.stringify(results));
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
             });
 
             var descendingSortedTable = todoItemTable.orderByDescending("text").read().done(function (results) {
                alert(JSON.stringify(results));
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
             });
 
             var descendingSortedTable = todoItemTable.orderBy("text").orderByDescending("text").read().done(function (results) {
                alert(JSON.stringify(results));
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
             });
 
-### 방법: 페이지에서 데이터 반환
+### 作法：以分頁方式傳回資料
 
-다음 코드는 쿼리에 `take` 및 `skip` 절을 사용하여 반환 데이터의 페이징을 구현하는 방법을 보여 줍니다. 다음 쿼리를 실행하면 테이블에서 맨 위에 있는 세 개의 항목을 반환합니다.
+下列程式碼顯示如何在查詢中使用 `take` 和 `skip` 子句，以便在傳回的資料中實作分頁。執行下列查詢時，會傳回資料表中的前三個項目。
 
            var query = todoItemTable.take(3).read().done(function (results) {
                alert(JSON.stringify(results));
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
             });
 
-`take(3)` 메서드는 쿼리 URI에서 쿼리 옵션 `$top=3`으로 변환되었습니다.
+請注意，`take(3)` 方法在查詢 URI 中會轉譯成查詢選項 `$top=3`。
 
-수정된 다음 쿼리는 처음 세 개의 결과를 건너뛰고 그다음 세 개의 결과를 반환합니다. 그러면 페이지 크기가 세 개의 항목인 경우 실질적으로 두 번째 데이터 "페이지"가 됩니다.
+下列修訂過的查詢會略過前三個結果，傳回之後的三個結果。實際上這就是第二「頁」資料，頁面大小為三個項目。
 
            var query = todoItemTable.skip(3).take(3).read().done(function (results) {
                alert(JSON.stringify(results));
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
             });
 
-모바일 서비스에 전송된 요청의 URI를 볼 수 있습니다. `skip(3)` 메서드는 쿼리 URI에서 쿼리 옵션 `$skip=3`으로 변환되었습니다.
+同樣地，您可以檢視傳送至行動服務的要求的 URI。請注意，`skip(3)` 方法在查詢 URI 中會轉譯成查詢選項 `$skip=3`。
 
-이것은 하드 코드된 페이징 값을 `take` 및 `skip` 함수에 전달하는 간소화된 시나리오입니다. 실제 앱에서는 Pager 컨트롤이나 이와 비슷한 UI에서 위와 비슷한 쿼리를 사용하여 사용자가 이전 및 다음 페이지로 이동하도록 만들 수 있습니다.
+這是一個將硬式編碼的分頁值傳遞至 `take` 和 `skip` 函數的簡化案例。在實際的應用程式中，您可以搭配頁面巡覽區控制項或類似的 UI 來使用類似上述的查詢，讓使用者導覽至上一頁和下一頁。
 
-### 방법: 특정 열 선택
+### 作法：選取特定資料欄
 
-쿼리에 `select` 절을 추가하면 결과에 포함할 속성 집합을 지정할 수 있습니다. 예를 들어 다음 코드는 `todoItemTable`의 각 행에서 `id`, `complete` 및 `text` 속성을 반환합니다.
+您可以指定結果中要包含的屬性集，方法是在查詢中加上 `select` 子句。例如，下列程式碼會從 `todoItemTable` 的每個資料列傳回 `id`、`complete` 和 `text` 屬性：
 
            var query = todoItemTable.select("id", "complete", "text").read().done(function (results) {
                alert(JSON.stringify(results));
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
             })
 
-여기서 select 함수의 매개 변수는 반환하려는 테이블 열의 이름입니다.
+上述 select 函數的參數是您要傳回的資料表資料行的名稱。
 
-지금까지 설명한 모든 함수는 가산적이므로 계속해서 호출할 수 있으며, 호출할 때마다 쿼리에 더 많은 영향이 있습니다. 한 가지 예를 더 들면 다음과 같습니다.
+目前為止說明的所有函數只是不斷添加，只要一直呼叫即可，我們每一次會對查詢做更多變化。再舉一個例子：
 
            query.where({
-               complete: false
+               complete:false
             })
                .select('id', 'assignee')
                .orderBy('assignee')
@@ -233,56 +233,56 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
                .read().done(function (results) {
                alert(JSON.stringify(results));
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
 
-### 방법: ID를 기준으로 데이터 조회
+### 作法：依識別碼查詢資料
 
-`lookup` 함수는 `id` 값만 사용하여 데이터베이스에서 해당 ID가 있는 개체를 반환합니다. 정수 또는 문자열 `id` 열을 사용하여 데이터베이스 테이블이 만들어집니다. 문자열 `id` 열이 기본값입니다.
+`lookup` 函數只接受 `id` 值，且會從資料庫傳回具有該識別碼的物件。資料庫資料表是以整數或字串 `id` 資料行建立。字串 `id` 資料行是預設值。
 
            todoItemTable.lookup("37BBF396-11F0-4B39-85C8-B319C729AF6D").done(function (result) {
                alert(JSON.stringify(result));
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
             })
 
-데이터 삽입방법: 모바일 서비스에 데이터 삽입
---------------------------------------------
+插入資料作法：將資料插入行動服務
+--------------------------------
 
-다음 코드는 테이블에 새 행을 삽입하는 방법을 보여 줍니다. 클라이언트가 POST 요청을 모바일 서비스에 보내 데이터 행을 삽입하도록 요청합니다. 요청 본문에는 삽입할 데이터가 JSON 개체로 포함되어 있습니다.
+下列程式碼將說明如何將新的資料列插入資料表中。用戶端可以將 POST 要求傳送至行動服務來要求插入一列資料。要求內文中以 JSON 物件形式包含要插入的資料。
 
            todoItemTable.insert({
-               text: "New Item",
-               complete: false
+               text:"New Item",
+               complete:false
             })
 
-그러면 제공된 JSON 개체의 데이터가 테이블에 삽입됩니다. 삽입이 완료되면 호출할 콜백 함수를 지정할 수도 있습니다.
+這會從提供的 JSON 物件中將資料插入資料表。您也可以指定完成插入時要叫用的回呼函數：
 
            todoItemTable.insert({
-               text: "New Item",
-               complete: false
+               text:"New Item",
+               complete:false
             }).done(function (result) {
                alert(JSON.stringify(result));
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
             });
 
-모바일 서비스는 테이블 ID용으로 고유한 사용자 지정 문자열 값을 지원합니다. 이에 따라, 응용 프로그램에서 전자 메일 주소나 사용자 이름과 같은 사용자 지정 값을 모바일 서비스 테이블의 ID 행에 사용할 수 있습니다. 예를 들어 각 레코드를 전자 메일 주소로 식별하려는 경우 다음과 같은 JSON 개체를 사용합니다.
+行動服務支援以唯一的自訂字串值做為資料表識別碼。這可讓應用程式在行動服務資料表的識別碼資料行中使用自訂的值，例如電子郵件地址或使用者名稱。例如，如果想要依電子郵件地址來識別每一筆記錄，您可以使用下列 JSON 物件。
 
            todoItemTable.insert({
-               id: "myemail@domain.com",              
-               text: "New Item",
-               complete: false
+               id:"myemail@domain.com",               
+               text:"New Item",
+               complete:false
             })
 
-새 레코드를 테이블에 삽입할 때 문자열 ID 값이 제공되지 않는 경우 모바일 서비스는 ID용으로 고유한 값을 생성합니다.
+如果將新記錄插入至資料表時未提供字串識別碼值，則行動服務會產生唯一值做為識別碼。
 
-문자열 ID 지원은 개발자에게 다음과 같은 이점이 있습니다.
+支援字串識別碼對開發人員而言有下列好處
 
--   데이터베이스에 대한 왕복 없이도 ID를 생성할 수 있습니다.
--   여러 테이블 또는 데이터베이스의 레코드를 병합하기가 더 쉽습니다.
--   응용 프로그램의 논리를 통해 ID 값이 더 효율적으로 통합될 수 있습니다.
+-   不需要往返存取資料庫就能產生識別碼。
+-   輕鬆合併不同資料表或資料庫的記錄。
+-   識別碼值與應用程式邏輯的整合更理想。
 
-서버 스크립트를 사용하여 ID 값을 설정할 수도 있습니다. 다음 스크립트 예제는 사용자 지정 GUID를 생성하여 새 레코드의 ID에 할당합니다. 이는 레코드 ID용으로 값을 전달하지 않은 경우 모바일 서비스에서 생성되는 ID 값과 비슷합니다.
+您也可以使用伺服器指令碼來設定識別碼值。下列指令碼範例會產生自訂 GUID 並指派給新記錄的識別碼。這類似於您未傳入任何值做為記錄的識別碼時由行動服務產生的識別碼值。
 
     //Example of generating an id. This is not required since Mobile Services
     //will generate an id if one is not passed in.
@@ -295,69 +295,69 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
         return (hex4() + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + hex4() + hex4());
     }
 
-응용 프로그램에서 ID용 값을 제공하는 경우, 모바일 서비스는 값을 있는 그대로 저장합니다. 여기에는 선행 또는 후행 공백이 포함됩니다. 공백이 값에서 제거되지 않습니다.
+如果應用程式提供識別碼的值，則行動服務會原封不動地儲存它。這包括開頭或結尾的空白字元。值中的空白字元將不會被去除。
 
-`id`의 값은 고유해야 하며 다음과 같은 문자를 포함해서는 안 됩니다.
+`id` 的值必須是唯一的，且不可包含下列字元集的字元：
 
--   제어 문자: [0x0000-0x001F] 및 [0x007F-0x009F]. 자세한 내용은 [ASCII 제어 코드 C0 및 C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set)(영문)을 참조하십시오.
--   인쇄 가능한 문자: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **\`** (0x0060)
--   ID "." 및 ".."
+-   控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]。如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set) (英文)。
+-   可以列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?**(0x003F)、**\\** (0x005C)、**\`** (0x0060)
+-   識別碼 "." 和 ".."
 
-또는 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `--integerId` 옵션을 사용하는 `mobile table create` 명령으로 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables)(영문)를 참조하십시오.
+另外，您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 命令並指定 `mobile table create` 選項來建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables) (英文)。
 
-데이터 수정방법: 모바일 서비스의 데이터 수정
---------------------------------------------
+修改資料作法：修改行動服務中的資料
+----------------------------------
 
-다음 코드는 테이블의 데이터를 업데이트하는 방법을 보여 줍니다. 클라이언트가 PATCH 요청을 모바일 서비스에 보내 데이터 행을 업데이트하도록 요청합니다. 요청 본문에는 업데이트할 특정 필드가 JSON 개체로 포함되어 있습니다. `todoItemTable` 테이블의 기존 항목을 업데이트합니다.
+下列程式碼顯示如何更新資料表中的資料。用戶端可以將 PATCH 要求傳送至行動服務來要求更新一列資料。要求內文中以 JSON 物件形式包含要更新的特定欄位。它會更新資料表 `todoItemTable` 中的現有項目。
 
             todoItemTable.update({
-               id: idToUpdate,
-               text: newText
+               id:idToUpdate,
+               text:newText
             })
 
-첫 번째 매개 변수는 ID에 지정된 대로 테이블에서 업데이트할 인스턴스를 지정합니다.
+第一個參數以其識別碼指定資料表中要更新的執行個體。
 
-업데이트가 완료되면 호출할 콜백 함수를 지정할 수도 있습니다.
+您也可以指定完成更新時要叫用的回呼函數：
 
            todoItemTable.update({
-               id: idToUpdate,
-               text: newText
+               id:idToUpdate,
+               text:newText
             }).done(function (result) {
                alert(JSON.stringify(result));
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
             });
 
-데이터 삭제방법: 모바일 서비스의 데이터 삭제
---------------------------------------------
+刪除資料作法：刪除行動服務中的資料
+----------------------------------
 
-다음 코드는 테이블에서 데이터를 삭제하는 방법을 보여 줍니다. 클라이언트가 DELETE 요청을 모바일 서비스에 보내 데이터 행을 삭제하도록 요청합니다. todoItemTable 테이블의 기존 항목을 삭제합니다.
+下列程式碼顯示如何從資料表中刪除資料。用戶端可以將 DELETE 要求傳送至行動服務來要求刪除一列資料。它會刪除資料表 todoItemTable 中的現有項目。
 
            todoItemTable.del({
-               id: idToDelete
+               id:idToDelete
             })
 
-첫 번째 매개 변수는 ID에 지정된 대로 테이블에서 삭제할 인스턴스를 지정합니다.
+第一個參數以其識別碼指定資料表中要刪除的執行個體。
 
-삭제가 완료되면 호출할 콜백 함수를 지정할 수도 있습니다.
+您也可以指定完成刪除時要叫用的回呼函數：
 
            todoItemTable.del({
-               id: idToDelete
+               id:idToDelete
             }).done(function () {
                /* Do something */
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
             }); 
 
-데이터 표시방법: 사용자 인터페이스에 데이터 표시
-------------------------------------------------
+顯示資料作法：在使用者介面中顯示資料
+------------------------------------
 
-이 섹션에서는 반환된 데이터 개체를 UI 요소를 사용해서 표시하는 방법을 보여 줍니다. `todoItemTable`의 항목을 쿼리하여 매우 간단한 목록에 표시하려면 다음 예제 코드를 실행하면 됩니다. 어떤 종류의 선택이나 필터링 또는 정렬도 하지 않습니다.
+本節說明如何使用 UI 元素來顯示傳回的資料物件。若要查詢 `todoItemTable` 中的項目並顯示在非常簡單的清單中，您可以執行下列範例程式碼。不做任何選擇、篩選或排序。
 
            var query = todoItemTable;
         
             query.read().then(function (todoItems) {
-               // The space specified by 'placeToInsert' is an unordered list element <ul> ... </ul>
+               // The space specified by 'placeToInsert' is an unordered list element <ul> ...</ul>
                var listOfItems = document.getElementById('placeToInsert');
                for (var i = 0; i < todoItems.length; i++) {
                   var li = document.createElement('li');
@@ -369,111 +369,111 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
             }).read().done(function (results) {
                alert(JSON.stringify(results));
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
             });
 
-Windows 스토어 앱에서 쿼리 결과를 사용하여 [WinJS.Binding.List] 개체를 만들 수 있으며, 이 개체를 [ListView](http://msdn.microsoft.com/en-us/library/windows/apps/br211837.aspx) 개체의 데이터 원본으로 바인딩할 수 있습니다. 자세한 내용은 [데이터 바인딩(JavaScript 및 HTML을 사용한 Windows 스토어 앱)](http://msdn.microsoft.com/en-us/library/windows/apps/hh758311.aspx)(영문)을 참조하십시오.
+在 Windows 市集應用程式中，查詢結果可用來建立 [WinJS.Binding.List] 物件，而此物件可繫結為 [ListView](http://msdn.microsoft.com/en-us/library/windows/apps/br211837.aspx) 物件的資料來源。如需詳細資訊，請參閱[資料繫結 (使用 JavaScript 和 HTML 的 Windows 市集應用程式)](http://msdn.microsoft.com/en-us/library/windows/apps/hh758311.aspx)。
 
-인증방법: 사용자 인증
----------------------
+驗證作法：驗證使用者
+--------------------
 
-모바일 서비스는 Facebook, Google, Microsoft 계정, Twitter 등 다양한 외부 ID 공급자를 사용하는 앱 사용자에 대한 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [인증 시작](/en-us/develop/mobile/tutorials/get-started-with-users-html) 자습서를 참조하십시오.
+行動服務支援使用各種外部身分識別提供者來驗證和授權應用程式使用者：Facebook、Google、Microsoft 帳戶和 Twitter。您可以在資料表上設定權限，以限制只有已驗證的使用者才能存取特定的作業。您也可以在伺服器指令碼中，使用驗證的使用者的身分識別來實作授權規則。如需詳細資訊，請參閱[開始使用驗證](/en-us/develop/mobile/tutorials/get-started-with-users-html)教學課程。
 
-두 가지의 인증 흐름, 즉 *서버 흐름*과 *클라이언트 흐름*이 지원됩니다. 서버 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 흐름의 경우 공급자 특정 장치별 SDK를 사용하므로 Single Sign-On과 같은 장치 특정 기능을 통해 심도 깊은 통합이 가능합니다.
+支援兩種驗證流程：*伺服器流程*和*用戶端流程*。由於伺服器流程採用提供者的 Web 驗證介面，因此所提供的驗證體驗也最為簡單。用戶端流程依賴提供者專屬的裝置專用 SDK，可以與裝置特有的功能深入整合，例如單一登入。
 
-### 서버 흐름
+### 伺服器流程
 
-모바일 서비스가 Windows 스토어 또는 HTML5 앱에서 인증 프로세스를 관리하게 하려면 앱을 ID 공급자에 등록해야 합니다. 그런 다음, 모바일 서비스에서 공급자로부터 제공된 응용 프로그램 ID 및 암호를 구성해야 합니다. 자세한 내용은 "인증 시작" 자습서([Windows 스토어](/en-us/develop/mobile/tutorials/get-started-with-users-js)/[HTML](/en-us/develop/mobile/tutorials/get-started-with-users-html))를 참조하십시오.
+若要讓行動服務管理 Windows 市集或 HTML5 應用程式中的驗證程序，您必須向身分識別提供者註冊應用程式。然後，在行動服務中，您需要設定提供者所提供的應用程式識別碼和密碼。如需詳細資訊，請參閱「開始使用驗證」教學課程 ([Windows 市集](/en-us/develop/mobile/tutorials/get-started-with-users-js)/[HTML](/en-us/develop/mobile/tutorials/get-started-with-users-html))。
 
-ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationProvider] 값을 사용하여 [LoginAsync 메서드]를 호출합니다. 예를 들어 Facebook으로 로그인하려면 다음 코드를 사용합니다.
+註冊身分識別提供者之後，請直接以提供者的 MobileServiceAuthenticationProvider 值來呼叫 LoginAsync 方法。例如，若要以 Facebook 登入，請使用下列程式碼。
 
-       client.login("facebook").done(function (results) {
-             alert("You are now logged in as: " + results.userId);
+     client.login("facebook").done(function (results) {
+             alert("You are now logged in as:" + results.userId);
         }, function (err) {
-             alert("Error: " + err);
+             alert("Error:" + err);
         });
 
-Facebook 이외의 ID 공급자를 사용하는 경우 위의 `login` 메서드에 전달된 값을 다음 중 하나로 변경합니다. `microsoftaccount`, `facebook`, `twitter`, `google` 또는 `windowsazureactivedirectory`.
+如果您使用的身分識別提供者不是 Facebook，請將傳給上述 `login` 方法的值變更為下列其中一個：`microsoftaccount`、`facebook`、`twitter`、`google` 或 `windowsazureactivedirectory`。
 
-이 경우 모바일 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 모바일 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [login](http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx) 함수를 완료하면 사용자 ID와 모바일 서비스 인증 토큰을 각각 **userId** 및 **authenticationToken** 필드에 표시하는 JSON 개체(**user**)가 반환됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시]를 참조하십시오.
+在此案例中，行動服務會管理 OAuth 2.0 驗證流程，首先會顯示選取的提供者的登入頁面，然後在以身分識別提供者成功登入之後，產生行動服務驗證權杖。[login](http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx) 函數完成時會傳回 JSON 物件 (**user**)，此物件會在 **userId** 和 **authenticationToken** 欄位中分別顯示使用者識別碼和行動服務驗證權杖。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱「快取驗證權杖」。
 
-**Windows 스토어 앱**
+**Windows 市集應用程式**
 
-Windows 스토어 앱 사용자를 인증하는 데 Microsoft 계정 로그인 공급자를 사용하는 경우 앱 패키지를 모바일 서비스에도 등록해야 합니다. 모바일 서비스에 Windows 스토어 앱 패키지 정보를 등록하는 경우 클라이언트에서 Single Sign-On 환경을 위해 Microsoft 계정 로그인 자격 증명을 다시 사용할 수 있습니다. 그렇지 않으면 로그인 메서드가 호출될 때마다 Microsoft 계정 로그인 사용자에게 로그인 프롬프트가 표시됩니다. Windows 스토어 앱 패키지를 등록하는 방법을 자세히 알아보려면 [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록](/en-us/develop/mobile/how-to-guides/register-windows-store-app-package/)을 참조하십시오. 패키지 정보가 모바일 서비스에 등록된 후에는 *useSingleSignOn* 매개 변수에서 자격 증명을 다시 사용하도록 **true** 값을 제공하여 [login](http://go.microsoft.com/fwlink/p/?LinkId=322050) 메서드를 호출합니다.
+使用 Microsoft 帳戶登入提供者來驗證 Windows 市集應用程式的使用者時，也應該向行動服務註冊應用程式封裝。向行動服務註冊 Windows 市集應用程式封裝資訊之後，用戶端就能夠重複使用 Microsoft 帳戶登入認證來享受單一登入的方便性。如果您沒有執行此動作，Microsoft 帳戶登入使用者會在每次呼叫登入方法時j都會看到登入提示。若要了解如何註冊 Windows 市集應用程式封裝，請參閱[註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證](/en-us/develop/mobile/how-to-guides/register-windows-store-app-package/)。向行動服務註冊封裝資訊之後，請呼叫 [login](http://go.microsoft.com/fwlink/p/?LinkId=322050) 方法，並在 *useSingleSignOn* 參數中提供 **true** 值以重複使用認證。
 
-### 클라이언트 흐름
+### 用戶端流程
 
-앱이 독립적으로 ID 공급자에 연결한 후 반환된 토큰을 인증을 위해 모바일 서비스에 제공할 수도 있습니다. 이 클라이언트 흐름을 사용하면 단일 로그인 환경을 사용자에게 제공하거나 ID 공급자로부터 더 많은 사용자 데이터를 검색할 수 있습니다.
+應用程式也可以個別連絡身分識別提供者，然後將傳回的權杖提供給行動服務來進行驗證。此用戶端流程可讓您為使用者提供單一登入的體驗，或從身分識別提供者擷取其他使用者資料。
 
-다음 예제는 Microsoft 계정을 사용하여 Windows 스토어 앱용 Single Sign-On을 지원하는 Live SDK를 사용합니다.
+下列範例使用 Live SDK，支援讓 Windows 市集應用程式使用 Microsoft 帳戶來執行單一登入：
 
-     WL.login({ scope: "wl.basic"}).then(function (result) {
+     WL.login({ scope:"wl.basic"}).then(function (result) {
               client.login(
                     "microsoftaccount", 
-                    {"authenticationToken": result.session.authentication_token})
+                    {"authenticationToken":result.session.authentication_token})
               .done(function(results){
-                    alert("You are now logged in as: " + results.userId);
+                    alert("You are now logged in as:" + results.userId);
               },
-              function(error) {
-                    alert("Error: " + err);
+              function(error){
+                    alert("Error:" + err);
               });
         });
 
-단순화된 이 예제는 [login](http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx) 함수를 호출하여 모바일 서비스에 제공된 토큰을 Live Connect에서 가져옵니다. Microsoft 계정을 사용하여 단일 로그인 환경을 제공하는 방법을 보여 주는 전체 예제는 [단일 로그인으로 앱 인증](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)을 참조하십시오.
+這個簡化的範例從 Live Connect 取得權杖，然後呼叫 [login](http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx) 函數來提供權杖給行動服務。有關如何使用 Microsoft 帳戶來提供單一登入體驗的完整範例，請參閱[使用單一登入來驗證應用程式](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)。
 
-클라이언트 인증을 위해 Facebook 또는 Google API를 사용할 때는 예제가 약간 달라집니다.
+使用 Facebook 或 Google API 進行用戶端驗證時，範例稍有變化。
 
        client.login(
              "facebook", 
-             {"access_token": token})
+             {"access_token":token})
         .done(function (results) {
-             alert("You are now logged in as: " + results.userId);
+             alert("You are now logged in as:" + results.userId);
         }, function (err) {
-             alert("Error: " + err);
+             alert("Error:" + err);
         });
 
-이 예제에서는 각 공급자 SDK에서 제공된 토큰이 `token` 변수에 저장되어 있다고 가정합니다. 지금은 클라이언트 인증에 Twitter를 사용할 수 없습니다.
+此範例假設個別提供者 SDK 所提供的權杖儲存在 `token` 變數中。目前還無法使用 Twitter 進行用戶端驗證。
 
-### 인증 토큰 캐시
+### 快取驗證權杖
 
-일부 경우, 사용자가 처음으로 인증된 후에 login 메서드 호출을 방지할 수 있습니다. [sessionStorage](http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx) 또는 [localStorage](http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx)를 사용하여 사용자가 처음 로그인할 때 현재 사용자 ID를 캐시하고 이후에 매번 캐시에서 해당 사용자 ID가 이미 있는지 여부를 확인할 수 있습니다. 캐시가 비어 있거나 호출이 실패하는 경우(현재 로그인 세션이 만료되었음을 의미함)에도 로그인 프로세스를 거쳐야 합니다.
+在某些情況下，可在使用者第一次驗證之後避免呼叫 login 方法。使用者第一次登入時，我們可以使用 [sessionStorage](http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx) 或 [localStorage](http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx) 來快取目前的使用者身分識別，然後在後續每次登入時，我們就檢查快取中是否已經有使用者身分識別。如果快取是空的，或呼叫失敗 (表示目前的登入工作階段已過期)，我們仍然需要完成登入程序。
 
         // After logging in
-        sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
+    sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
 
-        // Log in 
-        if (sessionStorage.loggedInUser) {
-           client.currentUser = JSON.parse(sessionStorage.loggedInUser);
-        } else {
-           // Regular login flow
+    // Log in 
+    if (sessionStorage.loggedInUser) {
+    client.currentUser = JSON.parse(sessionStorage.loggedInUser);
+    } else {
+    // Regular login flow
        }
 
-         // Log out
-        client.logout();
-        sessionStorage.loggedInUser = null;
+    // Log out
+    client.logout();
+    sessionStorage.loggedInUser = null;
 
-오류 처리방법: 오류 처리
-------------------------
+錯誤處理作法：處理錯誤
+----------------------
 
-모바일 서비스에서 오류가 발생하고, 오류의 유효성을 검사하고, 오류를 해결하는 방법이 몇 가지 있습니다.
+在行動服務中，經常會遭遇、驗證和解決錯誤。
 
-예를 들어 서버 스크립트를 모바일 서비스에 등록하여 삽입 및 업데이트할 데이터에 대해 유효성 확인 및 데이터 수정 등 다양한 작업을 수행하는 데 사용할 수 있습니다. 데이터 유효성 검사 및 수정을 수행하는 서버 스크립트를 다음과 같이 정의하고 등록합니다.
+例如，您可在行動服務中註冊伺服器指令碼，並使用該指令碼來針對插入和更新資料執行各種操作，包括驗證與資料修改。假設定義和註冊一段伺服器指令碼來驗證和修改資料，如下所示：
 
-         function insert(item, user, request) {
+       function insert(item, user, request) {
                if (item.text.length > 10) {
-                  request.respond(statusCodes.BAD_REQUEST, { error: "Text cannot exceed 10 characters" });
+                  request.respond(statusCodes.BAD_REQUEST, { error:"Text cannot exceed 10 characters" });
                } else {
                   request.execute();
                }
             }
 
-이 서버 쪽 스크립트는 모바일 서비스에 전송되는 문자열 데이터 길이의 유효성을 검사하고 너무 긴 경우(이 예제에서는 10자 초과) 문자열을 거부합니다.
+此伺服器端指令碼會驗證傳送至行動服務的字串資料長度，並拒絕太長的字串，在此案例中是超過 10 個字元。
 
-모바일 서비스가 서버 쪽에서 데이터의 유효성 검사를 하고 오류 응답을 보내므로, 개발자는 유효성 검사의 오류 응답을 처리할 수 있도록 HTML 앱을 업데이트할 수 있습니다.
+現在，行動服務在伺服器端驗證資料並傳回錯誤回應，您可以更新 HTML 應用程式來處理驗證所傳回的錯誤回應。
 
-     todoItemTable.insert({
-           text: itemText,
-           complete: false
+        todoItemTable.insert({
+           text:itemText,
+           complete:false
         })
            .then(function (results) {
            alert(JSON.stringify(results));
@@ -481,9 +481,9 @@ Windows 스토어 앱 사용자를 인증하는 데 Microsoft 계정 로그인 �
            alert(JSON.parse(error.request.responseText).error);
         });
 
-추가로 조작해 보기 위해, 데이터에 액세스할 때마다 두 번째 인수로서 오류 처리기를 전달합니다.
+為了進一步了解，您可以在每次執行資料存取時，傳入錯誤處理常式做為第二個引數：
 
-         function handleError(message) {
+           function handleError(message) {
                if (window.console && window.console.error) {
                   window.console.error(message);
                }
@@ -491,45 +491,45 @@ Windows 스토어 앱 사용자를 인증하는 데 Microsoft 계정 로그인 �
 
             client.getTable("tablename").read().then(function (data) { /* do something */ }, handleError);
 
-Promise방법: promise 사용
+Promise作法：使用 Promise
 -------------------------
 
-Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는 메커니즘을 제공합니다. 비동기 API 조작을 관리하는 추상적 개념입니다.
+Promise 提供一種機制，可排定工作來處理尚未計算的值。這是一種管理非同步 API 互動的抽象觀念。
 
-`done` promise는 제공된 함수가 완료되거나 오류가 발생하면 곧바로 실행됩니다. `then` promise와 달리, 함수 내부에서 처리되지 않은 오류를 throw하며 처리기가 실행을 완료하고 나면 이 함수는 오류 상태의 promise로서 then으로부터 반환된 오류를 throw합니다. 자세한 내용은 [done](http://msdn.microsoft.com/en-us/library/windows/apps/hh701079.aspx)(영문)을 참조하십시오.
+當提供的函數完全成功或發生錯誤時，`done` promise 就會立即執行。與 `then` promise 不同，此函數一定會擲回函數內未處理的任何錯誤，且在處理常式執行完成之後，將會擲回原本由 then 以錯誤狀態的 promise 傳回的任何錯誤。如需詳細資訊，請參閱 [Promise.done 方法](http://msdn.microsoft.com/en-us/library/windows/apps/hh701079.aspx) (英文)。
 
          promise.done(onComplete, onError);
 
-다음과 같습니다.
+如下所示：
 
          var query = todoItemTable;
             query.read().done(function (results) {
                alert(JSON.stringify(results));
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
             });
 
-`then` promise와 `done` promise는 동일합니다. 하지만 `then` promise와 달리, `done`은 함수 내부에서 처리되지 않은 오류를 반드시 throw합니다. `then`에 오류 처리기를 제공하지 않은 경우 연산에서 오류가 발생하면 오류가 throw되지 않고 대신 오류 상태의 promise가 반환됩니다. 자세한 내용은 [then](http://msdn.microsoft.com/en-us/library/windows/apps/br229728.aspx)(영문)을 참조하십시오.
+`then` promise 與 `done` promise 相同，但又不同於 `then` promise，`done` 一定會擲回函數內未處理的任何錯誤。如果您未提供錯誤處理常式給 `then`，且作業發生錯誤，則不會擲回例外狀兄，而是傳回錯誤狀態的 promise。如需詳細資訊，請參閱 [Promise.then 方法](http://msdn.microsoft.com/en-us/library/windows/apps/br229728.aspx) (英文)。
 
          promise.then(onComplete, onError).done( /* Your success and error handlers */ );
 
-다음과 같습니다.
+如下所示：
 
-         var query = todoItemTable;
+           var query = todoItemTable;
             query.read().done(function (results) {
                alert(JSON.stringify(results));
             }, function (err) {
-               alert("Error: " + err);
+               alert("Error:" + err);
             });
 
-다양한 방법으로 promise를 사용할 수 있습니다. 이전 `then` 함수에서 반환되는 promise에 대해 `then` 또는 `done`을 호출하는 방법으로 promise 연산을 연결할 수 있습니다. 연산의 중간 단계에는 `then`을 사용하고(예: `.then().then()`), 연산의 마지막 단계에는 `done`을 사용합니다(예: `.then().then().done()`). `then`은 promise를 반환하기 때문에 여러 `then` 함수를 연결할 수 있습니다. undefined를 반환하기 때문에 두 개 이상의 `done` 메서드를 연결할 수 없습니다. [then과 done의 차이에 대해 자세히 알아보십시오](http://msdn.microsoft.com/en-us/library/windows/apps/hh700334.aspx)(영문).
+Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳回的 promise 上呼叫 `then` 或 `done`，以鏈結 promise 作業。使用 `then` 做為作業的過渡階段 (例如 `.then().then()`)，使用 `done` 做為作業的最終階段 (例如 `.then().then().done()`)。您可以鏈結多個 `then` 函數，因為 `then` 會傳回 promise。您無法鏈結多個 `done` 方法，因為它會傳回 undefined。[鏈結 Promise (使用 JavaScript 和 HTML 的 Windows 執行階段應用程式)](http://msdn.microsoft.com/en-us/library/windows/apps/hh700334.aspx)。
 
-todoItemTable.insert({ text: "foo" }).then(function (inserted) { inserted.newField = 123; return todoItemTable.update(inserted); }).done(function (insertedAndUpdated) { alert(JSON.stringify(insertedAndUpdated)); })
+todoItemTable.insert({ text:"foo" }).then(function (inserted) { inserted.newField = 123; return todoItemTable.update(inserted); }).done(function (insertedAndUpdated) { alert(JSON.stringify(insertedAndUpdated)); })
 
-요청 헤더 사용자 지정방법: 클라이언트 요청 헤더 사용자 지정
------------------------------------------------------------
+自訂要求標頭作法：自訂要求標頭
+------------------------------
 
-`withFilter` 함수를 사용하면 보낼 요청의 임의의 속성을 필터 내부에서 읽고 써서 사용자 지정 요청 헤더를 보낼 수 있습니다. 서버 쪽 스크립트에 필요하거나 이 스크립트를 강화할 수 있는 경우 이런 사용자 지정 HTTP 헤더를 추가할 수 있습니다.
+您可以使用 `withFilter` 函數來傳送自訂要求標頭，在篩選器內讀取和寫入即將傳送的要求的任何屬性。如果伺服器端指令碼需要自訂 HTTP 標頭或可透過它而增強，您可以新增自訂 HTTP 標頭。
 
          var client = new WindowsAzure.MobileServiceClient('https://your-app-url', 'your-key')
                .withFilter(function (request, next, callback) {
@@ -537,40 +537,40 @@ todoItemTable.insert({ text: "foo" }).then(function (inserted) { inserted.newFie
                next(request, callback);
             });
 
-필터는 요청 헤더를 사용자 지정하는 것 외에도 다양하게 사용됩니다. 요청 검사나 변경, 응답 검사나 변경, 네트워킹 호출 무시, 여러 호출 보내기 등에 사용할 수 있습니다.
+篩選器的用途比自訂要求標頭更多。它們可用來檢查或變更要求、檢查或變更回應、略過網路呼叫、傳送多個呼叫等等。
 
-CORS 사용방법: Cross Origin Resource Sharing 사용
--------------------------------------------------
+使用 CORS作法：使用跨原始來源資源分享
+-------------------------------------
 
-요청을 조작하여 모바일 서비스에 보낼 수 있는 웹 사이트를 제어하려면 구성 탭을 사용하여 호스트하는 데 사용하는 웹 사이트의 호스트 이름을 CORS(Cross Origin Resource Sharing) 허용 목록에 추가해야 합니다. 필요한 경우 와일드카드를 사용할 수 있습니다. 기본적으로 새 모바일 서비스는 `localhost`에서만 액세스를 허용하도록 브라우저에 지시하며, CORS(Cross Origin Resource Sharing)는 브라우저에서 외부 호스트 이름으로 실행되는 JavaScript 코드가 모바일 서비스와 조작할 수 있게 합니다. 이 구성은 WinJS 응용 프로그램의 경우에는 필요 없습니다.
+若要控制允許哪些網站與您的行動服務互動，以及傳送要求給您的行動服務，請使用 [設定] 索引標籤將您用來裝載行動服務的網站主機名稱，加入至跨原始來源資源分享 (Cross-Origin Resource Sharing, CORS) 白名單。需要的話可使用萬用字元。依預設，新的行動服務會指示瀏覽器只允許來自 `localhost` 的存取，而跨原始來源資源分享 (CORS) 可讓在外部主機名稱上的瀏覽器中執行的 JavaScript 程式碼與您的行動服務互動。WinJS 應用程式不需要此組態。
 
-다음 단계
----------
+後續步驟
+--------
 
-이 방법 개념 참조 항목을 마쳤습니다. 이제 모바일 서비스에서 중요한 작업을 수행하는 방법을 자세히 알아보겠습니다.
+現在，您已完成此作法概念性參考主題，接下來，請詳細了解如何在行動服務中執行重要工作：
 
--   [모바일 서비스 시작](/en-us/develop/mobile/tutorials/get-started-html)
+-   [開始使用行動服務](/en-us/develop/mobile/tutorials/get-started-html)
     
-    모바일 서비스 사용 방법에 대한 기본 사항을 알아봅니다.
+    了解如何使用行動服務的基本概念。
 
--   [데이터 시작](/en-us/develop/mobile/tutorials/get-started-with-data-html)
+-   [開始使用資料](/en-us/develop/mobile/tutorials/get-started-with-data-html)
     
-    모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법을 자세히 알아봅니다.
+    深入了解使用行動服務來儲存與查詢資料。
 
--   [인증 시작](/en-us/develop/mobile/tutorials/get-started-with-users-html)
+-   [開始使用驗證](/en-us/develop/mobile/tutorials/get-started-with-users-html)
     
-    ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
+    了解如何向身分識別提供者驗證應用程式的使用者。
 
--   [스크립트를 사용하여 데이터 유효성 검사 및 수정](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html)
+-   [使用指令碼來驗證和修改資料](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html)
     
-    모바일 서비스에서 서버 스크립트를 사용하여 앱에서 전송된 데이터의 유효성을 검사하고 변경하는 방법을 자세히 알아봅니다.
+    深入了解在行動服務中，使用伺服器指令碼來驗證和變更從應用程式傳送的資料。
 
--   [페이징을 사용하여 쿼리 구체화](/en-us/develop/mobile/tutorials/add-paging-to-data-html)
+-   [使用分頁縮小查詢範圍](/en-us/develop/mobile/tutorials/add-paging-to-data-html)
     
-    쿼리에 페이징을 사용하여 단일 요청으로 처리되는 데이터 양을 제어하는 방법을 알아봅니다.
+    了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
--   [스크립트를 통해 사용자 권한 부여](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html)
+-   [使用指令碼來授權使用者](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html)
     
-    인증된 사용자를 기준으로 모바일 서비스에서 제공한 사용자 ID 값을 가져와 모바일 서비스에서 반환된 데이터를 필터링하는 방법을 알아봅니다.
+    了解如何根據驗證的使用者來取得行動服務所提供的使用者識別碼，並用來篩選行動服務所傳回的資料。
 
 

@@ -1,73 +1,73 @@
 <properties linkid="manage-linux-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Linux VHD in Azure" metaKeywords="Azure VHD, uploading Linux VHD" description="Learn to create and upload an Azure virtual hard disk (VHD) that has the Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
 
-Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드
-==========================================================
+建立及上傳包含 Linux 作業系統的虛擬硬碟
+=======================================
 
-Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 운영 체제를 실행합니다. Azure는 가상 컴퓨터의 운영 체제를 가상 하드 디스크에 VHD 형식(.vhd 파일)으로 저장합니다. 복제를 위해 준비된 운영 체제의 VHD를 이미지라고 합니다. 이 문서에서는 설치하여 범용화한 운영 체제와 함께 .vhd 파일을 업로드하여 고유의 이미지를 만드는 방법을 보여 줍니다. Azure의 디스크 및 이미지에 대한 자세한 내용은 [디스크 및 이미지 관리](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx)를 참조하십시오.
+Azure 中的虛擬機器會執行您建立虛擬機器時選擇的作業系統。Azure 將虛擬機器的作業系統以 VHD 格式 (.vhd 檔案) 存放在虛擬硬碟中。為了複製而準備的作業系統 VHD 叫做「映像」。本文說明如何上傳包含您已安裝及一般化之作業系統的 .vhd 檔案，以建立您自己的映像。如需 Azure 中磁碟和映像的詳細資訊，請參閱[管理磁碟及映像](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx)。
 
-**참고**: 가상 컴퓨터를 만드는 경우 운영 체제 설정을 사용자 지정하여 응용 프로그램 실행을 원활하게 할 수 있습니다. 설정한 구성은 해당 가상 컴퓨터의 디스크에 저장됩니다. 지침은 [사용자 지정 가상 컴퓨터를 만드는 방법](/en-us/manage/windows/how-to-guides/custom-create-a-vm/)(영문)을 참조하십시오.
+**注意**：建立虛擬機器時，您可以自訂作業系統設定以利您的應用程式執行。您設定的組態會存放在該虛擬機器的磁碟上。如需說明，請參閱[如何建立自訂虛擬機器](/en-us/manage/windows/how-to-guides/custom-create-a-vm/)。
 
-**중요**: [이 문서](http://support.microsoft.com/kb/2805216)에 지정된 대로 보증된 분산 중 하나가 구성 세부 정보와 함께 사용되는 경우에만 Linux OS를 실행하는 가상 컴퓨터에 Azure 플랫폼 SLA가 적용됩니다. Azure 이미지 갤러리에 제공된 모든 Linux 분산은 필요한 구성이 포함된 보증된 분산입니다.
+**重要事項**：當有背書的散發套件之一搭配[這篇文章](http://support.microsoft.com/kb/2805216)中指定的組態詳細資料使用時，Azure 平台的 SLA 僅適用於執行 Linux 作業系統的虛擬機器。Azure 映像庫中提供的所有 Linux 散發套件都是搭配所需組態的背書散發套件。
 
-필수 조건
----------
+必要條件
+--------
 
-이 문서에서는 사용자에게 다음 항목이 있다고 가정합니다.
+本文假設您已有以下項目：
 
--   **관리 인증서** - VHD를 업로드할 구독에 필요한 관리 인증서를 만들어 .cer 파일로 내보냈습니다. 인증서 만들기에 대한 자세한 내용은 [Azure용 관리 인증서 만들기](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx)를 참조하십시오.
+-   **管理憑證** - 您已經為您想要上傳 VHD 的訂閱建立管理憑證，並已將憑證匯出到 .cer 檔案。如需建立憑證的詳細資訊，請參閱[建立及上傳 Windows Azure 的管理憑證](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx)。
 
--   **.vhd 파일에 설치된 Linux 운영 체제.** - 지원되는 Linux 운영 체제가 가상 하드 디스크에 설치되어 있습니다. .vhd 파일을 만드는 도구는 여러 가지가 있습니다. Hyper-V와 같은 가상화 솔루션을 사용하여 .vhd 파일을 만들고 운영 체제를 설치할 수 있습니다. 지침은 [Hyper-V 역할 설치 및 가상 시스템 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하십시오.
+-   **已於 .vhd 檔案安裝 Linux 作業系統。** - 您已將支援的 Linux 作業系統安裝到虛擬硬碟上。有多個工具可供建立 .vhd 檔案。您可以使用虛擬化解決方案 (如 Hyper-V) 建立 .vhd 檔案及安裝作業系統。如需說明，請參閱[安裝 Hyper-V 角色和設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
 
-    **중요**: 새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
+    **重要事項**：Azur 不支援較新的 VHDX 格式。您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet 將磁碟轉換為 VHD 格式。
 
-    보증된 분산 목록은 [Azure의 Linux-보증된 분산](../linux-endorsed-distributions)(영문)을 참조하십시오. 또한 [보증되지 않는 분산에 대한 정보](#nonendorsed)는 이 문서의 끝에 있는 섹션을 참조하십시오.
+    如需背書散發套件的清單，請參閱 [Azure 背書之散發套件上的 Linux](../linux-endorsed-distributions)。或者，請看本文最後的[非背書散發套件的資訊](#nonendorsed)小節。
 
--   **Linux Azure 명령줄 도구.** Linux 운영 체제를 사용하여 이미지를 만드는 경우 이 도구를 사용하여 VHD 파일을 업로드합니다. 도구를 다운로드하려면 [Linux 및 Mac용 Azure 명령줄 도구](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409)를 참조하십시오.
+-   **Linux Azure 命令列工具。**若您使用 Linux 作業系統建立映像，請使用此工具上傳 VHD 檔案。若要下載工具，請參閱[適用於 Linux 和 Mac 的 Azure 命令列工具](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409)。
 
--   **Add-AzureVhd cmdlet**은, Azure PowerShell 모듈의 일부입니다. 모듈을 다운로드하려면 [Azure 다운로드](/en-us/develop/downloads/)를 참조하십시오. 참조 정보는 [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn495173.aspx)(영문)를 참조하십시오.
+-   **Add-AzureVhd Cmdlet**，這是 Azure PowerShell 模組的一部分。若要下載此模組，請參閱 [Azure 下載](/en-us/develop/downloads/)。如需參考資訊，請參閱 [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn495173.aspx) (英文)。
 
-**모든 분산에서 다음 내용에 유의하십시오.**
+**所有散發套件皆請注意下列事項：**
 
--   Linux 시스템 설치 시 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다.
+-   安裝 Linux 系統時，建議使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。這可避免 LVM 與複製之虛擬機器的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至其他虛擬機器時。
 
--   Azure Linux 에이전트(waagent)는 NetworkManager와 호환되지 않습니다. 네트워킹 구성은 ifup/ifdown 스크립트를 통해 제어할 수 있어야 합니다. 분산을 통해 제공되는 RPM/Deb 패키지는 대부분 NetworkManager를 waagent 패키지에 대한 충돌로 구성하므로 Linux 에이전트 패키지 설치 시 NetworkManager를 제거합니다. Azure Linux 에이전트에서는 python-pyasn1 패키지도 설치되어야 합니다.
+-   Azure Linux 代理程式 (waagent) 與 NetworkManager 不相容。網路組態應可透過 ifup/ifdown 指令碼控制。散發套件提供的大部分 RPM/Deb 套件會將 NetworkManager 設定為 waagent 套件的衝突，因此會在您安裝 Linux 代理程式套件時解除安裝 NetworkManager。Azure Linux 代理程式也需要安裝 python-pyasn1 套件。
 
--   크기가 큰 VM의 경우 Linux 커널 버전 2.6.37 이전의 버그로 인해 NUMA가 지원되지 않습니다. waagent를 수동으로 설치하면 자동으로 Linux 커널 GRUB 구성에서 NUMA를 사용하지 않도록 설정합니다. 이 문제는 주로 업스트림 Red Hat 2.6.32 커널을 사용하는 분산에 영향을 줍니다.
+-   因為 Linux Kernel 2.6.37 以下版本的一個錯誤，較大的虛擬機器不支援 NUMA。手動安裝 waagent 將針對 Linux Kernel 自動停用 GRUB 組態中的 NUMA 。這個問題主要會影響使用上游 Red Hat 2.6.32 kernel 的散發套件。
 
--   설치 시 스왑 파티션을 만들지 않는 것이 좋습니다. Azure Linux 에이전트를 사용하여 스왑 공간을 구성할 수 있습니다. 또한 [Microsoft 웹 사이트](http://go.microsoft.com/fwlink/?LinkID=253692&clcid=0x409)에 사용 가능한 패치가 없는 주요 Linux 커널은 Azure 가상 컴퓨터와 함께 사용하지 않는 것이 좋습니다(많은 수의 현재 분산/커널에는 이 픽스가 이미 포함되어 있을 수 있음).
+-   建議您不要在安裝期間建立 SWAP 磁碟分割。您可使用 Azure Linux 代理程式設定 SWAP 空間。也建議您，在沒有使用 [Microsoft 網站](http://go.microsoft.com/fwlink/?LinkID=253692&clcid=0x409) (英文) 上所提供之修補程式的情況下，不要使用主流 Linux Kernel 搭配 Azure 虛擬機器 (目前許多散發套件/核心可能已包含此修正)。
 
--   모든 VHD 크기는 1MB의 배수여야 합니다.
+-   所有 VHD 的大小都必須是 1 MB 的倍數。
 
-이 작업에는 다음 단계가 포함됩니다.
+此工作包含下列步驟：
 
--   [1단계: 업로드할 이미지 준비](#prepimage)
--   [2단계: Azure에서 저장소 계정 만들기](#createstorage)
--   [3단계: Azure 연결 준비](#connect)
--   [4단계: Azure에 이미지 업로드](#upload)
+-   [步驟 1：準備要上傳的映像](#prepimage)
+-   [步驟 2：建立 Azure 中的儲存體帳戶](#createstorage)
+-   [步驟 3：準備與 Azure 連接](#connect)
+-   [步驟 4：上傳映像至 Azure](#upload)
 
-1단계: 업로드할 이미지 준비
----------------------------
+步驟 1：準備要上傳的映像
+------------------------
 
-### CentOS 6.2+ 준비
+### 準備 CentOS 6.2+
 
-가상 컴퓨터를 Azure에서 실행하려면 운영 체제에서 특정 구성 단계를 완료해야 합니다.
+您必須在作業系統中完成特定組態步驟，才能在 Azure 中執行虛擬機器。
 
-1.  Hyper-V 관리자의 가운데 창에서 가상 컴퓨터를 선택합니다.
+1.  在 Hyper-V 管理員的中間窗格中，選取虛擬機器。
 
-2.  **연결**을 클릭하여 가상 컴퓨터 창을 엽니다.
+2.  按一下 **[連接]** 以開啟虛擬機器的視窗。
 
-3.  다음 명령을 실행하여 NetworkManager를 제거합니다.
+3.  執行以下命令解除安裝 NetworkManager：
 
-         rpm -e --nodeps NetworkManager
+        rpm -e --nodeps NetworkManager
 
-    **참고:** 패키지가 아직 설치되어 있지 않은 경우 이 명령이 실패하고 오류 메시지가 표시됩니다. 예상된 동작입니다.
+    **注意：**若未安裝該套件，此命令將失敗，並發出錯誤訊息。這是預期的反應。
 
-4.  다음 텍스트가 포함된 **network** 파일을 `/etc/sysconfig/` 디렉터리에 만듭니다.
+4.  在 `/etc/sysconfig/` 目錄中建立 **network** 檔案，檔案中包含以下文字：
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-5.  다음 텍스트가 포함된 **ifcfg-eth0** 파일을 `/etc/sysconfig/network-scripts/` 디렉터리에 만듭니다.
+5.  在 `/etc/sysconfig/network-scripts/` 目錄中建立 **ifcfg-eth0** 檔案，檔案中包含以下文字：
 
         DEVICE=eth0
         ONBOOT=yes
@@ -77,49 +77,49 @@ Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 운영 체
         PEERDNS=yes
         IPV6INIT=no
 
-6.  이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 이동(또는 제거)합니다. 이러한 규칙은 Azure 또는 Hyper-V에서 가상 컴퓨터를 복제하는 경우 문제를 발생시킵니다.
+6.  移動 (或移除) udev 角色可防止產生乙太網路介面的靜態規則。在 Azure 或 Hyper-V 中複製虛擬機器時，這些規則會造成問題：
 
         # sudo mkdir -m 0700 /var/lib/waagent
         # sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
         # sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
 
-7.  다음 명령을 실행하여 부팅 시 네트워크 서비스가 시작되도록 합니다.
+7.  要確保開機時會啟動網路服務，可執行以下命令：
 
-         # chkconfig network on
+        # chkconfig network on
 
-8.  **CentOS 6.2 또는 6.3만**: Linux 통합 서비스 드라이버 설치
+8.  **僅限 CentOS 6.2 或 6.3**：安裝 Linux 整合服務的驅動程式
 
-    **참고:** 이 단계는 CentOS 6.2 및 6.3에만 유효합니다. CentOS 6.4+에서는 Linux 통합 서비스를 커널에서 이미 사용할 수 있습니다.
+    **注意：**此步驟僅適用於 CentOS 6.2 和 6.3。在 CentOS 6.4 及更高的版本中，核心已包含 Linux 整合服務。
 
-    a) [다운로드 센터](http://www.microsoft.com/en-us/download/details.aspx?id=34603)에서 Linux 통합 서비스 드라이버가 포함된 .iso 파일을 엽니다.
+    a) 從[下載中心](http://www.microsoft.com/en-us/download/details.aspx?id=34603) (英文) 取得包含 Linux 整合服務驅動程式的 .iso 檔案。
 
-    b) Hyper-V 관리자의 **작업** 창에서 **설정**을 클릭합니다.
+    b) 在 Hyper-V 管理員的 **[動作]** 窗格中，按一下 **[設定]**。
 
-    ![Hyper-V 설정 열기](./media/virtual-machines-linux-create-upload-vhd/settings.png)
+    ![開啟 Hyper-V 設定](./media/virtual-machines-linux-create-upload-vhd/settings.png)
 
-    c) **하드웨어** 창에서 **IDE 컨트롤러 1**을 클릭합니다.
+    c) 在 **[硬體]** 窗格中，按一下 **[IDE 控制器 1]**。
 
-    ![DVD 드라이브와 설치 미디어 추가](./media/virtual-machines-linux-create-upload-vhd/installiso.png)
+    ![新增含有安裝媒體的 DVD 光碟機](./media/virtual-machines-linux-create-upload-vhd/installiso.png)
 
-    d) **IDE 컨트롤러** 상자에서 **DVD 드라이브**를 클릭하고 **추가**를 클릭합니다.
+    d) 在 **[IDE 控制器]** 方塊中，按一下 **[DVD 光碟機]**，然後按一下 **[新增]**。
 
-    e) **이미지 파일**을 선택하고 **Linux IC v3.2.iso**를 찾은 다음 **열기**를 클릭합니다.
+    e) 選取 **[映像檔]**，瀏覽至 **[Linux IC v3.2.iso]**，然後按一下 **[開啟]**。
 
-    f) **설정** 페이지에서 **확인**을 클릭합니다.
+    f) 在 **[設定]** 窗格中按一下 **[確定]**。
 
-    g) **연결**을 클릭하여 가상 컴퓨터 창을 엽니다.
+    g) 按一下 **[連接]** 以開啟虛擬機器的視窗。
 
-    h) 명령 프롬프트 창에서 다음 명령을 입력합니다.
+    h) 在 [命令提示字元] 視窗中，輸入以下命令：
 
         mount /dev/cdrom /media
         /media/install.sh
         reboot
 
-9.  다음 명령을 실행하여 python-pyasn1을 설치합니다.
+9.  執行以下命令來安裝 python-pyasn1：
 
-         # sudo yum install python-pyasn1
+        # sudo yum install python-pyasn1
 
-10. /etc/yum.repos.d/CentOS-Base.repo 파일을 다음 텍스트로 바꿉니다.
+10. 以下列文字取代它們的 /etc/yum.repos.d/CentOS-Base.repo 檔案
 
         [openlogic]
         name=CentOS-$releasever - openlogic packages for $basearch
@@ -163,186 +163,186 @@ Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 운영 체
         enabled=0
         gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-11. /etc/yum.conf에 다음 줄을 추가합니다.
+11. 在 /etc/yum.conf 中加入這一行：
 
         http_caching=packages
 
-    다음 줄은 CentOS 6.2 & 6.3에서만 추가합니다.
+    若是 CentOS 6.2 和 6.3，則只加入這一行：
 
         exclude=kernel*
 
-12. "/etc/yum/pluginconf.d/fastestmirror.conf" 파일을 편집하여 yum 모듈 "fastestmirror"를 사용하지 않도록 설정하고 [main] 아래에 다음을 입력합니다.
+12. 停用 yum 模組 "fastestmirror"，作法是編輯 "/etc/yum/pluginconf.d/fastestmirror.conf" 檔案，在 [main] 底下輸入：
 
         set enabled=0
 
-13. 다음 명령을 실행하여 현재 yum 메타데이터를 지웁니다.
+13. 執行以下命令清除目前的 yum 中繼資料：
 
         yum clean all
 
-14. CentOS 6.2 및 6.3의 경우 다음 명령을 실행하여 실행 중인 VM 커널을 업데이트합니다.
+14. 針對 CentOS 6.2 和 6.3，執行以下命令更新執行中的虛擬機器核心：
 
-    CentOS 6.2에서는 다음 명령을 실행합니다.
+    針對 CentOS 6.2，執行以下命令：
 
         sudo yum remove kernel-firmware
         sudo yum --disableexcludes=all install kernel
 
-    CentOS 6.3+에서는 다음 명령을 입력합니다.
+    針對 CentOS 6.3 及更高版本，輸入：
 
         sudo yum --disableexcludes=all install kernel
 
-15. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이 작업을 수행하려면 /boot/grub/menu.lst를 텍스트 편집기에서 열고 다음 매개 변수가 기본 커널에 포함되어 있는지 확인합니다.
+15. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 /boot/grub/menu.lst，確定預設核心包含以下參數：
 
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
 
-    이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 또한 CentOS 6에서 사용하는 커널 버전의 버그로 인해 NUMA를 사용하지 않도록 설정합니다.
+    這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。除此之外，由於 CentOS 6 使用之核心版本的錯誤，這也會停用 NUMA。
 
-16. /etc/sudoers가 있는 경우 다음 줄을 주석으로 처리합니다.
+16. 在 /etc/sudoers 中，將以下這一行 (如果有) 標成註解：
 
         Defaults targetpw
 
-17. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.
+17. 確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。
 
-18. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
+18. 執行以下命令來安裝 Azure Linux 代理程式：
 
         yum install WALinuxAgent
 
-    WALinuxAgent 패키지를 설치하면 NetworkManager 및 NetworkManager-gnome 패키지가 2단계에서 설명된 대로 아직 제거되지 않은 경우 이러한 패키지를 제거합니다.
+    請注意，如果 NetworkManager 和 NetworkManager-gnome 套件沒有如步驟 2 所述遭到移除，則在安裝 WALinuxAgent 套件時會將這兩個套件移除。
 
-19. OS 디스크에 스왑 공간을 만들지 마십시오.
+19. 請勿在作業系統磁碟上建立交換空間。
 
-    Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
+    Azure Linux 代理程式可使用會在佈建於 Azure 後連接至虛擬機器的本機資源磁碟，自動設定交換空間。安裝 Azure Linux 代理程式後 (見上一個步驟)，適當修改 /etc/waagent.conf 中的以下參數：
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+        ResourceDisk.SwapSizeMB=2048    ## 注意：請依您的需要設定此項目。
 
-20. 다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
+20. 執行以下命令取消佈建虛擬機器，準備將其佈建在 Azure 上：
 
         waagent -force -deprovision
         export HISTSIZE=0
         logout
 
-21. Hyper-V 관리자에서 **종료**를 클릭합니다.
+21. 按一下 Hyper-V 管理員中的 **[關機]**。
 
-### Ubuntu 12.04+ 준비
+### 準備 Ubuntu 12.04+
 
-1.  Hyper-V 관리자의 가운데 창에서 가상 컴퓨터를 선택합니다.
+1.  在 Hyper-V 管理員的中間窗格中，選取虛擬機器。
 
-2.  **연결**을 클릭하여 가상 컴퓨터 창을 엽니다.
+2.  按一下 **[連接]** 以開啟虛擬機器的視窗。
 
-3.  이미지의 현재 리포지토리를 바꾸어 VM을 업그레이드하는 데 필요한 커널 및 에이전트 패키지가 있는 azure 리포지토리를 사용합니다. 단계는 Ubuntu 버전에 따라 약간씩 다릅니다.
+3.  取代您的映像中目前的儲存機制，改為使用帶有升級虛擬機器時所需核心和代理程式套件的 Azure 儲存機制。此步驟會因為 Ubuntu 的版本而略有不同。
 
-    /etc/apt/sources.list를 편집하기 전에 백업 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak을 만드는 것이 좋습니다.
+    編輯 /etc/apt/sources.list 之前，建議您先進行備份 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
-    Ubuntu 12.04:
+    Ubuntu 12.04：
 
         sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
         sudo apt-add-repository 'http://archive.canonical.com/ubuntu precise-backports main'
         sudo apt-get update
 
-    Ubuntu 12.10:
+    Ubuntu 12.10：
 
         sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
         sudo apt-add-repository 'http://archive.canonical.com/ubuntu quantal-backports main'
         sudo apt-get update
 
-    Ubuntu 13.04+:
+    Ubuntu 13.04 及更高版本：
 
         sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
         sudo apt-get update
 
-4.  다음 명령을 실행하여 최신 커널로 운영 체제를 업데이트합니다.
+4.  執行以下命令將作業系統更新為最新核心：
 
-    Ubuntu 12.04:
+    Ubuntu 12.04：
 
-         sudo apt-get update
-         sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-precise-virtual
-         (recommended) sudo apt-get dist-upgrade
-         sudo reboot
+        sudo apt-get update
+        sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-precise-virtual
+        (建議) sudo apt-get dist-upgrade
+        sudo reboot
 
-    Ubuntu 12.10:
+    Ubuntu 12.10：
 
-         sudo apt-get update
-         sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-quantal-virtual
-         (recommended) sudo apt-get dist-upgrade
-         sudo reboot
+        sudo apt-get update
+        sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-quantal-virtual
+        (建議) sudo apt-get dist-upgrade
+        sudo reboot
 
-    Ubuntu 13.04, 13.10 및 14.04:
+    Ubuntu 13.04、13.10、14.04：
 
-         sudo apt-get update
-         sudo apt-get install hv-kvp-daemon-init
-         (recommended) sudo apt-get dist-upgrade
-         sudo reboot
+        sudo apt-get update
+        sudo apt-get install hv-kvp-daemon-init
+        (建議) sudo apt-get dist-upgrade
+        sudo reboot
 
-5.  Ubuntu는 시스템 작동 중지 후 사용자 입력을 위한 Grub 프롬프트를 기다립니다. 이를 예방하려면 다음 단계를 완료하십시오.
+5.  Ubuntu 會在系統當機後，於 Grub 提示字元等候使用者輸入資料。為避免這個情況，請完成以下步驟：
 
-    a) /etc/grub.d/00\_header 파일을 엽니다.
+    a) 開啟 /etc/grub.d/00\_header 檔案。
 
-    b) 함수 **make\_timeout()**에서 **if ["\${recordfail}" = 1 ]; then**을 검색합니다.
+    b) 在 **make\_timeout()** 函數中搜尋 **if ["\${recordfail}" = 1 ]; then**
 
-    c) 해당 줄 아래 문을 **set timeout=5**로 변경합니다.
+    c) 將這一行底下的陳述式變更為 **set timeout=5**。
 
-    d) 'sudo update-grub'을 실행합니다.
+    d) 執行 'sudo update-grub'。
 
-6.  Azure용 커널 매개 변수를 추가로 포함하려면 Grub의 커널 부팅 줄을 수정합니다. 이 작업을 수행하려면 /etc/default/grub을 텍스트 편집기에서 열고 변수 "GRUB\_CMDLINE\_LINUX\_DEFAULT"를 찾아서(또는 필요한 경우 추가함) 다음 매개 변수가 포함되도록 편집합니다.
+6.  修改 Grub 的核心開機程式行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 /etc/default/grub，找到變數 "GRUB\_CMDLINE\_LINUX\_DEFAULT" (或視需要自行加入)，加以編輯使其包含以下參數：
 
-         GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+        GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
-    이 파일을 저장하고 닫은 다음 'sudo update-grub'을 실행합니다. 이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 기술 지원에서 문제를 디버깅하는 데 도움이 될 수 있습니다.
+    儲存並關閉此檔案，然後執行 'sudo update-grub'。這將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 技術支援團隊進行問題偵錯程序。
 
-7.  /etc/sudoers가 있는 경우 다음 줄을 주석으로 처리합니다.
+7.  在 /etc/sudoers 中，將以下這一行 (如果有) 標成註解：
 
         Defaults targetpw
 
-8.  SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.
+8.  確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。
 
-9.  다음 명령을 sudo로 실행하여 에이전트를 설치합니다.
+9.  以 sudo 執行以下命令來安裝代理程式：
 
         apt-get update
         apt-get install walinuxagent
 
-    walinuxagent 패키지를 설치하면 NetworkManager 및 NetworkManager-gnome 패키지가 설치되어 있는 경우 이러한 패키지를 제거합니다.
+    請注意，若已安裝 NetworkManager 和 NetworkManager-gnome 套件，則在安裝 walinuxagent 套件時會將它們移除。
 
-10. OS 디스크에 스왑 공간을 만들지 마십시오.
+10. 請勿在作業系統磁碟上建立交換空間。
 
-    Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
+    Azure Linux 代理程式可使用會在佈建於 Azure 後連接至虛擬機器的本機資源磁碟，自動設定交換空間。安裝 Azure Linux 代理程式後 (見上一個步驟)，適當修改 /etc/waagent.conf 中的以下參數：
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+        ResourceDisk.SwapSizeMB=2048    ## 注意：請依您的需要設定此項目。
 
-11. 다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
+11. 執行以下命令取消佈建虛擬機器，準備將其佈建在 Azure 上：
 
         waagent -force -deprovision
         export HISTSIZE=0
         logout
 
-12. Hyper-V 관리자에서 **종료**를 클릭합니다.
+12. 按一下 Hyper-V 管理員中的 **[關機]**。
 
-### Oracle Linux 6.4+ 준비
+### 準備 Oracle Linux 6.4+
 
-가상 컴퓨터를 Azure에서 실행하려면 운영 체제에서 특정 구성 단계를 완료해야 합니다.
+您必須在作業系統中完成特定組態步驟，才能在 Azure 中執行虛擬機器。
 
-1.  Hyper-V 관리자의 가운데 창에서 가상 컴퓨터를 선택합니다.
+1.  在 Hyper-V 管理員的中間窗格中，選取虛擬機器。
 
-2.  **연결**을 클릭하여 가상 컴퓨터 창을 엽니다.
+2.  按一下 **[連接]** 以開啟虛擬機器的視窗。
 
-3.  다음 명령을 실행하여 NetworkManager를 제거합니다.
+3.  執行以下命令解除安裝 NetworkManager：
 
-         rpm -e --nodeps NetworkManager
+        rpm -e --nodeps NetworkManager
 
-    **참고:** 패키지가 아직 설치되어 있지 않은 경우 이 명령이 실패하고 오류 메시지가 표시됩니다. 예상된 동작입니다.
+    **注意：**若未安裝該套件，此命令將失敗，並發出錯誤訊息。這是預期的反應。
 
-4.  다음 텍스트가 포함된 **network** 파일을 `/etc/sysconfig/` 디렉터리에 만듭니다.
+4.  在 `/etc/sysconfig/` 目錄中建立 **network** 檔案，檔案中包含以下文字：
 
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-5.  다음 텍스트가 포함된 **ifcfg-eth0** 파일을 `/etc/sysconfig/network-scripts/` 디렉터리에 만듭니다.
+5.  在 `/etc/sysconfig/network-scripts/` 目錄中建立 **ifcfg-eth0** 檔案，檔案中包含以下文字：
 
         DEVICE=eth0
         ONBOOT=yes
@@ -352,350 +352,350 @@ Azure의 가상 컴퓨터는 가상 컴퓨터를 만들 때 선택한 운영 체
         PEERDNS=yes
         IPV6INIT=no
 
-6.  이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 이동(또는 제거)합니다. 이러한 규칙은 Azure 또는 Hyper-V에서 가상 컴퓨터를 복제하는 경우 문제를 발생시킵니다.
+6.  移動 (或移除) udev 角色可防止產生乙太網路介面的靜態規則。在 Azure 或 Hyper-V 中複製虛擬機器時，這些規則會造成問題：
 
         # sudo mkdir -m 0700 /var/lib/waagent
         # sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
         # sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
 
-7.  다음 명령을 실행하여 부팅 시 네트워크 서비스가 시작되도록 합니다.
+7.  要確保開機時會啟動網路服務，可執行以下命令：
 
-         # chkconfig network on
+        # chkconfig network on
 
-8.  다음 명령을 실행하여 python-pyasn1을 설치합니다.
+8.  執行以下命令來安裝 python-pyasn1：
 
-         # sudo yum install python-pyasn1
+        # sudo yum install python-pyasn1
 
-9.  Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이 작업을 수행하려면 /boot/grub/menu.lst를 텍스트 편집기에서 열고 다음 매개 변수가 기본 커널에 포함되어 있는지 확인합니다.
+9.  修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 /boot/grub/menu.lst，確定預設核心包含以下參數：
 
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
 
-    이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 또한 CentOS 6에서 사용하는 커널 버전의 버그로 인해 NUMA를 사용하지 않도록 설정합니다.
+    這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。除此之外，由於 CentOS 6 使用之核心版本的錯誤，這也會停用 NUMA。
 
-10. /etc/sudoers가 있는 경우 다음 줄을 주석으로 처리합니다.
+10. 在 /etc/sudoers 中，將以下這一行 (如果有) 標成註解：
 
         Defaults targetpw
 
-11. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.
+11. 確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。
 
-12. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
+12. 執行以下命令來安裝 Azure Linux 代理程式：
 
         yum install WALinuxAgent
 
-    WALinuxAgent 패키지를 설치하면 NetworkManager 및 NetworkManager-gnome 패키지가 설치되어 있는 경우 이러한 패키지를 제거합니다.
+    請注意，若已安裝 NetworkManager 和 NetworkManager-gnome 套件，則在安裝 WALinuxAgent 套件時會將它們移除。
 
-13. OS 디스크에 스왑 공간을 만들지 마십시오.
+13. 請勿在作業系統磁碟上建立交換空間。
 
-    Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
-
-        ResourceDisk.Format=y
-        ResourceDisk.Filesystem=ext4
-        ResourceDisk.MountPoint=/mnt/resource
-        ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
-
-14. 다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
-
-        waagent -force -deprovision
-        export HISTSIZE=0
-        logout
-
-15. Hyper-V 관리자에서 **종료**를 클릭합니다.
-
-### SUSE Linux Enterprise Server 11 SP2 및 SP3 준비
-
-**참고:** [SUSE Studio](http://www.susestudio.com)에서는 Azure 및 Hyper-V용 SLES/opeSUSE 이미지를 쉽게 만들고 관리할 수 있습니다. 또한 간편한 사용자 지정을 위해 SUSE Studio Gallery에 있는 다음 공식 이미지를 자체 SUSE Studio 계정으로 다운로드하거나 복제할 수 있습니다.
-
-> -   [SUSE Studio Gallery의 Azure용 SLES 11 SP3](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
-
-1.  Hyper-V 관리자의 가운데 창에서 가상 컴퓨터를 선택합니다.
-
-2.  **연결**을 클릭하여 가상 컴퓨터 창을 엽니다.
-
-3.  최신 커널 및 Azure Linux 에이전트가 포함된 리포지토리를 추가합니다. `zypper lr` 명령을 실행합니다. 예를 들어 SLES 11 SP3의 출력은 다음과 유사합니다.
-
-         # | Alias                        | Name               | Enabled | Refresh
-         --+------------------------------+--------------------+---------+--------
-         1 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool    | No      | Yes
-         2 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates | No      | Yes
-         3 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core    | No      | Yes
-         4 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates | No      | Yes
-         5 | susecloud:SLES11-SP3-Pool    | SLES11-SP3-Pool    | Yes     | Yes
-         6 | susecloud:SLES11-SP3-Updates | SLES11-SP3-Updates | Yes     | Yes
-
- 	이 명령에서 다음과 같은 오류 메시지를 반환하는 경우가 있습니다.
-
-		"No repositories defined. Use the 'zypper addrepo' command to add one or more repositories."
-
-	then the repositories may need to be re-enabled or the system registered.  This can be done via the suse_register utility.  For more information, please see the [SLES documentation](https://www.suse.com/documentation/sles11/).
-
-   관련된 업데이트 리포지토리 중 하나가 사용하도록 설정되어 있지 않은 경우 다음 명령을 사용하여 사용하도록 설정합니다.
-
-		zypper mr -e [REPOSITORY NUMBER]
-
-   위와 같은 경우 올바른 명령은 다음과 같습니다.
-
-		zypper mr -e 1 2 3 4
-
-1.  커널을 사용 가능한 최신 버전으로 업데이트합니다.
-
-         zypper up kernel-default
-
-2.  Azure Linux 에이전트를 설치합니다.
-
-         zypper up WALinuxAgent
-
-    다음과 유사한 메시지가 표시됩니다.
-
-         "There is an update candidate for 'WALinuxAgent', but it is from different vendor.
-         Use 'zypper install WALinuxAgent-1.2-1.1.noarch' to install this candidate."
-
-    패키지 공급업체가 "Microsoft Corporation"에서 "SUSE LINUX Products GmbH, Nuernberg, Germany"로 변경되었기 때문에 메시지에 언급된 대로 패키지를 명시적으로 설치해야 합니다.
-
-    참고: WALinuxAgent 패키지 버전은 약간 다를 수 있습니다.
-
-3.  Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이 작업을 수행하려면 /boot/grub/menu.lst를 텍스트 편집기에서 열고 다음 매개 변수가 기본 커널에 포함되어 있는지 확인합니다.
-
-         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
-
-    이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데 도움이 될 수 있습니다.
-
-4.  /etc/sysconfig/network/dhcp 또는 이와 동등한 항목을 DHCLIENT\_SET\_HOSTNAME="yes"에서 DHCLIENT\_SET\_HOSTNAME="no"로 설정하는 것이 좋습니다.
-
-5.  /etc/sudoers가 있는 경우 다음 줄을 주석으로 처리합니다.
-
-        Defaults targetpw
-
-6.  SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.
-
-7.  OS 디스크에 스왑 공간을 만들지 마십시오.
-
-    Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
+    Azure Linux 代理程式可使用會在佈建於 Azure 後連接至虛擬機器的本機資源磁碟，自動設定交換空間。安裝 Azure Linux 代理程式後 (見上一個步驟)，適當修改 /etc/waagent.conf 中的以下參數：
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+        ResourceDisk.SwapSizeMB=2048    ## 注意：請依您的需要設定此項目。
 
-8.  다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
+14. 執行以下命令取消佈建虛擬機器，準備將其佈建在 Azure 上：
 
         waagent -force -deprovision
         export HISTSIZE=0
         logout
 
-9.  Hyper-V 관리자에서 **종료**를 클릭합니다.
+15. 按一下 Hyper-V 管理員中的 **[關機]**。
 
-### openSUSE 12.3+ 준비
+### 準備 SUSE Linux Enterprise Server 11 SP2 和 SP3
 
-**참고:** [SUSE Studio](http://www.susestudio.com)에서는 Azure 및 Hyper-V용 SLES/opeSUSE 이미지를 쉽게 만들고 관리할 수 있습니다. 또한 간편한 사용자 지정을 위해 SUSE Studio Gallery에 있는 다음 공식 이미지를 자체 SUSE Studio 계정으로 다운로드하거나 복제할 수 있습니다.
+**注意：** [SUSE Studio](http://www.susestudio.com) (英文) 可輕鬆建立及管理您用於 Azure 和 Hyper-V 的 SLES/opeSUSE 映像。此外，您可以將下列 SUSE Studio 程式庫中的官方映像，下載或複製到您自己的 SUSE Studio 帳戶來輕鬆進行自訂：
 
-> -   [SUSE Studio Gallery의 Azure용 openSUSE 13.1](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
+> -   [SUSE Studio 程式庫上的 SLES 11 SP3 for Azure (英文)](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
 
-1.  Hyper-V 관리자의 가운데 창에서 가상 컴퓨터를 선택합니다.
+1.  在 Hyper-V 管理員的中間窗格中，選取虛擬機器。
 
-2.  **연결**을 클릭하여 가상 컴퓨터 창을 엽니다.
+2.  按一下 **[連接]** 以開啟虛擬機器的視窗。
 
-3.  운영 체제를 사용 가능한 최신 커널 및 패치로 업데이트합니다.
+3.  加入包含最新核心和 Azure Linux 代理程式的儲存機制。執行 `zypper lr` 命令。例如，使用 SLES 11 SP3 時，輸出應類似這樣：
 
-4.  셸에서 '`zypper lr`' 명령을 실행합니다. 이 명령에서 다음과 유사한 출력을 반환하는 경우가 있습니다(버전 번호는 다를 수 있음).
+        # | Alias                        | Name               | Enabled | Refresh
+        --+------------------------------+--------------------+---------+--------
+        1 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool    | No      | Yes
+        2 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates | No      | Yes
+        3 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core    | No      | Yes
+        4 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates | No      | Yes
+        5 | susecloud:SLES11-SP3-Pool    | SLES11-SP3-Pool    | Yes     | Yes
+        6 | susecloud:SLES11-SP3-Updates | SLES11-SP3-Updates | Yes     | Yes
 
-         # | Alias                     | Name                      | Enabled | Refresh
-         --+---------------------------+---------------------------+---------+--------
-         1 | Cloud:Tools_openSUSE_12.3 | Cloud:Tools_openSUSE_12.3 | Yes     | Yes
-         2 | openSUSE_12.3_OSS         | openSUSE_12.3_OSS         | Yes     | Yes
-         3 | openSUSE_12.3_Updates     | openSUSE_12.3_Updates     | Yes     | Yes
+	萬一命令傳回錯誤訊息，像是：
 
-    이 경우 리포지토리는 예상대로 구성되며 조정이 필요하지 않습니다.
+	    "No repositories defined.Use the 'zypper addrepo' command to add one or more repositories."
 
-    이 경우 명령에서 "No repositories defined. Use the 'zypper addrepo' command to add one or more repositories"를 반환합니다. 그러면 리포지토리를 다시 사용하도록 설정해야 합니다.
+	則儲存機制可能需要重新啟用或登錄到系統。使用 suse_register 公用程式即可做到。如需詳細資訊，請參閱 [SLES 文件](https://www.suse.com/documentation/sles11/)。
 
-         zypper ar -f http://download.opensuse.org/distribution/12.3/repo/oss openSUSE_12.3_OSS
-         zypper ar -f http://download.opensuse.org/update/12.3 openSUSE_12.3_Updates
+	如果其中一個相關的更新儲存機制未啟用，請透過下列命令加以啟用：
 
-    'zypper lr'을 다시 호출하여 리포지토리가 추가되었는지 확인합니다.
+	    zypper mr -e [REPOSITORY NUMBER]
 
-    관련된 업데이트 리포지토리 중 하나가 사용하도록 설정되어 있지 않은 경우 다음 명령을 사용하여 사용하도록 설정합니다.
+	在上述情況中，適合的命令是
 
-         zypper mr -e [NUMBER OF REPOSITORY]
+	    zypper mr -e 1 2 3 4
 
-5.  자동 DVD ROM 검색을 사용하지 않도록 설정합니다.
+4. 將核心更新至最新的可用版本：
 
-6.  Azure Linux 에이전트를 설치합니다.
+	    zypper up kernel-default
 
-    먼저 새 WALinuxAgent가 포함된 리포지토리를 추가합니다.
+5. 安裝 Azure Linux 代理程式：
+
+	    zypper up WALinuxAgent
+
+	您會看到如下所示的訊息：
+
+	    "There is an update candidate for 'WALinuxAgent', but it is from different vendor.
+	    Use 'zypper install WALinuxAgent-1.2-1.1.noarch' to install this candidate."
+
+	當套件的廠商從 "Microsoft Corporation" 變為 "SUSE LINUX Products GmbH, Nuernberg, Germany"，則必須如訊息中所述明確安裝套件。
+
+	注意：WALinuxAgent 套件的版本可能略有不同。
+
+6. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 /boot/grub/menu.lst，確定預設核心包含以下參數：
+
+	    console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+
+	這將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。
+
+7. 建議您將 /etc/sysconfig/network/dhcp 或其等同項目從 DHCLIENT\_SET\_HOSTNAME="yes" 設為 DHCLIENT\_SET\_HOSTNAME="no"
+
+8. 在 /etc/sudoers 中，將以下這一行 (如果有) 標成註解：
+
+	    Defaults targetpw
+
+9. 確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。
+
+10. 請勿在作業系統磁碟上建立交換空間。
+
+	Azure Linux 代理程式可使用會在佈建於 Azure 後連接至虛擬機器的本機資源磁碟，自動設定交換空間。安裝 Azure Linux 代理程式後 (見上一個步驟)，適當修改 /etc/waagent.conf 中的以下參數：
+
+	    ResourceDisk.Format=y
+	    ResourceDisk.Filesystem=ext4
+	    ResourceDisk.MountPoint=/mnt/resource
+	    ResourceDisk.EnableSwap=y
+	    ResourceDisk.SwapSizeMB=2048    ## 注意：請依您的需要設定此項目。
+
+11. 執行以下命令取消佈建虛擬機器，準備將其佈建在 Azure 上：
+
+	    waagent -force -deprovision
+	    export HISTSIZE=0
+	    logout
+
+12. 按一下 Hyper-V 管理員中的 **[關機]**。
+
+### 準備 openSUSE 12.3+
+
+**注意：** [SUSE Studio](http://www.susestudio.com) (英文) 可輕鬆建立及管理您用於 Azure 和 Hyper-V 的 SLES/opeSUSE 映像。此外，您可以將下列 SUSE Studio 程式庫中的官方映像，下載或複製到您自己的 SUSE Studio 帳戶來輕鬆進行自訂：
+
+> -   [SUSE Studio 程式庫上的 openSUSE 13.1 for Azure (英文)](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
+
+1.  在 Hyper-V 管理員的中間窗格中，選取虛擬機器。
+
+2.  按一下 **[連接]** 以開啟虛擬機器的視窗。
+
+3.  將作業系統更新至最新的可用核心和修補程式
+
+4.  在 shell 上執行 '`zypper lr`' 命令。若此命令傳回類似以下的輸出 (請注意，版本號碼可能會不同)：
+
+        # | Alias                     | Name                      | Enabled | Refresh
+        --+---------------------------+---------------------------+---------+--------
+        1 | Cloud:Tools_openSUSE_12.3 | Cloud:Tools_openSUSE_12.3 | Yes     | Yes
+        2 | openSUSE_12.3_OSS         | openSUSE_12.3_OSS         | Yes     | Yes
+        3 | openSUSE_12.3_Updates     | openSUSE_12.3_Updates     | Yes     | Yes
+
+    則表示儲存機制的設定如預期，不需要進行調整。
+
+    如果命令傳回 "No repositories defined.Use the 'zypper addrepo' command to add one or more repositories."，則需要重新啟用儲存機制：
+
+        zypper ar -f http://download.opensuse.org/distribution/12.3/repo/oss openSUSE_12.3_OSS
+        zypper ar -f http://download.opensuse.org/update/12.3 openSUSE_12.3_Updates
+
+    再次呼叫 'zypper lr' 以確認您的儲存機制已新增。
+
+    如果其中一個相關的更新儲存機制未啟用，請透過下列命令加以啟用：
+
+        zypper mr -e [NUMBER OF REPOSITORY]
+
+5.  停用 DVD ROM 自動探查。
+
+6.  安裝 Azure Linux 代理程式：
+
+    首先，新增包含新 WALinuxAgent 的儲存機制：
 
         zypper ar -f -r http://download.opensuse.org/repositories/Cloud:/Tools/openSUSE_12.3/Cloud:Tools.repo
 
-    다음 명령을 실행합니다.
+    然後，執行下列命令：
 
         zypper up WALinuxAgent
 
-    이 명령을 실행하면 다음과 유사한 메시지가 표시됩니다.
+    執行此命令後，您會看到類似以下的訊息：
 
         "There is an update candidate for 'WALinuxAgent', but it is from different vendor. 
         Use 'zypper install WALinuxAgent' to install this candidate."
 
-    예상된 메시지입니다. 패키지 공급업체가 "Microsoft Corporation"에서 "obs://build.opensuse.org/Cloud"로 변경되었기 때문에 메시지에 언급된 대로 패키지를 명시적으로 설치해야 합니다.
+    這是預期會出現的訊息。當套件的廠商從 "Microsoft Corporation" 變為 "obs://build.opensuse.org/Cloud"，則必須如訊息中所述明確安裝套件。
 
-7.  Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이 작업을 수행하려면 /boot/grub/menu.lst를 텍스트 편집기에서 열고 다음 매개 변수가 기본 커널에 포함되어 있는지 확인합니다.
+7.  修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 /boot/grub/menu.lst，確定預設核心包含以下參數：
 
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
-    이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데 도움이 될 수 있습니다. 또한 커널 부팅 줄에 다음 매개 변수가 있는 경우 해당 매개 변수를 제거합니다.
+    這將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。此外，請從核心開機程式行中移除以下參數 (如果有)：
 
         libata.atapi_enabled=0 reserve=0x1f0,0x8
 
-8.  /etc/sysconfig/network/dhcp 또는 이와 동등한 항목을 DHCLIENT\_SET\_HOSTNAME="yes"에서 DHCLIENT\_SET\_HOSTNAME="no"로 설정하는 것이 좋습니다.
+8.  建議您將 /etc/sysconfig/network/dhcp 或其等同項目從 DHCLIENT\_SET\_HOSTNAME="yes" 設為 DHCLIENT\_SET\_HOSTNAME="no"
 
-9.  /etc/sudoers가 있는 경우 다음 줄을 주석으로 처리합니다.
+9.  在 /etc/sudoers 中，將以下這一行 (如果有) 標成註解：
 
         Defaults targetpw
 
-10. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.
+10. 確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。
 
-11. OS 디스크에 스왑 공간을 만들지 마십시오.
+11. 請勿在作業系統磁碟上建立交換空間。
 
-    Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
+    Azure Linux 代理程式可使用會在佈建於 Azure 後連接至虛擬機器的本機資源磁碟，自動設定交換空間。安裝 Azure Linux 代理程式後 (見上一個步驟)，適當修改 /etc/waagent.conf 中的以下參數：
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+        ResourceDisk.SwapSizeMB=2048    ## 注意：請依您的需要設定此項目。
 
-12. 다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
+12. 執行以下命令取消佈建虛擬機器，準備將其佈建在 Azure 上：
 
         waagent -force -deprovision
         export HISTSIZE=0
         logout
 
-13. 시작할 때 Azure Linux 에이전트가 실행되는지 확인합니다.
+13. 確定系統啟動時會執行 Azure Linux 代理程式：
 
         systemctl enable waagent.service
 
-14. Hyper-V 관리자에서 **종료**를 클릭합니다.
+14. 按一下 Hyper-V 管理員中的 **[關機]**。
 
-2단계: Azure에서 저장소 계정 만들기
------------------------------------
+步驟 2：建立 Azure 中的儲存體帳戶
+---------------------------------
 
-저장소 계정은 저장소 서비스에 액세스하는 데 필요한 가장 높은 수준의 네임스페이스를 나타내며 Azure 구독과 관련이 있습니다. 가상 컴퓨터를 만드는 데 사용할 수 있는 .vhd 파일을 Azure에 업로드하려면 Azure에 저장소 계정이 있어야 합니다. Azure 관리 포털을 사용하여 저장소 계정을 만들 수 있습니다.
+儲存體帳戶代表用於存取儲存服務的最高層級命名空間，並且會與您的 Azure 訂閱相關聯。您必須有 Azure 儲存體帳戶，才能將可用於建立虛擬機器的 .vhd 檔案上傳至 Azure。您可使用 Azure 管理入口網站建立儲存體帳戶。
 
-1.  Azure 관리 포털에 로그인합니다.
+1.  登入 Azure 管理入口網站。
 
-2.  명령 모음에서 **새로 만들기**를 클릭합니다.
+2.  按一下命令列上的 **[新增]**。
 
-    ![저장소 계정 만들기](./media/virtual-machines-linux-create-upload-vhd/create.png)
+    ![建立儲存體帳戶](./media/virtual-machines-linux-create-upload-vhd/create.png)
 
-3.  **저장소 계정**을 클릭한 후 **빠른 생성**을 클릭합니다.
+3.  按一下 **[儲存體帳戶]**，然後按一下 **[快速建立]**。
 
-    ![저장소 계정 빠른 생성](./media/virtual-machines-linux-create-upload-vhd/storage-quick-create.png)
+    ![快速建立儲存體帳戶](./media/virtual-machines-linux-create-upload-vhd/storage-quick-create.png)
 
-4.  다음과 같이 필드를 채웁니다.
+4.  如下所示填寫欄位：
 
-    ![저장소 계정 세부 정보 입력](./media/virtual-machines-linux-create-upload-vhd/storage-create-account.png)
+    ![輸入儲存體帳戶詳細資料](./media/virtual-machines-linux-create-upload-vhd/storage-create-account.png)
 
--   **URL**에서 저장소 계정의 URL에 사용할 하위 도메인 이름을 입력합니다. 이 입력에는 3-24자의 소문자와 숫자를 사용할 수 있습니다. 이 이름은 구독에 대한 Blob, 큐 또는 테이블 리소스의 주소를 지정하는 데 사용되는 URL 내의 호스트 이름이 됩니다.
+-   在 **[URL]** 下，輸入要用於 URL 中的儲存體帳戶子網域名稱。此項目可以包含 3 至 24 個小寫字母與數字。此名稱會成為 URL 內用來將訂閱的 Blob、「佇列」或「表格」資源定址的主機名稱。
 
--   저장소 계정의 위치 또는 선호도 그룹을 선택합니다. 선호도 그룹을 지정하여 저장소와 동일한 데이터 센터에 클라우드 서비스를 배치할 수 있습니다.
+-   選擇儲存體帳戶的位置或同質群組。藉由指定同質群組，您可以將雲端服務與儲存體共同放置在同一個資料中心內。
 
--   저장소 계정에 지역에서 복제를 사용할지 여부를 결정합니다. 지역에서 복제는 기본적으로 설정되어 있습니다. 이 옵션을 사용하면 추가 비용 없이 보조 위치로 데이터를 복제하므로 기본 위치에서 처리할 수 없는 심각한 장애가 발생하는 경우 저장소에서 보조 위치로 장애 조치(Failover)합니다. 보조 위치는 자동으로 할당되며 변경될 수 없습니다. 법적 필요 또는 조직 정책에 따라 클라우드 기반 저장소의 위치를 더 엄격하게 제어해야 하는 경우 지역에서 복제를 해제할 수 있습니다. 그러나 나중에 지역에서 복제를 설정하는 경우 보조 위치로 기존 데이터를 복제하는 데 일회성 데이터 전송 요금이 부과됩니다. 지역에서 복제를 사용하지 않는 저장소 서비스는 할인하여 제공됩니다.
+-   決定儲存體是否要使用地理區域複寫。預設會開啟地理區域複寫。此選項會將您的資料複寫至次要位置 (無須任何成本)，以在主要位置發生無法處理的重大錯誤時，讓您的儲存體容錯移轉至次要位置。次要位置會自動指派且無法變更。若因法律規定或組織政策而需要對雲端儲存體的位置採取更嚴謹的控制，則可關閉地理區域複寫。不過請注意，如果您之後再開啟地理區域複寫，會因為要將您的現有資料複寫至次要位置，而向您收取一次性的資料轉移費用。沒有地理區域複寫功能的儲存服務會有折扣。
 
-1.  **저장소 계정 만들기**를 클릭합니다.
+1.  按一下 **[建立儲存體帳戶]**。
 
-    이제 계정이 **저장소 계정**에 나열되어 있습니다.
+    現在帳戶已列在 **[儲存體帳戶]** 之下。
 
-    ![저장소 계정 만들기 성공](./media/virtual-machines-linux-create-upload-vhd/Storagenewaccount.png)
+    ![儲存體帳戶已成功建立](./media/virtual-machines-linux-create-upload-vhd/Storagenewaccount.png)
 
-3단계: Azure 연결 준비
-----------------------
+步驟 3：準備與 Azure 連接
+-------------------------
 
-.vhd 파일을 업로드하려면 컴퓨터와 Azure의 구독 사이에 보안 연결을 설정해야 합니다.
+您必須先在電腦與 Azure 訂閱之間建立安全連線，才能上傳 .vhd 檔案。
 
-1.  Azure PowerShell 창을 엽니다.
+1.  開啟 [Azure PowerShell] 視窗。
 
-2.  다음을 입력합니다.
+2.  輸入：
 
     `Get-AzurePublishSettingsFile`
 
-    이 명령은 브라우저 창을 열고 Azure 구독에 대한 정보와 인증서가 포함된 .publishsettings 파일을 자동으로 다운로드합니다.
+    此命令會開啟瀏覽器視窗，並自動下載包含 Azure 訂閱相關資訊和憑證的 .publishsettings 檔案。
 
-3.  .publishsettings 파일을 저장합니다.
+3.  儲存 .publishsettings 檔案。
 
-4.  다음을 입력합니다.
+4.  輸入：
 
     `Import-AzurePublishSettingsFile <PathToFile>`
 
-    여기서 `<PathToFile>`는 .publishsettings 파일의 전체 경로입니다.
+    其中 `<PathToFile>` 是 .publishsettings 檔案的完整路徑。
 
-    자세한 내용은 [Azure Cmdlets 시작](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx)을 참조하십시오.
+    如需詳細資訊，請參閱 [Windows Azure Cmdlet 使用者入門](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx)。
 
-4단계: Azure에 이미지 업로드
-----------------------------
+步驟 4：上傳映像至 Azure
+------------------------
 
-.vhd 파일을 업로드하는 경우 Blob 저장소 내 임의의 위치에 .vhd 파일을 배치할 수 있습니다. 다음 명령 예제에서 **BlobStorageURL**은 2단계에서 만든 저장소 계정의 URL이고, **YourImagesFolder**는 이미지를 저장할 Blob 저장소 내 컨테이너입니다. **VHDName**은 가상 하드 디스크를 식별하기 위해 관리 포털에 표시되는 레이블입니다. **PathToVHDFile**은 .vhd 파일의 전체 경로 및 이름입니다.
+上傳 .vhd 檔案時，您可以將 .vhd 檔案放在 Blob 儲存體中的任何地方。在底下的命令範例中，**BlobStorageURL** 是您在步驟 2 中建立之儲存體帳戶的 URL，**YourImagesFolder** 是您要存放映像的 Blob 儲存體內的容器。**VHDName** 是出現在管理入口網站中用以識別虛擬硬碟的標示文字。**PathToVHDFile** 是 .vhd 檔案的完整路徑和名稱。
 
-다음 중 하나를 수행합니다.
+執行下列其中一項動作：
 
--   이전 단계에서 사용한 Azure PowerShell 창에서 다음을 입력합니다.
+-   在前一個步驟使用的 [Azure PowerShell] 視窗中，輸入：
 
     `Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
 
-    자세한 내용은 [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx)(영문)를 참조하십시오.
+    如需詳細資訊，請參閱 [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx) (英文)。
 
--   Linux 명령줄 도구를 사용하여 이미지를 업로드합니다. 다음 명령을 사용하여 이미지를 업로드할 수 있습니다.
+-   使用 Linux 命令列工具上傳映像。您可以使用以下命令上傳映像：
 
-          Azure vm image create <image name> --location <Location of the data center> --OS Linux <Sourcepath to the vhd>
+	    Azure vm image create <image name> --location <Location of the data center> --OS Linux <Sourcepath to the vhd>
 
-보증되지 않는 분산에 대한 정보
-------------------------------
+非背書散發套件的資訊
+--------------------
 
-기본적으로 Azure에서 실행되는 모든 분산이 플랫폼에서 올바르게 실행되려면 다음 필수 조건이 충족되어야 합니다.
+基本上，所有在 Azure 上執行的散發套件皆必須符合以下必要條件，才有可能在此平台中正常執行。
 
-모든 분산은 서로 다르므로 이 목록은 포괄적이지 않습니다. 아래 기준이 모두 충족되어도 플랫폼에서 올바르게 실행되도록 하려면 여전히 이미지를 상당히 조정해야 할 수 있습니다.
+此必要條件清單並不完整，因為每個散發套件都不一樣，而且即使您符合以下所有條件，您仍有可能需要大幅調整映像，才能確保它可在平台上正常執行。
 
-이러한 이유로 Microsoft [파트너 보증 이미지](https://www.windowsazure.com/en-us/manage/linux/other-resources/endorsed-distributions/)(영문) 중 하나로 시작하는 것을 권장합니다.
+基於這個原因，建議您從我們其中一個[合作夥伴背書的映像](https://www.windowsazure.com/en-us/manage/linux/other-resources/endorsed-distributions/) (英文) 開始這項作業。
 
-아래 목록은 고유 VHD를 만드는 프로세스의 1단계를 바꿉니다.
+以下清單取代了用以建立自己的 VHD 之程序的第一個步驟：
 
-1.  Hyper V의 최신 LIS 드라이버를 통합하거나 성공적으로 컴파일한 커널을 실행하고 있는지 확인해야 합니다(드라이버는 오픈 소싱됨). 드라이버는 [이 위치](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)에 있습니다.
+1.  您必須確定所執行的核心包含 Hyper V 最新的 LIS 驅動程式或是已成功編譯核心 (它們的原始碼早已開放使用)。您可以在[這裡](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409) (英文) 找到驅動程式。
 
-2.  커널은 또한 이미지를 프로비전하는 데 사용되며 커밋 cd006086fa5d91414d8ff9ff2b78fbb593878e3c Date: Fri May 4 22:15:11 2012 +0100 ata\_piix로 커널에 커밋된 픽스가 있는 최신 버전의 ATA PiiX 드라이버를 포함해야 합니다. 기본적으로 Hyper-V 드라이버로 디스크를 연기합니다.
+2.  您的核心也應該包含用於佈建映像的最新版 ATA PiiX 驅動程式，此驅動程式的核心已認可修正檔 (所含認可為 cd006086fa5d91414d8ff9ff2b78fbb593878e3c Date:Fri May 4 22:15:11 2012 +0100 ata\_piix:預設會遞延磁碟至 Hyper-V 驅動程式)
 
-3.  압축 intird는 40MB 미만이어야 합니다(\* 이 숫자를 증가시키기 위해 계속 노력하고 있으므로 현재는 이미 만료된 사항일 수 있음).
+3.  您壓縮後的 intird 應該小於 40 MB (\* 我們一直在設法加大這個數字，因此現在應該不只如此了)
 
-4.  다음 매개 변수를 포함하려면 Grub 또는 Grub2의 커널 부팅 줄을 수정합니다. 이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다.
+4.  修改 Grub 或 Grub2 中的核心開機程式行，使其包含以下參數。這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序：
 
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
-5.  /etc/sysconfig/network/dhcp 또는 이와 동등한 항목을 DHCLIENT\_SET\_HOSTNAME="yes"에서 DHCLIENT\_SET\_HOSTNAME="no"로 설정하는 것이 좋습니다.
+5.  建議您將 /etc/sysconfig/network/dhcp 或其等同項目從 DHCLIENT\_SET\_HOSTNAME="yes" 設為 DHCLIENT\_SET\_HOSTNAME="no"
 
-6.  커널에 탑재된 모든 SCSI 장치에 300초 이상의 I/O 시간 제한이 포함되었는지 확인해야 합니다.
+6.  您應該要確定掛接在核心上的所有 SCSI 裝置皆有 300 秒以上的 I/O 逾時時間。
 
-7.  [Linux 에이전트 가이드](https://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/)(영문)의 단계에 따라 Azure Linux 에이전트를 설치해야 합니다. 에이전트는 Apache 2 라이선스에 따라 릴리스되며 최신 비트는 [에이전트 GitHub 위치](http://go.microsoft.com/fwlink/p/?LinkID=250998&clcid=0x409)(영문)에서 가져올 수 있습니다.
+7.  您必須依照 [Linux 代理程式指南](https://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/) (英文) 中的步驟安裝 Azure Linux 代理程式。此代理程式已在 Apache 2 的授權下發行，您可以在[代理程式的 GitHub 位置](http://go.microsoft.com/fwlink/p/?LinkID=250998&clcid=0x409) (英文) 取得最新版本。
 
-8.  /etc/sudoers가 있는 경우 다음 줄을 주석으로 처리합니다.
+8.  在 /etc/sudoers 中，將以下這一行 (如果有) 標成註解：
 
         Defaults targetpw
 
-9.  SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.
+9.  確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。
 
-10. OS 디스크에 스왑 공간을 만들지 마십시오.
+10. 請勿在作業系統磁碟上建立交換空間。
 
-    Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
+    Azure Linux 代理程式可使用會在佈建於 Azure 後連接至虛擬機器的本機資源磁碟，自動設定交換空間。安裝 Azure Linux 代理程式後 (見上一個步驟)，適當修改 /etc/waagent.conf 中的以下參數：
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+        ResourceDisk.SwapSizeMB=2048    ## 注意：請依您的需要設定此項目。
 
-11. 다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제해야 합니다.
+11. 您必須執行以下命令來取消佈建虛擬機器：
 
         waagent -force -deprovision
         export HISTSIZE=0
         logout
 
-12. 그런 다음 가상 컴퓨터를 종료하고 업로드를 계속합니다.
+12. 接著您必須將虛擬機器關機，然後繼續進行上傳作業。
 
 

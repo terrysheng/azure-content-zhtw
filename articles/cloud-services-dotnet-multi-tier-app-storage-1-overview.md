@@ -1,740 +1,1228 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" urlDisplayName="Step 1: Overview" pageTitle="ASP.NET Multi-tier Web Application with Azure - Step 1: Overview" metaKeywords="Azure tutorial, email list service app, email service architecture, Azure tutorial overview, Azure multi-tier, Azure storage, Azure blobs, Azure tables, Azure queues" description="Learn about the five-part multi-tier Azure web application tutorial." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Multi-tier ASP.NET MVC Web Site Tutorial - Step 1: Overview" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
+<properties  linkid="develop-net-tutorials-multi-tier-web-site-1-overview" urlDisplayName="Step 1: Overview" pageTitle="ASP.NET Multi-tier Web Application with Azure - Step 1: Overview" metaKeywords="Azure tutorial, email list service app, email service architecture, Azure tutorial overview, Azure multi-tier, Azure storage, Azure blobs, Azure tables, Azure queues" description="Learn about the five-part multi-tier Azure web application tutorial." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Multi-tier ASP.NET MVC Web Site Tutorial - Step 1: Overview" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-Azure 저장소 테이블, 큐 및 Blob을 사용하는 ASP.NET 다중 계층 웹 응용 프로그램 - 1/5
-===================================================================================
+# 使用 Azure 儲存體資料表、佇列與 Blob 的 ASP.NET 多層式應用程式 - 1/5
 
-이 자습서 시리즈에서는 Azure 저장소 테이블, 큐 및 Blobs를 사용하는 다중 계층 ASP.NET MVC 웹 응용 프로그램을 만드는 방법 및 해당 응용 프로그램을 Azure 클라우드 서비스에 배포하는 방법을 보여 줍니다. 이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이 시리즈를 완료하면 복원력과 확장성이 뛰어난 데이터 기반 웹 응용 프로그램을 빌드하고 클라우드에 배포하는 방법을 알 수 있습니다.
+本教學課程系列說明如何建立使用了 Azure 儲存體資料表、佇列和 Blob 的多層式 ASP.NET MVC Web 應用程式，並且說明如何將應用程式部署到 Azure 雲端服務。這些教學課程假設您先前沒有使用 Azure 的經驗。完成本系列後，您將知道如何建置靈活、可調整的資料驅動型 Web 應用程式，並將之部署到雲端。
 
-이 콘텐츠는 [TechNet 전자책 갤러리](http://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETMultiTierWindowsAzureApplicationUsingStorageTablesQueuesandBlobs)(영문)에서 무료 전자책으로 제공됩니다.
+這些內容已以免費電子書形式放在 [TechNet 電子書庫][1] (英文) 上任人取用。
 
-학습할 내용학습할 내용
-----------------------
+<h2><a name="whatyoulllearn"></a><span  class="short-header">您將學到什麼</span>您將學到什麼</h2>
 
-이 자습서에서는 다음에 대해 알아봅니다.
 
--   Azure SDK를 설치하여 사용자 컴퓨터에서 Azure를 개발할 수 있도록 하는 방법
--   ASP.NET MVC 웹 역할 및 두 개의 작업자 역할을 사용하여 Visual Studio 클라우드 프로젝트를 만드는 방법
--   클라우드 프로젝트를 Azure 클라우드 서비스에 게시하는 방법
--   원하는 경우 MVC 프로젝트를 Azure 웹 사이트에 게시하고 클라우드 서비스에서 작업자 역할을 계속 사용하는 방법
--   계층 간 또는 작업자 역할 간 통신에 Azure 큐 저장소 서비스를 사용하는 방법
--   Azure 테이블 저장소 서비스를 구조화된 비관계형 데이터의 확장성이 뛰어난 데이터 저장소로 사용하는 방법
--   Azure Blob 서비스를 사용하여 클라우드에 파일을 저장하는 방법
--   Visual Studio 또는 Azure 저장소 탐색기를 사용하여 Azure 테이블, 큐 및 Blob을 보고 편집하는 방법.
--   SendGrid를 사용하여 전자 메일을 보내는 방법
--   추적을 구성하고 추적 데이터를 보는 방법
--   작업자 역할 인스턴스 수를 늘려 응용 프로그램을 확장하는 방법
+在本教學課程系列中，您將學到：
 
-프런트 엔드 개요프런트 엔드 개요
---------------------------------
+* 如何安裝 Azure SDK，讓電腦具備 Azure 開發的能力。
+* 如何建立含一個 ASP.NET MVC Web 角色與兩個背景工作角色的 Visual Studio 雲端專案。
+* 如何將雲端專案發佈至 Azure 雲端服務。
+* 如何將 MVC 專案發佈至 Azure 網站 (如果想要的話)，而且仍然在雲端服務中使用背景工作角色。
+* 如何使用 Azure 佇列儲存體服務進行各層之間或各背景工作角色之間的通訊。
+* 如何使用 Azure 資料表儲存體服務作為結構化、非關聯式資料的高度可調整資料存放區。
+* 如何使用 Azure Blob 服務將檔案儲存在雲端中。
+* 如何使用 Visual Studio 或 Azure 儲存體總管來檢視及編輯 Azure 資料表、佇列與 Blob。
+* 如何使用 SendGrid 傳送電子郵件。
+* 如何設定追蹤及檢視追蹤資料。
+* 如何增加背景工作角色執行個體數目來調整應用程式。
 
-빌드할 응용 프로그램은 전자 메일 목록 서비스입니다. 다중 계층 응용 프로그램의 프런트 엔드에는 서비스 관리자가 전자 메일 목록을 관리하는 데 사용하는 웹 페이지가 포함됩니다.
+<h2><a name="frontendoverview"></a><span  class="short-header">前端概觀</span>前端概觀</h2>
 
-![메일 그룹 인덱스 페이지](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-mailing-list-index-page.png)
 
-![구독자 인덱스 페이지](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-subscribers-index-page.png)
+您將建置的應用程式是電子郵件清單服務。此多層式應用程式的前端包括讓該服務的系統管理員用來管理電子郵件清單的網頁。
 
-관리자가 전자 메일 목록으로 보낼 메시지를 작성하는 데 사용하는 페이지 집합도 있습니다.
+![郵寄清單索引頁面](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-mailing-list-index-page.png)
 
-![메시지 인덱스 페이지](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-message-index-page.png)
+![訂閱者索引頁面](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-subscribers-index-page.png)
 
-![메시지 작성 페이지](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-message-create-page.png)
+還有一組頁面可讓系統管理員用來建立要傳送給電子郵件清單的訊息。
 
-서비스의 클라이언트는 클라이언트 웹 사이트에서 메일 그룹에 등록할 기회를 고객에게 제공하는 회사입니다. 예를 들어 관리자는 Contoso University History Department 알림에 대한 목록을 설정합니다. History Department 알림에 관심 있는 학생이 Contoso University 웹 사이트에서 링크를 클릭하면 Contoso University에서 Azure 전자 메일 서비스 응용 프로그램에 대한 웹 서비스 호출을 만듭니다. 서비스 메서드에서 고객에게 전자 메일을 보냅니다. 해당 전자 메일에는 하이퍼링크가 포함되어 있으며, 받는 사람이 해당 링크를 클릭하면 고객에게 History Department Announcements 시작을 알리는 페이지 목록이 표시됩니다.
+![訊息索引頁面](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-message-index-page.png)
 
-![확인 전자 메일](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-subscribe-email.png)
+![訊息建立頁面](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-message-create-page.png)
 
-![시작 목록 페이지](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-subscribe-confirmation-page.png)
+此服務的用戶端是公司，這些公司提供機會讓自己的客戶在用戶端網站上申請成為郵寄清單的一份子。例如，系統管理員為 Contoso
+大學歷史系系辦公告設定了清單。當學生按一下 Contoso 大學網站上的連結表示想要收到歷史系系辦公告時，Contoso 大學便會對 Azure
+電子郵件服務應用程式進行 Web 服務呼叫。此服務方法會造成傳送電子郵件給客戶。該電子郵件包含一個超連結，如果收件者按一下連結，就會顯示一個歡迎客戶使用歷史系系辦公告清單的頁面。
 
-구독 확인을 제외하고 서비스에서 보내는 모든 전자 메일에는 구독 취소하는 데 사용할 수 있는 하이퍼링크가 포함되어 있습니다. 받는 사람이 이 링크를 클릭하면 웹 페이지에 구독 취소할 의사가 있는지 확인하는 메시지가 표시됩니다.
+![確認電子郵件](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-subscribe-email.png)
 
-![구독 취소 확인 페이지](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-unsubscribe-query-page.png)
+![歡迎使用清單頁面](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-subscribe-confirmation-page.png)
 
-받는 사람이 **확인** 단추를 클릭하면 사용자가 목록에서 제거되었음을 확인하는 페이지가 표시됩니다.
+服務所傳送的每封電子郵件 (但訂閱確認除外) 都包含一個取消訂閱的超連結。如果收件者按一下連結，就會顯示一個詢問是否確認要取消訂閱的網頁。
 
-![구독 취소 확인 페이지](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-unsubscribe-confirmation-page.png)
+![確認取消訂閱頁面](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-unsubscribe-query-page.png)
 
-자습서시리즈의 자습서
----------------------
+如果收件者按一下 **確認** 按鈕，就會顯示一個表示已從清單中移除該人員的頁面。
 
-다음은 자습서 목록과 내용에 대한 요약입니다.
+![取消訂閱已確認頁面](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-unsubscribe-confirmation-page.png)
 
-1.  **Azure 전자 메일 서비스 응용 프로그램 소개**(이 자습서). 응용 프로그램 및 아키텍처에 대한 개요입니다.
-2.  [Azure 전자 메일 서비스 응용 프로그램 구성 및 배포](/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/). 샘플 응용 프로그램을 다운로드하여 구성하고 로컬에서 테스트하고 배포한 다음 클라우드에서 테스트하는 방법입니다.
-3.  [Azure 전자 메일 서비스 응용 프로그램에 대한 웹 역할 구축](/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/). 응용 프로그램의 MVC 4 구성 요소를 빌드하고 로컬에서 테스트하는 방법입니다.
-4.  [Azure 전자 메일 서비스 응용 프로그램에 대한 작업자 역할 A(전자 메일 스케줄러) 구축](/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/). 전자 메일을 보내기 위해 큐 작업 항목을 만드는 백 엔드 구성 요소를 빌드하고 로컬에서 테스트하는 방법입니다.
-5.  [Azure 전자 메일 서비스 응용 프로그램에 대한 작업자 역할 B(전자 메일 보낸 사람) 구축](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/). 전자 메일을 보내기 위해 큐 작업 항목을 처리하는 백 엔드 구성 요소를 빌드하고 로컬에서 테스트하는 방법입니다.
+<h2><a name="whyanemaillistapp"></a><span  class="short-header">教學課程</span>本系列中的教學課程</h2>
 
-응용 프로그램을 다운로드하여 사용해 보려는 경우에는 처음 두 자습서만 있으면 됩니다. 이런 응용 프로그램 빌드를 처음부터 진행하는 모든 단계를 확인하는 경우에는 처음 두 자습서를 수행한 후 나머지 세 자습서를 수행합니다.
 
-이 앱을 사용해야 하는 이유전자 메일 목록 서비스 응용 프로그램을 사용해야 하는 이유
-----------------------------------------------------------------------------------
+以下清單列出各教學課程和其內容摘要：
 
-이 샘플 응용 프로그램은 특히 Azure에 권장되는 두 가지 특징인 복원력과 확장성이 필요한 응용 프로그램 종류이므로 전자 메일 목록 서비스를 선택했습니다.
+1.  **Azure 電子郵件服務應用程式簡介** (本教學課程)。應用程式和其架構的概觀。
+2.  [設定及部署 Azure 電子郵件服務應用程式](/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/)。如何下載範例應用程式，並加以設定、在本機測試、部署，以及在雲端測試。
+3.  [建置 Azure 電子郵件服務應用程式的 Web 角色](/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/)。如何建置應用程式的 MVC 4 元件，並在本機加以測試。
+4.  [建置 Azure 電子郵件服務應用程式的背景工作角色 A (電子郵件排程器)](/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/)。如何建置後端元件
+    (來建立傳送電子郵件時所需的佇列工作項目)，並在本機加以測試。
+5.  [建置 Azure 電子郵件服務應用程式的背景工作角色 B
+    (電子郵件寄件者)](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/)。如何建置後端元件
+    (來處理傳送電子郵件時所需的佇列工作項目)，並在本機加以測試。
 
-### 복원력
+若只需要下載並試用此應用程式，則您只需要完成前兩個教學課程。若需要了解從頭建置應用程式 (如這個應用程式) 的所有步驟，請在完成前兩個教學課程後，完成後三個教學課程。
 
-큰 목록으로 전자 메일을 보내는 동안 서버에서 오류가 발생하면 새 서버를 쉽고 빠르게 스핀업하고 응용 프로그램이 전자 메일을 손실하거나 복제하지 않고 중단된 위치를 선택할 수 있기를 바랍니다. Azure 클라우드 서비스 웹 또는 작업자 역할 인스턴스(가상 컴퓨터)는 실패할 경우 자동으로 대체됩니다. 또한 Azure 저장소 큐 및 테이블은 작업을 손실하지 않고 오류에서 살아남을 수 있는 서버 간 통신을 구현하는 방법을 제공합니다.
+<h2><a name="whyanemaillistapp"></a><span  class="short-header">為何是此應用程式</span>為何是電子郵件清單服務應用程式</h2>
 
-### 확장성
 
-경우에 따라 전자 메일을 작은 목록으로 보내거나 매우 큰 목록으로 보낼 수 있으므로 전자 메일 서비스는 급증하는 작업도 처리할 수 있어야 합니다. 많은 호스팅 환경에서 급증하는 작업을 처리하려면 충분한 하드웨어를 구입하고 유지 관리해야 하지만, 하드웨어 용량을 5%의 시간 동안만 사용함에도 불구하고 100%의 시간에 해당하는 전체 하드웨어 용량에 대한 비용을 지불하고 있습니다. Azure를 사용하면 필요한 기간 동안 실제로 필요한 컴퓨팅 기능의 양에 대해서만 비용을 지불합니다. 대규모 메일 작업을 위해 확장하려면 구성 설정만 변경하여 작업을 처리하는 데 사용할 수 있는 서버 수를 늘리면 됩니다. 이 작업은 프로그래밍 방식으로 수행할 수 있습니다. 예를 들어 큐에서 대기 중인 작업 항목 수가 특정 수를 초과하는 경우 Azure에서 해당 작업 항목을 처리하는 작업자 역할의 추가 인스턴스를 자동으로 스핀업하도록 응용 프로그램을 구성할 수 있습니다.
+我們選擇電子郵件清單服務作為此範例應用程式，是因為這種應用程式必須兼具恢復力強和可調整的兩項特質，這使得 Azure 特別適合它。
 
-백 엔드 개요백 엔드 개요
-------------------------
+### 恢復力強
 
-프런트 엔드는 보낼 전자 메일 목록 및 메시지를 Azure 테이블에 저장합니다. 관리자가 보낼 메시지를 예약하면 예약된 날짜를 포함하는 테이블 행 및 제목 줄과 같은 기타 데이터가 `message` 테이블에 추가됩니다. 작업자 역할은 `message` 테이블을 정기적으로 검색하여 보내야 하는 메시지를 찾습니다(이를 작업자 역할 A라고 함).
+如果伺服器在傳送電子郵件給大型清單時故障，您需要能夠輕鬆快速地讓新的伺服器運轉上線，而且需要能夠讓應用程式從中斷之處繼續，而不會造成任何電子郵件漏傳或多傳。Azure 雲端服務 Web 或背景工作角色執行個體 (虛擬機器) 如果故障，就會自動受到取代。而 Azure 儲存體佇列與資料表則可實現就算遇到故障，也可繼續正常進行的伺服器間通訊。
 
-작업자 역할 A가 보내야 하는 메시지를 찾으면 다음 작업을 수행합니다.
+### 可調整
 
--   대상 전자 메일 목록에서 모든 전자 메일 주소를 가져옵니다.
--   각 전자 메일을 보내는 데 필요한 정보를 `message` 테이블에 넣습니다.
--   보내야 하는 각 전자 메일에 대해 큐 작업 항목을 만듭니다.
+電子郵件服務還必須能夠應付突然暴增的工作負載，因為電子郵件有時候是要傳送給很小的清單，有時候則是要傳送給很大的清單。在許多主控環境中，您必須購買並維護足夠的硬體來因應突然暴增的工作負載，因此您是 100% 的時間在為該容量付出金錢，但可能只有 5% 的時間使用它。有了 Azure，您只需要為真正需要的運算能力量和時間付出金錢。若要向上調整以進行大規模郵寄，您只需要變更組態設定來提高可用來處理工作負載的伺服器數目，而此動作可以透過程式設計方式完成。例如，您可以設定應用程式，使得當佇列中等待的工作項目數目超出特定數目時，就自動使 Azure 讓更多背景工作角色執行個體運轉上線來處理那些工作項目。
 
-두 번째 작업자 역할(작업자 역할 B)은 작업 항목에 대한 큐를 폴링합니다. 작업자 역할 B가 작업 항목을 찾으면 전자 메일을 보내 항목을 처리한 다음 큐에서 작업 항목을 삭제합니다. 다음 다이어그램에서는 이러한 관계를 보여 줍니다.
+<h2><a name="backendoverview"></a><span  class="short-header">後端概觀</span>後端概觀</h2>
 
-![전자 메일 메시지 처리](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-worker-roles-a-and-b.png)
 
-작업자 역할 B가 작동 중단되어 다시 시작해야 하는 경우에도 전자 메일이 누락되지 않습니다. 왜냐하면 전자 메일에 대한 큐 작업 항목이 전자 메일을 보낸 후에야 삭제되기 때문입니다. 또한 백 엔드는 작업자 역할 A가 작동 중단되어 다시 시작해야 하는 경우 여러 전자 메일을 보낼 수 없도록 하는 테이블 처리를 구현합니다. 이런 경우 지정된 대상 전자 메일 주소에 대해 여러 개의 큐 작업 항목이 생성될 수 있습니다. 그러나 `message` 테이블의 행은 각 대상 전자 메일 주소에 대해 전자 메일이 보내졌는지 여부를 추적합니다. 다시 시작 및 전자 메일 처리 타이밍에 따라 작업자 A는 이 행을 사용하여 두 번째 큐 작업 항목을 만들지 않도록 하고 작업자 B는 이 행을 사용하여 두 번째 전자 메일을 보내지 않도록 합니다.
+前端會將電子郵件清單和要傳送給這些電子郵件清單的訊息儲存在 Azure 資料表中。每當系統管理員排定一則要傳送的訊息時，`message` 資料表中就會新增一列來包含已排定的日期和其他資料 (例如主旨列) 。背景工作角色會定期掃描 `message` 資料表，看看是否有需要傳送的訊息
+(此背景工作角色將稱為背景工作角色 A)。
 
-![중복 전자 메일 방지](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-message-processing.png)
+背景工作角色 A 在找到需要傳送的訊息時，會執行下列工作：
 
-또한 작업자 역할 B는 Web API 서비스 메서드에서 새 구독을 위해 넣은 작업 항목에 대한 구독 큐를 폴링합니다. 해당 작업 항목을 찾으면 확인 전자 메일을 보냅니다.
+* 取得目的地電子郵件清單中的所有電子郵件地址。
+* 將傳送每封電子郵件所需的資訊放置到 `message` 資料表中。
+* 為每封需要傳送的電子郵件各建立一個佇列工作項目。
 
-![구독 큐 메시지 처리](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-subscribe-diagram.png)
+第二個背景工作角色 (稱為背景工作角色 B) 會輪詢佇列，看看是否有工作項目。背景工作角色 B 在找到工作項目時，會傳送電子郵件來處理項目，然後從佇列中刪除工作項目。下圖顯示這些關係。
 
-테이블Azure 테이블
-------------------
+![電子郵件訊息處理](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-worker-roles-a-and-b.png)
 
-Azure 전자 메일 서비스 응용 프로그램은 Azure 저장소 테이블에 데이터를 저장합니다. Azure 테이블은 [Azure SQL 데이터베이스](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx)와 같은 관계형 데이터베이스가 아닌 NoSQL 데이터 저장소입니다. 따라서 Azure 테이블은 효율성 및 확장성이 데이터 정규화 및 관계 무결성보다 더 중요한 경우에 적합한 선택입니다. 예를 들어 이 응용 프로그램에서 한 작업자 역할은 큐 작업 항목이 만들어질 때마다 행을 만들고 다른 작업자 역할은 전자 메일을 보낼 때마다 행을 검색하여 업데이트하면 관계형 데이터베이스가 사용된 경우 성능 병목 현상이 발생할 수 있습니다. 또한 Azure 테이블은 Azure SQL보다 저렴합니다. Azure 테이블에 대한 자세한 내용은 [이 시리즈의 마지막 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/) 끝에 나열된 리소스를 참조하십시오.
+如果背景工作角色 B 當機而必須重新啟動，並不會造成任何電子郵件漏傳，因為要等到傳送了電子郵件後，電子郵件的佇列工作項目才會刪除。後端也實作了資料表處理機制，以防止萬一背景工作角色 A 當機而必須重新啟動時，造成有電子郵件多傳。萬一背景工作角色 A 真的當機而重新啟動，則替某目的地電子郵件地址產生的佇列工作項目可能會有多個。但針對每個目的地電子郵件地址，`message` 中都會有一列來追蹤是否已傳送電子郵件。背景工作 A 會使用此列來避免建立第二個佇列工作項目，或背景工作 B 會使用此列來避免傳送第二封電子郵件 (視重新啟動與電子郵件處理的時間而定)。
 
-다음 섹션에서는 Azure 전자 메일 서비스 응용 프로그램에서 사용하는 Azure 테이블의 내용에 대해 설명합니다. 테이블 및 관계를 보여 주는 다이어그램은 이 페이지 뒷부분에 있는 [Azure 전자 메일 서비스 데이터 다이어그램](#datadiagram)을 참조하십시오.
+![防止多傳電子郵件](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-message-processing.png)
 
-### mailinglist 테이블
+背景工作角色 B 也會輪詢訂閱佇列，看看 Web API 服務方法是否在該處放置了任何代表新訂閱的工作項目。一旦找到這類項目，就會傳送確認電子郵件。
 
-`mailinglist` 테이블에는 메일 그룹 및 메일 그룹 구독자에 대한 정보가 저장됩니다. Azure 테이블 명명 규칙 모범 사례는 모두 소문자를 사용하는 것입니다. 관리자는 웹 페이지를 사용하여 메일 그룹을 만들고 편집하며, 클라이언트와 구독자는 웹 페이지 집합 및 서비스 메서드를 사용하여 구독하고 구독 취소합니다.
+![訂閱佇列訊息處理](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-subscribe-diagram.png)
 
-NoSQL 테이블에서는 행마다 스키마가 다를 수 있으며 이러한 유연성은 한 테이블에서 관계형 데이터베이스의 여러 테이블이 필요한 데이터를 저장하도록 하는 데 일반적으로 사용됩니다. 예를 들어 메일 그룹 데이터를 SQL 데이터베이스에 저장하려면 그룹에 대한 정보를 저장하는  테이블, 구독자에 대한 정보를 저장하는 `subscriber` 테이블 및 메일 그룹을 구독자와 연결하거나 구독자를 메일 그룹과 연결하는 `mailinglistsubscriber` 테이블의 세 개 테이블을 사용할 수 있습니다. 이 응용 프로그램의 NoSQL 테이블에서는 모든 함수가 `mailinglist` 라는 하나의 테이블로 롤링됩니다.
+<h2><a name="tables"></a><span  class="short-header">資料表</span>Azure 資料表</h2>
 
-Azure 테이블의 모든 행에는 행을 고유하게 식별하는 *파티션 키*와 *행 키*가 있습니다. 파티션 키는 테이블을 파티션으로 논리적으로 나눕니다. 파티션 내에서 행 키는 행을 고유하게 식별합니다. 보조 인덱스가 없으므로 응용 프로그램이 확장 가능하도록 하려면 쿼리의 Where 절에서 파티션 키와 행 키 값을 항상 지정할 수 있도록 테이블을 설계해야 합니다.
 
-`mailinglist` 테이블의 파티션 키는 메일 그룹의 이름입니다.
+Azure 電子郵件服務應用程式會將資料儲存在 Azure 儲存體資料表中。Azure 資料表是一種 NoSQL 資料存放區，而不是 [Azure SQL Database][2] 之類的關聯式資料庫。因此，當效率和延展性比資料正規化與關係完整性更重要時，這將是不錯的選擇。例如，在此應用程式中，一個背景工作角色會在每次有佇列工作項目建立時就建立一列，而另一個背景工作角色會在每次有電子郵件傳出時就擷取並更新一列，這時如果使用關聯式資料庫，就可能會出現效能瓶頸。此外，Azure 資料表也比 Azure SQL 便宜。如需 Azure 資料表的詳細資訊，請參閱[本系列的最後一個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/)最後列出的資源。
 
-`mailinglist` 테이블의 행 키는 상수 "mailinglist" 또는 구독자의 전자 메일 주소 중 하나일 수 있습니다. "mailinglist" 행 키를 사용하는 행에는 메일 그룹에 대한 정보가 포함되고, 행 키로 전자 메일 주소를 사용하는 행에는 그룹 구독자에 대한 정보가 있습니다.
+下列各節將說明此 Azure 電子郵件服務應用程式所用之各項 Azure 資料表的內容。如需各資料表和其彼此關係的圖解，請參閱本頁稍後的
+[Azure 電子郵件服務資料圖](#datadiagram)。
 
-즉, "mailinglist" 행 키를 사용하는 행은 관계형 데이터베이스의 `mailinglist` 테이블과 같습니다. 행 키가 전자 메일 주소인 행은 관계형 데이터베이스의 `subscriber` 테이블 및 `mailinglistsubscriber` 연결 테이블과 같습니다.
+### mailinglist 資料表
 
-이런 식으로 한 테이블을 여러 용도로 사용하면 성능이 향상됩니다. 관계형 데이터베이스에서는 세 개의 테이블의 읽어야 하고 세 개의 행 집합을 정렬하고 서로 일치시켜야 하므로 시간이 걸립니다. 여기서는 하나의 테이블만 읽으면 행이 파티션 키와 행 키 순서로 자동으로 반환됩니다.
+`mailinglist` 資料表中儲存關於郵寄清單和郵寄清單有哪些訂閱者的資訊。(Azure 資料表命名慣例最佳做法為全都使用小寫字母。)
+系統管理員可以使用網頁來建立及編輯郵寄清單，而用戶端和訂閱者可以使用一組網頁和一個服務方法來進行訂閱和取消訂閱。
 
-다음 표에서는 메일 그룹 정보를 포함하는 행(행 키 = "MailingList")의 행 속성을 보여 줍니다.
+在 NoSQL 資料表中，不同的列可以有不同的結構描述，這項彈性使得一個資料表可以儲存在關聯式資料庫中要有多個資料表才能儲存的資料。例如，若要在 SQL Database 中儲存郵寄清單資料，您可能得使用三個資料表：`mailinglist` 資料表 (用來儲存清單的相關資訊)、`subscriber` 資料表 (用來儲存訂閱者的相關資訊)，以及 `mailinglistsubscriber` 資料表 (用來儲存郵寄清單與訂閱者的關聯)。在此應用程式的 NoSQL 資料表中，所有這些功能全都整合到一個名為 `mailinglist`的資料表中。
 
-<table border="1">
-	<tr bgcolor="lightgray">
-	  <th>속성</th>
-	  <th>데이터 형식</th>
-	  <th>설명</th>
-	</tr>
+在 Azure
+資料表中，每列都有一個「資料分割索引鍵」**及一個「列索引鍵」**來唯一識別該列。資料分割索引鍵的用處是以邏輯方式將資料表分成多個資料分割。列索引鍵的用處則是在資料分割內唯一識別列。沒有次要索引；因此，若要確定應用程式可受調整，請務必將資料表設計成，您永遠可以利用查詢的 Where 子句來指定資料分割索引鍵與列索引鍵值。
 
-	<tr>
-	  <td>PartitionKey</td>
-      <td>문자열</td>
-	  <td>ListName: 메일 그룹의 고유 식별자(예: contoso1)입니다. 일반적으로 테이블은 특정 메일 그룹에 대한 모든 정보를 검색하는 데 사용되므로 그룹 이름을 사용하면 테이블을 효율적으로 분할할 수 있습니다.</td>
-	</tr>
-	<tr>
-	  <td>RowKey</td>
-	  <td>문자열</td>
-	  <td>상수 &quot;mailinglist&quot;입니다.</td>
-    </tr>
-	<tr>
-	  <td>Description</td>
-	  <td>문자열</td>
-	  <td>메일 그룹에 대한 설명(예: &quot;Contoso University History Department announcements&quot;)입니다.</td>
-	</tr>
-</table>
+`mailinglist` 資料表的資料分割索引鍵是郵寄清單的名稱。
 
-다음 표에서는 그룹의 구독자 정보를 포함하는 행(행 키 = 전자 메일 주소)의 행 속성을 보여 줍니다.
+`mailinglist` 資料表的列索引鍵可以是下列兩項之一：常數 "mailinglist" 或是訂閱者的電子郵件地址。列索引鍵為 "mailinglist" 的列將包含郵寄清單的相關資訊。列索引鍵為電子郵件地址的列將包含清單訂閱者的相關資訊。
 
-<table>
-    <tr bgcolor="lightgray">
-	  <th>속성</th>
-	  <th>데이터 형식</th>
-	  <th>설명</th>
-	</tr>
-    </tr>
-	<tr>
-	  <td>PartitionKey</td>
-	  <td>문자열</td>
-	  <td>ListName: 메일 그룹의 이름(고유 식별자)(예: contoso1)입니다.</td>
-	</tr>	
-    <tr>
-	  <td align="left">RowKey</td>
-	  <td>문자열</td>
-	  <td>EmailAddress: 구독자 전자 메일 주소(예: student1@contoso.edu)입니다.</td>
-	</tr>	
-    <tr>
-	  <td>SubscriberGUID</td>
-	  <td>문자열</td>
-	  <td>전자 메일 주소를 그룹에 추가하면 생성됩니다. 구독 및 구독 취소 링크에서 사용되므로 다른 사람의 전자 메일 주소를 구독하거나 구독 취소하기가 어렵습니다.<br /><br /> 구독 및 구독 취소 웹 페이지에 대한 일부 쿼리는 PartitionKey와 이 속성만 지정합니다. 메일 그룹 크기가 증가하면 쿼리 시간이 더 오래 걸리므로 RowKey를 사용하지 않고 파티션을 쿼리하면 응용 프로그램의 확장성이 제한됩니다. 확장성을 향상시키는 옵션은 RowKey 속성에 SubscriberGUID가 있는 조회 행을 추가하는 것입니다. 예를 들어 각 전자 메일 주소에 대해 한 행의 RowKey에는 &quot;email:student1@domain.com&quot;이 있고 같은 구독자에 대한 다른 행의 RowKey에는 &quot;guid:6f32b03b-90ed-41a9-b8ac-c1310c67b66a&quot;가 있을 수 있습니다. 파티션 내 행의 원자성 배치 트랜잭션은 코딩하기 쉬우므로 이 기능도 간단하게 구현할 수 있습니다. 샘플 응용 프로그램의 다음 릴리스에서는 이 기능을 구현하려고 합니다. 자세한 내용은 <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx">실제: Azure 테이블 저장소에 대한 확장 가능한 분할 전략 설계</a>(영문)를 참조하십시오.
-	  </td>
-    </tr>
-</table>
+換言之，列索引鍵為 "mailinglist" 的列相當於關聯式資料庫中的 `mailinglist` 資料表。列索引鍵 = 電子郵件地址的列相當於關聯式資料庫中的 `subscriber` 資料表與 `mailinglistsubscriber` 關聯資料表。
 
-다음 목록에서는 테이블의 데이터가 어떻게 표시되는지에 대한 예를 보여 줍니다.
+如此用一個資料表來滿足多種用途，將能達到更好的效能。若是在關聯式資料庫中，將必須讀取三張資料表，而且必須整理並交相比對三組列，而這需要花時間來完成。在這裡，只需讀取一張資料表，就會自動依資料分割索引鍵與列索引鍵順序來傳回其中的列。
 
-<table border="1">
+下表顯示含郵寄清單資訊的列 (列索引鍵 = "MailingList") 會有哪些列屬性。
+
+<table  border="1">
+
+<tr  bgcolor="lightgray">
+<th>屬性</th>
+
+<th>資料類型</th>
+
+<th>說明</th>
+
+</tr>
+
+
 <tr>
-<th width="200" align="right" bgcolor="lightgray">Partition Key</th>
+<td>PartitionKey</td>
+
+<td>String</td>
+
+<td>ListName：郵寄清單的唯一識別碼，例如：contoso1。此資料表的一般用處是擷取特定郵寄清單的所有資訊，因此使用清單名稱是將此資料表進行分割的高效率方式。</td>
+
+</tr>
+
+
+<tr>
+<td>RowKey</td>
+
+<td>String</td>
+
+<td>常數 "mailinglist"。</td>
+
+</tr>
+
+
+<tr>
+<td>Description</td>
+
+<td>String</td>
+
+<td>郵寄清單的說明，例如："Contoso University History Department announcements"。</td>
+
+</tr>
+
+
+<tr>
+<td>FromEmailAddress</td>
+
+<td>String</td>
+
+<td>對此清單傳送之電子郵件中的 [收件者] 電子郵件地址，例如：donotreply@contoso.edu。</td>
+
+</tr>
+
+
+</table>
+
+下表顯示含清單訂閱者相關資訊的列 (列索引鍵 = 電子郵件地址) 會有哪些列屬性。
+
+<table  border="1">
+
+<tr  bgcolor="lightgray">
+<th>屬性</th>
+
+<th>資料類型</th>
+
+<th>說明</th>
+
+</tr>
+
+
+<tr>
+<td>PartitionKey</td>
+
+<td>String</td>
+
+<td>ListName：郵寄清單的名稱 (唯一識別碼)，例如：contoso1。</td>
+
+</tr>
+
+
+<tr>
+<td>RowKey</td>
+
+<td>String</td>
+
+<td>EmailAddress：訂閱者電子郵件地址，例如：student1@contoso.edu。</td>
+
+</tr>
+
+
+<tr>
+<td>SubscriberGUID</td>
+
+<td>String</td>
+
+<td>在電子郵件地址新增至清單時產生。用於訂閱與取消訂閱連結中，以降低將別人的電子郵件地址訂閱或取消訂閱的可能性。<br  />
+<br  />
+ 「訂閱」網頁與「取消」訂閱的某些查詢只會指定 PartitionKey 和此屬性。不使用 RowKey 就查詢資料分割，將使應用程式的延展性受限，因為當郵寄清單大小增加時，查詢需要的時間將更長。有個提升延展性的選項，就是新增查閱列並使其 RowKey 屬性含有 SubscriberGUID。例如，就每個電子郵件地址而言，一個列的 RowKey 可以是 "email:student1@domain.com"，而相同訂閱者另一列的 RowKey 可以是 "guid:6f32b03b-90ed-41a9-b8ac-c1310c67b66a"。要實現這點很簡單，因為資料分割內列上的不可部分完成批次交易很容易撰寫。我們希望在下個版本的範例應用程式中實作這點。如需詳細資訊，請參閱<a  href="http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx">真實世界：設計 Azure 資料表儲存體的可調整分割策略</a>
+ (英文)
+</td>
+
+</tr>
+
+
+<tr>
+<td>Verified</td>
+
+<td>Boolean</td>
+
+<td>一開始為新的訂閱者建立列時，此值為 false。只有在新的訂閱者按一下歡迎電子郵件中的確認超連結，或系統管理員將它設為 true 之後，才會變更為 true。如果傳送訊息給清單時，訊息其中一個訂閱者的 Verified 值為 false，則不會傳送電子郵件給該訂閱者。</td>
+
+</tr>
+
+
+</table>
+
+下列清單示範資料表中的資料可能長什麼樣子。
+
+<table  border="1">
+<tr>
+<th  width="200" align="right" bgcolor="lightgray">資料分割索引鍵</th>
+
 <td>contoso1</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">Row Key</th>
+<th  align="right" bgcolor="lightgray">列索引鍵</th>
+
 <td>mailinglist</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">Description</th>
+<th  align="right" bgcolor="lightgray">說明</th>
+
 <td>Contoso University History Department announcements</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">FromEmailAddress</th>
+<th  align="right" bgcolor="lightgray">FromEmailAddress</th>
+
 <td>donotreply@contoso.edu</td>
+
 </tr>
+
 
 </table>
 
-<hr/>
+* * *
 
-<table border="1">
+
+<table  border="1">
 
 <tr>
-<th width="200" align="right" bgcolor="lightgray">Partition Key</th>
+<th  width="200" align="right" bgcolor="lightgray">資料分割索引鍵</th>
+
 <td>contoso1</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">Row Key</th>
+<th  align="right" bgcolor="lightgray">列索引鍵</th>
+
 <td>student1@domain.com</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">SubscriberGUID</th>
+<th  align="right" bgcolor="lightgray">SubscriberGUID</th>
+
 <td>6f32b03b-90ed-41a9-b8ac-c1310c67b66a</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">Verified</th>
+<th  align="right" bgcolor="lightgray">Verified</th>
+
 <td>true</td>
+
 </tr>
+
 
 </table>
 
-<hr/>
+* * *
 
-<table border="1">
+
+<table  border="1">
 
 <tr>
-<th width="200" align="right" bgcolor="lightgray">Partition Key</th>
+<th  width="200" align="right" bgcolor="lightgray">資料分割索引鍵</th>
+
 <td>contoso1</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">Row Key</th>
+<th  align="right" bgcolor="lightgray">列索引鍵</th>
+
 <td>student2@domain.com</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">SubscriberGUID</th>
+<th  align="right" bgcolor="lightgray">SubscriberGUID</th>
+
 <td>01234567-90ed-41a9-b8ac-c1310c67b66a</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">Verified</th>
+<th  align="right" bgcolor="lightgray">Verified</th>
+
 <td>false</td>
+
 </tr>
+
 
 </table>
 
-<hr/>
+* * *
 
-<table border="1">
+
+<table  border="1">
 
 <tr>
-<th width="200" align="right" bgcolor="lightgray">Partition Key</th>
+<th  width="200" align="right" bgcolor="lightgray">資料分割索引鍵</th>
+
 <td>fabrikam1</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">Row Key</th>
+<th  align="right" bgcolor="lightgray">列索引鍵</th>
+
 <td>mailinglist</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">Description</th>
+<th  align="right" bgcolor="lightgray">說明</th>
+
 <td>Fabrikam Engineering job postings</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">FromEmailAddress</th>
+<th  align="right" bgcolor="lightgray">FromEmailAddress</th>
+
 <td>donotreply@fabrikam.com</td>
+
 </tr>
+
 
 </table>
 
-<hr/>
+* * *
 
-<table border="1">
+
+<table  border="1">
 
 <tr>
-<th width="200" align="right" bgcolor="lightgray">Partition Key</th>
+<th  width="200" align="right" bgcolor="lightgray">資料分割索引鍵</th>
+
 <td>fabrikam1</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">Row Key</th>
+<th  align="right" bgcolor="lightgray">列索引鍵</th>
+
 <td>applicant1@domain.com</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">SubscriberGUID</th>
+<th  align="right" bgcolor="lightgray">SubscriberGUID</th>
+
 <td>76543210-90ed-41a9-b8ac-c1310c67b66a</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">Verified</th>
+<th  align="right" bgcolor="lightgray">Verified</th>
+
 <td>true</td>
+
 </tr>
 
+
 </table>
 
-### message 테이블
+### message 資料表
 
-`message` 테이블에는 메일 그룹으로 보내도록 예약된 메시지에 대한 정보가 저장됩니다. 관리자는 웹 페이지를 사용하여 이 테이블에서 행을 만들고 편집하며, 작업자 역할은 이 테이블을 사용하여 각 전자 메일에 대한 정보를 작업자 역할 A에서 작업자 역할 B로 전달합니다.
+`message`
+資料表中儲存關於已排定要對郵寄清單傳送之訊息的資訊。系統管理員會使用網頁在此資料表中建立及編輯列，而背景工作角色會使用此資料表，將每封電子郵件的相關資訊從背景工作角色 A 傳遞至背景工作角色 B。
 
-`message` 테이블의 파티션 키는 전자 메일을 보내도록 예약한 날짜(yyyy-mm-dd 형식)입니다. 이 키는 이 테이블에서 가장 자주 실행되는 쿼리에 대해 테이블을 최적화하여 `ScheduledDate` 가 오늘 이전이 행을 선택합니다. 그러나 파티션에 대한 Azure 저장소 테이블의 최대 처리량은 초당 500개 엔터티이므로 잠재적인 성능 병목 현상이 발생합니다. 각 전자 메일을 보내기 위해 응용 프로그램은 `message` 테이블 행을 쓰고, 행을 읽고, 행을 삭제합니다. 따라서 증가된 로드를 처리하기 위해 추가되는 작업자 역할 수에 관계없이 하루 동안 예약된 1,000,000개의 전자 메일을 처리할 수 있는 가장 짧은 시간은 거의 2시간입니다.
+message 資料表的資料分割索引鍵是排定要傳送電子郵件的日期，格式為 yyyy-mm-dd。如此可使資料表在面對最常對此資料表執行的查詢 (也就是會選取 `ScheduledDate` 為今天或更早日期的列的查詢) 時，展現最佳效能。不過，這也會引起潛在的效能瓶頸，因為 Azure 儲存體資料表對於一個資料分割，設有每秒 500 個實體的輸送量上限。每遇到一封要傳送的電子郵件，應用程式就會在 `message` 資料表中寫入一列、讀取一列再刪除一列。因此，當一天就有 1,000,000 封電子郵件被排定要傳送時，最短可能處理時間就有兩小時，不管新增了多少個背景工作角色來處理增加的負載都一樣。
 
-`message` 테이블의 행 키는 상수 "message"와 `MessageRef` 라는 메시지에 대한 고유 키 또는 `MessageRef` 값과 구독자의 전자 메일 주소 중 하나일 수 있습니다. "message"로 시작하는 행 키를 사용하는 행에는 메시지를 보낼 메일 그룹 및 메시지를 보낼 시간 등 메시지에 대한 정보가 포함됩니다. `MessageRef` 및 전자 메일 주소를 행 키로 사용하는 행에는 해당 전자 메일 주소로 전자 메일을 보내는 데 필요한 모든 정보가 있습니다.
+`message` 資料表的列索引鍵可以是下列兩項之一：常數 "message" 加上訊息的唯一索引鍵 (稱為 `MessageRef`)，或 `MessageRef` 值加上訂閱者的電子郵件地址。列索引鍵以 "message" 開頭的列會包含訊息的相關資訊，例如要傳送給的郵寄清單，以及應該傳送的時間。列索引鍵為 `MessageRef` 與電子郵件地址的列，則會包含傳送電子郵件給該電子郵件地址時所需的一切資訊。
 
-관계형 데이터베이스에서 "message"로 시작하는 행 키를 사용하는 행은 `message` 테이블과 같습니다. 행 키로 `MessageRef` 와 전자 메일 주소를 사용하는 행은 `mailinglist`, `message` 및 `subscriber` 정보를 포함하는 조인 쿼리 뷰와 같습니다.
+在關聯式資料庫術語中，列索引鍵以 "message" 開頭的列相當於 `message` 資料表。列索引鍵 = `MessageRef` 加電子郵件地址的列，則相當於含 `mailinglist`、`message` 和 `subscriber` 資訊的聯結查詢檢視。
 
-다음 표에서는 메시지 자체에 대한 정보를 포함하는 `message` 테이블 행의 행 속성을 보여 줍니다.
+下表顯示 `message` 資料表中含訊息本身相關資訊的列會有哪些列屬性。
 
-<table border="1">
-  <tr bgcolor="lightgray">
-	<th>속성</th>
-	<th>데이터 형식</th>
-	<th>설명</th>
-  </tr>
-  <tr>
-	<td>PartitionKey</td>
-	<td>문자열</td>
-	<td>메시지를 보내도록 예약한 날짜(yyyy-mm-dd 형식)입니다.</td>
-  </tr>
-  <tr>
-	<td>RowKey</td>
-	<td>문자열</td>
-	<td><code>MessageRef</code> 값과 연결된 상수 &quot;message&quot;입니다. <code>MessageRef</code>는 행을 만들 때 <code>DateTime.Now</code>에서 <code>Ticks</code> 값을 가져와 만든 고유 값입니다.<br /><br />참고: Ticks를 사용할 때 중복 RowKey 예외를 처리하려면 고용량 다중 스레드, 다중 인스턴스 응용 프로그램을 준비해야 합니다. Ticks는 고유하도록 보장되지 않습니다.</td>
-  </tr>
-  <tr>
-	<td>ScheduledDate</td>
-	<td>날짜</td>
-    <td>메시지를 보내도록 예약한 날짜입니다. <code>PartitionKey</code>와 동일하지만 날짜 형식입니다.</td>
-  </tr>
-</table>
+<table  border="1">
 
-작업자 역할 A가 그룹으로 보낼 전자 메일에 대한 큐 메시지를 작성하면 `message` 테이블에 전자 메일 행이 만들어집니다. 작업자 역할 B가 전자 메일을 보내면 전자 메일 행이 `messagearchive` 테이블로 이동하고 `EmailSent` 속성이 `true` 로 업데이트됩니다. Processing 상태의 메시지에 대한 모든 전자 메일 행이 보관되면 작업자 역할 A가 상태를 Completed로 설정하고 `message` 행을 `messagearchive` 테이블로 이동합니다.
+<tr  bgcolor="lightgray">
+<th>屬性</th>
 
-다음 표에서는 message 테이블에 있는 전자 메일 행의 행 속성을 보여 줍니다.
+<th>資料類型</th>
 
-<table border="1">
-  <tr bgcolor="lightgray">
-	<th>속성</th>
-	<th>데이터 형식</th>
-	<th>설명</th>
-  </tr>
-  <tr>
-	<td>PartitionKey</td>
-	<td>문자열</td>
-	<td>메시지를 보내도록 예약한 날짜(yyyy-mm-dd 형식)입니다.</td>
-  </tr>
-  <tr>
-	<td>RowKey</td>
-	<td>문자열</td>
-	<td><code>MessageRef</code> 값과 <code>mailinglist</code> 테이블 <code>subscriber</code> 행의 대상 전자 메일 주소입니다.</td>
-  </tr>
-  <tr>
-	<td>MessageRef</td>
-	<td>Long</td>
-	<td><code>RowKey</code>의 <code>MessageRef</code> 구성 요소와 같습니다.</td>
-  </tr>
-</table>
+<th>說明</th>
 
-이러한 행에는 중복 데이터가 있으며, 일반적으로 관계형 데이터베이스에서는 사용할 수 없습니다. 그러나 이런 경우 중복 데이터의 일부 단점을 처리 효율성 및 확장성 향상이라는 장점으로 바꿀 수 있습니다. 전자 메일에 필요한 모든 데이터가 이러한 행 중 하나에 있으므로 작업자 역할 B는 전자 메일을 보내기 위해 큐에서 작업 항목을 가져올 때 한 행만 읽으면 됩니다.
+</tr>
 
-전자 메일 본문을 가져온 위치가 궁금할 수 있습니다. 해당 값은 `MessageRef` 값에서 파생되므로 이러한 행에는 전자 메일 본문을 포함하는 파일에 대한 Blob 참조가 없습니다. 예를 들어 `MessageRef` 가 634852858215726983이면 Blob은 명명된 634852858215726983.htm 및 634852858215726983.txt입니다.
-
-다음 목록에서는 테이블의 데이터가 어떻게 표시되는지에 대한 예를 보여 줍니다.
-
-<table border="1">
 
 <tr>
-<th width="200" align="right" bgcolor="lightgray">Partition Key</th>
+<td>PartitionKey</td>
+
+<td>String</td>
+
+<td>排定要傳送訊息的日期，格式為 yyyy-mm-dd。</td>
+
+</tr>
+
+
+<tr>
+<td>RowKey</td>
+
+<td>String</td>
+
+<td>常數 "message" 加 <code>MessageRef</code>
+ 值。<code>MessageRef</code>
+ 是建立列時，從 <code>DateTime.Now</code>
+ 取得 <code>Ticks</code>
+ 值而建立的唯一值。<br  />
+<br  />
+注意：應該準備好大量多執行緒、多執行個體的應用程式，以處理使用 Ticks 時出現的重複 RowKey 例外狀況。Ticks 不保證具唯一性。</td>
+
+</tr>
+
+
+<tr>
+<td>ScheduledDate</td>
+
+<td>Date</td>
+
+<td>排定要傳送訊息的日期。(與 <code>PartitionKey</code>
+ 相同，但採用 Date 格式。)</td>
+
+</tr>
+
+
+<tr>
+<td>SubjectLine</td>
+
+<td>String</td>
+
+<td>電子郵件的主旨列。</td>
+
+</tr>
+
+
+<tr>
+<td>ListName</td>
+
+<td>String</td>
+
+<td>此訊息要傳送到的清單。</td>
+
+</tr>
+
+
+<tr>
+<td>Status</td>
+
+<td>String</td>
+
+<td><ul>
+<li>"Pending" -- 背景工作角色 A 尚未開始建立佇列訊息來排定電子郵件。</li>
+
+<li>"Queuing" -- 背景工作角色 A 已開始建立佇列訊息來排定電子郵件。</li>
+
+<li>"Processing" -- 背景工作角色 A 已為清單中的所有電子郵件建立佇列工作項目，但是尚未傳送所有電子郵件。</li>
+
+<li>"Completed" -- 背景工作角色 B 已完成處理所有佇列工作項目 (已傳送所有電子郵件)。已完成的列會封存在 <code>messagearchive</code>
+ 資料表中，稍後會有說明。我們希望在下一版中使此屬性採用 <code>enum</code>
+ 格式。</li>
+</ul>
+</td>
+
+</tr>
+
+
+</table>
+
+背景工作角色 A 在為待傳送給清單的電子郵件建立佇列訊息時，會在 `message` 資料表中建立電子郵件列。背景工作角色 B 在傳送電子郵件時，則會將電子郵件列移至 `messagearchive` 資料表，並將 `EmailSent` 屬性更新為 `true`。當處於 Processing 狀態的訊息其所有電子郵件列都已被封存時，背景工作角色 A 會將狀態設為 Completed，並將 `message` 列移至 `messagearchive` 資料表。
+
+下表顯示 `message` 資料表中的電子郵件列會有哪些列屬性。
+
+<table  border="1">
+
+<tr  bgcolor="lightgray">
+<th>屬性</th>
+
+<th>資料類型</th>
+
+<th>說明</th>
+
+</tr>
+
+
+<tr>
+<td>PartitionKey</td>
+
+<td>String</td>
+
+<td>排定要傳送訊息的日期，格式為 yyyy-mm-dd。</td>
+
+</tr>
+
+
+<tr>
+<td>RowKey</td>
+
+<td>String</td>
+
+<td><code>MessageRef</code>
+ 值以及目的地電子郵件地址 (來自 <code>mailinglist</code>
+ 資料表 <code>subscriber</code>
+)。
+</td>
+
+</tr>
+
+
+<tr>
+<td>MessageRef</td>
+
+<td>Long</td>
+
+<td>與 <code>RowKey</code>
+ 的 <code>MessageRef</code>
+ 元件相同。</td>
+
+</tr>
+
+
+<tr>
+<td>ScheduledDate</td>
+
+<td>Date</td>
+
+<td>已排定的日期，來自 <code>message</code>
+ 資料表的 <code>message</code>
+ 列。(與 <code>PartitionKey</code>
+ 相同，但採用 Date 格式。)</td>
+
+</tr>
+
+
+<tr>
+<td>SubjectLine</td>
+
+<td>String</td>
+
+<td>電子郵件主旨列，來自 <code>message</code>
+ 資料表的 <code>message</code>
+列。</td>
+
+</tr>
+
+
+<tr>
+<td>ListName</td>
+
+<td>String</td>
+
+<td>郵寄清單名稱，來自 <code>mailinglist</code>
+ 資料表。</td>
+
+</tr>
+
+
+<tr>
+<td>From EmailAddress</td>
+
+<td>String</td>
+
+<td>[寄件者] 電子郵件地址，來自 <code>mailinglist</code>
+ 資料表的 <code>mailinglist</code>
+ 列。</td>
+
+</tr>
+
+
+<tr>
+<td>EmailAddress</td>
+
+<td>String</td>
+
+<td>電子郵件地址，來自 <code>mailinglist</code>
+ 資料表的 <code>subscriber</code>
+ 列。</td>
+
+</tr>
+
+
+<tr>
+<td>SubscriberGUID</td>
+
+<td>String</td>
+
+<td>訂閱者 GUID，來自 <code>mailinglist</code>
+ 資料表的 <code>subscriber</code>
+ 列。</td>
+
+</tr>
+
+
+<tr>
+<td>EmailSent</td>
+
+<td>Boolean</td>
+
+<td>False 表示尚未傳送電子郵件；true 表示已傳送電子郵件。</td>
+
+</tr>
+
+
+</table>
+
+這些列中有重複的資料 (在關聯式資料庫中，這通常您是會避免的情況)。但是在此情況下，您是以資料重複的一些缺點換得更大的處理效率與延展性。因為電子郵件所需的所有資料都呈現在其中一列，所以背景工作角色 B 只需讀取一列，即可在從佇列中取出工作項目的同時就傳送電子郵件。
+
+您可能在想，那麼電子郵件的本文又從何而來。這些列並沒有電子郵件本文所在檔案的 Blob 參考，因為該值是衍生自 `MessageRef` 值。例如，如果 `MessageRef` 為 634852858215726983，則 Blob 會命名為 634852858215726983.htm 和 634852858215726983.txt。
+
+下列清單示範資料表中的資料可能長什麼樣子。
+
+<table  border="1">
+
+<tr>
+<th  width="200" align="right" bgcolor="lightgray">資料分割索引鍵</th>
+
 <td>2012-10-15</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">Row Key</th>
+<th  align="right" bgcolor="lightgray">列索引鍵</th>
+
 <td>message634852858215726983</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">MessageRef</th>
+<th  align="right" bgcolor="lightgray">MessageRef</th>
+
 <td>634852858215726983</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">ScheduledDate</th>
+<th  align="right" bgcolor="lightgray">ScheduledDate</th>
+
 <td>2012-10-15</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">SubjectLine</th>
+<th  align="right" bgcolor="lightgray">SubjectLine</th>
+
 <td>New lecture series</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">ListName</th>
+<th  align="right" bgcolor="lightgray">ListName</th>
+
 <td>contoso1</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">Status</th>
+<th  align="right" bgcolor="lightgray">Status</th>
+
 <td>Processing</td>
+
 </tr>
+
 
 </table>
 
-<hr/>
+* * *
 
-<table border="1">
+
+<table  border="1">
 
 <tr>
-<th width="200" align="right" bgcolor="lightgray">Partition Key</th>
+<th  width="200" align="right" bgcolor="lightgray">資料分割索引鍵</th>
+
 <td>2012-10-15</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">Row Key</th>
+<th  align="right" bgcolor="lightgray">列索引鍵</th>
+
 <td>634852858215726983student1@contoso.edu</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">MessageRef</th>
+<th  align="right" bgcolor="lightgray">MessageRef</th>
+
 <td>634852858215726983</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">ScheduledDate</th>
+<th  align="right" bgcolor="lightgray">ScheduledDate</th>
+
 <td>2012-10-15</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">SubjectLine</th>
+<th  align="right" bgcolor="lightgray">SubjectLine</th>
+
 <td>New lecture series</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">ListName</th>
+<th  align="right" bgcolor="lightgray">ListName</th>
+
 <td>contoso1</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">FromEmailAddress</th>
+<th  align="right" bgcolor="lightgray">FromEmailAddress</th>
+
 <td>donotreply@contoso.edu</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">EmailAddress</th>
+<th  align="right" bgcolor="lightgray">EmailAddress</th>
+
 <td>student1@contoso.edu</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">SubscriberGUID</th>
+<th  align="right" bgcolor="lightgray">SubscriberGUID</th>
+
 <td>76543210-90ed-41a9-b8ac-c1310c67b66a</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">EmailSent</th>
+<th  align="right" bgcolor="lightgray">EmailSent</th>
+
 <td>true</td>
+
 </tr>
+
 
 </table>
 
-<hr/>
+* * *
 
-<table border="1">
+
+<table  border="1">
 
 <tr>
-<th width="200" align="right" bgcolor="lightgray">Partition Key</th>
+<th  width="200" align="right" bgcolor="lightgray">資料分割索引鍵</th>
+
 <td>2012-10-15</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">Row Key</th>
+<th  align="right" bgcolor="lightgray">列索引鍵</th>
+
 <td>634852858215726983student2@contoso.edu</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">MessageRef</th>
+<th  align="right" bgcolor="lightgray">MessageRef</th>
+
 <td>634852858215726983</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">ScheduledDate</th>
+<th  align="right" bgcolor="lightgray">ScheduledDate</th>
+
 <td>2012-10-15</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">SubjectLine</th>
+<th  align="right" bgcolor="lightgray">SubjectLine</th>
+
 <td>New lecture series</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">ListName</th>
+<th  align="right" bgcolor="lightgray">ListName</th>
+
 <td>contoso1</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">FromEmailAddress</th>
+<th  align="right" bgcolor="lightgray">FromEmailAddress</th>
+
 <td>donotreply@contoso.edu</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">EmailAddress</th>
+<th  align="right" bgcolor="lightgray">EmailAddress</th>
+
 <td>student2@contoso.edu</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">SubscriberGUID</th>
+<th  align="right" bgcolor="lightgray">SubscriberGUID</th>
+
 <td>12345678-90ed-41a9-b8ac-c1310c679876</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">EmailSent</th>
+<th  align="right" bgcolor="lightgray">EmailSent</th>
+
 <td>true</td>
+
 </tr>
+
 
 </table>
 
+* * *
 
-<hr/>
 
-<table border="1">
+<table  border="1">
 
 <tr>
-<th width="200" align="right" bgcolor="lightgray">Partition Key</th>
+<th  width="200" align="right" bgcolor="lightgray">資料分割索引鍵</th>
+
 <td>2012-11-15</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">Row Key</th>
+<th  align="right" bgcolor="lightgray">列索引鍵</th>
+
 <td>message124852858215726999</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">MessageRef</th>
+<th  align="right" bgcolor="lightgray">MessageRef</th>
+
 <td>124852858215726999</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">ScheduledDate</th>
+<th  align="right" bgcolor="lightgray">ScheduledDate</th>
+
 <td>2012-11-15</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">SubjectLine</th>
+<th  align="right" bgcolor="lightgray">SubjectLine</th>
+
 <td>New job postings</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">ListName</th>
+<th  align="right" bgcolor="lightgray">ListName</th>
+
 <td>fabrikam</td>
+
 </tr>
 
+
 <tr>
-<th align="right" bgcolor="lightgray">Status</th>
+<th  align="right" bgcolor="lightgray">Status</th>
+
 <td>Pending</td>
+
 </tr>
+
 
 </table>
 
-<br/>
-<br/>
+### messagearchive 資料表
 
-### messagearchive 테이블
+有個策略可確保查詢會有效率地執行 (尤其是當您必須在 `PartitionKey` 和 `RowKey` 以外的其他欄位上搜尋時)，那就是限制資料表的大小。背景工作角色 A 中有個查詢會查看是否已傳送某個訊息的所有電子郵件，而該查詢需要在 `message` 資料表中尋找 `EmailSent` = false 的電子郵件列。`EmailSent` 值並不在 PartitionKey 或 RowKey 中，所以當訊息具有大量電子郵件列時，這不會是有效率的查詢。 因此，傳送電子郵件時，應用程式會將電子郵件列移至 `messagearchive` 資料表。如此一來，該查詢在檢查是否已傳送某個訊息的所有電子郵件時，就只須查詢 message 資料表的 `PartitionKey` 與 `RowKey`，原因是只要它發現某個訊息有任何電子郵件列，就表示有未傳送的訊息，而該訊息就不能標示為 `Complete`。
 
-쿼리가 효율적으로 실행되도록 하는 한 가지 전략은 테이블의 크기를 제한하는 것입니다. 특히 `PartitionKey` 및 `RowKey`가 아닌 다른 필드를 검색해야 하는 경우는 더욱 그렇습니다. 작업자 역할 A에서 메시지에 대해 모든 전자 메일을 보냈는지 확인하는 쿼리는 `message` 테이블에서 `EmailSent` = false인 전자 메일 행을 찾아야 합니다. `EmailSent` 값은 PartitionKey 또는 RowKey가 아니므로 전자 메일 행이 많은 메시지에 효율적인 쿼리가 아닙니다. 따라서 전자 메일을 보내면 응용 프로그램에서 전자 메일 행을 `messagearchive` 테이블로 이동합니다. 그 결과 메시지에 대한 모든 전자 메일을 보냈는지 확인하는 쿼리는 `PartitionKey` 및 `RowKey`의 메시지 테이블만 쿼리하면 됩니다. 왜냐하면 메시지에 대한 전자 메일 행이 검색되면 보내지 않은 메시지와 `Complete`로 표시할 수 없는 메시지가 있다는 의미이기 때문입니다.
+`messagearchive` 資料表中列的結構描述與 `message` 資料表中列的結構描述相同。視您想要如何用此封存資料做什麼而定，您可以減少針對每列儲存的屬性數，並刪除超過特定年齡的列，來限制此封存資料的大小與成本。
 
-`messagearchive` 테이블 행의 스키마는 `message` 테이블 행의 스키마와 동일합니다. 이 보관 데이터에서 수행할 작업에 따라 각 행에 대해 저장되는 속성 수를 줄이고 특정 기간보다 오래된 행을 삭제하여 크기 및 비용을 제한할 수 있습니다.
+<h2><a name="queues"></a><span  class="short-header">佇列</span>Azure 佇列</h2>
 
-큐Azure 큐
-----------
 
-Azure 큐를 사용하면 이 다중 계층 응용 프로그램의 계층 간 통신 및 백 엔드 계층의 작업자 역할 간 통신이 수월해집니다. 큐는 응용 프로그램을 확장할 수 있도록 하기 위해 작업자 역할 A와 작업자 역할 B 간에 통신하는 데 사용됩니다. 작업자 역할 A는 Message 테이블에 각 전자 메일에 대한 행을 만들고 작업자 역할 B는 테이블에서 보내지 않은 전자 메일을 나타내는 행을 검색하지만 작업을 분할하기 위해 작업자 역할 B의 인스턴스를 더 추가할 수는 없습니다. 테이블 행을 사용하여 작업자 역할 A와 작업자 역할 B 사이의 작업을 조정할 때의 문제는 한 작업자 역할 인스턴스에서만 지정된 테이블 행을 선택하여 처리하도록 할 방법이 없다는 것입니다. 큐는 이를 보장합니다. 작업자 역할 인스턴스가 큐에서 작업 항목을 가져오면 큐 서비스에서 다른 작업자 역할 인스턴스가 동일한 작업 항목을 가져올 수 없도록 합니다. Azure 큐의 이러한 단독 임대 기능을 사용하면 여러 작업자 역할 인스턴스 간에 작업을 쉽게 공유할 수 있습니다.
+Azure 佇列可促進這個多層式應用程式的各層之間，以及後端階層中各背景工作角色之間的通訊。佇列會用於背景工作角色 A 與背景工作角色 B 之間的通訊，讓應用程式變得可調整。背景工作角色 A 可能在 Message 資料表中為每封電子郵件各建立一列，而背景工作角色 B 則可能會掃描資料表，找出代表尚未傳送之電子郵件的列，但您將無法新增更多背景工作角色 B 執行個體。使用資料表列來協調背景工作角色 A 與背景工作角色 B 之間的工作有個問題，就是您沒辦法確保任一資料表列都只會被一個背景工作角色執行個體挑中處理。佇列則可提供該保證。當背景工作角色執行個體從佇列中取出工作項目時，佇列服務會確定沒有其他背景工作角色執行個體可以提取該工作項目。Azure 的這項獨家釋出功能有助於將工作負載分攤給背景工作角色的多個執行個體。
 
-또한 Azure는 서비스 버스 큐 서비스를 제공합니다. Azure 저장소 큐 및 서비스 버스 큐에 대한 자세한 내용은 [이 시리즈의 마지막 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/) 끝에 나열된 리소스를 참조하십시오.
+Azure 也提供服務匯流排佇列服務。如需 Azure 儲存體佇列與服務匯流排佇列的詳細資訊，請參閱[本系列的最後一個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/)最後列出的資源。
 
-Azure 전자 메일 서비스 응용 프로그램은 `AzureMailQueue` 와 `AzureMailSubscribeQueue` 라는 두 개의 큐를 사용합니다.
+Azure 電子郵件服務應用程式使用兩個佇列，分別名為 `AzureMailQueue` 和 `AzureMailSubscribeQueue`。
 
 ### AzureMailQueue
 
-`AzureMailQueue` 큐는 전자 메일 목록으로 전자 메일 보내기를 조정합니다. 작업자 역할 A는 보내려는 각 전자 메일에 대한 작업 항목을 큐에 넣고, 작업자 역할 B는 큐에서 작업 항목을 가져와 전자 메일을 보냅니다.
+`AzureMailQueue` 佇列會協調傳送電子郵件到電子郵件清單的順序。背景工作角色 A 會針對每封要傳送的電子郵件各放置一個工作項目到佇列中，而背景工作角色 B 則會從佇列中提出工作項目並傳送電子郵件。
 
-큐 작업 항목에는 메시지의 예약된 날짜(`message` 테이블의 파티션 키), `MessageRef` 와 `EmailAddress` 값(`message` 테이블의 행 키)으로 구성된 쉼표로 구분된 문자열과 작업자 역할이 작동 중단되었다가 다시 시작된 후 항목이 만들어졌는지 여부를 나타내는 플래그가 포함됩니다. 예를 들면 다음과 같습니다.
+佇列工作項目包含一個逗點分隔字串，字串中的每個分隔項目依序代表訊息 (`message` 資料表的資料分割索引鍵) 的已排定日期、`MessageRef` 與 `EmailAddress` 值 (`message` 資料表的列索引鍵) 以及一個旗標 (指出項目是否是在背景工作角色當機而重新啟動之後建立)，例如：
 
       2012-10-15,634852858215726983,student1@contoso.edu,0
 
-작업자 역할 B는 이러한 값을 사용하여 `message` 테이블에서 전자 메일을 보내는 데 필요한 모든 정보를 포함하는 행을 조회합니다. 다시 시작 플래그가 다시 시작을 나타내는 경우 작업자 B는 전자 메일을 보내기 전에 아직 보내지 않았는지를 확인합니다.
+背景工作角色 B 會使用這些值來查閱 `message` 資料表中含傳送電子郵件時所需之一切資訊的列。如果重新啟動旗標指出有重新啟動的情況，則背景工作 B 會先確定尚未傳送電子郵件，然後才傳送電子郵件。
 
-트래픽이 폭주하는 경우 작업자 역할 B의 여러 인스턴스를 인스턴스화하여 각 인스턴스가 독립적으로 큐에서 작업 항목을 가져올 수 있도록 클라우드 서비스를 다시 구성할 수 있습니다.
+當流量突然暴增時，雲端服務可以經過重新設定，以便具現化多個背景工作角色 B 執行個體，並讓這每個執行個體都可以獨立從佇列中提出工作項目。
 
 ### AzureMailSubscribeQueue
 
-`AzureMailSubscribeQueue` 큐는 구독 확인 전자 메일 보내기를 조정합니다. 서비스 메서드 호출에 대한 응답으로 서비스 메서드는 작업 항목을 큐에 넣습니다. 작업자 역할 B는 큐에서 작업 항목을 가져와 구독 확인 전자 메일을 보냅니다.
+`AzureMailSubscribeQueue`
+佇列會協調傳送訂閱確認電子郵件的順序。服務方法在收到服務方法呼叫時，會在佇列上放置一個工作項目。背景工作角色 B 會從佇列中提出工作項目，並傳送訂閱確認電子郵件。
 
-큐 작업 항목에는 구독자 GUID가 포함되어 있습니다. 이 값은 해당 작업자 역할 B에서 확인 전자 메일을 보내야 하는 모든 전자 메일 주소 및 해당 주소를 구독하는 목록을 고유하게 식별합니다. 앞에서 설명한 대로 `PartitionKey` 또는 `RowKey` 에 없는 필드에서 쿼리가 필요하며 비효율적입니다. 응용 프로그램의 확장성을 향상시키려면 `RowKey` 에 구독자 GUID를 포함하도록 `mailinglist` 테이블 구조를 변경해야 합니다.
+佇列工作項目包含訂閱者 GUID。此值會唯一識別電子郵件地址和要讓它訂閱的清單，這些就是背景工作角色 B 傳送確認電子郵件時所需的一切資訊。如稍早所述，要做這個動作，就需要查詢不在 `PartitionKey` 或 `RowKey` 中的欄位，而這樣做很沒有效率。若要使應用程式更可調整，則必須重新建構 `mailinglist` 資料表，使 `RowKey` 中包含訂閱者
+GUID。
 
-데이터 다이어그램Azure 전자 메일 서비스 데이터 다이어그램
----------------------------------------------------------
+<h2><a name="datadiagram"></a><span  class="short-header">資料圖</span>Azure 電子郵件服務資料圖</h2>
 
-다음 다이어그램에서는 테이블 및 큐와 해당 관계를 보여 줍니다.
 
-![Azure 전자 메일 서비스 응용 프로그램의 데이터 다이어그램](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-datadiagram.png)
+下圖顯示各資料表與佇列之間的關係。
 
-BlobAzure Blob
---------------
+![Azure 電子郵件服務應用程式的資料圖](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-datadiagram.png)
 
-Blob은 "binary large object"의 약어이며, Azure Blob 서비스는 클라우드에서 파일을 업로드하고 저장하는 방법을 제공합니다. Azure Blob에 대한 자세한 내용은 [이 시리즈의 마지막 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/) 끝에 나열된 리소스를 참조하십시오.
+<h2><a name="blobs"></a><span  class="short-header">Blob</span>Azure Blob</h2>
 
-Azure 메일 서비스 관리자는 HTML 형식의 전자 메일 본문을 *.htm* 파일에 넣고 일반 텍스트 형식의 전자 메일 본문은 *.txt* 파일에 넣습니다. 전자 메일을 예약할 때 **메시지 만들기** 웹 페이지에서 이러한 파일을 업로드하면 해당 페이지에 대한 ASP.NET MVC 컨트롤러에서 업로드된 파일을 Azure Blob에 저장합니다.
 
-Blob은 Blob 컨테이너에 저장되며, 폴더에 저장되는 파일과 매우 유사합니다. Azure 메일 서비스 응용 프로그램은 **azuremailblobcontainer**라는 단일 Blob 컨테이너를 사용합니다. 컨테이너에 있는 Blob의 이름은 MessageRef 값을 파일 확장명과 연결하여 파생됩니다(예: 634852858215726983.htm 및 634852858215726983.txt).
+Blob 是指「二進位大型物件」。Azure Blob 服務提供一種在雲端上傳和儲存檔案的方法。如需 Azure Blob 的詳細資訊，請參閱[本系列的最後一個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/)最後列出的資源。
 
-HTML과 일반 텍스트 메시지 모두 기본적으로 문자열이므로 전자 메일 메시지 본문을 Blob이 아닌 `Message` 테이블의 문자열 속성에 저장하도록 응용 프로그램을 설계할 수 있었습니다. 그러나 테이블 행의 속성 크기는 64K로 제한되므로 Blob을 사용하면 이러한 전자 메일 본문 크기에 대한 제한을 방지할 수 있습니다. 64K는 총 속성 크기의 최대값입니다. 인코딩 오버헤드를 허용하면 속성에 저장할 수 있는 최대 문자열 크기가 실제로 48k에 가까워집니다.
+Azure 郵件服務系統管理員會將電子郵件本文以 HTML 形式放置於 *.htm* 檔案中，或以純文字形式放置於 *.txt* 檔案中。要排定電子郵件時，他們會在 **建立訊息** 網頁中上傳這些檔案，而該頁面的 ASP.NET MVC 控制器就會將上傳的檔案儲存在 Azure Blob 中。
 
-클라우드 서비스 및 웹 사이트Azure 클라우드 서비스 및 Azure 웹 사이트
---------------------------------------------------------------------
+Blob 是儲存在 Blob 容器中，就像檔案是儲存在資料夾中一樣。Azure 郵件服務應用程式是使用單一 Blob 容器，名為 **azuremailblobcontainer**。容器中各 Blob 的名稱是串連 MessageRef 值與副檔名所洐生出來的，例如：634852858215726983.htm 和 634852858215726983.txt。
 
-Azure 전자 메일 서비스를 다운로드하면 프런트 엔드 및 백 엔드 모두 단일 Azure 클라우드 서비스에서 실행되도록 구성됩니다.
+由於 HTML 和純文字訊息基本上都是字串，因此我們原本也可將應用程式設計為將電子郵件訊息本文儲存在 `Message` 資料表中，而非 Blob 中。不過，資料表列中的屬性有 64K 的大小限制，因此使用 Blob 可避開該電子郵件本文大小限制。(64K 只是屬性的總大小上限；如果排除掉編碼額外負荷，則可在屬性中儲存的字串大小上限實際上比較接近 48k。)
 
-![응용 프로그램 아키텍처 개요](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-architecture-overview.png)
+<h2><a name="wawsvswacs"></a><span  class="short-header">雲端服務與網站</span>Azure 雲端服務與 Azure 網站</h2>
 
-다른 아키텍처는 프런트 엔드를 Azure 웹 사이트에서 실행하는 것입니다.
 
-![다른 응용 프로그램 아키텍처](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-alternative-architecture.png)
+當您下載 Azure 電子郵件服務時，其已設定成讓前端和後端全都在單一 Azure 雲端服務中執行。
 
-모든 구성 요소를 클라우드 서비스에 유지하면 구성 및 배포가 간단합니다. Azure 웹 사이트에서 ASP.NET MVC 프런트 엔드를 사용하여 응용 프로그램을 만들면 두 가지 배포를 사용할 수 있습니다. 하나는 Azure 웹 사이트에 배포하고 하나는 Azure 클라우드 서비스에 배포합니다. 또한 Azure 클라우드 서비스 웹 역할은 Azure 웹 사이트에서 사용할 수 없는 다음과 같은 기능을 제공합니다.
+![應用程式架構概觀](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-architecture-overview.png)
 
--   사용자 지정 및 와일드카드 인증서 지원.
--   IIS의 구성 방식 완벽하게 제어. Azure 웹 사이트에서는 많은 IIS 기능을 사용할 수 없습니다. Azure 웹 역할을 사용하면 [AppCmd](http://www.iis.net/learn/get-started/getting-started-with-iis/getting-started-with-appcmdexe "appCmd") 프로그램을 실행하는 시작 명령을 정의하여 *Web.config* 파일에서 구성할 수 없는 IIS 설정을 수정할 수 있습니다. 자세한 내용은 [Azure에서 IIS 구성 요소를 구성하는 방법](http://msdn.microsoft.com/en-us/library/windowsazure/gg433059.aspx) 및 [특정 IP 주소의 웹 역할 액세스를 차단하는 방법](http://msdn.microsoft.com/en-us/library/windowsazure/jj154098.aspx)을 참조하십시오.
--   [자동 크기 조정 응용 프로그램 블록](/en-us/develop/net/how-to-guides/autoscaling/)을 사용하여 자동으로 웹 응용 프로그램의 크기 조정 지원.
--   관리자 권한으로 실행하는 시작 스크립트를 실행하여 응용 프로그램 설치, 레지스트리 설정 수정, 성능 카운터 설치 등을 수행하는 기능.
--   [Azure Connect](http://msdn.microsoft.com/en-us/library/windowsazure/gg433122.aspx) 및 [Azure 가상 네트워크](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)에서 사용할 네트워크 격리.
--   디버깅 및 고급 진단을 위한 원격 데스크톱 액세스.
--   [가상 IP 교환](http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx "VIP 교환")을 사용한 롤링 업그레이드. 이 기능은 스테이징 및 프로덕션 배포의 콘텐츠를 교환합니다.
+替代的架構是在 Azure 網站中執行前端。
 
-Azure 웹 사이트는 클라우드 서비스에서 실행되는 웹 역할에 비해 유사한 용량의 비용이 저렴하므로 다른 아키텍처는 몇 가지 비용상의 혜택을 제공할 수 있습니다. 시리즈의 뒷부분에 나오는 자습서에서는 두 아키텍처에서 다른 구현 정보를 설명합니다.
+![替代的應用程式架構](./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-alternative-architecture.png)
 
-Azure 웹 사이트 및 Azure 클라우드 서비스를 선택하는 방법에 대한 자세한 내용은 [Azure 실행 모델](http://www.windowsazure.com/en-us/manage/windows/fundamentals/compute/)(영문)을 참조하십시오.
+將所有元件保留在雲端服務中，可讓設定與部署工作變簡單。如果您建立的應用程式會讓 ASP.NET MVC 前端位於 Azure 網站中，則您將有兩個部署，一個位於 Azure 網站，而另一個則位於 Azure 雲端服務。此外，Azure 雲端服務 Web 角色還提供 Azure 網站所無法提供的下列功能：
 
-비용비용
---------
+* 支援自訂與萬用字元憑證。
+* 完整控制 IIS 設定方式。許多 IIS 功能在 Azure 網站上無法啟用。有了 Azure Web   角色，您可以定義一個啟動命令，並讓該命令執行 [AppCmd][3] 程式來修改無法透過 *Web.config* 檔案來設定的 IIS
+  設定。如需詳細資訊，請參閱[如何在 Azure 中設定 IIS 元件][4]和[如何封鎖特定 IP 位址不讓它們存取 Web 角色][5]。
+* 支援自動調整 Web 應用程式
+  (說明請見[自動調整應用程式區塊](/en-us/develop/net/how-to-guides/autoscaling/))。
+* 能夠執行權限提高的指令碼來安裝應用程式、修改登錄設定、安裝效能計數器等等。
+* 與 [Azure Connect][6] 和 [Azure 虛擬網路][7]搭配使用的網路隔離。
+* 進行遠端桌面存取來做偵錯與進階診斷。
+* 透過 [虛擬 IP 交換][8]進行輪流升級。此功能會交換預備部署與生產部署的內容。
 
-이 섹션에서는 자습서가 게시된 2012년 12월 적용 비용을 기준으로 Azure에서 샘플 응용 프로그램을 실행하는 비용에 대해 간략하게 설명합니다. 비용을 기준으로 비즈니스 결정을 내리기 전에 다음 웹 페이지에서 현재 비용을 확인하십시오.
+替代的架構可能具有一些成本效益，因為就相等容量而言，Azure 網站可能比雲端服務中執行的 Web 角色更便宜。本系列稍後的教學課程將說明這兩個架構之間相異的實作詳細規格。
 
--   [Azure 가격 계산기](http://www.windowsazure.com/en-us/pricing/calculator/)
--   [SendGrid Azure](http://sendgrid.com/windowsazure.html)
+如需關於如何在 Azure 網站與 Azure 雲端服務之間做出選擇的詳細資訊，請參閱 [Azure 執行模型][9] (英文)。
 
-비용은 유지 관리를 결정한 웹 및 작업자 역할 인스턴스 수의 영향을 받습니다. [Azure 클라우드 서비스 99.95% SLA(서비스 수준 계약)](https://www.windowsazure.com/en-us/support/legal/sla/ "SLA")에 대한 자격을 갖추려면 각 역할에 대해 둘 이상의 인스턴스를 배포해야 합니다. 둘 이상의 역할 인스턴스를 실행해야 하는 이유 중 하나는 응용 프로그램을 실행하는 가상 컴퓨터가 운영 체제 업그레이드를 위해 한 달에 약 두 번 다시 시작되기 때문입니다. OS 업데이트에 대한 자세한 내용은 [OS 업그레이드로 인해 역할 인스턴스 다시 시작](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)(영문)을 참조하십시오.
+<h2><a name="cost"></a><span  class="short-header">成本</span>成本</h2>
 
-이 샘플의 두 작업자 역할에서 수행한 작업은 시간 결정적인 작업이 아니므로 99.5%의 SLA가 필요하지 않습니다. 따라서 한 인스턴스에서 작업을 처리할 수 있는 한 각 작업자 역할의 단일 인스턴스를 실행하는 것이 적합합니다. 웹 역할 인스턴스는 시간이 중요합니다. 즉, 사용자는 웹 사이트에 중단 시간이 없기를 원하므로 프로덕션 응용 프로그램에 둘 이상의 웹 역할 인스턴스가 있어야 합니다.
 
-다음 표에서는 최소 작업을 가정하여 Azure 전자 메일 서비스 샘플 응용 프로그램의 기본 아키텍처에 대한 비용을 보여 줍니다. 표시된 비용은 매우 작은(공유) 가상 컴퓨터 크기 사용을 기반으로 합니다. Visual Studio 클라우드 프로젝트를 만드는 경우 기본 가상 컴퓨터 크기는 작으며 비용은 매우 작은 크기보다 약 6배 더 많이 듭니다.
+本節概略介紹在 Azure 執行範例應用程式所需的成本，其中的費率乃是 2012 年 12 月發表本教學課程時的有效費率。在根據成本做出任何商業決策之前，請務必到下列頁面查看最新費率：
 
-<table border="1">
+* [Azure 定價計算機][10]
+* [SendGrid Azure (英文)][11]
 
-<tr bgcolor="lightgray">
-  <th>구성 요소 또는 서비스</th>
-  <th>비용</th>
-  <th>월별 비용</th>
+成本會受您決定要維護的 Web 與背景工作角色執行個體數目所影響。為了達到 [Azure 雲端服務 99.95% 的服務等級協定 (SLA)][12]，您必須針對每個角色各部署兩個以上的執行個體。至少必須執行兩個角色執行個體的原因之一，是因為執行您應用程式的虛擬機器每個月會因為要進行作業系統升級，而重新啟動兩次左右。(如需作業系統升級的詳細資訊，請參閱[角色執行個體由於作業系統升級而重新啟動][13]
+(英文)。)
+
+在此範例中，兩個背景工作角色所執行的工作並無時間上的急迫性，不需要達到 99.5% 的 SLA。因此，只要工作負載用一個執行個體就能應付，只執行每個背景工作角色的單一執行個體並無不妥。Web 角色執行個體則有時間上的急迫性，也就是說，使用者預期網站不會有任何停機的情況發生，因此生產應用程式應該至少有兩個 Web 角色執行個體。
+
+下表顯示 Azure 電子郵件服務範例應用程式預設架構的成本 (假設工作負載僅達最低水準)。所示的成本是根據使用一個額外小型 (共用) 虛擬機器大小而來。您建立 Visual Studio 雲端專案時的預設虛擬機器大小很小，比這額外小型大小大約貴了六倍。
+
+<table  border="1">
+
+<tr  bgcolor="lightgray">
+<th>元件或服務</th>
+
+<th>費率</th>
+
+<th>每月成本</th>
+
 </tr>
+
+
 <tr>
-<td>웹 역할</td>
-<td>매우 작은 인스턴스의 경우 $.02/시간에 2개 인스턴스</td>
-<td>$29.00</td>
+<td>Web 角色</td>
+
+<td>2 個執行個體，以額外小型執行個體而言，費率為 $.02 美元/小時</td>
+
+<td>$29.00 美元</td>
+
 </tr>
+
+
 <tr>
-<td>작업자 역할A(보낼 전자 메일 예약)</td>
-<td>매우 작은 인스턴스의 경우 $.02/시간에 1개 인스턴스</td>
-<td>$14.50</td>
+<td>背景工作角色 A (排定要傳送的電子郵件)</td>
+
+<td>1 個執行個體，以額外小型執行個體而言，費率為 $.02 美元/小時</td>
+
+<td>$14.50 美元
+</td>
+
 </tr>
+
+
 <tr>
-<td>작업자 역할 B(전자 메일 보내기)</td>
-<td>매우 작은 인스턴스의 경우 $.02/시간에 1개 인스턴스</td>
-<td>$14.50</td>
+<td>背景工作角色 B (傳送電子郵件)</td>
+
+<td>1 個執行個體，以額外小型執行個體而言，費率為 $.02 美元/小時</td>
+
+<td>$14.50 美元</td>
+
 </tr>
+
+
 <tr>
-<td>Azure 저장소 트랜잭션</td>
-<td>$0.10/백만에 월별 1백만 개 트랜잭션(각 쿼리는 트랜잭션으로 계산됩니다. 작업자 역할 A는 테이블에서 보내야 하는 메시지를 지속적으로 쿼리합니다. 또한 응용 프로그램은 진단 데이터를 Azure 저장소에 쓰도록 구성되며 수행할 때마다 하나의 트랜잭션입니다.)</td>
-<td>$0.10</td>
+<td>Azure 儲存體交易</td>
+
+<td>每個月 1 百萬筆交易，費率為 $0.10 美元/百萬筆 (每個查詢都算是一筆交易；背景工作角色 A 會持續查詢資料表，看看是否有需要傳送的訊息。應用程式也是設定成將診斷資料寫入 Azure 儲存體，而且每次這樣做，即為一筆交易。)</td>
+
+<td>$0.10 美元</td>
+
 </tr>
+
+
 <tr>
-<td>Azure 로컬 중복 저장소</td>
-<td>25GB에 $2.33(응용 프로그램 테이블 및 진단 데이터에 대한 저장소 포함)</td>
-<td>$2.33</td>
+<td>Azure 本機備援儲存體</td>
+
+<td>25 GB $2.33 美元 (包括存放應用程式資料表與診斷資料的儲存體。)</td>
+
+<td>$2.33 美元</td>
+
 </tr>
+
+
 <tr>
-<td>대역폭</td>
-<td>5GB 이그레스가 무료임</td>
-<td>무료</td>
+<td>頻寬</td>
+
+<td>5 GB 免費出口流量</td>
+
+<td>免費</td>
+
 </tr>
+
+
 <tr>
 <td>SendGrid</td>
-<td>Azure 고객은 매월 25,000개 전자 메일을 무료로 보낼 수 있음</td>
-<td>무료</td>
+
+<td>Azure 客戶每個月可以免費傳送 25,000 封電子郵件</td>
+
+<td>免費</td>
+
 </tr>
+
+
 <tr>
-<td colspan="2">합계</td>
-<td>$60.43</td>
+<td  colspan="2">總計</td>
+
+<td>$60.43 美元</td>
+
 </tr>
+
+
 </table>
 
-위에서 확인했듯이 역할 인스턴스는 전체 비용의 주요 구성 요소입니다. 역할 인스턴스는 중지된 경우에도 비용을 발생시킵니다. 비용을 발생시키지 않으려면 역할 인스턴스를 삭제해야 합니다. 비용을 절감하는 방법 하나는 작업자 역할 A와 작업자 역할 B의 모든 코드를 하나의 작업자 역할로 이동하는 것입니다. 이러한 자습서에서는 확장을 간소화하기 위해 두 개의 작업자 인스턴스를 구현하도록 의도적으로 선택했습니다. 작업자 역할 B가 수행하는 작업은 Azure 큐 서비스에 의해 조정됩니다. 즉, 역할 인스턴스 수만 늘리면 작업자 역할 B를 확장할 수 있습니다. 작업자 역할 B는 높은 부하 상태를 제한하는 요소입니다. 작업자 역할 A가 수행하는 작업은 큐에서 조정되지 않으므로 작업자 역할 A의 여러 인스턴스를 실행할 수 없습니다. 두 작업자 역할을 결합하고 확장하려면 작업자 역할 A 작업이 하나의 인스턴스에서만 실행되도록 하는 메커니즘을 구현해야 합니다. 이러한 메커니즘은 [CloudFx](http://nuget.org/packages/Microsoft.Experience.CloudFx "CloudFX")에서 제공합니다. [WorkerRole.cs 샘플](http://code.msdn.microsoft.com/windowsazure/CloudFx-Samples-60c3a852/sourcecode?fileId=57087&pathId=528472169)(영문)을 참조하십시오.
+您可以看見，角色執行個體為整體成本中的主要部分。角色執行個體即使停止也會產生成本，因此您必須刪除角色執行個體，才能不產生任何費用。節省成本的方法之一為將背景工作角色 A 與背景工作角色 B 中的所有程式碼都移到一個背景工作角色中。在這些教學課程中，我們刻意選擇實作兩個背景工作執行個體，以便簡化向外延展的過程。背景工作角色 B 執行的工作是由 Azure 佇列服務協調，這表示您可以僅增加背景工作角色 B 的執行個體數目，向外延展該角色。(背景工作角色 B 為高負載條件的限制因素。) 背景工作角色 A 執行的工作不是由佇列協調，因此您無法執行背景工作角色 A 的多個執行個體。如果這兩個背景工作角色合併，而您想要啟用向外延展，則您會需要實作一個機制，確保背景工作角色 A 工作只會在一個執行個體中執行。([CloudFx][14] (英文)就提供了這樣一個機制。請參閱 [WorkerRole.cs 範例][15] (英文)。)
 
-또한 두 작업자 역할의 모든 코드를 웹 역할로 이동하여 모든 작업이 웹 역할에서 실행되도록 할 수 있습니다. 그러나 ASP.NET에서 백그라운드 작업 실행은 지원되지 않거나 안정적이지 않은 것으로 간주되므로 이 아키텍처는 확장성을 복잡하게 만듭니다. 자세한 내용은 [The Dangers of Implementing Recurring Background Tasks In ASP.NET에서 반복되는 백그라운드 작업을 구현할 때의 위험](http://haacked.com/archive/2011/10/16/the-dangers-of-implementing-recurring-background-tasks-in-asp-net.aspx)(영문)을 참조하십시오. [Azure에서 작업자 및 웹 역할을 결합하는 방법](http://www.31a2ba2a-b718-11dc-8314-0800200c9a66.com/2010/12/how-to-combine-worker-and-web-role-in.html)(영문) 및 [여러 Azure 작업자 역할을 Azure 웹 역할로 결합](http://www.31a2ba2a-b718-11dc-8314-0800200c9a66.com/2012/02/combining-multiple-azure-worker-roles.html)(영문)을 참조하십시오.
+也可以將這兩個背景工作角色中的所有程式碼都移到 Web 角色中，讓一切都在 Web 角色中執行。不過，在 ASP.NET 執行背景工作並不受支援，也不被視為健全，而且此架構將使延展性變複雜。如需詳細資訊，請參閱[在 ASP.NET 實作週期性背景工作的危險][16] (英文)。另請參閱[如何在 Azure 結合背景工作與 Web 角色][17] (英文) 和[將多個 Azure 背景工作角色結合成一個 Azure Web 角色][18] (英文)。
 
-비용을 줄일 수 있는 또 다른 아키텍처는 [자동 크기 조정 응용 프로그램 블록](/en-us/develop/net/how-to-guides/autoscaling/)을 사용하여 예약된 기간 동안만 작업자 역할을 자동으로 배포하고 작업이 완료되면 삭제하는 것입니다. 자동 크기 조정에 대한 자세한 내용은 [이 시리즈의 마지막 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/) 끝에 있는 링크를 참조하십시오.
+另一個使成本降低的替代架構是使用[自動調整應用程式區塊](/en-us/develop/net/how-to-guides/autoscaling/)，以僅在已排定的期間自動部署背景工作角色，並在工作完成時加以刪除。如需自動調整的詳細資訊，請參閱[本系列的最後一個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/)最後的連結。
 
-향후 Azure는 예약된 다시 부팅에 대한 알림 메커니즘을 제공할 수 있으므로 다시 부팅 기간 동안만 추가 웹 역할 인스턴스를 스핀업할 수 있습니다. 99.95 SLA에는 적합하지 않지만 비용을 거의 절반으로 줄이고 다시 부팅 기간 동안에도 웹 응용 프로그램을 계속 사용 가능한 상태로 유지할 수 있습니다.
+未來的 Azure 可能會針對排定的重新開機提供通知機制，讓您能夠在重新開機時間範圍僅讓一個額外的 Web 角色執行個體運轉上線。您將達不到 99.95 SLA，但可以減少幾乎一半的成本，並確保您的 Web 應用程式在重新開機期間仍然可用。
 
-인증 및 권한 부여인증 및 권한 부여
-----------------------------------
+<h2><a name="auth"></a><span  class="short-header">驗證與授權</span>驗證與授權</h2>
 
-프로덕션 응용 프로그램에서 ASP.NET Web API 서비스 메서드를 포함하여 ASP.NET MVC 웹 프런트 엔드에 대한 ASP.NET 멤버십 시스템처럼 인증 및 권한 부여 메커니즘을 구현합니다. 공유 암호 사용과 같은 다른 옵션을 사용하여 Web API 서비스 메서드의 보안을 유지할 수도 있습니다. 인증 및 권한 부여 기능은 설정 및 배포를 간단하게 하기 위해 샘플 응용 프로그램에서 생략되었습니다. 시리즈의 두 번째 자습서에서는 클라우드에 응용 프로그램을 배포할 때 권한 없는 사용자가 해당 응용 프로그램을 사용할 수 없도록 IP 제한을 구현하는 방법을 보여 줍니다.
 
-ASP.NET MVC 웹 프로젝트에서 인증 및 권한 부여를 구현하는 방법에 대한 자세한 내용은 다음 리소스를 참조하십시오.
+在生產應用程式中，您會實作驗證與授權機制，如 ASP.NET MVC Web 前端的 ASP.NET 成員資格系統，包括 ASP.NET Web API 服務方法。也有其他選項 (例如使用共用密鑰) 可保護 Web API 服務方法的安全。範例應用程式中省略了驗證與授權功能，以方便設定和部署。(本系列的第二個教學課程將說明如何實作 IP 限制，讓未獲授權的人員無法使用您部署至雲端的應用程式。)
 
--   [ASP.NET Web API의 인증 및 권한 부여(영문)](http://www.asp.net/web-api/overview/security/authentication-and-authorization/authentication-and-authorization-in-aspnet-web-api)
--   [Music 스토어 7부: 멤버십 및 권한 부여](http://www.asp.net/mvc/tutorials/mvc-music-store/mvc-music-store-part-7)(영문)
+如需關於如何在 ASP.NET MVC Web 專案中實作驗證與授權的詳細資訊，請參閱下列資源：
 
-**참고**: 공유 암호를 사용하여 Web API 서비스 메서드의 보안을 유지하는 메커니즘을 포함하려고 했지만 초기 릴리스 시기에 완료되지 않았습니다. 따라서 세 번째 자습서에서는 구독 프로세스에 대한 Web API 컨트롤러를 빌드하는 방법을 보여 주지 않습니다. 이 자습서의 다음 버전에는 보안 구독 프로세스를 구현하는 지침을 포함하려고 합니다. 그때까지는 관리자 웹 페이지를 사용하여 목록의 전자 메일 주소를 구독함으로써 응용 프로그램을 테스트할 수 있습니다.
+* [ASP.NET Web API 中的驗證與授權][19]
+* [音樂市集第 7 部分：成員資格與授權][20]
 
-다음 단계다음 단계
-------------------
+**注意**：我們原本計劃納入一個機制來使用共用密鑰保護 Web API 服務方法，但未及時在初次發佈時完成。因此，第三個教學課程不會說明如何建置訂閱程序的 Web API 控制器。我們希望在本教學課程的下一版本中納入實作安全訂閱程序的指示。在那之前，您可以使用系統管理員網頁讓電子郵件地址訂閱清單，藉以測試應用程式。
 
-[다음 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/)에서는 샘플 프로젝트를 다운로드하고, 개발 환경을 구성하며, 환경에 맞는 프로젝트를 구성하고, 로컬 및 클라우드에서 프로젝트를 테스트합니다. 다음 자습서에서는 처음부터 프로젝트를 빌드하는 방법을 살펴봅니다.
+<h2><a name="nextsteps"></a><span  class="short-header">後續步驟</span>後續步驟</h2>
 
-Azure 저장소 테이블, 큐 및 Blob 작업 관련 추가 리소스에 대한 링크는 [이 시리즈의 마지막 자습서](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/) 끝 부분을 참조하십시오.
 
-[자습서 2](/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/)
+在[下一個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/)中，您將下載範例專案、設定開發環境、設定適用於環境的專案，然後在本機與雲端測試專案。在下列教學課程中，您將看到如何從頭建置專案。
 
+如需關於使用 Azure 儲存體資料表、佇列與 Blob 的其他資源連結，請參閱[本系列的最後一個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/)的最後。
+
+ 
+<div><a  href="/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/" class="site-arrowboxcta download-cta">教學課程 2</a></div>
+
+ 
+
+[1]: http://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETMultiTierWindowsAzureApplicationUsingStorageTablesQueuesandBlobs
+[2]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx
+[3]: http://www.iis.net/learn/get-started/getting-started-with-iis/getting-started-with-appcmdexe "appCmd"
+[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433059.aspx
+[5]: http://msdn.microsoft.com/en-us/library/windowsazure/jj154098.aspx
+[6]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433122.aspx
+[7]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx
+[8]: http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx "VIP 交換"
+[9]: http://www.windowsazure.com/en-us/manage/windows/fundamentals/compute/
+[10]: http://www.windowsazure.com/en-us/pricing/calculator/
+[11]: http://sendgrid.com/windowsazure.html
+[12]: https://www.windowsazure.com/en-us/support/legal/sla/ "SLA"
+[13]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
+[14]: http://nuget.org/packages/Microsoft.Experience.CloudFx "CloudFX"
+[15]: http://code.msdn.microsoft.com/windowsazure/CloudFx-Samples-60c3a852/sourcecode?fileId=57087&pathId=528472169
+[16]: http://haacked.com/archive/2011/10/16/the-dangers-of-implementing-recurring-background-tasks-in-asp-net.aspx
+[17]: http://www.31a2ba2a-b718-11dc-8314-0800200c9a66.com/2010/12/how-to-combine-worker-and-web-role-in.html
+[18]: http://www.31a2ba2a-b718-11dc-8314-0800200c9a66.com/2012/02/combining-multiple-azure-worker-roles.html
+[19]: http://www.asp.net/web-api/overview/security/authentication-and-authorization/authentication-and-authorization-in-aspnet-web-api
+[20]: http://www.asp.net/mvc/tutorials/mvc-music-store/mvc-music-store-part-7

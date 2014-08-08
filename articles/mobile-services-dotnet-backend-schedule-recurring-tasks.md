@@ -252,7 +252,7 @@
 
 	這會執行在排程器中仍處於停用狀態的工作。在此頁面上，您可以隨時啟用工作及變更其排程。
 
-    >[WACOM.NOTE]A POST request can still be used to start the scheduled job.However, the authorization defaults to user, which means that the request must include the application key in the header.
+    >[WACOM.NOTE] POST 要求仍然可以用來啟動已排程的工作。不過，授權預設會提供給使用者，表示要求必須在標頭中包含應用程式金鑰。
 
 1.  (選用)在 [Azure 管理入口網站](https://manage.windowsazure.com/)中，對您行動服務的相關資料庫按一下 [管理]。
 

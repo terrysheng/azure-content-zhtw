@@ -61,8 +61,7 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
     
     **Azure 網站** 索引標籤會顯示，您會看到 Visual Studio 中所提供的網站管理與組態工作。
     
-    ![Azure
-    網站視窗](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
+    ![Azure 網站視窗](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
     
     在本教學課程中，您將使用記錄與追蹤下拉式清單。 您也會使用遠端偵錯功能，但是將以不同的方式來加以啟用。
     
@@ -91,8 +90,7 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 2.  展開 **檔案** 節點，然後按兩下 *Web.config* 檔案。
     
-    ![開啟
-    Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
+    ![開啟 Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
     
     Visual Studio 會從遠端網站開啟 Web.config 檔案，然後在標題列中於檔案名稱旁邊顯示 [Remote]。
 
@@ -100,8 +98,7 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
     
     `<customErrors  mode="off"></customErrors>`
     
-    ![編輯
-    Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
+    ![編輯 Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
 
 4.  重新整理顯示沒有幫助的錯誤訊息的瀏覽器，現在您就會看到詳細的錯誤訊息，例如以下範例：
     
@@ -402,25 +399,21 @@ Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 **輸出*
 
 1.  在您從 **伺服器總管** 中開啟的 **Azure 網站組態** 索引標籤中，將 Web 伺服器記錄功能變更為 **開啟**，然後按一下 **儲存**。
     
-    ![啟用 Web
-    伺服器記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-webserverloggingon.png)
+    ![啟用 Web 伺服器記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-webserverloggingon.png)
 
 2.  在 **輸出** 視窗中，按一下 **指定要監視的 Azure 記錄** 按鈕。
     
-    ![指定要監視的 Azure
-    記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-specifylogs.png)
+    ![指定要監視的 Azure 記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-specifylogs.png)
 
 3.  在 **Azure 記錄選項** 對話方塊中，選取 **Web 伺服器記錄**，然後按一下 **確定**。
     
-    ![監視 Web
-    伺服器記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorwslogson.png)
+    ![監視 Web 伺服器記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorwslogson.png)
 
 4.  在顯示該網站的瀏覽器視窗中，依序按一下 **首頁**、**關於**、**連絡人**。
     
     通常會先產生應用程式記錄，然後才是 Web 伺服器記錄。您可能需要等候一小段時間，記錄才會顯示。
     
-    ![輸出視窗中的 Web
-    伺服器記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
+    ![輸出視窗中的 Web 伺服器記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
 根據預設，當您第一次使用 Visual Studio 啟用 Web 伺服器記錄時，Azure 會將記錄寫入檔案系統。做為替代方式，您可以使用管理入口網站來指定應該將 Web 伺服器記錄寫入儲存體帳戶中的某個 Blob 容器。如需詳細資訊，請參閱[如何設定網站](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)中的**網站診斷**小節。
 
@@ -502,8 +495,7 @@ MapReduce** (英文)。
 
 3.  輸入唯一的 URL 以便用於儲存體帳戶，然後按一下 **建立儲存體帳戶**。
     
-    ![輸入
-    URL](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storageurl.png)
+    ![輸入 URL](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storageurl.png)
 
 4.  在 Visual Studio 的 **Azure 網站** 視窗中，按一下 **記錄** 索引標籤，然後按一下 **設定記錄**。
     
@@ -517,8 +509,7 @@ MapReduce** (英文)。
 
 7.  按一下 **管理資料表儲存體**。
     
-    ![按一下
-    [管理資料表儲存體]](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-stgsettingsmgmtportal.png)
+    ![按一下 [管理資料表儲存體]](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-stgsettingsmgmtportal.png)
     
     如果您擁有不只一個儲存體帳戶，則可以在 **Manage table storage for application diagnostics** 方塊中選擇您的儲存體帳戶。您可以建立新的資料表，或是使用現有的資料表。
     
@@ -534,8 +525,7 @@ MapReduce** (英文)。
 
 11. 在 Visual Studio 的 **Azure 網站** 視窗的 **記錄** 索引標籤中，按一下 **Diagnostic Summary** 下方的 **重新整理**。
     
-    ![按一下
-    [重新整理]](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
+    ![按一下 [重新整理]](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
     
     **Diagnostic Summary** 區段預設會顯示最後 15 分鐘的記錄。您可以變更期間以檢視更多記錄。
     
@@ -584,13 +574,11 @@ Azure 網站會使用 IIS 7.0 及更新版本所提供的相同失敗要求追�
 
 4.  在管理入口網站中，按下 **儀表板**，然後按一下 **Quick Glance** 區段中的 **Reset your deployment credentials**。
     
-    ![重設儀表板中的 FTP
-    認證連結](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-resetftpcredentials.png)
+    ![重設儀表板中的 FTP 認證連結](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-resetftpcredentials.png)
 
 5.  輸入新的使用者名稱與密碼。
     
-    ![新的 FTP
-    使用者名稱與密碼](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
+    ![新的 FTP 使用者名稱與密碼](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
 6.  在管理入口網站的 **儀表板** 索引標籤中，按 F5 以重新整理頁面，然後向下捲動至顯示 [Deployment / FTP User]****
     的地方。請注意，該使用者名稱前面有加上網站名稱前置詞。**當您登入時，必須使用此完整的使用者名稱，加上此處所示的網站名稱前置詞。**
@@ -603,19 +591,16 @@ Azure 網站會使用 IIS 7.0 及更新版本所提供的相同失敗要求追�
 
 9.  開啟 *LogFiles* 資料夾。
     
-    ![開啟 LogFiles
-    資料夾](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilesfolder.png)
+    ![開啟 LogFiles 資料夾](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilesfolder.png)
 
 10. 開啟名為 W3SVC 並加上數值的資料夾。
     
-    ![開啟 W3SVC
-    資料夾](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfolder.png)
+    ![開啟 W3SVC 資料夾](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfolder.png)
     
     該資料夾包含了一些 XML 檔案 (內含任何您在啟用失敗要求追蹤功能後所記錄的錯誤)，以及一個可供瀏覽器用來格式化該 XML 檔案的
     XSL 檔案。
     
-    ![W3SVC
-    資料夾](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfoldercontents.png)
+    ![W3SVC 資料夾](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfoldercontents.png)
 
 11. 按一下 XML 檔案，以取得您想要檢視其追蹤資訊的失敗要求。
     
@@ -753,3 +738,5 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤][36] (英文) 小節可�
 [35]: http://support.microsoft.com/kb/943891
 [36]: http://www.iis.net/learn/troubleshoot/using-failed-request-tracing
 [37]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/windowsazure/ee405479.aspx
+
+[GetStarted]: /en-us/develop/net/tutorials/get-started/

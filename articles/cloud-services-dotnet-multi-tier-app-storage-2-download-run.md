@@ -49,7 +49,7 @@
 
 [WACOM.INCLUDE [install-sdk-2012-only](../includes/install-sdk-2012-only.md)]
 
-建立儲存體帳戶建立 Azure 儲存體帳戶
+<a name="createWASA"></a>建立儲存體帳戶建立 Azure 儲存體帳戶
 -----------------------------------
 
 在 Visual Studio 執行範例應用程式時，您可以存取 Azure 開發儲存體中的資料表、佇列和 Blob，或雲端中的 Azure 儲存體帳戶。開發儲存體會使用 SQL Server Express LocalDB 資料庫，來模擬 Azure 儲存體在雲端的運作方式。在本教學課程中，您會從使用開發儲存體來開始著手，然後了解如何設定應用程式，讓它在 Visual Studio 執行時使用雲端儲存體帳戶。在教學課程的這一節當中，您會建立 Azure 儲存體帳戶，並設定 Visual Studio，以在稍後的教學課程中使用。
@@ -94,7 +94,7 @@
 
 9.  將其中一個金鑰複製到剪貼簿，以用於下一節。
 
-安裝 ASE安裝 Azure 儲存體總管
+<a name="installASE"></a>安裝 ASE安裝 Azure 儲存體總管
 -----------------------------
 
 **Azure 儲存體總管** (ASE) 是可用來查詢和更新 Azure 儲存體資料表、佇列和 Blob 的工具。您將會在這些教學課程中一路使用它，以確認資料是否有正確更新，並建立測試資料。
@@ -115,7 +115,7 @@
 
 可使用 Azure 儲存體的工具不只這項。如需詳細資訊，請參閱 [Azure 儲存體總管 (2014)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) (英文)。
 
-建立雲端服務建立雲端服務
+<a name="createcloudsvc"></a>建立雲端服務建立雲端服務
 ------------------------
 
 1.  在瀏覽器中開啟 [Azure 管理入口網站](http://manage.windowsazure.com)。
@@ -144,7 +144,7 @@
 
     您可以移至下一個步驟，無需等待此步驟完成。
 
-下載並執行下載並執行已完成的方案
+<a name="downloadcnfg"></a>下載並執行下載並執行已完成的方案
 --------------------------------
 
 1.  下載並解壓縮[已完成的方案](http://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) (英文)。
@@ -207,7 +207,7 @@
 
 您輸入和檢視的資料將會儲存在 Azure 開發儲存體中。開發儲存體會使用 SQL Server Express LocalDB 資料庫，來模擬 Azure 儲存體在雲端的運作方式。應用程式使用開發儲存體的原因是，那是您在下載專案時設定要使用的儲存體。此設定儲存在 **AzureEmailService** 專案的 *.cscfg* 檔案中。*ServiceConfiguration.Local.cscfg* 檔案會決定當您在 Visual Studio 本機執行應用程式時使用的項目，而 *ServiceConfiguration.Cloud.cscfg* 檔案則會決定當您將應用程式部署至雲端時使用的項目。稍後您將看到如何設定應用程式，來使用您先前建立的 Azure 儲存體帳戶。
 
-開發人員儲存體檢視 Visual Studio 中的開發人員儲存體
+<a name="StorageExpVS"></a>開發人員儲存體檢視 Visual Studio 中的開發人員儲存體
 ---------------------------------------------------
 
 **[伺服器總管]** 中的 **Azure 儲存體**瀏覽器可提供便利的 Azure 儲存體資源唯讀檢視。
@@ -232,7 +232,7 @@
 
 > [WACOM.NOTE] 在最新的 SDK 中，您可以更新 **[伺服器總管]** 中的開發儲存體。
 
-使用您的儲存體帳戶設定應用程式來使用您的 Azure 儲存體帳戶
+<a name="conf4azureStorage"></a>使用您的儲存體帳戶設定應用程式來使用您的 Azure 儲存體帳戶
 ---------------------------------------------------------
 
 接著，您將看到如何設定應用程式，以便它能夠在 Visual Studio 中執行時使用您的 Azure 儲存體帳戶，而不是使用開發儲存體。想在 Visual Studio 中進行此作業有新舊兩種作法，新作法是在 SDK 1.8 版中引進，舊作法則需要從 Azure 管理入口網站複製和貼上設定。下列步驟示範新作法，也就是配置儲存體帳戶設定。
@@ -367,7 +367,7 @@
 
     ![ASE](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-se4.png)
 
-SendGrid將應用程式設為使用 SendGrid
+<a name="sendGrid"></a>SendGrid將應用程式設為使用 SendGrid
 -----------------------------------
 
 範例應用程式會使用 SendGrid 來傳送電子郵件。為了能使用 SendGrid 來傳送電子郵件，您必須設定 SendGrid 帳戶，然後必須利用 SendGrid 認證來更新組態檔。
@@ -392,7 +392,7 @@ SendGrid將應用程式設為使用 SendGrid
 
 您可以更新雲端組態檔，藉此來設定應用程式在雲端執行時將使用的設定。如果想要應用程式在本機執行時傳送電子郵件，則您也須更新 *ServiceConfiguration.Local.cscfg* 檔案。
 
-部署至 Azure將應用程式部署至 Azure
+<a name="deployAz"></a>部署至 Azure將應用程式部署至 Azure
 ----------------------------------
 
 若要部署應用程式，您可以在 Visual Studio 建立一個套件，然後使用 Azure 管理入口網站來上傳它，或可從 Visual Studio 直接發佈。在本教學課程中，您將使用發佈方法。
@@ -483,7 +483,7 @@ SendGrid將應用程式設為使用 SendGrid
 
     ![pub](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-12.png)
 
-實際執行將應用程式從預備提升至實際執行
+<a name="swap"></a>實際執行將應用程式從預備提升至實際執行
 --------------------------------------
 
 1.  在 [Azure 管理入口網站](http://manage.windowsazure.com)中，按一下左窗格中的 **[雲端服務]** 圖示，然後選取您的雲端服務。
@@ -504,7 +504,7 @@ SendGrid將應用程式設為使用 SendGrid
 
     如果還沒變更儲存體帳戶設定，則當您在雲端執行應用程式時，即會顯示測試應用程式的預備版本時所輸入的資料。
 
-追蹤設定和檢視追蹤資料
+<a name="trace"></a>追蹤設定和檢視追蹤資料
 ----------------------
 
 追蹤工具非常適合用於偵錯雲端應用程式。在教學課程的這一節當中，您將看到如何檢視追蹤資料。
@@ -538,7 +538,7 @@ SendGrid將應用程式設為使用 SendGrid
 
     ![Dashboard](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-trc.png)
 
-新增角色執行個體新增另一個背景工作角色執行個體來處理增加的負載
+<a name="addRole"></a>新增角色執行個體新增另一個背景工作角色執行個體來處理增加的負載
 --------------------------------------------------------------
 
 有兩種方法可擴充 Azure 角色中的運算資源，那就是指定[設定雲端服務的大小](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "虛擬機器大小") 和 (或) 指定執行中虛擬機器的執行個體計數。
@@ -575,7 +575,7 @@ SendGrid將應用程式設為使用 SendGrid
 
     ![view instances](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-in2.png)
 
-後續步驟後續步驟
+<a name="nextsteps"></a>後續步驟後續步驟
 ----------------
 
 現在您已看到如何設定、部署及擴充已完成的應用程式。後續的教學課程會示範如何從頭組建應用程式。在[下一個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/)中，您將組建 Web 角色。
@@ -583,4 +583,92 @@ SendGrid將應用程式設為使用 SendGrid
 如需使用 Azure 儲存體資料表、佇列和 Blob 的其他資源連結，請參閱[本系列的最後一個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/)結尾。
 
 [教學課程 3](/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/)
+
+[Set up the development environment]: #setupdevenv
+[Set up a free Azure account]: #setupwindowsazure
+[Create an Azure Storage account]: #createWASA
+[Install Azure Storage Explorer]: #installASE
+[Create a Cloud Service]: #createcloudsvc
+[Download and run the completed solution]: #downloadcnfg
+[View developer storage in Visual Studio]: #StorageExpVS
+[Configure the application for Azure Storage]: #conf4azureStorage
+[Deploy the application to Azure]: #deployAz
+[Promote the application from staging to production]: #swap
+[Configure the application to use SendGrid]: #sendGrid
+[Configure and view trace data]: #trace
+[Add another worker role instance to handle increased load]: #addRole
+
+[firsttutorial]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+
+[tut3]: /en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/
+[tut5]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
+[NewPortal]: http://manage.windowsazure.com
+[managestorage]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
+[autoscalingappblock]: /en-us/develop/net/how-to-guides/autoscaling/
+
+
+[mtas-portal-new-storage]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-portal-new-storage.png
+[mtas-storage-quick]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-storage-quick.png
+[mtas-create-storage-url-test]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create-storage-url-test.png
+[mtas-manage-keys]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-manage-keys.png
+[mtas-guid-keys]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-guid-keys.PNG
+[mtas-new-cloud]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-new-cloud.png
+[mtas-create-cloud]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create-cloud.png
+[mtas-ase-add]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-ase-add.png
+[mtas-ase-add2]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-ase-add2.png
+
+[mtas-rt-prop]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-rt-prop.png
+[mtas-mailinglist1]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-mailinglist1.png
+[mtas-create1]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create1.png
+[mtas-mailing-list-index-page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-mailing-list-index-page.png
+[mtas-subscribers-index-page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-subscribers-index-page.png
+[mtas-message-create-page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-message-create-page.png
+[mtas-message-index-page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-message-index-page.png
+[mtas-serverExplorer]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-serverExplorer.png
+[mtas-wasVSdata]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-wasVSdata.png
+[mtas-elip]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-elip.png
+[mtas-enter]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-enter.png
+[mtas-ase1]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-ase1.png
+
+
+[mtas-se3]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-se3.png
+[mtas-aesp]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-aesp.png
+[mtas-1]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-1.png
+[mtas-se4]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-se4.png
+
+
+
+
+
+
+
+
+
+[mtas-c6]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c6.png
+[mtas-c7]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c7.png
+
+[mtas-sg]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-sg.png
+[mtas-trc]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-trc.png
+[mtas-instanceCnt]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-instanceCnt.png
+
+[mtas-in3]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-in3.png
+[mtas-in2]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-in2.png
+[mtas-3]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-3.png
+[mtas-5]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-5.png
+[mtas-6]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-6.png
+[mtas-16]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-16.png
+[mtas-7]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-7.png
+[mtas-8]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-8.png
+[mtas-9]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-9.png
+[mtas-11]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-11.png
+[mtas-12]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-12.png
+[mtas-c55]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c55.png
+
+[mtas-19]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-19.png
+
+
+
+
+
+
 

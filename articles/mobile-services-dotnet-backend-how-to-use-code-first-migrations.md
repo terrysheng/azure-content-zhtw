@@ -83,7 +83,7 @@
 
 
 
-    這會建立名為 *NewUserId* 的新移轉。 A new code file, which implements this change, is added in the Migrations folder  
+    這會建立名為 *NewUserId* 的新移轉。實作此變更的新程式碼檔案會新增至 [移轉] 資料夾
 
 1.  再按一次 F5，在本機電腦上重新啟動行動服務專案。
 

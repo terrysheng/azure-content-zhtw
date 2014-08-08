@@ -1,5 +1,7 @@
 
 
+<properties linkid="develop-mobile-tutorials-handle-conflcits-offline-data-dotnet" urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Handle Conflicts with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to handle conflicts with offline data in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" />
+
 處理行動服務中的離線資料衝突
 ============================
 
@@ -21,7 +23,7 @@
 
 本教學課程需要執行於 Windows 8.1 的 Visual Studio 2013。
 
-下載範例專案
+<a name="download-app"></a>下載範例專案
 ------------
 
 本教學課程以[處理衝突程式碼範例](http://go.microsoft.com/fwlink/?LinkId=394787) (這是 Visual Studio 2013 中的 Windows 市集應用程式專案之一) 做為建置基礎。此應用程式的 UI 與[開始使用離線資料](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data)教學課程中的應用程式相類似，差別在於前者的每個 TodoItem 都有新的日期資料行。
@@ -36,7 +38,7 @@
 
 請注意，應用程式尚未連接到任何行動服務，因此 **[推送]** 和 **[提取]** 按鈕將會擲出例外狀況。
 
-將資料行新增至資料模型
+<a name="add-column"></a>將資料行新增至資料模型
 ----------------------
 
 在本節中，您將會更新行動服務的資料庫，以納入具有到期日資料行的 TodoItem 資料表。應用程式允許您在執行階段變更項目的到期日，因此您可以在本教學課程的後續小節中產生同步衝突。
@@ -47,7 +49,7 @@
 
 更新您的資料庫以納入此資料表。
 
-### 更新 .NET 後端行動服務的資料庫
+### <a name="dotnet-backend"></a>更新 .NET 後端行動服務的資料庫
 
 如果您在行動服務中使用 .NET 後端，請依照下列步驟更新資料庫的結構描述。
 
@@ -76,7 +78,7 @@
 
 5.  在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下您的 .NET 後端行動服務專案，然後按一下 **[發佈]** 以發佈您的變更。
 
-### 更新 JavaScript 後端行動服務的資料庫
+### <a name="javascript-backend"></a>更新 JavaScript 後端行動服務的資料庫
 
 對於 JavaScript 後端行動服務，您將會新增名為 **TodoWithDate** 的新資料表。若要為 JavaScript 後端行動服務新增 **TodoWithDate** 資料表，請遵循下列步驟。
 
@@ -86,7 +88,7 @@
 
 3.  按一下頁面底部的 **[建立]**，然後建立名為 **TodoWithDate** 的新資料表。
 
-對行動服務進行應用程式測試
+<a name="test-app"></a>對行動服務進行應用程式測試
 --------------------------
 
 現在，我們將對行動服務進行應用程式測試。
@@ -122,7 +124,7 @@
 
 	[][3]
 
-更新後端中的資料以產生衝突
+<a name="handle-conflict"></a>更新後端中的資料以產生衝突
 --------------------------
 
 在實際情況中，如果在一個應用程式推送資料庫中某個記錄的更新後，又有另一個應用程式根據該記錄的過期版本嘗試推送相同記錄的變更，就會發生同步衝突。如果一個應用程式執行個體在未提取更新記錄的情況下嘗試更新相同記錄，就會發生衝突，並且在應用程式中產生 `MobileServicePreconditionFailedException`。
@@ -211,3 +213,4 @@
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Handling Database Conflicts]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app
+

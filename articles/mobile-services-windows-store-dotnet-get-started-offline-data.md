@@ -1,4 +1,5 @@
 
+<properties linkid="develop-mobile-tutorials-get-started-offline-data-dotnet" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use offline data in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="wesmc" />
 
 開始在行動服務中使用離線資料
 ============================
@@ -28,7 +29,7 @@
 
 > [WACOM.NOTE] 若要完成此教學課程，您需要 Windows Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Windows Azure 免費試用](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28)。
 
-更新應用程式以支援離線功能
+<a name="enable-offline-app"></a>更新應用程式以支援離線功能
 --------------------------
 
 Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時，仍可與本機資料庫互動。若要在您的應用程式中使用這些功能，您必須將 `MobileServiceClient.SyncContext` 初始化至本機存放區。接著，請透過 `IMobileServiceSyncTable` 介面參考您的資料表。
@@ -159,7 +160,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 10. 目前還不要執行應用程式。請按 **F7** 鍵，以重新建置專案。驗證未發生任何建置錯誤。
 
-在離線狀態下測試應用程式
+<a name="test-offline-app"></a>在離線狀態下測試應用程式
 ------------------------
 
 在本節中，您將中斷行動服務的應用程式連線，以模擬離線狀態。接著，您會新增某些將保存在本機存放區中的資料項目。
@@ -179,7 +180,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 3.  關閉應用程式並重新加以開啟，以驗證您所建立的新項目持續存留於本機存放區中。
 
-更新應用程式以重新連接您的行動服務
+<a name="update-online-app"></a>更新應用程式以重新連接您的行動服務
 ----------------------------------
 
 在本節中，您會將應用程式重新連接至行動服務。您將藉此模擬應用程式在行動服務中從離線狀態恢復為線上狀態的情境。
@@ -191,7 +192,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
         "Your AppKey"
          );
 
-測試連接到行動服務的應用程式
+<a name="test-online-app"></a>測試連接到行動服務的應用程式
 ----------------------------
 
 在本節中，您會測試將本機存放區與行動服務資料庫同步處理的推送和提取作業。
@@ -245,4 +246,35 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 --------
 
 -   [處理行動服務的離線支援衝突](/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/)
+
+<!-- Anchors. -->
+[Update the app to support offline features]: #enable-offline-app
+[Test the app in an offline Scenario]: #test-offline-app
+[Update the app to reconnect your mobile service]: #update-online-app
+[Test the app connected to the Mobile Service]: #test-online-app
+[Next Steps]:#next-steps
+
+<!-- Images -->
+[0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-todoitem-data-browse.png
+[1]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
+[2]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-sqlitestore-nuget.png
+[3]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-sqlitepcl-nuget.png
+[4]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-offline-app-run1.png
+[5]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-online-app-run1.png
+[6]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse.png
+[7]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse2.png
+[8]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-online-app-run2.png
+[9]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-online-app-run3.png
+[10]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse3.png
+
+
+<!-- URLs. -->
+[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
+[Getting Started Offline Sample]: http://go.microsoft.com/fwlink/?LinkId=394777
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
+[Getting Started]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
+[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
+
 

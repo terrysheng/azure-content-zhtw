@@ -372,7 +372,7 @@
                alert("Error:" + err);
             });
 
-在 Windows 市集應用程式中，查詢結果可用來建立 [WinJS.Binding.List] 物件，而此物件可繫結為 [ListView](http://msdn.microsoft.com/en-us/library/windows/apps/br211837.aspx) 物件的資料來源。如需詳細資訊，請參閱[資料繫結 (使用 JavaScript 和 HTML 的 Windows 市集應用程式)](http://msdn.microsoft.com/en-us/library/windows/apps/hh758311.aspx)。
+在 Windows 市集應用程式中，查詢結果可用來建立 [WinJS.Binding.List] 物件，而此物件可繫結為 [ListView](http://msdn.microsoft.com/zh-tw/library/windows/apps/br211837.aspx) 物件的資料來源。如需詳細資訊，請參閱[資料繫結 (使用 JavaScript 和 HTML 的 Windows 市集應用程式)](http://msdn.microsoft.com/zh-tw/library/windows/apps/hh758311.aspx)。
 
 驗證作法：驗證使用者
 --------------------
@@ -395,7 +395,7 @@
 
 如果您使用的身分識別提供者不是 Facebook，請將傳給上述 `login` 方法的值變更為下列其中一個：`microsoftaccount`、`facebook`、`twitter`、`google` 或 `windowsazureactivedirectory`。
 
-在此案例中，行動服務會管理 OAuth 2.0 驗證流程，首先會顯示選取的提供者的登入頁面，然後在以身分識別提供者成功登入之後，產生行動服務驗證權杖。[login](http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx) 函數完成時會傳回 JSON 物件 (**user**)，此物件會在 **userId** 和 **authenticationToken** 欄位中分別顯示使用者識別碼和行動服務驗證權杖。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱「快取驗證權杖」。
+在此案例中，行動服務會管理 OAuth 2.0 驗證流程，首先會顯示選取的提供者的登入頁面，然後在以身分識別提供者成功登入之後，產生行動服務驗證權杖。[login](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554236.aspx) 函數完成時會傳回 JSON 物件 (**user**)，此物件會在 **userId** 和 **authenticationToken** 欄位中分別顯示使用者識別碼和行動服務驗證權杖。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱「快取驗證權杖」。
 
 **Windows 市集應用程式**
 
@@ -419,7 +419,7 @@
               });
         });
 
-這個簡化的範例從 Live Connect 取得權杖，然後呼叫 [login](http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx) 函數來提供權杖給行動服務。有關如何使用 Microsoft 帳戶來提供單一登入體驗的完整範例，請參閱[使用單一登入來驗證應用程式](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)。
+這個簡化的範例從 Live Connect 取得權杖，然後呼叫 [login](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554236.aspx) 函數來提供權杖給行動服務。有關如何使用 Microsoft 帳戶來提供單一登入體驗的完整範例，請參閱[使用單一登入來驗證應用程式](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)。
 
 使用 Facebook 或 Google API 進行用戶端驗證時，範例稍有變化。
 
@@ -436,7 +436,7 @@
 
 ### 快取驗證權杖
 
-在某些情況下，可在使用者第一次驗證之後避免呼叫 login 方法。使用者第一次登入時，我們可以使用 [sessionStorage](http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx) 或 [localStorage](http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx) 來快取目前的使用者身分識別，然後在後續每次登入時，我們就檢查快取中是否已經有使用者身分識別。如果快取是空的，或呼叫失敗 (表示目前的登入工作階段已過期)，我們仍然需要完成登入程序。
+在某些情況下，可在使用者第一次驗證之後避免呼叫 login 方法。使用者第一次登入時，我們可以使用 [sessionStorage](http://msdn.microsoft.com/zh-tw/library/cc197062(v=vs.85).aspx) 或 [localStorage](http://msdn.microsoft.com/zh-tw/library/cc197062(v=vs.85).aspx) 來快取目前的使用者身分識別，然後在後續每次登入時，我們就檢查快取中是否已經有使用者身分識別。如果快取是空的，或呼叫失敗 (表示目前的登入工作階段已過期)，我們仍然需要完成登入程序。
 
         // After logging in
     sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
@@ -496,7 +496,7 @@ Promise作法：使用 Promise
 
 Promise 提供一種機制，可排定工作來處理尚未計算的值。這是一種管理非同步 API 互動的抽象觀念。
 
-當提供的函數完全成功或發生錯誤時，`done` promise 就會立即執行。與 `then` promise 不同，此函數一定會擲回函數內未處理的任何錯誤，且在處理常式執行完成之後，將會擲回原本由 then 以錯誤狀態的 promise 傳回的任何錯誤。如需詳細資訊，請參閱 [Promise.done 方法](http://msdn.microsoft.com/en-us/library/windows/apps/hh701079.aspx) (英文)。
+當提供的函數完全成功或發生錯誤時，`done` promise 就會立即執行。與 `then` promise 不同，此函數一定會擲回函數內未處理的任何錯誤，且在處理常式執行完成之後，將會擲回原本由 then 以錯誤狀態的 promise 傳回的任何錯誤。如需詳細資訊，請參閱 [Promise.done 方法](http://msdn.microsoft.com/zh-tw/library/windows/apps/hh701079.aspx) (英文)。
 
          promise.done(onComplete, onError);
 
@@ -509,7 +509,7 @@ Promise 提供一種機制，可排定工作來處理尚未計算的值。這是
                alert("Error:" + err);
             });
 
-`then` promise 與 `done` promise 相同，但又不同於 `then` promise，`done` 一定會擲回函數內未處理的任何錯誤。如果您未提供錯誤處理常式給 `then`，且作業發生錯誤，則不會擲回例外狀兄，而是傳回錯誤狀態的 promise。如需詳細資訊，請參閱 [Promise.then 方法](http://msdn.microsoft.com/en-us/library/windows/apps/br229728.aspx) (英文)。
+`then` promise 與 `done` promise 相同，但又不同於 `then` promise，`done` 一定會擲回函數內未處理的任何錯誤。如果您未提供錯誤處理常式給 `then`，且作業發生錯誤，則不會擲回例外狀兄，而是傳回錯誤狀態的 promise。如需詳細資訊，請參閱 [Promise.then 方法](http://msdn.microsoft.com/zh-tw/library/windows/apps/br229728.aspx) (英文)。
 
          promise.then(onComplete, onError).done( /* Your success and error handlers */ );
 
@@ -522,7 +522,7 @@ Promise 提供一種機制，可排定工作來處理尚未計算的值。這是
                alert("Error:" + err);
             });
 
-Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳回的 promise 上呼叫 `then` 或 `done`，以鏈結 promise 作業。使用 `then` 做為作業的過渡階段 (例如 `.then().then()`)，使用 `done` 做為作業的最終階段 (例如 `.then().then().done()`)。您可以鏈結多個 `then` 函數，因為 `then` 會傳回 promise。您無法鏈結多個 `done` 方法，因為它會傳回 undefined。[鏈結 Promise (使用 JavaScript 和 HTML 的 Windows 執行階段應用程式)](http://msdn.microsoft.com/en-us/library/windows/apps/hh700334.aspx)。
+Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳回的 promise 上呼叫 `then` 或 `done`，以鏈結 promise 作業。使用 `then` 做為作業的過渡階段 (例如 `.then().then()`)，使用 `done` 做為作業的最終階段 (例如 `.then().then().done()`)。您可以鏈結多個 `then` 函數，因為 `then` 會傳回 promise。您無法鏈結多個 `done` 方法，因為它會傳回 undefined。[鏈結 Promise (使用 JavaScript 和 HTML 的 Windows 執行階段應用程式)](http://msdn.microsoft.com/zh-tw/library/windows/apps/hh700334.aspx)。
 
 todoItemTable.insert({ text:"foo" }).then(function (inserted) { inserted.newField = 123; return todoItemTable.update(inserted); }).done(function (insertedAndUpdated) { alert(JSON.stringify(insertedAndUpdated)); })
 

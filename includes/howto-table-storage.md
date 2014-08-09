@@ -32,4 +32,4 @@ Azure 資料表儲存體服務可儲存大量的結構化資料。此服務是�
 
 
 [1]: http://www.odata.org/
-[2]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
+[2]: http://msdn.microsoft.com/zh-tw/library/dn249410.aspx

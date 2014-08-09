@@ -7,7 +7,7 @@
 
 在此指南中，您將建立一個可部署到 Azure 的 Web 架構工作清單應用程式。使用者可透過工作清單來擷取工作、新增工作及將工作標示為已完成。我們將使用 Django 作為 Web 架構。
 
-工作項目會儲存於 Azure 儲存體中。Azure 儲存體提供可容錯且高度可用的非結構化資料儲存體。Azure 儲存體包括數種可儲存和存取資料的資料結構，並且您可以從 Azure SDK for Python 中所隨附的 API 或透過 REST API 來運用儲存體服務。如需詳細資訊，請參閱[在 Azure 中儲存和存取資料](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx) (英文)。
+工作項目會儲存於 Azure 儲存體中。Azure 儲存體提供可容錯且高度可用的非結構化資料儲存體。Azure 儲存體包括數種可儲存和存取資料的資料結構，並且您可以從 Azure SDK for Python 中所隨附的 API 或透過 REST API 來運用儲存體服務。如需詳細資訊，請參閱[在 Azure 中儲存和存取資料](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx) (英文)。
 
 您將了解：
 
@@ -183,6 +183,6 @@
 
 了解 Azure 資料表儲存體服務的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx)
 -   請造訪 Azure 儲存體團隊部落格：&lt;http://blogs.msdn.com/b/windowsazurestorage/\&gt;
 

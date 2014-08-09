@@ -106,7 +106,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -140,7 +140,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/hh780775
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -191,7 +191,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here:
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/hh780735
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -209,5 +209,5 @@
 後續步驟
 --------
 
-現在您已了解服務匯流排佇列的基本概念，請參閱 MSDN 主題[佇列、主題和訂閱](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)，以取得詳細資訊。
+現在您已了解服務匯流排佇列的基本概念，請參閱 MSDN 主題[佇列、主題和訂閱](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367516.aspx)，以取得詳細資訊。
 

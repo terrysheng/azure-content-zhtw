@@ -58,7 +58,7 @@ Blob 服務包含下列元件：
 建立 Azure 儲存體帳戶
 ---------------------
 
-若要使用儲存體作業，您需要 Azure 儲存體帳戶。您可以依照下列步驟來建立儲存體帳戶。(您也可以[使用 REST API](http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx) 來建立儲存體帳戶。)
+若要使用儲存體作業，您需要 Azure 儲存體帳戶。您可以依照下列步驟來建立儲存體帳戶。(您也可以[使用 REST API](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh264518.aspx) 來建立儲存體帳戶。)
 
 1.  登入 [Azure 管理入口網站](http://manage.windowsazure.com)。
 
@@ -235,7 +235,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   請參閱 MSDN 參考資料：[在 Azure 中儲存及存取資料](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)。
+-   請參閱 MSDN 參考資料：[在 Azure 中儲存及存取資料](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx)。
 -   造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
 -   造訪 GitHub 上的 [Azure SDK for Node](https://github.com/WindowsAzure/azure-sdk-for-node) (英文) 儲存機制。
 

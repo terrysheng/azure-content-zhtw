@@ -167,7 +167,7 @@
     
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
     
-    或者，您也可以使用 Azure 管理入口網站，匯出憑證檔 PFX 與私密金鑰，並將憑證上傳至每個目標雲端服務。若要深入了解，請閱讀下列文章：[http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx][]。
+    或者，您也可以使用 Azure 管理入口網站，匯出憑證檔 PFX 與私密金鑰，並將憑證上傳至每個目標雲端服務。若要深入了解，請閱讀下列文章：[http://msdn.microsoft.com/zh-tw/library/windowsazure/gg443832.aspx][]。
     
     **升級部署以及刪除部署再新增部署**
     
@@ -581,7 +581,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Created Cloud Service with URL $
   [Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
   [Windows Azure 程式庫][]：http://go.microsoft.com/fwlink/?LinkId=257862
   [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
-  [MSBuild Command Line Reference]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
+  [MSBuild Command Line Reference]: http://msdn.microsoft.com/zh-tw/library/ms164311(v=VS.90).aspx
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [了解 Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
   [設定組建機器 (英文)]: http://go.microsoft.com/fwlink/?LinkId=238799

@@ -133,7 +133,7 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
   </tr>
 </table>
 
-**注意**：從服務匯流排主題訂閱收到在 JNDI 中指定的實體名稱應該是主題的名稱。以 JMS 應用程式程式碼建立持續性訂閱時，將建立訂閱名稱。[Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)提供處理 JMS 服務匯流排主題訂閱的詳細資料。
+**注意**：從服務匯流排主題訂閱收到在 JNDI 中指定的實體名稱應該是主題的名稱。以 JMS 應用程式程式碼建立持續性訂閱時，將建立訂閱名稱。[Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj841071.aspx)提供處理 JMS 服務匯流排主題訂閱的詳細資料。
 
 ### 撰寫 JMS 應用程式
 
@@ -271,7 +271,7 @@ JMS 與 .NET 之間的跨平台訊息
 
 使用上述的範例 JMS 應用程式和取自隨附指南[如何透過服務匯流排 .NET API 使用 AMQP 1.0](http://aka.ms/lym3vk) 的類似 .NET 應用程式，即可交換 .NET 與 Java 之間的訊息。
 
-如需使用服務匯流排與 AMQP 1.0 傳送跨平台訊息的詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)。
+如需使用服務匯流排與 AMQP 1.0 傳送跨平台訊息的詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj841071.aspx)。
 
 ### JMS 到 .NET
 
@@ -343,13 +343,13 @@ JMS 與 .NET 之間的跨平台訊息
 
 本作法指南說明如何以常用的 JMS API 和 AMQP 1.0 從 Java 使用服務匯流排代理訊息功能 (佇列和發佈/訂閱主題)。
 
-您也可以使用包括 .NET、C、Python 和 PHP 在內的其他語言所撰寫的 Service Bus AMQP 1.0。使用這些不同的語言撰寫的元件可使用服務匯流排中的 AMQP 1.0 支援確實完整交換訊息。如需詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)。
+您也可以使用包括 .NET、C、Python 和 PHP 在內的其他語言所撰寫的 Service Bus AMQP 1.0。使用這些不同的語言撰寫的元件可使用服務匯流排中的 AMQP 1.0 支援確實完整交換訊息。如需詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj841071.aspx)。
 
 進一步資訊
 ----------
 
 -   [Azure 服務匯流排中的 AMQP 1.0 支援](http://aka.ms/pgr3dp)
 -   [如何透過服務匯流排 .NET API 使用 AMQP 1.0](http://aka.ms/lym3vk)
--   [服務匯流排 AMQP 1.0 開發人員指南](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)
+-   [服務匯流排 AMQP 1.0 開發人員指南](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj841071.aspx)
 -   [如何使用服務匯流排佇列](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
 

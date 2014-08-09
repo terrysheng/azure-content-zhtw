@@ -17,7 +17,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 必要條件
 ========
 
--   Windows 8 32 位元或 64 位元。您可以從 MSDN 取得 [Windows 8 Enterprise 評估版](http://msdn.microsoft.com/en-us/evalcenter/jj554510.aspx)。
+-   Windows 8 32 位元或 64 位元。您可以從 MSDN 取得 [Windows 8 Enterprise 評估版](http://msdn.microsoft.com/zh-tw/evalcenter/jj554510.aspx)。
 -   Windows 8 上已安裝 Visual Studio 2012 或 Visual Studio Express 2012 for Windows 8。您可以從[這裡](http://www.microsoft.com/visualstudio/11/en-us/downloads)取得試用版。
 -   [Microsoft Smooth Streaming Client SDK for Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home) (英文)。
 
@@ -30,7 +30,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 
 ![Smooth Streaming Windows Store application example](./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png)
 
-如需關於開發 Windows 市集應用程式的詳細資訊，請參閱[開發 Windows 8 適用的好用應用程式](http://msdn.microsoft.com/en-us/windows/apps/br229512.aspx)。本課程包含下列程序：
+如需關於開發 Windows 市集應用程式的詳細資訊，請參閱[開發 Windows 8 適用的好用應用程式](http://msdn.microsoft.com/zh-tw/windows/apps/br229512.aspx)。本課程包含下列程序：
 
 1.  建立 Windows 市集專案
 2.  設計使用者介面 (XAML)

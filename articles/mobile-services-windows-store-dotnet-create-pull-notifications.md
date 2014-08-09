@@ -5,7 +5,7 @@
 
 [Windows 市集 C\#](/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet "Windows 市集 C#")[Windows 市集 JavaScript](/en-us/develop/mobile/tutorials/create-pull-notifications-js "Windows 市集 JavaScript")
 
-本主題將示範如何使用自訂 API 來支援 Windows 市集應用程式中的定期通知。在啟用定期通知的情況下，Windows 將定期存取您的自訂 API 端點，並使用傳回的 XML (採用磚的特定格式) 來更新開始功能表上的應用程式磚。如需詳細資訊，請參閱[定期通知](http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx)。
+本主題將示範如何使用自訂 API 來支援 Windows 市集應用程式中的定期通知。在啟用定期通知的情況下，Windows 將定期存取您的自訂 API 端點，並使用傳回的 XML (採用磚的特定格式) 來更新開始功能表上的應用程式磚。如需詳細資訊，請參閱[定期通知](http://msdn.microsoft.com/zh-tw/library/windows/apps/jj150587.aspx)。
 
 將此功能新增至您在完成[開始使用行動服務](/en-us/develop/mobile/tutorials/get-started/#create-new-service)或[開始使用資料](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet)教學課程時所建立的應用程式。若要達到此目的，您將需要完成下列步驟：
 
@@ -81,7 +81,7 @@
     由於用戶端將傳送存取磚範本的 GET 要求，因此將使用 **exports.get** 函數。
 
    	<div class="dev-callout"><b>Note</b>
-   		<p>This custom API script uses the Node.js <a href="http://go.microsoft.com/fwlink/p/?LinkId=306750">wns module</a>, which is referenced by using the <strong>require</strong> function. This module is different from the <a href="http://go.microsoft.com/fwlink/p/?LinkId=260591">wns object</a> returned by the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx">push object</a>, which is used to send push notifications from server scripts.</p>
+   		<p>This custom API script uses the Node.js <a href="http://go.microsoft.com/fwlink/p/?LinkId=306750">wns module</a>, which is referenced by using the <strong>require</strong> function. This module is different from the <a href="http://go.microsoft.com/fwlink/p/?LinkId=260591">wns object</a> returned by the <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554217.aspx">push object</a>, which is used to send push notifications from server scripts.</p>
    	</div>
 
 接著，您將修改快速入門應用程式，要求新的自訂 API 來啟動會使動態磚更新的定期通知。

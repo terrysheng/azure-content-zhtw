@@ -67,7 +67,7 @@ Azure 網站的其中一個額外優點就是將預備網站部署至 Web 的速
 雲端運算對於無法預測的工作負載相當實用。數位行銷活動也在這個類別範圍內。要預測相對上短期的行銷網站相當困難，因為許多因素取決於擷取使用者興趣及促成較多網站流量的相關社交媒體互動。Azure 提供數個可調整網站和雲端服務的選項。
 
 -   透過 [Azure 管理入口網站](http://manage.windowsazure.com/)以手動方式調整。
--   透過[服務管理 API](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx) 或 [PowerShell 指令碼](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx) (英文) 以程式設計方式調整。
+-   透過[服務管理 API](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460799.aspx) 或 [PowerShell 指令碼](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj152841.aspx) (英文) 以程式設計方式調整。
 -   透過自動調整 (預覽) 功能以自動方式調整。
 
 在管理入口網站中，前往您網站的 **[調整]** 索引標籤。有數個調整選項。第一個選項會決定網站模式，可設為 **[免費]**、**[共用]** 或 **[標準]**。
@@ -91,9 +91,9 @@ Azure 網站的其中一個額外優點就是將預備網站部署至 Web 的速
 與其他服務整合
 --------------
 
-數位行銷網站經常會納入多媒體，例如視訊串流。在 Azure 中裝載這些網站可提供與相關 Azure 服務的緊密整合。例如，您可以使用 Azure 媒體服務為您的網站進行視訊編碼和串流。如需有關媒體服務的詳細資訊，請參閱 [Azure 媒體服務概念與案例](http://msdn.microsoft.com/en-us/library/windowsazure/dn223282.aspx) (英文)。
+數位行銷網站經常會納入多媒體，例如視訊串流。在 Azure 中裝載這些網站可提供與相關 Azure 服務的緊密整合。例如，您可以使用 Azure 媒體服務為您的網站進行視訊編碼和串流。如需有關媒體服務的詳細資訊，請參閱 [Azure 媒體服務概念與案例](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn223282.aspx) (英文)。
 
-其他 Azure 服務可用來建立較強固的應用程式。例如，網站可以使用新 [Azure 快取服務 (預覽)](http://msdn.microsoft.com/en-us/library/windowsazure/dn386094.aspx) 所提供的分散式快取功能。或是您可以使用 Azure 儲存體服務來儲存應用程式資料和資源。例如，圖形、視訊及其他大型檔案可以持久地儲存在 Blob 中。另外，也提供了資料庫服務 (例如 Azure SQL Database 和 MySQL) 來因應關聯式資料需求。
+其他 Azure 服務可用來建立較強固的應用程式。例如，網站可以使用新 [Azure 快取服務 (預覽)](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn386094.aspx) 所提供的分散式快取功能。或是您可以使用 Azure 儲存體服務來儲存應用程式資料和資源。例如，圖形、視訊及其他大型檔案可以持久地儲存在 Blob 中。另外，也提供了資料庫服務 (例如 Azure SQL Database 和 MySQL) 來因應關聯式資料需求。
 
 監視行銷活動
 ------------
@@ -146,7 +146,7 @@ Azure 網站對於針對個別行銷活動自訂的可重複使用 Web 內容而
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">多媒體</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223282.aspx">Azure 媒體服務概念與案例</a></td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dn223282.aspx">Azure 媒體服務概念與案例</a></td>
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">監視</strong></td>

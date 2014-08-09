@@ -252,5 +252,5 @@ Azure Blob 儲存體建立可擴充、長期封存的資料取得解決方案，
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/dd135733.aspx
+[1]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179354.aspx
+[2]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dd135733.aspx

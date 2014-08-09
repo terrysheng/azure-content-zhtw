@@ -56,7 +56,7 @@
 
 **注意**
 
-本教學課程使用處於未通過驗證模式的 MPNS。MPNS 未通過驗證模式內含您可傳送至每個通道的通知限制。通知中心支援 [MPNS 驗證模式](http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx) (英文)。
+本教學課程使用處於未通過驗證模式的 MPNS。MPNS 未通過驗證模式內含您可傳送至每個通道的通知限制。通知中心支援 [MPNS 驗證模式](http://msdn.microsoft.com/zh-tw/library/windowsphone/develop/ff941099(v=vs.105).aspx) (英文)。
 
 連接應用程式將您的應用程式連接到通知中心
 ----------------------------------------
@@ -109,7 +109,7 @@
 傳送通知從後端傳送通知
 ----------------------
 
-您可以使用 [REST 介面](http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx)，從任何後端使用通知中心傳送通知。本教學課程將透過 .NET 主控台應用程式和使用節點指令碼的行動服務來傳送通知。
+您可以使用 [REST 介面](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn223264.aspx)，從任何後端使用通知中心傳送通知。本教學課程將透過 .NET 主控台應用程式和使用節點指令碼的行動服務來傳送通知。
 
 使用 .NET 應用程式傳送通知：
 
@@ -150,10 +150,10 @@
 
 6.  按 F5 鍵以執行應用程式。您應會收到快顯通知。請確保您的 Windows Phone 模擬器正在執行中且您的應用程式已關閉。
 
-您可以在 MSDN 上的[快顯目錄](http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj662938(v=vs.105).aspx) (英文) 和[磚目錄](http://msdn.microsoft.com/en-us/library/windowsphone/develop/hh202948(v=vs.105).aspx) (英文) 中找到所有可能的裝載。
+您可以在 MSDN 上的[快顯目錄](http://msdn.microsoft.com/zh-tw/library/windowsphone/develop/jj662938(v=vs.105).aspx) (英文) 和[磚目錄](http://msdn.microsoft.com/zh-tw/library/windowsphone/develop/hh202948(v=vs.105).aspx) (英文) 中找到所有可能的裝載。
 
 後續步驟
 --------
 
-在此簡單範例中，您將廣播通知到您的所有 Windows Phone 8 裝置。為了鎖定特定使用者，請參閱教學課程[使用通知中心來推播通知給使用者](/en-us/manage/services/notification-hubs/notify-users-aspnet)。如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞](/en-us/manage/services/notification-hubs/breaking-news-dotnet)。在[通知中心指引](http://msdn.microsoft.com/en-us/library/jj927170.aspx)中深入了解如何使用通知中心。
+在此簡單範例中，您將廣播通知到您的所有 Windows Phone 8 裝置。為了鎖定特定使用者，請參閱教學課程[使用通知中心來推播通知給使用者](/en-us/manage/services/notification-hubs/notify-users-aspnet)。如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞](/en-us/manage/services/notification-hubs/breaking-news-dotnet)。在[通知中心指引](http://msdn.microsoft.com/zh-tw/library/jj927170.aspx)中深入了解如何使用通知中心。
 

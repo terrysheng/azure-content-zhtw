@@ -133,15 +133,15 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
     }
 
-呼叫 **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** 可讓容器和 Blob 資料開放透過匿名要求來存取。呼叫 **setPublicAccess(PublicAccessType::BLOBS\_ONLY)** 可讓 Blob 資料開放透過匿名要求來存取。如需容器 ACL 的詳細資訊，請參閱[設定容器 ACL (REST API)](http://msdn.microsoft.com/en-us/library/windowsazure/dd179391.aspx) (英文)。
+呼叫 **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** 可讓容器和 Blob 資料開放透過匿名要求來存取。呼叫 **setPublicAccess(PublicAccessType::BLOBS\_ONLY)** 可讓 Blob 資料開放透過匿名要求來存取。如需容器 ACL 的詳細資訊，請參閱[設定容器 ACL (REST API)](http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179391.aspx) (英文)。
 
-如需 Blob 服務錯誤碼的詳細資訊，請參閱 [Blob 服務錯誤碼](http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx) (英文)。
+如需 Blob 服務錯誤碼的詳細資訊，請參閱 [Blob 服務錯誤碼](http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179439.aspx) (英文)。
 
 作法：將 Blob 上傳至容器
 ------------------------
@@ -167,7 +167,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -202,7 +202,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -230,7 +230,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -259,7 +259,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -286,7 +286,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -297,7 +297,7 @@
 
 了解 Azure Blob 服務的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   參閱 MSDN 參考資料：[在 Azure 中儲存和存取資料](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   參閱 MSDN 參考資料：[在 Azure 中儲存和存取資料](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx)
 -   造訪 Azure 儲存體團隊部落格：<http://blogs.msdn.com/b/windowsazurestorage/> (英文)
 -   參閱位於 <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php> (英文) 的 PHP 區塊 Blob 範例。
 -   參閱位於 <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php> (英文) 的 PHP 頁面 Blob 範例。

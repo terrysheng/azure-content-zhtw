@@ -9,7 +9,7 @@
 
 2.  檢閱身分識別提供者、服務身分識別、規則和入口網站系統管理員，並移除過期的項目。
 
-如需 ACS 的詳細資訊，請參閱＜[存取控制服務 2.0](http://msdn.microsoft.com/en-us/library/gg429786.aspx)＞。
+如需 ACS 的詳細資訊，請參閱＜[存取控制服務 2.0](http://msdn.microsoft.com/zh-tw/library/gg429786.aspx)＞。
 
 憑證與金鑰管理指導方針
 ----------------------
@@ -38,13 +38,13 @@
 
 當憑證或金鑰到期時，ACS 將無法簽發權杖，導致信賴憑證者無法正常運作。ACS 會忽略到期的憑證和金鑰，實際上會造成例外狀況，就好像從一開始就未設定憑證或金鑰一樣。在下列區段中，您可以找到 ACS 管理的每個憑證和金鑰的相關資訊、如何更新，以及如何判斷是否到期而需要更新。
 
--   使用 ACS 管理入口網站的 [憑證與金鑰] 區段，管理與服務命名空間和信賴憑證者應用程式相關的憑證和金鑰。如需這些認證類型的詳細資訊，請參閱＜[憑證與金鑰](http://msdn.microsoft.com/en-us/library/gg185932.aspx)＞。
--   使用 ACS 管理入口網站的 [服務識別] 區段，管理與服務身分識別相關的認證 (憑證、金鑰或密碼)。如需服務身分識別的詳細資訊，請參閱＜[服務身分識別](http://msdn.microsoft.com/en-us/library/gg185945.aspx)＞。
--   使用 ACS 管理入口網站的 [管理服務] 區段，管理與 ACS 管理服務帳戶相關的認證 (憑證、金鑰或密碼)。如需 ACS 管理服務的詳細資訊，請參閱＜[ACS 管理服務](http://msdn.microsoft.com/en-us/library/gg185972.aspx)＞。
+-   使用 ACS 管理入口網站的 [憑證與金鑰] 區段，管理與服務命名空間和信賴憑證者應用程式相關的憑證和金鑰。如需這些認證類型的詳細資訊，請參閱＜[憑證與金鑰](http://msdn.microsoft.com/zh-tw/library/gg185932.aspx)＞。
+-   使用 ACS 管理入口網站的 [服務識別] 區段，管理與服務身分識別相關的認證 (憑證、金鑰或密碼)。如需服務身分識別的詳細資訊，請參閱＜[服務身分識別](http://msdn.microsoft.com/zh-tw/library/gg185945.aspx)＞。
+-   使用 ACS 管理入口網站的 [管理服務] 區段，管理與 ACS 管理服務帳戶相關的認證 (憑證、金鑰或密碼)。如需 ACS 管理服務的詳細資訊，請參閱＜[ACS 管理服務](http://msdn.microsoft.com/zh-tw/library/gg185972.aspx)＞。
 
-有些憑證和金鑰類型不會出現在 ACS 管理入口網站中。尤其是 WS-同盟身識別提供者，例如 AD FS，您必須主動檢查身分識別提供者所使用的憑證的有效性。目前，透過 WS-同盟身分識別提供者的中繼資料可取得的憑證，不會出現在 ACS 管理入口網站中。若要驗證這些憑證的有效性，您必須使用管理服務來檢查 [IdentityProviderKey](http://msdn.microsoft.com/en-us/library/hh124084.aspx) 的 StartDate 和 EndDate 屬性中的生效日和到期日。當憑證或金鑰到期，因此變成無效時，ACS 會開始擲回憑證或金鑰相關的例外狀況 [ACS 錯誤碼](http://msdn.microsoft.com/en-us/library/gg185949.aspx)。關於特定的錯誤碼，請參閱下列各節。
+有些憑證和金鑰類型不會出現在 ACS 管理入口網站中。尤其是 WS-同盟身識別提供者，例如 AD FS，您必須主動檢查身分識別提供者所使用的憑證的有效性。目前，透過 WS-同盟身分識別提供者的中繼資料可取得的憑證，不會出現在 ACS 管理入口網站中。若要驗證這些憑證的有效性，您必須使用管理服務來檢查 [IdentityProviderKey](http://msdn.microsoft.com/zh-tw/library/hh124084.aspx) 的 StartDate 和 EndDate 屬性中的生效日和到期日。當憑證或金鑰到期，因此變成無效時，ACS 會開始擲回憑證或金鑰相關的例外狀況 [ACS 錯誤碼](http://msdn.microsoft.com/zh-tw/library/gg185949.aspx)。關於特定的錯誤碼，請參閱下列各節。
 
-您可以透過程式設計方式使用 [ACS 管理服務](http://msdn.microsoft.com/en-us/library/gg185972.aspx)來更新憑證和金鑰。請檢閱 KeyManagement 程式碼範例，可從＜[程式碼範例：管理服務](http://msdn.microsoft.com/en-us/library/gg185970.aspx)＞下載。
+您可以透過程式設計方式使用 [ACS 管理服務](http://msdn.microsoft.com/zh-tw/library/gg185972.aspx)來更新憑證和金鑰。請檢閱 KeyManagement 程式碼範例，可從＜[程式碼範例：管理服務](http://msdn.microsoft.com/zh-tw/library/gg185970.aspx)＞下載。
 
 可用的憑證和金鑰
 ----------------
@@ -104,7 +104,7 @@ ACS 會簽署它所簽發的所有安全性權杖。當您建立應用程式來�
 
 10. 在合理的寬限期之後，使用 [憑證與金鑰] 頁面的 [權杖簽署] 區段下的 [刪除] 按鈕，從 ACS 設定中移除舊的憑證。
 
-如需詳細資訊，請參閱＜[憑證與金鑰](http://msdn.microsoft.com/en-us/library/gg185932.aspx)＞。
+如需詳細資訊，請參閱＜[憑證與金鑰](http://msdn.microsoft.com/zh-tw/library/gg185932.aspx)＞。
 
 當簽署憑證到期時，您在嘗試要求權杖時會收到下列錯誤：
 
@@ -165,7 +165,7 @@ ACS 會簽署它所簽發的所有安全性權杖。當您建立應用程式來�
 
 10. 在合理的寬限期之後，使用 [憑證與金鑰] 頁面的 [權杖簽署] 區段下的 [刪除] 按鈕，從 ACS 設定中移除舊的金鑰。
 
-如需詳細資訊，請參閱＜[憑證與金鑰](http://msdn.microsoft.com/en-us/library/gg185932.aspx)＞。
+如需詳細資訊，請參閱＜[憑證與金鑰](http://msdn.microsoft.com/zh-tw/library/gg185932.aspx)＞。
 
 當簽署金鑰到期時，您在嘗試要求權杖時會收到下列錯誤：
 
@@ -220,7 +220,7 @@ ACS 會簽署它所簽發的所有安全性權杖。當您建立應用程式來�
 7.  使用 [新增] 按鈕在 ACS 中設定新的加密憑證，與將要到期的現有憑證並存。
 8.  使用 [刪除] 來移除舊的密碼憑證。
 
-如需詳細資訊，請參閱＜[憑證與金鑰](http://msdn.microsoft.com/en-us/library/gg185932.aspx)＞。
+如需詳細資訊，請參閱＜[憑證與金鑰](http://msdn.microsoft.com/zh-tw/library/gg185932.aspx)＞。
 
 當加密憑證到期時，您在嘗試要求權杖時會收到下列錯誤：
 
@@ -281,7 +281,7 @@ ACS 可以接受來自 WS-同盟身分識別提供者 (例如 AD FS 2.0) 的加�
 
 10. 在合理的寬限期之後，使用 [憑證與金鑰] 頁面的 [權杖簽署] 區段下的 [刪除] 按鈕，從 ACS 設定中移除舊的憑證。
 
-如需詳細資訊，請參閱＜[憑證與金鑰](http://msdn.microsoft.com/en-us/library/gg185932.aspx)＞。
+如需詳細資訊，請參閱＜[憑證與金鑰](http://msdn.microsoft.com/zh-tw/library/gg185932.aspx)＞。
 
 當解密憑證到期時，您在嘗試要求權杖時會收到下列錯誤：
 
@@ -338,7 +338,7 @@ ACS 可以接受來自 WS-同盟身分識別提供者 (例如 AD FS 2.0) 的加�
 
 9.  更新所有用戶端之後 (或在合理的寬限期之後)，使用 [刪除] 按鈕來移除舊的憑證或金鑰。
 
-如需詳細資訊，請參閱＜[服務身分識別](http://msdn.microsoft.com/en-us/library/gg185945.aspx)＞。
+如需詳細資訊，請參閱＜[服務身分識別](http://msdn.microsoft.com/zh-tw/library/gg185945.aspx)＞。
 
 以下是 ACS 在認證到期時擲回的例外狀況：
 
@@ -364,7 +364,7 @@ ACS 可以接受來自 WS-同盟身分識別提供者 (例如 AD FS 2.0) 的加�
 </tr>
 </table>
 
-若要驗證和更新對稱金鑰或密碼的到期日，或上傳新的憑證做為服務身分識別認證，請依照＜[作法：使用 X.509 憑證、密碼或對稱金鑰新增服務身分識別](http://msdn.microsoft.com/en-us/library/gg185924.aspx)＞中的指示進行。[編輯服務識別] 頁面中提供服務身分識別認證的清單。
+若要驗證和更新對稱金鑰或密碼的到期日，或上傳新的憑證做為服務身分識別認證，請依照＜[作法：使用 X.509 憑證、密碼或對稱金鑰新增服務身分識別](http://msdn.microsoft.com/zh-tw/library/gg185924.aspx)＞中的指示進行。[編輯服務識別] 頁面中提供服務身分識別認證的清單。
 
 管理服務認證
 ------------
@@ -405,7 +405,7 @@ ACS 管理服務是 ACS 的重要元件，可讓您以程式設計方式來管�
 
 9.  更新所有用戶端之後 (或在合理的寬限期之後)，使用 [刪除] 按鈕來移除舊的憑證或金鑰。
 
-如需詳細資訊，請參閱＜[ACS 管理服務](http://msdn.microsoft.com/en-us/library/gg185972.aspx)＞。
+如需詳細資訊，請參閱＜[ACS 管理服務](http://msdn.microsoft.com/zh-tw/library/gg185972.aspx)＞。
 
 如果這些認證到期，ACS 會擲出下列例外狀況：
 
@@ -436,7 +436,7 @@ ACS 管理入口網站的 [編輯管理服務帳戶] 頁面提供 ACS 管理服�
 WS-同盟身分識別提供者憑證
 -------------------------
 
-WS-同盟身分識別提供者憑證可透過其中繼資料取得。設定 WS-同盟身分識別提供者時，例如 AD FS，WS-同盟簽署憑證是透過 WS-同盟中繼資料 (透過 URL 或以檔案形式取得) 來設定，如需詳細資訊，請參閱＜[WS-同盟身分識別提供者](http://msdn.microsoft.com/en-us/library/gg185933.aspx)＞和＜[作法：將 AD FS 2.0 設定為身分識別提供者](http://msdn.microsoft.com/en-us/library/gg185961.aspx)＞。在 ACS 中設定 WS-同盟身分識別提供者之後，您可以使用 Azure 管理服務來查詢其憑證是否有效。請注意，每次透過 ACS 管理入口網站或 ACS 管理服務來連續上傳中繼資料時會取代金鑰。
+WS-同盟身分識別提供者憑證可透過其中繼資料取得。設定 WS-同盟身分識別提供者時，例如 AD FS，WS-同盟簽署憑證是透過 WS-同盟中繼資料 (透過 URL 或以檔案形式取得) 來設定，如需詳細資訊，請參閱＜[WS-同盟身分識別提供者](http://msdn.microsoft.com/zh-tw/library/gg185933.aspx)＞和＜[作法：將 AD FS 2.0 設定為身分識別提供者](http://msdn.microsoft.com/zh-tw/library/gg185961.aspx)＞。在 ACS 中設定 WS-同盟身分識別提供者之後，您可以使用 Azure 管理服務來查詢其憑證是否有效。請注意，每次透過 ACS 管理入口網站或 ACS 管理服務來連續上傳中繼資料時會取代金鑰。
 
 以下是 ACS 在憑證到期時擲回的例外狀況：
 

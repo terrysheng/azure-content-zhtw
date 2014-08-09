@@ -21,8 +21,8 @@ Windows Azure 管理入口網站可讓您在 Visual Studio Online 上建立小�
 2.  按一下左下角的 **[新增]**。
 3.  按一下 **[小組專案]**
 4.  提供小組專案名稱。請注意，在專案建立之後，您便無法變更小組專案的名稱。
-5.  選擇您要在專案中使用的版本控制類型。您可以選擇 Git (分散式版本控制系統) 或 Team Foundation 版本控制 (集中式版本控制系統)。不確定要使用哪個系統？在[按此](http://msdn.microsoft.com/en-us/library/ms181368.aspx)深入了解。
-6.  選擇流程範本。如需流程範本的比較，請參閱[使用小組專案成品](http://msdn.microsoft.com/en-us/library/ms400752.aspx)。
+5.  選擇您要在專案中使用的版本控制類型。您可以選擇 Git (分散式版本控制系統) 或 Team Foundation 版本控制 (集中式版本控制系統)。不確定要使用哪個系統？在[按此](http://msdn.microsoft.com/zh-tw/library/ms181368.aspx)深入了解。
+6.  選擇流程範本。如需流程範本的比較，請參閱[使用小組專案成品](http://msdn.microsoft.com/zh-tw/library/ms400752.aspx)。
 7.  選擇要用來建立小組專案、新增使用者，及監控資源使用的 Visual Studio Online 帳戶。
 8.  保持 **[Add to Startboard]** 核取方塊為勾選狀態，如此一來，您的新小組專案便會自動出現在您的開始面板上。
 9.  按一下 **[建立]**。

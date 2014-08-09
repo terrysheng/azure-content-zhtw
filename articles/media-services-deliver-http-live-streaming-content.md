@@ -60,8 +60,8 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 
 如需有關傳遞資產的詳細資訊，請參閱：
 
--   [使用 Media Services for .NET 傳遞資產](http://msdn.microsoft.com/en-us/library/jj129575.aspx)
--   [使用 Media Services REST API 傳遞資產](http://msdn.microsoft.com/en-us/library/jj129578.aspx)
+-   [使用 Media Services for .NET 傳遞資產](http://msdn.microsoft.com/zh-tw/library/jj129575.aspx)
+-   [使用 Media Services REST API 傳遞資產](http://msdn.microsoft.com/zh-tw/library/jj129578.aspx)
 
 後續步驟
 --------

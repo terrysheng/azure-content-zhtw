@@ -187,7 +187,7 @@
 
 1.  下載範例應用程式並解壓縮至您要的資料夾。
 2.  您必須先提供其他權限給服務主體，才能使用範例程式碼。這些權限可讓服務主體使用 Graph API 來讀取資料。從 **[開始]** 功能表中，執行 **[適用於 Windows PowerShell 的 Microsoft Online Services 模組]** 主控台。
-3.  您需要將服務主體加入至服務支援管理員角色，以提供讀取權限給它。如需有關指派角色給服務主體的詳細資訊，請參閱＜[Graph API 的以角色為基礎的存取控制](http://msdn.microsoft.com/en-us/library/hh974466.aspx)。輸入下列命令並按 Enter 鍵：
+3.  您需要將服務主體加入至服務支援管理員角色，以提供讀取權限給它。如需有關指派角色給服務主體的詳細資訊，請參閱＜[Graph API 的以角色為基礎的存取控制](http://msdn.microsoft.com/zh-tw/library/hh974466.aspx)。輸入下列命令並按 Enter 鍵：
 
          Add-MsolRoleMember -RoleMemberType "ServicePrincipal" -RoleName "Service Support Administrator" -RoleMemberObjectId $appPrincipal.ObjectId 
 
@@ -222,5 +222,5 @@
 
 本教學課程已顯示如何建立和設定單一租用戶應用程式，來使用 Azure Active Directory 的單一登入功能。此外，您也使用 Graph API 來存取租用戶的目錄資料。建議您探索範例應用程式，以了解如何在您自己的應用程式中善用 Graph API。
 
-若要深入了解 API，[您可以在 MSDN 上閱讀相關資訊](http://msdn.microsoft.com/en-us/library/hh974476.aspx)。您也可以閱讀下列教學課程，為 Azure Active Directory 建立多租用戶應用程式：[利用 Azure Active Directory 開發多租用戶雲端應用程式](http://g.microsoftonline.com/0AX00en/121) (英文)。
+若要深入了解 API，[您可以在 MSDN 上閱讀相關資訊](http://msdn.microsoft.com/zh-tw/library/hh974476.aspx)。您也可以閱讀下列教學課程，為 Azure Active Directory 建立多租用戶應用程式：[利用 Azure Active Directory 開發多租用戶雲端應用程式](http://g.microsoftonline.com/0AX00en/121) (英文)。
 

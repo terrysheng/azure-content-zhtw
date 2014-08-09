@@ -86,7 +86,7 @@
 
     **注意**
 
-    建立的新的資料表僅含 Id 資料行。啟用動態結構描述時，行動服務會根據插入或更新要求中的 JSON 物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx)。
+    建立的新的資料表僅含 Id 資料行。啟用動態結構描述時，行動服務會根據插入或更新要求中的 JSON 物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193175.aspx)。
 
 3.  使用下列程式碼來取代 **RefreshTodoItems** 函數：
 

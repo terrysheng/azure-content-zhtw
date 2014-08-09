@@ -280,11 +280,11 @@
 
     設置睡眠時間的目的，是要盡可能降低 Azure 儲存體交易成本，如[上一個教學課程](/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/)所說明。
 
-    當 [GetMessage](http://msdn.microsoft.com/en-us/library/windowsazure/ee741827.aspx) 方法從佇列中提取佇列項目時，所有存取該佇列的其他背景工作和 Web 角色將有 30 秒的時間看不見該佇列項目。這是為了確保只有一個背景工作角色執行個體可提取給定的佇列訊息，以進行處理。您可以將[可見度逾時](http://msdn.microsoft.com/en-us/library/windowsazure/ee758454.aspx)參數傳至 `GetMessage` 方法，以明確設定此*獨佔租用*時間 (看不見佇列項目的時間)。如果背景工作角色處理佇列訊息所需的時間可能超過 30 秒，您應增加獨佔租用時間，以防止其他角色執行個體處理相同訊息。
+    當 [GetMessage](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee741827.aspx) 方法從佇列中提取佇列項目時，所有存取該佇列的其他背景工作和 Web 角色將有 30 秒的時間看不見該佇列項目。這是為了確保只有一個背景工作角色執行個體可提取給定的佇列訊息，以進行處理。您可以將[可見度逾時](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758454.aspx)參數傳至 `GetMessage` 方法，以明確設定此*獨佔租用*時間 (看不見佇列項目的時間)。如果背景工作角色處理佇列訊息所需的時間可能超過 30 秒，您應增加獨佔租用時間，以防止其他角色執行個體處理相同訊息。
 
     另一方面，獨佔租用時間也不應設為過大的值。例如，如果獨佔租用時間設為 48 小時，而您的背景工作角色在清除佇列中的訊息後非預期地關閉，則其他背景工作角色將有 48 小時無法處理訊息。獨佔租用上限為 7 天。
 
-    [GetMessages](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx) 方法 (請留意名稱結尾加了 "s") 在一次呼叫中最多可從佇列中提取 32 個訊息。每次佇列存取都會產生少許交易成本，且無論傳回了 32 個訊息還是零個訊息，交易成本都是一樣的。下列程式碼會在一次呼叫中擷取最多 32 個訊息，並加以處理。
+    [GetMessages](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx) 方法 (請留意名稱結尾加了 "s") 在一次呼叫中最多可從佇列中提取 32 個訊息。每次佇列存取都會產生少許交易成本，且無論傳回了 32 個訊息還是零個訊息，交易成本都是一樣的。下列程式碼會在一次呼叫中擷取最多 32 個訊息，並加以處理。
 
     foreach (CloudQueueMessage msg in sendEmailQueue.GetMessages(32))
 
@@ -607,12 +607,12 @@
 -   [如何充分發揮 Windows Azure 資料表的效益](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx) (Azure 儲存體團隊部落格) (英文)
 -   [如何在 .NET 中使用資料表儲存體服務](http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/)
 -   [Windows Azure 儲存體用戶端程式庫 2.0 資料表深入探討](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx) (Azure 儲存體團隊部落格) (英文)
--   [Real World:設計 Azure 資料表儲存體的可調整分割策略](http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx) (英文)
+-   [Real World:設計 Azure 資料表儲存體的可調整分割策略](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh508997.aspx) (英文)
 
 若要深入了解 Azure 佇列服務和 Azure 服務匯流排佇列，請參閱下列資源：
 
 -   [以佇列為中心的工作模式 (運用 Windows Azure 建構真實的雲端應用程式)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)
--   [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)
+-   [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh767287.aspx)
 -   [如何在 .NET 中使用佇列儲存體服務](/en-us/develop/net/how-to-guides/queue-service/)
 
 若要深入了解 Azure Blob 服務，請參閱下列資源：
@@ -623,7 +623,7 @@
 若要深入了解 Azure 雲端服務角色的自動調整，請參閱下列資源：
 
 -   [如何使用自動調整應用程式區塊](/en-us/develop/net/how-to-guides/autoscaling/)
--   [自動調整與 Azure](http://msdn.microsoft.com/en-us/library/hh680945(v=PandP.50).aspx)
+-   [自動調整與 Azure](http://msdn.microsoft.com/zh-tw/library/hh680945(v=PandP.50).aspx)
 -   [使用 Azure 建置彈性、可自動調整的方案](http://channel9.msdn.com/Events/WindowsAzureConf/2012/B04) (MSDN 第 9 頻道視訊)
 
 答謝答謝

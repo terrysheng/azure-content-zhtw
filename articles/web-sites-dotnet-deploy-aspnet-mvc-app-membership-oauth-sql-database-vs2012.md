@@ -282,7 +282,7 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
          enable-migrations -ContextTypeName ContactManagerContext
 
     ![enable-migrations](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxE.png) 
-	您必須指定內容類型名稱 (**ContactManagerContext**)，因為該專案包含兩個 [DbContext](http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) 衍生的類別，包括我們剛建立的 **ContactManagerContext**，以及用在成員資格資料庫的 **UsersContext**。**ContactManagerContext** 類別已由 Visual Studio 硬板精靈新增。
+	您必須指定內容類型名稱 (**ContactManagerContext**)，因為該專案包含兩個 [DbContext](http://msdn.microsoft.com/zh-tw/library/system.data.entity.dbcontext(v=VS.103).aspx) 衍生的類別，包括我們剛建立的 **ContactManagerContext**，以及用在成員資格資料庫的 **UsersContext**。**ContactManagerContext** 類別已由 Visual Studio 硬板精靈新增。
 
     **enable-migrations** 命令會建立 *Migrations* 資料夾，並在該資料夾置入 *Configuration.cs* 檔案，您可以編輯該檔案來設定 [移轉]。
 
@@ -458,9 +458,9 @@ OAuth新增 OAuth 提供者
 使用 Authorize 屬性保護應用程式
 -------------------------------
 
-在本節中，我們將套用 [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 屬性來限制對動作方法的存取。匿名使用者將只能檢視首頁。註冊使用者將能檢視連絡人詳細資料、關於頁面與連絡人頁面。只有 *canEdit* 角色中的使用者才能存取用來變更資料的動作方法。
+在本節中，我們將套用 [Authorize](http://msdn.microsoft.com/zh-tw/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 屬性來限制對動作方法的存取。匿名使用者將只能檢視首頁。註冊使用者將能檢視連絡人詳細資料、關於頁面與連絡人頁面。只有 *canEdit* 角色中的使用者才能存取用來變更資料的動作方法。
 
-1.  將 [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 篩選器和 [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) 篩選器新增至應用程式。替代的方法是將 [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 屬性和 [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) 屬性新增至每個控制器，但將這些屬性套用至整個應用程式是最安全的做法。藉由全面新增這些屬性，您所新增的每個新控制器和動作方法都會自動受到保護，而不需要您記得哪些已套用、哪些未套用。如需詳細資訊，請參閱[保護您的 ASP.NET MVC 4 應用程式和新 AllowAnonymous 屬性](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)。開啟 *App\_Start\\FilterConfig.cs* 檔案並使用下列方法取代 *RegisterGlobalFilters* 方法。
+1.  將 [Authorize](http://msdn.microsoft.com/zh-tw/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 篩選器和 [RequireHttps](http://msdn.microsoft.com/zh-tw/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) 篩選器新增至應用程式。替代的方法是將 [Authorize](http://msdn.microsoft.com/zh-tw/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) 屬性和 [RequireHttps](http://msdn.microsoft.com/zh-tw/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) 屬性新增至每個控制器，但將這些屬性套用至整個應用程式是最安全的做法。藉由全面新增這些屬性，您所新增的每個新控制器和動作方法都會自動受到保護，而不需要您記得哪些已套用、哪些未套用。如需詳細資訊，請參閱[保護您的 ASP.NET MVC 4 應用程式和新 AllowAnonymous 屬性](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)。開啟 *App\_Start\\FilterConfig.cs* 檔案並使用下列方法取代 *RegisterGlobalFilters* 方法。
 
          public static void
         RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -525,7 +525,7 @@ Azure 網站內含有效的安全憑證，因此當您部署至 Azure 時，不�
 準備資料庫建立資料部署指令碼
 ----------------------------
 
-成員資格資料庫並不是由 Entity Framework Code First 管理，因此您無法使用 Migrations 方式來加以部署。我們將使用 [dbDacFx](http://msdn.microsoft.com/en-us/library/dd394698.aspx) 提供者來部署資料庫結構描述，並將發行設定檔設定為執行可將初始成員資格資料插入成員資格資料表中的指令碼。
+成員資格資料庫並不是由 Entity Framework Code First 管理，因此您無法使用 Migrations 方式來加以部署。我們將使用 [dbDacFx](http://msdn.microsoft.com/zh-tw/library/dd394698.aspx) 提供者來部署資料庫結構描述，並將發行設定檔設定為執行可將初始成員資格資料插入成員資格資料表中的指令碼。
 
 本教學課程將使用 SQL Server Management Studio (SSMS) 來建立資料部署指令碼。
 
@@ -677,7 +677,7 @@ Azure 網站內含有效的安全憑證，因此當您部署至 Azure 時，不�
 若要檢視色彩豐富的 Facebook、Google 與 Yahoo 登入按鈕，請參閱部落格文章[自訂 ASP.NET MVC 4 中的外部登入按鈕](http://www.beabigrockstar.com/customizing-external-login-buttons-in-asp-net-mvc-4/) (英文)。如需使用 Windows 驗證的詳細資訊，請參閱以下說明：
 
 -   [Azure 驗證](http://www.asp.net/vnext/overview/fall-2012-update/windows-azure-authentication)
--   [如何使用 ASP.NET MVC 建立內部網站](http://msdn.microsoft.com/en-us/library/gg703322(v=vs.98).aspx)
+-   [如何使用 ASP.NET MVC 建立內部網站](http://msdn.microsoft.com/zh-tw/library/gg703322(v=vs.98).aspx)
 
 另一個儲存 Azure 應用程式資料的方法是使用 Azure 儲存體，它能以 Blob 和資料表的形式提供非關聯式的資料儲存。以下連結提供 ASP.NET MVC 及 Window Azure 的詳細資訊。
 
@@ -690,7 +690,7 @@ Azure 網站內含有效的安全憑證，因此當您部署至 Azure 時，不�
 
 如需瞭解如何偵錯 Azure 網站，請參閱[在 Visual Studio 中疑難排解 Azure 網站](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)。
 
-如需瞭解如何將應用程式部署至 Azure 雲端服務，請參閱[本教學課程的雲端版本](http://www.windowsazure.com/en-us/develop/net/tutorials/cloud-service-with-sql-database/)與[使用 Azure 開發 Web 應用程式](http://msdn.microsoft.com/en-us/library/Hh674484)。您可能會因為下列某些原因，選擇在 Azure 雲端服務下 (而不是使用 Azure 網站) 執行 ASP.NET Web 應用程式：
+如需瞭解如何將應用程式部署至 Azure 雲端服務，請參閱[本教學課程的雲端版本](http://www.windowsazure.com/en-us/develop/net/tutorials/cloud-service-with-sql-database/)與[使用 Azure 開發 Web 應用程式](http://msdn.microsoft.com/zh-tw/library/Hh674484)。您可能會因為下列某些原因，選擇在 Azure 雲端服務下 (而不是使用 Azure 網站) 執行 ASP.NET Web 應用程式：
 
 -   您想要取得執行該應用程式的 Web 伺服器管理員權限。
 -   您想要使用遠端桌面連線存取執行該應用程式的 Web 伺服器。
@@ -703,5 +703,5 @@ Azure 網站內含有效的安全憑證，因此當您部署至 Azure 時，不�
 如需深入了解 Entity Framework 與 Code First 移轉，請參閱下列資源：
 
 -   [使用 MVC 的 Entity Framework 入門](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)
--   [Code First 移轉](http://msdn.microsoft.com/en-us/library/hh770484)
+-   [Code First 移轉](http://msdn.microsoft.com/zh-tw/library/hh770484)
 

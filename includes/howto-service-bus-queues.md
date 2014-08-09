@@ -75,4 +75,4 @@
 
 
 [1]: http://manage.windowsazure.com
-[2]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+[2]: http://http://msdn.microsoft.com/zh-tw/library/windowsazure/ff687127.aspx

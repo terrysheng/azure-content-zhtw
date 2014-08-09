@@ -13,4 +13,4 @@
     這會在伺服器上建立 TodoItem 資料表，具有應用程式金鑰的任何人都可從中存取並變更資料，而無需先經過驗證。
     
     
-	<div  class="dev-callout"><strong>注意</strong><p>應用程式金鑰會與應用程式一起散發。因為這個金鑰不會安全地散發，所以無法將它視為安全性 Token。若要確保行動服務資料的存取安全，您必須改在存取之前驗證使用者。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx">權限</a>。</p></div>
+	<div  class="dev-callout"><strong>注意</strong><p>應用程式金鑰會與應用程式一起散發。因為這個金鑰不會安全地散發，所以無法將它視為安全性 Token。若要確保行動服務資料的存取安全，您必須改在存取之前驗證使用者。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193161.aspx">權限</a>。</p></div>

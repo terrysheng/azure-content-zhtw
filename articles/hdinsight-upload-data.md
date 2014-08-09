@@ -217,7 +217,7 @@ Azure 管理入口網站中啟用它。如需建立 SQL 資料庫和設定防火
 
 
 [1]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
+[2]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj152841.aspx
 [3]: http://azurestorageexplorer.codeplex.com/
 [4]: http://www.cerebrata.com/Products/CloudStorageStudio/
 [5]: http://clumsyleaf.com/products/cloudxplorer

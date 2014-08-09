@@ -10,7 +10,7 @@
 
 設定 RAID 裝置通常需要兩個以上的空白資料磁碟。本文將不會詳細說明如何將資料磁碟連接至 Linux 虛擬機器。請參閱 Windows Azure 文章[連接磁碟](http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/#attachempty)，以取得如何在 Azure 上將空白資料磁碟連接至 Linux 虛擬機器的詳細指示。
 
->[WACOM.NOTE] ExtraSmall VM 大小不支援一個以上附加至虛擬機器的資料磁碟。請參閱 [Windows Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx) 以取得有關 VM 大小，以及支援的資料磁碟個數的詳細資訊。
+>[WACOM.NOTE] ExtraSmall VM 大小不支援一個以上附加至虛擬機器的資料磁碟。請參閱 [Windows Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn197896.aspx) 以取得有關 VM 大小，以及支援的資料磁碟個數的詳細資訊。
 
 安裝 mdadm 公用程式
 -------------------

@@ -192,13 +192,13 @@ Entity Framework 可讓開發人員對概念式的應用程式模型進行程式
 
     metadata=res://*/SchoolModel.csdl|res://*/SchoolModel.ssdl|res://*/SchoolModel.msl;provider=System.Data.SqlClient;provider connection string="Data Source=xxxxxxxxxx.database.windows.net;Initial Catalog=School;Persist Security Info=True;User ID=MyAdmin;Password=***********"
 
-如需詳細資訊，請參閱[適用於 Entity Framework 的 EntityClient 提供者](http://msdn.microsoft.com/en-us/library/bb738561.aspx)。
+如需詳細資訊，請參閱[適用於 Entity Framework 的 EntityClient 提供者](http://msdn.microsoft.com/zh-tw/library/bb738561.aspx)。
 
 後續步驟
 --------
 
 現在您已了解連接到 SQL Database 的基本概念，您可以參閱下列資源，以深入了解 SQL Database。
 
--   [開發：作法主題 (SQL Database)](http://msdn.microsoft.com/en-us/library/windowsazure/ee621787.aspx)
--   [SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx)
+-   [開發：作法主題 (SQL Database)](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee621787.aspx)
+-   [SQL Database](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336279.aspx)
 

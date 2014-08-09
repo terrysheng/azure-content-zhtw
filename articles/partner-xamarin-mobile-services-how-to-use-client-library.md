@@ -66,7 +66,7 @@
 建立資料表參考作法：建立資料表參考
 ----------------------------------
 
-可存取或修改行動服務資料表中資料的所有程式碼會呼叫 `MobileServiceTable` 物件上的函數。您可透過呼叫 `MobileServiceClient` 執行個體上的 [GetTable](http://msdn.microsoft.com/en-us/library/windowsazure/jj554275.aspx) 函數，來取得資料表的參考。
+可存取或修改行動服務資料表中資料的所有程式碼會呼叫 `MobileServiceTable` 物件上的函數。您可透過呼叫 `MobileServiceClient` 執行個體上的 [GetTable](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554275.aspx) 函數，來取得資料表的參考。
 
     IMobileServiceTable<TodoItem> todoTable = 
         client.GetTable<TodoItem>();
@@ -163,7 +163,7 @@
                     .Take(3);                              
     List<TodoItem> items = await query.ToListAsync();
 
-您也可以使用 [IncludeTotalCount](http://msdn.microsoft.com/en-us/library/windowsazure/jj730933.aspx) (英文) 方法，確保查詢會忽略指定的任何採取分頁/限制子句，而取得已傳回 *all* 記錄的總數：
+您也可以使用 [IncludeTotalCount](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj730933.aspx) (英文) 方法，確保查詢會忽略指定的任何採取分頁/限制子句，而取得已傳回 *all* 記錄的總數：
 
     query = query.IncludeTotalCount();
 
@@ -264,7 +264,7 @@
 
 若要讓行動服務管理 Windows 市集或 Windows Phone 應用程式中的驗證程序，您必須向識別提供者註冊您的應用程式。接著在您的行動服務中，您必須設定提供者所提供的應用程式 ID 和密碼。如需詳細資訊，請參閱「開始使用驗證」教學課程 ([Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios/)/[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android/))。
 
-在註冊識別提供者之後，您只需使用提供者的 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 值來呼叫 [LoginAsync 方法](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx)即可。例如，下列程式碼將透過使用 Facebook 來初始化伺服器流程登入。
+在註冊識別提供者之後，您只需使用提供者的 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 值來呼叫 [LoginAsync 方法](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx)即可。例如，下列程式碼將透過使用 Facebook 來初始化伺服器流程登入。
 
     private MobileServiceUser user;
     private async System.Threading.Tasks.Task Authenticate()
@@ -290,9 +290,9 @@
         }
     }
 
-如果您打算使用除了 Facebook 以外的識別提供者，請將上方的 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 值變更成您提供者。
+如果您打算使用除了 Facebook 以外的識別提供者，請將上方的 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 值變更成您提供者。
 
-在此案例中，行動服務透過顯示所選提供者的登入頁面，並在使用識別提供者成功登入後產生行動服務驗證權杖的方式，來管理 OAuth 2.0 驗證流程。[LoginAsync 方法](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) 會傳回 [MobileServiceUser](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx)，並提供通過驗證使用者的 [userId](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx) 和 [MobileServiceAuthenticationToken](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx)，以作為 JSON Web 權杖 (JWT)。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱[快取驗證權杖](#caching)。
+在此案例中，行動服務透過顯示所選提供者的登入頁面，並在使用識別提供者成功登入後產生行動服務驗證權杖的方式，來管理 OAuth 2.0 驗證流程。[LoginAsync 方法](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) 會傳回 [MobileServiceUser](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx)，並提供通過驗證使用者的 [userId](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx) 和 [MobileServiceAuthenticationToken](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx)，以作為 JSON Web 權杖 (JWT)。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱[快取驗證權杖](#caching)。
 
 ### 用戶端流程
 

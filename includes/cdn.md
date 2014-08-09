@@ -34,7 +34,7 @@ Azure 儲存服務的詳細資訊，請參閱[使用 Azure 儲存服務][3]。
  
 <div  class="dev-callout">
 <strong>注意</strong>
-<p>如需關於使用 Azure 服務管理 API 來執行此作業的詳細資訊，請參閱<a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx">建立儲存體帳戶</a>參考主題。</p>
+<p>如需關於使用 Azure 服務管理 API 來執行此作業的詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/hh264518.aspx">建立儲存體帳戶</a>參考主題。</p>
 </div>
 
  **為 Azure 訂閱建立儲存體帳戶**
@@ -133,12 +133,12 @@ http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
+[1]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg680302.aspx
 [2]: https://manage.windowsazure.com/
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/ee924681.aspx
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531560.aspx
-[5]: http://msdn.microsoft.com/en-us/library/gg680306.aspx
-[6]: http://msdn.microsoft.com/en-us/library/dd179354.aspx
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460807.aspx
-[9]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+[3]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee924681.aspx
+[4]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh531560.aspx
+[5]: http://msdn.microsoft.com/zh-tw/library/gg680306.aspx
+[6]: http://msdn.microsoft.com/zh-tw/library/dd179354.aspx
+[7]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh531567.aspx
+[8]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460807.aspx
+[9]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg680307.aspx

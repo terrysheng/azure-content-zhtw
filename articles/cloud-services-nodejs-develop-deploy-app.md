@@ -189,13 +189,13 @@ Azure SDK 安裝的其中一個工具是 Azure 計算模擬器，可以讓您在
 	<div class="dev-callout">
 
 	<b>注意</b>
-	<p>刪除服務不會刪除初次發佈服務時建立的儲存體帳戶，而且將持續對使用的儲存體計費。如需刪除儲存體帳戶的詳細資訊，請參閱<a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx">如何從 Azure 訂用帳戶刪除儲存體帳戶</a>.。</p>
+	<p>刪除服務不會刪除初次發佈服務時建立的儲存體帳戶，而且將持續對使用的儲存體計費。如需刪除儲存體帳戶的詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/hh531562.aspx">如何從 Azure 訂用帳戶刪除儲存體帳戶</a>.。</p>
 	</div>
 	</div>
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj218759.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
+[1]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj218759.aspx
+[2]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj155995.aspx
 [3]: http://nodejs.org/
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx
+[4]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh531562.aspx

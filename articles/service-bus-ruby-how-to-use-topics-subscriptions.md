@@ -92,7 +92,7 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 您也可以設定篩選器，讓您界定傳送至主題的哪些訊息應出現在特定主題訂閱中。
 
-在訂閱支援的篩選器中，**Azure::ServiceBus::SqlFilter** 是最具彈性的類型，可用來實作 SQL92 的子集。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用的運算式詳細資料，請檢閱 [SqlFilter.SqlExpression](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx) 語法。
+在訂閱支援的篩選器中，**Azure::ServiceBus::SqlFilter** 是最具彈性的類型，可用來實作 SQL92 的子集。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用的運算式詳細資料，請檢閱 [SqlFilter.SqlExpression](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx) 語法。
 
 您可以使用 **Azure::ServiceBusService** 物件的 **create\_rule()** 方法，將篩選器新增至訂閱。此方法可讓您將篩選器新增至現有的訂閱中。
 
@@ -186,7 +186,7 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 了解基本的服務匯流排主題之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 參考：[佇列、主題和訂閱](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
--   [SqlFilter](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx) 的 API 參考資料。
+-   請參閱 MSDN 參考：[佇列、主題和訂閱](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367516.aspx)
+-   [SqlFilter](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx) 的 API 參考資料。
 -   請造訪 GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 儲存機制 (英文)。
 

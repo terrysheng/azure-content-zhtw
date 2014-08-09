@@ -71,7 +71,7 @@
 建立資料表參考作法：建立資料表參考
 ----------------------------------
 
-可存取或修改行動服務資料表中資料的所有程式碼會呼叫 `MobileServiceTable` 物件上的函數。您可透過呼叫 `MobileServiceClient` 執行個體上的 [GetTable](http://msdn.microsoft.com/en-us/library/windowsazure/jj554275.aspx) 函數，來取得資料表的參考。
+可存取或修改行動服務資料表中資料的所有程式碼會呼叫 `MobileServiceTable` 物件上的函數。您可透過呼叫 `MobileServiceClient` 執行個體上的 [GetTable](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554275.aspx) 函數，來取得資料表的參考。
 
     IMobileServiceTable<TodoItem> todoTable = 
         client.GetTable<TodoItem>();
@@ -149,7 +149,7 @@
 
 ### 作法：以分頁方式傳回資料
 
-依預設，伺服器僅會傳回前 50 筆資料列。您可以提高傳回的資料列數，方法是呼叫 [Take](http://msdn.microsoft.com/en-us/library/windowsazure/dn250574.aspx) 方法。使用 `Take` 以及 [Skip](http://msdn.microsoft.com/en-us/library/windowsazure/dn250573.aspx) (英文頁面) 方法來要求查詢所傳回總資料集的特定頁面。執行下列查詢時，會傳回資料表中的前三個項目。
+依預設，伺服器僅會傳回前 50 筆資料列。您可以提高傳回的資料列數，方法是呼叫 [Take](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn250574.aspx) 方法。使用 `Take` 以及 [Skip](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn250573.aspx) (英文頁面) 方法來要求查詢所傳回總資料集的特定頁面。執行下列查詢時，會傳回資料表中的前三個項目。
 
     // Define a filtered query that returns the top 3 items.
     MobileServiceTableQuery<TodoItem> query = todoTable
@@ -164,7 +164,7 @@
                     .Take(3);                              
     List<TodoItem> items = await query.ToListAsync();
 
-您也可以使用 [IncludeTotalCount](http://msdn.microsoft.com/en-us/library/windowsazure/dn250560.aspx) (英文) 方法，確保查詢會忽略指定的任何採取分頁/限制子句，而取得已傳回 *all* 記錄的總數：
+您也可以使用 [IncludeTotalCount](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn250560.aspx) (英文) 方法，確保查詢會忽略指定的任何採取分頁/限制子句，而取得已傳回 *all* 記錄的總數：
 
     query = query.IncludeTotalCount();
 
@@ -396,7 +396,7 @@
     ListBox lb = new ListBox();
     lb.ItemsSource = items;
 
-Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoading](http://msdn.microsoft.com/en-us/library/windows/apps/Hh701916) 的介面。此介面允許控制項在使用者捲動時要求額外資料。Windows 市集應用程式可透過自動處理控制項呼叫的 `MobileServiceIncrementalLoadingCollection` 內建支援此介面。若要在 Windows 市集應用程式中使用 `MobileServiceIncrementalLoadingCollection`，請執行下列程式碼：
+Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoading](http://msdn.microsoft.com/zh-tw/library/windows/apps/Hh701916) 的介面。此介面允許控制項在使用者捲動時要求額外資料。Windows 市集應用程式可透過自動處理控制項呼叫的 `MobileServiceIncrementalLoadingCollection` 內建支援此介面。若要在 Windows 市集應用程式中使用 `MobileServiceIncrementalLoadingCollection`，請執行下列程式碼：
 
          MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
         items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -425,7 +425,7 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 
 若要讓行動服務管理 Windows 市集或 Windows Phone 應用程式中的驗證程序，您必須向識別提供者註冊您的應用程式。然後，在行動服務中，您需要設定提供者所提供的應用程式識別碼和密碼。如需詳細資訊，請參閱「開始使用驗證」教學課程 ([Windows Store](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/)/[Windows Phone](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-wp8/))。
 
-在註冊識別提供者之後，您只需使用提供者的 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 值來呼叫 [LoginAsync 方法](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx)即可。例如，下列程式碼將透過使用 Facebook 來初始化伺服器流程登入。
+在註冊識別提供者之後，您只需使用提供者的 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 值來呼叫 [LoginAsync 方法](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx)即可。例如，下列程式碼將透過使用 Facebook 來初始化伺服器流程登入。
 
     private MobileServiceUser user;
     private async System.Threading.Tasks.Task Authenticate()
@@ -451,9 +451,9 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
         }
     }
 
-如果您打算使用除了 Facebook 以外的識別提供者，請將上方的 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 值變更成您提供者。
+如果您打算使用除了 Facebook 以外的識別提供者，請將上方的 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 值變更成您提供者。
 
-在此案例中，行動服務會管理 OAuth 2.0 驗證流程，首先會顯示選取的提供者的登入頁面，然後在以身分識別提供者成功登入之後，產生行動服務驗證權杖。[LoginAsync 方法](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) 會傳回 [MobileServiceUser](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx)，並提供通過驗證使用者的 [userId](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx) 和 [MobileServiceAuthenticationToken](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx)，以作為 JSON Web 權杖 (JWT)。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱[快取驗證權杖](#caching)。
+在此案例中，行動服務會管理 OAuth 2.0 驗證流程，首先會顯示選取的提供者的登入頁面，然後在以身分識別提供者成功登入之後，產生行動服務驗證權杖。[LoginAsync 方法](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) 會傳回 [MobileServiceUser](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx)，並提供通過驗證使用者的 [userId](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx) 和 [MobileServiceAuthenticationToken](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx)，以作為 JSON Web 權杖 (JWT)。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱[快取驗證權杖](#caching)。
 
 **Windows 市集應用程式**
 
@@ -506,7 +506,7 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 
 ### 快取驗證權杖
 
-在某些情況下，可在使用者第一次驗證之後避免呼叫 login 方法。您可以使用 [PasswordVault](http://msdn.microsoft.com/en-us/library/windows/apps/windows.security.credentials.passwordvault.aspx)，Windows 市集應用程式便可在目前使用者首次登入時快取其使用者識別，之後您可以每次在快取中查看是否已有此使用者識別存在。當沒有快取時，您仍需透過登入程序傳送使用者。
+在某些情況下，可在使用者第一次驗證之後避免呼叫 login 方法。您可以使用 [PasswordVault](http://msdn.microsoft.com/zh-tw/library/windows/apps/windows.security.credentials.passwordvault.aspx)，Windows 市集應用程式便可在目前使用者首次登入時快取其使用者識別，之後您可以每次在快取中查看是否已有此使用者識別存在。當沒有快取時，您仍需透過登入程序傳送使用者。
 
     // After logging in
     PasswordVault vault = new PasswordVault();
@@ -533,7 +533,7 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
     client.Logout();
     vault.Remove(vault.Retrieve("Facebook", user.UserId));
 
-若是 Windows Phone 應用程式，您可以使用 [ProtectedData](http://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata%28VS.95%29.aspx) 類別來加密與快取資料，並在獨立的儲存體中儲存敏感資訊。
+若是 Windows Phone 應用程式，您可以使用 [ProtectedData](http://msdn.microsoft.com/zh-tw/library/system.security.cryptography.protecteddata%28VS.95%29.aspx) 類別來加密與快取資料，並在獨立的儲存體中儲存敏感資訊。
 
 錯誤處理作法：處理錯誤
 ----------------------
@@ -620,7 +620,7 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 
 ### 作法：自訂序列化
 
-[MobileServiceClient](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 類別提供類別 [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm) 的 `SerializerSettings` 屬性
+[MobileServiceClient](http://msdn.microsoft.com/zh-tw/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 類別提供類別 [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm) 的 `SerializerSettings` 屬性
 
 透過此屬性，您可以設定許多 Json.NET 屬性，例如，包括一個可將所有屬性轉換為小寫的屬性：
 

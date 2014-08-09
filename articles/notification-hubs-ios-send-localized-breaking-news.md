@@ -50,7 +50,7 @@
         }
     }
 
-範本的功能非常強大，您可以在[通知中心指引](http://msdn.microsoft.com/en-us/library/jj927170.aspx)一文中了解詳情。如需範本運算式語言的參考，請參閱我們的[作法：服務匯流排通知中心 (iOS 應用程式)](http://msdn.microsoft.com/en-us/library/jj927168.aspx)。
+範本的功能非常強大，您可以在[通知中心指引](http://msdn.microsoft.com/zh-tw/library/jj927170.aspx)一文中了解詳情。如需範本運算式語言的參考，請參閱我們的[作法：服務匯流排通知中心 (iOS 應用程式)](http://msdn.microsoft.com/zh-tw/library/jj927168.aspx)。
 
 應用程式 UI應用程式使用者介面
 -----------------------------
@@ -167,7 +167,7 @@
 
 -   [使用通知中心來通知使用者：ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet)
 -   [使用通知中心來通知使用者：行動服務](/en-us/manage/services/notification-hubs/notify-users)
--   [通知中心指引](http://msdn.microsoft.com/en-us/library/jj927170.aspx)
+-   [通知中心指引](http://msdn.microsoft.com/zh-tw/library/jj927170.aspx)
 
-如需範本運算式語言的參考，請參閱 [iOS 的通知中心作法](http://msdn.microsoft.com/en-us/library/jj927168.aspx)。
+如需範本運算式語言的參考，請參閱 [iOS 的通知中心作法](http://msdn.microsoft.com/zh-tw/library/jj927168.aspx)。
 

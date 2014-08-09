@@ -166,7 +166,7 @@ Azure 所提供的佇列技術
 ## <a id="def"> </a>服務定義檔
 
 如前所述，服務定義檔 (CSDEF) 是一個 XML 檔案，其中描述構成完整應用程式的各種角色。如需此 XML
-檔案的完整結構描述，請至：[http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx][]。CSDEF
+檔案的完整結構描述，請至：[http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758711.aspx][]。CSDEF
 檔案會針對您想要讓應用程式具有的每個角色，各包含一個 WebRole 或 WorkerRole 元素。部署角色作為 Web 角色 (使用
 WebRole 元素)，表示程式碼將在含有 Windows Server 2008 和 Internet Information Server
 (IIS) 的角色執行個體上執行。部署角色作為背景工作角色 (使用 WorkerRole 元素)，表示角色執行個體上將有 Windows
@@ -351,14 +351,14 @@ Microsoft 所訂 99.95% 的服務等級協定。
 ## <a id="cfg"> </a>服務組態檔
 
 服務組態檔 (CSCFG) 是一個 XML 檔案，其中描述不需重新部署應用程式就能變更的設定。如需此 XML
-檔案的完整結構描述，請至：[http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx][5]。CSCFG
+檔案的完整結構描述，請至：[http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758710.aspx][5]。CSCFG
 檔案會針對您應用程式中的每個角色各包含一個 Role 元素。以下是一些您可以在 CSCFG 檔案中指定的項目：
 
 * **OS 版本**。此屬性可讓您選取要讓所有執行您應用程式程式碼之角色執行個體來使用的作業系統 (OS) 版本。此作業系統稱為「客體
   OS」**，而且每個新版本都包含客體 OS 發行當時可用的最新安全性修補程式和更新。如果您將 osVersion 屬性值設定為 "\*"，則
   Azure 會在有新的客體 OS 版本可用時，自動更新每個角色執行個體上的客體 OS。不過，選取特定客體 OS
   版本，即等於選擇略過自動更新。例如，將 osVersion 屬性設定為值
-  "WA-GUEST-OS-2.8\_201109-01"，會讓您的所有角色執行個體都取得下列網頁所述的內容：[http://msdn.microsoft.com/en-us/library/hh560567.aspx][6]。如需客體
+  "WA-GUEST-OS-2.8\_201109-01"，會讓您的所有角色執行個體都取得下列網頁所述的內容：[http://msdn.microsoft.com/zh-tw/library/hh560567.aspx][6]。如需客體
   OS 版本的詳細資訊，請參閱[管理 Azure 客體 OS 的升級][7]。
 
 * **執行個體**。此元素的值指出您想要佈建來執行特定角色之程式碼的角色執行個體數目。因為您可以將新的 CSCFG 檔案上傳至 Azure
@@ -405,12 +405,12 @@ Azure 應該為角色 #1 建立三個執行個體，而為角色 #2 建立兩個
 [1]: http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/
 [2]: http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/
 [3]: http://www.windowsazure.com/en-us/pricing/calculator/
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
-[6]: http://msdn.microsoft.com/en-us/library/hh560567.aspx
-[7]: http://msdn.microsoft.com/en-us/library/ee924680.aspx
+[4]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg981929.aspx
+[5]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758710.aspx
+[6]: http://msdn.microsoft.com/zh-tw/library/hh560567.aspx
+[7]: http://msdn.microsoft.com/zh-tw/library/ee924680.aspx
 [8]: http://www.windowsazure.com/en-us/develop/net/fundamentals/deploying-applications/
-[9]: http://msdn.microsoft.com/en-us/library/gg432967.aspx
-[10]: http://msdn.microsoft.com/en-us/library/gg433038.aspx
-[11]: http://msdn.microsoft.com/en-us/library/gg186051.aspx
-[12]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx
+[9]: http://msdn.microsoft.com/zh-tw/library/gg432967.aspx
+[10]: http://msdn.microsoft.com/zh-tw/library/gg433038.aspx
+[11]: http://msdn.microsoft.com/zh-tw/library/gg186051.aspx
+[12]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405486.aspx

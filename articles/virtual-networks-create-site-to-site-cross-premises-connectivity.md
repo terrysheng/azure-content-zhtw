@@ -282,20 +282,20 @@ VPN 裝置和裝置組態的詳細資訊，請參閱[關於虛擬網路的 VPN �
 
 
 [1]: http://go.microsoft.com/fwlink/?LinkId=296653
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx
+[2]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx
 [3]: http://go.microsoft.com/fwlink/?LinkID=294356
 [4]: http://go.microsoft.com/fwlink/?LinkId=299877
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx
+[5]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090.aspx
 [6]: http://go.microsoft.com/fwlink/?LinkId=296652
 [7]: http://go.microsoft.com/fwlink/?LinkID=248098
 [8]: http://msdn.microsoft.com/library/windowsazure/dn133801.aspx
 [9]: http://manage.windowsazure.com/
 [10]: http://go.microsoft.com/fwlink/?LinkID=248092
-[11]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx
+[11]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156075.aspx
 [12]: http://go.microsoft.com/fwlink/?LinkId=248098
 [13]: http://go.microsoft.com/fwlink/?LinkId=299878
 [14]: http://go.microsoft.com/fwlink/?LinkID=299880
 [15]: http://msdn.microsoft.com/library/windowsazure/dn133803.aspx
-[16]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx
+[16]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156097.aspx
 [17]: http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/
 [18]: http://go.microsoft.com/fwlink/?LinkId=248097

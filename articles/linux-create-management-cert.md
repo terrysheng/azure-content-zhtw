@@ -5,7 +5,7 @@
 
 當您要使用服務管理 API 與 Azure 映像平台互動時，您必須要有管理憑證。
 
-<http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx> 上已有相關文件說明如何建立及管理這些憑證。您也可以使用 OpenSSL 來建立管理憑證。如需詳細資訊，請參閱 [OpenSSL](http://openssl.org/)。但本文件主要說明如何使用可能無法供所有 Linux 使用者存取的 Silverlight 入口網站。本文說明如何取得這些憑證，將其與不同的工具、合作夥伴整合，以及您在此功能新增至 Azure 管理入口網站之前如何自行加以使用。
+<http://msdn.microsoft.com/zh-tw/library/windowsazure/gg551721.aspx> 上已有相關文件說明如何建立及管理這些憑證。您也可以使用 OpenSSL 來建立管理憑證。如需詳細資訊，請參閱 [OpenSSL](http://openssl.org/)。但本文件主要說明如何使用可能無法供所有 Linux 使用者存取的 Silverlight 入口網站。本文說明如何取得這些憑證，將其與不同的工具、合作夥伴整合，以及您在此功能新增至 Azure 管理入口網站之前如何自行加以使用。
 
 目錄
 ----
@@ -76,7 +76,7 @@
 使用 Azure 管理入口網站來安裝管理憑證
 -------------------------------------
 
-您可以透過多種方式建立管理憑證。如需建立憑證的詳細資訊，請參閱[建立 Azure 的管理憑證](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx)。建立憑證後，請將其新增至 Azure 中的訂閱。
+您可以透過多種方式建立管理憑證。如需建立憑證的詳細資訊，請參閱[建立 Azure 的管理憑證](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg551722.aspx)。建立憑證後，請將其新增至 Azure 中的訂閱。
 
 1.  登入 Azure 管理入口網站。
 

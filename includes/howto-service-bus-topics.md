@@ -69,4 +69,4 @@ Visual Studio **屬性** 窗格中所顯示，與此命名空間關聯的連線�
 
 
 [1]: http://manage.windowsazure.com
-[2]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+[2]: http://http://msdn.microsoft.com/zh-tw/library/windowsazure/ff687127.aspx

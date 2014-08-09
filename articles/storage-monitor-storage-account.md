@@ -9,7 +9,7 @@
 
 **注意**
 
-其他成本也與在管理入口網站中查看監視資料相關。如需詳細資訊，請參閱[儲存體分析及計費](http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx)。
+其他成本也與在管理入口網站中查看監視資料相關。如需詳細資訊，請參閱[儲存體分析及計費](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh360997.aspx)。
 
 目錄
 ----
@@ -46,7 +46,7 @@
 
 您應該在大約一小時後，開始在儀表板及 **[監視]** 頁面上看到監視資料。
 
-度量存放在儲存體帳戶中的四個資料表：\$MetricsTransactionsBlob、\$MetricsTransactionsTable、\$MetricsTransactionsQueue 及 \$MetricsCapacityBlob。如需詳細資訊，請參閱[關於儲存體分析度量](http://msdn.microsoft.com/en-us/library/windowsazure/hh343258.aspx)。
+度量存放在儲存體帳戶中的四個資料表：\$MetricsTransactionsBlob、\$MetricsTransactionsTable、\$MetricsTransactionsQueue 及 \$MetricsCapacityBlob。如需詳細資訊，請參閱[關於儲存體分析度量](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh343258.aspx)。
 
 設定監視等級與保留原則之後，您可以在管理入口網站選擇要監視哪些可用的度量，以及在度量圖表上繪製哪些度量。每個監視等級會顯示一組預設的度量。您可以使用 **[Add Metrics]** 從度量清單新增或移除度量。
 
@@ -93,7 +93,7 @@
 
     **注意**
 
-    選取度量時請考慮成本。重新整理監視顯示時有相關的交易和出口流量成本。如需詳細資訊，請參閱[儲存體分析及計費](http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx)。
+    選取度量時請考慮成本。重新整理監視顯示時有相關的交易和出口流量成本。如需詳細資訊，請參閱[儲存體分析及計費](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh360997.aspx)。
 
 
 
@@ -147,5 +147,5 @@
 
 4.  按一下 **[儲存]**。
 
-診斷記錄檔儲存在儲存體帳戶中的 \$logs Blob 容器。如需存取 \$logs 容器的詳細資訊，請參閱[關於儲存體分析記錄](http://msdn.microsoft.com/en-us/library/windowsazure/hh343262.aspx)。
+診斷記錄檔儲存在儲存體帳戶中的 \$logs Blob 容器。如需存取 \$logs 容器的詳細資訊，請參閱[關於儲存體分析記錄](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh343262.aspx)。
 

@@ -91,7 +91,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 建立 Azure 應用程式
 -------------------
 
-裝載已啟用 Twilio 功能之應用程式的 Azure 應用程式，與其他任何 Azure 應用程式並無不同。只要加入 Twilio .NET 程式庫並設定角色來使用 Twilio .NET 程式庫即可。如需有關建立初始 Azure 專案的詳細資訊，請參閱＜[使用 Visual Studio 建立 Azure 專案](http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx)＞。
+裝載已啟用 Twilio 功能之應用程式的 Azure 應用程式，與其他任何 Azure 應用程式並無不同。只要加入 Twilio .NET 程式庫並設定角色來使用 Twilio .NET 程式庫即可。如需有關建立初始 Azure 專案的詳細資訊，請參閱＜[使用 Visual Studio 建立 Azure 專案](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405487.aspx)＞。
 
 設定應用程式來使用 Twilio 程式庫
 --------------------------------

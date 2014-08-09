@@ -244,7 +244,7 @@ Apple 推播通知服務 (APNS) 會使用憑證來驗證行動服務。依照這
 傳送通知從後端傳送通知
 ----------------------
 
-您可以使用我們的 [REST 介面](http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx)，從任何後端使用通知中心傳送通知。在本教學課程中，我們將透過 .NET 主控台應用程式和使用節點指令碼的行動服務來傳送通知。
+您可以使用我們的 [REST 介面](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn223264.aspx)，從任何後端使用通知中心傳送通知。在本教學課程中，我們將透過 .NET 主控台應用程式和使用節點指令碼的行動服務來傳送通知。
 
 使用 .NET 應用程式傳送通知：
 
@@ -354,7 +354,7 @@ Apple 推播通知服務 (APNS) 會使用憑證來驗證行動服務。依照這
 後續步驟
 --------
 
-在此簡單範例中，您會將通知廣播到您的所有 iOS 裝置。為了鎖定特定使用者，請參閱[使用通知中心來推播通知給使用者](/en-us/manage/services/notification-hubs/notify-users-aspnet)教學課程，同時如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞](/en-us/manage/services/notification-hubs/breaking-news-dotnet)。若要深入了解如何使用通知中心，請參閱 [Azure 通知中心概觀](http://msdn.microsoft.com/en-us/library/jj927170.aspx)和 [iOS 的通知中心作法](http://msdn.microsoft.com/en-us/library/jj927168.aspx)。
+在此簡單範例中，您會將通知廣播到您的所有 iOS 裝置。為了鎖定特定使用者，請參閱[使用通知中心來推播通知給使用者](/en-us/manage/services/notification-hubs/notify-users-aspnet)教學課程，同時如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞](/en-us/manage/services/notification-hubs/breaking-news-dotnet)。若要深入了解如何使用通知中心，請參閱 [Azure 通知中心概觀](http://msdn.microsoft.com/zh-tw/library/jj927170.aspx)和 [iOS 的通知中心作法](http://msdn.microsoft.com/zh-tw/library/jj927168.aspx)。
 
 <!-- Anchors. -->
 [Generate the certificate signing request]: #certificates
@@ -443,8 +443,8 @@ Apple 推播通知服務 (APNS) 會使用憑證來驗證行動服務。依照這
 
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-ios
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/en-us/library/jj927168.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/zh-tw/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/zh-tw/library/jj927168.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 

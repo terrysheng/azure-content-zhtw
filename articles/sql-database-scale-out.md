@@ -26,7 +26,7 @@
 
 SQL Database 中的同盟可用來實現成效較高的延伸性和效能。其意指按照資料列來分割一或多個資料表，然後再分配到多部資料庫 (同盟成員) 中。這種類型的水平分割通常稱為「分區化」。凡是需要實現延伸性、效能或需要管理容量的情況都可以說是適用於這個方法的主要案例。
 
-Business Edition 支援同盟。如需詳細資訊，請參閱 [SQL 資料庫中的同盟](http://msdn.microsoft.com/en-us/library/windowsazure/hh597452.aspx) (英文) 和 [SQL Database 同盟教學課程 - DBA](http://msdn.microsoft.com/en-us/library/windowsazure/hh778416.aspx) (英文)。
+Business Edition 支援同盟。如需詳細資訊，請參閱 [SQL 資料庫中的同盟](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh597452.aspx) (英文) 和 [SQL Database 同盟教學課程 - DBA](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh778416.aspx) (英文)。
 
 考慮其他形式的儲存體
 --------------------

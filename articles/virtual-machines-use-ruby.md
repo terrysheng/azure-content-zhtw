@@ -23,7 +23,7 @@
 什麼是服務管理？
 ----------------
 
-Azure 提供[適用於服務管理作業的 REST API](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx)，包括 Azure 虛擬機器的管理作業。Azure SDK for ruby 可透過 **Azure::VirtualMachineSerivce** 類別公開虛擬機器的管理作業。有許多可透過 [Azure 管理入口網站](https://manage.windowsazure.com)使用的虛擬機器管理功能，都是使用此類別來存取的。
+Azure 提供[適用於服務管理作業的 REST API](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460799.aspx)，包括 Azure 虛擬機器的管理作業。Azure SDK for ruby 可透過 **Azure::VirtualMachineSerivce** 類別公開虛擬機器的管理作業。有許多可透過 [Azure 管理入口網站](https://manage.windowsazure.com)使用的虛擬機器管理功能，都是使用此類別來存取的。
 
 雖然服務管理 API 可用來管理多種在 Azure 上受到代管理的服務，但本文將只會詳述 Azure 虛擬機器的管理作業。
 
@@ -180,7 +180,7 @@ Azure 虛擬機器的管理作業可使用 **Azure::VirtualMachineService** 類�
 
 -   **:ssh\_port** - 將會用於 SSH 通訊的公用連接埠。如果省略此選項，SSH 連接埠會預設為 22。
 
--   **:vm\_size** - VM 的大小。此選項會決定 VM 的記憶體大小、核心數目、頻寬和其他實際特性。請參閱 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx)，以了解可用大小和實際特性。
+-   **:vm\_size** - VM 的大小。此選項會決定 VM 的記憶體大小、核心數目、頻寬和其他實際特性。請參閱 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn197896.aspx)，以了解可用大小和實際特性。
 
 -   **:winrm\_transport** - 可用於 WinRM 的傳輸陣列。有效的傳輸為 'http' 和 'https'。如果您將 'https' 指定為傳輸，則必須同時使用 **:ssh\_private\_key\_file** 和 **:ssh\_certificate\_file**，指定用以保護 HTTPS 通訊的憑證。
 
@@ -360,6 +360,6 @@ Azure 雲端服務的管理作業可使用 **Azure::StorageService** 類別來�
 了解以程式設計方式建立 Azure 虛擬機器的基礎概念之後，請參考下列連結，以了解如何使用 VM 執行更多功能。
 
 -   造訪[虛擬機器](http://www.windowsazure.com/en-us/documentation/services/virtual-machines/)功能頁面
--   請參閱 MSDN 參考：[虛擬機器](http://msdn.microsoft.com/en-us/library/windowsazure/jj156003.aspx)
+-   請參閱 MSDN 參考：[虛擬機器](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156003.aspx)
 -   了解如何代管[虛擬機器上的 Ruby on Rails 應用程式](http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-linux-vm/)
 

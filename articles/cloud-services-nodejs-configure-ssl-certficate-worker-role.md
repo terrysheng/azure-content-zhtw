@@ -133,9 +133,9 @@
 其他資源
 --------
 
-[如何使憑證與服務產生關聯](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx)
+[如何使憑證與服務產生關聯](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg465718.aspx)
 
 [在 Azure Web 角色中設定 Node.js 應用程式的 SSL](/en-us/develop/nodejs/common-tasks/enable-ssl/)
 
-[如何在 HTTPS 端點上設定 SSL 憑證](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx)
+[如何在 HTTPS 端點上設定 SSL 憑證](http://msdn.microsoft.com/zh-tw/library/windowsazure/ff795779.aspx)
 

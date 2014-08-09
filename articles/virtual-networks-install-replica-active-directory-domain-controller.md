@@ -294,10 +294,10 @@
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx
+[1]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx
+[2]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090.aspx
 [3]: http://www.windowsazure.com/en-us/manage/services/networking/cross-premises-connectivity/
 [4]: http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/
 [5]: http://technet.microsoft.com/en-us/library/cc753500.aspx
-[6]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841
+[6]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156055.aspx
+[7]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj152841

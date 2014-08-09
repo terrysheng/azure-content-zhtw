@@ -111,7 +111,7 @@
           
           ?>
 
-    您可在此找到錯誤代碼與訊息掃描：<http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx>
+    您可在此找到錯誤代碼與訊息掃描：<http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179438.aspx>
 
 查詢資料表
 ----------
@@ -271,7 +271,7 @@ Tasklist 應用程式首頁會列出所有現有工作，並允許插入新的�
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
-    如您所見，傳入的查詢篩選形式為 `Key eq 'Value'`。查詢語法的完整描述可[在此](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx)取得。
+    如您所見，傳入的查詢篩選形式為 `Key eq 'Value'`。查詢語法的完整描述可[在此](http://msdn.microsoft.com/zh-tw/library/windowsazure/dd894031.aspx)取得。
 
 -   接著您可以變更任何屬性：
 

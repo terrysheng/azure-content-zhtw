@@ -3,7 +3,7 @@
 建立及上傳包含 Linux 作業系統的虛擬硬碟
 =======================================
 
-Azure 中的虛擬機器會執行您建立虛擬機器時選擇的作業系統。Azure 將虛擬機器的作業系統以 VHD 格式 (.vhd 檔案) 存放在虛擬硬碟中。為了複製而準備的作業系統 VHD 叫做「映像」。本文說明如何上傳包含您已安裝及一般化之作業系統的 .vhd 檔案，以建立您自己的映像。如需 Azure 中磁碟和映像的詳細資訊，請參閱[管理磁碟及映像](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx)。
+Azure 中的虛擬機器會執行您建立虛擬機器時選擇的作業系統。Azure 將虛擬機器的作業系統以 VHD 格式 (.vhd 檔案) 存放在虛擬硬碟中。為了複製而準備的作業系統 VHD 叫做「映像」。本文說明如何上傳包含您已安裝及一般化之作業系統的 .vhd 檔案，以建立您自己的映像。如需 Azure 中磁碟和映像的詳細資訊，請參閱[管理磁碟及映像](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj672979.aspx)。
 
 **注意**：建立虛擬機器時，您可以自訂作業系統設定以利您的應用程式執行。您設定的組態會存放在該虛擬機器的磁碟上。如需說明，請參閱[如何建立自訂虛擬機器](/en-us/manage/windows/how-to-guides/custom-create-a-vm/)。
 
@@ -628,7 +628,7 @@ Azure 中的虛擬機器會執行您建立虛擬機器時選擇的作業系統�
 
     其中 `<PathToFile>` 是 .publishsettings 檔案的完整路徑。
 
-    如需詳細資訊，請參閱 [Windows Azure Cmdlet 使用者入門](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx)。
+    如需詳細資訊，請參閱 [Windows Azure Cmdlet 使用者入門](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554332.aspx)。
 
 步驟 4：上傳映像至 Azure
 ------------------------
@@ -641,7 +641,7 @@ Azure 中的虛擬機器會執行您建立虛擬機器時選擇的作業系統�
 
     `Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
 
-    如需詳細資訊，請參閱 [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx) (英文)。
+    如需詳細資訊，請參閱 [Add-AzureVhd](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn205185.aspx) (英文)。
 
 -   使用 Linux 命令列工具上傳映像。您可以使用以下命令上傳映像：
 

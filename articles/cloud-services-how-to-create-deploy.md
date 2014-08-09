@@ -163,10 +163,10 @@ Azure SDK 提供準備這些必要部署檔案的工具。您可以從 [Azure �
 [1]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
 [2]: http://www.windowsazure.com/en-us/develop/downloads/
 [3]: http://code.msdn.microsoft.com/windowsazure/
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433010.aspx
+[4]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff795779.aspx
+[5]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433010.aspx
 [6]: http://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/
 [7]: http://manage.windowsazure.com/
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx
-[9]: http://msdn.microsoft.com/en-us/library/windowsazure/hh552718.aspx
+[8]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460798.aspx
+[9]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh552718.aspx
 [10]: http://www.windowsazure.com/en-us/support/legal/sla/

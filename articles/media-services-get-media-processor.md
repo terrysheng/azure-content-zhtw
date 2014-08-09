@@ -21,17 +21,17 @@
     <tr>
        <td>Azure Media Encoder</td>
        <td>可讓您使用 Media Encoder 執行編碼工作。</td>
-       <td><a href="http://msdn.microsoft.com/en-us/library/jj129582.aspx">Azure Media Encoder 的工作預設字串</a></td>
+       <td><a href="http://msdn.microsoft.com/zh-tw/library/jj129582.aspx">Azure Media Encoder 的工作預設字串</a></td>
     </tr>
     <tr>
         <td>Azure Media Packager</td>
         <td>可讓您將媒體資產從 .mp4 轉換為 Smooth Streaming 格式。此外，也可讓您將媒體資產從 Smooth Streaming 轉換為 Apple HTTP Live Streaming (HLS) 格式。</td>
-		<td><a href="http://msdn.microsoft.com/en-us/library/hh973635.aspx">Azure Media Packager 的工作預設字串</a></td>
+		<td><a href="http://msdn.microsoft.com/zh-tw/library/hh973635.aspx">Azure Media Packager 的工作預設字串</a></td>
     </tr>
     <tr>
         <td>Azure Media Encryptor</td>
         <td>可讓您使用 PlayReady Protection 為媒體資產加密。</td>
-        <td><a href="http://msdn.microsoft.com/en-us/library/hh973610.aspx">Azure Media Packager 的工作預設字串</a></td>
+        <td><a href="http://msdn.microsoft.com/zh-tw/library/hh973610.aspx">Azure Media Packager 的工作預設字串</a></td>
     </tr>
     <tr>
         <td>Storage Decryption</td>

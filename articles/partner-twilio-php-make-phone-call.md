@@ -101,7 +101,7 @@
 
 此程式可說明在 Azure 上的 PHP 中使用 Twilio 的基本功能。在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。例如：
 
--   除了使用 Web 表單以外，您也可以使用 Azure 儲存體 Blob 或 SQL Database 來儲存電話號碼和通話文字。如需在 PHP 中使用 Azure 儲存體 Blob 的相關資訊，請參閱[搭配使用 Azure 儲存體與 PHP 應用程式](http://msdn.microsoft.com/en-us/library/windowsazure/hh674502(v=vs.103).aspx)。如需在 PHP 中使用 SQL Database 的相關資訊，請參閱[搭配使用 SQL Database 與 PHP](http://msdn.microsoft.com/en-us/library/windowsazure/hh674500(v=vs.103).aspx)。
+-   除了使用 Web 表單以外，您也可以使用 Azure 儲存體 Blob 或 SQL Database 來儲存電話號碼和通話文字。如需在 PHP 中使用 Azure 儲存體 Blob 的相關資訊，請參閱[搭配使用 Azure 儲存體與 PHP 應用程式](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh674502(v=vs.103).aspx)。如需在 PHP 中使用 SQL Database 的相關資訊，請參閱[搭配使用 SQL Database 與 PHP](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh674500(v=vs.103).aspx)。
 -   **makecall.php** 程式碼會使用 Twilio 提供的 URL (<http://twimlets.com/message>) 來提供 Twilio 標記語言 (TwiML) 回應，以告知 Twilio 應如何執行通話。例如，傳回的 TwiML 可能會包含 `<Say>` 動詞，而產生要傳達給受話方的文字。除了使用 Twilio 提供的 URL 以外，您也可以建置自己的服務來回應 Twilio 的要求；如需詳細資訊，請參閱[如何在 PHP 中透過 Twilio 使用語音和簡訊功能](../partner-twilio-php-how-to-use-voice-sms)。如需 TwiML 的詳細資訊，請參閱 <http://www.twilio.com/docs/api/twiml>；如需 `<Say>` 和其他 Twilio 動詞的詳細資訊，請參閱 <http://www.twilio.com/docs/api/twiml/say>。
 -   閱讀 [https://www.twilio.com/docs/security](http://www.twilio.com/docs/security) 上的 Twilio 安全性指引。
 

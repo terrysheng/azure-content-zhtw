@@ -134,7 +134,7 @@
 
     您應該在先前建立儲存體帳戶的相同區域中建立雲端服務。當雲端服務與儲存體帳戶位於不同的資料中心 (不同的區域) 時，延遲時間會增加，而且您將由於使用資料中心外的頻寬而付費。資料中心內的頻寬則是免費的。
 
-    Azure 同質群組提供一種機制，可將資料中心內的資源之間的距離縮至最短，因而可以減少延遲時間。本教學課程不會使用同質群組。如需詳細資訊，請參閱[如何在 Azure 中建立同質群組](http://msdn.microsoft.com/en-us/library/jj156209.aspx) (英文)。
+    Azure 同質群組提供一種機制，可將資料中心內的資源之間的距離縮至最短，因而可以減少延遲時間。本教學課程不會使用同質群組。如需詳細資訊，請參閱[如何在 Azure 中建立同質群組](http://msdn.microsoft.com/zh-tw/library/jj156209.aspx) (英文)。
 
 6.  按一下 **[建立雲端服務]**。
 
@@ -315,7 +315,7 @@
 
 2.  從 `WorkerRoleA` 和 `WorkerRoleB` 元素中刪除這兩個連接字串的 `Setting` 元素，然後從 `MvcWebRole` 元素中複製 `Setting` 元素，並在這些元素的位置貼上複製的內容。
 
-如需組態檔的詳細資訊，請參閱[設定 Azure 專案](http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx)。
+如需組態檔的詳細資訊，請參閱[設定 Azure 專案](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405486.aspx)。
 
 ### 測試已設定為使用儲存體帳戶的應用程式
 
@@ -534,16 +534,16 @@
 
     每一個背景工作和 Web 角色中的 `ConfigureDiagnostics` 方法會將追蹤接聽程式設為在呼叫追蹤 API 時記錄資料。如需詳細資訊，請參閱[在 Azure 雲端應用程式中使用追蹤](http://blogs.msdn.com/b/windowsazure/archive/2012/10/24/using-trace-in-windows-azure-cloud-applications-1.aspx "在 Azure 中使用追蹤") (英文)。
 
-3.  在 **[伺服器總管]** 中，按兩下 **WADLogsTable** (展開 **[儲存體]** / **[yourstorageaccountname]** / **[資料表]**)，以取得先前新增的儲存體帳戶。您可以輸入[為資料表設計工具建構篩選條件字串](http://msdn.microsoft.com/en-us/library/windowsazure/ff683669.aspx "WCF 篩選條件")，以限制顯示的實體。下列影像只顯示警告和錯誤訊息。
+3.  在 **[伺服器總管]** 中，按兩下 **WADLogsTable** (展開 **[儲存體]** / **[yourstorageaccountname]** / **[資料表]**)，以取得先前新增的儲存體帳戶。您可以輸入[為資料表設計工具建構篩選條件字串](http://msdn.microsoft.com/zh-tw/library/windowsazure/ff683669.aspx "WCF 篩選條件")，以限制顯示的實體。下列影像只顯示警告和錯誤訊息。
 
     ![Dashboard](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-trc.png)
 
 <a name="addRole"></a>新增角色執行個體新增另一個背景工作角色執行個體來處理增加的負載
 --------------------------------------------------------------
 
-有兩種方法可擴充 Azure 角色中的運算資源，那就是指定[設定雲端服務的大小](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "虛擬機器大小") 和 (或) 指定執行中虛擬機器的執行個體計數。
+有兩種方法可擴充 Azure 角色中的運算資源，那就是指定[設定雲端服務的大小](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee814754.aspx "虛擬機器大小") 和 (或) 指定執行中虛擬機器的執行個體計數。
 
-虛擬機器 (VM) 大小是指定在 *ServiceDefinition.csdef* 檔案中 `WebRole` 或 `WorkerRole` 元素的 `vmsize` 屬性中。預設設定為 `Small`，此設定會提供一個核心和 1.75 GB 的 RAM。對於使用大量記憶體、磁碟和頻寬的多執行緒應用程式，您可以增加虛擬機器大小以提高效能。例如，`ExtraLarge` 虛擬機器有 8 個 CPU 核心和 14 GB 的 RAM。對單一電腦增加記憶體、CPU 核心、磁碟和頻寬即為「擴充 (硬體資源)」**。適合進行擴充的候選對象包括使用[非同步方法](http://www.asp.net/mvc/tutorials/mvc-4/using-asynchronous-methods-in-aspnet-mvc-4 "非同步 MVC") (英文)的 ASP.NET Web 應用程式。如需每一個虛擬機器大小所提供資源的說明，請參閱[設定雲端服務的大小](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "虛擬機器大小")。
+虛擬機器 (VM) 大小是指定在 *ServiceDefinition.csdef* 檔案中 `WebRole` 或 `WorkerRole` 元素的 `vmsize` 屬性中。預設設定為 `Small`，此設定會提供一個核心和 1.75 GB 的 RAM。對於使用大量記憶體、磁碟和頻寬的多執行緒應用程式，您可以增加虛擬機器大小以提高效能。例如，`ExtraLarge` 虛擬機器有 8 個 CPU 核心和 14 GB 的 RAM。對單一電腦增加記憶體、CPU 核心、磁碟和頻寬即為「擴充 (硬體資源)」**。適合進行擴充的候選對象包括使用[非同步方法](http://www.asp.net/mvc/tutorials/mvc-4/using-asynchronous-methods-in-aspnet-mvc-4 "非同步 MVC") (英文)的 ASP.NET Web 應用程式。如需每一個虛擬機器大小所提供資源的說明，請參閱[設定雲端服務的大小](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee814754.aspx "虛擬機器大小")。
 
 此應用程式中的背景工作角色 B 為高負載下的限制元件，因為它會執行傳送電子郵件的工作。(背景工作角色 A 只建立佇列訊息，不會大量耗用資源。)因為背景工作角色 B 不是多執行緒，而且沒有大量記憶體，因此不適合進行擴充。背景工作角色 B 可藉由增加執行個體計數，以線性方式進行擴充 (亦即，執行個體加倍時，效能也幾乎加倍)。增加運算執行個體數目即為「擴充 (機器數量)」**。每一個執行個體都需要成本，因此請在應用程式有需要時再擴充。
 

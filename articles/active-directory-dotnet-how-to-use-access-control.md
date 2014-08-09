@@ -362,4 +362,4 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
 [1]: http://go.microsoft.com/fwlink/?LinkID=212360
 [2]: http://go.microsoft.com/fwlink/?LinkID=245849
 [3]: http://manage.WindowsAzure.com
-[4]: http://msdn.microsoft.com/en-us/library/hh377151.aspx
+[4]: http://msdn.microsoft.com/zh-tw/library/hh377151.aspx

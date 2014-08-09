@@ -160,7 +160,7 @@
 此程式可說明在 Azure 上的 ASP.NET Web 角色中使用 Twilio 的基本功能。在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。例如：
 
 -   除了使用 Web 表單以外，您也可以使用 Azure Blob 儲存體或 Azure SQL Database 執行個體來儲存電話號碼和通話文字。如需在 Azure 中使用 Blob 的相關資訊，請參閱[如何在 .NET 中使用 Azure Blob 儲存體服務](https://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/)。如需使用 SQL Database 的相關資訊，請參閱[如何在 .NET 應用程式中使用 Azure SQL Database](https://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-database/)。
--   您可以使用 RoleEnvironment.getConfigurationSettings，從部署的組態設定中擷取 Twilio 帳戶 ID 和驗證權杖，而不要在表單中進行值的硬式編碼。如需 RoleEnvironment 類別的相關資訊，請參閱 [Microsoft.WindowsAzure.ServiceRuntime 命名空間](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx)。
+-   您可以使用 RoleEnvironment.getConfigurationSettings，從部署的組態設定中擷取 Twilio 帳戶 ID 和驗證權杖，而不要在表單中進行值的硬式編碼。如需 RoleEnvironment 類別的相關資訊，請參閱 [Microsoft.WindowsAzure.ServiceRuntime 命名空間](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx)。
 -   閱讀 [https://www.twilio.com/docs/security](http://www.twilio.com/docs/security) 上的 Twilio 安全性指引。
 -   在 [https://www.twilio.com/docs](http://www.twilio.com/docs) 上深入了解 Twilio。
 

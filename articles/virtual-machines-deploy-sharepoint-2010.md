@@ -161,8 +161,8 @@ Azure 虛擬機器可讓開發人員有彈性地選擇其所需的語言或執�
 9.  使用下列任何選項建置 SQL Server VM：
     -   依照前述的步驟 1 到 7 來建立 SQL Server 2012 VM，但**步驟 3** 除外；請使用 SQL Server 2012 映像，而不要使用 Windows Server 2008 R2 SP1 映像。如需詳細資訊，請移至[在 Azure 上佈建 SQL Server 虛擬機器](/en-us/manage/windows/common-tasks/install-sql-server/)。
         -   當您選擇此選項時，佈建程序會在 *C:\\SQLServer\_11.0\_Full* 目錄路徑中保存 SQL Server 2012 安裝檔案的複本，供您自訂安裝之用。例如，您可以使用授權金鑰，將 SQL Server 2012 的評估版安裝轉換為授權版本。
-    -   使用 SQL Server 系統準備 (SysPrep) 工具，在基礎作業系統的 VM 上安裝 SQL Server (如前述步驟 1 到 7 所說明)。如需詳細資訊，請移至[使用 SysPrep 安裝 SQL Server 2012](http://msdn.microsoft.com/en-us/library/ee210664.aspx)。
-    -   使用命令提示字元安裝 SQL Server。如需詳細資訊，請移至[使用命令提示字元安裝 SQL Server 2012](http://msdn.microsoft.com/en-us/library/ms144259.aspx#SysPrep)。
+    -   使用 SQL Server 系統準備 (SysPrep) 工具，在基礎作業系統的 VM 上安裝 SQL Server (如前述步驟 1 到 7 所說明)。如需詳細資訊，請移至[使用 SysPrep 安裝 SQL Server 2012](http://msdn.microsoft.com/zh-tw/library/ee210664.aspx)。
+    -   使用命令提示字元安裝 SQL Server。如需詳細資訊，請移至[使用命令提示字元安裝 SQL Server 2012](http://msdn.microsoft.com/zh-tw/library/ms144259.aspx#SysPrep)。
     -   使用支援的 SQL Server 媒體和您的授權金鑰，在基礎作業系統的 VM 上安裝 SQL Server (如前述步驟 1 到 7 所說明)。
 
 10. 使用下列子步驟建置 SharePoint 伺服器陣列：
@@ -221,7 +221,7 @@ Azure 虛擬機器可讓開發人員有彈性地選擇其所需的語言或執�
 
 若要在 Azure 上實作 SharePoint 開發與測試環境，請執行下列步驟：
 
-1.  *佈建*：首先，請使用 Azure 虛擬網路佈建內部部署與 Azure 之間的 VPN 連線。(由於此處不會使用 Active Directory，因此需要有 VPN 通道。)如需詳細資訊，請移至 [Azure 虛擬網路 (設計考量和安全連線情境)](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)。接著，請在管理入口網站上使用映像庫中儲存的映像佈建新的 VM。
+1.  *佈建*：首先，請使用 Azure 虛擬網路佈建內部部署與 Azure 之間的 VPN 連線。(由於此處不會使用 Active Directory，因此需要有 VPN 通道。)如需詳細資訊，請移至 [Azure 虛擬網路 (設計考量和安全連線情境)](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx)。接著，請在管理入口網站上使用映像庫中儲存的映像佈建新的 VM。
     -   您可以將內部部署的 SharePoint 開發與測試 VM 上傳至您的 Azure 儲存體帳戶，並透過映像庫參照這些 VM，以建置必要的環境。
     -   您可以使用 SQL Server 2012 映像，而不使用 Windows Server 2008 R2 SP1 映像。如需詳細資訊，請移至[在 Azure 上佈建 SQL Server 虛擬機器](/en-us/manage/windows/common-tasks/install-sql-server/)。
 
@@ -230,8 +230,8 @@ Azure 虛擬機器可讓開發人員有彈性地選擇其所需的語言或執�
         -   使用 SharePoint 2010 的檢視設定指令碼 (Easy Setup Script) 建置 SharePoint 開發人員機器。如需詳細資訊，請移至 [SharePoint 2010 簡易設定指令碼](http://www.microsoft.com/en-us/download/details.aspx?id=23415)。
         -   使用 Windows PowerShell。如需詳細資訊，請移至[使用 Windows PowerShell 安裝 SharePoint Server 2010](http://technet.microsoft.com/en-us/library/cc262839.aspx)。
         -   使用 CodePlex 專案的 AutoSPInstaller。如需詳細資訊，請移至 [CodePlex：AutoSPInstaller](http://autospinstaller.codeplex.com/)。
-    -   安裝 Visual Studio。如需詳細資訊，請移至 [Visual Studio 安裝](http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx)。
-    -   安裝 SQL Server。如需詳細資訊，請移至[使用 SysPrep 安裝 SQL Server](http://msdn.microsoft.com/en-us/library/ee210664.aspx)。
+    -   安裝 Visual Studio。如需詳細資訊，請移至 [Visual Studio 安裝](http://msdn.microsoft.com/zh-tw/library/e2h7fzkw.aspx)。
+    -   安裝 SQL Server。如需詳細資訊，請移至[使用 SysPrep 安裝 SQL Server](http://msdn.microsoft.com/zh-tw/library/ee210664.aspx)。
         -   參考為 SharePoint 伺服器陣列部署建立及設定 SQL Server 2012 的實際操作實驗室。[為 Azure 中的 SharePoint 設定 SQL Server 2012](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint)。
         -   參考藉由設定 Active Directory 及使用單一 SQL Server 資料庫來建立 SharePoint 伺服器陣列的實際操作實驗室。[使用 Azure 虛擬機器部署 SharePoint 伺服器陣列](https://github.com/WindowsAzure-TrainingKit/HOL-DeploySharePointVMs)。
 
@@ -273,7 +273,7 @@ Azure 基礎結構中的 VM 經驗證可有效與其他 Microsoft 產品搭配�
 
 若要在 Azure 上實作公用端 SharePoint 伺服器陣列，請執行下列步驟：
 
-1.  *部署 Active Directory*：在 Azure 虛擬機器上部署 Active Directory 的基本需求，類似於 (但不等同於) 在內部部署 VM (和某些實體機器) 上的部署。如需其差異的詳細資訊，以及相關指引和其他注意事項，請移至[在 Azure 虛擬機器上部署 Active Directory 的指引](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090)。若要在 Azure 中部署 Active Directory：
+1.  *部署 Active Directory*：在 Azure 虛擬機器上部署 Active Directory 的基本需求，類似於 (但不等同於) 在內部部署 VM (和某些實體機器) 上的部署。如需其差異的詳細資訊，以及相關指引和其他注意事項，請移至[在 Azure 虛擬機器上部署 Active Directory 的指引](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090)。若要在 Azure 中部署 Active Directory：
     -   定義及建立可讓 VM 指派至特定子網路的虛擬網路。如需詳細資訊，請移至[設定虛擬網路](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md)。
     -   使用管理入口網站，在 Azure 中的新 VM 上建立及部署網域控制站。如需詳細資訊，請移至[部署及建立網域控制站](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md)。
         -   您也可以參照 Windows PowerShell 指令碼，使用 Azure 虛擬機器和虛擬網路在雲端中部署獨立網域。如需詳細資訊，請移至[在 Azure 中部署 Active Directory (Windows PowerShell)](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS)。
@@ -314,13 +314,13 @@ Azure 基礎結構中的 VM 經驗證可有效與其他 Microsoft 產品搭配�
 若要在 Azure 上擴充 BI 環境，請執行下列步驟：
 
 1.  *佈建*：
-    -   使用 Azure 虛擬網路，佈建內部部署與 Azure 之間的 VPN 連線。如需詳細資訊，請移至 [Azure 虛擬網路 (設計考量和安全連線情境)](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)。
+    -   使用 Azure 虛擬網路，佈建內部部署與 Azure 之間的 VPN 連線。如需詳細資訊，請移至 [Azure 虛擬網路 (設計考量和安全連線情境)](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx)。
     -   使用管理入口網站，從映像庫中儲存的映像佈建新的 VM。
         -   您可以將 SharePoint Server 或 SQL Server BI 工作負載映像上傳至映像庫，且任何授權使用者皆可選用這些 BI 元件 VM 來建置擴充的環境。
 
 2.  *安裝*：如果您的組織沒有預先建置的 SharePoint Server 或 SQL Server BI 元件映像，請使用遠端桌面連線在 VM 上安裝 SharePoint Server 和 SQL Server。
     -   如需安裝 SharePoint 的詳細資訊，請移至[使用 Windows PowerShell 安裝 SharePoint Server 2010](http://technet.microsoft.com/en-us/library/cc262839.aspx) 或 [CodePlex：AutoSPInstaller](http://autospinstaller.codeplex.com/)。
-    -   如需安裝 SQL Server 的詳細資訊，請移至[使用 SysPrep 安裝 SQL Server](http://msdn.microsoft.com/en-us/library/ee210664.aspx)。
+    -   如需安裝 SQL Server 的詳細資訊，請移至[使用 SysPrep 安裝 SQL Server](http://msdn.microsoft.com/zh-tw/library/ee210664.aspx)。
     -   參考為 SharePoint 伺服器陣列部署建立及設定 SQL Server 2012 的實際操作實驗室。[為 Azure 中的 SharePoint 設定 SQL Server 2012](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint)。
     -   參考藉由設定 Active Directory 及使用單一 SQL Server 資料庫來建立 SharePoint 伺服器陣列的實際操作實驗室。[使用 Azure 虛擬機器部署 SharePoint 伺服器陣列](https://github.com/WindowsAzure-TrainingKit/HOL-DeploySharePointVMs)。
 
@@ -355,7 +355,7 @@ Azure 基礎結構中的 VM 經驗證可有效與其他 Microsoft 產品搭配�
 
 下列步驟說明，如何從映像庫中預先建置的可用映像建立自訂的 SharePoint 伺服器陣列環境。但請注意，您也可以將 SharePoint 伺服器陣列 VM 上傳至映像庫，而授權使用者則可以選用這些 VM，在 Azure 上建置必要的 SharePoint 伺服器陣列。
 
-1.  部署 Active Directory*：在 Azure 虛擬機器上部署 Active Directory 的基本需求，類似於 (但不等同於) 在內部部署 VM (和某些實體機器) 上的部署。如需其差異的詳細資訊，以及相關指引和其他注意事項，請移至[在 Azure 虛擬機器上部署 Active Directory 的指引](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090)。若要在 Azure 中部署 Active Directory：*
+1.  部署 Active Directory*：在 Azure 虛擬機器上部署 Active Directory 的基本需求，類似於 (但不等同於) 在內部部署 VM (和某些實體機器) 上的部署。如需其差異的詳細資訊，以及相關指引和其他注意事項，請移至[在 Azure 虛擬機器上部署 Active Directory 的指引](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090)。若要在 Azure 中部署 Active Directory：*
     -   定義及建立可讓 VM 指派至特定子網路的虛擬網路。如需詳細資訊，請移至[設定虛擬網路](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md)。
     -   使用管理入口網站，在 Azure 中的新 VM 上建立及部署網域控制站。如需詳細資訊，請移至[部署及建立網域控制站](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md)。
         -   您也可以參照 Windows PowerShell 指令碼，使用 Azure 虛擬機器和虛擬網路在雲端中部署獨立網域。如需詳細資訊，請移至[在 Azure 中部署 Active Directory (Windows PowerShell)](https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS)。
@@ -363,11 +363,11 @@ Azure 基礎結構中的 VM 經驗證可有效與其他 Microsoft 產品搭配�
 
 2.  *部署 SQL Server*：
     -   使用管理入口網站，從映像庫中儲存的映像佈建新的 VM。
-    -   在 VM 上設定 SQL Server。如需詳細資訊，請移至[使用 SysPrep 安裝 SQL Server](http://msdn.microsoft.com/en-us/library/ee210664.aspx)。
+    -   在 VM 上設定 SQL Server。如需詳細資訊，請移至[使用 SysPrep 安裝 SQL Server](http://msdn.microsoft.com/zh-tw/library/ee210664.aspx)。
     -   將 VM 加入新建立的 Active Directory 網域中。
 
 3.  *部署多伺服器 SharePoint 伺服器陣列*：
-    -   建立虛擬網路。如需詳細資訊，請移至 [Azure 虛擬網路 (設計考量和安全連線情境)](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)。
+    -   建立虛擬網路。如需詳細資訊，請移至 [Azure 虛擬網路 (設計考量和安全連線情境)](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx)。
         -   在部署 SharePoint VM 時，您必須為 SharePoint Server 提供子網路，如此，本機 Active Directory 方塊中的 DNS 位址在佈建期間才可供使用。
     -   使用管理入口網站建立 VM。
     -   在此 VM 上安裝 SharePoint Server，並產生可重複使用的映像。如需安裝 SharePoint Server 的詳細資訊，請移至[使用 Windows PowerShell 安裝及設定 SharePoint Server 2010](http://technet.microsoft.com/en-us/library/cc262839.aspx) 或 [CodePlex：AutoSPInstaller](http://autospinstaller.codeplex.com/)。
@@ -398,11 +398,11 @@ Azure 虛擬機器可用來執行完整而連續的 SharePoint 部署。Azure �
 
 -   開始使用 Azure PowerShell
 
-    <http://msdn.microsoft.com/en-us/library/windowsazure/jj156055>
+    <http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156055>
 
 -   Azure 管理 Cmdlet
 
-    <http://msdn.microsoft.com/en-us/library/windowsazure/jj152841>
+    <http://msdn.microsoft.com/zh-tw/library/windowsazure/jj152841>
 
 -   適用於不同作業系統的命令列工具和 PowerShell Cmdlet
 

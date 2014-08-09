@@ -104,7 +104,7 @@
 
 ![](./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-push-tab.png)
 
-> [WACOM.NOTE]本教學課程使用未經驗證模式的 MPNS。在此模式中，MPNS 會限制可傳送至裝置通道的通知數。若要移除此限制，您必須按一下 **[上傳]** 並選取憑證，以產生憑證並加以上傳。如需產生憑證的詳細資訊，請參閱[設定已驗證的 Web 服務以傳送 Windows Phone 的推播通知](http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx) (英文)。
+> [WACOM.NOTE]本教學課程使用未經驗證模式的 MPNS。在此模式中，MPNS 會限制可傳送至裝置通道的通知數。若要移除此限制，您必須按一下 **[上傳]** 並選取憑證，以產生憑證並加以上傳。如需產生憑證的詳細資訊，請參閱[設定已驗證的 Web 服務以傳送 Windows Phone 的推播通知](http://msdn.microsoft.com/zh-tw/library/windowsphone/develop/ff941099(v=vs.105).aspx) (英文)。
 
 這會使行動服務以未經驗證的模式連接到 MPNS，以傳送推播通知。
 

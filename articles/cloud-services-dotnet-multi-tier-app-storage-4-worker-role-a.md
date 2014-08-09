@@ -268,7 +268,7 @@
              }
          }
 
-    請注意，所有工作都是以 `while` 區塊中的無限迴圈完成，而 `while` 區塊中的所有程式碼都包在 `try`-`catch` 區塊中，以預防有無法處理的例外狀況。如果發生無法處理的例外狀況，則 Azure 會引發 [UnhandledException](http://msdn.microsoft.com/en-us/library/system.appdomain.unhandledexception.aspx) 事件、終止工作者處理序，並使角色離線。Azure 將會重新啟動背景工作角色，但是這需要數分鐘的時間。`try` 區塊會呼叫 `TraceError` 以記錄錯誤，然後睡眠 60 秒，因此，如果錯誤持續發生，錯誤訊息並不會重複出現太多次。在生產應用程式中，您可以在 `try` 區塊中傳送電子郵件給系統管理員。
+    請注意，所有工作都是以 `while` 區塊中的無限迴圈完成，而 `while` 區塊中的所有程式碼都包在 `try`-`catch` 區塊中，以預防有無法處理的例外狀況。如果發生無法處理的例外狀況，則 Azure 會引發 [UnhandledException](http://msdn.microsoft.com/zh-tw/library/system.appdomain.unhandledexception.aspx) 事件、終止工作者處理序，並使角色離線。Azure 將會重新啟動背景工作角色，但是這需要數分鐘的時間。`try` 區塊會呼叫 `TraceError` 以記錄錯誤，然後睡眠 60 秒，因此，如果錯誤持續發生，錯誤訊息並不會重複出現太多次。在生產應用程式中，您可以在 `try` 區塊中傳送電子郵件給系統管理員。
 
     `Run` 方法會處理查詢，來找出 `message` 資料表中排程日期為明天之前的 `message` 列：
 

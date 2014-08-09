@@ -42,7 +42,7 @@
 
 自 0.8.0 版開始，Azure PowerShell 安裝包括三個 Windows PowerShell 模組：
 
--   **Azure**：包括管理個別資源 (例如儲存體帳戶、網站、資料庫、虛擬機器和媒體服務) 的傳統 Cmdlet。如需詳細資訊，請參閱 [Azure 服務管理 Cmdlet](http://msdn.microsoft.com/en-us/library/jj152841.aspx)。
+-   **Azure**：包括管理個別資源 (例如儲存體帳戶、網站、資料庫、虛擬機器和媒體服務) 的傳統 Cmdlet。如需詳細資訊，請參閱 [Azure 服務管理 Cmdlet](http://msdn.microsoft.com/zh-tw/library/jj152841.aspx)。
 
 -   **AzureResourceManager**：包括建立、管理和部署資源群組之 Azure 資源的 Cmdlet。如需詳細資訊，請參閱 [Azure 資源管理員 Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765)。
 

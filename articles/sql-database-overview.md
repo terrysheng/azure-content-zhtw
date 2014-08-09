@@ -763,14 +763,14 @@ GRANT VIEW DATABASE STATE to 'sqlops';
 
 6.  開啟第二個查詢視窗，並將連線內容變更為 *sqlwriter*。此時，相同的查詢應可成功執行。
 
-現在，您已建立並測試數個登入。如需詳細資訊，請參閱[管理 SQL Database 中的資料庫和登入](http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx)和[使用動態管理檢視監視 SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx)。
+現在，您已建立並測試數個登入。如需詳細資訊，請參閱[管理 SQL Database 中的資料庫和登入](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336235.aspx)和[使用動態管理檢視監視 SQL Database](http://msdn.microsoft.com/zh-tw/library/windowsazure/ff394114.aspx)。
 
 監視邏輯伺服器和資料庫執行個體
 ------------------------------
 
 您在內部部署伺服器上慣用的監視工具和技術 (例如稽核登入、執行追蹤以及使用效能計數器)，並不適用於 SQL Database。在 Azure 上，您可以使用資料管理檢視 (DMV) 來監視資料容量、查詢問題和目前的連線。
 
-如需詳細資訊，請參閱[使用動態管理檢視監視 SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx)。
+如需詳細資訊，請參閱[使用動態管理檢視監視 SQL Database](http://msdn.microsoft.com/zh-tw/library/windowsazure/ff394114.aspx)。
 
 調整 SQL Database 解決方案
 --------------------------
@@ -795,7 +795,7 @@ GRANT VIEW DATABASE STATE to 'sqlops';
 
 SQL Database 中的同盟可用來實現成效較高的延伸性和效能。其意指按照資料列來分割一或多個資料表，然後再分配到多部資料庫 (同盟成員) 中。這種類型的水平分割通常稱為「分區化」。凡是需要實現延伸性、效能或需要管理容量的情況都可以說是適用於這個方法的主要案例。
 
-Business Edition 支援同盟。如需詳細資訊，請參閱 [SQL 資料庫中的同盟](http://msdn.microsoft.com/en-us/library/windowsazure/hh597452.aspx) (英文) 和 [SQL Database 同盟教學課程 - DBA](http://msdn.microsoft.com/en-us/library/windowsazure/hh778416.aspx) (英文)。
+Business Edition 支援同盟。如需詳細資訊，請參閱 [SQL 資料庫中的同盟](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh597452.aspx) (英文) 和 [SQL Database 同盟教學課程 - DBA](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh778416.aspx) (英文)。
 
 **考慮其他形式的儲存體**
 
@@ -806,6 +806,6 @@ Business Edition 支援同盟。如需詳細資訊，請參閱 [SQL 資料庫中
 
 了解 SQL Database 管理的基礎概念之後，請參考下列連結，以了解如何執行更複雜的管理工作。
 
--   請參閱 MSDN 上的 [SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/gg619386)
+-   請參閱 MSDN 上的 [SQL Database](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg619386)
 -   造訪 [SQL Database TechNet WIKI](http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-en-us.aspx)
 

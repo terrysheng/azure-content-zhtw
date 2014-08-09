@@ -106,7 +106,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -141,7 +141,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -149,7 +149,7 @@
 
 ### 使用篩選器建立訂閱
 
-您也可以設定篩選器，讓您界定傳送至主題的哪些訊息應出現在特定主題訂閱中。訂閱所支援的最具彈性篩選器類型是實作 SQL92 子集的 **SqlFilter**。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需 SqlFilters 的詳細資訊，請參閱 [SqlFilter.SqlExpression 屬性](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx)。
+您也可以設定篩選器，讓您界定傳送至主題的哪些訊息應出現在特定主題訂閱中。訂閱所支援的最具彈性篩選器類型是實作 SQL92 子集的 **SqlFilter**。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需 SqlFilters 的詳細資訊，請參閱 [SqlFilter.SqlExpression 屬性](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx)。
 
     > [WACOM.NOTE]
     > Each rule on a subscription processes incoming messages independently, adding their result messages to the subscription.In addition, each new subscription has a default <b>Rule</b> with a filter that adds all messages from the topic to the subscription.To receive only messages matching your filter, you must remove the default rule.You can remove the default rule by using the <b>ServiceBusRestProxy->deleteRule</b> method.
@@ -205,7 +205,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/hh780775
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -270,7 +270,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here:
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/hh780735
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -308,7 +308,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -321,5 +321,5 @@
 後續步驟
 --------
 
-現在您已了解服務匯流排佇列的基本概念，請參閱 MSDN 主題[佇列、主題和訂閱](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)，以取得詳細資訊。
+現在您已了解服務匯流排佇列的基本概念，請參閱 MSDN 主題[佇列、主題和訂閱](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367516.aspx)，以取得詳細資訊。
 

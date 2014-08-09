@@ -504,5 +504,5 @@ HDInsight 叢集隨附一個範例 Hive 資料表，稱為 *hivesampletable*。�
 [1]: http://hive.apache.org/
 [2]: http://nuget.codeplex.com/wikipage?title=Getting%20Started
 [3]: http://manage.windowsazure.com/
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+[4]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg551722.aspx
+[5]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn479228.aspx

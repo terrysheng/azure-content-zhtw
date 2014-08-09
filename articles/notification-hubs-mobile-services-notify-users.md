@@ -240,5 +240,5 @@
 -   **[使用通知中心傳送跨平台通知給使用者](/en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services)**
     此教學課程會延伸目前的**使用通知中心通知使用者**教學課程，來使用平台特定範本註冊通知。這可讓您在伺服器端程式碼中，使用單一方法傳送通知。
 
-如需有關通知中心的詳細資訊，請參閱 [Azure 通知中心](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx)。
+如需有關通知中心的詳細資訊，請參閱 [Azure 通知中心](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj927170.aspx)。
 

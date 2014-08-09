@@ -34,7 +34,7 @@
 
 您還需要一個行動瀏覽器模擬器。下列任一項目都可使用：
 
--   [Windows 7 Phone 模擬器](http://msdn.microsoft.com/en-us/library/ff402530(VS.92).aspx)。(本教學課程中大多數螢幕擷取畫面都是採用此模擬器加以完成。)
+-   [Windows 7 Phone 模擬器](http://msdn.microsoft.com/zh-tw/library/ff402530(VS.92).aspx)。(本教學課程中大多數螢幕擷取畫面都是採用此模擬器加以完成。)
 -   變更使用者代理程式字串以模擬 iPhone。請參閱 How-To Geek 網頁上的[這個部落格項目](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/) (英文)。
 -   [Opera Mobile 模擬器](http://www.opera.com/developer/tools/mobile/)。
 -   [Apple Safari](http://www.apple.com/safari/download/) (使用者代理程式設為 iPhone)。如需如何在 Safari 中將使用者代理程式設為「iPhone」，請參閱 David Alison 部落格上的[如何讓 Safari 假裝為 IE](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html) (英文)。

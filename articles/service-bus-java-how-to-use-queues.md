@@ -3,7 +3,7 @@
 如何使用服務匯流排佇列
 ======================
 
-本指南將示範如何使用服務匯流排佇列。這些範例均是以 Java 撰寫，並使用 [Azure SDK for Java](http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx) (英文)。所涵蓋的案例包括**建立佇列**、**傳送並接收訊息**，以及**刪除佇列**。
+本指南將示範如何使用服務匯流排佇列。這些範例均是以 Java 撰寫，並使用 [Azure SDK for Java](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh690953(v=vs.103).aspx) (英文)。所涵蓋的案例包括**建立佇列**、**傳送並接收訊息**，以及**刪除佇列**。
 
 目錄
 ----
@@ -176,5 +176,5 @@
 後續步驟
 --------
 
-了解基本的服務匯流排佇列之後，請參考 MSDN 主題[佇列、主題和訂閱](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)以取得更多資訊。
+了解基本的服務匯流排佇列之後，請參考 MSDN 主題[佇列、主題和訂閱](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367516.aspx)以取得更多資訊。
 

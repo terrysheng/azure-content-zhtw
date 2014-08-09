@@ -155,7 +155,7 @@
 傳送通知從後端傳送通知
 ----------------------
 
-您可以使用 [REST 介面](http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx)，從任何後端使用通知中心傳送通知。在本教學課程中，您將透過 .NET 主控台應用程式和使用節點指令碼的行動服務來傳送通知。
+您可以使用 [REST 介面](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn223264.aspx)，從任何後端使用通知中心傳送通知。在本教學課程中，您將透過 .NET 主控台應用程式和使用節點指令碼的行動服務來傳送通知。
 
 使用 .NET 應用程式傳送通知：
 
@@ -201,7 +201,7 @@
 
 	![][14]
 
-您可以在 MSDN 上的[快顯目錄](http://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx) (英文)、[磚目錄](http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx) (英文) 和[徽章概觀](http://msdn.microsoft.com/en-us/library/windows/apps/hh779719.aspx)中找到所有可能的裝載。
+您可以在 MSDN 上的[快顯目錄](http://msdn.microsoft.com/zh-tw/library/windows/apps/hh761494.aspx) (英文)、[磚目錄](http://msdn.microsoft.com/zh-tw/library/windows/apps/hh761491.aspx) (英文) 和[徽章概觀](http://msdn.microsoft.com/zh-tw/library/windows/apps/hh779719.aspx)中找到所有可能的裝載。
 
 若要使用行動服務傳送通知，請依照[開始使用行動服務](/en-us/develop/mobile/tutorials/get-started/#create-new-service)中的步驟進行，然後執行下列動作：
 
@@ -237,7 +237,7 @@
 後續步驟
 --------
 
-在此簡單範例中，您將傳送廣播通知到您的所有 Windows 裝置。為了鎖定特定使用者，請參閱教學課程[使用通知中心來推播通知給使用者](/en-us/manage/services/notification-hubs/notify-users-aspnet)。如果您想要按興趣群組分隔使用者，請參閱[使用通知中心傳送即時新聞](/en-us/manage/services/notification-hubs/breaking-news-dotnet)。若要深入了解如何使用通知中心，請參閱 [Azure 通知中心概觀](http://msdn.microsoft.com/en-us/library/jj927170.aspx)和[Windows 市集的通知中心作法](http://msdn.microsoft.com/en-us/library/jj927172.aspx)。
+在此簡單範例中，您將傳送廣播通知到您的所有 Windows 裝置。為了鎖定特定使用者，請參閱教學課程[使用通知中心來推播通知給使用者](/en-us/manage/services/notification-hubs/notify-users-aspnet)。如果您想要按興趣群組分隔使用者，請參閱[使用通知中心傳送即時新聞](/en-us/manage/services/notification-hubs/breaking-news-dotnet)。若要深入了解如何使用通知中心，請參閱 [Azure 通知中心概觀](http://msdn.microsoft.com/zh-tw/library/jj927170.aspx)和[Windows 市集的通知中心作法](http://msdn.microsoft.com/zh-tw/library/jj927172.aspx)。
 
 <!-- Images. -->
 [0]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-submit-win8-app.png

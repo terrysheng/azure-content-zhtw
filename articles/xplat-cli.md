@@ -428,7 +428,7 @@ xplat-cli 可讓您輕鬆地管理 Azure 服務。在以下範例中，您將學
 [5]: http://nodejs.org/
 [6]: https://manage.windowsazure.com
 [7]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
+[8]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
 [9]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E
 [10]: http://tldp.org/LDP/abs/html/
 [11]: http://en.wikipedia.org/wiki/Shell_script

@@ -104,7 +104,7 @@
 -   **[Azure 通知中心概觀](http://go.microsoft.com/fwlink/p/?LinkId=317339)**
     概觀主題包含範本的詳細資訊。
 
--   **[Windows 市集的通知中心作法](http://msdn.microsoft.com/en-us/library/windowsazure/jj927172.aspx)**
+-   **[Windows 市集的通知中心作法](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj927172.aspx)**
      (英文) 包含範本運算式語言參考。
 
 

@@ -93,7 +93,7 @@
 作法：建立資料表
 ----------------
 
-**TableRestProxy** 物件可讓您以 **createTable** 方法建立資料表。建立資料表時，您可以設定資料表服務逾時值。(如需有關資料表服務逾時值的詳細資訊，請參閱[設定表格服務作業的逾時值](http://msdn.microsoft.com/en-us/library/windowsazure/dd894042.aspx)。)
+**TableRestProxy** 物件可讓您以 **createTable** 方法建立資料表。建立資料表時，您可以設定資料表服務逾時值。(如需有關資料表服務逾時值的詳細資訊，請參閱[設定表格服務作業的逾時值](http://msdn.microsoft.com/zh-tw/library/windowsazure/dd894042.aspx)。)
 
     require_once 'vendor\autoload.php';
 
@@ -112,10 +112,10 @@
         $error_message = $e->getMessage();
         // Handle exception based on error codes and messages.
         // Error codes and messages can be found here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179438.aspx
     }
 
-如需有關資料表名稱限制的資訊，請參閱[了解表格服務資料模型](http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx)。
+如需有關資料表名稱限制的資訊，請參閱[了解表格服務資料模型](http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179338.aspx)。
 
 作法：將實體加入至資料表
 ------------------------
@@ -147,12 +147,12 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
     }
 
-如需有關資料表屬性和類型的資訊，請參閱[了解表格服務資料模型](http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx)。
+如需有關資料表屬性和類型的資訊，請參閱[了解表格服務資料模型](http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179338.aspx)。
 
 **TableRestProxy** 類別提供兩種插入實體的替代方法：**insertOrMergeEntity** 和 **insertOrReplaceEntity**。若要使用這些方法，請建立一個新的 **Entity**，然後將它當做參數傳遞給其中一個方法。只要實體不存在，每個方法都會插入實體。如果實體已經存在，**insertOrMergeEntity** 會在屬性已經存在時更新屬性值，並在屬性不存在時新增屬性，而 **insertOrReplaceEntity** 則是會完全取代現有的實體。下列範例示範如何使用 **insertOrMergeEntity**。如果 `PartitionKey` 為 "tasksSeattle" 且 `RowKey` 為 "1" 的實體還不存在，便會將之插入。不過，如果先前已經插入它 (如上述範例所示)，方法就會更新 `DueDate` 屬性並新增 `Status` 屬性。方法也會一併更新 `Description` 和 `Location` 屬性，但是所使用的值實際上會讓它們保持不變。如果如範例中所示並未新增後面兩個屬性，但這兩個屬性存在於目標實體上，它們現有的值就會保持不變。
 
@@ -188,7 +188,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -213,7 +213,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -226,7 +226,7 @@
 作法：擷取資料分割中的所有實體
 ------------------------------
 
-實體查詢使用篩選條件建構而成 (如需詳細資訊，請參閱[查詢資料表和實體](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx))。若要擷取資料分割中的所有實體，請使用 "PartitionKey eq *partition\_name*" 篩選條件。下列範例示範如何將篩選條件傳遞給 **queryEntities** 方法來擷取 `tasksSeattle` 資料分割中的所有實體。
+實體查詢使用篩選條件建構而成 (如需詳細資訊，請參閱[查詢資料表和實體](http://msdn.microsoft.com/zh-tw/library/windowsazure/dd894031.aspx))。若要擷取資料分割中的所有實體，請使用 "PartitionKey eq *partition\_name*" 篩選條件。下列範例示範如何將篩選條件傳遞給 **queryEntities** 方法來擷取 `tasksSeattle` 資料分割中的所有實體。
 
     require_once 'vendor\autoload.php';
 
@@ -244,7 +244,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -259,7 +259,7 @@
 作法：擷取資料分割中實體的子集
 ------------------------------
 
-前面範例中所使用的相同模式可用來擷取資料分割中的任何實體子集。您所擷取的實體子集將取決於您使用的篩選條件 (如需詳細資訊，請參閱[查詢資料表和實體](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx))。下列範例示範如何使用篩選條件來擷取位於特定 `Location` 且 `DueDate` 在指定日期之前的所有實體。
+前面範例中所使用的相同模式可用來擷取資料分割中的任何實體子集。您所擷取的實體子集將取決於您使用的篩選條件 (如需詳細資訊，請參閱[查詢資料表和實體](http://msdn.microsoft.com/zh-tw/library/windowsazure/dd894031.aspx))。下列範例示範如何使用篩選條件來擷取位於特定 `Location` 且 `DueDate` 在指定日期之前的所有實體。
 
     require_once 'vendor\autoload.php';
 
@@ -277,7 +277,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -312,7 +312,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -359,7 +359,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -385,7 +385,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -442,13 +442,13 @@
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-如需有關批次處理資料表作業的詳細資訊，請參閱[執行實體群組交易](http://msdn.microsoft.com/en-us/library/windowsazure/dd894038.aspx)。
+如需有關批次處理資料表作業的詳細資訊，請參閱[執行實體群組交易](http://msdn.microsoft.com/zh-tw/library/windowsazure/dd894038.aspx)。
 
 作法：刪除資料表
 ----------------
@@ -470,7 +470,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -481,6 +481,6 @@
 
 在了解 Azure 資料表服務的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   請參閱 MSDN 參考資料：[在 Azure 中儲存和存取資料](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   請參閱 MSDN 參考資料：[在 Azure 中儲存和存取資料](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx)
 -   造訪 Azure 儲存體團隊部落格：<http://blogs.msdn.com/b/windowsazurestorage/> (英文)
 

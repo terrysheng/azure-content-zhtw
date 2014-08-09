@@ -82,9 +82,9 @@ Azure ACS 是以宣告式身分識別為原則來打造，後者是為內部部�
 -   Eclipse IDE for Java EE Developers (Indigo 或更新版本)。這可從 &lt;http://www.eclipse.org/downloads/\> (英文) 下載。
 -   Java 型 Web 伺服器或應用程式伺服器的散發套件，例如 Apache Tomcat、GlassFish、JBoss Application Server 或 Jetty。
 -   Azure 訂閱，可從 &lt;http://www.microsoft.com/windowsazure/offers/\> 取得。
--   Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供) - 2012 年 8 月 CTP。如需詳細資訊，請參閱[安裝 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx) (英文)。
+-   Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供) - 2012 年 8 月 CTP。如需詳細資訊，請參閱[安裝 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh690946.aspx) (英文)。
 -   要與您應用程式搭配使用的 X.509 憑證。您需要此憑證同時具有公開憑證 (.cer) 和 個人資訊交換 (.PFX) 格式。(本教學課程稍後將描述建立此憑證的選項)。
--   熟悉[在 Eclipse 建立 Azure 的 Hello World 應用程式](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) (英文) 中所討論的 Azure 計算模擬器和部署技術。
+-   熟悉[在 Eclipse 建立 Azure 的 Hello World 應用程式](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh690944.aspx) (英文) 中所討論的 Azure 計算模擬器和部署技術。
 
 建立 ACS 命名空間
 -----------------
@@ -221,7 +221,7 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 *
 
 1.  在 Eclipse 的專案總管中，於 **MyACSHelloWorld** 上按一下滑鼠右鍵、按一下 **[Azure]**，然後按一下 **[Package for Azure]**。
 2.  為 **[專案名稱]** 輸入 **MyAzureACSProject**，然後按 **[下一步]**。
-3.  選取 JDK 和應用程式伺服器。[在 Eclipse 建立 Azure 的 Hello World 應用程式](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) (英文) 教學課程中將詳細探討這些步驟。)
+3.  選取 JDK 和應用程式伺服器。[在 Eclipse 建立 Azure 的 Hello World 應用程式](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh690944.aspx) (英文) 教學課程中將詳細探討這些步驟。)
 4.  按一下 **[完成]**。
 5.  按一下 **[Run in Azure Emulator]** 按鈕。
 6.  在計算模擬器中啟動 Java Web 應用程式後，請關閉瀏覽器的所有執行個體 (以便任何目前瀏覽器工作階段不會干擾 ACS 登入測試)。
@@ -256,11 +256,11 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 *
 
 13. 按一下 **[完成]** 以關閉 **[編輯程式庫]** 對話方塊。
 14. 按一下 **[確定]** 以關閉 **[Properties for MyACSHelloWorld]** 對話方塊。
-15. 在 Eclipse 中，按一下 **[Publish to Azure Cloud]** 按鈕。回應提示，類似於[在 Eclipse 建立 Azure 的 Hello World 應用程式](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) (英文) 主題的**將應用程式部署至 Azure**一節中所做一般。
+15. 在 Eclipse 中，按一下 **[Publish to Azure Cloud]** 按鈕。回應提示，類似於[在 Eclipse 建立 Azure 的 Hello World 應用程式](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh690944.aspx) (英文) 主題的**將應用程式部署至 Azure**一節中所做一般。
 
 在部署了 Web 應用程式後，請關閉任何開啟的瀏覽器工作階段、執行 Web 應用程式，而且系統應該提示您利用 Windows Live ID 認證登入，然後傳送至信賴憑證者應用程式的傳回 URL。
 
-當您完成使用r ACS Hello World 應用程式時，請記住刪除部署 (您可以在[在 Eclipse 建立 Azure 的 Hello World 應用程式](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) (英文) 主題中了解如何刪除部署。
+當您完成使用r ACS Hello World 應用程式時，請記住刪除部署 (您可以在[在 Eclipse 建立 Azure 的 Hello World 應用程式](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh690944.aspx) (英文) 主題中了解如何刪除部署。
 
 後續步驟
 --------

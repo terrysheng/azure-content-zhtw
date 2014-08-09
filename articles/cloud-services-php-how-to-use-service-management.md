@@ -35,7 +35,7 @@
 概念
 ----
 
-Azure SDK for PHP 會包裝 [Azure 服務管理 API](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx) (其為 REST API)。所有 API 作業都是透過 SSL 所執行，而且使用 X.509 v3 憑證進行互相驗證。您可以從 Azure 中執行的服務來存取管理服務，也可以直接透過網際網路，從可傳送 HTTPS 要求和接收 HTTPS 回應的任何應用程式來存取管理服務。
+Azure SDK for PHP 會包裝 [Azure 服務管理 API](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460799.aspx) (其為 REST API)。所有 API 作業都是透過 SSL 所執行，而且使用 X.509 v3 憑證進行互相驗證。您可以從 Azure 中執行的服務來存取管理服務，也可以直接透過網際網路，從可傳送 HTTPS 要求和接收 HTTPS 回應的任何應用程式來存取管理服務。
 
 建立 PHP 應用程式
 -----------------
@@ -62,7 +62,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API](http://msdn.microsoft.com/e
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-如需 Azure 憑證的詳細資訊，請參閱 [Azure 憑證的概觀](http://msdn.microsoft.com/en-us/library/windowsazure/gg981935.aspx)。如需 OpenSSL 參數的完整說明，請參閱 <http://www.openssl.org/docs/apps/openssl.html> (英文) 中的文件。
+如需 Azure 憑證的詳細資訊，請參閱 [Azure 憑證的概觀](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg981935.aspx)。如需 OpenSSL 參數的完整說明，請參閱 <http://www.openssl.org/docs/apps/openssl.html> (英文) 中的文件。
 
 如果您已使用 [Azure 命令列工具](../command-line-tools/)下載和匯入發佈設定檔案，則可以使用工具所建立的 `.pem` 檔案，而不是建立您自己的檔案。工具會建立 `.cer` 並將它上傳至 Azure，而且它們會將對應的 `.pem` 檔案放到您電腦之 user 目錄的 `.azure` 目錄中。
 
@@ -104,7 +104,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API](http://msdn.microsoft.com/e
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -154,7 +154,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API](http://msdn.microsoft.com/e
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -199,12 +199,12 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API](http://msdn.microsoft.com/e
 作法：建立部署
 --------------
 
-**createDeployment** 方法會上傳新的[服務套件](http://msdn.microsoft.com/en-us/library/windowsazure/gg433093)，並在預備或生產環境中建立新的部署。此方法的參數如下：
+**createDeployment** 方法會上傳新的[服務套件](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433093)，並在預備或生產環境中建立新的部署。此方法的參數如下：
 
 -   **$name**：託管服務的名稱。
 -   **$deploymentName**：部署的名稱。
 -   **$slot**：指出預備或生產位置的列舉。
--   **$packageUrl**：部署套件 (.cspgk 檔案) 的 URL。套件檔案必須儲存至與託管服務相同之訂閱的 Azure Blob 儲存體帳戶中，而套件是上傳至此訂閱中。您可以使用 [Azure PowerShell Cmdlet](../install-configure-powershell/) 或使用 [cspack 命令列工具](http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx)來建立部署套件。
+-   **$packageUrl**：部署套件 (.cspgk 檔案) 的 URL。套件檔案必須儲存至與託管服務相同之訂閱的 Azure Blob 儲存體帳戶中，而套件是上傳至此訂閱中。您可以使用 [Azure PowerShell Cmdlet](../install-configure-powershell/) 或使用 [cspack 命令列工具](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg432988.aspx)來建立部署套件。
 -   **$configuration**：服務組態檔 (.cscfg 檔案)。
 -   **$label**：Base 64 編碼託管服務名稱。
 
@@ -240,7 +240,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API](http://msdn.microsoft.com/e
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -273,7 +273,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API](http://msdn.microsoft.com/e
 
 使用 **changeDeploymentConfiguration** 方法或 **updateDeploymentStatus** 方法，即可更新部署。
 
-**changeDeploymentConfiguration** 方法可讓您上傳新的服務組態檔 (`.cscfg`)，這樣會變更數個服務設定的任何一個 (包括部署中的執行個體數目)。如需詳細資訊，請參閱 [Azure 服務組態結構描述 (.cscfg 檔)](http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx)。下列範例示範如何上傳新的服務組態檔：
+**changeDeploymentConfiguration** 方法可讓您上傳新的服務組態檔 (`.cscfg`)，這樣會變更數個服務設定的任何一個 (包括部署中的執行個體數目)。如需詳細資訊，請參閱 [Azure 服務組態結構描述 (.cscfg 檔)](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758710.aspx)。下列範例示範如何上傳新的服務組態檔：
 
     require_once 'vendor\autoload.php';
 
@@ -299,7 +299,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API](http://msdn.microsoft.com/e
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -329,7 +329,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API](http://msdn.microsoft.com/e
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -338,7 +338,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API](http://msdn.microsoft.com/e
 作法：在預備與生產之間移動部署
 ------------------------------
 
-Azure 提供兩個部署環境：預備和生產。服務通常是先部署至預備環境以進行測試，再部署至生產環境。需要將服務從預備環境升級至生產環境時，這樣做就不需要重新部署服務。您可以交換部署來完成操作 (如需交換部署的詳細資訊，請參閱[在 Azure 中管理部署概觀](http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx))。
+Azure 提供兩個部署環境：預備和生產。服務通常是先部署至預備環境以進行測試，再部署至生產環境。需要將服務從預備環境升級至生產環境時，這樣做就不需要重新部署服務。您可以交換部署來完成操作 (如需交換部署的詳細資訊，請參閱[在 Azure 中管理部署概觀](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh386336.aspx))。
 
 下列範例顯示如何使用 **swapDeployment** 方法來交換兩個部署 (部署名稱為 `v1` 和 `v2`)。在此範例中，呼叫 **swapDeployment** 之前，部署 `v1` 位於生產位置中，而部署 `v2` 位於預備位置中。呼叫 **swapDeployment** 之後，`v2` 位於生產中，而 `v1` 位於預備中。
 
@@ -356,7 +356,7 @@ Azure 提供兩個部署環境：預備和生產。服務通常是先部署至�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -386,7 +386,7 @@ Azure 提供兩個部署環境：預備和生產。服務通常是先部署至�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -422,7 +422,7 @@ Azure 提供兩個部署環境：預備和生產。服務通常是先部署至�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -464,7 +464,7 @@ Azure 提供兩個部署環境：預備和生產。服務通常是先部署至�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -499,7 +499,7 @@ Azure 提供兩個部署環境：預備和生產。服務通常是先部署至�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";
@@ -541,7 +541,7 @@ Azure 提供兩個部署環境：預備和生產。服務通常是先部署至�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.":".$error_message."<br />";

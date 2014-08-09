@@ -3,7 +3,7 @@
 使用 Visual Studio 分析工具，在 Azure 計算模擬器中本機測試雲端服務的效能
 ========================================================================
 
-各種工具和技術可用於測試雲端服務的效能。當您將雲端服務發佈至 Azure 時，可以讓 Visual Studio 收集分析資料，然後在本機分析它 (如[測試雲端服務的效能](http://msdn.microsoft.com/en-us/library/windowsazure/hh369930.aspx)中所述)。您也可以使用診斷追蹤各種效能計數器 (如[在 Azure 中使用效能計數器](http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling) (英文)。您也可能想要先在計算模擬器中本機分析應用程式，再將之部署至雲端。
+各種工具和技術可用於測試雲端服務的效能。當您將雲端服務發佈至 Azure 時，可以讓 Visual Studio 收集分析資料，然後在本機分析它 (如[測試雲端服務的效能](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh369930.aspx)中所述)。您也可以使用診斷追蹤各種效能計數器 (如[在 Azure 中使用效能計數器](http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling) (英文)。您也可能想要先在計算模擬器中本機分析應用程式，再將之部署至雲端。
 
 本文涵蓋進行分析的「CPU 取樣」方法，這可以在模擬器上本機完成。CPU 取樣不是非常侵入式的分析方法。分析工具會按指定的取樣間隔取得呼叫堆疊的快照集。會收集一段時間的資料，而且資料會顯示在報告中。此分析方法傾向指出在計算密集應用程式中的哪個位置完成大部分的 CPU 工作。這可讓您有機會聚焦在應用程式耗用最多時間的「最忙碌路徑」。
 

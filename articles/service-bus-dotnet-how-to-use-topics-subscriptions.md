@@ -324,6 +324,6 @@ SQL 篩選器搭配使用的運算式詳細資料，請檢閱 [SqlFilter.SqlExpr
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
-[2]: http://msdn.microsoft.com/en-us/library/microsoft.servicebus.messaging.sqlfilter.aspx
-[3]: http://msdn.microsoft.com/en-us/library/hh367512.aspx
+[1]: http://msdn.microsoft.com/zh-tw/library/hh367516.aspx
+[2]: http://msdn.microsoft.com/zh-tw/library/microsoft.servicebus.messaging.sqlfilter.aspx
+[3]: http://msdn.microsoft.com/zh-tw/library/hh367512.aspx

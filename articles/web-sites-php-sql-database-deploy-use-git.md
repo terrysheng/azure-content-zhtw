@@ -36,7 +36,7 @@
 
     ![Fill in web site details](./media/web-sites-php-sql-database-deploy-use-git/website_details_sqlazure.jpg)
 
-4.  輸入資料庫的 **[名稱]** 值、選取 **[版本]** [(WEB 或 BUSINESS)](http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx)、選取資料庫的 **[大小上限]**、選擇 **[定序]**，並選取 **[新的 SQL Database 伺服器]**。按一下對話方塊底部的箭頭。
+4.  輸入資料庫的 **[名稱]** 值、選取 **[版本]** [(WEB 或 BUSINESS)](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee621788.aspx)、選取資料庫的 **[大小上限]**、選擇 **[定序]**，並選取 **[新的 SQL Database 伺服器]**。按一下對話方塊底部的箭頭。
 
     ![Fill in SQL Database settings](./media/web-sites-php-sql-database-deploy-use-git/database_settings.jpg)
 

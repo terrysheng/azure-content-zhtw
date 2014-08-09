@@ -9,7 +9,7 @@
 
 本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到 Windows 應用程式。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單*待辦事項*應用程式。您所將建立的行動服務，會使用 Visual Studio 與支援的 .NET 語言撰寫伺服器端商務邏輯，並管理行動服務。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 後端版本](/en-us/documentation/articles/mobile-services-windows-store-get-started)。
 
-> [WACOM.NOTE]本主題將說明如何使用 Azure 管理入口網站建立新的行動服務專案和 Windows 市集應用程式。使用 Visual Studio 2013 Update 2，可讓您將新的行動服務專案新增至現有的 Visual Studio 方案。如需詳細資訊，請參閱 Windows 開發人員中心的[快速入門：新增行動服務 (.NET 後端)](http://msdn.microsoft.com/en-us/library/windows/apps/dn629482.aspx)
+> [WACOM.NOTE]本主題將說明如何使用 Azure 管理入口網站建立新的行動服務專案和 Windows 市集應用程式。使用 Visual Studio 2013 Update 2，可讓您將新的行動服務專案新增至現有的 Visual Studio 方案。如需詳細資訊，請參閱 Windows 開發人員中心的[快速入門：新增行動服務 (.NET 後端)](http://msdn.microsoft.com/zh-tw/library/windows/apps/dn629482.aspx)
 
 以下是完成應用程式的螢幕擷取畫面：
 
@@ -62,7 +62,7 @@
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-1.  在 Windows 市集應用程式專案中開啟 App.xaml.cs 檔案、找出建立 [MobileServiceClient](http://msdn.microsoft.com/en-us/library/Windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 執行個體的程式碼、使用 *localhost* 將建立此用戶端的程式碼註解化，然後使用遠端行動服務 URL 將建立此用戶端程式碼取消註解，如下所示：
+1.  在 Windows 市集應用程式專案中開啟 App.xaml.cs 檔案、找出建立 [MobileServiceClient](http://msdn.microsoft.com/zh-tw/library/Windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 執行個體的程式碼、使用 *localhost* 將建立此用戶端的程式碼註解化，然後使用遠端行動服務 URL 將建立此用戶端程式碼取消註解，如下所示：
 
     ``` {}
     public static MobileServiceClient MobileService = new MobileServiceClient(

@@ -32,6 +32,6 @@
 
     ![](./media/mobile-services-register-twitter-access/mobile-schedule-job-app-settings.png)
 
-    這會在應用程式設定中儲存 Twitter 存取權杖。如同 **[身分識別]** 索引標籤上的消費者認證，也可以在應用程式設定中加密儲存存取認證，您可以用伺服器指令碼存取它們，不需將它們硬式編碼至指令碼檔案中。如需詳細資訊，請參閱[應用程式設定](http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7)。
+    這會在應用程式設定中儲存 Twitter 存取權杖。如同 **[身分識別]** 索引標籤上的消費者認證，也可以在應用程式設定中加密儲存存取認證，您可以用伺服器指令碼存取它們，不需將它們硬式編碼至指令碼檔案中。如需詳細資訊，請參閱[應用程式設定](http://msdn.microsoft.com/zh-tw/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7)。
 
 

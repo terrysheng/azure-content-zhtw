@@ -209,5 +209,5 @@
 
 ### 如何決定您的應用程式是否應該在雲端服務中執行
 
-在部分情況下，您可能會想要在 Azure 雲端服務 (而非 Azure 網站) 中執行應用程式。如需詳細資訊，請參閱 [Azure 執行模型](/en-us/develop/net/fundamentals/compute/)和 [Azure 網站、雲端服務和 VM：使用時機](http://msdn.microsoft.com/en-us/library/windowsazure/jj218759.aspx)。如需觀看教學課程系列來了解如何建立多層式 ASP.NET Web 應用程式並將它部署至雲端服務，請參閱[使用儲存體資料表、佇列和 Blob 的 .NET 多層式應用程式](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)。
+在部分情況下，您可能會想要在 Azure 雲端服務 (而非 Azure 網站) 中執行應用程式。如需詳細資訊，請參閱 [Azure 執行模型](/en-us/develop/net/fundamentals/compute/)和 [Azure 網站、雲端服務和 VM：使用時機](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj218759.aspx)。如需觀看教學課程系列來了解如何建立多層式 ASP.NET Web 應用程式並將它部署至雲端服務，請參閱[使用儲存體資料表、佇列和 Blob 的 .NET 多層式應用程式](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)。
 

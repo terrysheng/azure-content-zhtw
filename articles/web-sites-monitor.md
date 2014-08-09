@@ -207,7 +207,7 @@
 
     **注意**
 
-    如果您尚未安裝 **Azure PowerShell**，請參閱 [Windows Azure Cmdlet 使用者入門](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx)以取得安裝和組態資訊。
+    如果您尚未安裝 **Azure PowerShell**，請參閱 [Windows Azure Cmdlet 使用者入門](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554332.aspx)以取得安裝和組態資訊。
 
 2.  在 Azure PowerShell 提示字元中使用下列命令來下載記錄檔：
 

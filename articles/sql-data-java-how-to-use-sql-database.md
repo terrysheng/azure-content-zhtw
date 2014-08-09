@@ -3,7 +3,7 @@
 如何使用採用 Java 的 Azure SQL Database
 =======================================
 
-下列步驟說明如何使用採用 Java 的 Azure SQL Database。為節省篇幅，僅顯示命令列範例，但幾乎類似的步驟也適用於 Azure 或其他環境中內部部署託管的 Web 應用程式。本指南涵蓋從 [Azure 管理入口網站](https://windows.azure.com)建立伺服器與建立資料庫。如需從生產入口網站執行這些工作的相關資訊，請參閱[使用採用 Java 的 SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/hh749029.aspx)。
+下列步驟說明如何使用採用 Java 的 Azure SQL Database。為節省篇幅，僅顯示命令列範例，但幾乎類似的步驟也適用於 Azure 或其他環境中內部部署託管的 Web 應用程式。本指南涵蓋從 [Azure 管理入口網站](https://windows.azure.com)建立伺服器與建立資料庫。如需從生產入口網站執行這些工作的相關資訊，請參閱[使用採用 Java 的 SQL Database](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh749029.aspx)。
 
 什麼是 Azure SQL Database
 -------------------------
@@ -37,7 +37,7 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 概念
 ----
 
-由於 Azure SQL Database 是以 SQL Server 技術為基礎組建的，因此從 Java 存取 SQL Database 與從 Java 存取 SQL Server 非常類似。您可以在本機開發應用程式 (使用 SQL Server)，然後藉由只變更連線字串來連接 SQL Database。您可以將 SQL Server JDBC 驅動程式用於應用程式中。然而，SQL Database 和 SQL Server 之間存在某些可能會影響應用程式的差異。如需詳細資訊，請參閱 [Azure SQL Database 指導方針和限制](http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx)。
+由於 Azure SQL Database 是以 SQL Server 技術為基礎組建的，因此從 Java 存取 SQL Database 與從 Java 存取 SQL Server 非常類似。您可以在本機開發應用程式 (使用 SQL Server)，然後藉由只變更連線字串來連接 SQL Database。您可以將 SQL Server JDBC 驅動程式用於應用程式中。然而，SQL Database 和 SQL Server 之間存在某些可能會影響應用程式的差異。如需詳細資訊，請參閱 [Azure SQL Database 指導方針和限制](http://msdn.microsoft.com/zh-tw/library/windowsazure/ff394102.aspx)。
 
 如需 SQL Database 的其他資源，請參閱[後續步驟](#nextsteps)一節。
 
@@ -48,7 +48,7 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 
 -   Java Developer Kit (JDK) 1.6 版或更新版本。
 -   Azure 訂閱，可從 <http://www.microsoft.com/windowsazure/offers/> 取得。
--   如果使用 Eclipse，您將需要 Eclipse IDE for Java EE Developers (Indigo 或更新版本)。這可從 <http://www.eclipse.org/downloads/> (英文) 下載。您還需要 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)。在此外掛程式安裝期間，請確定其中包括 Microsoft JDBC Driver 4.0 for SQL Server。如需詳細資訊，請參閱[安裝 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx) (英文)。
+-   如果使用 Eclipse，您將需要 Eclipse IDE for Java EE Developers (Indigo 或更新版本)。這可從 <http://www.eclipse.org/downloads/> (英文) 下載。您還需要 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)。在此外掛程式安裝期間，請確定其中包括 Microsoft JDBC Driver 4.0 for SQL Server。如需詳細資訊，請參閱[安裝 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh690946.aspx) (英文)。
 -   如果不是使用 Eclipse，您將需要 Microsoft JDBC Driver 4.0 for SQL Server，這可從 <http://www.microsoft.com/en-us/download/details.aspx?id=11774> (英文) 下載。
 
 建立 Azure SQL Database
@@ -132,7 +132,7 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
     4.  在 **[新增程式庫]** 對話方塊中選取 **[Microsoft JDBC Driver 4.0 for SQL Server]**，按 **[下一步]**，然後按一下 **[完成]**。
     5.  按一下 **[確定]** 以關閉 **[內容]** 對話方塊。
 
-    如果不是使用 Eclipse，則將 Microsoft JDBC Driver 4.0 for SQL Server JAR 新增至您的類別路徑。如需相關資訊，請參閱[使用 JDBC 驅動程式](http://msdn.microsoft.com/en-us/library/ms378526.aspx)。
+    如果不是使用 Eclipse，則將 Microsoft JDBC Driver 4.0 for SQL Server JAR 新增至您的類別路徑。如需相關資訊，請參閱[使用 JDBC 驅動程式](http://msdn.microsoft.com/zh-tw/library/ms378526.aspx)。
 
 4.  在 **HelloSQLAzure.java** 程式碼中加入 `import` 陳述式，如下所示：
 
@@ -714,7 +714,7 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 3.  在 **[New Assembly Directive]** 對話方塊中，按一下 **[Java Build Path Entries]**，再按 **[下一步]**。
 4.  選取 **[Microsoft JDBC Driver 4.0 SQL Server]**，然後按一下 **[完成]**。
 5.  按一下 **[確定]** 以關閉 **[內容]** 對話方塊。
-6.  將專案的 WAR 檔案匯出至您的 approot 資料夾，並根據[使用 Azure Plugin for Eclipse with Java 建立 Hello World 應用程式 (由 Microsoft Open Technologies 提供)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) (英文) 中所記載的步驟重建 Azure 專案。該主題也說明如何在運算模擬器和 Azure 中執行應用程式。
+6.  將專案的 WAR 檔案匯出至您的 approot 資料夾，並根據[使用 Azure Plugin for Eclipse with Java 建立 Hello World 應用程式 (由 Microsoft Open Technologies 提供)](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh690944.aspx) (英文) 中所記載的步驟重建 Azure 專案。該主題也說明如何在運算模擬器和 Azure 中執行應用程式。
 
 **如果不是使用 Eclipse，請將 Microsoft JDBC Driver 4.0 SQL Server 納入套件。**
 
@@ -723,5 +723,5 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 後續步驟
 --------
 
-若要深入了解 Microsoft JDBC Driver for SQL Server，請參閱 [JDBC 驅動程式的概觀](http://msdn.microsoft.com/en-us/library/ms378749.aspx) (英文)。若要深入了解 SQL Database，請參閱 [SQL Database 概觀](http://msdn.microsoft.com/en-us/library/windowsazure/ee336241.aspx) (英文)。
+若要深入了解 Microsoft JDBC Driver for SQL Server，請參閱 [JDBC 驅動程式的概觀](http://msdn.microsoft.com/zh-tw/library/ms378749.aspx) (英文)。若要深入了解 SQL Database，請參閱 [SQL Database 概觀](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336241.aspx) (英文)。
 

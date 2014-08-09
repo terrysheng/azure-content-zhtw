@@ -186,7 +186,7 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 使用 Azure PowerShell
 ---------------------
 
-Azure PowerShell 是一個功能強大的指令碼環境，可用來控制及自動化您在 Azure 中的工作負載部署和管理。如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/)。如需搭配使用 PowerShell 與 HDInsight 的詳細資訊，請參閱[使用 PowerShell 管理 HDInsight](/en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/)。如需 HDInsight PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考文件](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx)。
+Azure PowerShell 是一個功能強大的指令碼環境，可用來控制及自動化您在 Azure 中的工作負載部署和管理。如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/)。如需搭配使用 PowerShell 與 HDInsight 的詳細資訊，請參閱[使用 PowerShell 管理 HDInsight](/en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/)。如需 HDInsight PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考文件](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn479228.aspx)。
 
 以下是使用 PowerShell 佈建 HDInsight 叢集時所需執行的程序：
 

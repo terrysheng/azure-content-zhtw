@@ -212,7 +212,7 @@ TwiML 是一組以 Twilio 動詞為基礎的 XML 型指示，會通知 Twilio �
         <Say>Good bye.</Say>
     </Response>
 
-**ApiVersion** 參數會出現在 Twilio 語音要求 (而非 SMS 要求) 中。若要查看 Twilio 語音和 SMS 要求的可用要求參數，請分別參閱 &lt;https://www.twilio.com/docs/api/twiml/twilio\_request\> (英文) 及 &lt;https://www.twilio.com/docs/api/twiml/sms/twilio\_request\> (英文)。**RoleName** 環境參數會隨附在 Azure 部署中。(如果您要新增自訂環境參數，以便可以從 **System.getenv** 選擇這些參數，請參閱[其他角色組態設定](http://msdn.microsoft.com/en-us/library/windowsazure/hh690945.aspx)的環境變數一節。)
+**ApiVersion** 參數會出現在 Twilio 語音要求 (而非 SMS 要求) 中。若要查看 Twilio 語音和 SMS 要求的可用要求參數，請分別參閱 &lt;https://www.twilio.com/docs/api/twiml/twilio\_request\> (英文) 及 &lt;https://www.twilio.com/docs/api/twiml/sms/twilio\_request\> (英文)。**RoleName** 環境參數會隨附在 Azure 部署中。(如果您要新增自訂環境參數，以便可以從 **System.getenv** 選擇這些參數，請參閱[其他角色組態設定](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh690945.aspx)的環境變數一節。)
 
 設定 JSP 頁面來提供 TwiML 回應之後，請使用 JSP 頁面的 URL 作為傳遞到 **CallFactory.create** 方法的 URL。例如，如果將名稱為 MyTwiML 的 Web 應用程式部署到 Azure 代管的服務，而且 JSP 頁面的名稱是 mytwiml.jsp，則可以將 URL 傳遞到 **CallFactory.create**，如下所示：
 

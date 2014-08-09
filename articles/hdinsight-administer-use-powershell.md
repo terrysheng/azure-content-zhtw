@@ -3,7 +3,7 @@
 使用 PowerShell 來管理 HDInsight
 ================================
 
-Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。在本文中，您將了解如何使用本機 Azure PowerShell 主控台，透過 Windows PowerShell 來管理 HDInsight 叢集。如需 HDInsight PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考文件](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx)。
+Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。在本文中，您將了解如何使用本機 Azure PowerShell 主控台，透過 Windows PowerShell 來管理 HDInsight 叢集。如需 HDInsight PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考文件](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn479228.aspx)。
 
 **必要條件：**
 
@@ -217,7 +217,7 @@ Hive 工作會先顯示叢集上所建立的 Hive 資料表，以及從 hivesamp
 另請參閱
 --------
 
--   [HDInsight Cmdlet 參考文件](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx)
+-   [HDInsight Cmdlet 參考文件](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn479228.aspx)
 -   [使用管理入口網站管理 HDInsight](/en-us/documentation/articles/hdinsight-administer-use-management-portal/)
 -   [使用命令列介面管理 HDInsight](/en-us/documentation/articles/hdinsight-administer-use-command-line/)
 -   [佈建 HDInsight 叢集](/en-us/documentation/articles/hdinsight-provision-clusters/)

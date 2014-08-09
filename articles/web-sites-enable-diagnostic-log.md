@@ -31,7 +31,7 @@ Azure 網站提供診斷功能，供您用來記錄來自 Web 伺服器與 Web �
 
 ### 應用程式診斷
 
-應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。ASP.NET 應用程式會使用 [System.Diagnostics.Trace](http://msdn.microsoft.com/en-us/library/36hhw2t6.aspx) 類別將資訊記錄到應用程式診斷記錄。例如：
+應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。ASP.NET 應用程式會使用 [System.Diagnostics.Trace](http://msdn.microsoft.com/zh-tw/library/36hhw2t6.aspx) 類別將資訊記錄到應用程式診斷記錄。例如：
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 

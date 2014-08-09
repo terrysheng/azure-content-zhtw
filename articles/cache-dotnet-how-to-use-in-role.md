@@ -170,7 +170,7 @@ NuGet 套件也會將 **ClientDiagnosticLevel** 設定新增至 ServiceConfigura
       </ConfigurationSettings>
     </Role>
 
-> 角色中快取同時提供快取伺服器和快取用戶端診斷層級。診斷層級為單一設定，用來設定針對快取收集的診斷資訊層級。如需詳細資訊，請參閱[角色中快取疑難排解和診斷 (Windows Azure 快取)](http://msdn.microsoft.com/en-us/library/windowsazure/hh914135.aspx)
+> 角色中快取同時提供快取伺服器和快取用戶端診斷層級。診斷層級為單一設定，用來設定針對快取收集的診斷資訊層級。如需詳細資訊，請參閱[角色中快取疑難排解和診斷 (Windows Azure 快取)](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh914135.aspx)
 
 NuGet 套件也會新增下列組件的參考：
 
@@ -296,7 +296,7 @@ NuGet 套件也會新增下列組件的參考：
 
 若要對角色中快取啟用工作階段狀態提供者，請將指定的區段取消註解。預設快取是在提供的片段中指定。若要使用不同快取，請在 **cacheName** 屬性中指定所需的快取。
 
-如需使用快取服務工作階段狀態提供者的詳細資訊，請參閱 [Windows Azure 快取的工作階段狀態提供者](http://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx)。
+如需使用快取服務工作階段狀態提供者的詳細資訊，請參閱 [Windows Azure 快取的工作階段狀態提供者](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg185668.aspx)。
 
 ## 作法：將 ASP.NET 頁面輸出快取儲存在快取中
 
@@ -325,14 +325,14 @@ NuGet 套件也會新增下列組件的參考：
 
 在此範例中，已快取的頁面資料會留在快取中 60 秒，而且會對每一個參數組合快取不同版本的頁面。如需可用選項的詳細資訊，請參閱 [@ OutputCache](http://go.microsoft.com/fwlink/?LinkId=251979)。
 
-如需對角色中快取使用輸出快取提供者的詳細資訊，請參閱 [Windows Azure Caching 的輸出快取提供者](http://msdn.microsoft.com/en-us/library/windowsazure/gg185662.aspx)。
+如需對角色中快取使用輸出快取提供者的詳細資訊，請參閱 [Windows Azure Caching 的輸出快取提供者](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg185662.aspx)。
 
 ## 後續步驟
 
 了解角色中快取的基礎概念之後，請參考下列連結以了解如何執行更複雜的快取工作。
 
 -   參閱 MSDN 參考資料：[角色中快取](http://www.microsoft.com/en-us/showcase/Search.aspx?phrase=azure+caching)
--   了解如何移轉至角色中快取：[移轉至角色中快取](http://msdn.microsoft.com/en-us/library/hh914163.aspx)
--   查看範例：[角色中快取範例](http://msdn.microsoft.com/en-us/library/jj189876.aspx)
+-   了解如何移轉至角色中快取：[移轉至角色中快取](http://msdn.microsoft.com/zh-tw/library/hh914163.aspx)
+-   查看範例：[角色中快取範例](http://msdn.microsoft.com/zh-tw/library/jj189876.aspx)
 -   觀看 TechEd 2013 針對角色中快取所舉行的講習會視訊內容 - [最大效能：利用 Azure 快取加速您的雲端服務應用程式](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU) (英文)
 

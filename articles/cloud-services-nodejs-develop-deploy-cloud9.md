@@ -120,7 +120,7 @@
 
     4.  選取檔案之後，按一下 **[上傳]**。
 
-4.  按一下 **[+ 新建]** 建立新的託管服務。*「託管服務」*是應用程式部署到 Azure 時託管應用程式的容器。如需詳細資訊，請參閱[雲端服務](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx)。
+4.  按一下 **[+ 新建]** 建立新的託管服務。*「託管服務」*是應用程式部署到 Azure 時託管應用程式的容器。如需詳細資訊，請參閱[雲端服務](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj155995.aspx)。
 
     ![create a new deployment](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png)
 
@@ -151,9 +151,9 @@
 
     ![no web.config file found message](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_no_web_config.png)
 
-5.  如果這是您第一次將此專案部署至 Azure，則會接收到 **[No 'csdef' file present]** 錯誤。請選取 **[是]** 建立 .csdef 檔案。這會將 'ServiceDefinition.csdef' 檔案新增至專案。ServiceDefinition.csdef 是發佈應用程式所需的 Azure 特定檔案。如需詳細資訊，請參閱[雲端服務](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx)。
+5.  如果這是您第一次將此專案部署至 Azure，則會接收到 **[No 'csdef' file present]** 錯誤。請選取 **[是]** 建立 .csdef 檔案。這會將 'ServiceDefinition.csdef' 檔案新增至專案。ServiceDefinition.csdef 是發佈應用程式所需的 Azure 特定檔案。如需詳細資訊，請參閱[雲端服務](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj155995.aspx)。
 
-6.  系統將會提示您選取此應用程式的執行個體大小。選取 **[小型]**，然後按一下 **[建立]**。如需 Azure VM 大小的詳細資料，請參閱[設定雲端服務的大小](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx)。
+6.  系統將會提示您選取此應用程式的執行個體大小。選取 **[小型]**，然後按一下 **[建立]**。如需 Azure VM 大小的詳細資料，請參閱[設定雲端服務的大小](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee814754.aspx)。
 
     ![specify csdef file values](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createcsdef.png)
 
@@ -201,7 +201,7 @@
 使用 VIP 交換，將更新移動至生產環境
 -----------------------------------
 
-將服務部署至生產或預備環境時，會將虛擬 IP 位址 (VIP) 指派給該環境中的服務。當您想要將服務從預備環境移動至生產環境時，只要執行 VIP 交換就可達成，而不需要重新部署，而 VIP 交換會交換預備和生產部署。VIP 交換會將測試過的預備應用程式放到生產環境中，而生產環境中沒有停機時間。如需詳細資料，請參閱[在 Azure 中管理部署](http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx)。
+將服務部署至生產或預備環境時，會將虛擬 IP 位址 (VIP) 指派給該環境中的服務。當您想要將服務從預備環境移動至生產環境時，只要執行 VIP 交換就可達成，而不需要重新部署，而 VIP 交換會交換預備和生產部署。VIP 交換會將測試過的預備應用程式放到生產環境中，而生產環境中沒有停機時間。如需詳細資料，請參閱[在 Azure 中管理部署](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433027.aspx)。
 
 1.  在部署對話方塊中，按一下 **[Open portal]** 連結，以開啟 Azure 管理入口網站。
 

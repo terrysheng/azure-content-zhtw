@@ -155,7 +155,7 @@
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+[1]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn223264.aspx
 [2]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 [3]: https://manage.windowsazure.com/
 
@@ -177,6 +177,6 @@
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
 [Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/en-us/library/jj927172.aspx
-[Notification Hubs REST interface]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/zh-tw/library/jj927170.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/zh-tw/library/jj927172.aspx
+[Notification Hubs REST interface]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn223264.aspx

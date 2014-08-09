@@ -81,7 +81,7 @@ Azure .NET 儲存體 API 可支援使用儲存體連接字串，來設定存取�
         </appSettings>
     </configuration>
 
-如需儲存體連接字串的詳細資訊，請閱讀[設定連接字串](http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx)。
+如需儲存體連接字串的詳細資訊，請閱讀[設定連接字串](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758697.aspx)。
 
 現在您已準備就緒，可以開始執行本指南的「作法」工作。
 
@@ -414,9 +414,9 @@ Azure .NET 儲存體 API 可支援使用儲存體連接字串，來設定存取�
 了解資料表儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
 -   如需可用 API 的完整詳細資訊，請檢視 Blob 服務參考文件：
-    -   [.NET 用戶端程式庫參考](http://msdn.microsoft.com/en-us/library/windowsazure/wl_svchosting_mref_reference_home)
-    -   [REST API 參考](http://msdn.microsoft.com/en-us/library/windowsazure/dd179355)
--   請參閱[在 Azure 中儲存和存取資料](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)，深入了解可使用 Azure 儲存體執行的更多進階工作。
+    -   [.NET 用戶端程式庫參考](http://msdn.microsoft.com/zh-tw/library/windowsazure/wl_svchosting_mref_reference_home)
+    -   [REST API 參考](http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179355)
+-   請參閱[在 Azure 中儲存和存取資料](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx)，深入了解可使用 Azure 儲存體執行的更多進階工作。
 -   如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
     -   使用 [Blog 儲存體](/en-us/develop/net/how-to-guides/blob-storage/)儲存非結構化資料。
     -   使用 [SQL Database](/en-us/develop/net/how-to-guides/sql-database/) 儲存關聯式資料。

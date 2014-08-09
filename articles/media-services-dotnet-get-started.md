@@ -179,7 +179,7 @@ return asset;
 將伺服器上的資產編碼並下載輸出資產
 ----------------------------------
 
-在媒體服務中，您可以建立作業，以多種方式處理媒體內容：編碼、加密、轉換格式等。媒體服務作業通常包含一或多項工作來指定工作處理的細節。在本節中，您將建立基本的編碼工作，然後透過一項作業使用 Azure Media Encoder 來執行此工作。此工作使用預設字串來指定要執行的編碼類型。若要查看可用的編碼值，請參閱 [Azure Media Encoder 的工作預設字串](http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx)。媒體服務支援與 Microsoft Expression Encoder 相同的媒體檔案輸入和輸出格式。如需支援的格式清單，請參閱 [Azure Media Encoder 支援的轉碼器與檔案類型](http://msdn.microsoft.com/en-us/library/windowsazure/hh973634.aspx)。
+在媒體服務中，您可以建立作業，以多種方式處理媒體內容：編碼、加密、轉換格式等。媒體服務作業通常包含一或多項工作來指定工作處理的細節。在本節中，您將建立基本的編碼工作，然後透過一項作業使用 Azure Media Encoder 來執行此工作。此工作使用預設字串來指定要執行的編碼類型。若要查看可用的編碼值，請參閱 [Azure Media Encoder 的工作預設字串](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj129582.aspx)。媒體服務支援與 Microsoft Expression Encoder 相同的媒體檔案輸入和輸出格式。如需支援的格式清單，請參閱 [Azure Media Encoder 支援的轉碼器與檔案類型](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh973634.aspx)。
 
 1.  將下列 **CreateEncodingJob** 方法定義加入至類別。此方法示範如何完成編碼作業的一些必要工作：
 
@@ -650,5 +650,5 @@ File download path:C:\supportFiles\outputfiles\interview2_metadata.xml
 此逐步解說已示範建立簡單的媒體服務應用程式所需的一連串程式設計工作。您已學到基本的媒體服務程式設計工作，包括取得伺服器內容、建立資產、將資產編碼，以及下載或存取伺服器上的資產。關於後續步驟和更進階的開發工作，請參閱：
 
 -   [如何使用媒體服務](http://www.windowsazure.com/en-us/develop/net/how-to-guides/media-services/)
--   [使用 Media Services REST API 建立應用程式](http://msdn.microsoft.com/en-us/library/windowsazure/hh973618.aspx)
+-   [使用 Media Services REST API 建立應用程式](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh973618.aspx)
 

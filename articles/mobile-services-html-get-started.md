@@ -64,7 +64,7 @@
  ![](./media/mobile-services-html-get-started/mobile-services-set-cors-localhost.png)
 
     <div class="dev-callout"><b>注意</b>
-        <p>如果您將快速入門應用程式部署到 localhost 以外的網頁伺服器，則必須將該網頁伺服器的主機名稱新增至 [Allow requests from host names]<strong></strong> 清單。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx" target="_blank">跨來源資源分享</a> (英文)。</p></div>
+        <p>如果您將快速入門應用程式部署到 localhost 以外的網頁伺服器，則必須將該網頁伺服器的主機名稱新增至 [Allow requests from host names]<strong></strong> 清單。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dn155871.aspx" target="_blank">跨來源資源分享</a> (英文)。</p></div>
 
 裝載並執行 HTML 應用程式
 ------------------------

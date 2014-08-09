@@ -150,5 +150,5 @@ asverify 子網域是 Azure 認可的特殊子網域。在自己的子網域前�
 其他資源
 --------
 
--   [如何將 CDN 對應至自訂網域](http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx)
+-   [如何將 CDN 對應至自訂網域](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg680307.aspx)
 

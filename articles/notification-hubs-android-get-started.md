@@ -218,7 +218,7 @@
 如何傳送通知至應用程式
 ----------------------
 
-您可以從任何使用 [REST 介面](http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx)的後端中，透過通知中心來傳送通知。在本教學課程中，我們將示範兩種傳送通知的方式：透過 .NET 主控台應用程式，及透過使用節點指令碼的行動服務。
+您可以從任何使用 [REST 介面](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn223264.aspx)的後端中，透過通知中心來傳送通知。在本教學課程中，我們將示範兩種傳送通知的方式：透過 .NET 主控台應用程式，及透過使用節點指令碼的行動服務。
 
 ### 使用 .NET 主控台應用程式傳送通知：
 
@@ -348,7 +348,7 @@
 後續步驟
 --------
 
-在此簡單範例中，您會將通知廣播到您的所有 Android 裝置。為了鎖定特定使用者，請參閱[使用通知中心來推播通知給使用者](/en-us/manage/services/notification-hubs/notify-users-aspnet)教學課程，同時如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞](/en-us/manage/services/notification-hubs/breaking-news-dotnet)。若要深入了解如何使用通知中心，請參閱 [Azure 通知中心概觀](http://msdn.microsoft.com/en-us/library/jj927170.aspx)和[Android 的通知中心作法](http://msdn.microsoft.com/en-us/library/dn282661.aspx)。
+在此簡單範例中，您會將通知廣播到您的所有 Android 裝置。為了鎖定特定使用者，請參閱[使用通知中心來推播通知給使用者](/en-us/manage/services/notification-hubs/notify-users-aspnet)教學課程，同時如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞](/en-us/manage/services/notification-hubs/breaking-news-dotnet)。若要深入了解如何使用通知中心，請參閱 [Azure 通知中心概觀](http://msdn.microsoft.com/zh-tw/library/jj927170.aspx)和[Android 的通知中心作法](http://msdn.microsoft.com/zh-tw/library/dn282661.aspx)。
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
@@ -394,8 +394,8 @@
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
-[Notification Hubs How-To for Android]: http://msdn.microsoft.com/en-us/library/dn282661.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/zh-tw/library/jj927170.aspx
+[Notification Hubs How-To for Android]: http://msdn.microsoft.com/zh-tw/library/dn282661.aspx
 
 [Use Notification Hubs to push notifications to users]: /en-us/manage/services/notification-hubs/notify-users-aspnet
 [Use Notification Hubs to send breaking news]: /en-us/manage/services/notification-hubs/breaking-news-dotnet

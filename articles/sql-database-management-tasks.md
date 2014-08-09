@@ -125,5 +125,5 @@ GRANT VIEW DATABASE STATE to 'sqlops';
 
 6.  開啟第二個查詢視窗，並將連線內容變更為 *sqlwriter*。此時，相同的查詢應可成功執行。
 
-現在，您已建立並測試數個登入。如需詳細資訊，請參閱[管理 SQL Database 中的資料庫和登入](http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx)和[使用動態管理檢視監視 SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx)。
+現在，您已建立並測試數個登入。如需詳細資訊，請參閱[管理 SQL Database 中的資料庫和登入](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336235.aspx)和[使用動態管理檢視監視 SQL Database](http://msdn.microsoft.com/zh-tw/library/windowsazure/ff394114.aspx)。
 

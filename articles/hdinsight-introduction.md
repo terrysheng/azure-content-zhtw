@@ -110,9 +110,9 @@ HDInsight (以及一般的 Hadoop 技術) 最適合用來處理大量的記錄�
 
 -   [Azure 首頁](https://www.windowsazure.com/en-us/)：開始建立應用程式所需的案例、免費試用註冊、開發工具和文件。
 
--   [Azure SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx)：SQL Database 的 MSDN 文件。
+-   [Azure SQL Database](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336279.aspx)：SQL Database 的 MSDN 文件。
 
--   [SQL Database 管理入口網站](http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx)：在雲端管理 SQL Database 的輕量型使用簡便的資料庫管理工具。
+-   [SQL Database 管理入口網站](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg442309.aspx)：在雲端管理 SQL Database 的輕量型使用簡便的資料庫管理工具。
 
 -   [SQL Database 的大膽嘗試](http://msftdbprodsamples.codeplex.com/releases/view/37304) (英文)：SQL Database 範例資料庫的下載頁面。
 

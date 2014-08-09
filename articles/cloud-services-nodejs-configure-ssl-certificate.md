@@ -103,7 +103,7 @@
         ...
         </WebRole>
 
-    **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。因為我們將憑證安裝到使用者憑證存放區，所以使用的值為 "My"。也可以使用其他憑證存放區位置。如需詳細資訊，請參閱＜[將憑證與服務產生關聯](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx)＞。
+    **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。因為我們將憑證安裝到使用者憑證存放區，所以使用的值為 "My"。也可以使用其他憑證存放區位置。如需詳細資訊，請參閱＜[將憑證與服務產生關聯](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg465718.aspx)＞。
 
 2.  在服務定義檔中，更新 **Endpoints** 區段內的 **InputEndpoint** 元素來啟用 HTTPS：
 
@@ -158,9 +158,9 @@
 其他資源
 --------
 
-[如何使憑證與服務產生關聯](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx)
+[如何使憑證與服務產生關聯](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg465718.aspx)
 
 [在 Azure 背景工作角色中設定 Node.js 應用程式的 SSL](/en-us/develop/nodejs/common-tasks/enable-ssl-worker-role/)
 
-[如何在 HTTPS 端點上設定 SSL 憑證](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx)
+[如何在 HTTPS 端點上設定 SSL 憑證](http://msdn.microsoft.com/zh-tw/library/windowsazure/ff795779.aspx)
 

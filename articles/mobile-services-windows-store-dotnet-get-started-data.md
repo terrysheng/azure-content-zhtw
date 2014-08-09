@@ -103,7 +103,7 @@
          await todoTable.InsertAsync(todoItem);
     
     此程式碼會將新的項目插入資料表中。
-<div class="dev-callout"><strong>注意</strong><p>新的資料表是使用 Id、__createdAt、__updatedAt 和 __version 等資料行建立而成。啟用動態結構描述時，行動服務會根據插入或更新要求中的 JSON 物件自動產生新資料行。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx">動態結構描述</a>。</p></div>
+<div class="dev-callout"><strong>注意</strong><p>新的資料表是使用 Id、__createdAt、__updatedAt 和 __version 等資料行建立而成。啟用動態結構描述時，行動服務會根據插入或更新要求中的 JSON 物件自動產生新資料行。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193175.aspx">動態結構描述</a>。</p></div>
 
 
 5.  在 **RefreshTodoItems** 方法中，將 **async** 修飾子新增至方法，然後取消註解下列程式碼行：

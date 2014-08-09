@@ -30,7 +30,7 @@
 設定和必要條件
 --------------
 
-本指南假設您已建立包含資料表的行動服務。如需詳細資訊，請參閱[建立資料表](http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx)。本主題中的範例將使用名為 `ToDoItem` 的資料表，且資料表中包含下列資料行：
+本指南假設您已建立包含資料表的行動服務。如需詳細資訊，請參閱[建立資料表](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193162.aspx)。本主題中的範例將使用名為 `ToDoItem` 的資料表，且資料表中包含下列資料行：
 
 -   `id`
 -   `text`
@@ -292,7 +292,7 @@ MSQuery 物件可讓您控制下列查詢行為：
 
 驗證成功時，系統會傳回包含指定使用者識別碼值和驗證權杖的使用者物件。您可以在伺服器指令碼中使用此使用者識別碼，以驗證或修改要求。如需詳細資訊，請參閱[以指令碼驗證使用者](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios)。權杖本身可以安全地進行快取，以供後續登入使用。
 
-您也可以在資料表上設定權限，限制只有經驗證的使用者可以存取特定作業。如需詳細資訊，請參閱[權限](http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx)。
+您也可以在資料表上設定權限，限制只有經驗證的使用者可以存取特定作業。如需詳細資訊，請參閱[權限](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193161.aspx)。
 
 ### 伺服器管理的登入
 
@@ -459,11 +459,11 @@ MSQuery 物件可讓您控制下列查詢行為：
 
 [Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[Permissions]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx
+[Permissions]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193161.aspx
 [Use scripts to authorize users]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Dynamic schema]: http://go.microsoft.com/fwlink/p/?LinkId=296271
 [How to: access custom parameters]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[Create a table]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx
+[Create a table]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables

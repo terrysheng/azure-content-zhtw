@@ -83,7 +83,7 @@ Azure .NET 儲存體 API 可支援使用儲存體連接字串，來設定存取�
         </appSettings>
     </configuration>
 
-如需儲存體連接字串的詳細資訊，請閱讀[設定連接字串](http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx)。
+如需儲存體連接字串的詳細資訊，請閱讀[設定連接字串](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758697.aspx)。
 
 現在您已準備就緒，可以開始執行本指南的「作法」工作。
 
@@ -103,7 +103,7 @@ Azure .NET 儲存體 API 可支援使用儲存體連接字串，來設定存取�
 建立佇列作法：建立佇列
 ----------------------
 
-**CloudQueueClient** 物件可讓您取得佇列的參照物件。下列程式碼將建立 **CloudQueueClient** 物件。本指南的所有程式碼都使用 Azure 應用程式服務設定中所儲存的儲存體連接字串。還有其他方式可以建立 **CloudStorageAccount** 物件。請參閱 [CloudStorageAccount](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx) 文件以取得詳細資料。
+**CloudQueueClient** 物件可讓您取得佇列的參照物件。下列程式碼將建立 **CloudQueueClient** 物件。本指南的所有程式碼都使用 Azure 應用程式服務設定中所儲存的儲存體連接字串。還有其他方式可以建立 **CloudStorageAccount** 物件。請參閱 [CloudStorageAccount](http://msdn.microsoft.com/zh-tw/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx) 文件以取得詳細資料。
 
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -269,9 +269,9 @@ Azure .NET 儲存體 API 可支援使用儲存體連接字串，來設定存取�
 了解佇列儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
 -   如需可用 API 的完整詳細資訊，請檢視佇列服務參考文件：
-    -   [.NET 用戶端程式庫參考](http://msdn.microsoft.com/en-us/library/windowsazure/wl_svchosting_mref_reference_home)
-    -   [REST API 參考](http://msdn.microsoft.com/en-us/library/windowsazure/dd179355)
--   請參閱[在 Azure 中儲存和存取資料](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)，深入了解可使用 Azure 儲存體執行的更多進階工作。
+    -   [.NET 用戶端程式庫參考](http://msdn.microsoft.com/zh-tw/library/windowsazure/wl_svchosting_mref_reference_home)
+    -   [REST API 參考](http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179355)
+-   請參閱[在 Azure 中儲存和存取資料](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx)，深入了解可使用 Azure 儲存體執行的更多進階工作。
 -   如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
     -   使用[資料表儲存體](/en-us/develop/net/how-to-guides/table-services/)儲存結構化資料。
     -   使用 [Blog 儲存體](/en-us/develop/net/how-to-guides/blob-storage/)儲存非結構化資料。

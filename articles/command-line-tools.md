@@ -1436,7 +1436,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 ### 管理排程工作的命令
 
-本節中的命令可用來管理屬於行動服務的排程工作。如需詳細資訊，請參閱[排程工作](http://msdn.microsoft.com/en-us/library/windowsazure/jj860528.aspx) (英文)。
+本節中的命令可用來管理屬於行動服務的排程工作。如需詳細資訊，請參閱[排程工作](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj860528.aspx) (英文)。
 
 **mobile job list [options] [servicename]**
 
@@ -1510,7 +1510,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 ### 調整行動服務的命令
 
-本節中的命令可用來調整行動服務。如需詳細資訊，請參閱[調整行動服務](http://msdn.microsoft.com/en-us/library/windowsazure/jj193178.aspx) (英文)。
+本節中的命令可用來調整行動服務。如需詳細資訊，請參閱[調整行動服務](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193178.aspx) (英文)。
 
 **mobile scale show [options] [servicename]**
 

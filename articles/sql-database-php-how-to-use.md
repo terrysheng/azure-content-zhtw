@@ -23,7 +23,7 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 概念
 ----
 
-由於 Azure SQL Database 是以 SQL Server 技術為基礎組建的，因此從 PHP 存取 SQL Database 與從 PHP 存取 SQL Server 非常類似。您可以在本機開發應用程式 (使用 SQL Server)，然後藉由只變更連線字串來連接 SQL Database。然而，SQL Database 和 SQL Server 之間存在某些可能會影響應用程式的差異。如需詳細資訊，請參閱 [Azure SQL Database 指導方針和限制](http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx)。
+由於 Azure SQL Database 是以 SQL Server 技術為基礎組建的，因此從 PHP 存取 SQL Database 與從 PHP 存取 SQL Server 非常類似。您可以在本機開發應用程式 (使用 SQL Server)，然後藉由只變更連線字串來連接 SQL Database。然而，SQL Database 和 SQL Server 之間存在某些可能會影響應用程式的差異。如需詳細資訊，請參閱 [Azure SQL Database 指導方針和限制](http://msdn.microsoft.com/zh-tw/library/windowsazure/ff394102.aspx)。
 
 從 PHP 存取 SQL Database 的建議方法是使用 [Microsoft Drivers for PHP for SQL Server](http://www.microsoft.com/download/en/details.aspx?id=20098)。(本文中的範例將使用這些驅動程式。)The Microsoft Drivers for PHP for SQL Server 僅適用於 Windows。
 
@@ -113,7 +113,7 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 後續步驟
 --------
 
-如前文提及，SQL Database 的使用方法與 SQL Server 非常類似。一旦建立 SQL Database 連線 (如前文所示) 後，您便可以使用 **SQLSRV** 或 **PDO\_SQLSRV** API 來插入、擷取、更新及刪除資料。如需 **SQLSRV** 和 **PDO\_SQLSRV** API 的相關資訊，請參閱 [Microsoft Drivers for PHP for SQL Server 文件](http://msdn.microsoft.com/en-us/library/dd638075(SQL.10).aspx) (英文)。然而，SQL Database 和 SQL Server 之間存在某些可能會影響應用程式的差異。如需詳細資訊，請參閱 [Azure SQL Database 指導方針和限制](http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx)。
+如前文提及，SQL Database 的使用方法與 SQL Server 非常類似。一旦建立 SQL Database 連線 (如前文所示) 後，您便可以使用 **SQLSRV** 或 **PDO\_SQLSRV** API 來插入、擷取、更新及刪除資料。如需 **SQLSRV** 和 **PDO\_SQLSRV** API 的相關資訊，請參閱 [Microsoft Drivers for PHP for SQL Server 文件](http://msdn.microsoft.com/zh-tw/library/dd638075(SQL.10).aspx) (英文)。然而，SQL Database 和 SQL Server 之間存在某些可能會影響應用程式的差異。如需詳細資訊，請參閱 [Azure SQL Database 指導方針和限制](http://msdn.microsoft.com/zh-tw/library/windowsazure/ff394102.aspx)。
 
 示範如何在 Azure 上搭配使用 SQL Database 和 PHP 的範例位於 &lt;https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-sqlazure\>。
 

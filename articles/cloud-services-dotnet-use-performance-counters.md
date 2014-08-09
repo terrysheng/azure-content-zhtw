@@ -5,7 +5,7 @@
 
 您可以在 Azure 應用程式中使用效能計數器來收集資料，以利判斷系統瓶頸及微調系統和應用程式效能。適用於 Windows Server 2008、Windows Server 2012、IIS 和 ASP.NET 的效能計數器可用來收集資料，以判斷 Azure 應用程式的健康情況。
 
-本主題將說明如何使用 diagnostics.wadcfg 組態檔在您的應用程式中啟用效能計數器。如需在 [Azure 管理入口網站](http://manage.windowsazure.com)中監視應用程式效能的相關資訊，請參閱[如何監視雲端服務](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/)。如需建立記錄及追蹤策略、使用診斷和其他技術進行疑難排解，以及將 Azure 應用程式最佳化的其他深入指引，請參閱[開發 Azure 應用程式的疑難排解最佳作法](http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx) (英文)。
+本主題將說明如何使用 diagnostics.wadcfg 組態檔在您的應用程式中啟用效能計數器。如需在 [Azure 管理入口網站](http://manage.windowsazure.com)中監視應用程式效能的相關資訊，請參閱[如何監視雲端服務](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/)。如需建立記錄及追蹤策略、使用診斷和其他技術進行疑難排解，以及將 Azure 應用程式最佳化的其他深入指引，請參閱[開發 Azure 應用程式的疑難排解最佳作法](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh771389.aspx) (英文)。
 
 此工作包含下列步驟：
 
@@ -55,7 +55,7 @@
         <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Jit(_Global_)\% Time in Jit" sampleRate="PT30S" />
         </PerformanceCounters>    
 
-**bufferQuotaInMB** 屬性會指定可用於資料收集類型 (Azure 記錄、IIS 記錄等) 的檔案系統儲存體數量上限。預設值為 0。到達此配額時，即會在新增新資料時刪除最舊的資料。所有 **bufferQuotaInMB** 屬性 (property) 的總和必須大於 **OverallQuotaInMB** 屬性 (attribute) 的值。如需判斷收集診斷資料將需要多少儲存體的詳細討論，請參閱[開發 Azure 應用程式的疑難排解最佳作法](http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx) (英文) 中的「設定 WAD」一節。
+**bufferQuotaInMB** 屬性會指定可用於資料收集類型 (Azure 記錄、IIS 記錄等) 的檔案系統儲存體數量上限。預設值為 0。到達此配額時，即會在新增新資料時刪除最舊的資料。所有 **bufferQuotaInMB** 屬性 (property) 的總和必須大於 **OverallQuotaInMB** 屬性 (attribute) 的值。如需判斷收集診斷資料將需要多少儲存體的詳細討論，請參閱[開發 Azure 應用程式的疑難排解最佳作法](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh771389.aspx) (英文) 中的「設定 WAD」一節。
 
 **scheduledTransferPeriod** 屬性會指定排程的資料傳輸所採用的間隔 (四捨五入至最接近的分鐘)。下列範例將此值設為 PT30M (30 分鐘)。將傳輸期間設為較小的值 (例如 1 分鐘)，將對生產環境中的應用程式效能造成不良影響，但在執行測試時可能有助於診斷的快速運作。排程的傳輸期間應大小適中，以確保執行個體上的診斷資料不會被覆寫，同時不會對應用程式的效能造成影響。
 
@@ -239,16 +239,16 @@
 
 了解收集效能計數器的基礎概念之後，請參考下列連結以了解如何實作更複雜的疑難排解案例。
 
--   [開發 Azure 應用程式的疑難排解最佳作法](http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx)
+-   [開發 Azure 應用程式的疑難排解最佳作法](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh771389.aspx)
 -   [如何監視雲端服務](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/)
 -   [如何使用自動調整應用程式區塊](http://www.windowsazure.com/en-us/develop/net/how-to-guides/autoscaling/)
--   [建置彈性、恢復力強的雲端應用程式](http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx)
+-   [建置彈性、恢復力強的雲端應用程式](http://msdn.microsoft.com/zh-tw/library/hh680949(PandP.50).aspx)
 
 其他資源
 --------
 
 -   [啟用 Azure 中的診斷](https://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/)
--   [使用 Azure 診斷收集記錄資料](http://msdn.microsoft.com/en-us/library/windowsazure/gg433048.aspx)
--   [偵錯 Azure 應用程式](http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx)
+-   [使用 Azure 診斷收集記錄資料](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433048.aspx)
+-   [偵錯 Azure 應用程式](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405479.aspx)
 
 

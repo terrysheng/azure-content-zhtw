@@ -488,12 +488,12 @@ Azure Storage Client Library for .NET 可支援使用儲存體連接字串，來
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
+[1]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758697.aspx
 [2]: http://www.windowsazure.com/en-us/develop/net/#
 [3]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
 [4]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
 [5]: http://nuget.org/packages/System.Spatial/5.0.2
 [6]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/dn495001(v=azure.10).aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
-[9]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[7]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn495001(v=azure.10).aspx
+[8]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179355
+[9]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx

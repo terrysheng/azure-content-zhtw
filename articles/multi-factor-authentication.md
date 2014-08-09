@@ -15,27 +15,27 @@
 
 ### 保護雲端 Azure Active Directory 的安全
 
-啟用適用於 Azure AD 身分識別的 Multi-Factor Authentication，系統將於使用者下次登入時出現設定其他驗證的提示。使用 Multi-Factor Authentication 來保護 Azure、Microsoft Online Services (如 Office 365 和 Dynamics CRM Online)，以及無需額外設定即可整合 Azure AD 的協力廠商雲端服務的安全。您可以快速啟用大量全域使用者和應用程式的多因素驗證。[詳細資訊](http://msdn.microsoft.com/en-us/library/dn249466.aspx)
+啟用適用於 Azure AD 身分識別的 Multi-Factor Authentication，系統將於使用者下次登入時出現設定其他驗證的提示。使用 Multi-Factor Authentication 來保護 Azure、Microsoft Online Services (如 Office 365 和 Dynamics CRM Online)，以及無需額外設定即可整合 Azure AD 的協力廠商雲端服務的安全。您可以快速啟用大量全域使用者和應用程式的多因素驗證。[詳細資訊](http://msdn.microsoft.com/zh-tw/library/dn249466.aspx)
 
 ### 保護內部部署資源和 Active Directory 的安全
 
-使用 Azure Multi-Factor Authentication Server 來啟用內部部署資源 (例如 IIS 和 Active Directory) 的 Multi-Factor Authentication。Azure Multi-Factor Authentication Server 可讓系統管理員整合與 IIS 驗證共同保護 Microsoft IIS Web 應用程式、RADIUS 驗證、LDAP 驗證和 Windows 驗證的安全。[詳細資訊](http://msdn.microsoft.com/en-us/library/dn249467.aspx)
+使用 Azure Multi-Factor Authentication Server 來啟用內部部署資源 (例如 IIS 和 Active Directory) 的 Multi-Factor Authentication。Azure Multi-Factor Authentication Server 可讓系統管理員整合與 IIS 驗證共同保護 Microsoft IIS Web 應用程式、RADIUS 驗證、LDAP 驗證和 Windows 驗證的安全。[詳細資訊](http://msdn.microsoft.com/zh-tw/library/dn249467.aspx)
 
 ### 保護自訂應用程式的安全
 
-SDK 允許與雲端服務的直接整合。在應用程式的登入或交易程序中內建主動式驗證通話和簡訊驗證，並充分利用應用程式的現有使用者資料庫。[詳細資訊](http://msdn.microsoft.com/en-us/library/dn249464.aspx)
+SDK 允許與雲端服務的直接整合。在應用程式的登入或交易程序中內建主動式驗證通話和簡訊驗證，並充分利用應用程式的現有使用者資料庫。[詳細資訊](http://msdn.microsoft.com/zh-tw/library/dn249464.aspx)
 
 ### Multi-Factor Authentication for Office 365
 
-Azure Multi-Factor Authentication 技術支援的 Multi-Factor Authentication for Office 365，專用於 Office 365 應用程式並可透過 Office 365 入口網站進行管理。系統管理員現在可以使用多因素驗證來保護其 Office 365 資源的安全。[詳細資訊](http://msdn.microsoft.com/en-us/library/dn383636.aspx)
+Azure Multi-Factor Authentication 技術支援的 Multi-Factor Authentication for Office 365，專用於 Office 365 應用程式並可透過 Office 365 入口網站進行管理。系統管理員現在可以使用多因素驗證來保護其 Office 365 資源的安全。[詳細資訊](http://msdn.microsoft.com/zh-tw/library/dn383636.aspx)
 
 ### 適用於 Azure 系統管理員的 Multi-Factor Authentication
 
-適用於 Office 365 的 Multi-Factor Authentication 功能的相同子集將免費提供給所有 Azure 系統管理員。Azure 訂閱的每個管理帳戶現可透過啟用此多因素驗證核心功能，來取得額外的防護。因此想要存取 Azure 入口網站以建立 VM、網站、管理儲存體、行動服務或任何其他 Azure 服務的系統管理員，可在其系統管理員帳戶中新增多因素驗證。[詳細資訊](http://msdn.microsoft.com/en-us/library/dn249471.aspx)
+適用於 Office 365 的 Multi-Factor Authentication 功能的相同子集將免費提供給所有 Azure 系統管理員。Azure 訂閱的每個管理帳戶現可透過啟用此多因素驗證核心功能，來取得額外的防護。因此想要存取 Azure 入口網站以建立 VM、網站、管理儲存體、行動服務或任何其他 Azure 服務的系統管理員，可在其系統管理員帳戶中新增多因素驗證。[詳細資訊](http://msdn.microsoft.com/zh-tw/library/dn249471.aspx)
 
 ### Multi-Factor Authentication 功能比較
 
-下列內容將說明可用的多因素驗證版本，以及所提供的功能簡短摘要。您可以使用此內容來判斷適合您的多因素驗證版本。[詳細資訊](http://msdn.microsoft.com/en-us/library/dn249471.aspx)
+下列內容將說明可用的多因素驗證版本，以及所提供的功能簡短摘要。您可以使用此內容來判斷適合您的多因素驗證版本。[詳細資訊](http://msdn.microsoft.com/zh-tw/library/dn249471.aspx)
 
 ![Azure Multi-Factor Authentication 功能比較](./media/multi-factor-authentication/mfacomparison1.png)
 

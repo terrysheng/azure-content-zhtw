@@ -30,7 +30,7 @@
 對於商務應用程式案例來說，您的驗證策略會是其中一項最重要的決定。有數個選項：
 
 -   使用 [Azure Active Directory 服務](/en-us/documentation/services/active-directory/) (英文)。您可以使用這個做為獨立目錄，或是將它與內部部署的 Active Directory 同步處理。應用程式會接著與 Azure Active Directory 互動來驗證使用者。如需這個方法的概觀，請參閱[使用 Azure Active Directory](/en-us/manage/windows/fundamentals/identity/#ad) (英文)。
--   使用 Azure 虛擬機器和虛擬網路來安裝 Active Directory。這可提供您將內部部署 Active Directory 安裝延伸到雲端的選項。您也可以選擇使用 Active Directory Federation Services (ADFS) 將身分識別要求透過同盟傳回到內部部署 AD 處理。Azure 應用程式的驗證會透過 ADFS 傳送給內部部署 Active Directory。如需有關這個方法的詳細資訊，請參閱[在 VM 中執行 Windows Server Active Directory](/en-us/manage/windows/fundamentals/identity/#adinvm) (英文) 和 [在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx)。
+-   使用 Azure 虛擬機器和虛擬網路來安裝 Active Directory。這可提供您將內部部署 Active Directory 安裝延伸到雲端的選項。您也可以選擇使用 Active Directory Federation Services (ADFS) 將身分識別要求透過同盟傳回到內部部署 AD 處理。Azure 應用程式的驗證會透過 ADFS 傳送給內部部署 Active Directory。如需有關這個方法的詳細資訊，請參閱[在 VM 中執行 Windows Server Active Directory](/en-us/manage/windows/fundamentals/identity/#adinvm) (英文) 和 [在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090.aspx)。
 -   使用中繼服務 (例如 [Azure 存取控制服務](http://msdn.microsoft.com/library/windowsazure/hh147631.aspx) (ACS) (英文) 以使用多個身分識別服務來驗證使用者。這提供一個透過 Active Directory 或透過其他身分識別提供者進行驗證的抽象概念。如需詳細資訊，請參閱[使用 Azure Active Directory 存取控制](/en-us/manage/windows/fundamentals/identity/#ac) (英文)。
 
 對於此商務應用程式案例來說，第一個使用 Azure Active Directory 的案例為您的應用程式提供了實作驗證策略的最快途徑。本指南的其餘部分著重於 Azure Active Directory。不過，視您的業務需求而定，您可能會發現其他兩個方案的其中之一較為適用。例如，若允許您將身分識別資訊同步至雲端，則 ADFS 方案可能是較理想的選項。或者，如果您必須支援其他身分識別提供者 (例如 Facebook)，則 ACS 方案較為適用。
@@ -104,13 +104,13 @@
 
 需多企業營運系統應用程式都必須與內部部署資料及服務整合。有多個原因導致無法將特定類型的資料移到雲端。這些原因可能是實務性或管制性的原因。如果您正處於決定哪些資料要裝載於 Azure 及哪些資料應保持在內部部署的規劃階段，檢閱 [Azure 信任中心](/en-us/support/trust-center/)上的資源就相當重要。混合式 Web 應用程式可在 Azure 中執行，並可存取必須保持在內部部署的資源。
 
-在使用虛擬機器或雲端服務時，您可以使用虛擬網路將 Azure 中的應用程式與公司網路連線。不過，網站並不支援虛擬網路，因此執行這類與網站整合的最佳方式就是透過使用 [Azure 服務匯流排轉送服務](http://msdn.microsoft.com/en-us/library/windowsazure/jj860549.aspx)。服務匯流排轉送服務可讓雲端的應用程式安全地連線至在公司網路上執行的 WCF 服務。服務匯流排可允許在不開啟防火牆連接埠的情況下進行這項通訊。
+在使用虛擬機器或雲端服務時，您可以使用虛擬網路將 Azure 中的應用程式與公司網路連線。不過，網站並不支援虛擬網路，因此執行這類與網站整合的最佳方式就是透過使用 [Azure 服務匯流排轉送服務](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj860549.aspx)。服務匯流排轉送服務可讓雲端的應用程式安全地連線至在公司網路上執行的 WCF 服務。服務匯流排可允許在不開啟防火牆連接埠的情況下進行這項通訊。
 
 在下圖中，雲端應用程式和內部部署 WCF 服務都是透過先前建立的命名空間與服務匯流排進行通訊。內部部署 WCF 服務能夠存取無法移至雲端的內部資料和服務。WCF 服務會在命名空間中登錄一個端點。在 Azure 中執行的網站也會連線至服務匯流排中的這個端點。它們只要能夠發出連出的公用 HTTP 要求，即可完成這個步驟。
 
 ![BusinessApplicationsServiceBusRelay](./media/web-sites-business-application-solution-overview/BusinessApplications_ServiceBusRelay.png)
 
-服務匯流排會接著將雲端應用程式連線至內部部署 WCF 服務。這提供一個基本架構，可讓您建立可同時使用 Azure 上及內部部署之服務和資源的混合式應用程式。如需詳細資訊，請參閱[如何使用服務匯流排轉送服務](/en-us/develop/net/how-to-guides/service-bus-relay/) (英文) 和教學課程[服務匯流排轉送訊息教學課程](http://msdn.microsoft.com/en-us/library/windowsazure/ee706736.aspx)。如需示範這項技術的範例，請參閱 [Enterprise Pizza - 使用服務匯流排將網站連線至內部部署](http://code.msdn.microsoft.com/windowsazure/Enterprise-Pizza-e2d8f2fa)。
+服務匯流排會接著將雲端應用程式連線至內部部署 WCF 服務。這提供一個基本架構，可讓您建立可同時使用 Azure 上及內部部署之服務和資源的混合式應用程式。如需詳細資訊，請參閱[如何使用服務匯流排轉送服務](/en-us/develop/net/how-to-guides/service-bus-relay/) (英文) 和教學課程[服務匯流排轉送訊息教學課程](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee706736.aspx)。如需示範這項技術的範例，請參閱 [Enterprise Pizza - 使用服務匯流排將網站連線至內部部署](http://code.msdn.microsoft.com/windowsazure/Enterprise-Pizza-e2d8f2fa)。
 
 監視應用程式
 ------------
@@ -155,7 +155,7 @@ Azure 可讓您將安全的內部網路應用程式裝載在雲端。為了只�
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">Service Bus 轉送</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-relay/">如何使用服務匯流排轉送服務</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://msdn.microsoft.com/en-us/library/windowsazure/ee706736.aspx">服務匯流排轉送訊息教學課程</a></td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-relay/">如何使用服務匯流排轉送服務</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://msdn.microsoft.com/zh-tw/library/windowsazure/ee706736.aspx">服務匯流排轉送訊息教學課程</a></td>
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">監視</strong></td>

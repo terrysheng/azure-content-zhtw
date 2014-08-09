@@ -3,7 +3,7 @@
 準備執行 Linux 的 Azure 虛擬機器
 ================================
 
-Azure 中的虛擬機器會執行您在建立虛擬機器時所選擇的作業系統。Azure 會以 VHD 格式 (.vhd 檔案) 將虛擬機器的作業系統儲存在虛擬硬碟中。可供複製的作業系統 VHD，稱為映像。本文說明如何使用您已安裝並一般化的作業系統上傳 .vhd 檔案，以建立您自己的映像。如需 Azure 中的磁碟和映像的詳細資訊，請參閱[管理磁碟和映像](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx)。
+Azure 中的虛擬機器會執行您在建立虛擬機器時所選擇的作業系統。Azure 會以 VHD 格式 (.vhd 檔案) 將虛擬機器的作業系統儲存在虛擬硬碟中。可供複製的作業系統 VHD，稱為映像。本文說明如何使用您已安裝並一般化的作業系統上傳 .vhd 檔案，以建立您自己的映像。如需 Azure 中的磁碟和映像的詳細資訊，請參閱[管理磁碟和映像](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj672979.aspx)。
 
 **注意**：在建立虛擬機器時，您可以自訂作業系統設定，以利執行應用程式。您設定的組態會儲存在該虛擬機器的磁碟上。如需指示，請參閱[如何建立自訂虛擬機器](/en-us/manage/windows/how-to-guides/custom-create-a-vm/)。
 
@@ -14,7 +14,7 @@ Azure 中的虛擬機器會執行您在建立虛擬機器時所選擇的作業�
 
 本文假設您具有下列項目：
 
--   **管理憑證** - 您已針對要上傳 VHD 的訂閱建立管理憑證，並將此憑證匯出至 .cer 檔案。如需建立憑證的詳細資訊，請參閱[建立 Azure 的管理憑證](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx)。
+-   **管理憑證** - 您已針對要上傳 VHD 的訂閱建立管理憑證，並將此憑證匯出至 .cer 檔案。如需建立憑證的詳細資訊，請參閱[建立 Azure 的管理憑證](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg551722.aspx)。
 
 -   **以 .vhd 檔案安裝的 Linux 作業系統。** - 您已將支援的 Linux 作業系統安裝至虛擬硬碟。有多項工具可用來建立 .vhd 檔案。您可以使用虛擬化解決方案 (例如 Hyper-V) 建立 .vhd 檔案，並安裝作業系統。如需指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/en-us/library/hh846766.aspx)。
 
@@ -24,7 +24,7 @@ Azure 中的虛擬機器會執行您在建立虛擬機器時所選擇的作業�
 
 -   **Linux Azure 命令列工具。**如果您要使用 Linux 作業系統建立映像，您可以使用此工具來上傳 VHD 檔案。若要下載此工具，請參閱[適用於 Mac 和 Linux 的 Azure 命令列工具](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409)。
 
--   **Add-AzureVhd Cmdlet**，這是 Azure PowerShell 模組的一部分。若要下載此模組，請參閱 [Azure 下載](/en-us/develop/downloads/)。如需參照資訊，請參閱 [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx)。
+-   **Add-AzureVhd Cmdlet**，這是 Azure PowerShell 模組的一部分。若要下載此模組，請參閱 [Azure 下載](/en-us/develop/downloads/)。如需參照資訊，請參閱 [Add-AzureVhd](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn205185.aspx)。
 
 對於所有的散發套件，請注意下列事項：
 
@@ -534,7 +534,7 @@ Azure Linux 代理程式 (Waagent) 與 NetworkManager 不相容。網路組態�
 
     其中，`<PathToFile>` 是 .publishsettings 檔案的完整路徑。
 
-    如需詳細資訊，請參閱[開始使用 Azure Cmdlet](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx)
+    如需詳細資訊，請參閱[開始使用 Azure Cmdlet](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554332.aspx)
 
 步驟 4：將映像上傳至 Azure
 --------------------------
@@ -547,7 +547,7 @@ Azure Linux 代理程式 (Waagent) 與 NetworkManager 不相容。網路組態�
 
     `Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
 
-    如需詳細資訊，請參閱 [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx)。
+    如需詳細資訊，請參閱 [Add-AzureVhd](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn205185.aspx)。
 
 -   使用 Linux 命令列工具上傳映像。您可以使用下列命令來上傳映像：
 

@@ -81,7 +81,7 @@
 
 ### 在服務定義檔中設定遠端存取
 
-在服務定義檔 (.csdef) 中新增 **Import** 元素，以將 RemoteAccess 和 RemoteForwarder 模組匯入至服務模型。當這些模組存在時，Azure 會將遠端桌面的組態設定新增至服務組態檔。若要完成遠端桌面的設定，您需要將憑證匯入至 Azure，並在服務組態檔中指定該憑證。如需詳細資訊，請參閱[在 Azure 中設定角色的遠端桌面連線](http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx) (英文)。
+在服務定義檔 (.csdef) 中新增 **Import** 元素，以將 RemoteAccess 和 RemoteForwarder 模組匯入至服務模型。當這些模組存在時，Azure 會將遠端桌面的組態設定新增至服務組態檔。若要完成遠端桌面的設定，您需要將憑證匯入至 Azure，並在服務組態檔中指定該憑證。如需詳細資訊，請參閱[在 Azure 中設定角色的遠端桌面連線](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh124107.aspx) (英文)。
 
 ### 在管理入口網站中啟用或修改對角色執行個體的遠端存取
 

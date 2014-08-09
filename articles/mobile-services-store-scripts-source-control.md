@@ -73,7 +73,7 @@
 
 7.  開啟 .\\service\\table 子資料夾並注意其中包含 TodoItem.json 檔案，這是 TodoItem 資料表上操作權限的 JSON 表示。
 
-    當在此資料表上定義伺服器指令碼時，您也會有一或多個名為 `TodoItem._<operation>_.js` 的檔案，檔案中包含了指定資料表作業的指令碼。排程器和自訂 API 指令碼會在名為排程器和自訂 API 指令碼的個別資料夾中分別進行維護。如需詳細資訊，請參閱[原始檔控制](http://msdn.microsoft.com/en-us/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643)。
+    當在此資料表上定義伺服器指令碼時，您也會有一或多個名為 `TodoItem._<operation>_.js` 的檔案，檔案中包含了指定資料表作業的指令碼。排程器和自訂 API 指令碼會在名為排程器和自訂 API 指令碼的個別資料夾中分別進行維護。如需詳細資訊，請參閱[原始檔控制](http://msdn.microsoft.com/zh-tw/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643)。
 
 現在您已建立本機儲存機制，您可以對伺服器指令碼進行變更，並將變更推送回行動服務。
 

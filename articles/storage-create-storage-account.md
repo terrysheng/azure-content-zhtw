@@ -3,7 +3,7 @@
 如何建立儲存體帳戶
 ==================
 
-若要在 Azure 的 Blob、資料表和佇列服務中儲存檔案和資料，您必須在想要儲存資料的地理區域中建立儲存體帳戶。儲存體帳戶可以包含多達 200 TB 的資料，而您可以為每項 Azure 訂閱建立多達 20 個儲存體帳戶。如需詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/en-us/library/dn249410.aspx) (英文)。
+若要在 Azure 的 Blob、資料表和佇列服務中儲存檔案和資料，您必須在想要儲存資料的地理區域中建立儲存體帳戶。儲存體帳戶可以包含多達 200 TB 的資料，而您可以為每項 Azure 訂閱建立多達 20 個儲存體帳戶。如需詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/zh-tw/library/dn249410.aspx) (英文)。
 
 本主題說明如何在 Azure 管理入口網站中建立儲存體帳戶。
 
@@ -31,7 +31,7 @@
 4.  在 **[Region/Affinity Group]** 中，選取儲存體的區域或同質群組。如果您希望儲存體服務位於與您目前使用的其他 Azure 服務相同的資料中心，請選取同質群組而非區域。這麼做可改善效能，而且出口流量不會產生任何費用。
 
     > [WACOM.NOTE]
-    >  \> 若要建立同質群組，請開啟管理入口網站的 **[網路]** 區域，按一下 **[同質群組]**，再按一下 **[建立新的同質群組]** 或 **[建立]**。您可以使用在先前管理入口網站中建立的同質群組。若要開啟其他入口網站，按一下標題列上的 **[預覽]**，然後按一下 **[Take me to the previous portal]** (若要返回此入口網站，按一下入口網站底部的 **[View the Preview Portal]**)。您也可以使用 Azure 服務管理 API 建立和管理同質群組。如需詳細資訊，請參閱[同質群組的相關作業](http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx)。
+    >  \> 若要建立同質群組，請開啟管理入口網站的 **[網路]** 區域，按一下 **[同質群組]**，再按一下 **[建立新的同質群組]** 或 **[建立]**。您可以使用在先前管理入口網站中建立的同質群組。若要開啟其他入口網站，按一下標題列上的 **[預覽]**，然後按一下 **[Take me to the previous portal]** (若要返回此入口網站，按一下入口網站底部的 **[View the Preview Portal]**)。您也可以使用 Azure 服務管理 API 建立和管理同質群組。如需詳細資訊，請參閱[同質群組的相關作業](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460798.aspx)。
 
 5.  如果您有一個以上的 Azure 訂閱，則會顯示 **[訂閱]** 欄位。在 **[訂閱]** 中，輸入您要使用儲存體帳戶的 Azure 訂閱。您可以針對一項訂閱建立多達 5 個儲存體帳戶。
 
@@ -57,7 +57,7 @@
 後續步驟
 --------
 
--   若要深入了解 Azure 儲存體服務，請參閱 [Azure 資料管理：做正確的選擇](http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/) (英文) 和 [儲存體](http://msdn.microsoft.com/en-us/library/gg433040.aspx)。
+-   若要深入了解 Azure 儲存體服務，請參閱 [Azure 資料管理：做正確的選擇](http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/) (英文) 和 [儲存體](http://msdn.microsoft.com/zh-tw/library/gg433040.aspx)。
 
 -   請造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
 

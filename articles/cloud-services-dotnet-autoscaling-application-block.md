@@ -354,15 +354,15 @@
 [在 Azure 中使用效能計數器資料]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/
 [NuGet]: http://nuget.org/
 [Azure 管理入口網站]: http://manage.windowsazure.com
-[儲存您的服務資訊資料]: http://msdn.microsoft.com/en-us/library/hh680878(PandP.50).aspx
-[在背景工作角色中主控自動調整應用程式區塊]: http://msdn.microsoft.com/en-us/library/hh680914(PandP.50).aspx
-[實作節流行為]: http://msdn.microsoft.com/en-us/library/hh680896(PandP.50).aspx
-[了解規則等級和重新調整]: http://msdn.microsoft.com/en-us/library/hh680923(PandP.50).aspx
-[延伸並修改自動調整應用程式區塊]: http://msdn.microsoft.com/en-us/library/hh680889(PandP.50).aspx
-[使用最佳化穩定器來避免高頻率振盪和最佳化成本]: http://msdn.microsoft.com/en-us/library/hh680951(PandP.50).aspx
-[使用通知和手動調整]: http://msdn.microsoft.com/en-us/library/hh680885(PandP.50).aspx
-[定義調整群組]: http://msdn.microsoft.com/en-us/library/hh680902(PandP.50).aspx
-[使用 WASABiCmdlets 透過 Windows PowerShell 操作區塊]: http://msdn.microsoft.com/en-us/library/hh680938(PandP.50).aspx
-[Enterprise Library 5.0 Integration Pack for Azure 開發人員指南]: http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx
-[Sage 如何使用自動調整減少 Azure 主控成本]: http://msdn.microsoft.com/en-us/library/jj838716(PandP.50).aspx
-[利用 Azure 上的自動調整減少 TechNet 和 MSDN 主控成本和環境影響]: http://msdn.microsoft.com/en-us/library/jj838718(PandP.50).aspx
+[儲存您的服務資訊資料]: http://msdn.microsoft.com/zh-tw/library/hh680878(PandP.50).aspx
+[在背景工作角色中主控自動調整應用程式區塊]: http://msdn.microsoft.com/zh-tw/library/hh680914(PandP.50).aspx
+[實作節流行為]: http://msdn.microsoft.com/zh-tw/library/hh680896(PandP.50).aspx
+[了解規則等級和重新調整]: http://msdn.microsoft.com/zh-tw/library/hh680923(PandP.50).aspx
+[延伸並修改自動調整應用程式區塊]: http://msdn.microsoft.com/zh-tw/library/hh680889(PandP.50).aspx
+[使用最佳化穩定器來避免高頻率振盪和最佳化成本]: http://msdn.microsoft.com/zh-tw/library/hh680951(PandP.50).aspx
+[使用通知和手動調整]: http://msdn.microsoft.com/zh-tw/library/hh680885(PandP.50).aspx
+[定義調整群組]: http://msdn.microsoft.com/zh-tw/library/hh680902(PandP.50).aspx
+[使用 WASABiCmdlets 透過 Windows PowerShell 操作區塊]: http://msdn.microsoft.com/zh-tw/library/hh680938(PandP.50).aspx
+[Enterprise Library 5.0 Integration Pack for Azure 開發人員指南]: http://msdn.microsoft.com/zh-tw/library/hh680949(PandP.50).aspx
+[Sage 如何使用自動調整減少 Azure 主控成本]: http://msdn.microsoft.com/zh-tw/library/jj838716(PandP.50).aspx
+[利用 Azure 上的自動調整減少 TechNet 和 MSDN 主控成本和環境影響]: http://msdn.microsoft.com/zh-tw/library/jj838718(PandP.50).aspx

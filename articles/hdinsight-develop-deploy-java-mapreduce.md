@@ -233,7 +233,7 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
         $containerName_Data = "<ContainerName>"
         $location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-    **$subscripionName** 與您的 Azure 訂閱相關聯。您必須命名 **$storageAccountName\_Data** 和 **$containerName\_Data**。關於命名限制，請參閱＜[命名和參考容器、Blob 及中繼資料](http://msdn.microsoft.com/en-us/library/windowsazure/dd135715.aspx)＞。
+    **$subscripionName** 與您的 Azure 訂閱相關聯。您必須命名 **$storageAccountName\_Data** 和 **$containerName\_Data**。關於命名限制，請參閱＜[命名和參考容器、Blob 及中繼資料](http://msdn.microsoft.com/zh-tw/library/windowsazure/dd135715.aspx)＞。
 
 3.  執行下列命令來建立儲存體帳戶，並在帳戶上建立 Blob 儲存體容器
 

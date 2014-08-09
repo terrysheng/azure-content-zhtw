@@ -7,7 +7,7 @@ BizTalk 服務：使用作業記錄檔進行疑難排解
 
 **注意**
 
-這項功能只會在 BizTalk 服務啟動、備份等期間，針對服務的管理作業擷取記錄檔。此類作業無論是從 Azure 管理入口網站還是透過 [BizTalk 服務 REST API](http://msdn.microsoft.com/en-us/library/windowsazure/dn232347.aspx) 執行的，都會受到追蹤。如需使用管理服務進行追蹤的完整作業清單，請參閱[使用 Azure 管理服務進行追蹤的作業](#bizops)。
+這項功能只會在 BizTalk 服務啟動、備份等期間，針對服務的管理作業擷取記錄檔。此類作業無論是從 Azure 管理入口網站還是透過 [BizTalk 服務 REST API](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn232347.aspx) 執行的，都會受到追蹤。如需使用管理服務進行追蹤的完整作業清單，請參閱[使用 Azure 管理服務進行追蹤的作業](#bizops)。
 
 此功能不會對 BizTalk 服務執行階段的相關活動 (例如橋接器等項目所處理的訊息) 擷取記錄檔。若要檢視這些記錄檔，您必須使用 BizTalk 服務入口網站中的 [追蹤] 檢視。如需詳細資訊，請參閱[追蹤訊息](http://msdn.microsoft.com/library/windowsazure/hh949805.aspx) (英文)。
 

@@ -570,7 +570,7 @@ HDInsight Emulator 支援部分 HDInsight PowerShell Cmdlet。這些 Cmdlet 包�
 
 您將在呼叫 Get-Credential 時看見提示。您必須使用 **hadoop** 做為使用者名稱。密碼可以是任何字串。叢集名稱一律是 **http://localhost:50111**。
 
-如需提交 Hadoop 工作的詳細資訊，請參閱[以程式設計方式提交 Hadoop 工作](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/)。如需 HDInsight PowerShell Cmdlet 的詳細資訊，請參閱 [HDInsight Cmdlet 參考文件](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx)。
+如需提交 Hadoop 工作的詳細資訊，請參閱[以程式設計方式提交 Hadoop 工作](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/)。如需 HDInsight PowerShell Cmdlet 的詳細資訊，請參閱 [HDInsight Cmdlet 參考文件](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn479228.aspx)。
 
 後續步驟
 --------

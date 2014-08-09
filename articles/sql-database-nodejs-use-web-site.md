@@ -66,7 +66,7 @@
 
     ![填入網站詳細資料](./media/sql-database-nodejs-use-web-site/website_details_sqlazure.jpg)
 
-4.  在資料庫的 **[名稱]** 中輸入值，依序選取 **[版本]** [(WEB 或 BUSINESS)](http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx)、資料庫的 **[最大大小]**，並選擇 **[定序]**，然後選取 **[NEW SQL Database server]**。按一下對話方塊底部的箭頭。
+4.  在資料庫的 **[名稱]** 中輸入值，依序選取 **[版本]** [(WEB 或 BUSINESS)](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee621788.aspx)、資料庫的 **[最大大小]**，並選擇 **[定序]**，然後選取 **[NEW SQL Database server]**。按一下對話方塊底部的箭頭。
 
     ![Fill in SQL Database settings](./media/sql-database-nodejs-use-web-site/database_settings.jpg)
 

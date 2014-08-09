@@ -203,6 +203,6 @@
 [2]: http://www.windowsazure.com/en-us/downloads/
 [3]: http://go.microsoft.com/FWLink/p/?LinkID=294683
 [4]: http://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx
+[5]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj672979.aspx
 [6]: http://manage.windowsazure.com
 [7]: http://go.microsoft.com/FWLink/p/?LinkID=391684

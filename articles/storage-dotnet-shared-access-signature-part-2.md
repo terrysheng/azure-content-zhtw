@@ -524,9 +524,9 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
 
 [共用存取簽章，第 1 部分：了解 SAS 模型](../storage-dotnet-shared-access-signature-part-1/)
 
-[管理 Azure 儲存體資源的存取](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
+[管理 Azure 儲存體資源的存取](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee393343.aspx)
 
-[使用共用存取簽章 (REST API) 來委派存取權](http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx)
+[使用共用存取簽章 (REST API) 來委派存取權](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee395415.aspx)
 
 [資料表與佇列 SAS 簡介 (英文)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 

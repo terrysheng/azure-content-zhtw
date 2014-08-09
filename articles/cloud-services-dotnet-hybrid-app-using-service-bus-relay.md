@@ -108,7 +108,7 @@
 
 ### 使用 Visual Studio 伺服器總管來管理服務命名空間：
 
-若要使用 Visual Studio 而非管理入口網站，來管理命名空間並取得連線資訊，請遵循[這裡](http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx)所述的程序，請見標題**從 Visual Studio 連線至 Azure** 一節。在您登入 Azure 時，伺服器總管 **[Microsoft Azure]** 樹狀目錄下的 **[服務匯流排]** 節點，將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 **[屬性]**，查看在 Visual Studio **[屬性]** 窗格中所顯示，與此命名空間關聯的連線字串與其他中繼資料。
+若要使用 Visual Studio 而非管理入口網站，來管理命名空間並取得連線資訊，請遵循[這裡](http://http://msdn.microsoft.com/zh-tw/library/windowsazure/ff687127.aspx)所述的程序，請見標題**從 Visual Studio 連線至 Azure** 一節。在您登入 Azure 時，伺服器總管 **[Microsoft Azure]** 樹狀目錄下的 **[服務匯流排]** 節點，將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 **[屬性]**，查看在 Visual Studio **[屬性]** 窗格中所顯示，與此命名空間關聯的連線字串與其他中繼資料。
 
 ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png)
 
@@ -557,7 +557,7 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
 
 若要深入了解服務匯流排，請參閱下列資源：
 
--   [Azure 服務匯流排](http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx)
+-   [Azure 服務匯流排](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee732537.aspx)
 -   [服務匯流排作法](/en-us/manage/services/service-bus/)
 -   [如何使用服務匯流排佇列](/en-us/develop/net/how-to-guides/service-bus-queues/)
 

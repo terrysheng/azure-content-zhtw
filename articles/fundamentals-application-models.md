@@ -191,4 +191,4 @@ Azure 提供不同的執行模型，因為雲端平台需要支援許多不同�
 
 
 [1]: http://vmdepot.msopentech.com/
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx
+[2]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn197896.aspx

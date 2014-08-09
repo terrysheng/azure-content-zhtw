@@ -52,7 +52,7 @@
 	  </visual>
 	</toast>
 
-範本的功能非常強大，您可以在[通知中心指引](http://msdn.microsoft.com/en-us/library/jj927170.aspx)一文中了解詳情。[Windows 市集的通知中心作法](http://msdn.microsoft.com/en-us/library/jj927172.aspx)則提供了範本運算式語言的參考。
+範本的功能非常強大，您可以在[通知中心指引](http://msdn.microsoft.com/zh-tw/library/jj927170.aspx)一文中了解詳情。[Windows 市集的通知中心作法](http://msdn.microsoft.com/zh-tw/library/jj927172.aspx)則提供了範本運算式語言的參考。
 
 應用程式 UI應用程式使用者介面
 -----------------------------
@@ -156,5 +156,5 @@
 後續步驟
 --------
 
-如需使用範本的詳細資訊，請參閱[使用通知中心來通知使用者：ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet)、[使用通知中心來通知使用者：行動服務](/en-us/manage/services/notification-hubs/notify-users)，並參閱[通知中心指引](http://msdn.microsoft.com/en-us/library/jj927170.aspx)。[Windows 市集的通知中心作法](http://msdn.microsoft.com/en-us/library/jj927172.aspx)則提供了範本運算式語言的參考。
+如需使用範本的詳細資訊，請參閱[使用通知中心來通知使用者：ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet)、[使用通知中心來通知使用者：行動服務](/en-us/manage/services/notification-hubs/notify-users)，並參閱[通知中心指引](http://msdn.microsoft.com/zh-tw/library/jj927170.aspx)。[Windows 市集的通知中心作法](http://msdn.microsoft.com/zh-tw/library/jj927172.aspx)則提供了範本運算式語言的參考。
 

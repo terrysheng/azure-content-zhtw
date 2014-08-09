@@ -71,5 +71,5 @@
 
 
 [1]: http://go.microsoft.com/fwlink/p/?LinkID=294063
-[2]: http://msdn.microsoft.com/en-us/library/ms161962.aspx
+[2]: http://msdn.microsoft.com/zh-tw/library/ms161962.aspx
 [3]: http://www.puttyssh.org/download.html

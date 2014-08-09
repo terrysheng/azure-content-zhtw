@@ -61,7 +61,7 @@
 其他資源
 --------
 
--   [如何在 Azure 中交換 VIP 將服務升級部署至生產環境](http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx)
--   [在 Azure 中管理部署的概觀](http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx)
+-   [如何在 Azure 中交換 VIP 將服務升級部署至生產環境](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee517253.aspx)
+-   [在 Azure 中管理部署的概觀](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh386336.aspx)
 
 

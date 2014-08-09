@@ -162,7 +162,7 @@
 	![](./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png)
 
     <div class="dev-callout"><b>Note</b>
-        <p>If you deploy the quickstart app to a web server other than localhost, you must add the host name of the web server to the <strong>Allow requests from host names</strong> list.For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx" target="_blank">Cross-origin resource sharing</a>.</p>
+        <p>If you deploy the quickstart app to a web server other than localhost, you must add the host name of the web server to the <strong>Allow requests from host names</strong> list.For more information, see <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dn155871.aspx" target="_blank">Cross-origin resource sharing</a>.</p>
     </div>
 
 現在您已準備好將新的行動服務作為應用程式的資料儲存區使用。
@@ -348,4 +348,4 @@
 
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client
 
-[Cross-origin resource sharing]: http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx
+[Cross-origin resource sharing]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn155871.aspx

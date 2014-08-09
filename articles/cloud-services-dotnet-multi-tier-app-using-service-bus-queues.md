@@ -583,11 +583,11 @@ Visual Studio 專案範本。首先，您將使用 Visual Studio 中的伺服器
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
+[1]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh767287.aspx
 [2]: http://go.microsoft.com/fwlink/?LinkId=271920
 [3]: http://manage.windowsazure.com
-[4]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
+[4]: http://http://msdn.microsoft.com/zh-tw/library/windowsazure/ff687127.aspx
+[5]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee732537.aspx
 [6]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
 [7]: http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/
 [19]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png

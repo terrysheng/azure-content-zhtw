@@ -87,5 +87,5 @@
 
 了解基本的服務匯流排佇列之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 參考：[佇列、主題和訂閱。](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
+-   請參閱 MSDN 參考：[佇列、主題和訂閱。](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367516.aspx)
 

@@ -5,11 +5,11 @@ HDInsight C\# 串流字數範例
 
 Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言撰寫 map 和 reduce 函數。本教學課程示範如何以 C\# 撰寫使用 Hadoop 串流介面的 MapReduce 程式，以及如何使用 Azure PowerShell 在 Azure HDInsight 上執行那些程式。
 
-在範例中，mapper 和 reducer 是從 [stdin](http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx) 讀取輸入 (循行) 並將輸出發出到 [stdout](http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx) 的可執行檔。程式會計算內容中的所有文字。
+在範例中，mapper 和 reducer 是從 [stdin](http://msdn.microsoft.com/zh-tw/library/3x292kth(v=vs.110).aspx) 讀取輸入 (循行) 並將輸出發出到 [stdout](http://msdn.microsoft.com/zh-tw/library/3x292kth(v=vs.110).aspx) 的可執行檔。程式會計算內容中的所有文字。
 
-在已為 **mappers** 指定可執行檔的情況下，當 mapper 初始化時，每個 mapper 工作都會將可執行檔啟動成為個別的處理程序。當 mapper 工作執行時，它會將其輸入傳換成行，並將這些行饋送至處理程序的 [stdin](http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx)。在此同時，mapper 會從處理程序的 stdout 收集行導向輸出，並將每一行傳換成索引鍵/值組，而且會收集此類內容做為 mapper 的輸出。根據預設，從一行的前置詞一直到第一個定位字元即是索引鍵，行的其餘部分 (不包含定位字元) 則為值。如果行中沒有定位字元，則整行都會被視為索引鍵，而值則為 null。
+在已為 **mappers** 指定可執行檔的情況下，當 mapper 初始化時，每個 mapper 工作都會將可執行檔啟動成為個別的處理程序。當 mapper 工作執行時，它會將其輸入傳換成行，並將這些行饋送至處理程序的 [stdin](http://msdn.microsoft.com/zh-tw/library/3x292kth(v=vs.110).aspx)。在此同時，mapper 會從處理程序的 stdout 收集行導向輸出，並將每一行傳換成索引鍵/值組，而且會收集此類內容做為 mapper 的輸出。根據預設，從一行的前置詞一直到第一個定位字元即是索引鍵，行的其餘部分 (不包含定位字元) 則為值。如果行中沒有定位字元，則整行都會被視為索引鍵，而值則為 null。
 
-在已為 **reducers** 指定可執行檔的情況下，當 reducer 初始化時，每個 reducer 工作都會將可執行檔啟動成為個別的處理程序。當 reducer 工作執行時，它會將其輸入索引鍵/值組傳換成行，並將這些行饋送至處理程序的 [stdin](http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx)。在此同時，reducer 會從處理程序的 [stdout](http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx) 收集行導向輸出，並將每一行傳換成索引鍵/值組，而這會被收集來做為 reducer 的輸出。根據預設，從一行的前置詞一直到第一個定位字元即是索引鍵，行的其餘部分 (不包含定位字元) 則為值。
+在已為 **reducers** 指定可執行檔的情況下，當 reducer 初始化時，每個 reducer 工作都會將可執行檔啟動成為個別的處理程序。當 reducer 工作執行時，它會將其輸入索引鍵/值組傳換成行，並將這些行饋送至處理程序的 [stdin](http://msdn.microsoft.com/zh-tw/library/3x292kth(v=vs.110).aspx)。在此同時，reducer 會從處理程序的 [stdout](http://msdn.microsoft.com/zh-tw/library/3x292kth(v=vs.110).aspx) 收集行導向輸出，並將每一行傳換成索引鍵/值組，而這會被收集來做為 reducer 的輸出。根據預設，從一行的前置詞一直到第一個定位字元即是索引鍵，行的其餘部分 (不包含定位字元) 則為值。
 
 如需有關 Hadoop 串流介面的詳細資訊，請參閱 [Hadoop 串流](http://wiki.apache.org/hadoop/HadoopStreaming) (英文)。
 
@@ -144,7 +144,7 @@ cat.cs 檔案中的 mapper 程式碼會使用 StreamReader 物件將連入資料
         }
     }
 
-wc.cs 檔案中的 reducer 程式碼會使用 [StreamReader](http://msdn.microsoft.com/en-us/library/system.io.streamreader.aspx) 物件，從已經由 cat.exe mapper 輸出的標準輸入資料流讀取字元。由於它是使用 [Console.Writeline](http://msdn.microsoft.com/en-us/library/system.console.writeline) 方法來讀取字元，因此它會透過計算每個文字結尾的空格和行結尾字元來計算字數，然後使用 [Console.Writeline](http://msdn.microsoft.com/en-us/library/system.console.writeline) 方法將結果總計寫入至標準輸出資料流。
+wc.cs 檔案中的 reducer 程式碼會使用 [StreamReader](http://msdn.microsoft.com/zh-tw/library/system.io.streamreader.aspx) 物件，從已經由 cat.exe mapper 輸出的標準輸入資料流讀取字元。由於它是使用 [Console.Writeline](http://msdn.microsoft.com/zh-tw/library/system.console.writeline) 方法來讀取字元，因此它會透過計算每個文字結尾的空格和行結尾字元來計算字數，然後使用 [Console.Writeline](http://msdn.microsoft.com/zh-tw/library/system.console.writeline) 方法將結果總計寫入至標準輸出資料流。
 
 摘要
 ----

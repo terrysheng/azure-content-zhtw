@@ -76,8 +76,8 @@ asset.Delete();
 
 如需有關管理資產的詳細資訊，請參閱：
 
--   [使用 Media Services SDK for .NET 管理資產](http://msdn.microsoft.com/en-us/library/jj129589.aspx)
--   [使用 Media Services REST API 管理資產](http://msdn.microsoft.com/en-us/library/jj129583.aspx)
+-   [使用 Media Services SDK for .NET 管理資產](http://msdn.microsoft.com/zh-tw/library/jj129589.aspx)
+-   [使用 Media Services REST API 管理資產](http://msdn.microsoft.com/zh-tw/library/jj129583.aspx)
 
 後續步驟
 --------

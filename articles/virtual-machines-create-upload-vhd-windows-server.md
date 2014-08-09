@@ -169,9 +169,9 @@ Azure 中的虛擬機器能執行您在建立虛擬機器時選擇的作業系�
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
+[1]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj672979.aspx
+[2]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg551722.aspx
 [3]: http://technet.microsoft.com/en-us/library/hh846766.aspx
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx
+[4]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn205185.aspx
 [5]: http://technet.microsoft.com/en-us/library/bb457073.aspx
-[6]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx
+[6]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554332.aspx

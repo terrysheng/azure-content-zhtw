@@ -39,7 +39,7 @@
 概念
 ----
 
-Azure SDK for Python 含有 [Azure 服務管理 API](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx)，這是一種 REST API。所有 API 作業都會透過 SSL 而執行，並可使用 X.509 v3 憑證相互驗證。管理服務可從執行於 Azure 的服務內存取，或直接透過網際網路，從任何可傳送 HTTPS 要求和接收 HTTPS 回應的應用程式存取。
+Azure SDK for Python 含有 [Azure 服務管理 API](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460799.aspx)，這是一種 REST API。所有 API 作業都會透過 SSL 而執行，並可使用 X.509 v3 憑證相互驗證。管理服務可從執行於 Azure 的服務內存取，或直接透過網際網路，從任何可傳送 HTTPS 要求和接收 HTTPS 回應的應用程式存取。
 
 作法：連接到服務管理
 --------------------
@@ -52,7 +52,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API](http://msdn.microsoft.com/e
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-此命令會建立 `.cer` 檔案，並將其安裝在 **[個人]** 憑證存放區中。如需詳細資訊，請參閱[建立及上傳 Azure 的管理憑證](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx)。
+此命令會建立 `.cer` 檔案，並將其安裝在 **[個人]** 憑證存放區中。如需詳細資訊，請參閱[建立及上傳 Azure 的管理憑證](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg551722.aspx)。
 
 建立憑證後，您必須透過[管理入口網站](https://manage.windowsazure.com/)之 [設定] 索引標籤的 [上傳] 動作，將 `.cer` 檔案上傳至 Azure。
 
@@ -78,7 +78,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API](http://msdn.microsoft.com/e
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-如需 Azure 憑證的詳細資訊，請參閱[在 Azure 中管理憑證](http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx)。如需 OpenSSL 參數的完整說明，請參閱 <http://www.openssl.org/docs/apps/openssl.html> 上的文件。
+如需 Azure 憑證的詳細資訊，請參閱[在 Azure 中管理憑證](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg981929.aspx)。如需 OpenSSL 參數的完整說明，請參閱 <http://www.openssl.org/docs/apps/openssl.html> 上的文件。
 
 建立這些檔案後，您必須透過[管理入口網站](https://manage.windowsazure.com/)之 [設定] 索引標籤的 [上傳] 動作，將 `.cer` 檔案上傳至 Azure，且必須記下您儲存 `.pem` 檔案的位置。
 
@@ -171,12 +171,12 @@ Azure SDK for Python 含有 [Azure 服務管理 API](http://msdn.microsoft.com/e
 作法：建立部署
 --------------
 
-**create\_deployment** 方法會上傳新的[服務封裝](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx)，並在執行或生產環境中建立新部署。此方法的參數如下：
+**create\_deployment** 方法會上傳新的[服務封裝](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj155995.aspx)，並在執行或生產環境中建立新部署。此方法的參數如下：
 
 -   **name**：代管服務的名稱。
 -   **deployment\_name**：部署的名稱。
 -   **slot**：指出 `staging` 或 `production` 位置的字串。
--   **package\_url**：部署封裝 (.cspgk 檔案) 的 URL。封裝檔必須在 Azure Blob 儲存帳號中，儲存於與封裝要上傳到的代管服務相同的訂閱下。您可以使用 [Azure PowerShell Cmdlet](https://www.windowsazure.com/en-us/develop/php/how-to-guides/powershell-cmdlets/) 或 [cspack 命令列工具](http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx)來建立部署封裝。
+-   **package\_url**：部署封裝 (.cspgk 檔案) 的 URL。封裝檔必須在 Azure Blob 儲存帳號中，儲存於與封裝要上傳到的代管服務相同的訂閱下。您可以使用 [Azure PowerShell Cmdlet](https://www.windowsazure.com/en-us/develop/php/how-to-guides/powershell-cmdlets/) 或 [cspack 命令列工具](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg432988.aspx)來建立部署封裝。
 -   **configuration**：編碼為 base64 的服務組態檔 (.cscfg 檔案)。
 -   **label**：代管服務名稱 (自動編碼為 base64) 的標籤。
 
@@ -221,7 +221,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API](http://msdn.microsoft.com/e
 
 部署可使用 **change\_deployment\_configuration** 方法或 **update\_deployment\_status** 方法來更新。
 
-**change\_deployment\_configuration** 方法可讓您上傳新的服務組態檔 (`.cscfg`)，以隨需變更數個服務設定 (包括部署中的執行個體數目)。如需詳細資訊，請參閱 [Azure 服務組態結構描述 (.cscfg 檔)](http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx)。下列範例說明如何上傳新的服務組態檔：
+**change\_deployment\_configuration** 方法可讓您上傳新的服務組態檔 (`.cscfg`)，以隨需變更數個服務設定 (包括部署中的執行個體數目)。如需詳細資訊，請參閱 [Azure 服務組態結構描述 (.cscfg 檔)](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758710.aspx)。下列範例說明如何上傳新的服務組態檔：
 
     from azure import *
     from azure.servicemanagement import *
@@ -255,7 +255,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API](http://msdn.microsoft.com/e
 作法：在執行與生產環境之間移動部署
 ----------------------------------
 
-Azure 提供兩種部署環境：執行和生產。一般而言，將服務部署至生產環境之前，會先將其部署至執行環境中進行測試。等到要將服務從執行環境升級至生產環境時，您就無須再重新部署服務。您只須切換部署即可。(如需切換部署的詳細資訊，請參閱[部署 Azure 服務](http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx)。)
+Azure 提供兩種部署環境：執行和生產。一般而言，將服務部署至生產環境之前，會先將其部署至執行環境中進行測試。等到要將服務從執行環境升級至生產環境時，您就無須再重新部署服務。您只須切換部署即可。(如需切換部署的詳細資訊，請參閱[部署 Azure 服務](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433027.aspx)。)
 
 下列範例將說明如何使用 **swap\_deployment** 方法切換兩個部署 (部署名稱分別為 `v1` 和 `v2`)。在此範例中，在呼叫 **swap\_deployment** 之前，部署 `v1` 位於生產位置中，而部署 `v2` 位於執行位置中。在呼叫 **swap\_deployment** 後，改由 `v2` 位於生產位置中，而 `v1` 位於執行位置中。
 
@@ -510,6 +510,6 @@ Azure 提供兩種部署環境：執行和生產。一般而言，將服務部�
 
 了解服務管理的基本概念之後，您可以參考下列連結以執行更複雜的工作。
 
--   請參閱 MSDN 參考：[雲端服務](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx)
--   請參閱 MSDN 參考：[虛擬機器](http://msdn.microsoft.com/en-us/library/windowsazure/jj156003.aspx)
+-   請參閱 MSDN 參考：[雲端服務](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj155995.aspx)
+-   請參閱 MSDN 參考：[虛擬機器](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156003.aspx)
 

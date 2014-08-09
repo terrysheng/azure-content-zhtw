@@ -217,5 +217,5 @@ Visual Studio 擴充功能可讓您更輕鬆地在 Visual Studio 和 Visual Stud
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367512.aspx
+[1]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367516.aspx
+[2]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367512.aspx

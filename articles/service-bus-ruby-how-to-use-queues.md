@@ -116,8 +116,8 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 了解基本的服務匯流排佇列之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 參考：[佇列、主題和訂閱](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
+-   請參閱 MSDN 參考：[佇列、主題和訂閱](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367516.aspx)
 -   請造訪 GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 儲存機制 (英文)。
 
-若要比較本文所討論的 Azure 服務匯流排佇列與[如何使用 Azure 佇列服務](/en-us/develop/ruby/how-to-guides/queue-service/)一文中討論的 Azure 佇列，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)。
+若要比較本文所討論的 Azure 服務匯流排佇列與[如何使用 Azure 佇列服務](/en-us/develop/ruby/how-to-guides/queue-service/)一文中討論的 Azure 佇列，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh767287.aspx)。
 

@@ -17,7 +17,7 @@
 什麼是服務匯流排通知中心？
 --------------------------
 
-Azure 服務匯流排通知中心提供易用、多平台、可擴充的基礎結構，用以將推播通知傳送至行動裝置。如需詳細資訊，請參閱 [Azure 服務匯流排通知中心](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx)。
+Azure 服務匯流排通知中心提供易用、多平台、可擴充的基礎結構，用以將推播通知傳送至行動裝置。如需詳細資訊，請參閱 [Azure 服務匯流排通知中心](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj927170.aspx)。
 
 建立 Node.js 應用程式
 ---------------------
@@ -134,11 +134,11 @@ Azure 服務匯流排通知中心提供易用、多平台、可擴充的基礎�
 -   Tags - 標籤識別碼。若未提供標籤，通知將會傳送至所有用戶端
 -   Payload - 訊息的 XML 裝載
 -   TargetName - 快顯通知的「快顯」。磚通知的「權杖」。
--   NotificationClass - 通知的優先順序。如需有效值，請參閱[從伺服器推播通知](http://msdn.microsoft.com/en-us/library/hh221551.aspx)的「HTTP 標頭元素」一節。
+-   NotificationClass - 通知的優先順序。如需有效值，請參閱[從伺服器推播通知](http://msdn.microsoft.com/zh-tw/library/hh221551.aspx)的「HTTP 標頭元素」一節。
 -   Options - 選用的要求標頭
 -   Callback - 回呼函數
 
-如需有效 TargetName、NotificationClass 和標頭選項的清單，請參閱[從伺服器推播通知](http://msdn.microsoft.com/en-us/library/hh221551.aspx)。
+如需有效 TargetName、NotificationClass 和標頭選項的清單，請參閱[從伺服器推播通知](http://msdn.microsoft.com/zh-tw/library/hh221551.aspx)。
 
 下列程式碼會使用 **NotificationHubService** 所公開的 **MpnsService** 執行個體，來傳送快顯通知警示：
 
@@ -159,7 +159,7 @@ Azure 服務匯流排通知中心提供易用、多平台、可擴充的基礎�
 -   Options - 選用的要求標頭
 -   Callback - 回呼函數
 
-如需有效類型和要求標頭的清單，請參閱[推播通知服務要求和回應標頭](http://msdn.microsoft.com/en-us/library/windows/apps/hh465435.aspx)。
+如需有效類型和要求標頭的清單，請參閱[推播通知服務要求和回應標頭](http://msdn.microsoft.com/zh-tw/library/windows/apps/hh465435.aspx)。
 
 下列程式碼會使用 **NotificationHubService** 所公開的 **WnsService** 執行個體，來傳送快顯通知警示：
 
@@ -175,6 +175,6 @@ Azure 服務匯流排通知中心提供易用、多平台、可擴充的基礎�
 
 了解基本的服務匯流排主題之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 參考：[Azure 服務匯流排通知中心](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx)。
+-   請參閱 MSDN 參考：[Azure 服務匯流排通知中心](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj927170.aspx)。
 -   請造訪 GitHub 上的 [Azure SDK for Node](https://github.com/WindowsAzure/azure-sdk-for-node) 儲存機制 (英文)。
 

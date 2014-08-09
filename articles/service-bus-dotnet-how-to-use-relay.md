@@ -279,6 +279,6 @@ DNS 名稱的服務匯流排 TCP 端點。如前所述，如果您將要取代�
 
 
 [1]: http://manage.windowsazure.com
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173564.aspx
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173543.aspx
+[2]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee173564.aspx
+[3]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee173543.aspx
 [4]: http://code.msdn.microsoft.com/windowsazure

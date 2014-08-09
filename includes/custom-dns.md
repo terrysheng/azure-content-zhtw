@@ -153,4 +153,4 @@ A 記錄的方法都很類似，只是稍微不同，但概念都一樣。
 [1]: http://en.wikipedia.org/wiki/CNAME_record
 [2]: http://tools.ietf.org/html/rfc1035
 [3]: https://manage.windowsazure.com
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+[4]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg680307.aspx

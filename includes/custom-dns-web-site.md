@@ -355,8 +355,8 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 [4]: http://tools.ietf.org/html/rfc1035
 [5]: https://www.windowsazure.com/en-us/pricing/details/
 [6]: http://manage.windowsazure.com
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/dn339012.aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx
+[7]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn339012.aspx
+[8]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh744839.aspx
 [9]: http://www.windowsazure.com/en-us/manage/install-and-configure-windows-powershell/
 [10]: http://www.windowsazure.com/en-us/manage/install-and-configure-cli/
 [11]: http://www.digwebinterface.com/

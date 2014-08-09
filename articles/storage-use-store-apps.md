@@ -8,7 +8,7 @@
 下載所需工具
 ------------
 
--   [Visual Studio 2012](http://msdn.microsoft.com/en-us/library/windows/apps/br211384) 可讓您輕鬆地建置、偵錯、當地語系化、封裝及部署 Windows 市集應用程式。
+-   [Visual Studio 2012](http://msdn.microsoft.com/zh-tw/library/windows/apps/br211384) 可讓您輕鬆地建置、偵錯、當地語系化、封裝及部署 Windows 市集應用程式。
 -   [Windows Azure Storage Client Library for Windows Runtime](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) 包含用來與 Azure 儲存體通訊的類型，並封裝在 Windows Runtime 元件中。
 -   [適用於 Windows 市集應用程式的 WCF 資料服務工具](http://www.microsoft.com/en-us/download/details.aspx?id=30714) 利用 Visual Studio 2012 中 Windows 市集應用程式的用戶端 OData 支援，擴充了新增服務參照體驗。
 
@@ -32,7 +32,7 @@
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
 
-接著，新增頁面按鈕。將下列程式碼新增至其 **Click** 事件，並使用 [async 關鍵字](http://msdn.microsoft.com/en-US/library/vstudio/hh156513.aspx) (英文) 來修改事件處理常式方法。
+接著，新增頁面按鈕。將下列程式碼新增至其 **Click** 事件，並使用 [async 關鍵字](http://msdn.microsoft.com/zh-tw/library/vstudio/hh156513.aspx) (英文) 來修改事件處理常式方法。
 
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);

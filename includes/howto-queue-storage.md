@@ -28,4 +28,4 @@ http://myaccount.queue.core.windows.net/imagesToDownload
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
+[1]: http://msdn.microsoft.com/zh-tw/library/dn249410.aspx

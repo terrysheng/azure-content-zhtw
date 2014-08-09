@@ -80,7 +80,7 @@ WebMatrix 可快速安裝，且易於了解，但 Visual Studio 可用來處理 
 
 -   [開始使用 Azure 和 ASP.NET](/en-us/develop/net/tutorials/get-started/)。說明如何使用 Visual Studio 和 Web Deploy 建立及部署簡易的 ASP.NET MVC Web 專案。
 -   [將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站](/en-us/develop/net/tutorials/web-site-with-sql-database/)。說明如何使用 Visual Studio、Web Deploy 和 Entity Framework Code First Migrations，建立及部署具有 SQL Database 的 ASP.NET MVC Web 專案。
--   [Visual Studio 和 ASP.NET 的 Web 部署概觀](http://msdn.microsoft.com/en-us/library/dd394698.aspx)。這是使用 Visual Studio 進行 Web 部署的基本簡介。這項資源已過時，但仍包含相關資訊，包括部署資料庫和 Web 應用程式的選項概觀，以及您可能必須執行或手動設定 Visual Studio 為您執行的額外部署工作。這是與一般部署有關的主題，而不是只討論對 Azure 網站的部署。
+-   [Visual Studio 和 ASP.NET 的 Web 部署概觀](http://msdn.microsoft.com/zh-tw/library/dd394698.aspx)。這是使用 Visual Studio 進行 Web 部署的基本簡介。這項資源已過時，但仍包含相關資訊，包括部署資料庫和 Web 應用程式的選項概觀，以及您可能必須執行或手動設定 Visual Studio 為您執行的額外部署工作。這是與一般部署有關的主題，而不是只討論對 Azure 網站的部署。
 -   [使用 Visual Studio 的 ASP.NET Web 部署](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction)。這是分成 12 個單元的教學課程系列，其中討論的部署工作比此處所列的其他資源更為詳盡。
 -   [在 Visual Studio 2012 中直接從 Git 儲存機制將 ASP.NET 網站部署至 Azure](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881)。說明如何使用 Git 外掛程式將程式碼認可至 Git，以及將 Azure 連接到 Git 儲存機制，以在 Visual Studio 中部署 ASP.NET Web 專案。
 
@@ -155,7 +155,7 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
 
 ### Windows PowerShell
 
-您可以從 [Windows PowerShell](http://msdn.microsoft.com/en-us/library/dd835506.aspx) 執行 MSBuild 或 FTP 功能。如果您這麼做，則您也可以使用 Windows PowerShell Cmdlet 的集合，使 Azure REST 管理 API 更容易呼叫。
+您可以從 [Windows PowerShell](http://msdn.microsoft.com/zh-tw/library/dd835506.aspx) 執行 MSBuild 或 FTP 功能。如果您這麼做，則您也可以使用 Windows PowerShell Cmdlet 的集合，使 Azure REST 管理 API 更容易呼叫。
 
 如需詳細資訊，請參閱下列資源：
 

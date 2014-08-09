@@ -33,7 +33,7 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站](/e
 作法：建立雲端服務專案
 ----------------------
 
-要建立 PHP Web 或背景工作角色，首先必須建立 Azure 服務專案。Azure 服務專案可作為 Web 和背景工作角色的邏輯容器，且包含專案的[服務定義 (.csdef)](http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx) 和[服務組態 (.cscfg)](http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx) 檔案。
+要建立 PHP Web 或背景工作角色，首先必須建立 Azure 服務專案。Azure 服務專案可作為 Web 和背景工作角色的邏輯容器，且包含專案的[服務定義 (.csdef)](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758711.aspx) 和[服務組態 (.cscfg)](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758710.aspx) 檔案。
 
 若要建立新的 Azure 服務專案，請執行下列命令：
 
@@ -113,7 +113,7 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站](/e
 
 1.  建立 Azure 服務專案並新增 PHP Web 角色，如先前的兩個小節所說明：[作法：建立雲端服務專案](#CreateProject)和[作法：新增 PHP Web 或背景工作角色](#AddRole)。
 2.  在位於 Web 角色根目錄內的 `bin` 資料夾中建立 `php` 資料夾，然後將 PHP 執行階段 (所有二進位檔、組態檔、子資料夾等) 新增至 `php` 資料夾。
-3.  (選用) 如果您的 PHP 執行階段使用[適用於 PHP for SQL Server 的 Microsoft 驅動程式](http://php.net/sqlsrv)，您就必須設定 Web 角色，使其在進行佈建時安裝 [SQL Server Native Client 2012](http://msdn.microsoft.com/en-us/sqlserver/aa937733.aspx)。若要執行此動作，請將 `sqlncli.msi` 安裝程式新增至位於 Web 角色根目錄中的 `bin` 資料夾。您可以在下列位置下載此安裝程式：[sqlncli.msi x64 安裝程式](http://go.microsoft.com/fwlink/?LinkID=239648)。下一個步驟中說明的啟動指令碼，將會在角色進行佈建時以無訊息方式執行安裝程式。如果您的 PHP 執行階段並未使用適用於 PHP for SQL Server 的 Microsoft 驅動程式，您可以從下一個步驟所顯示的指令碼中移除以下一行：
+3.  (選用) 如果您的 PHP 執行階段使用[適用於 PHP for SQL Server 的 Microsoft 驅動程式](http://php.net/sqlsrv)，您就必須設定 Web 角色，使其在進行佈建時安裝 [SQL Server Native Client 2012](http://msdn.microsoft.com/zh-tw/sqlserver/aa937733.aspx)。若要執行此動作，請將 `sqlncli.msi` 安裝程式新增至位於 Web 角色根目錄中的 `bin` 資料夾。您可以在下列位置下載此安裝程式：[sqlncli.msi x64 安裝程式](http://go.microsoft.com/fwlink/?LinkID=239648)。下一個步驟中說明的啟動指令碼，將會在角色進行佈建時以無訊息方式執行安裝程式。如果您的 PHP 執行階段並未使用適用於 PHP for SQL Server 的 Microsoft 驅動程式，您可以從下一個步驟所顯示的指令碼中移除以下一行：
 
          msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
@@ -149,7 +149,7 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站](/e
 
 1.  建立 Azure 服務專案並新增 PHP 背景工作角色，如先前的兩個小節所說明：[作法：建立雲端服務專案](#CreateProject)和[作法：新增 PHP Web 或背景工作角色](#AddRole)。
 2.  在背景工作角色的根目錄中建立 `php` 資料夾，然後將 PHP 執行階段 (所有二進位檔、組態檔、子資料夾等) 新增至 `php` 資料夾。
-3.  (選用) 如果您的 PHP 執行階段使用[適用於 PHP for SQL Server 的 Microsoft 驅動程式](http://php.net/sqlsrv)，您就必須設定背景工作角色，使其在進行佈建時安裝 [SQL Server Native Client 2012](http://msdn.microsoft.com/en-us/sqlserver/aa937733.aspx)。若要執行此動作，請將 `sqlncli.msi` 安裝程式新增至背景工作角色的根目錄。您可以在下列位置下載此安裝程式：[sqlncli.msi x64 安裝程式](http://go.microsoft.com/fwlink/?LinkID=239648)。下一個步驟中說明的啟動指令碼，將會在角色進行佈建時以無訊息方式執行安裝程式。如果您的 PHP 執行階段並未使用適用於 PHP for SQL Server 的 Microsoft 驅動程式，您可以從下一個步驟所顯示的指令碼中移除以下一行：
+3.  (選用) 如果您的 PHP 執行階段使用[適用於 PHP for SQL Server 的 Microsoft 驅動程式](http://php.net/sqlsrv)，您就必須設定背景工作角色，使其在進行佈建時安裝 [SQL Server Native Client 2012](http://msdn.microsoft.com/zh-tw/sqlserver/aa937733.aspx)。若要執行此動作，請將 `sqlncli.msi` 安裝程式新增至背景工作角色的根目錄。您可以在下列位置下載此安裝程式：[sqlncli.msi x64 安裝程式](http://go.microsoft.com/fwlink/?LinkID=239648)。下一個步驟中說明的啟動指令碼，將會在角色進行佈建時以無訊息方式執行安裝程式。如果您的 PHP 執行階段並未使用適用於 PHP for SQL Server 的 Microsoft 驅動程式，您可以從下一個步驟所顯示的指令碼中移除以下一行：
 
          msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
@@ -187,7 +187,7 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站](/e
 作法：在計算和儲存模擬器中執行您的應用程式
 ------------------------------------------
 
-Azure 計算和儲存模擬器所提供的本機環境，可讓您在 Azure 應用程式部署至雲端前先加以測試。模擬器與 Azure 環境之間有若干差異。若要進一步了解，請參閱[計算模擬器與 Azure 之間的差異](http://msdn.microsoft.com/en-us/library/windowsazure/gg432960.aspx)和[儲存模擬器與 Azure 儲存服務之間的差異](http://msdn.microsoft.com/en-us/library/windowsazure/gg433135.aspx)。
+Azure 計算和儲存模擬器所提供的本機環境，可讓您在 Azure 應用程式部署至雲端前先加以測試。模擬器與 Azure 環境之間有若干差異。若要進一步了解，請參閱[計算模擬器與 Azure 之間的差異](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg432960.aspx)和[儲存模擬器與 Azure 儲存服務之間的差異](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433135.aspx)。
 
 請注意，您必須在本機安裝 PHP，才能使用計算模擬器。計算模擬器會使用您的本機 PHP 安裝執行您的應用程式。
 

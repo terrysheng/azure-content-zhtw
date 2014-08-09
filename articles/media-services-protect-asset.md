@@ -9,7 +9,7 @@
 
 下列範例示範如何建立一個簡單的工作來提供 PlayReady 保護。
 
-1.  擷取組態資料。您可以從 [Azure 媒體編碼程式的工作預設設定](http://msdn.microsoft.com/en-us/library/hh973610.aspx)主題取得範例組態檔。
+1.  擷取組態資料。您可以從 [Azure 媒體編碼程式的工作預設設定](http://msdn.microsoft.com/zh-tw/library/hh973610.aspx)主題取得範例組態檔。
 2.  上傳 MP4 輸入檔
 3.  將 MP4 檔案轉換成 Smooth Streaming 資產
 4.  使用 PlayReady 將資產加密
@@ -105,7 +105,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 
 如需 PlayReady 保護的詳細資訊，請參閱：
 
--   [以 Microsoft PlayReady 保護資產](http://msdn.microsoft.com/en-us/library/dn189154.aspx)
+-   [以 Microsoft PlayReady 保護資產](http://msdn.microsoft.com/zh-tw/library/dn189154.aspx)
 -   [Microsoft PlayReady (英文)](http://www.microsoft.com/PlayReady/)
 
 後續步驟

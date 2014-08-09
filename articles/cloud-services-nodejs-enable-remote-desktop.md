@@ -79,7 +79,7 @@
 其他資源
 --------
 
--   [從遠端存取 Azure 中的角色執行個體](http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx)
--   [搭配使用遠端桌面與 Azure 角色](http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx)
+-   [從遠端存取 Azure 中的角色執行個體](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh124107.aspx)
+-   [搭配使用遠端桌面與 Azure 角色](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg443832.aspx)
 
 

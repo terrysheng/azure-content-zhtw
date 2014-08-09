@@ -35,5 +35,5 @@ Blob 服務包含下列元件：
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx
+[1]: http://msdn.microsoft.com/zh-tw/library/dn249410.aspx
+[2]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee691964.aspx

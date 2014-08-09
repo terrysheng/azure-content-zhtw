@@ -104,7 +104,7 @@ Blob (例如影襐或文件) 不應儲存在 SQL Database 中，而應儲存在 
 
 如需其他關於資料表儲存體的討論，請參閱：
 
--   [Azure 資料表儲存體和 Azure SQL Database - 比較和對照 (英文)](http://msdn.microsoft.com/en-us/library/jj553018.aspx)
+-   [Azure 資料表儲存體和 Azure SQL Database - 比較和對照 (英文)](http://msdn.microsoft.com/zh-tw/library/jj553018.aspx)
 -   [Azure 資料表儲存體效能考量 (英文)](http://go.microsoft.com/fwlink/?LinkId=252663)
 -   [SQL Database 和 Azure 資料表儲存體 (英文)](http://go.microsoft.com/fwlink/?LinkId=252664)
 -   [透過批次執行 Azure 資料表儲存體插入作業來增進效能](http://go.microsoft.com/fwlink/?LinkID=252665) (英文)，文內會討論一些效能結果。

@@ -230,7 +230,7 @@ Azure 電子郵件服務應用程式會將資料儲存在 Azure 儲存體資料�
 
 <td>在電子郵件地址新增至清單時產生。用於訂閱與取消訂閱連結中，以降低將別人的電子郵件地址訂閱或取消訂閱的可能性。<br  />
 <br  />
- 「訂閱」網頁與「取消」訂閱的某些查詢只會指定 PartitionKey 和此屬性。不使用 RowKey 就查詢資料分割，將使應用程式的延展性受限，因為當郵寄清單大小增加時，查詢需要的時間將更長。有個提升延展性的選項，就是新增查閱列並使其 RowKey 屬性含有 SubscriberGUID。例如，就每個電子郵件地址而言，一個列的 RowKey 可以是 "email:student1@domain.com"，而相同訂閱者另一列的 RowKey 可以是 "guid:6f32b03b-90ed-41a9-b8ac-c1310c67b66a"。要實現這點很簡單，因為資料分割內列上的不可部分完成批次交易很容易撰寫。我們希望在下個版本的範例應用程式中實作這點。如需詳細資訊，請參閱<a  href="http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx">真實世界：設計 Azure 資料表儲存體的可調整分割策略</a>
+ 「訂閱」網頁與「取消」訂閱的某些查詢只會指定 PartitionKey 和此屬性。不使用 RowKey 就查詢資料分割，將使應用程式的延展性受限，因為當郵寄清單大小增加時，查詢需要的時間將更長。有個提升延展性的選項，就是新增查閱列並使其 RowKey 屬性含有 SubscriberGUID。例如，就每個電子郵件地址而言，一個列的 RowKey 可以是 "email:student1@domain.com"，而相同訂閱者另一列的 RowKey 可以是 "guid:6f32b03b-90ed-41a9-b8ac-c1310c67b66a"。要實現這點很簡單，因為資料分割內列上的不可部分完成批次交易很容易撰寫。我們希望在下個版本的範例應用程式中實作這點。如需詳細資訊，請參閱<a  href="http://msdn.microsoft.com/zh-tw/library/windowsazure/hh508997.aspx">真實世界：設計 Azure 資料表儲存體的可調整分割策略</a>
  (英文)
 </td>
 
@@ -1207,13 +1207,13 @@ Blob 是儲存在 Blob 容器中，就像檔案是儲存在資料夾中一樣。
  
 
 [1]: http://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETMultiTierWindowsAzureApplicationUsingStorageTablesQueuesandBlobs
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx
+[2]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336279.aspx
 [3]: http://www.iis.net/learn/get-started/getting-started-with-iis/getting-started-with-appcmdexe "appCmd"
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433059.aspx
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/jj154098.aspx
-[6]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433122.aspx
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx "VIP 交換"
+[4]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433059.aspx
+[5]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj154098.aspx
+[6]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433122.aspx
+[7]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx
+[8]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee517253.aspx "VIP 交換"
 [9]: http://www.windowsazure.com/en-us/manage/windows/fundamentals/compute/
 [10]: http://www.windowsazure.com/en-us/pricing/calculator/
 [11]: http://sendgrid.com/windowsazure.html

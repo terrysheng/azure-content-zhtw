@@ -9,7 +9,7 @@
 
 若要開始使用 Media Services REST API 或 Media Services SDK 進行程式設計，請先對您的 Azure 帳戶啟用媒體服務 (如[設定媒體服務的 Azure 帳戶](#setup-account)一節所述)。
 
-最新 Media Services SDK 文件位於[這裡](http://msdn.microsoft.com/en-us/library/hh973613.aspx)。
+最新 Media Services SDK 文件位於[這裡](http://msdn.microsoft.com/zh-tw/library/hh973613.aspx)。
 
 什麼是媒體服務？
 ----------------
@@ -28,7 +28,7 @@ Azure 媒體服務形成一個可延伸媒體平台，可整合 Microsoft Media 
 -   **Encode**。Encode 作業包括編碼、變形和轉換媒體資產。您可以使用 Azure Media Encoder 在雲端中執行編碼工作。編碼選項如下：
     -   使用 Azure Media Encoder 並採用一系列的標準轉碼器和格式 (包括領先業界的 IIS Smooth Streaming、MP4 以及轉換為 Apple HTTP 即時資料流)。
     -   在對輸入和輸出有完整控制的情況下，轉換整個程式庫或個別檔案。
-    -   支援眾多檔案類型、格式和轉碼器 (請參閱 [Azure Media Encoder 支援的轉碼器與檔案類型](http://msdn.microsoft.com/en-us/library/hh973634))。
+    -   支援眾多檔案類型、格式和轉碼器 (請參閱 [Azure Media Encoder 支援的轉碼器與檔案類型](http://msdn.microsoft.com/zh-tw/library/hh973634))。
     -   支援的格式轉換。媒體服務可讓您將 ISO MP4 (.mp4) 轉換為 Smooth Streaming 檔案格式 (PIFF 1.3) (.ismv；.isma)。您也可以將 Smooth Streaming 檔案格式 (PIFF) 轉換為 Apple HTTP 即時資料流 (.msu8、.ts)。
 -   **Protect**。保護內容，表示將即時串流或隨選內容加密，以進行安全的傳輸、儲存和傳遞。媒體服務提供跨 DRM 技術的解決方案來保護內容。目前支援的 DRM 技術有 Microsoft PlayReady 和 MPEG Common Encryption。未來將再支援其他 DRM 技術。
 -   **Stream**。串流內容，表示將內容立即或隨選傳送至用戶端，或者您也可以從雲端下載特定媒體檔案。媒體服務提供跨格式的解決方案來串流內容。媒體服務提供 Smooth Streaming、Apple HTTP 即時資料流和 MP4 格式的串流出處支援。未來將再支援其他格式。您也可以使用協力廠商 CDN，實現調整為數百萬位使用者的選項，以順暢地傳遞串流內容。
@@ -78,7 +78,7 @@ Azure 媒體服務形成一個可延伸媒體平台，可整合 Microsoft Media 
 
 針對 Windows 8，您可以使用任何支援的開發語言和建構 (例如 HTML、Javascript、XAML、C\# 和 C+) 來建置 Windows 市集應用程式。
 
--   [Smooth Streaming Client SDK for Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146) (英文)。如需關於如何使用此 SDK 建立 Windows 市集應用程式的詳細資訊，請參閱[如何建置 Smooth Streaming Windows 市集應用程式](http://go.microsoft.com/fwlink/?LinkId=271647)。如需關於如何使用 HTML5 建立 Smooth Streaming 播放程式的詳細資訊，請參閱[逐步介紹：建置您的第一個 HTML5 Smooth Streaming 播放程式](http://msdn.microsoft.com/en-us/library/jj573656(v=vs.90).aspx) (英文)。
+-   [Smooth Streaming Client SDK for Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146) (英文)。如需關於如何使用此 SDK 建立 Windows 市集應用程式的詳細資訊，請參閱[如何建置 Smooth Streaming Windows 市集應用程式](http://go.microsoft.com/fwlink/?LinkId=271647)。如需關於如何使用 HTML5 建立 Smooth Streaming 播放程式的詳細資訊，請參閱[逐步介紹：建置您的第一個 HTML5 Smooth Streaming 播放程式](http://msdn.microsoft.com/zh-tw/library/jj573656(v=vs.90).aspx) (英文)。
 
 -   [Microsoft Media Platform：Player Framework (Windows 8 Windows 市集應用程式版)](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home) (英文)
 

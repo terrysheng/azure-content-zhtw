@@ -173,6 +173,6 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 了解基本的服務匯流排佇列之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 參考資料：[佇列、主題和訂閱。](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
+-   請參閱 MSDN 參考資料：[佇列、主題和訂閱。](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367516.aspx)
 -   造訪 GitHub 上的 [Azure SDK for Node](https://github.com/WindowsAzure/azure-sdk-for-node) (英文) 儲存機制。
 

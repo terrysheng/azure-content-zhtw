@@ -43,11 +43,11 @@
 
    ![](./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-steps-xamarin-ios.png)
 
-1.  如果您尚未這樣做，請下載並安裝 [Xcode] v4.4 或更新版本及 [Xamarin Studio](http://xamarin.com/download)。
+3.  如果您尚未這樣做，請下載並安裝 [Xcode] v4.4 或更新版本及 [Xamarin Studio](http://xamarin.com/download)。
 
-2.  按一下 **[Create TodoItems table]** 以建立儲存應用程式資料的資料表。
+4.  按一下 **[Create TodoItems table]** 以建立儲存應用程式資料的資料表。
 
-3.  按一下 **[Download and run app]** 下的 **[下載]**。
+5.  按一下 **[Download and run app]** 下的 **[下載]**。
 
     這會下載範例*待辦事項*應用程式的專案，以連接至您的行動服務並參照適用於 Xamarin.iOS 的 Azure 行動服務元件。將壓縮的專案檔案儲存到本機電腦並記下儲存位置。
 

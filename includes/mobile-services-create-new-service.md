@@ -27,11 +27,10 @@
     
     ![](./media/mobile-services-create-new-service/mobile-create-page2.png)
     
-    <div  class="dev-callout" markdown="1"></div>
-
-**注意**
-當您所提供的密碼不符合最低需求或密碼不相符時，便會顯示一則警告。 建議您記下您所指定的系統管理員登入名稱和密碼；您日後需要此資訊才能重複使用 SQL Database 執行個體或伺服器。
-
+	<div class="dev-callout"> 
+	<b>注意</b> 
+	<p>當您所提供的密碼不符合最低需求或密碼不相符時，便會顯示一則警告。 建議您記下您所指定的系統管理員登入名稱和密碼；您日後需要此資訊才能重複使用 SQL Database 執行個體或伺服器。</p>
+	</div>
 
     
 

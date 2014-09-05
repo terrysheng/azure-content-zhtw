@@ -18,7 +18,7 @@
 
 -   Microsoft Visual Studio 2012 Express for Windows Phone 8 或更新版本。
 -   Windows 8 上執行的 [Windows Phone 8 SDK](http://go.microsoft.com/fwlink/p/?LinkID=268374)。
--   [Azure 帳戶](http://www.windowsazure.com/en-us/pricing/free-trial/)
+-   [Azure 帳戶](http://www.windowsazure.com/zh-tw/pricing/free-trial/)
 -   本教學課程是以行動服務快速入門為基礎。開始此教學課程之前，您必須先完成[開始使用行動服務](/en-us/develop/mobile/tutorials/get-started-wp8)。
 -   Azure 行動服務 NuGet 封裝 1.1.0 或更新版本。若要取得最新版本，請遵循下列步驟：
     1.  在 Visual Studio 中開啟專案，在 [方案總管] 中以滑鼠右鍵按一下專案，然後按一下 **[管理 NuGet 封裝]**。
@@ -317,7 +317,7 @@
 <!-- URLs. -->
 [Optimistic Concurrency Control]: http://go.microsoft.com/fwlink/?LinkId=330935
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Azure Account]: http://www.windowsazure.com/en-us/pricing/free-trial/
+[Azure Account]: http://www.windowsazure.com/zh-tw/pricing/free-trial/
 [Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
 [Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-wp8
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-wp8

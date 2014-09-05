@@ -170,7 +170,7 @@
 
 此程式可說明在 Azure 上的 Java 中使用 Twilio 的基本功能。在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。例如：
 
--   除了使用 Web 表單以外，您也可以使用 Azure 儲存體 Blob 或 SQL Database 來儲存電話號碼和通話文字。如需在 Java 中使用 Azure 儲存體 Blob 的相關資訊，請參閱[如何從 Java 使用 Blob 儲存體服務](http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/)。如需在 Java 中使用 SQL Database 的相關資訊，請參閱[在 Java 中使用 SQL Database](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh749029.aspx)。
+-   除了使用 Web 表單以外，您也可以使用 Azure 儲存體 Blob 或 SQL Database 來儲存電話號碼和通話文字。如需在 Java 中使用 Azure 儲存體 Blob 的相關資訊，請參閱[如何從 Java 使用 Blob 儲存體服務](http://www.windowsazure.com/zh-tw/develop/java/how-to-guides/blob-storage/)。如需在 Java 中使用 SQL Database 的相關資訊，請參閱[在 Java 中使用 SQL Database](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh749029.aspx)。
 -   您可以使用 **RoleEnvironment.getConfigurationSettings**，從部署的組態設定中擷取 Twilio 帳戶 ID 和驗證權杖，而不要在 makecall.jsp 中進行值的硬式編碼。如需 **RoleEnvironment** 類別的相關資訊，請參閱[在 JSP 中使用 Azure Service Runtime Library](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh690948.aspx)，以及 <http://dl.windowsazure.com/javadoc> 上的 Azure Service Runtime 封裝文件。
 -   makecall.jsp 程式碼會將 Twilio 提供的 URL (<http://twimlets.com/message>) 指派給 **Url** 變數。此 URL 會提供 Twilio 標記語言 (TwiML) 回應，告知 Twilio 應如何執行通話。例如，傳回的 TwiML 可能會包含 **&lt;Say\>** 動詞，而產生要傳達給受話方的文字。除了使用 Twilio 提供的 URL 以外，您也可以建置自己的服務來回應 Twilio 的要求；如需詳細資訊，請參閱[如何在 Java 中透過 Twilio 使用語音和簡訊功能](../partner-twilio-java-how-to-use-voice-sms)。如需 TwiML 的詳細資訊，請參閱 <http://www.twilio.com/docs/api/twiml>；如需 **&lt;Say\>** 和其他 Twilio 動詞的詳細資訊，請參閱 <http://www.twilio.com/docs/api/twiml/say>。
 -   閱讀 [https://www.twilio.com/docs/security](http://www.twilio.com/docs/security) 上的 Twilio 安全性指引。

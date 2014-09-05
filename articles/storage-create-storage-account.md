@@ -46,7 +46,7 @@
     > [WACOM.NOTE]
     >  \> 若要使用只能預覽的讀取存取地理區域備援複寫，您必須手動要求針對您的訂閱啟用該功能。造訪 [Azure 預覽功能](https://account.windowsazure.com/PreviewFeatures)頁面，針對您的訂閱要求讀取存取地理區域備援複寫。如需讀取存取地理區域備援複寫的詳細資訊，請參閱 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) (英文)。如果讀取存取地理區域備援複寫並未當作您訂閱的預覽功能啟用，則會停用針對您的儲存體帳戶進行選取的選項。
 
-    如需儲存體帳戶複寫的定價資訊，請參閱[儲存體定價詳細資料](http://www.windowsazure.com/en-us/pricing/details/storage/)。
+    如需儲存體帳戶複寫的定價資訊，請參閱[儲存體定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/storage/)。
 
 7.  按一下 **[建立儲存體帳戶]**。
 
@@ -57,10 +57,10 @@
 後續步驟
 --------
 
--   若要深入了解 Azure 儲存體服務，請參閱 [Azure 資料管理：做正確的選擇](http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/) (英文) 和 [儲存體](http://msdn.microsoft.com/zh-tw/library/gg433040.aspx)。
+-   若要深入了解 Azure 儲存體服務，請參閱 [Azure 資料管理：做正確的選擇](http://www.windowsazure.com/zh-tw/develop/net/fundamentals/cloud-storage/) (英文) 和 [儲存體](http://msdn.microsoft.com/zh-tw/library/gg433040.aspx)。
 
 -   請造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
 
--   將應用程式設定成使用 Azure Blob、資料表和佇列服務。[Azure 開發人員中心](http://www.windowsazure.com/en-us/develop/overview/) (英文) 提供在 .NET、Node.js、Java 和 PHP 應用程式中使用 Blob、資料表和佇列服務的作法指南。如需程式設計語言的特定指示，請參閱該語言的作法指南。
+-   將應用程式設定成使用 Azure Blob、資料表和佇列服務。[Azure 開發人員中心](http://www.windowsazure.com/zh-tw/develop/overview/) (英文) 提供在 .NET、Node.js、Java 和 PHP 應用程式中使用 Blob、資料表和佇列服務的作法指南。如需程式設計語言的特定指示，請參閱該語言的作法指南。
 
 

@@ -73,6 +73,6 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 -   [使用 Media Services SDK for .NET 建立應用程式](http://go.microsoft.com/fwlink/?linkid=247821)
 -   [使用 Azure Media Services REST API 建立應用程式](http://go.microsoft.com/fwlink/?linkid=252967)
 -   [媒體服務論壇](http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads)
--   [如何監視媒體服務帳戶](http://www.windowsazure.com/en-us/manage/services/media-services/how-to-monitor-a-media-services-account/)
--   [如何管理媒體服務中的內容](http://www.windowsazure.com/en-us/manage/services/media-services/how-to-manage-content-in-media-services/)
+-   [如何監視媒體服務帳戶](http://www.windowsazure.com/zh-tw/manage/services/media-services/how-to-monitor-a-media-services-account/)
+-   [如何管理媒體服務中的內容](http://www.windowsazure.com/zh-tw/manage/services/media-services/how-to-manage-content-in-media-services/)
 

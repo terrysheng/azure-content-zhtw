@@ -18,7 +18,7 @@
 第 1 部分：建立主控台應用程式以產生共用存取簽章
 ===============================================
 
-首先，請確定您已安裝 Azure Storage Client Library for .NET (2.0 版)。您可以安裝包含最新用戶端程式庫組件的 [NuGet 封裝](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 封裝") (英文)，這是確定您具有最新修正程式的建議方法。您也可以在最新版 [Azure SDK for .NET](http://www.windowsazure.com/en-us/downloads/) 中一起下載用戶端程式庫。
+首先，請確定您已安裝 Azure Storage Client Library for .NET (2.0 版)。您可以安裝包含最新用戶端程式庫組件的 [NuGet 封裝](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 封裝") (英文)，這是確定您具有最新修正程式的建議方法。您也可以在最新版 [Azure SDK for .NET](http://www.windowsazure.com/zh-tw/downloads/) 中一起下載用戶端程式庫。
 
 在 Visual Studio 中，建立新的 Windows 主控台應用程式，並將它命名為 **GenerateSharedAccessSignatures**。使用下列任一種方法，新增對 **Microsoft.WindowsAzure.Configuration.dll** 及 **Microsoft.WindowsAzure.Storage.dll** 的參照：
 

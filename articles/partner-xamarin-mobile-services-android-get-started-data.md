@@ -21,7 +21,7 @@
 
 **注意**
 
-若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5)。
+若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A9C9624B5)。
 
 本教學課程需要 [Azure 行動服務元件](http://components.xamarin.com/view/azure-mobile-services/)、[Xamarin.Android] 及 Android SDK 4.2 或更新版本。
 

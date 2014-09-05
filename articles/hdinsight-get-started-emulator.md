@@ -3,7 +3,7 @@
 開始使用 HDInsight Emulator
 ===========================
 
-本教學課程協助您開始使用 Microsoft HDInsight Emulator for Azure (先前稱為 HDInsight Server Developer Preview)。HDInsight Emulator 提供 Hadoop 生態系統 Azure HDInsight 的相同元件。如需詳細資訊，包括部署的版本資訊，請參閱 [Azure HDInsight 提供 Hadoop 的什麼版本？](http://www.windowsazure.com/en-us/manage/services/hdinsight/howto-hadoop-version/ "HDInsight 元件及版本") (英文)。
+本教學課程協助您開始使用 Microsoft HDInsight Emulator for Azure (先前稱為 HDInsight Server Developer Preview)。HDInsight Emulator 提供 Hadoop 生態系統 Azure HDInsight 的相同元件。如需詳細資訊，包括部署的版本資訊，請參閱 [Azure HDInsight 提供 Hadoop 的什麼版本？](http://www.windowsazure.com/zh-tw/manage/services/hdinsight/howto-hadoop-version/ "HDInsight 元件及版本") (英文)。
 
 HDInsight Emulator 提供 Azure HDInsight 的本機部署環境。如果您熟悉 Hadoop，可以開始透過 HDFS 使用該模擬器。不過，在 HDInsight 中，預設的檔案系統是 Azure Blob 儲存體 (WASB，也就是 Azure Storage - Blobs)，因此，您會想要使用 WASB 開發您的工作。您可以開始使用 Azure 儲存模擬器針對 WASB 進行開發 - 可能只想要使用一小部分的資料 (不需要在 HDInsight Emulator 中進行設定變更，只有儲存體帳戶名稱不同)。然後，您將在本機再次針對 Azure 儲存體測試您的工作，但是只使用一小部分的資料 (需要在 HDInsight Emulator 中進行設定變更)。最後，您準備將工作的運算部分移到 HDInsight，並針對生產資料執行工作。
 
@@ -419,7 +419,7 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。如需詳�
 
 ### 連線至儲存體模擬器
 
-Azure 儲存體模擬器隨附於 [Azure SDK for .NET](http://www.windowsazure.com/en-us/downloads/)。儲存體模擬器不會自動啟動。您必須手動將它啟動。應用程式名稱是 *Azure 儲存體模擬器*。若要啟動/停止模擬器，請以滑鼠右鍵按一下 Windows 系統匣中的藍色 Azure 圖示，然後按一下 [Show Storage Emulator UI]。
+Azure 儲存體模擬器隨附於 [Azure SDK for .NET](http://www.windowsazure.com/zh-tw/downloads/)。儲存體模擬器不會自動啟動。您必須手動將它啟動。應用程式名稱是 *Azure 儲存體模擬器*。若要啟動/停止模擬器，請以滑鼠右鍵按一下 Windows 系統匣中的藍色 Azure 圖示，然後按一下 [Show Storage Emulator UI]。
 
 > [WACOM.NOTE] 您啟動儲存體模擬器時，可能看見下列錯誤訊息：
 

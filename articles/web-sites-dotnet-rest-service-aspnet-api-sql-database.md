@@ -35,7 +35,7 @@ site](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobil-i
 * [將應用程式更新發行至 Azure 和 SQL Database](#bkmk_deploydatabaseupdate)
 
 <a name="bkmk_setupdevenv"></a>
-<!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/ --> 
+<!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-get-started/ --> 
 
 [WACOM.INCLUDE[create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -856,10 +856,10 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 [8]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
 [9]: https://www.owasp.org/index.php/Main_Page
 [10]: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)
-[11]: http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/
+[11]: http://www.windowsazure.com/zh-tw/develop/net/tutorials/web-site-with-sql-database/
 [12]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 [13]: http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started
 [14]: http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-[15]: http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/
+[15]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/
 [16]: http://blogs.msdn.com/b/rickandy/
 [17]: https://twitter.com/blowdart

@@ -129,7 +129,7 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 
 ## 後續步驟
 
-* 藉由檢視 <http://www.windowsazure.com/en-us/develop/java/> 提供的資訊來了解其他您可能會想要納入 Java 應用程式中的服務，如 Azure 儲存體、服務匯流排、SQL Database 等。
+* 藉由檢視 <http://www.windowsazure.com/zh-tw/develop/java/> 提供的資訊來了解其他您可能會想要納入 Java 應用程式中的服務，如 Azure 儲存體、服務匯流排、SQL Database 等。
 
 
 

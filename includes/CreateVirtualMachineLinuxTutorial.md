@@ -236,9 +236,9 @@ Azure 中的虛擬機器是您在雲端中可以控制和管理的伺服器。�
 [2]: http://go.microsoft.com/fwlink/p/?LinkId=311926
 [3]: http://manage.windowsazure.com
 [4]: http://go.microsoft.com/FWLink/p/?LinkID=390493
-[5]: http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/
+[5]: http://www.windowsazure.com/zh-tw/manage/linux/how-to-guides/setup-endpoints/
 [6]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [7]: http://www.openssh.org/
-[8]: http://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/
-[9]: http://www.windowsazure.com/en-us/documentation/articles/introduction-linux/
-[10]: http://www.windowsazure.com/en-us/documentation/articles/xplat-cli/
+[8]: http://www.windowsazure.com/zh-tw/manage/linux/how-to-guides/linux-agent-guide/
+[9]: http://www.windowsazure.com/zh-tw/documentation/articles/introduction-linux/
+[10]: http://www.windowsazure.com/zh-tw/documentation/articles/xplat-cli/

@@ -9,7 +9,7 @@
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-本教學課程使用 Python 2.7 和 Django 1.4。您可以自行取得，或使用 <http://www.windowsazure.com/en-us/develop/python/> (英文) 的 Windows Installer 連結迅速而便利地進行安裝。
+本教學課程使用 Python 2.7 和 Django 1.4。您可以自行取得，或使用 <http://www.windowsazure.com/zh-tw/develop/python/> (英文) 的 Windows Installer 連結迅速而便利地進行安裝。
 
 **注意**：Azure 網站現已預先安裝 Python 2.7 和 wfastcgi 處理常式，不過 Django 等 Web 架構則未包含在內。如果您喜歡的話，也可以使用不同的 Python 解譯器。只要將它納入 Git 儲存機制，再將網站設定為使用該解譯器 (而非已安裝的 Python 2.7 解譯器) 即可。
 
@@ -123,7 +123,7 @@
 
 現階段，您可以利用目前使用中的工具來繼續開發 Django 應用程式。如果您使用 [Python Tools for Visual Studio](http://pytools.codeplex.com/) (英文) 來進行部署，也許會想要安裝 [VisualGit](http://code.google.com/p/visualgit/) (英文) 以從 Visual Studio 內部取得原始檔控制整合。
 
-您的應用程式可能會擁有 Python 和 Django 之外的相依性。如果您使用 <http://www.windowsazure.com/en-us/develop/python/> (英文) 的安裝程式來安裝 Python，便已安裝了可用來快速新增相依性的 PIP。例如，若要安裝自然語言工具組和該工具組的所有相依性，請輸入：
+您的應用程式可能會擁有 Python 和 Django 之外的相依性。如果您使用 <http://www.windowsazure.com/zh-tw/develop/python/> (英文) 的安裝程式來安裝 Python，便已安裝了可用來快速新增相依性的 PIP。例如，若要安裝自然語言工具組和該工具組的所有相依性，請輸入：
 
     pip install nltk
 

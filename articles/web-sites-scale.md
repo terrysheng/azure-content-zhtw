@@ -9,7 +9,7 @@
 
 模式的變更和設定可在管理入口網站的 [調整] 索引標籤中輕易完成。您可以視需要擴大或縮小。這些變更只需要幾秒鐘的時間便能完成套用，且影響範圍遍及 Web 主控方案內的所有網站。您不需要變更程式碼或重新部署應用程式。
 
-如需 Web 主控方案的詳細資訊，請參閱 [Azure 網站 Web 主控方案](http://go.microsoft.com/fwlink/?LinkId=9845584)。如需各 Web 主控方案之定價和功能的相關資訊，請參閱[網站定價詳細資料](http://www.windowsazure.com/en-us/pricing/details/web-sites/)。
+如需 Web 主控方案的詳細資訊，請參閱 [Azure 網站 Web 主控方案](http://go.microsoft.com/fwlink/?LinkId=9845584)。如需各 Web 主控方案之定價和功能的相關資訊，請參閱[網站定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/web-sites/)。
 
 > [WACOM.NOTE] 將網站從**「免費」** Web 主控方案模式切換到**「基本」**或**「標準」** Web 主控方案模式之前，您必須先移除網站訂閱的支出上限。若要檢視或變更 Microsoft Azure 網站訂閱的選項，請參閱 [Microsoft Azure 訂閱](http://go.microsoft.com/fwlink/?LinkID=235288)。
 
@@ -153,35 +153,35 @@
 
 **Web 端點監視**
 
--   基本和標準等 Web 主控方案模式提供 Web 端點監視功能。如需 Web 端點監視的詳細資訊，請參閱[如何監視網站](http://www.windowsazure.com/en-us/documentation/articles/web-sites-monitor/) (英文)。
+-   基本和標準等 Web 主控方案模式提供 Web 端點監視功能。如需 Web 端點監視的詳細資訊，請參閱[如何監視網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-monitor/) (英文)。
 
--   如需 Web 主控方案其他所有功能的詳細資訊，包括所有使用者 (包括開發人員) 關心的定價和功能，請參閱[網站定價詳細資料](http://www.windowsazure.com/en-us/pricing/details/web-sites/)。
+-   如需 Web 主控方案其他所有功能的詳細資訊，包括所有使用者 (包括開發人員) 關心的定價和功能，請參閱[網站定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/web-sites/)。
 
 ## 後續步驟
 -   如需 Azure 網站最佳作法 (包括組建可調整且彈性的架構) 的相關資訊，請參閱[最佳作法：Azure 網站 (WAWS)](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx) (英文)。
 
 -   如需定價、支援及 SLA 的相關資訊，請參閱以下連結：
 
-    [資料傳輸定價詳細資料](http://www.windowsazure.com/en-us/pricing/details/data-transfers/)
+    [資料傳輸定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/data-transfers/)
 
-    [Azure 支援方案](http://www.windowsazure.com/en-us/support/plans/)
+    [Azure 支援方案](http://www.windowsazure.com/zh-tw/support/plans/)
 
-    [服務等級協定](http://www.windowsazure.com/en-us/support/legal/sla/)
+    [服務等級協定](http://www.windowsazure.com/zh-tw/support/legal/sla/)
 
-    [SQL Database 定價詳細資料](http://www.windowsazure.com/en-us/pricing/details/sql-database/)
+    [SQL Database 定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/sql-database/)
 
     [Windows Azure 的虛擬機器和雲端服務大小](http://go.microsoft.com/fwlink/?LinkId=309169)
 
-    [網站定價詳細資料](http://www.windowsazure.com/en-us/pricing/details/web-sites/)
+    [網站定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/web-sites/)
 
-    [網站定價詳細資料 - SSL 連線](http://www.windowsazure.com/en-us/pricing/details/web-sites/#ssl-connections)
+    [網站定價詳細資料 - SSL 連線](http://www.windowsazure.com/zh-tw/pricing/details/web-sites/#ssl-connections)
 
 -   以下連結是有關 Azure 網站調整的影片：
 
-    [When to Scale Azure Web Sites - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+    [When to Scale Azure Web Sites - with Stefan Schackow](http://www.windowsazure.com/zh-tw/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
 
-    [Auto Scaling Azure Web Sites, CPU or Scheduled - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/auto-scaling-azure-web-sites/)
+    [Auto Scaling Azure Web Sites, CPU or Scheduled - with Stefan Schackow](http://www.windowsazure.com/zh-tw/documentation/videos/auto-scaling-azure-web-sites/)
 
-    [How Azure Web Sites Scale - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/how-azure-web-sites-scale/)
+    [How Azure Web Sites Scale - with Stefan Schackow](http://www.windowsazure.com/zh-tw/documentation/videos/how-azure-web-sites-scale/)
 
 

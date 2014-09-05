@@ -19,7 +19,7 @@
 
 **注意**
 
-本指南呈現一些與公用端 .COM 網站開發整合的最常見領域和工作。不過，還有其他 Azure 網站功能可供您在特定的實作中使用。若要檢閱這些功能，請一併參閱[全域網站空間](http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/) (英文) 和 [商務應用程式](http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview) (英文) 上的其他指南。
+本指南呈現一些與公用端 .COM 網站開發整合的最常見領域和工作。不過，還有其他 Azure 網站功能可供您在特定的實作中使用。若要檢閱這些功能，請一併參閱[全域網站空間](http://www.windowsazure.com/zh-tw/manage/services/web-sites/global-web-presence-solution-overview/) (英文) 和 [商務應用程式](http://www.windowsazure.com/zh-tw/manage/services/web-sites/business-application-solution-overview) (英文) 上的其他指南。
 
 部署現有的網站
 --------------
@@ -86,7 +86,7 @@ Azure 網站的其中一個額外優點就是將預備網站部署至 Web 的速
 
 **注意**
 
-對於選擇使用雲端服務和 Web 角色的 Web 應用程式，有一個額外的選項，就是根據佇列中的項目長度進行調整。在雲端服務中，處理後端佇列的角色是常見的架構模式。如需有關雲端調整的詳細資訊，請參閱[如何調整雲端服務](http://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-scale-a-cloud-service/) (英文)。
+對於選擇使用雲端服務和 Web 角色的 Web 應用程式，有一個額外的選項，就是根據佇列中的項目長度進行調整。在雲端服務中，處理後端佇列的角色是常見的架構模式。如需有關雲端調整的詳細資訊，請參閱[如何調整雲端服務](http://www.windowsazure.com/zh-tw/manage/services/cloud-services/how-to-scale-a-cloud-service/) (英文)。
 
 與其他服務整合
 --------------
@@ -126,23 +126,23 @@ Azure 網站對於針對個別行銷活動自訂的可重複使用 Web 內容而
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">規劃</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service">Azure 網站、雲端服務和 VM：使用時機</a></td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/choose-web-app-service">Azure 網站、雲端服務和 VM：使用時機</a></td>
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">建立</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites/">如何建立及部署網站</a></td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-create-websites/">如何建立及部署網站</a></td>
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">部署</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-git/">從原始檔控制發佈至 Azure 網站</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites/">將 ASP.NET Web 應用程式部署至 Azure 網站</a> (英文)</td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/develop/net/common-tasks/publishing-with-git/">從原始檔控制發佈至 Azure 網站</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-create-websites/">將 ASP.NET Web 應用程式部署至 Azure 網站</a> (英文)</td>
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">社交媒體</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/">部署使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 應用程式</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://blogs.msdn.com/b/africaapps/archive/2013/02/20/creating-a-facebook-app-using-asp-net-mvc-facebook-templates-and-hosting-them-for-free-on-windows-azure-websites.aspx">使用 ASP.NET MVC Facebook 範本建立 Facebook 應用程式</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://blogs.msdn.com/b/webdev/archive/2012/12/13/the-new-facebook-application-template-and-library-for-asp.net-mvc.aspx">適用於 ASP.NET MVC 的 Facebook 應用程式範本和程式庫</a> (英文)</td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/develop/net/tutorials/web-site-with-sql-database/">部署使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 應用程式</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://blogs.msdn.com/b/africaapps/archive/2013/02/20/creating-a-facebook-app-using-asp-net-mvc-facebook-templates-and-hosting-them-for-free-on-windows-azure-websites.aspx">使用 ASP.NET MVC Facebook 範本建立 Facebook 應用程式</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://blogs.msdn.com/b/webdev/archive/2012/12/13/the-new-facebook-application-template-and-library-for-asp.net-mvc.aspx">適用於 ASP.NET MVC 的 Facebook 應用程式範本和程式庫</a> (英文)</td>
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">調整</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-scale-websites/">如何調整網站大小</a></td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-scale-websites/">如何調整網站大小</a></td>
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">多媒體</strong></td>
@@ -150,7 +150,7 @@ Azure 網站對於針對個別行銷活動自訂的可重複使用 Web 內容而
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">監視</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/">如何監視網站</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">作法：在 Azure 中接收警示通知及管理警示規則</a></td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-monitor-websites/">如何監視網站</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">作法：在 Azure 中接收警示通知及管理警示規則</a></td>
 </tr>
 </table>
 

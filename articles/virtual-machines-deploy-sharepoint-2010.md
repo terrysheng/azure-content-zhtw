@@ -118,7 +118,7 @@ Azure 虛擬機器可讓開發人員有彈性地選擇其所需的語言或執�
 您可以依照下列步驟，在 Azure 上部署 SharePoint 2010：
 
 1.  使用您的帳戶登入 [Azure 管理入口網站](http://manage.windowsazure.com/)。
-    -   如果您沒有 Azure 帳戶，請[註冊 Azure 的免費試用版](http://www.windowsazure.com/en-us/pricing/free-trial/)。
+    -   如果您沒有 Azure 帳戶，請[註冊 Azure 的免費試用版](http://www.windowsazure.com/zh-tw/pricing/free-trial/)。
 
 2.  以基礎作業系統建立 VM：在 Azure 管理入口網站上，依序按一下 **[+新增]**、**[虛擬機器]** 和 **[從組件庫]**。![azure-sharepoint-wp-4](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-4.png)
 3.  **[VM OS Selection]** 對話方塊隨即顯示。按一下 **[平台映像]**，然後選取 **Windows Server 2008 R2 SP1** 平台映像。![azure-sharepoint-wp-5](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-5.png)

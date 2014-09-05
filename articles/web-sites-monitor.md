@@ -135,7 +135,7 @@
 
 您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。
 
-如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
+如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
 
 **注意**
 
@@ -237,7 +237,7 @@
 
 **注意**
 
-如果您尚未安裝 **azure** 命令，請參閱[如何使用 Azure 命令列工具](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/) (英文) 以取得安裝和組態資訊。
+如果您尚未安裝 **azure** 命令，請參閱[如何使用 Azure 命令列工具](http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/command-line-tools/) (英文) 以取得安裝和組態資訊。
 
 ### 讀取記錄檔
 
@@ -301,8 +301,8 @@
 
 如需網站端點監視的詳細資訊，請觀看以下影片：
 
--   [Scott Guthrie 介紹 Azure 網站及設定端點監視](http://www.windowsazure.com/en-us/documentation/videos/websites-and-endpoint-monitoring-scottgu/) (英文)
+-   [Scott Guthrie 介紹 Azure 網站及設定端點監視](http://www.windowsazure.com/zh-tw/documentation/videos/websites-and-endpoint-monitoring-scottgu/) (英文)
 
--   [讓 Azure 網站保持運作以及端點監視 - 對談來賓 Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/) (英文)
+-   [讓 Azure 網站保持運作以及端點監視 - 對談來賓 Stefan Schackow](http://www.windowsazure.com/zh-tw/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/) (英文)
 
 

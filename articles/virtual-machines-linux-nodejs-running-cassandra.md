@@ -52,11 +52,11 @@ Azure 虛擬機器部署
 
 **步驟 1：產生 SSH 金鑰組**
 
-在佈建階段，Azure 需要 PEM 或 DER 編碼的 X509 公用金鑰。請參考[如何在 Azure 上使用 SSH 搭配 Linux](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/ssh-into-linux/) (英文) 上的指示來產生公用/私密金鑰組。如果您打算在 Windows 或 Linux 上使用 putty.exe 做為 SSH 用戶端，就必須使用 puttygen.exe 將 PEM 編碼的 RSA 私密金鑰轉換成 PPK 格式。如需有關這項作業的指示，請參閱[為 Windows Azure 上的 Linux VM 部署產生 SSH 金鑰組](http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx) (英文)。
+在佈建階段，Azure 需要 PEM 或 DER 編碼的 X509 公用金鑰。請參考[如何在 Azure 上使用 SSH 搭配 Linux](http://www.windowsazure.com/zh-tw/manage/linux/how-to-guides/ssh-into-linux/) (英文) 上的指示來產生公用/私密金鑰組。如果您打算在 Windows 或 Linux 上使用 putty.exe 做為 SSH 用戶端，就必須使用 puttygen.exe 將 PEM 編碼的 RSA 私密金鑰轉換成 PPK 格式。如需有關這項作業的指示，請參閱[為 Windows Azure 上的 Linux VM 部署產生 SSH 金鑰組](http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx) (英文)。
 
 **步驟 2：建立 Ubuntu VM**
 
-若要建立第一部 Ubuntu VM，請登入 Azure 預覽入口網站，依序按一下 **[新增]**、**[虛擬機器]**、**[From Gallery]**、**[Unbuntu Server 12.xx]**，然後再按向右箭號。如需說明如何建立 Linux VM 的教學課程，請參閱[建立執行 Linux 的虛擬機器](http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/) (英文)。
+若要建立第一部 Ubuntu VM，請登入 Azure 預覽入口網站，依序按一下 **[新增]**、**[虛擬機器]**、**[From Gallery]**、**[Unbuntu Server 12.xx]**，然後再按向右箭號。如需說明如何建立 Linux VM 的教學課程，請參閱[建立執行 Linux 的虛擬機器](http://www.windowsazure.com/zh-tw/manage/linux/tutorials/virtual-machine-from-gallery/) (英文)。
 
 <table data-morhtml="true">
 	<tr data-morhtml="true">

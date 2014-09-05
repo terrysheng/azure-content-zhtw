@@ -270,8 +270,8 @@ Azure VM 上的 Ruby on Rails Web 應用程式
 
 -   [使用 Blob 儲存非結構化資料](http://windowsazure.com/en-us/documentation/articles/storage-ruby-how-to-use-blob-storage)
 
--   [使用資料表儲存機碼值組](http://www.windowsazure.com/en-us/develop/ruby/how-to-guides/table-service/)
+-   [使用資料表儲存機碼值組](http://www.windowsazure.com/zh-tw/develop/ruby/how-to-guides/table-service/)
 
--   [使用內容傳遞網路提供高頻寬內容](http://www.windowsazure.com/en-us/develop/ruby/app-services/)
+-   [使用內容傳遞網路提供高頻寬內容](http://www.windowsazure.com/zh-tw/develop/ruby/app-services/)
 
 

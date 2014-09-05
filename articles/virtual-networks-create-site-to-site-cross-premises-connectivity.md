@@ -297,5 +297,5 @@ VPN 裝置和裝置組態的詳細資訊，請參閱[關於虛擬網路的 VPN �
 [14]: http://go.microsoft.com/fwlink/?LinkID=299880
 [15]: http://msdn.microsoft.com/library/windowsazure/dn133803.aspx
 [16]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156097.aspx
-[17]: http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/
+[17]: http://www.windowsazure.com/zh-tw/manage/services/networking/add-a-vm-to-a-virtual-network/
 [18]: http://go.microsoft.com/fwlink/?LinkId=248097

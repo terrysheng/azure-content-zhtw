@@ -60,7 +60,7 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
     
     <tr><td>HDINSIGHT 版本</td>
     
-    <td>選擇版本。預設值為執行 Hadoop 1.2 叢集的 2.0 版。3.0 版會使用 Hadoop 2.2 叢集。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/manage/services/hdinsight/versioning-in-hdinsight/">Azure HDInsight 提供 Hadoop 的什麼版本？</a>
+    <td>選擇版本。預設值為執行 Hadoop 1.2 叢集的 2.0 版。3.0 版會使用 Hadoop 2.2 叢集。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/manage/services/hdinsight/versioning-in-hdinsight/">Azure HDInsight 提供 Hadoop 的什麼版本？</a>
      (英文)。</td>
     </tr>
     
@@ -339,7 +339,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 **使用 Windows Installer 安裝命令列介面**
 
-1.  瀏覽至 **http://www.windowsazure.com/en-us/downloads/**。
+1.  瀏覽至 **http://www.windowsazure.com/zh-tw/downloads/**。
 2.  向下捲動至 **[命令列工具]** 區段，然後按一下 **[跨平台命令列介面]**，並依照 Web Platform Installer 精靈操作。
 
 使用命令列介面之前，您必須先設定工作站與 Azure 之間的連線。命令列介面會使用您的 Azure 訂閱資訊連接到您的帳號。這項資訊可從 Azure 的發佈設定檔案取得。接著，發佈設定檔案可匯入為持續性的本機組態設定，供命令列介面用於後續的作業。您的發佈設定只需匯入一次即可。

@@ -1378,7 +1378,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 ### 管理指令碼的命令
 
-本節中的命令可用來管理屬於行動服務的伺服器指令碼。如需詳細資訊，請參閱[在行動服務中使用伺服器指令碼](http://www.windowsazure.com/en-us/develop/mobile/how-to-guides/work-with-server-scripts/) (英文)。
+本節中的命令可用來管理屬於行動服務的伺服器指令碼。如需詳細資訊，請參閱[在行動服務中使用伺服器指令碼](http://www.windowsazure.com/zh-tw/develop/mobile/how-to-guides/work-with-server-scripts/) (英文)。
 
 **mobile script list [options] [servicename]**
 

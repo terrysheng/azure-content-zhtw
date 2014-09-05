@@ -94,7 +94,7 @@
 如何建立 .NET 應用程式以便執行需密集運算的工作
 ----------------------------------------------
 
-1.  在您的部署機器 (不一定是您建立的虛擬機器) 上，下載 [Azure SDK for .NET](http://www.windowsazure.com/en-us/develop/net/)。
+1.  在您的部署機器 (不一定是您建立的虛擬機器) 上，下載 [Azure SDK for .NET](http://www.windowsazure.com/zh-tw/develop/net/)。
 2.  利用名為 **TSPSolver** 的專案建立 .NET 主控台應用程式。確定已針對 **NET Framework 4** (而非 **.NET Framework 4 用戶端設定檔**) 設定目標 Framework。執行下列動作，即可在您建立專案後設定此目標 Framework：在 Visual Studio 的功能表中，依序按一下 **[專案]**、**[屬性]**、**[應用程式]** 索引標籤，然後設定 **[目標 Framework]** 的值。
 3.  加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，於 **[TSPSolver]** 上按一下滑鼠右鍵，按一下 **[新增參考]**、按一下 **[瀏覽]** 索引標籤，瀏覽至 **C:\\Program Files\\Microsoft SDKs\\Windows Azure.NET SDK\\2012-06\\ref** 並選取 **Microsoft.ServiceBus.dll** 作為參考。
 4.  加入 System Runtime Serialization 程式庫中。在 Visual Studio 方案總管中，於 **[TSPSolver]** 上按一下滑鼠右鍵，按一下 **[新增參考]**、按一下 **[.NET]** 索引標籤，然後選取 **System.Runtime.Serialization** 作為參考。

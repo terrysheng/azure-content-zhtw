@@ -102,7 +102,7 @@ HDInsight (以及一般的 Hadoop 技術) 最適合用來處理大量的記錄�
 
 -   [執行 HDInsight 範例](/en-us/manage/services/hdinsight/howto-run-samples/)：對於如何執行 HDInsight 提供的範例進行解說的教學課程。
 
--   [巨量資料與 Azure](http://www.windowsazure.com/en-us/home/scenarios/big-data/)：說明使用 Azure 能夠建立的巨量資料案例。
+-   [巨量資料與 Azure](http://www.windowsazure.com/zh-tw/home/scenarios/big-data/)：說明使用 Azure 能夠建立的巨量資料案例。
 
 -   [Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx)：HDinsight SDK 的參考文件。
 

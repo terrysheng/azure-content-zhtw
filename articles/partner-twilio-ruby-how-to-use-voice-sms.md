@@ -88,7 +88,7 @@ Twilio 動詞是指示 Twilio 應執行哪些**動作**的 XML 標籤。例如�
 
 使用 Twilio 服務且執行於 Azure 的 Ruby 應用程式，與其他使用 Twilio 服務的 Ruby 應用程式並無不同。雖然 Twilio 服務是以 REST 為基礎，並且可透過數種方式從 Ruby 撥打，但本文的重點是要說明如何搭配使用 Twilio 服務與 [適用於 Ruby 的 Twilio 協助程式程式庫](https://www.twilio.com/docs/ruby/install)。
 
-首先，請[設定新的 Azure Linux VM](http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-linux-vm/)，以作為新的 Ruby Web 應用程式的主機。請忽略建立 Rails 應用程式的相關步驟，直接設定 VM。請確實建立具有外部連接埠 80 和內部連接埠 5000 的端點。
+首先，請[設定新的 Azure Linux VM](http://www.windowsazure.com/zh-tw/develop/ruby/tutorials/web-app-with-linux-vm/)，以作為新的 Ruby Web 應用程式的主機。請忽略建立 Rails 應用程式的相關步驟，直接設定 VM。請確實建立具有外部連接埠 80 和內部連接埠 5000 的端點。
 
 我們在下列範例中將使用 [Sinatra](http://www.sinatrarb.com/)，這對 Ruby 而言是非常簡單的 Web 架構。但適用於 Ruby 的 Twilio 協助程式程式庫是可以與任何其他 Web 架構搭配運作的，包括 Rails 上的 Ruby。
 

@@ -227,7 +227,7 @@ SQL Database 支援數種動態管理檢視，您可用他們來監視個別資�
 * [Transact-SQL 參考 (SQL Database)][]
   
 
-  [How to use Azure SQL Database]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
+  [How to use Azure SQL Database]: http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/sql-azure/
   [Step 1: Get SQL Server Management Studio]: #Step1
   [Step 2: Connect to SQL Database]: #Step2
   [Step 3: Create and manage databases]: #Step3

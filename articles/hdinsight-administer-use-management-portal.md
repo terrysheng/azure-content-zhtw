@@ -70,7 +70,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。如需已驗證和所支�
 -   在叢集佈建期間，使用 HDInsight .NET SDK 或 Azure PowerShell 中的叢集自訂參數。這樣做之後，即會在叢集的存留期保留這些組態變更，而且它們不受叢集節點重新製作映像的影響，而 Azure 平台會定期執行重新製作映像以進行維護。如需使用叢集自訂參數的詳細資訊，請參閱[佈建 HDInsight 叢集](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)。
 -   您可以使用 JAR 檔案形式在叢集上執行一些原生 Java 元件 (例如 Mahout、Cascading)。這些 JAR 檔案可以配送至 Azure Blob 儲存體 (WASB)，並且使用 Hadoop 工作提交機制提交至 HDInsight 叢集。如需詳細資訊，請參閱[以程式設計方式提交 Hadoop 工作](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/)。
 
-    > [WACOM.NOTE] 如果您在將 jar 檔案部署至 HDInsight 叢集或在 HDInsight 叢集上呼叫 jar 檔案時發生問題，請連絡 [Microsoft 支援](http://www.windowsazure.com/en-us/support/options/)。
+    > [WACOM.NOTE] 如果您在將 jar 檔案部署至 HDInsight 叢集或在 HDInsight 叢集上呼叫 jar 檔案時發生問題，請連絡 [Microsoft 支援](http://www.windowsazure.com/zh-tw/support/options/)。
 
     > Mahout 和 Cascading 不受 HDInsight 支援，而且不符合「Microsoft 支援」的資格。如需所支援元件的清單，請參閱 [HDInsight 所提供叢集版本的新功能](/en-us/manage/services/hdinsight/versioning-in-hdinsight/) (英文)。
 

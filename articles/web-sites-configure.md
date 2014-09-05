@@ -40,9 +40,9 @@
             **注意**：如果您已啟用 [deployment from source control]，則部署作業可能會覆寫您在 Visual Studio Online 編輯器中所做的變更。因此，如果您想要直接在 Visual Studio Online 上編輯網站內容，最好不要使用 [deployment from source control]。
 
     -   **憑證** - 此為 [標準] 模式下獨有的選項，您只要按一下 **[上傳]** 即可上傳自訂網域的 SSL 憑證。您上傳的憑證會列示在此。系統支援萬用字元 (「星號」) 憑證 (帶有星號的憑證)。憑證上傳完畢後，可以將其指派給訂閱及區域中的任何一個網站。帶有星號的憑證只需上傳一次，就能用於接受此憑證之網域內的任何網站上。只有當特定憑證未與任何網站具有有效繫結關係時，才能刪除該憑證。
-        **注意：** 自訂網域僅適用於 [共用] 及 [標準] 模式，而且只有在 [標準] 模式下才會對自訂網域提供 SSL 支援。如需在 Azure 上設定自訂網域的 SSL 詳細資訊，請參閱[對 Azure 網站啟用 HTTPS](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)。
-    -   **網域名稱** - 在此檢視或新增網站的其他網域名稱。您可以按一下 [管理網域]，**新增自訂網域**。自訂網域僅適用於 **[共用]** 與 **[標準]** 模式。您可以在 **[標尺]** 管理頁面上，變更網站模式。自訂網域不適用 [自由] 模式。如需設定自訂網域的詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱](http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/)。
-    -   **SSL 繫結** - 對自訂網域的 SSL 繫結功能僅適用於 [標準] 模式。針對特定網域名稱選擇 SSL 模式 (**[SNI]**、**[IP]** 或 **[沒有 SSL]**)。如果您選擇 SNI 或 IP，則您可從上傳的憑證中，為網域指定憑證。如需在 Azure 上設定自訂網域的 SSL 詳細資訊，請參閱[對 Azure 網站啟用 HTTPS](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)。如需 SNI 的詳細資訊，請參閱[伺服器名稱指示](http://en.wikipedia.org/wiki/Server_Name_Indication)。
+        **注意：** 自訂網域僅適用於 [共用] 及 [標準] 模式，而且只有在 [標準] 模式下才會對自訂網域提供 SSL 支援。如需在 Azure 上設定自訂網域的 SSL 詳細資訊，請參閱[對 Azure 網站啟用 HTTPS](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-configure-ssl-certificate/)。
+    -   **網域名稱** - 在此檢視或新增網站的其他網域名稱。您可以按一下 [管理網域]，**新增自訂網域**。自訂網域僅適用於 **[共用]** 與 **[標準]** 模式。您可以在 **[標尺]** 管理頁面上，變更網站模式。自訂網域不適用 [自由] 模式。如需設定自訂網域的詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-custom-domain-name/)。
+    -   **SSL 繫結** - 對自訂網域的 SSL 繫結功能僅適用於 [標準] 模式。針對特定網域名稱選擇 SSL 模式 (**[SNI]**、**[IP]** 或 **[沒有 SSL]**)。如果您選擇 SNI 或 IP，則您可從上傳的憑證中，為網域指定憑證。如需在 Azure 上設定自訂網域的 SSL 詳細資訊，請參閱[對 Azure 網站啟用 HTTPS](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-configure-ssl-certificate/)。如需 SNI 的詳細資訊，請參閱[伺服器名稱指示](http://en.wikipedia.org/wiki/Server_Name_Indication)。
     -   **部署** - 請使用以下設定來設定部署。
         -   **Git URL** - 如果您已在 Azure 網站上建立 Git 儲存機制，那就是它的 URL，您可將內容推送到該位置。
         -   **Deployment Trigger URL** - 您可在 GitHub、CodePlex、Bitbucket 或其他儲存機制上設定此 URL，以便在認可動作推送至儲存機制時觸發部署。
@@ -56,7 +56,7 @@
             -   **儲存體存取金鑰** - 顯示選定的儲存體帳戶金鑰。如果您為儲存體帳戶重新產生金鑰，請在此手動輸入該新金鑰，或是使用其中一個 **[同步]** 按鈕。只有當目前登入的使用者對選取的儲存體帳戶具有存取權限時，才能使用這些同步按鈕。
             -   **Synchronize Primary Key** - 從您的 Azure 儲存體帳戶中擷取最新的主要金鑰。
             -   **Synchronize Secondary Key** - 從您的 Azure 儲存體帳戶中擷取最新的次要金鑰。
-                **注意：** 如需 Azure 儲存體存取金鑰的詳細資訊，請參閱[作法：檢視、複製與重新產生儲存體儲存金鑰](http://www.windowsazure.com/en-us/documentation/articles/storage-manage-storage-account/#regeneratestoragekeys)。
+                **注意：** 如需 Azure 儲存體存取金鑰的詳細資訊，請參閱[作法：檢視、複製與重新產生儲存體儲存金鑰](http://www.windowsazure.com/zh-tw/documentation/articles/storage-manage-storage-account/#regeneratestoragekeys)。
     -   **網站診斷** - 為您的網站設定收集診斷資訊的選項，包括：
         -   **Web 伺服器記錄** - 指定是否要為網站啟用 Web 伺服器記錄。Web 伺服器記錄會儲存為 W3C 延伸的記錄檔格式。您可以將記錄儲存至 Azure 儲存體或檔案系統。
             **秘訣**：檔案系統中記錄儲存體的最大大小為 100 MB。如果您需要保留的記錄超過這個大小，請使用 Azure 儲存體，後者可提供您大上很多的儲存容量。
@@ -72,7 +72,7 @@
              **注意**：遠端偵錯功能只能啟用 48 小時，而且無法在超過 20 個字元的網站名稱或使用者名稱上運作。
     -   **監視** - 對於標準模式下的網站而言，可測試 HTTP 或 HTTPS 端點的可用性。您最多可以針對三個地理位置上極為分散的地點測試其端點。如果 HTTP 回應碼大於或等於 400，或是當回應時間超過 30 秒時，監視測試即告失敗。如果所有指定位置上的端點監視測試全都成功，表示該端點可用。
     -   **開發人員分析** - 選擇 **[附加元件]** 以從清單中選取分析附加元件，或是前往 Azure 商店選擇。選擇 **[自訂]** 以從清單選取分析資料提供者，例如 New Relic。如果您使用自訂提供者，必須在 **[提供者金鑰]** 方塊中輸入授權金鑰。
-         **注意**：如需使用 New Relic 搭配 Azure 網站的詳細資訊，請參閱[在 Azure 網站上進行 New Relic 應用程式效能管理](http://www.windowsazure.com/en-us/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/)。
+         **注意**：如需使用 New Relic 搭配 Azure 網站的詳細資訊，請參閱[在 Azure 網站上進行 New Relic 應用程式效能管理](http://www.windowsazure.com/zh-tw/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/)。
     -   **應用程式設定** - 指定 Web 應用程式啟動時載入的名稱/值組。如果是 .NET 網站，這些設定會在執行階段插入 .NET 組態的 AppSettings 中，並請覆蓋現有的設定。如果是 PHP 和 Node 網站，您可以在執行階段將這些設定視為環境變數使用。
     -   **連線字串** - 檢視連結資源的連線字串。如果是 .NET 網站，這些連接字串會在執行階段插入 .NET 組態的 connectionStrings 設定中，並覆蓋索引鍵等於所連結資料庫名稱的現有項目。如果是 PHP 和 Node 網站，您可以在執行階段將這些設定視為環境變數使用，並加上連線類型首碼。環境變數首碼如以下所示：
         -   SQL Server：SQLCONNSTR\_
@@ -116,18 +116,18 @@ Azure 會使用指定的參數建立 SQL 資料庫，然後將該資料庫連結
 ## 作法：設定自訂網域名稱
 ----------------------
 
-如需設定網站使用自訂網域名稱的詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱](http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/)。
+如需設定網站使用自訂網域名稱的詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-custom-domain-name/)。
 
 作法：設定網站使用 SSL
 ----------------------
 
-如需在 Azure 上設定自訂網域的 SSL 詳細資訊，請參閱[對 Azure 網站啟用 HTTPS](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/)。
+如需在 Azure 上設定自訂網域的 SSL 詳細資訊，請參閱[對 Azure 網站啟用 HTTPS](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-configure-ssl-certificate/)。
 
 後續步驟
 --------
 
--   [如何調整網站大小](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/)
+-   [如何調整網站大小](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-scale/)
 
--   [如何監視網站](http://www.windowsazure.com/en-us/documentation/articles/web-sites-monitor/)
+-   [如何監視網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-monitor/)
 
 

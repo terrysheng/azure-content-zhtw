@@ -13,7 +13,7 @@
 -   **備份 Azure 行動服務 SQL Database 中的資料**
     行動服務應用程式的資料儲存在 Azure SQL Database 中。建議您依照＜[Windows Azure SQL Database 的業務續航力](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh852669.aspx)＞中的指示來備份資料。
 -   **備份行動服務指令碼**
-    建議您將行動服務指令碼儲存在原始檔控制系統中，例如 [Team Foundation Service](http://tfs.visualstudio.com/) 或 [GitHub]，而不要只依賴行動服務本身中的複本。您可以透過 Azure 入口網站、使用行動服務[原始檔控制功能](http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/)，或[使用 Azure 命令列工具](http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/)來下載指令碼。請注意入口網站中標示為 [預覽] 的功能，因為不保證可回復這些指令碼，可能需要從您自己的原始檔控制來源中回復指令碼。
+    建議您將行動服務指令碼儲存在原始檔控制系統中，例如 [Team Foundation Service](http://tfs.visualstudio.com/) 或 [GitHub]，而不要只依賴行動服務本身中的複本。您可以透過 Azure 入口網站、使用行動服務[原始檔控制功能](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/store-scripts-in-source-control/)，或[使用 Azure 命令列工具](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/command-line-administration/)來下載指令碼。請注意入口網站中標示為 [預覽] 的功能，因為不保證可回復這些指令碼，可能需要從您自己的原始檔控制來源中回復指令碼。
 -   **保留次要行動服務**
     如果行動服務發生可用性問題，您可能必須將它重新部署到替代的 Azure 區域。為了確保容量可用 (例如在遺失整個區域的罕見情況下)，建議您在替代區域中建立次要行動服務，並將模式設定為與主要服務的模式相同或更高(如果主要服務處於共用模式，您可以設次要服務設為共用或保留。但是如果保留主要服務，則次要服務也必須保留)。
 
@@ -25,7 +25,7 @@
 -   連線至行動服務的應用程式已經很久沒有與服務進行通訊。
 -   行動服務狀態在 [Azure 入口網站](http://manage.windowsazure.com/)中會顯示為 **[狀況不良]**。
 -   在 Azure 入口網站中，行動服務的每個索引標籤頂端會顯示 **[狀況不良]** 旗幟，且管理作業會產生錯誤訊息。
--   [Azure 服務儀表板](http://www.windowsazure.com/en-us/support/service-dashboard/)指出發生可用性問題。
+-   [Azure 服務儀表板](http://www.windowsazure.com/zh-tw/support/service-dashboard/)指出發生可用性問題。
 
 回復從災害中回復
 ----------------
@@ -42,7 +42,7 @@
 
     如果您尚未保留次要行動服務，請立即在其他 Azure 區域中建立。將模式設定為與主要服務的模式相同或更高(如果主要服務處於共用模式，您可以設次要服務設為共用或保留。但是如果保留主要服務，則次要服務也必須保留)。
 
-3.  依照＜[使用命令列工具來自動化行動服務](http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/)＞中的說明，設定 Azure 命令列工具來處理您的訂閱。
+3.  依照＜[使用命令列工具來自動化行動服務](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/command-line-administration/)＞中的說明，設定 Azure 命令列工具來處理您的訂閱。
 
 4.  現在您可以使用次要服務來回復主要服務。
 

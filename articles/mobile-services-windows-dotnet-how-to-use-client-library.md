@@ -5,7 +5,7 @@
 
 [.NET Framework](/en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework") [HTML/JavaScript](/en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
 
-本指南將示範如何在 Windows 市集應用程式和 Windows Phone 應用程式中，使用適用於 Azure 行動服務的 .NET 用戶端來執行常見案例。涵蓋的案例包括查詢資料、插入、更新和刪除資料、驗證使用者，以及處理錯誤。如果您不熟悉行動服務，您應考慮首先完成「行動服務快速入門」教學課程 ([Windows 市集快速入門教學課程](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started/)/[Windows Phone 快速入門教學課程](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-wp8/)) 和「開始使用 .NET 中的資料」教學課程 ([Windows 市集資料教學課程](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/)/[Windows Phone 資料教學課程](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-wp8/))。快速入門教學課程需要 [Mobile Services SDK](http://nuget.org/packages/WindowsAzure.MobileServices/)，來協助您設定帳戶並建立第一個行動服務。
+本指南將示範如何在 Windows 市集應用程式和 Windows Phone 應用程式中，使用適用於 Azure 行動服務的 .NET 用戶端來執行常見案例。涵蓋的案例包括查詢資料、插入、更新和刪除資料、驗證使用者，以及處理錯誤。如果您不熟悉行動服務，您應考慮首先完成「行動服務快速入門」教學課程 ([Windows 市集快速入門教學課程](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started/)/[Windows Phone 快速入門教學課程](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-wp8/)) 和「開始使用 .NET 中的資料」教學課程 ([Windows 市集資料教學課程](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet/)/[Windows Phone 資料教學課程](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-wp8/))。快速入門教學課程需要 [Mobile Services SDK](http://nuget.org/packages/WindowsAzure.MobileServices/)，來協助您設定帳戶並建立第一個行動服務。
 
 目錄
 ----
@@ -242,7 +242,7 @@
 -   可以列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?**(0x003F)、**\\** (0x005C)、**\`** (0x0060)
 -   識別碼 "." 和 ".."
 
-另外，您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 命令並指定 `mobile table create` 選項來建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables) (英文)。
+另外，您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 命令並指定 `mobile table create` 選項來建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表](http://www.windowsazure.com/zh-tw/manage/linux/other-resources/command-line-tools/#Mobile_Tables) (英文)。
 
 若要插入不具類型的資料，您可以充份利用 Json.NET，如下所示。
 
@@ -377,7 +377,7 @@
 	    await msgDialog.ShowAsync();
 	}
 
-如需為行動服務使用開放式並型存取的完整範例，請參閱[開放式並型存取教學課程](http://www.windowsazure.com/en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/) (英文)。
+如需為行動服務使用開放式並型存取的完整範例，請參閱[開放式並型存取教學課程](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/) (英文)。
 
 顯示資料作法：將資料繫結到行動服務中的使用者介面
 ------------------------------------------------
@@ -417,13 +417,13 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 驗證作法：驗證使用者
 --------------------
 
-行動服務支援使用各種外部身分識別提供者來驗證和授權應用程式使用者：Facebook、Google、Microsoft 帳戶、Twitter 和 Azure Active Directory。您可以在資料表上設定權限，以限制只有已驗證的使用者才能存取特定的作業。您也可以在伺服器指令碼中，使用驗證的使用者的身分識別來實作授權規則。如需詳細資訊，請參閱「開始使用驗證」教學課程 ([Windows Store](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/) (英文)/[Windows Phone](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-wp8/) (英文))
+行動服務支援使用各種外部身分識別提供者來驗證和授權應用程式使用者：Facebook、Google、Microsoft 帳戶、Twitter 和 Azure Active Directory。您可以在資料表上設定權限，以限制只有已驗證的使用者才能存取特定的作業。您也可以在伺服器指令碼中，使用驗證的使用者的身分識別來實作授權規則。如需詳細資訊，請參閱「開始使用驗證」教學課程 ([Windows Store](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet/) (英文)/[Windows Phone](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-users-wp8/) (英文))
 
 支援兩種驗證流程：*伺服器流程*和*用戶端流程*。由於伺服器流程採用提供者的 Web 驗證介面，因此所提供的驗證體驗也最為簡單。因為用戶端流程採用提供者特定的裝置特定 SDK，因此可允許與裝置特定功能的深入整合。
 
 ### 伺服器流程
 
-若要讓行動服務管理 Windows 市集或 Windows Phone 應用程式中的驗證程序，您必須向識別提供者註冊您的應用程式。然後，在行動服務中，您需要設定提供者所提供的應用程式識別碼和密碼。如需詳細資訊，請參閱「開始使用驗證」教學課程 ([Windows Store](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/)/[Windows Phone](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-wp8/))。
+若要讓行動服務管理 Windows 市集或 Windows Phone 應用程式中的驗證程序，您必須向識別提供者註冊您的應用程式。然後，在行動服務中，您需要設定提供者所提供的應用程式識別碼和密碼。如需詳細資訊，請參閱「開始使用驗證」教學課程 ([Windows Store](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet/)/[Windows Phone](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-users-wp8/))。
 
 在註冊識別提供者之後，您只需使用提供者的 [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) 值來呼叫 [LoginAsync 方法](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx)即可。例如，下列程式碼將透過使用 Facebook 來初始化伺服器流程登入。
 

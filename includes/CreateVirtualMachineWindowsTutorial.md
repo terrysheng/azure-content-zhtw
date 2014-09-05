@@ -146,6 +146,6 @@ Azure 中的虛擬機器是您在雲端中可以控制和管理的伺服器。�
 [3]: http://manage.windowsazure.com
 [4]: http://go.microsoft.com/fwlink/p/?LinkID=23435
 [5]: http://go.microsoft.com/FWLink/p/?LinkID=390493
-[6]: http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/
-[7]: http://www.windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/
-[8]: http://www.windowsazure.com/en-us/documentation/articles/manage-availability-virtual-machines/
+[6]: http://www.windowsazure.com/zh-tw/manage/linux/how-to-guides/setup-endpoints/
+[7]: http://www.windowsazure.com/zh-tw/documentation/articles/cloud-services-connect-virtual-machine/
+[8]: http://www.windowsazure.com/zh-tw/documentation/articles/manage-availability-virtual-machines/

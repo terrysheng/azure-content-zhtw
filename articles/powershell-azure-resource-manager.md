@@ -16,7 +16,7 @@
 
 -   Windows PowerShell 3.0 或更新版本。若要找出 Windows PowerShell 的版本，請輸入：`$PSVersionTable`，並確認 `PSVersion` 的值是否為 3.0 或更大值。若要安裝新版，請參閱 [Windows Management Framework 3.0](http://www.microsoft.com/en-us/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=40855)。
 
--   Azure PowerShell 0.8.0 或更新版本。若要安裝最新版本，並將它與 Azure 訂閱建立關聯，請參閱[如何安裝和設定 Windows Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/) (英文)。
+-   Azure PowerShell 0.8.0 或更新版本。若要安裝最新版本，並將它與 Azure 訂閱建立關聯，請參閱[如何安裝和設定 Windows Azure PowerShell](http://www.windowsazure.com/zh-tw/documentation/articles/install-configure-powershell/) (英文)。
 
 本教學課程是專為 Windows PowerShell 初學者所設計的，但它會假設您已了解基本概念，例如模組、Cmdlet 和工作階段。如需 Windows PowerShell 的詳細資訊，請參閱[開始使用 Windows PowerShell](http://technet.microsoft.com/en-us/library/hh857337.aspx) (英文)。
 
@@ -492,5 +492,5 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 -   [Azure 部落格](http://blogs.msdn.com/windowsazure)：深入了解 Azure 的新功能。
 -   [Windows PowerShell 部落格](http://blogs.msdn.com/powershell)：深入了解 Windows PowerShell 的新功能。
 -   ["Hey, Scripting Guy!"部落格](http://blogs.technet.com/b/heyscriptingguy/)：從社群中取得實際的秘訣及訣竅。
--   [將 Azure 跨平台命令列介面與資源管理員搭配使用](http://www.windowsazure.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/)：了解自動化資源管理員操作的替代方式。
+-   [將 Azure 跨平台命令列介面與資源管理員搭配使用](http://www.windowsazure.com/zh-tw/documentation/articles/xplat-cli-azure-resource-manager/)：了解自動化資源管理員操作的替代方式。
 

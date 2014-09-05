@@ -6,7 +6,7 @@
 本教學課程描述在 Azure 網站上編寫與設定基本的 Web 伺服器閘道介面 (WSGI) 相容之 Python 應用程式的選項。開始使用 Azure 網站很簡單，而您的 Python 應用程式將有空間可擴充至其他 Azure 服務。Azure 網站平台內含 Python 2.7 以及 Python 專屬的泛用型 wfastcgi.py FastCGI 處理常式。您只需將網站設定為使用 Python 處理常式即可。
 
 如需在 Azure 網站上設定 Django 架構的更複雜範例，請參閱下列教學課程：
-<http://www.windowsazure.com/en-us/develop/python/tutorials/web-sites-with-django> (英文)。
+<http://www.windowsazure.com/zh-tw/develop/python/tutorials/web-sites-with-django> (英文)。
 
 WSGI 支援
 ---------
@@ -16,7 +16,7 @@ WSGI 是由 [PEP 3333](http://www.python.org/dev/peps/pep-3333/) 描述的一項
 建立網站
 --------
 
-本教學課程假定現有一個 Azure 訂閱，而且能夠存取 Azure 管理入口網站。以下網站提供您建立網站的詳細說明：<http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites> (英文)。
+本教學課程假定現有一個 Azure 訂閱，而且能夠存取 Azure 管理入口網站。以下網站提供您建立網站的詳細說明：<http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-create-websites> (英文)。
 
 簡單地說，如果您還沒有網站，則可以從 Azure 管理入口網站建立一個網站。選取 [網站] 功能並使用 [快速建立] 選項，然後為您的網站指定一個 URL。
 

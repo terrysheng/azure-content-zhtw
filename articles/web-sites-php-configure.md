@@ -99,6 +99,6 @@ PHP 5.5 也可供使用，不過並未預設啟用。若要將它啟用，請依
 
 了解如何在 Azure 網站中設定 PHP 之後，請參考下列連結了解如何進行後續動作。
 
--   [在 Azure 中設定、監視和調整網站](http://www.windowsazure.com/en-us/manage/services/web-sites/)
--   [下載 Azure SDK for PHP](http://www.windowsazure.com/en-us/develop/php/common-tasks/download-php-sdk/)
+-   [在 Azure 中設定、監視和調整網站](http://www.windowsazure.com/zh-tw/manage/services/web-sites/)
+-   [下載 Azure SDK for PHP](http://www.windowsazure.com/zh-tw/develop/php/common-tasks/download-php-sdk/)
 

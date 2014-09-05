@@ -399,7 +399,7 @@
     部署至 AZURE讓應用程式準備好部署至 AZURE
     ----------------------------------------
 
-    您可以將應用程式部署至 Azure 雲端服務或 Azure 網站。若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型](http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/) (英文)。若要了解如何將應用程式部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/) (英文)。本節包含將應用程式部署至 Azure 雲端服務的詳細步驟。
+    您可以將應用程式部署至 Azure 雲端服務或 Azure 網站。若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型](http://www.windowsazure.com/zh-tw/develop/net/fundamentals/compute/) (英文)。若要了解如何將應用程式部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](http://www.windowsazure.com/zh-tw/develop/net/tutorials/get-started/) (英文)。本節包含將應用程式部署至 Azure 雲端服務的詳細步驟。
 
     若要將應用程式部署至雲端服務，您需要新增雲端服務專案部署專案至方案。部署專案包含在雲端適當地執行應用程式所需的組態資訊。
 
@@ -535,7 +535,7 @@
 
         ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png)
 
-若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型](http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/) (英文)。
+若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型](http://www.windowsazure.com/zh-tw/develop/net/fundamentals/compute/) (英文)。
 
 刪除應用程式停止並刪除應用程式
 ------------------------------

@@ -161,7 +161,7 @@
 步驟 3：查詢效能計數器資料
 --------------------------
 
-當應用程式完成部署並開始執行後，診斷監視器即會開始收集效能計數器，並將資料存留至 Azure 儲存體。您可以使用 Visual Studio 中的 **[伺服器總管]**、[Azure 儲存體總管](http://azurestorageexplorer.codeplex.com/)或 Cerebrata 的 [Azure 診斷管理員](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx)等工具，檢視 **WADPerformanceCountersTable** 資料表中的效能計數器資料。您也可以透過程式設計，使用 [C\#][]、[Java](http://www.windowsazure.com/en-us/develop/java/how-to-guides/table-service/)、[Node.js][]、[Python](http://www.windowsazure.com/en-us/develop/python/how-to-guides/table-service/) 或 [PHP](http://www.windowsazure.com/en-us/develop/php/how-to-guides/table-service/) 來查詢資料表服務。
+當應用程式完成部署並開始執行後，診斷監視器即會開始收集效能計數器，並將資料存留至 Azure 儲存體。您可以使用 Visual Studio 中的 **[伺服器總管]**、[Azure 儲存體總管](http://azurestorageexplorer.codeplex.com/)或 Cerebrata 的 [Azure 診斷管理員](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx)等工具，檢視 **WADPerformanceCountersTable** 資料表中的效能計數器資料。您也可以透過程式設計，使用 [C\#][]、[Java](http://www.windowsazure.com/zh-tw/develop/java/how-to-guides/table-service/)、[Node.js][]、[Python](http://www.windowsazure.com/zh-tw/develop/python/how-to-guides/table-service/) 或 [PHP](http://www.windowsazure.com/zh-tw/develop/php/how-to-guides/table-service/) 來查詢資料表服務。
 
 下列 C\# 範例將說明對 **WADPerformanceCountersTable** 資料表的簡易查詢，並將診斷資料儲存至 CSV 檔案。效能計數器儲存至 CSV 檔案後，您可以使用 Microsoft Excel 或其他工具的圖表功能，將資料視覺化。請務必為 Azure SDK for .NET (2012 年 10 月或更新版本) 隨附的 Microsoft.WindowsAzure.Storage.dll 新增參考。此組件會安裝在 %Program Files%\\Microsoft SDKs\\Windows Azure.NET SDK\\version-num\\ref\\ 目錄中。
 
@@ -241,7 +241,7 @@
 
 -   [開發 Azure 應用程式的疑難排解最佳作法](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh771389.aspx)
 -   [如何監視雲端服務](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/)
--   [如何使用自動調整應用程式區塊](http://www.windowsazure.com/en-us/develop/net/how-to-guides/autoscaling/)
+-   [如何使用自動調整應用程式區塊](http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/autoscaling/)
 -   [建置彈性、恢復力強的雲端應用程式](http://msdn.microsoft.com/zh-tw/library/hh680949(PandP.50).aspx)
 
 其他資源

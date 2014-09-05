@@ -34,7 +34,7 @@
 
 ### 需求和範圍
 
-1.  **訂閱和儲存體帳戶：**您必須有現有的 Azure 訂閱以及一或多個儲存體帳戶，才能使用匯入/匯出服務。每項工作都只能從僅只一個儲存體帳戶收送資料。換句話說，一項工作不能跨越多個儲存體帳戶。如需建立新儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/) (英文)。
+1.  **訂閱和儲存體帳戶：**您必須有現有的 Azure 訂閱以及一或多個儲存體帳戶，才能使用匯入/匯出服務。每項工作都只能從僅只一個儲存體帳戶收送資料。換句話說，一項工作不能跨越多個儲存體帳戶。如需建立新儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](http://www.windowsazure.com/zh-tw/manage/services/storage/how-to-create-a-storage-account/) (英文)。
 2.  **硬碟：**只有 3.5 英吋的 SATA II 硬碟能夠用於匯入/匯出服務。預覽版本不支援 4TB 以上的硬碟。若為匯入工作，將只會處理磁碟機上的第一個資料磁碟區。此資料磁碟區必須以 NTFS 格式化。您可以將 SATA II 磁碟附加至大多數使用 SATA II USB 介面卡的外部電腦。
 3.  **BitLocker 加密：**必須使用 BitLocker 和以數值密碼保護的加密金鑰來加密硬碟上儲存的所有資料。
 4.  **Blob 儲存體目標：**從區塊 Blob 和頁面 Blob 可以上傳或下載資料。

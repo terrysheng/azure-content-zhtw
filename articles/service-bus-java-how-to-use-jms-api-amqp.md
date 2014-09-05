@@ -351,5 +351,5 @@ JMS 與 .NET 之間的跨平台訊息
 -   [Azure 服務匯流排中的 AMQP 1.0 支援](http://aka.ms/pgr3dp)
 -   [如何透過服務匯流排 .NET API 使用 AMQP 1.0](http://aka.ms/lym3vk)
 -   [服務匯流排 AMQP 1.0 開發人員指南](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj841071.aspx)
--   [如何使用服務匯流排佇列](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
+-   [如何使用服務匯流排佇列](http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/service-bus-queues/)
 

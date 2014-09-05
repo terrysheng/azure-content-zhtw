@@ -605,7 +605,7 @@
 
 -   [Azure 資料表儲存體須知](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-azure-table-storage.aspx) (Bruno Terkaly 的部落格) (英文)
 -   [如何充分發揮 Windows Azure 資料表的效益](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx) (Azure 儲存體團隊部落格) (英文)
--   [如何在 .NET 中使用資料表儲存體服務](http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/)
+-   [如何在 .NET 中使用資料表儲存體服務](http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/table-services/)
 -   [Windows Azure 儲存體用戶端程式庫 2.0 資料表深入探討](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx) (Azure 儲存體團隊部落格) (英文)
 -   [Real World:設計 Azure 資料表儲存體的可調整分割策略](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh508997.aspx) (英文)
 

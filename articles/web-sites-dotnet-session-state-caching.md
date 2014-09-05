@@ -38,7 +38,7 @@
 設定 ASP.NET 專案
 -----------------
 
-1.  首先，確保您[已安裝最新的](http://www.windowsazure.com/en-us/downloads/?sdk=net) **Azure SDK for .NET**。
+1.  首先，確保您[已安裝最新的](http://www.windowsazure.com/zh-tw/downloads/?sdk=net) **Azure SDK for .NET**。
 
 2.  在 Visual Studio 中，在 [解決方案總管] 中以滑鼠右鍵按一下 ASP.NET 專案****，然後選取 **[管理 NuGet 封裝]**。(如果您使用的是 WebMatrix，則改為按一下工具列上的 **[NuGet]** 按鈕)
 

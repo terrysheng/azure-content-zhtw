@@ -167,5 +167,5 @@ Azure
 
 
 
-[1]: http://www.windowsazure.com/en-us/support/legal/sla/
+[1]: http://www.windowsazure.com/zh-tw/support/legal/sla/
 [2]: http://msdn.microsoft.com/library/windowsazure/jj156085.aspx

@@ -17,8 +17,8 @@
 
 1.  已安裝 Java Developer Kit (JDK) 1.6 版或更新版本。
 2.  已安裝 Azure SDK。
-3.  已安裝 Azure Libraries for Java 的 JAR 和任何適用的相依性 JAR，且位於 Java 編輯器所使用的組建路徑中。如需有關安裝 Azure Libraries for Java 的詳細資訊，請參閱[下載 Azure SDK for Java](http://www.windowsazure.com/en-us/develop/java/) (英文)。
-4.  已設定 Azure 儲存體帳戶。以下程式碼將會使用此儲存體帳戶的帳戶名稱和帳戶金鑰。如需建立儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/) (英文)，如需擷取帳戶金鑰的詳細資訊，請參閱[如何管理儲存體帳戶](http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/) (英文)。
+3.  已安裝 Azure Libraries for Java 的 JAR 和任何適用的相依性 JAR，且位於 Java 編輯器所使用的組建路徑中。如需有關安裝 Azure Libraries for Java 的詳細資訊，請參閱[下載 Azure SDK for Java](http://www.windowsazure.com/zh-tw/develop/java/) (英文)。
+4.  已設定 Azure 儲存體帳戶。以下程式碼將會使用此儲存體帳戶的帳戶名稱和帳戶金鑰。如需建立儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](http://www.windowsazure.com/zh-tw/manage/services/storage/how-to-create-a-storage-account/) (英文)，如需擷取帳戶金鑰的詳細資訊，請參閱[如何管理儲存體帳戶](http://www.windowsazure.com/zh-tw/manage/services/storage/how-to-manage-a-storage-account/) (英文)。
 5.  您已建立一個已命名並儲存於路徑 c:\\myimages\\image1.jpg 中的本機影像檔案。或者，修改範例中的 **FileInputStream** 建構函式以使用其他影像路徑和檔案名稱。
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
@@ -349,5 +349,5 @@
         }
     }
 
-如需其他 Blob 儲存體類別和方法的概觀，請參閱[如何使用 Java 的 Blob 儲存體服務](http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/) (英文)。
+如需其他 Blob 儲存體類別和方法的概觀，請參閱[如何使用 Java 的 Blob 儲存體服務](http://www.windowsazure.com/zh-tw/develop/java/how-to-guides/blob-storage/) (英文)。
 

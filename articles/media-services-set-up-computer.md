@@ -80,5 +80,5 @@ ASP.NET Web 應用程式)。
 [如何建立媒體服務帳戶]: http://go.microsoft.com/fwlink/?linkid=256662
 [如何建立加密資產和上傳至儲存體]:http://go.microsoft.com/fwlink/?LinkID=301733&clcid=0x409
 
-[1]: http://www.windowsazure.com/en-us/manage/services/media-services/how-to-create-a-media-services-account/
+[1]: http://www.windowsazure.com/zh-tw/manage/services/media-services/how-to-create-a-media-services-account/
 [2]: http://nuget.org/packages/windowsazure.mediaservices

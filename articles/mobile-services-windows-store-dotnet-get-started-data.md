@@ -21,7 +21,7 @@
 2.  [從 Visual Studio 建立行動服務](#create-service)
 3.  [新增要儲存的資料表並更新應用程式](#add-table)
 4.  [對行動服務測試應用程式](#test-app)
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。</p></div>
+<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。</p></div>
 
 <h2><a name="download-app"></a><span  class="short-header">下載專案</span>下載 GetStartedWithData 專案</h2>
 

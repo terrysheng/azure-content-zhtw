@@ -17,7 +17,7 @@
 
 若要使用 Azure 命令列工具管理行動服務，您需要已啟用 Azure 行動服務功能的 Azure 帳戶。
 
--   如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/en-us/pricing/free-trial/)。
+-   如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/)。
 
 -   如果您現已有帳戶，但需要啟用 Azure 行動服務預覽版，則請參閱[啟用 Azure 預覽功能](../create-a-windows-azure-account/#enable)。
 

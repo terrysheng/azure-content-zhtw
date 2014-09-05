@@ -20,7 +20,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 
 **必要條件**：
 
--   您必須有一個 Azure 帳戶。如需有關註冊帳戶的選項，請參閱[免費試用 Azure](http://www.windowsazure.com/en-us/pricing/free-trial/) 頁面。
+-   您必須有一個 Azure 帳戶。如需有關註冊帳戶的選項，請參閱[免費試用 Azure](http://www.windowsazure.com/zh-tw/pricing/free-trial/) 頁面。
 
 -   您必須已經佈建 HDInsight 叢集。如需有關透過其他各種方法建立此類叢集的指示，請參閱[佈建 HDInsight 叢集](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)。
 

@@ -10,7 +10,7 @@
 
 ![Wordpress 部落格](./media/website-from-gallery/wordpressgallery-09.png)
 <div class="dev-callout"><strong>注意</strong>
-<p>若要完成此教學課程，您需要 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資料，請參閱＜<a href="http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">建立 Azure 帳戶</a>＞。</p>
+<p>若要完成此教學課程，您需要 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資料，請參閱＜<a href="http://www.windowsazure.com/zh-tw/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">建立 Azure 帳戶</a>＞。</p>
 </div>
 
 ## 在入口網站中建立網站

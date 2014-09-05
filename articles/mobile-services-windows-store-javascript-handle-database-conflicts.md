@@ -18,7 +18,7 @@
 
 -   Microsoft Visual Studio 2013 Express for Windows 或更新版本。
 -   本教學課程是以行動服務快速入門為基礎。在開始本教學課程之前，您必須先完成[開始使用行動服務](/en-us/develop/mobile/tutorials/get-started)而下載起始專案的 JavaScript 語言版本。
--   [Windows Azure 帳戶](http://www.windowsazure.com/en-us/pricing/free-trial/)
+-   [Windows Azure 帳戶](http://www.windowsazure.com/zh-tw/pricing/free-trial/)
 -   Windows Azure 行動服務 NuGet 封裝 1.1.5 或更新版本。若要取得最新版本，請遵循下列步驟：
     1.  在 Visual Studio 中開啟專案，在 [方案總管] 中以滑鼠右鍵按一下專案，然後按一下 **[管理 NuGet 封裝]**。
 
@@ -322,7 +322,7 @@ Windows Azure 行動服務支援開放式並行存取控制項，方法是使用
 <!-- URLs. -->
 [Optimistic Concurrency Control]: http://go.microsoft.com/fwlink/?LinkId=330935
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Windows Azure Account]: http://www.windowsazure.com/en-us/pricing/free-trial/
+[Windows Azure Account]: http://www.windowsazure.com/zh-tw/pricing/free-trial/
 [Validate and modify data with scripts]: /en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
 [Refine queries with paging]: /en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started

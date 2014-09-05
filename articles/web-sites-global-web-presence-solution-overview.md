@@ -1,4 +1,4 @@
-<properties linkid="websites-global-web-presence" urlDisplayName="Create a Global Web Presence on Azure Web Sites" pageTitle="Create a Global Web Presence on Azure Web Sites" metaKeywords="" description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure Web Sites. This includes deployment, custom domains, SSL, and monitoring." metaCanonical="http://www.windowsazure.com/en-us/documentation/articles/web-sites-global-web-presence-solution-overview/" services="" documentationCenter="" title="Create a Global Web Presence on Azure Web Sites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
+<properties linkid="websites-global-web-presence" urlDisplayName="Create a Global Web Presence on Azure Web Sites" pageTitle="Create a Global Web Presence on Azure Web Sites" metaKeywords="" description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure Web Sites. This includes deployment, custom domains, SSL, and monitoring." metaCanonical="http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-global-web-presence-solution-overview/" services="" documentationCenter="" title="Create a Global Web Presence on Azure Web Sites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
 在 Azure 網站上建立全域網站空間
 ===============================
@@ -15,7 +15,7 @@
 
 **注意**
 
-本指南呈現一些與公用端 .COM 網站開發整合的最常見領域和工作。不過，還有其他 Azure 網站功能可供您在特定的實作中使用。若要檢閱這些功能，請同時參閱[數位行銷活動](http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview) (英文) 與[商務應用程式](http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview) (英文) 上的其他指南。
+本指南呈現一些與公用端 .COM 網站開發整合的最常見領域和工作。不過，還有其他 Azure 網站功能可供您在特定的實作中使用。若要檢閱這些功能，請同時參閱[數位行銷活動](http://www.windowsazure.com/zh-tw/manage/services/web-sites/digital-marketing-campaign-solution-overview) (英文) 與[商務應用程式](http://www.windowsazure.com/zh-tw/manage/services/web-sites/business-application-solution-overview) (英文) 上的其他指南。
 
 建立 Azure 網站
 ---------------
@@ -191,27 +191,27 @@ Azure 網站會針對實際網站 URL 自動提供安全連線。例如，當您
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">規劃</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service">Azure 網站、雲端服務和 VM：使用時機</a></td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/choose-web-app-service">Azure 網站、雲端服務和 VM：使用時機</a></td>
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">建立</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites/">如何建立及部署網站</a></td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-create-websites/">如何建立及部署網站</a></td>
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">部署</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-git/">從原始檔控制發行至 Azure 網站</a> (英文)<br/> - <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/">將 ASP.NET Web 應用程式部署至 Azure 網站</a> (英文) <br/>- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/tutorials/website-with-webmatrix/">使用 Microsoft WebMatrix 開發與部署網站</a> (英文)</td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/develop/net/common-tasks/publishing-with-git/">從原始檔控制發行至 Azure 網站</a> (英文)<br/> - <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/develop/net/tutorials/get-started/">將 ASP.NET Web 應用程式部署至 Azure 網站</a> (英文) <br/>- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/develop/net/tutorials/website-with-webmatrix/">使用 Microsoft WebMatrix 開發與部署網站</a> (英文)</td>
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">自訂網域</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">設定 Azure 網站的自訂網域名稱</a></td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/develop/net/common-tasks/custom-dns-web-site/">設定 Azure 網站的自訂網域名稱</a></td>
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">SSL</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">設定 Azure 網站的 SSL 憑證</a></td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/develop/net/common-tasks/enable-ssl-web-site/">設定 Azure 網站的 SSL 憑證</a></td>
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">監視</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/">如何監視網站</a></td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-monitor-websites/">如何監視網站</a></td>
 </tr>
 </table>
 

@@ -42,7 +42,7 @@ Hadoop .NET SDK 所提供的 .NET 用戶端程式庫，可讓您輕鬆地從 .NE
 教學課程前置工作
 ----------------
 
-您必須具備 [Azure 訂閱](http://www.windowsazure.com/en-us/pricing/free-trial/) 和 [Azure 儲存體帳戶](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/)，才能開始執行。您也必須知道您的 Azure 儲存體帳戶名稱和帳戶金鑰。有關取得此資訊的指示，請參閱[如何管理儲存體帳戶](/en-us/manage/services/storage/how-to-manage-a-storage-account/)的*作法：檢視、複製及重新產生儲存體存取金鑰*一節。
+您必須具備 [Azure 訂閱](http://www.windowsazure.com/zh-tw/pricing/free-trial/) 和 [Azure 儲存體帳戶](http://www.windowsazure.com/zh-tw/manage/services/storage/how-to-create-a-storage-account/)，才能開始執行。您也必須知道您的 Azure 儲存體帳戶名稱和帳戶金鑰。有關取得此資訊的指示，請參閱[如何管理儲存體帳戶](/en-us/manage/services/storage/how-to-manage-a-storage-account/)的*作法：檢視、複製及重新產生儲存體存取金鑰*一節。
 
 您還必須下載此教學課程中使用的 Actors.txt 檔案。請執行下列步驟，將此檔案下載至您的開發環境：
 

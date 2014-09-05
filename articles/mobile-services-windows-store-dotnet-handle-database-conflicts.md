@@ -18,7 +18,7 @@
 
 -   Microsoft Visual Studio 2012 Express for Windows 或更新版本。
 -   本教學課程是以行動服務快速入門為基礎。開始此教學課程之前，您必須先完成[開始使用行動服務](/en-us/develop/mobile/tutorials/get-started)。
--   [Azure 帳戶](http://www.windowsazure.com/en-us/pricing/free-trial/)
+-   [Azure 帳戶](http://www.windowsazure.com/zh-tw/pricing/free-trial/)
 -   Azure 行動服務 NuGet 封裝 1.1.0 或更新版本。若要取得最新版本，請遵循下列步驟：
     1.  在 Visual Studio 中開啟專案，在 [方案總管] 中以滑鼠右鍵按一下專案，然後按一下 **[管理 NuGet 封裝]**。
 

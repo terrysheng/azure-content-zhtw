@@ -1214,8 +1214,8 @@ Blob 是儲存在 Blob 容器中，就像檔案是儲存在資料夾中一樣。
 [6]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433122.aspx
 [7]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx
 [8]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee517253.aspx "VIP 交換"
-[9]: http://www.windowsazure.com/en-us/manage/windows/fundamentals/compute/
-[10]: http://www.windowsazure.com/en-us/pricing/calculator/
+[9]: http://www.windowsazure.com/zh-tw/manage/windows/fundamentals/compute/
+[10]: http://www.windowsazure.com/zh-tw/pricing/calculator/
 [11]: http://sendgrid.com/windowsazure.html
 [12]: https://www.windowsazure.com/en-us/support/legal/sla/ "SLA"
 [13]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx

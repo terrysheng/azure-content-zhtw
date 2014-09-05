@@ -349,16 +349,16 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 
 
-[1]: http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/
-[2]: http://www.windowsazure.com/en-us/pricing/details/web-sites/
+[1]: http://www.windowsazure.com/zh-tw/develop/net/common-tasks/custom-dns/
+[2]: http://www.windowsazure.com/zh-tw/pricing/details/web-sites/
 [3]: http://en.wikipedia.org/wiki/CNAME_record
 [4]: http://tools.ietf.org/html/rfc1035
 [5]: https://www.windowsazure.com/en-us/pricing/details/
 [6]: http://manage.windowsazure.com
 [7]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn339012.aspx
 [8]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh744839.aspx
-[9]: http://www.windowsazure.com/en-us/manage/install-and-configure-windows-powershell/
-[10]: http://www.windowsazure.com/en-us/manage/install-and-configure-cli/
+[9]: http://www.windowsazure.com/zh-tw/manage/install-and-configure-windows-powershell/
+[10]: http://www.windowsazure.com/zh-tw/manage/install-and-configure-cli/
 [11]: http://www.digwebinterface.com/
-[12]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-manage-websites/
-[13]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
+[12]: http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-manage-websites/
+[13]: http://www.windowsazure.com/zh-tw/develop/net/common-tasks/enable-ssl-web-site/

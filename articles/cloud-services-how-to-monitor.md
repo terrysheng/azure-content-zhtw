@@ -189,6 +189,6 @@
 [2]: http://msdn.microsoft.com/zh-tw/library/hh411542.aspx
 [3]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn186185.aspx
 [4]: https://manage.windowsazure.com/
-[5]: http://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-manage-a-cloud-service/
+[5]: http://www.windowsazure.com/zh-tw/manage/services/cloud-services/how-to-manage-a-cloud-service/
 [6]: http://go.microsoft.com/fwlink/?LinkId=309356
 [7]: http://manage.windowsazure.com/

@@ -351,7 +351,7 @@
 [作法:定義您的自動調整規則]: #DefineAutoscalingRules
 [作法:設定自動調整應用程式區塊]: #Configure
 
-[在 Azure 中使用效能計數器資料]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/
+[在 Azure 中使用效能計數器資料]: http://www.windowsazure.com/zh-tw/develop/net/common-tasks/performance-profiling/
 [NuGet]: http://nuget.org/
 [Azure 管理入口網站]: http://manage.windowsazure.com
 [儲存您的服務資訊資料]: http://msdn.microsoft.com/zh-tw/library/hh680878(PandP.50).aspx

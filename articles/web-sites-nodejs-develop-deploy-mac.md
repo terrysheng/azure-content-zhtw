@@ -14,7 +14,7 @@
 
 請遵循以下步驟來建立 Azure 網站，然後為該網站啟用 Git 發行功能。
 <div class="dev-callout"><strong>注意</strong>
-<p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 免費試用</a>。</p>
+<p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 免費試用</a>。</p>
 </div>
 
  1.  登入 [Azure 管理入口網站][1]。
@@ -163,6 +163,6 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
 
 
 [1]: http://manage.windowsazure.com
-[2]: http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/working-with-node-modules/
-[3]: http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/specifying-a-node-version/
-[4]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/Debug-Website/
+[2]: http://www.windowsazure.com/zh-tw/develop/nodejs/common-tasks/working-with-node-modules/
+[3]: http://www.windowsazure.com/zh-tw/develop/nodejs/common-tasks/specifying-a-node-version/
+[4]: http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/Debug-Website/

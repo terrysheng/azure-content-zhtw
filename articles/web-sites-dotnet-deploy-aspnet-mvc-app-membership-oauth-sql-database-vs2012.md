@@ -681,16 +681,16 @@ Azure 網站內含有效的安全憑證，因此當您部署至 Azure 時，不�
 
 另一個儲存 Azure 應用程式資料的方法是使用 Azure 儲存體，它能以 Blob 和資料表的形式提供非關聯式的資料儲存。以下連結提供 ASP.NET MVC 及 Window Azure 的詳細資訊。
 
--   [使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式](http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)。
+-   [使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式](http://www.windowsazure.com/zh-tw/develop/net/tutorials/multi-tier-web-site/1-overview/)。
 -   [ASP.NET MVC 4 入門](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4)
 -   [使用 MVC 的 Entity Framework 入門](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)
 -   [OAuth 2.0 與登入](http://blogs.msdn.com/b/vbertocci/archive/2013/01/02/oauth-2-0-and-sign-in.aspx)
 
-您已了解如何將 Web 應用程式部署至 Azure 網站。如需深入了解如何設定、管理與調整 Azure 網站大小，請參閱[常見工作](http://www.windowsazure.com/en-us/develop/net/common-tasks/)頁面上的〈作法〉主題。
+您已了解如何將 Web 應用程式部署至 Azure 網站。如需深入了解如何設定、管理與調整 Azure 網站大小，請參閱[常見工作](http://www.windowsazure.com/zh-tw/develop/net/common-tasks/)頁面上的〈作法〉主題。
 
 如需瞭解如何偵錯 Azure 網站，請參閱[在 Visual Studio 中疑難排解 Azure 網站](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)。
 
-如需瞭解如何將應用程式部署至 Azure 雲端服務，請參閱[本教學課程的雲端版本](http://www.windowsazure.com/en-us/develop/net/tutorials/cloud-service-with-sql-database/)與[使用 Azure 開發 Web 應用程式](http://msdn.microsoft.com/zh-tw/library/Hh674484)。您可能會因為下列某些原因，選擇在 Azure 雲端服務下 (而不是使用 Azure 網站) 執行 ASP.NET Web 應用程式：
+如需瞭解如何將應用程式部署至 Azure 雲端服務，請參閱[本教學課程的雲端版本](http://www.windowsazure.com/zh-tw/develop/net/tutorials/cloud-service-with-sql-database/)與[使用 Azure 開發 Web 應用程式](http://msdn.microsoft.com/zh-tw/library/Hh674484)。您可能會因為下列某些原因，選擇在 Azure 雲端服務下 (而不是使用 Azure 網站) 執行 ASP.NET Web 應用程式：
 
 -   您想要取得執行該應用程式的 Web 伺服器管理員權限。
 -   您想要使用遠端桌面連線存取執行該應用程式的 Web 伺服器。

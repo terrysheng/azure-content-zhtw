@@ -75,14 +75,14 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 建立行動服務
 ------------
 
-代管已啟用 Twilio 功能之應用程式的行動服務，與其他行動服務並無不同。您只是在服務中新增 Twilio node.js 程式庫，以便從您的行動服務自訂 API 指令碼加以參考而已。如需建立初始行動服務的相關資訊，請參閱[開始使用行動服務](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started/)。
+代管已啟用 Twilio 功能之應用程式的行動服務，與其他行動服務並無不同。您只是在服務中新增 Twilio node.js 程式庫，以便從您的行動服務自訂 API 指令碼加以參考而已。如需建立初始行動服務的相關資訊，請參閱[開始使用行動服務](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started/)。
 
 設定行動服務以使用 Twilio Node.js 程式庫
 ----------------------------------------
 
 Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您方便而輕鬆地與 Twilio REST API 和 Twilio 用戶端互動，以產生 TwiML 回應。
 
-若要在行動服務中使用 Twilio node.js 程式庫，您必須利用行動服務 npm 模組支援 (只要將您的指令碼儲存在來源控制中，即可支援)。[在來源控制中儲存指令碼](http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/)教學課程會逐步引導您在行動服務中首次設定來源控制，並將您的伺服器指令碼儲存在 Git 儲存機制中。
+若要在行動服務中使用 Twilio node.js 程式庫，您必須利用行動服務 npm 模組支援 (只要將您的指令碼儲存在來源控制中，即可支援)。[在來源控制中儲存指令碼](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/store-scripts-in-source-control/)教學課程會逐步引導您在行動服務中首次設定來源控制，並將您的伺服器指令碼儲存在 Git 儲存機制中。
 
 設定行動服務的來源控制後，請開啟 [行動服務] 儀表板上的 [設定] 索引標籤，然後找出 Git URL 並加以複製。
 

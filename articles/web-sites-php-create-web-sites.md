@@ -7,7 +7,7 @@
 
 大致上，在 Azure 網站中建立 PHP 網站和建立*任何*網站並無不同。依預設，所有網站都會啟用 PHP。如需有關設定 PHP (或提供您自己的自訂 PHP 執行階段) 的詳細資訊，請參閱＜[如何在 Azure 網站中設定 PHP](/en-us/develop/php/common-tasks/configure-php-web-site/)＞。
 
-下述每一個選項說明如何在共用託管環境中免費建立網站，但 CPU 使用量和頻寬使用量有所限制。如需詳細資訊，請參閱＜[Azure 網站定價](http://www.windowsazure.com/en-us/pricing/details/#header-1)＞。如需有關如何升級和調整網站的詳細資訊，請參閱＜[如何調整網站](/en-us/manage/services/web-sites/how-to-scale-websites/)＞。
+下述每一個選項說明如何在共用託管環境中免費建立網站，但 CPU 使用量和頻寬使用量有所限制。如需詳細資訊，請參閱＜[Azure 網站定價](http://www.windowsazure.com/zh-tw/pricing/details/#header-1)＞。如需有關如何升級和調整網站的詳細資訊，請參閱＜[如何調整網站](/en-us/manage/services/web-sites/how-to-scale-websites/)＞。
 
 目錄
 ----

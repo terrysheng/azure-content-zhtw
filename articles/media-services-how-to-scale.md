@@ -59,7 +59,7 @@
 若要建立支援票證，請執行下列動作：
 
 1.  在[管理入口網站](http://manage.windowsazure.com)登入您的 Azure 帳戶。
-2.  移至[支援](http://www.windowsazure.com/en-us/support/contact/)。
+2.  移至[支援](http://www.windowsazure.com/zh-tw/support/contact/)。
 3.  按一下 [取得支援]。
 4.  選取您的訂閱。
 5.  在支援類型下，選取 [技術]。

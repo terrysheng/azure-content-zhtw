@@ -37,7 +37,7 @@
 建立 Java 應用程式
 ------------------
 
-在本指南中，您將使用儲存體功能，這些功能可執行於本機的 Java 應用程式內，也可執行於在 Azure 中之 Web 角色或背景工作角色內執行的程式碼中。我們假設您已經下載並安裝 Java Development Kit (JDK)，並已依照 [Azure SDK for Java](http://www.windowsazure.com/en-us/develop/java/) 中的指示安裝 Azure Libraries for Java 和 Azure SDK，而且也已經在您的 Azure 訂閱中建立 Azure 儲存體帳戶。
+在本指南中，您將使用儲存體功能，這些功能可執行於本機的 Java 應用程式內，也可執行於在 Azure 中之 Web 角色或背景工作角色內執行的程式碼中。我們假設您已經下載並安裝 Java Development Kit (JDK)，並已依照 [Azure SDK for Java](http://www.windowsazure.com/zh-tw/develop/java/) 中的指示安裝 Azure Libraries for Java 和 Azure SDK，而且也已經在您的 Azure 訂閱中建立 Azure 儲存體帳戶。
 
 您可以使用任何開發工具來建立應用程式 (包括 [記事本])。您唯一需要的能力就是編譯 Java 專案並參考 Azure Libraries for Java。
 

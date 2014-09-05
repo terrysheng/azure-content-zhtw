@@ -118,7 +118,7 @@ Microsoft Azure 網站上的預備部署
 
 Azure PowerShell 模組可提供透過 Windows PowerShell 來管理 Azure 的 Cmdlet，包括支援管理 Azure 網站部署位置。
 
--   如需安裝與設定 Azure PowerShell，以及使用您的 Azure 訂閱驗證 Azure PowerShell 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell) (英文)。
+-   如需安裝與設定 Azure PowerShell，以及使用您的 Azure 訂閱驗證 Azure PowerShell 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](http://www.windowsazure.com/zh-tw/documentation/articles/install-configure-powershell) (英文)。
 
 -   若要列出可供 Azure 網站使用的 PowerShell Cmdlet，請呼叫 `help AzureWebsite`。
 
@@ -176,7 +176,7 @@ Azure PowerShell 模組可提供透過 Windows PowerShell 來管理 Azure 的 Cm
 
 Azure 跨平台命令列介面 (xplat-cli) 提供您處理 Azure 的跨平台命令，包括支援管理 Azure 網站上的部署位置。
 
--   如需安裝與設定 xplat-cli 的相關說明，包括如何將 xplat-cli 與您的 Azure 訂閱連線的詳細資訊，請參閱[安裝與設定 Azure 跨平台命令列介面](http://www.windowsazure.com/en-us/documentation/articles/xplat-cli) (英文)。
+-   如需安裝與設定 xplat-cli 的相關說明，包括如何將 xplat-cli 與您的 Azure 訂閱連線的詳細資訊，請參閱[安裝與設定 Azure 跨平台命令列介面](http://www.windowsazure.com/zh-tw/documentation/articles/xplat-cli) (英文)。
 
 -   若要列出 Azure 網站可用的 xplat-cli 命令，請呼叫 `azure site -h`。
 

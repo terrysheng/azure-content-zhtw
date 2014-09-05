@@ -43,7 +43,7 @@ Azure 管理入口網站支援兩種建立服務匯流排實體的方式：*快�
 
 **注意** 該命名空間可能不會立即列出。建立服務命名空間並更新入口網站介面，需要幾秒鐘的時間。
 
-**注意** 使用**「快速建立」**進行轉送，並不會建立新的轉送端點。它只會建立可讓您以程式設計方式建立轉送端點的命名空間。如需詳細資訊，請參閱[服務匯流排文件](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-relay/)。
+**注意** 使用**「快速建立」**進行轉送，並不會建立新的轉送端點。它只會建立可讓您以程式設計方式建立轉送端點的命名空間。如需詳細資訊，請參閱[服務匯流排文件](http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/service-bus-relay/)。
 
 ### 自訂建立
 

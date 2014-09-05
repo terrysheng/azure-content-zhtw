@@ -22,7 +22,7 @@ Sign into Azure
 
 若要完成此教學課程，您需要一個已啟用 Azure 網站功能的 Azure 帳戶。
 
-如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E)。
+如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A7171371E)。
 
 1.  啟動 WebMatrix
 2.  如果這是您第一次使用 WebMatrix，則會提示您登入 Azure。否則，您可以按一下 **[登入]** 按鈕，然後選擇 **[新增帳戶]**。選擇使用您的 Microsoft 帳戶來 **[登入]**。
@@ -91,7 +91,7 @@ Sign into Azure
 後續步驟
 --------
 
-若要深入了解 Azure 隨附的 Node.js 版本，以及如何指定要與您的應用程式搭配使用的版本，請參閱[在 Azure 應用程式中指定 Node.js 版本](http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/specifying-a-node-version/) (英文)。
+若要深入了解 Azure 隨附的 Node.js 版本，以及如何指定要與您的應用程式搭配使用的版本，請參閱[在 Azure 應用程式中指定 Node.js 版本](http://www.windowsazure.com/zh-tw/develop/nodejs/common-tasks/specifying-a-node-version/) (英文)。
 
-如果您在將應用程式部署到 Azure 後遇到問題，請參閱[如何在 Azure 網站中對 Node.js 應用程式進行偵錯](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/Debug-Website/) (英文) 以獲得診斷問題的詳細資訊。
+如果您在將應用程式部署到 Azure 後遇到問題，請參閱[如何在 Azure 網站中對 Node.js 應用程式進行偵錯](http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/Debug-Website/) (英文) 以獲得診斷問題的詳細資訊。
 

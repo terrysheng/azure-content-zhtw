@@ -34,7 +34,7 @@
 
 管理服務 API 可讓使用者以程式設計方式存取[管理入口網站](https://manage.windowsazure.com/)所提供的多種服務管理功能。Azure SDK for Python 可讓您管理雲端服務、儲存帳號和親和性群組。
 
-若要使用服務管理 API，您必須[建立 Azure 帳號](http://www.windowsazure.com/en-us/pricing/free-trial/)。
+若要使用服務管理 API，您必須[建立 Azure 帳號](http://www.windowsazure.com/zh-tw/pricing/free-trial/)。
 
 概念
 ----

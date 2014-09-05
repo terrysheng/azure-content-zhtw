@@ -15,7 +15,7 @@
 
 **注意**
 
-本指南呈現一些與公用端 .COM 網站開發整合的最常見領域和工作。不過，還有其他 Azure 網站功能可供您在特定的實作中使用。若要檢閱這些功能，請一併參閱[全域網站空間](http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/) (英文) 和 [數位行銷活動](http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview) (英文) 上的其他指南。
+本指南呈現一些與公用端 .COM 網站開發整合的最常見領域和工作。不過，還有其他 Azure 網站功能可供您在特定的實作中使用。若要檢閱這些功能，請一併參閱[全域網站空間](http://www.windowsazure.com/zh-tw/manage/services/web-sites/global-web-presence-solution-overview/) (英文) 和 [數位行銷活動](http://www.windowsazure.com/zh-tw/manage/services/web-sites/digital-marketing-campaign-solution-overview) (英文) 上的其他指南。
 
 考量優點
 --------
@@ -143,23 +143,23 @@ Azure 可讓您將安全的內部網路應用程式裝載在雲端。為了只�
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">規劃</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service">Azure 網站、雲端服務和 VM：使用時機</a></td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/choose-web-app-service">Azure 網站、雲端服務和 VM：使用時機</a></td>
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">建立和部署</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/">將 ASP.NET Web 應用程式部署至 Azure 網站</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/">將安全的 ASP.NET MVC 應用程式部署至 Azure</a> (英文)</td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/develop/net/tutorials/get-started/">將 ASP.NET Web 應用程式部署至 Azure 網站</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/develop/net/tutorials/web-site-with-sql-database/">將安全的 ASP.NET MVC 應用程式部署至 Azure</a> (英文)</td>
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">驗證</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/windows/fundamentals/identity/">了解 Azure 身分識別選項</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/documentation/services/active-directory/">Azure Active Directory 服務</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://technet.microsoft.com/en-us/library/jj573650.aspx">Azure AD 租用戶是什麼？</a><br data-morhtml="true" />- <a data-morhtml="true" href="http://msdn.microsoft.com/library/windowsazure/dn151790.aspx">使用 Azure AD 為 Web 應用程式新增登入</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://www.asp.net/aspnet/overview/aspnet-and-visual-studio-2012/windows-azure-authentication">Azure 驗證教學課程</a> (英文)</td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/manage/windows/fundamentals/identity/">了解 Azure 身分識別選項</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/documentation/services/active-directory/">Azure Active Directory 服務</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://technet.microsoft.com/en-us/library/jj573650.aspx">Azure AD 租用戶是什麼？</a><br data-morhtml="true" />- <a data-morhtml="true" href="http://msdn.microsoft.com/library/windowsazure/dn151790.aspx">使用 Azure AD 為 Web 應用程式新增登入</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://www.asp.net/aspnet/overview/aspnet-and-visual-studio-2012/windows-azure-authentication">Azure 驗證教學課程</a> (英文)</td>
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">Service Bus 轉送</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-relay/">如何使用服務匯流排轉送服務</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://msdn.microsoft.com/zh-tw/library/windowsazure/ee706736.aspx">服務匯流排轉送訊息教學課程</a></td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/service-bus-relay/">如何使用服務匯流排轉送服務</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://msdn.microsoft.com/zh-tw/library/windowsazure/ee706736.aspx">服務匯流排轉送訊息教學課程</a></td>
 </tr>
 <tr data-morhtml="true">
 <td data-morhtml="true" valign="middle"><strong data-morhtml="true">監視</strong></td>
-<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/">如何監視網站</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">作法：在 Azure 中接收警示通知及管理警示規則</a><br data-morhtml="true" />- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics">作法：設定診斷功能及下載網站記錄</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/">在 Visual Studio 中進行 Azure 網站疑難排解</a> (英文)</td>
+<td data-morhtml="true" valign="top">- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-monitor-websites/">如何監視網站</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">作法：在 Azure 中接收警示通知及管理警示規則</a><br data-morhtml="true" />- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics">作法：設定診斷功能及下載網站記錄</a> (英文)<br data-morhtml="true" />- <a data-morhtml="true" href="http://www.windowsazure.com/zh-tw/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/">在 Visual Studio 中進行 Azure 網站疑難排解</a> (英文)</td>
 </tr>
 </table>
 

@@ -1,4 +1,4 @@
-<properties  linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
+<properties  linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/zh-tw/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
 # 安裝與設定 Azure 跨平台命令列介面
 
@@ -427,9 +427,9 @@ xplat-cli 可讓您輕鬆地管理 Azure 服務。在以下範例中，您將學
 [4]: http://go.microsoft.com/fwlink/?LinkId=252249
 [5]: http://nodejs.org/
 [6]: https://manage.windowsazure.com
-[7]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
+[7]: http://www.windowsazure.com/zh-tw/documentation/articles/sign-up-organization/
 [8]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
-[9]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E
+[9]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A7171371E
 [10]: http://tldp.org/LDP/abs/html/
 [11]: http://en.wikipedia.org/wiki/Shell_script
 [12]: http://technet.microsoft.com/en-us/library/bb490890.aspx

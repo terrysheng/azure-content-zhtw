@@ -221,7 +221,7 @@ console](./media/store-new-relic-cloud-services-dotnet-application-performce-man
 
 
 
-[1]: http://www.windowsazure.com/en-us/gallery/store/new-relic/new-relic/
+[1]: http://www.windowsazure.com/zh-tw/gallery/store/new-relic/new-relic/
 [2]: https://manage.windowsazure.com
 [3]: https://newrelic.com/docs/site/the-new-relic-ui#functions
 [4]: https://newrelic.com/docs/site/the-new-relic-ui#drilldown

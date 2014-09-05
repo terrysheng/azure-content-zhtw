@@ -88,9 +88,9 @@ WebMatrix 可快速安裝，且易於了解，但 Visual Studio 可用來處理 
 
 如需如何從 WebMatrix 部署至 Azure 網站的相關資訊，請參閱下列資源：
 
--   [使用 Microsoft WebMatrix 來開發和部署網站](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-using-webmatrix/)。說明如何使用 WebMatrix 範本建立簡易的 ASP.NET 網站，並使用 WebMatrix 和 Web Deploy 將其部署至 Azure 網站。
--   [使用 WebMatrix 來建立 Node.js 網站並部署至 Azure](http://www.windowsazure.com/en-us/documentation/articles/web-sites-nodejs-use-webmatrix/)。
--   [使用 WebMatrix 建立並部署 PHP-MySQL Azure 網站](http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-use-webmatrix/)。
+-   [使用 Microsoft WebMatrix 來開發和部署網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-using-webmatrix/)。說明如何使用 WebMatrix 範本建立簡易的 ASP.NET 網站，並使用 WebMatrix 和 Web Deploy 將其部署至 Azure 網站。
+-   [使用 WebMatrix 來建立 Node.js 網站並部署至 Azure](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-nodejs-use-webmatrix/)。
+-   [使用 WebMatrix 建立並部署 PHP-MySQL Azure 網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-php-mysql-use-webmatrix/)。
 -   [WebMatrix 3：整合 Git 並部署至 Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD)。說明如何使用 WebMatrix 從 Git 原始檔控制儲存機制進行部署。
 
 使用 FTP 公用程式進行部署
@@ -103,7 +103,7 @@ WebMatrix 可快速安裝，且易於了解，但 Visual Studio 可用來處理 
 如需詳細資訊，請參閱下列資源：
 
 -   [建立 PHP-MySQL Azure 網站並使用 FTP 部署](/en-us/documentation/articles/web-sites-php-mysql-deploy-use-ftp/)。
--   [如何管理網站](http://www.windowsazure.com/en-us/documentation/articles/web-sites-manage/)。包含 PHP 教學課程未納入、與 FTP 認證的設定方式有關的其他資訊。請查看頁面底部的註解，以了解文件本身缺少哪些與認證取得方式有關的資訊。
+-   [如何管理網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-manage/)。包含 PHP 教學課程未納入、與 FTP 認證的設定方式有關的其他資訊。請查看頁面底部的註解，以了解文件本身缺少哪些與認證取得方式有關的資訊。
 
 從內部部署原始檔控制系統部署
 ----------------------------

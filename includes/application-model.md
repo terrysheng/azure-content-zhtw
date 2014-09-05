@@ -402,14 +402,14 @@ Azure 應該為角色 #1 建立三個執行個體，而為角色 #2 建立兩個
 
  
 
-[1]: http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/
-[2]: http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/
-[3]: http://www.windowsazure.com/en-us/pricing/calculator/
+[1]: http://www.windowsazure.com/zh-tw/develop/net/common-tasks/custom-dns/
+[2]: http://www.windowsazure.com/zh-tw/develop/net/fundamentals/cloud-storage/
+[3]: http://www.windowsazure.com/zh-tw/pricing/calculator/
 [4]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg981929.aspx
 [5]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758710.aspx
 [6]: http://msdn.microsoft.com/zh-tw/library/hh560567.aspx
 [7]: http://msdn.microsoft.com/zh-tw/library/ee924680.aspx
-[8]: http://www.windowsazure.com/en-us/develop/net/fundamentals/deploying-applications/
+[8]: http://www.windowsazure.com/zh-tw/develop/net/fundamentals/deploying-applications/
 [9]: http://msdn.microsoft.com/zh-tw/library/gg432967.aspx
 [10]: http://msdn.microsoft.com/zh-tw/library/gg433038.aspx
 [11]: http://msdn.microsoft.com/zh-tw/library/gg186051.aspx

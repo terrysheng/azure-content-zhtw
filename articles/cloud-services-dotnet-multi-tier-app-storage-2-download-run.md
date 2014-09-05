@@ -376,7 +376,7 @@
 
 ### 建立 SendGrid 帳戶
 
-1.  遵循[如何在 Azure 使用 SendGrid 來傳送電子郵件](http://www.windowsazure.com/en-us/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid") (英文) 中的指示，來註冊免費帳戶。
+1.  遵循[如何在 Azure 使用 SendGrid 來傳送電子郵件](http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid") (英文) 中的指示，來註冊免費帳戶。
 
 ### 更新背景工作角色屬性中的 SendGrid 認證
 
@@ -473,7 +473,7 @@
 
 12. 在 **[郵寄清單]**、**[訂閱者]** 和 **[訊息]** 網頁中輸入一些資料來測試應用程式。
 
-    **注意**：應用程式測試完成後，請予以刪除，以免需要支付您未使用的資源。如果您是使用 [Azure 免費試用帳戶](http://www.windowsazure.com/en-us/pricing/free-trial/ "免費試用帳戶")，已部署的三個角色會在數週內用光您的每月限制。 若要使用 Azure 管理入口網站刪除部署，請選取雲端服務，並按一下頁面底部的 **[刪除]**，然後選取實際執行或預備部署。
+    **注意**：應用程式測試完成後，請予以刪除，以免需要支付您未使用的資源。如果您是使用 [Azure 免費試用帳戶](http://www.windowsazure.com/zh-tw/pricing/free-trial/ "免費試用帳戶")，已部署的三個角色會在數週內用光您的每月限制。 若要使用 Azure 管理入口網站刪除部署，請選取雲端服務，並按一下頁面底部的 **[刪除]**，然後選取實際執行或預備部署。
 
     ![pub](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-19.png)
 

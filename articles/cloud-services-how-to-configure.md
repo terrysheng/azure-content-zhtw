@@ -64,7 +64,7 @@
 
     c. 如果您的雲端服務包含任何只有一個執行個體的角色，請選取 **[Apply configuration even if one or more roles contain a single instance]** 核取方塊，讓角色的組態更新能夠繼續。
 
-    除非每個角色都定義至少兩個執行個體，否則 Azure 無法保證雲端服務在服務組態更新期間至少有 99.95% 的可用性。如需詳細資訊，請參閱[服務等級協定](http://www.windowsazure.com/en-us/support/legal/sla/)。
+    除非每個角色都定義至少兩個執行個體，否則 Azure 無法保證雲端服務在服務組態更新期間至少有 99.95% 的可用性。如需詳細資訊，請參閱[服務等級協定](http://www.windowsazure.com/zh-tw/support/legal/sla/)。
 
     d. 按一下[確定] \(打勾記號)。
 

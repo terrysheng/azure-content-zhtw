@@ -14,7 +14,7 @@
 網站中託管。以下螢幕擷取畫面顯示完成的應用程式：
 
 ![Azure PHP 網站](./media/web-sites-php-mysql-deploy-use-git/running_app_2.png)
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要一個已啟用 Azure 網站功能的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Azure 免費試用</a>。</p> </div>
+<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要一個已啟用 Azure 網站功能的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Azure 免費試用</a>。</p> </div>
 
 ## 設定開發環境
 

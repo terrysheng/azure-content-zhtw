@@ -728,8 +728,8 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤][36] (英文) 小節可�
 [25]: http://msdn.microsoft.com/zh-tw/library/bb397417.aspx
 [26]: http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx
 [27]: http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx
-[28]: http://www.windowsazure.com/en-us/documentation/videos/azure-web-site-logging-and-diagnostics/
-[29]: http://www.windowsazure.com/en-us/documentation/videos/log-streaming-with-azure-web-sites/
+[28]: http://www.windowsazure.com/zh-tw/documentation/videos/azure-web-site-logging-and-diagnostics/
+[29]: http://www.windowsazure.com/zh-tw/documentation/videos/log-streaming-with-azure-web-sites/
 [30]: http://nuget.org/packages/elmah/
 [31]: http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx
 [32]: http://www.microsoft.com/en-us/download/details.aspx?id=24659

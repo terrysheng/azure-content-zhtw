@@ -236,7 +236,7 @@ MSQuery 物件可讓您控制下列查詢行為：
 -   可以列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?**(0x003F)、**\\** (0x005C)、**\`** (0x0060)
 -   識別碼 "." 和 ".."
 
-您可以讓資料表改用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令可與 Azure 的命令列介面 (CLI) 搭配使用。如需使用 CLI 的詳細資訊，請參閱[管理行動服務資料表的 CLI](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables) (英文)。
+您可以讓資料表改用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令可與 Azure 的命令列介面 (CLI) 搭配使用。如需使用 CLI 的詳細資訊，請參閱[管理行動服務資料表的 CLI](http://www.windowsazure.com/zh-tw/manage/linux/other-resources/command-line-tools/#Mobile_Tables) (英文)。
 
 啟用動態結構描述時，行動服務會根據插入或更新要求中的物件欄位自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://go.microsoft.com/fwlink/p/?LinkId=296271)。
 
@@ -466,4 +466,4 @@ MSQuery 物件可讓您控制下列查詢行為：
 [Create a table]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[CLI to manage Mobile Services tables]: http://www.windowsazure.com/zh-tw/manage/linux/other-resources/command-line-tools/#Mobile_Tables

@@ -286,14 +286,14 @@ Azure 網站支援以各種程式設計語言所建立的應用程式。以此�
 
 
 
-[1]: http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-tfs/
+[1]: http://www.windowsazure.com/zh-tw/develop/net/common-tasks/publishing-with-tfs/
 [2]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[3]: http://www.windowsazure.com/en-us/develop/overview/
+[3]: http://www.windowsazure.com/zh-tw/develop/overview/
 [4]: http://manage.windowsazure.com
 [5]: https://help.github.com/articles/create-a-repo
 [6]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [7]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [8]: https://gist.github.com/trey/2722927
 [9]: http://mercurial.selenic.com/wiki/QuickStart
-[10]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
+[10]: http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/powershell-cmdlets/
 [11]: http://git-scm.com/documentation

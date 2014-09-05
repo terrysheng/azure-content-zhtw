@@ -20,7 +20,7 @@
 建立 Azure 網站和 MySQL 資料庫1. 建立 Azure 網站和 MySQL 資料庫
 ---------------------------------------------------------------
 
-首先，完成逐步教學課程，了解如何利用 MySQL 建立新的網站：[建立 PHP-MySQL Azure 網站並使用 Git 部署](http://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-git/)。如果您打算使用 Git 來發行 Drupal 網站，請遵循教學課程中說明如何設定 Git 儲存機制的步驟。請務必遵循＜**取得遠端 MySQL 連線資訊**＞一節中的指示，因為您稍後會需要該資訊。您可以為了部署 Drupal 網站而忽略其餘的教學課程，但如果這是您第一次使用 Azure 網站 (和 Git)，您可能會發現其他讀取資訊。
+首先，完成逐步教學課程，了解如何利用 MySQL 建立新的網站：[建立 PHP-MySQL Azure 網站並使用 Git 部署](http://www.windowsazure.com/zh-tw/develop/php/tutorials/website-w-mysql-and-git/)。如果您打算使用 Git 來發行 Drupal 網站，請遵循教學課程中說明如何設定 Git 儲存機制的步驟。請務必遵循＜**取得遠端 MySQL 連線資訊**＞一節中的指示，因為您稍後會需要該資訊。您可以為了部署 Drupal 網站而忽略其餘的教學課程，但如果這是您第一次使用 Azure 網站 (和 Git)，您可能會發現其他讀取資訊。
 
 設定採用 MySQL 資料庫的新網站之後，您現在即可取得 MySQL 資料庫連線資訊和 (選用) Git 儲存機制。下一個步驟是在 Azure 網站中將資料庫複製到 MySQL。
 

@@ -3,7 +3,7 @@
 還原 Microsoft Azure 網站
 =========================
 
-本文將說明如何使用 Azure 網站備份功能來還原您先前備份的網站。如需詳細資訊，請參閱 [Microsoft Azure 網站備份](http://www.windowsazure.com/en-us/documentation/articles/web-sites-backup/)。
+本文將說明如何使用 Azure 網站備份功能來還原您先前備份的網站。如需詳細資訊，請參閱 [Microsoft Azure 網站備份](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-backup/)。
 
 Azure 網站還原功能可讓您隨需將網站還原至先前的狀態，或根據原始網站的其中一個備份建立新網站。建立以平行方式執行最新版本的新網站，對於 A/B 測試將有所幫助。
 

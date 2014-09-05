@@ -23,7 +23,7 @@
 
 **注意**
 
-若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357)。
+若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AED8DE357)。
 
 本教學課程需要 [Mobile Services Android SDK](http://go.microsoft.com/fwlink/p/?LinkID=280126)、[Android SDK](https://go.microsoft.com/fwLink/p/?LinkID=280125) (含 Eclipse 整合式開發環境 (IDE) 和 Android Developer Tools (ADT) 外掛程式)，以及 Android 4.2 或更新版本。
 

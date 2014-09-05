@@ -55,7 +55,7 @@
 
 **使用 Windows Installer 安裝命令列介面**
 
-1.  瀏覽至 **http://www.windowsazure.com/en-us/downloads/**。
+1.  瀏覽至 **http://www.windowsazure.com/zh-tw/downloads/**。
 2.  向下捲動至 **[命令列工具]** 區段，然後按一下 **[跨平台命令列介面]**，並依照 Web Platform Installer 精靈操作。
 
 下載和匯入 Azure 帳戶 publishsettings

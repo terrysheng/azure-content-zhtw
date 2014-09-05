@@ -26,9 +26,9 @@
  -   **Data Out** - 網站傳送給用戶端的資料量值。
  -   **Http Server Errors** - 已傳送的 Http「5xx 伺服器錯誤」訊息數目。
  -   **要求** - 網站所有用戶端要求的計數。
-<br />**注意：**您可以選擇 **[監視]** 管理頁面底部的 **[Add Metrics]**，在頁面中增加其他效能度量。如需詳細資訊，請參閱[如何監視網站](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/) (英文)。
+<br />**注意：**您可以選擇 **[監視]** 管理頁面底部的 **[Add Metrics]**，在頁面中增加其他效能度量。如需詳細資訊，請參閱[如何監視網站](http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-monitor-websites/) (英文)。
 
--   **Web Endpoint Status** - 已設定要監視之 Web 端點的清單。若尚未設定端點，按一下 **[Configure Web Endpoint Monitoring]**，然後移至 **[設定]** 管理頁面的 **[監視]** 區段。如需詳細資訊，請參閱[如何監視網站](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/) (英文)。
+-   **Web Endpoint Status** - 已設定要監視之 Web 端點的清單。若尚未設定端點，按一下 **[Configure Web Endpoint Monitoring]**，然後移至 **[設定]** 管理頁面的 **[監視]** 區段。如需詳細資訊，請參閱[如何監視網站](http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-monitor-websites/) (英文)。
 
 -   **Autoscale Status** - 在標準模式中，您可以自動調整您的資源，這麼一來就只會消耗您所需要的資源。若要啟用自動調整，選擇 **[Configure Autoscale]** 以前往 **[調整]** 頁面。若您的網站為免費或共用模式，則必須先變更為標準模式 (在 **[調整]** 頁面上進行)，才能設定自動調整。**[Autoscale Operation Logs]** 將帶您前往 **[管理服務]** 入口網站，您可在此檢視網站的自動調整歷程記錄。預設的查詢是最近 24 小時，但您可修改查詢。
 
@@ -49,7 +49,7 @@
  -   **管理服務** - 按一下 **[Operation Logs]** 連結可從 Microsoft Azure 管理服務入口網站檢視網站的作業記錄。
  -   **虛擬 IP 位址** - 若您已經在 **[設定]** 索引標籤的 **[SSL 繫結]** 區段中為網站設定 IP 型 SSL 繫結，則會顯示網站的虛擬 IP 位址。
  -   **網站 URL** - 指定網站在網際網路上的公開存取位址。
- -   **Compute Mode** - 指定網站是以免費、共用、基本或標準模式執行。如需 Web 規模群組模式的詳細資訊，請參閱[如何調整網站](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-scale-websites) (英文)。
+ -   **Compute Mode** - 指定網站是以免費、共用、基本或標準模式執行。如需 Web 規模群組模式的詳細資訊，請參閱[如何調整網站](http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-scale-websites) (英文)。
  -   **FTP Hostname** - 指定透過 FTP 發佈至網站時所要使用的 URL。
  -   **FTPS Hostname** - 指定透過 FTPS 發佈至網站時所要使用的 URL。
  -   **Deployment User / FTP User** - 指出透過 FTP 或 Git 將網站部署至 Microsoft Azure 時所使用的帳戶。
@@ -67,12 +67,12 @@
 監視
 ----
 
-**[監視]** 管理頁面以圖表顯示網站的使用情況資訊。依預設，此圖表會顯示和 **[儀表板]** 頁面上的圖表相同的度量，如前文的＜儀表板＞一節中所述。此圖表也可設定為顯示「HTTP 成功」、「HTTP 重新導向」、「HTTP 401 錯誤」、「HTTP 403 錯誤」、「HTTP 404 錯誤」和「HTTP 406 錯誤」等度量。如需這些度量的詳細資訊，請參閱[如何監視網站](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/) (英文)。
+**[監視]** 管理頁面以圖表顯示網站的使用情況資訊。依預設，此圖表會顯示和 **[儀表板]** 頁面上的圖表相同的度量，如前文的＜儀表板＞一節中所述。此圖表也可設定為顯示「HTTP 成功」、「HTTP 重新導向」、「HTTP 401 錯誤」、「HTTP 403 錯誤」、「HTTP 404 錯誤」和「HTTP 406 錯誤」等度量。如需這些度量的詳細資訊，請參閱[如何監視網站](http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-monitor-websites/) (英文)。
 
 WebJobs
 -------
 
-WebJobs 管理頁面可讓您為網站建立隨需、排程或持續執行的工作。如需詳細資訊，請參閱[如何在 Microsoft Azure 網站中使用 WebJobs 功能](http://www.windowsazure.com/en-us/documentation/articles/web-sites-create-web-jobs/) (英文)。
+WebJobs 管理頁面可讓您為網站建立隨需、排程或持續執行的工作。如需詳細資訊，請參閱[如何在 Microsoft Azure 網站中使用 WebJobs 功能](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-create-web-jobs/) (英文)。
 
 設定
 ----
@@ -94,7 +94,7 @@ WebJobs 管理頁面可讓您為網站建立隨需、排程或持續執行的工
 -   **處理常式對應** - 新增自訂指令碼處理器，用以處理特定檔案類型 (如 \*.php) 的要求。
 -   **Virtual Applications and Directories** - 設定與您的網站相關聯的虛擬應用程式和目錄。您也可以選擇將虛擬目錄標示為網站組態中的應用程式。
 
-如需如何設定網站的詳細資訊，請參閱[如何設定網站](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-configure-websites) (英文)。
+如需如何設定網站的詳細資訊，請參閱[如何設定網站](http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-configure-websites) (英文)。
 
 調整
 ----
@@ -103,7 +103,7 @@ WebJobs 管理頁面可讓您為網站建立隨需、排程或持續執行的工
 
 在 **[標準]** 模式中，您也可以變更 **[執行個體大小]**，增加每個執行個體的核心計數和記憶體容量。為了獲得更好的成本效益，您可以選擇 **[自動調整]** 選項，讓 Microsoft Azure 為網站動態配置資源。
 
-如需設定網站規模選項的詳細資訊，請參閱[如何調整網站](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-scale-websites) (英文)。
+如需設定網站規模選項的詳細資訊，請參閱[如何調整網站](http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-scale-websites) (英文)。
 
 連結的資源
 ----------
@@ -113,7 +113,7 @@ WebJobs 管理頁面可讓您為網站建立隨需、排程或持續執行的工
 備份
 ----
 
-**[備份]** 管理頁面可讓您建立網站的自動或手動備份、還原網站至先前的狀態、依據其中一個備份建立新網站。如需詳細資訊，請參閱 [Microsoft Azure 網站備份](http://www.windowsazure.com/en-us/documentation/articles/web-sites-backup/) (英文) 和[還原 Microsoft Azure 網站](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/) (英文)。
+**[備份]** 管理頁面可讓您建立網站的自動或手動備份、還原網站至先前的狀態、依據其中一個備份建立新網站。如需詳細資訊，請參閱 [Microsoft Azure 網站備份](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-backup/) (英文) 和[還原 Microsoft Azure 網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-restore/) (英文)。
 
 管理頁面圖示
 ------------

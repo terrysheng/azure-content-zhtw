@@ -43,7 +43,7 @@
 
 <br />
 
-下列方法將說明如何取得媒體處理器執行個體。此程式碼範例假設會使用名為 **\_context** 的模組層級變數來參考伺服器內容，如[作法：以程式設計方式連接到媒體服務](http://www.windowsazure.com/en-us/develop/media-services/how-to-guides/set-up-computer-for-media-services)一節所說明。
+下列方法將說明如何取得媒體處理器執行個體。此程式碼範例假設會使用名為 **\_context** 的模組層級變數來參考伺服器內容，如[作法：以程式設計方式連接到媒體服務](http://www.windowsazure.com/zh-tw/develop/media-services/how-to-guides/set-up-computer-for-media-services)一節所說明。
 
 ``` {}
 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)

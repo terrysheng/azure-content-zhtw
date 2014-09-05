@@ -28,7 +28,7 @@
 Azure Blob 儲存體服務元件
 -------------------------
 
--   儲存體帳戶：儲存體帳戶是所有儲存體服務的起點。若要存取 Azure Blob 儲存體服務，請先建立 Azure 儲存體帳戶。必須要有儲存體帳戶名稱及其存取金鑰屬性才能向 Azure Blob 儲存體服務及其元件進行驗證。如需 Azure Blob 儲存體服務的詳細資訊，請參閱[如何使用 Azure Blob 儲存體服務](http://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/) (英文)
+-   儲存體帳戶：儲存體帳戶是所有儲存體服務的起點。若要存取 Azure Blob 儲存體服務，請先建立 Azure 儲存體帳戶。必須要有儲存體帳戶名稱及其存取金鑰屬性才能向 Azure Blob 儲存體服務及其元件進行驗證。如需 Azure Blob 儲存體服務的詳細資訊，請參閱[如何使用 Azure Blob 儲存體服務](http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/blob-storage/) (英文)
 
 -   容器：容器提供一組 Blob 的分組，且可以存放無限數目的 Blob。若要將 SQL Server 備份寫入 Azure Blob 服務，您必須至少建立根容器。
 

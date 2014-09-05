@@ -99,7 +99,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 如何建立執行大量運算工作的 Java 應用程式
 ----------------------------------------
 
-1. 在您的開發電腦 (不一定要是您所建立的虛擬機器) 上，下載 [Azure SDK for Java](http://www.windowsazure.com/en-us/develop/java/) (英文)。
+1. 在您的開發電腦 (不一定要是您所建立的虛擬機器) 上，下載 [Azure SDK for Java](http://www.windowsazure.com/zh-tw/develop/java/) (英文)。
 2. 使用本節結尾的範例程式碼建立一個 Java 主控台應用程式。為因應本教學課程的目的，我們將使用 **TSPSolver.java** 做為 Java 檔案名稱。請將 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 及 **your\_service\_bus\_key** 預留位置，分別修改成使用您服務匯流排 **[命名空間]**、**[Default Issuer]** 及 **[預設金鑰]** 的值。
 3.  編碼完成之後，將應用程式匯出至可執行的 Java 存檔 (JAR)，並將所需的程式庫封裝至產生的 JAR 中。為因應本教學課程的目的，我們將使用 **TSPSolver.jar** 做為產生的 JAR 名稱。
 

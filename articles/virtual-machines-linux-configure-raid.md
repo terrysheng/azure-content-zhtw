@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-howto-configure-raid" urlDisplayName="Configure RAID on Linux" pageTitle="Configure software RAID on avirtual machine running Linux in Azure" metaKeywords="raid in Azure, madadm Azure, stripe disks in Azure" description="Learn how to use mdadm to configure RAID on Linux in Azure." metaCanonical="http://www.windowsazure.com/en-us/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="" manager="" editor="" />
+<properties linkid="manage-linux-howto-configure-raid" urlDisplayName="Configure RAID on Linux" pageTitle="Configure software RAID on avirtual machine running Linux in Azure" metaKeywords="raid in Azure, madadm Azure, stripe disks in Azure" description="Learn how to use mdadm to configure RAID on Linux in Azure." metaCanonical="http://www.windowsazure.com/zh-tw/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="" manager="" editor="" />
 
 在 Linux 上設定軟體 RAID
 ========================
@@ -8,7 +8,7 @@
 連接資料磁碟
 ------------
 
-設定 RAID 裝置通常需要兩個以上的空白資料磁碟。本文將不會詳細說明如何將資料磁碟連接至 Linux 虛擬機器。請參閱 Windows Azure 文章[連接磁碟](http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/#attachempty)，以取得如何在 Azure 上將空白資料磁碟連接至 Linux 虛擬機器的詳細指示。
+設定 RAID 裝置通常需要兩個以上的空白資料磁碟。本文將不會詳細說明如何將資料磁碟連接至 Linux 虛擬機器。請參閱 Windows Azure 文章[連接磁碟](http://www.windowsazure.com/zh-tw/documentation/articles/storage-windows-attach-disk/#attachempty)，以取得如何在 Azure 上將空白資料磁碟連接至 Linux 虛擬機器的詳細指示。
 
 >[WACOM.NOTE] ExtraSmall VM 大小不支援一個以上附加至虛擬機器的資料磁碟。請參閱 [Windows Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn197896.aspx) 以取得有關 VM 大小，以及支援的資料磁碟個數的詳細資訊。
 

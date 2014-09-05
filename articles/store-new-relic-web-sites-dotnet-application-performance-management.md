@@ -17,7 +17,7 @@ New Relic 會追蹤 Web 交易的載入時間和輸送量，包括來自伺服�
 
 New Relic Standard 供 Azure 使用者免費使用。根據您所使用的網站模式及執行個體大小 (如果使用保留模式)，我們提供了多種 New Relic Pro 套件。
 
-如需定價資訊，請參閱＜[Azure 市集的 New Relic 頁面](http://www.windowsazure.com/en-us/gallery/store/new-relic/new-relic/)＞。
+如需定價資訊，請參閱＜[Azure 市集的 New Relic 頁面](http://www.windowsazure.com/zh-tw/gallery/store/new-relic/new-relic/)＞。
 
 **注意：**
 
@@ -49,7 +49,7 @@ New Relic 與 Azure Web 角色、背景工作角色和網站緊密整合。
 
 ### 步驟 2. 安裝 New Relic 套件
 
-New Relic 網站代理程式會以 NuGet 套件發行，您可以使用 Visual Studio 或 WebMatrix 將 NuGet 套件新增至網站。如果您不熟悉將 Visual Studio 或 WebMatrix 與 Azure 網站搭配使用，請參閱[使用 Visual Studio 將 ASP.NET Web 應用程式部署至 Azure 網站](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/) (英文) 或[使用 Microsoft WebMatrix 開發與部署網站](http://www.windowsazure.com/en-us/develop/net/tutorials/website-with-webmatrix/) (英文)。
+New Relic 網站代理程式會以 NuGet 套件發行，您可以使用 Visual Studio 或 WebMatrix 將 NuGet 套件新增至網站。如果您不熟悉將 Visual Studio 或 WebMatrix 與 Azure 網站搭配使用，請參閱[使用 Visual Studio 將 ASP.NET Web 應用程式部署至 Azure 網站](http://www.windowsazure.com/zh-tw/develop/net/tutorials/get-started/) (英文) 或[使用 Microsoft WebMatrix 開發與部署網站](http://www.windowsazure.com/zh-tw/develop/net/tutorials/website-with-webmatrix/) (英文)。
 
 在您所使用的特定開發環境中執行下列步驟：
 

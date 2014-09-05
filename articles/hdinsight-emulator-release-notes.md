@@ -68,7 +68,7 @@
 
 -   連接到多個叢集，包括本機安裝，以及使用 Azure HDInsight 服務從遠端執行的叢集。
 
--   如需 HDInsight 服務的詳細資訊，請參閱 http://www.windowsazure.com/en-us/manage/services/hdinsight。
+-   如需 HDInsight 服務的詳細資訊，請參閱 http://www.windowsazure.com/zh-tw/manage/services/hdinsight。
 
 -   設定本機叢集上的 ASV
 

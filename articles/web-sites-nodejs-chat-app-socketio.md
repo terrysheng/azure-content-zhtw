@@ -7,7 +7,7 @@ Socket.IO 提供 node.js 伺服器與用戶端之間的即時通訊。本教學�
 
 **注意**
 
-此工作中的程序適用於 Azure 網站。若是使用雲端服務，請參閱＜[在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 聊天應用程式](http://www.windowsazure.com/en-us/develop/nodejs/tutorials/app-using-socketio/)＞。
+此工作中的程序適用於 Azure 網站。若是使用雲端服務，請參閱＜[在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 聊天應用程式](http://www.windowsazure.com/zh-tw/develop/nodejs/tutorials/app-using-socketio/)＞。
 
 以下螢幕擷取畫面顯示完成的應用程式：
 
@@ -68,7 +68,7 @@ Socket.IO 提供 node.js 伺服器與用戶端之間的即時通訊。本教學�
 
 **注意**
 
-若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E)。
+若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A7171371E)。
 
 1.  從命令列中，切換至 **\\node\\chat** 目錄，使用下列命令來建立新的 Azure 網站，並啟用網站和本機目錄的 Git 儲存機制。這也會建立名為 'azure' 的 Git 遠端。
 

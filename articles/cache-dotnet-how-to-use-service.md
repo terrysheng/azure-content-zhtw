@@ -39,7 +39,7 @@ Azure 快取服務 (預覽) 包括下列功能：
 -   標準 - 大小從 1GB 到 10GB 的快取
 -   高級 - 大小從 5GB 到 150GB 的快取
 
-每一個階層都有不同的功能和定價。本指南稍後將探討這些功能，如需定價的詳細資訊，請參閱[快取定價詳細資料](http://www.windowsazure.com/en-us/pricing/details/cache/)。
+每一個階層都有不同的功能和定價。本指南稍後將探討這些功能，如需定價的詳細資訊，請參閱[快取定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/cache/)。
 
 本指南提供開始使用快取服務 (預覽) 的概觀。如需本入門指南涵蓋範圍外之功能的詳細資訊，請參閱 [Windows Azure 快取服務 (預覽)](http://go.microsoft.com/fwlink/?LinkId=320830)。
 

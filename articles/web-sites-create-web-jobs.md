@@ -257,6 +257,6 @@ Microsoft Azure 網站可讓您利用以下三種方法中的任一種方法，�
 [3]: http://blog.amitapple.com/post/74215124623/deploy-azure-webjobs
 [4]: http://blog.amitapple.com/post/73574681678/git-deploy-console-app
 [5]: http://go.microsoft.com/fwlink/?LinkId=390226
-[6]: http://www.windowsazure.com/en-us/documentation/videos/azure-webjobs-basics/
-[7]: http://www.windowsazure.com/en-us/documentation/videos/azure-webjobs-schedule-and-dashboard/
-[8]: http://www.windowsazure.com/en-us/documentation/videos/azure-scheduler-how-to/
+[6]: http://www.windowsazure.com/zh-tw/documentation/videos/azure-webjobs-basics/
+[7]: http://www.windowsazure.com/zh-tw/documentation/videos/azure-webjobs-schedule-and-dashboard/
+[8]: http://www.windowsazure.com/zh-tw/documentation/videos/azure-scheduler-how-to/

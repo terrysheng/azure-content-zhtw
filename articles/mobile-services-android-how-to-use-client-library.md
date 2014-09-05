@@ -312,7 +312,7 @@
 -   可以列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?**(0x003F)、**\\** (0x005C)、**\`** (0x0060)
 -   識別碼 "." 和 ".."
 
-您可以讓資料表改用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令可與 Azure 的命令列介面 (CLI) 搭配使用。如需使用 CLI 的詳細資訊，請參閱[管理行動服務資料表的 CLI](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables) (英文)。
+您可以讓資料表改用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令可與 Azure 的命令列介面 (CLI) 搭配使用。如需使用 CLI 的詳細資訊，請參閱[管理行動服務資料表的 CLI](http://www.windowsazure.com/zh-tw/manage/linux/other-resources/command-line-tools/#Mobile_Tables) (英文)。
 
 更新資料作法：更新行動服務中的資料
 ----------------------------------

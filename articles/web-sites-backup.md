@@ -5,7 +5,7 @@ Azure 網站備份
 
 Azure 網站備份和還原功能可讓您以手動或自動方式輕鬆建立網站備份。您可以將網站還原至先前的狀態，或根據原始網站的其中一個備份建立新網站。
 
-如需從備份還原 Azure 網站的相關資訊，請參閱[還原 Azure 網站](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/)。
+如需從備份還原 Azure 網站的相關資訊，請參閱[還原 Azure 網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-restore/)。
 
 本文內容
 --------
@@ -32,7 +32,7 @@ Azure 網站會備份下列資訊：
 
 ## 需求和限制
 
--   使用備份和還原功能時，網站必須位於標準層中。如需調整網站以使用標準層的詳細資訊，請參閱[如何調整網站](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/) (英文)。
+-   使用備份和還原功能時，網站必須位於標準層中。如需調整網站以使用標準層的詳細資訊，請參閱[如何調整網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-scale/) (英文)。
 
 -   使用備份和還原功能時，Azure 儲存體帳戶必須與您所將備份的網站屬於相同的訂閱。如果您還沒有儲存體帳戶，您可以按一下 Azure 入口網站左側窗格中的 **[儲存體]** 按鈕 (格線圖示)，然後在底部的命令列中選擇 **[新增]**，以建立此帳戶。如需 Azure 儲存體帳戶的詳細資訊，請參閱本文結尾處的[連結](#moreaboutstorage)。
 
@@ -114,15 +114,15 @@ Azure 網站會備份下列資訊：
 -   使用預覽版期間，備份和還原作業只能透過 Azure 管理入口網站來執行。
 
 ## 後續步驟：
-如需從備份還原 Azure 網站的相關資訊，請參閱[還原 Azure 網站](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/)。
+如需從備份還原 Azure 網站的相關資訊，請參閱[還原 Azure 網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-restore/)。
 
 ### 儲存體帳戶的相關資訊
 
-[什麼是儲存體帳戶？](http://www.windowsazure.com/en-us/documentation/articles/storage-whatis-account/)
+[什麼是儲存體帳戶？](http://www.windowsazure.com/zh-tw/documentation/articles/storage-whatis-account/)
 
-[作法：建立儲存體帳戶](http://www.windowsazure.com/en-us/documentation/articles/storage-create-storage-account/)
+[作法：建立儲存體帳戶](http://www.windowsazure.com/zh-tw/documentation/articles/storage-create-storage-account/)
 
-[如何監視儲存體帳戶](http://www.windowsazure.com/en-us/documentation/articles/storage-monitor-storage-account/)
+[如何監視儲存體帳戶](http://www.windowsazure.com/zh-tw/documentation/articles/storage-monitor-storage-account/)
 
 [了解 Winidows Azure 儲存體計費](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 

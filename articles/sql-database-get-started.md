@@ -825,7 +825,7 @@ SQL Server 驗證登入資訊可用於伺服器連線。存取 SQL Database 伺�
 [7]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336284.aspx
 [8]: http://www.microsoft.com/en-us/bi/powerpivot.aspx
 [9]: http://go.microsoft.com/fwlink/?LinkId=274959
-[10]: http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/
+[10]: http://www.windowsazure.com/zh-tw/develop/net/common-tasks/sql-azure-management/
 [11]: http://msdn.microsoft.com/zh-tw/library/ms365303.aspx
 [12]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee730904.aspx
 [13]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff951624.aspx

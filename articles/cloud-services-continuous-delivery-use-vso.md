@@ -47,7 +47,7 @@ Visual Studio Online (之前稱為 Team Foundation Service) 是常用的 Microso
 將專案簽入至原始檔控制。步驟 2：將專案簽入至原始檔控制
 ------------------------------------------------------
 
-1.  在 Visual Studio 中，開啟您要部署的方案，或建立新方案。您可以依照本逐步解說的步驟來部署網站或雲端服務 (Azure 應用程式)。如果要建立新方案，請建立新的 Azure 雲端服務專案，或建立新的 ASP.NET MVC 專案。請確定專案以 .NET Framework 4 或 4.5 為目標，如果是建立雲端服務專案，請加入 ASP.NET MVC Web 角色和背景工作角色，然後對 Web 角色選擇網際網路應用程式。出現提示時，選擇 **[網際網路應用程式]**。如果要建立網站，請選擇 ASP.NET Web 應用程式專案範本，然後選擇 MVC。請參閱＜[開始使用 Azure 和 ASP.NET](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/)＞。
+1.  在 Visual Studio 中，開啟您要部署的方案，或建立新方案。您可以依照本逐步解說的步驟來部署網站或雲端服務 (Azure 應用程式)。如果要建立新方案，請建立新的 Azure 雲端服務專案，或建立新的 ASP.NET MVC 專案。請確定專案以 .NET Framework 4 或 4.5 為目標，如果是建立雲端服務專案，請加入 ASP.NET MVC Web 角色和背景工作角色，然後對 Web 角色選擇網際網路應用程式。出現提示時，選擇 **[網際網路應用程式]**。如果要建立網站，請選擇 ASP.NET Web 應用程式專案範本，然後選擇 MVC。請參閱＜[開始使用 Azure 和 ASP.NET](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-get-started/)＞。
 
 2.  開啟方案的內容功能表，選取 **[將方案加入至原始檔控制]**。
 
@@ -161,7 +161,7 @@ Visual Studio Online (之前稱為 Team Foundation Service) 是常用的 Microso
 <tr><td>發行設定檔</td><td>.azurePubxml 檔案。如果您簽入一個，則可以在這裡選擇它。</td></tr>
 </table>
 <br/>
- 如果儲存體帳戶屬性保留空白，Azure 會搜尋帳戶。如果有一個與雲端服務同名的儲存體帳戶，則會使用此帳戶。否則會使用其他儲存體帳戶，或者，如果沒有儲存體帳戶，則會建立儲存體帳戶。儲存體帳戶在 Azure 中為儲存體檔案和其他資料提供空間。如需詳細資訊，請參閱＜[什麼是儲存體帳戶？](http://www.windowsazure.com/en-us/documentation/articles/storage-whatis-account)＞。
+ 如果儲存體帳戶屬性保留空白，Azure 會搜尋帳戶。如果有一個與雲端服務同名的儲存體帳戶，則會使用此帳戶。否則會使用其他儲存體帳戶，或者，如果沒有儲存體帳戶，則會建立儲存體帳戶。儲存體帳戶在 Azure 中為儲存體檔案和其他資料提供空間。如需詳細資訊，請參閱＜[什麼是儲存體帳戶？](http://www.windowsazure.com/zh-tw/documentation/articles/storage-whatis-account)＞。
 
 11.  現在應該已順利完成您的組建。
 
@@ -201,5 +201,5 @@ Visual Studio Online (之前稱為 Team Foundation Service) 是常用的 Microso
 
  ![](./media/cloud-services-continuous-delivery-use-vso/tfs35.png)
 
-如需詳細資訊，請參閱 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)。如果使用 Git，請參閱＜[在 Git 中共用程式碼](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)＞和＜[從原始檔控制發行至 Azure 網站](http://www.windowsazure.com/en-us/documentation/articles/web-sites-publish-source-control)＞。
+如需詳細資訊，請參閱 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)。如果使用 Git，請參閱＜[在 Git 中共用程式碼](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)＞和＜[從原始檔控制發行至 Azure 網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-publish-source-control)＞。
 

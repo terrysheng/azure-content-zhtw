@@ -5,7 +5,7 @@
 
 [.NET Framework](/en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework")[HTML/JavaScript](/en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
 
-本指南顯示使用 Azure 行動服務的 HTML/JavaScript 用戶端來執行常見的案例。涵蓋的案例包括查詢資料、插入、更新和刪除資料、驗證使用者，以及處理錯誤。如果您不熟悉行動服務，請考慮先完成行動服務 [Windows 市集 JavaScript 快速入門](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started) (英文) 或 [HTML 快速入門](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-html) (英文)。快速入門教學課程協助您設定帳戶和建立第一個行動服務。
+本指南顯示使用 Azure 行動服務的 HTML/JavaScript 用戶端來執行常見的案例。涵蓋的案例包括查詢資料、插入、更新和刪除資料、驗證使用者，以及處理錯誤。如果您不熟悉行動服務，請考慮先完成行動服務 [Windows 市集 JavaScript 快速入門](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started) (英文) 或 [HTML 快速入門](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-html) (英文)。快速入門教學課程協助您設定帳戶和建立第一個行動服務。
 
 目錄
 ----
@@ -41,7 +41,7 @@
 
             <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
 
-在編輯器中，開啟或建立 JavaScript 檔案，新增下列程式碼來定義 `MobileServiceClient` 變數，並在 `MobileServiceClient` 建構函式中依序提供行動服務的應用程式 URL 和應用程式金鑰。您必須將預留位置 `AppUrl` 換成行動服務的應用程式 URL，將 `AppKey` 換成應用程式金鑰。若要了解如何取得行動服務的應用程式 URL 和應用程式金鑰，請參閱教學課程[在 Windows 市集 JavaScript 中開始使用資料](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-js) (英文) 或[在 HTML/JavaScript 中開始使用資料](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/) (英文)。
+在編輯器中，開啟或建立 JavaScript 檔案，新增下列程式碼來定義 `MobileServiceClient` 變數，並在 `MobileServiceClient` 建構函式中依序提供行動服務的應用程式 URL 和應用程式金鑰。您必須將預留位置 `AppUrl` 換成行動服務的應用程式 URL，將 `AppKey` 換成應用程式金鑰。若要了解如何取得行動服務的應用程式 URL 和應用程式金鑰，請參閱教學課程[在 Windows 市集 JavaScript 中開始使用資料](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-js) (英文) 或[在 HTML/JavaScript 中開始使用資料](http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-html/) (英文)。
 
             var MobileServiceClient = WindowsAzure.MobileServiceClient;
             var client = new MobileServiceClient('AppUrl', 'AppKey');
@@ -303,7 +303,7 @@
 -   可以列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?**(0x003F)、**\\** (0x005C)、**\`** (0x0060)
 -   識別碼 "." 和 ".."
 
-另外，您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 命令並指定 `mobile table create` 選項來建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables) (英文)。
+另外，您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 命令並指定 `mobile table create` 選項來建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表](http://www.windowsazure.com/zh-tw/manage/linux/other-resources/command-line-tools/#Mobile_Tables) (英文)。
 
 修改資料作法：修改行動服務中的資料
 ----------------------------------

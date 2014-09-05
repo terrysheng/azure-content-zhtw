@@ -41,7 +41,7 @@ Azure 虛擬機器在雲端服務中會以「角色」的形式實作。每個�
 
 在執行服務管理作業時 (例如透過 **Azure::VirtualMachineService** 類別公開的作業)，您必須提供 Azure 訂閱 ID，以及包含訂閱管理憑證的檔案。在對 Azure REST API 進行驗證時，SDK 將會使用這兩個項目。
 
-您可以使用 Azure 跨平台命令列介面 (xplat-cli) 取得訂閱 ID 和管理憑證。如需安裝及設定 xplat-cli 的相關資訊，請參閱[安裝與設定 Azure 跨平台命令列介面](http://www.windowsazure.com/en-us/manage/install-and-configure-cli/) (英文)。
+您可以使用 Azure 跨平台命令列介面 (xplat-cli) 取得訂閱 ID 和管理憑證。如需安裝及設定 xplat-cli 的相關資訊，請參閱[安裝與設定 Azure 跨平台命令列介面](http://www.windowsazure.com/zh-tw/manage/install-and-configure-cli/) (英文)。
 
 xplat-cli 設定完成後，您即可執行下列步驟，以擷取 Azure 訂閱 ID 並匯出管理憑證：
 
@@ -359,7 +359,7 @@ Azure 雲端服務的管理作業可使用 **Azure::StorageService** 類別來�
 
 了解以程式設計方式建立 Azure 虛擬機器的基礎概念之後，請參考下列連結，以了解如何使用 VM 執行更多功能。
 
--   造訪[虛擬機器](http://www.windowsazure.com/en-us/documentation/services/virtual-machines/)功能頁面
+-   造訪[虛擬機器](http://www.windowsazure.com/zh-tw/documentation/services/virtual-machines/)功能頁面
 -   請參閱 MSDN 參考：[虛擬機器](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156003.aspx)
--   了解如何代管[虛擬機器上的 Ruby on Rails 應用程式](http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-linux-vm/)
+-   了解如何代管[虛擬機器上的 Ruby on Rails 應用程式](http://www.windowsazure.com/zh-tw/develop/ruby/tutorials/web-app-with-linux-vm/)
 

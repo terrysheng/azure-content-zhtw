@@ -6,7 +6,7 @@
 簡介
 ----
 
-Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為雲端應用程式提供身分識別管理和存取控制功能。Azure AD 可輕鬆地與雲端服務以及 Azure、Microsoft Office 365、Dynamics CRM Online 和 Windows Intune 整合。現有的內部部署 Active Directory 部署也可以充分運用 Azure AD。若要深入了解，請參閱 windowsazure.com 上的[身分識別頁面](http://www.windowsazure.com/en-us/home/features/identity/)。
+Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為雲端應用程式提供身分識別管理和存取控制功能。Azure AD 可輕鬆地與雲端服務以及 Azure、Microsoft Office 365、Dynamics CRM Online 和 Windows Intune 整合。現有的內部部署 Active Directory 部署也可以充分運用 Azure AD。若要深入了解，請參閱 windowsazure.com 上的[身分識別頁面](http://www.windowsazure.com/zh-tw/home/features/identity/)。
 
 本逐步解說適用於想要整合多租用戶應用程式與 Azure AD 的 .NET 開發人員。您將了解如何：
 
@@ -422,7 +422,7 @@ AAL 以 NuGet 套件形式提供，可安裝在 Visual Studio 內。
 [Visual Studio Identity & Access Tool]: http://g.microsoftonline.com/1AX00en/126
 [Windows Identity Foundation 3.5]: http://g.microsoftonline.com/1AX00en/127
 [WCF Data Services for OData]: http://www.microsoft.com/download/en/details.aspx?id=29306
-[Identity page]: http://www.windowsazure.com/en-us/home/features/identity/
+[Identity page]: http://www.windowsazure.com/zh-tw/home/features/identity/
 
 [downloaded here]: http://go.microsoft.com/fwlink/?LinkId=271213
 [port assignment in Visual Studio]: http://msdn.microsoft.com/zh-tw/library/ms178109(v=vs.100).aspx

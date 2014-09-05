@@ -27,7 +27,7 @@
 -   Windows Azure 行動服務 SQLite Store NuGet 封裝 0.1.0 (alpha)
 -   SQLite for Windows 8.1
 
-> [WACOM.NOTE] 若要完成此教學課程，您需要 Windows Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Windows Azure 免費試用](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28)。
+> [WACOM.NOTE] 若要完成此教學課程，您需要 Windows Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Windows Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28)。
 
 <a name="enable-offline-app"></a>更新應用程式以支援離線功能
 --------------------------

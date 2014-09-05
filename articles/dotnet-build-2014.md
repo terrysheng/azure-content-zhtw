@@ -41,7 +41,7 @@ Emulator Express 是適用於雲端服務的新式輕量型本機模擬器。請
 
 現在，您可以直接從 Visual Studio 遠端檢視及偵錯部署至 Azure 網站的應用程式。如需詳細資訊，請至：
 
--   [疑難排解 Visual Studio 中的 Azure 網站](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio)
+-   [疑難排解 Visual Studio 中的 Azure 網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio)
 
 在 Visual Studio 中管理 Azure 服務
 ----------------------------------
@@ -61,7 +61,7 @@ Emulator Express 是適用於雲端服務的新式輕量型本機模擬器。請
 
 安裝 Azure Powershell，以使用網站、WebJob 等項目所適用的新 Cmdlet。如需詳細資訊，請參閱：
 
--   [如何安裝及設定 Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/)
+-   [如何安裝及設定 Azure PowerShell](http://www.windowsazure.com/zh-tw/documentation/articles/install-configure-powershell/)
 -   [Azure PowerShell 文件](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156055.aspx)
 
 直接在 Visual Studio 中建立 PowerShell 指令碼，並使用這些指令碼將建立環境的作業自動化：

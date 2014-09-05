@@ -27,7 +27,7 @@
 
 **注意**
 
-若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5)。
+若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A8A8397B5)。
 
 設定專案
 --------
@@ -649,6 +649,6 @@ File download path:C:\supportFiles\outputfiles\interview2_metadata.xml
 
 此逐步解說已示範建立簡單的媒體服務應用程式所需的一連串程式設計工作。您已學到基本的媒體服務程式設計工作，包括取得伺服器內容、建立資產、將資產編碼，以及下載或存取伺服器上的資產。關於後續步驟和更進階的開發工作，請參閱：
 
--   [如何使用媒體服務](http://www.windowsazure.com/en-us/develop/net/how-to-guides/media-services/)
+-   [如何使用媒體服務](http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/media-services/)
 -   [使用 Media Services REST API 建立應用程式](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh973618.aspx)
 

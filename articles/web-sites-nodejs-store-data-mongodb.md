@@ -1,4 +1,4 @@
-<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="" solutions="" writer="" manager="" editor="" />
+<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/zh-tw/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="" solutions="" writer="" manager="" editor="" />
 
 以虛擬機器中的 MongoDB 在 Azure 上建立 Node.js 應用程式
 =======================================================
@@ -67,7 +67,7 @@
 
     > [WACOM.NOTE] 在本教學課程中，您不需要使用 SSH 遠端連接至虛擬機器。若您不熟悉如何搭配使用憑證與 SSH，請選取 **[使用密碼]** 並提供密碼。
     >
-    > 如需在 Azure 上搭配使用 SSH 與 Linux 虛擬機器的詳細資訊，請參閱[如何在 Azure 上搭配使用 SSH 與 Linux](http://www.windowsazure.com/en-us/documentation/articles/linux-use-ssh-key/) (英文)。
+    > 如需在 Azure 上搭配使用 SSH 與 Linux 虛擬機器的詳細資訊，請參閱[如何在 Azure 上搭配使用 SSH 與 Linux](http://www.windowsazure.com/zh-tw/documentation/articles/linux-use-ssh-key/) (英文)。
 
 7.  選取要使用新的或現有的雲端服務，以及要將虛擬機器建立在哪個區域。按一下箭頭以繼續。
 

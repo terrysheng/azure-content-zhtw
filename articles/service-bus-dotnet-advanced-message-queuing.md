@@ -50,7 +50,7 @@
 
     Endpoint=sb://[namespace].servicebus.windows.net;SharedSecretIssuer=[issuer name];SharedSecretValue=[issuer key];TransportType=Amqp
 
-Where [namespace], [issuer name], and [issuer key] are obtained from the Azure Management Portal.如需詳細資訊，請參閱[如何使用服務匯流排佇列](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/) (英文)。
+Where [namespace], [issuer name], and [issuer key] are obtained from the Azure Management Portal.如需詳細資訊，請參閱[如何使用服務匯流排佇列](http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/service-bus-queues/) (英文)。
 
 在使用 AMQP 時，連線字串會加上 ";TransportType=Amqp"，它能告知用戶端程式庫使用 AMQP 1.0 來建立服務匯流排連線。
 
@@ -299,5 +299,5 @@ Where [namespace], [issuer name], and [issuer key] are obtained from the Azure M
 -   [Azure 服務匯流排中的 AMQP 1.0 支援](http://aka.ms/pgr3dp)
 -   [如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0](http://aka.ms/ll1fm3)
 -   [服務匯流排 AMQP 1.0 開發人員指南](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj841071.aspx)
--   [如何使用服務匯流排佇列](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
+-   [如何使用服務匯流排佇列](http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/service-bus-queues/)
 

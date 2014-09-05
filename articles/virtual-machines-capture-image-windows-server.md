@@ -5,7 +5,7 @@
 
 您可以使用映像庫中的映像輕鬆建立虛擬機器，或是可以擷取並使用自己的映像來建立自訂的虛擬機器。映像是虛擬硬碟 (.vhd) 檔案，用來作為建立虛擬機器的範本。映像只是範本，並沒有像設定的虛擬機器一樣有特定設定，例如電腦名稱及使用者帳戶設定。如果您想要建立多部以相同方式設定的虛擬機器，可以對已設定的虛擬機器擷取映像，並使用該映像作為範本。
 
-1.  使用[如何登入執行 Windows Server 的虛擬機器](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/log-on-a-windows-vm/) (英文) 中列出的步驟，連線至虛擬機器。
+1.  使用[如何登入執行 Windows Server 的虛擬機器](http://www.windowsazure.com/zh-tw/manage/windows/how-to-guides/log-on-a-windows-vm/) (英文) 中列出的步驟，連線至虛擬機器。
 
 2.  以系統管理員身分開啟 [命令提示字元] 視窗。
 

@@ -368,12 +368,12 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 
 [1]: http://manage.windowsazure.com
-[2]: http://www.windowsazure.com/en-us/pricing/free-trial/
+[2]: http://www.windowsazure.com/zh-tw/pricing/free-trial/
 [3]: http://go.microsoft.com/fwlink/p/?LinkId=294719
 [4]: http://go.microsoft.com/fwlink/p/?LinkId=294720
 [5]: http://go.microsoft.com/fwlink/p/?LinkId=294738
 [6]: http://msdn.microsoft.com/library/cc707783.aspx
-[7]: http://www.windowsazure.com/en-us/pricing/license-mobility/
+[7]: http://www.windowsazure.com/zh-tw/pricing/license-mobility/
 [8]: http://www.microsoft.com/en-us/sqlserver/get-sql-server/how-to-buy.aspx
 [9]: http://msdn.microsoft.com/library/ms161962.aspx
 [10]: http://go.microsoft.com/fwlink/p/?LinkId=294819

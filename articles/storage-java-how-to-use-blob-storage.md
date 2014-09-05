@@ -3,7 +3,7 @@
 如何使用 Java 的 Blob 儲存體
 ============================
 
-本指南將示範如何使用 Azure Blob 儲存服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure SDK for Java](http://www.windowsazure.com/en-us/develop/java/)。所涵蓋的案例包括「上傳」****、「列出」****、「下載」****及「刪除」****Blob。如需 Blob 的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
+本指南將示範如何使用 Azure Blob 儲存服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure SDK for Java](http://www.windowsazure.com/zh-tw/develop/java/)。所涵蓋的案例包括「上傳」****、「列出」****、「下載」****及「刪除」****Blob。如需 Blob 的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
 
 目錄
 ----
@@ -32,7 +32,7 @@
 建立 Java 應用程式
 ------------------
 
-在本指南中，您將使用的儲存功能可在 Java 應用程式中進行本機呼叫，或在 Azure Web 角色或背景工作角色中執行的程式碼中呼叫。我們假設您已下載並安裝 Java Development Kit (JDK)，且遵循[下載 Azure SDK for Java](http://www.windowsazure.com/en-us/develop/java/) (英文) 中的指示，安裝 Azure Libraries for Java 和 Azure SDK，也在 Azure 訂閱中建立了 Azure 儲存體帳戶。
+在本指南中，您將使用的儲存功能可在 Java 應用程式中進行本機呼叫，或在 Azure Web 角色或背景工作角色中執行的程式碼中呼叫。我們假設您已下載並安裝 Java Development Kit (JDK)，且遵循[下載 Azure SDK for Java](http://www.windowsazure.com/zh-tw/develop/java/) (英文) 中的指示，安裝 Azure Libraries for Java 和 Azure SDK，也在 Azure 訂閱中建立了 Azure 儲存體帳戶。
 
 您可以使用任何開發工具來建立應用程式 (包括 [記事本])。您只需要能夠編譯 Java 專案並參考 Azure Libraries for Java。
 

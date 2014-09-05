@@ -38,7 +38,7 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 
 ## 建立及部署 node.js Azure 網站
 
-接著，您必須建立在 Azure 上執行的 node.js 網站。[此作業的正式指引文件位於此處](http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/)。概括而言，您將執行下列作業：
+接著，您必須建立在 Azure 上執行的 node.js 網站。[此作業的正式指引文件位於此處](http://www.windowsazure.com/zh-tw/develop/nodejs/tutorials/create-a-website-(mac)/)。概括而言，您將執行下列作業：
 
 -   註冊 Azure 帳戶 (若您尚無此帳戶)
 -   使用 Azure 管理主控台建立新網站

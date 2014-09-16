@@ -38,7 +38,7 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 
 ## 建立及部署 node.js Azure 網站
 
-接著，您必須建立在 Azure 上執行的 node.js 網站。[此作業的正式指引文件位於此處](http://www.windowsazure.com/zh-tw/develop/nodejs/tutorials/create-a-website-(mac)/)。概括而言，您將執行下列作業：
+接著，您必須建立在 Azure 上執行的 node.js 網站。[此作業的正式指引文件位於此處](http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/)。概括而言，您將執行下列作業：
 
 -   註冊 Azure 帳戶 (若您尚無此帳戶)
 -   使用 Azure 管理主控台建立新網站
@@ -154,23 +154,23 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 
 接著，請建立名為 "views" 的目錄 - 在此目錄中，請以下列內容建立名為 "index.ejs" 的檔案：
 
-	  &lt;!DOCTYPE html&gt;
-	  &lt;html&gt;
-	  &lt;head&gt;
-	      &lt;title&gt;Twilio Test&lt;/title&gt;
-	      &lt;style&gt;
+	  <!DOCTYPE html>
+	  <html>
+	  <head>
+	      <title>Twilio Test</title>
+	      <style>
 	      input { height:20px; width:300px; font-size:18px; margin:5px; padding:5px; }
-	      &lt;/style&gt;
-	  &lt;/head&gt;
-	  &lt;body&gt;
-	      &lt;h1&gt;Twilio Test&lt;/h1&gt;
-	      &lt;form action="/call" method="POST"&gt;
-	          &lt;input placeholder="Enter a phone number" name="number"/&gt;
-	          &lt;br/&gt;
-	          &lt;input type="submit" value="Call the number above"/&gt;
-	      &lt;/form&gt;
-	  &lt;/body&gt;
-	  &lt;/html&gt;
+	      </style>
+	  </head>
+	  <body>
+	      <h1>Twilio Test</h1>
+	      <form action="/call" method="POST">
+	          <input placeholder="Enter a phone number" name="number"/>
+	          <br/>
+	          <input type="submit" value="Call the number above"/>
+	      </form>
+	  </body>
+	  </html>
 
 現在，將您的網站部署至 Azure，然後開啟您的首頁。您應可在文字欄位中輸入電話號碼，並接聽您 Twilio 號碼的來電。
 
@@ -199,13 +199,13 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 
 In "views/index.ejs", add another form under the first one to submit a number and a text message:
 
-	  &lt;form action="/sms" method="POST"&gt;
-	      &lt;input placeholder="Enter a phone number" name="number"/&gt;
-	      &lt;br/&gt;
-	      &lt;input placeholder="Enter a message to send" name="message"/&gt;
-	      &lt;br/&gt;
-	      &lt;input type="submit" value="Send text to the number above"/&gt;
-	  &lt;/form&gt;
+	  <form action="/sms" method="POST">
+	      <input placeholder="Enter a phone number" name="number"/>
+	      <br/>
+	      <input placeholder="Enter a message to send" name="message"/>
+	      <br/>
+	      <input type="submit" value="Send text to the number above"/>
+	  </form>
 
 將您的應用程式重新部署至 Azure，此時您應可提交該表單，並且將簡訊傳送給自己 (或是您所有的好友)。
 

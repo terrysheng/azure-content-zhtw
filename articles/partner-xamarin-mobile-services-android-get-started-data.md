@@ -3,13 +3,16 @@
 開始使用行動服務中的資料
 ========================
 
-[Windows 市集 C\#](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet "Windows 市集 C#")[Windows 市集 JavaScript](/en-us/develop/mobile/tutorials/get-started-with-data-js "Windows 市集 JavaScript")[Windows Phone](/en-us/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/get-started-with-data-ios "iOS")[Android](/en-us/develop/mobile/tutorials/get-started-with-data-android "Android")[HTML](/en-us/develop/mobile/tutorials/get-started-with-data-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android")
+<div class="dev-center-tutorial-selector sublanding">    
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
+</div>	
 
-本主題將示範如何使用 Azure 行動服務，進而運用 Xamarin.Android 應用程式中的資料。在本教學課程中，您將下載應用程式，並在記憶體中儲存資料、建立新的行動服務、將行動服務與該應用程式整合，然後登入 Azure 管理入口網站查看執行應用程式時所做的資料變更。
+<p>本主題將示範如何使用 Azure 行動服務，進而運用 Xamarin.Android 應用程式中的資料。在本教學課程中，您將下載應用程式，並在記憶體中儲存資料、建立新的行動服務、將行動服務與該應用程式整合，然後登入 Azure 管理入口網站查看執行應用程式時所做的資料變更。</p>
 
-**注意**
+<div class="dev-callout"><b>注意</b>
 
-本教學課程是為了協助您充分了解行動服務如何讓您從 Xamarin.Android 應用程式中利用 Azure 來儲存和擷取資料。因此，本主題將逐步說明已在行動服務快速入門中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮首先完成教學課程[開始使用行動服務](/en-us/develop/mobile/tutorials/get-started-xamarin-android)。
+<p>本教學課程是為了協助您充分了解行動服務如何讓您從 Xamarin.Android 應用程式中利用 Azure 來儲存和擷取資料。因此，本主題將逐步說明已在行動服務快速入門中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮首先完成教學課程<a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android">開始使用行動服務</a>。</p>
+</div>
 
 本教學課程將逐步引導您完成下列基本步驟：
 
@@ -19,16 +22,19 @@
 4.  [更新應用程式以使用行動服務](#update-app)
 5.  [針對行動服務進行應用程式測試](#test-app)
 
-**注意**
+<div class="dev-callout"><b>注意</b>
 
-若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A9C9624B5)。
+<p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Azure 免費試用</a>。</p>
+</div>
 
 本教學課程需要 [Azure 行動服務元件](http://components.xamarin.com/view/azure-mobile-services/)、[Xamarin.Android] 及 Android SDK 4.2 或更新版本。
 
-**注意**
+<div class="dev-callout"><b>注意</b>
 
-下載的 GetStartedWithData 專案需要以 Android 4.2 或更新版本為目標。不過，Mobile Services SDK 只需要 Android 2.2 或更新版本。
+<p>下載的 GetStartedWithData 專案需要以 Android 4.2 或更新版本為目標。不過，Mobile Services SDK 只需要 Android 2.2 或更新版本。</p>
+</div>
 
+<a name="download-app"></a>
 下載專案下載 GetStartedWithData 專案
 ------------------------------------
 
@@ -40,21 +46,22 @@
 
 3.  找出並開啟 **TodoActivity** 類別
 
-	Notice that there are `// TODO::` comments that specify the steps you must take to make this app work with your mobile service.
+	請 注意  `// TODO::` 註解會指定您必須進行的步驟，以便讓應用程式與您的行動服務搭配使用。
 
 4.  從 **[執行]** 功能表，按一下 **[啟動但不偵錯]**，接著系統將要求您選擇模擬器或連接的 USB Android 裝置。
 
-    **注意**
+	<div class="dev-callout"><b>注意</b>
 
-    您可以使用 Android 手機或使用 Android 模擬器來執行此專案。使用 Android 手機來執行需要先下載手機專用的 USB 驅動程式。
+    <p>您可以使用 Android 手機或使用 Android 模擬器來執行此專案。使用 Android 手機來執行需要先下載手機專用的 USB 驅動程式。
 
-    若要在 Android 模擬器中執行專案，您至少必須定義一個 Android 虛擬裝置 (AVD)。使用 AVD Manager 來建立與管理這些裝置。
+    若要在 Android 模擬器中執行專案，您至少必須定義一個 Android 虛擬裝置 (AVD)。使用 AVD Manager 來建立與管理這些裝置。</p>
+	</div>
 
 5.  在應用程式中輸入有意義的文字 (例如 *Complete the tutorial*)，然後按一下 **[新增]**。
 
 	![](./media/partner-xamarin-mobile-services-android-get-started-data/mobile-quickstart-startup-android.png)
 
-	Notice that the saved text is stored in an in-memory collection and displayed in the list below.
+	請注意儲存的文字會存放在記憶體內部的集合，並會顯示在以下的清單中。
 
 建立行動服務在管理入口網站中建立新的行動服務
 --------------------------------------------
@@ -72,7 +79,7 @@
 
 	![](./media/partner-xamarin-mobile-services-android-get-started-data/mobile-data-tab-empty.png)
 
-	This displays the **Create new table** dialog.
+	這樣做會顯示 [Create a new custom API] 對話方塊。
 
 3.  在 **[資料表名稱]** 中輸入 *TodoItem*，然後按一下核取按鈕。
 
@@ -82,7 +89,7 @@
 
     <div class="dev-callout"> 
     <b>Note</b> 
-    <p>The same table name is used in Mobile Services quickstart.However, each table is created in a schema that is specific to a given mobile service.This is to prevent data collisions when multiple mobile services use the same database.</p> 
+    <p>行動服務快速入門中使用相同的資料表名稱.然而，會在指定給特定行動服務的結構描述中建立表格目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。</p> 
     </div>
 
 4.  按一下新的 **TodoItem** 資料表，並驗證其中不含資料列。
@@ -92,11 +99,12 @@
 	此為行動服務資料表的最低需求。
 
     <div class="dev-callout"><b>Note</b>
-    <p>When dynamic schema is enabled on your mobile service, new columns are created automatically when JSON objects are sent to the mobile service by an insert or update operation.</p>
+    <p>若您的行動服務啟用動態結構描述，當行動服務透過插入或更新操作收到 JSON 物件時，便會自動建立新資料行。</p>
     </div>
 
 現在您已準備好將新的行動服務作為應用程式的資料儲存區使用。
 
+<a name="update-app"></a>
 更新應用程式更新應用程式以使用行動服務進行資料存取
 --------------------------------------------------
 
@@ -206,6 +214,7 @@
 
 應用程式現已更新為使用行動服務進行後端儲存，我們可以開始在行動服務中測試應用程式。
 
+<a name="test-app"></a>
 測試應用程式在您的新行動服務中測試應用程式
 ------------------------------------------
 
@@ -223,7 +232,7 @@
 
 	![](./media/partner-xamarin-mobile-services-android-get-started-data/mobile-todoitem-data-browse.png)
           
-	Notice that the **TodoItem** table now contains data, with id values generated by Mobile Services, and that columns have been automatically added to the table to match the TodoItem class in the app.
+	請注意 **TodoItem** 表格目前包含資料，該資料包括由行動服務所產生的 ID 值，而該欄位已自動新增到表格中，以符合應用程式中的 TodoItem 類別。
 
 這將結束 Xamarin.Android 的**開始使用資料**教學課程。
 
@@ -232,6 +241,7 @@
 
 下載[完成的範例專案](http://go.microsoft.com/fwlink/p/?LinkId=331302)。務必以您自己的 Azure 設定更新 **applicationURL** 和 **applicationKey** 變數。
 
+<a name="next-steps"> </a>
 後續步驟
 --------
 

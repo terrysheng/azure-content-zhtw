@@ -45,7 +45,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 	* 登入 [Azure 管理入口網站][3]，選取您的雲端服務，再選取 [儀表板**，然後在 **Quick Glance** 區段中找出 **網站 URL** 項目。
 
-	![快速瀏覽區段，其中顯示網站 URL](./media/custom-dns/csurl.png)
+	![快速瀏覽區段，其中顯示網站 URL](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-custom-domain-name/20140818090955/includes/custom-dns/csurl.png)
 
 	* 安裝並設定 [Azure Powershell](../install-configure-powershell/)，然後使用下列命令：
   
@@ -108,7 +108,7 @@ A 記錄的方法都很類似，只是稍微不同，但概念都一樣。
   
   如果雲端服務有多個相關聯的端點，您會收到許多行 IP 位址，但全部都會顯示相同的位址。
 
-建立 A 記錄時需要用到此 IP 位址，請儲存下來。
+  建立 A 記錄時需要用到此 IP 位址，請儲存下來。
 
 1.  登入 DNS 註冊機構的網站，並移至 DNS 管理頁面。在網站中尋找標示為 **Domain Name**、**DNS** 或 **Name Server Management** 的連結或區域。
 
@@ -153,4 +153,4 @@ A 記錄的方法都很類似，只是稍微不同，但概念都一樣。
 [1]: http://en.wikipedia.org/wiki/CNAME_record
 [2]: http://tools.ietf.org/html/rfc1035
 [3]: https://manage.windowsazure.com
-[4]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg680307.aspx
+[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx

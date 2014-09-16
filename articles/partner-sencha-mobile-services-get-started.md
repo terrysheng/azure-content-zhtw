@@ -1,15 +1,35 @@
 <properties linkid="develop-mobile-tutorials-get-started-sencha" urlDisplayName="Get Started" pageTitle="Get Started with Azure Mobile Services and Sencha" metaKeywords="" description="Follow this tutorial to get started developing with Mobile Services and the Sencha HTML5 mobile app framework. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="" documentationCenter="Mobile" title="Get started with Mobile Services and Sencha Touch" authors="sencha" solutions="" manager="" editor="" />
 
+<a name="getting-started"> </a>
 行動服務和 Sencha Touch 入門
 ============================
 
-[Windows 市集](/en-us/documentation/articles/mobile-services-windows-store-get-started "Windows 市集") [Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/en-us/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/en-us/documentation/articles/mobile-services-android-get-started "Android") [HTML](/en-us/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/en-us/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
+<div class="dev-center-tutorial-selector sublanding">
+	<a href="/en-us/documentation/articles/mobile-services-windows-store-get-started" title="Windows Store">Windows Store</a>
+	<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/documentation/articles/mobile-services-ios-get-started" title="iOS">iOS</a>
+	<a href="/en-us/documentation/articles/mobile-services-android-get-started" title="Android">Android</a>
+	<a href="/en-us/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a>
+	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a>
+	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a>
+	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha" class="current">Sencha</a>
+	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>
+</div>
 
-本教學課程展示如何將 Azure 行動服務運用在 Sencha Touch 應用程式中。您將會使用 Sencha Touch 建立簡易的待辦事項應用程式，該應用程式乃使用透過管理入口網站定義的行動服務。本教學課程的目標觀眾為瞭解 JavaScript 及熟悉 Sencha Touch 架構的中級到進階 Web 應用程式開發人員。
+<!--<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-dotnet-backend-get-started/" title=".NET backend">.NET backend</a> | 
+	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/"  title="JavaScript backend" class="current">JavaScript backend</a>
+</div>-->
 
-若您偏好觀看影片，右方的短片會示範與此教學課程相同的步驟。在影片中，Arthur Kay 會說明如何組建使用 Azure 行動服務後端的 Sencha Touch 應用程式。
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
+<p>本教學課程展示如何將 Azure 行動服務運用在 Sencha Touch 應用程式中。您將會使用 Sencha Touch 建立簡易的待辦事項應用程式，該應用程式乃使用透過管理入口網站定義的行動服務。本教學課程的目標觀眾為瞭解 JavaScript 及熟悉 Sencha Touch 架構的中級到進階 Web 應用程式開發人員。</p>
 
-[觀賞教學課程](http://go.microsoft.com/fwlink/?LinkId=392574) [播放視訊](http://go.microsoft.com/fwlink/?LinkId=392574) 14:37
+<p>若您偏好觀看影片，右方的短片會示範與此教學課程相同的步驟。在影片中，Arthur Kay 會說明如何組建使用 Azure 行動服務後端的 Sencha Touch 應用程式。</p>
+</div>
+
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="label">觀賞教學課程</a> <a style="background-image: url('/media/partner-sencha-mobile-services-get-started/mobile-sencha-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="dev-onpage-video"><span class="icon">播放視訊</span></a> <span class="time">14:37</span></div>
+</div>
 
 已完成應用程式的螢幕擷取畫面如下：
 
@@ -40,7 +60,7 @@
 
     ![Mobile quickstart html](./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png)
 
-    This displays the three easy steps to create and host an HTML app connected to your mobile service.
+    這會顯示三種簡單的步驟，用來建立及主控連線到您行動服務的 HTML 應用程式。
 
     ![Mobile quickstart html](./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png)
 
@@ -650,10 +670,9 @@ Sencha Touch 存放區可用來儲存資料記錄 (模型) 的集合，這些集
 
 
 
-    * *sencha app refresh* : This will instruct Sencha Cmd to locate all app dependencies,
-    and download any needed packages (for example, [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)).
+    * *sencha app refresh* : 這會指示 Sencha Cmd 尋找所有應用程式相依性，並下載任何所需的套件 (例如, [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)).
 
-    * *sencha web start*：This will start a local web server to test our application.
+    * *sencha web start*：這會啟動本機網頁伺服器來測試應用程式。
 
     ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
 
@@ -665,7 +684,7 @@ Sencha Touch 存放區可用來儲存資料記錄 (模型) 的集合，這些集
 
     ![new todo item](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
 
-    This sends a POST request to the new mobile service hosted in Azure.Data from the request is inserted into the TodoItem table.
+    這會將 POST 要求傳送給 Azure 上主控的新行動服務。要求的資料會插入 TodoItem 表格。
 
 1.  回到管理入口網站中，按一下 **[資料]** 索引標籤，然後按一下 [TodoItems] 表格。
 

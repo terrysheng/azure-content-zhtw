@@ -8,9 +8,10 @@
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
 
-    **注意**
+	<div class="dev-callout"><b>注意</b>
+	<p>如果您現已有專案，登入後會將您重新導向至 <strong>[專案[</strong> 頁面。若要從 [Dashboard] 建立新的專案，請展開 <strong>[API Project]</strong>，並按一下 <strong>]Other projects]</strong> 下的 <strong>[Create...]</strong>，然後輸入專案名稱，並按一下 <strong>[Create project]</strong>。</p>
+    </div>
 
-    如果您現已有專案，登入後會將您重新導向至 **[專案]** 頁面。若要從 [Dashboard] 建立新的專案，請展開 **[API Project]**，並按一下 **[Other projects]** 下的 **[Create...]**，然後輸入專案名稱，並按一下 **[Create project]**。
 
 2.  輸入專案名稱，接受服務條款，然後按一下 **[建立]**。執行要求的簡訊驗證，然後再按一下 **[建立]**。
 

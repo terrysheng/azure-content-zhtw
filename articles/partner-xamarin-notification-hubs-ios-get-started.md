@@ -3,7 +3,7 @@
 開始使用通知中心
 ================
 
-[Windows 市集 C\#](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet "Windows 市集 C#")[Windows Phone](/en-us/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone")[iOS](/en-us/documentation/articles/notification-hubs-ios-get-started/ "iOS")[Android](/en-us/documentation/articles/notification-hubs-android-get-started/ "Android")[Kindle](/en-us/documentation/articles/notification-hubs-kindle-get-started/ "Kindle")[Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS")[Xamarin.Android](/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android")
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/services/notification-hubs/getting-started-windows-dotnet" title="Windows 市集 C#">Windows 市集 C#</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/en-us/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/en-us/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
 本主題將示範如何使用 Azure 通知中心將推播通知傳送至 iOS 應用程式。在本教學課程中，您將使用 Apple 推播通知服務 (APN)，建立可接收推播通知的空白 iOS 應用程式。完成時，您便能夠使用通知中心，將推播通知廣播到所有正在執行您應用程式的裝置。[NotificationHubs 應用程式](http://go.microsoft.com/fwlink/p/?LinkId=331329)範例中提供完成的程式碼。
 
@@ -24,15 +24,13 @@
 -   [Xamarin.iOS]
 -   [Azure 行動服務元件](http://components.xamarin.com/view/azure-mobile-services/)
 
-    **注意**
-
-    基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
+   <div class="dev-callout"><b>注意</b>
+   <p>基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。</p>
+   </div>
 
 完成本教學課程是 iOS 應用程式所有其他通知中心教學課程的先決條件。
 
-**注意**
-
-若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-ios%2F)。
+<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-ios%2F" target="_blank">Azure 免費試用</a>。</p></div>
 
 Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循這些指示建立必要的憑證，並將憑證上傳至您的行動服務。如需正式的 APNS 功能文件，請參閱 [Apple 推播通知服務](http://go.microsoft.com/fwlink/p/?LinkId=272584) (英文)。
 
@@ -84,9 +82,8 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
 	![](./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-10.png)
 
-    **注意**
-
-    如果您選擇提供 **Bundle Identifier** 值而非 **MobileServices.Quickstart**，則您必須也更新 Xcode 專案中的套件組合識別碼值。
+	<div class="dev-callout"><b>注意</b>
+	<p>如果您選擇提供 <strong>Bundle Identifier</strong> 值而非 <b>MobileServices.Quickstart</b>, 則您必須也更新 Xcode 專案中的套件組合識別碼值。</p>
 
 3.  找出剛才建立的應用程式識別碼，並且按一下該資料列。
 
@@ -106,9 +103,9 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
 	![](./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-15.png)
 
-    **注意**
-
-    本教學課程使用開發憑證。註冊生產憑證時，將使用同一個程序。您將憑證上傳至行動服務時，請確定設定相同的憑證類型。
+	<div class="dev-callout"><b>注意</b>
+	<p>本教學課程使用開發憑證。註冊生產憑證時，將使用同一個程序。您將憑證上傳至行動服務時，請確定設定相同的憑證類型。</p>
+	</div>
 
 5.  按一下 **[選擇檔案]**，瀏覽至您儲存第一個工作中建立的 CSR 檔所在的位置，然後按一下 **[產生]**。
 
@@ -124,8 +121,8 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
 	![](./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step9.png)
 
-    <div class="dev-callout"><b>Note</b>
-    <p>By default, the downloaded file a development certificate is named <strong>aps_development.cer</strong>.</p>
+    <div class="dev-callout"><b>참고</b>
+    <p>다운로드된 파일에서 개발 인증서의 이름은 기본적으로 <strong>aps_development.cer</strong> 입니다.</p>
     </div>
 
 7.	按兩下下載的推播憑證 **aps\_development.cer**。
@@ -315,16 +312,16 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
             }
         }
 
-    **注意**
-
-    您可以選擇覆寫 **FailedToRegisterForRemoteNotifications()** 以處理不含無網路連線等等的情況。
+    <div class="dev-callout"><b>注意</b>
+	<p>您可以選擇覆寫 <b>FailedToRegisterForRemoteNotifications()</b> 以處理不含無網路連線等等的情況。</p>
+    </div>
 
 10. 在您的裝置上執行應用程式。
 
 傳送通知從後端傳送通知
 ----------------------
 
-您可以使用 [REST 介面](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn223264.aspx)，從任何後端使用通知中心來傳送通知。在本教學課程中，我們將透過 .NET 主控台應用程式，以及使用節點指令碼透過行動服務來傳送通知。
+您可以使用 [REST 介面](http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx)，從任何後端使用通知中心來傳送通知。在本教學課程中，我們將透過 .NET 主控台應用程式，以及使用節點指令碼透過行動服務來傳送通知。
 
 使用 .NET 應用程式傳送通知：
 
@@ -396,5 +393,5 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 後續步驟
 --------
 
-在此簡單範例中，您將廣播通知到您的所有 iOS 裝置。若要以特定使用者為目標，請參閱教學課程[使用通知中心來推播通知給使用者](/en-us/manage/services/notification-hubs/notify-users-aspnet)，在此同時，如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞](/en-us/manage/services/notification-hubs/breaking-news-dotnet)。若要深入了解如何使用通知中心，請參閱 [Azure 通知中心概觀](http://msdn.microsoft.com/zh-tw/library/jj927170.aspx)和 [iOS 的通知中心作法](http://msdn.microsoft.com/zh-tw/library/jj927168.aspx) (英文)。
+在此簡單範例中，您將廣播通知到您的所有 iOS 裝置。若要以特定使用者為目標，請參閱教學課程[使用通知中心來推播通知給使用者](/en-us/manage/services/notification-hubs/notify-users-aspnet)，在此同時，如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞](/en-us/manage/services/notification-hubs/breaking-news-dotnet)。若要深入了解如何使用通知中心，請參閱 [Azure 通知中心概觀](http://msdn.microsoft.com/en-us/library/jj927170.aspx)和 [iOS 的通知中心作法](http://msdn.microsoft.com/en-us/library/jj927168.aspx) (英文)。
 

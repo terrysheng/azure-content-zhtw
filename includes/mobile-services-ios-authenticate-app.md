@@ -18,7 +18,9 @@
         [self refresh];
             }];
         }
-
+    <div class="dev-callout"><b>注意</b>
+	<p>如果您使用的身分識別提供者不是 Facebook，請將傳給上述 <strong>loginWithProvider</strong> 的值變更為下列其中一個：<em>microsoftaccount</em>、<em>facebook</em>、<em>twitter</em> 或 <em>google</em>。</p>
+    </div>
     **注意**
 
     如果您使用的身分識別提供者不是 Facebook，請將傳給上述 **loginWithProvider** 的值變更為下列其中一個：*microsoftaccount*、*facebook*、*twitter* 或 *google*。

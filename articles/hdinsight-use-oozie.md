@@ -46,7 +46,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
 
 2.  Sqoop 動作會將 HiveQL 動作的輸出匯出至 Azure SQL Database 上的資料表。如需 Sqoop 的詳細資訊，請參閱[在 HDInsight 上使用 Sqoop](../hdinsight-use-sqoop/)。
 
-> [WACOM.NOTE] 如需 HDInsight 叢集上支援的 Oozie 版本，請參閱 [HDInsight 所提供叢集版本的新功能](/en-us/documentation/articles/hdinsight-component-versioning/)。
+    > [WACOM.NOTE] 如需 HDInsight 叢集上支援的 Oozie 版本，請參閱 [HDInsight 所提供叢集版本的新功能](/en-us/documentation/articles/hdinsight-component-versioning/)。
 
 > [WACOM.NOTE] 本教學課程將執行於 HDInsight 從 2.1 和 3.0 版。本文並未使用 HDInsight 模擬器進行測試。
 
@@ -223,8 +223,11 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
 WASB 語法如下：
 
     wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
+<div class="dev-callout">
+<b>NOTE</b>
+<p> HDInsight 叢集 3.0 版僅支援 *wasb://* 語法。HDInsight 2.1 和 1.6 支援舊的 *asv://* 語法，但在 HDInsight 3.0 叢集中已不受支援，未來的版本也不加以支援。</p>
+</div>
 
-> [WACOM.NOTE] HDInsight 叢集 3.0 版僅支援 *wasb://* 語法。HDInsight 2.1 和 1.6 支援舊的 *asv://* 語法，但在 HDInsight 3.0 叢集中已不受支援，未來的版本也不加以支援。
 
 > [WACOM.NOTE] WASB 路徑為虛擬路徑。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](/en-us/documentation/articles/hdinsight-use-blob-storage/)。
 

@@ -17,9 +17,9 @@
 
 完成本教學課程需要 XCode 4.5 和 iOS 5.0 或更新版本，以及適用於 OS X 的 [Xamarin Studio](http://xamarin.com/download) 或適用於 Visual Studio 的 Xamarin Visual Studio 外掛程式 (在 Windows 上)。
 
-**注意**
-
-若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F)。
+<div class="dev-callout"><b>注意</b>
+<p>
+若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F" target="_blank">Azure 免費試用</a></p></div>
 
 建立新的行動服務
 ----------------
@@ -70,9 +70,10 @@
 
     這會傳送 POST 要求到 Azure 中所代管的新行動服務。要求中的資料會被插入 TodoItem 資料表。行動服務會傳回資料表中儲存的項目，並將資料顯示在清單中。
 
-    **注意**
-
+    <div class="dev-callout"><b>注意</b>
+	<p>
     您可以檢閱存取行動服務以查詢與插入資料的程式碼，您可在 TodoService.cs C\# 檔案中找到此程式碼。
+	</p></div>
 
 4.  回到管理入口網站中，按一下 **[資料]** 索引標籤，然後按一下 **[TodoItems]** 資料表。
 

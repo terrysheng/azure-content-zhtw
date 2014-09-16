@@ -7,8 +7,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 完成之應用程式的螢幕擷取畫面如下：
 
-![A browser window displaying the service hosted on
-Azure](./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png)
+![A browser window displaying the service hosted on Azure](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-10.png)
 
 ## 建立雲端服務專案
 
@@ -17,8 +16,7 @@ Azure](./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png)
 1.  從 **開始] 功能表**** 或 [開始畫面** 中，搜尋 **Azure PowerShell**。最後，以滑鼠右鍵按一下
     **Azure PowerShell**，然後選取 **以系統管理員身分執行**。
     
-    ![Azure PowerShell
-    icon](./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png)
+    ![Azure PowerShell icon](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/azure-powershell-start.png)
     
     [WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
@@ -30,8 +28,7 @@ Azure](./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png)
     
     您會看到下列回應：
     
-    ![The output of the new-azureservice and
-    add-azurenodeworkerrolecmdlets](./media/cloud-services-nodejs-chat-app-socketio/socketio-1.png)
+    ![The output of the new-azureservice and add-azurenodeworkerrolecmdlets](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-1.png)
 
 ## 下載交談範例
 
@@ -39,17 +36,12 @@ Azure](./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png)
 
 1.  使用 **複製** 按鈕建立儲存機制的本機複本。您也可以使用 **ZIP** 按鈕來下載專案。
     
-    ![檢視
-    https://github.com/LearnBoost/socket.io/tree/master/examples/chat
-    的瀏覽器視窗，且反白顯示 ZIP
-    下載圖示](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
+    ![檢視 https://github.com/LearnBoost/socket.io/tree/master/examples/chat 的瀏覽器視窗，且反白顯示 ZIP 下載圖示](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-22.png)
 
 2.  瀏覽本機儲存機制的目錄結構，直到發現 **examples\chat** 目錄為止。將此目錄的內容複製到稍早建立的
     **C:\node\chatapp\WorkerRole1** 目錄。
     
-    ![Explorer, displaying the contents of the examples\\chat directory
-    extracted from the
-    archive](./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png)
+    ![Explorer, displaying the contents of the examples\\chat directory extracted from the archive](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-5.png)
     
     上方螢幕擷取畫面中反白顯示的項目是從 **examples\chat** 目錄複製的檔案
 
@@ -92,8 +84,7 @@ Azure](./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png)
     
     這將會安裝 package.json 檔案中列出的模組。命令完成之後，您應該會看到類似下列的輸出：
     
-    ![The output of the npm install
-    command](./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png)
+    ![The output of the npm install command](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-7.png)
 
 2.  因為此範例原本是 Socket.IO GitHub 儲存機制的一部分，且以相對路徑直接參考 Socket.IO
     程式庫，package.json 檔案中並未參考 Socket.IO，因此，我們必須發出下列命令來安裝它：
@@ -109,8 +100,7 @@ Azure](./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png)
 2.  當瀏覽器視窗開啟時，請輸入暱稱，然後按 Enter 鍵。這樣可讓您以特定的暱稱來張貼訊息。若要測試多使用者功能，請使用相同 URL
     開啟其他瀏覽器視窗，並輸入不同的暱稱。
     
-    ![兩個瀏覽器視窗顯示 User1 和 User2
-    的交談訊息](./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png)
+    ![兩個瀏覽器視窗顯示 User1 和 User2 的交談訊息](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-8.png)
 
 3.  測試應用程式之後，發出下列命令來停止模擬器：
     
@@ -121,36 +111,25 @@ Azure](./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png)
         PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
     
 
-
-**注意**
-務必使用唯一的名稱，否則發行程序會失敗。部署完成之後，瀏覽器會開啟並瀏覽至已部署的服務。
-
-
-如果出現錯誤指出匯入的發行設定檔中沒有您所提供的訂閱名稱，則在部署至 Azure 之前，您必須下載並匯入訂閱的發行設定檔。請參閱[建立 Node.js 應用程式並部署至 Azure 雲端服務][3]的**將應用程式部署至 Azure**一節 (英文)
-
-
-
+<div class="dev-callout">
+	<strong>注意</strong>
+	<p>務必使用唯一的名稱，否則發行程序會失敗。部署完成之後，瀏覽器會開啟並瀏覽至已部署的服務。</p>
+	<p>如果出現錯誤指出匯入的發行設定檔中沒有您所提供的訂閱名稱，則在部署至 Azure 之前，您必須下載並匯入訂閱的發行設定檔。請參閱<a href="https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/">建立 Node.js 應用程式並部署至 Azure 雲端服務</a>的<b>將應用程式部署至 Azure</b>一節 (英文) </p>
 
     
-![A browser window displaying the service hosted on Azure](./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png)
-    
+![A browser window displaying the service hosted on Azure](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-10.png)
 
-
-**注意**
-如果出現錯誤指出匯入的發行設定檔中沒有您所提供的訂閱名稱，則在部署至 Azure 之前，您必須下載並匯入訂閱的發行設定檔。請參閱[建立 Node.js 應用程式並部署至 Azure 雲端服務][3]的**將應用程式部署至 Azure**一節 (英文)
-
-
-
-
+<div class="dev-callout">
+<strong>注意</strong>
+<p>注意 如果出現錯誤指出匯入的發行設定檔中沒有您所提供的訂閱名稱，則在部署至 Azure 之前，您必須下載並匯入訂閱的發行設定檔。請參閱<a href="https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/">建立 Node.js 應用程式並部署至 Azure 雲端服務</a>的<b>將應用程式部署至 Azure</b>一節 (英文)</p>
+</div>
 
 應用程式現在於 Azure 上執行，且可使用 Socket.IO 來轉達不同用戶端之間的交談訊息。
 
-
-**注意**
-為了簡化起見，此範例只限於連線至相同執行個體的使用者之間的交談。這表示如果雲端服務建立兩個背景工作角色執行個體，則使用者只能夠與連線至相同背景工作角色執行個體的其他使用者交談。若要擴充應用程式來處理多個角色執行個體，您可以使用服務匯流排之類的技術，以便跨執行個體來共用 Socket.IO 儲存狀態。相關範例請參閱 [Azure SDK for Node.js GitHub 儲存機制][4] (英文) 中的服務匯流排佇列和主題使用範例。
-
-
-
+<div class="dev-callout">
+<strong>注意</strong>
+<p>為了簡化起見，此範例只限於連線至相同執行個體的使用者之間的交談。這表示如果雲端服務建立兩個背景工作角色執行個體，則使用者只能夠與連線至相同背景工作角色執行個體的其他使用者交談。若要擴充應用程式來處理多個角色執行個體，您可以使用服務匯流排之類的技術，以便跨執行個體來共用 Socket.IO 儲存狀態。相關範例請參閱 <a href="https://github.com/WindowsAzure/azure-sdk-for-node">Azure SDK for Node.js GitHub 儲存機制</a> (英文) 中的服務匯流排佇列和主題使用範例。</p>
+</div>
 
 ## 後續步驟
 

@@ -77,7 +77,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
 <tr data-morhtml="true"><td data-morhtml="true">SQL Database 名稱</td><td data-morhtml="true">$sqlDatabaseName</td><td data-morhtml="true"></td><td data-morhtml="true">Sqoop 會將資料匯出到的 Azure SQL Database。 </td></tr>
   </table>
 
-    > [WACOM.NOTE] 依預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDinsight) 的連線。如果此防火牆設定停用，您必須從 Azure 管理入口網站中啟用它。如需建立 SQL 資料庫和設定防火牆規則的相關指示，請參閱[建立和設定 SQL 資料庫](../sql-database-create-configure/)。
+> [WACOM.NOTE] 依預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDinsight) 的連線。如果此防火牆設定停用，您必須從 Azure 管理入口網站中啟用它。如需建立 SQL 資料庫和設定防火牆規則的相關指示，請參閱[建立和設定 SQL 資料庫](../sql-database-create-configure/)。
 
 > [WACOM.NOTE] 將值填入資料表中。這將有助於本教學課程的執行。
 

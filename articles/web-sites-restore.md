@@ -1,107 +1,121 @@
 <properties linkid="web-sites-restore" urlDisplayName="Restore a Microsoft Azure web site" pageTitle="Restore a Microsoft Azure web site" metaKeywords="Azure Web Sites, Restore, restoring" description="Learn how to restore your Azure web sites from backup." metaCanonical="" services="web-sites" documentationCenter="" title="Restore a Microsoft Azure web site" authors="timamm" solutions="" writer="timamm" manager="paulettm" editor="mollybos" />
 
-還原 Microsoft Azure 網站
-=========================
+Microsoft Azure 웹 사이트 복원
+==============================
 
-本文將說明如何使用 Azure 網站備份功能來還原您先前備份的網站。如需詳細資訊，請參閱 [Microsoft Azure 網站備份](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-backup/)。
+이 문서에서는 Azure 웹 사이트 백업 기능을 사용하여 이전에 백업한 웹 사이트를 복원하는 방법을 보여 줍니다. 자세한 내용은 [Microsoft Azure 웹 사이트 백업](http://www.windowsazure.com/en-us/documentation/articles/web-sites-backup/)을 참조하십시오.
 
-Azure 網站還原功能可讓您隨需將網站還原至先前的狀態，或根據原始網站的其中一個備份建立新網站。建立以平行方式執行最新版本的新網站，對於 A/B 測試將有所幫助。
+Azure 웹 사이트 복원 기능을 통해 요청 시 웹 사이트를 이전 상태로 복원하거나 원본 사이트 백업 중 하나를 기반으로 새 웹 사이트를 만들 수 있습니다. 최신 버전과 병행하여 실행되는 웹 사이트를 새로 만드는 것이 A/B를 테스트하는 데 유용할 수 있습니다.
 
-可從 Azure 入口網站的 [備份] 索引標籤存取的 [還原] 功能，僅適用於 [標準] 模式。
+Azure 웹 사이트 포털의 백업 탭에서 사용할 수 있는 복원 기능은 표준 모드에서만 사용할 수 있습니다.
 
-本文內容
---------
+이 문서에서는 다음을 수행합니다.
+--------------------------------
 
--   [從先前製作的備份還原 Azure 網站](#PreviousBackup)
--   [直接從儲存體帳戶還原 Azure 網站](#StorageAccount)
--   [選擇您的網站還原設定並啟動還原作業](#RestoreSettings)
--   [檢視作業記錄檔](#OperationLogs)
+-   [이전에 만든 백업에서 Azure 웹 사이트를 복원하려면](#PreviousBackup)
+-   [저장소 계정에서 바로 Azure 웹 사이트를 복원하려면](#StorageAccount)
+-   [웹 사이트 복원 설정 선택 및 복원 작업 시작](#RestoreSettings)
+-   [작업 로그 보기](#OperationLogs)
 
-## 從先前製作的備份還原 Azure 網站
+## 이전에 만든 백업에서 Azure 웹 사이트를 복원하려면
 
-1.  在 **[備份]** 索引標籤上，於入口網站頁面底部的命令列中按一下 **[立即還原]**。**[立即還原]** 對話方塊隨即出現。
+1.  **백업** 탭에서, 포털 페이지의 맨 아래에 있는 명령 모음에서 **지금 복원**을 클릭합니다. **지금 복원** 대화 상자가 나타납니다.
 
-    ![Choose backup source](./media/web-sites-restore/01ChooseBackupSource.png)
+    ![백업 원본 선택](./media/web-sites-restore/01ChooseBackupSource.png)
 
-2.  在 **[選擇備份來源]** 下，選取 **[Previous Backup for this Web Site]**。
-3.  選取您要還原之備份的日期，然後按一下向右箭號繼續作業。
-4.  執行本文後續的[選擇您的網站還原設定](#RestoreSettings)一節中的步驟。
+2.  **백업 원본 선택**에서 **이 웹 사이트의 이전 백업**을 선택합니다.
+3.  복원할 백업 날짜를 선택한 다음 오른쪽 화살표를 클릭하여 계속합니다.
+4.  이 문서의 뒷부분에 나오는 [웹 사이트 복원 설정 선택](#RestoreSettings) 섹션의 단계를 따릅니다.
 
-## 直接從儲存體帳戶還原 Azure 網站
+## 저장소 계정에서 바로 Azure 웹 사이트를 복원하려면
 
-1.  在 **[備份]** 索引標籤上，於入口網站頁面底部的命令列中按一下 **[立即還原]**。**[立即還原]** 對話方塊隨即出現。
+1.  **백업** 탭에서, 포털 페이지의 맨 아래에 있는 명령 모음에서 **지금 복원**을 클릭합니다. **지금 복원** 대화 상자가 나타납니다.
 
-    ![Choose backup source](./media/web-sites-restore/01ChooseBackupSource.png)
+    ![백업 원본 선택](./media/web-sites-restore/01ChooseBackupSource.png)
 
-2.  在 **[選擇備份來源]** 下，選取 **[儲存體帳戶檔案]**。在此，您可以直接指定儲存體帳戶檔案的 URL，或按一下資料夾圖示以導覽至 Blob 儲存體，然後指定備份檔案。此範例選擇資料夾圖示。
+2.  **백업 원본 선택**에서 **저장소 계정 파일**을 선택합니다. 여기서 저장소 계정 파일의 URL을 바로 지정하거나 폴더 아이콘을 클릭하여 Blob 저장소를 찾아 백업 파일을 지정할 수 있습니다. 이 예제에서는 폴더 아이콘을 선택합니다.
 
-    ![Storage Account File](./media/web-sites-restore/02StorageAccountFile.png)
+    ![저장소 계정 파일](./media/web-sites-restore/02StorageAccountFile.png)
 
-3.  按一下資料夾圖示，以開啟 **[瀏覽雲端儲存體]** 對話方塊。
+3.  폴더 아이콘을 클릭하여 **클라우드 저장소 찾아보기** 대화 상자를 엽니다.
 
-    ![Browse Cloud Storage](./media/web-sites-restore/03BrowseCloudStorage.png)
+    ![클라우드 저장소 찾아보기](./media/web-sites-restore/03BrowseCloudStorage.png)
 
-4.  展開您要使用之儲存體帳戶的名稱，然後選取包含您的備份的 **websitebackups**。
-5.  選取您要還原的備份存放所在的 zip 檔案，然後按一下 **[開啟]**。
-6.  儲存體帳戶檔案已選取，並顯示於儲存體帳戶方塊中。按一下向右箭頭以繼續操作。
+4.  사용할 저장소 계정의 이름을 확장한 후 백업이 포함된 **websitebackups**를 선택합니다.
+5.  복원할 백업이 포함된 zip 파일을 선택한 다음 **열기**를 클릭합니다.
+6.  저장소 계정 파일이 선택된 채 저장소 계정 상자에 표시됩니다. 오른쪽 화살표를 클릭하여 계속합니다.
 
-    ![Storage Account File Selected](./media/web-sites-restore/04StorageAccountFileSelected.png)
+    ![선택된 저장소 계정 파일](./media/web-sites-restore/04StorageAccountFileSelected.png)
 
-7.  繼續進行下一節[選擇您的網站還原設定並啟動還原作業](#RestoreSettings)。
+7.  다음에 나오는 섹션인 [웹 사이트 복원 설정 선택 및 복원 작업 시작](#RestoreSettings)을 계속합니다.
 
-## 選擇您的網站還原設定並啟動還原作業
- 1。在 **[Choose your web site restore settings]** \> **[Restore To]** 下，選取 **[Current web site]** 或 **[New web site instance]**。
+## 웹 사이트 복원 설정 선택 및 복원 작업 시작
+1. **웹 사이트 복원 설정 선택**의 **복원 대상**에서 **현재 웹 사이트** 또는 **새 웹 사이트 인스턴스**를 선택합니다.
 
     ![Choose your web site restore settings][ChooseRestoreSettings]
 
-    If you select **Current web site**, your existing web site will be overwritten by the backup that you selected (destructive restore).All changes you have made to the web site since the time of the chosen backup will be permanently removed, and the restore operation cannot be undone.During the restore operation, your current web site will be temporarily unavailable, and you will be warned to this effect.
+    **현재 웹 사이트**를 선택하면 선택한 백업으로 기존 웹 사이트를 덮어씁니다(파괴 복원). 선택한 백업 시간 이후 웹 사이트의 모든 변경 내용이 영구적으로 삭제되며 복원 작업을 취소할 수 없습니다. 복원 작업을 하는 동안 현재 웹 사이트는 일시적으로 사용할 수 없게 되며 이와 관련하여 경고 메시지를 받습니다.
 
-    If you select **New web site instance**, a new web site will be created in the same region with the name that you specify.(By default, the new name is **restored-***oldWebSiteName*.) 
+    **새 웹 사이트 인스턴스**를 선택하면 지정한 이름과 동일한 지역에 새 웹 사이트가 만들어집니다. (기본적으로 새 이름은 **restored-** *oldWebSiteName*입니다.) 
 
-    The site that you restore will contain the same content and configuration that were made in the portal for the original site.It will also include any databases that you choose to include in the next step.
+    복원하는 사이트에는 원본 사이트의 포털에서 만든 것과 동일한 내용과 구성이 포함됩니다. 또한 다음 단계에서 포함하도록 선택하는 데이터베이스도 포함됩니다.
 
-1.  如果您要連同網站一起還原資料庫，請在 **[Included Databases]** 下，使用 **[Restore To]** 下的下拉式清單選取資料庫所要還原到的資料庫伺服器名稱。您也可以選擇建立新的資料庫伺服器作為還原目的地，或選擇 **[Don't Restore]** 而不還原資料庫 (此為預設值)。
+2.  웹 사이트와 함께 데이터베이스를 복원하려면 **포함된 데이터베이스**에서 **복원 대상** 아래에 있는 드롭다운을 사용하여 데이터베이스를 복원할 데이터베이스 서버의 이름을 선택합니다. 또한 복원할 데이터베이스 서버를 새로 만들도록 선택하거나 **복원 안 함**을 선택하여 기본값인 데이터베이스를 복원하지 않을 수도 있습니다.
 
-    選擇伺服器名稱後，請在 **[資料庫名稱]** 方塊中指定還原之目標資料庫的名稱。
+    서버 이름을 선택한 후에는 **데이터베이스 이름** 상자에서 복원용 데이터베이스의 이름을 지정합니다.
 
-    如果您的還原包含一或多個資料庫，您可以選取 **[Automatically adjust connection strings]** 以更新儲存在備份中的連接字串，使其依需求指向您的新資料庫或資料庫伺服器。在還原完成後，您應驗證資料庫的所有相關功能皆可正常運作。
+    복원에 하나 이상의 데이터베이스가 포함되면 **연결 문자열 자동 조정**을 선택하여 백업에 저장된 연결 문자열을 새 데이터베이스 또는 데이터베이스 서버를 가리키도록 업데이트합니다. 복원이 완료된 후 데이터베이스와 관련된 모든 기능이 예상대로 작동하는지 확인해야 합니다.
 
-    ![Choose database server host](./media/web-sites-restore/06ChooseDBServer.png)
+    ![데이터베이스 서버 호스트 선택](./media/web-sites-restore/06ChooseDBServer.png)
 
-    > [WACOM.NOTE] 您無法將同名的 SQL Database 還原至相同的 SQL Server。您必須選擇不同的資料庫名稱或 SQL Server 主機，作為資料庫的還原目的地。
+    > [WACOM.NOTE] 이름이 동일한 SQL 데이터베이스를 동일한 SQL 서버로 복원할 수 없습니다. 데이터베이스를 복원하려면 다른 데이터베이스 이름이나 다른 SQL 서버 호스트 중 하나를 선택해야 합니다.
 
-    > [WACOM.NOTE] 您可以將同名的 MySQL 資料庫還原至相同的伺服器，但請注意，這將會清除儲存在 MySQL 資料庫中的現有內容。
+    > [WACOM.NOTE] 이름이 동일한 MySQL 데이터베이스를 동일한 서버로 복원할 수는 있지만 MySQL 데이터베이스에 저장된 기존 콘텐츠는 지워집니다.
 
-2.  如果您選擇還原現有資料庫，您必須提供使用者名稱和密碼。如果您選擇還原至新資料庫，您必須提供新的資料庫名稱：
+3.  기존 데이터베이스를 복원하도록 선택한 경우에는 사용자 이름과 암호를 제공해야 합니다. 새 데이터베이스로 복원하도록 선택한 경우에는 새 데이터베이스 이름을 제공해야 합니다.
 
-    ![Restore to a new SQL database](./media/web-sites-restore/07RestoreToNewSQLDB.png)
+    ![새 SQL 데이터베이스로 복원](./media/web-sites-restore/07RestoreToNewSQLDB.png)
 
-    按一下向右箭頭以繼續操作。
+    오른쪽 화살표를 클릭하여 계속합니다.
 
-3.  如果您選擇建立新資料庫，您必須在下一個對話方塊中提供認證以及資料庫的其他初始組態資訊。此處的範例將顯示新的 SQL Database。(新 MySQL 資料庫的選項有某種程度的不同。)
+4.  새 데이터베이스를 만들도록 선택한 경우 다음 대화 상자에서 데이터베이스에 대한 자격 증명 및 다른 초기 구성 정보를 제공해야 합니다. 아래 예제에서는 새 SQL 데이터베이스를 보여 줍니다. (새 MySQL 데이터베이스의 옵션은 약간 다릅니다.)
 
-    ![New SQL database settings](./media/web-sites-restore/08NewSQLDBConfig.png)
+   	![새 SQL 데이터베이스 설정](./media/web-sites-restore/08NewSQLDBConfig.png)
 
-4.  按一下核取記號以啟動還原作業。作業完成時，新的網站執行個體 (如果這是您所選擇的還原選項) 將會顯示在入口網站的網站清單中。
+5.  확인 표시를 클릭하여 복원 작업을 시작합니다. 복원 작업이 완료되면 포털의 웹 사이트 목록에 새 웹 사이트 인스턴스(선택한 복원 옵션인 경우)가 표시됩니다.
 
-    ![Restored Contoso web site](./media/web-sites-restore/09RestoredContosoWebSite.png)
+    ![복원된 Contoso 웹 사이트](./media/web-sites-restore/09RestoredContosoWebSite.png)
 
-## 檢視作業記錄檔
+## 작업 로그 보기
 
-1.  若要檢視關於網站還原作業是否成功的詳細資訊，請移至網站的 [儀表板] 索引標籤。在 **[Quick Glance]** 區段中的 **[管理服務]** 下，按一下 **[作業記錄檔]**。
+1.  웹 사이트 복원 작업의 성공 또는 실패에 대한 세부 정보를 보려면 웹 사이트의 대시보드 탭으로 이동하십시오. **간략 상태** 섹션의 **관리 서비스**에서 **작업 로그**를 클릭합니다.
 
-    ![Dashboard - Operation Logs Link](./media/web-sites-restore/10DashboardOperationLogsLink.png)
+    ![대시보드 - 작업 로그 링크](./media/web-sites-restore/10DashboardOperationLogsLink.png)
 
-2.  您會被導向至管理服務入口網站的 **[作業記錄檔]** 頁面，您可以在此處的作業記錄檔清單中檢視還原作業的記錄檔：
+2.  관리 서비스 포털 **작업 로그** 페이지로 이동되며, 이 페이지의 작업 로그 목록에서 복원 작업에 대한 로그를 볼 수 있습니다.
 
-    ![Management Services Operation Logs page](./media/web-sites-restore/11ManagementServicesOperationLogsList.png)
+    ![관리 서비스 작업 로그 페이지](./media/web-sites-restore/11ManagementServicesOperationLogsList.png)
 
-3.  若要檢視作業的詳細資訊，請選取清單中的作業，然後在命令列中按一下 **[詳細資料]** 按鈕。
+3.  작업에 대한 세부 정보를 보려면 목록에서 해당 작업을 선택한 후 명령 모음에서 **세부 정보** 단추를 클릭합니다.
 
-    ![Details Button](./media/web-sites-restore/12DetailsButton.png)
+    ![세부 정보 단추](./media/web-sites-restore/12DetailsButton.png)
 
-    當您執行此動作時，**[作業詳細資料]** 視窗會隨即開啟，並顯示記錄檔的可複製內容：
+    이렇게 하면 **작업 세부 정보** 창이 열리고 로그 파일의 복사 가능한 내용이 표시됩니다.
 
-    ![Operation Details](./media/web-sites-restore/13OperationDetails.png)
+    ![작업 세부 정보](./media/web-sites-restore/13OperationDetails.png)
 
 
+<!-- IMAGES -->
+[ChooseBackupSource]: ./media/web-sites-restore/01ChooseBackupSource.png
+[StorageAccountFile]: ./media/web-sites-restore/02StorageAccountFile.png
+[BrowseCloudStorage]: ./media/web-sites-restore/03BrowseCloudStorage.png
+[StorageAccountFileSelected]: ./media/web-sites-restore/04StorageAccountFileSelected.png
+[ChooseRestoreSettings]: ./media/web-sites-restore/05ChooseRestoreSettings.png
+[ChooseDBServer]: ./media/web-sites-restore/06ChooseDBServer.png
+[RestoreToNewSQLDB]: ./media/web-sites-restore/07RestoreToNewSQLDB.png
+[NewSQLDBConfig]: ./media/web-sites-restore/08NewSQLDBConfig.png
+[RestoredContosoWebSite]: ./media/web-sites-restore/09RestoredContosoWebSite.png
+[DashboardOperationLogsLink]: ./media/web-sites-restore/10DashboardOperationLogsLink.png
+[ManagementServicesOperationLogsList]: ./media/web-sites-restore/11ManagementServicesOperationLogsList.png
+[DetailsButton]: ./media/web-sites-restore/12DetailsButton.png
+[OperationDetails]: ./media/web-sites-restore/13OperationDetails.png

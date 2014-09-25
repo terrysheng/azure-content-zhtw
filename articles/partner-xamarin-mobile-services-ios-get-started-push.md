@@ -48,11 +48,11 @@ Apple 推播通知服務 (APNS) 會使用憑證來驗證行動服務。依照這
 
 	![](./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png)
 
-1.  選取 **[User Email Address]**、輸入 **[一般名稱]** 和 **[CA Email Address]** 值，確認 **[Saved to disk]** 已選取，然後按一下 **[繼續]**。
+3.  選取 **[User Email Address]**、輸入 **[一般名稱]** 和 **[CA Email Address]** 值，確認 **[Saved to disk]** 已選取，然後按一下 **[繼續]**。
 
 	![](./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step6.png)
 
-1.  在 **[另存新檔]** 中輸入憑證簽署要求 (CSR) 檔案的名稱，在 **[Where]** 中選取位置，然後按一下 **[儲存]**。
+4.  在 **[另存新檔]** 中輸入憑證簽署要求 (CSR) 檔案的名稱，在 **[Where]** 中選取位置，然後按一下 **[儲存]**。
 
 	![](./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step7.png)
 
@@ -105,7 +105,7 @@ Apple 推播通知服務 (APNS) 會使用憑證來驗證行動服務。依照這
 
 	![](./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-10.png)
 
-1.  在入口網站建立憑證之後，依序按一下 **[下載]** 按鈕和 **[完成]**。
+6.  在入口網站建立憑證之後，依序按一下 **[下載]** 按鈕和 **[完成]**。
 
 	![](./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-11.png)
  
@@ -115,7 +115,7 @@ Apple 推播通知服務 (APNS) 會使用憑證來驗證行動服務。依照這
 
     Note:By default, the downloaded file a development certificate is named <strong>aps_development.cer</strong>.
 
-1.  在下載的推播通知 **aps\_development.cer** 上按兩下。
+7.  在下載的推播通知 **aps\_development.cer** 上按兩下。
 
 	This installs the new certificate in the Keychain, as shown below:
 
@@ -154,11 +154,11 @@ Apple 推播通知服務 (APNS) 會使用憑證來驗證行動服務。依照這
 
 	這會建立新的佈建設定檔。
 
-1.  在 Xcode 中開啟 Organizer 並選取 Devices 檢視，在左窗格的 **[程式庫]** 區段中選取 **[Provisioning Profiles]**，然後按一下中間窗格底部的 **[重新整理]** 按鈕。
+7.  在 Xcode 中開啟 Organizer 並選取 Devices 檢視，在左窗格的 **[程式庫]** 區段中選取 **[Provisioning Profiles]**，然後按一下中間窗格底部的 **[重新整理]** 按鈕。
 
 	![][101]
 
-2.  在 **[Targets]** 下方按一下 **[Quickstart]**、展開 **[Code Signing Identity]**，然後在 **[偵錯]** 下方選取新的設定檔。
+8.  在 **[Targets]** 下方按一下 **[Quickstart]**、展開 **[Code Signing Identity]**，然後在 **[偵錯]** 下方選取新的設定檔。
 
 	![][17]
 
@@ -178,17 +178,17 @@ Apple 推播通知服務 (APNS) 會使用憑證來驗證行動服務。依照這
     <p>This tutorial creates a QuickstartPusher.p12 file.Your file name and location might be different.</p>
     </div>
 
-1.  登入 [Azure 管理入口網站](https://manage.windowsazure.com/)，按一下 **[行動服務]**，然後按一下您的應用程式。
+2.  登入 [Azure 管理入口網站](https://manage.windowsazure.com/)，按一下 **[行動服務]**，然後按一下您的應用程式。
 
 	![][18]
 
-2.  依序按一下 **[推播]** 索引標籤和 **[上傳]**。
+3.  依序按一下 **[推播]** 索引標籤和 **[上傳]**。
 
 	![][19]
 
 	This displays the Upload Certificate dialog.
 
-3.  按一下 **[檔案]**、選取匯出的憑證 QuickstartPusher.p12 檔案、輸入 **[密碼]**、確認選取正確的 **[模式]**、按一下打勾圖示，然後按一下 **[儲存]**。
+4.  按一下 **[檔案]**、選取匯出的憑證 QuickstartPusher.p12 檔案、輸入 **[密碼]**、確認選取正確的 **[模式]**、按一下打勾圖示，然後按一下 **[儲存]**。
 
 	![][20] 
 
@@ -279,7 +279,7 @@ Apple 推播通知服務 (APNS) 會使用憑證來驗證行動服務。依照這
 
 	如此即會顯示 **[TodoItem]** 資料表中發生插入時所叫用的函數。
 
-1.  使用下列程式碼來取代 insert 函數，然後按一下 **[儲存]**：
+3.  使用下列程式碼來取代 insert 函數，然後按一下 **[儲存]**：
 
          function insert(item, user, request) {
         request.execute();
@@ -315,15 +315,15 @@ Apple 推播通知服務 (APNS) 會使用憑證來驗證行動服務。依照這
     <p>You must explicitly accept push notifications from your app.This request only occurs the first time that the app runs.</p>
     </div>
 
-1.  在應用程式中，輸入有意義的文字，如 *A new Mobile Services task*，然後按一下加號 (**[+]**) 圖示。
+2.  在應用程式中，輸入有意義的文字，如 *A new Mobile Services task*，然後按一下加號 (**[+]**) 圖示。
 
 	![](./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png)
 
-1.  確認您已接收到通知，然後按一下 **[確定]** 以關閉通知。
+3.  確認您已接收到通知，然後按一下 **[確定]** 以關閉通知。
 
 	![](./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png)
 
-1.  重複步驟 2 並立即關閉應用程式，接著確認以下快顯通知可顯示。
+4.  重複步驟 2 並立即關閉應用程式，接著確認以下快顯通知可顯示。
 
 	![](./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png)
 

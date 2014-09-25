@@ -77,14 +77,14 @@ HDInsight 叢集附有某些範例資料。您將用到以下兩項：
 
 	<table border="1">
 	<tr><th>欄位</th><th>資料類型</th></tr>
-	<tr><td>clientid</td><td>字串</td></tr>
-	<tr><td>querytime</td><td>字串</td></tr>
-	<tr><td>market</td><td>字串</td></tr>
-	<tr><td>deviceplatform</td><td>字串</td></tr>
-	<tr><td>devicemake</td><td>字串</td></tr>
-	<tr><td>devicemodel</td><td>字串</td></tr>
-	<tr><td>state</td><td>字串</td></tr>
-	<tr><td>country</td><td>字串</td></tr>
+	<tr><td>clientid</td><td>string</td></tr>
+	<tr><td>querytime</td><td>string</td></tr>
+	<tr><td>market</td><td>string</td></tr>
+	<tr><td>deviceplatform</td><td>string</td></tr>
+	<tr><td>devicemake</td><td>string</td></tr>
+	<tr><td>devicemodel</td><td>string</td></tr>
+	<tr><td>state</td><td>string</td></tr>
+	<tr><td>country</td><td>string</td></tr>
 	<tr><td>querydwelltime</td><td>double</td></tr>
 	<tr><td>sessionid</td><td>bigint</td></tr>
 	<tr><td>sessionpagevieworder</td><td>bigint</td></tr>

@@ -165,7 +165,7 @@ Directory 或網際網路身分識別提供者的驗證。
 在 Azure AD 存取控制中使用服務身分識別功能。這與將應用程式部署到 Windows Server 和 IIS 時所使用的 IIS
 應用程式集區帳戶十分類似。設定 Azure AD 存取控制，簽發將由 WCF (SOAP) 服務中的 WIF 進行處理的 SAML 權杖。
 
-![WCF (SOAP) 服務](<./media/SecurityRX/04_WCF(SOAP)Service.gif>)
+![WCF (SOAP) 服務][81]
 
 若要實作此案例，請參閱下列資源：
 
@@ -513,77 +513,77 @@ Identity Foundation (WIF) 安全性 - 威脅與對策][65]。
 
 
 [1]: http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx
-[2]: http://msdn.microsoft.com/zh-tw/library/ff649461.aspx
-[3]: http://msdn.microsoft.com/zh-tw/library/ff650760.aspx
+[2]: http://msdn.microsoft.com/en-us/library/ff649461.aspx
+[3]: http://msdn.microsoft.com/en-us/library/ff650760.aspx
 [4]: http://code.msdn.microsoft.com/site/search?f%5B0%5D.Type=SearchText&f%5B0%5D.Value=wif&f%5B1%5D.Type=Topic&f%5B1%5D.Value=claims-based%20authentication
 [5]: http://visualstudiogallery.msdn.microsoft.com/e21bf653-dfe1-4d81-b3d3-795cb104066e
 [6]: http://www.microsoft.com/en-us/download/details.aspx?id=17331
 [7]: http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=4451
 [8]: http://msdn.microsoft.com/library/gg429786.aspx
-[9]: http://msdn.microsoft.com/zh-tw/library/gg185920.aspx
-[10]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg185939.aspx
-[11]: http://msdn.microsoft.com/zh-tw/library/ff423674.aspx
+[9]: http://msdn.microsoft.com/en-us/library/gg185920.aspx
+[10]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185939.aspx
+[11]: http://msdn.microsoft.com/en-us/library/ff423674.aspx
 [12]: http://www.microsoft.com/en-us/download/details.aspx?id=14347
-[13]: http://msdn.microsoft.com/zh-tw/IdentityTrainingCourse
+[13]: http://msdn.microsoft.com/en-us/IdentityTrainingCourse
 [14]: http://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx
 [15]: http://technet.microsoft.com/en-us/library/dd807033(WS.10).aspx
 [16]: http://technet.microsoft.com/en-us/library/dd807050(WS.10).aspx
-[17]: http://msdn.microsoft.com/zh-tw/library/ee393343.aspx
+[17]: http://msdn.microsoft.com/en-us/library/ee393343.aspx
 [18]: http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures
 [19]: http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days
-[20]: http://msdn.microsoft.com/zh-tw/library/gg429779.aspx
-[21]: http://msdn.microsoft.com/zh-tw/library/gg185926.aspx
-[22]: http://msdn.microsoft.com/zh-tw/library/gg185907.aspx
-[23]: http://msdn.microsoft.com/zh-tw/library/gg185914.aspx
-[24]: http://msdn.microsoft.com/zh-tw/library/gg185947.aspx
-[25]: http://msdn.microsoft.com/zh-tw/library/gg185938.aspx
-[26]: http://msdn.microsoft.com/zh-tw/library/gg185924.aspx
-[27]: http://msdn.microsoft.com/zh-tw/library/hh289316.aspx
-[28]: http://msdn.microsoft.com/zh-tw/library/gg185954.aspx
-[29]: http://msdn.microsoft.com/zh-tw/library/gg185952.aspx
-[30]: http://msdn.microsoft.com/zh-tw/library/gg185927.aspx
-[31]: http://msdn.microsoft.com/zh-tw/library/gg185961.aspx
-[32]: http://msdn.microsoft.com/zh-tw/library/gg185905.aspx
-[33]: http://msdn.microsoft.com/zh-tw/library/hh127796.aspx
-[34]: http://msdn.microsoft.com/zh-tw/library/gg185958.aspx
-[35]: http://msdn.microsoft.com/zh-tw/library/hh289317.aspx
-[36]: http://msdn.microsoft.com/zh-tw/library/gg983271.aspx
+[20]: http://msdn.microsoft.com/en-us/library/gg429779.aspx
+[21]: http://msdn.microsoft.com/en-us/library/gg185926.aspx
+[22]: http://msdn.microsoft.com/en-us/library/gg185907.aspx
+[23]: http://msdn.microsoft.com/en-us/library/gg185914.aspx
+[24]: http://msdn.microsoft.com/en-us/library/gg185947.aspx
+[25]: http://msdn.microsoft.com/en-us/library/gg185938.aspx
+[26]: http://msdn.microsoft.com/en-us/library/gg185924.aspx
+[27]: http://msdn.microsoft.com/en-us/library/hh289316.aspx
+[28]: http://msdn.microsoft.com/en-us/library/gg185954.aspx
+[29]: http://msdn.microsoft.com/en-us/library/gg185952.aspx
+[30]: http://msdn.microsoft.com/en-us/library/gg185927.aspx
+[31]: http://msdn.microsoft.com/en-us/library/gg185961.aspx
+[32]: http://msdn.microsoft.com/en-us/library/gg185905.aspx
+[33]: http://msdn.microsoft.com/en-us/library/hh127796.aspx
+[34]: http://msdn.microsoft.com/en-us/library/gg185958.aspx
+[35]: http://msdn.microsoft.com/en-us/library/hh289317.aspx
+[36]: http://msdn.microsoft.com/en-us/library/gg983271.aspx
 [37]: http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0
-[38]: http://msdn.microsoft.com/zh-tw/library/gg185976.aspx
-[39]: http://msdn.microsoft.com/zh-tw/library/gg185919.aspx
-[40]: http://msdn.microsoft.com/zh-tw/library/gg185977.aspx
+[38]: http://msdn.microsoft.com/en-us/library/gg185976.aspx
+[39]: http://msdn.microsoft.com/en-us/library/gg185919.aspx
+[40]: http://msdn.microsoft.com/en-us/library/gg185977.aspx
 [41]: http://code.msdn.microsoft.com/ASPNET-Web-App-To-REST-WCF-b2b95f82
-[42]: http://msdn.microsoft.com/zh-tw/library/gg185955.aspx
+[42]: http://msdn.microsoft.com/en-us/library/gg185955.aspx
 [43]: http://blogs.msdn.com/b/alikl/archive/2010/11/18/authorization-with-rolemanager-for-claims-aware-wif-asp-net-web-applications.aspx
 [44]: http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504
-[45]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff394108.aspx#authentication
-[46]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336280.aspx
-[47]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336243.aspx
-[48]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee621781.aspx
-[49]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee621789.aspx
-[50]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff394110.aspx
-[51]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg715284.aspx
-[52]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff951633.aspx
+[45]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394108.aspx#authentication
+[46]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336280.aspx
+[47]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336243.aspx
+[48]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621781.aspx
+[49]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621789.aspx
+[50]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394110.aspx
+[51]: http://msdn.microsoft.com/en-us/library/windowsazure/gg715284.aspx
+[52]: http://msdn.microsoft.com/en-us/library/windowsazure/ff951633.aspx
 [53]: http://channel9.msdn.com/posts/Securing-Service-Bus-with-ACS
 [54]: https://skydrive.live.com/view.aspx?cid=123CCD2A7AB10107&resid=123CCD2A7AB10107%211849
-[55]: http://msdn.microsoft.com/zh-tw/library/hh403962.aspx
-[56]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg618003.aspx
-[57]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg278346.aspx
-[58]: http://msdn.microsoft.com/zh-tw/library/ee706741.aspx
-[59]: http://msdn.microsoft.com/zh-tw/library/gg193417.aspx
+[55]: http://msdn.microsoft.com/en-us/library/hh403962.aspx
+[56]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx
+[57]: http://msdn.microsoft.com/en-us/library/windowsazure/gg278346.aspx
+[58]: http://msdn.microsoft.com/en-us/library/ee706741.aspx
+[59]: http://msdn.microsoft.com/en-us/library/gg193417.aspx
 [60]: http://go.microsoft.com/fwlink/?LinkId=219162
 [61]: http://go.microsoft.com/fwlink/?LinkId=219163
 [62]: http://go.microsoft.com/fwlink/?LinkId=221323
 [63]: https://datamarket.azure.com/
-[64]: http://msdn.microsoft.com/zh-tw/library/ee517298.aspx
+[64]: http://msdn.microsoft.com/en-us/library/ee517298.aspx
 [65]: http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx
 [66]: http://social.technet.microsoft.com/wiki/contents/articles/1725.windows-identity-foundation-wif-a-potentially-dangerous-request-form-value-was-detected-from-the-client-wresult-t-requestsecurityto.aspx
-[67]: http://msdn.microsoft.com/zh-tw/library/gg185962.aspx
-[68]: http://msdn.microsoft.com/zh-tw/library/hh204521.aspx
+[67]: http://msdn.microsoft.com/en-us/library/gg185962.aspx
+[68]: http://msdn.microsoft.com/en-us/library/hh204521.aspx
 [69]: http://go.microsoft.com/fwlink/?LinkId=214555
 [70]: http://go.microsoft.com/fwlink/?LinkId=214561
 [71]: http://go.microsoft.com/fwlink/?LinkId=214562
-[72]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg429786.aspx
+[72]: http://msdn.microsoft.com/en-us/library/windowsazure/gg429786.aspx
 [73]: http://social.technet.microsoft.com/wiki/contents/articles/2590.aspx
 [74]: http://social.technet.microsoft.com/wiki/contents/articles/2777.aspx
 [75]: http://www.microsoft.com/security/sdl/default.aspx
@@ -592,3 +592,4 @@ Identity Foundation (WIF) 安全性 - 威脅與對策][65]。
 [78]: http://www.microsoft.com/security/msrc/default.aspx
 [79]: http://www.microsoft.com/security/sir/
 [80]: http://msdn.microsoft.com/security/
+[81]:./media/SecurityRX/04_WCF(SOAP)Service.gif

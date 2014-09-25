@@ -17,9 +17,7 @@
 
 完成本教學課程需要 XCode 4.5 和 iOS 5.0 或更新版本，以及適用於 OS X 的 [Xamarin Studio](http://xamarin.com/download) 或適用於 Visual Studio 的 Xamarin Visual Studio 外掛程式 (在 Windows 上)。
 
-<div class="dev-callout"><b>注意</b>
-<p>
-若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F" target="_blank">Azure 免費試用</a></p></div>
+<div class="dev-callout"><b>注意</b> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F" target="_blank">Azure 免費試用</a>。</p></div>
 
 建立新的行動服務
 ----------------
@@ -35,53 +33,53 @@
 
 1.  在管理入口網站中，按一下 **[行動服務]**，然後按一下您剛剛建立的行動服務。
 
-2.  在快速入門索引標籤中，按一下 **[Choose platform]** 下的 **[Xamarin.iOS]**，並展開 **[Create a new Xamarin.iOS app]**。
+2. 在快速入門索引標籤中，按一下 **[Choose platform]** 下的 **[Xamarin.iOS]**，並展開 **[Create a new Xamarin.iOS app]**。
 
-    ![](./media/partner-xamarin-mobile-services-ios-get-started/mobile-portal-quickstart-xamarin-ios.png)
+	![](./media/partner-xamarin-mobile-services-ios-get-started/mobile-portal-quickstart-xamarin-ios.png)
 
-    這將顯示三個簡單步驟，可用來建立連接到您行動服務的 Xamarin.iOS 應用程式。
+	這將顯示三個簡單步驟，可用來建立連接到您行動服務的 Xamarin.iOS 應用程式。
 
-   ![](./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-steps-xamarin-ios.png)
+  	![](./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-steps-xamarin-ios.png)
 
-3.  如果您尚未這樣做，請下載並安裝 [Xcode] v4.4 或更新版本及 [Xamarin Studio](http://xamarin.com/download)。
+3. 如果您尚未這樣做，請下載並安裝 [Xcode] v4.4 或更新版本及 [Xamarin Studio](http://xamarin.com/download)。
 
-4.  按一下 **[Create TodoItems table]** 以建立儲存應用程式資料的資料表。
+4. 按一下 **[Create TodoItems table]** 以建立儲存應用程式資料的資料表。
 
-5.  按一下 **[Download and run app]** 下的 **[下載]**。
+5. 按一下 **[Download and run app]** 下的 **[下載]**。 
 
-    這會下載範例*待辦事項*應用程式的專案，以連接至您的行動服務並參照適用於 Xamarin.iOS 的 Azure 行動服務元件。將壓縮的專案檔案儲存到本機電腦並記下儲存位置。
+	這會下載範例*待辦事項*應用程式的專案，以連接至您的行動服務並參照適用於 Xamarin.iOS 的 Azure 行動服務元件。將壓縮的專案檔案儲存到本機電腦並記下儲存位置。
 
 執行應用程式執行新的 Xamarin.iOS 應用程式
 -----------------------------------------
 
 本教學課程的最後階段是建立並執行新的應用程式。
 
-1.  瀏覽至您儲存此壓縮專案檔案的位置、在您的電腦上展開檔案，並使用 Xamarin Studio 或 Visual Studio 來開啟 **XamarinTodoQuickStart.iOS.sln** 解決方案檔案。
+1. 瀏覽至您儲存此壓縮專案檔案的位置、在您的電腦上展開檔案，並使用 Xamarin Studio 或 Visual Studio 來開啟 **XamarinTodoQuickStart.iOS.sln** 解決方案檔案。
 
-    ![](./media/partner-xamarin-mobile-services-ios-get-started/mobile-xamarin-project-ios-xs.png)
+	![](./media/partner-xamarin-mobile-services-ios-get-started/mobile-xamarin-project-ios-xs.png)
 
-    ![](./media/partner-xamarin-mobile-services-ios-get-started/mobile-xamarin-project-ios-vs.png)
+	![](./media/partner-xamarin-mobile-services-ios-get-started/mobile-xamarin-project-ios-vs.png)
 
-2.  按 **[執行]** 按鈕以建立專案，並在 iPhone 模擬器中啟動應用程式 (此專案的預設選項)。
+2. 按 **[執行]** 按鈕以建立專案，並在 iPhone 模擬器中啟動應用程式 (此專案的預設選項)。
 
-3.  在應用程式中輸入有意義的文字 (例如 *Complete the tutorial*)，然後按一下加號 (**+**) 圖示。
+3. 在應用程式中輸入有意義的文字 (例如 *Complete the tutorial*)，然後按一下加號 (**+**) 圖示。
 
-    ![](./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-startup-ios.png)
+	![](./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-startup-ios.png)
 
-    這會傳送 POST 要求到 Azure 中所代管的新行動服務。要求中的資料會被插入 TodoItem 資料表。行動服務會傳回資料表中儲存的項目，並將資料顯示在清單中。
+	這會傳送 POST 要求到 Azure 中所代管的新行動服務。要求中的資料會被插入 TodoItem 資料表。行動服務會傳回資料表中儲存的項目，並將資料顯示在清單中。
 
-    <div class="dev-callout"><b>注意</b>
-	<p>
-    您可以檢閱存取行動服務以查詢與插入資料的程式碼，您可在 TodoService.cs C\# 檔案中找到此程式碼。
-	</p></div>
+	<div class="dev-callout"> 
+	<b>注意</b> 
+   	<p>您可以檢閱存取行動服務以查詢與插入資料的程式碼，您可在 TodoService.cs C\# 檔案中找到此程式碼。</p>
+ 	</div>
 
-4.  回到管理入口網站中，按一下 **[資料]** 索引標籤，然後按一下 **[TodoItems]** 資料表。
+4. 回到管理入口網站中，按一下 **[資料]** 索引標籤，然後按一下 **[TodoItems]** 資料表。
 
-    ![](./media/partner-xamarin-mobile-services-ios-get-started/mobile-data-tab.png)
+	![](./media/partner-xamarin-mobile-services-ios-get-started/mobile-data-tab.png)
 
-    這可讓您瀏覽應用程式插入此資料表的資料。
+	這可讓您瀏覽應用程式插入此資料表的資料。
 
-    ![](./media/partner-xamarin-mobile-services-ios-get-started/mobile-data-browse.png)
+	![](./media/partner-xamarin-mobile-services-ios-get-started/mobile-data-browse.png)
 
 後續步驟
 --------

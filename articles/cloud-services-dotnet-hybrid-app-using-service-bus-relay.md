@@ -1,356 +1,445 @@
 <properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
 
-使用服務匯流排轉送的 .NET 內部部署/雲端混合式應用程式
-=====================================================
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
 
-簡介簡介
---------
+# 使用服務匯流排轉送的 .NET 內部部署/雲端混合式應用程式
 
-使用 Visual Studio 2013 和免費的 Azure SDK for .NET，可輕鬆在 Azure 開發混合式雲端應用程式。本指南假設您從未使用過 Azure。不用 30 分鐘，您就會獲得一個使用多個 Azure 資源，於雲端上啟動並執行的應用程式。
+## <span class="short-header">簡介</span>簡介
+
+使用 Visual Studio 2013 和免費的 Azure SDK for .NET，
+可輕鬆在 Azure 開發混合式雲端應用程式。本指南
+假設您從未使用過 Azure。不用 30 分鐘，您就會獲得
+一個使用多個 Azure 資源，於雲端上啟動並執行的
+應用程式。
 
 您將了解：
 
--   如何建立 Web 服務或調整現有的 Web 服務，以供 Web 方案使用。
--   如何使用 Azure 服務匯流排轉送，以在 Azure 應用程式與其他位置代管的 Web 服務之間共用資料。
+-   如何建立 Web 服務或調整現有的 Web 服務，
+    以供 Web 方案使用。
+-   如何使用 Azure 服務匯流排轉送，以在 Azure
+    應用程式與其他位置代管的 Web 服務之間共用資料。
 
-[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+[WACOM.INCLUDE [create-account-note][]]
 
 ### 服務匯流排轉送如何協助混合式方案
 
-商業方案通常由下列項目組成：為了應付全新的獨特商業需求而撰寫的自訂程式碼，以及既有方案和系統提供的現有功能。
+商業方案通常由下列項目組成：
+為了應付全新的獨特商業需求而撰寫的
+自訂程式碼，以及既有方案和系統提供的
+現有功能。
 
-眾多方案架構爭相開始使用雲端，以期能夠更輕鬆地處理擴充需求並降低操作成本。在這麼做之後，它們發現想要運用作為其方案建置組塊的現有服務資產是在公司防火牆內，無法供雲端方案輕易存取。許多內部服務並不是以可輕易在公司網路邊緣公開的方式建置或主控。
+眾多方案架構爭相開始使用雲端，以期能夠更輕鬆地
+處理擴充需求並降低作業成本。在這麼做之後，
+它們發現想要運用作為其方案建置組塊的
+現有服務資產是在公司防火牆內，無法
+供雲端方案輕易存取。許多內部服務並不是
+以可輕易在公司網路邊緣公開的方式建置
+或主控。
 
-「服務匯流排轉送」**是針對採取現有 Windows Communication Foundation (WCF) Web 服務，並使那些服務可供公司週邊外之方案安全存取的使用案例而設計的，不需要進行會干擾公司網路基礎結構的變更。這類服務匯流排轉送服務仍是在其現有環境中代管，但會委派它們接聽雲端代管服務匯流排的傳入工作階段和要求。服務匯流排也會使用 Azure Active Directory 存取控制，防止那些服務未經授權就進行存取。
+「服務匯流排轉送」是針對採取現有 Windows
+Communication Foundation (WCF) Web 服務，
+並使那些服務可供公司週邊外之方案安全存取的使用
+案例而設計的，不需要進行會干擾公司網路基礎結構的
+變更。這類服務匯流排轉送服務仍是在其現有環境中
+代管，但會委派它們接聽雲端代管服務匯流排的
+傳入工作階段和要求。服務匯流排也會使用
+ Azure Active Directory 存取控制，防止那些服務
+未經授權就進行存取。
 
 ### 方案案例
 
-在本教學課程中，您將建立 ASP.NET MVC 4 網站，讓您可在產品庫存頁面上看到產品清單。
+在本教學課程中，您將建立 ASP.NET MVC 4 網站，
+讓您可在產品庫存頁面上看到產品清單。
 
-![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png)
+![][]
 
-本教學課程假設您有現有內部部署系統中的產品資訊，並使用服務匯流排轉送來連接該系統。這項模擬是由簡單主控台應用程式中執行的 Web 服務來進行，並由記憶體內的產品集支援。您將能夠在自己的電腦上執行這個主控台應用程式，並將 Web 角色部署至 Azure。在這麼做之後，您將看到在 Azure 資料中心執行的 Web 角色將確實呼叫至電腦，即使電腦幾乎確定會位於至少一個防火牆和網路位址轉譯 (NAT) 層後面也一樣。
+本教學課程假設您有現有內部部署系統中的
+產品資訊，並使用服務匯流排轉送來連接
+該系統。這項模擬是由簡單主控台應用程式中
+執行的 Web 服務來進行，並由記憶體內的產品集支援。您
+將能夠在自己的電腦上執行這個主控台應用程式，並將
+Web 角色部署至 Azure。在這麼做之後，
+您將看到在 Azure 資料中心執行的
+ Web 角色將確實呼叫至電腦，
+即使電腦幾乎確定會位於至少一個防火牆和
+網路位址轉譯 (NAT) 層後面也一樣。
 
 下列是已完成之 Web 應用程式的開始頁面螢幕擷取畫面。
 
-![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App2.png)
+![][1]
 
-設定環境設定開發環境
---------------------
+## <span class="short-header">設定環境</span>設定開發環境
 
-在開始開發 Azure 應用程式之前，您需要先取得工具，並設定開發環境。
+在開始開發 Azure 應用程式之前，您需要先取得工具，
+並設定開發環境。
 
-1.  若要安裝 Azure SDK for .NET，請按一下底下的按鈕：
+1.  若要安裝 Azure SDK for .NET，請按一下底下按鈕：
 
-    [取得工具和 SDK (英文)](http://go.microsoft.com/fwlink/?LinkId=271920)
+    [取得工具和 SDK (英文)][]
 
-2.  按一下 **[install the SDK]**。
+2.  按一下 [install the SDK]。
 
-3.  選擇您正在使用的 Visual Studio 版本的連結。本教學課程中的步驟使用 Visual Studio 2013：
+3.  選擇您所使用 Visual Studio 版本的連結。本教學課程中的步驟使用 Visual Studio 2013：
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-41.png)
+    ![][2]
 
-4.  當系統提示您執行或儲存 **WindowsAzureSDKForNet.exe** 時，請按一下 **[執行]**：
+4.  當系統提示您執行或儲存 **WindowsAzureSDKForNet.exe** 時，
+    請按一下 [執行]：
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-3.png)
+    ![][3]
 
-5.  在 Web Platform Installer 中，按一下 **[安裝]** 並繼續進行安裝：
+5.  在 Web Platform Installer 中，按一下 [安裝] 並繼續進行安裝：
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-4-2-WebPI.png)
+    ![][4]
 
-6.  一旦完成安裝，您便已備妥開始進行開發所需的所有元件。SDK 包括可讓您在 Visual Studio 輕易開發 Azure 應用程式的工具。如果您未安裝 Visual Studio，則它也會安裝免費的 Visual Studio Express。
+6.  一旦完成安裝，您便已備妥開始進行開發所需的
+    所有元件。SDK 包括可讓您在 Visual Studio
+    輕易開發 Azure 應用程式的工具。如果您未安裝 Visual Studio，
+    則它也會安裝免費的
+    Visual Studio Express。
 
-建立命名空間建立服務命名空間
-----------------------------
+## <span class="short-header">建立命名空間</span>建立服務命名空間
 
-若要開始在 Azure 中使用服務匯流排功能，首先必須建立服務命名空間。服務命名空間提供範圍容器，可在應用程式內定址服務匯流排資源。
+若要開始在 Azure 中使用服務匯流排功能，首先必須建立
+服務命名空間。服務命名空間提供範圍容器，
+可在應用程式內定址服務匯流排資源。
 
-您可以使用 [Azure 管理入口網站](http://manage.windowsazure.com)或 Visual Studio 伺服器總管，來管理命名空間和服務匯流排訊息實體，但是只能從入口網站內建立新的命名空間。
+您可以使用 [Azure 管理入口網站][]或 Visual Studio 伺服器總管，來管理命名空間和服務匯流排訊息實體，但是只能從入口網站內建立新的命名空間。
 
 ### 使用入口網站建立服務命名空間：
 
-1.  登入 [Azure 管理入口網站](http://manage.windowsazure.com)。
+1.  登入 [Azure 管理入口網站][]。
 
-2.  在管理入口網站的左方瀏覽窗格中，按一下 **[服務匯流排]**。
+2.  在管理入口網站的左側瀏覽窗格中，按一下 [服務匯流排]。
 
-3.  在管理入口網站的下方窗格中，按一下 **[建立]**。   
-     ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png)
+3.  在管理入口網站的下方窗格中，按一下 [建立]。
+    ![][5]
 
-4.  在 **[Add a new namespace]** 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用。   
-     ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png)
+4.  在 [加入新的命名空間] 對話方塊中，輸入命名空間名稱。
+    系統會立即檢查此名稱是否可用。
+    ![][6]
 
-5.  確定命名空間名稱可用之後，請選擇要代管命名空間的國家或區域 (必須使用您要部署運算資源的相同國家/區域)。
+5.  確定可以使用此命名空間名稱之後，選擇
+    要裝載命名空間的國家或地區 (必須
+    使用您要部署運算資源的相同
+    國家/地區)。
 
-    重要事項：請挑選您想要選擇來部署應用程式的**相同區域**。這樣可以獲得最佳效能。
+    重要事項：挑選您想要選擇用來部署應用程式的**相同區域**。
+    這樣可以獲得最佳效能。
 
-6.  按一下核取記號。此時系統會建立並啟用服務命名空間。系統為帳戶提供資源時，您可能需要等幾分鐘。
+6.  按一下核取記號。此時系統會建立並啟用
+    此服務命名空間。系統為帳戶提供資源時，
+    您可能需要等幾分鐘。
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-27.png)
+    ![][7]
 
-然後，您建立的命名空間就會出現在管理入口網站中，稍待片刻就會生效。等到狀態變成 **[作用中]** 之後再繼續。
+然後，您建立的命名空間就會出現在管理入口網站中，
+稍待片刻就會生效。等到狀態變成 [作用中] 之後
+再繼續。
 
-取得管理認證取得命名空間的預設管理認證
---------------------------------------
+## <span class="short-header">取得管理認證</span>取得命名空間的預設管理認證
 
-若要在新的命名空間上執行管理作業，例如建立佇列，您必須取得命名空間的管理認證。
+若要在新的命名空間上執行管理作業 (
+例如建立佇列)，您必須取得命名空間的
+管理認證。
 
 1.  在主視窗中，按一下服務命名空間的名稱。
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-09.png)
+    ![][8]
 
-2.  按一下 **[連線資訊]**。
+2.  按一下 [連線資訊]。
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-06.png)
+    ![][9]
 
-3.  在 **[Access connection information]** 窗格中，找出 **[Default Issuer]** 和 **[Default Key]** 項目。
+3.  在 [Access connection information] 窗格中，找出 [Default Issuer] 和 [Default Key] 項目。
 
 4.  記下金鑰，或將它複製到剪貼簿。
 
 ### 使用 Visual Studio 伺服器總管來管理服務命名空間：
 
-若要使用 Visual Studio 而非管理入口網站，來管理命名空間並取得連線資訊，請遵循[這裡](http://http://msdn.microsoft.com/zh-tw/library/windowsazure/ff687127.aspx)所述的程序，請見標題**從 Visual Studio 連線至 Azure** 一節。在您登入 Azure 時，伺服器總管 **[Microsoft Azure]** 樹狀目錄下的 **[服務匯流排]** 節點，將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 **[屬性]**，查看在 Visual Studio **[屬性]** 窗格中所顯示，與此命名空間關聯的連線字串與其他中繼資料。
+若要使用 Visual Studio 而非管理入口網站來管理命名空間並取得連線資訊，請遵循[這裡][]所述的程序 (**從 Visual Studio 連線至 Azure** 一節)。在您登入 Azure 時，伺服器總管 [Microsoft Azure] 樹狀目錄下的 [服務匯流排] 節點，將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 [屬性]，查看在 Visual Studio [屬性] 窗格中所顯示，與此命名空間關聯的連線字串與其他中繼資料。
 
-![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png)
+![][10]
 
 請記下 **SharedAccessKey** 值，或將它複製到剪貼簿。
 
-建立內部部署伺服器建立內部部署伺服器
-------------------------------------
+## <span class="short-header">建立內部部署伺服器</span>建立內部部署伺服器
 
-首先，您將建置 (模擬) 內部部署產品目錄系統。此作業相當簡單；您可將它看成是呈現實際內部部署產品目錄系統，此系統具有我們正在嘗試整合的完整服務面。
+首先，您將建置 (模擬) 內部部署產品目錄系統。此作業相當簡單；
+您可將它看成是呈現實際內部部署產品目錄系統，
+此系統具有我們正在嘗試整合的完整服務面。
 
-此專案將啟動為 Visual Studio 主控台應用程式。專案會使用服務匯流排 NuGet 套件，來併入服務匯流排程式庫和組態設定。NuGet Visual Studio 擴充功能可讓您輕易地安裝和更新 Visual Studio 和 Visual Studio Express 中的程式庫和工具。服務匯流排 NuGet 套件為取得服務匯流排 API，並設定具有所有服務匯流排相依性的應用程式的最容易方式。如需使用 NuGet 和服務匯流排套件的詳細資料，請參閱[使用 NuGet 服務匯流排套件](http://go.microsoft.com/fwlink/?LinkId=234589) (英文)。
+此專案將啟動為 Visual Studio 主控台應用程式。
+專案會使用服務匯流排 NuGet 套件，來併入服務匯流排程式庫
+和組態設定。NuGet Visual Studio 擴充功能可讓您輕易地安裝
+和更新 Visual Studio 和 Visual Studio Express
+中的程式庫和工具。要取得服務匯流排 API，並對應用程式進行設定，
+以使用所有服務匯流排相依性的最簡單方法，
+便是使用服務匯流排 NuGet 封裝。如需使用 NuGet 和服務匯流排套件
+的詳細資料，請參閱[使用 NuGet 服務匯流排套件][]。
 
 ### 建立專案
 
-1.  使用系統管理員權限，啟動 Microsoft Visual Studio 2013 或 Microsoft Visual Studio Express。若要以系統管理員權限啟動 Visual Studio，請在 **Microsoft Visual Studio 2013 (或 Microsoft Visual Studio Express)** 上按一下滑鼠右鍵，然後按一下 **[以系統管理員身份執行]**。
-2.  在 Visual Studio 的 **[檔案]** 功能表上，按一下 **[新增]**，然後按一下 **[專案]**。
+1.  使用系統管理員權限，啟動 Microsoft Visual Studio 2013 或
+    Microsoft Visual Studio Express。若要以系統管理員權限啟動 Visual Studio，
+    請在 **Microsoft Visual Studio 2013 (或 Microsoft Visual Studio Express)**
+    上按一下滑鼠右鍵，然後按一下 [以系統管理員身分執行]。
+2.  在 Visual Studio 的 [檔案] 功能表上，按一下 [新增]，
+    然後按 [專案]。
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png)
+    ![][11]
 
-3.  從 **[已安裝的範本]** 的 **[Visual C\#]** 下，按一下 **[主控台應用程式]**。在 **[名稱]** 方塊中，鍵入名稱 **ProductsServer**：
+3.  從 [已安裝的範本] 的 [Visual C\#] 下，
+    按一下 [主控台應用程式]。在 [名稱] 方塊中，
+    鍵入名稱 **ProductsServer**：
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png)
+    ![][12]
 
-4.  按一下 **[確定]** 以建立 **ProductsServer** 專案。
+4.  按一下 [確定] 以建立 **ProductsServer** 專案。
 
-5.  在 **[方案總管]** 的 **ProductsServer** 上按一下滑鼠右鍵，然後按一下 **[屬性]**。
-6.  按一下左邊的 【應用程式]**** 索引標籤，然後確定 **.NET Framework 4** 或 **.NET Framework 4.5** 出現在 **[目標 Framework:]**下拉式清單中。如果未出現，請從下拉式清單中選取它，然後在系統提示您重新載入專案時按一下 **[是]**。
+5.  在 [方案總管] 的 **ProductsServer** 上按一下滑鼠右鍵，
+    然後按一下 [屬性]。
+6.  按一下左側的 [應用程式] 索引標籤，然後確定 **.NET Framework 4**
+    或 **.NET Framework 4.5** 出現在 [目標 Framework:]下拉式清單中。如果未出現，請從下拉式清單中選取它，然後在系統提示您重新載入專案時
+    按一下 [是]。
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-con-3.png)
+    ![][13]
 
-7.  如果已安裝 Visual Studio 的 NuGet 套件管理員，請跳至下一個步驟。否則，請造訪 [NuGet](http://nuget.org) (英文)，然後按一下 [[安裝 NuGet]](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c) (英文)。按照提示安裝 NuGet 套件管理員，然後重新啟動 Visual Studio。
+7.  如果已安裝 Visual Studio 的 NuGet 套件管理員，請跳至下一個步驟。否則，請造訪 [NuGet][] (英文)，然後按一下 [[安裝 NuGet]][] (英文)。按照提示安裝 NuGet 套件管理員，然後重新啟動 Visual Studio。
 
-8.  在 **[方案總管]** 的 **[參考]** 上按一下滑鼠右鍵，然後按一下 **[Manage NuGet Packages]**。
-9.  在 NuGet 對話方塊的左欄中，按一下 **[線上]**。
+8.  在 [方案總管] 的 [參考] 上按一下滑鼠右鍵，
+    然後按一下 [Manage NuGet Packages]。
+9.  在 NuGet 對話方塊的左欄中，按一下 [線上]。
 
-10. 在右欄中，按一下 **[搜尋]** 方塊、鍵入 "**WindowsAzure**"，然後選取 **Windows Azure Service Bus** 項目。按一下 **[安裝]** 以完成安裝，然後關閉此對話方塊。
+10. 在右欄中，按一下 [搜尋] 方塊、鍵入 "**WindowsAzure**"，
+    然後選取 **Windows Azure Service Bus** 項目。按一下 [安裝] 以完成安裝，
+    然後關閉此對話方塊。
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png)
+    ![][14]
 
     請注意，現在會參考必要的用戶端組件。
 
-11. 新增產品連絡人的新類別。在 **[方案總管]** 的 **ProductsServer** 專案上按一下滑鼠右鍵、按一下 **[新增]**，然後按一下 **[類別]**。
+11. 新增產品連絡人的新類別。在 [方案總管] 的 **ProductsServer** 專案上
+    按一下滑鼠右鍵，然後依序按一下 [加入] 和 [類別]。
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-con-4.png)
+    ![][15]
 
-12. 在 **[名稱]** 方塊中，鍵入名稱 **ProductsContract.cs**。然後按一下 **[新增]**。
-13. 在 **ProductsContract.cs** 中，將命名空間定義取代為下列程式碼，以定義服務的連絡人：
+12. 在 [名稱] 方塊中，鍵入名稱 **ProductsContract.cs**。然後
+    按一下 [加入]。
+13. 在 **ProductsContract.cs** 中，
+    將命名空間定義取代為下列程式碼，以定義服務的連絡人：
 
         namespace ProductsServer
         {
-        using System.Collections.Generic;
-        using System.Runtime.Serialization;
-        using System.ServiceModel;
+            using System.Collections.Generic;
+            using System.Runtime.Serialization;
+            using System.ServiceModel;
 
-        // Define the data contract for the service
-        [DataContract]
-        // Declare the serializable properties
-        public class ProductData
+            // Define the data contract for the service
+            [DataContract]
+            // Declare the serializable properties
+            public class ProductData
             {
-        [DataMember]
-        public string Id { get; set; }
-        [DataMember]
-        public string Name { get; set; }
-        [DataMember]
-        public string Quantity { get; set; }
+                [DataMember]
+                public string Id { get; set; }
+                [DataMember]
+                public string Name { get; set; }
+                [DataMember]
+                public string Quantity { get; set; }
             }
 
-        // Define the service contract.
-        [ServiceContract]
-        interface IProducts
+            // Define the service contract.
+            [ServiceContract]
+            interface IProducts
             {
-        [OperationContract]
-        IList<ProductData> GetProducts();
+                [OperationContract]
+                IList<ProductData> GetProducts();
 
             }
 
-        interface IProductsChannel :IProducts, IClientChannel
+            interface IProductsChannel : IProducts, IClientChannel
             {
             }
         }
 
-14. 在 Program.cs 中，將命名空間定義取代為下列程式碼，為它新增設定檔服務和主機：
+14. 在 Program.cs 中，將命名空間定義取代為下列程式碼，
+    為它加入設定檔服務和主機：
 
         namespace ProductsServer
         {
-        using System;
-        using System.Linq;
-        using System.Collections.Generic;
-        using System.ServiceModel;
+            using System;
+            using System.Linq;
+            using System.Collections.Generic;
+            using System.ServiceModel;
 
-        // Implement the IProducts interface
-        class ProductsService :IProducts
+            // Implement the IProducts interface
+            class ProductsService : IProducts
             {
-                    
-        // Populate array of products for display on Web site
-        ProductData[] products = 
-        new []
+
+                // Populate array of products for display on Website
+                ProductData[] products = 
+                    new []
                         {
-        new ProductData{ Id = "1", Name = "Rock", 
-        Quantity = "1"},
-        new ProductData{ Id = "2", Name = "Paper", 
-        Quantity = "3"},
-        new ProductData{ Id = "3", Name = "Scissors", 
-        Quantity = "5"},
-        new ProductData{ Id = "4", Name = "Well", 
-        Quantity = "2500"},
+                            new ProductData{ Id = "1", Name = "Rock", 
+                                             Quantity = "1"},
+                            new ProductData{ Id = "2", Name = "Paper", 
+                                             Quantity = "3"},
+                            new ProductData{ Id = "3", Name = "Scissors", 
+                                             Quantity = "5"},
+                            new ProductData{ Id = "4", Name = "Well", 
+                                             Quantity = "2500"},
                         };
 
-        // Display a message in the service console application 
-        // when the list of products is retrieved
-        public IList<ProductData> GetProducts()
+                // Display a message in the service console application 
+                // when the list of products is retrieved
+                public IList<ProductData> GetProducts()
                 {
-        Console.WriteLine("GetProducts called.");
-        return products;
+                    Console.WriteLine("GetProducts called.");
+                    return products;
                 }
 
             }
 
-        class Program
+            class Program
             {
-        // Define the Main() function in the service application
-        static void Main(string[] args)
+                // Define the Main() function in the service application
+                static void Main(string[] args)
                 {
-        var sh = new ServiceHost(typeof(ProductsService));
-        sh.Open();
+                    var sh = new ServiceHost(typeof(ProductsService));
+                    sh.Open();
 
-        Console.WriteLine("Press ENTER to close");
-        Console.ReadLine();
+                    Console.WriteLine("Press ENTER to close");
+                    Console.ReadLine();
 
-        sh.Close();
+                    sh.Close();
                 }
             }
         }
 
-15. 在 **[方案總管]** 中，按兩下 **app.config** 檔案，以在 **Visual Studio** 編輯器中開啟它。將 **&lt;system.ServiceModel\>** 的內容取代為下列 XML 程式碼。務必要將 *yourServiceNamespace* 取代為服務命名空間的名稱，並將 *yourIssuerSecret* 取代為您先前從 Azure 管理入口網站擷取到的金鑰：
+15. 在 [方案總管] 中，按兩下 **app.config** 檔案，
+    以在 **Visual Studio** 編輯器中開啟它。將
+    **\<system.ServiceModel\>** 的內容取代為下列 XML 程式碼。務必將
+     *yourServiceNamespace* 取代為
+    服務命名空間的名稱，並將 *yourIssuerSecret* 取代為您先前從 Azure 管理入口網站
+    擷取到的金鑰：
 
         <system.serviceModel>
-        <extensions>
-        <behaviorExtensions>
-        <add name="transportClientEndpointBehavior" type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
-        </behaviorExtensions>
-        <bindingExtensions>
-        <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
-        </bindingExtensions>
-        </extensions>
-        <services>
-        <service name="ProductsServer.ProductsService">
-        <endpoint address="sb://yourServiceNamespace.servicebus.windows.net/products" binding="netTcpRelayBinding" contract="ProductsServer.IProducts"
+          <extensions>
+             <behaviorExtensions>
+                <add name="transportClientEndpointBehavior" type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+              </behaviorExtensions>
+              <bindingExtensions>
+                 <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+              </bindingExtensions>
+          </extensions>
+          <services>
+             <service name="ProductsServer.ProductsService">
+               <endpoint address="sb://yourServiceNamespace.servicebus.windows.net/products" binding="netTcpRelayBinding" contract="ProductsServer.IProducts"
         behaviorConfiguration="products"/>
-        </service>
-        </services>
-        <behaviors>
-        <endpointBehaviors>
-        <behavior name="products">
-        <transportClientEndpointBehavior>
-        <tokenProvider>
-        <sharedSecret issuerName="owner" issuerSecret="yourIssuerSecret" />
-        </tokenProvider>
-        </transportClientEndpointBehavior>
-        </behavior>
-        </endpointBehaviors>
-        </behaviors>
+             </service>
+          </services>
+          <behaviors>
+             <endpointBehaviors>
+               <behavior name="products">
+                 <transportClientEndpointBehavior>
+                    <tokenProvider>
+                       <sharedSecret issuerName="owner" issuerSecret="yourIssuerSecret" />
+                    </tokenProvider>
+                 </transportClientEndpointBehavior>
+               </behavior>
+             </endpointBehaviors>
+          </behaviors>
         </system.serviceModel>
 
-16. 按 **F6**，或從 **[建置]** 功能表中按一下 **[建置方案]** 來建置應用程式，以驗證您的工作到目前為止是否正確無誤。
+16. 按 **F6**，或從 [建置] 功能表中按一下 [建置方案] 來建置應用程式，以驗證您的工作到目前為止是否正確無誤。
 
-建立 ASP.NET MVC 應用程式建立 ASP.NET MVC 應用程式
---------------------------------------------------
+## <span class="short-header">建立 ASP.NET MVC 應用程式</span>建立 ASP.NET MVC 應用程式
 
-在本節中，您將建置簡單的 ASP.NET 應用程式，來顯示從產品服務擷取的資料。
+在本節中，您將建置簡單的 ASP.NET 應用程式，
+來顯示從產品服務擷取的資料。
 
 ### 建立專案
 
-1.  確定 Microsoft Visual Studio 2013 是以系統管理員權限來執行。如果不是，則若要以系統管理員權限啟動 Visual Studio，請在 **Microsoft Visual Studio 2013 (或 Microsoft Visual Studio Express)** 上按一下滑鼠右鍵，然後按一下 **[以系統管理員身份執行]**。本指南稍後討論的 Azure 運算模擬器需要您以系統管理員權限啟動 Visual Studio。
+1.  確定 Microsoft Visual Studio 2013 是以系統管理員權限來執行。若不是，若要
+    以系統管理員權限啟動 Visual Studio，
+    請在 **Microsoft Visual Studio 2013 (或 Microsoft Visual Studio Express)** 上按一下滑鼠右鍵，然後按一下 [以系統管理員身分執行]。本指南
+    稍後討論的 Azure 運算模擬器需要您以系統管理員權限
+    啟動 Visual Studio。
 
-2.  在 Visual Studio 的 **[檔案]** 功能表上，按一下 **[新增]**，然後按一下 **[專案]**。
+2.  在 Visual Studio 的 [檔案] 功能表上，按一下 [新增]，
+    然後按 [專案]。
 
-3.  從 **[已安裝的範本]** 的 **[Visual C\#]** 下，按一下 **[ASP.NET Web 應用程式]**。將專案命名為 **ProductsPortal**。然後按一下 **[確定]**。
+3.  從 [已安裝的範本] 的 [Visual C\#] 下，按一下 [ASP.NET Web 應用程式]。將專案命名為 **ProductsPortal**。然後按一下 [確定]。
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png)
+    ![][16]
 
-4.  從 **[選取範本]** 清單中，按一下 **[MVC]**，然後按一下 **[確定]**。
+4.  從 [選取範本] 清單中，按一下 [MVC]，
+    然後按 [確定]。
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-4.png)
+    ![][17]
 
-5.  在 **[方案總管]** 中，於 **[模型]** 上按一下滑鼠右鍵、按一下 **[新增]**，再按一下 **[類別]**。在 **[名稱]** 方塊中，鍵入名稱 **Product.cs**。然後按一下 **[新增]**。
+5.  在 [方案總管] 中，於 [模型] 上按一下滑鼠右鍵，然後依序按一下 [加入] 和
+     [類別]。在 [名稱] 方塊中，
+    鍵入名稱 **Product.cs**。然後按一下 [新增]。
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-7.jpg)
+    ![][18]
 
 ### 修改 Web 應用程式
 
-1.  在 Visual Studio 的 Product.cs 檔案中，將現有的命名空間定義取代為下列程式碼：
+1.  在 Visual Studio 的 Product.cs 檔案中，
+    將現有的命名空間定義取代為下列程式碼：
 
         // Declare properties for the products inventory
         namespace ProductsWeb.Models
         {
-        public class Product
+            public class Product
             {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Quantity { get; set; }
+                public string Id { get; set; }
+                public string Name { get; set; }
+                public string Quantity { get; set; }
             }
         }
 
-2.  在 Visual Studio 的 HomeController.cs 檔案中，將現有的命名空間定義取代為下列程式碼：
+2.  在 Visual Studio 的 HomeController.cs 檔案中，
+    將現有的命名空間定義取代為下列程式碼：
 
         namespace ProductsWeb.Controllers
         {
-        using System.Collections.Generic;
-        using System.Web.Mvc;
-        using Models;
+            using System.Collections.Generic;
+            using System.Web.Mvc;
+            using Models;
 
-        public class HomeController :Controller
+            public class HomeController : Controller
             {
-        // Return a view of the products inventory
-        public ActionResult Index(string Identifier, string ProductName)
+                // Return a view of the products inventory
+                public ActionResult Index(string Identifier, string ProductName)
                 {
-        var products = new List<Product> 
-        {new Product {Id = Identifier, Name = ProductName}};
-        return View(products);
+                    var products = new List<Product> 
+                        {new Product {Id = Identifier, Name = ProductName}};
+                    return View(products);
                 }
 
             }
         }
 
-3.  在 **[方案總管]** 中，展開 Views\\Shared：
+3.  在 [方案總管] 中，展開 Views\\Shared：
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-10.jpg)
+    ![][19]
 
 4.  接著，按兩下 \_Layout.cshtml，以在 Visual Studio 編輯器中開啟它。
 
 5.  將所有出現的 **My ASP.NET Application** 變更為 **LITWARE's Products**。
 
-6.  移除 **[首頁]**、**[關於]** 和 **[連絡人]** 連結。刪除反白顯示的程式碼：
+6.  移除 [首頁]、[關於] 和 [連絡人] 連結。刪除反白顯示的程式碼：
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png)
+    ![][20]
 
-7.  在 **[方案總管]** 中，展開 Views\\Home：
+7.  在 [方案總管] 中，展開 Views\\Home：
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-11.png)
+    ![][21]
 
-8.  按兩下 Index.cshtml，以在 Visual Studio 編輯器中開啟它。將檔案的整個內容取代為下列程式碼：
+8.  按兩下 Index.cshtml，以在 Visual Studio 編輯器中開啟它。
+    將檔案的整個內容取代為下列程式碼：
 
         @model IEnumerable<ProductsWeb.Models.Product>
 
@@ -363,202 +452,319 @@
         <table>
             <tr>
                 <th>
-                @Html.DisplayNameFor(model => model.Name)
+                    @Html.DisplayNameFor(model => model.Name)
                 </th>
-        <th></th>
+                <th></th>
                 <th>
-                @Html.DisplayNameFor(model => model.Quantity)
+                    @Html.DisplayNameFor(model => model.Quantity)
                 </th>
             </tr>
 
         @foreach (var item in Model) {
             <tr>
                 <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
+                    @Html.DisplayFor(modelItem => item.Quantity)
                 </td>
-            </tr> 
+            </tr>   
         }
 
         </table>
 
-9.  若要驗證您的工作到目前為止是否正確無誤，您可以按 **F6** 或 **Ctrl+Shift+B** 來建置專案。
+9.  若要驗證您的工作到目前為止是否正確無誤，您可以按 **F6** 或
+    **Ctrl+Shift+B** 來建置專案。
 
 ### 在本機執行應用程式
 
 執行應用程式以驗證它是否能正常運作。
 
-1.  確定 **ProductsPortal** 為作用中專案。在 **[方案總管]** 的專案名稱上按一下滑鼠右鍵，然後選取 **[設定為啟始專案]**。
+1.  確定 **ProductsPortal** 為作用中專案。在 [方案總管] 的專案名稱上
+    按一下滑鼠右鍵，然後選取 [設定為啟始專案]。
 2.  在 **Visual Studio** 內按 **F5**。
 3.  您的應用程式應該就會出現在瀏覽器中並正在執行：
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App1.png)
+    ![][22]
 
-    部署至 AZURE讓應用程式準備好部署至 AZURE
-    ----------------------------------------
+    ## <span class="short-header">部署至 AZURE</span>讓應用程式準備好部署至 AZURE
 
-    您可以將應用程式部署至 Azure 雲端服務或 Azure 網站。若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型](http://www.windowsazure.com/zh-tw/develop/net/fundamentals/compute/) (英文)。若要了解如何將應用程式部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](http://www.windowsazure.com/zh-tw/develop/net/tutorials/get-started/) (英文)。本節包含將應用程式部署至 Azure 雲端服務的詳細步驟。
+    您可以將您的應用程式部署到 Azure 雲端服務或 Azure 網站。若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型][] (英文)。若要了解如何將應用程式部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站][] (英文)。本節包含將應用程式部署至 Azure 雲端服務的詳細步驟。
 
-    若要將應用程式部署至雲端服務，您需要新增雲端服務專案部署專案至方案。部署專案包含在雲端適當地執行應用程式所需的組態資訊。
+    若要將應用程式部署至雲端服務，您需要加入
+    雲端服務專案部署專案至方案。部署專案包含
+    在雲端適當地執行應用程式所需的組態資訊。
 
-    1.  若要使應用程式可以部署至雲端，請在 **[方案總管]** 的 **ProductsPortal** 專案上按一下滑鼠右鍵、按一下 **[轉換]**，然後按一下 **[Convert to Azure Cloud Service Project]**。
+    1.  若要使應用程式可以部署至雲端，請在 [方案總管] 的
+        **ProductsPortal** 專案上按一下滑鼠右鍵，然後依據
+        按一下 [轉換] 和 [Convert to Azure Cloud Service Project]。
 
-        ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-21.png)
+        ![][23]
 
     2.  若要測試應用程式，請按 **F5**。
-    3.  這將啟動 Azure 運算模擬器。運算模擬器會使用本機電腦來模擬 Azure 中執行的應用程式。您可以查看系統匣來確認模擬器是否已啟動：
+    3.  這將啟動 Azure 運算模擬器。運算模擬器
+        會使用本機電腦來模擬 Azure 中
+        執行的應用程式。您可以查看系統匣來確認
+        模擬器是否已啟動：
 
-        ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-22.png)
+        ![][24]
 
-    4.  瀏覽器仍將顯示本機執行的應用程式，而且它的外觀和運作方式，將和您先前將它當作一般 ASP.NET MVC 4 應用程式執行時相同。
+    4.  瀏覽器仍將顯示本機執行的應用程式，
+        而且它的外觀和運作方式，將和您先前將它當作
+        一般 ASP.NET MVC 4 應用程式執行時相同。
 
-    將所有組件組合起來將所有組件組合起來
-    ------------------------------------
+    ## <span class="short-header">將所有組件組合起來</span>將所有組件組合起來
 
-    下一步是利用 ASP.NET MVC 應用程式連接內部部署產品伺服器。
+    下一步是利用 ASP.NET MVC 應用程式
+    連接內部部署產品伺服器。
 
-    1.  請在 Visual Studio 重新開啟您在＜建立 ASP.NET MVC 應用程式＞一節中建立的 **ProductsPortal** 專案 (如果尚未開啟)。
+    1.  請在 Visual Studio 重新開啟您在
+        ＜建立 ASP.NET MVC 應用程式＞一節中建立的
+        **ProductsPortal** 專案 (如果尚未開啟)。
 
-    2.  類似於＜建立內部部署伺服器＞一節中的步驟，將 NuGet 套件新增至 References 專案。在 [方案總管] 的 **References** 上按一下滑鼠右鍵，然後按一下 **[Manage NuGet Packages]**。
+    2.  類似於＜建立內部部署伺服器＞一節中的步驟，
+        將 NuGet 套件加入至 References 專案。在 [方案總管] 中，
+        以滑鼠右鍵按一下 [參考]，
+        然後按一下 [Manage NuGet Packages]。
 
-    3.  搜尋 "WindowsAzure.ServiceBus" 並選取 **Windows Azure Service Bus** 項目。然後完成安裝並關閉此對話方塊。
+    3.  搜尋 "WindowsAzure.ServiceBus" 並選取 **Windows
+         Azure Service Bus** 項目。然後完成安裝並關閉
+        此對話方塊。
 
-    4.  在 [方案總管] 的 **ProductsPortal** 專案上按一下滑鼠右鍵，再按一下 **[新增]**，然後按一下 **[現有項目]**。
+    4.  在 [方案總管] 的 **ProductsPortal** 專案上按一下滑鼠右鍵，
+        再按一下 [新增]，然後按一下 [現有項目]。
 
-    5.  從 **ProductsServer** 主控台專案導覽至 **ProductsContract.cs** 檔案。按一下以反白顯示 ProductsContract.cs。按一下 **[新增]** 旁邊的向下箭頭，然後按一下 **[加入做為連結]**。
+    5.  從 **ProductsServer** 主控台專案導覽至
+        **ProductsContract.cs** 檔案。按一下以反白顯示
+         ProductsContract.cs。按一下 [加入] 旁邊的向下箭頭，
+        然後按 [加入為連結]。
 
-        ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-12.png)
+        ![][25]
 
-    6.  現在會在 Visual Studio 編輯器中開啟 **HomeController.cs** 檔案，並將命名空間定義取代為下列程式碼。務必要將 *yourServiceNamespace* 取代為您的服務命名空間名稱，並將 *yourIssuerSecret* 取代為您的金鑰。這可讓用戶端呼叫內部部署服務，並傳回呼叫結果。
+    6.  現在會在 Visual Studio 編輯器中開啟 **HomeController.cs**
+        檔案，並將命名空間定義取代為下列
+        程式碼。務必將 *yourServiceNamespace* 取代為
+        服務命名空間的名稱，並將 *yourIssuerSecret* 取代為您的金鑰。
+        這可讓用戶端呼叫內部部署服務，並傳回呼叫結果。
 
             namespace ProductsWeb.Controllers
             {
-            using System.Linq;
-            using System.ServiceModel;
-            using System.Web.Mvc;
-            using Microsoft.ServiceBus;
-            using Models;
-            using ProductsServer;
+                using System.Linq;
+                using System.ServiceModel;
+                using System.Web.Mvc;
+                using Microsoft.ServiceBus;
+                using Models;
+                using ProductsServer;
 
-            public class HomeController :Controller
+                public class HomeController : Controller
                 {
-            // Declare the channel factory
-            static ChannelFactory<IProductsChannel> channelFactory;
+                    // Declare the channel factory
+                    static ChannelFactory<IProductsChannel> channelFactory;
 
-            static HomeController()
+                    static HomeController()
                     {
-            // Create shared secret token credentials for authentication 
-            channelFactory = new ChannelFactory<IProductsChannel>(new NetTcpRelayBinding(), 
-            "sb://yourServiceNamespace.servicebus.windows.net/products");
-            channelFactory.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior { 
-            TokenProvider = TokenProvider.CreateSharedSecretTokenProvider(
-            "owner", "yourIssuerSecret") });
+                        // Create shared secret token credentials for authentication 
+                        channelFactory = new ChannelFactory<IProductsChannel>(new NetTcpRelayBinding(), 
+                            "sb://yourServiceNamespace.servicebus.windows.net/products");
+                        channelFactory.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior { 
+                            TokenProvider = TokenProvider.CreateSharedSecretTokenProvider(
+                                "owner", "yourIssuerSecret") });
                     }
 
-            public ActionResult Index()
+                    public ActionResult Index()
                     {
-            using (IProductsChannel channel = channelFactory.CreateChannel())
+                        using (IProductsChannel channel = channelFactory.CreateChannel())
                         {
-            // Return a view of the products inventory
-            return this.View(from prod in channel.GetProducts()
-            select
-            new Product { Id = prod.Id, Name = prod.Name, 
-            Quantity = prod.Quantity });
+                            // Return a view of the products inventory
+                            return this.View(from prod in channel.GetProducts()
+                                             select
+                                                 new Product { Id = prod.Id, Name = prod.Name, 
+                                                     Quantity = prod.Quantity });
                         }
                     }
                 }
             }
 
-    7.  在 [方案總管] 的 **ProductsPortal** 方案上按一下滑鼠右鍵、按一下 **[新增]**，然後按一下 **[現有專案]**。
+    7.  在 [方案總管] 的 **ProductsPortal**
+         方案上按一下滑鼠右鍵、按一下 [加入]，然後按一下 [現有專案]。
 
-    8.  導覽至 **ProductsServer** 專案，然後按兩下 **ProductsServer.csproj** 方案檔來新增它。
+    8.  導覽至 **ProductsServer** 專案，
+        然後按兩下 **ProductsServer.csproj** 方案檔來加入它。
 
-    9.  在 [方案總管] 的 **ProductsPortal** 方案上按一下滑鼠右鍵，然後按一下 **[屬性]**。
+    9.  在 [方案總管] 的 **ProductsPortal**
+         方案上按一下滑鼠右鍵，然後按一下 [屬性]。
 
-    10. 在左側，按一下 **[啟始專案]**。在右側，按一下 **[多個啟始專案]**。確定 **ProductsServer**、**ProductsPortal.Azure** 和 **ProductsPortal** 依該順序出現，同時將 **Start** 設為 **ProductsServer** 和 **ProductsPortal.Azure** 的動作，並將 **None** 設為 **ProductsPortal** 的動作。例如：
+    10. 在左側，按一下 [啟始專案]。在右側，
+        按一下 [多個啟始專案]。確定
+        **ProductsServer**、**ProductsPortal.Azure** 和
+        **ProductsPortal** 依該順序出現，同時將 **Start** 設為
+        **ProductsServer** 和 **ProductsPortal.Azure** 的動作，並將
+        **None** 設為 **ProductsPortal** 的動作。例如：
 
-        ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-13.png)
+        ![][26]
 
-    11. 仍是在 [屬性] 對話方塊中，按一下左側的 **ProjectDependencies**。
+    11. 仍是在 [屬性] 對話方塊中，
+        按一下左側的 **ProjectDependencies**。
 
-    12. 在 **[專案]** 下拉式清單中，按一下 **ProductsServer**。確定已取消核取 **ProductsPortal**，並已核取 **ProductsPortal.Azure**。然後按一下 **[確定]**：
+    12. 在 [專案] 下拉式清單中，
+        按一下 **ProductsServer**。確定已取消核取 **ProductsPortal**，
+        並已核取 **ProductsPortal.Azure**。然後按一下 [確定]：
 
-        ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-14.png)
+        ![][27]
 
-    執行應用程式執行應用程式
-    ------------------------
+    ## <span class="short-header">執行應用程式</span>執行應用程式
 
-    1.  從 Visual Studio 的 **[檔案]** 功能表中，按一下 **[Save All]**。
+    1.  從 Visual Studio 的 [檔案] 功能表中，按一下 [全部儲存]。
 
-    2.  按 **F5** 以建置並執行應用程式。內部部署伺服器 (**ProductsServer** 主控台應用程式) 應該會第一個啟動，然後 **ProductsWeb** 應用程式應該會在瀏覽器視窗中啟動，如下面的螢幕擷取畫面所示。此時，您將看到從產品服務內部部署系統擷取的產品庫存清單資料。
+    2.  按 **F5** 以建置並執行應用程式。內部部署伺服器
+        (**ProductsServer** 主控台應用程式) 應該會第一個啟動，
+        然後 **ProductsWeb** 應用程式應該會在瀏覽器視窗中啟動，
+        如下面的螢幕擷取畫面所示。此時，
+        您將看到從產品服務內部部署系統擷取的
+        產品庫存清單資料。
 
-        ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App2.png)
+        ![][1]
 
-    部署應用程式將應用程式部署至 Azure
-    ----------------------------------
+    ## <span class="short-header">部署應用程式</span>將應用程式部署至 Azure
 
-    1.  在 **[方案總管]** 的 **ProductsPortal** 專案上按一下滑鼠右鍵，然後按一下 **[Publish to Azure]**。
+    1.  在 [方案總管] 的 **ProductsPortal** 專案上按一下滑鼠右鍵，
+        然後按一下 [Publish to Azure]。
 
     2.  您可能必須登入，才能看到所有訂閱。
 
-        按一下 **[Sign in to see more subscriptions]**：
+        按一下 [Sign in to see more subscriptions]：
 
-        ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-33.png)
+        ![][28]
 
     3.  使用 Microsoft 帳戶登入。
 
-    4.  按 **[下一步]**。如果訂閱未包含任何代管服務，系統會要求您建立一個。代管服務會充當 Azure 訂閱內應用程式的容器。輸入應用程式的識別名稱，並選擇應該最佳化其應用程式的區域。(從這個區域存取它的使用者預期會有更快的載入時間。)
+    4.  按 [下一步]。如果訂閱未包含任何代管服務，
+        系統會要求您建立一個。代管服務會
+        充當 Azure 訂閱內應用程式的
+        容器。輸入應用程式的識別名稱，
+        並選擇應該最佳化其應用程式的
+        區域。(從這個區域存取它的使用者
+        預期會有更快的載入時間。)
 
-        ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-38.png)
+        ![][29]
 
-    5.  選取要將應用程式發佈至其中的代管服務。其餘設定請保留如下所示的預設值。按 **[下一步]**：
+    5.  選取要將應用程式發行至其中的
+        代管服務。其餘設定請保留如下所示的
+        預設值。按 [下一步]：
 
-        ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-39.png)
+        ![][30]
 
-    6.  在最後一個頁面上，按一下 **[發佈]** 以啟動部署程序：
+    6.  在最後一個頁面上，按一下 [發行] 以啟動
+        部署程序：
 
-        ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-40.png)
+        ![][31]
 
-        這將需要大約 5-7 分鐘的時間。因為這是您第一次發佈，所以 Azure 會佈建虛擬機器 (VM)、執行安全性強化、在 VM 上建立 Web 角色來主控應用程式、將程式碼部署至該 Web 角色，最後並設定負載平衡器及網路，以便應用程式可供大眾使用。
+        這將需要大約 5-7 分鐘的時間。因為這是您
+        第一次發行，所以 Azure 會佈建虛擬機器 (VM)、
+        執行安全性強化、在 VM 上建立 Web 角色來主控應用程式、
+        將程式碼部署至該 Web 角色，
+        最後並設定負載平衡器及網路，
+        以便應用程式可供大眾使用。
 
-    7.  發佈期間，您將能夠在 **[Azure 活動記錄檔]** 視窗中監視活動，此視窗通常會固定在 Visual Studio 或 Visual Web Developer 底部：
+    7.  發行期間，您將能夠在 [Azure 活動記錄檔]
+        視窗中監視活動，此視窗通常會固定在
+        Visual Studio 或 Visual Web Developer
+        底部：
 
-        ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-41.png)
+        ![][32]
 
-    8.  部署完成時，您可以按一下監視視窗中的 **[網站 URL]** 連結來檢視網站。
+    8.  部署完成時，您可以按一下監視視窗中的
+        [網站 URL] 連結來檢視網站。
 
-        ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App2.png)
+        ![][1]
 
-        網站需要仰賴內部部署伺服器，因此您必須在本機執行 **ProductsServer** 應用程式，網站才能正常運作。在雲端網站上執行要求時，您將看到要求進入內部部署主控台應用程式，如下列螢幕擷取畫面中所顯示的 "GetProducts called" 輸出所指出。
+        網站需要仰賴內部部署伺服器，因此您必須
+        在本機執行 **ProductsServer** 應用程式，
+        網站才能正常運作。在雲端網站上執行要求時，
+        您將看到要求進入內部部署主控台應用程式，
+        如下列螢幕擷取畫面中所顯示的 "GetProducts called"
+        輸出所指出。
 
-        ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png)
+        ![][33]
 
-若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型](http://www.windowsazure.com/zh-tw/develop/net/fundamentals/compute/) (英文)。
+若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型][] (英文)。
 
-刪除應用程式停止並刪除應用程式
-------------------------------
+## <span class="short-header">刪除應用程式</span>停止並刪除應用程式
 
-在部署應用程式之後，您可能想要停用它，以便可以在每月 750 小時 (以每月 31 天來計算) 免費的伺服器時間內建置並部署其他應用程式。
+在部署應用程式之後，您可能想要停用它，以便可以在每月 750 小時
+(以每月 31 天來計算) 免費的伺服器時間內
+建置並部署其他應用程式。
 
-Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行收費。一旦部署應用程式，即會耗用伺服器時間，即使執行個體不在執行中，並處於停止狀態也一樣。免費帳戶有每月 750 小時 (以每月 31 天來計算) 的專用虛擬機器伺服器時間可供主控這些 Web 角色執行個體。
+Azure 會就每小時伺服器時間所使用的 Web 角色
+執行個體數進行收費。一旦部署應用程式，即會耗用伺服器時間，
+即使執行個體不在執行中，並處於停止狀態也一樣。
+免費帳戶有每月 750 小時 (以每月 31 天來計算) 的專用
+虛擬機器伺服器時間可供主控這些 Web 角色執行個體。
 
-下列步驟示範如何停止並刪除應用程式。
+下列步驟示範如何停止並刪除
+應用程式。
 
-1.  登入 [Azure 管理入口網站](http://manage.windowsazure.com)、按一下雲端服務，然後按一下服務名稱。
+1.  登入 [Azure 管理入口網站][]、
+    按一下雲端服務，然後按服務名稱。
 
-2.  按一下 **[儀表板]** 索引標籤，然後按一下 **[停止]** 以暫停應用程式。只需按一下 [啟動]，即可重新啟動它。按一下 **[刪除]**，可從 Azure 完全移除應用程式，移除後便再也無法還原。
+2.  按一下 [儀表板] 索引標籤，然後按一下 [停止] 以暫停應用程式。只需
+    按一下 [啟動]，即可重新啟動它。按一下 [刪除]，可從 Azure 完全移除應用程式，
+    移除後便再也無法還原。
 
-    ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png)
+    ![][34]
 
-後續步驟後續步驟
-----------------
+## <a name="nextsteps"></a><span class="short-header">後續步驟</span>後續步驟
 
 若要深入了解服務匯流排，請參閱下列資源：
 
--   [Azure 服務匯流排](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee732537.aspx)
--   [服務匯流排作法](/en-us/manage/services/service-bus/)
--   [如何使用服務匯流排佇列](/en-us/develop/net/how-to-guides/service-bus-queues/)
+-   [Azure 服務匯流排][]
+-   [服務匯流排作法][]
+-   [如何使用服務匯流排佇列][]
 
-
+  [create-account-note]: ../includes/create-account-note.md
+  []: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
+  [1]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App2.png
+  [取得工具和 SDK (英文)]: http://go.microsoft.com/fwlink/?LinkId=271920
+  [2]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-41.png
+  [3]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-3.png
+  [4]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-4-2-WebPI.png
+  [Azure 管理入口網站]: http://manage.windowsazure.com
+  [5]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
+  [6]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
+  [7]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-27.png
+  [8]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-09.png
+  [9]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-06.png
+  [這裡]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [10]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
+  [使用 NuGet 服務匯流排套件]: http://go.microsoft.com/fwlink/?LinkId=234589
+  [11]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
+  [12]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
+  [13]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-con-3.png
+  [NuGet]: http://nuget.org
+  [安裝 NuGet]: http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
+  [14]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
+  [15]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-con-4.png
+  [16]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
+  [17]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-4.png
+  [18]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-7.jpg
+  [19]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-10.jpg
+  [20]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
+  [21]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-11.png
+  [22]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App1.png
+  [Azure 執行模型]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
+  [將 ASP.NET Web 應用程式部署至 Azure 網站]: http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/
+  [23]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-21.png
+  [24]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-22.png
+  [25]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-12.png
+  [26]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-13.png
+  [27]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-14.png
+  [28]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-33.png
+  [29]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-38.png
+  [30]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-39.png
+  [31]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-40.png
+  [32]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-41.png
+  [33]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
+  [34]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
+  [Azure 服務匯流排]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
+  [服務匯流排作法]: /en-us/documentation/services/service-bus/
+  [如何使用服務匯流排佇列]: /en-us/develop/net/how-to-guides/service-bus-queues/

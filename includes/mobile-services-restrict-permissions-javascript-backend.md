@@ -1,11 +1,10 @@
+1.  在管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
+    ![][]
 
-1.  在 Visual Studio 中，在管理入口網站中按一下 **[資料]** 索引標籤，然後按一下 **[TodoItem]** 資料表。
+2.  按一下 [權限] 索引標籤，將所有權限設定為 [僅限通過驗證的使用者]，然後按一下 [儲存]。這可確保針對 **TodoItem** 資料表所做的所有操作都需要一位通過驗證的使用者。這亦可簡化下一堂教學課程的指令碼，因為他們將無需容許匿名使用者的可能性。
 
-   	![](./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-data-tables.png)
+    ![][1]
 
-2.  按一下 **[權限]** 索引標籤，將所有的權限設為 **[Only authenticated users]**，然後按一下 **[儲存]**。如此可確保對 **TodoItem** 資料表的所有操作都必須由經過驗證的使用者進行。如此也可簡化下一個教學課程中的指令碼，因為那些指令碼將不需要顧及有匿名使用者的可能性。
-
-   	![](./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-change-table-perms.png)
-
-
+  []: ./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-data-tables.png
+  [1]: ./media/mobile-services-restrict-permissions-javascript-backend/mobile-portal-change-table-perms.png

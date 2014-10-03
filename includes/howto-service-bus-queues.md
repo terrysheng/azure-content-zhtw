@@ -1,78 +1,91 @@
-<a id="what-are-service-bus-queues" ></a> 
+<span id="what-are-service-bus-queues"></span></a>
 
 ## 什麼是服務匯流排佇列？
 
-服務匯流排佇列支援**代理訊息通訊**模型。使用佇列時，分散式應用程式的元件彼此不直接通訊，而是透過扮演中繼角色的佇列來交換訊息。訊息產生者 (傳送者) 會將訊息遞交給佇列，然後繼續其處理工作。訊息取用者 (接收者) 非同步地從佇列中提取訊息並處理。產生者不必等待取用者的回覆，即可繼續處理及傳送其他訊息。如果有一或多個競爭取用者，佇列會採取**先進先出 (FIFO)** 訊息傳遞機制。亦即，通常由接收者依訊息加入佇列的順序來接收和處理訊息，而且每則訊息只能由一個訊息取用者接收和處理。
+服務匯流排佇列支援**代理訊息通訊**模型。使用佇列時，分散式應用程式的元件彼此不直接通訊，而是透過扮演中繼角色的佇列來交換訊息。訊息產生者 (傳送者) 會將訊息遞交給佇列，然後繼續其處理作業。訊息取用者 (接收者) 會以非同步的方式從佇列中提取訊息並加以處理。產生者不必等待取用者的回覆，即可繼續處理及傳送其他訊息。如果有一或多個競爭取用者，佇列會採取**先進先出 (FIFO)** 訊息傳遞機制。亦即，通常由接收者依訊息加入佇列的順序來接收和處理訊息，而且每則訊息只能由一個訊息取用者接收和處理。
 
-![佇列概念](./media/howto-service-bus-queues/sb-queues-08.png)
+![佇列概念][]
 
 服務匯流排佇列為適用於各種情況的通用技術：
 
-* 多層式 Azure 應用程式中的 Web 角色和背景工作角色之間的通訊
-* 混合式解決方案中的內部部署應用程式和 Azure 代管應用程式之間的通訊
-* 在不同組織或同一組織的不同部門中，在內部部署執行之分散式應用程式的各元件之間的通訊
+-   多層式 Azure 應用程式中 Web 角色和背景工作角色
+    之間的通訊
+-   混合式解決方案中內部部署應用程式和 Azure 代管應用程式
+    之間的通訊
+-   在不同組織或同一組織的不同部門中，
+    內部部署執行之分散式應用程式的各元件之間的通訊
 
-使用佇列可讓應用程式進一步向外延展，提高架構的備援能力。
+使用佇列可讓應用程式進一步向外延展，並提高架構的備援能力。
 
-<a id="create-a-service-namespace" ></a>
+<span id="create-a-service-namespace"></span></a>
 
-<h2>建立服務命名空間</h2>
+## 建立服務命名空間
 
-
+</p>
 若要開始在 Azure 中使用服務匯流排佇列，首先必須建立服務命名空間。服務命名空間提供範圍容器，可在應用程式內定址服務匯流排資源。
 
 建立服務命名空間：
 
-1.  登入 [Azure 管理入口網站][1]。
+1.  登入 [Azure 管理入口網站][]。
 
-2.  在管理入口網站的左方瀏覽窗格中，按一下 **服務匯流排**。
+2.  在管理入口網站的左側瀏覽窗格中，按一下 [服務匯流排]
 
-3.  在管理入口網站的下方窗格中，按一下 **建立**。   
-     ![](./media/howto-service-bus-queues/sb-queues-03.png)
+3.  在管理入口網站的下方窗格中，按一下 [建立]。
 
-4.  在 **Add a new namespace** 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用。   
-     ![](./media/howto-service-bus-queues/sb-queues-04.png)
+    ![][]
 
-5.  確定命名空間名稱可用之後，請選擇要代管命名空間的國家或區域 (必須使用您要部署運算資源的相同國家/區域)。
-    
-    重要事項：請挑選您想要選擇來部署應用程式的**相同區域**。這樣可以獲得最佳效能。
+4.  在 [Add a new namespace] 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用。
 
-6.  按一下核取記號。此時系統會建立並啟用服務命名空間。系統為帳戶提供資源時，您可能需要等幾分鐘。
-    
-    ![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
+    ![][1]
 
-然後，您建立的命名空間就會出現在管理入口網站中，稍待片刻就會生效。等到狀態變成 **作用中** 之後再繼續。
+5.  確定可以使用此命名空間名稱之後，選擇要裝載命名空間的國家或地區 (必須使用您要部署運算資源的相同國家/地區)。
 
-<a id="obtain-default-credentials" ></a>
+    重要事項：挑選您想要選擇用來部署應用程式的**相同區域**這樣可以獲得最佳效能。
 
-<h2>取得命名空間的預設管理認證</h2>
+6.  按一下核取記號。此時系統會建立並啟用此服務命名空間。系統為帳戶提供資源時，您可能需要等幾分鐘。
 
+    ![][2]
 
-若要在新的命名空間上執行管理作業，例如建立佇列，您必須取得命名空間的管理認證。您可以從管理入口網站或 Visual Studio
-伺服器總管取得這些認證。
+然後，您建立的命名空間就會出現在管理入口網站中，稍待片刻就會生效。等到狀態變成 [作用中] 之後再繼續操作。
+
+<span id="obtain-default-credentials"></span></a>
+
+## 取得命名空間的預設管理認證
+
+</p>
+若要執行管理作業，例如在新的命名空間上建立佇列，您必須取得命名空間的管理認證。您可以從管理入口網站或 Visual Studio 伺服器總管取得這些認證。
 
 ### 從入口網站取得管理認證
 
-1.  在左方瀏覽窗格中，按一下 **服務匯流排** 節點，以顯示可用的命名空間清單：   
-     ![](./media/howto-service-bus-queues/sb-queues-13.png)
+1.  在左側瀏覽窗格中，按一下 [服務匯流排] 節點，以顯示可用的命名空間清單：
 
-2.  從顯示的清單中，選取您剛建立的命名空間：   
-     ![](./media/howto-service-bus-queues/sb-queues-09.png)
+    ![][3]
 
-3.  按一下 **連線資訊**。   
-     ![](./media/howto-service-bus-queues/sb-queues-06.png)
+2.  從顯示的清單中，選取您剛建立的命名空間：
 
-4.  在 **Access connection information** 對話方塊中，找出 **Default Issuer** 和 **Default Key** 項目。請記下這些值，接下來會利用此資訊對命名空間執行作業。
+    ![][4]
+
+3.  按一下 [連接資訊]。
+
+    ![][5]
+
+4.  在 [Access connection information] 對話方塊中，找出 [Default Issuer] 和 [Default Key] 項目。請記下這些值，接下來會利用此資訊對命名空間執行作業。
 
 ### 從伺服器總管取得管理認證
 
-若要使用 Visual Studio 而非管理入口網站取得連線資訊，請遵循[這裡][2]所述的程序，請見標題**從 Visual Studio 連線至 Azure**一節。在您登入 Azure 時，伺服器總管 **Microsoft Azure** 樹狀目錄下的 **服務匯流排** 節點，將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 **屬性**，查看在 Visual Studio **屬性** 窗格中所顯示，與此命名空間關聯的連線字串與其他中繼資料。
+若要使用 Visual Studio 而非管理入口網站取得連線資訊，請遵循[這裡][]所述的程序，請見標題**從 Visual Studio 連線至 Azure**一節。在您登入 Azure 時，伺服器總管 [Microsoft Azure] 樹狀目錄下的 [服務匯流排] 節點，將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 [屬性]，查看在 Visual Studio [屬性] 窗格中所顯示，與此命名空間關聯的連線字串與其他中繼資料。
 
 請記下 **SharedAccessKey** 值，或將它複製到剪貼簿：
 
-![](./media/howto-service-bus-queues/VSProperties.png)
+![][6]
 
-
-
-[1]: http://manage.windowsazure.com
-[2]: http://http://msdn.microsoft.com/zh-tw/library/windowsazure/ff687127.aspx
+  [佇列概念]: ./media/howto-service-bus-queues/sb-queues-08.png
+  [Azure 管理入口網站]: http://manage.windowsazure.com
+  []: ./media/howto-service-bus-queues/sb-queues-03.png
+  [1]: ./media/howto-service-bus-queues/sb-queues-04.png
+  [2]: ./media/howto-service-bus-queues/getting-started-multi-tier-27.png
+  [3]: ./media/howto-service-bus-queues/sb-queues-13.png
+  [4]: ./media/howto-service-bus-queues/sb-queues-09.png
+  [5]: ./media/howto-service-bus-queues/sb-queues-06.png
+  [這裡]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [6]: ./media/howto-service-bus-queues/VSProperties.png

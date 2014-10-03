@@ -1,244 +1,246 @@
-
 # 建立執行 Linux 的虛擬機器
 
 您可以使用 Azure 管理入口網站中的映像庫，輕鬆地建立執行 Linux 作業系統的虛擬機器。本指南假設您從未使用過 Azure。您可以在雲端中建立執行 Linux 作業系統的虛擬機器，供您存取並自訂。
 
+> [WACOM.NOTE] 您不需要有任何 Azure VM 的使用經驗，也能完成本教學課程。但您必須要有 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資料，請參閱＜[建立 Azure 帳戶][]＞。
+
 您將了解：
 
-* [關於 Azure 中的虛擬機器](#virtualmachine)
-* [如何建立虛擬機器](#custommachine)
-* [如何在建立虛擬機器之後登入](#logon)
-* [如何將資料磁碟連接至新的虛擬機器](#attachdisk)
+-   [關於 Azure 中的虛擬機器][]
+-   [如何建立虛擬機器][]
+-   [如何在建立虛擬機器之後登入][]
+-   [如何將資料磁碟連接至新的虛擬機器][]
 
-**注意**：本教學課程所建立的虛擬機器並未連線到虛擬網路。如果您想要讓虛擬機器使用虛擬網路，就必須在建立虛擬機器時指定虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀][1]。
+**注意**：本教學課程所建立的虛擬機器並未連線到虛擬網路。如果您想要讓虛擬機器使用虛擬網路，就必須在建立虛擬機器時指定虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀][]。
 
-## <a id="virtualmachine"> </a>關於 Azure 中的虛擬機器
+## <span id="virtualmachine"></span> </a>關於 Azure 中的虛擬機器
 
 Azure 中的虛擬機器是您在雲端中可以控制和管理的伺服器。在 Azure 中建立虛擬機器之後，可隨時依需要刪除和重新建立，而存取虛擬機器就像存取公司裡的伺服器一樣。使用虛擬硬碟 (VHD) 檔案來建立虛擬機器。虛擬機器使用下列類型的 VHD：
 
-* **映像** - 做為範本以建立新虛擬機器的
-  VHD。映像只是範本，並沒有像執行的虛擬機器一樣有特定設定，例如電腦名稱及使用者帳戶設定。如果使用映像建立虛擬機器，則會自動為新的虛擬機器建立作業系統磁碟。
-* **磁碟** - 磁碟是指可開機並掛接為作業系統執行版本的
-  VHD。映像在佈建之後就成為磁碟。使用映像建立虛擬機器時一定會建立磁碟。任何連接至虛擬化硬體而且當做服務一部分執行的 VHD 都是磁碟
+-   **映像** - 做為範本以建立新虛擬機器的 VHD。映像只是範本，並沒有像執行的虛擬機器一樣有特定設定，例如電腦名稱及使用者帳戶設定。如果使用映像建立虛擬機器，則會自動為新的虛擬機器建立作業系統磁碟。
+-   **磁碟** - 磁碟是指可開機並掛接為作業系統執行版本的 VHD。映像在佈建之後就成為磁碟。使用映像建立虛擬機器時一定會建立磁碟。任何連接至虛擬化硬體而且當做服務一部分執行的 VHD 都是磁碟
 
 使用映像建立虛擬機器時有下列選項可用：
 
-* 使用 Azure 管理入口網站的映像庫中提供的映像來建立虛擬機器。
-* 建立含有映像的 .vhd 檔案並上傳至 Azure，然後利用此映像來建立虛擬機器。如需關於建立和上傳自訂映像的詳細資訊，請參閱[建立和上傳包含 Linux 作業系統的虛擬硬碟](/en-us/manage/linux/common-tasks/upload-a-vhd/)。
+-   使用 Azure 管理入口網站的映像庫中提供的映像來建立虛擬機器。
+-   建立含有映像的 .vhd 檔案並上傳至 Azure，然後利用此映像來建立虛擬機器。如需關於建立和上傳自訂映像的詳細資訊，請參閱[建立和上傳包含 Linux 作業系統的虛擬硬碟][]。
 
-每一部虛擬機器都是位於雲端服務內，可能是單獨存在或與其他虛擬機器並存。您可以將虛擬機器放在相同的雲端服務內，使虛擬機器彼此相互通訊，讓虛擬機器之間的網路流量達到負載平衡，並維持機器的高可用性。如需關於雲端服務和虛擬機器的詳細資訊，請參閱＜[Azure 簡介][2]＞中的＜執行模型＞一節。
+每一部虛擬機器都是位於雲端服務內，可能是單獨存在或與其他虛擬機器並存。您可以將虛擬機器放在相同的雲端服務內，使虛擬機器彼此相互通訊，讓虛擬機器之間的網路流量達到負載平衡，並維持機器的高可用性。如需關於雲端服務和虛擬機器的詳細資訊，請參閱＜[Azure 簡介][]＞中的＜執行模型＞一節。
 
-## <a id="custommachine"> </a>如何建立虛擬機器
+## <span id="custommachine"></span> </a>如何建立虛擬機器
 
-請在管理入口網站中使用 **從組件庫** 方法建立自訂的虛擬機器。建立虛擬機器時，此方法提供較多選項來設定虛擬機器，例如連接的資源、DNS 名稱和網路連線 (若有需要)。
+請在管理入口網站中使用 [從組件庫] 方法建立自訂的虛擬機器。建立虛擬機器時，此方法提供較多選項來設定虛擬機器，例如連接的資源、DNS 名稱和網路連線 (若有需要)。
 
-1.  登入 Azure **管理入口網站][3]。按一下命令列上的 [新增**。
+1.  登入 Azure [管理入口網站][]。
+    在命令列上，按一下 [新增]。
 
-2.  按一下 **虛擬機器**，然後按一下 **從組件庫**。
+2.  按一下 [虛擬機器]，然後按一下 [從組件庫]。
 
-3.  在 **選擇映像** 中，從其中一個清單中選取映像(視您使用的訂閱而定，可用的映像可能有所不同)。按一下箭頭以繼續。
+3.  在 [選擇映像] 中，從其中一個清單中選取映像(視您使用的訂閱而定，可用的映像可能有所不同)。按一下箭頭以繼續。
 
-4.  如果有多個映像版本可供使用，請在 **版本發行日期** 中挑選您要使用的版本。
+4.  如果有多個映像版本可供使用，請在 [版本發行日期] 中挑選您要使用的版本。
 
-5.  在 **虛擬機器名稱** 中，輸入您要使用的名稱。以這個虛擬機器而言，請輸入 **MyTestVM1**。
+5.  在 [虛擬機器名稱] 中，輸入您要使用的名稱。以這個虛擬機器而言，請輸入 **MyTestVM1**。
 
-6.  在 **大小**  中，選取您要用於虛擬機器的大小。您選擇的大小取決於您的應用程式所需的核心數目。以這個虛擬機器而言，請選擇最小的可用大小。
+6.  在 [大小] 中，選取您要用於虛擬機器的大小。您選擇的大小取決於您的應用程式所需的核心數目。以這個虛擬機器而言，請選擇最小的可用大小。
 
-7.  在 **新使用者名稱** 中，輸入要用來管理虛擬機器的帳戶名稱。請勿使用 root 做為使用者名稱。以這個虛擬機器而言，請輸入 **NewUser1**。
+7.  在 [新使用者名稱] 中，輸入要用來管理虛擬機器的帳戶名稱。請勿使用 root 做為使用者名稱。以這個虛擬機器而言，請輸入 **NewUser1**。
 
-8.  在 **驗證] 下，核取 [提供密碼**。然後，提供必要資訊並按一下箭號繼續進行。
+8.  在 [驗證] 下，核取 [提供密碼]。然後，提供必要資訊並按一下箭號繼續進行。
 
-9.  您可以將多個虛擬機器一起放在雲端服務中，但在此教學課程中，您只會建立一個虛擬機器。若要這樣做，請選取 **Create a new cloud service**。
+9.  您可以將多個虛擬機器一起放在雲端服務中，但在此教學課程中，您只會建立一個虛擬機器。若要這樣做，請選取 [Create a new cloud service]。
 
-10. 在 **Cloud Service DNS Name** 中，輸入使用 3 到 24 個小寫字母和數字的名稱。透過雲端服務連絡虛擬機器時，使用的 URI 中將包含此名稱。以這個虛擬機器而言，請輸入 **MyService1**。
+10. 在 [Cloud Service DNS Name] 中，輸入使用 3 到 24 個小寫字母和數字的名稱。透過雲端服務連絡虛擬機器時，使用的 URI 中將包含此名稱。以這個虛擬機器而言，請輸入 **MyService1**。
 
-11. 在 **區域/同質群組/虛擬網路** 中，選取您要放置虛擬機器的位置。
+11. 在 [區域/同質群組/虛擬網路] 中，選取您要放置虛擬機器的位置。
 
-12. 您可以選取存放 VHD 檔案的儲存體帳戶。在此教學課程中，請接受預設值 **使用自動產生的儲存體帳戶**。
+12. 您可以選取存放 VHD 檔案的儲存體帳戶。在此教學課程中，請接受預設值 [使用自動產生的儲存體帳戶]。
 
-13. 在 **可用性設定組** 下，基於此教學課程的目的，請使用預設值 **無**。按一下核取記號以建立虛擬機器，然後按一下箭號繼續進行。
+13. 在 [可用性設定組] 下，基於此教學課程的目的，請使用預設值 [無]。按一下核取記號以建立虛擬機器，然後按一下箭號繼續進行。
 
-14. 在 **VM Agent** 下，決定是否安裝 VM 代理程式。此代理程式提供環境讓您安裝延伸模組，以協助您與虛擬機器互動。如需詳細資訊，請參閱[使用延伸模組][4]。
+14. 在 [VM Agent] 下，決定是否安裝 VM 代理程式。此代理程式提供環境讓您安裝延伸模組，以協助您與虛擬機器互動。如需詳細資訊，請參閱[管理延伸模組][]。
 
-15. 在 **端點** 下，檢閱為了以安全殼層 (Secure Shell, SSH) 連線至虛擬機器而自動建立的端點(端點可讓網際網路或其他虛擬網路上的資源與虛擬機器進行通訊)。您可以立即加入其他端點，或在稍後建立端點。如需有關稍後建立端點的指示，請參閱[如何設定與虛擬機器的通訊][5]。
+15. 在 [端點] 下，檢閱為了以安全殼層 (Secure Shell, SSH) 連線至虛擬機器而自動建立的端點(端點可讓網際網路或其他虛擬網路上的資源與虛擬機器進行通訊)。您可以立即加入其他端點，或在稍後建立端點。如需有關稍後建立端點的指示，請參閱[如何設定虛擬機器的端點][]。
 
-建立虛擬機器和雲端服務之後，管理入口網站會將新的虛擬機器列在 **虛擬機器** 下，將雲端服務列在 **雲端服務** 下。虛擬機器和雲端服務都會自動啟動。
+建立虛擬機器和雲端服務之後，管理入口網站會將新的虛擬機器列在 [虛擬機器] 下，將雲端服務列在 [雲端服務] 下。虛擬機器和雲端服務都會自動啟動。
 
-## <a id="logon"> </a>如何在建立虛擬機器之後登入
+## <span id="logon"></span> </a>如何在建立虛擬機器之後登入
 
 您可以使用 SSH 用戶端來管理虛擬機器的設定及機器上執行的應用程式。若要這樣做，必須在您要用來存取虛擬機器的電腦上安裝 SSH 用戶端。有許多 SSH 用戶端程式可供選擇。下面是一些可能的選項：
 
-* 如果您使用的是執行 Windows 作業系統的電腦，可能會想要使用 PuTTY 之類的 SSH 用戶端。如需詳細資訊，請參閱 [PuTTY 下載][6]。
-* 如果您使用的是執行 Linux 作業系統的電腦，可能會想要使用 OpenSSH 之類的 SSH 用戶端。如需詳細資訊，請參閱 [OpenSSH][7]。
+-   如果您使用的是執行 Windows 作業系統的電腦，可能會想要使用 PuTTY 之類的 SSH 用戶端。如需詳細資訊，請參閱 [PuTTY 下載][]。
+-   如果您使用的是執行 Linux 作業系統的電腦，可能會想要使用 OpenSSH 之類的 SSH 用戶端。如需詳細資訊，請參閱 [OpenSSH][]。
 
 此教學課程會說明如何使用 PuTTY 程式來存取虛擬機器。
 
-1.  在管理入口網站中尋找 **主機名稱** 和 **連接埠資訊**。您可以從虛擬機器的儀表板中找到您需要的資訊。請按一下虛擬機器名稱，然後在儀表板的 [Quick Glance]**** 區段中尋找 **SSH Details**。
-    
-    ![尋找 SSH
-    詳細資料](./media/CreateVirtualMachineLinuxTutorial/SSHdetails.png)
+1.  在管理入口網站中尋找 [主機名稱] 和 [連接埠資訊]。您可以從虛擬機器的儀表板中找到您需要的資訊。請按一下虛擬機器名稱，然後在儀表板的 [Quick Glance] 區段中尋找 [SSH Details]。
+
+    ![尋找 SSH 詳細資料][]
 
 2.  開啟 PuTTY 程式。
 
-3.  輸入您從儀表板收集的 **主機名稱** 和 **連接埠資訊**，然後按一下 **開啟**。
-    
-    ![輸入主機名稱和連接埠資訊](./media/CreateVirtualMachineLinuxTutorial/putty.png)
+3.  輸入您從儀表板收集的 [主機名稱] 和 [連接埠資訊]，然後按一下 [開啟]。
+
+    ![輸入主機名稱和連接埠資訊][]
 
 4.  使用您在建立機器時指定的 NewUser1 帳戶，登入虛擬機器。
-    
-    ![登入新的虛擬機器](./media/CreateVirtualMachineLinuxTutorial/sshlogin.png)
-    
+
+    ![登入新的虛擬機器][]
+
     您現在可以開始使用虛擬機器，就如同操作任何其他伺服器一樣。
 
-## <a id="attachdisk"> </a>如何將資料磁碟連接至新的虛擬機器
+## <span id="attachdisk"></span> </a>如何將資料磁碟連接至新的虛擬機器
 
 應用程式可能需要儲存資料。若要進行此設定，請將資料磁碟連接至先前建立的虛擬機器。最簡單的方法是將空的資料磁碟連接至機器。
 
-**注意：資料磁碟與資源磁碟的比較** 資料磁碟位於 Azure 儲存體，可永久儲存檔案和應用程式資料。
+**注意：資料磁碟與資源磁碟的比較**
+資料磁碟位於 Azure 儲存體，可永久儲存檔案和應用程式資料。
 
 每個建立的虛擬機器也都連接一個暫時性本機*資源磁碟*。因為資源磁碟上的資料在重新開機之後就會消失，通常供虛擬機器中執行的應用程式和處理程序暫時儲存資料。也用來儲存作業系統的分頁檔或交換檔。
 
-在 Linux 上，資源磁碟通常由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的 **/mnt**)。如需詳細資訊，請參閱＜[Azure Linux 代理程式使用者指南][8]＞(英文)。
+在 Linux 上，資源磁碟通常由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的 **/mnt**)。請注意，資源磁碟是*暫存*磁碟，可能會在 VM 取消佈建時清空。換句話說，在 Linux 上，核心有可能將資料磁碟命名為`/dev/sdc`，且使用者必須分割、格式化及掛接該資源。如需詳細資訊，請參閱＜[Azure Linux 代理程式使用者指南][]＞(英文)。
 
 1.  如果您尚未登入，請登入 Azure 管理入口網站。
 
-2.  按一下 **虛擬機器**，然後選取先前建立的 **MyTestVM1** 虛擬機器。
+2.  按一下 [虛擬機器]，然後選取先前建立的 [MyTestVM1] 虛擬機器。
 
-3.  在命令列上，按一下 **連接**，然後按一下 **連接空的磁碟**。
-    
-    **連接空的磁碟** 對話方塊隨即出現。
-    
-    ![定義磁碟詳細資料](./media/CreateVirtualMachineLinuxTutorial/attachnewdisklinux.png)
+3.  在命令列上，按一下 [連接]，然後按一下 [連接空的磁碟]。
 
-4.  系統已為您定義 **虛擬機器名稱**、**儲存位置** 和 **檔案名稱**。您只需要輸入想要的磁碟大小。在 **大小** 欄位中輸入 **5**。
-    
+    [連接空的磁碟] 對話方塊隨即出現。
+
+    ![定義磁碟詳細資料][]
+
+4.  系統已為您定義 [虛擬機器名稱]、[儲存位置] 和 [檔案名稱]。您只需要輸入想要的磁碟大小。在 [大小] 欄位中輸入 **5**。
+
     **注意：**所有磁碟都是從 Azure 儲存體中的 VHD 檔案建立。您可以為加入儲存體的 VHD 檔案命名，但磁碟的名稱是自動產生的。
 
 5.  按一下核取記號將資料磁碟連接至虛擬機器。
 
 6.  您可以查看儀表板，以確認資料磁碟已成功連接至虛擬機器。請按一下虛擬機器的名稱來顯示儀表板。
-    
-    虛擬機器的磁碟數目現在是 2，且您連接的磁碟會列在 **磁碟** 表格中。
-    
-    ![成功連接磁碟](./media/CreateVirtualMachineLinuxTutorial/attachemptysuccess.png)
+
+    虛擬機器的磁碟數目現在是 2，且您連接的磁碟會列在 [磁碟] 表格中。
+
+    ![成功連接磁碟][]
 
 您剛連接至虛擬機器的資料磁碟為離線狀態，且在新增之後尚未初始化。您必須先登入機器並將磁碟初始化，才能使用該磁碟來儲存資料。
 
-1.  使用「如何在建立虛擬機器之後登入」****中列出的步驟，連線至虛擬機器。
+1.  使用「如何在建立虛擬機器之後登入」中列出的步驟，連線至虛擬機器。
 
 2.  在 SSH 視窗中，輸入下列命令，然後輸入帳戶密碼：
-    
+
     `sudo grep SCSI /var/log/messages`
-    
+
     在出現的訊息中，您可以找到最後一個新增之資料磁碟的識別碼。
-    
-    ![識別磁碟](./media/CreateVirtualMachineLinuxTutorial/diskmessages.png)
+
+    ![識別磁碟][]
 
 3.  在 SSH 視窗中，輸入下列命令來建立新的裝置，然後輸入帳戶密碼：
-    
+
     `sudo fdisk /dev/sdc`
 
-
-   
-    > [WACOM.NOTE] 在此範例中，如果 /sbin 或 /usr/sbin 不在您的 `$PATH`
-    > 中，您可能需要在部份散發套件上使用 `sudo -i`。
+    > [WACOM.NOTE] 在此範例中，您可能需要在部份散發套件上使用`sudo -i` 前提是如果 /sbin 或 /usr/sbin 不在您的 `$PATH`.
 
 4.  輸入 **n** 建立新的磁碟分割。
-    
-    ![建立新的裝置](./media/CreateVirtualMachineLinuxTutorial/diskpartition.png)
+
+    ![建立新的裝置][]
 
 5.  輸入 **p** 將磁碟分割設為主要磁碟分割，輸入 **1** 設為第一個磁碟分割，然後按 Enter 鍵接受預設的磁柱值。
-    
-    ![建立磁碟分割](./media/CreateVirtualMachineLinuxTutorial/diskcylinder.png)
+
+    ![建立磁碟分割][]
 
 6.  輸入 **p** 查看目前分割之磁碟的詳細資料。
-    
-    ![列出磁碟資訊](./media/CreateVirtualMachineLinuxTutorial/diskinfo.png)
+
+    ![列出磁碟資訊][]
 
 7.  輸入 **w** 寫入磁碟的設定。
-    
-    ![寫入磁碟變更](./media/CreateVirtualMachineLinuxTutorial/diskwrite.png)
+
+    ![寫入磁碟變更][]
 
 8.  您必須在新的磁碟分割上建立檔案系統。做為範例，請輸入下列命令來建立檔案系統，然後輸入帳戶密碼：
-    
+
     `sudo mkfs -t ext4 /dev/sdc1`
-    
-    ![建立檔案系統](./media/CreateVirtualMachineLinuxTutorial/diskfilesystem.png)
 
+    ![建立檔案系統][]
 
-   
-    > [WACOM.NOTE] 請注意，SUSE Linux Enterprise 11 系統上僅對 ext4
-    > 檔案系統提供唯讀存取。針對這些系統，建議您將新檔案系統格式化為 ext3，而非 ext4。
+    > [WACOM.NOTE] 請注意，SUSE Linux Enterprise 11 系統上僅對 ext4 檔案系統提供唯讀存取。針對這些系統，建議您將新檔案系統格式化為 ext3，而非 ext4。
 
 9.  接下來您必須有可供掛接新檔案系統的目錄。做為範例，請輸入下列命令建立新目錄來掛接磁碟機，然後輸入帳戶密碼：
-    
+
     `sudo mkdir /datadrive`
 
 10. 輸入下列命令來掛接磁碟機：
-    
+
     `sudo mount /dev/sdc1 /datadrive`
-    
+
     資料磁碟現在可以當做 **/datadrive** 來使用。
 
 11. 將新的磁碟機新增至 /etc/fstab：
-    
+
     為了確保重新開機之後自動重新掛接磁碟機，必須將磁碟機新增至 /etc/fstab 檔案。此外，強烈建議在 /et/fstab 中使用全域唯一識別碼 (Universally Unique IDentifier, UUID) 來參考磁碟機，而不只是裝置名稱 (例如，/dev/sdc1)。若要尋找新磁碟機的 UUID，您可以使用 **blkid** 公用程式：
-    
+
         `sudo -i blkid`
-    
+
     輸出類似如下範例：
-    
-        `/dev/sda1:UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"`
-        `/dev/sdb1:UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
-        `/dev/sdc1:UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
 
+        `/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"`
+        `/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
+        `/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
 
-   
-    > [WACOM.NOTE] blkid 並不要求一定要使用 sudo 存取權，只是在某些散發套件上，如果 /sbin 或
-    > /usr/sbin 不在 `$PATH` 中，則使用 `sudo -i` 來執行會比較簡單。
-    
+    > [WACOM.NOTE] blkid 並不要求一定要使用 sudo 存取權，只是在某些散發套件上，使用以下程式碼執行會比較簡單：`sudo -i` 前提是如果 /sbin 或 /usr/sbin 不在您的 `$PATH`.
+
     **警告：**不當編輯 /etc/fstab 檔案會導致系統無法開機。如果不確定，請參閱散發套件的文件，以取得如何適當編輯此檔案的相關資訊。在編輯之前，也建議先備份 /etc/fstab 檔案。
-    
+
     請使用文字編輯器，在 /etc/fstab 檔案的結尾輸入新檔案系統的相關資訊。在此範例中，我們使用先前步驟所建立之新的 **/dev/sdc1** 裝置的 UUID 值，並使用掛接點 **/datadrive**：
-    
+
         `UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2`
-    
+
     或者，在基於 SUSE Linux 的系統上，您可能需要使用稍微不同的格式：
-    
+
         `/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /   ext3   defaults   1   2`
-    
+
     如果還有建立其他資料磁碟機或磁碟分割，同樣也需要分別在 /etc/fstab 中輸入。
-    
-    現在，您可以測試檔案系統是否適當掛接，方法是取消掛接檔案系統，再重新掛接，例如使用先前步驟中建立的範例掛接點 `/datadrive`：
-    
+
+    現在，您可以測試檔案系統是否適當掛接，方法是取消掛接檔案系統，再重新掛接，例如使用先前步驟中`/datadrive` 建立的範例掛接點：
+
         `sudo umount /datadrive`
         `sudo mount /datadrive`
-    
+
     如果第二個命令發生錯誤，請檢查 /etc/fstab 檔案的語法是否正確。
 
-
-   
-    > [WACOM.NOTE] 後續移除資料磁碟而不編輯 fstab，可能會造成 VM
-    > 無法開機。如果這是常見情況，那麼多數散發套件會提供 `nofail` 和/或 `nobootwait` fstab
-    > 選項，使得即使沒有磁碟，也能讓系統開機。請查閱散發套件的文件，以取得這些參數的相關資訊。
+    > [WACOM.NOTE] 後續移除資料磁碟而不編輯 fstab，可能會造成 VM 無法開機。如果這是常見情況，那麼多數散發套件會提供 `nofail` 和/或`nobootwait` fstab 選項，使得即使沒有磁碟，也能讓系統開機。請查閱散發套件的文件，以取得這些參數的相關資訊。
 
 ## 後續步驟
 
 若要深入了解 Azure 上的 Linux，請參閱下列文章：
 
-* [Azure 上的 Linux 簡介][9]
+-   [Azure 上的 Linux 簡介][]
 
-* [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具][10]
+-   [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具][]
 
-
-
-[1]: http://go.microsoft.com/fwlink/p/?LinkID=294063
-[2]: http://go.microsoft.com/fwlink/p/?LinkId=311926
-[3]: http://manage.windowsazure.com
-[4]: http://go.microsoft.com/FWLink/p/?LinkID=390493
-[5]: http://www.windowsazure.com/zh-tw/manage/linux/how-to-guides/setup-endpoints/
-[6]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
-[7]: http://www.openssh.org/
-[8]: http://www.windowsazure.com/zh-tw/manage/linux/how-to-guides/linux-agent-guide/
-[9]: http://www.windowsazure.com/zh-tw/documentation/articles/introduction-linux/
-[10]: http://www.windowsazure.com/zh-tw/documentation/articles/xplat-cli/
+  [建立 Azure 帳戶]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
+  [關於 Azure 中的虛擬機器]: #virtualmachine
+  [如何建立虛擬機器]: #custommachine
+  [如何在建立虛擬機器之後登入]: #logon
+  [如何將資料磁碟連接至新的虛擬機器]: #attachdisk
+  [Azure 虛擬網路概觀]: http://go.microsoft.com/fwlink/p/?LinkID=294063
+  [建立和上傳包含 Linux 作業系統的虛擬硬碟]: /en-us/manage/linux/common-tasks/upload-a-vhd/
+  [Azure 簡介]: http://go.microsoft.com/fwlink/p/?LinkId=311926
+  [管理入口網站]: http://manage.windowsazure.com
+  [管理延伸模組]: http://go.microsoft.com/FWLink/p/?LinkID=390493
+  [如何設定虛擬機器的端點]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/
+  [PuTTY 下載]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+  [OpenSSH]: http://www.openssh.org/
+  [尋找 SSH 詳細資料]: ./media/CreateVirtualMachineLinuxTutorial/SSHdetails.png
+  [輸入主機名稱和連接埠資訊]: ./media/CreateVirtualMachineLinuxTutorial/putty.png
+  [登入新的虛擬機器]: ./media/CreateVirtualMachineLinuxTutorial/sshlogin.png
+  [Azure Linux 代理程式使用者指南]: http://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/
+  [定義磁碟詳細資料]: ./media/CreateVirtualMachineLinuxTutorial/attachnewdisklinux.png
+  [成功連接磁碟]: ./media/CreateVirtualMachineLinuxTutorial/attachemptysuccess.png
+  [識別磁碟]: ./media/CreateVirtualMachineLinuxTutorial/diskmessages.png
+  [建立新的裝置]: ./media/CreateVirtualMachineLinuxTutorial/diskpartition.png
+  [建立磁碟分割]: ./media/CreateVirtualMachineLinuxTutorial/diskcylinder.png
+  [列出磁碟資訊]: ./media/CreateVirtualMachineLinuxTutorial/diskinfo.png
+  [寫入磁碟變更]: ./media/CreateVirtualMachineLinuxTutorial/diskwrite.png
+  [建立檔案系統]: ./media/CreateVirtualMachineLinuxTutorial/diskfilesystem.png
+  [Azure 上的 Linux 簡介]: http://www.windowsazure.com/en-us/documentation/articles/introduction-linux/
+  [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]: http://www.windowsazure.com/en-us/documentation/articles/xplat-cli/

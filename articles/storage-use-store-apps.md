@@ -1,29 +1,28 @@
-<properties linkid="manage-services-storage-using-storage-with-windows-store-apps" urlDisplayName="Azure Storage in Windows Store apps" pageTitle="Use Azure storage in Windows Store Apps | Azure" metaKeywords="" description="Learn how to use Azure blobs, queues, and tables to store data for a Windows Store app." metaCanonical="" services="storage" documentationCenter="" title="How to use Azure Storage in Windows Store Apps" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-services-storage-using-storage-with-windows-store-apps" urlDisplayName="Azure Storage in Windows Store apps" pageTitle="Use Azure storage in Windows Store Apps | Azure" metaKeywords="" description="Learn how to use Azure blobs, queues, and tables to store data for a Windows Store app." metaCanonical="" services="storage" documentationCenter="" title="How to use Azure Storage in Windows Store Apps" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-如何在 Windows 市集應用程式中使用 Azure 儲存體
-==============================================
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+
+# 如何在 Windows 市集應用程式中使用 Azure 儲存體
 
 本指南說明如何開始著手開發採用 Azure 儲存體的 Windows 市集應用程式。
 
-下載所需工具
-------------
+## 下載所需工具
 
--   [Visual Studio 2012](http://msdn.microsoft.com/zh-tw/library/windows/apps/br211384) 可讓您輕鬆地建置、偵錯、當地語系化、封裝及部署 Windows 市集應用程式。
--   [Windows Azure Storage Client Library for Windows Runtime](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) 包含用來與 Azure 儲存體通訊的類型，並封裝在 Windows Runtime 元件中。
--   [適用於 Windows 市集應用程式的 WCF 資料服務工具](http://www.microsoft.com/en-us/download/details.aspx?id=30714) 利用 Visual Studio 2012 中 Windows 市集應用程式的用戶端 OData 支援，擴充了新增服務參照體驗。
+-   [Visual Studio 2012][] 可讓您輕鬆地建置、偵錯、當地語系化、封裝及部署 Windows 市集應用程式。
+-   [Windows Azure Storage Client Library for Windows Runtime][] 包含用來與 Azure 儲存體通訊的類型，並封裝在 Windows Runtime 元件中。
+-   [適用於 Windows 市集應用程式的 WCF 資料服務工具][] 利用 Visual Studio 2012 中 Windows 市集應用程式的用戶端 OData 支援，擴充了新增服務參照體驗。
 
-開發應用程式
-------------
+## 開發應用程式
 
 ### 準備就緒
 
 在 Visual Studio 2012 中建立新的 Windows 市集應用程式專案：
 
-![store-apps-storage-vs-project](./media/storage-use-store-apps/store-apps-storage-vs-project.png)
+![store-apps-storage-vs-project][]
 
-接著，新增 Azure Storage Client Library 的參考，方法是以滑鼠右鍵按一下 **[參考]**，然後選擇 **[加入參考]**，並瀏覽到已下載的 Storage Client Library for Windows Runtime：
+接著，新增 Azure Storage Client Library 的參考，方法是以滑鼠右鍵按一下 [參考]，然後選擇 [加入參考]，並瀏覽到已下載的 Storage Client Library for Windows Runtime：
 
-![store-apps-storage-choose-library](./media/storage-use-store-apps/store-apps-storage-choose-library.png)
+![store-apps-storage-choose-library][]
 
 ### 使用搭配 Blob 和佇列服務的程式庫
 
@@ -32,7 +31,7 @@
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
 
-接著，新增頁面按鈕。將下列程式碼新增至其 **Click** 事件，並使用 [async 關鍵字](http://msdn.microsoft.com/zh-tw/library/vstudio/hh156513.aspx) (英文) 來修改事件處理常式方法。
+接著，新增頁面按鈕。將下列程式碼新增至其 **Click** 事件，並使用 [async 關鍵字][] (英文) 來修改事件處理常式方法。
 
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);
@@ -48,13 +47,13 @@
 
 用來與資料表服務通訊的類型會視適用於 Windows 市集應用程式程式庫的 WCF 資料服務而定。接著，透過使用 [Package Manager Console] 加入所需的 WCF 程式庫參考：
 
-![store-apps-storage-package-manager](./media/storage-use-store-apps/store-apps-storage-package-manager.png)
+![store-apps-storage-package-manager][]
 
 使用下列命令將 [Package Manager] 指向您機器上的位置：
 
     Install-Package Microsoft.Data.OData.WindowsStore -Source "C:\Program Files (x86)\Microsoft WCF Data Services.0\bin\NuGet"
 
-此命令會自動將所有所需的參考加入您的專案。如果您不想使用 [Package Manager Console]，您也可以將本機機器上的 WCF Data Services NuGet 資料夾新增至 [套件來源] 清單，然後透過 UI 加入參考，如[使用對話方塊管理 NuGet 套件](http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog) (英文) 中所述。
+此命令會自動將所有所需的參考加入您的專案。如果您不想使用 [Package Manager Console]，您也可以將本機機器上的 WCF Data Services NuGet 資料夾新增至 [套件來源] 清單，然後透過 UI 加入參考，如[使用對話方塊管理 NuGet 套件][] (英文) 中所述。
 
 當您參考 WCF 資料服務 NuGet 套件時，請變更按鈕 **Click** 事件中的程式碼：
 
@@ -68,3 +67,11 @@
 
 您也可以加入 Microsoft.WindowsAzure.Storage.Table.dll (您可以在下載的相同套件中找到) 的參考。此程式庫包含其他功能，例如反映式序列化和一般查詢。請注意，此程式庫不支援 JavaScript。
 
+  [Visual Studio 2012]: http://msdn.microsoft.com/en-us/library/windows/apps/br211384
+  [Windows Azure Storage Client Library for Windows Runtime]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx
+  [適用於 Windows 市集應用程式的 WCF 資料服務工具]: http://www.microsoft.com/en-us/download/details.aspx?id=30714
+  [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
+  [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
+  [async 關鍵字]: http://msdn.microsoft.com/en-US/library/vstudio/hh156513.aspx
+  [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
+  [使用對話方塊管理 NuGet 套件]: http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog

@@ -1,281 +1,344 @@
-<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Queue Service from Node.js" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Queue Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-如何從 Node.js 使用佇列服務
-===========================
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
 
-本指南將示範如何使用 Windows Azure 佇列服務執行一般案例。這些範例使用 Node.js API 撰寫。所涵蓋的案例包括**「插入」**、**「查看」**、**「取得」**和**「刪除」**佇列訊息，以及**「建立和刪除佇列」**。如需佇列的詳細資訊，請參閱[後續步驟](#next-steps)一節。
+# 如何從 Node.js 使用佇列服務
 
-目錄
-----
+本指南將示範如何使用 Windows Azure 佇列服務執行一般案例。這些範例使用 Node.js API 撰寫。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。如需佇列的詳細資訊，請參閱[後續步驟][]一節。
 
--   [什麼是佇列服務？](#what-is)
--   [概念](#concepts)
--   [建立 Azure 儲存體帳戶](#create-account)
--   [建立 Node.js 應用程式](#create-app)
--   [設定您的應用程式以存取儲存體](#configure-access)
--   [設定 Azure 儲存體連接字串](#setup-connection-string)
--   [作法：建立佇列](#create-queue)
--   [作法：將訊息插入佇列](#insert-message)
--   [作法：查看下一個訊息](#peek-message)
--   [作法：將下一個訊息清除佇列](#get-message)
--   [作法：變更佇列訊息的內容](#change-contents)
--   [作法：其他將訊息移出佇列的選項](#advanced-get)
--   [作法：取得佇列長度](#get-queue-length)
--   [作法：刪除佇列](#delete-queue)
--   [後續步驟](#next-steps)
+## 目錄
 
-什麼是佇列服務？
-----------------
+-   [什麼是佇列服務？][]
+-   [概念][]
+-   [建立 Azure 儲存體帳戶][]
+-   [建立 Node.js 應用程式][]
+-   [設定您的應用程式以存取儲存體][]
+-   [設定 Azure 儲存體連接字串][]
+-   [作法：建立佇列][]
+-   [作法：將訊息插入佇列][]
+-   [作法：查看下一個訊息][]
+-   [作法：清除下一個佇列訊息][]
+-   [作法：變更佇列訊息的內容][]
+-   [作法：清除佇列訊息的其他選項][]
+-   [作法：取得佇列長度][]
+-   [作法：刪除佇列][]
+-   [作法：使用共用存取簽章][]
+-   [後續步驟][]
 
-Azure 佇列服務是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。單一佇列訊息的大小上限為 64KB，一個佇列可以包含數百萬個訊息，一個儲存體帳戶的總容量上限為 100TB。佇列服務的一般用途包括：
+[WACOM.INCLUDE [howto-queue-storage][]]
 
--   建立積存的工作供非同步處理
--   將訊息從 Azure Web 角色傳遞給背景工作角色
+## <a name="create-account"></a>建立 Azure 儲存體帳戶
 
-概念
-----
+[WACOM.INCLUDE [create-storage-account][]]
 
-佇列服務包含下列元件：
+## <a name="create-app"> </a>建立 Node.js 應用程式
 
-![Queue1](./media/storage-nodejs-how-to-use-queues/queue1.png)
+建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][]、[Node.js 雲端服務][] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站][]。
 
--   **URL 格式：**可利用下列 URL 格式來定址佇列：
+## <a name="configure-access"> </a>設定您的應用程式以存取儲存體
 
-        http://storageaccount.queue.core.windows.net/queue  
-
-    下列 URL 可定址圖中的其中一個佇列：
-
-        http://myaccount.queue.core.windows.net/imagesToDownload
-
--   **儲存體帳戶：**一律透過儲存體帳戶來存取 Azure 儲存體。儲存體帳戶是存取佇列用的最高等級的命名空間。儲存體帳戶中的 blob、資料表及佇列內容的大小總計不能超過 100TB。
-
--   **佇列：**佇列包含一組訊息。所有訊息都必須放在佇列中。
-
--   **訊息：**訊息 (任何格式) 的大小上限為 64KB。
-
-建立 Azure 儲存體帳戶
----------------------
-
-若要使用儲存體作業，您需要 Azure 儲存體帳戶。您可以依照下列步驟來建立儲存體帳戶。(您也可以[使用 REST API](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh264518.aspx) 來建立儲存體帳戶。)
-
-1.  登入 [Azure 管理入口網站](http://manage.windowsazure.com)。
-
-2.  在導覽窗格的底端，按一下 **[新增]**。
-
-    ![+新增](./media/storage-nodejs-how-to-use-queues/plus-new.png)
-
-3.  按一下 **[儲存體帳戶]**，再按 **[快速建立]**。
-
-    ![快速建立對話方塊](./media/storage-nodejs-how-to-use-queues/quick-storage.png)
-
-4.  在 [URL] 中，為儲存體帳戶輸入要在 URI 中使用的子網域名稱。此項目可以包含 3 至 24 個小寫字母與數字。此值會成為 URI 內用來將訂閱的 Blob、「佇列」或「表格」資源定址的主機名稱。
-
-5.  選擇要將儲存體放置於的「區域/同質群組」。如果您會從 Azure 應用程式使用儲存體，請選取您會在其中部署應用程式的相同區域。
-
-6.  按一下 **[建立儲存體帳戶]**。
-
-建立 Node.js 應用程式
----------------------
-
-建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的指示，請參閱[建立並部署 Node.js 應用程式至 Azure 網站](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/)、[Node.js 雲端服務]({localLink:2221} "使用 Express 的 Web 應用程式") (使用 Windows PowerShell) 或[使用 WebMatrix 的網站](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/)。
-
-設定您的應用程式以存取儲存體
-----------------------------
-
-若要使用 Azure 儲存體，您需要下載並使用 Node.js azure 封裝，這包含一組便利程式庫，能與儲存體 REST 服務通訊。
+若要使用 Azure 儲存體，您需要 Azure Storage SDK for Node.js，這包含一組便利程式庫，能與儲存體 REST 服務通訊。
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用命令列介面，例如 **PowerShell** (Windows)、**[終端機]** (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
+1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
 
-2.  在命令視窗中輸入 **npm install azure**，這應該會導致下列輸出：
+2.  在命令視窗中輸入 **npm install azure-storage**，該命令應能產生以下輸出：
 
-        azure@0.7.5 node_modules\azure
-        |-- dateformat@1.0.2-1.2.3
-        |-- xmlbuilder@0.4.2
-        |-- node-uuid@1.2.0
-        |-- mime@1.2.9
-        |-- underscore@1.4.4
-        |-- validator@1.1.1
-        |-- tunnel@0.0.2
-        |-- wns@0.5.3
-        |-- xml2js@0.2.7 (sax@0.5.2)
-        |-- request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
+        azure-storage@0.1.0 node_modules\azure-storage
+        ├── extend@1.2.1
+        ├── xmlbuilder@0.4.3
+        ├── mime@1.2.11
+        ├── underscore@1.4.4
+        ├── validator@3.1.0
+        ├── node-uuid@1.4.1
+        ├── xml2js@0.2.7 (sax@0.5.2)
+        └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  您可以手動執行 **ls** 命令，確認已建立 **node\_modules** 資料夾。在該資料夾內，您會找到 **azure** 封裝，其中包含您存取儲存體所需的程式庫。
+3.  您可以手動執行 **ls** 命令，確認已建立 **node\_modules** 資料夾。在該資料夾內，您會找到 **azure-storage** 封裝，其中包含您存取儲存體所需的程式庫。
 
 ### 匯入封裝
 
 使用記事本或其他文字編輯器，將以下內容新增至您要使用儲存體之應用程式的 **server.js** 檔案頂端：
 
-    var azure = require('azure');
+    var azure = require('azure-storage');
 
-設定 Azure 儲存體連接
----------------------
+## <a name="setup-connection-string"> </a>設定 Azure 儲存體連接
 
-azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_ACCESS\_KEY，以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則在呼叫 **createQueueService** 時必須指定帳戶資訊。
+Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_ACCESS\_KEY 或 AZURE\_STORAGE\_CONNECTION\_STRING，以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則在呼叫 **createQueueService** 時必須指定帳戶資訊。
 
-如需在 Azure 雲端服務組態檔中設定環境變數的範例，請參閱[使用儲存體的 Node.js 雲端服務](/en-us/develop/nodejs/tutorials/web-app-with-storage/)。
+如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][]。
 
-如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式](/en-us/develop/nodejs/tutorials/web-site-with-storage/)。
+## <a name="create-queue"> </a>作法：建立佇列
 
-作法：建立佇列
---------------
+下列程式碼會建立一個 **QueueService** 物件，讓您能夠使用佇列。
 
-下列程式碼會建立一個 **QueueService** 物件，其讓您能夠使用佇列。
-
-    var queueService = azure.createQueueService();
+    var queueSvc = azure.createQueueService();
 
 請使用 **createQueueIfNotExists** 方法，此方法會傳回指定的佇列 (如果佇列已經存在)，或以指定的名稱建立新佇列 (如果佇列不存在)。
 
-    queueService.createQueueIfNotExists(queueName, function(error){
-        if(!error){
-            // Queue exists
-        }
+    queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
+      if(!error){
+        // Queue created or exists
+      }
     });
+
+如果建立佇列，則 `result` 為 ture。如果佇列存在，則 `result` 為 false。
 
 ### 篩選器
 
-可以將選用性的篩選操作套用到使用 **QueueService** 執行的操作。篩選操作可包括記錄、自動重試等等。篩選器是以簽章實作方法的物件：
+可以將選用性的篩選操作套用到使用 **QueueService** 執行的操作。篩選作業可包括記錄、自動重試等等。篩選器是以簽章實作方法的物件：
 
-     function handle (requestOptions, next)
+        function handle (requestOptions, next)
 
 在對要求選項進行前處理之後，方法需要呼叫 "next" 並傳遞具有下列簽章的回呼：
 
-     function (returnObject, finalCallback, next)
+        function (returnObject, finalCallback, next)
 
 在此回呼中，以及處理 returnObject (來自對伺服器之要求的回應) 之後，回呼需要叫用 next (如果存在) 以繼續處理其他篩選，或是就改為叫用 finalCallback 結束服務叫用。
 
 Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**ExponentialRetryPolicyFilter** 和 **LinearRetryPolicyFilter**。以下會建立使用 **ExponentialRetryPolicyFilter** 的 **QueueService** 物件：
 
     var retryOperations = new azure.ExponentialRetryPolicyFilter();
-    var queueService = azure.createQueueService().withFilter(retryOperations);
+    var queueSvc = azure.createQueueService().withFilter(retryOperations);
 
-作法：將訊息插入佇列
---------------------
+## <a name="insert-message"> </a>作法：將訊息插入佇列
 
 若要將訊息插入佇列，請使用 **createMessage** 方法建立新訊息，然後將該訊息加到佇列中。
 
-    queueService.createMessage(queueName, "Hello world!", function(error){
-        if(!error){
-            // Message inserted
-        }
+    queueSvc.createMessage('myqueue', "Hello world!", function(error, result, response){
+      if(!error){
+        // Message inserted
+      }
     });
 
-作法：查看下一個訊息
---------------------
+## <a name="peek-message"> </a>作法：查看下一個訊息
 
 透過呼叫 **peekMessages** 方法，您可以在佇列前面查看訊息，而無需將它從佇列中移除。**peekMessages** 預設會查看單一訊息。
 
-    queueService.peekMessages(queueName, function(error, messages){
-        if(!error){
-            // Messages peeked
-            // Text is available in messages[0].messagetext
-        }
+    queueSvc.peekMessages('myqueue', function(error, result, response){
+      if(!error){
+        // Messages peeked
+      }
     });
 
-> [WACOM.NOTE]
-> 當佇列中沒有任何訊息時，使用 **peekMessage** 並不會傳回錯誤，不過，也不會傳回任何訊息。
+`result` 包含訊息。
 
-作法：將下一個訊息清除佇列
---------------------------
+> [WACOM.NOTE] 當佇列中沒有任何訊息時，使用 **peekMessages** 並不會傳回錯誤，不過，也不會傳回任何訊息。
 
-您的程式碼會以兩個步驟將訊息從佇列中移除。呼叫 **getMessages** 時，您預設會取得佇列中的下一個訊息。從 **getMessage** 傳回的訊息，對於從此佇列讀取訊息的任何其他程式碼而言將會是不可見的。依預設，此訊息會維持不可見狀態 30 秒。若要完成將訊息從佇列中移除，您還必須呼叫 **deleteMessage**。這個移除訊息的兩步驟程序可確保當您的程式碼因為硬體或軟體故障而無法處理訊息時，程式碼的另一個執行個體可以取得相同訊息並再試一次。您的程式碼會在處理完訊息之後立即呼叫 **deleteMessage**。
+## <a name="get-message"> </a>作法：清除下一個佇列訊息
 
-	queueService.getMessages(queueName, function(error, messages){
-	    if(!error){
-	        // Process the message in less than 30 seconds, the message
-	        // text is available in messages[0].messagetext 
-			var message = messages[0]
-	        queueService.deleteMessage(queueName
-				, message.messageid
-				, message.popreceipt
-				, function(error){
-	            	if(!error){
-	                	// Message deleted
-	            	}
-	        	});
-	    }
-	});
+處理訊息是兩階段的過程：
+
+1.  從佇列中清除訊息。
+
+2.  刪除訊息。
+
+若要從佇列中清除訊息，請使用 **getMessage**。這樣會使訊息從佇列中隱藏起來，而不讓其他用戶端處理它。當應用程式處理訊息之後，請呼叫 **deleteMessage** 從佇列中刪除它。下列範例會取得訊息，接著刪除訊息。
+
+    queueSvc.getMessages('myqueue', function(error, result, response){
+      if(!error){
+        // message dequed
+        var message = result[0];
+        queueSvc.deleteMessage('myqueue', message.messageid, message.popreceipt, function(error, response){
+          if(!error){
+            //message deleted
+          }
+        });
+      }
+    });
+
+> [WACOM.NOTE] 依預設，訊息只會隱藏 30 秒，之後又會被其他用戶端看見。您可以使用具有**getMessages** 的 `options.visibilityTimeout` 指定不同的值。
 
 > [WACOM.NOTE]
 > 當佇列中沒有任何訊息時，使用 **getMessages** 並不會傳回錯誤，不過，也不會傳回任何訊息。
 
-作法：變更佇列訊息的內容
-------------------------
+## <a name="change-contents"> </a>作法：變更佇列訊息的內容
 
-您可以在佇列中就地變更訊息內容。如果訊息代表工作作業，則您可以使用此功能來更新工作作業的狀態。下方的程式碼使用 **updateMessage** 方法來更新訊息。
+您可以使用 **updateMessage** 在佇列中就地變更訊息內容。下列範例會更新訊息的文字：
 
-    queueService.getMessages(queueName, function(error, messages){
-		if(!error){
-			// Got the message
-			var message = messages[0];
-			queueService.updateMessage(queueName
-				, message.messageid
-				, message.popreceipt
-				, 10
-				, { messagetext: 'in your message, doing stuff.' }
-				, function(error){
-					if(!error){
-						// Message updated successfully
-					}
-				});
-		}
-	});
-
-作法：其他將訊息移出佇列的選項
-------------------------------
-
-自訂從佇列中擷取訊息的方法有兩種。首先，您可以取得一批訊息 (最多 32 個)。其次，您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完全處理每個訊息。下列程式碼範例將使用 **getMessages** 方法，在一次呼叫中取得 15 個訊息。接著它會使用 for 迴圈處理每個訊息。它也會將可見度逾時設定為每個訊息五分鐘。
-
-    queueService.getMessages(queueName
-		, {numofmessages: 15, visibilitytimeout: 5 * 60}
-		, function(error, messages){
-		if(!error){
-			// Messages retreived
-			for(var index in messages){
-				// text is available in messages[index].messagetext
-				var message = messages[index];
-				queueService.deleteMessage(queueName
-					, message.messageid
-					, message.popreceipt
-					, function(error){
-						if(!error){
-							// Message deleted
-						}
-					});
-			}
-		}
-	});
-
-作法：取得佇列長度
-------------------
-
-您可以取得佇列中的估計訊息數目。**getQueueMetadata** 方法會要求佇列服務傳回佇列的相關中繼資料，而回應的 **approximatemessagecount** 屬性則會包含佇列中的訊息計數。此計數只是一個約略值，因為在佇列服務回應您的要求之後，仍有新增或移除訊息的可能。
-
-    queueService.getQueueMetadata(queueName, function(error, queueInfo){
-        if(!error){
-            // Queue length is available in queueInfo.approximatemessagecount
-        }
+    queueSvc.getMessages('myqueue', function(error, result, response){
+      if(!error){
+        // Got the message
+        var message = result[0];
+        queueSvc.updateMessage('myqueue', message.messageid, message.popreceipt, 10, {messageText: 'new text'}, function(error, result, response){
+          if(!error){
+            // Message updated successfully
+          }
+        });
+      }
     });
 
-作法：刪除佇列
---------------
+## <a name="advanced-get"> </a>作法：清除佇列訊息的其他選項
 
-若要刪除佇列及其內含的所有訊息，請在佇列物件上呼叫 **deleteQueue** 方法。
+自訂從佇列中擷取訊息的方法有兩種：
 
-    queueService.deleteQueue(queueName, function(error){
+-   `options.numOfMessages` - 擷取一批訊息 (最多 32 個)。
+-   `options.visibilityTimeout` - 設定較長或較短的隱藏逾時。
+
+下列範例使用 **getMessages** 方法，在一次呼叫中取得 15 個訊息。接著它會使用 for 迴圈處理每個訊息。
+另外，對此方法傳回的所有訊息，將隱藏逾時設為五分鐘。
+
+    queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
+      if(!error){
+        // Messages retreived
+        for(var index in result){
+          // text is available in result[index].messageText
+          var message = result[index];
+          queueSvc.deleteMessage(queueName, message.messageid, message.popreceipt, function(error, response){
+            if(!error){
+              // Message deleted
+            }
+          });
+        }
+      }
+    });
+
+## <a name="get-queue-length"> </a>作法：取得佇列長度
+
+**getQueueMetadata** 會傳回佇列的中繼資料，包括在佇列中等待的大約訊息數目。
+
+    queueSvc.getQueueMetadata('myqueue', function(error, result, response){
+      if(!error){
+        // Queue length is available in result.approximatemessagecount
+      }
+    });
+
+## <a name="list-queue"> </a>作法：列出佇列
+
+若要擷取佇列清單，請使用 **listQueuesSegmented**。若要擷取依特定首碼篩選的清單，請使用 **listQueuesSegmentedWithPrefix**。
+
+    queueSvc.listQueuesSegmented(null, function(error, result, response){
+      if(!error){
+        // result.entries contains the list of queues
+      }
+    });
+
+如果無法傳回所有佇列，`result.continuationToken` 可作為 **listQueuesSegmented** 的第一個參數或 **listQueuesSegmentedWithPrefix** 的第二個參數，以擷取更多結果。
+
+## <a name="delete-queue"> </a>作法：刪除佇列
+
+若要刪除佇列及其內含的所有訊息，請在佇列物件上呼叫
+**deleteQueue** 方法。
+
+    queueSvc.deleteQueue(queueName, function(error, response){
         if(!error){
             // Queue has been deleted
         }
     });
 
-後續步驟
---------
+若要從佇列中清除所有訊息但不要刪除，請使用 **clearMessages**。
+
+## <a name="sas"></a>作法：使用共用存取簽章
+
+共用存取簽章 (SAS) 可安全地提供對佇列的精確存取，而不必提供您的儲存體帳戶名稱或金鑰。SAS 通常用來提供對佇列的有限存取，例如允許行動應用程式提交訊息。
+
+信任的應用程式 (例如雲端型服務) 會使用 **QueueService** 的 **generateSharedAccessSignature** 來產生 SAS，並提供它給不信任或不完全信任的應用程式。例如行動應用程式。SAS 是使用原則來產生，該原則描述 SAS 有效期間的開始和結束日期，以及授與 SAS 持有者的存取等級。
+
+下列範例會產生新的共用存取原則，讓 SAS 持有者將訊息新增至佇列，並於建立它之後的 100 分鐘過期。
+
+    var startDate = new Date();
+    var expiryDate = new Date(startDate);
+    expiryDate.setMinutes(startDate.getMinutes() + 100);
+    startDate.setMinutes(startDate.getMinutes() - 100);
+
+    var sharedAccessPolicy = {
+      AccessPolicy: {
+        Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
+        Start: startDate,
+        Expiry: expiryDate
+      }
+    };
+
+    var queueSAS = queueSvc.generateSharedAccessSignature('myqueue', sharedAccessPolicy);
+    var host = queueSvc.host;
+
+請注意，也必須提供主機資訊，因為 SAS 持有者嘗試存取佇列時需要此資訊。
+
+用戶端應用程式接著以 **QueueServiceWithSAS** 來使用 SAS，對佇列執行操作。下列範例會連線到佇列並建立訊息。
+
+    var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
+    sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(error, result, response){
+      if(!error){
+        //message added
+      }
+    });
+
+因為產生的 SAS 具有新增權限，若嘗試讀取、更新或刪除訊息，則會傳回錯誤。
+
+### 存取控制清單
+
+您也可以使用存取控制清單 (ACL) 來設定 SAS 的存取原則。若您要允許用戶端存取佇列，但對每個用戶端提供不同的存取原則，則這會很有用。
+
+ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼。下列範例定義兩個原則，其中一個用於 'user1'，另一個用於 'user2'：
+
+    var sharedAccessPolicy = [
+      {
+        AccessPolicy: {
+          Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
+          Start: startDate,
+          Expiry: expiryDate
+        },
+        Id: 'user1'
+      },
+      {
+        AccessPolicy: {
+          Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
+          Start: startDate,
+          Expiry: expiryDate
+        },
+        Id: 'user2'
+      }
+    ];
+
+下列範例會取得 **myqueue** 的目前 ACL，然後使用 **setQueueAcl** 來加入新的原則。此方法允許：
+
+    queueSvc.getQueueAcl('myqueue', function(error, result, response) {
+      if(!error){
+        //push the new policy into signedIdentifiers
+        result.signedIdentifiers.push(sharedAccessPolicy);
+        queueSvc.setQueueAcl('myqueue', result, function(error, result, response){
+          if(!error){
+            // ACL set
+          }
+        });
+      }
+    });
+
+設定 ACL 之後，您可以根據原則的識別碼來建立 SAS。下列範例會建立 'user2' 的新 SAS：
+
+    queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
+
+## <a name="next-steps"> </a>後續步驟
 
 了解佇列儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   請參閱 MSDN 參考資料：[儲存體](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx)。
--   造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
--   造訪 GitHub 上的 [Azure SDK for Node](https://github.com/WindowsAzure/azure-sdk-for-node) (英文) 儲存機制。
+-   請參閱 MSDN 參考：[在 Azure 中儲存及存取資料][]。
+-   造訪 [Azure 儲存體團隊部落格][] (英文)。
+-   請造訪 GitHub 上的 [Azure Storage SDK for Node][] 儲存機制 (英文)。
 
+  [後續步驟]: #next-steps
+  [什麼是佇列服務？]: #what-is
+  [概念]: #concepts
+  [建立 Azure 儲存體帳戶]: #create-account
+  [建立 Node.js 應用程式]: #create-app
+  [設定您的應用程式以存取儲存體]: #configure-access
+  [設定 Azure 儲存體連接字串]: #setup-connection-string
+  [作法：建立佇列]: #create-queue
+  [作法：將訊息插入佇列]: #insert-message
+  [作法：查看下一個訊息]: #peek-message
+  [作法：清除下一個佇列訊息]: #get-message
+  [作法：變更佇列訊息的內容]: #change-contents
+  [作法：清除佇列訊息的其他選項]: #advanced-get
+  [作法：取得佇列長度]: #get-queue-length
+  [作法：刪除佇列]: #delete-queue
+  [作法：使用共用存取簽章]: #sas
+  [howto-queue-storage]: ../includes/howto-queue-storage.md
+  [create-storage-account]: ../includes/create-storage-account.md
+  [建立 Node.js 應用程式並將其部署到 Azure 網站]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Node.js 雲端服務]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [使用 WebMatrix 的網站]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [使用儲存體的 Node.js Web 應用程式]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node

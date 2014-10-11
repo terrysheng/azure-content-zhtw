@@ -1,241 +1,386 @@
-<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-如何從 Node.js 使用 Blob 服務
-=============================
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
 
-本指南將示範如何使用 Azure Blob 服務執行一般案例。這些範例使用 Node.js API 撰寫。所涵蓋的案例包括**上傳**、**列出**、**下載**及**刪除**Blob。如需 Blob 的詳細資訊，請參閱[後續步驟](#next-steps)一節。
+# 如何從 Node.js 使用 Blob 服務
 
-目錄
-----
+本指南將示範如何使用 Azure Blob 服務執行一般案例。這些範例使用 Node.js API 撰寫。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][]一節。
 
--   [什麼是 Blob 服務？](#what-is)
--   [概念](#concepts)
--   [建立 Azure 儲存體帳戶](#create-account)
--   [建立 Node.js 應用程式](#create-app)
--   [設定您的應用程式以存取儲存體](#configure-access)
--   [設定 Azure 儲存體連接字串](#setup-connection-string)
--   [作法：建立容器](#create-container)
--   [作法：將 Blob 上傳至容器](#upload-blob)
--   [作法：列出容器中的 Blob](#list-blob)
--   [作法：下載 Blob](#download-blobs)
--   [作法：刪除 Blob](#delete-blobs)
--   [後續步驟](#next-steps)
+## 目錄
 
-什麼是 Blob 服務？
-------------------
+-   [什麼是 Blob 服務？][]
+-   [概念][]
+-   [建立 Azure 儲存體帳戶][]
+-   [建立 Node.js 應用程式][]
+-   [設定您的應用程式以存取儲存體][]
+-   [設定 Azure 儲存體連接字串][]
+-   [作法：建立容器][]
+-   [作法：將 Blob 上傳至容器][]
+-   [作法：列出容器中的 Blob][]
+-   [作法：下載 Blob][]
+-   [作法：刪除 Blob][]
+-   [作法：並行存取][]
+-   [作法：使用共用存取簽章][]
+-   [後續步驟][]
 
-Azure Blob 服務適用於儲存大量非結構化的資料，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。單一 blob 可能在大小上有數百 GB，而單一儲存體帳戶可以包含高達 100TB 的 blob。Blob 的一般用途包括：
+[WACOM.INCLUDE [howto-blob-storage][]]
 
--   直接提供映像或文件給瀏覽器
--   儲存檔案供分散式存取
--   串流傳輸視訊和音訊
--   執行安全備份和災害復原
--   儲存資料供內部部署或 Azure 託管服務進行分析
+## <a name="create-account"></a>建立 Azure 儲存體帳戶
 
-您可以使用 Blob 向全球公開資料，或不公開而只供內部應用程式儲存。
+[WACOM.INCLUDE [create-storage-account][]]
 
-概念
-----
+## <a name="create-app"> </a>建立 Node.js 應用程式
 
-Blob 服務包含下列元件：
+建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][]、[Node.js 雲端服務][] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站][]。
 
-![Blob 1](./media/storage-nodejs-how-to-use-blob-storage/blob1.jpg)
+## <a name="configure-access"> </a>設定您的應用程式以存取儲存體
 
--   **URL 格式：**可利用下列 URL 格式來定址 Blob：
-
-        http://storageaccount.blob.core.windows.net/container/blob  
-
-    下列 URL 可定址圖中的其中一個 blob：
-
-        http://sally.blob.core.windows.net/movies/MOV1.AVI
-
--   **儲存體帳戶：**一律透過儲存體帳戶來存取 Azure 儲存體。這是存取 blob 用的最高等級的命名空間。帳戶可以包含不限數目的容器，只要它們的大小總計低於 100TB 即可。
-
--   **容器：**容器提供一組 Blob 的群組。所有 Blob 都必須放在容器中。一個帳戶可以包含的容器不限數量。容器可以儲存無限制的 Blob。
-
--   **Blob：**任何類型和大小的檔案。Blob 有兩種：區塊和分頁。大部分檔案都是區塊 Blob。單一區塊 Blob 的大小上限為 200GB。本教學課程使用區塊 Blob。分頁 Blob (另一種 Blob 類型) 的大小上限為 1TB，當檔案中的位元組範圍經常修改時，分頁 Blob 的效率較高。
-
-建立 Azure 儲存體帳戶
----------------------
-
-若要使用儲存體作業，您需要 Azure 儲存體帳戶。您可以依照下列步驟來建立儲存體帳戶。(您也可以[使用 REST API](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh264518.aspx) 來建立儲存體帳戶。)
-
-1.  登入 [Azure 管理入口網站](http://manage.windowsazure.com)。
-
-2.  在導覽窗格的底端，按一下 **[新增]**。
-
-    ![+新增](./media/storage-nodejs-how-to-use-blob-storage/plus-new.png)
-
-3.  按一下 **[儲存體帳戶]**，然後按一下 **[快速建立]**。
-
-    ![快速建立對話方塊](./media/storage-nodejs-how-to-use-blob-storage/quick-storage.png)
-
-4.  在 [URL] 中，為儲存體帳戶輸入要在 URI 中使用的子網域名稱。此項目可以包含 3 至 24 個小寫字母與數字。此值會成為 URI 內用來將訂閱的 Blob、「佇列」或「表格」資源定址的主機名稱。
-
-5.  選擇要將儲存體放置於的「區域/同質群組」。如果您會從 Azure 應用程式使用儲存體，請選取您會在其中部署應用程式的相同區域。
-
-6.  按一下 **[建立儲存體帳戶]**。
-
-建立 Node.js 應用程式
----------------------
-
-建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的指示，請參閱[建立並部署 Node.js 應用程式至 Azure 網站](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/)、[Node.js 雲端服務]({localLink:2221} "Node.js Web 應用程式") (使用 Windows PowerShell) 或[使用 WebMatrix 的網站](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/)。
-
-設定您的應用程式以存取儲存體
-----------------------------
-
-若要使用 Azure 儲存體，您需要下載並使用 Node.js azure 封裝，這包含一組便利程式庫，能與儲存體 REST 服務通訊。
+若要使用 Azure 儲存體，您需要 Azure Storage SDK for Node.js，這包含一組便利程式庫，能與儲存體 REST 服務通訊。
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用命令列介面，例如 **PowerShell** (Windows)、**[終端機]** (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
+1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
 
-2.  在命令視窗中輸入 **npm install azure**，這應該會導致下列輸出：
+2.  在命令視窗中輸入 **npm install azure-storage**，該命令應能產生以下輸出：
 
-        azure@0.7.5 node_modules\azure
-        ├── dateformat@1.0.2-1.2.3
-        ├── xmlbuilder@0.4.2
-        ├── node-uuid@1.2.0
-        ├── mime@1.2.9
+        azure-storage@0.1.0 node_modules\azure-storage
+        ├── extend@1.2.1
+        ├── xmlbuilder@0.4.3
+        ├── mime@1.2.11
         ├── underscore@1.4.4
-        ├── validator@1.1.1
-        ├── tunnel@0.0.2
-        ├── wns@0.5.3
+        ├── validator@3.1.0
+        ├── node-uuid@1.4.1
         ├── xml2js@0.2.7 (sax@0.5.2)
-        └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
+        └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  您可以手動執行 **ls** 命令，確認已建立 **node\_modules** 資料夾。在該資料夾內找到 **azure** 封裝，其中包含您存取儲存體所需的程式庫。
+3.  您可以手動執行 **ls** 命令，確認已建立 **node\_modules** 資料夾。在該資料夾內找出 **azure-storage** 封裝，其中包含您存取儲存體所需的程式庫。
 
 ### 匯入封裝
 
 使用記事本或其他文字編輯器，將以下內容新增至您要使用儲存體之應用程式的 **server.js** 檔案頂端：
 
-    var azure = require('azure');
+    var azure = require('azure-storage');
 
-設定 Azure 儲存體連接
----------------------
+## <a name="setup-connection-string"> </a>設定 Azure 儲存體連接
 
-azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_ACCESS\_KEY，以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則呼叫 **createBlobService** 時必須指定帳戶資訊。
+Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_ACCESS\_KEY 或 AZURE\_STORAGE\_CONNECTION\_STRING，以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則呼叫 **createBlobService** 時必須指定帳戶資訊。
 
-如需在 Azure 雲端服務組態檔中設定環境變數的範例，請參閱[使用儲存體的 Node.js 雲端服務](/en-us/develop/nodejs/tutorials/web-app-with-storage/)。
+如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][]。
 
-如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式](/en-us/develop/nodejs/tutorials/web-site-with-storage/)。
-
-作法：建立容器
---------------
+## <a name="create-container"> </a>作法：建立容器
 
 **BlobService** 物件讓您能使用容器及 blob。下列程式碼會建立 **BlobService** 物件。將下列內容新增至接近 **server.js** 的頂端：
 
-    var blobService = azure.createBlobService();
+    var blobSvc = azure.createBlobService();
 
-所有 Blob 皆位於一個容器中。對 **BlobService** 物件上的 **createContainerIfNotExists** 的呼叫，如果指定的容器存在便會傳回它，如果尚不存在，則會以指定的名稱建立新的容器。根據預設，新容器屬私人性質，且需要使用存取金鑰才能從此容器下載 blob。
+> [WACOM.NOTE] 您可以使用 **createBlobServiceAnonymous** 並提供主機位址，以匿名存取 Blob。例如，`var blobSvc = azure.createBlobService('https://myblob.blob.core.windows.net/');`。
 
-    blobService.createContainerIfNotExists(containerName, function(error){
-        if (!error) {
-        // Container exists and is private
-        }
+所有 Blob 皆位於一個容器中。若要建立新的容器，請使用 **createContainerIfNotExists**。以下會建立一個名為 'mycontainer' 的新容器
+
+    blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
+      if(!error){
+        // Container exists and allows 
+        // anonymous read access to blob 
+        // content and metadata within this container
+      }
     });
 
-若要讓容器中的檔案成為公用，以便不需存取金鑰即可存取它們，可以將容器的存取等級設為 **blob** 或 **container**。將存取等級設為 **blob** 可允許對此容器內的 blob 內容和中繼資料的匿名讀取存取，但不包含對容器中繼資料的匿名讀取存取，例如列出容器內的所有 blob。將存取等級設為 **container** 可允許對 blob 內容、中繼資料以及容器中繼資料的匿名讀取存取。下列範例示範將存取等級設為 **blob**：
+如果建立容器，`result` 為 true。如果容器已存在， `result` 為 false。`response` 將包含操作的相關資訊，包括容器的 [ETag][] 資訊。
 
-    blobService.createContainerIfNotExists(containerName
-        , {publicAccessLevel :'blob'}
-        , function(error){
-            if (!error) {
-                // Container exists and is public
-            }
-        });
+### 容器安全性
+
+依預設，新的容器屬私人性質，無法以匿名方式存取。若要將容器變成公開，以允許匿名存取，您可以將容器的存取等級設為 **blob** 或 **container**。
+
+-   **blob** - 允許對此容器內的 Blob 內容和中繼資料的匿名讀取存取，但不包含對容器中繼資料的匿名讀取存取，例如列出容器內的所有 Blob。
+
+-   **container** - 允許對 Blob 內容和中繼資料及容器中繼資料的匿名讀取存取。
+
+下列範例示範將存取等級設為 **blob**：
+
+    blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
+      if(!error){
+        // Container exists and is private
+      }
+    });
 
 或者，您可以使用 **setContainerAcl** 指定存取等級，以修改容器的存取等級。下列範例會將存取等級變更為 container：
 
-    blobService.setContainerAcl(containerName
-        , 'container'
-        , function(error){
-            if (!error) {
-                // Container access level set to 'container'
-            }
-        });
+    blobSvc.setContainerAcl('mycontainer', null, 'container', function(error, result, response){
+      if(!error){
+        // Container access level set to 'container'
+      }
+    });
+
+result 將包含操作的相關資訊，包括容器的目前 **ETag**。
 
 ### 篩選器
 
 可以將選用的篩選作業套用到使用 **BlobService** 執行的作業。篩選作業可包括記錄、自動重試等等。篩選器是以簽章實作方法的物件：
 
-     function handle (requestOptions, next)
+        function handle (requestOptions, next)
 
 在對要求選項進行前處理之後，方法需要呼叫 "next" 並傳遞具有下列簽章的回呼：
 
-     function (returnObject, finalCallback, next)
+        function (returnObject, finalCallback, next)
 
-在此回呼中，以及處理 returnObject (來自對伺服器之要求的回應) 之後，回呼需要叫用 next (如果存在) 以繼續處理其他篩選，或是就改為叫用 finalCallback 結束服務叫用。
+在此回呼中，以及處理 returnObject (來自對伺服器之要求的回應) 之後，回呼需要叫用 next (如果存在) 以繼續處理其他篩選，或是直接叫用 finalCallback 結束服務叫用。
 
 Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**ExponentialRetryPolicyFilter** 和 **LinearRetryPolicyFilter**。以下會建立使用 **ExponentialRetryPolicyFilter** 的 **BlobService** 物件：
 
     var retryOperations = new azure.ExponentialRetryPolicyFilter();
-    var blobService = azure.createBlobService().withFilter(retryOperations);
+    var blobSvc = azure.createBlobService().withFilter(retryOperations);
 
-作法：將 Blob 上傳至容器
-------------------------
+## <a name="upload-blob"> </a>作法：將 Blob 上傳至容器
 
-若要上傳資料至 blob，請使用 **createBlockBlobFromFile**、**createBlockBlobFromStream** 或 **createBlockBlobFromText** 方法。**createBlockBlobFromFile** 會上傳檔案的內容，而 **createBlockBlobFromStream** 會上傳串流的內容。**createBlockBlobFromText** 會上傳指定的文字值。
+Blob 可以是區塊，或以分頁為基礎。Block 區塊可讓您更有效率地上傳大型資料，而分頁 Blob 最適合讀寫操作。如需詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob][]。
 
-下列範例會將 **test1.txt** 檔的內容上傳至 'test1' blob。
+### 區塊 Blob
 
-    blobService.createBlockBlobFromFile(containerName
-        , 'test1'
-        , 'test1.txt'
-        , function(error){
-            if (!error) {
-                // File has been uploaded
-            }
-        });
+若要將資料上傳至區塊 Blob，請使用下列方法：
 
-作法：列出容器中的 Blob
------------------------
+-   **createBlockBlobFromLocalFile** - 建立新的區塊 Blob 並上傳檔案的內容。
 
-若要列出容器中的 blob，請使用 **listBlobs** 方法與 **for** 迴圈，顯示容器中每個 blob 的名稱。下列程式碼會將容器中每個 blob 的 **name** 輸出到主控台。
+-   **createBlockBlobFromStream** - 建立新的區塊 Blob 並上傳串流的內容。
 
-    blobService.listBlobs(containerName, function(error, blobs){
-        if (!error) {
-            for(var index in blobs){
-                console.log(blobs[index].name);
-            }
-        }
+-   **createBlockBlobFromText** - 建立新的區塊 Blob 並上傳字串的內容。
+
+-   **createWriteStreamToBlockBlob** - 提供對區塊 Blob 的寫入串流。
+
+下列範例會將 **test.txt** 檔的內容上傳至 **myblob**。
+
+    blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', function(error, result, response){
+      if(!error){
+        // file uploaded
+      }
     });
 
-作法：下載 Blob
----------------
+由這些方法傳回的 `result` 將包含操作的相關資訊，例如 Blob 的 **ETag**。
 
-若要從 blob 下載資料，請使用 **getBlobToFile**、**getBlobToStream** 或 **getBlobToText**。下列範例示範使用 **getBlobToStream** 來下載 **test1** blob 的內容並使用串流存放到 **output.txt** 檔案：
+### 分頁 Blob
+
+若要將資料上傳至分頁 Blob，請使用下列方法：
+
+-   **createPageBlob** - 建立特定長度的新分頁 Blob。
+
+-   **createPageBlobFromFile** - 建立新的分頁 Blob 並上傳檔案的內容。
+
+-   **createPageBlobFromStream** - 建立新的分頁 Blob 並上傳串流的內容。
+
+-   **createWriteStreamToExistingPageBlob** - 提供對現有分頁 Blob 的寫入串流。
+
+-   **createWriteStreamToNewPageBlob** - 建立新的 Blob，然後提供串流來寫入它。
+
+下列範例會將 **test.txt** 檔的內容上傳至 **mypageblob**。
+
+    blobSvc.createPageBlobFromFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
+      if(!error){
+        // file uploaded
+      }
+    });
+
+> [WACOM.NOTE] 分頁 Blob 由 512 位元組的「分頁」組成。如果上傳的資料大小不是 512 的倍數，可能會發生錯誤。
+
+## <a name="list-blob"> </a>作法：列出容器中的 Blob
+
+若要列出容器中的 Blob，請使用 **listBlobsSegmented** 方法。若要傳回具有特定首碼的 Blob，請使用 **listBlobsSegmentedWithPrefix**。
+
+    blobSvc.listBlobsSegmented('mycontainer', null, function(error, result, response){
+      if(!error){
+        // result contains the entries
+      }
+    });
+
+`result` 包括 `entries` 集合，這是描述每個 Blob 的物件陣列。若無法傳回所有 Blob， `result` 也會提供 `continuationToken`，可作為第二個參數來擷取更多項目。
+
+## <a name="download-blob"> </a>作法：下載 Blob
+
+若要從 Blob 下載資料，請使用下列方法：
+
+-   **getBlobToFile** - 將 Blob 內容寫入檔案
+
+-   **getBlobToStream** - 將 Blob 內容寫入串流。
+
+-   **getBlobToText** - 將 Blob 內容寫入字串。
+
+-   **createReadStream** - 提供串流來讀取 Blob
+
+下列範例示範使用 **getBlobToStream** 來下載 **myblob** Blob 的內容，並使用串流存放到 **output.txt** 檔案：
 
     var fs=require('fs');
-    blobService.getBlobToStream(containerName
-        , 'test1'
-        , fs.createWriteStream('output.txt')
-        , function(error){
-            if (!error) {
-                // Wrote blob to stream
-            }
+    blobSvc.getBlobToStream('mycontainer', 'myblob', fs.createWriteStream('output.txt'), function(error, result, response){
+      if(!error){
+        // blob retrieved
+      }
+    });
+
+`result` 會包含 Blob 的相關資訊，包括 **ETag** 資訊。
+
+## <a name="delete-blob"> </a>作法：刪除 Blob
+
+最後，呼叫 **deleteBlob** 以刪除 blob。下列範例會刪除名為 **myblob** 的 Blob。
+
+    blobSvc.deleteBlob(containerName, 'myblob', function(error, response){
+      if(!error){
+        // Blob has been deleted
+      }
+    });
+
+## <a name="concurrent-access"></a>作法：並行存取
+
+若要支援從多個用戶端或多個程序執行個體並行存取 Blob，您可以使用 **ETag** 或「租用」。
+
+-   **Etag** - 提供方法來偵測 Blob 或容器已被另一個程序修改過。
+
+-   **租用** - 提供方法來取得在一段時間內對 Blob 的獨佔、可更新、寫入或刪除存取權。
+
+### ETag
+
+若您需要允許多個用戶端或執行個體同時寫入 Blob，則應該使用 ETag。ETag 可讓您判斷容器或 Blob 自從您最初讀取或建立它之後是否已修改，這樣可讓您避免覆寫另一個用戶端或程序已認可的變更。
+
+若要設定 ETag 條件，可使用選擇性的 `options.accessConditions` 參數。只有在 Blob 已存在，且 `etagToMatch` 中包含 ETag 值，以下範例才會上傳 **test.txt** 檔。
+
+    blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', { accessConditions: { 'if-match': etagToMatch} }, function(error, result, response){
+      if(!error){
+        // file uploaded
+      }
+    });
+
+使用 ETag 時的一般模式為：
+
+1.  取得執行建立、列出或取得操作之後的 ETag。
+
+2.  執行動作，檢查 ETag 值未被修改。
+
+若值已被修改，這表示另一個用戶端或執行個體自從您取得 ETag 值之後已修改 Blob 或容器。
+
+### 租用
+
+若要取得新的租用，可使用 **acquireLease** 方法，並指定您要取得租用的 Blob 或容器。例如，以下會取得 **myblob** 的租用。
+
+    blobSvc.acquireLease('mycontainer', 'myblob', function(error, result, response){
+      if(!error) {
+        console.log(result);
+      }
+    });
+
+**myblob** 的後續操作必須提供 `options.leaseId` 參數。租用識別碼會從 **acquireLease** 傳回 `result.id`。
+
+> [WACOM.NOTE] 依預設，租用期間無限制。若要指定有限期間 (15 到 60 秒)，您可以提供 `options.leaseDuration` 參數。
+
+若要移除租用，請使用 **releaseLease**。若要中止租用，但在原始期間到期之前不讓其他人取得新的租用，請使用 **breakLease**。
+
+## <a name="sas"></a>作法：使用共用存取簽章
+
+共用存取簽章 (SAS) 可安全地提供對 Blob 和容器的精確存取，而不必提供您的儲存體帳戶名稱或金鑰。SAS 通常用來提供對資料的有限存取，例如允許行動應用程式存取 Blob。
+
+> [WACOM.NOTE] 雖然您也可以用匿名方式存取 Blob，但 SAS 可讓您提供更受控制的存取，因為您必須產生 SAS。
+
+信任的應用程式 (例如雲端型服務) 會使用 **BlobService** 的 **generateSharedAccessSignature** 來產生 SAS，並提供它給不信任或不完全信任的應用程式。例如行動應用程式。SAS 是使用原則來產生，該原則描述 SAS 有效期間的開始和結束日期，以及授與 SAS 持有者的存取等級。
+
+下列範例會產生新的共用存取原則，讓 SAS 持有者對 **myblob** Blob 執行讀取操作，並於建立它之後的 100 分鐘過期。
+
+    var startDate = new Date();
+    var expiryDate = new Date(startDate);
+    expiryDate.setMinutes(startDate.getMinutes() + 100);
+    startDate.setMinutes(startDate.getMinutes() - 100);
+        
+    var sharedAccessPolicy = {
+      AccessPolicy: {
+        Permissions: azure.BlobUtilities.SharedAccessPermissions.READ,
+        Start: startDate,
+        Expiry: expiryDate
+      },
+    };
+
+    var blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', 'myblob', sharedAccessPolicy);
+    var host = blobSvc.host;
+
+請注意，也必須提供主機資訊，因為 SAS 持有者嘗試存取容器時需要此資訊。
+
+用戶端應用程式接著以 **BlobServiceWithSAS** 來使用 SAS，對 Blob 執行操作。以下會取得 **myblob** 的相關資訊。
+
+    var sharedBlobSvc = azure.createBlobServiceWithSas(host, blobSAS);
+    sharedBlobSvc.getBlobProperties('mycontainer', 'myblob', function (error, result, response) {
+      if(!error) {
+        // retrieved info
+      }
+    });
+
+因為產生的 SAS 只有讀取權限，若嘗試修改 Blob，則會傳回錯誤。
+
+### 存取控制清單
+
+您也可以使用存取控制清單 (ACL) 來設定 SAS 的存取原則。若您要允許用戶端存取容器，但對每個用戶端提供不同的存取原則，則這會很有用。
+
+ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼。下列範例定義兩個原則，其中一個用於 'user1'，另一個用於 'user2'：
+
+    var sharedAccessPolicy = [
+      {
+        AccessPolicy: {
+          Permissions: azure.BlobUtilities.SharedAccessPermissions.READ,
+          Start: startDate,
+          Expiry: expiryDate
+        },
+        Id: 'user1'
+      },
+      {
+        AccessPolicy: {
+          Permissions: azure.BlobUtilities.SharedAccessPermissions.WRITE,
+          Start: startDate,
+          Expiry: expiryDate
+        },
+        Id: 'user2'
+      }
+    ];
+
+下列範例會取得 **mycontainer** 的目前 ACL，然後使用 **setBlobAcl** 來加入新的原則。此方法允許：
+
+    blobSvc.getBlobAcl('mycontainer', function(error, result, response) {
+      if(!error){
+        //push the new policy into signedIdentifiers
+        result.signedIdentifiers.push(sharedAccessPolicy);
+        blobSvc.setBlobAcl('mycontainer', result, function(error, result, response){
+          if(!error){
+            // ACL set
+          }
         });
+      }
+    });
 
-作法：刪除 Blob
----------------
+設定 ACL 之後，您可以根據原則的識別碼來建立 SAS。下列範例會建立 'user2' 的新 SAS：
 
-最後，呼叫 **deleteBlob** 以刪除 blob。下列範例會刪除名為 'blob1' 的 blob。
+    blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 
-    blobService.deleteBlob(containerName
-        , 'blob1'
-        , function(error){
-            if (!error) {
-                // Blob has been deleted
-            }
-        });
-
-後續步驟
---------
+## <a name="next-steps"> </a>後續步驟
 
 了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   請參閱 MSDN 參考資料：[在 Azure 中儲存及存取資料](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx)。
--   造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
--   造訪 GitHub 上的 [Azure SDK for Node](https://github.com/WindowsAzure/azure-sdk-for-node) (英文) 儲存機制。
+-   請參閱 MSDN 參考：[在 Azure 中儲存及存取資料][]。
+-   造訪 [Azure 儲存體團隊部落格][] (英文)。
+-   請造訪 GitHub 上的 [Azure Storage SDK for Node][] 儲存機制 (英文)。
 
+  [後續步驟]: #next-steps
+  [什麼是 Blob 服務？]: #what-is
+  [概念]: #concepts
+  [建立 Azure 儲存體帳戶]: #create-account
+  [建立 Node.js 應用程式]: #create-app
+  [設定您的應用程式以存取儲存體]: #configure-access
+  [設定 Azure 儲存體連接字串]: #setup-connection-string
+  [作法：建立容器]: #create-container
+  [作法：將 Blob 上傳至容器]: #upload-blob
+  [作法：列出容器中的 Blob]: #list-blob
+  [作法：下載 Blob]: #download-blobs
+  [作法：刪除 Blob]: #delete-blobs
+  [作法：並行存取]: #concurrent-access
+  [作法：使用共用存取簽章]: #sas
+  [howto-blob-storage]: ../includes/howto-blob-storage.md
+  [create-storage-account]: ../includes/create-storage-account.md
+  [建立 Node.js 應用程式並將其部署到 Azure 網站]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+  [Node.js 雲端服務]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [使用 WebMatrix 的網站]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [使用儲存體的 Node.js Web 應用程式]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
+  [了解區塊 Blob 和分頁 Blob]: http://msdn.microsoft.com/en-us/library/azure/ee691964.aspx
+  [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node

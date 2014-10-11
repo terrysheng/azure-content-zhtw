@@ -1,34 +1,32 @@
-<properties linkid="manage-services-storage-net-shared-access-signature-part-1" urlDisplayName="" pageTitle="Shared access signatures: Understanding the SAS Model | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
+<properties linkid="manage-services-storage-net-shared-access-signature-part-1" urlDisplayName="" pageTitle="Shared access signatures: Understanding the SAS Model | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-共用存取簽章，第 1 部分：了解 SAS 模型
-======================================
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
 
-若要在無需提供您帳戶金鑰的情況下，將儲存體帳戶中 Blob、資料表和佇列的限制存取授與其他用戶端，則使用共用存取簽章 (SAS) 會是個佷有效的方式。在本教學課程有關共用存取簽章的第 1 部分中，我們將提供 SAS 模型的概觀並檢閱 SAS 最佳做法。本教學課程的[第 2 部分](../storage-dotnet-shared-access-signature-part-2/)會逐步引導您，使用 Blob 服務來完成建立共用存取簽章的程序。
+# 共用存取簽章，第 1 部分：了解 SAS 模型
 
-共用存取簽章為何？
-------------------
+若要在無需提供您帳戶金鑰的情況下，將儲存體帳戶中 Blob、資料表和佇列的限制存取授與其他用戶端，則使用共用存取簽章 (SAS) 會是個佷有效的方式。在本教學課程有關共用存取簽章的第 1 部分中，我們將提供 SAS 模型的概觀並檢閱 SAS 最佳做法。本教學課程的[第 2 部分][]會逐步引導您，使用 Blob 服務來完成建立共用存取簽章的程序。
+
+## 共用存取簽章為何？
 
 共用存取簽章可提供您儲存體帳戶中資源的委派存取。這表示您可以在無需分享您帳戶存取金鑰的情況下，將您 Blob、佇列或資料表的有限權限授與用戶端，該用戶端便可在指定的時間期間內及使用指定的權限集來進行存取。SAS 是一種 URI，URI 會在其查詢參數中包含通過驗證存取儲存體資源的所有必要資訊。若要使用 SAS 存取儲存體資源，用戶端只需在適當的建構函式或方法中傳入 SAS 即可。
 
-使用共用存取簽章的時機？
-------------------------
+## 使用共用存取簽章的時機？
 
 當您想要將儲存體帳戶中的資源存取權提供給無法放心託付帳戶金鑰的用戶端時，您可以使用 SAS。您的儲存體帳戶金鑰包括主要和次要金鑰，兩者皆可授與帳戶及帳戶內所有資源的系統管理存取權。提供任一帳戶金鑰都會讓您的帳戶受到惡意或粗心使用的可能性。共用存取簽章提供一個安全的替代方式，無需帳戶金鑰便可讓其他用戶端根據他們被授與的權限，來讀取、寫入及刪除儲存體帳戶中的資料。
 
 證明 SAS 非常有用的一個常見案例，就是使用者在您的儲存體帳戶中讀取和寫入自己的資料。在儲存體帳戶儲存使用者資料的案例中，典型的設計模式有兩種：
 
-1. 用戶端通過前端 Proxy 服務 (執行驗證) 來上傳與下載資料。此前端 Proxy 服務有個好處，那就是允許商務規則的驗證，但在大量資料或大量交易的情況下，建立可調整以符合需求的服務可能十分昂貴或困難。
+1\. 用戶端通過前端 Proxy 服務 (執行驗證) 來上傳與下載資料。此前端 Proxy 服務有個好處，那就是允許商務規則的驗證，但在大量資料或大量交易的情況下，建立可調整以符合需求的服務可能十分昂貴或困難。
 
-	![sas-storage-fe-proxy-service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)
+![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
-2. 輕量型服務可視需要驗證用戶端，然後產生 SAS。在用戶端收到 SAS 之後，他們可以使用 SAS 所定義的權限，並在 SAS 允許的間隔內直接存取帳戶資源。SAS 可減輕透過前端 Proxy 服務路由所有資料的需求。
+2\. 輕量型服務可視需要驗證用戶端，然後產生 SAS。在用戶端收到 SAS 之後，他們可以使用 SAS 所定義的權限，並在 SAS 允許的間隔內直接存取帳戶資源。SAS 可減輕透過前端 Proxy 服務路由所有資料的需求。
 
-	![sas-storage-provider-service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)
+![sas-storage-provider-service][sas-storage-provider-service]
 
 視所涉及的案例而定，許多實際服務可能會混合運用這兩種方法，在部分資料透過前端 Proxy 進行處理與驗證時，其他資料會使用 SAS 直接儲存與/或讀取。
 
-共用存取簽章的運作方式
-----------------------
+## 共用存取簽章的運作方式
 
 共用存取簽章是 URI，可指向儲存體資源並包括指出用戶端可以如何存取資源的一組特殊查詢參數。簽章是這些參數的其中一個，根據 SAS 參數所建構並使用帳戶金鑰進行簽署。Azure 儲存體會使用此簽章來驗證 SAS。
 
@@ -41,184 +39,54 @@
 
 以下是提供讀取和寫入 Blob 權限的 SAS URI 範例。此資料表會細分 URI 的每一部分，以了解它會如何影響 SAS：
 
-https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
+<https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D>
 
-<table  border="1" cellpadding="0" cellspacing="0">
-    <tbody>
-        <tr>
-            <td  valign="top" width="213">
-                <p>
-Blob URI
-                </p>
-
-            </td>
-
-            <td  valign="top" width="213">
-                <p>
-https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt
-                </p>
-
-            </td>
-
-            <td  valign="top" width="213">
-                <p>
-Blob 的位址。請注意，我們強烈建議您使用 HTTPS。
-                </p>
-
-            </td>
-
-        </tr>
-
-        <tr>
-            <td  valign="top" width="213">
-                <p>
-儲存體服務版本
-                </p>
-
-            </td>
-
-            <td  valign="top" width="213">
-                <p>
-sv=2012-02-12
-                </p>
-
-            </td>
-
-            <td  valign="top" width="213">
-                <p>
-若是儲存體服務版本 2012-02-12 和更新版本，此參數表示要使用的版本。
-                </p>
-
-            </td>
-
-        </tr>
-
-        <tr>
-            <td  valign="top" width="213">
-                <p>
-開始時間
-                </p>
-
-            </td>
-
-            <td  valign="top" width="213">
-                <p>
-st=2013-04-29T22%3A18%3A26Z
-                </p>
-
-            </td>
-
-            <td  valign="top" width="213">
-                <p>
-指定採用 ISO 8061 格式。如果您想要 SAS 立即生效，請略過開始時間。
-                </p>
-
-            </td>
-
-        </tr>
-
-        <tr>
-            <td  valign="top" width="213">
-                <p>
-過期時間
-                </p>
-
-            </td>
-
-            <td  valign="top" width="213">
-                <p>
-se=2013-04-30T02%3A23%3A26Z
-                </p>
-
-            </td>
-
-            <td  valign="top" width="213">
-                <p>
-指定採用 ISO 8061 格式。
-                </p>
-
-            </td>
-
-        </tr>
-
-        <tr>
-            <td  valign="top" width="213">
-                <p>
-資源
-                </p>
-
-            </td>
-
-            <td  valign="top" width="213">
-                <p>
-sr=b
-                </p>
-
-            </td>
-
-            <td  valign="top" width="213">
-                <p>
-此資源是 Blob。
-                </p>
-
-            </td>
-
-        </tr>
-
-        <tr>
-            <td  valign="top" width="213">
-                <p>
-權限
-                </p>
-
-            </td>
-
-            <td  valign="top" width="213">
-                <p>
-sp=rw
-                </p>
-
-            </td>
-
-            <td  valign="top" width="213">
-                <p>
-SAS 所授與的權限包括讀取 (r) 和寫入 (w)。
-                </p>
-
-            </td>
-
-        </tr>
-
-        <tr>
-            <td  valign="top" width="213">
-                <p>
-簽章
-                </p>
-
-            </td>
-
-            <td  valign="top" width="213">
-                <p>
-sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
-                </p>
-
-            </td>
-
-            <td  valign="top" width="213">
-                <p>
-用來驗證對 Blob 的存取權。此簽章是 HMAC 根據要簽署字串和金鑰，使用 SHA256 演算法進行計算，然後使用 Base64 方式進行編碼而來的。
-                </p>
-
-            </td>
-
-        </tr>
-
-    </tbody>
-
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><p>Blob URI</p></td>
+<td align="left"><p>https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt</p></td>
+<td align="left"><p>Blob 的位址。請注意，我們強烈建議您使用 HTTPS。</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>儲存體服務版本</p></td>
+<td align="left"><p>sv=2012-02-12</p></td>
+<td align="left"><p>若是儲存體服務版本 2012-02-12 和更新版本，此參數表示要使用的版本。</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>開始時間</p></td>
+<td align="left"><p>st=2013-04-29T22%3A18%3A26Z</p></td>
+<td align="left"><p>指定採用 ISO 8061 格式。如果您想要 SAS 立即生效，請略過開始時間。</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>過期時間</p></td>
+<td align="left"><p>se=2013-04-30T02%3A23%3A26Z</p></td>
+<td align="left"><p>指定採用 ISO 8061 格式。</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>資源</p></td>
+<td align="left"><p>sr=b</p></td>
+<td align="left"><p>此資源是 Blob。</p></td>
+</tr>
+<tr class="even">
+<td align="left"><p>權限</p></td>
+<td align="left"><p>sp=rw</p></td>
+<td align="left"><p>SAS 所授與的權限包括讀取 (r) 和寫入 (w)。</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><p>簽章</p></td>
+<td align="left"><p>sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D</p></td>
+<td align="left"><p>用來驗證對 Blob 的存取權。此簽章是一個 HMAC，在簽署字串和金鑰上使用 SHA256 演算法進行計算， 然後使用 Base64 方式進行編碼而來的。</p></td>
+</tr>
+</tbody>
 </table>
 
-使用預存存取原則來控制共用存取簽章
-----------------------------------
+## 使用預存存取原則來控制共用存取簽章
 
 共用存取簽章可以接受以下兩種格式其中之一：
 
@@ -232,8 +100,7 @@ sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 3.  已刪除 SAS 所參考之預存存取原則，這是撤銷 SAS 的另外一種方法。請注意，如果您使用完全相同的名稱來重新建立預存存取原則，則現有的所有 SAS 權杖會根據與該預存存取原則有關的權限再次有效 (假設 SAS 上的過期時間尚未過去)。如果您打算撤銷 SAS，且如果您要使用未來的過期時間來重新建立存取原則，則務必使用不同的名稱。
 4.  系統會重新產生用來建立 SAS 的帳戶金鑰。請注意，這麼做將會導致所有使用該帳戶金鑰的應用程式元件無法進行驗證，直到他們已更新為使用其他有效帳戶金鑰或重新產生帳戶金鑰為止。
 
-使用共用存取簽章的最佳做法
---------------------------
+## 使用共用存取簽章的最佳做法
 
 當您在應用程式中使用共用存取簽章時，您必須留意兩個潛在風險：
 
@@ -246,26 +113,31 @@ sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 2.  **可能的話，參考預存存取原則。**預存存取原則提供了撤銷權限且無需重新產生儲存體帳戶金鑰的選項。將到期日設在很久之後 (或無限) 的日期，並確定定期更新到期日以將到期日再往未來移動。
 3.  **在臨機操作 SAS 上使用短期的到期時間。**如此一來，即使 SAS 在不知不覺中被洩露，它也只會在短時間內可用。如果您無法參考預存存取原則，此做法格外重要。此做法也可協助限制可寫入 Blob 的資料量，方法是限制可對其上傳的可用時間。
 4.  **讓用戶端視需要自動更新 SAS。**用戶端應在預期的到期日之前就更新 SAS，以便如果提供 SAS 的服務無法使用的話，還有時間可以進行重試。如果您打算將 SAS 用於少量的即時短期操作 (預計可在指定的到期時間內完成的操作)，則此建議可能沒有必要，因為沒有更新 SAS 的打算。不過，如果您有定期透過 SAS 做出要求的用戶端，則到期的可能性便有可能發生。主要考量是要平衡下列兩個需求：短期的 SAS (如上所述)，與確保用戶端提早要求更新以避免成功更新之前因 SAS 過期而中斷。
-5.  **請小心使用 SAS 開始時間。**如果您將 SAS 的開始時間設為 **[現在]**，則由於時鐘誤差 (根據不同機器會有不同的目前時間)，前幾分鐘可能偶爾會被視為失敗。一般而言，請將開始時間設為至少 15 分鐘之前或根本不要進行設定，這麼做會讓 SAS 在所有情況下立即有效。同樣的道理通常也可套用到過期時間，請記住，您可以在任何要求上保留前後多達 15 分鐘的時鐘誤差。請注意，若是用戶端使用 2012-02-12 之前的 REST 版本，則不參考預存存取原則之 SAS 的最大持續期限是 1 個小時，且任何指定比 1 個小時還要長的原則都會失敗。
+5.  **請小心使用 SAS 開始時間。**如果您將 SAS 的開始時間設為 [現在]，則由於時鐘誤差 (根據不同機器會有不同的目前時間)，前幾分鐘可能偶爾會被視為失敗。一般而言，請將開始時間設為至少 15 分鐘之前或根本不要進行設定，這麼做會讓 SAS 在所有情況下立即有效。同樣的道理通常也可套用到過期時間，請記住，您可以在任何要求上保留前後多達 15 分鐘的時鐘誤差。請注意，若是用戶端使用 2012-02-12 之前的 REST 版本，則不參考預存存取原則之 SAS 的最大持續期限是 1 個小時，且任何指定比 1 個小時還要長的原則都會失敗。
 6.  **請具體指出要存取的資源。**典型的安全性最佳做法是提供使用者最低需求權限。如果使用者只需要單一實體的讀取存取權，則授與他們該單一實體的讀取存取權，而非授與他們所有實體的讀取/寫入/刪除存取權。這有助於減輕洩露 SAS 的威脅，因為 SAS 落入攻擊者的手中時，就無法發揮固有的功能。
 7.  **了解您的帳戶將會被收取任何使用方式的費用，包括完成 SAS 的方式。**如果您提供 Blob 的寫入存取權，則使用者可能會選擇上傳 200GB 的 Blob。如果您也同時提供使用者讀取存取權，則他們可能會選擇下載10 次，您便會產生 2TB 的出口成本。再次強調，提供有限的權限有助於減少潛在的惡意使用者。使用短期 SAS 以降低此威脅 (但請注意結束時間的時鐘誤差)。
 8.  **使用 SAS 驗證寫入資料。**當用戶端應用程式將資料寫入您的儲存體帳戶時，請留意該資料可能會造成問題。如果您的應用程式要求在開始使用資料之前先驗證或授權資料，則您應在寫入資料之後但應用程式尚未開始使用資料之前執行此驗證。此做法也可防止正確取得 SAS 的使用者或是利用洩漏 SAS 的使用者，損毀資料或將惡意資料寫入您的帳戶。
 9.  **請勿一直使用 SAS。**有時候，在儲存體帳戶中執行特定作業的相關風險可能大過 SAS 的好處。針對此類作業，請建立一個中介層服務，在執行商務規則驗證、驗證及稽核之後才寫入您的儲存體帳戶。另外，有時候以其他方式管理存取權可能比較簡單。例如，如果您要讓容器中的所有 Blob 都可公開讀取，則您可以將此容器設定為 [公用]，而不是將 SAS 提供給每個用戶端進行存取。
-10. **使用儲存體分析來監視您的應用程式。**您可以使用記錄和度量來觀察由於 SAS 提供者服務中斷或不小心移除預存存取原則，而造成的任何驗證失敗急劇增加。如需額外資訊，請參閱 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) (英文)。
+10. **使用儲存體分析來監視您的應用程式。**您可以使用記錄和度量來觀察由於 SAS 提供者服務中斷或不小心移除預存存取原則，而造成的任何驗證失敗急劇增加。如需額外資訊，請參閱 [Azure 儲存體團隊部落格][] (英文)。
 
-結論
-----
+## 結論
 
 若要提供您儲存體帳戶的有限權限給沒有帳戶金鑰的用戶端，則共用存取簽章是非常有用的方式。因此，對於任何使用 Azure 儲存體的應用程式而言，共用存取簽章是安全性模型不可或缺的一部分。如果您依照此處所列的最佳做法進行，則您可以使用 SAS 來提供更大的彈性以存取儲存體帳戶中的資源，且不會影響應用程式的安全性。
 
-後續步驟
---------
+## 後續步驟
 
-[共用存取簽章，第 2 部分：透過 Blob 服務來建立與使用 SAS](../storage-dotnet-shared-access-signature-part-2/)
+[共用存取簽章，第 2 部分：透過 Blob 服務來建立與使用 SAS][第 2 部分]
 
-[管理 Azure 儲存體資源的存取](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee393343.aspx)
+[管理 Azure 儲存體資源的存取][]
 
-[使用共用存取簽章 (REST API) 來委派存取權](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee395415.aspx)
+[使用共用存取簽章 (REST API) 來委派存取權][]
 
-[資料表和佇列 SAS 的簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+[資料表和佇列 SAS 的簡介][]
+[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
+[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
+  [第 2 部分]: ../storage-dotnet-shared-access-signature-part-2/
+  [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx
+  [管理 Azure 儲存體資源的存取]: http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx
+  [使用共用存取簽章 (REST API) 來委派存取權]: http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx
+  [資料表和佇列 SAS 的簡介]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

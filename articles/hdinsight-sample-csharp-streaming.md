@@ -1,47 +1,46 @@
-<properties linkid="manage-services-hdinsight-sample-csharp-streaming" urlDisplayName="HDInsight Samples" pageTitle="The HDInsight C# streaming wordcount sample | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to run a sample TBD." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The HDInsight C# streaming wordcount sample" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-sample-csharp-streaming" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The C# streaming wordcount Hadoop sample in HDInsight | Azure" metaKeywords="hadoop, hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to run a sample TBD." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The C# streaming wordcount Hadoop sample in HDInsight" authors="bradsev" />
 
-HDInsight C\# 串流字數範例
-==========================
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
 
-Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言撰寫 map 和 reduce 函數。本教學課程示範如何以 C\# 撰寫使用 Hadoop 串流介面的 MapReduce 程式，以及如何使用 Azure PowerShell 在 Azure HDInsight 上執行那些程式。
+# HDInsight 中的 C# 串流字數 Hadoop 範例
 
-在範例中，mapper 和 reducer 是從 [stdin](http://msdn.microsoft.com/zh-tw/library/3x292kth(v=vs.110).aspx) 讀取輸入 (循行) 並將輸出發出到 [stdout](http://msdn.microsoft.com/zh-tw/library/3x292kth(v=vs.110).aspx) 的可執行檔。程式會計算內容中的所有文字。
+Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言撰寫 map 和 reduce 函數。本教學課程說明如何以 C# 撰寫使用 Hadoop 串流介面的 MapReduce 程式，以及如何使用 Azure PowerShell Cmdlet 在 Azure HDInsight 上執行那些程式。
 
-在已為 **mappers** 指定可執行檔的情況下，當 mapper 初始化時，每個 mapper 工作都會將可執行檔啟動成為個別的處理程序。當 mapper 工作執行時，它會將其輸入傳換成行，並將這些行饋送至處理程序的 [stdin](http://msdn.microsoft.com/zh-tw/library/3x292kth(v=vs.110).aspx)。在此同時，mapper 會從處理程序的 stdout 收集行導向輸出，並將每一行傳換成索引鍵/值組，而且會收集此類內容做為 mapper 的輸出。根據預設，從一行的前置詞一直到第一個定位字元即是索引鍵，行的其餘部分 (不包含定位字元) 則為值。如果行中沒有定位字元，則整行都會被視為索引鍵，而值則為 null。
+在範例中，mapper 和 reducer 是從 [stdin][] 讀取輸入 (循行) 並將輸出發出到 [stdout][stdin] 的可執行檔。程式會計算內容中的所有文字。
 
-在已為 **reducers** 指定可執行檔的情況下，當 reducer 初始化時，每個 reducer 工作都會將可執行檔啟動成為個別的處理程序。當 reducer 工作執行時，它會將其輸入索引鍵/值組傳換成行，並將這些行饋送至處理程序的 [stdin](http://msdn.microsoft.com/zh-tw/library/3x292kth(v=vs.110).aspx)。在此同時，reducer 會從處理程序的 [stdout](http://msdn.microsoft.com/zh-tw/library/3x292kth(v=vs.110).aspx) 收集行導向輸出，並將每一行傳換成索引鍵/值組，而這會被收集來做為 reducer 的輸出。根據預設，從一行的前置詞一直到第一個定位字元即是索引鍵，行的其餘部分 (不包含定位字元) 則為值。
+在已為 **mappers** 指定可執行檔的情況下，當 mapper 初始化時，每個 mapper 工作都會將可執行檔啟動成為個別的處理程序。當 mapper 工作執行時，它會將其輸入傳換成行，並將這些行饋送至處理程序的 [stdin][]。在此同時，mapper 會從處理程序的 stdout 收集行導向輸出，並將每一行傳換成索引鍵/值組，而且會收集此類內容做為 mapper 的輸出。根據預設，從一行的前置詞一直到第一個定位字元即是索引鍵，行的其餘部分 (不包含定位字元) 則為值。如果行中沒有定位字元，則整行都會被視為索引鍵，而值則為 null。
 
-如需有關 Hadoop 串流介面的詳細資訊，請參閱 [Hadoop 串流](http://wiki.apache.org/hadoop/HadoopStreaming) (英文)。
+在已為 **reducers** 指定可執行檔的情況下，當 reducer 初始化時，每個 reducer 工作都會將可執行檔啟動成為個別的處理程序。當 reducer 工作執行時，它會將其輸入索引鍵/值組傳換成行，並將這些行饋送至處理程序的 [stdin][]。在此同時，reducer 會從處理程序的 [stdout][stdin] 收集行導向輸出，並將每一行傳換成索引鍵/值組，而這會被收集來做為 reducer 的輸出。根據預設，從一行的前置詞一直到第一個定位字元即是索引鍵，行的其餘部分 (不包含定位字元) 則為值。
+
+如需有關 Hadoop 串流介面的詳細資訊，請參閱 [Hadoop 串流][] (英文)。
 
 **您將了解：**
 
--   如何在 HDInsight 上使用 Azure PowerShell 執行 C\# 串流程式來分析檔案中包含的資料。
--   如何撰寫使用 Hadoop 串流介面的 C\# 程式碼。
+-   如何在 HDInsight 上使用 Azure PowerShell 執行 C# 串流程式來分析檔案中包含的資料。
+-   如何撰寫使用 Hadoop 串流介面的 C# 程式碼。
 
 **必要條件**：
 
--   您必須有一個 Azure 帳戶。如需有關註冊帳戶的選項，請參閱[免費試用 Azure](http://www.windowsazure.com/zh-tw/pricing/free-trial/) 頁面。
+-   您必須具有 Azure 帳號。如需帳號註冊方式的相關資訊，請參閱 [Azure 免費試用][]頁面。
 
--   您必須已經佈建 HDInsight 叢集。如需有關透過其他各種方法建立此類叢集的指示，請參閱[佈建 HDInsight 叢集](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)。
+-   您必須已佈建 HDInsight 叢集。如需有關透過其他各種方法建立此類叢集的指示，請參閱[佈建 HDInsight 叢集][]。
 
--   您必須已經安裝 Azure PowerShell，而且已經將之設定為與您的帳戶搭配使用。如需執行此項作業之指示，請參閱[安裝和設定 Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/)。
+-   您必須已安裝 Azure PowerShell 並加以設定，使其可用於您的帳號。如需執行此項作業之指示，請參閱＜[安裝和設定 Azure PowerShell][]＞。
 
-本文內容
---------
+## 本文內容
 
-本主題示範如何執行範例、呈現 MapReduce 程式的 Java 程式碼、總結您已了解的概念，以及簡述一些後續步驟。其中包含下列小節。
+本文將說明如何執行範例，介紹適用於 MapReduce 程式的 Java 程式碼、彙總您的學習成果，以及列出部分的後續步驟。其中包含下列幾節。
 
-1.  [使用 Azure PowerShell 執行範例](#run-sample)
-2.  [Hadoop 串流的 C\# 程式碼](#java-code)
-3.  [摘要](#summary)
-4.  [後續步驟](#next-steps)
+1.  [使用 Azure PowerShell 執行範例][]
+2.  [Hadoop 串流的 C# 程式碼][]
+3.  [摘要][]
+4.  [後續步驟][]
 
-使用 Azure PowerShell 執行範例
-------------------------------
+## <span id="run-sample"></span></a>使用 Azure PowerShell 執行範例
 
 **執行 MapReduce 工作**
 
-1.  開啟 **Azure PowerShell**。如需有關開啟 Azure PowerShell 主控台視窗的指示，請參閱[安裝和設定 Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/)。
+1.  開啟 **Azure PowerShell**。如需有關開啟 Azure PowerShell 主控台視窗的指示，請參閱[安裝和設定 Azure PowerShell][]。
 
 2.  在下列命令中設定 2 個變數，然後執行這些命令：
 
@@ -71,11 +70,11 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 
         # Select the current subscription
         Select-AzureSubscription $subscriptionName
-                  
+
         # Blob storage container and account name
 
-        $storageAccountKey = Get-AzureStorageKey -StorageAccountName $storageAccountName | %{ $\_.Primary } 
-        $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+    $storageAccountKey = Get-AzureStorageKey -StorageAccountName $storageAccountName | %{ $\_.Primary }
+     $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
         # Retrieve the output
         Get-AzureStorageBlobContent -Container $containerName -Blob "example/data/StreamingOutput/wc.txt/part-00000" -Context $storageContext -Force 
@@ -85,8 +84,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 
     請注意，MapReduce 工作的輸出檔是固定不變的。因此，如果您重新執行此範例，將需要變更輸出檔的名稱。
 
-Hadoop 串流的 C\# 程式碼
-------------------------
+## <span id="java-code"></span></a>Hadoop 串流的 C# 程式碼
 
 MapReduce 程式碼使用 cat.exe 應用程式做為對應介面以將文字串流至主控台，並使用 wc.exe 應用程式做為縮減介面以計算從文件串流的字數。mapper 和 reducer 都會從標準輸入資料流 (stdin) 循行讀取字元並寫入至標準輸出資料流 (stdout)。
 
@@ -144,23 +142,39 @@ cat.cs 檔案中的 mapper 程式碼會使用 StreamReader 物件將連入資料
         }
     }
 
-wc.cs 檔案中的 reducer 程式碼會使用 [StreamReader](http://msdn.microsoft.com/zh-tw/library/system.io.streamreader.aspx) 物件，從已經由 cat.exe mapper 輸出的標準輸入資料流讀取字元。由於它是使用 [Console.Writeline](http://msdn.microsoft.com/zh-tw/library/system.console.writeline) 方法來讀取字元，因此它會透過計算每個文字結尾的空格和行結尾字元來計算字數，然後使用 [Console.Writeline](http://msdn.microsoft.com/zh-tw/library/system.console.writeline) 方法將結果總計寫入至標準輸出資料流。
+wc.cs 檔案中的 reducer 程式碼會使用 [StreamReader][] 物件，從已經由 cat.exe mapper 輸出的標準輸入資料流讀取字元。由於它是使用 [Console.Writeline][] 方法來讀取字元，因此它會透過計算每個文字結尾的空格和行結尾字元來計算字數，然後使用 [Console.Writeline][] 方法將結果總計寫入至標準輸出資料流。
 
-摘要
-----
+## <span id="summary"></span></a>摘要
 
 在本教學課程中，您已看到如何使用 Hadoop 串流在 HDInsight 部署 MapReduce 工作。
 
-後續步驟
---------
+## <span id="next-steps"></span></a>後續步驟
 
-如需執行其他範例及提供在 Azure HDInsight 上以 Azure PowerShell 使用 Pig、Hive 和 MapReduce 工作之相關指示的教學課程，請參閱下列主題：
+關於執行其他範例的教學課程，以及如何以 Azure PowerShell 在 Azure HDInsight 上使用 Pig、Hive 和 MapReduce 工作的指示，請參閱下列主題：
 
--   [開始使用 Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [範例：Pi Estimator](/en-us/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/)
--   [範例：Wordcount](/en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/)
--   [範例：10GB GraySort](/en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/)
--   [在 HDInsight 上使用 Pig](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [在 HDInsight 上使用 Hive](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
--   [Azure HDInsight SDK 文件](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx)
+-   [Azure HDInsight 使用者入門][]
+-   [範例：Pi 估算器][]
+-   [範例：字數統計][]
+-   [範例：10GB GraySort][]
+-   [搭配 HDInsight 使用 Pig][]
+-   [搭配 HDInsight 使用 Hive][]
+-   [Azure HDInsight SDK 文件][]
 
+  [stdin]: http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx
+  [Hadoop 串流]: http://wiki.apache.org/hadoop/HadoopStreaming
+  [Azure 免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [佈建 HDInsight 叢集]: ../hdinsight-provision-clusters/
+  [安裝和設定 Azure PowerShell]: ../install-configure-powershell/
+  [使用 Azure PowerShell 執行範例]: #run-sample
+  [Hadoop 串流的 C# 程式碼]: #java-code
+  [摘要]: #summary
+  [後續步驟]: #next-steps
+  [StreamReader]: http://msdn.microsoft.com/en-us/library/system.io.streamreader.aspx
+  [Console.Writeline]: http://msdn.microsoft.com/en-us/library/system.console.writeline
+  [Azure HDInsight 使用者入門]: ../hdinsight-get-started/
+  [範例：Pi 估算器]: ../hdinsight-sample-pi-estimator/
+  [範例：字數統計]: ../hdinsight-sample-wordcount/
+  [範例：10GB GraySort]: ../hdinsight-sample-10gb-graysort/
+  [搭配 HDInsight 使用 Pig]: ../hdinsight-use-pig/
+  [搭配 HDInsight 使用 Hive]: ../hdinsight-use-hive/
+  [Azure HDInsight SDK 文件]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx

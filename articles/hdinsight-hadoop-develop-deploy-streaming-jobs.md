@@ -1,37 +1,36 @@
-<properties linkid="manage-services-hdinsight-develop-hadoop-streaming-programs-for-hdinsight" urlDisplayName="" pageTitle="Develop C# Hadoop streaming programs for HDInsight | Azure" metaKeywords="hdinsight hdinsight development, hadoop development, dhinsight deployment, development, deployment, tutorial, MapReduce" description="Learn how to develop Hadoop streaming MapReduce programs in C#, and how to deploy them to Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Develop C# Hadoop streaming programs for HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-develop-hadoop-streaming-programs-for-hdinsight" urlDisplayName="" pageTitle="Develop C# Hadoop streaming programs for HDInsight | Azure" metaKeywords="hdinsight hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce" description="Learn how to develop Hadoop streaming MapReduce programs in C#, and how to deploy them to Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Develop C# Hadoop streaming programs for HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-開發 HDInsight 的 C\# Hadoop 串流程式
-=====================================
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
 
-Hadoop 提供串流 API 給 MapReduce，可讓您使用 Java 以外的語言來撰寫對應和縮減函數。本教學課程引導您完成一項端對端案例，從在 HDInsight 模擬器上使用 C\# 來開發/測試 Hadoop 串流 MapReduce 程式開始，一直到在 Azure HDInsight 上執行 MapReduce 工作和擷取結果為止。
+# 開發 HDInsight 的 C# Hadoop 串流程式
+
+Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言撰寫 map 和 reduce 函數。本教學課程引導您完成一項端對端案例，從在 HDInsight 模擬器上使用 C# 來開發/測試 Hadoop 串流 MapReduce 程式開始，一直到在 Azure HDInsight 上執行 MapReduce 工作然後擷取結果為止。
 
 **必要條件：**
 
 開始進行本教學課程之前，您必須具備下列條件：
 
--   安裝 Azure HDInsight Emulator。如需指示，請參閱＜[開始使用 HDInsight Emulator](/en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/)＞。
--   在模擬器電腦上安裝 Azure PowerShell。如需指示，請參閱＜[安裝並設定 Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/)＞
--   取得 Azure 訂閱。如需指示，請參閱＜[購買選項](https://www.windowsazure.com/en-us/pricing/purchase-options/)＞、＜[成員優惠](https://www.windowsazure.com/en-us/pricing/member-offers/)＞或＜[免費試用](https://www.windowsazure.com/en-us/pricing/free-trial/)＞。
+-   安裝 Azure HDInsight Emulator。如需指示，請參閱＜[開始使用 HDInsight Emulator][]＞。
+-   在模擬器電腦上安裝 Azure PowerShell。如需指示，請參閱＜[安裝並設定 Azure PowerShell][]＞
+-   取得 Azure 訂用帳戶。如需指示，請參閱＜[購買選項][]＞、＜[成員優惠][]＞或＜[免費試用][]＞。
 
-本文內容
---------
+## 本文內容
 
--   [使用 C\# 開發字數統計 Hadoop 串流程式](#develop)
--   [在模擬器上測試程式](#test)
--   [將資料和應用程式上傳至 Azure Blob 儲存體](#upload)
--   [在 Azure HDInsight 上執行 MapReduce 程式](#run)
--   [擷取 MapReduce 結果](#retrieve)
--   [後續步驟](#nextsteps)
+-   [使用 C# 開發字數統計 Hadoop 串流程式][]
+-   [在模擬器上測試程式][]
+-   [將資料和應用程式上傳至 Azure Blob 儲存體][]
+-   [在 Azure HDInsight 上執行 MapReduce 程式][]
+-   [擷取 MapReduce 結果][]
+-   [後續步驟][]
 
-使用 C\# 開發字數統計 Hadoop 串流程式
--------------------------------------
+## <a name="develop"></a>使用 C# 開發字數統計 Hadoop 串流程式
 
-字數統計方案包含兩個主控台應用程式專案：對應器和歸納器。對應器應用程式可將每一個字串流傳送至主控台，而歸納器應用程式可計算從文件中串流傳送而來的字數。對應器和歸納器會從標準輸入串流 (stdin) 中逐行讀取字元，並寫入標準輸出串流 (stdout)。
+字數統計方案包含兩個主控台應用程式專案：對應器和歸納器。對應器應用程式可將每一個字串流傳送至主控台，而歸納器應用程式可計算從文件中串流傳送而來的字數。mapper 和 reducer 都會從標準輸入資料流 (stdin) 循行讀取字元並寫入至標準輸出資料流 (stdout)。
 
-**建立 C\# 主控台應用程式**
+**建立 C# 主控台應用程式**
 
 1.  開啟 Visual Studio 2013。
-2.  依序按一下 **[檔案]**、**[新增]**、**[專案]**。
+2.  依序按一下 [檔案]、[新增]、[專案]。
 3.  輸入或選取下列值：
 
 	<table border="1">
@@ -42,44 +41,45 @@ Hadoop 提供串流 API 給 MapReduce，可讓您使用 Java 以外的語言來�
 	<tr><td>方案名稱</td><td>WordCount</td></tr>
 	</table>
 
-4.  按一下 **[確定]** 以建立專案。
+
+4.  按一下 [確定] 以建立專案。
 
 **建立對應器程式**
 
-1.  在 [方案總管] 中，以滑鼠右鍵按一下 **[Program.cs]**，然後按一下 **[重新命名]**。
+1.  在 [方案總管] 中，以滑鼠右鍵按一下 [Program.cs]，然後按一下 [重新命名]。
 2.  將檔案重新命名為 **WordCountMapper.cs**，然後按 **ENTER**。
-3.  按一下 **[是]** 以確認重新命名所有參考。
-4.  按兩下 **[WordCountMapper.cs]** 以開啟它。
+3.  按一下 [是] 以確認重新命名所有參考。
+4.  按兩下 [WordCountMapper.cs] 以開啟它。
 5.  加入下列 using 陳述式：
 
         using System.IO;
 
-6.  Replace the Main() function with the following:
+6.  以下列程式碼取代 Main() 函數：
 
         static void Main(string[] args)
         {
-        if (args.Length > 0)
+            if (args.Length > 0)
             {
-        Console.SetIn(new StreamReader(args[0]));
+                Console.SetIn(new StreamReader(args[0]));
             }
-            
-        string line;
-        string[] words;
-            
-        while ((line = Console.ReadLine()) != null)
+
+            string line;
+            string[] words;
+
+            while ((line = Console.ReadLine()) != null)
             {
-        words = line.Split(' ');
-            
-        foreach (string word in words)
-        Console.WriteLine(word.ToLower());
+                words = line.Split(' ');
+
+                foreach (string word in words)
+                    Console.WriteLine(word.ToLower());
             }
         }
 
-7.  按一下 **[建置]**，然後按一下 **[建置方案]** 來編譯對應器程式。
+7.  按一下 [建置]，然後按一下 [建置方案] 來編譯對應器程式。
 
 **建立歸納器程式**
 
-1.  從 Visual Studio 2013 中，依序按一下 **[檔案]**、**[加入]**、**[新專案]**。
+1.  從 Visual Studio 2013 中，依序按一下 [檔案]、[加入]、[新專案]。
 2.  輸入或選取下列值：
 
 	<table border="1">
@@ -88,55 +88,53 @@ Hadoop 提供串流 API 給 MapReduce，可讓您使用 Java 以外的語言來�
 	<tr><td>名稱</td><td>WordCountReducer</td></tr>
 	<tr><td>位置</td><td>C:\Tutorials\WordCount</td></tr>
 	</table>
-
-3.  按一下 **[確定]** 以建立專案。
-4.  從 [方案總管] 中，以滑鼠右鍵按一下 **[Program.cs]**，然後按一下 **[重新命名]**。
+3.  按一下 [確定] 以建立專案。
+4.  從 [方案總管] 中，以滑鼠右鍵按一下 [Program.cs]，然後按一下 [重新命名]。
 5.  將檔案重新命名為 **WordCountReducer.cs**，然後按 **ENTER**。
-6.  按一下 **[是]** 以確認重新命名所有參考。
-7.  按兩下 **[WordCountReducer.cs]** 以開啟它。
+6.  按一下 [是] 以確認重新命名所有參考。
+7.  按兩下 [WordCountReducer.cs] 以開啟它。
 8.  加入下列 using 陳述式：
 
         using System.IO;
 
-9.  Replace the Main() function with the following:
+9.  以下列程式碼取代 Main() 函數：
 
         static void Main(string[] args)
         {
-        string word, lastWord = null;
-        int count = 0;
-            
-        if (args.Length > 0)
+            string word, lastWord = null;
+            int count = 0;
+
+            if (args.Length > 0)
             {
-        Console.SetIn(new StreamReader(args[0]));
+                Console.SetIn(new StreamReader(args[0]));
             }
-            
-        while ((word = Console.ReadLine()) != null)
+
+            while ((word = Console.ReadLine()) != null)
             {
-        if (word != lastWord)
+                if (word != lastWord)
                 {
-        if(lastWord != null)
-        Console.WriteLine("{0}[{1}]", lastWord, count);
-            
-        count = 1;
-        lastWord = word;
+                    if(lastWord != null)
+                        Console.WriteLine("{0}[{1}]", lastWord, count);
+
+                    count = 1;
+                    lastWord = word;
                 }
-        else
+                else
                 {
-        count += 1; 
+                    count += 1; 
                 }
             }
-        Console.WriteLine(count);
+            Console.WriteLine(count);
         }
 
-10. 按一下 **[建置]**，然後按一下 **[建置方案]** 來編譯方案。
+10. 按一下 [建置]，然後按一下 [建置方案] 來編譯方案。
 
 對應器和歸納器可執行檔位於：
 
 -   C:\\Tutorials\\WordCount\\WordCountMapper\\bin\\Debug\\WordCountMapper.exe
 -   C:\\Tutorials\\WordCount\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
 
-在模擬器上測試程式
-------------------
+## <a name="test"></a>在模擬器上測試程式
 
 本節包含下列程序：
 
@@ -146,10 +144,9 @@ Hadoop 提供串流 API 給 MapReduce，可讓您使用 Java 以外的語言來�
 4.  檢查工作狀態
 5.  擷取工作結果
 
-依預設，HDInsight 模擬器會使用 HDFS 做為預設檔案系統。您也可以選擇設定 HDInsight 模擬器來使用 Azure Blob 儲存體。如需詳細資料，請參閱＜[開始使用 HDInsight Emulator](/en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/#blobstorage)＞。本節中，您將使用 HDFS copyFromLocal 命令來上傳檔案。下一節說明如何使用 Azure PowerShell 來上傳檔案。關於其他方案，請參閱＜[將資料上傳到 HDInsight](/en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/)＞。
+依預設，HDInsight 模擬器會使用 HDFS 做為預設檔案系統。您也可以選擇設定 HDInsight 模擬器來使用 Azure Blob 儲存體。如需詳細資料，請參閱＜[開始使用 HDInsight Emulator][1]＞。本節中，您將使用 HDFS copyFromLocal 命令來上傳檔案。下一節說明如何使用 Azure PowerShell 來上傳檔案。關於其他方案，請參閱＜[將資料上傳到 HDInsight][]＞。
 
 本教學課程使用下列資料夾結構：
-
 <table border="1">
 <tr><td>資料夾</td><td>注意</td></tr>
 <tr><td>\WordCount</td><td>字數統計專案的根資料夾。 </td></tr>
@@ -157,7 +154,8 @@ Hadoop 提供串流 API 給 MapReduce，可讓您使用 Java 以外的語言來�
 <tr><td>\WordCount\Input</td><td>MapReduce 來源檔案資料夾。</td></tr>
 <tr><td>\WordCount\Output</td><td>MapReduce 輸出檔案資料夾。</td></tr>
 <tr><td>\WordCount\MRStatusOutput</td><td>工作輸出資料夾。</td></tr>
-</table></br>
+</table>
+
 
 本教學課程使用 %hadoop\_home% 目錄中的 .txt 檔案。
 
@@ -199,11 +197,11 @@ Hadoop 提供串流 API 給 MapReduce，可讓您使用 Java 以外的語言來�
 
 **使用 HDInsight PowerShell 執行 MapReduce 工作**
 
-1.  開啟 Azure PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/)。
+1.  開啟 Azure PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell][]。
 2.  執行下列命令來設定變數：
 
         $clusterName = "http://localhost:50111"
-            
+
         $mrMapper = "WordCountMapper.exe"
         $mrReducer = "WordCountReducer.exe"
         $mrMapperFile = "/WordCount/Apps/WordCountMapper.exe"
@@ -220,7 +218,7 @@ Hadoop 提供串流 API 給 MapReduce，可讓您使用 Java 以外的語言來�
         $mrJobDef.Files.Add($mrMapperFile)
         $mrJobDef.Files.Add($mrReducerFile)
 
-4.  Run the following command to create a credential object:
+4.  執行下列命令來建立認證物件：
 
         $creds = Get-Credential -Message "Enter password" -UserName "hadoop"
 
@@ -233,22 +231,22 @@ Hadoop 提供串流 API 給 MapReduce，可讓您使用 Java 以外的語言來�
 
     完成時，將會出現類似下方的輸出：
 
-        StatusDirectory :/WordCount/MRStatusOutput
+        StatusDirectory : /WordCount/MRStatusOutput
         ExitCode        : 
-        Name:mrWordCountStreamingJob
+        Name            : mrWordCountStreamingJob
         Query           : 
-        State           :Completed
-        SubmissionTime  :11/15/2013 7:18:16 PM
-        Cluster         :http://localhost:50111
-        PercentComplete :map 100%  reduce 100%
-        JobId           :job_201311132317_0034
+        State           : Completed
+        SubmissionTime  : 11/15/2013 7:18:16 PM
+        Cluster         : http://localhost:50111
+        PercentComplete : map 100%  reduce 100%
+        JobId           : job_201311132317_0034
 
     這樣就可以知道工作識別碼為 job-201311132317-0034 (舉例來說)。
 
 **檢查工作狀態**
 
-1.  從桌面上，按一下 **[Hadoop MapReduce 狀態]**，或瀏覽至 **http://localhost:50030/jobtracker.jsp**。
-2.  在下列三個區段下，利用工作識別碼來找出工作：**[Completed Jobs]**、**[Running Jobs]**、**[Retired Jobs]**。
+1.  從桌面上，按一下 [Hadoop MapReduce Status]，或瀏覽至 **http://localhost:50030/jobtracker.jsp**。
+2.  在下列三個區段下，利用工作識別碼來找出工作：[Completed Jobs]、[Running Jobs]、[Retired Jobs]。
 3.  如果工作失敗，您可以開啟工作詳細資料，尋找一些有用的資訊來進行偵錯。
 
 **從 HDFS 顯示輸出**
@@ -261,8 +259,7 @@ Hadoop 提供串流 API 給 MapReduce，可讓您使用 Java 以外的語言來�
 
     您可以在命令尾端附加 "|more" 來取得頁面檢視。
 
-將資料上傳至 Azure Blob 儲存體
-------------------------------
+## <span id="upload"></span></a>將資料上傳至 Azure Blob 儲存體
 
 Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以設定 HDInsight 叢集使用其他 Blob 儲存體來儲存資料檔。本節中，您將建立儲存體帳戶，並將資料檔上傳至 Blob 儲存體。資料檔是位於 %hadoop\_home% 目錄中的 txt 檔案。
 
@@ -280,16 +277,16 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 
         # Select Azure subscription
         Select-AzureSubscription $subscriptionName
-            
+
         # Create a storage account
         New-AzureStorageAccount -StorageAccountName $storageAccountName -location $location
-                    
+
         # Create a Blob storage container
         $storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
         $destContext = New-AzureStorageContext –StorageAccountName $storageAccountName –StorageAccountKey $storageAccountKey  
         New-AzureStorageContainer -Name $containerName -Context $destContext
 
-4.  Run the following commands to verify the storage account and the container:
+4.  執行下列命令來驗證儲存體帳戶和容器：
 
         Get-AzureStorageAccount -StorageAccountName $storageAccountName
         Get-AzureStorageContainer -Context $destContext
@@ -325,14 +322,14 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 
         # Copy the file from local workstation to the Blob container        
         foreach ($file in $filesTxt){
-             
-        $fileName = "$localFolder\$file"
-        $blobName = "$destFolder/$file"
-            
-        write-host "Copying $fileName to $blobName"
-            
-        Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -Context $destContext
-         }
+
+            $fileName = "$localFolder\$file"
+            $blobName = "$destFolder/$file"
+
+            write-host "Copying $fileName to $blobName"
+
+            Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -Context $destContext
+        }
 
 6.  執行下列命令來列出已上傳的檔案：
 
@@ -373,8 +370,7 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 
     您應該會看到兩個檔案都列在這裡。
 
-在 Azure HDInsight 上執行 MapReduce 工作
-----------------------------------------
+## <a name="run"></a>在 Azure HDInsight 上執行 MapReduce 工作
 
 下列 PowerShell 指令碼會執行下列工作：
 
@@ -402,79 +398,79 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 1.  開啟記事本。
 2.  複製並貼上下列程式碼：
 
-		# The storage account and the HDInsight cluster variables
-		$subscriptionName = "<WindowsAzureSubscriptionName>"
-		$serviceNameToken = "<ServiceNameTokenString>"
-		$storageAccountName_Data = "<TheDataStorageAccountName>"
-		$containerName_Data = "<TheDataBlobStorageContainerName>"
-		$location = "East US"     ### must match the data storage account location
-		$clusterNodes = 1
-		
-		$clusterName = $serviceNameToken + "hdicluster"
-		
-		$storageAccountName_Default = $serviceNameToken + "hdistore"
-		$containerName_Default =  $serviceNameToken + "hdicluster"
+        # The storage account and the HDInsight cluster variables
+        $subscriptionName = "<AzureSubscriptionName>"
+        $serviceNameToken = "<ServiceNameTokenString>"
+        $storageAccountName_Data = "<TheDataStorageAccountName>"
+        $containerName_Data = "<TheDataBlobStorageContainerName>"
+        $location = "<MicrosoftDataCenter>"     ### must match the data storage account location
+        $clusterNodes = 1
 
-		# The streaming MapReduce job variables
-		$mrMapper = "WordCountMapper.exe"
-		$mrReducer = "WordCountReducer.exe"
-		$mrMapperFile = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Apps/WordCountMapper.exe"
-		$mrReducerFile = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Apps/WordCountReducer.exe"
-		$mrInput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Input/"
-		$mrOutput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Output/"
-		$mrStatusOutput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/MRStatusOutput/"
-		
-		Select-AzureSubscription $subscriptionName
-		
-		#=============================
-		# Create a storage account
-		Write-Host "Create a storage account" -ForegroundColor Green
-		New-AzureStorageAccount -StorageAccountName $storageAccountName_Default -location $location
-		
-		#=============================
-		# Create a Blob storage container
-		Write-Host "Create a Blob storage container" -ForegroundColor Green
-		$storageAccountKey_Default = Get-AzureStorageKey $storageAccountName_Default | %{ $_.Primary }
-		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Default –StorageAccountKey $storageAccountKey_Default
-		
-		New-AzureStorageContainer -Name $containerName_Default -Context $destContext
-		
-		#=============================
-		# Create an HDInsight cluster
-		Write-Host "Create an HDInsight cluster" -ForegroundColor Green
-		$storageAccountKey_Data = Get-AzureStorageKey $storageAccountName_Data | %{ $_.Primary }
-		
-		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes |
-		    Set-AzureHDInsightDefaultStorage -StorageAccountName "$storageAccountName_Default.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Default -StorageContainerName $containerName_Default |
-		    Add-AzureHDInsightStorage -StorageAccountName "$storageAccountName_Data.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Data
-		
-		New-AzureHDInsightCluster -Subscription $subscriptionName  -Name $clusterName -Location $location -Config $config
-		
-		#=============================
-		# Create a streaming MapReduce job definition
-		Write-Host "Create a streaming MapReduce job definition" -ForegroundColor Green
-		
-		$mrJobDef = New-AzureHDInsightStreamingMapReduceJobDefinition -JobName mrWordCountStreamingJob -StatusFolder $mrStatusOutput -Mapper $mrMapper -Reducer $mrReducer -InputPath $mrInput -OutputPath $mrOutput
-		$mrJobDef.Files.Add($mrMapperFile)
-		$mrJobDef.Files.Add($mrReducerFile)
-		
-		#=============================
-		# Run a streaming MapReduce job
-		Write-Host "Run a streaming MapReduce job" -ForegroundColor Green
-		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -Subscription $subscriptionName -JobDefinition $mrJobDef 
-		Wait-AzureHDInsightJob -Subscription $subscriptionName -Job $mrJob -WaitTimeoutInSeconds 3600 
-		
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $mrJob.JobId -StandardError 
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $mrJob.JobId -StandardOutput
-		
-		#=============================
-		# Delete the HDInsight cluster
-		Write-Host "Delete the HDInsight cluster" -ForegroundColor Green
-		Remove-AzureHDInsightCluster -Name $clusterName -Subscription $subscriptionName 
-		
-		# Delete the storage account
-		Write-Host "Delete the storage account" -ForegroundColor Green
-		Remove-AzureStorageAccount -StorageAccountName $storageAccountName_Default
+        $clusterName = $serviceNameToken + "hdicluster"
+
+        $storageAccountName_Default = $serviceNameToken + "hdistore"
+        $containerName_Default =  $serviceNameToken + "hdicluster"
+
+        # The streaming MapReduce job variables
+        $mrMapper = "WordCountMapper.exe"
+        $mrReducer = "WordCountReducer.exe"
+        $mrMapperFile = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Apps/WordCountMapper.exe"
+        $mrReducerFile = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Apps/WordCountReducer.exe"
+        $mrInput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Input/"
+        $mrOutput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Output/"
+        $mrStatusOutput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/MRStatusOutput/"
+
+        Select-AzureSubscription $subscriptionName
+
+        #=============================
+        # Create a storage account
+        Write-Host "Create a storage account" -ForegroundColor Green
+        New-AzureStorageAccount -StorageAccountName $storageAccountName_Default -location $location
+
+        #=============================
+        # Create a Blob storage container
+        Write-Host "Create a Blob storage container" -ForegroundColor Green
+        $storageAccountKey_Default = Get-AzureStorageKey $storageAccountName_Default | %{ $_.Primary }
+        $destContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Default –StorageAccountKey $storageAccountKey_Default
+
+        New-AzureStorageContainer -Name $containerName_Default -Context $destContext
+
+        #=============================
+        # Create an HDInsight cluster
+        Write-Host "Create an HDInsight cluster" -ForegroundColor Green
+        $storageAccountKey_Data = Get-AzureStorageKey $storageAccountName_Data | %{ $_.Primary }
+
+        $config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes |
+            Set-AzureHDInsightDefaultStorage -StorageAccountName "$storageAccountName_Default.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Default -StorageContainerName $containerName_Default |
+            Add-AzureHDInsightStorage -StorageAccountName "$storageAccountName_Data.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Data
+
+        New-AzureHDInsightCluster -Subscription $subscriptionName  -Name $clusterName -Location $location -Config $config
+
+        #=============================
+        # Create a streaming MapReduce job definition
+        Write-Host "Create a streaming MapReduce job definition" -ForegroundColor Green
+
+        $mrJobDef = New-AzureHDInsightStreamingMapReduceJobDefinition -JobName mrWordCountStreamingJob -StatusFolder $mrStatusOutput -Mapper $mrMapper -Reducer $mrReducer -InputPath $mrInput -OutputPath $mrOutput
+        $mrJobDef.Files.Add($mrMapperFile)
+        $mrJobDef.Files.Add($mrReducerFile)
+
+        #=============================
+        # Run a streaming MapReduce job
+        Write-Host "Run a streaming MapReduce job" -ForegroundColor Green
+        $mrJob = Start-AzureHDInsightJob -Cluster $clusterName -Subscription $subscriptionName -JobDefinition $mrJobDef 
+        Wait-AzureHDInsightJob -Subscription $subscriptionName -Job $mrJob -WaitTimeoutInSeconds 3600 
+
+        Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $mrJob.JobId -StandardError 
+        Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $mrJob.JobId -StandardOutput
+
+        #=============================
+        # Delete the HDInsight cluster
+        Write-Host "Delete the HDInsight cluster" -ForegroundColor Green
+        Remove-AzureHDInsightCluster -Name $clusterName -Subscription $subscriptionName 
+
+        # Delete the storage account
+        Write-Host "Delete the storage account" -ForegroundColor Green
+        Remove-AzureStorageAccount -StorageAccountName $storageAccountName_Default
 
 3.  設定指令碼中的前四個變數。$serviceNameToken 將做為 HDInsight 叢集名稱、儲存體帳戶名稱及 Blob 儲存體容器名稱。因為服務名稱必須為 3 到 24 個字元，且指令檔會將最多 10 個字元的字串附加至名稱，所以您必須將字串限制在 14 個字元以下。$serviceNameToken 必須全部為小寫。$storageAccountName\_Data 和 $containerName\_Data 是用來儲存資料檔案和應用程式的儲存體帳戶和容器。$location 必須符合資料儲存體帳戶位置。
 4.  檢閱其餘變數。
@@ -484,19 +480,20 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 
         PowerShell -File <FileName> -ExecutionPolicy RemoteSigned
 
-8.  出現提示時，輸入 HDInsight 叢集的使用者名稱和密碼。因為您在指令碼最後會刪除叢集，然後就不再需要使用者名稱和密碼，所以使用者名稱和密碼可以是任何字串。如果不希望出現認證提示，請參閱＜[在 Windows PowerShell 中使用密碼、安全字串和認證](http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx)＞(英文)
+8.  出現提示時，輸入 HDInsight 叢集的使用者名稱和密碼。因為您在指令碼最後會刪除叢集，然後就不再需要使用者名稱和密碼，所以使用者名稱和密碼可以是任何字串。如果不希望出現認證提示，請參閱＜[在 Windows PowerShell 中使用密碼、安全字串和認證][]＞(英文)
 
-擷取 MapReduce 工作輸出
------------------------
+如需提交 Hadoop 串流工作的 HDInsight .NET SDK 範例，請參閱[以程式設計方式提交 Hadoop 工作][]。
 
-本節說明如何下載和顯示輸出。如需有關在 Excel 上顯示結果的詳細資訊，請參閱＜[使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight](/en-us/manage/services/hdinsight/connect-excel-with-hive-ODBC/)＞和＜[使用 Power Query 將 Excel 連接到 HDInsight](/en-us/manage/services/hdinsight/connect-excel-with-power-query/)＞。
+## <a name="retrieve"></a>擷取 MapReduce 工作輸出
+
+本節說明如何下載和顯示輸出。如需有關在 Excel 上顯示結果的詳細資訊，請參閱＜[使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight][]＞和＜[使用 Power Query 將 Excel 連接到 HDInsight][]＞。
 
 **擷取輸出**
 
 1.  開啟 Azure PowerShell 視窗。
 2.  設定值，然後執行命令：
 
-        $subscriptionName = "<WindowsAzureSubscriptionName>"
+        $subscriptionName = "<AzureSubscriptionName>"
         $storageAccountName = "<TheDataStorageAccountName>"
         $containerName = "<TheDataBlobStorageContainerName>"
         $blobName = "WordCount/Output/part-00000"
@@ -512,17 +509,39 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
         Get-AzureStorageBlobContent -Container $ContainerName -Blob $blobName -Context $storageContext -Force
         cat "./$blobName" | findstr "there"
 
-後續步驟
---------
+## <span id="nextsteps"></span></a>後續步驟
 
 本教學課程中，您學到如何開發 Hadoop 串流 MapReduce 工作、如何在 HDInsight 模擬器上測試應用程式，以及如何撰寫 PowerShell 指令碼來佈建 HDInsight 叢集並於叢集上執行 MapReduce。若要深入了解，請參閱下列文章：
 
--   [開始使用 Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [開始使用 HDInsight Emulator](/en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/)
--   [開發 HDInsight 的 Java MapReduce 程式](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
--   [在 HDInsight 上使用 Azure Blob 儲存體](/en-us/manage/services/hdinsight/howto-blob-store/)
--   [使用 PowerShell 管理 HDInsight](/en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/)
--   [將資料上傳到 HDInsight](/en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/)
--   [搭配 HDInsight 使用 Hive](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
--   [搭配 HDInsight 使用 Pig](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
+-   [Azure HDInsight 使用者入門][]
+-   [開始使用 HDInsight Emulator][]
+-   [開發 HDInsight 的 Java MapReduce 程式][]
+-   [在 HDInsight 上使用 Azure Blob 儲存體][]
+-   [使用 PowerShell 管理 HDInsight][]
+-   [將資料上傳到 HDInsight][]
+-   [搭配 HDInsight 使用 Hive][]
+-   [搭配 HDInsight 使用 Pig][]
 
+  [開始使用 HDInsight Emulator]: ../hdinsight-get-started-emulator/
+  [安裝並設定 Azure PowerShell]: ../install-configure-powershell/
+  [購買選項]: http://azure.microsoft.com/en-us/pricing/purchase-options/
+  [成員優惠]: http://azure.microsoft.com/en-us/pricing/member-offers/
+  [免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [使用 C# 開發字數統計 Hadoop 串流程式]: #develop
+  [在模擬器上測試程式]: #test
+  [將資料和應用程式上傳至 Azure Blob 儲存體]: #upload
+  [在 Azure HDInsight 上執行 MapReduce 程式]: #run
+  [擷取 MapReduce 結果]: #retrieve
+  [後續步驟]: #nextsteps
+  [1]: ../hdinsight-get-started-emulator/#blobstorage
+  [將資料上傳到 HDInsight]: ../hdinsight-upload-data/
+  [在 Windows PowerShell 中使用密碼、安全字串和認證]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
+  [以程式設計方式提交 Hadoop 工作]: ../hdinsight-submit-hadoop-jobs-programmatically/
+  [使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight]: ../hdinsight-connect-excel-hive-ODBC-driver/
+  [使用 Power Query 將 Excel 連接到 HDInsight]: ../hdinsight-connect-excel-power-query/
+  [Azure HDInsight 使用者入門]: ../hdinsight-get-started/
+  [開發 HDInsight 的 Java MapReduce 程式]: ../hdinsight-develop-deploy-java-mapreduce/
+  [在 HDInsight 上使用 Azure Blob 儲存體]: ../hdinsight-use-blob-storage/
+  [使用 PowerShell 管理 HDInsight]: ../hdinsight-administer-use-powershell/
+  [搭配 HDInsight 使用 Hive]: ../hdinsight-use-hive/
+  [搭配 HDInsight 使用 Pig]: ../hdinsight-use-pig/

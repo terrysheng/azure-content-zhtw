@@ -1,44 +1,44 @@
-<properties linkid="manage-services-hdinsight-sample-10gb-graysort" urlDisplayName="HDInsight Samples" pageTitle="The 10GB GraySort sample | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to run a general purpose GraySort with HDInsight using Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The 10GB GraySort sample" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-sample-10gb-graysort" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The 10GB GraySort sample | Azure" metaKeywords="hdinsight, hadoop, hdinsight administration, hdinsight administration azure" description="Learn how to run a general purpose GraySort on Hadoop with HDInsight using Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The 10GB GraySort sample" authors="bradsev" />
 
-10GB GraySort 範例
-==================
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
 
-本範例主題說明如何使用 Azure PowerShell，搭配 Azure HDInsight 來執行一般用途的 GraySort。GraySort 是一種效能評比排序，度量就是排序龐大的資料量時 (通常至少為 100 TB) 所達成的排序速度 (TB/分鐘)。
+# HDInsight 中的 10GB GraySort Hadoop 範例
 
-本範例使用不是很大的 10 GB 資料，所以執行起來相當快。本範例使用 Owen O'Malley 和 Arun Murthy 所開發的 MapReduce 應用程式，此應用程式於 2009 年的年度一般用途 ("daytona") TB 排序效能評比中，速度達到 0.578 TB/分鐘 (173 分鐘內達到 100 TB)。如需此效能評比和其他排序效能評比的詳細資訊，請參閱 [Sortbenchmark](http://sortbenchmark.org/) 網站。
+本範例主題說明如何使用 Azure PowerShell，在 Azure HDInsight 上執行一般用途的 GraySort Hadoop MapReduce 程式。GraySort 是一種效能評比排序，度量就是排序龐大的資料量時 (通常至少為 100 TB) 所達成的排序速度 (TB/分鐘)。
+
+本範例使用不是很大的 10 GB 資料，所以執行起來相當快。本範例使用 Owen O'Malley 和 Arun Murthy 所開發的 MapReduce 應用程式，此應用程式於 2009 年的年度一般用途 ("daytona") TB 排序效能評比中，速度達到 0.578 TB/分鐘 (173 分鐘內達到 100 TB)。如需此效能評比和其他排序效能評比的詳細資訊，請參閱 [Sortbenchmark][] 網站。
 
 本範例使用三組 MapReduce 程式：
 
 1.  **TeraGen** 是可用來產生排序資料列的 MapReduce 程式。
-2.  **TeraSort** 可取樣輸入資料並利用 MapReduce 將資料依全序排列。TeraSort 是 MapReduce 函數的標準排序，但自訂分割器除外，它使用 N-1 個樣本索引鍵的排序清單來定義每次歸納的索引鍵範圍。特別的是，由於 sample[i-1] &lt;= 索引鍵 &lt; sample[i]，所有索引鍵都會傳送至 reduce i。這可保證 reduce i 的輸出全部都小於 reduce i+1 的輸出。
+2.  **TeraSort** 可取樣輸入資料並利用 MapReduce 將資料依全序排列。TeraSort 是 MapReduce 函數的標準排序，但自訂分割器除外，它使用 N-1 個樣本索引鍵的排序清單來定義每次歸納的索引鍵範圍。特別的是，由於 sample[i-1] \<= 索引鍵 \< sample[i]，所有索引鍵都會傳送至 reduce i。這可保證 reduce i 的輸出全部都小於 reduce i+1 的輸出。
 3.  **TeraValidate** 是一個可驗證全域排序輸出的 MapReduce 程式。它會在輸出目錄中為每一個檔案建立一個對應，而每個對應可確保每一個索引鍵一定小於或等於前一個對應。對應函數也會產生每個檔案的第一個和最後一個索引鍵的記錄，歸納函數可確保檔案 i 的第一個索引鍵一定大於檔案 i-1 的最後一個索引鍵。如果索引鍵的順序不對，則歸納輸出時會回報任何問題。
 
 這三個應用程式使用的輸入和輸出格式會以正確格式讀取和寫入文字檔。歸納的輸出將複寫設為 1，而不是預設值 3，因為效能評比競賽不需要將輸出資料複寫至多個節點。
 
 **您將了解：**
-* 如何使用 Azure PowerShell 在 Azure HDInsight 上執行一系列的 MapReduce 程式。
-* 以 Java 撰寫的 MapReduce 程式呈現何種面貌。
+
+-   如何使用 Azure PowerShell 在 Azure HDInsight 上執行一系列的 MapReduce 程式。
+-   以 Java 撰寫的 MapReduce 程式呈現何種面貌。
 
 **必要條件**：
 
--   您必須具有 Azure 帳號。如需帳號註冊方式的相關資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/)頁面。
+-   您必須具有 Azure 帳號。如需帳號註冊方式的相關資訊，請參閱 [Azure 免費試用][]頁面。
 
--   您必須已佈建 HDInsight 叢集。如需此類叢集之各種建立方式的相關指示，[佈建 HDInsight 叢集](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
+-   您必須已佈建 HDInsight 叢集。如需有關透過其他各種方法建立此類叢集的指示，請參閱[佈建 HDInsight 叢集][]。
 
--   您必須已安裝 Azure PowerShell 並加以設定，使其可用於您的帳號。如需如何執行此動作的相關指示，請參閱[安裝並設定 Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/)。
+-   您必須已安裝 Azure PowerShell 並加以設定，使其可用於您的帳號。如需執行此項作業之指示，請參閱＜[安裝和設定 Azure PowerShell][]＞。
 
-本文內容
---------
+## 本文內容
 
 本主題說明如何執行構成範例的一組 MapReduce 程式、呈現 MapReduce 程式的 Java 程式碼、總結所學知識及概述一些後續步驟。其中包含下列幾節。
 
-1.  [使用 Azure PowerShell 執行範例](#run-sample)
-2.  [TeraSort MapReduce 程式的 Java 程式碼](#java-code)
-3.  [摘要](#summary)
-4.  [後續步驟](#next-steps)
+1.  [使用 Azure PowerShell 執行範例][]
+2.  [TeraSort MapReduce 程式的 Java 程式碼][]
+3.  [摘要][]
+4.  [後續步驟][]
 
-使用 Azure PowerShell 執行範例
-------------------------------
+## <span id="run-sample"></span></a>使用 Azure PowerShell 執行範例
 
 範例需要三項工作，各對應至簡介中描述的其中一個 MapReduce 程式：
 
@@ -48,8 +48,8 @@
 
 **執行 TeraGen 程式**
 
-1.  開啟 Azure PowerShell。如需有關開啟 Azure PowerShell 主控台視窗的指示，請參閱[安裝和設定 Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/)。
-2.  在下列命令中設定兩個變數，然後執行這些命令：
+1.  開啟 Azure PowerShell。如需有關開啟 Azure PowerShell 主控台視窗的指示，請參閱[安裝和設定 Azure PowerShell][]。
+2.  在下列命令中設定 2 個變數，然後執行這些命令：
 
         # Provide the Azure subscription name and the HDInsight cluster name.
         $subscriptionName = "myAzureSubscriptionName"   
@@ -60,7 +60,7 @@
         # Create a MapReduce job definition for the TeraGen MapReduce program
         $teragen = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-examples.jar" -ClassName "teragen" -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input" 
 
-    > [WACOM.NOTE] *hadoop-examples.jar* 隨附於 2.1 版 HDInsight 叢集。此檔案在 3.0 版 HDInsight 叢集已重新命名為 *hadoop-mapreduce.jar*。
+    > [WACOM.NOTE] *hadoop-examples.jar* 隨附於 2.1 版 HDInsight 叢集。在 3.0 版 HDInsight 叢集上，該檔案已重新命名為 *hadoop-mapreduce.jar*。
 
     *"-Dmapred.map.tasks=50"* 引數指定要建立來執行工作的 50 個對應。*100000000* 引數指定要產生的資料量。最後一個引數 */example/data/10GB-sort-input* 指定要儲存結果的輸出目錄 (包含下列排序階段的輸入)。
 
@@ -75,7 +75,7 @@
 **執行 TeraSort 程式**
 
 1.  開啟 Azure PowerShell。
-2.  在下列命令中設定兩個變數，然後執行這些命令：
+2.  在下列命令中設定 2 個變數，然後執行這些命令：
 
         # Provide the Azure subscription name and the HDInsight cluster name.
         $subscriptionName = "myAzureSubscriptionName"   
@@ -99,9 +99,9 @@
 **執行 TeraValidate 程式**
 
 1.  開啟 Azure PowerShell。
-2.  在下列命令中設定兩個變數，然後執行這些命令：
+2.  在下列命令中設定 2 個變數，然後執行這些命令：
 
-         # Provide the Azure subscription name and the HDInsight cluster name.
+        # Provide the Azure subscription name and the HDInsight cluster name.
         $subscriptionName = "myAzureSubscriptionName"   
         $clusterName = "myClusterName"
 
@@ -120,27 +120,26 @@
         Select-AzureSubscription $subscriptionName 
         $teravalidate | Start-AzureHDInsightJob -Cluster $clustername | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -StandardError 
 
-TeraSort MapReduce 程式的 Java 程式碼
--------------------------------------
+## <span id="java-code"></span></a>TeraSort MapReduce 程式的 Java 程式碼
 
 本節顯示 TerraSort MapReduce 程式的程式碼供您檢視。
 
     /**
-    * Licensed to the Apache Software Foundation (ASF) under one    
-    * or more contributor license agreements.See the NOTICE file    
-    * distributed with this work for additional information 
-    * regarding copyright ownership.The ASF licenses this file  
-    * to you under the Apache License, Version 2.0 (the 
-    * "License"); you may not use this file except in compliance  
-    * with the License.You may obtain a copy of the License at  
+     * Licensed to the Apache Software Foundation (ASF) under one   
+     * or more contributor license agreements.  See the NOTICE file 
+     * distributed with this work for additional information    
+     * regarding copyright ownership.  The ASF licenses this file   
+     * to you under the Apache License, Version 2.0 (the    
+     * "License"); you may not use this file except in compliance   
+     * with the License.  You may obtain a copy of the License at   
      *  
-    *     http://www.apache.org/licenses/LICENSE-2.0    
+     *     http://www.apache.org/licenses/LICENSE-2.0   
      *  
-    * Unless required by applicable law or agreed to in writing, software   
-    * distributed under the License is distributed on an "AS IS" BASIS,   
-    * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  
-    * See the License for the specific language governing permissions and   
-    * limitations under the License.    
+     * Unless required by applicable law or agreed to in writing, software  
+     * distributed under the License is distributed on an "AS IS" BASIS,    
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+     * See the License for the specific language governing permissions and  
+     * limitations under the License.   
      */ 
 
     package org.apache.hadoop.examples.terasort;
@@ -168,243 +167,256 @@ TeraSort MapReduce 程式的 Java 程式碼
     import org.apache.hadoop.util.ToolRunner;
 
     /** 
-    * Generates the sampled split points, launches the job,     
-    * and waits for it to finish.   
-    * <p>
-    * To run the program:   
-    * <b>bin/hadoop jar hadoop-examples-*.jar terasort in-dir out-dir</b> 
+     * Generates the sampled split points, launches the job,    
+     * and waits for it to finish.  
+     * <p>
+     * To run the program:  
+     * <b>bin/hadoop jar hadoop-examples-*.jar terasort in-dir out-dir</b>  
      */ 
 
     public class TeraSort extends Configured implements Tool {
-    private static final Log LOG = LogFactory.getLog(TeraSort.class);
+      private static final Log LOG = LogFactory.getLog(TeraSort.class);
 
       /**   
-    * A partitioner that splits text keys into roughly equal    
-    * partitions in a global sorted order.  
+       * A partitioner that splits text keys into roughly equal     
+       * partitions in a global sorted order.   
        */   
 
-    static class TotalOrderPartitioner implements Partitioner<Text,Text>{
-    private TrieNode trie;
-    private Text[] splitPoints;
+      static class TotalOrderPartitioner implements Partitioner<Text,Text>{
+        private TrieNode trie;
+        private Text[] splitPoints;
 
         /**
-    * A generic trie node
+         * A generic trie node
          */
-    static abstract class TrieNode {
-    private int level;
-    TrieNode(int level) {
-    this.level = level;
+        static abstract class TrieNode {
+          private int level;
+          TrieNode(int level) {
+            this.level = level;
           }
-    abstract int findPartition(Text key);
-    abstract void print(PrintStream strm) throws IOException;
-    int getLevel() {
-    return level;
+          abstract int findPartition(Text key);
+          abstract void print(PrintStream strm) throws IOException;
+          int getLevel() {
+            return level;
           }
         }
 
         /**
-    * An inner trie node that contains 256 children based on the next
-    * character.
+         * An inner trie node that contains 256 children based on the next
+         * character.
          */
-    static class InnerTrieNode extends TrieNode {
-    private TrieNode[] child = new TrieNode[256];
+        static class InnerTrieNode extends TrieNode {
+          private TrieNode[] child = new TrieNode[256];
           
-    InnerTrieNode(int level) {
-    super(level);
+          InnerTrieNode(int level) {
+            super(level);
           }
-    int findPartition(Text key) {
-    int level = getLevel();
-    if (key.getLength() <= level) {
-    return child[0].findPartition(key);
+          int findPartition(Text key) {
+            int level = getLevel();
+            if (key.getLength() <= level) {
+              return child[0].findPartition(key);
             }
-    return child[key.getBytes()[level]].findPartition(key);
+            return child[key.getBytes()[level]].findPartition(key);
           }
-    void setChild(int idx, TrieNode child) {
-    this.child[idx] = child;
+          void setChild(int idx, TrieNode child) {
+            this.child[idx] = child;
           }
-    void print(PrintStream strm) throws IOException {
-    for(int ch=0; ch < 255; ++ch) {
-    for(int i = 0; i < 2*getLevel(); ++i) {
-    strm.print(' ');
+          void print(PrintStream strm) throws IOException {
+            for(int ch=0; ch < 255; ++ch) {
+              for(int i = 0; i < 2*getLevel(); ++i) {
+                strm.print(' ');
               }
-    strm.print(ch);
-    strm.println(" ->");
-    if (child[ch] != null) {
-    child[ch].print(strm);
+              strm.print(ch);
+              strm.println(" ->");
+              if (child[ch] != null) {
+                child[ch].print(strm);
               }
             }
           }
         }
 
         /**
-    * A leaf trie node that does string compares to figure out where the given
-    * key belongs between lower..upper.
+         * A leaf trie node that does string compares to figure out where the given
+         * key belongs between lower..upper.
          */
-    static class LeafTrieNode extends TrieNode {
-    int lower;
-    int upper;
-    Text[] splitPoints;
-    LeafTrieNode(int level, Text[] splitPoints, int lower, int upper) {
-    super(level);
-    this.splitPoints = splitPoints;
-    this.lower = lower;
-    this.upper = upper;
+        static class LeafTrieNode extends TrieNode {
+          int lower;
+          int upper;
+          Text[] splitPoints;
+          LeafTrieNode(int level, Text[] splitPoints, int lower, int upper) {
+            super(level);
+            this.splitPoints = splitPoints;
+            this.lower = lower;
+            this.upper = upper;
           }
-    int findPartition(Text key) {
-    for(int i=lower; i<upper; ++i) {
-    if (splitPoints[i].compareTo(key) >= 0) {
-    return i;
+          int findPartition(Text key) {
+            for(int i=lower; i<upper; ++i) {
+              if (splitPoints[i].compareTo(key) >= 0) {
+                return i;
               }
             }
-    return upper;
+            return upper;
           }
-    void print(PrintStream strm) throws IOException {
-    for(int i = 0; i < 2*getLevel(); ++i) {
-    strm.print(' ');
+          void print(PrintStream strm) throws IOException {
+            for(int i = 0; i < 2*getLevel(); ++i) {
+              strm.print(' ');
             }
-    strm.print(lower);
-    strm.print(", ");
-    strm.println(upper);
+            strm.print(lower);
+            strm.print(", ");
+            strm.println(upper);
           }
         }
 
 
         /**
-    * Read the cut points from the given sequence file.
-    * @param fs the file system
-    * @param p the path to read
-    * @param job the job config
-    * @return the strings to split the partitions on
-    * @throws IOException
+         * Read the cut points from the given sequence file.
+         * @param fs the file system
+         * @param p the path to read
+         * @param job the job config
+         * @return the strings to split the partitions on
+         * @throws IOException
          */
-    private static Text[] readPartitions(FileSystem fs, Path p, 
-    JobConf job) throws IOException {
-    SequenceFile.Reader reader = new SequenceFile.Reader(fs, p, job);
-    List<Text> parts = new ArrayList<Text>();
-    Text key = new Text();
-    NullWritable value = NullWritable.get();
-    while (reader.next(key, value)) {
-    parts.add(key);
-    key = new Text();
+        private static Text[] readPartitions(FileSystem fs, Path p, 
+                                             JobConf job) throws IOException {
+          SequenceFile.Reader reader = new SequenceFile.Reader(fs, p, job);
+          List<Text> parts = new ArrayList<Text>();
+          Text key = new Text();
+          NullWritable value = NullWritable.get();
+          while (reader.next(key, value)) {
+            parts.add(key);
+            key = new Text();
           }
-    reader.close();
-    return parts.toArray(new Text[parts.size()]);  
+          reader.close();
+          return parts.toArray(new Text[parts.size()]);  
         }
 
         /**
-    * Given a sorted set of cut points, build a trie that will find the correct
-    * partition quickly.
-    * @param splits the list of cut points
-    * @param lower the lower bound of partitions 0..numPartitions-1
-    * @param upper the upper bound of partitions 0..numPartitions-1
-    * @param prefix the prefix that we have already checked against
-    * @param maxDepth the maximum depth we will build a trie for
-    * @return the trie node that will divide the splits correctly
+         * Given a sorted set of cut points, build a trie that will find the correct
+         * partition quickly.
+         * @param splits the list of cut points
+         * @param lower the lower bound of partitions 0..numPartitions-1
+         * @param upper the upper bound of partitions 0..numPartitions-1
+         * @param prefix the prefix that we have already checked against
+         * @param maxDepth the maximum depth we will build a trie for
+         * @return the trie node that will divide the splits correctly
          */
-    private static TrieNode buildTrie(Text[] splits, int lower, int upper, 
-    Text prefix, int maxDepth) {
-    int depth = prefix.getLength();
-    if (depth >= maxDepth || lower == upper) {
-    return new LeafTrieNode(depth, splits, lower, upper);
+        private static TrieNode buildTrie(Text[] splits, int lower, int upper, 
+                                          Text prefix, int maxDepth) {
+          int depth = prefix.getLength();
+          if (depth >= maxDepth || lower == upper) {
+            return new LeafTrieNode(depth, splits, lower, upper);
           }
-    InnerTrieNode result = new InnerTrieNode(depth);
-    Text trial = new Text(prefix);
-    // append an extra byte on to the prefix
-    trial.append(new byte[1], 0, 1);
-    int currentBound = lower;
-    for(int ch = 0; ch < 255; ++ch) {
-    trial.getBytes()[depth] = (byte) (ch + 1);
-    lower = currentBound;
-    while (currentBound < upper) {
-    if (splits[currentBound].compareTo(trial) >= 0) {
-    break;
+          InnerTrieNode result = new InnerTrieNode(depth);
+          Text trial = new Text(prefix);
+          // append an extra byte on to the prefix
+          trial.append(new byte[1], 0, 1);
+          int currentBound = lower;
+          for(int ch = 0; ch < 255; ++ch) {
+            trial.getBytes()[depth] = (byte) (ch + 1);
+            lower = currentBound;
+            while (currentBound < upper) {
+              if (splits[currentBound].compareTo(trial) >= 0) {
+                break;
               }
-    currentBound += 1;
+              currentBound += 1;
             }
-    trial.getBytes()[depth] = (byte) ch;
-    result.child[ch] = buildTrie(splits, lower, currentBound, trial, 
-    maxDepth);
+            trial.getBytes()[depth] = (byte) ch;
+            result.child[ch] = buildTrie(splits, lower, currentBound, trial, 
+                                         maxDepth);
           }
-    // pick up the rest
-    trial.getBytes()[depth] = 127;
-    result.child[255] = buildTrie(splits, currentBound, upper, trial,
-    maxDepth);
-    return result;
+          // pick up the rest
+          trial.getBytes()[depth] = 127;
+          result.child[255] = buildTrie(splits, currentBound, upper, trial,
+                                        maxDepth);
+          return result;
         }
 
-    public void configure(JobConf job) {
-    try {
-    FileSystem fs = FileSystem.getLocal(job);
-    Path partFile = new Path(TeraInputFormat.PARTITION_FILENAME);
-    splitPoints = readPartitions(fs, partFile, job);
-    trie = buildTrie(splitPoints, 0, splitPoints.length, new Text(), 2);
-    } catch (IOException ie) {
-    throw new IllegalArgumentException("can't read paritions file", ie);
+        public void configure(JobConf job) {
+          try {
+            FileSystem fs = FileSystem.getLocal(job);
+            Path partFile = new Path(TeraInputFormat.PARTITION_FILENAME);
+            splitPoints = readPartitions(fs, partFile, job);
+            trie = buildTrie(splitPoints, 0, splitPoints.length, new Text(), 2);
+          } catch (IOException ie) {
+            throw new IllegalArgumentException("can't read paritions file", ie);
           }
         }
 
-    public TotalOrderPartitioner() {
+        public TotalOrderPartitioner() {
         }
 
-    public int getPartition(Text key, Text value, int numPartitions) {
-    return trie.findPartition(key);
+        public int getPartition(Text key, Text value, int numPartitions) {
+          return trie.findPartition(key);
         }
         
       }
       
-    public int run(String[] args) throws Exception {
-    LOG.info("starting");
-    JobConf job = (JobConf) getConf();
-    Path inputDir = new Path(args[0]);
-    inputDir = inputDir.makeQualified(inputDir.getFileSystem(job));
-    Path partitionFile = new Path(inputDir, TeraInputFormat.PARTITION_FILENAME);
-    URI partitionUri = new URI(partitionFile.toString() +
-    "#" + TeraInputFormat.PARTITION_FILENAME);
-    TeraInputFormat.setInputPaths(job, new Path(args[0]));
-    FileOutputFormat.setOutputPath(job, new Path(args[1]));
-    job.setJobName("TeraSort");
-    job.setJarByClass(TeraSort.class);
-    job.setOutputKeyClass(Text.class);
-    job.setOutputValueClass(Text.class);
-    job.setInputFormat(TeraInputFormat.class);
-    job.setOutputFormat(TeraOutputFormat.class);
-    job.setPartitionerClass(TotalOrderPartitioner.class);
-    TeraInputFormat.writePartitionFile(job, partitionFile);
-    DistributedCache.addCacheFile(partitionUri, job);
-    DistributedCache.createSymlink(job);
-    job.setInt("dfs.replication", 1);
-    TeraOutputFormat.setFinalSync(job, true);
-    JobClient.runJob(job);
-    LOG.info("done");
-    return 0;
+      public int run(String[] args) throws Exception {
+        LOG.info("starting");
+        JobConf job = (JobConf) getConf();
+        Path inputDir = new Path(args[0]);
+        inputDir = inputDir.makeQualified(inputDir.getFileSystem(job));
+        Path partitionFile = new Path(inputDir, TeraInputFormat.PARTITION_FILENAME);
+        URI partitionUri = new URI(partitionFile.toString() +
+                                   "#" + TeraInputFormat.PARTITION_FILENAME);
+        TeraInputFormat.setInputPaths(job, new Path(args[0]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+        job.setJobName("TeraSort");
+        job.setJarByClass(TeraSort.class);
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(Text.class);
+        job.setInputFormat(TeraInputFormat.class);
+        job.setOutputFormat(TeraOutputFormat.class);
+        job.setPartitionerClass(TotalOrderPartitioner.class);
+        TeraInputFormat.writePartitionFile(job, partitionFile);
+        DistributedCache.addCacheFile(partitionUri, job);
+        DistributedCache.createSymlink(job);
+        job.setInt("dfs.replication", 1);
+        TeraOutputFormat.setFinalSync(job, true);
+        JobClient.runJob(job);
+        LOG.info("done");
+        return 0;
       }
 
       /**
-    * @param args
+       * @param args
        */
 
-    public static void main(String[] args) throws Exception{
-    int res = ToolRunner.run(new JobConf(), new TeraSort(), args);
-    System.exit(res);
+      public static void main(String[] args) throws Exception {
+        int res = ToolRunner.run(new JobConf(), new TeraSort(), args);
+        System.exit(res);
       }
 
     }
 
-摘要
-----
+## <span id="summary"></span></a>摘要
 
 本範例示範如何使用 Azure HDInsight 來執行一系列的 MapReduce 工作，其中，一個工作的資料輸出會變成系列中下一個工作的輸入。
 
-後續步驟
---------
+## <span id="next-steps"></span></a>後續步驟
 
 關於執行其他範例的教學課程，以及如何以 Azure PowerShell 在 Azure HDInsight 上使用 Pig、Hive 和 MapReduce 工作的指示，請參閱下列主題：
 
--   [開始使用 Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [範例：Pi 估算器](/en-us/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/)
--   [範例：字數統計](/en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/)
--   [範例：C\# 串流](/en-us/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/)
--   [搭配 HDInsight 使用 Pig](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [搭配 HDInsight 使用 Hive](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
--   [Azure HDInsight SDK 文件](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx)
+-   [Azure HDInsight 使用者入門][]
+-   [範例：Pi 估算器][]
+-   [範例：字數統計][]
+-   [範例：C# 串流][]
+-   [搭配 HDInsight 使用 Pig][]
+-   [搭配 HDInsight 使用 Hive][]
+-   [Azure HDInsight SDK 文件][]
 
+  [Sortbenchmark]: http://sortbenchmark.org/
+  [Azure 免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [佈建 HDInsight 叢集]: ../hdinsight-provision-clusters/
+  [安裝和設定 Azure PowerShell]: ../install-configure-powershell/
+  [使用 Azure PowerShell 執行範例]: #run-sample
+  [TeraSort MapReduce 程式的 Java 程式碼]: #java-code
+  [摘要]: #summary
+  [後續步驟]: #next-steps
+  [Azure HDInsight 使用者入門]: ../hdinsight-get-started/
+  [範例：Pi 估算器]: ../hdinsight-sample-pi-estimator/
+  [範例：字數統計]: ../hdinsight-sample-wordcount/
+  [範例：C# 串流]: ../hdinsight-sample-csharp-streaming/
+  [搭配 HDInsight 使用 Pig]: ../hdinsight-use-pig/
+  [搭配 HDInsight 使用 Hive]: ../hdinsight-use-hive/
+  [Azure HDInsight SDK 文件]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx

@@ -1,287 +1,324 @@
-<properties linkid="manage-services-hdinsight-get-started-hdinsight" urlDisplayName="Get Started" pageTitle="Get started using Hadoop 2.2 clusters with HDInsight | Azure" metaKeywords="" description="Get started using Hadoop 2.2 clusters with HDInsight, a big data solution. Learn how to provision clusters, run MapReduce jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Azure HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop-3.0" urlDisplayName="Get Started" pageTitle="Get started using Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution. Learn how to provision clusters, run hive jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-開始搭配 HDInsight 使用 Hadoop 2.2 叢集
-=======================================
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
 
-HDInsight 讓 [Apache Hadoop](http://hadoop.apache.org/) 成為雲端的服務。它使得 MapReduce 軟體架構可以在更簡單、更有擴充性且更符合成本效益的 Azure 環境中發揮作用。HDInsight 也提供使用 Azure Blob 儲存來管理和儲存資料的高成本效益作法。
+# 開始使用 HDInsight 中的 Hadoop 2.2
 
-在這個教學課程中，您將使用 Azure 管理入口網站佈建 HDInsight 叢集，並使用 PowerShell 提交 Hadoop MapReduce 工作，然後將 MapReduce 工作輸出資料匯入 Excel 以供檢查。
+<div class="dev-center-tutorial-selector sublanding">
+<a href="../hdinsight-get-started" title="開始使用 HDInsight 中的 Hadoop 2.4">Hadoop 2.4</a>
+<a href="../hdinsight-get-started-30" title="開始使用 HDInsight 中的 Hadoop 2.2" class="current">Hadoop 2.2</a>
+<!--a href="../hdinsight-get-started-21" title="Get started using Hadoop 1.2 in HDInsight">Hadoop 1.2</a-->
+</div>
 
-> [WACOM.NOTE] 本教學課程涵蓋在 HDInsight 使用 Hadoop 2.2 叢集。如需在 HDInsight 使用 Hadoop 1.2 叢集的教學課程，請參閱[開始使用 Azure HDInsight](/en-us/documentation/articles/hdinsight-get-started/)。
+HDInsight 使得 Apache Hadoop (一個 MapReduce 軟體架構) 可以在更簡單、更有擴充性且更符合成本效益的 Azure 環境中發揮作用。HDInsight 也提供使用 Azure Blob 儲存來管理和儲存資料的高成本效益作法。
 
-> [WACOM.NOTE] HDInsight 叢集 3.0 版不支援 *asv://* 語法，而且未來版本中也不支援。請改用 *wasb://* 語法。
+> [WACOM.NOTE] 如果您不熟悉 Hadoop 和巨量資料，您可能會想閱讀 [Apache Hadoop][]、[MapReduce][]、[HDFS][] 和 [Hive][] 等名稱的更多相關資訊。
 
-除了全面供應 Azure HDInsight 之外，Microsoft 也推出 HDInsight Emulator for Azure，也就是過去的 Microsoft HDInsight Developer Preview。本產品適合開發人員使用，因此僅支援單一節點部署。關於使用 HDInsight Emulator，請參閱[開始使用 HDInsight Emulator](/en-us/documentation/articles/hdinsight-get-started-emulator/)。
+除了全面供應 Azure HDInsight 之外，Microsoft 還提供 HDInsight Emulator for Azure，先前稱為 *Microsoft HDInsight Developer Preview*。模擬器非常適合開發人員使用，並只支援單一節點部署。關於使用 HDInsight Emulator，請參閱[開始使用 HDInsight Emulator][]。
+
+> [WACOM.NOTE] 如需如何佈建 HBase 叢集的指示，請參閱[在 HDInsight 上佈建 HBase 叢集][]。請參閱 [Hadoop 和 HBase 之間的差別？][]，以了解最優先的選擇理由。
+
+## 本教學課程要達到什麼目標？
+
+假設您有一個大型的非結構化資料集，而且您想要在此資料集上執行查詢以擷取一些有用資訊。這正是我們要在此教學課程中進行的動作。以下是要達成此目標的作法：
+
+![HDI.GetStartedFlow][]
+
+您也可以觀看本教學課程的示範影片：
+
+<center>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/v=Y4aNjnoeaHA?list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS" frameborder="0" allowfullscreen>
+</iframe>
+</center>
+<!--center><a href="https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS" target = "_blank">![HDI.getstarted.video][img-hdi-getstarted-video]</a></center-->
 
 **必要條件：**
 
 開始進行本教學課程之前，您必須具備下列條件：
 
--   Azure 訂閱。如需取得訂閱的詳細資訊，請參閱[購買選項](https://www.windowsazure.com/en-us/pricing/purchase-options/)、[成員優惠](https://www.windowsazure.com/en-us/pricing/member-offers/)或[免費試用](https://www.windowsazure.com/en-us/pricing/free-trial/)。
--   執行 Windows 8、Windows 7、Windows Server 2012 或 Windows Server 2008 R2 的電腦。這台電腦將用於提交 MapReduce 工作。
--   Office 2013 Professional Plus、Office 365 Pro Plus、Excel 2013 Standalone 或 Office 2010 Professional Plus。
+-   Azure 訂用帳戶。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][]、[成員優惠][]或[免費試用][]。
+-   安裝 Office 2013 Professional Plus、Office 365 Pro Plus、Excel 2013 Standalone 或 Office 2010 Professional Plus 的電腦。
 
 **預估完成時間：** 30 分鐘
 
-本教學課程內容
---------------
+## 本教學課程內容
 
--   [設定執行 PowerShell 的本機環境](#setup)
--   [佈建 HDInsight 叢集](#provision)
--   [執行 WordCount MapReduce 程式](#sample)
--   [連接到 Microsoft 商業智慧工具](#powerquery)
--   [後續步驟](#nextsteps)
+-   [建立 Azure 儲存體帳戶][]
+-   [佈建 HDInsight 叢集][]
+-   [執行 Hive 工作][]
+-   [連接到 Microsoft 商業智慧工具][]
+-   [後續步驟][]
 
-設定執行 PowerShell 的本機環境
-------------------------------
+## <a name="storage"></a>建立 Azure 儲存體帳戶
 
-有數種方式可以將 MapReduce 工作提交到 HDInsight。在本教學課程中，您將使用 Azure PowerShell。若要安裝 Azure PowerShell，請執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)。出現提示時，按一下 **[執行]**，並按一下 **[安裝]**，然後按照指示進行。如需詳細資訊，請參閱[安裝並設定 Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/)。
+HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB* 或 *Azure 儲存體 - Blob*。WASB 是 Microsoft 在 Azure Blob 儲存體上的 HDFS 實作。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][]。
 
-PowerShell Cmdlet 需要有您的訂閱資訊，才能用來管理您的服務。
+佈建 HDInsight 叢集時，您可以指定 Azure 儲存體帳戶。將該帳戶的特定 Blob 儲存體容器指定為預設檔案系統，如同在 HDFS 中一般。依預設，系統會在與您指定儲存體帳戶的相同資料中心內佈建 HDInsight 叢集。
 
-**使用 Azure AD 連接到您的訂閱**
+除了此儲存體帳戶以外，您可以在自訂設定 HDInsight 叢集時新增其他儲存體帳戶。這個其他儲存體帳戶可以來自相同的 Azure 訂用帳戶或不同的 Azure 訂用帳戶。如需相關指示，請參閱[使用自訂選項佈建 HDInsight 叢集][]。
 
-1.  開啟 Azure PowerShell 主控台，依照[作法：安裝 Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/#install) 的指示進行。
-2.  執行以下命令：
-
-         Add-AzureAccount
-
-3.  在視窗中，輸入與您的帳戶相關聯的電子郵件地址和密碼。Azure 會驗證並儲存認證資訊，然後關閉視窗。
-
-連線到訂閱的另一個方法是使用憑證方法。如需指示，請參閱[安裝並設定 Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/)。
-
-佈建 HDInsight 叢集
--------------------
-
-HDInsight 佈建程序需要 Azure 儲存體帳戶作為預設的檔案系統。儲存體帳戶必須位在 HDInsight 運算資源所在的同一個資料中心。目前，您只能在下列資料中心佈建 HDInsight 叢集：
-
--   東南亞
--   北歐
--   西歐
--   美國東部
--   美國西部
-
-您必須對於您的 Azure 儲存體帳戶選擇 5 個資料中心的其中一個。
+為了簡化本教學課程，將僅使用預設的 Blob 容器和預設的儲存體帳戶。實際上，資料檔案通常會儲存在指定的儲存體帳戶中。
 
 **建立 Azure 儲存體帳戶**
 
-1.  登入 [Azure 管理入口網站](https://manage.windowsazure.com/)。
-2.  按一下左下角的 **[新增]**，並指向 **[資料服務]**，接著指向 **[儲存體]**，然後按一下 **[快速建立]**。
+1.  登入 [Azure 管理入口網站][]。
+2.  按一下左下角的 [新增]，並指向 [資料服務]，接著指向 [儲存體]，然後按一下 [快速建立]。
 
-    ![HDI.StorageAccount.QuickCreate](./media/hdinsight-get-started-3.0/HDI.StorageAccount.QuickCreate.png)
+    ![HDI.StorageAccount.QuickCreate][]
 
-3.  輸入 **[URL]**、**[位置]** 和 **[複寫]**，然後按一下 **[建立儲存體帳戶]**。不支援同質群組。您將在儲存體清單中看見新的儲存體帳戶。
-4.  等候新儲存體帳戶的 **[狀態]** 變更為 **[線上]**。
-5.  按一下清單中的新儲存體帳戶加以選取。
-6.  按一下頁面底部的 **[MANAGE ACCESS KEYS]**。
-7.  請記下 **[儲存體帳戶名稱]** 和 **[主要存取金鑰]**。稍後在教學課程中需要這些資訊。
+3.  輸入 [URL]、[位置] 和 [複寫]，然後按一下 [建立儲存體帳戶]。不支援同質群組。您將在儲存體清單中看見新的儲存體帳戶。
+
+    > [WACOM.NOTE] HDInsight 叢集與相關聯的 Azure 儲存體帳戶必須位於相同的資料中心內。因此，請務必在支援叢集的位置建立您的儲存體帳戶，這些位置包括：**東亞**、**東南亞**、**北歐**、**西歐**、**美國東部**、**美國西部**、**美國中北部**和**美國中南部**。
+
+4.  等候新儲存體帳戶的 [狀態] 變更為 [線上]。
+5.  從清單中選取新儲存體帳戶，並按一下頁面底部的 [MANAGE ACCESS KEYS]。
+6.  請記下 [儲存體帳戶名稱] 和 [主要存取金鑰] (或 [次要存取金鑰]。其中任何一個金鑰皆可)。稍後在教學課程中需要這些資訊。
 
 如需詳細資訊，請參閱
-[如何建立儲存體帳戶](/en-us/documentation/articles/storage-create-storage-account/)和[搭配 HDInsight 使用 Azure Blob 儲存體](/en-us/documentation/articles/hdinsight-use-blob-storage/)。
+[如何建立儲存體帳戶][]和[在 HDInsight 上使用 Azure Blob 儲存體][搭配 HDInsight 使用 Azure Blob 儲存體]。
 
-目前不支援使用自訂建立選項佈建 HDInsight 3.0 叢集。
+## <a name="provision"></a>佈建 HDInsight 叢集
+
+佈建 HDInsight 叢集時，您可以佈建包含 Hadoop 及相關應用程式的 Azure 運算資源。在本節中，您將佈建採用 Hadoop 2.2 版的 HDInsight 叢集 3.0 版。如果您想要採用 Hadoop 2.4 版佈建 HDInsight 叢集，請按一下本文開頭部分的特定版本索引標籤。您也可以使用 HDInsight PowerShell Cmdlet 或使用 HDInsight .NET SDK 來建立其他版本的 Hadoop 叢集。如需相關指示，請參閱[使用自訂選項佈建 HDInsight 叢集][]。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱 [HDInsight 元件版本設定][]頁面。
 
 **佈建 HDInsight 叢集**
 
-1.  登入 [Azure 管理入口網站](https://manage.windowsazure.com/)。
+1.  登入 [Azure 管理入口網站][]。
 
-2.  按一下左邊的 **[HDINSIGHT]**，列出您的帳戶下的 HDInsight 叢集。在下列螢幕擷取畫面中，沒有任何現有的 HDInsight 叢集。
+2.  按一下左邊的 [HDInsight] 列出您帳戶中的叢集狀態。在下列螢幕擷取畫面中，沒有任何現有的 HDInsight 叢集。
 
-    ![HDI.ClusterStatus](./media/hdinsight-get-started-3.0/HDI.ClusterStatus.png)
+    ![HDI.ClusterStatus][]
 
-3.  按一下左下角的 **[新增]**，然後依序按一下 **[資料服務]**、**[HDINSIGHT]**、**[自訂建立]**。
+3.  按一下左下角的 [新增]，然後依序按一下 [資料服務]、[HDInsight] 和 [自訂建立]。
 
-    ![HDI.CustomCreateCluster](./media/hdinsight-get-started-3.0/HDI.CustomCreateCluster.png)
+    ![HDI.CustomCreateCluster][]
 
-4.  在 [叢集詳細資料] 索引標籤上，輸入或選取下列值：
+    輸入或選取如上圖所示的值，然後按一下向右箭頭。
 
-	<table border="1">
-	<tr><th>名稱</th><th>值</th></tr>
-	<tr><td><strong>叢集名稱</strong></td><td>叢集的名稱。</td></tr>
-	<tr><td><strong>資料節點</strong></td><td>您要部署的資料節點數。請建立單一節點叢集，以供測試之用。<br />叢集大小限制會隨著 Azure 訂閱而不同。若要提高限制，請與 Azure 帳務支援人員連絡。</td></tr>
-	<tr><td><strong>HDInsight 版本</strong></td><td>請選擇 <strong>3.0</strong> ，以在 HDInsight 上建立 Hadoop 2.2 叢集。</td></tr>
-	<tr><td><strong>區域</strong></td><td>	請選擇與您在前一個程序中建立的儲存體帳戶相同的區域。使用 HDInsight 時，儲存體帳戶必須位於相同的區域中。後續進行設定時，您只能選擇此處指定之相同區域中的儲存體帳戶。 
-	</td></tr>
-	</table>
-
-
-5.  按一下位於右下角的向右箭頭，以設定叢集使用者。
-6.  在 [設定叢集使用者] 索引標籤中，輸入 HDInsight 叢集使用者帳戶的 **[使用者名稱]** 和 **[密碼]**。除了此帳戶以外，您也可以在叢集佈建之後建立 RDP 使用者帳戶，以便從遠端桌面連接到叢集。如需指示，請參閱[使用管理入口網站來管理 HDInsight](/en-us/documentation/articles/hdinsight-administer-use-management-portal/)。
-7.  按一下位於右下角的向右箭頭，以設定儲存體帳戶。
-8.  在 [儲存體帳戶] 標籤上，輸入或選取下列值：
+4.  在 [設定叢集] 頁面上，輸入或選取下列值：
 
 	<table border="1">
 	<tr><th>名稱</th><th>值</th></tr>
-	<tr><td>儲存體帳戶</td><td>選取 <strong>[使用現有儲存體]</strong>。如果您尚未建立新的儲存體帳戶，您也可以選擇使用管理入口網站來建立帳戶。</td></tr>
-	<tr><td>帳戶名稱</td><td>指定您在本教學課程的上一個程序中建立的儲存體帳戶。請注意，清單方塊中只會顯示相同區域中的儲存體帳戶。</td></tr>
-	<tr><td>預設容器</td><td>選取 <strong>[建立預設容器]</strong>。選擇此選項時，預設容器名稱會與叢集名稱相同。</td></tr>
-	<tr><td>附加儲存體帳戶</td><td>選取 <strong>0</strong>。您可以選擇將叢集連接到多達 7 個附加儲存體帳戶。</td></tr>
+	<tr><td>資料節點</td><td>您要部署的資料節點數。請建立單一節點叢集，以供測試之用。 <br />叢集大小限制會隨著 Azure 訂用帳戶而不同。若要提高限制，請與 Azure 帳務支援人員連絡。</td></tr>
+	<tr><td>區域/虛擬網路</td><td>請選擇與您在前一個程序中建立的儲存體帳戶相同的區域。使用 HDInsight 時，儲存體帳戶必須位於相同的區域中。後續進行設定時，您只能選擇此處指定之相同區域中的儲存體帳戶。可用的區域如下：<strong>東亞</strong>, <strong>東南亞</strong>, <strong>北歐</strong>, <strong>西歐</strong>, <strong>美國東部</strong>, <strong>美國西部</strong>, <strong>美國中北部</strong>, <strong>美國中南部</strong>。</td></tr>
 	</table>
 
-9.  按一下位於右下角的核取圖示，以建立叢集。佈建程序完成時，狀態欄將顯示 **[執行中]**。
+    按一下向右箭頭。
 
-執行 WordCount MapReduce 工作
------------------------------
+5.  在 [Configure Cluster User] 頁面上，提供下列值：
 
-現在您已經佈建 HDInsight 叢集。下一個步驟是執行 MapReduce 工作，計算文字檔中的文字。
+    ![HDI.CustomCreateCluster.ClusterUser][]
 
-執行 MapReduce 工作需要下列元素：
+    <table border='1'>
+		<tr><th>屬性</th><th>值</th></tr>
+		<tr><td>使用者名稱</td>
+			<td>指定 HDInsight 叢集使用者名稱。</td></tr>
+		<tr><td>密碼/確認密碼</td>
+			<td>指定 HDInsight 叢集使用者密碼。</td></tr>
+		<tr><td>輸入 Hive/Oozie Metastore</td>
+			<td>勾選此核取方塊，在與叢集相同的資料中心上指定 SQL Database，以作為 Hive/Oozie metastore 使用。即使在將叢集刪除之後，如果您想要保留 Hive/Oozie 工作的相關中繼資料，此選項將會很有幫助。</td></tr>
+		<tr><td>Metastore 資料庫</td>
+			<td>指定要作為 Hive/OOzie metastore 的 Azure SQL 資料庫。此 SQL 資料庫必須與 HDInsight 叢集位於相同的資料中心內。清單方塊只會列出與您在 [叢集詳細資料] 頁面上指定的相同資料中心內的 SQL Database。</td></tr>
+		<tr><td>資料庫使用者</td>
+			<td>指定將用來連接到資料庫的 SQL 資料庫使用者。</td></tr>
+		<tr><td>資料庫使用者密碼</td>
+			<td>指定 SQL 資料庫使用者密碼。</td></tr>
+	</table>
 
--   MapReduce 程式。在本教學課程中，您將使用 HDInsight 叢集發佈所提供的 WordCount 範例，因此您不需要自行撰寫。它位在 */example/jars/hadoop-mapreduce-examples.jar* 中。如需自行撰寫 MapReduce 工作的指示，請參閱[開發 HDInsight 的 Java MapReduce 程式](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)。
+    > [WACOM.NOTE] 用於 metastore 的 Azure SQL Database 必須允許與其他 Azure 服務 (包括 Azure HDInsight) 的連線能力。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [設定]，然後在 [Windows Azure 服務] 中，依序按一下 [是] 和 [儲存]。
 
--   輸入檔。您將使用 */example/data/gutenberg/davinci.txt* 作為輸入檔。如需上傳檔案的詳細資訊，請參閱[將資料上傳到 HDInsight](/en-us/documentation/articles/hdinsight-upload-data/)。
--   輸出檔資料夾。您將使用 */example/data/WordCountOutput* 作為輸出檔資料夾。如果該資料夾不存在，系統將建立該資料夾。
+    按一下向右箭頭。
 
-定址 Blob 儲存體中的檔案時，使用的 URI 配置如下：
+6.  在 [儲存體帳戶] 頁面上，提供下列值：
 
-    wasb[s]://<containername>@<storageaccountname>.blob.core.windows.net/<path>
+    ![HDI.CustomCreateCluster.StorageAccount][]
 
-> [WACOM.NOTE] 依預設，預設檔案系統所用的 Blob 容器本身的名稱與 HDInsight 叢集相同。
+    <table>
+    <colgroup>
+    <col width="50%" />
+    <col width="50%" />
+    </colgroup>
+    <thead>
+    <tr class="header">
+    <th align="left">屬性</th>
+    <th align="left">值</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td align="left">儲存體帳戶</td>
+    <td align="left">指定將作為 HDInsight 叢集之預設檔案系統的 Azure 儲存體帳戶。您可以從三個選項中擇一使用：
+    <ul>
+    <li>使用現有儲存體</li>
+    <li>建立新的儲存體</li>
+    <li>使用其他訂用帳戶的儲存體</li>
+    </ul></td>
+    </tr>
+    <tr class="even">
+    <td align="left">帳戶名稱</td>
+    <td align="left"><ul>
+    <li>如果您選擇使用現有儲存體，請在 [帳戶名稱] 中選取現有儲存體帳戶。下拉式清單所列出的儲存體帳戶僅限位於與您選擇佈建叢集相同的資料中心。</li>
+    <li>如果選擇 [Create new storage] 或 [Use storage from another subscription] 選項，則您必須提供儲存體帳戶名稱。</li>
+    </ul></td>
+    </tr>
+    <tr class="odd">
+    <td align="left">帳戶金鑰</td>
+    <td align="left">如果選擇 [Use Storage From Another Subscription] 選項，請指定該儲存體帳戶的帳戶金鑰。</td>
+    </tr>
+    <tr class="even">
+    <td align="left">預設容器</td>
+    <td align="left"><p>指定儲存體帳戶上的預設容器作為 HDInsight 叢集的預設檔案系統使用。如果在 [儲存體帳戶] 欄位中選擇了 [Use Existing Storage]，但該帳戶中沒有現有容器，則系統便會依預設建立容器，其名稱將會與叢集名稱相同。如果已有使用叢集名稱的容器存在，則會為容器名稱加上序號。例如 mycontainer1、mycontainer2，依此類推。然而，如果現有儲存體帳戶有容器存在，且其名稱與您指定的叢集名稱不同，則您也可以使用該容器。</p></td>
+    </tr>
+    <tr class="odd">
+    <td align="left">其他儲存體帳戶</td>
+    <td align="left">HDInsight 支援多個儲存帳號。叢集可使用的其他儲存體帳戶並沒有數量上的限制。但如果您使用管理入口網站建立叢集，則會因為 UI 的限制而限定為七個帳戶。您所指定的每個其他儲存體帳戶都會在精靈上另外新增一個 [儲存體帳戶] 頁面，您可在此指定帳戶資訊。以上面的螢幕擷取畫面為例，在選取一個其他儲存體帳戶後，對話方塊因此新增了頁面 5。</td>
+    </tr>
+    </tbody>
+    </table>
 
-URI 配置提供未加密存取，使用的是 *wasb:*首碼，也提供 SSL 加密存取，使用的是 wasbs。建議盡可能使用 wasbs，即使存取同一個 Azure 資料中心內的資料也是如此。
+    如果選擇使用其他儲存體帳戶，請按一下向右箭頭。如果不是，請按一下核取記號以開始佈建叢集。佈建完成時，狀態欄便會顯示 [執行中]。
 
-因為 HDInsight 使用 Blob 儲存體容器作為預設檔案系統，因此您可以使用相對或絕對路徑參照預設檔案系統內的檔案和目錄。
+7.  在 [儲存體帳戶] 頁面上，如果選擇其他儲存體帳戶，請輸入該帳戶的帳戶資訊：
 
-例如，若要存取 hadoop-mapreduce-examples.jar，您可以使用下列其中一個選項：
+    ![HDI.CustomCreateCluster.AddOnStorage][]
 
-    ● wasb://<containername>@<storageaccountname>.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-    ● wasb:///example/jars/hadoop-mapreduce-examples.jar
-    ● /example/jars/hadoop-mapreduce-examples.jar
+    在這裡，您可以選擇現有儲存體、建立新儲存體或使用其他 Azure 訂用帳戶的儲存體。提供值的程序會與上個步驟類似。
 
-在這些檔案的路徑中使用 *wasb://* 首碼。需要這個首碼才能指出 Azure Blob 儲存體用於輸入檔和輸出檔。輸出目錄使用相對於 *wasb:///user/&lt;username\>* 資料夾的預設路徑。
+    按一下核取記號以開始佈建叢集。佈建完成時，狀態欄便會顯示 [執行中]。
 
-如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](/en-us/documentation/articles/hdinsight-use-blob-storage/)。
+## <a name="sample"></a>執行 Hive 工作
 
-**執行 WordCount 範例**
+現在您已佈建一個 HDInsight 叢集，下一個步驟是執行 Hive 工作，以查詢 HDInsight 叢集隨附的範例 Hive 資料表 *hivesampletable*。此資料表會包含行動裝置製造商、平台及模型等資料。查詢這個資料表，以擷取特定製造商的行動裝置資料。
 
-1.  開啟 **Azure PowerShell**。如需有關開啟 Azure PowerShell 主控台視窗的指示，請參閱[安裝和設定 Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/)。
+**從叢集儀表板執行 Hive 工作**
 
-2.  執行下列命令設定變數。
+1.  登入 [Azure 管理入口網站][]。
+2.  按一下左窗格上的 [HDInsight]。您會看見已建立的叢集清單，其中包含您在上一節中建立的叢集。
+3.  按一下您要執行 Hive 工作的叢集名稱，然後按一下頁面底部的 [管理叢集]。
+4.  它會在不同瀏覽器索引標籤上開啟網頁。輸入 Hadoop 使用者帳戶和密碼。預設使用者名稱為 **admin**；密碼是您在佈建叢集時所輸入的密碼。儀表板顯示如下：
 
-         $subscriptionName = "<SubscriptionName>" 
-        $clusterName = "<HDInsightClusterName>"        
+    ![hdi.dashboard][]
 
-3.  執行下列命令來建立 MapReduce 工作定義：
+    頂端會有數個索引標籤。預設索引標籤為 [Hive Editor]，其他索引標籤包括 [工作歷程記錄] 和 [檔案瀏覽器]。您可透過儀表板提交 Hive 查詢、檢查 Hadoop 工作記錄及瀏覽 WASB 檔案。
 
-         # Define the MapReduce job
-        $wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
+    > [WACOM.NOTE] 請注意，網頁的 URL 為 *\<ClusterName\>.azurehdinsight.net*。因此，與其從管理入口網站開啟儀表板，您也可以使用 URL 從網頁瀏覽器中開啟儀表板。
 
-    HDInsight 叢集發佈附有 hadoop-mapreduce-examples.jar 檔案。MapReduce 工作有兩個引數。第一個是來源檔案名稱，第二個是輸出檔案路徑。HDInsight 叢集發佈提供來源檔案，輸出檔案路徑則是在執行階段時建立。
+5.  在 [Hive Editor] 索引標籤的 [查詢名稱] 中，輸入 **HTC20**。查詢名稱就是工作標題。
 
-4.  執行下列命令提交 MapReduce 工作：
+6.  在查詢窗格中，輸入下列查詢：
 
-         # Submit the job
-        Select-AzureSubscription $subscriptionName
-        $wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $wordCountJobDefinition 
+        SELECT * FROM hivesampletable
+            WHERE devicemake LIKE "HTC%"
+            LIMIT 20;
 
-    除了 MapReduce 工作定義之外，您也必須在要執行 MapReduce 工作的位置提供 HDInsight 叢集名稱。
+    ![hdi.dashboard.query.select][]
 
-    *Start-AzureHDInsightJob* 是非同步呼叫。若要檢查工作是否完成，請使用 *Wait-AzureHDInsightJob* Cmdlet。
+7.  按一下 [提交]。需要一點時間才會取回結果。螢幕每 30 秒會重新整理一次。您也可以按一下 [重新整理] 來重新整理螢幕。
 
-5.  執行下列命令來檢查 MapReduce 工作是否完成：
+    完成後，螢幕會如下所示：
 
-         Wait-AzureHDInsightJob -Job $wordCountJob -WaitTimeoutInSeconds 3600 
+    ![hdi.dashboard.query.select.result][]
 
-6.  執行下列命令來檢查 MapReduce 工作執行時有無任何錯誤：
+8.  按一下螢幕上的查詢名稱以查看輸出。記下 [工作開始時間 (UTC)]。稍後您將會用到此資訊。
 
-         # Get the job output
-        Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $wordCountJob.JobId -StandardError
+    ![hdi.dashboard.query.select.result.output][]
 
-    下列螢幕擷取畫面顯示執行成功的輸出。不然您會看到一些錯誤訊息。
+    此頁面也會顯示 [工作輸出] 和 [工作記錄]。您還可以選擇下載輸出檔案 (\_stdout) 和記錄檔 (\_stderr)。
 
-    ![HDI.GettingStarted.RunMRJob](./media/hdinsight-get-started-3.0/HDI.GettingStarted.RunMRJob.png)
+    > [WACOM.NOTE] 只要您停留在 [Hive Editor] 索引標籤上，該索引標籤上的 [Job Session] 資料表便會列出已完成或執行中的工作。如果您瀏覽至其他頁面，則此資料表不會列出任何工作。[工作歷程記錄] 索引標籤會維護所有工作、已完成或執行中等清單。
 
-**擷取 MapReduce 工作的結果**
+**瀏覽至輸出檔案**
 
-1.  開啟 **Azure PowerShell**。
-2.  執行下列命令建立 C:\\Tutorials 資料夾，並且將目錄變更為資料夾：
+1.  在叢集儀表板中，按一下頂端的 [檔案瀏覽器]。
+2.  依序按一下您的儲存體帳戶名稱、容器名稱 (會與您的叢集名稱相同)，然後按一下 [使用者]。
+3.  按一下 [admin]，然後按一下其上次修改時間比您先前記下的工作開始時間稍晚的 GUID 號碼。記下此 GUID。您在下一節將會用到此號碼。
 
-         mkdir \Tutorials
-        cd \Tutorials
+    ![hdi.dashboard.query.browse.output][]
 
-    預設 Azure Powershell 目錄是 *C:\\Windows\\System32\\WindowsPowerShell\\v1.0*。依預設，您沒有此資料夾的寫入權限。您必須將目錄變更為您有寫入權限的資料夾。
+## <a name="powerquery"></a>連接到 Microsoft 商業智慧工具
 
-3.  在下列命令中設定 3 個變數，然後執行這些命令：
+您可以使用適用於 Microsoft Excel 的 Power Query 增益集，將工作輸出從 HDInsight 匯入 Excel，然後使用 Excel 的 Microsoft 商業智慧 (BI) 工具來進一步分析結果。
 
-         $subscriptionName = "<SubscriptionName>"       
-        $storageAccountName = "<StorageAccountName>"   
-        $containerName = "<ContainerName>"               
+您必須安裝 Excel 2010 或 2013，才能完成這個部分的教學課程。
 
-    Azure 儲存體帳戶是您在教學課程稍早建立的帳戶。儲存體帳戶用來代管當做預設 HDInsight 叢集檔案系統的 Blob 容器。Blob 儲存容器名稱通常與 HDInsight 叢集同名，除非您在佈建叢集時指定不同的名稱。
+**下載 Microsoft Power Query for Excel**
 
-4.  執行下列命令來建立 Azure 儲存體內容物件：
-
-         # Create the storage account context object
-        Select-AzureSubscription $subscriptionName
-        $storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-        $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-
-    在您有多個訂閱，而且預設訂閱不是要使用的訂閱時，可使用 *Select-AzureSubscription* 設定目前的訂閱。
-
-5.  執行下列命令將 Blob 容器的 MapReduce 工作輸出下載至工作站：
-
-         # Download the job output to the workstation
-        Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
-
-    *example/data/WordCountOutput* 資料夾是您執行 MapReduce 工作時指定的輸出資料夾。*part-r-00000* 是 MapReduce 工作輸出的預設檔案名稱。檔案會以相同資料夾結構下載至本機資料夾。例如，在下列螢幕擷取畫面中，目前的資料夾是 C 根資料夾。檔案將下載到 *C:\\example\\data\\WordCountOutput\\* 資料夾。
-
-6.  執行下列命令來列印 MapReduce 工作輸出檔案：
-
-         cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
-
-    ![HDI.GettingStarted.MRJobOutput](./media/hdinsight-get-started-3.0/HDI.GettingStarted.MRJobOutput.png)
-
-    MapReduce 工作會產生一個名為 *part-r-00000* 的檔案，內有文字和字數。指令碼使用 findstr 命令列出包含 *"there"* 的所有文字。
-
-> [WACOM.NOTE] 如果您在 [記事本] 中開啟 MapReduce 工作的多行輸出 *./example/data/WordCountOutput/part-r-00000*，您將注意到一個未正確輸入的分行符號。這是預期行為。
-
-連接到 Microsoft 商業智慧工具
------------------------------
-
-Excel 的 Power Query 增益集可用來將 HDInsight 的輸出匯出到 Excel，以便使用 Microsoft 商業智慧 (BI) 工具進一步處理或顯示結果。先前建立 HDInsight 叢集時，已經建立與相關儲存體帳戶中建立的叢集相同名稱的預設容器。其中會自動填入一組檔案。其中一個檔案是範例 Hive 表格。在本節中，我們將顯示如何將此表格包含的資料匯入 Excel 進行檢視和其他處理。
-
-您必須安裝 Excel 2010 或 2013，才能完成這個部分的教學課程。在這裡，我們將匯入 HDInsight 提供的預設 Hive 表格。
-
-**下載 Microsoft PowerQuery for Excel**
-
--   從 [Microsoft 下載中心](http://www.microsoft.com/en-us/download/details.aspx?id=39379)下載並安裝 Microsoft Power Query for Excel。
+-   從 [Microsoft 下載中心][]下載並安裝 Microsoft Power Query for Microsoft Excel。
 
 **匯入 HDInsight 資料**
 
 1.  開啟 Excel，並建立新的空白活頁簿。
-2.  依序按一下 **[Power Query]** 功能表、**[From Other Sources]**、**[From Azure HDInsight]**。
+2.  依序按一下 [Power Query] 功能表、[From Other Sources]、[From Azure HDInsight]。
 
-    ![HDI.GettingStarted.PowerQuery.ImportData](./media/hdinsight-get-started-3.0/HDI.GettingStarted.PowerQuery.ImportData.png)
+    ![HDI.GettingStarted.PowerQuery.ImportData][]
 
-3.  輸入叢集相關 Azure Blob 儲存體帳戶的 **[帳戶名稱]**，然後按一下 **[確定]**。這是您在教學課程稍早建立的儲存體帳戶。
-4.  輸入 Azure Blob 儲存體帳戶的 **[帳戶金鑰]**，然後按一下 **[儲存]**。
+3.  輸入叢集相關 Azure Blob 儲存體帳戶的 [帳戶名稱]，然後按一下 [確定]。這是您在教學課程稍早建立的儲存體帳戶。
+4.  輸入 Azure Blob 儲存體帳戶的 [帳戶金鑰]，然後按一下 [儲存]。
 5.  在右邊的瀏覽器窗格中，按兩下 Blob 儲存體容器名稱。依預設，容器名稱與叢集名稱相同。
 
-6.  找出 **[名稱]** 欄中的 **part-r-00000** (路徑是 *.../example/data/WordCountOutput*)，然後按一下 **part-r-00000** 左邊的 **[二進位]**。
+6.  在 [名稱] 欄中找到 **stdout**。驗證對應 [資料夾路徑] 欄中的 GUID 是否符合您先前記下的 GUID。按一下 **stdout** 左邊的 [二進位]。
 
-    ![HDI.GettingStarted.PowerQuery.ImportData2](./media/hdinsight-get-started-3.0/HDI.GettingStarted.PowerQuery.ImportData2.png)
+    ![HDI.GettingStarted.PowerQuery.ImportData2][]
 
-7.  以滑鼠右鍵按一下 **[Column1.1]**，然後選取 **[重新命名]**。
-8.  將名稱變更為 **Word**。
-9.  重複這個程序，將 **Column1.2** 重新命名為 **Count**。
+7.  按一下左上角的 [Close & Load] 以將 Hive 工作輸出匯入 Excel。
 
-    ![HDI.GettingStarted.PowerQuery.ImportData3](./media/hdinsight-get-started-3.0/HDI.GettingStarted.PowerQuery.ImportData3.png)
-
-10. 按一下左上角的 **[Apply & Close]**。查詢隨即將 Hive 表格匯入 Excel。
-
-後續步驟
---------
+## <a name="nextsteps"></a>後續步驟
 
 在本教學課程中，您已經了解如何使用 HDInsight 佈建叢集、在其中執行 MapReduce 工作，並且將結果匯入 Excel，以便使用 BI 工具進行後續處理並以圖形顯示。若要深入了解，請參閱下列文章：
 
--   [開始使用 HDInsight](/en-us/documentation/articles/hdinsight-get-started/)
--   [開始使用 HDInsight Emulator](/en-us/documentation/articles/hdinsight-get-started-emulator/)
--   [在 HDInsight 上使用 Azure Blob 儲存體](/en-us/documentation/articles/hdinsight-use-blob-storage/)
--   [使用 PowerShell 管理 HDInsight](/en-us/documentation/articles/hdinsight-administer-use-powershell/)
--   [將資料上傳到 HDInsight](/en-us/documentation/articles/hdinsight-upload-data/)
--   [搭配 HDInsight 使用 Hive](/en-us/documentation/articles/hdinsight-use-hive/)
--   [搭配 HDInsight 使用 Pig](/en-us/documentation/articles/hdinsight-use-pig/)
--   [在 HDInsight 上使用 Oozie](/en-us/documentation/articles/hdinsight-use-oozie/)
--   [開發 HDInsight 的 C\# Hadoop 串流 MapReduce 程式](/en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
--   [開發 HDInsight 的 Java MapReduce 程式](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
+-   [開始使用 HDInsight Emulator][]
+-   [在 HDInsight 上使用 Azure Blob 儲存體][搭配 HDInsight 使用 Azure Blob 儲存體]
+-   [使用 PowerShell 管理 HDInsight][]
+-   [將資料上傳到 HDInsight][]
+-   [將 HDInsight 與 MapReduce 搭配使用][]
+-   [搭配 HDInsight 使用 Hive][]
+-   [搭配 HDInsight 使用 Pig][]
+-   [在 HDInsight 上使用 Oozie][]
+-   [開發 HDInsight 的 C# Hadoop 串流程式][]
+-   [開發 HDInsight 的 Java MapReduce 程式][]
 
+  [Hadoop 2.4]: ../hdinsight-get-started "開始使用 HDInsight 中的 Hadoop 2.4"
+  [Hadoop 2.2]: ../hdinsight-get-started-30 "開始使用 HDInsight 中的 Hadoop 2.2"
+  [Apache Hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
+  [MapReduce]: http://go.microsoft.com/fwlink/?LinkId=510086
+  [HDFS]: http://go.microsoft.com/fwlink/?LinkId=510087
+  [Hive]: http://go.microsoft.com/fwlink/?LinkId=510085
+  [開始使用 HDInsight Emulator]: ../hdinsight-get-started-emulator/
+  [在 HDInsight 上佈建 HBase 叢集]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [Hadoop 和 HBase 之間的差別？]: http://go.microsoft.com/fwlink/?LinkId=510237
+  [HDI.GetStartedFlow]: ./media/hdinsight-get-started/HDI.GetStartedFlow.png
+  [購買選項]: http://azure.microsoft.com/en-us/pricing/purchase-options/
+  [成員優惠]: http://azure.microsoft.com/en-us/pricing/member-offers/
+  [免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [建立 Azure 儲存體帳戶]: #storage
+  [佈建 HDInsight 叢集]: #provision
+  [執行 Hive 工作]: #sample
+  [連接到 Microsoft 商業智慧工具]: #powerquery
+  [後續步驟]: #nextsteps
+  [搭配 HDInsight 使用 Azure Blob 儲存體]: ../hdinsight-use-blob-storage/
+  [使用自訂選項佈建 HDInsight 叢集]: ../hdinsight-provision-clusters/
+  [Azure 管理入口網站]: https://manage.windowsazure.com/
+  [HDI.StorageAccount.QuickCreate]: ./media/hdinsight-get-started/HDI.StorageAccount.QuickCreate.png
+  [如何建立儲存體帳戶]: ../storage-create-storage-account/
+  [HDInsight 元件版本設定]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/
+  [HDI.ClusterStatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
+  [HDI.CustomCreateCluster]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.png
+  [HDI.CustomCreateCluster.ClusterUser]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.ClusterUser.png
+  [HDI.CustomCreateCluster.StorageAccount]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.StorageAccount.png
+  [HDI.CustomCreateCluster.AddOnStorage]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.AddOnStorage.png
+  [hdi.dashboard]: ./media/hdinsight-get-started/HDI.dashboard.png
+  [hdi.dashboard.query.select]: ./media/hdinsight-get-started/HDI.dashboard.query.select.png
+  [hdi.dashboard.query.select.result]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.png
+  [hdi.dashboard.query.select.result.output]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.output.png
+  [hdi.dashboard.query.browse.output]: ./media/hdinsight-get-started/HDI.dashboard.query.browse.output.png
+  [Microsoft 下載中心]: http://www.microsoft.com/en-us/download/details.aspx?id=39379
+  [HDI.GettingStarted.PowerQuery.ImportData]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
+  [HDI.GettingStarted.PowerQuery.ImportData2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
+  [使用 PowerShell 管理 HDInsight]: ../hdinsight-administer-use-powershell/
+  [將資料上傳到 HDInsight]: ../hdinsight-upload-data/
+  [將 HDInsight 與 MapReduce 搭配使用]: ../hdinsight-use-mapreduce
+  [搭配 HDInsight 使用 Hive]: ../hdinsight-use-hive/
+  [搭配 HDInsight 使用 Pig]: ../hdinsight-use-pig/
+  [在 HDInsight 上使用 Oozie]: ../hdinsight-use-oozie/
+  [開發 HDInsight 的 C# Hadoop 串流程式]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [開發 HDInsight 的 Java MapReduce 程式]: ../hdinsight-develop-deploy-java-mapreduce/

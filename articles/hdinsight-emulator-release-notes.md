@@ -1,13 +1,13 @@
-<properties linkid="hdinsight-emulator-release-notes" urlDisplayName="HDInsight Emulator release notes" pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Get late-breaking information about the most recent releases of the HDInsight Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Release notes: Microsoft HDInsight Emulator for Azure" authors="cgronlun" />
+<properties linkid="hdinsight-emulator-release-notes" urlDisplayName="HDInsight Emulator release notes" pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Release notes: Microsoft HDInsight Emulator for Azure" authors="cgronlun" />
 
-版本資訊：Microsoft HDInsight Emulator for Azure
-================================================
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cgronlun"></tags>
+
+# 版本資訊：Microsoft HDInsight Emulator for Azure
 
 > [WACOM.NOTE]
 > 要確認版本號碼，最簡單的方式是在 [新增/移除程式] 中查看 "Microsoft HDInsight Emulator for Azure" (1.0.0.0 或更新版本) 或 "Microsoft HDInsight Developer Preview" (1.0.0.0 之前的版本) 的項目。
 
-1.0.0.0 版，發行日期為 10/28/2013
----------------------------------
+## 1.0.0.0 版，發行日期為 2013 年 10 月 28 日
 
 -   這是 Microsoft HDInsight Emulator for Azure (先前稱為 Microsoft HDInsight Developer Preview) 的正式發行版 (GA)。
 
@@ -23,8 +23,7 @@
 
 -   此版本包含與 Azure HDInsight 叢集 1.6 版提供的 Hortonworks Data Platform 服務相符的 Hortonworks Data Platform 1.1 版的更新。
 
-0.11.0.0 版，發行日期為 09/30/2013
-----------------------------------
+## 0.11.0.0 版，發行日期為 2013 年 9 月 30 日
 
 ### 新功能
 
@@ -32,22 +31,19 @@
 
 -   此版本包含與 Azure HDInsight 上的 Hortonworks Data Platform Preview 相符的 Hortonworks Data Platform Developer Preview。
 
-0.10.0.0 版，發行日期為 08/9/2013
----------------------------------
+## 0.10.0.0 版，發行日期為 2013 年 8 月 9 日
 
 ### 新功能
 
 -   此版本包含與 Azure HDInsight 上的 Hortonworks Data Platform Preview 相符的 Hortonworks Data Platform Developer Preview。
 
-0.8.0.0 版，發行日期為 06/7/2013
---------------------------------
+## 0.8.0.0 版，發行日期為 2013 年 6 月 7 日
 
 ### 新功能
 
 -   此版本包含與 Azure HDInsight 上的 Hortonworks Data Platform Preview 相符的 Hortonworks Data Platform Developer Preview。
 
-0.6.0.0 版，發行日期為 05/13/2013
----------------------------------
+## 0.6.0.0 版，發行日期為 2013 年 5 月 13 日
 
 ### 新功能
 
@@ -55,8 +51,7 @@
 
 -   所有服務都會設為自動啟動，因此在機器重新開機後無須再手動啟動各項服務。
 
-0.4.0.0 版，發行日期為 03/25/2013
----------------------------------
+## 0.4.0.0 版，發行日期為 2013 年 3 月 25 日
 
 ### 新功能
 
@@ -68,9 +63,9 @@
 
 -   連接到多個叢集，包括本機安裝，以及使用 Azure HDInsight 服務從遠端執行的叢集。
 
--   如需 HDInsight 服務的詳細資訊，請參閱 http://www.windowsazure.com/zh-tw/manage/services/hdinsight。
+-   如需 HDInsight 服務的詳細資訊，請參閱 [][]<http://azure.microsoft.com/en-us/documentation/services/hdinsight/></a>。
 
--   設定本機叢集上的 ASV
+-   設定本機叢集上的 WASB
 
 -   請參閱下列詳細指示。
 
@@ -85,13 +80,13 @@
 -   對於相同的服務，可透過不同的連接埠號碼來存取本機 HDInsight 安裝和 Azure HDInsight 服務上的 REST API 端點：
 
     本機：
-    Oozie：http://localhost:11000/oozie/v1/admin/status 
-    Templeton：http://localhost:50111/templeton/v1/status 
+    Oozie：<http://localhost:11000/oozie/v1/admin/status>
+    Templeton：<http://localhost:50111/templeton/v1/status>
     ODBC：在 DSN 組態或連接字串中使用連接埠 10000。
 
-    HDInsight 服務： 
-    Oozie：http://ServerFQDN:563/oozie/v1/admin/status 
-    Templeton：http://ServerFQDN:563/templeton/v1/status 
+    HDInsight 服務：
+    Oozie：<http://ServerFQDN:563/oozie/v1/admin/status>
+    Templeton：<http://ServerFQDN:563/templeton/v1/status>
     ODBC：在 DSN 組態或連接字串中使用連接埠 563。
 
 -   設定本機叢集上的 ASV：
@@ -100,55 +95,52 @@
 
     1.  在位於 C:\\Hadoop\\hadoop-1.1.0-SNAPSHOT\\conf 中的 core-site.xml 內新增帳戶標籤：
 
-			<property>
-        		<name>fs.azure.account.key.{AccountName}</name>
-        		<value>{Key}</value>
-     		</property>
+            <property>
+                <name>fs.azure.account.key.{AccountName}</name>
+                <value>{Key}</value>
+            </property>
 
-			<property>
-        		<name>fs.default.name</name>
-       			<!-- cluster variant -->
-       	 		<value>asv://ASVContainerName@ASVAccountName</value>
-        		<description> 預設檔案系統的名稱。文字字串 "local" 或 NDFS 的 host:port 為</description>
-        		<final>true</final>
-      		</property>
+            <property>
+                <name>fs.default.name</name>
+                <!-- cluster variant -->
+                <value>asv://ASVContainerName@ASVAccountName</value>
+                <description>The name of the default file system.  Either the literal string "local" or a host:port for NDFS.</description>
+                <final>true</final>
+            </property>
 
-     		<property>
-        		<name>dfs.namenode.rpc-address</name>
-        		<value>hdfs://localhost:8020</value>
-        		<description>A base for other temporary directories.</description>
-      		</property>
+            <property>
+                <name>dfs.namenode.rpc-address</name>
+                <value>hdfs://localhost:8020</value>
+                <description>A base for other temporary directories.</description>
+            </property>
 
+        範例：
 
+            <property>
+                <name>fs.azure.account.key.MyHadoopOnAzureAccountName</name>
+                <value>8T45df897/a5fSox1yMjYkX66CriiGgA5zptSXpPdG4o1Qw2mnbbWQN1E9i/i7kihk6FWNhvLlqe02NXEVw6rP==</value>
+            </property>
 
-        範例：       
+            <property>
+                <name>fs.default.name</name>
+                <!-- cluster variant -->
+                <value>asv://MyASVContainer@MyASVAccount</value>
+                <description>The name of the default file system.  Either the literal string "local" or a host:port for NDFS.</description>
+                <final>true</final>
+            </property>
 
-			<property>
-    			<name>fs.azure.account.key.MyHadoopOnAzureAccountName</name>
-				<value>8T45df897/a5fSox1yMjYkX66CriiGgA5zptSXpPdG4o1Qw2mnbbWQN1E9i/i7kihk6FWNhvLlqe02NXEVw6rP==</value>
-    		</property>
+    2.  在桌面上以提高權限的模式開啟 Hadoop 命令 Shell，並執行下列命令：
 
-			<property>
-				<name>fs.default.name</name>
-				<!-- cluster variant -->
-				<value>asv://MyASVContainer@MyASVAccount</value>
-				<description>The name of the default file system.  Either the literal string "local" or a host:port for NDFS.</description>
-				<final>true</final>
-			</property>
+            %HADOOP_NODE%\stop-onebox.cmd && %HADOOP_NODE%\start-onebox.cmd
 
-    1.  在桌面上以提高權限的模式開啟 Hadoop 命令 Shell，並執行下列命令：
+    3.  使用完整 URI 存取該帳戶的任何檔案：asv://{container}@{account}/{path][] (或 asvs://，如果您要使用 HTTPS 來存取資料)。範例：
 
-	 		%HADOOP\_NODE%\\stop-onebox.cmd && %HADOOP\_NODE%\\start-onebox.cmd
+            hadoop fs -lsr 
+            asvs://MyHadoopOnAzureContainerName@MyHadoopOnAzureAccountName/example/data/
 
-    1.  使用完整 URI 存取該帳戶的任何檔案：asv://{container}@{account}/{path} (or asvs:// if you want to use HTTPS for accessing the data).範例：
+    4.  刪除目前註冊的本機叢集，然後以新的 ASV 認證加以重新註冊。
 
-	 		hadoop fs -lsr
-			asvs://MyHadoopOnAzureContainerName@MyHadoopOnAzureAccountName/example/data/
-
-    1.  刪除目前註冊的本機叢集，然後以新的 ASV 認證加以重新註冊。
-
-0.3.0.0 版，發行日期為 12/13/2012
----------------------------------
+## 0.3.0.0 版，發行日期為 2012 年 12 月 13 日
 
 -   儀表板網站已變更為匿名驗證，而不使用 Windows 認證。如此，就不會有舊版的版本資訊中提及的登入提示問題。
 
@@ -159,19 +151,18 @@
 -   JavaScript 主控台無法載入，請參閱 0.2.0.0 版的版本資訊，以取得詳細資訊。
 -   Sqoop 命令列會顯示下列警告。這些警告將在日後的更新中修正，您可以將其忽略。
 
-          c:\Hadoop\sqoop-1.4.2\bin>sqoop version 
+        c:\Hadoop\sqoop-1.4.2\bin>sqoop version 
         Setting HBASE_HOME to 
-        Warning:HBASE_HOME [c:\hadoop\hadoop-1.1.0-SNAPSHOT\hbase-0.94.2] does not exist HBase imports will fail. 
+        Warning: HBASE_HOME [c:\hadoop\hadoop-1.1.0-SNAPSHOT\hbase-0.94.2] does not exist HBase imports will fail. 
         Please set HBASE_HOME to the root of your HBase installation. 
         Setting ZOOKEEPER_HOME to 
-        Warning:ZOOKEEPER_HOME [c:\hadoop\hadoop-1.1.0-SNAPSHOT\zookeeper-3.4.3] does not exist 
+        Warning: ZOOKEEPER_HOME [c:\hadoop\hadoop-1.1.0-SNAPSHOT\zookeeper-3.4.3] does not exist 
         Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation. 
         Sqoop 1.4.2 
         git commit id 3befda0a456124684768348bd652b0542b002895 
         Compiled by  on Thu 11/29/2012- 3:26:26.10
 
-0.2.0.0 版，發行日期為 12/3/2012
---------------------------------
+## 0.2.0.0 版，發行日期為 2012 年 12 月 3 日
 
 -   MSI 的語法版本簡介
 
@@ -192,8 +183,7 @@
 
     -   有使用者回報在瀏覽至 HDInsight 儀表板時會引發登入對話方塊。此時，您可以提供現行使用者的登入資訊，如此即應可瀏覽至儀表板。
 
-1.0.0.0 版，發行日期為 2012 年 10 月 23 日
-------------------------------------------
+## 1.0.0.0 版，發行日期為 2012 年 10 月 23 日
 
 -   初始版本
 
@@ -203,32 +193,31 @@
 
     -   如果提交的 Hive 命令中包含新行字元，則會出現「語法錯誤」。請移除新行字元，如此查詢即應可正常執行。
 
-一般已知問題
-------------
+## 一般已知問題
 
 -   Hadoop 使用者密碼過期
 
     Hadoop 使用者的密碼有可能會過期，視您推送至機器的 AD 原則而定。下列 PowerShell 指令碼會將密碼設為不會過期，此指令碼可從管理命令提示字元執行。
 
-          $username = "hadoop"
+        $username = "hadoop"
         $ADS_UF_DONT_EXPIRE_PASSWD = 0x10000 # (65536, from ADS_USER_FLAG_ENUM enumeration)
 
         $computer = [ADSI]("WinNT://$ENV:COMPUTERNAME,computer")
         $users = $computer.psbase.children | where { $_.psbase.schemaclassname -eq "User" }
 
         foreach($user in $users)
-          {
-        if($user.Name -eq $username)
-              {
-        $user.UserFlags = $ADS_UF_DONT_EXPIRE_PASSWD
+        {
+            if($user.Name -eq $username)
+            {
+                $user.UserFlags = $ADS_UF_DONT_EXPIRE_PASSWD
                 $user.SetInfo()
-         
+
                 $user.PasswordExpired = 0
                 $user.SetInfo()
-         
+
                 Write-Host "$username user maintenance completed. "
-              }
-          }
+            }
+        }
 
 -   Temp 目錄
 
@@ -248,12 +237,14 @@
 
     -   若要以該使用者的身分輕鬆建立 Shell，請開啟 Hadoop 命令提示字元，並執行下列程式碼：
 
-	 		start-hadoopadminshell
+            start-hadoopadminshell
 
     -   這將會開啟以 Hadoop 系統管理員權限執行的新命令 Shell
 
-後續步驟
---------
+## <a name="nextsteps"></a>後續步驟
 
--   [開始使用 HDInsight Emulator](/en-us/documentation/articles/hdinsight-get-started-emulator/)
+-   [開始使用 HDInsight Emulator][]
 
+  []: http://azure.microsoft.com/en-us/documentation/services/hdinsight/
+  [//{container}@{account}/{path]: mailto://{container}@{account}/{path
+  [開始使用 HDInsight Emulator]: ../hdinsight-get-started-emulator/

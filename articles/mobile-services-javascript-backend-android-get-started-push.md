@@ -3,11 +3,11 @@
 開始在行動服務中使用推播通知
 ============================
 
-[Windows 市集 C\#](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows 市集 C#") [Windows 市集 JavaScript](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows 市集 JavaScript") [Windows Phone](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone") [iOS](/en-us/documentation/articles/mobile-services-ios-get-started-push "iOS") [Android](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android")
+[Windows 市集 C\#](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows 市集 C#") [Windows 市集 JavaScript](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows 市集 JavaScript") [Windows Phone](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone") [iOS](/zh-tw/documentation/articles/mobile-services-ios-get-started-push "iOS") [Android](/zh-tw/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android")
 
 本主題說明如何使用 Azure 行動服務傳送推播通知至 Android 應用程式。在本教學課程中，您會使用 Google 雲端通訊 (GCM) 將推播通知新增至快速入門專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
-[WACOM.NOTE]本教學課程將示範如何整合行動服務與通知中心，目前這是預覽版中的功能。依預設不會啟用從 JavaScript 後端使用通知中心傳送推播通知的功能。新的通知中心一旦建立後，整合程序將無法回復。目前，iOS 的推播通知只能透過[此版本的主題](/en-us/documentation/articles/mobile-services-android-get-started-push/)所說明的預設推播支援來使用。
+[WACOM.NOTE]本教學課程將示範如何整合行動服務與通知中心，目前這是預覽版中的功能。依預設不會啟用從 JavaScript 後端使用通知中心傳送推播通知的功能。新的通知中心一旦建立後，整合程序將無法回復。目前，iOS 的推播通知只能透過[此版本的主題](/zh-tw/documentation/articles/mobile-services-android-get-started-push/)所說明的預設推播支援來使用。
 
 本教學課程會逐步引導您完成啟用推播通知的基本步驟：
 

@@ -3,9 +3,9 @@
 使用 .Net 後端在行動服務中驗證與修改資料
 ========================================
 
-[Windows 市集 C\#](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "Windows 市集 C#") [Windows 市集 JavaScript](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "Windows 市集 JavaScript") [Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Windows Phone") [iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS") [Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android") [HTML](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS") [Xamarin.Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")
+[Windows 市集 C\#](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "Windows 市集 C#") [Windows 市集 JavaScript](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "Windows 市集 JavaScript") [Windows Phone](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Windows Phone") [iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS") [Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android") [HTML](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS") [Xamarin.Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")
 
-[.NET 後端](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ ".NET 後端") | [JavaScript 後端](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "JavaScript 後端")
+[.NET 後端](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ ".NET 後端") | [JavaScript 後端](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "JavaScript 後端")
 
 本主題將說明如何在您的 .Net 後端 Windows Azure 行動服務中使用程式碼，對資料進行驗證和修改。.Net 後端服務是使用 Web API 架構建置的 HTTP 服務。如果您熟悉以 Web API 架構定義的 `ApiController` 類別，您將會覺得行動服務所提供的 `TableController` 類別非常直接易懂。`TableController` 衍生自 `ApiController` 類別，可提供用來處理資料庫資料表的附加功能。它可用來對要插入和更新的資料執行作業，包括本教學課程中示範的驗證和資料修改。
 
@@ -17,7 +17,7 @@
 4.  [新增 CompleteDate 的時間戳記](#add-timestamp)
 5.  [更新用戶端以顯示 CompleteDate](#update-client-timestamp)
 
-本教學課程會以先前的教學課程[開始使用](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/)或[開始使用資料](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須先完成[開始使用](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/)或[開始使用資料](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)教學課程。
+本教學課程會以先前的教學課程[開始使用](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/)或[開始使用資料](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須先完成[開始使用](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/)或[開始使用資料](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)教學課程。
 
 新增驗證
 --------
@@ -152,10 +152,10 @@
 
 您也可以在授權使用者及傳送推播通知時使用伺服器指令碼。如需詳細資訊，請參閱下列教學課程：
 
--   [使用者的服務端授權](en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/)
+-   [使用者的服務端授權](zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/)
     了解如何根據已驗證的使用者 ID 來篩選資料。
 
--   [開始使用推播通知](en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/)
+-   [開始使用推播通知](zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/)
     了解如何將極為基本的推播通知傳送到應用程式。
 
 -   [行動服務 .NET 作法概念性參考](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)

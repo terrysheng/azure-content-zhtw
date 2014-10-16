@@ -198,7 +198,7 @@ Marlin 是 REST API 上方的一個薄層，用以處理在 C# 中使用 ProtoBu
   [購買選項]: http://azure.microsoft.com/en-us/pricing/purchase-options/
   [成員優惠]: http://azure.microsoft.com/en-us/pricing/member-offers/
   [免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
-  [如何建立儲存體帳戶]: http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
+  [如何建立儲存體帳戶]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-create-storage-account/
   [在 Azure 入口網站中佈建 HBase 叢集]: #create-hbase-cluster
   [從 HBase Shell 建立 HBase 範例資料表]: #create-sample-table
   [使用 Hive 查詢 HBase 資料表]: #hive-query

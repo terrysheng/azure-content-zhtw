@@ -304,7 +304,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
   [Storage Client Library for .NET 參考資料]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API 參考資料]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
   [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [開始使用 Azure WebJobs SDK]: /en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
-  [資料表儲存體]: /en-us/documentation/articles/storage-dotnet-how-to-use-tables/
-  [佇列儲存體]: /en-us/documentation/articles/storage-dotnet-how-to-use-queues/
-  [SQL Database]: /en-us/documentation/articles/sql-database-dotnet-how-to-use/
+  [開始使用 Azure WebJobs SDK]: /zh-tw/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
+  [資料表儲存體]: /zh-tw/documentation/articles/storage-dotnet-how-to-use-tables/
+  [佇列儲存體]: /zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/
+  [SQL Database]: /zh-tw/documentation/articles/sql-database-dotnet-how-to-use/

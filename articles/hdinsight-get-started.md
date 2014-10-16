@@ -210,7 +210,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
   [Hive]: http://go.microsoft.com/fwlink/?LinkId=510085
   [HDInsight 中 Hadoop 的簡介]: ../hdinsight-introduction/
   [開始使用 HDInsight Emulator]: ../hdinsight-get-started-emulator/
-  [在 HDInsight 上佈建 HBase 叢集]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [在 HDInsight 上佈建 HBase 叢集]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hbase-get-started/
   [Hadoop 和 HBase 之間的差別？]: http://go.microsoft.com/fwlink/?LinkId=510237
   [HDI.GetStartedFlow]: ./media/hdinsight-get-started/HDI.GetStartedFlow.png
   [購買選項]: http://azure.microsoft.com/en-us/pricing/purchase-options/
@@ -226,7 +226,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [HDI.StorageAccount.QuickCreate]: ./media/hdinsight-get-started/HDI.StorageAccount.QuickCreate.png
   [如何建立儲存體帳戶]: ../storage-create-storage-account/
-  [HDInsight 元件版本設定]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/
+  [HDInsight 元件版本設定]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-component-versioning/
   [HDI.ClusterStatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
   [HDI.QuickCreateCluster]: ./media/hdinsight-get-started/HDI.QuickCreateCluster.png
   [HDInsight 所提供叢集版本的新功能]: ../hdinsight-component-versioning/

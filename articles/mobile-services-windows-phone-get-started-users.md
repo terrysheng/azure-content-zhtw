@@ -3,9 +3,9 @@
 開始使用行動服務中的驗證
 ========================
 
-[Windows 市集 C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "Windows 市集 C#")[Windows 市集 JavaScript](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users "Windows 市集 JavaScript")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started-users "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-ios-get-started-users "iOS")[Android](/en-us/documentation/articles/mobile-services-android-get-started-users "Android")[HTML](/en-us/documentation/articles/mobile-services-html-get-started-users "HTML")[Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users "Xamarin.iOS")[Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-users "Xamarin.Android")
+[Windows 市集 C\#](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "Windows 市集 C#")[Windows 市集 JavaScript](/zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-users "Windows 市集 JavaScript")[Windows Phone](/zh-tw/documentation/articles/mobile-services-windows-phone-get-started-users "Windows Phone")[iOS](/zh-tw/documentation/articles/mobile-services-ios-get-started-users "iOS")[Android](/zh-tw/documentation/articles/mobile-services-android-get-started-users "Android")[HTML](/zh-tw/documentation/articles/mobile-services-html-get-started-users "HTML")[Xamarin.iOS](/zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started-users "Xamarin.iOS")[Xamarin.Android](/zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started-users "Xamarin.Android")
 
-[.NET 後端](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/ ".NET 後端") | [JavaScript 後端](/en-us/documentation/articles/mobile-services-windows-phone-get-started-users/ "JavaScript 後端")
+[.NET 後端](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/ ".NET 後端") | [JavaScript 後端](/zh-tw/documentation/articles/mobile-services-windows-phone-get-started-users/ "JavaScript 後端")
 
 本主題說明如何從您的應用程式在 Azure 行動服務中驗證使用者。在本教學課程中，您會使用行動服務所支援的身份識別提供者將驗證新增至快速入門專案。使用者 ID 值在成功經過行動服務的驗證和授權後，就會顯示出來。
 
@@ -40,7 +40,7 @@
 -   [Facebook 登入](/en-us/develop/mobile/how-to-guides/register-for-facebook-authentication/)
 -   [Twitter 登入](/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/)
 -   [Google 登入](/en-us/develop/mobile/how-to-guides/register-for-google-authentication/)
--   [Azure Active Directory](/en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
+-   [Azure Active Directory](/zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
 
     請務必記下提供者所產生的用戶端身分識別與密鑰值。
 

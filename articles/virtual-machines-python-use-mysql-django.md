@@ -3,7 +3,7 @@
 Django Hello World - MySQL Windows 版本
 =======================================
 
-本教學課程說明如何在單一 Azure 虛擬機器上搭配 Django 使用 MySQL。本指南假設您過去有使用 Azure 及 Django 的一些經驗。關於 Azure 及 Django 的簡介，請參閱[現代化商務的雲端](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server)。本指南也假設您擁有一些關於 MySQL 的知識。如需 MySQL 的概觀，請參閱 [MySQL 網站](http://dev.mysql.com/doc/) (英文)。
+本教學課程說明如何在單一 Azure 虛擬機器上搭配 Django 使用 MySQL。本指南假設您過去有使用 Azure 及 Django 的一些經驗。關於 Azure 及 Django 的簡介，請參閱[現代化商務的雲端](http://windowsazure.com/zh-tw/documentation/articles/virtual-machines-python-django-web-app-windows-server)。本指南也假設您擁有一些關於 MySQL 的知識。如需 MySQL 的概觀，請參閱 [MySQL 網站](http://dev.mysql.com/doc/) (英文)。
 
 在本教學課程中，您將了解如何：
 
@@ -13,7 +13,7 @@ Django Hello World - MySQL Windows 版本
 -   直接從 Python 使用 MySQL。
 -   代管並執行 MySQL Django 應用程式。
 
-您將使用 Azure VM 中代管的 MySQL 找到 *World* 的替代，擴展 [Django Hello World](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server) 範例。接著透過 MySQL 支援的 Django *counter* 應用程式決定替代。與 Hello World 範例一樣，Azure 虛擬機器將再次代管這個 Django 應用程式。
+您將使用 Azure VM 中代管的 MySQL 找到 *World* 的替代，擴展 [Django Hello World](http://windowsazure.com/zh-tw/documentation/articles/virtual-machines-python-django-web-app-windows-server) 範例。接著透過 MySQL 支援的 Django *counter* 應用程式決定替代。與 Hello World 範例一樣，Azure 虛擬機器將再次代管這個 Django 應用程式。
 
 這個教學課程的專案檔案將儲存於 **C:\\django\\helloworld** 中，完成的應用程式將如下所示：
 
@@ -84,7 +84,7 @@ Django Hello World - MySQL Windows 版本
 擴展 Django Hello World 應用程式
 --------------------------------
 
-1.  按照 [Django Hello World](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server) 教學課程中提供的指示，在 Django 中建立一個不起眼的「Hello World」Web 應用程式。
+1.  按照 [Django Hello World](http://windowsazure.com/zh-tw/documentation/articles/virtual-machines-python-django-web-app-windows-server) 教學課程中提供的指示，在 Django 中建立一個不起眼的「Hello World」Web 應用程式。
 
 2.  在您慣用的文字編輯器中開啟 **C:\\django\\helloworld\\helloworld\\settings.py**。修改 **DATABASES** 全域字典讀取：
 

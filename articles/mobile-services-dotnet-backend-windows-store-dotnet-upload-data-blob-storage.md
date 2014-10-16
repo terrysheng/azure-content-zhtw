@@ -4,9 +4,9 @@
 
 # 使用行動服務將影像上傳到 Azure 儲存體
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title="Windows 市集 C#" class="current">Windows 市集 C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" title="Windows Phone">Windows Phone</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title="Windows 市集 C#" class="current">Windows 市集 C#</a><a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" title="Windows Phone">Windows Phone</a></div>
 
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title=".NET 後端" class="current">.NET 後端</a> | <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage"  title="JavaScript 後端">JavaScript 後端</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title=".NET 後端" class="current">.NET 後端</a> | <a href="/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage"  title="JavaScript 後端">JavaScript 後端</a></div>
 
 本主題說明如何使用 Azure 行動服務，讓您的應用程式能在 Azure 儲存體中上傳和存放使用者產生的影像。行動服務會使用 SQL Database 儲存資料。不過在 Azure Blob 儲存體服務中，二進位大型物件 (BLOB) 資料的儲存比較有效。
 
@@ -49,18 +49,18 @@
 
 
 
-  [Windows 市集 C\#]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "Windows 市集 C#"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage "Windows Phone"
-  [.NET 後端]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage ".NET 後端"
-  [JavaScript 後端]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "JavaScript 後端"
+  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "Windows 市集 C#"
+  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage "Windows Phone"
+  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage ".NET 後端"
+  [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "JavaScript 後端"
   [安裝儲存體用戶端程式庫]: #install-storage-client
   [更新用戶端應用程式以擷取影像]: #add-select-images
   [在行動服務專案中安裝儲存體用戶端]: #storage-client-server
   [更新資料模型中的 TodoItem 定義]: #update-data-model
   [更新資料表控制器以產生 SAS]: #update-scripts
   [上傳影像以測試應用程式]: #test
-  [Azure 儲存體帳戶]: /en-us/documentation/articles/storage-create-storage-account/
-  [開始使用行動服務]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started
+  [Azure 儲存體帳戶]: /zh-tw/documentation/articles/storage-create-storage-account/
+  [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started
   [mobile-services-dotnet-backend-configure-blob-storage]: ../includes/mobile-services-dotnet-backend-configure-blob-storage.md
   []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
   [mobile-services-windows-store-dotnet-upload-to-blob-storage]: ../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md

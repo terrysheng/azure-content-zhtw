@@ -254,5 +254,5 @@
   [在 Visual Studio 中疑難排解 Azure 網站]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 應用程式部署至 Azure 網站]: /en-us/develop/net/tutorials/web-site-with-sql-database/
   [Azure 執行模型]: /en-us/develop/net/fundamentals/compute/
-  [Azure 網站、雲端服務與虛擬機器之比較]: http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/
+  [Azure 網站、雲端服務與虛擬機器之比較]: http://azure.microsoft.com/zh-tw/documentation/articles/choose-web-site-cloud-service-vm/
   [使用儲存體資料表、佇列和 Blob 的 .NET 多層式應用程式]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/

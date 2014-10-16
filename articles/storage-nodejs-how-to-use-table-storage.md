@@ -418,10 +418,10 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [作法：使用共用存取簽章]: #sas
   [howto-table-storage]: ../includes/howto-table-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [建立 Node.js 應用程式並將其部署到 Azure 網站]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [Node.js 雲端服務]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [使用 WebMatrix 的網站]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [使用儲存體的 Node.js Web 應用程式]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [建立 Node.js 應用程式並將其部署到 Azure 網站]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Node.js 雲端服務]: /zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [使用 WebMatrix 的網站]: /zh-tw/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [使用儲存體的 Node.js Web 應用程式]: /zh-tw/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [了解表格服務資料模型]: http://msdn.microsoft.com/library/azure/dd179338.aspx
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
   [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

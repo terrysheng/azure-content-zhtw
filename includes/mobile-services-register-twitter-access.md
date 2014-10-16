@@ -2,7 +2,7 @@
 
 新的 Twitter v1.1 API 會要求您的應用程式先進行驗證再存取資源。首先，您需要使用 OAuth 2.0 取得所需的認證以要求存取權。接著針對您的行動服務，將它們安全地儲存在應用程式設定中。
 
-1.  如果尚未執行此操作，請完成[在行動服務中註冊您的應用程式以進行 Twitter 登入](/en-us/documentation/articles/mobile-services-how-to-register-twitter-authentication/)主題中的步驟。
+1.  如果尚未執行此操作，請完成[在行動服務中註冊您的應用程式以進行 Twitter 登入](/zh-tw/documentation/articles/mobile-services-how-to-register-twitter-authentication/)主題中的步驟。
 
 	Twitter 會產生需要的認證，讓您可以存取 Twitter v1.1 API。您可以從 Twitter Developers 網站取得這些認證。
 

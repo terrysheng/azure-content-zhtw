@@ -4,7 +4,7 @@
 
 # 建立執行 Windows Server 的虛擬機器
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial/" title="Azure 入口網站" class="current">Azure 入口網站</a><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure 預覽入口網站">Azure 預覽入口網站</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/virtual-machines-windows-tutorial/" title="Azure 入口網站" class="current">Azure 入口網站</a><a href="/zh-tw/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure 預覽入口網站">Azure 預覽入口網站</a></div>
 
 本教學課程說明如何使用 Azure 管理入口網站中的映像庫輕鬆建立執行 Windows Server 的 Azure 虛擬機器 (VM)。映像庫提供多種映像，包括 Windows 作業系統、Linux 架構的作業系統和應用程式映像。
 
@@ -102,8 +102,8 @@
 
 [管理虛擬機器的可用性][]
 
-  [Azure 入口網站]: /en-us/documentation/articles/virtual-machines-windows-tutorial/ "Azure 入口網站"
-  [Azure 預覽入口網站]: /en-us/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Azure 預覽入口網站"
+  [Azure 入口網站]: /zh-tw/documentation/articles/virtual-machines-windows-tutorial/ "Azure 入口網站"
+  [Azure 預覽入口網站]: /zh-tw/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Azure 預覽入口網站"
   [建立 Azure 帳戶]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
   [如何建立虛擬機器]: #createvirtualmachine
   [如何在建立虛擬機器之後登入]: #logon
@@ -112,7 +112,7 @@
   [1]: https://portal.azure.com
   [virtual-machines-create-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
   [virtual-machines-log-on-win-server]: ../includes/virtual-machines-log-on-win-server.md
-  [連接資料磁碟教學課程]: http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/
+  [連接資料磁碟教學課程]: http://www.windowsazure.com/zh-tw/documentation/articles/storage-windows-attach-disk/
   [管理入口網站]: http://manage.windowsazure.com
   [Select MyTestVM]: ./media/virtual-machines-windows-tutorial/selectvm.png
   [Select Dashboard]: ./media/virtual-machines-windows-tutorial/dashboard.png
@@ -125,6 +125,6 @@
   [Continue initialization]: ./media/virtual-machines-windows-tutorial/yesinitialize.png
   [建立磁碟區]: ./media/virtual-machines-windows-tutorial/initializediskvolume.png
   [3]: ./media/virtual-machines-windows-tutorial/newvolumecreated.png
-  [如何連接至雲端服務中的虛擬機器]: http://www.windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/
-  [如何建立和上傳包含 Windows Server 作業系統的個人虛擬硬碟]: http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
-  [管理虛擬機器的可用性]: http://www.windowsazure.com/en-us/documentation/articles/manage-availability-virtual-machines/
+  [如何連接至雲端服務中的虛擬機器]: http://www.windowsazure.com/zh-tw/documentation/articles/cloud-services-connect-virtual-machine/
+  [如何建立和上傳包含 Windows Server 作業系統的個人虛擬硬碟]: http://www.windowsazure.com/zh-tw/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
+  [管理虛擬機器的可用性]: http://www.windowsazure.com/zh-tw/documentation/articles/manage-availability-virtual-machines/

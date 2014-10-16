@@ -3,13 +3,13 @@
 行動服務使用者的伺服器端授權
 ============================
 
-[Windows 市集 C\#](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts "Windows 市集 C#")[Windows 市集 JavaScript](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts "Windows 市集 JavaScript")[Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts "iOS")
+[Windows 市集 C\#](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts "Windows 市集 C#")[Windows 市集 JavaScript](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts "Windows 市集 JavaScript")[Windows Phone](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts "Windows Phone")[iOS](/zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts "iOS")
 
-[.NET 後端](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/ ".NET 後端") | [JavaScript 後端](/en-us/documentation/articles/mobile-services-ios-authorize-users-in-scripts/ "JavaScript 後端")
+[.NET 後端](/zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/ ".NET 後端") | [JavaScript 後端](/zh-tw/documentation/articles/mobile-services-ios-authorize-users-in-scripts/ "JavaScript 後端")
 
 本主題說明如何為已驗證的使用者授權，從 iOS 應用程式存取 Azure 行動服務中的資料。在本教學課程中，您會將程式碼新增至控制器中的資料存取方法，而根據經驗證使用者的 userId 篩選查詢，確保每位使用者只能看到他們自己的資料。
 
-本教學課程會以行動服務快速入門為基礎，並依據上一個[開始使用驗證](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users)教學課程建立。開始此教學課程之前，您必須先完成[開始使用驗證](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users)。
+本教學課程會以行動服務快速入門為基礎，並依據上一個[開始使用驗證](/zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users)教學課程建立。開始此教學課程之前，您必須先完成[開始使用驗證](/zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users)。
 
 修改資料存取方法
 ----------------
@@ -19,7 +19,7 @@
 測試應用程式
 ------------
 
-1.  在 Xcode 中，開啟您完成教學課程[開始使用驗證](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users)時所修改的專案。
+1.  在 Xcode 中，開啟您完成教學課程[開始使用驗證](/zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users)時所修改的專案。
 
 2.  按 **[執行]** 按鈕以建置專案，並在 iPhone 模擬器中啟動應用程式，然後使用您選擇的身分識別提供者進行登入。
 
@@ -45,9 +45,9 @@
 [3]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
+[Get started with Mobile Services]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started
+[Get started with data]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
+[Get started with authentication]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
+[Get started with push notifications]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
 
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+[Mobile Services .NET How-to Conceptual Reference]: /zh-tw/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/

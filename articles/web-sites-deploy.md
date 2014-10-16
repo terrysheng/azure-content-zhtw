@@ -39,7 +39,7 @@
 如需詳細資訊，請參閱下列資源：
 
 -   [連續傳遞至 Azure](http://www.visualstudio.com/en-us/learn/continuous-delivery-in-vs)。這是逐步解說的教學課程，說明如何使用 TFVC 設定 VSO 對 Azure 網站的連續傳遞。TFVC 是 VSO 中的集中式原始檔控制選項，相對於作為分散式原始檔控制選項的 Git。
--   [使用 Visual Studio Online 連續傳遞至 Azure](/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso/)。說明如何註冊 VSO、將專案簽入至原始檔控制，並加以設定以對 Azure 進行連續傳遞 (自動部署)。這雖然是針對雲端服務而撰寫的，但在 Visual Studio Online 中設定部署的程序大多與網站的設定程序類似。
+-   [使用 Visual Studio Online 連續傳遞至 Azure](/zh-tw/documentation/articles/cloud-services-continuous-delivery-use-vso/)。說明如何註冊 VSO、將專案簽入至原始檔控制，並加以設定以對 Azure 進行連續傳遞 (自動部署)。這雖然是針對雲端服務而撰寫的，但在 Visual Studio Online 中設定部署的程序大多與網站的設定程序類似。
 
 ### 使用 Git 的儲存機制網站
 
@@ -47,7 +47,7 @@
 
 如需詳細資訊，請參閱下列資源：
 
--   [從原始檔控制發佈至 Azure 網站](/en-us/documentation/articles/web-sites-publish-source-control/)。說明如何使用 Git 從本機電腦直接發佈至 Azure 網站 (在 Azure 中，這個發佈方法稱為「本機 Git」)。此外也說明如何為 Git 儲存機制啟用從 GitHub、CodePlex 或 BitBucket 的連續部署。
+-   [從原始檔控制發佈至 Azure 網站](/zh-tw/documentation/articles/web-sites-publish-source-control/)。說明如何使用 Git 從本機電腦直接發佈至 Azure 網站 (在 Azure 中，這個發佈方法稱為「本機 Git」)。此外也說明如何為 Git 儲存機制啟用從 GitHub、CodePlex 或 BitBucket 的連續部署。
 -   [Git、Mercurial 和 DropBox 的 Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit)。
 
 ### 使用 Mercurial 的儲存機制網站
@@ -56,7 +56,7 @@
 
 如需如何使用 Mercurial 進行部署的相關資訊，請參閱下列資源：
 
--   [從原始檔控制發佈至 Azure 網站](/en-us/documentation/articles/web-sites-publish-source-control/)。此教學課程說明的是發佈 Git 儲存機制的方式，但在 CodePlex 或 BitBucket 中受到代管的 Mercurial 儲存機制其實也採用類似的程序。
+-   [從原始檔控制發佈至 Azure 網站](/zh-tw/documentation/articles/web-sites-publish-source-control/)。此教學課程說明的是發佈 Git 儲存機制的方式，但在 CodePlex 或 BitBucket 中受到代管的 Mercurial 儲存機制其實也採用類似的程序。
 -   [Git、Mercurial 和 DropBox 的 Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit)。
 
 ### DropBox
@@ -102,7 +102,7 @@ WebMatrix 可快速安裝，且易於了解，但 Visual Studio 可用來處理 
 
 如需詳細資訊，請參閱下列資源：
 
--   [建立 PHP-MySQL Azure 網站並使用 FTP 部署](/en-us/documentation/articles/web-sites-php-mysql-deploy-use-ftp/)。
+-   [建立 PHP-MySQL Azure 網站並使用 FTP 部署](/zh-tw/documentation/articles/web-sites-php-mysql-deploy-use-ftp/)。
 -   [如何管理網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-manage/)。包含 PHP 教學課程未納入、與 FTP 認證的設定方式有關的其他資訊。請查看頁面底部的註解，以了解文件本身缺少哪些與認證取得方式有關的資訊。
 
 從內部部署原始檔控制系統部署
@@ -124,7 +124,7 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 
 如需詳細資訊，請參閱下列資源：
 
--   [從原始檔控制發佈至 Azure 網站](/en-us/documentation/articles/web-sites-publish-source-control/)。說明如何使用 Git 從本機電腦直接發佈至 Azure 網站 (在 Azure 中，這個發佈方法稱為「本機 Git」)。此外也說明如何為 Git 儲存機制啟用從 GitHub、CodePlex 或 BitBucket 的連續部署。
+-   [從原始檔控制發佈至 Azure 網站](/zh-tw/documentation/articles/web-sites-publish-source-control/)。說明如何使用 Git 從本機電腦直接發佈至 Azure 網站 (在 Azure 中，這個發佈方法稱為「本機 Git」)。此外也說明如何為 Git 儲存機制啟用從 GitHub、CodePlex 或 BitBucket 的連續部署。
 -   [從任何 git/hg 儲存機制發佈至 Azure 網站](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html)。取自 David Ebbo 的部落格，說明 Azure 網站中的「外部儲存機制」功能。
 -   [Git、Mercurial 和 DropBox 的 Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit)。
 -   [從一個 Git 儲存機制將兩個網站部署至 Azure](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx)。取自 Scott Hanselman 的部落格文章。
@@ -191,5 +191,5 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
 後續步驟
 --------
 
-如需詳細資訊，請參閱 [Azure 網站文件](/en-us/documentation/services/web-sites/)中的「部署」一節。
+如需詳細資訊，請參閱 [Azure 網站文件](/zh-tw/documentation/services/web-sites/)中的「部署」一節。
 

@@ -22,7 +22,7 @@ Azure 服務匯流排通知中心提供易用、多平台、可擴充的基礎�
 建立 Node.js 應用程式
 ---------------------
 
-建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/)、[Node.js 雲端服務](/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (使用 Windows PowerShell) 或[使用 WebMatrix 的網站](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/)。
+建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/)、[Node.js 雲端服務](/zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (使用 Windows PowerShell) 或[使用 WebMatrix 的網站](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/)。
 
 設定應用程式使用服務匯流排
 --------------------------

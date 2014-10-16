@@ -3,13 +3,13 @@
 開始在行動服務中使用推播通知
 ============================
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows 市集 C#">Windows 市集 C#</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows 市集 JavaScript" class="current">Windows 市集 JavaScript</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push" title="Android">Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows 市集 JavaScript" class="current">Windows 市集 JavaScript</a><a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a><a href="/zh-tw/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a><a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-android-get-started-push" title="Android">Android</a></div>
 
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET 後端">.NET 後端</a> | <a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/"  title="JavaScript 後端" class="current">JavaScript 後端</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET 後端">.NET 後端</a> | <a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/"  title="JavaScript 後端" class="current">JavaScript 後端</a></div>
 
 本主題說明如何使用 Azure 行動服務傳送推播通知至 Windows 市集應用程式。在本教學課程中，您會啟用透過 Azure 通知中心將推播通知傳送至快速入門專案的功能。完成後，您的行動服務就會在每次插入記錄時使用通知中心傳送推播通知。您所建立的通知中心可透過行動服務免費使用、可在行動服務以外個別管理，並且可供其他應用程式和服務使用。
 
-> [WACOM.NOTE]本教學課程將示範如何整合行動服務與通知中心，目前這是預覽版中的功能。依預設不會啟用從 JavaScript 後端使用通知中心傳送推播通知的功能。新的通知中心一旦建立後，整合程序將無法回復。目前，iOS 和 Android 的推播通知只能透過[此版本的主題](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/)所說明的預設推播支援來使用。
+> [WACOM.NOTE]本教學課程將示範如何整合行動服務與通知中心，目前這是預覽版中的功能。依預設不會啟用從 JavaScript 後端使用通知中心傳送推播通知的功能。新的通知中心一旦建立後，整合程序將無法回復。目前，iOS 和 Android 的推播通知只能透過[此版本的主題](/zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-push/)所說明的預設推播支援來使用。
 
 本教學課程會逐步引導您完成啟用推播通知的基本步驟：
 
@@ -18,7 +18,7 @@
 3.  [更新伺服器指令碼以傳送推播通知](#update-scripts)
 4.  [插入資料以接收推播通知](#test)
 
-本教學課程是以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務](/en-us/documentation/articles/mobile-services-windows-store-get-started)或[開始使用資料](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data)，將您的專案連接到行動服務。若未連接行動服務，[新增推播通知] 精靈會為您建立此連線。
+本教學課程是以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-windows-store-get-started)或[開始使用資料](/zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-data)，將您的專案連接到行動服務。若未連接行動服務，[新增推播通知] 精靈會為您建立此連線。
 
 向 WNS 註冊您的應用程式，並設定行動服務
 ---------------------------------------
@@ -90,16 +90,16 @@
 
 考慮更深入了解下列行動服務主題：
 
--   [開始使用資料](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data)
+-   [開始使用資料](/zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-data)
     <br/>深入了解如何使用行動服務儲存和查詢資料。
 
--   [開始使用驗證](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users)
+-   [開始使用驗證](/zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-users)
     <br/>了解如何使用 Windows 帳戶驗證您的應用程式的使用者。
 
 -   [行動服務伺服器指令碼參考](http://go.microsoft.com/fwlink/?LinkId=262293)
     <br/>深入了解如何註冊和使用伺服器指令碼。
 
--   [行動服務 .NET 作法概念性參考](/en-us/documentation/articles/mobile-services-html-how-to-use-client-library)
+-   [行動服務 .NET 作法概念性參考](/zh-tw/documentation/articles/mobile-services-html-how-to-use-client-library)
     <br/>深入了解如何搭配使用行動服務與 .NET。
 
 <!-- Images. -->

@@ -6,7 +6,7 @@
 
 ### 開始使用 Azure 儲存體
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/vs-storage-aspnet-getting-started-blobs" title="Blob" class="current">Blob</a><a href="/en-us/documentation/articles/vs-storage-aspnet-getting-started-queues" title="佇列">佇列</a><a href="/en-us/documentation/articles/vs-storage-aspnet-getting-started-tables" title="資料表">資料表</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/vs-storage-aspnet-getting-started-blobs" title="Blob" class="current">Blob</a><a href="/zh-tw/documentation/articles/vs-storage-aspnet-getting-started-queues" title="佇列">佇列</a><a href="/zh-tw/documentation/articles/vs-storage-aspnet-getting-started-tables" title="資料表">資料表</a></div>
 
 Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。Azure 資料表很適合儲存結構化、非關聯式資料。如需詳細資訊，請參閱[如何從 .NET 使用資料表儲存體][如何從 .NET 使用資料表儲存體] (英文)。
 
@@ -29,8 +29,8 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 [WACOM.INCLUDE [vs-storage-getting-started-tables-include][vs-storage-getting-started-tables-include]]
 
   [vs-storage-aspnet-getting-started-intro]: ../includes/vs-storage-aspnet-getting-started-intro.md
-  [Blob]: /en-us/documentation/articles/vs-storage-aspnet-getting-started-blobs "Blob"
-  [佇列]: /en-us/documentation/articles/vs-storage-aspnet-getting-started-queues "佇列"
-  [資料表]: /en-us/documentation/articles/vs-storage-aspnet-getting-started-tables "資料表"
-  [如何從 .NET 使用資料表儲存體]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "如何從 .NET 使用資料表儲存體"
+  [Blob]: /zh-tw/documentation/articles/vs-storage-aspnet-getting-started-blobs "Blob"
+  [佇列]: /zh-tw/documentation/articles/vs-storage-aspnet-getting-started-queues "佇列"
+  [資料表]: /zh-tw/documentation/articles/vs-storage-aspnet-getting-started-tables "資料表"
+  [如何從 .NET 使用資料表儲存體]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "如何從 .NET 使用資料表儲存體"
   [vs-storage-getting-started-tables-include]: ../includes/vs-storage-getting-started-tables-include.md

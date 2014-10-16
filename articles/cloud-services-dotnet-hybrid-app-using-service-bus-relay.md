@@ -766,5 +766,5 @@ Azure 會就每小時伺服器時間所使用的 Web 角色
   [33]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
   [34]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [Azure 服務匯流排]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
-  [服務匯流排作法]: /en-us/documentation/services/service-bus/
+  [服務匯流排作法]: /zh-tw/documentation/services/service-bus/
   [如何使用服務匯流排佇列]: /en-us/develop/net/how-to-guides/service-bus-queues/

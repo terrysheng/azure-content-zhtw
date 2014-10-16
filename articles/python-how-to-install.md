@@ -144,7 +144,7 @@ Windows 解除安裝
 -   [NumPy - Python 的數值程式庫 (英文)](http://www.numpy.org)
 -   [Django 專案 - 成熟的 Web 架構/CMS (英文)](http://www.djangoproject.com)
 -   [IPython - 先進的 Python REPL/Notebook (英文)](http://ipython.org)
--   [Azure 上的 IPython Notebook (英文)](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-ipython-notebook)
+-   [Azure 上的 IPython Notebook (英文)](http://windowsazure.com/zh-tw/documentation/articles/virtual-machines-python-ipython-notebook)
 -   [CodePlex 上的 Python Tools for Visual Studio (英文)](http://pytools.codeplex.com)
 -   [Virtualenv (英文)](http://pypi.python.org/pypi/virtualenv)
 

@@ -7,7 +7,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 完成之應用程式的螢幕擷取畫面如下：
 
-![A browser window displaying the service hosted on Azure](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-10.png)
+![A browser window displaying the service hosted on Azure](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-10.png)
 
 ## 建立雲端服務專案
 
@@ -16,7 +16,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 1.  從 **開始] 功能表**** 或 [開始畫面** 中，搜尋 **Azure PowerShell**。最後，以滑鼠右鍵按一下
     **Azure PowerShell**，然後選取 **以系統管理員身分執行**。
     
-    ![Azure PowerShell icon](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/azure-powershell-start.png)
+    ![Azure PowerShell icon](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/azure-powershell-start.png)
     
     [WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
@@ -28,7 +28,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
     
     您會看到下列回應：
     
-    ![The output of the new-azureservice and add-azurenodeworkerrolecmdlets](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-1.png)
+    ![The output of the new-azureservice and add-azurenodeworkerrolecmdlets](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-1.png)
 
 ## 下載交談範例
 
@@ -36,12 +36,12 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 1.  使用 **複製** 按鈕建立儲存機制的本機複本。您也可以使用 **ZIP** 按鈕來下載專案。
     
-    ![檢視 https://github.com/LearnBoost/socket.io/tree/master/examples/chat 的瀏覽器視窗，且反白顯示 ZIP 下載圖示](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-22.png)
+    ![檢視 https://github.com/LearnBoost/socket.io/tree/master/examples/chat 的瀏覽器視窗，且反白顯示 ZIP 下載圖示](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-22.png)
 
 2.  瀏覽本機儲存機制的目錄結構，直到發現 **examples\chat** 目錄為止。將此目錄的內容複製到稍早建立的
     **C:\node\chatapp\WorkerRole1** 目錄。
     
-    ![Explorer, displaying the contents of the examples\\chat directory extracted from the archive](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-5.png)
+    ![Explorer, displaying the contents of the examples\\chat directory extracted from the archive](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-5.png)
     
     上方螢幕擷取畫面中反白顯示的項目是從 **examples\chat** 目錄複製的檔案
 
@@ -84,7 +84,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
     
     這將會安裝 package.json 檔案中列出的模組。命令完成之後，您應該會看到類似下列的輸出：
     
-    ![The output of the npm install command](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-7.png)
+    ![The output of the npm install command](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-7.png)
 
 2.  因為此範例原本是 Socket.IO GitHub 儲存機制的一部分，且以相對路徑直接參考 Socket.IO
     程式庫，package.json 檔案中並未參考 Socket.IO，因此，我們必須發出下列命令來安裝它：
@@ -100,7 +100,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 2.  當瀏覽器視窗開啟時，請輸入暱稱，然後按 Enter 鍵。這樣可讓您以特定的暱稱來張貼訊息。若要測試多使用者功能，請使用相同 URL
     開啟其他瀏覽器視窗，並輸入不同的暱稱。
     
-    ![兩個瀏覽器視窗顯示 User1 和 User2 的交談訊息](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-8.png)
+    ![兩個瀏覽器視窗顯示 User1 和 User2 的交談訊息](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-8.png)
 
 3.  測試應用程式之後，發出下列命令來停止模擬器：
     
@@ -117,7 +117,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 	<p>如果出現錯誤指出匯入的發行設定檔中沒有您所提供的訂閱名稱，則在部署至 Azure 之前，您必須下載並匯入訂閱的發行設定檔。請參閱<a href="https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/">建立 Node.js 應用程式並部署至 Azure 雲端服務</a>的<b>將應用程式部署至 Azure</b>一節 (英文) </p>
 
     
-![A browser window displaying the service hosted on Azure](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-10.png)
+![A browser window displaying the service hosted on Azure](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/cloud-services-nodejs-chat-app-socketio/20140815090453/socketio-10.png)
 
 <div class="dev-callout">
 <strong>注意</strong>

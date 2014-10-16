@@ -4,12 +4,12 @@
 
  
 <div  class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/documentation/articles/mobile-services-windows-store-get-started" title="Windows 市集">Windows 市集</a> <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone">Windows Phone</a> <a href="/en-us/documentation/articles/mobile-services-ios-get-started" title="iOS" class="current">iOS</a> <a href="/en-us/documentation/articles/mobile-services-android-get-started" title="Android">Android</a> <a href="/en-us/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a> <a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a> <a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a> <a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a> <a href="/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>
+	<a href="/zh-tw/documentation/articles/mobile-services-windows-store-get-started" title="Windows 市集">Windows 市集</a> <a href="/zh-tw/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone">Windows Phone</a> <a href="/zh-tw/documentation/articles/mobile-services-ios-get-started" title="iOS" class="current">iOS</a> <a href="/zh-tw/documentation/articles/mobile-services-android-get-started" title="Android">Android</a> <a href="/zh-tw/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a> <a href="/zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a> <a href="/zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a> <a href="/zh-tw/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a> <a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>
 </div>
 
  
 <div  class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started/" title=".NET 後端">.NET 後端</a> | <a href="/en-us/documentation/articles/mobile-services-ios-get-started/" title="JavaScript 後端" class="current">JavaScript 後端</a>
+	<a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started/" title=".NET 後端">.NET 後端</a> | <a href="/zh-tw/documentation/articles/mobile-services-ios-get-started/" title="JavaScript 後端" class="current">JavaScript 後端</a>
 </div>
 
  
@@ -98,7 +98,7 @@ JavaScript 建立伺服器端商務邏輯。若要建立可讓您在 Visual Stud
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[.NET backend version]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
+[.NET backend version]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started
 
 <!-- Images. -->
 [0]:./media/mobile-services-ios-get-started/mobile-quickstart-completed-ios.png
@@ -119,7 +119,7 @@ JavaScript 建立伺服器端商務邏輯。若要建立可讓您在 Visual Stud
 [行動服務 iOS SDK]:https://go.microsoft.com/fwLink/p/?LinkID=266533
 [管理入口網站]:https://manage.windowsazure.com/
 [XCode]:https://go.microsoft.com/fwLink/p/?LinkID=266532 
-[.NET後端版本]:/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
+[.NET後端版本]:/zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started
 
 <!-- URLs. -->
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
@@ -129,5 +129,5 @@ JavaScript 建立伺服器端商務邏輯。若要建立可讓您在 Visual Stud
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[.NET backend version]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
+[.NET backend version]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started
 

@@ -113,7 +113,7 @@ Azure ML 的支援含括在 Azure 支援項目中。若要取得 Azure ML 的技
 Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure ML 的相關問題。此論壇由 Azure ML 團隊控管。請瀏覽 [Azure 論壇][]。
 
   [開始使用頁面]: http://go.microsoft.com/fwlink/?LinkId=404226
-  [Azure Machine Learning 中心]: http://azure.microsoft.com/en-us/documentation/services/machine-learning/
+  [Azure Machine Learning 中心]: http://azure.microsoft.com/zh-tw/documentation/services/machine-learning/
   [使用者意見反應論壇]: http://go.microsoft.com/fwlink/?LinkId=404231
   [1]: https://windowsazure.uservoice.com/forums/257792-machine-learning
   [Azure 論壇]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning

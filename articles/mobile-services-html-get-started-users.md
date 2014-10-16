@@ -36,7 +36,7 @@
 	-   [Facebook 登入](/en-us/develop/mobile/how-to-guides/register-for-facebook-authentication/)
 	-   [Twitter 登入](/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/)
 	-   [Google 登入](/en-us/develop/mobile/how-to-guides/register-for-google-authentication/)
-	-   [Azure Active Directory](/en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
+	-   [Azure Active Directory](/zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
 
     	請記下提供者所產生的用戶端身分識別和密碼值。
 

@@ -93,7 +93,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 
 使用 Twilio 服務且執行於 Azure 的 PHP 應用程式，與其他使用 Twilio 服務的 PHP 應用程式並無不同。雖然 Twilio 服務是以 REST 為基礎，並且可透過數種方式從 PHP 撥打，但本文的重點是要說明如何搭配使用 Twilio 服務與 [適用於 PHP 的 Twiliofor 程式庫 (由 Github 提供)](https://github.com/twilio/twilio-php)。若想進一步了解如何使用適用於 PHP 的 Twilio 程式庫，請參閱 <http://readthedocs.org/docs/twilio-php/en/latest/index.html>。
 
-如需建置 Twilio/PHP 應用程式以及將其部署至 Azure 的詳細指示，請參閱[如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話](http://windowsazure.com/en-us/documentation/articles/partner-twilio-php-make-phone-call)。
+如需建置 Twilio/PHP 應用程式以及將其部署至 Azure 的詳細指示，請參閱[如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話](http://windowsazure.com/zh-tw/documentation/articles/partner-twilio-php-make-phone-call)。
 
 設定應用程式以使用 Twilio 程式庫
 --------------------------------
@@ -284,7 +284,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 		echo 'Error: ' . $e->getMessage();
 	}
 
-如需在具有 PHP 的 Azure 中使用 Twilio 的相關資訊，請參閱[如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話](http://windowsazure.com/en-us/documentation/articles/partner-twilio-php-make-phone-call)。
+如需在具有 PHP 的 Azure 中使用 Twilio 的相關資訊，請參閱[如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話](http://windowsazure.com/zh-tw/documentation/articles/partner-twilio-php-make-phone-call)。
 
 作法：使用其他 Twilio 服務
 --------------------------

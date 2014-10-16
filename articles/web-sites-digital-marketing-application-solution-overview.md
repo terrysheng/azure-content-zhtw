@@ -5,9 +5,9 @@
 
 本指南提供如何使用 Azure 網站來建立數位行銷活動的技術概觀。數位行銷活動通常是用來促成短期行銷目標的短期實體。有兩個需要考量的主要案例。在第一個案例中，協力廠商行銷公司在促銷期間為其客戶建立及管理行銷活動。第二個案例則涉及行銷公司建立數位行銷活動資源擁有權，然後將該擁有權轉移給其客戶。客戶接著便可自行執行及管理數位行銷活動。
 
-[Azure 網站](/en-us/documentation/services/web-sites/)對於這兩個案例皆適用。它提供快速建立、支援多個架構和語言、可依使用者需求進行調整的功能，並且還可容納許多部署和原始檔控制系統。藉由使用 Azure，您還能夠存取其他可增強行銷活動的 Azure 服務 (如媒體服務)。
+[Azure 網站](/zh-tw/documentation/services/web-sites/)對於這兩個案例皆適用。它提供快速建立、支援多個架構和語言、可依使用者需求進行調整的功能，並且還可容納許多部署和原始檔控制系統。藉由使用 Azure，您還能夠存取其他可增強行銷活動的 Azure 服務 (如媒體服務)。
 
-雖然可以使用 [Azure 雲端服務](/en-us/documentation/services/cloud-services/) (英文) 或 [Azure 虛擬機器](/en-us/documentation/services/virtual-machines/) (英文) 來裝載網站，但除非 Azure 網站並未提供某項必要功能，否則這對於此案例而言並非最佳選擇。若要了解相關選項，請參閱 [Azure 網站、雲端服務和 VM：使用時機](/en-us/manage/services/web-sites/choose-web-app-service)。
+雖然可以使用 [Azure 雲端服務](/zh-tw/documentation/services/cloud-services/) (英文) 或 [Azure 虛擬機器](/zh-tw/documentation/services/virtual-machines/) (英文) 來裝載網站，但除非 Azure 網站並未提供某項必要功能，否則這對於此案例而言並非最佳選擇。若要了解相關選項，請參閱 [Azure 網站、雲端服務和 VM：使用時機](/en-us/manage/services/web-sites/choose-web-app-service)。
 
 本指南涵蓋下列領域：
 

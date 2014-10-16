@@ -122,7 +122,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API](http://msdn.microsoft.com/z
 作法：建立雲端服務
 ------------------
 
-當您在 Azure 中建立應用程式並加以執行時，程式碼和組態會統稱為 Azure [雲端服務](http://windowsazure.com/en-us/documentation/articles/cloud-services-what-is) (在舊版的 Azure 中稱為*代管服務*)。**create\_hosted\_service** 方法可讓您藉由提供代管服務名稱 (在 Azure 中必須是唯一的)、標籤 (自動編碼為 base64)、描述和位置，來建立新的代管服務。您可以指定服務的親和性群組，而不指定位置。
+當您在 Azure 中建立應用程式並加以執行時，程式碼和組態會統稱為 Azure [雲端服務](http://windowsazure.com/zh-tw/documentation/articles/cloud-services-what-is) (在舊版的 Azure 中稱為*代管服務*)。**create\_hosted\_service** 方法可讓您藉由提供代管服務名稱 (在 Azure 中必須是唯一的)、標籤 (自動編碼為 base64)、描述和位置，來建立新的代管服務。您可以指定服務的親和性群組，而不指定位置。
 
     from azure import *
     from azure.servicemanagement import *

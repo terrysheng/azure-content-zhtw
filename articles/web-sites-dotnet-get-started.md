@@ -339,23 +339,23 @@
   [Azure 管理入口網站]: /en-us/services/management-portal/
   [Portal home page with new web site called out]: ./media/web-sites-dotnet-get-started-vs2013/portalhome.png
   [Portal web site dashboard tab]: ./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png
-  [設定]: /en-us/documentation/articles/web-sites-configure//
+  [設定]: /zh-tw/documentation/articles/web-sites-configure//
   [WebSockets]: /blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/
-  [診斷記錄]: /en-us/documentation/articles/web-sites-enable-diagnostic-log/
+  [診斷記錄]: /zh-tw/documentation/articles/web-sites-enable-diagnostic-log/
   [連接字串值]: /blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
   [Portal web site configure tab]: ./media/web-sites-dotnet-get-started-vs2013/portalconfigure.png
-  [調整]: /en-us/documentation/articles/web-sites-scale/
+  [調整]: /zh-tw/documentation/articles/web-sites-scale/
   [Portal website scale tab]: ./media/web-sites-dotnet-get-started-vs2013/portalscale.png
   [Azure 預覽入口網站]: /en-us/overview/preview-portal/
   [來源控制系統]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
   [自動化部署]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
-  [如何部署 Azure 網站]: /en-us/documentation/articles/web-sites-deploy/"
+  [如何部署 Azure 網站]: /zh-tw/documentation/articles/web-sites-deploy/"
   [自動化各個項目 (使用 Azure 建置真實世界的雲端應用程式)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
   [在 Visual Studio 中疑難排解 Azure 網站]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 應用程式部署至 Azure 網站]: /en-us/develop/net/tutorials/web-site-with-sql-database/
-  [設定 Azure 網站的自訂網域名稱]: /en-us/documentation/articles/web-sites-custom-domain-name/
-  [對 Azure 網站啟用 HTTPS]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/
-  [如何設定網站]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-configure/
+  [設定 Azure 網站的自訂網域名稱]: /zh-tw/documentation/articles/web-sites-custom-domain-name/
+  [對 Azure 網站啟用 HTTPS]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-configure-ssl-certificate/
+  [如何設定網站]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-configure/
   [ASP.NET SignalR]: http://www.asp.net/signalr
   [在 Windows Azure 網站中使用 SignalR]: http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites
   [Azure 執行模型]: /en-us/develop/net/fundamentals/compute/

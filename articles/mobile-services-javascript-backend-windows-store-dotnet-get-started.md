@@ -76,7 +76,7 @@
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [建置目標為 Windows 和 Windows Phone 的通用 Windows 應用程式]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn609832.aspx
   [快速入門：新增行動服務 (JavaScript 後端)]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn263180.aspx
-  [開始使用 Windows Phone 的資料]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data
+  [開始使用 Windows Phone 的資料]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-data
   [mobile-services-windows-universal-get-started]: ../includes/mobile-services-windows-universal-get-started.md
   [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F
   [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
@@ -84,7 +84,7 @@
   []: ./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-portal-quickstart.png
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png
   [mobile-services-javascript-backend-run-app]: ../includes/mobile-services-javascript-backend-run-app.md
-  [開始使用資料]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
-  [開始使用驗證]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
-  [開始使用推播通知]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
-  [從單一行動服務支援多個裝置平台]: /en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs
+  [開始使用資料]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
+  [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
+  [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
+  [從單一行動服務支援多個裝置平台]: /zh-tw/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs

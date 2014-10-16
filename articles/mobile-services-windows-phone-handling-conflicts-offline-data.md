@@ -5,8 +5,8 @@
 # 處理行動服務中的離線資料同步衝突
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows 市集 C#">Windows 市集 C#</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows 市集 C#">Windows 市集 C#</a>
+<a href="/zh-tw/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone" class="current">Windows Phone</a>
 </div>
 
 本主題將說明在使用 Azure 行動服務的離線功能時，應如何同步處理資料及處理衝突。在本教學課程中，您將下載同時支援離線和線上資料的應用程式、將行動服務與該應用程式整合，然後登入 Azure 管理入口網站，以檢視執行應用程式時所做的資料庫更新。
@@ -194,9 +194,9 @@
 
 
 
-  [Windows 市集 C\#]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows 市集 C#"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
-  [開始使用資料]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data
+  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows 市集 C#"
+  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
+  [開始使用資料]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-offline-data
   [下載 Windows Phone 專案]: #download-app
   [為資料庫新增到期日資料行]: #add-column
   [更新 .NET 後端行動服務的資料庫]: #dotnet-backend
@@ -207,7 +207,7 @@
   [處理衝突程式碼範例]: http://go.microsoft.com/fwlink/?LinkId=398257
   []: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
   [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
-  [如何使用 Code First Migrations 更新資料模型]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+  [如何使用 Code First Migrations 更新資料模型]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-todowithdate-push1.png
   [2]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/vs-emulator-wvga.png

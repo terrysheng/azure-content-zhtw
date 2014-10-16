@@ -58,7 +58,7 @@ HBase 適合用來擷取從多個來源不斷收集而來的資料。這包括�
 [Bigtable：結構化資料的分散式儲存體系統][] (英文)
 
   [在 Azure 虛擬網路上佈建 HDInsight 叢集]: ../hdinsight-hbase-provision-vnet/
-  [開始在 HDInsight 中搭配使用 HBase 與 Hadoop]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [開始在 HDInsight 中搭配使用 HBase 與 Hadoop]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hbase-get-started/
   [Phoenix]: http://phoenix.apache.org/
   [使用 HDInsight 中的 HBase 分析 Twitter 情緒 (英文)]: ../hdinsight-hbase-analyze-twitter-sentiment/
   [使用 Maven 建置搭配使用 HBase 和 HDInsight (Hadoop) 的 Java 應用程式 (英文)]: ../hdinsight-hbase-build-java-maven/

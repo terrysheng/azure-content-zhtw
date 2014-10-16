@@ -3,7 +3,7 @@
 
 建立網站時，Azure 會在 azurewebsites.net 網域上提供好記的子網域，讓使用者以類似 http://<mysite>.azurewebsites.net 的 URL 來存取您的網站。不過，如果您將網站設為共用或標準模式，則可以將網站對應到您自己的網域名稱。
 
-您也可以選擇使用 Azure 流量管理員來負載平衡連入網站的流量。如需流量管理員如何與「網站」搭配使用的詳細資訊，請參閱[使用 Azure 流量管理員來控制 Azure 網站的流量](/en-us/documentation/articles/web-sites-traffic-manager/)。
+您也可以選擇使用 Azure 流量管理員來負載平衡連入網站的流量。如需流量管理員如何與「網站」搭配使用的詳細資訊，請參閱[使用 Azure 流量管理員來控制 Azure 網站的流量](/zh-tw/documentation/articles/web-sites-traffic-manager/)。
 
 > [WACOM.NOTE] 此工作中的程序適用於 Azure 網站。若為雲端服務，請參閱＜[在 Azure 中設定自訂網域名稱][1]。
 
@@ -41,7 +41,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 > 位址。不過，如果您刪除又重新建立網站，或將網站模式變回免費，此值就可能改變。
 
 > [WACOM.NOTE] A 記錄無法用於流量管理員的負載平衡。如需詳細資訊，請參閱[使用 Azure 流量管理員來控制 Azure
-> 網站的流量](/en-us/documentation/articles/web-sites-traffic-manager/)。
+> 網站的流量](/zh-tw/documentation/articles/web-sites-traffic-manager/)。
 
 <a name="bkmk_configsharedmode"></a><h2>將網站設定為共用或標準模式</h2>
 

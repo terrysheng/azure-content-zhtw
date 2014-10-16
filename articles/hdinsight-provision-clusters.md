@@ -547,7 +547,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
 -   [以程式設計方式提交 Hadoop 工作][]
 -   [Azure HDInsight SDK 文件][]
 
-  [在 HDInsight 上佈建 HBase 叢集]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [在 HDInsight 上佈建 HBase 叢集]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hbase-get-started/
   [Hadoop 和 HBase 之間的差別？]: http://go.microsoft.com/fwlink/?LinkId=510237
   [Apache Hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
   [HDInsight 中 Hadoop 的簡介]: ../hdinsight-introduction/

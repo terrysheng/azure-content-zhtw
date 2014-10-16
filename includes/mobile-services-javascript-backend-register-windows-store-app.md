@@ -10,7 +10,7 @@
 
    	"如此會為您的應用程式建立新的 Windows 市集註冊。"
 
-3.  在 Visual Studio 2012 Express for Windows 8 中，開啟您在完成[開始使用行動服務](/en-us/documentation/articles/mobile-services-windows-store-get-started/)教學課程時所建立的專案。
+3.  在 Visual Studio 2012 Express for Windows 8 中，開啟您在完成[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-windows-store-get-started/)教學課程時所建立的專案。
 
 4.  在 [方案總管] 中，以滑鼠右鍵按一下此專案，然後依序按一下 **[市集]** 和 **[將應用程式與市集建立關聯...]**。
 

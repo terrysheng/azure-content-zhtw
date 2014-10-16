@@ -7,7 +7,7 @@
 
  
 <div  class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title=".NET 後端">.NET 後端</a> | <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/" title="JavaScript 後端" class="current">JavaScript 後端</a>
+	<a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title=".NET 後端">.NET 後端</a> | <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/" title="JavaScript 後端" class="current">JavaScript 後端</a>
 </div>
 
  本主題將示範如何使用 Azure 行動服務，以在 Windows 市集應用程式中運用資料。在本教學課程中，您將下載 Visual Studio 2013 專案，以取得在記憶體中儲存資料的應用程式、建立新的行動服務、整合行動服務與該應用程式，然後登入 Azure 管理入口網站來檢視執行應用程式時所做的資料變更。

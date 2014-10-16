@@ -227,7 +227,7 @@ Azure 中的虛擬機器是您在雲端中可以控制和管理的伺服器。�
   [Azure 簡介]: http://go.microsoft.com/fwlink/p/?LinkId=311926
   [管理入口網站]: http://manage.windowsazure.com
   [管理延伸模組]: http://go.microsoft.com/FWLink/p/?LinkID=390493
-  [如何設定虛擬機器的端點]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/
+  [如何設定虛擬機器的端點]: http://azure.microsoft.com/zh-tw/documentation/articles/virtual-machines-set-up-endpoints/
   [PuTTY 下載]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
   [OpenSSH]: http://www.openssh.org/
   [尋找 SSH 詳細資料]: ./media/CreateVirtualMachineLinuxTutorial/SSHdetails.png
@@ -242,5 +242,5 @@ Azure 中的虛擬機器是您在雲端中可以控制和管理的伺服器。�
   [列出磁碟資訊]: ./media/CreateVirtualMachineLinuxTutorial/diskinfo.png
   [寫入磁碟變更]: ./media/CreateVirtualMachineLinuxTutorial/diskwrite.png
   [建立檔案系統]: ./media/CreateVirtualMachineLinuxTutorial/diskfilesystem.png
-  [Azure 上的 Linux 簡介]: http://www.windowsazure.com/en-us/documentation/articles/introduction-linux/
-  [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]: http://www.windowsazure.com/en-us/documentation/articles/xplat-cli/
+  [Azure 上的 Linux 簡介]: http://www.windowsazure.com/zh-tw/documentation/articles/introduction-linux/
+  [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]: http://www.windowsazure.com/zh-tw/documentation/articles/xplat-cli/

@@ -178,8 +178,8 @@
   [修改行動服務以使用連線]: #CreateService
   [Visual Studio 下載]: http://www.visualstudio.com/downloads/download-visual-studio-vs
   [Microsoft Web Platform Database 頁面]: http://www.microsoft.com/web/platform/database.aspx
-  [1]: /en-us/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL
-  [在內部部署中建立 SQL Server 資料庫]: /en-us/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB
+  [1]: /zh-tw/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL
+  [在內部部署中建立 SQL Server 資料庫]: /zh-tw/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB
   [Azure 管理入口網站]: http://go.microsoft.com/fwlink/p/?linkid=213885&clcid=0x409
   [Create BizTalk Service]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/1.png
   [Configure new BizTalk Service]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/2.png
@@ -190,11 +190,11 @@
   [Install Hybrid Connection Manager]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/6.png
   [Hybrid Connection Manager setup]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/7.png
   [Hybrid Connection connected]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/8.png
-  [開始使用行動服務]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+  [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
   [Associate Hybrid Connection]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/9.png
   [Pick associated Hybrid Connection]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/10.png
   [App setting for connection string]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png
   [SQL Management Studio]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/12.png
   [混合式連線網站]: http://azure.microsoft.com/en-us/services/biztalk-services/
   [混合式連線概觀]: http://go.microsoft.com/fwlink/p/?LinkID=397274
-  [BizTalk 服務：儀表板、監視器、調整、設定和混合式連線索引標籤]: http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
+  [BizTalk 服務：儀表板、監視器、調整、設定和混合式連線索引標籤]: http://azure.microsoft.com/zh-tw/documentation/articles/biztalk-dashboard-monitor-scale-tabs/

@@ -5,15 +5,15 @@
 # 開始使用行動服務中的資料
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows 市集 C#">Windows 市集 C#</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS">iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android" class="current">Android</a>
+<a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows 市集 C#">Windows 市集 C#</a>
+<a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a>
+<a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
+<a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS">iOS</a>
+<a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android" class="current">Android</a>
 </div>
 
 <div class="dev-center-tutorial-subselector">
-<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title=".NET 後端" class="current">.NET 後端</a> | 
+<a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title=".NET 後端" class="current">.NET 後端</a> | 
 <a href="/en-us/develop/mobile/tutorials/get-started-with-data-android/"  title="JavaScript 後端">JavaScript 後端</a>
 </div>
 
@@ -116,12 +116,12 @@ Android 的**開始使用資料**教學課程到此結束。
 
 
 
-  [Windows 市集 C\#]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Windows 市集 JavaScript"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone"
-  [iOS]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "iOS"
-  [Android]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Android"
-  [.NET 後端]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ ".NET 後端"
+  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows 市集 C#"
+  [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Windows 市集 JavaScript"
+  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone"
+  [iOS]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "iOS"
+  [Android]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Android"
+  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ ".NET 後端"
   [JavaScript 後端]: /en-us/develop/mobile/tutorials/get-started-with-data-android/ "JavaScript 後端"
   [JavaScript 後端版本]: /en-us/develop/mobile/tutorials/get-started-with-data-android
   [建立新的行動服務]: #create-service
@@ -144,4 +144,4 @@ Android 的**開始使用資料**教學課程到此結束。
   [2]: ./media/mobile-services-dotnet-backend-android-get-started-data/sql-azure-query.png
   [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-android
   [開始使用推播通知]: /en-us/develop/mobile/tutorials/get-started-with-push-android
-  [行動服務 .NET 作法概念參考資料]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+  [行動服務 .NET 作法概念參考資料]: /zh-tw/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library

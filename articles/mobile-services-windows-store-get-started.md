@@ -4,12 +4,12 @@
 
  
 <div  class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/documentation/articles/mobile-services-windows-store-get-started" title="Windows 市集" class="current">Windows 市集</a> <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone">Windows Phone</a> <a href="/en-us/documentation/articles/mobile-services-ios-get-started" title="iOS">iOS</a> <a href="/en-us/documentation/articles/mobile-services-android-get-started" title="Android">Android</a> <a href="/en-us/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a> <a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a> <a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a> <a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a> <a href="/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>
+	<a href="/zh-tw/documentation/articles/mobile-services-windows-store-get-started" title="Windows 市集" class="current">Windows 市集</a> <a href="/zh-tw/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone">Windows Phone</a> <a href="/zh-tw/documentation/articles/mobile-services-ios-get-started" title="iOS">iOS</a> <a href="/zh-tw/documentation/articles/mobile-services-android-get-started" title="Android">Android</a> <a href="/zh-tw/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a> <a href="/zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a> <a href="/zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a> <a href="/zh-tw/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a> <a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>
 </div>
 
  
 <div  class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/" title=".NET 後端">.NET 後端</a> | <a href="/en-us/documentation/articles/mobile-services-windows-store-get-started/" title="JavaScript 後端" class="current">JavaScript 後端</a>
+	<a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/" title=".NET 後端">.NET 後端</a> | <a href="/zh-tw/documentation/articles/mobile-services-windows-store-get-started/" title="JavaScript 後端" class="current">JavaScript 後端</a>
 </div>
 
  

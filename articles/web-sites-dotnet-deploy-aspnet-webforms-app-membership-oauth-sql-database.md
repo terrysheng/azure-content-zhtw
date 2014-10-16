@@ -883,7 +883,7 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 
 如果您發現喜歡的地方和希望我們改善的地方 (不論是針對本教學課程或其示範的產品)，歡迎留下意見反應。您的意見反應將協助我們訂出優先改善要務。您也可以在[告訴我如何處理程式碼][] (英文) 提出並對新主題進行投票。
 
-  [將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站]: http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
+  [將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
   [Contacts - Edit Page]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms00.png
   [啟用自己的 MSDN 訂戶權益]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [申請免費試用]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
@@ -957,7 +957,7 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
   [AspNetUserRoles data]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms36.png
   [14]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms37.png
   [了解 ASP.NET Web Forms]: http://www.asp.net/web-forms
-  [Microsoft Azure 教學課程和指南]: http://azure.microsoft.com/en-us/documentation/services/web-sites/#net
+  [Microsoft Azure 教學課程和指南]: http://azure.microsoft.com/zh-tw/documentation/services/web-sites/#net
   [@RickAndMSFT]: https://twitter.com/RickAndMSFT
   [@blowdart]: https://twitter.com/blowdart
   [告訴我如何處理程式碼]: http://aspnet.uservoice.com/forums/228522-show-me-how-with-code

@@ -134,7 +134,7 @@ Azure 的 Docker VM 擴充程式只是許多提供特殊行為的 VM 擴充程�
 
   [Docker]: https://www.docker.com/
   [Linux 容器]: http://en.wikipedia.org/wiki/LXC
-  [Azure Linux 代理程式]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-agent-user-guide/
+  [Azure Linux 代理程式]: http://azure.microsoft.com/zh-tw/documentation/articles/virtual-machines-linux-agent-user-guide/
   [MS Open Tech 部落格宣告]: http://msopentech.com/blog/2014/08/15/getting_started_docker_on_microsoft_azure/
   [Docker 及 Linux 容器]: #Docker-and-Linux-Containers
   [如何搭配使用 Docker VM 擴充程式與 Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
@@ -149,11 +149,11 @@ Azure 的 Docker VM 擴充程式只是許多提供特殊行為的 VM 擴充程�
   [角色型安全性]: http://en.wikipedia.org/wiki/Role-based_access_control
   [azure-cli]: https://github.com/Azure/azure-sdk-tools-xplat
   [Boot2Docker]: https://docs.docker.com/installation/windows/
-  [這裡]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#install
+  [這裡]: http://azure.microsoft.com/zh-tw/documentation/articles/xplat-cli/#install
   [節點封裝管理員 (npm)]: http://en.wikipedia.org/wiki/Npm_%28software%29
   [1]: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
   [Mac 安裝程式]: http://go.microsoft.com/fwlink/?linkid=252249&clcid=0x409
-  [如何連結至您的 Azure 訂用帳戶]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/#configure
+  [如何連結至您的 Azure 訂用帳戶]: http://azure.microsoft.com/zh-tw/documentation/articles/xplat-cli/#configure
   [Docker 安裝指示]: https://docs.docker.com/installation/#installation
   [!@\#$%^&+=]: mailto:!@#$%^&+=
   []: ./media/virtual-machines-docker/dockercreateresults.png

@@ -3,13 +3,13 @@
 開始在行動服務中使用推播通知
 ============================
 
-[Windows 市集 C\#](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows 市集 C#")[Windows 市集 JavaScript](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows 市集 JavaScript")[Windows Phone](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-ios-get-started-push "iOS")[Android](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android")
+[Windows 市集 C\#](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows 市集 C#")[Windows 市集 JavaScript](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows 市集 JavaScript")[Windows Phone](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone")[iOS](/zh-tw/documentation/articles/mobile-services-ios-get-started-push "iOS")[Android](/zh-tw/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android")
 
-[.NET 後端](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ ".NET 後端") | [JavaScript 後端](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/ "JavaScript 後端")
+[.NET 後端](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ ".NET 後端") | [JavaScript 後端](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/ "JavaScript 後端")
 
 本主題說明如何使用 Azure 行動服務傳送推播通知至 Windows 市集應用程式。在本教學課程中，您會啟用透過 Azure 通知中心將推播通知傳送至快速入門專案的功能。完成後，您的行動服務就會在每次插入記錄時使用通知中心傳送推播通知。您所建立的通知中心可透過行動服務免費使用、可在行動服務以外個別管理，並且可供其他應用程式和服務使用。
 
-> [WACOM.NOTE]本教學課程將示範如何整合行動服務與通知中心，目前這是預覽版中的功能。依預設不會啟用從 JavaScript 後端使用通知中心傳送推播通知的功能。新的通知中心一旦建立後，整合程序將無法回復。目前，iOS 和 Android 的推播通知只能透過[此版本的主題](/en-us/documentation/articles/mobile-services-windows-phone-get-started-push/)所說明的預設推播支援來使用。
+> [WACOM.NOTE]本教學課程將示範如何整合行動服務與通知中心，目前這是預覽版中的功能。依預設不會啟用從 JavaScript 後端使用通知中心傳送推播通知的功能。新的通知中心一旦建立後，整合程序將無法回復。目前，iOS 和 Android 的推播通知只能透過[此版本的主題](/zh-tw/documentation/articles/mobile-services-windows-phone-get-started-push/)所說明的預設推播支援來使用。
 
 本教學課程會逐步引導您完成啟用推播通知的基本步驟：
 
@@ -17,7 +17,7 @@
 2.  [更新伺服器指令碼以傳送推播通知](#update-scripts)
 3.  [插入資料以接收推播通知](#test)
 
-本教學課程是以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務](/en-us/documentation/articles/mobile-services-windows-phone-get-started)或[開始使用資料](/en-us/documentation/articles/mobile-services-windows-phone-get-started-data)，將您的專案連接到行動服務。若未連接行動服務，[新增推播通知] 精靈會為您建立此連線。
+本教學課程是以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-windows-phone-get-started)或[開始使用資料](/zh-tw/documentation/articles/mobile-services-windows-phone-get-started-data)，將您的專案連接到行動服務。若未連接行動服務，[新增推播通知] 精靈會為您建立此連線。
 
 更新應用程式以註冊通知
 ----------------------
@@ -148,16 +148,16 @@
 
 考慮更深入了解下列行動服務主題：
 
--   [開始使用資料](/en-us/documentation/articles/mobile-services-windows-phone-get-started-data)
+-   [開始使用資料](/zh-tw/documentation/articles/mobile-services-windows-phone-get-started-data)
     深入了解如何使用行動服務儲存和查詢資料。
 
--   [開始使用驗證](/en-us/documentation/articles/mobile-services-windows-phone-get-started-users)
+-   [開始使用驗證](/zh-tw/documentation/articles/mobile-services-windows-phone-get-started-users)
     了解如何使用 Windows 帳戶驗證您的應用程式的使用者。
 
 -   [行動服務伺服器指令碼參考](http://go.microsoft.com/fwlink/?LinkId=262293)
     深入了解如何註冊和使用伺服器指令碼。
 
--   [行動服務 .NET 作法概念性參考](/en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library)
+-   [行動服務 .NET 作法概念性參考](/zh-tw/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library)
     深入了解如何搭配使用行動服務與 .NET。
 
 

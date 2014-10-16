@@ -3,11 +3,11 @@
 開始使用行動服務
 ================
 
-[Windows 市集 C\#](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started "Windows 市集 C#")[Windows 市集 JavaScript](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started "Windows 市集 JavaScript")[Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started "iOS") [Android](/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started "Android")
+[Windows 市集 C\#](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started "Windows 市集 C#")[Windows 市集 JavaScript](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started "Windows 市集 JavaScript")[Windows Phone](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started "Windows Phone")[iOS](/zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started "iOS") [Android](/zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started "Android")
 
-[.NET 後端](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/ ".NET 後端") | [JavaScript 後端](/en-us/documentation/articles/mobile-services-windows-store-get-started/ "JavaScript 後端")
+[.NET 後端](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/ ".NET 後端") | [JavaScript 後端](/zh-tw/documentation/articles/mobile-services-windows-store-get-started/ "JavaScript 後端")
 
-本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到 Windows 應用程式。在本教學課程中，您將以 HTML 和 JavaSript 建立新的行動服務，以及可在新的行動服務中儲存應用程式資料的簡易*待辦事項*應用程式。您所將建立的行動服務，會使用 Visual Studio 與支援的 .NET 語言撰寫伺服器端商務邏輯，並管理行動服務。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 版本](/en-us/documentation/articles/mobile-services-windows-store-get-started)。
+本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到 Windows 應用程式。在本教學課程中，您將以 HTML 和 JavaSript 建立新的行動服務，以及可在新的行動服務中儲存應用程式資料的簡易*待辦事項*應用程式。您所將建立的行動服務，會使用 Visual Studio 與支援的 .NET 語言撰寫伺服器端商務邏輯，並管理行動服務。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 版本](/zh-tw/documentation/articles/mobile-services-windows-store-get-started)。
 
 以下是完成應用程式的螢幕擷取畫面：
 
@@ -88,13 +88,13 @@
 
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
--   [開始使用資料](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data)
+-   [開始使用資料](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data)
     深入了解如何使用行動服務儲存和查詢資料。
 
--   [開始使用驗證](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users)
+-   [開始使用驗證](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users)
     了解如何向身分識別提供者驗證應用程式的使用者。
 
--   [開始使用推播通知](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push)
+-   [開始使用推播通知](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push)
     了解如何將極為基本的推播通知傳送到應用程式。
 
 <!-- Images. -->

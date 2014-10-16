@@ -3,16 +3,16 @@
 # 開始使用行動服務中的推播通知
 
  
-<div  class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows 市集 C#">Windows 市集 C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a></div>
+<div  class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/zh-tw/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone" class="current">Windows Phone</a><a href="/zh-tw/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a><a href="/zh-tw/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a><a href="/zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a></div>
 
  
-<div  class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title=".NET 後端">.NET 後端</a> | <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-push/" title="JavaScript 後端" class="current">JavaScript 後端</a>
+<div  class="dev-center-tutorial-subselector"><a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title=".NET 後端">.NET 後端</a> | <a href="/zh-tw/documentation/articles/mobile-services-windows-phone-get-started-push/" title="JavaScript 後端" class="current">JavaScript 後端</a>
 </div>
 
  本主題說明如何使用 Azure 行動服務傳送推播通知至 Windows Phone 8 應用程式。在本教學課程中，您會使用 Microsoft 推播通知服務 (MPNS) 將推播通知新增至快速入門專案。完成後，您的行動服務將在每次插入記錄時傳送推播通知。
 
 > [WACOM.NOTE]行動服務現在與 Azure
-> 通知中心整合，可支援更多推播通知功能，例如範本、多平台和調整。這項整合的功能目前為預覽版。如需詳細資訊，請參閱這個版本的[開始使用推播通知](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)。
+> 通知中心整合，可支援更多推播通知功能，例如範本、多平台和調整。這項整合的功能目前為預覽版。如需詳細資訊，請參閱這個版本的[開始使用推播通知](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)。
 
 本教學課程將引導您逐步完成以下啟用推播通知的基本步驟：
 

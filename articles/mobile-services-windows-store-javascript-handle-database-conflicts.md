@@ -274,18 +274,18 @@ Windows Azure 行動服務支援開放式並行存取控制項，方法是使用
 
 本教學課程示範了如何讓 Windows 市集應用程式處理在行動服務中使用資料時所發生的寫入衝突。您可以接著完成我們資料序列中的下列其中一個教學課程：
 
--   [使用指令碼驗證及修改資料](/en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/)
+-   [使用指令碼驗證及修改資料](/zh-tw/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/)
     深入了解在行動服務中使用伺服器指令碼，來驗證及變更從應用程式傳送的資料。
 
--   [使用分頁縮小查詢範圍](/en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/)
+-   [使用分頁縮小查詢範圍](/zh-tw/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/)
     了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
 完成資料序列之後，您可以嘗試下列其中一個 Windows 市集教學課程：
 
--   [開始使用驗證](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/)
+-   [開始使用驗證](/zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-users/)
     了解如何驗證應用程式的使用者。
 
--   [開始使用推送通知](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/)
+-   [開始使用推送通知](/zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-push/)
     了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
 
 
@@ -323,11 +323,11 @@ Windows Azure 行動服務支援開放式並行存取控制項，方法是使用
 [Optimistic Concurrency Control]: http://go.microsoft.com/fwlink/?LinkId=330935
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
 [Windows Azure Account]: http://www.windowsazure.com/zh-tw/pricing/free-trial/
-[Validate and modify data with scripts]: /en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
-[Refine queries with paging]: /en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
+[Validate and modify data with scripts]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
+[Refine queries with paging]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
+[Get started with authentication]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
+[Get started with push notifications]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
 
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

@@ -3,7 +3,7 @@
 在 Azure 網站建立企業營運系統應用程式
 =====================================
 
-本指南提供如何使用 Azure 網站來建立企業營運系統應用程式的技術概觀。為因應本文件的目的，將假設這些應用程式為內部網路應用程式，應該受保護以供內部業務使用。商務應用程式有兩個不同的特性。這些應用程式需要驗證，一般是針對企業目錄。而且它們通常需要與內部部署資料和服務進行一些存取和整合。本指南著重於在 [Azure 網站](/en-us/documentation/services/web-sites/) (英文) 上建置商務應用程式。不過，在某些情況下，[Azure 雲端服務](/en-us/documentation/services/cloud-services/) (英文) 或 [Azure 虛擬機器](/en-us/documentation/services/virtual-machines/) (英文) 會較符合您的需求。檢閱下列主題中這些選項之間的差異相當重要：[Azure 網站、雲端服務及 VM：使用時機](/en-us/manage/services/web-sites/choose-web-app-service)。
+本指南提供如何使用 Azure 網站來建立企業營運系統應用程式的技術概觀。為因應本文件的目的，將假設這些應用程式為內部網路應用程式，應該受保護以供內部業務使用。商務應用程式有兩個不同的特性。這些應用程式需要驗證，一般是針對企業目錄。而且它們通常需要與內部部署資料和服務進行一些存取和整合。本指南著重於在 [Azure 網站](/zh-tw/documentation/services/web-sites/) (英文) 上建置商務應用程式。不過，在某些情況下，[Azure 雲端服務](/zh-tw/documentation/services/cloud-services/) (英文) 或 [Azure 虛擬機器](/zh-tw/documentation/services/virtual-machines/) (英文) 會較符合您的需求。檢閱下列主題中這些選項之間的差異相當重要：[Azure 網站、雲端服務及 VM：使用時機](/en-us/manage/services/web-sites/choose-web-app-service)。
 
 本指南涵蓋下列領域：
 
@@ -29,7 +29,7 @@
 
 對於商務應用程式案例來說，您的驗證策略會是其中一項最重要的決定。有數個選項：
 
--   使用 [Azure Active Directory 服務](/en-us/documentation/services/active-directory/) (英文)。您可以使用這個做為獨立目錄，或是將它與內部部署的 Active Directory 同步處理。應用程式會接著與 Azure Active Directory 互動來驗證使用者。如需這個方法的概觀，請參閱[使用 Azure Active Directory](/en-us/manage/windows/fundamentals/identity/#ad) (英文)。
+-   使用 [Azure Active Directory 服務](/zh-tw/documentation/services/active-directory/) (英文)。您可以使用這個做為獨立目錄，或是將它與內部部署的 Active Directory 同步處理。應用程式會接著與 Azure Active Directory 互動來驗證使用者。如需這個方法的概觀，請參閱[使用 Azure Active Directory](/en-us/manage/windows/fundamentals/identity/#ad) (英文)。
 -   使用 Azure 虛擬機器和虛擬網路來安裝 Active Directory。這可提供您將內部部署 Active Directory 安裝延伸到雲端的選項。您也可以選擇使用 Active Directory Federation Services (ADFS) 將身分識別要求透過同盟傳回到內部部署 AD 處理。Azure 應用程式的驗證會透過 ADFS 傳送給內部部署 Active Directory。如需有關這個方法的詳細資訊，請參閱[在 VM 中執行 Windows Server Active Directory](/en-us/manage/windows/fundamentals/identity/#adinvm) (英文) 和 [在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090.aspx)。
 -   使用中繼服務 (例如 [Azure 存取控制服務](http://msdn.microsoft.com/library/windowsazure/hh147631.aspx) (ACS) (英文) 以使用多個身分識別服務來驗證使用者。這提供一個透過 Active Directory 或透過其他身分識別提供者進行驗證的抽象概念。如需詳細資訊，請參閱[使用 Azure Active Directory 存取控制](/en-us/manage/windows/fundamentals/identity/#ac) (英文)。
 

@@ -3,7 +3,7 @@
 開始使用通知中心
 ================
 
-[Windows 市集 C\#](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet "Windows 市集 C#")[Windows Phone](/en-us/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone")[iOS](/en-us/documentation/articles/notification-hubs-ios-get-started/ "iOS")[Android](/en-us/documentation/articles/notification-hubs-android-get-started/ "Android")[Kindle](/en-us/documentation/articles/notification-hubs-kindle-get-started/ "Kindle")[Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS")[Xamarin.Android](/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android")
+[Windows 市集 C\#](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet "Windows 市集 C#")[Windows Phone](/zh-tw/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone")[iOS](/zh-tw/documentation/articles/notification-hubs-ios-get-started/ "iOS")[Android](/zh-tw/documentation/articles/notification-hubs-android-get-started/ "Android")[Kindle](/zh-tw/documentation/articles/notification-hubs-kindle-get-started/ "Kindle")[Xamarin.iOS](/zh-tw/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS")[Xamarin.Android](/zh-tw/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android")
 
 本主題將示範如何使用 Azure 通知中心，來將推播通知傳送到 Windows 市集應用程式。在本教學課程中，您將使用 Windows 推播通知服務 (WNS)，建立可接收推播通知的空白 Windows 市集應用程式。完成時，您便能夠使用通知中心，將推播通知廣播到所有正在執行您應用程式的裝置。
 

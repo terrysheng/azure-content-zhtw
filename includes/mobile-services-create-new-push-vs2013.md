@@ -1,6 +1,6 @@
 首先，您會在 Visual Studio 2013 中使用 [加入推播通知] 精靈向 Windows 市集註冊您的應用程式、設定您的行動服務以啟用推播通知，以及將您的程式碼加入至您的應用程式以註冊裝置通道。
 
-1.  如果您尚未這麼做，請遵循[在 Visual Studio 2013 中匯入 publishsettings 檔案](/en-us/documentation/articles/mobile-services-windows-how-to-import-publishsettings/)中的步驟，將 publisher.settings 檔案匯入 Visual Studio。
+1.  如果您尚未這麼做，請遵循[在 Visual Studio 2013 中匯入 publishsettings 檔案](/zh-tw/documentation/articles/mobile-services-windows-how-to-import-publishsettings/)中的步驟，將 publisher.settings 檔案匯入 Visual Studio。
     
     如果您已使用 Visual Studio 建立或管理 Azure 訂閱中的行動服務，則不需要這麼做。
 

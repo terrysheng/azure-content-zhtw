@@ -14,7 +14,7 @@
 > [WACOM.NOTE] 本主題說明如何使用行動服務所提供的舊版支援來啟用推播通知。Azure
 > 通知中心會與行動服務整合，讓您可以將範本型的跨平台推播通知傳送至數百萬個裝置。預設不會啟用使用通知中心進行推播通知，且行動服務程式庫中目前沒有
 > Android
-> 適用的通知中心支援。不過，您可以使用通知中心程式庫，從自己的行動服務傳送推播通知。如需詳細資訊，請參閱[開始使用通知中心](/en-us/documentation/articles/notification-hubs-android-get-started/)。
+> 適用的通知中心支援。不過，您可以使用通知中心程式庫，從自己的行動服務傳送推播通知。如需詳細資訊，請參閱[開始使用通知中心](/zh-tw/documentation/articles/notification-hubs-android-get-started/)。
 
 本教學課程將引導您逐步完成以下啟用推播通知的基本步驟：
 

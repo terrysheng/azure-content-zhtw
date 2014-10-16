@@ -77,7 +77,7 @@
   []: ./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png
   [1]: ./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-quickstart-steps.png
   [mobile-services-javascript-backend-run-app]: ../includes/mobile-services-javascript-backend-run-app.md
-  [開始使用資料]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data
-  [開始使用驗證]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users
-  [開始使用推播通知]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
-  [從單一行動服務支援多個裝置平台]: /en-us/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs
+  [開始使用資料]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-data
+  [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-users
+  [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
+  [從單一行動服務支援多個裝置平台]: /zh-tw/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs

@@ -43,6 +43,6 @@
 
 <!-- URLs. -->
 
-  [如何註冊 Azure Active Directory]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+  [如何註冊 Azure Active Directory]: /zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   []: ./media/mobile-services-dotnet-adal-register-service/mobile-services-aad-app-manage-manifest.png

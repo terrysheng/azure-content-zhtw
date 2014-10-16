@@ -3,9 +3,9 @@
 開始使用推播通知行動服務
 ========================
 
-[Windows 市集 C\#](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push "Windows 市集 C#") [Windows 市集 JavaScript](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push "Windows 市集 JavaScript") [Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push "Windows Phone")
+[Windows 市集 C\#](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push "Windows 市集 C#") [Windows 市集 JavaScript](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push "Windows 市集 JavaScript") [Windows Phone](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push "Windows Phone")
 
-[.NET 後端](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push ".NET 後端") | [JavaScript 後端](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/ "JavaScript 後端")
+[.NET 後端](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push ".NET 後端") | [JavaScript 後端](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/ "JavaScript 後端")
 
 本主題說明如何使用 Windows Azure .Net 執行階段行動服務傳送推播通知至 Windows Phone 8 應用程式。在本教學課程中，您會啟用透過 Windows Azure 通知中心將推播通知傳送至快速入門專案的功能。完成後，您的 .Net 執行階段行動服務就會在每次插入記錄時使用通知中心傳送推播通知。您所建立的通知中心可透過行動服務免費使用、可在行動服務以外個別管理，並且可供其他應用程式和服務使用。
 
@@ -15,7 +15,7 @@
 2.  [更新伺服器以傳送推播通知](#update-server)
 3.  [插入資料以接收推播通知](#test)
 
-本教學課程是以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務](/en-us/documentation/articles/mobile-services-windows-store-get-started)或[開始使用資料](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)，將您的專案連接到行動服務。
+本教學課程是以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-windows-store-get-started)或[開始使用資料](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)，將您的專案連接到行動服務。
 
 更新應用程式以註冊通知
 ----------------------
@@ -138,16 +138,16 @@
 
 考慮更深入了解下列行動服務主題：
 
--   [開始使用資料](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)
+-   [開始使用資料](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)
     深入了解如何 .Net 執行階段使用行動服務儲存和查詢資料。
 
--   [開始使用驗證](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users)
+-   [開始使用驗證](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users)
     了解如何使用 .Net 執行階段行動服務驗證使用不同帳戶類型的應用程式使用者。
 
 -   [行動服務伺服器指令碼參考](http://go.microsoft.com/fwlink/?LinkId=262293)
     深入了解如何註冊和使用伺服器指令碼。
 
--   [行動服務 .NET 作法概念性參考](/en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library)
+-   [行動服務 .NET 作法概念性參考](/zh-tw/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library)
     深入了解如何搭配使用行動服務與 .NET。
 
 <!-- Images. -->

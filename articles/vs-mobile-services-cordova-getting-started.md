@@ -82,6 +82,6 @@
         items.splice(items.indexOf(todoItem), 1);
     });
 
-  [開始使用驗證]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-html-get-started-users/
+  [開始使用驗證]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-html-get-started-users/
   [Promise]: ()
   [query]: http://msdn.microsoft.com/library/azure/jj613353.aspx

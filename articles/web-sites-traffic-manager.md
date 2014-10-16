@@ -40,7 +40,7 @@ Azure 網站和流量管理員設定檔
 
 -   將網站新增至設定檔後，在網站之入口網站頁面的儀表板上，**[網站 URL]** 將顯示網站的自訂網域 URL (如果已設定一個)。否則會顯示流量管理員設定檔 URL (例如，`contoso.trafficmgr.com`)。網站的直接網域名稱和流量管理員 URL 二者，都會顯示在網站之 [設定] 頁面的 **[網域名稱]** 區段下方。
 
--   您的自訂網域名稱將如預期般運作，但除了將之新增至網站外，您還必須設定 DNS 對應以指向流量管理員 URL。如需有關如何設定 Azure 網站之自訂網域的詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱](https://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/)。
+-   您的自訂網域名稱將如預期般運作，但除了將之新增至網站外，您還必須設定 DNS 對應以指向流量管理員 URL。如需有關如何設定 Azure 網站之自訂網域的詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱](https://www.windowsazure.com/zh-tw/documentation/articles/web-sites-custom-domain-name/)。
 
 -   您只能將標準模式的網站新增至 Azure 流量管理員設定檔。
 

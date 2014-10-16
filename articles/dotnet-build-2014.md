@@ -79,5 +79,5 @@ Azure 行動服務現已可讓您選擇將 .NET 型後端用於可在 Windows �
 資源管理員是可跨資源部署及管理應用程式的新架構。您可以使用新的 JSON 編輯器、PowerShell Cmdlet 和 CLI 支援來試用資源管理員。如需詳細資訊，請參考：
 
 -   [將 Azure PowerShell 與資源管理員搭配使用](http://go.microsoft.com/fwlink/?LinkID=394767)
--   [搭配使用 Azure 跨平台命令列介面與資源管理員](/en-us/documentation/articles/xplat-cli-azure-resource-manager/)
+-   [搭配使用 Azure 跨平台命令列介面與資源管理員](/zh-tw/documentation/articles/xplat-cli-azure-resource-manager/)
 

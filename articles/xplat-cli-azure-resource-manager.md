@@ -7,7 +7,7 @@
 
 > [WACOM.NOTE] 「資源管理員」目前為預覽版，且無法提供與 Azure 服務管理相同等級的管理功能。
 
-> [WACOM.NOTE] 若您尚未安裝及設定 xplat-cli，請參閱[安裝及設定 Microsoft Azure 跨平台命令列介面](/en-us/documentation/articles/xplat-cli/)以取得如何安裝、設定和使用 xplat-cli 的詳細步驟。
+> [WACOM.NOTE] 若您尚未安裝及設定 xplat-cli，請參閱[安裝及設定 Microsoft Azure 跨平台命令列介面](/zh-tw/documentation/articles/xplat-cli/)以取得如何安裝、設定和使用 xplat-cli 的詳細步驟。
 
 資源管理員
 ----------
@@ -27,7 +27,7 @@
 
 目前若要透過 xplat-cli 使用資源管理員，您需要使用組織帳戶通過 Microsoft Azure 驗證。使用 Microsoft 帳戶驗證，或透過 .publishsettings 檔案安裝憑證都沒有作用。
 
-如需使用組織帳戶進行驗證的詳細資訊，請參閱[安裝及設定 Microsoft Azure 跨平台命令列介面](/en-us/documentation/articles/xplat-cli/)。
+如需使用組織帳戶進行驗證的詳細資訊，請參閱[安裝及設定 Microsoft Azure 跨平台命令列介面](/zh-tw/documentation/articles/xplat-cli/)。
 
 使用群組和範本
 --------------
@@ -162,6 +162,6 @@
 後續步驟
 --------
 
--   如需使用 Azure 跨平台命令列介面的詳細資訊，請參閱[安裝及設定 Microsoft Azure 跨平台命令列介面](/en-us/documentation/articles/xplat-cli/)。
+-   如需使用 Azure 跨平台命令列介面的詳細資訊，請參閱[安裝及設定 Microsoft Azure 跨平台命令列介面](/zh-tw/documentation/articles/xplat-cli/)。
 -   如需使用 Windows Azure PowerShell 來使用資源管理員的詳細資訊，請參閱[開始搭配使用 Windows PowerShell 與資源管理員](http://go.microsoft.com/fwlink/?LinkId=394760) (英文)。
 

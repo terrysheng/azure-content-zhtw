@@ -54,5 +54,5 @@ CNAME 記錄將*特定的*網域 (例如 **mail.contoso.com** 或 **www.contoso.
   [IETF 網域名稱 - 實作與規格]: http://tools.ietf.org/html/rfc1035
   [Azure 管理入口網站]: https://manage.windowsazure.com
   []: ./media/custom-dns-web-site/dncmntask-cname-6.png
-  [如何調整網站]: http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/
+  [如何調整網站]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-scale/
   [1]: ./media/custom-dns-web-site/managecustomdomains.png

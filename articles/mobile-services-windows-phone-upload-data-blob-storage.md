@@ -3,7 +3,7 @@
 使用行動服務上傳影像至 Azure 儲存體
 ===================================
 
-[Windows 市集 C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows 市集 C#")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
+[Windows 市集 C\#](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows 市集 C#")[Windows Phone](/zh-tw/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
 
 本主題將示範如何使用 Azure 行動服務，讓應用程式在 Azure 儲存體中上傳並儲存使用者產生的影像。行動服務會使用 SQL Database 儲存資料。不過，在 Azure Blob 儲存服務中可以更有效地儲存二進位大型物件 (BLOB) 資料。
 
@@ -23,7 +23,7 @@
 -   已安裝適用於 Microsoft Visual Studio 的 Nuget Package Manager
 -   [Azure 儲存體帳戶](/en-us/manage/services/storage/how-to-create-a-storage-account)
 
-本教學課程以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務](/en-us/documentation/articles/mobile-services-windows-phone-get-started)。
+本教學課程以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-windows-phone-get-started)。
 
 安裝 Windows 市集應用程式的儲存體用戶端
 ---------------------------------------

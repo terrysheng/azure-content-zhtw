@@ -24,7 +24,7 @@
 建立 Node.js 應用程式
 ---------------------
 
-建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的指示，請參閱[建立並部署 Node.js 應用程式至 Azure 網站](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/)、[Node.js 雲端服務](/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (使用 Windows PowerShell) 或 [使用 WebMatrix 的網站](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/)。
+建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的指示，請參閱[建立並部署 Node.js 應用程式至 Azure 網站](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/)、[Node.js 雲端服務](/zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (使用 Windows PowerShell) 或 [使用 WebMatrix 的網站](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/)。
 
 設定應用程式使用服務匯流排
 --------------------------

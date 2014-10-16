@@ -23,7 +23,7 @@
 -   已安裝適用於 Microsoft Visual Studio 的 Nuget Package Manager
 -   [Azure 儲存體帳戶](/en-us/manage/services/storage/how-to-create-a-storage-account)
 
-本教學課程是以行動服務快速入門為基礎。開始此教學課程之前，您必須先完成[開始使用行動服務](/en-us/documentation/articles/mobile-services-windows-phone-get-started)。
+本教學課程是以行動服務快速入門為基礎。開始此教學課程之前，您必須先完成[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-windows-phone-get-started)。
 
 安裝 Windows 市集應用程式的儲存體用戶端
 ---------------------------------------
@@ -56,7 +56,7 @@
 
     了解如何使用 SendGrid 電子郵件服務，來將電子郵件功能新增至行動服務。本主題將示範如何新增伺服器端指令碼，來使用 SendGrid 傳送電子郵件。
 
--   [在行動服務中排定後端工作](/en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks)
+-   [在行動服務中排定後端工作](/zh-tw/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks)
 
     了解如何使用行動服務工作排程器功能，以根據您所定義的排程來，從而定義要執行的伺服器指令碼。
 

@@ -3,9 +3,9 @@
 開始使用行動服務中的資料
 ========================
 
-[Windows 市集 C\#](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows 市集 C#") [Windows 市集 JavaScript](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Windows 市集 JavaScript") [Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone")
+[Windows 市集 C\#](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows 市集 C#") [Windows 市集 JavaScript](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Windows 市集 JavaScript") [Windows Phone](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone")
 
-[.NET 後端](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ ".NET 後端") | [JavaScript 後端](/en-us/documentation/articles/mobile-services-windows-phone-get-started-data/ "JavaScript 後端")
+[.NET 後端](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ ".NET 後端") | [JavaScript 後端](/zh-tw/documentation/articles/mobile-services-windows-phone-get-started-data/ "JavaScript 後端")
 
 本主題將說明如何以 Azure 行動服務作為 Windows Phone 8 應用程式的後端資料來源。在本教學課程中，您將下載 Visual Studio 2012 專案，以取得在記憶體中儲存資料的應用程式、建立新的行動服務、整合行動服務與該應用程式，然後檢視執行應用程式時所做的資料變更。
 
@@ -279,7 +279,7 @@
 
 完成資料序列之後，請嘗試下列其中一個其他教學課程：
 
--   [開始使用驗證](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/)
+-   [開始使用驗證](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/)
     了解如何驗證應用程式的使用者。
 
 -   [行動服務 .NET 作法概念性參考](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)

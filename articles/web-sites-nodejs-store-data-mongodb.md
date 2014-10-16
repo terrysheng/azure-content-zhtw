@@ -380,7 +380,7 @@
 
 ### 安裝 Azure 跨平台命令列介面
 
-Azure 跨平台命令列介面 (xplat-cli) 可讓您執行 Azure 服務的管理作業。若您的開發環境尚未安裝及設定 xplat-cli，請參閱[安裝及設定 Azure 跨平台命令列介面](/en-us/documentation/articles/xplat-cli/)中的說明。
+Azure 跨平台命令列介面 (xplat-cli) 可讓您執行 Azure 服務的管理作業。若您的開發環境尚未安裝及設定 xplat-cli，請參閱[安裝及設定 Azure 跨平台命令列介面](/zh-tw/documentation/articles/xplat-cli/)中的說明。
 
 ### 建立 Azure 網站
 

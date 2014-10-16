@@ -190,7 +190,7 @@ RemoteApp 程式是您提供給使用者的應用程式或程式。此程式位�
 
   [必要更新]: http://support.microsoft.com/kb/2977219
   [RemoteApp 預覽版]: http://azure.microsoft.com/en-us/services/remoteapp/
-  [Azure PowerShell]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
+  [Azure PowerShell]: http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/
   [Azure 管理入口網站]: http://manage.windowsazure.com
   [使用管理入口網站設定站對站 VPN]: http://msdn.microsoft.com/library/azure/dn133795.aspx
   [目錄同步處理藍圖]: http://msdn.microsoft.com//library/azure/hh967642.aspx

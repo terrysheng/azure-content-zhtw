@@ -124,7 +124,7 @@ Azure VM 上的 Ruby on Rails Web 應用程式
 建立 Azure 虛擬機器
 -------------------
 
-按照[此處](http://windowsazure.com/en-us/documentation/articles/virtual-machines-linux-tutorial)提供的指示建立代管 Linux 的 Azure 虛擬機器。
+按照[此處](http://windowsazure.com/zh-tw/documentation/articles/virtual-machines-linux-tutorial)提供的指示建立代管 Linux 的 Azure 虛擬機器。
 
 **注意**
 
@@ -262,13 +262,13 @@ Azure VM 上的 Ruby on Rails Web 應用程式
 
 在本文中，您已經了解如何建立基本表單型 Rails 應用程式並發佈至 Azure 虛擬機器。我們執行的大部分動作都是手動進行，而且，在生產環境中，應該自動進行。另外，大部分生產環境均代管 Rails 應用程式以及 Apache 或 NginX 之類的其他伺服器程序，處理傳送至多個 Rails 應用程式及執行個體並提供靜態資源的要求。
 
-如需 Rails 應用程式自動部署以及使用 Unicorn 網頁伺服器和 NginX 的資訊，請參閱[現代化商務的雲端](http://windowsazure.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)。
+如需 Rails 應用程式自動部署以及使用 Unicorn 網頁伺服器和 NginX 的資訊，請參閱[現代化商務的雲端](http://windowsazure.com/zh-tw/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/)。
 
 如果要深入了解 Ruby on Rails，請參閱 [Ruby on Rails 指南](http://guides.rubyonrails.org/) (英文)。
 
 若要深入了解如何使用 Azure SDK for Ruby 從 Ruby 應用程式存取 Azure，請參閱：
 
--   [使用 Blob 儲存非結構化資料](http://windowsazure.com/en-us/documentation/articles/storage-ruby-how-to-use-blob-storage)
+-   [使用 Blob 儲存非結構化資料](http://windowsazure.com/zh-tw/documentation/articles/storage-ruby-how-to-use-blob-storage)
 
 -   [使用資料表儲存機碼值組](http://www.windowsazure.com/zh-tw/develop/ruby/how-to-guides/table-service/)
 

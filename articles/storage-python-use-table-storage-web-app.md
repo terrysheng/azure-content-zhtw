@@ -174,9 +174,9 @@
 -   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][]
 -   請造訪 Azure 儲存體團隊部落格：<http://blogs.msdn.com/b/windowsazurestorage/>
 
-  [Django Hello World Web 應用程式]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server
+  [Django Hello World Web 應用程式]: http://windowsazure.com/zh-tw/documentation/articles/virtual-machines-python-django-web-app-windows-server
   [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   []: ./media/storage-python-use-table-storage-web-app/web-app-with-storage-Finaloutput-mac.png
   [create-account-note]: ../includes/create-account-note.md
-  [Python 安裝指南]: http://windowsazure.com/en-us/documentation/articles/python-how-to-install
+  [Python 安裝指南]: http://windowsazure.com/zh-tw/documentation/articles/python-how-to-install
   [create-storage-account]: ../includes/create-storage-account.md

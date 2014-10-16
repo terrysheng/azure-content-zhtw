@@ -3,7 +3,7 @@
 在 Azure 網站上建立全域網站空間
 ===============================
 
-本指南針對如何在 Azure 上託管您的組織的 (.COM) 網站提供技術概觀。本案例亦同時稱為全域網站空間。本指南著重在使用 [Azure 網站](/en-us/documentation/services/web-sites/)，因為網站是 Azure 上最快速且最容易建立、移轉、擴充與管理的 Web 應用程式。不過，為滿足部分應用程式需求，最好移轉到執行 IIS 的 [Azure 雲端服務](/en-us/documentation/services/cloud-services/)或 [Azure 虛擬機器](/en-us/documentation/services/virtual-machines/)。託管 Web 應用程式還有其他很好的選擇。如果您正處於初始規劃階段，請檢閱以下文件：[Azure 網站、雲端服務和 VM：使用時機](/en-us/manage/services/web-sites/choose-web-app-service)。如果使用雲端服務或虛擬機器的需求消失，我們建議您使用網站來託管您的全域網站空間。本文件其他部分將就如何在此案例中使用網站提供相關指導。
+本指南針對如何在 Azure 上託管您的組織的 (.COM) 網站提供技術概觀。本案例亦同時稱為全域網站空間。本指南著重在使用 [Azure 網站](/zh-tw/documentation/services/web-sites/)，因為網站是 Azure 上最快速且最容易建立、移轉、擴充與管理的 Web 應用程式。不過，為滿足部分應用程式需求，最好移轉到執行 IIS 的 [Azure 雲端服務](/zh-tw/documentation/services/cloud-services/)或 [Azure 虛擬機器](/zh-tw/documentation/services/virtual-machines/)。託管 Web 應用程式還有其他很好的選擇。如果您正處於初始規劃階段，請檢閱以下文件：[Azure 網站、雲端服務和 VM：使用時機](/en-us/manage/services/web-sites/choose-web-app-service)。如果使用雲端服務或虛擬機器的需求消失，我們建議您使用網站來託管您的全域網站空間。本文件其他部分將就如何在此案例中使用網站提供相關指導。
 
 本指南涵蓋下列領域：
 

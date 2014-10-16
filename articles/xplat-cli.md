@@ -271,7 +271,7 @@ xplat-cli 預設會設為 Azure 服務管理模式。若要切換至資源管理
 
 > [WACOM.NOTE] 資源管理員模式與 Azure 服務管理模式是互斥的。亦即，任一模式所建立的資源，將無法由另一種模式來管理。
 
-如需將 xplat-cli 與資源管理員搭配使用的詳細資訊，請參閱[將 Azure 跨平台命令列介面與資源管理員搭配使用](/en-us/documentation/articles/xplat-cli-azure-resource-manager/)。
+如需將 xplat-cli 與資源管理員搭配使用的詳細資訊，請參閱[將 Azure 跨平台命令列介面與資源管理員搭配使用](/zh-tw/documentation/articles/xplat-cli-azure-resource-manager/)。
 
 ### 在 Azure 服務管理模式中使用服務
 

@@ -5,7 +5,7 @@
 本主題說明如何從藝廊或使用管理入口網站來建立網站。
 
 如需關於如何將內容部署到已建立之 Azure 網站的詳細資訊，請參閱 [Azure
-網站](/en-us/documentation/services/web-sites/)中的＜**部署**＞一節。
+網站](/zh-tw/documentation/services/web-sites/)中的＜**部署**＞一節。
 
 ## 目錄
 
@@ -66,7 +66,7 @@
 
 ## <a name="nextsteps"></a>後續步驟
 
-如需詳細資訊，請參閱 [Azure 網站](/en-us/documentation/services/web-sites/)。
+如需詳細資訊，請參閱 [Azure 網站](/zh-tw/documentation/services/web-sites/)。
 
 
 

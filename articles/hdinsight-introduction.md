@@ -169,7 +169,7 @@ HDInsight (以及一般的 Hadoop 技術) 最適合用來處理大量的記錄�
   [SQL Server 2012 Analysis Services]: http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx
   [SQL Server 2012 Reporting]: http://www.microsoft.com/en-us/sqlserver/solutions-technologies/business-intelligence/reporting.aspx
   [HDInsight 文件]: http://go.microsoft.com/fwlink/?LinkID=285601
-  [HDInsight 版本資訊]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-release-notes/
+  [HDInsight 版本資訊]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-release-notes/
   [開始使用 Azure HDInsight]: ../hdinsight-get-started/
   [執行 HDInsight 範例]: ../hdinsight-run-samples/
   [巨量資料與 Azure]: http://azure.microsoft.com/en-us/solutions/big-data/

@@ -5,11 +5,11 @@
 # 開始在行動服務中使用離線資料同步
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Windows 市集 C#">Windows 市集 C#</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone" class="current">Windows Phone</a>
-<a href="/en-us/documentation/articles/mobile-services-ios-get-started-offline-data" title="iOS">iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android">Xamarin.Android</a>
+<a href="/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Windows 市集 C#">Windows 市集 C#</a>
+<a href="/zh-tw/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/zh-tw/documentation/articles/mobile-services-ios-get-started-offline-data" title="iOS">iOS</a>
+<a href="/zh-tw/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/zh-tw/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
 本主題將說明如何使用 Azure 行動服務的離線功能。Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時，仍可與本機資料庫互動。離線功能可讓您在重新上線時同步處理本機變更與行動服務。
@@ -243,13 +243,13 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 
 
-  [Windows 市集 C\#]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows 市集 C#"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /en-us/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
-  [開始使用行動服務]: /en-us/documentation/articles/mobile-services-windows-phone-get-started/
-  [開始使用資料]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/
+  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows 市集 C#"
+  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
+  [iOS]: /zh-tw/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
+  [Xamarin.iOS]: /zh-tw/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
+  [Xamarin.Android]: /zh-tw/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
+  [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started/
+  [開始使用資料]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-data/
   [更新應用程式以支援離線功能]: #enable-offline-app
   [在離線狀態下測試應用程式]: #test-offline-app
   [更新應用程式以重新連接您的行動服務]: #update-online-app
@@ -270,4 +270,4 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
   [7]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-online-app-run2.png
   [8]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-online-app-run3.png
   [9]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-data-browse3.png
-  [處理行動服務的離線支援衝突]: /en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/
+  [處理行動服務的離線支援衝突]: /zh-tw/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/

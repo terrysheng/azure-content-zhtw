@@ -20,7 +20,7 @@
 
 > [WACOM.NOTE]為了避免行動裝置用戶端發生資料溢位，行動服務實施了自動頁面限制，預設為每次傳回最多 50 個項目作為回應。您可以指定頁面大小，明確要求每次傳送最多 1,000 個項目作為回應。
 
-本教學課程會以上一堂教學課程[開始使用資料](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/)中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須至少完成關於使用資料系列的第一個教學課程[開始使用資料](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/)。
+本教學課程會以上一堂教學課程[開始使用資料](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/)中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須至少完成關於使用資料系列的第一個教學課程[開始使用資料](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/)。
 
 [WACOM.INCLUDE [mobile-services-windows-dotnet-paging](../includes/mobile-services-windows-dotnet-paging.md)]
 
@@ -29,10 +29,10 @@
 
 這將結束一整套示範在行動服務中使用資料基本概念的教學課程。考慮搜尋有關下列行動服務主題的更多資訊：
 
--   [開始使用驗證](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/)
+-   [開始使用驗證](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/)
     了解如何驗證具有 Windows 帳戶的應用程式使用者。
 
--   [開始使用推播通知](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/)
+-   [開始使用推播通知](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/)
     了解如何將非常基本的推播通知傳送到應用程式。
 
 -   [行動服務 .NET 作法概念參考資料](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)

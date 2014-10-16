@@ -63,7 +63,7 @@
 
 -   連接到多個叢集，包括本機安裝，以及使用 Azure HDInsight 服務從遠端執行的叢集。
 
--   如需 HDInsight 服務的詳細資訊，請參閱 [][]<http://azure.microsoft.com/en-us/documentation/services/hdinsight/></a>。
+-   如需 HDInsight 服務的詳細資訊，請參閱 [][]<http://azure.microsoft.com/zh-tw/documentation/services/hdinsight/></a>。
 
 -   設定本機叢集上的 WASB
 
@@ -245,6 +245,6 @@
 
 -   [開始使用 HDInsight Emulator][]
 
-  []: http://azure.microsoft.com/en-us/documentation/services/hdinsight/
+  []: http://azure.microsoft.com/zh-tw/documentation/services/hdinsight/
   [//{container}@{account}/{path]: mailto://{container}@{account}/{path
   [開始使用 HDInsight Emulator]: ../hdinsight-get-started-emulator/

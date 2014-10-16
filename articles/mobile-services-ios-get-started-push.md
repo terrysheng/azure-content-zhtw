@@ -11,7 +11,7 @@
 
 [觀看教學課程](http://channel9.msdn.com/posts/iOS-Support-in-Windows-Azure-Mobile-Services) [播放視訊](http://channel9.msdn.com/posts/iOS-Support-in-Windows-Azure-Mobile-Services) 10:37
 
-> [WACOM.NOTE] 本主題說明如何使用行動服務提供的舊有支援來啟用推播通知。Azure 通知中心與行動服務整合，能夠讓您將範本型和跨平台推播通知傳送至數百萬個裝置。使用通知中心的推播通知預設為未啟用，目前行動服務程式庫沒有 iOS 的通知中心支援。不過，您可以使用通知中心程式庫，從您的行動服務傳送推播通知。如需詳細資訊，請參閱[開始使用通知中心](/en-us/documentation/articles/notification-hubs-ios-get-started/)。
+> [WACOM.NOTE] 本主題說明如何使用行動服務提供的舊有支援來啟用推播通知。Azure 通知中心與行動服務整合，能夠讓您將範本型和跨平台推播通知傳送至數百萬個裝置。使用通知中心的推播通知預設為未啟用，目前行動服務程式庫沒有 iOS 的通知中心支援。不過，您可以使用通知中心程式庫，從您的行動服務傳送推播通知。如需詳細資訊，請參閱[開始使用通知中心](/zh-tw/documentation/articles/notification-hubs-ios-get-started/)。
 
 本教學課程會逐步引導您完成啟用推播通知的基本步驟：
 

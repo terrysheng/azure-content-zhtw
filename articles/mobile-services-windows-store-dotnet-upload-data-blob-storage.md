@@ -3,7 +3,7 @@
 使用行動服務將影像上傳到 Azure 儲存體
 =====================================
 
-[Windows 市集 C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows 市集 C#")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
+[Windows 市集 C\#](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Windows 市集 C#")[Windows Phone](/zh-tw/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Windows Phone")
 
 本主題說明如何使用 Azure 行動服務，讓您的應用程式能在 Azure 儲存體中上傳和存放使用者產生的影像。行動服務會使用 SQL Database 儲存資料。不過在 Azure Blob 儲存體服務中，二進位大型物件 (BLOB) 資料的儲存比較有效。
 
@@ -22,7 +22,7 @@
 -   [Azure 儲存體帳戶](/en-us/manage/services/storage/how-to-create-a-storage-account)
 -   連接到電腦的相機或其他影像擷取裝置。
 
-本教學課程是以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務](/en-us/documentation/articles/mobile-services-windows-store-get-started)。
+本教學課程是以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-windows-store-get-started)。
 
 安裝適用於 Windows 市集應用程式的儲存體用戶端
 ---------------------------------------------
@@ -55,7 +55,7 @@
 
     了解如何使用 SendGrid 電子郵件服務將電子郵件功能新增到行動服務本主題示範如何新增伺服器端指令碼，以使用 SendGrid 傳送電子郵件。
 
--   [在行動服務中排程後端工作](/en-us/documentation/articles/mobile-services-schedule-recurring-tasks)
+-   [在行動服務中排程後端工作](/zh-tw/documentation/articles/mobile-services-schedule-recurring-tasks)
 
     了解如何使用行動服務工作排程器功能，定義可依您定義的排程執行的伺服器指令碼。
 

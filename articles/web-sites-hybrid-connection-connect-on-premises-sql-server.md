@@ -446,8 +446,8 @@
   [Registered users in on-premises database]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
   [Josh Twist 介紹混合式連線 (第 9 頻道視訊)]: http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections
   [混合式連線網站]: http://azure.microsoft.com/en-us/services/biztalk-services/
-  [BizTalk 服務：儀表板、監視器、調整、設定和混合式連線索引標籤]: http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
+  [BizTalk 服務：儀表板、監視器、調整、設定和混合式連線索引標籤]: http://azure.microsoft.com/zh-tw/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
   [透過絕佳的應用程式可攜性建置真實的混合式雲端 (第 9 頻道視訊)]: http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=
-  [使用混合式連線從 Azure 行動服務連接到內部部署 SQL Server]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
+  [使用混合式連線從 Azure 行動服務連接到內部部署 SQL Server]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
   [使用混合式連線從 Azure 行動服務連線到內部部署 SQL Server (第 9 頻道視訊)]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections
   [ASP.NET 身分識別概觀]: http://www.asp.net/identity

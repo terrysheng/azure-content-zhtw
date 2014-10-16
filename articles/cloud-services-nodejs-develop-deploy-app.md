@@ -16,7 +16,7 @@ PowerShell 命令列工具部署應用程式。
 
 以下螢幕擷取畫面顯示完成的應用程式：
 
-![A browser window displaying the hello world page.The URL indicates the page is hosted on Azure.](https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png)
+![A browser window displaying the hello world page.The URL indicates the page is hosted on Azure.](https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png)
 
 ## 建立新節點應用程式
 

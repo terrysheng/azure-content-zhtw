@@ -83,9 +83,9 @@
 
 <!-- Anchors --> <!-- Images. --> <!-- URLs. -->
 
-  [開始使用推送]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
-  [如何從 Java/PHP 使用通知中樞]: /en-us/documentation/articles/notification-hubs-java-backend-how-to/
+  [開始使用推送]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
+  [如何從 Java/PHP 使用通知中樞]: /zh-tw/documentation/articles/notification-hubs-java-backend-how-to/
   [通知中心 REST 介面]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
-  [開始使用通知中心]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+  [開始使用通知中心]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   []: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
   [WindowsAzure.ServiceBus NuGet 封裝]: http://nuget.org/packages/WindowsAzure.ServiceBus/

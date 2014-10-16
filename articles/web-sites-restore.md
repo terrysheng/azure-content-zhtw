@@ -3,7 +3,7 @@
 Microsoft Azure 웹 사이트 복원
 ==============================
 
-이 문서에서는 Azure 웹 사이트 백업 기능을 사용하여 이전에 백업한 웹 사이트를 복원하는 방법을 보여 줍니다. 자세한 내용은 [Microsoft Azure 웹 사이트 백업](http://www.windowsazure.com/en-us/documentation/articles/web-sites-backup/)을 참조하십시오.
+이 문서에서는 Azure 웹 사이트 백업 기능을 사용하여 이전에 백업한 웹 사이트를 복원하는 방법을 보여 줍니다. 자세한 내용은 [Microsoft Azure 웹 사이트 백업](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-backup/)을 참조하십시오.
 
 Azure 웹 사이트 복원 기능을 통해 요청 시 웹 사이트를 이전 상태로 복원하거나 원본 사이트 백업 중 하나를 기반으로 새 웹 사이트를 만들 수 있습니다. 최신 버전과 병행하여 실행되는 웹 사이트를 새로 만드는 것이 A/B를 테스트하는 데 유용할 수 있습니다.
 

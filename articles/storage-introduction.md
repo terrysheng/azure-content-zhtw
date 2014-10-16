@@ -178,7 +178,7 @@ Azure 儲存體可透過 [REST API][] 公開儲存體資源，任何可提出 HT
   [免費試用版]: /en-us/pricing/free-trial/
   [購買選項]: /en-us/pricing/purchase-options/
   [MSDN 訂閱者]: /en-us/pricing/member-offers/msdn-benefits-details/
-  [Azure 匯入/匯出服務]: http://azure.microsoft.com/en-us/documentation/articles/storage-import-export-service/
+  [Azure 匯入/匯出服務]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-import-export-service/
   [共用存取簽章]: ../storage-dotnet-shared-access-signature-part-1/
   [storage-replication-options]: ../includes/storage-replication-options.md
   [儲存體定價詳細資料]: /en-us/pricing/details/storage/
@@ -193,7 +193,7 @@ Azure 儲存體可透過 [REST API][] 公開儲存體資源，任何可提出 HT
   [Ruby]: /en-us/develop/ruby/
   [Python]: /en-us/develop/python/
   [PowerShell]: http://msdn.microsoft.com/library/dn495240.aspx
-  [Azure 儲存體文件]: /en-us/documentation/services/storage/
+  [Azure 儲存體文件]: /zh-tw/documentation/services/storage/
   [如何使用 .NET 的 Blob 儲存體]: ../storage-dotnet-how-to-use-blobs/
   [如何使用 .NET 的資料表儲存體]: ../storage-dotnet-how-to-use-tables/
   [如何使用 .NET 的佇列儲存體]: ../storage-dotnet-how-to-use-queues/

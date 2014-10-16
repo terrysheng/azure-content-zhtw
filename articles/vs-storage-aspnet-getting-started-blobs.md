@@ -6,7 +6,7 @@
 
 ### 開始使用 Azure 儲存體
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/vs-storage-aspnet-getting-started-blobs" title="Blob" class="current">Blob</a><a href="/en-us/documentation/articles/vs-storage-aspnet-getting-started-queues" title="佇列">佇列</a><a href="/en-us/documentation/articles/vs-storage-aspnet-getting-started-tables" title="資料表">資料表</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/vs-storage-aspnet-getting-started-blobs" title="Blob" class="current">Blob</a><a href="/zh-tw/documentation/articles/vs-storage-aspnet-getting-started-queues" title="佇列">佇列</a><a href="/zh-tw/documentation/articles/vs-storage-aspnet-getting-started-tables" title="資料表">資料表</a></div>
 
 Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非結構化資料的服務，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。單一 Blob 可以是任何大小。Blob 可以是影像、音訊和視訊檔、原始資料及文件檔案。
 
@@ -31,8 +31,8 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
 [WACOM.INCLUDE [vs-storage-getting-started-blobs-include][vs-storage-getting-started-blobs-include]]
 
   [vs-storage-aspnet-getting-started-intro]: ../includes/vs-storage-aspnet-getting-started-intro.md
-  [Blob]: /en-us/documentation/articles/vs-storage-aspnet-getting-started-blobs "Blob"
-  [佇列]: /en-us/documentation/articles/vs-storage-aspnet-getting-started-queues "佇列"
-  [資料表]: /en-us/documentation/articles/vs-storage-aspnet-getting-started-tables "資料表"
-  [如何從 .NET 使用 Blob 儲存體]: http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/ "如何從 .NET 使用 Blob 儲存體"
+  [Blob]: /zh-tw/documentation/articles/vs-storage-aspnet-getting-started-blobs "Blob"
+  [佇列]: /zh-tw/documentation/articles/vs-storage-aspnet-getting-started-queues "佇列"
+  [資料表]: /zh-tw/documentation/articles/vs-storage-aspnet-getting-started-tables "資料表"
+  [如何從 .NET 使用 Blob 儲存體]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/ "如何從 .NET 使用 Blob 儲存體"
   [vs-storage-getting-started-blobs-include]: ../includes/vs-storage-getting-started-blobs-include.md

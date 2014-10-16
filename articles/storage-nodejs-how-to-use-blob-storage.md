@@ -376,9 +376,9 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [建立 Node.js 應用程式並將其部署到 Azure 網站]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-  [Node.js 雲端服務]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [使用 WebMatrix 的網站]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [使用儲存體的 Node.js Web 應用程式]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Node.js 雲端服務]: /zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [使用 WebMatrix 的網站]: /zh-tw/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [使用儲存體的 Node.js Web 應用程式]: /zh-tw/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
   [了解區塊 Blob 和分頁 Blob]: http://msdn.microsoft.com/en-us/library/azure/ee691964.aspx
   [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

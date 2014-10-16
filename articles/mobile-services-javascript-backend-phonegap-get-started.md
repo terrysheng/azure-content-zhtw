@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with Mobile Services with PhoneGap | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for PhoneGap development for iOS, Android, and Windows Phone." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-[Windows 市集](/en-us/documentation/articles/mobile-services-windows-store-get-started "Windows 市集") [Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/en-us/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/en-us/documentation/articles/mobile-services-android-get-started "Android") [HTML](/en-us/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/en-us/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
+[Windows 市集](/zh-tw/documentation/articles/mobile-services-windows-store-get-started "Windows 市集") [Windows Phone](/zh-tw/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/zh-tw/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/zh-tw/documentation/articles/mobile-services-android-get-started "Android") [HTML](/zh-tw/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/zh-tw/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/zh-tw/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
 
 開始使用行動服務
 ================
@@ -141,10 +141,10 @@ PhoneGap 支援多個平台的開發。除了 PhoneGap 工具本身以外，您�
 
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
--   [開始使用資料](/en-us/documentation/articles/mobile-services-html-get-started-data)
+-   [開始使用資料](/zh-tw/documentation/articles/mobile-services-html-get-started-data)
     深入了解如何使用行動服務儲存和查詢資料。
 
--   [開始使用驗證](/en-us/documentation/articles/mobile-services-html-get-started-users)
+-   [開始使用驗證](/zh-tw/documentation/articles/mobile-services-html-get-started-users)
     了解如何向身分識別提供者驗證應用程式的使用者。
 
 <!-- Images. -->

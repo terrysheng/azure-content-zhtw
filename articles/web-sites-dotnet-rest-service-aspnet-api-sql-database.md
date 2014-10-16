@@ -35,7 +35,7 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 * [Azure 및 SQL 데이터베이스에 응용 프로그램 업데이트 게시](#bkmk_deploydatabaseupdate)
 
 <a name="bkmk_setupdevenv"></a>
-<!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/-->
+<!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-get-started/-->
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 <h2><a name="bkmk_setupwindowsazure"></a>Azure 환경 설정</h2>
@@ -57,7 +57,7 @@ SQL 데이터베이스는 SQL Server 기술로 구축된 클라우드 기반의 
 
 2.  **사용자 지정 만들기**를 클릭합니다.
     
-    ![관리 포털의 데이터베이스 링크를 사용하여 만들기](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rr6.png)
+    ![관리 포털의 데이터베이스 링크를 사용하여 만들기](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rr6.png)
     
     **새 웹 사이트 - 사용자 지정 만들기** 마법사가 열립니다.
 
@@ -68,7 +68,7 @@ SQL 데이터베이스는 SQL Server 기술로 구축된 클라우드 기반의 
 
 5.  **데이터베이스** 드롭다운 목록에서 **무료 20MB SQL 데이터베이스 만들기**를 선택합니다.
     
-    ![새 웹 사이트 - 데이터베이스를 사용하여 만들기 마법사의 새 웹 사이트 만들기 단계](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rrcws.png)
+    ![새 웹 사이트 - 데이터베이스를 사용하여 만들기 마법사의 새 웹 사이트 만들기 단계](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rrcws.png)
 
 6.  상자 맨 아래에서 오른쪽을 가리키는 화살표를 클릭합니다.
     
@@ -85,11 +85,11 @@ SQL 데이터베이스는 SQL Server 기술로 구축된 클라우드 기반의 
 
 11. 상자 아래쪽에 있는 확인 표시를 클릭하여 마쳤음을 표시합니다.
     
-    ![새 웹 사이트의 데이터베이스 설정 단계 - 데이터베이스 마법사를 사용하여 만들기](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-setup-azure-site-004.png)
+    ![새 웹 사이트의 데이터베이스 설정 단계 - 데이터베이스 마법사를 사용하여 만들기](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-setup-azure-site-004.png)
     
     다음 이미지는 기존 SQL Server와 로그인 사용을 보여 줍니다.
     
-    ![새 웹 사이트의 데이터베이스 설정 단계 - 데이터베이스 마법사를 사용하여 만들기](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rxprevdb.png)
+    ![새 웹 사이트의 데이터베이스 설정 단계 - 데이터베이스 마법사를 사용하여 만들기](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rxprevdb.png)
     
     관리 포털이 웹 사이트 페이지로 돌아가고 **상태** 열에 사이트를 만드는 중이라고 표시됩니다. 잠시(일반적으로 1분 미만) 후에 **상태** 열에 사이트를 만들었다고 표시됩니다. 왼쪽의 탐색 모음에서 계정에 보유한 사이트 수가 **웹 사이트** 아이콘 옆에 표시되고 데이터베이스 수가 **SQL 데이터베이스** 아이콘 옆에 표시됩니다.
 
@@ -107,7 +107,7 @@ Azure 웹 사이트를 만들었지만 아직 콘텐츠가 없습니다. 다음 
 3.  **새 프로젝트** 대화 상자에서 **Visual C#**을 확장하고 **웹**을 선택한 다음 **ASP.NET MVC 5 웹 응용 프로그램**을 선택합니다. 기본값인 **.NET Framework 4.5**를 그대로 유지합니다. 응용 프로그램 이름을 **ContactManager**로 지정하고 **확인**을 클릭합니다. ![새 프로젝트 대화 상자](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
 4.  **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택하고 **Web API**를 선택한 후 **인증 변경**을 클릭합니다.
     
-    ![새 ASP.NET 프로젝트 대화 상자](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rt3.png)
+    ![새 ASP.NET 프로젝트 대화 상자](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rt3.png)
 
 5.  **인증 변경** 대화 상자에서 **인증 없음**, **확인**을 차례로 클릭합니다.
     
@@ -117,13 +117,13 @@ Azure 웹 사이트를 만들었지만 아직 콘텐츠가 없습니다. 다음 
 
 6.  **새 ASP.NET 프로젝트** 대화 상자에서 **확인**을 클릭합니다.
     
-    ![새 ASP.NET 프로젝트 대화 상자](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/gs13newaspnetprojdb.png)
+    ![새 ASP.NET 프로젝트 대화 상자](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/gs13newaspnetprojdb.png)
 
 ### 페이지 머리글 및 바닥글 설정
 
 1.  **솔루션 탐색기**에서 *Views\\Shared* 폴더를 확장하고 *\_Layout.cshtml* 파일을 엽니다.
     
-    ![솔루션 탐색기의 _Layout.cshtml](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-createapp-004.png)
+    ![솔루션 탐색기의 _Layout.cshtml](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-createapp-004.png)
 
 2.  *\_Layout.cshtml* 파일 내용을 다음 코드로 바꿉니다.
     
@@ -168,7 +168,7 @@ Azure 웹 사이트를 만들었지만 아직 콘텐츠가 없습니다. 다음 
 ### 로컬에서 응용 프로그램 실행
 
 1.  Ctrl+F5를 눌러 응용 프로그램을 실행합니다. 응용 프로그램 홈 페이지가 기본 브라우저에 나타납니다.
-    ![할 일 모음 홈 페이지](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rr5.png)
+    ![할 일 모음 홈 페이지](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rr5.png)
 
 Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 하는 작업은 이것뿐입니다. 나중에 데이터베이스 기능을 추가하겠습니다.
 
@@ -177,13 +177,13 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
 
 1.  Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **게시**를 선택합니다.
     
-    ![프로젝트 상황에 맞는 메뉴의 게시](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/publishvssolution.png)
+    ![프로젝트 상황에 맞는 메뉴의 게시](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/publishvssolution.png)
     
     **웹 게시** 마법사가 열립니다.
 
 2.  **웹 게시** 마법사의 **프로필** 탭에서 **가져오기**를 클릭합니다.
     
-    ![게시 설정 가져오기](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/importpublishsettings.png)
+    ![게시 설정 가져오기](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/importpublishsettings.png)
     
     **게시 프로필 가져오기** 대화 상자가 나타납니다.
 
@@ -201,11 +201,11 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
 
 5.  연결 유효성이 검사되면 **연결 유효성 검사** 단추 옆에 녹색 확인 표시가 나타납니다.
     
-    ![연결 탭의 연결 성공 아이콘 및 다음 단추](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-deploy1-publish-005.png)
+    ![연결 탭의 연결 성공 아이콘 및 다음 단추](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-deploy1-publish-005.png)
 
 6.  **다음**을 클릭합니다.
     
-    ![설정 탭](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/gs13settingstab.png)
+    ![설정 탭](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/gs13settingstab.png)
     
     이 탭에서 기본 설정을 적용할 수 있습니다. 릴리스 빌드 구성을 배포 중이며 대상 서버의 파일을 삭제할 필요가 없는 경우 응용 프로그램을 미리 컴파일하거나 App\_Data 폴더의 파일을 제외합니다. 라이브 Azure 사이트에서 디버그를 수행하려면 릴리스 빌드 구성이 아닌 디버그 구성을 배포해야 합니다. 자세한 내용은 이 자습서의 후반부에서 [다음 단계](#nextsteps) 섹션을 참조하십시오.
 
@@ -213,7 +213,7 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
     
     이 탭에는 서버로 복사될 파일 목록이 표시됩니다. 미리 보기 표시는 응용 프로그램을 게시하는 데 필요하지 않지만 알아 두면 유용한 기능입니다. 따라서 표시된 파일 목록에 어떤 작업도 수행할 필요가 없습니다. 다음 번에 게시할 때 변경된 파일만 미리 보기 목록에 나타납니다.
     
-    ![미리 보기 탭의 미리 보기 시작 단추](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-deploy1-publish-007.png)
+    ![미리 보기 탭의 미리 보기 시작 단추](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-deploy1-publish-007.png)
 
 8.  **게시**를 클릭합니다.
     
@@ -223,7 +223,7 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
     
     만든 응용 프로그램이 이제 클라우드에서 실행되고 있습니다.
     
-    ![Azure에서 실행하는 할 일 모음 홈 페이지](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rxz2.png)
+    ![Azure에서 실행하는 할 일 모음 홈 페이지](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rxz2.png)
 
 <h2><a name="bkmk_addadatabase"></a>응용 프로그램에 데이터베이스 추가</h2>
 
@@ -237,11 +237,11 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
 
 1.  **솔루션 탐색기**에서 모델 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **클래스**를 클릭합니다.
     
-    ![모델 폴더 상황에 맞는 메뉴의 클래스 추가](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-adddatabase-001.png)
+    ![모델 폴더 상황에 맞는 메뉴의 클래스 추가](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-adddatabase-001.png)
 
 2.  **새 항목 추가** 대화 상자에서 새 클래스 파일의 이름을 *Contact.cs*로 지정하고 **추가**를 클릭합니다.
     
-    ![새 항목 추가 대화 상자]https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-adddatabase-002.png)
+    ![새 항목 추가 대화 상자]https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-adddatabase-002.png)
 
 3.  Contacts.cs 파일 내용을 다음 코드로 바꿉니다.
     
@@ -284,7 +284,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 3.  컨트롤러 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **컨트롤러**를 클릭합니다.
     
-    ![컨트롤러 폴더 상황에 맞는 메뉴의 컨트롤러 추가](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-controller-add-context-menu.png)
+    ![컨트롤러 폴더 상황에 맞는 메뉴의 컨트롤러 추가](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-controller-add-context-menu.png)
 
 4.  **스캐폴드 추가** 대화 상자에서 **MVC 컨트롤러(뷰 포함), Entity Framework 사용**을 선택하고
     **추가**를 클릭합니다.
@@ -293,7 +293,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1.  컨트롤러 이름을 **HomeController**로 설정합니다. 모델 클래스로 **Contact**를 선택합니다. **새 데이터 컨텍스트** 단추를 클릭하고 **새 데이터 컨텍스트 형식**으로 기본값인 "ContactManager.Models.ContactManagerContext"를 수락합니다. **추가**를 클릭합니다.
     
-    ![컨트롤러 추가 대화 상자](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rr9.png)
+    ![컨트롤러 추가 대화 상자](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rr9.png)
     
     대화 상자에 "HomeController(이)라는 파일이 이미 있습니다. 바꾸시겠습니까?"와 같은 메시지가 나타납니다. **예**를 클릭합니다. 새 프로젝트로 만들었던 Home Controller를 덮어쓰겠습니다. 연락처 목록에 새 Home Controller를 사용합니다.
     
@@ -305,7 +305,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1.  **도구** 메뉴에서 **라이브러리 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다.
     
-    ![도구 메뉴의 패키지 관리자 콘솔](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-migrations-package-manager-menu.png)
+    ![도구 메뉴의 패키지 관리자 콘솔](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-migrations-package-manager-menu.png)
 
 2.  **패키지 관리자 콘솔** 창에서 다음 명령을 입력합니다.
     
@@ -391,7 +391,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
     
          update-database
     
-    ![패키지 관리자 콘솔 명령](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-migrations-package-manager-console.png)
+    ![패키지 관리자 콘솔 명령](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-migrations-package-manager-console.png)
     
     **update-database**는 데이터베이스를 만드는 첫 번째 마이그레이션을 실행합니다. 기본적으로 데이터베이스는 SQL Server Express LocalDB 데이터베이스로 생성됩니다.
 
@@ -598,7 +598,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 2.  **스캐폴드 추가** 대화 상자에서 **Web API 2 컨트롤러(작업 포함), Entity Framework 사용**을 입력하고 **추가**를 클릭합니다.
     
-    ![API 컨트롤러 추가](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rt1.png)
+    ![API 컨트롤러 추가](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rt1.png)
 
 3.  **컨트롤러 추가** 대화 상자에서 컨트롤러 이름으로 "ContactsController"를 입력합니다. **모델 클래스**에 대해 "Contact(ContactManager.Models)"를 선택합니다. **데이터 컨텍스트 클래스**에 대한 기본값은 그대로 유지합니다.
 
@@ -613,23 +613,23 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 2.  연락처를 입력하고 **추가**를 클릭합니다. 앱이 홈 페이지로 돌아가고 입력한 연락처가 표시됩니다.
     
-    ![할 일 모음 항목이 있는 인덱스 페이지](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-webapi-added-contact.png)
+    ![할 일 모음 항목이 있는 인덱스 페이지](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-webapi-added-contact.png)
 
 3.  브라우저에서 URL 끝에 **/api/contacts**를 추가합니다.
     
     이에 따라 표시되는 URL은 http://localhost:1234/api/contacts와 유사합니다. 추가한 RESTful Web API에서 저장된 연락처가 반환됩니다. Firefox 및 Chrome은 XML 형식으로 데이터를 표시합니다.
     
-    ![할 일 모음 항목이 있는 인덱스 페이지](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rxffchrome.png)
+    ![할 일 모음 항목이 있는 인덱스 페이지](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/rxffchrome.png)
     
     IE에는 연락처를 열거나 저장할지를 묻는 메시지가 표시됩니다.
     
-    ![Web API 저장 대화 상자](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-webapi-save-returned-contacts.png)
+    ![Web API 저장 대화 상자](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-webapi-save-returned-contacts.png)
     
     반환된 연락처는 메모장 또는 브라우저에서 열 수 있습니다.
     
     이 출력은 모바일 웹 페이지나 모바일 응용 프로그램 같은 다른 응용 프로그램에서 사용될 수 있습니다.
     
-    ![Web API 저장 대화 상자](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-webapi-contacts-in-notepad.png)
+    ![Web API 저장 대화 상자](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-webapi-contacts-in-notepad.png)
     
     **보안 경고**: 이 단계에서 응용 프로그램은 CSRF 공격에 취약하고 보안되지 않는 상태입니다. 이 취약성은 자습서의 뒷부분에서 제거하겠습니다. 자세한 내용은 [CSRF(교차 사이트 요청 위조) 공격 예방][8](영문)을 참조하십시오.
 
@@ -810,7 +810,7 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
 
 입력한 항목이 저장되어 Contact Manager 페이지에 나타나면 해당 항목은 데이터베이스에 저장된 것입니다.
 
-![연락처가 있는 인덱스 페이지](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-webapi-added-contact.png)
+![연락처가 있는 인덱스 페이지](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/zh-tw/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/20140815090453/dntutmobile-webapi-added-contact.png)
 
 이제 응용 프로그램이 클라우드에서 실행되고 데이터를 저장하는 데 SQL 데이터베이스가 사용됩니다. Azure에서 응용 프로그램 테스트를 마치면 해당 응용 프로그램을 삭제해야 합니다. 응용 프로그램이 공개될 뿐 아니라 액세스를 제한할 메커니즘이 없기 때문입니다.
 
@@ -852,6 +852,6 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 [12]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 [13]: http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started
 [14]: http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-[15]: http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/
+[15]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/
 [16]: http://blogs.msdn.com/b/rickandy/
 [17]: https://twitter.com/blowdart

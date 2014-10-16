@@ -472,7 +472,7 @@ Rails 用於開發的預設資料庫是 SQLite。您在實際執行環境中通�
   [此處]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
   [管理入口網站]: https://manage.windowsazure.com/
   [Capistrano]: http://capistranorb.com
-  [如何在 Azure 上搭配使用 SSH 與 Linux]: http://azure.microsoft.com/en-us/documentation/articles/linux-use-ssh-key/
+  [如何在 Azure 上搭配使用 SSH 與 Linux]: http://azure.microsoft.com/zh-tw/documentation/articles/linux-use-ssh-key/
   [nginx welcome page]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/welcomenginx.png
   [Azure、Ruby on Rails、Capistrano 3 和 PostgreSQL]: http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql
   [Capistrano 3 教學課程]: http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/

@@ -67,4 +67,4 @@ Azure 行動服務 NuGet 封裝加入至專案。因此，下列 .NET 參考已�
 
     await todoTable.DeleteAsync(item);
 
-  [開始使用驗證]: http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/
+  [開始使用驗證]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/

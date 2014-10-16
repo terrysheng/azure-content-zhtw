@@ -3,10 +3,10 @@
 # <a name="getting-started"> </a>開始使用行動服務
 
  
-<div  class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-get-started" title="Windows 市集">Windows 市集</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-get-started" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-android-get-started" title="Android">Android</a><a href="/en-us/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a></div>
+<div  class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/mobile-services-windows-store-get-started" title="Windows 市集">Windows 市集</a><a href="/zh-tw/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone" class="current">Windows Phone</a><a href="/zh-tw/documentation/articles/mobile-services-ios-get-started" title="iOS">iOS</a><a href="/zh-tw/documentation/articles/mobile-services-android-get-started" title="Android">Android</a><a href="/zh-tw/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a><a href="/zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a><a href="/zh-tw/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a><a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a></div>
 
  
-<div  class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/" title=".NET backend">.NET 後端</a> | <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started/" title="JavaScript backend" class="current">JavaScript 後端</a></div>
+<div  class="dev-center-tutorial-subselector"><a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/" title=".NET backend">.NET 後端</a> | <a href="/zh-tw/documentation/articles/mobile-services-windows-phone-get-started/" title="JavaScript backend" class="current">JavaScript 後端</a></div>
 
  
 <div  class="dev-onpage-video-clear clearfix">
@@ -19,7 +19,7 @@
 <div  class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=290816" target="_blank" class="label">觀看教學課程</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=290816" target="_blank" class="dev-onpage-video"><span  class="icon">播放影片</span></a> <span  class="time">13:18</span></div>
 
  在本教學課程中，您將建立新的行動服務和簡單的*待辦事項清單*應用程式，後者會在前者儲存應用程式資料。您將建立的行動服務會使用
-JavaScript 建立伺服器端商務邏輯。若要建立可讓您在 Visual Studio 以支援的 .NET 語言撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [.NET 後端版本](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started)。
+JavaScript 建立伺服器端商務邏輯。若要建立可讓您在 Visual Studio 以支援的 .NET 語言撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [.NET 後端版本](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started)。
 
 以下是完成之應用程式的螢幕擷取畫面：
 

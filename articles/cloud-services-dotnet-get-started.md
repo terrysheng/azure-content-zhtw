@@ -794,7 +794,7 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
 -   [如何使用 .NET 的 Blob 儲存體][]
 -   [如何使用 .NET 的佇列儲存體][]
 
-  [Azure 雲端服務]: /en-us/documentation/articles/fundamentals-application-models/#CloudServices
+  [Azure 雲端服務]: /zh-tw/documentation/articles/fundamentals-application-models/#CloudServices
   [Azure SQL Database]: http://msdn.microsoft.com/library/azure/ee336279
   [Azure Blob 服務]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
   [Azure 佇列服務]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
@@ -802,9 +802,9 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
   [Ad list]: ./media/cloud-services-dotnet-get-started/list.png
   [Azure 網站]: /en-us/services/web-sites/
   [WebJob]: http://go.microsoft.com/fwlink/?LinkId=390226
-  [開始使用 Azure WebJob SDK]: /en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
-  [Azure 網站、雲端服務和虛擬機器比較]: http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/
-  [Azure 雲端服務的基本概念]: http://azure.microsoft.com/en-us/documentation/articles/fundamentals-application-models/#CloudServices
+  [開始使用 Azure WebJob SDK]: /zh-tw/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
+  [Azure 網站、雲端服務和虛擬機器比較]: http://azure.microsoft.com/zh-tw/documentation/articles/choose-web-site-cloud-service-vm/
+  [Azure 雲端服務的基本概念]: http://azure.microsoft.com/zh-tw/documentation/articles/fundamentals-application-models/#CloudServices
   [ASP.NET MVC]: http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started
   [Web Form]: http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview
   [啟用自己的 MSDN 訂戶權益]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668
@@ -827,7 +827,7 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
   [New Cloud Service]: ./media/cloud-services-dotnet-get-started/newcs.png
   [New SQL Database]: ./media/cloud-services-dotnet-get-started/newdb.png
   [如何在 Azure 中建立同質群組]: http://msdn.microsoft.com/en-us/library/jj156209.aspx
-  [如何管理儲存體帳戶]: /en-us/documentation/articles/storage-manage-storage-account/
+  [如何管理儲存體帳戶]: /zh-tw/documentation/articles/storage-manage-storage-account/
   [New storage account]: ./media/cloud-services-dotnet-get-started/newstorage.png
   [Web.config 轉換]: http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations
   [請勿將敏感性資料儲存在公用原始程式碼存放庫]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets
@@ -861,12 +861,12 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
   [EF 連線復原]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
   [PhluffyFotos]: http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31
   [具有表格、佇列和 Blob 的 Azure 雲端服務多層式應用程式]: http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36
-  [逐步教學課程系列]: http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/
+  [逐步教學課程系列]: http://azure.microsoft.com/zh-tw/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/
   [Windows Azure 中的雲端服務基礎]: http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649
   [使用 Windows Azure 建置真實世界的雲端應用程式]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
   [Microsoft Azure 儲存體 - 新功能、最佳作法和模式]: http://channel9.msdn.com/Events/Build/2014/3-628
   [Azure 雲端服務第 1 部分：簡介]: http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/
-  [3]: /en-us/documentation/services/cloud-services/
-  [Azure 儲存體]: /en-us/documentation/services/storage/
-  [如何使用 .NET 的 Blob 儲存體]: /en-us/documentation/articles/storage-dotnet-how-to-use-blobs/
-  [如何使用 .NET 的佇列儲存體]: /en-us/documentation/articles/storage-dotnet-how-to-use-queues/
+  [3]: /zh-tw/documentation/services/cloud-services/
+  [Azure 儲存體]: /zh-tw/documentation/services/storage/
+  [如何使用 .NET 的 Blob 儲存體]: /zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/
+  [如何使用 .NET 的佇列儲存體]: /zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/

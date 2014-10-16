@@ -3,12 +3,12 @@
 開始在行動服務中使用推播通知
 ============================
 
-[Windows 市集 C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows 市集 C#")[Windows 市集 JavaScript](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Windows 市集 JavaScript")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-ios-get-started-push "iOS")[Android](/en-us/documentation/articles/mobile-services-android-get-started-push "Android")[Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push "Xamarin.iOS")[Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-push "Xamarin.Android")
-[.NET 後端](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ ".NET 後端") | [JavaScript 後端](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/ "JavaScript 後端")
+[Windows 市集 C\#](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows 市集 C#")[Windows 市集 JavaScript](/zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Windows 市集 JavaScript")[Windows Phone](/zh-tw/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone")[iOS](/zh-tw/documentation/articles/mobile-services-ios-get-started-push "iOS")[Android](/zh-tw/documentation/articles/mobile-services-android-get-started-push "Android")[Xamarin.iOS](/zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push "Xamarin.iOS")[Xamarin.Android](/zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started-push "Xamarin.Android")
+[.NET 後端](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ ".NET 後端") | [JavaScript 後端](/zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-push/ "JavaScript 後端")
 
 本主題說明 Visual Studio 2013 如何讓您使用 Azure 行動服務將推播通知傳送至 Windows 市集應用程式。在本教學課程中，您會使用 Windows 推播通知服務 (WNS)，將推播通知從 Visual Studio 新增至快速入門專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
-> [WACOM.NOTE]行動服務現在與 Azure 通知中心整合，以支援其他推播通知功能，例如範本、多個平台和範圍。這項整合後的功能目前只能預覽。如需詳細資訊，請參閱這一版的[開始使用推播通知](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/)。
+> [WACOM.NOTE]行動服務現在與 Azure 通知中心整合，以支援其他推播通知功能，例如範本、多個平台和範圍。這項整合後的功能目前只能預覽。如需詳細資訊，請參閱這一版的[開始使用推播通知](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/)。
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 

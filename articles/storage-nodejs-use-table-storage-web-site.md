@@ -654,15 +654,15 @@
   [Twitter Bootstrap]: https://github.com/twbs/bootstrap
   [1]: http://getbootstrap.com/
   [An image of the new item in the list of tasks]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
-  [建立並部署 Node.js 應用程式至 Azure 網站]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [建立並部署 Node.js 應用程式至 Azure 網站]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [antares-iaas-signup]: ../includes/antares-iaas-signup.md
-  [安裝及設定 Azure 跨平台命令列介面]: /en-us/documentation/articles/xplat-cli/
+  [安裝及設定 Azure 跨平台命令列介面]: /zh-tw/documentation/articles/xplat-cli/
   [下載頁面]: ./media/storage-nodejs-use-table-storage-web-site/azure-account-download-cli.png
   [Git 遠端]: http://git-scm.com/docs/git-remote
   [Open website dashboard]: ./media/storage-nodejs-use-table-storage-web-site/go_to_dashboard.png
   [configure link]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
   [app settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
   [app settings save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
-  [使用 MongoDB 的 Node.js Web 應用程式]: /en-us/documentation/articles/web-sites-nodejs-store-data-mongodb/
-  [使用 Git 發佈至 Azure 網站]: /en-us/documentation/articles/web-sites-publish-source-control/
+  [使用 MongoDB 的 Node.js Web 應用程式]: /zh-tw/documentation/articles/web-sites-nodejs-store-data-mongodb/
+  [使用 Git 發佈至 Azure 網站]: /zh-tw/documentation/articles/web-sites-publish-source-control/
   [Azure 開發人員中心]: /en-us/develop/nodejs/

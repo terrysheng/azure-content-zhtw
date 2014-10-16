@@ -4,13 +4,13 @@
 開始在行動服務中使用離線資料
 ============================
 
-[Windows 市集 C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows 市集 C#")
+[Windows 市集 C\#](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows 市集 C#")
 
 本主題將說明如何使用 Azure 行動服務的離線功能。Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時，仍可與本機資料庫互動。離線功能可讓您在重新上線時同步處理本機變更與行動服務。
 
-在本教學課程中，您將會更新[開始使用行動服務](/en-us/documentation/articles/mobile-services-windows-store-get-started/)或[開始使用資料](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)教學課程中的應用程式，以支援 Azure 行動服務的離線功能。接著，您會在中斷連線的離線狀態下新增資料、將這些項目同步處理至線上資料庫，然後登入 Windows Azure 管理入口網站，以檢視執行應用程式時對資料所做的變更。
+在本教學課程中，您將會更新[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-windows-store-get-started/)或[開始使用資料](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)教學課程中的應用程式，以支援 Azure 行動服務的離線功能。接著，您會在中斷連線的離線狀態下新增資料、將這些項目同步處理至線上資料庫，然後登入 Windows Azure 管理入口網站，以檢視執行應用程式時對資料所做的變更。
 
-> [WACOM.NOTE] 本教學課程旨在協助您深入了解如何透過行動服務，使用 Windows Azure 儲存並擷取 Windows 市集應用程式中的資料。因此，本主題將逐步說明已在行動服務快速入門中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮首先完成教學課程[開始使用行動服務](/en-us/documentation/articles/mobile-services-windows-store-get-started/)。
+> [WACOM.NOTE] 本教學課程旨在協助您深入了解如何透過行動服務，使用 Windows Azure 儲存並擷取 Windows 市集應用程式中的資料。因此，本主題將逐步說明已在行動服務快速入門中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮首先完成教學課程[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-windows-store-get-started/)。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
@@ -22,7 +22,7 @@
 本教學課程需要下列各項：
 
 -   執行於 Windows 8.1 的 Visual Studio 2013。
--   完成[開始使用行動服務](/en-us/documentation/articles/mobile-services-windows-store-get-started/)或[開始使用資料](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)教學課程。
+-   完成[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-windows-store-get-started/)或[開始使用資料](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)教學課程。
 -   Windows Azure 行動服務 SDK NuGet 封裝 1.3.0 版 (alpha)
 -   Windows Azure 行動服務 SQLite Store NuGet 封裝 0.1.0 (alpha)
 -   SQLite for Windows 8.1
@@ -42,7 +42,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
     > [WACOM.NOTE] 如果您要使用 Internet Explorer，當您按一下安裝 SQLite 的連結時，系統會提示您下載 .zip 檔案格式的 .vsix。請以 .vsix 副檔名將此檔案儲存至您的硬碟，而不要使用 .zip。在 Windows 檔案總管中按兩下此 .vsix 檔案，以執行安裝。
 
-2.  在 Visual Studio 中，開啟您在[開始使用行動服務](/en-us/documentation/articles/mobile-services-windows-store-get-started/)或[開始使用資料](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)教學課程中完成的專案。將 **[Windows 延伸]** 參考新增至 **[SQLite for Windows Runtime (Windows 8.1)]**。
+2.  在 Visual Studio 中，開啟您在[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-windows-store-get-started/)或[開始使用資料](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)教學課程中完成的專案。將 **[Windows 延伸]** 參考新增至 **[SQLite for Windows Runtime (Windows 8.1)]**。
 
     ![](./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png)
 
@@ -245,7 +245,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 後續步驟
 --------
 
--   [處理行動服務的離線支援衝突](/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/)
+-   [處理行動服務的離線支援衝突](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/)
 
 <!-- Anchors. -->
 [Update the app to support offline features]: #enable-offline-app
@@ -269,12 +269,12 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
+[Handling conflicts with offline support for Mobile Services]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
 [Getting Started Offline Sample]: http://go.microsoft.com/fwlink/?LinkId=394777
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Getting Started]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
+[Getting Started]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+[Get started with data]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
+[Get started with Mobile Services]: /zh-tw/documentation/articles/mobile-services-windows-store-get-started/
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 
 

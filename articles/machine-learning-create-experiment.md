@@ -189,4 +189,4 @@ ML Studio 包含多項範例資料集，而您可以從許多不同的來源匯�
   [Score Model module]: ./media/machine-learning-create-experiment/screen8a.png
   [Evaluation results]: ./media/machine-learning-create-experiment/screen9.png
   [Complete experiment]: ./media/machine-learning-create-experiment/screen10.png
-  [逐步介紹：使用 Azure Machine Learning 開發預測方案]: http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/
+  [逐步介紹：使用 Azure Machine Learning 開發預測方案]: http://azure.microsoft.com/zh-tw/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/

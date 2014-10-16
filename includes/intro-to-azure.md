@@ -121,7 +121,7 @@ Azure 網站允許建立這類的 Web 應用程式，但有所限制。例如，
 
 #### 選擇運算模型
 
-Azure 網站、雲端服務和虛擬機器之比較頁面 (<http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/> ) 提供有關如何選擇運算模型的詳細資訊。
+Azure 網站、雲端服務和虛擬機器之比較頁面 (<http://azure.microsoft.com/zh-tw/documentation/articles/choose-web-site-cloud-service-vm/> ) 提供有關如何選擇運算模型的詳細資訊。
 
 ## <span id="data"></span></a>資料管理
 
@@ -563,7 +563,7 @@ SendGrid 是 Azure Store 中可讓您傳送電子郵件的應用程式。它提�
   [媒體]: #media
   [商業]: #commerce
   [開始使用]: #start
-  [什麼是 Windows Azure 資訊圖表]: http://azure.microsoft.com/en-us/documentation/infographics/azure/ "什麼是 Microsoft Azure 海報資訊圖表"
+  [什麼是 Windows Azure 資訊圖表]: http://azure.microsoft.com/zh-tw/documentation/infographics/azure/ "什麼是 Microsoft Azure 海報資訊圖表"
   [Azure components]: ./media/intro-to-azure/AzureComponentsIntroNew800.png
   [Azure Virtual Machines]: ./media/intro-to-azure/VirtualMachinesIntroNew.png
   [Azure Websites]: ./media/intro-to-azure/AzureWebsitesIntroNew.png
@@ -592,7 +592,7 @@ SendGrid 是 Azure Store 中可讓您傳送電子郵件的應用程式。它提�
   [Azure CDN]: ./media/intro-to-azure/CDNIntroNew.png
   [HDInsight]: ./media/intro-to-azure/HDInsightIntroNew.png
   [Azure Media Services]: ./media/intro-to-azure/MediaServicesIntroNew.png
-  [Azure 媒體服務海報]: http://azure.microsoft.com/en-us/documentation/infographics/media-services/
+  [Azure 媒體服務海報]: http://azure.microsoft.com/zh-tw/documentation/infographics/media-services/
   [Azure Marketplace]: http://datamarket.azure.com/
   [Azure Store]: /en-us/store/overview/
   [Azure Commerce]: ./media/intro-to-azure/CommerceIntroNew.png

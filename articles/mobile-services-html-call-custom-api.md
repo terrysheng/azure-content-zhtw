@@ -4,7 +4,7 @@
 
 # 從 HTML 應用程式呼叫自訂 API
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="Windows 市集 C#">Windows 市集 C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-call-custom-api" title="iOS" >iOS</a><a href="/en-us/documentation/articles/mobile-services-android-call-custom-api" title="Android">Android</a><a href="/en-us/documentation/articles/mobile-services-html-call-custom-api" title="HTML" class="current">HTML</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-tw/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/zh-tw/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone">Windows Phone</a><a href="/zh-tw/documentation/articles/mobile-services-ios-call-custom-api" title="iOS" >iOS</a><a href="/zh-tw/documentation/articles/mobile-services-android-call-custom-api" title="Android">Android</a><a href="/zh-tw/documentation/articles/mobile-services-html-call-custom-api" title="HTML" class="current">HTML</a></div>
 
 本主題說明如何從 HTML 應用程式呼叫自訂 API。自訂 API 可讓您定義自訂端點，並用來公開無法對應插入、更新、刪除或讀取等操作的伺服器功能。透過使用自訂 API，您可以進一步控制訊息，包括讀取與設定 HTTP 訊息標頭，並定義除了 JSON 以外的訊息內文格式。
 
@@ -71,14 +71,14 @@
 
 
 
-  [Windows 市集 C\#]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /en-us/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Windows 市集 JavaScript"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /en-us/documentation/articles/mobile-services-ios-call-custom-api "iOS"
-  [Android]: /en-us/documentation/articles/mobile-services-android-call-custom-api "Android"
-  [HTML]: /en-us/documentation/articles/mobile-services-html-call-custom-api "HTML"
-  [開始使用行動服務]: /en-us/documentation/articles/mobile-services-html-get-started
-  [開始使用資料]: /en-us/documentation/articles/mobile-services-html-get-started-data
+  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows 市集 C#"
+  [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Windows 市集 JavaScript"
+  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
+  [iOS]: /zh-tw/documentation/articles/mobile-services-ios-call-custom-api "iOS"
+  [Android]: /zh-tw/documentation/articles/mobile-services-android-call-custom-api "Android"
+  [HTML]: /zh-tw/documentation/articles/mobile-services-html-call-custom-api "HTML"
+  [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-html-get-started
+  [開始使用資料]: /zh-tw/documentation/articles/mobile-services-html-get-started-data
   [定義自訂 API]: #define-custom-api
   [更新應用程式以呼叫自訂 API]: #update-app
   [測試應用程式]: #test-app

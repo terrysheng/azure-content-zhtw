@@ -5,11 +5,11 @@
 處理行動服務中的離線資料衝突
 ============================
 
-[Windows 市集 C\#](/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows 市集 C#")
+[Windows 市集 C\#](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows 市集 C#")
 
 本主題將說明在使用 Windows Azure 行動服務的離線功能時，應如何同步處理資料及處理衝突。在本教學課程中，您將下載同時支援離線和線上資料的應用程式、將行動服務與該應用程式整合，然後登入 Windows Azure 管理入口網站，以檢視執行應用程式時所做的資料庫更新。
 
-本教學課程會以先前的教學課程[開始使用資料](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data)中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須先完成[開始使用離線資料](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data)。
+本教學課程會以先前的教學課程[開始使用資料](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data)中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須先完成[開始使用離線資料](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data)。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
@@ -26,7 +26,7 @@
 <a name="download-app"></a>下載範例專案
 ------------
 
-本教學課程以[處理衝突程式碼範例](http://go.microsoft.com/fwlink/?LinkId=394787) (這是 Visual Studio 2013 中的 Windows 市集應用程式專案之一) 做為建置基礎。此應用程式的 UI 與[開始使用離線資料](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data)教學課程中的應用程式相類似，差別在於前者的每個 TodoItem 都有新的日期資料行。
+本教學課程以[處理衝突程式碼範例](http://go.microsoft.com/fwlink/?LinkId=394787) (這是 Visual Studio 2013 中的 Windows 市集應用程式專案之一) 做為建置基礎。此應用程式的 UI 與[開始使用離線資料](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data)教學課程中的應用程式相類似，差別在於前者的每個 TodoItem 都有新的日期資料行。
 
 1.  下載 C\# 版本的[處理衝突程式碼範例](http://go.microsoft.com/fwlink/?LinkId=394787)。
 
@@ -129,7 +129,7 @@
 
 在實際情況中，如果在一個應用程式推送資料庫中某個記錄的更新後，又有另一個應用程式根據該記錄的過期版本嘗試推送相同記錄的變更，就會發生同步衝突。如果一個應用程式執行個體在未提取更新記錄的情況下嘗試更新相同記錄，就會發生衝突，並且在應用程式中產生 `MobileServicePreconditionFailedException`。
 
-如果您要將應用程式部署至另一部機器，以藉由執行兩個應用程式執行個體來產生衝突，您可以依照[處理資料庫衝突](/en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app)教學課程中的部署指示來操作。
+如果您要將應用程式部署至另一部機器，以藉由執行兩個應用程式執行個體來產生衝突，您可以依照[處理資料庫衝突](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app)教學課程中的部署指示來操作。
 
 下列步驟說明如何在 Visual Studio 中更新資料庫，以造成衝突。
 
@@ -208,9 +208,9 @@
 
 <!-- URLs -->
 [Handling conflicts code sample]: http://go.microsoft.com/fwlink/?LinkId=394787
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
-[Get started with offline data]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
+[Get started with Mobile Services]: /zh-tw/documentation/articles/mobile-services-windows-store-get-started/
+[Get started with offline data]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Handling Database Conflicts]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app
+[Handling Database Conflicts]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app
 

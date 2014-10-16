@@ -42,12 +42,12 @@
 <td align="left"><p>200</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><p>每一訂閱的<a href="http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/">儲存體帳戶</a></p></td>
+<td align="left"><p>每一訂閱的<a href="http://azure.microsoft.com/zh-tw/documentation/articles/storage-whatis-account/">儲存體帳戶</a></p></td>
 <td align="left"><p>20</p></td>
 <td align="left"><p>50</p></td>
 </tr>
 <tr class="even">
-<td align="left"><p>每一訂閱的<a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">雲端服務</a></p></td>
+<td align="left"><p>每一訂閱的<a href="http://azure.microsoft.com/zh-tw/documentation/articles/cloud-services-what-is/">雲端服務</a></p></td>
 <td align="left"><p>20</p></td>
 <td align="left"><p>200</p></td>
 </tr>
@@ -105,7 +105,7 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p><a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/">每一部署的 Web 背景工作角色<sup>1</sup></a></p></td>
+<td align="left"><p><a href="http://azure.microsoft.com/zh-tw/documentation/articles/cloud-services-what-is/">每一部署的 Web 背景工作角色<sup>1</sup></a></p></td>
 <td align="left"><p>25</p></td>
 <td align="left"><p>25</p></td>
 </tr>
@@ -146,7 +146,7 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><p>每一雲端服務的<a href="http://azure.microsoft.com/en-us/documentation/services/virtual-machines/">虛擬機器</a><sup>1</sup></p></td>
+<td align="left"><p>每一雲端服務的<a href="http://azure.microsoft.com/zh-tw/documentation/services/virtual-machines/">虛擬機器</a><sup>1</sup></p></td>
 <td align="left"><p>50</p></td>
 <td align="left"><p>50</p></td>
 </tr>
@@ -289,15 +289,15 @@
   [客戶支援]: http://azure.microsoft.com/en-us/support/faq/
   [訂閱]: http://msdn.microsoft.com/en-us/library/azure/hh531793.aspx
   [共同管理員]: http://msdn.microsoft.com/en-us/library/azure/gg456328.aspx
-  [儲存體帳戶]: http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/
-  [雲端服務]: http://azure.microsoft.com/en-us/documentation/articles/cloud-services-what-is/
+  [儲存體帳戶]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-whatis-account/
+  [雲端服務]: http://azure.microsoft.com/zh-tw/documentation/articles/cloud-services-what-is/
   [虛擬網路]: http://msdn.microsoft.com/library/azure/jj156007.aspx
   [區域網路]: http://msdn.microsoft.com/en-us/library/jj157100.aspx
   [同質群組]: http://msdn.microsoft.com/en-us/library/azure/jj156085.aspx
   [執行個體輸入端點]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InstanceInputEndpoint
   [輸入端點]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InputEndpoint
   [內部端點]: http://msdn.microsoft.com/en-us/library/gg557552.aspx#InternalEndpoint
-  [虛擬機器]: http://azure.microsoft.com/en-us/documentation/services/virtual-machines/
+  [虛擬機器]: http://azure.microsoft.com/zh-tw/documentation/services/virtual-machines/
   [虛擬網路閘道]: http://msdn.microsoft.com/en-us/library/azure/jj156210.aspx
   [Azure 儲存體延展性和效能目標]: http://msdn.microsoft.com/library/azure/dn249410.aspx
   [Azure SQL Database 服務層 (版本)]: http://msdn.microsoft.com/en-us/library/azure/dn741340.aspx

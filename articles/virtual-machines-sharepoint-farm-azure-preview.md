@@ -73,4 +73,4 @@ SharePoint Server 伺服器陣列會使用 Azure 資源管理員和指令碼，�
 
   [設定 SharePoint 2013]: http://technet.microsoft.com/library/ee836142.aspx
   [Microsoft Azure 預覽入口網站]: https://portal.azure.com/
-  [搭配使用 Windows PowerShell 與資源管理員]: http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/
+  [搭配使用 Windows PowerShell 與資源管理員]: http://azure.microsoft.com/zh-tw/documentation/articles/powershell-azure-resource-manager/

@@ -3,7 +3,7 @@
 使用行動服務註冊目前使用者以取得推播通知
 ========================================
 
-[Windows 市集 C\#](/en-us/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "Windows 市集 C#")[iOS](/en-us/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS")
+[Windows 市集 C\#](/zh-tw/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "Windows 市集 C#")[iOS](/zh-tw/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS")
 
 本主題將說明以 Azure 行動服務執行註冊時，應如何向 Azure 通知中心要求推播通知註冊。這是[使用通知中心來通知使用者](/en-us/manage/services/notification-hubs/notify-users)教學課程的延伸主題。您必須已完成該教學課程中的必要步驟，才能建立已驗證的行動服務。如需通知使用者案例的詳細資訊，請參閱[使用通知中心來通知使用者](/en-us/manage/services/notification-hubs/notify-users)。
 

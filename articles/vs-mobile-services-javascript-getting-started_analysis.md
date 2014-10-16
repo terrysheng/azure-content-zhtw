@@ -1,0 +1,79 @@
+<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+
+<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb"></tags>
+
+### 發生什麼情形？
+
+###### 加入參考
+
+Windows Azure 行動服務程式庫以 MobileServices.js 檔案的形式加入至專案。
+
+###### 行動服務的連接字串值
+
+在 services\\mobileServices\\settings 中，已產生一個含有 MobileServiceClient 的新的 JavaScript (.js) 檔案，內含所選行動服務的應用程式 URL 和應用程式金鑰。
+
+### 開始使用行動服務
+
+###### 取得資料表的參考
+
+用戶端物件已加入至專案。它的名稱就是行動服務的名稱再加上 "Client"。下列程式碼可取得資料表的參考，而該資料表包含 TodoItem 的資料，可在後續操作中用來讀取和更新資料表。
+
+    var todoTable = yourMobileServiceClient.getTable('TodoItem');
+
+###### 加入項目
+
+將新的項目插入至資料表。自動會建立 id (字串類型的 GUID) 作為新資料列的主要索引鍵。請勿變更 id 欄的類型，因為行動服務基礎結構會用到它。
+
+    var todoTable = client.getTable('TodoItem');
+    var todoItems = new WinJS.Binding.List();
+    var insertTodoItem = function (todoItem) {
+        todoTable.insert(todoItem).done(function (item) {
+            todoItems.push(item);
+        });
+    };
+
+###### 讀取/查詢資料表
+
+下列程式碼會查詢資料表的所有項目、更新本機集合，然後將結果繫結至 UI 元素 listItems。
+
+        // This code refreshes the entries in the list view 
+        // by querying the TodoItems table.
+        todoTable.where()
+            .read()
+            .done(function (results) {
+                todoItems = new WinJS.Binding.List(results);
+                listItems.winControl.itemDataSource = todoItems.dataSource;
+            });
+
+您可以使用 where 方法來修改查詢。以下範例是濾除已完成的項目。
+
+    todoTable.where(function () {
+        return (this.complete === false && this.createdAt !== null);
+    })
+    .read()
+    .done(function (results) {
+        todoItems = new WinJS.Binding.List(results);
+        listItems.winControl.itemDataSource = todoItems.dataSource;
+    });
+
+有關更多您可以使用的查詢範例，請參閱 [query 物件][query 物件]。
+
+###### 更新項目
+
+更新資料表中的資料列。在此範例中，todoItem 是更新的項目，而項目就是從行動服務傳回的相同項目。當行動服務回應時，就使用 [splice][splice] 方法在本機 todoItems 清單中更新此項目。在傳回的 [Promise][Promise] 物件上呼叫 [done][Promise] 方法，以取得所插入物件的複本，並處理任何錯誤。
+
+        todoTable.update(todoItem).done(function (item) {
+            todoItems.splice(todoItems.indexOf(item), 1, item);
+        });
+
+###### 刪除項目
+
+刪除資料表中的資料列。在傳回的 [Promise][Promise] 物件上呼叫 [done][Promise] 方法，以取得所插入物件的複本，並處理任何錯誤。
+
+    todoTable.delete(todoItem).done(function (item) {
+        todoItems.splice(todoItems.indexOf(item), 1);
+    }
+
+  [query 物件]: http://msdn.microsoft.com/library/azure/jj613353.aspx
+  [splice]: http://msdn.microsoft.com/library/windows/apps/Hh700810.aspx
+  [Promise]: ()

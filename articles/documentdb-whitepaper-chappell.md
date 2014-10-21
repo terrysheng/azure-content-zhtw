@@ -1,0 +1,23 @@
+<properties title="DocumentDB whitepaper by David Chappell" pageTitle="DocumentDB whitepaper by David Chappell | Azure" description="Download a whitepaper by David Chappell description DocumentDB, a managed NoSQL database on Azure." metaKeywords="" services="documentdb" solutions="" documentationCenter="" authors="adlevin" videoId="" scriptId="" />
+
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="adlevin"></tags>
+
+# David Chappell 所撰寫的 DocumentDB 白皮書
+
+**摘要：**了解 Microsoft Azure 上的受管理 NoSQL 資料庫 - DocumentDB。在以下情況中，DocumentDB 會是理想的資料庫技術選擇：
+
+-   應用程式會從無結構描述的資料模型獲得好處。
+-   需要因應許多儲存體和輸送量的需求而調整資料庫。
+-   您想要使用熟悉的查詢語言和開發平台。
+
+本白皮書另涵蓋以下基本概念：
+
+-   DocumentDB 資料模型
+-   應用程式使用資料的方式
+-   在維持一致性的前提下，應用程式擁有哪些平衡效能的選項
+
+**發行日期：** 2014 年 9 月 10 日
+
+**下載：** [DocumentDB 簡介 - 適用於 Microsoft Azure 的 NoSQL 資料庫 (英文)][DocumentDB 簡介 - 適用於 Microsoft Azure 的 NoSQL 資料庫 (英文)]
+
+  [DocumentDB 簡介 - 適用於 Microsoft Azure 的 NoSQL 資料庫 (英文)]: http://go.microsoft.com/fwlink/?LinkId=511318

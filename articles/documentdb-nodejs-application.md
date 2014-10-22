@@ -24,7 +24,7 @@
 完成工作。在 Azure DocumentDB 中，這些工作將會儲存為
 JSON 文件。
 
-![替代文字][]
+![替代文字][0]
 
 ## <a name="_Toc395783176">必要條件</a>
 
@@ -437,7 +437,8 @@ Azure DocumentDB 模組。此模組可發揮 DocumentDB 的所有強大功能。
 這應該就是要讓應用程式開始運作所需的所有程式碼。
 
 </h1>
-# <a name="_Toc395783181">在本機執行您的應用程式</a>
+<a name="_Toc395783181">在本機執行您的應用程式</a>
+========================================================
 
 若要在本機電腦上測試應用程式，請在 Visual Studio 中按 F5 鍵，
 這樣應該會建置應用程式、啟動 Node.js，以及啟動所含頁面與下圖類似的
@@ -445,19 +446,20 @@ Azure DocumentDB 模組。此模組可發揮 DocumentDB 的所有強大功能。
 
 ![替代文字][17]
 
-1. 使用所提供的 [項目]、[項目名稱] 和 [類別] 欄位來輸入資訊，
+1\. 使用所提供的 [項目]、[項目名稱] 和 [類別] 欄位來輸入資訊，
 然後按一下 [新增項目]。
 
-2. 系統應該會更新此頁面以在 ToDo List 中
+2\. 系統應該會更新此頁面以在 ToDo List 中
 顯示新建立的項目。
 
 ![替代文字][18]
 
-3. 若要完成工作，您只需勾選 [已完成] 資料行中的核取方塊，
+3\. 若要完成工作，您只需勾選 [已完成] 資料行中的核取方塊，
 然後按一下 [更新工作]。
 
 </h1>
-# <a name="_Toc395783182">將應用程式部署至 Azure 網站</a>
+<a name="_Toc395783182">將應用程式部署至 Azure 網站</a>
+=====================================================================
 
 安裝好 Node.js Tools for Visual Studio 之後，只要幾個簡短步驟，
 就可以輕鬆地在 Azure 網站完成部署。
@@ -496,7 +498,7 @@ Visual Studio 就會連線到 Azure 訂用帳戶，並發佈
 
 </h1>
 
-  [替代文字]: ./media/documentdb-nodejs-application/image1.png
+  [0]: ./media/documentdb-nodejs-application/image1.png
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
   [Visual Studio 2013]: http://msdn.microsoft.com/en-us/vstudio/cc136611.aspx

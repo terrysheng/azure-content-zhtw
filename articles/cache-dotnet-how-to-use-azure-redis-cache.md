@@ -7,20 +7,20 @@
 本指南示範如何開始使用
 **Azure Redis 快取 (預覽)**。這些範例均以 C# 程式碼撰寫，
 並使用 .NET API。涵蓋的案例包括**建立和設定快取**、**設定快取用戶端**、**加入和移除快取中的物件**，以及**將 ASP.NET 工作階段狀態儲存在快取中**。如需使用
-Azure Redis 快取的詳細資訊，請參閱[後續步驟][]一節。
+Azure Redis 快取的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [何謂 Azure Redis 快取？][]
--   [開始使用 Azure Redis 快取][]
-    -   [建立快取][]
-    -   [設定快取用戶端][]
--   [使用快取][]
-    -   [連接到快取][]
-    -   [從快取加入和擷取物件][]
-    -   [指定快取中物件的到期時間][]
-    -   [將 ASP.NET 工作階段狀態儲存在快取中][]
--   [後續步驟][]
+-   [何謂 Azure Redis 快取？][何謂 Azure Redis 快取？]
+-   [開始使用 Azure Redis 快取][開始使用 Azure Redis 快取]
+    -   [建立快取][建立快取]
+    -   [設定快取用戶端][設定快取用戶端]
+-   [使用快取][使用快取]
+    -   [連接到快取][連接到快取]
+    -   [從快取加入和擷取物件][從快取加入和擷取物件]
+    -   [指定快取中物件的到期時間][指定快取中物件的到期時間]
+    -   [將 ASP.NET 工作階段狀態儲存在快取中][將 ASP.NET 工作階段狀態儲存在快取中]
+-   [後續步驟][後續步驟]
 
 <a name="what-is"></a>
 
@@ -33,9 +33,9 @@ Microsoft Azure Redis 快取有兩個階層：
 -   **基本** - 單一節點。多種大小，最高為 26 GB。
 -   **標準** - 兩個節點，主/從屬性。多種大小，最高為 26 GB。
 
-每一個階層都有不同的功能和定價。本指南稍後將探討這些功能，如需定價的詳細資訊，請參閱[快取定價詳細資料][]。
+每一個階層都有不同的功能和定價。本指南稍後將探討這些功能，如需定價的詳細資訊，請參閱[快取定價詳細資料][快取定價詳細資料]。
 
-本指南提供開始使用 Azure Redis 快取的概觀。如需本入門指南涵蓋範圍外之功能的詳細資訊，請參閱 [Azure Redis 快取概觀][]。
+本指南提供開始使用 Azure Redis 快取的概觀。如需本入門指南涵蓋範圍外之功能的詳細資訊，請參閱 [Azure Redis 快取概觀][Azure Redis 快取概觀]。
 
 <a name="getting-started-cache-service"></a>
 
@@ -43,9 +43,9 @@ Microsoft Azure Redis 快取有兩個階層：
 
 開始使用 Azure Redis 快取相當簡單。若要開始，請佈建並設定快取。接著，設定快取用戶端，以便它們可以存取快取。一旦設定了快取用戶端，就可以開始使用它們。
 
--   [建立快取][]
--   [設定快取][]
--   [設定快取用戶端][]
+-   [建立快取][建立快取]
+-   [設定快取][設定快取]
+-   [設定快取用戶端][設定快取用戶端]
 
 <a name="create-cache"></a>
 
@@ -53,11 +53,11 @@ Microsoft Azure Redis 快取有兩個階層：
 
 若要建立快取，請先登入 Azure 管理預覽入口網站，然後依序按一下 [新增] 和 [Redis 快取 (預覽)]。
 
-![New cache][]
+![New cache][New cache]
 
 在 [新增 Redis 快取 (預覽)] 分頁中，指定快取所需的組態。
 
-![Create cache][]
+![Create cache][Create cache]
 
 在 [DNS 名稱] 中，輸入要用於快取端點的子網域名稱。端點必須是介於 6 到 20 個字元之間的字串、僅包含小寫數字和字母，而且必須以字母開頭。
 
@@ -72,21 +72,21 @@ Microsoft Azure Redis 快取有兩個階層：
 
 在 [資源群組] 中，選取或建立快取的資源群組。
 
-> 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源][]。
+> 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源][使用資源群組管理您的 Azure 資源]。
 
 使用 [地理位置] 來指定管理快取所在的地理位置。為獲得最佳效能，Microsoft 強烈建議您在與快取用戶端應用程式相同的區域中建立快取。
 
 一旦設定了新的快取選項，請按一下 [建立新快取]。建立快取可能需要數分鐘的時間。若要檢查狀態，您可以監視開始面板上的進度。在建立了快取之後，新快取的狀態會是「執行中」，而且準備好與預設設定搭配使用。
 
-![Cache created][]
+![Cache created][Cache created]
 
 建立快取之後，您可以從 [瀏覽] 分頁加以存取。
 
-![Browse blade][]
+![Browse blade][Browse blade]
 
 按一下 [快取] 來檢視您的快取。
 
-![Caches][]
+![Caches][Caches]
 
 <a name="NuGet"></a>
 
@@ -94,17 +94,17 @@ Microsoft Azure Redis 快取有兩個階層：
 
 使用 Azure Redis 快取建立的快取，可透過任何 Azure 應用程式來存取。Visual Studio 中開發的 .NET 應用程式可以使用 **StackExchange.Redis** 快取用戶端，該用戶端可使用能簡化快取用戶端應用程式組態的 NuGet 封裝來加以設定。
 
-> 如需詳細資訊，請參閱 [StackExchange.Redis][] github 頁面和 [StackExchange.Redis 快取用戶端文件][]。
+> 如需詳細資訊，請參閱 [StackExchange.Redis][StackExchange.Redis] github 頁面和 [StackExchange.Redis 快取用戶端文件][StackExchange.Redis 快取用戶端文件]。
 
 若要在 Visual Studio 中使用 StackExchange.Redis NuGet 封裝來設定用戶端應用程式，請在 [方案總管] 中的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。
 
-![Manage NuGet packages][]
+![Manage NuGet packages][Manage NuGet packages]
 
 在 [線上搜尋] 文字方塊中輸入 **StackExchange.Redis** 或 **StackExchange.Redis.StrongName**，從結果選取需要的版本，然後按一下 [安裝]。
 
 > 如果您偏好使用強式名稱版本的 **StackExchange.Redis** 用戶端程式庫，請選取 **StackExchange.Redis.StrongName**；否則選取 **StackExchange.Redis**。
 
-![StackExchange.Redis NuGet package][]
+![StackExchange.Redis NuGet package][StackExchange.Redis NuGet package]
 
 NuGet 封裝會為您的用戶端應用程式下載並加入必要的組件參考，以利用 StackExchange.Redis 快取用戶端來存取 Azure Redis 快取。
 
@@ -116,9 +116,9 @@ NuGet 封裝會為您的用戶端應用程式下載並加入必要的組件參�
 
 本節中的步驟描述如何利用快取執行常見工作。
 
--   [連接到快取][]
--   [從快取加入和擷取物件][]
--   [將 ASP.NET 工作階段狀態儲存在快取中][]
+-   [連接到快取][連接到快取]
+-   [從快取加入和擷取物件][從快取加入和擷取物件]
+-   [將 ASP.NET 工作階段狀態儲存在快取中][將 ASP.NET 工作階段狀態儲存在快取中]
 
 <a name="connect-to-cache"></a>
 
@@ -136,19 +136,19 @@ NuGet 封裝會為您的用戶端應用程式下載並加入必要的組件參�
 
     ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
 
-> 警告：請勿將認證儲存在原始程式碼中。為了讓這個範例簡單明瞭，我會以原始程式碼來呈現認證內容。請參閱 [Windows Azure 網站：應用程式字串與連接字串的運作方式][] (英文) 以取得如何儲存認證的詳細資訊。
+> 警告：請勿將認證儲存在原始程式碼中。為了讓這個範例簡單明瞭，我會以原始程式碼來呈現認證內容。請參閱 [Windows Azure 網站：應用程式字串與連接字串的運作方式][Windows Azure 網站：應用程式字串與連接字串的運作方式] (英文) 以取得如何儲存認證的詳細資訊。
 
 如果您不想使用 SSL，請設定`ssl=false` 或是直接傳入端點和金鑰。
 
     connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,password=...");
 
-> 如需進階連線組態選項的詳細資訊，請參閱 [StackExchange.Redis 組態模型][] (英文)。
+> 如需進階連線組態選項的詳細資訊，請參閱 [StackExchange.Redis 組態模型][StackExchange.Redis 組態模型] (英文)。
 
 快取端點和金鑰可自您的快取執行個體的 Azure 管理預覽入口網站分頁取得。
 
-![Cache properties][]
+![Cache properties][Cache properties]
 
-![Manage keys][]
+![Manage keys][Manage keys]
 
 一旦建立連線，即傳回 Redis 快取資料庫的參考，方法是透過呼叫 `ConnectionMultiplexer.GetDatabase` 方法。
 
@@ -197,7 +197,7 @@ NuGet 封裝會為您的用戶端應用程式下載並加入必要的組件參�
         cache.StringSet("key1", value);
     }
 
-> Azure Redis 快取可以快取 .NET 物件及基本資料類型，但必須先將 .NET 物件序列化，才能加以快取。這是應用程式開發人員的責任，同時賦與開發人員選擇序列化程式的彈性。如需詳細資訊，請參閱[在快取中使用 .NET 物件][]。
+> Azure Redis 快取可以快取 .NET 物件及基本資料類型，但必須先將 .NET 物件序列化，才能加以快取。這是應用程式開發人員的責任，同時賦與開發人員選擇序列化程式的彈性。如需詳細資訊，請參閱[在快取中使用 .NET 物件][在快取中使用 .NET 物件]。
 
 <a name="specify-expiration"></a>
 
@@ -216,11 +216,11 @@ Azure Redis 快取提供工作階段狀態提供者，可讓您用來將工作�
 
 若要在 Visual Studio 中使用「Redis 快取工作階段狀態 NuGet 封裝」來設定用戶端應用程式，請在 [方案總管] 中的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。
 
-![Manage NuGet packages][]
+![Manage NuGet packages][Manage NuGet packages]
 
 在 [線上搜尋] 文字方塊中輸入 **RedisSessionStateProvider**，從結果選取它，然後按一下 [安裝]。
 
-![Redis Cache Session State NuGet Package][]
+![Redis Cache Session State NuGet Package][Redis Cache Session State NuGet Package]
 
 NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入至您的 web.config 檔案，該檔案包含 ASP.NET 應用程式使用 Redis 快取工作階段狀態提供者所需的組態。
 
@@ -271,7 +271,7 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
       </providers>
     </sessionState> -->
 
-如需設定和使用 Azure Redis 工作階段狀態提供者的詳細資訊，請參閱 [Azure Redis 工作階段狀態提供者][]。
+如需設定和使用 Azure Redis 工作階段狀態提供者的詳細資訊，請參閱 [Azure Redis 工作階段狀態提供者][Azure Redis 工作階段狀態提供者]。
 
 <a name="next-steps"></a>
 
@@ -280,9 +280,9 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 了解 Azure Redis 快取的基礎概念之後，
 請參考下列連結以了解如何執行更複雜的快取工作。
 
--   深入了解 StackExchange.Redis 用戶端：[StackExchange.Redis 快取用戶端文件][]
--   請參閱 [Redis][] (英文) 文件，並閱讀有關 [Redis 資料類型][] (英文) 和 [Redis 資料類型的 15 分鐘簡介][] (英文)。
--   請參閱 MSDN 參考：[Azure Redis 快取][]
+-   深入了解 StackExchange.Redis 用戶端：[StackExchange.Redis 快取用戶端文件][StackExchange.Redis 快取用戶端文件]
+-   請參閱 [Redis][Redis] (英文) 文件，並閱讀有關 [Redis 資料類型][Redis 資料類型] (英文) 和 [Redis 資料類型的 15 分鐘簡介][Redis 資料類型的 15 分鐘簡介] (英文)。
+-   請參閱 MSDN 參考：[Azure Redis 快取][Azure Redis 快取]
 
 
   [後續步驟]: #next-steps

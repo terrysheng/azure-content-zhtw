@@ -1,24 +1,27 @@
-<properties linkid="develop-net-common-tasks-diagnostics-logging-and-instrumentation" urlDisplayName="Enable diagnostic logging" pageTitle="Enable diagnostic logging - Azure Web Sites" metaKeywords="Azure diagnostics web sites, Azure Management Portal diagnostics, Azure diagnostics, web site diagnostics, web site debug" description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Web Sites" authors="larryfr" solutions="" manager="" editor="" />
+<properties linkid="develop-net-common-tasks-diagnostics-logging-and-instrumentation" urlDisplayName="Enable diagnostic logging" pageTitle="Enable diagnostic logging - Azure Websites" metaKeywords="Azure diagnostics web sites, Azure Management Portal diagnostics, Azure diagnostics, web site diagnostics, web site debug" description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Websites" authors="larryfr" solutions="" manager="" editor="" />
 
-對 Azure 網站啟用診斷記錄
-=========================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+
+# 對 Azure 網站啟用診斷記錄
 
 Azure 提供內建的診斷功能，可協助您針對 Azure 網站所託管的應用程式進行偵錯。本文將說明如何啟用診斷記錄，並在您的應用程式中加入診斷工具，以及如何存取 Azure 所記錄的資訊。
 
-> [WACOM.NOTE] 本文說明如何透過 Azure 管理入口網站、Azure PowerShell 與 Azure 跨平台命令列介面來處理診斷記錄。如需透過 Visual Studio 使用診斷記錄的詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure 網站](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)。
+> [WACOM.NOTE] 本文說明如何透過 Azure 管理入口網站、Azure PowerShell 與 Azure 跨平台命令列介面來處理診斷記錄。如需透過 Visual Studio 使用診斷記錄的詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure 網站][]。
 
-目錄
-----
+## 目錄
 
--   [什麼是：網站診斷？](#whatisdiag)
--   [作法：啟用診斷](#enablediag)
--   [作法：下載記錄](#download)
--   [作法：串流記錄](#streamlogs)
--   [作法：瞭解診斷記錄](#understandlogs)
--   [後續步驟](#nextsteps)
+-   [什麼是：網站診斷？][]
+-   [作法：啟用診斷][]
+-   [作法：下載記錄][]
+-   [作法：串流記錄][]
+-   [作法：瞭解診斷記錄][]
+-   [後續步驟][]
 
-## 何謂網站診斷？
+<a name="whatisdiag"></a>
 
+## 什麼是網站診斷？
+
+</p>
 Azure 網站提供診斷功能，供您用來記錄來自 Web 伺服器與 Web 應用程式的資訊。這些資訊會以邏輯方式區隔為**網站診斷**與**應用程式診斷**資訊。
 
 ### 網站診斷
@@ -27,65 +30,71 @@ Azure 網站提供診斷功能，供您用來記錄來自 Web 伺服器與 Web �
 
 -   **詳細錯誤記錄** - 針對代表有錯誤的 HTTP 狀態碼 (狀態碼 400 或更大) 記錄詳細的錯誤資訊。這當中包含的資訊可協助您判斷為何伺服器傳回錯誤碼。
 -   **失敗要求追蹤** - 針對失敗要求記錄詳細資訊，包括用於處理要求的 IIS 元件追蹤，以及每個元件所花的時間。如果您嘗試提升網站效能或是想要從傳回的特定 HTTP 錯誤中找到發生原因，這個方法非常實用。
--   **Web 伺服器記錄** - 使用 [W3C 擴充記錄檔格式](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)來記錄網站上所有的 HTTP 交易。當您需要判斷整體網站指標，像是處理的要求數量或是有多少要求來自特定 IP 位址時，此報告便非常實用
+-   **Web 伺服器記錄** - 使用 [W3C 擴充記錄檔格式][]來記錄網站上所有的 HTTP 交易。當您需要判斷整體網站指標，像是處理的要求數量或是有多少要求來自特定 IP 位址時，此報告便非常實用
 
 ### 應用程式診斷
 
-應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。ASP.NET 應用程式會使用 [System.Diagnostics.Trace](http://msdn.microsoft.com/zh-tw/library/36hhw2t6.aspx) 類別將資訊記錄到應用程式診斷記錄。例如：
+應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。ASP.NET 應用程式會使用 [System.Diagnostics.Trace][] 類別將資訊記錄到應用程式診斷記錄。例如：
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
 應用程式診斷功能可在運用特定程式碼判斷時，讓您散發資訊以便疑難排解執行中的應用程式。當您嘗試判斷程式碼為何使用特定路徑 (通常使用該路徑會產生錯誤或其他不應該的行為) 時，這個方法會特別實用。
 
-如需透過 Visual Studio 使用應用程式診斷的詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure 網站](http://www.windowsazure.com/zh-tw/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)。
+如需透過 Visual Studio 使用應用程式診斷的詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure 網站][1]。
 
 > [WACOM.NOTE] 與變更 web.config 檔案的作法不同之處在於啟用應用程式診斷或是變更診斷記錄層級，而不會回收在其中執行應用程式的應用程式網域。
 
 Azure 網站會在您將應用程式發行至網站時，一併記錄部署資訊。此動作會自動發生，因此無須任何組態設定即會記錄部署動作。部署記錄功能可讓您判斷部署失敗的原因。例如，如果您是使用自訂的部署指令碼，則您可以使用部署記錄功能來判斷指令碼失敗的原因。
 
+<a name="enablediag"></a>
+
 ## 作法：啟用診斷
 
-您可以造訪 [Azure 管理入口網站](https://manage.microsoft.com)中的 Azure 網站 [設定] 頁面****，啟用診斷功能。在 **[設定]** 頁面上，使用 [應用程式診斷] 與 **[網站診斷]** 區段來啟用記錄。
+</p>
+您可以造訪 [Azure 管理入口網站][]中的 Azure 網站 [設定] 頁面，啟用診斷功能。在 [設定] 頁面上，使用 [應用程式診斷] 與 [網站診斷] 區段來啟用記錄。
 
-啟用 **[應用程式診斷]** 功能時，您必須同時選取 **[記錄層級]** 以及是否要對 [檔案系統]、[資料表儲存體] 或是 **[Blob 儲存體]** 啟用記錄功能。雖然以上三個儲存位置全都提供相同的基本資訊供您記錄事件，[資料表儲存體] 與 [Blob 儲存體] 會比 [檔案系統] 記錄更多的資訊，例如執行個體識別碼、執行緒識別碼以及更細緻的時間戳記 (刻度格式)。****
+啟用 [應用程式診斷] 功能時，您必須同時選取 [記錄層級] 以及是否要對 [檔案系統]、[資料表儲存體] 或是 [Blob 儲存體] 啟用記錄功能。雖然以上三個儲存位置全都提供相同的基本資訊供您記錄事件，[資料表儲存體] 與 [Blob 儲存體] 會比 [檔案系統] 記錄更多的資訊，例如執行個體識別碼、執行緒識別碼以及更細緻的時間戳記 (刻度格式)。
 
-啟用 **[網站診斷]** 後，您必須針對 [Web 伺服器記錄] 選取 [儲存] 或 **[檔案系統]**。選取 **[儲存]** 可讓您選取儲存體帳戶，並接著選取可供寫入記錄的 Blob 容器。[網站診斷] 的其他所有記錄**** 都只會寫入檔案系統。
+啟用 [網站診斷] 後，您必須針對 [Web 伺服器記錄] 選取 [儲存] 或 [檔案系統]。選取 [儲存] 可讓您選取儲存體帳戶，並接著選取可供寫入記錄的 Blob 容器。[網站診斷] 的其他所有記錄 都只會寫入檔案系統。
 
-> [WACOM.NOTE] 儲存在 [資料表儲存體] 或 [Blob 儲存體] 內的資訊**** 只能透過儲存用戶端，或是能夠直接使用這些儲存系統的應用程式來存取。例如，Visual Studio 2013 內含的 [儲存體總管] 可用來探索資料表或 Blob 儲存體，而 HDInsight 則可存取儲存在 Blob 儲存體內的資料。您也可以使用任何一項 [Azure SDK](http://www.windowsazure.com/zh-tw/downloads/#)，撰寫可存取 Azure 儲存體的應用程式。
+> [WACOM.NOTE] 儲存在 [資料表儲存體] 或 [Blob 儲存體] 內的資訊 只能透過儲存用戶端，或是能夠直接使用這些儲存系統的應用程式來存取。例如，Visual Studio 2013 內含的 [儲存體總管] 可用來探索資料表或 Blob 儲存體，而 HDInsight 則可存取儲存在 Blob 儲存體內的資料。您也可以使用任何一項 [Azure SDK][]，撰寫可存取 Azure 儲存體的應用程式。
 
-以下列出當您啟用 [應用程式診斷] 時可用的設定****：
+以下列出當您啟用 [應用程式診斷] 時可用的設定：
 
--   **記錄層級** - 可讓您篩選擷取至 [資訊]、[警告] 或 [錯誤] 資訊中的資訊****。將此功能設為 **[詳細資訊]** 會記錄所有由該應用程式所產生的資訊。您可以分別針對 **[檔案系統]**、**[資料表儲存體]** 與 **[Blob 儲存體]** 記錄功能設定不同的 **[記錄層級]**。
+-   **記錄層級** - 可讓您篩選擷取至 [資訊]、[警告] 或 [錯誤] 資訊中的資訊。將此功能設為 [詳細資訊] 會記錄所有由該應用程式所產生的資訊。您可以分別針對 [檔案系統]、[資料表儲存體] 與 [Blob 儲存體] 記錄功能設定不同的 [記錄層級]。
 -   **檔案系統** - 可將應用程式診斷資訊儲存至網站檔案系統。這些檔案可透過 FTP 存取，或是使用 Azure PowerShell 或 Azure 命令列工具下載為 Zip 封存。
 -   **資料表儲存體** - 會將應用程式診斷資訊儲存至指定的 Azure 儲存體帳戶與資料表名稱。
 -   **Blob 儲存體** - 會將應用程式診斷資訊儲存至指定的 Azure 儲存體帳戶與 Blob 容器中。
--   **保留週期** - 依預設，所有記錄不會自動從 **[Blob 儲存體]** 中刪除。如果您想要讓系統自動刪除記錄的話，請選取 **[set retention]** 並輸入記錄保留天數。
+-   **保留週期** - 依預設，所有記錄不會自動從 [Blob 儲存體] 中刪除。如果您想要讓系統自動刪除記錄的話，請選取 [set retention] 並輸入記錄保留天數。
 
 > [WACOM.NOTE] 包括檔案系統、資料表儲存體或是 Blob 儲存體的任意組合都可以同時啟用，並個別具有記錄層級組態。例如，您也許想要將各種錯誤與警告資訊記錄到 Blob 儲存體做為長期的記錄解決方案，同時啟用詳細資訊層級的檔案系統記錄功能。
 
-> [WACOM.NOTE] 您也可以使用 **Set-AzureWebsite** Cmdlet，從 Azure PowerShell 中啟用診斷。如果您尚未安裝 Azure PowerShell，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure PowerShell](http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
+> [WACOM.NOTE] 您也可以使用 **Set-AzureWebsite** Cmdlet，從 Azure PowerShell 中啟用診斷。如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell][] (英文)。
+
+<a name="download"></a>
 
 ## 作法：下載記錄
 
+</p>
 儲存在網站檔案系統中的診斷資訊，可以透過 FTP 直接存取，或是使用 Azure PowerShell 或 Azure 命令列工具下載為 Zip 封存。
 
 儲存這些記錄的目錄結構如下所示：
 
--   **應用程式記錄** - /LogFiles/Application/。此資料夾包含一或多個文字檔案，內含應用程式記錄功能所產生的資訊。
+-   **應用程式記錄** - /LogFiles/Application/。此資料夾內含有一或多個文字檔案，這些檔案涵蓋應用程式記錄所產生的資訊。
 
--   **失敗要求追蹤** - /LogFiles/W3SVC########\#/。此資料夾包含 XSL 檔案，以及一或多個 XML 檔案。請確保將 XSL 檔案下載至 XML 檔案所在的相同目錄，因為 XSL 檔案可提供格式化功能，讓您在 Internet Explorer 中檢視時能夠篩選 XML 檔案內容。
+-   **失敗要求追蹤** - /LogFiles/W3SVC#\#\#\#\#\#\#\#\#/。此資料夾內含有一個 XSL 檔案和一或多個 XML 檔案。請確保將 XSL 檔案下載至 XML 檔案所在的相同目錄，因為 XSL 檔案可提供格式化功能，讓您在 Internet Explorer 中檢視時能夠篩選 XML 檔案內容。
 
 -   **詳細錯誤記錄** - /LogFiles/DetailedErrors/。此資料夾包含一或多個 .htm 檔案，內含已經發生的任何 HTTP 錯誤之詳細資訊。
 
--   **Web 伺服器記錄** - /LogFiles/http/RawLogs。此資料夾包含一或多個運用 [W3C 擴充記錄檔格式](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)來格式化的文字檔案。
+-   **Web 伺服器記錄** - /LogFiles/http/RawLogs。此資料夾包含一或多個運用 [W3C 擴充記錄檔格式][]來格式化的文字檔案。
 
--   **部署記錄** - /LogFiles/Git。此資料夾包含由內部部署處理序所產生，並可供 Azure 運用的記錄，以及 Git 部署記錄。
+-   **部署記錄** - /LogFiles/Git。此資料夾包含由內部部署處理序所產生，並可供 Azure 網站運用的記錄，以及 Git 部署記錄。
 
 ### FTP
 
-若要使用 FTP 存取診斷資訊，請在 Azure 管理入口網站中造訪您的網站的 **[儀表板]**。在 **[Quick Glance]** 區段中，使用 **FTP Diagnostic Logs** 連結以便透過 FTP 存取記錄檔案。****[Deployment/FTP User] 項目會列出應該用來存取 FTP 網站的使用者名稱。
+若要使用 FTP 存取診斷資訊，請在 Azure 管理入口網站中造訪您的網站的 [儀表板]。在 [Quick Glance] 區段中，使用 **FTP Diagnostic Logs** 連結以便透過 FTP 存取記錄檔案。[Deployment/FTP User] 項目會列出應該用來存取 FTP 網站的使用者名稱。
 
-> [WACOM.NOTE] 如果沒有設定 **[Deployment/FTP User]** 項目，或是您忘記此使用者的密碼，您可以使用 [儀表板] 內 [Quick Glance] 區段裡的 **Reset deployment credentials** 連結來建立新的使用者與密碼。****
+> [WACOM.NOTE] 如果沒有設定 [Deployment/FTP User] 項目，或是您忘記此使用者的密碼，您可以使用 [儀表板] 內 [Quick Glance] 區段裡的 **Reset deployment credentials** 連結來建立新的使用者與密碼。
 
 ### 使用 Azure PowerShell 來下載
 
@@ -95,7 +104,7 @@ Azure 網站會在您將應用程式發行至網站時，一併記錄部署資�
 
 此舉會將 **-Name** 參數所指定的網站記錄儲存到目前目錄中名為 **logs.zip** 的檔案中。
 
-> [WACOM.NOTE] 如果您尚未安裝 Azure PowerShell，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure PowerShell](http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
+> [WACOM.NOTE] 如果您尚未安裝 Azure PowerShell，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure PowerShell][] (英文)。
 
 ### 使用 Azure 命列列工具來下載
 
@@ -105,10 +114,13 @@ Azure 網站會在您將應用程式發行至網站時，一併記錄部署資�
 
 此舉會將名為 websitename 的網站記錄儲存至目前目錄中名為 **diagnostics.zip** 的檔案。
 
-> [WACOM.NOTE] 如果您尚未安裝 Azure 命令列工具，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure 命令列工具](http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/command-line-tools/) (英文)。
+> [WACOM.NOTE] 如果您尚未安裝 Azure 命令列工具，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure 命令列工具][] (英文)。
+
+<a name="streamlogs"></a>
 
 ## 作法：串流記錄
 
+</p>
 開發應用程式時，如果能夠幾近即時地檢視記錄資訊，通常會很實用。您可以使用 Azure PowerShell 或 Azure 命令列工具，將記錄資訊串流至開發環境來達到這個目的。
 
 > [WACOM.NOTE] 某些記錄緩衝區類型會寫入記錄檔中，進而造成串流中的事件順序錯亂。例如，使用者造訪某個網頁所產生的應用程式記錄項目，可能會比頁面要求的對應 HTTP 記錄項目優先顯示在串流中。
@@ -121,7 +133,7 @@ Azure 網站會在您將應用程式發行至網站時，一併記錄部署資�
 
     Get-AzureWebSiteLog -Name websitename -Tail
 
-此舉會連線 **-Name** 參數所指定的網站，並在網站產生記錄事件時，開始將資訊串流至 PowerShell 視窗。任何寫入副檔名為 .txt、.log 或 .htm 的檔案中並存放在 /LogFiles 目錄 (d:/home/logfiles) 的資訊，都會串流至本機主控台。
+這會連線至 **-Name** 參數所指定的網站，並在網站產生記錄事件時，開始將資訊串流至 PowerShell 視窗。任何寫入副檔名為 .txt、.log 或 .htm 的檔案中並存放在 /LogFiles 目錄 (d:/home/logfiles) 的資訊，都會串流至本機主控台。
 
 若要篩選特定事件，例如錯誤，請使用 **-Message** 參數。例如：
 
@@ -133,7 +145,7 @@ Azure 網站會在您將應用程式發行至網站時，一併記錄部署資�
 
 若要檢視可用的路徑清單，請使用 -ListPath 參數。
 
-> [WACOM.NOTE] 如果您尚未安裝 Azure PowerShell，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure PowerShell](http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
+> [WACOM.NOTE] 如果您尚未安裝 Azure PowerShell，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure PowerShell][] (英文)。
 
 ### 使用 Azure 命列列工具來串流
 
@@ -141,7 +153,7 @@ Azure 網站會在您將應用程式發行至網站時，一併記錄部署資�
 
     azure site log tail websitename
 
-此舉會連線名為 websitename 的網站，並在網站產生記錄事件時，開始將資訊串流至視窗。任何寫入副檔名為 .txt、.log 或 .htm 的檔案中並存放在 /LogFiles 目錄 (d:/home/logfiles) 的資訊，都會串流至本機主控台。
+這會連線至名為 websitename 的網站，並在網站產生記錄事件時，開始將資訊串流至視窗。任何寫入副檔名為 .txt、.log 或 .htm 的檔案中並存放在 /LogFiles 目錄 (d:/home/logfiles) 的資訊，都會串流至本機主控台。
 
 若要篩選特定事件，例如錯誤，請使用 **--Filter** 參數。例如：
 
@@ -151,10 +163,13 @@ Azure 網站會在您將應用程式發行至網站時，一併記錄部署資�
 
     azure site log tail websitename --path http
 
-> [WACOM.NOTE] 如果您尚未安裝 Azure 命令列工具，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure 命令列工具](http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/command-line-tools/) (英文)。
+> [WACOM.NOTE] 如果您尚未安裝 Azure 命令列工具，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure 命令列工具][] (英文)。
 
-## 作法：瞭解診斷記錄
+<a name="understandlogs"></a>
 
+## 作法：了解診斷記錄
+
+</p>
 ### 應用程式診斷記錄
 
 應用程式診斷功能會根據您將記錄儲存至檔案系統、資料表儲存體或 Blob 儲存體的不同，將 .NET 應用程式的資訊儲存為特定格式。這三種儲存類型所儲存的資料基底集合全都相同，包括事件發生的日期與時間、產生事件的處理序識別碼、事件類型 (資訊、警告與錯誤)，以及事件訊息。
@@ -175,176 +190,178 @@ Azure 網站會在您將應用程式發行至網站時，一併記錄部署資�
 
 記錄至資料表儲存體時，會使用其他屬性來協助搜尋儲存在資料表裡的資料，以及更精細的事件資訊。以下內容 (資料行) 會用於資料表中儲存的每個實體 (列)。
 
-<table  style="width:100%;border-collapse:collapse">
+<table style="width:100%;border-collapse:collapse">
 <thead>
 <tr>
-<th  style="width:45%;border:1px solid black;background-color:#0099dd">屬性名稱</th>
+<th style="width:45%;border:1px solid black;background-color:#0099dd">
+屬性名稱
 
-<th  style="border:1px solid black;vertical-align:top;background-color:#0099dd">值/格式</th>
+</th>
+<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">
+值/格式
 
+</th>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">PartitionKey</td>
+<td style="border:1px solid black;vertical-align:top">
+PartitionKey
 
-<td  style="border:1px solid black;vertical-align:top">格式為 yyyyMMddHH 的事件日期/時間</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+格式為 yyyyMMddHH 的事件日期/時間
 
+</td>
 </tr>
-
 </thead>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">RowKey</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+RowKey
 
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">可唯一識別此實體的 GUID 值</td>
+</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+可唯一識別此實體的 GUID 值
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Timestamp</td>
+<td style="border:1px solid black;vertical-align:top">
+Timestamp
 
-<td  style="border:1px solid black;vertical-align:top">事件發生的日期與時間</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+事件發生的日期與時間
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+EventTickCount
 
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">事件發生的日期與時間 (刻度格式，精準度更高)</td>
+</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+事件發生的日期與時間 (刻度格式，精準度更高)
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">ApplicationName</td>
+<td style="border:1px solid black;vertical-align:top">
+ApplicationName
 
-<td  style="border:1px solid black;vertical-align:top">網站名稱</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+網站名稱
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+Level
 
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">事件層級 (例如，錯誤、警告、資訊)</td>
+</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+事件層級 (例如，錯誤、警告、資訊)
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">EventId</td>
+<td style="border:1px solid black;vertical-align:top">
+EventId
 
-<td  style="border:1px solid black;vertical-align:top">此事件的事件識別碼<br  />
-如果沒有指定，預設為 0</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+此事件的事件識別碼
+如果沒有指定，預設為 0
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+InstanceId
 
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">發生事件的網站執行個體</td>
+</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+發生事件的網站執行個體
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Pid</td>
+<td style="border:1px solid black;vertical-align:top">
+Pid
 
-<td  style="border:1px solid black;vertical-align:top">處理序識別碼</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+處理序識別碼
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+Tid
 
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">產生事件的執行緒之執行緒識別碼</td>
+</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">
+產生事件的執行緒之執行緒識別碼
 
+</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Message</td>
+<td style="border:1px solid black;vertical-align:top">
+訊息
 
-<td  style="border:1px solid black;vertical-align:top">事件詳細資訊訊息</td>
+</td>
+<td style="border:1px solid black;vertical-align:top">
+事件詳細資訊訊息
 
+</td>
 </tr>
-
 </table>
-
 **Blob 儲存體**
 
 登入 Blob 儲存體時，資料會儲存為逗號分隔值 (CSV) 的格式。其他欄位則會以類似資料表儲存體的作法記錄起來，以提供更精細的事件相關資訊。CSV 中的每一列會使用以下屬性：
 
-<table  style="width:100%;border-collapse:collapse">
+<table style="width:100%;border-collapse:collapse">
 <thead>
 <tr>
-<th  style="width:45%;border:1px solid black;background-color:#0099dd">屬性名稱</th>
-
-<th  style="border:1px solid black;vertical-align:top;background-color:#0099dd">值/格式</th>
-
+<th style="width:45%;border:1px solid black;background-color:#0099dd">屬性名稱</th>
+<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">值/格式</th>
 </tr>
-
 </thead>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Date</td>
-
-<td  style="border:1px solid black;vertical-align:top">事件發生的日期與時間</td>
-
+<td style="border:1px solid black;vertical-align:top">Date</td>
+<td style="border:1px solid black;vertical-align:top">事件發生的日期與時間</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
-
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">事件層級 (例如，錯誤、警告、資訊)</td>
-
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">事件層級 (例如，錯誤、警告、資訊)</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">ApplicationName</td>
-
-<td  style="border:1px solid black;vertical-align:top">網站名稱</td>
-
+<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
+<td style="border:1px solid black;vertical-align:top">網站名稱</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">發生事件的網站執行個體</td>
-
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">發生事件的網站執行個體</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">事件發生的日期與時間 (刻度格式，精準度更高)</td>
-
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">事件發生的日期與時間 (刻度格式，精準度更高)</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">EventId</td>
-
-<td  style="border:1px solid black;vertical-align:top">此事件的事件識別碼<br  />
-如果沒有指定，預設為 0</td>
-
+<td style="border:1px solid black;vertical-align:top">EventId</td>
+<td style="border:1px solid black;vertical-align:top">此事件的事件識別碼<br>如果沒有指定，預設為 0</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Pid</td>
-
-<td  style="border:1px solid black;vertical-align:top">處理序識別碼</td>
-
+<td style="border:1px solid black;vertical-align:top">Pid</td>
+<td style="border:1px solid black;vertical-align:top">處理序識別碼</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-
-<td  style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">產生事件的執行緒之執行緒識別碼</td>
-
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">產生事件的執行緒之執行緒識別碼</td>
 </tr>
-
 <tr>
-<td  style="border:1px solid black;vertical-align:top">Message</td>
-
-<td  style="border:1px solid black;vertical-align:top">事件詳細資訊訊息</td>
-
+<td style="border:1px solid black;vertical-align:top">訊息</td>
+<td style="border:1px solid black;vertical-align:top">事件詳細資訊訊息</td>
 </tr>
-
 </table>
 
 儲存在 Blob 中的資料類似以下內容：
@@ -356,9 +373,9 @@ Azure 網站會在您將應用程式發行至網站時，一併記錄部署資�
 
 ### 失敗要求追蹤
 
-失敗要求追蹤會儲存在名為 **fr######.xml** 的 XML 檔案中。為了讓您輕鬆地檢視記錄資訊，系統會在 XML 檔案所屬的相同目錄中，提供名為 **freb.xsl** 的 XSL 樣式表。在 Internet Explorer 中開啟其中一個 XML 檔案會使用 XSL 樣式表，提供格式化的追蹤資訊顯示。此資訊類似以下內容：
+失敗要求追蹤會儲存在名為 **fr\#\#\#\#\#\#.xml** 的 XML 檔案中。為了讓您輕鬆地檢視記錄資訊，系統會在 XML 檔案所屬的相同目錄中，提供名為 **freb.xsl** 的 XSL 樣式表。在 Internet Explorer 中開啟其中一個 XML 檔案會使用 XSL 樣式表，提供格式化的追蹤資訊顯示。此資訊類似以下內容：
 
-![在瀏覽器中檢視的失敗要求](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
+![在瀏覽器中檢視的失敗要求][]
 
 ### 詳細的錯誤記錄
 
@@ -366,14 +383,36 @@ Azure 網站會在您將應用程式發行至網站時，一併記錄部署資�
 
 ### Web 伺服器記錄
 
-Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)來格式化。此項資訊可透過文字編輯器來讀取，或是運用[記錄檔剖析器](http://go.microsoft.com/fwlink/?LinkId=246619) (英文) 之類的公用程式來剖析。
+Web 伺服器記錄使用 [W3C 擴充記錄檔案格式][W3C 擴充記錄檔格式]來格式化。此項資訊可透過文字編輯器來讀取，或是運用[記錄檔剖析器][] (英文) 之類的公用程式來剖析。
 
 > [WACOM.NOTE] Azure 網站所產生的記錄並不支援 **s-computername**、**s-ip** 或 **cs-version** 欄位。
 
+<a name="nextsteps"></a>
+
 ## 後續步驟
 
--   [如何監視網站](/en-us/manage/services/web-sites/how-to-monitor-websites/)
--   [教學課程 - 疑難排解網站](/en-us/develop/net/best-practices/troubleshooting-web-sites/)
--   [疑難排解 Visual Studio 中的 Azure 網站](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
--   [分析 HDInsight 中的網站記錄](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+</p>
+-   [如何監視網站][]
+-   [教學課程 - 疑難排解網站][]
+-   [疑難排解 Visual Studio 中的 Azure 網站][在 Visual Studio 中疑難排解 Azure 網站]
+-   [分析 HDInsight 中的網站記錄][]
 
+  [在 Visual Studio 中疑難排解 Azure 網站]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [什麼是：網站診斷？]: #whatisdiag
+  [作法：啟用診斷]: #enablediag
+  [作法：下載記錄]: #download
+  [作法：串流記錄]: #streamlogs
+  [作法：瞭解診斷記錄]: #understandlogs
+  [後續步驟]: #nextsteps
+  [W3C 擴充記錄檔格式]: http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx
+  [System.Diagnostics.Trace]: http://msdn.microsoft.com/en-us/library/36hhw2t6.aspx
+  [1]: http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [Azure 管理入口網站]: https://manage.microsoft.com
+  [Azure SDK]: http://www.windowsazure.com/en-us/downloads/#
+  [如何使用 Azure PowerShell]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
+  [如何使用 Azure 命令列工具]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/
+  [在瀏覽器中檢視的失敗要求]: ./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png
+  [記錄檔剖析器]: http://go.microsoft.com/fwlink/?LinkId=246619
+  [如何監視網站]: /en-us/manage/services/web-sites/how-to-monitor-websites/
+  [教學課程 - 疑難排解網站]: /en-us/develop/net/best-practices/troubleshooting-web-sites/
+  [分析 HDInsight 中的網站記錄]: http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413

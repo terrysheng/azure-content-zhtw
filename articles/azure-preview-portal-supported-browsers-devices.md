@@ -1,7 +1,8 @@
-<properties linkid="" urlDisplayName="" pageTitle="Supported browsers and devices" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Supported browsers and devices" authors="Justin Beckwith" solutions="" writer="" manager="" editor="" />
+<properties urlDisplayName="" pageTitle="Supported browsers and devices" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Supported browsers and devices" authors="Justin Beckwith"  solutions="" writer="" manager="" editor=""  />
 
-支援的瀏覽器和裝置
-==================
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Justin Beckwith"></tags>
+
+# 支援的瀏覽器和裝置
 
 Microsoft Azure 預覽入口網站可在所有最新的桌上型電腦和平板裝置與瀏覽器上執行。
 

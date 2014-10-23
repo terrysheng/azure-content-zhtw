@@ -1,60 +1,73 @@
-<properties  linkid="develop-mobile-how-to-guides-register-for-facebook-authentication" urlDisplayName="Register for Facebook Authentication" pageTitle="Register for Facebook authentication - Mobile Services" metaKeywords="Azure Facebook, Azure Facebook, Azure authenticate Mobile Services" description="Learn how to use Facebook authentication in your Azure Mobile Services app." metaCanonical="" services="" documentationCenter="" title="Register your apps for Facebook authentication with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-how-to-guides-register-for-facebook-authentication" urlDisplayName="Register for Facebook Authentication" pageTitle="Register for Facebook authentication - Mobile Services" metaKeywords="Azure Facebook, Azure Facebook, Azure authenticate Mobile Services" description="Learn how to use Facebook authentication in your Azure Mobile Services app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Facebook authentication with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
 
 # 在行動服務中註冊應用程式以採用 Facebook 驗證
 
 本主題說明如何在 Azure 行動服務中註冊您的應用程式，使其能夠採用 Facebook 驗證。
-<div class="dev-callout"><b>注意</b>
-<p>若要完成本主題的程序，您必須具有已通過電子郵件地址與手機號碼驗證的 Facebook 帳戶。若要建立新的 Facebook 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>。</p>
-</div>
 
-1.  瀏覽至 [Facebook 開發人員][1]網站，並以您的 Facebook 帳戶認證登入。
+> [WACOM.NOTE] 本教學課程有關 [Azure 行動服務][]，此方案可協助您建置適用於任何平台的可擴充行動應用程式。行動服務讓同步處理資料、驗證使用者及推播通知等作業變得簡單。此頁面支援[開始使用驗證][]教學課程，顯示如何將使用者登入您的應用程式。如果這是您第一次使用行動服務，請完成[開始使用行動服務][]教學課程。
 
-2.  (選用) 按一下 **應用程式**，然後按一下 **Register as a Developer**，接受政策並遵循註冊步驟 (若您尚未註冊)。
-    
-	![][0]
+若要完成本主題的程序，您必須具有已通過電子郵件地址與手機號碼驗證的 Facebook 帳戶。若要建立新的 Facebook 帳戶，請前往 [facebook.com][]。
 
-3.  按一下 **應用程式**，然後按一下 **製作新應用程式**。
-    
-	![][1]
+1.  瀏覽至 [Facebook 開發人員][]網站，並以您的 Facebook 帳戶認證登入。
 
-4.  為您的應用程式選擇獨一無二的名稱，選取 **Apps for Pages**，按一下 **建立應用程式** 並完成挑戰問題。
-    
-	![][2]
-    
+2.  (選用) 按一下 [應用程式]，然後按一下 [Register as a Developer]，接受政策並遵循註冊步驟 (若您尚未註冊)。
+
+    ![][]
+
+3.  按一下 [應用程式]，然後按一下 [製作新應用程式]。
+
+    ![][1]
+
+4.  為您的應用程式選擇獨一無二的名稱，選取 [Apps for Pages]，按一下 [建立應用程式] 並完成挑戰問題。
+
+    ![][2]
+
     如此會在 Facebook 註冊應用程式
 
-5.  按一下 **設定**，在 **App Domains** 中輸入您行動服務的網域，然後按一下 **新增平台** 並選取 **網站**。
-    
-	![][3]
+5.  按一下 [設定]，在 [應用程式網域] 中輸入行動服務的網域。並輸入 [連絡人電子郵件]，然後按一下 [新增平台]，並選取 [網站]。
 
-6.  在 **網站 URL** 中輸入您行動服務的 URL，然後按一下 **儲存變更**。
-    
-	![](./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app-2.png)
+    ![][3]
 
-7.  按一下 **顯示**，提供您的密碼 (如有要求)，然後記下 **應用程式 ID** 和 **應用程式密鑰**  的值。
-    
-	![][5]
-	<div class="dev-callout"><b>安全性注意事項</b>
-	<p>應用程式密鑰是重要的安全性認證。請勿將這個密鑰與任何人分享，或與您的應用程式一起散發。</p>
-	</div>
+6.  在 [網站 URL] 中輸入您行動服務的 URL，然後按一下 [儲存變更]。
 
+    ![][4]
 
+7.  按一下 [顯示]，提供您的密碼 (如有要求)，然後記下 [應用程式 ID] 和 [應用程式密鑰] 的值。
+
+    ![][5]
+
+    <div class="dev-callout"><b>安全性注意事項</b>
+<p>應用程式密鑰是重要的安全性認證。請勿將此密碼告訴任何人或隨應用程式一起散發。</p>
+</div>
+
+8.  按一下 [進階] 索引標籤，在 [有效的 OAuth 重新導向 URI] 中，輸入行動服務的 URL，後面附加路徑 */login/facebook*，然後按一下 [儲存變更]。
+
+    > [WACOM.NOTE]如需使用 Visual Studio 將 .NET 後端行動服務發佈至 Azure，則重新導向 URL 是行動服務的 URL 後面附加路徑 *signin-facebook*，而您的行動服務為 .NET 服務，例如 <code>https://todolist.azure-mobile.net/signin-facebook</code>.
+
+    ![][6]
+
+9.  您為其定義新應用程式的 Facebook 帳戶是應用程式的管理員，具有該應用程式的管理員存取權。若要驗證其他 Facebook 帳戶，他們需要該應用程式的存取權。此步驟會授與一般公用存取權，讓應用程式能夠驗證其他 Facebook 帳戶。按一下 [狀態與檢閱]。然後按一下 [是]，以啟用一般公用存取權。
+
+    ![][7]
 
 現在您已準備好提供應用程式 ID 和應用程式密碼值給行動服務，以在您的應用程式中採用 Facebook 登入驗證。
 
-<!-- Anchors. -->
-
-<!-- Images. -->
-
-[0]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-developer-register.png
-[1]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-add-app.png
-[2]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-new-app-dialog.png
-[3]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app.png
-[4]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app-2.png
-[5]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-completed.png
-
+<!-- Anchors. --> 
+<!-- Images. --> 
 <!-- URLs. -->
 
-
-
-[1]: http://go.microsoft.com/fwlink/p/?LinkId=268286
+  [Azure 行動服務]: http://azure.microsoft.com/en-us/services/mobile-services/
+  [開始使用驗證]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started-users/
+  [開始使用行動服務]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started/
+  [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
+  [Facebook 開發人員]: http://go.microsoft.com/fwlink/p/?LinkId=268286
+  []: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-developer-register.png
+  [1]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-add-app.png
+  [2]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-new-app-dialog.png
+  [3]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app.png
+  [4]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app-2.png
+  [5]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-completed.png
+  [6]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app-3.png
+  [7]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app-general-public.png

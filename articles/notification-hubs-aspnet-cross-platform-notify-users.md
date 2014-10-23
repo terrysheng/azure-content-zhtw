@@ -1,68 +1,91 @@
 <properties linkid="manage-services-notification-hubs-notify-users-xplat-aspnet" urlDisplayName="Notify Users xplat aspnet" pageTitle="Send cross-platform notifications to users with Notification Hubs (ASP.NET)" metaKeywords="" description="Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms." metaCanonical="" services="notification-hubs" documentationCenter="" title="Send cross-platform notifications to users with Notification Hubs" authors="glenga" solutions="" manager="" editor="" />
 
-使用通知中心傳送跨平台通知給使用者
-==================================
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
 
-[行動服務](/en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/ "行動服務")[ASP.NET](/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet/ "ASP.NET")
+# 使用通知中心向使用者傳送跨平台通知
 
-在先前的教學課程[使用通知中心來通知使用者](/en-us/manage/services/notification-hubs/notify-users-aspnet)中，您已了解如何將通知推播至已驗證的特定使用者所註冊的所有裝置。在該教學課程中，我們必須透過多個要求，將通知傳送至每個支援的用戶端平台。通知中心所支援的範本，可讓您指定某個裝置要以何種方式接收通知。這可以簡化傳送跨平台通知的作業。本主題將示範如何運用範本，以單一要求傳送以所有平台為目標、且平台無從驗證的通知。如需範本的詳細資訊，請參閱 [Azure 通知中心概觀](http://go.microsoft.com/fwlink/p/?LinkId=317339)。
+在上一堂教學課程[使用通知中心來通知使用者][]中，您已了解如何將通知推播至所有由特定經驗證使用者所註冊的裝置。在該教學課程中，需要用多個要求來傳送通知給每個支援的用戶端平台。通知中心可支援範本，讓您指定特定裝置接收通知的方式。這使得傳送跨平台通知變得更簡單。本主題示範如何運用範本，在單一要求中傳送以所有平台為目標的跨平台通知。如需這些範本的詳細資訊，請參閱 [Azure 通知中心概觀][]。
 
-**注意**
+<div class="dev-callout"><b>注意</b>
+<p>通知中心可以讓裝置註冊多個具有相同標籤的範本。在此情況下，當傳入的訊息符合該標籤時，就會有多個通知傳遞至裝置 (每個通知各用於一個範本)。如此一來，您就能讓相同訊息顯示在多個視覺通知中，例如以徽章形式和 Windows 市集應用程式中的快顯通知形式。</p>
+</div>
 
-通知中心可讓裝置以相同的標籤註冊多個範本。在此情況下，一個以該標籤為目標的傳入訊息將會使多個通知傳遞至裝置，每個範本各一個。這可讓您以多個視覺化通知顯示相同的訊息，例如，在一個 Windows 市集應用程式中同時顯示徽章和快顯通知。
+請完成下列步驟，使用範本傳送跨平台資訊：
 
-完成下列步驟，可使用範本傳送跨平台通知：
+1.  在 Visual Studio 的 [方案總管] 中展開 [控制器] 資料夾，然後開啟 RegisterController.cs 檔案。
 
-1.  在 Visual Studio 的 [方案總管] 中展開 **[控制器]** 資料夾，然後開啟 RegisterController.cs 檔案。
+2.  在 **Post** 方法中找出建立新註冊的程式碼區塊，並將 `switch` 內容取代為下列程式碼：
 
-2.  在 **Post** 方法中找出在 `updated` 的值為 **false** 時建立新註冊的程式碼區塊，並將其取代為下列程式碼：
-
-		if (!updated)
+        switch (deviceUpdate.Platform)
         {
-            switch (platform)
-            {
-                case "windows":
-                    var template = @"<toast><visual><binding template=""ToastText01""><text id=""1"">$(message)</text></binding></visual></toast>";
-                    await hubClient.CreateWindowsTemplateRegistrationAsync(channelUri, template, new string[] { instId, userTag });
-                    break;
-                case "ios":
-                    template = "{\"aps\":{\"alert\":\"$(message)\"}, \"inAppMessage\":\"$(message)\"}";
-                    await hubClient.CreateAppleTemplateRegistrationAsync(deviceToken, template, new string[] { instId, userTag });
-                    break;
-            } 
+            case "mpns":
+                var toastTemplate = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                    "<wp:Notification xmlns:wp=\"WPNotification\">" +
+                       "<wp:Toast>" +
+                            "<wp:Text1>$(message)</wp:Text1>" +
+                       "</wp:Toast> " +
+                    "</wp:Notification>";
+                registration = new MpnsTemplateRegistrationDescription(deviceUpdate.Handle, toastTemplate);
+                break;
+            case "wns":
+                toastTemplate = @"<toast><visual><binding template=""ToastText01""><text id=""1"">$(message)</text></binding></visual></toast>";
+                registration = new WindowsTemplateRegistrationDescription(deviceUpdate.Handle, toastTemplate);
+                break;
+            case "apns":
+                var alertTemplate = "{\"aps\":\"alert\":\"$(message)\"}";
+                registration = new AppleTemplateRegistrationDescription(deviceUpdate.Handle, alertTemplate);
+                break;
+            case "gcm":
+                var messageTemplate = "{\"data\":\"msg\":\"$(message)\"}";
+                registration = new GcmTemplateRegistrationDescription(deviceUpdate.Handle, messageTemplate);
+                break;
+            default:
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
         }
 
-    此程式碼會呼叫平台特定方法以建立範本註冊，而非原生註冊。現有的註冊無須修改，因為範本註冊衍生自原生註冊。
+    這段程式碼會呼叫平台特有方法來建立範本註冊，而非原生註冊。不需要修改現有註冊，因為範本註冊源自原生註冊。
 
-3.  以下列程式碼取代 **sendNotification** 方法：
+3.  在 [通知] 控制器中，將 **sendNotification** 方法取代為下列程式碼：
 
-        // Send a cross-plaform notification by using templates. 
-        private async Task sendNotification(string notificationText, string tag)
-        {           
-                var notification = new Dictionary<string, string> { { "message", "Hello, " + tag } };
-                await hubClient.SendTemplateNotificationAsync(notification, tag);        
+        public async Task<HttpResponseMessage> Post()
+        {
+            var user = HttpContext.Current.User.Identity.Name;
+            var userTag = "username:" + user;
+
+            var notification = new Dictionary<string, string> { { "message", "Hello, " + user } };
+            await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);   
+
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-    此程式碼會同時傳送通知至所有平台，而無須指定原生裝載。通知中心會使用提供的*標籤*值建置及傳遞正確的裝載給每個裝置，如註冊的範本中所指定。
+    這段程式碼會同時將通知傳送至所有平台，完全不需要指定原生裝載。通知中心將以所提供的 *tag* 值 (指定於註冊的範本中) 建置並傳遞正確的裝載到每個裝置。
 
-4.  重新執行用戶端應用程式，然後驗證註冊已成功。
+4.  重新發佈您的 WebApi 後端專案。
 
-5.  (選用) 將此用戶端應用程式部署到第二個裝置，然後執行此應用程式。
+5.  重新執行用戶端應用程式，然後驗證註冊已成功。
 
-    請留意到，每個裝置上都會顯示通知。
+6.  (選用) 將此用戶端應用程式部署到第二個裝置，然後執行此應用程式。
 
-後續步驟
---------
+    請注意，每台裝置上都會顯示通知。
 
-現在您已完成此教學課程，您可以進一步在下列主題中了解通知中心和範本的相關資訊：
+## 後續步驟
 
--   **使用通知中心傳送即時新聞 ([Windows 市集 C\#](/en-us/manage/services/notification-hubs/breaking-news-dotnet) / [iOS](/en-us/manage/services/notification-hubs/breaking-news-dotnet))**
-    說明另一個使用範例的案例
+您已完成本教學課程，現在可參閱下列主題進一步了解通知中心和範本：
 
--   **[Azure 通知中心概觀](http://go.microsoft.com/fwlink/p/?LinkId=317339)**
-    「概觀」主題會提供範本的詳細資訊。
+-   **使用通知中心傳送即時新聞 ([Windows 市集 C#][] / [iOS][Windows 市集 C#])**
+    示範另一個使用範本的案例
 
--   **[Windows 市集的通知中心作法](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj927172.aspx)**
-    包含範本運算式語言參考。
+-   **[Azure 通知中心概觀][]**
+    概觀主題包含範本的詳細資訊。
 
+-   **[Windows 市集的通知中心作法][]**
+     (英文) 包含範本運算式語言參考。
 
+<!-- Anchors. --> 
+<!-- Images. --> 
+<!-- URLs. -->
+
+  [使用通知中心來通知使用者]: /en-us/manage/services/notification-hubs/notify-users-aspnet
+  [Azure 通知中心概觀]: http://go.microsoft.com/fwlink/p/?LinkId=317339
+  [Windows 市集 C#]: /en-us/manage/services/notification-hubs/breaking-news-dotnet
+  [Windows 市集的通知中心作法]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927172.aspx

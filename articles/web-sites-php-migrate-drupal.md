@@ -1,31 +1,29 @@
-<properties linkid="migrating-drupal-to-azure-websites" urlDisplayName="Migrating Drupal to Azure Web Sites" pageTitle="Migrating Drupal to Azure Web Sites" metaKeywords="Drupal, PHP, Web Sites" description="Migrate a Drupal PHP site to Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Migrating Drupal to Azure Web Sites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
+<properties linkid="migrating-drupal-to-azure-websites" urlDisplayName="Migrating Drupal to Azure Websites" pageTitle="Migrating Drupal to Azure Websites" metaKeywords="Drupal, PHP, Web Sites" description="Migrate a Drupal PHP site to Azure Websites." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Migrating Drupal to Azure Websites" authors="cephalin; jroth" solutions="" manager="wpickett" editor="mollybos" />
 
-將 Drupal 移轉至 Azure 網站
-===========================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin; jroth"></tags>
+
+# 將 Drupal 移轉至 Azure 網站
 
 因為 Azure 網站同時支援 PHP 與 MySQL，所以將 Drupal 網站移轉至 Azure 網站相當直接。而且，因為 Drupal 與 PHP 可在任何平台上執行，所以不論您目前的平台為何，此處理程序應可適用於將 Drupal 移至 Azure 網站。如此一來，Drupal 安裝可能大不相同，可能有一些未涵蓋於下列資料中的獨特移轉步驟。請注意，因為 Azure 網站不支援 Drush 工具，所以並未採用。
 
-> [WACOM.NOTE] 
-> 如果您正在移動大型而複雜的 Drupal 應用程式，另一個選項就是考慮使用 Azure 雲端服務。如需有關網站與雲端服務之間差異的詳細資訊，請參閱＜[Azure 網站、雲端服務和 VM：使用時機](http://go.microsoft.com/fwlink/?LinkId=310123)＞(英文)。如需將 Drupal 移至雲端服務的說明，請參閱＜[將 Drupal 網站從 LAMP 移轉至 Azure](http://blogs.msdn.com/b/brian_swan/archive/2012/03/19/azure-real-world-migrating-drupal-from-lamp-to-windows-azure.aspx)＞(英文)。
+> [WACOM.NOTE]
+> 如果您正在移動大型而複雜的 Drupal 應用程式，另一個選項就是考慮使用 Azure 雲端服務。如需有關網站與雲端服務之間差異的詳細資訊，請參閱[Azure 網站、雲端服務和 VM：使用時機][]。如需將 Drupal 移至雲端服務的說明，請參閱＜[將 Drupal 網站從 LAMP 移轉至 Azure][]＞(英文)。
 
-目錄
-----
+## 目錄
 
--   [建立 Azure 網站](#create-siteanddb)
--   [複製資料庫](#copy-database)
--   [修改 Settings.php](#modify-settingsphp)
--   [部署 Drupal 程式碼](#deploy-drupalcode)
--   [相關資訊](#related-information)
+-   [建立 Azure 網站][]
+-   [複製資料庫][]
+-   [修改 Settings.php][]
+-   [部署 Drupal 程式碼][]
+-   [相關資訊][]
 
-建立 Azure 網站和 MySQL 資料庫1. 建立 Azure 網站和 MySQL 資料庫
----------------------------------------------------------------
+## <a name="create-siteanddb"></a><span class="short-header">建立 Azure 網站和 MySQL 資料庫</span>1. 建立 Azure 網站和 MySQL 資料庫
 
-首先，完成逐步教學課程，了解如何利用 MySQL 建立新的網站：[建立 PHP-MySQL Azure 網站並使用 Git 部署](http://www.windowsazure.com/zh-tw/develop/php/tutorials/website-w-mysql-and-git/)。如果您打算使用 Git 來發行 Drupal 網站，請遵循教學課程中說明如何設定 Git 儲存機制的步驟。請務必遵循＜**取得遠端 MySQL 連線資訊**＞一節中的指示，因為您稍後會需要該資訊。您可以為了部署 Drupal 網站而忽略其餘的教學課程，但如果這是您第一次使用 Azure 網站 (和 Git)，您可能會發現其他讀取資訊。
+首先，完成逐步教學課程，了解如何利用 MySQL 建立新的網站：[建立 PHP-MySQL Azure 網站並使用 Git 部署][]。如果您打算使用 Git 來發行 Drupal 網站，請遵循教學課程中說明如何設定 Git 儲存機制的步驟。請務必遵循＜**取得遠端 MySQL 連線資訊**＞一節中的指示，因為您稍後會需要該資訊。您可以為了部署 Drupal 網站而忽略其餘的教學課程，但如果這是您第一次使用 Azure 網站 (和 Git)，您可能會發現其他有用文章。
 
 設定採用 MySQL 資料庫的新網站之後，您現在即可取得 MySQL 資料庫連線資訊和 (選用) Git 儲存機制。下一個步驟是在 Azure 網站中將資料庫複製到 MySQL。
 
-在 Azure 網站中將資料庫複製到 MySQL2. 在 Azure 網站中將資料庫複製到 MySQL
--------------------------------------------------------------------------
+## <a name="copy-database"></a><span class="short-header">在 Azure 網站中將資料庫複製到 MySQL</span>2. 在 Azure 網站中將資料庫複製到 MySQL
 
 將資料庫移轉到 Azure 中的方法有很多種。其中一種適用於 MySQL 資料庫的方法是使用 [MySqlDump][] 工具。下列命令提供如何從本機電腦複製到 Azure 網站的範例：
 
@@ -39,31 +37,29 @@
 
 您的 Drupal 資料庫現在已存留在 Azure 網站中。在部署 Drupal 程式碼之前，您必須加以修改，才能連接到新資料庫。
 
-修改 settings.php 中的資料庫連線資訊3. 修改 settings.php 中的資料庫連線資訊
----------------------------------------------------------------------------
+## <a name="modify-settingsphp"></a><span class="short-header">修改 settings.php 中的資料庫連線資訊</span>3. 修改 settings.php 中的資料庫連線資訊
 
-此時，您再度需要新的資料庫連線資訊。在文字編輯器中開啟 **/drupal/sites/default/setting.php** 檔案，以新資料庫的正確值取代 **\$databases** 陣列中 "database", "username", "password" 和 "host" 的值。完成後，您會取得類似下列的程式碼：
+此時，您再度需要新的資料庫連線資訊。以文字編輯器開啟 **/drupal/sites/default/setting.php** 檔案，接著將 **$databases** 陣列中的 'database'、'username'、'password' 及 'host 的值取代為新資料庫的正確值。完成後，您會取得類似下列的程式碼：
 
     $databases = array (
-    'default' => 
-    array (
-    'default' => 
-    array (
-    'database' => 'remote_db_name',
-    'username' => 'remote_username',
-    'password' => 'remote_password',
-    'host' => 'remote_host',
-    'port' => '',
-    'driver' => 'mysql',
-    'prefix' => '',
+       'default' => 
+       array (
+         'default' => 
+         array (
+           'database' => 'remote_db_name',
+           'username' => 'remote_username',
+           'password' => 'remote_password',
+           'host' => 'remote_host',
+           'port' => '',
+           'driver' => 'mysql',
+           'prefix' => '',
          ),
        ),
      );
 
 儲存 **settings.php** 檔案。您現在即可準備進行部署。
 
-使用 Git 或 FTP 部署 Drupal 程式碼4. 使用 Git 或 FTP 部署 Drupal 程式碼
------------------------------------------------------------------------
+## <a name="deploy-drupalcode"></a><span class="short-header">使用 Git 或 FTP 部署 Drupal 程式碼</span>4. 使用 Git 或 FTP 部署 Drupal 程式碼
 
 最後一個步驟是使用 Git 或 FTP 將程式碼部署至 Azure 網站。
 
@@ -71,20 +67,30 @@
 
 如果您是使用 Git，您應該已在上述步驟中設定 Git 儲存機制。您必須在本機電腦上安裝 Git。然後，遵循在建立儲存機制之後提供的指示。
 
-> [WACOM.NOTE] 
+> [WACOM.NOTE]
 > 視您的 Git 設定而定，您可能必須編輯 .gitignore 檔案 (一個隱藏檔，而且與您執行 Git 認可後在本機根目錄中建立的 .git 資料夾同層級)。此檔案可指定 Drupal 應用程式中可忽略的檔案。如果其中包含應該部署的檔案，請移除這些項目，那麼就不會忽略這些檔案。
 
 將 Drupal 部署至 Azure 網站之後，您可以透過 Git 或 FTP 繼續部署更新。
 
-相關資訊相關資訊
-----------------
+## <a name="related-information"></a><span class="short-header">相關資訊</span>相關資訊
 
 如需詳細資訊，請參閱下列文章和主題：
 
--   [Azure 網站：PHP 觀點](http://blogs.msdn.com/b/silverlining/archive/2012/06/12/windows-azure-websites-a-php-perspective.aspx)
--   [Azure 網站、雲端服務和 VM：使用時機](http://go.microsoft.com/fwlink/?LinkId=310123)
--   [在 Azure 網站中利用 .user.ini 檔案設定 PHP](http://blogs.msdn.com/b/silverlining/archive/2012/07/10/configuring-php-in-windows-azure-websites-with-user-ini-files.aspx)
--   [Azure 整合模組](https://drupal.org/project/azure_auth)
--   [Azure Blob 儲存體模組](https://drupal.org/project/azure_blob)
+-   [Azure 網站：PHP 觀點][]
+-   [Azure 網站、雲端服務和 VM：使用時機][]
+-   [在 Azure 網站中利用 .user.ini 檔案設定 PHP][]
+-   [Azure 整合模組][]
+-   [Azure Blob 儲存體模組][]
 
-
+  [Azure 網站、雲端服務和 VM：使用時機]: http://go.microsoft.com/fwlink/?LinkId=310123
+  [將 Drupal 網站從 LAMP 移轉至 Azure]: http://blogs.msdn.com/b/brian_swan/archive/2012/03/19/azure-real-world-migrating-drupal-from-lamp-to-windows-azure.aspx
+  [建立 Azure 網站]: #create-siteanddb
+  [複製資料庫]: #copy-database
+  [修改 Settings.php]: #modify-settingsphp
+  [部署 Drupal 程式碼]: #deploy-drupalcode
+  [相關資訊]: #related-information
+  [建立 PHP-MySQL Azure 網站並使用 Git 部署]: http://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-git/
+  [Azure 網站：PHP 觀點]: http://blogs.msdn.com/b/silverlining/archive/2012/06/12/windows-azure-websites-a-php-perspective.aspx
+  [在 Azure 網站中利用 .user.ini 檔案設定 PHP]: http://blogs.msdn.com/b/silverlining/archive/2012/07/10/configuring-php-in-windows-azure-websites-with-user-ini-files.aspx
+  [Azure 整合模組]: https://drupal.org/project/azure_auth
+  [Azure Blob 儲存體模組]: https://drupal.org/project/azure_blob

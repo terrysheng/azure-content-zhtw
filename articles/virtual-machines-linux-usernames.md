@@ -1,18 +1,18 @@
-<properties linkid="services-linux-user-names" urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="services-linux-user-names" urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
-在 Azure 上選取適用於 Linux 的使用者名稱
-========================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
 
-當您針對 Azure 上的 Linux 映像建立虛擬機器執行個體時，您能夠選取要佈建的使用者名稱。
+# 在 Azure 上選取適用於 Linux 的使用者名稱
 
-Linux 會定義一組您無法使用的使用者名稱。請務必**避免使用這些名稱**。如果您使用其中一個使用者名稱，便無法佈建映像。
+當您在 Azure 上建立 Linux 虛擬機器執行個體時，可以選取要佈建的使用者名稱 (預設的使用者名稱是 *azureuser*)。在多數情況中，這位新使用者不會存在於基本映像中，而會在佈建程序中建立。在某些情況中，若此使用者已存在於基本 VM 映像，則 Azure Linux 代理程式只會在建立 VM 時，根據佈建的組態資訊，為該使用者設定密碼 (及/或 SSH 金鑰)。
 
-此外，服務管理 API 將會傳回下列錯誤：無法建立使用者 *xxxxxx*。如果因為先前擷取作業並未取消佈建已建立於映像中的使用者名稱，而讓您使用映像中已有的使用者名稱，也是發生此錯誤。
+**但是**，Linux 會定義一組建立新使用者時不應使用的使用者名稱。若您嘗試以現有的系統使用者 (定義為具有 UID 0-99 的使用者) 佈建 Linux VM，則佈建程序會**失敗**。典型的範例就是具有 UID 0 的 `root` 使用者。
 
-以下是您無法使用的使用者名稱。
+-   另請參閱：[Linux 標準基礎 - 使用者 ID 範圍][]
 
-OpenSUSE
---------
+下列清單包含您應避免在佈建 Linux 虛擬機器時使用的使用者名稱。為了保險起見，建議您在佈建 Linux VM 時，**請勿使用這些使用者名稱**，否則佈建程序可能會失敗。
+
+## openSUSE
 
 -   abrt
 -   adm
@@ -69,8 +69,7 @@ OpenSUSE
 -   video
 -   wheel
 
-SLES
-----
+## SLES
 
 -   audio
 -   bin
@@ -116,8 +115,7 @@ SLES
 -   wwwrun
 -   xok
 
-CentOS
-------
+## CentOS
 
 -   abrt
 -   adm
@@ -174,8 +172,7 @@ CentOS
 -   video
 -   wheel
 
-UBUNTU
-------
+## Ubuntu
 
 -   adm
 -   admin
@@ -231,3 +228,4 @@ UBUNTU
 -   whoopsie
 -   www-data
 
+  [Linux 標準基礎 - 使用者 ID 範圍]: http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html

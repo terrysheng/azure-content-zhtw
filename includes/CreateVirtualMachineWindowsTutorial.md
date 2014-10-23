@@ -1,151 +1,148 @@
+<properties title="Create a Virtual Machine Running Windows Server" pageTitle="How to create a Virtual Machine Running Windows Server" description="Describes how to create a Windows virtual machine, add a data disk, and log on remotely" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
 
 # 建立執行 Windows Server 的虛擬機器
 
-您可以使用 Azure 管理入口網站中的映像庫，輕鬆地建立執行 Windows Server 作業系統的虛擬機器。本教學課程教您如何在雲端中建立執行 Windows Server 的虛擬機器，以供您存取和自訂。就算沒有 Azure 的使用經驗，也能使用本教學課程。
+本教學課程說明如何使用 Azure 管理入口網站中的映像庫輕鬆建立執行 Windows Server 的 Azure 虛擬機器。映像庫提供多種映像，包括 Windows 作業系統、Linux 架構的作業系統和應用程式映像。
 
-您將了解：
+> [WACOM.NOTE] 您不需要有任何 Azure VM 的使用經驗，也能完成本教學課程。但您必須要有 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資料，請參閱＜[建立 Azure 帳戶][]＞。
 
-* [關於 Azure 中的虛擬機器](#virtualmachine)
-* [如何建立虛擬機器](#custommachine)
-* [如何在建立虛擬機器之後登入](#logon)
-* [如何將資料磁碟連接至新的虛擬機器](#attachdisk)
+本教學課程將說明：
 
-**注意：**本教學課程所建立的虛擬機器並未連線到虛擬網路。如果您想要讓虛擬機器使用虛擬網路，就必須在建立虛擬機器時指定虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀][1]。
+-   [如何建立虛擬機器][]
+-   [如何在建立虛擬機器之後登入][]
+-   [如何將資料磁碟連接至新的虛擬機器][]
 
-## <a id="virtualmachine"> </a>關於 Azure 中的虛擬機器
+若要深入了解，請參閱[虛擬機器][]。
 
-Azure 中的虛擬機器是您在雲端中可以控制和管理的伺服器。在 Azure 中建立虛擬機器之後，可隨時依需要刪除和重新建立，而存取虛擬機器就像存取其他任何伺服器一樣。若要深入了解，請參閱＜[虛擬機器][2]＞。
+## <span id="createvirtualmachine"></span> </a>如何建立虛擬機器
 
-## <a id="custommachine"> </a>如何建立虛擬機器
+本節說明如何在管理入口網站中使用 [從組件庫] 選項建立虛擬機器。此選項提供的組態選擇比 [快速建立] 選項還多。例如，如果您要將虛擬機器加入虛擬網路中，您必須使用 [從組件庫] 選項。
 
-本教學課程說明如何在管理入口網站中使用 **從組件庫** 方法建立自訂虛擬機器。建立虛擬機器時，此方法提供比 **快速建立** 方法更多的選項來設定虛擬機器。
+[WACOM.INCLUDE [virtual-machines-create-WindowsVM][]]
 
-1.  登入您的訂閱，以使用 Azure [管理入口網站][3]。如果您沒有訂閱，可以註冊[免費試用][4]。
+## <span id="logon"></span> </a>如何在建立虛擬機器之後登入
 
-2.  按一下命令列上的 **新增**。
+本節為您說明如何登入虛擬機器，以管理其設定和將在虛擬機器上執行的應用程式。
 
-3.  按一下 **虛擬機器**，然後按一下 **從組件庫**。
+1.  登入 Azure [管理入口網站][]。
 
-4.  在 **選擇映像** 中，選取 [Windows Server 2012 R2 Datacenter]****。(視您使用的訂閱而定，可用的映像可能有所不同)。按一下箭頭以繼續。
+2.  按一下 [虛擬機器]，然後選取 [MyTestVM] 虛擬機器。
 
-5.  如果有多個映像版本可供使用，請在 **版本發行日期** 中挑選您要使用的版本。
+    ![Select MyTestVM][]
 
-6.  在 **虛擬機器名稱** 中，輸入您要用於虛擬機器的名稱。以這個虛擬機器而言，請輸入 **MyTestVM1**。
+3.  按一下命令列上的 [連接]。
 
-7.  在 **大小** 中，選取虛擬機器的大小。您應該選取的大小取決於執行應用程式所需的核心數目。以這個虛擬機器而言，請選擇最小的可用大小。
+    ![連接到 MyTestVM][]
 
-8.  在 **新增使用者名稱** 中，輸入您要用於管理伺服器的系統管理帳戶名稱。以這個虛擬機器而言，請輸入 **MyTestVM1Admin**。
+4.  按一下 [開啟] 以使用系統自動為虛擬機器建立的遠端桌面通訊協定檔案。
 
-9.  在 **新增密碼** 中，輸入虛擬機器上系統管理帳戶的強式密碼。在 **確認密碼** 中，重新輸入密碼。按一下箭頭以繼續。
+    ![開啟 RDP 檔案][]
 
-10. 您可以將多個虛擬機器一起放在雲端服務中，以提供強大的應用程式，但在此教學課程中，您只會建立一個虛擬機器。若要這樣做，請選取  **Create a new cloud service**。
+5.  按一下 [連接]。
 
-11. 在 **Cloud Service DNS Name** 中，輸入使用 3 到 24 個小寫字母和數字的名稱。透過雲端服務連絡虛擬機器時，使用的 URI 中將包含此名稱。以這個虛擬機器而言，請輸入 **MyService1**。
+    ![繼續連接][]
 
-12. 在 **區域/同質群組/虛擬網路** 中，選取您要放置虛擬機器的位置。
+6.  在密碼方塊中，輸入您建立虛擬機器時指定的使用者名稱和密碼，然後按一下 [確定]。
 
-13. 若要儲存虛擬機器將使用的 VHD，請接受預設值 **使用自動產生的儲存體帳戶**。
+7.  按一下 [是] 以驗證虛擬機器的身分識別。
 
-14. 在 **可用性設定組** 下，基於此教學課程的目的，請使用預設值 **無**。按一下箭頭以繼續。
+    ![驗證機器的身分識別][]
 
-15. 在 **VM Agent** 下，決定是否安裝 VM 代理程式。此代理程式提供環境讓您安裝延伸模組，以協助您與虛擬機器互動。如需詳細資訊，請參閱[使用延伸模組][5]。
-
-16. 在 **端點** 下，檢閱將建立以允許連線至虛擬機器的新端點，例如透過遠端桌面和 Windows PowerShell 遠端執行功能。您也可以立即加入端點，或在稍後建立端點。如需有關稍後建立端點的指示，請參閱[如何設定與虛擬機器的通訊][6]。
-
-17. 按一下核取記號以建立虛擬機器。
-    
-    建立虛擬機器和雲端服務之後，管理入口網站會將新的虛擬機器列在 **虛擬機器** 下，將雲端服務列在 **雲端服務** 下。虛擬機器和雲端服務都會自動啟動。
-
-## <a id="logon"> </a>如何在建立虛擬機器之後登入
-
-登入您建立的虛擬機器，管理虛擬機器的設定及其中執行的應用程式。
-
-1.  登入 Azure [管理入口網站][3]。
-
-2.  按一下 **虛擬機器**，然後選取 **MyTestVM1** 虛擬機器。
-
-3.  按一下命令列上的 **連接**。
-
-4.  按一下 **開啟** 以使用系統自動為虛擬機器建立的遠端桌面通訊協定檔案。
-
-5.  按一下 **連接**。
-    
-    ![繼續連接](./media/CreateVirtualMachineWindowsTutorial/connectpublisher.png)
-
-6.  在密碼方塊中，輸入您建立虛擬機器時指定的使用者名稱和密碼，然後按一下 **確定**。
-
-7.  按一下 **是** 以驗證虛擬機器的身分識別。
-    
-    ![驗證機器的身分識別](./media/CreateVirtualMachineWindowsTutorial/connectverify.png)
-    
     您現在可以開始使用虛擬機器，就像使用公司的伺服器一樣。
 
-## <a id="attachdisk"> </a>如何將資料磁碟連接至新的虛擬機器
+## <span id="attachdisk"></span> </a>如何將資料磁碟連接至新的虛擬機器
 
-應用程式可能需要儲存資料。若要進行此設定，請將資料磁碟連接至虛擬機器。最簡單的方法是將空的資料磁碟連接至虛擬機器。
+本節說明如何將空的資料磁碟連接至虛擬機器。參閱 [連接資料磁碟教學課程] (<http://www.windowsazure.com/zh-tw/documentation/articles/storage-windows-attach-disk/>) (英文)，以取得連接空磁碟和如何連接現有磁碟的詳細資訊。
 
-1.  登入 Azure [管理入口網站][3]。
+1.  登入 Azure [管理入口網站][]。
 
-2.  按一下 **虛擬機器**，然後選取 **MyTestVM1** 虛擬機器。
+2.  按一下 [虛擬機器]，然後選取 [MyTestVM] 虛擬機器。
 
-3.  在命令列上，按一下 **連接**，然後按一下 **連接空的磁碟**。
-    
-    **連接空的磁碟** 對話方塊隨即出現。
+    ![Select MyTestVM][]
 
+3.  您可能會先進入 [快速入門] 頁面。若是如此，請選取頂端的 [儀表板]。
 
-   
-    > [WACOM.NOTE] 可能會顯示 [快速啟動] 頁面，而不是儀表板和命令列。如果發生此情況，請按一下頁面頂端的
-    > **儀表板**。
+    ![Select Dashboard][]
 
-4.  系統已為您定義 **虛擬機器名稱**、**儲存位置**、**檔案名稱** 和 **主機快取喜好設定**。您只需要輸入想要的磁碟大小。在 **大小** 欄位中輸入 **5**。
-    
-    **注意：**所有磁碟都是從 Azure 儲存體中的 VHD 檔案建立。您可以為新增至儲存體的 VHD 檔案提供名稱，但是 Azure 會自動產生磁碟的名稱。
+4.  在命令列上按一下 [連接]，然後在 [連接空的磁碟] 蹦現時加以點選。
 
-5.  按一下核取記號將資料磁碟連接至虛擬機器。
+    ![Select Attach from the command bar][]
 
-6.  按一下虛擬機器的名稱。這樣會顯示儀表板，讓您確認資料磁碟已成功連接至虛擬機器。
-    
-    虛擬機器現在有 2 個磁碟。您連接的磁碟會列在 **磁碟** 表格中。
-    
-    ![連接空的磁碟](./media/CreateVirtualMachineWindowsTutorial/attachemptysuccess.png)
-    
+5.  系統已為您定義 [虛擬機器名稱]、[儲存位置]、[檔案名稱] 和 [主機快取喜好設定]。您只需要輸入想要的磁碟大小。在 [大小] 欄位中輸入 **5**。接著，按一下核取記號將空磁碟連接至虛擬機器。
+
+    ![Specify the size of the empty disk][]
+
+    > [WACOM.NOTE] 所有磁碟都是從 Windows Azure 儲存體中的 VHD 檔案建立的。在 [檔案名稱] 下，您可以為新增至儲存體的 VHD 檔案提供名稱，但是 Azure 會自動產生磁碟的名稱。
+
+6.  返回儀表板，驗證空的資料磁碟已成功連接至虛擬機器。它會與 OS 磁碟並列為 [磁碟] 清單中的第二個磁碟。
+
+    ![連接空的磁碟][]
+
     將資料磁碟連接至虛擬機器之後，磁碟會處於離線狀態且未初始化。您必須登入虛擬機器並初始化磁碟，才能使用磁碟來儲存資料。
 
-7.  使用上一節「如何在建立虛擬機器之後登入」****中的步驟，連線至虛擬機器。
+7.  使用上一節[如何在建立虛擬機器之後登入][] (\#logon) 中的步驟，連接到虛擬機器。
 
-8.  登入虛擬機器之後，開啟 **伺服器管理員**。在左窗格中，展開 **儲存體**，然後按一下 **磁碟管理**。
-    
-    ![在伺服器管理員中初始化磁碟](./media/CreateVirtualMachineWindowsTutorial/servermanager.png)
+8.  登入虛擬機器之後，開啟 [伺服器管理員]。在左窗格中，選取 [File and Storage Services]。
 
-9.  以滑鼠右鍵按一下 **磁碟 2**，然後按一下 **初始化磁碟**。
-    
-    ![開始初始化](./media/CreateVirtualMachineWindowsTutorial/initializedisk.png)
+    ![Expand File and Storage Services in Server Manager][]
 
-10. 按一下 **確定** 開始初始化程序。
+9.  從展開的功能表中選取 [磁碟]。
 
-11. 以滑鼠右鍵按一下 **磁碟 2] 的空間配置區域，按一下 [新增簡單磁碟區**，然後以預設值完成精靈。
-    
-    ![建立磁碟區](./media/CreateVirtualMachineWindowsTutorial/initializediskvolume.png)
-    
+    ![Expand File and Storage Services in Server Manager][1]
+
+10. 在 [磁碟] 區段中，清單中會有三個磁碟：磁碟 0、磁碟 1 和磁碟 2。磁碟 0 是 OS 磁碟、磁碟 1 是暫存資源磁碟 (不應用於資料儲存體)，磁碟 2 是您已連接至虛擬機器的資料磁碟。請注意，依據先前的指定，資料磁碟的容量為 5 GB。請以滑鼠右鍵按一下磁碟 2，然後選取 [初始化]。
+
+    ![開始初始化][]
+
+11. 按一下 [是] 開始初始化程序。
+
+    ![Continue initialization][]
+
+12. 再次以滑鼠右鍵按一下磁碟 2，然後選取 [新增磁碟區]。
+
+    ![建立磁碟區][]
+
+13. 使用提供的預設值完成精靈。當精靈完成時，新磁碟區會列示在 [磁碟區] 區段中。
+
+    ![建立磁碟區][2]
+
     磁碟現在為上線狀態，可以搭配新的磁碟機代號來使用。
-    
-    ![初始化成功](./media/CreateVirtualMachineWindowsTutorial/initializesuccess.png)
 
 ## 後續步驟
 
 若要深入了解在 Azure 上設定 Windows 虛擬機器，請參閱下列文章：
 
--[如何連接至雲端服務中的虛擬機器][7]
+[如何連接至雲端服務中的虛擬機器][]
 
--[管理虛擬機器的可用性][8]
+[如何建立和上傳包含 Windows Server 作業系統的個人虛擬硬碟][]
 
+[將資料磁碟連接至虛擬機器][]
 
+[管理虛擬機器的可用性][]
 
-[1]: http://go.microsoft.com/fwlink/p/?LinkID=294063
-[2]: http://go.microsoft.com/fwlink/p/?LinkID=271224
-[3]: http://manage.windowsazure.com
-[4]: http://go.microsoft.com/fwlink/p/?LinkID=23435
-[5]: http://go.microsoft.com/FWLink/p/?LinkID=390493
-[6]: http://www.windowsazure.com/zh-tw/manage/linux/how-to-guides/setup-endpoints/
-[7]: http://www.windowsazure.com/zh-tw/documentation/articles/cloud-services-connect-virtual-machine/
-[8]: http://www.windowsazure.com/zh-tw/documentation/articles/manage-availability-virtual-machines/
+  [建立 Azure 帳戶]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
+  [如何建立虛擬機器]: #createvirtualmachine
+  [如何在建立虛擬機器之後登入]: #logon
+  [如何將資料磁碟連接至新的虛擬機器]: #attachdisk
+  [虛擬機器]: http://go.microsoft.com/fwlink/p/?LinkID=271224
+  [virtual-machines-create-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
+  [管理入口網站]: http://manage.windowsazure.com
+  [Select MyTestVM]: ./media/CreateVirtualMachineWindowsTutorial/selectvm.png
+  [連接到 MyTestVM]: ./media/CreateVirtualMachineWindowsTutorial/commandbarconnect.png
+  [開啟 RDP 檔案]: ./media/CreateVirtualMachineWindowsTutorial/openrdp.png
+  [繼續連接]: ./media/CreateVirtualMachineWindowsTutorial/connectrdc.png
+  [驗證機器的身分識別]: ./media/CreateVirtualMachineWindowsTutorial/certificate.png
+  [Select Dashboard]: ./media/CreateVirtualMachineWindowsTutorial/dashboard.png
+  [Select Attach from the command bar]: ./media/CreateVirtualMachineWindowsTutorial/commandbarattach.png
+  [Specify the size of the empty disk]: ./media/CreateVirtualMachineWindowsTutorial/emptydisksize.png
+  [連接空的磁碟]: ./media/CreateVirtualMachineWindowsTutorial/disklistwithdatadisk.png
+  [Expand File and Storage Services in Server Manager]: ./media/CreateVirtualMachineWindowsTutorial/fileandstorageservices.png
+  [1]: ./media/CreateVirtualMachineWindowsTutorial/selectdisks.png
+  [開始初始化]: ./media/CreateVirtualMachineWindowsTutorial/initializedisk.png
+  [Continue initialization]: ./media/CreateVirtualMachineWindowsTutorial/yesinitialize.png
+  [建立磁碟區]: ./media/CreateVirtualMachineWindowsTutorial/initializediskvolume.png
+  [2]: ./media/CreateVirtualMachineWindowsTutorial/newvolumecreated.png
+  [如何連接至雲端服務中的虛擬機器]: http://www.windowsazure.com/zh-tw/documentation/articles/cloud-services-connect-virtual-machine/
+  [如何建立和上傳包含 Windows Server 作業系統的個人虛擬硬碟]: http://www.windowsazure.com/zh-tw/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
+  [將資料磁碟連接至虛擬機器]: http://www.windowsazure.com/zh-tw/documentation/articles/storage-windows-attach-disk/
+  [管理虛擬機器的可用性]: http://www.windowsazure.com/zh-tw/documentation/articles/manage-availability-virtual-machines/

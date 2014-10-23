@@ -1,80 +1,75 @@
-<properties  writer="josephd" editor="tysonn" manager="dongill" />
+<properties title="Load Balancing for Azure Infrastructure Services" pageTitle="Load Balancing for Azure Infrastructure Services" description="Describes the facilities to perform load balancing with Traffic Manager and load balancer." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt" />
 
-# 負載平衡虛擬機器
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="josephd"></tags>
 
-您在 Azure 中建立的所有虛擬機器都可以自動使用私人網路通道，與相同雲端服務或虛擬網路中的其他虛擬機器進行通訊。所有其他輸入通訊，例如來自網際網路主機或其他雲端服務或虛擬網路的虛擬機器起始的流量，都需要端點。
+# Azure 基礎結構服務的負載平衡
 
-端點可用於不同的目的。您使用 Azure 管理入口網站建立的虛擬機器上端點的預設用途和組態，可供遠端桌面通訊協定 (RDP) 和遠端 Windows PowerShell 工作階段流量使用。這些端點可讓您透過網際網路從遠端管理虛擬機器。
+Azure 基礎結構服務提供兩種負載平衡層級︰
 
-端點的另一個用途是 Azure 負載平衡器的組態，該組態可在多個虛擬機器或服務之間散發特定類型的流量。例如，您可以將 Web 要求的流量負載分散在多個 Web 伺服器或 Web 角色。
+-   **DNS 層級**：平衡流往不同資料中心之不同雲端服務或不同 Azure 網站的流量負載，或是流往外部端點的流量負載。這項工作由 Traffic Manager 及循環配置資源負載平衡方法完成。
+-   **網路層級**：平衡雲端服務之不同虛擬機器的網際網路連入流量負載，或雲端服務或虛擬網路中虛擬機器的流量負載。這項工作由 Azure 負載平衡器所完成。
 
-針對虛擬機器定義的每個端點都會被指派公用連接埠和私人連接埠，即 TCP 或 UDP。網際網路主機會將連入的流量傳送至雲端服務的公用 IP 位址和公用連接埠。雲端服務內的虛擬機器和服務便會在其私人 IP 位址和私人連接埠上接聽。負載平衡器將連入流量的公用 IP 位址和連接埠號碼對應至虛擬機器的私人 IP 位址和連接埠號碼，來自虛擬機器的回應流量也是如此。
+## 雲端服務及網站的 Traffic Manager 負載平衡
 
-當您在多個虛擬機器或服務間設定流量的負載平衡時，Azure 可為連入流量提供隨機的散發。
+Azure Traffic Manager 讓您可以控制使用者流量分配至端點，包括雲端服務、網站、外部網站及其他 Traffic Manager 設定檔。Traffic Manager 的運作方式是在您的網際網路資源網域名稱的網域名稱系統 (DNS) 查詢上套用情報原則引擎。您的雲端服務或網站可以在世界各地不同的資料中心間執行。
 
-對於包含 Web 角色或背景工作角色執行個體的雲端服務，您可以在服務定義中定義公用端點。對於包含虛擬機器的雲端服務，您可以在建立端點時將其加入至虛擬機器，也可以稍後將端點加入。
+您必須使用 REST 或 Windows PowerShell 來設定外部端點或將 Traffic Manager 設定檔設定為端點。
+
+Azure Traffic Manager 使用三種不同的負載平衡方法來分配流量︰
+
+-   **容錯移轉**：當您想要為所有流量使用主要端點時才可使用此方法，但請提供備份以供在主要端點不可使用時使用。
+-   **效能**：當您在不同地理位置擁有端點，且您為了最低的寫入延遲要求用戶端使用「最靠近」的端點時才使用此方法。
+-   **循環配置資源：**在您想要分配位於相同資料中心的一組雲端服務，或位於不同資料中心的雲端服務或網站的負載時，才使用此方法。
+
+如需詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法][]。
+
+下圖顯示在不同雲端服務間使用循環配置資源負載平衡方法分配流量的範例。
+
+![loadbalancing][]
+
+基礎程序如下︰
+
+1.  一個網際網路用戶端查詢對應至一個網路服務的網域名稱。
+2.  DNS 轉送名稱查詢要求至 Traffic Manager 。
+3.  Traffic Manager 傳回循環配置資源清單中雲端服務的 DNS 名稱。網際網路用戶端的 DNS 伺服器將該名稱解析為 IP 位址，並傳送至網際網路用戶端。
+4.  網際網路用戶端連接至所選的雲端服務。
+
+如需詳細資訊，請參閱 [Traffic Manager][]。
+
+## 虛擬機器的 Azure 負載平衡
+
+相同雲端服務或虛擬網路中的虛擬機器都可以與其他使用其私人 IP 位址的虛擬機器直接進行通訊。雲端服務或虛擬網路之外的電腦與服務僅能與具有設定的端點之雲端服務或虛擬網路中的虛擬機器進行通訊。端點是公用 IP 位址和連接埠與 Azure 雲端服務的虛擬機器或網站角色私人 IP 位置與連接埠的對應。
+
+Azure 負載平衡器會隨機分配稱為負載平衡集之組態中的多個虛擬機器或服務的特定類型連入流量。例如，您可以將 Web 要求的流量負載分散在多個 Web 伺服器或 Web 角色。
 
 下圖顯示在三部虛擬機器中共用，且公用和私人 TCP 連接埠均為 80 的標準 (未加密) Web 流量負載平衡端點。這三部虛擬機器均位在負載平衡集合中。
 
-![loadbalancing](./media/load-balancing-vms/LoadBalancing.png)
+![loadbalancing][1]
 
-當網際網路用戶端傳送網頁要求至雲端服務的公用 IP 位址與 TCP 連接埠 80 時，負載平衡器會對負載平衡集合中，介於這三部虛擬機器之間的要求執行隨機的平衡。
+如需詳細資訊，請參閱 [Azure 負載平衡器][]。如須建立負載平衡集的步驟，請參閱[設定負載平衡集][]。
 
-若要建立 Azure 虛擬機器的負載平衡集合，請使用下列步驟：
+Azure 也可在雲端服務或虛擬網路中進行負載平衡。這稱為內部負載平衡，可用於以下方式︰
 
-* [步驟 1：建立第一部虛擬機器](#firstmachine)
-* [步驟 2：在相同雲端服務中建立其他虛擬機器](#addmachines)
-* [步驟 3：使用第一部虛擬機器建立負載平衡集合](#loadbalance)
-* [步驟 4：將虛擬機器加入至負載平衡集合](#addtoset)
+-   在多層式應用程式中的不同階層進行負載平衡 (例如，在網站與資料庫層之間)。
+-   在需要額外負載平衡器硬體或軟體之 Azure 代管的企業營運系統 (LOB) 應用程式中進行負載平衡。
+-   包括流量經負載平衡之電腦集合的內部部署伺服器。
 
-## <a id="firstmachine"> </a>步驟 1：建立第一部虛擬機器
+與 Azure 負載平衡相似，內部負載平衡透過設定內部負載平衡集而受惠。
 
-如果您尚未登入，請登入 [Azure 管理入口網站][1]。您可以使用 [從組件庫] 或 [快速建立] 方法，建立第一部虛擬機器。
+下圖顯示企業營運系統 (LOB) 應用程式之內部負載平衡端點的範例，該應用程式由跨部署虛擬網路中的三部虛擬機器所共用。
 
-* **從組件庫** - **從組件庫**
-  方法可讓您在建立虛擬機器時建立端點，還可讓您指定在建立虛擬機器時所建立之雲端服務的名稱。如需相關指示，請參閱[建立執行 Linux   的虛擬機器](../virtual-machines-linux-tutorial)或[建立執行 Windows Server   的虛擬機器](../virtual-machines-windows-tutorial)。
+![loadbalancing][2]
 
-* **快速建立** -
-  選擇映像庫中的映像並提供基本資訊，即可建立虛擬機器。當您使用此方法時，您必須在建立虛擬機器後加入端點。此方法還可使用預設名稱建立雲端服務。如需詳細資訊，請參閱[如何快速建立虛擬機器](../virtual-machines-quick-create)。
-
-**注意**：使用「快速建立」來建立虛擬機器後，管理入口網站的 [雲端服務] 頁面會列出新雲端服務名稱以及此服務的其他相關資訊。
-
-## <a id="addmachines"> </a>步驟 2：在相同雲端服務中建立其他虛擬機器
-
-使用「從組件庫」方法，在相同雲端服務中建立您的其他虛擬機器，做為第一部虛擬機器。
-
-## <a id="loadbalance"> </a>步驟 3：使用第一部虛擬機器建立負載平衡集合
-
-1.  在 Azure 管理入口網站中，按一下 **虛擬機器**，然後按一下第一部虛擬機器的名稱。
-
-2.  選取 **端點**，然後按一下 **新增**。
-
-3.  在 Add an endpoint to a virtual machine 頁面上，按一下向右箭頭。
-
-4.  在 Specify the details of the endpoint 頁面上：
-    
-    * 在 **名稱** 中輸入端點的名稱，或從常見通訊協定的預先定義端點清單中選取。
-    * 在 **通訊協定** 中，選取端點類型所需的通訊協定 (視需要選擇 TCP 或 UDP)。
-    * 在 **公用連接埠** 和 **私人連接埠** 中，視需要輸入要虛擬機器使用的連接埠號碼。您可以在虛擬機器上使用私人連接埠和防火牆規則，以適合應用程式的方式來重新導向流量。私人連接埠可與公用連接埠相同。例如，對於 Web (HTTP) 端點的流量，您可以將連接埠 80 同時指派給公用和私人連接埠。
-
-5.  選取 **Create a load-balanced set**，然後按一下向右箭頭。
-
-6.  在 Configure the load-balanced set 頁面上，輸入負載平衡集合的名稱，然後指派 Azure 負載平衡器探查行為的值。負載平衡器會使用探查，來判斷負載平衡集合中的虛擬機器是否可用於接收連入流量。
-
-7.  按一下核取記號以建立負載平衡端點。您會在虛擬機器的 **端點** 頁面的 **Load-balanced set name** 欄中看見 **是**。
-
-## <a id="addtoset"> </a>步驟 4：將虛擬機器加入至負載平衡集合
-
-建立負載平衡集合後，請將其他虛擬機器加入至集合。對於相同雲端服務中的每一部虛擬機器：
-
-1.  在管理入口網站中，依序按一下 **虛擬機器**、虛擬機器的名稱、**端點**，然後按一下 **新增**。
-
-2.  在 [Add an endpoint to a virtual machine] 頁面上，按一下 **Add endpoint to an existing load-balanced set**，選取負載平衡集合的名稱，然後按一下向右箭頭。
-
-3.  在 [Specify the details of the endpoint] 頁面上，輸入端點的名稱，然後按一下核取記號。
+如需詳細資訊，請參閱[內部負載平衡][]。如須建立負載平衡集的步驟，請參閱[設定內部負載平衡集][]。
 
 <!-- LINKS -->
 
-
-
-[1]: http://manage.windowsazure.com
+  [關於 Traffic Manager 負載平衡方法]: http://msdn.microsoft.com/en-us/library/azure/dn339010.aspx
+  [loadbalancing]: ./media/load-balancing-vms/TMSummary.png
+  [Traffic Manager]: http://msdn.microsoft.com/en-us/library/azure/hh745750.aspx
+  [1]: ./media/load-balancing-vms/LoadBalancing.png
+  [Azure 負載平衡器]: http://msdn.microsoft.com/en-us/library/azure/dn655058.aspx
+  [設定負載平衡集]: http://msdn.microsoft.com/en-us/library/azure/dn655055.aspx
+  [2]: ./media/load-balancing-vms/LOBServers.png
+  [內部負載平衡]: http://msdn.microsoft.com/en-us/library/azure/dn690121.aspx
+  [設定內部負載平衡集]: http://msdn.microsoft.com/en-us/library/azure/dn690125.aspx

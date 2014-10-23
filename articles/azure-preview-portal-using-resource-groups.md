@@ -1,7 +1,8 @@
-<properties linkid="" urlDisplayName="" pageTitle="Using Resource groups to manage your Azure resources" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala" solutions="" writer="" manager="" editor="" />
+<properties urlDisplayName="" pageTitle="Using Resource groups to manage your Azure resources" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="" editor=""  />
 
-使用資源群組管理您的 Azure 資源
-===============================
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa Bhojawala"></tags>
+
+# 使用資源群組管理您的 Azure 資源
 
 ### 簡介
 
@@ -15,31 +16,32 @@
 
 資源在預覽入口網站中建立時，一律會建立在資源群組內。您可以選擇建立新的資源群組，或使用建立流程中的現有資源群組。
 
-![](http://i.imgur.com/USKkQdW.png)
+![][]
 
 當您建立由數項搭配運作的資源 (例如網站 + 資料庫) 所組成的應用程式時，應用程式一律會建立在其本身的資源群組中，因此您可以使用資源群組來管理所有相關資產的生命週期。您可以隨著應用程式的變化，在資源群組中新增或移除資源。
 
-![](http://i.imgur.com/Me0jbio.png)
+![][1]
 
 ### 瀏覽資源群組
 
 您可以按一下位於畫面左側的 Jumpbar，以瀏覽各個資源群組。資源群組會有一個分頁為您顯示特定資源群組的所有資訊。此資源群組分頁會為您提供資源群組中各項資源的計費和監視資訊的統合檢視。
 
-摘要區段會顯示資源群組中各項資源的視覺化對應，同時也會顯示其他資源群組中與此資源群組連結的資源。資源對應也會顯示每項資源的狀態。 ![](http://i.imgur.com/PhJeLZQ.png)
+摘要區段會顯示資源群組中各項資源的視覺化對應，同時也會顯示其他資源群組中與此資源群組連結的資源。資源對應也會顯示每項資源的狀態。
+![][2]
 
 資源對應部分可以自訂，以放大顯示該資源群組內包含的所有資源，以及其他資源群組中的連結資源。此部分可釘選而複製到右側。
 
-![](http://i.imgur.com/5Wqv2XR.png)
+![][3]
 
 按一下資源對應，可啟動該資源對應上所有資源的清單檢視。此檢視會列出資源群組內的所有資源及其連結資源。按一下這些資源，將會啟動其分頁。
 
-![](http://i.imgur.com/COPjNng.png)
+![][4]
 
 ### 將資源新增至資源群組
 
-您可以在資源群組分頁上使用 Add 命令，將資源新增至資源群組。依循流程中的步驟，可將其他資源新增至資源群組。
+您可以在資源群組分頁上使用 "Add" 命令，將資源新增至資源群組。依循流程中的步驟，可將其他資源新增至資源群組。
 
-![](http://i.imgur.com/G79kayH.png)
+![][5]
 
 注意：建議您不要將小組專案放置在與其他 Azure 資源相同的資源群組中。如果您在新的帳戶和群組中建立小組專案，然後建立網站，則網站群組將會預設為最後使用的群組 (VSO 群組)，且您的執行階段/開發人員資源將會放在相同的群組中。
 
@@ -47,5 +49,12 @@
 
 由於資源群組可讓您管理所有內含資源的生命週期，因此若刪除資源群組，將一併刪除群組內包含的所有資源。您也可以刪除資源群組內的個別資源。在刪除資源群組時應多加留意，因為可能會有其他資源連結至該群組。您可以檢視資源對應中的連結資源，並執行必要的步驟，以避免在刪除資源群組時出現非預期的結果。
 
-![](http://i.imgur.com/ZTXoISb.png)
+![][6]
 
+  []: http://i.imgur.com/USKkQdW.png
+  [1]: http://i.imgur.com/Me0jbio.png
+  [2]: http://i.imgur.com/PhJeLZQ.png
+  [3]: http://i.imgur.com/5Wqv2XR.png
+  [4]: http://i.imgur.com/COPjNng.png
+  [5]: http://i.imgur.com/G79kayH.png
+  [6]: http://i.imgur.com/ZTXoISb.png

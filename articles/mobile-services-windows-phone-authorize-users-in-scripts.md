@@ -1,86 +1,112 @@
 <properties pageTitle="Service-side authorization (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="" editor="" />
 
-行動服務使用者的服務端驗證
-==========================
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
 
-[Windows 市集 C\#](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts "Windows 市集 C#")[Windows 市集 JavaScript](/zh-tw/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts "Windows 市集 JavaScript")[Windows Phone](/zh-tw/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts "Windows Phone")[iOS](/zh-tw/documentation/articles/mobile-services-ios-authorize-users-in-scripts "iOS")[Android](/zh-tw/documentation/articles/mobile-services-android-authorize-users-in-scripts "Android")[HTML](/zh-tw/documentation/articles/mobile-services-html-authorize-users-in-scripts "HTML")[Xamarin.iOS](/zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts "Xamarin.iOS")[Xamarin.Android](/zh-tw/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts "Xamarin.Android")
+# 行動服務使用者的伺服器端授權
 
-[.NET 後端](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/ ".NET 後端") | [JavaScript 後端](/zh-tw/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/ "JavaScript 後端")
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-tw/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/zh-tw/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts" title="Windows Phone" class="current">Windows Phone</a><a href="/zh-tw/documentation/articles/mobile-services-ios-authorize-users-in-scripts" title="iOS" class="current">iOS</a><a href="/zh-tw/documentation/articles/mobile-services-android-authorize-users-in-scripts" title="Android" class="current">Android</a><a href="/zh-tw/documentation/articles/mobile-services-html-authorize-users-in-scripts" title="HTML" class="current">HTML</a><a href="/zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-tw/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts" title="Xamarin.Android" class="current">Xamarin.Android</a></div>
 
-本主題將示範如何使用伺服器指令碼，授權經驗證的使用者從 Windows Phone 8 應用程式存取 Azure 行動服務中的資料。在本教學課程中，您將向行動服務註冊指令碼，以根據經驗證的使用者本身的 userId 篩選查詢，確保每位使用者只能看見自己的資料。
+<div class="dev-center-tutorial-subselector"><a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/" title=".NET 後端">.NET 後端</a> | <a href="/zh-tw/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/"  title="JavaScript 後端" class="current">JavaScript 後端</a></div>
 
-本教學課程將根據行動服務快速入門，並以上一堂教學課程[開始使用驗證](/en-us/develop/mobile/tutorials/get-started-with-users-wp8)為基礎。在開始本教學課程之前，您必須首先完成[開始使用驗證](/en-us/develop/mobile/tutorials/get-started-with-users-wp8)。
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
 
-[觀看教學指南](http://go.microsoft.com/fwlink/?LinkId=298630) [播放視訊](http://go.microsoft.com/fwlink/?LinkId=298630) 15:00
+<p>本主題將示範如何使用伺服器指令碼，授權經驗證的使用者從 Windows Phone 8 應用程式存取 Azure 行動服務中的資料。在本教學課程中，您將在行動服務中註冊指令碼，根據經驗證使用者的 userId 篩選查詢，確保每位使用者只能看到他們自己的資料。</p>
+<p>本教學課程會以行動服務快速入門為基礎，並依據上一個<a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8">開始使用驗證</a>教學課程建立。開始此教學課程之前，您必須先完成<a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8">開始使用驗證</a>。</p>
+</div>
 
-註冊指令碼
-----------
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="label">觀看教學課程</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-scripts-for-authentication-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="dev-onpage-video"><span class="icon">播放影片</span></a> <span class="time">下午 03:00:00</span></div>
 
-由於快速入門應用程式會讀取和插入資料，因此您需要對 TodoItem 資料表註冊這些操作所用的指令碼。
+</div>
 
-1.  登入 [Azure 管理入口網站](https://manage.windowsazure.com/)，按一下 **[行動服務]**，然後按一下您的應用程式。
+## <a name="register-scripts"></a>註冊指令碼
 
-    ![](./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-services-selection.png)
+由於快速入門應用程式會讀取與插入資料，您必須對 TodoItem 資料表註冊這些作業的指令碼。
 
-2.  按一下 **[資料]** 索引標籤，然後按一下 **[TodoItem]** 資料表。
+1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
 
-    ![](./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-portal-data-tables.png)
+    ![][]
 
-3.  按一下 **[指令碼]**，然後選取 **Insert** 操作。
+2.  按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
-    ![](./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-insert-script-users.png)
+    ![][1]
 
-4.  使用下列函數來取代現有的指令碼，然後按一下 **[儲存]**：
+3.  按一下 [指令碼]，然後選取 [插入] 作業。
+
+    ![][2]
+
+4.  以下列函數取代現有的指令碼，然後按一下 [儲存]。
 
         function insert(item, user, request) {
-        item.userId = user.userId;    
-        request.execute();
+          item.userId = user.userId;    
+          request.execute();
         }
 
-    此指令碼會將 userId 值新增至項目 (也就是經驗證的使用者本身的使用者識別碼)，然後再將項目插入 TodoItem 資料表。
+    在將 userId 值 (這就是經驗證使用者的使用者識別碼) 插入 TodoItem 資料表之前，此指令碼會先將此值新增至項目。
 
-    **注意**
+    <div class="dev-callout"><b>注意</b>
+<p>首次執行插入指令碼時，必須啟用動態結構描述。在已啟用動態結構描述的情況下，行動服務會在首次執行時將 <strong>userId</strong> 資料行自動新增至 <strong>TodoItem</strong> 資料表。依預設會啟用新行動服務的動態結構描述，您應該先加以停用，再將應用程式發佈至 Windows Phone 市集。</p>
+</div>
 
-    第一次執行此 insert 指令碼時，必須啟用動態結構描述。在啟用動態結構描述的情況下，行動服務會在首次執行時自動將 **userId** 欄新增至 **TodoItem** 資料表。依預設，新行動服務的動態結構描述為已啟用，您應先將它停用，再將應用程式發佈至 Windows Phone 市集。
-
-5.  重複步驟 3 和 4，以下列函數取代現有 **Read** 操作：
+5.  重複步驟 3 和 4，以下列函數取代現有的 **Read** 作業：
 
         function read(query, user, request) {
-        query.where({ userId:user.userId});    
-        request.execute();
+           query.where({ userId: user.userId });    
+           request.execute();
         }
 
-    This script filters the returned TodoItem objects so that each user only receives the items that they inserted.
+    此指令碼會篩選傳回的 TodoItem 物件，因此每位使用者只會收到他們所插入的項目。
 
-測試應用程式
-------------
+## 測試應用程式
 
-1.  在 Visual Studio 2012 Express for Windows Phone 中，開啟您在完成教學課程[開始使用驗證](/en-us/develop/mobile/tutorials/get-started-with-users-wp8)時所修改的專案。
+1.  在 Visual Studio 2012 Express for Windows Phone 中，開啟您在完成教學課程[開始使用驗證][]時所修改的專案。
 
-2.  按 F5 鍵執行應用程式，然後以您選擇的身分識別提供者登入。
+2.  按 F5 鍵執行應用程式，然後以您選擇的識別提供者登入。
 
-    Notice that this time, although there are items already in the TodoItem table from previous tutorials, no items are returned.This happens because previous items were inserted without the userId column and now have null values.
+    </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">請注意，雖然已有先前教學課程中在</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> TodoItem </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">資料表中輸入的項目，依然不會傳回任何項目。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"></cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">因為之前的項目插入時沒有</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> userID </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">資料欄，而現在有</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> Null </cf><cf font="Microsoft JhengHei" complexscriptsfont="Microsoft JhengHei" asiantextfont="Microsoft JhengHei" fontcolor="000000">值。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">
 
-3.  在應用程式中，於文字方塊輸入文字，然後按一下 **[儲存]**。
+3.  在應用程式中，於文字方塊輸入文字，然後按一下 [儲存]。
 
-    ![](./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-quickstart-startup-wp8.png)
+    ![][3]
 
-    This inserts both the text and the userId in the TodoItem table in the mobile service.Because the new item has the correct userId value, it is returned by the mobile service.
+    </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">如此會在行動服務中的</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> TodoItem </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">資料表中插入文字及</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> userId</cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"></cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">因為新的項目具有正確的</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> userID </cf><cf font="Microsoft JhengHei" complexscriptsfont="Microsoft JhengHei" asiantextfont="Microsoft JhengHei" fontcolor="000000">值，所以會由行動服務傳回並顯示在第二個資料欄中。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">
 
-4.  返回[管理入口網站](https://manage.windowsazure.com/)中的 **todoitem** 資料表，按一下 **[瀏覽]** 並確認每個新增的項目現在都有相關聯的 userId 值。
+4.  返回[管理入口網站][Azure 管理入口網站]的 **todoitem** 資料表中，按一下 [瀏覽] 並驗證每個新增項目現在是否具有關聯的 userId 值。
 
-後續步驟
---------
+## 後續步驟
 
-這將結束示範使用驗證基本概念的教學課程。考慮搜尋有關下列行動服務主題的更多資訊：
+這將結束示範使用驗證基本概念的教學課程。考慮更深入了解下列行動服務主題：
 
--   [開始使用資料](/en-us/develop/mobile/tutorials/get-started-with-data-wp8)
-    深入了解使用行動服務來排序和查詢資料。
+-   [開始使用資料][]
+    深入了解使用行動服務來儲存與查詢資料。
 
--   [開始使用推播通知](/en-us/develop/mobile/tutorials/get-started-with-push-wp8)
-    了解如何將非常基本的推播通知傳送到應用程式。
+-   [開始使用推播通知][]
+    了解如何將極為基本的推播通知傳送到應用程式。
 
--   [行動服務伺服器指令碼參照](http://go.microsoft.com/fwlink/?LinkId=262293)
-    深入了解註冊與使用伺服器指令碼。
+-   [行動服務伺服器指令碼參考][]
+    深入了解如何註冊和使用伺服器指令碼。
 
+<!-- Anchors. --> 
+<!-- Images. --> 
+<!-- URLs. -->
 
+  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts "Windows 市集 C#"
+  [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts "Windows 市集 JavaScript"
+  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts "Windows Phone"
+  [iOS]: /zh-tw/documentation/articles/mobile-services-ios-authorize-users-in-scripts "iOS"
+  [Android]: /zh-tw/documentation/articles/mobile-services-android-authorize-users-in-scripts "Android"
+  [HTML]: /zh-tw/documentation/articles/mobile-services-html-authorize-users-in-scripts "HTML"
+  [Xamarin.iOS]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts "Xamarin.iOS"
+  [Xamarin.Android]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts "Xamarin.Android"
+  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/ ".NET 後端"
+  [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/ "JavaScript 後端"
+  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
+  [觀看教學課程]: http://go.microsoft.com/fwlink/?LinkId=298630
+  [Azure 管理入口網站]: https://manage.windowsazure.com/
+  []: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-services-selection.png
+  [1]: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-portal-data-tables.png
+  [2]: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-insert-script-users.png
+  [3]: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-quickstart-startup-wp8.png
+  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
+  [開始使用推播通知]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
+  [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293

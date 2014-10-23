@@ -1,68 +1,71 @@
-<properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on MongoLab - Azure" metaKeywords="" description="Learn how to create a Node.js Azure Web Site that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Website with MongoDB" pageTitle="Node.js website with MongoDB on MongoLab - Azure" metaKeywords="" description="Learn how to create a Node.js Azure Website that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On" authors="eric@mongolab.com" solutions="" manager="" editor="" />
 
-以使用 MongoLab 附加元件的 MongoDB 在 Azure 上建立 Node.js 應用程式
-===================================================================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="eric@mongolab.com"></tags>
+
+# 以使用 MongoLab 附加元件的 MongoDB 在 Azure 上建立 Node.js 應用程式
 
 *作者：MongoLab 的 Eric Sedor*
 
 探險家們大家好！歡迎使用「MongoDB 即服務」。在本教學課程中，您將：
 
-1.  [佈建資料庫](#provision) - Azure 市集中的 [MongoLab](http://mongolab.com) (英文) 附加元件將提供您在 Azure 雲端主控並由 MongoLab 的雲端資料庫平台管理的 MangoDB 資料庫。
-2.  [建立應用程式](#create) - 簡單的 Node.js 應用程式，用於維護工作清單。
-3.  [部署應用程式](#deploy) - 只要將幾個組態勾點連結在一起，就可以讓推播程式碼變得輕鬆無比。
-4.  [管理資料庫](#manage) - 最後，我們將展示 MongoLab 的網頁式資料庫管理入口網站，您可在此輕鬆執行資料的搜尋、虛擬化、修改。
+1.  [佈建資料庫][] - Azure 市集中的 [MongoLab][] (英文) 附加元件將提供您在 Azure 雲端主控並由 MongoLab 的雲端資料庫平台管理的 MangoDB 資料庫。
+2.  [建立應用程式][] - 簡單的 Node.js 應用程式，用於維護工作清單。
+3.  [部署應用程式][] - 只要將幾個組態勾點連結在一起，就可以讓推播程式碼變得輕鬆無比。
+4.  [管理資料庫][] - 最後，我們將展示 MongoLab 的網頁式資料庫管理入口網站，您可在此輕鬆執行資料的搜尋、虛擬化、修改。
 
-進行本教學課程的過程中若有任何問題，可隨時發送電子郵件至 <support@mongolab.com>。
+進行本教學課程的過程中若有任何問題，可隨時發送電子郵件至 [support@mongolab.com](mailto:support@mongolab.com)。
 
 請確定您已安裝下列各項再繼續：
 
--   [Node.js](http://nodejs.org) 0.8.14 以上版本
+-   [Node.js][] 0.8.14 以上版本
 
--   [Git](http://git-scm.com)
+-   [Git][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[WACOM.INCLUDE [create-account-and-websites-note][]]
 
-快速開始
---------
+## 快速開始
 
-如果您已對 Azure 市集有一定的了解，請從本節著手快速開始。否則，請繼續前往到底下的[佈建資料庫](#provision)。
+如果您已對 Azure 市集有一定的了解，請從本節著手快速開始。否則，請繼續前往到底下的[佈建資料庫][]。
 
-1.  開啟 Azure 市集。	
-    ![市集](./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-store.png)
-2.  按一下 [MongoLab Add-On]。	
-    ![MongoLab](./media/store-mongolab-web-sites-nodejs-store-data-mongodb/entry-mongolab.png)
-3.  在 [附加元件] 清單中按一下您的 MongoLab 附加元件，然後按一下 **[連線資訊]**。	
-    ![ConnectionInfoButton](./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png)
-4.  將 MONGOLAB\_URI 複製到剪貼簿。		
-    ![ConnectionInfoScreen](./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png)	
-     **此 URI 包含您的資料庫使用者名稱和密碼。這是機密資訊，請勿洩露。**
-5.  將這個值新增到 Azure Web 應用程式的 [組態] 功能表中的 [連接字串] 清單：	
-    ![WebSiteConnectionStrings](./media/store-mongolab-web-sites-nodejs-store-data-mongodb/focus-mongolab-websiteconnectionstring.png)
-6.  在 **[名稱]** 中，輸入 MONGOLAB\_URI。	
-7.  在 **[值]** 中，貼上我們在上一節取得的連接字串。	
-8.  在 [類型] 下拉式清單中選取 **[自訂]** (取代預設的 **[SQLAzure]**)。	
+1.  開啟 Azure 市集。
+    
+    ![市集][]
+2.  按一下 MongoLab 附加元件。
+    
+	![MongoLab][1]
+3.  在 [附加元件] 清單中按一下您的 MongoLab 附加元件，然後按一下 [連線資訊]。
+    
+	![ConnectionInfoButton][]
+4.  將 MONGOLAB\_URI 複製到剪貼簿。
+    
+	![ConnectionInfoScreen][]
+    **此 URI 包含您的資料庫使用者名稱和密碼。這是機密資訊，請勿洩露。**
+5.  將這個值新增到 Azure Web 應用程式的 [組態] 功能表中的 [連接字串] 清單：
+    
+	![WebSiteConnectionStrings][]
+6.  在 [名稱] 中，輸入 MONGOLAB\_URI。
+7.  在 [值] 中，貼上我們在上一節取得的連接字串。
+8.  在 [類型] 下拉式清單中選取 [自訂] (取代預設的 [SQLAzure])。
 9.  執行 `npm install mongoose` 以取得 M ongoose (MongoDB 節點驅動程式)。
 10. 在程式碼中設定勾點，以從環境變數取得 MongoLab 連線 URI 並進行連接：
 
         var mongoose = require('mongoose');  
- 		...
- 		var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI
- 		...
- 		mongoose.connect(connectionString);
+        ...
+        var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI
+        ...
+        mongoose.connect(connectionString);
 
 注意：Azure 會將前置詞 **CUSTOMCONNSTR\_** 新增到原始宣告的連接字串前面，所以程式碼會參考 **CUSTOMCONNSTR\_MONGOLAB\_URI** 而非 **MONGOLAB\_URI**。
 
 現在，回到教學課程...
 
-佈建資料庫
-----------
+## <a name="provision"></a>佈建資料庫
 
-[WACOM.INCLUDE [howto-provision-mongolab](../includes/howto-provision-mongolab.md)]
+[WACOM.INCLUDE [howto-provision-mongolab][]]
 
-建立應用程式
-------------
+## <a name="create"></a>建立應用程式
 
-在本節中，您將設定開發環境，使用 Node.js、Express、MongoDB 設置用於基本工作清單 Web 應用程式的程式碼。[Express](http://expressjs.com) (英文) 提供節點的檢視控制器架構，[Mongoose](http://mongoosejs.com) (英文) 則是用來與節點中的 MongoDB 通訊的驅動程式。
+在本節中，您將設定開發環境，使用 Node.js、Express、MongoDB 設置用於基本工作清單 Web 應用程式的程式碼。[Express][] (英文) 提供節點的檢視控制器架構，[Mongoose][] (英文) 則是用來與節點中的 MongoDB 通訊的驅動程式。
 
 ### 設定
 
@@ -77,18 +80,18 @@
 
     此命令的輸出應類似這樣：
 
-		express@3.3.4 C:\Users\larryfr\AppData\Roaming\npm\node_modules\express
-		├── methods@0.0.1
-		├── fresh@0.1.0
-		├── cookie-signature@1.0.1
-		├── range-parser@0.0.4
-		├── buffer-crc32@0.2.1
-		├── cookie@0.1.0
-		├── debug@0.7.2
-		├── mkdirp@0.3.5
-		├── commander@1.2.0 (keypress@0.1.0)
-		├── send@0.1.3 (mime@1.2.9)
-		└── connect@2.8.4 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, formidable@1.0.14)
+        express@3.3.4 C:\Users\larryfr\AppData\Roaming\npm\node_modules\express
+        ├── methods@0.0.1
+        ├── fresh@0.1.0
+        ├── cookie-signature@1.0.1
+        ├── range-parser@0.0.4
+        ├── buffer-crc32@0.2.1
+        ├── cookie@0.1.0
+        ├── debug@0.7.2
+        ├── mkdirp@0.3.5
+        ├── commander@1.2.0 (keypress@0.1.0)
+        ├── send@0.1.3 (mime@1.2.9)
+        └── connect@2.8.4 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, formidable@1.0.14)
 
 3.  若要建立用於此應用程式的樣板，使用 **express** 命令：
 
@@ -97,21 +100,21 @@
     此命令的輸出應類似這樣：
 
         create : .
-        create :./package.json
-        create :./app.js
-        create :./public
-        create :./public/javascripts
-        create :./public/images
-        create :./public/stylesheets
-        create :./public/stylesheets/style.css
-        create :./routes
-        create :./routes/index.js
-        create :./views
-        create :./views/layout.jade
-        create :./views/index.jade
-            
+        create : ./package.json
+        create : ./app.js
+        create : ./public
+        create : ./public/javascripts
+        create : ./public/images
+        create : ./public/stylesheets
+        create : ./public/stylesheets/style.css
+        create : ./routes
+        create : ./routes/index.js
+        create : ./views
+        create : ./views/layout.jade
+        create : ./views/index.jade
+
         dont forget to install dependencies:
-        $ cd .&& npm install
+        $ cd . && npm install
 
     此命令完成後，在 **tasklist** 目錄中應有數個新的目錄和檔案。
 
@@ -121,29 +124,29 @@
 
     此命令的輸出應類似這樣：
 
-		express@3.3.4 node_modules\express
-		├── methods@0.0.1
-		├── fresh@0.1.0
-		├── range-parser@0.0.4
-		├── cookie-signature@1.0.1
-		├── buffer-crc32@0.2.1
-		├── cookie@0.1.0
-		├── debug@0.7.2
-		├── mkdirp@0.3.5
-		├── commander@1.2.0 (keypress@0.1.0)
-		├── send@0.1.3 (mime@1.2.9)
-		└── connect@2.8.4 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, formidable@1.0.14)
+        express@3.3.4 node_modules\express
+        ├── methods@0.0.1
+        ├── fresh@0.1.0
+        ├── range-parser@0.0.4
+        ├── cookie-signature@1.0.1
+        ├── buffer-crc32@0.2.1
+        ├── cookie@0.1.0
+        ├── debug@0.7.2
+        ├── mkdirp@0.3.5
+        ├── commander@1.2.0 (keypress@0.1.0)
+        ├── send@0.1.3 (mime@1.2.9)
+        └── connect@2.8.4 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, formidable@1.0.14)
 
-		jade@0.33.0 node_modules\jade
-		├── character-parser@1.0.2
-		├── mkdirp@0.3.5
-		├── commander@1.2.0 (keypress@0.1.0)
-		├── with@1.1.0 (uglify-js@2.3.6)
-		├── constantinople@1.0.1 (uglify-js@2.3.6)
-		├── transformers@2.0.1 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
-		└── monocle@0.1.48 (readdirp@0.2.5)
+        jade@0.33.0 node_modules\jade
+        ├── character-parser@1.0.2
+        ├── mkdirp@0.3.5
+        ├── commander@1.2.0 (keypress@0.1.0)
+        ├── with@1.1.0 (uglify-js@2.3.6)
+        ├── constantinople@1.0.1 (uglify-js@2.3.6)
+        ├── transformers@2.0.1 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
+        └── monocle@0.1.48 (readdirp@0.2.5)
 
-    **package.json** 檔案是 **express** 命令建立的檔案之一。這個檔案包含 Express 應用程式的其他必要模組清單。之後，當您將此應用程式部署至 Azure 網站，此檔案將用於決定 Azure 上需要安裝哪些模組來支援您的應用程式。
+    **package.json** 檔案是 **express** 命令建立的檔案之一。這個檔案包含 Express 應用程式的其他必要模組清單。之後，當您部署此應用程式至 Azure 網站，此檔案將用於決定 Azure 上需要安裝哪些模組來支援您的應用程式。
 
 5.  接下來，輸入以下命令在本機安裝 Mongoose 模組並將其所用項目儲存至 **package.json** 檔案：
 
@@ -151,15 +154,15 @@
 
     此命令的輸出應類似這樣：
 
-		mongoose@3.6.15 node_modules\mongoose
-		├── regexp-clone@0.0.1
-		├── sliced@0.0.3
-		├── muri@0.3.1
-		├── hooks@0.2.1
-		├── mpath@0.1.1
-		├── ms@0.1.0
-		├── mpromise@0.2.1 (sliced@0.0.4)
-		└── mongodb@1.3.11 (bson@0.1.9, kerberos@0.0.3)
+        mongoose@3.6.15 node_modules\mongoose
+        ├── regexp-clone@0.0.1
+        ├── sliced@0.0.3
+        ├── muri@0.3.1
+        ├── hooks@0.2.1
+        ├── mpath@0.1.1
+        ├── ms@0.1.0
+        ├── mpromise@0.2.1 (sliced@0.0.4)
+        └── mongodb@1.3.11 (bson@0.1.9, kerberos@0.0.3)
 
     您可以放心忽略任何有關安裝 C++ bson 剖析器的訊息。
 
@@ -179,10 +182,10 @@
           , Schema = mongoose.Schema;
 
         var TaskSchema = new Schema({
-            itemName      :String
-          , itemCategory  :String
-          , itemCompleted :{ type:Boolean, default:false }
-          , itemDate      :{ type:Date, default:Date.now }
+            itemName      : String
+          , itemCategory  : String
+          , itemCompleted : { type: Boolean, default: false }
+          , itemDate      : { type: Date, default: Date.now }
         });
 
         module.exports = mongoose.model('TaskModel', TaskSchema);
@@ -195,54 +198,54 @@
 
 2.  在 **tasklist.js** 中加入以下程式碼。這會載入 mongoose 模組和在 **task.js** 中定義的工作模型。TaskList 函數會根據 **connection** 值與 MongoDB 伺服器建立連線，並提供 **showTasks**、**addTask**、**completeTasks** 方法：
 
-		var mongoose = require('mongoose')
-	      , task = require('../models/task.js');
+        var mongoose = require('mongoose')
+          , task = require('../models/task.js');
 
-		module.exports = TaskList;
+        module.exports = TaskList;
 
-		function TaskList(connection) {
-  		  mongoose.connect(connection);
-		}
+        function TaskList(connection) {
+          mongoose.connect(connection);
+        }
 
-		TaskList.prototype = {
-  		  showTasks: function(req, res) {
-      	    task.find({itemCompleted: false}, function foundTasks(err, items) {
-      		  res.render('index',{title: 'My ToDo List ', tasks: items})
-    		});
-  		  },
+        TaskList.prototype = {
+          showTasks: function(req, res) {
+            task.find({itemCompleted: false}, function foundTasks(err, items) {
+              res.render('index',{title: 'My ToDo List ', tasks: items})
+            });
+          },
 
-  		  addTask: function(req,res) {
-    		var item = req.body.item;
-    		newTask = new task();
-    		newTask.itemName = item.name;
-    		newTask.itemCategory = item.category;
-    		newTask.save(function savedTask(err){
-      		  if(err) {
-      		    throw err;
-      		  }
-    	    });
-    	  	res.redirect('/');
-  		  },
-  
+          addTask: function(req,res) {
+            var item = req.body.item;
+            newTask = new task();
+            newTask.itemName = item.name;
+            newTask.itemCategory = item.category;
+            newTask.save(function savedTask(err){
+              if(err) {
+                throw err;
+              }
+            });
+            res.redirect('/');
+          },
 
-  		  completeTask: function(req,res) {
-    		var completedTasks = req.body;
-    		for(taskId in completedTasks) {
-      		  if(completedTasks[taskId]=='true') {
-        		var conditions = { _id: taskId };
-        		var updates = { itemCompleted: completedTasks[taskId] };
-        		task.update(conditions, updates, function updatedTask(err) {
-          		  if(err) {
-          		    throw err;
-          		  }
-        		});
-      		  }
-    		}
-    		res.redirect('/');
-  		  }
-		}
 
-1.  儲存 **tasklist.js** 檔案。
+          completeTask: function(req,res) {
+            var completedTasks = req.body;
+            for(taskId in completedTasks) {
+              if(completedTasks[taskId]=='true') {
+                var conditions = { _id: taskId };
+                var updates = { itemCompleted: completedTasks[taskId] };
+                task.update(conditions, updates, function updatedTask(err) {
+                  if(err) {
+                    throw err;
+                  }
+                });
+              }
+            }
+            res.redirect('/');
+          }
+        }
+
+3.  儲存 **tasklist.js** 檔案。
 
 #### 修改索引檢視
 
@@ -250,37 +253,37 @@
 
 2.  以下列程式碼取代 **index.jade** 檔案的內容。這會定義用於顯示現有工作的檢視，以及用於加入新工作及將現有工作標示為完成的表單。
 
-		h1 #{title}
-		form(action="/completetask", method="post")
-		  table(border="1")
-		    tr
-		      td Name
-		      td Category
-		      td Date
-		      td Complete
-		    each task in tasks
-		      tr
-		        td #{task.itemName}
-		        td #{task.itemCategory}
-		        - var day   = task.itemDate.getDate();
-		        - var month = task.itemDate.getMonth() + 1;
-		        - var year  = task.itemDate.getFullYear();
-		        td #{month + "/" + day + "/" + year}
-		        td
-		          input(type="checkbox", name="#{task._id}", value="#{!task.itemCompleted}", checked=task.itemCompleted)
-		  input(type="submit", value="Update tasks")
-		hr
-		form(action="/addtask", method="post")
-		  table(border="1") 
-		    tr
-		      td Item Name: 
-		      td 
-		        input(name="item[name]", type="textbox")
-		    tr
-		      td Item Category: 
-		      td 
-		        input(name="item[category]", type="textbox")
-		  input(type="submit", value="Add item")
+        h1 #{title}
+        form(action="/completetask", method="post")
+          table(border="1")
+            tr
+              td Name
+              td Category
+              td Date
+              td Complete
+            each task in tasks
+              tr
+                td #{task.itemName}
+                td #{task.itemCategory}
+                - var day   = task.itemDate.getDate();
+                - var month = task.itemDate.getMonth() + 1;
+                - var year  = task.itemDate.getFullYear();
+                td #{month + "/" + day + "/" + year}
+                td
+                  input(type="checkbox", name="#{task._id}", value="#{!task.itemCompleted}", checked=task.itemCompleted)
+          input(type="submit", value="Update tasks")
+        hr
+        form(action="/addtask", method="post")
+          table(border="1") 
+            tr
+              td Item Name: 
+              td 
+                input(name="item[name]", type="textbox")
+            tr
+              td Item Category: 
+              td 
+                input(name="item[category]", type="textbox")
+          input(type="submit", value="Add item")
 
 3.  儲存並關閉 **index.jade** 檔案。
 
@@ -292,7 +295,7 @@
         var TaskList = require('./routes/tasklist');
         var taskList = new TaskList(process.env.CUSTOMCONNSTR_MONGOLAB_URI);
 
-	請注意第二行，您會存取稍後將設定的環境變數，此環境變數包含您的 mongo 執行個體的連線資訊。若您有為開發目的而執行的本機 mongo 執行個體，要暫時將此值設為 "localhost" 而非 `process.env.CUSTOMCONNSTR_MONGOLAB_URI`。
+    請注意第二行，您會存取稍後將設定的環境變數，此環境變數包含您的 mongo 執行個體的連線資訊。若您有為開發目的而執行的本機 mongo 執行個體，請暫時將此值設為 "localhost" 而非 `process.env.CUSTOMCONNSTR_MONGOLAB_URI`。
 
 3.  找到以 `app.get` 開頭的程式行，以下面程式行加以取代：
 
@@ -304,12 +307,11 @@
 
 4.  儲存 **app.js** 檔案。
 
-部署應用程式
-------------
+## <a name="deploy"></a>部署應用程式
 
 現在應用程式已經開發好，該開始建立用以主控它的 Azure 網站、設定該網站及部署程式碼。本節的重點是 MongoDB 連接字串 (URI) 的使用。您即將在您的網站中以此 URI 設定環境變數，使 URI 和您的程式碼分開。您應該將 URI 當做敏感資訊，因為它包含連線至您的資料庫的認證。
 
-本節的步驟使用 Azure 命令列工具建立新的 Azure 網站，然後使用 Git 部署應用程式。若要執行這些步驟，必須有 Azure 訂閱。
+本節的步驟使用 Azure 命令列工具建立新的 Azure 網站，然後使用 Git 部署您的應用程式。若要執行這些步驟，必須有 Azure 訂用帳戶。
 
 ### 安裝適用於 Mac 和 Linux 的 Azure 命令列工具
 
@@ -317,19 +319,19 @@
 
     npm install azure-cli -g
 
-若您已從 [Azure 開發人員中心](/en-us/develop/nodejs/)安裝 **Azure SDK for Node.js**，則應該已經安裝命令列工具。如需詳細資訊，請參閱[適用於 Mac 和 Linux 的 Azure 命令列工具](/en-us/develop/nodejs/how-to-guides/command-line-tools/)。
+若您已從 [Azure 開發人員中心][]安裝 **Azure SDK for Node.js**，則應該已經安裝命令列工具。如需詳細資訊，請參閱[適用於 Mac 和 Linux 的 Azure 命令列工具][]。
 
 雖然 Azure 命令列工具主要是為了 Mac 和 Linux 使用者而建立，但這些工具會以 Node.js 為基礎，且應該可在任何可執行 Node 的系統上使用。
 
 ### 匯入發佈設定
 
-在 Azure 使用命令列工具前，必須先下載包含訂閱資訊的檔案。請執行以下步驟來下載及匯入此檔案。
+在 Azure 使用命令列工具前，必須先下載包含訂用帳戶資訊的檔案。請執行以下步驟來下載及匯入此檔案。
 
-1.  在命令列中，輸入以下命令以啟動瀏覽器，並瀏覽至下載頁面。若出現提示，請用與訂閱相關聯的帳戶登入。
+1.  在命令列中，輸入以下命令以啟動瀏覽器，並瀏覽至下載頁面。若出現提示，請用與訂用帳戶相關聯的帳戶登入。
 
         azure account download
 
-    ![下載頁面](./media/store-mongolab-web-sites-nodejs-store-data-mongodb/azure-account-download-cli.png)
+    ![下載頁面][]
 
     檔案應該會自動開始下載，如果沒有，您可以按一下頁面開頭的連結手動下載檔案。
 
@@ -339,53 +341,56 @@
 
     指定前一個步驟下載之發佈設定檔案的路徑和檔案名稱。一旦命令完成，您應該會看到類似這樣的輸出：
 
-        info:	Executing command account import
-        info:	Found subscription:subscriptionname
-        info:	Setting default subscription to:subscriptionname
-        warn:	The '/Users/user1/.azure/publishSettings.xml' file contains sensitive information.
-        warn:	Remember to delete it now that it has been imported.
-        info:	Account publish settings imported successfully
-        info:	account import command OK
+        info:   Executing command account import
+        info:   Found subscription: subscriptionname
+        info:   Setting default subscription to: subscriptionname
+        warn:   The '/Users/user1/.azure/publishSettings.xml' file contains sensitive information.
+        warn:   Remember to delete it now that it has been imported.
+        info:   Account publish settings imported successfully
+        info:   account import command OK
 
-3.  匯入完成後，您應該刪除發佈設定檔案，因為您不再需要它，而它卻含有關於 Azure 訂閱的敏感資訊。
+3.  匯入完成後，您應該刪除發佈設定檔案，因為您不再需要它，而它卻含有關於 Azure 訂用帳戶的敏感資訊。
 
 ### 建立新網站並推播程式碼
 
 在 Azure 建立網站很容易。如果這是您的第一個 Azure 網站，您必須使用入口網站。如果您已有至少一個網站，請直接跳至步驟 7。
 
-1.  在 Azure 入口網站按一下 **[新增]**。		
-     ![新增](./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-new.png)
-2.  選取 **[運算]** \> **[網站]** \> **[快速建立]**。	
-![CreateSite](./media/store-mongolab-web-sites-nodejs-store-data-mongodb/screen-mongolab-newwebsite.png)
+1.  在 Azure 入口網站，按一下 [新增]。
+    
+	![New][]
+2.  選取 [運算] \> [網站] \> [快速建立]。
+    
+	![CreateSite][]
 3.  輸入 URL 前置詞。選擇您喜愛的名稱，但記住一定要獨一無二 (很可能無法使用 'mymongoapp')。
-4.  按一下 **[建立網站]**。
-5.  當網站建立完成，按一下網站清單中的網站名稱。網站儀表板隨即顯示。	
-    ![WebSiteDashboard](./media/store-mongolab-web-sites-nodejs-store-data-mongodb/screen-mongolab-websitedashboard.png)
-6.  按一下 **[quick glance]** 底下的 **[Set up Git publishing]**，然後輸入要使用的 git 使用者名稱和密碼。要發佈至您的網站時將使用這個密碼 (步驟 9)。
+4.  按一下 [建立網站]。
+5.  當網站建立完成時，按一下網站清單中的網站名稱。網站儀表板隨即顯示。
+    
+	![WebSiteDashboard][]
+6.  按一下 [quick glance] 底下的 [Set up Git publishing]，然後輸入要使用的 git 使用者名稱和密碼。要發佈至您的網站時將使用這個密碼 (步驟 9)。
 7.  如果您以上述步驟建立網站，以下命令將會完成此程序。不過，若您已有多個 Azure 網站，可以跳過以上步驟，同樣使用此命令建立新的網站。在您的 **tasklist** 專案目錄中：
 
         azure site create myuniquesitename --git  
 
-    以您網站獨有的名稱取代 'myuniquesitename'。若此命令會建立網站，系統將提示您網站會建立在哪個資料中心。選取地理位置與您的 MongoLab 資料庫最近的資料中心。
+    以您網站獨有的名稱取代 'myuniquesitename'。若此命令會建立網站，系統將提示您指定網站會建立在哪個資料中心。請選取地理位置與您的 MongoLab 資料庫接近的資料中心。
 
     `--git` 參數將建立：
-A. 本機 git 儲存機制，位置在 **tasklist** 資料夾中 (若其中還沒有此項目)。
-A. 名為 'azure' 的 [Git 遠端](http://git-scm.com/docs/git-remote) (英文)，這會用於將應用程式發佈至 Azure。
-A. [iisnode.yml](https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml) 檔案 (英文)，內含 Azure 用於主控節點應用程式的設定。
-A. .gitignore 檔案，用以防止 node-modules 資料夾發佈至 .git。
+    A. 本機 git 儲存機制，位置在 **tasklist** 資料夾中 (若其中還沒有此項目)。
+    A. 名為 'azure' 的 [Git 遠端][]，這會用於將應用程式發佈至 Azure。
+    A. [iisnode.yml][] 檔案，內含 Azure 用於主控節點應用程式的設定。
+    A. .gitignore 檔案，用以防止 node-modules 資料夾發佈至 .git。
 
-    一旦此命令完成，您將會看到類似以下的輸出。請注意，以 **Created web site at** 開頭的程式行包含網站的 URL。
+    一旦此命令完成，您將會看到類似以下的輸出。請注意，**Created website at** 開頭的這一行包含網站的 URL。
 
-        info:	Executing command site create
-        info:	Using location southcentraluswebspace
-        info:	Executing `git init`
-        info:	Creating default web.config file
-        info:	Creating a new web site
-        info:	Created web site at  mongodbtasklist.azurewebsites.net
-        info:	Initializing repository
-        info:	Repository initialized
-        info:	Executing `git remote add azure http://gitusername@myuniquesitename.azurewebsites.net/mongodbtasklist.git`
-        info:	site create command OK
+        info:   Executing command site create
+        info:   Using location southcentraluswebspace
+        info:   Executing `git init`
+        info:   Creating default web.config file
+        info:   Creating a new web site
+        info:   Created web site at  mongodbtasklist.azurewebsites.net
+        info:   Initializing repository
+        info:   Repository initialized
+        info:   Executing `git remote add azure http://gitusername@myuniquesitename.azurewebsites.net/mongodbtasklist.git`
+        info:   site create command OK
 
 8.  使用以下命令將檔案加入本機 Git 儲存機制並予以認可：
 
@@ -396,25 +401,25 @@ A. .gitignore 檔案，用以防止 node-modules 資料夾發佈至 .git。
 
         git push azure master  
 
-    發佈最新 Git 儲存機制變更至 Azure 網站時，必須指定目標分支為 **master**，因為它將用於網站內容。若看到輸入密碼的提示，請輸入先前步驟中為網站設定 git 發佈時所建立的密碼。
+    發行最新 Git 儲存機制變更至 Azure 網站時，必須指定目標分支為 **master**，因為它將用於網站內容。若看到輸入密碼的提示，請輸入先前步驟中為網站設定 git 發佈時所建立的密碼。
 
     您將看到類似以下的輸出：部署開始時，Azure 會下載所有 npm 模組。
 
-        Counting objects:17, done.
+        Counting objects: 17, done.
         Delta compression using up to 8 threads.
-        Compressing objects:100% (13/13), done.
-        Writing objects:100% (17/17), 3.21 KiB, done.
+        Compressing objects: 100% (13/13), done.
+        Writing objects: 100% (17/17), 3.21 KiB, done.
         Total 17 (delta 0), reused 0 (delta 0)
-        remote:New deployment received.
-        remote:Updating branch 'master'.
-        remote:Preparing deployment for commit id 'ef276f3042'.
-        remote:Preparing files for deployment.
-        remote:Running NPM.
-         ...
-        remote:Deploying Web.config to enable Node.js activation.
-        remote:Deployment successful.
+        remote: New deployment received.
+        remote: Updating branch 'master'.
+        remote: Preparing deployment for commit id 'ef276f3042'.
+        remote: Preparing files for deployment.
+        remote: Running NPM.
+        ...
+        remote: Deploying Web.config to enable Node.js activation.
+        remote: Deployment successful.
         To https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git
-		 * [new branch]      master -> master
+         * [new branch]      master -> master
 
 就快要完成了！
 
@@ -424,23 +429,50 @@ A. .gitignore 檔案，用以防止 node-modules 資料夾發佈至 .git。
 
 #### 取得 MongoLab 連接字串
 
-[WACOM.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
+[WACOM.INCLUDE [howto-get-connectioninfo-mongolab][]]
 
 #### 將連接字串加入網站的環境變數
 
-[WACOM.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
+[WACOM.INCLUDE [howto-save-connectioninfo-mongolab][]]
 
-成功！
-------
+## 成功！
 
 從您的專案目錄執行 `azure site browse` 可自動開啟瀏覽器，或手動開啟瀏覽器並瀏覽至您的網站 URL (myuniquesite.azurewebsites.net)：
 
-![顯示空白工作清單的網頁](./media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png)
+![顯示空白工作清單的網頁][]
 
-管理資料庫
-----------
+## <a name="manage"></a>管理資料庫
 
-[WACOM.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
+[WACOM.INCLUDE [howto-access-mongolab-ui][]]
 
-恭喜！您剛啟動 Node.js 應用程式，並有由 MongoLab 主控之 MongoDB 資料庫的支援！現在您已經有了 MongoLab 資料庫，對於資料庫的任何問題或疑惑，或是需要有關 MongoDB 或節點驅動程式本身的協助，您都可以連絡 <support@mongolab.com>。祝您好運！
+恭喜！您剛啟動 Node.js 應用程式，並有由 MongoLab 主控之 MongoDB 資料庫的支援！現在，您擁有 MongoLab 資料庫，如果對於資料庫有任何問題或疑慮，或者要取得 MongoDB 或節點驅動程式的協助，可連絡 [support@mongolab.com](mailto:support@mongolab.com)。祝您好運！
 
+  [佈建資料庫]: #provision
+  [MongoLab]: http://mongolab.com
+  [建立應用程式]: #create
+  [部署應用程式]: #deploy
+  [管理資料庫]: #manage
+  [\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>]: mailto:support@mongolab.com
+  [Node.js]: http://nodejs.org
+  [Git]: http://git-scm.com
+  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
+  [市集]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-store.png
+  [1]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/entry-mongolab.png
+  [ConnectionInfoButton]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png
+  [ConnectionInfoScreen]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png
+  [WebSiteConnectionStrings]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/focus-mongolab-websiteconnectionstring.png
+  [howto-provision-mongolab]: ../includes/howto-provision-mongolab.md
+  [Express]: http://expressjs.com
+  [Mongoose]: http://mongoosejs.com
+  [Azure 開發人員中心]: /en-us/develop/nodejs/
+  [適用於 Mac 和 Linux 的 Azure 命令列工具]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+  [下載頁面]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/azure-account-download-cli.png
+  [New]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-new.png
+  [CreateSite]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/screen-mongolab-newwebsite.png
+  [WebSiteDashboard]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/screen-mongolab-websitedashboard.png
+  [Git 遠端]: http://git-scm.com/docs/git-remote
+  [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
+  [howto-get-connectioninfo-mongolab]: ../includes/howto-get-connectioninfo-mongolab.md
+  [howto-save-connectioninfo-mongolab]: ../includes/howto-save-connectioninfo-mongolab.md
+  [顯示空白工作清單的網頁]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png
+  [howto-access-mongolab-ui]: ../includes/howto-access-mongolab-ui.md

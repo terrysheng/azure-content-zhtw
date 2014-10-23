@@ -1,51 +1,52 @@
-<properties linkid="dev-net-transform-extend-site" urlDisplayName="Service Bus Topics" pageTitle="Transform and extend your site" metaKeywords="none" description="TBD" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="timamm" writer="timamm" editor="mollybos" manager="paulettm" title="Transform and extend your site" />
+<properties linkid="dev-net-transform-extend-site" urlDisplayName="Service Bus Topics" pageTitle="Transform and extend your site" metaKeywords="none" description="TBD" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="cephalin" writer="cephalin" editor="mollybos" manager="wpickett" title="Transform and extend your site"/>
 
-轉換和擴充網站
-==============
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
 
-使用 [XML Document Transformation](http://msdn.microsoft.com/zh-tw/library/dd465326.aspx) (XDT) 宣告，即可在您的 Azure 網站中轉換 [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) 檔案。您也可以使用 XDT 宣告來新增私人網站擴充功能，以啟用自訂網站管理動作。本文包含一個 PHP Manager 網站擴充功能範例，該範例透過 Web 介面來啟用 PHP 設定的管理功能。
+# 轉換和擴充網站
 
--   [轉換 ApplicationHost.config 中的網站組態](#transform)
--   [擴充網站](#extend)
-    -   [私人網站擴充功能概觀](#overview)
-    -   [網站擴充功能範例：PHP Manager](#SiteSample)
-        -   [PHP Manager Web 應用程式](#PHPwebapp)
-        -   [applicationHost.xdt 檔案](#XDT)
-    -   [網站擴充功能部署](#deploy)
+使用 [XML 文件轉換][] (XDT) 宣告，即可在您的 Windows Azure 網站中轉換 [ApplicationHost.config][] 檔案。您也可以使用 XDT 宣告來新增私人網站擴充功能，以啟用自訂網站管理動作。本文包含一個 PHP Manager 網站擴充功能範例，該範例透過 Web 介面來啟用 PHP 設定的管理功能。
 
-轉換 ApplicationHost.config 中的網站組態
-----------------------------------------
+<!-- MINI TOC -->
 
-Azure 網站平台提供了網站組態的彈性和控制權。雖然無法在 Azure 網站中直接編輯標準 IIS ApplicationHost.config 組態檔案，但此平台支援以 XML Document Transformation (XDT) 為基礎的宣告式 ApplicationHost.config 轉換模型。
+-   [轉換 ApplicationHost.config 中的網站組態][]
+-   [擴充網站][]
+    -   [私人網站擴充功能概觀][]
+    -   [網站擴充功能範例：PHP Manager][]
+        -   [PHP Manager Web 應用程式][]
+        -   [applicationHost.xdt 檔案][]
+    -   [網站擴充功能部署][]
 
-若要利用此轉換功能，您可使用 XDT 內容建立 ApplicationHost.xdt 檔案並置於網站根目錄之下。然後，在 Azure 入口網站的 **[設定]** 頁面中，將 `WEBSITE_PRIVATE_EXTENSIONS` 應用程式設定為 1 (可能需要重新啟動網站)。
+## <span id="transform"></span></a>轉換 ApplicationHost.config 中的網站組態
+
+Azure 網站平台提供了網站組態的彈性和控制權。雖然無法在 Windows Azure 網站中直接編輯標準 IIS ApplicationHost.config 組態檔案，但此平台支援以 XML 文件轉換 (XDT) 為基礎的宣告式 ApplicationHost.config 轉換模型。
+
+若要利用此轉換功能，您可使用 XDT 內容建立 ApplicationHost.xdt 檔案並置於網站根目錄之下。然後，在 Windows Azure 入口網站的 [設定] 頁面中，將 `WEBSITE_PRIVATE_EXTENSIONS` 應用程式設定為 1 (可能需要重新啟動網站)。
 
 下列 applicationHost.xdt 範例顯示如何將新的自訂環境變數新增至採用 PHP 5.4 的網站。
 
-	<?xml version="1.0"?> 
-	<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform"> 
-  		<system.webServer> 
-    			<fastCgi>
-      				<application>
-         				<environmentVariables>
-            					<environmentVariable name="CONFIGTEST" value="TEST" xdt:Transform="Insert" xdt:Locator="XPath(/configuration/system.webServer/fastCgi/application[contains(@fullPath,'5.4')]/environmentVariables)" />	
-         				</environmentVariables>
-      				</application>
-    			</fastCgi> 
-  		 </system.webServer> 
-	</configuration> 
+    <?xml version="1.0"?> 
+    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform"> 
+        <system.webServer> 
+                <fastCgi>
+                    <application>
+                        <environmentVariables>
+                                <environmentVariable name="CONFIGTEST" value="TEST" xdt:Transform="Insert" xdt:Locator="XPath(/configuration/system.webServer/fastCgi/application[contains(@fullPath,'5.4')]/environmentVariables)" />  
+                        </environmentVariables>
+                    </application>
+                </fastCgi> 
+        </system.webServer> 
+    </configuration> 
 
 從 FTP 根目錄的 LogFiles\\Transform 之下可取得含有轉換狀態和詳細資料的記錄檔案。
 
-如需其他範例，請參閱＜<https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions>＞。
+如需其他範例，請參閱＜[][]<https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions></a>＞。
 
 **注意：**
 無法移除或重新排序 `system.webServer` 之下模組清單中的元素，但可以在清單中新增元素。
 
-擴充網站
---------
+## <span id="extend"></span></a>擴充網站
 
-### 私人網站擴充功能概觀
+### <span id="overview"></span></a>私人網站擴充功能概觀
 
 Azure 網站支援以網站擴充功能作為網站管理動作的擴充點。事實上，有些 Azure 網站平台功能已當作預先安裝的網站擴充功能來實作。雖然無法修改預先安裝的平台擴充功能，但可以建立和設定自己網站的私人擴充功能。這項功能也會依賴 XDT 宣告。建立私人網站擴充功能的主要步驟如下：
 
@@ -56,23 +57,23 @@ Azure 網站支援以網站擴充功能作為網站管理動作的擴充點。�
 
 Web 應用程式的內部連結應指向在 ApplicationHost.xdt 檔案中指定之應用程式路徑的相對路徑。對 ApplicationHost.xdt 檔案所做的變更需要網站回收。
 
-**注意**：在 <https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions> 可取得這些主要元素的其他資訊。其中包含詳細的範例，用以說明建立和啟用私人網站擴充功能的步驟。您可以從 <https://github.com/projectkudu/PHPManager> 下載以下 PHP Manager 範例的原始程式碼。
+**注意**：在 [][]<https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions></a> 可取得這些主要元素的其他資訊。其中包含詳細的範例，用以說明建立和啟用私人網站擴充功能的步驟。您可以從 [][1]<https://github.com/projectkudu/PHPManager></a> 下載以下 PHP Manager 範例的原始程式碼。
 
-### 網站擴充功能範例：PHP Manager
+### <span id="SiteSample"></span></a>網站擴充功能範例：PHP Manager
 
 PHP Manager 是一項網站擴充功能，讓管理員可以使用 Web 介面輕鬆檢視和設定其 PHP 設定，而不需直接修改 PHP .ini 檔案。PHP 的常見組態檔包含位於 Program Files 之下的 php.ini 檔案，以及位於網站根資料夾的 .user.ini 檔案。因為無法在 Azure 網站平台上直接編輯 php.ini 檔案，所以 PHP Manager 擴充功能會使用 .user.ini 檔案來套用設定變更。
 
-#### PHP Manager Web 應用程式
+#### <span id="PHPwebapp"></span></a>PHP Manager Web 應用程式
 
 以下是 PHP Manager 網站的首頁：
 
-![TransformSitePHPUI](./media/web-sites-transform-extend/TransformSitePHPUI.png)
+![TransformSitePHPUI][]
 
 如您所見，網站擴充功能就像是一般的 Web 應用程式，但網站的根資料夾中有額外的 ApplicationHost.xdt 檔案 (本文的下一節會提供有關 ApplicationHost.xdt 檔案的詳細資料)。
 
 PHP Manager 擴充功能是使用 Visual Studio ASP.NET MVC 4 Web 應用程式範本建立的。[方案總管] 的下列檢視可顯示 PHP Manager 網站擴充功能的結構。
 
-![TransformSiteSolEx](./media/web-sites-transform-extend/TransformSiteSolEx.png)
+![TransformSiteSolEx][]
 
 檔案 I/O 所需的唯一特殊邏輯就是指出網站的 wwwroot 目錄位於何處。如下列程式碼範例所示，環境變數 "HOME" 表示網站根路徑，而加上 "site\\wwwroot" 即可建立 wwwroot 路徑：
 
@@ -84,7 +85,7 @@ PHP Manager 擴充功能是使用 Visual Studio ASP.NET MVC 4 Web 應用程式�
             var rootPath = Environment.GetEnvironmentVariable("HOME"); // For use on Azure Websites
             if (rootPath == null)
             {
-            rootPath = System.IO.Path.GetTempPath(); // For testing purposes
+                rootPath = System.IO.Path.GetTempPath(); // For testing purposes
             };
             var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
             return userSettingsFile;
@@ -102,64 +103,64 @@ PHP Manager 擴充功能是使用 Visual Studio ASP.NET MVC 4 Web 應用程式�
 
 您可以僅使用您網站中的相對路徑，或在 ASP.NET 網站的案例中，使用 `@Html.ActionLink` 方法為您建立適當的連結，即可達到此需求。
 
-#### applicationHost.xdt 檔案
+#### <span id="XDT"></span></a>applicationHost.xdt 檔案
 
 您的網站擴充功能的程式碼位於 %HOME%\\SiteExtensions[your-extension-name] 之下。我們將此稱為擴充功能根目錄。
 
 若要在 applicationHost.config 檔案中登錄您的網站擴充功能，您必須將名為 ApplicationHost.xdt 的檔案放在擴充功能根目錄中。ApplicationHost.xdt 檔案的內容應如下所示：
 
-	<?xml version="1.0"?>
-	<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-  		<system.applicationHost>
-    			<sites>
-      				<site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
-						<!-- NOTE: Add your extension name in the application paths below -->
-        				<application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
-        				<application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
-          					<virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
-        				</application>
-      				</site>
-    			</sites>
-  		</system.applicationHost>
-	</configuration>
+    <?xml version="1.0"?>
+    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+        <system.applicationHost>
+                <sites>
+                    <site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
+                        <!-- NOTE: Add your extension name in the application paths below -->
+                        <application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
+                        <application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
+                            <virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
+                        </application>
+                    </site>
+                </sites>
+        </system.applicationHost>
+    </configuration>
 
 您選取作為擴充功能名稱的名稱應與擴充功能根資料夾同名。
 
-此舉的作用就是將新的應用程式路徑新增至列在 SCM 網站之下的 `system.applicationHost` 網站。SCM 網站是具有特定存取認證的網站管理端點。其 URL 為 `https://[your-site-name].scm.azurewebsites.net`。
+此舉的作用就是將新的應用程式路徑新增至列在 SCM 網站之下的 `system.applicationHost` 網站。SCM 網站是具有特定存取認證的網站管理端點。其具有 URL `https://[your-site-name].scm.azurewebsites.net`。
 
- 	<system.applicationHost>
-  		...
-  		<site name="~1[your-website]" id="1716402716">
-      			<bindings>
-        			<binding protocol="http" bindingInformation="*:80: [your-website].scm.azurewebsites.net" />
-        			<binding protocol="https" bindingInformation="*:443: [your-website].scm.azurewebsites.net" />
-      			</bindings>
-      			<traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
-      			<detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
-      			<logFile logSiteId="false" />
-      			<application path="/" applicationPool="[your-website]">
-        			<virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
-      			</application>
-				<!-- Note the custom changes that go here -->
-      			<application path="/[your-extension-name]" applicationPool="[your-website]">
-        			<virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
-      			</application>
-    		</site>
-  	</sites>
-	  ...
-	</system.applicationHost>
+    <system.applicationHost>
+        ...
+        <site name="~1[your-website]" id="1716402716">
+                <bindings>
+                    <binding protocol="http" bindingInformation="*:80: [your-website].scm.azurewebsites.net" />
+                    <binding protocol="https" bindingInformation="*:443: [your-website].scm.azurewebsites.net" />
+                </bindings>
+                <traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
+                <detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
+                <logFile logSiteId="false" />
+                <application path="/" applicationPool="[your-website]">
+                    <virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
+                </application>
+                <!-- Note the custom changes that go here -->
+                <application path="/[your-extension-name]" applicationPool="[your-website]">
+                    <virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
+                </application>
+            </site>
+    </sites>
+      ...
+    </system.applicationHost>
 
-### 網站擴充功能部署
+### <span id="deploy"></span></a>網站擴充功能部署
 
 若要安裝網站擴充功能，您可以使用 FTP 將您的 Web 應用程式的所有檔案複製到您要安裝擴充功能之網站的 `\SiteExtensions\[your-extension-name]` 資料夾。請務必同時將 ApplicationHost.xdt 檔案複製到此位置。
 
-接著，在 Azure 網站入口網站中，移至具有您擴充功能之網站的 **[設定]** 索引標籤。在 **[應用程式設定]** 區段中，新增 `WEBSITE_PRIVATE_EXTENSIONS` 索引鍵並將其值指定為 `1`。
+接著，在 Windows Azure 網站入口網站中，移至具有您擴充功能之網站的 [設定] 索引標籤。在 [應用程式設定] 區段中，新增 `WEBSITE_PRIVATE_EXTENSIONS` 索引鍵並指定 `1` 的值。
 
-![TransformSiteappSettings](./media/web-sites-transform-extend/TransformSiteappSettings.png)
+![TransformSiteappSettings][]
 
-最後，在 Azure 入口網站中重新啟動您的網站，以啟用您的擴充功能。
+最後，在 Windows Azure 入口網站中重新啟動您的網站，以啟用您的擴充功能。
 
-![TransformSiteRestart](./media/web-sites-transform-extend/TransformSiteRestart.png)
+![TransformSiteRestart][]
 
 您應能在下列位置看見您的網站擴充功能：
 
@@ -167,3 +168,20 @@ PHP Manager 擴充功能是使用 Visual Studio ASP.NET MVC 4 Web 應用程式�
 
 請注意，除了使用 HTTPS 和包含 ".scm" 以外，此 URL 看起來就像您網站的 URL 一樣。
 
+<!-- IMAGES -->
+
+  [XML 文件轉換]: http://msdn.microsoft.com/en-us/library/dd465326.aspx
+  [ApplicationHost.config]: http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig
+  [轉換 ApplicationHost.config 中的網站組態]: #transform
+  [擴充網站]: #extend
+  [私人網站擴充功能概觀]: #overview
+  [網站擴充功能範例：PHP Manager]: #SiteSample
+  [PHP Manager Web 應用程式]: #PHPwebapp
+  [applicationHost.xdt 檔案]: #XDT
+  [網站擴充功能部署]: #deploy
+  []: https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions
+  [1]: https://github.com/projectkudu/PHPManager
+  [TransformSitePHPUI]: ./media/web-sites-transform-extend/TransformSitePHPUI.png
+  [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
+  [TransformSiteappSettings]: ./media/web-sites-transform-extend/TransformSiteappSettings.png
+  [TransformSiteRestart]: ./media/web-sites-transform-extend/TransformSiteRestart.png

@@ -2,80 +2,39 @@
 
 1.  在管理入口網站中，按一下 **[行動服務]**，然後按一下您剛剛建立的行動服務。
 
-2.  按一下 **[資料]** 索引標籤，然後按一下 **[建立]**。
-    
-	![mobile-data-tab-empty](./media/mobile-services-create-new-service-data-2/mobile-data-tab-empty.png)
+2.  按一下 [資料] 索引標籤，然後按一下 [建立]。
 
-	這將顯示 [建立新資料表] 對話方塊。
+    ![mobile-data-tab-empty][]
 
-3.  在 **[資料表名稱]** 中輸入 *TodoItem*，然後按一下核取按鈕。
+    這樣做會顯示 [建立新資料表] 對話方塊。
 
- ![mobile-create-todoitem-table](./media/mobile-services-create-new-service-data-2/mobile-create-todoitem-table.png)
+3.  在 [資料表名稱] 中輸入 *TodoItem*，然後按一下核取按鈕。
+
+    ![mobile-create-todoitem-table][]
 
 這會建立包含預設權限集的新儲存資料表 **TodoItem**。這表示擁有應用程式金鑰 (隨應用程式散佈) 的人都可以存取與變更資料表中的資料。
 
 > [WACOM.NOTE]
-> 行動服務快速入門中使用相同的資料表名稱。不過，每個資料表都會在指定行動服務特定的結構描述下建立。目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。
+> 行動服務快速入門中使用相同的資料表名稱。However, each table is created in a schema that is specific to a given mobile service.目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。
 
 1.  按一下新的 **TodoItem** 資料表，並驗證其中不含資料列。
 
-2.  按一下 **[資料行]** 索引標籤。驗證是否已為您自動建立下列預設資料行：
-    
-    <table  border="1" cellpadding="10">
-     	<tr>
-    	<th>資料行名稱</th>
-    
-    	<th>類型</th>
-    
-    	<th>索引</th>
-    
-     	</tr>
-    
-     	<tr>
-    	<td>id</td>
-    
-    	<td>字串</td>
-    
-    	<td>已編製索引</td>
-    
-     	</tr>
-    
-     	<tr>
-    	<td>__createdAt</td>
-    
-    	<td>日期</td>
-    
-    	<td>已編製索引</td>
-    
-     	</tr>
-    
-     	<tr>
-    	<td>__updatedAt</td>
-    
-    	<td>日期</td>
-    
-     	<td><font  color="transparent">-</font>
-    </td>
-    
-     	</tr>
-    
-     	<tr>
-    	<td>__version</td>
-    
-    	<td>時間戳記 (MSSQL)</td>
-    
-     	<td><font  color="transparent">-</font>
-    </td>
-    
-     	</tr>
-     	
-     	</table>
+2.  按一下 [資料行] 索引標籤。驗證是否已為您自動建立下列預設資料行：
 
- 此為行動服務資料表的最低需求。     <div  class="dev-callout"><b>注意</b>
+    | 資料行名稱    | 類型             | 索引                               |
+    |---------------|------------------|------------------------------------|
+    | id            | 字串             | 已編製索引                         |
+    | \_\_createdAt | 日期             | 已編製索引                         |
+    | \_\_updatedAt | 日期             | <font color="transparent">-</font> |
+    | \_\_version   | 時間戳記 (MSSQL) | <font color="transparent">-</font> |
 
-    <p>若您的行動服務啟用動態結構描述，當行動服務透過插入或更新操作收到 JSON 物件時，便會自動建立新資料行。</p>
+    此為行動服務資料表的最低需求。
 
-    </div>
-
+    <div class="dev-callout"><b>注意</b>
+<p>若您的行動服務啟用動態結構描述，當行動服務透過插入或更新操作收到 JSON 物件時，便會自動建立新資料行。</p>
+</div>
 
 現在您已準備好將新的行動服務作為應用程式的資料儲存區使用。
+
+  [mobile-data-tab-empty]: ./media/mobile-services-create-new-service-data-2/mobile-data-tab-empty.png
+  [mobile-create-todoitem-table]: ./media/mobile-services-create-new-service-data-2/mobile-create-todoitem-table.png

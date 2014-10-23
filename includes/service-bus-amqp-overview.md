@@ -1,9 +1,6 @@
-
 # 服務匯流排中的 AMQP 1.0 支援
 
-> Azure 服務匯流排和 Service Bus for Windows Server (Service Bus 1.1)
-> 兩者都支援進階訊息佇列通訊協定 (AMQP) 1.0。透過開放式標準通訊協定，AMQP
-> 可讓您打造一個跨平台的混合式應用程式。您可以透過使用不同語言和架構所建立，且在不同作業系統上執行的元件來建構應用程式。所有這些元件都可以連線到服務匯流排，並有效地且不失真地順暢交換結構化的商業訊息。
+> Azure 服務匯流排和 Service Bus for Windows Server (Service Bus 1.1) 兩者都支援進階訊息佇列通訊協定 (AMQP) 1.0。透過開放式標準通訊協定，AMQP 可讓您打造一個跨平台的混合式應用程式。您可以透過使用不同語言和架構所建立，且在不同作業系統上執行的元件來建構應用程式。所有這些元件都可以連線到服務匯流排，並有效地且不失真地順暢交換結構化的商業訊息。
 
 ## 簡介：何謂 AMQP 1.0 以及它為什麼很重要？
 
@@ -17,16 +14,12 @@
 
 ## AMQP 1.0 技術功能
 
-AMQP 1.0
-是一個有效率且可靠的有線等級訊息通訊協定，可以用來建置強大的跨平台訊息應用程式。通訊協定有個簡單的目的：就是在兩個用戶端間定義安全、可靠且有效率的訊息傳輸機制。訊息本身是使用可攜式資料表示法來編碼，讓異質傳送者和接收者可透過百分之百臨場感來交換結構化的商業訊息。下列清單摘要說明最重要的功能：
+AMQP 1.0 是一個有效率且可靠的有線等級訊息通訊協定，可以用來建置強大的跨平台訊息應用程式。通訊協定有個簡單的目的：就是在兩個用戶端間定義安全、可靠且有效率的訊息傳輸機制。訊息本身是使用可攜式資料表示法來編碼，讓異質傳送者和接收者可透過百分之百臨場感來交換結構化的商業訊息。下列清單摘要說明最重要的功能：
 
-* **有效**：AMQP 1.0
-  是連線導向的通訊協定，可針對通訊協定指示和透過其傳輸的商業訊息使用二進位編碼。其中包含精密的流程控制配置，可以將網路與連接的元件使用率最大化。也就是說，此通訊協定的設計目的是在效率、彈性及交互操作性之間取得平衡。
-* **可靠**：AMQP 1.0 通訊協定讓您能夠利用某個範圍的可靠性保證來交換訊息，從「射後不理」變成可靠且只認可一次的傳遞。
-* **彈性**：AMQP 1.0
-  是一種有彈性的通訊協定，讓您可以用來支援不同的拓撲。您可以使用相同的通訊協定，來進行用戶端對用戶端、用戶端對代理人的通訊，以及代理人對代理人的通訊。
-* **與代理人模型無關**：AMQP 1.0 規格不會在代理人使用的訊息模型上強制執行任何需求。這表示您能夠將 AMQP 1.0
-  支援新增至現有的訊息代理人。
+-   **有效**：AMQP 1.0 是連線導向的通訊協定，可針對通訊協定指示和透過其傳輸的商業訊息使用二進位編碼。其中包含精密的流程控制配置，可以將網路與連接的元件使用率最大化。也就是說，此通訊協定的設計目的是在效率、彈性及交互操作性之間取得平衡。
+-   **可靠**：AMQP 1.0 通訊協定讓您能夠利用某個範圍的可靠性保證來交換訊息，從「射後不理」變成可靠且只認可一次的傳遞。
+-   **彈性**：AMQP 1.0 是一種有彈性的通訊協定，讓您可以用來支援不同的拓撲。您可以使用相同的通訊協定，來進行用戶端對用戶端、用戶端對代理人的通訊，以及代理人對代理人的通訊。
+-   **與代理人模型無關**：AMQP 1.0 規格不會在代理人使用的訊息模型上強制執行任何需求。這表示您能夠將 AMQP 1.0 支援新增至現有的訊息代理人。
 
 ## AMQP 1.0 是一項標準 (Standard 的 S 為大寫)
 
@@ -34,21 +27,17 @@ AMQP 1.0
 
 在 2011 年 10 月，開發工作移轉到資訊結構標準發展組織 (OASIS) 內的一個技術委員會，並在 2012 年 10 月發佈 OASIS AMQP 1.0 標準。以下為在標準開發期間參與了該技術委員會的公司：
 
-* **技術廠商**：Axway Software、Huawei Technologies、IIT Software、INETCO
-  Systems、Kaazing、Microsoft、Mitre Corporation、Primeton
-  Technologies、Progress Software、Red Hat、SITA、Software AG、Solace
-  Systems、VMware、WSO2、Zenika。
-* **使用者公司**：Bank of America、Credit Suisse、Deutsche Boerse、Goldman
-  Sachs、JPMorgan Chase。
+-   **技術廠商**：Axway Software、Huawei Technologies、IIT Software、INETCO Systems、Kaazing、Microsoft、Mitre Corporation、Primeton Technologies、Progress Software、Red Hat、SITA、Software AG、Solace Systems、VMware、WSO2、Zenika。
+-   **使用者公司**：Bank of America、Credit Suisse、Deutsche Boerse、Goldman Sachs、JPMorgan Chase。
 
 以下是一些關於開放標準之最常引用的優點：
 
-* 比較不會被廠商鎖定
-* 互通性
-* 可以廣泛使用程式庫與工具
-* 提供保護以免過時
-* 對於有經驗之員工的可用性
-* 較低且可管理的風險
+-   比較不會被廠商鎖定
+-   互通性
+-   可以廣泛使用程式庫與工具
+-   提供保護以免過時
+-   對於有經驗之員工的可用性
+-   較低且可管理的風險
 
 ## AMQP 1.0 和服務匯流排
 
@@ -56,50 +45,18 @@ AMQP 1.0
 
 下圖說明的是一個部署範例，其中的 Java 用戶端是在 Linux 上執行並使用標準的 Java 訊息服務 (JMS) API 撰寫而成，而 .NET 用戶端則是在 Windows 上執行並使用 AMQP 1.0 透過服務匯流排來交換訊息。
 
-![](./media/service-bus-amqp-overview/Example1.png)
+![][]
 
 **圖 1：範例部署案例示範使用服務匯流排和 AMQP 1.0 的跨平台訊息服務**
 
 目前已知下列用戶端程式庫可以使用服務匯流排：
 
-<table>
-  <tr>
-<th>語言</th>
-
-<th>程式庫</th>
-
-  </tr>
-
-  <tr>
-<td>Java</td>
-
-<td>Apache Qpid Java 訊息服務 (JMS) 用戶端<br  />
- IIT Software SwiftMQ Java 用戶端</td>
-
-  </tr>
-
-  <tr>
-<td>C</td>
-
-<td>Apache Qpid Proton-C</td>
-
-  </tr>
-
-  <tr>
-<td>PHP</td>
-
-<td>Apache Qpid Proton-PHP</td>
-
-  </tr>
-
-  <tr>
-<td>Python</td>
-
-<td>Apache Qpid Proton-Python</td>
-
-  </tr>
-
-</table>
+| 語言   | 程式庫                                 |
+|--------|----------------------------------------|
+| Java   | Apache Qpid Java 訊息服務 (JMS) 用戶端 IIT Software SwiftMQ Java 用戶端
+| C      | Apache Qpid Proton-C                   |
+| PHP    | Apache Qpid Proton-PHP                 |
+| Python | Apache Qpid Proton-Python              |
 
 **圖 2：AMQP 1.0 用戶端程式庫的資料表**
 
@@ -107,19 +64,18 @@ AMQP 1.0
 
 ## 摘要
 
-* AMQP 1.0 是一個既開放又可靠的訊息通訊協定，可以用來建置跨平台的混合應用程式。AMQP 1.0 是一項 OASIS 標準。
-* Azure 服務匯流排和 Service Bus for Windows Server (Service Bus 1.1) 中現可支援 AMQP 1.0。價格與現有的通訊協定一樣。
+-   AMQP 1.0 是一個既開放又可靠的訊息通訊協定，可以用來建置跨平台的混合應用程式。AMQP 1.0 是一項 OASIS 標準。
+-   Azure 服務匯流排和 Service Bus for Windows Server (Service Bus 1.1) 中現可支援 AMQP 1.0。價格與現有的通訊協定一樣。
 
 ## 參考
 
-* [如何透過服務匯流排 .NET API 使用 AMQP 1.0][1]
-* [如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0][2]
-* [服務匯流排 AMQP 1.0 開發人員指南][3]
-* [OASIS 進階訊息佇列通訊協定 (AMQP) 版本 1.0 規格][4]
+-   [如何透過服務匯流排 .NET API 使用 AMQP 1.0][]
+-   [如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0][]
+-   [服務匯流排 AMQP 1.0 開發人員指南][]
+-   [OASIS 進階訊息佇列通訊協定 (AMQP) 版本 1.0 規格][]
 
-
-
-[1]: http://aka.ms/lym3vk
-[2]: http://aka.ms/ll1fm3
-[3]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj841071.aspx
-[4]: http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf
+  []: ./media/service-bus-amqp-overview/Example1.png
+  [如何透過服務匯流排 .NET API 使用 AMQP 1.0]: http://aka.ms/lym3vk
+  [如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0]: http://aka.ms/ll1fm3
+  [服務匯流排 AMQP 1.0 開發人員指南]: http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx
+  [OASIS 進階訊息佇列通訊協定 (AMQP) 版本 1.0 規格]: http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf

@@ -1,7 +1,8 @@
-<properties linkid="manage-services-manage-acs" urlDisplayName="Manage ACS" pageTitle="Access Control Service - Azure service management" metaKeywords="" description="Learn how to manage your Azure Access Control Service (ACS) using certificates and keys." metaCanonical="" services="active-directory" documentationCenter="" title="Managing Your ACS Namespace" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-services-manage-acs" urlDisplayName="Manage ACS" pageTitle="Access Control Service - Azure service management" metaKeywords="" description="Learn how to manage your Azure Access Control Service (ACS) using certificates and keys." metaCanonical="" services="active-directory" documentationCenter="" title="Managing Your ACS Namespace" authors="mbaldwin" solutions="" manager="mbaldwin" editor="" />
 
-管理 ACS 命名空間
-=================
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin"></tags>
+
+# 管理 ACS 命名空間
 
 本主題概述建議您定期執行的管理工作，讓使用 Azure 存取控制服務 (ACS) 的應用程式能夠持續正常運作而不中斷。這些管理工作如下：
 
@@ -9,10 +10,9 @@
 
 2.  檢閱身分識別提供者、服務身分識別、規則和入口網站系統管理員，並移除過期的項目。
 
-如需 ACS 的詳細資訊，請參閱＜[存取控制服務 2.0](http://msdn.microsoft.com/zh-tw/library/gg429786.aspx)＞。
+如需 ACS 的詳細資訊，請參閱＜[存取控制服務 2.0][]＞。
 
-憑證與金鑰管理指導方針
-----------------------
+## 憑證與金鑰管理指導方針
 
 基於安全理由，ACS 中使用的憑證和金鑰一定會到期。必須追蹤到期日，以便更新這些憑證和金鑰。
 
@@ -38,16 +38,15 @@
 
 當憑證或金鑰到期時，ACS 將無法簽發權杖，導致信賴憑證者無法正常運作。ACS 會忽略到期的憑證和金鑰，實際上會造成例外狀況，就好像從一開始就未設定憑證或金鑰一樣。在下列區段中，您可以找到 ACS 管理的每個憑證和金鑰的相關資訊、如何更新，以及如何判斷是否到期而需要更新。
 
--   使用 ACS 管理入口網站的 [憑證與金鑰] 區段，管理與服務命名空間和信賴憑證者應用程式相關的憑證和金鑰。如需這些認證類型的詳細資訊，請參閱＜[憑證與金鑰](http://msdn.microsoft.com/zh-tw/library/gg185932.aspx)＞。
--   使用 ACS 管理入口網站的 [服務識別] 區段，管理與服務身分識別相關的認證 (憑證、金鑰或密碼)。如需服務身分識別的詳細資訊，請參閱＜[服務身分識別](http://msdn.microsoft.com/zh-tw/library/gg185945.aspx)＞。
--   使用 ACS 管理入口網站的 [管理服務] 區段，管理與 ACS 管理服務帳戶相關的認證 (憑證、金鑰或密碼)。如需 ACS 管理服務的詳細資訊，請參閱＜[ACS 管理服務](http://msdn.microsoft.com/zh-tw/library/gg185972.aspx)＞。
+-   使用 ACS 管理入口網站的 [憑證與金鑰] 區段，管理與服務命名空間和信賴憑證者應用程式相關的憑證和金鑰。如需這些認證類型的詳細資訊，請參閱＜[憑證與金鑰][]＞。
+-   使用 ACS 管理入口網站的 [服務識別] 區段，管理與服務身分識別相關的認證 (憑證、金鑰或密碼)。如需服務身分識別的詳細資訊，請參閱＜[服務身分識別][]＞。
+-   使用 ACS 管理入口網站的 [管理服務] 區段，管理與 ACS 管理服務帳戶相關的認證 (憑證、金鑰或密碼)。如需 ACS 管理服務的詳細資訊，請參閱＜[ACS 管理服務][]＞。
 
-有些憑證和金鑰類型不會出現在 ACS 管理入口網站中。尤其是 WS-同盟身識別提供者，例如 AD FS，您必須主動檢查身分識別提供者所使用的憑證的有效性。目前，透過 WS-同盟身分識別提供者的中繼資料可取得的憑證，不會出現在 ACS 管理入口網站中。若要驗證這些憑證的有效性，您必須使用管理服務來檢查 [IdentityProviderKey](http://msdn.microsoft.com/zh-tw/library/hh124084.aspx) 的 StartDate 和 EndDate 屬性中的生效日和到期日。當憑證或金鑰到期，因此變成無效時，ACS 會開始擲回憑證或金鑰相關的例外狀況 [ACS 錯誤碼](http://msdn.microsoft.com/zh-tw/library/gg185949.aspx)。關於特定的錯誤碼，請參閱下列各節。
+有些憑證和金鑰類型不會出現在 ACS 管理入口網站中。尤其是 WS-同盟身識別提供者，例如 AD FS，您必須主動檢查身分識別提供者所使用的憑證的有效性。目前，透過 WS-同盟身分識別提供者的中繼資料可取得的憑證，不會出現在 ACS 管理入口網站中。若要驗證這些憑證的有效性，您必須使用管理服務來檢查 [IdentityProviderKey][] 的 StartDate 和 EndDate 屬性中的生效日和到期日。當憑證或金鑰到期，因此變成無效時，ACS 會開始擲回憑證或金鑰相關的例外狀況 [ACS 錯誤碼][]。關於特定的錯誤碼，請參閱下列各節。
 
-您可以透過程式設計方式使用 [ACS 管理服務](http://msdn.microsoft.com/zh-tw/library/gg185972.aspx)來更新憑證和金鑰。請檢閱 KeyManagement 程式碼範例，可從＜[程式碼範例：管理服務](http://msdn.microsoft.com/zh-tw/library/gg185970.aspx)＞下載。
+您可以透過程式設計方式使用 [ACS 管理服務][]來更新憑證和金鑰。請檢閱 KeyManagement 程式碼範例，可從＜[程式碼範例：管理服務][]＞下載。
 
-可用的憑證和金鑰
-----------------
+## 可用的憑證和金鑰
 
 下列清單顯示 ACS 中可用的憑證和金鑰，且必須追蹤其到期日：
 
@@ -61,8 +60,7 @@
 
 本主題接下來詳細說明每一個憑證和金鑰。
 
-權杖簽署憑證
-------------
+## 權杖簽署憑證
 
 ACS 會簽署它所簽發的所有安全性權杖。當您建立應用程式來使用由 ACS 所簽發的 SAML 權杖時，會使用 X.509 憑證進行簽署。
 
@@ -70,29 +68,29 @@ ACS 會簽署它所簽發的所有安全性權杖。當您建立應用程式來�
 
 **管理權杖簽署憑證**
 
-1.  開啟網際網路瀏覽器，瀏覽 Azure 管理入口網站 (<http://go.microsoft.com/fwlink/?LinkID=129428>)。
+1.  開啟網際網路瀏覽器，瀏覽 Azure 管理入口網站 ([][]<http://go.microsoft.com/fwlink/?LinkID=129428></a>)。
 
 2.  使用 Windows Live ID 登入網站。如果您沒有 Windows Live ID，請按一下 [註冊] 建立一個 ID。
 
-3.  使用 Windows Live ID 登入之後，您會重新導向至管理入口網站頁面。在此頁面的左下方，按一下 **[服務匯流排與存取控制]**。
+3.  使用 Windows Live ID 登入之後，您會重新導向至管理入口網站頁面。在此頁面的左下方，按一下 [服務匯流排與存取控制]。
 
-    ![](./media/manage-acs-namespace/ACS1.png)
+    ![][]
 
-4.  若要啟動 ACS 管理入口網站，請按一下左側樹狀目錄中的 **[存取控制]**，選取您要設定的 ACS 服務命名空間，然後按一下頁面頂端工具列的 **[存取控制服務]** 按鈕。
+4.  若要啟動 ACS 管理入口網站，請按一下左側樹狀目錄中的 [存取控制]，選取您要設定的 ACS 服務命名空間，然後按一下頁面頂端工具列的 [存取控制服務] 按鈕。
 
-    ![](./media/manage-acs-namespace/ACS2.png)
-
-    此時畫面如下所示：
-
-    ![](./media/manage-acs-namespace/ACS3.png)
-
-5.  在左側樹狀目錄中，按一下 [服務設定] 區段下的 **[憑證與金鑰]**。
-
-    ![](./media/manage-acs-namespace/ACS4.png)
+    ![][1]
 
     此時畫面如下所示：
 
-    ![](./media/manage-acs-namespace/ACS5.png)
+    ![][2]
+
+5.  在左側樹狀目錄中，按一下 [服務設定] 區段下的 [憑證與金鑰]。
+
+    ![][3]
+
+    此時畫面如下所示：
+
+    ![][4]
 
 6.  在 [權杖簽署] 區段下，使用 [新增] 按鈕在 ACS 中設定新憑證做為「次要」金鑰，與將要到期的現有憑證並存。
 
@@ -104,26 +102,21 @@ ACS 會簽署它所簽發的所有安全性權杖。當您建立應用程式來�
 
 10. 在合理的寬限期之後，使用 [憑證與金鑰] 頁面的 [權杖簽署] 區段下的 [刪除] 按鈕，從 ACS 設定中移除舊的憑證。
 
-如需詳細資訊，請參閱＜[憑證與金鑰](http://msdn.microsoft.com/zh-tw/library/gg185932.aspx)＞。
+如需詳細資訊，請參閱＜[憑證與金鑰][]＞。
 
 當簽署憑證到期時，您在嘗試要求權杖時會收到下列錯誤：
 
-<table><tr><td><b>錯誤碼</b>
-</td>
-<td><b>訊息</b>
-</td>
-<td><b>修正錯誤所需的動作</b>
-</td>
+<table><tr><td><b>錯誤碼</b></td>
+<td><b>訊息</b></td>
+<td><b>修正錯誤所需的動作</b></td>
 </tr>
 <tr>
 <td>ACS50004</td>
 <td>未設定主要 X.509 簽署憑證。SAML 需要簽署憑證。</td>
-<td>如果選擇的信賴憑證者使用 SAML 做為權杖類型，請確定已針對信賴憑證者或服務命名空間設定有效的 X.509 憑證。憑證必須設為主要且必須在有效期間內。</td>
-</tr>
-</table>
+<td>如果選擇的信賴憑證者使用 SAML 做為權杖類型，請確定已針對信賴憑證者或服務命名空間設定有效的 X.509 憑證。憑證必須設為主要且必須在有效期間內。</td></tr>
+</table> 
 
-權杖簽署金鑰
-------------
+## 權杖簽署金鑰
 
 ACS 會簽署它所簽發的所有安全性權杖。當您建立應用程式來使用由 ACS 所簽發的 SWT 權杖時，會使用256 位元對稱簽署金鑰。
 
@@ -131,29 +124,29 @@ ACS 會簽署它所簽發的所有安全性權杖。當您建立應用程式來�
 
 **管理權杖簽署金鑰**
 
-1.  開啟網際網路瀏覽器，瀏覽 Azure 管理入口網站 (<http://go.microsoft.com/fwlink/?LinkID=129428>)。
+1.  開啟網際網路瀏覽器，瀏覽 Azure 管理入口網站 ([][]<http://go.microsoft.com/fwlink/?LinkID=129428></a>)。
 
 2.  使用 Windows Live ID 登入網站。如果您沒有 Windows Live ID，請按一下 [註冊] 建立一個 ID。
 
-3.  使用 Windows Live ID 登入之後，您會重新導向至管理入口網站頁面。在此頁面的左下方，按一下 **[服務匯流排與存取控制]**。
+3.  使用 Windows Live ID 登入之後，您會重新導向至管理入口網站頁面。在此頁面的左下方，按一下 [服務匯流排與存取控制]。
 
-    ![](./media/manage-acs-namespace/ACS1.png)
+    ![][]
 
-4.  若要啟動 ACS 管理入口網站，請按一下左側樹狀目錄中的 **[存取控制]**，選取您要設定的 ACS 服務命名空間，然後按一下頁面頂端工具列的 **[存取控制服務]** 按鈕。
+4.  若要啟動 ACS 管理入口網站，請按一下左側樹狀目錄中的 [存取控制]，選取您要設定的 ACS 服務命名空間，然後按一下頁面頂端工具列的 [存取控制服務] 按鈕。
 
-    ![](./media/manage-acs-namespace/ACS2.png)
-
-    此時畫面如下所示：
-
-    ![](./media/manage-acs-namespace/ACS3.png)
-
-5.  在左側樹狀目錄中，按一下 [服務設定] 區段下的 **[憑證與金鑰]**。
-
-    ![](./media/manage-acs-namespace/ACS4.png)
+    ![][1]
 
     此時畫面如下所示：
 
-    ![](./media/manage-acs-namespace/ACS5.png)
+    ![][2]
+
+5.  在左側樹狀目錄中，按一下 [服務設定] 區段下的 [憑證與金鑰]。
+
+    ![][3]
+
+    此時畫面如下所示：
+
+    ![][4]
 
 6.  在 [權杖簽署] 區段下，使用 [新增] 按鈕在 ACS 中設定新的金鑰做為「次要」金鑰，與將要到期的現有金鑰並存。
 
@@ -165,26 +158,21 @@ ACS 會簽署它所簽發的所有安全性權杖。當您建立應用程式來�
 
 10. 在合理的寬限期之後，使用 [憑證與金鑰] 頁面的 [權杖簽署] 區段下的 [刪除] 按鈕，從 ACS 設定中移除舊的金鑰。
 
-如需詳細資訊，請參閱＜[憑證與金鑰](http://msdn.microsoft.com/zh-tw/library/gg185932.aspx)＞。
+如需詳細資訊，請參閱＜[憑證與金鑰][]＞。
 
 當簽署金鑰到期時，您在嘗試要求權杖時會收到下列錯誤：
 
-<table><tr><td><b>錯誤碼</b>
-</td>
-<td><b>訊息</b>
-</td>
-<td><b>修正錯誤所需的動作</b>
-</td>
+<table><tr><td><b>錯誤碼</b></td>
+<td><b>訊息</b></td>
+<td><b>修正錯誤所需的動作</b></td>
 </tr>
 <tr>
 <td>ACS50003</td>
 <td>未設定主要對稱簽署金鑰。SWT 需要對稱簽署金鑰。</td>
-<td>如果選擇的信賴憑證者使用 SWT 做為權杖類型，請確定已針對信賴憑證者或服務命名空間設定對稱金鑰，並確定此金鑰已設為主要且在有效期間內。</td>
-</tr>
-</table>
+<td>如果選擇的信賴憑證者使用 SWT 做為權杖類型，請確定已針對信賴憑證者或服務命名空間設定對稱金鑰，並確定此金鑰已設為主要且在有效期間內。</td></tr>
+</table> 
 
-權杖加密憑證
-------------
+## 權杖加密憑證
 
 如果信賴憑證者應用程式是在 WS-Trust 通訊協定上使用持有證明權杖的 Web 服務，則需要權杖加密，否則權杖加密是選擇性的。
 
@@ -192,54 +180,49 @@ ACS 會簽署它所簽發的所有安全性權杖。當您建立應用程式來�
 
 **管理權杖加密憑證**
 
-1.  開啟網際網路瀏覽器，瀏覽 Azure 管理入口網站 (<http://go.microsoft.com/fwlink/?LinkID=129428>)。
+1.  開啟網際網路瀏覽器，瀏覽 Azure 管理入口網站 ([][]<http://go.microsoft.com/fwlink/?LinkID=129428></a>)。
 
 2.  使用 Windows Live ID 登入網站。如果您沒有 Windows Live ID，請按一下 [註冊] 建立一個 ID。
 
-3.  使用 Windows Live ID 登入之後，您會重新導向至管理入口網站頁面。在此頁面的左下方，按一下 **[服務匯流排與存取控制]**。
+3.  使用 Windows Live ID 登入之後，您會重新導向至管理入口網站頁面。在此頁面的左下方，按一下 [服務匯流排與存取控制]。
 
-    ![](./media/manage-acs-namespace/ACS1.png)
+    ![][]
 
-4.  若要啟動 ACS 管理入口網站，請按一下左側樹狀目錄中的 **[存取控制]**，選取您要設定的 ACS 服務命名空間，然後按一下頁面頂端工具列的 **[存取控制服務]** 按鈕。
+4.  若要啟動 ACS 管理入口網站，請按一下左側樹狀目錄中的 [存取控制]，選取您要設定的 ACS 服務命名空間，然後按一下頁面頂端工具列的 [存取控制服務] 按鈕。
 
-    ![](./media/manage-acs-namespace/ACS2.png)
-
-    此時畫面如下所示：
-
-    ![](./media/manage-acs-namespace/ACS3.png)
-
-5.  在左側樹狀目錄中，按一下 [服務設定] 區段下的 **[憑證與金鑰]**。
-
-    ![](./media/manage-acs-namespace/ACS4.png)
+    ![][1]
 
     此時畫面如下所示：
 
-    ![](./media/manage-acs-namespace/ACS7.png)
+    ![][2]
+
+5.  在左側樹狀目錄中，按一下 [服務設定] 區段下的 [憑證與金鑰]。
+
+    ![][3]
+
+    此時畫面如下所示：
+
+    ![][5]
 
 6.  您 (或夥伴) 更新信賴憑證者應用程式中用於權杖解密的對應憑證或金鑰
 7.  使用 [新增] 按鈕在 ACS 中設定新的加密憑證，與將要到期的現有憑證並存。
 8.  使用 [刪除] 來移除舊的密碼憑證。
 
-如需詳細資訊，請參閱＜[憑證與金鑰](http://msdn.microsoft.com/zh-tw/library/gg185932.aspx)＞。
+如需詳細資訊，請參閱＜[憑證與金鑰][]＞。
 
-當加密憑證到期時，您在嘗試要求權杖時會收到下列錯誤：
+當加密憑證到期時，您在嘗試要求權杖時會收到下列錯誤： 
 
-<table><tr><td><b>錯誤碼</b>
-</td>
-<td><b>訊息</b>
-</td>
-<td><b>修正錯誤所需的動作</b>
-</td>
+<table><tr><td><b>錯誤碼</b></td>
+<td><b>訊息</b></td>
+<td><b>修正錯誤所需的動作</b></td>
 </tr>
 <tr>
 <td>ACS50005</td>
 <td>需要權杖加密，但未設定信賴憑證者的加密憑證。</td>
-<td>請對選擇的信賴憑證者停用權杖加密，或上傳要用於權杖加密的 X.509 憑證。</td>
-</tr>
-</table>
+<td>請對選擇的信賴憑證者停用權杖加密，或上傳要用於權杖加密的 X.509 憑證。</td></tr>
+</table> 
 
-權杖解密憑證
-------------
+## 權杖解密憑證
 
 ACS 可以接受來自 WS-同盟身分識別提供者 (例如 AD FS 2.0) 的加密權杖。裝載於 ACS 中的 X.509 憑證會用來解密。
 
@@ -247,29 +230,29 @@ ACS 可以接受來自 WS-同盟身分識別提供者 (例如 AD FS 2.0) 的加�
 
 **管理權杖解密憑證**
 
-1.  開啟網際網路瀏覽器，瀏覽 Azure 管理入口網站 (<http://go.microsoft.com/fwlink/?LinkID=129428>)。
+1.  開啟網際網路瀏覽器，瀏覽 Azure 管理入口網站 ([][]<http://go.microsoft.com/fwlink/?LinkID=129428></a>)。
 
 2.  使用 Windows Live ID 登入網站。如果您沒有 Windows Live ID，請按一下 [註冊] 建立一個 ID。
 
-3.  使用 Windows Live ID 登入之後，您會重新導向至管理入口網站頁面。在此頁面的左下方，按一下 **[服務匯流排與存取控制]**。
+3.  使用 Windows Live ID 登入之後，您會重新導向至管理入口網站頁面。在此頁面的左下方，按一下 [服務匯流排與存取控制]。
 
-    ![](./media/manage-acs-namespace/ACS1.png)
+    ![][]
 
-4.  若要啟動 ACS 管理入口網站，請按一下左側樹狀目錄中的 **[存取控制]**，選取您要設定的 ACS 服務命名空間，然後按一下頁面頂端工具列的 **[存取控制服務]** 按鈕。
+4.  若要啟動 ACS 管理入口網站，請按一下左側樹狀目錄中的 [存取控制]，選取您要設定的 ACS 服務命名空間，然後按一下頁面頂端工具列的 [存取控制服務] 按鈕。
 
-    ![](./media/manage-acs-namespace/ACS2.png)
-
-    此時畫面如下所示：
-
-    ![](./media/manage-acs-namespace/ACS3.png)
-
-5.  在左側樹狀目錄中，按一下 [服務設定] 區段下的 **[憑證與金鑰]**。
-
-    ![](./media/manage-acs-namespace/ACS4.png)
+    ![][1]
 
     此時畫面如下所示：
 
-    ![](./media/manage-acs-namespace/ACS9.png)
+    ![][2]
+
+5.  在左側樹狀目錄中，按一下 [服務設定] 區段下的 [憑證與金鑰]。
+
+    ![][3]
+
+    此時畫面如下所示：
+
+    ![][6]
 
 6.  在 [權杖解密] 區段下，使用 [新增] 按鈕在 ACS 中設定新憑證做為「次要」金鑰，與將要到期的現有憑證並存。
 
@@ -281,26 +264,22 @@ ACS 可以接受來自 WS-同盟身分識別提供者 (例如 AD FS 2.0) 的加�
 
 10. 在合理的寬限期之後，使用 [憑證與金鑰] 頁面的 [權杖簽署] 區段下的 [刪除] 按鈕，從 ACS 設定中移除舊的憑證。
 
-如需詳細資訊，請參閱＜[憑證與金鑰](http://msdn.microsoft.com/zh-tw/library/gg185932.aspx)＞。
+如需詳細資訊，請參閱＜[憑證與金鑰][]＞。
 
 當解密憑證到期時，您在嘗試要求權杖時會收到下列錯誤：
 
-<table><tr><td><b>錯誤碼</b>
-</td>
-<td><b>訊息</b>
-</td>
+<table><tr><td><b>錯誤碼</b></td>
+<td><b>訊息</b></td>
 </tr>
 <tr>
 <td>ACS10001</td>
 <td>處理 SOAP 標頭時發生錯誤。</td>
 </tr>
 <tr><td>ACS20001</td>
-<td>處理 WS-同盟登入回應時發生錯誤。</td>
-</tr>
-</table>
+<td>處理 WS-同盟登入回應時發生錯誤。</td></tr>
+</table> 
 
-服務身分識別認證
-----------------
+## 服務身分識別認證
 
 服務身分識別是針對整個 ACS 命名空間所設定的認證，可讓應用程式或用戶端直接向 ACS 驗證並接收權杖。ACS 服務身分識別可以與對稱金鑰、密碼及 X.509 憑證產生關聯的認證類型有三種。
 
@@ -308,29 +287,29 @@ ACS 可以接受來自 WS-同盟身分識別提供者 (例如 AD FS 2.0) 的加�
 
 **管理服務身分識別認證**
 
-1.  開啟網際網路瀏覽器，瀏覽 Azure 管理入口網站 (<http://go.microsoft.com/fwlink/?LinkID=129428>)。
+1.  開啟網際網路瀏覽器，瀏覽 Azure 管理入口網站 ([][]<http://go.microsoft.com/fwlink/?LinkID=129428></a>)。
 
 2.  使用 Windows Live ID 登入網站。如果您沒有 Windows Live ID，請按一下 [註冊] 建立一個 ID。
 
-3.  使用 Windows Live ID 登入之後，您會重新導向至管理入口網站頁面。在此頁面的左下方，按一下 **[服務匯流排與存取控制]**。
+3.  使用 Windows Live ID 登入之後，您會重新導向至管理入口網站頁面。在此頁面的左下方，按一下 [服務匯流排與存取控制]。
 
-    ![](./media/manage-acs-namespace/ACS1.png)
+    ![][]
 
-4.  若要啟動 ACS 管理入口網站，請按一下左側樹狀目錄中的 **[存取控制]**，選取您要設定的 ACS 服務命名空間，然後按一下頁面頂端工具列的 **[存取控制服務]** 按鈕。
+4.  若要啟動 ACS 管理入口網站，請按一下左側樹狀目錄中的 [存取控制]，選取您要設定的 ACS 服務命名空間，然後按一下頁面頂端工具列的 [存取控制服務] 按鈕。
 
-    ![](./media/manage-acs-namespace/ACS2.png)
+    ![][1]
 
     此時畫面如下所示：
 
-    ![](./media/manage-acs-namespace/ACS3.png)
+    ![][2]
 
-5.  在左側樹狀目錄中，按一下 [服務設定] 區段下的 **[服務識別]**。
+5.  在左側樹狀目錄中，按一下 [服務設定] 區段下的 [服務識別]。
 
-    ![](./media/manage-acs-namespace/ACS11.png)
+    ![][7]
 
 6.  按一下您要編輯的服務身分識別。
 
-    ![](./media/manage-acs-namespace/ACS112.png)
+    ![][8]
 
 7.  在 [認證] 區段中，使用 [新增] 按鈕在 ACS 中設定新的憑證或金鑰，與將要到期的現有憑證或金鑰並存。
 
@@ -338,36 +317,42 @@ ACS 可以接受來自 WS-同盟身分識別提供者 (例如 AD FS 2.0) 的加�
 
 9.  更新所有用戶端之後 (或在合理的寬限期之後)，使用 [刪除] 按鈕來移除舊的憑證或金鑰。
 
-如需詳細資訊，請參閱＜[服務身分識別](http://msdn.microsoft.com/zh-tw/library/gg185945.aspx)＞。
+如需詳細資訊，請參閱＜[服務身分識別][]＞。
 
 以下是 ACS 在認證到期時擲回的例外狀況：
 
-<table><tr><td><b>認證</b>
-</td>
-<td><b>錯誤碼</b>
-</td>
-<td><b>訊息</b>
-</td>
-<td><b>修正錯誤所需的動作</b>
-</td>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>認證&gt;</strong></td>
+<td align="left"><strong>錯誤碼</strong></td>
+<td align="left"><strong>訊息</strong></td>
+<td align="left"><strong>修正錯誤所需的動作</strong></td>
 </tr>
-<tr>
-<td>對稱金鑰、密碼</td>
-<td>ACS50006</td>
-<td>簽章驗證失敗(訊息中可能有更多詳細資料)。</td>
-<td  />
+<tr class="even">
+<td align="left">對稱金鑰、密碼</td>
+<td align="left">ACS50006</td>
+<td align="left">簽章驗證失敗(訊息中可能有更多詳細資料)。</td>
+<td align="left"></td>
 </tr>
-<tr><td>X.509 憑證</td>
-<td>ACS50016</td>
-<td>主旨為 '<憑證主旨名稱>' 和指模為 '<憑證指模>' 的 X509 憑證不符合任何已設定的憑證。</td>
-<td>請確定所要求的憑證已上傳至 ACS。</td>
+<tr class="odd">
+<td align="left">X.509 憑證</td>
+<td align="left">ACS50016</td>
+<td align="left">主旨為 '&lt;憑證主旨名稱&gt;' 和指模為 '&lt;憑證指模&gt;' 的 X509 憑證不符合任何已設定的憑證。</td>
+<td align="left">請確定所要求的憑證已上傳至 ACS。</td>
 </tr>
+</tbody>
 </table>
 
-若要驗證和更新對稱金鑰或密碼的到期日，或上傳新的憑證做為服務身分識別認證，請依照＜[作法：使用 X.509 憑證、密碼或對稱金鑰新增服務身分識別](http://msdn.microsoft.com/zh-tw/library/gg185924.aspx)＞中的指示進行。[編輯服務識別] 頁面中提供服務身分識別認證的清單。
+若要驗證和更新對稱金鑰或密碼的到期日，或上傳新的憑證做為服務身分識別認證，請依照＜[作法：使用 X.509 憑證、密碼或對稱金鑰新增服務身分識別][]＞中的指示進行。[編輯服務識別] 頁面中提供服務身分識別認證的清單。
 
-管理服務認證
-------------
+## 管理服務認證
 
 ACS 管理服務是 ACS 的重要元件，可讓您以程式設計方式來管理和設定 ACS 命名空間中的設定。ACS 管理服務帳戶可以關聯的認證類型有三種。這三種類型分別是對稱金鑰、密碼和 X.509 憑證。
 
@@ -375,29 +360,29 @@ ACS 管理服務是 ACS 的重要元件，可讓您以程式設計方式來管�
 
 **管理 ACS 管理服務認證**
 
-1.  開啟網際網路瀏覽器，瀏覽 Azure 管理入口網站 (<http://go.microsoft.com/fwlink/?LinkID=129428>)。
+1.  開啟網際網路瀏覽器，瀏覽 Azure 管理入口網站 ([][]<http://go.microsoft.com/fwlink/?LinkID=129428></a>)。
 
 2.  使用 Windows Live ID 登入網站。如果您沒有 Windows Live ID，請按一下 [註冊] 建立一個 ID。
 
-3.  使用 Windows Live ID 登入之後，您會重新導向至管理入口網站頁面。在此頁面的左下方，按一下 **[服務匯流排與存取控制]**。
+3.  使用 Windows Live ID 登入之後，您會重新導向至管理入口網站頁面。在此頁面的左下方，按一下 [服務匯流排與存取控制]。
 
-    ![](./media/manage-acs-namespace/ACS1.png)
+    ![][]
 
-4.  若要啟動 ACS 管理入口網站，請按一下左側樹狀目錄中的 **[存取控制]**，選取您要設定的 ACS 服務命名空間，然後按一下頁面頂端工具列的 **[存取控制服務]** 按鈕。
+4.  若要啟動 ACS 管理入口網站，請按一下左側樹狀目錄中的 [存取控制]，選取您要設定的 ACS 服務命名空間，然後按一下頁面頂端工具列的 [存取控制服務] 按鈕。
 
-    ![](./media/manage-acs-namespace/ACS2.png)
+    ![][1]
 
     此時畫面如下所示：
 
-    ![](./media/manage-acs-namespace/ACS3.png)
+    ![][2]
 
-5.  在左側樹狀目錄中，按一下 [管理] 區段下的 **[管理服務]**。
+5.  在左側樹狀目錄中，按一下 [管理] 區段下的 [管理服務]。
 
-    ![](./media/manage-acs-namespace/ACS14.png)
+    ![][9]
 
 6.  按一下管理服務帳戶。
 
-    ![](./media/manage-acs-namespace/ACS15.png)
+    ![][10]
 
 7.  在 [認證] 區段中，使用 [新增] 按鈕在 ACS 中設定新的憑證或金鑰，與將要到期的現有憑證或金鑰並存。
 
@@ -405,56 +390,78 @@ ACS 管理服務是 ACS 的重要元件，可讓您以程式設計方式來管�
 
 9.  更新所有用戶端之後 (或在合理的寬限期之後)，使用 [刪除] 按鈕來移除舊的憑證或金鑰。
 
-如需詳細資訊，請參閱＜[ACS 管理服務](http://msdn.microsoft.com/zh-tw/library/gg185972.aspx)＞。
+如需詳細資訊，請參閱＜[ACS 管理服務][]＞。
 
 如果這些認證到期，ACS 會擲出下列例外狀況：
 
-<table><tr><td><b>認證</b>
-</td>
-<td><b>錯誤碼</b>
-</td>
-<td><b>訊息</b>
-</td>
-<td><b>修正錯誤所需的動作</b>
-</td>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>認證&gt;</strong></td>
+<td align="left"><strong>錯誤碼</strong></td>
+<td align="left"><strong>訊息</strong></td>
+<td align="left"><strong>修正錯誤所需的動作</strong></td>
 </tr>
-<tr>
-<td>對稱金鑰、密碼</td>
-<td>ACS50006</td>
-<td>簽章驗證失敗(訊息中可能有更多詳細資料)。</td>
-<td  />
+<tr class="even">
+<td align="left">對稱金鑰、密碼</td>
+<td align="left">ACS50006</td>
+<td align="left">簽章驗證失敗(訊息中可能有更多詳細資料)。</td>
+<td align="left"></td>
 </tr>
-<tr><td>X.509 憑證</td>
-<td>ACS50016</td>
-<td>主旨為 '<憑證主旨名稱>' 和指模為 '<憑證指模>' 的 X509 憑證不符合任何已設定的憑證。</td>
-<td>請確定所要求的憑證已上傳至 ACS。</td>
+<tr class="odd">
+<td align="left">X.509 憑證</td>
+<td align="left">ACS50016</td>
+<td align="left">主旨為 '&lt;憑證主旨名稱&gt;' 和指模為 '&lt;憑證指模&gt;' 的 X509 憑證不符合任何已設定的憑證。</td>
+<td align="left">請確定所要求的憑證已上傳至 ACS。</td>
 </tr>
+</tbody>
 </table>
 
 ACS 管理入口網站的 [編輯管理服務帳戶] 頁面提供 ACS 管理服務帳戶認證的清單。
 
-WS-同盟身分識別提供者憑證
--------------------------
+## WS-同盟身分識別提供者憑證
 
-WS-同盟身分識別提供者憑證可透過其中繼資料取得。設定 WS-同盟身分識別提供者時，例如 AD FS，WS-同盟簽署憑證是透過 WS-同盟中繼資料 (透過 URL 或以檔案形式取得) 來設定，如需詳細資訊，請參閱＜[WS-同盟身分識別提供者](http://msdn.microsoft.com/zh-tw/library/gg185933.aspx)＞和＜[作法：將 AD FS 2.0 設定為身分識別提供者](http://msdn.microsoft.com/zh-tw/library/gg185961.aspx)＞。在 ACS 中設定 WS-同盟身分識別提供者之後，您可以使用 Azure 管理服務來查詢其憑證是否有效。請注意，每次透過 ACS 管理入口網站或 ACS 管理服務來連續上傳中繼資料時會取代金鑰。
+WS-同盟身分識別提供者憑證可透過其中繼資料取得。設定 WS-同盟身分識別提供者時，例如 AD FS，WS-同盟簽署憑證是透過 WS-同盟中繼資料 (透過 URL 或以檔案形式取得) 來設定，如需詳細資訊，請參閱＜[WS-同盟身分識別提供者][]＞和＜[作法：將 AD FS 2.0 設定為身分識別提供者][]＞。在 ACS 中設定 WS-同盟身分識別提供者之後，您可以使用 Azure 管理服務來查詢其憑證是否有效。請注意，每次透過 ACS 管理入口網站或 ACS 管理服務來連續上傳中繼資料時會取代金鑰。
 
 以下是 ACS 在憑證到期時擲回的例外狀況：
 
-<table><tr><td><b>錯誤碼</b>
-</td>
-<td><b>訊息</b>
-</td>
+<table><tr><td><b>錯誤碼</b></td>
+<td><b>訊息</b></td>
 </tr>
 <tr>
 <td>ACS10001</td>
 <td>處理 SOAP 標頭時發生錯誤。</td>
 </tr>
 <tr><td>ACS20001</td>
-<td>處理 WS-同盟登入回應時發生錯誤。</td>
-</tr>
-<tr><td>ACS50006</td>
-<td>簽章驗證失敗(訊息中可能有更多詳細資料)。</td>
-</tr>
-</table>
+<td>處理 WS-同盟登入回應時發生錯誤。</td></tr>
+<tr><td>ACS50006</td><td>簽章驗證失敗(訊息中可能有更多詳細資料)。</td></tr>
+</table> 
 
-
+  [存取控制服務 2.0]: http://msdn.microsoft.com/library/azure/hh147631.aspx
+  [憑證與金鑰]: http://msdn.microsoft.com/en-us/library/gg185932.aspx
+  [服務身分識別]: http://msdn.microsoft.com/en-us/library/gg185945.aspx
+  [ACS 管理服務]: http://msdn.microsoft.com/en-us/library/gg185972.aspx
+  [IdentityProviderKey]: http://msdn.microsoft.com/en-us/library/hh124084.aspx
+  [ACS 錯誤碼]: http://msdn.microsoft.com/en-us/library/gg185949.aspx
+  [程式碼範例：管理服務]: http://msdn.microsoft.com/en-us/library/gg185970.aspx
+  []: http://go.microsoft.com/fwlink/?LinkID=129428
+  []: ./media/manage-acs-namespace/ACS1.png
+  [1]: ./media/manage-acs-namespace/ACS2.png
+  [2]: ./media/manage-acs-namespace/ACS3.png
+  [3]: ./media/manage-acs-namespace/ACS4.png
+  [4]: ./media/manage-acs-namespace/ACS5.png
+  [5]: ./media/manage-acs-namespace/ACS7.png
+  [6]: ./media/manage-acs-namespace/ACS9.png
+  [7]: ./media/manage-acs-namespace/ACS11.png
+  [8]: ./media/manage-acs-namespace/ACS112.png
+  [作法：使用 X.509 憑證、密碼或對稱金鑰新增服務身分識別]: http://msdn.microsoft.com/en-us/library/gg185924.aspx
+  [9]: ./media/manage-acs-namespace/ACS14.png
+  [10]: ./media/manage-acs-namespace/ACS15.png
+  [WS-同盟身分識別提供者]: http://msdn.microsoft.com/en-us/library/gg185933.aspx
+  [作法：將 AD FS 2.0 設定為身分識別提供者]: http://msdn.microsoft.com/en-us/library/gg185961.aspx

@@ -1,18 +1,18 @@
-<properties linkid="manage-linux-commontasks-install-software" urlDisplayName="Install software on VM" pageTitle="Install software on a Linux virtual machine - Azure" metaKeywords="" description="Learn how to install software on your Linux virtual machine in Azure by using CentOS/Red Hat or Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install software on your Linux virtual machine in Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-linux-commontasks-install-software" urlDisplayName="Install software on VM" pageTitle="Install software on a Linux virtual machine - Azure" metaKeywords="" description="Learn how to install software on your Linux virtual machine in Azure by using CentOS/Red Hat or Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install software on your Linux virtual machine in Azure" authors="timlt" solutions="" manager="timlt" editor="" />
 
-在 Azure 中的 Linux 虛擬機器上安裝軟體
-======================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
 
-Linux 散發套件傾向於使用軟體「套件」來安裝軟體。這些套件通常是使用一組命令 (例如 `apt` 或 `yum`) 來管理。您也可以在沒有套件的情況下安裝程式，例如利用原始程式碼的 *tarball*。
+# 在 Azure 中的 Linux 虛擬機器上安裝軟體
+
+Linux 散發套件傾向於使用軟體「套件」來安裝軟體。 These packages are usually managed using a set of commands, such as `apt` or `yum`.您也可以在沒有套件的情況下安裝程式，例如利用原始程式碼的 *tarball*。
 
 我們將會說明如何使用一些常見 Linux 散發套件的套件管理員。相關步驟會根據您所使用的 Linux 散發套件而有所不同。
 
-**注意：**視您的環境的設定方式而定，可能必須使用根權限執行下列命令 (透過 `sudo`)。
+**注意：** Depending on how your environment is setup, these commands may need to be ran using root privleges (via `sudo`).
 
-CentOS/Red Hat
---------------
+## CentOS/Red Hat
 
-CentOS 隨附於 `yum`，可用於管理套件。透過此工具，您可以安裝、解除安裝、更新、列出已安裝的套件等。這些命令的語法如下。
+CentOS comes with `yum` for package management.透過此工具，您可以安裝、解除安裝、更新、列出已安裝的套件等。這些命令的語法如下。
 
 ### 安裝
 
@@ -38,10 +38,9 @@ CentOS 隨附於 `yum`，可用於管理套件。透過此工具，您可以安�
 
     yum list installed
 
-Ubuntu
-------
+## Ubuntu
 
-Ubuntu 隨附於 `apt` (進階封裝工具)，可用於管理套件。透過此工具，您可以安裝、解除安裝、更新、列出已安裝的套件等。這些命令的語法如下。
+Ubuntu comes with `apt` (Advanced Packaging Tool) for package management.透過此工具，您可以安裝、解除安裝、更新、列出已安裝的套件等。這些命令的語法如下。
 
 ### 安裝
 

@@ -1,28 +1,26 @@
-<properties linkid="develop-java-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" headerExpose="" pageTitle="How to use AMQP 1.0 with the Java Service Bus API - Azure" metaKeywords="Java Messsage AMQP, Service Bus AMQP, download AMQP JMS library" footerExpose="" description="Learn how to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." umbracoNaviHide="0" disqusComments="1" metaCanonical="" title="How to use the Java Message Service (JMS) API with Service Bus &amp; AMQP 1.0" authors="" solutions="" documentationCenter="Java" writer="sethm" manager="dwrede" editor="mattshel" />
+<properties linkid="develop-java-how-to-guides-service-bus-amqp" urldisplayname="Service Bus AMQP" headerexpose="" pageTitle="How to use AMQP 1.0 with the Java Service Bus API - Azure" metakeywords="Java Messsage AMQP, Service Bus AMQP, download AMQP JMS library" footerexpose="" description="Learn how to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." umbraconavihide="0" disquscomments="1" metaCanonical="" title="How to use the Java Message Service (JMS) API with Service Bus &amp; AMQP 1.0" authors="seethm"  solutions="" documentationCenter="Java" writer="sethm" manager="timlt" editor="mattshel" />
 
-如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0
-============================================================
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="seethm"></tags>
 
-簡介
-====
+# 如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0
 
-進階訊息佇列通訊協定 (AMQP) 1.0 是一個有效率且可靠的有線等級訊息通訊協定，可以用來建置強大的跨平台訊息應用程式。2012 年 10 月，Azure 服務匯流排加入 AMQP 1.0 支援作為預覽功能。預期在 2013 年上半年全面供應 (GA)。
+# 簡介
 
-新增 AMQP 1.0 代表現在能夠從一組平台中使用有效率的二進位通訊協定，來運用服務匯流排的佇列與發佈/訂閱代理訊息功能。此外，您還可以建置使用混合語言、架構及作業系統所建置之元件所組成的應用程式。
+進階訊息佇列通訊協定 (AMQP) 1.0 是一個有效率且可靠的有線等級訊息通訊協定，可以用來建置強大的跨平台訊息應用程式。2012 年 10 月，Azure 服務匯流排加入 AMQP 1.0 支援，並在 2013 年 5 月全面供應 (GA)。
+
+加入 AMQP 1.0 代表現在能夠從一組平台中使用有效率的二進位通訊協定，來運用服務匯流排的佇列與發佈/訂閱代理訊息功能。此外，您還可以建置使用混合語言、架構及作業系統所建置之元件所組成的應用程式。
 
 本作法指南說明如何以常用的 Java 訊息服務 (JMS) API 標準從 Java 應用程式使用服務匯流排代理訊息功能 (佇列和發佈/訂閱主題)。
 
+# 
 
+# 開始使用服務匯流排
 
-開始使用服務匯流排
-==================
+本指南假設您已經有服務匯流排命名空間，其中包含名稱為「queue1」的佇列。如果沒有，您可以使用 [Azure 管理入口網站][]建立命名空間和佇列。如需如何建立服務匯流排命名空間和佇列的詳細資訊，請參閱標題為「[如何使用服務匯流排佇列][]」的作法指南。
 
-本指南假設您已經有服務匯流排命名空間，其中包含名稱為「queue1」的佇列。如果沒有，您可以使用 [Azure 管理入口網站](http://manage.windowsazure.com)建立命名空間和佇列。如需如何建立服務匯流排命名空間和佇列的詳細資訊，請參閱標題為[如何使用服務匯流排佇列](https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/) (英文) 的作法指南。?
+## 下載 AMQP 1.0 JMS 用戶端程式庫
 
-下載 AMQP 1.0 JMS 用戶端程式庫
-------------------------------
-
-如需哪裡下載最新版 Apache Qpid JMS AMQP 1.0 用戶端程式庫的資訊，請造訪 <http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html>。
+如需哪裡下載最新版 Apache Qpid JMS AMQP 1.0 用戶端程式庫的資訊，請造訪 [][]<http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html></a>。
 
 您使用服務匯流排建立和執行 JMS 應用程式時，必須從 Apache Qpid JMS AMQP 1.0 散發封裝將下列 4 個 JAR 檔加入 Java CLASSPATH：
 
@@ -31,8 +29,7 @@
 -   qpid-amqp-1-0-client-jms-[version].jar
 -   qpid-amqp-1-0-common-[version].jar
 
-編寫 Java 應用程式
-------------------
+## 編寫 Java 應用程式
 
 ### ***Java 命名及目錄介面 (JNDI)***
 
@@ -56,6 +53,7 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
     connectionfactory.[jndi_name] = [ConnectionURL]
 
 其中 [jndi\_name] 及 [ConnectionURL] 具有下列意義：
+
 
 <table>
   <tr>
@@ -81,7 +79,7 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
   </tr>
   <tr>
     <td>[username]</td>
-    <td>管理入口網站取得的服務匯流排發行者名稱。</td>
+    <td>從 Azure 管理入口網站取得的服務匯流排發行者名稱。</td>
   </tr>
   <tr>
     <td>[password]</td>
@@ -89,9 +87,10 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
   </tr>
 </table>
 
-**注意**：您必須手動使用 URL 將密碼編碼。<http://www.w3schools.com/tags/ref_urlencode.asp> 中提供實用的 URL 編碼公用程式。
+**注意**：您必須手動使用 URL 將密碼編碼。[][1]<http://www.w3schools.com/tags/ref_urlencode.asp></a> 中提供實用的 URL 編碼公用程式。
 
 例如，如果從 Azure 管理入口網站取得的資訊如下：
+
 
 <table>
   <tr>
@@ -108,7 +107,7 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
   </tr>
 </table>
 
-然後，為了定義名稱為「SBCF」的 **ConnectionFactory**，組態字串出現，如下所示：
+接著，為了定義名為「SBCF」的 **ConnectionFactory**，即會出現組態字串，如下所示：
 
     connectionfactory.SBCF = amqps://owner:j9VYv1q33Ea%2BcbahWsHFYnLkEzrF0yA5SAqcLNvU7KM%3D@foo.servicebus.windows.net
 
@@ -124,6 +123,7 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 
 其中 [jndi\_name] 及 [physical\_name] 具有下列意義：
 
+
 <table>
   <tr>
     <td>[jndi_name]</td>
@@ -135,11 +135,11 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
   </tr>
 </table>
 
-**注意**：從服務匯流排主題訂閱收到在 JNDI 中指定的實體名稱應該是主題的名稱。以 JMS 應用程式程式碼建立持續性訂閱時，將建立訂閱名稱。[Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj841071.aspx)提供處理 JMS 服務匯流排主題訂閱的詳細資料。
+**注意**：從服務匯流排主題訂閱收到在 JNDI 中指定的實體名稱應該是主題的名稱。以 JMS 應用程式程式碼建立持續性訂閱時，將建立訂閱名稱。[Service Bus AMQP 1.0 開發人員指南][]提供處理 JMS 服務匯流排主題訂閱的詳細資料。
 
 ### 撰寫 JMS 應用程式
 
-對於服務匯流排使用 JMS 時，不需要特別 API 或選項。不過，後續將說明一些限制。和任何 JMS 應用程式一樣，首先需要設定 JNDI 環境，才能夠解析 **ConnectionFactory** 和目的地。
+將 JMS 與服務匯流排搭配使用時，不需特別的 API 或選項。不過，後續將說明一些限制。和任何 JMS 應用程式一樣，首先需要設定 JNDI 環境，才能夠解析 **ConnectionFactory** 和目的地。
 
 **設定 JNDI InitialContext**
 
@@ -154,107 +154,107 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 
 下列範例程式將 JMS TextMessages 傳送到 JNDI 邏輯名稱為 QUEUE 的服務匯流排佇列，並收到傳回的訊息。
 
-	// SimpleSenderReceiver.java
-	
-	import javax.jms.*;
-	import javax.naming.Context;
-	import javax.naming.InitialContext;
-	import java.io.BufferedReader;
-	import java.io.InputStreamReader;
-	import java.util.Hashtable;
-	import java.util.Random;
-	
-	public class SimpleSenderReceiver implements MessageListener {
-	    private static boolean runReceiver = true;
-	    private Connection connection;
-	    private Session sendSession;
-	    private Session receiveSession;
-	    private MessageProducer sender;
-	    private MessageConsumer receiver;
-	    private static Random randomGenerator = new Random();
-	
-	    public SimpleSenderReceiver() throws Exception {
-	        // Configure JNDI environment
-	        Hashtable<String, String> env = new Hashtable<String, String>();
-	        env.put(Context.INITIAL_CONTEXT_FACTORY, 
+    // SimpleSenderReceiver.java
+
+    import javax.jms.*;
+    import javax.naming.Context;
+    import javax.naming.InitialContext;
+    import java.io.BufferedReader;
+    import java.io.InputStreamReader;
+    import java.util.Hashtable;
+    import java.util.Random;
+
+    public class SimpleSenderReceiver implements MessageListener {
+        private static boolean runReceiver = true;
+        private Connection connection;
+        private Session sendSession;
+        private Session receiveSession;
+        private MessageProducer sender;
+        private MessageConsumer receiver;
+        private static Random randomGenerator = new Random();
+
+        public SimpleSenderReceiver() throws Exception {
+            // Configure JNDI environment
+            Hashtable<String, String> env = new Hashtable<String, String>();
+            env.put(Context.INITIAL_CONTEXT_FACTORY, 
                     "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory");
-	        env.put(Context.PROVIDER_URL, "servicebus.properties");
-	        Context context = new InitialContext(env);
-	
-	        // Lookup ConnectionFactory and Queue
-	        ConnectionFactory cf = (ConnectionFactory) context.lookup("SBCF");
-	        Destination queue = (Destination) context.lookup("QUEUE");
-	
-	        // Create Connection
-	        connection = cf.createConnection();
-	
-	        // Create sender-side Session and MessageProducer
-	        sendSession = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-	        sender = sendSession.createProducer(queue);
-	
-	        if (runReceiver) {
-	            // Create receiver-side Session, MessageConsumer,and MessageListener
-	            receiveSession = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
-	            receiver = receiveSession.createConsumer(queue);
-	            receiver.setMessageListener(this);
-	            connection.start();
-	        }
-	    }
-	
-	    public static void main(String[] args) {
-	        try {
-	
-	            if ((args.length > 0) && args[0].equalsIgnoreCase("sendonly")) {
-	                runReceiver = false;
-	            }
-	
-	            SimpleSenderReceiver simpleSenderReceiver = new SimpleSenderReceiver();
-	            System.out.println("Press [enter] to send a message. Type 'exit' + [enter] to quit.");
-	            BufferedReader commandLine = new java.io.BufferedReader(new InputStreamReader(System.in));
-	
-	            while (true) {
-	                String s = commandLine.readLine();
-	                if (s.equalsIgnoreCase("exit")) {
-	                    simpleSenderReceiver.close();
-	                    System.exit(0);
-	                } else {
-	                    simpleSenderReceiver.sendMessage();
-	                }
-	            }
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-	    }
-	
-	    private void sendMessage() throws JMSException {
-	        TextMessage message = sendSession.createTextMessage();
-	        message.setText("Test AMQP message from JMS");
-	        long randomMessageID = randomGenerator.nextLong() >>>1;
-	        message.setJMSMessageID("ID:" + randomMessageID);
-	        sender.send(message);
-	        System.out.println("Sent message with JMSMessageID = " + message.getJMSMessageID());
-	    }
-	
-	    public void close() throws JMSException {
-	        connection.close();
-	    }
-	
-	    public void onMessage(Message message) {
-	        try {
-	            System.out.println("Received message with JMSMessageID = " + message.getJMSMessageID());
-	            message.acknowledge();
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-	    }
-	}	
+            env.put(Context.PROVIDER_URL, "servicebus.properties");
+            Context context = new InitialContext(env);
+
+            // Lookup ConnectionFactory and Queue
+            ConnectionFactory cf = (ConnectionFactory) context.lookup("SBCF");
+            Destination queue = (Destination) context.lookup("QUEUE");
+
+            // Create Connection
+            connection = cf.createConnection();
+
+            // Create sender-side Session and MessageProducer
+            sendSession = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+            sender = sendSession.createProducer(queue);
+
+            if (runReceiver) {
+                // Create receiver-side Session, MessageConsumer,and MessageListener
+                receiveSession = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
+                receiver = receiveSession.createConsumer(queue);
+                receiver.setMessageListener(this);
+                connection.start();
+            }
+        }
+
+        public static void main(String[] args) {
+            try {
+
+                if ((args.length > 0) && args[0].equalsIgnoreCase("sendonly")) {
+                    runReceiver = false;
+                }
+
+                SimpleSenderReceiver simpleSenderReceiver = new SimpleSenderReceiver();
+                System.out.println("Press [enter] to send a message. Type 'exit' + [enter] to quit.");
+                BufferedReader commandLine = new java.io.BufferedReader(new InputStreamReader(System.in));
+
+                while (true) {
+                    String s = commandLine.readLine();
+                    if (s.equalsIgnoreCase("exit")) {
+                        simpleSenderReceiver.close();
+                        System.exit(0);
+                    } else {
+                        simpleSenderReceiver.sendMessage();
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        private void sendMessage() throws JMSException {
+            TextMessage message = sendSession.createTextMessage();
+            message.setText("Test AMQP message from JMS");
+            long randomMessageID = randomGenerator.nextLong() >>>1;
+            message.setJMSMessageID("ID:" + randomMessageID);
+            sender.send(message);
+            System.out.println("Sent message with JMSMessageID = " + message.getJMSMessageID());
+        }
+
+        public void close() throws JMSException {
+            connection.close();
+        }
+
+        public void onMessage(Message message) {
+            try {
+                System.out.println("Received message with JMSMessageID = " + message.getJMSMessageID());
+                message.acknowledge();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }   
 
 ### 執行應用程式
 
 執行應用程式將產生表單的輸出：
 
     > java SimpleSenderReceiver
-    Press [enter] to send a message.Type 'exit' + [enter] to quit.
+    Press [enter] to send a message. Type 'exit' + [enter] to quit.
 
     Sent message with JMSMessageID = ID:2867600614942270318
     Received message with JMSMessageID = ID:2867600614942270318
@@ -266,14 +266,13 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
     Received message with JMSMessageID = ID:956102171969368961
     exit
 
-JMS 與 .NET 之間的跨平台訊息
-----------------------------
+## JMS 與 .NET 之間的跨平台訊息
 
 本指南說明使用 JMS 傳送和接收服務匯流排的訊息。不過，AMQP 1.0 的其中一個主要優點是能夠從不同語言撰寫的元件建立應用程式，並確實完整交換訊息。
 
-使用上述的範例 JMS 應用程式和取自隨附指南[如何透過服務匯流排 .NET API 使用 AMQP 1.0](http://aka.ms/lym3vk) 的類似 .NET 應用程式，即可交換 .NET 與 Java 之間的訊息。
+使用上述的範例 JMS 應用程式和取自隨附指南[如何透過服務匯流排 .NET API 使用 AMQP 1.0][] 的類似 .NET 應用程式，即可交換 .NET 與 Java 之間的訊息。
 
-如需使用服務匯流排與 AMQP 1.0 傳送跨平台訊息的詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj841071.aspx)。
+如需使用服務匯流排與 AMQP 1.0 傳送跨平台訊息的詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南][]。
 
 ### JMS 到 .NET
 
@@ -287,7 +286,7 @@ JMS 與 .NET 之間的跨平台訊息
 **JMS 應用程式的輸出**
 
     > java SimpleSenderReceiver sendonly
-    Press [enter] to send a message.Type 'exit' + [enter] to quit.
+    Press [enter] to send a message. Type 'exit' + [enter] to quit.
     Sent message with JMSMessageID = ID:4364096528752411591
     Sent message with JMSMessageID = ID:459252991689389983
     Sent message with JMSMessageID = ID:1565011046230456854
@@ -295,8 +294,8 @@ JMS 與 .NET 之間的跨平台訊息
 
 **.NET 應用程式的輸出**
 
-    > SimpleSenderReceiver.exe    
-    Press [enter] to send a message.Type 'exit' + [enter] to quit.
+    > SimpleSenderReceiver.exe  
+    Press [enter] to send a message. Type 'exit' + [enter] to quit.
     Received message with MessageID = 4364096528752411591
     Received message with MessageID = 459252991689389983
     Received message with MessageID = 1565011046230456854
@@ -314,7 +313,7 @@ JMS 與 .NET 之間的跨平台訊息
 **.NET 應用程式的輸出**
 
     > SimpleSenderReceiver.exe sendonly
-    Press [enter] to send a message.Type 'exit' + [enter] to quit.
+    Press [enter] to send a message. Type 'exit' + [enter] to quit.
     Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3  
     Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
     Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
@@ -322,15 +321,14 @@ JMS 與 .NET 之間的跨平台訊息
 
 **JMS 應用程式的輸出**
 
-    > java SimpleSenderReceiver   
-    Press [enter] to send a message.Type 'exit' + [enter] to quit.
+    > java SimpleSenderReceiver 
+    Press [enter] to send a message. Type 'exit' + [enter] to quit.
     Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
     Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
     Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
     exit
 
-不支援的功能和限制
-------------------
+## 不支援的功能和限制
 
 對於服務匯流排使用 JMS 而不使用 AMQP 1.0 會有下列限制：
 
@@ -340,18 +338,24 @@ JMS 與 .NET 之間的跨平台訊息
 -   目前不支援 **TemporaryQueue** 和 **TemporaryTopic** 這些暫時目的地，也不支援使用這些的 **QueueRequestor** 和 **TopicRequestor** API。
 -   不支援交易式工作階段和分散式交易。
 
-摘要
-----
+## 摘要
 
 本作法指南說明如何以常用的 JMS API 和 AMQP 1.0 從 Java 使用服務匯流排代理訊息功能 (佇列和發佈/訂閱主題)。
 
-您也可以使用包括 .NET、C、Python 和 PHP 在內的其他語言所撰寫的 Service Bus AMQP 1.0。使用這些不同的語言撰寫的元件可使用服務匯流排中的 AMQP 1.0 支援確實完整交換訊息。如需詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj841071.aspx)。
+您也可以使用包括 .NET、C、Python 和 PHP 在內的其他語言所撰寫的 Service Bus AMQP 1.0。使用這些不同語言組建的元件可使用服務匯流排中的 AMQP 1.0 支援可靠而真實地交換訊息。如需詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南][]。
 
-進一步資訊
-----------
+## 進一步資訊
 
--   [Azure 服務匯流排中的 AMQP 1.0 支援](http://aka.ms/pgr3dp)
--   [如何透過服務匯流排 .NET API 使用 AMQP 1.0](http://aka.ms/lym3vk)
--   [服務匯流排 AMQP 1.0 開發人員指南](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj841071.aspx)
--   [如何使用服務匯流排佇列](http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/service-bus-queues/)
+-   [Azure 服務匯流排中的 AMQP 1.0 支援][]
+-   [如何透過服務匯流排 .NET API 使用 AMQP 1.0][]
+-   [服務匯流排 AMQP 1.0 開發人員指南][Service Bus AMQP 1.0 開發人員指南]
+-   [如何使用服務匯流排佇列][2]
 
+  [Azure 管理入口網站]: http://manage.windowsazure.com
+  [如何使用服務匯流排佇列]: https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/
+  []: http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html
+  [1]: http://www.w3schools.com/tags/ref_urlencode.asp
+  [Service Bus AMQP 1.0 開發人員指南]: http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx
+  [如何透過服務匯流排 .NET API 使用 AMQP 1.0]: http://aka.ms/lym3vk
+  [Azure 服務匯流排中的 AMQP 1.0 支援]: http://aka.ms/pgr3dp
+  [2]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/

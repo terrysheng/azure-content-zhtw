@@ -1,23 +1,22 @@
-<properties linkid="manage-services-how-to-use-appdynamics" urlDisplayName="Monitor with AppDynamics" pageTitle="How to use AppDynamics with Azure" metaKeywords="" description="Learn how to use AppDynamics for Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How To Use AppDynamics for Azure" authors="ryanwi" solutions="" manager="" editor="" />
+<properties linkid="manage-services-how-to-use-appdynamics" urlDisplayName="Monitor with AppDynamics" pageTitle="How to use AppDynamics with Azure" metaKeywords="" description="Learn how to use AppDynamics for Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How To Use AppDynamics for Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-如何使用 AppDynamics for Azure
-==============================
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+
+# 如何使用 AppDynamics for Azure
 
 本主題說明如何開始使用 AppDynamics for Azure。
 
-目錄
-----
+## 目錄
 
--   [什麼是 AppDynamics？](#what)
--   [必要條件](#prereq)
--   [註冊 AppDynamics 帳戶](#register)
--   [從 AppDynamics 下載 .NET 代理程式](#download)
--   [將 .NET 代理程式加入至 Azure 角色並修改啟動](#addagent)
--   [將 AppDynamics 檢測的應用程式發行至 Azure](#publish)
--   [監視應用程式](#monitor)
+-   [什麼是 AppDynamics？][]
+-   [必要條件][]
+-   [註冊 AppDynamics 帳戶][]
+-   [從 AppDynamics 下載 .NET 代理程式][]
+-   [將 .NET 代理程式加入至 Azure 角色並修改啟動][]
+-   [將 AppDynamics 檢測的應用程式發行至 Azure][]
+-   [監視應用程式][]
 
-什麼是 AppDynamics？
---------------------
+## <span id="what"></span></a>什麼是 AppDynamics？
 
 AppDynamics 是一套應用程式效能監視解決方案，可協助您：
 
@@ -31,32 +30,30 @@ AppDynamics 中有兩個元件：
 
 -   AppDynamics 控制器：代理程式會將資訊傳送至 Azure 上的 AppDynamics 控制器代管服務。您可以使用網頁瀏覽器主控台來登入控制器，以監視、分析和疑難排解您的應用程式。
 
-    ![AppDynamics Diagram](./media/cloud-services-how-to-appdynamics/addiagram.png)
+    ![AppDynamics Diagram][]
 
-必要條件
---------
+## <span id="prereq"></span></a>必要條件
 
 -   Visual Studio 2010 或更新版本
 -   要監視的 Visual Studio 方案
 -   Azure SDK
 -   Azure 帳戶
 
-註冊 AppDynamics 帳戶
----------------------
+## <span id="register"></span></a>註冊 AppDynamics 帳戶
 
 註冊 AppDynamics for Azure 帳戶：
 
-1.  在 Azure 市集按一下 AppDynamics 的 **[免費試用]** 或 **[註冊]** (<https://datamarket.azure.com/browse/Applications>)。
+1.  在 Azure Marketplace 上，按一下 AppDynamics 的 [免費試用] 或 [註冊] ([][]<https://datamarket.azure.com/browse/Applications></a>)。
 
-    如果選擇 **[註冊]**，您會收到免費版本的 AppDynamics Pro for Azure，具備完整的功能，但在 30 天後會降級到免費版本的 AppDynamics Lite for Azure，功能就有所限制。選擇此選項不需要提供信用卡。您可以隨時升級到 AppDynamics Pro for Azure。
+    如果選擇 [註冊]，您會收到免費版本的 AppDynamics Pro for Azure，具備完整的功能，但在 30 天後會降級到免費版本的 AppDynamics Lite for Azure，功能就有所限制。選擇此選項不需要提供信用卡。您可以隨時升級到 AppDynamics Pro for Azure。
 
-    如果選擇 **[免費試用]**，您會收到免費版本的 AppDynamics Pro for Azure，具備完整的功能。選擇此選項需要提供信用卡。30 天之後，除非取消訂閱，否則將開始以您的信用卡收費，以持續使用 AppDynamics Pro for Azure。
+    如果選擇 [免費試用]，您會收到免費版本的 AppDynamics Pro for Azure，具備完整的功能。選擇此選項需要提供信用卡。30 天之後，除非取消訂閱，否則將開始以您的信用卡收費，以持續使用 AppDynamics Pro for Azure。
 
     您想要監視的每一個角色執行個體都需要有一個代理程式授權。例如，執行 2 個 Web 角色執行個體和 2 個背景工作角色執行個體的網站，就需要 4 個代理程式授權。
 
 2.  在註冊頁面上，提供您的使用者資訊、密碼、電子郵件地址、公司名稱，以及您監視的應用程式名稱，您會將它發行至 Azure。
 
-3.  按一下 **[立即註冊]**。
+3.  按一下 [立即註冊]。
 
     根據您在註冊頁面提供的地址而寄給您的電子郵件中，您會收到指派給您的帳戶的 AppDynamics 認證和 AppDynamics 控制器 URL (主機和連接埠)。請儲存此資訊。
 
@@ -80,8 +77,7 @@ AppDynamics 中有兩個元件：
 
     您隨時都可以在網頁瀏覽器中輸入 URL，並以您的 AppDynamics 認證登入，以進入 AppDynamics 帳戶首頁。
 
-從 AppDynamics 下載 .NET 代理程式
----------------------------------
+## <span id="download"></span></a>從 AppDynamics 下載 .NET 代理程式
 
 1.  瀏覽至 AppDynamics 下載網站。URL 在歡迎電子郵件中，也在 AppDynamics 帳戶首頁上。
 
@@ -89,8 +85,7 @@ AppDynamics 中有兩個元件：
 
 3.  下載名為 AppDynamicsdotNetAgentSetup64.msi 的檔案。請不要執行檔案。
 
-將 .NET 代理程式加入至 Azure 角色並修改啟動
--------------------------------------------
+## <span id="addagent"></span></a>將 .NET 代理程式加入至 Azure 角色並修改啟動
 
 此步驟會在 Visual Studio 方案中檢測由 AppDynamics 監視的角色。使用 AppDynamics for Azure 並不需要執行傳統的 Windows 精靈式安裝程序。
 
@@ -104,7 +99,7 @@ AppDynamics 中有兩個元件：
 
 4.  在您要監視的每一個 Web 角色和背景工作角色專案中，加入名為 startup.cmd 的文字檔，並將以下幾行貼上：
 
-         if defined COR_PROFILER GOTO END 
+        if defined COR_PROFILER GOTO END 
         SETLOCAL EnableExtensions 
         REM Run the agent installer 
         AppDynamicsdotNetAgentSetup64.msi AD_Agent_Environment=Azure AD_Agent_ControllerHost=%1 AD_Agent_ControllerPort=%2 AD_Agent_AccountName=%3 AD_Agent_AccessKey=%4 AD_Agent_ControllerApplication=%5 /quiet /log d:\adInstall.log  
@@ -112,30 +107,29 @@ AppDynamics 中有兩個元件：
         GOTO END   
         :END
 
-5.  在您要監視的每一個 Web 角色和背景工作角色中，設定 AppDynamics 代理程式 .msi 檔案和 startup.cmd file 檔案的 **[複製到輸出目錄]** 屬性設為 **[永遠複製]**。
+5.  在您要監視的每一個 Web 角色和背景工作角色中，設定 AppDynamics 代理程式 .msi 檔案和 startup.cmd file 檔案的 [複製到輸出目錄] 屬性設為 [永遠複製]。
 
-    ![Copy Always](./media/cloud-services-how-to-appdynamics/adcopyalways.png)
+    ![Copy Always][]
 
 6.  在 Azure 專案的 ServiceDefinition.csdef 檔案中，加入 Startup Task 元素，並指定每一個 WorkerRole 和 WebRole 元素的參數來叫用 startup.cmd。
 
     加入下列幾行：
 
-         <Startup>
+        <Startup>
         <Task commandLine="startup.cmd [your_controller_host] [your_controller_port] [your_account_name] [your_access_key] [your_application_name]" executionContext="elevated" taskType="simple"/>
         </Startup>
 
     其中：
 
-    -   *your controller host* 和 *your controller port* 是指派給您帳戶的控制器主機和連接埠，*your account name* 和 *your access key* 是 AppDynamics 指派給您的認證。此資訊在您向 AppDynamics 註冊時所寄出的電子郵件中，也在您的 AppDynamic 首頁上。請參閱[註冊 AppDynamics 帳戶](#register)。
+    -   *your controller host* 和 *your controller port* 是指派給您帳戶的控制器主機和連接埠，*your account name* 和 *your access key* 是 AppDynamics 指派給您的認證。此資訊在您向 AppDynamics 註冊時所寄出的電子郵件中，也在您的 AppDynamic 首頁上。請參閱[註冊 AppDynamics 帳戶][]。
 
     -   *your application name* 是您選擇的應用程式名稱。此名稱在 AppDynamics 控制器介面中用來識別應用程式。
 
     ServiceDefinition.csdef 檔案的內容如下：
 
-    ![Service Definition](./media/cloud-services-how-to-appdynamics/adscreen.png)
+    ![Service Definition][]
 
-將 AppDynamics 檢測的應用程式發行至 Azure
------------------------------------------
+## <a name="publish"></a>將 AppDynamics 檢測的應用程式發行至 Azure
 
 對於 AppDynamics 檢測的每一個角色專案：
 
@@ -143,8 +137,7 @@ AppDynamics 中有兩個元件：
 
 2.  選取 [發佈到 Azure]。
 
-監視應用程式
-------------
+## <a name="monitor"></a>監視應用程式
 
 1.  使用歡迎電子郵件中及 AppDynamics 帳戶首頁上提供的 URL，登入 AppDynamics 控制器。
 
@@ -154,10 +147,21 @@ AppDynamics 中有兩個元件：
 
 4.  監視應用程式。
 
-詳細資訊
---------
+## <a name="learn"></a>詳細資訊
 
 請參閱 AppDynamics 帳戶首頁上的文件和影片連結。
 
-本文的 Wiki 版本中有最新內容，網址是 <http://docs.appdynamics.com/display/ADAZ/How+To+Use+AppDynamics+for+Windows+Azure>。
+本文的 Wiki 版本中有最新內容，網址是 [][1]<http://docs.appdynamics.com/display/ADAZ/How+To+Use+AppDynamics+for+Windows+Azure></a>。
 
+  [什麼是 AppDynamics？]: #what
+  [必要條件]: #prereq
+  [註冊 AppDynamics 帳戶]: #register
+  [從 AppDynamics 下載 .NET 代理程式]: #download
+  [將 .NET 代理程式加入至 Azure 角色並修改啟動]: #addagent
+  [將 AppDynamics 檢測的應用程式發行至 Azure]: #publish
+  [監視應用程式]: #monitor
+  [AppDynamics Diagram]: ./media/cloud-services-how-to-appdynamics/addiagram.png
+  []: https://datamarket.azure.com/browse/Applications
+  [Copy Always]: ./media/cloud-services-how-to-appdynamics/adcopyalways.png
+  [Service Definition]: ./media/cloud-services-how-to-appdynamics/adscreen.png
+  [1]: http://docs.appdynamics.com/display/ADAZ/How+To+Use+AppDynamics+for+Windows+Azure

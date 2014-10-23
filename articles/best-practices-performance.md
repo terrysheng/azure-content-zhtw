@@ -1,16 +1,16 @@
-<properties linkid="develop-dotnet-performance" urlDisplayName="Performance" pageTitle="Performance best practices - Azure" metaKeywords="Azure optimization, Azure best practice performance" description="Learn about best practices for performance in Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-dotnet-performance" urlDisplayName="Performance" pageTitle="Performance best practices - Azure" metaKeywords="Azure optimization, Azure best practice performance" description="Learn about best practices for performance in Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
 
-提高 Azure 應用程式效能的最佳作法
-=================================
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb"></tags>
+
+# 提高 Azure 應用程式效能的最佳作法
 
 本指南提供在最佳作法和技術上所應該遵循以最佳化 Azure 應用程式效能的慣用指引。
 
 請注意，使用 Azure 有許多優點：效能只是其中之一。本文章中的建議主要集中在效能。但在某些情況下，效能不是您的主要考量：例如，您可能想要利用將實體硬體管理作業交給 Azure 負責的功能，或是您可能對「隨收隨付」功能特別有興趣。本文章不想評估效能不是優先考量的情況。
 
-概觀
-----
+## 概觀
 
-效能可以定義如下：[「相較於所用時間和資源所完成的有用工作量」](http://go.microsoft.com/fwlink/?LinkId=252650)(英文)。
+效能可以定義如下：[「相較於所用時間和資源所完成的有用工作量」][](英文)。
 
 效能的這個定義有兩個面向：度量與資源。效能度量是指要滿足商業需求所必須達到的數值。這些數值包括回應時間、輸送量、可用性等項目。效能也包括要達到一定效能度量水準所需的資源使用量水準。成本向來都是商業需求，要獲得資源就需要付出成本，所以效能意味著以最有效率的方式使用資源。
 
@@ -31,7 +31,7 @@
 
 在設計和部署應用程式期間有一個重要步驟，那就是進行完整的端對端效能測試。Azure 應用程式是由許多組件組成，這些組件可能包括自建元件以及 Microsoft 提供的元件。Microsoft 無法對這些元件的所有可能組合方式進行效能測試。因此在任何部署中，對應用程式進行完整且適當的效能測試都是一項重要步驟。
 
-根據您組建的應用程式模型，您接著應該儘快對應用程式進行概念證明測試，並進行負載測試來驗證應用程式架構，以確定應用程式不管在擴充性還是延遲上，都符合效能需求。請您一定要驗證初始架構和假設。您不會想要在應用程式上線時，才發現它無法承受預期的負載！Visual Studio 可讓您進行負載測試，詳細說明請參閱[測試應用程式的負載](http://www.visualstudio.com/get-started/load-test-your-app-vs)。
+根據您組建的應用程式模型，您接著應該儘快對應用程式進行概念證明測試，並進行負載測試來驗證應用程式架構，以確定應用程式不管在擴充性還是延遲上，都符合效能需求。請您一定要驗證初始架構和假設。您不會想要在應用程式上線時，才發現它無法承受預期的負載！Visual Studio 可讓您進行負載測試，詳細說明請參閱[測試應用程式的負載][]。
 
 ### Azure 中的效能有何不同
 
@@ -45,8 +45,7 @@
 
 再下一章則會探討關於 Azure 應用程式的效能因素：網路延遲、暫時性連接等等。
 
-雲端環境的效能設計
-------------------
+## 雲端環境的效能設計
 
 在設計 Azure 應用程式或將內部部署應用程式移轉至 Azure 時，必須考量下列幾個面向，這些面向會視案例而定而有所不同：
 
@@ -79,9 +78,9 @@ Azure 提供下列資料儲存選項，選擇正確選項會對效能產生重�
 
 好的資料庫設計原理大多仍適用於 Azure SQL Database。您可以找到許多說明如何設計有效 SQL Server 或 Azure SQL Database 結構描述的資料。以下是幾個關於 SQL Database 結構描述設計的參考資料：
 
--   [資料庫設計和模型化基礎 (英文)](http://go.microsoft.com/fwlink/?LinkId=252675)
--   [通往資料庫設計殿堂的階梯 (英文)](http://go.microsoft.com/fwlink/?LinkId=252676)
--   [資料庫設計 (英文)](http://go.microsoft.com/fwlink/?LinkId=252677)
+-   [資料庫設計和模型化基礎 (英文)][]
+-   [通往資料庫設計殿堂的階梯 (英文)][]
+-   [資料庫設計 (英文)][]
 
 有兩個與 Azure 不同的關鍵設計活動：
 
@@ -104,17 +103,18 @@ Blob (例如影襐或文件) 不應儲存在 SQL Database 中，而應儲存在 
 
 如需其他關於資料表儲存體的討論，請參閱：
 
--   [Azure 資料表儲存體和 Azure SQL Database - 比較和對照 (英文)](http://msdn.microsoft.com/zh-tw/library/jj553018.aspx)
--   [Azure 資料表儲存體效能考量 (英文)](http://go.microsoft.com/fwlink/?LinkId=252663)
--   [SQL Database 和 Azure 資料表儲存體 (英文)](http://go.microsoft.com/fwlink/?LinkId=252664)
--   [透過批次執行 Azure 資料表儲存體插入作業來增進效能](http://go.microsoft.com/fwlink/?LinkID=252665) (英文)，文內會討論一些效能結果。
--   [SQL Database 效能和彈性指南 (英文)](http://go.microsoft.com/fwlink/?LinkId=221876)
+-   [Azure 資料表儲存體和 Azure SQL Database - 比較和對照 (英文)][]
+-   [Azure 資料表儲存體效能考量 (英文)][]
+-   [SQL Database 和 Azure 資料表儲存體 (英文)][]
+-   [透過批次執行 Azure 資料表儲存體插入作業來增進效能 (英文)][], 文內會討論一些效能結果。
+-   [SQL Database 效能和彈性指南 (英文)][]
+
 
 #### 資料分割
 
 其中一種最常分割的資源就是資料。如果您要建立 Azure 雲端服務，則應該考慮使用可透過同盟功能取得的 SQL Database 內建分區化功能。
 
-如需 SQL Database 同盟的概觀，請參閱 [Windows Azure SQL Database (先前稱為 SQL Azure) 中的同盟](http://go.microsoft.com/fwlink/?LinkId=252668)。
+如需 SQL Database 同盟的概觀，請參閱 [Windows Azure SQL Database (先前稱為 SQL Azure) 中的同盟][]。
 
 ##### SQL 同盟的設計工作
 
@@ -130,18 +130,18 @@ Blob (例如影襐或文件) 不應儲存在 SQL Database 中，而應儲存在 
 
 每一個彙總都是同盟的候選者。您必須評估預期大小將會增加的位置，並同時檢查您應用程式的工作負載：與同盟配置適當配合的查詢 (也就是不會從多個同盟成員要求資料) 將可正常執行。未適當配合的查詢將需要應用程式層中的邏輯，因為 SQL Database 目前不支援跨資料庫聯結。
 
-若要查看相關設計分析範例，此範例會檢查 AdventureWorks 資料庫以便加以同盟，並逐步顯示設計中所含的考量事項，請參閱[使用同盟進行資料庫設計的擴充優先方法：第 1 部分 - 挑選同盟及同盟索引鍵](http://go.microsoft.com/fwlink/?LinkId=252671) (英文)。
+若要查看相關設計分析範例，此範例會檢查 AdventureWorks 資料庫以便加以同盟，並逐步顯示設計中所含的考量事項，請參閱[使用同盟進行資料庫設計的擴充優先方法：第 1 部分 - 挑選同盟及同盟索引鍵][] (英文)。
 
 一旦您決定了要同盟的資料表，就必須新增彙總根資料表的主要索引鍵作為每一個相關資料表的資料欄。
 
-在決定要同盟的資料表之後，另一個問題是參考資料表的位置，以及其他資料庫物件。關於此主旨的完整討論，請參閱[使用同盟進行資料庫設計的擴充優先方法：第 2 部分 - 標註和部署同盟的結構描述](http://go.microsoft.com/fwlink/?LinkId=252672) (英文)。如需執行其他進階查詢的說明，請參閱[第 2 部分](http://go.microsoft.com/fwlink/?LinkId=252673) (英文)。
+在決定要同盟的資料表之後，另一個問題是參考資料表的位置，以及其他資料庫物件。關於此主旨的完整討論，請參閱[使用同盟進行資料庫設計的擴充優先方法：第 2 部分 - 標註和部署同盟的結構描述][] (英文)。如需執行其他進階查詢的說明，請參閱[第 2 部分][] (英文)。
 
 ##### 自行分割
 
 您可以找到一些說明資料分割方式的範例。如果您決定不使用同盟來分割 SQL Database 執行個體，就必須選擇一種適合應用程式使用的分割方法。這裡有一些範例：
 
--   在發行同盟之前撰寫的完整說明：[如何利用 SQL Database 進行分區](http://go.microsoft.com/fwlink/?LinkId=252678) (英文)。
--   [SQL Server 與 SQL Database 分區程式庫](http://go.microsoft.com/fwlink/?LinkId=252679)
+-   在發行同盟之前撰寫的完整說明：[如何利用 SQL Database 進行分區][] (英文)。
+-   [SQL Server 與 SQL Database 分區程式庫][]
 
 ##### 分割其他資源
 
@@ -153,7 +153,7 @@ Blob (例如影襐或文件) 不應儲存在 SQL Database 中，而應儲存在 
 
 Azure 快取服務提供分散式彈性記憶體，以快取 ASP.net 工作階段狀態等項目，或來自 SQL Database 參考資料表的常用參考值。因為物件位於分散式記憶體中，所以效能可能會提升不少。因為是由 Azure 負責處理快取基礎結構，所以實作的開發成本很低。
 
-請擬定計劃來提供足夠的快取容量，以便能快取經常存取的物件。在 SQL Database 中，常會使用參考資料表來將數字碼轉換為較長的描述性字元字串。這些資料表通常包括如下的資料：國家/地區和城市名稱、有效郵遞區號值、公司內部門名稱等等。對於較小的資料表，適合將整個資料表儲存在快取中，至於其他資料表，則只能儲存最常使用的值。內含此一資料的多重聯結查詢會對效能有所助益：因為在快取中每找到一個值，就省下好幾次的磁碟存取作業。[簡介 Azure 快取服務](http://go.microsoft.com/fwlink/?LinkId=252680) (英文) 有 Azure 效能和快取的詳盡介紹和討論。關於此主題的最新部落格文章，請參閱 [Windows \#Azure 快取效能考量](http://go.microsoft.com/fwlink/?LinkId=252681) (英文)。
+請擬定計劃來提供足夠的快取容量，以便能快取經常存取的物件。在 SQL Database 中，常會使用參考資料表來將數字碼轉換為較長的描述性字元字串。這些資料表通常包括如下的資料：國家/地區和城市名稱、有效郵遞區號值、公司內部門名稱等等。對於較小的資料表，適合將整個資料表儲存在快取中，至於其他資料表，則只能儲存最常使用的值。內含此一資料的多重聯結查詢會對效能有所助益：因為在快取中每找到一個值，就省下好幾次的磁碟存取作業。[簡介 Azure 快取服務][] (英文) 有 Azure 效能和快取的詳盡介紹和討論。關於此主題的最新部落格文章，請參閱 [Windows \#Azure 快取效能考量][] (英文)。
 
 #### 案例：在 Azure 應用程式中使用佇列
 
@@ -165,9 +165,9 @@ Azure 有兩個替代佇列技術：Azure 儲存體佇列和服務匯流排。
 
 Azure 儲存體佇列會提供大型佇列大小、進度追蹤等等的功能。服務匯流排則會提供發佈/訂閱、與 Windows Communication Foundation ("WCF") 完整整合、自動偵測重複項目、保證先進先出 ("FIFO") 遞送等等的功能。
 
-如需這兩種技術更加完整詳細的比較，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對比](http://go.microsoft.com/fwlink/?LinkId=252682) (英文)。
+如需這兩種技術更加完整詳細的比較，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對比][] (英文)。
 
-如需服務匯流排效能的討論，請參閱[使用服務匯流排代理訊息改善效能的最佳作法](http://go.microsoft.com/fwlink/?LinkID=252683) (英文)。
+如需服務匯流排效能的討論，請參閱[使用服務匯流排代理訊息改善效能的最佳作法][] (英文)。
 
 #### 案例：「巨量資料」應用程式
 
@@ -185,7 +185,7 @@ Azure 儲存體佇列會提供大型佇列大小、進度追蹤等等的功能�
 
 -   大小 (通常數百 TB 以上)
 
--   類型：檔案系統中的非關聯式資料、變數結構描述、檔案
+-   輸入：檔案系統中的非關聯式資料、變數結構描述、檔案
 
 巨量資料通常不適合在關聯式資料庫中處理。
 
@@ -201,15 +201,15 @@ Azure 儲存體佇列會提供大型佇列大小、進度追蹤等等的功能�
 
 Azure 可直接支援 Hadoop，而且能夠使用其他技術。如需 Azure HDInsight 服務的相關資訊，請參閱：
 
--   [巨量資料](/en-us/solutions/big-data/)
--   [Azure HDInsight 服務](/zh-tw/documentation/services/hdinsight/)
--   [開始使用 Azure HDInsight 服務](/zh-tw/documentation/articles/hdinsight-get-started/)
+-   [巨量資料][]
+-   [Azure HDInsight 服務][]
+-   [開始使用 Azure HDInsight 服務][]
 
 如需各種 noSQL 儲存方法相關問題的討論，請參閱：
 
--   [熟悉 Azure 上的 NoSQL](http://go.microsoft.com/fwlink/?LinkId=252729)
--   [AggregateOrientedDatabase](http://go.microsoft.com/fwlink/?LinkID=252731)
--   [PolyglotPersistence](http://go.microsoft.com/fwlink/?LinkId=252732)
+-   [熟悉 Azure 上的 NoSQL][]
+-   [AggregateOrientedDatabase][]
+-   [PolyglotPersistence][]
 
 #### 其他 Azure 個別服務的效能最佳化
 
@@ -225,11 +225,11 @@ Azure 可直接支援 Hadoop，而且能夠使用其他技術。如需 Azure HDI
 
 ##### Azure 存取控制服務 (ACS)
 
-兩個會影響 ACS 資源使用情形和效能的主要因素為權杖大小和加密。如需進一步的討論，請參閱 [ACS 效能方針](http://go.microsoft.com/fwlink/?LinkId=252747) (英文)。
+兩個會影響 ACS 資源使用情形和效能的主要因素為權杖大小和加密。如需進一步的討論，請參閱 [ACS 效能方針][] (英文)。
 
 ##### 序列化
 
-在最佳化效能時，序列化不是主要的方法，但在某些應用程式案例中，卻可顯著減少網路流量。如需範例來了解不同通訊協定的序列化規模變化情形，請參閱 [Windows Azure Web 應用程式和序列化](http://go.microsoft.com/fwlink/?LinkId=252749)中示範的減少作業。
+在最佳化效能時，序列化不是主要的方法，但在某些應用程式案例中，卻可顯著減少網路流量。如需範例來了解不同通訊協定的序列化規模變化情形，請參閱 [Windows Azure Web 應用程式和序列化][]中示範的減少作業。
 
 如果所要移動的資料量是效能問題的來源，請使用最小的可用序列化。如果序列化所改善的效能不夠，請考慮使用自訂或非 Microsoft 協力廠商的序列化格式。一如往常，概念證明測試是其中的關鍵。
 
@@ -237,11 +237,10 @@ Azure 可直接支援 Hadoop，而且能夠使用其他技術。如需 Azure HDI
 
 下列連結提供關於 MySQL 的效能建議：
 
--   在 [http://mysql.com](http://go.microsoft.com/fwlink/?LinkId=252775) (英文) 搜尋 performance** 會出現許多資源。
--   [http://forums.mysql.com/list.php?24](http://go.microsoft.com/fwlink/?LinkId=252776) (英文) 中的論壇是可供查詢的其他資源。
+-   在 [][]<http://mysql.com></a> 搜尋 *performance* 會出現許多資源。
+-   [][1]<http://forums.mysql.com/list.php?24></a> (英文) 中的論壇是可供查詢的其他資源。
 
-共用系統設計
-------------
+## 共用系統設計
 
 Azure 的設計目的是要執行多個並行應用程式，並且會加以複製以便能在多部電腦上容錯移轉。因此會在許多方面影響應用程式的效能：
 
@@ -253,7 +252,7 @@ Azure 的設計目的是要執行多個並行應用程式，並且會加以複�
 
 -   服務的所在位置
 
-這些考量適用於所有應用程式架構，因為它們是由 Azure 資料中心的實體基礎結構所決定。如需詳細討論，請參閱 [SQL Database 效能和彈性指南](http://go.microsoft.com/fwlink/?LinkID=252666) (英文)。
+這些考量適用於所有應用程式架構，因為它們是由 Azure 資料中心的實體基礎結構所決定。如需詳細討論，請參閱 [SQL Database 效能和彈性指南][] (英文)。
 
 ### 網路延遲
 
@@ -269,7 +268,7 @@ Azure 是共用資源的服務型平台，這表示會定期發生兩種延遲�
 
 ### 暫時性連接
 
-應用程式必須能夠處理連接中斷問題。雲端架構天生無法避免連接中斷問題 (例如，取代失效節點、分割 SQL Database 中的同盟成員等作業)。立即執行此作業的最佳架構為[暫時性錯誤處理應用程式區塊](http://go.microsoft.com/fwlink/?LinkID=236901) (英文)。
+應用程式必須能夠處理連接中斷問題。雲端架構天生無法避免連接中斷問題 (例如，取代失效節點、分割 SQL Database 中的同盟成員等作業)。立即執行此作業的最佳架構為[暫時性錯誤處理應用程式區塊][] (英文)。
 
 ### 節流
 
@@ -288,22 +287,21 @@ Azure 可大幅減少容量計劃內所需執行的工作，因為許多舊有�
 
 Azure 具有擴充性，因此可以變更最初決定的容量：不論是要擴大或縮小 Azure 資源都相當容易。即便如此仍應正確規劃容量，這樣才能確保應用程式上線時不僅不必試用，還不會產生容量方面的錯誤。
 
-若應用程式的資源需要隨時間大幅變動，請考慮使用[自動擴充應用程式區塊](http://go.microsoft.com/fwlink/?LinkId=252873) (英文)。此區塊可讓您設定角色執行個體的擴大及縮小規則。我們已定義兩種規則：
+若應用程式的資源需要隨時間大幅變動，請考慮使用[自動擴充應用程式區塊][] (英文)。此區塊可讓您設定角色執行個體的擴大及縮小規則。我們已定義兩種規則：
 
 -   限制規則，會依據一天當中的時間設定執行個體數目的上限/下限
 
 -   重新生效規則，此規則會在發生某些狀況 (例如 CPU 使用率 %) 時生效
 
-您也可以定義自訂規則。如需詳細資訊，請參閱[自動擴充應用程式區塊](http://go.microsoft.com/fwlink/?LinkId=252873) (英文)。
+您也可以定義自訂規則。如需詳細資訊，請參閱[自動擴充應用程式區塊][] (英文)。
 
-容量計劃本身有其特殊性，因此本文章假設您已完成此計劃。如需詳細的 Azure 容量計劃討論，請參閱[服務匯流排佇列和主題的容量規劃](http://go.microsoft.com/fwlink/?LinkId=252875)。
+容量計劃本身有其特殊性，因此本文章假設您已完成此計劃。如需詳細的 Azure 容量計劃討論，請參閱[服務匯流排佇列和主題的容量規劃][]。
 
-執行階段的效能監視和調整
-------------------------
+## 執行階段的效能監視和調整
 
 再仔細的設計也無法保證執行階段不會發生效能問題，因此有必要持續監視應用程式的效能，以確認效能有達到必要水準，並修正無法達到水準的情況。即使是設計良好的應用程式也會發生非預期的事件，例如用量激增或執行階段環境可能發生變化，這會導致效能問題產生，而需要加以調整。這項調整程序中通常會有一個重要步驟，那就是找出瓶頸並加以解決。
 
-您必須事先內建記錄和適當的例外狀況處理功能，才能在執行階段疑難排解效能問題，以便在問題發生當下就予以排解掉。如需有關這方面的完整處理方法，請參閱[Azure 應用程式開發的疑難排解最佳作法](http://go.microsoft.com/fwlink/?LinkID=252876) (英文)。
+您必須事先內建記錄和適當的例外狀況處理功能，才能在執行階段疑難排解效能問題，以便在問題發生當下就予以排解掉。如需有關這方面的完整處理方法，請參閱[Azure 應用程式開發的疑難排解最佳作法][] (英文)。
 
 我們有提供相關工具讓您持續監視每一個 Azure 服務的效能。此外，您也應該在應用程式內建記錄機制，以提供疑難排解和解決效能問題時所需的詳細資訊。
 
@@ -311,26 +309,72 @@ Azure 具有擴充性，因此可以變更最初決定的容量：不論是要�
 
 請注意，您目前無法在 Azure 中使用 SQL Profiler。但有幾個解決措施可讓您取得所需的效能資訊。若是在開發期間，另一個方式是在資料庫的內部部署版本 (此版本可使用 SQL Profiler) 中執行初始測試。
 
-您也可以使用 SET STATISTICS Transact-SQL 命令，以及使用 SQL Server Management Studio，來檢視查詢產生的執行計劃，因為編寫有效率的查詢程式碼是效能的關鍵因素之一。如需詳細討論，以及作法的逐步說明，請參閱[深入了解 SQL Database 的效能](http://go.microsoft.com/fwlink/?LinkId=252877) (英文)。另一個有趣方法為分析[內部部署 SQL Database 與 SQL Server](http://go.microsoft.com/fwlink/?LinkId=252878) (英文) 之間的效能。
+您也可以使用 SET STATISTICS Transact-SQL 命令，以及使用 SQL Server Management Studio，來檢視查詢產生的執行計劃，因為編寫有效率的查詢程式碼是效能的關鍵因素之一。如需詳細討論，以及作法的逐步說明，請參閱[深入了解 SQL Database 的效能][] (英文)。另一個有趣方法為分析[內部部署 SQL Database 與 SQL Server][] (英文) 之間的效能。
 
 兩個關於動態管理檢視的主題如下：
 
--   [使用動態管理檢視監視 Windows Azure SQL Database](http://go.microsoft.com/fwlink/?LinkId=236195)
--   [可供 SQL Database 用來分析您是否遺漏 SQL Profiler 的有用 DMV (英文)](http://go.microsoft.com/fwlink/?LinkId=252879)
+-   [使用動態管理檢視監視 Windows Azure SQL Database][]
+-   [可供 SQL Database 用來分析您是否遺漏 SQL Profiler 的有用 DMV (英文)][]
 
 ### 分析資源和工具
 
 我們有提供幾個協力廠商的非 Microsoft 工具可供您用於分析 Azure 的效能：
 
--   [Cerebrata](http://go.microsoft.com/fwlink/?LinkId=252880) (英文)
--   [SQL Server 和 SQL Database 效能測試：Enzo SQL Baseline](http://enzosqlbaseline.codeplex.com/) (英文)
+-   [Cerebrata][]
+-   [SQL Server 和 SQL Database 效能測試：Enzo SQL Baseline][] (英文)
 
 其他資源
 
--   [SQL Database 效能和彈性指南 (英文)](http://go.microsoft.com/fwlink/?LinkID=252666)
--   [SQL Database](http://go.microsoft.com/fwlink/?LinkId=246930) (英文)
--   [儲存體](http://go.microsoft.com/fwlink/?LinkId=246933) (英文)
--   [網路](http://go.microsoft.com/fwlink/?LinkId=252882) (英文)
--   [服務匯流排](http://go.microsoft.com/fwlink/?LinkId=246934) (英文)
--   [Azure 計劃 - 在環境中整合 Azure 的決策後指南](http://go.microsoft.com/fwlink/?LinkId=252884) (英文)
+-   [SQL Database 效能和彈性指南 (英文)][SQL Database 效能和彈性指南]
+-   [SQL Database][]
+-   [儲存體][]
+-   [網路][]
+-   [服務匯流排][]
+-   [Azure 計劃 - 在您的環境中整合 Azure 的後置決策指南][]
 
+  [「相較於所用時間和資源所完成的有用工作量」]: http://go.microsoft.com/fwlink/?LinkId=252650
+  [測試應用程式的負載]: http://www.visualstudio.com/get-started/load-test-your-app-vs
+  [資料庫設計和模型化基礎 (英文)]: http://go.microsoft.com/fwlink/?LinkId=252675
+  [通往資料庫設計殿堂的階梯 (英文)]: http://go.microsoft.com/fwlink/?LinkId=252676
+  [資料庫設計 (英文)]: http://go.microsoft.com/fwlink/?LinkId=252677
+  [Azure 資料表儲存體和 Azure SQL Database - 比較和對照 (英文)]: http://msdn.microsoft.com/en-us/library/jj553018.aspx
+  [Azure 資料表儲存體效能考量 (英文)]: http://go.microsoft.com/fwlink/?LinkId=252663
+  [SQL Database 和 Azure 資料表儲存體 (英文)]: http://go.microsoft.com/fwlink/?LinkId=252664
+  [透過批次執行 Azure 資料表儲存體插入作業來增進效能 (英文)]: http://go.microsoft.com/fwlink/?LinkID=252665
+  [SQL Database 效能和彈性指南 (英文)]: http://go.microsoft.com/fwlink/?LinkId=221876
+  [Windows Azure SQL Database (先前稱為 SQL Azure) 中的同盟]: http://go.microsoft.com/fwlink/?LinkId=252668
+  [使用同盟進行資料庫設計的擴充優先方法：第 1 部分 - 挑選同盟及同盟索引鍵]: http://go.microsoft.com/fwlink/?LinkId=252671
+  [使用同盟進行資料庫設計的擴充優先方法：第 2 部分 - 標註和部署同盟的結構描述]: http://go.microsoft.com/fwlink/?LinkId=252672
+  [第 2 部分]: http://go.microsoft.com/fwlink/?LinkId=252673
+  [如何利用 SQL Database 進行分區]: http://go.microsoft.com/fwlink/?LinkId=252678
+  [SQL Server 與 SQL Database 分區程式庫]: http://go.microsoft.com/fwlink/?LinkId=252679
+  [簡介 Azure 快取服務]: http://go.microsoft.com/fwlink/?LinkId=252680
+  [Windows \#Azure 快取效能考量]: http://go.microsoft.com/fwlink/?LinkId=252681
+  [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對比]: http://go.microsoft.com/fwlink/?LinkId=252682
+  [使用服務匯流排代理訊息改善效能的最佳作法]: http://go.microsoft.com/fwlink/?LinkID=252683
+  [巨量資料]: /en-us/solutions/big-data/
+  [Azure HDInsight 服務]: /zh-tw/documentation/services/hdinsight/
+  [開始使用 Azure HDInsight 服務]: /zh-tw/documentation/articles/hdinsight-get-started/
+  [熟悉 Azure 上的 NoSQL]: http://go.microsoft.com/fwlink/?LinkId=252729
+  [AggregateOrientedDatabase]: http://go.microsoft.com/fwlink/?LinkID=252731
+  [PolyglotPersistence]: http://go.microsoft.com/fwlink/?LinkId=252732
+  [ACS 效能方針]: http://go.microsoft.com/fwlink/?LinkId=252747
+  [Windows Azure Web 應用程式和序列化]: http://go.microsoft.com/fwlink/?LinkId=252749
+  []: http://go.microsoft.com/fwlink/?LinkId=252775
+  [1]: http://go.microsoft.com/fwlink/?LinkId=252776
+  [SQL Database 效能和彈性指南]: http://go.microsoft.com/fwlink/?LinkID=252666
+  [暫時性錯誤處理應用程式區塊]: http://go.microsoft.com/fwlink/?LinkID=236901
+  [自動擴充應用程式區塊]: http://go.microsoft.com/fwlink/?LinkId=252873
+  [服務匯流排佇列和主題的容量規劃]: http://go.microsoft.com/fwlink/?LinkId=252875
+  [Azure 應用程式開發的疑難排解最佳作法]: http://go.microsoft.com/fwlink/?LinkID=252876
+  [深入了解 SQL Database 的效能]: http://go.microsoft.com/fwlink/?LinkId=252877
+  [內部部署 SQL Database 與 SQL Server]: http://go.microsoft.com/fwlink/?LinkId=252878
+  [使用動態管理檢視監視 Windows Azure SQL Database]: http://go.microsoft.com/fwlink/?LinkId=236195
+  [可供 SQL Database 用來分析您是否遺漏 SQL Profiler 的有用 DMV (英文)]: http://go.microsoft.com/fwlink/?LinkId=252879
+  [Cerebrata]: http://go.microsoft.com/fwlink/?LinkId=252880
+  [SQL Server 和 SQL Database 效能測試：Enzo SQL Baseline]: http://enzosqlbaseline.codeplex.com/
+  [SQL Database]: http://go.microsoft.com/fwlink/?LinkId=246930
+  [儲存體]: http://go.microsoft.com/fwlink/?LinkId=246933
+  [網路]: http://go.microsoft.com/fwlink/?LinkId=252882
+  [服務匯流排]: http://go.microsoft.com/fwlink/?LinkId=246934
+  [Azure 計劃 - 在您的環境中整合 Azure 的後置決策指南]: http://go.microsoft.com/fwlink/?LinkId=252884

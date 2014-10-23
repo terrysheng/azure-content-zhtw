@@ -1,54 +1,64 @@
-<properties pageTitle="Get started with authentication (Windows Phone) | Mobile Dev Center" metaKeywords="authentication, FAcebook, GOogle, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Phone app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey" solutions="" manager="" editor="" />
+<properties pageTitle="Get started with authentication (Windows Phone) | Mobile Dev Center" metaKeywords="authentication, Facebook, GOogle, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Phone app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey" manager="" editor="" />
 
-開始使用行動服務中的驗證
-========================
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="Glenn Gailey"></tags>
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users" title="Windows Phone" class="current">Windows Phone</a><a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users" title="iOS">iOS</a><!--<a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-users" title="Android">Android</a>-->
-</div>
+# 在行動服務中開始使用驗證
 
-<div class="dev-center-tutorial-subselector"><a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/" title=".NET 後端" class="current">.NET 後端</a> | <a href="/zh-tw/documentation/articles/mobile-services-windows-phone-get-started-users/"  title="JavaScript 後端">JavaScript 後端</a></div>
+[WACOM.INCLUDE [mobile-services-selector-get-started-users][]]
 
-本主題說明如何從您的 Windows Phone 應用程式在 Azure 行動服務中驗證使用者。在本教學課程中，您會使用行動服務所支援的身份識別提供者將驗證新增至快速入門專案。使用者 ID 值在成功經過行動服務的驗證和授權後，就會顯示出來。
+本主題說明如何從您的 Windows Phone 應用程式在 Azure 行動服務中驗證使用者。在本教學課程中，您將使用行動服務支援的身分識別提供者，將驗證加入快速入門專案。由行動服務成功驗證並授權之後，就會顯示使用者識別碼值。
 
-本教學課程將引導您逐步完成以下在您的應用程式中啟用驗證的基本步驟：
+本教學課程帶領您執行下列基本步驟，在您的應用程式中啟用驗證：
 
-1.  [註冊應用程式進行驗證，並設定行動服務](#register)
-2.  [限制只有經驗證的使用者具有資料表的權限](#permissions)
-3.  [新增驗證至應用程式](#add-authentication)
+1.  [註冊您的應用程式以驗證與設定行動服務][]
+2.  [對通過驗證的使用者限制資料表權限][]
+3.  [將驗證新增至應用程式][]
+4.  [在用戶端儲存驗證語彙基元][]
 
-本教學課程是以行動服務快速入門為基礎。您也必須先完成[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/)教學課程。
+本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務][]。
 
-> [WACOM.NOTE]本教學課程示範行動服務所提供以各種身分識別提供者來驗證使用者的基本方法。此方法設定起來很簡單，而且可支援多個提供者。不過，此方法也需要使用者在每次啟用應用程式時進行登入。若要改用 Live Connect 在您的 Windows Phone 應用程式中提供單一登入體驗，請參閱[使用 Live Connect 在 Windows Phone 應用程式提供單一登入功能](/zh-tw/documentation/articles/mobile-services-windows-phone-single-sign-on)。
+## <a name="register"></a>註冊應用程式進行驗證，並設定行動服務
 
-註冊應用程式進行驗證，並設定行動服務
-------------------------------------
+[WACOM.INCLUDE [mobile-services-register-authentication][]]
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension][]]
 
-1.  在 Visual Studio 中開啟行動服務專案的 Web.config 檔案，然後在 appSettings 區段中設定應用程式識別碼，以及身分識別提供者為您提供的共用密碼值。
+## <a name="permissions"></a> 限制只有經驗證的使用者具有權限
 
-    在本機開發期間將會使用這些設定。當您將行動服務專案發佈至 Azure 之後，這些設定將會覆寫為入口網站中的設定值。
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][]]
 
-限制只有經驗證的使用者具有權限
-------------------------------
-
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
-
-1.  在 Visual Studio 2013 中，開啟您完成[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/)教學課程時所建立的專案。
-
+1.  在 Visual Studio 中，開啟用戶端應用程式專案，確定 App.xaml.cs 中的 \*\*MobileServiceClient\*\* 執行個體設定為使用雲端 URL 至行動服務。
 2.  按 F5 鍵執行此快速入門型應用程式；確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。
 
-    發生這個情況是因為應用程式嘗試以未經驗證的使用者身分存取行動服務，但 *TodoItem* 資料表現在要求要經過驗證。
+    這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 *TodoItem* 資料表現在需要驗證。
 
-接下來，您將更新應用程式，使其先驗證使用者再向行動服務要求資源。
+接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
-新增驗證至應用程式
-------------------
+## <a name="add-authentication"></a>新增驗證至應用程式
 
-[WACOM.INCLUDE [mobile-services-windows-phone-authenticate-app](../includes/mobile-services-windows-phone-authenticate-app.md)]
+[WACOM.INCLUDE [mobile-services-windows-phone-authenticate-app][]]
 
-後續步驟
---------
+## <a name="tokens"></a>將授權權杖儲存在用戶端上
 
-在下一個[行動服務使用者的伺服器端授權](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts)教學課程中，您將使用由行動服務根據經驗證的使用者而提供的使用者識別碼值，來篩選行動服務傳回的資料。您可以在[行動服務 .NET 作法概念參考資料](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)中深入了解如何使用搭配 .NET 的行動服務。
+[WACOM.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token][]]
 
+## <a name="next-steps"> </a>後續步驟
+
+在下一個[行動服務使用者的伺服器端授權][]教學課程中，您將使用由行動服務根據經驗證的使用者而提供的使用者識別碼值，來篩選行動服務傳回的資料。您可以在[行動服務 .NET 作法概念參考資料][]中深入了解如何使用搭配 .NET 的行動服務。
+
+<!-- Anchors. --> 
+<!-- URLs. -->
+
+  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
+  [註冊您的應用程式以驗證與設定行動服務]: #register
+  [對通過驗證的使用者限制資料表權限]: #permissions
+  [將驗證新增至應用程式]: #add-authentication
+  [在用戶端儲存驗證語彙基元]: #tokens
+  [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
+  [mobile-services-dotnet-backend-aad-server-extension]: ../includes/mobile-services-dotnet-backend-aad-server-extension.md
+  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
+  [mobile-services-windows-phone-authenticate-app]: ../includes/mobile-services-windows-phone-authenticate-app.md
+  [mobile-services-windows-phone-authenticate-app-with-token]: ../includes/mobile-services-windows-phone-authenticate-app-with-token.md
+  [行動服務使用者的伺服器端授權]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts
+  [行動服務 .NET 作法概念參考資料]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library

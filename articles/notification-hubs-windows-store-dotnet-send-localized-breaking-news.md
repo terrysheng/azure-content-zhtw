@@ -1,18 +1,21 @@
 <properties linkid="develop-notificationhubs-tutorials-send-localized-breaking-news-windowsdotnet" urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="" editor="" />
 
-使用通知中心傳送當地語系化的即時新聞
-====================================
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
 
-[Windows 市集 C\#](/en-us/manage/services/notification-hubs/breaking-news-localized-dotnet "Windows 市集 C#")[iOS](/en-us/manage/services/notification-hubs/breaking-news-localized-ios "iOS")
+# 使用通知中心傳送當地語系化的即時新聞
 
-本主題將說明如何使用 Azure 通知中心的**範本**功能，廣播已由語言和裝置當地語系化的即時新聞通知。在本教學課程中，首先您會執行在[使用通知中心傳送即時新聞](/en-us/manage/services/notification-hubs/breaking-news-dotnet)中建立的 Windows 市集應用程式。完成之後，您將可註冊您感興趣的類別、指定您要接收哪種語言的通知，並以該語言針對選取的類別接收推播通知。
+<div class="dev-center-tutorial-selector sublanding"> 
+<a href="/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows 市集 C#" class="current">Windows 市集 C#</a><a href="/zh-tw/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS">iOS</a>
+</div>
+
+本主題將說明如何使用 Azure 通知中心的**範本**功能，廣播已由語言和裝置當地語系化的即時新聞通知。在本教學課程中，首先您會執行在[使用通知中心傳送即時新聞][]中建立的 Windows 市集應用程式。完成之後，您將可註冊您感興趣的類別、指定您要接收哪種語言的通知，並以該語言針對選取的類別接收推播通知。
 
 本教學課程會逐步引導您完成啟用此案例的基本步驟：
 
-1.  [範本概念](#concepts)
-2.  [應用程式使用者介面](#ui)
-3.  [建置 Windows 市集用戶端應用程式](#building-client)
-4.  [從後端傳送通知](#send)
+1.  [範本概念][]
+2.  [應用程式使用者介面][]
+3.  [建置 Windows 市集用戶端應用程式][]
+4.  [從後端傳送通知][]
 
 此案例分成兩部分：
 
@@ -20,17 +23,17 @@
 
 -   後端使用 Azure 通知中心的**標籤**和**範本**功能廣播通知。
 
-必要條件
---------
+## 必要條件
 
-您必須已完成[使用通知中心傳送即時新聞](/en-us/manage/services/notification-hubs/breaking-news-dotnet)教學課程，並具有可用的程式碼，因為此教學課程是直接根據該程式碼而建置的。
+您必須已完成[使用通知中心傳送即時新聞][]教學課程，並具有可用的程式碼，因為此教學課程是直接根據該程式碼而建置的。
 
 您也需要 Visual Studio 2012。
 
-概念範本概念
-------------
+## <a name="concepts"></a><span class="short-header">概念</span>範本概念
 
-在[使用通知中心傳送即時新聞](/en-us/manage/services/notification-hubs/breaking-news-dotnet)，您建置了使用**標籤**來訂閱不同即時新聞類別之通知的應用程式。但有許多應用程式是以多個市場為目標的，因此需要當地語系化。這表示通知本身的內容必須進行當地語系化，並傳遞至正確的裝置集。在此主題中，我們將說明如何使用通知中心的**範本**功能，輕鬆地傳遞已當地語系化的即時新聞通知。
+在[使用通知中樞傳送即時新聞][使用通知中心傳送即時新聞]，您建置了使用「標籤」來訂閱不同即時新聞類別之通知的應用程式。
+但有許多應用程式是以多個市場為目標，因此需要當地語系化。這表示通知本身的內容必須進行當地語系化，並傳遞至正確的裝置集。
+在本主題中，我們將示範如何使用通知中樞的**範本**功能，輕鬆傳遞已當地語系化的即時新聞通知。
 
 注意：傳送當地語系化通知的方法之一，是為每個標籤建立多個版本。例如，若要支援英文、法文和中文，我們將必須為世界新聞建立三個不同的標籤："world\_en"、"world\_fr" 和 "world\_ch"。接著，我們必須將當地語系化版本的世界新聞分別傳送至這三個標籤。在此主題中我們會使用範本，以避免使用過多的標籤和傳送過多訊息。
 
@@ -44,20 +47,19 @@
 
 接著，我們將確保裝置會為參照正確屬性的範本進行註冊。例如，要接收簡易快顯通知訊息的 Windows 市集應用程式，將會為下列範本註冊：
 
-	<toast>
-	  <visual>
-	    <binding template=\"ToastText01\">
-	      <text id=\"1\">$(News_English)</text>
-	    </binding>
-	  </visual>
-	</toast>
+    <toast>
+      <visual>
+        <binding template=\"ToastText01\">
+          <text id=\"1\">$(News_English)</text>
+        </binding>
+      </visual>
+    </toast>
 
-範本的功能非常強大，您可以在[通知中心指引](http://msdn.microsoft.com/zh-tw/library/jj927170.aspx)一文中了解詳情。[Windows 市集的通知中心作法](http://msdn.microsoft.com/zh-tw/library/jj927172.aspx)則提供了範本運算式語言的參考。
+範本的功能非常強大，您可以在[通知中心指引][]一文中了解詳情。[Windows 市集的通知中心作法][]則提供了範本運算式語言的參考。
 
-應用程式 UI應用程式使用者介面
------------------------------
+## <a name="ui"></a><span class="short-header">應用程式 UI</span>應用程式使用者介面
 
-現在，我們將修改您在[使用通知中心傳送即時新聞](/en-us/manage/services/notification-hubs/breaking-news-dotnet)主題中建立的即時新聞應用程式，以使用範本傳送當地語系化的即時新聞。
+現在，我們將修改您在[使用通知中心傳送即時新聞][]主題中建立的即時新聞應用程式，以使用範本傳送當地語系化的即時新聞。
 
 若要調整用戶端應用程式使其能夠接收當地語系化的訊息，您必須以範本註冊取代您的*原生*註冊 (也就是指定範本的註冊)。
 
@@ -65,8 +67,8 @@
 
 變更 MainPage.xaml 以加入地區設定下拉式方塊：
 
-	<Grid Margin="120, 58, 120, 80"  
-			Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Margin="120, 58, 120, 80"  
+            Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -94,12 +96,11 @@
         <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="Button_Click" />
     </Grid>
 
-應用程式 UI建置 Windows 市集用戶端應用程式
-------------------------------------------
+## <a name="building-client"></a><span class="building app">應用程式 UI</span>建置 Windows 市集用戶端應用程式
 
 1.  在您的 Notifications 類別中，將地區設定參數新增至 *StoreCategoriesAndSubscribe* 和 *SubscribeToCateories* 方法。
 
-		public async Task StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
+        public async Task StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
         {
             ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
             ApplicationData.Current.LocalSettings.Values["locale"] = locale;
@@ -120,7 +121,7 @@
 
 2.  新增下列方法，以擷取已儲存的地區設定：
 
-		public string RetrieveLocale()
+        public string RetrieveLocale()
         {
             var locale = (string) ApplicationData.Current.LocalSettings.Values["locale"];
             return locale != null ? locale : "English";
@@ -128,33 +129,47 @@
 
 3.  在您的 MainPage.xaml.cs 中，擷取地區設定下拉式方塊的現行值，並將其提供給 Notifications 類別的呼叫，以更新您的按鈕點選處理常式，如下所示：
 
-        var locale = (string)Locale.SelectedItem;
-                
-        var categories = new HashSet<string>();
-        if (WorldToggle.IsOn) categories.Add("World");
-        if (PoliticsToggle.IsOn) categories.Add("Politics");
-        if (BusinessToggle.IsOn) categories.Add("Business");
-        if (TechnologyToggle.IsOn) categories.Add("Technology");
-        if (ScienceToggle.IsOn) categories.Add("Science");
-        if (SportsToggle.IsOn) categories.Add("Sports");
+         var locale = (string)Locale.SelectedItem;
 
-        await ((App)Application.Current).Notifications.StoreCategoriesAndSubscribe(locale, categories);
+         var categories = new HashSet<string>();
+         if (WorldToggle.IsOn) categories.Add("World");
+         if (PoliticsToggle.IsOn) categories.Add("Politics");
+         if (BusinessToggle.IsOn) categories.Add("Business");
+         if (TechnologyToggle.IsOn) categories.Add("Technology");
+         if (ScienceToggle.IsOn) categories.Add("Science");
+         if (SportsToggle.IsOn) categories.Add("Sports");
 
-        var dialog = new MessageDialog(String .Format("Locale:{0}; Subscribed to:{1}", locale, string.Join(",", categories)));
-        dialog.Commands.Add(new UICommand("OK"));
-        await dialog.ShowAsync();
+         await ((App)Application.Current).Notifications.StoreCategoriesAndSubscribe(locale, categories);
 
-4.  最後，在您的 App.xaml.cs 檔案中，確實在 *OnLaunched* 方法中更新您對通知 singleton 的呼叫：
+         var dialog = new MessageDialog(String .Format("Locale: {0}; Subscribed to: {1}", locale, string.Join(",", categories)));
+         dialog.Commands.Add(new UICommand("OK"));
+         await dialog.ShowAsync();
+
+4.  最後，在您的 App.xaml.cs 檔案中，確定會在 *OnLaunched* 方法中更新您對通知單一執行個體的呼叫：
 
         Notifications.SubscribeToCategories(Notifications.RetrieveLocale(), Notifications.RetrieveCategories());
 
-傳送當地語系化的通知從後端傳送當地語系化的通知
-----------------------------------------------
+## <a name="send"></a><span class="short-header">傳送當地語系化的通知</span>從後端傳送當地語系化的通知
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
+[WACOM.INCLUDE [notification-hubs-localized-back-end][]]
 
-後續步驟
---------
+## 後續步驟
 
-如需使用範本的詳細資訊，請參閱[使用通知中心來通知使用者：ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet)、[使用通知中心來通知使用者：行動服務](/en-us/manage/services/notification-hubs/notify-users)，並參閱[通知中心指引](http://msdn.microsoft.com/zh-tw/library/jj927170.aspx)。[Windows 市集的通知中心作法](http://msdn.microsoft.com/zh-tw/library/jj927172.aspx)則提供了範本運算式語言的參考。
+如需使用範本的詳細資訊，請參閱[使用通知中心來通知使用者：ASP.NET][]、[使用通知中心來通知使用者：行動服務][]，並參閱[通知中心指引][]。[Windows 市集的通知中心作法][]則提供了範本運算式語言的參考。
 
+<!-- Anchors. --> 
+<!-- Images. --> 
+<!-- URLs. -->
+
+  [Windows 市集 C#]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/ "Windows 市集 C#"
+  [iOS]: /zh-tw/documentation/articles/notification-hubs-ios-send-localized-breaking-news/ "iOS"
+  [使用通知中心傳送即時新聞]: /en-us/manage/services/notification-hubs/breaking-news-dotnet
+  [範本概念]: #concepts
+  [應用程式使用者介面]: #ui
+  [建置 Windows 市集用戶端應用程式]: #building-client
+  [從後端傳送通知]: #send
+  [通知中心指引]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+  [Windows 市集的通知中心作法]: http://msdn.microsoft.com/en-us/library/jj927172.aspx
+  [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
+  [使用通知中心來通知使用者：ASP.NET]: /en-us/manage/services/notification-hubs/notify-users-aspnet
+  [使用通知中心來通知使用者：行動服務]: /en-us/manage/services/notification-hubs/notify-users

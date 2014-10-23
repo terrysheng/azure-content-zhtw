@@ -1,105 +1,143 @@
-<properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="Shared Access Signature Part 2" pageTitle="Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service" metaKeywords="" description="Learn how to generate and then use shared access signatures with the Azure Blob service. The examples are written in C# and use the Azure Storage Client Library for .NET." metaCanonical="" services="storage" documentationCenter=".NET" title="Operating System Functionality Available to Applications on Azure Web Sites" authors="timamm" solutions="" writer="timamm" manager="" editor="" />
+<properties title="Operating System Functionality Available to Applications on Azure Websites" pageTitle="Operating System Functionality Available to Applications on Azure Websites" description="Learn about the OS functionality available to web applications on Azure Websites" metaKeywords="Azure,Web Sites,web applications,operating system functionality" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-Azure 網站上應用程式可用的作業系統功能
-======================================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+
+# Azure 網站上應用程式可用的作業系統功能
 
 本文說明在 Azure 網站上執行的所有應用程式可用的一般基礎作業系統功能。此功能包含檔案、網路、登錄存取、診斷記錄和事件。
 
-目錄
-----
+## 目錄
 
--   [網站模式](#websitemodes)
--   [開發架構](#developmentframeworks)
--   [檔案存取](#FileAccess)
-    -   [本機磁碟機](#LocalDrives)
-    -   [網路磁碟機 (亦稱為 UNC 共用)](#NetworkDrives)
-    -   [跨越多個執行個體的檔案](#multipleinstances)
-    -   [授與 Web 應用程式的檔案存取類型](#TypesOfFileAccess)
--   [網路存取](#NetworkAccess)
--   [程式碼執行、處理序和記憶體](#Code)
--   [診斷記錄和事件](#Diagnostics)
--   [登錄存取](#RegistryAccess)
+-   [網站模式][]
+-   [開發架構][]
+-   [檔案存取][]
 
-網站模式
---------
+    -   [本機磁碟機][]
+    -   [網路磁碟機 (亦稱為 UNC 共用)][]
+    -   [跨越多個執行個體的檔案][]
+    -   [授與 Web 應用程式的檔案存取類型][]
+-   [網路存取][]
+-   [程式碼執行、處理序和記憶體][]
+-   [診斷記錄和事件][]
+-   [登錄存取][]
 
-Azure 網站會在多租用戶主控環境中執行客戶網站。在 [自由] 與 [共用] 網站縮放模式部署的網站會在共用虛擬機器上的背景工作處理序中執行，而在 [標準] 網站縮放模式中部署的網站則會在單一客戶相關網站特別專用的虛擬機器上執行。
+<span id="websitemodes"></span></a>
 
+## 網站模式
+
+Azure 網站會在多租用戶主控環境中執行客戶網站。在 [免費] 與 [共用] 網站縮放模式部署的網站會在共用虛擬機器上的背景工作處理序中執行，而在 [標準] 網站縮放模式中部署的網站則會在單一客戶相關聯網站特別專用的虛擬機器上執行。
+
+</p>
 因為 Azure 網站支援不同模式間的完美縮放體驗，所以強制網站採用的安全性設定維持不變。這可確保當網站在兩種網站模式間切換時，Web 應用程式不會突然出現不同的行為，發生非預期的失敗。
 
-開發架構
---------
+<span id="developmentframeworks"></span></a>
 
+## 開發架構
+
+</p>
 網站模式可控制網站可用的運算資源 (CPU、磁碟儲存體、記憶體和網路出口流量) 數量。但是，不論網站模式為何，應用程式可用的架構功能廣度維持不變。
 
-Azure 網站支援各種開發架構，包含 ASP.NET、傳統 ASP、node.js、PHP 和 python - 在 IIS 中這些架構全都以擴充功能形式執行。為了簡化和標準化安全性設定，Azure 網站通常會以預設的設定執行各種部署架構。設定 Azure 網站的其中一種方式，就是針對個別的開發架構自訂 API 介面區和功能。Azure 網站採取了更普通的方式，也就是不論網站的應用程式開發架構為何，均啟用作業系統功能的一般基礎。
+Azure 網站支援各種開發架構，包含 ASP.NET、傳統 ASP、node.js、PHP 和 python，在 IIS 中這些架構全都以擴充功能形式執行。為了簡化和標準化安全性設定，Azure 網站通常會以預設的設定執行各種部署架構。設定 Azure 網站的其中一種方式，就是針對個別的開發架構自訂 API 介面區和功能。Azure 網站採取了更普通的方式，也就是不論網站的應用程式開發架構為何，均啟用作業系統功能的一般基礎。
 
 下列各節簡單說明在 Azure 上網站可用的一般作業系統功能種類。
 
-檔案存取
---------
+<span id="FileAccess"></span></a>
 
+## 檔案存取
+
+</p>
 Azure 網站中的各種磁碟機，包含本機磁碟機和網路磁碟機。
+
+<span id="LocalDrives"></span></a>
 
 ### 本機磁碟機
 
-基本上，Azure 網站是一項在 Azure PaaS (平台即服務) 基礎結構之上執行的服務。因此，「附加」至虛擬機器的本機磁碟機就是任何在 Azure 中執行之背景工作角色可用的相同磁碟機類型。這包括作業系統磁碟機 (D:\\ 磁碟機)、含 Azure 網站獨家使用之 Azure 套件 cspkg 檔案的應用程式磁碟機，以及「使用者」磁碟機 (C:\\ 磁碟機，其大小因 VM 的大小而異)。
+</p>
+基本上，Azure 網站是一項在 Azure PaaS (平台即服務) 基礎結構之上執行的服務。因此，「附加」至虛擬機器的本機磁碟機就是任何在 Azure 中執行之背景工作角色可用的相同磁碟機類型。這包括作業系統磁碟機 (D:\\ 磁碟機)、含 Azure 網站專用的 Azure 封裝 cspkg 檔案的應用程式磁碟機 (客戶無法存取)，以及「使用者」磁碟機 (C:\\ 磁碟機，其大小因 VM 的大小而異)。
+
+<span id="NetworkDrives"></span></a>
 
 ### 網路磁碟機 (亦稱為 UNC 共用)
 
+</p>
 Azure 網站將所有使用者內容儲存在一組 UNC 共用上，此種獨特做法讓 Web 應用程式的部署和維護變得直接。此種模型非常符合具有多個負載平衡伺服器的內部部署 Web 主控環境所用內容儲存體的一般模式。
 
 在 Azure 網站中，每個資料中心內都已建立許多 UNC 共用。每個 UNC 共用都會配置每個資料中心內各客戶某個百分比的使用者內容。此外，單一客戶訂閱的所有檔案內容一律放在相同的 UNC 共用上。
 
 請注意，由於雲端服務的運作方式，負責主控 UNC 共用的特定虛擬機器將隨著時間而改變。但保證當 UNC 共用在雲端作業的正常過程中啟動和關閉時，將會由不同的虛擬機器掛接。基於這個理由，Web 應用程式不得硬性假設 UNC 檔案路徑中的機器資訊會隨時保持穩定。反之，應該使用 Azure 網站所提供的方便 *faux* 絕對路徑 **D:\\home\\site**。此 faux 絕對路徑提供了一種無從驗證網站和使用者的可攜式方法，以供參考某人擁有的網站。使用 **D:\\home\\site**，即可在網站之間傳輸共用檔案，而不需針對每次傳輸設定新的絕對路徑。
 
+<span id="TypesOfFileAccess"></span></a>
+
 ### 授與 Web 應用程式的檔案存取類型
 
-在資料中心內的特定 UNC 共用上，每個客戶的訂閱都有一個保留的目錄結構。一個客戶可以在特定資料中心內建立多個網站，所以屬於單一客戶訂閱的所有目錄都會建立於相同的 UNC 共用上。此共用可能包括目錄 (內容、錯誤和診斷記錄的目錄)，以及原始檔控制所建立的舊版網站。如同預期，網站的應用程式程式碼可以在執行階段讀取和寫入客戶的網站目錄。
+</p>
+在資料中心內的特定 UNC 共用上，每個客戶的訂閱都有一個保留的目錄結構。一個客戶可以在特定資料中心內建立多個網站，所以屬於單一客戶訂閱的所有目錄都會建立於相同的 UNC 共用上。此共用可能包括目錄 (內容、錯誤和診斷記錄等的目錄)，以及原始檔控制所建立的舊版網站。如同預期，網站的應用程式程式碼可以在執行階段讀取和寫入客戶的網站目錄。
 
 在執行網站之虛擬機器附加的本機磁碟機上，Azure 網站會在 C:\\ 磁碟機上保留許多空間作為網站專用暫存本機儲存體。雖然網站可以完整讀寫自己的暫存本機儲存體，但是該儲存體的真正目的並非由應用程式程式碼直接使用。其目的是要提供 IIS 和 Web 應用程式架構的暫存檔案儲存體。Azure 網站也會限制每個網站可用的暫存本機儲存體數量，以免個別網站取用過量的本機檔案儲存體。
 
 Azure 網站對於暫存本機儲存體的兩種使用方式範例：暫存 ASP.NET 檔案的目錄和 IIS 壓縮檔案的目錄。ASP.NET 編譯系統會使用 "Temporary ASP.NET Files" 目錄作為暫存編譯快取位置。IIS 則使用 "IIS Temporary Compressed Files" 目錄來儲存壓縮回應輸出。這兩種檔案使用方式 (和其他方式) 都會在 Azure 網站中重新對應至每個網站的暫存本機儲存體。此重新對應可確保功能如預期般繼續運作。
 
-Azure 網站中的每個網站都會以隨機獨特的低權限背景工作處理序識別 (稱為「應用程式集區識別」) 身分執行，進一步的說明如下：<http://www.iis.net/learn/manage/configuring-security/application-pool-identities>。應用程式程式碼會將此識別用於作業系統磁碟機 (D:\\ 磁碟機) 的基本唯讀存取。這表示應用程式程式碼可以列出通用目錄結構和讀取作業系統磁碟機上的通用檔案。雖然這似乎是有點廣泛的存取層級，但是當您在 Azure 託管服務中佈建背景工作角色和讀取磁碟機內容時，可以存取的目錄和檔案相同。
+Azure 網站中的每個網站都會以隨機獨特的低權限背景工作處理序識別 (稱為「應用程式集區身分識別」) 身分執行，進一步的說明如下：[][]<http://www.iis.net/learn/manage/configuring-security/application-pool-identities></a>。應用程式程式碼會將此識別用於作業系統磁碟機 (D:\\ 磁碟機) 的基本唯讀存取。這表示應用程式程式碼可以列出通用目錄結構和讀取作業系統磁碟機上的通用檔案。雖然這似乎是有點廣泛的存取層級，但是當您在 Azure 託管服務中佈建背景工作角色和讀取磁碟機內容時，可以存取的目錄和檔案相同。
+
+<a name="multipleinstances"></a>
 
 ### 跨越多個執行個體的檔案存取
 
 主目錄包含網站的內容，而 Web 應用程式可以寫入其中。如果有個網站在多個執行個體上執行，則主目錄會在所有執行個體當中共用，讓所有執行個體都可看見相同的目錄。例如，如果網站將上傳的檔案儲存到主目錄，所有執行個體即可立即使用這些檔案。
 
-網路存取
---------
+<span id="NetworkAccess"></span></a>
 
-應用程式程式碼可以使用 TCP/IP 和 UDP 型通訊協定，對公開外部服務的網際網路可存取端點進行輸出網路連線。應用程式可以使用這些通訊協定來連接至 Azure 內的服務，例如，建立與 SQL Azure 的 HTTPS 連線。
+## 網路存取
 
+應用程式程式碼可以使用 TCP/IP 和 UDP 型通訊協定，對公開外部服務的網際網路可存取端點進行輸出網路連線。應用程式可以使用這些相同通訊協定來連接至 Azure 內的服務，例如，建立與 SQL Azure 的 HTTPS 連線。
+
+</p>
 此外，應用程式可以在有限的情況下建立一個本機回送連線，並且讓應用程式在該本機回送通訊端上接聽。這項功能主要是讓在本機回送通訊端上接聽的應用程式成為其功能的一部分。請注意，每個客戶的應用程式都可看見一個「私人」回送連線，但應用程式 "A" 無法接聽應用程式 "B" 所建立的本機回送通訊端。
 
 此外，還支援具名管道作為共同執行網站的不同處理序之間的處理序間通訊 (IPC) 機制。例如，IIS FastCGI 模組會依賴具名管道來協調執行 PHP 頁面的個別處理序。
 
-程式碼執行、處理序和記憶體
---------------------------
+<span id="Code"></span></a>
 
-如先前所述，網站會使用隨機應用程式集區識別在低權限的背景工作處理序內部執行。應用程式程式碼可以存取與背景工作處理序相關聯的記憶體空間，以及 CGI 處理序或其他應用程式所繁衍的任何子處理序。但是，即使是位於相同的虛擬機器上，一個網站的應用程式無法存取其他客戶網站的記憶體或資料。
+## 程式碼執行、處理序和記憶體
 
+如先前所述，網站會使用隨機應用程式集區身分識別在低權限的背景工作處理序內部執行。應用程式程式碼可以存取與背景工作處理序相關聯的記憶體空間，以及 CGI 處理序或其他應用程式所繁衍的任何子處理序。但是，即使是位於相同的虛擬機器上，一個網站的應用程式無法存取其他客戶網站的記憶體或資料。
+
+</p>
 應用程式可以執行利用支援的 Web 應用程式開發架構撰寫的指令碼或頁面。Azure 網站不會將任何 Web 應用程式架構設定設定為比較受限的模式。例如，在 Azure 網站上執行的 ASP.NET 網站會以「完全」信任模式 (相對於比較受限的信任模式) 執行。應用程式架構 (包括傳統 ASP 和 ASP.NET) 可以呼叫處理序內 COM 元件 (但不能呼叫處理序外 COM 元件)，例如：預設在 Windows 作業系統上註冊的 ADO (ActiveX Data Objects)。
 
 Web 應用程式可以繁衍和執行任意程式碼。允許 Web 應用程式執行的動作如下：繁衍命令殼層或執行 PowerShell 指令碼。但是，即使可以從 Web 應用程式衍生任意程式碼和處理序，但可執行的程式和指令碼仍受限於授與父應用程式集區的權限。例如，網站可以繁衍用於進行輸出 HTTP 呼叫的可執行檔，但這一個可執行檔無法嘗試解除虛擬機器的 IP 位址與其 NIC 的繫結。低權限的程式碼能夠進行輸出網路呼叫，但嘗試在虛擬機器上重新設定網路設定則需要有系統管理權限。
 
-診斷記錄和事件
---------------
+<span id="Diagnostics"></span></a>
+
+## 診斷記錄和事件
 
 記錄資訊是某些 Web 應用程式嘗試存取的另一組資料。在 Azure 網站中執行的程式碼的可用記錄資訊類型包括網站所產生的診斷和記錄資訊，網站也可輕易存取此資訊。
 
+</p>
 例如，作用中網站所產生的 W3C HTTP 記錄可在針對該網站建立的網路共用位置中的記錄目錄中取得，而如果客戶已設定 W3C 記錄至儲存體，則可在 Blob 儲存體中取得。後面這個選項能夠收集大量的記錄，而不需擔心超出與網路共用相關聯的檔案儲存體限制。
 
 同樣地，也可以使用 .NET 追蹤和診斷基礎結構來記錄 .NET 應用程式的即時診斷資訊，方法是選擇將追蹤資訊寫入至網站的網路共用，或者是 Blob 儲存體位置。
 
 在 Azure 上 Web 應用程式無法使用的診斷記錄和追蹤區域包括 Windows ETW 事件和一般 Windows 事件記錄 (例如 System、Application 和 Security 事件記錄)。因為有可能全機器都可檢視 ETW 追蹤資訊 (只要具有適當的 ACL)，所以封鎖了 ETW 事件的讀取和寫入存取權。開發人員可能會注意到用以讀寫 ETW 事件和一般 Windows 事件記錄的 API 呼叫似乎有作用，但這是因為 Azure 網站「假裝」呼叫，以致似乎呼叫成功。事實上，網站應用程式程式碼無法存取此事件資料。
 
-登錄存取
---------
+<span id="RegistryAccess"></span></a>
+
+## 登錄存取
 
 應用程式對於執行所在的虛擬機器，具有大部分 (雖然並非全部) 登錄的唯讀存取權。實際上，這表示 Web 應用程式可存取允許本機 Users 群組唯讀存取的登錄機碼。目前無法提供讀取或寫入的其中一個登錄區域為 HKEY\_CURRENT\_USER 登錄區。
 
+</p>
 登錄的寫入存取權已遭封鎖，其中包括任何每一使用者登錄機碼的存取。從應用程式的觀點來看，因為應用程式可以在不同虛擬機器之間移轉，所以雲端環境中的登錄寫入存取權並不可靠。Web 應用程式唯一可依賴的持續可寫入儲存體，就是儲存在 Azure 網站 UNC 共用上的各網站內容目錄結構。
 
+  [網站模式]: #websitemodes
+  [開發架構]: #developmentframeworks
+  [檔案存取]: #FileAccess
+  [本機磁碟機]: #LocalDrives
+  [網路磁碟機 (亦稱為 UNC 共用)]: #NetworkDrives
+  [跨越多個執行個體的檔案]: #multipleinstances
+  [授與 Web 應用程式的檔案存取類型]: #TypesOfFileAccess
+  [網路存取]: #NetworkAccess
+  [程式碼執行、處理序和記憶體]: #Code
+  [診斷記錄和事件]: #Diagnostics
+  [登錄存取]: #RegistryAccess
+  []: http://www.iis.net/learn/manage/configuring-security/application-pool-identities

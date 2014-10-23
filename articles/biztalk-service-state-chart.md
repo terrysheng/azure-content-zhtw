@@ -1,7 +1,8 @@
-<properties linkid="manage-services-biztalk-state-chart" urlDisplayName="BizTalk Services: Service state chart" pageTitle="BizTalk Services: Service state chart | Azure" metaKeywords="" description="" metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Service state chart" authors="mandia" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-biztalk-state-chart" urlDisplayName="BizTalk Services: Service state chart" pageTitle="BizTalk Services: Service state chart | Azure" metaKeywords="" description="" metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Service state chart" authors="mandia" solutions="integration" manager="dwrede" editor="cgronlun" />
 
-BizTalk 服務：服務狀態圖
-========================
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+
+# BizTalk 服務：服務狀態圖
 
 視 BizTalk 服務的目前狀態而定，有些作業是可以或無法在 BizTalk 服務上執行。
 
@@ -9,245 +10,605 @@ BizTalk 服務：服務狀態圖
 
 **不允許此作業**
 
-若要佈建 BizTalk 服務，請參閱＜[BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280) (英文)。
+若要佈建 BizTalk 服務，請參閱 [BizTalk 服務：使用 Azure 管理入口網站進行佈建][] (英文)。
 
 下表列出當 BizTalk 服務處於特定狀態時可執行的作業。核取記號表示可在此狀態下執行作業。空白項目表示無法在此狀態下執行作業。
 
 #### 啟動、停止、重新啟動、暫止、繼續和刪除作業
 
-<table data-morhtml="true" border="1">
-<tr data-morhtml="true">
-<th data-morhtml="true" colspan="15">作業</th>
-</tr>
+<table border="1">
+<tr>
+<th colspan="15">
+作業
 
-<tr data-morhtml="true">
-<th data-morhtml="true" rowspan="18">BizTalk 服務狀態</th>
+</th>
 </tr>
-<tr data-morhtml="true" bgcolor="FAF9F9">
-        <th data-morhtml="true"> </th>
-<th data-morhtml="true">啟動</th>
-<th data-morhtml="true">停止</th>
-<th data-morhtml="true">重新啟動</th>
-<th data-morhtml="true">暫止</th>
-<th data-morhtml="true">繼續</th>
-<th data-morhtml="true">刪除</th>
+<tr>
+<th rowspan="18">
+BizTalk 服務狀態
+
+</th>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">Active</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr bgcolor="FAF9F9">
+<th>
+</th>
+<th>
+啟動
+
+</th>
+<th>
+停止
+
+</th>
+<th>
+重新啟動
+
+</th>
+<th>
+暫止
+
+</th>
+<th>
+繼續
+
+</th>
+<th>
+刪除
+
+</th>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">已停用</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>Active</b>
+
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">暫止</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>已停用</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">已停止</b></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>暫止</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">服務更新失敗</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>已停止</b>
+
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">停用失敗</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>服務更新失敗</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">啟用失敗</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>停用失敗</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">啟動失敗<br data-morhtml="true" /> 停止失敗<br data-morhtml="true" /> 重新啟動失敗</b></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>啟用失敗</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">暫止失敗<br data-morhtml="true" /> 繼續失敗</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>啟動失敗
+ 停止失敗
+ 重新啟動失敗</b>
+
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">建立失敗<br data-morhtml="true" /> 還原失敗<br data-morhtml="true" /></b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>暫止失敗
+ 繼續失敗</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">設定更新失敗</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>建立失敗
+ 還原失敗
+</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">調整失敗</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>設定更新失敗</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+</tr>
+<tr>
+<td bgcolor="FAF9F9">
+<b>調整失敗</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
 </table>
-<p><br data-morhtml="true" /></p>
-
 
 #### 調整、更新組態和備份作業
 
-<table data-morhtml="true" border="1">
-<tr data-morhtml="true">
-<th data-morhtml="true" colspan="15">作業</th>
-</tr>
+<table border="1">
+<tr>
+<th colspan="15">
+作業
 
-<tr data-morhtml="true">
-<th data-morhtml="true" rowspan="18">BizTalk 服務狀態</th>
+</th>
 </tr>
-<tr data-morhtml="true" bgcolor="FAF9F9">
-        <th data-morhtml="true"> </th>
-<th data-morhtml="true">調整</th>
-<th data-morhtml="true">更新組態</th>
-<th data-morhtml="true">備份</th>
+<tr>
+<th rowspan="18">
+BizTalk 服務狀態
+
+</th>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">Active</b></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr bgcolor="FAF9F9">
+<th>
+</th>
+<th>
+調整
+
+</th>
+<th>
+更新組態
+
+</th>
+<th>
+備份
+
+</th>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">已停用</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>Active</b>
+
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">暫止</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>已停用</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">已停止</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>暫止</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">服務更新失敗</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>已停止</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">停用失敗</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>服務更新失敗</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">啟用失敗</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>停用失敗</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">啟動失敗<br data-morhtml="true" /> 停止失敗<br data-morhtml="true" /> 重新啟動失敗</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>啟用失敗</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">暫止失敗<br data-morhtml="true" /> 繼續失敗</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>啟動失敗
+ 停止失敗
+ 重新啟動失敗</b>
+
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">建立失敗<br data-morhtml="true" /> 還原失敗<br data-morhtml="true" /></b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>暫止失敗
+ 繼續失敗</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">設定更新失敗</b></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>建立失敗
+ 還原失敗
+</b>
+
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
-<tr data-morhtml="true">
-<td data-morhtml="true" bgcolor="FAF9F9"><b data-morhtml="true">調整失敗</b></td>
-<td data-morhtml="true"><center data-morhtml="true">x</center></td>
-<td data-morhtml="true"> </td>
-<td data-morhtml="true"> </td>
+<tr>
+<td bgcolor="FAF9F9">
+<b>設定更新失敗</b>
+
+</td>
+<td>
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td bgcolor="FAF9F9">
+<b>調整失敗</b>
+
+</td>
+<td>
+<center>
+x
+
+</center>
+</td>
+<td>
+</td>
+<td>
+</td>
 </tr>
 </table>
+## 另請參閱
 
-另請參閱
---------
+-   [BizTalk 服務：使用 Azure 管理入口網站進行佈建][]
+     (英文)
+-   [BizTalk 服務：儀表板、監視器和調整索引標籤][]
+     (英文)
+-   [BizTalk 服務：開發人員、基本、標準和高級版本圖表][]
+     (英文)
+-   [BizTalk 服務：備份與還原][]
+     (英文)
+-   [BizTalk 服務：節流][]
+     (英文)
+-   [BizTalk 服務：簽發者名稱和簽發者金鑰][]
+     (英文)
+-   [如何開始使用 Azure BizTalk 服務 SDK][]
 
--   [BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)
-     (英文)
--   [BizTalk 服務：儀表板、監視器和調整索引標籤](http://go.microsoft.com/fwlink/p/?LinkID=302281)
-     (英文)
--   [BizTalk 服務：開發人員、基本、標準和高級版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-     (英文)
--   [BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)
-     (英文)
--   [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)
-     (英文)
--   [BizTalk 服務：簽發者名稱和簽發者金鑰](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-     (英文)
--   [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
-
+  [BizTalk 服務：使用 Azure 管理入口網站進行佈建]: http://go.microsoft.com/fwlink/p/?LinkID=302280
+  [BizTalk 服務：儀表板、監視器和調整索引標籤]: http://go.microsoft.com/fwlink/p/?LinkID=302281
+  [BizTalk 服務：開發人員、基本、標準和高級版本圖表]: http://go.microsoft.com/fwlink/p/?LinkID=302279
+  [BizTalk 服務：備份與還原]: http://go.microsoft.com/fwlink/p/?LinkID=329873
+  [BizTalk 服務：節流]: http://go.microsoft.com/fwlink/p/?LinkID=302282
+  [BizTalk 服務：簽發者名稱和簽發者金鑰]: http://go.microsoft.com/fwlink/p/?LinkID=303941
+  [如何開始使用 Azure BizTalk 服務 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=302335

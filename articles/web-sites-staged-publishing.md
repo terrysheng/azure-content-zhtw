@@ -273,4 +273,4 @@ Azure 跨平台命令列介面 (xplat-cli) 提供您處理 Azure 的跨平台命
   [Azure 預覽入口網站]: https://portal.azure.com
   [如何安裝和設定 Azure PowerShell]: http://www.windowsazure.com/zh-tw/documentation/articles/install-configure-powershell
   [安裝與設定 Azure 跨平台命令列介面]: http://www.windowsazure.com/zh-tw/documentation/articles/xplat-cli
-  [Microsoft Azure 免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Microsoft Azure 免費試用]: http://azure.microsoft.com/zh-tw/pricing/free-trial/

@@ -4,7 +4,7 @@
 
 # 開始使用通知中心
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/zh-tw/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/zh-tw/documentation/articles/notification-hubs-ios-get-started/" title="iOS" class="current">iOS</a><a href="/zh-tw/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/zh-tw/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/zh-tw/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-tw/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/zh-TW/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/zh-TW/documentation/articles/notification-hubs-ios-get-started/" title="iOS" class="current">iOS</a><a href="/zh-TW/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/zh-TW/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/zh-TW/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-TW/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
 本主題將示範如何使用 Azure 通知中樞將推播通知傳送至 iOS 應用程式。
 在本教學課程中，您將建立可使用 Apple 推播通知服務 (APNs) 接收推播通知的空白 iOS 應用程式。完成時，您便能夠使用通知中心，將推播通知廣播到所有正在執行您應用程式的裝置。
@@ -27,7 +27,7 @@
 
  <b>注意</b><br /> <p>基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。</p><br /></p>完成本教學課程是 iOS 應用程式所有其他通知中心教學課程的先決條件。
 
- <strong>注意</strong> <p>若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。</p>
+ <strong>注意</strong> <p>若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-TW/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。</p>
 
 [WACOM.INCLUDE [啟用 Apple 推播通知][]]
 
@@ -172,13 +172,13 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Universal]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /zh-tw/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /zh-tw/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /zh-tw/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /zh-tw/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
+  [Windows Universal]: /zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
+  [Windows Phone]: /zh-TW/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
+  [iOS]: /zh-TW/documentation/articles/notification-hubs-ios-get-started/ "iOS"
+  [Android]: /zh-TW/documentation/articles/notification-hubs-android-get-started/ "Android"
+  [Kindle]: /zh-TW/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
+  [Xamarin.iOS]: /zh-TW/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
+  [Xamarin.Android]: /zh-TW/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [產生憑證簽署要求]: #certificates
   [註冊您的應用程式並啟用推播通知]: #register
   [建立應用程式的佈建設定檔]: #profile
@@ -187,7 +187,7 @@
   [從後端傳送通知]: #send
   [行動服務 iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
+  [Azure 免費試用]: http://www.windowsazure.com/zh-TW/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [啟用 Apple 推播通知]: ../includes/enable-apple-push-notifications.md
   []: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-27.png
   [Azure 管理入口網站]: https://manage.windowsazure.com/
@@ -200,12 +200,12 @@
   [7]: ./media/notification-hubs-ios-get-started/notification-hub-create-ios-app.png
   [8]: ./media/notification-hubs-ios-get-started/notification-hub-create-ios-app2.png
   [9]: ./media/notification-hubs-ios-get-started/notification-hub-create-ios-app3.png
-  [REST 介面]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
-  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
-  [Java]: /zh-tw/documentation/articles/notification-hubs-java-backend-how-to/
-  [PHP]: /zh-tw/documentation/articles/notification-hubs-php-backend-how-to/
+  [REST 介面]: http://msdn.microsoft.com/zh-TW/library/windowsazure/dn223264.aspx
+  [.NET 後端]: /zh-TW/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
+  [Java]: /zh-TW/documentation/articles/notification-hubs-java-backend-how-to/
+  [PHP]: /zh-TW/documentation/articles/notification-hubs-php-backend-how-to/
   [WindowsAzure.ServiceBus NuGet 封裝]: http://nuget.org/packages/WindowsAzure.ServiceBus/
   [本機和推播通知程式設計指南]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-  [使用通知中心來推播通知給使用者]: /en-us/manage/services/notification-hubs/notify-users-aspnet
-  [使用通知中心傳送即時新聞]: /en-us/manage/services/notification-hubs/breaking-news-dotnet
-  [通知中心指引]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+  [使用通知中心來推播通知給使用者]: /zh-TW/manage/services/notification-hubs/notify-users-aspnet
+  [使用通知中心傳送即時新聞]: /zh-TW/manage/services/notification-hubs/breaking-news-dotnet
+  [通知中心指引]: http://msdn.microsoft.com/zh-TW/library/jj927170.aspx

@@ -387,7 +387,7 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
   [13]: ./media/active-directory-dotnet-how-to-use-access-control/acsMSFTAcct.png
   [14]: ./media/active-directory-dotnet-how-to-use-access-control/rzAv.png
   [15]: ./media/active-directory-dotnet-how-to-use-access-control/rzCl.png
-  [Windows Identity Foundation 文件庫 (機器翻譯)]: http://msdn.microsoft.com/en-us/library/hh377151.aspx
+  [Windows Identity Foundation 文件庫 (機器翻譯)]: http://msdn.microsoft.com/zh-tw/library/hh377151.aspx
   [16]: ./media/active-directory-dotnet-how-to-use-access-control/acsACSPortal.png
   [17]: ./media/active-directory-dotnet-how-to-use-access-control/acsRPPage.png
   [18]: ./media/active-directory-dotnet-how-to-use-access-control/acsEdit-RP.png

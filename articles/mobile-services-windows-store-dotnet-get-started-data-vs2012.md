@@ -5,7 +5,7 @@
 # 開始以 Visual Studio 2012 使用行動服務中的資料
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012" title="Windows 市集 C#" class="current">Windows 市集 C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js-vs2012" title="Windows 市集 JavaScript" class="current">Windows 市集 JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML" class="current">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a></div>
+<a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012" title="Windows 市集 C#" class="current">Windows 市集 C#</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-js-vs2012" title="Windows 市集 JavaScript" class="current">Windows 市集 JavaScript</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-ios" title="iOS" class="current">iOS</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-android" title="Android" class="current">Android</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-html" title="HTML" class="current">HTML</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a></div>
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -17,7 +17,7 @@
 </div>
 
 <div class="dev-callout"><b>注意</b>
-<p>本教學課程會將行動服務功能加入 Visual Studio 2012 中建立的 Windows 市集應用程式。Visual Studio 2013 包含新功能，可讓您輕鬆地將您的 Windows 市集應用程式與行動服務連接。如需詳細資訊，請參閱<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/">開始使用行動服務中的資料</a>。</p>
+<p>本教學課程會將行動服務功能加入 Visual Studio 2012 中建立的 Windows 市集應用程式。Visual Studio 2013 包含新功能，可讓您輕鬆地將您的 Windows 市集應用程式與行動服務連接。如需詳細資訊，請參閱<a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet/">開始使用行動服務中的資料</a>。</p>
 </div>
 
 本教學課程將逐步引導您完成下列基本步驟：
@@ -28,7 +28,7 @@
 4.  [更新應用程式以使用行動服務][]
 5.  [針對行動服務進行應用程式測試][]
 
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。</p></div>
+<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。</p></div>
 
 ## <a name="download-app"></a><span class="short-header">下載專案</span>下載 GetStartedWithData 專案
 
@@ -133,7 +133,7 @@
 
          await todoTable.UpdateAsync(item);
 
-    This sends an item update to the mobile service.
+    這會傳送項目更新給行動服務。
 
 應用程式現已更新為使用行動服務進行後端儲存，我們可以開始在行動服務中測試應用程式。
 
@@ -200,22 +200,22 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012 "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-data-js-vs2012 "Windows 市集 JavaScript"
-  [Windows Phone]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone"
-  [iOS]: /en-us/develop/mobile/tutorials/get-started-with-data-ios "iOS"
-  [Android]: /en-us/develop/mobile/tutorials/get-started-with-data-android "Android"
-  [HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-html "HTML"
-  [Xamarin.iOS]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android"
+  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012 "Windows 市集 C#"
+  [Windows 市集 JavaScript]: /zh-tw/develop/mobile/tutorials/get-started-with-data-js-vs2012 "Windows 市集 JavaScript"
+  [Windows Phone]: /zh-tw/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone"
+  [iOS]: /zh-tw/develop/mobile/tutorials/get-started-with-data-ios "iOS"
+  [Android]: /zh-tw/develop/mobile/tutorials/get-started-with-data-android "Android"
+  [HTML]: /zh-tw/develop/mobile/tutorials/get-started-with-data-html "HTML"
+  [Xamarin.iOS]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS"
+  [Xamarin.Android]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android"
   [觀看教學課程]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services
-  [開始使用行動服務中的資料]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
+  [開始使用行動服務中的資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet/
   [下載 Windows 市集應用程式專案]: #download-app
   [建立行動服務]: #create-service
   [新增用於儲存的資料表]: #add-table
   [更新應用程式以使用行動服務]: #update-app
   [針對行動服務進行應用程式測試]: #test-app
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28
   [GetStartedWithData 應用程式]: http://go.microsoft.com/fwlink/?LinkId=262308
   []: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-data-sample-download-dotnet.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-quickstart-startup.png
@@ -225,8 +225,8 @@
   [3]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-dashboard-tab.png
   [管理入口網站]: https://manage.windowsazure.com/
   [4]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-todoitem-data-browse.png
-  [使用指令檔驗證與修改資料]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-  [使用分頁縮小查詢範圍]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-  [開始使用推播通知]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012/
-  [行動服務 .NET 作法概念參考資料]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+  [使用指令檔驗證與修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+  [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-dotnet
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet
+  [開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012/
+  [行動服務 .NET 作法概念參考資料]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library

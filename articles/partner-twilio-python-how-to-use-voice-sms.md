@@ -277,7 +277,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
   [Twilio 電話號碼說明]: https://www.twilio.com/help/faq/phone-numbers
   [適用於 PHP 的 Twiliofor 程式庫 (由 Github 提供)]: https://github.com/twilio/twilio-php
   []: http://readthedocs.org/docs/twilio-php/en/latest/index.html
-  [如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話]: http://windowsazure.com/zh-tw/documentation/articles/partner-twilio-php-make-phone-call
+  [如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話]: http://windowsazure.com/zh-TW/documentation/articles/partner-twilio-php-make-phone-call
   [2]: https://github.com/twilio/twilio-php/blob/master/README.md
   [3]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
   [4]: http://twimlets.com/message

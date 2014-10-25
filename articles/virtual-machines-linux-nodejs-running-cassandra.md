@@ -593,10 +593,10 @@ Azure 虛擬機器功能允許建立 Linux (由 Microsoft 合作夥伴提供映�
   [Composite deployment diagram]: ./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux1.png
   [Virtual machine deployment]: ./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux2.png
   [Sequence diagram for creating a cluster]: ./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux4.png
-  [如何在 Azure 上使用 SSH 搭配 Linux]: http://www.windowsazure.com/en-us/manage/linux/how-to-guides/ssh-into-linux/
+  [如何在 Azure 上使用 SSH 搭配 Linux]: http://www.windowsazure.com/zh-tw/manage/linux/how-to-guides/ssh-into-linux/
   [為 Windows Azure 上的 Linux VM 部署產生 SSH 金鑰組]: http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx
-  [建立執行 Linux 的虛擬機器]: http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/
-  [如何擷取執行 Linux 之虛擬機器的映像]: https://www.windowsazure.com/en-us/manage/linux/how-to-guides/capture-an-image/
+  [建立執行 Linux 的虛擬機器]: http://www.windowsazure.com/zh-tw/manage/linux/tutorials/virtual-machine-from-gallery/
+  [如何擷取執行 Linux 之虛擬機器的映像]: https://www.windowsazure.com/zh-tw/manage/linux/how-to-guides/capture-an-image/
   []: http://wiki.apache.org/cassandra/MultinodeCluster
   [1]: http://wiki.apache.org/cassandra/GettingStarted
   [cassandra-client]: https://github.com/racker/node-cassandra-client

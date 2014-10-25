@@ -77,5 +77,5 @@ AMQP 1.0 是一個有效率且可靠的有線等級訊息通訊協定，可以�
   []: ./media/service-bus-amqp-overview/Example1.png
   [如何透過服務匯流排 .NET API 使用 AMQP 1.0]: http://aka.ms/lym3vk
   [如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0]: http://aka.ms/ll1fm3
-  [服務匯流排 AMQP 1.0 開發人員指南]: http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx
+  [服務匯流排 AMQP 1.0 開發人員指南]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj841071.aspx
   [OASIS 進階訊息佇列通訊協定 (AMQP) 版本 1.0 規格]: http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf

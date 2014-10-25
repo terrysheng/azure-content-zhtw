@@ -216,11 +216,11 @@
 
 -   [測試實驗室指南：Azure 中的 Windows Server 2012 R2 基本組態][] (英文)
 
-  [Azure 虛擬網路]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx
-  [使用管理入口網站精靈設定站台對站台 VPN]: http://msdn.microsoft.com/en-us/library/windowsazure/dn133795.aspx
+  [Azure 虛擬網路]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx
+  [使用管理入口網站精靈設定站台對站台 VPN]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn133795.aspx
   [在 Azure 虛擬網路中安裝複本 Active Directory 網域控制台]: http://www.windowsazure.com/zh-tw/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/
-  [在 Azure 虛擬機器上部署 Windows Server Active Directory 的方針]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx
-  [測試實驗室指南：Azure 中的 Windows Server 2012 R2 基本組態]: http://www.microsoft.com/en-us/download/details.aspx?id=41684
+  [在 Azure 虛擬機器上部署 Windows Server Active Directory 的方針]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090.aspx
+  [測試實驗室指南：Azure 中的 Windows Server 2012 R2 基本組態]: http://www.microsoft.com/zh-tw/download/details.aspx?id=41684
   [這與內部部署有何不同？]: #differ
   [步驟 1. 建立 Azure 虛擬網路]: #createvnet
   [步驟 2：建立 VM 來執行網域控制台與 DNS 伺服器角色]: #createvm
@@ -228,17 +228,17 @@
   [步驟 4：設定 Azure 虛擬網路的 DNS 伺服器]: #dns
   [步驟 5：建立網域成員的 VM 並加入網域]: #domainmembers
   [Azure 管理入口網站]: https://manage.windowsazure.com
-  [執行 Set-AzureStaticVNetIP Azure PowerShell Cmdlet]: http://msdn.microsoft.com/en-us/library/windowsazure/dn630228.aspx
+  [執行 Set-AzureStaticVNetIP Azure PowerShell Cmdlet]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn630228.aspx
   [安裝 AD DS]: http://technet.microsoft.com/library/jj574166.aspx
   [在 Azure 虛擬機器上部署 Windows Server Active Directory 的方針 (英文)]: http://msdn.microsoft.com/library/azure/jj156090.aspx
-  [在管理入口網站中設定純雲端虛擬網路]: http://msdn.microsoft.com/en-us/library/dn631643.aspx
-  [在管理入口網站中設定站對站 VPN]: http://msdn.microsoft.com/en-us/library/dn133795.aspx
+  [在管理入口網站中設定純雲端虛擬網路]: http://msdn.microsoft.com/zh-tw/library/dn631643.aspx
+  [在管理入口網站中設定站對站 VPN]: http://msdn.microsoft.com/zh-tw/library/dn133795.aspx
   [1]: http://azure.microsoft.com/zh-tw/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/
   [Windows Azure IT 專業人員 IaaS：(01) 虛擬機器基本概念]: http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01
   [Windows Azure IT 專業人員 IaaS：(05) 建立虛擬網路和跨單位連線]: http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05
   [如何安裝和設定 Azure PowerShell]: http://www.windowsazure.com/zh-tw/documentation/articles/install-configure-powershell/
-  [Azure PowerShell]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx
-  [Azure 管理 Cmdlet]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841
+  [Azure PowerShell]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156055.aspx
+  [Azure 管理 Cmdlet]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj152841
   [設定 Azure VM 靜態 IP 位址]: http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address
   [如何將靜態 IP 指派給 Azure VM (英文)]: http://www.bhargavs.com/index.php/2014/03/13/how-to-assign-static-ip-to-azure-vm/
-  [簡介 Active Directory 網域服務 (AD DS) 虛擬化 (層級 100)]: http://technet.microsoft.com/en-us/library/hh831734.aspx
+  [簡介 Active Directory 網域服務 (AD DS) 虛擬化 (層級 100)]: http://technet.microsoft.com/zh-tw/library/hh831734.aspx

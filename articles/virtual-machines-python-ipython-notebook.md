@@ -255,8 +255,8 @@ IPython Notebook 為交互存取 Azure 上 Python 生態系統的功能提供強
   [觀看教學課程]: http://go.microsoft.com/fwlink/?LinkID=254535&clcid=0x409
   [螢幕擷取畫面]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png
   [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
-  [此處]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
-  [1]: /en-us/manage/windows/tutorials/virtual-machine-from-gallery/
+  [此處]: /zh-tw/manage/linux/tutorials/virtual-machine-from-gallery/
+  [1]: /zh-tw/manage/windows/tutorials/virtual-machine-from-gallery/
   [2]: ./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-005.png
   [3]: ./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-006.png
   [NumPy]: http://www.numpy.org/ "NumPy"

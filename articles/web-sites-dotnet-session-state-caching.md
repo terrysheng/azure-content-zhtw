@@ -91,9 +91,9 @@
   [將 RedisSessionStateProvider NuGet 封裝新增至 Web 應用程式。]: #configureproject
   [修改 web.config 檔案。]: #configurewebconfig
   [使用工作階段物件來儲存與擷取快取項目。]: #usesessionobject
-  [這些指示]: http://azure.microsoft.com/zh-tw/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-cache
+  [這些指示]: http://azure.microsoft.com/zh-TW/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-cache
   [NuGet RedisSessionStateProvider 頁面]: http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/
-  [設定快取用戶端]: http://azure.microsoft.com/zh-tw/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#NuGet
-  [連接到快取]: http://azure.microsoft.com/zh-tw/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache
+  [設定快取用戶端]: http://azure.microsoft.com/zh-TW/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#NuGet
+  [連接到快取]: http://azure.microsoft.com/zh-TW/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache
   [使用 Azure Redis 快取的 MVC 電影應用程式 (15 分鐘)]: http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
-  [ASP.NET 工作階段狀態概觀]: http://msdn.microsoft.com/en-us/library/ms178581.aspx
+  [ASP.NET 工作階段狀態概觀]: http://msdn.microsoft.com/zh-TW/library/ms178581.aspx

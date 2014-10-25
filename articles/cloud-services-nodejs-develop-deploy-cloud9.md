@@ -280,17 +280,17 @@ Cloud9 著重在提供 IDE，並未提供將應用程式部署至 Azure 之後�
   [application running in browser]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug_browser.png
   [create-azure-account]: ../includes/create-azure-account.md
   [download publish settings]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_choosetypeandcert.png
-  [雲端服務]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
+  [雲端服務]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj155995.aspx
   [建立新部署]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png
   [create a new hosted service]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_new_hosted_service_settings.png
   [select a deployment]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_select_deployment.png
   [no web.config file found message]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_no_web_config.png
-  [設定雲端服務的大小]: http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx
+  [設定雲端服務的大小]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee814754.aspx
   [specify csdef file values]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createcsdef.png
   [deployment status]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_deployment_status.png
   [Azure production URL link]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_production_url.png
   [console output showing staging URL]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_staging_console_output.png
-  [在 Azure 中管理部署]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx
+  [在 Azure 中管理部署]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg433027.aspx
   [VIP SWAP]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_portal_vipswap.png
   [Production application running on Azure]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_production_on_azure.png
   [Connect to an instance]: ./media/cloud-services-nodejs-develop-deploy-cloud9/connect.png

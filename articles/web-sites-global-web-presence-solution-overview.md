@@ -1,4 +1,4 @@
-<properties linkid="websites-global-web-presence" urlDisplayName="Create a Global Web Presence on Azure Websites" pageTitle="Create a Global Web Presence on Azure Websites" metaKeywords="" description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure Websites. This includes deployment, custom domains, SSL, and monitoring." metaCanonical="http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-global-web-presence-solution-overview/" services="" documentationCenter="" title="Create a Global Web Presence on Azure Websites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
+<properties linkid="websites-global-web-presence" urlDisplayName="Create a Global Web Presence on Azure Websites" pageTitle="Create a Global Web Presence on Azure Websites" metaKeywords="" description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure Websites. This includes deployment, custom domains, SSL, and monitoring." metaCanonical="http://www.windowsazure.com/zh-TW/documentation/articles/web-sites-global-web-presence-solution-overview/" services="" documentationCenter="" title="Create a Global Web Presence on Azure Websites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth"></tags>
 
@@ -16,7 +16,7 @@
 
 <div class="dev-callout">
 <strong>注意</strong>
-<p>本指南呈現一些與公用端 .COM 網站開發整合的最常見領域和工作。不過，還有其他 Azure 網站功能可供您在特定的實作中使用。若要檢閱這些功能，請同時參閱<a href="http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview">數位行銷活動</a> (英文) 與<a href="http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview">商務應用程式</a> (英文) 上的其他指南。</p>
+<p>本指南呈現一些與公用端 .COM 網站開發整合的最常見領域和工作。不過，還有其他 Azure 網站功能可供您在特定的實作中使用。若要檢閱這些功能，請同時參閱<a href="http://www.windowsazure.com/zh-TW/manage/services/web-sites/digital-marketing-campaign-solution-overview">數位行銷活動</a> (英文) 與<a href="http://www.windowsazure.com/zh-TW/manage/services/web-sites/business-application-solution-overview">商務應用程式</a> (英文) 上的其他指南。</p>
 </div>
 
 ## <a name="createwebsite"></a>建立 Azure 網站
@@ -189,70 +189,70 @@ Azure 網站會針對實際網站 URL 自動提供安全連線。例如，當您
 </tr>
 <tr>
    <td valign="middle"><strong>規劃</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service">Azure 網站、雲端服務和 VM：使用時機</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/zh-TW/manage/services/web-sites/choose-web-app-service">Azure 網站、雲端服務和 VM：使用時機</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>建立</strong></td>
-   <td valign="top">- <a href="http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-dotnet-get-started/">開始使用 Azure 網站和 ASP.NET</a></td>
+   <td valign="top">- <a href="http://azure.microsoft.com/zh-TW/documentation/articles/web-sites-dotnet-get-started/">開始使用 Azure 網站和 ASP.NET</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>部署</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-git/">從原始檔控制發行至 Azure 網站</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/">將 ASP.NET Web 應用程式部署至 Azure 網站</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/website-with-webmatrix/">使用 Microsoft WebMatrix 開發與部署網站</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/zh-TW/develop/net/common-tasks/publishing-with-git/">從原始檔控制發行至 Azure 網站</a><br/>- <a href="http://www.windowsazure.com/zh-TW/develop/net/tutorials/get-started/">將 ASP.NET Web 應用程式部署至 Azure 網站</a><br/>- <a href="http://www.windowsazure.com/zh-TW/develop/net/tutorials/website-with-webmatrix/">使用 Microsoft WebMatrix 開發與部署網站</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>自訂網域</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">設定 Azure 網站的自訂網域名稱</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/zh-TW/develop/net/common-tasks/custom-dns-web-site/">設定 Azure 網站的自訂網域名稱</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>SSL</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">設定 Azure 網站的 SSL 憑證</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/zh-TW/develop/net/common-tasks/enable-ssl-web-site/">設定 Azure 網站的 SSL 憑證</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>監視</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/">如何監視網站</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/zh-TW/manage/services/web-sites/how-to-monitor-websites/">如何監視網站</a></td>
 </tr>
 </table>
 
-  [Azure 網站]: /zh-tw/documentation/services/web-sites/
-  [Azure 雲端服務]: /zh-tw/documentation/services/cloud-services/
-  [Azure 虛擬機器]: /zh-tw/documentation/services/virtual-machines/
-  [Azure 網站、雲端服務和 VM：使用時機]: /en-us/manage/services/web-sites/choose-web-app-service
+  [Azure 網站]: /zh-TW/documentation/services/web-sites/
+  [Azure 雲端服務]: /zh-TW/documentation/services/cloud-services/
+  [Azure 虛擬機器]: /zh-TW/documentation/services/virtual-machines/
+  [Azure 網站、雲端服務和 VM：使用時機]: /zh-TW/manage/services/web-sites/choose-web-app-service
   [建立 Azure 網站]: #createwebsite
   [部署網站]: #deploywebsite
   [新增自訂網域]: #customdomain
   [用 SSL 保護網站安全]: #ssl
   [監視網站]: #monitor
-  [數位行銷活動]: http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview
-  [商務應用程式]: http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview
+  [數位行銷活動]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/digital-marketing-campaign-solution-overview
+  [商務應用程式]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/business-application-solution-overview
   [GlobalWebCreate]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Create.png
-  [開始使用 Azure 網站和 ASP.NET]: /zh-tw/documentation/articles/web-sites-dotnet-get-started
+  [開始使用 Azure 網站和 ASP.NET]: /zh-TW/documentation/articles/web-sites-dotnet-get-started
   [WebMatrix]: http://www.microsoft.com/web/webmatrix/
   [GlobalWebQuickGlance]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_QuickGlance.png
   [GlobalWebFTPSettings]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_FTPSettings.png
-  [從原始檔控制發行至 Azure 網站]: /en-us/develop/net/common-tasks/publishing-with-git/
+  [從原始檔控制發行至 Azure 網站]: /zh-TW/develop/net/common-tasks/publishing-with-git/
   [GlobalWebVSPublish]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_VS_Publish.png
   [GlobalWebWebMatrix]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_WebMatrix.png
-  [使用 Microsoft WebMatrix 開發與部署網站]: /en-us/develop/net/tutorials/get-started/
+  [使用 Microsoft WebMatrix 開發與部署網站]: /zh-TW/develop/net/tutorials/get-started/
   [Drupal]: https://drupal.org/
   [Umbraco]: http://umbraco.com/
-  [設定 Azure 網站的自訂網域名稱]: /en-us/develop/net/common-tasks/custom-dns-web-site/
-  [設定 Azure 網站的 SSL 憑證]: /en-us/develop/net/common-tasks/enable-ssl-web-site/
+  [設定 Azure 網站的自訂網域名稱]: /zh-TW/develop/net/common-tasks/custom-dns-web-site/
+  [設定 Azure 網站的 SSL 憑證]: /zh-TW/develop/net/common-tasks/enable-ssl-web-site/
   [OpenSSL 網站]: http://www.openssl.org/
   [GlobalWebUplodateCert]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Uplodate_Cert.png
   [GlobalWebSSLBindings]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_SSL_Bindings.png
   [Wikipedia 上的 SNI SSL 項目]: http://en.wikipedia.org/wiki/Server_Name_Indication
-  [網站定價詳細資料]: /en-us/pricing/details/web-sites/#service-ssl
+  [網站定價詳細資料]: /zh-TW/pricing/details/web-sites/#service-ssl
   [GlobalWebMonitor1]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor1.png
   [GlobalWebMonitor2]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor2.png
   [GlobalWebMonitor3]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor3.png
   [GlobalWebMonitor4]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor4.png
-  [1]: /en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview
-  [如何監視網站]: /en-us/manage/services/web-sites/how-to-monitor-websites/
-  [2]: http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service
-  [3]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-dotnet-get-started/
-  [4]: http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-git/
-  [將 ASP.NET Web 應用程式部署至 Azure 網站]: http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/
-  [5]: http://www.windowsazure.com/en-us/develop/net/tutorials/website-with-webmatrix/
-  [6]: http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/
-  [7]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
-  [8]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/
+  [1]: /zh-TW/manage/services/web-sites/digital-marketing-campaign-solution-overview
+  [如何監視網站]: /zh-TW/manage/services/web-sites/how-to-monitor-websites/
+  [2]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/choose-web-app-service
+  [3]: http://azure.microsoft.com/zh-TW/documentation/articles/web-sites-dotnet-get-started/
+  [4]: http://www.windowsazure.com/zh-TW/develop/net/common-tasks/publishing-with-git/
+  [將 ASP.NET Web 應用程式部署至 Azure 網站]: http://www.windowsazure.com/zh-TW/develop/net/tutorials/get-started/
+  [5]: http://www.windowsazure.com/zh-TW/develop/net/tutorials/website-with-webmatrix/
+  [6]: http://www.windowsazure.com/zh-TW/develop/net/common-tasks/custom-dns-web-site/
+  [7]: http://www.windowsazure.com/zh-TW/develop/net/common-tasks/enable-ssl-web-site/
+  [8]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/how-to-monitor-websites/

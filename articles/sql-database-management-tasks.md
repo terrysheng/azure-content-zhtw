@@ -121,6 +121,6 @@ GRANT VIEW DATABASE STATE to 'sqlops';
 
   [作法：使用 Management Studio 連接到 Azure 中的 SQL Database]: #connect
   [作法：將登入和使用者新增至 Azure 中的 SQL Database]: #addlogins
-  [使用 Management Studio 管理 SQL 資料庫]: http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/
-  [管理 SQL Database 中的資料庫和登入]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx
-  [使用動態管理檢視監視 SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx
+  [使用 Management Studio 管理 SQL 資料庫]: http://www.windowsazure.com/zh-TW/develop/net/common-tasks/sql-azure-management/
+  [管理 SQL Database 中的資料庫和登入]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee336235.aspx
+  [使用動態管理檢視監視 SQL Database]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ff394114.aspx

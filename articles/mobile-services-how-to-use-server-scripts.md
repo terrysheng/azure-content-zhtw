@@ -928,50 +928,50 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
   [使用 Transact-SQL 存取資料表]: #TSQL
   [偵錯與疑難排解]: #debugging
   [作法：將輸出寫入行動服務記錄檔]: #write-to-logs
-  [行動服務伺服器指令碼參考]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554226.aspx
-  [query 物件]: http://msdn.microsoft.com/en-us/library/windowsazure/jj613353.aspx
-  [user 物件]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554220.aspx
-  [request 物件]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx
-  [insert 函數]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554229.aspx
-  [update 函數]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554214.aspx
-  [delete 函數]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554215.aspx
-  [read 函數]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554224.aspx
+  [行動服務伺服器指令碼參考]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554226.aspx
+  [query 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj613353.aspx
+  [user 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554220.aspx
+  [request 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554218.aspx
+  [insert 函數]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554229.aspx
+  [update 函數]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554214.aspx
+  [delete 函數]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554215.aspx
+  [read 函數]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554224.aspx
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-how-to-use-server-scripts/1-mobile-insert-script-users.png
-  [使用伺服器指令碼驗證及修改行動服務中的資料]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
-  [讀取和寫入資料]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631640.aspx
-  [修改要求]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631635.aspx
-  [驗證資料]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631638.aspx
-  [修改回應]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631631.aspx
+  [使用伺服器指令碼驗證及修改行動服務中的資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
+  [讀取和寫入資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj631640.aspx
+  [修改要求]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj631635.aspx
+  [驗證資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj631638.aspx
+  [修改回應]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj631631.aspx
   [開始使用驗證]: http://go.microsoft.com/fwlink/p/?LinkId=287177
-  [2]: http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx
-  [response 物件]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303373.aspx
+  [2]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn280974.aspx
+  [response 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn303373.aspx
   [express.js library]: http://go.microsoft.com/fwlink/p/?LinkId=309046
   [3]: ./media/mobile-services-how-to-use-server-scripts/2-mobile-custom-api-script.png
-  [從用戶端呼叫自訂 API]: /en-us/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
-  [定義支援定期通知的自訂 API]: /en-us/develop/mobile/tutorials/create-pull-notifications-dotnet/
+  [從用戶端呼叫自訂 API]: /zh-tw/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
+  [定義支援定期通知的自訂 API]: /zh-tw/develop/mobile/tutorials/create-pull-notifications-dotnet/
   [express.js 中的 express 物件]: http://expressjs.com/api.html#express
-  [排程作業]: http://msdn.microsoft.com/en-us/library/windowsazure/jj860528.aspx
+  [排程作業]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj860528.aspx
   [4]: ./media/mobile-services-how-to-use-server-scripts/3-mobile-schedule-job-script.png
-  [在行動服務中排程後端工作]: /en-us/develop/mobile/tutorials/schedule-backend-tasks/
+  [在行動服務中排程後端工作]: /zh-tw/develop/mobile/tutorials/schedule-backend-tasks/
   [Azure SDK for Node.js]: http://go.microsoft.com/fwlink/p/?LinkId=275539
   [Node.js 文件]: http://go.microsoft.com/fwlink/p/?LinkId=288802
   [5]: http://go.microsoft.com/fwlink/p/?LinkId=288803
   [6]: http://go.microsoft.com/fwlink/p/?LinkId=288804
-  [傳送 HTTP 要求]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631641.aspx
-  [使用 SendGrid 從行動服務傳送電子郵件]: /en-us/develop/mobile/tutorials/send-email-with-sendgrid/
+  [傳送 HTTP 要求]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj631641.aspx
+  [使用 SendGrid 從行動服務傳送電子郵件]: /zh-tw/develop/mobile/tutorials/send-email-with-sendgrid/
   [7]: http://go.microsoft.com/fwlink/p/?LinkId=288805
   [8]: http://go.microsoft.com/fwlink/p/?LinkId=288806
   [9]: http://go.microsoft.com/fwlink/p/?LinkId=288807
   [Azure 行動服務對 package.json 的支援]: http://go.microsoft.com/fwlink/p/?LinkId=391036
-  [在伺服器指令碼中運用共用程式碼和 Node.js 模組]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
-  [tables 物件]: http://msdn.microsoft.com/en-us/library/windowsazure/jj614364.aspx
-  [應用程式設定]: http://msdn.microsoft.com/en-us/library/dn529070.aspx
-  [service 物件]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303371.aspx
+  [在伺服器指令碼中運用共用程式碼和 Node.js 模組]: /zh-tw/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
+  [tables 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj614364.aspx
+  [應用程式設定]: http://msdn.microsoft.com/zh-tw/library/dn529070.aspx
+  [service 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn303371.aspx
   [10]: ./media/mobile-services-how-to-use-server-scripts/4-mobile-source-local-cli.png
-  [用於管理 zure 行動服務的命令]: /en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
-  [table 物件]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx
-  [mssql 物件]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
+  [用於管理 zure 行動服務的命令]: /zh-tw/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
+  [table 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554210.aspx
+  [mssql 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554212.aspx
   [部落格文章]: http://blogs.msdn.com/b/jpsanders/archive/2013/03/20/server-script-to-insert-table-items-in-windows-azure-mobile-services.aspx
   [JSON.parse]: http://es5.github.io/#x15.12
   [作法：執行靜態查詢]: #static-query
@@ -979,4 +979,4 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
   [作法：聯結關聯式資料表]: #joins
   [作法：執行查詢並傳回*未經處理*的結果]: #raw
   [作法：存取資料庫連線]: #connection
-  [console 物件]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554209.aspx
+  [console 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554209.aspx

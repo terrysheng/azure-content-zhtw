@@ -62,4 +62,4 @@
 接著，您將會修改快速入門應用程式，以加入新按鈕和非同步呼叫新自訂 API 的程式碼。
 
  
-  [Database 類別]: http://msdn.microsoft.com/en-us/library/system.data.entity.database.aspx
+  [Database 類別]: http://msdn.microsoft.com/zh-tw/library/system.data.entity.database.aspx

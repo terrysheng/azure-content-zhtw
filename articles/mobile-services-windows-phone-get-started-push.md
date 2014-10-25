@@ -210,8 +210,8 @@
   [更新指令碼來傳送推播通知]: #update-scripts
   [插入資料以接收通知]: #test
   [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started-wp8
-  [開始使用通知中心]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-wp8
+  [開始使用通知中心]: /zh-tw/manage/services/notification-hubs/getting-started-windows-dotnet/
   [mobile-services-create-new-push-table]: ../includes/mobile-services-create-new-push-table.md
   []: ./media/mobile-services-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
   [mobile-services-update-registrations-script]: ../includes/mobile-services-update-registrations-script.md
@@ -220,10 +220,10 @@
   [3]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push2-wp8.png
   [4]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
   [5]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png
-  [6]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8/
-  [什麼是通知中心？]: /en-us/develop/net/how-to-guides/service-bus-notification-hubs/
-  [將通知傳送給訂閱者]: /en-us/manage/services/notification-hubs/breaking-news-wp8/
-  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
+  [6]: /zh-tw/manage/services/notification-hubs/get-started-notification-hubs-wp8/
+  [什麼是通知中心？]: /zh-tw/develop/net/how-to-guides/service-bus-notification-hubs/
+  [將通知傳送給訂閱者]: /zh-tw/manage/services/notification-hubs/breaking-news-wp8/
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-wp8
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-wp8
   [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
-  [行動服務 .NET 作法概念參考資料]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/
+  [行動服務 .NET 作法概念參考資料]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/

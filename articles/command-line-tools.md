@@ -221,7 +221,7 @@ This command creates a new affinity group
 **-w, --virtual-network-name** 指定新虛擬機器要加入的虛擬網路。若要設定和管理虛擬網路，可以從 Azure 入口網站進行。
 **-b, --subnet-names** 指定要對虛擬機器指派的子網路名稱。
 
-在此範例中，MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-en-us-30GB 是由平台所提供的映像。如需作業系統映像的詳細資訊，請參閱 vm image list。
+在此範例中，MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-zh-tw-30GB 是由平台所提供的映像。如需作業系統映像的詳細資訊，請參閱 vm image list。
 
     ~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "Western US" -r
     info:   Executing command vm create
@@ -433,15 +433,15 @@ This command creates a new affinity group
     ~$ azure vm image list
     data:   Name                                                                   Category   OS
     data:   ---------------------------------------------------------------------  ---------  -------
-    data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-en-us-30GB.vhd   Canonical  Linux
+    data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-zh-tw-30GB.vhd   Canonical  Linux
     data:   MSFT__Windows-Server-2008-R2-SP1.11-29-2011                            Microsoft  Windows
     data:   MSFT__Windows-Server-2008-R2-SP1-with-SQL-Server-2012-Eval.11-29-2011  Microsoft  Windows
-    data:   MSFT__Windows-Server-8-Beta.en-us.30GB.2012-03-22                      Microsoft  Windows
+    data:   MSFT__Windows-Server-8-Beta.zh-tw.30GB.2012-03-22                      Microsoft  Windows
     data:   MSFT__Windows-Server-8-Beta.2-17-2012                                  Microsoft  Windows
-    data:   MSFT__Windows-Server-2008-R2-SP1.en-us.30GB.2012-3-22                  Microsoft  Windows
-    data:   OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd                 OpenLogic  Linux
-    data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-en-us-30GB.vhd       SUSE       Linux
-    data:   SUSE__OpenSUSE64121-03192012-en-us-15GB.vhd                            SUSE       Linux
+    data:   MSFT__Windows-Server-2008-R2-SP1.zh-tw.30GB.2012-3-22                  Microsoft  Windows
+    data:   OpenLogic__OpenLogic-CentOS-62-20120509-zh-tw-30GB.vhd                 OpenLogic  Linux
+    data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-zh-tw-30GB.vhd       SUSE       Linux
+    data:   SUSE__OpenSUSE64121-03192012-zh-tw-15GB.vhd                            SUSE       Linux
     data:   WIN2K8-R2-WINRM                                                        User       Windows
     info:   vm image list command OK   
 
@@ -514,7 +514,7 @@ This command creates a new affinity group
     data:   LogicalDiskSizeInGB "30"
     data:   MediaLink "http://mystorageaccount.blob.core.azure-preview.com/vhd-store/mycentos-cb39b8223b01f95c.vhd"
     data:   Name "mycentos-mycentos-0-20120524070008"
-    data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd"
+    data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-zh-tw-30GB.vhd"
     info:   vm disk show command OK
 
 **vm disk list [options] [vm-name]**
@@ -2384,13 +2384,13 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
   [管理虛擬網路的命令]: #Commands_to_manage_vnet
   [Azure Technical Diagram]: ./media/command-line-tools/architecturediagram.jpg
   [azurenetworkdiagram]: ./media/command-line-tools/networkdiagram.jpg
-  [管理憑證]: http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx
+  [管理憑證]: http://msdn.microsoft.com/zh-tw/library/azure/gg981929.aspx
   [管理行動服務執行個體的命令]: #Mobile_Services
   [管理行動服務組態的命令]: #Mobile_Configuration
   [管理行動服務資料表的命令]: #Mobile_Tables
   [管理行動服務指令碼的命令]: #Mobile_Scripts
   [管理排程工作的命令]: #Mobile_Jobs
   [調整行動服務的命令]: #Mobile_Scale
-  [在行動服務中使用伺服器指令碼]: http://www.windowsazure.com/en-us/develop/mobile/how-to-guides/work-with-server-scripts/
-  [排程作業]: http://msdn.microsoft.com/en-us/library/windowsazure/jj860528.aspx
-  [調整行動服務]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193178.aspx
+  [在行動服務中使用伺服器指令碼]: http://www.windowsazure.com/zh-tw/develop/mobile/how-to-guides/work-with-server-scripts/
+  [排程作業]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj860528.aspx
+  [調整行動服務]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193178.aspx

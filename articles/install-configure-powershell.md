@@ -4,7 +4,7 @@
 
 # 如何安裝和設定 Azure PowerShell
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/en-us/manage/install-and-configure-cli/" title="跨平台 CLI">跨平台 CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/zh-tw/manage/install-and-configure-cli/" title="跨平台 CLI">跨平台 CLI</a></div>
 
 您可以使用 Windows PowerShell (不論是透過在命令提示字元中互動輸入，還是透過指令碼自動執行) 在 Azure 中執行各種工作。Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows PowerShell 管理 Azure。您可以使用 Cmdlet 來建立、測試、部署和管理透過 Azure 平台傳遞的解決方案和服務。您可透過 Azure 管理入口網站執行的工作，大多也可使用 Cmdlet 來執行。例如，您可以建立和設定雲端服務、虛擬機器、虛擬網路和網站。
 
@@ -257,8 +257,8 @@ Azure 模組包含可協助您下載和匯入憑證的 Cmdlet。
 
 -   如需 Azure AD 之 Cmdlet 的詳細資訊，請參閱[使用 Windows PowerShell 管理 Azure AD][]。
 
-  [PowerShell]: /en-us/manage/install-and-configure-windows-powershell/ "PowerShell"
-  [跨平台 CLI]: /en-us/manage/install-and-configure-cli/ "跨平台 CLI"
+  [PowerShell]: /zh-tw/manage/install-and-configure-windows-powershell/ "PowerShell"
+  [跨平台 CLI]: /zh-tw/manage/install-and-configure-cli/ "跨平台 CLI"
   [Azure PowerShell 程式碼存放庫]: https://github.com/WindowsAzure/azure-sdk-tools
   [使用 Azure PowerShell 的先決條件]: #Prereq
   [作法：安裝 Azure PowerShell]: #Install
@@ -276,8 +276,8 @@ Azure 模組包含可協助您下載和匯入憑證的 Cmdlet。
   [1]: http://manage.windowsazure.com/
   [Microsoft Online Services 客戶入口網站]: http://go.microsoft.com/fwlink/p/?LinkId=324875
   [2]: http://manage.windowsazure.com
-  [加入及移除 Azure 訂用帳戶的共同管理員]: http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx
-  [Azure Cmdlet 參考]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554330.aspx
+  [加入及移除 Azure 訂用帳戶的共同管理員]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg456328.aspx
+  [Azure Cmdlet 參考]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554330.aspx
   [MSDN 上的 Azure 論壇]: http://go.microsoft.com/fwlink/p/?LinkId=320212
   [Stackoverflow]: http://go.microsoft.com/fwlink/?LinkId=320213
   [TechNet 指令碼中心]: http://go.microsoft.com/fwlink/p/?LinkId=320211

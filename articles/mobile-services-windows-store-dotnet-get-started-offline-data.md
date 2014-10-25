@@ -270,7 +270,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
   [觀看教學課程]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-store-get-started/
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28
   [更新應用程式以支援離線功能]: #enable-offline-app
   [在離線狀態下測試應用程式]: #test-offline-app
   [更新應用程式以重新連接您的行動服務]: #update-online-app

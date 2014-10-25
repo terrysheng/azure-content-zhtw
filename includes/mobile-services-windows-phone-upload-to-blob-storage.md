@@ -175,8 +175,8 @@
 > [WACOM.NOTE] 將新項目的 `imageUri` 屬性繫結至 **Image** 控制項時，會從 Blob 儲存體服務自動下載影像。
 
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started
-  [CameraCaptureTask]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
-  [PhotoCamera]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
+  [CameraCaptureTask]: http://msdn.microsoft.com/zh-tw/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
+  [PhotoCamera]: http://msdn.microsoft.com/zh-tw/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
   []: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png
   [1]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png
   [2]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-wp8.png

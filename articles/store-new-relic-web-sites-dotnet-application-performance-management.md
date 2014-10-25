@@ -271,10 +271,10 @@ New Relic 網站代理程式會以 NuGet 套件發行，您可以使用 Visual S
 -   [尋找說明][] (英文)：New Relic 線上說明中心提供的資源
 
   [使用 New Relic]: #using-new-relic
-  [Azure 市集的 New Relic 頁面]: http://www.windowsazure.com/en-us/gallery/store/new-relic/new-relic/
+  [Azure 市集的 New Relic 頁面]: http://www.windowsazure.com/zh-tw/gallery/store/new-relic/new-relic/
   [Azure 管理入口網站]: https://manage.windowsazure.com
-  [使用 Visual Studio 將 ASP.NET Web 應用程式部署至 Azure 網站]: http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/
-  [使用 Microsoft WebMatrix 開發與部署網站]: http://www.windowsazure.com/en-us/develop/net/tutorials/website-with-webmatrix/
+  [使用 Visual Studio 將 ASP.NET Web 應用程式部署至 Azure 網站]: http://www.windowsazure.com/zh-tw/develop/net/tutorials/get-started/
+  [使用 Microsoft WebMatrix 開發與部署網站]: http://www.windowsazure.com/zh-tw/develop/net/tutorials/website-with-webmatrix/
   [Package manager console]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelicAzureNuget04.png
   [enter license key]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrvslicensekey.png
   [nuget buton on home tab]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png

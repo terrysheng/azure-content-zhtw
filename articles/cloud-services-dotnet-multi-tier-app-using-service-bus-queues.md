@@ -507,7 +507,7 @@ Azure 支援一組受管理 API，其提供一致的方式，跨 Microsoft 雲�
   [create-account-note]: ../includes/create-account-note.md
   [後續步驟]: #nextsteps
   []: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
-  [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對比]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
+  [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對比]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh767287.aspx
   [1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
   [2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
   [取得工具和 SDK (英文)]: http://go.microsoft.com/fwlink/?LinkId=271920
@@ -520,7 +520,7 @@ Azure 支援一組受管理 API，其提供一致的方式，跨 Microsoft 雲�
   [8]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-27.png
   [9]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-09.png
   [10]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-06.png
-  [這裡]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [這裡]: http://http://msdn.microsoft.com/zh-tw/library/windowsazure/ff687127.aspx
   [11]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/VSProperties.png
   [12]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
   [13]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.jpg
@@ -542,9 +542,9 @@ Azure 支援一組受管理 API，其提供一致的方式，跨 Microsoft 雲�
   [29]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
   [30]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
   [31]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
-  [Azure 服務匯流排]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
+  [Azure 服務匯流排]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee732537.aspx
   [服務匯流排作法]: /zh-tw/documentation/services/service-bus/
-  [如何使用服務匯流排佇列]: /en-us/develop/net/how-to-guides/service-bus-queues/
-  [使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
-  [Azure 執行模型]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
-  [將 ASP.NET Web 應用程式部署至 Azure 網站]: http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/
+  [如何使用服務匯流排佇列]: /zh-tw/develop/net/how-to-guides/service-bus-queues/
+  [使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式]: /zh-tw/develop/net/tutorials/multi-tier-web-site/1-overview/
+  [Azure 執行模型]: http://www.windowsazure.com/zh-tw/develop/net/fundamentals/compute/
+  [將 ASP.NET Web 應用程式部署至 Azure 網站]: http://www.windowsazure.com/zh-tw/develop/net/tutorials/get-started/

@@ -511,4 +511,4 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
   [命名空間清單 螢幕擷取畫面]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
   [屬性 窗格螢幕擷取畫面]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
   [預設金鑰 螢幕擷取畫面]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
-  [Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
+  [Azure SDK for Java]: http://www.windowsazure.com/zh-tw/develop/java/

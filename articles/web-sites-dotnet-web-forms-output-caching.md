@@ -132,10 +132,10 @@
   [使用輸出快取暫時傳回頁面的快取版本。]: #useoutputcaching
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [如何安裝和設定 Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
-  [Add-AzureAccount]: http://msdn.microsoft.com/en-us/library/dn495128.aspx
-  [Select-AzureSubscription]: http://msdn.microsoft.com/en-us/library/dn495203.aspx
+  [Add-AzureAccount]: http://msdn.microsoft.com/zh-TW/library/dn495128.aspx
+  [Select-AzureSubscription]: http://msdn.microsoft.com/zh-TW/library/dn495203.aspx
   [New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
-  [已安裝最新的]: http://www.windowsazure.com/en-us/downloads/?sdk=net
+  [已安裝最新的]: http://www.windowsazure.com/zh-TW/downloads/?sdk=net
   [NuGetDialog]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_NuGet.PNG
   [OutputConfig]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_OC_WebConfig.PNG
   [CacheConfig]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_CacheConfig.PNG

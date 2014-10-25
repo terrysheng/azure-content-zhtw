@@ -277,12 +277,12 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。ASP.
   [服務摘要]: #services
   [功能比較]: #features
   [自動化工作]: http://www.windowsazure.com/zh-tw/documentation/scripts/?services=web-sites
-  [.Net]: http://www.windowsazure.com/en-us/develop/net/
-  [PHP]: http://www.windowsazure.com/en-us/develop/php/
-  [Node.js]: http://www.windowsazure.com/en-us/develop/nodejs/
-  [Python]: http://www.windowsazure.com/en-us/develop/python/
+  [.Net]: http://www.windowsazure.com/zh-tw/develop/net/
+  [PHP]: http://www.windowsazure.com/zh-tw/develop/php/
+  [Node.js]: http://www.windowsazure.com/zh-tw/develop/nodejs/
+  [Python]: http://www.windowsazure.com/zh-tw/develop/python/
   [SQL Database]: http://www.windowsazure.com/zh-tw/documentation/services/sql-database/
   [服務匯流排]: http://www.windowsazure.com/zh-tw/documentation/services/service-bus/
   [儲存體]: http://www.windowsazure.com/zh-tw/documentation/services/storage/
-  [Azure 市集]: http://www.windowsazure.com/en-us/gallery/store/
-  [設定 Azure 網站的 SSL 憑證]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
+  [Azure 市集]: http://www.windowsazure.com/zh-tw/gallery/store/
+  [設定 Azure 網站的 SSL 憑證]: http://www.windowsazure.com/zh-tw/develop/net/common-tasks/enable-ssl-web-site/

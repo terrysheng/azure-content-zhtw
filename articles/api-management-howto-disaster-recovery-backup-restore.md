@@ -81,7 +81,7 @@
 -   用於還原之目標服務的**階層必須符合**即將還原之已備份服務的階層。
 -   在還原作業進行時針對服務組態 (如 API、原則、開發人員入口網站外觀) 所做的**變更可能會遭到覆寫**。
 
-  [驗證 Azure 資源管理員要求]: http://msdn.microsoft.com/en-us/library/dn790557.aspx
+  [驗證 Azure 資源管理員要求]: http://msdn.microsoft.com/zh-tw/library/dn790557.aspx
   [備份 API 管理服務]: #step1
   [還原 API 管理服務]: #step2
-  [Azure API 管理 REST API]: http://msdn.microsoft.com/en-us/library/azure/dn781421.aspx
+  [Azure API 管理 REST API]: http://msdn.microsoft.com/zh-tw/library/azure/dn781421.aspx

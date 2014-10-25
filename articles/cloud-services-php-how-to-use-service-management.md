@@ -98,7 +98,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][] (其為 REST API)。所�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-TW/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -147,7 +147,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][] (其為 REST API)。所�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-TW/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -231,7 +231,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][] (其為 REST API)。所�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-TW/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -289,7 +289,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][] (其為 REST API)。所�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-TW/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -319,7 +319,7 @@ Azure SDK for PHP 會包裝 [Azure 服務管理 API][] (其為 REST API)。所�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-TW/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -345,7 +345,7 @@ Azure 提供兩種部署環境：執行和生產。一般而言，將服務部�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-TW/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -374,7 +374,7 @@ Azure 提供兩種部署環境：執行和生產。一般而言，將服務部�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-TW/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -409,7 +409,7 @@ Azure 提供兩種部署環境：執行和生產。一般而言，將服務部�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-TW/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -450,7 +450,7 @@ Azure 提供兩種部署環境：執行和生產。一般而言，將服務部�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-TW/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -484,7 +484,7 @@ Azure 提供兩種部署環境：執行和生產。一般而言，將服務部�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-TW/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -525,7 +525,7 @@ Azure 提供兩種部署環境：執行和生產。一般而言，將服務部�
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/zh-TW/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -550,22 +550,22 @@ Azure 提供兩種部署環境：執行和生產。一般而言，將服務部�
   [作法：刪除儲存服務]: #DeleteStorageService
   [作法：建立親和性群組]: #CreateAffinityGroup
   [作法：刪除親和性群組]: #DeleteAffinityGroup
-  [建立 Azure 帳號]: /en-us/pricing/free-trial/
-  [Azure 服務管理 API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
+  [建立 Azure 帳號]: /zh-TW/pricing/free-trial/
+  [Azure 服務管理 API]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee460799.aspx
   [get-client-libraries]: ../includes/get-client-libraries.md
   [OpenSSL]: http://www.openssl.org/
   [OpenSSL for Windows]: http://www.openssl.org/related/binaries.html
-  [Azure 憑證的概觀]: http://msdn.microsoft.com/en-us/library/windowsazure/gg981935.aspx
+  [Azure 憑證的概觀]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg981935.aspx
   []: http://www.openssl.org/docs/apps/openssl.html
   [Azure 命令列工具]: ../command-line-tools/
   [雲端服務]: ../cloud-services-what-is/
   [CreateServiceOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/CreateServiceOptions.php
   [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
-  [服務套件]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433093
+  [服務套件]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg433093
   [Azure PowerShell Cmdlet]: ../install-configure-powershell/
-  [cspack 命令列工具]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx
-  [Azure 服務組態結構描述 (.cscfg 檔)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
-  [在 Azure 中管理部署概觀]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx
+  [cspack 命令列工具]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg432988.aspx
+  [Azure 服務組態結構描述 (.cscfg 檔)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee758710.aspx
+  [在 Azure 中管理部署概觀]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh386336.aspx
   [儲存服務]: ../storage-whatis-account/
   [Blob]: ../storage-php-how-to-use-blobs/
   [資料表]: ../storage-php-how-to-use-table-storage/

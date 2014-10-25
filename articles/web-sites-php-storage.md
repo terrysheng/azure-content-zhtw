@@ -108,7 +108,7 @@
         }
         ?>
 
-    您可在此找到錯誤代碼與訊息掃描：[][]<http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx></a>
+    您可在此找到錯誤代碼與訊息掃描：[][]<http://msdn.microsoft.com/zh-TW/library/windowsazure/dd179438.aspx></a>
 
 ## 查詢資料表
 
@@ -420,8 +420,8 @@ Tasklist 應用程式首頁會列出所有現有工作，並允許插入新的�
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [安裝 Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
   [composer.phar]: http://getcomposer.org/composer.phar
-  []: http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
-  [在此]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx
+  []: http://msdn.microsoft.com/zh-TW/library/windowsazure/dd179438.aspx
+  [在此]: http://msdn.microsoft.com/zh-TW/library/windowsazure/dd894031.aspx
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [Create New Azure web site]: ./media/web-sites-php-storage/new_website.jpg
   [Custom Create a new web site]: ./media/web-sites-php-storage/storage-quick-create.png

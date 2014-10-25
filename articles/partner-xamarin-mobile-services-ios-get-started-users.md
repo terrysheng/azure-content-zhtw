@@ -118,8 +118,8 @@
   [註冊您的應用程式以驗證與設定行動服務]: #register
   [對通過驗證的使用者限制資料表權限]: #permissions
   [將驗證新增至應用程式]: #add-authentication
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started-xamarin-ios
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-xamarin-ios
   [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
   [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331328
-  [使用指令碼授權使用者]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+  [使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios

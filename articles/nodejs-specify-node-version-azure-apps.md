@@ -79,6 +79,6 @@ Azure 目前提供 Node.js 0.6.17、0.6.20 和 0.8.4 版。除非另有指定，
 
 您已了解如何指定應用程式使用的 Node.js 版本，現在請了解如何[使用模組][]、[建置並部署 Node.js 網站][]和[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具][Azure 命令列工具]。
 
-  [Azure 命令列工具]: /zh-tw/documentation/articles/xplat-cli/
-  [使用模組]: /zh-tw/documentation/articles/nodejs-use-node-modules-azure-apps/
-  [建置並部署 Node.js 網站]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Azure 命令列工具]: /zh-TW/documentation/articles/xplat-cli/
+  [使用模組]: /zh-TW/documentation/articles/nodejs-use-node-modules-azure-apps/
+  [建置並部署 Node.js 網站]: /zh-TW/documentation/articles/web-sites-nodejs-develop-deploy-mac/

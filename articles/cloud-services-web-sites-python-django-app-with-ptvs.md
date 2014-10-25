@@ -591,12 +591,12 @@ Python Tools for Visual Studio 支援發行至 Azure 網站和雲端服務。接
   [1]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-013-solution-explorer.png
   [2]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-014-detail-styled.png
   [Debugging]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-015-debugging.png
-  [這裡]: http://www.windowsazure.com/en-us/manage/linux/common-tasks/mysql-on-a-linux-vm/
+  [這裡]: http://www.windowsazure.com/zh-TW/manage/linux/common-tasks/mysql-on-a-linux-vm/
   [Django Shell Add Poll]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-018-shell-add-poll.png
   [Django Shell Query Poll]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-019-shell-query.png
-  [網站]: http://www.windowsazure.com/en-us/services/web-sites/
-  [服務雲端]: http://www.windowsazure.com/en-us/services/cloud-services/
-  [虛擬機器]: http://www.windowsazure.com/en-us/services/virtual-machines/
+  [網站]: http://www.windowsazure.com/zh-TW/services/web-sites/
+  [服務雲端]: http://www.windowsazure.com/zh-TW/services/cloud-services/
+  [虛擬機器]: http://www.windowsazure.com/zh-TW/services/virtual-machines/
   [Web Site Download Profile]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-020-website-download-profile.png
   [Web Site Publish]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-020-website-publish.png
   [Web Site Browser]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-020-website.png

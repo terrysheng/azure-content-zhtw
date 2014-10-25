@@ -686,7 +686,7 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤][] (英文) 小節可能
 
 如果您想對 Azure 雲端服務 (而非網站) 進行偵錯，請參閱[偵錯雲端服務][] (英文)。
 
-  [在偵錯模式中執行]: http://www.visualstudio.com/en-us/get-started/debug-your-app-vs.aspx
+  [在偵錯模式中執行]: http://www.visualstudio.com/zh-tw/get-started/debug-your-app-vs.aspx
   [IntelliTrace]: http://msdn.microsoft.com/library/vstudio/dd264915.aspx
   [必要條件]: #prerequisites
   [網站組態與管理]: #sitemanagement
@@ -700,12 +700,12 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤][] (英文) 小節可能
   [檢視儲存體記錄]: #storagelogs
   [檢視失敗要求記錄]: #failedrequestlogs
   [後續步驟]: #nextsteps
-  [開始使用 Azure 和 ASP.NET]: /en-us/develop/net/tutorials/get-started/
+  [開始使用 Azure 和 ASP.NET]: /zh-tw/develop/net/tutorials/get-started/
   [管理帳戶、訂閱和系統管理角色]: http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert
   [在伺服器總管中檢視設定]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png
   [Azure 網站視窗]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png
   [Azure 網站：應用程式字串與連接字串的運作方式]: http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx
-  [如何設定網站]: /en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig
+  [如何設定網站]: /zh-tw/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig
   [沒有幫助的錯誤頁面]: ./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png
   [1]: ./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png
   [2]: ./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png
@@ -719,13 +719,13 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤][] (英文) 小節可能
   [在管理入口網站中設定遠端偵錯]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debuginportal.png
   [檢視 Azure 偵錯模式中執行的變數]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png
   [含有新值的關於頁面]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png
-  [Azure 定價]: /en-us/pricing/calculator/
-  [將逐步執行限制於 Just My Code]: http://msdn.microsoft.com/en-us/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code
+  [Azure 定價]: /zh-tw/pricing/calculator/
+  [將逐步執行限制於 Just My Code]: http://msdn.microsoft.com/zh-tw/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code
   [WebJobs]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs
-  [Visual Studio 偵錯]: http://msdn.microsoft.com/en-us/library/vstudio/sc65sadd.aspx
-  [System.Diagnostics.Trace]: http://msdn.microsoft.com/en-us/library/system.diagnostics.trace.aspx
+  [Visual Studio 偵錯]: http://msdn.microsoft.com/zh-tw/library/vstudio/sc65sadd.aspx
+  [System.Diagnostics.Trace]: http://msdn.microsoft.com/zh-tw/library/system.diagnostics.trace.aspx
   [偵錯視窗中的追蹤]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugtracing.png
-  [追蹤元素]: http://msdn.microsoft.com/en-us/library/vstudio/6915t83k(v=vs.100).aspx
+  [追蹤元素]: http://msdn.microsoft.com/zh-tw/library/vstudio/6915t83k(v=vs.100).aspx
   [trace.axd]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png
   [3]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png
   [在內容功能表中檢視串流記錄]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png
@@ -746,7 +746,7 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤][] (英文) 小節可能
   [5]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png
   [下載的檔案]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png
   [6]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png
-  [記錄檔剖析器]: http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=24659
+  [記錄檔剖析器]: http://www.microsoft.com/zh-tw/download/details.aspx?displaylang=en&id=24659
   [資料儲存體選項 (運用 Azure 建構真實的雲端應用程式)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
   [建立儲存體帳戶]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-createstorage.png
   [輸入 URL]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storageurl.png
@@ -757,7 +757,7 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤][] (英文) 小節可能
   [儲存體記錄]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storagelogs.png
   [伺服器總管中的追蹤資料表]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetableinse.png
   [資料表檢視中的儲存體記錄]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png
-  [使用伺服器總管瀏覽儲存體資源]: http://msdn.microsoft.com/en-us/library/windowsazure/ff683677.aspx
+  [使用伺服器總管瀏覽儲存體資源]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff683677.aspx
   [8]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png
   [啟用失敗要求追蹤]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequeston.png
   [重設儀表板中的 FTP 認證連結]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-resetftpcredentials.png
@@ -766,11 +766,11 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤][] (英文) 小節可能
   [開啟 W3SVC 資料夾]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfolder.png
   [W3SVC 資料夾]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfoldercontents.png
   [瀏覽器中的失敗要求追蹤]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequestinbrowser.png
-  [疑難排解 Azure]: /en-us/develop/net/best-practices/troubleshooting/
-  [疑難排解網站]: /en-us/develop/net/best-practices/troubleshooting-web-sites/
-  [啟用 Azure 網站的診斷記錄]: /en-us/develop/net/common-tasks/diagnostics-logging-and-instrumentation/
-  [如何監視網站]: /en-us/manage/services/web-sites/how-to-monitor-websites/
-  [設定診斷與下載記錄]: /en-us/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics
+  [疑難排解 Azure]: /zh-tw/develop/net/best-practices/troubleshooting/
+  [疑難排解網站]: /zh-tw/develop/net/best-practices/troubleshooting-web-sites/
+  [啟用 Azure 網站的診斷記錄]: /zh-tw/develop/net/common-tasks/diagnostics-logging-and-instrumentation/
+  [如何監視網站]: /zh-tw/manage/services/web-sites/how-to-monitor-websites/
+  [設定診斷與下載記錄]: /zh-tw/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics
   [使用 Visual Studio 2013 調查 Azure 網站中的記憶體流失]: http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx
   [您應該知道的 Windows Azure 網站的線上工具]: /blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/
   [ASP.NET 網站上的 Azure 論壇]: http://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET
@@ -782,21 +782,21 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤][] (英文) 小節可能
   [介紹 Azure 網站的遠端偵錯 (第 3 部分) - 多執行個體環境和 GIT]: /blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/
   [在 Visual Studio 中對 .NET 後端進行偵錯]: http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx
   [監視與遙測 (運用 Azure 建構真實的雲端應用程式)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
-  [ASP.NET 追蹤]: http://msdn.microsoft.com/en-us/library/ms972204.aspx
-  [追蹤接聽程式]: http://msdn.microsoft.com/en-us/library/4y5y10s7.aspx
-  [WebPageTraceListener]: http://msdn.microsoft.com/en-us/library/system.web.webpagetracelistener.aspx
-  [逐步介紹：整合 ASP.NET 追蹤功能與 System.Diagnostics 追蹤功能]: http://msdn.microsoft.com/en-us/library/b0ectfxd.aspx
+  [ASP.NET 追蹤]: http://msdn.microsoft.com/zh-tw/library/ms972204.aspx
+  [追蹤接聽程式]: http://msdn.microsoft.com/zh-tw/library/4y5y10s7.aspx
+  [WebPageTraceListener]: http://msdn.microsoft.com/zh-tw/library/system.web.webpagetracelistener.aspx
+  [逐步介紹：整合 ASP.NET 追蹤功能與 System.Diagnostics 追蹤功能]: http://msdn.microsoft.com/zh-tw/library/b0ectfxd.aspx
   [追蹤 ASP.NET MVC Razor 檢視]: http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx
-  [完整的錯誤處理常式範例]: http://msdn.microsoft.com/en-us/library/bb397417.aspx
+  [完整的錯誤處理常式範例]: http://msdn.microsoft.com/zh-tw/library/bb397417.aspx
   [從 Azure 命令列串流診斷追蹤記錄 (加上 Glimpse！)]: http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx
   [Glimpse]: http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx
   [使用 Azure 網站記錄與診斷功能 - 與 David Ebbo 一起]: http://www.windowsazure.com/zh-tw/documentation/videos/azure-web-site-logging-and-diagnostics/
   [從 Azure 網站串流記錄 - 與 David Ebbo 一起]: http://www.windowsazure.com/zh-tw/documentation/videos/log-streaming-with-azure-web-sites/
   [ELMAH]: http://nuget.org/packages/elmah/
   [Scott Hanselman 關於 ELMAH 的部落格文章]: http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx
-  [LogParser]: http://www.microsoft.com/en-us/download/details.aspx?id=24659
+  [LogParser]: http://www.microsoft.com/zh-tw/download/details.aspx?id=24659
   [使用 LogParser 疑難排解 IIS 效能問題或應用程式錯誤]: http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser
   [Robert McMurray 關於使用 LogParser 的部落格文章]: http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/
   [IIS 7.0、IIS 7.5 與 IIS 8.0 中的 HTTP 狀態碼]: http://support.microsoft.com/kb/943891
   [使用失敗要求追蹤]: http://www.iis.net/learn/troubleshoot/using-failed-request-tracing
-  [偵錯雲端服務]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/windowsazure/ee405479.aspx
+  [偵錯雲端服務]: http://msdnstage.redmond.corp.microsoft.com/zh-tw/library/windowsazure/ee405479.aspx

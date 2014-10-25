@@ -115,7 +115,7 @@ Azure 網站還原功能可讓您隨需將網站還原至先前的狀態，或�
 
 <!-- IMAGES -->
 
-  [Microsoft Azure 網站備份]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-backup/
+  [Microsoft Azure 網站備份]: http://www.windowsazure.com/zh-TW/documentation/articles/web-sites-backup/
   [從先前製作的備份還原 Azure 網站]: #PreviousBackup
   [直接從儲存體帳戶還原 Azure 網站]: #StorageAccount
   [選擇您的網站還原設定並啟動還原作業]: #RestoreSettings

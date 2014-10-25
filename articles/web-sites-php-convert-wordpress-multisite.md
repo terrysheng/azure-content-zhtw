@@ -115,11 +115,11 @@ Azure 網站可讓您將不限數量的網域加入至網站。若要加入其�
 
   [Ben Lobaugh]: http://ben.lobaugh.net
   [Microsoft Open Technologies Inc.]: http://msopentech.com
-  [從 Azure 中的組件庫建立 WordPress 網站]: https://www.windowsazure.com/en-us/develop/php/tutorials/website-from-gallery/
+  [從 Azure 中的組件庫建立 WordPress 網站]: https://www.windowsazure.com/zh-TW/develop/php/tutorials/website-from-gallery/
   [WordPress Codex]: http://codex.wordpress.org
   [建立網站]: http://codex.wordpress.org/Create_A_Network
-  [PHP 網站與 MySQL 和 FTP]: https://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-ftp/#header-0
-  [PHP 網站與 MySQL 和 Git]: https://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-git/#header-1
+  [PHP 網站與 MySQL 和 FTP]: https://www.windowsazure.com/zh-TW/develop/php/tutorials/website-w-mysql-and-ftp/#header-0
+  [PHP 網站與 MySQL 和 Git]: https://www.windowsazure.com/zh-TW/develop/php/tutorials/website-w-mysql-and-git/#header-1
   [Network Setup Screen]: ./media/web-sites-php-convert-wordpress-multisite/wordpress-network-setup.png
   [多網站網路的類型]: http://codex.wordpress.org/Before_You_Create_A_Network#Types_of_multisite_network
   [WordPress MU Domain Mapping]: http://wordpress.org/extend/plugins/wordpress-mu-domain-mapping/

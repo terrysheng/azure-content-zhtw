@@ -412,7 +412,7 @@
   [Java Runtime Environment 1.6]: http://www.oracle.com/technetwork/java/javase/downloads/index.html
   [JBoss Application Server version 7.1.1.Final]: http://www.jboss.org/jbossas/downloads/
   [JBoss Developer Studio IDE]: https://devstudio.jboss.com/earlyaccess/
-  [Office 365 PowerShell Commandlets]: http://onlinehelp.microsoft.com/en-us/office365-enterprises/ff652560.aspx
+  [Office 365 PowerShell Commandlets]: http://onlinehelp.microsoft.com/zh-TW/office365-enterprises/ff652560.aspx
   [簡介]: #introduction
   [步驟 1：建立 Java 應用程式]: #createapp
   [步驟 2：在公司的目錄租用戶中佈建應用程式]: #provisionapp

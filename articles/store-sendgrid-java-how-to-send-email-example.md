@@ -205,8 +205,8 @@
   [Email form]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg
   [Email message]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailSent.jpg
   [如何使用 SendGrid 透過 Java 傳送電子郵件]: ../store-sendgrid-java-how-to-send-email
-  [在 Eclipse 建立 Azure 的 Hello World 應用程式]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690944
+  [在 Eclipse 建立 Azure 的 Hello World 應用程式]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh690944
   [Send mail result]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaResult.jpg
-  [如何從 Java 使用 Blob 儲存體服務]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
-  [在 Java 中使用 SQL Database]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/using-sql-azure-in-java/
-  [在 JSP 中使用 Azure Service Runtime Library]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690948
+  [如何從 Java 使用 Blob 儲存體服務]: http://www.windowsazure.com/zh-tw/develop/java/how-to-guides/blob-storage/
+  [在 Java 中使用 SQL Database]: http://www.windowsazure.com/zh-tw/develop/java/how-to-guides/using-sql-azure-in-java/
+  [在 JSP 中使用 Azure Service Runtime Library]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh690948

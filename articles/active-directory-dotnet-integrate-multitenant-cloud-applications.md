@@ -371,7 +371,7 @@ Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為�
     <AppRequiredPermissions>
       <AppPermissionRequests Policy="AppOnly">
         <AppPermissionRequest Right="Directory Reader" Scope="http://directory">
-          <Reason culture="en-us" value="Needs to read the app"/>
+          <Reason culture="zh-TW" value="Needs to read the app"/>
         </AppPermissionRequest>
       </AppPermissionRequests>
     </AppRequiredPermissions>
@@ -398,9 +398,9 @@ Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為�
 
 與 Azure AD 整合可讓客戶使用他們已維護的身分識別管理系統來註冊並登入您的應用程式，如此可減少或不需要對您的應用程式進行身分識別管理工作。此功能可讓您的客戶更順暢地使用您的應用程式，而不浪費時間來處理管理工作。
 
-  [身分識別頁面]: http://www.windowsazure.com/en-us/home/features/identity/
+  [身分識別頁面]: http://www.windowsazure.com/zh-TW/home/features/identity/
   [這裡下載]: http://go.microsoft.com/fwlink/?LinkId=271213
-  [Visual Studio 中的連接埠指派]: http://msdn.microsoft.com/en-us/library/ms178109(v=vs.100).aspx
+  [Visual Studio 中的連接埠指派]: http://msdn.microsoft.com/zh-TW/library/ms178109(v=vs.100).aspx
   [Visual Studio 2012]: http://www.microsoft.com/visualstudio/eng/downloads
   [WCF Data Services for OData]: http://www.microsoft.com/download/en/details.aspx?id=29306
   [簡介]: #introduction
@@ -411,10 +411,10 @@ Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為�
   [第 5 部分：發行您的應用程式]: #publish
   [摘要]: #summary
   [Microsoft 賣方儀表板]: https://sellerdashboard.microsoft.com/
-  [建立帳戶個人檔案]: http://msdn.microsoft.com/en-us/library/jj552460.aspx
-  [在 Microsoft 賣方儀表板中建立用戶端識別碼和密碼]: http://msdn.microsoft.com/en-us/library/jj552461.aspx
+  [建立帳戶個人檔案]: http://msdn.microsoft.com/zh-TW/library/jj552460.aspx
+  [在 Microsoft 賣方儀表板中建立用戶端識別碼和密碼]: http://msdn.microsoft.com/zh-TW/library/jj552461.aspx
   [login]: ./media/active-directory-dotnet-integrate-multitent-cloud-applications/login.png
   [取得 Azure AD 租用戶]: http://g.microsoftonline.com/0AX00en/5
   [contoso]: https://contoso.myapp.com
-  [本主題]: http://msdn.microsoft.com/en-us/library/windowsazure/hh974476.aspx
-  [在 Microsoft 賣方儀表板中新增應用程式]: http://msdn.microsoft.com/en-us/library/jj552465.aspx
+  [本主題]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh974476.aspx
+  [在 Microsoft 賣方儀表板中新增應用程式]: http://msdn.microsoft.com/zh-TW/library/jj552465.aspx

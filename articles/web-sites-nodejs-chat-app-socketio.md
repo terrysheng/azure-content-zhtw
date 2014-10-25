@@ -263,15 +263,15 @@ Azure 網站可用於多個 SKU，SKU 可以決定您網站適用的資源。這
 在本教學課程中，您學到如何建立於 Azure 網站中託管的交談應用程式。您也可以將此應用程式交由 Azure 雲端服務託管。如需相關作法的步驟，請參閱＜[在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 聊天應用程式][]＞。
 
   []: http://socket.io/
-  [在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 交談應用程式]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/app-using-socketio/
+  [在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 交談應用程式]: http://www.windowsazure.com/zh-TW/develop/nodejs/tutorials/app-using-socketio/
   [Socket.IO GitHub 儲存機制]: https://github.com/Automattic/socket.io
   [ZIP 或 GZ 封存版本]: https://github.com/Automattic/socket.io/releases
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E
+  [Azure 免費試用]: http://www.windowsazure.com/zh-TW/pricing/free-trial/?WT.mc_id=A7171371E
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [websockets]: ./media/web-sites-nodejs-chat-app-socketio/websockets.png
   [Azure SDK for Node.js GitHub 儲存機制]: https://github.com/WindowsAzure/azure-sdk-for-node
   [socket.io-redis]: https://github.com/automattic/socket.io-redis
   [Azure 網站的執行個體同質性]: http://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/
   [在 Azure Redis 快取中建立快取]: http://go.microsoft.com/fwlink/p/?linkid=398592&clcid=0x409
-  [Azure 網站定價]: /en-us/pricing/details/web-sites/
-  [在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 聊天應用程式]: /en-us/develop/nodejs/tutorials/app-using-socketio/
+  [Azure 網站定價]: /zh-TW/pricing/details/web-sites/
+  [在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 聊天應用程式]: /zh-TW/develop/nodejs/tutorials/app-using-socketio/

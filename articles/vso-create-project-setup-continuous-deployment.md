@@ -61,5 +61,5 @@ Windows Azure 管理入口網站可讓您在 Visual Studio Online 上建立小�
   [如何建立小組專案]: #create_team_project
   [如何建立新的 Web 應用程式，並將它新增至 Git 版本控制]: #create_web_app
   [如何設定連續部署]: #continuous_deployment
-  [按此]: http://msdn.microsoft.com/en-us/library/ms181368.aspx
-  [使用小組專案成品]: http://msdn.microsoft.com/en-us/library/ms400752.aspx
+  [按此]: http://msdn.microsoft.com/zh-TW/library/ms181368.aspx
+  [使用小組專案成品]: http://msdn.microsoft.com/zh-TW/library/ms400752.aspx

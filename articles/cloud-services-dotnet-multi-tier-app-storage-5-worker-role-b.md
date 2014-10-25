@@ -575,7 +575,7 @@
    * Perez Jones Tsisah
    * Michiel van Otegem
 
-  [系列的第一個教學課程]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+  [系列的第一個教學課程]: /zh-tw/develop/net/tutorials/multi-tier-web-site/1-overview/
   [將背景工作角色 B 專案加入方案]: #addworkerrole
   [將參考加入 Web 專案]: #addreference
   [將 SendGrid NuGet 封裝加入專案]: #addsendgrid
@@ -588,29 +588,29 @@
   [Add reference to MvcWebRole]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-reference-manager.png
   [Manage NuGet Packages]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-manage-nuget.png
   [Install the Sendgrid package]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-install-sendgrid.png
-  [第三個教學課程]: /en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/#configstorage
-  [第二個教學課程]: /en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
+  [第三個教學課程]: /zh-tw/develop/net/tutorials/multi-tier-web-site/3-web-role/#configstorage
+  [第二個教學課程]: /zh-tw/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
   [New settings in WorkerRoleB project]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-settings.png
-  [上一個教學課程]: /en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
-  [GetMessage]: http://msdn.microsoft.com/en-us/library/windowsazure/ee741827.aspx
-  [可見度逾時]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758454.aspx
-  [GetMessages]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx
+  [上一個教學課程]: /zh-tw/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
+  [GetMessage]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee741827.aspx
+  [可見度逾時]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758454.aspx
+  [GetMessages]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx
   [SendGrid MultiAuth - 多個帳號認證]: http://support.sendgrid.com/entries/21658978-sendgrid-multiauth-multiple-account-credentials
   []: https://sendgrid.com/credentials
   [PhluffyFotos]: http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31
   [Windows Azure 儲存體須知]: http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-windows-azure-storage.aspx
   [Azure 資料表儲存體須知]: http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-azure-table-storage.aspx
   [如何充分發揮 Windows Azure 資料表的效益]: http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx
-  [如何在 .NET 中使用資料表儲存體服務]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/
+  [如何在 .NET 中使用資料表儲存體服務]: http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/table-services/
   [Windows Azure 儲存體用戶端程式庫 2.0 資料表深入探討]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx
-  [Real World:設計 Azure 資料表儲存體的可調整分割策略]: http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx
+  [Real World:設計 Azure 資料表儲存體的可調整分割策略]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh508997.aspx
   [以佇列為中心的工作模式 (運用 Windows Azure 建構真實的雲端應用程式)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
-  [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
-  [如何在 .NET 中使用佇列儲存體服務]: /en-us/develop/net/how-to-guides/queue-service/
+  [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh767287.aspx
+  [如何在 .NET 中使用佇列儲存體服務]: /zh-tw/develop/net/how-to-guides/queue-service/
   [非結構化 Blob 儲存體 (運用 Windows Azure 建構真實的雲端應用程式)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
-  [如何在 .NET 中使用 Azure Blob 儲存體服務]: /en-us/develop/net/how-to-guides/blob-storage/
-  [如何使用自動調整應用程式區塊]: /en-us/develop/net/how-to-guides/autoscaling/
-  [自動調整與 Azure]: http://msdn.microsoft.com/en-us/library/hh680945(v=PandP.50).aspx
+  [如何在 .NET 中使用 Azure Blob 儲存體服務]: /zh-tw/develop/net/how-to-guides/blob-storage/
+  [如何使用自動調整應用程式區塊]: /zh-tw/develop/net/how-to-guides/autoscaling/
+  [自動調整與 Azure]: http://msdn.microsoft.com/zh-tw/library/hh680945(v=PandP.50).aspx
   [使用 Azure 建置彈性、可自動調整的方案]: http://channel9.msdn.com/Events/WindowsAzureConf/2012/B04
   [Rick Anderson]: http://blogs.msdn.com/b/rickandy/
   [@blowdart]: https://twitter.com/blowdart

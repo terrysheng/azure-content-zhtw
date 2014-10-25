@@ -17,7 +17,7 @@
 請遵循以下步驟來建立 Azure 網站，然後為該網站啟用 Git 發行功能。
 
 <div class="dev-callout"><strong>注意</strong>
-<p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 免費試用</a>。</p>
+<p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 免費試用</a>。</p>
 </div>
 
 1.  登入 [Azure 管理入口網站][]。
@@ -157,7 +157,7 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
   [Node]: http://nodejs.org
   [Git]: http://git-scm.com
   [顯示「Hello World」訊息的瀏覽器。]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A7171371E
   [Azure 管理入口網站]: http://manage.windowsazure.com
   [Azure 入口網站將 +新增連結反白標示。]: ./media/web-sites-nodejs-develop-deploy-mac/plus-new.png
   [快速建立對話方塊]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png

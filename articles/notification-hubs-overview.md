@@ -75,14 +75,14 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
   []: ./media/notification-hubs-overview/SBPushNotifications1.gif
   [1]: ./media/notification-hubs-overview/SBPushNotifications2.gif
-  [客戶如何使用通知中樞]: http://azure.microsoft.com/en-us/services/notification-hubs
-  [通知中樞教學課程和指南]: http://azure.microsoft.com/zh-tw/documentation/services/notification-hubs
-  [iOS]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-ios-get-started
-  [Android]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-android-get-started
-  [Windows Universal]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started
-  [Windows Phone]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-windows-phone-get-started
-  [Kindle]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-kindle-get-started
-  [Xamarin.iOS]: http://azure.microsoft.com/zh-tw/documentation/articles/partner-xamarin-notification-hubs-ios-get-started
-  [Xamarin.Android]: http://azure.microsoft.com/zh-tw/documentation/articles/partner-xamarin-notification-hubs-android-get-started
-  [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.messaging.notificationhub.aspx
-  [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/en-us/library/microsoft.servicebus.notifications.aspx
+  [客戶如何使用通知中樞]: http://azure.microsoft.com/zh-TW/services/notification-hubs
+  [通知中樞教學課程和指南]: http://azure.microsoft.com/zh-TW/documentation/services/notification-hubs
+  [iOS]: http://azure.microsoft.com/zh-TW/documentation/articles/notification-hubs-ios-get-started
+  [Android]: http://azure.microsoft.com/zh-TW/documentation/articles/notification-hubs-android-get-started
+  [Windows Universal]: http://azure.microsoft.com/zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-get-started
+  [Windows Phone]: http://azure.microsoft.com/zh-TW/documentation/articles/notification-hubs-windows-phone-get-started
+  [Kindle]: http://azure.microsoft.com/zh-TW/documentation/articles/notification-hubs-kindle-get-started
+  [Xamarin.iOS]: http://azure.microsoft.com/zh-TW/documentation/articles/partner-xamarin-notification-hubs-ios-get-started
+  [Xamarin.Android]: http://azure.microsoft.com/zh-TW/documentation/articles/partner-xamarin-notification-hubs-android-get-started
+  [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/zh-TW/library/microsoft.windowsazure.messaging.notificationhub.aspx
+  [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/zh-TW/library/microsoft.servicebus.notifications.aspx

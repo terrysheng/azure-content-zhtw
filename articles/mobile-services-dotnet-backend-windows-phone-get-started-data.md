@@ -287,7 +287,7 @@
 <!-- URLs. -->
 
   [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
-  [JavaScript 後端版本]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
+  [JavaScript 後端版本]: /zh-tw/develop/mobile/tutorials/get-started-with-data-wp8
   [下載 Windows Phone 8 應用程式專案]: #download-app
   [建立新的行動服務]: #create-service
   [在本機下載行動服務]: #download-the-service-locally
@@ -296,7 +296,7 @@
   [將行動服務發佈至 Azure]: #publish-mobile-service
   [對 Azure 代管的服務測試 Windows Phone 應用程式]: #test-azure-hosted
   [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
   [GetStartedWithMobileServices 應用程式]: http://go.microsoft.com/fwlink/p/?linkid=271146
   []: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/mobile-data-sample-download-wp8-vs12.png
   [Windows Phone 市集應用程式版本]: http://go.microsoft.com/fwlink/p/?LinkId=397372
@@ -327,7 +327,7 @@
   [21]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/azure-items.png
   [22]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/manage-sql-azure-database.png
   [23]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/sql-azure-query.png
-  [使用指令檔驗證與修改資料]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
-  [使用分頁縮小查詢範圍]: /en-us/develop/mobile/tutorials/add-paging-to-data-wp8
+  [使用指令檔驗證與修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
+  [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-wp8
   [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-  [行動服務 .NET 作法概念參考資料]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+  [行動服務 .NET 作法概念參考資料]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library

@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app (legacy push)." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" solutions="" manager="dwrede" editor="" authors="krisragh" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app (legacy push)." metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
 
@@ -122,7 +122,7 @@
 
     This adds a reference to the **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
 
-    > [WACOM.NOTE] You must add this code before to the call to the <strong>addItem</strong> method.
+    > [WACOM.NOTE] 您必須在呼叫 **addItem** 方法之前加入此程式碼。
 
 您的應用程式現在已更新為支援推播通知。
 
@@ -130,7 +130,7 @@
 
 1.  在管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
-    ![][]
+    ![][0]
 
 2.  在 [todoitem] 中，按一下 [指令碼] 索引標籤，然後選取 [插入]。
 
@@ -206,14 +206,14 @@
   [插入資料以接收通知]: #test
   [行動服務 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [Xcode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started-ios
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-ios
   [Enable Apple Push Notifications]: ../includes/enable-apple-push-notifications.md
   [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
-  []: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
+  [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [apns 物件]: http://go.microsoft.com/fwlink/p/?LinkId=272333
   [2]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
   [3]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
   [4]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
   [5]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
-  [推播通知至應用程式使用者]: /en-us/develop/mobile/tutorials/push-notifications-to-users-ios
+  [推播通知至應用程式使用者]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios

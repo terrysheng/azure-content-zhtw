@@ -5,7 +5,7 @@
 # 使用行動服務註冊目前使用者以取得推播通知
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/zh-tw/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows 市集 C#" class="current">Windows 市集 C#</a><a href="/zh-tw/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS">iOS</a>
+<a href="/zh-TW/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows 市集 C#" class="current">Windows 市集 C#</a><a href="/zh-TW/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS">iOS</a>
 </div>
 
 本主題將說明以 Azure 行動服務執行註冊時，應如何向 Azure 通知中心要求推播通知註冊。這是[使用通知中心來通知使用者][]教學課程的延伸主題。您必須已完成該教學課程中的必要步驟，才能建立已驗證的行動服務。如需通知使用者案例的詳細資訊，請參閱[使用通知中心來通知使用者][]。
@@ -111,10 +111,10 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "Windows 市集 C#"
-  [iOS]: /zh-tw/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS"
-  [使用通知中心來通知使用者]: /en-us/manage/services/notification-hubs/notify-users
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+  [Windows 市集 C#]: /zh-TW/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "Windows 市集 C#"
+  [iOS]: /zh-TW/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS"
+  [使用通知中心來通知使用者]: /zh-TW/manage/services/notification-hubs/notify-users
+  [開始使用驗證]: /zh-TW/develop/mobile/tutorials/get-started-with-users-dotnet/
   []: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/mobile-services-select-app-name.png
   [1]: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/notification-hub-associate-win8-app.png
   [2]: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/notification-hub-win8-app-toast.png

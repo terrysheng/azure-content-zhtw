@@ -1,10 +1,10 @@
-<properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
+<properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/zh-TW/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
 
 # 搭配使用 Azure 跨平台命令列介面與資源管理員
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell">Windows PowerShell</a><a href="/zh-tw/documentation/articles/xplat-cli-azure-resource-manager.md" title="跨平台 CLI" class="current">跨平台 CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-TW/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell">Windows PowerShell</a><a href="/zh-TW/documentation/articles/xplat-cli-azure-resource-manager.md" title="跨平台 CLI" class="current">跨平台 CLI</a></div>
 
 我們最近引進資源管理員預覽，這是一種管理 Microsoft Azure 的新方法。在本文中，您將學習如何使用 Azure 跨平台命令列介面 (xplat-cli) 來使用資源管理員。
 
@@ -162,7 +162,7 @@
 -   如需使用 Azure 跨平台命令列介面的詳細資訊，請參閱[安裝及設定 Microsoft Azure 跨平台命令列介面][安裝與設定 Microsoft Azure 跨平台命令列介面]。
 -   如需使用 Windows Azure PowerShell 來使用資源管理員的詳細資訊，請參閱[開始搭配使用 Windows PowerShell 與資源管理員][] (英文)。
 
-  [Windows PowerShell]: /zh-tw/documentation/articles/powershell-azure-resource-manager.md "Windows PowerShell"
-  [跨平台 CLI]: /zh-tw/documentation/articles/xplat-cli-azure-resource-manager.md "跨平台 CLI"
-  [安裝與設定 Microsoft Azure 跨平台命令列介面]: /zh-tw/documentation/articles/xplat-cli/
+  [Windows PowerShell]: /zh-TW/documentation/articles/powershell-azure-resource-manager.md "Windows PowerShell"
+  [跨平台 CLI]: /zh-TW/documentation/articles/xplat-cli-azure-resource-manager.md "跨平台 CLI"
+  [安裝與設定 Microsoft Azure 跨平台命令列介面]: /zh-TW/documentation/articles/xplat-cli/
   [開始搭配使用 Windows PowerShell 與資源管理員]: http://go.microsoft.com/fwlink/?LinkId=394760

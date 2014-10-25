@@ -101,7 +101,7 @@
   [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
   [註冊 Windows 市集應用程式套件以採用 Microsoft 驗證]: /zh-tw/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/
   [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
-  [1]: /en-us/develop/mobile/tutorials/get-started/
+  [1]: /zh-tw/develop/mobile/tutorials/get-started/
   [mobile-services-windows-store-javascript-authenticate-app]: ../includes/mobile-services-windows-store-javascript-authenticate-app.md
   [mobile-services-windows-store-javascript-authenticate-app-with-token]: ../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md
   [行動服務使用者的伺服器端授權]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts

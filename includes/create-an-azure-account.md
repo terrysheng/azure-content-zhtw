@@ -22,8 +22,8 @@
     
     ![選取訂閱][]
 
-  [MSDN 訂戶的 Azure 權益]: /en-us/pricing/member-offers/msdn-benefits-details/
-  [建立免費試用帳戶]: /en-us/pricing/free-trial/
+  [MSDN 訂戶的 Azure 權益]: /zh-tw/pricing/member-offers/msdn-benefits-details/
+  [建立免費試用帳戶]: /zh-tw/pricing/free-trial/
   []: https://account.windowsazure.com/
   [開啟預覽功能索引標籤]: ./media/create-an-azure-account/antares-iaas-preview-01.png
   [選取預覽功能]: ./media/create-an-azure-account/antares-iaas-preview-05.png

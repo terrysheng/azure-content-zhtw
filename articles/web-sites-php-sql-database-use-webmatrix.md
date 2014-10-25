@@ -170,7 +170,7 @@
 
 -   [WebMatrix 網站][]
 
-  [SQL Server Express]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
+  [SQL Server Express]: http://www.microsoft.com/zh-TW/download/details.aspx?id=29062
   [Azure PHP Web Site]: ./media/web-sites-php-sql-database-use-webmatrix/tasklist_app_windows.png
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [下載]: http://go.microsoft.com/fwlink/?LinkId=252504

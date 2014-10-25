@@ -73,10 +73,10 @@
   [將驗證新增至應用程式]: #add-authentication
   [在用戶端儲存驗證語彙基元]: #cache-tokens
   [重新整理過期的語彙基元]: #refresh-tokens
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started-android
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-android
   [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
   [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [mobile-services-android-authenticate-app]: ../includes/mobile-services-android-authenticate-app.md
   [mobile-services-android-authenticate-app-with-token]: ../includes/mobile-services-android-authenticate-app-with-token.md
   [mobile-services-android-authenticate-app-refresh-token]: ../includes/mobile-services-android-authenticate-app-refresh-token.md
-  [使用指令碼授權使用者]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-android
+  [使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-android

@@ -5,7 +5,7 @@
 # 定義支援定期通知的自訂 API
 
 <div class="dev-center-tutorial-selector sublanding"> 
-<a href="/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet" title="Windows 市集 C#">Windows 市集 C#</a><a href="/en-us/develop/mobile/tutorials/create-pull-notifications-js" title="Windows 市集 JavaScript" class="current">Windows 市集 JavaScript</a>
+<a href="/zh-tw/develop/mobile/tutorials/create-pull-notifications-dotnet" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-tw/develop/mobile/tutorials/create-pull-notifications-js" title="Windows 市集 JavaScript" class="current">Windows 市集 JavaScript</a>
 </div>
 
 本主題說明如何使用自訂 API 來支援 Windows 市集應用程式中的定期通知。在啟用定期通知的情況下，Windows 將定期存取您的自訂 API 端點，並使用傳回的 XML (採用磚的特定格式) 來更新開始功能表上的應用程式磚。如需詳細資訊，請參閱[定期通知][]。
@@ -83,7 +83,7 @@
     由於用戶端將會傳送 GET 要求以存取磚範本，因此會使用 **exports.get** 函數。
 
     <div class="dev-callout"><b>注意</b>
-<p>此自訂 API 指令碼會使用 Node.js <a href="http://go.microsoft.com/fwlink/p/?LinkId=306750">wns 模組</a>，而此模組可透過 <strong>require</strong> 函數來參考。此模組與可用來從伺服器指令碼傳送推播通知的 <a href="http://go.microsoft.com/fwlink/p/?LinkId=260591">push 物件</a>所傳回的 <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx">wns 物件</a>不同。</p>
+<p>此自訂 API 指令碼會使用 Node.js <a href="http://go.microsoft.com/fwlink/p/?LinkId=306750">wns 模組</a>，而此模組可透過 <strong>require</strong> 函數來參考。此模組與可用來從伺服器指令碼傳送推播通知的 <a href="http://go.microsoft.com/fwlink/p/?LinkId=260591">push 物件</a>所傳回的 <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554217.aspx">wns 物件</a>不同。</p>
 </div>
 
 接著，您將修改快速入門應用程式，以藉由要求新的自訂 API 啟動會更新動態磚的定期通知。
@@ -128,11 +128,11 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /en-us/develop/mobile/tutorials/create-pull-notifications-dotnet "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /en-us/develop/mobile/tutorials/create-pull-notifications-js "Windows 市集 JavaScript"
-  [定期通知]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-  [開始使用資料]: /en-us/develop/mobile/tutorials/started-with-data-js
+  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/create-pull-notifications-dotnet "Windows 市集 C#"
+  [Windows 市集 JavaScript]: /zh-tw/develop/mobile/tutorials/create-pull-notifications-js "Windows 市集 JavaScript"
+  [定期通知]: http://msdn.microsoft.com/zh-tw/library/windows/apps/jj150587.aspx
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started/#create-new-service
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/started-with-data-js
   [定義自訂 API]: #define-custom-api
   [更新應用程式以開啟定期通知]: #update-app
   [測試應用程式]: #test-app
@@ -143,7 +143,7 @@
   [3]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-select.png
   [wns 模組]: http://go.microsoft.com/fwlink/p/?LinkId=306750
   [push 物件]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-  [wns 物件]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx
+  [wns 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554217.aspx
   [4]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-live-tile.png
-  [開始使用推播通知]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+  [開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-js
   [行動服務伺服器指令碼參照]: http://go.microsoft.com/fwlink/?LinkId=262293

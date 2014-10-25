@@ -169,7 +169,7 @@ Azure 不會在執行階段動態安裝 node-sqlserver 模組，所以您必須�
   [後續步驟]: #NextSteps
   [Github 頁面]: https://github.com/WindowsAzure/node-sqlserver
   [Wiki]: https://github.com/WindowsAzure/node-sqlserver/wiki
-  [Microsoft SQL Server 2012 功能套件]: http://www.microsoft.com/en-us/download/details.aspx?id=29065
+  [Microsoft SQL Server 2012 功能套件]: http://www.microsoft.com/zh-TW/download/details.aspx?id=29065
   []: http://nodejs.org/#download
   [Create New Azure Website]: ./media/sql-database-nodejs-how-to-use/new_website.jpg
   [Custom Create a new SQL Database]: ./media/sql-database-nodejs-how-to-use/create_custom_sql_db.jpg
@@ -178,7 +178,7 @@ Azure 不會在執行階段動態安裝 node-sqlserver 模組，所以您必須�
   [View server and database information]: ./media/sql-database-nodejs-how-to-use/sql-dbs-portal.png
   [View database information]: ./media/sql-database-nodejs-how-to-use/go-to-db-info.png
   [Show connection strings]: ./media/sql-database-nodejs-how-to-use/show-connection-string.png
-  [下載中心]: http://www.microsoft.com/en-us/download/details.aspx?id=29995
-  [建立 Node.js 應用程式並將其部署到 Azure 網站]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-  [Node.js 雲端服務]: /en-us/develop/nodejs/tutorials/getting-started/
+  [下載中心]: http://www.microsoft.com/zh-TW/download/details.aspx?id=29995
+  [建立 Node.js 應用程式並將其部署到 Azure 網站]: /zh-TW/develop/nodejs/tutorials/create-a-website-(mac)/
+  [Node.js 雲端服務]: /zh-TW/develop/nodejs/tutorials/getting-started/
   [Microsoft Driver for Node.JS for SQL Server 簡介]: http://blogs.msdn.com/b/sqlphp/archive/2012/06/08/introducing-the-microsoft-driver-for-node-js-for-sql-server.aspx

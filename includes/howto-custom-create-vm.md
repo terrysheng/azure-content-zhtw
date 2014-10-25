@@ -64,8 +64,8 @@
   [Azure 虛擬網路概觀]: http://go.microsoft.com/fwlink/p/?LinkID=294063
   [Azure 管理入口網站]: http://manage.windowsazure.com
   [Azure 的虛擬機器和雲端服務大小]: http://go.microsoft.com/fwlink/p/?LinkID=389844
-  [如何在雲端服務中連接虛擬機器]: http://www.windowsazure.com/en-us/manage/windows/how-to-guides/connect-to-a-cloud-service/
-  [關於虛擬網路的同質群組]: http://msdn.microsoft.com/en-us/library/azure/jj156085.aspx
+  [如何在雲端服務中連接虛擬機器]: http://www.windowsazure.com/zh-tw/manage/windows/how-to-guides/connect-to-a-cloud-service/
+  [關於虛擬網路的同質群組]: http://msdn.microsoft.com/zh-tw/library/azure/jj156085.aspx
   [如何設定虛擬機器的端點]: http://azure.microsoft.com/zh-tw/documentation/articles/virtual-machines-set-up-endpoints/
   [管理延伸模組]: http://go.microsoft.com/FWLink/p/?LinkID=390493
   [成功建立自訂虛擬機器]: ./media/howto-custom-create-vm/VMSuccessWindows.png

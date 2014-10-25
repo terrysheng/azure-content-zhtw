@@ -183,53 +183,53 @@ Visual Studio 2013 Update 2 新增對通用 Windows 應用程式專案的支援�
   [跨平台應用程式開發]: #xplat-app-dev
   [在 Visual Studio 專案中共用程式碼]: #shared-vs
   [行動服務開發人員中心]: /zh-tw/documentation/services/mobile-services/
-  [Azure 通知中心]: /en-us/develop/net/how-to-guides/service-bus-notification-hubs/
-  [傳送跨平台通知給使用者]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/
-  [ApiServices.Push]: http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx
-  [PushClient]: http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx
-  [SendAsync]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
-  [IPushMessage]: http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx
+  [Azure 通知中心]: /zh-tw/develop/net/how-to-guides/service-bus-notification-hubs/
+  [傳送跨平台通知給使用者]: /zh-tw/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+  [ApiServices.Push]: http://msdn.microsoft.com/zh-tw/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx
+  [PushClient]: http://msdn.microsoft.com/zh-tw/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx
+  [SendAsync]: http://msdn.microsoft.com/zh-tw/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
+  [IPushMessage]: http://msdn.microsoft.com/zh-tw/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx
   [APNS]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
   [GCM]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-push
   [WNS]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push
   [MPNS]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push
-  [ApplePushMessage]: http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobile.service.applepushmessage.aspx
-  [GooglePushMessage]: http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobile.service.googlepushmessage.aspx
-  [WindowsPushMessage]: http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobile.service.windowspushmessage.aspx
-  [MpnsPushMessage]: http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobile.service.mpnspushmessage.aspx
-  [TemplatePushMessage]: http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobile.service.templatepushmessage.aspx
-  [推送物件]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx
+  [ApplePushMessage]: http://msdn.microsoft.com/zh-tw/library/azure/microsoft.windowsazure.mobile.service.applepushmessage.aspx
+  [GooglePushMessage]: http://msdn.microsoft.com/zh-tw/library/azure/microsoft.windowsazure.mobile.service.googlepushmessage.aspx
+  [WindowsPushMessage]: http://msdn.microsoft.com/zh-tw/library/azure/microsoft.windowsazure.mobile.service.windowspushmessage.aspx
+  [MpnsPushMessage]: http://msdn.microsoft.com/zh-tw/library/azure/microsoft.windowsazure.mobile.service.mpnspushmessage.aspx
+  [TemplatePushMessage]: http://msdn.microsoft.com/zh-tw/library/azure/microsoft.windowsazure.mobile.service.templatepushmessage.aspx
+  [推送物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554217.aspx
   [1]: /zh-tw/documentation/articles/mobile-services-javascript-backend-ios-get-started-push
   [2]: /zh-tw/documentation/articles/mobile-services-javascript-backend-android-get-started-push
   [3]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
   [4]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push
-  [apns 物件]: http://msdn.microsoft.com/en-us/library/azure/jj839711.aspx
-  [gcm 物件]: http://msdn.microsoft.com/en-us/library/azure/dn126137.aspx
-  [wns 物件]: http://msdn.microsoft.com/en-us/library/azure/jj860484.aspx
-  [mpns 物件]: http://msdn.microsoft.com/en-us/library/azure/jj871025.aspx
+  [apns 物件]: http://msdn.microsoft.com/zh-tw/library/azure/jj839711.aspx
+  [gcm 物件]: http://msdn.microsoft.com/zh-tw/library/azure/dn126137.aspx
+  [wns 物件]: http://msdn.microsoft.com/zh-tw/library/azure/jj860484.aspx
+  [mpns 物件]: http://msdn.microsoft.com/zh-tw/library/azure/jj871025.aspx
   [**Appcelerator**]: http://go.microsoft.com/fwlink/p/?LinkId=509987
   [Appcelerator 教學課程]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
   [**PhoneGap**]: https://go.microsoft.com/fwLink/p/?LinkID=390707
   [**Cordova**]: http://cordova.apache.org/
   [PhoneGap 快速入門教學課程]: /zh-tw/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/
-  [藉由 HTML 和 JavaScript 開始使用多重裝置混合式應用程式]: http://msdn.microsoft.com/en-us/library/dn771545.aspx
+  [藉由 HTML 和 JavaScript 開始使用多重裝置混合式應用程式]: http://msdn.microsoft.com/zh-tw/library/dn771545.aspx
   [**Sencha Touch**]: http://go.microsoft.com/fwlink/p/?LinkId=509988
   [Sencha Touch 快速入門教學課程]: /zh-tw/documentation/articles/partner-sencha-mobile-services-get-started/
   [**Xamarin**]: https://go.microsoft.com/fwLink/p/?LinkID=330242
   [Xamarin 開發]: #xamarin
-  [Visual Studio 中的跨平台開發]: http://msdn.microsoft.com/en-us/library/dn771552.aspx
+  [Visual Studio 中的跨平台開發]: http://msdn.microsoft.com/zh-tw/library/dn771552.aspx
   [如何將 .NET 用戶端與行動服務搭配使用]: zh-tw/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
-  [概觀和範例]: http://msdn.microsoft.com/en-us/library/gg597391(v=vs.110)
-  [API 差異]: http://msdn.microsoft.com/en-us/library/gg597392(v=vs.110)
-  [使用可攜式類別庫實作 MVVM 模式]: http://msdn.microsoft.com/en-us/library/hh563947(v=vs.110)
-  [慣用指引]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj714086(v=vs.105).aspx
-  [管理資源]: http://msdn.microsoft.com/en-us/library/hh871422(v=vs.110)
+  [概觀和範例]: http://msdn.microsoft.com/zh-tw/library/gg597391(v=vs.110)
+  [API 差異]: http://msdn.microsoft.com/zh-tw/library/gg597392(v=vs.110)
+  [使用可攜式類別庫實作 MVVM 模式]: http://msdn.microsoft.com/zh-tw/library/hh563947(v=vs.110)
+  [慣用指引]: http://msdn.microsoft.com/zh-tw/library/windowsphone/develop/jj714086(v=vs.105).aspx
+  [管理資源]: http://msdn.microsoft.com/zh-tw/library/hh871422(v=vs.110)
   [建置適用於所有 Windows 裝置的通用 Windows 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=509905
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-store-get-started/
   [使用 MVVM 的 Azure 行動服務通用 Windows 應用程式]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
   [iOS]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started
   [Android]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started
-  [Windows Phone 8 開發人員的下一步]: http://msdn.microsoft.com/en-us/library/windows/apps/dn655121(v=vs.105).aspx
-  [Windows 市集]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
-  [Windows Phone]: /en-us/develop/mobile/tutorials/single-sign-on-wp8/
+  [Windows Phone 8 開發人員的下一步]: http://msdn.microsoft.com/zh-tw/library/windows/apps/dn655121(v=vs.105).aspx
+  [Windows 市集]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
+  [Windows Phone]: /zh-tw/develop/mobile/tutorials/single-sign-on-wp8/

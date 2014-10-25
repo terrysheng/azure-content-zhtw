@@ -216,19 +216,19 @@ Azure 計算和儲存模擬器所提供的本機環境，可讓您在 Azure 應�
   [作法：使用您自己的 PHP 執行階段]: #OwnPHP
   [作法：在計算和儲存模擬器中執行您的應用程式]: #Emulators
   [作法：發佈您的應用程式]: #Publish
-  [Azure 網站]: /en-us/develop/net/fundamentals/compute/#WebSites
-  [Azure 虛擬機器]: /en-us/develop/net/fundamentals/compute/#VMachine
-  [Azure 雲端服務]: /en-us/develop/net/fundamentals/compute/#CloudServices
-  [什麼是雲端服務？]: /en-us/manage/services/cloud-services/what-is-a-cloud-service/
-  [Azure SDK for PHP]: /en-us/develop/php/common-tasks/download-php-sdk/
+  [Azure 網站]: /zh-TW/develop/net/fundamentals/compute/#WebSites
+  [Azure 虛擬機器]: /zh-TW/develop/net/fundamentals/compute/#VMachine
+  [Azure 雲端服務]: /zh-TW/develop/net/fundamentals/compute/#CloudServices
+  [什麼是雲端服務？]: /zh-TW/manage/services/cloud-services/what-is-a-cloud-service/
+  [Azure SDK for PHP]: /zh-TW/develop/php/common-tasks/download-php-sdk/
   [安裝 Azure PowerShell 和 Azure 模擬器]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
-  [服務定義 (.csdef)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx
-  [服務組態 (.cscfg)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
+  [服務定義 (.csdef)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee758711.aspx
+  [服務組態 (.cscfg)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee758710.aspx
   [適用於 PHP for SQL Server 的 Microsoft 驅動程式]: http://php.net/sqlsrv
-  [SQL Server Native Client 2012]: http://msdn.microsoft.com/en-us/sqlserver/aa937733.aspx
+  [SQL Server Native Client 2012]: http://msdn.microsoft.com/zh-TW/sqlserver/aa937733.aspx
   [sqlncli.msi x64 安裝程式]: http://go.microsoft.com/fwlink/?LinkID=239648
   [Internet Information Services (IIS)]: http://www.iis.net/
-  [計算模擬器與 Azure 之間的差異]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432960.aspx
-  [儲存模擬器與 Azure 儲存服務之間的差異]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433135.aspx
-  [作法：匯入發佈設定]: /en-us/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
-  [作法：將雲端服務部署至 Azure]: /en-us/develop/php/how-to-guides/powershell-cmdlets/#Deploy
+  [計算模擬器與 Azure 之間的差異]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg432960.aspx
+  [儲存模擬器與 Azure 儲存服務之間的差異]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg433135.aspx
+  [作法：匯入發佈設定]: /zh-TW/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
+  [作法：將雲端服務部署至 Azure]: /zh-TW/develop/php/how-to-guides/powershell-cmdlets/#Deploy

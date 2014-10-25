@@ -364,15 +364,15 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
   [完成在另一部電腦上使用 SQL Server Management Studio 連接虛擬機器的組態步驟]: #SSMS
   [後續步驟]: #Optional
   [Azure 管理入口網站]: http://manage.windowsazure.com
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/
   [Azure 虛擬機器中的 SQL Server]: http://go.microsoft.com/fwlink/p/?LinkId=294719
   [開始使用 Azure 虛擬機器中的 SQL Server]: http://go.microsoft.com/fwlink/p/?LinkId=294720
   [如何使用資料磁碟在 Azure 虛擬機器之間移轉 SQL Server 資料庫檔案和結構描述]: http://go.microsoft.com/fwlink/p/?LinkId=294738
   [升級為不同的 SQL Server 2014 版本 (安裝程式)]: http://go.microsoft.com/fwlink/?LinkId=396915
-  [Azure 上透過軟體保證的授權流動性]: http://www.windowsazure.com/en-us/pricing/license-mobility/
-  [如何購買 SQL Server]: http://www.microsoft.com/en-us/sqlserver/get-sql-server/how-to-buy.aspx
+  [Azure 上透過軟體保證的授權流動性]: http://www.windowsazure.com/zh-tw/pricing/license-mobility/
+  [如何購買 SQL Server]: http://www.microsoft.com/zh-tw/sqlserver/get-sql-server/how-to-buy.aspx
   [增強式密碼]: http://msdn.microsoft.com/library/ms161962.aspx
-  [虛擬機器]: http://msdn.microsoft.com/en-us/library/azure/dn197896.aspx
+  [虛擬機器]: http://msdn.microsoft.com/zh-tw/library/azure/dn197896.aspx
   [VM 組態]: ./media/virtual-machines-provision-sql-server/4VM-Config.png
   [VM 模式]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
   [VM 選項]: ./media/virtual-machines-provision-sql-server/6VM-Options.png
@@ -395,11 +395,11 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
   [允許連線]: ./media/virtual-machines-provision-sql-server/15Allow-Connection.png
   [公用設定檔]: ./media/virtual-machines-provision-sql-server/16Public-Profile.png
   [規則名稱]: ./media/virtual-machines-provision-sql-server/17Rule-Name.png
-  [設定 Windows 防火牆以允許 SQL Server 存取]: http://msdn.microsoft.com/en-us/library/cc646023.aspx
+  [設定 Windows 防火牆以允許 SQL Server 存取]: http://msdn.microsoft.com/zh-tw/library/cc646023.aspx
   [開啟 SSCM]: ./media/virtual-machines-provision-sql-server/9Click-SSCM.png
   [啟用 TCP]: ./media/virtual-machines-provision-sql-server/10Enable-TCP.png
   [重新啟動 Database Engine]: ./media/virtual-machines-provision-sql-server/11Restart.png
-  [啟用或停用伺服器網路通訊協定]: http://msdn.microsoft.com/en-us/library/ms191294.aspx
+  [啟用或停用伺服器網路通訊協定]: http://msdn.microsoft.com/zh-tw/library/ms191294.aspx
   [2]: http://go.microsoft.com/fwlink/?LinkId=294719
   [Azure 虛擬機器中的 SQL Server 連接性考量]: http://go.microsoft.com/fwlink/?LinkId=294723
   [啟動 SSMS]: ./media/virtual-machines-provision-sql-server/18Start-SSMS.png
@@ -410,7 +410,7 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
   [新增登入]: ./media/virtual-machines-provision-sql-server/23New-Login.png
   [登入屬性]: ./media/virtual-machines-provision-sql-server/24Test-Login.png
   [系統管理員 (sysadmin)]: ./media/virtual-machines-provision-sql-server/25sysadmin.png
-  [建立登入]: http://msdn.microsoft.com/en-us/library/aa337562.aspx
+  [建立登入]: http://msdn.microsoft.com/zh-tw/library/aa337562.aspx
   [DNS 名稱]: ./media/virtual-machines-provision-sql-server/32DNS-Name.png
   [使用 SSMS 進行連線]: ./media/virtual-machines-provision-sql-server/33Connect-SSMS.png
   [如何疑難排解 SQL Server Database Engine 連線]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx

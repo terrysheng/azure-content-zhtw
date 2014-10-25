@@ -131,9 +131,9 @@ Git 發行設定完畢後，會建立一個 Git 儲存機制並與您的網站�
 
 ![][5]
 
-  []: http://www.windowsazure.com/en-us/develop/python/tutorials/web-sites-with-django
+  []: http://www.windowsazure.com/zh-TW/develop/python/tutorials/web-sites-with-django
   [PEP 3333]: http://www.python.org/dev/peps/pep-3333/
-  [1]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites
+  [1]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/how-to-create-websites
   []: ./media/web-sites-python-configure/configure-python-create-website.png
   [2]: ./media/web-sites-python-configure/configure-python-git.png
   [3]: ./media/web-sites-python-configure/configure-python-handler-mapping.png

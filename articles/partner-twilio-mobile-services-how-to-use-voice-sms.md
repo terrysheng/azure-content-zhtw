@@ -207,20 +207,20 @@ to:
   [特別優惠]: http://ahoy.twilio.com/azure
   [Twilio 定價]: http://www.twilio.com/pricing
   [Twilio API 程式庫]: https://www.twilio.com/docs/libraries
-  [.NET]: /en-us/develop/net/how-to-guides/twilio-voice-and-sms-service/
-  [node.js]: /en-us/develop/nodejs/how-to-guides/twilio-voice-and-sms-service/
-  [Java]: /en-us/develop/java/how-to-guides/twilio-voice-and-sms-service/
-  [PHP]: /en-us/develop/php/how-to-guides/twilio-voice-and-sms-service/
-  [Python]: /en-us/develop/python/how-to-guides/twilio-voice-and-sms-service/
-  [Ruby]: /en-us/develop/ruby/how-to-guides/twilio-voice-and-sms-service/
+  [.NET]: /zh-TW/develop/net/how-to-guides/twilio-voice-and-sms-service/
+  [node.js]: /zh-TW/develop/nodejs/how-to-guides/twilio-voice-and-sms-service/
+  [Java]: /zh-TW/develop/java/how-to-guides/twilio-voice-and-sms-service/
+  [PHP]: /zh-TW/develop/php/how-to-guides/twilio-voice-and-sms-service/
+  [Python]: /zh-TW/develop/python/how-to-guides/twilio-voice-and-sms-service/
+  [Ruby]: /zh-TW/develop/ruby/how-to-guides/twilio-voice-and-sms-service/
   [Twilio 標記語言文件]: http://www.twilio.com/docs/api/twiml
   [Twilio API]: http://www.twilio.com/api
   [試用 Twilio]: https://www.twilio.com/try-twilio
   [Twilio 帳戶頁面]: https://www.twilio.com/user/account
   [管理電話號碼]: https://www.twilio.com/user/account/phone-numbers/verified#
   [Twilio 電話號碼說明]: https://www.twilio.com/help/faq/phone-numbers
-  [開始使用行動服務]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started/
-  [在來源控制中儲存指令碼]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/
+  [開始使用行動服務]: http://www.windowsazure.com/zh-TW/develop/mobile/tutorials/get-started/
+  [在來源控制中儲存指令碼]: http://www.windowsazure.com/zh-TW/develop/mobile/tutorials/store-scripts-in-source-control/
   [Mobile Service Console]: ./media/partner-twilio-mobile-services-how-to-use-voice-sms/twilio-kuduconsole.png
   []: http://www.twilio.com/docs/api/rest/making-calls
   [如何：從您自己的網站提供 TwiML 回應]: #howto_provide_twiml_responses

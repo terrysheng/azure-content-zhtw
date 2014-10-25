@@ -14,5 +14,5 @@
 -   [其他 PHP 教學課程][] - 使用 PHP 和 Azure 建立其他類型的應用程式
 
   [website-from-gallery]: ../includes/website-from-gallery.md
-  [建立 PHP-MySQL Azure 網站並使用 Git 部署]: /en-us/develop/php/tutorials/website-w-mysql-and-git/
-  [其他 PHP 教學課程]: /en-us/develop/php/tutorials/
+  [建立 PHP-MySQL Azure 網站並使用 Git 部署]: /zh-tw/develop/php/tutorials/website-w-mysql-and-git/
+  [其他 PHP 教學課程]: /zh-tw/develop/php/tutorials/

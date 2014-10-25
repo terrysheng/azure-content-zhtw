@@ -8,15 +8,15 @@
 <a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/" title="Windows 市集 C#">Windows 市集 C#</a>
 <a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a>
 <a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/" title="Windows Phone" class="current">Windows Phone</a>
-<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a>
-<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a>
-<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+<a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a>
+<a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a>
+<a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
 <div class="dev-center-tutorial-subselector">
 <a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/" title=".NET 後端" class="current">.NET 後端</a> | 
-<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8"  title="JavaScript 後端">JavaScript 後端</a>
+<a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-wp8"  title="JavaScript 後端">JavaScript 後端</a>
 </div>
 
 本主題將說明如何在 .Net 後端 Azure 行動服務中使用程式碼，以驗證及修改資料。.Net 後端服務是使用 Web API 架構建置的 HTTP 服務。如果您熟悉以 Web API 架構定義的 `ApiController` 類別，則行動服務提供的 `TableController` 類別是非常直覺性的。`TableController` 衍生自 `ApiController` 類別，其提供額外的功能做為與資料庫資料表的介面。它可用來對要插入和更新的資料執行作業，包括本教學課程中示範的驗證和資料修改。
@@ -173,13 +173,13 @@
   [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "Windows 市集 C#"
   [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "Windows 市集 JavaScript"
   [Windows Phone]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Windows Phone"
-  [iOS]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
-  [Android]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
-  [HTML]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
-  [Xamarin.iOS]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
+  [iOS]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
+  [Android]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
+  [HTML]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
+  [Xamarin.iOS]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
+  [Xamarin.Android]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
   [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ ".NET 後端"
-  [JavaScript 後端]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "JavaScript 後端"
+  [JavaScript 後端]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "JavaScript 後端"
   [新增字串長度驗證]: #string-length-validation
   [更新用戶端以支援驗證]: #update-client-validation
   [測試長度驗證]: #test-length-validation
@@ -191,7 +191,7 @@
   []: ./media/mobile-services-dotnet-backend-windows-phone-validate-modify-data/mobile-services-invalid-text-length.png
   [1]: ./media/mobile-services-dotnet-backend-windows-phone-validate-modify-data/mobile-services-invalid-text-length-exception-dialog.png
   [mobile-services-dotnet-backend-add-completedate]: ../includes/mobile-services-dotnet-backend-add-completedate.md
-  [使用分頁縮小查詢範圍]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
+  [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-dotnet
   [使用者的服務端授權]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/
   [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
-  [行動服務 .NET 作法概念參考資料]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+  [行動服務 .NET 作法概念參考資料]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library

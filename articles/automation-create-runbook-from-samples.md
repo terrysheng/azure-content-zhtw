@@ -124,7 +124,7 @@ Azure 自動化團隊建立了多種 Runbook 範例，以協助您著手使用�
 -   [Azure 自動化：使用 Azure Active Directory 對 Azure 進行驗證][] (英文)
 
   [自動化概觀指南]: http://go.microsoft.com/fwlink/p/?LinkId=392861
-  [Azure PowerShell Cmdlet]: http://msdn.microsoft.com/en-us/library/jj156055.aspx
+  [Azure PowerShell Cmdlet]: http://msdn.microsoft.com/zh-tw/library/jj156055.aspx
   [Azure 自動化：使用 Azure Active Directory 對 Azure 進行驗證]: http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/
   [指令碼中心]: http://go.microsoft.com/fwlink/p/?LinkId=393029
   [1]: http://go.microsoft.com/fwlink/?LinkID=391681

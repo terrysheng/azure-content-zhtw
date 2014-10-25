@@ -114,17 +114,17 @@
   [針對推播通知註冊您的應用程式及設定行動服務]: #register
   [更新產生的推播通知程式碼]: #update-scripts
   [插入資料以接收通知]: #test
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started/
-  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started/
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet/
   [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
   [在行動服務中使用伺服器指令碼]: http://go.microsoft.com/fwlink/p/?LinkID=287178
   [mobile-services-create-new-push-vs2013-2]: ../includes/mobile-services-create-new-push-vs2013-2.md
   [0]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push2.png
-  [開始使用通知中心]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
-  [將通知傳送給訂閱者]: /en-us/manage/services/notification-hubs/breaking-news-dotnet/
-  [將通知傳送給使用者]: /en-us/manage/services/notification-hubs/notify-users/
-  [將交叉平台通知傳送給使用者]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+  [開始使用通知中心]: /zh-tw/manage/services/notification-hubs/getting-started-windows-dotnet/
+  [將通知傳送給訂閱者]: /zh-tw/manage/services/notification-hubs/breaking-news-dotnet/
+  [將通知傳送給使用者]: /zh-tw/manage/services/notification-hubs/notify-users/
+  [將交叉平台通知傳送給使用者]: /zh-tw/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet
   [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
-  [行動服務 .NET 作法概念參考資料]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/
+  [行動服務 .NET 作法概念參考資料]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/

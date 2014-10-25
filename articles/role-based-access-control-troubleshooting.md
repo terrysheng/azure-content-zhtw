@@ -6,7 +6,7 @@
 
 ## 簡介
 
-[角色存取控制][角色存取控制]是一項強大的功能，能讓您將精細的存取權限委派給 Azure 裡的資源。亦即您可以放心且精確地授予特定個人所需的權限。然而，Azure 資源的資源模型有時可能很複雜，且不容易完全了解您所授予的權限內容。
+[角色存取控制](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-configure/)是一項強大的功能，能讓您將精細的存取權限委派給 Azure 裡的資源。亦即您可以放心且精確地授予特定個人所需的權限。然而，Azure 資源的資源模型有時可能很複雜，且不容易完全了解您所授予的權限內容。
 
 本文說明在 Preview 入口網站中使用一些新的角色時，會有哪些情況。此版本共有三種預先建立的角色：
 
@@ -14,7 +14,7 @@
 -   參與者
 -   讀取者
 
-擁有者與參與者都可以完整存取管理經驗，差別在於參與者無法將存取權限授予其他使用者或群組。讀取者角色則是比較有趣，因此我們會在本文中多花點時間介紹。[請參閱這篇文章][角色存取控制]，了解如何授予存取權限的詳細資料。
+擁有者與參與者都可以完整存取管理經驗，差別在於參與者無法將存取權限授予其他使用者或群組。讀取者角色則是比較有趣，因此我們會在本文中多花點時間介紹。[請參閱這篇文章](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-configure/)，了解如何授予存取權限的詳細資料。
 
 ## 網站工作負載
 
@@ -39,7 +39,7 @@
 
 網站因為幾個互有關聯的資源而顯得複雜。以下是具有多個網站的典型資源群組：
 
-![網站資源群組][網站資源群組]
+![網站資源群組](./media/role-based-access-control-troubleshooting/Website-resource-model.png)
 
 如此一來，如果您只授予某人網站存取權限，該網站分頁上的諸多功能將全數停用。
 
@@ -77,5 +77,4 @@
 
 如果您無法存取上述任何一個部分，請洽詢您的系統管理員，取得資源群組的參與者存取權限。
 
-  [角色存取控制]: http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-configure/
-  [網站資源群組]: ./media/role-based-access-control-troubleshooting/Website-resource-model.png
+

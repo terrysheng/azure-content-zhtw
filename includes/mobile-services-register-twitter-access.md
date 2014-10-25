@@ -41,4 +41,4 @@
   [Windows Azure 管理入口網站]: https://manage.windowsazure.com/
   [2]: ./media/mobile-services-register-twitter-access/mobile-identity-tab-twitter-only.png
   [3]: ./media/mobile-services-register-twitter-access/mobile-schedule-job-app-settings.png
-  [應用程式設定]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+  [應用程式設定]: http://msdn.microsoft.com/zh-tw/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

@@ -210,6 +210,6 @@ Entity Framework 可讓開發人員對概念式的應用程式模型進行程式
   [image]: ./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG
   [Image2]: ./media/sql-database-dotnet-how-to-use/SQLDBFirewall.PNG
   [Image3]: ./media/sql-database-dotnet-how-to-use/SQLDBIPRange.PNG
-  [適用於 Entity Framework 的 EntityClient 提供者]: http://msdn.microsoft.com/en-us/library/bb738561.aspx
-  [開發：作法主題 (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621787.aspx
-  [SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx
+  [適用於 Entity Framework 的 EntityClient 提供者]: http://msdn.microsoft.com/zh-tw/library/bb738561.aspx
+  [開發：作法主題 (SQL Database)]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee621787.aspx
+  [SQL Database]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336279.aspx

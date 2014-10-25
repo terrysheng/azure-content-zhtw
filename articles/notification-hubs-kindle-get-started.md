@@ -4,7 +4,7 @@
 
 # 開始使用通知中心
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/zh-tw/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/zh-tw/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/zh-tw/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/zh-tw/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle" class="current">Kindle</a><a href="/zh-tw/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-tw/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/zh-TW/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/zh-TW/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/zh-TW/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/zh-TW/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle" class="current">Kindle</a><a href="/zh-TW/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-TW/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
 本主題將示範如何使用 Azure 通知中樞將推播通知傳送至 Kindle 應用程式。
 在本教學課程中，您將建立可使用 Google Cloud Messaging (GCM) 接收推播通知的空白 Kindle 應用程式。
@@ -255,13 +255,13 @@
 
 <!-- URLs. -->
 
-  [Windows Universal]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /zh-tw/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /zh-tw/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /zh-tw/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /zh-tw/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
+  [Windows Universal]: /zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
+  [Windows Phone]: /zh-TW/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
+  [iOS]: /zh-TW/documentation/articles/notification-hubs-ios-get-started/ "iOS"
+  [Android]: /zh-TW/documentation/articles/notification-hubs-android-get-started/ "Android"
+  [Kindle]: /zh-TW/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
+  [Xamarin.iOS]: /zh-TW/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
+  [Xamarin.Android]: /zh-TW/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [此處]: http://go.microsoft.com/fwlink/?LinkId=389797
   [這裡]: https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment
   [開發人員入口網站]: https://developer.amazon.com/home.html

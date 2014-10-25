@@ -444,12 +444,12 @@ WS-同盟身分識別提供者憑證可透過其中繼資料取得。設定 WS-�
 </table> 
 
   [存取控制服務 2.0]: http://msdn.microsoft.com/library/azure/hh147631.aspx
-  [憑證與金鑰]: http://msdn.microsoft.com/en-us/library/gg185932.aspx
-  [服務身分識別]: http://msdn.microsoft.com/en-us/library/gg185945.aspx
-  [ACS 管理服務]: http://msdn.microsoft.com/en-us/library/gg185972.aspx
-  [IdentityProviderKey]: http://msdn.microsoft.com/en-us/library/hh124084.aspx
-  [ACS 錯誤碼]: http://msdn.microsoft.com/en-us/library/gg185949.aspx
-  [程式碼範例：管理服務]: http://msdn.microsoft.com/en-us/library/gg185970.aspx
+  [憑證與金鑰]: http://msdn.microsoft.com/zh-TW/library/gg185932.aspx
+  [服務身分識別]: http://msdn.microsoft.com/zh-TW/library/gg185945.aspx
+  [ACS 管理服務]: http://msdn.microsoft.com/zh-TW/library/gg185972.aspx
+  [IdentityProviderKey]: http://msdn.microsoft.com/zh-TW/library/hh124084.aspx
+  [ACS 錯誤碼]: http://msdn.microsoft.com/zh-TW/library/gg185949.aspx
+  [程式碼範例：管理服務]: http://msdn.microsoft.com/zh-TW/library/gg185970.aspx
   []: http://go.microsoft.com/fwlink/?LinkID=129428
   []: ./media/manage-acs-namespace/ACS1.png
   [1]: ./media/manage-acs-namespace/ACS2.png
@@ -460,8 +460,8 @@ WS-同盟身分識別提供者憑證可透過其中繼資料取得。設定 WS-�
   [6]: ./media/manage-acs-namespace/ACS9.png
   [7]: ./media/manage-acs-namespace/ACS11.png
   [8]: ./media/manage-acs-namespace/ACS112.png
-  [作法：使用 X.509 憑證、密碼或對稱金鑰新增服務身分識別]: http://msdn.microsoft.com/en-us/library/gg185924.aspx
+  [作法：使用 X.509 憑證、密碼或對稱金鑰新增服務身分識別]: http://msdn.microsoft.com/zh-TW/library/gg185924.aspx
   [9]: ./media/manage-acs-namespace/ACS14.png
   [10]: ./media/manage-acs-namespace/ACS15.png
-  [WS-同盟身分識別提供者]: http://msdn.microsoft.com/en-us/library/gg185933.aspx
-  [作法：將 AD FS 2.0 設定為身分識別提供者]: http://msdn.microsoft.com/en-us/library/gg185961.aspx
+  [WS-同盟身分識別提供者]: http://msdn.microsoft.com/zh-TW/library/gg185933.aspx
+  [作法：將 AD FS 2.0 設定為身分識別提供者]: http://msdn.microsoft.com/zh-TW/library/gg185961.aspx

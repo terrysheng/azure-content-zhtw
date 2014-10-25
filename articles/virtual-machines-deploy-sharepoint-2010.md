@@ -390,58 +390,58 @@ Azure 虛擬機器可用來執行完整而連續的 SharePoint 部署。Azure �
 
 -   開始使用 Azure PowerShell
 
-    <http://msdn.microsoft.com/en-us/library/windowsazure/jj156055>
+    <http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156055>
 
 -   Azure 管理 Cmdlet
 
-    <http://msdn.microsoft.com/en-us/library/windowsazure/jj152841>
+    <http://msdn.microsoft.com/zh-tw/library/windowsazure/jj152841>
 
 -   適用於不同作業系統的命令列工具和 PowerShell Cmdlet
 
-    [https://www.windowsazure.com/en-us/manage/downloads/][]
+    [https://www.windowsazure.com/zh-tw/manage/downloads/][]
 
 -   使用說明和最佳作法文件
 
-    [https://www.windowsazure.com/en-us/manage/windows/][]
+    [https://www.windowsazure.com/zh-tw/manage/windows/][]
 
   [azure-sharepoint-wp-1]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-1.png
-  [Azure 定價詳細資料]: /en-us/pricing/details/
-  [建立執行 Windows Server 2008 R2 的虛擬機器]: /en-us/manage/windows/tutorials/virtual-machine-from-gallery/
+  [Azure 定價詳細資料]: /zh-tw/pricing/details/
+  [建立執行 Windows Server 2008 R2 的虛擬機器]: /zh-tw/manage/windows/tutorials/virtual-machine-from-gallery/
   [azure-sharepoint-wp-2]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png
-  [建立和上傳虛擬硬碟]: /en-us/manage/windows/common-tasks/upload-a-vhd/
+  [建立和上傳虛擬硬碟]: /zh-tw/manage/windows/common-tasks/upload-a-vhd/
   [azure-sharepoint-wp-3]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-3.png
   [Azure 管理入口網站]: http://manage.windowsazure.com/
-  [註冊 Azure 的免費試用版]: http://www.windowsazure.com/en-us/pricing/free-trial/
-  [在 Azure 中建立儲存體帳戶]: /en-us/manage/windows/common-tasks/upload-a-vhd/#createstorage
-  [在 Azure 上佈建 SQL Server 虛擬機器]: /en-us/manage/windows/common-tasks/install-sql-server/
-  [使用 SysPrep 安裝 SQL Server 2012]: http://msdn.microsoft.com/en-us/library/ee210664.aspx
-  [使用命令提示字元安裝 SQL Server 2012]: http://msdn.microsoft.com/en-us/library/ms144259.aspx#SysPrep
-  [建立 Microsoft SharePoint Server 伺服器陣列]: http://technet.microsoft.com/en-us/library/ee805948.aspx#CreateConfigure
-  [新增 Web 或應用程式伺服器至伺服器陣列 (SharePoint Server 2010)]: http://technet.microsoft.com/en-us/library/cc261752.aspx
-  [新增資料庫伺服器至現有的伺服器陣列]: http://technet.microsoft.com/en-us/library/cc262781
-  [SharePoint Server 2010 的 Service Pack 1]: http://www.microsoft.com/en-us/download/details.aspx?id=26623
-  [安裝 SQL Server 2012 Business Intelligence 功能]: http://technet.microsoft.com/en-us/library/hh231681(v=sql.110).aspx
-  [Psconfig 命令列參照]: http://technet.microsoft.com/en-us/library/cc263093.aspx
-  [使用 Windows PowerShell 安裝 SharePoint Server 2010]: http://technet.microsoft.com/en-us/library/cc262839.aspx
+  [註冊 Azure 的免費試用版]: http://www.windowsazure.com/zh-tw/pricing/free-trial/
+  [在 Azure 中建立儲存體帳戶]: /zh-tw/manage/windows/common-tasks/upload-a-vhd/#createstorage
+  [在 Azure 上佈建 SQL Server 虛擬機器]: /zh-tw/manage/windows/common-tasks/install-sql-server/
+  [使用 SysPrep 安裝 SQL Server 2012]: http://msdn.microsoft.com/zh-tw/library/ee210664.aspx
+  [使用命令提示字元安裝 SQL Server 2012]: http://msdn.microsoft.com/zh-tw/library/ms144259.aspx#SysPrep
+  [建立 Microsoft SharePoint Server 伺服器陣列]: http://technet.microsoft.com/zh-tw/library/ee805948.aspx#CreateConfigure
+  [新增 Web 或應用程式伺服器至伺服器陣列 (SharePoint Server 2010)]: http://technet.microsoft.com/zh-tw/library/cc261752.aspx
+  [新增資料庫伺服器至現有的伺服器陣列]: http://technet.microsoft.com/zh-tw/library/cc262781
+  [SharePoint Server 2010 的 Service Pack 1]: http://www.microsoft.com/zh-tw/download/details.aspx?id=26623
+  [安裝 SQL Server 2012 Business Intelligence 功能]: http://technet.microsoft.com/zh-tw/library/hh231681(v=sql.110).aspx
+  [Psconfig 命令列參照]: http://technet.microsoft.com/zh-tw/library/cc263093.aspx
+  [使用 Windows PowerShell 安裝 SharePoint Server 2010]: http://technet.microsoft.com/zh-tw/library/cc262839.aspx
   [CodePlex：AutoSPInstaller]: http://autospinstaller.codeplex.com/
-  [建立虛擬硬碟]: http://technet.microsoft.com/en-us/library/cc742509
-  [如何使用 SysPrep：簡介]: http://technet.microsoft.com/en-us/library/bb457073.aspx
+  [建立虛擬硬碟]: http://technet.microsoft.com/zh-tw/library/cc742509
+  [如何使用 SysPrep：簡介]: http://technet.microsoft.com/zh-tw/library/bb457073.aspx
   [azure-sharepoint-wp-11]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-11.png
-  [Azure 虛擬網路 (設計考量和安全連線情境)]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx
-  [SharePoint 2010 簡易設定指令碼]: http://www.microsoft.com/en-us/download/details.aspx?id=23415
-  [Visual Studio 安裝]: http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx
+  [Azure 虛擬網路 (設計考量和安全連線情境)]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx
+  [SharePoint 2010 簡易設定指令碼]: http://www.microsoft.com/zh-tw/download/details.aspx?id=23415
+  [Visual Studio 安裝]: http://msdn.microsoft.com/zh-tw/library/e2h7fzkw.aspx
   [為 Azure 中的 SharePoint 設定 SQL Server 2012]: https://github.com/WindowsAzure-TrainingKit/HOL-DeployingSQLServerForSharePoint
   [使用 Azure 虛擬機器部署 SharePoint 伺服器陣列]: https://github.com/WindowsAzure-TrainingKit/HOL-DeploySharePointVMs
   [Azure 儲存體的地理區域複寫簡介]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [azure-sharepoint-wp-12]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-12.png
-  [在 Azure 虛擬機器上部署 Active Directory 的指引]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156090
+  [在 Azure 虛擬機器上部署 Active Directory 的指引]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090
   [設定虛擬網路]: https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md
   [在 Azure 中部署 Active Directory (Windows PowerShell)]: https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectoryPS
-  [在 Azure 中安裝新的 Active Directory 樹系]: /en-us/manage/services/networking/active-directory-forest/
-  [Azure 信任中心]: /en-us/support/trust-center/compliance/
+  [在 Azure 中安裝新的 Active Directory 樹系]: /zh-tw/manage/services/networking/active-directory-forest/
+  [Azure 信任中心]: /zh-tw/support/trust-center/compliance/
   [azure-sharepoint-wp-13]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-13.png
   [azure-sharepoint-wp-14]: ./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-14.png
-  [Join-SharePointFarm]: http://technet.microsoft.com/en-us/library/ff607979.aspx
+  [Join-SharePointFarm]: http://technet.microsoft.com/zh-tw/library/ff607979.aspx
   [TechEd North America 2012 視訊]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2012/AZR327
-  [https://www.windowsazure.com/en-us/manage/downloads/]: /en-us/manage/downloads/
-  [https://www.windowsazure.com/en-us/manage/windows/]: /en-us/manage/windows/
+  [https://www.windowsazure.com/zh-tw/manage/downloads/]: /zh-tw/manage/downloads/
+  [https://www.windowsazure.com/zh-tw/manage/windows/]: /zh-tw/manage/windows/

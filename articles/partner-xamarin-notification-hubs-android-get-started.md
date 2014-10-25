@@ -4,7 +4,7 @@
 
 # 開始使用通知中心
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/zh-tw/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/zh-tw/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/zh-tw/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/zh-tw/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/zh-tw/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-tw/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android" class="current">Xamarin.Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/zh-TW/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/zh-TW/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/zh-TW/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/zh-TW/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/zh-TW/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-TW/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android" class="current">Xamarin.Android</a></div>
 
 本主題將示範如何使用 Azure 通知中樞，將推播通知傳送至 Xamarin.Android 應用程式。
 在本教學課程中，您將使用 Google Cloud Messaging (GCM)，建立可接收推播通知的空白 Xamarin.Android 應用程式。完成時，您便能夠使用通知中心，將推播通知廣播到所有正在執行您應用程式的裝置。[NotificationHubs 應用程式][]範例中提供完成的程式碼。
@@ -26,7 +26,7 @@
 
 完成本教學課程是 Xamarin.Android 應用程式所有其他通知中樞教學課程的先決條件。
 
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-android%2F" target="_blank">Azure 免費試用</a>。</p></div>
+<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-TW/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-android%2F" target="_blank">Azure 免費試用</a>。</p></div>
 
 ## <a name="register"></a><span class="short-header">啟用 Google 雲端通訊</span>啟用 Google 雲端通訊
 
@@ -405,13 +405,13 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Universal]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /zh-tw/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /zh-tw/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /zh-tw/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /zh-tw/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
+  [Windows Universal]: /zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
+  [Windows Phone]: /zh-TW/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
+  [iOS]: /zh-TW/documentation/articles/notification-hubs-ios-get-started/ "iOS"
+  [Android]: /zh-TW/documentation/articles/notification-hubs-android-get-started/ "Android"
+  [Kindle]: /zh-TW/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
+  [Xamarin.iOS]: /zh-TW/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
+  [Xamarin.Android]: /zh-TW/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [NotificationHubs 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=331329
   [啟用 Google 雲端通訊]: #register
   [設定您的通知中心]: #configure-hub
@@ -421,7 +421,7 @@
   [1]: http://xamarin.com/download/
   [Azure 行動服務元件]: http://components.xamarin.com/view/azure-mobile-services/
   [Google Cloud Messaging 元件]: http://components.xamarin.com/view/GCMClient/
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-android%2F
+  [Azure 免費試用]: http://www.windowsazure.com/zh-TW/pricing/free-trial/?WT.mc_id=A9C9624B5&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-android%2F
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
   [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
   []: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-developers.png
@@ -441,14 +441,14 @@
   [Xamarin.NotificationHub Github 頁面]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
   [14]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-android-app7.png
   [15]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-android-app8.png
-  [REST 介面]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+  [REST 介面]: http://msdn.microsoft.com/zh-TW/library/windowsazure/dn223264.aspx
   [16]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-console-app.png
   [WindowsAzure.ServiceBus NuGet 封裝]: http://nuget.org/packages/WindowsAzure.ServiceBus/
   [17]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-android-toast.png
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
+  [開始使用行動服務]: /zh-TW/develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
   [18]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-scheduler1.png
   [19]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-scheduler2.png
-  [使用通知中心來推播通知給使用者]: /en-us/manage/services/notification-hubs/notify-users-aspnet
-  [使用通知中心傳送即時新聞]: /en-us/manage/services/notification-hubs/breaking-news-dotnet
-  [Azure 通知中心概觀]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
-  [Android 的通知中心作法]: http://msdn.microsoft.com/en-us/library/dn282661.aspx
+  [使用通知中心來推播通知給使用者]: /zh-TW/manage/services/notification-hubs/notify-users-aspnet
+  [使用通知中心傳送即時新聞]: /zh-TW/manage/services/notification-hubs/breaking-news-dotnet
+  [Azure 通知中心概觀]: http://msdn.microsoft.com/zh-TW/library/jj927170.aspx
+  [Android 的通知中心作法]: http://msdn.microsoft.com/zh-TW/library/dn282661.aspx

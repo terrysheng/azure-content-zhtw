@@ -261,7 +261,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
   [4]: http://www.twilio.com/docs/api/rest/sending-sms
   [5]: http://twimlets.com/message
   [6]: http://twimlets.com/message?Message%5B0%5D=Hello%20World
-  [其他角色組態設定]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690945.aspx
+  [其他角色組態設定]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh690945.aspx
   [Twilio 安全性方針]: http://www.twilio.com/docs/security
   [Twilio 作法與範例程式碼]: http://www.twilio.com/docs/howto
   [Twilio 快速入門教學課程]: http://www.twilio.com/docs/quickstart

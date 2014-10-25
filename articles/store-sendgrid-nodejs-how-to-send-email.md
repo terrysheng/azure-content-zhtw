@@ -218,7 +218,7 @@ SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGri
 -   Azure 客戶的 SendGrid 特別優惠：
     [][2]<http://sendgrid.com/azure.html></a>
 
-  [後續步驟]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/blob-storage/#next-steps
+  [後續步驟]: http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/blob-storage/#next-steps
   [什麼是 SendGrid 電子郵件服務？]: #whatis
   [建立 SendGrid 帳戶]: #createaccount
   [參考 SendGrid Node.js 模組]: #reference

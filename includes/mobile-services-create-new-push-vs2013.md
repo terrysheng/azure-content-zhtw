@@ -29,4 +29,4 @@
 <!-- URLs. -->
 
   [mobile-add-push-notifications-vs2013-3]: ../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-3.png
-  [通知中心概觀]: http://msdn.microsoft.com/en-us/library/azure/jj927170.aspx
+  [通知中心概觀]: http://msdn.microsoft.com/zh-tw/library/azure/jj927170.aspx

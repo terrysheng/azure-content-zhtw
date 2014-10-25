@@ -147,12 +147,12 @@
   [步驟 2：修改服務定義檔與組態檔]: #step2
   [步驟 3：上傳部署套件和憑證]: #step3
   [步驟 4：使用 HTTPS 連線至角色執行個體]: #step4
-  [如何建立角色的憑證]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx
-  [如何使憑證與服務產生關聯]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
+  [如何建立角色的憑證]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg432987.aspx
+  [如何使憑證與服務產生關聯]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg465718.aspx
   [Azure 管理入口網站]: http://manage.windowsazure.com
   [發佈您的雲端服務]: ./media/cloud-services-dotnet-configure-ssl-certificate/CreateCloudService.png
   [新增憑證]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificate.png
   [附加的憑證]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificateComplete.png
   [判定網站 URL]: ./media/cloud-services-dotnet-configure-ssl-certificate/CopyURL.png
   [SSL 範例網站]: ./media/cloud-services-dotnet-configure-ssl-certificate/SSLCloudService.png
-  [如何在 HTTPS 端點上設定 SSL 憑證 (英文)]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
+  [如何在 HTTPS 端點上設定 SSL 憑證 (英文)]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff795779.aspx

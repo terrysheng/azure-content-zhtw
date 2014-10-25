@@ -5,11 +5,11 @@
 # 使用行動服務推播通知給使用者
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-android" title="Android" class="current">Android</a>
+<a href="/zh-tw/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone">Windows Phone</a><a href="/zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS">iOS</a><a href="/zh-tw/develop/mobile/tutorials/push-notifications-to-users-android" title="Android" class="current">Android</a>
 </div>
 
 <div class="dev-onpage-left-content">
-<p>本主題將新增資料表來儲存 Google 雲端通訊 (GCM) 註冊 URI，這將用來傳送推播通知給多位 Android 應用程式使用者，藉以延伸<a href="/en-us/develop/mobile/tutorials/get-started-with-push-android">上一個推播通知教學課程</a>。在本教學課程中，每當 ToDoList 資料表中完成插入時，就會以單一更新向所有註冊的裝置產生推播通知。在前一個教學課程中，只會向進行插入的裝置傳送通知。</p>
+<p>本主題將新增資料表來儲存 Google 雲端通訊 (GCM) 註冊 URI，這將用來傳送推播通知給多位 Android 應用程式使用者，藉以延伸<a href="/zh-tw/develop/mobile/tutorials/get-started-with-push-android">上一個推播通知教學課程</a>。在本教學課程中，每當 ToDoList 資料表中完成插入時，就會以單一更新向所有註冊的裝置產生推播通知。在前一個教學課程中，只會向進行插入的裝置傳送通知。</p>
 </div>
 
 本教學課程將引導您逐步完成以下在您的應用程式中更新推播通知的步驟：
@@ -242,10 +242,10 @@
 
 <!-- URLs. -->
 
-  [Windows Phone]: /en-us/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /en-us/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /en-us/develop/mobile/tutorials/push-notifications-to-users-android "Android"
-  [上一個推播通知教學課程]: /en-us/develop/mobile/tutorials/get-started-with-push-android
+  [Windows Phone]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
+  [iOS]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
+  [Android]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-android "Android"
+  [上一個推播通知教學課程]: /zh-tw/develop/mobile/tutorials/get-started-with-push-android
   [建立 Registration 資料表]: #create-table
   [更新應用程式]: #update-app
   [更新伺服器指令碼]: #update-scripts
@@ -259,7 +259,7 @@
   [5]: ./media/mobile-services-android-push-notifications-app-users/mobile-insert-script-registration.png
   [6]: ./media/mobile-services-android-push-notifications-app-users/mobile-insert-script-push2.png
   [7]: ./media/mobile-services-android-push-notifications-app-users/mobile-push-icon.png
-  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-android
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-android
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-android
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-android
   [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
-  [如何使用適用於行動服務的 Android 用戶端程式庫]: /en-us/develop/mobile/how-to-guides/work-with-android-client-library
+  [如何使用適用於行動服務的 Android 用戶端程式庫]: /zh-tw/develop/mobile/how-to-guides/work-with-android-client-library

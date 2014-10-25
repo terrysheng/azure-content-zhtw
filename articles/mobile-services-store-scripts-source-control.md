@@ -171,8 +171,8 @@
   [安裝 Git 與建立本機儲存機制]: #clone-repo
   [將更新指令碼檔案部署到行動服務]: #deploy-scripts
   [在伺服器指令碼中運用共用程式碼和 Node.js 模組]: #use-npm
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started
-  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   []: ./media/mobile-services-store-scripts-source-control/mobile-services-selection.png
   [1]: ./media/mobile-services-store-scripts-source-control/mobile-setup-source-control.png
@@ -180,11 +180,11 @@
   [3]: ./media/mobile-services-store-scripts-source-control/mobile-source-control-configure.png
   [安裝 Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
   [4]: ./media/mobile-services-store-scripts-source-control/mobile-source-local-repo.png
-  [原始檔控制]: http://msdn.microsoft.com/en-us/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+  [原始檔控制]: http://msdn.microsoft.com/zh-tw/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
   [5]: ./media/mobile-services-store-scripts-source-control/mobile-portal-data-tables.png
   [6]: ./media/mobile-services-store-scripts-source-control/mobile-insert-script-source-control.png
   [模組]: http://nodejs.org/api/modules.html
   [node-uuid]: https://npmjs.org/package/node-uuid
   [Node.js 網站]: http://nodejs.org/
-  [在行動服務中使用伺服器指令碼]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts
-  [定義支援提取通知的自訂 API]: /en-us/develop/mobile/tutorials/create-pull-notifications-dotnet
+  [在行動服務中使用伺服器指令碼]: /zh-tw/develop/mobile/how-to-guides/work-with-server-scripts
+  [定義支援提取通知的自訂 API]: /zh-tw/develop/mobile/tutorials/create-pull-notifications-dotnet

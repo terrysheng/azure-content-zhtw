@@ -140,7 +140,7 @@ Azure 虛擬機器的管理作業可使用 **Azure::VirtualMachineService** 類�
       :vm_name => 'mygreatvm',
       :vm_user => 'myuser',
       :password => 'mypassword',
-      :image => 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20130824-en-us-30GB',
+      :image => 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20130824-zh-tw-30GB',
       :location = 'East US'
     }
 
@@ -184,7 +184,7 @@ Azure 虛擬機器的管理作業可使用 **Azure::VirtualMachineService** 類�
       :vm_name => 'myvm',
       :vm_user => 'myuser',
       :password => 'mypassword',
-      :image => 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20130824-en-us-30GB',
+      :image => 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20130824-zh-tw-30GB',
       :location = 'East US'
     }
 
@@ -365,10 +365,10 @@ Azure 雲端服務的管理作業可使用 **Azure::StorageService** 類別來�
   [作法：使用雲端服務]: #cloud-services
   [作法：使用儲存服務]: #storage-services
   [後續步驟]: #next-steps
-  [適用於服務管理作業的 REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
+  [適用於服務管理作業的 REST API]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460799.aspx
   [Azure 管理入口網站]: https://manage.windowsazure.com
-  [安裝與設定 Azure 跨平台命令列介面]: http://www.windowsazure.com/en-us/manage/install-and-configure-cli/
-  [Azure 的虛擬機器和雲端服務大小]: http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx
+  [安裝與設定 Azure 跨平台命令列介面]: http://www.windowsazure.com/zh-tw/manage/install-and-configure-cli/
+  [Azure 的虛擬機器和雲端服務大小]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn197896.aspx
   [虛擬機器]: http://www.windowsazure.com/zh-tw/documentation/services/virtual-machines/
-  [1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156003.aspx
-  [虛擬機器上的 Ruby on Rails 應用程式]: http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+  [1]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156003.aspx
+  [虛擬機器上的 Ruby on Rails 應用程式]: http://www.windowsazure.com/zh-tw/develop/ruby/tutorials/web-app-with-linux-vm/

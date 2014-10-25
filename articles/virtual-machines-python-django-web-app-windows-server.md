@@ -4,7 +4,7 @@
 
 # Django Hello World Web 應用程式
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/zh-tw/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
 
 本教學課程說明如何使用 Windows Server 虛擬機器在 Azure 上裝載 Django 型網站。本教學課程假設您先前沒有使用 Azure 的經驗。完成本指南之後，您將在雲端啟動並執行 Django 型應用程式。
 
@@ -119,11 +119,11 @@
 
 完成本教學課程時，請關閉並/或移除新建立的 Azure 虛擬機器釋出資源供其他教學課程使用，並避免產生 Azure 使用的費用。
 
-  [Windows]: /en-us/develop/python/tutorials/web-app-with-django/ "Windows"
-  [Mac/Linux]: /en-us/develop/python/tutorials/django-hello-world-(maclinux)/ "MacLinux"
+  [Windows]: /zh-tw/develop/python/tutorials/web-app-with-django/ "Windows"
+  [Mac/Linux]: /zh-tw/develop/python/tutorials/django-hello-world-(maclinux)/ "MacLinux"
   [A browser window displaying the hello world page on Azure]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-browser-azure.png
   [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
-  [此處]: /en-us/manage/windows/tutorials/virtual-machine-from-gallery/
+  [此處]: /zh-tw/manage/windows/tutorials/virtual-machine-from-gallery/
   [加入端點]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png
   []: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
   [安裝指南]: ../python-how-to-install/

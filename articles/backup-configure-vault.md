@@ -9,7 +9,7 @@
  
 <p>若要完成此教學課程，您需要 Azure 帳戶。本教學課程將引導您啟用 Azure 備份功能。您之前需要建立或取得 X.509 第 3 版憑證，才能註冊備份伺服器。這些憑證仍受到支援，但現在為了簡化向伺服器註冊 Azure 保存庫的作業，您可以直接從 [快速啟動] 頁面產生保存庫認證。 </p>
 <ul> 
-<li>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="/en-us/pricing/free-trial/">Azure 免費試用</a>。</li> 
+<li>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="/zh-tw/pricing/free-trial/">Azure 免費試用</a>。</li> 
  
 
 </ul>
@@ -90,12 +90,12 @@
 
 -   造訪 [Azure 備份論壇][] (英文)。
 
-  [Azure 免費試用]: /en-us/pricing/free-trial/
+  [Azure 免費試用]: /zh-tw/pricing/free-trial/
   [管理入口網站]: https://manage.windowsazure.com
   [新增備份保存庫]: http://i.imgur.com/506c7ch.png
   [備份保存庫建立]: http://i.imgur.com/grtLcKM.png
-  [安裝 Azure Backup Agent for Windows Server 2012 and System Center 2012 SP1 - Data Protection Manager]: http://technet.microsoft.com/en-us/library/hh831761.aspx#BKMK_installagent
-  [安裝 Azure Backup Agent for Windows Server 2012 Essentials]: http://technet.microsoft.com/en-us/library/jj884318.aspx
+  [安裝 Azure Backup Agent for Windows Server 2012 and System Center 2012 SP1 - Data Protection Manager]: http://technet.microsoft.com/zh-tw/library/hh831761.aspx#BKMK_installagent
+  [安裝 Azure Backup Agent for Windows Server 2012 Essentials]: http://technet.microsoft.com/zh-tw/library/jj884318.aspx
   [受保護項目]: ./media/backup-configure-vault/RS_protecteditems.png
   [已刪除的伺服器]: ./media/backup-configure-vault/RS_deletedserver.png
   [Azure 備份概觀]: http://go.microsoft.com/fwlink/p/?LinkId=222425

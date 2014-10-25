@@ -281,6 +281,6 @@
   [create-account-note]: ../includes/create-account-note.md
   [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   []: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
-  [佇列、主題和訂閱]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
-  [SqlFilter]: http://msdn.microsoft.com/en-us/library/microsoft.servicebus.messaging.sqlfilter.aspx
-  [服務匯流排代理訊息 .NET 教學課程]: http://msdn.microsoft.com/en-us/library/hh367512.aspx
+  [佇列、主題和訂閱]: http://msdn.microsoft.com/zh-tw/library/hh367516.aspx
+  [SqlFilter]: http://msdn.microsoft.com/zh-tw/library/microsoft.servicebus.messaging.sqlfilter.aspx
+  [服務匯流排代理訊息 .NET 教學課程]: http://msdn.microsoft.com/zh-tw/library/hh367512.aspx

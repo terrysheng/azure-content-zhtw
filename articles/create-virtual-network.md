@@ -14,7 +14,7 @@
 
 <div class="dev-callout"> 
 <b>注意</b> 
-<p>本教學課程不會逐步引導您建立跨單位組態，其中的虛擬網路會連接至您的組織網路。如需逐步引導您建立含跨單位連線和站對站 VPN 連線 (亦即連接到位在公司內部的 Active Directory 或 SharePoint) 的虛擬網路教學課程，請參閱<a href="/en-us/manage/services/networking/cross-premises-connectivity/">教學課程：建立跨單位虛擬網路以提供站對站連線能力</a>。</p> 
+<p>本教學課程不會逐步引導您建立跨單位組態，其中的虛擬網路會連接至您的組織網路。如需逐步引導您建立含跨單位連線和站對站 VPN 連線 (亦即連接到位在公司內部的 Active Directory 或 SharePoint) 的虛擬網路教學課程，請參閱<a href="/zh-TW/manage/services/networking/cross-premises-connectivity/">教學課程：建立跨單位虛擬網路以提供站對站連線能力</a>。</p> 
 </div>
 
 ## 目標
@@ -92,22 +92,22 @@
   [createvnet]: ./media/create-virtual-network/createVNet_06_VNetExample.png
   [在管理入口網站中設定純雲端虛擬網路]: http://msdn.microsoft.com/library/azure/dn631643.aspx
   [虛擬網路]: http://msdn.microsoft.com/library/windowsazure/jj156007.aspx
-  [教學課程：建立跨單位虛擬網路以提供站對站連線能力]: /en-us/manage/services/networking/cross-premises-connectivity/
+  [教學課程：建立跨單位虛擬網路以提供站對站連線能力]: /zh-TW/manage/services/networking/cross-premises-connectivity/
   [Try Azure]: http://www.windowsazure.com/pricing/free-trial/
-  [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠]: http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/
+  [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠]: http://azure.microsoft.com/zh-TW/pricing/member-offers/msdn-benefits-details/
   [Azure 管理入口網站]: http://manage.windowsazure.com/
   []: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
   [1]: ./media/create-virtual-network/createVNet_02_VirtualNetworkDetails.png
   [關於管理入口網站中的虛擬網路設定]: http://go.microsoft.com/fwlink/?linkid=248092&clcid=0x409
   [2]: ./media/create-virtual-network/createVNet_04_VirtualNetworkAddressSpaces.png
   [3]: ./media/create-virtual-network/createVNet_05_VirtualNetworkCreatedStatus.png
-  [如何建立自訂虛擬機器]: http://www.windowsazure.com/en-us/manage/windows/how-to-guides/custom-create-a-vm/
-  [Azure 虛擬機器]: http://www.windowsazure.com/en-us/manage/windows/
-  [在 Azure 虛擬網路上安裝新的 Active Directory 樹系]: http://www.windowsazure.com/en-us/manage/services/networking/active-directory-forest/
-  [在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx
+  [如何建立自訂虛擬機器]: http://www.windowsazure.com/zh-TW/manage/windows/how-to-guides/custom-create-a-vm/
+  [Azure 虛擬機器]: http://www.windowsazure.com/zh-TW/manage/windows/
+  [在 Azure 虛擬網路上安裝新的 Active Directory 樹系]: http://www.windowsazure.com/zh-TW/manage/services/networking/active-directory-forest/
+  [在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj156090.aspx
   [Azure 虛擬網路組態工作]: http://go.microsoft.com/fwlink/?linkid=296652&clcid=0x409
   [Azure 虛擬網路常見問題集]: http://go.microsoft.com/fwlink/?LinkId=296650
   [4]: http://go.microsoft.com/fwlink/?LinkId=296652
-  [使用網路組態檔設定虛擬網路]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx
+  [使用網路組態檔設定虛擬網路]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj156097.aspx
   [名稱解析]: http://go.microsoft.com/fwlink/?LinkId=248097
   [Image7]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png

@@ -49,12 +49,12 @@ Azure Multi-Factor Authentication 技術支援的 Multi-Factor Authentication fo
 -   [Azure Multi-Factor Authentication Library][]
 
   [Azure Multi-Factor Authentication]: ./media/multi-factor-authentication/WAMFA1.png
-  [詳細資訊]: http://msdn.microsoft.com/en-us/library/dn249466.aspx
-  [1]: http://msdn.microsoft.com/en-us/library/dn249467.aspx
-  [2]: http://msdn.microsoft.com/en-us/library/dn249464.aspx
-  [3]: http://msdn.microsoft.com/en-us/library/dn383636.aspx
-  [4]: http://msdn.microsoft.com/en-us/library/dn249471.aspx
+  [詳細資訊]: http://msdn.microsoft.com/zh-tw/library/dn249466.aspx
+  [1]: http://msdn.microsoft.com/zh-tw/library/dn249467.aspx
+  [2]: http://msdn.microsoft.com/zh-tw/library/dn249464.aspx
+  [3]: http://msdn.microsoft.com/zh-tw/library/dn383636.aspx
+  [4]: http://msdn.microsoft.com/zh-tw/library/dn249471.aspx
   [Azure Multi-Factor Authentication 功能比較]: ./media/multi-factor-authentication/mfacomparison1.png
-  [以組織方式註冊 Azure]: /en-us/manage/services/identity/organizational-account/
-  [Azure 身分識別]: /en-us/manage/windows/fundamentals/identity/
-  [Azure Multi-Factor Authentication Library]: http://technet.microsoft.com/en-us/library/dn249471.aspx
+  [以組織方式註冊 Azure]: /zh-tw/manage/services/identity/organizational-account/
+  [Azure 身分識別]: /zh-tw/manage/windows/fundamentals/identity/
+  [Azure Multi-Factor Authentication Library]: http://technet.microsoft.com/zh-tw/library/dn249471.aspx

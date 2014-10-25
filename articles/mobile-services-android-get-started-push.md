@@ -5,11 +5,11 @@
 # 開始在行動服務中使用推播通知 (舊版為推播)
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows 市集 C#">Windows 市集 C#</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android" class="current">Android</a>
+<a href="/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows 市集 C#">Windows 市集 C#</a>
+<a href="/zh-tw/develop/mobile/tutorials/get-started-with-push-js" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a>
+<a href="/zh-tw/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a>
+<a href="/zh-tw/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a>
+<a href="/zh-tw/develop/mobile/tutorials/get-started-with-push-android" title="Android" class="current">Android</a>
 <!--    <a href="/zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>     <a href="/zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
 <a href="/zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
 </div>
@@ -251,11 +251,11 @@
 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-push-js "Windows 市集 JavaScript"
-  [Windows Phone]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone"
-  [iOS]: /en-us/develop/mobile/tutorials/get-started-with-push-ios "iOS"
-  [Android]: /en-us/develop/mobile/tutorials/get-started-with-push-android "Android"
+  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet "Windows 市集 C#"
+  [Windows 市集 JavaScript]: /zh-tw/develop/mobile/tutorials/get-started-with-push-js "Windows 市集 JavaScript"
+  [Windows Phone]: /zh-tw/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone"
+  [iOS]: /zh-tw/develop/mobile/tutorials/get-started-with-push-ios "iOS"
+  [Android]: /zh-tw/develop/mobile/tutorials/get-started-with-push-android "Android"
   [Appcelerator]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
   [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ ".NET 後端"
   [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-android-get-started-push/ "JavaScript 後端"
@@ -267,7 +267,7 @@
   [插入資料以接收通知]: #test
 
   [行動服務 Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started-android
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-android
   [啟用 GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   []: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
@@ -283,4 +283,4 @@
   [7]: ./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png
   [8]: ./media/mobile-services-android-get-started-push/mobile-quickstart-push1-android.png
   [9]: ./media/mobile-services-android-get-started-push/mobile-push-icon.png
-  [推播通知至應用程式使用者]: /en-us/develop/mobile/tutorials/push-notifications-to-users-android
+  [推播通知至應用程式使用者]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-android

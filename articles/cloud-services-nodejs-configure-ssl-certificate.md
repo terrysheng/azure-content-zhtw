@@ -45,7 +45,7 @@
 
     <div class="dev-callout">
 <strong>注意</strong>
-<p>如果您先前未匯入 Azure 訂閱的發行設定，則嘗試發行時會發生錯誤。如需有關下載和匯入訂閱之發行設定的詳細資訊，請參閱＜<a href="https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings">如何使用 Azure PowerShell 來處理 Node.js</a>＞(英文)</p>
+<p>如果您先前未匯入 Azure 訂閱的發行設定，則嘗試發行時會發生錯誤。如需有關下載和匯入訂閱之發行設定的詳細資訊，請參閱＜<a href="https://www.windowsazure.com/zh-TW/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings">如何使用 Azure PowerShell 來處理 Node.js</a>＞(英文)</p>
 </div>
 
 **Publish-AzureServiceProject** Cmdlet 傳回的 [建立的網站 URL] 值包含受託管應用程式的完整網域名稱。您需要取得此特定完整網域名稱的 SSL 憑證並部署至 Azure。
@@ -175,11 +175,11 @@
   []: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-01.png
   [1]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-02.png
   [2]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-03.png
-  [如何使用 Azure PowerShell 來處理 Node.js]: https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings
+  [如何使用 Azure PowerShell 來處理 Node.js]: https://www.windowsazure.com/zh-TW/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings
   [憑證精靈]: ./media/cloud-services-nodejs-configure-ssl-certificate/certificateimport.png
   [私密金鑰保護]: ./media/cloud-services-nodejs-configure-ssl-certificate/exportable.png
-  [將憑證與服務產生關聯]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
+  [將憑證與服務產生關聯]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg465718.aspx
   [the site url]: ./media/cloud-services-nodejs-configure-ssl-certificate/site-url.png
   [3]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-08.png
-  [在 Azure 背景工作角色中設定 Node.js 應用程式的 SSL]: /en-us/develop/nodejs/common-tasks/enable-ssl-worker-role/
-  [如何在 HTTPS 端點上設定 SSL 憑證]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
+  [在 Azure 背景工作角色中設定 Node.js 應用程式的 SSL]: /zh-TW/develop/nodejs/common-tasks/enable-ssl-worker-role/
+  [如何在 HTTPS 端點上設定 SSL 憑證]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ff795779.aspx

@@ -5,7 +5,7 @@
 # 使用通知中心將當地語系化的即時新聞傳送至 iOS 裝置
 
 <div class="dev-center-tutorial-selector sublanding"> 
-<a href="/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-tw/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS" class="current">iOS</a>
+<a href="/zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-TW/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS" class="current">iOS</a>
 </div>
 
 本主題將說明如何使用 Azure 通知中心的**範本**功能，廣播已由語言和裝置當地語系化的即時新聞通知。在本教學課程中，首先您會執行在[使用通知中心傳送即時新聞][]中建立的 Windows 市集應用程式。完成之後，您將可註冊您感興趣的類別、指定您要接收哪種語言的通知，並以該語言針對選取的類別接收推播通知。
@@ -172,17 +172,17 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/ "Windows 市集 C#"
-  [iOS]: /zh-tw/documentation/articles/notification-hubs-ios-send-localized-breaking-news/ "iOS"
-  [使用通知中心傳送即時新聞]: /en-us/manage/services/notification-hubs/breaking-news-ios
+  [Windows 市集 C#]: /zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/ "Windows 市集 C#"
+  [iOS]: /zh-TW/documentation/articles/notification-hubs-ios-send-localized-breaking-news/ "iOS"
+  [使用通知中心傳送即時新聞]: /zh-TW/manage/services/notification-hubs/breaking-news-ios
   [範本概念]: #concepts
   [應用程式使用者介面]: #ui
   [建置 iOS 應用程式]: #building-client
   [從後端傳送通知]: #send
-  [通知中心指引]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
-  [作法：服務匯流排通知中心 (iOS 應用程式)]: http://msdn.microsoft.com/en-us/library/jj927168.aspx
+  [通知中心指引]: http://msdn.microsoft.com/zh-TW/library/jj927170.aspx
+  [作法：服務匯流排通知中心 (iOS 應用程式)]: http://msdn.microsoft.com/zh-TW/library/jj927168.aspx
   []: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
   [1]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
   [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
-  [使用通知中心來通知使用者：ASP.NET]: /en-us/manage/services/notification-hubs/notify-users-aspnet
-  [使用通知中心來通知使用者：行動服務]: /en-us/manage/services/notification-hubs/notify-users
+  [使用通知中心來通知使用者：ASP.NET]: /zh-TW/manage/services/notification-hubs/notify-users-aspnet
+  [使用通知中心來通知使用者：行動服務]: /zh-TW/manage/services/notification-hubs/notify-users

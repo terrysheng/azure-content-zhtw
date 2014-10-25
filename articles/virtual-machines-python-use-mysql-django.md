@@ -237,7 +237,7 @@
   [MySQL 驅動程式]: http://pypi.python.org/pypi/MySQL-python/1.2.3
   []: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01.png
   [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
-  [此處]: /en-us/manage/windows/tutorials/virtual-machine-from-gallery/
+  [此處]: /zh-tw/manage/windows/tutorials/virtual-machine-from-gallery/
   [MySQL Community Server]: http://dev.mysql.com/downloads/mysql/
   [「world」資料庫]: http://dev.mysql.com/doc/index-other.html
   [這個]: http://downloads.mysql.com/docs/world.sql.zip

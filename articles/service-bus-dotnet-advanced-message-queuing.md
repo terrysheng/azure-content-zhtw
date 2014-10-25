@@ -295,9 +295,9 @@ Where [namespace], [issuer name], and [issuer key] are obtained from the Azure M
 -   [如何使用服務匯流排佇列][1]
 
   [Azure 管理入口網站]: http://manage.windowsazure.com
-  [如何使用服務匯流排佇列]: https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/
+  [如何使用服務匯流排佇列]: https://www.windowsazure.com/zh-TW/develop/net/how-to-guides/service-bus-queues/
   []: http://nuget.org/packages/WindowsAzure.ServiceBus/
-  [服務匯流排 AMQP 1.0 開發人員指南]: http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx
-  [1]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/
+  [服務匯流排 AMQP 1.0 開發人員指南]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj841071.aspx
+  [1]: http://www.windowsazure.com/zh-TW/develop/net/how-to-guides/service-bus-queues/
   [如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0]: http://aka.ms/ll1fm3
   [Azure 服務匯流排中的 AMQP 1.0 支援]: http://aka.ms/pgr3dp

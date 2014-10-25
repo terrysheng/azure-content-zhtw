@@ -4,9 +4,9 @@
 
 # 設定 Azure 網站的自訂網域名稱 (GoDaddy)
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/web-sites-custom-domain-name" title="自訂網域">自訂網域</a><a href="/zh-tw/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy" class="current">GoDaddy</a><a href="/zh-tw/documentation/articles/web-sites-network-solutions-custom-domain-name" title="網路解決方案" class="current">網路解決方案</a><a href="/zh-tw/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com" class="current">Register.com</a><a href="/zh-tw/documentation/articles/web-sites-enom-custom-domain-name" title="Enom" class="current">Enom</a><a href="/zh-tw/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker" class="current">Moniker</a><a href="/zh-tw/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster" class="current">Dotster</a><a href="/zh-tw/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover" class="current">DomainDiscover</a><a href="/zh-tw/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic" class="current">Directnic</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-TW/documentation/articles/web-sites-custom-domain-name" title="自訂網域">自訂網域</a><a href="/zh-TW/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy" class="current">GoDaddy</a><a href="/zh-TW/documentation/articles/web-sites-network-solutions-custom-domain-name" title="網路解決方案" class="current">網路解決方案</a><a href="/zh-TW/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com" class="current">Register.com</a><a href="/zh-TW/documentation/articles/web-sites-enom-custom-domain-name" title="Enom" class="current">Enom</a><a href="/zh-TW/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker" class="current">Moniker</a><a href="/zh-TW/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster" class="current">Dotster</a><a href="/zh-TW/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover" class="current">DomainDiscover</a><a href="/zh-TW/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic" class="current">Directnic</a></div>
 
-<div class="dev-center-tutorial-subselector"><a href="/zh-tw/documentation/articles/web-sites-godaddy-custom-domain-name/" title="網站" class="current">網站</a> | <a href="/zh-tw/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/" title="使用流量管理員的網站">使用流量管理員的網站</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/zh-TW/documentation/articles/web-sites-godaddy-custom-domain-name/" title="網站" class="current">網站</a> | <a href="/zh-TW/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/" title="使用流量管理員的網站">使用流量管理員的網站</a></div>
 
 [WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
 
@@ -68,17 +68,17 @@
 
 [WACOM.INCLUDE [modes][]]
 
-  [自訂網域]: /zh-tw/documentation/articles/web-sites-custom-domain-name "自訂網域"
-  [GoDaddy]: /zh-tw/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [網路解決方案]: /zh-tw/documentation/articles/web-sites-network-solutions-custom-domain-name "網路解決方案"
-  [Register.com]: /zh-tw/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /zh-tw/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /zh-tw/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /zh-tw/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /zh-tw/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /zh-tw/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [網站]: /zh-tw/documentation/articles/web-sites-godaddy-custom-domain-name/ "網站"
-  [使用流量管理員的網站]: /zh-tw/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/ "使用流量管理員的網站"
+  [自訂網域]: /zh-TW/documentation/articles/web-sites-custom-domain-name "自訂網域"
+  [GoDaddy]: /zh-TW/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
+  [網路解決方案]: /zh-TW/documentation/articles/web-sites-network-solutions-custom-domain-name "網路解決方案"
+  [Register.com]: /zh-TW/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
+  [Enom]: /zh-TW/documentation/articles/web-sites-enom-custom-domain-name "Enom"
+  [Moniker]: /zh-TW/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
+  [Dotster]: /zh-TW/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
+  [DomainDiscover]: /zh-TW/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
+  [Directnic]: /zh-TW/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
+  [網站]: /zh-TW/documentation/articles/web-sites-godaddy-custom-domain-name/ "網站"
+  [使用流量管理員的網站]: /zh-TW/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/ "使用流量管理員的網站"
   [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [intro]: ../includes/custom-dns-web-site-intro.md
   [Go Daddy]: https://godaddy.com

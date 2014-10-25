@@ -5,8 +5,8 @@
 # 如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端
 
 <div class="dev-center-tutorial-selector sublanding"> 
-<a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a>
-<a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
+<a href="/zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a>
+<a href="/zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
 </div>
 
 本指南將示範如何在 iOS 版和 Android 版 Xamarin 應用程式中，使用適用於 Azure 行動服務的 Xamarin 元件用戶端來執行常見案例。所涵蓋的案例包括查詢資料、插入、更新及刪除資料、驗證使用者以及處理錯誤。如果您不熟悉行動服務，您應考慮首先完成「行動服務快速入門」教學課程 ([Xamarin.iOS][]/[Xamarin.Android][]) 和「開始使用 .NET 中的資料」教學課程 ([Xamarin.iOS][1]/[Xamarin.Android][2])。快速入門教學課程需要 [Xamarin][3] [Mobile Services SDK][]，來協助您設定帳戶並建立第一個行動服務。
@@ -437,15 +437,15 @@ Xamarin 元件用戶端是專為強型別案例所設計的。不過，較弱型
 <!-- Anchors. --> 
 <!-- URLs. -->
 
-  [.NET Framework]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
-  [Xamarin.iOS]: /en-us/develop/mobile/tutorials/get-started-xamarin-ios/
-  [Xamarin.Android]: /en-us/develop/mobile/tutorials/get-started-xamarin-android/
-  [1]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios/
-  [2]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android/
+  [.NET Framework]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
+  [HTML/JavaScript]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
+  [iOS]: /zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
+  [Android]: /zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
+  [Xamarin]: /zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
+  [Xamarin.iOS]: /zh-tw/develop/mobile/tutorials/get-started-xamarin-ios/
+  [Xamarin.Android]: /zh-tw/develop/mobile/tutorials/get-started-xamarin-android/
+  [1]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-ios/
+  [2]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-android/
   [3]: http://xamarin.com/download/
   [Mobile Services SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
   [什麼是行動服務]: #what-is
@@ -469,27 +469,27 @@ Xamarin 元件用戶端是專為強型別案例所設計的。不過，較弱型
   [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [建立資料表]: http://go.microsoft.com/fwlink/?LinkId=298592
   [動態結構描述]: http://go.microsoft.com/fwlink/?LinkId=296271
-  [GetTable]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554275.aspx
-  [IncludeTotalCount]: http://msdn.microsoft.com/en-us/library/windowsazure/jj730933.aspx
-  [4]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios/
-  [5]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android/
-  [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
-  [LoginAsync 方法]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
-  [MobileServiceUser]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
-  [userId]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
-  [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
+  [GetTable]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554275.aspx
+  [IncludeTotalCount]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj730933.aspx
+  [4]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-ios/
+  [5]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-android/
+  [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
+  [LoginAsync 方法]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
+  [MobileServiceUser]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
+  [userId]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
+  [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
   [快取驗證權杖]: #caching
   [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth
   [Json.NET]: http://json.codeplex.com/
-  [6]: /en-us/develop/mobile/tutorials/get-started-xamarin-ios
-  [7]: /en-us/develop/mobile/tutorials/get-started-xamarin-android
-  [8]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-  [9]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android
-  [10]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-  [11]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android
-  [12]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios
-  [13]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
-  [14]: /en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-ios
-  [15]: /en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android
-  [16]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
-  [17]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
+  [6]: /zh-tw/develop/mobile/tutorials/get-started-xamarin-ios
+  [7]: /zh-tw/develop/mobile/tutorials/get-started-xamarin-android
+  [8]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-ios
+  [9]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-android
+  [10]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-ios
+  [11]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-android
+  [12]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios
+  [13]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
+  [14]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-xamarin-ios
+  [15]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-xamarin-android
+  [16]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+  [17]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android

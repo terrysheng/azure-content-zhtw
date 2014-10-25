@@ -2,4 +2,4 @@
 
 如需網站模式的詳細資訊，包括如何變更網站的模式，請參閱[如何調整網站][] (英文)。
 
-  [如何調整網站]: /zh-tw/documentation/articles/web-sites-scale/
+  [如何調整網站]: /zh-TW/documentation/articles/web-sites-scale/

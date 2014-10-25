@@ -5,7 +5,7 @@
 # 使用行動服務推播通知給使用者
 
 <div class="dev-center-tutorial-selector sublanding"> 
-<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-android" title="Android" class="current">Android</a>
+<a href="/zh-tw/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone">Windows Phone</a><a href="/zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS" class="current">iOS</a><a href="/zh-tw/develop/mobile/tutorials/push-notifications-to-users-android" title="Android" class="current">Android</a>
 </div>
 
 本主題將透過新增可儲存 Apple 推播通知服務 (APNS) 權杖的資料表，來延伸[上一個推播通知教學課程][]。這些權杖接著可用來傳送推播通知給 iPhone 或 iPad 應用程式的使用者。
@@ -49,7 +49,7 @@
         // Declare method to register device token for other users
         - (void)registerDeviceToken:(NSString *)deviceToken;
 
-    This enables the App Delegate to register a deviceToken with the Mobile Service.
+    這可讓應用程式委派向行動服務註冊 deviceToken。
 
 2.  在 QSTodoService.m 中新增下列執行個體方法：
 
@@ -68,7 +68,7 @@
             }];
         }
 
-    This allows other callers to register the device token with Mobile Services.
+    這可讓其他呼叫端向行動服務註冊裝置權杖。
 
 3.  在 QSAppDelegate.m 檔案中新增下列 import 陳述式：
 
@@ -219,10 +219,10 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Phone]: /en-us/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /en-us/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /en-us/develop/mobile/tutorials/push-notifications-to-users-android "Android"
-  [上一個推播通知教學課程]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
+  [Windows Phone]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
+  [iOS]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
+  [Android]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-android "Android"
+  [上一個推播通知教學課程]: /zh-tw/develop/mobile/tutorials/get-started-with-push-ios
   [建立 Devices 資料表]: #create-table
   [更新應用程式]: #update-app
   [更新伺服器指令碼]: #update-scripts
@@ -237,6 +237,6 @@
   [6]: ./media/mobile-services-ios-push-notifications-app-users/mobile-quickstart-push2-ios.png
   [7]: ./media/mobile-services-ios-push-notifications-app-users/mobile-quickstart-push3-ios.png
   [8]: ./media/mobile-services-ios-push-notifications-app-users/mobile-quickstart-push4-ios.png
-  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-ios
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-ios
   [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293

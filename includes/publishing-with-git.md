@@ -307,8 +307,8 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
 -   [Git 文件][]
 -   [專案 Kudu][]
 
-  [使用 Visual Studio Online 持續傳遞至 Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-tfs/
-  [適用於 Mac 和 Linux 的 Azure 命令列工具]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+  [使用 Visual Studio Online 持續傳遞至 Azure]: http://www.windowsazure.com/zh-TW/develop/net/common-tasks/publishing-with-tfs/
+  [適用於 Mac 和 Linux 的 Azure 命令列工具]: /zh-TW/develop/nodejs/how-to-guides/command-line-tools/
   [安裝 Git]: #Step1
   [建立本機儲存機制]: #Step2
   [新增網頁]: #Step3
@@ -319,7 +319,7 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
   [從 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial 部署 Visual Studio 方案]: #Step75
   [疑難排解]: #Step8
   [1]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-  [Azure 開發人員中心]: http://www.windowsazure.com/en-us/develop/overview/
+  [Azure 開發人員中心]: http://www.windowsazure.com/zh-TW/develop/overview/
   [Azure 入口網站]: http://manage.windowsazure.com
   [顯示所選網站的影像]: ./media/publishing-with-git/git-select-website.png
   [git-WhereIsYourSourceCode]: ./media/publishing-with-git/git-WhereIsYourSourceCode.png
@@ -340,5 +340,5 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
   [git-DeploymentTrigger]: ./media/publishing-with-git/git-DeploymentTrigger.png
   [專案 Kudu]: https://github.com/projectkudu/kudu/wiki
   [git-DisconnectFromGitHub]: ./media/publishing-with-git/git-DisconnectFromGitHub.png
-  [如何使用適用於 Azure 的 PowerShell]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
+  [如何使用適用於 Azure 的 PowerShell]: http://www.windowsazure.com/zh-TW/develop/nodejs/how-to-guides/powershell-cmdlets/
   [Git 文件]: http://git-scm.com/documentation

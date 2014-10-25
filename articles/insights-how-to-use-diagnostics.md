@@ -8,23 +8,23 @@
 
 ## 收集來自虛擬機器的豐富資料
 
-1.  在 [Azure 入口網站預覽][Azure 入口網站預覽][] 中，依序按一下 [瀏覽]、[虛擬機器]。選取您想要監視的虛擬機器。
+1.  在 [Azure 入口網站預覽](https://portal.azure.com/) 中，依序按一下 [瀏覽]、[虛擬機器]。選取您想要監視的虛擬機器。
 2.  [監視] 鏡頭內含一些預設的度量，例如 [CPU 百分比]、[Disk read and write] 以及 [Network in and out]。按一下其中一個部分，會顯示 [度量] 分頁。
     
-	![Monitoring lens][Monitoring lens]
+	![Monitoring lens](./media/insights-how-to-use-diagnostics/Insights_VMMonitoringLens.png)
 3.  [度量] 分頁會顯示您所選度量的詳細資料。分頁頂端會有一個圖形，圖形下會有一個資料表顯示這些度量的彙總，例如平均值、最小值和最大值。該資料表下會列出您所定義的警示 (依照分頁上顯示的度量進行篩選)。
     
-	![Metric blade][Metric blade]
+	![Metric blade](./media/insights-how-to-use-diagnostics/Insights_VMMetricBlade.png)
 4.  若要啟用豐富的診斷功能，按一下 [設定] 按鈕，接著畫面就會顯示 [診斷] 分頁。選擇 [開啟]：
     
-	![Diagnostics blade][Diagnostics blade]
+	![Diagnostics blade](./media/insights-how-to-use-diagnostics/Insights_VMDiagnosticsBlade.png)
 
     -   **Basic metrics**：有關您的虛擬機器的健康情況度量，例如處理器與記憶體
     -   **Per disk metrics**：附加至您的虛擬機器的所有磁碟度量
     -   **.NET metrics**：有關在您的虛擬機器上執行的 .NET 與 ASP.NET 應用程式度量
     -   **Network metrics**：有關您的網路連線與 Web 服務的度量
     -   **Windows event application logs**：傳送至應用程式通道的 Windows 事件
-    -   **Windows event system logs**：傳送至系統通道的 Windows 事件。此事件同時包含來自 [Microsoft 反惡意程式碼][Microsoft 反惡意程式碼] (英文) 的所有事件。
+    -   **Windows event system logs**：傳送至系統通道的 Windows 事件。此事件同時包含來自 [Microsoft 反惡意程式碼](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409) (英文) 的所有事件。
     -   **Windows event security logs**：傳送至安全性通道的 Windows 事件
     -   **Diagnostics infrastructure logs**：記錄有關診斷收集基礎結構的資訊
     -   **IIS 記錄**：記錄有關您的 IIS 伺服器的記錄
@@ -42,45 +42,35 @@
 2.  按一下命令列中的 [診斷] 按鈕。
 3.  選取您要從儲存體帳戶中收集的資料類型：
     
-	![Storage diagnostics][Storage diagnostics]
+	![Storage diagnostics](./media/insights-how-to-use-diagnostics/Insights_StorageDiagnostics.png)
 4.  按一下 [確定]。資料初次顯示時，需要幾分鐘時間來完成。
 
 ## 視覺化診斷資料
 
 一旦您啟用了診斷功能，就可用滑鼠右鍵按一下任何一張圖表，並選取 [編輯查詢] 來查看完整的可用度量清單：
 
-![Edit query][Edit query]
+![Edit query](./media/insights-how-to-use-diagnostics/Insights_VMEditQuery.png)
 
 您可以繪製這些度量，並放大 [Past hour]、縮小 [Past week]，甚至選擇 [自訂] 時間範圍：
 
-![Custom timerange][Custom timerange]
+![Custom timerange](./media/insights-how-to-use-diagnostics/Insights_VMCustomTime.png)
+
 
 您會發現這些度量比先前提供的資料還要細膩，而且延遲時間非常短。
 
-此時您無法繪製具有多重執行個體的度量，例如個別程序或個別磁碟度量。如需有關如何自訂您的監視圖表的詳細資訊，請參閱[如何自訂監視][如何自訂監視] (英文)。
+此時您無法繪製具有多重執行個體的度量，例如個別程序或個別磁碟度量。如需有關如何自訂您的監視圖表的詳細資訊，請參閱[如何自訂監視](http://go.microsoft.com/fwlink/?LinkID=394523&clcid=0x409) (英文)。
 
 ## 對診斷資料發出警示通知
 
 除了對度量進行視覺化處理之外，您還可以對入口網站預覽中的任何度量發出警示通知。首先，將頁面向下捲動至虛擬機器或儲存體分頁的 [警示規則] 部分，然後按一下 [加入警示]：
 
-![Add alert][Add alert]
+![Add alert](./media/insights-how-to-use-diagnostics/Insights_VMAlerts.png)
 
 接著您就可以選取先前啟用的任何一項診斷度量：
 
-![JIT alert][JIT alert]
+![JIT alert](./media/insights-how-to-use-diagnostics/Insights_VMJITAlert.png)
 
 該圖形會顯示您的警示闕值預覽與前一天度量的比較。按一下 [儲存] 之後，幾分鐘內您將收到所選的度量是否超出闕值的通知。
 
 請注意，只在「預覽入口網站」顯示的所有度量，無法在「完整入口網站」上提供警示通知。如此一來，來自預覽入口網站的特定警示規則，將無法顯示在完整入口網站上。
 
-  []: https://portal.azure.com/
-  [Monitoring lens]: ./media/insights-how-to-use-diagnostics/Insights_VMMonitoringLens.png
-  [Metric blade]: ./media/insights-how-to-use-diagnostics/Insights_VMMetricBlade.png
-  [Diagnostics blade]: ./media/insights-how-to-use-diagnostics/Insights_VMDiagnosticsBlade.png
-  [Microsoft 反惡意程式碼]: http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409
-  [Storage diagnostics]: ./media/insights-how-to-use-diagnostics/Insights_StorageDiagnostics.png
-  [Edit query]: ./media/insights-how-to-use-diagnostics/Insights_VMEditQuery.png
-  [Custom timerange]: ./media/insights-how-to-use-diagnostics/Insights_VMCustomTime.png
-  [如何自訂監視]: http://go.microsoft.com/fwlink/?LinkID=394523&clcid=0x409
-  [Add alert]: ./media/insights-how-to-use-diagnostics/Insights_VMAlerts.png
-  [JIT alert]: ./media/insights-how-to-use-diagnostics/Insights_VMJITAlert.png

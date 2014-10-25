@@ -123,7 +123,7 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 ## <span id="def"></span> </a>服務定義檔
 
-如前所述，服務定義檔 (CSDEF) 是一個 XML 檔案，其中描述構成完整應用程式的各種角色。如需此 XML 檔案的完整結構描述，請至：[<http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx>][]。CSDEF 檔案會針對您想要讓應用程式具有的每個角色，各包含一個 WebRole 或 WorkerRole 元素。部署角色作為 Web 角色 (使用 WebRole 元素)，表示程式碼將在含有 Windows Server 2008和 Internet Information Server (IIS) 的角色執行個體上執行。部署角色作為背景工作角色 (使用 WorkerRole 元素)，表示角色執行個體上將有 Windows Server 2008 (將不會安裝 IIS)。
+如前所述，服務定義檔 (CSDEF) 是一個 XML 檔案，其中描述構成完整應用程式的各種角色。如需此 XML 檔案的完整結構描述，請至：[<http://msdn.microsoft.com/zh-TW/library/windowsazure/ee758711.aspx>][]。CSDEF 檔案會針對您想要讓應用程式具有的每個角色，各包含一個 WebRole 或 WorkerRole 元素。部署角色作為 Web 角色 (使用 WebRole 元素)，表示程式碼將在含有 Windows Server 2008和 Internet Information Server (IIS) 的角色執行個體上執行。部署角色作為背景工作角色 (使用 WorkerRole 元素)，表示角色執行個體上將有 Windows Server 2008 (將不會安裝 IIS)。
 
 您當然可以建立並部署背景工作角色，讓該角色使用某種其他機制來接聽連入的 Web 要求 (例如，您的程式碼可以建立和使用 .NET HttpListener)。因為角色執行個體都是執行 Windows Server 2008，所以您的程式碼可以執行 Windows Server 上執行的應用程式通常可用的任何作業
 
@@ -289,10 +289,10 @@ Azure 可讓您部署及監視在 Microsoft 資料中心內執行的應用程式
 
 ## <span id="cfg"></span> </a>服務組態檔
 
-服務組態檔 (CSCFG) 是一個 XML 檔案，其中描述不需重新部署應用程式就能變更的設定。如需此 XML 檔案的完整結構描述，請至：[][]<http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx></a>。
+服務組態檔 (CSCFG) 是一個 XML 檔案，其中描述不需重新部署應用程式就能變更的設定。如需此 XML 檔案的完整結構描述，請至：[][]<http://msdn.microsoft.com/zh-TW/library/windowsazure/ee758710.aspx></a>。
 CSDEF 檔案會針對您想要讓應用程式具有的每個角色，各包含一個 Role 元素。以下是一些您可以在 CSCFG 檔案中指定的項目：
 
--   **OS 版本**。此屬性可讓您選取要讓所有執行您應用程式程式碼之角色執行個體使用的作業系統 (OS) 版本。此作業系統稱為「客體 OS」，而且每個新版本都包含客體 OS 發行當時可用的最新安全性修補程式和更新。如果您將Version 屬性值設為 "\*"，則 Azure 會在有新的客體 OS 版本可用時，自動更新每個角色執行個體上的客體 OS。不過，選取特定的客體 OS 版本，就等於選擇略過自動更新。例如，將 osVersion 屬性設為值"WA-GUEST-OS-2.8_201109-01"，會讓您的所有角色執行個體都取得下列網頁所述的內容：[][5]<http://msdn.microsoft.com/en-us/library/hh560567.aspx></a>。如需客體 OS 版本的詳細資訊，請參閱[管理 Azure 客體 OS 的升級][]。
+-   **OS 版本**。此屬性可讓您選取要讓所有執行您應用程式程式碼之角色執行個體使用的作業系統 (OS) 版本。此作業系統稱為「客體 OS」，而且每個新版本都包含客體 OS 發行當時可用的最新安全性修補程式和更新。如果您將Version 屬性值設為 "\*"，則 Azure 會在有新的客體 OS 版本可用時，自動更新每個角色執行個體上的客體 OS。不過，選取特定的客體 OS 版本，就等於選擇略過自動更新。例如，將 osVersion 屬性設為值"WA-GUEST-OS-2.8_201109-01"，會讓您的所有角色執行個體都取得下列網頁所述的內容：[][5]<http://msdn.microsoft.com/zh-TW/library/hh560567.aspx></a>。如需客體 OS 版本的詳細資訊，請參閱[管理 Azure 客體 OS 的升級][]。
 
 -   **執行個體**。此元素的值指出您想要佈建用來執行特定角色之程式碼的角色執行個體數目。因為您可以將新的 CSCFG 檔案上傳至 Azure (而不需要重新部署應用程式)，所以很簡單就能變更此元素的值，並上傳新的 CSCFG 檔案，以動態增加或減少執行應用程式程式碼的角色執行個體數目。如此一來，您便可根據實際工作量需求，輕鬆地向上調整或向下調整應用程式，同時還能控制執行角色執行個體時所需負擔的費用。
 
@@ -336,19 +336,19 @@ CSDEF 檔案會針對您想要讓應用程式具有的每個角色，各包含�
   [image]: ./media/application-model/application-model-3.jpg
   [1]: ./media/application-model/application-model-4.jpg
   [2]: ./media/application-model/application-model-5.jpg
-  [在 Azure 中設定自訂網域名稱]: http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/
-  [Azure 的資料儲存方案]: http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/
+  [在 Azure 中設定自訂網域名稱]: http://www.windowsazure.com/zh-TW/develop/net/common-tasks/custom-dns/
+  [Azure 的資料儲存方案]: http://www.windowsazure.com/zh-TW/develop/net/fundamentals/cloud-storage/
   [3]: ./media/application-model/application-model-6.jpg
   [4]: ./media/application-model/application-model-7.jpg
-  [Azure 定價]: http://www.windowsazure.com/en-us/pricing/calculator/
-  [在 Azure 中管理憑證]: http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx
-  []: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
-  [5]: http://msdn.microsoft.com/en-us/library/hh560567.aspx
-  [管理 Azure 客體 OS 的升級]: http://msdn.microsoft.com/en-us/library/ee924680.aspx
+  [Azure 定價]: http://www.windowsazure.com/zh-TW/pricing/calculator/
+  [在 Azure 中管理憑證]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg981929.aspx
+  []: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee758710.aspx
+  [5]: http://msdn.microsoft.com/zh-TW/library/hh560567.aspx
+  [管理 Azure 客體 OS 的升級]: http://msdn.microsoft.com/zh-TW/library/ee924680.aspx
   [Azure 管理入口網站]: http://manage.windowsazure.com/
   [6]: ./media/application-model/application-model-8.jpg
-  [部署和更新 Azure 應用程式]: http://www.windowsazure.com/en-us/develop/net/fundamentals/deploying-applications/
-  [建立 Azure 託管服務]: http://msdn.microsoft.com/en-us/library/gg432967.aspx
-  [在 Azure 中管理託管服務]: http://msdn.microsoft.com/en-us/library/gg433038.aspx
-  [將應用程式移轉到 Azure]: http://msdn.microsoft.com/en-us/library/gg186051.aspx
-  [設定 Azure 應用程式]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx
+  [部署和更新 Azure 應用程式]: http://www.windowsazure.com/zh-TW/develop/net/fundamentals/deploying-applications/
+  [建立 Azure 託管服務]: http://msdn.microsoft.com/zh-TW/library/gg432967.aspx
+  [在 Azure 中管理託管服務]: http://msdn.microsoft.com/zh-TW/library/gg433038.aspx
+  [將應用程式移轉到 Azure]: http://msdn.microsoft.com/zh-TW/library/gg186051.aspx
+  [設定 Azure 應用程式]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee405486.aspx

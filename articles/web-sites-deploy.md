@@ -204,7 +204,7 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
   [原始檔控制系統]: http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
   [連續傳遞工作流程]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
   [Visual Studio Online]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs
-  [使用 VSO 和 TFVC 連續傳遞至 Azure]: http://www.visualstudio.com/en-us/learn/continuous-delivery-in-vs
+  [使用 VSO 和 TFVC 連續傳遞至 Azure]: http://www.visualstudio.com/zh-tw/learn/continuous-delivery-in-vs
   [1]: /zh-tw/documentation/articles/cloud-services-continuous-delivery-use-vso/
   [使用 Visual Studio Online 和 Git 連續傳遞至 Azure]: http://azure.microsoft.com/zh-tw/documentation/articles/cloud-services-continuous-delivery-use-vso-git/
   [GitHub]: http://www.github.com
@@ -217,17 +217,17 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
   [Dropbox]: https://www.dropbox.com/
   [使用 Dropbox 部署至 Windows Azure]: http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx
   [Dropbox 和 Azure 網站]: http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites
-  [Visual Studio]: http://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx
+  [Visual Studio]: http://www.visualstudio.com/zh-tw/downloads/download-visual-studio-vs.aspx
   [WebMatrix]: http://www.microsoft.com/web/webmatrix/
   [Web Deploy]: http://www.iis.net/downloads/microsoft/web-deploy
   [FTP 或 FTPS]: http://en.wikipedia.org/wiki/File_Transfer_Protocol
   [2]: #vso
   [Team Foundation Server]: #tfs
   [Git 儲存機制]: #git
-  [開始使用 Azure 和 ASP.NET]: /en-us/develop/net/tutorials/get-started/
+  [開始使用 Azure 和 ASP.NET]: /zh-tw/develop/net/tutorials/get-started/
   [如何將 Azure WebJob 部署至 Azure 網站]: /zh-tw/documentation/articles/websites-dotnet-deploy-webjobs/
-  [將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站]: /en-us/develop/net/tutorials/web-site-with-sql-database/
-  [Visual Studio 和 ASP.NET 的 Web 部署概觀]: http://msdn.microsoft.com/en-us/library/dd394698.aspx
+  [將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站]: /zh-tw/develop/net/tutorials/web-site-with-sql-database/
+  [Visual Studio 和 ASP.NET 的 Web 部署概觀]: http://msdn.microsoft.com/zh-tw/library/dd394698.aspx
   [使用 Visual Studio 的 ASP.NET Web 部署]: http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction
   [在 Visual Studio 2012 中直接從 Git 儲存機制將 ASP.NET 網站部署至 Azure]: http://www.dotnetcurry.com/ShowArticle.aspx?ID=881
   [使用 Microsoft WebMatrix 來開發和部署網站]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-using-webmatrix/
@@ -237,7 +237,7 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
   [FileZilla]: https://filezilla-project.org/
   [建立 PHP-MySQL Azure 網站並使用 FTP 部署]: /zh-tw/documentation/articles/web-sites-php-mysql-deploy-use-ftp/
   [如何管理網站]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-manage#ftp-credentials
-  [Azure 中雲端服務的連續傳遞]: /en-us/develop/net/common-tasks/continuous-delivery/
+  [Azure 中雲端服務的連續傳遞]: /zh-tw/develop/net/common-tasks/continuous-delivery/
   [從任何 git/hg 儲存機制發佈至 Azure 網站]: http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html
   [從一個 Git 儲存機制將兩個網站部署至 Azure]: http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx
   [Visual Studio IDE]: #vs
@@ -245,12 +245,12 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
   [3]: #webdeploy
   [使用 Visual Studio 的 ASP.NET Web 部署：命令列部署]: http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment
   [使用 FTP 批次指令碼]: http://support.microsoft.com/kb/96269
-  [Windows PowerShell]: http://msdn.microsoft.com/en-us/library/dd835506.aspx
+  [Windows PowerShell]: http://msdn.microsoft.com/zh-tw/library/dd835506.aspx
   [使用 Azure 建置真實世界的雲端應用程式 - 自動化各個項目]: http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
   [資源]: http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources
   [使用 Azure 管理庫和 .NET 將一切自動化]: http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx
-  [命令列工具]: /en-us/downloads/#cmd-line-tools
-  [Web 部署工具]: http://technet.microsoft.com/en-us/library/dd568996
+  [命令列工具]: /zh-tw/downloads/#cmd-line-tools
+  [Web 部署工具]: http://technet.microsoft.com/zh-tw/library/dd568996
   [使用 Web Deploy]: http://www.iis.net/learn/publish/using-web-deploy
   [StackOverflow]: http://www.stackoverflow.com
   [Microsoft Azure 網站上的預備部署]: /zh-tw/documentation/articles/web-sites-staged-publishing/

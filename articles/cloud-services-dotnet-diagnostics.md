@@ -67,7 +67,7 @@ Azure 診斷可收集下列類型的遙測資料：
     </tr>
     <tr>
 <td>.NET EventSource</td>
-<td>您的程式碼使用 .NET <a href="http://msdn.microsoft.com/en-us/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">EventSource 類別</a>所產生的事件。</td>            
+<td>您的程式碼使用 .NET <a href="http://msdn.microsoft.com/zh-tw/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">EventSource 類別</a>所產生的事件。</td>            
     </tr>
     <tr>
 <td>以資訊清單為基礎的 ETW</td>
@@ -773,7 +773,7 @@ WADdest2
 -   [偵錯 Azure 應用程式][]
 -   [設定 Azure 診斷][]
 
-  [開發 Azure 應用程式的疑難排解最佳作法]: http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx
+  [開發 Azure 應用程式的疑難排解最佳作法]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh771389.aspx
   [概觀]: #overview
   [如何在背景工作角色中啟用診斷]: #worker-role
   [如何在虛擬機器中啟用診斷]: #virtual-machine
@@ -782,15 +782,15 @@ WADdest2
   [常見問題集]: #faq
   [Azure Diagnostics 1.0 與 1.2 的比較]: #comparing
   [其他資源]: #additional
-  [EventSource 類別]: http://msdn.microsoft.com/en-us/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
-  [免費試用版]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [EventSource 類別]: http://msdn.microsoft.com/zh-tw/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+  [免費試用版]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
   [安裝及設定 Azure PowerShell 0.8.7 版或更新版本]: http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/
   [CloudServices\_diag\_add\_xml]: ./media/cloud-services-dotnet-diagnostics/AddXmlFile.png
   [CloudServices\_diag\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleTables.png
   [CloudServices\_diag\_new\_project]: ./media/cloud-services-dotnet-diagnostics/NewProject.png
   [CloudServices\_diag\_wadexamplevm\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png
-  [Azure Diagnostics 1.2 組態結構描述]: http://msdn.microsoft.com/en-us/library/azure/dn782207.aspx
+  [Azure Diagnostics 1.2 組態結構描述]: http://msdn.microsoft.com/zh-tw/library/azure/dn782207.aspx
   [進行解碼]: http://www.bing.com/search?q=base64+decoder
-  [使用 Windows Azure 診斷收集記錄資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433048.aspx
-  [偵錯 Azure 應用程式]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx
-  [設定 Azure 診斷]: http://msdn.microsoft.com/en-us/library/windowsazure/dn186185.aspx
+  [使用 Windows Azure 診斷收集記錄資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433048.aspx
+  [偵錯 Azure 應用程式]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405479.aspx
+  [設定 Azure 診斷]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn186185.aspx

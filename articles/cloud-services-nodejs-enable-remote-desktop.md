@@ -94,5 +94,5 @@
   [Windows security prompt]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
   [username/password prompt]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
   [Remote desktop session]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
-  [從遠端存取 Azure 中的角色執行個體]: http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx
-  [搭配使用遠端桌面與 Azure 角色]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
+  [從遠端存取 Azure 中的角色執行個體]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh124107.aspx
+  [搭配使用遠端桌面與 Azure 角色]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg443832.aspx

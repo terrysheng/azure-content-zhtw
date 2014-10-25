@@ -48,16 +48,16 @@
 
 如需 Azure 中更多常見設計模式的詳細資訊，請參閱[雲端設計模式][] (英文)。
 
-  [下載 Azure 符號/圖示集]: http://www.microsoft.com/en-us/download/details.aspx?id=41937
+  [下載 Azure 符號/圖示集]: http://www.microsoft.com/zh-tw/download/details.aspx?id=41937
   [Azure 符號/圖示集]: ./media/architecture-overview/AzureSymbols.png
-  [競爭取用者 (英文)]: http://msdn.microsoft.com/en-us/library/dn568101.aspx
+  [競爭取用者 (英文)]: http://msdn.microsoft.com/zh-tw/library/dn568101.aspx
   [1]: ./media/architecture-overview/CompetingConsumers.png
-  [命令與查詢責任分隔 (英文)]: http://msdn.microsoft.com/en-us/library/dn568103.aspx
+  [命令與查詢責任分隔 (英文)]: http://msdn.microsoft.com/zh-tw/library/dn568103.aspx
   [2]: ./media/architecture-overview/CQRS.png
-  [選出領導者 (英文)]: http://msdn.microsoft.com/en-us/library/dn568104.aspx
+  [選出領導者 (英文)]: http://msdn.microsoft.com/zh-tw/library/dn568104.aspx
   [3]: ./media/architecture-overview/LeaderElection.png
-  [管道與篩選器 (英文)]: http://msdn.microsoft.com/en-us/library/dn568100.aspx
+  [管道與篩選器 (英文)]: http://msdn.microsoft.com/zh-tw/library/dn568100.aspx
   [4]: ./media/architecture-overview/PipesAndFilters.png
-  [貼身金鑰 (英文)]: http://msdn.microsoft.com/en-us/library/dn568102.aspx
+  [貼身金鑰 (英文)]: http://msdn.microsoft.com/zh-tw/library/dn568102.aspx
   [5]: ./media/architecture-overview/ValetKey.png
-  [雲端設計模式]: http://msdn.microsoft.com/en-us/library/dn568099.aspx
+  [雲端設計模式]: http://msdn.microsoft.com/zh-tw/library/dn568099.aspx

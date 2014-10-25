@@ -109,6 +109,6 @@ Azure 提供內建的診斷功能，可協助您針對 Azure 網站所託管的 
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [restart button]: ./media/web-sites-nodejs-debug/restartbutton.png
   [iisnode\_schema.xml]: https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml
-  [如何使用 Azure 命令列工具]: /zh-tw/documentation/articles/xplat-cli/
-  [在 Azure 應用程式中使用 Node.js 模組]: /zh-tw/documentation/articles/nodejs-use-node-modules-azure-apps/
-  [在 Azure 應用程式中指定 Node.js 版本]: /zh-tw/documentation/articles/nodejs-specify-node-version-azure-apps/
+  [如何使用 Azure 命令列工具]: /zh-TW/documentation/articles/xplat-cli/
+  [在 Azure 應用程式中使用 Node.js 模組]: /zh-TW/documentation/articles/nodejs-use-node-modules-azure-apps/
+  [在 Azure 應用程式中指定 Node.js 版本]: /zh-TW/documentation/articles/nodejs-specify-node-version-azure-apps/

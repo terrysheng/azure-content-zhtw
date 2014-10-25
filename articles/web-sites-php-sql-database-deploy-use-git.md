@@ -273,8 +273,8 @@
 3.  瀏覽至 **http://[網站名稱].azurewebsites.net/index.php** 查看變更。
 
   [PHP]: http://www.php.net/manual/en/install.php
-  [SQL Server Express]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
-  [Microsoft Drivers for SQL Server for PHP]: http://www.microsoft.com/en-us/download/details.aspx?id=20098
+  [SQL Server Express]: http://www.microsoft.com/zh-TW/download/details.aspx?id=29062
+  [Microsoft Drivers for SQL Server for PHP]: http://www.microsoft.com/zh-TW/download/details.aspx?id=20098
   [Git]: http://git-scm.com/
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure PHP Web Site]: ./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png
@@ -283,7 +283,7 @@
   [建立新的 Azure 網站]: ./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg
   [Custom Create a new Web Site]: ./media/web-sites-php-sql-database-deploy-use-git/custom_create.png
   [Fill in web site details]: ./media/web-sites-php-sql-database-deploy-use-git/website_details_sqlazure.jpg
-  [(WEB 或 BUSINESS)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
+  [(WEB 或 BUSINESS)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee621788.aspx
   [Fill in SQL Database settings]: ./media/web-sites-php-sql-database-deploy-use-git/database_settings.jpg
   [Create new SQL Database server]: ./media/web-sites-php-sql-database-deploy-use-git/create_server.jpg
   [Open web site dashboard]: ./media/web-sites-php-sql-database-deploy-use-git/go_to_dashboard.png

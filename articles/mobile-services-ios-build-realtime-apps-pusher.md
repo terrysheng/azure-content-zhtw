@@ -382,13 +382,13 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 <!-- URLs. -->
 
   [iOS]:  "iOS"
-  [推播通知給使用者]: /en-us/develop/mobile/tutorials/push-notifications-to-users-ios
+  [推播通知給使用者]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios
   []: http://pusher.com
   [建立 Pusher 帳戶]: #sign-up
   [更新應用程式]: #update-app
   [安裝服務指令碼]: #install-scripts
   [測試應用程式]: #test-app
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started
   [pusher-sign-up]: ../includes/pusher-sign-up.md
   [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
   [從這裡]: http://go.microsoft.com/fwlink/p/?LinkId=276998

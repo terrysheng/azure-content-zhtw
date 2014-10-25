@@ -6,13 +6,13 @@
 
 ## <a name="webclient"></a>設定 Web 流量分析
 
-如果您尚未這麼做，請[將 Application Insights 新增至 Web 專案][將 Application Insights 新增至 Web 專案] (英文)。
+如果您尚未這麼做，請[將 Application Insights 新增至 Web 專案][start] (英文)。
 
 ## <a name="usage"></a>流量分析
 
 在應用程式概觀分頁中，您可以看見以下流量磚：
 
-![][]
+![](./media/appinsights/appinsights-47usage.png)
 
 ### 每個瀏覽器的工作階段
 
@@ -26,13 +26,13 @@
 
 按一下頁面檢視磚可取得詳細記錄。
 
-![][1]
+![](./media/appinsights/appinsights-49usage.png)
 
 按一下 [時間範圍] 可查看七天內的長期記錄。
 
 按一下圖形可查看其他可供顯示的度量。
 
-![][2]
+![](./media/appinsights/appinsights-63usermetrics.png)
 
 ## 自訂頁面計數
 
@@ -50,13 +50,13 @@
 
 在 [Diagnostic Search] 分頁中，將 [篩選器] 設定為 [網頁檢視]。
 
-![][3]
+![](./media/appinsights/appinsights-51searchpageviews.png)
 
 選取任一事件以查看詳細資料。
 
-> [WACOM.NOTE] 請注意，如果您使用[搜尋][搜尋]，必須比對整個單字："Abou" 和 "bout" 與 "About" 並不相符，不過 "Abou\* " 則會相符。此外，您不能將萬用字元當做搜尋詞彙的開頭。例如，搜尋 "\*bou" 將無法與 "About" 相符。
+> [WACOM.NOTE] 請注意，如果您使用[搜尋][diagnostic]，必須比對整個單字："Abou" 和 "bout" 與 "About" 並不相符，不過 "Abou\* " 則會相符。此外，您不能將萬用字元當做搜尋詞彙的開頭。例如，搜尋 "\*bou" 將無法與 "About" 相符。
 
-> [深入了解診斷搜尋][搜尋]
+> [深入了解診斷搜尋][diagnostic]
 
 ## 追蹤流量
 
@@ -64,24 +64,24 @@
 
 ## 詳細資訊
 
--   [Application Insights - 開始使用 (英文)][將 Application Insights 新增至 Web 專案]
--   [立即監視即時網頁伺服器 (英文)][立即監視即時網頁伺服器 (英文)]
--   [監視 Web 應用程式的效能 (英文)][監視 Web 應用程式的效能 (英文)]
--   [搜尋診斷記錄 (英文)][搜尋]
--   [利用 Web 測試追蹤可用性 (英文)][利用 Web 測試追蹤可用性 (英文)]
--   [追蹤流量][追蹤流量]
--   [問答集和疑難排解 (英文)][問答集和疑難排解 (英文)]
+-   [Application Insights - 開始使用 (英文)][start]
+-   [立即監視即時網頁伺服器 (英文)][redfield]
+-   [監視 Web 應用程式的效能 (英文)][perf]
+-   [搜尋診斷記錄 (英文)][diagnostic]
+-   [利用 Web 測試追蹤可用性 (英文)][availability]
+-   [追蹤流量][usage]
+-   [問答集和疑難排解 (英文)][qna]
 
 <!--Link references-->
 
-  [將 Application Insights 新增至 Web 專案]: ../app-insights-start-monitoring-app-health-usage/
+  [start]: ../app-insights-start-monitoring-app-health-usage/
   []: ./media/appinsights/appinsights-47usage.png
   [1]: ./media/appinsights/appinsights-49usage.png
   [2]: ./media/appinsights/appinsights-63usermetrics.png
   [3]: ./media/appinsights/appinsights-51searchpageviews.png
-  [搜尋]: ../app-insights-search-diagnostic-logs/
-  [立即監視即時網頁伺服器 (英文)]: ../app-insights-monitor-performance-live-website-now/
-  [監視 Web 應用程式的效能 (英文)]: ../app-insights-web-monitor-performance/
-  [利用 Web 測試追蹤可用性 (英文)]: ../app-insights-monitor-web-app-availability/
-  [追蹤流量]: ../app-insights-web-track-usage/
-  [問答集和疑難排解 (英文)]: ../app-insights-troubleshoot-faq/
+  [diagnostic]: ../app-insights-search-diagnostic-logs/
+  [redfield]: ../app-insights-monitor-performance-live-website-now/
+  [perf]: ../app-insights-web-monitor-performance/
+  [availability]: ../app-insights-monitor-web-app-availability/
+  [usage]: ../app-insights-web-track-usage/
+  [qna]: ../app-insights-troubleshoot-faq/

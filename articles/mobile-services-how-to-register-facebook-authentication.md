@@ -58,7 +58,7 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Azure 行動服務]: http://azure.microsoft.com/en-us/services/mobile-services/
+  [Azure 行動服務]: http://azure.microsoft.com/zh-tw/services/mobile-services/
   [開始使用驗證]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started-users/
   [開始使用行動服務]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started/
   [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285

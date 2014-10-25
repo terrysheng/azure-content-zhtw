@@ -161,5 +161,5 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
   [作法：刪除主題和訂閱]: #How_to_Delete_Topics_and_Subscriptions
   [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [Python 安裝指南]: ../python-how-to-install/
-  [佇列、主題和訂閱]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
-  [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+  [佇列、主題和訂閱]: http://msdn.microsoft.com/zh-TW/library/hh367516.aspx
+  [SqlFilter]: http://msdn.microsoft.com/zh-TW/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx

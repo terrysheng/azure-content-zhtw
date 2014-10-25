@@ -468,12 +468,12 @@
   [node]: http://nodejs.org
   [Git]: http://git-scm.com
   [A web page displaying an empty tasklist]: ./media/sql-database-nodejs-use-web-site/sql_todo_final.png
-  [Microsoft SQL Server 2012 功能套件]: http://www.microsoft.com/en-us/download/details.aspx?id=29065
+  [Microsoft SQL Server 2012 功能套件]: http://www.microsoft.com/zh-TW/download/details.aspx?id=29065
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [Create New Azure Website]: ./media/sql-database-nodejs-use-web-site/new_website.jpg
   [Custom Create a new Website]: ./media/sql-database-nodejs-use-web-site/custom_create.png
   [填入網站詳細資料]: ./media/sql-database-nodejs-use-web-site/website_details_sqlazure.jpg
-  [(WEB 或 BUSINESS)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
+  [(WEB 或 BUSINESS)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee621788.aspx
   [Fill in SQL Database settings]: ./media/sql-database-nodejs-use-web-site/database_settings.jpg
   [Create new SQL Database server]: ./media/sql-database-nodejs-use-web-site/create_server.jpg
   [Open website dashboard]: ./media/sql-database-nodejs-use-web-site/go_to_dashboard.png
@@ -489,7 +489,7 @@
   [completed table design]: ./media/sql-database-nodejs-use-web-site/table-columns.png
   [express]: http://expressjs.com
   [node-sqlserver]: https://github.com/WindowsAzure/node-sqlserver
-  [下載中心]: http://www.microsoft.com/en-us/download/details.aspx?id=29995
+  [下載中心]: http://www.microsoft.com/zh-TW/download/details.aspx?id=29995
   [Twitter Bootstrap]: https://github.com/twbs/bootstrap
   [1]: http://getbootstrap.com/
   [顯示空白工作清單的網頁]: ./media/sql-database-nodejs-use-web-site/sql_todo_empty.png
@@ -500,7 +500,7 @@
   [app settings save]: ./media/sql-database-nodejs-use-web-site/savebutton.png
   [使用 MongoDB 的 Node.js Web 應用程式]: ../store-mongolab-web-sites-nodejs-store-data-mongodb/
   [使用 Git 發佈至 Azure 網站]: ../CommonTasks/publishing-with-git
-  [適用於 Mac 和 Linux 的 Azure 命令列工具]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
-  [建立並部署 Node.js 應用程式至 Azure 網站]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-  [Azure 開發人員中心]: /en-us/develop/nodejs/
-  [使用資料表儲存體的 Node.js Web 應用程式]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
+  [適用於 Mac 和 Linux 的 Azure 命令列工具]: /zh-TW/develop/nodejs/how-to-guides/command-line-tools/
+  [建立並部署 Node.js 應用程式至 Azure 網站]: /zh-TW/develop/nodejs/tutorials/create-a-website-(mac)/
+  [Azure 開發人員中心]: /zh-TW/develop/nodejs/
+  [使用資料表儲存體的 Node.js Web 應用程式]: /zh-TW/develop/nodejs/tutorials/web-site-with-storage/

@@ -12,7 +12,7 @@
 <div class="dev-onpage-left-content">
 
 <p>本主題將示範如何使用伺服器指令碼，授權經驗證的使用者從 Windows Phone 8 應用程式存取 Azure 行動服務中的資料。在本教學課程中，您將在行動服務中註冊指令碼，根據經驗證使用者的 userId 篩選查詢，確保每位使用者只能看到他們自己的資料。</p>
-<p>本教學課程會以行動服務快速入門為基礎，並依據上一個<a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8">開始使用驗證</a>教學課程建立。開始此教學課程之前，您必須先完成<a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8">開始使用驗證</a>。</p>
+<p>本教學課程會以行動服務快速入門為基礎，並依據上一個<a href="/zh-tw/develop/mobile/tutorials/get-started-with-users-wp8">開始使用驗證</a>教學課程建立。開始此教學課程之前，您必須先完成<a href="/zh-tw/develop/mobile/tutorials/get-started-with-users-wp8">開始使用驗證</a>。</p>
 </div>
 
 <div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="label">觀看教學課程</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-scripts-for-authentication-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="dev-onpage-video"><span class="icon">播放影片</span></a> <span class="time">下午 03:00:00</span></div>
@@ -100,13 +100,13 @@
   [Xamarin.Android]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts "Xamarin.Android"
   [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/ ".NET 後端"
   [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/ "JavaScript 後端"
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-wp8
   [觀看教學課程]: http://go.microsoft.com/fwlink/?LinkId=298630
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   []: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-insert-script-users.png
   [3]: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-quickstart-startup-wp8.png
-  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
-  [開始使用推播通知]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-wp8
+  [開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-wp8
   [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293

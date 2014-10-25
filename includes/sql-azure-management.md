@@ -239,18 +239,18 @@ SQL Database 支援數種動態管理檢視，您可用它們來監視個別資�
   [步驟 3：建立和管理資料庫]: #Step3
   [步驟 4：建立和管理登入]: #Step4
   [步驟 5：使用動態管理檢視監視 SQL Database]: #Step5
-  [Microsoft SQL Server 2012 Express]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
+  [Microsoft SQL Server 2012 Express]: http://www.microsoft.com/zh-TW/download/details.aspx?id=29062
   [Azure 管理入口網站]: http://manage.windowsazure.com/
-  [Transact-SQL 參考 (SQL Database)]: http://msdn.microsoft.com/en-us/library/bb510741(v=sql.120).aspx
-  [CREATE DATABASE (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336274.aspx
-  [ALTER DATABASE (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394109.aspx
-  [DROP DATABASE (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336259.aspx
-  [管理 SQL Database 中的資料庫和登入]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx
-  [CREATE LOGIN (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336268.aspx
-  [CREATE USER (SQL Database)]: http://msdn.microsoft.com/en-us/library/ee336277.aspx
-  [sp\_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/en-us/library/ms187750.aspx
-  [ALTER LOGIN (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336254.aspx
-  [使用動態管理檢視監視 SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx
-  [SQL Database 簡介]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336230.aspx
-  [SQL Database 佈建模型]: http://msdn.microsoft.com/en-us/library/ee336227.aspx
+  [Transact-SQL 參考 (SQL Database)]: http://msdn.microsoft.com/zh-TW/library/bb510741(v=sql.120).aspx
+  [CREATE DATABASE (SQL Database)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee336274.aspx
+  [ALTER DATABASE (SQL Database)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ff394109.aspx
+  [DROP DATABASE (SQL Database)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee336259.aspx
+  [管理 SQL Database 中的資料庫和登入]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee336235.aspx
+  [CREATE LOGIN (SQL Database)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee336268.aspx
+  [CREATE USER (SQL Database)]: http://msdn.microsoft.com/zh-TW/library/ee336277.aspx
+  [sp\_addrolemember (Transact-SQL)]: http://msdn.microsoft.com/zh-TW/library/ms187750.aspx
+  [ALTER LOGIN (SQL Database)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee336254.aspx
+  [使用動態管理檢視監視 SQL Database]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ff394114.aspx
+  [SQL Database 簡介]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee336230.aspx
+  [SQL Database 佈建模型]: http://msdn.microsoft.com/zh-TW/library/ee336227.aspx
   [將使用者加入 SQL Database]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx

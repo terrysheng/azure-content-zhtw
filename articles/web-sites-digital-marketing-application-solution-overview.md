@@ -20,7 +20,7 @@
 
 <div class="dev-callout">
 <strong>注意</strong>
-<p>本指南呈現一些與公用端 .COM 網站開發整合的最常見領域和工作。不過，還有其他 Azure 網站功能可供您在特定的實作中使用。若要檢閱這些功能，請一併參閱<a href="http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/">全域網站空間</a> (英文) 和 <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview">商務應用程式</a> (英文) 上的其他指南。</p>
+<p>本指南呈現一些與公用端 .COM 網站開發整合的最常見領域和工作。不過，還有其他 Azure 網站功能可供您在特定的實作中使用。若要檢閱這些功能，請一併參閱<a href="http://www.windowsazure.com/zh-TW/manage/services/web-sites/global-web-presence-solution-overview/">全域網站空間</a> (英文) 和 <a href="http://www.windowsazure.com/zh-TW/manage/services/web-sites/business-application-solution-overview">商務應用程式</a> (英文) 上的其他指南。</p>
 </div>
 
 ## <a name="deployexisting"></a>部署現有網站
@@ -85,7 +85,7 @@ Azure 網站的其中一個額外優點就是將預備網站部署至 Web 的速
 
 <div class="dev-callout">
 <strong>注意</strong>
-<p>對於選擇使用雲端服務和 Web 角色的 Web 應用程式，有一個額外的選項，就是根據佇列中的項目長度進行調整。在雲端服務中，處理後端佇列的角色是常見的架構模式。如需有關雲端調整的詳細資訊，請參閱<a href="http://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-scale-a-cloud-service/">如何調整雲端服務</a> (英文)。</p>
+<p>對於選擇使用雲端服務和 Web 角色的 Web 應用程式，有一個額外的選項，就是根據佇列中的項目長度進行調整。在雲端服務中，處理後端佇列的角色是常見的架構模式。如需有關雲端調整的詳細資訊，請參閱<a href="http://www.windowsazure.com/zh-TW/manage/services/cloud-services/how-to-scale-a-cloud-service/">如何調整雲端服務</a> (英文)。</p>
 </div>
 
 ## <a name="integrate"></a>與其他服務整合
@@ -123,77 +123,77 @@ Azure 網站對於針對個別行銷活動自訂的可重複使用 Web 內容而
 </tr>
 <tr>
    <td valign="middle"><strong>規劃</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service">Azure 網站、雲端服務和 VM：使用時機</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/zh-TW/manage/services/web-sites/choose-web-app-service">Azure 網站、雲端服務和 VM：使用時機</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>建立</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites/">如何建立及部署網站</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/zh-TW/manage/services/web-sites/how-to-create-websites/">如何建立及部署網站</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>部署</strong></td>
-   <td valign="top">- <a href="http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-deploy/">如何部署 Azure 網站</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-git/">從原始檔控制發行至 Azure 網站</a></td>
+   <td valign="top">- <a href="http://azure.microsoft.com/zh-TW/documentation/articles/web-sites-deploy/">如何部署 Azure 網站</a><br/>- <a href="http://www.windowsazure.com/zh-TW/develop/net/common-tasks/publishing-with-git/">從原始檔控制發行至 Azure 網站</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>社交媒體</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/">部署使用成員資格、OAuth 和 SQL 資料庫的安全 ASP.NET MVC 應用程式</a><br/>- <a href="http://blogs.msdn.com/b/africaapps/archive/2013/02/20/creating-a-facebook-app-using-asp-net-mvc-facebook-templates-and-hosting-them-for-free-on-windows-azure-websites.aspx">使用 ASP.NET MVC Facebook 範本建立 Facebook 應用程式</a><br/>- <a href="http://blogs.msdn.com/b/webdev/archive/2012/12/13/the-new-facebook-application-template-and-library-for-asp.net-mvc.aspx">適用於 ASP.NET MVC 的 Facebook 應用程式範本和程式庫</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/zh-TW/develop/net/tutorials/web-site-with-sql-database/">部署使用成員資格、OAuth 和 SQL 資料庫的安全 ASP.NET MVC 應用程式</a><br/>- <a href="http://blogs.msdn.com/b/africaapps/archive/2013/02/20/creating-a-facebook-app-using-asp-net-mvc-facebook-templates-and-hosting-them-for-free-on-windows-azure-websites.aspx">使用 ASP.NET MVC Facebook 範本建立 Facebook 應用程式</a><br/>- <a href="http://blogs.msdn.com/b/webdev/archive/2012/12/13/the-new-facebook-application-template-and-library-for-asp.net-mvc.aspx">適用於 ASP.NET MVC 的 Facebook 應用程式範本和程式庫</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>調整</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-scale-websites/">如何調整網站</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/zh-TW/manage/services/web-sites/how-to-scale-websites/">如何調整網站</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>多媒體</strong></td>
-   <td valign="top">- <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223282.aspx">Azure 媒體服務概念與案例</a></td>
+   <td valign="top">- <a href="http://msdn.microsoft.com/zh-TW/library/windowsazure/dn223282.aspx">Azure 媒體服務概念與案例</a></td>
 </tr>
 <tr>
    <td valign="middle"><strong>監視</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/">如何監視網站</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">作法：在 Azure 中接收警示通知及管理警示規則</a></td>
+   <td valign="top">- <a href="http://www.windowsazure.com/zh-TW/manage/services/web-sites/how-to-monitor-websites/">如何監視網站</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">作法：在 Azure 中接收警示通知及管理警示規則</a></td>
 </tr>
 </table>
 
 
-  [Azure 網站]: /zh-tw/documentation/services/web-sites/
-  [Azure 雲端服務]: /zh-tw/documentation/services/cloud-services/
-  [Azure 虛擬機器]: /zh-tw/documentation/services/virtual-machines/
-  [Azure 網站、雲端服務和 VM：使用時機]: /en-us/manage/services/web-sites/choose-web-app-service
+  [Azure 網站]: /zh-TW/documentation/services/web-sites/
+  [Azure 雲端服務]: /zh-TW/documentation/services/cloud-services/
+  [Azure 虛擬機器]: /zh-TW/documentation/services/virtual-machines/
+  [Azure 網站、雲端服務和 VM：使用時機]: /zh-TW/manage/services/web-sites/choose-web-app-service
   [部署現有的網站]: #deployexisting
   [與社交媒體整合]: #socialmedia
   [隨使用者需求進行調整]: #scale
   [與其他服務整合]: #integrate
   [監視行銷活動]: #monitor
-  [全域網站空間]: http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/
-  [商務應用程式]: http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview
-  [檢閱該資訊]: /en-us/manage/services/web-sites/global-web-presence-solution-overview/
+  [全域網站空間]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/global-web-presence-solution-overview/
+  [商務應用程式]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/business-application-solution-overview
+  [檢閱該資訊]: /zh-TW/manage/services/web-sites/global-web-presence-solution-overview/
   [DigitalMarketingDeploy1]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Deploy1.png
   [DigitalMarketingDeploy2]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Deploy2.png
   [多個環境搭配 Azure 網站]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
-  [從原始檔控制發佈至 Azure 網站]: /en-us/develop/net/common-tasks/publishing-with-git/
+  [從原始檔控制發佈至 Azure 網站]: /zh-TW/develop/net/common-tasks/publishing-with-git/
   [DigitalMarketingFrameworkVersions]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_FrameworkVersions.png
-  [將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 應用程式部署至 Azure 網站]: /en-us/develop/net/tutorials/web-site-with-sql-database/
+  [將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 應用程式部署至 Azure 網站]: /zh-TW/develop/net/tutorials/web-site-with-sql-database/
   [支援 Twitter API 的可用程式庫清單]: https://dev.twitter.com/docs/twitter-libraries#dotnet
   [DigitalMarketingFacebook]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Facebook.png
   [使用 ASP.NET MVC Facebook 範本建立 Facebook 應用程式並將它們免費裝載於 Azure 網站]: http://blogs.msdn.com/b/africaapps/archive/2013/02/20/creating-a-facebook-app-using-asp-net-mvc-facebook-templates-and-hosting-them-for-free-on-windows-azure-websites.aspx
   [ASP.NET MVC Facebook 生日應用程式]: http://www.asp.net/mvc/tutorials/mvc-4/aspnet-mvc-facebook-birthday-app
   [適用於 ASP.NET MVC 的新 Facebook 應用程式範本和程式庫]: http://blogs.msdn.com/b/webdev/archive/2012/12/13/the-new-facebook-application-template-and-library-for-asp.net-mvc.aspx
   [Azure 管理入口網站]: http://manage.windowsazure.com/
-  [服務管理 API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
-  [PowerShell 指令碼]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
+  [服務管理 API]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee460799.aspx
+  [PowerShell 指令碼]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj152841.aspx
   [DigitalMarketingScale]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Scale.png
-  [網站定價詳細資料]: https://www.windowsazure.com/en-us/pricing/details/web-sites/
+  [網站定價詳細資料]: https://www.windowsazure.com/zh-TW/pricing/details/web-sites/
   [DigitalMarketingAutoScale]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_AutoScale.png
-  [如何調整網站]: /en-us/manage/services/web-sites/how-to-scale-websites/
-  [如何調整雲端服務]: http://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-scale-a-cloud-service/
-  [Azure 媒體服務概念與案例]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223282.aspx
-  [Azure 快取服務 (預覽)]: http://msdn.microsoft.com/en-us/library/windowsazure/dn386094.aspx
+  [如何調整網站]: /zh-TW/manage/services/web-sites/how-to-scale-websites/
+  [如何調整雲端服務]: http://www.windowsazure.com/zh-TW/manage/services/cloud-services/how-to-scale-a-cloud-service/
+  [Azure 媒體服務概念與案例]: http://msdn.microsoft.com/zh-TW/library/windowsazure/dn223282.aspx
+  [Azure 快取服務 (預覽)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/dn386094.aspx
   [DigitalMarketingMonitor]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_Monitor.png
-  [如何監視網站]: /en-us/manage/services/web-sites/how-to-monitor-websites/
+  [如何監視網站]: /zh-TW/manage/services/web-sites/how-to-monitor-websites/
   [DigitalMarketingUsageOverview]: ./media/web-sites-digital-marketing-application-solution-overview/DigitalMarketing_UsageOverview.png
-  [在 Azure 上進行 New Relic 應用程式效能管理]: /en-us/develop/net/how-to-guides/new-relic/
+  [在 Azure 上進行 New Relic 應用程式效能管理]: /zh-TW/develop/net/how-to-guides/new-relic/
   [作法：在 Windows Azure 中接收警示通知及管理警示規則]: http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
-  [1]: http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service
-  [如何建立及部署網站]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-create-websites/
-  [如何部署 Azure 網站]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-deploy/
-  [從原始檔控制發行至 Azure 網站]: http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-git/
-  [部署使用成員資格、OAuth 和 SQL 資料庫的安全 ASP.NET MVC 應用程式]: http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/
-  [2]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-scale-websites/
-  [3]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/
+  [1]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/choose-web-app-service
+  [如何建立及部署網站]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/how-to-create-websites/
+  [如何部署 Azure 網站]: http://azure.microsoft.com/zh-TW/documentation/articles/web-sites-deploy/
+  [從原始檔控制發行至 Azure 網站]: http://www.windowsazure.com/zh-TW/develop/net/common-tasks/publishing-with-git/
+  [部署使用成員資格、OAuth 和 SQL 資料庫的安全 ASP.NET MVC 應用程式]: http://www.windowsazure.com/zh-TW/develop/net/tutorials/web-site-with-sql-database/
+  [2]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/how-to-scale-websites/
+  [3]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/how-to-monitor-websites/

@@ -590,20 +590,20 @@ SQL Server 驗證登入資訊可用於伺服器連線。存取 SQL Database 伺�
   [1]: ./media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.png
   [2]: ./media/sql-database-get-started/3DatabaseSettings_SQLTut.PNG
   [3]: ./media/sql-database-get-started/4ServerSettings_SQLTut.PNG
-  [SQL Database 防火牆]: http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-en-us.aspx
+  [SQL Database 防火牆]: http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-zh-tw.aspx
   [4]: ./media/sql-database-get-started/7DBConfigFirewallSAVE_SQLTut.png
-  [MSDN 文章]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621790.aspx "MSDN 文章"
+  [MSDN 文章]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee621790.aspx "MSDN 文章"
   [5]: ./media/sql-database-get-started/20MainPageHome_SQLTut.PNG
-  [CREATE TABLE]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336258.aspx
-  [ALTER TABLE]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336286.aspx
-  [INSERT]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336284.aspx
+  [CREATE TABLE]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336258.aspx
+  [ALTER TABLE]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336286.aspx
+  [INSERT]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336284.aspx
   [6]: ./media/sql-database-get-started/15DBPortalConnectMasterErr_SQLTut.PNG
   [7]: ./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.PNG
   [8]: ./media/sql-database-get-started/16ExcelConnect_SQLTut.png
   [9]: ./media/sql-database-get-started/19ExcelImport_SQLTut.png
   [PowerPivot for Excel]: http://go.microsoft.com/fwlink/?LinkId=396969
   [使用 SQL Server Management Studio 管理 SQL Database]: http://www.azure.microsoft.com/zh-tw/documentation/articles/sql-database-manage-azure-ssms/
-  [教學課程：撰寫 Transact-SQL 陳述式]: http://msdn.microsoft.com/en-us/library/ms365303.aspx
-  [將資料庫移轉至 SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee730904.aspx
-  [在 SQL Database 中複製資料庫]: http://msdn.microsoft.com/en-us/library/windowsazure/ff951624.aspx
-  [將 SQL Server 資料庫部署至 Azure 虛擬機器]: http://msdn.microsoft.com/en-us/library/dn195938(v=sql.120).aspx
+  [教學課程：撰寫 Transact-SQL 陳述式]: http://msdn.microsoft.com/zh-tw/library/ms365303.aspx
+  [將資料庫移轉至 SQL Database]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee730904.aspx
+  [在 SQL Database 中複製資料庫]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff951624.aspx
+  [將 SQL Server 資料庫部署至 Azure 虛擬機器]: http://msdn.microsoft.com/zh-tw/library/dn195938(v=sql.120).aspx

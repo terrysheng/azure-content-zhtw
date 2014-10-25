@@ -270,4 +270,4 @@ Visual Studio 2013 含有將主控台應用程式專案自動部署為 WebJob �
   [Azure WebJobs 101 - Basic WebJobs with Jamie Espinosa]: http://www.windowsazure.com/zh-tw/documentation/videos/azure-webjobs-basics/
   [Azure WebJobs 102 - Scheduled WebJobs and the WebJobs Dashboard with Jamie Espinosa]: http://www.windowsazure.com/zh-tw/documentation/videos/azure-webjobs-schedule-and-dashboard/
   [Azure Scheduler 101 - Kevin Lam explains how to schedule stuff]: http://www.windowsazure.com/zh-tw/documentation/videos/azure-scheduler-how-to/
-  [Microsoft Azure 免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Microsoft Azure 免費試用]: http://azure.microsoft.com/zh-tw/pricing/free-trial/

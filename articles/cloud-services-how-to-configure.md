@@ -137,7 +137,7 @@
 5.  按一下 [確定] (核取記號)。
 
   [disclaimer]: ../includes/disclaimer.md
-  [服務等級協定]: https://www.windowsazure.com/en-us/support/legal/sla/
+  [服務等級協定]: https://www.windowsazure.com/zh-tw/support/legal/sla/
   [作法：更新雲端服務組態]: #update
   [作法：設定對角色執行個體的遠端存取]: #remoteaccess
   [Azure 管理入口網站]: http://manage.windowsazure.com/
@@ -145,7 +145,7 @@
   [如何監視雲端服務]: ../how-to-monitor-a-cloud-service/
   [OS Settings]: ./media/cloud-services-how-to-configure/CloudServices_ConfigurePage_OSSettings.png
   [Upload Configuration]: ./media/cloud-services-how-to-configure/CloudServices_UploadConfigFile.png
-  [1]: http://www.windowsazure.com/en-us/support/legal/sla/
-  [在 Azure 中設定角色的遠端桌面連線]: http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx
+  [1]: http://www.windowsazure.com/zh-tw/support/legal/sla/
+  [在 Azure 中設定角色的遠端桌面連線]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh124107.aspx
   [Cloud services remote]: ./media/cloud-services-how-to-configure/CloudServices_Remote.png
   [CloudServices\_CreateNewCertDropDown]: ./media/cloud-services-how-to-configure/CloudServices_CreateNewCertDropDown.png

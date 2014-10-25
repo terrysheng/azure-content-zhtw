@@ -464,8 +464,8 @@
   [howto-provision-mongolab]: ../includes/howto-provision-mongolab.md
   [Express]: http://expressjs.com
   [Mongoose]: http://mongoosejs.com
-  [Azure 開發人員中心]: /en-us/develop/nodejs/
-  [適用於 Mac 和 Linux 的 Azure 命令列工具]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+  [Azure 開發人員中心]: /zh-tw/develop/nodejs/
+  [適用於 Mac 和 Linux 的 Azure 命令列工具]: /zh-tw/develop/nodejs/how-to-guides/command-line-tools/
   [下載頁面]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/azure-account-download-cli.png
   [New]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-new.png
   [CreateSite]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/screen-mongolab-newwebsite.png

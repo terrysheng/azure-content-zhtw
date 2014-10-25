@@ -18,7 +18,7 @@
 </div>
 
 <div class="dev-callout"><b>注意</b>
-<p>本教學課程是為了協助您充分了解行動服務如何讓您從 Android 應用程式中利用 Azure 來儲存和擷取資料。因此，本主題將逐步說明已在行動服務快速入門中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮首先完成教學課程<a href="/en-us/develop/mobile/tutorials/get-started-android">開始使用行動服務</a>。</p>
+<p>本教學課程是為了協助您充分了解行動服務如何讓您從 Android 應用程式中利用 Azure 來儲存和擷取資料。因此，本主題將逐步說明已在行動服務快速入門中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮首先完成教學課程<a href="/zh-tw/develop/mobile/tutorials/get-started-android">開始使用行動服務</a>。</p>
 </div>
 
 本教學課程將逐步引導您完成下列基本步驟：
@@ -29,7 +29,7 @@
 4.  [更新應用程式以使用行動服務][]
 5.  [針對行動服務進行應用程式測試][]
 
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure 免費試用</a>。</p></div>
+<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure 免費試用</a>。</p></div>
 
 本教學課程需要 [Mobile Services Android SDK][]、[Android SDK][] (含 Eclipse 整合式開發環境 (IDE) 和 Android Developer Tools (ADT) 外掛程式)，以及 Android 4.2 或更新版本。
 
@@ -113,13 +113,13 @@ Android 的**開始使用資料**教學課程到此結束。
 
   [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [觀看教學課程]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started-android
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-android
   [下載 Android 應用程式專案]: #download-app
   [建立行動服務]: #create-service
   [新增用於儲存的資料表]: #add-table
   [更新應用程式以使用行動服務]: #update-app
   [針對行動服務進行應用程式測試]: #test-app
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AED8DE357
   [Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
   [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
   [download-android-sample-code]: ../includes/download-android-sample-code.md
@@ -130,7 +130,7 @@ Android 的**開始使用資料**教學課程到此結束。
   [mobile-services-android-getting-started-with-data]: ../includes/mobile-services-android-getting-started-with-data.md
   [管理入口網站]: https://manage.windowsazure.com/
   []: ./media/mobile-services-android-get-started-data/mobile-todoitem-data-browse.png
-  [使用指令檔驗證與修改資料]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-  [使用分頁縮小查詢範圍]: /en-us/develop/mobile/tutorials/add-paging-to-data-android
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-android
-  [開始使用推送通知]: /en-us/develop/mobile/tutorials/get-started-with-push-android
+  [使用指令檔驗證與修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+  [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-android
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-android
+  [開始使用推送通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-android

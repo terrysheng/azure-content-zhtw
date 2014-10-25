@@ -113,7 +113,7 @@ SendGrid 是[雲端架構電子郵件服務][] (英文)，能提供可靠的[交
   [建立 SendGrid 帳戶]: #sign-up
   [新增指令碼以傳送電子郵件]: #add-script
   [插入資料以接收電子郵件]: #insert-data
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started
   [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   []: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png

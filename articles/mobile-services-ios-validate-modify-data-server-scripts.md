@@ -21,7 +21,7 @@
 
 1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
 
-    ![][]
+    ![][0]
 
 2.  按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
@@ -61,7 +61,7 @@
 
         [self logErrorIfNotNil:error]; 
 
-    After this line of code, replace the remainder of the completion block with the following code:
+    在這行程式碼之後，以下列程式碼更新 completion 區塊的剩餘部分：
 
         BOOL goodRequest = !((error) && (error.code == MSErrorMessageErrorCode));
 
@@ -131,13 +131,13 @@
   [Xamarin.Android]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-android-validate-modify-data-server-scripts "Xamarin.Android"
   [新增字串長度驗證]: #string-length-validation
   [更新用戶端以支援驗證]: #update-client-validation
-  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-ios
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-insert-script-users.png
   [3]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-quickstart-data-error-ios.png
-  [使用分頁縮小查詢範圍]: /en-us/develop/mobile/tutorials/add-paging-to-data-ios
-  [使用指令碼授權使用者]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
-  [開始使用推播通知]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
+  [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-ios
+  [使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-ios
+  [開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-ios
   [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293

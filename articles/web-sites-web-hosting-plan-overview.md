@@ -57,4 +57,4 @@ Web 主控方案代表可跨網站共用的一組特性和功能。Web 主控方
   [1]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
   [2]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
   [3]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png
-  [Microsoft Azure 免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Microsoft Azure 免費試用]: http://azure.microsoft.com/zh-TW/pricing/free-trial/

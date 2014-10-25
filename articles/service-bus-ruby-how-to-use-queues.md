@@ -124,8 +124,8 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
   [如何從佇列接收訊息]: #how-to-receive-messages-from-a-queue
   [如何處理應用程式當機與無法讀取的訊息]: #how-to-handle-application-crashes-and-unreadable-messages
   [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
-  [在 Azure 上建立 Ruby 應用程式]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
-  [佇列、主題和訂閱]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+  [在 Azure 上建立 Ruby 應用程式]: /zh-TW/develop/ruby/tutorials/web-app-with-linux-vm/
+  [佇列、主題和訂閱]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh367516.aspx
   [Azure SDK for Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby
-  [如何使用 Azure 佇列服務]: /en-us/develop/ruby/how-to-guides/queue-service/
-  [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
+  [如何使用 Azure 佇列服務]: /zh-TW/develop/ruby/how-to-guides/queue-service/
+  [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh767287.aspx

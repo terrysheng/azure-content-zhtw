@@ -5,7 +5,7 @@
 # 使用通知中心向使用者傳送跨平台通知
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/zh-tw/documentation/articles/notification-hubs-mobile-services-cross-platform-notify-users/" title="行動服務" class="current">行動服務</a>    <a href="/zh-tw/documentation/articles/notification-hubs-aspnet-cross-platform-notify-users/" title="ASP.NET">ASP.NET</a>
+<a href="/zh-TW/documentation/articles/notification-hubs-mobile-services-cross-platform-notify-users/" title="行動服務" class="current">行動服務</a>    <a href="/zh-TW/documentation/articles/notification-hubs-aspnet-cross-platform-notify-users/" title="ASP.NET">ASP.NET</a>
 
 </div>
 
@@ -114,15 +114,15 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [行動服務]: /zh-tw/documentation/articles/notification-hubs-mobile-services-cross-platform-notify-users/ "行動服務"
-  [ASP.NET]: /zh-tw/documentation/articles/notification-hubs-aspnet-cross-platform-notify-users/ "ASP.NET"
-  [使用通知中心來通知使用者]: /en-us/manage/services/notification-hubs/notify-users
+  [行動服務]: /zh-TW/documentation/articles/notification-hubs-mobile-services-cross-platform-notify-users/ "行動服務"
+  [ASP.NET]: /zh-TW/documentation/articles/notification-hubs-aspnet-cross-platform-notify-users/ "ASP.NET"
+  [使用通知中心來通知使用者]: /zh-TW/manage/services/notification-hubs/notify-users
   [Azure 通知中心概觀]: http://go.microsoft.com/fwlink/p/?LinkId=317339
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   []: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-services-selection.png
   [1]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-custom-api-select.png
   [2]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-portal-data-tables.png
   [3]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-insert-script-push2.png
-  [Windows 市集 C#]: /en-us/manage/services/notification-hubs/breaking-news-dotnet
-  [iOS]: /en-us/manage/services/notification-hubs/breaking-news-ios
-  [Windows 市集的通知中心作法]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927172.aspx
+  [Windows 市集 C#]: /zh-TW/manage/services/notification-hubs/breaking-news-dotnet
+  [iOS]: /zh-TW/manage/services/notification-hubs/breaking-news-ios
+  [Windows 市集的通知中心作法]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj927172.aspx

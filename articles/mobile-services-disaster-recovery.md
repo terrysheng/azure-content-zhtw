@@ -78,9 +78,9 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Azure SQL Database 的業務續航力]: http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx
+  [Windows Azure SQL Database 的業務續航力]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh852669.aspx
   [Team Foundation Service]: http://tfs.visualstudio.com/
-  [原始檔控制功能]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/
-  [使用 Azure 命令列工具]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/
+  [原始檔控制功能]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/store-scripts-in-source-control/
+  [使用 Azure 命令列工具]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/command-line-administration/
   [Azure 入口網站]: http://manage.windowsazure.com/
-  [Azure 服務儀表板]: http://www.windowsazure.com/en-us/support/service-dashboard/
+  [Azure 服務儀表板]: http://www.windowsazure.com/zh-tw/support/service-dashboard/

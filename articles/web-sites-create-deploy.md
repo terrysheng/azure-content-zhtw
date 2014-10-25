@@ -69,7 +69,7 @@
 
 如需詳細資訊，請參閱 [Azure 網站][]。
 
-  [Azure 網站]: /zh-tw/documentation/services/web-sites/
+  [Azure 網站]: /zh-TW/documentation/services/web-sites/
   [作法：使用管理入口網站來建立網站]: #createawebsiteportal
   [作法：從藝廊建立網站]: #howtocreatefromgallery
   [作法：刪除網站]: #deleteawebsite

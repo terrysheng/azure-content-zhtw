@@ -4,7 +4,7 @@
 
 # 開始使用通知中心
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/zh-tw/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone" class="current">Windows Phone</a><a href="/zh-tw/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/zh-tw/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/zh-tw/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/zh-tw/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-tw/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/zh-TW/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone" class="current">Windows Phone</a><a href="/zh-TW/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/zh-TW/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/zh-TW/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/zh-TW/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-TW/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
 本主題將示範如何使用 Azure 通知中樞，將推播通知傳送到 Windows Phone 8 或 Windows Phone 8.1 Silverlight 應用程式。如果您的目標是 Windows Phone 8.1 (非 Silverlight)，則請參閱 [Windows Universal][1] 版本。
 在本教學課程中，您將使用 Microsoft 推播通知服務 (MPNS)，建立可接收推播通知的空白 Windows Phone 8 應用程式。完成時，您便能夠使用通知中心，將推播通知廣播到所有正在執行您應用程式的裝置。
@@ -23,7 +23,7 @@
 
 完成本教學課程是 Windows Phone 8 應用程式所有其他通知中心教學課程的先決條件。
 
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。</p></div>
+<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-TW/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。</p></div>
 
 ## <a name="configure-hub"></a>建立您的通知中樞
 
@@ -56,7 +56,7 @@
 現在您已擁有註冊 Windows Phone 8 應用程式和傳送通知所需的連接字串。
 
 <div class="dev-callout"><b>注意</b>
-<p>本教學課程使用處於未通過驗證模式的 MPNS。MPNS 未通過驗證模式內含您可傳送至每個通道的通知限制。通知中心支援 <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx">MPNS 驗證模式</a> (英文)。 <!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.--></p>
+<p>本教學課程使用處於未通過驗證模式的 MPNS。MPNS 未通過驗證模式內含您可傳送至每個通道的通知限制。通知中心支援 <a href="http://msdn.microsoft.com/zh-TW/library/windowsphone/develop/ff941099(v=vs.105).aspx">MPNS 驗證模式</a> (英文)。 <!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.--></p>
 </div>
 
 ## <a name="connecting-app"></a>將您的應用程式連接到通知中樞
@@ -177,21 +177,21 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Universal]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /zh-tw/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /zh-tw/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /zh-tw/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /zh-tw/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
-  [1]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-  [通知使用者]: /zh-tw/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/
-  [通知中樞 REST API]: http://msdn.microsoft.com/en-us/library/dn223264.aspx
+  [Windows Universal]: /zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
+  [Windows Phone]: /zh-TW/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
+  [iOS]: /zh-TW/documentation/articles/notification-hubs-ios-get-started/ "iOS"
+  [Android]: /zh-TW/documentation/articles/notification-hubs-android-get-started/ "Android"
+  [Kindle]: /zh-TW/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
+  [Xamarin.iOS]: /zh-TW/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
+  [Xamarin.Android]: /zh-TW/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
+  [1]: /zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+  [通知使用者]: /zh-TW/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/
+  [通知中樞 REST API]: http://msdn.microsoft.com/zh-TW/library/dn223264.aspx
   [建立您的通知中樞]: #configure-hub
   [將您的應用程式連接到通知中樞]: #connecting-app
   [從後端傳送通知]: #send
   [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
+  [Azure 免費試用]: http://www.windowsazure.com/zh-TW/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   []: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal.png
   [2]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal2.png
@@ -199,20 +199,20 @@
   [4]: ./media/notification-hubs-windows-phone-get-started/notification-hub-select-from-portal2.png
   [5]: ./media/notification-hubs-windows-phone-get-started/notification-hub-connection-strings.png
   [6]: ./media/notification-hubs-windows-phone-get-started/notification-hub-pushauth.png
-  [MPNS 驗證模式]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx
+  [MPNS 驗證模式]: http://msdn.microsoft.com/zh-TW/library/windowsphone/develop/ff941099(v=vs.105).aspx
   [7]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-app.png
   [8]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-silverlight-app.png
   [9]: ./media/notification-hubs-windows-phone-get-started/notification-hub-windows-universal-app-install-package.png
   [WindowsAzure.Messaging.Managed NuGet 封裝]: http://nuget.org/packages/WindowsAzure.Messaging.Managed/
   [10]: ./media/notification-hubs-windows-phone-get-started/mobile-app-enable-push-wp8.png
-  [REST 介面]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
-  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/
-  [Java]: /zh-tw/documentation/articles/notification-hubs-java-backend-how-to/
-  [PHP]: /zh-tw/documentation/articles/notification-hubs-php-backend-how-to/
+  [REST 介面]: http://msdn.microsoft.com/zh-TW/library/windowsazure/dn223264.aspx
+  [.NET 後端]: /zh-TW/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/
+  [Java]: /zh-TW/documentation/articles/notification-hubs-java-backend-how-to/
+  [PHP]: /zh-TW/documentation/articles/notification-hubs-php-backend-how-to/
   [11]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
   [WindowsAzure.ServiceBus NuGet 封裝]: http://nuget.org/packages/WindowsAzure.ServiceBus/
-  [快顯目錄]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj662938(v=vs.105).aspx
-  [磚目錄]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/hh202948(v=vs.105).aspx
-  [使用通知中心來推播通知給使用者]: /en-us/manage/services/notification-hubs/notify-users-aspnet
-  [使用通知中心傳送即時新聞]: /en-us/manage/services/notification-hubs/breaking-news-dotnet
-  [通知中心指引]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+  [快顯目錄]: http://msdn.microsoft.com/zh-TW/library/windowsphone/develop/jj662938(v=vs.105).aspx
+  [磚目錄]: http://msdn.microsoft.com/zh-TW/library/windowsphone/develop/hh202948(v=vs.105).aspx
+  [使用通知中心來推播通知給使用者]: /zh-TW/manage/services/notification-hubs/notify-users-aspnet
+  [使用通知中心傳送即時新聞]: /zh-TW/manage/services/notification-hubs/breaking-news-dotnet
+  [通知中心指引]: http://msdn.microsoft.com/zh-TW/library/jj927170.aspx

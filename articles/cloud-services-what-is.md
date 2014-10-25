@@ -49,6 +49,6 @@
 -   **Azure 服務等級協定 (SLA)：**當每一個角色部署兩個以上的執行個體時，Azure 運算 SLA 可保證存取雲端服務期間至少維持在 99.95% 的時間。另外，當角色執行個體的程序未執行時，將以 99.9% 的時間來起始偵測和更正動作。如需詳細資訊，請參閱[服務等級協定][]。
 
   [Azure 網站、雲端服務與虛擬機器的比較]: http://azure.microsoft.com/zh-tw/documentation/articles/choose-web-site-cloud-service-vm/
-  [如何監視雲端服務]: http://azure.microsoft.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/
+  [如何監視雲端服務]: http://azure.microsoft.com/zh-tw/manage/services/cloud-services/how-to-monitor-a-cloud-service/
   [啟用 Azure 診斷]: http://azure.microsoft.com/zh-tw/documentation/articles/cloud-services-dotnet-diagnostics/
-  [服務等級協定]: http://azure.microsoft.com/en-us/support/legal/sla/
+  [服務等級協定]: http://azure.microsoft.com/zh-tw/support/legal/sla/

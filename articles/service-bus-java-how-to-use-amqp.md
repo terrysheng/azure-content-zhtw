@@ -352,10 +352,10 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 -   [如何使用服務匯流排佇列][2]
 
   [Azure 管理入口網站]: http://manage.windowsazure.com
-  [如何使用服務匯流排佇列]: https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/
+  [如何使用服務匯流排佇列]: https://www.windowsazure.com/zh-TW/develop/net/how-to-guides/service-bus-queues/
   []: http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html
   [1]: http://www.w3schools.com/tags/ref_urlencode.asp
-  [Service Bus AMQP 1.0 開發人員指南]: http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx
+  [Service Bus AMQP 1.0 開發人員指南]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj841071.aspx
   [如何透過服務匯流排 .NET API 使用 AMQP 1.0]: http://aka.ms/lym3vk
   [Azure 服務匯流排中的 AMQP 1.0 支援]: http://aka.ms/pgr3dp
-  [2]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/
+  [2]: http://www.windowsazure.com/zh-TW/develop/net/how-to-guides/service-bus-queues/

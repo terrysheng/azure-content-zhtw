@@ -6,27 +6,27 @@
 <div class="left-nav">
 <div class="static-nav">
 <ul>
-<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">運算</a></li>
-<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">資料服務</a></li>
-<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">應用程式服務</a></li>
-<li><a href="/en-us/develop/net/reference/">參考</a></li>
-<li><a href="/en-us/develop/net/guidance/">指引</a></li>
-<li><a href="/en-us/develop/net/architecture/">架構</a></li>
-<li><a href="/en-us/develop/net/samples/">範例</a></li>
-<li><a href="/en-us/develop/net/end-to-end-Apps/">以案例為基礎的教學課程</a></li>
+<li class="menu-nodejs-compute"><a href="/zh-TW/develop/net/compute/">運算</a></li>
+<li class="menu-nodejs-data"><a href="/zh-TW/develop/net/data/">資料服務</a></li>
+<li class="menu-nodejs-appservices"><a href="/zh-TW/develop/net/app-services/">應用程式服務</a></li>
+<li><a href="/zh-TW/develop/net/reference/">參考</a></li>
+<li><a href="/zh-TW/develop/net/guidance/">指引</a></li>
+<li><a href="/zh-TW/develop/net/architecture/">架構</a></li>
+<li><a href="/zh-TW/develop/net/samples/">範例</a></li>
+<li><a href="/zh-TW/develop/net/end-to-end-Apps/">以案例為基礎的教學課程</a></li>
 </ul>
 <ul class="links">
-<li class="forum"><a href="/en-us/support/forums/">論壇</a></li>
+<li class="forum"><a href="/zh-TW/support/forums/">論壇</a></li>
 </ul>
 </div>
 
 <div class="floating-nav jump-to"><br />
 <ul>
 <li>本節內容 (跳至)：</li>
-<li><a href="/en-us/develop/net/architecture/#overviews">應用程式架構概觀</a></li>
+<li><a href="/zh-TW/develop/net/architecture/#overviews">應用程式架構概觀</a></li>
 <li><strong>應用程式模式：多租用戶應用程式</strong></li>
-<li><a href="/en-us/develop/net/architecture/load-testing-pattern/">應用程式模式：負載測試</a></li>
-<li><a href="/en-us/develop/net/architecture/#designpatterns">設計模式</a></li>
+<li><a href="/zh-TW/develop/net/architecture/load-testing-pattern/">應用程式模式：負載測試</a></li>
+<li><a href="/zh-TW/develop/net/architecture/#designpatterns">設計模式</a></li>
 </ul>
 </div>
 
@@ -107,16 +107,16 @@ Azure 提供許多可為應用程式佈建新租用戶的方式。就租用戶�
 
 <!--links-->
 
-  [運算]: /en-us/develop/net/compute/
-  [資料服務]: /en-us/develop/net/data/
-  [應用程式服務]: /en-us/develop/net/app-services/
-  [參考]: /en-us/develop/net/reference/
-  [指引]: /en-us/develop/net/guidance/
-  [架構]: /en-us/develop/net/architecture/
-  [範例]: /en-us/develop/net/samples/
-  [以案例為基礎的教學課程]: /en-us/develop/net/end-to-end-Apps/
-  [論壇]: /en-us/support/forums/
-  [應用程式架構概觀]: /en-us/develop/net/architecture/#overviews
-  [應用程式模式：負載測試]: /en-us/develop/net/architecture/load-testing-pattern/
-  [設計模式]: /en-us/develop/net/architecture/#designpatterns
-  [在 Azure 上代管多租用戶應用程式]: http://msdn.microsoft.com/en-us/library/hh534480.aspx
+  [運算]: /zh-TW/develop/net/compute/
+  [資料服務]: /zh-TW/develop/net/data/
+  [應用程式服務]: /zh-TW/develop/net/app-services/
+  [參考]: /zh-TW/develop/net/reference/
+  [指引]: /zh-TW/develop/net/guidance/
+  [架構]: /zh-TW/develop/net/architecture/
+  [範例]: /zh-TW/develop/net/samples/
+  [以案例為基礎的教學課程]: /zh-TW/develop/net/end-to-end-Apps/
+  [論壇]: /zh-TW/support/forums/
+  [應用程式架構概觀]: /zh-TW/develop/net/architecture/#overviews
+  [應用程式模式：負載測試]: /zh-TW/develop/net/architecture/load-testing-pattern/
+  [設計模式]: /zh-TW/develop/net/architecture/#designpatterns
+  [在 Azure 上代管多租用戶應用程式]: http://msdn.microsoft.com/zh-TW/library/hh534480.aspx

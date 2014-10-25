@@ -293,20 +293,20 @@ x64
 
 建立虛擬機器之後，嘗試建立 SQL Server 虛擬機器。如需指示，請參閱[在 Microsoft Azure 上佈建 SQL Server 虛擬機器][] (英文)。
 
-  [關於 Azure 中的磁碟和映像]: http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx
+  [關於 Azure 中的磁碟和映像]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj672979.aspx
   [如何建立自訂虛擬機器]: http://www.windowsazure.com/zh-tw/documentation/articles/virtual-machines-windows-tutorial/
-  [建立 Azure 帳戶]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
-  [Microsoft Azure 下載]: http://www.windowsazure.com/en-us/downloads/
+  [建立 Azure 帳戶]: http://www.windowsazure.com/zh-tw/develop/php/tutorials/create-a-windows-azure-account/
+  [Microsoft Azure 下載]: http://www.windowsazure.com/zh-tw/downloads/
   [這裡]: http://www.windowsazure.com/zh-tw/documentation/articles/install-configure-powershell/
-  [Add-AzureVHD]: http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx
-  [安裝 Hyper-V 角色及設定虛擬機器]: http://technet.microsoft.com/en-us/library/hh846766.aspx
-  [Convert-VHD Cmdlet]: http://technet.microsoft.com/en-us/library/hh848454.aspx
+  [Add-AzureVHD]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn205185.aspx
+  [安裝 Hyper-V 角色及設定虛擬機器]: http://technet.microsoft.com/zh-tw/library/hh846766.aspx
+  [Convert-VHD Cmdlet]: http://technet.microsoft.com/zh-tw/library/hh848454.aspx
   [1]: http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx
   [步驟 1：準備要上傳的映像]: #prepimage
   [步驟 2：在 Azure 中建立儲存體帳戶]: #createstorage
   [步驟 3：準備 Azure 的連線]: #prepAzure
   [步驟 4：上傳 .vhd 檔案]: #upload
-  [如何使用 Sysprep：簡介]: http://technet.microsoft.com/en-us/library/bb457073.aspx
+  [如何使用 Sysprep：簡介]: http://technet.microsoft.com/zh-tw/library/bb457073.aspx
   [開啟 命令提示字元 視窗]: ./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png
   [啟動 Sysprep]: ./media/virtual-machines-create-upload-vhd-windows-server/sysprepgeneral.png
   [快速建立儲存體帳戶]: ./media/virtual-machines-create-upload-vhd-windows-server/Storage-quick-create.png
@@ -319,9 +319,9 @@ x64
   [作法：安裝 Microsoft Azure PowerShell]: #Install
   [PowerShell Window]: ./media/virtual-machines-create-upload-vhd-windows-server/add_azureaccount.png
   [瀏覽器下載頁面]: ./media/virtual-machines-create-upload-vhd-windows-server/Browser_download_GetPublishSettingsFile.png
-  [開始使用 Microsoft Azure Cmdlet]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx
+  [開始使用 Microsoft Azure Cmdlet]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554332.aspx
   [PowerShell Add-AzureVHD]: ./media/virtual-machines-create-upload-vhd-windows-server/powershell_upload_vhd.png
-  [Add-AzureVhd]: http://msdn.microsoft.com/en-us/library/dn495173.aspx
+  [Add-AzureVhd]: http://msdn.microsoft.com/zh-tw/library/dn495173.aspx
   [3]: ./media/virtual-machines-create-upload-vhd-windows-server/Create_Image.png
   [選取 VHD]: ./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png
   [新增映像]: ./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png

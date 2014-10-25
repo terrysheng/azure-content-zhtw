@@ -76,9 +76,9 @@
 
 > [WACOM.NOTE] 您的網站應用程式可以根據連接字串名稱來存取連接字串。在 .NET 應用程式中，連接字串位於 **connectionStrings** 物件中。在其他程式設計語言中，連接字串則可以環境變數的形式受到存取。如需詳細資訊，請參閱[如何設定網站][]。
 
-  [Azure 市集]: /en-us/gallery/store/
+  [Azure 市集]: /zh-TW/gallery/store/
   [ClearDB]: http://www.cleardb.com/
-  [Azure 網站]: /zh-tw/documentation/services/web-sites/
+  [Azure 網站]: /zh-TW/documentation/services/web-sites/
   [作法：從 Azure 市集建立 MySQL 資料庫]: #CreateFromStore
   [作法：為 Azure 網站建立 MySQL 資料庫作為連結的資源]: #CreateForWebSite
   [Azure 管理入口網站]: http://manage.windowsazure.com

@@ -85,26 +85,26 @@
 如需完整的教學課程系列，請參閱＜[PHP 開發人員中心 - 教學課程][]＞頁面 (英文)。
 
   [Azure 管理入口網站]: http://manage.windowsazure.com/
-  [適用於 Mac 和 Linux 的 Azure 命令列工具]: /en-us/develop/php/how-to-guides/command-line-tools/
-  [Azure PowerShell Cmdlet]: /en-us/develop/php/how-to-guides/powershell-cmdlets/
-  [Azure 網站]: /en-us/manage/services/web-sites/
-  [如何在 Azure 網站中設定 PHP]: /en-us/develop/php/common-tasks/configure-php-web-site/
-  [Azure 網站定價]: http://www.windowsazure.com/en-us/pricing/details/#header-1
-  [如何調整網站]: /en-us/manage/services/web-sites/how-to-scale-websites/
+  [適用於 Mac 和 Linux 的 Azure 命令列工具]: /zh-TW/develop/php/how-to-guides/command-line-tools/
+  [Azure PowerShell Cmdlet]: /zh-TW/develop/php/how-to-guides/powershell-cmdlets/
+  [Azure 網站]: /zh-TW/manage/services/web-sites/
+  [如何在 Azure 網站中設定 PHP]: /zh-TW/develop/php/common-tasks/configure-php-web-site/
+  [Azure 網站定價]: http://www.windowsazure.com/zh-TW/pricing/details/#header-1
+  [如何調整網站]: /zh-TW/manage/services/web-sites/how-to-scale-websites/
   [使用 Azure 管理入口網站來建立網站]: #portal
   [使用適用於 Mac 和 Linux 的 Azure 命令列工具來建立網站]: #XplatTools
   [使用 Azure PowerShell Cmdlet 來建立網站]: #PowerShell
-  [建立 PHP-MySQL Azure 網站並使用 Git 部署]: /en-us/develop/php/tutorials/website-w-mysql-and-git/
-  [從 Azure 中的組件庫建立 WordPress 網站]: /en-us/develop/php/tutorials/website-from-gallery/
+  [建立 PHP-MySQL Azure 網站並使用 Git 部署]: /zh-TW/develop/php/tutorials/website-w-mysql-and-git/
+  [從 Azure 中的組件庫建立 WordPress 網站]: /zh-TW/develop/php/tutorials/website-from-gallery/
   [Select Quick Create web site]: ./media/web-sites-php-create-web-sites/select-quickcreate-website.png
-  [如何安裝適用於 Mac 和 Linux 的 Azure 命令列工具]: /en-us/develop/php/how-to-guides/command-line-tools/#Download
-  [如何下載和匯入發行設定]: /en-us/develop/php/how-to-guides/command-line-tools/#Account
-  [如何建立和管理 Azure 網站]: /en-us/develop/php/how-to-guides/command-line-tools/#WebSites
-  [開始使用 Azure PowerShell]: /en-us/develop/php/how-to-guides/powershell-cmdlets/#GetStarted
-  [作法：匯入發行設定]: /en-us/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
-  [作法：建立和管理 Azure 網站]: /en-us/develop/php/how-to-guides/powershell-cmdlets/#WebSite
-  [如何設定網站]: /en-us/manage/services/web-sites/how-to-configure-websites/
-  [如何管理網站]: /en-us/manage/services/web-sites/how-to-manage-websites/
-  [如何監視網站]: /en-us/manage/services/web-sites/how-to-monitor-websites/
-  [使用 Git 來發行]: /en-us/develop/php/common-tasks/publishing-with-git/
-  [PHP 開發人員中心 - 教學課程]: /en-us/develop/php/tutorials/
+  [如何安裝適用於 Mac 和 Linux 的 Azure 命令列工具]: /zh-TW/develop/php/how-to-guides/command-line-tools/#Download
+  [如何下載和匯入發行設定]: /zh-TW/develop/php/how-to-guides/command-line-tools/#Account
+  [如何建立和管理 Azure 網站]: /zh-TW/develop/php/how-to-guides/command-line-tools/#WebSites
+  [開始使用 Azure PowerShell]: /zh-TW/develop/php/how-to-guides/powershell-cmdlets/#GetStarted
+  [作法：匯入發行設定]: /zh-TW/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
+  [作法：建立和管理 Azure 網站]: /zh-TW/develop/php/how-to-guides/powershell-cmdlets/#WebSite
+  [如何設定網站]: /zh-TW/manage/services/web-sites/how-to-configure-websites/
+  [如何管理網站]: /zh-TW/manage/services/web-sites/how-to-manage-websites/
+  [如何監視網站]: /zh-TW/manage/services/web-sites/how-to-monitor-websites/
+  [使用 Git 來發行]: /zh-TW/develop/php/common-tasks/publishing-with-git/
+  [PHP 開發人員中心 - 教學課程]: /zh-TW/develop/php/tutorials/

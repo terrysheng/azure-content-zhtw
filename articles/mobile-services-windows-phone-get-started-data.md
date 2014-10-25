@@ -17,7 +17,7 @@
 </div>
 
 <div class="dev-callout"><b>注意</b>
-<p>本教學課程旨在協助您深入了解如何透過行動服務，來使用 Azure 儲存並擷取 Phone 8 應用程式中的資料。因此，本主題將逐步說明已在行動服務快速入門中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮首先完成教學課程<a href="/en-us/develop/mobile/tutorials/get-started-wp8">開始使用行動服務</a>。</p>
+<p>本教學課程旨在協助您深入了解如何透過行動服務，來使用 Azure 儲存並擷取 Phone 8 應用程式中的資料。因此，本主題將逐步說明已在行動服務快速入門中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮首先完成教學課程<a href="/zh-tw/develop/mobile/tutorials/get-started-wp8">開始使用行動服務</a>。</p>
 </div>
 
 本教學課程將逐步引導您完成下列基本步驟：
@@ -181,14 +181,14 @@
 
   [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
   [觀看教學課程]: http://go.microsoft.com/fwlink/?LinkID=298628
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started-wp8
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-wp8
   [下載 Windows Phone 8 應用程式專案]: #download-app
   [建立行動服務]: #create-service
   [新增用於儲存的資料表]: #add-table
   [更新應用程式以使用行動服務]: #update-app
   [針對行動服務進行應用程式測試]: #test-app
   [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F
   [GetStartedWithData 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=271146
   [Windows Phone 市集應用程式版本]: http://go.microsoft.com/fwlink/p/?LinkId=397372
   [0]: ./media/mobile-services-windows-phone-get-started-data/mobile-quickstart-startup-wp8.png
@@ -198,7 +198,7 @@
   [2]: ./media/mobile-services-windows-phone-get-started-data/mobile-dashboard-tab.png
   [管理入口網站]: https://manage.windowsazure.com/
   [3]: ./media/mobile-services-windows-phone-get-started-data/mobile-todoitem-data-browse.png
-  [使用指令檔驗證與修改資料]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
-  [使用分頁縮小查詢範圍]: /en-us/develop/mobile/tutorials/add-paging-to-data-wp8
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
-  [開始使用推送通知]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
+  [使用指令檔驗證與修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
+  [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-wp8
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-wp8
+  [開始使用推送通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-wp8

@@ -126,10 +126,10 @@
 <!-- Images --> 
 <!-- URLs -->
 
-  [DbContext]: http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx
+  [DbContext]: http://msdn.microsoft.com/zh-tw/library/system.data.entity.dbcontext(v=vs.113).aspx
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [在移轉中植入資料]: #seeding
   []: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/navagate-to-sql-database.png
   [1]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/manage-sql-database.png
-  [Seed]: http://msdn.microsoft.com/en-us/library/hh829453(v=vs.113).aspx
-  [AddOrUpdate]: http://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+  [Seed]: http://msdn.microsoft.com/zh-tw/library/hh829453(v=vs.113).aspx
+  [AddOrUpdate]: http://msdn.microsoft.com/zh-tw/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx

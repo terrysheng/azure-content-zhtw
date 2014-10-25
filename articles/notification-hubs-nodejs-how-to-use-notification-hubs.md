@@ -189,12 +189,12 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
   [建立 Node.js 應用程式]: #create
   [將應用程式設為使用通知中樞]: #config
   [作法：傳送通知]: #send
-  [Azure 通知中心]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx
-  [建立 Node.js 應用程式並將其部署到 Azure 網站]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-  [Node.js 雲端服務]: /zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [使用 WebMatrix 的網站]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
+  [Azure 通知中心]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj927170.aspx
+  [建立 Node.js 應用程式並將其部署到 Azure 網站]: /zh-TW/develop/nodejs/tutorials/create-a-website-(mac)/
+  [Node.js 雲端服務]: /zh-TW/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [使用 WebMatrix 的網站]: /zh-TW/develop/nodejs/tutorials/web-site-with-webmatrix/
   [實作 GCM 伺服器]: http://developer.android.com/google/gcm/server.html#payload
   [本機與推播通知程式設計指南]: http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html
-  [從伺服器推播通知]: http://msdn.microsoft.com/en-us/library/hh221551.aspx
-  [推播通知服務要求和回應標頭]: http://msdn.microsoft.com/en-us/library/windows/apps/hh465435.aspx
+  [從伺服器推播通知]: http://msdn.microsoft.com/zh-TW/library/hh221551.aspx
+  [推播通知服務要求和回應標頭]: http://msdn.microsoft.com/zh-TW/library/windows/apps/hh465435.aspx
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node

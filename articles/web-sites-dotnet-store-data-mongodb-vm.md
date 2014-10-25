@@ -495,8 +495,8 @@ MongoDB C# 驅動程式現已安裝。**MongoDB.Driver.dll** 和 **MongoDB.Bson.
   [ASP.net 網站]: http://www.asp.net/
   [ASP.NET MVC 網站]: http://www.asp.net/mvc
   [Azure]: http://www.windowsazure.com
-  [在 Azure 中執行 Windows Server 的虛擬機器上安裝 MongoDB]: /en-us/manage/windows/common-tasks/install-mongodb/
-  [在 Azure 中執行 CentOS Linux 的虛擬機器上安裝 MongoDB]: /en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm/
+  [在 Azure 中執行 Windows Server 的虛擬機器上安裝 MongoDB]: /zh-TW/manage/windows/common-tasks/install-mongodb/
+  [在 Azure 中執行 CentOS Linux 的虛擬機器上安裝 MongoDB]: /zh-TW/manage/linux/common-tasks/mongodb-on-a-linux-vm/
   [Visual Studio Express 2013 for Web]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
   [Visual Studio 2013]: http://www.microsoft.com/visualstudio/eng/2013-downloads
   [Start Page New Project]: ./media/web-sites-dotnet-store-data-mongodb-vm/NewProject.png

@@ -296,9 +296,9 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 <!-- Bookmarks -->
 
   [http://\<mysite]: http://<mysite
-  [使用 Azure 流量管理員來控制 Azure 網站的流量]: /zh-tw/documentation/articles/web-sites-traffic-manager/
-  [在 Azure 中設定自訂網域名稱]: /en-us/develop/net/common-tasks/custom-dns/
-  [網站定價詳細資料]: /en-us/pricing/details/web-sites/
+  [使用 Azure 流量管理員來控制 Azure 網站的流量]: /zh-TW/documentation/articles/web-sites-traffic-manager/
+  [在 Azure 中設定自訂網域名稱]: /zh-TW/develop/net/common-tasks/custom-dns/
+  [網站定價詳細資料]: /zh-TW/pricing/details/web-sites/
   [了解 CNAME 和 A 記錄]: #understanding-records
   [將網站設定為共用或標準模式]: #bkmk_configsharedmode
   [將網站新增至流量管理員]: #trafficmanager
@@ -306,17 +306,17 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
   [新增自訂網域的 A 記錄]: #bkmk_configurearecord
   [維基百科 CNAME 記錄條目]: http://en.wikipedia.org/wiki/CNAME_record
   [IETF 網域名稱 - 實作與規格]: http://tools.ietf.org/html/rfc1035
-  [定價詳細資料]: /en-us/pricing/details/
+  [定價詳細資料]: /zh-TW/pricing/details/
   [管理入口網站]: http://manage.windowsazure.com
   []: ./media/custom-dns-web-site/dncmntask-cname-1.png
   [1]: ./media/custom-dns-web-site/dncmntask-cname-2.png
   [2]: ./media/custom-dns-web-site/dncmntask-cname-3.png
-  [使用快速建立來建立流量管理員設定檔]: http://msdn.microsoft.com/en-us/library/windowsazure/dn339012.aspx
-  [新增或刪除端點]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx
-  [Azure Powershell]: /en-us/manage/install-and-configure-windows-powershell/
-  [Azure 跨平台命令列介面]: /en-us/manage/install-and-configure-cli/
+  [使用快速建立來建立流量管理員設定檔]: http://msdn.microsoft.com/zh-TW/library/windowsazure/dn339012.aspx
+  [新增或刪除端點]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh744839.aspx
+  [Azure Powershell]: /zh-TW/manage/install-and-configure-windows-powershell/
+  [Azure 跨平台命令列介面]: /zh-TW/manage/install-and-configure-cli/
   [3]: ./media/custom-dns-web-site/dncmntask-cname-6.png
   [4]: ./media/custom-dns-web-site/dncmntask-cname-7.png
-  [如何管理網站]: /en-us/manage/services/web-sites/how-to-manage-websites/
-  [設定網站的 SSL 憑證]: /en-us/develop/net/common-tasks/enable-ssl-web-site/
+  [如何管理網站]: /zh-TW/manage/services/web-sites/how-to-manage-websites/
+  [設定網站的 SSL 憑證]: /zh-TW/develop/net/common-tasks/enable-ssl-web-site/
 

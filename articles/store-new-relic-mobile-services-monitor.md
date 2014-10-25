@@ -116,10 +116,10 @@
   [安裝 New Relic 模組]: #install-module
   [啟用行動服務的 New Relic 開發人員分析]: #enable-service
   [在 New Relic 儀表板中監視行動服務]: #monitor
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started/
-  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started/
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet
   [Azure 管理入口網站]: https://manage.windowsazure.com
-  [在原始檔控制中儲存伺服器指令碼]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/
+  [在原始檔控制中儲存伺服器指令碼]: /zh-tw/develop/mobile/tutorials/store-scripts-in-source-control/
   [Node Package Manager (NPM)]: http://nodejs.org/
   [New Relic 模組]: https://npmjs.org/package/newrelic
   [管理入口網站]: https://manage.windowsazure.com/
@@ -129,5 +129,5 @@
   [3]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring-complete.png
   [4]: ./media/store-new-relic-mobile-services-monitor/mobile-new-relic-dashboard.png
   [5]: ./media/store-new-relic-mobile-services-monitor/mobile-new-relic-dashboard-2.png
-  [Azure 市集的 New Relic 頁面]: /en-us/gallery/store/new-relic/new-relic/
+  [Azure 市集的 New Relic 頁面]: /zh-tw/gallery/store/new-relic/new-relic/
   [應用程式概觀]: https://docs.newrelic.com/docs/applications-dashboards/applications-overview

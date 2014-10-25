@@ -174,10 +174,10 @@
 
 本教學課程已顯示如何建立和設定單一租用戶應用程式，來使用 Azure Active Directory 的單一登入功能。您也可以閱讀下列教學課程，為 Azure Active Directory 建立多租用戶應用程式：[利用 Azure Active Directory 開發多租用戶雲端應用程式][] (英文)。
 
-  [ASP.NET MVC 3]: http://www.microsoft.com/en-us/download/details.aspx?id=4211
-  [Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/en-us/download/details.aspx?id=17331
-  [Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=4451
-  [Office 365 PowerShell Commandlets]: http://onlinehelp.microsoft.com/en-us/office365-enterprises/ff652560.aspx
+  [ASP.NET MVC 3]: http://www.microsoft.com/zh-TW/download/details.aspx?id=4211
+  [Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/zh-TW/download/details.aspx?id=17331
+  [Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/zh-TW/download/details.aspx?id=4451
+  [Office 365 PowerShell Commandlets]: http://onlinehelp.microsoft.com/zh-TW/office365-enterprises/ff652560.aspx
   [簡介]: #introduction
   [步驟 1：建立 ASP.NET MVC 應用程式]: #createapp
   [步驟 2：在公司的目錄租用戶中佈建應用程式]: #provisionapp

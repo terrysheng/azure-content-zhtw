@@ -38,7 +38,7 @@
 
 <div class="dev-callout"> 
 <b>注意</b>
-<p>如果您已經完成<a href="/en-us/manage/services/networking/active-directory-forest/">在 Azure 中安裝新的 Active Directory 樹系</a>中的步驟，可能需要先移除 Azure 虛擬網路之網域控制器上的 AD DS，才能開始進行本教學課程。如需移除 AD DS 之方式的詳細資訊，請參閱<a href="http://technet.microsoft.com/en-us/library/cc771844(v=WS.10).aspx">從網域移除網域控制站</a>。</p>
+<p>如果您已經完成<a href="/zh-tw/manage/services/networking/active-directory-forest/">在 Azure 中安裝新的 Active Directory 樹系</a>中的步驟，可能需要先移除 Azure 虛擬網路之網域控制器上的 AD DS，才能開始進行本教學課程。如需移除 AD DS 之方式的詳細資訊，請參閱<a href="http://technet.microsoft.com/zh-tw/library/cc771844(v=WS.10).aspx">從網域移除網域控制站</a>。</p>
 </div>
 
 ## <span id="verifystaticip"></span></a>步驟 1：驗證 YourPrimaryDC 的靜態 IP 位址
@@ -228,7 +228,7 @@
         $myDNS = New-AzureDNS -Name 'ContosoDC13' -IPAddress '10.4.3.1'
 
         # OS Image to Use
-        $image = 'MSFT__Sql-Server-11EVAL-11.0.2215.0-08022012-en-us-30GB.vhd'
+        $image = 'MSFT__Sql-Server-11EVAL-11.0.2215.0-08022012-zh-tw-30GB.vhd'
         $service = 'myazuresvcindomainM1'
         $AG = 'YourAffinityGroup'
         $vnet = 'YourVirtualNetwork'
@@ -282,8 +282,8 @@
 
 -   [Azure 管理 Cmdlet][]
 
-  [虛擬網路]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx
-  [在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx
+  [虛擬網路]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx
+  [在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090.aspx
   [必要條件]: #Prerequisites
   [步驟 1：驗證 YourPrimaryDC 的靜態 IP 位址]: #verifystaticip
   [步驟 2：安裝企業樹系]: #installforest
@@ -293,11 +293,11 @@
   [步驟 6：佈建在開機時便已加入網域的虛擬機器]: #provisionvm
   [步驟 7：備份網域控制站]: #backup
   [步驟 8：測試驗證和授權]: #test
-  [管理入口網站中設定站對站 VPN]: http://msdn.microsoft.com/en-us/library/dn133795.aspx
+  [管理入口網站中設定站對站 VPN]: http://msdn.microsoft.com/zh-tw/library/dn133795.aspx
   [將虛擬機器新增至虛擬網路]: http://azure.microsoft.com/zh-tw/documentation/articles/virtual-networks-add-virtual-machine/
   [建立區域委派]: http://technet.microsoft.com/library/cc753500.aspx
-  [在 Azure 中安裝新的 Active Directory 樹系]: /en-us/manage/services/networking/active-directory-forest/
-  [從網域移除網域控制站]: http://technet.microsoft.com/en-us/library/cc771844(v=WS.10).aspx
+  [在 Azure 中安裝新的 Active Directory 樹系]: /zh-tw/manage/services/networking/active-directory-forest/
+  [從網域移除網域控制站]: http://technet.microsoft.com/zh-tw/library/cc771844(v=WS.10).aspx
   [VerifystaticIPaddressyourPrimaryDC1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/VerifystaticIP.png
   [InstallCorpForest1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest1.png
   [InstallCorpForest2]: ./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest2.png
@@ -332,8 +332,8 @@
   [AddDC12]: ./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC12.png
   [AddDC13]: ./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC13.png
   [AddDC14]: ./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC14.png
-  [Azure PowerShell]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx
-  [Azure 管理 Cmdlet]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841
+  [Azure PowerShell]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156055.aspx
+  [Azure 管理 Cmdlet]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj152841
   [BackupDC]: ./media/virtual-networks-install-replica-active-directory-domain-controller/BackupDC.png
   [Windows Azure IT Pro IaaS：(01) 虛擬機器基礎]: http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01
   [Windows Azure IT Pro IaaS：(05) 建立虛擬網路及跨單位連線]: http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05

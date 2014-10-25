@@ -159,14 +159,14 @@ Azure SDK 提供準備這些必要部署檔案的工具。您可以從 [Azure �
   [作法：使用「快速建立」建立雲端服務]: #quick
   [作法：上傳雲端服務的憑證]: #uploadcertificate
   [作法：部署雲端服務]: #deploy
-  [Azure 下載]: http://www.windowsazure.com/en-us/develop/downloads/
+  [Azure 下載]: http://www.windowsazure.com/zh-tw/develop/downloads/
   [Azure 程式碼範例]: http://code.msdn.microsoft.com/windowsazure/
-  [設定 HTTPS 端點的 SSL 憑證]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
-  [對於角色設定遠端桌面連線概觀]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433010.aspx
-  [啟用 Azure 診斷]: http://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/
+  [設定 HTTPS 端點的 SSL 憑證]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff795779.aspx
+  [對於角色設定遠端桌面連線概觀]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433010.aspx
+  [啟用 Azure 診斷]: http://www.windowsazure.com/zh-tw/develop/net/common-tasks/diagnostics/
   [管理入口網站]: http://manage.windowsazure.com/
   [CloudServices\_QuickCreate]: ./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png
-  [同質群組的相關作業]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx
+  [同質群組的相關作業]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460798.aspx
 
 
   [CloudServices\_CloudServicesPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png
@@ -174,8 +174,8 @@ Azure SDK 提供準備這些必要部署檔案的工具。您可以從 [Azure �
   [CloudServices\_CertificatesPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_CertificatesPage.png
   [CloudServices\_AddaCertificate]: ./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png
   [CloudServices\_CertificateProgress]: ./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png
-  [Azure SDK .NET 版本資訊]: http://msdn.microsoft.com/en-us/library/windowsazure/hh552718.aspx
+  [Azure SDK .NET 版本資訊]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh552718.aspx
   [CloudServices\_QuickStartPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_QuickStartPage.png
   [CloudServices\_UploadaPackage]: ./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png
-  [服務等級協定]: http://www.windowsazure.com/en-us/support/legal/sla/
+  [服務等級協定]: http://www.windowsazure.com/zh-tw/support/legal/sla/
   [CloudServices_UploadProgress]: ./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)

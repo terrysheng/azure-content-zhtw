@@ -5,9 +5,9 @@
 # 處理資料庫寫入衝突
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/" title="Windows 市集 C#">Windows 市集 C#</a>
+<a href="/zh-tw/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/" title="Windows 市集 C#">Windows 市集 C#</a>
 <a href="/zh-tw/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a>
-<a href="/en-us/develop/mobile/tutorials/handle-database-write-conflicts-wp8/" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/zh-tw/develop/mobile/tutorials/handle-database-write-conflicts-wp8/" title="Windows Phone" class="current">Windows Phone</a>
 </div>
 
 本教學課程可協助您深入了解如何處理在兩個或更多用戶端寫入至 Windows Phone 8 應用程式中的相同資料庫記錄時所發生的衝突。在部分案例中，兩個或多個用戶端可能會同時對相同項目寫入變更。在沒有偵測到任何衝突的情況下，最後寫入將覆寫任何先前的更新，即使這不是您想要的結果。行動服務可支援偵測及解決這些衝突的作業。本主題將逐步引導您完成下列步驟，讓您處理伺服器上與應用程式中的資料庫寫入衝突。
@@ -292,16 +292,16 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "Windows 市集 C#"
+  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "Windows 市集 C#"
   [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/ "Windows 市集 JavaScript"
-  [Windows Phone]: /en-us/develop/mobile/tutorials/handle-database-write-conflicts-wp8/ "Windows Phone"
+  [Windows Phone]: /zh-tw/develop/mobile/tutorials/handle-database-write-conflicts-wp8/ "Windows Phone"
   [更新應用程式以允許更新]: #uiupdate
   [在應用程式中啟用衝突偵測]: #enableOC
   [在應用程式中測試資料庫寫入衝突]: #test-app
   [以伺服器指令碼自動處理衝突的解決方式]: #scriptsexample
   [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
-  [Azure 帳戶]: http://www.windowsazure.com/en-us/pricing/free-trial/
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started-wp8
+  [Azure 帳戶]: http://www.windowsazure.com/zh-tw/pricing/free-trial/
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-wp8
   []: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
   [1]: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
   [開放式並行存取控制項]: http://go.microsoft.com/fwlink/?LinkId=330935
@@ -320,7 +320,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
   [12]: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-oc-apps-insync-wp8.png
   [13]: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-oc-apps-complete-checkbox-wp8.png
   [14]: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-oc-apps-already-completed-wp8.png
-  [使用指令檔驗證與修改資料]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
-  [使用分頁縮小查詢範圍]: /en-us/develop/mobile/tutorials/add-paging-to-data-wp8
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
-  [開始使用推送通知]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
+  [使用指令檔驗證與修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
+  [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-wp8
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-wp8
+  [開始使用推送通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-wp8

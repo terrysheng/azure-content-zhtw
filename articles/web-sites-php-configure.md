@@ -97,9 +97,9 @@ PHP 5.5 也可供使用，不過並未預設啟用。若要將它啟用，請依
 -   [在 Azure 中設定、監視和調整網站][]
 -   [下載 Azure SDK for PHP][]
 
-  [免費試用]: https://www.windowsazure.com/en-us/pricing/free-trial/
-  [PHP 開發人員中心教學課程]: https://www.windowsazure.com/en-us/develop/php/tutorials/
-  [如何設定網站]: https://www.windowsazure.com/en-us/manage/services/web-sites/how-to-configure-websites/
+  [免費試用]: https://www.windowsazure.com/zh-TW/pricing/free-trial/
+  [PHP 開發人員中心教學課程]: https://www.windowsazure.com/zh-TW/develop/php/tutorials/
+  [如何設定網站]: https://www.windowsazure.com/zh-TW/manage/services/web-sites/how-to-configure-websites/
   [什麼是 Azure 網站？]: #WhatIs
   [作法：變更預設 PHP 組態]: #ChangeBuiltInPHP
   [作法：在內建 PHP 執行階段中啟用擴充]: #EnableExtDefaultPHP
@@ -116,5 +116,5 @@ PHP 5.5 也可供使用，不過並未預設啟用。若要將它啟用，請依
   []: http://windows.php.net/download/
   [1]: http://windows.php.net/downloads/releases/archives/
   [指定處理常式對應中的處理常式]: ./media/web-sites-php-configure/handler-mappings.png
-  [在 Azure 中設定、監視和調整網站]: http://www.windowsazure.com/en-us/manage/services/web-sites/
-  [下載 Azure SDK for PHP]: http://www.windowsazure.com/en-us/develop/php/common-tasks/download-php-sdk/
+  [在 Azure 中設定、監視和調整網站]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/
+  [下載 Azure SDK for PHP]: http://www.windowsazure.com/zh-TW/develop/php/common-tasks/download-php-sdk/

@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-howto-configure-raid" urlDisplayName="Configure RAID on Linux" pageTitle="Configure software RAID on avirtual machine running Linux in Azure" metaKeywords="raid in Azure, madadm Azure, stripe disks in Azure" description="Learn how to use mdadm to configure RAID on Linux in Azure." metaCanonical="http://www.windowsazure.com/en-us/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="szark" manager="timlt" editor=""  />
+<properties linkid="manage-linux-howto-configure-raid" urlDisplayName="Configure RAID on Linux" pageTitle="Configure software RAID on avirtual machine running Linux in Azure" metaKeywords="raid in Azure, madadm Azure, stripe disks in Azure" description="Learn how to use mdadm to configure RAID on Linux in Azure." metaCanonical="http://www.windowsazure.com/zh-tw/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="szark" manager="timlt" editor=""  />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
 
@@ -154,4 +154,4 @@
     請參閱散發套件的文件，以取得如何正確編輯核心參數的相關資訊。例如，在許多散發套件 (CentOS、Oracle Linux、SLES 11) 中，這些參數可能會以手動方式新增至 "`/boot/grub/menu.lst`" 檔案。在 Ubuntu 上，可將此參數新增至 "/etc/default/grub" 上的 `GRUB_CMDLINE_LINUX_DEFAULT` 參數。
 
   [連接磁碟]: http://www.windowsazure.com/zh-tw/documentation/articles/storage-windows-attach-disk/#attachempty
-  [Windows Azure 的虛擬機器和雲端服務大小]: http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx
+  [Windows Azure 的虛擬機器和雲端服務大小]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn197896.aspx

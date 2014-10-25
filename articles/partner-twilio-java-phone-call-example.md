@@ -189,11 +189,11 @@
   [4]: http://github.com/twilio/twilio-java
   [5]: http://api.twilio.com
   [新增憑證至 Java CA 憑證存放區]: ../java-add-certificate-ca-store
-  [使用 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供) 建立 Hello World 應用程式]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx
+  [使用 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供) 建立 Hello World 應用程式]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh690944.aspx
   [Azure Call Response Using Twilio and Java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
-  [如何從 Java 使用 Blob 儲存體服務]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
-  [在 Java 中使用 SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/hh749029.aspx
-  [在 JSP 中使用 Azure Service Runtime Library]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690948.aspx
+  [如何從 Java 使用 Blob 儲存體服務]: http://www.windowsazure.com/zh-TW/develop/java/how-to-guides/blob-storage/
+  [在 Java 中使用 SQL Database]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh749029.aspx
+  [在 JSP 中使用 Azure Service Runtime Library]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh690948.aspx
   [6]: http://dl.windowsazure.com/javadoc
   [7]: http://twimlets.com/message
   [如何在 Java 中透過 Twilio 使用語音和簡訊功能]: ../partner-twilio-java-how-to-use-voice-sms

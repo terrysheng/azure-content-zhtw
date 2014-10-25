@@ -324,7 +324,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
   [在叢集執行命令]: #BKMK_RunCommand
   [執行測試工作]: #BKMK_RunJob
   [停止 Azure 節點]: #BKMK_stop
-  [建立 Azure 帳戶]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
+  [建立 Azure 帳戶]: http://www.windowsazure.com/zh-TW/develop/php/tutorials/create-a-windows-azure-account/
   [評估版]: http://technet.microsoft.com/evalcenter/dn205286.aspx
   [下載]: http://go.microsoft.com/fwlink/p/?linkid=389557
   [HPC Pack 2012 Setup]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/install_hpc1.png

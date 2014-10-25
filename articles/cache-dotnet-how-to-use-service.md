@@ -437,7 +437,7 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
 <!-- LINKS -->
 
   [後續步驟]: #next-steps
-  [適合我的 Azure 快取提供項目]: http://msdn.microsoft.com/en-us/library/azure/dn766201.aspx
+  [適合我的 Azure 快取提供項目]: http://msdn.microsoft.com/zh-tw/library/azure/dn766201.aspx
   [何謂 Azure 受管理快取服務？]: #what-is
   [開始使用受管理的快取服務]: #getting-started-cache-service
   [建立快取]: #create-cache
@@ -449,12 +449,12 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
   [作法：指定快取中物件的到期時間]: #specify-expiration
   [作法：將 ASP.NET 工作階段狀態儲存在快取中]: #store-session
   [作法：將 ASP.NET 頁面輸出快取儲存在快取中]: #store-page
-  [快取定價詳細資料]: http://www.windowsazure.com/en-us/pricing/details/cache/
+  [快取定價詳細資料]: http://www.windowsazure.com/zh-tw/pricing/details/cache/
   [Azure 受管理快取服務概觀]: http://go.microsoft.com/fwlink/?LinkId=320830
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [如何安裝和設定 Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
-  [Add-AzureAccount]: http://msdn.microsoft.com/en-us/library/dn495128.aspx
-  [Select-AzureSubscription]: http://msdn.microsoft.com/en-us/library/dn495203.aspx
+  [Add-AzureAccount]: http://msdn.microsoft.com/zh-tw/library/dn495128.aspx
+  [Select-AzureSubscription]: http://msdn.microsoft.com/zh-tw/library/dn495203.aspx
   [New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
   [快取提供項目]: http://go.microsoft.com/fwlink/?LinkId=317277
   [NamedCaches]: ./media/cache-dotnet-how-to-use-service/CacheServiceNamedCaches.jpg

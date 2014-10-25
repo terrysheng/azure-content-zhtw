@@ -193,7 +193,7 @@
 
   [PHP Sample Code for Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
   [Eclipse PDT 3.0.x All In Ones]: http://www.eclipse.org/pdt/downloads/
-  [Office 365 PowerShell Commandlets]: http://onlinehelp.microsoft.com/en-us/office365-enterprises/ff652560.aspx
+  [Office 365 PowerShell Commandlets]: http://onlinehelp.microsoft.com/zh-TW/office365-enterprises/ff652560.aspx
   [簡介]: #introduction
   [步驟 1：建立 PHP 應用程式]: #createapp
   [步驟 2：在公司的目錄租用戶中佈建應用程式]: #provisionapp

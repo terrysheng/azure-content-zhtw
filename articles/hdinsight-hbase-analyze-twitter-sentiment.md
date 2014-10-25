@@ -4,36 +4,36 @@
 
 # 使用 HDInsight 中的 HBase 分析即時的 Twitter 情緒
 
-了解如何使用 HDInsight (Hadoop) 叢集中的 HBase 針對巨量資料進行即時[情緒分析][情緒分析] (英文)。
+了解如何使用 HDInsight (Hadoop) 叢集中的 HBase 針對巨量資料進行即時[情緒分析](http://en.wikipedia.org/wiki/Sentiment_analysis) (英文)。
 
 社群網站是驅使採用「巨量資料」的其中一個主要動力。像 Twitter 之類的網站所提供的公開 API，是分析和了解流行趨勢的一項實用的資料來源。在本教學課程中，您將開發主控台串流服務應用程式和 ASP.NET Web 應用程式來執行以下作業：
 
-![][]
+![][img-app-arch]
 
 -   使用 Twitter 串流 API 取得標記地理位置的推文。
 -   評估這些推文的情緒。
 -   使用 Microsoft HBase SDK 將情緒資訊儲存在 HBase 中。
 -   使用 ASP.NET Web 應用程式將即時統計結果繪製在 Bing 地圖上。以視覺方式呈現推文的結果與以下範例相似：
 
-    ![hdinsight.hbase.twitter.sentiment.bing.map][hdinsight.hbase.twitter.sentiment.bing.map]
+    ![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
 
     您將可以利用某些關鍵字來查詢推文，感受推文中表達的意見是肯定、否定或中性。
 
-如需完整的 Visual Studio 方案範例，請前往 [][]<https://github.com/maxluk/tweet-sentiment></a> (英文)。
+如需完整的 Visual Studio 方案範例，請前往 [https://github.com/maxluk/tweet-sentiment](https://github.com/maxluk/tweet-sentiment) (英文)。
 
 ## 本文內容
 
--   [必要條件][必要條件]
--   [建立 Twitter 應用程式][建立 Twitter 應用程式]
--   [建立簡易的 Twitter 串流服務][建立簡易的 Twitter 串流服務]
--   [建立 Azure 網站以將 Twitter 情緒視覺化][建立 Azure 網站以將 Twitter 情緒視覺化]
--   [後續步驟][後續步驟]
+-   [必要條件](#prerequisites)
+-   [建立 Twitter 應用程式](#twitter)
+-   [建立簡易的 Twitter 串流服務](#streaming)
+-   [建立 Azure 網站以將 Twitter 情緒視覺化](#web)
+-   [後續步驟](#nextsteps)
 
 ## <span id="prerequisites"></span></a>必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
--   **HDInsight 中的 HBase 叢集**。如需佈建叢集的指示，請參閱[開始在 HDInsight 中搭配使用 HBase 與 Hadoop][開始在 HDInsight 中搭配使用 HBase 與 Hadoop] (英文)。進行教學課程時，您將需要下列資料：
+-   **HDInsight 中的 HBase 叢集**。如需佈建叢集的指示，請參閱[開始在 HDInsight 中搭配使用 HBase 與 Hadoop][hBase-get-started] (英文)。進行教學課程時，您將需要下列資料：
 
     | 叢集屬性       | 說明                                                                         |
     |----------------|------------------------------------------------------------------------------|
@@ -41,17 +41,17 @@
     | 叢集使用者名稱 | Hadoop 使用者帳戶名稱。預設 Hadoop 使用者名稱為 **admin**。                  |
     | 叢集使用者密碼 | Hadoop 叢集使用者密碼。                                                      |
 
--   安裝 Visual Studio 2013 的**工作站**。如需指示，請參閱[安裝 Visual Studio][安裝 Visual Studio]。
+-   安裝 Visual Studio 2013 的**工作站**。如需指示，請參閱[安裝 Visual Studio](http://msdn.microsoft.com/zh-tw/library/e2h7fzkw.aspx)。
 
 ## <span id="twitter"></span></a>建立 Twitter 應用程式 ID 和密碼
 
-Twitter 串流 API 使用 [OAuth][OAuth] (英文) 來授權要求。
+Twitter 串流 API 使用 [OAuth](http://oauth.net/) (英文) 來授權要求。
 
 使用 OAuth 的第一個步驟，是在 Twitter 開發人員網站上建立新的應用程式。
 
 **建立 Twitter 應用程式 ID 和密碼：**
 
-1.  登入 [][1]<https://apps.twitter.com/></a>。如果您沒有 Twitter 帳戶，請按一下 [立即註冊] 連結。
+1.  登入 [https://apps.twitter.com/](https://apps.twitter.com/)。如果您沒有 Twitter 帳戶，請按一下 [立即註冊] 連結。
 2.  按一下 [建立新的應用程式]。
 3.  輸入 [名稱]、[說明]、[網站]。我們實際上不會用到 [網站] 欄位。因此您不必輸入有效的 URL。下表列出部分要使用的範例值：
 
@@ -91,12 +91,12 @@ Twitter 串流 API 使用 [OAuth][OAuth] (英文) 來授權要求。
 **安裝 Nuget 套件及新增 SDK 參考：**
 
 1.  在 [工具] 功能表中按一下 [Nuget 套件管理員]，然後按一下 [Package Manager Console]。主控台面板會在頁面底部開啟。
-2.  使用以下命令來安裝 [Tweetinvi][Tweetinvi] 套件 (用來存取 Twitter API) 和 [Protobuf-net][Protobuf-net] 套件 (用來將物件序列化及還原序列化)。
+2.  使用以下命令來安裝 [Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/) 套件 (用來存取 Twitter API) 和 [Protobuf-net](https://www.nuget.org/packages/protobuf-net/) 套件 (用來將物件序列化及還原序列化)。
 
         Install-Package TweetinviAPI
         Install-Package protobuf-net 
 
-    > [WACOM.NOTE] 截至 2014 年 8 月 26 日止，Microsoft Hbase SDK Nuget 套件尚無法使用。Github 儲存機制為 [][2]<https://github.com/hdinsight/hbase-sdk-for-net></a> (英文)。在 SDK 可供使用之前，您必須自行建置 dll。如需指示，請參閱[開始在 HDInsight 中搭配使用 HBase 與 Hadoop][開始在 HDInsight 中搭配使用 HBase 與 Hadoop] (英文)。
+    > [WACOM.NOTE] 截至 2014 年 8 月 26 日止，Microsoft Hbase SDK Nuget 套件尚無法使用。Github 儲存機制為 [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net) (英文)。在 SDK 可供使用之前，您必須自行建置 dll。如需指示，請參閱[開始在 HDInsight 中搭配使用 HBase 與 Hadoop][hBase-get-started] (英文)。
 
 3.  在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後按一下 [加入參考]。
 4.  在左窗格中，展開 [組件]，然後按一下 [架構]。
@@ -413,7 +413,7 @@ Twitter 串流 API 使用 [OAuth][OAuth] (英文) 來授權要求。
 
 **下載情緒字典檔案：**
 
-1.  瀏覽至 [][]<https://github.com/maxluk/tweet-sentiment></a> (英文)。
+1.  瀏覽至 [https://github.com/maxluk/tweet-sentiment](https://github.com/maxluk/tweet-sentiment) (英文)。
 2.  按一下 [下載 ZIP]。
 3.  將檔案解壓縮到本機。
 4.  從 **../tweet-sentiment/SimpleStreamingService/data/dictionary/dictionary.tsv** 複製檔案。
@@ -423,7 +423,7 @@ Twitter 串流 API 使用 [OAuth][OAuth] (英文) 來授權要求。
 
 1.  在 Visual Studio 內按 **F5**。以下是主控台應用程式的螢幕擷取畫面：
 
-    ![hdinsight.hbase.twitter.sentiment.streaming.service][hdinsight.hbase.twitter.sentiment.streaming.service]
+    ![hdinsight.hbase.twitter.sentiment.streaming.service][img-streaming-service]
 
 2.  開發 Web 應用程式時，請保持串流主控台應用程式的運作狀態，如此一來，您將有更多的資料可使用。
 
@@ -454,11 +454,11 @@ Twitter 串流 API 使用 [OAuth][OAuth] (英文) 來授權要求。
 **安裝 Nuget 套件：**
 
 1.  在 [工具] 功能表中按一下 [Nuget 套件管理員]，然後按一下 [Package Manager Console]。主控台面板會在頁面底部開啟。
-2.  使用以下命令來安裝 [Protobuf-net][Protobuf-net] 套件，該套件可用來將物件序列化及還原序列化。
+2.  使用以下命令來安裝 [Protobuf-net](https://www.nuget.org/packages/protobuf-net/) 套件，該套件可用來將物件序列化及還原序列化。
 
         Install-Package protobuf-net 
 
-    > [WACOM.NOTE] 截至 2014 年 8 月 20 日止，Microsoft Hbase SDK Nuget 套件尚無法使用。Github 儲存機制為 [][2]<https://github.com/hdinsight/hbase-sdk-for-net></a> (英文)。在 SDK 可供使用之前，您必須自行建置 dll。如需指示，請參閱[開始在 HDInsight 中搭配使用 HBase 與 Hadoop][開始在 HDInsight 中搭配使用 HBase 與 Hadoop] (英文)。
+    > [WACOM.NOTE] 截至 2014 年 8 月 20 日止，Microsoft Hbase SDK Nuget 套件尚無法使用。Github 儲存機制為 [https://github.com/hdinsight/hbase-sdk-for-net](https://github.com/hdinsight/hbase-sdk-for-net) (英文)。在 SDK 可供使用之前，您必須自行建置 dll。如需指示，請參閱[開始在 HDInsight 中搭配使用 HBase 與 Hadoop][hdinsight-hbase-get-started] (英文)。
 
 **新增 HBaseReader 類別：**
 
@@ -620,7 +620,7 @@ Twitter 串流 API 使用 [OAuth][OAuth] (英文) 來授權要求。
 1.  在 [方案總管] 中展開 **TweetSentimentWeb**。
 2.  以滑鼠右鍵按一下 [指令碼]，然後依序按一下 [新增] 和 [JavaScript 檔案]。
 3.  在 [項目名稱] 中輸入 **heatmap.js**。
-4.  複製以下程式碼並貼到檔案中。該程式碼由 Alastair Aitchison 所撰寫。如需詳細資訊，請參閱 [][3]<http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/></a> (英文)。
+4.  複製以下程式碼並貼到檔案中。該程式碼由 Alastair Aitchison 所撰寫。如需詳細資訊，請參閱 [http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/](http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/) (英文)。
 
         /*******************************************************************************
         * Author: Alastair Aitchison
@@ -1189,46 +1189,47 @@ Twitter 串流 API 使用 [OAuth][OAuth] (英文) 來授權要求。
 1.  確認串流服務主控台應用程式依然處於運作狀態，這樣您才能看見即時變更。
 2.  按 **F5** 以執行 Web 應用程式：
 
-    ![hdinsight.hbase.twitter.sentiment.bing.map][hdinsight.hbase.twitter.sentiment.bing.map]
+    ![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
 
 3.  在文字方塊中輸入關鍵字，然後按一下 [搜尋]。您不一定能找到所有關鍵字，須視 HBase 資料表內收集到的資料而定。請嘗試一些常用的關鍵字，如 "love"、"xbox"、"playstation" 等。
 4.  切換 **Positive**、**Neutral** 及 **Negative** 以比較投注在主題上的情緒。
 5.  讓串流服務再運作一個小時，接著再搜尋相同的關鍵字及比較結果。
 
-您也可以選擇將應用程式部署到 Azure 網站。如需指示，請參閱[開始使用 Azure 網站和 ASP.NET][開始使用 Azure 網站和 ASP.NET]。
+您也可以選擇將應用程式部署到 Azure 網站。如需指示，請參閱[開始使用 Azure 網站和 ASP.NET][website-get-started]。
 
 ## <span id="nextsteps"></span></a>後續步驟
 
 在本教學課程中，我們已了解如何取得推文、分析推文的情緒、將情緒資料儲存到 HBase，以及在 Bing 地圖上呈現即時的 Twitter 情緒資料。若要深入了解，請參閱：
 
--   [開始使用 HDInsight][開始使用 HDInsight]
--   [在 HDInsight 上使用 Hadoop 分析 Twitter 資料][在 HDInsight 上使用 Hadoop 分析 Twitter 資料]
--   [使用 HDInsight 分析班機延誤資料][使用 HDInsight 分析班機延誤資料]
--   [開發 HDInsight 的 C# Hadoop 串流程式][開發 HDInsight 的 C# Hadoop 串流程式]
--   [開發 HDInsight 的 Java MapReduce 程式][開發 HDInsight 的 Java MapReduce 程式]
+-   [開始使用 HDInsight][hdinsight-get-started]
+-   [在 HDInsight 上使用 Hadoop 分析 Twitter 資料][hdinsight-analyze-twitter-data]
+-   [使用 HDInsight 分析班機延誤資料][hdinsight-analyze-flight-delay-data]
+-   [開發 HDInsight 的 C# Hadoop 串流程式][hdinsight-develop-streaming]
+-   [開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-mapreduce]
 
-  [情緒分析]: http://en.wikipedia.org/wiki/Sentiment_analysis
-  []: ./media/hdinsight-hbase-analyze-twitter-sentiment/AppArchitecture.png
-  [hdinsight.hbase.twitter.sentiment.bing.map]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentBingMap.png
+
+  [img-app-arch]: ./media/hdinsight-hbase-analyze-twitter-sentiment/AppArchitecture.png
+  [img-bing-map]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterSentimentBingMap.png
   []: https://github.com/maxluk/tweet-sentiment
   [必要條件]: #prerequisites
   [建立 Twitter 應用程式]: #twitter
   [建立簡易的 Twitter 串流服務]: #streaming
   [建立 Azure 網站以將 Twitter 情緒視覺化]: #web
   [後續步驟]: #nextsteps
-  [開始在 HDInsight 中搭配使用 HBase 與 Hadoop]: ../hdinsight-hbase-get-started/
-  [安裝 Visual Studio]: http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx
+  [hBase-get-started]: ../hdinsight-hbase-get-started/
+  [安裝 Visual Studio]: http://msdn.microsoft.com/zh-tw/library/e2h7fzkw.aspx
   [OAuth]: http://oauth.net/
   [1]: https://apps.twitter.com/
   [hdi.hbase.twitter.sentiment.twitter.app]: ./media/hdinsight-hbase-analyze-twitter-sentiment/TwitterApp.png
   [Tweetinvi]: https://www.nuget.org/packages/TweetinviAPI/
   [Protobuf-net]: https://www.nuget.org/packages/protobuf-net/
   [2]: https://github.com/hdinsight/hbase-sdk-for-net
-  [hdinsight.hbase.twitter.sentiment.streaming.service]: ./media/hdinsight-hbase-analyze-twitter-sentiment/StreamingService.png
+  [img-streaming-service]: ./media/hdinsight-hbase-analyze-twitter-sentiment/StreamingService.png
   [3]: http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/
-  [開始使用 Azure 網站和 ASP.NET]: ../web-sites-dotnet-get-started/
-  [開始使用 HDInsight]: ../hdinsight-get-started/
-  [在 HDInsight 上使用 Hadoop 分析 Twitter 資料]: ../hdinsight-analyze-twitter-data/
-  [使用 HDInsight 分析班機延誤資料]: ../hdinsight-analyze-flight-delay-data/
-  [開發 HDInsight 的 C# Hadoop 串流程式]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
-  [開發 HDInsight 的 Java MapReduce 程式]: ../hdinsight-develop-deploy-java-mapreduce/
+  [website-get-started]: ../web-sites-dotnet-get-started/
+  [hdinsight-get-started]: ../hdinsight-get-started/
+  [hdinsight-analyze-twitter-data]: ../hdinsight-analyze-twitter-data/
+  [hdinsight-analyze-flight-delay-data]: ../hdinsight-analyze-flight-delay-data/
+  [hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
+  [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started/

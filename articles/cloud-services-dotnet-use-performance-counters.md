@@ -26,13 +26,13 @@
 -   [使用 Azure 診斷收集記錄資料][]
 -   [偵錯 Azure 應用程式][]
 
-  [設定 Azure 診斷功能]: http://msdn.microsoft.com/en-us/library/windowsazure/dn186185.aspx
-  [如何設定效能計數器]: http://msdn.microsoft.com/en-us/library/azure/dn535595.aspx
-  [開發 Azure 應用程式的疑難排解最佳作法]: http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx
-  [測試雲端服務的效能]: http://msdn.microsoft.com/en-us/library/azure/hh369930.aspx
-  [如何監視雲端服務]: http://azure.microsoft.com/zh-tw/documentation/articles/cloud-services-how-to-monitor/
-  [如何使用自動調整應用程式區塊]: http://azure.microsoft.com/zh-tw/documentation/articles/cloud-services-dotnet-autoscaling-application-block/
-  [建置彈性、恢復力強的雲端應用程式]: http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx
-  [啟用 Azure 中的診斷]: http://azure.microsoft.com/zh-tw/documentation/articles/cloud-services-dotnet-diagnostics/
-  [使用 Azure 診斷收集記錄資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433048.aspx
-  [偵錯 Azure 應用程式]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx
+  [設定 Azure 診斷功能]: http://msdn.microsoft.com/zh-TW/library/windowsazure/dn186185.aspx
+  [如何設定效能計數器]: http://msdn.microsoft.com/zh-TW/library/azure/dn535595.aspx
+  [開發 Azure 應用程式的疑難排解最佳作法]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh771389.aspx
+  [測試雲端服務的效能]: http://msdn.microsoft.com/zh-TW/library/azure/hh369930.aspx
+  [如何監視雲端服務]: http://azure.microsoft.com/zh-TW/documentation/articles/cloud-services-how-to-monitor/
+  [如何使用自動調整應用程式區塊]: http://azure.microsoft.com/zh-TW/documentation/articles/cloud-services-dotnet-autoscaling-application-block/
+  [建置彈性、恢復力強的雲端應用程式]: http://msdn.microsoft.com/zh-TW/library/hh680949(PandP.50).aspx
+  [啟用 Azure 中的診斷]: http://azure.microsoft.com/zh-TW/documentation/articles/cloud-services-dotnet-diagnostics/
+  [使用 Azure 診斷收集記錄資料]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg433048.aspx
+  [偵錯 Azure 應用程式]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee405479.aspx

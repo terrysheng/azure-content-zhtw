@@ -5,7 +5,7 @@
 # 如何使用 Azure 行動服務的 HTML/JavaScript 用戶端
 
 <div class="dev-center-tutorial-selector sublanding"> 
-<a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript" class="current">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
+<a href="/zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript" class="current">HTML/JavaScript</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
 </div>
 
 本指南顯示使用 Azure 行動服務的 HTML/JavaScript 用戶端來執行常見的案例。所涵蓋的案例包括查詢資料、插入、更新及刪除資料、驗證使用者以及處理錯誤。如果您不熟悉行動服務，請考慮先完成行動服務 [Windows 市集 JavaScript 快速入門][] (英文) 或 [HTML 快速入門][] (英文)。快速入門教學課程可協助您設定帳戶，並建立您的第一個行動服務。
@@ -409,7 +409,7 @@
 在此案例中，行動服務透過顯示所選提供者的登入頁面，並在使用識別提供者成功登入後產生行動服務驗證權杖的方式，來管理 OAuth 2.0 驗證流程。[login][] 函數完成時會傳回 JSON 物件 (**user**)，此物件會在 **userId** 和 **authenticationToken** 欄位中分別顯示使用者識別碼和行動服務驗證權杖。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱「快取驗證權杖」。
 
 <div class="dev-callout"><b>Windows 市集應用程式</b>
-<p>使用 Microsoft 帳戶登入提供者來驗證 Windows 市集應用程式的使用者時，也應該向行動服務註冊應用程式封裝。向行動服務註冊 Windows 市集應用程式封裝資訊之後，用戶端就能夠重複使用 Microsoft 帳戶登入認證來享受單一登入的方便性。如果您沒有執行此動作，Microsoft 帳戶登入使用者會在每次呼叫登入方法時j都會看到登入提示。若要了解如何註冊 Windows 市集應用程式封裝，請參閱<a href="/en-us/develop/mobile/how-to-guides/register-windows-store-app-package/" target="_blank">註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證</a>。向行動服務註冊封裝資訊之後，請呼叫 <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> 方法，並在 <em>useSingleSignOn</em> 參數中提供 <strong>true</strong> 值以重複使用認證。</p>
+<p>使用 Microsoft 帳戶登入提供者來驗證 Windows 市集應用程式的使用者時，也應該向行動服務註冊應用程式封裝。向行動服務註冊 Windows 市集應用程式封裝資訊之後，用戶端就能夠重複使用 Microsoft 帳戶登入認證來享受單一登入的方便性。如果您沒有執行此動作，Microsoft 帳戶登入使用者會在每次呼叫登入方法時j都會看到登入提示。若要了解如何註冊 Windows 市集應用程式封裝，請參閱<a href="/zh-tw/develop/mobile/how-to-guides/register-windows-store-app-package/" target="_blank">註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證</a>。向行動服務註冊封裝資訊之後，請呼叫 <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> 方法，並在 <em>useSingleSignOn</em> 參數中提供 <strong>true</strong> 值以重複使用認證。</p>
 </div>
 
 ### 用戶端流程
@@ -584,13 +584,13 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 <!-- Anchors. --> 
 <!-- URLs. -->
 
-  [.NET Framework]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
-  [Windows 市集 JavaScript 快速入門]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started
-  [HTML 快速入門]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-html
+  [.NET Framework]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
+  [HTML/JavaScript]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
+  [iOS]: /zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
+  [Android]: /zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
+  [Xamarin]: /zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
+  [Windows 市集 JavaScript 快速入門]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started
+  [HTML 快速入門]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-html
   [什麼是行動服務]: #what-is
   [概念]: #concepts
   [作法：建立行動服務用戶端]: #create-client
@@ -612,25 +612,25 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
   [作法：使用跨原始來源資源分享]: #hostnames
   [後續步驟]: #nextsteps
   [mobile-services-concepts]: ../includes/mobile-services-concepts.md
-  [在 Windows 市集 JavaScript 中開始使用資料]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-js
-  [在 HTML/JavaScript 中開始使用資料]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
+  [在 Windows 市集 JavaScript 中開始使用資料]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-js
+  [在 HTML/JavaScript 中開始使用資料]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-html/
   [OData 系統查詢選項參考]: http://go.microsoft.com/fwlink/p/?LinkId=444502
   [ASCII 控制碼 C0 和 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-  [使用 CLI 管理行動服務資料表]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
-  [ListView]: http://msdn.microsoft.com/en-us/library/windows/apps/br211837.aspx
-  [資料繫結 (使用 JavaScript 和 HTML 的 Windows 市集應用程式)]: http://msdn.microsoft.com/en-us/library/windows/apps/hh758311.aspx
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-html
-  [Windows 市集]: /en-us/develop/mobile/tutorials/get-started-with-users-js
-  [login]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx
-  [註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證]: /en-us/develop/mobile/how-to-guides/register-windows-store-app-package/
+  [使用 CLI 管理行動服務資料表]: http://www.windowsazure.com/zh-tw/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+  [ListView]: http://msdn.microsoft.com/zh-tw/library/windows/apps/br211837.aspx
+  [資料繫結 (使用 JavaScript 和 HTML 的 Windows 市集應用程式)]: http://msdn.microsoft.com/zh-tw/library/windows/apps/hh758311.aspx
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-html
+  [Windows 市集]: /zh-tw/develop/mobile/tutorials/get-started-with-users-js
+  [login]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554236.aspx
+  [註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證]: /zh-tw/develop/mobile/how-to-guides/register-windows-store-app-package/
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=322050
-  [使用單一登入來驗證應用程式]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
-  [sessionStorage]: http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx
-  [Promise.done 方法]: http://msdn.microsoft.com/en-us/library/windows/apps/hh701079.aspx
-  [Promise.then 方法]: http://msdn.microsoft.com/en-us/library/windows/apps/br229728.aspx
-  [鏈結 Promise (使用 JavaScript 和 HTML 的 Windows 執行階段應用程式)]: http://msdn.microsoft.com/en-us/library/windows/apps/hh700334.aspx
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started-html
-  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-html
-  [使用指令檔驗證與修改資料]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html
-  [使用分頁縮小查詢範圍]: /en-us/develop/mobile/tutorials/add-paging-to-data-html
-  [使用指令碼來授權使用者]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-html
+  [使用單一登入來驗證應用程式]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
+  [sessionStorage]: http://msdn.microsoft.com/zh-tw/library/cc197062(v=vs.85).aspx
+  [Promise.done 方法]: http://msdn.microsoft.com/zh-tw/library/windows/apps/hh701079.aspx
+  [Promise.then 方法]: http://msdn.microsoft.com/zh-tw/library/windows/apps/br229728.aspx
+  [鏈結 Promise (使用 JavaScript 和 HTML 的 Windows 執行階段應用程式)]: http://msdn.microsoft.com/zh-tw/library/windows/apps/hh700334.aspx
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-html
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-html
+  [使用指令檔驗證與修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-html
+  [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-html
+  [使用指令碼來授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-html

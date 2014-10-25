@@ -215,11 +215,11 @@
 
 若要深入了解 API，[您可以在 MSDN 上閱讀相關資訊][]。您也可以閱讀下列教學課程，為 Azure Active Directory 建立多租用戶應用程式：[利用 Azure Active Directory 開發多租用戶雲端應用程式][] (英文)。
 
-  [ASP.NET MVC 3]: http://www.microsoft.com/en-us/download/details.aspx?id=4211
-  [Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/en-us/download/details.aspx?id=17331
-  [Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=4451
+  [ASP.NET MVC 3]: http://www.microsoft.com/zh-TW/download/details.aspx?id=4211
+  [Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/zh-TW/download/details.aspx?id=17331
+  [Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/zh-TW/download/details.aspx?id=4451
   [WCF Data Services for OData V3]: http://www.microsoft.com/download/en/details.aspx?id=29306
-  [Office 365 PowerShell Commandlets]: http://onlinehelp.microsoft.com/en-us/office365-enterprises/ff652560.aspx
+  [Office 365 PowerShell Commandlets]: http://onlinehelp.microsoft.com/zh-TW/office365-enterprises/ff652560.aspx
   [簡介]: #introduction
   [步驟 1：建立 ASP.NET MVC 應用程式]: #createapp
   [步驟 2：在公司的目錄租用戶中佈建應用程式]: #provisionapp
@@ -227,6 +227,6 @@
   [步驟 4：使用 Graph API 來讀取目錄資料]: #readdata
   [摘要]: #summary
   [Graph API 的範例應用程式與撰寫支援]: http://code.msdn.microsoft.com/Write-Sample-App-for-79e55502
-  [Graph API 的以角色為基礎的存取控制]: http://msdn.microsoft.com/en-us/library/hh974466.aspx
-  [您可以在 MSDN 上閱讀相關資訊]: http://msdn.microsoft.com/en-us/library/hh974476.aspx
+  [Graph API 的以角色為基礎的存取控制]: http://msdn.microsoft.com/zh-TW/library/hh974466.aspx
+  [您可以在 MSDN 上閱讀相關資訊]: http://msdn.microsoft.com/zh-TW/library/hh974476.aspx
   [利用 Azure Active Directory 開發多租用戶雲端應用程式]: http://g.microsoftonline.com/0AX00en/121

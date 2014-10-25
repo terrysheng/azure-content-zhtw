@@ -106,14 +106,14 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
     <div class="dev-callout">
 <strong>注意</strong>
 <p>務必使用唯一的名稱，否則發行程序會失敗。部署完成之後，瀏覽器會開啟並瀏覽至已部署的服務。</p>
-<p>如果出現錯誤指出匯入的發行設定檔中沒有您所提供的訂閱名稱，則在部署至 Azure 之前，您必須下載並匯入訂閱的發行設定檔。請參閱＜<a href="https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/">建立 Node.js 應用程式並部署至 Azure 雲端服務</a>＞的＜<b>將應用程式部署至 Azure</b>＞一節 (英文)</p>
+<p>如果出現錯誤指出匯入的發行設定檔中沒有您所提供的訂閱名稱，則在部署至 Azure 之前，您必須下載並匯入訂閱的發行設定檔。請參閱＜<a href="https://www.windowsazure.com/zh-TW/develop/nodejs/tutorials/getting-started/">建立 Node.js 應用程式並部署至 Azure 雲端服務</a>＞的＜<b>將應用程式部署至 Azure</b>＞一節 (英文)</p>
 </div>
 
     ![A browser window displaying the service hosted on Azure][]
 
     <div class="dev-callout">
 <strong>注意</strong>
-<p>如果出現錯誤指出匯入的發行設定檔中沒有您所提供的訂閱名稱，則在部署至 Azure 之前，您必須下載並匯入訂閱的發行設定檔。請參閱＜<a href="https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/">建立 Node.js 應用程式並部署至 Azure 雲端服務</a>＞的＜<b>將應用程式部署至 Azure</b>＞一節 (英文)</p>
+<p>如果出現錯誤指出匯入的發行設定檔中沒有您所提供的訂閱名稱，則在部署至 Azure 之前，您必須下載並匯入訂閱的發行設定檔。請參閱＜<a href="https://www.windowsazure.com/zh-TW/develop/nodejs/tutorials/getting-started/">建立 Node.js 應用程式並部署至 Azure 雲端服務</a>＞的＜<b>將應用程式部署至 Azure</b>＞一節 (英文)</p>
 </div>
 
 您的應用程式現在於 Azure 上執行，且可使用 Socket.IO 來轉送不同用戶端之間的交談訊息。
@@ -136,6 +136,6 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
   [總管，會顯示擷取自封存的 examples\\chat 目錄內容]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
   [The output of the npm install command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
   [兩個瀏覽器視窗顯示 User1 和 User2 的交談訊息]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png
-  [建立 Node.js 應用程式並部署至 Azure 雲端服務]: https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
+  [建立 Node.js 應用程式並部署至 Azure 雲端服務]: https://www.windowsazure.com/zh-TW/develop/nodejs/tutorials/getting-started/
   [Azure SDK for Node.js GitHub 儲存機制]: https://github.com/WindowsAzure/azure-sdk-for-node
-  [在 Azure 網站上使用 Socket.IO 建立 Node.js 交談應用程式]: /en-us/develop/nodejs/tutorials/website-using-socketio/
+  [在 Azure 網站上使用 Socket.IO 建立 Node.js 交談應用程式]: /zh-TW/develop/nodejs/tutorials/website-using-socketio/

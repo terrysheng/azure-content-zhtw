@@ -213,9 +213,9 @@
 <!-- LINKS --> 
 <!-- IMAGES -->
 
-  [什麼是 Web 主控方案？]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-web-hosting-plan-overview/
-  [Azure 網站 Web 主控方案深入概觀]: http://www.azure.microsoft.com/zh-tw/documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/
-  [網站定價詳細資料]: http://www.windowsazure.com/en-us/pricing/details/web-sites/
+  [什麼是 Web 主控方案？]: http://azure.microsoft.com/zh-TW/documentation/articles/web-sites-web-hosting-plan-overview/
+  [Azure 網站 Web 主控方案深入概觀]: http://www.azure.microsoft.com/zh-TW/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/
+  [網站定價詳細資料]: http://www.windowsazure.com/zh-TW/pricing/details/web-sites/
   [Microsoft Azure 訂閱]: http://go.microsoft.com/fwlink/?LinkID=235288
   [調整為共用或基本方案模式]: #scalingsharedorbasic
   [調整為標準方案模式]: #scalingstandard
@@ -241,18 +241,18 @@
   [執行個體計數]: ./media/web-sites-scale/14InstanceCount.png
   [目標 CPU]: ./media/web-sites-scale/15TargetCPU.png
   [Azure 預覽入口網站]: https://portal.azure.com/
-  [如何調整網站]: http://azure.microsoft.com/zh-tw/documentation/articles/insights-how-to-scale/
+  [如何調整網站]: http://azure.microsoft.com/zh-TW/documentation/articles/insights-how-to-scale/
   [連結的資料庫]: ./media/web-sites-scale/16LinkedResources.png
   [調整 SQL Server Database]: ./media/web-sites-scale/17ScaleDatabase.png
   [Windows Azure SQL Database 中的帳戶和計費]: http://go.microsoft.com/fwlink/?LinkId=234930
-  [如何監視網站]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-monitor/
-  [Microsoft Azure 免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
-  [資料傳輸定價詳細資料]: http://www.windowsazure.com/en-us/pricing/details/data-transfers/
-  [Azure 支援方案]: http://www.windowsazure.com/en-us/support/plans/
-  [服務等級協定]: http://www.windowsazure.com/en-us/support/legal/sla/
-  [SQL Database 定價詳細資料]: http://www.windowsazure.com/en-us/pricing/details/sql-database/
-  [網站定價詳細資料 - SSL 連線]: http://www.windowsazure.com/en-us/pricing/details/web-sites/#ssl-connections
+  [如何監視網站]: http://www.windowsazure.com/zh-TW/documentation/articles/web-sites-monitor/
+  [Microsoft Azure 免費試用]: http://azure.microsoft.com/zh-TW/pricing/free-trial/
+  [資料傳輸定價詳細資料]: http://www.windowsazure.com/zh-TW/pricing/details/data-transfers/
+  [Azure 支援方案]: http://www.windowsazure.com/zh-TW/support/plans/
+  [服務等級協定]: http://www.windowsazure.com/zh-TW/support/legal/sla/
+  [SQL Database 定價詳細資料]: http://www.windowsazure.com/zh-TW/pricing/details/sql-database/
+  [網站定價詳細資料 - SSL 連線]: http://www.windowsazure.com/zh-TW/pricing/details/web-sites/#ssl-connections
   [最佳作法：Azure 網站 (WAWS)]: http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx
-  [何時該調整 Azure 網站，與 Stefan Schackow]: http://www.windowsazure.com/zh-tw/documentation/videos/azure-web-sites-free-vs-standard-scaling/
-  [自動調整 Azure 網站、CPU 或排程，與 Stefan Schackow]: http://www.windowsazure.com/zh-tw/documentation/videos/auto-scaling-azure-web-sites/
-  [如何調整 Azure 網站，與 Stefan Schackow]: http://www.windowsazure.com/zh-tw/documentation/videos/how-azure-web-sites-scale/
+  [何時該調整 Azure 網站，與 Stefan Schackow]: http://www.windowsazure.com/zh-TW/documentation/videos/azure-web-sites-free-vs-standard-scaling/
+  [自動調整 Azure 網站、CPU 或排程，與 Stefan Schackow]: http://www.windowsazure.com/zh-TW/documentation/videos/auto-scaling-azure-web-sites/
+  [如何調整 Azure 網站，與 Stefan Schackow]: http://www.windowsazure.com/zh-TW/documentation/videos/how-azure-web-sites-scale/

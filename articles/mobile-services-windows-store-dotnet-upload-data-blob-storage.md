@@ -79,12 +79,12 @@
   [更新插入指令碼以產生 SAS]: #update-scripts
   [更新用戶端應用程式以擷取影像]: #add-select-images
   [上傳影像以測試應用程式]: #test
-  [Azure 儲存體帳戶]: /en-us/manage/services/storage/how-to-create-a-storage-account
+  [Azure 儲存體帳戶]: /zh-tw/manage/services/storage/how-to-create-a-storage-account
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-store-get-started
   []: ./media/mobile-services-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
   [mobile-services-configure-blob-storage]: ../includes/mobile-services-configure-blob-storage.md
   [mobile-services-windows-store-dotnet-upload-to-blob-storage]: ../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md
-  [使用 SendGrid 從行動服務傳送電子郵件]: /en-us/develop/mobile/tutorials/send-email-with-sendgrid/
+  [使用 SendGrid 從行動服務傳送電子郵件]: /zh-tw/develop/mobile/tutorials/send-email-with-sendgrid/
   [在行動服務中排程後端工作]: /zh-tw/documentation/articles/mobile-services-schedule-recurring-tasks
   [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/p/?LinkId=262293
-  [行動服務 .NET 作法概念性參考]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+  [行動服務 .NET 作法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library

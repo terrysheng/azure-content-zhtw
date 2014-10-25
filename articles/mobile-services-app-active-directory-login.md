@@ -7,7 +7,7 @@
 本主題說明如何註冊應用程式以使用 Azure Active Directory 作為 Azure 行動服務的驗證提供者。
 
 <div class="dev-callout"><b>注意</b>
-<p>當您也想要從 Windows 市集應用程式中提供單一登入 (SSO) 或推播通知的用戶端導向驗證時，請同時考慮向 Windows 市集註冊您的應用程式。如需詳細資訊，請參閱<a href="/en-us/develop/mobile/how-to-guides/register-for-single-sign-on">註冊 Windows 市集應用程式來使用 Windows Live Connect 驗證</a>。</p>
+<p>當您也想要從 Windows 市集應用程式中提供單一登入 (SSO) 或推播通知的用戶端導向驗證時，請同時考慮向 Windows 市集註冊您的應用程式。如需詳細資訊，請參閱<a href="/zh-tw/develop/mobile/how-to-guides/register-for-single-sign-on">註冊 Windows 市集應用程式來使用 Windows Live Connect 驗證</a>。</p>
 </div>
 
 1.  登入 [Azure 管理入口網站][]。
@@ -32,7 +32,7 @@
 
 <!-- URLs. -->
 
-  [註冊 Windows 市集應用程式來使用 Windows Live Connect 驗證]: /en-us/develop/mobile/how-to-guides/register-for-single-sign-on
+  [註冊 Windows 市集應用程式來使用 Windows Live Connect 驗證]: /zh-tw/develop/mobile/how-to-guides/register-for-single-sign-on
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   []: ./media/mobile-services-app-active-directory-login/mobile-services-live-connect-add-app.png
   [1]: ./media/mobile-services-app-active-directory-login/mobile-live-connect-app-api-settings.png

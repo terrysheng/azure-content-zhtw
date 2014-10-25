@@ -600,22 +600,22 @@ Azure Linux 代理程式 (Waagent) 與 NetworkManager 不相容。網路組態�
 
 12. 接著，您必須關閉虛擬機器，並繼續執行上傳。
 
-  [管理磁碟和映像]: http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx
-  [如何建立自訂虛擬機器]: /en-us/manage/windows/how-to-guides/custom-create-a-vm/
+  [管理磁碟和映像]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj672979.aspx
+  [如何建立自訂虛擬機器]: /zh-tw/manage/windows/how-to-guides/custom-create-a-vm/
   [本文]: http://support.microsoft.com/kb/2805216
-  [建立 Azure 的管理憑證]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
-  [安裝 Hyper-V 角色及設定虛擬機器]: http://technet.microsoft.com/en-us/library/hh846766.aspx
+  [建立 Azure 的管理憑證]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg551722.aspx
+  [安裝 Hyper-V 角色及設定虛擬機器]: http://technet.microsoft.com/zh-tw/library/hh846766.aspx
   [Linux on Azure 背書散發套件]: ../linux-endorsed-distributions
   [非背書散發套件的資訊]: #nonendorsed
   [適用於 Mac 和 Linux 的 Azure 命令列工具]: http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409
-  [Azure 下載]: /en-us/develop/downloads/
-  [Add-AzureVhd]: http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx
+  [Azure 下載]: /zh-tw/develop/downloads/
+  [Add-AzureVhd]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn205185.aspx
   [Microsoft 網站]: http://go.microsoft.com/fwlink/?LinkID=253692&clcid=0x409
   [步驟 1：準備要上傳的映像]: #prepimage
   [步驟 2：在 Azure 中建立儲存體帳戶]: #createstorage
   [步驟 3：準備 Azure 的連線]: #connect
   [步驟 4：將映像上傳至 Azure]: #upload
-  [下載中心]: http://www.microsoft.com/en-us/download/details.aspx?id=34603
+  [下載中心]: http://www.microsoft.com/zh-tw/download/details.aspx?id=34603
   [開啟 Hyper-V 設定]: ./media/virtual-machines-linux-how-to-prepare/settings.png
   [使用安裝媒體新增 DVD 光碟機]: ./media/virtual-machines-linux-how-to-prepare/installiso.png
   [SUSE Studio]: http://www.susestudio.com
@@ -627,8 +627,8 @@ Azure Linux 代理程式 (Waagent) 與 NetworkManager 不相容。網路組態�
   [快速建立儲存體帳戶]: ./media/virtual-machines-linux-how-to-prepare/storage-quick-create.png
   [輸入儲存體帳戶詳細資料]: ./media/virtual-machines-linux-how-to-prepare/storage-create-account.png
   [已成功建立儲存體帳戶]: ./media/virtual-machines-linux-how-to-prepare/Storagenewaccount.png
-  [開始使用 Azure Cmdlet]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx
-  [合作夥伴背書映像]: https://www.windowsazure.com/en-us/manage/linux/other-resources/endorsed-distributions/
+  [開始使用 Azure Cmdlet]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554332.aspx
+  [合作夥伴背書映像]: https://www.windowsazure.com/zh-tw/manage/linux/other-resources/endorsed-distributions/
   [此位置上]: http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409
-  [Linux 代理程式指南]: https://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/
+  [Linux 代理程式指南]: https://www.windowsazure.com/zh-tw/manage/linux/how-to-guides/linux-agent-guide/
   [代理程式 GitHub 位置]: http://go.microsoft.com/fwlink/p/?LinkID=250998&clcid=0x409

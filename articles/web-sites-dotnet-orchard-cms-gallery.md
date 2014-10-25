@@ -82,5 +82,5 @@ Azure 將開始執行建立和部署作業。在建立和部署網站的同時�
   [browse button]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-12.png
   [login to Orchard]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-07.png
   [Orchard 文件]: http://docs.orchardproject.net/
-  [使用 Microsoft WebMatrix 來開發和部署網站]: /en-us/develop/net/tutorials/website-with-webmatrix/
-  [將使用成員資格、OAuth 和 SQL 資料庫的安全 ASP.NET MVC 應用程式部署至 Azure 網站]: /en-us/develop/net/tutorials/web-site-with-sql-database/
+  [使用 Microsoft WebMatrix 來開發和部署網站]: /zh-TW/develop/net/tutorials/website-with-webmatrix/
+  [將使用成員資格、OAuth 和 SQL 資料庫的安全 ASP.NET MVC 應用程式部署至 Azure 網站]: /zh-TW/develop/net/tutorials/web-site-with-sql-database/

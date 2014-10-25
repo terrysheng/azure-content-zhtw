@@ -547,4 +547,4 @@
   [可用的命名空間 螢幕擷取畫面]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AvailableNamespaces.png
   [命名空間清單 螢幕擷取畫面]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
   [存取金鑰 按鈕]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
-  [Azure SDK for .NET]: http://www.windowsazure.com/en-us/develop/net/
+  [Azure SDK for .NET]: http://www.windowsazure.com/zh-tw/develop/net/

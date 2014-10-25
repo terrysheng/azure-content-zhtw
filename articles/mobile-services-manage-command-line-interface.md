@@ -151,12 +151,12 @@
 如需關於註冊指令碼的詳細資訊，請參閱[行動服務伺服器指令碼參照][]。
 
 
-<h2><a name="test-service"></a><span class="short-header">Test the service</span>Test the new mobile service</h2>
+<h2><a name="test-service"></a><span class="short-header">測試新行動服務 serviceTest</span>測試新行動服務 serviceTest</h2>
 
-When you are automating the creation of your mobile service, you can optionally use cURL or another command-line request generator to   
+當您自動化行動服務的建立作業之後，可以選擇使用 cURL 或其他命令列工具要求：
 
-## <a name="nextsteps"> </a>Next Steps 
-Next steps here....
+## <a name="nextsteps"> </a>後續步
+後續步驟...
 
 <!-- Anchors. --> 
 <!-- Images. --> 
@@ -169,9 +169,9 @@ Next steps here....
   [刪除現有資料表]: #delete-table
   [列出行動服務]: #list-services
   [刪除現有行動服務]: #delete-service
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/
   [啟用 Azure 預覽功能]: http://azure.microsoft.com/zh-tw/documentation/articles/php-create-account/#enable
-  [Azure 命令列工具文件]: /en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services
+  [Azure 命令列工具文件]: /zh-tw/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services
   [Azure 命令列工具安裝程式]: http://go.microsoft.com/fwlink/p?LinkID=275464
   [Azure SDK 安裝程式]: http://go.microsoft.com/fwlink/p?LinkId=252249
   [Node.js]: http://nodejs.org/

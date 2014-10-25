@@ -397,7 +397,7 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式][W3C 擴充記錄檔格�
 -   [疑難排解 Visual Studio 中的 Azure 網站][在 Visual Studio 中疑難排解 Azure 網站]
 -   [分析 HDInsight 中的網站記錄][]
 
-  [在 Visual Studio 中疑難排解 Azure 網站]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [在 Visual Studio 中疑難排解 Azure 網站]: /zh-TW/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [什麼是：網站診斷？]: #whatisdiag
   [作法：啟用診斷]: #enablediag
   [作法：下載記錄]: #download
@@ -405,14 +405,14 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式][W3C 擴充記錄檔格�
   [作法：瞭解診斷記錄]: #understandlogs
   [後續步驟]: #nextsteps
   [W3C 擴充記錄檔格式]: http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx
-  [System.Diagnostics.Trace]: http://msdn.microsoft.com/en-us/library/36hhw2t6.aspx
-  [1]: http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [System.Diagnostics.Trace]: http://msdn.microsoft.com/zh-TW/library/36hhw2t6.aspx
+  [1]: http://www.windowsazure.com/zh-TW/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [Azure 管理入口網站]: https://manage.microsoft.com
-  [Azure SDK]: http://www.windowsazure.com/en-us/downloads/#
-  [如何使用 Azure PowerShell]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
-  [如何使用 Azure 命令列工具]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/
+  [Azure SDK]: http://www.windowsazure.com/zh-TW/downloads/#
+  [如何使用 Azure PowerShell]: http://www.windowsazure.com/zh-TW/develop/nodejs/how-to-guides/powershell-cmdlets/
+  [如何使用 Azure 命令列工具]: http://www.windowsazure.com/zh-TW/develop/nodejs/how-to-guides/command-line-tools/
   [在瀏覽器中檢視的失敗要求]: ./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png
   [記錄檔剖析器]: http://go.microsoft.com/fwlink/?LinkId=246619
-  [如何監視網站]: /en-us/manage/services/web-sites/how-to-monitor-websites/
-  [教學課程 - 疑難排解網站]: /en-us/develop/net/best-practices/troubleshooting-web-sites/
+  [如何監視網站]: /zh-TW/manage/services/web-sites/how-to-monitor-websites/
+  [教學課程 - 疑難排解網站]: /zh-TW/develop/net/best-practices/troubleshooting-web-sites/
   [分析 HDInsight 中的網站記錄]: http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413

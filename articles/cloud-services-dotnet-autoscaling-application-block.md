@@ -374,7 +374,7 @@ AutoscalingServiceModel.xsd **檔案中找到此 XML 檔案的結構描述複本
   [作法：定義您的自動調整規則]: #DefineAutoscalingRules
   [作法：設定自動調整應用程式區塊]: #Configure
   [diagram of sample autoscaling]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling01.png
-  [在 Azure 中使用效能計數器]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/
+  [在 Azure 中使用效能計數器]: http://www.windowsazure.com/zh-TW/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [files configured by autoscaling NuGet package]: ./media/cloud-services-dotnet-autoscaling-application-block/auotscaling02.png
   [image]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling03.png
@@ -385,20 +385,20 @@ AutoscalingServiceModel.xsd **檔案中找到此 XML 檔案的結構描述複本
   [3]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling07.png
   [4]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling08.png
   [5]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling09.png
-  [儲存您的服務資訊資料]: http://msdn.microsoft.com/en-us/library/hh680878(PandP.50).aspx
+  [儲存您的服務資訊資料]: http://msdn.microsoft.com/zh-TW/library/hh680878(PandP.50).aspx
   [映像]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png
   [6]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png
   [7]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png
   [8]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png
   [9]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png
-  [在背景工作角色中主控自動調整應用程式區塊]: http://msdn.microsoft.com/en-us/library/hh680914(PandP.50).aspx
-  [實作節流行為]: http://msdn.microsoft.com/en-us/library/hh680896(PandP.50).aspx
-  [了解規則等級和重新調整]: http://msdn.microsoft.com/en-us/library/hh680923(PandP.50).aspx
-  [延伸並修改自動調整應用程式區塊]: http://msdn.microsoft.com/en-us/library/hh680889(PandP.50).aspx
-  [使用最佳化穩定器來避免高頻率振盪和最佳化成本]: http://msdn.microsoft.com/en-us/library/hh680951(PandP.50).aspx
-  [使用通知和手動調整]: http://msdn.microsoft.com/en-us/library/hh680885(PandP.50).aspx
-  [定義調整群組]: http://msdn.microsoft.com/en-us/library/hh680902(PandP.50).aspx
-  [使用 WASABiCmdlets 透過 Windows PowerShell 操作區塊]: http://msdn.microsoft.com/en-us/library/hh680938(PandP.50).aspx
-  [Enterprise Library 5.0 Integration Pack for Azure 開發人員指南]: http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx
-  [Sage 如何使用自動調整減少 Azure 主控成本]: http://msdn.microsoft.com/en-us/library/jj838716(PandP.50).aspx
-  [利用 Azure 上的自動調整減少 TechNet 和 MSDN 主控成本和環境影響]: http://msdn.microsoft.com/en-us/library/jj838718(PandP.50).aspx
+  [在背景工作角色中主控自動調整應用程式區塊]: http://msdn.microsoft.com/zh-TW/library/hh680914(PandP.50).aspx
+  [實作節流行為]: http://msdn.microsoft.com/zh-TW/library/hh680896(PandP.50).aspx
+  [了解規則等級和重新調整]: http://msdn.microsoft.com/zh-TW/library/hh680923(PandP.50).aspx
+  [延伸並修改自動調整應用程式區塊]: http://msdn.microsoft.com/zh-TW/library/hh680889(PandP.50).aspx
+  [使用最佳化穩定器來避免高頻率振盪和最佳化成本]: http://msdn.microsoft.com/zh-TW/library/hh680951(PandP.50).aspx
+  [使用通知和手動調整]: http://msdn.microsoft.com/zh-TW/library/hh680885(PandP.50).aspx
+  [定義調整群組]: http://msdn.microsoft.com/zh-TW/library/hh680902(PandP.50).aspx
+  [使用 WASABiCmdlets 透過 Windows PowerShell 操作區塊]: http://msdn.microsoft.com/zh-TW/library/hh680938(PandP.50).aspx
+  [Enterprise Library 5.0 Integration Pack for Azure 開發人員指南]: http://msdn.microsoft.com/zh-TW/library/hh680949(PandP.50).aspx
+  [Sage 如何使用自動調整減少 Azure 主控成本]: http://msdn.microsoft.com/zh-TW/library/jj838716(PandP.50).aspx
+  [利用 Azure 上的自動調整減少 TechNet 和 MSDN 主控成本和環境影響]: http://msdn.microsoft.com/zh-TW/library/jj838718(PandP.50).aspx

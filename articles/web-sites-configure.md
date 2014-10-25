@@ -214,13 +214,13 @@ Azure 會使用指定的參數建立 SQL 資料庫，然後將該資料庫連結
   [管理入口網站]: https://manage.windowsazure.com/
   [管線模式]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
   [ASP.NET SignalR]: http://www.asp.net/signalr
-  [socket.io]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-nodejs-chat-app-socketio/
-  [對 Azure 網站啟用 HTTPS]: href="http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-configure-ssl-certificate/
-  [設定 Azure 網站的自訂網域名稱]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-custom-domain-name/
-  [FTP 認證]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-manage#ftp-credentials
+  [socket.io]: http://azure.microsoft.com/zh-TW/documentation/articles/web-sites-nodejs-chat-app-socketio/
+  [對 Azure 網站啟用 HTTPS]: href="http://www.windowsazure.com/zh-TW/documentation/articles/web-sites-configure-ssl-certificate/
+  [設定 Azure 網站的自訂網域名稱]: http://www.windowsazure.com/zh-TW/documentation/articles/web-sites-custom-domain-name/
+  [FTP 認證]: http://azure.microsoft.com/zh-TW/documentation/articles/web-sites-manage#ftp-credentials
   [如何：監視 Web 端點狀態]: http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409
-  [Azure 網站上的 New Relic 應用程式效能管理]: http://www.windowsazure.com/zh-tw/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/
+  [Azure 網站上的 New Relic 應用程式效能管理]: http://www.windowsazure.com/zh-TW/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/
   [1]: http://manage.windowsazure.com
-  [2]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-configure-ssl-certificate/
-  [如何調整網站大小]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-scale/
-  [如何監視網站]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-monitor/
+  [2]: http://www.windowsazure.com/zh-TW/documentation/articles/web-sites-configure-ssl-certificate/
+  [如何調整網站大小]: http://www.windowsazure.com/zh-TW/documentation/articles/web-sites-scale/
+  [如何監視網站]: http://www.windowsazure.com/zh-TW/documentation/articles/web-sites-monitor/

@@ -18,7 +18,7 @@
 4.  [更新應用程式以使用行動服務][]
 5.  [針對行動服務進行應用程式測試][]
 
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F" target="_blank">Azure 免費試用</a>。</p></div>
+<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F" target="_blank">Azure 免費試用</a>。</p></div>
 
 ### 其他需求
 
@@ -42,7 +42,7 @@
 
 2.  在 HTML 編輯器中，開啟下載的專案並檢查 app.js 檔案。
 
-    請注意，新增的項目會儲存在記憶體內部的 **Array** 物件 (**staticItems**) 中。Refresh the page, and the data disappears.此資料不會保留下來。
+    請注意，新增的項目會儲存在記憶體內部的 **Array** 物件 (**staticItems**) 中。重新整理此頁面，資料會隨即消失。
 
 3.  從 **server** 子資料夾中啟動下列其中一個命令檔案。
 
@@ -88,7 +88,7 @@
 
     <div class="dev-callout"> 
 <b>注意</b> 
-<p>行動服務快速入門中使用相同的資料表名稱。However, each table is created in a schema that is specific to a given mobile service.目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。</p> 
+<p>行動服務快速入門中使用相同的資料表名稱。但每個資料表都會以給定行動服務特有的結構描述建立。目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。</p> 
 </div>
 
 4.  按一下新的 **TodoItem** 資料表，並驗證其中不含資料列。
@@ -113,7 +113,7 @@
     ![][3]
 
     <div class="dev-callout"><b>注意</b>
-<p>如果您將快速入門應用程式部署至 localhost 以外的 Web 伺服器，您必須將該 Web 伺服器的主機名稱新增至 [允許提出要求的主機名稱] 清單。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx" target="_blank">跨原始來源資源分享</a> (英文)。</p>
+<p>如果您將快速入門應用程式部署至 localhost 以外的 Web 伺服器，您必須將該 Web 伺服器的主機名稱新增至 [允許提出要求的主機名稱] 清單。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dn155871.aspx" target="_blank">跨原始來源資源分享</a> (英文)。</p>
 </div>
 
 現在您已準備好將新的行動服務作為應用程式的資料儲存區使用。
@@ -246,7 +246,7 @@
 
 7.  再次載入此頁面，並勾選清單中的另一個項目。
 
-    請注意，所有已核取的項目都會從清單中消失。Each update results in a round-trip to the mobile service, which now returns filtered data.
+    請注意，所有已核取的項目都會從清單中消失。現在在行動服務來回行程期間的更新結果中，會傳回篩選後的資料。
 
 這將結束**開始使用資料**教學課程。
 
@@ -267,23 +267,23 @@
 <!-- URLs. -->
 
   [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started-html
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-html
   [下載 HTML 應用程式專案]: #download-app
   [建立行動服務]: #create-service
   [新增用於儲存的資料表]: #add-table
   [更新應用程式以使用行動服務]: #update-app
   [針對行動服務進行應用程式測試]: #test-app
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F
   [GetStartedWithData 應用程式]: http://go.microsoft.com/fwlink/?LinkID=286345
   []: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
   [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/mobile-services-html-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/mobile-services-html-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png
-  [跨原始來源資源分享]: http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx
+  [跨原始來源資源分享]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn155871.aspx
   [4]: ./media/mobile-services-html-get-started-data/mobile-dashboard-tab.png
   [管理入口網站]: https://manage.windowsazure.com/
   [5]: ./media/mobile-services-html-get-started-data/mobile-todoitem-data-browse.png
-  [使用指令檔驗證與修改資料]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html
-  [使用分頁縮小查詢範圍]: /en-us/develop/mobile/tutorials/add-paging-to-data-html
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-html
+  [使用指令檔驗證與修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-html
+  [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-html
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-html

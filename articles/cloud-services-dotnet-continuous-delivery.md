@@ -173,7 +173,7 @@
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
     或者，您也可以使用 Azure 管理入口網站，匯出憑證檔 PFX 與私密金鑰，並將憑證上傳至每個目標雲端服務。若要深入了解，請閱讀下列文章：
-    [<http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx>][]。
+    [<http://msdn.microsoft.com/zh-tw/library/windowsazure/gg443832.aspx>][]。
 
     **升級部署以及刪除部署再新增部署**
 
@@ -592,7 +592,7 @@ script filename'，Input=' PublishScriptLocation'，Result='PublishScriptFilePat
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
   [Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
   [Windows Azure Libraries]: http://go.microsoft.com/fwlink/?LinkId=257862
-  [MSBuild 命令列參考]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
+  [MSBuild 命令列參考]: http://msdn.microsoft.com/zh-tw/library/ms164311(v=VS.90).aspx
   [MSBuild 命令列參考]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [了解 Team Foundation 建置系統]: http://go.microsoft.com/fwlink/?LinkId=238798
   [設定組建電腦]: http://go.microsoft.com/fwlink/?LinkId=238799

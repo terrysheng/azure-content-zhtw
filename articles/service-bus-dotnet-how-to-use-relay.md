@@ -256,6 +256,6 @@
   [3]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png
   [4]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-06.png
   [5]: ./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png
-  [建立服務匯流排的服務]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173564.aspx
-  [建立服務匯流排用戶端應用程式]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173543.aspx
+  [建立服務匯流排的服務]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee173564.aspx
+  [建立服務匯流排用戶端應用程式]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee173543.aspx
   [Azure 範例]: http://code.msdn.microsoft.com/windowsazure

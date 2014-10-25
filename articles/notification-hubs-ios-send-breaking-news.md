@@ -5,8 +5,8 @@
 # 使用通知中心傳送即時新聞
 
 <div class="dev-center-tutorial-selector sublanding">       
-<a href="/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal" >Windows Universal</a><a href="/zh-tw/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/zh-tw/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS" class="current">iOS</a>
-<a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
+<a href="/zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal" >Windows Universal</a><a href="/zh-TW/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/zh-TW/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS" class="current">iOS</a>
+<a href="/zh-TW/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
 </div>
 
 本主題將說明如何使用 Azure 通知中心，將即時新聞通知廣播至 iOS 應用程式。完成時，您便能夠註冊您所感興趣的即時新聞類別，並僅接收這些類別的推播通知。此情況是許多應用程式的共同模式，這些應用程式必須將通知傳送給先前宣告對通知有興趣的使用者群組，例如，RSS 閱讀程式、供樂迷使用的應用程式等等。
@@ -239,19 +239,19 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Universal]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Universal"
-  [Windows Phone]: /zh-tw/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
-  [Android]: /zh-tw/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
-  [通知中心指引]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+  [Windows Universal]: /zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Universal"
+  [Windows Phone]: /zh-TW/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
+  [iOS]: /zh-TW/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
+  [Android]: /zh-TW/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
+  [通知中心指引]: http://msdn.microsoft.com/zh-TW/library/jj927170.aspx
   [在應用程式中新增類別選項]: #adding-categories
   [註冊通知]: #register
   [從後端傳送通知]: #send
   [執行應用程式並產生通知]: #test-app
-  [開始使用通知中心]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/
+  [開始使用通知中心]: /zh-TW/manage/services/notification-hubs/get-started-notification-hubs-ios/
   []: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
   [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios3.png
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
-  [使用通知中心廣播已當地語系化的即時新聞]: /en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/
-  [使用通知中心來通知使用者]: /en-us/manage/services/notification-hubs/notify-users/
+  [使用通知中心廣播已當地語系化的即時新聞]: /zh-TW/manage/services/notification-hubs/breaking-news-localized-dotnet/
+  [使用通知中心來通知使用者]: /zh-TW/manage/services/notification-hubs/notify-users/

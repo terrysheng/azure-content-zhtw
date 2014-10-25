@@ -305,8 +305,8 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
   [部署至 Azure]: #deploy_azure
   [存取控制服務 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
   [ACS flow diagram]: ./media/active-directory-java-authenticate-users-access-control-eclipse/ACSFlow.png
-  [安裝 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx
-  [在 Eclipse 建立 Azure 的 Hello World 應用程式]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx
+  [安裝 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh690946.aspx
+  [在 Eclipse 建立 Azure 的 Hello World 應用程式]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh690944.aspx
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [計算模擬器中使用的信賴憑證者領域]: ./media/active-directory-java-authenticate-users-access-control-eclipse/RelyingPartyRealmEmulator.png
   [計算模擬器中使用的信賴憑證者傳回 URL]: ./media/active-directory-java-authenticate-users-access-control-eclipse/RelyingPartyReturnURLEmulator.png
@@ -319,5 +319,5 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
   [Relying party realm for use in production]: ./media/active-directory-java-authenticate-users-access-control-eclipse/RelyingPartyRealmProduction.png
   [Relying party return URL for use in production]: ./media/active-directory-java-authenticate-users-access-control-eclipse/RelyingPartyReturnURLProduction.png
   [Azure ACS Filter settings for a production deployment]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddACSFilterLibraryProduction.png
-  [如何檢視 Azure 存取控制服務傳回的 SAML]: /en-us/develop/java/how-to-guides/view-saml-returned-by-acs/
+  [如何檢視 Azure 存取控制服務傳回的 SAML]: /zh-TW/develop/java/how-to-guides/view-saml-returned-by-acs/
   [Add certificate component]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddCertificateComponent.png

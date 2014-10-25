@@ -32,7 +32,7 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 您也可以手動設定環境：
 
 -   安裝 PHP 及設定 IIS：[][]<http://php.net/manual/en/install.windows.iis7.php></a>.
--   下載及安裝 SQL Server Express：[][1]<http://www.microsoft.com/en-us/download/details.aspx?id=29062></a>
+-   下載及安裝 SQL Server Express：[][1]<http://www.microsoft.com/zh-TW/download/details.aspx?id=29062></a>
 -   下載及安裝 Microsoft Drivers for PHP for SQL Server：[][2]<http://php.net/manual/en/sqlsrv.requirements.php></a>.
 
 ## <span id="CreateServer"></span></a>作法：建立 SQL Database
@@ -118,11 +118,11 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
   [作法：建立 SQL Database]: #CreateServer
   [作法：取得 SQL Database 連線資訊]: #ConnectionInfo
   [作法：連接到 SQL Database 執行個體]: #Connect
-  [Azure SQL Database 指導方針和限制]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx
+  [Azure SQL Database 指導方針和限制]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ff394102.aspx
   [Microsoft Drivers for PHP for SQL Server]: http://www.microsoft.com/download/en/details.aspx?id=20098
   [Microsoft Web Platform Installer]: http://go.microsoft.com/fwlink/?LinkId=253447
   []: http://php.net/manual/en/install.windows.iis7.php
-  [1]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
+  [1]: http://www.microsoft.com/zh-TW/download/details.aspx?id=29062
   [2]: http://php.net/manual/en/sqlsrv.requirements.php
   [Create New Azure Web Site]: ./media/sql-database-php-how-to-use-sql-database/plus-new.png
   [Custom Create a new SQL Database]: ./media/sql-database-php-how-to-use-sql-database/create_custom_sql_db-2.png
@@ -131,4 +131,4 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
   [View server and database information]: ./media/sql-database-php-how-to-use-sql-database/sql-dbs-portal.png
   [View database information]: ./media/sql-database-php-how-to-use-sql-database/go-to-db-info.png
   [Show connection strings]: ./media/sql-database-php-how-to-use-sql-database/show-connection-string-2.png
-  [Microsoft Drivers for PHP for SQL Server 文件]: http://msdn.microsoft.com/en-us/library/dd638075(SQL.10).aspx
+  [Microsoft Drivers for PHP for SQL Server 文件]: http://msdn.microsoft.com/zh-TW/library/dd638075(SQL.10).aspx

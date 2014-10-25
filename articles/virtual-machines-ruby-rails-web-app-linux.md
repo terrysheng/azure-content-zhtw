@@ -302,5 +302,5 @@
   [現代化商務的雲端]: /zh-tw/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
   [Ruby on Rails 指南]: http://guides.rubyonrails.org/
   [使用 Blob 儲存非結構化資料]: /zh-tw/documentation/articles/storage-ruby-how-to-use-blob-storage
-  [使用資料表儲存機碼值組]: /en-us/develop/ruby/how-to-guides/table-service/
-  [使用內容傳遞網路提供高頻寬內容]: /en-us/develop/ruby/app-services/
+  [使用資料表儲存機碼值組]: /zh-tw/develop/ruby/how-to-guides/table-service/
+  [使用內容傳遞網路提供高頻寬內容]: /zh-tw/develop/ruby/app-services/

@@ -99,4 +99,4 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
   [作法：處理應用程式當機與無法讀取的訊息]: #handle-crashes
   [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Python 安裝指南]: ../python-how-to-install/
-  [佇列、主題和訂閱。]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+  [佇列、主題和訂閱。]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh367516.aspx

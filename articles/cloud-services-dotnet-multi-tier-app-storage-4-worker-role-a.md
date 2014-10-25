@@ -538,9 +538,9 @@ Azure 會定期安裝作業系統更新，以確保平台安全、可靠且效�
 
 如需使用 Azure 儲存體資料表、佇列和 Blob 的其他資源連結，請參閱[本系列的最後一個教學課程][下一個教學課程]。
 
-<div><a href="/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/" class="site-arrowboxcta download-cta">教學課程 5</a></div>
+<div><a href="/zh-tw/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/" class="site-arrowboxcta download-cta">教學課程 5</a></div>
 
-  [系列的第一個教學課程]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+  [系列的第一個教學課程]: /zh-tw/develop/net/tutorials/multi-tier-web-site/1-overview/
   [將參考加入 Web 專案]: #addref
   [加入 SendEmail 模型]: #addmodel
   [新增在背景工作角色啟動時所執行的程式碼]: #addcode
@@ -548,15 +548,15 @@ Azure 會定期安裝作業系統更新，以確保平台安全、可靠且效�
   [後續步驟]: #nextsteps
   [Add reference to MvcWebRole]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-reference-manager.png
   [含有 sendmail 的訊息資料表]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-sendMailTbl.png
-  [第二個教學課程]: /en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
-  [ServicePointManager.DefaultConnectionLimit]: http://msdn.microsoft.com/en-us/library/system.net.servicepointmanager.defaultconnectionlimit.aspx
-  [ServicePointManager]: http://msdn.microsoft.com/en-us/library/system.net.servicepointmanager.aspx
+  [第二個教學課程]: /zh-tw/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
+  [ServicePointManager.DefaultConnectionLimit]: http://msdn.microsoft.com/zh-tw/library/system.net.servicepointmanager.defaultconnectionlimit.aspx
+  [ServicePointManager]: http://msdn.microsoft.com/zh-tw/library/system.net.servicepointmanager.aspx
   [角色執行個體由於作業系統升級而重新啟動]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
-  [UnhandledException]: http://msdn.microsoft.com/en-us/library/system.appdomain.unhandledexception.aspx
+  [UnhandledException]: http://msdn.microsoft.com/zh-tw/library/system.appdomain.unhandledexception.aspx
   [New message in pending status]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-pending.png
   [New message in processing status]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-processing.png
   [Queue message in ASE]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-ase-queue.png
   [Queue message contents in ASE]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-ase-queue-detail.png
   [訊息資料列]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-ase-message-table.png
   [SendEmail row in Message table]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-a/mtas-worker-a-test-ase-sendemail-row.png
-  [下一個教學課程]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
+  [下一個教學課程]: /zh-tw/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/

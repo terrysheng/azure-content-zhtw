@@ -85,7 +85,7 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [使用通知中心來通知使用者]: /en-us/manage/services/notification-hubs/notify-users-aspnet
+  [使用通知中心來通知使用者]: /zh-TW/manage/services/notification-hubs/notify-users-aspnet
   [Azure 通知中心概觀]: http://go.microsoft.com/fwlink/p/?LinkId=317339
-  [Windows 市集 C#]: /en-us/manage/services/notification-hubs/breaking-news-dotnet
-  [Windows 市集的通知中心作法]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927172.aspx
+  [Windows 市集 C#]: /zh-TW/manage/services/notification-hubs/breaking-news-dotnet
+  [Windows 市集的通知中心作法]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj927172.aspx

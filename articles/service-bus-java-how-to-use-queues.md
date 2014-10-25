@@ -172,7 +172,7 @@
 
 現在您已了解服務匯流排佇列的基本概念，請參閱 MSDN主題[佇列、主題和訂閱][]，以取得詳細資訊。
 
-  [Azure SDK for Java]: http://azure.microsoft.com/en-us/develop/java/
+  [Azure SDK for Java]: http://azure.microsoft.com/zh-TW/develop/java/
   [什麼是服務匯流排佇列？]: #what-are-service-bus-queues
   [建立服務命名空間]: #create-a-service-namespace
   [取得命名空間的預設管理認證]: #obtain-default-credentials
@@ -183,4 +183,4 @@
   [作法：處理應用程式當機與無法讀取的訊息]: #bkmk_HowToHandleAppCrashes
   [後續步驟]: #bkmk_NextSteps
   [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
-  [佇列、主題和訂閱]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+  [佇列、主題和訂閱]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh367516.aspx

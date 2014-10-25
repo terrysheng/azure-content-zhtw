@@ -60,7 +60,7 @@
   [更新資料模型中的 TodoItem 定義]: #update-data-model
   [更新資料表控制器以產生 SAS]: #update-scripts
   [上傳影像以測試應用程式]: #test
-  [Windows Phone SDK 8.0]: http://www.microsoft.com/en-us/download/details.aspx?id=35471
+  [Windows Phone SDK 8.0]: http://www.microsoft.com/zh-tw/download/details.aspx?id=35471
   [Azure 儲存體帳戶]: /zh-tw/documentation/articles/storage-create-storage-account/
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started
   [mobile-services-dotnet-backend-configure-blob-storage]: ../includes/mobile-services-dotnet-backend-configure-blob-storage.md

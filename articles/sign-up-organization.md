@@ -24,8 +24,8 @@
 
   [disclaimer]: ../includes/disclaimer.md
   [詳細資訊]: http://windows.microsoft.com/en-US/windows-live/sign-in-what-is-microsoft-account
-  [1]: http://technet.microsoft.com/en-us/library/jj573650
+  [1]: http://technet.microsoft.com/zh-TW/library/jj573650
   [**立即註冊**]: http://go.microsoft.com/fwlink/?LinkId=269967
-  [什麼是 Azure AD？]: /en-us/manage/services/identity/what-is-windows-azure-active-directory/
-  [TechNet 上的 Azure AD 程式庫]: http://technet.microsoft.com/en-us/library/hh967619.aspx
+  [什麼是 Azure AD？]: /zh-TW/manage/services/identity/what-is-windows-azure-active-directory/
+  [TechNet 上的 Azure AD 程式庫]: http://technet.microsoft.com/zh-TW/library/hh967619.aspx
   [MSDN 上的 Azure AD 程式庫]: http://msdn.microsoft.com/library/windowsazure/jj673460.aspx

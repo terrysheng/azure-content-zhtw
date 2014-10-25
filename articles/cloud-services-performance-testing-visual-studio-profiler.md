@@ -165,8 +165,8 @@
 
 在 Visual Studio 2010 分析工具中，不支援在模擬器中檢測 Azure 二進位，但是，如果您想要測試記憶體配置，則可以在分析時選擇該選項。您也可以選擇並行分析來協助您判斷執行緒是否浪費時間來競爭鎖定，或選擇階層互動分析來協助您追蹤在應用程式階層之間互動時的效能問題 (最常發生在資料層與背景工作角色之間)。您可以檢視應用程式所產生的資料庫查詢，以及使用分析資料來提高資料庫的使用。如需階層互動分析的相關資訊，請參閱[逐步解說：在 Visual Studio Team System 2010 中使用階層互動分析][]。
 
-  [測試雲端服務的效能]: http://msdn.microsoft.com/en-us/library/windowsazure/hh369930.aspx
-  [在 Azure 中使用效能計數器]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling
+  [測試雲端服務的效能]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh369930.aspx
+  [在 Azure 中使用效能計數器]: http://www.windowsazure.com/zh-TW/develop/net/common-tasks/performance-profiling
   [步驟 1：設定 Visual Studio 進行分析]: #step1
   [步驟 2：連結至程序]: #step2
   [步驟 3：檢視分析報告]: #step3

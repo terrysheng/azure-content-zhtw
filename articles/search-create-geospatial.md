@@ -4,40 +4,40 @@
 
 # 使用 Azure 搜尋建立地理空間搜尋應用程式
 
--   [必要條件][必要條件]
--   [Bing 地圖][Bing 地圖]
--   [C# 中使用 Bing 地圖 DataFlow API 的地理編碼地址][C# 中使用 Bing 地圖 DataFlow API 的地理編碼地址]
--   [使用 Azure 搜尋與 Bing 地圖為 MVC4 應用程式新增地圖][使用 Azure 搜尋與 Bing 地圖為 MVC4 應用程式新增地圖]
--   [探索 AdventureWorksWebGeo][探索 AdventureWorksWebGeo]
--   [後續步驟][後續步驟]
+-   [必要條件](#sub-1)
+-   [Bing 地圖](#sub-2)
+-   [C# 中使用 Bing 地圖 DataFlow API 的地理編碼地址](#sub-3)
+-   [使用 Azure 搜尋與 Bing 地圖為 MVC4 應用程式新增地圖](#sub-4)
+-   [探索 AdventureWorksWebGeo](#sub-5)
+-   [後續步驟](#next-steps)
 
 ## 概觀
 
 本教學課程示範如何使用 Azure 搜尋與 Bing 地圖將地理空間搜尋新增至 Web 應用程式。透過地理搜尋功能，您可以找到某個地點特定距離範圍內的搜尋目標 (例如，尋找距離我目前位置 5 公理範圍內的所有餐廳)。Azure 搜尋中的地理空間功能支援常用的地圖技術。舉例來說，當您想要在不動產應用程式中使用多邊形來展示多邊形邊界內的待售屋，您可以透過 OData 或是我們的簡易搜尋語法輕鬆地辦到。
 
-如需更多概觀，請觀賞本頻道 9 有關 [Azure 搜尋與地理空間資料的][Azure 搜尋與地理空間資料的]影片介紹
+如需更多概觀，請觀賞本頻道 9 有關 [Azure 搜尋與地理空間資料的](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)影片介紹
 
-![][]
+![][7]
 
 為了建立應用程式，我們將使用 Bing 地圖服務來對應從 CSV 檔案載入的地理編碼地址，然後將得出的資料儲存到搜尋索引中。
 
-本教學課程將以 [Azure 搜尋 – Adventure Works 示範][Azure 搜尋 – Adventure Works 示範]為基礎來編定。如果您尚未看過這項示範，請從該示範開始了解如何建立索引並從 Web 應用程式呼叫 Azure 搜尋 API。
+本教學課程將以 [Azure 搜尋 – Adventure Works 示範](http://azuresearchadventureworksdemo.codeplex.com)為基礎來編定。如果您尚未看過這項示範，請從該示範開始了解如何建立索引並從 Web 應用程式呼叫 Azure 搜尋 API。
 
 ## 必要條件
 
--   Visual Studio 2012 或更高版本，並安裝 ASP.NET MVC 4 與 SQL Server。您可以從[下載中心][下載中心]網頁取得 Visual Studio 2013 Express。
--   Azure 搜尋服務。您需要搜尋服務名稱，以及系統管理金鑰。請參閱[在 Azure Preview 入口網站上設定搜尋][在 Azure Preview 入口網站上設定搜尋]以取得詳細資料。
+-   Visual Studio 2012 或更高版本，並安裝 ASP.NET MVC 4 與 SQL Server。您可以從[下載中心](http://www.microsoft.com/zh-tw/download/details.aspx?id=40747)網頁取得 Visual Studio 2013 Express。
+-   Azure 搜尋服務。您需要搜尋服務名稱，以及系統管理金鑰。請參閱[在 Azure Preview 入口網站上設定搜尋](../search-configure/)以取得詳細資料。
 -   Bing 地圖服務與其存取金鑰。下一節會提供說明
--   [CodePlex 上的 Azure 搜尋 GeoSearch 範例][CodePlex 上的 Azure 搜尋 GeoSearch 範例]。在 [來源] 索引標籤上，按一下 [下載 ]取得解決方案的壓縮檔。
+-   [CodePlex 上的 Azure 搜尋 GeoSearch 範例](https://azuresearchgeospatial.codeplex.com/)。在 [來源] 索引標籤上，按一下 [下載 ]取得解決方案的壓縮檔。
 
-    ![][1]
+    ![][12]
 
 此解決方案內含兩個專案：
 
 -   **StoreIndexer** 會建立 Azure 搜尋索引並載入資料。
 -   **AdventureWorksWebGeo** 是一項 MVC4 應用程式，它會查詢 Azure 搜尋索引並在 Bing 地圖上顯示商店位置。
 
-[WACOM.INCLUDE [您需要 Azure 帳戶來完成此教學課程：][您需要 Azure 帳戶來完成此教學課程：]]
+[WACOM.INCLUDE [您需要 Azure 帳戶來完成此教學課程：](../includes/free-trial-note.md)]
 
 ## Bing 地圖
 
@@ -49,7 +49,7 @@
 
 ### 建立 Bing 地圖帳戶
 
-1.  前往 [Bing 地圖入口網站][Bing 地圖入口網站] (英文) 建立新的帳戶。輸入詳細資料以建立帳戶。
+1.  前往 [Bing 地圖入口網站](https://www.bingmapsportal.com/) (英文) 建立新的帳戶。輸入詳細資料以建立帳戶。
 
 2.  帳戶建立完畢後，請選擇 [Create or view keys] 並輸入詳細資料以建立金鑰。為方便本示範進行，您可以選擇 [Trial Key]。
 
@@ -63,7 +63,7 @@
 
 讓我們逐一檢視這些代碼，了解其運作原理。
 
-1.  在 Visual Studio 中開啟 AdventureWorksGeo 解決方案，在 [方案總管] 中展開 **StoreIndexer** 專案，並開啟 Program.cs。由於我們已在 [Azure 搜尋 – Adventure Works 示範][2] (英文) 一文中說明了索引建立方式，因此我們將略過 Program.cs 中的索引運作方式不再討論。
+1.  在 Visual Studio 中開啟 AdventureWorksGeo 解決方案，在 [方案總管] 中展開 **StoreIndexer** 專案，並開啟 Program.cs。由於我們已在 [Azure 搜尋 – Adventure Works 示範](http://azuresearchadventureworksdemo.codeplex.com/) (英文) 一文中說明了索引建立方式，因此我們將略過 Program.cs 中的索引運作方式不再討論。
 
 2.  前往 [主要] 函數，請注意它會呼叫 **ApplyStoreData**。移至此函數，並詳細了解此程式碼。
 
@@ -97,7 +97,7 @@
 
 4.  儲存 Web.config。
 
-5.  按 **F5** 鍵啟動專案。如果出現組建錯誤，請遵循以下[疑難排解][疑難排解]步驟。
+5.  按 **F5** 鍵啟動專案。如果出現組建錯誤，請遵循以下[疑難排解](#err-mvc)步驟。
 
 請注意，這些商店會以點狀方式呈現在地圖上。按一下其中一間商店，會看到快顯視窗，內含該商店的詳細資料。這裡的所有資訊都來自先前步驟中建立，名為 "stores" 的 Azure 搜尋索引。
 
@@ -140,23 +140,15 @@
 
 -   使用者繪製的選擇區域，讓使用者藉由拖曳地圖上的區域來指定要搜尋的區域。該區域可以接著由 Azure 搜尋透過地理互動 API 進行篩選，然後繪製在地圖上。
 
-<!--Anchors--> 
-<!--Image references-->
+<!--Anchors-->
+[Prerequisites]: #sub-1
+[Bing Maps]: #sub-2
+[Geocode Addresses in C# using Bing Maps DataFlow API]: #sub-3
+[Add Mapping to an MVC4 Application using Azure Search and Bing Maps]: #sub-4
+[Explore AdventureWorksWebGeo]: #sub-5
+[Next steps]: #next-steps
 
-  [必要條件]: #sub-1
-  [Bing 地圖]: #sub-2
-  [C# 中使用 Bing 地圖 DataFlow API 的地理編碼地址]: #sub-3
-  [使用 Azure 搜尋與 Bing 地圖為 MVC4 應用程式新增地圖]: #sub-4
-  [探索 AdventureWorksWebGeo]: #sub-5
-  [後續步驟]: #next-steps
-  [Azure 搜尋與地理空間資料的]: http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data
-  []: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
-  [Azure 搜尋 – Adventure Works 示範]: http://azuresearchadventureworksdemo.codeplex.com
-  [下載中心]: http://www.microsoft.com/en-us/download/details.aspx?id=40747
-  [在 Azure Preview 入口網站上設定搜尋]: ../search-configure/
-  [CodePlex 上的 Azure 搜尋 GeoSearch 範例]: https://azuresearchgeospatial.codeplex.com/
-  [1]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
-  [您需要 Azure 帳戶來完成此教學課程：]: ../includes/free-trial-note.md
-  [Bing 地圖入口網站]: https://www.bingmapsportal.com/
-  [2]: http://azuresearchadventureworksdemo.codeplex.com/
-  [疑難排解]: #err-mvc
+
+<!--Image references-->
+[7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
+[12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG

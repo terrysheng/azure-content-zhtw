@@ -52,9 +52,9 @@ Azure 流量管理員使用三種不同的負載平衡方法。下列清單說�
 
 如需將流量管理員與 Azure 網站搭配使用的詳細資訊，請參閱[將 Windows Azure 流量管理員與 WAWS 搭配使用][]和 [Azure 流量管理員現在可以與 Azure 網站整合][]部落格文章。
 
-  [關於 Traffic Manager 負載平衡方法]: http://msdn.microsoft.com/en-us/library/windowsazure/dn339010.aspx
-  [設定 Azure 網站的自訂網域名稱]: https://www.windowsazure.com/zh-tw/documentation/articles/web-sites-custom-domain-name/
-  [Traffic Manager 概觀]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx
-  [流量管理員組態工作]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744830.aspx
+  [關於 Traffic Manager 負載平衡方法]: http://msdn.microsoft.com/zh-TW/library/windowsazure/dn339010.aspx
+  [設定 Azure 網站的自訂網域名稱]: https://www.windowsazure.com/zh-TW/documentation/articles/web-sites-custom-domain-name/
+  [Traffic Manager 概觀]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh744833.aspx
+  [流量管理員組態工作]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh744830.aspx
   [將 Windows Azure 流量管理員與 WAWS 搭配使用]: http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx
   [Azure 流量管理員現在可以與 Azure 網站整合]: http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/

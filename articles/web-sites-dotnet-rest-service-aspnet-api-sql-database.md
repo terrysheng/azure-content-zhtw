@@ -815,7 +815,7 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 <!-- images-->
 
   [Rick Anderson]: https://twitter.com/RickAndMSFT
-  [本教學課程的前一版本]: /en-us/develop/net/tutorials/get-started-vs2012/
+  [本教學課程的前一版本]: /zh-tw/develop/net/tutorials/get-started-vs2012/
   [screenshot of web site]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobil-intro-finished-web-app.png
   [設定開發環境]: #bkmk_setupdevenv
   [設定 Azure 環境]: #bkmk_setupwindowsazure
@@ -873,7 +873,7 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
   [XSRF]: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)
   [Publish]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rxP.png
   [Settings]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt5.png
-  [部署含有 OAuth、成員資格及 SQL Database 的安全 ASP.NET MVC 應用程式]: http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/
+  [部署含有 OAuth、成員資格及 SQL Database 的安全 ASP.NET MVC 應用程式]: http://www.windowsazure.com/zh-tw/develop/net/tutorials/web-site-with-sql-database/
   [使用 MVC 的 Entity Framework 入門]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
   [ASP.NET MVC 5 入門]: http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started
   [您的第一個 ASP.NET Web API]: http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api

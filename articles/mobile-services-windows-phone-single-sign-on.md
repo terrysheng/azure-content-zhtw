@@ -5,13 +5,13 @@
 # 使用 Live Connect 單一登入驗證 Windows Phone 8 應用程式
 
 <div class="dev-center-tutorial-selector sublanding"> 
-<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet" title="Windows 市集 C#">Windows 市集 C#</a><a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/en-us/develop/mobile/tutorials/single-sign-on-wp8/" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-js" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/zh-tw/develop/mobile/tutorials/single-sign-on-wp8/" title="Windows Phone" class="current">Windows Phone</a>
 </div>
 
 本主題說明如何在 Windows Phone 8 應用程式的 Azure 行動服務中，使用 Live Connect 單一登入來驗證使用者。在本教學課程中，您會使用 Live Connect 將驗證新增至快速入門專案。在經過 Live Connect 成功驗證後，畫面會顯示名稱和使用者識別碼值來歡迎已登入使用者。
 
 <div class="dev-callout"><b>注意</b>
-<p>本教學課程將示範使用由適用於 Windows Phone 應用程式的 Live Connect 所提供之單一登入經驗的優點。這可讓您更輕鬆地使用行動服務來驗證已登入使用者。如需支援多個驗證提供者的更一般化驗證經驗的詳細資訊，請參閱<a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8/">開始使用驗證</a>主題。 </p>
+<p>本教學課程將示範使用由適用於 Windows Phone 應用程式的 Live Connect 所提供之單一登入經驗的優點。這可讓您更輕鬆地使用行動服務來驗證已登入使用者。如需支援多個驗證提供者的更一般化驗證經驗的詳細資訊，請參閱<a href="/zh-tw/develop/mobile/tutorials/get-started-with-users-wp8/">開始使用驗證</a>主題。 </p>
 </div>
 
 本教學課程會逐步引導您完成啟用 Live Connect 驗證的基本步驟：
@@ -33,7 +33,7 @@
 
 1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的行動服務。
 
-    ![][]
+    ![][0]
 
 2.  按一下 [儀表板] 索引標籤並記下 [網站 URL] 值。
 
@@ -132,7 +132,7 @@
 5.  使用向 Live Connect 註冊應用程式時所產生的用戶端識別碼值，來更新上一個步驟中的字串 *\<\< INSERT CLIENT ID HERE \>\>*。
 
     <div class="dev-callout"><b>注意</b>
-<p>在 Windows Phone 8 應用程式中，您可透過將此用戶端識別碼值傳遞至類別建構函式來建立 <strong>LiveAuthClient</strong> 類別的執行個體。在 <a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/">Windows 市集應用程式</a>中，您可透過傳遞重新導向網域 URI 來具現化相同類別。</p>
+<p>在 Windows Phone 8 應用程式中，您可透過將此用戶端識別碼值傳遞至類別建構函式來建立 <strong>LiveAuthClient</strong> 類別的執行個體。在 <a href="/zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/">Windows 市集應用程式</a>中，您可透過傳遞重新導向網域 URI 來具現化相同類別。</p>
 </div>
 
 6.  刪除或註解化現有的 **OnNavigatedTo** 方法，這將會以下列處理頁面上 **Loaded** 事件的方法覆寫和取代該現有方法。
@@ -154,7 +154,7 @@
             this.Loaded += MainPage_Loaded;
         }
 
-    This constructor also registers the handler for the Loaded event.
+    此建構函式也會註冊 Loaded 事件的處理常式。
 
 8.  按 F5 鍵執行應用程式，並以您的 Microsoft 帳戶登入 Live Connect。
 
@@ -168,17 +168,17 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-js "Windows 市集 JavaScript"
-  [Windows Phone]: /en-us/develop/mobile/tutorials/single-sign-on-wp8/ "Windows Phone"
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8/
+  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet "Windows 市集 C#"
+  [Windows 市集 JavaScript]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-js "Windows 市集 JavaScript"
+  [Windows Phone]: /zh-tw/develop/mobile/tutorials/single-sign-on-wp8/ "Windows Phone"
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-wp8/
   [註冊您的應用程式以驗證與設定行動服務]: #register
   [對通過驗證的使用者限制資料表權限]: #permissions
   [將驗證新增至應用程式]: #add-authentication
   [Live SDK for Windows and Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started-wp8
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-wp8
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-phone-single-sign-on/mobile-service-uri.png
   [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
   [2]: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-live-connect-add-app.png
@@ -187,6 +187,6 @@
   [5]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-data-tables.png
   [6]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-perms.png
   [7]: ./media/mobile-services-windows-phone-single-sign-on/mobile-add-reference-live-wp8.png
-  [Windows 市集應用程式]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
-  [使用指令碼授權使用者]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8
-  [8]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
+  [Windows 市集應用程式]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
+  [使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-wp8
+  [8]: /zh-tw/develop/mobile/tutorials/get-started-with-users-wp8

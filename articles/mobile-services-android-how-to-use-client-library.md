@@ -5,7 +5,7 @@
 # 如何使用行動服務的 Android 用戶端程式庫
 
 <div class="dev-center-tutorial-selector sublanding"> 
-<a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
+<a href="/zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
 </div>
 
 本指南將說明如何使用 Azure 行動服務的 Android 用戶端執行一般案例。所涵蓋的案例包括查詢資料，以及插入、更新和刪除資料、驗證使用者、處理錯誤和自訂用戶端。如果您不熟悉行動服務，您應考慮首先完成[行動服務快速入門][]。快速入門教學課程可協助您設定帳戶，並建立您的第一個行動服務。
@@ -784,12 +784,12 @@
 
 <!-- URLs. -->
 
-  [.NET Framework]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
-  [行動服務快速入門]: /en-us/develop/mobile/tutorials/get-started-android/
+  [.NET Framework]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
+  [HTML/JavaScript]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
+  [iOS]: /zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
+  [Android]: /zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
+  [Xamarin]: /zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
+  [行動服務快速入門]: /zh-tw/develop/mobile/tutorials/get-started-android/
   [行動服務 SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
   [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125&clcid=0x409
   [什麼是行動服務]: #what-is
@@ -876,7 +876,7 @@
   [**insert**]: http://go.microsoft.com/fwlink/p/?LinkId=296862
   [**TableOperationCallback\<ToDoItem\>**]: http://go.microsoft.com/fwlink/p/?LinkId=296865
   [ASCII 控制碼 C0 和 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-  [使用 CLI 管理行動服務資料表]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+  [使用 CLI 管理行動服務資料表]: http://www.windowsazure.com/zh-tw/manage/linux/other-resources/command-line-tools/#Mobile_Tables
   [**TableDeleteCallback**]: http://go.microsoft.com/fwlink/p/?LinkId=296858
   [MobileServicesJsonTable]: http://go.microsoft.com/fwlink/p/?LinkId=298733
   [getTable()]: http://go.microsoft.com/fwlink/p/?LinkId=298734
@@ -886,6 +886,6 @@
   [**TableJsonQueryCallback**]: http://go.microsoft.com/fwlink/p/?LinkId=298543
   [開始使用驗證]: http://go.microsoft.com/fwlink/p/?LinkId=296316
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  [此處]: https://www.windowsazure.com/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
+  [此處]: https://www.windowsazure.com/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
   [在行動服務 Android 用戶端中使用]: http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
   []: http://go.microsoft.com/fwlink/p/?LinkId=298735 "此處"

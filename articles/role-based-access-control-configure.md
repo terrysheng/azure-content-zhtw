@@ -14,19 +14,19 @@
 
 ## 目錄
 
--   [Azure 中的 RBAC][Azure 中的 RBAC]
--   [RBAC 與訂閱共同管理員的並存機制][RBAC 與訂閱共同管理員的並存機制]
--   [管理授權與資料作業][管理授權與資料作業]
--   [如何新增與移除存取][如何新增與移除存取]
--   [使用角色存取控制的已知問題][使用角色存取控制的已知問題]
--   [如何提供意見][如何提供意見]
--   [後續步驟][後續步驟]
+-   [Azure 中的 RBAC](#whatisrbac)
+-   [RBAC 與訂閱共同管理員的並存機制](#coexist)
+-   [管理授權與資料作業](#authmgmt)
+-   [如何新增與移除存取](#addremoveaccess)
+-   [使用角色存取控制的已知問題](#knownissues)
+-   [如何提供意見](#feedback)
+-   [後續步驟](#next)
 
 ## <span id="whatisrbac"></span></a>Azure 中的 RBAC
 
 每一個 Azure 訂閱都與 Azure Active Directory 相關聯。透過 Azure 管理入口網站或是 Azure 資源管理員 API 來存取訂閱資源的使用者與服務，都必須先向 Azure Active Directory 進行驗證。
 
-![][]
+![][1] 
 
 Azure 角色存取控制可讓您將角色指派給訂閱、資源群組或個別資源層級中的 Azure AD 使用者、群組與服務，授予其適當的存取權限。被指派的角色可定義 Azure 資源上的使用者、群組或服務的存取等級。
 
@@ -84,14 +84,14 @@ Azure 角色存取控制可讓您將角色指派給訂閱、資源群組或個�
 
 -   **使用者**：您可以將角色指派給 Azure AD 內與 Azure 訂閱相關聯的組織使用者。您也可以透過 Invite 動作為使用者指派 Azure Preview 入口網站內的某個角色，以將角色指派給外部 Microsoft 帳戶使用者 (例如 <joe@outlook.com>)。將角色指派給外部 Microsoft 帳戶使用者會導致 Azure AD 中為該角色建立來賓帳戶。當目錄停用此來賓帳戶時，外部使用者將無法存取該使用者已經獲得存取授權的任何 Azure 資源。
 -   **群組**：您可以將角色指派給 Azure AD 安全性群組。當使用者成為具有存取權限的群組成員時，系統會自動為該使用者授予資源存取權限。但當系統將該使用者從群組中移除時，該使用者也會自動喪失對資源的存取權限。將角色指派給群組並將使用者新增至這些群組，而非將角色直接指派給使用者，是透過群組來管理存取權限的最佳方式。Azure RBAC 不允許將角色指派給通訊群組清單。
-    將角色指派給群組的能力，可讓組織將其現有的存取控制模型從內部部署目錄延伸到雲端，這樣您便可重複使用之前建立來控制存取內部部署環境的安全性群組來控制 Azure Preview 入口網站中的資源存取權限。如需從內部部署目錄同步使用者與群組的不同選項詳細資訊，請參閱[目錄整合][目錄整合]。Azure AD Premium 同時提供了[委派的群組管理功能][委派的群組管理功能]相關文章，讓您得以建立並管理可以從 Azure AD 委派給非管理員使用者的群組。
+    將角色指派給群組的能力，可讓組織將其現有的存取控制模型從內部部署目錄延伸到雲端，這樣您便可重複使用之前建立來控制存取內部部署環境的安全性群組來控制 Azure Preview 入口網站中的資源存取權限。如需從內部部署目錄同步使用者與群組的不同選項詳細資訊，請參閱[目錄整合](http://technet.microsoft.com/library/jj573653.aspx)。Azure AD Premium 同時提供了[委派的群組管理功能](http://msdn.microsoft.com/library/azure/dn641267.aspx)相關文章，讓您得以建立並管理可以從 Azure AD 委派給非管理員使用者的群組。
 -   **服務主體**：目錄中會以服務主體來代表服務身分。這些身分負責向 Azure AD 驗證，並會安全地與彼此通訊。您可以透過 Azure module for Windows PowerShell，將角色指派給代表該服務的 Azure AD 服務主體，為服務授予 Azure 資源的存取權限。
 
 #### 資源範圍
 
 您無須將存取權限授予整個訂閱。角色可以同時指派給資源群組與個別資源。在 Azure RBAC 中，資源會繼承來自其父系資源的角色指派。因此如果使用者、群組或服務只獲得訂閱中某項資源群組的存取權限，他們便只能存取其中的資源群組或資源，而非該訂閱內的其他資源群組。再舉另一例說明，安全性群組可以新增至資源群組的讀取器角色，但可以新增至該資源群組內某個資料庫的參與者角色。
 
-![][1]
+![][2]
 
 ## <span id="coexist"></span></a>RBAC 與訂閱共同管理員的並存機制
 
@@ -108,9 +108,9 @@ Azure 角色存取控制可讓您將角色指派給訂閱、資源群組或個�
 
 讓我們舉例說明組織內的資源擁有者如何管理存取權限。在此案例中，有多位使用者正在進行使用 Azure 資源建立的各項測試與生產專案。您想要遵照最佳實作來授予存取權限。使用者現在應該對所需的所有資源具備存取權限，但沒有額外的存取權限。您想要重複利用之前在流程中的所有投資與工具，以便使用內部部署 Active Directory 中所建立的安全性群組。以下各節涵蓋如何針對這些資源設定存取權限：
 
--   [新增存取][新增存取]
--   [移除存取][移除存取]
--   [為外部使用者新增或移除存取權限][為外部使用者新增或移除存取權限]
+-   [新增存取](#add)
+-   [移除存取](#remove)
+-   [為外部使用者新增或移除存取權限](#addremoveext)
 
 ### 
 
@@ -129,25 +129,25 @@ Azure 角色存取控制可讓您將角色指派給訂閱、資源群組或個�
 
 首先，讓我們為訂閱裡的所有資源新增讀取存取權限。按一下 [瀏覽 \> 全部 \> 訂閱]。
 
-![][2]
+![][3] 
 
 按一下 [*您的訂閱名稱* \*\* \> 讀取者 \> 新增\*\*]。從使用者與群組清單中，選取或是輸入 Active Directory 群組的名稱。
 
-![][3]
+![][4]
 
 接著將相同團隊新增至 Test 資源群組的參與者角色中。按一下資源群組以開啟其屬性分頁。在 [角色] 下方按一下 [參與者 \> 新增]，然後輸入團隊名稱。
 
-![][4]
+![][5]
 
 若要將 Brock 新增至 Prod 資源群組的參與者角色中，依序按一下資源群組與 [參與者 \> 新增]，然後輸入 Brock 名稱。
 
-![][5]
+![][6]
 
 角色指派也可以透過 Microsoft Azure module for Windows PowerShell 進行管理。以下舉例說明如何使用 New-AzureRoleAssignment Cmdlet (而非透過入口網站)，新增 Brock 帳戶：
 
 	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
-如需使用 Windows PowerShell 來新增並移除存取權限的詳細資訊，請參閱[使用 Windows PowerShell 管理角色存取控制][使用 Windows PowerShell 管理角色存取控制] (英文)。
+如需使用 Windows PowerShell 來新增並移除存取權限的詳細資訊，請參閱[使用 Windows PowerShell 管理角色存取控制](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-powershell/) (英文)。
 
 ### 
 
@@ -156,7 +156,7 @@ Azure 角色存取控制可讓您將角色指派給訂閱、資源群組或個�
 
 您也可以輕易地移除指派。假設您想要針對名為 TestDB 的資源群組，從讀取者角色中移除名為 Brad Adams 的使用者。開啟資源群組分頁，並按一下 [讀取者 \> Brad Adams \> 移除]。
 
-![][6]
+![][7]
 
 以下舉例說明如何使用 Remove-AzureRoleAssignment Cmdlet 移除 Brad Adams：
 
@@ -169,7 +169,7 @@ Azure 角色存取控制可讓您將角色指派給訂閱、資源群組或個�
 目錄內的 [設定] 索引標籤內含可控制外部使用者存取權限的選項。目錄的全域管理員只能針對完整的 Azure 入口網站變更其中的 UI (沒有 Windows PowerShell 或 API 方法)。
 若要開啟完整的 Azure 入口網站中的 [設定] 索引標籤，按一下 [Active Directory]，然後按一下目錄名稱。
 
-![][7]
+![][10]
 
 接著您可以編輯選項來控制外部使用者的存取權限。
 
@@ -193,54 +193,32 @@ Azure 角色存取控制可讓您將角色指派給訂閱、資源群組或個�
 
 ## <span id="knownissues"></span></a>使用角色存取控制的已知問題
 
-當您在預覽模式中使用角色存取控制功能而碰到問題時，請參閱[為角色存取控制進行疑難排解][為角色存取控制進行疑難排解]，了解與該問題相關的任何已知問題。
+當您在預覽模式中使用角色存取控制功能而碰到問題時，請參閱[為角色存取控制進行疑難排解](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-troubleshooting/)，了解與該問題相關的任何已知問題。
 
 ## <span id="feedback"></span></a>如何提供意見
 
-請嘗試使用 Azure RBAC 並告知我們您的[意見][意見]。
+請嘗試使用 Azure RBAC 並告知我們您的[意見](http://aka.ms/azurerbacfeedback)。
 
 ## <span id="next"></span></a>後續步驟
 
 以下是可協助您使用角色存取控制的其他資源：
 
--   [使用 Windows PowerShell 管理角色存取控制][使用 Windows PowerShell 管理角色存取控制]
--   [使用 XPLAT CLI 管理角色存取控制][使用 XPLAT CLI 管理角色存取控制]
--   [為角色存取控制進行疑難排解][為角色存取控制進行疑難排解]
--   [Azure Active Directory][Azure Active Directory]
--   [Azure Active Directory Premium 與 Basic][Azure Active Directory Premium 與 Basic]
--   [Azure 訂閱如何與 Azure AD 產生關聯][Azure 訂閱如何與 Azure AD 產生關聯]
--   如需安全性群組的自我服務群組管理介紹，請參閱 [Active Directory 團隊部落格][Active Directory 團隊部落格] (英文)
+-   [使用 Windows PowerShell 管理角色存取控制](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-powershell/)
+-   [使用 XPLAT CLI 管理角色存取控制](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-xplat-cli/)
+-   [為角色存取控制進行疑難排解](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-troubleshooting/)
+-   [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
+-   [Azure Active Directory Premium 與 Basic](http://msdn.microsoft.com/zh-tw/library/azure/dn532272.aspx)
+-   [Azure 訂閱如何與 Azure AD 產生關聯](http://msdn.microsoft.com/zh-tw/library/azure/dn629581.aspx)
+-   如需安全性群組的自我服務群組管理介紹，請參閱 [Active Directory Team Blog](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx) (英文)
 
 <!--Image references-->
-
-  [部落格文章]: http://go.microsoft.com/fwlink/?LinkId=511576
-  [Azure 中的 RBAC]: #whatisrbac
-  [RBAC 與訂閱共同管理員的並存機制]: #coexist
-  [管理授權與資料作業]: #authmgmt
-  [如何新增與移除存取]: #addremoveaccess
-  [使用角色存取控制的已知問題]: #knownissues
-  [如何提供意見]: #feedback
-  [後續步驟]: #next
-  []: ./media/role-based-access-control-configure/RBACSubAuthDir.png
-  [目錄整合]: http://technet.microsoft.com/library/jj573653.aspx
-  [委派的群組管理功能]: http://msdn.microsoft.com/library/azure/dn641267.aspx
-  [1]: ./media/role-based-access-control-configure/RBACAssignmentScopes.png
-  [新增存取]: #add
-  [移除存取]: #remove
-  [為外部使用者新增或移除存取權限]: #addremoveext
-  [2]: ./media/role-based-access-control-configure/RBACSubscriptionBlade.png
-  [3]: ./media/role-based-access-control-configure/RBACAddSubReader_NEW.png
-  [4]: ./media/role-based-access-control-configure/RBACAddRGContributor_NEW.png
-  [5]: ./media/role-based-access-control-configure/RBACAddProdContributor_NEW.png
-  [使用 Windows PowerShell 管理角色存取控制]: http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-powershell/
-  [6]: ./media/role-based-access-control-configure/RBACRemoveRole.png
-  [7]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
-  [8]: ./media/role-based-access-control-configure/RBACGuestAccessControls.png
-  [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
-  [為角色存取控制進行疑難排解]: http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-troubleshooting/
-  [意見]: http://aka.ms/azurerbacfeedback
-  [使用 XPLAT CLI 管理角色存取控制]: http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-xplat-cli/
-  [Azure Active Directory]: http://msdn.microsoft.com/library/azure/jj673460.aspx
-  [Azure Active Directory Premium 與 Basic]: http://msdn.microsoft.com/en-us/library/azure/dn532272.aspx
-  [Azure 訂閱如何與 Azure AD 產生關聯]: http://msdn.microsoft.com/en-us/library/azure/dn629581.aspx
-  [Active Directory 團隊部落格]: http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx
+[1]: ./media/role-based-access-control-configure/RBACSubAuthDir.png
+[2]: ./media/role-based-access-control-configure/RBACAssignmentScopes.png
+[3]: ./media/role-based-access-control-configure/RBACSubscriptionBlade.png
+[4]: ./media/role-based-access-control-configure/RBACAddSubReader_NEW.png
+[5]: ./media/role-based-access-control-configure/RBACAddRGContributor_NEW.png
+[6]: ./media/role-based-access-control-configure/RBACAddProdContributor_NEW.png
+[7]: ./media/role-based-access-control-configure/RBACRemoveRole.png
+[8]: ./media/role-based-access-control-configure/RBACGuestAccessControls.png
+[9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
+[10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png

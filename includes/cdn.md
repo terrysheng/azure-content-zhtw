@@ -28,7 +28,7 @@ Azure 內容傳遞網路 (CDN) 透過將運算執行個體的 Blob 與靜態內�
 <div class="dev-callout">
 <strong>注意</strong>
 <p>如需關於使用 Azure 服務管理 API 
-來執行此作業的詳細資訊，請參閱<a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx">建立儲存體帳戶</a>參考主題。</p>
+來執行此作業的詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-TW/library/windowsazure/hh264518.aspx">建立儲存體帳戶</a>參考主題。</p>
 </div>
 
 **為 Azure 訂閱建立儲存體帳戶**
@@ -121,18 +121,18 @@ Azure 內容傳遞網路 (CDN) 透過將運算執行個體的 Blob 與靜態內�
 -   [關於服務管理 API][]
 -   [如何將 CDN 對應至自訂網域][]
 
-  [Azure CDN 節點位置]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
+  [Azure CDN 節點位置]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg680302.aspx
   [步驟 1：建立儲存體帳戶]: #Step1
   [步驟 2：為儲存體帳戶建立新的 CDN 端點]: #Step2
   [步驟 3：存取 CDN 內容]: #Step3
   [步驟 4：刪除 CDN 內容]: #Step4
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  [計費方案]: /en-us/pricing/calculator/?scenario=full
-  [建立儲存體帳戶]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
+  [計費方案]: /zh-TW/pricing/calculator/?scenario=full
+  [建立儲存體帳戶]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh264518.aspx
   [1]: ./media/cdn/CDN_CreateNewStorageAcct.png
   [同質群組的相關作業]: http://msdn.microsoft.com/library/azure/ee460798.aspx
-  [如何管理 Blob 內容過期]: http://msdn.microsoft.com/en-us/library/gg680306.aspx
-  [限制對容器和 Blob 的存取]: http://msdn.microsoft.com/en-us/library/dd179354.aspx
-  [作法：管理 Azure 訂閱的儲存體帳戶]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx
-  [關於服務管理 API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460807.aspx
-  [如何將 CDN 對應至自訂網域]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+  [如何管理 Blob 內容過期]: http://msdn.microsoft.com/zh-TW/library/gg680306.aspx
+  [限制對容器和 Blob 的存取]: http://msdn.microsoft.com/zh-TW/library/dd179354.aspx
+  [作法：管理 Azure 訂閱的儲存體帳戶]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh531567.aspx
+  [關於服務管理 API]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee460807.aspx
+  [如何將 CDN 對應至自訂網域]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg680307.aspx

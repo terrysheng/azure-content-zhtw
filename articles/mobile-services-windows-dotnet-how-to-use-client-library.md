@@ -5,8 +5,8 @@
 # 如何使用適用於 Azure 行動服務的 .NET 用戶端
 
 <div class="dev-center-tutorial-selector sublanding"> 
-<a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework" class="current">.NET Framework</a>
-<a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
+<a href="/zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework" class="current">.NET Framework</a>
+<a href="/zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
 </div>
 
 本指南將示範如何在 Windows 市集應用程式和 Windows Phone 應用程式中，使用適用於 Azure 行動服務的 .NET 用戶端來執行常見案例。所涵蓋的案例包括查詢資料、插入、更新及刪除資料、驗證使用者以及處理錯誤。如果您不熟悉行動服務，您應考慮首先完成「行動服務快速入門」教學課程 ([Windows 市集快速入門教學課程][]/[Windows Phone 快速入門教學課程][]) 和「開始使用 .NET 中的資料」教學課程 ([Windows 市集資料教學課程][]/[Windows Phone 資料教學課程][])。快速入門教學課程需要 [Mobile Services SDK][]，來協助您設定帳戶並建立第一個行動服務。
@@ -468,7 +468,7 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 在此案例中，行動服務透過顯示所選提供者的登入頁面，並在使用識別提供者成功登入後產生行動服務驗證權杖的方式，來管理 OAuth 2.0 驗證流程。[LoginAsync 方法][] 會傳回 [MobileServiceUser][]，並提供通過驗證使用者的 [userId][] 和 [MobileServiceAuthenticationToken][]，以作為 JSON Web 權杖 (JWT)。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱[快取驗證權杖][]。
 
 <div class="dev-callout"><b>Windows 市集應用程式</b>
-<p>使用 Microsoft 帳戶登入提供者來驗證 Windows 市集應用程式的使用者時，也應該向行動服務註冊應用程式封裝。向行動服務註冊 Windows 市集應用程式封裝資訊之後，用戶端就能夠重複使用 Microsoft 帳戶登入認證來享受單一登入的方便性。如果您沒有執行此動作，Microsoft 帳戶登入使用者會在每次呼叫登入方法時j都會看到登入提示。若要了解如何註冊 Windows 市集應用程式封裝，請參閱<a href="/en-us/develop/mobile/how-to-guides/register-windows-store-app-package/" target="_blank">註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證</a>。在向行動服務註冊封裝資訊後，您便可以透過為 <em>useSingleSignOn</em> 參數提供 <strong>true</strong> 值以重複使用認證的方式呼叫 <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> 方法。</p>
+<p>使用 Microsoft 帳戶登入提供者來驗證 Windows 市集應用程式的使用者時，也應該向行動服務註冊應用程式封裝。向行動服務註冊 Windows 市集應用程式封裝資訊之後，用戶端就能夠重複使用 Microsoft 帳戶登入認證來享受單一登入的方便性。如果您沒有執行此動作，Microsoft 帳戶登入使用者會在每次呼叫登入方法時j都會看到登入提示。若要了解如何註冊 Windows 市集應用程式封裝，請參閱<a href="/zh-tw/develop/mobile/how-to-guides/register-windows-store-app-package/" target="_blank">註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證</a>。在向行動服務註冊封裝資訊後，您便可以透過為 <em>useSingleSignOn</em> 參數提供 <strong>true</strong> 值以重複使用認證的方式呼叫 <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> 方法。</p>
 </div>
 
 ### 用戶端流程
@@ -664,15 +664,15 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [.NET Framework]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
-  [Windows 市集快速入門教學課程]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started/
-  [Windows Phone 快速入門教學課程]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-wp8/
-  [Windows 市集資料教學課程]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
-  [Windows Phone 資料教學課程]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-wp8/
+  [.NET Framework]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
+  [HTML/JavaScript]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
+  [iOS]: /zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
+  [Android]: /zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
+  [Xamarin]: /zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
+  [Windows 市集快速入門教學課程]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started/
+  [Windows Phone 快速入門教學課程]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-wp8/
+  [Windows 市集資料教學課程]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet/
+  [Windows Phone 資料教學課程]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-wp8/
   [Mobile Services SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
   [什麼是行動服務]: #what-is
   [概念]: #concepts
@@ -701,38 +701,38 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
   [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [建立資料表]: http://go.microsoft.com/fwlink/?LinkId=298592
   [動態結構描述]: http://go.microsoft.com/fwlink/?LinkId=296271
-  [GetTable]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554275.aspx
+  [GetTable]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554275.aspx
   [Fiddler]: http://www.telerik.com/fiddler
-  [Take]: http://msdn.microsoft.com/en-us/library/windowsazure/dn250574.aspx
-  [Skip]: http://msdn.microsoft.com/en-us/library/windowsazure/dn250573.aspx
-  [IncludeTotalCount]: http://msdn.microsoft.com/en-us/library/windowsazure/dn250560.aspx
+  [Take]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn250574.aspx
+  [Skip]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn250573.aspx
+  [IncludeTotalCount]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn250560.aspx
   [ASCII 控制碼 C0 和 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-  [使用 CLI 管理行動服務資料表]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+  [使用 CLI 管理行動服務資料表]: http://www.windowsazure.com/zh-tw/manage/linux/other-resources/command-line-tools/#Mobile_Tables
   [從用戶端呼叫自訂 API]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
   [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
   [Azure 行動服務用戶端 SDK 中的自訂 API]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
-  [開放式並型存取教學課程]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
-  [ISupportIncrementalLoading]: http://msdn.microsoft.com/en-us/library/windows/apps/Hh701916
-  [Windows Store]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-  [Windows Phone]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-wp8/
-  [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
-  [LoginAsync 方法]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
-  [MobileServiceUser]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
-  [userId]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
-  [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
+  [開放式並型存取教學課程]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
+  [ISupportIncrementalLoading]: http://msdn.microsoft.com/zh-tw/library/windows/apps/Hh701916
+  [Windows Store]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet/
+  [Windows Phone]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-users-wp8/
+  [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
+  [LoginAsync 方法]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
+  [MobileServiceUser]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
+  [userId]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
+  [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
   [快取驗證權杖]: #caching
-  [註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證]: /en-us/develop/mobile/how-to-guides/register-windows-store-app-package/
+  [註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證]: /zh-tw/develop/mobile/how-to-guides/register-windows-store-app-package/
   [LoginAsync]: http://go.microsoft.com/fwlink/p/?LinkId=311594
-  [Windows 市集]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
-  [1]: /en-us/develop/mobile/tutorials/single-sign-on-wp8/
-  [PasswordVault]: http://msdn.microsoft.com/en-us/library/windows/apps/windows.security.credentials.passwordvault.aspx
-  [ProtectedData]: http://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
+  [Windows 市集]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
+  [1]: /zh-tw/develop/mobile/tutorials/single-sign-on-wp8/
+  [PasswordVault]: http://msdn.microsoft.com/zh-tw/library/windows/apps/windows.security.credentials.passwordvault.aspx
+  [ProtectedData]: http://msdn.microsoft.com/zh-tw/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
   [Json.NET]: http://json.codeplex.com/
-  [MobileServiceClient]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
+  [MobileServiceClient]: http://msdn.microsoft.com/zh-tw/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
   [JsonSerializerSettings]: http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started
-  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-  [使用指令檔驗證與修改資料]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-  [使用分頁縮小查詢範圍]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
-  [使用指令碼來授權使用者]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet/
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet
+  [使用指令檔驗證與修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+  [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-dotnet
+  [使用指令碼來授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-dotnet

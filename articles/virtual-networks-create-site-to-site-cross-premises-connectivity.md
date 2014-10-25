@@ -243,13 +243,13 @@
 -   [名稱解析][]
 
   [使用管理入口網站精靈設定點對站 VPN]: http://go.microsoft.com/fwlink/?LinkId=296653
-  [虛擬網路]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx
+  [虛擬網路]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx
   [如何建立自訂虛擬機器]: http://go.microsoft.com/fwlink/?LinkID=294356
   [在 Azure 虛擬網路中安裝複本 Active Directory 網域控制站]: http://go.microsoft.com/fwlink/?LinkId=299877
-  [在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx
+  [在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090.aspx
   [Azure 虛擬網路組態工作]: http://go.microsoft.com/fwlink/?LinkId=296652
   [試用 Azure]: http://www.windowsazure.com/pricing/free-trial/
-  [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠]: http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/
+  [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠]: http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/
   [關於虛擬網路的 VPN 裝置]: http://go.microsoft.com/fwlink/?LinkID=248098
   [路由及遠端存取服務範本]: http://msdn.microsoft.com/library/windowsazure/dn133801.aspx
   [建立虛擬網路]: #CreateVN
@@ -259,7 +259,7 @@
   []: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_01_OpenVirtualNetworkWizard.png
   [關於在管理入口網站中設定虛擬網路]: http://go.microsoft.com/fwlink/?LinkID=248092
   [1]: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_03_DNSServersandVPNConnectivity.png
-  [2]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx
+  [2]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156075.aspx
   [3]: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_04_SitetoSite.png
   [4]: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_05_VirtualNetworkAddressSpaces.png
   [5]: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_06_VirtualNetworkCreatedStatus.png
@@ -272,6 +272,6 @@
   [在管理入口網站中設定虛擬網路閘道]: http://go.microsoft.com/fwlink/?LinkId=299878
   [將虛擬網路設定匯出到網路組態檔]: http://go.microsoft.com/fwlink/?LinkID=299880
   [虛擬網路常見問題集]: http://msdn.microsoft.com/library/windowsazure/dn133803.aspx
-  [使用網路組態檔設定虛擬網路]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx
-  [將虛擬機器新增至虛擬網路]: http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/
+  [使用網路組態檔設定虛擬網路]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156097.aspx
+  [將虛擬機器新增至虛擬網路]: http://www.windowsazure.com/zh-tw/manage/services/networking/add-a-vm-to-a-virtual-network/
   [名稱解析]: http://go.microsoft.com/fwlink/?LinkId=248097

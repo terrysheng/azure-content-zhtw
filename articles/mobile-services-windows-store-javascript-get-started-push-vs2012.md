@@ -1,18 +1,18 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-js" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (JavaScript)" metaKeywords="" description="Learn how to use push notifications in your Windows Store app with Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" disqusComments="1" umbracoNaviHide="1" title="Get started with push notifications in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="glenga" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-js" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (JavaScript)" metaKeywords="" description="Learn how to use push notifications in your Windows Store app with Azure Mobile Services." metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/" disqusComments="1" umbracoNaviHide="1" title="Get started with push notifications in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="glenga" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
 
 # 開始使用 Visual Studio 2012 在行動服務中使用推播通知
 
 <div class="dev-center-tutorial-selector sublanding"> 
-<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012" title="Windows 市集 C#">Windows 市集 C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js-vs2012" title="Windows 市集 JavaScript" class="current">Windows 市集 JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a> 
+<a href="/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-push-js-vs2012" title="Windows 市集 JavaScript" class="current">Windows 市集 JavaScript</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-push-ios" title="iOS" class="current">iOS</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-push-android" title="Android" class="current">Android</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a> 
 </div>
 
 本主題將示範如何使用 Azure 行動服務將推播通知傳送給 Windows 市集應用程式。
 在本教學課程步驟中，您會使用 Windows 推播通知服務 (WNS) 將推播通知新增至快速入門專案中。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
 <div class="dev-callout"><b>注意</b>
-<p>本教學課程將推播通知加入 Visual Studio 2012 中建立的 Windows 市集應用程式。Visual Studio 2013 的新功能可讓您輕鬆地使用行動服務，在 Windows 市集應用程式中設定推播通知。針對 Visual Studio 2013 版，請參閱<a href="/en-us/develop/mobile/tutorials/get-started-with-push-js">開始使用推播通知</a>。</p>
+<p>本教學課程將推播通知加入 Visual Studio 2012 中建立的 Windows 市集應用程式。Visual Studio 2013 的新功能可讓您輕鬆地使用行動服務，在 Windows 市集應用程式中設定推播通知。針對 Visual Studio 2013 版，請參閱<a href="/zh-tw/develop/mobile/tutorials/get-started-with-push-js">開始使用推播通知</a>。</p>
 </div>
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
@@ -55,7 +55,7 @@
                 channel = newChannel;
             });
 
-    This code acquires and stores a push notification channel each time the application is launched.
+    每當應用程式啟動時，此程式碼皆會要求並儲存推送通知通道。
 
 2.  在建立 **MobileServiceClient** 執行個體的程式碼後面，插入下列程式碼：
 
@@ -155,20 +155,20 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012 "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-push-js-vs2012 "Windows 市集 JavaScript"
-  [Windows Phone]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone"
-  [iOS]: /en-us/develop/mobile/tutorials/get-started-with-push-ios "iOS"
-  [Android]: /en-us/develop/mobile/tutorials/get-started-with-push-android "Android"
-  [Xamarin.iOS]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android "Xamarin.Android"
-  [開始使用推播通知]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012 "Windows 市集 C#"
+  [Windows 市集 JavaScript]: /zh-tw/develop/mobile/tutorials/get-started-with-push-js-vs2012 "Windows 市集 JavaScript"
+  [Windows Phone]: /zh-tw/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone"
+  [iOS]: /zh-tw/develop/mobile/tutorials/get-started-with-push-ios "iOS"
+  [Android]: /zh-tw/develop/mobile/tutorials/get-started-with-push-android "Android"
+  [Xamarin.iOS]: /zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-ios "Xamarin.iOS"
+  [Xamarin.Android]: /zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-android "Xamarin.Android"
+  [開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-js
   [針對推播通知註冊您的應用程式及設定行動服務]: #register
   [建立 Registrations 資料表]: #create-table
   [新增推播通知至應用程式]: #add-push
   [更新指令碼來傳送推播通知]: #update-scripts
   [插入資料以接收通知]: #test
-  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-js
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-js
   [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
   [mobile-services-create-new-push-table]: ../includes/mobile-services-create-new-push-table.md
   [0]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
@@ -176,10 +176,10 @@
   [1]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-insert-script-push2.png
   [2]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-quickstart-push1.png
   [3]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-quickstart-push2.png
-  [開始使用通知中心]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
-  [將通知傳送給訂閱者]: /en-us/manage/services/notification-hubs/breaking-news-dotnet/
-  [將通知傳送給使用者]: /en-us/manage/services/notification-hubs/notify-users/
-  [將交叉平台通知傳送給使用者]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-js
+  [開始使用通知中心]: /zh-tw/manage/services/notification-hubs/getting-started-windows-dotnet/
+  [將通知傳送給訂閱者]: /zh-tw/manage/services/notification-hubs/breaking-news-dotnet/
+  [將通知傳送給使用者]: /zh-tw/manage/services/notification-hubs/notify-users/
+  [將交叉平台通知傳送給使用者]: /zh-tw/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-js
   [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
-  [行動服務 HTML/JavaScript 作法概念參考]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/
+  [行動服務 HTML/JavaScript 作法概念參考]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/

@@ -21,7 +21,7 @@
 
 此教學課程是 HTML 應用程式其他所有行動服務教學課程的先修課程。
 
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F" target="_blank">Azure 免費試用</a>。</p></div>
+<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F" target="_blank">Azure 免費試用</a>。</p></div>
 
 ### 其他需求
 
@@ -54,7 +54,7 @@
 
     ![][1]
 
-    This displays the three easy steps to create and host an HTML app connected to your mobile service.
+    這會顯示三個簡單的步驟，告訴您如何建立及託管連接到您行動服務的 HTML 應用程式。
 
     ![][2]
 
@@ -69,7 +69,7 @@
     ![][3]
 
     <div class="dev-callout"><b>注意</b>
-<p>如果您將快速入門應用程式部署至 localhost 以外的 Web 伺服器，您必須將該 Web 伺服器的主機名稱新增至 [允許提出要求的主機名稱] 清單。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx" target="_blank">跨原始來源資源分享</a> (英文)。</p>
+<p>如果您將快速入門應用程式部署至 localhost 以外的 Web 伺服器，您必須將該 Web 伺服器的主機名稱新增至 [允許提出要求的主機名稱] 清單。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dn155871.aspx" target="_blank">跨原始來源資源分享</a> (英文)。</p>
 </div>
 
 ## 裝載並執行 HTML 應用程式
@@ -132,18 +132,18 @@
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [觀看教學課程]: http://go.microsoft.com/fwlink/?LinkId=287040
   []: ./media/mobile-services-html-get-started/mobile-quickstart-completed-html.png
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F
   [Microsoft Web Platform Installer]: http://go.microsoft.com/fwlink/p/?LinkId=286333
   [最新版本的 Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-html-get-started/mobile-portal-quickstart-html.png
   [2]: ./media/mobile-services-html-get-started/mobile-quickstart-steps-html.png
   [3]: ./media/mobile-services-html-get-started/mobile-services-set-cors-localhost.png
-  [跨原始來源資源分享]: http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx
+  [跨原始來源資源分享]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn155871.aspx
   [4]: ./media/mobile-services-html-get-started/mobile-quickstart-startup-html.png
   [5]: ./media/mobile-services-html-get-started/mobile-data-tab.png
   [6]: ./media/mobile-services-html-get-started/mobile-data-browse.png
-  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-html
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-html
   [從 HTML 應用程式呼叫自訂 API]: /zh-tw/documentation/articles/mobile-services-html-call-custom-api
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-html
-  [行動服務 HTML/JavaScript 作法概念參考]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-html
+  [行動服務 HTML/JavaScript 作法概念參考]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client

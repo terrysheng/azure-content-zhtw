@@ -244,7 +244,7 @@
   [設定您的通知中心]: #configure-hub
   [將您的應用程式連接到通知中心]: #connecting-app
   [從後端傳送通知]: #send
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
   [0]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-submit-win8-app.png
   [2]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-app-name.png
@@ -265,16 +265,16 @@
   [WindowsAzure.Messaging.Managed NuGet 封裝]: http://nuget.org/packages/WindowsAzure.Messaging.Managed/
   [16]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-win8-app-toast.png
   [17]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-reg.png
-  [REST 介面]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+  [REST 介面]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn223264.aspx
   [.NET backend]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/
   [Java]: /zh-tw/documentation/articles/notification-hubs-java-backend-how-to/
   [PHP]: /zh-tw/documentation/articles/notification-hubs-php-backend-how-to/
   [18]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-console-app.png
   [WindowsAzure.ServiceBus NuGet 封裝]: http://nuget.org/packages/WindowsAzure.ServiceBus/
   [19]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-toast.png
-  [快顯目錄]: http://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx
-  [磚目錄]: http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
-  [徽章概觀]: http://msdn.microsoft.com/en-us/library/windows/apps/hh779719.aspx
-  [使用通知中心來推播通知給使用者]: /en-us/manage/services/notification-hubs/notify-users-aspnet
-  [使用通知中心傳送即時新聞]: /en-us/manage/services/notification-hubs/breaking-news-dotnet
-  [通知中心指引]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+  [快顯目錄]: http://msdn.microsoft.com/zh-tw/library/windows/apps/hh761494.aspx
+  [磚目錄]: http://msdn.microsoft.com/zh-tw/library/windows/apps/hh761491.aspx
+  [徽章概觀]: http://msdn.microsoft.com/zh-tw/library/windows/apps/hh779719.aspx
+  [使用通知中心來推播通知給使用者]: /zh-tw/manage/services/notification-hubs/notify-users-aspnet
+  [使用通知中心傳送即時新聞]: /zh-tw/manage/services/notification-hubs/breaking-news-dotnet
+  [通知中心指引]: http://msdn.microsoft.com/zh-tw/library/jj927170.aspx

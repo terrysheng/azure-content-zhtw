@@ -28,6 +28,6 @@ Azure AD 可以用作貴組織的獨立式雲端目錄，但是您也可以將 A
   [詳細資訊]: http://msdn.microsoft.com/library/hh967611.aspx
   [1]: http://msdn.microsoft.com/library/jj573653
   [2]: http://go.microsoft.com/fwlink/?LinkID=290817&clcid=0x409
-  [以組織方式註冊 Azure]: /en-us/manage/services/identity/organizational-account/
-  [Azure 身分識別]: /en-us/manage/windows/fundamentals/identity/
+  [以組織方式註冊 Azure]: /zh-tw/manage/services/identity/organizational-account/
+  [Azure 身分識別]: /zh-tw/manage/windows/fundamentals/identity/
   [MSDN 上的 Azure AD 程式庫]: http://go.microsoft.com/fwlink/?LinkId=293425

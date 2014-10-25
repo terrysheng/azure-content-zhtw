@@ -62,7 +62,7 @@
 
     ![][3]
 
-    </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">如此會在行動服務中的</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> TodoItem </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">資料表中插入文字及</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> userId</cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">Because the new item has the correct userId value, it is returned by the mobile service and displayed in the second column.
+    </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">如此會在行動服務中的</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> TodoItem </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">資料表中插入文字及</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> userId</cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">因為新項目的 userId 值正確，所以行動服務會傳回該值並顯示在第二欄。
 
 4.  返回[管理入口網站][Azure 管理入口網站]的 **todoitem** 資料表中，按一下 [瀏覽] 並驗證每個新增項目現在是否具有關聯的 userId 值。
 
@@ -95,12 +95,12 @@
   [Xamarin.Android]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts "Xamarin.Android"
   [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/ ".NET 後端"
   [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts/ "JavaScript 後端"
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-js
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-js
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-windows-store-javascript-authorize-users-in-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-store-javascript-authorize-users-in-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-windows-store-javascript-authorize-users-in-scripts/mobile-insert-script-users.png
   [3]: ./media/mobile-services-windows-store-javascript-authorize-users-in-scripts/mobile-quickstart-startup.png
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-  [開始使用推播通知]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+  [開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-js
   [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/p/?LinkId=262293

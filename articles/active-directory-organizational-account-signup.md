@@ -28,6 +28,6 @@
 
   [disclaimer]: ../includes/disclaimer.md
   [詳細資訊]: http://windows.microsoft.com/en-US/windows-live/sign-in-what-is-microsoft-account
-  [1]: http://technet.microsoft.com/en-us/library/jj573650
-  [2]: http://technet.microsoft.com/en-us/library/hh967619
-  [3]: http://technet.microsoft.com/en-us/library/jj573653
+  [1]: http://technet.microsoft.com/zh-TW/library/jj573650
+  [2]: http://technet.microsoft.com/zh-TW/library/hh967619
+  [3]: http://technet.microsoft.com/zh-TW/library/jj573653

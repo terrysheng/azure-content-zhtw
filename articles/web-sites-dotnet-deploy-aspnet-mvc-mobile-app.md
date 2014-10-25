@@ -567,7 +567,7 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
   [Fiddler 工具]: http://www.fiddler2.com/fiddler2/
   [Azure SDK for Visual Studio 2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [Web Platform Installer - Azure SDK for .NET]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
-  [Internet Explorer 11 F12 開發人員工具]: http://msdn.microsoft.com/en-us/library/ie/dn255001.aspx
+  [Internet Explorer 11 F12 開發人員工具]: http://msdn.microsoft.com/zh-tw/library/ie/dn255001.aspx
   [Google Chrome DevTools]: https://developers.google.com/chrome-developer-tools/docs/mobile-emulation
   [Opera Mobile 模擬器]: http://www.opera.com/developer/tools/mobile/
   [完成專案下載]: http://go.microsoft.com/fwlink/?LinkID=398781&clcid=0x409

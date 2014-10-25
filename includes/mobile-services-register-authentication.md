@@ -12,11 +12,11 @@
 
 3.  從下列清單中選擇支援的身分識別提供者，並依照步驟向該提供者註冊應用程式：
 
- - <a href="/zh-tw/documentation/articles/mobile-services-how-to-register-microsoft-authentication/" target="_blank">Microsoft 帳戶</a>
- - <a href="/zh-tw/documentation/articles/mobile-services-how-to-register-facebook-authentication/" target="_blank">Facebook 登入</a>
- - <a href="/zh-tw/documentation/articles/mobile-services-how-to-register-twitter-authentication/" target="_blank">Twitter 登入</a>
- - <a href="/zh-tw/documentation/articles/mobile-services-how-to-register-google-authentication/" target="_blank">Google 登入</a>
- - <a href="/zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/" target="_blank">Azure Active Directory</a>
+ - <a href="/zh-TW/documentation/articles/mobile-services-how-to-register-microsoft-authentication/" target="_blank">Microsoft 帳戶</a>
+ - <a href="/zh-TW/documentation/articles/mobile-services-how-to-register-facebook-authentication/" target="_blank">Facebook 登入</a>
+ - <a href="/zh-TW/documentation/articles/mobile-services-how-to-register-twitter-authentication/" target="_blank">Twitter 登入</a>
+ - <a href="/zh-TW/documentation/articles/mobile-services-how-to-register-google-authentication/" target="_blank">Google 登入</a>
+ - <a href="/zh-TW/documentation/articles/mobile-services-how-to-register-active-directory-authentication/" target="_blank">Azure Active Directory</a>
 
 
     請記下提供者所產生的用戶端身分識別和密碼值。
@@ -36,9 +36,9 @@
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   []: ./media/mobile-services-register-authentication/mobile-services-selection.png
   [1]: ./media/mobile-services-register-authentication/mobile-service-uri.png
-  [Microsoft 帳戶]: /zh-tw/documentation/articles/mobile-services-how-to-register-microsoft-authentication/
-  [Facebook 登入]: /zh-tw/documentation/articles/mobile-services-how-to-register-facebook-authentication/
-  [Twitter 登入]: /zh-tw/documentation/articles/mobile-services-how-to-register-twitter-authentication/
-  [Google 登入]: /zh-tw/documentation/articles/mobile-services-how-to-register-google-authentication/
-  [Azure Active Directory]: /zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+  [Microsoft 帳戶]: /zh-TW/documentation/articles/mobile-services-how-to-register-microsoft-authentication/
+  [Facebook 登入]: /zh-TW/documentation/articles/mobile-services-how-to-register-facebook-authentication/
+  [Twitter 登入]: /zh-TW/documentation/articles/mobile-services-how-to-register-twitter-authentication/
+  [Google 登入]: /zh-TW/documentation/articles/mobile-services-how-to-register-google-authentication/
+  [Azure Active Directory]: /zh-TW/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [2]: ./media/mobile-services-register-authentication/mobile-identity-tab.png

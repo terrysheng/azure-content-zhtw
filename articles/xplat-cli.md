@@ -1,10 +1,10 @@
-<properties linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="carolz" services="" />
+<properties linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/zh-tw/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="carolz" services="" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz"></tags>
 
 # 安裝與設定 Azure 跨平台命令列介面
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/en-us/manage/install-and-configure-cli/" title="跨平台 CLI" class="current">跨平台 CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/zh-tw/manage/install-and-configure-cli/" title="跨平台 CLI" class="current">跨平台 CLI</a></div>
 
 Azure 跨平台命令列介面 (xplat-cli) 提供您一組開放原始碼的跨平台命令集合，供您運用在 Azure 平台上。xplat-cli 與 Azure 管理入口網站上提供的功能大多相同，例如管理網站、虛擬機器、行動服務、SQL Database 與 Azure 平台提供的其他各項服務等。
 
@@ -384,8 +384,8 @@ xplat-cli 可讓您輕鬆地管理 Azure 服務。在下列範例中，您將學
 
 -   如需 Azure 的詳細資訊，請參閱 [][2]<http://azure.microsoft.com/></a>。
 
-  [PowerShell]: /en-us/manage/install-and-configure-windows-powershell/ "PowerShell"
-  [跨平台 CLI]: /en-us/manage/install-and-configure-cli/ "跨平台 CLI"
+  [PowerShell]: /zh-tw/manage/install-and-configure-windows-powershell/ "PowerShell"
+  [跨平台 CLI]: /zh-tw/manage/install-and-configure-cli/ "跨平台 CLI"
   []: https://github.com/WindowsAzure/azure-sdk-tools-xplat
   [如何安裝 Azure 跨平台命令列介面]: #install
   [如何連線至您的 Azure 訂閱]: #configure
@@ -397,12 +397,12 @@ xplat-cli 可讓您輕鬆地管理 Azure 服務。在下列範例中，您將學
   [OS X 安裝程式]: http://go.microsoft.com/fwlink/?LinkId=252249
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [以組織身分註冊 Microsoft Azure]: http://www.windowsazure.com/zh-tw/documentation/articles/sign-up-organization/
-  [帳戶式驗證與憑證式驗證之間的差別]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E
+  [帳戶式驗證與憑證式驗證之間的差別]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A7171371E
   [將 Azure 跨平台命令列介面與資源管理員搭配使用]: /zh-tw/documentation/articles/xplat-cli-azure-resource-manager/
   [進階的 Bash 指令碼撰寫指南]: http://tldp.org/LDP/abs/html/
   [Shell 指令碼]: http://en.wikipedia.org/wiki/Shell_script
-  [命令列參考 A-Z]: http://technet.microsoft.com/en-us/library/bb490890.aspx
+  [命令列參考 A-Z]: http://technet.microsoft.com/zh-tw/library/bb490890.aspx
   [jsawk]: https://github.com/micha/jsawk
   [jq]: http://stedolan.github.io/jq/
   [Azure 論壇]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home

@@ -185,7 +185,7 @@ Azure SDK 安裝的其中一個工具是 Azure 計算模擬器，可以讓您在
     <div class="dev-callout">
 <strong>注意</strong>
 <p>刪除服務不會刪除初次發佈服務時建立的儲存體帳戶，而且將持續對使用的儲存體計費。如需
-刪除儲存體帳戶的詳細資訊，請參閱<a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx">如何從 Azure 訂用帳戶刪除儲存體帳戶</a>。</p>
+刪除儲存體帳戶的詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/hh531562.aspx">如何從 Azure 訂用帳戶刪除儲存體帳戶</a>。</p>
 </div>
 
   [Azure 網站、雲端服務與虛擬機器的比較]: http://azure.microsoft.com/zh-tw/documentation/articles/choose-web-site-cloud-service-vm/
@@ -195,7 +195,7 @@ Azure SDK 安裝的其中一個工具是 Azure 計算模擬器，可以讓您在
   [install-dev-tools]: ../includes/install-dev-tools.md
   [顯示命令「mkdir c:\\node」和「cd node」的命令提示字元。]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
   [New-AzureService helloworld 命令的結果]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-  [建立 Azure 託管服務的概觀]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
+  [建立 Azure 託管服務的概觀]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj155995.aspx
   [Add-AzureNodeWebRole 命令的輸出。]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
   [nodejs.org]: http://nodejs.org/
   [顯示 server.js 內容的記事本]: ./media/cloud-services-nodejs-develop-deploy-app/node13.png
@@ -204,4 +204,4 @@ Azure SDK 安裝的其中一個工具是 Azure 計算模擬器，可以讓您在
   [1]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
   [Stop-AzureService 命令的狀態]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
   [Remove-AzureService 命令的狀態]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
-  [如何從 Azure 訂用帳戶刪除儲存體帳戶]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx
+  [如何從 Azure 訂用帳戶刪除儲存體帳戶]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh531562.aspx

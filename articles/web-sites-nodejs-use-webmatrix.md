@@ -20,7 +20,7 @@
 
 <div class="dev-callout"><strong>注意</strong>
 <p>若要完成此教學課程，您需要已啟用 Azure 網站功能的 Azure 帳戶。</p>
-<p>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 免費試用</a>。</p>
+<p>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-TW/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 免費試用</a>。</p>
 </div>
 
 1.  啟動 WebMatrix
@@ -93,7 +93,7 @@
   [WebMatrix for Azure]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
   [Azure node Web site]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-complete.png
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E
+  [Azure 免費試用]: http://www.windowsazure.com/zh-TW/pricing/free-trial/?WT.mc_id=A7171371E
   [Add Account]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-add-account.png
   [Sign into Azure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-sign-in.png
   [New site from Template Gallery]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-site-from-template.png
@@ -105,5 +105,5 @@
   [Express web site]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-express-webiste.png
   [webmatrix viewing index.jade]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-edit.png
   [1]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-republish.png
-  [在 Azure 應用程式中指定 Node.js 版本]: /zh-tw/documentation/articles/nodejs-specify-node-version-azure-apps/
-  [如何在 Azure 網站中對 Node.js 應用程式進行偵錯]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/Debug-Website/
+  [在 Azure 應用程式中指定 Node.js 版本]: /zh-TW/documentation/articles/nodejs-specify-node-version-azure-apps/
+  [如何在 Azure 網站中對 Node.js 應用程式進行偵錯]: http://www.windowsazure.com/zh-TW/develop/nodejs/how-to-guides/Debug-Website/

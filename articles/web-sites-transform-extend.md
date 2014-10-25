@@ -170,7 +170,7 @@ PHP Manager 擴充功能是使用 Visual Studio ASP.NET MVC 4 Web 應用程式�
 
 <!-- IMAGES -->
 
-  [XML 文件轉換]: http://msdn.microsoft.com/en-us/library/dd465326.aspx
+  [XML 文件轉換]: http://msdn.microsoft.com/zh-TW/library/dd465326.aspx
   [ApplicationHost.config]: http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig
   [轉換 ApplicationHost.config 中的網站組態]: #transform
   [擴充網站]: #extend

@@ -64,12 +64,12 @@ Azure 也可在雲端服務或虛擬網路中進行負載平衡。這稱為內�
 
 <!-- LINKS -->
 
-  [關於 Traffic Manager 負載平衡方法]: http://msdn.microsoft.com/en-us/library/azure/dn339010.aspx
+  [關於 Traffic Manager 負載平衡方法]: http://msdn.microsoft.com/zh-tw/library/azure/dn339010.aspx
   [loadbalancing]: ./media/load-balancing-vms/TMSummary.png
-  [Traffic Manager]: http://msdn.microsoft.com/en-us/library/azure/hh745750.aspx
+  [Traffic Manager]: http://msdn.microsoft.com/zh-tw/library/azure/hh745750.aspx
   [1]: ./media/load-balancing-vms/LoadBalancing.png
-  [Azure 負載平衡器]: http://msdn.microsoft.com/en-us/library/azure/dn655058.aspx
-  [設定負載平衡集]: http://msdn.microsoft.com/en-us/library/azure/dn655055.aspx
+  [Azure 負載平衡器]: http://msdn.microsoft.com/zh-tw/library/azure/dn655058.aspx
+  [設定負載平衡集]: http://msdn.microsoft.com/zh-tw/library/azure/dn655055.aspx
   [2]: ./media/load-balancing-vms/LOBServers.png
-  [內部負載平衡]: http://msdn.microsoft.com/en-us/library/azure/dn690121.aspx
-  [設定內部負載平衡集]: http://msdn.microsoft.com/en-us/library/azure/dn690125.aspx
+  [內部負載平衡]: http://msdn.microsoft.com/zh-tw/library/azure/dn690121.aspx
+  [設定內部負載平衡集]: http://msdn.microsoft.com/zh-tw/library/azure/dn690125.aspx

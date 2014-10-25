@@ -48,7 +48,7 @@
             this.Loaded += MainPage_Loaded;
         }
 
-    This constructor also registers the handler for the Loaded event.
+    此建構函式也會註冊 Loaded 事件的處理常式。
 
 4.  按 F5 鍵執行應用程式，並以您選擇的身分識別提供者登入應用程式。
 

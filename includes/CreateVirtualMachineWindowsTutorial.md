@@ -120,7 +120,7 @@
 
 [管理虛擬機器的可用性][]
 
-  [建立 Azure 帳戶]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
+  [建立 Azure 帳戶]: http://www.windowsazure.com/zh-tw/develop/php/tutorials/create-a-windows-azure-account/
   [如何建立虛擬機器]: #createvirtualmachine
   [如何在建立虛擬機器之後登入]: #logon
   [如何將資料磁碟連接至新的虛擬機器]: #attachdisk

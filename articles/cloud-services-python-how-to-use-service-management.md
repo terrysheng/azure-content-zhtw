@@ -452,7 +452,7 @@ Azure 提供兩種部署環境：執行和生產。一般而言，將服務部�
         location=location)
 
     # Name of an os image as returned by list_os_images
-    image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-en-us-30GB.vhd'
+    image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-zh-TW-30GB.vhd'
 
     # Destination storage account container/blob where the VM disk
     # will be created
@@ -496,7 +496,7 @@ Azure 提供兩種部署環境：執行和生產。一般而言，將服務部�
 -   請參閱 MSDN 參考：[雲端服務][服務封裝]
 -   請參閱 MSDN 參考：[虛擬機器][]
 
-  [Azure SDK for Python]: https://www.windowsazure.com/en-us/develop/python/common-tasks/install-python/
+  [Azure SDK for Python]: https://www.windowsazure.com/zh-TW/develop/python/common-tasks/install-python/
   [管理入口網站]: https://manage.windowsazure.com/
   [什麼是服務管理]: #WhatIs
   [概念]: #Concepts
@@ -518,20 +518,20 @@ Azure 提供兩種部署環境：執行和生產。一般而言，將服務部�
   [作法：建立虛擬機器]: #CreateVM
   [作法：刪除虛擬機器]: #DeleteVM
   [後續步驟]: #NextSteps
-  [建立 Azure 帳號]: http://www.windowsazure.com/en-us/pricing/free-trial/
-  [Azure 服務管理 API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
-  [建立及上傳 Azure 的管理憑證]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
+  [建立 Azure 帳號]: http://www.windowsazure.com/zh-TW/pricing/free-trial/
+  [Azure 服務管理 API]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee460799.aspx
+  [建立及上傳 Azure 的管理憑證]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg551722.aspx
   [OpenSSL]: http://www.openssl.org/
-  [在 Azure 中管理憑證]: http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx
+  [在 Azure 中管理憑證]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg981929.aspx
   []: http://www.openssl.org/docs/apps/openssl.html
-  [雲端服務]: http://windowsazure.com/zh-tw/documentation/articles/cloud-services-what-is
-  [服務封裝]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
-  [Azure PowerShell Cmdlet]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/powershell-cmdlets/
-  [cspack 命令列工具]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx
-  [Azure 服務組態結構描述 (.cscfg 檔)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
-  [部署 Azure 服務]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx
-  [儲存服務]: https://www.windowsazure.com/en-us/manage/services/storage/what-is-a-storage-account/
-  [Blob]: https://www.windowsazure.com/en-us/develop/python/how-to-guides/blob-service/
-  [資料表]: https://www.windowsazure.com/en-us/develop/python/how-to-guides/table-service/
-  [佇列]: https://www.windowsazure.com/en-us/develop/python/how-to-guides/queue-service/
-  [虛擬機器]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156003.aspx
+  [雲端服務]: http://windowsazure.com/zh-TW/documentation/articles/cloud-services-what-is
+  [服務封裝]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj155995.aspx
+  [Azure PowerShell Cmdlet]: https://www.windowsazure.com/zh-TW/develop/php/how-to-guides/powershell-cmdlets/
+  [cspack 命令列工具]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg432988.aspx
+  [Azure 服務組態結構描述 (.cscfg 檔)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee758710.aspx
+  [部署 Azure 服務]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg433027.aspx
+  [儲存服務]: https://www.windowsazure.com/zh-TW/manage/services/storage/what-is-a-storage-account/
+  [Blob]: https://www.windowsazure.com/zh-TW/develop/python/how-to-guides/blob-service/
+  [資料表]: https://www.windowsazure.com/zh-TW/develop/python/how-to-guides/table-service/
+  [佇列]: https://www.windowsazure.com/zh-TW/develop/python/how-to-guides/queue-service/
+  [虛擬機器]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj156003.aspx

@@ -5,7 +5,7 @@
 # 使用行動服務推播通知給使用者
 
 <div class="dev-center-tutorial-selector sublanding"> 
-<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-android" title="Android">Android</a>
+<a href="/zh-tw/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS">iOS</a><a href="/zh-tw/develop/mobile/tutorials/push-notifications-to-users-android" title="Android">Android</a>
 </div>
 
 本主題將延伸[上一個推播通知教學課程][]，方法是新增資料表以儲存 Microsoft 推播通知服務 (MPNS) 通道 URI。您可以接著使用這些通道來傳送推播通知給 Windows Phone 8 應用程式的使用者。
@@ -23,7 +23,7 @@
 
 1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
 
-    ![][]
+    ![][0]
 
 2.  按一下 [資料] 索引標籤，然後按一下 [建立]。
 
@@ -120,7 +120,7 @@
                 }
             }
 
-    此指令碼會檢查 **Channel** 資料表，以找出具有相同 URI 的現有通道。The insert only proceeds if no matching channel was found.This prevents duplicate channel records.
+    此指令碼會檢查 **Channel** 資料表，以找出具有相同 URI 的現有通道。僅在找不到相符的通道時，才會執行這項插入。這可避免通道記錄重複。
 
 4.  按一下 [TodoItem]，按一下 [指令碼]，然後選取 [插入]。
 
@@ -197,16 +197,16 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Phone]: /en-us/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /en-us/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /en-us/develop/mobile/tutorials/push-notifications-to-users-android "Android"
-  [上一個推播通知教學課程]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
+  [Windows Phone]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
+  [iOS]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
+  [Android]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-android "Android"
+  [上一個推播通知教學課程]: /zh-tw/develop/mobile/tutorials/get-started-with-push-wp8
   [建立 Channel 資料表]: #create-table
   [更新應用程式]: #update-app
   [更新伺服器指令碼]: #update-scripts
   [驗證推播通知行為]: #test-app
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-create-table.png
   [2]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-create-channel-table.png
   [3]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-portal-data-tables-channel.png
@@ -215,6 +215,6 @@
   [6]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-quickstart-push4-wp8.png
   [7]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-quickstart-push5-wp8.png
   [8]: ./media/mobile-services-windows-phone-push-notifications-app-users/mobile-quickstart-push6-wp8.png
-  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-wp8
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-wp8
   [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/p/?LinkId=262293

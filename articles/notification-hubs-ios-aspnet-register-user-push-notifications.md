@@ -5,7 +5,7 @@
 # 使用 ASP.NET 來註冊目前使用者以取得推播通知
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/zh-tw/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-tw/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
+<a href="/zh-TW/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-TW/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
 本主題將說明以 ASP.NET Web API 執行註冊時，應如何向 Azure 通知中心要求推播通知註冊。這是[使用通知中心來通知使用者][]教學課程的延伸主題。您必須已完成該教學課程中的必要步驟，才能建立已驗證的行動服務。如需通知使用者案例的詳細資訊，請參閱[使用通知中心來通知使用者][]。
@@ -92,7 +92,7 @@
     這會設定要求的裝置權杖。
 
     <div class="dev-callout"><b>注意</b>
-<p>此時，此方法中不應有任何其他程式碼。如果您已呼叫您在完成<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">開始使用通知中心</a>教學課程時所新增的 **registerNativeWithDeviceToken** 方法，您必須註解化或移除該呼叫。</p>
+<p>此時，此方法中不應有任何其他程式碼。如果您已呼叫您在完成<a href="/zh-TW/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">開始使用通知中心</a>教學課程時所新增的 **registerNativeWithDeviceToken** 方法，您必須註解化或移除該呼叫。</p>
 </div>
 
 8.  在 PushToUserAppDelegate.m 檔案中，新增下列處理常式方法：
@@ -211,10 +211,10 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/ "Windows 市集 C#"
-  [iOS]: /zh-tw/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/ "iOS"
-  [使用通知中心來通知使用者]: /en-us/manage/services/notification-hubs/notify-users-aspnet
+  [Windows 市集 C#]: /zh-TW/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/ "Windows 市集 C#"
+  [iOS]: /zh-TW/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/ "iOS"
+  [使用通知中心來通知使用者]: /zh-TW/manage/services/notification-hubs/notify-users-aspnet
   []: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios1.png
   [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
-  [開始使用通知中心]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-ios
-  [2]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/
+  [開始使用通知中心]: /zh-TW/manage/services/notification-hubs/get-started-notification-hubs-ios
+  [2]: /zh-TW/manage/services/notification-hubs/get-started-notification-hubs-ios/

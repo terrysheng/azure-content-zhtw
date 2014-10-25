@@ -21,6 +21,6 @@ Azure 行動服務對於用戶端導向和伺服器導向的驗證方法均可�
 <!-- URLs. -->
 
   [快速入門：新增行動服務的推播通知]: http://go.microsoft.com/fwlink/p/?LinkId=309101
-  [使用 Live Connect 單一登入驗證 Windows 市集應用程式]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+  [使用 Live Connect 單一登入驗證 Windows 市集應用程式]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
   [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
   [LoginAsync]: http://go.microsoft.com/fwlink/p/?LinkId=311594

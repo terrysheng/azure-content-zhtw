@@ -8,4 +8,4 @@
 
 
 
-  [測試應用程式的負載]: http://tfs.visualstudio.com/en-us/learn/load-testing
+  [測試應用程式的負載]: http://tfs.visualstudio.com/zh-TW/learn/load-testing

@@ -188,7 +188,7 @@ Azure 提供不同的執行模型，因為雲端平台需要支援許多不同�
   [圖 1]: #Fig1
   [01\_CreatingVMs]: ./media/fundamentals-application-models/ExecModels_01_CreatingVMs.png
   [VMDepot]: http://vmdepot.msopentech.com/
-  [Azure 的虛擬機器和雲端服務大小]: http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx
+  [Azure 的虛擬機器和雲端服務大小]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn197896.aspx
   [圖 2]: #Fig2
   [02\_CloudServices]: ./media/fundamentals-application-models/ExecModels_02_CloudServices.png
   [圖 3]: #Fig3

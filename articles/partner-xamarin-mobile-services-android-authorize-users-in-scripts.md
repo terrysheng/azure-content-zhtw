@@ -5,7 +5,7 @@
 # 使用指令碼為行動服務中的使用者授權
 
 <div class="dev-center-tutorial-selector sublanding"> 
-<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows 市集 C#">Windows 市集 C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios" title="Xamarin.iOS">iOS C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android" title="Xamarin.Android" class="current">Android C#</a>
+<a href="/zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone">Windows Phone</a><a href="/zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a><a href="/zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android">Android</a><a href="/zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-html" title="HTML">HTML</a><a href="/zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios" title="Xamarin.iOS">iOS C#</a><a href="/zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android" title="Xamarin.Android" class="current">Android C#</a>
 </div>
 
 本主題說明如何使用伺服器指令碼為已驗證的使用者授權，使其可從 Xamarin.Android 應用程式存取 Azure 行動服務中的資料。在本教學課程中，您將在行動服務中註冊指令碼，根據經驗證使用者的 userId 篩選查詢，確保每位使用者只能看到他們自己的資料。
@@ -60,7 +60,7 @@
 
 3.  在應用程式的 [Insert a TodoItem] 中輸入文字，然後按一下 [儲存]。
 
-    </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">如此會在行動服務中的</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> TodoItem </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">資料表中插入文字及</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> userId</cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">Because the new item has the correct userId value, it is returned by the mobile service and displayed in the second column.
+    </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">如此會在行動服務中的</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> TodoItem </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">資料表中插入文字及</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> userId</cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">因為新項目的 userId 值正確，所以行動服務會傳回該值並顯示在第二欄。
 
 4.  返回[管理入口網站][Azure 管理入口網站]的 **todoitem** 資料表中，按一下 [瀏覽] 並驗證每個新增項目現在是否具有關聯的 userId 值。
 
@@ -83,19 +83,19 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-js "Windows 市集 JavaScript"
-  [Windows Phone]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8 "Windows Phone"
-  [iOS]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios "iOS"
-  [Android]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-android "Android"
-  [HTML]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-html "HTML"
-  [iOS C#]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios "Xamarin.iOS"
-  [Android C#]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android "Xamarin.Android"
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android
+  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-dotnet "Windows 市集 C#"
+  [Windows 市集 JavaScript]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-js "Windows 市集 JavaScript"
+  [Windows Phone]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-wp8 "Windows Phone"
+  [iOS]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-ios "iOS"
+  [Android]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-android "Android"
+  [HTML]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-html "HTML"
+  [iOS C#]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios "Xamarin.iOS"
+  [Android C#]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android "Xamarin.Android"
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-android
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   []: ./media/partner-xamarin-mobile-services-android-authorize-users-in-scripts/mobile-services-selection.png
   [1]: ./media/partner-xamarin-mobile-services-android-authorize-users-in-scripts/mobile-portal-data-tables.png
   [2]: ./media/partner-xamarin-mobile-services-android-authorize-users-in-scripts/mobile-insert-script-users.png
-  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android
-  [開始使用推播通知]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-android
+  [開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-android
   [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/p/?LinkId=262293

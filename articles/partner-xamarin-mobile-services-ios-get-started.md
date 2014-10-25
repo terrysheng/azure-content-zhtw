@@ -20,7 +20,7 @@
 
 完成本教學課程需要 XCode 4.5 和 iOS 5.0 或更新版本，以及適用於 OS X 的 [Xamarin Studio][] 或適用於 Visual Studio 的 Xamarin Visual Studio 外掛程式 (在 Windows 上)。
 
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，您可以註冊 Azure 試用版並取得高達 10 項的免費行動服務。此外，在試用期間結束後您仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F" target="_blank">Azure 免費試用</a>。</p></div>
+<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，您可以註冊 Azure 試用版並取得高達 10 項的免費行動服務。此外，在試用期間結束後您仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F" target="_blank">Azure 免費試用</a>。</p></div>
 
 ## <a name="create-new-service"> </a>建立新的行動服務
 
@@ -104,7 +104,7 @@
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   []: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-completed-ios.png
   [Xamarin Studio]: http://xamarin.com/download
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-portal-quickstart-xamarin-ios.png
   [2]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-steps-xamarin-ios.png
@@ -113,7 +113,7 @@
   [5]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-startup-ios.png
   [6]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-data-tab.png
   [7]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-data-browse.png
-  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-  [開始使用離線資料同步]: /en-us/develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-  [開始使用推播通知]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-ios
+  [開始使用離線資料同步]: /zh-tw/develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-ios
+  [開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-ios

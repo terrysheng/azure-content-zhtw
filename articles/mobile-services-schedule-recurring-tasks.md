@@ -187,7 +187,7 @@
   [2]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
   [3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png
   [4]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script-new.png
-  [如何：執行大量插入]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts
+  [如何：執行大量插入]: /zh-tw/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts
   [5]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script.png
   [6]: ./media/mobile-services-schedule-recurring-tasks/mobile-browse-updates-table.png
   [7]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-enabled.png

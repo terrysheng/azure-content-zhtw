@@ -5,7 +5,7 @@
 # 使用 Live Connect 單一登入驗證 Windows 市集應用程式
 
 <div class="dev-center-tutorial-selector sublanding"> 
-<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet" title="Windows 市集 C#" class="current">Windows 市集 C#</a><a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/en-us/develop/mobile/tutorials/single-sign-on-wp8" title="Windows Phone">Windows Phone</a>
+<a href="/zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet" title="Windows 市集 C#" class="current">Windows 市集 C#</a><a href="/zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-js" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/zh-tw/develop/mobile/tutorials/single-sign-on-wp8" title="Windows Phone">Windows Phone</a>
 </div>
 
 本主題說明如何在 Windows 市集或 Windows Phone 8.1 市集應用程式的 Azure 行動服務中，使用 Live Connect 單一登入來驗證使用者。在本教學課程中，您會使用 Live Connect 將驗證新增至快速入門專案。在經過 Live Connect 成功驗證後，畫面會顯示名稱和使用者識別碼值來歡迎已登入使用者。
@@ -104,7 +104,7 @@
 5.  使用在 Live Connect 中設定應用程式時所指定的重新導向網域，來更新上一步的 *\<\< INSERT REDIRECT DOMAIN HERE \>\>* 字串，格式為 **https://_service-name_.azure-mobile.net/**。
 
     <div class="dev-callout"><b>注意</b>
-<p>在 Windows 市集應用程式中，<strong>LiveAuthClient</strong> 類別的執行個體建立方式，是將重新導向網域 URI 值傳遞到類別建構函式。在 <a href="/en-us/develop/mobile/tutorials/single-sign-on-wp8/">Windows Phone 8 應用程式</a>中，您可透過傳遞用戶端 ID 來具現化相同類別。</p>
+<p>在 Windows 市集應用程式中，<strong>LiveAuthClient</strong> 類別的執行個體建立方式，是將重新導向網域 URI 值傳遞到類別建構函式。在 <a href="/zh-tw/develop/mobile/tutorials/single-sign-on-wp8/">Windows Phone 8 應用程式</a>中，您可透過傳遞用戶端 ID 來具現化相同類別。</p>
 </div>
 
 6.  使用呼叫新 **Authenticate** 方法的處理常式，來取代現有的 **OnNavigatedTo** 事件處理常式：
@@ -127,21 +127,21 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-js "Windows 市集 JavaScript"
-  [Windows Phone]: /en-us/develop/mobile/tutorials/single-sign-on-wp8 "Windows Phone"
+  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet "Windows 市集 C#"
+  [Windows 市集 JavaScript]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-js "Windows 市集 JavaScript"
+  [Windows Phone]: /zh-tw/develop/mobile/tutorials/single-sign-on-wp8 "Windows Phone"
   [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
   [註冊您的應用程式以驗證與設定行動服務]: #register
   [對通過驗證的使用者限制資料表權限]: #permissions
   [將驗證新增至應用程式]: #add-authentication
   [Live SDK for Windows (英文)]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started
   [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
   [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [1]: /zh-tw/documentation/articles/mobile-services-windows-store-get-started
   []: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-add-reference-live-dotnet.png
   [開始使用驗證。]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/#tokens
-  [Windows Phone 8 應用程式]: /en-us/develop/mobile/tutorials/single-sign-on-wp8/
-  [使用指令碼授權使用者]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-  [2]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-  [行動服務 .NET 作法概念參考資料]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+  [Windows Phone 8 應用程式]: /zh-tw/develop/mobile/tutorials/single-sign-on-wp8/
+  [使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+  [2]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet
+  [行動服務 .NET 作法概念參考資料]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library

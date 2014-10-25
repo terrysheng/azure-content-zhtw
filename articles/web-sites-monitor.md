@@ -128,14 +128,14 @@
 
 <div class="dev-callout"> 
 <b>注意</b> 
-<p>您也可以在 Azure PowerShell 中使用 <b>Set-AzureWebsite</b> Cmdlet 來啟用診斷功能。</p><p>如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱<a href="http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/">如何使用 Azure PowerShell</a> (英文)。</p></div>
+<p>您也可以在 Azure PowerShell 中使用 <b>Set-AzureWebsite</b> Cmdlet 來啟用診斷功能。</p><p>如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱<a href="http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/powershell-cmdlets/">如何使用 Azure PowerShell</a> (英文)。</p></div>
 
 <div class="dev-callout"> 
 <b>注意</b> 
 <p>應用程式記錄功能仰賴應用程式產生的記錄資訊。用來產生記錄資訊的方法和資訊的格式取決於應用程式的撰寫語言。如需使用應用程式記錄功能的語言特有資訊，請參閱以下文章：</p>
 <ul>
-<li><b>.NET</b> - <a href="/en-us/develop/net/common-tasks/diagnostics-logging-and-instrumentation/">啟用 Azure 網站的診斷記錄功能</a></li>
-<li><b>Node.js</b> - <a href="/en-us/develop/nodejs/how-to-guides/Debug-Website/">如何在 Azure 網站中偵錯 Node.js 應用程式</a></li>
+<li><b>.NET</b> - <a href="/zh-tw/develop/net/common-tasks/diagnostics-logging-and-instrumentation/">啟用 Azure 網站的診斷記錄功能</a></li>
+<li><b>Node.js</b> - <a href="/zh-tw/develop/nodejs/how-to-guides/Debug-Website/">如何在 Azure 網站中偵錯 Node.js 應用程式</a></li>
 </ul>
 <p>只有 .NET 應用程式才支援資料表或 Blob 儲存體的應用程式記錄功能。</p>
 </div>
@@ -202,7 +202,7 @@
 
     <div class="dev-callout"> 
 <b>注意</b> 
-<p>如果您尚未安裝 <b>Azure PowerShell</b>，請參閱 <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx">Windows Azure Cmdlet 使用者入門</a>以取得安裝和組態資訊。</p> 
+<p>如果您尚未安裝 <b>Azure PowerShell</b>，請參閱 <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554332.aspx">Windows Azure Cmdlet 使用者入門</a>以取得安裝和組態資訊。</p> 
 </div>
 
 2.  在 Azure PowerShell 提示字元中使用下列命令來下載記錄檔：
@@ -233,7 +233,7 @@
 
 <div class="dev-callout"> 
 <b>注意</b> 
-<p>如果您尚未安裝 <b>azure</b> 命令，請參閱<a href="http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/">如何使用 Azure 命令列工具</a> (英文) 以取得安裝和組態資訊。</p>
+<p>如果您尚未安裝 <b>azure</b> 命令，請參閱<a href="http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/command-line-tools/">如何使用 Azure 命令列工具</a> (英文) 以取得安裝和組態資訊。</p>
 </div>
 
 ### 讀取記錄檔
@@ -311,13 +311,13 @@
   [Azure 管理入口網站]: http://manage.windowsazure.com/
   [如何：在 Windows Azure 中接收警示通知及管理警示規則]: http://go.microsoft.com/fwlink/?LinkId=309356
   [Azure 的虛擬機器和雲端服務大小]: http://go.microsoft.com/fwlink/?LinkID=309169
-  [如何管理儲存體帳戶]: https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
-  [如何使用 Azure PowerShell]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
-  [啟用 Azure 網站的診斷記錄功能]: /en-us/develop/net/common-tasks/diagnostics-logging-and-instrumentation/
-  [如何在 Azure 網站中偵錯 Node.js 應用程式]: /en-us/develop/nodejs/how-to-guides/Debug-Website/
+  [如何管理儲存體帳戶]: https://www.windowsazure.com/zh-tw/manage/services/storage/how-to-manage-a-storage-account/
+  [如何使用 Azure PowerShell]: http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/powershell-cmdlets/
+  [啟用 Azure 網站的診斷記錄功能]: /zh-tw/develop/net/common-tasks/diagnostics-logging-and-instrumentation/
+  [如何在 Azure 網站中偵錯 Node.js 應用程式]: /zh-tw/develop/nodejs/how-to-guides/Debug-Website/
   [FileZilla]: http://go.microsoft.com/fwlink/?LinkId=247914
-  [Windows Azure Cmdlet 使用者入門]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx
-  [如何使用 Azure 命令列工具]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/
+  [Windows Azure Cmdlet 使用者入門]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554332.aspx
+  [如何使用 Azure 命令列工具]: http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/command-line-tools/
   [W3C 擴充記錄檔格式]: http://go.microsoft.com/fwlink/?LinkID=90561
   []: http://contoso.cloudapp.net
   [Scott Guthrie introduces Azure Web Sites and sets up Endpoint Monitoring]: http://www.windowsazure.com/zh-tw/documentation/videos/websites-and-endpoint-monitoring-scottgu/

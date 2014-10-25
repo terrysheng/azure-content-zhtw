@@ -337,7 +337,7 @@ Azure 具有擴充性，因此可以變更最初決定的容量：不論是要�
   [資料庫設計和模型化基礎 (英文)]: http://go.microsoft.com/fwlink/?LinkId=252675
   [通往資料庫設計殿堂的階梯 (英文)]: http://go.microsoft.com/fwlink/?LinkId=252676
   [資料庫設計 (英文)]: http://go.microsoft.com/fwlink/?LinkId=252677
-  [Azure 資料表儲存體和 Azure SQL Database - 比較和對照 (英文)]: http://msdn.microsoft.com/en-us/library/jj553018.aspx
+  [Azure 資料表儲存體和 Azure SQL Database - 比較和對照 (英文)]: http://msdn.microsoft.com/zh-TW/library/jj553018.aspx
   [Azure 資料表儲存體效能考量 (英文)]: http://go.microsoft.com/fwlink/?LinkId=252663
   [SQL Database 和 Azure 資料表儲存體 (英文)]: http://go.microsoft.com/fwlink/?LinkId=252664
   [透過批次執行 Azure 資料表儲存體插入作業來增進效能 (英文)]: http://go.microsoft.com/fwlink/?LinkID=252665
@@ -352,9 +352,9 @@ Azure 具有擴充性，因此可以變更最初決定的容量：不論是要�
   [Windows \#Azure 快取效能考量]: http://go.microsoft.com/fwlink/?LinkId=252681
   [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對比]: http://go.microsoft.com/fwlink/?LinkId=252682
   [使用服務匯流排代理訊息改善效能的最佳作法]: http://go.microsoft.com/fwlink/?LinkID=252683
-  [巨量資料]: /en-us/solutions/big-data/
-  [Azure HDInsight 服務]: /zh-tw/documentation/services/hdinsight/
-  [開始使用 Azure HDInsight 服務]: /zh-tw/documentation/articles/hdinsight-get-started/
+  [巨量資料]: /zh-TW/solutions/big-data/
+  [Azure HDInsight 服務]: /zh-TW/documentation/services/hdinsight/
+  [開始使用 Azure HDInsight 服務]: /zh-TW/documentation/articles/hdinsight-get-started/
   [熟悉 Azure 上的 NoSQL]: http://go.microsoft.com/fwlink/?LinkId=252729
   [AggregateOrientedDatabase]: http://go.microsoft.com/fwlink/?LinkID=252731
   [PolyglotPersistence]: http://go.microsoft.com/fwlink/?LinkId=252732

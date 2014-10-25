@@ -150,10 +150,10 @@
 
   [Windows PowerShell]: /zh-tw/documentation/articles/powershell-rbac.md "Windows PowerShell"
   [跨平台 CLI]: /zh-tw/documentation/articles/xplat-cli-rbac.md "跨平台 CLI"
-  [Windows Management Framework 3.0]: http://www.microsoft.com/en-us/download/details.aspx?id=34595
-  [Windows Management Framework 4.0]: http://www.microsoft.com/en-us/download/details.aspx?id=40855
+  [Windows Management Framework 3.0]: http://www.microsoft.com/zh-tw/download/details.aspx?id=34595
+  [Windows Management Framework 4.0]: http://www.microsoft.com/zh-tw/download/details.aspx?id=40855
   [如何安裝和設定 Windows Azure PowerShell]: http://www.windowsazure.com/zh-tw/documentation/articles/install-configure-powershell/
-  [開始使用 Windows PowerShell]: http://technet.microsoft.com/en-us/library/hh857337.aspx
+  [開始使用 Windows PowerShell]: http://technet.microsoft.com/zh-tw/library/hh857337.aspx
   [如何安裝和設定 Azure PowerShell]: http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/
   [將 Windows PowerShell 與資源管理員搭配使用]: http://azure.microsoft.com/zh-tw/documentation/articles/powershell-azure-resource-manager/
   [連線到您的訂閱]: #connect

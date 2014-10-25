@@ -183,12 +183,12 @@
   [作法：將度量新增至度量表]: #addmetrics
   [作法：自訂度量圖表]: #customizechart
   [作法：從管理入口網站外部存取詳細資訊監視資料]: #accessverbose
-  [使用 Azure 診斷收集記錄資料]: http://msdn.microsoft.com/en-us/library/gg433048.aspx
-  [在 Azure 應用程式中建立及使用效能計數器]: http://msdn.microsoft.com/en-us/library/hh411542.aspx
-  [如何建立儲存體帳戶]: /en-us/manage/services/storage/how-to-create-a-storage-account/
-  [設定 Azure 診斷功能]: http://msdn.microsoft.com/en-us/library/windowsazure/dn186185.aspx
+  [使用 Azure 診斷收集記錄資料]: http://msdn.microsoft.com/zh-tw/library/gg433048.aspx
+  [在 Azure 應用程式中建立及使用效能計數器]: http://msdn.microsoft.com/zh-tw/library/hh411542.aspx
+  [如何建立儲存體帳戶]: /zh-tw/manage/services/storage/how-to-create-a-storage-account/
+  [設定 Azure 診斷功能]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn186185.aspx
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  [如何管理雲端服務]: http://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-manage-a-cloud-service/
+  [如何管理雲端服務]: http://www.windowsazure.com/zh-tw/manage/services/cloud-services/how-to-manage-a-cloud-service/
   [監視選項]: ./media/cloud-services-how-to-monitor/CloudServices_MonitoringOptions.png
   [如何：在 Windows Azure 中接收警示通知及管理警示規則]: http://go.microsoft.com/fwlink/?LinkId=309356
   [管理入口網站]: http://manage.windowsazure.com/

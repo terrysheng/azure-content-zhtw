@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-js-vs2013" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (legacy push) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Store JavaScript app (legacy push)." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-js-vs2013" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (legacy push) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Store JavaScript app (legacy push)." metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
 
@@ -114,17 +114,17 @@
   [針對推播通知註冊您的應用程式及設定行動服務]: #register
   [更新產生的推播通知程式碼]: #update-scripts
   [插入資料以接收通知]: #test
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started/
-  [開始使用資料]: /en-us/develop/mobile/tutorials/get-started-with-data-js/
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started/
+  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-js/
   [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
   [在行動服務中使用伺服器指令碼]: http://go.microsoft.com/fwlink/p/?LinkID=287178
   [mobile-services-create-new-push-vs2013-2]: ../includes/mobile-services-create-new-push-vs2013-2.md
   [0]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push2.png
-  [開始使用通知中心]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
-  [將通知傳送給訂閱者]: /en-us/manage/services/notification-hubs/breaking-news-dotnet/
-  [將通知傳送給使用者]: /en-us/manage/services/notification-hubs/notify-users/
-  [將交叉平台通知傳送給使用者]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-js
+  [開始使用通知中心]: /zh-tw/manage/services/notification-hubs/getting-started-windows-dotnet/
+  [將通知傳送給訂閱者]: /zh-tw/manage/services/notification-hubs/breaking-news-dotnet/
+  [將通知傳送給使用者]: /zh-tw/manage/services/notification-hubs/notify-users/
+  [將交叉平台通知傳送給使用者]: /zh-tw/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-js
   [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
-  [行動服務 HTML/JavaScript 作法概念參考]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/
+  [行動服務 HTML/JavaScript 作法概念參考]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/

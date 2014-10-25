@@ -20,7 +20,7 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 
 在建立服務之前，您必須執行下列作業：
 
--   註冊 RemoteApp 預覽版。您可以在 [][]<http://azure.microsoft.com/en-us/services/remoteapp/></a> 執行此作業。
+-   註冊 RemoteApp 預覽版。您可以在 [][]<http://azure.microsoft.com/zh-tw/services/remoteapp/></a> 執行此作業。
 -   在 Active Directory 中建立使用者帳戶，以做為 RemoteApp 服務帳戶。限制此帳戶的權限，使其只能將機器加入網域中。
 -   收集內部部署網路的相關資訊：IP 位址資訊和 VPN 裝置詳細資料。
 -   安裝 [Azure PowerShell][Azure PowerShell] 模組。
@@ -108,7 +108,7 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 -   [如何建立 RemoteApp 的混合式部署][如何建立 RemoteApp 的混合式部署]
 -   [如何建立 RemoteApp 的雲端部署][如何建立 RemoteApp 的雲端部署]
 
-  []: http://azure.microsoft.com/en-us/services/remoteapp/
+  []: http://azure.microsoft.com/zh-tw/services/remoteapp/
   [Azure PowerShell]: http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/
   [如何建立 RemoteApp 的混合式部署]: http://azure.microsoft.com/zh-tw/documentation/articles/remoteapp-create-hybrid-deployment/
   [如何建立 RemoteApp 的雲端部署]: http://azure.microsoft.com/zh-tw/documentation/articles/remoteapp-create-cloud-deployment/

@@ -60,8 +60,8 @@
   [管理磁碟和映像]: http://go.microsoft.com/fwlink/p/?LinkId=397536
   [如何建立自訂虛擬機器 (英文)]: ../virtual-machines-create-custom/
   [如何將資料磁碟附加至虛擬機器]: ../storage-windows-attach-disk/
-  [如何登入執行 Windows Server 的虛擬機器]: http://www.windowsazure.com/en-us/manage/windows/how-to-guides/log-on-a-windows-vm/
-  [如何使用 Sysprep：簡介]: http://technet.microsoft.com/en-us/library/bb457073.aspx
+  [如何登入執行 Windows Server 的虛擬機器]: http://www.windowsazure.com/zh-tw/manage/windows/how-to-guides/log-on-a-windows-vm/
+  [如何使用 Sysprep：簡介]: http://technet.microsoft.com/zh-tw/library/bb457073.aspx
   [執行 Sysprep]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
   [管理入口網站]: http://manage.windowsazure.com
   [擷取虛擬機器]: ./media/virtual-machines-capture-image-windows-server/CaptureVM.png

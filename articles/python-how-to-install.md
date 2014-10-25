@@ -166,16 +166,16 @@ PTVS 可以和您現有的 Visual Studio 2010、2012 或 2013 安裝一同運作
   [how-to-install-python-win-run-34]: ./media/python-how-to-install/how-to-install-python-win-run-34.png
   [Python 封裝索引 (PyPI)]: http://pypi.python.org/pypi
   [how-to-install-python-ptvs]: ./media/python-how-to-install/how-to-install-python-ptvs.png
-  [部署至雲端服務和網站]: /zh-tw/documentation/articles/cloud-services-web-sites-python-django-app-with-ptvs/
+  [部署至雲端服務和網站]: /zh-TW/documentation/articles/cloud-services-web-sites-python-django-app-with-ptvs/
   [CodePlex 上的 Python Tools for Visual Studio]: http://pytools.codeplex.com
   [how-to-install-python-linux-run]: ./media/python-how-to-install/how-to-install-python-linux-run.png
   [how-to-install-python-mac-site]: ./media/python-how-to-install/how-to-install-python-mac-site.png
   [IPython]: http://ipython.org
-  [Linux 管理小節]: /en-us/manage/linux/
+  [Linux 管理小節]: /zh-TW/manage/linux/
   [Enthought Python 散發 (英文)]: http://www.enthought.com
   [ActiveState Python 散發 (英文)]: http://www.activestate.com
   [SciPy - Scientific Python 程式庫套件 (英文)]: http://www.scipy.org
   [NumPy - Python 的數值程式庫 (英文)]: http://www.numpy.org
   [Django 專案 - 成熟的 Web 架構/CMS (英文)]: http://www.djangoproject.com
-  [Azure 上的 IPython Notebook]: /zh-tw/documentation/articles/virtual-machines-python-ipython-notebook
+  [Azure 上的 IPython Notebook]: /zh-TW/documentation/articles/virtual-machines-python-ipython-notebook
   [Virtualenv (英文)]: http://pypi.python.org/pypi/virtualenv

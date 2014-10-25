@@ -200,7 +200,7 @@ Twilio 動詞是指示 Twilio 應執行哪些**動作**的 XML 標籤。例如�
   [Twilio 帳戶頁面]: https://www.twilio.com/user/account
   [管理電話號碼]: https://www.twilio.com/user/account/phone-numbers/verified#
   [適用於 Ruby 的 Twilio 協助程式程式庫]: https://www.twilio.com/docs/ruby/install
-  [設定新的 Azure Linux VM]: http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+  [設定新的 Azure Linux VM]: http://www.windowsazure.com/zh-TW/develop/ruby/tutorials/web-app-with-linux-vm/
   [Sinatra]: http://www.sinatrarb.com/
   [Twilio 安全性方針]: http://www.twilio.com/docs/security
   [Twilio 作法與範例程式碼]: http://www.twilio.com/docs/howto

@@ -127,8 +127,8 @@
   [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-windows-store-get-started/ "JavaScript 後端"
   [觀看教學課程]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Introduction-to-Windows-Azure-Mobile-Services
   []: ./media/mobile-services-windows-store-get-started/mobile-quickstart-completed.png
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
-  [使用 Visual Studio 2012 開始使用行動服務中的資料]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
+  [使用 Visual Studio 2012 開始使用行動服務中的資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-windows-store-get-started/mobile-portal-quickstart.png
   [2]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-steps.png
@@ -136,9 +136,9 @@
   [3]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-startup.png
   [4]: ./media/mobile-services-windows-store-get-started/mobile-data-tab.png
   [5]: ./media/mobile-services-windows-store-get-started/mobile-data-browse.png
-  [C#]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
-  [JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-data-js
-  [6]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-  [7]: /en-us/develop/mobile/tutorials/get-started-with-users-js
-  [8]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
-  [9]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+  [C#]: /zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet
+  [JavaScript]: /zh-tw/develop/mobile/tutorials/get-started-with-data-js
+  [6]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet
+  [7]: /zh-tw/develop/mobile/tutorials/get-started-with-users-js
+  [8]: /zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet
+  [9]: /zh-tw/develop/mobile/tutorials/get-started-with-push-js

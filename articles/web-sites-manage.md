@@ -194,10 +194,10 @@ WebJobs 管理頁面可讓您為網站建立隨需、排程或持續執行的工
 
   [安裝 WebMatrix]: http://go.microsoft.com/fwlink/?LinkID=226244
   [Microsoft Azure SDK]: http://go.microsoft.com/fwlink/?LinkId=246928
-  [如何監視網站]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/
+  [如何監視網站]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/how-to-monitor-websites/
   [FTP 認證]: #ftp-credentials
-  [如何調整網站]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-scale-websites
-  [如何在 Microsoft Azure 網站中使用 WebJobs 功能]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-create-web-jobs/
-  [如何設定網站]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-configure-websites
-  [Microsoft Azure 網站備份]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-backup/
-  [還原 Microsoft Azure 網站]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-restore/
+  [如何調整網站]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/how-to-scale-websites
+  [如何在 Microsoft Azure 網站中使用 WebJobs 功能]: http://www.windowsazure.com/zh-TW/documentation/articles/web-sites-create-web-jobs/
+  [如何設定網站]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/how-to-configure-websites
+  [Microsoft Azure 網站備份]: http://www.windowsazure.com/zh-TW/documentation/articles/web-sites-backup/
+  [還原 Microsoft Azure 網站]: http://www.windowsazure.com/zh-TW/documentation/articles/web-sites-restore/

@@ -178,7 +178,7 @@ New Relic 與 Azure Web 角色和背景工作角色緊密整合。
 -   [尋找說明][] (英文)：New Relic 線上說明中心提供的資源
 
   [使用 New Relic]: #using-new-relic
-  [Azure 市集的 New Relic 頁面]: http://www.windowsazure.com/en-us/gallery/store/new-relic/new-relic/
+  [Azure 市集的 New Relic 頁面]: http://www.windowsazure.com/zh-tw/gallery/store/new-relic/new-relic/
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [Visual Studio]: ./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget01.png
   [Create cloud service]: ./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget02.png
@@ -187,7 +187,7 @@ New Relic 與 Azure Web 角色和背景工作角色緊密整合。
   [enter license key]: ./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget07.png
   [enter application name]: ./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget08.png
   [public the cloud project]: ./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget09.png
-  [將 ASP.NET Web 應用程式部署至 Azure 網站]: /en-us/develop/net/tutorials/get-started/
+  [將 ASP.NET Web 應用程式部署至 Azure 網站]: /zh-tw/develop/net/tutorials/get-started/
   [publish settings]: ./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png
   [New Relic monitoring dashboard]: ./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelic_app.png
   [標準 New Relic UI]: https://newrelic.com/docs/site/the-new-relic-ui#functions

@@ -188,14 +188,14 @@ Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果�
   [Image1]: ./media/sql-database-get-started-data-sync/SQLDatabaseScreen-Figure1.PNG
   [這裡]: http://go.microsoft.com/fwlink/?linkid=205836
   [1]: http://www.microsoft.com/download/en/details.aspx?id=26728
-  [安裝 SQL 資料同步 (預覽) 用戶端代理程式]: http://msdn.microsoft.com/en-us/library/jj823137.aspx
-  [向用戶端代理程式註冊 SQL Server 資料庫]: http://msdn.microsoft.com/en-us/library/jj823138.aspx
+  [安裝 SQL 資料同步 (預覽) 用戶端代理程式]: http://msdn.microsoft.com/zh-tw/library/jj823137.aspx
+  [向用戶端代理程式註冊 SQL Server 資料庫]: http://msdn.microsoft.com/zh-tw/library/jj823138.aspx
   [Image2]: ./media/sql-database-get-started-data-sync/NewSyncGroup-Figure2.png
   [Image3]: ./media/sql-database-get-started-data-sync/NewSyncGroupName-Figure3.PNG
   [Image4]: ./media/sql-database-get-started-data-sync/NewSyncGroupHub-Figure4.PNG
   [Image5]: ./media/sql-database-get-started-data-sync/NewSyncGroupReference-Figure5.PNG
   [Image6]: ./media/sql-database-get-started-data-sync/NewSyncGroupSyncRules-Figure6.PNG
   [Image7]: ./media/sql-database-get-started-data-sync/NewSyncGroupConfigure-Figure7.PNG
-  [SQL 資料同步 (WA 入口網站)]: http://msdn.microsoft.com/en-us/library/windowsazure/jj856263.aspx
+  [SQL 資料同步 (WA 入口網站)]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj856263.aspx
   [開始使用 Azure SQL Database]: ../getting-started-w-sql-databases/
   [SQL Server 資料庫生命週期]: http://go.microsoft.com/fwlink/?LinkId=275193

@@ -245,7 +245,7 @@ BizTalk 服務設定
   [Restore a backup]: #restore
   [備份什麼項目]: #budata
   [BizTalk 服務 REST API]: http://go.microsoft.com/fwlink/p/?LinkID=325584
-  [BizTalk 服務：版本圖表]: http://azure.microsoft.com/zh-tw/documentation/articles/biztalk-editions-feature-chart/
+  [BizTalk 服務：版本圖表]: http://azure.microsoft.com/zh-TW/documentation/articles/biztalk-editions-feature-chart/
   [隨選備份]: #backupnow
   [排定備份]: #backupschedule
   []: ./media/biztalk-backup-restore/AutomaticBU.png

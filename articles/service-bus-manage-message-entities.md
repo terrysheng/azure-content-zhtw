@@ -108,7 +108,7 @@ Azure 網站上的 [.NET 開發人員中心][]
   [作法：停用或啟用服務匯流排實體]: #disableenable
   [其他資源]: #seealso
   []: ./media/service-bus-manage-message-entities/QueueQuickCreate.png
-  [服務匯流排文件]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-relay/
+  [服務匯流排文件]: http://www.windowsazure.com/zh-TW/develop/net/how-to-guides/service-bus-relay/
   [1]: ./media/service-bus-manage-message-entities/AddQueue1.png
   [2]: ./media/service-bus-manage-message-entities/ConfigureQueue.png
   [3]: ./media/service-bus-manage-message-entities/DeleteEntity.png

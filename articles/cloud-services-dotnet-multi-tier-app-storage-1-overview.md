@@ -1036,17 +1036,17 @@ $60.43
 
 如需使用 Azure 儲存體資料表、佇列和 Blob 的其他資源連結，請參閱[本系列的最後一個教學課程][]。
 
-<div><a href="/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/" class="site-arrowboxcta download-cta">教學課程 2</a></div>
+<div><a href="/zh-tw/develop/net/tutorials/multi-tier-web-site/2-download-and-run/" class="site-arrowboxcta download-cta">教學課程 2</a></div>
 
   [完整的應用程式]: http://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   [電子書]: http://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETMultiTierWindowsAzureApplicationUsingStorageTablesQueuesandBlobs
   [電子郵件訊息處理]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-worker-roles-a-and-b.png
   [開始使用 Azure 雲端服務和 ASP.NET]: /zh-tw/documentation/articles/cloud-services-dotnet-get-started/
   [開始使用 Azure WebJobs SDK]: /zh-tw/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
-  [設定及部署 Azure 電子郵件服務應用程式]: /en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
-  [建置 Azure 電子郵件服務應用程式的 Web 角色]: /en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/
-  [建置 Azure 電子郵件服務應用程式的背景工作角色 A (電子郵件排程器)]: /en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
-  [建置 Azure 電子郵件服務應用程式的背景工作角色 B (電子郵件寄件者)]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
+  [設定及部署 Azure 電子郵件服務應用程式]: /zh-tw/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
+  [建置 Azure 電子郵件服務應用程式的 Web 角色]: /zh-tw/develop/net/tutorials/multi-tier-web-site/3-web-role/
+  [建置 Azure 電子郵件服務應用程式的背景工作角色 A (電子郵件排程器)]: /zh-tw/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
+  [建置 Azure 電子郵件服務應用程式的背景工作角色 B (電子郵件寄件者)]: /zh-tw/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
   [必要條件]: #prerequisites
   [前端概觀]: #frontend
   [後端概觀]: #backend
@@ -1058,8 +1058,8 @@ $60.43
   [成本]: #cost
   [驗證和授權]: #auth
   [後續步驟]: #nextsteps
-  [免費試用帳戶]: /en-us/pricing/free-trial/
-  [啟用 MSDN 訂戶權益]: /en-us/pricing/member-offers/msdn-benefits/
+  [免費試用帳戶]: /zh-tw/pricing/free-trial/
+  [啟用 MSDN 訂戶權益]: /zh-tw/pricing/member-offers/msdn-benefits/
   [Mailing List Index Page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-mailing-list-index-page.png
   [Subscriber Index Page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-subscribers-index-page.png
   [訊息索引頁面]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-message-index-page.png
@@ -1070,14 +1070,14 @@ $60.43
   [Unsubscribe confirmed page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-unsubscribe-confirmation-page.png
   [防止多傳電子郵件]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-message-processing.png
   [訂閱佇列訊息處理]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-subscribe-diagram.png
-  [Azure SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx
-  [真實世界：設計 Azure 資料表儲存體的可調整分割策略]: http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx
+  [Azure SQL Database]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336279.aspx
+  [真實世界：設計 Azure 資料表儲存體的可調整分割策略]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh508997.aspx
   [Azure 電子郵件服務應用程式的資料圖]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-datadiagram.png
   [應用程式架構概觀]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-architecture-overview.png
   [替代的應用程式架構]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-alternative-architecture.png
-  [Azure 定價計算機]: http://www.windowsazure.com/en-us/pricing/calculator/
+  [Azure 定價計算機]: http://www.windowsazure.com/zh-tw/pricing/calculator/
   [SendGrid Azure (英文)]: http://sendgrid.com/windowsazure.html
-  [Azure 雲端服務 99.95% 的服務等級協定 (SLA)]: https://www.windowsazure.com/en-us/support/legal/sla/ "SLA"
+  [Azure 雲端服務 99.95% 的服務等級協定 (SLA)]: https://www.windowsazure.com/zh-tw/support/legal/sla/ "SLA"
   [角色執行個體由於作業系統升級而重新啟動]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
   [CloudFx]: http://nuget.org/packages/Microsoft.Experience.CloudFx "CloudFX"
   [WorkerRole.cs 範例]: http://code.msdn.microsoft.com/windowsazure/CloudFx-Samples-60c3a852/sourcecode?fileId=57087&pathId=528472169
@@ -1085,6 +1085,6 @@ $60.43
   [如何在 Azure 結合背景工作與 Web 角色]: http://www.31a2ba2a-b718-11dc-8314-0800200c9a66.com/2010/12/how-to-combine-worker-and-web-role-in.html
   [將多個 Azure 背景工作角色結合成一個 Azure Web 角色]: http://www.31a2ba2a-b718-11dc-8314-0800200c9a66.com/2012/02/combining-multiple-azure-worker-roles.html
   [在 Azure 網站中執行並使用 WebJobs 功能執行後端工作]: http://go.microsoft.com/fwlink/?LinkId=390226
-  [自動調整應用程式區塊]: /en-us/develop/net/how-to-guides/autoscaling/
+  [自動調整應用程式區塊]: /zh-tw/develop/net/how-to-guides/autoscaling/
   [ASP.NET 身分識別]: http://asp.net/identity
-  [本系列的最後一個教學課程]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps
+  [本系列的最後一個教學課程]: /zh-tw/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps

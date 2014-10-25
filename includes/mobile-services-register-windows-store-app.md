@@ -65,7 +65,7 @@
   [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
   [0]: ./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png
   [1]: ./media/mobile-services-register-windows-store-app/mobile-services-win8-app-name.png
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started/#create-new-service
   [2]: ./media/mobile-services-register-windows-store-app/mobile-services-store-association.png
   [3]: ./media/mobile-services-register-windows-store-app/mobile-services-select-app-name.png
   [4]: ./media/mobile-services-register-windows-store-app/mobile-services-win8-edit-app.png

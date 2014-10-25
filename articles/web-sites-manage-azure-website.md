@@ -84,7 +84,7 @@
   [當網站運作時]: #while-your-website-is-running
   [更新網站時]: #when-you-update-your-website
   [如何管理網站]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-manage/
-  [網站定價詳細資料]: http://azure.microsoft.com/en-us/pricing/details/websites/
+  [網站定價詳細資料]: http://azure.microsoft.com/zh-tw/pricing/details/websites/
   [Web 主控方案]: http://azure.microsoft.com/zh-tw/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview
   [切換階層]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-scale/
   [Azure 管理入口網站]: https://manage.windowsazure.com/
@@ -99,7 +99,7 @@
   [Azure 網站上的 New Relic 應用程式效能管理]: http://azure.microsoft.com/zh-tw/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/
   [自動備份]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-backup/
   [本視訊]: http://azure.microsoft.com/zh-tw/documentation/videos/azure-websites-automatic-and-easy-backup/
-  [資料庫復原]: http://msdn.microsoft.com/en-us/library/azure/hh852669.aspx
+  [資料庫復原]: http://msdn.microsoft.com/zh-tw/library/azure/hh852669.aspx
   [在 Visual Studio 中疑難排解 Azure 網站]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#remotedebug
   [對 Azure 網站啟用診斷記錄]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-enable-diagnostic-log/
   [如何在 Azure 網站中偵錯 Node.js 應用程式]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-nodejs-debug/

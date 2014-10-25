@@ -71,6 +71,6 @@ Azure 網站不支援原生模組。某些模組 (例如 JSDOM 和 MongoDB) 擁�
 
   [執行 npm 安裝以避免部署節點模組的 Azure 啟動工作]: http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure
   [npm-install]: https://npmjs.org/doc/install.html
-  [指定 Node.js 版本]: /zh-tw/documentation/articles/nodejs-specify-node-version-azure-apps/
-  [建立與部署 Node.js 網站]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]: /zh-tw/documentation/articles/xplat-cli/
+  [指定 Node.js 版本]: /zh-TW/documentation/articles/nodejs-specify-node-version-azure-apps/
+  [建立與部署 Node.js 網站]: /zh-TW/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]: /zh-TW/documentation/articles/xplat-cli/

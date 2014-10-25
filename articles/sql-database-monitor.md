@@ -8,4 +8,4 @@
 
 如需詳細資訊，請參閱[使用動態管理檢視監視 SQL Database][]。
 
-  [使用動態管理檢視監視 SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx
+  [使用動態管理檢視監視 SQL Database]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ff394114.aspx

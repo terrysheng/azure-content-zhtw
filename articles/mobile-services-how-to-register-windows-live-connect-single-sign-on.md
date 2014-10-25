@@ -7,7 +7,7 @@
 本主題說明如何向 Windows 市集註冊您的應用程式，使其能夠以 Live Connect 作為 Azure 行動服務的身分識別提供者進行單一登入。若要使用推播通知，也必須執行此步驟。
 
 <div class="dev-callout"><b>注意</b>
-<p>您無須對 Windows 市集註冊您的應用程式，即可在發佈應用程式之前使用 Microsoft 帳戶進行驗證。當您的 Windows 市集應用程式不需要單一登入或推播通知時，您可以直接向 Live Connect 註冊應用程式以使用 Microsoft 帳戶登入。如需詳細資訊，請參閱<a href="/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication">註冊 Windows 市集應用程式以使用 Microsoft 帳戶登入</a>。</p>
+<p>您無須對 Windows 市集註冊您的應用程式，即可在發佈應用程式之前使用 Microsoft 帳戶進行驗證。當您的 Windows 市集應用程式不需要單一登入或推播通知時，您可以直接向 Live Connect 註冊應用程式以使用 Microsoft 帳戶登入。如需詳細資訊，請參閱<a href="/zh-tw/develop/mobile/how-to-guides/register-for-microsoft-authentication">註冊 Windows 市集應用程式以使用 Microsoft 帳戶登入</a>。</p>
 </div>
 
 1.  如果您尚未註冊您的應用程式，請瀏覽至 Windows 市集應用程式之開發人員中心的[提交應用程式頁面][]，使用您的 Microsoft 帳戶登入，然後按一下 [應用程式名稱]。
@@ -60,15 +60,15 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [註冊 Windows 市集應用程式以使用 Microsoft 帳戶登入]: /en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication
+  [註冊 Windows 市集應用程式以使用 Microsoft 帳戶登入]: /zh-tw/develop/mobile/how-to-guides/register-for-microsoft-authentication
   [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
   []: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-services-submit-win8-app.png
   [1]: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-services-win8-app-name.png
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started
+  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started
   [2]: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-services-store-association.png
   [3]: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-services-select-app-name.png
   [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
   [4]: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-live-connect-apps-list.png
   [5]: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-live-connect-app-api-settings.png
-  [使用 Live Connect 在 Windows 市集應用程式提供單一登入功能]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+  [使用 Live Connect 在 Windows 市集應用程式提供單一登入功能]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet

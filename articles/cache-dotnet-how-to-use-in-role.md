@@ -372,7 +372,7 @@ NuGet 套件也會新增下列組件的參考：
 <!-- LINKS -->
 
   [後續步驟]: #next-steps
-  [適合我的 Azure 快取提供項目]: http://msdn.microsoft.com/en-us/library/azure/dn766201.aspx
+  [適合我的 Azure 快取提供項目]: http://msdn.microsoft.com/zh-tw/library/azure/dn766201.aspx
   [何謂角色中快取？]: #what-is
   [開始使用角色中快取]: #getting-started-cache-role-instance
   [設定快取叢集]: #enable-caching
@@ -396,13 +396,13 @@ NuGet 套件也會新增下列組件的參考：
   [設定雲端服務的大小]: http://go.microsoft.com/fwlink/?LinkId=164387
   [RoleCache4]: ./media/cache-dotnet-how-to-use-in-role/cache11.png
   [RoleCache5]: ./media/cache-dotnet-how-to-use-in-role/cache12.png
-  [角色中快取疑難排解和診斷 (Windows Azure 快取)]: http://msdn.microsoft.com/en-us/library/windowsazure/hh914135.aspx
+  [角色中快取疑難排解和診斷 (Windows Azure 快取)]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh914135.aspx
   [RoleCache6]: ./media/cache-dotnet-how-to-use-in-role/cache13.png
   [NuGet Package Manager 安裝]: http://go.microsoft.com/fwlink/?LinkId=240311
-  [角色中快取的工作階段狀態提供者]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx
+  [角色中快取的工作階段狀態提供者]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg185668.aspx
   [@ OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
-  [Windows Azure Caching 的輸出快取提供者]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185662.aspx
-  [角色中快取]: http://www.microsoft.com/en-us/showcase/Search.aspx?phrase=azure+caching
-  [移轉至角色中快取]: http://msdn.microsoft.com/en-us/library/hh914163.aspx
-  [角色中快取範例]: http://msdn.microsoft.com/en-us/library/jj189876.aspx
+  [Windows Azure Caching 的輸出快取提供者]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg185662.aspx
+  [角色中快取]: http://www.microsoft.com/zh-tw/showcase/Search.aspx?phrase=azure+caching
+  [移轉至角色中快取]: http://msdn.microsoft.com/zh-tw/library/hh914163.aspx
+  [角色中快取範例]: http://msdn.microsoft.com/zh-tw/library/jj189876.aspx
   [最大效能：利用 Azure 快取加速您的雲端服務應用程式]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU

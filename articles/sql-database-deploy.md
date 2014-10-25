@@ -577,4 +577,4 @@ ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
   [作法：在內部部署伺服器上建立 school 資料庫]: #schooldb
   [作法：部署到 SQL Database]: #deploydb
   [作法：驗證資料庫部署]: #verify
-  [開始使用 SQL Database 管理]: /en-us/manage/services/sql-databases/getting-started-w-sql-databases/
+  [開始使用 SQL Database 管理]: /zh-TW/manage/services/sql-databases/getting-started-w-sql-databases/

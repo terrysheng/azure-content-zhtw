@@ -164,7 +164,7 @@ Azure 網站會備份下列資訊：
 
 <!-- IMAGES -->
 
-  [還原 Azure 網站]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-restore/
+  [還原 Azure 網站]: http://www.windowsazure.com/zh-TW/documentation/articles/web-sites-restore/
   [自動和簡易備份 (影片)]: #video
   [備份項目]: #whatsbackedup
   [需求和限制]: #requirements
@@ -174,7 +174,7 @@ Azure 網站會備份下列資訊：
   [注意事項]: #notes
   [後續步驟]: #nextsteps
   [儲存體帳戶的相關資訊]: #moreaboutstorage
-  [如何調整網站]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-scale/
+  [如何調整網站]: http://www.windowsazure.com/zh-TW/documentation/articles/web-sites-scale/
   [Backups page]: ./media/web-sites-backup/01ChooseBackupsPage.png
   [Choose storage account]: ./media/web-sites-backup/02ChooseStorageAccount.png
   [Choose databases to include]: ./media/web-sites-backup/03IncludedDatabases.png
@@ -185,10 +185,10 @@ Azure 網站會備份下列資訊：
   [Choose start date]: ./media/web-sites-backup/08StartDate.png
   [Choose start time]: ./media/web-sites-backup/09StartTime.png
   [Save button]: ./media/web-sites-backup/10SaveIcon.png
-  [匯入 BACPAC 檔案以建立新的使用者資料庫]: http://technet.microsoft.com/en-us/library/hh710052.aspx
-  [還原 Microsoft Azure 網站]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-restore/
-  [Microsoft Azure 免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
-  [什麼是儲存體帳戶？]: http://www.windowsazure.com/zh-tw/documentation/articles/storage-whatis-account/
-  [作法：建立儲存體帳戶]: http://www.windowsazure.com/zh-tw/documentation/articles/storage-create-storage-account/
-  [如何監視儲存體帳戶]: http://www.windowsazure.com/zh-tw/documentation/articles/storage-monitor-storage-account/
+  [匯入 BACPAC 檔案以建立新的使用者資料庫]: http://technet.microsoft.com/zh-TW/library/hh710052.aspx
+  [還原 Microsoft Azure 網站]: http://azure.microsoft.com/zh-TW/documentation/articles/web-sites-restore/
+  [Microsoft Azure 免費試用]: http://azure.microsoft.com/zh-TW/pricing/free-trial/
+  [什麼是儲存體帳戶？]: http://www.windowsazure.com/zh-TW/documentation/articles/storage-whatis-account/
+  [作法：建立儲存體帳戶]: http://www.windowsazure.com/zh-TW/documentation/articles/storage-create-storage-account/
+  [如何監視儲存體帳戶]: http://www.windowsazure.com/zh-TW/documentation/articles/storage-monitor-storage-account/
   [了解 Winidows Azure 儲存體計費]: http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx

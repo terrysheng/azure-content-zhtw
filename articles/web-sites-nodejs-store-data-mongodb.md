@@ -1,4 +1,4 @@
-<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Website with MongoDB" pageTitle="Node.js website with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="larryfr"  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Website with MongoDB" pageTitle="Node.js website with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/zh-TW/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="larryfr"  solutions="" writer="" manager="" editor=""  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
 
@@ -499,7 +499,7 @@ Azure 跨平台命令列介面 (xplat-cli) 可讓您執行 Azure 服務的管理
 
   [MongoDB]: http://www.mongodb.org
   [Node]: http://nodejs.org
-  [以使用 MongoLab 附加元件的 MongoDB 在 Azure 上建立 Node.js 應用程式]: /en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/
+  [以使用 MongoLab 附加元件的 MongoDB 在 Azure 上建立 Node.js 應用程式]: /zh-TW/develop/nodejs/tutorials/website-with-mongodb-mongolab/
   [A web page displaying an empty tasklist]: ./media/store-mongodb-web-sites-nodejs-use-mac/todo_list_empty.png
   [Git]: http://git-scm.com
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
@@ -512,17 +512,17 @@ Azure 跨平台命令列介面 (xplat-cli) 可讓您執行 Azure 服務的管理
   [註冊映像的螢幕擷取畫面]: ./media/web-sites-nodejs-store-data-mongodb/register.png
   [映像的螢幕擷取畫面]: ./media/web-sites-nodejs-store-data-mongodb/myimages.png
   [虛擬機器名稱、使用者名稱等的螢幕擷取畫面]: ./media/web-sites-nodejs-store-data-mongodb/vmname.png
-  [如何在 Azure 上搭配使用 SSH 與 Linux]: http://www.windowsazure.com/zh-tw/documentation/articles/linux-use-ssh-key/
+  [如何在 Azure 上搭配使用 SSH 與 Linux]: http://www.windowsazure.com/zh-TW/documentation/articles/linux-use-ssh-key/
   [虛擬機器組態的螢幕擷取畫面]: ./media/web-sites-nodejs-store-data-mongodb/vmconfig.png
   [端點組態的螢幕擷取畫面]: ./media/web-sites-nodejs-store-data-mongodb/endpoints.png
   [http://\<YourVMDNSName\>.cloudapp.net:28017/\_\_]: http://<YourVMDNSName>.cloudapp.net:28017/__
   [MongoDB 文件]: http://docs.mongodb.org/manual/
   [Express]: http://expressjs.com
   [Mongoose]: http://mongoosejs.com
-  [建立並部署 Node.js 應用程式至 Azure 網站]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-  [安裝及設定 Azure 跨平台命令列介面]: /zh-tw/documentation/articles/xplat-cli/
+  [建立並部署 Node.js 應用程式至 Azure 網站]: /zh-TW/develop/nodejs/tutorials/create-a-website-(mac)/
+  [安裝及設定 Azure 跨平台命令列介面]: /zh-TW/documentation/articles/xplat-cli/
   [Git 遠端]: http://git-scm.com/docs/git-remote
   [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-  [Node.js Web 應用程式與 Azure 資料表服務]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
+  [Node.js Web 應用程式與 Azure 資料表服務]: /zh-TW/develop/nodejs/tutorials/web-site-with-storage/
   [MongoDB 安全性]: http://docs.mongodb.org/manual/security/
-  [使用 Git 發佈至 Azure 網站]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
+  [使用 Git 發佈至 Azure 網站]: /zh-TW/develop/nodejs/common-tasks/publishing-with-git/

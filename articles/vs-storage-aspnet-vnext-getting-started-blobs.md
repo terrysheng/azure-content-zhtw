@@ -2,7 +2,7 @@
 
 <tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb"></tags>
 
-[WACOM.INCLUDE [vs-storage-aspnet-vnext-getting-started-intro][vs-storage-aspnet-vnext-getting-started-intro]]
+[WACOM.INCLUDE [vs-storage-aspnet-vnext-getting-started-intro](../includes/vs-storage-aspnet-vnext-getting-started-intro.md)]
 
 ### 開始使用 Azure 儲存體
 
@@ -18,21 +18,20 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
 2.  安裝 Microsoft.Framework.ConfigurationModel.Json NuGet 封裝。
 3.  將下列程式碼命名空間宣告，新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 C# 檔案內的頂端。
 
-        using Microsoft.Framework.ConfigurationModel;
+		using Microsoft.Framework.ConfigurationModel;
 
 4.  使用下列程式碼來取得組態設定。
 
-        var config = new Configuration();
-        config.AddJsonFile("config.json");
+		var config = new Configuration();
+		config.AddJsonFile("config.json");
 
 ###### 取得儲存體連接字串
-
 您必須先取得將存放 Blob 的儲存體帳戶的連接字串，才能使用 Blob。您可以使用 **CloudStorageAccount** 類型來代表儲存體帳戶資訊。如果您使用 ASP.NET vNext 專案，您可以呼叫 Configuration 物件的 get 方法，從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊，如下列程式碼所示。
 
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       config.get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
-[WACOM.INCLUDE [vs-storage-getting-started-blobs-include][vs-storage-getting-started-blobs-include]]
+[WACOM.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
 
   [vs-storage-aspnet-vnext-getting-started-intro]: ../includes/vs-storage-aspnet-vnext-getting-started-intro.md
   [Blob]: /zh-tw/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs "Blob"

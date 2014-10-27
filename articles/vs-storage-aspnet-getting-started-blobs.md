@@ -2,7 +2,7 @@
 
 <tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb"></tags>
 
-[WACOM.INCLUDE [vs-storage-aspnet-getting-started-intro][vs-storage-aspnet-getting-started-intro]]
+[WACOM.INCLUDE [vs-storage-aspnet-getting-started-intro](../includes/vs-storage-aspnet-getting-started-intro.md)]
 
 ### 開始使用 Azure 儲存體
 
@@ -17,22 +17,22 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
 1.  取得 Microsoft.WindowsAzure.Storage.dll 組件。您可以使用 NuGet 這樣做。在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。在線上搜尋 "WindowsAzure.Storage"，再按一下 [安裝] 以安裝 Azure 儲存體封裝與相依性。將此組件的參考加入至專案。
 2.  將下列程式碼命名空間宣告，新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 C# 檔案內的頂端。
 
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Queue;
+	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.WindowsAzure.Storage.Auth;
+	using Microsoft.WindowsAzure.Storage.Queue;
 
 ###### 取得儲存體連接字串
 
 您必須先取得將存放 Blob 的儲存體帳戶的連接字串，才能使用 Blob。您可以使用 **CloudStorageAccount** 類型來代表儲存體帳戶資訊。在 ASP.NET 專案中，您可以使用 **ConfigurationManager** 類型，從 Azure 服務組態中擷取儲存體連接字串和儲存體帳戶資訊，如下列程式碼所示。
 
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       ConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
 
-[WACOM.INCLUDE [vs-storage-getting-started-blobs-include][vs-storage-getting-started-blobs-include]]
+[WACOM.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
 
-  [vs-storage-aspnet-getting-started-intro]: ../includes/vs-storage-aspnet-getting-started-intro.md
+
   [Blob]: /zh-tw/documentation/articles/vs-storage-aspnet-getting-started-blobs "Blob"
   [佇列]: /zh-tw/documentation/articles/vs-storage-aspnet-getting-started-queues "佇列"
   [資料表]: /zh-tw/documentation/articles/vs-storage-aspnet-getting-started-tables "資料表"
   [如何從 .NET 使用 Blob 儲存體]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/ "如何從 .NET 使用 Blob 儲存體"
-  [vs-storage-getting-started-blobs-include]: ../includes/vs-storage-getting-started-blobs-include.md
+

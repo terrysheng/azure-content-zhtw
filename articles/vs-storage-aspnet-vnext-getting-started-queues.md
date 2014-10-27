@@ -2,7 +2,7 @@
 
 <tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb"></tags>
 
-[WACOM.INCLUDE [vs-storage-aspnet-vnext-getting-started-intro][vs-storage-aspnet-vnext-getting-started-intro]]
+[WACOM.INCLUDE [vs-storage-aspnet-vnext-getting-started-intro](../includes/vs-storage-aspnet-vnext-getting-started-intro.md)]
 
 # 開始使用 Azure 儲存體
 
@@ -30,9 +30,9 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       config.get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
-[WACOM.INCLUDE [vs-storage-getting-started-queues-include][vs-storage-getting-started-queues-include]]
+[WACOM.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
-  [vs-storage-aspnet-vnext-getting-started-intro]: ../includes/vs-storage-aspnet-vnext-getting-started-intro.md
+
   [Blob]: /zh-tw/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs "Blob"
   [佇列]: /zh-tw/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues "佇列"
   [資料表]: /zh-tw/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables "資料表"

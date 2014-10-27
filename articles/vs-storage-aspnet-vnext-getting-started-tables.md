@@ -2,7 +2,7 @@
 
 <tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb"></tags>
 
-[WACOM.INCLUDE [vs-storage-aspnet-vnext-getting-started-intro][vs-storage-aspnet-vnext-getting-started-intro]]
+[WACOM.INCLUDE [vs-storage-aspnet-vnext-getting-started-intro](../includes/vs-storage-aspnet-vnext-getting-started-intro.md)]
 
 # 開始使用 Azure 儲存體
 
@@ -30,11 +30,10 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       config.get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
-[WACOM.INCLUDE [vs-storage-getting-started-tables-include][vs-storage-getting-started-tables-include]]
+[WACOM.INCLUDE [vs-storage-getting-started-tables-include](../includes/vs-storage-getting-started-tables-include.md)]
 
-  [vs-storage-aspnet-vnext-getting-started-intro]: ../includes/vs-storage-aspnet-vnext-getting-started-intro.md
   [Blob]: /zh-tw/documentation/articles/vs-storage-aspnet-vnext-getting-started-blobs "Blob"
   [佇列]: /zh-tw/documentation/articles/vs-storage-aspnet-vnext-getting-started-queues "佇列"
   [資料表]: /zh-tw/documentation/articles/vs-storage-aspnet-vnext-getting-started-tables "資料表"
   [如何從 .NET 使用資料表儲存體]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "如何從 .NET 使用資料表儲存體"
-  [vs-storage-getting-started-tables-include]: ../includes/vs-storage-getting-started-tables-include.md
+

@@ -2,7 +2,7 @@
 
 <tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb"></tags>
 
-[WACOM.INCLUDE [vs-storage-aspnet-getting-started-intro][vs-storage-aspnet-getting-started-intro]]
+[WACOM.INCLUDE [vs-storage-aspnet-getting-started-intro](../includes/vs-storage-aspnet-getting-started-intro.md)]
 
 ### 開始使用 Azure 儲存體
 
@@ -12,12 +12,12 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 若要在 ASP.NET 專案中以程式設計方式存取佇列，您需要執行下列工作。
 
-1.  取得 Microsoft.WindowsAzure.Storage.dll 組件。您可以使用 NuGet 這樣做。在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。在線上搜尋 "WindowsAzure.Storage"，再按一下 [安裝] 以安裝 Azure 儲存體封裝與相依性。將此組件的參考加入至專案。
+1.	取得 Microsoft.WindowsAzure.Storage.dll 組件。您可以使用 NuGet 這樣做。在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。在線上搜尋 "WindowsAzure.Storage"，再按一下 [安裝] 以安裝 Azure 儲存體封裝與相依性。將此組件的參考加入至專案。
 2.  將下列程式碼命名空間宣告，新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 C# 檔案內的頂端。
 
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Queue;
+	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.WindowsAzure.Storage.Auth;
+	using Microsoft.WindowsAzure.Storage.Queue;
 
 ### 取得儲存體連接字串
 
@@ -26,7 +26,7 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       ConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
 
-[WACOM.INCLUDE [vs-storage-getting-started-queues-include][vs-storage-getting-started-queues-include]]
+[WACOM.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
   [vs-storage-aspnet-getting-started-intro]: ../includes/vs-storage-aspnet-getting-started-intro.md
   [Blob]: /zh-tw/documentation/articles/vs-storage-aspnet-getting-started-blobs "Blob"

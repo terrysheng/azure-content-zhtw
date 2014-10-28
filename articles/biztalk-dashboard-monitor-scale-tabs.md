@@ -8,19 +8,19 @@
 
 這樣會開啟新視窗並顯示下列索引標籤。本主題說明這些索引標籤。
 
--   ![快速入門][] [快速入門][1]
+-   ![快速入門][QuickStart] [快速入門](#QuickStart)
 
--   [儀表板][]
+-   [儀表板](#Dashboard)
 
--   [監視][]
+-   [監視](#Monitor)
 
--   [調整][]
+-   [調整](#Scale)
 
--   [設定][]
+-   [設定](#Configure)
 
--   [混合式連線][]
+-   [混合式連線](#HybridConnections)
 
-## <a name="QuickStart"></a>快速入門 (![快速入門][])
+## <a name="QuickStart"></a>快速入門 (![快速入門][QuickStart])
 
 部分 BizTalk 服務版本可能並未提供下列所有選項。
 
@@ -54,7 +54,7 @@
 
 </td>
 <td>
-前往[學習中心][]以深入了解 Azure BizTalk 服務。
+前往<a HREF="http://azure.microsoft.com/zh-TW/documentation/services/biztalk-services/">學習中心</a>以深入了解 Azure BizTalk 服務。
 
 </td>
 </tr>
@@ -107,7 +107,7 @@
 
 這些度量提供 BizTalk 服務健全狀況的即時值。您也可以指定圖表上顯示的 [相對] 值或 [絕對] 值，以及度量時間範圍 [間隔]。
 
-如需這些效能度量的說明，請移至本主題的＜[可用的度量][]＞。
+如需這些效能度量的說明，請移至本主題的＜[可用的度量](#Metrics)＞。
 
 ##### 快速概覽：列出 BizTalk 服務屬性
 
@@ -176,7 +176,7 @@
 </table>
 
 
-[BizTalk 服務：使用 Azure 管理入口網站進行佈建][建立 BizTalk 服務]列出建立 BizTalk 服務的步驟。
+[BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)列出建立 BizTalk 服務的步驟。
 
 ##### 工作列中的管理、連線資訊、同步金鑰和刪除：
 
@@ -226,14 +226,18 @@
 
 ##### 在圖表中移除或顯示度量：
 
-<ol>
-<li>選取 [監視]<strong></strong> 索引標籤。</li>
-<li>選取工作列的 [加入度量]<strong></strong>：<br /><br/><br /><img src="./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png" alt="選取加入度量" /></li>
-<li>勾選您要顯示的效能度量。</li>
-<li>選取勾選記號以回到 [監視]<strong></strong> 索引標籤。</li>
-<li><p>選取度量旁邊的圓形以在圖表內顯示該度量的值。<br /><br/><br />例如：灰色的 [CPU 使用率]<strong></strong> 度量表示圖表上不會顯示其輸出：<br /><br/><br /><img src="./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png" alt="[CPU 使用率] 度量是灰色的" /><br /><br/><br />選取灰色的圓形可在圖表上顯示 [CPU 使用率]<strong></strong> 度量的輸出：<br /><br/><br /><img src="./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png" alt="[CPU 使用率] 度量已啟用" /></p></li>
-<li><p>若要從顯示圖表和清單中移除度量，請選取工作列的 [刪除度量]<strong></strong>。若要將度量加回到清單中，請選取工作列的 [加入度量]<strong></strong>，勾選度量，然後選取勾選記號以回到 [監視]<strong></strong> 索引標籤。選取灰色的圓形以啟用度量。</p></li>
-</ol>
+1. 選取 [監視] 索引標籤。
+2. 選取工作列的 [加入度量]：<br />
+![選取加入度量][AddMetrics]
+3. 勾選您要顯示的效能度量。
+4. 選取勾選記號以回到 [監視]<strong></strong> 索引標籤。
+5. 選取度量旁邊的圓形以在圖表內顯示該度量的值。
+   例如：灰色的 [CPU 使用率] 度量表示圖表上不會顯示其輸出：
+   ![[CPU 使用率] 度量是灰色的][GrayedMetric]<br />
+   選取灰色的圓形可在圖表上顯示 [CPU 使用率] 度量的輸出：<br />
+   ![[CPU 使用率] 度量已啟用][EnabledMetric]
+6. 若要從顯示圖表和清單中移除度量，請選取工作列的 [刪除度量]。若要將度量加回到清單中，請選取工作列的 [加入度量]，勾選度量，然後選取勾選記號以回到 [監視] 索引標籤。選取灰色的圓形以啟用度量。
+
 
 ## <a name="Metrics"></a>可用的度量
 
@@ -302,11 +306,11 @@
 
 在 [調整] 索引標籤中，您可以增加或減少 BizTalk 服務使用的單位數。依預設已設定一個單位。您可以將更多單位加入至 BizTalk 服務。增加規模時，也會增量輸送量。資源數量也會增加，包括部署的橋接器、協議、LOB 連接和處理能力。例如，將規模從 1 單位增加為 2 單位。在此情況下，您可以部署兩倍的橋接器、兩倍的協議、兩倍的 LOB 連接，以及兩倍的處理能力。
 
-有些 BizTalk 版本不提供調整選項。在此情況下，只允許一個單位。若要判斷您的版本可調整的單位數，請參閱 [BizTalk 服務：版本圖表][]。
+有些 BizTalk 版本不提供調整選項。在此情況下，只允許一個單位。若要判斷您的版本可調整的單位數，請參閱 [BizTalk 服務：版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)。
 
 增加單位數可能會影響定價。如果增加單位，選取 **[儲存]** 會出現訊息，告知您計費是否受影響。您可以選擇繼續。增加單位數時，BizTalk 服務狀態會從 [作用中] 變更為 [正在更新]。在更新狀態下，BizTalk 服務會繼續執行。
 
-[BizTalk 服務：版本圖表][]有「單位」的定義。
+[BizTalk 服務：版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)有「單位」的定義。
 
 ## <a name="Configure"></a>設定
 
@@ -314,47 +318,45 @@
 
 將 [備份狀態] 設為 [無] 或 [自動]。設為 [無] 時不會自動建立備份。設為 [自動] 時須設定備份位置、備份頻率和備份檔案的保留時間。
 
-[BizTalk 服務：備份與還原][]提供詳細資料。
+[BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)提供詳細資料。
 
 ## <a name="HybridConnections"></a>混合式連線
 
 混合式連線可將 Azure 應用程式 (例如網站或行動服務) 連線到使用靜態 TCP 連接埠的內部部署資源，例如 SQL Server、MySQL、HTTP Web API 及大部分的自訂 Web 服務。您可以在 Azure 管理入口網站的 BizTalk 服務內管理混合式連線。
 
-若要在 Azure 網站上建立混合式連線，請參閱[混合式連線：將 Azure 網站連線到內部部署資源][]。
+若要在 Azure 網站上建立混合式連線，請參閱[混合式連線：將 Azure 網站連線到內部部署資源](http://go.microsoft.com/fwlink/p/?LinkId=397538)。
 
-若要在 Azure 行動服務內使用混合式連線，請參閱 [Azure 行動服務與混合式連線][]。
+若要在 Azure 行動服務內使用混合式連線，請參閱 [Azure 行動服務與混合式連線](http://azure.microsoft.com/zh-TW/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)。
 
-若要在 Azure BizTalk 服務內建立或管理混合式連線，請參閱[混合式連線][2]。
+若要在 Azure BizTalk 服務內建立或管理混合式連線，請參閱[混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)。
 
 ## 下一步
 
 現在，您已熟悉不同的索引標籤，您可以接著深入了解 Azure BizTalk 服務的功能：
 
--   [BizTalk 服務：節流][]
+-   [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)
      (英文)
--   [BizTalk 服務：簽發者名稱和簽發者金鑰][] (英文)
--   [BizTalk 服務：備份與還原][]
+-   [BizTalk 服務：簽發者名稱和簽發者金鑰](http://go.microsoft.com/fwlink/p/?LinkID=303941) (英文)
+-   [BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)
      (英文)
 
 ## 另請參閱
 
--   [混合式連線][2]
--   [BizTalk 服務：開發人員、基本、標準和高級版本圖表][BizTalk 服務：版本圖表]
+-   [混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)
+-   [BizTalk 服務：開發人員、基本、標準和高級版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)
      (英文)
--   [BizTalk 服務：使用 Azure 管理入口網站進行佈建][建立 BizTalk 服務]
+-   [BizTalk 服務：使用 Azure 管理入口網站進行佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)
      (英文)
--   [BizTalk 服務：BizTalk 服務狀態圖][BizTalk 服務：服務狀態圖]
+-   [BizTalk 服務：BizTalk 服務狀態圖](http://go.microsoft.com/fwlink/p/?LinkID=329870)
      (英文)
--   [如何開始使用 Azure BizTalk 服務 SDK][]
+-   [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
-  [快速入門]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
-  [1]: #QuickStart
-  [儀表板]: #Dashboard
-  [監視]: #Monitor
-  [調整]: #Scale
-  [設定]: #Configure
-  [混合式連線]: #HybridConnections
-  [學習中心]: http://azure.microsoft.com/zh-tw/documentation/services/biztalk-services/
+  [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
+  [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
+  [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
+  [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
+
+  [學習中心]: http://azure.microsoft.com/zh-TW/documentation/services/biztalk-services/
   [在 BizTalk 服務入口網站上設定 EDI 訊息的元件]: http://go.microsoft.com/fwlink/p/?LinkID=303653
   [管理 ACS 命名空間]: http://go.microsoft.com/fwlink/p/?LinkID=285670
   [可用的度量]: #Metrics
@@ -364,7 +366,7 @@
   [BizTalk 服務：版本圖表]: http://go.microsoft.com/fwlink/p/?LinkID=302279
   [BizTalk 服務：備份與還原]: http://go.microsoft.com/fwlink/p/?LinkID=329873
   [混合式連線：將 Azure 網站連線到內部部署資源]: http://go.microsoft.com/fwlink/p/?LinkId=397538
-  [Azure 行動服務與混合式連線]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started
+  [Azure 行動服務與混合式連線]: http://azure.microsoft.com/zh-TW/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started
   [2]: http://go.microsoft.com/fwlink/p/?LinkID=397274
   [BizTalk 服務：節流]: http://go.microsoft.com/fwlink/p/?LinkID=302282
   [BizTalk 服務：簽發者名稱和簽發者金鑰]: http://go.microsoft.com/fwlink/p/?LinkID=303941

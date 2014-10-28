@@ -87,7 +87,7 @@
 
 3.  畫面應該如下所示：
 
-    ![linuxwelcomegit][]
+    ![linuxwelcomegit][linuxwelcomegit]
 
 4.  回答提出的問題。
 5.  它會建立兩個檔案：`myPrivateKey.key` 和 `myCert.pem`。
@@ -103,12 +103,12 @@
 4.  找出您的私密金鑰，名稱為 `myPrivateKey.key`。您將需要變更檔案篩選，才能顯示 [\*\*所有檔案 (\*.\*)\*\*]
 5.  按一下 [開啟]。您將看見提示，看起來如下所示：
 
-    ![linuxgoodforeignkey][]
+    ![linuxgoodforeignkey][linuxgoodforeignkey]
 
 6.  按一下 [確定]。
 7.  按一下以下螢幕擷取畫面強調顯示的 [Save Private Key]：
 
-    ![linuxputtyprivatekey][]
+    ![linuxputtyprivatekey][linuxputtyprivatekey]
 
 8.  將檔案儲存為 PPK。
 
@@ -118,7 +118,7 @@
 2.  執行 putty.exe
 3.  以來自管理入口網站的 IP 來填入主機名稱。
 
-    ![linuxputtyconfig][]
+    ![linuxputtyconfig][linuxputtyconfig]
 
 4.  選取 [Open] 之前，請按一下 [Connection] \> [SSH] \> [Auth] 索引標籤來選擇您的金鑰。請參閱以下螢幕擷取畫面，以了解要填入的欄位。
 

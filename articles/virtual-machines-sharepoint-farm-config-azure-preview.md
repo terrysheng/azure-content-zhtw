@@ -11,13 +11,13 @@ SharePoint Server 伺服器陣列是 Microsoft Azure 預覽入口網站的一項
 
 下列區段提供每個伺服器陣列的組態詳細資料。
 
-如需詳細資訊，請參閱 [SharePoint Server 伺服器陣列][]。
+如需詳細資訊，請參閱 [SharePoint Server 伺服器陣列][SharePoint Server 伺服器陣列]。
 
 ## 基本 SharePoint 伺服器陣列
 
 基本 SharePoint 伺服器陣列由下列組態中的三個虛擬機器組成：
 
-![sharepointfarm][]
+![sharepointfarm][sharepointfarm]
 
 以下是組態詳細資料：
 

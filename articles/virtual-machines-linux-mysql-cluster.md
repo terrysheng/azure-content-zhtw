@@ -4,24 +4,24 @@
 
 # 在 Linux 上使用負載平衡集合將 MySQL 叢集化
 
--   [準備就緒][]
--   [設定叢集][]
--   [設定 MySQL][]
--   [設定 Corosync][]
--   [設定 Pacemaker][]
--   [測試][]
--   [STONITH][]
--   [限制][]
+-   [準備就緒][準備就緒]
+-   [設定叢集][設定叢集]
+-   [設定 MySQL][設定 MySQL]
+-   [設定 Corosync][設定 Corosync]
+-   [設定 Pacemaker][設定 Pacemaker]
+-   [測試][測試]
+-   [STONITH][STONITH]
+-   [限制][限制]
 
 ## 簡介
 
-本文旨在瀏覽與說明要在 Microsoft Azure 上部署高度可用 Linux 架構服務的其他可用方法，首先從 MySQL Server 高可用性開始。您可在[第 9 頻道][] (英文) 上找到說明此方法的影片。
+本文旨在瀏覽與說明要在 Microsoft Azure 上部署高度可用 Linux 架構服務的其他可用方法，首先從 MySQL Server 高可用性開始。您可在[第 9 頻道][第 9 頻道] (英文) 上找到說明此方法的影片。
 
 我們會依據 DRBD、Corosync 和 Pacemaker，說明無共用、兩個節點、單一主要的 MySQL 高可用性解決方案。一次只會有一個節點執行 MySQL。也限制一次只會有一個節點從 DRBD 資源讀取和寫入。
 
 因為我們會使用 Microsoft Azure 的負載平衡集合，來提供循環配置資源功能和 VIP 的端點偵測、移除及正常復原，所以不需要 VIP 解決方案 (如 LVS)。VIP 是一個可全域路由的 IPv4 位址，會在我們第一次建立雲端服務時由 Microsoft Azure 指定。
 
-還有其他可能架構可供 MySQL 使用，包括 NBD 叢集、Percona 和 Galera 以及數種中繼軟體解決方案 (包括至少有一個可作為 [VM Depot][] 上的 VM)。只要這些解決方案可以在單點傳送與多點傳送上複寫或廣播，且不仰賴共用儲存體或多個網路介面，那麼應不難在 Microsoft Azure 上部署這些案例。
+還有其他可能架構可供 MySQL 使用，包括 NBD 叢集、Percona 和 Galera 以及數種中繼軟體解決方案 (包括至少有一個可作為 [VM Depot][VM Depot] 上的 VM)。只要這些解決方案可以在單點傳送與多點傳送上複寫或廣播，且不仰賴共用儲存體或多個網路介面，那麼應不難在 Microsoft Azure 上部署這些案例。
 
 當然，您可以將這些叢集架構以類似的方式延伸到其他產品，如 PostgreSQL 和 OpenLDAP。例如，已透過多個主要 OpenLDAP 成功測試使用無共用的負載平衡程序，您可以在我們的第 9 頻道 (Channel 9) 部落格上觀看此測試。
 
@@ -236,7 +236,7 @@ Corosync 在 Azure 上的主要限制是，Corosync 偏好的通訊順序為多�
 
 接著應有與下圖類似的輸出：
 
-![corosync-quorumtool -l sample output][]
+![corosync-quorumtool -l sample output][corosync-quorumtool -l sample output]
 
 ## 設定 Pacemaker
 
@@ -296,11 +296,11 @@ Pacemaker 會使用叢集來監視資源，定義在主要故障時將這些資�
 
 下列快照說明 `crm_mon`，且其中一個節點已停止 (使用 Control-C 結束)
 
-![crm\_mon node stopped][]
+![crm\_mon node stopped][crm\_mon node stopped]
 
 此快照說明兩個節點 (一個主要和一個從屬)：
 
-![crm\_mon operational master/slave][]
+![crm\_mon operational master/slave][crm\_mon operational master/slave]
 
 ## 測試
 
@@ -312,7 +312,7 @@ Pacemaker 會使用叢集來監視資源，定義在主要故障時將這些資�
 
 應該可以透過適用於 Linux 的 Azure 命令列工具發出 VM 關機命令，來代替可控制實體裝置的 STONITH 指令碼。您可以使用 `/usr/lib/stonith/plugins/external/ssh` 作為基礎，並在叢集的組態中啟用 STONITH。系統應會全域安裝 Azure CLI，並載入叢集使用者的發佈設定/設定檔。
 
-您可在 [GitHub][] 上找到資源的範例程式碼。您必須變更叢集的組態，方法是將下列程式碼加入 `sudo crm configure`：
+您可在 [GitHub][GitHub] 上找到資源的範例程式碼。您必須變更叢集的組態，方法是將下列程式碼加入 `sudo crm configure`：
 
     primitive st-azure stonith:external/azure \
       params hostlist="hadb01 hadb02" \

@@ -4,15 +4,15 @@
 
 # 搭配 HDInsight (Hadoop) 使用 Apache Mahout 來產生電影推薦
 
-了解如何搭配 Microsoft Azure HDInsight (Hadoop) 使用 [Apache Mahout][] 機器學習庫來產生電影推薦。
+了解如何搭配 Microsoft Azure HDInsight (Hadoop) 使用 [Apache Mahout][Apache Mahout] 機器學習庫來產生電影推薦。
 
-> [WACOM.NOTE] 您必須有 HDInsight 叢集，才能使用本文的資訊。如需有關建立此叢集的資訊，請參閱[開始使用 Azure HDInsight][]。
+> [WACOM.NOTE] 您必須有 HDInsight 叢集，才能使用本文的資訊。如需有關建立此叢集的資訊，請參閱[開始使用 Azure HDInsight][開始使用 Azure HDInsight]。
 
-> [WACOM.NOTE] Mahout 隨附於 HDInsight 3.1 叢集。如果您使用舊版的 HDInsight，請參閱[安裝 Mahout][] 再繼續。
+> [WACOM.NOTE] Mahout 隨附於 HDInsight 3.1 叢集。如果您使用舊版的 HDInsight，請參閱[安裝 Mahout][安裝 Mahout] 再繼續。
 
 ## <a name="learn"></a>學習目標
 
-Mahout 是 Apache Hadoop 的[機器學習][]庫。Mahout 包含可處理資料的演算法，例如篩選、分類和叢集化。在本文中，您將使用推薦引擎，根據朋友看過的電影來產生電影推薦。您也將了解如何以決策樹來進行分類。本文將會教您：
+Mahout 是 Apache Hadoop 的[機器學習][機器學習]庫。Mahout 包含可處理資料的演算法，例如篩選、分類和叢集化。在本文中，您將使用推薦引擎，根據朋友看過的電影來產生電影推薦。您也將了解如何以決策樹來進行分類。本文將會教您：
 
 -   如何從 PowerShell 執行 Mahout 工作
 
@@ -22,15 +22,15 @@ Mahout 是 Apache Hadoop 的[機器學習][]庫。Mahout 包含可處理資料�
 
 ## 本文內容
 
--   [使用 PowerShell 產生推薦][]
--   [使用 Hadoop 命令列將資料分類][]
--   [疑難排解][]
+-   [使用 PowerShell 產生推薦][使用 PowerShell 產生推薦]
+-   [使用 Hadoop 命令列將資料分類][使用 Hadoop 命令列將資料分類]
+-   [疑難排解][疑難排解]
 
 ## <a name="recommendations"></a>使用 PowerShell 產生推薦
 
-> [WACOM.NOTE] 本節中使用的工作可以在 PowerShell 中執行，但 Mahout 隨附的許多類別目前無法在 PowerShell 中運作，而必須使用 Hadoop 命令列來執行。關於無法在 PowerShell 中運作的類別清單，請參閱[疑難排解][]一節。
+> [WACOM.NOTE] 本節中使用的工作可以在 PowerShell 中執行，但 Mahout 隨附的許多類別目前無法在 PowerShell 中運作，而必須使用 Hadoop 命令列來執行。關於無法在 PowerShell 中運作的類別清單，請參閱[疑難排解][疑難排解]一節。
 >
-> 如需有關使用 Hadoop 命令列來執行 Mahout 工作的範例，請參閱[使用 Hadoop 命令列將資料分類][]。
+> 如需有關使用 Hadoop 命令列來執行 Mahout 工作的範例，請參閱[使用 Hadoop 命令列將資料分類][使用 Hadoop 命令列將資料分類]。
 
 Mahout 提供的其中一項功能是推薦引擎。它接受 `userID`、`itemId`、`prefValue` (使用者的影片偏好) 格式的資料。Mahout 接著可以執行共現性分析，以決定「喜歡某部影片的使用者也喜歡其他這些影片」。Mahout 會找出具有相似影片偏好的使用者，然後做出推薦。
 
@@ -44,9 +44,9 @@ Mahout 提供的其中一項功能是推薦引擎。它接受 `userID`、`itemId
 
 ### 載入資料
 
-GroupLens Research 提供 Mahout 相容格式的[電影評價資料][] (英文)，相當方便。
+GroupLens Research 提供 Mahout 相容格式的[電影評價資料][電影評價資料] (英文)，相當方便。
 
-1.  下載 [MovieLens 100k][] 封存檔，其中包含 1000 位使用者對於 1700 部電影的 100,000 個評價。
+1.  下載 [MovieLens 100k][MovieLens 100k] 封存檔，其中包含 1000 位使用者對於 1700 部電影的 100,000 個評價。
 
 2.  將封存檔解壓縮。應該有一個 **ml-100k** 目錄，其中包含開頭為 **u.** 的許多資料檔。Mahout 將分析的檔案是 **u.data**。此檔案的資料結構是 `userID`、`movieID`、`userRating` 和 `timestamp`。以下是資料範例。
 
@@ -56,7 +56,7 @@ GroupLens Research 提供 Mahout 相容格式的[電影評價資料][] (英文)�
         244 51  2   880606923
         166 346 1   886397596
 
-3.  將 **u.data** 檔案上傳至 HDInsight 叢集上的 **example/data/u.data**。如果您有 [Azure PowerShell][]，則可以使用 [HDInsight-Tools][] PowerShell 模組來上傳檔案。關於其他檔案上傳方式，請參閱[將資料上傳至 HDInsight][]。以下示範使用 `Add-HDInsightFile` 來上傳檔案
+3.  將 **u.data** 檔案上傳至 HDInsight 叢集上的 **example/data/u.data**。如果您有 [Azure PowerShell][Azure PowerShell]，則可以使用 [HDInsight-Tools][HDInsight-Tools] PowerShell 模組來上傳檔案。關於其他檔案上傳方式，請參閱[將資料上傳至 HDInsight][將資料上傳至 HDInsight]。以下示範使用 `Add-HDInsightFile` 來上傳檔案
 
         PS C:PS C:\> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"gt; Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
 
@@ -114,11 +114,11 @@ GroupLens Research 提供 Mahout 相容格式的[電影評價資料][] (英文)�
 
 > [WACOM.NOTE] Mahout 工作不會將處理工作時所建立的暫存資料移除。這就是為何範例工作中指定 `--tempDir` 參數的原因 - 將暫存檔隔離到特定路徑中以方便刪除。
 >
-> 若要移除這些檔案，您可以使用[將資料上傳至 HDInsight][] 中所提及的其中一個公用程式。或使用 [HDInsight-Tools][] PowerShell 指令碼中的 `Remove-HDInsightFile` 函數。
+> 若要移除這些檔案，您可以使用[將資料上傳至 HDInsight][將資料上傳至 HDInsight] 中所提及的其中一個公用程式。或使用 [HDInsight-Tools][HDInsight-Tools] PowerShell 指令碼中的 `Remove-HDInsightFile` 函數。
 >
 > 如果您未移除暫存檔或輸出檔，則重新執行工作時會出現錯誤。
 
-Mahout 工作不會將輸出傳回到 STDOUT，而是在指定的輸出目錄中儲存為 **part-r-00000**。若要下載和檢視此檔案，請使用 [HDInsight-Tools][] PowerShell 模組中的 `Get-HDInsightFile` 函數。
+Mahout 工作不會將輸出傳回到 STDOUT，而是在指定的輸出目錄中儲存為 **part-r-00000**。若要下載和檢視此檔案，請使用 [HDInsight-Tools][HDInsight-Tools] PowerShell 模組中的 `Get-HDInsightFile` 函數。
 
 以下是此檔案的內容範例：
 
@@ -254,7 +254,7 @@ Mahout 工作不會將輸出傳回到 STDOUT，而是在指定的輸出目錄中
 
 ## <a name="classify"></a>使用 Hadoop 命令列將資料分類
 
-Mahout 可用的其中一個分類方法是建置[隨機森林][]。這是多步驟的程序，包含使用訓練資料來產生決策樹，再用來將資料分類。此程序使用 Mahout 提供的 **org.apache.mahout.classifier.df.tools.Describe** 類別，且目前必須使用 Hadoop 命令列來執行。
+Mahout 可用的其中一個分類方法是建置[隨機森林][隨機森林]。這是多步驟的程序，包含使用訓練資料來產生決策樹，再用來將資料分類。此程序使用 Mahout 提供的 **org.apache.mahout.classifier.df.tools.Describe** 類別，且目前必須使用 Hadoop 命令列來執行。
 
 ### 載入資料
 
@@ -262,29 +262,29 @@ Mahout 目前的實作與 University of California, Irvine (UCI) 儲存機制格
 
 1.  從 [][]<http://nsl.cs.unb.ca/NSL-KDD/></a> 下載下列檔案。
 
--   [KDDTrain+.ARFF][] - 訓練檔案
+-   [KDDTrain+.ARFF][KDDTrain+.ARFF] - 訓練檔案
 
--   [KDDTest+.ARFF][] - 測試資料
+-   [KDDTest+.ARFF][KDDTest+.ARFF] - 測試資料
 
 1.  開啟每一個檔案並移除頂端以 <'@'> 開頭的各行，然後儲存檔案。如果未移除，則在 Mahout 中使用此資料時會發生錯誤。
 
-2.  將檔案上傳至 **example/data**。您可以使用 [HDInsight-Tools][] PowerShell 模組中的 `Add-HDInsightFile` 函數來完成此動作。
+2.  將檔案上傳至 **example/data**。您可以使用 [HDInsight-Tools][HDInsight-Tools] PowerShell 模組中的 `Add-HDInsightFile` 函數來完成此動作。
 
 ### 執行工作
 
-1.  因為此工作需要 Hadoop 命令列，您必須透過 [Azure 管理入口網站][]啟用遠端桌面。在入口網站中，選取 HDInsight 叢集，然後在 [設定] 頁面底部選取 [啟用遠端]。
+1.  因為此工作需要 Hadoop 命令列，您必須透過 [Azure 管理入口網站][Azure 管理入口網站]啟用遠端桌面。在入口網站中，選取 HDInsight 叢集，然後在 [設定] 頁面底部選取 [啟用遠端]。
 
-    ![enable remote][]
+    ![enable remote][enable remote]
 
     出現提示時，輸入要用於遠端工作階段的使用者名稱和密碼。
 
 2.  啟用遠端存取之後，選取 [連接] 開始連線。這樣會下載 **.rdp** 檔案，此檔案可用來啟動遠端桌面工作階段。
 
-    ![connect][]
+    ![connect][connect]
 
 3.  連線之後，使用 [Hadoop 命令列] 圖示開啟 Hadoop 命令列。
 
-    ![hadoop cli][]
+    ![hadoop cli][hadoop cli]
 
 4.  使用下列命令，利用 Mahout 產生檔案描述元 (**KDDTrain+.info**)。
 
@@ -338,13 +338,13 @@ Mahout 目前的實作與 University of California, Irvine (UCI) 儲存機制格
 
 Mahout 安裝在 HDInsight 3.1 叢集上，但可使用下列步驟來手動安裝在 3.0 或 2.1 叢集。
 
-1.  使用的 Mahout 版本視叢集的 HDInsight 版本而定。您可以在 [Azure PowerShell][] 中使用下列命令來找出叢集版本：
+1.  使用的 Mahout 版本視叢集的 HDInsight 版本而定。您可以在 [Azure PowerShell][Azure PowerShell] 中使用下列命令來找出叢集版本：
 
         PS C:PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select versiongt; Get-AzureHDInsightCluster -Name YourClusterName | Select version
 
--   **若為 HDInsight 2.1**，您可以下載含有 [Mahout 0.9][] 的 jar 檔案。
+-   **若為 HDInsight 2.1**，您可以下載含有 [Mahout 0.9][Mahout 0.9] 的 jar 檔案。
 
--   **若為 HDInsight 3.0**，您必須[從原始檔建置 Mahout][] (英文)，並指定 HDInsight 所提供的 Hadoop 版本。安裝建置頁面列出的必要元件，下載原始檔，然後使用下列命令建立 Mahout jar 檔案。
+-   **若為 HDInsight 3.0**，您必須[從原始檔建置 Mahout][從原始檔建置 Mahout] (英文)，並指定 HDInsight 所提供的 Hadoop 版本。安裝建置頁面列出的必要元件，下載原始檔，然後使用下列命令建立 Mahout jar 檔案。
 
             mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
@@ -390,7 +390,7 @@ Mahout 工作不會清除在處理期間所建立的暫存檔。此外，工作�
 -   org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 -   org.apache.mahout.classifier.df.tools.Describe
 
-若要執行用到這些類別的工作，請連接至 HDInsight 叢集，然後使用 Hadoop 命令列執行工作。相關範例請參閱[使用 Hadoop 命令列將資料分類][]。
+若要執行用到這些類別的工作，請連接至 HDInsight 叢集，然後使用 Hadoop 命令列執行工作。相關範例請參閱[使用 Hadoop 命令列將資料分類][使用 Hadoop 命令列將資料分類]。
 
   [Apache Mahout]: http://mahout.apache.org
   [開始使用 Azure HDInsight]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-get-started/

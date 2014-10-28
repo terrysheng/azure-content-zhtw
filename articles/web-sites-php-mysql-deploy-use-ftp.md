@@ -4,7 +4,7 @@
 
 # 建立 PHP-MySQL Azure 網站並使用 FTP 部署
 
-本教學課程說明如何建立 PHP-MySQL Azure 網站，以及如何使用 FTP 部署該網站。本教學課程假定您的電腦已經安裝 [PHP][]、[MySQL][]、一台 Web 伺服器，以及一個 FTP 用戶端。本教學課程裡的說明可運用在包括 Windows、Mac 與 Linux 的任何作業系統上。完成本指南的步驟後，您將擁有在 Azure 上運作的 PHP/MySQL 網站。
+本教學課程說明如何建立 PHP-MySQL Azure 網站，以及如何使用 FTP 部署該網站。本教學課程假定您的電腦已經安裝 [PHP][PHP]、[MySQL][MySQL]、一台 Web 伺服器，以及一個 FTP 用戶端。本教學課程裡的說明可運用在包括 Windows、Mac 與 Linux 的任何作業系統上。完成本指南的步驟後，您將擁有在 Azure 上運作的 PHP/MySQL 網站。
 
 您將了解：
 
@@ -13,44 +13,44 @@
 
 依照本教學課程進行，您將使用 PHP 建置一個簡易的註冊網頁應用程式。該應用程式將在 Azure 網站中託管。完成之應用程式的螢幕擷取畫面如下：
 
-![Azure PHP Web Site][]
+![Azure PHP Web Site][Azure PHP Web Site]
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## 建立 Azure 網站並設定 FTP 發行
 
 請依照下列步驟來建立 Azure 網站和 MySQL 資料庫：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  按一下入口網站左下方的 [+ 新增] 圖示。
 
-    ![Create New Azure Web Site][]
+    ![Create New Azure Web Site][Create New Azure Web Site]
 
 3.  依序按一下 [網站] 及 [自訂建立]。
 
-    ![Custom Create a new Web Site][]
+    ![Custom Create a new Web Site][Custom Create a new Web Site]
 
     輸入 **URL** 的值，然後從 [資料庫] 下拉式清單中選取 [建立新的 MySQL 資料庫]，接著在 [區域] 下拉式清單中為您的網站選取資料中心。按一下對話方塊底部的箭頭。
 
-    ![填入網站詳細資料][]
+    ![填入網站詳細資料][填入網站詳細資料]
 
 4.  為您的資料庫輸入 [名稱] 值，然後在 [區域] 下拉式清單中為您的資料庫選取資料中心，接著核取代表您同意法律條款的方塊。按一下對話方塊底部的核取記號。
 
-    ![建立新的 MySQL 資料庫][]
+    ![建立新的 MySQL 資料庫][建立新的 MySQL 資料庫]
 
     建立網站後，您會看到「建立網站 ‘[SITENAME]’ 成功」的字樣。現在，您可以啟用 FTP 發行功能。
 
 5.  按一下網站清單中顯示的網站名稱，以開啟該網站的 [快速入門] 儀表板。
 
-    ![Open web site dashboard][]
+    ![Open web site dashboard][Open web site dashboard]
 
 6.  在 [QuickStart] 下方，按一下 [Reset deployment credentials]。
 
-    ![Reset deployment credentials][]
+    ![Reset deployment credentials][Reset deployment credentials]
 
 7.  若要啟用 FTP 發行，您必須提供使用者名稱與密碼。記下您所建立的使用者名稱和密碼。
 
-    ![Create publishing credentials][]
+    ![Create publishing credentials][Create publishing credentials]
 
 ## 在本機建置與測試您的應用程式
 
@@ -59,7 +59,7 @@
 -   **index.php**：顯示註冊表單，以及內含註冊者資訊的資料表。
 -   **createtable.php**：為應用程式建立 MySQL 資料表。只會使用一次此檔案。
 
-若要在本機建置與執行應用程式，請遵循下列步驟。請注意，這些步驟假定您已在本機電腦上安裝 PHP、MySQL 以及 Web 伺服器，而且您已經啟用了[適用 MySQL 的 PDO 延伸功能][]。
+若要在本機建置與執行應用程式，請遵循下列步驟。請注意，這些步驟假定您已在本機電腦上安裝 PHP、MySQL 以及 Web 伺服器，而且您已經啟用了[適用 MySQL 的 PDO 延伸功能][適用 MySQL 的 PDO 延伸功能]。
 
 1.  建立名為 `registration` 的 MySQL 資料庫。您可以使用以下命令，從 MySQL 命令提示字元中完成此工作：
 
@@ -200,13 +200,13 @@
 
 1.  從網站的儀表板上，按一下頁面右側的 [檢視連接字串] 連結：
 
-    ![取得資料庫連線資訊][]
+    ![取得資料庫連線資訊][取得資料庫連線資訊]
 
 2.  記下 `Database`、`Data Source`、`User Id` 及 `Password` 的值。
 
 3.  從網站的儀表板上，按一下頁面右下方的 [下載發行設定檔] 連結：
 
-    ![Download publish profile][]
+    ![Download publish profile][Download publish profile]
 
 4.  在 XML 編輯器中開啟 `.publishsettings` 檔案。
 

@@ -4,21 +4,21 @@
 
 # 使用 Azure 行動服務 .NET 後端建立排行榜應用程式
 
-本教學課程將說明如何使用具有 .NET 後端的 Azure 行動服務建置 Windows 市集應用程式。Azure 行動服務提供可擴充而安全的後端，具有內建的驗證、監控、推播通知和其他功能，以及用來建置行動應用程式的跨平台用戶端程式庫。行動服務的 .NET 後端以 [ASP.NET Web API][] 為基礎，可為 .NET 開發人員提供建立 REST API 的絕佳途徑。
+本教學課程將說明如何使用具有 .NET 後端的 Azure 行動服務建置 Windows 市集應用程式。Azure 行動服務提供可擴充而安全的後端，具有內建的驗證、監控、推播通知和其他功能，以及用來建置行動應用程式的跨平台用戶端程式庫。行動服務的 .NET 後端以 [ASP.NET Web API][ASP.NET Web API] 為基礎，可為 .NET 開發人員提供建立 REST API 的絕佳途徑。
 
--   [Overview][]
--   [關於範例應用程式][]
--   [新增資料模型][]
--   [新增 Web API 控制器][]
--   [使用 DTO 傳回相關實體][]
--   [定義用來提交分數的自訂 API][]
--   [建立 Windows 市集應用程式][]
--   [新增模型類別][]
--   [建立檢視模型][]
--   [新增 MobileServiceClient 執行個體][]
--   [建立主頁面][]
--   [發佈行動服務][]
--   [後續步驟][]
+-   [Overview][Overview]
+-   [關於範例應用程式][關於範例應用程式]
+-   [新增資料模型][新增資料模型]
+-   [新增 Web API 控制器][新增 Web API 控制器]
+-   [使用 DTO 傳回相關實體][使用 DTO 傳回相關實體]
+-   [定義用來提交分數的自訂 API][定義用來提交分數的自訂 API]
+-   [建立 Windows 市集應用程式][建立 Windows 市集應用程式]
+-   [新增模型類別][新增模型類別]
+-   [建立檢視模型][建立檢視模型]
+-   [新增 MobileServiceClient 執行個體][新增 MobileServiceClient 執行個體]
+-   [建立主頁面][建立主頁面]
+-   [發佈行動服務][發佈行動服務]
+-   [後續步驟][後續步驟]
 
 ## Overview
 
@@ -37,7 +37,7 @@ Web API 是一個開放原始碼架構，可為 .NET 開發人員提供建立 RE
 -   使用 Entity Framework (EF) 建立外部索引鍵關聯和資料傳輸物件 (DTO)。
 -   使用 ASP.NET Web API 定義自訂 API。
 
-本教學課程使用 [Visual Studio 2013 Update 2][]。
+本教學課程使用 [Visual Studio 2013 Update 2][Visual Studio 2013 Update 2]。
 
 ## 關於範例應用程式
 
@@ -58,7 +58,7 @@ PlayerRank 具有 Player 的外部索引鍵。每個玩家各有零或一個 Pla
 
 用戶端應用程式可對 Player 執行一組完整的 CRUD 作業。它可讀取或刪除現有的 PlayerRank 實體，但無法直接加以建立或更新。這是因為排名值是由服務所計算的。實際作法是，在用戶端提交分數後，由服務更新所有玩家的排名。
 
-在[這裡][]下載完成的專案。
+在[這裡][這裡]下載完成的專案。
 
 ## 建立專案
 
@@ -78,7 +78,7 @@ PlayerRank 具有 Player 的外部索引鍵。每個玩家各有零或一個 Pla
 
 ## 新增資料模型
 
-您將使用 [EF Code First][] 來定義資料庫資料表。在 DataObjects 資料夾下，新增名為 `Player` 的類別。
+您將使用 [EF Code First][EF Code First] 來定義資料庫資料表。在 DataObjects 資料夾下，新增名為 `Player` 的類別。
 
     using Microsoft.WindowsAzure.Mobile.Service;
 
@@ -107,9 +107,9 @@ PlayerRank 具有 Player 的外部索引鍵。每個玩家各有零或一個 Pla
         }
     }
 
-請注意，這兩個類別皆衍生自 **EntityData** 類別。從 **EntityData** 衍生，可方便應用程式取用資料，而將跨平台用戶端程式庫用於 Azure 行動服務。**EntityData** 也可方便應用程式[處理資料庫寫入衝突][]。
+請注意，這兩個類別皆衍生自 **EntityData** 類別。從 **EntityData** 衍生，可方便應用程式取用資料，而將跨平台用戶端程式庫用於 Azure 行動服務。**EntityData** 也可方便應用程式[處理資料庫寫入衝突][處理資料庫寫入衝突]。
 
-`PlayerRank` 類別具有指向相關 `Player` 實體的[導覽屬性][]。**[ForeignKey]** 屬性 (attribute) 會向 EF 指出，`Player` 屬性 (property) 代表外部索引鍵。
+`PlayerRank` 類別具有指向相關 `Player` 實體的[導覽屬性][導覽屬性]。**[ForeignKey]** 屬性 (attribute) 會向 EF 指出，`Player` 屬性 (property) 代表外部索引鍵。
 
 # 新增 Web API 控制器
 
@@ -136,7 +136,7 @@ PlayerRank 具有 Player 的外部索引鍵。每個玩家各有零或一個 Pla
 
 此控制器衍生自 **TableController<t>**。此類別會繼承 **ApiController**，但這是適用於 Azure 行動服務的特殊類別。
 
--   路由：**TableController** 的預設路徑為 `/tables/{table_name}/{id}`，其中，*table\_name* 會符合實體名稱。因此，「玩家」控制器的路徑為 */tables/player/{id}*。此路徑慣例會使 **TableController** 與行動服務 [REST API][] 一致。
+-   路由：**TableController** 的預設路徑為 `/tables/{table_name}/{id}`，其中，*table\_name* 會符合實體名稱。因此，「玩家」控制器的路徑為 */tables/player/{id}*。此路徑慣例會使 **TableController** 與行動服務 [REST API][REST API] 一致。
 -   資料存取：在資料庫作業中，**TableController** 類別會使用 **IDomainManager** 介面，而此介面會定義資料存取的抽象。scaffolding 會使用 **EntityDomainManager**，這是包裝 EF 內容之 **IDomainManager** 的固定實作。
 
 現在，請為 PlayerRank 實體新增第二個控制器。請遵循相同的步驟，但選擇 PlayerRank 作為模型類別。請使用相同的資料內容類別，不要建立新的。將控制器命名為 “PlayerRankController”。
@@ -225,7 +225,7 @@ DTO 是定義資料如何透過網路傳送的物件。如果您想讓電傳格�
 
 請注意，JSON 裝載此時會包含玩家名稱。
 
-除了使用 LINQ Select 陳述式以外，另一個選項是使用 AutoMapper。此選項需使用其他設定程式碼，但可啟用從網域實體到 DTO 的自動對應。如需詳細資訊，請參閱[在使用 AutoMapper 的 .NET 後端中對應資料庫類型與用戶端類型][]。
+除了使用 LINQ Select 陳述式以外，另一個選項是使用 AutoMapper。此選項需使用其他設定程式碼，但可啟用從網域實體到 DTO 的自動對應。如需詳細資訊，請參閱[在使用 AutoMapper 的 .NET 後端中對應資料庫類型與用戶端類型][在使用 AutoMapper 的 .NET 後端中對應資料庫類型與用戶端類型]。
 
 ## 定義用來提交分數的自訂 API
 
@@ -315,11 +315,11 @@ DTO 是定義資料如何透過網路傳送的物件。如果您想讓電傳格�
     [Route("api/score")]
 
 您也可以將方法放入個別的控制器中。這兩種方式都沒有特別的優點，應採用哪種方式，端視您要如何組織程式碼而定。
-若要深入了解 **[Route]** 屬性，請參閱 [Web API 中的屬性路由][]。
+若要深入了解 **[Route]** 屬性，請參閱 [Web API 中的屬性路由][Web API 中的屬性路由]。
 
 ## 建立 Windows 市集應用程式
 
-在本節中，我將說明取用行動服務的 Windows 市集應用程式。但在 XAML 或 UI 方面並不會有太多著墨。我會將重點放在應用程式邏輯上。您可以在[這裡][]下載完整專案。
+在本節中，我將說明取用行動服務的 Windows 市集應用程式。但在 XAML 或 UI 方面並不會有太多著墨。我會將重點放在應用程式邏輯上。您可以在[這裡][這裡]下載完整專案。
 
 將新的 Windows 市集應用程式專案新增至方案。我使用空白應用程式 (Windows) 範例。
 
@@ -704,11 +704,11 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
 
 ## 後續步驟
 
--   [深入了解 Azure 行動服務][]
+-   [深入了解 Azure 行動服務][深入了解 Azure 行動服務]
 -   [深入了解 Web API][ASP.NET Web API]
 -   [處理資料庫寫入衝突][16]
--   [新增推播通知][]；例如，當某人新增玩家或更新分數時。
--   [開始使用驗證][]
+-   [新增推播通知][新增推播通知]；例如，當某人新增玩家或更新分數時。
+-   [開始使用驗證][開始使用驗證]
 
 <!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
@@ -735,11 +735,11 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
   [4]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/05leaderboard.png
   [EF Code First]: http://msdn.microsoft.com/en-US/data/ee712907#codefirst
   [處理資料庫寫入衝突]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
-  [導覽屬性]: http://msdn.microsoft.com/en-us/data/jj713564.aspx
+  [導覽屬性]: http://msdn.microsoft.com/zh-tw/data/jj713564.aspx
   [5]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/06leaderboard.png
   [6]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/07leaderboard.png
   [7]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/08leaderboard.png
-  [REST API]: http://msdn.microsoft.com/en-us/library/azure/jj710104.aspx
+  [REST API]: http://msdn.microsoft.com/zh-tw/library/azure/jj710104.aspx
   [在使用 AutoMapper 的 .NET 後端中對應資料庫類型與用戶端類型]: http://blogs.msdn.com/b/azuremobile/archive/2014/05/19/mapping-between-database-types-and-client-type-in-the-net-backend-using-automapper.aspx
   [Web API 中的屬性路由]: http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
   [8]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/10leaderboard.png
@@ -750,7 +750,7 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
   [13]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/15leaderboard.png
   [14]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/16leaderboard.png
   [15]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/17leaderboard.png
-  [深入了解 Azure 行動服務]: /en-us/develop/mobile/resources/
+  [深入了解 Azure 行動服務]: /zh-tw/develop/mobile/resources/
   [16]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
   [新增推播通知]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet

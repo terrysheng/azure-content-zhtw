@@ -20,23 +20,23 @@
 
 本教學課程帶領您執行下列基本步驟，在您的應用程式中啟用驗證：
 
-1.  [註冊您的應用程式以驗證與設定行動服務][]
-2.  [對通過驗證的使用者限制資料表權限][]
-3.  [將驗證新增至應用程式][]
+1.  [註冊您的應用程式以驗證與設定行動服務][註冊您的應用程式以驗證與設定行動服務]
+2.  [對通過驗證的使用者限制資料表權限][對通過驗證的使用者限制資料表權限]
+3.  [將驗證新增至應用程式][將驗證新增至應用程式]
 
-本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務][]。
+本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務][開始使用行動服務]。
 
 若要完成本教學課程，您需要 Appcelerator Titanium Studio 3.2.1 或更新版本，及 iOS 7.0 和/或更新版本和 Android 4.3 或更新版本。
 
 ## <a name="register"></a>註冊您的應用程式以驗證與設定行動服務
 
-[WACOM.INCLUDE [mobile-services-register-authentication][]]
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
 ## <a name="permissions"></a> 限制只有經驗證的使用者具有權限
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend][]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-1.  在 Appcelerator Titanium Studio 中，開啟您完成[開始使用行動服務][]教學課程時所建立的專案。
+1.  在 Appcelerator Titanium Studio 中，開啟您完成[開始使用行動服務][開始使用行動服務]教學課程時所建立的專案。
 
 2.  按 [執行] 按鈕，以在 iPhone 模擬器中建置專案並啟動應用程式。確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。
 
@@ -97,7 +97,7 @@
     成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
 
 <!-- Anchors. -->  
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "Windows 市集 C#"
+  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "Windows 市集 C#"
   [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-users "Windows 市集 JavaScript"
   [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-users "Windows Phone"
   [iOS]: /zh-tw/documentation/articles/mobile-services-ios-get-started-users "iOS"

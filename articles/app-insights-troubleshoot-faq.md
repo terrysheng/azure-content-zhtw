@@ -4,36 +4,36 @@
 
 # 疑難排解及問與答 - Microsoft Azure 預覽的應用程式分析
 
--   [我在 Visual Studio 中沒有看到任何選項可將 Application Insights 加入至我的專案][]
--   [已建立新的 Web 專案，但加入 Application Insights 失敗。][]
--   [我已成功加入 Application Insights 並執行我的應用程式，但在入口網站中從未看到資料。][]
--   [我在流量分析下沒有看到資料][]
--   [我查看 Microsoft Azure 預覽開始面板。我如何在 Application Insights 中尋找我的資料？][]
--   [在 Microsoft Azure 預覽主畫面上，該對應會顯示我的應用程式狀態嗎？][]
--   [當我使用 將 Application Insights 加我至我的應用程式 並開啟 Application Insights 入口網站時，看起來與螢幕擷取畫面完全不同。][]
--   [我可以使用 Application Insights 來監視內部網路 Web 伺服器嗎？][]
--   [我如何取得 Windows Phone 或 Windows 市集的資料？][]
--   [我如何在程式碼中查看我記錄的事件和頁面檢視？][]
--   [為何會有兩個 Application Insights 版本？][]
--   [Azure 版本的 Application Insights 目前缺少什麼功能？][]
--   [我如何取回原本在 Visual Studio Online 版本的 Application Insights 中很棒的所有功能？][]
--   [Application Insights 在我的專案中修改什麼？][]
--   [我如何在 Application Insights 中尋找我的結果？][]
--   [後續步驟][]
+-   [我在 Visual Studio 中沒有看到任何選項可將 Application Insights 加入至我的專案][我在 Visual Studio 中沒有看到任何選項可將 Application Insights 加入至我的專案]
+-   [已建立新的 Web 專案，但加入 Application Insights 失敗。][已建立新的 Web 專案，但加入 Application Insights 失敗。]
+-   [我已成功加入 Application Insights 並執行我的應用程式，但在入口網站中從未看到資料。][我已成功加入 Application Insights 並執行我的應用程式，但在入口網站中從未看到資料。]
+-   [我在流量分析下沒有看到資料][我在流量分析下沒有看到資料]
+-   [我查看 Microsoft Azure 預覽開始面板。我如何在 Application Insights 中尋找我的資料？][我查看 Microsoft Azure 預覽開始面板。我如何在 Application Insights 中尋找我的資料？]
+-   [在 Microsoft Azure 預覽主畫面上，該對應會顯示我的應用程式狀態嗎？][在 Microsoft Azure 預覽主畫面上，該對應會顯示我的應用程式狀態嗎？]
+-   [當我使用 將 Application Insights 加我至我的應用程式 並開啟 Application Insights 入口網站時，看起來與螢幕擷取畫面完全不同。][當我使用 將 Application Insights 加我至我的應用程式 並開啟 Application Insights 入口網站時，看起來與螢幕擷取畫面完全不同。]
+-   [我可以使用 Application Insights 來監視內部網路 Web 伺服器嗎？][我可以使用 Application Insights 來監視內部網路 Web 伺服器嗎？]
+-   [我如何取得 Windows Phone 或 Windows 市集的資料？][我如何取得 Windows Phone 或 Windows 市集的資料？]
+-   [我如何在程式碼中查看我記錄的事件和頁面檢視？][我如何在程式碼中查看我記錄的事件和頁面檢視？]
+-   [為何會有兩個 Application Insights 版本？][為何會有兩個 Application Insights 版本？]
+-   [Azure 版本的 Application Insights 目前缺少什麼功能？][Azure 版本的 Application Insights 目前缺少什麼功能？]
+-   [我如何取回原本在 Visual Studio Online 版本的 Application Insights 中很棒的所有功能？][我如何取回原本在 Visual Studio Online 版本的 Application Insights 中很棒的所有功能？]
+-   [Application Insights 在我的專案中修改什麼？][Application Insights 在我的專案中修改什麼？]
+-   [我如何在 Application Insights 中尋找我的結果？][我如何在 Application Insights 中尋找我的結果？]
+-   [後續步驟][後續步驟]
 
 ## <a name="q01"></a>我在 Visual Studio 中沒有看到任何選項可將 Application Insights 加入至我的專案
 
--   請確定您有 [Visual Studio Update 3][]。它會預先安裝 Application Insights Tools，您應該可以在擴充管理員中看到。
--   Application Insights on Microsoft Azure Preview 目前僅適用於 C\# 或 Visual Basic 的 ASP.NET Web 專案。
+-   請確定您有 [Visual Studio Update 3][Visual Studio Update 3]。它會預先安裝 Application Insights Tools，您應該可以在擴充管理員中看到。
+-   Application Insights on Microsoft Azure Preview 目前僅適用於 C# 或 Visual Basic 的 ASP.NET Web 專案。
 -   如果您有現有的專案，請移至 [方案總管]，確定您按一下 Web 專案 (不是其他專案或方案)。您應該會看到功能表項目 [Add Application Insights Telemetry to Project]。
--   如果是建立新專案，請在 Visual Studio 中開啟 [檔案] \> [新增專案]，然後選取 {Visual C\#|Visual Basic} \> [Web] \> [ASP.NET Web 應用程式]。應該會有 [Add Application Insights to Project] 的選項。
+-   如果是建立新專案，請在 Visual Studio 中開啟 [檔案] \> [新增專案]，然後選取 {Visual C#|Visual Basic} \> [Web] \> [ASP.NET Web 應用程式]。應該會有 [Add Application Insights to Project] 的選項。
 
 ## <a name="q02"></a>已建立新的 Web 專案，但加入 Application Insights 失敗。
 
 如果與 Application Insights 入口網站通訊失敗，或您的帳戶有問題，就可能發生此情形。
 
 -   請檢查您為正確的 Azure 帳戶提供登入認證。Microsoft Azure 認證 (在 [新增專案] 對話方塊中) 與 Visual Studio Online 認證 (在 Visual Studio 右上方) 可能不同。
--   請稍候，再[將 Application Insights 加入至現有的專案][]。
+-   請稍候，再[將 Application Insights 加入至現有的專案][將 Application Insights 加入至現有的專案]。
 -   移至 Microsoft Azure 帳戶設定來檢查限制。檢查您是否可以手動加入 Application Insights 應用程式。
 
 ## <a name="q03"></a>我已成功加入 Application Insights 並執行我的應用程式，但在入口網站中從未看到資料。
@@ -72,7 +72,7 @@
 
 ## <a name="q10"></a>我如何在程式碼中查看我記錄的事件和頁面檢視？
 
-我們在 Microsoft Azure 版本中還不支援此功能。敬請期待。目前，您可以嘗試使用[舊版本][]。
+我們在 Microsoft Azure 版本中還不支援此功能。敬請期待。目前，您可以嘗試使用[舊版本][舊版本]。
 
 ## <a name="q11"></a>為何會有兩個 Application Insights 版本？
 
@@ -90,7 +90,7 @@ Visual Studio Update 3 附隨預先安裝的新版 Application Insights Tools。
 
 1.  進入 Visual Studio 的擴充管理員。
 2.  解除安裝 Application Insights Tools。
-3.  執行[舊版工具的安裝程式][]，並閱讀其[入門指南][舊版本]。
+3.  執行[舊版工具的安裝程式][舊版工具的安裝程式]，並閱讀其[入門指南][舊版本]。
 
 ## <a name="q14"></a>Application Insights 在我的專案中修改什麼？
 
@@ -113,7 +113,7 @@ Visual Studio Update 3 附隨預先安裝的新版 Application Insights Tools。
 
 -   Microsoft.ApplicationInsights.Platform
 
--   (僅限新專案 - 如果您[將 Application Insights 加入至現有的專案][]，則必須手動執行。)將片段插入至用戶端和伺服器程式碼中，以使用 Application Insights 資源識別碼將它們初始化。例如，在 MVC 應用程式中，程式碼會插入至：
+-   (僅限新專案 - 如果您[將 Application Insights 加入至現有的專案][將 Application Insights 加入至現有的專案]，則必須手動執行。)將片段插入至用戶端和伺服器程式碼中，以使用 Application Insights 資源識別碼將它們初始化。例如，在 MVC 應用程式中，程式碼會插入至：
 
 -   主版頁面 Views/Shared/\_Layout.cshtml
 
@@ -132,14 +132,14 @@ Visual Studio Update 3 附隨預先安裝的新版 Application Insights Tools。
 
 ## <a name="next"></a>詳細資訊
 
--   [Application Insights][]
+-   [Application Insights][Application Insights]
 -   [將 Application Insights 加入至專案][將 Application Insights 加入至現有的專案]
--   [立即監視即時 Web 伺服器][]
--   [在 Application Insights 中探索度量][]
--   [診斷記錄搜尋][]
--   [使用 Web 測試來追蹤可用性][]
--   [使用事件和度量來追蹤使用量][]
--   [問與答及疑難排解][]
+-   [立即監視即時 Web 伺服器][立即監視即時 Web 伺服器]
+-   [在 Application Insights 中探索度量][在 Application Insights 中探索度量]
+-   [診斷記錄搜尋][診斷記錄搜尋]
+-   [使用 Web 測試來追蹤可用性][使用 Web 測試來追蹤可用性]
+-   [使用事件和度量來追蹤使用量][使用事件和度量來追蹤使用量]
+-   [問與答及疑難排解][問與答及疑難排解]
 
 <!--Link references-->
 

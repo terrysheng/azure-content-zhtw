@@ -39,4 +39,4 @@
 
 6.  將行動服務專案重新發佈至 Azure。
 
-  [如何使用 Code First Migrations 更新資料模型]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+  [如何使用 Code First Migrations 更新資料模型]: /zh-TW/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations

@@ -12,21 +12,21 @@
 
 -   使用某些系統提供的特殊工具來自動偵測與處理自訂資料。
 
-> [WACOM.NOTE] 本主題將以有關此功能的[這篇 Azure 部落格文章][] (英文) 為基礎加以擴充，並將隨著更多功能的出現而隨時更新。
+> [WACOM.NOTE] 本主題將以有關此功能的[這篇 Azure 部落格文章][這篇 Azure 部落格文章] (英文) 為基礎加以擴充，並將隨著更多功能的出現而隨時更新。
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
 本主題內容：
 
--   [將自訂資料插入 Azure 虛擬機器][]
+-   [將自訂資料插入 Azure 虛擬機器][將自訂資料插入 Azure 虛擬機器]
 
--   [在虛擬機器中使用自訂資料][]
+-   [在虛擬機器中使用自訂資料][在虛擬機器中使用自訂資料]
 
--   [後續步驟][]
+-   [後續步驟][後續步驟]
 
 ## <span id="injectingCustomData"></span></a>將自訂資料插入 Azure 虛擬機器
 
-此功能目前僅支援 [Microsoft Azure 跨平台命令列介面][] (英文)。雖然您可能會在 `azure vm create` 命令中使用任何選項，下列將說明一個非常基本的方法。
+此功能目前僅支援 [Microsoft Azure 跨平台命令列介面][Microsoft Azure 跨平台命令列介面] (英文)。雖然您可能會在 `azure vm create` 命令中使用任何選項，下列將說明一個非常基本的方法。
 
         PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
         VMNAME=mycustomdataubuntu
@@ -49,11 +49,11 @@
 
 ## <span id="nextsteps"></span></a>後續步驟：使用 cloud-init
 
-如果您的 Azure 虛擬機器是 Ubuntu 映像，則您可以使用 cloud-init 來啟動指令碼以自動使用自訂資料 (或者，如果您的自訂資料檔案便是指令碼，則執行此檔案)。如需進一步資訊，請參閱 [Ubuntu 的 cloud-init 文件][] (英文)。
+如果您的 Azure 虛擬機器是 Ubuntu 映像，則您可以使用 cloud-init 來啟動指令碼以自動使用自訂資料 (或者，如果您的自訂資料檔案便是指令碼，則執行此檔案)。如需進一步資訊，請參閱 [Ubuntu 的 cloud-init 文件][Ubuntu 的 cloud-init 文件] (英文)。
 
 <!--Link references-->
 
-[加入角色服務管理 REST API 參考][]
+[加入角色服務管理 REST API 參考][加入角色服務管理 REST API 參考]
 
 [Microsoft Azure 跨平台命令列介面 (英文)][Microsoft Azure 跨平台命令列介面]
 

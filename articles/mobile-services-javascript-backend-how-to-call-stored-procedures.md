@@ -12,19 +12,19 @@
 
 本主題將說明如何：
 
--   [呼叫簡易預存程序][]
--   [呼叫具有參數的預存程序][]
--   [深入了解][]
+-   [呼叫簡易預存程序][呼叫簡易預存程序]
+-   [呼叫具有參數的預存程序][呼叫具有參數的預存程序]
+-   [深入了解][深入了解]
 
 本主題將討論如何使用 JavaScript 後端在行動服務中使用預存程序
 
-但您可以改用 .Net 後端來建立行動服務，這會與以 Entity Framework 為基礎的架構完全不同。若要深入了解，請參閱 [Azure 行動服務 .Net 後端的運作方式][]。
+但您可以改用 .Net 後端來建立行動服務，這會與以 Entity Framework 為基礎的架構完全不同。若要深入了解，請參閱 [Azure 行動服務 .Net 後端的運作方式][Azure 行動服務 .Net 後端的運作方式]。
 
 ## 呼叫簡易預存程序
 
 **「我的資料庫使用預存程序：如何從行動服務加以呼叫？」**
 
-您可以透過 [mssql 物件][]來執行此動作；此物件可讓您執行 *Transact-SQL* ("T-SQL") 陳述式以呼叫程序。
+您可以透過 [mssql 物件][mssql 物件]來執行此動作；此物件可讓您執行 *Transact-SQL* ("T-SQL") 陳述式以呼叫程序。
 
 ### 撰寫和測試 Transact SQL 程式碼
 
@@ -46,7 +46,7 @@
 
 ### 我應在何處呼叫 mssql 物件？
 
-如果您需要直接呼叫預存程序，最具彈性的方式是撰寫並呼叫[自訂 API][]。
+如果您需要直接呼叫預存程序，最具彈性的方式是撰寫並呼叫[自訂 API][自訂 API]。
 
 1.  在您的行動服務儀表板中，依序按一下 [API] 和 [建立]、將您的指令碼命名為 ***getall***，然後新增此程式碼以呼叫預存程序：
 
@@ -72,12 +72,12 @@
 
 修改用戶端程式碼，以在 **MobileServiceClient** 物件上呼叫 **invokeApi** 方法。確切的程式碼語法會隨用戶端裝置而不同，其說明請見下列主題：
 
--   [Windows 市集 C\#][]
--   [Windows 市集 JavaScript][]
--   [Windows Phone][]
--   [iOS][]
--   [Android][]
--   [HTML][]
+-   [Windows 市集 C#][Windows 市集 C#]
+-   [Windows 市集 JavaScript][Windows 市集 JavaScript]
+-   [Windows Phone][Windows Phone]
+-   [iOS][iOS]
+-   [Android][Android]
+-   [HTML][HTML]
 
 ## <a name="parameters"></a>呼叫具有參數的預存程序
 
@@ -139,9 +139,9 @@
 
 以下是您可能會遇到的其他情況：
 
--   [如何使用指令碼執行多個讀取作業][]說明如何有條件地讀取資料表，或是呼叫預存程序。部落客 Carlos Figueira 經常會有關於 Azure 行動服務和資料庫的貼文。
+-   [如何使用指令碼執行多個讀取作業][如何使用指令碼執行多個讀取作業]說明如何有條件地讀取資料表，或是呼叫預存程序。部落客 Carlos Figueira 經常會有關於 Azure 行動服務和資料庫的貼文。
 
--   [從不同的結構描述存取預存程序][]說明如何解決您在存取位於相同行動服務資料庫的不同結構描述中的預存程序時可能遇到的問題
+-   [從不同的結構描述存取預存程序][從不同的結構描述存取預存程序]說明如何解決您在存取位於相同行動服務資料庫的不同結構描述中的預存程序時可能遇到的問題
 
 您也可以使用 Azure 入口網站來管理及建立新的預存程序。
 
@@ -152,9 +152,9 @@
   [呼叫具有參數的預存程序]: #parameters
   [深入了解]: #more
   [Azure 行動服務 .Net 後端的運作方式]: http://curah.microsoft.com/64518/how-the-azure-mobile-services-net-backend-works
-  [mssql 物件]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
-  [自訂 API]: http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx
-  [Windows 市集 C\#]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
+  [mssql 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554212.aspx
+  [自訂 API]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn280974.aspx
+  [Windows 市集 C#]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
   [Windows 市集 JavaScript]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-windows-store-javascript-call-custom-api/
   [Windows Phone]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-windows-phone-call-custom-api/
   [iOS]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-call-custom-api/
@@ -163,4 +163,4 @@
   [如何使用指令碼執行多個讀取作業]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/fccf4ae7-f43c-4c2d-8518-32e2df84a824/how-do-i-do-more-than-1-read-operation-by-scripting?forum=azuremobile
   [從不同的結構描述存取預存程序]: http://blogs.msdn.com/b/jpsanders/archive/2013/05/02/windows-azure-mobile-services-accessing-a-stored-procedure-from-a-different-schema.aspx
   [使用JavaScript 後端行動服務]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-how-to-use-server-scripts/
-  [mssql 物件]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
+  [mssql 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554212.aspx

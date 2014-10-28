@@ -8,20 +8,20 @@
 
 Application Insights SDK 可讓您在應用程式中插入數行程式碼來監視使用者活動，讓您調整應用程式以符合他們的需求。
 
-我們目前還在將此功能移植到 Microsoft Azure 中的新的 Application Insights 入口網站(如有需要，您可以[在舊版入口網站中查看其運作方式][])。
+我們目前還在將此功能移植到 Microsoft Azure 中的新的 Application Insights 入口網站(如有需要，您可以[在舊版入口網站中查看其運作方式][在舊版入口網站中查看其運作方式])。
 
-不過，您現在可以立即做的一件事就是[擷取和搜尋以 Trace、NLog 或 Log4Net 產生的診斷事件記錄][]。
+不過，您現在可以立即做的一件事就是[擷取和搜尋以 Trace、NLog 或 Log4Net 產生的診斷事件記錄][擷取和搜尋以 Trace、NLog 或 Log4Net 產生的診斷事件記錄]。
 
 ## Application Insights
 
--   [Application Insights][]
--   [將 Application Insights 加入至專案][]
--   [立即監視即時 Web 伺服器][]
--   [在 Application Insights 中探索度量][]
+-   [Application Insights][Application Insights]
+-   [將 Application Insights 加入至專案][將 Application Insights 加入至專案]
+-   [立即監視即時 Web 伺服器][立即監視即時 Web 伺服器]
+-   [在 Application Insights 中探索度量][在 Application Insights 中探索度量]
 -   [診斷記錄搜尋][擷取和搜尋以 Trace、NLog 或 Log4Net 產生的診斷事件記錄]
--   [使用 Web 測試來追蹤可用性][]
--   [使用事件和度量來追蹤使用量][]
--   [問與答及疑難排解][]
+-   [使用 Web 測試來追蹤可用性][使用 Web 測試來追蹤可用性]
+-   [使用事件和度量來追蹤使用量][使用事件和度量來追蹤使用量]
+-   [問與答及疑難排解][問與答及疑難排解]
 
 <!--Link references-->
 

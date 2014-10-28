@@ -4,26 +4,26 @@
 
 # 如何使用服務匯流排佇列
 
-本指南將說明如何使用服務匯流排佇列。這些範例均以 JavaScript 撰寫並使用 Node.js Azure 模組。本文說明的案例包括「建立佇列」、「傳送並接收訊息」，以及「刪除佇列」。如需佇列的詳細資訊，請參閱＜[後續步驟][]＞一節。
+本指南將說明如何使用服務匯流排佇列。這些範例均以 JavaScript 撰寫並使用 Node.js Azure 模組。本文說明的案例包括「建立佇列」、「傳送並接收訊息」，以及「刪除佇列」。如需佇列的詳細資訊，請參閱＜[後續步驟][後續步驟]＞一節。
 
 ## 目錄
 
--   [什麼是服務匯流排佇列？][]
--   [建立服務命名空間][]
--   [取得命名空間的預設管理認證][]
--   [建立 Node.js 應用程式][]
--   [設定應用程式使用服務匯流排][]
--   [作法：建立佇列][]
--   [作法：傳送訊息至佇列][]
--   [作法：從佇列接收訊息][]
--   [作法：處理應用程式當機與無法讀取的訊息][]
+-   [什麼是服務匯流排佇列？][什麼是服務匯流排佇列？]
+-   [建立服務命名空間][建立服務命名空間]
+-   [取得命名空間的預設管理認證][取得命名空間的預設管理認證]
+-   [建立 Node.js 應用程式][建立 Node.js 應用程式]
+-   [設定應用程式使用服務匯流排][設定應用程式使用服務匯流排]
+-   [作法：建立佇列][作法：建立佇列]
+-   [作法：傳送訊息至佇列][作法：傳送訊息至佇列]
+-   [作法：從佇列接收訊息][作法：從佇列接收訊息]
+-   [作法：處理應用程式當機與無法讀取的訊息][作法：處理應用程式當機與無法讀取的訊息]
 -   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <a name="create-app"> </a>建立 Node.js 應用程式
 
-建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][]、[Node.js 雲端服務][] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站][]。
+建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][建立 Node.js 應用程式並將其部署到 Azure 網站]、[Node.js 雲端服務][Node.js 雲端服務] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站][使用 WebMatrix 的網站]。
 
 ## <a name="configure-app"> </a> 設定應用程式使用服務匯流排
 
@@ -59,9 +59,9 @@
 
 Azure 模組將讀取環境變數 AZURE\_SERVICEBUS\_NAMESPACE 和 AZURE\_SERVICEBUS\_ACCESS\_KEY，以取得連接至 Azure 服務匯流排所需的資訊。如果未設定這些環境變數，則在呼叫 **createServiceBusService** 時必須指定帳戶資訊。
 
-如需在 Azure 雲端服務組態檔中設定環境變數的範例，請參閱[使用儲存體的 Node.js 雲端服務][]。
+如需在 Azure 雲端服務組態檔中設定環境變數的範例，請參閱[使用儲存體的 Node.js 雲端服務][使用儲存體的 Node.js 雲端服務]。
 
-如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][]。
+如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][使用儲存體的 Node.js Web 應用程式]。
 
 ## <a name="create-queue"> </a>如何建立佇列
 
@@ -165,8 +165,8 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 現在您已了解服務匯流排佇列的基本概念，請參考下列連結，以取得更多資訊。
 
--   請參閱 MSDN 參考：[佇列、主題和訂閱。][]
--   造訪 GitHub 上的 [Azure SDK for Node][] (英文) 儲存機制。
+-   請參閱 MSDN 參考：[佇列、主題和訂閱。][佇列、主題和訂閱。]
+-   造訪 GitHub 上的 [Azure SDK for Node][Azure SDK for Node] (英文) 儲存機制。
 
   [後續步驟]: #next-steps
   [什麼是服務匯流排佇列？]: #what-are-service-bus-queues

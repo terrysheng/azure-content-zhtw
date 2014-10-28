@@ -23,11 +23,11 @@ RemoteApp 部署分成兩種：
 
 在建立服務之前，您必須執行下列作業：
 
--   安裝[必要更新][]以改善 Azure RemoteApp 的效能。
--   註冊 [RemoteApp 預覽版][]。
+-   安裝[必要更新][必要更新]以改善 Azure RemoteApp 的效能。
+-   註冊 [RemoteApp 預覽版][RemoteApp 預覽版]。
 -   在 Active Directory 中建立使用者帳戶，以做為 RemoteApp 服務帳戶。限制此帳戶的權限，使其只能將機器加入網域中。
 -   收集內部部署網路的相關資訊：IP 位址資訊和 VPN 裝置詳細資料。
--   安裝 [Azure PowerShell][] 模組。
+-   安裝 [Azure PowerShell][Azure PowerShell] 模組。
 -   收集您要為其授與存取權之使用者和群組的相關資訊。這可以是使用者或群組的 Microsoft 帳戶資訊或 Active Directory 組織帳戶資訊。
 
 ## **步驟 1：建立範本映像**
@@ -121,7 +121,7 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 
 ## **步驟 2：建立 RemoteApp 服務**
 
-1.  在 [Azure 管理入口網站][]中，移至 RemoteApp 頁面。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站]中，移至 RemoteApp 頁面。
 2.  按一下 [新增] \> [Create with VPN]。
 3.  輸入服務的名稱，然後按一下 [建立 RemoteApp 服務]。
 
@@ -140,7 +140,7 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
     -   DNS 伺服器 IP 位址
     -   VPN IP 位址
 
-    如需詳細資訊，請參閱[使用管理入口網站設定站對站 VPN][]。
+    如需詳細資訊，請參閱[使用管理入口網站設定站對站 VPN][使用管理入口網站設定站對站 VPN]。
 
 4.  接著，回到 [快速入門] 頁面，按一下 [get script] 以下載指令碼，將您的 VPN 裝置設定成連接到您剛剛建立的虛擬網路。您將需要下列關於 VPN 裝置的資訊：
     -   廠商
@@ -163,7 +163,7 @@ RemoteApp 範本映像包含您要與使用者共用的程式。您可以上傳�
 
 ## **步驟 5：設定 Active Directory 目錄同步處理**
 
-必須在 Azure Active Directory 與您的內部部署 Active Directory 之間進行目錄同步處理，RemoteApp 才能將使用者、群組、連絡人和密碼同步處理至您的 Azure Active Directory 租用戶。如需規劃資訊和詳細步驟，請參閱[目錄同步處理藍圖][]。
+必須在 Azure Active Directory 與您的內部部署 Active Directory 之間進行目錄同步處理，RemoteApp 才能將使用者、群組、連絡人和密碼同步處理至您的 Azure Active Directory 租用戶。如需規劃資訊和詳細步驟，請參閱[目錄同步處理藍圖][目錄同步處理藍圖]。
 
 ## **步驟 6：發佈 RemoteApp 程式**
 
@@ -189,7 +189,7 @@ RemoteApp 程式是您提供給使用者的應用程式或程式。此程式位�
 至此，您已成功建立並部署 RemoteApp 混合式部署。下一個步驟是要讓使用者下載並安裝遠端桌面用戶端。您可以在 RemoteApp 的 [快速入門] 頁面上找到用戶端的 URL。接著，請讓使用者登入 Azure，並存取您所發佈的 RemoteApp 程式。
 
   [必要更新]: http://support.microsoft.com/kb/2977219
-  [RemoteApp 預覽版]: http://azure.microsoft.com/en-us/services/remoteapp/
+  [RemoteApp 預覽版]: http://azure.microsoft.com/zh-tw/services/remoteapp/
   [Azure PowerShell]: http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/
   [Azure 管理入口網站]: http://manage.windowsazure.com
   [使用管理入口網站設定站對站 VPN]: http://msdn.microsoft.com/library/azure/dn133795.aspx

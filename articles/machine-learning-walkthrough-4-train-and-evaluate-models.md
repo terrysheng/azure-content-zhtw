@@ -2,14 +2,14 @@
 
 <tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
 
-這是逐步解說[使用 Azure ML 開發預測方案][]的第四個步驟：
+這是逐步解說[使用 Azure ML 開發預測方案][使用 Azure ML 開發預測方案]的第四個步驟：
 
-1.  [建立 ML 工作區][]
-2.  [上傳現有資料][]
-3.  [建立新實驗][]
+1.  [建立 ML 工作區][建立 ML 工作區]
+2.  [上傳現有資料][上傳現有資料]
+3.  [建立新實驗][建立新實驗]
 4.  **訓練及評估模型**
-5.  [發佈 Web 服務][]
-6.  [存取 Web 服務][]
+5.  [發佈 Web 服務][發佈 Web 服務]
+6.  [存取 Web 服務][存取 Web 服務]
 
 ------------------------------------------------------------------------
 
@@ -33,7 +33,7 @@
 
 實驗的這部分目前看起來如下：
 
-![Training a model][]
+![Training a model][Training a model]
 
 接下來，我們設定 SVM 模型。
 
@@ -54,7 +54,7 @@
 
 實驗的這部分目前看起來如下：
 
-![Training the second model][]
+![Training the second model][Training the second model]
 
 ## 計分及評估模型
 
@@ -76,7 +76,7 @@
 
 實驗目前看起來如下：
 
-![Evaluating both models][]
+![Evaluating both models][Evaluating both models]
 
 按一下畫布下方的 **[執行]** 按鈕來執行實驗。可能需要數分鐘的時間。您會看到旋轉指示器，表示正在執行，而模組完成時會出現綠色核取記號。
 
@@ -86,7 +86,7 @@
 
 按一下 [Scored dataset] 或 [Scored dataset to compare]，以反白顯示相關的曲線，並在下方顯示相關的度量。在曲線的圖例中，"Scored dataset" 對應至 **[評估模型]** 模組的左側輸入埠 - 在我們的案例中，這是推進式決策樹模型。"Scored dataset to compare" 對應至右側輸入埠 - 在我們的案例中是 SVM 模型。按一下其中一個標籤時，該模型的曲線會反白顯示，並在下方顯示對應的度量。
 
-![ROC curves for models][]
+![ROC curves for models][ROC curves for models]
 
 您可以檢查這些值，以判斷哪個模型最可能提供您想要的結果。您可以返回並變更不同模型中的值，以反覆執行實驗。
 
@@ -98,7 +98,7 @@
 
 ------------------------------------------------------------------------
 
-**接著：[發佈 Web 服務][]**
+**接著：[發佈 Web 服務][發佈 Web 服務]**
 
   [使用 Azure ML 開發預測方案]: ../machine-learning-walkthrough-develop-predictive-solution/
   [建立 ML 工作區]: ../machine-learning-walkthrough-1-create-ml-workspace/

@@ -17,20 +17,20 @@
 
 -   Visual Studio 2010 SP1
 -   Microsoft .NET Framework 4.0
--   [ASP.NET MVC 3][]
--   [Windows Identity Foundation 1.0 Runtime][]
--   [Windows Identity Foundation 3.5 SDK][]
+-   [ASP.NET MVC 3][ASP.NET MVC 3]
+-   [Windows Identity Foundation 1.0 Runtime][Windows Identity Foundation 1.0 Runtime]
+-   [Windows Identity Foundation 3.5 SDK][Windows Identity Foundation 3.5 SDK]
 -   Internet Information Services (IIS) 7.5 (已啟用 SSL)
 -   Windows PowerShell
--   [Office 365 PowerShell Commandlets][]
+-   [Office 365 PowerShell Commandlets][Office 365 PowerShell Commandlets]
 
 ### 目錄
 
--   [簡介][]
--   [步驟 1：建立 ASP.NET MVC 應用程式][]
--   [步驟 2：在公司的目錄租用戶中佈建應用程式][]
--   [步驟 3：使用 WS-同盟進行員工登入來保護應用程式][]
--   [摘要][]
+-   [簡介][簡介]
+-   [步驟 1：建立 ASP.NET MVC 應用程式][步驟 1：建立 ASP.NET MVC 應用程式]
+-   [步驟 2：在公司的目錄租用戶中佈建應用程式][步驟 2：在公司的目錄租用戶中佈建應用程式]
+-   [步驟 3：使用 WS-同盟進行員工登入來保護應用程式][步驟 3：使用 WS-同盟進行員工登入來保護應用程式]
+-   [摘要][摘要]
 
 ## <a name="createapp"></a>步驟 1：建立 ASP.NET MVC 應用程式
 
@@ -172,7 +172,7 @@
 
 ## <a name="summary"></a>摘要
 
-本教學課程已顯示如何建立和設定單一租用戶應用程式，來使用 Azure Active Directory 的單一登入功能。您也可以閱讀下列教學課程，為 Azure Active Directory 建立多租用戶應用程式：[利用 Azure Active Directory 開發多租用戶雲端應用程式][] (英文)。
+本教學課程已顯示如何建立和設定單一租用戶應用程式，來使用 Azure Active Directory 的單一登入功能。您也可以閱讀下列教學課程，為 Azure Active Directory 建立多租用戶應用程式：[利用 Azure Active Directory 開發多租用戶雲端應用程式][利用 Azure Active Directory 開發多租用戶雲端應用程式] (英文)。
 
   [ASP.NET MVC 3]: http://www.microsoft.com/zh-TW/download/details.aspx?id=4211
   [Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/zh-TW/download/details.aspx?id=17331

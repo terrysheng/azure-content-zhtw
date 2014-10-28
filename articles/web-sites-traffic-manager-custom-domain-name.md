@@ -8,30 +8,30 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/zh-TW/documentation/articles/web-sites-custom-domain-name/" title="網站">網站</a> | <a href="/zh-TW/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="使用流量管理員的網站" class="current">使用流量管理員的網站</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
 本文提供對 Azure 網站 (使用流量管理員進行負載平衡的網站) 使用自訂網域名稱的一般指示。請檢查本文頂端的索引標籤，看看是否有列出您的網域註冊機構。如果有列出，請選取該索引標籤以取得註冊機構的特定步驟。
 
-[WACOM.INCLUDE [tmwebsitefooter][]]
+[WACOM.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 本文內容：
 
--   [了解 DNS 記錄][]
--   [將網站設定為標準模式][]
--   [新增自訂網域的 DNS 記錄][]
--   [啟用網站的流量管理員][]
+-   [了解 DNS 記錄][了解 DNS 記錄]
+-   [將網站設定為標準模式][將網站設定為標準模式]
+-   [新增自訂網域的 DNS 記錄][新增自訂網域的 DNS 記錄]
+-   [啟用網站的流量管理員][啟用網站的流量管理員]
 
 ## <a name="understanding-records"></a>了解 DNS 記錄
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
 
 ## <a name="bkmk_configsharedmode"></a>將網站設定為標準模式
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
 <a name="bkmk_configurecname"></a>
 

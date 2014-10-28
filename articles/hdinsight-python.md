@@ -10,12 +10,12 @@ Hive 與 Pig 很適合在 HDInsight 中處理資料，但您有時需要更通�
 
 ## 目錄
 
--   [HDInsight 上的 Python][]
--   [Hive 與 Python][]
--   [Pig 與 Python][]
--   [執行範例][]
--   [疑難排解][]
--   [後續步驟][]
+-   [HDInsight 上的 Python][HDInsight 上的 Python]
+-   [Hive 與 Python][Hive 與 Python]
+-   [Pig 與 Python][Pig 與 Python]
+-   [執行範例][執行範例]
+-   [疑難排解][疑難排解]
+-   [後續步驟][後續步驟]
 
 ## <a name="python"></a>HDInsight 上的 Python
 
@@ -76,7 +76,7 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 除此之外，指令碼就只是串連 `devicemake` 和 `devicemodel` 的輸入值，並計算串連值的雜湊。相當簡單，但也說明從 Hive 叫用的任何 Python 指令碼如何運作的基本概念：迴圈、讀取輸入直到沒有輸入為止、在定位字元處分割每一行輸入、處理、寫入一行以定位字元分隔的輸出。
 
-請參閱[執行範例][]，以了解如何在 HDInsight 叢集上執行此範例。
+請參閱[執行範例][執行範例]，以了解如何在 HDInsight 叢集上執行此範例。
 
 ### <a name="pigpython"></a>Pig 與 Python
 
@@ -130,13 +130,13 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 當資料傳回給 Pig 時，資料將具有如同 <**@outputSchema*>\* 陳述式中所定義的一致性結構描述。
 
-請參閱[執行範例][]，以了解如何在 HDInsight 叢集上執行此範例。
+請參閱[執行範例][執行範例]，以了解如何在 HDInsight 叢集上執行此範例。
 
 ## <a name="running"></a>執行範例
 
-這些步驟使用 Windows Azure PowerShell。如果尚未在開發機器上安裝和設定此元件，則使用下列步驟之前，請參閱[如何安裝和設定 Azure PowerShell][]。
+這些步驟使用 Windows Azure PowerShell。如果尚未在開發機器上安裝和設定此元件，則使用下列步驟之前，請參閱[如何安裝和設定 Azure PowerShell][如何安裝和設定 Azure PowerShell]。
 
-1.  使用 Python 範例 [streaming.py][] 和 [jython.py][]，在開發機器上建立檔案的本機複本。
+1.  使用 Python 範例 [streaming.py][streaming.py] 和 [jython.py][jython.py]，在開發機器上建立檔案的本機複本。
 
 2.  使用下列 PowerShell 指令碼，將 **streaming.py** 和 **jython.py** 檔案上傳至伺服器。在指令碼的前三行，替換您的 Azure HDInsight 叢集的名稱及 **streaming.py** 和 **jython.py** 檔案的路徑。
 
@@ -155,7 +155,7 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
     此指令碼會擷取 HDInsight 叢集的資訊，然後擷取預設儲存體帳戶的帳戶和金鑰，再將檔案上傳至容器的根目錄。
 
-    > [WACOM.NOTE] 關於其他的指令碼上傳方法，請參閱[將資料上傳至 HDInsight][] 文件。
+    > [WACOM.NOTE] 關於其他的指令碼上傳方法，請參閱[將資料上傳至 HDInsight][將資料上傳至 HDInsight] 文件。
 
 ### 使用 Hive 儀表板 (只有 Hive 範例)
 
@@ -279,9 +279,9 @@ Pig
 </table>
 ## <a name="next"></a>後續步驟
 
-如果您需要載入非預設提供的 Python 模組，請參閱[如何將模組部署至 Azure HDInsight][] (英文)，以取得相關作法的範例。
+如果您需要載入非預設提供的 Python 模組，請參閱[如何將模組部署至 Azure HDInsight][如何將模組部署至 Azure HDInsight] (英文)，以取得相關作法的範例。
 
-如果您想要在 HDInsight 上從遠端執行工作但不使用 PowerShell，請參閱[如何從 Linux 使用 Azure HDInsight][]，以取得透過 WebHCat REST API 使用 Python 執行工作的範例。
+如果您想要在 HDInsight 上從遠端執行工作但不使用 PowerShell，請參閱[如何從 Linux 使用 Azure HDInsight][如何從 Linux 使用 Azure HDInsight]，以取得透過 WebHCat REST API 使用 Python 執行工作的範例。
 
   [HDInsight 上的 Python]: #python
   [Hive 與 Python]: #hivepython

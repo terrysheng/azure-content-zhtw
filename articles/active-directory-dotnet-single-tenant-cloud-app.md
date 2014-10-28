@@ -18,22 +18,22 @@
 
 -   Visual Studio 2010 SP1
 -   Microsoft .NET Framework 4.0
--   [ASP.NET MVC 3][]
--   [Windows Identity Foundation 1.0 Runtime][]
--   [Windows Identity Foundation 3.5 SDK][]
--   [WCF Data Services for OData V3][]
+-   [ASP.NET MVC 3][ASP.NET MVC 3]
+-   [Windows Identity Foundation 1.0 Runtime][Windows Identity Foundation 1.0 Runtime]
+-   [Windows Identity Foundation 3.5 SDK][Windows Identity Foundation 3.5 SDK]
+-   [WCF Data Services for OData V3][WCF Data Services for OData V3]
 -   Internet Information Services (IIS) 7.5 (已啟用 SSL)
 -   Windows PowerShell
--   [Office 365 PowerShell Commandlets][]
+-   [Office 365 PowerShell Commandlets][Office 365 PowerShell Commandlets]
 
 ### 目錄
 
--   [簡介][]
--   [步驟 1：建立 ASP.NET MVC 應用程式][]
--   [步驟 2：在公司的目錄租用戶中佈建應用程式][]
--   [步驟 3：使用 WS-同盟進行員工登入來保護應用程式][]
--   [步驟 4：使用 Graph API 來讀取目錄資料][]
--   [摘要][]
+-   [簡介][簡介]
+-   [步驟 1：建立 ASP.NET MVC 應用程式][步驟 1：建立 ASP.NET MVC 應用程式]
+-   [步驟 2：在公司的目錄租用戶中佈建應用程式][步驟 2：在公司的目錄租用戶中佈建應用程式]
+-   [步驟 3：使用 WS-同盟進行員工登入來保護應用程式][步驟 3：使用 WS-同盟進行員工登入來保護應用程式]
+-   [步驟 4：使用 Graph API 來讀取目錄資料][步驟 4：使用 Graph API 來讀取目錄資料]
+-   [摘要][摘要]
 
 ## <a name="createapp"></a>步驟 1：建立 ASP.NET MVC 應用程式
 
@@ -175,13 +175,13 @@
 
 ## <a name="readdata"></a>步驟 4：使用 Graph API 來讀取目錄資料
 
-此步驟說明如何使用 Graph API 來連線至 Azure Active Directory 租用戶並讀取資料。為了協助您開始使用 Graph API，請下載下列 ASP.NET 應用程式：[Graph API 的範例應用程式與撰寫支援][]。此應用程式包含協助方法讓您輕鬆地驗證和要求 Graph API。
+此步驟說明如何使用 Graph API 來連線至 Azure Active Directory 租用戶並讀取資料。為了協助您開始使用 Graph API，請下載下列 ASP.NET 應用程式：[Graph API 的範例應用程式與撰寫支援][Graph API 的範例應用程式與撰寫支援]。此應用程式包含協助方法讓您輕鬆地驗證和要求 Graph API。
 
 您也需要將權限加入至您在步驟 2 中建立的應用程式服務主體。若要加入這些權限，您需要 AppPrincipalId 值。
 
 1.  下載範例應用程式並解壓縮至您要的資料夾。
 2.  您必須先提供其他權限給服務主體，才能使用範例程式碼。這些權限可讓服務主體使用 Graph API 來讀取資料。從 [開始] 功能表中，執行 [適用於 Windows PowerShell 的 Microsoft Online Services 模組] 主控台。
-3.  您需要將服務主體加入至服務支援管理員角色，以提供讀取權限給它。如需有關指派角色給服務主體的詳細資訊，請參閱＜[Graph API 的以角色為基礎的存取控制][]。輸入下列命令並按 Enter 鍵：
+3.  您需要將服務主體加入至服務支援管理員角色，以提供讀取權限給它。如需有關指派角色給服務主體的詳細資訊，請參閱＜[Graph API 的以角色為基礎的存取控制][Graph API 的以角色為基礎的存取控制]。輸入下列命令並按 Enter 鍵：
 
         Add-MsolRoleMember -RoleMemberType "ServicePrincipal" -RoleName "Service Support Administrator" -RoleMemberObjectId $appPrincipal.ObjectId 
 
@@ -213,7 +213,7 @@
 
 本教學課程已顯示如何建立和設定單一租用戶應用程式，來使用 Azure Active Directory 的單一登入功能。此外，您也使用 Graph API 來存取租用戶的目錄資料。建議您探索範例應用程式，以了解如何在您自己的應用程式中善用 Graph API。
 
-若要深入了解 API，[您可以在 MSDN 上閱讀相關資訊][]。您也可以閱讀下列教學課程，為 Azure Active Directory 建立多租用戶應用程式：[利用 Azure Active Directory 開發多租用戶雲端應用程式][] (英文)。
+若要深入了解 API，[您可以在 MSDN 上閱讀相關資訊][您可以在 MSDN 上閱讀相關資訊]。您也可以閱讀下列教學課程，為 Azure Active Directory 建立多租用戶應用程式：[利用 Azure Active Directory 開發多租用戶雲端應用程式][利用 Azure Active Directory 開發多租用戶雲端應用程式] (英文)。
 
   [ASP.NET MVC 3]: http://www.microsoft.com/zh-TW/download/details.aspx?id=4211
   [Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/zh-TW/download/details.aspx?id=17331

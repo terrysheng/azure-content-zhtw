@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
 
@@ -14,42 +14,42 @@
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 
-1.  [產生憑證簽署要求][]
-2.  [註冊您的應用程式並啟用推播通知][]
-3.  [建立應用程式的佈建設定檔][]
-4.  [在本機下載服務][]
-5.  [測試行動服務][]
-6.  [更新伺服器以傳送推播通知][]
-7.  [將行動服務發佈至 Azure][]
-8.  [新增推播通知至應用程式][]
-9.  [更新指令碼來傳送推播通知][]
-10. [啟用推播通知以進行本機測試][]
-11. [對已發佈的行動服務進行應用程式測試][]
+1.  [產生憑證簽署要求][產生憑證簽署要求]
+2.  [註冊您的應用程式並啟用推播通知][註冊您的應用程式並啟用推播通知]
+3.  [建立應用程式的佈建設定檔][建立應用程式的佈建設定檔]
+4.  [在本機下載服務][在本機下載服務]
+5.  [測試行動服務][測試行動服務]
+6.  [更新伺服器以傳送推播通知][更新伺服器以傳送推播通知]
+7.  [將行動服務發佈至 Azure][將行動服務發佈至 Azure]
+8.  [新增推播通知至應用程式][新增推播通知至應用程式]
+9.  [更新指令碼來傳送推播通知][更新指令碼來傳送推播通知]
+10. [啟用推播通知以進行本機測試][啟用推播通知以進行本機測試]
+11. [對已發佈的行動服務進行應用程式測試][對已發佈的行動服務進行應用程式測試]
 
 本教學課程需要下列各項：
 
--   [行動服務 iOS SDK][]
--   [XCode 4.5][]
+-   [行動服務 iOS SDK][行動服務 iOS SDK]
+-   [XCode 4.5][XCode 4.5]
 -   iOS 6.0 (或以上版本) 功能裝置
 -   iOS Developer Program 成員資格
 
 > [WACOM.NOTE] 基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
 
-本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][]。
+本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][開始使用行動服務]。
 
-[WACOM.INCLUDE [啟用 Apple 推播通知][]]
+[WACOM.INCLUDE [啟用 Apple 推播通知](../includes/enable-apple-push-notifications.md)]
 
 ## 設定行動服務傳送推播要求
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push][]]
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## <a name="download-the-service"></a><span class="short-header">下載服務</span>將服務下載至您的本機電腦
 
-[WACOM.INCLUDE [mobile-services-ios-download-service-locally][]]
+[WACOM.INCLUDE [mobile-services-ios-download-service-locally](../includes/mobile-services-ios-download-service-locally.md)]
 
 ## <a name="test-the-service"></a><span class="short-header">測試服務</span>測試行動服務
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ## <span id="update-server"></span></a>更新伺服器以傳送推播通知
 
@@ -82,7 +82,7 @@
 
 ## <a name="publish-the-service"></a><span class="short-header">發佈服務</span>將行動服務發佈至 Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## 將推播通知新增至應用程式
 
@@ -153,7 +153,7 @@
 
 ## <span id="local-testing"></span></a> 啟用推播通知以進行本機測試
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
 ## 在應用程式中測試推播通知
 
@@ -179,24 +179,24 @@
 
 ## 後續步驟
 
-本教學課程說明了啟用 iOS 應用程式，以使用行動服務和通知中心傳送推播通知的基本概念。接著，建議您完成下一個教學課程[將推播通知傳送給已驗證的使用者][]，以了解如何使用標記將推播通知從行動服務傳送給已驗證的使用者。
+本教學課程說明了啟用 iOS 應用程式，以使用行動服務和通知中心傳送推播通知的基本概念。接著，建議您完成下一個教學課程[將推播通知傳送給已驗證的使用者][將推播通知傳送給已驗證的使用者]，以了解如何使用標記將推播通知從行動服務傳送給已驗證的使用者。
 
 <!--+ [Send push notifications to authenticated users]     <br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.  + [Send broadcast notifications to subscribers]     <br/>Learn how users can register and receive push notifications for categories they're interested in.  + [Send template-based notifications to subscribers]     <br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end. -->
 
 在下列主題中深入了解行動服務和通知中心：
 
--   [開始使用資料][]
+-   [開始使用資料][開始使用資料]
     深入了解如何使用行動服務儲存和查詢資料。
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何使用行動服務驗證使用不同帳戶類型的應用程式使用者。
 
--   [什麼是通知中心？][]
+-   [什麼是通知中心？][什麼是通知中心？]
     深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
 
 <!-- Anchors.  --> <!-- Images. --> <!-- URLs. -->
 
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "Windows 市集 C#"
+  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "Windows 市集 C#"
   [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "Windows 市集 JavaScript"
   [Windows Phone]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Windows Phone"
   [iOS]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "iOS"

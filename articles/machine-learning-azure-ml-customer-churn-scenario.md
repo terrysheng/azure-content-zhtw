@@ -193,12 +193,12 @@ Azure Cloud ML 中另一項吸引人的功能是已經可以將自訂模組加�
 
 這些意見將有助於改善我們所發表的白皮書品質。
 
-[傳送意見][]。
+[傳送意見][傳送意見]。
  
 
 # 參考
 
-[1][] Predictive analytics:beyond the predictions, W. McKnight, Information Management, July/August 2011, p.18-20.
+[1][1] Predictive analytics:beyond the predictions, W. McKnight, Information Management, July/August 2011, p.18-20.
 
 [2][1] <http://en.wikipedia.org/wiki/Accuracy_and_precision>
 

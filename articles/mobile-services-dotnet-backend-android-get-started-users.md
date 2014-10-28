@@ -21,25 +21,25 @@
 
 本教學課程帶領您執行下列基本步驟，在您的應用程式中啟用驗證：
 
-1.  [註冊您的應用程式以驗證與設定行動服務][]
-2.  [對通過驗證的使用者限制資料表權限][]
-3.  [將驗證新增至應用程式][]
-4.  [將驗證權杖儲存在用戶端][]
-5.  [更新過期權杖][]
+1.  [註冊您的應用程式以驗證與設定行動服務][註冊您的應用程式以驗證與設定行動服務]
+2.  [對通過驗證的使用者限制資料表權限][對通過驗證的使用者限制資料表權限]
+3.  [將驗證新增至應用程式][將驗證新增至應用程式]
+4.  [將驗證權杖儲存在用戶端][將驗證權杖儲存在用戶端]
+5.  [更新過期權杖][更新過期權杖]
 
-本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務][]。
+本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務][開始使用行動服務]。
 
 ## <a name="register"></a>註冊您的應用程式以驗證與設定行動服務
 
-[WACOM.INCLUDE [mobile-services-register-authentication][]]
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)]
 
 ## <a name="permissions"></a> 限制只有經驗證的使用者具有權限
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-1.  在 Eclipse 中，開啟您完成教學課程[開始使用行動服務][]時建立的專案。
+1.  在 Eclipse 中，開啟您完成教學課程[開始使用行動服務][開始使用行動服務]時建立的專案。
 
 2.  從 **[執行]** 功能表，按一下 **[執行]** 來啟動應用程式。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。
 
@@ -49,25 +49,25 @@
 
 ## <a name="add-authentication"></a>將驗證新增至應用程式
 
-[WACOM.INCLUDE [mobile-services-android-authenticate-app][]]
+[WACOM.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
 ## <a name="cache-tokens"></a>在用戶端快取驗證權杖
 
-[WACOM.INCLUDE [mobile-services-android-authenticate-app-with-token][]]
+[WACOM.INCLUDE [mobile-services-android-authenticate-app-with-token](../includes/mobile-services-android-authenticate-app-with-token.md)]
 
 ## <a name="refresh-tokens"></a>重新整理權杖快取
 
-[WACOM.INCLUDE [mobile-services-android-authenticate-app-refresh-token][]]
+[WACOM.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../includes/mobile-services-android-authenticate-app-refresh-token.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
-在下一個[行動服務使用者的伺服器端授權][]教學課程中，您將使用由行動服務根據經驗證的使用者而提供的使用者識別碼值，來篩選行動服務傳回的資料。
+在下一個[行動服務使用者的伺服器端授權][行動服務使用者的伺服器端授權]教學課程中，您將使用由行動服務根據經驗證的使用者而提供的使用者識別碼值，來篩選行動服務傳回的資料。
 
 <!-- Anchors. -->
 
 <!-- URLs. -->
 
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "Windows 市集 C#"
+  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "Windows 市集 C#"
   [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users "Windows 市集 JavaScript"
   [Windows Phone]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users "Windows Phone"
   [iOS]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users "iOS"

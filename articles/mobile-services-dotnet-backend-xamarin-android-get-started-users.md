@@ -20,21 +20,21 @@
 
 本教學課程帶領您執行下列基本步驟，在您的應用程式中啟用驗證：
 
-1.  [註冊您的應用程式以驗證與設定行動服務][]
-2.  [對通過驗證的使用者限制資料表權限][]
-3.  [將驗證新增至應用程式][]
+1.  [註冊您的應用程式以驗證與設定行動服務][註冊您的應用程式以驗證與設定行動服務]
+2.  [對通過驗證的使用者限制資料表權限][對通過驗證的使用者限制資料表權限]
+3.  [將驗證新增至應用程式][將驗證新增至應用程式]
 
-本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務][]。
+本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務][開始使用行動服務]。
 
 ## <a name="register"></a>註冊應用程式進行驗證，並設定行動服務
 
-[WACOM.INCLUDE [mobile-services-register-authentication][]]
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)]
 
 ## <a name="permissions"></a> 限制只有經驗證的使用者具有權限
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 1.  在 Visual Studio 或 Xamarin Studio 中，在裝置或模擬器上執行用戶端專案。確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。
 
@@ -84,7 +84,7 @@
 
 <!-- ## <a name="next-steps"> </a>Next steps  In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.   --> <!-- Anchors. --> <!-- URLs. -->
 
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "Windows 市集 C#"
+  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "Windows 市集 C#"
   [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users "Windows 市集 JavaScript"
   [Windows Phone]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users "Windows Phone"
   [iOS]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-users "iOS"

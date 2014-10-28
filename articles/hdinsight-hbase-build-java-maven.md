@@ -4,17 +4,17 @@
 
 ## 使用 Maven 建置搭配使用 HBase 和 HDInsight (Hadoop) 的 Java 應用程式 (英文)
 
-了解如何使用 Apache Maven 以 Java 建立和建置 [Apache HBase][] 應用程式。然後在 Azure HDInsight (Hadoop) 中使用此應用程式。
+了解如何使用 Apache Maven 以 Java 建立和建置 [Apache HBase][Apache HBase] 應用程式。然後在 Azure HDInsight (Hadoop) 中使用此應用程式。
 
-[Maven][] 是軟體專案管理和理解工具，可讓您建置 Java 專案的軟體、文件及報告。在本文中，您將了解如何用它來建立基本的 Java 應用程式，以便在 Azure HDInsight 叢集上建立、查詢和刪除 HBase 資料表。
+[Maven][Maven] 是軟體專案管理和理解工具，可讓您建置 Java 專案的軟體、文件及報告。在本文中，您將了解如何用它來建立基本的 Java 應用程式，以便在 Azure HDInsight 叢集上建立、查詢和刪除 HBase 資料表。
 
 ## 需求
 
--   [Java platform JDK][] 7 或更新版本
+-   [Java platform JDK][Java platform JDK] 7 或更新版本
 
--   [Maven][]
+-   [Maven][Maven]
 
--   [具有 HBase 的 Azure HDInsight 叢集][]
+-   [具有 HBase 的 Azure HDInsight 叢集][具有 HBase 的 Azure HDInsight 叢集]
 
 ## 建立專案
 
@@ -26,7 +26,7 @@
 
     這會在目前的目錄中建立新目錄，名稱由 **artifactID** 參數指定 (此範例中為 **hbaseapp**)。此目錄包含下列項目。
 
-    -   **pom.xml** - 專案物件模型 ([POM][]) 包含用來建置專案的資訊和組態詳細資料。
+    -   **pom.xml** - 專案物件模型 ([POM][POM]) 包含用來建置專案的資訊和組態詳細資料。
 
     -   **src** - 含有 **main\\java\\com\\microsoft\\examples** 目錄的目錄，您將在此撰寫應用程式。
 
@@ -42,7 +42,7 @@
           <version>0.98.4-hadoop2</version>
         </dependency>
 
-    這向 Maven 表示專案需要 **hbase-client** 版本 **0.98.4-hadoop2**。編譯時，將會從預設 Maven 儲存機制下載此版本。您可以使用 [Maven 儲存機制搜尋][] (英文) 來檢視此相依項目的詳細資訊。
+    這向 Maven 表示專案需要 **hbase-client** 版本 **0.98.4-hadoop2**。編譯時，將會從預設 Maven 儲存機制下載此版本。您可以使用 [Maven 儲存機制搜尋][Maven 儲存機制搜尋] (英文) 來檢視此相依項目的詳細資訊。
 
 2.  將下列程式碼新增至 **pom.xml** 檔案。這必須在檔案中的 `<project>...</project>` 標籤內；例如，在 `</dependencies>` 和 `</project>` 之間。
 
@@ -84,7 +84,7 @@
 
     > [WACOM.NOTE] 您也可以透過程式碼來設定組態值。相關作法請參閱下列 **CreateTable** 範例中的註解。
 
-    這也會設定 [maven-shade-plugin][]，用來防止以 Maven 所建立的 JAR 中發生授權重複。使用此項目的理由在於，重複的授權檔會導致 HDInsight 叢集在執行階段發生錯誤。使用 maven-shade-plugin 與 `ApacheLicenseResourceTransformer` 實作可防止此錯誤。
+    這也會設定 [maven-shade-plugin][maven-shade-plugin]，用來防止以 Maven 所建立的 JAR 中發生授權重複。使用此項目的理由在於，重複的授權檔會導致 HDInsight 叢集在執行階段發生錯誤。使用 maven-shade-plugin 與 `ApacheLicenseResourceTransformer` 實作可防止此錯誤。
 
     maven-shade-plugin 也會產生 uberjar (或 fatjar)，內含應用程式需要的所有相依項目。
 
@@ -128,7 +128,7 @@
 
     此檔案用來載入 HDInsight 叢集的 HBase 組態。
 
-    > [WACOM.NOTE] 這是一個極小的 hbase-site.xml 檔案，內含 HDInsight 叢集最低限度的設定。關於 HDInsight 使用的完整版 hbase-site.xml 組態檔，請參閱 [使用 RDP 連線到 HDInsight 叢集][]，以及位於 C:\\apps\\dist\\hbase-\<version number\>-hadoop2\\conf 目錄中的 hbase-site.xml 檔案。檔案路徑的版本號碼部分會隨著 HBase 在叢集上更新而變更。
+    > [WACOM.NOTE] 這是一個極小的 hbase-site.xml 檔案，內含 HDInsight 叢集最低限度的設定。關於 HDInsight 使用的完整版 hbase-site.xml 組態檔，請參閱 [使用 RDP 連線到 HDInsight 叢集][使用 RDP 連線到 HDInsight 叢集]，以及位於 C:\\apps\\dist\\hbase-\<version number\>-hadoop2\\conf 目錄中的 hbase-site.xml 檔案。檔案路徑的版本號碼部分會隨著 HBase 在叢集上更新而變更。
 
 5.  儲存 **hbase-site.xml** 檔案。
 
@@ -323,9 +323,9 @@
 
 ## 上傳 JAR 和啟動工作
 
-> [WACOM.NOTE] 有許多方法可將檔案上傳至 HDInsight 叢集，如[將資料上傳至 HDInsight][] 所述。下列步驟使用 [Azure PowerShell][]。
+> [WACOM.NOTE] 有許多方法可將檔案上傳至 HDInsight 叢集，如[將資料上傳至 HDInsight][將資料上傳至 HDInsight] 所述。下列步驟使用 [Azure PowerShell][Azure PowerShell]。
 
-1.  安裝並設定 [Azure PowerShell][] 之後，建立名為 **hbase-runner.psm1** 的新檔案。使用下列程式碼做為此檔案的內容。
+1.  安裝並設定 [Azure PowerShell][Azure PowerShell] 之後，建立名為 **hbase-runner.psm1** 的新檔案。使用下列程式碼做為此檔案的內容。
 
         <#
         .SYNOPSIS

@@ -8,18 +8,18 @@
 <a href="/zh-tw/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/zh-tw/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a>
 </div>
 
-您可以使用通知中心 REST 介面，存取 Java/PHP/Ruby 後端的所有通知中心功能，如 MSDN 主題[通知中心 REST API][] 中所述。
+您可以使用通知中心 REST 介面，存取 Java/PHP/Ruby 後端的所有通知中心功能，如 MSDN 主題[通知中心 REST API][通知中心 REST API] 中所述。
 
 在本主題中，我們將說明如何：
 
 -   在 Java 中建置通知中心功能的 REST 用戶端；
--   依照 [開始使用教學課程][]，針對您所選的行動平台，在 Java 中實作後端部分。
+-   依照 [開始使用教學課程][開始使用教學課程]，針對您所選的行動平台，在 Java 中實作後端部分。
 
 ## <a name="client-interface"></a>用戶端介面
 
-主要用戶端介面可提供與 [.NET 通知中心 SDK][] 提供的相同方法，這可讓您直接轉譯本網站上目前所提供以及網際網路上社群所貢獻的所有教學課程和範例。
+主要用戶端介面可提供與 [.NET 通知中心 SDK][.NET 通知中心 SDK] 提供的相同方法，這可讓您直接轉譯本網站上目前所提供以及網際網路上社群所貢獻的所有教學課程和範例。
 
-您可在 [Java REST 包裝函式範例][]中找到所有可用的程式碼。
+您可在 [Java REST 包裝函式範例][Java REST 包裝函式範例]中找到所有可用的程式碼。
 
 例如，若要建立用戶端：
 
@@ -40,10 +40,10 @@
 
 ## <a name="implementation"></a>實作
 
-請依照[開始使用教學課程][]進行到最後一節的實作後端 (如果您尚未進行此作業)。
-另外，如果您要的話，您可以使用 [Java REST 包裝函式範例][]中的程式碼，直接進入[完成教學課程][]一節。
+請依照[開始使用教學課程][開始使用教學課程]進行到最後一節的實作後端 (如果您尚未進行此作業)。
+另外，如果您要的話，您可以使用 [Java REST 包裝函式範例][Java REST 包裝函式範例]中的程式碼，直接進入[完成教學課程][完成教學課程]一節。
 
-您可以在 [MSDN][] 上找到所有實作完整 REST 包裝函式的詳細資料。在本節中，我們將針對存取通知中心 REST 端點所需主要步驟的 Java 實作進行說明：
+您可以在 [MSDN][MSDN] 上找到所有實作完整 REST 包裝函式的詳細資料。在本節中，我們將針對存取通知中心 REST 端點所需主要步驟的 Java 實作進行說明：
 
 1.  解析連接字串
 2.  產生授權權杖
@@ -51,9 +51,9 @@
 
 在下列程式碼片段中，我們將使用下列元件：
 
--   [Apache HttpComponents][]
--   [Apache Commons-Codec][]
--   [Apache Commons-Io][]
+-   [Apache HttpComponents][Apache HttpComponents]
+-   [Apache Commons-Codec][Apache Commons-Codec]
+-   [Apache Commons-Io][Apache Commons-Io]
 
 ### 解析連接字串
 
@@ -93,7 +93,7 @@
 
 ### 建立安全性權杖
 
-您可以在[這裡][]找到建立安全性權杖的詳細資料。
+您可以在[這裡][這裡]找到建立安全性權杖的詳細資料。
 您必須將下列方法加入 **NotificationHub** 類別，才能根據目前要求的 URI 及擷取自連接字串的認證來建立權杖。
 
     private String generateSasToken(URI uri) {
@@ -241,7 +241,7 @@
 
 此類別是原生通知主體的容器，或是一組範本通知案例的屬性，及一組包含格式 (原生平台或範本) 的標頭，以及平台特定屬性 (如 Apple 到期屬性和 WNS 標頭)。我們也會定義一些便利建構函式，以產生常用的通知類型。
 
-請參閱[通知中心 REST API 文件][]及特定通知平台的格式，以取得所有可用選項。
+請參閱[通知中心 REST API 文件][通知中心 REST API 文件]及特定通知平台的格式，以取得所有可用選項。
 
 有了此類別之後，我們現在可以在 **NotificationHub** 類別內寫入傳送通知方法。
 
@@ -306,7 +306,7 @@
 
 現在您可以透過從 Java 後端傳送通知，來完成開始使用教學課程。
 
-初始化您的通知中心用戶端 (請依[開始使用教學課程][]中的指示替換連接字串和中心名稱)：
+初始化您的通知中心用戶端 (請依[開始使用教學課程][開始使用教學課程]中的指示替換連接字串和中心名稱)：
 NotificationHub hub = new NotificationHub("{connection string}", "{hubname}");
 
 然後根據您的目標行動平台新增傳送程式碼。
@@ -352,20 +352,20 @@ NotificationHub hub = new NotificationHub("{connection string}", "{hubname}");
 
 在本主題中，我們會說明如何為通知中心建立簡單的 Java REST 用戶端。您可以在這裡執行下列動作：
 
--   下載完整的 [Java REST 包裝函式範例][]，其中包含上述所有程式碼，以及註冊管理。
+-   下載完整的 [Java REST 包裝函式範例][Java REST 包裝函式範例]，其中包含上述所有程式碼，以及註冊管理。
 -   繼續了解 [即時新聞教學課程] 中的通知中心標記功能
 -   了解 [通知使用者教學課程] 中的推播通知給個人使用者
 
   [Java]: /zh-tw/documentation/articles/notification-hubs-java-backend-how-to/ "Java"
   [PHP]: /zh-tw/documentation/articles/notification-hubs-php-backend-how-to/ "PHP"
-  [通知中心 REST API]: http://msdn.microsoft.com/en-us/library/dn223264.aspx
+  [通知中心 REST API]: http://msdn.microsoft.com/zh-tw/library/dn223264.aspx
   [開始使用教學課程]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-ios-get-started/
-  [.NET 通知中心 SDK]: http://msdn.microsoft.com/en-us/library/jj933431.aspx
+  [.NET 通知中心 SDK]: http://msdn.microsoft.com/zh-tw/library/jj933431.aspx
   [Java REST 包裝函式範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
   [完成教學課程]: #complete-tutorial
-  [MSDN]: http://msdn.microsoft.com/en-us/library/dn530746.aspx
+  [MSDN]: http://msdn.microsoft.com/zh-tw/library/dn530746.aspx
   [Apache HttpComponents]: http://hc.apache.org/httpcomponents-client-ga/
   [Apache Commons-Codec]: http://commons.apache.org/proper/commons-codec/
   [Apache Commons-Io]: http://commons.apache.org/proper/commons-io/
-  [這裡]: http://msdn.microsoft.com/en-us/library/dn495627.aspx
-  [通知中心 REST API 文件]: http://msdn.microsoft.com/en-us/library/dn495827.aspx
+  [這裡]: http://msdn.microsoft.com/zh-tw/library/dn495627.aspx
+  [通知中心 REST API 文件]: http://msdn.microsoft.com/zh-tw/library/dn495827.aspx

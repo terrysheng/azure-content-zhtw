@@ -4,13 +4,13 @@
 
 # 探索度量
 
-如果您尚未[設定 Application Insights 的 Web 專案][]，請立即進行。
+如果您尚未[設定 Application Insights 的 Web 專案][設定 Application Insights 的 Web 專案]，請立即進行。
 
 以下是您在 Application Insights 中的應用程式分頁上應該可看到的報告。若要從 Visual Studio 前往此頁面，請以滑鼠右鍵按一下 Web 專案，然後選擇 [Open Application Insights]。若要從 Microsoft Azure 預覽開始面板前往此頁面，請選擇 [瀏覽]、[Application Insights]，然後選取您的專案。
 
--   [應用程式健全狀況][]
--   [流量分析][]
--   [後續步驟][]
+-   [應用程式健全狀況][應用程式健全狀況]
+-   [流量分析][流量分析]
+-   [後續步驟][後續步驟]
 
 ## <a name="health"></a>應用程式健全狀況
 
@@ -34,7 +34,7 @@
 
 ![][1]
 
-[Web 測試][]會顯示從全球各地的 Application Insights 伺服器，定期將 Web 要求傳送至您伺服器的結果。
+[Web 測試][Web 測試]會顯示從全球各地的 Application Insights 伺服器，定期將 Web 要求傳送至您伺服器的結果。
 
 請檢查結果是否隨著要求計數而變化。
 
@@ -50,7 +50,7 @@
 
 ![][3]
 
-如果您已[設定診斷記錄][]，請點選查看最新的事件。
+如果您已[設定診斷記錄][設定診斷記錄]，請點選查看最新的事件。
 
 ### 失敗的要求
 
@@ -78,7 +78,7 @@
 
 ### 重新排列磚
 
-![Choose settings, customize][]
+![Choose settings, customize][Choose settings, customize]
 
 ## <a name="next"></a>後續步驟
 
@@ -86,17 +86,17 @@
 
 [擷取和搜尋診斷記錄][設定診斷記錄]
 
-[疑難排解][]
+[疑難排解][疑難排解]
 
 ## 詳細資訊
 
--   [Application Insights][]
+-   [Application Insights][Application Insights]
 -   [將 Application Insights 加入至專案][設定 Application Insights 的 Web 專案]
--   [立即監視即時 Web 伺服器][]
--   [在 Application Insights 中探索度量][]
+-   [立即監視即時 Web 伺服器][立即監視即時 Web 伺服器]
+-   [在 Application Insights 中探索度量][在 Application Insights 中探索度量]
 -   [診斷記錄搜尋][設定診斷記錄]
 -   [使用 Web 測試來追蹤可用性][Web 測試]
--   [使用事件和度量來追蹤使用量][]
+-   [使用事件和度量來追蹤使用量][使用事件和度量來追蹤使用量]
 -   [問與答及疑難排解][疑難排解]
 
 <!--Link references-->

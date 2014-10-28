@@ -1,43 +1,43 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
 
 # 開始在行動服務中使用推播通知
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a><a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-ios-get-started-push" title="iOS" class="current">iOS</a><a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-android-get-started-push" title="Android" class="current">Android</a><!---<a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>--></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a><a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-ios-get-started-push" title="iOS" class="current">iOS</a><a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-android-get-started-push" title="Android" class="current">Android</a><!---<a href="/zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>--></div>
 
 <div class="dev-center-tutorial-subselector"><a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title=".NET 後端" >.NET 後端</a> | <a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/" title="JavaScript 後端" class="current">JavaScript 後端</a></div>
 
 本主題說明如何使用 Azure 行動服務將推播通知傳送至 iOS 應用程式。在本教學課程中，您會使用 Apple 推播通知服務 (APNS) 將推播通知新增至快速入門專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
-> [WACOM.NOTE]本教學課程將示範如何整合行動服務與通知中心，這是您從行動服務傳送推播通知的途徑。如果您使用的是採用舊式推播的舊版行動服務，且尚未升級以使用通知中心，*建議您在此教學課程中進行升級*。如果您選擇不立即升級，則應依照此版本的教學課程操作：[開始使用推播通知 (舊版)][]。
+> [WACOM.NOTE]本教學課程將示範如何整合行動服務與通知中心，這是您從行動服務傳送推播通知的途徑。如果您使用的是採用舊式推播的舊版行動服務，且尚未升級以使用通知中心，*建議您在此教學課程中進行升級*。如果您選擇不立即升級，則應依照此版本的教學課程操作：[開始使用推播通知 (舊版)][開始使用推播通知 (舊版)]。
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 
-1.  [產生憑證簽署要求][]
-2.  [註冊您的應用程式並啟用推播通知][]
-3.  [建立應用程式的佈建設定檔][]
-4.  [設定行動服務][]
-5.  [新增推播通知至應用程式][]
-6.  [更新指令碼來傳送推播通知][]
-7.  [插入資料以接收通知][]
+1.  [產生憑證簽署要求][產生憑證簽署要求]
+2.  [註冊您的應用程式並啟用推播通知][註冊您的應用程式並啟用推播通知]
+3.  [建立應用程式的佈建設定檔][建立應用程式的佈建設定檔]
+4.  [設定行動服務][設定行動服務]
+5.  [新增推播通知至應用程式][新增推播通知至應用程式]
+6.  [更新指令碼來傳送推播通知][更新指令碼來傳送推播通知]
+7.  [插入資料以接收通知][插入資料以接收通知]
 
 本教學課程需要下列各項：
 
--   [行動服務 iOS SDK][]
--   [XCode 4.5][]
+-   [行動服務 iOS SDK][行動服務 iOS SDK]
+-   [XCode 4.5][XCode 4.5]
 -   iOS 6.0 (或以上版本) 功能裝置
 -   iOS Developer Program 成員資格
 
 > [WACOM.NOTE] 基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
 
-本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][]。
+本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][開始使用行動服務]。
 
-[WACOM.INCLUDE [啟用 Apple 推播通知][]]
+[WACOM.INCLUDE [啟用 Apple 推播通知](../includes/enable-apple-push-notifications.md)]
 
 ## 設定行動服務傳送推播要求
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push][]]
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## 將推播通知新增至應用程式
 
@@ -134,7 +134,7 @@
             }, 2500);
         }
 
-    如此即會註冊新的 insert 指令碼，該指令碼會使用 [apns 物件][]將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。
+    如此即會註冊新的 insert 指令碼，該指令碼會使用 [apns 物件][apns 物件]將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。
 
     > [WACOM.NOTE] 此指令碼將延遲傳送通知，讓您有時間關閉應用程式來接收推播通知。
 
@@ -164,32 +164,32 @@
 
 本教學課程說明了啟用 iOS 應用程式，以使用行動服務和通知中心傳送推播通知的基本概念。接著，建議您完成下列其中一個教學課程：
 
--   [將推播通知傳送給已驗證的使用者][]
+-   [將推播通知傳送給已驗證的使用者][將推播通知傳送給已驗證的使用者]
     了解如何使用標記將推播通知從行動服務傳送給已驗證的使用者。
 
--   [將廣播通知傳送給訂閱者][]
+-   [將廣播通知傳送給訂閱者][將廣播通知傳送給訂閱者]
     了解使用者如何註冊及接收其所需類別的推播通知。
     <!--- + [Send template-based notifications to subscribers]     <br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end. -->
     在下列主題中深入了解行動服務和通知中心：
 
--   [開始使用資料][]
+-   [開始使用資料][開始使用資料]
     深入了解如何使用行動服務儲存和查詢資料。
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何使用行動服務驗證使用不同帳戶類型的應用程式使用者。
 
--   [什麼是通知中心？][]
+-   [什麼是通知中心？][什麼是通知中心？]
     深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
 
--   [行動服務 Objective-C 作法概念性參考][]
+-   [行動服務 Objective-C 作法概念性參考][行動服務 Objective-C 作法概念性參考]
     深入了解如何搭配使用行動服務與 Objective-C 和 iOS。
 
--   [行動服務伺服器指令碼參考][]
+-   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何在您的行動服務中實作商業邏輯。
 
 <!-- Anchors. --> <!-- Images. --> <!-- URLs.   -->
 
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows 市集 C#"
+  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows 市集 C#"
   [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows 市集 JavaScript"
   [Windows Phone]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone"
   [iOS]: /zh-tw/documentation/articles/mobile-services-javascript-backend-ios-get-started-push "iOS"

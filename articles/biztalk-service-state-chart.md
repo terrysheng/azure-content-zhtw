@@ -10,7 +10,7 @@
 
 **不允許此作業**
 
-若要佈建 BizTalk 服務，請參閱 [BizTalk 服務：使用 Azure 管理入口網站進行佈建][] (英文)。
+若要佈建 BizTalk 服務，請參閱 [BizTalk 服務：使用 Azure 管理入口網站進行佈建][BizTalk 服務：使用 Azure 管理入口網站進行佈建] (英文)。
 
 下表列出當 BizTalk 服務處於特定狀態時可執行的作業。核取記號表示可在此狀態下執行作業。空白項目表示無法在此狀態下執行作業。
 
@@ -591,19 +591,19 @@ x
 </table>
 ## 另請參閱
 
--   [BizTalk 服務：使用 Azure 管理入口網站進行佈建][]
+-   [BizTalk 服務：使用 Azure 管理入口網站進行佈建][BizTalk 服務：使用 Azure 管理入口網站進行佈建]
      (英文)
--   [BizTalk 服務：儀表板、監視器和調整索引標籤][]
+-   [BizTalk 服務：儀表板、監視器和調整索引標籤][BizTalk 服務：儀表板、監視器和調整索引標籤]
      (英文)
--   [BizTalk 服務：開發人員、基本、標準和高級版本圖表][]
+-   [BizTalk 服務：開發人員、基本、標準和高級版本圖表][BizTalk 服務：開發人員、基本、標準和高級版本圖表]
      (英文)
--   [BizTalk 服務：備份與還原][]
+-   [BizTalk 服務：備份與還原][BizTalk 服務：備份與還原]
      (英文)
--   [BizTalk 服務：節流][]
+-   [BizTalk 服務：節流][BizTalk 服務：節流]
      (英文)
--   [BizTalk 服務：簽發者名稱和簽發者金鑰][]
+-   [BizTalk 服務：簽發者名稱和簽發者金鑰][BizTalk 服務：簽發者名稱和簽發者金鑰]
      (英文)
--   [如何開始使用 Azure BizTalk 服務 SDK][]
+-   [如何開始使用 Azure BizTalk 服務 SDK][如何開始使用 Azure BizTalk 服務 SDK]
 
   [BizTalk 服務：使用 Azure 管理入口網站進行佈建]: http://go.microsoft.com/fwlink/p/?LinkID=302280
   [BizTalk 服務：儀表板、監視器和調整索引標籤]: http://go.microsoft.com/fwlink/p/?LinkID=302281

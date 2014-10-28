@@ -14,24 +14,24 @@
 
 要能夠驗證使用者，您必須向 Azure Active Directory (AAD) 註冊您的應用程式。此作業有兩個階段。第一，您必須註冊行動服務，並公開其權限。第二，您必須註冊 Windows 市集應用程式，並為其授與對這些權限的存取權
 
-> [WACOM.NOTE] 本教學課程旨在協助您深入了解如何透過行動服務，為 Windows 市集應用程式執行單一登入 Azure Active Directory 驗證。如果這是您第一次接觸行動服務，請先完成教學課程[開始使用行動服務][]。
+> [WACOM.NOTE] 本教學課程旨在協助您深入了解如何透過行動服務，為 Windows 市集應用程式執行單一登入 Azure Active Directory 驗證。如果這是您第一次接觸行動服務，請先完成教學課程[開始使用行動服務][開始使用行動服務]。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [向 Azure Active Directory 註冊您的行動服務][]
-2.  [向 Azure Active Directory 註冊您的應用程式][]
-3.  [將行動服務設定為需要驗證][]
-4.  [將驗證程式碼新增至用戶端應用程式][]
-5.  [使用驗證測試用戶端][]
+1.  [向 Azure Active Directory 註冊您的行動服務][向 Azure Active Directory 註冊您的行動服務]
+2.  [向 Azure Active Directory 註冊您的應用程式][向 Azure Active Directory 註冊您的應用程式]
+3.  [將行動服務設定為需要驗證][將行動服務設定為需要驗證]
+4.  [將驗證程式碼新增至用戶端應用程式][將驗證程式碼新增至用戶端應用程式]
+5.  [使用驗證測試用戶端][使用驗證測試用戶端]
 
 本教學課程需要下列各項：
 
 -   執行於 Windows 8.1 的 Visual Studio 2013。
--   完成[開始使用行動服務][]或[開始使用資料][]教學課程。
+-   完成[開始使用行動服務][開始使用行動服務]或[開始使用資料][開始使用資料]教學課程。
 -   Microsoft Azure 行動服務 SDK NuGet 封裝
 -   Active Directory Authentication Library NuGet 封裝
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service][mobile-services-dotnet-adal-register-service]]
 
 ## <a name="register-app-aad"></a>向 Azure Active Directory 註冊您的應用程式
 
@@ -57,7 +57,7 @@
 
 現在，您必須擷取將使用原生應用程式設定進行設定的封裝 SID。
 
-1.  登入您的 [Windows 開發人員中心儀表板][]，然後在應用程式上按一下 [編輯]。
+1.  登入您的 [Windows 開發人員中心儀表板][Windows 開發人員中心儀表板]，然後在應用程式上按一下 [編輯]。
 
     ![][2]
 
@@ -75,7 +75,7 @@
 
 ### 建立原生應用程式註冊
 
-1.  導覽至 [Azure 管理入口網站][]中的 **Active Directory**，然後按一下您的目錄。
+1.  導覽至 [Azure 管理入口網站][Azure 管理入口網站]中的 **Active Directory**，然後按一下您的目錄。
 
     ![][6]
 
@@ -105,13 +105,13 @@
 
 ## <a name="require-authentication"></a>將行動服務設定為需要驗證
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][mobile-services-restrict-permissions-dotnet-backend]]
 
 ## <a name="add-authentication-code"></a>將驗證程式碼新增至用戶端應用程式
 
 1.  在 Visual Studio 中開啟您的 Windows 市集用戶端應用程式專案。
 
-   [WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget][]]
+   [WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget][mobile-services-dotnet-adal-install-nuget]]
 
 1.  在 Visual Studio 的 [方案總管] 視窗中開啟 MainPage.xaml.cs 檔案，然後使用陳述式新增下列項目。
 
@@ -149,9 +149,9 @@
             } 
         }
 
-3.  在上述`AuthenticateAsync` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 取代為您佈建應用程式的租用戶名稱，其格式應為 <https://login.windows.net/tenant-name.onmicrosoft.com>。此值可從 [Azure 管理入口網站][]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
+3.  在上述`AuthenticateAsync` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 取代為您佈建應用程式的租用戶名稱，其格式應為 <https://login.windows.net/tenant-name.onmicrosoft.com>。此值可從 [Azure 管理入口網站][Azure 管理入口網站]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
 
-4.  在上述`AuthenticateAsync` 方法的程式碼中，將 **INSERT-RESOURCE-URI-HERE** 取代為您行動服務的 [應用程式識別碼 URI]。如果您依照[如何向 Azure Active Directory 註冊][]主題的內容操作，您的應用程式識別碼應會類似於 <https://todolist.azure-mobile.net/login/aad>。
+4.  在上述`AuthenticateAsync` 方法的程式碼中，將 **INSERT-RESOURCE-URI-HERE** 取代為您行動服務的 [應用程式識別碼 URI]。如果您依照[如何向 Azure Active Directory 註冊][如何向 Azure Active Directory 註冊]主題的內容操作，您的應用程式識別碼應會類似於 <https://todolist.azure-mobile.net/login/aad>。
 
 5.  在上述`AuthenticateAsync` 方法的程式碼中，將 **INSERT-CLIENT-ID-HERE** 取代為您從原生用戶端應用程式中複製的用戶端識別碼。
 

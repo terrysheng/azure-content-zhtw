@@ -4,7 +4,7 @@
 
 # 使用服務匯流排轉送的 .NET 內部部署/雲端混合式應用程式
 
-## <span class="short-header">簡介</span>簡介
+<h2><span class="short-header">簡介</span>簡介</h2>
 
 使用 Visual Studio 2013 和免費的 Azure SDK for .NET，
 可輕鬆在 Azure 開發混合式雲端應用程式。本指南
@@ -19,7 +19,7 @@
 -   如何使用 Azure 服務匯流排轉送，以在 Azure
     應用程式與其他位置代管的 Web 服務之間共用資料。
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ### 服務匯流排轉送如何協助混合式方案
 
@@ -51,7 +51,7 @@ Communication Foundation (WCF) Web 服務，
 在本教學課程中，您將建立 ASP.NET MVC 4 網站，
 讓您可在產品庫存頁面上看到產品清單。
 
-![][]
+![][0]
 
 本教學課程假設您有現有內部部署系統中的
 產品資訊，並使用服務匯流排轉送來連接
@@ -68,14 +68,14 @@ Web 角色部署至 Azure。在這麼做之後，
 
 ![][1]
 
-## <span class="short-header">設定環境</span>設定開發環境
+<h2><span class="short-header">設定環境</span>設定開發環境</h2>
 
 在開始開發 Azure 應用程式之前，您需要先取得工具，
 並設定開發環境。
 
 1.  若要安裝 Azure SDK for .NET，請按一下底下按鈕：
 
-    [取得工具和 SDK (英文)][]
+    [取得工具和 SDK (英文)][取得工具和 SDK (英文)]
 
 2.  按一下 [install the SDK]。
 
@@ -98,17 +98,17 @@ Web 角色部署至 Azure。在這麼做之後，
     則它也會安裝免費的
     Visual Studio Express。
 
-## <span class="short-header">建立命名空間</span>建立服務命名空間
+<h2><span class="short-header">建立命名空間</span>建立服務命名空間</h2>
 
 若要開始在 Azure 中使用服務匯流排功能，首先必須建立
 服務命名空間。服務命名空間提供範圍容器，
 可在應用程式內定址服務匯流排資源。
 
-您可以使用 [Azure 管理入口網站][]或 Visual Studio 伺服器總管，來管理命名空間和服務匯流排訊息實體，但是只能從入口網站內建立新的命名空間。
+您可以使用 [Azure 管理入口網站][Azure 管理入口網站]或 Visual Studio 伺服器總管，來管理命名空間和服務匯流排訊息實體，但是只能從入口網站內建立新的命名空間。
 
 ### 使用入口網站建立服務命名空間：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 
 2.  在管理入口網站的左側瀏覽窗格中，按一下 [服務匯流排]。
 
@@ -137,7 +137,7 @@ Web 角色部署至 Azure。在這麼做之後，
 稍待片刻就會生效。等到狀態變成 [作用中] 之後
 再繼續。
 
-## <span class="short-header">取得管理認證</span>取得命名空間的預設管理認證
+<h2><span class="short-header">取得管理認證</span>取得命名空間的預設管理認證</h2>
 
 若要在新的命名空間上執行管理作業 (
 例如建立佇列)，您必須取得命名空間的
@@ -157,13 +157,13 @@ Web 角色部署至 Azure。在這麼做之後，
 
 ### 使用 Visual Studio 伺服器總管來管理服務命名空間：
 
-若要使用 Visual Studio 而非管理入口網站來管理命名空間並取得連線資訊，請遵循[這裡][]所述的程序 (**從 Visual Studio 連線至 Azure** 一節)。在您登入 Azure 時，伺服器總管 [Microsoft Azure] 樹狀目錄下的 [服務匯流排] 節點，將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 [屬性]，查看在 Visual Studio [屬性] 窗格中所顯示，與此命名空間關聯的連線字串與其他中繼資料。
+若要使用 Visual Studio 而非管理入口網站來管理命名空間並取得連線資訊，請遵循[這裡][這裡]所述的程序 (**從 Visual Studio 連線至 Azure** 一節)。在您登入 Azure 時，伺服器總管 [Microsoft Azure] 樹狀目錄下的 [服務匯流排] 節點，將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 [屬性]，查看在 Visual Studio [屬性] 窗格中所顯示，與此命名空間關聯的連線字串與其他中繼資料。
 
 ![][10]
 
 請記下 **SharedAccessKey** 值，或將它複製到剪貼簿。
 
-## <span class="short-header">建立內部部署伺服器</span>建立內部部署伺服器
+<h2><span class="short-header">建立內部部署伺服器</span>建立內部部署伺服器</h2>
 
 首先，您將建置 (模擬) 內部部署產品目錄系統。此作業相當簡單；
 您可將它看成是呈現實際內部部署產品目錄系統，
@@ -176,7 +176,7 @@ Web 角色部署至 Azure。在這麼做之後，
 中的程式庫和工具。要取得服務匯流排 API，並對應用程式進行設定，
 以使用所有服務匯流排相依性的最簡單方法，
 便是使用服務匯流排 NuGet 封裝。如需使用 NuGet 和服務匯流排套件
-的詳細資料，請參閱[使用 NuGet 服務匯流排套件][]。
+的詳細資料，請參閱[使用 NuGet 服務匯流排套件][使用 NuGet 服務匯流排套件]。
 
 ### 建立專案
 
@@ -205,7 +205,7 @@ Web 角色部署至 Azure。在這麼做之後，
 
     ![][13]
 
-7.  如果已安裝 Visual Studio 的 NuGet 套件管理員，請跳至下一個步驟。否則，請造訪 [NuGet][] (英文)，然後按一下 [[安裝 NuGet]][] (英文)。按照提示安裝 NuGet 套件管理員，然後重新啟動 Visual Studio。
+7.  如果已安裝 Visual Studio 的 NuGet 套件管理員，請跳至下一個步驟。否則，請造訪 [NuGet][NuGet] (英文)，然後按一下 [[安裝 NuGet]][] (英文)。按照提示安裝 NuGet 套件管理員，然後重新啟動 Visual Studio。
 
 8.  在 [方案總管] 的 [參考] 上按一下滑鼠右鍵，
     然後按一下 [Manage NuGet Packages]。
@@ -353,7 +353,7 @@ Web 角色部署至 Azure。在這麼做之後，
 
 16. 按 **F6**，或從 [建置] 功能表中按一下 [建置方案] 來建置應用程式，以驗證您的工作到目前為止是否正確無誤。
 
-## <span class="short-header">建立 ASP.NET MVC 應用程式</span>建立 ASP.NET MVC 應用程式
+<h2><span class="short-header">建立 ASP.NET MVC 應用程式</span>建立 ASP.NET MVC 應用程式</h2>
 
 在本節中，您將建置簡單的 ASP.NET 應用程式，
 來顯示從產品服務擷取的資料。
@@ -487,9 +487,9 @@ Web 角色部署至 Azure。在這麼做之後，
 
     ![][22]
 
-    ## <span class="short-header">部署至 AZURE</span>讓應用程式準備好部署至 AZURE
+    <span class="short-header">部署至 AZURE</span>讓應用程式準備好部署至 AZURE</h2>
 
-    您可以將您的應用程式部署到 Azure 雲端服務或 Azure 網站。若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型][] (英文)。若要了解如何將應用程式部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站][] (英文)。本節包含將應用程式部署至 Azure 雲端服務的詳細步驟。
+    您可以將您的應用程式部署到 Azure 雲端服務或 Azure 網站。若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型][Azure 執行模型] (英文)。若要了解如何將應用程式部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站][將 ASP.NET Web 應用程式部署至 Azure 網站] (英文)。本節包含將應用程式部署至 Azure 雲端服務的詳細步驟。
 
     若要將應用程式部署至雲端服務，您需要加入
     雲端服務專案部署專案至方案。部署專案包含
@@ -513,7 +513,7 @@ Web 角色部署至 Azure。在這麼做之後，
         而且它的外觀和運作方式，將和您先前將它當作
         一般 ASP.NET MVC 4 應用程式執行時相同。
 
-    ## <span class="short-header">將所有組件組合起來</span>將所有組件組合起來
+    <h2><span class="short-header">將所有組件組合起來</span>將所有組件組合起來</h2>
 
     下一步是利用 ASP.NET MVC 應用程式
     連接內部部署產品伺服器。
@@ -612,7 +612,7 @@ Web 角色部署至 Azure。在這麼做之後，
 
         ![][27]
 
-    ## <span class="short-header">執行應用程式</span>執行應用程式
+    <h2><span class="short-header">執行應用程式</span>執行應用程式</h2>
 
     1.  從 Visual Studio 的 [檔案] 功能表中，按一下 [全部儲存]。
 
@@ -625,7 +625,7 @@ Web 角色部署至 Azure。在這麼做之後，
 
         ![][1]
 
-    ## <span class="short-header">部署應用程式</span>將應用程式部署至 Azure
+    <h2><span class="short-header">部署應用程式</span>將應用程式部署至 Azure</h2>
 
     1.  在 [方案總管] 的 **ProductsPortal** 專案上按一下滑鼠右鍵，
         然後按一下 [Publish to Azure]。
@@ -687,9 +687,9 @@ Web 角色部署至 Azure。在這麼做之後，
 
         ![][33]
 
-若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型][] (英文)。
+若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型][Azure 執行模型] (英文)。
 
-## <span class="short-header">刪除應用程式</span>停止並刪除應用程式
+<h2><span class="short-header">刪除應用程式</span>停止並刪除應用程式</h2>
 
 在部署應用程式之後，您可能想要停用它，以便可以在每月 750 小時
 (以每月 31 天來計算) 免費的伺服器時間內
@@ -704,7 +704,7 @@ Azure 會就每小時伺服器時間所使用的 Web 角色
 下列步驟示範如何停止並刪除
 應用程式。
 
-1.  登入 [Azure 管理入口網站][]、
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]、
     按一下雲端服務，然後按服務名稱。
 
 2.  按一下 [儀表板] 索引標籤，然後按一下 [停止] 以暫停應用程式。只需
@@ -713,16 +713,16 @@ Azure 會就每小時伺服器時間所使用的 Web 角色
 
     ![][34]
 
-## <a name="nextsteps"></a><span class="short-header">後續步驟</span>後續步驟
+<h2><a name="nextsteps"></a><span class="short-header">後續步驟</span>後續步驟</h2>  
 
 若要深入了解服務匯流排，請參閱下列資源：
 
--   [Azure 服務匯流排][]
--   [服務匯流排作法][]
--   [如何使用服務匯流排佇列][]
+-   [Azure 服務匯流排][Azure 服務匯流排]
+-   [服務匯流排作法][服務匯流排作法]
+-   [如何使用服務匯流排佇列][如何使用服務匯流排佇列]
 
   [create-account-note]: ../includes/create-account-note.md
-  []: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
+  [0]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
   [1]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App2.png
   [取得工具和 SDK (英文)]: http://go.microsoft.com/fwlink/?LinkId=271920
   [2]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-41.png
@@ -734,7 +734,7 @@ Azure 會就每小時伺服器時間所使用的 Web 角色
   [7]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-27.png
   [8]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-09.png
   [9]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-06.png
-  [這裡]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [這裡]: http://http://msdn.microsoft.com/zh-tw/library/windowsazure/ff687127.aspx
   [10]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
   [使用 NuGet 服務匯流排套件]: http://go.microsoft.com/fwlink/?LinkId=234589
   [11]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
@@ -751,8 +751,8 @@ Azure 會就每小時伺服器時間所使用的 Web 角色
   [20]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [21]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-11.png
   [22]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App1.png
-  [Azure 執行模型]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
-  [將 ASP.NET Web 應用程式部署至 Azure 網站]: http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/
+  [Azure 執行模型]: http://www.windowsazure.com/zh-tw/develop/net/fundamentals/compute/
+  [將 ASP.NET Web 應用程式部署至 Azure 網站]: http://www.windowsazure.com/zh-tw/develop/net/tutorials/get-started/
   [23]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-21.png
   [24]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-22.png
   [25]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-12.png
@@ -765,6 +765,6 @@ Azure 會就每小時伺服器時間所使用的 Web 角色
   [32]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-41.png
   [33]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
   [34]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [Azure 服務匯流排]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
+  [Azure 服務匯流排]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee732537.aspx
   [服務匯流排作法]: /zh-tw/documentation/services/service-bus/
-  [如何使用服務匯流排佇列]: /en-us/develop/net/how-to-guides/service-bus-queues/
+  [如何使用服務匯流排佇列]: /zh-tw/develop/net/how-to-guides/service-bus-queues/

@@ -8,29 +8,29 @@
 
 ## <a name="TableOfContents"></a>目錄
 
--   [什麼是 PHP Web 和背景工作角色？][]
--   [下載 Azure SDK for PHP][]
--   [作法：建立雲端服務專案][]
--   [作法：新增 PHP Web 和背景工作角色][]
--   [作法：指定內建 PHP 版本][]
--   [作法：自訂內建 PHP 執行階段][]
--   [作法：使用您自己的 PHP 執行階段][]
--   [作法：在計算和儲存模擬器中執行您的應用程式][]
--   [作法：發佈您的應用程式][]
+-   [什麼是 PHP Web 和背景工作角色？][什麼是 PHP Web 和背景工作角色？]
+-   [下載 Azure SDK for PHP][下載 Azure SDK for PHP]
+-   [作法：建立雲端服務專案][作法：建立雲端服務專案]
+-   [作法：新增 PHP Web 和背景工作角色][作法：新增 PHP Web 和背景工作角色]
+-   [作法：指定內建 PHP 版本][作法：指定內建 PHP 版本]
+-   [作法：自訂內建 PHP 執行階段][作法：自訂內建 PHP 執行階段]
+-   [作法：使用您自己的 PHP 執行階段][作法：使用您自己的 PHP 執行階段]
+-   [作法：在計算和儲存模擬器中執行您的應用程式][作法：在計算和儲存模擬器中執行您的應用程式]
+-   [作法：發佈您的應用程式][作法：發佈您的應用程式]
 
 ## <a name="WhatIs"></a>什麼是 PHP Web 和背景工作角色？
 
-Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][]、[Azure 虛擬機器][]和 [Azure 雲端服務][]。這三種模型都支援 PHP。雲端服務 (包含 Web 和背景工作角色) 可提供*平台即服務 (PaaS)*。在雲端服務中，Web 角色應用程式會提供專用的 Internet Information Services (IIS) Web 伺服器，用以代管前端 Web 應用程式，而背景工作角色則可執行獨立於使用者互動或輸入以外的非同步、長時間執行或持續性工作。
+Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][Azure 網站]、[Azure 虛擬機器][Azure 虛擬機器]和 [Azure 雲端服務][Azure 雲端服務]。這三種模型都支援 PHP。雲端服務 (包含 Web 和背景工作角色) 可提供*平台即服務 (PaaS)*。在雲端服務中，Web 角色應用程式會提供專用的 Internet Information Services (IIS) Web 伺服器，用以代管前端 Web 應用程式，而背景工作角色則可執行獨立於使用者互動或輸入以外的非同步、長時間執行或持續性工作。
 
-如需詳細資訊，請參閱[什麼是雲端服務？][] (英文)。
+如需詳細資訊，請參閱[什麼是雲端服務？][什麼是雲端服務？] (英文)。
 
 ## <a name="DownloadSdk"></a>下載 Azure SDK for PHP
 
-[Azure SDK for PHP][] 由數個元件組成。本文將使用其中的兩個元件：Azure PowerShell 和 Azure 模擬器。這兩個元件可透過 Microsoft Web Platform Installer 來安裝：[安裝 Azure PowerShell 和 Azure 模擬器][] (英文)。
+[Azure SDK for PHP][Azure SDK for PHP] 由數個元件組成。本文將使用其中的兩個元件：Azure PowerShell 和 Azure 模擬器。這兩個元件可透過 Microsoft Web Platform Installer 來安裝：[安裝 Azure PowerShell 和 Azure 模擬器][安裝 Azure PowerShell 和 Azure 模擬器] (英文)。
 
 ## <a name="CreateProject"></a>作法：建立雲端服務專案
 
-建立 PHP Web 或背景工作角色的第一個步驟是建立 Azure 服務專案。Azure 服務專案可作為 Web 和背景工作角色的邏輯容器，並包含專案的[服務定義 (.csdef)][] 和[服務組態 (.cscfg)][] 檔案。
+建立 PHP Web 或背景工作角色的第一個步驟是建立 Azure 服務專案。Azure 服務專案可作為 Web 和背景工作角色的邏輯容器，並包含專案的[服務定義 (.csdef)][服務定義 (.csdef)] 和[服務組態 (.cscfg)][服務組態 (.cscfg)] 檔案。
 
 若要建立新的 Azure 服務專案，請執行下列命令：
 
@@ -106,13 +106,13 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][]�
 
 若要設定 Web 角色以使用您所提供的 PHP 執行階段，請遵循下列步驟。
 
-1.  建立 Azure 服務專案並新增 PHP Web 角色，如先前的兩個小節所說明：[作法：建立雲端服務專案][]和[作法：新增 PHP Web 或背景工作角色][作法：新增 PHP Web 和背景工作角色]。
+1.  建立 Azure 服務專案並新增 PHP Web 角色，如先前的兩個小節所說明：[作法：建立雲端服務專案][作法：建立雲端服務專案]和[作法：新增 PHP Web 或背景工作角色][作法：新增 PHP Web 和背景工作角色]。
 2.  在位於 Web 角色根目錄內的 `bin` 資料夾中建立 `php` 資料夾，然後將 PHP 執行階段 (所有的二進位檔、組態檔、子資料夾等) 新增至 `php` 資料夾。
-3.  (選用) 如果您的 PHP 執行階段使用[適用於 PHP for SQL Server 的 Microsoft 驅動程式][]，您就必須設定 Web 角色，使其在進行佈建時安裝 [SQL Server Native Client 2012][]。若要執行此動作，請將 `sqlncli.msi` 安裝程式新增至位於 Web 角色根目錄中的 `bin` 資料夾。您可以在下列位置下載此安裝程式：[sqlncli.msi x64 安裝程式][]。下一個步驟中說明的啟動指令碼，將會在角色進行佈建時以無訊息方式執行安裝程式。如果您的 PHP 執行階段並未使用適用於 PHP for SQL Server 的 Microsoft 驅動程式，您可以從下一個步驟所顯示的指令碼中移除以下一行：
+3.  (選用) 如果您的 PHP 執行階段使用[適用於 PHP for SQL Server 的 Microsoft 驅動程式][適用於 PHP for SQL Server 的 Microsoft 驅動程式]，您就必須設定 Web 角色，使其在進行佈建時安裝 [SQL Server Native Client 2012][SQL Server Native Client 2012]。若要執行此動作，請將 `sqlncli.msi` 安裝程式新增至位於 Web 角色根目錄中的 `bin` 資料夾。您可以在下列位置下載此安裝程式：[sqlncli.msi x64 安裝程式][sqlncli.msi x64 安裝程式]。下一個步驟中說明的啟動指令碼，將會在角色進行佈建時以無訊息方式執行安裝程式。如果您的 PHP 執行階段並未使用適用於 PHP for SQL Server 的 Microsoft 驅動程式，您可以從下一個步驟所顯示的指令碼中移除以下一行：
 
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
-4.  下一個步驟是定義啟動工作，設定 [Internet Information Services (IIS)][] 使用您的 PHP 執行階段來處理 `.php` 頁面的要求。若要執行此動作，請在文字編輯器中開啟 `setup_web.cmd` 檔案 (位於 Web 角色根目錄的 `bin` 檔案中)，並使用下列指令碼來取代它的內容：
+4.  下一個步驟是定義啟動工作，設定 [Internet Information Services (IIS)][Internet Information Services (IIS)] 使用您的 PHP 執行階段來處理 `.php` 頁面的要求。若要執行此動作，請在文字編輯器中開啟 `setup_web.cmd` 檔案 (位於 Web 角色根目錄的 `bin` 檔案中)，並使用下列指令碼來取代它的內容：
 
         @ECHO ON
         cd "%~dp0"
@@ -132,7 +132,7 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][]�
 
 5.  將應用程式檔案新增至 Web 角色的根目錄。這會是 Web 伺服器的根目錄。
 
-6.  發佈您的應用程式，如以下的[作法：發佈您的應用程式][]一節所說明。
+6.  發佈您的應用程式，如以下的[作法：發佈您的應用程式][作法：發佈您的應用程式]一節所說明。
 
 <div class="dev-callout"> 
 <b>注意</b> 
@@ -143,9 +143,9 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][]�
 
 若要設定背景工作角色以使用您所提供的 PHP 執行階段，請遵循下列步驟。
 
-1.  建立 Azure 服務專案並新增 PHP 背景工作角色，如先前的兩個小節所說明：[作法：建立雲端服務專案][]和[作法：新增 PHP Web 或背景工作角色][作法：新增 PHP Web 和背景工作角色]。
+1.  建立 Azure 服務專案並新增 PHP 背景工作角色，如先前的兩個小節所說明：[作法：建立雲端服務專案][作法：建立雲端服務專案]和[作法：新增 PHP Web 或背景工作角色][作法：新增 PHP Web 和背景工作角色]。
 2.  在背景工作角色的根目錄中建立 `php` 資料夾，然後將 PHP 執行階段 (所有的二進位檔、組態檔、子資料夾等) 新增至 `php` 資料夾。
-3.  (選用) 如果您的 PHP 執行階段使用[適用於 PHP for SQL Server 的 Microsoft 驅動程式][]，您就必須設定背景工作角色，使其在進行佈建時安裝 [SQL Server Native Client 2012][]。若要執行此動作，請將 `sqlncli.msi` 安裝程式新增至背景工作角色的根目錄。您可以在下列位置下載此安裝程式：[sqlncli.msi x64 安裝程式][]。下一個步驟中說明的啟動指令碼，將會在角色進行佈建時以無訊息方式執行安裝程式。如果您的 PHP 執行階段並未使用適用於 PHP for SQL Server 的 Microsoft 驅動程式，您可以從下一個步驟所顯示的指令碼中移除以下一行：
+3.  (選用) 如果您的 PHP 執行階段使用[適用於 PHP for SQL Server 的 Microsoft 驅動程式][適用於 PHP for SQL Server 的 Microsoft 驅動程式]，您就必須設定背景工作角色，使其在進行佈建時安裝 [SQL Server Native Client 2012][SQL Server Native Client 2012]。若要執行此動作，請將 `sqlncli.msi` 安裝程式新增至背景工作角色的根目錄。您可以在下列位置下載此安裝程式：[sqlncli.msi x64 安裝程式][sqlncli.msi x64 安裝程式]。下一個步驟中說明的啟動指令碼，將會在角色進行佈建時以無訊息方式執行安裝程式。如果您的 PHP 執行階段並未使用適用於 PHP for SQL Server 的 Microsoft 驅動程式，您可以從下一個步驟所顯示的指令碼中移除以下一行：
 
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
@@ -178,11 +178,11 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][]�
 
 5.  將應用程式檔案新增至背景工作角色的根目錄。
 
-6.  發佈您的應用程式，如以下的[作法：發佈您的應用程式][]一節所說明。
+6.  發佈您的應用程式，如以下的[作法：發佈您的應用程式][作法：發佈您的應用程式]一節所說明。
 
 ## <a name="Emulators"></a>作法：在計算和儲存模擬器中執行您的應用程式
 
-Azure 計算和儲存模擬器所提供的本機環境，可讓您在 Azure 應用程式部署至雲端前先加以測試。模擬器與 Azure 環境之間有若干差異。若要進一步了解，請參閱[計算模擬器與 Azure 之間的差異][]和[儲存模擬器與 Azure 儲存服務之間的差異][]。
+Azure 計算和儲存模擬器所提供的本機環境，可讓您在 Azure 應用程式部署至雲端前先加以測試。模擬器與 Azure 環境之間有若干差異。若要進一步了解，請參閱[計算模擬器與 Azure 之間的差異][計算模擬器與 Azure 之間的差異]和[儲存模擬器與 Azure 儲存服務之間的差異][儲存模擬器與 Azure 儲存服務之間的差異]。
 
 請注意，您必須在本機安裝 PHP，才能使用計算模擬器。計算模擬器會使用您的本機 PHP 安裝執行您的應用程式。
 
@@ -205,7 +205,7 @@ Azure 計算和儲存模擬器所提供的本機環境，可讓您在 Azure 應�
 
 ## <a name="Publish"></a>作法：發行您的應用程式
 
-若要發佈您的應用程式，您必須先使用 **Import-PublishSettingsFile** Cmdlet 匯入發佈設定，接著，您可以使用 **Publish-AzureServiceProject** Cmdlet 發佈您的應用程式。如需這兩個 Cmdlet 的使用方式詳細資料，請分別參閱[作法：匯入發佈設定][]和[作法：將雲端服務部署至 Azure][]。
+若要發佈您的應用程式，您必須先使用 **Import-PublishSettingsFile** Cmdlet 匯入發佈設定，接著，您可以使用 **Publish-AzureServiceProject** Cmdlet 發佈您的應用程式。如需這兩個 Cmdlet 的使用方式詳細資料，請分別參閱[作法：匯入發佈設定][作法：匯入發佈設定]和[作法：將雲端服務部署至 Azure][作法：將雲端服務部署至 Azure]。
 
   [什麼是 PHP Web 和背景工作角色？]: #WhatIs
   [下載 Azure SDK for PHP]: #DownloadSdk

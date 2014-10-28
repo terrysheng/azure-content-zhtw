@@ -4,22 +4,22 @@
 
 # 如何透過 Twilio 來使用 Azure 的語音和簡訊功能
 
-本指南示範如何在 Azure 上透過 Twilio API 服務執行常見的程式設計工作。涵蓋的案例包括打電話和傳送簡訊 (SMS)。如需有關如何在應用程式中使用 Twilio 語音和 SMS 的詳細資訊，請參閱＜[後續步驟][]＞一節。
+本指南示範如何在 Azure 上透過 Twilio API 服務執行常見的程式設計工作。涵蓋的案例包括打電話和傳送簡訊 (SMS)。如需有關如何在應用程式中使用 Twilio 語音和 SMS 的詳細資訊，請參閱＜[後續步驟][後續步驟]＞一節。
 
 ## 目錄
 
--   [什麼是 Twilio？][]
--   [Twilio 定價][]
--   [概念][]
--   [建立 Twilio 帳戶][]
--   [驗證電話號碼][]
--   [建立 Azure 應用程式][]
--   [設定應用程式來使用 Twilio 程式庫][]
--   [作法：撥出電話][]
--   [作法：傳送簡訊][]
--   [作法：從您自己的網站提供 TwiML 回應][]
--   [作法：使用其他 Twilio 服務][]
--   [後續步驟][]
+-   [什麼是 Twilio？][什麼是 Twilio？]
+-   [Twilio 定價][Twilio 定價]
+-   [概念][概念]
+-   [建立 Twilio 帳戶][建立 Twilio 帳戶]
+-   [驗證電話號碼][驗證電話號碼]
+-   [建立 Azure 應用程式][建立 Azure 應用程式]
+-   [設定應用程式來使用 Twilio 程式庫][設定應用程式來使用 Twilio 程式庫]
+-   [作法：撥出電話][作法：撥出電話]
+-   [作法：傳送簡訊][作法：傳送簡訊]
+-   [作法：從您自己的網站提供 TwiML 回應][作法：從您自己的網站提供 TwiML 回應]
+-   [作法：使用其他 Twilio 服務][作法：使用其他 Twilio 服務]
+-   [後續步驟][後續步驟]
 
 ## <span id="WhatIs"></span></a>什麼是 Twilio？
 
@@ -29,13 +29,13 @@ Twilio 正在形塑商業環境的未來，可讓開發人員將語音、VoIP �
 
 ## <span id="Pricing"></span></a>Twilio 定價和特別優惠
 
-Azure 客戶享有[特別優惠][]：升級 Twilio 帳戶即贈送價值 $10 的 Twilio 點數。此 Twilio 點數可用來折抵任何 Twilio 使用量 ($10 點數相當於最多傳送 1,000 則簡訊，或最多接收 1000 分鐘的撥入語音，視電話號碼所在地點或通話目的地而定)。請至 [ahoy.twilio.com/azure][] 兌換 Twilio 點數來開始使用。
+Azure 客戶享有[特別優惠][特別優惠]：升級 Twilio 帳戶即贈送價值 $10 的 Twilio 點數。此 Twilio 點數可用來折抵任何 Twilio 使用量 ($10 點數相當於最多傳送 1,000 則簡訊，或最多接收 1000 分鐘的撥入語音，視電話號碼所在地點或通話目的地而定)。請至 [ahoy.twilio.com/azure][ahoy.twilio.com/azure] 兌換 Twilio 點數來開始使用。
 
 Twilio 是隨收隨付的服務。不需要設定費，隨時都可結清帳戶。如需詳細資訊，請參閱＜[Twilio 定價][1]＞(英文)。
 
 ## <span id="Concepts"></span></a> 概念
 
-Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。用戶端程式庫有多種語言版本，相關清單請參閱＜[Twilio API 程式庫][]＞(英文)。
+Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。用戶端程式庫有多種語言版本，相關清單請參閱＜[Twilio API 程式庫][Twilio API 程式庫]＞(英文)。
 
 Twilio API 的兩大重點是 Twilio 動詞和 Twilio 標記語言 (TwiML)。
 
@@ -43,7 +43,7 @@ Twilio API 的兩大重點是 Twilio 動詞和 Twilio 標記語言 (TwiML)。
 
 API 採用 Twilio 動詞。例如，**\<Say\>** 動詞指示 Twilio 在通話中用語音傳遞訊息。
 
-以下是 Twilio 動詞清單。如需了解其他動詞和功能，請參閱＜[Twilio 標記語言文件][]＞(英文)。
+以下是 Twilio 動詞清單。如需了解其他動詞和功能，請參閱＜[Twilio 標記語言文件][Twilio 標記語言文件]＞(英文)。
 
 -   **\<Dial\>**：使撥號者接通另一支電話。
 -   **\<Gather\>**：收集電話按鍵上輸入的號碼。
@@ -69,24 +69,24 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 
 當應用程式呼叫 Twilio API 時，其中一個 API 參數是傳回 TwiML 回應的 URL。在開發用途上，您可以使用 Twilio 提供的 URL 來提供應用程式所使用的 TwiML 回應。您也可以裝載您自己的 URL 來產生 TwiML 回應，另一種選擇是使用 **TwiMLResponse** 物件。
 
-如需 Twilio 動詞、屬性和 TwiML 的詳細資訊，請參閱 [TwiML][Twilio 標記語言文件]。如需 Twilio API 的詳細資訊，請參閱 [Twilio API][]。
+如需 Twilio 動詞、屬性和 TwiML 的詳細資訊，請參閱 [TwiML][Twilio 標記語言文件]。如需 Twilio API 的詳細資訊，請參閱 [Twilio API][Twilio API]。
 
 ## <span id="CreateAccount"></span></a>建立 Twilio 帳戶
 
-準備取得 Twilio 帳戶時，請至[試用 Twilio][] 註冊。您可以先使用免費帳戶，稍後再升級帳戶。
+準備取得 Twilio 帳戶時，請至[試用 Twilio][試用 Twilio] 註冊。您可以先使用免費帳戶，稍後再升級帳戶。
 
-註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面][] (英文) 的 **ACCOUNT SID** 和 **AUTH TOKEN** 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
+註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面][Twilio 帳戶頁面] (英文) 的 **ACCOUNT SID** 和 **AUTH TOKEN** 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
 
 ## <span id="VerifyPhoneNumbers"></span></a>驗證電話號碼
 
-各種電話號碼都必須經過您在 Twilio 的帳戶來驗證。例如，如果想要向外撥打電話，則必須向 Twilio 驗證此電話號碼為外撥來電者識別碼。同樣地，如果想要以某個電話號碼來接收簡訊，則必須向 Twilio 驗證此受話電話號碼。如需有關如何驗證電話號碼的詳細資訊，請參閱＜[管理電話號碼][]＞(英文)。以下某些程式碼依賴需要向 Twilio 驗證的電話號碼。
+各種電話號碼都必須經過您在 Twilio 的帳戶來驗證。例如，如果想要向外撥打電話，則必須向 Twilio 驗證此電話號碼為外撥來電者識別碼。同樣地，如果想要以某個電話號碼來接收簡訊，則必須向 Twilio 驗證此受話電話號碼。如需有關如何驗證電話號碼的詳細資訊，請參閱＜[管理電話號碼][管理電話號碼]＞(英文)。以下某些程式碼依賴需要向 Twilio 驗證的電話號碼。
 
-除了在應用程式中使用現有的電話號碼，您也可以購買 Twilio 電話號碼。如需有關購買 Twilio 電話號碼的詳細資訊，請參閱＜[Twilio 電話號碼說明][]＞(英文)。
+除了在應用程式中使用現有的電話號碼，您也可以購買 Twilio 電話號碼。如需有關購買 Twilio 電話號碼的詳細資訊，請參閱＜[Twilio 電話號碼說明][Twilio 電話號碼說明]＞(英文)。
 
 ## <span id="create_app"></span></a>建立 Azure 應用程式
 
 裝載已啟用 Twilio 功能之應用程式的 Azure 應用程式，與其他任何 Azure 應用程式並無不同。只要新增 Twilio .NET 程式庫並設定角色來使用 Twilio .NET 程式庫即可。
-如需建立初始 Azure 專案的詳細資訊，請參閱[使用 Visual Studio 建立 Azure 專案][]。
+如需建立初始 Azure 專案的詳細資訊，請參閱[使用 Visual Studio 建立 Azure 專案][使用 Visual Studio 建立 Azure 專案]。
 
 ## <span id="configure_app"></span></a>設定應用程式來使用 Twilio 程式庫
 
@@ -186,7 +186,7 @@ Twilio.Client.Capability
 
 本指南提供的範例使用 Twilio.API 程式庫。
 
-程式庫可以[使用 NuGet 封裝管理員延伸模組][] (適用於 Visual Studio 2010 和 2012) 來安裝。原始程式碼可裝載於 [GitHub][]，它包含一個 Wiki，提供完整的程式庫使用說明文件。
+程式庫可以[使用 NuGet 封裝管理員延伸模組][使用 NuGet 封裝管理員延伸模組] (適用於 Visual Studio 2010 和 2012) 來安裝。原始程式碼可裝載於 [GitHub][GitHub]，它包含一個 Wiki，提供完整的程式庫使用說明文件。
 
 依預設，Microsoft Visual Studio 2010 會安裝 NuGet 1.2 版。安裝 Twilio 程式庫需要有 NuGet 1.6 版或更新版本。如需有關安裝或更新 NuGet 的詳細資訊，請參閱 [][]<http://nuget.org/></a>。
 
@@ -264,7 +264,7 @@ Twilio.Client.Capability
 
 ## <span id="howto_provide_twiml_responses"></span></a>作法：從您自己的網站提供 TwiML 回應
 
-當應用程式開始呼叫 Twilio API 時 (例如，透過 **client.InitiateOutboundCall** 方法)，Twilio 會傳送要求至 URL，然後應該會傳回 TwiML 回應。[作法：撥出電話][]中的範例使用 Twilio 提供的 URL [][3]<http://twimlets.com/message></a> 來傳回回應。
+當應用程式開始呼叫 Twilio API 時 (例如，透過 **client.InitiateOutboundCall** 方法)，Twilio 會傳送要求至 URL，然後應該會傳回 TwiML 回應。[作法：撥出電話][作法：撥出電話]中的範例使用 Twilio 提供的 URL [][3]<http://twimlets.com/message></a> 來傳回回應。
 
 <div class="dev-callout">
 <b>注意</b></div>
@@ -357,9 +357,9 @@ Twilio.Client.Capability
     // Place the call.
     var call = client.InitiateOutboundCall(options);
 
-如需有關在 Azure with ASP.NET 上使用 Twilio 的詳細資訊，請參閱＜[如何在 Azure 的 Web 角色中使用 Twilio 來撥打電話][]＞。
+如需有關在 Azure with ASP.NET 上使用 Twilio 的詳細資訊，請參閱＜[如何在 Azure 的 Web 角色中使用 Twilio 來撥打電話][如何在 Azure 的 Web 角色中使用 Twilio 來撥打電話]＞。
 
-[WACOM.INCLUDE [twilio\_additional\_services\_and\_next\_steps][]]
+[WACOM.INCLUDE [twilio\_additional\_services\_and\_next\_steps][twilio\_additional\_services\_and\_next\_steps]]
 
   [後續步驟]: #NextSteps
   [什麼是 Twilio？]: #WhatIs

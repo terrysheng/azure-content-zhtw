@@ -10,24 +10,24 @@
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 
--   [設定 Nokia 通知服務][]
--   [設定您的通知中心][]
--   [將您的應用程式連接到通知中心][]
--   [如何傳送通知至應用程式][]
--   [測試應用程式][]
+-   [設定 Nokia 通知服務][設定 Nokia 通知服務]
+-   [設定您的通知中心][設定您的通知中心]
+-   [將您的應用程式連接到通知中心][將您的應用程式連接到通知中心]
+-   [如何傳送通知至應用程式][如何傳送通知至應用程式]
+-   [測試應用程式][測試應用程式]
 
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。</p></div>
+<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。</p></div>
 
 本教學課程需要下列各項：
 
-1.  Nokia X 開發環境，您可依照[此處][]的指示進行設定。請務必依照下列指示安裝 Nokia X 特定套件，並設定 Nokia X 模擬器。
+1.  Nokia X 開發環境，您可依照[此處][此處]的指示進行設定。請務必依照下列指示安裝 Nokia X 特定套件，並設定 Nokia X 模擬器。
 2.  Nokia X 裝置設定 (選擇性)，您可依照[此處][1]的指示進行設定。
 3.  Android SDK (假設您將使用 Eclipse)，您可以從[此處][2]下載。
 4.  行動服務 Android SDK，您可以從[此處][3]<a>下載。
 
 ## <span id="register"></span></a>設定 Nokia 通知服務
 
-1.  登入 [Nokia 通知 API 開發人員主控台][]
+1.  登入 [Nokia 通知 API 開發人員主控台][Nokia 通知 API 開發人員主控台]
 
 2.  移至 [建立服務] 索引標籤，並透過提供 [寄件者識別碼] 和 [服務描述] 建立新的服務
 
@@ -39,11 +39,11 @@
 
     ![][4]
 
-5.  如需詳細資料，請參閱本[連結][]。
+5.  如需詳細資料，請參閱本[連結][連結]。
 
 ## <span id="configure-hub"></span></a>設定您的通知中心
 
-1.  登入 [Azure 管理入口網站][]，並按一下畫面底部的 **[+新增]**。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，並按一下畫面底部的 **[+新增]**。
 
 2.  依序按一下 **[App Services]**、**[服務匯流排]**、**[Notification Hub]**、**[快速建立]**。
 
@@ -296,13 +296,13 @@
 
 ## <a name="send"></a>如何傳送通知至應用程式
 
-您可以從任何使用 [REST 介面][]的後端中，透過通知中心來傳送通知。在本教學課程中，我們將使用 .NET 主控台應用程式加以說明。
+您可以從任何使用 [REST 介面][REST 介面]的後端中，透過通知中心來傳送通知。在本教學課程中，我們將使用 .NET 主控台應用程式加以說明。
 
-1.  建立新的 Visual C\# 主控台應用程式：
+1.  建立新的 Visual C# 主控台應用程式：
 
     ![][14]
 
-2.  使用 [WindowsAzure.ServiceBus NuGet 封裝][]來新增 Azure 服務匯流排 SDK 的參照。在 Visual Studio 主功能表中，依序按一下 [工具]、[Library Package Manager]、[Package Manager Console]。接著，在主控台視窗中，輸入下列程式碼並按 Enter 鍵：
+2.  使用 [WindowsAzure.ServiceBus NuGet 封裝][WindowsAzure.ServiceBus NuGet 封裝]來新增 Azure 服務匯流排 SDK 的參照。在 Visual Studio 主功能表中，依序按一下 [工具]、[Library Package Manager]、[Package Manager Console]。接著，在主控台視窗中，輸入下列程式碼並按 Enter 鍵：
 
         Install-Package WindowsAzure.ServiceBus
 
@@ -357,7 +357,7 @@
   [將您的應用程式連接到通知中心]: #connect-hub
   [如何傳送通知至應用程式]: #send
   [測試應用程式]: #test-app
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [此處]: http://developer.nokia.com/resources/library/nokia-x/getting-started/environment-setup.html
   [1]: http://developer.nokia.com/resources/library/nokia-x/getting-started/device-setup.html
   [2]: http://go.microsoft.com/fwlink/?linkid=389797&clcid=0x409
@@ -377,6 +377,6 @@
   [11]: ./media/notification-hubs-nokia-x-get-started/NewAndroidApp.png
   [12]: ./media/notification-hubs-nokia-x-get-started/AndroidBuildTarget.png
   [13]: ./media/notification-hubs-nokia-x-get-started/NewJavaClass.png
-  [REST 介面]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+  [REST 介面]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn223264.aspx
   [14]: ./media/notification-hubs-nokia-x-get-started/ConsoleProject.png
   [WindowsAzure.ServiceBus NuGet 封裝]: http://nuget.org/packages/WindowsAzure.ServiceBus/

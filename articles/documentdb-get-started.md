@@ -4,26 +4,26 @@
 
 # 開始使用 DocumentDB 帳戶
 
-本指南示範如何開始使用 **Azure DocumentDB (預覽)**。相關範例是以 C\# 程式碼撰寫並使用 DocumentDB .NET SDK。涵蓋的案例包括建立和設定 DocumentDB 帳戶、建立資料庫、建立集合，以及將 JSON 文件儲存在帳戶內。如需使用 Azure DocumentDB 的詳細資訊，請參閱＜後續步驟＞一節。
+本指南示範如何開始使用 **Azure DocumentDB (預覽)**。相關範例是以 C# 程式碼撰寫並使用 DocumentDB .NET SDK。涵蓋的案例包括建立和設定 DocumentDB 帳戶、建立資料庫、建立集合，以及將 JSON 文件儲存在帳戶內。如需使用 Azure DocumentDB 的詳細資訊，請參閱＜後續步驟＞一節。
 
 若要使用此入門指南，您必須有 DocumentDB 帳戶和帳戶的存取金鑰 (主要或次要)。如需詳細資訊，請參閱：
 
--   [建立 Document DB 帳戶][]
+-   [建立 Document DB 帳戶][建立 Document DB 帳戶]
 
 ## 目錄
 
--   [連接到 DocumentDB 帳戶][]
--   [建立資料庫][]
--   [建立集合][]
--   [建立文件][]
--   [查詢 DocumentDB 資源][]
--   [後續步驟][]
+-   [連接到 DocumentDB 帳戶][連接到 DocumentDB 帳戶]
+-   [建立資料庫][建立資料庫]
+-   [建立集合][建立集合]
+-   [建立文件][建立文件]
+-   [查詢 DocumentDB 資源][查詢 DocumentDB 資源]
+-   [後續步驟][後續步驟]
 
 ## <span id="Connect"></span></a>連接到 DocumentDB 帳戶
 
-有各種 SDK 和 API 可供透過程式設計來使用 DocumentDB。下列範例以 C\# 程式碼顯示並使用 DocumentDB .NET SDK。
+有各種 SDK 和 API 可供透過程式設計來使用 DocumentDB。下列範例以 C# 程式碼顯示並使用 DocumentDB .NET SDK。
 
-我們一開始先建立 DocumentClient，以建立 DocumentDB 帳戶的連線。我們的 C\# 應用程式中需要有下列參考：
+我們一開始先建立 DocumentClient，以建立 DocumentDB 帳戶的連線。我們的 C# 應用程式中需要有下列參考：
 
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
@@ -45,7 +45,7 @@
     //Create a new instance of the DocumentClient
     var client = new DocumentClient(new Uri(endpointUrl), authorizationKey);  
 
-**警告：**請勿將認證儲存在原始程式碼中。為了讓這個範例簡單明瞭，原始程式碼中顯示認證。請參閱 [Windows Azure 網站：應用程式字串與連接字串的運作方式][] (英文) 以取得如何儲存認證的詳細資訊。
+**警告：**請勿將認證儲存在原始程式碼中。為了讓這個範例簡單明瞭，原始程式碼中顯示認證。請參閱 [Windows Azure 網站：應用程式字串與連接字串的運作方式][Windows Azure 網站：應用程式字串與連接字串的運作方式] (英文) 以取得如何儲存認證的詳細資訊。
 
 現在，您已知道如何連接到 DocumentDB 帳戶和建立 DocumentClient 的執行個體，接下來說明使用 DocumentDB 資源。
 
@@ -186,8 +186,8 @@ DocumentDB 對每個集合中儲存的 JSON 文件，支援豐富的查詢。以
 
 ## <span id="NextSteps"></span></a>後續步驟
 
--   了解如何[監視 DocumentDB 帳戶][] (英文)。
--   如需程式設計模型的詳細資訊，請參閱 [DocumentDB 文件頁面][]的＜開發＞一節
+-   了解如何[監視 DocumentDB 帳戶][監視 DocumentDB 帳戶] (英文)。
+-   如需程式設計模型的詳細資訊，請參閱 [DocumentDB 文件頁面][DocumentDB 文件頁面]的＜開發＞一節
 
   [建立 Document DB 帳戶]: ../documentdb-create-account/
   [連接到 DocumentDB 帳戶]: #Connect

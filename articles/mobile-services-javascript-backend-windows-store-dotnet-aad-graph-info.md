@@ -13,40 +13,40 @@
 <a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/" title="JavaScript 後端" class="current">JavaScript 後端</a>
 </div>
 
-如同其他隨行動服務提供的身分識別提供者，Azure Active Directory (AAD) 提供者也支援豐富的[圖形 API][]，可用於對目錄的程式設計存取。在本教學課程中，您會根據使用[圖形 API][] 從目錄中擷取的其他使用者資訊來更新 ToDoList 應用程式，以個人化已驗證的使用者應用程式體驗。
+如同其他隨行動服務提供的身分識別提供者，Azure Active Directory (AAD) 提供者也支援豐富的[圖形 API][圖形 API]，可用於對目錄的程式設計存取。在本教學課程中，您會根據使用[圖形 API][圖形 API] 從目錄中擷取的其他使用者資訊來更新 ToDoList 應用程式，以個人化已驗證的使用者應用程式體驗。
 
-> [WACOM.NOTE] 本教學課程的目的是要擴充您使用 Azure Active Directory 進行驗證的知識。您應已使用 Azure Active Directory 驗證提供者完成[開始使用驗證][]教學課程。本教學課程接著將更新[開始使用驗證][]教學課程中使用的 TodoItem 應用程式。
+> [WACOM.NOTE] 本教學課程的目的是要擴充您使用 Azure Active Directory 進行驗證的知識。您應已使用 Azure Active Directory 驗證提供者完成[開始使用驗證][開始使用驗證]教學課程。本教學課程接著將更新[開始使用驗證][開始使用驗證]教學課程中使用的 TodoItem 應用程式。
 
 本教學課程將逐步引導您完成下列步驟：
 
-1.  [在 AAD 中產生應用程式註冊的存取金鑰][]
-2.  [建立 GetUserInfo 自訂 API][]
-3.  [更新應用程式以使用自訂 API][]
-4.  [測試應用程式][]
+1.  [在 AAD 中產生應用程式註冊的存取金鑰][在 AAD 中產生應用程式註冊的存取金鑰]
+2.  [建立 GetUserInfo 自訂 API][建立 GetUserInfo 自訂 API]
+3.  [更新應用程式以使用自訂 API][更新應用程式以使用自訂 API]
+4.  [測試應用程式][測試應用程式]
 
 ## 必要條件
 
 在開始本教學課程之前，您必須已完成下列行動服務教學課程：
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     將登入需求新增至 TodoList 範例應用程式。
 
--   [自訂 API 教學課程][]
+-   [自訂 API 教學課程][自訂 API 教學課程]
     說明如何呼叫自訂 API。
 
 ## <a name="generate-key"></a>在 AAD 中產生應用程式註冊的存取金鑰
 
-在進行[開始使用驗證][]教學課程期間，您已在完成[註冊使用 Azure Active Directory 登入][]步驟時，為整合的應用程式建立註冊。在本節中，您將產生在使用該整合的應用程式用戶端識別碼讀取目錄資訊時所將使用的金鑰。
+在進行[開始使用驗證][開始使用驗證]教學課程期間，您已在完成[註冊使用 Azure Active Directory 登入][註冊使用 Azure Active Directory 登入]步驟時，為整合的應用程式建立註冊。在本節中，您將產生在使用該整合的應用程式用戶端識別碼讀取目錄資訊時所將使用的金鑰。
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key][]]
+[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 ## <a name="create-api"></a>建立 GetUserInfo 自訂 API
 
-在本節中，您將建立 GetUserInfo 自訂 API，以使用[圖形 REST API][] 從 AAD 擷取使用者的其他相關資訊。
+在本節中，您將建立 GetUserInfo 自訂 API，以使用[圖形 REST API][圖形 REST API] 從 AAD 擷取使用者的其他相關資訊。
 
-如果您未曾搭配使用自訂 API 與行動服務，您應考慮先參閱[自訂 API 教學課程][]，再開始執行本節步驟。
+如果您未曾搭配使用自訂 API 與行動服務，您應考慮先參閱[自訂 API 教學課程][自訂 API 教學課程]，再開始執行本節步驟。
 
-1.  在 [Azure 管理入口網站][]中，為您的行動服務建立新的 GetUserInfo 自訂 API，然後將 get 方法的參數設為 [僅限通過驗證的使用者]。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站]中，為您的行動服務建立新的 GetUserInfo 自訂 API，然後將 get 方法的參數設為 [僅限通過驗證的使用者]。
 
     ![][]
 
@@ -96,7 +96,7 @@
             });
         };
 
-    此函數是圖形 REST API 的[取得使用者][]端點附近的精簡型包裝函式。它會使用圖形存取權杖和使用者的物件識別碼，來取得使用者資訊。
+    此函數是圖形 REST API 的[取得使用者][取得使用者]端點附近的精簡型包裝函式。它會使用圖形存取權杖和使用者的物件識別碼，來取得使用者資訊。
 
 5.  依照下列方式使用其他函數更新匯出的 `get` 方法，以傳回使用者資訊。
 
@@ -129,21 +129,21 @@
 
 ## <a name="update-app"></a>更新應用程式以使用 GetUserInfo
 
-在本節中，您會更新您在[開始使用驗證][]教學課程中實作的 `AuthenticateAsync` 方法，以呼叫自訂 API 並從 AAD 傳回使用者的其他相關資訊。
+在本節中，您會更新您在[開始使用驗證][開始使用驗證]教學課程中實作的 `AuthenticateAsync` 方法，以呼叫自訂 API 並從 AAD 傳回使用者的其他相關資訊。
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-update-app][]]
+[WACOM.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
 
 ## <a name="test-app"></a>測試應用程式
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-test-app][]]
+[WACOM.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
-在下一個教學課程[行動服務中使用 AAD 的角色型存取控制][]中，您將會搭配使用角色型存取控制與 Azure Active Directory (AAD) 來檢查群組成員資格，然後允許存取。
+在下一個教學課程[行動服務中使用 AAD 的角色型存取控制][行動服務中使用 AAD 的角色型存取控制]中，您將會搭配使用角色型存取控制與 Azure Active Directory (AAD) 來檢查群組成員資格，然後允許存取。
 
 <!-- Anchors. --> <!-- Images --> <!-- URLs. -->
 
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-aad-graph-info/ "Windows 市集 C#"
+  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-aad-graph-info/ "Windows 市集 C#"
   [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/ ".NET 後端"
   [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/ "JavaScript 後端"
   [圖形 API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
@@ -155,10 +155,10 @@
   [自訂 API 教學課程]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
   [註冊使用 Azure Active Directory 登入]: /zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
-  [圖形 REST API]: http://msdn.microsoft.com/en-us/library/azure/hh974478.aspx
+  [圖形 REST API]: http://msdn.microsoft.com/zh-tw/library/azure/hh974478.aspx
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   []: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png
-  [取得使用者]: http://msdn.microsoft.com/en-us/library/azure/dn151678.aspx
+  [取得使用者]: http://msdn.microsoft.com/zh-tw/library/azure/dn151678.aspx
   [mobile-services-aad-graph-info-update-app]: ../includes/mobile-services-aad-graph-info-update-app.md
   [mobile-services-aad-graph-info-test-app]: ../includes/mobile-services-aad-graph-info-test-app.md
   [行動服務中使用 AAD 的角色型存取控制]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/

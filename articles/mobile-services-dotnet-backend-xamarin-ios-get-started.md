@@ -4,11 +4,11 @@
 
 # <a name="getting-started"> </a>開始使用行動服務
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到 Xamarin iOS 應用程式。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單*待辦事項*應用程式。您所將建立的行動服務，會使用 Visual Studio 與支援的 .NET 語言撰寫伺服器端商務邏輯，並管理行動服務。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 後端版本][]。
+本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到 Xamarin iOS 應用程式。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單*待辦事項*應用程式。您所將建立的行動服務，會使用 Visual Studio 與支援的 .NET 語言撰寫伺服器端商務邏輯，並管理行動服務。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 後端版本][JavaScript 後端版本]。
 
-> [WACOM.NOTE]本主題將說明如何使用 Azure 管理入口網站建立新的行動服務專案。使用 Visual Studio 2013 Update 2，可讓您將新的行動服務專案新增至現有的 Visual Studio 方案。如需詳細資訊，請參閱 Windows 開發人員中心的[快速入門：新增行動服務 (.NET 後端)][]
+> [WACOM.NOTE]本主題將說明如何使用 Azure 管理入口網站建立新的行動服務專案。使用 Visual Studio 2013 Update 2，可讓您將新的行動服務專案新增至現有的 Visual Studio 方案。如需詳細資訊，請參閱 Windows 開發人員中心的[快速入門：新增行動服務 (.NET 後端)][快速入門：新增行動服務 (.NET 後端)]
 
 以下是完成應用程式的螢幕擷取畫面：
 
@@ -16,12 +16,12 @@
 
 完成本教學課程是 Xamarin iOS 應用程式所有其他行動服務教學課程的先決條件。
 
-> [WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
-> 本教學課程需要 [Visual Studio Professional 2013][]。您可以使用免費試用版。
+> [WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][Azure 免費試用]。
+> 本教學課程需要 [Visual Studio Professional 2013][Visual Studio Professional 2013]。您可以使用免費試用版。
 
 ## 建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## 建立新的 Xamarin iOS 應用程式
 
@@ -39,9 +39,9 @@
 
     ![][2]
 
-3.  在您的本機電腦或虛擬機器下載並安裝 [Visual Studio Professional 2013][] (如果您尚未這麼做)。
+3.  在您的本機電腦或虛擬機器下載並安裝 [Visual Studio Professional 2013][Visual Studio Professional 2013] (如果您尚未這麼做)。
 
-4.  下載並安裝 [Xcode][] v4.4 或更新版本和 [Xamarin Studio][]。您也可以使用 Xamarin for Visual Studio。
+4.  下載並安裝 [Xcode][Xcode] v4.4 或更新版本和 [Xamarin Studio][Xamarin Studio]。您也可以使用 Xamarin for Visual Studio。
 
 5.  在 [Download and publish your service to the cloud] 下選取 [iOS]，然後按一下 [下載]。
 
@@ -51,11 +51,11 @@
 
 ## 測試行動服務
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ## 發佈行動服務
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## 執行 Xamarin iOS 應用程式
 
@@ -75,25 +75,25 @@
 
     如此會傳送 POST 要求到 Azure 中代管的新行動服務。</cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">要求中的資料會插入</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> TodoItem </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">資料表中。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"></cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">行動服務會傳回資料表中儲存的項目，而該資料會顯示在清單中。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">
 
-> [WACOM.NOTE]您可以在 QSTodoService.cs C\# 檔案中檢閱存取行動服務以查詢和插入資料的程式碼。
+> [WACOM.NOTE]您可以在 QSTodoService.cs C# 檔案中檢閱存取行動服務以查詢和插入資料的程式碼。
 
 ## 後續步驟
 
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何向身分識別提供者驗證應用程式的使用者。
 
--   [開始使用推播通知][]
+-   [開始使用推播通知][開始使用推播通知]
     了解如何將極為基本的推播通知傳送到應用程式。
 
 <!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [JavaScript 後端版本]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started
-  [快速入門：新增行動服務 (.NET 後端)]: http://msdn.microsoft.com/en-us/library/windows/apps/dn629482.aspx
+  [快速入門：新增行動服務 (.NET 後端)]: http://msdn.microsoft.com/zh-tw/library/windows/apps/dn629482.aspx
   []: ./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-completed-ios.png
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
   [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
   [1]: ./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-portal-quickstart-xamarin-ios.png

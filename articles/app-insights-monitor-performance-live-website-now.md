@@ -18,7 +18,7 @@ Web 應用程式運作不正常嗎？快速診斷例外狀況和效能問題，�
 
 -   您可以對託管於 IIS 伺服器的 ASP.NET 應用程式採取此作法。
 
--   您需要 [Microsoft Azure 帳戶][]，才能查看資料。
+-   您需要 [Microsoft Azure 帳戶][Microsoft Azure 帳戶]，才能查看資料。
 
 -   對於執行 Web 應用程式的伺服器，您需要有管理員存取權。
 
@@ -32,7 +32,7 @@ Web 應用程式運作不正常嗎？快速診斷例外狀況和效能問題，�
 
 1.  在網頁瀏覽器中，以系統管理員認證登入。
 
-2.  請確定您有 [Web Platform Installer][] 5.0 版或更新版本。
+2.  請確定您有 [Web Platform Installer][Web Platform Installer] 5.0 版或更新版本。
 3.  使用 Web Platform Installer 安裝 Application Insights 代理程式。
 
     ![][]
@@ -47,7 +47,7 @@ Web 應用程式運作不正常嗎？快速診斷例外狀況和效能問題，�
 
     通常應該會選擇建立新的資源。
 
-    假設您已設定網站的 [Web 測試][]，則您可能會使用現有的資源。
+    假設您已設定網站的 [Web 測試][Web 測試]，則您可能會使用現有的資源。
 
 6.  請注意，ApplicationInsights.config 已插入至您要監視的網站中。
 
@@ -59,7 +59,7 @@ web.config 也有一些變動。
 
 完成精靈之後，您隨時都可以重新設定代理程式。如果已安裝代理程式，但初始設定有一些問題，則您也可以這樣做。
 
-![Click the Application Insights icon on the task bar][]
+![Click the Application Insights icon on the task bar][Click the Application Insights icon on the task bar]
 
 ## 檢視資料
 
@@ -79,25 +79,25 @@ web.config 也有一些變動。
 
 ## <a name="next"></a>後續步驟
 
-[檢視資料][]
+[檢視資料][檢視資料]
 
-[搜尋診斷記錄][]
+[搜尋診斷記錄][搜尋診斷記錄]
 
-[Web 測試][]
+[Web 測試][Web 測試]
 
-[設定使用情況監視][]
+[設定使用情況監視][設定使用情況監視]
 
-[疑難排解][]
+[疑難排解][疑難排解]
 
 ## 詳細資訊
 
--   [Application Insights][]
+-   [Application Insights][Application Insights]
 -   [將 Application Insights 加入至專案][設定使用情況監視]
--   [立即監視即時 Web 伺服器][]
+-   [立即監視即時 Web 伺服器][立即監視即時 Web 伺服器]
 -   [在 Application Insights 中探索度量][檢視資料]
 -   [診斷記錄搜尋][搜尋診斷記錄]
 -   [使用 Web 測試來追蹤可用性][Web 測試]
--   [使用事件和度量來追蹤使用量][]
+-   [使用事件和度量來追蹤使用量][使用事件和度量來追蹤使用量]
 -   [問與答及疑難排解][疑難排解]
 
 <!--Link references-->

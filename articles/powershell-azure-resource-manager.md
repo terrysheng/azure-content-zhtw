@@ -4,7 +4,7 @@
 
 # 將 Windows PowerShell 與資源管理員搭配使用
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/zh-tw/documentation/articles/xplat-cli-azure-resource-manager.md" title="跨平台 CLI">跨平台 CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-TW/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/zh-TW/documentation/articles/xplat-cli-azure-resource-manager.md" title="跨平台 CLI">跨平台 CLI</a></div>
 
 資源管理員介紹一種看待 Azure 資源的嶄新方式。與其建立並管理個別資源，您首先想像一個複雜的服務，例如，部落格、相片庫、SharePoint 入口網站或 Wiki。使用範本 (服務的資源模型) 建立包含支援此服務所需資源的資源群組。然後，以邏輯單元的方式來管理與部署該資源群組。
 
@@ -16,11 +16,11 @@
 
 在將 Windows PowerShell 與資源管理員搭配使用之前，您必須具備下列項目：
 
--   Windows PowerShell 版本 3.0 或 4.0。若要找出 Windows PowerShell 的版本，請輸入：`$PSVersionTable`然後確認 `PSVersion` 的值為 3.0 或 4.0。若要安裝相容版本，請參閱 [Windows Management Framework 3.0][] 或 [Windows Management Framework 4.0][]。
+-   Windows PowerShell 版本 3.0 或 4.0。若要找出 Windows PowerShell 的版本，請輸入：`$PSVersionTable`然後確認 `PSVersion` 的值為 3.0 或 4.0。若要安裝相容版本，請參閱 [Windows Management Framework 3.0][Windows Management Framework 3.0] 或 [Windows Management Framework 4.0][Windows Management Framework 4.0]。
 
--   Azure PowerShell 0.8.0 或更新版本。若要安裝最新版本，並將它與 Azure 訂閱建立關聯，請參閱[如何安裝和設定 Windows Azure PowerShell][] (英文)。
+-   Azure PowerShell 0.8.0 或更新版本。若要安裝最新版本，並將它與 Azure 訂閱建立關聯，請參閱[如何安裝和設定 Windows Azure PowerShell][如何安裝和設定 Windows Azure PowerShell] (英文)。
 
-本教學課程是專為 Windows PowerShell 初學者所設計的，但它會假設您已了解基本概念，例如模組、Cmdlet 和工作階段。如需 Windows PowerShell 的詳細資訊，請參閱[開始使用 Windows PowerShell][] (英文)。
+本教學課程是專為 Windows PowerShell 初學者所設計的，但它會假設您已了解基本概念，例如模組、Cmdlet 和工作階段。如需 Windows PowerShell 的詳細資訊，請參閱[開始使用 Windows PowerShell][開始使用 Windows PowerShell] (英文)。
 
 若要取得您在本教學課程中任何所見 Cmdlet 的詳細說明，請使用 Get-Help Cmdlet。
 
@@ -32,21 +32,21 @@
 
 ## 本教學課程內容
 
--   [關於 Azure Powershell 模組][]
--   [建立資源群組][]
--   [管理資源群組][]
--   [疑難排解資源群組][]
--   [後續步驟][]
+-   [關於 Azure Powershell 模組][關於 Azure Powershell 模組]
+-   [建立資源群組][建立資源群組]
+-   [管理資源群組][管理資源群組]
+-   [疑難排解資源群組][疑難排解資源群組]
+-   [後續步驟][後續步驟]
 
 ## <span id="about"></span></a>關於 Azure Powershell 模組
 
 自 0.8.0 版開始，Azure PowerShell 安裝包括三個 Windows PowerShell 模組：
 
--   **Azure**：包括管理個別資源 (例如，儲存體帳戶、網站、資料庫、虛擬機器和媒體服務) 的傳統 Cmdlet。如需詳細資訊，請參閱 [Azure 服務管理 Cmdlet][]。
+-   **Azure**：包括管理個別資源 (例如，儲存體帳戶、網站、資料庫、虛擬機器和媒體服務) 的傳統 Cmdlet。如需詳細資訊，請參閱 [Azure 服務管理 Cmdlet][Azure 服務管理 Cmdlet]。
 
--   **AzureResourceManager**：包括建立、管理和部署資源群組之 Azure 資源的 Cmdlet。如需詳細資訊，請參閱 [Azure 資源管理員 Cmdlet][]。
+-   **AzureResourceManager**：包括建立、管理和部署資源群組之 Azure 資源的 Cmdlet。如需詳細資訊，請參閱 [Azure 資源管理員 Cmdlet][Azure 資源管理員 Cmdlet]。
 
--   **AzureProfile**：包括通用於這兩個模組的 Cmdlet，例如，Add-AzureAccount、Get-AzureSubscription 和 Switch-AzureMode。如需詳細資訊，請參閱 [Azure 設定檔 Cmdlet][]。
+-   **AzureProfile**：包括通用於這兩個模組的 Cmdlet，例如，Add-AzureAccount、Get-AzureSubscription 和 Switch-AzureMode。如需詳細資訊，請參閱 [Azure 設定檔 Cmdlet][Azure 設定檔 Cmdlet]。
 
 > [ WACOM.NOTE] Azure 資源管理員模組目前為預覽版。它可能沒有如 Azure 模組所提供的相同管理功能。
 
@@ -64,7 +64,7 @@ Azure 和 Azure 資源管理員模組並非設計用於相同的 Windows PowerSh
 
 依預設，Switch-AzureMode 只會影響目前的工作階段。若要讓切換在所有的 Windows PowerShell 工作階段中生效，請使用 Switch-AzureMode 的 **Global** 參數。
 
-如需 Switch-AzureMode Cmdlet 的說明，請輸入：`Get-Help Switch-AzureMode`，或請參閱 [Switch-AzureMode][]。
+如需 Switch-AzureMode Cmdlet 的說明，請輸入：`Get-Help Switch-AzureMode`，或請參閱 [Switch-AzureMode][Switch-AzureMode]。
 
 若要取得 AzureResourceManager 模組中的 Cmdlet 清單及說明概要，請輸入：
 
@@ -466,30 +466,30 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 若要深入了解如何將 Windows PowerShell 與資源管理員搭配使用：
 
 -   [Azure 資源管理員 Cmdlet][1]：了解如何使用 AzureResourceManager 模組中的 Cmdlet。
--   [使用資源群組管理您的 Azure 資源][]：了解如何在 Azure 管理入口網站中建立和管理資源群組。
--   [將 Azure 跨平台命令列介面與資源管理員搭配使用][]：了解如何使用可在許多作業系統平台上運作的命令列工具來建立和管理資源群組。
--   [Azure 部落格][]：深入了解 Azure 的新功能。
--   [Windows PowerShell 部落格][]：深入了解 Windows PowerShell 的新功能。
--   ["Hey, Scripting Guy!"部落格][]：從 Windows PowerShell 社群中取得實際的秘訣及訣竅。
+-   [使用資源群組管理您的 Azure 資源][使用資源群組管理您的 Azure 資源]：了解如何在 Azure 管理入口網站中建立和管理資源群組。
+-   [將 Azure 跨平台命令列介面與資源管理員搭配使用][將 Azure 跨平台命令列介面與資源管理員搭配使用]：了解如何使用可在許多作業系統平台上運作的命令列工具來建立和管理資源群組。
+-   [Azure 部落格][Azure 部落格]：深入了解 Azure 的新功能。
+-   [Windows PowerShell 部落格][Windows PowerShell 部落格]：深入了解 Windows PowerShell 的新功能。
+-   ["Hey, Scripting Guy!"部落格]["Hey, Scripting Guy!"部落格]：從 Windows PowerShell 社群中取得實際的秘訣及訣竅。
 
-  [Windows PowerShell]: /zh-tw/documentation/articles/powershell-azure-resource-manager.md "Windows PowerShell"
-  [跨平台 CLI]: /zh-tw/documentation/articles/xplat-cli-azure-resource-manager.md "跨平台 CLI"
-  [Windows Management Framework 3.0]: http://www.microsoft.com/en-us/download/details.aspx?id=34595
-  [Windows Management Framework 4.0]: http://www.microsoft.com/en-us/download/details.aspx?id=40855
-  [如何安裝和設定 Windows Azure PowerShell]: http://www.windowsazure.com/zh-tw/documentation/articles/install-configure-powershell/
-  [開始使用 Windows PowerShell]: http://technet.microsoft.com/en-us/library/hh857337.aspx
+  [Windows PowerShell]: /zh-TW/documentation/articles/powershell-azure-resource-manager.md "Windows PowerShell"
+  [跨平台 CLI]: /zh-TW/documentation/articles/xplat-cli-azure-resource-manager.md "跨平台 CLI"
+  [Windows Management Framework 3.0]: http://www.microsoft.com/zh-TW/download/details.aspx?id=34595
+  [Windows Management Framework 4.0]: http://www.microsoft.com/zh-TW/download/details.aspx?id=40855
+  [如何安裝和設定 Windows Azure PowerShell]: http://www.windowsazure.com/zh-TW/documentation/articles/install-configure-powershell/
+  [開始使用 Windows PowerShell]: http://technet.microsoft.com/zh-TW/library/hh857337.aspx
   [關於 Azure Powershell 模組]: #about
   [建立資源群組]: #create
   [管理資源群組]: #manage
   [疑難排解資源群組]: #troubleshoot
   [後續步驟]: #next
-  [Azure 服務管理 Cmdlet]: http://msdn.microsoft.com/en-us/library/jj152841.aspx
+  [Azure 服務管理 Cmdlet]: http://msdn.microsoft.com/zh-TW/library/jj152841.aspx
   [Azure 資源管理員 Cmdlet]: http://go.microsoft.com/fwlink/?LinkID=394765
   [Azure 設定檔 Cmdlet]: http://go.microsoft.com/fwlink/?LinkID=394766
   [Switch-AzureMode]: http://go.microsoft.com/fwlink/?LinkID=394398
   [1]: http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409
-  [使用資源群組管理您的 Azure 資源]: http://azure.microsoft.com/zh-tw/documentation/articles/azure-preview-portal-using-resource-groups
-  [將 Azure 跨平台命令列介面與資源管理員搭配使用]: http://www.windowsazure.com/zh-tw/documentation/articles/xplat-cli-azure-resource-manager/
+  [使用資源群組管理您的 Azure 資源]: http://azure.microsoft.com/zh-TW/documentation/articles/azure-preview-portal-using-resource-groups
+  [將 Azure 跨平台命令列介面與資源管理員搭配使用]: http://www.windowsazure.com/zh-TW/documentation/articles/xplat-cli-azure-resource-manager/
   [Azure 部落格]: http://blogs.msdn.com/windowsazure
   [Windows PowerShell 部落格]: http://blogs.msdn.com/powershell
   ["Hey, Scripting Guy!"部落格]: http://blogs.technet.com/b/heyscriptingguy/

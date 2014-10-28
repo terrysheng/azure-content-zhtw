@@ -8,24 +8,24 @@
 
 監控的 Web 應用程式可以託管於內部部署或虛擬機器中，也可以是 Microsoft Azure 網站。
 
-1.  [加入記錄配接器][]
+1.  [加入記錄配接器][加入記錄配接器]
 
--   [設定診斷收集][]
--   [插入記錄陳述式、建置和部署][]
--   [檢視記錄資料][]
--   [搜尋資料][]
--   [後續步驟][]
+-   [設定診斷收集][設定診斷收集]
+-   [插入記錄陳述式、建置和部署][插入記錄陳述式、建置和部署]
+-   [檢視記錄資料][檢視記錄資料]
+-   [搜尋資料][搜尋資料]
+-   [後續步驟][後續步驟]
 
 ## <a name="add"></a>1. 加入記錄配接器
 
-1.  在 Visual Studio 中，[將 Application Insights 加入至 Web 服務專案][] (如果尚未這樣做)。
+1.  在 Visual Studio 中，[將 Application Insights 加入至 Web 服務專案][將 Application Insights 加入至 Web 服務專案] (如果尚未這樣做)。
 
     如果是在將記錄加入至專案之後才加入 Application Insights，您可以發現記錄配接器已設定 - 這時只需要[重新部署專案][插入記錄陳述式、建置和部署]和[檢視資料][檢視記錄資料]。
 
 2.  在 [方案總管] 中，在專案的操作功能表中選擇 [管理 NuGet 封裝]。
 3.  選取 [線上] \> [全部]，選取 [Include Prerelease]，然後搜尋 "Microsoft.ApplicationInsights"
 
-    ![Get the prerelease version of the appropriate adapter][]
+    ![Get the prerelease version of the appropriate adapter][Get the prerelease version of the appropriate adapter]
 
 4.  選取適當封裝的發行前版本 - 下列其中一個：
 
@@ -96,7 +96,7 @@
 
 在 Application Insights 中，開啟診斷搜尋。
 
-![Open diagnostic search][]
+![Open diagnostic search][Open diagnostic search]
 
 選取任何記錄事件來查看詳細資料。
 
@@ -183,18 +183,18 @@
 ## <a name="add"></a>後續步驟
 
 -   [將 Application Insights 加入至專案][將 Application Insights 加入至 Web 服務專案]
--   [設定可用性和回應性測試][]
--   [疑難排解][]
+-   [設定可用性和回應性測試][設定可用性和回應性測試]
+-   [疑難排解][疑難排解]
 
 ## 詳細資訊
 
--   [Application Insights][]
+-   [Application Insights][Application Insights]
 -   [將 Application Insights 加入至專案][將 Application Insights 加入至 Web 服務專案]
--   [立即監視即時 Web 伺服器][]
--   [在 Application Insights 中探索度量][]
--   [診斷記錄搜尋][]
+-   [立即監視即時 Web 伺服器][立即監視即時 Web 伺服器]
+-   [在 Application Insights 中探索度量][在 Application Insights 中探索度量]
+-   [診斷記錄搜尋][診斷記錄搜尋]
 -   [使用 Web 測試來追蹤可用性][設定可用性和回應性測試]
--   [使用事件和度量來追蹤使用量][]
+-   [使用事件和度量來追蹤使用量][使用事件和度量來追蹤使用量]
 -   [問與答及疑難排解][疑難排解]
 
 <!--Link references-->

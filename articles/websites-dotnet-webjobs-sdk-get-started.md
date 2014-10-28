@@ -2,32 +2,32 @@
 
 # 開始使用 Azure WebJobs SDK
 
-本教學課程介紹 WebJobs SDK，以及說明如何在 [Azure 網站][]中，使用 WebJobs SDK 建立多層次 ASP.NET MVC 應用程式。應用程式會使用 [Azure SQL Database][]、[Azure Blob 服務][] 和 [Azure 佇列服務][]。
+本教學課程介紹 WebJobs SDK，以及說明如何在 [Azure 網站][Azure 網站]中，使用 WebJobs SDK 建立多層次 ASP.NET MVC 應用程式。應用程式會使用 [Azure SQL Database][Azure SQL Database]、[Azure Blob 服務][Azure Blob 服務] 和 [Azure 佇列服務][Azure 佇列服務]。
 
 此範例應用程式是廣告看板。使用者透過輸入文字和上傳影像來建立廣告。他們可以看到含有縮圖影像的廣告清單，也可以在選取廣告來查看詳細資料時查看完整大小的影像。以下為螢幕擷取畫面：
 
-![Ad list][]
+![Ad list][Ad list]
 
-您可以從 MSDN Code Gallery [下載 Visual Studio 專案][]。
+您可以從 MSDN Code Gallery [下載 Visual Studio 專案][下載 Visual Studio 專案]。
 
 ## 目錄
 
 本教學課程內容包括以下小節：
 
--   [必要條件][]
--   [您將學到什麼][]
--   [WebJobs SDK][]
--   [應用程式架構][]
--   [設定開發環境][]
--   [建置、執行及部署應用程式][]
--   [從頭開始建立應用程式][]
--   [審查應用程式程式碼][]
--   [疑難排解][]
--   [後續步驟][]
+-   [必要條件][必要條件]
+-   [您將學到什麼][您將學到什麼]
+-   [WebJobs SDK][WebJobs SDK]
+-   [應用程式架構][應用程式架構]
+-   [設定開發環境][設定開發環境]
+-   [建置、執行及部署應用程式][建置、執行及部署應用程式]
+-   [從頭開始建立應用程式][從頭開始建立應用程式]
+-   [審查應用程式程式碼][審查應用程式程式碼]
+-   [疑難排解][疑難排解]
+-   [後續步驟][後續步驟]
 
 ## <span id="prerequisites"></span></a>必要條件
 
-本教學課程假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC][] 或 [Web Forms][] 專案。範例應用程式使用 MVC，但大多數的教學課程內容亦適用於 Web Form。
+本教學課程假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC][ASP.NET MVC] 或 [Web Forms][Web Forms] 專案。範例應用程式使用 MVC，但大多數的教學課程內容亦適用於 Web Form。
 
 本教學課程指示同時適用以下兩個產品：
 
@@ -36,7 +36,7 @@
 
 如果您尚未安裝任一個產品，安裝 Azure SDK 時，將為您自動安裝 Visual Studio 2013 Express for Web。
 
-[WACOM.INCLUDE [free-trial-note][]]
+[WACOM.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
 ## <span id="learn"></span></a>您將學到什麼
 
@@ -51,7 +51,7 @@
 
 ## <span id="webjobssdk"></span></a>WebJobs SDK 簡介
 
-[WebJobs][] 是一項 Azure 網站功能，可讓您在與網站相同的內容中執行程式或指令碼。您不一定需要使用 WebJobs SDK，才能以 WebJob 的形式執行程式。WebJobs SDK 的目的在於簡化適用於 Azure 儲存體佇列、Blob 和資料表，以及服務匯流排佇列的程式碼撰寫工作。
+[WebJobs][WebJobs] 是一項 Azure 網站功能，可讓您在與網站相同的內容中執行程式或指令碼。您不一定需要使用 WebJobs SDK，才能以 WebJob 的形式執行程式。WebJobs SDK 的目的在於簡化適用於 Azure 儲存體佇列、Blob 和資料表，以及服務匯流排佇列的程式碼撰寫工作。
 
 WebJobs SDK 包含下列元件：
 
@@ -72,7 +72,7 @@ WebJobs SDK 包含下列元件：
 -   檔案維護，例如彙總或清除記錄檔案。您可能擁有由數個網站在不同的時間範圍內所建立的記錄檔案，您想要結合這些檔案以便執行分析工作。或者您想要排程每週執行的工作，來將舊的記錄檔案清除。
 -   其他您想要在背景執行序中執行的長時間執行工作，例如傳送電子郵件。
 
-若要避免您的網站在閒置一段時間後進入睡眠模式 (這會中斷長時間執行的背景工作)，您可以使用 Azure 網站的 [AlwaysOn][] 功能。
+若要避免您的網站在閒置一段時間後進入睡眠模式 (這會中斷長時間執行的背景工作)，您可以使用 Azure 網站的 [AlwaysOn][AlwaysOn] 功能。
 
 ### 程式碼範例
 
@@ -120,11 +120,11 @@ WebJobs SDK 提供多種使用 Azure 儲存體的方法。例如，如果使用 
 
 本應用程式會將廣告儲存在 SQL 資料庫中，使用 Entity Framework Code First 來建立表格和存取資料。針對每個廣告，資料庫會儲存兩個 URL，一個用於完整大小的影像，而另一個用於縮圖。
 
-![Ad table][]
+![Ad table][Ad table]
 
 使用者上傳影像時，前端網站會將影像儲存在 [Azure Blob][Azure Blob 服務]，並將廣告資訊儲存在資料庫 (內含指向該 Blob 的 URL)。同時會將訊息寫入 Azure 佇列。以 Azure WebJob 形式執行的後端處理會使用 WebJobs SDK 來輪詢佇列以尋找新訊息。出現新訊息時，WebJob 便會建立該影像的縮圖，並更新該廣告的縮圖 URL 資料庫欄位。以下圖表顯示應用程式的這些部分的互動情況：
 
-![Contoso Ads architecture][]
+![Contoso Ads architecture][Contoso Ads architecture]
 
 ### 替代架構
 
@@ -135,9 +135,9 @@ WebJobs 會在網站內容中執行，且無法單獨擴充。例如，如果您
 -   在只有這個目標的不同網站中，以 WebJob 的形式執行程式。接著您可以擴充後端網站，而不會影響到前端網站。
 -   在 Azure 雲端服務背景工作角色中執行程式。如果選擇此選項，則您將能夠在雲端服務 Web 角色或網站中執行前端。
 
-本教學課程說明如何在網站中執行前端，並在相同網站中以 WebJob 的形式執行後端。如需如何選擇最符合您的案例的最佳環境詳細資訊，請參閱 [Azure 網站、雲端服務與虛擬機器之比較][]。
+本教學課程說明如何在網站中執行前端，並在相同網站中以 WebJob 的形式執行後端。如需如何選擇最符合您的案例的最佳環境詳細資訊，請參閱 [Azure 網站、雲端服務與虛擬機器之比較][Azure 網站、雲端服務與虛擬機器之比較]。
 
-[WACOM.INCLUDE [install-sdk-2013-only][]]
+[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 ## <span id="storage"></span></a>建立 Azure 儲存體帳戶
 
@@ -145,7 +145,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 在真實世界應用程式中，您通常會為應用程式資料與記錄資料建立不同的帳戶，並為測試資料與生產資料建立不同的帳戶。針對本教學課程，您將只會使用一個帳戶。
 
-1.  在 [Azure 管理入口網站][]中，按一下 [新增] - [資料服務] - [儲存體] - [快速建立]。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站]中，按一下 [新增] - [資料服務] - [儲存體] - [快速建立]。
 
 2.  在 **URL** 方塊中，輸入 URL 前置詞。
 
@@ -159,11 +159,11 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 4.  將 [複寫] 下拉式清單設為 [本機備援]。
 
-    對儲存體帳戶啟用地理區域複寫時，儲存內容會複寫至次要資料中心，以便能在主要位置發生嚴重災難時容錯移轉至該位置。地理區域複寫會引發額外成本。對於測試和開發帳戶，您通常不會想要付費使用地理區域複寫功能。如需詳細資訊，請參閱[如何管理儲存體帳戶][]。
+    對儲存體帳戶啟用地理區域複寫時，儲存內容會複寫至次要資料中心，以便能在主要位置發生嚴重災難時容錯移轉至該位置。地理區域複寫會引發額外成本。對於測試和開發帳戶，您通常不會想要付費使用地理區域複寫功能。如需詳細資訊，請參閱[如何管理儲存體帳戶][如何管理儲存體帳戶]。
 
 5.  按一下 [建立儲存體帳戶]。
 
-    ![New storage account][]
+    ![New storage account][New storage account]
 
 ## <span id="download"></span></a>下載應用程式
 
@@ -185,7 +185,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
     此檔案包含 SQL 連接字串和用來使用 Blob 和佇列的 Azure 儲存體連接字串。
 
-    SQL 連接字串會指向 [SQL Server Express LocalDB][] 資料庫。
+    SQL 連接字串會指向 [SQL Server Express LocalDB][SQL Server Express LocalDB] 資料庫。
 
     儲存體連接字串中包含預留位置，您將在下列步驟中使用您的儲存體帳戶名稱和存取金鑰來取代這些預留位置。
 
@@ -200,9 +200,9 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 2.  在 [Azure 管理入口網站][1]中，選取您的儲存體帳戶，然後按一下頁面底部的 [管理存取金鑰]。
 
-    ![Manage Access Keys button][]
+    ![Manage Access Keys button][Manage Access Keys button]
 
-    ![Manage Access Keys dialog][]
+    ![Manage Access Keys dialog][Manage Access Keys dialog]
 
 3.  使用 [儲存體帳戶名稱] 方塊中的值來取代連接字串中的 *[accountname]*。
 
@@ -229,25 +229,25 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
     預設瀏覽器便會開啟到首頁。(系統即會執行 Web 專案，這是因為您已將它設定為啟始專案。)
 
-    ![Contoso Ads home page][]
+    ![Contoso Ads home page][Contoso Ads home page]
 
 2.  若要啟動應用程式的 WebJob 後端，以滑鼠右鍵按一下 [方案總管] 中的 ContosoAdsWebJob 專案，然後依序按一下 [偵錯] \> [開始新執行個體]。
 
     主控台應用程式視窗隨即開啟，並顯示 [已啟動工作主機] 以表示它正在執行中。
 
-    ![Console application window showing that the backend is running][]
+    ![Console application window showing that the backend is running][Console application window showing that the backend is running]
 
 3.  在您的瀏覽器中按一下 [建立廣告]。
 
 4.  輸入部分測試資料，選取要上傳的影像，然後按一下 [建立]。
 
-    ![Create page][]
+    ![Create page][Create page]
 
     應用程式會進入索引頁面，但不會顯示新廣告的縮圖，因為處理尚未發生。
 
     同時，不久之後，主控台應用程式視窗中的記錄訊息會顯示已收到佇列訊息並已開始處理。
 
-    ![Console application window showing that a queue message has been processed][]
+    ![Console application window showing that a queue message has been processed][Console application window showing that a queue message has been processed]
 
 5.  在看到主控台應用程式視窗中的記錄訊息後，您可以重新整理索引頁面以查看縮圖。
 
@@ -255,7 +255,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 6.  按一下廣告的 [詳細資料] 以查看完整大小的影像。
 
-    ![Details page][]
+    ![Details page][Details page]
 
 您一直在本機電腦上執行應用程式，並使用位於電腦上的 SQL Server 資料庫，但它會使用雲端中的佇列和 Blob。在下一節中，您將會使用雲端資料庫以及雲端 Blob 和佇列，在雲端中執行應用程式。
 
@@ -276,15 +276,15 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 3.  在 [發行 Web] 精靈的 [設定檔] 步驟中，按一下 [Microsoft Azure 網站]。
 
-    ![Select Azure Website publish target][]
+    ![Select Azure Website publish target][Select Azure Website publish target]
 
 4.  在 [Select Existing Website] 方塊中，按一下 [登入]。
 
-    ![Click Sign In][]
+    ![Click Sign In][Click Sign In]
 
 5.  登入後，請按一下 [新增]。
 
-    ![Click New][]
+    ![Click New][Click New]
 
 6.  在 [Create site on Microsoft Azure] 對話方塊的 [網站名稱] 方塊中輸入唯一名稱。
 
@@ -304,17 +304,17 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 10. 按一下 [建立]。
 
-    ![Create site on Microsoft Azure dialog][]
+    ![Create site on Microsoft Azure dialog][Create site on Microsoft Azure dialog]
 
     Visual Studio 便會建立方案、Web 專案、Azure 網站和 Azure SQL Database 執行個體。
 
 11. 在 [發行 Web] 精靈的 [連線] 步驟中，按 [下一步]。
 
-    ![Connection step][]
+    ![Connection step][Connection step]
 
 12. 在 [設定] 步驟中，清除 [Use this connection string at runtime] 核取方塊，然後按 [下一步]。
 
-    ![Settings step][]
+    ![Settings step][Settings step]
 
     您無需使用發行對話方塊來設定 SQL 連接字串，因為您稍後將在 Azure 環境中設定該值。
 
@@ -328,13 +328,13 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 13. 在 [預覽] 步驟中，按一下 [開始預覽]。
 
-    ![Click Start Preview][]
+    ![Click Start Preview][Click Start Preview]
 
     您可以忽略有關未發行任何資料庫的警告。Entity Framework Code First 將建立資料庫；因此無需發行資料庫。
 
     預覽視窗會顯示將複製 WebJob 專案的二進位和組態檔至網站的 *app\_data\\jobs\\continuous* 資料夾中。
 
-    ![WebJobs files in preview window][]
+    ![WebJobs files in preview window][WebJobs files in preview window]
 
 14. 按一下 [發行]。
 
@@ -344,7 +344,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 ### 設定網站來使用您的 Azure SQL 資料庫和儲存體帳戶。
 
-[避免將敏感資訊 (例如連接字串) 放在儲存於原始程式碼儲存機制的檔案][] (英文) 會是安全性最佳作法。Azure 提供可達到此目的的方法：您可以在 Azure 環境中設定連接字串和其他設定值，當應用程式在 Azure 中執行時，ASP.NET 組態 API 便會自動挑選這些值。在本節中，您將在 Azure 中設定連接字串值。
+[避免將敏感資訊 (例如連接字串) 放在儲存於原始程式碼儲存機制的檔案][避免將敏感資訊 (例如連接字串) 放在儲存於原始程式碼儲存機制的檔案] (英文) 會是安全性最佳作法。Azure 提供可達到此目的的方法：您可以在 Azure 環境中設定連接字串和其他設定值，當應用程式在 Azure 中執行時，ASP.NET 組態 API 便會自動挑選這些值。在本節中，您將在 Azure 中設定連接字串值。
 
 1.  在瀏覽器中，前往 Azure 管理入口網站，並選取部署 Contoso Ads 應用程式的目的地網站。
 
@@ -360,7 +360,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 5.  按一下 [儲存]。
 
-    ![Connection strings in management portal][]
+    ![Connection strings in management portal][Connection strings in management portal]
 
 6.  按一下 [儀表板] 索引標籤，然後按一下 [重新啟動]。
 
@@ -386,12 +386,12 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 3.  在您的 WebJob 中，按一下記錄欄中的 URL。
 
-    ![WebJobs tab][]
+    ![WebJobs tab][WebJobs tab]
     新的瀏覽器索引標籤即會開啟到 WebJobs SDK 儀表板。儀表板會顯示 WebJob 正在執行中，並顯示在 WebJobs SDK 所觸發之程式碼中的函數清單。
 
 4.  按一下其中一個函數，以查看其執行的詳細資料
 
-    ![WebJobs SDK dashboard][]
+    ![WebJobs SDK dashboard][WebJobs SDK dashboard]
 
     ![WebJobs SDK dashboard][2]
 
@@ -415,11 +415,11 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 1.  在 Visual Studio 中，從 [檔案] 功能表中依序選擇 [新增] \> [專案]。
 
-2.  在 [新增專案] 對話方塊中，依序選擇 [Visual C\#] \> [Web] \> [ASP.NET Web 應用程式]。
+2.  在 [新增專案] 對話方塊中，依序選擇 [Visual C#] \> [Web] \> [ASP.NET Web 應用程式]。
 
 3.  將專案命名為 ContosoAdsWeb，將方案命名為 ContosoAdsWebJobsSDK (如果您要將方案放入與所下載方案相同的資料夾中，則請變更方案名稱)，然後按一下 [確定]。
 
-    ![New Project][]
+    ![New Project][New Project]
 
 4.  在 [New ASP.NET Project] 對話方塊中，選擇 MVC 範本，並清除在 [Microsoft Azure] 底下的 [Host in the cloud] 核取方塊。
 
@@ -427,11 +427,11 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 5.  按一下 [變更驗證]。
 
-    ![Change Authentication][]
+    ![Change Authentication][Change Authentication]
 
 6.  在 [變更驗證] 對話方塊中，選擇 [不需要驗證]，然後按一下 [確定]。
 
-    ![不需要驗證][]
+    ![不需要驗證][不需要驗證]
 
 7.  在 [新增 ASP.NET 專案] 對話方塊中，按一下 [確定]。
 
@@ -439,7 +439,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 8.  在 [方案總管] 中，以滑鼠右鍵按一下方案 (不是專案)，並依序選擇 [加入] \> [新專案]。
 
-9.  在 [新增專案] 對話方塊中，依序選擇 [Visual C\#] \> [Windows Desktop] \> [類別庫] 範本。
+9.  在 [新增專案] 對話方塊中，依序選擇 [Visual C#] \> [Windows Desktop] \> [類別庫] 範本。
 
 10. 將專案命名為 *ContosoAdsCommon*，然後按一下 [確定]。
 
@@ -449,7 +449,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 1.  以滑鼠右鍵按一下 Web 專案 (不是方案或類別庫專案)，然後依序按一下 [新增] \> [New Azure WebJob Project]。
 
-    ![New Azure WebJob Project menu selection][]
+    ![New Azure WebJob Project menu selection][New Azure WebJob Project menu selection]
 
 2.  在 [Add Azure WebJob] 對話方塊中，在 [專案名稱] 和 [WebJob name] 中輸入 ContosoAdsWebJob。保留 [WebJob run mode] 的 [連續執行] 設定。
 
@@ -461,7 +461,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
     -   在 Web 專案的 Properties 資料夾中新增了 *webjobs-list.json* 檔案。
     -   在 WebJob 專案中安裝了 Microsoft.Web.WebJobs.Publish NuGet 封裝。
 
-    如需這些變更的詳細資訊，請參閱[如何使用 Visual Studio 部署 WebJobs][]。
+    如需這些變更的詳細資訊，請參閱[如何使用 Visual Studio 部署 WebJobs][如何使用 Visual Studio 部署 WebJobs]。
 
 ### 新增 NuGet 封裝
 
@@ -475,9 +475,9 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 4.  尋找 *Microsoft.Azure.WebJobs* NuGet 封裝，並在 ContosoAdsWebJob 專案中安裝。
 
-    ![Find WebJobs SDK package][]
+    ![Find WebJobs SDK package][Find WebJobs SDK package]
 
-    ![Install WebJobs SDK package only in WebJob project][]
+    ![Install WebJobs SDK package only in WebJob project][Install WebJobs SDK package only in WebJob project]
 
     這會同時安裝相依封裝，包括另一個 WebJobs SDK 封裝 *Microsoft.Jobs.Core*。(只有當您在不同的 DLL 中建立使用者函數時，您才會個別使用其他 WebJobs SDK 封裝；在本教學課程中，您會在主控台應用程式中撰寫所有程式碼。) 在 Web 專案和 WebJob 專案中，您將需要 Azure 儲存體用戶端程式庫 (SCL) 才能使用佇列和 Blob。
 
@@ -511,7 +511,7 @@ WebJob 專案需要參考，才能使用映像及存取連接字串。
 
 ### 新增程式碼和組態檔
 
-本教學檔案未說明如何[使用 Scaffolding 建立 MVC 控制器和檢視][ASP.NET MVC]、如何[編寫能與 SQL Server 資料庫搭配使用的 Entity Framework 程式碼][] 或 [ASP.NET 4.5 中非同步程式設計的基本概念][]。因此剩下要進行的作業就是，從所下載的方案複製程式碼和組態檔到新方案。在執行該作業後，下一節將示範和說明程式碼的重要部分。
+本教學檔案未說明如何[使用 Scaffolding 建立 MVC 控制器和檢視][ASP.NET MVC]、如何[編寫能與 SQL Server 資料庫搭配使用的 Entity Framework 程式碼][編寫能與 SQL Server 資料庫搭配使用的 Entity Framework 程式碼] 或 [ASP.NET 4.5 中非同步程式設計的基本概念][ASP.NET 4.5 中非同步程式設計的基本概念]。因此剩下要進行的作業就是，從所下載的方案複製程式碼和組態檔到新方案。在執行該作業後，下一節將示範和說明程式碼的重要部分。
 
 若要加入檔案到專案或資料夾，請以滑鼠右鍵按一下專案或資料夾，然後按一下 [加入] \> [現有項目]。選取您需要的檔案，然後按一下 [加入]。如果詢問您是否要取代現有的檔案，請按一下 [是]。
 
@@ -539,7 +539,7 @@ WebJob 專案需要參考，才能使用映像及存取連接字串。
 
 ## <span id="code"></span></a>審查應用程式程式碼
 
-以下小節將說明 WebJobs SDK、Azure 儲存體 Blob 和佇列相關的程式碼。如需 WebJobs SDK 特定的程式碼，請參閱 [Program.cs 區段][]。
+以下小節將說明 WebJobs SDK、Azure 儲存體 Blob 和佇列相關的程式碼。如需 WebJobs SDK 特定的程式碼，請參閱 [Program.cs 區段][Program.cs 區段]。
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -649,7 +649,7 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
                 });
         }
 
-類似的程式碼可取得 *blobnamerequest* 佇列的參考，並建立新佇列。在此情況下，即不需要變更權限。稍後在本教學課程的 [ResolveBlobName][] 區段中，將說明為何只將 Web 應用程式所寫入的佇列用來取得 Blob 名稱但不用來產生縮圖。
+類似的程式碼可取得 *blobnamerequest* 佇列的參考，並建立新佇列。在此情況下，即不需要變更權限。稍後在本教學課程的 [ResolveBlobName][ResolveBlobName] 區段中，將說明為何只將 Web 應用程式所寫入的佇列用來取得 Blob 名稱但不用來產生縮圖。
 
         CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
         var imagesQueue = queueClient.GetQueueReference("blobnamerequest");
@@ -672,7 +672,7 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 
 在 *AdController.cs* 檔案中，建構子會呼叫 `InitializeStorage` 方法來建立 Azure 儲存體用戶端程式庫物件，該物件可提供用於處理 Blob 和佇列的 API。
 
-之後，程式碼可取得 *images* Blob 容器的參考，如您稍早在 *Global.asax.cs* 中所見。在執行該動作時，它會設定適用 Web 應用程式的預設[重試原則][]。預設指數輪詢重試原則，可能會因為對暫時性的錯誤進行反覆重試，使得 Web 應用程式停止回應超過一分鐘。此處指定的重試原則會在每次嘗試後等候 3 秒，最多嘗試 3 次。
+之後，程式碼可取得 *images* Blob 容器的參考，如您稍早在 *Global.asax.cs* 中所見。在執行該動作時，它會設定適用 Web 應用程式的預設[重試原則][重試原則]。預設指數輪詢重試原則，可能會因為對暫時性的錯誤進行反覆重試，使得 Web 應用程式停止回應超過一分鐘。此處指定的重試原則會在每次嘗試後等候 3 秒，最多嘗試 3 次。
 
         var blobClient = storageAccount.CreateCloudBlobClient();
         blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
@@ -684,7 +684,7 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
         queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
         imagesQueue = queueClient.GetQueueReference("blobnamerequest");
 
-多數的控制器程式碼通常用於使用 DbContext 類別來處理 Entity Framework 資料模型。例外狀況為 HttpPost `Create` 方法，它會上傳檔案，並將檔案儲存在 Blob 儲存體。模型繫結器可為方法提供 [HttpPostedFileBase][] 物件。
+多數的控制器程式碼通常用於使用 DbContext 類別來處理 Entity Framework 資料模型。例外狀況為 HttpPost `Create` 方法，它會上傳檔案，並將檔案儲存在 Blob 儲存體。模型繫結器可為方法提供 [HttpPostedFileBase][HttpPostedFileBase] 物件。
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -828,12 +828,12 @@ WebJobs SDK 會在收到佇列訊息時呼叫此方法。此方法會建立縮�
 > [WACOM.NOTE]
 >
 > -   如果您的網站在多個 VM 上執行，則此程式將在每部機器上執行，而且每部機器將會等待觸發程序並嘗試執行函數。在某些案例中，這會導致部分函數處理相同的資料兩次，因此函數應是以等冪的方式 (寫入，因此使用相同輸入資料重複呼叫函數才不會產生重複的結果)。
-> -   如需如何實作正常關機的相關資訊，請參閱 [WebJobs SDK 0.3.0 Beta 通知][] (英文)。
+> -   如需如何實作正常關機的相關資訊，請參閱 [WebJobs SDK 0.3.0 Beta 通知][WebJobs SDK 0.3.0 Beta 通知] (英文)。
 > -   為求簡化，`ConvertImageToThumbnailJPG` 方法 (未顯示) 中的程式碼會使用 `System.Drawing` 命名空間中的類別。不過，此命名空間中類別的設計原意是要與 Windows Form 搭配使用。不支援將它們用於 Windows 或 ASP.NET 服務。
 
 ### WebJobs 與雲端服務背景工作角色的比較
 
-如果您將本範例應用程式中 `GenerateThumbnails` 方法的程式碼數量，與[應用程式的雲端服務版本][]中的背景工作角色程式碼做比較，您可以看出 WebJobs SDK 為您做了多少工作。這個好處大於您所看到的，因為雲端服務範例應用程式程式碼無法執行您在生產應用程式中可執行的所有項目 (例如有害訊息處理)，而這些 WebJobs SDK 都可以為您做得到。
+如果您將本範例應用程式中 `GenerateThumbnails` 方法的程式碼數量，與[應用程式的雲端服務版本][應用程式的雲端服務版本]中的背景工作角色程式碼做比較，您可以看出 WebJobs SDK 為您做了多少工作。這個好處大於您所看到的，因為雲端服務範例應用程式程式碼無法執行您在生產應用程式中可執行的所有項目 (例如有害訊息處理)，而這些 WebJobs SDK 都可以為您做得到。
 
 此範例應用程式的雲端服務版本包含可執行下列工作的 `ProcessQueueMessage` 方法：
 
@@ -846,17 +846,17 @@ WebJobs SDK 會在收到佇列訊息時呼叫此方法。此方法會建立縮�
 
 ### 在背景工作角色中使用 WebJobs SDK
 
-從以上範例中可知，使用 WebJobs SDK 的程式無需在 Azure 的 WebJob 中執行。它可在本機執行，也可在背景工作角色中執行。不過，您僅可透過 Azure 網站來存取 WebJobs SDK 儀表板。若要使用儀表板，您必須將網站與正在使用的儲存體帳戶連線，方法是在管理入口網站的 [設定] 索引標籤上設定 AzureWebJobsDashboard 連接字串。然後，您可以使用 URL [https://{websitename}.scm.azurewebsites.net/azurejobs/\#/functions][] 進入儀表板。如需詳細資訊，請參閱[使用 WebJobs SDK 來取得本機開發的儀表板][] (英文)，但請注意，它會顯示舊的連接字串名稱。
+從以上範例中可知，使用 WebJobs SDK 的程式無需在 Azure 的 WebJob 中執行。它可在本機執行，也可在背景工作角色中執行。不過，您僅可透過 Azure 網站來存取 WebJobs SDK 儀表板。若要使用儀表板，您必須將網站與正在使用的儲存體帳戶連線，方法是在管理入口網站的 [設定] 索引標籤上設定 AzureWebJobsDashboard 連接字串。然後，您可以使用 URL [https://{websitename}.scm.azurewebsites.net/azurejobs/\#/functions][https://{websitename}.scm.azurewebsites.net/azurejobs/\#/functions] 進入儀表板。如需詳細資訊，請參閱[使用 WebJobs SDK 來取得本機開發的儀表板][使用 WebJobs SDK 來取得本機開發的儀表板] (英文)，但請注意，它會顯示舊的連接字串名稱。
 
 ## 後續步驟
 
-在本教學課程中，您看到使用 WebJobs SDK 進行後端處理的簡單多層次應用程式。此應用程式特意保持簡潔，以做為入門的教學課程。例如，它不會實作[相依性插入][]或[存放庫和工作單位模式][]、不會[使用介面來記錄][]、不會使用 [EF Code First 移轉][]來管理資料模型變更或 [EF 連線復原][]來管理暫時性網路錯誤等等。
+在本教學課程中，您看到使用 WebJobs SDK 進行後端處理的簡單多層次應用程式。此應用程式特意保持簡潔，以做為入門的教學課程。例如，它不會實作[相依性插入][相依性插入]或[存放庫和工作單位模式][存放庫和工作單位模式]、不會[使用介面來記錄][使用介面來記錄]、不會使用 [EF Code First 移轉][EF Code First 移轉]來管理資料模型變更或 [EF 連線復原][EF 連線復原]來管理暫時性網路錯誤等等。
 
-如需說明如何在其他案例中使用 WebJobs SDK 的範例，請參閱 ASP.NET CodePlex 專案中的 [AzureWebJobs][] 資料夾。
+如需說明如何在其他案例中使用 WebJobs SDK 的範例，請參閱 ASP.NET CodePlex 專案中的 [AzureWebJobs][AzureWebJobs] 資料夾。
 
-在網站中執行 WebJob 時，您可以透過在偵測模式下遠端執行的方法進行疑難排解，就像在網站中一樣。如需詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure 網站][]。您必須手動連接至 WebJob 程序；請參閱本教學課程中的 Visual Studio 2012 指示，以取得如何連接至程序的相關資訊。
+在網站中執行 WebJob 時，您可以透過在偵測模式下遠端執行的方法進行疑難排解，就像在網站中一樣。如需詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure 網站][在 Visual Studio 中疑難排解 Azure 網站]。您必須手動連接至 WebJob 程序；請參閱本教學課程中的 Visual Studio 2012 指示，以取得如何連接至程序的相關資訊。
 
-如需詳細資訊，請參閱 [Azure Web 工作建議使用的資源][]。
+如需詳細資訊，請參閱 [Azure Web 工作建議使用的資源][Azure Web 工作建議使用的資源]。
 
   [Azure 網站]: /zh-tw/documentation/articles/fundamentals-application-models/#WebSites
   [Azure SQL Database]: http://msdn.microsoft.com/library/azure/ee336279
@@ -886,7 +886,7 @@ WebJobs SDK 會在收到佇列訊息時呼叫此方法。此方法會建立縮�
   [Azure 管理入口網站]: http://manage.windowsazure.com
   [如何管理儲存體帳戶]: /zh-tw/documentation/articles/storage-manage-storage-account/
   [New storage account]: ./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png
-  [SQL Server Express LocalDB]: http://msdn.microsoft.com/en-us/library/hh510202.aspx
+  [SQL Server Express LocalDB]: http://msdn.microsoft.com/zh-tw/library/hh510202.aspx
   [1]: http://manage.windowsazure.com/
   [Manage Access Keys button]: ./media/websites-dotnet-webjobs-sdk-get-started/mak.png
   [Manage Access Keys dialog]: ./media/websites-dotnet-webjobs-sdk-get-started/cpak.png
@@ -920,7 +920,7 @@ WebJobs SDK 會在收到佇列訊息時呼叫此方法。此方法會建立縮�
   [Program.cs 區段]: #programcs
   [ResolveBlobName]: #resolveblobname
   [重試原則]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
-  [HttpPostedFileBase]: http://msdn.microsoft.com/en-us/library/system.web.httppostedfilebase.aspx
+  [HttpPostedFileBase]: http://msdn.microsoft.com/zh-tw/library/system.web.httppostedfilebase.aspx
   [WebJobs SDK 0.3.0 Beta 通知]: http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/
   [應用程式的雲端服務版本]: /zh-tw/documentation/articles/cloud-services-dotnet-get-started/
   [https://{websitename}.scm.azurewebsites.net/azurejobs/\#/functions]: https://{websitename}.scm.azurewebsites.net/azurejobs/#/functions

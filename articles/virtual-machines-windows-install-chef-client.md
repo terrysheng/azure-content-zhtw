@@ -6,21 +6,21 @@
 
 Chef 提供一個可用來建置、部署及管理基礎結構的自動化軟體。您可以使用配方來管理資源，配方是提供工作指示 (例如設定 Web 伺服器) 的可重複使用定義。
 
-Chef 是一個主從式架構系統。若要了解使用 Chef 伺服器的選項，請參閱[選擇您的安裝][] (英文)。您需要 Chef 伺服器的相關資訊才能設定用戶端。若要在 Azure 虛擬機器上安裝 Chef 用戶端，您有下列選擇：
+Chef 是一個主從式架構系統。若要了解使用 Chef 伺服器的選項，請參閱[選擇您的安裝][選擇您的安裝] (英文)。您需要 Chef 伺服器的相關資訊才能設定用戶端。若要在 Azure 虛擬機器上安裝 Chef 用戶端，您有下列選擇：
 
--   建立執行 Windows Server 2012 或 Windows Server 2012 R2 的虛擬機器時，使用管理入口網站安裝 Chef 用戶端。如需指示，請參閱 [Microsoft Azure 入口網站][]。
--   使用 Windows PowerShell 在現有虛擬機器上安裝 Chef 用戶端。您可以在 Github 上找到[指令碼][] (英文) 範例。
--   使用 Chef 外掛程式 [knife-azure][]，來建立虛擬機器執行個體並安裝 Chef 用戶端。
+-   建立執行 Windows Server 2012 或 Windows Server 2012 R2 的虛擬機器時，使用管理入口網站安裝 Chef 用戶端。如需指示，請參閱 [Microsoft Azure 入口網站][Microsoft Azure 入口網站]。
+-   使用 Windows PowerShell 在現有虛擬機器上安裝 Chef 用戶端。您可以在 Github 上找到[指令碼][指令碼] (英文) 範例。
+-   使用 Chef 外掛程式 [knife-azure][knife-azure]，來建立虛擬機器執行個體並安裝 Chef 用戶端。
 
 ## 其他資源
 
-[Chef 和 Microsoft Azure][]
+[Chef 和 Microsoft Azure][Chef 和 Microsoft Azure]
 
-[如何登入執行 Windows Server 的虛擬機器][]
+[如何登入執行 Windows Server 的虛擬機器][如何登入執行 Windows Server 的虛擬機器]
 
-[如何登入執行 Linux 的虛擬機器][]
+[如何登入執行 Linux 的虛擬機器][如何登入執行 Linux 的虛擬機器]
 
-[管理延伸模組][]
+[管理延伸模組][管理延伸模組]
 
 <!--Link references-->
 

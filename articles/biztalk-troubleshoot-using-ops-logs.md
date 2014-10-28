@@ -16,7 +16,7 @@
 1.  在 Azure 管理入口網站中按一下 [管理服務]，然後按一下 [作業記錄檔] 索引標籤。
 2.  您可以根據不同的參數來篩選記錄檔，例如訂閱、日期範圍、服務類型 (例如 BizTalk 服務)、服務名稱或狀態 (作業的狀態，例如「成功」、「失敗」)
 3.  按一下核取記號以檢視篩選清單。下圖顯示 testbiztalkservice 的相關活動。<br/>
-    ![檢視作業記錄檔][]
+    ![檢視作業記錄檔][檢視作業記錄檔]
 4.  若要檢視特定作業的詳細資訊，請選取資料列，然後在頁面底部按一下 [詳細資料]。
 
 ## <a name="bizops"></a>使用 Azure 管理服務進行追蹤的作業
@@ -86,15 +86,15 @@
 </table>
 ## 另請參閱
 
--   [備份 BizTalk 服務][]
--   [從備份還原 BizTalk 服務][]
--   [BizTalk 服務：開發人員、基本、標準和高級版本圖表][] (英文)
--   [BizTalk 服務：使用 Azure 管理入口網站進行佈建][] (英文)
--   [BizTalk 服務：佈建狀態圖][] (英文)
--   [BizTalk 服務：儀表板、監視器和調整索引標籤][] (英文)
--   [BizTalk 服務：節流][] (英文)
--   [BizTalk 服務：簽發者名稱和簽發者金鑰][] (英文)
--   [如何開始使用 Azure BizTalk 服務 SDK][]
+-   [備份 BizTalk 服務][備份 BizTalk 服務]
+-   [從備份還原 BizTalk 服務][從備份還原 BizTalk 服務]
+-   [BizTalk 服務：開發人員、基本、標準和高級版本圖表][BizTalk 服務：開發人員、基本、標準和高級版本圖表] (英文)
+-   [BizTalk 服務：使用 Azure 管理入口網站進行佈建][BizTalk 服務：使用 Azure 管理入口網站進行佈建] (英文)
+-   [BizTalk 服務：佈建狀態圖][BizTalk 服務：佈建狀態圖] (英文)
+-   [BizTalk 服務：儀表板、監視器和調整索引標籤][BizTalk 服務：儀表板、監視器和調整索引標籤] (英文)
+-   [BizTalk 服務：節流][BizTalk 服務：節流] (英文)
+-   [BizTalk 服務：簽發者名稱和簽發者金鑰][BizTalk 服務：簽發者名稱和簽發者金鑰] (英文)
+-   [如何開始使用 Azure BizTalk 服務 SDK][如何開始使用 Azure BizTalk 服務 SDK]
 
   [BizTalk Service REST API]: http://msdn.microsoft.com/zh-TW/library/windowsazure/dn232347.aspx
   [使用 Azure 管理服務進行追蹤的作業]: #bizops

@@ -8,17 +8,17 @@
 
 針對想要從內部部署應用程式，以及 Azure 虛擬機器或雲端服務中存取共用中檔案的使用者，我們將說明如何使用 Azure .NET 儲存體用戶端程式庫，從桌面應用程式中使用檔案共用。
 
-> [WACOM.NOTE] 若要執行本指南中的 .NET 程式碼範例，您需要 Azure .NET 儲存體用戶端程式庫 4.x 或更新版本。您可透過 [NuGet][] 取得儲存體用戶端程式庫。
+> [WACOM.NOTE] 若要執行本指南中的 .NET 程式碼範例，您需要 Azure .NET 儲存體用戶端程式庫 4.x 或更新版本。您可透過 [NuGet][NuGet] 取得儲存體用戶端程式庫。
 
 ## 目錄
 
--   [什麼是檔案儲存體？][]
--   [檔案儲存體概念][]
--   [建立 Azure 儲存體帳戶][]
--   [使用 PowerShell 建立檔案共用][]
--   [從 Azure 虛擬機器掛接共用][]
--   [建立內部部署應用程式以存取檔案儲存體][]
--   [後續步驟][]
+-   [什麼是檔案儲存體？][什麼是檔案儲存體？]
+-   [檔案儲存體概念][檔案儲存體概念]
+-   [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
+-   [使用 PowerShell 建立檔案共用][使用 PowerShell 建立檔案共用]
+-   [從 Azure 虛擬機器掛接共用][從 Azure 虛擬機器掛接共用]
+-   [建立內部部署應用程式以存取檔案儲存體][建立內部部署應用程式以存取檔案儲存體]
+-   [後續步驟][後續步驟]
 
 ## <a name="what-is-file-storage"></a><span class="short-header">什麼是 Azure 檔案儲存體？</span>什麼是 Azure 檔案儲存體？
 
@@ -39,10 +39,10 @@
 
 檔案儲存體包含下列元件：
 
-![files-concepts][]
+![files-concepts][files-concepts]
 
 -   **儲存體帳戶：** 一律透過儲存體帳戶來存取 Azure 儲存體。
-    如需關於儲存體帳戶容量的詳細資訊，請參閱＜[Azure 儲存體延展性和效能目標][]＞(英文)。
+    如需關於儲存體帳戶容量的詳細資訊，請參閱＜[Azure 儲存體延展性和效能目標][Azure 儲存體延展性和效能目標]＞(英文)。
 
 -   **共用：** 檔案儲存體共用是指在 Azure 中共用的 SMB 2.1 檔案。
     所有的目錄和檔案都必須在父共用中建立。帳戶可包含
@@ -61,21 +61,21 @@
     其中一個檔案：
     `http://acmecorp.file.core.windows.net/cloudfiles/diagnostics/log.txt`
 
-如需有關如何為共用、目錄和檔案命名的詳細資料，請參閱[命名和參考共用、目錄、檔案及中繼資料][]。
+如需有關如何為共用、目錄和檔案命名的詳細資料，請參閱[命名和參考共用、目錄、檔案及中繼資料][命名和參考共用、目錄、檔案及中繼資料]。
 
 ## <a name="create-account"></a><span class="short-header">建立 Azure 儲存體帳戶</span>建立 Azure 儲存體帳戶
 
-Azure 檔案儲存體目前為預覽版。若要要求預覽版的存取權，請瀏覽至 [Microsoft Azure 預覽版頁面][]，然後要求 **Azure 檔案**的存取權。要求一經核准，您就會收到您可以存取檔案儲存體預覽版的通知。接著，您可以建立儲存體帳戶以存取檔案儲存體。
+Azure 檔案儲存體目前為預覽版。若要要求預覽版的存取權，請瀏覽至 [Microsoft Azure 預覽版頁面][Microsoft Azure 預覽版頁面]，然後要求 **Azure 檔案**的存取權。要求一經核准，您就會收到您可以存取檔案儲存體預覽版的通知。接著，您可以建立儲存體帳戶以存取檔案儲存體。
 
 > [WACOM.NOTE] 檔案儲存體目前僅適用於新的儲存體帳戶。在您的訂閱被賦予檔案儲存體的存取權之後，請建立新的儲存體帳戶以與本指南配合使用。
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="use-cmdlets"></a><span class="short-header">使用 PowerShell 建立檔案共用</span>使用 PowerShell 建立檔案共用
 
 ### 安裝適用於 Azure 儲存體的 PowerShell Cmdlet
 
-若要準備使用 PowerShell，請下載並安裝 Azure PowerShell Cmdlet。如需安裝點和安裝指示的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][]。
+若要準備使用 PowerShell，請下載並安裝 Azure PowerShell Cmdlet。如需安裝點和安裝指示的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][如何安裝和設定 Azure PowerShell]。
 
 > [WACOM.NOTE] 只有最新的 Azure PowerShell 模組 0.8.5 版和更新版本才提供適用於檔案服務的 PowerShell Cmdlet。建議您下載和安裝或升級至最新的 Azure PowerShell 模組。
 
@@ -122,8 +122,8 @@ Azure 檔案儲存體目前為預覽版。若要要求預覽版的存取權，�
 
 為說明如何掛接 Azure 檔案共用，我們現在將建立 Azure 虛擬機器，並遠端進入該虛擬機器以掛接共用。
 
-1.  首先，依照[建立執行 Windows Server 的虛擬機器][]中的指示建立新的 Azure 虛擬機器。
-2.  接著依照[如何登入執行 Windows Server 的虛擬機器][]中的指示遠端進入此虛擬機器。
+1.  首先，依照[建立執行 Windows Server 的虛擬機器][建立執行 Windows Server 的虛擬機器]中的指示建立新的 Azure 虛擬機器。
+2.  接著依照[如何登入執行 Windows Server 的虛擬機器][如何登入執行 Windows Server 的虛擬機器]中的指示遠端進入此虛擬機器。
 3.  在虛擬機器上開啟 PowerShell 視窗。
 
 ### 在虛擬機器中保留您的儲存體帳戶認證
@@ -144,13 +144,13 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
     net use z: \<storage-account>.file.core.windows.netnet use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>lt;share-name> /u:<storage-account> <account-key>
 
-您現在可以從虛擬機器使用檔案儲存體共用，就好像操作任何其他磁碟機一樣。您可以從命令提示字元中發佈標準檔案命令，或從 [檔案總管] 中檢視掛接的共用及其內容。您也可以使用標準 Windows 檔案 I/O API (例如 .NET Framework 中 [System.IO namespaces][] 所提供的那些 API)，在可存取檔案共用的虛擬機器內執行程式碼。
+您現在可以從虛擬機器使用檔案儲存體共用，就好像操作任何其他磁碟機一樣。您可以從命令提示字元中發佈標準檔案命令，或從 [檔案總管] 中檢視掛接的共用及其內容。您也可以使用標準 Windows 檔案 I/O API (例如 .NET Framework 中 [System.IO namespaces][System.IO namespaces] 所提供的那些 API)，在可存取檔案共用的虛擬機器內執行程式碼。
 
 您也可以從在 Azure 雲端服務上執行的角色來掛接檔案共用，方法是透過遠端進入此角色。
 
 ## <a name="create-console-app"></a><span class="short-header">建立內部部署應用程式以使用檔案儲存體</span>建立內部部署應用程式以使用檔案儲存體
 
-您可以從在 Azure 執行的虛擬機器或雲端服務中掛接檔案儲存體共用，如上所述。不過，您無法從內部部署應用程式掛接檔案儲存體共用。若要從內部部署應用程式存取共用資料，您必須使用檔案儲存體 API。本範例將說明如何透過 [Azure .NET 儲存體用戶端程式庫][]使用檔案共用。
+您可以從在 Azure 執行的虛擬機器或雲端服務中掛接檔案儲存體共用，如上所述。不過，您無法從內部部署應用程式掛接檔案儲存體共用。若要從內部部署應用程式存取共用資料，您必須使用檔案儲存體 API。本範例將說明如何透過 [Azure .NET 儲存體用戶端程式庫][Azure .NET 儲存體用戶端程式庫]使用檔案共用。
 
 為說明如何從內部部署應用程式使用 API，我們將建立在桌面上執行的簡單主控台應用程式。
 
@@ -158,7 +158,7 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 若要在 Visual Studio 中建立新的主控台應用程式，並安裝 Azure 儲存體 NuGet 封裝：
 
-1.  在 Visual Studio 中，依序選擇 [檔案] -\> [新增專案]，然後從 Visual C\# 範本清單中選擇 [Windows] -\> [主控台應用程式]。
+1.  在 Visual Studio 中，依序選擇 [檔案] -\> [新增專案]，然後從 Visual C# 範本清單中選擇 [Windows] -\> [主控台應用程式]。
 2.  提供主控台應用程式的名稱，然後按一下 [確定]。
 3.  建立專案後，在 [方案總管] 中以滑鼠右鍵按一下該專案，然後選擇 [管理 NuGet 封裝]。在線上搜尋 "WindowsAzure.Storage"，再按一下 [安裝] 以安裝 Azure 儲存體封裝與相依性。
 
@@ -236,17 +236,17 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 -   如需可用 API 的完整詳細資訊，請檢視檔案服務參考文件：
     -   [Storage Client Library for .NET 參考資料][Azure .NET 儲存體用戶端程式庫]
-    -   [檔案服務 REST API 參考][]
+    -   [檔案服務 REST API 參考][檔案服務 REST API 參考]
 
 -   檢視與檔案服務相關的 Azure 儲存體團隊部落格文章：
-    -   [Microsoft Azure 檔案服務簡介][]
-    -   [保留與 Microsoft Azure 檔案的連線][]
+    -   [Microsoft Azure 檔案服務簡介][Microsoft Azure 檔案服務簡介]
+    -   [保留與 Microsoft Azure 檔案的連線][保留與 Microsoft Azure 檔案的連線]
 
 -   如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
-    -   使用 [Blog 儲存體][]儲存非結構化資料。
-    -   使用[資料表儲存體][]儲存結構化資料。
-    -   使用[佇列儲存體][]可靠地保管訊息。
-    -   使用 [SQL Database][] 儲存關聯式資料。
+    -   使用 [Blog 儲存體][Blog 儲存體]儲存非結構化資料。
+    -   使用[資料表儲存體][資料表儲存體]儲存結構化資料。
+    -   使用[佇列儲存體][佇列儲存體]可靠地保管訊息。
+    -   使用 [SQL Database][SQL Database] 儲存關聯式資料。
 
 </p>
 
@@ -259,16 +259,16 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
   [建立內部部署應用程式以存取檔案儲存體]: #create-console-app
   [後續步驟]: #next-steps
   [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
-  [Azure 儲存體延展性和效能目標]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
-  [命名和參考共用、目錄、檔案及中繼資料]: http://msdn.microsoft.com/en-us/library/azure/dn167011.aspx
-  [Microsoft Azure 預覽版頁面]: /en-us/services/preview/
+  [Azure 儲存體延展性和效能目標]: http://msdn.microsoft.com/zh-tw/library/dn249410.aspx
+  [命名和參考共用、目錄、檔案及中繼資料]: http://msdn.microsoft.com/zh-tw/library/azure/dn167011.aspx
+  [Microsoft Azure 預覽版頁面]: /zh-tw/services/preview/
   [create-storage-account]: ../includes/create-storage-account.md
   [如何安裝和設定 Azure PowerShell]: /zh-tw/documentation/articles/install-configure-powershell/
   [建立執行 Windows Server 的虛擬機器]: /zh-tw/documentation/articles/virtual-machines-windows-tutorial/
   [如何登入執行 Windows Server 的虛擬機器]: /zh-tw/documentation/articles/virtual-machines-log-on-windows-server/
-  [System.IO namespaces]: http://msdn.microsoft.com/en-us/library/gg145019(v=vs.110).aspx
+  [System.IO namespaces]: http://msdn.microsoft.com/zh-tw/library/gg145019(v=vs.110).aspx
   [Azure .NET 儲存體用戶端程式庫]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [檔案服務 REST API 參考]: http://msdn.microsoft.com/en-us/library/azure/dn167006.aspx
+  [檔案服務 REST API 參考]: http://msdn.microsoft.com/zh-tw/library/azure/dn167006.aspx
   [Microsoft Azure 檔案服務簡介]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx
   [保留與 Microsoft Azure 檔案的連線]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx
   [Blog 儲存體]: /zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/

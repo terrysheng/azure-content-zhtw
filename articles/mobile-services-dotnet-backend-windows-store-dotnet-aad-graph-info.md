@@ -13,38 +13,38 @@
 <a href="/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/" title="JavaScript 後端">JavaScript 後端</a>
 </div>
 
-如同其他隨行動服務提供的身分識別提供者，Azure Active Directory (AAD) 提供者也支援豐富的[圖形用戶端程式庫][]，可用於對目錄的程式設計存取。在本教學課程中，您會根據使用[圖形用戶端程式庫][]從目錄中擷取的其他使用者資訊來更新 ToDoList 應用程式，以個人化已驗證的使用者應用程式體驗。
+如同其他隨行動服務提供的身分識別提供者，Azure Active Directory (AAD) 提供者也支援豐富的[圖形用戶端程式庫][圖形用戶端程式庫]，可用於對目錄的程式設計存取。在本教學課程中，您會根據使用[圖形用戶端程式庫][圖形用戶端程式庫]從目錄中擷取的其他使用者資訊來更新 ToDoList 應用程式，以個人化已驗證的使用者應用程式體驗。
 
-> [WACOM.NOTE] 本教學課程的目的是要擴充您使用 Azure Active Directory 進行驗證的知識。您應已使用 Azure Active Directory 驗證提供者完成[開始使用驗證][]教學課程。本教學課程接著將更新[開始使用驗證][]教學課程中使用的 TodoItem 應用程式。
+> [WACOM.NOTE] 本教學課程的目的是要擴充您使用 Azure Active Directory 進行驗證的知識。您應已使用 Azure Active Directory 驗證提供者完成[開始使用驗證][開始使用驗證]教學課程。本教學課程接著將更新[開始使用驗證][開始使用驗證]教學課程中使用的 TodoItem 應用程式。
 
 本教學課程將逐步引導您完成下列步驟：
 
-1.  [在 AAD 中產生應用程式註冊的存取金鑰][]
-2.  [建立 GetUserInfo 自訂 API][]
-3.  [更新應用程式以使用自訂 API][]
-4.  [測試應用程式][]
+1.  [在 AAD 中產生應用程式註冊的存取金鑰][在 AAD 中產生應用程式註冊的存取金鑰]
+2.  [建立 GetUserInfo 自訂 API][建立 GetUserInfo 自訂 API]
+3.  [更新應用程式以使用自訂 API][更新應用程式以使用自訂 API]
+4.  [測試應用程式][測試應用程式]
 
 ## 必要條件
 
 在開始本教學課程之前，您必須已完成下列行動服務教學課程：
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     將登入需求新增至 TodoList 範例應用程式。
 
--   [自訂 API 教學課程][]
+-   [自訂 API 教學課程][自訂 API 教學課程]
     說明如何呼叫自訂 API。
 
 ## <a name="generate-key"></a>在 AAD 中產生應用程式註冊的存取金鑰
 
-在進行[開始使用驗證][]教學課程期間，您已在完成[註冊使用 Azure Active Directory 登入][]步驟時，為整合的應用程式建立註冊。在本節中，您將產生在使用該整合的應用程式用戶端識別碼讀取目錄資訊時所將使用的金鑰。
+在進行[開始使用驗證][開始使用驗證]教學課程期間，您已在完成[註冊使用 Azure Active Directory 登入][註冊使用 Azure Active Directory 登入]步驟時，為整合的應用程式建立註冊。在本節中，您將產生在使用該整合的應用程式用戶端識別碼讀取目錄資訊時所將使用的金鑰。
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key][]]
+[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 ## <a name="create-api"></a>建立 GetUserInfo 自訂 API
 
-在本節中，您將建立 GetUserInfo 自訂 API，以使用[圖形用戶端程式庫][]從 AAD 擷取使用者的其他相關資訊。
+在本節中，您將建立 GetUserInfo 自訂 API，以使用[圖形用戶端程式庫][圖形用戶端程式庫]從 AAD 擷取使用者的其他相關資訊。
 
-如果您未曾搭配使用自訂 API 與行動服務，請先參閱[自訂 API 教學課程][]，再開始執行本節步驟。
+如果您未曾搭配使用自訂 API 與行動服務，請先參閱[自訂 API 教學課程][自訂 API 教學課程]，再開始執行本節步驟。
 
 1.  在 Visual Studio 中，以滑鼠右鍵按一下行動服務.NET 後端專案，然後按一下 [管理 NuGet 封裝]。
 2.  在 [NuGet Package Manager] 對話方塊中，在搜尋條件中輸入 **ADAL**，以尋找並安裝您的行動服務的 [Active Directory Authentication Library]。
@@ -91,7 +91,7 @@
             return token;
         }
 
-    此方法會使用您在 [Azure 管理入口網站][]中為行動服務設定的應用程式設定，取得用來存取 Active Directory 的權杖。
+    此方法會使用您在 [Azure 管理入口網站][Azure 管理入口網站]中為行動服務設定的應用程式設定，取得用來存取 Active Directory 的權杖。
 
 7.  在 GetUserInfoController.cs 中，將下列 `GetAADUser` 方法新增至類別。
 
@@ -145,21 +145,21 @@
 
 ## <a name="update-app"></a>更新應用程式以使用 GetUserInfo
 
-在本節中，您會更新您在[開始使用驗證][]教學課程中實作的 `AuthenticateAsync` 方法，以呼叫自訂 API 並從 AAD 傳回使用者的其他相關資訊。
+在本節中，您會更新您在[開始使用驗證][開始使用驗證]教學課程中實作的 `AuthenticateAsync` 方法，以呼叫自訂 API 並從 AAD 傳回使用者的其他相關資訊。
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-update-app][]]
+[WACOM.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
 
 ## <a name="test-app"></a>測試應用程式
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-test-app][]]
+[WACOM.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
-在下一個教學課程[行動服務中使用 AAD 的角色型存取控制][]中，您將會搭配使用角色型存取控制與 Azure Active Directory (AAD) 來檢查群組成員資格，然後允許存取。
+在下一個教學課程[行動服務中使用 AAD 的角色型存取控制][行動服務中使用 AAD 的角色型存取控制]中，您將會搭配使用角色型存取控制與 Azure Active Directory (AAD) 來檢查群組成員資格，然後允許存取。
 
 <!-- Anchors. --> <!-- Images --> <!-- URLs. -->
 
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/ "Windows 市集 C#"
+  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/ "Windows 市集 C#"
   [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/ ".NET 後端"
   [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/ "JavaScript 後端"
   [圖形用戶端程式庫]: http://go.microsoft.com/fwlink/?LinkId=510536

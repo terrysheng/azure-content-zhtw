@@ -10,17 +10,17 @@
 
 本主題中所建立的自訂 API 可提供您傳送單一 POST 要求，並將資料表中所有 todo 項目的已完成旗標設定為`true` 。若沒有此自訂 API，用戶端必須傳送個別要求，來為資料表中的每個 todo 項目更新旗標。
 
-將此功能新增至您在完成[開始使用行動服務][]或[開始使用資料][]教學課程時所建立的應用程式。若要達到此目的，您將需要完成下列步驟：
+將此功能新增至您在完成[開始使用行動服務][開始使用行動服務]或[開始使用資料][開始使用資料]教學課程時所建立的應用程式。若要達到此目的，您將需要完成下列步驟：
 
-1.  [定義自訂 API][]
-2.  [更新應用程式以呼叫自訂 API][]
-3.  [測試應用程式][]
+1.  [定義自訂 API][定義自訂 API]
+2.  [更新應用程式以呼叫自訂 API][更新應用程式以呼叫自訂 API]
+3.  [測試應用程式][測試應用程式]
 
-本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][]或[開始使用資料][]。
+本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][開始使用行動服務]或[開始使用資料][開始使用資料]。
 
 ## <a name="define-custom-api"></a>定義自訂 API
 
-[WACOM.INCLUDE [mobile-services-create-custom-api][]]
+[WACOM.INCLUDE [mobile-services-create-custom-api](../includes/mobile-services-create-custom-api.md)]
 
 ## <a name="update-app"></a><span class="short-header">更新應用程式 </span>更新應用程式以呼叫自訂 API
 
@@ -66,12 +66,12 @@
 
 您已建立自訂 API，並從您的 HTML 應用程式呼叫此 API，建議您搜尋有關下列行動服務主題的更多資訊：
 
--   [行動服務伺服器指令碼參照][]  
+-   [行動服務伺服器指令碼參照][行動服務伺服器指令碼參照]  
      (英文) 深入了解建立自訂 API。
 
 
 
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows 市集 C#"
+  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows 市集 C#"
   [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Windows 市集 JavaScript"
   [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
   [iOS]: /zh-tw/documentation/articles/mobile-services-ios-call-custom-api "iOS"
@@ -82,5 +82,4 @@
   [定義自訂 API]: #define-custom-api
   [更新應用程式以呼叫自訂 API]: #update-app
   [測試應用程式]: #test-app
-  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
   [行動服務伺服器指令碼參照]: http://go.microsoft.com/fwlink/?LinkId=262293

@@ -12,8 +12,8 @@
 
 此工作包含下列步驟：
 
--   [步驟 1：預備應用程式][]
--   [步驟 2：交換 VIP 將應用程式部署至生產環境][]
+-   [步驟 1：預備應用程式][步驟 1：預備應用程式]
+-   [步驟 2：交換 VIP 將應用程式部署至生產環境][步驟 2：交換 VIP 將應用程式部署至生產環境]
 
 ## <span id="step1"></span></a>步驟 1：預備應用程式
 
@@ -23,17 +23,17 @@
 
     **Publish-AzureServiceProject -Slot staging**
 
-2.  登入 [Azure 管理入口網站][]，選取 [雲端服務]。當雲端服務已建立且 [預備] 欄狀態更新為 [正在執行] 之後，按一下服務名稱。
+2.  登入 [Azure 管理入口網站][Azure 管理入口網站]，選取 [雲端服務]。當雲端服務已建立且 [預備] 欄狀態更新為 [正在執行] 之後，按一下服務名稱。
 
-    ![portal displaying a running service][]
+    ![portal displaying a running service][portal displaying a running service]
 
 3.  選取 [儀表板]，然後選取 [預備]。
 
-    ![cloud service dashboard][]
+    ![cloud service dashboard][cloud service dashboard]
 
 4.  請注意右邊的 [網站 URL] 項目中的值。DNS 名稱是 Azure 產生的隱藏內部識別碼。
 
-    ![site url][]
+    ![site url][site url]
 
 現在，您可以利用預備網站 URL，驗證應用程式在預備環境中可正常運作。
 
@@ -50,11 +50,11 @@
 升級版本。</p>
 </div>
 
-1.  登入 [Azure 管理入口網站][]、按一下 [雲端服務]，然後選取服務名稱。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]、按一下 [雲端服務]，然後選取服務名稱。
 
 2.  從 [儀表板] 中，選取 [預備]，然後按一下頁面底部的 [交換]。這樣會開啟 [VIP 交換] 對話方塊。
 
-    ![vip swap dialog][]
+    ![vip swap dialog][vip swap dialog]
 
 3.  檢閱資訊，然後按一下 [確定]。兩個部署開始更新，預備部署會切換至生產環境，而生產部署會切換至預備環境。
 
@@ -62,8 +62,8 @@
 
 ## 其他資源
 
--   [如何在 Azure 中交換 VIP 將服務升級部署至生產環境][]
--   [在 Azure 中管理部署的概觀][]
+-   [如何在 Azure 中交換 VIP 將服務升級部署至生產環境][如何在 Azure 中交換 VIP 將服務升級部署至生產環境]
+-   [在 Azure 中管理部署的概觀][在 Azure 中管理部署的概觀]
 
   [步驟 1：預備應用程式]: #step1
   [步驟 2：交換 VIP 將應用程式部署至生產環境]: #step2

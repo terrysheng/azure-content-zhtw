@@ -10,17 +10,17 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
 
 ## 目錄
 
--   [下載並安裝 AzCopy][]
--   [了解 AzCopy 命令列語法][]
--   [限制複製資料時的並行寫入][]
--   [使用 AzCopy 複製 Azure Blob][]
--   [使用 AzCopy 複製在 Azure 檔案共用中的檔案][]
--   [AzCopy 版本][]
--   [後續步驟][]
+-   [下載並安裝 AzCopy][下載並安裝 AzCopy]
+-   [了解 AzCopy 命令列語法][了解 AzCopy 命令列語法]
+-   [限制複製資料時的並行寫入][限制複製資料時的並行寫入]
+-   [使用 AzCopy 複製 Azure Blob][使用 AzCopy 複製 Azure Blob]
+-   [使用 AzCopy 複製在 Azure 檔案共用中的檔案][使用 AzCopy 複製在 Azure 檔案共用中的檔案]
+-   [AzCopy 版本][AzCopy 版本]
+-   [後續步驟][後續步驟]
 
 ## <span id="install"></span></a> 下載並安裝 AzCopy
 
-1.  下載[最新版本的 AzCopy][]。
+1.  下載[最新版本的 AzCopy][最新版本的 AzCopy]。
 2.  執行安裝。依預設，AzCopy 安裝會在 `%ProgramFiles(x86)%\Microsoft SDKs\Azure\` (在執行 64 位元 Windows 的機器上) 或 `%ProgramFiles%\Microsoft SDKs\Azure\` (在執行 32 位元 Windows 的機器上) 下建立一個名為 `AzCopy` 的資料夾。不過，您可以在安裝精靈中變更安裝路徑。
 3.  若有需要，您可以在您的系統路徑中加入 AzCopy 安裝位置。
 
@@ -294,7 +294,7 @@ I&nbsp;&nbsp;&nbsp;未編製索引的檔案</td>
 
 ### 透過伺服器端複製來複製 Blob
 
-當您在儲存體帳戶內或跨儲存體帳戶複製 Blob 時，系統便會執行伺服器端複製作業。如需伺服器端複製作業的詳細資訊，請參閱[非同步跨帳戶複製 Blob 簡介][] (英文)。
+當您在儲存體帳戶內或跨儲存體帳戶複製 Blob 時，系統便會執行伺服器端複製作業。如需伺服器端複製作業的詳細資訊，請參閱[非同步跨帳戶複製 Blob 簡介][非同步跨帳戶複製 Blob 簡介] (英文)。
 
 **在儲存體帳戶內複製 Blob：**
 
@@ -643,18 +643,18 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 
 ### Azure 儲存體文件：
 
--   [Azure 儲存體簡介][]
--   [在 Blob 儲存體中儲存檔案 (英文)][]
--   [使用檔案儲存體在 Azure 中建立 SMB 檔案共用 (英文)][]
+-   [Azure 儲存體簡介][Azure 儲存體簡介]
+-   [在 Blob 儲存體中儲存檔案 (英文)][在 Blob 儲存體中儲存檔案 (英文)]
+-   [使用檔案儲存體在 Azure 中建立 SMB 檔案共用 (英文)][使用檔案儲存體在 Azure 中建立 SMB 檔案共用 (英文)]
 
 ### Azure 儲存體部落格文章：
 
--   [Microsoft Azure 檔案服務簡介][]
--   [AzCopy 2.5：針對大規模複製案例最佳化 (英文)][]
--   [AzCopy：支援讀取存取地理區域備援儲存體 (英文)][]
--   [AzCopy：使用可重新啟動模式和 SAS 權杖傳輸資料 (英文)][]
--   [AzCopy：使用跨帳戶複製 Blob (英文)][]
--   [AzCopy：上傳/下載 Windows Azure Blob 的檔案 (英文)][]
+-   [Microsoft Azure 檔案服務簡介][Microsoft Azure 檔案服務簡介]
+-   [AzCopy 2.5：針對大規模複製案例最佳化 (英文)][AzCopy 2.5：針對大規模複製案例最佳化 (英文)]
+-   [AzCopy：支援讀取存取地理區域備援儲存體 (英文)][AzCopy：支援讀取存取地理區域備援儲存體 (英文)]
+-   [AzCopy：使用可重新啟動模式和 SAS 權杖傳輸資料 (英文)][AzCopy：使用可重新啟動模式和 SAS 權杖傳輸資料 (英文)]
+-   [AzCopy：使用跨帳戶複製 Blob (英文)][AzCopy：使用跨帳戶複製 Blob (英文)]
+-   [AzCopy：上傳/下載 Windows Azure Blob 的檔案 (英文)][AzCopy：上傳/下載 Windows Azure Blob 的檔案 (英文)]
 
   [下載並安裝 AzCopy]: #install
   [了解 AzCopy 命令列語法]: #syntax

@@ -11,7 +11,7 @@ Microsoft Azure Machine Learning 工作區 (ML 工作區) 包含在管理及發�
 1.  登入您的 Microsoft Azure 帳戶。
 2.  在 Microsoft Azure 服務面板中，按一下 [機器學習]。
 
-![][]
+![][0]
 
 1.  按一下 [建立 ML 工作區]。
 2.  在 [快速建立] 頁面中：
@@ -25,5 +25,5 @@ Microsoft Azure Machine Learning 工作區 (ML 工作區) 包含在管理及發�
 
 
 
-  []: ./media/machine-learning-create-workspace/cw1.png
+  [0]: ./media/machine-learning-create-workspace/cw1.png
   [1]: ./media/machine-learning-create-workspace/cw2.png

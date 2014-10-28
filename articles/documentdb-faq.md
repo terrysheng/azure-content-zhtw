@@ -6,9 +6,9 @@
 
 ## 本文內容
 
--   [Azure DocumentDB 基本概念][]
--   [設定 Azure DocumentDB][]
--   [針對 Azure DocumentDB 進行開發][]
+-   [Azure DocumentDB 基本概念][Azure DocumentDB 基本概念]
+-   [設定 Azure DocumentDB][設定 Azure DocumentDB]
+-   [針對 Azure DocumentDB 進行開發][針對 Azure DocumentDB 進行開發]
 
 ## <span id="fundamentals"></span></a> Microsoft Azure DocumentDB 基本概念
 
@@ -16,7 +16,7 @@
 
 Microsoft Azure DocumentDB 是一種極具擴充性的 NoSQL 文件「資料庫即服務」，可在無結構描述的資料上進行豐富的查詢，協助提供可設定和可靠的效能，且支援快速開發，這些完全都是透過受管理的平台，背後有 Microsoft Azure 強大的功能與先進的技術做後盾。如果關鍵在於可預測的輸送量、低遲性和無結構描述的資料模型，則 DocumentDB 就是 Web 和行動應用程式最適當的解決方案。DocumentDB 透過原生 JSON 資料模型，提供結構描述的彈性和豐富的檢索能力，且包含多文件交易式支援與整合式 JavaScript。
 
-如需有關部署和使用此服務的指示，請參閱 [DocumentDB 文件頁面][]。
+如需有關部署和使用此服務的指示，請參閱 [DocumentDB 文件頁面][DocumentDB 文件頁面]。
 
 ### DocumentDB 是何種資料庫？
 
@@ -44,7 +44,7 @@ DocumentDB 是 NoSQL 文件導向的資料庫，以 JSON 格式儲存資料。Do
 
 ### Microsoft Azure DocumentDB 的費用是多少？
 
-請參閱 [DocumentDB 定價詳細資料][]一文，以取得詳細資料。
+請參閱 [DocumentDB 定價詳細資料][DocumentDB 定價詳細資料]一文，以取得詳細資料。
 
 ## <span id="setup"></span></a> 設定 Microsoft Azure DocumentDB
 
@@ -58,7 +58,7 @@ DocumentDB 是 NoSQL 文件導向的資料庫，以 JSON 格式儲存資料。Do
 
 ### 我如何建立資料庫？
 
-您可以使用其中一套 DocumentDB SDK 或透過 REST API 來建立資料庫。如需有關如何開發應用程式的資訊，請參閱 [DocumentDB 文件頁面][]的＜開發＞一節。
+您可以使用其中一套 DocumentDB SDK 或透過 REST API 來建立資料庫。如需有關如何開發應用程式的資訊，請參閱 [DocumentDB 文件頁面][DocumentDB 文件頁面]的＜開發＞一節。
 
 ### 什麼是集合？
 
@@ -70,17 +70,17 @@ DocumentDB 是 NoSQL 文件導向的資料庫，以 JSON 格式儲存資料。Do
 
 ### 我如何設定使用者和權限？
 
-您可以使用其中一套 DocumentDB SDK 或透過 REST API 來建立使用者和權限。如需有關如何開發應用程式的資訊，請參閱 [DocumentDB 文件頁面][]的＜開發＞一節。 .
+您可以使用其中一套 DocumentDB SDK 或透過 REST API 來建立使用者和權限。如需有關如何開發應用程式的資訊，請參閱 [DocumentDB 文件頁面][DocumentDB 文件頁面]的＜開發＞一節。 .
 
 ## <span id="develop"></span></a>針對 Microsoft Azure DocumentDB 進行開發
 
 ### 如何開始針對 DocumentDB 進行開發？
 
-在預覽版本中，有 .NET、Python、Node.js 和 JavaScript 的 SDK 可用。開發人員也可以利用 RESTful HTTP API，從各種平台和語言來與 DocumentDB 資源互動。如需有關如何使用這些 SDK 的詳細資訊，請參閱 [DocumentDB 文件頁面][]的＜開發＞一節。
+在預覽版本中，有 .NET、Python、Node.js 和 JavaScript 的 SDK 可用。開發人員也可以利用 RESTful HTTP API，從各種平台和語言來與 DocumentDB 資源互動。如需有關如何使用這些 SDK 的詳細資訊，請參閱 [DocumentDB 文件頁面][DocumentDB 文件頁面]的＜開發＞一節。
 
 ### DocumentDB 支援 SQL 嗎？
 
-DocumentDB 的 SQL 查詢語言提供豐富的階層式和關聯式運算子，且透過 JavaScript 型使用者定義函數 (UDF) 支援擴充性。JSON 文法允許將 JSON 文件模型化為樹狀目錄，並以標籤當作樹狀節點 - 這是由 DocumentDB 的自動編製索引技術及 DocumentDB 的 SQL 查詢方言所形成的事實。如需有關如何使用 SQL 文法的詳細資訊，請參閱[使用 DocumentDB SQL 來查詢][]一文。
+DocumentDB 的 SQL 查詢語言提供豐富的階層式和關聯式運算子，且透過 JavaScript 型使用者定義函數 (UDF) 支援擴充性。JSON 文法允許將 JSON 文件模型化為樹狀目錄，並以標籤當作樹狀節點 - 這是由 DocumentDB 的自動編製索引技術及 DocumentDB 的 SQL 查詢方言所形成的事實。如需有關如何使用 SQL 文法的詳細資訊，請參閱[使用 DocumentDB SQL 來查詢][使用 DocumentDB SQL 來查詢]一文。
 
 ### DocumentDB 支援什麼資料類型？
 
@@ -96,7 +96,7 @@ DocumentDB 透過 JavaScript 預存程序和觸發程序，支援語言整合式
 
 ### 我如何將大量文件插入至 DocumentDB？
 
-DocumentDB 的預存程序支援提供有效率的方式執行批次插入。您可以開發簡單的 JavaScript 預存程序來接受並插入文件，以執行大量插入。額外的優點就是會以交易來執行大量插入，讓集合保持一致的狀態。如需程式設計模型的詳細資訊，請參閱 [DocumentDB 文件頁面][]的＜開發＞一節。
+DocumentDB 的預存程序支援提供有效率的方式執行批次插入。您可以開發簡單的 JavaScript 預存程序來接受並插入文件，以執行大量插入。額外的優點就是會以交易來執行大量插入，讓集合保持一致的狀態。如需程式設計模型的詳細資訊，請參閱 [DocumentDB 文件頁面][DocumentDB 文件頁面]的＜開發＞一節。
 
 ### DocumentDB 支援資源連結快取嗎？
 

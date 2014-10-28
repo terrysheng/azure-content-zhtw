@@ -11,7 +11,7 @@
 <a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push/" title=".NET 後端" class="current">.NET 後端</a> | <a href="partner-xamarin-mobile-services-ios-get-started-push/"  title="JavaScript 後端" >JavaScript 後端</a>
 </div>
 
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push "Windows 市集 C#"
+  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push "Windows 市集 C#"
   [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push "Windows 市集 JavaScript"
   [Windows Phone]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push "Windows Phone"
   [Android]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Android"

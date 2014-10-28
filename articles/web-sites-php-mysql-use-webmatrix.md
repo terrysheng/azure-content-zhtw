@@ -6,7 +6,7 @@
 
 本教學課程說明如何使用 WebMatrix 來開發 PHP-MySQL 應用程式並部署至 Azure 網站。WebMatrix 是 Microsoft 提供的免費 Web 開發工具，包含網站開發所需的一切。WebMatrix 支援 PHP 且包含 PHP 開發的 intellisense。
 
-本教學課程假設您已在電腦上安裝 [MySQL][]，以便在本機測試應用程式。不過，您也可以在沒有安裝 MySQL 的情況下完成本教學課程。取而代之，您可以將應用程式直接部署至 Azure 網站。
+本教學課程假設您已在電腦上安裝 [MySQL][MySQL]，以便在本機測試應用程式。不過，您也可以在沒有安裝 MySQL 的情況下完成本教學課程。取而代之，您可以將應用程式直接部署至 Azure 網站。
 
 完成本指南的步驟後，您將擁有在 Azure 上運作的 PHP-MySQL 網站。
 
@@ -18,13 +18,13 @@
 
 依照本教學課程進行，您將使用 PHP 建立一個簡易的「工作清單」Web 應用程式。該應用程式將在 Azure 網站中託管。以下螢幕擷取畫面顯示執行中的應用程式：
 
-![Azure PHP Web Site][]
+![Azure PHP Web Site][Azure PHP Web Site]
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
 
 ## 必要條件
 
-1.  [下載][]「工作清單」應用程式檔案。工作清單應用程式是一個簡單的 PHP 應用程式，可讓您在工作清單中加入、標示完成和刪除項目。工作清單項目會儲存在 MySQL 資料庫中。此應用程式包含下列檔案：
+1.  [下載][下載]「工作清單」應用程式檔案。工作清單應用程式是一個簡單的 PHP 應用程式，可讓您在工作清單中加入、標示完成和刪除項目。工作清單項目會儲存在 MySQL 資料庫中。此應用程式包含下列檔案：
 
     -   **additem.php**：將項目加入至清單。
     -   **createtable.php**：為應用程式建立 MySQL 資料表。只會呼叫一次此檔案。
@@ -42,25 +42,25 @@
 
 ## <span id="CreateWebsite"></span></a>建立 Azure 網站和 MySQL 資料庫
 
-1.  登入[管理入口網站][]。
+1.  登入[管理入口網站][管理入口網站]。
 2.  按一下入口網站左下方的 [+ 新增] 圖示。
 
-    ![Create New Azure Web Site][]
+    ![Create New Azure Web Site][Create New Azure Web Site]
 
 3.  依序按一下 [網站] 及 [自訂建立]。
 
-    ![Custom Create a new Web Site][]
+    ![Custom Create a new Web Site][Custom Create a new Web Site]
 
     > [WACOM.NOTE]
     > 建立網站後，您就不能建立此網站的 MySQL 資料庫。您必須依照下列步驟說明，建立網站和 MySQL 資料庫。
 
 4.  輸入 **URL** 的值，然後從 [資料庫] 下拉式清單中選取 \[建立新的 MySQL 資料庫\]，接著在 [區域] 下拉式清單中為您的網站選取資料中心。按一下對話方塊底部的箭頭。
 
-    ![Fill in web site details][]
+    ![Fill in web site details][Fill in web site details]
 
 5.  為您的資料庫輸入 [名稱] 值，然後在 [區域] 下拉式清單中為您的資料庫選取資料中心，接著核取代表您同意法律條款的方塊。按一下對話方塊底部的核取記號。
 
-    ![建立新的 MySQL 資料庫][]
+    ![建立新的 MySQL 資料庫][建立新的 MySQL 資料庫]
 
     建立網站之後，您會看到 [建立網站 '[SITENAME]' 成功] 的字樣。
 
@@ -68,23 +68,23 @@
 
 6.  按一下網站清單中顯示的網站名稱，以開啟該網站的 [快速入門] 頁面。
 
-    ![Open web site dashboard][]
+    ![Open web site dashboard][Open web site dashboard]
 
 7.  按一下 **[設定]** 索引標籤：
 
-    ![設定索引標籤][]
+    ![設定索引標籤][設定索引標籤]
 
 8.  向下捲動到 **[連接字串]** 區段。以下`Database`, `Data Source`, `User Id` 和`Password` 的值為 (分別是) 資料庫名稱、伺服器名稱、使用者名稱和使用者密碼。請記下資料庫連結資訊，稍後將會用到。
 
-    ![Connection string][]
+    ![Connection string][Connection string]
 
 ## 安裝 WebMatrix 和開發應用程式
 
-您可以從[管理入口網站][]安裝 WebMatrix。
+您可以從[管理入口網站][管理入口網站]安裝 WebMatrix。
 
 1.  登入之後，瀏覽至網站的 [快速入門] 頁面，按一下頁面底部的 WebMatrix 圖示：
 
-    ![Install WebMatrix][]
+    ![Install WebMatrix][Install WebMatrix]
 
     依照提示來安裝 WebMatrix。
 
@@ -92,15 +92,15 @@
 
 3.  提示您下載網站時，請選擇 [Yes, install from the Template Gallery]。
 
-    ![Download web site][]
+    ![Download web site][Download web site]
 
 4.  從可用的範本中，選擇 [PHP]。
 
-    ![Site from template][]
+    ![Site from template][Site from template]
 
 5.  選取 [空白網站] 範本。提供網站的名稱，然後按 [下一個]。
 
-    ![Provide name for site][]
+    ![Provide name for site][Provide name for site]
 
     您的網站將在 WebMatrix 中開啟，且備妥一些預設檔案。
 
@@ -108,11 +108,11 @@
 
 6.  按一下 **[新增現有的]** 來新增應用程式檔案：
 
-    ![WebMatrix - Add existing files][]
+    ![WebMatrix - Add existing files][WebMatrix - Add existing files]
 
     在結果對話方塊中，瀏覽至您稍早下載的檔案，全部選取，然後按一下 [開啟舊檔]。出現提示時，選擇取代`index.php` 檔案。
 
-7.  接下來，您需要將本機 MySQL 資料庫連接資訊加入至`taskmodel.php` 檔案。按兩下以開啟`taskmodel.php` 檔案，然後在`connect` 函數中更新資料庫連接資訊。(**注意**：如果不要在本機測試應用程式，而想要直接發行至 Azure 網站，請跳至[發行應用程式][]。)
+7.  接下來，您需要將本機 MySQL 資料庫連接資訊加入至`taskmodel.php` 檔案。按兩下以開啟`taskmodel.php` 檔案，然後在`connect` 函數中更新資料庫連接資訊。(**注意**：如果不要在本機測試應用程式，而想要直接發行至 Azure 網站，請跳至[發行應用程式][發行應用程式]。)
 
         // DB connection info
         $host = "localhost";
@@ -124,13 +124,13 @@
 
 8.  若要執行應用程式，您需要建立`items` 資料表。以滑鼠右鍵按一下`createtable.php` 檔案，然後選取 [在瀏覽器中啟動]。這將在您的瀏覽器中啟動`createtable.php` ，並執行可建立`items` 資料表於`tasklist` 資料庫的程式碼。
 
-    ![WebMatrix - Launch createtable.php in browser][]
+    ![WebMatrix - Launch createtable.php in browser][WebMatrix - Launch createtable.php in browser]
 
 9.  現在，您可以在本機測試應用程式。以滑鼠右鍵按一下`index.php` 檔案，然後選取 [在瀏覽器中啟動]。請開始測試應用程式，包括加入項目、將項目標示為完成，然後刪除項目。
 
 ## <span id="Publish"></span></a>發行應用程式
 
-將應用程式發行至 Azure 網站之前，`taskmodel.php` 中的資料庫連接資訊需要更新為您稍早取得的連接資訊 (在＜[建立 Azure 網站和 MySQL 資料庫][]＞一節中)。
+將應用程式發行至 Azure 網站之前，`taskmodel.php` 中的資料庫連接資訊需要更新為您稍早取得的連接資訊 (在＜[建立 Azure 網站和 MySQL 資料庫][建立 Azure 網站和 MySQL 資料庫]＞一節中)。
 
 1.  按兩下以開啟`taskmodel.php` 檔案，然後在`connect` 函數中更新資料庫連接資訊。
 
@@ -144,34 +144,34 @@
 
 2.  在 WebMatrix 中按一下 [發行]，然後在 [發行預覽] 對話方塊中按一下 [繼續]。
 
-    ![WebMatrix - Publish][]
+    ![WebMatrix - Publish][WebMatrix - Publish]
 
-3.  瀏覽至 [http://[您的][]網站名稱].azurewebsites.net/createtable.php 來建立`items` 資料表。
+3.  瀏覽至 [http://[您的][http://[您的]網站名稱].azurewebsites.net/createtable.php 來建立`items` 資料表。
 
-4.  最後，瀏覽至 [http://[您的][]網站名稱].azurewebsites.net/index.php 來使用應用程式。
+4.  最後，瀏覽至 [http://[您的][http://[您的]網站名稱].azurewebsites.net/index.php 來使用應用程式。
 
 ## 修改和重新發行應用程式
 
 您可以編輯稍早下載的網站本機複本，輕鬆地修改應用程式，然後重新發行，或者，您也可以在「遠端」模式下直接編輯。在這裡，您將在`index.php` 檔案中簡單地變更標題，並直接儲存至即時網站。
 
 1.  在 WebMatrix 中按一下 [遠端] 索引標籤，然後選取 [開啟遠端檢視]。這樣會開啟遠端網站來直接編輯。
-    ![WebMatrix - Open Remote View][]
+    ![WebMatrix - Open Remote View][WebMatrix - Open Remote View]
 
 2.  按兩下以開啟`index.php` 檔案。
-    ![WebMatrix - Open index file][]
+    ![WebMatrix - Open index file][WebMatrix - Open index file]
 
 3.  在 **title** 和 **h1** 標籤中，將 **My ToDo List** 變更為 **My Task List**，然後儲存檔案。
 
 4.  儲存完成時，按一下 [執行] 按鈕，在即時網站上查看變更結果。
-    ![WebMatrix - Launch site in Remote][]
+    ![WebMatrix - Launch site in Remote][WebMatrix - Launch site in Remote]
 
 # 後續步驟
 
 您已了解如何建立網站並從 WebMatrix 部署至 Azure。若要深入了解 WebMatrix，請參考下列資源：
 
--   [WebMatrix for Azure][]
+-   [WebMatrix for Azure][WebMatrix for Azure]
 
--   [WebMatrix 網站][]
+-   [WebMatrix 網站][WebMatrix 網站]
 
   [MySQL]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
   [Azure PHP Web Site]: ./media/web-sites-php-mysql-use-webmatrix/tasklist_app_windows.png

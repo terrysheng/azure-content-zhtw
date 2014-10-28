@@ -20,11 +20,11 @@ Azure CDN 可以與雲端服務整合，從雲端服務的 CDN 目錄中提供�
 
 在本教學課程中，您將了解如何：
 
--   [整合 Azure CDN 端點與雲端服務，並從 Azure CDN 提供網頁的靜態內容][]
--   [在雲端服務中設定靜態內容的快取設定][]
--   [透過 Azure CDN 從控制器動作提供內容][]
--   [透過 Azure CDN 提供統合和縮製的內容，同時保留 Visual Studio 中的指令碼偵錯體驗][]
--   [設定當 Azure CDN 離線時後援的指令碼和 CSS][]
+-   [整合 Azure CDN 端點與雲端服務，並從 Azure CDN 提供網頁的靜態內容][整合 Azure CDN 端點與雲端服務，並從 Azure CDN 提供網頁的靜態內容]
+-   [在雲端服務中設定靜態內容的快取設定][在雲端服務中設定靜態內容的快取設定]
+-   [透過 Azure CDN 從控制器動作提供內容][透過 Azure CDN 從控制器動作提供內容]
+-   [透過 Azure CDN 提供統合和縮製的內容，同時保留 Visual Studio 中的指令碼偵錯體驗][透過 Azure CDN 提供統合和縮製的內容，同時保留 Visual Studio 中的指令碼偵錯體驗]
+-   [設定當 Azure CDN 離線時後援的指令碼和 CSS][設定當 Azure CDN 離線時後援的指令碼和 CSS]
 
 ## 將建置的項目
 
@@ -34,15 +34,15 @@ Azure CDN 可以與雲端服務整合，從雲端服務的 CDN 目錄中提供�
 
 本教學課程有下列先決條件：
 
--   使用中的 [Microsoft Azure 帳戶][]
--   Visual Studio 2013 (含 [Azure SDK][])
+-   使用中的 [Microsoft Azure 帳戶][Microsoft Azure 帳戶]
+-   Visual Studio 2013 (含 [Azure SDK][Azure SDK])
 
 <div class="wa-note">
   <span class="wa-icon-bulb"></span>
 <h5><a name="note"></a>要完成此教學課程，您必須要有 Azure 帳戶：</h5>
   <ul>
-<li>您可以<a href="http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F">免費申請 Azure 帳戶</a> - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如「網站」。</li>
-<li>您可以<a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">啟用 MSDN 訂戶權益</a> - 您的 MSDN 訂閱每月會提供您額度，您可以用在 Azure 付費服務。</li>
+<li>您可以<a href="http://azure.microsoft.com/zh-tw/pricing/free-trial/?WT.mc_id=A261C142F">免費申請 Azure 帳戶</a> - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如「網站」。</li>
+<li>您可以<a href="http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">啟用 MSDN 訂戶權益</a> - 您的 MSDN 訂閱每月會提供您額度，您可以用在 Azure 付費服務。</li>
   <ul>
 </div>
 
@@ -87,11 +87,11 @@ Azure CDN 可以與雲端服務整合，從雲端服務的 CDN 目錄中提供�
 
     ![][7]
 
-    > [WACOM.NOTE] 雲端服務的發行程序會花費很長時間。[啟用所有 Web 角色的 Web Deploy] 選項可快速 (但暫時) 提供更新給 Web 角色，加速偵測您的雲端服務。如需此選項的詳細資訊，請參閱[使用 Azure Tools 發行雲端服務][]。
+    > [WACOM.NOTE] 雲端服務的發行程序會花費很長時間。[啟用所有 Web 角色的 Web Deploy] 選項可快速 (但暫時) 提供更新給 Web 角色，加速偵測您的雲端服務。如需此選項的詳細資訊，請參閱[使用 Azure Tools 發行雲端服務][使用 Azure Tools 發行雲端服務]。
 
     當 [Windows Azure 活動記錄] 顯示發行狀態為 [已完成] 時，您將建立與此雲端服務整合的 CDN 端點。
 
-10. 若要建立 CDN 端點，請登入 [Azure 管理入口網站][]。
+10. 若要建立 CDN 端點，請登入 [Azure 管理入口網站][Azure 管理入口網站]。
 11. 按一下 [新增] \> [應用程式服務] \> [CDN] \> [快速建立]。選取 **http://*\<servicename\>*.cloudapp.net/cdn/**，然後按一下 [建立]。
 
     ![][8]
@@ -167,7 +167,7 @@ Azure CDN 可以與雲端服務整合，從雲端服務的 CDN 目錄中提供�
 -   如果 CDN 端點因故離線，不論是排定的維護或使用者錯誤，則整個雲端服務都會離線，除非能夠將客戶重新導向至原始 URL **http://*\<serviceName\>*.cloudapp.net/**。
 -   就算使用自訂的 Cache-Control 設定 (請參閱[在雲端服務中設定靜態檔案的快取選項][在雲端服務中設定靜態內容的快取設定])，CDN 端點也無法改善高度動態內容的效能。如果您嘗試從 CDN 端點載入首頁，如上所示，請注意，第一次載入預設首頁 (非常簡單的頁面) 至少需要 5 秒。設想，如果此頁面包含必須每分鐘更新的動態內容，客戶體驗有何影響。從 CDN 端點提供動態內容需要有較短的快取到期時間，這也說明 CDN 端點經常會發生快取遺漏。這會降低雲端服務的效能，也會折損 CDN 的效用。
 
-替代方法是在雲端服務中依個別情況決定從 Azure CDN 提供什麼內容。總之，您已了解如何從 CDN 端點存取個別的內容檔案。我將在[透過 Azure CDN 從控制器動作提供內容][]中說明如何透過 CDN 端點提供特定的控制器動作。
+替代方法是在雲端服務中依個別情況決定從 Azure CDN 提供什麼內容。總之，您已了解如何從 CDN 端點存取個別的內容檔案。我將在[透過 Azure CDN 從控制器動作提供內容][透過 Azure CDN 從控制器動作提供內容]中說明如何透過 CDN 端點提供特定的控制器動作。
 
 您可以指定更嚴格的 URL 重寫規則，以限制可透過 CDN 端點存取的內容。例如，若要將 URL 重寫限制在 *\\Scripts* 資料夾，請如下所示變更上述重寫規則：
 
@@ -206,17 +206,17 @@ Azure CDN 可以與雲端服務整合，從雲端服務的 CDN 目錄中提供�
 
 此設定會將 *\\Content* 資料夾中的所有靜態檔案快取 15 天。
 
-如需有關如何設定 `<clientCache>` 元素的詳細資訊，請參閱[用戶端快取 \<clientCache\>][] (英文)。
+如需有關如何設定 `<clientCache>` 元素的詳細資訊，請參閱[用戶端快取 \<clientCache\>][用戶端快取 \<clientCache\>] (英文)。
 
-在[透過 Azure CDN 從控制器動作提供內容][]中，我也會說明如何在 CDN 快取中設定控制器動作結果的快取設定。
+在[透過 Azure CDN 從控制器動作提供內容][透過 Azure CDN 從控制器動作提供內容]中，我也會說明如何在 CDN 快取中設定控制器動作結果的快取設定。
 
 <a name="controller"></a>
 
 ## 透過 Azure CDN 從控制器動作提供內容
 
-整合雲端服務 Web 角色與 Azure CDN 時，透過 Azure CDN 從控制器動作提供內容就非常簡單。[Maarten Balliauw][] 在[使用 Windows Azure CDN 縮短網路延遲時間][] (英文) 中以一個有趣的 MemeGenerator 控制器來說明作法，而不直接透過 Azure CDN 提供雲端服務 (如上所示)。我在這裡簡單地重述一次。
+整合雲端服務 Web 角色與 Azure CDN 時，透過 Azure CDN 從控制器動作提供內容就非常簡單。[Maarten Balliauw][Maarten Balliauw] 在[使用 Windows Azure CDN 縮短網路延遲時間][使用 Windows Azure CDN 縮短網路延遲時間] (英文) 中以一個有趣的 MemeGenerator 控制器來說明作法，而不直接透過 Azure CDN 提供雲端服務 (如上所示)。我在這裡簡單地重述一次。
 
-假設您想在雲端服務中利用查克羅禮士年輕時的一張相片 ([Alan Light][] 拍攝) 來引起網路瘋傳：
+假設您想在雲端服務中利用查克羅禮士年輕時的一張相片 ([Alan Light][Alan Light] 拍攝) 來引起網路瘋傳：
 
 ![][14]
 
@@ -400,7 +400,7 @@ public ActionResult Show(string id)
 -   CDN 端點失敗時的後援機制
 -   儘可能不修改程式碼
 
-在您於 [TODO][] 建立的 **WebRole1** 專案中，開啟 *App\_Start\\BundleConfig.cs*，查看 `bundles.Add()` 方法呼叫。
+在您於 [TODO][TODO] 建立的 **WebRole1** 專案中，開啟 *App\_Start\\BundleConfig.cs*，查看 `bundles.Add()` 方法呼叫。
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -425,7 +425,7 @@ public ActionResult Show(string id)
 
 請遵循下列步驟來整合 ASP.NET 統合和縮製與 CDN 端點。
 
-1.  回到 *App\_Start\\BundleConfig.cs*，修改 `bundles.Add()` 方法來使用不同的 [Bundle 建構函數][] (此函數會指定 CDN 位址)。若要這樣做，請將 `RegisterBundles` 方法定義改成下列程式碼：
+1.  回到 *App\_Start\\BundleConfig.cs*，修改 `bundles.Add()` 方法來使用不同的 [Bundle 建構函數][Bundle 建構函數] (此函數會指定 CDN 位址)。若要這樣做，請將 `RegisterBundles` 方法定義改成下列程式碼：
 
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
@@ -518,7 +518,7 @@ public ActionResult Show(string id)
 
 當 Azure CDN 端點因故失敗時，您一定希望網頁能夠聰明地存取原始 Web 伺服器，當作後援選項來載入 JavaScript 或 Bootstrap。由於 CDN 無法使用而遺失網站的影像是一回事，而遺失由指令碼和樣式表提供的重要頁面功能又是另一回事。
 
-[Bundle][] 類別包含一個稱為 [CdnFallbackExpression][] 的屬性，可讓您設定 CDN 失敗時的後援機制。若要使用此屬性，請遵循下列步驟：
+[Bundle][Bundle] 類別包含一個稱為 [CdnFallbackExpression][CdnFallbackExpression] 的屬性，可讓您設定 CDN 失敗時的後援機制。若要使用此屬性，請遵循下列步驟：
 
 1.  在 Web 角色專案中，開啟 *App\_Start\\BundleConfig.cs* (其中，您已在每一個 [Bundle 建構函式][Bundle 建構函數]中加入 CDN URL)，使用下列反白的變更將後援機制加入至預設套件組合：
 
@@ -562,11 +562,11 @@ public ActionResult Show(string id)
     -   `window.Modernizr` 定義於 modernizer-{version}.js 中
     -   `$.fn.modal` 定義於 bootstrap.js 中
 
-    您可能發現到我沒有為 `~/Cointent/css` 套件組合設定 CdnFallbackExpression。這是因為目前 [System.Web.Optimization 中有錯誤][]，導致插入後援 CSS 的 `<script>` 標籤，而非預期的 `<link>` 標籤。
+    您可能發現到我沒有為 `~/Cointent/css` 套件組合設定 CdnFallbackExpression。這是因為目前 [System.Web.Optimization 中有錯誤][System.Web.Optimization 中有錯誤]，導致插入後援 CSS 的 `<script>` 標籤，而非預期的 `<link>` 標籤。
 
-    不過，[Ember 顧問團][] (英文) 提供一套良好的[樣式套件組合後援][] (英文)。
+    不過，[Ember 顧問團][Ember 顧問團] (英文) 提供一套良好的[樣式套件組合後援][樣式套件組合後援] (英文)。
 
-2.  若要使用此解決方案，請在 Web 角色專案的 *App\_Start* 資料夾 *StyleBundleExtensions.cs* 中建立新的 .cs 檔案，並將內容改成 [GitHub 提供的程式碼][]。
+2.  若要使用此解決方案，請在 Web 角色專案的 *App\_Start* 資料夾 *StyleBundleExtensions.cs* 中建立新的 .cs 檔案，並將內容改成 [GitHub 提供的程式碼][GitHub 提供的程式碼]。
 
 3.  在 *App\_Start\\StyleFundleExtensions.cs* 中，將命名空間重新命名為您的 Web 角色名稱 (例如 **WebRole1**)。
 
@@ -629,20 +629,20 @@ public ActionResult Show(string id)
 
 # 相關資訊
 
--   [Azure 內容傳遞網路 (CDN) 概觀][]
--   [在 Web 應用程式中從 Azure CDN 提供內容][]
--   [ASP.NET 統合和縮製][]
--   [使用 Azure 的 CDN][]
+-   [Azure 內容傳遞網路 (CDN) 概觀][Azure 內容傳遞網路 (CDN) 概觀]
+-   [在 Web 應用程式中從 Azure CDN 提供內容][在 Web 應用程式中從 Azure CDN 提供內容]
+-   [ASP.NET 統合和縮製][ASP.NET 統合和縮製]
+-   [使用 Azure 的 CDN][使用 Azure 的 CDN]
 
   [整合 Azure CDN 端點與雲端服務，並從 Azure CDN 提供網頁的靜態內容]: #deploy
   [在雲端服務中設定靜態內容的快取設定]: #caching
   [透過 Azure CDN 從控制器動作提供內容]: #controller
   [透過 Azure CDN 提供統合和縮製的內容，同時保留 Visual Studio 中的指令碼偵錯體驗]: #bundling
   [設定當 Azure CDN 離線時後援的指令碼和 CSS]: #fallback
-  [Microsoft Azure 帳戶]: http://azure.microsoft.com/en-us/account/
+  [Microsoft Azure 帳戶]: http://azure.microsoft.com/zh-tw/account/
   [Azure SDK]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
-  [免費申請 Azure 帳戶]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F
-  [啟用 MSDN 訂戶權益]: http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+  [免費申請 Azure 帳戶]: http://azure.microsoft.com/zh-tw/pricing/free-trial/?WT.mc_id=A261C142F
+  [啟用 MSDN 訂戶權益]: http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   []: media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG
   [1]: media/cdn-cloud-service-with-cdn/cdn-cs-2-select-role.PNG
   [2]: media/cdn-cloud-service-with-cdn/cdn-cs-3-mvc-template.PNG
@@ -651,7 +651,7 @@ public ActionResult Show(string id)
   [5]: media/cdn-cloud-service-with-cdn/cdn-cs-6-publish-signedin.png
   [6]: media/cdn-cloud-service-with-cdn/cdn-cs-7-publish-createserviceandstorage.png
   [7]: media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png
-  [使用 Azure Tools 發行雲端服務]: http://msdn.microsoft.com/en-us/library/ff683672.aspx
+  [使用 Azure Tools 發行雲端服務]: http://msdn.microsoft.com/zh-tw/library/ff683672.aspx
   [Azure 管理入口網站]: http://manage.windowsazure.com/
   [8]: media/cdn-cloud-service-with-cdn/cdn-cs-10-createcdn.png
   [9]: media/cdn-cloud-service-with-cdn/cdn-cs-11-disablequerya.png
@@ -667,14 +667,14 @@ public ActionResult Show(string id)
   [15]: media/cdn-cloud-service-with-cdn/cdn-6-addview.PNG
   [16]: media/cdn-cloud-service-with-cdn/cdn-7-configureview.PNG
   [TODO]: #integrate
-  [Bundle 建構函數]: http://msdn.microsoft.com/en-us/library/jj646464.aspx
-  [Bundle]: http://msdn.microsoft.com/en-us/library/system.web.optimization.bundle.aspx
-  [CdnFallbackExpression]: http://msdn.microsoft.com/en-us/library/system.web.optimization.bundle.cdnfallbackexpression.aspx
+  [Bundle 建構函數]: http://msdn.microsoft.com/zh-tw/library/jj646464.aspx
+  [Bundle]: http://msdn.microsoft.com/zh-tw/library/system.web.optimization.bundle.aspx
+  [CdnFallbackExpression]: http://msdn.microsoft.com/zh-tw/library/system.web.optimization.bundle.cdnfallbackexpression.aspx
   [System.Web.Optimization 中有錯誤]: https://aspnetoptimization.codeplex.com/workitem/104
   [Ember 顧問團]: https://github.com/EmberConsultingGroup
   [樣式套件組合後援]: https://github.com/EmberConsultingGroup/StyleBundleFallback
   [GitHub 提供的程式碼]: https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs
   [Azure 內容傳遞網路 (CDN) 概觀]: http://msdn.microsoft.com/library/azure/ff919703.aspx
-  [在 Web 應用程式中從 Azure CDN 提供內容]: http://azure.microsoft.com/zh-tw/documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/
+  [在 Web 應用程式中從 Azure CDN 提供內容]: http://azure.microsoft.com/zh-tw/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/
   [ASP.NET 統合和縮製]: http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification
   [使用 Azure 的 CDN]: http://azure.microsoft.com/zh-tw/documentation/articles/cdn-how-to-use/

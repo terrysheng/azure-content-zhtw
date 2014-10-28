@@ -2,14 +2,14 @@
 
 <tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
 
-這是逐步解說[使用 Azure ML 開發預測方案][]的第五個步驟：
+這是逐步解說[使用 Azure ML 開發預測方案][使用 Azure ML 開發預測方案]的第五個步驟：
 
-1.  [建立 ML 工作區][]
-2.  [上傳現有資料][]
-3.  [建立新實驗][]
-4.  [訓練及評估模型][]
+1.  [建立 ML 工作區][建立 ML 工作區]
+2.  [上傳現有資料][上傳現有資料]
+3.  [建立新實驗][建立新實驗]
+4.  [訓練及評估模型][訓練及評估模型]
 5.  **發佈 Web 服務**
-6.  [存取 Web 服務][]
+6.  [存取 Web 服務][存取 Web 服務]
 
 ------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@
 
 現在，您可以看到原始實驗和複本都列在 ML Studio 的 [實驗] 清單中。
 
-![Experiments list][]
+![Experiments list][Experiments list]
 
 ## 準備評分實驗
 
@@ -84,7 +84,7 @@
 
 實驗現在看起來如下：
 
-![Scoring the trained model][]
+![Scoring the trained model][Scoring the trained model]
 
 ### 選取服務輸入和輸出
 
@@ -128,11 +128,11 @@ Web 服務產生的結果會顯示在儀表板底部。我們如何設定服務�
 
 在 **[設定]** 索引標籤上，按一下 **[READY FOR PRODUCTION?]** 旁邊的 [是]這樣會傳送通知給 IT 管理員，表示此 Web 服務已準備好上線運作。接著，管理員就可以將它提升至即時伺服器。
 
-![Promoting the service to the live environment][]
+![Promoting the service to the live environment][Promoting the service to the live environment]
 
 ------------------------------------------------------------------------
 
-**接著：[存取 Web 服務][]**
+**接著：[存取 Web 服務][存取 Web 服務]**
 
   [使用 Azure ML 開發預測方案]: ../machine-learning-walkthrough-develop-predictive-solution/
   [建立 ML 工作區]: ../machine-learning-walkthrough-1-create-ml-workspace/

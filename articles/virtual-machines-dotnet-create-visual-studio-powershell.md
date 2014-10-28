@@ -42,7 +42,7 @@
 
 # 後續步驟
 
-如果您要自訂您所建立的發佈指令碼，請參閱[此處][]以取得更多深入資訊。
+如果您要自訂您所建立的發佈指令碼，請參閱[此處][此處]以取得更多深入資訊。
 
   []: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_NewProject.PNG
   [1]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_CreateVM.PNG

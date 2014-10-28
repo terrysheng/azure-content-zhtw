@@ -14,44 +14,42 @@
 
 本教學課程將逐步引導您完成下列步驟：
 
-1.  [啟用 Google 雲端通訊][]
-2.  [設定行動服務以傳送推播要求][]
-3.  [更新伺服器以傳送推播通知][]
-4.  [將推播通知新增至應用程式][]
-5.  [啟用推播通知以進行本機測試][]
-6.  [對已發佈的行動服務進行應用程式測試][]
+1.  [啟用 Google 雲端通訊][啟用 Google 雲端通訊]
+2.  [設定行動服務以傳送推播要求][設定行動服務以傳送推播要求]
+3.  [更新伺服器以傳送推播通知][更新伺服器以傳送推播通知]
+4.  [將推播通知新增至應用程式][將推播通知新增至應用程式]
+5.  [啟用推播通知以進行本機測試][啟用推播通知以進行本機測試]
+6.  [對已發佈的行動服務進行應用程式測試][對已發佈的行動服務進行應用程式測試]
 
-本教學課程會以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務][]或[開始使用資料][]，將您的專案連接到行動服務。同樣地，本教學課程也需要 Visual Studio 2013。
+本教學課程會以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務][開始使用行動服務]或[開始使用資料][開始使用資料]，將您的專案連接到行動服務。同樣地，本教學課程也需要 Visual Studio 2013。
 
-> [WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
+> [WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][Azure 免費試用]。
 
 ## <span id="register"></span></a>啟用 Google 雲端通訊
 
-[WACOM.INCLUDE [啟用 GCM][]]
+[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 ## <span id="configure"></span></a>設定行動服務來傳送推播要求
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
-    ![][]
+    ![][0]
 
 2.  按一下 [推播] 索引標籤，輸入前一個程序中從 GCM 取得的 [API Key] 值，然後按一下 [儲存]。
 
     ![][1]
 
-    <div class="dev-callout"><b>重要事項</b>
-<p>如果您在入口網站的 [推播] 索引標籤中設定進階推播通知的 GCM 認證，這些認證將會與通知中心共用，以設定您的應用程式適用的通知中心。</p>
-</div>
+    <div class="dev-callout"><b>重要事項</b><p>如果您在入口網站的 [推播] 索引標籤中設定進階推播通知的 GCM 認證，這些認證將會與通知中心共用，以設定您的應用程式適用的通知中心。</p></div>
 
 您的行動服務現在已設定成使用 GCM 和通知中心。
 
 ## <a name="download-the-service"></a><span class="short-header">下載服務</span>將服務下載至您的本機電腦
 
-[WACOM.INCLUDE [mobile-services-download-service-locally][]]
+[WACOM.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
 
 ## <a name="test-the-service"></a><span class="short-header">測試服務</span>測試行動服務
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ## <span id="update-server"></span></a>更新伺服器以傳送推播通知
 
@@ -88,13 +86,13 @@
 
 ## <a name="publish-the-service"></a><span class="short-header">發佈服務</span>將行動服務發佈至 Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## <a name="update-app"></a>新增推播通知至應用程式
 
 ### 驗證 Android SDK 版本
 
-[WACOM.INCLUDE [mobile-services-verify-android-sdk-version][]]
+[WACOM.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version.md)]
 
 下一個步驟是安裝 Google Play 服務。Google 雲端通訊在開發和測試方面有一些 API 層級的最低需求，這些是資訊清單中的 **minSdkVersion** 屬性所必須遵守。
 
@@ -102,11 +100,11 @@
 
 ### 新增 Google Play 服務至專案
 
-[WACOM.INCLUDE [新增 Play 服務][]]
+[WACOM.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
 ### 新增程式碼
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-push][]]
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
 ## <a name="test-app"></a><span class="short-header">測試應用程式</span>對已發佈的行動服務進行應用程式測試
 
@@ -128,7 +126,7 @@
 
 ### <span id="local-testing"></span></a> 啟用推播通知以進行本機測試
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
 ### 執行測試
 
@@ -148,21 +146,21 @@
 
 在下列主題中深入了解行動服務和通知中心：
 
--   [開始使用資料][]  
+-   [開始使用資料][開始使用資料]  
     深入了解如何使用行動服務儲存和查詢資料。
 
--   [開始使用驗證][]  
+-   [開始使用驗證][開始使用驗證]  
     了解如何使用行動服務驗證使用不同帳戶類型的應用程式使用者。
 
--   [什麼是通知中心？][]  
+-   [什麼是通知中心？][什麼是通知中心？]  
     深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
 
--   [如何使用適用於行動服務的 Android 用戶端程式庫][]  
+-   [如何使用適用於行動服務的 Android 用戶端程式庫][如何使用適用於行動服務的 Android 用戶端程式庫]  
     深入了解如何搭配使用行動服務與 Android。
 
 
 
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "Windows 市集 C#"
+  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "Windows 市集 C#"
   [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "Windows 市集 JavaScript"
   [Windows Phone]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Windows Phone"
   [iOS]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "iOS"
@@ -177,10 +175,10 @@
   [對已發佈的行動服務進行應用程式測試]: #test-app
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
   [啟用 GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
   [mobile-services-download-service-locally]: ../includes/mobile-services-download-service-locally.md
   [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md

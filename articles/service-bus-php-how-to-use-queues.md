@@ -4,42 +4,42 @@
 
 # 如何使用服務匯流排佇列
 
-本指南將說明如何搭配使用服務匯流排佇列與 PHP。這些範例均是以 PHP 撰寫，並使用 [Azure SDK for PHP][] (英文)。本文說明的案例包括**建立佇列**、**傳送並接收訊息**，以及**刪除佇列**。
+本指南將說明如何搭配使用服務匯流排佇列與 PHP。這些範例均是以 PHP 撰寫，並使用 [Azure SDK for PHP][Azure SDK for PHP] (英文)。本文說明的案例包括**建立佇列**、**傳送並接收訊息**，以及**刪除佇列**。
 
 ## 目錄
 
--   [什麼是服務匯流排佇列？][]
--   [建立服務命名空間][]
--   [取得命名空間的預設管理認證][]
--   [建立 PHP 應用程式][]
--   [取得 Azure 用戶端程式庫][]
--   [設定應用程式以使用服務匯流排][]
--   [作法：建立佇列][]
--   [作法：傳送訊息至佇列][]
--   [作法：從佇列接收訊息][]
--   [作法：處理應用程式當機與無法讀取的訊息][]
--   [後續步驟][]
+-   [什麼是服務匯流排佇列？][什麼是服務匯流排佇列？]
+-   [建立服務命名空間][建立服務命名空間]
+-   [取得命名空間的預設管理認證][取得命名空間的預設管理認證]
+-   [建立 PHP 應用程式][建立 PHP 應用程式]
+-   [取得 Azure 用戶端程式庫][取得 Azure 用戶端程式庫]
+-   [設定應用程式以使用服務匯流排][設定應用程式以使用服務匯流排]
+-   [作法：建立佇列][作法：建立佇列]
+-   [作法：傳送訊息至佇列][作法：傳送訊息至佇列]
+-   [作法：從佇列接收訊息][作法：從佇列接收訊息]
+-   [作法：處理應用程式當機與無法讀取的訊息][作法：處理應用程式當機與無法讀取的訊息]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span id="CreateApplication"></span></a>建立 PHP 應用程式
 
-若要建立 PHP 應用程式並使其存取 Azure Blob 服務，唯一要求就是在您的程式碼中參考 [Azure SDK for PHP][] 中的類別。您可以使用任何開發工具來建立應用程式 (包括 [記事本])。
+若要建立 PHP 應用程式並使其存取 Azure Blob 服務，唯一要求就是在您的程式碼中參考 [Azure SDK for PHP][Azure SDK for PHP] 中的類別。您可以使用任何開發工具來建立應用程式 (包括 [記事本])。
 
 > [WACOM.NOTE]
-> 您的 PHP 安裝也必須已安裝並啟用 [OpenSSL 延伸][]。
+> 您的 PHP 安裝也必須已安裝並啟用 [OpenSSL 延伸][OpenSSL 延伸]。
 
 在本指南中，您將使用可從 PHP 應用程式內本機呼叫的服務功能，或可在 Azure Web 角色、背景工作角色或網站內執行的程式碼中呼叫的服務功能。
 
 ## <span id="GetClientLibrary"></span></a>取得 Azure 用戶端程式庫
 
-[WACOM.INCLUDE [get-client-libraries][]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="ConfigureApp"></span></a>設定應用程式以使用服務匯流排
 
 若要使用 Azure 服務匯流排佇列 API，您必須：
 
-1.  參考使用 [require\_once][] 陳述式的自動換片器檔案，以及
+1.  參考使用 [require\_once][require\_once] 陳述式的自動換片器檔案，以及
 2.  參考任何您可能使用的類別。
 
 下列範例顯示如何納入自動換片器檔案及參考 **ServicesBuilder** 類別。
@@ -102,7 +102,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -136,7 +136,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/hh780775
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -188,7 +188,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here:
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/hh780735
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -204,7 +204,7 @@
 
 ## <span id="NextSteps"></span></a>後續步驟
 
-現在您已了解服務匯流排佇列的基本概念，請參閱 MSDN主題[佇列、主題和訂閱][]，以取得詳細資訊。
+現在您已了解服務匯流排佇列的基本概念，請參閱 MSDN主題[佇列、主題和訂閱][佇列、主題和訂閱]，以取得詳細資訊。
 
   [Azure SDK for PHP]: http://go.microsoft.com/fwlink/?LinkId=252473
   [什麼是服務匯流排佇列？]: #what-are-service-bus-queues
@@ -222,4 +222,4 @@
   [OpenSSL 延伸]: http://php.net/openssl
   [get-client-libraries]: ../includes/get-client-libraries.md
   [require\_once]: http://php.net/require_once
-  [佇列、主題和訂閱]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+  [佇列、主題和訂閱]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367516.aspx

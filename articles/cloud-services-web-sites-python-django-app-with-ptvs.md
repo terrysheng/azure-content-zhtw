@@ -16,14 +16,14 @@
 
 本教學課程以 Python Tools for Visual Studio 和 Azure 為重點。如需 Django 和本教學課程中建立的民調應用程式的詳細資訊，請參閱 [][]<https://www.djangoproject.com/></a>。
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## 需求
 
 若要完成本教學課程，您需要
 
--   [Python Tools 2.0 for Visual Studio][]
--   [Python 2.7 (32 位元)][]
+-   [Python Tools 2.0 for Visual Studio][Python Tools 2.0 for Visual Studio]
+-   [Python 2.7 (32 位元)][Python 2.7 (32 位元)]
 -   Visual Studio 和 Azure SDK：
 -   VS 2010 Pro 或以上版本，搭配 Azure SDK 2.1
 -   VS 2012 Pro 或以上版本，搭配 Azure SDK 2.1、2.2 或以上版本
@@ -36,14 +36,14 @@
 
 ## 下載現有的專案
 
-如果想要跳過教學課程中的步驟，您可以[下載此專案的原始程式碼][]。
+如果想要跳過教學課程中的步驟，您可以[下載此專案的原始程式碼][下載此專案的原始程式碼]。
 
 其中已使用下列超級使用者認證建立 sqlite3 資料庫：
 
     Username: tutorial
     Password: azure
 
-下載檔「不含」虛擬環境。請依照[建立虛擬環境][]一節的步驟建立虛擬環境。完成之後，就可依照[偵錯][]一節來繼續處理專案。
+下載檔「不含」虛擬環境。請依照[建立虛擬環境][建立虛擬環境]一節的步驟建立虛擬環境。完成之後，就可依照[偵錯][偵錯]一節來繼續處理專案。
 
 ## 建立專案
 
@@ -51,7 +51,7 @@ Python Tools for Visual Studio 支援 Python 虛擬環境。我們將建立 Djan
 
 1.  開啟 Visual Studio、按一下 [檔案/新增專案]、選擇 [Django 應程式]，並命名為 **tutorial**。
 
-    ![New Project][]
+    ![New Project][New Project]
 
 **注意：**在方案總管的 [參考] 下，將出現 Django 1.4 的節點。這是供 Azure 雲端服務部署將 Python 和 Django 安裝到目標電腦。請勿從參考附註中刪除 Django 1.4 的參考。因為我們使用虛擬環境並在其中安裝我們自己的 Django 封裝，所以將會使用虛擬環境中安裝的 Django 封裝。
 
@@ -61,17 +61,17 @@ Python Tools for Visual Studio 支援 Python 虛擬環境。我們將建立 Djan
 
 1.  建立新的虛擬環境。在方案總管中，以滑鼠右鍵按一下 [Python 環境]，然後選取 [加入虛擬環境]。
 
-    ![Add Virtual Environment][]
+    ![Add Virtual Environment][Add Virtual Environment]
 
 2.  選取 Python 2.7 做為基本的 Python 解譯器，並接受預設名稱 **env**。PTVS 會安裝及/或 virtualenv (若尚未安裝)。
 
 3.  以滑鼠右鍵按一下 [env] 和 [安裝 Python 封裝]：**django**
 
-    ![Install Django][]
+    ![Install Django][Install Django]
 
 4.  Django有許多檔案，需要花一些時間來安裝。您可以在輸出視窗中查看進度。
 
-    ![Install Django Output][]
+    ![Install Django Output][Install Django Output]
 
     **注意：**在罕見情況下，輸出視窗中可能出現失敗。如果發生此情形，請檢查錯誤是否與清除有關。有時是清理失敗，但安裝卻成功 (在輸出視窗中向上捲動來驗證這一點)。這是因為 PTVS 鎖定新建立的暫存檔案/資料夾，導致 pip 清除步驟無法刪除它們。
 
@@ -81,7 +81,7 @@ Python Tools for Visual Studio 支援 Python 虛擬環境。我們將建立 Djan
 
 1.  讓我們來確定一切都安裝正確。按 **F5** 或 **CTRL+F5** 啟動網站。這將會啟動 django 開發伺服器和您的網頁瀏覽器。應該會出現下列網頁：
 
-    ![Django Web Browser][]
+    ![Django Web Browser][Django Web Browser]
 
 ## 建立民調應用程式
 
@@ -91,7 +91,7 @@ Python Tools for Visual Studio 支援 Python 虛擬環境。我們將建立 Djan
 
 1.  選取 [專案節點]、[加入]-\>[Django 應程式]，並命名為 **polls**。這將會建立應用程式的資料夾，以及常用應用程式檔案的未定案程式碼。
 
-    ![Add Django App][]
+    ![Add Django App][Add Django App]
 
 2.  在 **tutorial/settings.py** 中，將下列程式碼加入至 **INSTALLED\_APPS**：
 
@@ -261,7 +261,7 @@ Python Tools for Visual Studio 支援 Python 虛擬環境。我們將建立 Djan
 
 14. 專案現在應該有下列檔案：
 
-    ![方案總管][]
+    ![方案總管][方案總管]
 
 ## 在本機建立 sqlite3 資料庫
 
@@ -290,19 +290,19 @@ Python Tools for Visual Studio 支援 Python 虛擬環境。我們將建立 Djan
 
 4.  以滑鼠右鍵按一下專案節點，然後選取 [Django]-\>[Django Sync DB]。將出現 Django 管理互動式視窗。因為資料庫尚不存在，將會提示您建立管理員認證。請輸入使用者名稱和密碼。電子郵件是選擇性的。
 
-    ![Django Sync DB][]
+    ![Django Sync DB][Django Sync DB]
 
 5.  按 F5 或 CTRL-F5 啟動網站。這將會啟動 django 開發伺服器和您的網頁瀏覽器。網站的根 url 會顯示民調的索引，但資料庫中尚無任何民調。
 
-    ![Web Browser][]
+    ![Web Browser][Web Browser]
 
 6.  瀏覽至 **<http://localhost>:{port}/admin**。您可以從開發伺服器主控台視窗中取得連接埠號碼。以您在先前步驟中建立的認證登入。
 
-    ![Add Poll][]
+    ![Add Poll][Add Poll]
 
 7.  使用管理介面加入幾個民調。請勿浪費太多時間將民調加入至本機資料庫。稍後我們會改用雲端資料庫，到時會重新填入資料庫。
 
-    ![Poll Index][]
+    ![Poll Index][Poll Index]
 
 8.  瀏覽至 **<http://localhost>:{port}/**。您會看到已加入的民調的索引。
 
@@ -310,11 +310,11 @@ Python Tools for Visual Studio 支援 Python 虛擬環境。我們將建立 Djan
 
 9.  按一下其中一個民調前往投票頁面。
 
-    ![Poll Detail][]
+    ![Poll Detail][Poll Detail]
 
 10. 投下選票，將會重新導向至結果頁面，您會看到票數增加。
 
-    ![Poll Results][]
+    ![Poll Results][Poll Results]
 
 ## 使用樣式表和其他靜態檔案
 
@@ -368,7 +368,7 @@ Python Tools for Visual Studio 提供特殊支援來偵錯 Django 範本。
 
 4.  您可以按 **F10** 逐步執行，如同在一般 Python 程式碼中一樣。在 for 迴圈內，您可以檢查 **poll** 的值：
 
-    ![Debugging][]
+    ![Debugging][Debugging]
 
 ## 在 Azure 上建立資料庫
 
@@ -376,7 +376,7 @@ Python Tools for Visual Studio 提供特殊支援來偵錯 Django 範本。
 
 接下來兩節，我們說明如何使用 SQL 資料庫和 MySQL 資料庫。兩者都是代管服務。
 
-另一種選擇是建立虛擬機器並安裝資料庫伺服器。關於在 Azure Linux VM 上設定 MySQL 的指示，請參閱[這裡][]。
+另一種選擇是建立虛擬機器並安裝資料庫伺服器。關於在 Azure Linux VM 上設定 MySQL 的指示，請參閱[這裡][這裡]。
 
 **注意：**在 Azure 上可使用 sqlite3 資料庫 (僅做為開發用途，不建議在實際執行環境中使用)。您需要將 **db.sqlite3** 檔案加入至專案，以便隨著 django 應用程式一起部署資料庫。
 
@@ -466,7 +466,7 @@ Python Tools for Visual Studio 提供特殊支援來偵錯 Django 範本。
         p.choice_set.create(choice_text='Cloud Service', votes=0)
         p.choice_set.create(choice_text='Virtual Machine', votes=0)
 
-    ![Django Shell Add Poll][]
+    ![Django Shell Add Poll][Django Shell Add Poll]
 
 3.  模型的靜態分析中只能看到完整 API 的一部分。在互動式視窗中，您可取得即時物件的 IntelliSense，這是探索 API 的好方法。以下是可在互動式視窗中嘗試的一些動作：
 
@@ -482,7 +482,7 @@ Python Tools for Visual Studio 提供特殊支援來偵錯 Django 範本。
         # get object by primary key
         Poll.objects.get(pk=1)
 
-    ![Django Shell Query Poll][]
+    ![Django Shell Query Poll][Django Shell Query Poll]
 
 4.  啟動網站。您可以看到我們使用 Django Shell 加入的民調。
 
@@ -492,9 +492,9 @@ Python Tools for Visual Studio 提供特殊支援來偵錯 Django 範本。
 
 Azure 有一些選項可代管 Django 應用程式：
 
--   [網站][]
--   [服務雲端][]
--   [虛擬機器][]
+-   [網站][網站]
+-   [服務雲端][服務雲端]
+-   [虛擬機器][虛擬機器]
 
 Python Tools for Visual Studio 支援發行至 Azure 網站和雲端服務。接下來兩節提供這些說明，您可以選擇閱讀其中一節，或兩節都看。
 
@@ -508,11 +508,11 @@ Python Tools for Visual Studio 支援發行至 Azure 網站和雲端服務。接
 
 2.  建立之後，下載網站的發行設定檔。
 
-    ![Web Site Download Profile][]
+    ![Web Site Download Profile][Web Site Download Profile]
 
 3.  在 Visual Studio 中，以滑鼠右鍵按一下專案節點，然後選取 [發行]。
 
-    ![Web Site Publish][]
+    ![Web Site Publish][Web Site Publish]
 
 4.  匯入先前下載的網站發行設定檔。
 
@@ -520,7 +520,7 @@ Python Tools for Visual Studio 支援發行至 Azure 網站和雲端服務。接
 
 6.  發行完成之後，網頁瀏覽器將會開啟到已發行的網站。
 
-    ![Web Site Browser][]
+    ![Web Site Browser][Web Site Browser]
 
 ### Azure 雲端服務
 
@@ -536,7 +536,7 @@ Python Tools for Visual Studio 支援發行至 Azure 網站和雲端服務。接
 
 2.  按 **F5** 開始偵錯，應用程式將在計算模擬器中執行和部署。確認管理介面可運作，且您可以進行民調投票。
 
-    ![Compute Emulator][]
+    ![Compute Emulator][Compute Emulator]
 
 3.  如果不想繼續以系統管理員身分執行，您現在可以重新啟動 Visual Studio。
 
@@ -546,13 +546,13 @@ Python Tools for Visual Studio 支援發行至 Azure 網站和雲端服務。接
 
     **注意：**必須在雲端服務專案上選取 [發行]。這樣會開啟 [發行 Azure 應用程式] 對話方塊，準備發行至 Azure 雲端服務。如果您在 Django 專案上選取 [發行]，即會開啟用來發行至 Azure 網站的 [發行 Web] 對話方塊。
 
-    ![Cloud Service Publish][]
+    ![Cloud Service Publish][Cloud Service Publish]
 
-2.  您需要匯入 Azure 訂閱檔案。請按一下[登入以下載認證][]連結，從 Azure 入口網站下載檔案。
+2.  您需要匯入 Azure 訂閱檔案。請按一下[登入以下載認證][登入以下載認證]連結，從 Azure 入口網站下載檔案。
 
 3.  在 [設定] 頁面中，選取 [雲端服務] 下拉式方塊中的 [建立新的]，建立新的雲端服務。您可以使用任何可用的名稱。
 
-    ![Cloud Service Settings][]
+    ![Cloud Service Settings][Cloud Service Settings]
 
 4.  接受預設值並按一下 [發行]。因為需要佈建雲端服務的 VM，所以需要的時間比發行至網站更久。您可以在 [Azure 活動記錄檔] 視窗中檢視進度：
 
@@ -560,7 +560,7 @@ Python Tools for Visual Studio 支援發行至 Azure 網站和雲端服務。接
 
 5.  作業完成時，按一下 [Azure 活動記錄檔] 視窗中的網站 URL，以開啟網頁瀏覽器。
 
-    ![Cloud Service Browser][]
+    ![Cloud Service Browser][Cloud Service Browser]
 
 ## 結論
 

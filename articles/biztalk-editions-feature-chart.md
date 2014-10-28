@@ -214,31 +214,31 @@ BizTalk 配接器服務是由 Azure BizTalk 服務使用。BizTalk 配接器服�
 
 #### 如何從 BizTalk 服務的某層移轉至另一層？
 
-使用備份與還原流程，從某層移轉至另一層。僅支援某些移轉路徑。請參閱 [BizTalk 服務：備份與還原][] (英文)，以取得支援的移轉路徑的詳細資料。
+使用備份與還原流程，從某層移轉至另一層。僅支援某些移轉路徑。請參閱 [BizTalk 服務：備份與還原][BizTalk 服務：備份與還原] (英文)，以取得支援的移轉路徑的詳細資料。
 
 #### 服務中是否包括 BizTalk 介面卡服務？如何接收軟體？
 
-是，BizTalk 介面卡服務 (含 BizTalk 介面卡套件) 隨附於 Azure BizTalk 服務 SDK [下載][] (英文)。
+是，BizTalk 介面卡服務 (含 BizTalk 介面卡套件) 隨附於 Azure BizTalk 服務 SDK [下載][下載] (英文)。
 
 ## 下一步
 
-若要在 Azure 管理入口網站中佈建 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 管理入口網站進行佈建][] (英文)。若要開始建立應用程式，請移至 [Azure BizTalk 服務][] (英文)。
+若要在 Azure 管理入口網站中佈建 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 管理入口網站進行佈建][BizTalk 服務：使用 Azure 管理入口網站進行佈建] (英文)。若要開始建立應用程式，請移至 [Azure BizTalk 服務][Azure BizTalk 服務] (英文)。
 
 ## 另請參閱
 
--   [BizTalk 服務：使用 Azure 管理入口網站進行佈建][]
+-   [BizTalk 服務：使用 Azure 管理入口網站進行佈建][BizTalk 服務：使用 Azure 管理入口網站進行佈建]
      (英文)
--   [BizTalk 服務：佈建狀態圖][]
+-   [BizTalk 服務：佈建狀態圖][BizTalk 服務：佈建狀態圖]
      (英文)
--   [BizTalk 服務：儀表板、監視器和調整索引標籤][]
+-   [BizTalk 服務：儀表板、監視器和調整索引標籤][BizTalk 服務：儀表板、監視器和調整索引標籤]
      (英文)
--   [BizTalk 服務：備份與還原][]
+-   [BizTalk 服務：備份與還原][BizTalk 服務：備份與還原]
      (英文)
--   [BizTalk 服務：節流][]
+-   [BizTalk 服務：節流][BizTalk 服務：節流]
      (英文)
--   [BizTalk 服務：簽發者名稱和簽發者金鑰][]
+-   [BizTalk 服務：簽發者名稱和簽發者金鑰][BizTalk 服務：簽發者名稱和簽發者金鑰]
      (英文)
--   [如何開始使用 Azure BizTalk 服務 SDK][]
+-   [如何開始使用 Azure BizTalk 服務 SDK][如何開始使用 Azure BizTalk 服務 SDK]
 
   [Azure BizTalk 服務定價]: http://go.microsoft.com/fwlink/p/?LinkID=304011
   [BizTalk 服務：備份與還原]: http://go.microsoft.com/fwlink/p/?LinkID=329873

@@ -15,44 +15,44 @@
 
 角色型存取控制 (RBAC) 是將您的使用者可具備的權限指派給角色，而妥善定義哪些類別的使用者可執行哪些動作的實務作法。本教學課程將逐步解說如何將基本 RBAC 新增至 Azure 行動服務。
 
-本教學課程將說明角色型存取控制，檢查每個使用者在 Azure Active Directory (AAD) 中定義之「銷售」群組的成員資格。存取檢查將在行動服務後端中，使用 JavaScript 和 Azure Active Directory 的[圖形 API][] 來執行。只有屬於「銷售」角色的使用者能夠查詢資料。
+本教學課程將說明角色型存取控制，檢查每個使用者在 Azure Active Directory (AAD) 中定義之「銷售」群組的成員資格。存取檢查將在行動服務後端中，使用 JavaScript 和 Azure Active Directory 的[圖形 API][圖形 API] 來執行。只有屬於「銷售」角色的使用者能夠查詢資料。
 
-> [WACOM.NOTE] 本教學課程的目的是要擴充驗證知識以加入授權實務作法。您應先使用 Azure Active Directory 驗證提供者完成[開始使用驗證][]教學課程。本教學課程接著將更新[開始使用驗證][]教學課程中使用的 TodoItem 應用程式。
+> [WACOM.NOTE] 本教學課程的目的是要擴充驗證知識以加入授權實務作法。您應先使用 Azure Active Directory 驗證提供者完成[開始使用驗證][開始使用驗證]教學課程。本教學課程接著將更新[開始使用驗證][開始使用驗證]教學課程中使用的 TodoItem 應用程式。
 
 本教學課程將逐步引導您完成下列步驟：
 
-1.  [建立具有成員資格的銷售群組][]
-2.  [為整合的應用程式產生金鑰][]
-3.  [新增會檢查成員資格的共用指令碼][]
-4.  [將角色型存取檢查新增至資料庫作業][]
-5.  [測試用戶端存取][]
+1.  [建立具有成員資格的銷售群組][建立具有成員資格的銷售群組]
+2.  [為整合的應用程式產生金鑰][為整合的應用程式產生金鑰]
+3.  [新增會檢查成員資格的共用指令碼][新增會檢查成員資格的共用指令碼]
+4.  [將角色型存取檢查新增至資料庫作業][將角色型存取檢查新增至資料庫作業]
+5.  [測試用戶端存取][測試用戶端存取]
 
 本教學課程需要下列各項：
 
 -   執行於 Windows 8.1 的 Visual Studio 2013。
--   使用 Azure Active Directory 驗證提供者完成[開始使用驗證][]教學課程。
--   完成[儲存伺服器指令碼][]教學課程，以熟悉如何使用 Git 儲存機制來儲存伺服器指令碼。
+-   使用 Azure Active Directory 驗證提供者完成[開始使用驗證][開始使用驗證]教學課程。
+-   完成[儲存伺服器指令碼][儲存伺服器指令碼]教學課程，以熟悉如何使用 Git 儲存機制來儲存伺服器指令碼。
 
 ## <a name="create-group"></a>建立具有成員資格的銷售群組
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group][]]
+[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 ## <a name="generate-key"></a>為整合的應用程式產生金鑰
 
-在進行[開始使用驗證][]教學課程期間，您已在完成[註冊使用 Azure Active Directory 登入][]步驟時，為整合的應用程式建立註冊。在本節中，您將產生在使用該整合的應用程式用戶端識別碼讀取目錄資訊時所將使用的金鑰。
+在進行[開始使用驗證][開始使用驗證]教學課程期間，您已在完成[註冊使用 Azure Active Directory 登入][註冊使用 Azure Active Directory 登入]步驟時，為整合的應用程式建立註冊。在本節中，您將產生在使用該整合的應用程式用戶端識別碼讀取目錄資訊時所將使用的金鑰。
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key][]]
+[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 ## <a name="add-shared-script"></a>將檢查成員資格的共用指令碼新增至行動服務
 
-在本節中，您會使用 Git 將名為 *rbac.js* 的共用指令碼檔案部署至您的行動服務。此共用指令碼檔案所包含的函數，會使用[圖形 API][] 來檢視使用者的群組成員資格。
+在本節中，您會使用 Git 將名為 *rbac.js* 的共用指令碼檔案部署至您的行動服務。此共用指令碼檔案所包含的函數，會使用[圖形 API][圖形 API] 來檢視使用者的群組成員資格。
 
-如果您不熟悉使用 Git 將指令碼部署至行動服務的作業，請先參閱[儲存伺服器指令碼][]教學課程，再開始進行本節。
+如果您不熟悉使用 Git 將指令碼部署至行動服務的作業，請先參閱[儲存伺服器指令碼][儲存伺服器指令碼]教學課程，再開始進行本節。
 
 1.  在行動服務之本機儲存機制的 *./service/shared/* 目錄中，建立名為 *rbac.js* 的新指令碼檔案。
 2.  將下列指令碼新增至定義 `getAADToken` 函數的檔案頂端。在給定 *tenant\_domain*、整合的應用程式*用戶端識別碼*和應用程式*金鑰*的情況下，此函數會提供用來讀取目錄資訊的圖形存取權杖。
 
-    > [WACOM.NOTE] 您應快取權杖，而不要為每個存取檢查建立一個新權杖。接著，請在嘗試使用 401 Authentication\_ExpiredToken 回應中的權杖結果 (如[圖形 API 錯誤參考][]所說明) 時重新整理快取。為求單純性，下方的程式碼中並不會說明此作業，但這將可以減輕對您 Active Directory 的額外網路流量。
+    > [WACOM.NOTE] 您應快取權杖，而不要為每個存取檢查建立一個新權杖。接著，請在嘗試使用 401 Authentication\_ExpiredToken 回應中的權杖結果 (如[圖形 API 錯誤參考][圖形 API 錯誤參考]所說明) 時重新整理快取。為求單純性，下方的程式碼中並不會說明此作業，但這將可以減輕對您 Active Directory 的額外網路流量。
 
         var appSettings = require('mobileservice-config').appSettings;
         var tenant_domain = appSettings.AAD_TENANT_DOMAIN;
@@ -100,9 +100,9 @@
             });
         }
 
-4.  將下列程式碼新增至 *rbac.js*，以定義會呼叫圖形 REST API 之 [IsMemberOf][] 端點的 `isMemberOf` 函數。
+4.  將下列程式碼新增至 *rbac.js*，以定義會呼叫圖形 REST API 之 [IsMemberOf][IsMemberOf] 端點的 `isMemberOf` 函數。
 
-    此函數是圖形 REST API 的 [IsMemberOf][] 端點附近的精簡型包裝函式。它會使用圖形存取權杖，根據群組識別碼檢查使用者的目錄物件識別碼在群組中是否具有成員資格。
+    此函數是圖形 REST API 的 [IsMemberOf][IsMemberOf] 端點附近的精簡型包裝函式。它會使用圖形存取權杖，根據群組識別碼檢查使用者的目錄物件識別碼在群組中是否具有成員資格。
 
         function isMemberOf(access_token, userObjectId, groupObjectId, callback) {
             var req = require("request");
@@ -151,7 +151,7 @@
 
 ## <a name="add-access-checking"></a>將角色型存取檢查新增至資料庫作業
 
-當您完成[開始使用驗證][]教學課程後，您應已將資料表作業設定為需要驗證，如下所示。
+當您完成[開始使用驗證][開始使用驗證]教學課程後，您應已將資料表作業設定為需要驗證，如下所示。
 
 ![][]
 
@@ -231,17 +231,17 @@
 
         git push origin master
 
-8.  在 [Azure 管理入口網站][]中，您應能夠導覽至行動服務的資料表作業，並在下方顯示的位置中檢視更新。
+8.  在 [Azure 管理入口網站][Azure 管理入口網站]中，您應能夠導覽至行動服務的資料表作業，並在下方顯示的位置中檢視更新。
 
     ![][1]
 
 ## <a name="test-client"></a>測試用戶端的存取
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-test-app][]]
+[WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
 <!-- Anchors. --> <!-- Images --> <!-- URLs. -->
 
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "Windows 市集 C#"
+  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "Windows 市集 C#"
   [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ ".NET 後端"
   [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "JavaScript 後端"
   [圖形 API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
@@ -255,8 +255,8 @@
   [mobile-services-aad-rbac-create-sales-group]: ../includes/mobile-services-aad-rbac-create-sales-group.md
   [註冊使用 Azure Active Directory 登入]: /zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
-  [圖形 API 錯誤參考]: http://msdn.microsoft.com/en-us/library/azure/hh974480.aspx
-  [IsMemberOf]: http://msdn.microsoft.com/en-us/library/azure/dn151601.aspx
+  [圖形 API 錯誤參考]: http://msdn.microsoft.com/zh-tw/library/azure/hh974480.aspx
+  [IsMemberOf]: http://msdn.microsoft.com/zh-tw/library/azure/dn151601.aspx
   []: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/insert-table-op-view.png

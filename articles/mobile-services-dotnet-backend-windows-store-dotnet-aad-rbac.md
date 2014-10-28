@@ -15,33 +15,33 @@
 
 角色型存取控制 (RBAC) 是將您的使用者可具備的權限指派給角色，而妥善定義哪些類別的使用者可執行哪些動作的實務作法。本教學課程將逐步解說如何將基本 RBAC 新增至 Azure 行動服務。
 
-本教學課程將說明角色型存取控制，檢查每個使用者在 Azure Active Directory (AAD) 中定義之「銷售」群組的成員資格。存取檢查將在 .NET 行動服務後端中，使用 Azure Active Directory 的[圖形用戶端程式庫][]來執行。只有屬於「銷售」群組的使用者能夠查詢資料。
+本教學課程將說明角色型存取控制，檢查每個使用者在 Azure Active Directory (AAD) 中定義之「銷售」群組的成員資格。存取檢查將在 .NET 行動服務後端中，使用 Azure Active Directory 的[圖形用戶端程式庫][圖形用戶端程式庫]來執行。只有屬於「銷售」群組的使用者能夠查詢資料。
 
-> [WACOM.NOTE] 本教學課程的目的是要擴充驗證知識以加入授權實務作法。您應先使用 Azure Active Directory 驗證提供者完成[開始使用驗證][]教學課程。本教學課程接著將更新[開始使用驗證][]教學課程中使用的 TodoItem 應用程式。
+> [WACOM.NOTE] 本教學課程的目的是要擴充驗證知識以加入授權實務作法。您應先使用 Azure Active Directory 驗證提供者完成[開始使用驗證][開始使用驗證]教學課程。本教學課程接著將更新[開始使用驗證][開始使用驗證]教學課程中使用的 TodoItem 應用程式。
 
 本教學課程將逐步引導您完成下列步驟：
 
-1.  [建立具有成員資格的銷售群組][]
-2.  [為整合的應用程式產生金鑰][]
-3.  [建立自訂授權屬性][]
-4.  [將角色型存取檢查新增至資料庫作業][]
-5.  [測試用戶端存取][]
+1.  [建立具有成員資格的銷售群組][建立具有成員資格的銷售群組]
+2.  [為整合的應用程式產生金鑰][為整合的應用程式產生金鑰]
+3.  [建立自訂授權屬性][建立自訂授權屬性]
+4.  [將角色型存取檢查新增至資料庫作業][將角色型存取檢查新增至資料庫作業]
+5.  [測試用戶端存取][測試用戶端存取]
 
 本教學課程需要下列各項：
 
 -   執行於 Windows 8.1 的 Visual Studio 2013。
--   使用 Azure Active Directory 驗證提供者完成[開始使用驗證][]教學課程。
--   完成[儲存伺服器指令碼][]教學課程，以熟悉如何使用 Git 儲存機制來儲存伺服器指令碼。
+-   使用 Azure Active Directory 驗證提供者完成[開始使用驗證][開始使用驗證]教學課程。
+-   完成[儲存伺服器指令碼][儲存伺服器指令碼]教學課程，以熟悉如何使用 Git 儲存機制來儲存伺服器指令碼。
 
 ## <a name="create-group"></a>建立具有成員資格的銷售群組
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group][]]
+[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 ## <a name="generate-key"></a>為整合的應用程式產生金鑰
 
-在進行[開始使用驗證][]教學課程期間，您已在完成[註冊使用 Azure Active Directory 登入][]步驟時，為整合的應用程式建立註冊。在本節中，您將產生在使用該整合的應用程式用戶端識別碼讀取目錄資訊時所將使用的金鑰。
+在進行[開始使用驗證][開始使用驗證]教學課程期間，您已在完成[註冊使用 Azure Active Directory 登入][註冊使用 Azure Active Directory 登入]步驟時，為整合的應用程式建立註冊。在本節中，您將產生在使用該整合的應用程式用戶端識別碼讀取目錄資訊時所將使用的金鑰。
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key][]]
+[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 ## <a name="create-custom-authorization-attribute"></a>在行動服務上建立自訂授權屬性
 
@@ -104,7 +104,7 @@
 
 9.  在 AuthorizeAadRole.cs 中，將下列 `GetAADToken` 方法新增至 `AuthorizeAadRole` 類別。
 
-    > [WACOM.NOTE] 您應快取權杖，而不要為每個存取檢查建立一個新權杖。接著，請在嘗試使用權杖依照[圖形用戶端程式庫][]中的說明擲出 AccessTokenExpiredException 時，重新整理快取。為求單純性，下方的程式碼中並不會說明此作業，但這將可以減輕對您 Active Directory 的額外網路流量。
+    > [WACOM.NOTE] 您應快取權杖，而不要為每個存取檢查建立一個新權杖。接著，請在嘗試使用權杖依照[圖形用戶端程式庫][圖形用戶端程式庫]中的說明擲出 AccessTokenExpiredException 時，重新整理快取。為求單純性，下方的程式碼中並不會說明此作業，但這將可以減輕對您 Active Directory 的額外網路流量。
 
         private string GetAADToken(ApiServices services)
         {
@@ -139,7 +139,7 @@
             return token;
         }
 
-10. 在 AuthorizeAadRole.cs 中，以下列程式碼更新 `AuthorizeAadRole` 類別中的 `OnAuthorization` 方法。此程式碼會使用[圖形用戶端程式庫][]查閱對應至角色的 Active Directory 群組。接著，它會檢查使用者在該群組中的成員資格，以授權給使用者。
+10. 在 AuthorizeAadRole.cs 中，以下列程式碼更新 `AuthorizeAadRole` 類別中的 `OnAuthorization` 方法。此程式碼會使用[圖形用戶端程式庫][圖形用戶端程式庫]查閱對應至角色的 Active Directory 群組。接著，它會檢查使用者在該群組中的成員資格，以授權給使用者。
 
     > [WACOM.NOTE] 此程式碼會依名稱查閱 Active Directory 群組。在許多情況下，將群組識別碼儲存為行動服務應用程式設定，都會是較理想的作法。這是因為群組名稱可能會變更，但識別碼會保持相同。但是，當群組名稱變更時，角色的領域中通常至少會有一項變更可能也需要行動服務程式碼的更新。
 
@@ -272,11 +272,11 @@
 
 ## <a name="test-client"></a>測試用戶端的存取
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-test-app][]]
+[WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
 <!-- Anchors. --> <!-- Images --> <!-- URLs. -->
 
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "Windows 市集 C#"
+  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "Windows 市集 C#"
   [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ ".NET 後端"
   [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "JavaScript 後端"
   [圖形用戶端程式庫]: http://go.microsoft.com/fwlink/?LinkId=510536

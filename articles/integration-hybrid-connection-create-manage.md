@@ -8,27 +8,27 @@
 
 若要連接到內部部署資源，步驟包含：
 
-1.  [建立混合式連線][]，需要指定私人網路中之內部部署資源的主機名稱或 IP 位址。
+1.  [建立混合式連線][建立混合式連線]，需要指定私人網路中之內部部署資源的主機名稱或 IP 位址。
 
-2.  [連結 Azure 網站或 Azure 行動服務][]至混合式連線
+2.  [連結 Azure 網站或 Azure 行動服務][連結 Azure 網站或 Azure 行動服務]至混合式連線
 
-3.  [安裝混合式連線管理員][]在內部部署資源上，並連接至特定的混合式連線。Azure 入口網站提供按一下即可安裝和連接的體驗。
+3.  [安裝混合式連線管理員][安裝混合式連線管理員]在內部部署資源上，並連接至特定的混合式連線。Azure 入口網站提供按一下即可安裝和連接的體驗。
 
-4.  [管理混合式連線][]及其連接金鑰。
+4.  [管理混合式連線][管理混合式連線]及其連接金鑰。
 
 ## <a name="CreateHybridConnection"></a>建立混合式連線
 
 在 Azure 管理入口網站中，可以使用網站「或」使用 BizTalk 服務來建立混合式連線。
 
-**若要使用網站建立混合式連線**，請參閱[將 Azure 網站連接到內部部署資源][] (英文)。
+**若要使用網站建立混合式連線**，請參閱[將 Azure 網站連接到內部部署資源][將 Azure 網站連接到內部部署資源] (英文)。
 
 **若要在 BizTalk 服務中建立混合式連線**：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  在左側瀏覽窗格中，選取 [BizTalk 服務]，然後選取您的 BizTalk 服務。
-    如果您目前沒有 BizTalk 服務，您可以[建立 BizTalk 服務][]。
+    如果您目前沒有 BizTalk 服務，您可以[建立 BizTalk 服務][建立 BizTalk 服務]。
 3.  選取 [混合式連線] 索引標籤：
-    ![Hybrid Connections Tab][]
+    ![Hybrid Connections Tab][Hybrid Connections Tab]
 
 4.  選取 [建立混合式連線]，或在工作列中選取 [新增] 按鈕。輸入以下資訊：
 
@@ -49,25 +49,25 @@
 
 #### 其他
 
--   可建立多個混合式連線。請參閱 [BizTalk 服務：開發人員、基本、標準和高級版本圖表][]，以了解允許的連線數目。
+-   可建立多個混合式連線。請參閱 [BizTalk 服務：開發人員、基本、標準和高級版本圖表][BizTalk 服務：開發人員、基本、標準和高級版本圖表]，以了解允許的連線數目。
 -   每一個混合式連線都是以一對連接字串來建立：「傳送」的應用程式金鑰和「接聽」的內部部署金鑰。每一對都有「主要」和「次要」金鑰。
 
 ## <a name="LinkWebSite"></a>將 Azure 網站連結至 Azure 行動服務
 
-若要將 Azure 網站連結至現有的混合式連線，請在 [混合式連線] 分頁中選取 [use an existing Hybrid Connection]。請參閱[將 Azure 網站連接到內部部署資源][] (英文)。
+若要將 Azure 網站連結至現有的混合式連線，請在 [混合式連線] 分頁中選取 [use an existing Hybrid Connection]。請參閱[將 Azure 網站連接到內部部署資源][將 Azure 網站連接到內部部署資源] (英文)。
 
-若要將 Azure 行動服務連結至現有的混合式連線，請在變更或建立行動服務時選取 [新增混合式連線]。請參閱 [Azure 行動服務和混合式連線][] (英文)。
+若要將 Azure 行動服務連結至現有的混合式連線，請在變更或建立行動服務時選取 [新增混合式連線]。請參閱 [Azure 行動服務和混合式連線][Azure 行動服務和混合式連線] (英文)。
 
 ## <a name="InstallHCM"></a>在內部部署安裝混合式連線管理員
 
 建立混合式連線之後，請在內部部署資源上安裝混合式連線管理員。可從 Azure 網站或從 BizTalk 服務下載此元件。BizTalk 服務步驟：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  在左側瀏覽窗格中，選取 [BizTalk 服務]，然後選取您的 BizTalk 服務。
 3.  選取 [混合式連線] 索引標籤：
-    ![Hybrid Connections Tab][]
+    ![Hybrid Connections Tab][Hybrid Connections Tab]
 4.  在工作列中，選取 [內部部署設定]：
-    ![On-Premises Setup][]
+    ![On-Premises Setup][On-Premises Setup]
 5.  選取 [安裝和設定]，在內部部署系統上執行或下載混合式連線管理員。
 6.  選取核取記號來開始安裝。
 
@@ -91,17 +91,17 @@
 若要管理混合式連線，您可以：
 
 -   使用 Azure 入口網站並移至您的 BizTalk 服務。
--   使用 [REST API][]。
+-   使用 [REST API][REST API]。
     <!-- - Use Windows PowerShell cmdlets  **INSERT LINK**. -->
 
 #### 複製/重新產生混合式連線字串
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  在左側瀏覽窗格中，選取 [BizTalk 服務]，然後選取您的 BizTalk 服務。
 3.  選取 [混合式連線] 索引標籤：
-    ![Hybrid Connections Tab][]
+    ![Hybrid Connections Tab][Hybrid Connections Tab]
 4.  選取 [混合式連線]。在工作列中，選取 [管理連線]：
-    ![Manage Options][]
+    ![Manage Options][Manage Options]
     [管理連線] 會列出應用程式和內部部署連接字串。您可以複製連接字串，或重新產生連接字串中使用的存取金鑰。
     **如果您選取重新產生**，則會變更連接字串內使用的共用存取金鑰。請執行下列動作：
 
@@ -115,23 +115,23 @@
 3.  在修改群組原則的電腦上，執行下列動作：
 
 -   將 .ADMX 檔案複製到 *%WINROOT%\\PolicyDefinitions* 資料夾。
--   將 .ADML 檔案複製到 *%WINROOT%\\PolicyDefinitions\\en-us* 資料夾。
+-   將 .ADML 檔案複製到 *%WINROOT%\\PolicyDefinitions\\zh-tw* 資料夾。
 
 複製之後，您可以使用群組原則編輯器來變更原則。
 
 ## 下一步
 
--   [將 Azure 網站連接到內部部署資源][]
--   [混合式連線逐步說明：從 Azure 網站連接至內部部署 SQL Server][]
--   [Azure 行動服務和混合式連線][]
--   [混合式連線概觀][]
+-   [將 Azure 網站連接到內部部署資源][將 Azure 網站連接到內部部署資源]
+-   [混合式連線逐步說明：從 Azure 網站連接至內部部署 SQL Server][混合式連線逐步說明：從 Azure 網站連接至內部部署 SQL Server]
+-   [Azure 行動服務和混合式連線][Azure 行動服務和混合式連線]
+-   [混合式連線概觀][混合式連線概觀]
 
 ## 另請參閱
 
 -   [用於管理 Azure 上之 BizTalk 服務的 REST API][REST API]
--   [BizTalk 服務：開發人員、基本、標準和高級版本圖表][]
--   [BizTalk 服務：使用 Azure 管理入口網站進行佈建][]
--   [BizTalk 服務：儀表板、監視器和調整索引標籤][]
+-   [BizTalk 服務：開發人員、基本、標準和高級版本圖表][BizTalk 服務：開發人員、基本、標準和高級版本圖表]
+-   [BizTalk 服務：使用 Azure 管理入口網站進行佈建][BizTalk 服務：使用 Azure 管理入口網站進行佈建]
+-   [BizTalk 服務：儀表板、監視器和調整索引標籤][BizTalk 服務：儀表板、監視器和調整索引標籤]
      (英文)
 
   [建立混合式連線]: #CreateHybridConnection

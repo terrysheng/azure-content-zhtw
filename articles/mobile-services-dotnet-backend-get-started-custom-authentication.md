@@ -6,18 +6,18 @@
 
 本主題說明如何簽發您自己的行動服務驗證權杖，以在 Azure 行動服務 .NET 後端中驗證使用者。在本教學課程中，您會使用應用程式的自訂使用者名稱和密碼，將驗證新增至快速入門專案。
 
-> [WACOM.NOTE] 本教學課程將說明以自訂認證驗證行動服務的進階方法。有許多應用程式應改用內建社交身分識別提供者最為適當，以讓使用者能夠透過 Facebook、Twitter、Google、Microsoft 帳戶和 Azure Active Directory 進行登入。如果這是您第一次接觸行動服務中的驗證，請先參閱[使用者入門][]教學課程。
+> [WACOM.NOTE] 本教學課程將說明以自訂認證驗證行動服務的進階方法。有許多應用程式應改用內建社交身分識別提供者最為適當，以讓使用者能夠透過 Facebook、Twitter、Google、Microsoft 帳戶和 Azure Active Directory 進行登入。如果這是您第一次接觸行動服務中的驗證，請先參閱[使用者入門][使用者入門]教學課程。
 
 本教學課程帶領您執行下列基本步驟，在您的應用程式中啟用驗證：
 
-1.  [設定帳戶資料表][]
-2.  [建立註冊端點][]
-3.  [建立 LoginProvider][]
-4.  [建立登入端點][]
-5.  [將行動服務設定為需要驗證][]
-6.  [使用測試用戶端測試登入流程][]
+1.  [設定帳戶資料表][設定帳戶資料表]
+2.  [建立註冊端點][建立註冊端點]
+3.  [建立 LoginProvider][建立 LoginProvider]
+4.  [建立登入端點][建立登入端點]
+5.  [將行動服務設定為需要驗證][將行動服務設定為需要驗證]
+6.  [使用測試用戶端測試登入流程][使用測試用戶端測試登入流程]
 
-本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務][]。
+本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務][開始使用行動服務]。
 
 > [WACOM.NOTE] 本教學課程的目的是要說明如何簽發行動服務的驗證權杖。請不要將其視為安全性指引。在開發應用程式時，您必須留意密碼儲存的安全性問題，且必須要有管理暴力密碼破解攻擊的策略。
 
@@ -252,7 +252,7 @@
 
 ## <a name="require-authentication"></a>將行動服務設定為需要驗證
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="test-login"></a>使用測試用戶端測試登入流程
 

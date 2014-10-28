@@ -15,21 +15,21 @@
 
 本教學課程使用特定應用程式伺服器，但是如果您是資深 Java 開發人員，下面描述的程序也可以套用至其他環境。本教學課程需要下列開發環境必要條件：
 
--   [Java Sample Code for Azure Active Directory][]
--   [Java Runtime Environment 1.6][]
--   [JBoss Application Server version 7.1.1.Final][]
--   [JBoss Developer Studio IDE][]
+-   [Java Sample Code for Azure Active Directory][Java Sample Code for Azure Active Directory]
+-   [Java Runtime Environment 1.6][Java Runtime Environment 1.6]
+-   [JBoss Application Server version 7.1.1.Final][JBoss Application Server version 7.1.1.Final]
+-   [JBoss Developer Studio IDE][JBoss Developer Studio IDE]
 -   Internet Information Services (IIS) 7.5 (已啟用 SSL)
 -   Windows PowerShell
--   [Office 365 PowerShell Commandlets][]
+-   [Office 365 PowerShell Commandlets][Office 365 PowerShell Commandlets]
 
 ### 目錄
 
--   [簡介][]
--   [步驟 1：建立 Java 應用程式][]
--   [步驟 2：在公司的目錄租用戶中佈建應用程式][]
--   [步驟 3：使用 WS-同盟進行員工登入來保護應用程式][]
--   [摘要][]
+-   [簡介][簡介]
+-   [步驟 1：建立 Java 應用程式][步驟 1：建立 Java 應用程式]
+-   [步驟 2：在公司的目錄租用戶中佈建應用程式][步驟 2：在公司的目錄租用戶中佈建應用程式]
+-   [步驟 3：使用 WS-同盟進行員工登入來保護應用程式][步驟 3：使用 WS-同盟進行員工登入來保護應用程式]
+-   [摘要][摘要]
 
 ## <a name="createapp"></a>步驟 1：建立 Java 應用程式
 

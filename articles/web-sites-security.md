@@ -6,25 +6,25 @@
 
 開發 Web 應用程式的其中一個挑戰是如何提供客戶安全無虞的服務。在本文中，您將了解可保護 Web 應用程式的 Azure 網站功能。
 
-> [WACOM.NOTE] 有關 Web 架構應用程式安全性考量的詳細討論超出本文件的範圍。請參閱[開放 Web 軟體安全計劃 (Open Web Application Security Project，OWASP)][] (英文)，作為保護 Web 應用程式的進一步指引起點，尤其是[十大專案][] (英文)，其中列出由 OWASP 成員所確認的目前十大主要的 Web 應用程式安全性錯誤。
+> [WACOM.NOTE] 有關 Web 架構應用程式安全性考量的詳細討論超出本文件的範圍。請參閱[開放 Web 軟體安全計劃 (Open Web Application Security Project，OWASP)][開放 Web 軟體安全計劃 (Open Web Application Security Project，OWASP)] (英文)，作為保護 Web 應用程式的進一步指引起點，尤其是[十大專案][十大專案] (英文)，其中列出由 OWASP 成員所確認的目前十大主要的 Web 應用程式安全性錯誤。
 
 ### 目錄
 
--   [保護通訊的安全][]
--   [保護開發的安全][]
--   [後續步驟][]
+-   [保護通訊的安全][保護通訊的安全]
+-   [保護開發的安全][保護開發的安全]
+-   [後續步驟][後續步驟]
 
 ## <a name="https"></a>保護通訊的安全
 
-如果使用為您的網站建立的 ***.azurewebsites.net** 網域名稱，您可以立即使用 HTTPS，因為 SSL 憑證是針對所有* **.azurewebsites.net** 網域名稱而提供的。如果您的網站使用[自訂網域名稱][]，您可以上傳 SSL 憑證以啟用自訂網域的 HTTPS。
+如果使用為您的網站建立的 ***.azurewebsites.net** 網域名稱，您可以立即使用 HTTPS，因為 SSL 憑證是針對所有* **.azurewebsites.net** 網域名稱而提供的。如果您的網站使用[自訂網域名稱][自訂網域名稱]，您可以上傳 SSL 憑證以啟用自訂網域的 HTTPS。
 
-如需詳細資訊，請參閱[啟用 Azure 網站的 HTTPS][]。
+如需詳細資訊，請參閱[啟用 Azure 網站的 HTTPS][啟用 Azure 網站的 HTTPS]。
 
 ### 強制使用 HTTPS
 
 Azure 網站*不會*強制使用 HTTPS；訪客仍可使用 HTTP 來存取您的網站，但這有可能會公開敏感資訊。若要強制使用 HTTPS，請使用 **URL Rewrite** 模組。Azure 網站包含 URL Rewrite 模組，此模組可讓您定義連入要求在送達應用程式之前要套用的規則。它可用於以任何 Azure 網站支援的程式設計語言所撰寫的應用程式。
 
-> [WACOM.NOTE] .NET MVC 應用程式應使用 [RequireHttps][] 篩選，而非 URL Rewrite。如需使用 RequireHttps 的詳細資訊，請參閱[將安全的 ASP.NET MVC 5 應用程式部署至 Azure 網站][]。
+> [WACOM.NOTE] .NET MVC 應用程式應使用 [RequireHttps][RequireHttps] 篩選，而非 URL Rewrite。如需使用 RequireHttps 的詳細資訊，請參閱[將安全的 ASP.NET MVC 5 應用程式部署至 Azure 網站][將安全的 ASP.NET MVC 5 應用程式部署至 Azure 網站]。
 >
 > 如需使用其他程式設計語言和架構的程式設計方式重新導向要求的相關資訊，請參閱這些技術的文件。
 
@@ -55,13 +55,13 @@ Azure 網站*不會*強制使用 HTTPS；訪客仍可使用 HTTP 來存取您的
 
 ### .NET
 
-若是 .NET 應用程式，請修改應用程式的 web.config 檔案，並將[範例][]中的 **\<rewrite\>** 區段新增至 **\<system.WebServer\>** 區段。
+若是 .NET 應用程式，請修改應用程式的 web.config 檔案，並將[範例][範例]中的 **\<rewrite\>** 區段新增至 **\<system.WebServer\>** 區段。
 
-如果您的 web.config 檔案已經包含 **\<rewrite\>** 區段，則請將[範例][]中的 **\<rule\>** 新增為 **\<rules\>** 區段中的第一個項目。
+如果您的 web.config 檔案已經包含 **\<rewrite\>** 區段，則請將[範例][範例]中的 **\<rule\>** 新增為 **\<rules\>** 區段中的第一個項目。
 
 ### PHP
 
-若是 PHP 應用程式，只需將[範例][]另存新檔為應用程式根目錄中的 web.config 檔案，然後將應用程式重新部署至 Azure 網站即可。
+若是 PHP 應用程式，只需將[範例][範例]另存新檔為應用程式根目錄中的 web.config 檔案，然後將應用程式重新部署至 Azure 網站即可。
 
 ### Node.js、Python Django 和 Java
 
@@ -69,7 +69,7 @@ Azure 網站*不會*強制使用 HTTPS；訪客仍可使用 HTTP 來存取您的
 
 若要從網站擷取與修改自動產生的檔案，請使用下列步驟。
 
-1.  使用 FTP 下載檔案 (請參閱[透過 FTP 上傳/下載檔案及收集診斷記錄][]) (英文)。
+1.  使用 FTP 下載檔案 (請參閱[透過 FTP 上傳/下載檔案及收集診斷記錄][透過 FTP 上傳/下載檔案及收集診斷記錄]) (英文)。
 
 2.  將檔案新增至應用程式的根目錄。
 
@@ -87,7 +87,7 @@ Azure 網站*不會*強制使用 HTTPS；訪客仍可使用 HTTP 來存取您的
 
 一旦部署包含重寫規則以強制使用 HTTPS 的 web.config 後，它應會立即生效並將所有要求重新導向至 HTTPS。
 
-如需 IIS URL Rewrite 模組的詳細資訊，請參閱 [URL Rewrite][] (英文) 文件。
+如需 IIS URL Rewrite 模組的詳細資訊，請參閱 [URL Rewrite][URL Rewrite] (英文) 文件。
 
 ## <a name="develop"></a>保護開發的安全
 
@@ -117,21 +117,21 @@ Azure 網站可讓您將組態資訊儲存為部分的網站執行階段環境�
 
 **應用程式設定**和**連接字串**可透過 Azure 管理入口網站或公用程式 (例如 PowerShell 或 Azure 跨平台命令列介面) 進行設定。
 
-如需應用程式設定和連接字串的詳細資訊，請參閱[設定網站][]。
+如需應用程式設定和連接字串的詳細資訊，請參閱[設定網站][設定網站]。
 
 ### FTPS
 
-Azure 針對網站的檔案系統，提供透過 **FTPS** 的安全 FTP 存取權限。這可讓您以安全的方式存取網站上的應用程式程式碼及診斷記錄。您可在 [Azure 管理入口網站][]的網站 [儀表板] 中找到網站的 FTPS 連結。
+Azure 針對網站的檔案系統，提供透過 **FTPS** 的安全 FTP 存取權限。這可讓您以安全的方式存取網站上的應用程式程式碼及診斷記錄。您可在 [Azure 管理入口網站][Azure 管理入口網站]的網站 [儀表板] 中找到網站的 FTPS 連結。
 
-如需 FTPS 的詳細資訊，請參閱[檔案傳輸通訊協定][]。
+如需 FTPS 的詳細資訊，請參閱[檔案傳輸通訊協定][檔案傳輸通訊協定]。
 
 ## 後續步驟
 
-如需 Azure 平台的安全性、報告**安全性事件或不當使用**、或通知 Microsoft 您即將執行網站的**滲透測試**等詳細資訊，請參閱 [Microsoft Azure 信任中心][]的安全性區段。
+如需 Azure 平台的安全性、報告**安全性事件或不當使用**、或通知 Microsoft 您即將執行網站的**滲透測試**等詳細資訊，請參閱 [Microsoft Azure 信任中心][Microsoft Azure 信任中心]的安全性區段。
 
-如需 Azure 網站中的 **web.config** 或 **applicationhost.config** 檔案詳細資訊，請參閱[已在 Azure 網站中解除鎖定的組態選項][] (英文)。
+如需 Azure 網站中的 **web.config** 或 **applicationhost.config** 檔案詳細資訊，請參閱[已在 Azure 網站中解除鎖定的組態選項][已在 Azure 網站中解除鎖定的組態選項] (英文)。
 
-如需記錄 Azure 網站資訊的相關資訊，此資訊可能對偵測攻擊很有幫助，請參閱[啟用診斷記錄][]。
+如需記錄 Azure 網站資訊的相關資訊，此資訊可能對偵測攻擊很有幫助，請參閱[啟用診斷記錄][啟用診斷記錄]。
 
   [開放 Web 軟體安全計劃 (Open Web Application Security Project，OWASP)]: https://www.owasp.org/index.php/Main_Page
   [十大專案]: https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project
@@ -140,7 +140,7 @@ Azure 針對網站的檔案系統，提供透過 **FTPS** 的安全 FTP 存取�
   [後續步驟]: #next
   [自訂網域名稱]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-custom-domain-name/
   [啟用 Azure 網站的 HTTPS]: /zh-tw/documentation/articles/web-sites-configure-ssl-certificate/
-  [RequireHttps]: http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx
+  [RequireHttps]: http://msdn.microsoft.com/zh-tw/library/system.web.mvc.requirehttpsattribute.aspx
   [將安全的 ASP.NET MVC 5 應用程式部署至 Azure 網站]: /zh-tw/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
   [範例]: #example
   [透過 FTP 上傳/下載檔案及收集診斷記錄]: http://blogs.msdn.com/b/avkashchauhan/archive/2012/06/19/windows-azure-website-uploading-downloading-files-over-ftp-and-collecting-diagnostics-logs.aspx
@@ -148,6 +148,6 @@ Azure 針對網站的檔案系統，提供透過 **FTPS** 的安全 FTP 存取�
   [設定網站]: /zh-tw/documentation/articles/web-sites-configure/
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [檔案傳輸通訊協定]: http://en.wikipedia.org/wiki/File_Transfer_Protocol
-  [Microsoft Azure 信任中心]: /en-us/support/trust-center/security/
+  [Microsoft Azure 信任中心]: /zh-tw/support/trust-center/security/
   [已在 Azure 網站中解除鎖定的組態選項]: http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/
   [啟用診斷記錄]: /zh-tw/documentation/articles/web-sites-enable-diagnostic-log/

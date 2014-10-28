@@ -4,20 +4,20 @@
 
 # 監視 DocumentDB 帳戶
 
-您可以在 [Azure Preview 入口網站][]中監視 DocumentDB 帳戶。每一個 DocumentDB 帳戶都有效能度量 (例如要求和伺服器錯誤) 和使用量度量 (例如儲存體用量) 可供使用。
+您可以在 [Azure Preview 入口網站][Azure Preview 入口網站]中監視 DocumentDB 帳戶。每一個 DocumentDB 帳戶都有效能度量 (例如要求和伺服器錯誤) 和使用量度量 (例如儲存體用量) 可供使用。
 
 ## 本文內容
 
--   [作法：檢視 DocumentDB 帳戶的效能度量][]
--   [作法：自訂 DocumentDB 帳戶的效能度量檢視][]
--   [作法：建立並排效能度量圖表][]
--   [作法：檢視 DocumentDB 帳戶的使用量度量][]
--   [作法：設定 DocumentDB 帳戶的效能度量警示][]
--   [後續步驟][]
+-   [作法：檢視 DocumentDB 帳戶的效能度量][作法：檢視 DocumentDB 帳戶的效能度量]
+-   [作法：自訂 DocumentDB 帳戶的效能度量檢視][作法：自訂 DocumentDB 帳戶的效能度量檢視]
+-   [作法：建立並排效能度量圖表][作法：建立並排效能度量圖表]
+-   [作法：檢視 DocumentDB 帳戶的使用量度量][作法：檢視 DocumentDB 帳戶的使用量度量]
+-   [作法：設定 DocumentDB 帳戶的效能度量警示][作法：設定 DocumentDB 帳戶的效能度量警示]
+-   [後續步驟][後續步驟]
 
 ## <span id="metrics"></span></a>作法：檢視 DocumentDB 帳戶的效能度量
 
-1.  在 [Azure Preview 入口網站][]中，按一下 [瀏覽]，再按一下 [DocumentDB 帳戶]，然後按一下您想要檢視效能度量的 DocumentDB 帳戶名稱。
+1.  在 [Azure Preview 入口網站][Azure Preview 入口網站]中，按一下 [瀏覽]，再按一下 [DocumentDB 帳戶]，然後按一下您想要檢視效能度量的 DocumentDB 帳戶名稱。
 2.  在 [監視] 透鏡內，依預設可以看到：
 
     -   當日的要求總數。
@@ -63,7 +63,7 @@ Azure Preview 入口網站可讓您建立並排度量圖表。
 
 ## <span id="view"></span></a>作法：檢視 DocumentDB 帳戶的使用量度量
 
-1.  在 [Azure Preview 入口網站][]中，按一下 [瀏覽]，再按一下 [DocumentDB 帳戶]，然後按一下您想要查看使用量度量的 DocumentDB 帳戶名稱。
+1.  在 [Azure Preview 入口網站][Azure Preview 入口網站]中，按一下 [瀏覽]，再按一下 [DocumentDB 帳戶]，然後按一下您想要查看使用量度量的 DocumentDB 帳戶名稱。
 2.  在 [使用量] 透鏡內，依預設可以檢視：
 
     -   帳戶內耗用的儲存體
@@ -76,7 +76,7 @@ Azure Preview 入口網站可讓您建立並排度量圖表。
 
 ## <span id="setup"></span></a>作法：設定 DocumentDB 帳戶的效能度量警示
 
-1.  在 [Azure Preview 入口網站][]中，按一下 [瀏覽]，再按一下 [DocumentDB 帳戶]，然後按一下您想要設定效能度量警示的 DocumentDB 帳戶名稱。
+1.  在 [Azure Preview 入口網站][Azure Preview 入口網站]中，按一下 [瀏覽]，再按一下 [DocumentDB 帳戶]，然後按一下您想要設定效能度量警示的 DocumentDB 帳戶名稱。
 2.  在 [作業] 透鏡內，按一下 [警示規則] 組件。
     ![][9]
 
@@ -95,7 +95,7 @@ Azure Preview 入口網站可讓您建立並排度量圖表。
 
 ## <span id="next"></span></a>後續步驟
 
--   若要深入了解 DocumentDB，請參閱 [azure.com][] 上的 Azure DocumentDB 文件
+-   若要深入了解 DocumentDB，請參閱 [azure.com][azure.com] 上的 Azure DocumentDB 文件
 
 <!--Anchors-->
 

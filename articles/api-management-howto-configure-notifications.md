@@ -8,20 +8,20 @@ API 管理 (預覽) 可讓您設定特定事件的通知，以及設定用來與
 
 ## 本主題內容
 
--   [設定發行者通知][]
--   [設定電子郵件範本][]
+-   [設定發行者通知][設定發行者通知]
+-   [設定電子郵件範本][設定電子郵件範本]
 
 ## <a name="publisher-notifications"> </a>設定發行者通知
 
 若要設定通知，請在 API 管理服務的 Azure 入口網站中按一下 [管理主控台]。這會帶您前往 API 管理的管理入口網站。
 
-> 如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][]教學課程中的[建立 API 管理服務執行個體][]。
+> 如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][開始使用 Azure API 管理]教學課程中的[建立 API 管理服務執行個體][建立 API 管理服務執行個體]。
 
-![API Management console][]
+![API Management console][API Management console]
 
 從左邊的 [API 管理] 功能表中按一下 [通知]，以檢視可用的通知。
 
-![Publisher notifications][]
+![Publisher notifications][Publisher notifications]
 
 下列事件清單可設定通知。
 
@@ -37,7 +37,7 @@ API 管理 (預覽) 可讓您設定特定事件的通知，以及設定用來與
 
 若要指定要通知的電子郵件地址，請在電子郵件地址文字方塊中輸入。如果您有多個電子郵件地址，請以逗號分隔。
 
-![Notification recipients][]
+![Notification recipients][Notification recipients]
 
 若要指定要通知的使用者，請按一下 [add recipient]，選取要通知之使用者旁邊的核取方塊，然後按一下 [確定]。
 
@@ -66,15 +66,15 @@ API 管理 (預覽) 可讓您設定特定事件的通知，以及設定用來與
 
 若要檢視和設定 API 管理執行個體的電子郵件範本，請從左邊的 [API 管理] 功能表中按一下 [通知]，然後選取 [電子郵件範本] 索引標籤。
 
-![Email templates][]
+![Email templates][Email templates]
 
 若要檢視或修改特定的範本，請從 [範本] 下拉式清單中選取它。
 
-![Email templates list][]
+![Email templates list][Email templates list]
 
 每一個電子郵件範本都有純文字的主旨，以及 HTML 格式的本文定義。可依需要自訂每一個項目。
 
-![Email template editor][]
+![Email template editor][Email template editor]
 
 [參數] 清單包含一份參數清單，當插入至主旨或本文時，則會在傳送電子郵件時取代為指定的值。若要插入參數，請將游標移至您要放置參數的地方，然後按一下參數名稱左邊的箭頭。
 

@@ -18,15 +18,15 @@
 
 > [WACOM.NOTE] 行動服務會與 Azure 通知中心整合，以支援其他推播通知功能，例如範本、多個平台和改良式範圍。本主題支援尚未升級到使用通知中心整合的現有行動服務。建立新的行動服務時，此整合式功能便會自動啟用。您應升級服務，盡可能使用通知中心。**針對使用 Appcelerator 推播的通知中心，我們會儘快設法取得合適的教學課程。**
 
-1.  [產生憑證簽署要求][]
-2.  [註冊您的應用程式並啟用推播通知][]
-3.  [建立應用程式的佈建設定檔][]
-4.  [啟用 Google 雲端通訊][]
-5.  [建立 Titanium 的 GCM 模組][]
-6.  [設定行動服務][]
-7.  [新增推播通知至應用程式][]
-8.  [更新指令碼來傳送推播通知][]
-9.  [插入資料以接收通知][]
+1.  [產生憑證簽署要求][產生憑證簽署要求]
+2.  [註冊您的應用程式並啟用推播通知][註冊您的應用程式並啟用推播通知]
+3.  [建立應用程式的佈建設定檔][建立應用程式的佈建設定檔]
+4.  [啟用 Google 雲端通訊][啟用 Google 雲端通訊]
+5.  [建立 Titanium 的 GCM 模組][建立 Titanium 的 GCM 模組]
+6.  [設定行動服務][設定行動服務]
+7.  [新增推播通知至應用程式][新增推播通知至應用程式]
+8.  [更新指令碼來傳送推播通知][更新指令碼來傳送推播通知]
+9.  [插入資料以接收通知][插入資料以接收通知]
 
 本教學課程需要下列各項：
 
@@ -38,21 +38,21 @@
 
 > [WACOM.NOTE] 基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
 
-本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][]。
+本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][開始使用行動服務]。
 
-[WACOM.INCLUDE [啟用 Apple 推播通知][]]
+[WACOM.INCLUDE [啟用 Apple 推播通知](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="register-gcm"></a>啟用 Google 雲端通訊
 
-> [WACOM.NOTE]若要完成此程序，您必須具有已通過電子郵件地址驗證的 Google 帳戶。若要建立新的 Google 帳戶，請前往 [accounts.google.com][]。
+> [WACOM.NOTE]若要完成此程序，您必須具有已通過電子郵件地址驗證的 Google 帳戶。若要建立新的 Google 帳戶，請前往 [accounts.google.com][accounts.google.com]。
 
-[WACOM.INCLUDE [啟用 GCM][]]
+[WACOM.INCLUDE [啟用 GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 ## <a name="gcm-module"></a>建立 Titanium 的 GCM 模組
 
 ### 準備 Appcelerator Titanium Studio 進行模組建立
 
-如果您打算建立 Android 模組，您將需要在 Appcelerator Titanium Studio 內安裝 Java 支援。請參閱 Appcelerator 的[安裝 Java 開發工具][]，以取得簡短步驟 (如果您尚未這樣做)。
+如果您打算建立 Android 模組，您將需要在 Appcelerator Titanium Studio 內安裝 Java 支援。請參閱 Appcelerator 的[安裝 Java 開發工具][安裝 Java 開發工具]，以取得簡短步驟 (如果您尚未這樣做)。
 
 您將需要安裝 Android NDK。從 [][]<http://developer.android.com/sdk/ndk/index.html></a> 下載適當的 .zip 檔案，並將它解壓縮到磁碟上的某個位置。記位此位置。
 
@@ -205,7 +205,7 @@
 
 ![][3]
 
-您可能接著會選擇為所有專案或特定專案部署此模組。這符合如 [Using Titanium Modules][] 中所述的安裝規則，但還是做個總結：
+您可能接著會選擇為所有專案或特定專案部署此模組。這符合如 [Using Titanium Modules][Using Titanium Modules] 中所述的安裝規則，但還是做個總結：
 
 -   若是所有專案：則會將模組 .zip 檔案拖放到 Titanium SDK 安裝位置的根目錄。
 
@@ -213,7 +213,7 @@
 
 ## <a name="configure"></a>設定行動服務來傳送推播要求
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push][]]
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 1.  輸入在上一個程序中從 GCM 取得的 [API Key] 值，然後按一下 [儲存]。
 
@@ -440,10 +440,10 @@
           });  
         }
 
-如此即會註冊新的 insert 指令碼，該指令碼會使用[行動服務推播物件][]將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。
+如此即會註冊新的 insert 指令碼，該指令碼會使用[行動服務推播物件][行動服務推播物件]將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。
 
 <!-- Images. -->  
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows 市集 C#"
+  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows 市集 C#"
   [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Windows 市集 JavaScript"
   [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
   [iOS]: /zh-tw/documentation/articles/mobile-services-ios-get-started-push "iOS"

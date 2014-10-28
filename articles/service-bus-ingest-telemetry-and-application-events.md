@@ -8,23 +8,23 @@
 
 ## 瀏覽
 
--   [事件中心][]
--   [事件中心定價詳細資料][]
--   [事件來源模式][]
+-   [事件中心][事件中心]
+-   [事件中心定價詳細資料][事件中心定價詳細資料]
+-   [事件來源模式][事件來源模式]
 
 ## 建置
 
--   [事件中心 REST API 參考][]
--   [事件中心程式碼範例][]
+-   [事件中心 REST API 參考][事件中心 REST API 參考]
+-   [事件中心程式碼範例][事件中心程式碼範例]
 
 ## 相關服務
 
--   [儲存體][]
--   [HDInsight][]
+-   [儲存體][儲存體]
+-   [HDInsight][HDInsight]
 
-  [事件中心]: http://msdn.microsoft.com/en-us/library/dn789973.aspx
-  [事件中心定價詳細資料]: http://azure.microsoft.com/en-us/pricing/details/event-hubs/
-  [事件來源模式]: http://msdn.microsoft.com/en-us/library/dn589792.aspx
+  [事件中心]: http://msdn.microsoft.com/zh-tw/library/dn789973.aspx
+  [事件中心定價詳細資料]: http://azure.microsoft.com/zh-tw/pricing/details/event-hubs/
+  [事件來源模式]: http://msdn.microsoft.com/zh-tw/library/dn589792.aspx
   [事件中心 REST API 參考]: http://go.microsoft.com/fwlink/?LinkId=403977
   [事件中心程式碼範例]: http://go.microsoft.com/fwlink/?LinkID=402449
   [儲存體]: http://azure.microsoft.com/zh-tw/documentation/services/storage/

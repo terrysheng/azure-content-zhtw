@@ -6,12 +6,12 @@
 
 當您要使用服務管理 API 與 Azure 映像平台互動時，您必須要有管理憑證。
 
-[][]<http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx></a> 上已有相關文件說明如何建立及管理這些憑證。您也可以使用 OpenSSL 來建立管理憑證。如需詳細資訊，請參閱 [OpenSSL][]。但本文件主要說明如何使用可能無法供所有 Linux 使用者存取的 Silverlight 入口網站。本文說明如何取得這些憑證，將其與不同的工具、合作夥伴整合，以及您在此功能新增至 Azure 管理入口網站之前如何自行加以使用。
+[][]<http://msdn.microsoft.com/zh-tw/library/azure/gg981929.aspx></a> 上已有相關文件說明如何建立及管理這些憑證。您也可以使用 OpenSSL 來建立管理憑證。如需詳細資訊，請參閱 [OpenSSL][OpenSSL]。但本文件主要說明如何使用可能無法供所有 Linux 使用者存取的 Silverlight 入口網站。本文說明如何取得這些憑證，將其與不同的工具、合作夥伴整合，以及您在此功能新增至 Azure 管理入口網站之前如何自行加以使用。
 
 ## 目錄
 
--   [從 publishsettings 檔案取得管理憑證][]
--   [使用 Azure 管理入口網站來安裝管理憑證][]
+-   [從 publishsettings 檔案取得管理憑證][從 publishsettings 檔案取得管理憑證]
+-   [使用 Azure 管理入口網站來安裝管理憑證][使用 Azure 管理入口網站來安裝管理憑證]
 
 ## <span id="publishsettings"></span></a>作法：建立及上傳管理憑證
 
@@ -19,19 +19,19 @@
 
 此網站會要求您使用入口網站認證進行登入，然後為您產生連同 subscriptionID 封裝在 publishsettings 檔案中的管理憑證，以供您下載。
 
-![linuxcredentials][]
+![linuxcredentials][linuxcredentials]
 
 請確實將此檔案儲存在安全之處，因為此檔案是無法復原的，一旦損毀，您將必須產生新的管理憑證。(您可在系統中使用的憑證有總數限制。請參閱此網站的適當區段，以確認此總數。)此憑證將有多方面的用途：
 
 ### 在 Visual Studio 中
 
-![VSpublish][]
+![VSpublish][VSpublish]
 
 ### 在 Linux Azure 命令列中
 
 您可以匯入憑證，以藉由執行 Azure 帳戶匯入命令加以使用：
 
-![cmdlinepublish][]
+![cmdlinepublish][cmdlinepublish]
 
 對於任何其他需要此工具的合作夥伴或軟體，您必須從檔案本身擷取管理憑證，並對其執行 Base 64 解碼。有些合作夥伴 (例如 ScaleXtreme 和 SUSE Studio) 會直接以其目前的格式使用檔案。
 
@@ -76,7 +76,7 @@
 
 ## <span id="management"></span></a>使用 Azure 管理入口網站來安裝管理憑證
 
-您可以透過多種方式建立管理憑證。如需建立憑證的詳細資訊，請參閱[建立 Azure 的管理憑證][]。建立憑證後，請將其新增至 Azure 中的訂閱。
+您可以透過多種方式建立管理憑證。如需建立憑證的詳細資訊，請參閱[建立 Azure 的管理憑證][建立 Azure 的管理憑證]。建立憑證後，請將其新增至 Azure 中的訂閱。
 
 1.  登入 Azure 管理入口網站。
 
@@ -133,7 +133,7 @@
 其中，xxxxx 是您透過下列命令將詳細資料提供給 Linux Azure 命令列工具時所將使用的 [enconded file] 內容：
 Azure 帳戶匯入(檔案)
 
-  []: http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx
+  []: http://msdn.microsoft.com/zh-tw/library/azure/gg981929.aspx
   [OpenSSL]: http://openssl.org/
   [從 publishsettings 檔案取得管理憑證]: #createcert
   [使用 Azure 管理入口網站來安裝管理憑證]: #management

@@ -14,13 +14,13 @@
 
 Azure 提供數個防毒/反惡意程式碼解決方案的選項，但管理則掌握在您手中。例如，您必須決定執行掃描和安裝更新的時間。您可以在建立虛擬機器時或在稍後的時間點上新增防毒支援。目前的三個解決方案會以安全性延伸模組的方式提供，您可以在新的和現有的虛擬機器上進行安裝：
 
--   [如何在 Azure VM 上安裝和設定 Symantec Endpoint Protection][]
--   [如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service][]
--   [在 Azure 虛擬機器上部署反惡意程式碼解決方案][]
+-   [如何在 Azure VM 上安裝和設定 Symantec Endpoint Protection][如何在 Azure VM 上安裝和設定 Symantec Endpoint Protection]
+-   [如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service][如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service]
+-   [在 Azure 虛擬機器上部署反惡意程式碼解決方案][在 Azure 虛擬機器上部署反惡意程式碼解決方案]
 
 ## 在虛擬機器端點上使用網路存取控制清單 (ACL)
 
-網路存取控制清單 (ACL) 可讓您選擇性地允許或拒絕輸入虛擬機器端點的流量。此封包篩選功能提供了一層額外的安全性。如需此作業的運作方式和指示的連結，請參閱[關於網路存取控制清單 (ACL)][]。
+網路存取控制清單 (ACL) 可讓您選擇性地允許或拒絕輸入虛擬機器端點的流量。此封包篩選功能提供了一層額外的安全性。如需此作業的運作方式和指示的連結，請參閱[關於網路存取控制清單 (ACL)][關於網路存取控制清單 (ACL)]。
 
   [如何在 Azure VM 上安裝和設定 Symantec Endpoint Protection]: http://go.microsoft.com/fwlink/p/?LinkId=404207
   [如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service]: http://go.microsoft.com/fwlink/p/?LinkId=404206

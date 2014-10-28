@@ -8,12 +8,12 @@
 
 ## 目錄
 
--   [作法：建立 DocumentDB 帳戶][]
--   [後續步驟][]
+-   [作法：建立 DocumentDB 帳戶][作法：建立 DocumentDB 帳戶]
+-   [後續步驟][後續步驟]
 
 ## <span id="HowTo"></span></a>作法：建立 DocumentDB 帳戶
 
-1.  登入 [Azure 管理預覽入口網站][]
+1.  登入 [Azure 管理預覽入口網站][Azure 管理預覽入口網站]
 2.  按一下 [新增] -\> [DocumentDB 帳戶]。
     ![][]
 
@@ -31,15 +31,15 @@
 
     [定價層] 透鏡已鎖定，因為 DocumentDB 預覽僅支援單一標準定價層。
 
-    *如需詳細資訊，請參閱 [DocumentDB 定價詳細資料][]*
+    *如需詳細資訊，請參閱 [DocumentDB 定價詳細資料][DocumentDB 定價詳細資料]*
 
-    [Optional configuration] 透鏡用來指定配置給 DocumentDB 帳戶的初始容量。DocumentDB 利用容量單位讓您調整 DocumentDB 帳戶，每個容量單位包含保留的資料庫儲存體和輸送量。依預設會佈建 1 個容量單位。您隨時都可以透過 [Azure 管理預覽入口網站][]來調整 DocumentDB 帳戶可用的容量單位數。
+    [Optional configuration] 透鏡用來指定配置給 DocumentDB 帳戶的初始容量。DocumentDB 利用容量單位讓您調整 DocumentDB 帳戶，每個容量單位包含保留的資料庫儲存體和輸送量。依預設會佈建 1 個容量單位。您隨時都可以透過 [Azure 管理預覽入口網站][Azure 管理預覽入口網站]來調整 DocumentDB 帳戶可用的容量單位數。
 
-    *如需 DocumentDB 帳戶容量和輸送量的詳細資訊，請參閱[管理 DocumentDB 容量和效能][]一文。*
+    *如需 DocumentDB 帳戶容量和輸送量的詳細資訊，請參閱[管理 DocumentDB 容量和效能][管理 DocumentDB 容量和效能]一文。*
 
     在 [資源群組] 中，選取或建立 DocumentDB 帳戶的資源群組。依預設會建立新的資源群組。不過，您可以選擇現有的資源群組，以便在其中加入您的 DocumentDB 帳戶。
 
-    *如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源][]。*
+    *如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源][使用資源群組管理您的 Azure 資源]。*
 
     在 [訂用帳戶] 中，選取您要用於 DocumentDB 帳戶的 Azure 訂用帳戶。
 
@@ -58,7 +58,7 @@
 
 4.  建立好的 DocumentDB 帳戶可立即以預設值來使用。
 
-    *請注意，DocumentDB 帳戶的預設一致性會設為 [階段工作]。您可以透過 [Azure 管理預覽入口網站][]來調整預設一致性設定。*
+    *請注意，DocumentDB 帳戶的預設一致性會設為 [階段工作]。您可以透過 [Azure 管理預覽入口網站][Azure 管理預覽入口網站]來調整預設一致性設定。*
     ![][6]
 
 5.  您也可以從 [瀏覽] 分頁存取現有的 DocumentDB 帳戶。
@@ -66,7 +66,7 @@
 
 ## <span id="NextSteps"></span></a>後續步驟
 
--   若要深入了解 DocumentDB，請參閱 [azure.com][] 上的 Azure DocumentDB 文件
+-   若要深入了解 DocumentDB，請參閱 [azure.com][azure.com] 上的 Azure DocumentDB 文件
 
 <!--Image references-->
 

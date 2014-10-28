@@ -4,26 +4,26 @@
 
 # 如何檢視 Azure 存取控制服務傳回的 SAML
 
-本指南說明如何檢視 Azure 存取控制服務 (ACS) 傳回給應用程式的基本安全性聲明標記語言 (SAML)。本指南以＜[如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者][]＞主題為基礎，提供程式碼來顯示 SAML 資訊。完成後的應用程式如下所示：
+本指南說明如何檢視 Azure 存取控制服務 (ACS) 傳回給應用程式的基本安全性聲明標記語言 (SAML)。本指南以＜[如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者][如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者]＞主題為基礎，提供程式碼來顯示 SAML 資訊。完成後的應用程式如下所示：
 
-![Example SAML output][]
+![Example SAML output][Example SAML output]
 
-如需 ACS 的詳細資訊，請參閱[後續步驟][]一節。
+如需 ACS 的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 > [WACOM.NOTE]
 > Azure Access Services Control Filter (由 Microsoft Open Technologies 提供) 是社群技術預覽。作為發行前軟體，它尚未得到 Microsoft Open Technologies, Inc. 及 Microsoft 的正式支援。
 
 ## 目錄
 
--   [必要條件][]
--   [將 JspWriter 程式庫加入至組建路徑和部署組件][]
--   [修改 JSP 檔案來顯示 SAML][]
--   [執行應用程式][]
--   [後續步驟][]
+-   [必要條件][必要條件]
+-   [將 JspWriter 程式庫加入至組建路徑和部署組件][將 JspWriter 程式庫加入至組建路徑和部署組件]
+-   [修改 JSP 檔案來顯示 SAML][修改 JSP 檔案來顯示 SAML]
+-   [執行應用程式][執行應用程式]
+-   [後續步驟][後續步驟]
 
 ## <a name="pre"></a>必要條件
 
-若要完成本指南中的工作，請完成＜[如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者][]＞中的範例，並將它當做本教學課程的起點。
+若要完成本指南中的工作，請完成＜[如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者][如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者]＞中的範例，並將它當做本教學課程的起點。
 
 ## <a name="add_library"></a>將 JspWriter 程式庫加入至組建路徑和部署組件
 
@@ -173,12 +173,12 @@
 
 ## <a name="run_application"></a>執行應用程式
 
-1.  使用＜[如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者][]＞中說明的步驟，在電腦模擬器中執行應用程式，或部署至 Azure。
+1.  使用＜[如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者][如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者]＞中說明的步驟，在電腦模擬器中執行應用程式，或部署至 Azure。
 2.  啟動瀏覽器並開啟您的 Web 應用程式。登入應用程式之後，您會看到 SAML 資訊，包括身分識別提供者所提供的安全性聲明。
 
 ## <a name="next_steps"></a>後續步驟
 
-若要進一步探索 ACS 功能及試試其他更精緻的案例，請參閱[存取控制服務 2.0][] (英文)。
+若要進一步探索 ACS 功能及試試其他更精緻的案例，請參閱[存取控制服務 2.0][存取控制服務 2.0] (英文)。
 
   [如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者]: ../active-directory-java-authenticate-users-access-control-eclipse
   [Example SAML output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png

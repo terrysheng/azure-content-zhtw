@@ -4,18 +4,18 @@
 
 # 在 HDInsight 上將以時間為基礎的 Oozie 協調器與 Hadoop 搭配使用
 
-了解如何定義工作流程和協調器，以及如何觸發以時間為基礎的協調器工作。進行本文之前先完成[在 HDInsight 上使用 Oozie][]，將有所幫助。
+了解如何定義工作流程和協調器，以及如何觸發以時間為基礎的協調器工作。進行本文之前先完成[在 HDInsight 上使用 Oozie][在 HDInsight 上使用 Oozie]，將有所幫助。
 
 **預估完成時間：** 40 分鐘
 
 ## 本文內容
 
-1.  [什麼是 Oozie][]
-2.  [必要條件][]
-3.  [定義 Oozie 工作流程檔案][]
-4.  [部署 Oozie 專案及進行教學課程前置工作][]
-5.  [執行工作流程][]
-6.  [後續步驟][]
+1.  [什麼是 Oozie][什麼是 Oozie]
+2.  [必要條件][必要條件]
+3.  [定義 Oozie 工作流程檔案][定義 Oozie 工作流程檔案]
+4.  [部署 Oozie 專案及進行教學課程前置工作][部署 Oozie 專案及進行教學課程前置工作]
+5.  [執行工作流程][執行工作流程]
+6.  [後續步驟][後續步驟]
 
 ## <span id="whatisoozie"></span></a>什麼是 Oozie
 
@@ -23,7 +23,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
 
 您將實作的工作流程包含兩個動作：
 
-![Workflow diagram][]
+![Workflow diagram][Workflow diagram]
 
 1.  Hive 動作會執行一個 HiveQL 指令碼，以計算每個記錄層級類型在 log4j 記錄檔中的出現次數。每一個 log4j 記錄各由一列欄位組成，其中包含 [LOG LEVEL] 欄位以顯示類型和嚴重性。例如：
 
@@ -41,11 +41,11 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
         [TRACE] 816
         [WARN]  4
 
-    如需 Hive 的詳細資訊，請參閱[在 HDInsight 上使用 Hive][]。
+    如需 Hive 的詳細資訊，請參閱[在 HDInsight 上使用 Hive][在 HDInsight 上使用 Hive]。
 
-2.  Sqoop 動作會將 HiveQL 動作的輸出匯出至 Azure SQL Database 上的資料表。如需 Sqoop 的詳細資訊，請參閱[在 HDInsight 上使用 Sqoop][]。
+2.  Sqoop 動作會將 HiveQL 動作的輸出匯出至 Azure SQL Database 上的資料表。如需 Sqoop 的詳細資訊，請參閱[在 HDInsight 上使用 Sqoop][在 HDInsight 上使用 Sqoop]。
 
-> [WACOM.NOTE] 如需 HDInsight 叢集上支援的 Oozie 版本，請參閱 [HDInsight 所提供叢集版本的新功能][]。
+> [WACOM.NOTE] 如需 HDInsight 叢集上支援的 Oozie 版本，請參閱 [HDInsight 所提供叢集版本的新功能][HDInsight 所提供叢集版本的新功能]。
 
 > [WACOM.NOTE] 本教學課程將執行於 HDInsight 從 2.1 和 3.0 版。本文並未使用 HDInsight 模擬器進行測試。
 
@@ -53,8 +53,8 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
 
 開始進行本教學課程之前，您必須具備下列條件：
 
--   已安裝並設定 Azure PowerShell 的**工作站**。如需指示，請參閱[安裝並設定 Azure PowerShell][]。若要執行 PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[執行 Windows PowerShell 指令碼][]。
--   **HDInsight 叢集**。如需建立 HDInsight 叢集的相關資訊，請參閱[佈建 HDInsight 叢集][]或[開始使用 HDInsight][]。進行教學課程時，您將需要下列資料：
+-   已安裝並設定 Azure PowerShell 的**工作站**。如需指示，請參閱[安裝並設定 Azure PowerShell][安裝並設定 Azure PowerShell]。若要執行 PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[執行 Windows PowerShell 指令碼][執行 Windows PowerShell 指令碼]。
+-   **HDInsight 叢集**。如需建立 HDInsight 叢集的相關資訊，請參閱[佈建 HDInsight 叢集][佈建 HDInsight 叢集]或[開始使用 HDInsight][開始使用 HDInsight]。進行教學課程時，您將需要下列資料：
 
     <table>
     <colgroup>
@@ -105,7 +105,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
     </tbody>
     </table>
 
--   **Azure SQL Database**。您必須設定 SQL Database Server 的防火牆規則，以允許從您的工作站加以存取。如需建立 SQL 資料庫和設定防火牆的相關指示，請參閱[開始使用 Azure SQL Database][]。本文將提供建立本教學課程所需之 SQL Database 資料表的 PowerShell 指令碼。
+-   **Azure SQL Database**。您必須設定 SQL Database Server 的防火牆規則，以允許從您的工作站加以存取。如需建立 SQL 資料庫和設定防火牆的相關指示，請參閱[開始使用 Azure SQL Database][開始使用 Azure SQL Database]。本文將提供建立本教學課程所需之 SQL Database 資料表的 PowerShell 指令碼。
 
     <table>
     <colgroup>
@@ -150,7 +150,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
     </tbody>
     </table>
 
-    > [WACOM.NOTE] 依預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDinsight) 的連線。如果此防火牆設定停用，您必須從 Azure 管理入口網站中啟用它。如需建立 SQL 資料庫和設定防火牆規則的相關指示，請參閱[建立和設定 SQL 資料庫][]。
+    > [WACOM.NOTE] 依預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDinsight) 的連線。如果此防火牆設定停用，您必須從 Azure 管理入口網站中啟用它。如需建立 SQL 資料庫和設定防火牆規則的相關指示，請參閱[建立和設定 SQL 資料庫][建立和設定 SQL 資料庫]。
 
 > [WACOM.NOTE] 將值填入資料表中。這將有助於本教學課程的執行。
 
@@ -165,7 +165,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。預
 3.  log4j 記錄檔的位置)。欄位分隔符號為 ","。預設的行分隔符號為 "\\n"。Hive 外部資料表可讓您在需要執行 Oozie 工作流程多次時，避免資料檔案從原始位置遭到移除。
 4.  **INSERT OVERWRITE 陳述式**可從 log4j Hive 資料表中計算每個記錄層級類型的出現次數，並將輸出儲存至 Azure 儲存體 - Blob (WASB) 位置。
 
-Hive 路徑有已知問題。此問題會在您提交 Oozie 工作時發生。如需修正此問題的指示，請參閱 [TechNet Wiki][]。
+Hive 路徑有已知問題。此問題會在您提交 Oozie 工作時發生。如需修正此問題的指示，請參閱 [TechNet Wiki][TechNet Wiki]。
 
 **若要定義要由工作流程呼叫的 HiveQL 指令碼檔案：**
 
@@ -266,7 +266,7 @@ Hive 路徑有已知問題。此問題會在您提交 Oozie 工作時發生。�
     | ${sqlDatabaseTableName}        | 資料所將匯出到的 SQL Database 資料表。                                                |
     | ${hiveOutputFolder}            | Hive INSERT OVERWRITE 陳述式的輸出資料夾。這是 Sqoop Export export-dir 的相同資料夾。 |
 
-    如需 Oozie 工作流程和使用工作流程動作的詳細資訊，請參閱 [Apache Oozie 4.0 文件][] (適用於 HDInsight 叢集 3.0 版) 或 [Apache Oozie 3.3.2 文件][] (適用於 HDInsight 叢集 2.1 版)。
+    如需 Oozie 工作流程和使用工作流程動作的詳細資訊，請參閱 [Apache Oozie 4.0 文件][Apache Oozie 4.0 文件] (適用於 HDInsight 叢集 3.0 版) 或 [Apache Oozie 3.3.2 文件][Apache Oozie 3.3.2 文件] (適用於 HDInsight 叢集 2.1 版)。
 
 2.  使用 ANSI (ASCII) 編碼 (如果您的文字編輯器未提供此選項，請使用 [記事本])，將檔案儲存為 **C:\\Tutorials\\UseOozie\\workflow.xml**。
 
@@ -306,16 +306,16 @@ Hive 路徑有已知問題。此問題會在您提交 Oozie 工作時發生。�
 
 **了解 HDInsight 儲存體**
 
-HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB* 或 *Windows Azure 儲存體 - Blob*。WASB 是 Microsoft 在 Azure Blob 儲存體上的 HDFS 實作。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][]。
+HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB* 或 *Windows Azure 儲存體 - Blob*。WASB 是 Microsoft 在 Azure Blob 儲存體上的 HDFS 實作。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][搭配 HDInsight 使用 Azure Blob 儲存體]。
 
-當您佈建 HDInsight 叢集時，會將一個 Azure 儲存體帳戶及其下的特定 Blob 儲存體容器指定為預設檔案系統，如同在 HDFS 中一般。除了此儲存體帳戶，您也可以在佈建過程中從相同或不同的 Azure 訂用帳戶中新增其他儲存體帳戶。如需有關新增其他儲存體帳戶的詳細資訊，請參閱[佈建 HDInsight 叢集][]。為簡化本教學課程中使用的 PowerShell 指令碼，所有檔案都會儲存在位於 */tutorials/useoozie* 的預設檔案系統容器中。根據預設，此容器的名稱會與 HDInsight 叢集名稱相同。
+當您佈建 HDInsight 叢集時，會將一個 Azure 儲存體帳戶及其下的特定 Blob 儲存體容器指定為預設檔案系統，如同在 HDFS 中一般。除了此儲存體帳戶，您也可以在佈建過程中從相同或不同的 Azure 訂用帳戶中新增其他儲存體帳戶。如需有關新增其他儲存體帳戶的詳細資訊，請參閱[佈建 HDInsight 叢集][佈建 HDInsight 叢集]。為簡化本教學課程中使用的 PowerShell 指令碼，所有檔案都會儲存在位於 */tutorials/useoozie* 的預設檔案系統容器中。根據預設，此容器的名稱會與 HDInsight 叢集名稱相同。
 WASB 語法如下：
 
     wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
 > [WACOM.NOTE] HDInsight 叢集 3.0 版僅支援 *wasb://* 語法。HDInsight 2.1 和 1.6 支援舊的 *asv://* 語法，但在 HDInsight 3.0 叢集中已不受支援，未來的版本也不加以支援。
 
-> [WACOM.NOTE] WASB 路徑為虛擬路徑。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][]。
+> [WACOM.NOTE] WASB 路徑為虛擬路徑。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][搭配 HDInsight 使用 Azure Blob 儲存體]。
 
 儲存在預設檔案系統容器中的檔案，可使用下列任一 URI (範例中使用 workflow.xml) 從 HDInsight 存取：
 
@@ -337,11 +337,11 @@ WASB 語法如下：
 -   CREATE EXTERNAL TABLE 命令不會移動資料檔案。
 -   CREATE EXTERNAL TABLE 命令不允許在 LOCATION 子句中指定的資料夾下放置任何子資料夾。因此，此教學課程複製了 sample.log 檔案。
 
-如需詳細資訊，請參閱 [HDInsight：Hive 內部和外部資料表簡介][]。
+如需詳細資訊，請參閱 [HDInsight：Hive 內部和外部資料表簡介][HDInsight：Hive 內部和外部資料表簡介]。
 
 **教學課程前置工作**
 
-1.  開啟 Windows PowerShell ISE (在 Windows 8 的 [開始] 畫面上輸入 **PowerShell\_ISE**，然後按一下 [Windows PowerShell ISE]。請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][])。
+1.  開啟 Windows PowerShell ISE (在 Windows 8 的 [開始] 畫面上輸入 **PowerShell\_ISE**，然後按一下 [Windows PowerShell ISE]。請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][在 Windows 8 和 Windows 上啟動 Windows PowerShell])。
 2.  在底部窗格中執行下列命令，以連接到您的 Azure 訂用帳戶：
 
         Add-AzureAccount
@@ -371,7 +371,7 @@ WASB 語法如下：
         # WASB folder for storing the Oozie tutorial files.
         $destFolder = "tutorials/useoozie"  # Do NOT use the long path here
 
-    如需變數的詳細說明，請參閱本教學課程中的[必要條件][]一節。
+    如需變數的詳細說明，請參閱本教學課程中的[必要條件][必要條件]一節。
 
 4.  將下列程式碼附加到指令碼窗格中的指令碼：
 
@@ -429,16 +429,16 @@ WASB 語法如下：
 
 5.  按一下 [執行指令碼] 或按 [F5]，以執行指令碼。輸出應該類似：
 
-    ![Tutorial preparation output][]
+    ![Tutorial preparation output][Tutorial preparation output]
 
 ## <span id="run"></span></a>執行 Oozie 專案
 
 Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。您可以使用
-Invoke-RestMethod PowerShell Cmdlet 來叫用 Oozie Web 服務。Oozie Web 服務 API 是 HTTP REST JSON API。如需 Oozie Web 服務 API 的詳細資訊，請參閱 [Apache Oozie 4.0 文件][] (適用於 HDInsight 叢集 3.0 版) 或 [Apache Oozie 3.3.2 文件][] (適用於 HDInsight 叢集 2.1 版)。
+Invoke-RestMethod PowerShell Cmdlet 來叫用 Oozie Web 服務。Oozie Web 服務 API 是 HTTP REST JSON API。如需 Oozie Web 服務 API 的詳細資訊，請參閱 [Apache Oozie 4.0 文件][Apache Oozie 4.0 文件] (適用於 HDInsight 叢集 3.0 版) 或 [Apache Oozie 3.3.2 文件][Apache Oozie 3.3.2 文件] (適用於 HDInsight 叢集 2.1 版)。
 
 **提交 Oozie 工作**
 
-1.  開啟 Windows PowerShell ISE (在 Windows 8 的 [開始] 畫面上輸入 **PowerShell\_ISE**，然後按一下 [Windows PowerShell ISE]。請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][])。
+1.  開啟 Windows PowerShell ISE (在 Windows 8 的 [開始] 畫面上輸入 **PowerShell\_ISE**，然後按一下 [Windows PowerShell ISE]。請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][在 Windows 8 和 Windows 上啟動 Windows PowerShell])。
 
 2.  將下列指令碼複製到指令碼窗格中，然後設定前十四個變數 (請略過第 6 個變數 $storageUri)。
 
@@ -480,7 +480,7 @@ Invoke-RestMethod PowerShell Cmdlet 來叫用 Oozie Web 服務。Oozie Web 服�
         $passwd = ConvertTo-SecureString $clusterPassword -AsPlainText -Force
         $creds = New-Object System.Management.Automation.PSCredential ($clusterUsername, $passwd)
 
-    如需變數的詳細說明，請參閱本教學課程中的[必要條件][]一節。
+    如需變數的詳細說明，請參閱本教學課程中的[必要條件][必要條件]一節。
 
     $coordstart 和 $coordend 是工作流程的開始和結束時間。若要找出 UTC/GMT 時間，請在 bing.com 搜尋「utc 時間」。$coordFrequency 是您要執行工作流程的頻率 (以分鐘為單位)。
 
@@ -696,13 +696,13 @@ Invoke-RestMethod PowerShell Cmdlet 來叫用 Oozie Web 服務。Oozie Web 服�
 
 10. 按一下 [執行指令碼] 或按 [F5]，以執行指令碼。輸出將類似於：
 
-    ![Tutorial run workflow output][]
+    ![Tutorial run workflow output][Tutorial run workflow output]
 
 11. 連接到您的 SQL Database，以檢視匯出的資料。
 
 **檢查工作錯誤記錄**
 
-若要進行工作流程的疑難排解，您可以從叢集前端節點，找出位於 C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log 的 Oozie 記錄檔。如需 RDP 的相關資訊，請參閱[使用管理入口網站管理 HDInsight 叢集][]。
+若要進行工作流程的疑難排解，您可以從叢集前端節點，找出位於 C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log 的 Oozie 記錄檔。如需 RDP 的相關資訊，請參閱[使用管理入口網站管理 HDInsight 叢集][使用管理入口網站管理 HDInsight 叢集]。
 
 **重新執行教學課程**
 
@@ -743,16 +743,16 @@ Invoke-RestMethod PowerShell Cmdlet 來叫用 Oozie Web 服務。Oozie Web 服�
 
 在本教學課程中，您已了解如何定義 Oozie 工作流程和 Oozie 協調器，以及如何使用 Azure PowerShell 來執行 Oozie 協調器工作。若要深入了解，請參閱下列文章：
 
--   [開始使用 HDInsight][]
--   [開始使用 HDInsight Emulator][]
+-   [開始使用 HDInsight][開始使用 HDInsight]
+-   [開始使用 HDInsight Emulator][開始使用 HDInsight Emulator]
 -   [在 HDInsight 上使用 Azure Blob 儲存體][搭配 HDInsight 使用 Azure Blob 儲存體]
--   [使用 PowerShell 管理 HDInsight][]
--   [將資料上傳到 HDInsight][]
+-   [使用 PowerShell 管理 HDInsight][使用 PowerShell 管理 HDInsight]
+-   [將資料上傳到 HDInsight][將資料上傳到 HDInsight]
 -   [搭配 HDInsight 使用 Sqoop][在 HDInsight 上使用 Sqoop]
 -   [搭配 HDInsight 使用 Hive][在 HDInsight 上使用 Hive]
--   [搭配 HDInsight 使用 Pig][]
--   [開發 HDInsight 的 C# Hadoop 串流工作][]
--   [開發 HDInsight 的 Java MapReduce 程式][]
+-   [搭配 HDInsight 使用 Pig][搭配 HDInsight 使用 Pig]
+-   [開發 HDInsight 的 C# Hadoop 串流工作][開發 HDInsight 的 C# Hadoop 串流工作]
+-   [開發 HDInsight 的 Java MapReduce 程式][開發 HDInsight 的 Java MapReduce 程式]
 
   [在 HDInsight 上使用 Oozie]: ../hdinsight-use-oozie/
   [什麼是 Oozie]: #whatisoozie
@@ -766,7 +766,7 @@ Invoke-RestMethod PowerShell Cmdlet 來叫用 Oozie Web 服務。Oozie Web 服�
   [在 HDInsight 上使用 Sqoop]: ../hdinsight-use-sqoop/
   [HDInsight 所提供叢集版本的新功能]: ../hdinsight-component-versioning/
   [安裝並設定 Azure PowerShell]: ../install-and-configure-powershell/
-  [執行 Windows PowerShell 指令碼]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+  [執行 Windows PowerShell 指令碼]: http://technet.microsoft.com/zh-tw/library/ee176949.aspx
   [佈建 HDInsight 叢集]: ../hdinsight-provision-clusters/
   [開始使用 HDInsight]: ../hdinsight-get-started/
   [開始使用 Azure SQL Database]: ../sql-database-get-started/
@@ -776,7 +776,7 @@ Invoke-RestMethod PowerShell Cmdlet 來叫用 Oozie Web 服務。Oozie Web 服�
   [Apache Oozie 3.3.2 文件]: http://oozie.apache.org/docs/3.3.2/
   [搭配 HDInsight 使用 Azure Blob 儲存體]: ../hdinsight-use-blob-storage/
   [HDInsight：Hive 內部和外部資料表簡介]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
-  [在 Windows 8 和 Windows 上啟動 Windows PowerShell]: http://technet.microsoft.com/en-us/library/hh847889.aspx
+  [在 Windows 8 和 Windows 上啟動 Windows PowerShell]: http://technet.microsoft.com/zh-tw/library/hh847889.aspx
   [Tutorial preparation output]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.Preparation.Output1.png
   [Tutorial run workflow output]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.RunCoord.Output.png
   [使用管理入口網站管理 HDInsight 叢集]: ../hdinsight-administer-use-management-portal/

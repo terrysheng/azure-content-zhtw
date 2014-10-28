@@ -9,7 +9,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 完成之應用程式的螢幕擷取畫面如下：
 
-![A browser window displaying the service hosted on Azure][]
+![A browser window displaying the service hosted on Azure][A browser window displaying the service hosted on Azure]
 
 ## 建立雲端服務專案
 
@@ -17,9 +17,9 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 1.  從 [開始] 功能表 或 [開始畫面] 中，搜尋 **Azure PowerShell**。最後，以滑鼠右鍵按一下 [Azure PowerShell]，然後選取 [以系統管理員身分執行]。
 
-    ![Azure PowerShell icon][]
+    ![Azure PowerShell icon][Azure PowerShell icon]
 
-    [WACOM.INCLUDE [install-dev-tools][]]
+    [WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 2.  切換至 **c:\\node** 目錄，然後輸入下列命令來建立名為 **chatapp** 的新方案和名為 **WorkerRole1** 的背景工作角色：
 
@@ -28,21 +28,21 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
     您將看見下列回應：
 
-    ![The output of the new-azureservice and add-azurenodeworkerrolecmdlets][]
+    ![The output of the new-azureservice and add-azurenodeworkerrolecmdlets][The output of the new-azureservice and add-azurenodeworkerrolecmdlets]
 
 ## 下載交談範例
 
-在此專案中，我們將使用 [Socket.IO GitHub 儲存機制][]中的交談範例。請執行下列步驟來下載範例，並將它加入至您先前建立的專案。
+在此專案中，我們將使用 [Socket.IO GitHub 儲存機制][Socket.IO GitHub 儲存機制]中的交談範例。請執行下列步驟來下載範例，並將它加入至您先前建立的專案。
 
 1.  使用 [複製] 按鈕建立儲存機制的本機複本。您也可以使用 [ZIP] 按鈕來下載專案。
 
-    ![檢視 https://github.com/LearnBoost/socket.io/tree/master/examples/chat 的瀏覽器視窗，且反白顯示 ZIP 下載圖示][]
+    ![檢視 https://github.com/LearnBoost/socket.io/tree/master/examples/chat 的瀏覽器視窗，且反白顯示 ZIP 下載圖示][檢視 https://github.com/LearnBoost/socket.io/tree/master/examples/chat 的瀏覽器視窗，且反白顯示 ZIP 下載圖示]
 
 2.  瀏覽本機儲存機制的目錄結構，直到發現 **examples\\chat**
      目錄為止。將此目錄的內容複製到稍早建立的
     **C:\\node\\chatapp\\WorkerRole1** 目錄。
 
-    ![總管，會顯示擷取自封存的 examples\\chat 目錄內容][]
+    ![總管，會顯示擷取自封存的 examples\chat 目錄內容][總管，會顯示擷取自封存的 examples\chat 目錄內容]
 
     上方螢幕擷取畫面中反白顯示的項目是從 **examples\\chat** 目錄複製的檔案
 
@@ -78,7 +78,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
     這將會安裝 package.json 檔案中列出的模組。命令完成之後，您應該會看到類似下列的輸出：
 
-    ![The output of the npm install command][]
+    ![The output of the npm install command][The output of the npm install command]
 
 2.  因為此範例原本是 Socket.IO GitHub 儲存機制的一部分，並以相對路徑直接參考 Socket.IO 程式庫，package.json 檔案中並未參考 Socket.IO，因此，我們必須發出下列命令來安裝它：
 
@@ -92,7 +92,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 2.  當瀏覽器視窗開啟時，請輸入暱稱，然後按 Enter 鍵。這樣可讓您以特定暱稱來張貼訊息。若要測試多使用者功能，可使用相同 URL 來開啟其他瀏覽器視窗，並輸入不同的暱稱。
 
-    ![兩個瀏覽器視窗顯示 User1 和 User2 的交談訊息][]
+    ![兩個瀏覽器視窗顯示 User1 和 User2 的交談訊息][兩個瀏覽器視窗顯示 User1 和 User2 的交談訊息]
 
 3.  測試應用程式之後，發出下列命令來停止模擬器：
 
@@ -109,7 +109,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 <p>如果出現錯誤指出匯入的發行設定檔中沒有您所提供的訂閱名稱，則在部署至 Azure 之前，您必須下載並匯入訂閱的發行設定檔。請參閱＜<a href="https://www.windowsazure.com/zh-TW/develop/nodejs/tutorials/getting-started/">建立 Node.js 應用程式並部署至 Azure 雲端服務</a>＞的＜<b>將應用程式部署至 Azure</b>＞一節 (英文)</p>
 </div>
 
-    ![A browser window displaying the service hosted on Azure][]
+    ![A browser window displaying the service hosted on Azure][A browser window displaying the service hosted on Azure]
 
     <div class="dev-callout">
 <strong>注意</strong>
@@ -125,7 +125,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 ## 後續步驟
 
-在本教學課程中，您學到如何建立裝載於 Azure 雲端服務的基本交談應用程式。若要了解如何在 Azure 網站中裝載此應用程式，請參閱[在 Azure 網站上使用 Socket.IO 建立 Node.js 交談應用程式][]。
+在本教學課程中，您學到如何建立裝載於 Azure 雲端服務的基本交談應用程式。若要了解如何在 Azure 網站中裝載此應用程式，請參閱[在 Azure 網站上使用 Socket.IO 建立 Node.js 交談應用程式][在 Azure 網站上使用 Socket.IO 建立 Node.js 交談應用程式]。
 
   [A browser window displaying the service hosted on Azure]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
   [Azure PowerShell icon]: ./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png

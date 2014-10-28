@@ -16,7 +16,7 @@ Application Insights 可讓您監視即時應用程式的可用性、效能和�
 
 有兩種方式可開始使用：
 
--   [在 Visual Studio 中將 Application Insights 加入至專案][]
+-   [在 Visual Studio 中將 Application Insights 加入至專案][在 Visual Studio 中將 Application Insights 加入至專案]
 
     將 Application Insights 加入至專案來追蹤使用情形、效能和可用性，以及分析診斷記錄。您在偵錯模式下幾分鐘內就可以看到資料，然後部署專案來取得即時資料。
 
@@ -24,7 +24,7 @@ Application Insights 可讓您監視即時應用程式的可用性、效能和�
 
     [將 Application Insights 加入至專案來開始使用。][在 Visual Studio 中將 Application Insights 加入至專案]
 
--   [立即診斷即時 Web 服務的問題][]
+-   [立即診斷即時 Web 服務的問題][立即診斷即時 Web 服務的問題]
 
     在 IIS 伺服器上安裝 Application Insights 代理程式，幾分鐘之內就能看到效能資料。查看要求計數、回應時間、資源負載，並取得例外狀況追蹤。
 
@@ -36,26 +36,26 @@ Application Insights 可讓您監視即時應用程式的可用性、效能和�
 
     [在 Web 伺服器上安裝 Application Insights 來開始使用。][立即診斷即時 Web 服務的問題]
 
-> [WACOM.NOTE] Visual Studio Online 中有[舊版的 Application Insights][]。我們正從頭開始將它重建為 Microsoft Azure 的一部分，而這也是您正在此處閱讀的新版本。
+> [WACOM.NOTE] Visual Studio Online 中有[舊版的 Application Insights][舊版的 Application Insights]。我們正從頭開始將它重建為 Microsoft Azure 的一部分，而這也是您正在此處閱讀的新版本。
 
-![Example application monitor in Application Insights][]
+![Example application monitor in Application Insights][Example application monitor in Application Insights]
 
 ## 詳細資訊
 
--   [Application Insights][]
+-   [Application Insights][Application Insights]
 -   [將 Application Insights 加入至專案][在 Visual Studio 中將 Application Insights 加入至專案]
 -   [立即監視即時 Web 伺服器][立即診斷即時 Web 服務的問題]
--   [在 Application Insights 中探索度量][]
--   [診斷記錄搜尋][]
--   [使用 Web 測試來追蹤可用性][]
--   [使用事件和度量來追蹤使用量][]
--   [問與答及疑難排解][]
+-   [在 Application Insights 中探索度量][在 Application Insights 中探索度量]
+-   [診斷記錄搜尋][診斷記錄搜尋]
+-   [使用 Web 測試來追蹤可用性][使用 Web 測試來追蹤可用性]
+-   [使用事件和度量來追蹤使用量][使用事件和度量來追蹤使用量]
+-   [問與答及疑難排解][問與答及疑難排解]
 
 <!--Link references-->
 
   [在 Visual Studio 中將 Application Insights 加入至專案]: ../app-insights-monitor-application-health-usage/
   [立即診斷即時 Web 服務的問題]: ../app-insights-monitor-performance-live-website-now/
-  [舊版的 Application Insights]: http://msdn.microsoft.com/en-us/library/dn481095.aspx
+  [舊版的 Application Insights]: http://msdn.microsoft.com/zh-tw/library/dn481095.aspx
   [Example application monitor in Application Insights]: ./media/appinsights/appinsights-00-appblade.png
   [Application Insights]: ../app-insights-get-started/
   [在 Application Insights 中探索度量]: ../app-insights-explore-metrics/

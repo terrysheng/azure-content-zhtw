@@ -27,34 +27,34 @@
 
 您將建立一個簡單的連絡人清單 Web 應用程式，該應用程式建立於 ASP.NET MVC 4 之上，並使用 ADO.NET Entity Framework 進行資料庫存取。下圖顯示完成之應用程式的登入頁面：
 
-![login page][]
+![login page][login page]
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
 
 本教學課程內容：
 
--   [設定開發環境][]
--   [設定 Azure 環境][]
--   [建立 ASP.NET MVC 4 應用程式][]
--   [將應用程式部署至 Azure][]
--   [新增資料庫至應用程式][]
--   [新增 OAuth 提供者][]
--   [新增角色至成員資格資料庫][]
--   [建立資料部署指令碼][]
+-   [設定開發環境][設定開發環境]
+-   [設定 Azure 環境][設定 Azure 環境]
+-   [建立 ASP.NET MVC 4 應用程式][建立 ASP.NET MVC 4 應用程式]
+-   [將應用程式部署至 Azure][將應用程式部署至 Azure]
+-   [新增資料庫至應用程式][新增資料庫至應用程式]
+-   [新增 OAuth 提供者][新增 OAuth 提供者]
+-   [新增角色至成員資格資料庫][新增角色至成員資格資料庫]
+-   [建立資料部署指令碼][建立資料部署指令碼]
 -   [將應用程式部署至 Azure][1]
--   [更新成員資格資料庫][]
--   [後續步驟][]
+-   [更新成員資格資料庫][更新成員資格資料庫]
+-   [後續步驟][後續步驟]
 
 ## <a name="bkmk_setupdevenv"></a>設定開發環境
 
 首先，安裝 Azure SDK for the .NET Framework，以設定您的開發環境。
 
 1.  若要安裝 Azure SDK for .NET，請按一下底下連結：如果您尚未安裝 Visual Studio 2012，按下該連結會進行安裝。本教學課程需要安裝 Visual Studio 2012。
-    [Azure SDK for Visual Studio 2012][] (英文)
+    [Azure SDK for Visual Studio 2012][Azure SDK for Visual Studio 2012] (英文)
 2.  當系統提示您執行或儲存安裝可執行檔時，請按一下 [執行]。
 3.  在 [Web Platform Installer] 視窗中，按一下 [安裝] 並繼續進行安裝。
 
-![Web Platform Installer - Azure SDK for .NET][]
+![Web Platform Installer - Azure SDK for .NET][Web Platform Installer - Azure SDK for .NET]
 
 安裝完成時，您即可開始進行開發。
 
@@ -68,13 +68,13 @@
 
 Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯式資料庫服務。工具和應用程式如果使用 SQL Server，同樣也可以使用 SQL Database。
 
-1.  在 [Azure 管理入口網站][]中，按一下左側索引標籤中的 [網站]，然後按一下 [新增]。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站]中，按一下左側索引標籤中的 [網站]，然後按一下 [新增]。
 
-    ![New button in Management Portal][]
+    ![New button in Management Portal][New button in Management Portal]
 
 1.  按一下 [Custom Create]。
 
-    ![Create with Database link in Management Portal][]
+    ![Create with Database link in Management Portal][Create with Database link in Management Portal]
 
 [新網站 - 自訂建立] 精靈隨即開啟。
 
@@ -98,7 +98,7 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 
 8.  按一下方塊底部的核取方塊來表示完成。
 
-    ![Database Settings step of New Website - Create with Database wizard][]
+    ![Database Settings step of New Website - Create with Database wizard][Database Settings step of New Website - Create with Database wizard]
 
     下圖顯示使用現有的 SQL Server 並登入。
     ![Database Settings step of New Website - Create with Database wizard][3]
@@ -115,17 +115,17 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 2.  從 [檔案] 功能表，按一下 [新增專案]。
 3.  在 [新增專案] 對話方塊中，展開 [Visual C\#] 並選取 [已安裝的範本] 下的 [Web]，再選取 [ASP.NET MVC 4 Web 應用程式]。保留預設值 [.NET Framework 4.5]。將應用程式命名為 **ContactManager**，再按一下 [確定]。
 
-    ![New Project dialog box][]
+    ![New Project dialog box][New Project dialog box]
 
 4.  在 [New ASP.NET MVC 4 Project] 對話方塊中，選取 [網際網路應用程式] 範本。保留預設的 Razor [檢視引擎]，然後按一下 [確定]。
 
-    ![New ASP.NET MVC 4 Project dialog box][]
+    ![New ASP.NET MVC 4 Project dialog box][New ASP.NET MVC 4 Project dialog box]
 
 ### 設定頁首及頁尾
 
 1.  在 [方案總管] 中，展開 Views\\Shared 資料夾，然後開啟 *\_Layout.cshtml* 檔案。
 
-    ![\_Layout.cshtml in Solution Explorer][]
+    ![\_Layout.cshtml in Solution Explorer][\_Layout.cshtml in Solution Explorer]
 
 2.  以 "Contact Manager" 取代每次出現的 "My ASP.NET MVC Application" 字樣。
 3.  以 "CM Demo" 取代 "your logo here"。
@@ -133,7 +133,7 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 ### 在本機執行應用程式
 
 1.  按 CTRL+F5 執行應用程式。應用程式首頁隨即出現在預設瀏覽器中。
-    ![To Do List home page][]
+    ![To Do List home page][To Do List home page]
 
 只需執行上述作業，即可建立稍後要部署至 Azure 的應用程式。稍後您將新增資料庫功能。
 
@@ -143,29 +143,29 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 
 2.  在 [網站] 索引標籤中，按一下您先前建立的網站名稱。
 
-    ![Contact manager application in Management Portal Websites tab][]
+    ![Contact manager application in Management Portal Websites tab][Contact manager application in Management Portal Websites tab]
 
 3.  在視窗右側，按一下 [Download publish profile]。
 
-    ![Quickstart tab and Download Publishing Profile button][]
+    ![Quickstart tab and Download Publishing Profile button][Quickstart tab and Download Publishing Profile button]
 
     此步驟會下載一個檔案，內含您要將應用程式部署至網站所需要的所有設定。您將把此檔案匯入 Visual Studio，這樣您就不用手動輸入此資訊。
 
 4.  將 .*publishsettings* 檔案儲存到資料夾中，以便您從 Visual Studio 存取。
 
-    ![saving the .publishsettings file][]
+    ![saving the .publishsettings file][saving the .publishsettings file]
 
-    [WACOM.INCLUDE [publishsettingsfilewarningchunk][]]
+    [WACOM.INCLUDE [publishsettingsfilewarningchunk][publishsettingsfilewarningchunk]]
 
 5.  在 Visual Studio 的 [方案總管] 中以滑鼠右鍵按一下專案，再選取內容功能表中的 [發行]。
 
-    ![Publish in project context menu][]
+    ![Publish in project context menu][Publish in project context menu]
 
     此時會開啟 [發行 Web] 精靈。
 
 6.  在 [Publish Web] 精靈的 [設定檔] 索引標籤中，按一下 [匯入]。
 
-    ![Import publish settings][]
+    ![Import publish settings][Import publish settings]
 
     [匯入發行設定檔] 對話方塊隨即出現。
 
@@ -173,34 +173,34 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 
     a. 在 [匯入發行設定檔] 對話方塊中，按一下 [新增 Azure 訂閱]。
 
-    ![add win az sub][]
+    ![add win az sub][add win az sub]
 
     b. 在 [匯入 Azure 訂閱] 對話方塊中，按一下 [下載訂閱檔案]。
 
-    ![download sub][]
+    ![download sub][download sub]
 
     c. 在您的瀏覽器視窗中，儲存 *.publishsettings* 檔案。
 
-    ![download pub file][]
+    ![download pub file][download pub file]
 
     > [WACOM.NOTE]
     > .publishsettings 檔案包含用來管理 Azure 訂閱和服務的認證 (未編碼)。這個檔案的安全性最佳作法是暫時儲存在來源目錄之外 (例如在 Libraries\\Documents 資料夾)，然後在匯入完成後予以刪除。惡意使用者若取得 .publishsettings 檔案的存取權，就可以編輯、建立和刪除您的 Azure 服務。
 
     d. 在 [匯入 Azure 訂閱] 對話方塊中，按一下 [瀏覽] 並瀏覽至 *.publishsettings* 檔案。
 
-    ![download sub][]
+    ![download sub][download sub]
 
     e. 按一下 [匯入]。
 
-    ![import][]
+    ![import][import]
 
 8.  在 [匯入發行設定檔] 對話方塊中，選取 [從 Azure 網站匯入]，接著從下拉式清單選取網站，再按一下 [確定]。
 
-    ![Import Publish Profile][]
+    ![Import Publish Profile][Import Publish Profile]
 
     您建立的應用程式現在正在雲端中執行。下次您部署應用程式時，只會部署變更的 (或新的) 檔案。
 
-    ![To Do List home page running in Azure][]
+    ![To Do List home page running in Azure][To Do List home page running in Azure]
 
 ## <a name="bkmk_addadatabase"></a>新增資料庫至應用程式
 
@@ -212,11 +212,11 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 
 1.  在 [方案總管]，於 Models 資料夾上按一下滑鼠右鍵，按一下 [新增]，再按一下 [類別]。
 
-    ![Add Class in Models folder context menu][]
+    ![Add Class in Models folder context menu][Add Class in Models folder context menu]
 
 1.  在 [加入新項目] 對話方塊中，將新的類別檔案命名為 *Contact.cs*，再按一下 [新增]。
 
-    ![Add New Item dialog box][]
+    ![Add New Item dialog box][Add New Item dialog box]
 
 1.  以下列程式碼取代 Contacts.cs 檔案的內容。
 
@@ -248,13 +248,13 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 1.  建置專案 **(Ctrl+Shift+B)**。(使用樣板機制前必須先建置專案。)
 2.  在 [方案總管]，於 Controllers 資料夾上按一下滑鼠右鍵，按一下 [新增]，再按一下 [控制器]。
 
-    ![Add Controller in Controllers folder context menu][]
+    ![Add Controller in Controllers folder context menu][Add Controller in Controllers folder context menu]
 
 3.  在 [加入控制器] 對話方塊中，輸入 "HomeController" 作為控制器名稱。
 4.  將 [Scaffolding options] 範本設定為 [MVC Controller with read/write actions and views, using Entity Framework]。
 5.  選取 [連絡人] 作為您的模型類別，並選取 [\<New data context...\>] 作為您的資料內容類別。
 
-    ![Add Controller dialog box][]
+    ![Add Controller dialog box][Add Controller dialog box]
 
 6.  在 [New Data Context] 對話方塊中，接受預設值 *ContactManager.Models.ContactManagerContext*。
     ![Add Controller dialog box][5]
@@ -262,24 +262,24 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 7.  按一下 [確定]，然後在 [新增控制器] 對話方塊中按一下 [新增]。
 8.  在 [新增控制器] 覆寫對話方塊中，確保所有選項皆已勾選，然後按一下 [確定]。
 
-    ![Add Controller message box][]
+    ![Add Controller message box][Add Controller message box]
 
 Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立控制器方法與檢視。
 
 ## 啟用移轉、建立資料庫、新增範例資料和資料初始設定式
 
-下一個工作是啟用 [Code First 移轉][]功能，以便根據建立的資料模型建立資料庫。
+下一個工作是啟用 [Code First 移轉][Code First 移轉]功能，以便根據建立的資料模型建立資料庫。
 
 1.  在 [工具] 功能表中，依序選取 [Library Package Manager] 及 [Package Manager Console]。
 
-    ![Package Manager Console in Tools menu][]
+    ![Package Manager Console in Tools menu][Package Manager Console in Tools menu]
 
 2.  在 [Package Manager Console] 視窗中，輸入下列命令：
 
         enable-migrations -ContextTypeName ContactManagerContext
 
-    ![enable-migrations][]
-     您必須指定內容類型名稱 (**ContactManagerContext**)，因為該專案包含兩個 [DbContext][] 衍生的類別，包括我們剛建立的 **ContactManagerContext**，以及用在成員資格資料庫的 **UsersContext**。**ContactManagerContext** 類別已由 Visual Studio 硬板精靈新增。
+    ![enable-migrations][enable-migrations]
+     您必須指定內容類型名稱 (**ContactManagerContext**)，因為該專案包含兩個 [DbContext][DbContext] 衍生的類別，包括我們剛建立的 **ContactManagerContext**，以及用在成員資格資料庫的 **UsersContext**。**ContactManagerContext** 類別已由 Visual Studio 硬板精靈新增。
 
      **enable-migrations** 命令會建立 *Migrations* 資料夾，並在該資料夾置入 *Configuration.cs* 檔案，您可以編輯該檔案來設定 [移轉]。
 
@@ -349,13 +349,13 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
                 );
         }
 
-    以上的這個程式碼會以連絡人資訊初始化資料庫。如需植入資料庫的詳細資訊，請參閱[植入及偵錯 Entity Framework (EF) DB][]。
+    以上的這個程式碼會以連絡人資訊初始化資料庫。如需植入資料庫的詳細資訊，請參閱[植入及偵錯 Entity Framework (EF) DB][植入及偵錯 Entity Framework (EF) DB]。
 
 7.  在 [Package Manager Console] 中輸入命令：
 
         update-database
 
-    ![Package Manager Console commands][]
+    ![Package Manager Console commands][Package Manager Console commands]
 
      **update-database** 會執行第一次移轉，使資料庫建立。根據預設，資料庫會以 SQL Server Express LocalDB 資料庫的形式建立。(除非您已安裝 SQL Server Express，這樣就能使用 SQL Server Express 執行個體來建立資料庫。)
 
@@ -363,11 +363,11 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 
 應用程式隨即顯示種子資料並提供編輯、詳細資料和刪除連結。
 
-![MVC view of data][]
+![MVC view of data][MVC view of data]
 
 ## <a name="addOauth"></a><span class="short-header">OAuth</span>新增 OAuth 提供者
 
-[OAuth][] 是一種開放式通訊協定，可讓 Web、行動和桌面應用程式以簡單、標準的方法執行安全授權。ASP.NET MVC 網際網路範本使用 OAuth 來公開 Facebook、Twitter、Google、Yahoo 和 Microsoft 的驗證提供者身分。雖然本教學課程僅使用 Facebook、Google 與 Yahoo 作為驗證提供者，但您可以輕易修改程式碼來使用任何提供者。實作其他提供者的步驟，與您將在本教學課程中看到的步驟極為類似。
+[OAuth][OAuth] 是一種開放式通訊協定，可讓 Web、行動和桌面應用程式以簡單、標準的方法執行安全授權。ASP.NET MVC 網際網路範本使用 OAuth 來公開 Facebook、Twitter、Google、Yahoo 和 Microsoft 的驗證提供者身分。雖然本教學課程僅使用 Facebook、Google 與 Yahoo 作為驗證提供者，但您可以輕易修改程式碼來使用任何提供者。實作其他提供者的步驟，與您將在本教學課程中看到的步驟極為類似。
 
 除了驗證，本教學課程也會使用角色來實作授權。只有您新增至 canEdit 角色的使用者才能建立、編輯或刪除連絡人。
 
@@ -377,24 +377,24 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 
 本教學課程不會顯示註冊這些提供者時必須執行的所有步驟。這些步驟都很普通，不會非常困難。若要成功註冊您的網站，只需遵循這些網站上所提供的步驟即可。要開始註冊您的網站，請參閱以下提供者網站：
 
--   [Facebook][]
--   [Microsoft][]
--   [Twitter][]
+-   [Facebook][Facebook]
+-   [Microsoft][Microsoft]
+-   [Twitter][Twitter]
 
 瀏覽至 [][]<https://developers.facebook.com/apps> 頁面，必要時請登入。按一下 [Register as a Developer] 按鈕並完成註冊程序。完成註冊後，按一下 [Create New App]。輸入應用程式的名稱。您不需要輸入應用程式命名空間。
 
-![Create New FB app][]
+![Create New FB app][Create New FB app]
 
 在 [App Domain] 中輸入 localhost，並在 [網站 URL] 中輸入 \<http://localhost/\>。針對 [Sandbox Mode] 按一下 [啟用]，再按 [儲存變更]。
 
 您需要 [應用程式識別碼] 與 [應用程式密鑰] 以便在此應用程式中實作 OAuth。
-![New FB app][]
+![New FB app][New FB app]
 
 ## 建立測試使用者
 
 在左窗格的 [設定] 下方，按一下 [Developer Roles]。按一下 [測試使用者] 列 (而非 [測試者] 列) 上的 **[建立]連結 。
 
-![FB testers][]
+![FB testers][FB testers]
 
 按一下 [修改] 連結以取得測試使用者電子郵件 (以便您用來登入應用程式)。按一下 [See More] 連結，然後按一下 [編輯] 來設定測試使用者密碼。
 
@@ -432,28 +432,28 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 
 3.  以滑鼠右鍵按一下 [UserProfile]，然後按一下 \[Show Table Data\]。
 
-    ![Show table data][]
+    ![Show table data][Show table data]
 
 4.  記下即將擁有 canEdit 角色的使用者之 **UserId**。在下圖中，具有 **UserId** 2 的使用者 *ricka* 將擁有該網站的 canEdit 角色。
 
-    ![user IDs][]
+    ![user IDs][user IDs]
 
 5.  以滑鼠右鍵按一下 [webpages\_Roles]，然後按一下 \[Show Table Data\]。
 6.  在 **RoleName** 儲存格中輸入 **canEdit**。如果這是您首次新增角色，則 **RoleId** 將為 1。記下 RoleID。請記得裡面沒有尾端字元空格，角色資料表中的 "canEdit " 與控制器程式碼中的 "canEdit" 並不相符。
 
-    ![roleID][]
+    ![roleID][roleID]
 
 7.  以滑鼠右鍵按一下 [webpages UsersInRoles]，然後按一下 \[Show Table Data\]。針對您想要授予 *canEdit* 存取權的使用者輸入 **UserId** 與 **RoleId**。
 
-    ![usr role ID tbl][]
+    ![usr role ID tbl][usr role ID tbl]
 
 **webpages\_OAuthMembership** 資料表內含每一位註冊之 OAuth 使用者的 OAuth 提供者、提供者 UserID 與 UserID。<!-- Don't replace "-" with "_" or it won't validate -->**webpages-Membership** 資料表包含 ASP.NET 成員資格角色。您可以透過註冊連結將使用者新增至此資料表。使用未與 Facebook 或另一個第三方授權提供者關聯的 *canEdit* 角色新增使用者是很理想的辦法，因為這樣一來，即便第三方授權提供者無法提供服務，您還是隨時擁有 *canEdit* 存取權。本教學課程稍後將停用 ASP.NET 成員資格註冊。
 
 ## 使用 Authorize 屬性保護應用程式
 
-在本節中，我們將套用 [Authorize][] 屬性來限制對動作方法的存取。匿名使用者將只能檢視首頁。註冊使用者將能檢視連絡人詳細資料、關於頁面與連絡人頁面。只有 *canEdit* 角色中的使用者才能存取用來變更資料的動作方法。
+在本節中，我們將套用 [Authorize][Authorize] 屬性來限制對動作方法的存取。匿名使用者將只能檢視首頁。註冊使用者將能檢視連絡人詳細資料、關於頁面與連絡人頁面。只有 *canEdit* 角色中的使用者才能存取用來變更資料的動作方法。
 
-1.  將 [Authorize][] 篩選器和 [RequireHttps][] 篩選器新增至應用程式。替代的方法是將 [Authorize][] 屬性和 [RequireHttps][] 屬性新增至每個控制器，但將這些屬性套用至整個應用程式是最安全的做法。藉由全面新增這些屬性，您所新增的每個新控制器和動作方法都會自動受到保護，而不需要您記得哪些已套用、哪些未套用。如需詳細資訊，請參閱[保護您的 ASP.NET MVC 4 應用程式和新 AllowAnonymous 屬性][]。開啟 *App\_Start\\FilterConfig.cs* 檔案並使用下列方法取代 *RegisterGlobalFilters* 方法。
+1.  將 [Authorize][Authorize] 篩選器和 [RequireHttps][RequireHttps] 篩選器新增至應用程式。替代的方法是將 [Authorize][Authorize] 屬性和 [RequireHttps][RequireHttps] 屬性新增至每個控制器，但將這些屬性套用至整個應用程式是最安全的做法。藉由全面新增這些屬性，您所新增的每個新控制器和動作方法都會自動受到保護，而不需要您記得哪些已套用、哪些未套用。如需詳細資訊，請參閱[保護您的 ASP.NET MVC 4 應用程式和新 AllowAnonymous 屬性][保護您的 ASP.NET MVC 4 應用程式和新 AllowAnonymous 屬性]。開啟 *App\_Start\\FilterConfig.cs* 檔案並使用下列方法取代 *RegisterGlobalFilters* 方法。
 
         public static void
         RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -494,11 +494,11 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
             // Methods moved and omitted for clarity.
         }
 
-5.  移除 ASP.NET 成員資格註冊。專案中目前的 ASP.NET 成員資格註冊並未支援密碼重設，且不會確認註冊者是否為真人 (例如使用 [CAPTCHA][])。使用者只要以其中一家協力廠商提供者通過驗證後，即可註冊。在 AccountController 中，從 GET 和 POST *Register* 方法移除 *[AllowAnonymous]*。它們將防止 Bot 和匿名使用者進行註冊。
+5.  移除 ASP.NET 成員資格註冊。專案中目前的 ASP.NET 成員資格註冊並未支援密碼重設，且不會確認註冊者是否為真人 (例如使用 [CAPTCHA][CAPTCHA])。使用者只要以其中一家協力廠商提供者通過驗證後，即可註冊。在 AccountController 中，從 GET 和 POST *Register* 方法移除 *[AllowAnonymous]*。它們將防止 Bot 和匿名使用者進行註冊。
 6.  在 *Views\\Shared\_LoginPartial.cshtml* 中移除 Register 動作連結。
 7.  啟用 SSL。在 [方案總管]，按一下 [ContactManager] 專案，再按一下 F4 帶出 [屬性] 對話方塊。將 [SSL 已啟用] 變更為 true。複製 [SSL URL]。
 
-    ![enable SSL][]
+    ![enable SSL][enable SSL]
 
 8.  在 [方案總管]，於 [Contact Manager] 專案上按一下滑鼠右鍵，再按一下 [屬性]。
 9.  在左側索引標籤中按一下 [Web]。
@@ -509,7 +509,7 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 
 12. 按 CTRL+F5 執行應用程式。瀏覽器將顯示憑證警告。就我們的應用程式而言，您可以放心地按一下 [繼續瀏覽此網站] 連結。確認只有 *canEdit* 角色中的使用者才能變更資料。確認匿名使用者只能檢視首頁。
 
-    ![cert Warn][]
+    ![cert Warn][cert Warn]
 
     ![cert Warn][7]
 
@@ -518,14 +518,14 @@ Azure 網站內含有效的安全憑證，因此當您部署至 Azure 時，不�
 ## <a name="ppd"></a><span class="short-header">準備資料庫</span>建立資料部署指令碼
 
 </p>
-成員資格資料庫並不是由 Entity Framework Code First 管理，因此您無法使用 Migrations 方式來加以部署。我們將使用 [dbDacFx][] 提供者來部署資料庫結構描述，並將發行設定檔設定為執行可將初始成員資格資料插入成員資格資料表中的指令碼。
+成員資格資料庫並不是由 Entity Framework Code First 管理，因此您無法使用 Migrations 方式來加以部署。我們將使用 [dbDacFx][dbDacFx] 提供者來部署資料庫結構描述，並將發行設定檔設定為執行可將初始成員資格資料插入成員資格資料表中的指令碼。
 
 本教學課程將使用 SQL Server Management Studio (SSMS) 來建立資料部署指令碼。
 
-從 [Microsoft SQL Server 2012 Express 下載中心][]安裝 SSMS：
+從 [Microsoft SQL Server 2012 Express 下載中心][Microsoft SQL Server 2012 Express 下載中心]安裝 SSMS：
 
--   適用 64 位元系統的 [ENU\\x64\\SQLManagementStudio\_x64\_ENU.exe][]。
--   適用 32 位元系統[ENU\\x86\\SQLManagementStudio\_x86\_ENU.exe][]。
+-   適用 64 位元系統的 [ENU\x64\SQLManagementStudio\_x64\_ENU.exe][ENU\x64\SQLManagementStudio\_x64\_ENU.exe]。
+-   適用 32 位元系統[ENU\x86\SQLManagementStudio\_x86\_ENU.exe][ENU\x86\SQLManagementStudio\_x86\_ENU.exe]。
 
 如果您選擇了系統無法使用的程式，該程式將無法安裝，這時請嘗試下載另一個程式。
 
@@ -533,25 +533,25 @@ Azure 網站內含有效的安全憑證，因此當您部署至 Azure 時，不�
 
 在 SQL Server 安裝中心的第一頁，按一下 [新的 SQL Server 獨立安裝或將功能加入到現有安裝]，然後遵循指示進行，並接受預設選擇。下圖顯示會安裝 SSMS 的步驟。
 
-![SQL Install][]
+![SQL Install][SQL Install]
 
 ### 建立開發資料庫指令碼
 
 1.  執行 SSMS。
 2.  在 [Connect to Server] 對話方塊中，輸入 *(localdb)\\v11.0* 作為伺服器名稱，並保留 [驗證] 設定為 [Windows 驗證]，然後按一下 [連線]。如果您已安裝 SQL Express，請輸入 **.\\SQLEXPRESS**。
 
-    ![con to srvr dlg][]
+    ![con to srvr dlg][con to srvr dlg]
 
 3.  在 [物件總管] 視窗中，展開 [資料庫] 並以滑鼠右鍵按一下 [aspnet-ContactManager]，接著依序按一下 [工作] 及 [產生指令碼]。
 
-    ![Gen Scripts][]
+    ![Gen Scripts][Gen Scripts]
 
 4.  在 **Generate and Publish Scripts** 對話方塊中，按一下 [設定指令碼編寫選項]。
     您可以略過 [選擇物件] 步驟，因為預設是對整個資料庫與所有資料庫物件編寫指令碼，而這正是您要的結果。
 
 5.  按一下 [進階]。
 
-    ![Set scripting options][]
+    ![Set scripting options][Set scripting options]
 
 6.  在 [進階編寫指令碼選項] 對話方塊中，向下捲動至 [要編寫指令碼的資料類型]，然後按一下下拉式清單中的 [Data only] 選項。(請參閱下個步驟下方的圖片)。
 
@@ -563,14 +563,14 @@ Azure 網站內含有效的安全憑證，因此當您部署至 Azure 時，不�
 9.  在 [產生並發佈指令碼] 對話方塊中，[檔案名稱] 方塊指定了要建立指令碼的位置。將路徑變更為您的解決方案資料夾 (內含您的 *Contacts.sln* 檔案的資料夾)，並將檔名變更為 *aspnet-data-membership.sql*。
 10. 按一下 [下一步] 前往 [摘要] 索引標籤，然後再按 [下一步] 建立指令碼。
 
-    ![Save or pub][]
+    ![Save or pub][Save or pub]
 
 11. 按一下 [完成]。
 
 ## <a name="bkmk_deploytowindowsazure11"></a>將應用程式部署至 Azure
 
 1.  開啟應用程式根目錄 *Web.config* 檔案。找到 *DefaultConnection* 標記，然後將其複製並貼上 *DefaultConnection* 標記線下方。重新命名複製的元素 *DefaultConnectionDeploy*。您將需要這個連接字串，以便將使用者資料部署至成員資格資料庫。
-    ![3 cons str][]
+    ![3 cons str][3 cons str]
 
 2.  建置應用程式。
 3.  在 Visual Studio 的 [方案總管] 中以滑鼠右鍵按一下專案，再選取內容功能表中的 [發行]。
@@ -581,7 +581,7 @@ Azure 網站內含有效的安全憑證，因此當您部署至 Azure 時，不�
 
 1.  按一下 [設定] 索引標籤。按一下 [v] 圖示，為 **ContactManagerContext** 與 **DefaultConnectionDeploy** 選取 [遠端連接字串]。列出的這三個資料庫將使用相同的連接字串。**ContactManagerContext** 資料庫會儲存連絡人，**DefaultConnectionDeploy** 則僅用來將使用者帳戶資料部署至成員資格資料庫，而 **UsersContext** 資料庫則是成員資格資料庫。
 
-    ![settings][]
+    ![settings][settings]
 
 2.  在 [ContactManagerContext] 下勾選 [Execute Code First Migrations]。
 
@@ -590,7 +590,7 @@ Azure 網站內含有效的安全憑證，因此當您部署至 Azure 時，不�
 3.  在 **DefaultConnectionDeploy** 下方勾選 [更新資料庫]，然後按一下 [Configure database updates] 連結。
 4.  按一下 [加入 SQL 指令碼] 連結，並瀏覽至 *aspnet-data-membership.sql* 檔案。您只需要做一次這個動作。下次部署時，您可以取消勾選 [更新資料庫]，因為您不會需要將使用者資料新增至成員資格資料表中。
 
-    ![add sql][]
+    ![add sql][add sql]
 
 5.  按一下 [發行]。
 6.  瀏覽至 [][]<https://developers.facebook.com/apps></a> 頁面並將 [新增網域] 與 [網站 URL] 設定變更為 Azure URL。
@@ -606,7 +606,7 @@ Azure 網站內含有效的安全憑證，因此當您部署至 Azure 時，不�
 ![settings][10]
 
 1.  在 [方案總管] 中，於專案上按一下滑鼠右鍵，再按一下 [發行]。
-    ![Publish][]
+    ![Publish][Publish]
 
 2.  按一下 [設定] 索引標籤。
 3.  複製連接字串。例如，本範例使用以下連接字串：
@@ -627,23 +627,23 @@ Azure 網站內含有效的安全憑證，因此當您部署至 Azure 時，不�
 10. 輸入您的 [使用者名稱] 與 \[密碼] (內含在您所複製的連接字串裡面)。
 11. 輸入資料庫名稱 (ContactDB，如果您的資料庫不叫做 ContactDB 的話，則為資料庫中 "Initial Catalog=" 之後的字串)。如果出現錯誤對話方塊，請參閱下一節。
 12. 按一下 [測試連接]。如果出現錯誤對話方塊，請參閱下一節。
-    ![add con dlg][]
+    ![add con dlg][add con dlg]
 
 ## 無法開啟伺服器登入錯誤
 
 如果出現「無法開啟伺服器」開頭字串的錯誤對話方塊，則您需要將 IP 位址新增至允許的 IP 清單中。
 
-![firewall error][]
+![firewall error][firewall error]
 
 1.  在 Azure 入口網站，選取左側索引標籤中的 [SQL Database]。
 
-    ![Select SQL][]
+    ![Select SQL][Select SQL]
 
 2.  選取要開啟的資料庫。
 
 3.  按一下 [Set up Azure firewall rules for this IP address] 連結。
 
-    ![firewall rules][]
+    ![firewall rules][firewall rules]
 
 4.  當系統提示您「現有的防火牆規則不含目前的 IP 位址 xxx.xxx.xxx.xxx。是否要更新防火牆規則？」時，請按一下 [是]。新增此位址一般來說還不夠，您需要新增一段 IP 位址範圍。
 
@@ -652,50 +652,50 @@ Azure 網站內含有效的安全憑證，因此當您部署至 Azure 時，不�
 1.  在 Azure 入口網站，按一下 [SQL Database]。
 2.  按一下主控您資料庫的 [伺服器]。
 
-    ![db server][]
+    ![db server][db server]
 
 3.  按一下頁面頂端的 [設定]。
 4.  新增規則名稱以及開頭與結尾 IP 位址。
-    ![ip range][]
+    ![ip range][ip range]
 
 5.  按一下頁面底部的 [儲存]。
 6.  您現在可以使用上述的步驟編輯成員資格資料庫。
 
 ## <a name="nextsteps"></a><span class="short-header">後續步驟</span>後續步驟
 
-本教學課程和範例應用程式是由 [Rick Anderson][] (Twitter [@RickAndMSFT][]) 在 Tom Dykstra、Tom FitzMacken 和 Barry Dorrans (Twitter [@blowdart][]) 的協助下所撰寫。
+本教學課程和範例應用程式是由 [Rick Anderson][Rick Anderson] (Twitter [@RickAndMSFT][@RickAndMSFT]) 在 Tom Dykstra、Tom FitzMacken 和 Barry Dorrans (Twitter [@blowdart][@blowdart]) 的協助下所撰寫。
 
 如果您發現喜歡的地方或希望我們改善的地方 (不論是針對本教學課程或其示範的產品)，歡迎留下意見反應。您的意見反應將協助我們訂出優先改善要務。我們非常希望能了解您對於將設定和部署成員資格資料庫之程序更進一步自動化的期待為何。
 
-若要檢視色彩豐富的 Facebook、Google 與 Yahoo 登入按鈕，請參閱部落格文章[自訂 ASP.NET MVC 4 中的外部登入按鈕][] (英文)。如需使用 Windows 驗證的詳細資訊，請參閱以下說明：
+若要檢視色彩豐富的 Facebook、Google 與 Yahoo 登入按鈕，請參閱部落格文章[自訂 ASP.NET MVC 4 中的外部登入按鈕][自訂 ASP.NET MVC 4 中的外部登入按鈕] (英文)。如需使用 Windows 驗證的詳細資訊，請參閱以下說明：
 
--   [Azure 驗證][]
--   [如何使用 ASP.NET MVC 建立內部網站][]
+-   [Azure 驗證][Azure 驗證]
+-   [如何使用 ASP.NET MVC 建立內部網站][如何使用 ASP.NET MVC 建立內部網站]
 
 另一個儲存 Azure 應用程式資料的方法是使用 Azure 儲存體，它能以 Blob 和資料表的形式提供非關聯式的資料儲存。以下連結提供 ASP.NET MVC 及 Window Azure 的詳細資訊。
 
--   [使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式][]。
--   [ASP.NET MVC 4 入門][]
--   [使用 MVC 的 Entity Framework 入門][]
--   [OAuth 2.0 與登入][]
+-   [使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式][使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式]。
+-   [ASP.NET MVC 4 入門][ASP.NET MVC 4 入門]
+-   [使用 MVC 的 Entity Framework 入門][使用 MVC 的 Entity Framework 入門]
+-   [OAuth 2.0 與登入][OAuth 2.0 與登入]
 
-您已了解如何將 Web 應用程式部署至 Azure 網站。如需深入了解如何設定、管理與調整 Azure 網站大小，請參閱[常見工作][]頁面上的〈作法〉主題。
+您已了解如何將 Web 應用程式部署至 Azure 網站。如需深入了解如何設定、管理與調整 Azure 網站大小，請參閱[常見工作][常見工作]頁面上的〈作法〉主題。
 
-如需了解如何偵錯 Azure 網站，請參閱[在 Visual Studio 中疑難排解 Azure 網站][]。
+如需了解如何偵錯 Azure 網站，請參閱[在 Visual Studio 中疑難排解 Azure 網站][在 Visual Studio 中疑難排解 Azure 網站]。
 
-如需瞭解如何將應用程式部署至 Azure 雲端服務，請參閱[本教學課程的雲端版本][]與[使用 Azure 開發 Web 應用程式][]。您可能會因為下列某些原因，選擇在 Azure 雲端服務下 (而不是使用 Azure 網站) 執行 ASP.NET Web 應用程式：
+如需瞭解如何將應用程式部署至 Azure 雲端服務，請參閱[本教學課程的雲端版本][本教學課程的雲端版本]與[使用 Azure 開發 Web 應用程式][使用 Azure 開發 Web 應用程式]。您可能會因為下列某些原因，選擇在 Azure 雲端服務下 (而不是使用 Azure 網站) 執行 ASP.NET Web 應用程式：
 
 -   您想要取得執行該應用程式的 Web 伺服器管理員權限。
 -   您想要使用遠端桌面連線存取執行該應用程式的 Web 伺服器。
 -   您的應用程式為多層次，而您想要將工作平均分配到多個虛擬伺服器上 (Web 與工作者)。
 
-如需同時瞭解 SQL Database 與 Azure 儲存體的詳細資訊，請參閱 [Azure 的資料儲存方案][] (英文)。
+如需同時瞭解 SQL Database 與 Azure 儲存體的詳細資訊，請參閱 [Azure 的資料儲存方案][Azure 的資料儲存方案] (英文)。
 
-如需深入了解如何使用 SQL Database，請參閱[在 ASP.NET 資料存取內容地圖中使用 Azure SQL Database][] (英文)。
+如需深入了解如何使用 SQL Database，請參閱[在 ASP.NET 資料存取內容地圖中使用 Azure SQL Database][在 ASP.NET 資料存取內容地圖中使用 Azure SQL Database] (英文)。
 
 如需深入了解 Entity Framework 與 Code First 移轉，請參閱下列資源：
 
--   [使用 MVC 的 Entity Framework 入門][]
+-   [使用 MVC 的 Entity Framework 入門][使用 MVC 的 Entity Framework 入門]
 -   [Code First 移轉][13]
 
 

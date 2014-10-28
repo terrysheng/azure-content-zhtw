@@ -4,7 +4,7 @@
 
 # <a name="getting-started"> </a>行動服務和 Sencha Touch 入門
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started][mobile-services-selector-get-started]]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -22,15 +22,15 @@
 
 ## 需求
 
--   下載及安裝 [Sencha Touch][] (英文)。
+-   下載及安裝 [Sencha Touch][Sencha Touch] (英文)。
 
--   下載及安裝 [Sencha Cmd Tool][] (英文)。
+-   下載及安裝 [Sencha Cmd Tool][Sencha Cmd Tool] (英文)。
 
 -   Java Runtime Environment (JRE) 或 Java Development Kit (如果您要建立 Android 應用程式)
 
 ## <a name="create-new-service"> </a>建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service][mobile-services-create-new-service]]
 
 ## 建立 TodoItem 資料表
 
@@ -41,7 +41,7 @@
 
 2.  在快速入門索引標籤中，按一下 [Choose platform] 下的 [HTML]，並展開 [Create a new HTML app]。
 
-    ![Mobile quickstart html][]
+    ![Mobile quickstart html][Mobile quickstart html]
 
     This displays the three easy steps to create and host an HTML app connected to your mobile service.
 
@@ -55,11 +55,11 @@
 
 4.  記下管理入口網站中的 [appKey] 和 [appUrl]。您會在本教學指南的其他小節用到它們。
 
-    ![app key][]
+    ![app key][app key]
 
 5.  在 [設定] 索引標籤中，驗證`localhost` 已列在 [Cross-Origin Resource Sharing (CORS)] 下的 [Allow requests from host names] 清單中。若非如此，請將`localhost` 輸入 [主機名稱] 欄位中，然後按一下 [儲存]。
 
-    ![Setup CORS for localhost][]
+    ![Setup CORS for localhost][Setup CORS for localhost]
 
 ## 產生 Touch 應用程式
 
@@ -81,7 +81,7 @@
 
 以下步驟可讓您以手動方式將 Azure 擴充功能新增至應用程式：
 
-1.  從[這裡][] (英文) 下載 Azure 擴充功能套件。(您可以使用 Sencha 論壇 ID 來存取此區域。)
+1.  從[這裡][這裡] (英文) 下載 Azure 擴充功能套件。(您可以使用 Sencha 論壇 ID 來存取此區域。)
 
 2.  從下載目錄將 Azure 擴充功能套件複製到您想要放置套件的位置，然後將套件解除封裝：
 
@@ -99,7 +99,7 @@
 
 對於所有以 Sencha Cmd 產生的應用程式，其根目錄均有 "packages" 資料夾。您可以設定該資料夾的位置，但不論位置為何，"packages" 資料夾的角色在於成為容納應用程式 (或多個應用程式，如果您已建立 Sencha Workspace) 使用之所有套件的儲存體。
 
-由於 Ext.Azure 是 Sencha Cmd 套件，因此您可以輕鬆地使用 Sencha Cmd 來安裝來源程式碼並納入應用程式中。(如需詳細資訊，請參閱 [Sencha Cmd 套件][] (英文)。)
+由於 Ext.Azure 是 Sencha Cmd 套件，因此您可以輕鬆地使用 Sencha Cmd 來安裝來源程式碼並納入應用程式中。(如需詳細資訊，請參閱 [Sencha Cmd 套件][Sencha Cmd 套件] (英文)。)
 
 若要從 Sencha Packages 儲存機制下載及安裝 Azure 擴充功能套件，您需要將套件名稱新增至 **app.json** 檔案並建置應用程式：
 
@@ -152,7 +152,7 @@
 
     雖然您可以將組態物件直接傳遞給 init 方法，不過我們建議您建立名為 **azure** 的 Sencha 應用程式組態屬性，並將所有適當的資訊放置於屬性中。接著，您可以將此屬性值傳遞給 Ext.Azure.init 方法。
 
-    在 Azure 中建立行動服務時 (請參閱[開始使用 Ext.Azure][] (英文))，系統會將應用程式索引鍵和 URL 指派給該服務。您必須將這些資訊提供給 Azure 套件，使其得以連接服務。
+    在 Azure 中建立行動服務時 (請參閱[開始使用 Ext.Azure][開始使用 Ext.Azure] (英文))，系統會將應用程式索引鍵和 URL 指派給該服務。您必須將這些資訊提供給 Azure 套件，使其得以連接服務。
 
     以下範例是只提供應用程式索引鍵和 URL 的簡易 Azure 組態和初始化：
 
@@ -649,47 +649,47 @@ Sencha Touch 存放區可用來儲存資料記錄 (模型) 的集合，這些集
 
     -   *sencha web start*：This will start a local web server to test our application.
 
-    ![sencha web start][]
+    ![sencha web start][sencha web start]
 
 3.  在網頁瀏覽器中開啟終端機列示的 URL，以啟動應用程式 (如 \<http://localhost:1841\>)。
 
 4.  在應用程式中輸入有意義的文字 (例如「完成教學課程」)，然後按一下 [新增]。
 
-    ![new todo item][]
+    ![new todo item][new todo item]
 
     </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">如此會傳送</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> POST </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">要求到</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> Azure </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">中代管的新行動服務。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"></cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">要求中的資料會插入</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> TodoItem </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">資料表中。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">
 
 5.  回到管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 表格。
 
-    ![Todo Items table][]
+    ![Todo Items table][Todo Items table]
 
     </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">如此可讓您瀏覽由應用程式插入資料表中的資料。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">
 
-    ![browse todo table][]
+    ![browse todo table][browse todo table]
 
 ## 後續步驟
 
 現在，您已完成入門指南，了解如何在行動服務中搭配 Sencha 執行其他重要工作。
 
-[下載][]含其他樣式和功能的完整範例應用程式，瞭解 Sencha Touch 的其他能力！
+[下載][下載]含其他樣式和功能的完整範例應用程式，瞭解 Sencha Touch 的其他能力！
 
 接著，深入瞭解 Sencha Touch Extensions for Azure 的詳細資訊：
 
--   範例應用程式[逐步解說][] (英文)
--   到 [Sencha 論壇][]尋求協助
--   瀏覽 [Sencha 文件][] (英文)
--   Using Sencha With Azure Mobile Services：[(視訊)][]
+-   範例應用程式[逐步解說][逐步解說] (英文)
+-   到 [Sencha 論壇][Sencha 論壇]尋求協助
+-   瀏覽 [Sencha 文件][Sencha 文件] (英文)
+-   Using Sencha With Azure Mobile Services：[(視訊)][(視訊)]
 
 ## 其他資源
 
--   [下載 Sencha Touch][]
+-   [下載 Sencha Touch][下載 Sencha Touch]
 -   [Sencha Touch Extensions for Windows Azure (英文)][這裡]
 
 ## 摘要
 
 Sencha Touch Extension for Azure 套件備有此處簡述的範例，其位於 Basic Data 範例所在的範例目錄中。除了詳細的註解和說明之外，套件還備有一些展示本延伸功能之其他功能特性的範例。
 
-如需開始使用 Sencha Touch 的詳細資訊，請造訪完整的[指南][] (英文) 集合。
+如需開始使用 Sencha Touch 的詳細資訊，請造訪完整的[指南][指南] (英文) 集合。
 
 <!-- images -->
 

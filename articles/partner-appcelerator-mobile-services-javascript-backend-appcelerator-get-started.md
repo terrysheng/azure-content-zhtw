@@ -4,13 +4,13 @@
 
 # <a name="getting-started"> </a>開始使用行動服務
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 本教學課程說明如何將 Azure 行動服務運用在已建置 Appcelerator 的應用程式中。
 
 在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單*待辦事項*應用程式。您建立的行動服務會使用 JavaScript 建立伺服器端商務邏輯。
 
-若要完成本教學課程，您需要 [Appcelerator Titanium][]。
+若要完成本教學課程，您需要 [Appcelerator Titanium][Appcelerator Titanium]。
 
 如果是針對 iOS 建置，您還需要 Xcode 5.1 和 iOS 7.1 SDK 或更新版本。
 
@@ -18,7 +18,7 @@
 
 ## <a name="create-new-service"> </a>建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## 建立新的 Appcelerator 應用程式
 
@@ -26,7 +26,7 @@
 
 2.  按一下 [加入新的資料表]，並建立名為 **TodoItem** 的新資料表。
 
-3.  下載新的 Appcelerator [Todolist 應用程式][]，然後解壓縮專案。
+3.  下載新的 Appcelerator [Todolist 應用程式][Todolist 應用程式]，然後解壓縮專案。
 
 4.  下載並安裝 [Appcelerator Titanium Studio][Appcelerator Titanium] 和 SDK v3.2.1 或更新版本 (若您尚未這麼做)。您還需要 Xcode (v 5.0 +) 和/或 Android SDK (v 4.3+) 才能執行專案。
 
@@ -88,10 +88,10 @@
 
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何向身分識別提供者驗證應用程式的使用者。
 
--   [開始使用推播通知][]
+-   [開始使用推播通知][開始使用推播通知]
     了解如何將極為基本的推播通知傳送到應用程式。
 
 <!-- URLs. -->

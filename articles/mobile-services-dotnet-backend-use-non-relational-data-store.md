@@ -8,17 +8,17 @@
 
 本教學課程會逐步引導您完成下列步驟以設定非關聯式存放區：
 
-1.  [建立非關聯式存放區][]
-2.  [修改資料和控制器][]
-3.  [測試應用程式][]
+1.  [建立非關聯式存放區][建立非關聯式存放區]
+2.  [修改資料和控制器][修改資料和控制器]
+3.  [測試應用程式][測試應用程式]
 
-要執行此教學課程，必須先完成[開始使用行動服務][]或[開始使用資料][]教學課程。
+要執行此教學課程，必須先完成[開始使用行動服務][開始使用行動服務]或[開始使用資料][開始使用資料]教學課程。
 
 ## <a name="create-store"></a>建立非關聯式存放區
 
-1.  在 [Azure 管理入口網站][]中，按一下 [新增]，然後選取 [存放區]。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站]中，按一下 [新增]，然後選取 [存放區]。
 
-2.  選取 [MongoLab] 附加元件，然後導覽精靈以註冊帳戶。如需 MongoLab 的詳細資訊，請參閱 [MongoLab 附加元件頁面][]。
+2.  選取 [MongoLab] 附加元件，然後導覽精靈以註冊帳戶。如需 MongoLab 的詳細資訊，請參閱 [MongoLab 附加元件頁面][MongoLab 附加元件頁面]。
 
     ![][]
 
@@ -93,6 +93,6 @@
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  [MongoLab 附加元件頁面]: /en-us/gallery/store/mongolab/mongolab
+  [MongoLab 附加元件頁面]: /zh-tw/gallery/store/mongolab/mongolab
   []: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/create-mongo-lab.png
   [1]: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/mongo-connection-string.png

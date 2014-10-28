@@ -103,7 +103,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/zh-TW/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -137,7 +137,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/zh-TW/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -200,7 +200,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+        // http://msdn.microsoft.com/zh-TW/library/windowsazure/hh780775
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -264,7 +264,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here:
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+        // http://msdn.microsoft.com/zh-TW/library/windowsazure/hh780735
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -300,7 +300,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/zh-TW/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -332,5 +332,5 @@
   [OpenSSL 延伸]: http://php.net/openssl
   [get-client-libraries]: ../includes/get-client-libraries.md
   [require\_once]: http://php.net/require_once
-  [SqlFilter.SqlExpression 屬性]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [佇列、主題和訂閱]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+  [SqlFilter.SqlExpression 屬性]: http://msdn.microsoft.com/zh-TW/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+  [佇列、主題和訂閱]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh367516.aspx

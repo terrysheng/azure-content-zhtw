@@ -28,7 +28,7 @@
     -   東亞、
     -   美國中北部及
     -   美國中南部。
--   在此版本中，HDInsight 1.6 版 (HDP1.1、Hadoop 1.0.3) 和 HDInsight 2.1 版 (HDP1.3、Hadoop 1.2) 正從 Azure 管理入口網站中移除。您可以繼續使用 HDInsight PowerShell Cmdlet ([New-AzureHDInsightCluster][]) 或 [HDInsight SDK][] 來建立這些版本的 Hadoop 叢集。如需詳細資訊，請參閱 [HDInsight 所提供叢集版本的新功能][]頁面。
+-   在此版本中，HDInsight 1.6 版 (HDP1.1、Hadoop 1.0.3) 和 HDInsight 2.1 版 (HDP1.3、Hadoop 1.2) 正從 Azure 管理入口網站中移除。您可以繼續使用 HDInsight PowerShell Cmdlet ([New-AzureHDInsightCluster][New-AzureHDInsightCluster]) 或 [HDInsight SDK][HDInsight SDK] 來建立這些版本的 Hadoop 叢集。如需詳細資訊，請參閱 [HDInsight 所提供叢集版本的新功能][HDInsight 所提供叢集版本的新功能]頁面。
 -   此版本中的 Hortonworks Data Platform (HDP) 變更：
 
 | HDP               | 變更                                                         |
@@ -50,13 +50,13 @@ HBase 可讓您在 HDInsight 上建置各種即時工作負載，包括處理大
 
 ### Apache Mahout 現在預先安裝在 HDInsight 3.1
 
-[Mahout][] 會預先安裝在 HDInsight 3.1 Hadoop 叢集上。以便您在無需任何其他叢集組態需求的情況下執行 Mahout 工作。例如，您可以使用遠端桌面通訊協定 (RDP) 從遠端進入 Hadoop 叢集，不需要額外的步驟就能執行 Hello world Mahout 命令：
+[Mahout][Mahout] 會預先安裝在 HDInsight 3.1 Hadoop 叢集上。以便您在無需任何其他叢集組態需求的情況下執行 Mahout 工作。例如，您可以使用遠端桌面通訊協定 (RDP) 從遠端進入 Hadoop 叢集，不需要額外的步驟就能執行 Hello world Mahout 命令：
 
         mahout org.apache.mahout.classifier.df.tools.Describe -p /user/hdp/glass.data -f /user/hdp/glass.info -d I 9 N L  
 
         mahout org.apache.mahout.classifier.df.BreimanExample -d /user/hdp/glass.data -ds /user/hdp/glass.info -i 10 -t 100
 
-如需此程序更完整的說明，請參閱 Apache Mahout 網站上關於 [Breiman 範例][] (英文) 的文件。
+如需此程序更完整的說明，請參閱 Apache Mahout 網站上關於 [Breiman 範例][Breiman 範例] (英文) 的文件。
 
 ### Hive 查詢可以在 HDinsight 3.1 中使用 Tez
 
@@ -66,9 +66,9 @@ Hive 0.13 現在可以在 HDInsight 3.1 中使用，且能夠使用 Tez 來執�
         set hive.execution.engine=tez;
         select sc_status, count(*), histogram_numeric(sc_bytes,5) from website_logs_orc_local group by sc_status;
 
-Hortonworks 在標準效能評比中，已發表一份關於 Hive 查詢搭配 Tez 而提升效能的詳細數據。如需詳細資訊，請參閱 [Apache Hive 13 for Enterprise Hadoop 效能評比][] (英文)。
+Hortonworks 在標準效能評比中，已發表一份關於 Hive 查詢搭配 Tez 而提升效能的詳細數據。如需詳細資訊，請參閱 [Apache Hive 13 for Enterprise Hadoop 效能評比][Apache Hive 13 for Enterprise Hadoop 效能評比] (英文)。
 
-如需有關搭配 Tez 使用 Hive 的詳細資訊，請參閱 [Hive on Tez Wiki 頁面][] (英文)。
+如需有關搭配 Tez 使用 Hive 的詳細資訊，請參閱 [Hive on Tez Wiki 頁面][Hive on Tez Wiki 頁面] (英文)。
 
 ### 全球可用性
 
@@ -417,16 +417,16 @@ SQL Server JDBC 驅動程式僅供 HDInsight 內部使用，不適用於外部�
 
 下列位置提供 HDInsight 叢集版本使用的 HDP 的版本資訊。
 
--   HDInsight 叢集 3.1 版採用以 [Hortonworks Data Platform 2.1][] 為基礎的 Hadoop 發佈 (這是使用 Azure HDInsight 入口網站時會建立的預設 Hadoop 叢集)。
+-   HDInsight 叢集 3.1 版採用以 [Hortonworks Data Platform 2.1][Hortonworks Data Platform 2.1] 為基礎的 Hadoop 發佈 (這是使用 Azure HDInsight 入口網站時會建立的預設 Hadoop 叢集)。
 
--   HDInsight 叢集 3.0 版採用以 [Hortonworks Data Platform 2.0][] 為基礎的 Hadoop 散發。
+-   HDInsight 叢集 3.0 版採用以 [Hortonworks Data Platform 2.0][Hortonworks Data Platform 2.0] 為基礎的 Hadoop 散發。
 
--   HDInsight 叢集 2.1 版採用以 [Hortonworks Data Platform 1.3][] 為基礎的 Hadoop 散發。
+-   HDInsight 叢集 2.1 版採用以 [Hortonworks Data Platform 1.3][Hortonworks Data Platform 1.3] 為基礎的 Hadoop 散發。
 
--   HDInsight 叢集 1.6 版採用以 [Hortonworks Data Platform 1.1][] 為基礎的 Hadoop 散發。
+-   HDInsight 叢集 1.6 版採用以 [Hortonworks Data Platform 1.1][Hortonworks Data Platform 1.1] 為基礎的 Hadoop 散發。
 
-  [New-AzureHDInsightCluster]: http://msdn.microsoft.com/en-us/library/dn593744.aspx
-  [HDInsight SDK]: http://msdn.microsoft.com/en-us/library/azure/dn469975.aspx
+  [New-AzureHDInsightCluster]: http://msdn.microsoft.com/zh-tw/library/dn593744.aspx
+  [HDInsight SDK]: http://msdn.microsoft.com/zh-tw/library/azure/dn469975.aspx
   [HDInsight 所提供叢集版本的新功能]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-component-versioning/
   []: http://i.imgur.com/cmOl5fM.png
   [Mahout]: http://hortonworks.com/hadoop/mahout/

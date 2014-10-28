@@ -36,7 +36,7 @@ Azure BizTalk 服務使用服務匯流排簽發者名稱和簽發者金鑰，以
 
 ### 擷取存取控制簽發者名稱和簽發者金鑰
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  在左導覽窗格中，選取 [BizTalk 服務]。
 3.  選取 BizTalk 服務。
 4.  在工作列選取 [連接資訊]。這時會列出存取控制命名空間、預設簽發者 (簽發者名稱) 和預設金鑰 (簽發者金鑰)，供您複製和貼上。<br/><br/>
@@ -46,7 +46,7 @@ Azure BizTalk 服務使用服務匯流排簽發者名稱和簽發者金鑰，以
 
 您也可以按一下 [Open ACS Management Portal] 來擷取存取控制值：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  在左導覽窗格中，選取 [BizTalk 服務]。
 3.  選取 BizTalk 服務。
 4.  選取 [連接資訊] 按鈕，然後選取 [Open ACS Management Portal]。
@@ -70,7 +70,7 @@ BizTalk 配接器服務會使用服務匯流排簽發者名稱和簽發者金鑰
 
 ### 擷取服務匯流排簽發者名稱和簽發者金鑰
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  在左導覽窗格中，按一下 [服務匯流排]。
 3.  按一下您的命名空間。在工作列中，按一下 [連接資訊]。這會顯示 [預設簽發者] 和 [預設金鑰]。您可以複製這些值。<br /><br />
     總結：<br />
@@ -81,24 +81,24 @@ BizTalk 配接器服務會使用服務匯流排簽發者名稱和簽發者金鑰
 
 其他 Azure BizTalk 服務主題：
 
--   [安裝 Azure BizTalk 服務 SDK][]
--   [教學課程：Azure BizTalk 服務][]
--   [如何開始使用 Azure BizTalk 服務 SDK][]
--   [Azure BizTalk 服務][]
+-   [安裝 Azure BizTalk 服務 SDK][安裝 Azure BizTalk 服務 SDK]
+-   [教學課程：Azure BizTalk 服務][教學課程：Azure BizTalk 服務]
+-   [如何開始使用 Azure BizTalk 服務 SDK][如何開始使用 Azure BizTalk 服務 SDK]
+-   [Azure BizTalk 服務][Azure BizTalk 服務]
 
 ## 另請參閱
 
--   [作法：使用 ACS 管理服務來設定服務身分識別][]
--   [BizTalk 服務：開發人員、基本、標準和高級版本圖表][]
+-   [作法：使用 ACS 管理服務來設定服務身分識別][作法：使用 ACS 管理服務來設定服務身分識別]
+-   [BizTalk 服務：開發人員、基本、標準和高級版本圖表][BizTalk 服務：開發人員、基本、標準和高級版本圖表]
      (英文)
--   [BizTalk 服務：使用 Azure 管理入口網站進行佈建][]
+-   [BizTalk 服務：使用 Azure 管理入口網站進行佈建][BizTalk 服務：使用 Azure 管理入口網站進行佈建]
      (英文)
--   [BizTalk 服務：佈建狀態圖][]
+-   [BizTalk 服務：佈建狀態圖][BizTalk 服務：佈建狀態圖]
      (英文)
--   [BizTalk 服務：儀表板、監視器和調整索引標籤][]
+-   [BizTalk 服務：儀表板、監視器和調整索引標籤][BizTalk 服務：儀表板、監視器和調整索引標籤]
      (英文)
--   [BizTalk 服務：備份與還原][](英文)
--   [BizTalk 服務：節流][]
+-   [BizTalk 服務：備份與還原][BizTalk 服務：備份與還原](英文)
+-   [BizTalk 服務：節流][BizTalk 服務：節流]
      (英文)
 
   [Azure 管理入口網站]: http://go.microsoft.com/fwlink/p/?LinkID=213885

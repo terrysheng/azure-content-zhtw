@@ -17,7 +17,7 @@ ML Studio 讓資料科學、預測分析、雲端資源和您的資料齊聚一�
 
 不需要設計程式，只要在視覺上連接資料集和模組，即可建構預測分析模型。
 
-![ML Studio Overview][]
+![ML Studio Overview][ML Studio Overview]
 
 ## 開始使用 ML Studio
 

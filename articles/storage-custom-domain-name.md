@@ -8,7 +8,7 @@
 
 <div class="dev-callout"> 
 <b>注意</b> 
-<p>此工作的程序適用於 Azure 儲存體帳戶。對於雲端服務，請參閱<a href = "/en-us/develop/net/common-tasks/custom-dns/">設定 Azure 雲端服務的自訂網域名稱</a>；對於網站，請參閱<a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">設定 Azure 網站的自訂網域名稱</a>。</p> 
+<p>此工作的程序適用於 Azure 儲存體帳戶。對於雲端服務，請參閱<a href = "/zh-tw/develop/net/common-tasks/custom-dns/">設定 Azure 雲端服務的自訂網域名稱</a>；對於網站，請參閱<a href="/zh-tw/develop/net/common-tasks/custom-dns-web-site/">設定 Azure 網站的自訂網域名稱</a>。</p> 
 </div>
 
 將自訂網域指向儲存體帳戶之 Blob 端點的方法有兩種。最簡單的方法是建立 CNAME 記錄，以將自訂網域和子網域對應至 Blob 端點。CNAME 記錄是將來源網域對應至目的地網域的 DNS 功能。在這種情況下，來源網域是您的自訂網域和子網域 (請注意，子網域一律是必要的項目)。目的地網域是 Blob 服務端點。
@@ -47,15 +47,15 @@
 
 此工作將示範如何：
 
--   [針對儲存體帳戶註冊自訂網域][]
--   [使用中繼的 asverify 子網域針對儲存體帳戶註冊自訂網域][]
+-   [針對儲存體帳戶註冊自訂網域][針對儲存體帳戶註冊自訂網域]
+-   [使用中繼的 asverify 子網域針對儲存體帳戶註冊自訂網域][使用中繼的 asverify 子網域針對儲存體帳戶註冊自訂網域]
 -   <a name="#verify-subdomain">確認自訂網域參考 Blob 服務端點</a>
 
 ## <a name="register-domain"></a>針對儲存體帳戶註冊自訂網域
 
 如果您不需要顧及使用者會短暫地無法存取網域的問題，抑或是自訂網域目前未主控應用程式，您可以使用此程序來註冊自訂網域。
 
-如果自訂網域目前需支援不允許發生任何停機時間的應用程式，請使用[使用中繼的 asverify 子網域針對儲存體帳戶註冊自訂網域][]簡述的程序。
+如果自訂網域目前需支援不允許發生任何停機時間的應用程式，請使用[使用中繼的 asverify 子網域針對儲存體帳戶註冊自訂網域][使用中繼的 asverify 子網域針對儲存體帳戶註冊自訂網域]簡述的程序。
 
 若要設定自訂網域名稱，您必須向網域註冊機構建立新的 CNAME 記錄。CNAME 記錄能指定網域名稱的別名。在這種情況下，它能將自訂網域的位址對應至儲存體帳戶的 Blob 服務端點。
 
@@ -129,10 +129,10 @@ asverify 子網域是 Azure 認可的特殊子網域。在自己的子網域前�
 
 ## 其他資源
 
--   [如何將 CDN 對應至自訂網域][]
+-   [如何將 CDN 對應至自訂網域][如何將 CDN 對應至自訂網域]
 
-  [設定 Azure 雲端服務的自訂網域名稱]: /en-us/develop/net/common-tasks/custom-dns/
-  [設定 Azure 網站的自訂網域名稱]: /en-us/develop/net/common-tasks/custom-dns-web-site/
+  [設定 Azure 雲端服務的自訂網域名稱]: /zh-tw/develop/net/common-tasks/custom-dns/
+  [設定 Azure 網站的自訂網域名稱]: /zh-tw/develop/net/common-tasks/custom-dns-web-site/
   [針對儲存體帳戶註冊自訂網域]: #register-domain
   [使用中繼的 asverify 子網域針對儲存體帳戶註冊自訂網域]: #register-asverify
-  [如何將 CDN 對應至自訂網域]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+  [如何將 CDN 對應至自訂網域]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg680307.aspx

@@ -5,22 +5,22 @@
 # 如何透過 PHP 使用 SendGrid 電子郵件服務
 
 本指南示範如何在 Azure 上透過 SendGrid 電子郵件服務執行常見程式設計工作。這些範例是以 PHP 撰寫。
-所涵蓋的案例包括**建構電子郵件**、**傳送電子郵件**以及**新增附件**。如需有關 SendGrid 及傳送電子郵件的詳細資訊，請參閱[後續步驟][]一節。
+所涵蓋的案例包括**建構電子郵件**、**傳送電子郵件**以及**新增附件**。如需有關 SendGrid 及傳送電子郵件的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [什麼是 SendGrid 電子郵件服務][]
--   [建立 SendGrid 帳戶][]
--   [透過 PHP 應用程式使用 SendGrid][]
--   [作法：傳送電子郵件][]
--   [作法：新增附件][]
--   [作法：使用篩選器來啟用頁尾、追蹤和分析][]
--   [後續步驟][]
+-   [什麼是 SendGrid 電子郵件服務][什麼是 SendGrid 電子郵件服務]
+-   [建立 SendGrid 帳戶][建立 SendGrid 帳戶]
+-   [透過 PHP 應用程式使用 SendGrid][透過 PHP 應用程式使用 SendGrid]
+-   [作法：傳送電子郵件][作法：傳送電子郵件]
+-   [作法：新增附件][作法：新增附件]
+-   [作法：使用篩選器來啟用頁尾、追蹤和分析][作法：使用篩選器來啟用頁尾、追蹤和分析]
+-   [後續步驟][後續步驟]
 
 ## <a name="bkmk_WhatIsSendGrid"> </a>什麼是 SendGrid 電子郵件服務？
 
-SendGrid 是[雲端架構電子郵件服務][] (英文)，能提供可靠的
-[交易式電子郵件傳遞][] (英文)、擴充性和即時分析，以及有彈性的 API
+SendGrid 是[雲端架構電子郵件服務][雲端架構電子郵件服務] (英文)，能提供可靠的
+[交易式電子郵件傳遞][交易式電子郵件傳遞] (英文)、擴充性和即時分析，以及有彈性的 API
 來輕鬆進行自訂整合。常見的 SendGrid 使用案例
 包括：
 
@@ -37,7 +37,7 @@ SendGrid 是[雲端架構電子郵件服務][] (英文)，能提供可靠的
 
 ## <a name="bkmk_CreateSendGrid"> </a>建立 SendGrid 帳戶
 
-[WACOM.INCLUDE [sendgrid-sign-up][]]
+[WACOM.INCLUDE [sendgrid-sign-up][sendgrid-sign-up]]
 
 ## <a name="bkmk_UsingSendGridfromPHP"> </a>透過 PHP 應用程式使用 SendGrid
 
@@ -128,7 +128,7 @@ SendGrid 是[雲端架構電子郵件服務][] (英文)，能提供可靠的
 
 ### Web API
 
-透過 PHP 的 [curl 函數][]使用 SendGrid Web API 傳送電子郵件。
+透過 PHP 的 [curl 函數][curl 函數]使用 SendGrid Web API 傳送電子郵件。
 
     <?php
 

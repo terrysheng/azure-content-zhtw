@@ -6,16 +6,16 @@
 
 Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Azure 管理入口網站來備份和還原 BizTalk 服務，內容包括:
 
--   [開始之前][]
--   [建立備份][]
--   [Restore a backup][]
--   [備份什麼項目][]
+-   [開始之前][開始之前]
+-   [建立備份][建立備份]
+-   [Restore a backup][Restore a backup]
+-   [備份什麼項目][備份什麼項目]
 
-您也可以使用 [BizTalk 服務 REST API][] 來備份 BizTalk 服務。
+您也可以使用 [BizTalk 服務 REST API][BizTalk 服務 REST API] 來備份 BizTalk 服務。
 
 ## <a name="beforebackup"></a>開始之前
 
--   備份與還原可能不適用於部分版本。請參閱 [BizTalk 服務：版本圖表][]。
+-   備份與還原可能不適用於部分版本。請參閱 [BizTalk 服務：版本圖表][BizTalk 服務：版本圖表]。
 
     **注意事項**：混合式連線無法備份，與版本無關。
 
@@ -39,9 +39,9 @@ Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Az
 
 您隨時都可以建立備份，完全決由掌控。本節列出使用 Azure 管理入口網站建立備份的步驟，內容包括：
 
-[隨選備份][]
+[隨選備份][隨選備份]
 
-[排定備份][]
+[排定備份][排定備份]
 
 #### <a name="backupnow"></a>隨選備份
 
@@ -71,13 +71,13 @@ Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Az
 
 如果 BizTalk 服務儀表板顯示 [失敗] 狀態：
 
-![Last scheduled backup status][]
+![Last scheduled backup status][Last scheduled backup status]
 
-該連結可開啟 [管理服務作業記錄] 以協助進行疑難排解。請參閱 [BizTalk 服務：使用作業記錄檔進行疑難排解][]。
+該連結可開啟 [管理服務作業記錄] 以協助進行疑難排解。請參閱 [BizTalk 服務：使用作業記錄檔進行疑難排解][BizTalk 服務：使用作業記錄檔進行疑難排解]。
 
 ## <a name="restore"></a>還原
 
-您可以從 Azure 管理入口網站或從[還原 BizTalk 服務 REST API][] 來還原備份。本節列出使用管理入口網站進行還原的步驟。
+您可以從 Azure 管理入口網站或從[還原 BizTalk 服務 REST API][還原 BizTalk 服務 REST API] 來還原備份。本節列出使用管理入口網站進行還原的步驟。
 
 #### 還原備份之前
 
@@ -226,19 +226,19 @@ BizTalk 服務設定
 </table>
 ## 下一步
 
-若要在 Azure 管理入口網站中建立 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 管理入口網站進行佈建][] (英文)。若要開始建立應用程式，請移至 [Azure BizTalk 服務][] (英文)。
+若要在 Azure 管理入口網站中建立 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 管理入口網站進行佈建][BizTalk 服務：使用 Azure 管理入口網站進行佈建] (英文)。若要開始建立應用程式，請移至 [Azure BizTalk 服務][Azure BizTalk 服務] (英文)。
 
 ## 另請參閱
 
 -   [備份 BizTalk 服務][BizTalk 服務 REST API]
 -   [從備份還原 BizTalk 服務][還原 BizTalk 服務 REST API]
--   [BizTalk 服務：開發人員、基本、標準和高級版本圖表][] (英文)
--   [BizTalk 服務：使用 Azure 管理入口網站進行佈建][] (英文)
--   [BizTalk 服務：佈建狀態圖][] (英文)
--   [BizTalk 服務：儀表板、監視器和調整索引標籤][] (英文)
--   [BizTalk 服務：節流][] (英文)
--   [BizTalk 服務：簽發者名稱和簽發者金鑰][] (英文)
--   [如何開始使用 Azure BizTalk 服務 SDK][]
+-   [BizTalk 服務：開發人員、基本、標準和高級版本圖表][BizTalk 服務：開發人員、基本、標準和高級版本圖表] (英文)
+-   [BizTalk 服務：使用 Azure 管理入口網站進行佈建][BizTalk 服務：使用 Azure 管理入口網站進行佈建] (英文)
+-   [BizTalk 服務：佈建狀態圖][BizTalk 服務：佈建狀態圖] (英文)
+-   [BizTalk 服務：儀表板、監視器和調整索引標籤][BizTalk 服務：儀表板、監視器和調整索引標籤] (英文)
+-   [BizTalk 服務：節流][BizTalk 服務：節流] (英文)
+-   [BizTalk 服務：簽發者名稱和簽發者金鑰][BizTalk 服務：簽發者名稱和簽發者金鑰] (英文)
+-   [如何開始使用 Azure BizTalk 服務 SDK][如何開始使用 Azure BizTalk 服務 SDK]
 
   [開始之前]: #beforebackup
   [建立備份]: #createbu

@@ -7,7 +7,7 @@
 本教學課程說明如何建置包含 SQL Database 的安全 ASP.NET 4.5 Web Forms Web 應用程式，並將應用程式部署至 Azure。
 
 > [WACOM.NOTE]
-> 如需本教學課程的 MVC 版本，請參閱[將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站][]。
+> 如需本教學課程的 MVC 版本，請參閱[將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站][將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站]。
 
 您可以免費申請 Azure 帳戶，而且如果您還沒有 Visual Studio 2013，SDK 會自動安裝 Visual Studio 2013 for Web Express。您可以開始免費進行 Azure 相關開發。
 
@@ -24,42 +24,42 @@
 
 您將建立一個採用 ASP.NET 4.5 Web Forms，並使用 Entity Framework 存取資料庫的簡單連絡人清單 Web 應用程式。下圖顯示允許讀取與寫入資料庫的 Web Forms 頁面：
 
-![Contacts - Edit Page][]
+![Contacts - Edit Page][Contacts - Edit Page]
 
 > [WACOM.NOTE]
-> 若要完成本教學課程，您需要 Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益][]或是[申請免費試用][]。
+> 若要完成本教學課程，您需要 Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益][啟用自己的 MSDN 訂戶權益]或是[申請免費試用][申請免費試用]。
 
 本教學課程包含下列小節：
 
--   [設定開發環境][]
--   [設定 Azure 環境][]
--   [建立 ASP.NET Web Forms 應用程式][]
--   [新增資料庫至應用程式][]
--   [對專案啟用 SSL][]
--   [新增 OAuth 2.0 提供者][]
--   [使用成員資格 API 來限制存取][]
--   [將使用資料庫的應用程式部署至 Azure][]
--   [檢閱資料庫][]
--   [後續步驟][]
+-   [設定開發環境][設定開發環境]
+-   [設定 Azure 環境][設定 Azure 環境]
+-   [建立 ASP.NET Web Forms 應用程式][建立 ASP.NET Web Forms 應用程式]
+-   [新增資料庫至應用程式][新增資料庫至應用程式]
+-   [對專案啟用 SSL][對專案啟用 SSL]
+-   [新增 OAuth 2.0 提供者][新增 OAuth 2.0 提供者]
+-   [使用成員資格 API 來限制存取][使用成員資格 API 來限制存取]
+-   [將使用資料庫的應用程式部署至 Azure][將使用資料庫的應用程式部署至 Azure]
+-   [檢閱資料庫][檢閱資料庫]
+-   [後續步驟][後續步驟]
 
 ## 設定開發環境
 
 首先，安裝 Visual Studio 2013 和 Azure SDK for .NET 以設定您的開發環境。
 
-1.  如果還沒有安裝 [Visual Studio 2013][]，請先安裝此軟體。
-2.  安裝 [Azure SDK for Visual Studio 2013][]。本教學課程需要 Visual Studio 2013，才能安裝 Azure SDK for Visual Studio 2013。
+1.  如果還沒有安裝 [Visual Studio 2013][Visual Studio 2013]，請先安裝此軟體。
+2.  安裝 [Azure SDK for Visual Studio 2013][Azure SDK for Visual Studio 2013]。本教學課程需要 Visual Studio 2013，才能安裝 Azure SDK for Visual Studio 2013。
 
     > [WACOM.NOTE]  
     視您的電腦上有多少 SDK 相依性而定，安裝 SDK 可能需要很長的時間 (從數分鐘到半小時以上不等)。
 
 3.  如果系統提示您執行或儲存安裝可執行檔時，請按一下 [執行]。
 4.  在 \[Web Platform Installer\] 視窗中，按一下 [安裝] 並繼續進行安裝。
-    ![Web Platform Installer][]
+    ![Web Platform Installer][Web Platform Installer]
 
     > [WACOM.NOTE]  
     如果您已安裝 SDK，則待安裝的項目會為 0。\[Web Platform Installer] 視窗的左下角會記錄待安裝的項目數。
 
-5.  如果您還沒有 **Visual Studio Update 2**，請下載並安裝 **[Visual Studio 2013 Update 2][]** 或更高版本。
+5.  如果您還沒有 **Visual Studio Update 2**，請下載並安裝 **[Visual Studio 2013 Update 2][Visual Studio 2013 Update 2]** 或更高版本。
 
     > [WACOM.NOTE]  
     您必須安裝 Visual Studio 2013 Update 2 或更高版本，才能在不會出現警告的情況下，在本機使用 Goggle OAuth 2.0 和 SSL。此外，您需要 Update 2 才能使用 Web Forms Scaffolding。
@@ -76,21 +76,21 @@
 
 Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯式資料庫服務。工具和應用程式如果使用 SQL Server，同樣也可以使用 SQL Database。
 
-1.  在 [Azure 管理入口網站][] 中，按一下左側索引標籤的 [網站]，然後按一下 [新增]。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站] 中，按一下左側索引標籤的 [網站]，然後按一下 [新增]。
     ![Web Platform Installer][1]
 2.  按一下 [網站]，然後按一下 [自訂建立]。  
-    ![Custom Create][]  
+    ![Custom Create][Custom Create]  
     [新網站 - 自訂建立] 精靈便會隨即開啟。
 
 3.  在精靈的 [建立網站] 步驟中，於 [URL] 方塊中輸入字串，做為您應用程式的唯一 URL。完整的 URL 將包含您在此處輸入的字串，加上您在文字方塊旁看到的尾碼。下圖顯示 URL 很可能已被佔用，因此**您必須選擇不同的 URL**。  
-    ![Contacts - Create New Web Site][]  
+    ![Contacts - Create New Web Site][Contacts - Create New Web Site]  
 4.  在 [Web 主控方案] 下拉式清單中，選擇最接近您位置的區域。此設定可指定 VM 將在哪個資料中心執行。
 5.  在 [資料庫] 下拉式清單中，選擇 [Create a free 20 MB SQL database]。
 6.  在 [DB Connection String Name] 方塊中，保留預設值 *DefaultConnection*。
 7.  按一下方塊底部的箭號。
     精靈隨即前進至 [指定資料庫設定] 步驟。
 8.  在 [名稱] 方塊中，輸入 *`ContactDB`*。
-    ![Database Settings][]
+    ![Database Settings][Database Settings]
 9.  在 [伺服器] 方塊中，選取 [新增 SQL Database] 伺服器。
     或者，如果您已建立 SQL Server 資料庫，可從下拉式控制項中選取該 SQL Server。
 10. 將 [區域] 設為您建立網站時的相同區域。
@@ -107,17 +107,17 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 ### 建立專案
 
 1.  在 Visual Studio 的 [檔案] 功能表中選取 [新增專案]。  
-    ![File Menu - New Project][]
-2.  依序選取 [範本] -\> [Visual C\#] -\> 左側的 [Web] 範本群組。
+    ![File Menu - New Project][File Menu - New Project]
+2.  依序選取 [範本] -\> [Visual C#] -\> 左側的 [Web] 範本群組。
 3.  選擇中間欄的 [ASP.NET Web 應用程式] 範本。
 4.  將您的專案命名為 *ContactManager*，並按一下 [確定]。  
-    ![New Project Dialog][]
+    ![New Project Dialog][New Project Dialog]
 
     > [WACOM.NOTE]
     此教學課程系列中的專案名稱為 **ContactManager**。建議您使用完全相同的專案名稱，以便整個教學課程系列中所提供的程式碼可如預期般運作。
 
 5.  在 [New ASP.NET Project] 對話方塊中，選取 [Web Forms] 範本。如果已選取 [Host in the cloud] 核取方塊，請取消勾選此選項，並按一下 [確定]。  
-    ![New ASP.NET Project dialog box][]  
+    ![New ASP.NET Project dialog box][New ASP.NET Project dialog box]  
     將可建立 Web Forms 應用程式。
 
 ### 更新主要頁面
@@ -235,21 +235,21 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 現在您已在本機建立與執行您的應用程式，是將應用程式部署至 Azure 的時候了。
 
 1.  在 Visual Studio 中，以滑鼠右鍵按一下 [方案總管] 中的專案，然後從內容功能表中選取 [發行]。  
-    ![Select Publish][]  
+    ![Select Publish][Select Publish]  
     [發行 Web] 對話方塊便會隨即顯示。
 
 2.  在 [發行 Web] 對話方塊的 [設定檔] 索引標籤中，按一下 [Azure 網站]。  
-    ![Publish Web dialog box][]
+    ![Publish Web dialog box][Publish Web dialog box]
 3.  如果您尚未登入，請按一下 [Select Existing Website] 對話方塊中的 [登入] 按鈕。完成登入後，請選取您在本教學課程第一個部分中所建立的網站。按一下 [確定] 以繼續操作。  
-    ![Select Existing Web Site dialog box][]  
+    ![Select Existing Web Site dialog box][Select Existing Web Site dialog box]  
     Visual Studio 將會下載您的發行設定。
 4.  在 [發行 Web] 對話方塊中，按一下 [發行]。  
     ![Publish Web dialog box][3]  
     您將會在 Visual Studio 的 [Web Publish Activity] 視窗中看到整體發行狀態：  
-    ![Web Publishing Activity][]
+    ![Web Publishing Activity][Web Publishing Activity]
 
 您建立的應用程式現在正在雲端中執行。下次當您從 Visual Studio 部署應用程式時，只會部署變更的 (或新的) 檔案。  
-    ![App in Browser][]
+    ![App in Browser][App in Browser]
 
 > [WACOM.NOTE]  
  如果在發行至已建立的網站時遇到問題，請在新增檔案之前先清除位置。
@@ -266,11 +266,11 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 首先，使用程式碼建立簡單的資料模型。此資料模型會包含在名稱如下的類別內：`Contacts`. 此`Contacts` 類別名稱，是為了避免與根據 Web Forms 範本建立的 Contact.aspx.cs 檔案中所包含的`Contact` 類別發生類別名稱衝突。
 
 1.  在 [方案總管] 中，以滑鼠右鍵按一下 *Models* 資料夾，然後依序選取 [新增] -\> [類別]。  
-    ![Select Class][]  
+    ![Select Class][Select Class]  
     [新增項目] 對話方塊便會隨即顯示。
 
 2.  將此新類別命名為 *Contacts.cs*。  
-    ![Add New Item dialog box][]
+    ![Add New Item dialog box][Add New Item dialog box]
 3.  使用下列程式碼來取代預設程式碼：
 
 	<pre class="prettyprint">
@@ -310,17 +310,17 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 2.  在此對話方塊的左窗格中，依序選取 [線上] -\> [Visual Studio 組件庫] -\> [工具] -\> [Scaffolding]。
 3.  如果您在清單中看不到 'Web Forms Scaffolding'，請在對話方塊右側的搜尋方塊中輸入 'Web Forms Scaffolding'。
 4.  如果未安裝 Web Forms Scaffolder，請選取 [下載] 以下載並安裝 Web Forms Scaffolding。如有需要，請重新啟動 Visual Studio。請務必在系統要求時將變更儲存至專案。  
-    ![Extensions and Updates dialog box][]
+    ![Extensions and Updates dialog box][Extensions and Updates dialog box]
 5.  建置專案 (**Ctrl+Shift+B**)。
     您必須建置專案，才能使用樣板機制。
 6.  在 [方案總管] 中，以滑鼠右鍵按一下 *project*，然後依序選取 [新增] -\> [New Scaffolded Item]。
     [Add Scaffold] 對話方塊便會隨即顯示。
 7.  從左窗格中選取 [Web Forms]，並從中央窗格中選取 [Web Forms Pages using Entity Framework]。然後按一下 [新增]。  
-    ![Add Scaffold dialog box][]  
+    ![Add Scaffold dialog box][Add Scaffold dialog box]  
     [Add Web Forms Pages] 對話方塊便會隨即顯示。
 
 8.  在 [Add Web Forms Pages] 對話方塊中，將 [模型類別] 設為`Contact (ContactManager.Models)`. 將 [資料內容類別] 設為`ApplicationDbContext (ContactManager.Models)`. 然後按一下 [新增]。
-    ![Add Web Forms Pages dialog box][]
+    ![Add Web Forms Pages dialog box][Add Web Forms Pages dialog box]
 
 Web Forms Scaffolder 便會新增一個包含 *Default.aspx*、*Delete.aspx*、*Edit.aspx* 和 *Insert.aspx* 頁面的資料夾。Web Forms Scaffolder 還會建立一個包含 *EntityTemplates* 資料夾和 *FieldTemplates* 資料夾的 *DynamicData* 資料夾。此`ApplicationDbContext` 同時用於成員資格資料庫和連絡人資料。
 
@@ -413,7 +413,7 @@ Web Forms Scaffolder 便會新增一個包含 *Default.aspx*、*Delete.aspx*、*
 	}
 	</pre>
 
-   此程式碼會以連絡人資訊來初始化 (植入) 該資料庫。如需植入資料庫的詳細資訊，請參閱[植入及偵錯 Entity Framework (EF) DBs][]。
+   此程式碼會以連絡人資訊來初始化 (植入) 該資料庫。如需植入資料庫的詳細資訊，請參閱[植入及偵錯 Entity Framework (EF) DBs][植入及偵錯 Entity Framework (EF) DBs]。
 
 7.  在 [Package Manager Console] 中輸入命令：
 
@@ -422,7 +422,7 @@ Web Forms Scaffolder 便會新增一個包含 *Default.aspx*、*Delete.aspx*、*
 	</pre> 
 
    此`update-database` 會執行第一次移轉，並建立資料庫。根據預設，資料庫會以 SQL Server Express LocalDB 資料庫的形式建立。
-    ![Package Manager Console][]
+    ![Package Manager Console][Package Manager Console]
 
 ### 在本機執行應用程式並顯示資料
 
@@ -432,7 +432,7 @@ Web Forms Scaffolder 便會新增一個包含 *Default.aspx*、*Delete.aspx*、*
 2.  按 **Ctrl+F5** 執行應用程式。
     瀏覽器便會隨即開啟並顯示 *Default.aspx* 頁面。
 3.  選取頁面頂端的 [Contact Demo] 連結，以顯示 *Contact List* 頁面。  
-    ![Contacts List Page][]
+    ![Contacts List Page][Contacts List Page]
 
 ## 對專案啟用 SSL
 
@@ -442,20 +442,20 @@ Web Forms Scaffolder 便會新增一個包含 *Default.aspx*、*Delete.aspx*、*
 2.  將 [SSL 已啟用] 變更為 `true`.
 3.  複製 [SSL URL] 以供後續使用。
     SSL URL 將為`https://localhost:44300/` 除非您之前已經建立 SSL 網站 (如下所示)。
-    ![Project Properties][]
+    ![Project Properties][Project Properties]
 4.  在 [方案總管] 中，以滑鼠右鍵按一下 [ContactManager] 專案，再按一下 [屬性]。
 5.  在左側索引標籤中按一下 [Web]。
 6.  將 [專案 URL] 變更為使用先前儲存的 [SSL URL]。  
-    ![Project Web Properties][]
+    ![Project Web Properties][Project Web Properties]
 7.  按 **CTRL+S** 儲存頁面。
 8.  按 **Ctrl+F5** 可執行應用程式。
     Visual Studio 將顯示可避免 SSL 警告的選項。
 9.  按一下 [是] 以信任 IIS Express SSL 憑證，並繼續進行。  
-    ![IIS Express SSL certificate details][]  
+    ![IIS Express SSL certificate details][IIS Express SSL certificate details]  
     畫面將會顯示安全警告。
 
 10. 按一下 [是] 以將憑證安裝至您的 localhost。  
-    ![Security Warning dialog box][]  
+    ![Security Warning dialog box][Security Warning dialog box]  
     畫面將會顯示瀏覽器視窗。
 
 您可以輕鬆地使用 SSL 在本機測試 Web 應用程式。
@@ -479,17 +479,17 @@ ASP.NET Web Forms 提供成員資格和驗證的增強功能選項。這些增�
 	            });
 	</pre>
 
-3.  瀏覽至 [Google Developers Console][]。您還需要使用您的 Google 開發人員電子郵件帳戶 (gmail.com) 登入。如果您沒有 Google 帳戶，請選取 [建立帳戶] 連結。  
+3.  瀏覽至 [Google Developers Console][Google Developers Console]。您還需要使用您的 Google 開發人員電子郵件帳戶 (gmail.com) 登入。如果您沒有 Google 帳戶，請選取 [建立帳戶] 連結。  
     接著，您將會看到 \[Google Developers Console]。
     ![Google Developers Console][6]
 
 4.  按一下 [建立專案] 按鈕，並輸入專案名稱和識別碼 (您可以使用預設值)。然後，依序按一下 [同意] 核取方塊及 [建立] 按鈕。  
-    ![Google - New Project][]  
+    ![Google - New Project][Google - New Project]  
     幾秒鐘後，系統便會建立新專案，且您的瀏覽器會顯示新專案頁面。
 5.  在左側索引標籤中，按一下 [APIs & auth]，然後按一下 [認證]。
 6.  按一下 [OAuth] 下的 [Create New Client ID]。
     [Create Client ID] 對話方塊便會隨即顯示。
-    ![Google - Create Client ID][]
+    ![Google - Create Client ID][Google - Create Client ID]
 7.  在 [Create Client ID] 對話方塊中，保留應用程式類型中預設的 [Web 應用程式]。
 8.  將 [Authorized JavaScript Origins] 設為您先前在本教學課程中使用的 SSL URL (**\<https://localhost:44300/\>**，除非您已建立其他 SSL 專案)。
     這個 URL 是您應用程式的起點。在此範例中，您將僅輸入 localhost 測試 URL。不過，您可以在帳戶中輸入多個 URL 以供 localhost 和生產使用。
@@ -570,13 +570,13 @@ ASP.NET Web Forms 提供成員資格和驗證的增強功能選項。這些增�
 
 12. 按 **CTRL+F5** 以建置並執行應用程式。按一下 [登入] 連結。
 13. 在 [Use another service to log in] 下，按一下 [Google]。  
-    ![Log in][]
+    ![Log in][Log in]
 14. 如果您需要輸入認證，您會被重新導向至 Google 網站，您可以在其中輸入認證。  
-    ![Google - Sign in][]
+    ![Google - Sign in][Google - Sign in]
 15. 輸入認證後，系統便會提示您提供權限給剛建立的 Web 應用程式：  
-    ![Project Default Service Account][]
+    ![Project Default Service Account][Project Default Service Account]
 16. 按一下 [接受]。您將會被重新導向回到 [ContactManager] 應用程式的 [註冊] 頁面，您可在此註冊 Google 帳戶。
-    ![Register with your Google Account][]
+    ![Register with your Google Account][Register with your Google Account]
 17. 您可以選擇變更用於 Gmail 帳戶的本機電子郵件註冊名稱，但您通常會想保留預設電子郵件別名 (也就是，您用來驗證的名稱)。按一下 [登入]。
 
 ## 使用成員資格 API 來限制存取
@@ -644,7 +644,7 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 	Update-Database
 	</pre>
 
-    此程式碼便會建立名為`canEdit` 的新角色，並使用以下電子郵件建立新本機使用者：<canEditUser@wideworldimporters.com>。接著，此程式碼將 <canEditUser@wideworldimporters.com> 新增到`canEdit` 角色。如需詳細資訊，請參閱 [ASP.NET 身分識別][]資源頁面 (英文)。
+    此程式碼便會建立名為`canEdit` 的新角色，並使用以下電子郵件建立新本機使用者：<canEditUser@wideworldimporters.com>。接著，此程式碼將 <canEditUser@wideworldimporters.com> 新增到`canEdit` 角色。如需詳細資訊，請參閱 [ASP.NET 身分識別][ASP.NET 身分識別]資源頁面 (英文)。
 
     </p>
 
@@ -767,7 +767,7 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 1.  在 Visual Studio 中，建置專案 (**Ctrl+Shift+B**)。
 2.  以滑鼠右鍵按一下 [方案總管] 中的專案，並選取 [發行]。  
 
-    ![Publish menu option][]  
+    ![Publish menu option][Publish menu option]  
     [發行 Web] 對話方塊便會隨即顯示。  
     ![Publish Web dialog box][7]
 3.  從 [設定檔] 索引標籤中，選取 [Azure 網站] 作為發行目標 (如果尚未選取此選項)。  
@@ -798,7 +798,7 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 
 1.  在瀏覽器中按一下 [Contact Demo] 連結。
     連絡人清單便會隨即顯示。
-    ![Contacts listed in Browser][]
+    ![Contacts listed in Browser][Contacts listed in Browser]
 
 2.  選取 [連絡人清單] 頁面上的 [建立新項目]。
     ![Contacts listed in Browser][11]
@@ -809,11 +809,11 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 
     **密碼**：`Pa$$word1`
 
-    ![Log in Page][]
+    ![Log in Page][Log in Page]
 
 4.  在每個欄位中輸入新資料，然後按 [插入] 按鈕。
 
-    ![Add New Contact Page][]
+    ![Add New Contact Page][Add New Contact Page]
     *EditContactList.aspx* 頁面便會隨即顯示新記錄。
 
     ![Add New Contact Page][12]
@@ -828,7 +828,7 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 2.  在 [伺服器總管] 中，瀏覽至 [網站]。
 3.  在每個網站執行個體上按一下滑鼠右鍵，並選取 [Stop Website]。
 
-    ![Stop Web Site menu item][]
+    ![Stop Web Site menu item][Stop Web Site menu item]
 
     或者，您也可以從 Microsoft Azure 管理入口網站中選取網站，然後按一下頁面底部的 [停止] 圖示。
 
@@ -843,7 +843,7 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 1.  在 Visual Studio 中，開啟 [伺服器總管] 並瀏覽至 [ContactDB]。
 2.  以滑鼠右鍵按一下 [ContactDB]，並選取 [Open in SQL Server Object Explorer]。
 
-    ![Open in SQL Server Object Explorer menu item][]
+    ![Open in SQL Server Object Explorer menu item][Open in SQL Server Object Explorer menu item]
 
 3.  如果 [Add Firewall Rule] 對話方塊隨即顯示，請選取 [Add Firewall Rule]。
 
@@ -857,16 +857,16 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 
 5.  展開 [contactDB] 資料庫，然後展開 [資料表]。
 6.  以滑鼠右鍵按一下 [dbo.AspNetUsers] 資料表，並選取 [檢視資料]。
-    ![View Data menu item][]
+    ![View Data menu item][View Data menu item]
     您可以檢視與 \<canEditUser@contoso.com\> 使用者相關的資料。
-    ![ContactManager window][]
+    ![ContactManager window][ContactManager window]
 
 ### 透過編輯資料庫將使用者新增至管理角色
 
 在本教學課程稍早的章節中，您使用程式碼將使用者新增至 canEdit 角色。替代的方法是直接在成員資格資料表中操作資料。下列步驟顯示如何使用此替代方法，將使用者新增至角色。
 
 1.  在 [SQL Server 物件總管] 中，以滑鼠右鍵按一下 [dbo.AspNetUserRoles]，再選取 [檢視資料]。
-    ![AspNetUserRoles data][]
+    ![AspNetUserRoles data][AspNetUserRoles data]
 2.  複製 *RoleId* 並將其貼至空白 (新) 資料列。
     ![AspNetUserRoles data][14]
 3.  在 [dbo.AspNetUsers] 資料表中，尋找您要放到角色中的使用者，並複製使用者的 *Id*。
@@ -877,16 +877,16 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 
 ## 後續步驟
 
-如需 ASP.NET Web Forms 的詳細資訊，請參閱 ASP.NET 網站上的[了解 ASP.NET Web Forms][] 和 [Microsoft Azure 教學課程和指南][]。
+如需 ASP.NET Web Forms 的詳細資訊，請參閱 ASP.NET 網站上的[了解 ASP.NET Web Forms][了解 ASP.NET Web Forms] 和 [Microsoft Azure 教學課程和指南][Microsoft Azure 教學課程和指南]。
 
-本教學課程會以 MVC 教學課程：[將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站][]，作者：Rick Anderson (Twitter [@RickAndMSFT][]) 為基礎，並取得 Tom Dykstra 和 Barry Dorrans (Twitter [@blowdart][]) 的協助。
+本教學課程會以 MVC 教學課程：[將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站][將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站]，作者：Rick Anderson (Twitter [@RickAndMSFT][@RickAndMSFT]) 為基礎，並取得 Tom Dykstra 和 Barry Dorrans (Twitter [@blowdart][@blowdart]) 的協助。
 
-如果您發現喜歡的地方和希望我們改善的地方 (不論是針對本教學課程或其示範的產品)，歡迎留下意見反應。您的意見反應將協助我們訂出優先改善要務。您也可以在[告訴我如何處理程式碼][] (英文) 提出並對新主題進行投票。
+如果您發現喜歡的地方和希望我們改善的地方 (不論是針對本教學課程或其示範的產品)，歡迎留下意見反應。您的意見反應將協助我們訂出優先改善要務。您也可以在[告訴我如何處理程式碼][告訴我如何處理程式碼] (英文) 提出並對新主題進行投票。
 
   [將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
   [Contacts - Edit Page]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms00.png
-  [啟用自己的 MSDN 訂戶權益]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-  [申請免費試用]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
+  [啟用自己的 MSDN 訂戶權益]: /zh-tw/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+  [申請免費試用]: /zh-tw/pricing/free-trial/?WT.mc_id=A261C142F
   [設定開發環境]: #set-up-the-development-environment
   [設定 Azure 環境]: #Set-up-the-Azure-environment
   [建立 ASP.NET Web Forms 應用程式]: #Create-an-ASP.NET-Web-Forms-Application

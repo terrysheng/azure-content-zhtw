@@ -8,28 +8,28 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/zh-TW/documentation/articles/web-sites-dotster-custom-domain-name/" title="網站" class="current">網站</a> | <a href="/zh-TW/documentation/articles/web-sites-dotster-traffic-manager-custom-domain-name/" title="使用流量管理員的網站">使用流量管理員的網站</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-本文提供使用 Azure 網站，從 [Dotster.com][] 購買的自訂網域名稱的使用指示。
+本文提供使用 Azure 網站，從 [Dotster.com][Dotster.com] 購買的自訂網域名稱的使用指示。
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 本文內容：
 
--   [了解 DNS 記錄][]
--   [將網站設定為基本、共用或標準模式][]
--   [新增自訂網域的 DNS 記錄][]
--   [在網站上啟用網域][]
+-   [了解 DNS 記錄][了解 DNS 記錄]
+-   [將網站設定為基本、共用或標準模式][將網站設定為基本、共用或標準模式]
+-   [新增自訂網域的 DNS 記錄][新增自訂網域的 DNS 記錄]
+-   [在網站上啟用網域][在網站上啟用網域]
 
 ## <a name="understanding-records"></a>了解 DNS 記錄
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 ## <a name="bkmk_configsharedmode"></a>將網站設定為基本、共用或標準模式
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -40,11 +40,11 @@
 
 1.  在 Dotster.com 中登入您的帳戶。在 [網域] 功能表中，選取 [DomainCentral]。
 
-    ![Domain Central Dotster Menu][]
+    ![Domain Central Dotster Menu][Domain Central Dotster Menu]
 
 2.  選取您的網域以帶出設定清單。然後選取 [Nameservers] 連結。
 
-    ![Dotster Domain Configuration Options][]
+    ![Dotster Domain Configuration Options][Dotster Domain Configuration Options]
 
 3.  選取 [Use different name servers]。為了要充分運用 Dotster 上的 DNS 服務，您必須指定下列名稱伺服器：ns1.nameresolve.com、ns2.nameresolve.com、ns3.nameresolve.com 和 ns4.nameresolve.com。
 

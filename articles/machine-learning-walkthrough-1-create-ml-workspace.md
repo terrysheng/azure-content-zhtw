@@ -2,14 +2,14 @@
 
 <tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
 
-這是[使用 Azure ML 開發預測方案][]逐步解說的第一個步驟：
+這是[使用 Azure ML 開發預測方案][使用 Azure ML 開發預測方案]逐步解說的第一個步驟：
 
 1.  **建立 ML 工作區**
-2.  [上傳現有資料][]
-3.  [建立新實驗][]
-4.  [訓練及評估模型][]
-5.  [發佈 Web 服務][]
-6.  [存取 Web 服務][]
+2.  [上傳現有資料][上傳現有資料]
+3.  [建立新實驗][建立新實驗]
+4.  [訓練及評估模型][訓練及評估模型]
+5.  [發佈 Web 服務][發佈 Web 服務]
+6.  [存取 Web 服務][存取 Web 服務]
 
 ------------------------------------------------------------------------
 
@@ -21,7 +21,7 @@
 
 1.  登入您的 Microsoft Azure 帳戶。
 2.  在 Microsoft Azure 服務面板中，按一下 [機器學習]。.
-    ![Create workspace][]
+    ![Create workspace][Create workspace]
 
 3.  按一下 [建立 ML 工作區]。
 4.  在 [快速建立] 頁面中輸入您的工作區資訊，然後按一下 [建立 ML 工作區]。
@@ -34,7 +34,7 @@ ML 工作區建立後，您會看見它列示在 [機器學習] 頁面上。
 
 ------------------------------------------------------------------------
 
-**接著：[上傳現有資料][]**
+**接著：[上傳現有資料][上傳現有資料]**
 
   [使用 Azure ML 開發預測方案]: ../machine-learning-walkthrough-develop-predictive-solution/
   [上傳現有資料]: ../machine-learning-walkthrough-2-upload-data/

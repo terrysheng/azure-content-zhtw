@@ -4,15 +4,15 @@
 
 # 開始使用 SQL Database 稽核
 
-Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azure 儲存體帳戶中的稽核記錄。Basic、Standard 和 Premium 服務層的預覽版提供稽核功能。若要使用稽核，請[註冊預覽版][]。
+Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azure 儲存體帳戶中的稽核記錄。Basic、Standard 和 Premium 服務層的預覽版提供稽核功能。若要使用稽核，請[註冊預覽版][註冊預覽版]。
 
 稽核可協助您保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。
 
-稽核工具啟用及推動遵循法規標準，但不保證符合法規。如需有關支援標準法規的 Azure 程式詳細資訊，請參閱 [Azure 信任中心][]。
+稽核工具啟用及推動遵循法規標準，但不保證符合法規。如需有關支援標準法規的 Azure 程式詳細資訊，請參閱 [Azure 信任中心][Azure 信任中心]。
 
--   [Azure SQL Database 稽核基本概念][]
--   [設定資料庫的稽核][]
--   [分析稽核記錄和報告][]
+-   [Azure SQL Database 稽核基本概念][Azure SQL Database 稽核基本概念]
+-   [設定資料庫的稽核][設定資料庫的稽核]
+-   [分析稽核記錄和報告][分析稽核記錄和報告]
 
 ## <span id="subheading-1"></span>Azure SQL Database 稽核基本概念</a>
 
@@ -30,7 +30,7 @@ Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azu
 -   **帳戶、角色和權限 (DCL)**
 -   **安全性例外狀況**
 
-如需已記錄活動和事件的進一步資訊，請參閱[稽核記錄格式參考 (doc 檔案下載)][]。
+如需已記錄活動和事件的進一步資訊，請參閱[稽核記錄格式參考 (doc 檔案下載)][稽核記錄格式參考 (doc 檔案下載)]。
 
 您也可以選擇將儲存稽核記錄的儲存體帳戶。
 
@@ -45,8 +45,8 @@ Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azu
 ## <span id="subheading-2"></span></a>設定資料庫的稽核
 
 1.  [註冊稽核預覽版][註冊預覽版]。
-2.  另請務必[註冊新服務層的預覽版][]，並建立 Basic、Standard 或 Premium 資料庫。
-3.  啟動 [Azure 預覽入口網站][]，位址是 <https://portal.azure.com>。
+2.  另請務必[註冊新服務層的預覽版][註冊新服務層的預覽版]，並建立 Basic、Standard 或 Premium 資料庫。
+3.  啟動 [Azure 預覽入口網站][Azure 預覽入口網站]，位址是 <https://portal.azure.com>。
 4.  按一下您要稽核的資料庫，然後按一下 **[Auditing Preview]**，以啟用稽核預覽版並啟動稽核組態分頁。
 
     ![][]
@@ -71,19 +71,19 @@ Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azu
 
 ## <span id="subheading-3"></span>分析稽核記錄和報告</a>
 
-稽核記錄會在安裝期間所選擇的 Azure 儲存體帳戶中、名為 **AuditLogs** 的單一 Azure 儲存體資料表內進行彙總。您可以使用工具 (例如 [Azure 儲存體總管][]) 來檢視記錄檔。
+稽核記錄會在安裝期間所選擇的 Azure 儲存體帳戶中、名為 **AuditLogs** 的單一 Azure 儲存體資料表內進行彙總。您可以使用工具 (例如 [Azure 儲存體總管][Azure 儲存體總管]) 來檢視記錄檔。
 
-預先設定的儀表板報告範本會以[可下載的 Excel 試算表][]形式提供，以協助您快速分析記錄資料。若要在稽核記錄上使用範本，您需要 Excel 2013 (或更新版本) 和 Power Query (您可從[此處][]下載)。
+預先設定的儀表板報告範本會以[可下載的 Excel 試算表][可下載的 Excel 試算表]形式提供，以協助您快速分析記錄資料。若要在稽核記錄上使用範本，您需要 Excel 2013 (或更新版本) 和 Power Query (您可從[此處][此處]下載)。
 
 範本中包含虛構的範例資料，您可以設定 Power Query 直接從 Azure 儲存體帳戶匯入稽核記錄。
 
-如需有關使用報告範本的詳細指示，請閱讀[作法 (doc 下載)][]。
+如需有關使用報告範本的詳細指示，請閱讀[作法 (doc 下載)][作法 (doc 下載)]。
 
 ![][5]
 
 <!--Anchors-->
   [註冊預覽版]: http://go.microsoft.com/fwlink/?LinkId=404163
-  [Azure 信任中心]: http://azure.microsoft.com/en-us/support/trust-center/compliance/
+  [Azure 信任中心]: http://azure.microsoft.com/zh-tw/support/trust-center/compliance/
   [Azure SQL Database 稽核基本概念]: #subheading-1
   [設定資料庫的稽核]: #subheading-2
   [分析稽核記錄和報告]: #subheading-3
@@ -98,7 +98,7 @@ Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azu
   [4]: ./media/sql-database-auditing-get-started/sql-database-get-started-connectionstring.png
   [Azure 儲存體總管]: http://azurestorageexplorer.codeplex.com/
   [可下載的 Excel 試算表]: http://go.microsoft.com/fwlink/?LinkId=403540
-  [此處]: http://www.microsoft.com/en-us/download/details.aspx?id=39379
+  [此處]: http://www.microsoft.com/zh-tw/download/details.aspx?id=39379
   [作法 (doc 下載)]: http://go.microsoft.com/fwlink/?LinkId=506731
   [5]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png
 <!--Link references-->

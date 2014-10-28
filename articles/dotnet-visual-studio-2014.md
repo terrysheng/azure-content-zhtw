@@ -10,15 +10,15 @@
 
 若要安裝 Azure SDK 2.4 for .NET，請依照下列步驟執行：
 
-1.  安裝最新的 [Visual Studio "14" CTP][]。
+1.  安裝最新的 [Visual Studio "14" CTP][Visual Studio "14" CTP]。
 
 2.  使用下列清單中的連結，依序安裝 Azure SDK 的每一個元件。選擇下列每一個元件的 x86 或 x64 版本。
 
-    -   Azure 製作工作：[WindowsAzureAuthoringTools-x86.msi][] 或 [WindowsAzureAuthoringTools-x64.msi][]。
-    -   Azure 電腦模擬器：[WindowsAzureEmulator-x86.exe][] 或 [WindowsAzureEmulator-x64.exe][]。
-    -   Azure 用戶端程式庫：[WindowsAzureLibsForNet-x86.msi][] 或 [WindowsAzureLibsForNet-x64.msi][]。
-    -   儲存體模擬器。[WindowsAzureStorageEmulator.msi][]。如果收到關於本機 SQL 資料庫的警告，請從[這裡][]安裝 SQL Server LocalDB 11.0 的 x86 版本，或從[這裡][1]安裝 x64 版本。
-    -   Azure Tools for Visual Studio：[WindowsAzureTools.vs140.exe][]。
+    -   Azure 製作工作：[WindowsAzureAuthoringTools-x86.msi][WindowsAzureAuthoringTools-x86.msi] 或 [WindowsAzureAuthoringTools-x64.msi][WindowsAzureAuthoringTools-x64.msi]。
+    -   Azure 電腦模擬器：[WindowsAzureEmulator-x86.exe][WindowsAzureEmulator-x86.exe] 或 [WindowsAzureEmulator-x64.exe][WindowsAzureEmulator-x64.exe]。
+    -   Azure 用戶端程式庫：[WindowsAzureLibsForNet-x86.msi][WindowsAzureLibsForNet-x86.msi] 或 [WindowsAzureLibsForNet-x64.msi][WindowsAzureLibsForNet-x64.msi]。
+    -   儲存體模擬器。[WindowsAzureStorageEmulator.msi][WindowsAzureStorageEmulator.msi]。如果收到關於本機 SQL 資料庫的警告，請從[這裡][這裡]安裝 SQL Server LocalDB 11.0 的 x86 版本，或從[這裡][1]安裝 x64 版本。
+    -   Azure Tools for Visual Studio：[WindowsAzureTools.vs140.exe][WindowsAzureTools.vs140.exe]。
 
     </p>
 
@@ -33,7 +33,7 @@
 
 ## 版本資訊
 
-請閱讀 Azure SDK 2.4 的[版本資訊][]。
+請閱讀 Azure SDK 2.4 的[版本資訊][版本資訊]。
 
   [Visual Studio "14" CTP]: http://go.microsoft.com/fwlink/p/?LinkId=400776
   [WindowsAzureAuthoringTools-x86.msi]: http://go.microsoft.com/fwlink/p/?LinkId=400892

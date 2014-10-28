@@ -89,24 +89,24 @@ Azure BizTalk 服務進入節流狀態時會發生下列情況：
 
 ## 其他 Azure BizTalk 服務主題
 
--   [安裝 Azure BizTalk 服務 SDK][]
--   [教學課程：Azure BizTalk 服務][]
--   [如何開始使用 Azure BizTalk 服務 SDK][]
--   [Azure BizTalk 服務][]
+-   [安裝 Azure BizTalk 服務 SDK][安裝 Azure BizTalk 服務 SDK]
+-   [教學課程：Azure BizTalk 服務][教學課程：Azure BizTalk 服務]
+-   [如何開始使用 Azure BizTalk 服務 SDK][如何開始使用 Azure BizTalk 服務 SDK]
+-   [Azure BizTalk 服務][Azure BizTalk 服務]
 
 ## 另請參閱
 
--   [BizTalk 服務：開發人員、基本、標準和高級版本圖表][]
+-   [BizTalk 服務：開發人員、基本、標準和高級版本圖表][BizTalk 服務：開發人員、基本、標準和高級版本圖表]
      (英文)
--   [BizTalk 服務：使用 Azure 管理入口網站進行佈建][]
+-   [BizTalk 服務：使用 Azure 管理入口網站進行佈建][BizTalk 服務：使用 Azure 管理入口網站進行佈建]
      (英文)
--   [BizTalk 服務：佈建狀態圖][]
+-   [BizTalk 服務：佈建狀態圖][BizTalk 服務：佈建狀態圖]
      (英文)
--   [BizTalk 服務：儀表板、監視器和調整索引標籤][]
+-   [BizTalk 服務：儀表板、監視器和調整索引標籤][BizTalk 服務：儀表板、監視器和調整索引標籤]
      (英文)
--   [BizTalk 服務：備份與還原][]
+-   [BizTalk 服務：備份與還原][BizTalk 服務：備份與還原]
      (英文)
--   [BizTalk 服務：簽發者名稱和簽發者金鑰][]
+-   [BizTalk 服務：簽發者名稱和簽發者金鑰][BizTalk 服務：簽發者名稱和簽發者金鑰]
      (英文)
 
   [安裝 Azure BizTalk 服務 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=241589

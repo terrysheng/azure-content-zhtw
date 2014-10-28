@@ -15,20 +15,20 @@
 
 此逐步解說需要下列開發環境必要條件：
 
--   [PHP Sample Code for Azure Active Directory][]
--   [Eclipse PDT 3.0.x All In Ones][]
+-   [PHP Sample Code for Azure Active Directory][PHP Sample Code for Azure Active Directory]
+-   [Eclipse PDT 3.0.x All In Ones][Eclipse PDT 3.0.x All In Ones]
 -   PHP 5.3.1 (透過 Web 平台安裝程式)
 -   Internet Information Services (IIS) 7.5 (已啟用 SSL)
 -   Windows PowerShell
--   [Office 365 PowerShell Commandlets][]
+-   [Office 365 PowerShell Commandlets][Office 365 PowerShell Commandlets]
 
 ### 目錄
 
--   [簡介][]
--   [步驟 1：建立 PHP 應用程式][]
--   [步驟 2：在公司的目錄租用戶中佈建應用程式][]
--   [步驟 3：使用 WS-同盟進行員工登入來保護應用程式][]
--   [摘要][]
+-   [簡介][簡介]
+-   [步驟 1：建立 PHP 應用程式][步驟 1：建立 PHP 應用程式]
+-   [步驟 2：在公司的目錄租用戶中佈建應用程式][步驟 2：在公司的目錄租用戶中佈建應用程式]
+-   [步驟 3：使用 WS-同盟進行員工登入來保護應用程式][步驟 3：使用 WS-同盟進行員工登入來保護應用程式]
+-   [摘要][摘要]
 
 ## <a name="createapp"></a>步驟 1：建立 PHP 應用程式
 

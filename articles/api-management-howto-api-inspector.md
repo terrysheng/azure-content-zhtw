@@ -8,9 +8,9 @@ API 管理 (預覽) 提供 API 偵測器工具協助您進行 API 的偵錯和�
 
 ## 本主題內容
 
--   [使用 API 偵測器來追蹤呼叫][]
--   [檢查追蹤][]
--   [後續步驟][]
+-   [使用 API 偵測器來追蹤呼叫][使用 API 偵測器來追蹤呼叫]
+-   [檢查追蹤][檢查追蹤]
+-   [後續步驟][後續步驟]
 
 ## <a name="trace-call"> </a> 使用 API 偵測器來追蹤呼叫
 
@@ -22,27 +22,27 @@ API 管理 (預覽) 提供 API 偵測器工具協助您進行 API 的偵錯和�
 
 若要開始，請在 API 管理服務的 Azure 入口網站中按一下 [開發入口網站]。這會帶您前往 API 管理的管理入口網站。
 
-> 如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][]教學課程中的[建立 API 管理服務執行個體][]。
+> 如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][開始使用 Azure API 管理]教學課程中的[建立 API 管理服務執行個體][建立 API 管理服務執行個體]。
 
-![API Management developer portal][]
+![API Management developer portal][API Management developer portal]
 
 您可以從開發人員入口網站直接呼叫作業，以便檢視和測試 API 的操作。在此教學課程步驟中，您將呼叫 **Echo API** 的 **Get Resource** 方法。
 
 從上方功能表中按一下 [API]，然後按一下 [Echo API]。
 
-![Echo API][]
+![Echo API][Echo API]
 
 > 如果您的帳戶只設定或只看見一個 API，按一下 API 將帶您直接前往該 API 的作業。
 
 選取 [GET Resource] 作業，然後按一下 [開啟主控台]。
 
-![Open console][]
+![Open console][Open console]
 
 保留預設的參數值，並從 **subscription-key** 下拉式清單中選取您的訂閱金鑰。
 
 輸入 **ocp-apim-trace:true** 至 [要求標頭] 文字方塊中，然後按一下 [HTTP Get]。
 
-![HTTP Get][]
+![HTTP Get][HTTP Get]
 
 在回應標頭中，將會有一個 **ocp-apim-trace-location**，且值類似下列範例。
 
@@ -184,7 +184,7 @@ API 管理 (預覽) 提供 API 偵測器工具協助您進行 API 的偵錯和�
 
 ## <a name="next-steps"> </a>後續步驟
 
--   在[開始使用進階 API 組態][]教學課程中查看其他主題。
+-   在[開始使用進階 API 組態][開始使用進階 API 組態]教學課程中查看其他主題。
 
   [使用 API 偵測器來追蹤呼叫]: #trace-call
   [檢查追蹤]: #inspect-trace

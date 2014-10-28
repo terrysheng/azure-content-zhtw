@@ -8,46 +8,46 @@
 
 ## 本主題內容
 
--   [加入作業][]
--   [操作快取][]
--   [要求參數][]
--   [要求本文][]
--   [回應][]
--   [後續步驟][]
+-   [加入作業][加入作業]
+-   [操作快取][操作快取]
+-   [要求參數][要求參數]
+-   [要求本文][要求本文]
+-   [回應][回應]
+-   [後續步驟][後續步驟]
 
 ## <a name="add-operation"> </a>加入作業
 
 請在管理主控台加入和設定 API 的操作。若要存取管理主控台，請在 API 管理服務的 Azure 入口網站中按一下 [管理主控台]。
 
-> 如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][]教學課程中的[建立 API 管理服務執行個體][]。
+> 如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][開始使用 Azure API 管理]教學課程中的[建立 API 管理服務執行個體][建立 API 管理服務執行個體]。
 
-![API Management console][]
+![API Management console][API Management console]
 
 在 API 管理入口網站中選取所需的 API，然後選取 [操作] 索引標籤。
 
-![Operations][]
+![Operations][Operations]
 
 按一下 [加入作業] 以加入新的作業。將顯示 [新增作業]，並且預設會選取 [簽章] 索引標籤。
 
-![Add operation][]
+![Add operation][Add operation]
 
 從下拉式清單中選擇，指定 [HTTP 指令動詞]。
 
-![HTTP method][]
+![HTTP method][HTTP method]
 
 輸入 URL 片段 (由一或多個 URL 路徑區段及零個以上的查詢字串參數組成)，以定義 URL 範本。URL 範本 (附加至 API 的基礎 URL) 可識別單一 HTTP 操作。可能包含一或多個以大括弧識別的具名變數部分。這些變數部分稱為範本參數，當 API 管理平台處理要求時，就會動態地指派從要求的 URL 中擷取的值給這些變數。
 
-![URL template][]
+![URL template][URL template]
 
 若需要，請指定 [Rewrite URL template]。這樣可讓您在前端使用標準 URL 範本來處理傳入的要求，同時根據重寫範本利用轉換過的 URL 來呼叫後端。重寫範本中應該使用 URL 範本中的範本參數。下列範例顯示如何利用 URL 範本，將前一個範例的 Web 服務中以路徑區段編碼的內容類型，提供給透過 API 管理平台所發行的 API 中作為查詢參數。
 
-![URL template rewrite][]
+![URL template rewrite][URL template rewrite]
 
 操作的呼叫端將使用格式 `/customers?customerid=ALFKI`，而當叫用後端服務時，這會對應至 `/Customers('ALFKI')`。
 
 [顯示名稱] 和 [描述] 提供操作的描述，用來提供文件給在開發人員入口網站中使用此 API 的開發人員。
 
-![說明][]
+![說明][說明]
 
 在 [描述] 文字方塊中，可以用純文字或 HTML 來指定操作描述。
 
@@ -57,13 +57,13 @@
 
 若要輕鬆又快速地啟用操作的快取，請選取 [快取] 索引標籤並核取 [啟用] 核取方塊。
 
-![快取][]
+![快取][快取]
 
 [持續期間] 指定操作回應保留在快取中的時間週期。預設值為 3600 秒或 1 小時。
 
 快取索引鍵用來區分回應，以便讓對應至每一個不同快取索引鍵的回應取得各自的快取值。選擇性地，在 [依查詢字串參數改變] 和 [Vary by headers] 文字方塊中，分別輸入用來計算快取索引鍵值的特定查詢字串參數及/或 HTTP 標頭。未指定時，則會使用完整要求 URL 和下列 HTTP 標頭值來產生快取索引鍵：**Accept** 和 **Accept-Charset**。
 
-> 如需快取和快取原則的詳細資訊，請參閱[如何在 Azure API 管理中快取操作結果][]。
+> 如需快取和快取原則的詳細資訊，請參閱[如何在 Azure API 管理中快取操作結果][如何在 Azure API 管理中快取操作結果]。
 
 ## <a name="request-parameters"> </a>要求參數
 
@@ -77,7 +77,7 @@
 -   **值** - 可指派給此參數的值。其中一個值可標示為預設值 (選擇性)。
 -   **必要** - 選取此核取方塊將參數標示為必要。
 
-![Request parameters][]
+![Request parameters][Request parameters]
 
 ## <a name="request-body"> </a>要求本文
 
@@ -89,7 +89,7 @@
 
 按一下 [Add Representation]，開始輸入想要的內容類型名稱 (例如 application/json)，在下拉式清單中選取它，然後將所需的要求本文範例以選取的格式貼到文字方塊中。
 
-![Request body][]
+![Request body][Request body]
 
 除了表示法，您也可以在 [描述] 文字方塊中指定選用的文字描述。
 
@@ -99,15 +99,15 @@
 
 若要加入回應，請按一下 [加入]，開始輸入所需的狀態碼。在此範例中，狀態碼為 **200 OK**。當代碼出現在下拉式清單時，請選取它，回應碼就會建立並加入至您的操作。
 
-![Response code][]
+![Response code][Response code]
 
 按一下 [Add Representation]，開始輸入想要的內容類型名稱 (例如 application/json)，然後在下拉式清單中選取它。
 
-![Body content type][]
+![Body content type][Body content type]
 
 將回應本文範例以選取的格式貼到文字方塊中。
 
-![Response body][]
+![Response body][Response body]
 
 若需要，將選擇性描述加入至 [描述] 文字方塊。
 
@@ -117,7 +117,7 @@
 
 當操作加入至 API 之後，下一步是將 API 與產品建立關聯並發行，讓開發人員可呼叫其操作。
 
--   [如何建立和發行產品][]
+-   [如何建立和發行產品][如何建立和發行產品]
 
   [加入作業]: #add-operation
   [操作快取]: #operation-caching

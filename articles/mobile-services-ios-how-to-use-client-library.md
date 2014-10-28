@@ -5,43 +5,43 @@
 # 如何使用行動服務的 iOS 用戶端程式庫
 
 <div class="dev-center-tutorial-selector sublanding"> 
-<a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
+<a href="/zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
 </div>
 
-本指南說明如何使用適用於 Azure 行動服務的 iOS 用戶端執行一般案例。相關範例是以 objective-C 撰寫並需要[行動服務 SDK][]。本教學課程也需要 [iOS SDK][]。涵蓋的案例包括查詢資料、插入、更新和刪除資料、驗證使用者和處理錯誤。如果您不熟悉行動服務，您應考慮首先完成[行動服務快速入門][]。快速入門教學課程可協助您設定帳戶，並建立您的第一個行動服務。
+本指南說明如何使用適用於 Azure 行動服務的 iOS 用戶端執行一般案例。相關範例是以 objective-C 撰寫並需要[行動服務 SDK][行動服務 SDK]。本教學課程也需要 [iOS SDK][iOS SDK]。涵蓋的案例包括查詢資料、插入、更新和刪除資料、驗證使用者和處理錯誤。如果您不熟悉行動服務，您應考慮首先完成[行動服務快速入門][行動服務快速入門]。快速入門教學課程可協助您設定帳戶，並建立您的第一個行動服務。
 
 ## 目錄
 
--   [什麼是行動服務][]
--   [概念][]
--   [設定和必要條件][]
--   [作法：建立行動服務用戶端][]
--   [作法：建立資料表參考][]
--   [作法：查詢行動服務中的資料][]
+-   [什麼是行動服務][什麼是行動服務]
+-   [概念][概念]
+-   [設定和必要條件][設定和必要條件]
+-   [作法：建立行動服務用戶端][作法：建立行動服務用戶端]
+-   [作法：建立資料表參考][作法：建立資料表參考]
+-   [作法：查詢行動服務中的資料][作法：查詢行動服務中的資料]
 
-    -   [篩選傳回資料][]
-    -   [使用 MSQuery 物件][]
-    -   [選取特定資料欄][]
--   [作法：將資料插入行動服務][]
--   [作法：修改行動服務中的資料][]
--   [作法：將資料繫結到使用者介面][]
--   [作法：驗證使用者][]
--   [作法：處理錯誤][]
+    -   [篩選傳回資料][篩選傳回資料]
+    -   [使用 MSQuery 物件][使用 MSQuery 物件]
+    -   [選取特定資料欄][選取特定資料欄]
+-   [作法：將資料插入行動服務][作法：將資料插入行動服務]
+-   [作法：修改行動服務中的資料][作法：修改行動服務中的資料]
+-   [作法：將資料繫結到使用者介面][作法：將資料繫結到使用者介面]
+-   [作法：驗證使用者][作法：驗證使用者]
+-   [作法：處理錯誤][作法：處理錯誤]
 
-<!--- [How to: Design unit tests] - [How to: Customize the client]     - [Customize request headers]     - [Customize data type serialization] - [Next steps][]-->
+<!--- [How to: Design unit tests] - [How to: Customize the client]     - [Customize request headers]     - [Customize data type serialization] - [Next steps][Next steps]-->
 
-[WACOM.INCLUDE [mobile-services-concepts][]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="Setup"></a>設定和必要條件
 
-本指南假設您已建立包含資料表的行動服務。如需詳細資訊，請參閱[建立資料表][]，或重複使用`ToDoItem` 資料表 (建立於[開始使用行動服務][行動服務快速入門]教學課程中)。本主題的範例使用名為`ToDoItem`的資料表，其中包含下列資料行：
+本指南假設您已建立包含資料表的行動服務。如需詳細資訊，請參閱[建立資料表][建立資料表]，或重複使用`ToDoItem` 資料表 (建立於[開始使用行動服務][行動服務快速入門]教學課程中)。本主題的範例使用名為`ToDoItem`的資料表，其中包含下列資料行：
 
 -   `id`
 -   `text`
 -   `complete`
 -   `duration`
 
-如果您是第一次建立 iOS 應用程式，請確實將`WindowsAzureMobileServices.framework` 新增至應用程式的 [Link Binary With Libraries][] 設定。在此步驟中，按一下 [新增其他...]、導覽至下載的 Windows Azure 行動服務 SDK 的所在位置，然後選取該位置。
+如果您是第一次建立 iOS 應用程式，請確實將`WindowsAzureMobileServices.framework` 新增至應用程式的 [Link Binary With Libraries][Link Binary With Libraries] 設定。在此步驟中，按一下 [新增其他...]、導覽至下載的 Windows Azure 行動服務 SDK 的所在位置，然後選取該位置。
 
 另外，您必須在適當檔案或在應用程式的 .pch 檔案中新增下列參考。
 
@@ -84,7 +84,7 @@
 回呼中將會提供下列參數：
 
 -   *items*：共有 **NSArray** 筆符合查詢的記錄。
--   *totalCount*：所有查詢頁面中的項目總計數，而不只是目前頁面中所傳回的這些項目。除非您在要求中明確要求總計數，否則此值會被設為 -1。如需詳細資訊，請參閱[以分頁方式傳回資料][]。
+-   *totalCount*：所有查詢頁面中的項目總計數，而不只是目前頁面中所傳回的這些項目。除非您在要求中明確要求總計數，否則此值會被設為 -1。如需詳細資訊，請參閱[以分頁方式傳回資料][以分頁方式傳回資料]。
 -   *error*：發生的任何錯誤；若沒有錯誤，則為 `nil`.
 
 ### <a name="filtering"></a>作法：篩選傳回資料
@@ -197,11 +197,11 @@ MSQuery 物件可讓您控制下列查詢行為：
     };
 
 這些參數會以下列形式附加至查詢 URI：`myKey1=value1&myKey2=value2`.
- 如需詳細資訊，請參閱[作法：存取自訂參數][]。
+ 如需詳細資訊，請參閱[作法：存取自訂參數][作法：存取自訂參數]。
 
 ## <a name="inserting"></a><span class="short-header">插入資料</span>作法：將資料插入行動服務
 
-若要將新資料列插入資料表中，您可以建立新的 [NSDictionary 物件][]，並將該物件傳遞至 insert 函數。下列程式碼會將新的 todo 項目插入資料表中：
+若要將新資料列插入資料表中，您可以建立新的 [NSDictionary 物件][NSDictionary 物件]，並將該物件傳遞至 insert 函數。下列程式碼會將新的 todo 項目插入資料表中：
 
     NSDictionary *newItem = @{@"text": @"my new item", @"complete" : @NO};
     [table insert:newItem completion:^(NSDictionary *result, NSError *error) {
@@ -244,13 +244,13 @@ MSQuery 物件可讓您控制下列查詢行為：
 
 `id` 的值必須是唯一的，且不可包含下列字集中的字元：
 
--   控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]。如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1][] (英文)。
+-   控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]。如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1][ASCII 控制碼 C0 和 C1] (英文)。
 -   可以列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?**(0x003F)、**\\** (0x005C)、**\`** (0x0060)
 -   識別碼 "." 和 ".."
 
-另外，您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用`mobile table create` 命令和`--integerId` 選項建立您的資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表][] (英文)。
+另外，您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用`mobile table create` 命令和`--integerId` 選項建立您的資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表][使用 CLI 管理行動服務資料表] (英文)。
 
-啟用動態結構描述時，行動服務會根據插入或更新要求中的物件欄位自動產生新資料行。如需詳細資訊，請參閱[動態結構描述][]。
+啟用動態結構描述時，行動服務會根據插入或更新要求中的物件欄位自動產生新資料行。如需詳細資訊，請參閱[動態結構描述][動態結構描述]。
 
 ## <a name="modifying"></a><span class="short-header">修改資料</span>作法：修改行動服務中的資料
 
@@ -292,7 +292,7 @@ MSQuery 物件可讓您控制下列查詢行為：
 -   Twitter
 -   Azure Active Directory
 
-如需設定識別提供者的詳細資訊，請參閱[開始使用驗證][]。
+如需設定識別提供者的詳細資訊，請參閱[開始使用驗證][開始使用驗證]。
 
 行動服務支援下列兩個驗證工作流程：
 
@@ -300,9 +300,9 @@ MSQuery 物件可讓您控制下列查詢行為：
 
 -   在用戶端管理的登入中，應用程式必須向識別提供者要求權杖，然後向行動服務呈現此權杖以進行驗證。
 
-驗證成功時，系統會傳回包含指定使用者識別碼值和驗證權杖的使用者物件。您可以在伺服器指令碼中使用此使用者識別碼，以驗證或修改要求。如需詳細資訊，請參閱[以指令碼驗證使用者][]。權杖本身可以安全地進行快取，以供後續登入使用。
+驗證成功時，系統會傳回包含指定使用者識別碼值和驗證權杖的使用者物件。您可以在伺服器指令碼中使用此使用者識別碼，以驗證或修改要求。如需詳細資訊，請參閱[以指令碼驗證使用者][以指令碼驗證使用者]。權杖本身可以安全地進行快取，以供後續登入使用。
 
-您也可以在資料表上設定權限，限制只有經驗證的使用者可以存取特定作業。如需詳細資訊，請參閱[權限][]。
+您也可以在資料表上設定權限，限制只有經驗證的使用者可以存取特定作業。如需詳細資訊，請參閱[權限][權限]。
 
 ### 伺服器管理的登入
 
@@ -335,7 +335,7 @@ MSQuery 物件可讓您控制下列查詢行為：
 
 在有些情況下，有可能會在行動服務用戶端外部完成登入程序。這樣做的原因可能是為了啟用單一登入功能，或您的應用程式必須直接連絡識別提供者以取得使用者資訊。在這些情況下，您可以透過提供從支援的識別提供者獨立取得的權杖來登入行動服務。
 
-下列範例會使用 [Live Connect SDK][] 來啟用 iOS 應用程式的單一登入。
+下列範例會使用 [Live Connect SDK][Live Connect SDK] 來啟用 iOS 應用程式的單一登入。
 
     [client loginWithProvider:@"microsoftaccount" 
         token:@{@"authenticationToken" : self.liveClient.session.authenticationToken}
@@ -416,7 +416,7 @@ MSQuery 物件可讓您控制下列查詢行為：
 <p>權杖屬於敏感資料且必須加密儲存，以防在裝置遺失或遭竊時洩漏。</p>
 </div>
 
-使用快取權杖時，使用者在權杖到期之前無需重新登入。當使用者嘗試使用過期的權杖登入時，系統便會傳回 401 未經授權的回應。此時，使用者必須重新登入以取得新的權杖，並重新快取權杖。您可以使用篩選來避免每當應用程式呼叫行動服務，就得撰寫程式碼以處理過期權杖的情況。篩選可讓您攔截行動服務的呼叫和來自行動服務的回應。篩選中的程式碼會測試 401 的回應、觸發登入程序 (如果權杖已過期)，然後重試產生 401 的要求。如需詳細資料，請參閱[處理過期權杖][] (英文)。
+使用快取權杖時，使用者在權杖到期之前無需重新登入。當使用者嘗試使用過期的權杖登入時，系統便會傳回 401 未經授權的回應。此時，使用者必須重新登入以取得新的權杖，並重新快取權杖。您可以使用篩選來避免每當應用程式呼叫行動服務，就得撰寫程式碼以處理過期權杖的情況。篩選可讓您攔截行動服務的呼叫和來自行動服務的回應。篩選中的程式碼會測試 401 的回應、觸發登入程序 (如果權杖已過期)，然後重試產生 401 的要求。如需詳細資料，請參閱[處理過期權杖][處理過期權杖] (英文)。
 
 ## <a name="errors"></a><span class="short-header">錯誤處理</span>作法：處理錯誤
 
@@ -433,18 +433,18 @@ MSQuery 物件可讓您控制下列查詢行為：
 
 另外，會為每個錯誤碼定義一個常數。您可以在 MSError.h 檔案中找到這些程式碼的說明。
 
-如需執行驗證和處理任何資料的範例，請參閱[使用伺服器指令碼驗證及修改行動服務中的資料][]。在此主題中，伺服器端驗證是透過伺服器指令碼進行實作的。提交無效資料時，系統會傳回錯誤回應，且用戶端會處理此回應。
+如需執行驗證和處理任何資料的範例，請參閱[使用伺服器指令碼驗證及修改行動服務中的資料][使用伺服器指令碼驗證及修改行動服務中的資料]。在此主題中，伺服器端驗證是透過伺服器指令碼進行實作的。提交無效資料時，系統會傳回錯誤回應，且用戶端會處理此回應。
 
 
 
-  [.NET Framework]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
+  [.NET Framework]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
+  [HTML/JavaScript]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
+  [iOS]: /zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
+  [Android]: /zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
+  [Xamarin]: /zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [行動服務 SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [iOS SDK]: https://developer.apple.com/xcode
-  [行動服務快速入門]: /en-us/develop/mobile/tutorials/get-started-ios
+  [行動服務快速入門]: /zh-tw/develop/mobile/tutorials/get-started-ios
   [什麼是行動服務]: #what-is
   [概念]: #concepts
   [設定和必要條件]: #Setup
@@ -460,17 +460,17 @@ MSQuery 物件可讓您控制下列查詢行為：
   [作法：驗證使用者]: #authentication
   [作法：處理錯誤]: #errors
   [mobile-services-concepts]: ../includes/mobile-services-concepts.md
-  [建立資料表]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx
+  [建立資料表]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193162.aspx
   [Link Binary With Libraries]: https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html
   [以分頁方式傳回資料]: #paging
-  [作法：存取自訂參數]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
+  [作法：存取自訂參數]: /zh-tw/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
   [NSDictionary 物件]: http://go.microsoft.com/fwlink/p/?LinkId=301965
   [ASCII 控制碼 C0 和 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-  [使用 CLI 管理行動服務資料表]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+  [使用 CLI 管理行動服務資料表]: http://www.windowsazure.com/zh-tw/manage/linux/other-resources/command-line-tools/#Mobile_Tables
   [動態結構描述]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
-  [以指令碼驗證使用者]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
-  [權限]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-ios
+  [以指令碼驗證使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-ios
+  [權限]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193161.aspx
   [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
   [處理過期權杖]: http://go.microsoft.com/fwlink/p/?LinkId=301955
-  [使用伺服器指令碼驗證及修改行動服務中的資料]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios
+  [使用伺服器指令碼驗證及修改行動服務中的資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-ios

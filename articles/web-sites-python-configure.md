@@ -13,7 +13,7 @@
 
 ## WSGI 支援
 
-WSGI 是由 [PEP 3333][] 描述的一項 Python 標準，此標準定義了 Web 伺服器與 Python 之間的介面。此標準為您提供標準化介面，方便您使用 Python 撰寫各種 Web 應用程式與架構。今日熱門的 Python Web 架構都採用 WSGI。Azure 網站針對此類任何架構提供支援，而進階使用者甚至可以撰寫自己的架構，但前提是自訂處理常式必須遵守 WSGI 規範指示。
+WSGI 是由 [PEP 3333][PEP 3333] 描述的一項 Python 標準，此標準定義了 Web 伺服器與 Python 之間的介面。此標準為您提供標準化介面，方便您使用 Python 撰寫各種 Web 應用程式與架構。今日熱門的 Python Web 架構都採用 WSGI。Azure 網站針對此類任何架構提供支援，而進階使用者甚至可以撰寫自己的架構，但前提是自訂處理常式必須遵守 WSGI 規範指示。
 
 ## 網站建立
 
@@ -35,7 +35,7 @@ Git 發行設定完畢後，會建立一個 Git 儲存機制並與您的網站�
 
 我們在範例中使用基本 Python 應用程式搭配基本 WSGI 處理常式，以說明要在 Azure 網站中充分利用 Python 支援所需投入的最少工作。因此，您可使用此一骨架式 Python 應用程式開始編寫各式各樣的解決方案，包括如以下範例所示的複雜程度，一路到功能完整的 Web 架構。
 
-以下為基本 WSGI 處理常式的程式碼。它類似 [PEP 3333][] 規範所建議的程式碼，可作為 WSGI 相容應用程式的起點。我們將此內容儲存在名為 ConfigurePython.py (建立於網站根目錄下方 ConfigurePython 資料夾中) 的檔案：
+以下為基本 WSGI 處理常式的程式碼。它類似 [PEP 3333][PEP 3333] 規範所建議的程式碼，可作為 WSGI 相容應用程式的起點。我們將此內容儲存在名為 ConfigurePython.py (建立於網站根目錄下方 ConfigurePython 資料夾中) 的檔案：
 
     def application(environ, start_response):
         status = '200 OK'

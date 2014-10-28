@@ -6,23 +6,23 @@
 
 您可以使用 Visual Studio Online 小組專案來主控原始程式碼的 Git 儲存機制，並在您每次將認可推送至儲存機制時，就自動建置和部署至 Azure 網站或雲端服務。
 
-您需要安裝 Visual Studio 2013 和 Azure SDK。如果尚無 Visual Studio 2013，請至 [www.visualstudio.com][] 選擇 [免費開始用] 連結來下載。從[這裡][]安裝 Azure SDK。
+您需要安裝 Visual Studio 2013 和 Azure SDK。如果尚無 Visual Studio 2013，請至 [www.visualstudio.com][www.visualstudio.com] 選擇 [免費開始用] 連結來下載。從[這裡][這裡]安裝 Azure SDK。
 
 若要使用 Visual Studio Online 將雲端服務設定為自動建立和部署至 Azure，請依照下列步驟進行：
 
--   [步驟 1：註冊 Visual Studio Online 並建立 Git 儲存機制。][]
+-   [步驟 1：註冊 Visual Studio Online 並建立 Git 儲存機制。][步驟 1：註冊 Visual Studio Online 並建立 Git 儲存機制。]
 
--   [步驟 2：建立專案並推送至 Git 儲存機制。][]
+-   [步驟 2：建立專案並推送至 Git 儲存機制。][步驟 2：建立專案並推送至 Git 儲存機制。]
 
--   [步驟 3：將專案連線至 Azure。][]
+-   [步驟 3：將專案連線至 Azure。][步驟 3：將專案連線至 Azure。]
 
--   [步驟 4：進行變更並觸發重建和重新部署。][]
+-   [步驟 4：進行變更並觸發重建和重新部署。][步驟 4：進行變更並觸發重建和重新部署。]
 
--   [步驟 5：重新部署舊版組建 (選用)][]
+-   [步驟 5：重新部署舊版組建 (選用)][步驟 5：重新部署舊版組建 (選用)]
 
--   [步驟 6：變更生產部署][]
+-   [步驟 6：變更生產部署][步驟 6：變更生產部署]
 
--   [步驟 7：從工作分支部署][]
+-   [步驟 7：從工作分支部署][步驟 7：從工作分支部署]
 
 ## <a name="step1"></a><span class="short-header">步驟 1：註冊 Visual Studio Online 並建立 Git 儲存機制。</span>步驟 1：註冊 Visual Studio Online 並建立 Git 儲存機制
 
@@ -41,7 +41,7 @@
 2.  您可以依照本逐步解說的步驟，部署網站或雲端服務 (Azure 應用程式)。
     建立新的 Windows Azure 雲端服務專案，
     或新的 ASP.NET MVC 專案。請確定專案以 .NET Framework 4 或 4.5 為目標，如果是建立雲端服務專案，請加入 ASP.NET MVC Web 角色和背景工作角色。
-    如果要建立網站，請選擇 ASP.NET Web 應用程式專案範本，然後選擇 MVC。請參閱＜[開始使用 Azure 和 ASP.NET][]＞。
+    如果要建立網站，請選擇 ASP.NET Web 應用程式專案範本，然後選擇 MVC。請參閱＜[開始使用 Azure 和 ASP.NET][開始使用 Azure 和 ASP.NET]＞。
 
 3.  開啟方案的捷徑功能表，選擇 [認可]。
     ![][3]
@@ -55,7 +55,7 @@
 
 ## <a name="step3"> </a><span class="short-header">將專案連線至 Azure</span>步驟 3：將專案連線至 Azure
 
-1.  現在，您在 Visual Studio Online 中有一個 Git 儲存機制，裡面還有一些原始程式碼，您可以準備將 Git 儲存機制連接至 Azure。在 [Azure 入口網站][]中，選取您的雲端服務或網站，或選取左下方的 + 圖示，選擇 [雲端服務] 或 [網站]，然後選取 [快速建立]，以建立新的雲端服務或網站。<br.>
+1.  現在，您在 Visual Studio Online 中有一個 Git 儲存機制，裡面還有一些原始程式碼，您可以準備將 Git 儲存機制連接至 Azure。在 [Azure 入口網站][Azure 入口網站]中，選取您的雲端服務或網站，或選取左下方的 + 圖示，選擇 [雲端服務] 或 [網站]，然後選取 [快速建立]，以建立新的雲端服務或網站。<br.>
     ![][5]
 
 2.  若是雲端服務，請擇 [Set up publishing with Visual Studio Online] 連結。若是網站，請選擇 [設定從原始檔控制進行部署] 連結。
@@ -126,7 +126,7 @@
 12. 如果按兩下組建名稱，Visual Studio 會顯示 [組建摘要]，包括與單元測試專案相關聯的任何測試結果。
     ![][21]
 
-13. 在 [Azure 入口網站][]中，選取預備環境之後，您可以在 [部署] 索引標籤上檢視相關聯的部署。
+13. 在 [Azure 入口網站][Azure 入口網站]中，選取預備環境之後，您可以在 [部署] 索引標籤上檢視相關聯的部署。
     ![][22]
 
 14. 瀏覽至網站的 URL。若是網站，請在入口網站中直接選擇 [瀏覽] 按鈕。若是雲端服務，請在 [儀表板] 頁面的 [快速概覽] 區段中選擇 URL，以顯示預備環境。依預設，來自雲端服務連續整合的部署會發行至預備環境。您可以將 [替代雲端服務環境] 屬性設為 [生產] 來變更此設定。以下是網站 URL 在雲端服務儀表板頁面上的位置：
@@ -179,7 +179,7 @@
 
 10. 瀏覽至 [組建] 檢視，找出工作分支剛觸發的組建。
 
-如需詳細資訊，請參閱 [Visual Studio Online][]。如需有關使用 Git 與 Visual Studio Online 的其他秘訣，請參閱[在 Git 中共用程式碼][]，如需有關使用未受 Visual Studio Online 管理的 Git 儲存機制來發行至 Azure 的詳細資訊，請參閱[從原始檔控制發佈至 Azure 網站][]。
+如需詳細資訊，請參閱 [Visual Studio Online][Visual Studio Online]。如需有關使用 Git 與 Visual Studio Online 的其他秘訣，請參閱[在 Git 中共用程式碼][在 Git 中共用程式碼]，如需有關使用未受 Visual Studio Online 管理的 Git 儲存機制來發行至 Azure 的詳細資訊，請參閱[從原始檔控制發佈至 Azure 網站][從原始檔控制發佈至 Azure 網站]。
 
   [www.visualstudio.com]: http://www.visualstudio.com
   [這裡]: http://go.microsoft.com/fwlink/?LinkId=239540

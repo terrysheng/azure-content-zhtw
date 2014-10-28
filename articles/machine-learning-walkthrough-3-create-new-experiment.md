@@ -2,14 +2,14 @@
 
 <tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
 
-這是[使用 Azure ML 開發預測方案][]逐步解說的第三個步驟：
+這是[使用 Azure ML 開發預測方案][使用 Azure ML 開發預測方案]逐步解說的第三個步驟：
 
-1.  [建立 ML 工作區][]
-2.  [上傳現有資料][]
+1.  [建立 ML 工作區][建立 ML 工作區]
+2.  [上傳現有資料][上傳現有資料]
 3.  **建立新實驗**
-4.  [訓練及評估模型][]
-5.  [發佈 Web 服務][]
-6.  [存取 Web 服務][]
+4.  [訓練及評估模型][訓練及評估模型]
+5.  [發佈 Web 服務][發佈 Web 服務]
+6.  [存取 Web 服務][存取 Web 服務]
 
 ------------------------------------------------------------------------
 
@@ -41,13 +41,13 @@
 
 [屬性] 窗格將如下所示：
 
-![Properties for Metadata Editor][]
+![Properties for Metadata Editor][Properties for Metadata Editor]
 
 > 秘訣 - 如果您要確認資料行標題，請執行實驗 (按一下實驗畫布下方的 [執行])、以滑鼠右鍵按一下 [中繼資料編輯器] 模組的輸出埠，然後選取 [視覺化]。您可以用相同方式檢視任何模組的輸出，以檢視資料在實驗中的執行進度。
 
 實驗此時看起來應如下所示：
 
-![Adding Metadata Editor][]
+![Adding Metadata Editor][Adding Metadata Editor]
 
 ## 建立訓練和測試資料集
 
@@ -83,7 +83,7 @@
 >
 > 實驗此時看起來會如下所示：
 
-![Adding Split module and R scripts][]
+![Adding Split module and R scripts][Adding Split module and R scripts]
 
   [使用 Azure ML 開發預測方案]: ../machine-learning-walkthrough-develop-predictive-solution/
   [建立 ML 工作區]: ../machine-learning-walkthrough-1-create-ml-workspace/

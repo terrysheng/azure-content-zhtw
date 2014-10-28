@@ -14,31 +14,31 @@
 
 要能夠驗證使用者，您必須向 Azure Active Directory (AAD) 註冊您的應用程式。此作業有兩個階段。第一，您必須註冊行動服務，並公開其權限。第二，您必須註冊 Xamarin.iOS 應用程式，並為其授與對這些權限的存取權
 
-> [WACOM.NOTE] 本教學課程旨在協助您深入了解如何透過行動服務，為 Xamarin.iOS 應用程式執行單一登入 Azure Active Directory 驗證。如果這是您第一次接觸行動服務，請先完成教學課程[開始使用行動服務][]。
+> [WACOM.NOTE] 本教學課程旨在協助您深入了解如何透過行動服務，為 Xamarin.iOS 應用程式執行單一登入 Azure Active Directory 驗證。如果這是您第一次接觸行動服務，請先完成教學課程[開始使用行動服務][開始使用行動服務]。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [向 Azure Active Directory 註冊您的行動服務][]
-2.  [向 Azure Active Directory 註冊您的應用程式][]
-3.  [將行動服務設定為需要驗證][]
-4.  [將驗證程式碼新增至用戶端應用程式][]
-5.  [使用驗證測試用戶端][]
+1.  [向 Azure Active Directory 註冊您的行動服務][向 Azure Active Directory 註冊您的行動服務]
+2.  [向 Azure Active Directory 註冊您的應用程式][向 Azure Active Directory 註冊您的應用程式]
+3.  [將行動服務設定為需要驗證][將行動服務設定為需要驗證]
+4.  [將驗證程式碼新增至用戶端應用程式][將驗證程式碼新增至用戶端應用程式]
+5.  [使用驗證測試用戶端][使用驗證測試用戶端]
 
 本教學課程需要下列各項：
 
 -   XCode 4.5 和 iOS 6.0 (或更新版本)
--   附有 [Xamarin 延伸][]或 [Xamarin Studio][] 的 Visual Studio (在 OS X 上)
--   完成[開始使用行動服務][]或[開始使用資料][]教學課程。
+-   附有 [Xamarin 延伸][Xamarin 延伸]或 [Xamarin Studio][Xamarin Studio] 的 Visual Studio (在 OS X 上)
+-   完成[開始使用行動服務][開始使用行動服務]或[開始使用資料][開始使用資料]教學課程。
 -   Microsoft Azure 行動服務 SDK
--   [Active Directory Authentication Library for iOS 的 Xamarin 繫結][]。
+-   [Active Directory Authentication Library for iOS 的 Xamarin 繫結][Active Directory Authentication Library for iOS 的 Xamarin 繫結]。
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service](../includes/mobile-services-dotnet-adal-register-service.md)]
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-client][]]
+[WACOM.INCLUDE [mobile-services-dotnet-adal-register-client](../includes/mobile-services-dotnet-adal-register-client.md)]
 
 ## <a name="require-authentication"></a>將行動服務設定為需要驗證
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-code"></a>將驗證程式碼新增至用戶端應用程式
 
@@ -99,9 +99,9 @@
             }
         }
 
-3.  `AuthenticateAsync` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 取代為您佈建應用程式的租用戶名稱，其格式應為 <https://login.windows.net/tenant-name.onmicrosoft.com>。此值可從 [Azure 管理入口網站][]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
+3.  `AuthenticateAsync` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 取代為您佈建應用程式的租用戶名稱，其格式應為 <https://login.windows.net/tenant-name.onmicrosoft.com>。此值可從 [Azure 管理入口網站][Azure 管理入口網站]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
 
-4.  `AuthenticateAsync` 方法的程式碼中，將 **INSERT-RESOURCE-URI-HERE** 取代為您行動服務的 **應用程式識別碼 URI**。如果您依照[如何向 Azure Active Directory 註冊][]主題的內容操作，您的應用程式識別碼應會類似於 <https://todolist.azure-mobile.net/login/aad>。
+4.  `AuthenticateAsync` 方法的程式碼中，將 **INSERT-RESOURCE-URI-HERE** 取代為您行動服務的 **應用程式識別碼 URI**。如果您依照[如何向 Azure Active Directory 註冊][如何向 Azure Active Directory 註冊]主題的內容操作，您的應用程式識別碼應會類似於 <https://todolist.azure-mobile.net/login/aad>。
 
 5.  `AuthenticateAsync` 方法的程式碼中，將 **INSERT-CLIENT-ID-HERE** 取代為您從原生用戶端應用程式中複製的用戶端識別碼。
 
@@ -124,7 +124,7 @@
 
 <!-- Anchors. --> <!-- URLs. -->
 
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication "Windows 市集 C#"
+  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication "Windows 市集 C#"
   [iOS]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication "iOS"
   [Xamarin.iOS]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication "Xamarin.iOS"
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/

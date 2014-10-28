@@ -18,23 +18,23 @@
 
 本教學課程會逐步引導您完成這些基本步驟，以啟用對 SharePoint 的代理存取：
 
-1.  [針對 SharePoint 的委派存取註冊您的應用程式][]
-2.  [將 SharePoint 資訊新增至您的行動服務][]
-3.  [取得存取權杖及呼叫 SharePoint API][]
-4.  [建立及上傳 Word 文件][]
-5.  [測試應用程式][]
+1.  [針對 SharePoint 的委派存取註冊您的應用程式][針對 SharePoint 的委派存取註冊您的應用程式]
+2.  [將 SharePoint 資訊新增至您的行動服務][將 SharePoint 資訊新增至您的行動服務]
+3.  [取得存取權杖及呼叫 SharePoint API][取得存取權杖及呼叫 SharePoint API]
+4.  [建立及上傳 Word 文件][建立及上傳 Word 文件]
+5.  [測試應用程式][測試應用程式]
 
 本教學課程需要下列各項：
 
 -   執行於 Windows 8.1 的 Visual Studio 2013
--   作用中 [SharePoint Online][] 訂閱
--   完成[使用 Active Directory Authentication Library 單一登入驗證您的應用程式][]教學課程。您應使用 SharePoint 訂閱所提供的租用戶。
+-   作用中 [SharePoint Online][SharePoint Online] 訂閱
+-   完成[使用 Active Directory Authentication Library 單一登入驗證您的應用程式][使用 Active Directory Authentication Library 單一登入驗證您的應用程式]教學課程。您應使用 SharePoint 訂閱所提供的租用戶。
 
 ## <a name="configure-permissions"></a>針對 SharePoint 的委派存取設定您的應用程式
 
 根據預設，您從 AAD 取得的權杖僅具有有限權限。若要存取第三方資源或 SaaS 應用程式 (例如 SharePoint Online)，您必須明確允許此類存取。
 
-1.  在 [Azure 管理入口網站][]的 [Active Directory] 區段中，選取您的租用戶。導覽至您為行動服務建立的 Web 應用程式。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站]的 [Active Directory] 區段中，選取您的租用戶。導覽至您為行動服務建立的 Web 應用程式。
 
     ![][]
 
@@ -72,7 +72,7 @@
 
 1.  在 Visual Studio 中，開啟您的行動服務後端專案。
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget][]]
+[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
 1.  在您的行動服務後端專案中，建立名為 SharePointUploadContext 的新類別。在其中新增下列項目：
 
@@ -193,7 +193,7 @@
   [取得存取權杖及呼叫 SharePoint API]: #obtain-token
   [建立及上傳 Word 文件]: #create-document
   [測試應用程式]: #test-application
-  [SharePoint Online]: http://office.microsoft.com/en-us/sharepoint/
+  [SharePoint Online]: http://office.microsoft.com/zh-tw/sharepoint/
   [使用 Active Directory Authentication Library 單一登入驗證您的應用程式]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   []: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-web-application.png

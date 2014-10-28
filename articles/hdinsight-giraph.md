@@ -4,7 +4,7 @@
 
 ## 了解如何搭配 Azure HDInsight (Hadoop) 使用 Apache Giraph
 
-[Apache Giraph][] 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。
+[Apache Giraph][Apache Giraph] 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。
 
 圖形可以模型化物件之間的關聯，例如大型網路 (像是網際網路) 上的路由器之間的連線，或社交網路上的人際關係 (有時稱為社交圖形)。圖形處理可讓您分析圖形中物件之間的關聯，例如：
 
@@ -16,29 +16,29 @@
 
 ## 您將了解如何
 
--   [建置 Apache Giraph 並部署到 HDInsight 叢集][]
+-   [建置 Apache Giraph 並部署到 HDInsight 叢集][建置 Apache Giraph 並部署到 HDInsight 叢集]
 
--   [執行 SimpleShortestPathsComputation 範例][]
+-   [執行 SimpleShortestPathsComputation 範例][執行 SimpleShortestPathsComputation 範例]
 
-    如需 Giraph 隨附的其他範例清單，請參閱[封裝 org.apache.giraph.examples][] (英文)。
+    如需 Giraph 隨附的其他範例清單，請參閱[封裝 org.apache.giraph.examples][封裝 org.apache.giraph.examples] (英文)。
 
--   [對您可能遭遇的問題進行疑難排解][]
+-   [對您可能遭遇的問題進行疑難排解][對您可能遭遇的問題進行疑難排解]
 
 ## 需求
 
 -   Azure HDInsight 叢集 3.0 或 3.1 版
 
--   [Git][]
+-   [Git][Git]
 
 -   Java 1.6
 
--   [Maven][] 3 或更新版本
+-   [Maven][Maven] 3 或更新版本
 
 ## <span id="build"></span></a>建置和部署 Giraph
 
-Giraph 並未隨附於 HDInsight 叢集，必須從原始檔建置。如需有關建置 Giraph 的詳細資訊，請參閱 [Giraph 儲存機制][] (英文)。
+Giraph 並未隨附於 HDInsight 叢集，必須從原始檔建置。如需有關建置 Giraph 的詳細資訊，請參閱 [Giraph 儲存機制][Giraph 儲存機制] (英文)。
 
-1.  目前 (7-14-2014)，Giraph 需要一個修補程式，才能與 HDInsight 所用的 WASB 檔案儲存器一起使用。此修補程式已提交至 Apache Giraph 專案，但尚未得到認可。請從 [GIRAPH-930][] 的 **attachments** 區段下載此修補程式，在本機磁碟機將它儲存為 **giraph-930.diff**。
+1.  目前 (7-14-2014)，Giraph 需要一個修補程式，才能與 HDInsight 所用的 WASB 檔案儲存器一起使用。此修補程式已提交至 Apache Giraph 專案，但尚未得到認可。請從 [GIRAPH-930][GIRAPH-930] 的 **attachments** 區段下載此修補程式，在本機磁碟機將它儲存為 **giraph-930.diff**。
 
 2.  從命令列，使用下列 Git 命令建立 Giraph 儲存機制的複本。
 
@@ -66,7 +66,7 @@ Giraph 並未隨附於 HDInsight 叢集，必須從原始檔建置。如需有�
 
     建置完成之後，您可以在 **\\giraph\\giraph-examples\\target** 中找到範例 JAR 檔案。
 
-6.  使用 [Azure PowerShell][] 和 [HDInsight-Tools][]，將範例 JAR 檔案上傳至 HDInsight 叢集的主要儲存體。
+6.  使用 [Azure PowerShell][Azure PowerShell] 和 [HDInsight-Tools][HDInsight-Tools]，將範例 JAR 檔案上傳至 HDInsight 叢集的主要儲存體。
 
         Add-HDInsightFile giraph-examples-1.1.0-SNAPSHOT-for-hadoop-0.23.1-jar-with-dependencies.jar example/jars/giraph.jar clustername
 
@@ -74,13 +74,13 @@ Giraph 並未隨附於 HDInsight 叢集，必須從原始檔建置。如需有�
 
     指令完成時，JAR 檔案已上傳至 wasb:///example/jars/giraph.jar。
 
-    > [WACOM.NOTE] 如需可將檔案上傳至 HDInsight 的公用程式清單，請參閱[將資料上傳至 HDInsight][]。
+    > [WACOM.NOTE] 如需可將檔案上傳至 HDInsight 的公用程式清單，請參閱[將資料上傳至 HDInsight][將資料上傳至 HDInsight]。
 
 ## <span id="run"></span></a>執行範例
 
-SimpleShortestPathsComputation 示範在圖形中的物件之間找出最短路徑的基本 [Pregel][] 實作。請使用下列步驟來上傳範例資料，使用 SimpleShortestPathsComputation 範例執行工作，然後檢視結果。
+SimpleShortestPathsComputation 示範在圖形中的物件之間找出最短路徑的基本 [Pregel][Pregel] 實作。請使用下列步驟來上傳範例資料，使用 SimpleShortestPathsComputation 範例執行工作，然後檢視結果。
 
-> [WACOM.NOTE] [GitHub 儲存機制][Giraph 儲存機制]的 [1.1 版分支][] (英文) 中提供此範例的原始檔及其他範例。
+> [WACOM.NOTE] [GitHub 儲存機制][Giraph 儲存機制]的 [1.1 版分支][1.1 版分支] (英文) 中提供此範例的原始檔及其他範例。
 
 1.  建立名為 **tiny\_graph.txt** 的新檔案。應該包含下列幾行。
 
@@ -90,19 +90,19 @@ SimpleShortestPathsComputation 示範在圖形中的物件之間找出最短路�
         [3,0,[[0,3],[1,1],[4,4]]]
         [4,0,[[3,4],[2,4]]]
 
-    此資料使用 `[source_id,source_value,[[dest_id], [edge_value],...]]` 格式，描述[有向圖形][]中物件之間的關聯。每一條線代表一個 **source\_id** 與一或多個 **dest\_id** 物件之間的關聯。**edge\_value** (或權數) 可視為 **source\_id** 與 **dest\_id** 之間的連線強度或距離。
+    此資料使用 `[source_id,source_value,[[dest_id], [edge_value],...]]` 格式，描述[有向圖形][有向圖形]中物件之間的關聯。每一條線代表一個 **source\_id** 與一或多個 **dest\_id** 物件之間的關聯。**edge\_value** (或權數) 可視為 **source\_id** 與 **dest\_id** 之間的連線強度或距離。
 
     如果使用值 (或權數) 當做物件之間的距離繪製出來，上述資料可能如下圖所示。
 
-    ![tiny\_graph.txt drawn as circles with lines of varying distance between][]
+    ![tiny\_graph.txt drawn as circles with lines of varying distance between][tiny\_graph.txt drawn as circles with lines of varying distance between]
 
-2.  使用 [Azure PowerShell][] 和 [HDInsight-Tools][]，將 **tiny\_graph.txt** 檔案上傳至 HDInsight 叢集的主要儲存體。
+2.  使用 [Azure PowerShell][Azure PowerShell] 和 [HDInsight-Tools][HDInsight-Tools]，將 **tiny\_graph.txt** 檔案上傳至 HDInsight 叢集的主要儲存體。
 
         Add-HDInsightFile tiny_graph.txt example/data/tiny_graph.txt clustername
 
     請將叢集名稱換成您的 HDInsight 叢集名稱。
 
-3.  使用下列 PowerShell 執行 **SimpleShortstPathsComputation** 範例，並以 **tiny\_graph.txt** 檔案當做輸入。您必須已安裝和設定 [Azure PowerShell][]。
+3.  使用下列 PowerShell 執行 **SimpleShortstPathsComputation** 範例，並以 **tiny\_graph.txt** 檔案當做輸入。您必須已安裝和設定 [Azure PowerShell][Azure PowerShell]。
 
         $clusterName = "clustername"
         # Giraph examples JAR
@@ -134,7 +134,7 @@ SimpleShortestPathsComputation 示範在圖形中的物件之間找出最短路�
 
 ### View the results
 
-當工作完成之後，結果會在 **wasb:///example/out/shotestpaths** 資料夾中儲存為 **part-m-\#\#\#\#\#** 檔案。請使用 [Azure PowerShell][] 和 [HDInsight-Tools][] 下載輸出檔案。
+當工作完成之後，結果會在 **wasb:///example/out/shotestpaths** 資料夾中儲存為 **part-m-\#\#\#\#\#** 檔案。請使用 [Azure PowerShell][Azure PowerShell] 和 [HDInsight-Tools][HDInsight-Tools] 下載輸出檔案。
 
     Find-HDInsightFile example/output/shortestpaths/part* clustername | foreach-object { Get-HDInsightFile $_.name .  itsfullofstorage }
     Cat example/output/shortestpaths/part*
@@ -151,7 +151,7 @@ SimpleShortestPathComputation 範例已刻意設計成從物件識別碼 1 開�
 
 顯現為圖形後，您可以走過識別碼 1 與其他所有物件之間的最短路徑來驗證結果。請注意，識別碼 1 與識別碼 4 之間的最短路徑是 5。這是<span style="color:orange">識別碼 1 和 3</span> 之間加上<span style="color:red">識別碼 3 和 4</span> 之間的總距離。
 
-![Drawing of objects as circles with shortest paths drawn between][]
+![Drawing of objects as circles with shortest paths drawn between][Drawing of objects as circles with shortest paths drawn between]
 
 ## <span id="tshoot"></span></a>疑難排解
 
@@ -171,7 +171,7 @@ Giraph 工作會在執行階段建立指定的輸出目錄。如果目錄已存�
 
 若要連接到 HDInsight 叢集，請執行下列步驟：
 
-1.  使用 [Azure 管理入口網站][]，選取您的 HDInsight 叢集，然後選取 [設定]。
+1.  使用 [Azure 管理入口網站][Azure 管理入口網站]，選取您的 HDInsight 叢集，然後選取 [設定]。
 
 2.  在頁面底部，選取 [Enable Remote]，並提供用於遠端桌面連線的使用者名稱、密碼和到期日。
 
@@ -188,13 +188,13 @@ Giraph 工作會在執行階段建立指定的輸出目錄。如果目錄已存�
 
 ### 舊版的 HDInsight
 
-如果您要搭配舊版的 HDInsight 來使用 Giraph，您必須針對該版本支援的特定 Hadoop 版本來編譯它。請參閱 [HDInsight 所提供叢集版本的新功能][]，以決定對應於您的 HDInsight 版本的 Hadoop 版本。
+如果您要搭配舊版的 HDInsight 來使用 Giraph，您必須針對該版本支援的特定 Hadoop 版本來編譯它。請參閱 [HDInsight 所提供叢集版本的新功能][HDInsight 所提供叢集版本的新功能]，以決定對應於您的 HDInsight 版本的 Hadoop 版本。
 
-此外，舊版的 HDInsight 可能會要求您從 Hadoop 命令列執行 Giraph 工作。如果您從 PowerShell 執行工作時發生錯誤，請嘗試從 [Hadoop 命令列][]執行工作。
+此外，舊版的 HDInsight 可能會要求您從 Hadoop 命令列執行 Giraph 工作。如果您從 PowerShell 執行工作時發生錯誤，請嘗試從 [Hadoop 命令列][Hadoop 命令列]執行工作。
 
 ## 後續步驟
 
-您現在已了解如何搭配 HDInsight 來使用 Giraph，接下來請嘗試搭配 HDInsight 來使用 [Pig][] 和 [Hive][]。
+您現在已了解如何搭配 HDInsight 來使用 Giraph，接下來請嘗試搭配 HDInsight 來使用 [Pig][Pig] 和 [Hive][Hive]。
 
   [Apache Giraph]: http://giraph.apache.org
   [建置 Apache Giraph 並部署到 HDInsight 叢集]: #build

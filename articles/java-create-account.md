@@ -2,6 +2,6 @@
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
 
-[WACOM.INCLUDE [create-an-azure-account][]]
+[WACOM.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]
 
   [create-an-azure-account]: ../includes/create-an-azure-account.md

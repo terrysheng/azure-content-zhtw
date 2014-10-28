@@ -8,19 +8,19 @@
 
 ## 目錄
 
--   [驗證：使用者名稱、密碼和 SSH 金鑰。][]
--   [產生和使用 SSH 金鑰來登入 Linux 虛擬機器。][]
--   [使用 sudo 取得超級使用者權限][]
--   [防火牆設定][]
--   [主機名稱變更][]
--   [擷取虛擬機器映像][]
--   [連接磁碟][]
+-   [驗證：使用者名稱、密碼和 SSH 金鑰。][驗證：使用者名稱、密碼和 SSH 金鑰。]
+-   [產生和使用 SSH 金鑰來登入 Linux 虛擬機器。][產生和使用 SSH 金鑰來登入 Linux 虛擬機器。]
+-   [使用 sudo 取得超級使用者權限][使用 sudo 取得超級使用者權限]
+-   [防火牆設定][防火牆設定]
+-   [主機名稱變更][主機名稱變更]
+-   [擷取虛擬機器映像][擷取虛擬機器映像]
+-   [連接磁碟][連接磁碟]
 
 ## <span id="authentication"></span></a>驗證：使用者名稱、密碼和 SSH 金鑰
 
 使用 Azure 管理入口網站來建立 Linux 虛擬機器時，系統會要求您提供使用者名稱、密碼和 (選擇性) SSH 公開金鑰。在 Azure 上部署 Linux 虛擬機器時，使用者名稱的選擇有下列限制：不允許使用虛擬機器中已存在的系統帳戶名稱 (UID \<100)，例如 'root'。
 
--   請參閱[如何對 Azure 上的 Linux 使用 SSH][]
+-   請參閱[如何對 Azure 上的 Linux 使用 SSH][如何對 Azure 上的 Linux 使用 SSH]
 
 ### <span id="keygeneration"></span></a>產生 SSH 金鑰
 
@@ -68,13 +68,13 @@
 
 您可以選擇使用 **sudo -s** 來取得 root shell。
 
--   請參閱[在 Azure 中的 Linux 虛擬機器上使用根權限][]
+-   請參閱[在 Azure 中的 Linux 虛擬機器上使用根權限][在 Azure 中的 Linux 虛擬機器上使用根權限]
 
 ## <span id="firewallconfiguration"></span></a>防火牆設定
 
 Azure 提供輸入封包篩選器，可限制只能連線至管理入口網站中指定的連接埠。預設允許的連接埠只有 SSH。您可以在管理入口網站中設定端點，以開放存取 Linux 虛擬機器上的其他連接埠：
 
--   請參閱：[如何設定虛擬機器的端點][]
+-   請參閱：[如何設定虛擬機器的端點][如何設定虛擬機器的端點]
 
 Azure 映像庫中的 Linux 映像依預設不會啟用 *iptables* 防火牆。如有需要，可設定防火牆來提供其他篩選。
 
@@ -88,13 +88,13 @@ Azure 映像庫中的 Linux 映像依預設不會啟用 *iptables* 防火牆。�
 
 Azure Linux 代理程式包括可自動偵測此名稱變更、適當地設定虛擬機器來保存此變更，以及將此變更發佈至平台 DNS 伺服器等功能。
 
--   [Azure Linux 代理程式使用者指南][]
+-   [Azure Linux 代理程式使用者指南][Azure Linux 代理程式使用者指南]
 
 ### Ubuntu 映像
 
 Ubuntu 映像會利用可提供啟動載入虛擬機器其他功能的 cloud-init。
 
--   請參閱 [Microsoft Azure 上的自訂資料和 Cloud-Init][]
+-   請參閱 [Microsoft Azure 上的自訂資料和 Cloud-Init][Microsoft Azure 上的自訂資料和 Cloud-Init]
 
 ## <span id="virtualmachine"></span></a>擷取虛擬機器映像
 
@@ -106,7 +106,7 @@ Azure 可將現有虛擬機器的狀態擷取到映像中，供以後用來部�
 
 3.  按一下管理入口網站中的 [擷取] 或使用 Powershell 或 CLI 工具，將虛擬機器擷取為映像。
 
--   請參閱：[如何擷取 Linux 虛擬機器作為範本使用][]
+-   請參閱：[如何擷取 Linux 虛擬機器作為範本使用][如何擷取 Linux 虛擬機器作為範本使用]
 
 ## <span id="attachingdisks"></span></a>連接磁碟
 
@@ -116,9 +116,9 @@ Azure 可將現有虛擬機器的狀態擷取到映像中，供以後用來部�
 
     >[WACOM.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
 
-在 Linux 上，核心有可能將資料磁碟命名為 `/dev/sdc`，且使用者必須分割、格式化及掛接該資源。本教學課程中將涵蓋這部分的逐步說明：[如何將資料磁碟附加至虛擬機器][]。
+在 Linux 上，核心有可能將資料磁碟命名為 `/dev/sdc`，且使用者必須分割、格式化及掛接該資源。本教學課程中將涵蓋這部分的逐步說明：[如何將資料磁碟附加至虛擬機器][如何將資料磁碟附加至虛擬機器]。
 
--   另請參閱：[在 Linux 上設定軟體 RAID][]
+-   另請參閱：[在 Linux 上設定軟體 RAID][在 Linux 上設定軟體 RAID]
 
   [驗證：使用者名稱、密碼和 SSH 金鑰。]: #authentication
   [產生和使用 SSH 金鑰來登入 Linux 虛擬機器。]: #keygeneration

@@ -10,34 +10,34 @@ API 管理 (預覽) 中的操作可設定為回應快取。對於不常變更的
 
 ## 本主題內容
 
--   [設定要快取的操作][]
--   [檢閱快取原則][]
--   [呼叫操作和測試快取][]
--   [後續步驟][]
+-   [設定要快取的操作][設定要快取的操作]
+-   [檢閱快取原則][檢閱快取原則]
+-   [呼叫操作和測試快取][呼叫操作和測試快取]
+-   [後續步驟][後續步驟]
 
 ## <a name="configure-caching"> </a>設定要快取的操作
 
 在此步驟中，您將檢閱範例 Echo Api 的 **GET Resource (cached)** 操作的快取設定。
 
-> 每個 API 管理服務執行個體隨附預先設定的範例 Echo API，可供您試驗與了解 API 管理。如需詳細資訊，請參閱[開始使用 Azure API 管理][]。
+> 每個 API 管理服務執行個體隨附預先設定的範例 Echo API，可供您試驗與了解 API 管理。如需詳細資訊，請參閱[開始使用 Azure API 管理][開始使用 Azure API 管理]。
 
 若要開始，請在 API 管理服務的 Azure 入口網站中按一下 [管理主控台]。這會帶您前往 API 管理的管理入口網站。
 
-![API Management console][]
+![API Management console][API Management console]
 
-> 如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][]教學課程中的[建立 API 管理服務執行個體][]。
+> 如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][開始使用 Azure API 管理]教學課程中的[建立 API 管理服務執行個體][建立 API 管理服務執行個體]。
 
 從左邊的 [API 管理] 功能表中按一下 [API]，然後按一下 [Echo API]。
 
-![Echo API][]
+![Echo API][Echo API]
 
 選取 [操作] 索引標籤，從 [操作] 清單中按一下 [GET Resource (cached)] 操作。
 
-![Echo API operations][]
+![Echo API operations][Echo API operations]
 
 選取 [快取] 索引標籤來檢視此操作的快取設定。
 
-![Caching tab][]
+![Caching tab][Caching tab]
 
 若要對操作啟用快取，請核取 [啟用] 核取方塊。此範例中已啟用快取。
 
@@ -53,11 +53,11 @@ API 管理 (預覽) 中的操作可設定為回應快取。對於不常變更的
 
 從左邊的 [API 管理] 功能表中按一下 [原則]，然後從 [操作] 下拉式清單中選取 [Echo API / GET Resource (cached)]。
 
-![Policy scope operation][]
+![Policy scope operation][Policy scope operation]
 
 這樣會在原則編輯器中顯示此操作的原則。
 
-![API Management policy editor][]
+![API Management policy editor][API Management policy editor]
 
 此操作的原則定義中包含一些原則，定義上一個步驟中使用 [快取] 索引標籤所檢閱的快取組態。
 
@@ -82,7 +82,7 @@ API 管理 (預覽) 中的操作可設定為回應快取。對於不常變更的
 
 為了瞭解快取的運作方式，我們可以從開發人員入口網站呼叫操作。按一下右上方功能表的 [開發人員入口網站]。
 
-![開發人員入口網站][]
+![開發人員入口網站][開發人員入口網站]
 
 在上方功能表中按一下 [API]，然後選取 [Echo API]。
 
@@ -92,11 +92,11 @@ API 管理 (預覽) 中的操作可設定為回應快取。對於不常變更的
 
 選取 [GET Resource (cached)] 操作，然後按一下 [開啟主控台]。
 
-![Open console][]
+![Open console][Open console]
 
 主控台可讓您直接從開發人員入口網站叫用操作。
 
-![主控台][]
+![主控台][主控台]
 
 保留 **param1** 和 **param2** 的預設值。
 
@@ -116,8 +116,8 @@ API 管理 (預覽) 中的操作可設定為回應快取。對於不常變更的
 
 ## <a name="next-steps"> </a>後續步驟
 
--   在[開始使用進階 API 組態][]教學課程中查看其他主題。
--   如需快取原則的詳細資訊，請參閱 [API 管理原則參考文件][]中的[快取原則][]。
+-   在[開始使用進階 API 組態][開始使用進階 API 組態]教學課程中查看其他主題。
+-   如需快取原則的詳細資訊，請參閱 [API 管理原則參考文件][API 管理原則參考文件]中的[快取原則][快取原則]。
 
   [設定要快取的操作]: #configure-caching
   [檢閱快取原則]: #caching-policies

@@ -13,25 +13,25 @@
 
 本指南示範如何在一個步驟中建立新的 API 並匯入其操作。
 
-> 如需有關手動建立 API 和加入操作的資訊，請參閱[如何建立 API][] 和[如何將操作加入至 API][]。
+> 如需有關手動建立 API 和加入操作的資訊，請參閱[如何建立 API][如何建立 API] 和[如何將操作加入至 API][如何將操作加入至 API]。
 
 ## 本主題內容
 
--   [匯入 API][]
--   [匯出 API][]
--   [後續步驟][]
+-   [匯入 API][匯入 API]
+-   [匯出 API][匯出 API]
+-   [後續步驟][後續步驟]
 
 ## <a name="import-api"> </a>匯入 API
 
 若要建立和設定 API，請在 API 管理服務的 Azure 入口網站中按一下 [管理主控台]。這會帶您前往 API 管理的管理入口網站。
 
-> 如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][]教學課程中的[建立 API 管理服務執行個體][]。
+> 如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][開始使用 Azure API 管理]教學課程中的[建立 API 管理服務執行個體][建立 API 管理服務執行個體]。
 
-![管理主控台][]
+![管理主控台][管理主控台]
 
 從左邊的 [API 管理] 功能表中按一下 [API]，然後按一下 [匯入 API]。
 
-![Import API][]
+![Import API][Import API]
 
 [匯入 API] 視窗有三個索引標籤，分別對應至三種提供 API 規格的方式。
 
@@ -39,7 +39,7 @@
 -   [從檔案] 可讓您瀏覽並選取含有 API 規格的檔案。
 -   [From URL] 可讓您提供指向 API 規格的 URL。
 
-![Import API format][]
+![Import API format][Import API format]
 
 提供 API 規格之後，請使用右邊的選項按鈕來指出規格格式。支援下列格式。
 
@@ -54,18 +54,18 @@
 
 除了匯入新的 API，您也可以從管理主控台匯出 API 的定義。若要這樣做，請從 **API** 的 [摘要] 索引標籤中按一下 [匯出 API]。
 
-![Export API][]
+![Export API][Export API]
 
 您可以使用 WADL 或 Swagger 來匯出 API。選取所需的格式，按一下 [儲存]，並選擇用來儲存檔案的位置。
 
-![Export API format][]
+![Export API format][Export API format]
 
 ## <a name="next-steps"> </a>後續步驟
 
 建立 API 並匯入操作之後，您就可以檢閱和設定其他任何設定、將 API 加入至產品，以及發行它供開發人員使用。如需詳細資訊，請參閱下列指南。
 
--   [如何設定 API 設定][]
--   [如何建立和發行產品][]
+-   [如何設定 API 設定][如何設定 API 設定]
+-   [如何建立和發行產品][如何建立和發行產品]
 
   [如何建立 API]: ../api-management-howto-create-apis
   [如何將操作加入至 API]: ../api-management-howto-add-operations

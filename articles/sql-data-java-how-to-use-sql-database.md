@@ -125,7 +125,7 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
     4. In the **Add Library** dialog, select **Microsoft JDBC Driver 4.0 for SQL Server**, click **Next**, and then click **Finish**.
     5. Click **OK** to close the **Properties** dialog.
 
-    If you are not using Eclipse, add the Microsoft JDBC Driver 4.0 for SQL Server JAR to your class path. For related information, see [Using the JDBC Driver](http://msdn.microsoft.com/en-us/library/ms378526.aspx).
+    If you are not using Eclipse, add the Microsoft JDBC Driver 4.0 for SQL Server JAR to your class path. For related information, see [Using the JDBC Driver](http://msdn.microsoft.com/zh-TW/library/ms378526.aspx).
 
 1.  在 **HelloSQLAzure.java** 程式碼中加入 `import` 陳述式，如下所示：
 
@@ -724,9 +724,9 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
   [放置資料表]: #to_drop_table
   [在 Azure 部署中使用採用 Java 的 SQL Database]: #using_in_azure
   [後續步驟]: #nextsteps
-  [Azure SQL Database 指導方針和限制]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx
-  [安裝 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx
-  [http://www.microsoft.com/zh-tw/download/details.aspx?id=11774]: http://www.microsoft.com/en-us/download/details.aspx?id=11774
+  [Azure SQL Database 指導方針和限制]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ff394102.aspx
+  [安裝 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh690946.aspx
+  [http://www.microsoft.com/zh-tw/download/details.aspx?id=11774]: http://www.microsoft.com/zh-TW/download/details.aspx?id=11774
   [1]: https://manage.windowsazure.com
   [Create new SQL database]: ./media/sql-data-java-how-to-use-sql-database/WA_New.png
   [Create custom SQL database]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_DB_Create.png
@@ -735,6 +735,6 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
   [Determine JDBC connection string]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_JDBC_ConnectionString.png
   ["user=MySQLAdmin@\*your\_server\*]: mailto:"user=MySQLAdmin@*your_server*
   [Allowed IP addresses dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
-  [使用 Azure Plugin for Eclipse with Java 建立 Hello World 應用程式 (由 Microsoft Open Technologies 提供)]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx
-  [JDBC 驅動程式的概觀]: http://msdn.microsoft.com/en-us/library/ms378749.aspx
-  [SQL Database 概觀]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336241.aspx
+  [使用 Azure Plugin for Eclipse with Java 建立 Hello World 應用程式 (由 Microsoft Open Technologies 提供)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh690944.aspx
+  [JDBC 驅動程式的概觀]: http://msdn.microsoft.com/zh-TW/library/ms378749.aspx
+  [SQL Database 概觀]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee336241.aspx

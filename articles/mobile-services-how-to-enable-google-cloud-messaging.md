@@ -4,9 +4,9 @@
 
 # 如何啟用 Google 雲端通訊
 
-本主題說明如何使用 Google 雲端通訊 (GCM) 啟用 Android 應用程式的推播通知。取得的 API 金鑰可用來在 [Azure 管理入口網站][]中註冊 Android 應用程式的推播通知。如需完整的端對端教學課程 (包括應用程式的更新)，請參閱[開始使用推播通知][]。
+本主題說明如何使用 Google 雲端通訊 (GCM) 啟用 Android 應用程式的推播通知。取得的 API 金鑰可用來在 [Azure 管理入口網站][Azure 管理入口網站]中註冊 Android 應用程式的推播通知。如需完整的端對端教學課程 (包括應用程式的更新)，請參閱[開始使用推播通知][開始使用推播通知]。
 
-[WACOM.INCLUDE [啟用 GCM][]]
+[WACOM.INCLUDE [啟用 GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 接下來，您將使用此 API 金鑰值，讓服務能夠使用 GCM 進行驗證，並代表您的應用程式傳送推播通知。
 

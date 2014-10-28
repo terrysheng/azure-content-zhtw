@@ -4,12 +4,12 @@
 
 # Django Hello World - MySQL Windows 版本
 
-本教學課程說明如何在單一 Azure 虛擬機器上搭配 Django 使用 MySQL。本指南假設您過去有使用 Azure 及 Django 的一些經驗。關於 Azure 及 Django 的簡介，請參閱[現代化商務的雲端][]。本指南也假設您擁有一些關於 MySQL 的知識。如需 MySQL 的概觀，請參閱 [MySQL 網站][] (英文)。
+本教學課程說明如何在單一 Azure 虛擬機器上搭配 Django 使用 MySQL。本指南假設您過去有使用 Azure 及 Django 的一些經驗。關於 Azure 及 Django 的簡介，請參閱[現代化商務的雲端][現代化商務的雲端]。本指南也假設您擁有一些關於 MySQL 的知識。如需 MySQL 的概觀，請參閱 [MySQL 網站][MySQL 網站] (英文)。
 
 在本教學課程中，您將了解如何：
 
 -   設定 Azure 虛擬機器代管 MySQL 及 Django。雖然本教學課程說明如何在 Windows Server 2008 R2 下完成這個程序，不過相同的程序也可以對於 Azure 中代管的 Linux VM 完成。
--   安裝 Python 版 [MySQL 驅動程式][]。
+-   安裝 Python 版 [MySQL 驅動程式][MySQL 驅動程式]。
 -   設定現有 Django 應用程式使用 MySQL 資料庫。
 -   直接從 Python 使用 MySQL。
 -   代管並執行 MySQL Django 應用程式。
@@ -18,13 +18,13 @@
 
 這個教學課程的專案檔案將儲存於 **C:\\django\\helloworld** 中，完成的應用程式將如下所示：
 
-![][]
+![][0]
 
-[WACOM.INCLUDE [create-account-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## 設定虛擬機器代管 MySQL 及 Django。
 
-1.  按照[此處][]提供的指示建立 *Windows Server 2008 R2* 散發套件的 Azure 虛擬機器。
+1.  按照[此處][此處]提供的指示建立 *Windows Server 2008 R2* 散發套件的 Azure 虛擬機器。
 
 2.  開啟虛擬機器上用於 MySQL 交易的 TCP 連接埠：
 
@@ -46,7 +46,7 @@
  * 再按一下 [下一步]。
  * 指定規則名稱，例如「DjangoPort」，並按一下 [結束]。
 
-6.  在虛擬機器上安裝最新版 [MySQL Community Server][] for Windows：
+6.  在虛擬機器上安裝最新版 [MySQL Community Server][MySQL Community Server] for Windows：
 
     **注意**：建議在作業系統以外的不同資料磁碟分割安裝資料庫。
 
@@ -55,8 +55,8 @@
     -   選取組態精靈中的 [Detailed Configuration]。
     -   **務必啟用連接埠號碼 3306 的 TCP/IP 網路，並新增連接埠的防火牆例外。**
     -   設定跟密碼，並且啟用遠端機器的根存取。
- * 安裝範例[「world」資料庫][] (MyISAM 版本)：
-    -   在 Azure 虛擬機器上下載[這個][] zip 檔。
+ * 安裝範例[「world」資料庫][「world」資料庫] (MyISAM 版本)：
+    -   在 Azure 虛擬機器上下載[這個][這個] zip 檔。
     -   **將它解壓縮至 *C:\\Users\\Administrator\\Desktop\\world.sql*。**
 
 1.  安裝 MySQL 後，按一下 Windows [開始] 功能表，並執行新安裝的 *MySQL 5.5 命令列用戶端*。發出以下命令：
@@ -72,15 +72,15 @@
 
     您此時應該會看到如下所示的回應：
 
-    ![][1]
+  ![][2]
 
-1.  您開始開發 Django 應用程式前，當然需要在虛擬機器上安裝 Python+Django。您可以使用 [Web Platform Installer][] 這麼做。安裝 Web PI 之後，用它來搜尋「Django」並安裝 Django (Python) 產品。
+1.  您開始開發 Django 應用程式前，當然需要在虛擬機器上安裝 Python+Django。您可以使用 [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx) 這麼做。安裝 Web PI 之後，用它來搜尋「Django」並安裝 Django (Python) 產品。
 
     **注意：**您只需要從 WebPI 安裝 *Django* 產品，即可進行本教學課程。您**不**需要安裝 *Python Tools for Visual Studio* 或甚至 Azure Python SDK，也可以進行。
 
-1.  安裝 MySQL Python 用戶端套件。您可以直接[從此連結][]安裝它。一旦完成，即可執行下列命令確認您的安裝：
+1.  安裝 MySQL Python 用戶端套件。您可以直接[從此連結][從此連結]安裝它。一旦完成，即可執行下列命令確認您的安裝：
 
-    ![][2]
+  ![][1]
 
 ## 擴展 Django Hello World 應用程式
 
@@ -220,7 +220,7 @@
         Development server is running at http://123.34.56.78:80
         Quit the server with CTRL-BREAK.
 
-2.  從本機網頁瀏覽器中，開啟 \*\*<http://*yourVmName>\*.cloudapp.net\*\* (其中 *yourVmName* 是您在虛擬機器建立步驟中使用的名稱)。您應該會看見 "Hello ...!" ，如以下螢幕擷取畫面所示。這表示 Django 在虛擬機器中執行，並且正常運作。
+2.  從本機網頁瀏覽器中，開啟 **http://*yourVmName*.cloudapp.net** (其中 *yourVmName* 是您在虛擬機器建立步驟中使用的名稱)。您應該會看見 "Hello ...!" ，如以下螢幕擷取畫面所示。這表示 Django 在虛擬機器中執行，並且正常運作。
 
     ![][]
 
@@ -235,13 +235,14 @@
   [現代化商務的雲端]: http://windowsazure.com/zh-tw/documentation/articles/virtual-machines-python-django-web-app-windows-server
   [MySQL 網站]: http://dev.mysql.com/doc/
   [MySQL 驅動程式]: http://pypi.python.org/pypi/MySQL-python/1.2.3
-  []: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01.png
-  [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [此處]: /zh-tw/manage/windows/tutorials/virtual-machine-from-gallery/
   [MySQL Community Server]: http://dev.mysql.com/downloads/mysql/
   [「world」資料庫]: http://dev.mysql.com/doc/index-other.html
   [這個]: http://downloads.mysql.com/docs/world.sql.zip
-  [1]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01-2.png
-  [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [從此連結]: http://code.google.com/p/soemin/downloads/detail?name=MySQL-python-1.2.3.win32-py2.7.exe&can=2&q=
-  [2]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01-1.png
+
+
+[0]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01.png
+[1]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01-1.png
+[2]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01-2.png
+[5]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01.png

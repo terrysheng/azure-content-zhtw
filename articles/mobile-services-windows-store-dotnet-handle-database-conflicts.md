@@ -4,38 +4,36 @@
 
 # 處理資料庫寫入衝突
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/zh-tw/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/" title="Windows 市集 C#" class="current">Windows 市集 C#</a>
-<a href="/zh-tw/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a>
-<a href="/zh-tw/develop/mobile/tutorials/handle-database-write-conflicts-wp8/" title="Windows Phone">Windows Phone</a></div>
+<a href="/zh-tw/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/" title="Windows 市集 C#" class="current">Windows 市集 C#</a><a href="/zh-tw/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/zh-tw/develop/mobile/tutorials/handle-database-write-conflicts-wp8/" title="Windows Phone">Windows Phone</a></div>
 
 <p>本教學課程可協助您深入了解如何處理在兩個或更多用戶端寫入至 Windows 市集應用程式中的相同資料庫記錄時所發生的衝突。在部分案例中，兩個或多個用戶端可能會同時對相同項目寫入變更。在沒有偵測到任何衝突的情況下，最後寫入將覆寫任何先前的更新，即使這不是您想要的結果。Azure 行動服務可支援偵測及解決這些衝突的作業。本主題將逐步引導您完成下列步驟，讓您處理伺服器上與應用程式中的資料庫寫入衝突。</p>
 <p>在本教學課程中，您會在快速入門應用程式中新增功能，以處理更新 TodoItem 資料庫時所發生的爭用情況。本教學課程將逐步引導您完成下列基本步驟：</p>
-<ol>
-<li><a href="#uiupdate">更新應用程式以允許更新</a></li>
-<li><a href="#enableOC">在應用程式中啟用衝突偵測</a></li>
-<li><a href="#test-app">在應用程式中測試資料庫寫入衝突</a></li>
-<li><a href="#scriptsexample">以伺服器指令碼自動處理衝突的解決方式</a></li>
-</ol>
+
+1. [更新應用程式以允許更新]
+2. [在應用程式中啟用衝突偵測]
+3. [在應用程式中測試資料庫寫入衝突]
+4. [以伺服器指令碼自動處理衝突的解決方式]
+
 
 <p>本教學課程需要下列各項</p>
-<ul>
-<li>Microsoft Visual Studio 2012 Express for Windows 或更新版本。</li>
-<li>本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成<a href="/zh-tw/develop/mobile/tutorials/get-started">開始使用行動服務</a>。</li>
-<li><a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/">Azure 帳戶</a></li>
-<li><p>Azure 行動服務 NuGet 封裝 1.1.0 或更新版本。若要取得最新版本，請遵循下列步驟：</p>
-<ol>
-<li><p>在 Visual Studio 中開啟專案，在 [方案總管] 中以滑鼠右鍵按一下專案，然後按一下 [管理 NuGet 封裝]<strong></strong>。</p>
-<p><img src="./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-VS.png" /></p></li>
-<li><p>展開 [線上]<strong></strong>，然後按一下 [Microsoft and .NET]<strong></strong>。在搜尋文字方塊中，輸入 [Azure 行動服務]<strong></strong>。在 [Azure 行動服務]<strong></strong> NuGet 封裝上，按一下 [安裝]<strong></strong>。</p>
-<p><img src="./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png" /></p></li>
-</ol></li>
+
++ Microsoft Visual Studio 2012 Express for Windows 或更新版本
++ 本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務]。
++ [Azure 帳戶]
++ Azure 行動服務 NuGet 封裝 1.1.0 或更新版本。若要取得最新版本，請遵循下列步驟：
+
+  1. <p>在 Visual Studio 中開啟專案，在 [方案總管] 中以滑鼠右鍵按一下專案，然後按一下 [管理 NuGet 封裝]<strong></strong>。</p>
+		![][19]
+
+  2. <p>展開 [線上]<strong></strong>，然後按一下 [Microsoft and .NET]<strong></strong>。在搜尋文字方塊中，輸入 [Azure 行動服務]<strong></strong>。在 [Azure 行動服務]<strong></strong> NuGet 封裝上，按一下 [安裝]<strong></strong>。</p>
+		![][20]
+
 </ul>
 <h2><a name="uiupdate"></a><span class="short-header">更新 UI</span>更新應用程式以允許更新</h2>
 <p>在本節中您將會更新 TodoList 使用者介面，使 ListBox 控制項中各個項目的文字能夠進行更新。ListBox 將包含資料庫資料表中各個項目的 CheckBox 和 TextBox 控制項。您將可更新 TodoItem 的文字欄位。應用程式會處理來自該 TextBox 的 <code data-inline="1">LostFocus</code> 事件，以更新資料庫中的項目。</p>
-<ol>
-<li>在 Visual Studio 中，開啟您在<a href="/zh-tw/develop/mobile/tutorials/get-started">開始使用行動服務</a>教學課程中下載的 TodoList 專案。</li>
-<li><p>在 Visual Studio 的 [方案總管] 中開啟 MainPage.xaml，將 <code data-inline="1">ListView</code> 定義以下方顯示的 <code data-inline="1">ListView</code> 取代，然後儲存變更。</p>
+
+ 1. 在 Visual Studio 中，開啟您在[開始使用行動服務]教學課程中下載的 TodoList 專案。
+ 2. 在 Visual Studio 的 [方案總管] 中開啟 MainPage.xaml，將 <code data-inline="1">ListView</code> 定義以下方顯示的 <code data-inline="1">ListView</code> 取代，然後儲存變更。</p>
 <pre><code>&lt;ListView Name=&quot;ListItems&quot; Margin=&quot;62,10,0,0&quot; Grid.Row=&quot;1&quot;&gt;
     &lt;ListView.ItemTemplate&gt;
         &lt;DataTemplate&gt;
@@ -81,8 +79,8 @@
 </ol>
 <p>現在，當 TextBox 失去焦點時，應用程式會將每個項目的文字變更重新寫入至資料庫。</p>
 <h2><a name="enableOC"></a><span class="short-header">啟用開放式並行存取</span>在應用程式中啟用衝突偵測</h2>
-<p>在部分案例中，兩個或多個用戶端可能會同時對相同項目寫入變更。在沒有偵測到任何衝突的情況下，最後寫入將覆寫任何先前的更新，即使這不是您想要的結果。<a href="http://go.microsoft.com/fwlink/?LinkId=330935">開放式並行存取控制項</a>會假設每筆交易都可以認可，因此不會使用任何資源鎖定。在認可交易之前，開放式並行存取控制項會驗證沒有其他交易已修改此資料。如果資料已修改，則會復原認可的交易。Azure 行動服務支援開放式並行存取控制項，方法是使用新增至每個資料表的 <code data-inline="1">__version</code> 系統屬性資料欄來追蹤對每個項目的變更。在本節中，我們將使應用程式能夠透過 <code data-inline="1">__version</code> 系統屬性偵測這些寫入衝突。在嘗試更新期間，如果記錄自前次查詢後有所變更，系統將會以 <code data-inline="1">MobileServicePreconditionFailedException</code> 通知應用程式。此時，應用程式將可選擇是要認可它對資料庫的變更，還是保留資料庫的最後變更。如需行動服務之系統屬性的詳細資訊，請參閱<a href="http://go.microsoft.com/fwlink/?LinkId=331143">系統屬性</a>。</p>
-<ol>
+<p>在部分案例中，兩個或多個用戶端可能會同時對相同項目寫入變更。在沒有偵測到任何衝突的情況下，最後寫入將覆寫任何先前的更新，即使這不是您想要的結果。[開放式並行存取控制項]會假設每筆交易都可以認可，因此不會使用任何資源鎖定。在認可交易之前，開放式並行存取控制項會驗證沒有其他交易已修改此資料。如果資料已修改，則會復原認可的交易。Azure 行動服務支援開放式並行存取控制項，方法是使用新增至每個資料表的 <code data-inline="1">__version</code> 系統屬性資料欄來追蹤對每個項目的變更。在本節中，我們將使應用程式能夠透過 <code data-inline="1">__version</code> 系統屬性偵測這些寫入衝突。在嘗試更新期間，如果記錄自前次查詢後有所變更，系統將會以 <code data-inline="1">MobileServicePreconditionFailedException</code> 通知應用程式。此時，應用程式將可選擇是要認可它對資料庫的變更，還是保留資料庫的最後變更。如需行動服務之系統屬性的詳細資訊，請參閱[系統屬性]。</p>
+
 <li><p>在 MainPage.xaml.cs 中，以下列程式碼更新 <strong>TodoItem</strong> 類別定義，以加入可用來支援寫入衝突偵測的 <b>__version</b> 系統屬性：</p>
 <pre><code>public class TodoItem
 {
@@ -97,7 +95,7 @@
 
 
 
-    <div class="dev-callout"><strong>注意</strong>
+  <div class="dev-callout"><strong>注意</strong>
 <p>使用不具型別的資料表時，開放式並行存取的啟用方式，是在資料表的 SystemProperties 中新增 Version 旗標。</p>
 <pre><code>//Enable optimistic concurrency by retrieving __version
 todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
@@ -172,63 +170,63 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 1.  建立 Windows 市集應用程式封裝，以安裝在第二部機器或虛擬機器上。若要執行此動作，請在 Visual Studio 中按一下 [專案]-\>[市集]-\>[建立應用程式套件]。
 
-    ![][2]
+    ![][0]
 
 2.  在 [建立您的套件] 畫面上按一下 [否]，因為此封裝將不會上傳至 Windows 市集。然後按 [下一步]。
 
-    ![][3]
+    ![][1]
 
 3.  在 [選取和設定套件] 畫面上接受預設值，然後按一下 [建立]。
 
-    ![][4]
+    ![][10]
 
 4.  在 [套件建立完成] 畫面上按一下 [輸出位置] 連結，以開啟封裝位置。
 
-    ![][5]
+    ![][11]
 
 5.  將封裝資料夾 "todolist\_1.0.0.0\_AnyCPU\_Debug\_Test" 複製到第二部機器。在該機器上開啟封裝資料夾，以滑鼠右鍵按一下 **Add-AppDevPackage.ps1** PowerShell 指令碼，然後按一下 [用 PowerShell 執行]，如下所示。依照提示安裝應用程式。
 
-    ![][6]
+    ![][12]
 
 6.  按一下 [偵錯]-\>[開始偵錯]，在 Visual Studio 中執行應用程式的執行個體 1。在第二部機器的 [開始] 畫面上按一下向下箭頭，以依名稱檢視應用程式。接著，按一下 **todolist** 應用程式，以執行應用程式的執行個體 2。
 
     應用程式執行個體 1
 
-    ![][7]
+    ![][2]
 
     應用程式執行個體 2
 
-    ![][7]
+    ![][2]
 
 7.  在應用程式的執行個體 1 中，將最後一個項目的文字更新為 **Test Write 1**，然後按一下另一個文字方塊，使 `LostFocus` 事件處理常式更新資料庫。其範例如下列螢幕擷取畫面所示。
 
     應用程式執行個體 1
 
-    ![][8]
+    ![][3]
 
     應用程式執行個體 2
 
-    ![][7]
+    ![][2]
 
 8.  此時，應用程式執行個體 2 中的對應項目具有舊版的項目。在此應用程式執行個體中，針對 `text` 屬性寫入 **Test Write 2**。然後按一下另一個文字方塊，使 `LostFocus` 事件處理常式嘗試以舊的 `_version` 屬性更新資料庫。
 
     應用程式執行個體 1
 
-    ![][9]
+    ![][4]
 
     應用程式執行個體 2
 
-    ![][10]
+    ![][5]
 
 9.  因為更新嘗試所用的 `__version` 值與伺服器的 `__version` 值不符，行動服務 SDK 會擲回 `MobileServicePreconditionFailedException`，讓應用程式解決此衝突。若要解決衝突，您可以按一下 [Commit Local Text]，以認可執行個體 2 中的值。或者，您可以按一下 [Leave Server Text] 捨棄執行個體 2 中的值，而保留已認可的應用程式執行個體 1 中的值。
 
     應用程式執行個體 1
 
-    ![][9]
+    ![][4]
 
     應用程式執行個體 2
 
-    ![][11]
+    ![][6]
 
 ## <a name="scriptsexample"></a><span class="short-header">以指令碼處理衝突</span>以伺服器指令碼自動處理衝突的解決方式
 
@@ -239,17 +237,17 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 下列步驟將引導您新增伺服器更新指令碼並加以測試。
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
+1.  登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
-    ![][12]
+    ![][7]
 
 2.  按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
-    ![][13]
+    ![][8]
 
 3.  按一下 [指令碼]，然後選取 [更新] 作業。
 
-    ![][14]
+    ![][9]
 
 4.  以下列函數取代現有的指令碼，然後按一下 [儲存]。
 
@@ -273,13 +271,23 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
     應用程式執行個體 1
 
-    ![][9]
+    ![][4]
 
     應用程式執行個體 2
 
-    ![][10]
+    ![][5]
 
 6.  在應用程式的執行個體 1 中，為最後一個文字屬性輸入不同的值。然後按一下另一個文字方塊，使 `LostFocus` 事件處理常式嘗試以不正確的 `__version` 屬性更新資料庫。
+
+    應用程式執行個體 1
+
+    ![][13]
+
+    應用程式執行個體 2
+
+    ![][14]
+
+7.  請留意到，由於伺服器指令碼已解決衝突，而使更新得以進行 (因為項目未標示為完成)，因此應用程式中未發生例外狀況。若要確認更新已順利完成，請在執行個體 2 中按一下 [重新整理]，以重新查詢資料庫。
 
     應用程式執行個體 1
 
@@ -287,55 +295,45 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
     應用程式執行個體 2
 
-    ![][16]
-
-7.  請留意到，由於伺服器指令碼已解決衝突，而使更新得以進行 (因為項目未標示為完成)，因此應用程式中未發生例外狀況。若要確認更新已順利完成，請在執行個體 2 中按一下 [重新整理]，以重新查詢資料庫。
-
-    應用程式執行個體 1
-
-    ![][17]
-
-    應用程式執行個體 2
-
-    ![][17]
+    ![][15]
 
 8.  在執行個體 1 中，按一下可完成最後一個待辦事項的核取方塊。
 
     應用程式執行個體 1
 
-    ![][18]
+    ![][16]
 
     應用程式執行個體 2
 
-    ![][17]
+    ![][15]
 
 9.  在執行個體 2 中，嘗試更新最後一個 TodoItem 的文字，並觸發 `LostFocus` 事件。指令碼對衝突的因應方式是拒絕更新以解決衝突，因為項目已完成。
 
     應用程式執行個體 1
 
-    ![][19]
+    ![][17]
 
     應用程式執行個體 2
 
-    ![][20]
+    ![][18]
 
 ## <a name="next-steps"> </a>後續步驟
 
 本教學課程示範了如何讓 Windows 市集應用程式處理在行動服務中使用資料時所發生的寫入衝突。您可以接著完成我們資料序列中的下列其中一個教學課程：
 
--   [使用指令檔驗證與修改資料][]
-    深入了解在行動服務中使用伺服器指令檔，來驗證並變更從應用程式傳送出來的資料。
+-   [使用指令檔驗證與修改資料]
+    <br/>深入了解在行動服務中使用伺服器指令檔，來驗證並變更從應用程式傳送出來的資料。
 
--   [使用分頁縮小查詢範圍][]
-    了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
+-   [使用分頁縮小查詢範圍]
+    <br/>了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
 完成資料序列之後，您可以嘗試下列其中一個 Windows 市集教學課程：
 
--   [開始使用驗證][]
-    了解如何驗證應用程式的使用者。
+-   [開始使用驗證]
+    <br/>了解如何驗證應用程式的使用者。
 
--   [開始使用推送通知][]
-    了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
+-   [開始使用推送通知]
+    <br/>了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
@@ -350,31 +348,32 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
   [以伺服器指令碼自動處理衝突的解決方式]: #scriptsexample
   [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started
   [Azure 帳戶]: http://www.windowsazure.com/zh-tw/pricing/free-trial/
-  []: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
-  [1]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
   [開放式並行存取控制項]: http://go.microsoft.com/fwlink/?LinkId=330935
   [系統屬性]: http://go.microsoft.com/fwlink/?LinkId=331143
-  [2]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
-  [3]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package2.png
-  [4]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package3.png
-  [5]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package4.png
-  [6]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-install-app-package.png
-  [7]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1.png
-  [8]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write1.png
-  [9]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write2.png
-  [10]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write2.png
-  [11]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write2-conflict.png
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  [12]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-services-selection.png
-  [13]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-portal-data-tables.png
-  [14]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-insert-script-users.png
-  [15]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write3.png
-  [16]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write3.png
-  [17]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-write3.png
-  [18]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-checkbox.png
-  [19]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-2-items.png
-  [20]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-already-complete.png
   [使用指令檔驗證與修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
   [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-dotnet
   [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet
   [開始使用推送通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet
+<!-- Images. -->
+[0]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
+[1]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package2.png
+[2]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1.png 
+[3]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write1.png
+[4]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write2.png
+[5]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write2.png
+[6]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write2-conflict.png
+[7]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-services-selection.png
+[8]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-portal-data-tables.png
+[9]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-insert-script-users.png
+[10]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package3.png
+[11]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package4.png
+[12]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-install-app-package.png
+[13]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1-write3.png
+[14]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write3.png
+[15]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-write3.png
+[16]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-checkbox.png
+[17]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-2-items.png
+[18]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-already-complete.png
+[19]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
+[20]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png

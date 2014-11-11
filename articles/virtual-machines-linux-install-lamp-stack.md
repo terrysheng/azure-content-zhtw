@@ -1,6 +1,6 @@
 <properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
 # 在 Azure 中的 Linux 虛擬機器上安裝 LAMP 堆疊
 
@@ -80,7 +80,7 @@ LAMP 堆疊由下列不同元素組成：
 
         -   CentOS 和 Oracle： `sudo service httpd restart`
 
-    -   根據預設，Apache 會接聽連接埠 80。您可能需要開啟端點，才能從遠端存取您的 Apache 伺服器。如需詳細指示，請參閱[設定端點][]的文件。
+    -   根據預設，Apache 會接聽連接埠 80。您可能需要開啟端點，才能從遠端存取您的 Apache 伺服器。如需詳細指示，請參閱[設定端點][設定端點]的文件。
 
     -   您現在可以檢查看看 Apache 是否正在執行並提供內容。使瀏覽器指向 `http://[MYSERVICE].cloudapp.net`，其中 **[MYSERVICE]** 是您虛擬機器所在的雲端服務名稱。您可能會在一些散發中遇到預設的歡迎網頁，這只代表「網頁是有效的！」。在其他散發中，您可能會看到更完整的網頁，其中具有其他文件的連結，以及設定 Apache 伺服器的內容。
 

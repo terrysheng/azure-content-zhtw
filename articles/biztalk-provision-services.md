@@ -1,6 +1,6 @@
 <properties linkid="provisioning-biztalk-service" urlDisplayName="Provision BizTalk Services in management portal" pageTitle="Create BizTalk Services in management portal | Azure" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" description="Learn how to provision a BizTalk service in the Azure Management Portal, as well as create an optional SQL database server and Storage account." metaCanonical="http://www.windowsazure.com/zh-TW/manage/services/biztalk-services/provisioning-biztalk-service" services="biztalk-services" documentationCenter="" title="BizTalk Services: Provisioning Using Azure Management Portal" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # 透過 Azure 管理入口網站建立 BizTalk 服務
 
@@ -279,7 +279,6 @@ SQL Database 會自動調整。一般來說，預設的調整對 BizTalk 服務�
   [佈建後續步驟]: #PostProv
   [說明各項需求]: #Requirements
   [全新的混合式連線！]: #HC
-  [Azure 免費試用]: http://go.microsoft.com/fwlink/p/?LinkID=239738
   [Azure 管理入口網站]: http://go.microsoft.com/fwlink/p/?LinkID=213885
   [選取新增按鈕]: ./media/biztalk-provision-services/WABS_New.png
   [選取 BizTalk 服務然後選取自訂建立]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
@@ -294,10 +293,6 @@ SQL Database 會自動調整。一般來說，預設的調整對 BizTalk 服務�
   [選取連接資訊]: ./media/biztalk-provision-services/WABS_ACSConnectInformation.png
   [存取控制管理入口網站的 ACS 服務身分識別]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
   [管理您的 ACS 命名空間]: http://go.microsoft.com/fwlink/p/?LinkID=285670
-  [Azure 訂閱]: https://account.windowsazure.com/Subscriptions
-  [管理 Azure 管理入口網站中的訂閱和儲存體帳戶]: http://go.microsoft.com/fwlink/p/?LinkID=267577
-  [Azure SQL Database 中的帳戶和計費]: http://go.microsoft.com/fwlink/p/?LinkID=234930
-  [儲存體]: http://go.microsoft.com/fwlink/p/?LinkID=285671
   [混合式連線索引標籤]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
   [混合式連線]: http://go.microsoft.com/fwlink/p/?LinkID=397274
   [Azure BizTalk 服務]: http://go.microsoft.com/fwlink/p/?LinkID=235197

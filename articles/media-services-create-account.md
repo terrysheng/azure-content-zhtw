@@ -1,6 +1,6 @@
 <properties linkid="manage-services-mediaservices-create-a-media-services-account" urlDisplayName="How to create" pageTitle="Create a Media Services Account - Azure" metaKeywords="" description="Describes how to create a new Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Create a Media Services Account" authors="migree" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
 
 # 如何建立媒體服務帳戶
 
@@ -10,8 +10,8 @@ Azure 管理入口網站提供一種方法來快速建立 Azure 媒體服務帳�
 
 ## 目錄
 
--   [概念][]
--   [作法：使用「快速建立」建立媒體服務帳戶][]
+-   [概念][概念]
+-   [作法：使用「快速建立」建立媒體服務帳戶][作法：使用「快速建立」建立媒體服務帳戶]
 
 ## <span id="concepts"></span></a> 概念
 
@@ -24,9 +24,9 @@ Azure 管理入口網站提供一種方法來快速建立 Azure 媒體服務帳�
 
 ## <span id="quick"></span></a>作法：使用「快速建立」建立媒體服務帳戶
 
-1.  在[管理入口網站][]中，依序按一下 [新增]、[媒體服務] 和 [快速建立]。
+1.  在[管理入口網站][管理入口網站]中，依序按一下 [新增]、[媒體服務] 和 [快速建立]。
 
-    ![Media Services Quick Create][]
+    ![Media Services Quick Create][Media Services Quick Create]
 
 2.  在 [名稱] 中，輸入新帳戶的名稱。媒體服務帳戶名稱是全部小寫且不含空格的數字或字母，而且長度是 3 到 24 個字元。
 
@@ -42,7 +42,7 @@ Azure 管理入口網站提供一種方法來快速建立 Azure 媒體服務帳�
 
     [媒體服務] 頁面隨即開啟，其中顯示新的帳戶。當狀態變更為 [使用中] 時，即表示已順利建立帳戶。
 
-    ![Media Services Page][]
+    ![Media Services Page][Media Services Page]
 
     當您按兩下帳戶名稱時，預設會顯示 [快速入門] 頁面。此頁面可讓您執行一些在入口網站的其他頁面也可以執行的管理工作。例如，您可以從此頁面上傳視訊檔案，也可以從 [內容] 頁面上傳視訊檔案。
 

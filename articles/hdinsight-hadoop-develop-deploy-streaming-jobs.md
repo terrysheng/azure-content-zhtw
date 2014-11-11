@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-develop-hadoop-streaming-programs-for-hdinsight" urlDisplayName="" pageTitle="Develop C# Hadoop streaming programs for HDInsight | Azure" metaKeywords="hdinsight hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce" description="Learn how to develop Hadoop streaming MapReduce programs in C#, and how to deploy them to Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Develop C# Hadoop streaming programs for HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # 開發 HDInsight 的 C# Hadoop 串流程式
 
@@ -10,18 +10,18 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 
 開始進行本教學課程之前，您必須具備下列條件：
 
--   安裝 Azure HDInsight Emulator。如需指示，請參閱＜[開始使用 HDInsight Emulator][]＞。
--   在模擬器電腦上安裝 Azure PowerShell。如需指示，請參閱＜[安裝並設定 Azure PowerShell][]＞
--   取得 Azure 訂用帳戶。如需指示，請參閱＜[購買選項][]＞、＜[成員優惠][]＞或＜[免費試用][]＞。
+-   安裝 Azure HDInsight Emulator。如需指示，請參閱＜[開始使用 HDInsight Emulator][開始使用 HDInsight Emulator]＞。
+-   在模擬器電腦上安裝 Azure PowerShell。如需指示，請參閱＜[安裝並設定 Azure PowerShell][安裝並設定 Azure PowerShell]＞
+-   取得 Azure 訂用帳戶。如需指示，請參閱＜[購買選項][購買選項]＞、＜[成員優惠][成員優惠]＞或＜[免費試用][免費試用]＞。
 
 ## 本文內容
 
--   [使用 C# 開發字數統計 Hadoop 串流程式][]
--   [在模擬器上測試程式][]
--   [將資料和應用程式上傳至 Azure Blob 儲存體][]
--   [在 Azure HDInsight 上執行 MapReduce 程式][]
--   [擷取 MapReduce 結果][]
--   [後續步驟][]
+-   [使用 C# 開發字數統計 Hadoop 串流程式][使用 C# 開發字數統計 Hadoop 串流程式]
+-   [在模擬器上測試程式][在模擬器上測試程式]
+-   [將資料和應用程式上傳至 Azure Blob 儲存體][將資料和應用程式上傳至 Azure Blob 儲存體]
+-   [在 Azure HDInsight 上執行 MapReduce 程式][在 Azure HDInsight 上執行 MapReduce 程式]
+-   [擷取 MapReduce 結果][擷取 MapReduce 結果]
+-   [後續步驟][後續步驟]
 
 ## <a name="develop"></a>使用 C# 開發字數統計 Hadoop 串流程式
 
@@ -144,7 +144,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 4.  檢查工作狀態
 5.  擷取工作結果
 
-依預設，HDInsight 模擬器會使用 HDFS 做為預設檔案系統。您也可以選擇設定 HDInsight 模擬器來使用 Azure Blob 儲存體。如需詳細資料，請參閱＜[開始使用 HDInsight Emulator][1]＞。本節中，您將使用 HDFS copyFromLocal 命令來上傳檔案。下一節說明如何使用 Azure PowerShell 來上傳檔案。關於其他方案，請參閱＜[將資料上傳到 HDInsight][]＞。
+依預設，HDInsight 模擬器會使用 HDFS 做為預設檔案系統。您也可以選擇設定 HDInsight 模擬器來使用 Azure Blob 儲存體。如需詳細資料，請參閱＜[開始使用 HDInsight Emulator][1]＞。本節中，您將使用 HDFS copyFromLocal 命令來上傳檔案。下一節說明如何使用 Azure PowerShell 來上傳檔案。關於其他方案，請參閱＜[將資料上傳到 HDInsight][將資料上傳到 HDInsight]＞。
 
 本教學課程使用下列資料夾結構：
 <table border="1">
@@ -197,7 +197,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
 
 **使用 HDInsight PowerShell 執行 MapReduce 工作**
 
-1.  開啟 Azure PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell][]。
+1.  開啟 Azure PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell][安裝並設定 Azure PowerShell]。
 2.  執行下列命令來設定變數：
 
         $clusterName = "http://localhost:50111"
@@ -480,13 +480,13 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 
         PowerShell -File <FileName> -ExecutionPolicy RemoteSigned
 
-8.  出現提示時，輸入 HDInsight 叢集的使用者名稱和密碼。因為您在指令碼最後會刪除叢集，然後就不再需要使用者名稱和密碼，所以使用者名稱和密碼可以是任何字串。如果不希望出現認證提示，請參閱＜[在 Windows PowerShell 中使用密碼、安全字串和認證][]＞(英文)
+8.  出現提示時，輸入 HDInsight 叢集的使用者名稱和密碼。因為您在指令碼最後會刪除叢集，然後就不再需要使用者名稱和密碼，所以使用者名稱和密碼可以是任何字串。如果不希望出現認證提示，請參閱＜[在 Windows PowerShell 中使用密碼、安全字串和認證][在 Windows PowerShell 中使用密碼、安全字串和認證]＞(英文)
 
-如需提交 Hadoop 串流工作的 HDInsight .NET SDK 範例，請參閱[以程式設計方式提交 Hadoop 工作][]。
+如需提交 Hadoop 串流工作的 HDInsight .NET SDK 範例，請參閱[以程式設計方式提交 Hadoop 工作][以程式設計方式提交 Hadoop 工作]。
 
 ## <a name="retrieve"></a>擷取 MapReduce 工作輸出
 
-本節說明如何下載和顯示輸出。如需有關在 Excel 上顯示結果的詳細資訊，請參閱＜[使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight][]＞和＜[使用 Power Query 將 Excel 連接到 HDInsight][]＞。
+本節說明如何下載和顯示輸出。如需有關在 Excel 上顯示結果的詳細資訊，請參閱＜[使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight][使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight]＞和＜[使用 Power Query 將 Excel 連接到 HDInsight][使用 Power Query 將 Excel 連接到 HDInsight]＞。
 
 **擷取輸出**
 
@@ -513,20 +513,20 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 
 本教學課程中，您學到如何開發 Hadoop 串流 MapReduce 工作、如何在 HDInsight 模擬器上測試應用程式，以及如何撰寫 PowerShell 指令碼來佈建 HDInsight 叢集並於叢集上執行 MapReduce。若要深入了解，請參閱下列文章：
 
--   [Azure HDInsight 使用者入門][]
--   [開始使用 HDInsight Emulator][]
--   [開發 HDInsight 的 Java MapReduce 程式][]
--   [在 HDInsight 上使用 Azure Blob 儲存體][]
--   [使用 PowerShell 管理 HDInsight][]
--   [將資料上傳到 HDInsight][]
--   [搭配 HDInsight 使用 Hive][]
--   [搭配 HDInsight 使用 Pig][]
+-   [Azure HDInsight 使用者入門][Azure HDInsight 使用者入門]
+-   [開始使用 HDInsight Emulator][開始使用 HDInsight Emulator]
+-   [開發 HDInsight 的 Java MapReduce 程式][開發 HDInsight 的 Java MapReduce 程式]
+-   [在 HDInsight 上使用 Azure Blob 儲存體][在 HDInsight 上使用 Azure Blob 儲存體]
+-   [使用 PowerShell 管理 HDInsight][使用 PowerShell 管理 HDInsight]
+-   [將資料上傳到 HDInsight][將資料上傳到 HDInsight]
+-   [搭配 HDInsight 使用 Hive][搭配 HDInsight 使用 Hive]
+-   [搭配 HDInsight 使用 Pig][搭配 HDInsight 使用 Pig]
 
   [開始使用 HDInsight Emulator]: ../hdinsight-get-started-emulator/
   [安裝並設定 Azure PowerShell]: ../install-configure-powershell/
-  [購買選項]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [成員優惠]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [購買選項]: http://azure.microsoft.com/zh-tw/pricing/purchase-options/
+  [成員優惠]: http://azure.microsoft.com/zh-tw/pricing/member-offers/
+  [免費試用]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
   [使用 C# 開發字數統計 Hadoop 串流程式]: #develop
   [在模擬器上測試程式]: #test
   [將資料和應用程式上傳至 Azure Blob 儲存體]: #upload

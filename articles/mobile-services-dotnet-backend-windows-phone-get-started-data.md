@@ -1,41 +1,41 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-wp8" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Phone app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc" />
 
 # 開始使用行動服務中的資料
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 本主題說明如何使用 Azure 行動服務做為 Windows Phone (Silverlight) 應用程式的後端資料來源。在本教學課程中，您將下載 Visual Studio 專案，以取得將資料儲存在記憶體中的應用程式、建立新的行動服務、整合行動服務與該應用程式，然後檢視執行應用程式時所做的資料變更。
 
-您將在本教學課程中建立的行動服務，將可在行動服務中支援 .NET 執行階段。如此，您即可在行動服務中使用 .NET 語言和 Visual Studio 來撰寫伺服器端商務邏輯。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 後端版本][]。
+您將在本教學課程中建立的行動服務，將可在行動服務中支援 .NET 執行階段。如此，您即可在行動服務中使用 .NET 語言和 Visual Studio 來撰寫伺服器端商務邏輯。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 後端版本][JavaScript 後端版本]。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [下載 Windows Phone 8 應用程式專案][]
-2.  [建立新的行動服務][]
-3.  [在本機下載行動服務][]
-4.  [更新 Windows Phone 應用程式以使用行動服務][]
-5.  [對本機代管的服務測試 Windows Phone 應用程式][]
-6.  [將行動服務發佈至 Azure][]
-7.  [對 Azure 代管的服務測試 Windows Phone 應用程式][]
+1.  [下載 Windows Phone 8 應用程式專案][下載 Windows Phone 8 應用程式專案]
+2.  [建立新的行動服務][建立新的行動服務]
+3.  [在本機下載行動服務][在本機下載行動服務]
+4.  [更新 Windows Phone 應用程式以使用行動服務][更新 Windows Phone 應用程式以使用行動服務]
+5.  [對本機代管的服務測試 Windows Phone 應用程式][對本機代管的服務測試 Windows Phone 應用程式]
+6.  [將行動服務發佈至 Azure][將行動服務發佈至 Azure]
+7.  [對 Azure 代管的服務測試 Windows Phone 應用程式][對 Azure 代管的服務測試 Windows Phone 應用程式]
 
 本教學課程需要下列各項：
 
--   在 Windows 8 上執行的 Visual Studio 2013 和 [Windows Phone 8 SDK][]。若要完成此教學課程來建立 Windows Phone 8.1 應用程式，您必須使用 Visual Studio 2013 Update 2 或更新的版本。
--   Microsoft Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
+-   在 Windows 8 上執行的 Visual Studio 2013 和 [Windows Phone 8 SDK][Windows Phone 8 SDK]。若要完成此教學課程來建立 Windows Phone 8.1 應用程式，您必須使用 Visual Studio 2013 Update 2 或更新的版本。
+-   Microsoft Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][Azure 免費試用]。
     </p>
     </div>
 
 ## <a name="download-app"></a>下載 GetStartedWithData 專案
 
-本教學課程以 [GetStartedWithMobileServices 應用程式][] (英文)，亦即 Windows Phone Silverlight 8 應用程式專案為建立基礎。除了會將新增項目儲存在本機記憶體之外，此應用程式的 UI 與行動服務快速入門所產生的應用程式類似。
+本教學課程以 [GetStartedWithMobileServices 應用程式][GetStartedWithMobileServices 應用程式] (英文)，亦即 Windows Phone Silverlight 8 應用程式專案為建立基礎。除了會將新增項目儲存在本機記憶體之外，此應用程式的 UI 與行動服務快速入門所產生的應用程式類似。
 
 1.  從[開發人員程式碼範例網站][GetStartedWithMobileServices 應用程式]中下載 C# 版本的 GetStartedWithMobileServices 範例應用程式。
 
-    ![][]
+    ![][0]
 
-    > [WACOM.NOTE]若要建立 Windows Phone Silverlght 8.1 應用程式，只要將已下載之 Windows Phone Silverlight 8 應用程式專案的目標 OS 變更為 Windows Phone 8.1 即可。若要建立 Windows Phone 市集應用程式，請下載 GetStartedWithData 範例應用程式專案的 [Windows Phone 市集應用程式版本][]。
+    > [WACOM.NOTE]若要建立 Windows Phone Silverlght 8.1 應用程式，只要將已下載之 Windows Phone Silverlight 8 應用程式專案的目標 OS 變更為 Windows Phone 8.1 即可。若要建立 Windows Phone 市集應用程式，請下載 GetStartedWithData 範例應用程式專案的 [Windows Phone 市集應用程式版本][Windows Phone 市集應用程式版本]。
 
 2.  以滑鼠右鍵按一下 Visual Studio，然後按一下 [以系統管理員身分執行]，以系統管理權限來執行 Visual Studio。
 
@@ -57,11 +57,11 @@
 
 ## <a name="create-service"></a><span class="short-header">建立新的行動服務</span>建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## <a name="download-the-service-locally"></a><span class="short-header">在本機下載服務</span>下載行動服務專案並將其新增至方案
 
-1.  在 [Azure 管理入口網站][]中，按一下新的行動服務或是其雲端圖示索引標籤，以移至概觀頁面。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站]中，按一下新的行動服務或是其雲端圖示索引標籤，以移至概觀頁面。
 
     ![][3]
 
@@ -186,7 +186,7 @@
 
 #### 設定 IIS Express 以允許遠端連線
 
-[WACOM.INCLUDE [mobile-services-how-to-configure-iis-express][]]
+[WACOM.INCLUDE [mobile-services-how-to-configure-iis-express](../includes/mobile-services-how-to-configure-iis-express.md)]
 
 #### 對 IIS Express 中的行動服務測試應用程式
 
@@ -222,7 +222,7 @@
 
 ## <a name="publish-mobile-service"></a>將行動服務發佈至 Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## <a name="test-azure-hosted"></a>測試發佈至 Azure 的行動服務
 
@@ -266,20 +266,20 @@
 
 本教學課程將示範啟用 Windows Phone 8 應用程式，進而使用透過 .Net 執行階段而建置之行動服務資料的基本概念。接下來，考慮完成本教學課程中採用 GetStartedWithData 應用程式所建立的下列其中一個教學課程：
 
--   [使用指令檔驗證與修改資料][]
+-   [使用指令檔驗證與修改資料][使用指令檔驗證與修改資料]
     深入了解在行動服務中使用伺服器指令檔，來驗證並變更從應用程式傳送出來的資料。
 
--   [使用分頁縮小查詢範圍][]
+-   [使用分頁縮小查詢範圍][使用分頁縮小查詢範圍]
     了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
 完成資料序列之後，請嘗試下列其中一個其他教學課程：
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何驗證應用程式的使用者。
 
 <!-- * [Get started with push notifications]    <br/>Learn how to send a very basic push notification to your app. -->
 
--   [行動服務 .NET 作法概念參考資料][]
+-   [行動服務 .NET 作法概念參考資料][行動服務 .NET 作法概念參考資料]
     深入了解如何使用搭配 .NET 的行動服務。
 
 <!-- Anchors. --> 
@@ -298,7 +298,7 @@
   [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
   [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
   [GetStartedWithMobileServices 應用程式]: http://go.microsoft.com/fwlink/p/?linkid=271146
-  []: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/mobile-data-sample-download-wp8-vs12.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/mobile-data-sample-download-wp8-vs12.png
   [Windows Phone 市集應用程式版本]: http://go.microsoft.com/fwlink/p/?LinkId=397372
   [1]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-deployment-target.png
   [2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/app-view.png

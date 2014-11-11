@@ -1,10 +1,10 @@
 <properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="Troubleshooting Azure Websites in Visual Studio" metaKeywords="troubleshoot debug azure web site tracing logging" description="Learn how to troubleshoot an Azure Website by using remote debugging, tracing, and logging tools that are built in to Visual Studio 2013." metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
 
 # 疑難排解 Visual Studio 中的 Azure 網站
 
-在 Web 應用程式的開發與測試期間，您可以[在偵錯模式中執行][]或是使用 [IntelliTrace][] 來進行疑難排解。您可以在 IIS Express 本機上或是在遠端的 Azure 網站中以偵錯模式執行。但是對於只在生產環境中出現的錯誤，最佳的偵錯方式應該是檢閱應用程式碼或 Web 伺服器所建立的記錄。本教學課程將示範如何使用可協助偵錯在 Azure 網站中執行之應用程式的 Visual Studio 工具，方法是藉由自遠端在偵錯模式中執行，或檢視應用程式與 Web 伺服器記錄。
+在 Web 應用程式的開發與測試期間，您可以[在偵錯模式中執行][在偵錯模式中執行]或是使用 [IntelliTrace][IntelliTrace] 來進行疑難排解。您可以在 IIS Express 本機上或是在遠端的 Azure 網站中以偵錯模式執行。但是對於只在生產環境中出現的錯誤，最佳的偵錯方式應該是檢閱應用程式碼或 Web 伺服器所建立的記錄。本教學課程將示範如何使用可協助偵錯在 Azure 網站中執行之應用程式的 Visual Studio 工具，方法是藉由自遠端在偵錯模式中執行，或檢視應用程式與 Web 伺服器記錄。
 
 您將了解：
 
@@ -17,22 +17,22 @@
 
 ### 教學課程區段
 
-1.  [必要條件][]
-2.  [網站組態與管理][]
-3.  [遠端檢視][]
-4.  [遠端偵錯][]
-5.  [診斷記錄概觀][]
-6.  [建立並檢視應用程式追蹤記錄][]
-7.  [檢視 Web 伺服器記錄][]
-8.  [檢視詳細的錯誤訊息記錄][]
-9.  [下載檔案系統記錄][]
-10. [檢視儲存體記錄][]
-11. [檢視失敗要求記錄][]
-12. [後續步驟][]
+1.  [必要條件][必要條件]
+2.  [網站組態與管理][網站組態與管理]
+3.  [遠端檢視][遠端檢視]
+4.  [遠端偵錯][遠端偵錯]
+5.  [診斷記錄概觀][診斷記錄概觀]
+6.  [建立並檢視應用程式追蹤記錄][建立並檢視應用程式追蹤記錄]
+7.  [檢視 Web 伺服器記錄][檢視 Web 伺服器記錄]
+8.  [檢視詳細的錯誤訊息記錄][檢視詳細的錯誤訊息記錄]
+9.  [下載檔案系統記錄][下載檔案系統記錄]
+10. [檢視儲存體記錄][檢視儲存體記錄]
+11. [檢視失敗要求記錄][檢視失敗要求記錄]
+12. [後續步驟][後續步驟]
 
 ## <a name="prerequisites"></a>必要條件
 
-本教學課程可運用於開發環境、Web 專案與您在[開始使用 Azure 和 ASP.NET][] 中所設定的 Azure 網站。本教學課程中所提供的程式碼範例適用於 C# MVC Web 應用程式，但是疑難排解程序則是與 Visual Basic 和 Web Form 應用程式一樣。
+本教學課程可運用於開發環境、Web 專案與您在[開始使用 Azure 和 ASP.NET][開始使用 Azure 和 ASP.NET] 中所設定的 Azure 網站。本教學課程中所提供的程式碼範例適用於 C# MVC Web 應用程式，但是疑難排解程序則是與 Visual Basic 和 Web Form 應用程式一樣。
 
 遠端偵錯程序需要 Visual Studio 2013 或 Visual Studio 2012 含 Update 4。教學課程中示範的其他功能同樣適用 Visual Studio 2013 Express for Web 以及 Visual Studio 2012 Express for Web。
 
@@ -49,30 +49,30 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
     > [WACOM.NOTE]
     > 如果您下載了訂用帳戶檔案，請將其儲存到原始程式碼目錄以外的資料夾 (例如 Downloads 資料夾)，然後在匯入完成後刪除該檔案。惡意使用者一旦能夠存取此訂用帳戶檔案，就能夠編輯、建立和刪除您的 Azure 服務。
 
-    如需從 Visual Studio 連線至 Azure 資源的詳細資訊，請參閱[管理帳戶、訂閱和系統管理角色][]。
+    如需從 Visual Studio 連線至 Azure 資源的詳細資訊，請參閱[管理帳戶、訂閱和系統管理角色][管理帳戶、訂閱和系統管理角色]。
 
 2.  在 [伺服器總管] 中，展開 [Azure]，然後展開 [網站]。
 
-3.  以滑鼠右鍵按一下您在[開始使用 Azure 和 ASP.NET][] 中建立的網站節點，然後按一下 [檢視設定]。
+3.  以滑鼠右鍵按一下您在[開始使用 Azure 和 ASP.NET][開始使用 Azure 和 ASP.NET] 中建立的網站節點，然後按一下 [檢視設定]。
 
-    ![在伺服器總管中檢視設定][]
+    ![在伺服器總管中檢視設定][在伺服器總管中檢視設定]
 
     [Azure 網站] 索引標籤會隨即顯示，您會看到 Visual Studio 中所提供的網站管理與組態工作。
 
-    ![Azure 網站視窗][]
+    ![Azure 網站視窗][Azure 網站視窗]
 
     在本教學課程中，您將使用記錄與追蹤下拉式清單。您也會使用遠端偵錯功能，但是將以不同的方式來加以啟用。
 
-    如需此視窗中的應用程式設定與連接字串方塊的詳細資訊，請參閱 [Azure 網站：應用程式字串與連接字串的運作方式][] (英文)。
+    如需此視窗中的應用程式設定與連接字串方塊的詳細資訊，請參閱 [Azure 網站：應用程式字串與連接字串的運作方式][Azure 網站：應用程式字串與連接字串的運作方式] (英文)。
 
-    如果您想要執行無法在此視窗中完成的網站管理工作，可以按一下 [完整網站設定] 來開啟管理入口網站的瀏覽器視窗。如需詳細資訊，請參閱[如何設定網站][]。
+    如果您想要執行無法在此視窗中完成的網站管理工作，可以按一下 [完整網站設定] 來開啟管理入口網站的瀏覽器視窗。如需詳細資訊，請參閱[如何設定網站][如何設定網站]。
 
 ## <a name="remoteview"></a>遠端檢視
 
 部署網站時，通常會將 Web.config 檔案中的 `customErrors` 旗標設定為 `On` 或 `RemoteOnly`，這表示出現問題時，您將不會收到有用的錯誤訊息。對許多錯誤而言，您只會看到如下列之一的頁面。
 
 **'/' 應用程式中發生伺服器錯誤：**
-![沒有幫助的錯誤頁面][]
+![沒有幫助的錯誤頁面][沒有幫助的錯誤頁面]
 
 **發生錯誤：**
 ![沒有幫助的錯誤頁面][1]
@@ -80,17 +80,17 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 **網站無法顯示該網頁**
 ![沒有幫助的錯誤頁面][2]
 
-要找到錯誤原因最簡單的方式，往往就是啟用詳細的錯誤訊息，而以上第一個螢幕擷取畫面說明的是其做法。該做法需要在部署的 Web.config 檔案中進行變更。您可以編輯專案中的 *Web.config* 檔案，然後重新部署專案，或是建立一個 [Web.config 轉換][]，並部署偵錯組建，但是以下方式更快：在 [方案總管] 中，您可以使用*遠端檢視*功能，直接檢視與編輯遠端網站上的檔案。
+要找到錯誤原因最簡單的方式，往往就是啟用詳細的錯誤訊息，而以上第一個螢幕擷取畫面說明的是其做法。該做法需要在部署的 Web.config 檔案中進行變更。您可以編輯專案中的 *Web.config* 檔案，然後重新部署專案，或是建立一個 [Web.config 轉換][Web.config 轉換]，並部署偵錯組建，但是以下方式更快：在 [方案總管] 中，您可以使用*遠端檢視*功能，直接檢視與編輯遠端網站上的檔案。
 
 1.  在 [伺服器總管] 中，依序展開 [Azure]、[網站]，然後展開您要部署的網站節點。
 
     您會看到可供您存取網站內容檔案與記錄檔的節點。
 
-    ![檔案與記錄檔案][]
+    ![檔案與記錄檔案][檔案與記錄檔案]
 
 2.  展開 [檔案] 節點，然後按兩下 *Web.config* 檔案。
 
-    ![開啟 Web.config][]
+    ![開啟 Web.config][開啟 Web.config]
 
     Visual Studio 會從遠端網站開啟 Web.config 檔案，然後在標題列中於檔案名稱旁邊顯示 [Remote]。
 
@@ -98,11 +98,11 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
     `<customErrors mode="off"></customErrors>`
 
-    ![編輯 Web.config][]
+    ![編輯 Web.config][編輯 Web.config]
 
 4.  重新整理顯示沒有幫助的錯誤訊息的瀏覽器，現在您就會看到詳細的錯誤訊息，例如以下範例：
 
-    ![詳細的錯誤訊息][]
+    ![詳細的錯誤訊息][詳細的錯誤訊息]
 
     (顯示的錯誤是透過將紅色字行新增至 *Views\\Home\\Index.cshtml* 中來加以建立。)
 
@@ -114,9 +114,9 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 遠端偵錯無法在 Visual Studio 的 Express 版本中運作。
 
-本節說明如何使用您在[開始使用 Azure 和 ASP.NET][] 中所建立的專案進行遠端偵錯。
+本節說明如何使用您在[開始使用 Azure 和 ASP.NET][開始使用 Azure 和 ASP.NET] 中所建立的專案進行遠端偵錯。
 
-1.  開啟您在[開始使用 Azure 和 ASP.NET][] 中建立的 Web 專案。
+1.  開啟您在[開始使用 Azure 和 ASP.NET][開始使用 Azure 和 ASP.NET] 中建立的 Web 專案。
 
 2.  開啟 *Controllers\\HomeController.cs*。
 
@@ -133,17 +133,17 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 5.  在 [方案總管] 中，於專案上按一下滑鼠右鍵，再按一下 [發行]。
 
-6.  在 [設定檔] 下拉式清單中，選取您在[開始使用 Azure 和 ASP.NET][] 中使用的相同設定檔。
+6.  在 [設定檔] 下拉式清單中，選取您在[開始使用 Azure 和 ASP.NET][開始使用 Azure 和 ASP.NET] 中使用的相同設定檔。
 
 7.  按一下 [設定] 索引標籤，然後將 [組態] 變更為 [偵錯]，然後按一下 [發行]。
 
-    ![於偵錯模式中發行][]
+    ![於偵錯模式中發行][於偵錯模式中發行]
 
 8.  部署完成後，您的瀏覽器會開啟至網站的 Azure URL，這時請關閉瀏覽器。
 
 9.  針對 Visual Studio 2013：在 [伺服器總管] 中，依序展開 [Azure]、[網站]，然後以滑鼠右鍵按一下您的網站，接著按一下 [連結偵錯工具]。
 
-    ![連結偵錯工具][]
+    ![連結偵錯工具][連結偵錯工具]
 
     瀏覽器會自動開啟至您在 Azure 中執行的首頁。您可能需要等候 20 秒左右的時間，讓 Azure 設定要偵錯的伺服器。通常只有當您第一次在網站上執行偵錯模式時，才會出現這個延遲現象。後續 48 小時內再次啟動的偵錯程序將不會再出現任何延遲。
 
@@ -153,7 +153,7 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
     -   將 [遠端偵錯] 設為 [開啟]，然後將 [Remote Debugging Visual Studio Version] 設為 [2012]。
 
-    ![在管理入口網站中設定遠端偵錯][]
+    ![在管理入口網站中設定遠端偵錯][在管理入口網站中設定遠端偵錯]
 
     -   在 Visual Studio 的 [偵錯] 功能表中，按一下 [附加至處理序]。
 
@@ -175,7 +175,7 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 12. 將滑鼠移至 `currentTime` 變數上，以查看時間值。
 
-    ![檢視 Azure 偵錯模式中執行的變數][]
+    ![檢視 Azure 偵錯模式中執行的變數][檢視 Azure 偵錯模式中執行的變數]
 
     您在 Azure 伺服器時間上看到的時間，可能與您的本機電腦所在的時區不同。
 
@@ -185,7 +185,7 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
     Azure 中執行的 [關於] 頁面會顯示您輸入到 currentTime 變數中的新值。
 
-    ![含有新值的關於頁面][]
+    ![含有新值的關於頁面][含有新值的關於頁面]
 
 ### 遠端偵錯注意事項
 
@@ -193,7 +193,7 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 -   進行遠端偵錯時，避免長時間在中斷點停止運作。Azure 會將停止超過幾分鐘的處理序視為無回應的處理序，並將其關閉。
 
--   在偵錯期間，伺服器會將資料傳送至 Visual Studio，進而影響頻寬付費情況。如需關於頻寬費率的詳細資訊，請參閱 [Azure 定價][]。
+-   在偵錯期間，伺服器會將資料傳送至 Visual Studio，進而影響頻寬付費情況。如需關於頻寬費率的詳細資訊，請參閱 [Azure 定價][Azure 定價]。
 
 -   確保 *Web.config* 檔案裡 `compilation` 元素中的 `debug` 屬性設為 true。在發行偵錯組建組態時，該值預設會設為 true。
 
@@ -202,18 +202,18 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
           <httpRuntime targetFramework="4.5" />
         </system.web>
 
--   如果您發現偵錯工具無法逐步執行您要偵錯的程式碼，可能需要變更「Just My Code」設定。如需詳細資訊，請參閱[將逐步執行限制於 Just My Code][]。
+-   如果您發現偵錯工具無法逐步執行您要偵錯的程式碼，可能需要變更「Just My Code」設定。如需詳細資訊，請參閱[將逐步執行限制於 Just My Code][將逐步執行限制於 Just My Code]。
 
 -   當您啟用遠端偵錯功能時，伺服器上會啟動計時器，並在 48 小時後自動關閉此功能。此 48 小時的限制是為了安全與效能起見而設計的功能。若需要，您可以輕鬆開啟這項功能，次數不限。當您不需要偵錯時，建議您將其保持為停用。
 
--   您可以將此偵錯工具手動連結到任何處理序。您不只可以偵錯網站處理序 (w3wp.exe)，還可以偵錯其他處理序，例如 [WebJobs][]。如需如何在 Visual Studio 中使用偵錯模式的詳細資訊，請參閱[Visual Studio 偵錯][]。
+-   您可以將此偵錯工具手動連結到任何處理序。您不只可以偵錯網站處理序 (w3wp.exe)，還可以偵錯其他處理序，例如 [WebJobs][WebJobs]。如需如何在 Visual Studio 中使用偵錯模式的詳細資訊，請參閱[Visual Studio 偵錯][Visual Studio 偵錯]。
 
 ## <a name="logsoverview"></a><span class="short-header">記錄概觀</span>診斷記錄概觀
 
 在 Azure 網站中執行的 ASP.NET 應用程式，可建立下列各種記錄：
 
 -   **應用程式追蹤記錄**<br />
-    此應用程式會呼叫 [System.Diagnostics.Trace][] 類別的方法來建立這些記錄。
+    此應用程式會呼叫 [System.Diagnostics.Trace][System.Diagnostics.Trace] 類別的方法來建立這些記錄。
 -   **Web 伺服器記錄**<br />
     Web 伺服器會為每個通往網站的 HTTP 要求建立記錄項目。
 -   **詳細的錯誤訊息記錄**<br />
@@ -284,7 +284,7 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
     預設的追蹤接聽程式會將所有追蹤輸出連同其他「偵錯」輸出，一起寫入到 [輸出] 視窗。下圖顯示您加入 `Index` 方法的追蹤陳述式的輸出。
 
-    ![偵錯視窗中的追蹤][]
+    ![偵錯視窗中的追蹤][偵錯視窗中的追蹤]
 
     以下步驟說明如何在網頁中檢視追蹤輸出，而不需在偵錯模式中編譯。
 
@@ -305,7 +305,7 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
     `WebPageTraceListener` 可讓您藉由瀏覽至 `/trace.axd` 來檢視追蹤輸出。
 
-3.  在 Web.config 檔案的 `<system.web>` 下方，加入[追蹤元素][]，如以下範例所示：
+3.  在 Web.config 檔案的 `<system.web>` 下方，加入[追蹤元素][追蹤元素]，如以下範例所示：
 
         <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 
@@ -315,7 +315,7 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 6.  在 [應用程式追蹤] 頁面上，按一下 [檢視詳細資料]。
 
-    ![trace.axd][]
+    ![trace.axd][trace.axd]
 
     [要求詳細資訊] 頁面隨即顯示，而且在 [追蹤資訊] 區段中，您會看到先前加入 `Index` 方法的追蹤陳述式輸出。
 
@@ -337,7 +337,7 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 3.  在 [伺服器總管] 中，以滑鼠右鍵按一下網站，然後選取 [在輸出視窗中檢視串流記錄]。
 
-    ![在內容功能表中檢視串流記錄][]
+    ![在內容功能表中檢視串流記錄][在內容功能表中檢視串流記錄]
 
     [輸出] 視窗會顯示您已連線至記錄串流服務，並每一分鐘將沒有要顯示的記錄新增一行通知文字。
 
@@ -347,11 +347,11 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
     幾秒鐘後，您加入 `Contact` 方法的錯誤層級追蹤輸出便會顯示在 [輸出] 視窗。
 
-    ![輸出視窗中的錯誤追蹤][]
+    ![輸出視窗中的錯誤追蹤][輸出視窗中的錯誤追蹤]
 
     Visual Studio 只會顯示錯誤層級追蹤，因為那是您在啟用記錄監視服務時的預設設定。建立新的 Azure 網站時，預設會停用所有記錄功能，正如同稍早您開啟網站設定頁面時所見：
 
-    ![應用程式記錄功能關閉][]
+    ![應用程式記錄功能關閉][應用程式記錄功能關閉]
 
     不過，當您選取了 [View Streaming Logs in Output Window]，Visual Studio 會自動將 [Application Logging(File System)] 變更為 [錯誤]，表示已經提出錯誤層級記錄的報告。為了查看所有的追蹤記錄，您可以將此設定變更為 [詳細資訊]。當您選取低於錯誤的嚴重性層級時，將一併回報較高嚴重性層級的所有記錄。因此當您選取詳細資訊時，您會同時看到資訊、警告與錯誤記錄。
 
@@ -359,13 +359,13 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 6.  將 [Application Logging (File System)] 變更為 [詳細資訊]，然後按一下 [儲存]。
 
-    ![將追蹤層級設定為詳細資訊][]
+    ![將追蹤層級設定為詳細資訊][將追蹤層級設定為詳細資訊]
 
 7.  在顯示您的 [連絡人] 頁面的瀏覽器視窗中，依序按一下 [首頁]、[關於]、[連絡人]。
 
     在幾秒鐘內，[輸出] 視窗就會顯示您的所有追蹤輸出。
 
-    ![詳細資訊追蹤輸出][]
+    ![詳細資訊追蹤輸出][詳細資訊追蹤輸出]
 
     在本節中，您已使用 Azure 網站設定來啟用與停用記錄功能。您也可以修改 Web.config 檔案，來啟用與停用追蹤接聽程式。不過，修改 Web.config 檔案會導致應用程式網域回收，而透過網站啟用記錄功能則不會有這種現象。如果此問題需要經過長時間才會重現或是間歇性出現，則回收應用程式網域可能「修正」此問題，並強迫您等候問題再次發生。在 Azure 中啟用診斷功能不會出現此情況，因此您可以立即開始擷取錯誤資訊。
 
@@ -373,7 +373,7 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 [輸出] 視窗的 [Azure 記錄] 索引標籤具有多個按鈕與一個文字方塊：
 
-![記錄索引標籤按鈕][]
+![記錄索引標籤按鈕][記錄索引標籤按鈕]
 
 這些物件可執行下列功能：
 
@@ -393,23 +393,23 @@ Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 [輸出] 
 
 1.  在您從 [伺服器總管] 開啟的 [Azure 網站組態] 索引標籤中，將 Web 伺服器記錄功能變更為 [開啟]，然後按一下 [儲存]。
 
-    ![啟用 Web 伺服器記錄][]
+    ![啟用 Web 伺服器記錄][啟用 Web 伺服器記錄]
 
 2.  在 [輸出] 視窗中，按一下 [指定要監視的 Azure 記錄] 按鈕。
 
-    ![指定要監視的 Azure 記錄][]
+    ![指定要監視的 Azure 記錄][指定要監視的 Azure 記錄]
 
 3.  在 [Azure 記錄選項] 對話方塊中，選取 [Web 伺服器記錄]，然後按一下 [確定]。
 
-    ![監視 Web 伺服器記錄][]
+    ![監視 Web 伺服器記錄][監視 Web 伺服器記錄]
 
 4.  在顯示該網站的瀏覽器視窗中，依序按一下 [首頁]、[關於]、[連絡人]。
 
     通常會先產生應用程式記錄，然後才是 Web 伺服器記錄。您可能需要等候一小段時間，記錄才會顯示。
 
-    ![輸出視窗中的 Web 伺服器記錄][]
+    ![輸出視窗中的 Web 伺服器記錄][輸出視窗中的 Web 伺服器記錄]
 
-根據預設，當您第一次使用 Visual Studio 啟用 Web 伺服器記錄時，Azure 會將記錄寫入檔案系統。做為替代方式，您可以使用管理入口網站來指定應該將 Web 伺服器記錄寫入儲存體帳戶中的某個 Blob 容器。如需詳細資訊，請參閱[如何設定網站][]中的**網站診斷**小節。
+根據預設，當您第一次使用 Visual Studio 啟用 Web 伺服器記錄時，Azure 會將記錄寫入檔案系統。做為替代方式，您可以使用管理入口網站來指定應該將 Web 伺服器記錄寫入儲存體帳戶中的某個 Blob 容器。如需詳細資訊，請參閱[如何設定網站][如何設定網站]中的**網站診斷**小節。
 
 如果您使用管理入口網站對 Azure 儲存體帳戶啟用 Web 伺服器記錄功能，然後在 Visual Studio 中停用記錄功能，當您在 Visual Studio 中重新啟用記錄功能時，將會還原您的儲存體帳戶設定。
 
@@ -419,23 +419,23 @@ Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 [輸出] 
 
 1.  在您從 [伺服器總管] 中開啟的 [Azure 網站組態] 索引標籤中，將 [詳細的錯誤訊息] 變更為 [開啟]，然後按一下 [儲存]。
 
-    ![啟用詳細的錯誤訊息][]
+    ![啟用詳細的錯誤訊息][啟用詳細的錯誤訊息]
 
 2.  在 [輸出] 視窗中，按一下 [指定要監視的 Azure 記錄] 按鈕。
 
 3.  在 [Azure 記錄選項] 對話方塊中，按一下 [所有記錄]、[確定]。
 
-    ![監視所有記錄][]
+    ![監視所有記錄][監視所有記錄]
 
 4.  在瀏覽器視窗的網址列中，為 URL 加入額外的字元以引發 404 錯誤 (例如，`http://localhost:53370/Home/Contactx`)，然後按 Enter 鍵。
 
     幾秒鐘之後，詳細的錯誤記錄就會顯示在 Visual Studio 的 [輸出] 視窗。
 
-    ![輸出視窗中的詳細的錯誤記錄][]
+    ![輸出視窗中的詳細的錯誤記錄][輸出視窗中的詳細的錯誤記錄]
 
     按住 Ctrl 鍵並按一下該連結，可在瀏覽器中查看格式化的記錄輸出：
 
-    ![瀏覽器視窗中的詳細的錯誤記錄][]
+    ![瀏覽器視窗中的詳細的錯誤記錄][瀏覽器視窗中的詳細的錯誤記錄]
 
 ## <a name="downloadlogs"></a><span class="short-header">下載記錄</span>下載檔案系統記錄
 
@@ -447,14 +447,14 @@ Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 [輸出] 
 
     [檔案總管] 會開啟至您的 *Downloads* 資料夾，並選取下載的檔案。
 
-    ![下載的檔案][]
+    ![下載的檔案][下載的檔案]
 
 2.  將 *.zip* 檔案解壓縮後，您會看到下列資料夾結構：
 
     ![下載的檔案][6]
 
     -   應用程式追蹤記錄位於 *LogFiles\\Application* 資料夾的 *.txt* 檔案中。
-    -   Web 伺服器記錄位於 *LogFiles\\http\\RawLogs* 資料夾的 *.log* 檔案中。您可以使用[記錄檔剖析器][] (英文) 之類的工具來檢視與操作這些檔案。
+    -   Web 伺服器記錄位於 *LogFiles\\http\\RawLogs* 資料夾的 *.log* 檔案中。您可以使用[記錄檔剖析器][記錄檔剖析器] (英文) 之類的工具來檢視與操作這些檔案。
     -   詳細的錯誤訊息記錄位於 *LogFiles\\DetailedErrors* 資料夾的 *.html* 檔案中。
 
     (*deployments* 資料夾用於存放來源控制發行功能所建立的檔案，它與 Visual Studio 發行功能沒有任何關聯。*Git* 資料夾則用於存放與來源控制發行功能相關的追蹤記錄，以及記錄檔案串流服務。)
@@ -471,7 +471,7 @@ Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 [輸出] 
 
 您可以為每個目的地指定不同的嚴重性層級。
 
-資料表可讓您輕鬆地在線上檢視記錄的詳細資料，而且資料表還支援串流；您可以查詢資料表中的記錄，並即時看到正在建立的新記錄。Blob 則可讓您輕鬆地將記錄下載到檔案，並運用 HDInsight 加以分析，因為 HDInsight 知道如何處理 Blob 儲存體。如需詳細資訊，請參閱[資料儲存體選項 (運用 Azure 建構真實的雲端應用程式)][] 中的 **Hadoop 與 MapReduce** (英文)。
+資料表可讓您輕鬆地在線上檢視記錄的詳細資料，而且資料表還支援串流；您可以查詢資料表中的記錄，並即時看到正在建立的新記錄。Blob 則可讓您輕鬆地將記錄下載到檔案，並運用 HDInsight 加以分析，因為 HDInsight 知道如何處理 Blob 儲存體。如需詳細資訊，請參閱[資料儲存體選項 (運用 Azure 建構真實的雲端應用程式)][資料儲存體選項 (運用 Azure 建構真實的雲端應用程式)] 中的 **Hadoop 與 MapReduce** (英文)。
 
 您目前已將檔案系統記錄設為詳細資訊層級；以下步驟將帶您逐步設定資訊層級記錄，以便傳送至儲存體帳戶資料表。資訊層級代表所有藉由呼叫 `Trace.TraceInformation`、`Trace.TraceWarning` 與 `Trace.TraceError` 的記錄都會顯示出來，但不會顯示藉由呼叫 `Trace.WriteLine` 所建立的記錄。
 
@@ -481,11 +481,11 @@ Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 [輸出] 
 
 2.  在管理入口網站中，按一下 [儲存體] 索引標籤，然後按一下 [建立儲存體帳戶]。
 
-    ![建立儲存體帳戶][]
+    ![建立儲存體帳戶][建立儲存體帳戶]
 
 3.  輸入唯一的 URL 以便用於儲存體帳戶，然後按一下 [建立儲存體帳戶]。
 
-    ![輸入 URL][]
+    ![輸入 URL][輸入 URL]
 
 4.  在 Visual Studio 的 [Azure 網站] 視窗中，按一下 [記錄] 索引標籤，然後按一下 [設定記錄]。
 
@@ -499,11 +499,11 @@ Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 [輸出] 
 
 7.  按一下 [管理資料表儲存體]。
 
-    ![按一下 管理資料表儲存體][]
+    ![按一下 管理資料表儲存體][按一下 管理資料表儲存體]
 
     如果您擁有不只一個儲存體帳戶，則可以在 [Manage table storage for application diagnostics] 方塊中選擇您的儲存體帳戶。您可以建立新的資料表，或是使用現有的資料表。
 
-    ![管理資料表儲存體][]
+    ![管理資料表儲存體][管理資料表儲存體]
 
 8.  在 [Manage table storage for application diagnostics] 方塊中，按一下核取方塊以關閉該方塊。
 
@@ -515,13 +515,13 @@ Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 [輸出] 
 
 11. 在 Visual Studio 的 [Azure 網站] 視窗的 [記錄] 索引標籤中，按一下 [診斷摘要] 下方的 [重新整理]。
 
-    ![按一下 重新整理][]
+    ![按一下 重新整理][按一下 重新整理]
 
     [Diagnostic Summary] 區段預設會顯示最後 15 分鐘的記錄。您可以變更期間以檢視更多記錄。
 
     (如果出現「找不到資料表」錯誤，請確認您所瀏覽的頁面在您啟用了 [Application Logging (Storage)] 與按一下 [儲存] 之後，能夠進行追蹤作業。)
 
-    ![儲存體記錄][]
+    ![儲存體記錄][儲存體記錄]
 
     請注意，在此檢視中您會看到每個記錄的 [處理序識別碼] 與 [執行緒識別碼]，而這是檔案系統記錄所無法提供。您可以直接檢視 Azure 儲存體資料表來查看其他欄位。
 
@@ -531,11 +531,11 @@ Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 [輸出] 
 
     (如果出現「序列未包含項目」錯誤，請開啟 [伺服器總管] 並展開 [Azure] 節點下方的儲存體帳戶節點，然後以滑鼠右鍵按一下 [資料表] 並按一下 [重新整理]。)
 
-    ![伺服器總管中的追蹤資料表][]
+    ![伺服器總管中的追蹤資料表][伺服器總管中的追蹤資料表]
 
-    ![資料表檢視中的儲存體記錄][]
+    ![資料表檢視中的儲存體記錄][資料表檢視中的儲存體記錄]
 
-    此檢視會顯示在其他任何檢視中都不會看到的額外欄位。此檢視還可讓您藉由特殊的查詢產生器 UI 來篩選記錄，以便建構查詢。如需詳細資訊，請參閱[使用伺服器總管瀏覽儲存體資源][]中的「使用表格資源 - 篩選實體」。
+    此檢視會顯示在其他任何檢視中都不會看到的額外欄位。此檢視還可讓您藉由特殊的查詢產生器 UI 來篩選記錄，以便建構查詢。如需詳細資訊，請參閱[使用伺服器總管瀏覽儲存體資源][使用伺服器總管瀏覽儲存體資源]中的「使用表格資源 - 篩選實體」。
 
 13. 若要查看單一資料列的詳細資料，請以滑鼠右鍵按一下其中一個資料列，然後按一下 [編輯]。
 
@@ -553,7 +553,7 @@ Azure 網站會使用 IIS 7.0 及更新版本所提供的相同失敗要求追�
 
 1.  在您從 [伺服器總管] 開啟的 [Azure 網站] 視窗之 [組態] 索引標籤中，將 [失敗要求追蹤] 變更為 [開啟]，然後按一下 [儲存]。
 
-    ![啟用失敗要求追蹤][]
+    ![啟用失敗要求追蹤][啟用失敗要求追蹤]
 
 2.  在顯示該網站的瀏覽器視窗網址列中，將額外字元加入 URL 並按一下 Enter 鍵以引發 404 錯誤。
 
@@ -563,11 +563,11 @@ Azure 網站會使用 IIS 7.0 及更新版本所提供的相同失敗要求追�
 
 4.  在管理入口網站中，按下 [儀表板]，然後按一下 [Quick Glance] 區段中的 [Reset your deployment credentials]。
 
-    ![重設儀表板中的 FTP 認證連結][]
+    ![重設儀表板中的 FTP 認證連結][重設儀表板中的 FTP 認證連結]
 
 5.  輸入新的使用者名稱與密碼。
 
-    ![新的 FTP 使用者名稱與密碼][]
+    ![新的 FTP 使用者名稱與密碼][新的 FTP 使用者名稱與密碼]
 
 6.  在管理入口網站的 [儀表板] 索引標籤中，按 F5 以重新整理頁面，然後向下捲動至顯示 [Deployment / FTP User] 的地方。請注意，該使用者名稱前面有加上網站名稱前置詞。**當您登入時，必須使用此完整的使用者名稱，加上此處所示的網站名稱前置詞。**
 
@@ -579,21 +579,21 @@ Azure 網站會使用 IIS 7.0 及更新版本所提供的相同失敗要求追�
 
 9.  開啟 *LogFiles* 資料夾。
 
-    ![開啟 LogFiles 資料夾][]
+    ![開啟 LogFiles 資料夾][開啟 LogFiles 資料夾]
 
 10. 開啟名為 W3SVC 並加上數值的資料夾。
 
-    ![開啟 W3SVC 資料夾][]
+    ![開啟 W3SVC 資料夾][開啟 W3SVC 資料夾]
 
     該資料夾包含了一些 XML 檔案 (內含任何您在啟用失敗要求追蹤功能後所記錄的錯誤)，以及一個可供瀏覽器用來格式化該 XML 檔案的 XSL 檔案。
 
-    ![W3SVC 資料夾][]
+    ![W3SVC 資料夾][W3SVC 資料夾]
 
 11. 按一下 XML 檔案，以取得您想要檢視其追蹤資訊的失敗要求。
 
     下圖顯示錯誤範例追蹤資訊的片段。
 
-    ![瀏覽器中的失敗要求追蹤][]
+    ![瀏覽器中的失敗要求追蹤][瀏覽器中的失敗要求追蹤]
 
 ## <a name="nextsteps"></a><span class="short-header">後續步驟</span>後續步驟
 
@@ -603,50 +603,50 @@ Azure 網站會使用 IIS 7.0 及更新版本所提供的相同失敗要求追�
 
 如需疑難排解 Azure 網站 (WAWS) 的詳細資訊，請參閱下列資源：
 
--   [疑難排解 Azure][]<br />
+-   [疑難排解 Azure][疑難排解 Azure]<br />
     這份基本簡介的白皮書有簡短介紹 WAWS。
--   [疑難排解網站][]<br />
+-   [疑難排解網站][疑難排解網站]<br />
     這份簡介重點在 WAWS。
--   [啟用 Azure 網站的診斷記錄][]<br />
+-   [啟用 Azure 網站的診斷記錄][啟用 Azure 網站的診斷記錄]<br />
     內容涵蓋本教學課程所提供的大多數相同資訊，但是重點在如何不使用 Visual Studio 取得診斷記錄。
--   [如何監視網站][]<br />
-    [設定診斷與下載記錄][]一節提供了疑難排解文件沒有納入的寶貴資訊。
--   [使用 Visual Studio 2013 調查 Azure 網站中的記憶體流失][] (英文)。Microsoft ALM 部落格文章，討論 Visual Studio 中分析 Managed 記憶體問題的功能。
--   [您應該知道的 Windows Azure 網站的線上工具][] (英文)。取自 Amit Apple 的部落格文章。
+-   [如何監視網站][如何監視網站]<br />
+    [設定診斷與下載記錄][設定診斷與下載記錄]一節提供了疑難排解文件沒有納入的寶貴資訊。
+-   [使用 Visual Studio 2013 調查 Azure 網站中的記憶體流失][使用 Visual Studio 2013 調查 Azure 網站中的記憶體流失] (英文)。Microsoft ALM 部落格文章，討論 Visual Studio 中分析 Managed 記憶體問題的功能。
+-   [您應該知道的 Windows Azure 網站的線上工具][您應該知道的 Windows Azure 網站的線上工具] (英文)。取自 Amit Apple 的部落格文章。
 
 如需特定疑難排解問題的說明，請在下列任一個論壇中開啟一段討論串：
 
--   [ASP.NET 網站上的 Azure 論壇][]。
--   [MSDN 上的 Azure 論壇][]。
--   [StackOverflow.com][]。
+-   [ASP.NET 網站上的 Azure 論壇][ASP.NET 網站上的 Azure 論壇]。
+-   [MSDN 上的 Azure 論壇][MSDN 上的 Azure 論壇]。
+-   [StackOverflow.com][StackOverflow.com]。
 
 ### 在 Visual Studio 中偵錯
 
-如需如何在 Visual Studio 中使用偵錯模式的詳細資訊，請參閱[在 Visual Studio 中偵錯][Visual Studio 偵錯] MSDN 主題與 [Visual Studio 2010 的偵錯秘訣][]。
+如需如何在 Visual Studio 中使用偵錯模式的詳細資訊，請參閱[在 Visual Studio 中偵錯][Visual Studio 偵錯] MSDN 主題與 [Visual Studio 2010 的偵錯秘訣][Visual Studio 2010 的偵錯秘訣]。
 
 如需 Azure 網站的遠端偵錯詳細資訊，請參閱下列資源：
 
--   [介紹 Azure 網站的遠端偵錯][] (英文)。
--   [介紹 Azure 網站的遠端偵錯 (第 2 部分) - 內部遠端偵錯][]
--   [介紹 Azure 網站的遠端偵錯 (第 3 部分) - 多執行個體環境和 GIT][]
+-   [介紹 Azure 網站的遠端偵錯][介紹 Azure 網站的遠端偵錯] (英文)。
+-   [介紹 Azure 網站的遠端偵錯 (第 2 部分) - 內部遠端偵錯][介紹 Azure 網站的遠端偵錯 (第 2 部分) - 內部遠端偵錯]
+-   [介紹 Azure 網站的遠端偵錯 (第 3 部分) - 多執行個體環境和 GIT][介紹 Azure 網站的遠端偵錯 (第 3 部分) - 多執行個體環境和 GIT]
 
-如果您的網站使用 Azure Web API 或是行動服務後端，而您需要加以偵錯，請參閱[在 Visual Studio 中對 .NET 後端進行偵錯][] (英文)。
+如果您的網站使用 Azure Web API 或是行動服務後端，而您需要加以偵錯，請參閱[在 Visual Studio 中對 .NET 後端進行偵錯][在 Visual Studio 中對 .NET 後端進行偵錯] (英文)。
 
 ### 在 ASP.NET 應用程式中追蹤
 
 網際網路上找不到關於 ASP.NET 追蹤功能詳盡且具時效性的說明。您所能做的，就是從專為 Web Form 所撰寫的一些舊有簡介資料下手，因為 MVC 是最近才問世的技術，並以著重在特定議題的較新的部落格文章來做為補充。以下資源是您開始了解這項技術的一些好去處：
 
--   [監視與遙測 (運用 Azure 建構真實的雲端應用程式)][] (英文)。<br />
+-   [監視與遙測 (運用 Azure 建構真實的雲端應用程式)][監視與遙測 (運用 Azure 建構真實的雲端應用程式)] (英文)。<br />
     針對追蹤 Azure 雲端應用程式所建議的電子書章節。
--   [ASP.NET 追蹤][] (英文)<br />
+-   [ASP.NET 追蹤][ASP.NET 追蹤] (英文)<br />
     雖然舊但仍是該主題的基本簡介的良好資源。
--   [追蹤接聽程式][] (機器翻譯)<br />
-    內含有關追蹤接聽程式的資訊，但是沒有提到 [WebPageTraceListener][] (機器翻譯)。
--   [逐步介紹：整合 ASP.NET 追蹤功能與 System.Diagnostics 追蹤功能][] (機器翻譯)<br />
+-   [追蹤接聽程式][追蹤接聽程式] (機器翻譯)<br />
+    內含有關追蹤接聽程式的資訊，但是沒有提到 [WebPageTraceListener][WebPageTraceListener] (機器翻譯)。
+-   [逐步介紹：整合 ASP.NET 追蹤功能與 System.Diagnostics 追蹤功能][逐步介紹：整合 ASP.NET 追蹤功能與 System.Diagnostics 追蹤功能] (機器翻譯)<br />
     同樣為舊的資料，但是內含簡介文章沒有提到的一些額外資訊。
--   [追蹤 ASP.NET MVC Razor 檢視][] (英文)<br />
+-   [追蹤 ASP.NET MVC Razor 檢視][追蹤 ASP.NET MVC Razor 檢視] (英文)<br />
 
-    除了追蹤 Razor 檢視之外，該文同時說明了如何建立錯誤篩選條件以便記錄 MVC 應用程式所出現的所有未處理的例外。如需如何記錄 Web Form 應用程式中所有未處理的例外項目的詳細資訊，請參閱 MSDN 上[完整的錯誤處理常式範例][] (英文) 的 Global.asax 範例。無論是 MVC 還是 Web Form，如果您想要記錄特定例外，但是讓預設的架構處理功能生效，則您可以如以下範例所示捕捉並重新擲回這些例外：
+    除了追蹤 Razor 檢視之外，該文同時說明了如何建立錯誤篩選條件以便記錄 MVC 應用程式所出現的所有未處理的例外。如需如何記錄 Web Form 應用程式中所有未處理的例外項目的詳細資訊，請參閱 MSDN 上[完整的錯誤處理常式範例][完整的錯誤處理常式範例] (英文) 的 Global.asax 範例。無論是 MVC 還是 Web Form，如果您想要記錄特定例外，但是讓預設的架構處理功能生效，則您可以如以下範例所示捕捉並重新擲回這些例外：
 
         try
         {
@@ -658,12 +658,12 @@ Azure 網站會使用 IIS 7.0 及更新版本所提供的相同失敗要求追�
             throw;
         } 
 
--   [從 Azure 命令列串流診斷追蹤記錄 (加上 Glimpse！)][] (英文)
-    如何使用命令列來執行本教學課程所示範的 Visual Studio 步驟。[Glimpse][] (英文) 工具可供您偵錯 ASP.NET 應用程式。
--   [使用 Azure 網站記錄與診斷功能 - 與 David Ebbo 一起][] (英文) 與[從 Azure 網站串流記錄 - 與 David Ebbo 一起][] (英文)
+-   [從 Azure 命令列串流診斷追蹤記錄 (加上 Glimpse！)][從 Azure 命令列串流診斷追蹤記錄 (加上 Glimpse！)] (英文)
+    如何使用命令列來執行本教學課程所示範的 Visual Studio 步驟。[Glimpse][Glimpse] (英文) 工具可供您偵錯 ASP.NET 應用程式。
+-   [使用 Azure 網站記錄與診斷功能 - 與 David Ebbo 一起][使用 Azure 網站記錄與診斷功能 - 與 David Ebbo 一起] (英文) 與[從 Azure 網站串流記錄 - 與 David Ebbo 一起][從 Azure 網站串流記錄 - 與 David Ebbo 一起] (英文)
     影片，由 Scott Hanselman 與 David Ebbo 共同錄製。
 
-針對錯誤記錄，做為撰寫自己的追蹤程式碼的替代方法，便是使用開放原始碼的記錄架構，例如 [ELMAH][]。如需詳細資訊，請參閱 [Scott Hanselman 關於 ELMAH 的部落格文章][] (英文)。
+針對錯誤記錄，做為撰寫自己的追蹤程式碼的替代方法，便是使用開放原始碼的記錄架構，例如 [ELMAH][ELMAH]。如需詳細資訊，請參閱 [Scott Hanselman 關於 ELMAH 的部落格文章][Scott Hanselman 關於 ELMAH 的部落格文章] (英文)。
 
 此外，如果您想要從 Azure 取得串流記錄，則您不需要使用 ASP.NET 或 System.Diagnostics 追蹤功能。Azure 網站串流記錄服務會串流它在 *LogFiles* 資料夾所找到的任何 *.txt*、*.html* 或 *.log* 檔案。因此，您可以建立自己的記錄系統以便寫入網站的檔案系統，而且您的檔案將會自動進行串流與下載。您只需撰寫會在 *d:\\home\\logfiles* 資料夾中建立相關檔案的應用程式碼。
 
@@ -671,20 +671,20 @@ Azure 網站會使用 IIS 7.0 及更新版本所提供的相同失敗要求追�
 
 如需分析 Web 伺服器記錄的詳細資訊，請參閱下列資源：
 
--   [LogParser][]<br />
+-   [LogParser][LogParser]<br />
      用於檢視 Web 伺服器記錄 (*.log* 檔案) 中資料的工具。
--   [使用 LogParser 疑難排解 IIS 效能問題或應用程式錯誤][] (英文)<br />
+-   [使用 LogParser 疑難排解 IIS 效能問題或應用程式錯誤][使用 LogParser 疑難排解 IIS 效能問題或應用程式錯誤] (英文)<br />
     此篇介紹可以用來分析 Web 伺服器記錄的 Log Parser 工具。
--   [Robert McMurray 關於使用 LogParser 的部落格文章][]
--   [IIS 7.0、IIS 7.5 與 IIS 8.0 中的 HTTP 狀態碼][]
+-   [Robert McMurray 關於使用 LogParser 的部落格文章][Robert McMurray 關於使用 LogParser 的部落格文章]
+-   [IIS 7.0、IIS 7.5 與 IIS 8.0 中的 HTTP 狀態碼][IIS 7.0、IIS 7.5 與 IIS 8.0 中的 HTTP 狀態碼]
 
 ### 分析失敗要求追蹤記錄
 
-Microsoft TechNet 網站內的[使用失敗要求追蹤][] (英文) 小節可能有助您了解如何使用這些記錄。不過，本文主要著重在 IIS 內設定失敗要求追蹤功能，這是您無法在 Azure 網站中執行的功能。
+Microsoft TechNet 網站內的[使用失敗要求追蹤][使用失敗要求追蹤] (英文) 小節可能有助您了解如何使用這些記錄。不過，本文主要著重在 IIS 內設定失敗要求追蹤功能，這是您無法在 Azure 網站中執行的功能。
 
 ### 偵錯雲端服務
 
-如果您想對 Azure 雲端服務 (而非網站) 進行偵錯，請參閱[偵錯雲端服務][] (英文)。
+如果您想對 Azure 雲端服務 (而非網站) 進行偵錯，請參閱[偵錯雲端服務][偵錯雲端服務] (英文)。
 
   [在偵錯模式中執行]: http://www.visualstudio.com/zh-tw/get-started/debug-your-app-vs.aspx
   [IntelliTrace]: http://msdn.microsoft.com/library/vstudio/dd264915.aspx
@@ -747,7 +747,6 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤][] (英文) 小節可能
   [下載的檔案]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png
   [6]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png
   [記錄檔剖析器]: http://www.microsoft.com/zh-tw/download/details.aspx?displaylang=en&id=24659
-  [資料儲存體選項 (運用 Azure 建構真實的雲端應用程式)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
   [建立儲存體帳戶]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-createstorage.png
   [輸入 URL]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storageurl.png
   [7]: ./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png
@@ -778,17 +777,13 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤][] (英文) 小節可能
   [StackOverflow.com]: http://www.stackoverflow.com
   [Visual Studio 2010 的偵錯秘訣]: http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx
   [介紹 Azure 網站的遠端偵錯]: /blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/
-  [介紹 Azure 網站的遠端偵錯 (第 2 部分) - 內部遠端偵錯]: /blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/
-  [介紹 Azure 網站的遠端偵錯 (第 3 部分) - 多執行個體環境和 GIT]: /blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/
   [在 Visual Studio 中對 .NET 後端進行偵錯]: http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx
-  [監視與遙測 (運用 Azure 建構真實的雲端應用程式)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
   [ASP.NET 追蹤]: http://msdn.microsoft.com/zh-tw/library/ms972204.aspx
   [追蹤接聽程式]: http://msdn.microsoft.com/zh-tw/library/4y5y10s7.aspx
   [WebPageTraceListener]: http://msdn.microsoft.com/zh-tw/library/system.web.webpagetracelistener.aspx
   [逐步介紹：整合 ASP.NET 追蹤功能與 System.Diagnostics 追蹤功能]: http://msdn.microsoft.com/zh-tw/library/b0ectfxd.aspx
   [追蹤 ASP.NET MVC Razor 檢視]: http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx
   [完整的錯誤處理常式範例]: http://msdn.microsoft.com/zh-tw/library/bb397417.aspx
-  [從 Azure 命令列串流診斷追蹤記錄 (加上 Glimpse！)]: http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx
   [Glimpse]: http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx
   [使用 Azure 網站記錄與診斷功能 - 與 David Ebbo 一起]: http://www.windowsazure.com/zh-tw/documentation/videos/azure-web-site-logging-and-diagnostics/
   [從 Azure 網站串流記錄 - 與 David Ebbo 一起]: http://www.windowsazure.com/zh-tw/documentation/videos/log-streaming-with-azure-web-sites/

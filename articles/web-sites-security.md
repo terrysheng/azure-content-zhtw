@@ -1,6 +1,6 @@
 <properties title="Securing an Azure Website" pageTitle="Securing an Azure Website." description="Learn how to secure an Azure Website." metaKeywords="Azure web site security, azure web site https, azure web site ftps, azure web site ssl, azure web site ssl rewrite" services="web-sites" solutions="" documentationCenter="web" authors="larryfr" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 ## 在 Azure 網站中保護 Web 應用程式的安全
 
@@ -133,7 +133,6 @@ Azure 針對網站的檔案系統，提供透過 **FTPS** 的安全 FTP 存取�
 
 如需記錄 Azure 網站資訊的相關資訊，此資訊可能對偵測攻擊很有幫助，請參閱[啟用診斷記錄][啟用診斷記錄]。
 
-  [開放 Web 軟體安全計劃 (Open Web Application Security Project，OWASP)]: https://www.owasp.org/index.php/Main_Page
   [十大專案]: https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project
   [保護通訊的安全]: #https
   [保護開發的安全]: #develop

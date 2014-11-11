@@ -1,6 +1,6 @@
 <properties title="How to Create a DocumentDB Account" pageTitle="How to create a DocumentDB account | Azure" description="Find out how to create a DocumentDB account and choose account settings in the Azure Preview portal."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # 如何建立 DocumentDB 帳戶
 
@@ -15,7 +15,7 @@
 
 1.  登入 [Azure 管理預覽入口網站][Azure 管理預覽入口網站]
 2.  按一下 [新增] -\> [DocumentDB 帳戶]。
-    ![][]
+    ![][0]
 
     或者，您也可以瀏覽 Azure 組件庫，選取 [Data, storage, + backup] 類別，選擇 [DocumentDB]，然後按一下 [建立]。
 
@@ -73,7 +73,7 @@
   [作法：建立 DocumentDB 帳戶]: #Howto
   [後續步驟]: #NextSteps
   [Azure 管理預覽入口網站]: https://portal.azure.com/
-  []: ./media/documentdb-create-account/ca1.png
+  [0]: ./media/documentdb-create-account/ca1.png
   [1]: ./media/documentdb-create-account/ca2.png
   [2]: ./media/documentdb-create-account/ca3.png
   [DocumentDB 定價詳細資料]: http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409

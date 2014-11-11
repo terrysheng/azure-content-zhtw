@@ -1,6 +1,6 @@
 <properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 如何在虛擬機器上執行 Java 應用程式伺服器
 
@@ -16,13 +16,13 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 
 本教學課程的目的是在虛擬機器上安裝 Apache Tomcat 應用程式伺服器。完成安裝作業會產生如下的 Tomcat 安裝。
 
-![執行 Apache Tomcat 的虛擬機器][]
+![執行 Apache Tomcat 的虛擬機器][執行 Apache Tomcat 的虛擬機器]
 
-[WACOM.INCLUDE [create-account-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## 建立虛擬機器
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  依序按一下 [新增]、[運算]、[虛擬機器] 及 [從組件庫]。
 3.  在 [虛擬機器映象選取] 對話方塊中，選取 [JDK 7 Windows Server 2012]。
     請注意，唯有當您擁有尚未做好在 JDK 7 中運作之準備的舊版應用程式時，才能選取 [JDK 6 Windows Server 2012]。
@@ -94,11 +94,11 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 4.  依序按一下 [系統及安全性]、[Windows 防火牆] 及 [進階設定]。
 5.  按一下 [輸入規則]，然後按一下 [新增規則]。
 
-    ![新增輸入規則][]
+    ![新增輸入規則][新增輸入規則]
 
 1.  針對新規則的 [規則類型] 選取 [連接埠]，然後按 [下一步]。
 
-    ![新增輸入規則連接埠][]
+    ![新增輸入規則連接埠][新增輸入規則連接埠]
 
 1.  選取 [TCP] 通訊協定並指定連接埠 [8080]，然後按 [下一步]。
 
@@ -106,15 +106,15 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 
 1.  選擇 [允許連線]，然後按 [下一步]。
 
-    ![新增輸入規則動作][]
+    ![新增輸入規則動作][新增輸入規則動作]
 
 1.  確認設定檔的 [網域]、[私人] 及 [公用] 均已勾選，然後按 [下一步]。
 
-    ![新增輸入規則設定檔][]
+    ![新增輸入規則設定檔][新增輸入規則設定檔]
 
 1.  指定規則的名稱 (如 **HttpIn**，不過規則名稱不一定要與端點名稱相符)，然後按一下 [完成]。
 
-    ![新增輸入規則名稱][]
+    ![新增輸入規則名稱][新增輸入規則名稱]
 
 此時，您應該可以使用 **http://*your_DNS_name*.cloudapp.net**格式的 URL (其中**<i> your\_DNS\_name</i>** 代表在建立虛擬機器時指定的 DNS 名稱)，從外部瀏覽器檢視 Tomcat 網站。
 
@@ -123,7 +123,7 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 -   您可以建立自己的應用程式網頁封存 (WAR)，然後再將它新增至 **webapps** 資料夾。例如，建立基本 Java Service Page (JSP) 動態 Web 專案並以 WAR 檔案形式將其匯入，將 WAR 複製到虛擬機器上的 Apache Tomcat **webapps** 資料夾，然後在瀏覽器中予以執行。
 -   依預設，當您安裝 Tomcat 服務時，系統會將其設定為手動啟動。您可以使用 [服務] 嵌入式管理單元將其切換為自動啟動。依序按一下 Windows [開始]、[系統管理工具] 及 [服務] 以啟動 [服務] 嵌入式管理單元。若要將 Tomcat 設定為自動啟動，請在 [服務] 嵌入式管理單元中按兩下 [Apache Tomcat] 服務，然後將 [啟動類型] 設定為 [自動]，如下所示。
 
-    ![將服務設定為自動啟動][]
+    ![將服務設定為自動啟動][將服務設定為自動啟動]
 
     使 Tomcat 自動啟動的優點在於，當虛擬機器重新開機時 (例如安裝需要重新開機的軟體更新後) 它會再次啟動。
 
@@ -140,5 +140,4 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
   [新增輸入規則動作]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png
   [新增輸入規則設定檔]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
   [新增輸入規則名稱]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
-  [http://\*your\\\_DNS\\\_name]: http://*your\_DNS\_name
   [將服務設定為自動啟動]: ./media/virtual-machines-java-run-tomcat-application-server/WA_TomcatServiceAutomaticStart.png

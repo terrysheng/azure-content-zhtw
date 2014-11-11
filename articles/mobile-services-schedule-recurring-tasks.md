@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-schedule-backend-tasks" urlDisplayName="Schedule Backend Tasks" pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 在行動服務中為週期性工作排程
 
@@ -26,13 +26,13 @@
 
 本教學課程將逐步引導您完成下列步驟，以瞭解如何使用工作排程器，來建立向 Twitter 要求推文資料並在新的 Updates 資料表中儲存推文的排定工作：
 
--   [註冊以取得 Twitter 存取權與儲存認證][]
--   [建立新的 Updates 資料表][]
--   [建立新的排定工作][]
+-   [註冊以取得 Twitter 存取權與儲存認證][註冊以取得 Twitter 存取權與儲存認證]
+-   [建立新的 Updates 資料表][建立新的 Updates 資料表]
+-   [建立新的排定工作][建立新的排定工作]
 
 ## <a name="get-oauth-credentials"></a>註冊以取得 Twitter v1.1 API 的存取權與儲存認證
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access][]]
+[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
 ## <a name="create-table"></a>建立新的 Updates 資料表
 
@@ -40,7 +40,7 @@
 
 1.  在管理入口網站中，按一下行動服務的 [資料] 索引標籤，然後按一下 [建立]。
 
-    ![][]
+    ![][0]
 
     這樣做會顯示 [建立新資料表] 對話方塊。
 
@@ -147,7 +147,7 @@
 
     此指令碼會使用儲存的認證來呼叫 Twitter 查詢 API，以要求包含雜湊標記 `#mobileservices` 的最新推文。在重複的推文和回覆被儲存於資料表之前，系統會先將它們從結果中移除。
 
-    > [WACOM.NOTE]本範例會假設每次排定執行期間，資料表只會插入幾個資料列。倘若一個迴圈會在免費層上執行插入許多資料列，則您可能會沒有足夠的連線。在此情況下，您應該以批次方式執行插入。如需詳細資訊，請參閱 [如何：執行大量插入][]。
+    > [WACOM.NOTE]本範例會假設每次排定執行期間，資料表只會插入幾個資料列。倘若一個迴圈會在免費層上執行插入許多資料列，則您可能會沒有足夠的連線。在此情況下，您應該以批次方式執行插入。如需詳細資訊，請參閱 [如何：執行大量插入][如何：執行大量插入]。
 
 5.  按一下 [執行一次] 以測試指令碼。
 
@@ -169,20 +169,18 @@
 
 ## <a name="nextsteps"> </a>後續步驟
 
--   [行動服務伺服器指令碼參考][]
+-   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     <br/>深入了解如何註冊和使用伺服器指令碼。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ ".NET 後端"
-  [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-schedule-recurring-tasks/ "JavaScript 後端"
   [註冊以取得 Twitter 存取權與儲存認證]: #get-oauth-credentials
   [建立新的 Updates 資料表]: #create-table
   [建立新的排定工作]: #add-job
   [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
-  []: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
+  [0]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
   [1]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
   [2]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
   [3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png

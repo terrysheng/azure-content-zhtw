@@ -1,6 +1,6 @@
 <properties urlDisplayName="" pageTitle="Using Resource groups to manage your Azure resources" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="" editor=""  />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa Bhojawala"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa="" Bhojawala" />
 
 # 使用資源群組管理您的 Azure 資源
 
@@ -16,7 +16,7 @@
 
 資源在預覽入口網站中建立時，一律會建立在資源群組內。您可以選擇建立新的資源群組，或使用建立流程中的現有資源群組。
 
-![][]
+![][0]
 
 當您建立由數項搭配運作的資源 (例如網站 + 資料庫) 所組成的應用程式時，應用程式一律會建立在其本身的資源群組中，因此您可以使用資源群組來管理所有相關資產的生命週期。您可以隨著應用程式的變化，在資源群組中新增或移除資源。
 
@@ -51,7 +51,7 @@
 
 ![][6]
 
-  []: http://i.imgur.com/USKkQdW.png
+  [0]: http://i.imgur.com/USKkQdW.png
   [1]: http://i.imgur.com/Me0jbio.png
   [2]: http://i.imgur.com/PhJeLZQ.png
   [3]: http://i.imgur.com/5Wqv2XR.png

@@ -2,7 +2,7 @@
 
 <properties linkid="notification-hubs-windows-store-dotnet-send-breaking-news" pagetitle="Use Notification Hubs to send breaking news (Windows Phone)" metakeywords description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app." metacanonical services="notification-hubs" documentationcenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions manager="dwrede" editor></properties>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # 使用通知中心傳送即時新聞
 
@@ -13,16 +13,16 @@
 
 本主題將說明如何使用 Azure 通知中樞，將即時新聞通知廣播至 Windows Store 或 Windows Phone 8.1 (非 Silverlight) 應用程式。如果您的目標是 Windows Phone 8.1 Silverlight，請參閱 [Windows Phone][1] 版本。完成時，您便能夠註冊您所感興趣的即時新聞類別，並僅接收這些類別的推播通知。此情況是許多應用程式的共同模式，這些應用程式必須將通知傳送給先前宣告對通知有興趣的使用者群組，例如，RSS 閱讀程式、供樂迷使用的應用程式等等。
 
-在通知中心內建立註冊時，您可以透過包含一或多個 *tags* 來啟用廣播案例。當標籤收到通知時，所有已註冊此標籤的裝置都會收到通知。由於標籤只是簡單的字串而已，您無需預先佈建標籤。如需標籤的詳細資訊，請參閱[通知中心指引][]。
+在通知中心內建立註冊時，您可以透過包含一或多個 *tags* 來啟用廣播案例。當標籤收到通知時，所有已註冊此標籤的裝置都會收到通知。由於標籤只是簡單的字串而已，您無需預先佈建標籤。如需標籤的詳細資訊，請參閱[通知中心指引][通知中心指引]。
 
 本教學課程會逐步引導您完成啟用此案例的基本步驟：
 
-1.  [在應用程式中新增類別選項][]
-2.  [註冊通知][]
-3.  [從後端傳送通知][]
-4.  [執行應用程式並產生通知][]
+1.  [在應用程式中新增類別選項][在應用程式中新增類別選項]
+2.  [註冊通知][註冊通知]
+3.  [從後端傳送通知][從後端傳送通知]
+4.  [執行應用程式並產生通知][執行應用程式並產生通知]
 
-本主題會以您在[開始使用通知中心][]中所建立的應用程式為基礎。開始本教學課程之前，您必須已完成[開始使用通知中心][]。
+本主題會以您在[開始使用通知中心][開始使用通知中心]中所建立的應用程式為基礎。開始本教學課程之前，您必須已完成[開始使用通知中心][開始使用通知中心]。
 
 ## <a name="adding-categories"></a>在應用程式中新增類別選項
 
@@ -163,13 +163,13 @@
 
 ## <a name="send"></a><span class="short-header">傳送通知</span>從後端傳送通知
 
-[WACOM.INCLUDE [notification-hubs-back-end][]]
+[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
 ## <a name="test-app"></a>執行應用程式並產生通知
 
 1.  在 Visual Studio 中，按 F5 以編譯並啟動應用程式。
 
-    ![][]
+    ![][0]
 
     請注意，應用程式 UI 提供一組切換，可讓您選擇要訂閱的類別。
 
@@ -193,11 +193,11 @@
 
 在本教學課程中，我們了解到如何按類別廣播即時新聞。請考慮完成下列其中一個強調其他進階通知中心案例的教學課程：
 
--   [使用通知中心廣播已當地語系化的即時新聞][]
+-   [使用通知中心廣播已當地語系化的即時新聞][使用通知中心廣播已當地語系化的即時新聞]
 
     了解如何擴充即時新聞應用程式，以啟用傳送已當地語系化的通知。
 
--   [使用通知中心來通知使用者][]
+-   [使用通知中心來通知使用者][使用通知中心來通知使用者]
 
     了解如何推播通知給特定的經驗證使用者。在僅傳送通知給特定使用者的情況下，這是很好的解決方案。
 
@@ -207,10 +207,7 @@
 
 <!-- URLs.-->
 
-  [Windows Universal]: /zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Universal"
   [Windows Phone]: /zh-TW/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
-  [iOS]: /zh-TW/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
-  [Android]: /zh-TW/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
   [1]: /zh-TW/documentation/articles/notification-hubs-ios-send-breaking-news
   [通知中心指引]: http://msdn.microsoft.com/zh-TW/library/jj927170.aspx
   [在應用程式中新增類別選項]: #adding-categories
@@ -219,7 +216,7 @@
   [執行應用程式並產生通知]: #test-app
   [開始使用通知中心]: /zh-TW/manage/services/notification-hubs/getting-started-windows-dotnet/
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
-  []: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
+  [0]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
   [2]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
   [3]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png
   [使用通知中心廣播已當地語系化的即時新聞]: /zh-TW/manage/services/notification-hubs/breaking-news-localized-dotnet/

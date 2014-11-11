@@ -1,33 +1,33 @@
 <properties linkid="manage-services-how-to-configure-a-cloud-service" urlDisplayName="How to configure" pageTitle="How to configure a cloud service - Azure" metaKeywords="Configuring cloud services" description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Configure Cloud Services" authors="davidmu" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu" />
 
 # <span id="configurecloudservice"></span></a>如何設定雲端服務
 
-[WACOM.INCLUDE [disclaimer][]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 您可以在 Azure 管理入口網站中設定雲端服務的最常用設定。或者，如果您想要直接更新組態檔，可以下載要更新的服務組態檔、上傳更新過的檔案，然後將雲端服務更新為使用這些組態變更。使用上述任一種方式，都會將組態更新推送到所有角色執行個體。
 
 您也可以對雲端服務中執行的一個或所有角色啟用遠端桌面連線。遠端桌面可讓您存取執行中應用程式的桌面，然後疑難排解和診斷問題。即使您未在應用程式開發期間對服務定義檔 (.csdef) 設定遠端桌面，還是可以對您的角色啟用遠端桌面連線。您不需要重新部署應用程式，就可以啟用遠端桌面連線。
 
-要讓 Azure 確保服務在組態更新期間有 99.95% 的可用性，每個角色都至少必須有兩個角色執行個體 (虛擬機器)。如此才能讓一個虛擬機器在受到更新時，還有另一個虛擬機器可以處理用戶端要求。如需詳細資訊，請參閱[服務等級協定][]。
+要讓 Azure 確保服務在組態更新期間有 99.95% 的可用性，每個角色都至少必須有兩個角色執行個體 (虛擬機器)。如此才能讓一個虛擬機器在受到更新時，還有另一個虛擬機器可以處理用戶端要求。如需詳細資訊，請參閱[服務等級協定][服務等級協定]。
 
 ## 目錄
 
--   [作法：更新雲端服務組態][]
--   [作法：設定對角色執行個體的遠端存取][]
+-   [作法：更新雲端服務組態][作法：更新雲端服務組態]
+-   [作法：設定對角色執行個體的遠端存取][作法：設定對角色執行個體的遠端存取]
 
 ## <span id="update"></span></a>作法：更新雲端服務組態
 
-1.  在 [Azure 管理入口網站][]中，按一下 [雲端服務]。然後按一下雲端服務的名稱以開啟儀表板。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站]中，按一下 [雲端服務]。然後按一下雲端服務的名稱以開啟儀表板。
 
 2.  按一下 [設定]。
 
     在 [設定] 頁面上，您可以設定監視、更新角色設定，以及選擇角色執行個體 (虛擬機器) 的客體作業系統和系列。
 
-    ![Configuration Page][]
+    ![Configuration Page][Configuration Page]
 
-3.  在監視設定中，將監視層級設定為 [詳細資訊] 或 [最小]，並設定進行詳細資訊監視時所需的診斷連接字串。如需指示，請參閱[如何監視雲端服務][]。
+3.  在監視設定中，將監視層級設定為 [詳細資訊] 或 [最小]，並設定進行詳細資訊監視時所需的診斷連接字串。如需指示，請參閱[如何監視雲端服務][如何監視雲端服務]。
 
 4.  針對服務角色 (依角色分組)，您可以更新下列設定：
 
@@ -43,7 +43,7 @@
 
     如果您解決了應用程式對最新作業系統版本的所有相容性問題，則可以將作業系統版本設定為 [自動] 恢復自動更新作業系統。
 
-    ![OS Settings][]
+    ![OS Settings][OS Settings]
 
 6.  若要儲存組態設定，並將之推送到角色執行個體中，請按一下 [儲存]。(按一下 [捨棄] 可取消變更。) 在您變更設定之後，命令列中即會新增 [儲存] 和 [捨棄]。
 
@@ -57,7 +57,7 @@
 
     [上傳新的組態檔] 隨即開啟。
 
-    ![Upload Configuration][]
+    ![Upload Configuration][Upload Configuration]
 
     b. 在 [組態檔] 中，使用 [瀏覽] 選取更新過的 .cscfg 檔案。
 
@@ -80,7 +80,7 @@
 
 ### 在服務定義檔中設定遠端存取
 
-在服務定義檔 (.csdef) 中新增 **Import** 元素，以將 RemoteAccess 和 RemoteForwarder 模組匯入至服務模型。當這些模組存在時，Azure 會將遠端桌面的組態設定新增至服務組態檔。若要完成遠端桌面的設定，您需要將憑證匯入至 Azure，並在服務組態檔中指定該憑證。如需詳細資訊，請參閱[在 Azure 中設定角色的遠端桌面連線][] (英文)。
+在服務定義檔 (.csdef) 中新增 **Import** 元素，以將 RemoteAccess 和 RemoteForwarder 模組匯入至服務模型。當這些模組存在時，Azure 會將遠端桌面的組態設定新增至服務組態檔。若要完成遠端桌面的設定，您需要將憑證匯入至 Azure，並在服務組態檔中指定該憑證。如需詳細資訊，請參閱[在 Azure 中設定角色的遠端桌面連線][在 Azure 中設定角色的遠端桌面連線] (英文)。
 
 ### 在管理入口網站中啟用或修改對角色執行個體的遠端存取
 
@@ -90,13 +90,13 @@
 
     [設定遠端桌面] 會顯示當初部署雲端服務時新增至服務組態檔的設定 (如果有的話)，如下圖所示。
 
-    ![Cloud services remote][]
+    ![Cloud services remote][Cloud services remote]
 
 > [WACOM.NOTE]
 > **警告：**當您首次啟用遠端桌面並按一下 [確定] (打勾記號) 時，所有角色執行個體都會重新啟動。若要防止重新啟動，角色上必須安裝用來將密碼加密的憑證。如果未安裝憑證，則您會看到下列選項：
-> ![CloudServices\_CreateNewCertDropDown][]
+> ![CloudServices\_CreateNewCertDropDown][CloudServices\_CreateNewCertDropDown]
 
-    To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Azure Roles][] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
+    To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Azure Roles][Using Remote Desktop with Azure Roles] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
 
 1.  在 [角色] 中，選取想要更新的服務角色，或選取 [全部] 代表所有角色。
 
@@ -148,4 +148,3 @@
   [1]: http://www.windowsazure.com/zh-tw/support/legal/sla/
   [在 Azure 中設定角色的遠端桌面連線]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh124107.aspx
   [Cloud services remote]: ./media/cloud-services-how-to-configure/CloudServices_Remote.png
-  [CloudServices\_CreateNewCertDropDown]: ./media/cloud-services-how-to-configure/CloudServices_CreateNewCertDropDown.png

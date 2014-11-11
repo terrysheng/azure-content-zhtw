@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-single-sign-on-windows-8-wp8" urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your app with Live Connect (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Phone application." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Phone 8 app with Live Connect single sign-on" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 使用 Live Connect 單一登入驗證 Windows Phone 8 應用程式
 
@@ -16,22 +16,22 @@
 
 本教學課程會逐步引導您完成啟用 Live Connect 驗證的基本步驟：
 
-1.  [註冊您的應用程式以驗證與設定行動服務][]
-2.  [對通過驗證的使用者限制資料表權限][]
-3.  [將驗證新增至應用程式][]
+1.  [註冊您的應用程式以驗證與設定行動服務][註冊您的應用程式以驗證與設定行動服務]
+2.  [對通過驗證的使用者限制資料表權限][對通過驗證的使用者限制資料表權限]
+3.  [將驗證新增至應用程式][將驗證新增至應用程式]
 
 本教學課程需要下列各項：
 
--   [Live SDK for Windows and Windows Phone][]
+-   [Live SDK for Windows and Windows Phone][Live SDK for Windows and Windows Phone]
 -   Microsoft Visual Studio 2012 Express for Windows Phone
 
-本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務][]。
+本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務][開始使用行動服務]。
 
 ## <a name="register"></a><span class="short-header">註冊應用程式</span>向 Live Connect 註冊應用程式
 
 若要驗證使用者，您必須在 Live Connect 開發人員中心中註冊您的應用程式。接著您必須註冊用戶端密碼，以將 Live Connect 與行動服務進行整合。
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的行動服務。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的行動服務。
 
     ![][0]
 
@@ -41,7 +41,7 @@
 
     您將使用此值來定義重新導向網域。
 
-3.  瀏覽到 Live Connect 開發人員中心的[我的應用程式][]頁面，並視需要使用您的 Microsoft 帳戶登入。
+3.  瀏覽到 Live Connect 開發人員中心的[我的應用程式][我的應用程式]頁面，並視需要使用您的 Microsoft 帳戶登入。
 
 4.  按一下 [建立應用程式]、然後輸入 [應用程式名稱]，並按一下 [I accept]。
 
@@ -75,7 +75,7 @@
 
     ![][6]
 
-3.  在 Visual Studio 2012 Express for Windows Phone 中，開啟您在完成[開始使用行動服務][]教學課程時所建立的專案。
+3.  在 Visual Studio 2012 Express for Windows Phone 中，開啟您在完成[開始使用行動服務][開始使用行動服務]教學課程時所建立的專案。
 
 4.  按 F5 鍵執行此快速入門型應用程式；確認發生狀態代碼 401 (未經授權) 的例外狀況。
 
@@ -85,7 +85,7 @@
 
 ## <a name="add-authentication"></a><span class="short-header">新增驗證</span>將驗證新增至應用程式
 
-1.  下載並安裝 [Live SDK for Windows and Windows Phone][]。
+1.  下載並安裝 [Live SDK for Windows and Windows Phone][Live SDK for Windows and Windows Phone]。
 
 2.  在 Visual Studio 的 [專案] 功能表中，按一下 [加入參考]，然後展開 [組件]，按一下 [擴充功能]，勾選 [Microsoft.Live]，然後按一下 [確定]。
 
@@ -162,15 +162,12 @@
 
 ## <a name="next-steps"> </a>後續步驟
 
-在下一堂教學課程[使用指令碼授權使用者][]中，您將使用行動服務根據通過驗證使用者所提供的使用者 ID 值，並用它來篩選行動服務所傳回的資料。如需關於如何使用其他識別提供者以進行驗證的詳細資訊，請參閱[開始使用驗證][8]。
+在下一堂教學課程[使用指令碼授權使用者][使用指令碼授權使用者]中，您將使用行動服務根據通過驗證使用者所提供的使用者 ID 值，並用它來篩選行動服務所傳回的資料。如需關於如何使用其他識別提供者以進行驗證的詳細資訊，請參閱[開始使用驗證][8]。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-js "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/develop/mobile/tutorials/single-sign-on-wp8/ "Windows Phone"
   [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-wp8/
   [註冊您的應用程式以驗證與設定行動服務]: #register
   [對通過驗證的使用者限制資料表權限]: #permissions
@@ -187,6 +184,5 @@
   [5]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-data-tables.png
   [6]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-perms.png
   [7]: ./media/mobile-services-windows-phone-single-sign-on/mobile-add-reference-live-wp8.png
-  [Windows 市集應用程式]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
   [使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-wp8
   [8]: /zh-tw/develop/mobile/tutorials/get-started-with-users-wp8

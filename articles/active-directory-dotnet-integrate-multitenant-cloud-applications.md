@@ -1,12 +1,12 @@
 <properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Integrating Multi-Tenant Cloud Applications with Azure Active Directory" authors="terrylan" solutions="" manager="terrylan" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan" />
 
 # 整合多租用戶雲端應用程式與 Azure Active Directory
 
 ## <a name="introduction"></a>簡介
 
-Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為雲端應用程式提供身分識別管理和存取控制功能。Azure AD 可輕鬆地與雲端服務以及 Azure、Microsoft Office 365、Dynamics CRM Online 和 Windows Intune 整合。現有的內部部署 Active Directory 部署也可以充分運用 Azure AD。若要深入了解，請參閱 windowsazure.com 上的[身分識別頁面][]。
+Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為雲端應用程式提供身分識別管理和存取控制功能。Azure AD 可輕鬆地與雲端服務以及 Azure、Microsoft Office 365、Dynamics CRM Online 和 Windows Intune 整合。現有的內部部署 Active Directory 部署也可以充分運用 Azure AD。若要深入了解，請參閱 windowsazure.com 上的[身分識別頁面][身分識別頁面]。
 
 本逐步解說適用於想要整合多租用戶應用程式與 Azure AD 的 .NET 開發人員。您將了解如何：
 
@@ -14,7 +14,7 @@ Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為�
 -   使用 Azure AD 來啟用單一登入 (SSO)
 -   使用 Azure AD Graph API 來查詢客戶的目錄資料
 
-本逐步解說隨附的範例應用程式在[這裡下載][]。範例不需要變更就可直接使用，但您可能需要變更 [Visual Studio 中的連接埠指派][]來使用 https。請依連結中的指示進行，但要在 ApplicationHost.config 檔案的 bindings 區段中將連結通訊協定設為 "https"。以下步驟中的所有程式碼片段取自於範例。
+本逐步解說隨附的範例應用程式在[這裡下載][這裡下載]。範例不需要變更就可直接使用，但您可能需要變更 [Visual Studio 中的連接埠指派][Visual Studio 中的連接埠指派]來使用 https。請依連結中的指示進行，但要在 ApplicationHost.config 檔案的 bindings 區段中將連結通訊協定設為 "https"。以下步驟中的所有程式碼片段取自於範例。
 
 > [WACOM.NOTE]
 > 多租用戶目錄應用程式範例僅供說明用途。請勿於生產環境中使用此範例 (包括其協助程式庫類別)。
@@ -23,18 +23,18 @@ Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為�
 
 本逐步解說需要有下列開發人員必備元件：
 
--   [Visual Studio 2012][]
--   [WCF Data Services for OData][]
+-   [Visual Studio 2012][Visual Studio 2012]
+-   [WCF Data Services for OData][WCF Data Services for OData]
 
 ### 目錄
 
--   [簡介][]
--   [第 1 部分：取得用來存取 Azure AD 的用戶端識別碼][]
--   [第 2 部分：讓客戶使用 Azure AD 來註冊][]
--   [第 3 部分：啟用單一登入][]
--   [第 4 部分：存取 Azure AD Graph][]
--   [第 5 部分：發行您的應用程式][]
--   [摘要][]
+-   [簡介][簡介]
+-   [第 1 部分：取得用來存取 Azure AD 的用戶端識別碼][第 1 部分：取得用來存取 Azure AD 的用戶端識別碼]
+-   [第 2 部分：讓客戶使用 Azure AD 來註冊][第 2 部分：讓客戶使用 Azure AD 來註冊]
+-   [第 3 部分：啟用單一登入][第 3 部分：啟用單一登入]
+-   [第 4 部分：存取 Azure AD Graph][第 4 部分：存取 Azure AD Graph]
+-   [第 5 部分：發行您的應用程式][第 5 部分：發行您的應用程式]
+-   [摘要][摘要]
 
 ## <a name="getclientid"></a>第 1 部分：取得用來存取 Azure AD 的用戶端識別碼
 
@@ -42,13 +42,13 @@ Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為�
 
 ### 步驟 1：使用 Microsoft 賣方儀表板建立帳戶
 
-若要開發並發行與 Azure AD 整合的應用程式，您必須註冊 [Microsoft 賣方儀表板][]帳戶。將會提示您以公司或個人身分[建立帳戶個人檔案][]。此個人檔案用於將應用程式發行到 Azure Marketplace 或其他市集，也是產生用戶端識別碼和用戶端密碼所需的項目。
+若要開發並發行與 Azure AD 整合的應用程式，您必須註冊 [Microsoft 賣方儀表板][Microsoft 賣方儀表板]帳戶。將會提示您以公司或個人身分[建立帳戶個人檔案][建立帳戶個人檔案]。此個人檔案用於將應用程式發行到 Azure Marketplace 或其他市集，也是產生用戶端識別碼和用戶端密碼所需的項目。
 
 新的帳戶會進入「帳戶等待核准」狀態。此狀態不妨礙您著手開發，您仍然可以建立用戶端識別碼和草稿應用程式清單。不過，帳戶本身必須先經過核准後，才能提交應用程式清單來等待核准。提交的應用程式清單必須經過核准後，才能在 Azure 市集讓客戶看見。
 
 ### 步驟 2：取得應用程式的用戶端識別碼
 
-您需要用戶端識別碼和用戶端密碼，才能整合應用程式與 Azure AD。用戶端識別碼是應用程式的唯一識別碼，主要用來識別應用程式的單一登入，或驗證 Azure AD Graph 的呼叫。如需有關取得用戶端識別碼和用戶端密碼的詳細資訊，請參閱＜[在 Microsoft 賣方儀表板中建立用戶端識別碼和密碼][]＞。
+您需要用戶端識別碼和用戶端密碼，才能整合應用程式與 Azure AD。用戶端識別碼是應用程式的唯一識別碼，主要用來識別應用程式的單一登入，或驗證 Azure AD Graph 的呼叫。如需有關取得用戶端識別碼和用戶端密碼的詳細資訊，請參閱＜[在 Microsoft 賣方儀表板中建立用戶端識別碼和密碼][在 Microsoft 賣方儀表板中建立用戶端識別碼和密碼]＞。
 
 > [WACOM.NOTE]
 > 本逐步解說稍後需要用到您的用戶端識別碼和用戶端密碼，請先記錄下來。
@@ -118,7 +118,7 @@ Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為�
 
 在範例應用程式中，[註冊] 連結包含類似的同意要求 URL，如下所示：
 
-![login][]
+![login][login]
 
 > [WACOM.NOTE]
 > 當您測試未發行的應用程式時，您會經歷與客戶相似的同意操作過程。不過，未發行的應用程式和已發行的應用程式各有不同的授權頁面外觀。已發行的應用程會顯示應用程式名稱、標誌和發行者詳細資料，而未發行的應用程式不會顯示這些資料。
@@ -162,7 +162,7 @@ Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為�
 
 ### 步驟 3：取得 Azure AD 租用戶來測試應用程式
 
-若要測試應用程式與 Azure AD 整合的能力，您需要有 Azure AD 租用戶。如果您已有一個租用戶用來測試其他應用程式，則可重複使用。建議至少取得兩個租用戶，以確保應用程式可由多個租用戶來測試和使用。不建議在此用途上使用正式租用戶。[取得 Azure AD 租用戶][]。
+若要測試應用程式與 Azure AD 整合的能力，您需要有 Azure AD 租用戶。如果您已有一個租用戶用來測試其他應用程式，則可重複使用。建議至少取得兩個租用戶，以確保應用程式可由多個租用戶來測試和使用。不建議在此用途上使用正式租用戶。[取得 Azure AD 租用戶][取得 Azure AD 租用戶]。
 
 取得 Azure AD 租用戶之後，您可以按 **F5** 來建立和執行應用程式。此外，您也可以嘗試使用新的租用戶來註冊應用程式。
 
@@ -174,10 +174,10 @@ Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為�
 
 登入要求是針對特定的目錄租用戶，必須包含 TenantID。從 Azure AD 目錄租用戶的網域名稱中可決定 TenantID。有兩種常見的方式可從登入的使用者取得此網域名稱：
 
--   如果應用程式的 URL 是 *<https://contoso.myapp.com>* 或 *<https://myapp.com/contoso.com>*，則 *[contoso][]* 和 *[contoso.com][contoso]* 代表 Azure AD 網域名稱，*[myapp.com][contoso]* 代表應用程式的 URL。
+-   如果應用程式的 URL 是 *<https://contoso.myapp.com>* 或 *<https://myapp.com/contoso.com>*，則 *[contoso][contoso]* 和 *[contoso.com][contoso]* 代表 Azure AD 網域名稱，*[myapp.com][contoso]* 代表應用程式的 URL。
 -   應用程式可以提示使用者輸入電子郵件地址或 Azure AD 網域名稱。範例應用程式中採用此方法，使用者必須輸入 Azure AD 網域名稱，如下所示：
 
-![login][]
+![login][login]
 
 ### 步驟 1：查閱租用戶識別碼
 
@@ -199,7 +199,7 @@ Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為�
 
 當客戶登入您的應用程式時，例如按一下登入按鈕，就必須使用客戶的租用戶識別碼和應用程式的用戶端識別碼來產生登入要求。在範例應用程式中，由 *Microsoft.IdentityModel.WAAD.Preview.WebSSO.URLUtils* 類別的 *GenerateSignInMessage* 方法產生此要求。此方法可驗證客戶的 TenantID 代表已授權您應用程式的組織，還會產生登入按鈕的目的地 URL，如下所示：
 
-![login][]
+![login][login]
 
 按一下按鈕會將使用者的瀏覽器導向 Azure AD 登入頁面。登入之後，Azure AD 會將登入回應傳回給應用程式。
 
@@ -234,7 +234,7 @@ Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為�
 
 ## <a name="accessgraph"></a>第 4 部分：存取 Azure AD Graph
 
-本節說明如何取得存取權杖，並呼叫 Azure AD Graph API 來存取租用戶的目錄資料。例如，雖然登入期間取得的權杖包含使用者資訊，例如名稱和電子郵件地址，但您的應用程式可能還需要其他資訊，例如使用者管理員的群組成員資格或名稱。可利用 Graph API 從租用戶的目錄中取得此資訊。如需 Graph API 的詳細資訊，請參閱[本主題][]。
+本節說明如何取得存取權杖，並呼叫 Azure AD Graph API 來存取租用戶的目錄資料。例如，雖然登入期間取得的權杖包含使用者資訊，例如名稱和電子郵件地址，但您的應用程式可能還需要其他資訊，例如使用者管理員的群組成員資格或名稱。可利用 Graph API 從租用戶的目錄中取得此資訊。如需 Graph API 的詳細資訊，請參閱[本主題][本主題]。
 
 您的應用程式必須先自我驗證並取得存取權杖，才能呼叫 Azure AD Graph。需要以戶端識別碼和用戶端密碼來驗證應用程式，以取得存取權杖。下列步驟說明如何：
 
@@ -380,7 +380,7 @@ Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為�
 
 選用的 *Reason* 元素可指定 (在多種文化特性中) 您要求必要權限層級的理由。此文字會顯示在同意頁面上，協助客戶決定要核准或拒絕您的應用程式。
 
-您可以使用新的用戶端識別碼和應用程式資訊清單，依照＜[在 Microsoft 賣方儀表板中新增應用程式][]＞中的指示來建立應用程式清單。在建立應用程式清單時，請記得選取 Azure AD 應用程式類型。當應用程式清單建立完成之後，按一下 [提交] 將應用程式發行至 Azure 市集。在發行完成之前，需要等待您的應用程式通過核准。
+您可以使用新的用戶端識別碼和應用程式資訊清單，依照＜[在 Microsoft 賣方儀表板中新增應用程式][在 Microsoft 賣方儀表板中新增應用程式]＞中的指示來建立應用程式清單。在建立應用程式清單時，請記得選取 Azure AD 應用程式類型。當應用程式清單建立完成之後，按一下 [提交] 將應用程式發行至 Azure 市集。在發行完成之前，需要等待您的應用程式通過核准。
 
 <div class="dev-callout"><strong>注意</strong><p>如果提示您「加入稅金和付款資訊」，請略過此步驟，因為您是直接將應用程式銷售給客戶，而不是透過 Microsoft。</p></div>
 

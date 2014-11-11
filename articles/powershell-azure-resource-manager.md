@@ -1,6 +1,6 @@
 <properties pageTitle="Using Windows PowerShell with Resource Manager" metaKeywords="ResourceManager, PowerShell, Azure PowerShell" description="Use Windows PowerShell to create a resource group" metaCanonical="" services="" documentationCenter="" title="Using Windows PowerShell with Resource Manager" authors="stevenka; juneb" solutions="" manager="stevenka" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka; juneb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka; juneb" />
 
 # 將 Windows PowerShell 與資源管理員搭配使用
 
@@ -472,8 +472,6 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 -   [Windows PowerShell 部落格][Windows PowerShell 部落格]：深入了解 Windows PowerShell 的新功能。
 -   ["Hey, Scripting Guy!"部落格]["Hey, Scripting Guy!"部落格]：從 Windows PowerShell 社群中取得實際的秘訣及訣竅。
 
-  [Windows PowerShell]: /zh-TW/documentation/articles/powershell-azure-resource-manager.md "Windows PowerShell"
-  [跨平台 CLI]: /zh-TW/documentation/articles/xplat-cli-azure-resource-manager.md "跨平台 CLI"
   [Windows Management Framework 3.0]: http://www.microsoft.com/zh-TW/download/details.aspx?id=34595
   [Windows Management Framework 4.0]: http://www.microsoft.com/zh-TW/download/details.aspx?id=40855
   [如何安裝和設定 Windows Azure PowerShell]: http://www.windowsazure.com/zh-TW/documentation/articles/install-configure-powershell/

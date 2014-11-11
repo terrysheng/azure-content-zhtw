@@ -1,30 +1,30 @@
 <properties linkid="develop-dotnet-website-with-mongodb-vm" urlDisplayName="Website with MongoDB VM" pageTitle=".NET website with MongoDB on a virtual machine - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="A tutorial that teaches you how to use Git to deploy an ASP.NET app to an Azure website connected to MongoDB on a virtual machine." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # 建立 Azure 網站以便連接至在 Azure 的虛擬機器上執行的 MongoDB
 
-使用 Git，即可將 ASP.NET 應用程式部署至 Azure 網站。在本教學課程中，您將建置簡易的前端 ASP.NET MVC 工作清單應用程式，以連接至在 Azure 的虛擬機器中執行的 MongoDB 資料庫。[MongoDB][] (英文) 是受歡迎的高效能開放原始碼 NoSQL 資料庫。在開發電腦上執行和測試 ASP.NET 應用程式之後，您將使用 Git 將此應用程式上傳至 Azure 網站。
+使用 Git，即可將 ASP.NET 應用程式部署至 Azure 網站。在本教學課程中，您將建置簡易的前端 ASP.NET MVC 工作清單應用程式，以連接至在 Azure 的虛擬機器中執行的 MongoDB 資料庫。[MongoDB][MongoDB] (英文) 是受歡迎的高效能開放原始碼 NoSQL 資料庫。在開發電腦上執行和測試 ASP.NET 應用程式之後，您將使用 Git 將此應用程式上傳至 Azure 網站。
 
-[WACOM.INCLUDE [create-account-and-websites-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-websites-and-vms-note](../includes/create-account-and-websites-and-vms-note.md)]
 
 ## 概觀
 
 在本教學課程中，您將：
 
--   [建立虛擬機器和安裝 MongoDB][]
--   [在部署電腦上建立和執行 My Task List ASP.NET 應用程式][]
--   [建立 Azure 網站][]
--   [使用 Git 將 ASP.NET 應用程式部署至網站][]
+-   [建立虛擬機器和安裝 MongoDB][建立虛擬機器和安裝 MongoDB]
+-   [在部署電腦上建立和執行 My Task List ASP.NET 應用程式][在部署電腦上建立和執行 My Task List ASP.NET 應用程式]
+-   [建立 Azure 網站][建立 Azure 網站]
+-   [使用 Git 將 ASP.NET 應用程式部署至網站][使用 Git 將 ASP.NET 應用程式部署至網站]
 
 ## 背景知識
 
 下列知識雖然並非必要，但是對本教學課程很實用：
 
--   MongoDB 的 C# 驅動程式。如需針對 MongoDB 開發 C# 應用程式的詳細資訊，請參閱 MongoDB＜[CSharp Language Center][]＞(英文)。
--   ASP .NET Web 應用程式架構。您可以在 [ASP.net 網站][]了解此架構。
--   ASP .NET MVC Web 應用程式架構。您可以在 [ASP.NET MVC 網站][]了解此架構。
--   Azure。您可以在 [Azure][] 開始進行讀取。
+-   MongoDB 的 C# 驅動程式。如需針對 MongoDB 開發 C# 應用程式的詳細資訊，請參閱 MongoDB＜[CSharp Language Center][CSharp Language Center]＞(英文)。
+-   ASP .NET Web 應用程式架構。您可以在 [ASP.net 網站][ASP.net 網站]了解此架構。
+-   ASP .NET MVC Web 應用程式架構。您可以在 [ASP.NET MVC 網站][ASP.NET MVC 網站]了解此架構。
+-   Azure。您可以在 [Azure][Azure] 開始進行讀取。
 
 ## 準備工作
 
@@ -36,14 +36,14 @@
 
 本教學課程假設您已在 Azure 中建立虛擬機器。建立虛擬機器之後，您必須在這部虛擬機器上安裝 MongoDB：
 
--   若要建立 Windows 虛擬機器和安裝 MongoDB，請參閱＜[在 Azure 中執行 Windows Server 的虛擬機器上安裝 MongoDB][]＞。
--   此外，若要建立 Linux 虛擬機器和安裝 MongoDB，請參閱＜[在 Azure 中執行 CentOS Linux 的虛擬機器上安裝 MongoDB][]＞。
+-   若要建立 Windows 虛擬機器和安裝 MongoDB，請參閱＜[在 Azure 中執行 Windows Server 的虛擬機器上安裝 MongoDB][在 Azure 中執行 Windows Server 的虛擬機器上安裝 MongoDB]＞。
+-   此外，若要建立 Linux 虛擬機器和安裝 MongoDB，請參閱＜[在 Azure 中執行 CentOS Linux 的虛擬機器上安裝 MongoDB][在 Azure 中執行 CentOS Linux 的虛擬機器上安裝 MongoDB]＞。
 
 在 Azure 中建立虛擬機器並安裝 MongoDB 之後，請務必記住虛擬機器的 DNS 名稱 (例如，"testlinuxvm.cloudapp.net") 以及您在端點中指定之 MongoDB 的外部連接埠。稍後在教學課程中需要此資訊。
 
 ### 安裝 Visual Studio
 
-從安裝和執行 [Visual Studio Express 2013 for Web][] 或 [Visual Studio 2013][] 著手。
+從安裝和執行 [Visual Studio Express 2013 for Web][Visual Studio Express 2013 for Web] 或 [Visual Studio 2013][Visual Studio 2013] 著手。
 
 Visual Studio 為整合式開發環境 (IDE)。就如同您使用 Microsoft Word 來撰寫文件，您會使用 IDE 來建立應用程式。本教學課程採用 Microsoft Visual Studio 2013，但您可以使用 Microsoft Visual Studio Express 2013，這是免費的 Microsoft Visual Studio 版本。
 
@@ -57,19 +57,19 @@ Visual Studio 為整合式開發環境 (IDE)。就如同您使用 Microsoft Word
 
 在 Visual Studio 中按一下 [新增專案]。
 
-![Start Page New Project][]
+![Start Page New Project][Start Page New Project]
 
 在 [新增專案] 視窗的左窗格中，選取 [Visual C#]，然後選取 [Web]。在中間窗格中，選取 [ASP.NET Web 應用程式]。在底部將您的專案命名為 "MyTaskListApp"，然後按一下 [確定]。
 
-![New Project Dialog][]
+![New Project Dialog][New Project Dialog]
 
 在 [新增 ASP.NET 專案] 對話方塊中，選取 [MVC]，然後按一下 [確定]。
 
-![Select MVC Template][]
+![Select MVC Template][Select MVC Template]
 
 在專案完成後，範本所建立的預設頁面隨即出現。
 
-![Default ASP.NET MVC Application][]
+![Default ASP.NET MVC Application][Default ASP.NET MVC Application]
 
 ### 安裝 MongoDB C# 驅動程式
 
@@ -79,20 +79,20 @@ MongoDB 透過驅動程式提供 C# 應用程式的用戶端支援，您必須�
 
 1.  在 \[方案總管] 的 **MyTaskListApp** 專案之下，於 [參考] 上按一下滑鼠右鍵並選取 \[Manage NuGet Packages]。
 
-    ![Manage NuGet Packages][]
+    ![Manage NuGet Packages][Manage NuGet Packages]
 
 2.  在 \[Manage NuGet Packages] 視窗的左窗格中，按一下 [線上]。在右邊的 [線上搜尋] 方塊中，輸入 "mongocsharpdriver"。按一下 [安裝] 以安裝驅動程式。
 
-    ![Search for MongoDB C# Driver][]
+    ![Search for MongoDB C# Driver][Search for MongoDB C# Driver]
 
 3.  按一下 [我接受] 以接受 10gen, Inc. 授權條款。
 
 4.  在安裝驅動程式後，按一下 [關閉]。
-    ![MongoDB C# 驅動程式已安裝][]
+    ![MongoDB C# 驅動程式已安裝][MongoDB C# 驅動程式已安裝]
 
 MongoDB C# 驅動程式現已安裝。**MongoDB.Driver.dll** 和 **MongoDB.Bson.dll** 程式庫的參考便已新增至專案。
 
-![MongoDB C# Driver References][]
+![MongoDB C# Driver References][MongoDB C# Driver References]
 
 ### 新增模型
 
@@ -404,7 +404,7 @@ MongoDB C# 驅動程式現已安裝。**MongoDB.Driver.dll** 和 **MongoDB.Bson.
 
 \[方案總管] 看起來如下所示：
 
-![方案總管][]
+![方案總管][方案總管]
 
 ### 設定 MongoDB 連接字串
 
@@ -412,7 +412,7 @@ MongoDB C# 驅動程式現已安裝。**MongoDB.Driver.dll** 和 **MongoDB.Bson.
 
     private string connectionString = "mongodb://<vm-dns-name>";
 
-以執行 MongoDB 之虛擬機器的 DNS 名稱來取代 `<vm-dns-name>`，該 MongoDB 是您在本教學課程的[建立虛擬機器和安裝 MongoDB][] 步驟中所建立的資料庫。若要尋找虛擬機器的 DNS 名稱，請移至 Azure 管理入口網站，選取 [虛擬機器]，然後尋找 [DNS 名稱]。
+以執行 MongoDB 之虛擬機器的 DNS 名稱來取代 `<vm-dns-name>`，該 MongoDB 是您在本教學課程的[建立虛擬機器和安裝 MongoDB][建立虛擬機器和安裝 MongoDB] 步驟中所建立的資料庫。若要尋找虛擬機器的 DNS 名稱，請移至 Azure 管理入口網站，選取 [虛擬機器]，然後尋找 [DNS 名稱]。
 
 如果虛擬機器的 DNS 名稱為 "testlinuxvm.cloudapp.net"，且 MongoDB 是在預設連接埠 27017 上接聽，則連接字串程式碼行如下所示：
 
@@ -422,13 +422,13 @@ MongoDB C# 驅動程式現已安裝。**MongoDB.Driver.dll** 和 **MongoDB.Bson.
 
     private string connectionString = "mongodb://testlinuxvm.cloudapp.net:12345";
 
-如需 MongoDB 連接字串的詳細資訊，請參閱＜[連接][]＞(英文)。
+如需 MongoDB 連接字串的詳細資訊，請參閱＜[連接][連接]＞(英文)。
 
 ### 測試本機部署
 
 若要在部署電腦上執行您的應用程式，請選取 [偵錯] 功能表中的 [開始偵錯] 或按 **F5**。IIS Express 會啟動，瀏覽器會開啟並啟動應用程式的首頁。您可以新增一項工作，該工作將會新增至在 Azure 中您的虛擬機器上執行的 MongoDB 資料庫。
 
-![My Task List Application][]
+![My Task List Application][My Task List Application]
 
 ## <span class="short-header">將應用程式部署至 Azure 網站</span>將 ASP.NET 應用程式部署至 Azure 網站
 
@@ -440,17 +440,17 @@ MongoDB C# 驅動程式現已安裝。**MongoDB.Driver.dll** 和 **MongoDB.Bson.
 
 在本節中，您將會建立 Azure 網站。
 
-1.  開啟網頁瀏覽器並瀏覽至 [Azure 管理入口網站][]。使用您的 Azure 帳戶進行登入。
+1.  開啟網頁瀏覽器並瀏覽至 [Azure 管理入口網站][Azure 管理入口網站]。使用您的 Azure 帳戶進行登入。
 2.  按一下頁面底部的 [+New]，然後按一下 [網站]，最後按一下 [快速建立]。
 3.  輸入應用程式 URL 的唯一前置詞。
 4.  選取區域。
 5.  按一下 [建立網站]。
 
-![Create a new web site][]
+![Create a new web site][Create a new web site]
 
 1.  您的網站將會迅速建立並且列在 [網站] 中。
 
-![WAWSDashboardMyTaskListApp][]
+![WAWSDashboardMyTaskListApp][WAWSDashboardMyTaskListApp]
 
 <span id="deployapp"></span></a>
 
@@ -462,24 +462,24 @@ MongoDB C# 驅動程式現已安裝。**MongoDB.Driver.dll** 和 **MongoDB.Bson.
 2.  在 [Where is your source code?] 頁面上，選擇 [Local Git repository]，然後按 [下一步] 箭頭。
 3.  Git 儲存機制應會迅速建立起來。請記下結果頁面上的指示，您將在下一節中使用這些指示。
 
-    ![Git Repository is Ready][]
+    ![Git Repository is Ready][Git Repository is Ready]
 
 4.  [Push my local files to Azure] 底下有將程式碼發佈至 Azure 的相關指示。指示類似如下範例：
 
-    ![Push local files to Azure][]
+    ![Push local files to Azure][Push local files to Azure]
 
 5.  如果您未安裝 Git，請使用步驟 1 的 [Get it here] 連結進行安裝。
 6.  遵循步驟 2 的指示，認可您的本機檔案。
 7.  遵循步驟 3 的指示，新增遠端 Azure 儲存機制並將您的檔案發佈至 Azure 網站。
 8.  完成部署時，您將會看到下列確認：
 
-    ![Deployment Complete][]
+    ![Deployment Complete][Deployment Complete]
 
 9.  您的 Azure 網站現在即可使用。檢查網站的 [儀表板] 頁面和 [網站 URL] 欄位，以尋找您網站的 URL。遵循本教學課程中的程序，您的網站將會以下列 URL 開始提供服務：<http://mytasklistapp.azurewebsites.net>。
 
 ## 摘要
 
-您現在已成功將 ASP.NET 應用程式部署至 Azure 網站。若要檢視網站，請按一下 [儀表板] 頁面的 [網站 URL] 欄位。如需針對 MongoDB 開發 C# 應用程式的詳細資訊，請參閱＜[CSharp Language Center][]＞(英文)。
+您現在已成功將 ASP.NET 應用程式部署至 Azure 網站。若要檢視網站，請按一下 [儀表板] 頁面的 [網站 URL] 欄位。如需針對 MongoDB 開發 C# 應用程式的詳細資訊，請參閱＜[CSharp Language Center][CSharp Language Center]＞(英文)。
 
 <!-- HYPERLINKS --> 
 <!-- IMAGES --> 

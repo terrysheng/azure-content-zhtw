@@ -1,27 +1,27 @@
 <properties linkid="develop-nodejs-how-to-guides-service-bus-notification-hubs" urlDisplayName="Notification Hubs" pageTitle="Notification Hubs - Node.js Dev Center" metaKeywords="" description="Learn how to use Notification Hubs to send push notifications. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Notification Hubs" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 如何使用通知中樞
 
 本指南將說明如何從 Node.js 應用程式使用通知中樞。
-本文說明的案例包括**傳送通知到 Android、iOS、Windows Phone 和 Windows 市集應用程式**。如需通知中心的詳細資訊，請參閱[後續步驟][]一節。
+本文說明的案例包括**傳送通知到 Android、iOS、Windows Phone 和 Windows 市集應用程式**。如需通知中心的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [什麼是通知中樞？][]
--   [建立 Node.js 應用程式][]
--   [將應用程式設為使用通知中樞][]
--   [作法：傳送通知][]
--   [後續步驟][]
+-   [什麼是通知中樞？][什麼是通知中樞？]
+-   [建立 Node.js 應用程式][建立 Node.js 應用程式]
+-   [將應用程式設為使用通知中樞][將應用程式設為使用通知中樞]
+-   [作法：傳送通知][作法：傳送通知]
+-   [後續步驟][後續步驟]
 
 ## <span id="hub"></span></a>什麼是通知中樞？
 
-Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以將推播通知傳送至行動裝置。如需詳細資訊，請參閱 [Azure 通知中心][]。
+Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以將推播通知傳送至行動裝置。如需詳細資訊，請參閱 [Azure 通知中心][Azure 通知中心]。
 
 ## <span id="create"></span></a>建立 Node.js 應用程式
 
-建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][]、[Node.js 雲端服務][] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站][]。
+建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][建立 Node.js 應用程式並將其部署到 Azure 網站]、[Node.js 雲端服務][Node.js 雲端服務] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站][使用 WebMatrix 的網站]。
 
 ## <span id="config"></span></a>將應用程式設為使用通知中樞
 
@@ -97,7 +97,7 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
 -   Payload - 訊息的 JSON 或字串裝載
 -   Callback - 回呼函數
 
-如需裝載格式的詳細資訊，請參閱[實作 GCM 伺服器][]的「裝載」一節。
+如需裝載格式的詳細資訊，請參閱[實作 GCM 伺服器][實作 GCM 伺服器]的「裝載」一節。
 
 下列程式碼會使用 **NotificationHubService** 所公開的 **GcmService** 執行個體，將訊息傳送至所有用戶端。
 
@@ -120,7 +120,7 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
 -   Payload - 訊息的 JSON 或字串裝載
 -   Callback - 回呼函數
 
-如需裝載格式的詳細資訊，請參閱[本機與推播通知程式設計指南][]的「通知裝載」一節。
+如需裝載格式的詳細資訊，請參閱[本機與推播通知程式設計指南][本機與推播通知程式設計指南]的「通知裝載」一節。
 
 下列程式碼會使用 **NotificationHubService** 所公開的 **ApnsService** 執行個體，將警示訊息傳送至所有用戶端：
 
@@ -140,11 +140,11 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
 -   Tags - 標籤識別碼。若未提供標籤，通知將會傳送至所有用戶端
 -   Payload - 訊息的 XML 裝載
 -   TargetName - 快顯通知的「快顯」。磚通知的「權杖」。
--   NotificationClass - 通知的優先順序。如需有效值，請參閱[從伺服器推播通知][]的「HTTP 標頭元素」一節。
+-   NotificationClass - 通知的優先順序。如需有效值，請參閱[從伺服器推播通知][從伺服器推播通知]的「HTTP 標頭元素」一節。
 -   Options - 選用的要求標頭
 -   Callback - 回呼函數
 
-如需有效 TargetName、NotificationClass 和標頭選項的清單，請參閱[從伺服器推播通知][]。
+如需有效 TargetName、NotificationClass 和標頭選項的清單，請參閱[從伺服器推播通知][從伺服器推播通知]。
 
 下列程式碼會使用 **NotificationHubService** 所公開的 **MpnsService** 執行個體，來傳送快顯通知警示：
 
@@ -165,7 +165,7 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
 -   Options - 選用的要求標頭
 -   Callback - 回呼函數
 
-如需有效類型和要求標頭的清單，請參閱[推播通知服務要求和回應標頭][]。
+如需有效類型和要求標頭的清單，請參閱[推播通知服務要求和回應標頭][推播通知服務要求和回應標頭]。
 
 下列程式碼會使用 **NotificationHubService** 所公開的 **WnsService** 執行個體，來傳送快顯通知警示：
 
@@ -181,8 +181,8 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
 了解基本的通知中樞使用方式之後，請參考下列
 連結以取得更多資訊。
 
--   請參閱 MSDN 參考：[Azure 通知中樞][]。
--   造訪 GitHub 上的 [Azure SDK for Node][] (英文) 儲存機制。
+-   請參閱 MSDN 參考：[Azure 通知中樞][Azure 通知中樞]。
+-   造訪 GitHub 上的 [Azure SDK for Node][Azure SDK for Node] (英文) 儲存機制。
 
   [後續步驟]: #next
   [什麼是通知中樞？]: #hub

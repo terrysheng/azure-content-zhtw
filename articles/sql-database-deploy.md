@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-deploy-a-sqldb" urlDisplayName="How to deploy" pageTitle="How to deploy a SQL Database - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="Lori Clark" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori Clark"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori="" Clark" />
 
 # <span id="howtodeploySQLdb"></span></a>如何將資料庫部署到 Azure
 
@@ -12,13 +12,13 @@ School 範例資料庫非常簡便，其所有物件都與 SQL Database 相容�
 
 ## 目錄
 
--   [作法：在內部部署伺服器上建立 school 資料庫][]
--   [作法：部署到 SQL Database][]
--   [作法：驗證資料庫部署][]
+-   [作法：在內部部署伺服器上建立 school 資料庫][作法：在內部部署伺服器上建立 school 資料庫]
+-   [作法：部署到 SQL Database][作法：部署到 SQL Database]
+-   [作法：驗證資料庫部署][作法：驗證資料庫部署]
 
 ## <span id="schooldb"></span></a>作法：在內部部署伺服器上建立 school 資料庫
 
-您可以在[開始使用 SQL Database 管理][]中找到建立此資料庫的指令碼。在此指南中，您將在 Management Studio 中執行這些指令碼，以建立內部部署版本的 school 資料庫。
+您可以在[開始使用 SQL Database 管理][開始使用 SQL Database 管理]中找到建立此資料庫的指令碼。在此指南中，您將在 Management Studio 中執行這些指令碼，以建立內部部署版本的 school 資料庫。
 
 1.  在 Management Studio 中，連接到內部部署伺服器。以滑鼠右鍵按一下 [資料庫]，按一下 [新增資料庫]，並輸入 *school*。
 

@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with DomainDiscover - TierraNet" pageTitle="Configure a DomainDiscover domain name for an Azure website using Traffic Manager" metaKeywords="Windows Azure, Windows Azure Web Sites, DomainDiscover, TierraNet, Traffic Manager" description="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with DomainDiscover - TierraNet" services="web-sites" documentationCenter="" authors="larryfr,jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth" />
 
 # 使用流量管理員來設定 Windows Azure 網站的自訂網域名稱 (DomainDiscover / TierraNet)
 
@@ -8,30 +8,30 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/zh-TW/documentation/articles/web-sites-domaindiscover-custom-domain-name/" title="網站">網站</a> | <a href="/zh-TW/documentation/articles/web-sites-domaindiscover-traffic-manager-custom-domain-name/" title="使用流量管理員的網站" class="current">使用流量管理員的網站</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-本文提供使用 Azure 網站，從 [DomainDiscover.com][] 購買的自訂網域名稱的使用指示。DomainDiscover.com 是 [TierraNet][] 的一部分。
+本文提供使用 Azure 網站，從 [DomainDiscover.com][DomainDiscover.com] 購買的自訂網域名稱的使用指示。DomainDiscover.com 是 [TierraNet][TierraNet] 的一部分。
 
-[WACOM.INCLUDE [tmwebsitefooter][]]
+[WACOM.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 本文內容：
 
--   [了解 DNS 記錄][]
--   [將網站設定為標準模式][]
--   [新增自訂網域的 DNS 記錄][]
--   [啟用網站的流量管理員][]
+-   [了解 DNS 記錄][了解 DNS 記錄]
+-   [將網站設定為標準模式][將網站設定為標準模式]
+-   [新增自訂網域的 DNS 記錄][新增自訂網域的 DNS 記錄]
+-   [啟用網站的流量管理員][啟用網站的流量管理員]
 
 ## <a name="understanding-records"></a>了解 DNS 記錄
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
 
 ## <a name="bkmk_configsharedmode"></a>將網站設定為標準模式
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -42,15 +42,15 @@
 
 1.  在 DomainDiscover.com (TierraNet) 中登入您的帳戶，方法是從 [登入] 功能表中選取 [控制台]。
 
-    ![DomainDiscover Login Menu][]
+    ![DomainDiscover Login Menu][DomainDiscover Login Menu]
 
 2.  在 [網域服務] 頁面上，選取要在您的 Azure 網站上使用的網域。
 
-    ![Domain management page][]
+    ![Domain management page][Domain management page]
 
 3.  在 [網域] 設定的 [DNS 服務] 中，按一下 [編輯] 按鈕。
 
-    ![DNS edit button][]
+    ![DNS edit button][DNS edit button]
 
 4.  在 [管理 DNS] 視窗中，選取要在 [新增記錄] 清單中新增的 DNS 記錄類型。然後按一下 [新增] 按鈕。
 
@@ -68,17 +68,6 @@
 
 [WACOM.INCLUDE [modes][3]]
 
-  [自訂網域]: /zh-TW/documentation/articles/web-sites-custom-domain-name "自訂網域"
-  [GoDaddy]: /zh-TW/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [網路解決方案]: /zh-TW/documentation/articles/web-sites-network-solutions-custom-domain-name "網路解決方案"
-  [Register.com]: /zh-TW/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /zh-TW/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /zh-TW/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /zh-TW/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /zh-TW/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /zh-TW/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [網站]: /zh-TW/documentation/articles/web-sites-domaindiscover-custom-domain-name/ "網站"
-  [使用流量管理員的網站]: /zh-TW/documentation/articles/web-sites-domaindiscover-traffic-manager-custom-domain-name/ "使用流量管理員的網站"
   [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [DomainDiscover.com]: https://domaindiscover.com

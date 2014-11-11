@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-how-to-guides-howto-register-user-with-aspnet-webapi-ios" urlDisplayName="Notify iOS app users by using Web API" pageTitle="Register the current user for push notifications by using Web API - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification iOS app" description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by ASP.NET Web API." metaCanonical="" services="notification-hubs" documentationCenter="" title="Register the current user for push notifications by using ASP.NET" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # 使用 ASP.NET 來註冊目前使用者以取得推播通知
 
@@ -8,7 +8,7 @@
 <a href="/zh-TW/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-TW/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
-本主題將說明以 ASP.NET Web API 執行註冊時，應如何向 Azure 通知中心要求推播通知註冊。這是[使用通知中心來通知使用者][]教學課程的延伸主題。您必須已完成該教學課程中的必要步驟，才能建立已驗證的行動服務。如需通知使用者案例的詳細資訊，請參閱[使用通知中心來通知使用者][]。
+本主題將說明以 ASP.NET Web API 執行註冊時，應如何向 Azure 通知中心要求推播通知註冊。這是[使用通知中心來通知使用者][使用通知中心來通知使用者]教學課程的延伸主題。您必須已完成該教學課程中的必要步驟，才能建立已驗證的行動服務。如需通知使用者案例的詳細資訊，請參閱[使用通知中心來通知使用者][使用通知中心來通知使用者]。
 
 1.  在您的 MainStoryboard\_iPhone.storyboard 中，從物件程式庫新增下列元件：
 
@@ -22,7 +22,7 @@
 
     此時，您的腳本如下所示：
 
-    ![][]
+    ![][0]
 
 2.  在輔助編輯器中，為所有切換的控制項建立出口並加以呼叫、使用檢視控制器 (委派) 連接文字欄位，然後為 [登入] 按鈕建立 [動作]。
 
@@ -83,7 +83,7 @@
 
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
-    第一行會初始化 **DeviceInfo** singleton。第二行會啟動推播通知的註冊；如果您已完成[開始使用通知中心][]教學課程，則會有此註冊存在。
+    第一行會初始化 **DeviceInfo** singleton。第二行會啟動推播通知的註冊；如果您已完成[開始使用通知中心][開始使用通知中心]教學課程，則會有此註冊存在。
 
 7.  在 PushToUserAppDelegate.m 中，在您的 AppDelegate 中實作 **didRegisterForRemoteNotificationsWithDeviceToken** 方法，並新增下列程式碼：
 
@@ -203,18 +203,16 @@
                 }
             }];
 
-    This method gets both an installation ID and channel for push notifications and sends it, along with the device type, to the authenticated Web API method that creates a registration in Notification Hubs.此 Web API 定義於[使用通知中心來通知使用者][]中。
+    This method gets both an installation ID and channel for push notifications and sends it, along with the device type, to the authenticated Web API method that creates a registration in Notification Hubs.此 Web API 定義於[使用通知中心來通知使用者][使用通知中心來通知使用者]中。
 
-現在，用戶端應用程式已更新，請回到[使用通知中心來通知使用者][]，並更新行動服務，以使用通知中心傳送通知。
+現在，用戶端應用程式已更新，請回到[使用通知中心來通知使用者][使用通知中心來通知使用者]，並更新行動服務，以使用通知中心傳送通知。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-TW/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/ "Windows 市集 C#"
-  [iOS]: /zh-TW/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/ "iOS"
   [使用通知中心來通知使用者]: /zh-TW/manage/services/notification-hubs/notify-users-aspnet
-  []: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios1.png
+  [0]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios1.png
   [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
   [開始使用通知中心]: /zh-TW/manage/services/notification-hubs/get-started-notification-hubs-ios
   [2]: /zh-TW/manage/services/notification-hubs/get-started-notification-hubs-ios/

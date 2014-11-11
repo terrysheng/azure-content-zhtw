@@ -1,6 +1,6 @@
 <properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="elioda" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
 
 # Azure 通知中心通知使用者
 
@@ -70,7 +70,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
     您的 main\_activity.xml 圖形配置看起來應該如下所示：
 
-    ![][]
+    ![][0]
 
 4.  現在，在與 **MainActivity** 類別相同的套件中建立 **RegisterClient** 類別。請確定使用在上一節中所取得的後端端點來取代 `{backend endpoint}`。
 
@@ -276,10 +276,6 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 4.  在 Android 應用程式 UI 中，按一下 **[登入]**。然後按一下 **[傳送推播]**。
 
-  [Windows Universal]: /zh-tw/documentation/articles/notification-hubs-windows-dotnet-notify-users/ "Windows Universal"
-  [iOS]: /zh-tw/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/ "iOS"
-  [Android]: /zh-tw/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/ "Android"
   [從您的應用程式後端註冊]: http://msdn.microsoft.com/zh-tw/library/dn743807.aspx
-  [開始使用通知中心 (Android)]: /zh-tw/documentation/articles/notification-hubs-android-get-started/
   [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
-  []: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG
+  [0]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG

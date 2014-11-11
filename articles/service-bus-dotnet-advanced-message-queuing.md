@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the .NET Service Bus API - Azure" metaKeywords="" description="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to use AMQP 1.0 with the Service Bus .NET API" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # 如何透過服務匯流排 .NET API 使用 AMQP 1.0
 
@@ -14,7 +14,7 @@
 
 ## <span class="short-header">開始使用</span>開始使用服務匯流排
 
-本指南假設您已經有服務匯流排命名空間，其中包含名稱為「queue1」的佇列。如果沒有，您可以使用 [Azure 管理入口網站][]建立命名空間和佇列。如需建立服務匯流排命名空間和佇列的詳細資訊，請參閱標題為[如何使用服務匯流排佇列][] (英文) 的作法指南。
+本指南假設您已經有服務匯流排命名空間，其中包含名稱為「queue1」的佇列。如果沒有，您可以使用 [Azure 管理入口網站][Azure 管理入口網站]建立命名空間和佇列。如需建立服務匯流排命名空間和佇列的詳細資訊，請參閱標題為[如何使用服務匯流排佇列][如何使用服務匯流排佇列] (英文) 的作法指南。
 
 ## <span class="short-header">下載 SDK</span>下載服務匯流排 SDK
 
@@ -24,7 +24,7 @@
 
 依預設，服務匯流排 .NET 用戶端程式庫能使用專屬的 SOAP 型通訊協定與服務匯流排服務通訊。若要使用 AMQP 1.0 (而非預設的通訊協定)，您需要明確地設定服務匯流排連線字串，如下節內容所述。除了這項變更之外，在使用 AMQP 1.0 時，應用程式程式碼基本上會維持不變。
 
-目前的版本中有幾項在使用 AMQP 時不支援的 API 功能。這些不支援的功能列示於後續的＜不支援的功能和限制＞一節中。在使用 AMQP 時，某些進階組態設定亦有不同的意義。本簡短的作法指南未使用上述任何設定，不過如果您需要詳細資料，請參閱[服務匯流排 AMQP 1.0 開發人員指南][] (英文)。
+目前的版本中有幾項在使用 AMQP 時不支援的 API 功能。這些不支援的功能列示於後續的＜不支援的功能和限制＞一節中。在使用 AMQP 時，某些進階組態設定亦有不同的意義。本簡短的作法指南未使用上述任何設定，不過如果您需要詳細資料，請參閱[服務匯流排 AMQP 1.0 開發人員指南][服務匯流排 AMQP 1.0 開發人員指南] (英文)。
 
 ### 透過 App.config 進行設定
 
@@ -206,7 +206,7 @@ Where [namespace], [issuer name], and [issuer key] are obtained from the Azure M
 
 本指南示範如何使用 .NET 將訊息傳送到服務匯流排，以及如何使用 .NET 接收這些訊息。不過，AMQP 1.0 的其中一個主要優點是能夠從不同語言撰寫的元件建立應用程式，並確實完整交換訊息。
 
-使用前文描述的範例 .NET 應用程式和取自附屬指南 ([如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0][] (英文)) 的類似 Java 應用程式，您可以在 .NET 和 Java 之間交換訊息。
+使用前文描述的範例 .NET 應用程式和取自附屬指南 ([如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0][如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0] (英文)) 的類似 Java 應用程式，您可以在 .NET 和 Java 之間交換訊息。
 
 如需使用服務匯流排與 AMQP 1.0 傳送跨平台訊息的詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南][服務匯流排 AMQP 1.0 開發人員指南]。
 
@@ -289,9 +289,9 @@ Where [namespace], [issuer name], and [issuer key] are obtained from the Azure M
 
 ## <span class="short-header">進階資訊</span>進階資訊
 
--   [Azure 服務匯流排中的 AMQP 1.0 支援][]
--   [如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0][]
--   [服務匯流排 AMQP 1.0 開發人員指南][]
+-   [Azure 服務匯流排中的 AMQP 1.0 支援][Azure 服務匯流排中的 AMQP 1.0 支援]
+-   [如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0][如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0]
+-   [服務匯流排 AMQP 1.0 開發人員指南][服務匯流排 AMQP 1.0 開發人員指南]
 -   [如何使用服務匯流排佇列][1]
 
   [Azure 管理入口網站]: http://manage.windowsazure.com
@@ -299,5 +299,4 @@ Where [namespace], [issuer name], and [issuer key] are obtained from the Azure M
   []: http://nuget.org/packages/WindowsAzure.ServiceBus/
   [服務匯流排 AMQP 1.0 開發人員指南]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj841071.aspx
   [1]: http://www.windowsazure.com/zh-TW/develop/net/how-to-guides/service-bus-queues/
-  [如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0]: http://aka.ms/ll1fm3
   [Azure 服務匯流排中的 AMQP 1.0 支援]: http://aka.ms/pgr3dp

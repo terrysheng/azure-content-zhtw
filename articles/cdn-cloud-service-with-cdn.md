@@ -1,6 +1,6 @@
 <properties linkid="cdn-cloud-service-with-cdn" urlDisplayName="Integrate a cloud service with Azure CDN" pageTitle="Integrate a cloud service with Azure CDN" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, cloud service" description="A tutorial that teaches you how to deploy a cloud service that serves content from an integrated Azure CDN endpoint" metaCanonical="" services="cdn,cloud-services" documentationCenter=".NET" title="Integrate a cloud service with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
 
-<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 <a name="intro"></a>
 
@@ -54,7 +54,7 @@ Azure CDN 可以與雲端服務整合，從雲端服務的 CDN 目錄中提供�
 
 1.  在 Visual Studio 2013 中，從功能表列中移至 [檔案] \> [新增] \> [專案] \> [Cloud] \> [Windows Azure 雲端服務]，以建立新的 Azure 雲端服務。命名並按一下 [確定]。
 
-    ![][]
+    ![][0]
 
 2.  選取 [ASP.NET Web 角色]，按一下 **\>** 按鈕。按一下 [確定]。
 
@@ -641,9 +641,7 @@ public ActionResult Show(string id)
   [設定當 Azure CDN 離線時後援的指令碼和 CSS]: #fallback
   [Microsoft Azure 帳戶]: http://azure.microsoft.com/zh-tw/account/
   [Azure SDK]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
-  [免費申請 Azure 帳戶]: http://azure.microsoft.com/zh-tw/pricing/free-trial/?WT.mc_id=A261C142F
-  [啟用 MSDN 訂戶權益]: http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-  []: media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG
+  [0]: media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG
   [1]: media/cdn-cloud-service-with-cdn/cdn-cs-2-select-role.PNG
   [2]: media/cdn-cloud-service-with-cdn/cdn-cs-3-mvc-template.PNG
   [3]: media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.png
@@ -659,7 +657,6 @@ public ActionResult Show(string id)
   [11]: media/cdn-cloud-service-with-cdn/cdn-cs-13-testcdn.png
   [12]: media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG
   [13]: media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG
-  [用戶端快取 \<clientCache\>]: http://www.iis.net/configreference/system.webserver/staticcontent/clientcache
   [Maarten Balliauw]: https://twitter.com/maartenballiauw
   [使用 Windows Azure CDN 縮短網路延遲時間]: http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN
   [Alan Light]: http://www.flickr.com/photos/alan-light/218493788/
@@ -674,7 +671,6 @@ public ActionResult Show(string id)
   [Ember 顧問團]: https://github.com/EmberConsultingGroup
   [樣式套件組合後援]: https://github.com/EmberConsultingGroup/StyleBundleFallback
   [GitHub 提供的程式碼]: https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs
-  [Azure 內容傳遞網路 (CDN) 概觀]: http://msdn.microsoft.com/library/azure/ff919703.aspx
   [在 Web 應用程式中從 Azure CDN 提供內容]: http://azure.microsoft.com/zh-tw/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/
   [ASP.NET 統合和縮製]: http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification
   [使用 Azure 的 CDN]: http://azure.microsoft.com/zh-tw/documentation/articles/cdn-how-to-use/

@@ -1,30 +1,30 @@
 <properties linkid="manage-linux-howto-linux-agent" urlDisplayName="Prepare a distribution" pageTitle="Prepare a distribution of Linux in Azure" metaKeywords="Azure Git CodePlex, Azure website CodePlex, Azure website Git" description="Learn how to use Git to publish to an Azure website, as well as enable continuous deployment from GitHub and CodePlex." metaCanonical="" services="virtual-machines" documentationCenter="" title="Prepare a Linux Virtual Machine for Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # 準備執行 Linux 的 Azure 虛擬機器
 
-Azure 中的虛擬機器會執行您在建立虛擬機器時所選擇的作業系統。Azure 會以 VHD 格式 (.vhd 檔案) 將虛擬機器的作業系統儲存在虛擬硬碟中。可供複製的作業系統 VHD，稱為映像。本文說明如何使用您已安裝並一般化的作業系統上傳 .vhd 檔案，以建立您自己的映像。如需 Azure 中的磁碟和映像的詳細資訊，請參閱[管理磁碟和映像][]。
+Azure 中的虛擬機器會執行您在建立虛擬機器時所選擇的作業系統。Azure 會以 VHD 格式 (.vhd 檔案) 將虛擬機器的作業系統儲存在虛擬硬碟中。可供複製的作業系統 VHD，稱為映像。本文說明如何使用您已安裝並一般化的作業系統上傳 .vhd 檔案，以建立您自己的映像。如需 Azure 中的磁碟和映像的詳細資訊，請參閱[管理磁碟和映像][管理磁碟和映像]。
 
-**注意**：在建立虛擬機器時，您可以自訂作業系統設定，以利執行應用程式。您設定的組態會儲存在該虛擬機器的磁碟上。如需指示，請參閱[如何建立自訂虛擬機器][]。
+**注意**：在建立虛擬機器時，您可以自訂作業系統設定，以利執行應用程式。您設定的組態會儲存在該虛擬機器的磁碟上。如需指示，請參閱[如何建立自訂虛擬機器][如何建立自訂虛擬機器]。
 
-**重要事項**：只有在其中一個背書散發套件使用[本文][]中指定的組態詳細資料時，才會對執行 Linux OS 的虛擬機器套用 Azure 平台 SLA。Azure 映像庫中提供的所有 Linux 散發套件，皆為使用必要組態的背書散發套件。
+**重要事項**：只有在其中一個背書散發套件使用[本文][本文]中指定的組態詳細資料時，才會對執行 Linux OS 的虛擬機器套用 Azure 平台 SLA。Azure 映像庫中提供的所有 Linux 散發套件，皆為使用必要組態的背書散發套件。
 
 ## 必要條件
 
 本文假設您具有下列項目：
 
--   **管理憑證** - 您已針對要上傳 VHD 的訂閱建立管理憑證，並將此憑證匯出至 .cer 檔案。如需建立憑證的詳細資訊，請參閱[建立 Azure 的管理憑證][]。
+-   **管理憑證** - 您已針對要上傳 VHD 的訂閱建立管理憑證，並將此憑證匯出至 .cer 檔案。如需建立憑證的詳細資訊，請參閱[建立 Azure 的管理憑證][建立 Azure 的管理憑證]。
 
--   **以 .vhd 檔案安裝的 Linux 作業系統。** - 您已將支援的 Linux 作業系統安裝至虛擬硬碟。有多項工具可用來建立 .vhd 檔案。您可以使用虛擬化解決方案 (例如 Hyper-V) 建立 .vhd 檔案，並安裝作業系統。如需指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器][]。
+-   **以 .vhd 檔案安裝的 Linux 作業系統。** - 您已將支援的 Linux 作業系統安裝至虛擬硬碟。有多項工具可用來建立 .vhd 檔案。您可以使用虛擬化解決方案 (例如 Hyper-V) 建立 .vhd 檔案，並安裝作業系統。如需指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器][安裝 Hyper-V 角色及設定虛擬機器]。
 
     **重要事項**：Azure 不支援較新的 VHDX 格式。您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。
 
-    如需背書散發套件清單，請參閱 [Linux on Azure 背書散發套件][]。或者，請參閱本文最後一節中的[非背書散發套件的資訊][]。
+    如需背書散發套件清單，請參閱 [Linux on Azure 背書散發套件][Linux on Azure 背書散發套件]。或者，請參閱本文最後一節中的[非背書散發套件的資訊][非背書散發套件的資訊]。
 
--   **Linux Azure 命令列工具。**如果您要使用 Linux 作業系統建立映像，您可以使用此工具來上傳 VHD 檔案。若要下載此工具，請參閱[適用於 Mac 和 Linux 的 Azure 命令列工具][]。
+-   **Linux Azure 命令列工具。**如果您要使用 Linux 作業系統建立映像，您可以使用此工具來上傳 VHD 檔案。若要下載此工具，請參閱[適用於 Mac 和 Linux 的 Azure 命令列工具][適用於 Mac 和 Linux 的 Azure 命令列工具]。
 
--   **Add-AzureVhd Cmdlet**，這是 Azure PowerShell 模組的一部分。若要下載此模組，請參閱 [Azure 下載][]。如需參照資訊，請參閱 [Add-AzureVhd][]。
+-   **Add-AzureVhd Cmdlet**，這是 Azure PowerShell 模組的一部分。若要下載此模組，請參閱 [Azure 下載][Azure 下載]。如需參照資訊，請參閱 [Add-AzureVhd][Add-AzureVhd]。
 
 對於所有的散發套件，請注意下列事項：
 
@@ -34,16 +34,16 @@ Azure Linux 代理程式 (Waagent) 與 NetworkManager 不相容。網路組態�
 
 要使用 Azure Linux 代理程式，必須要安裝 python-pyasn1 封裝。
 
-建議您不要在安裝期間建立 SWAP 磁碟分割。您可以使用 Azure Linux 代理程式來設定 SWAP 空間。此外，也建議您不要對 Azure 虛擬機器使用未在 [Microsoft 網站][] 上提供修補程式的主流 Linux 核心 (許多目前的散發套件/核心可能以包含此修正程式)。
+建議您不要在安裝期間建立 SWAP 磁碟分割。您可以使用 Azure Linux 代理程式來設定 SWAP 空間。此外，也建議您不要對 Azure 虛擬機器使用未在 [Microsoft 網站][Microsoft 網站] 上提供修補程式的主流 Linux 核心 (許多目前的散發套件/核心可能以包含此修正程式)。
 
 所有 VHD 的大小都必須是 1 MB 的倍數。
 
 此工作包含下列步驟：
 
--   [步驟 1：準備要上傳的映像][]
--   [步驟 2：在 Azure 中建立儲存體帳戶][]
--   [步驟 3：準備 Azure 的連線][]
--   [步驟 4：將映像上傳至 Azure][]
+-   [步驟 1：準備要上傳的映像][步驟 1：準備要上傳的映像]
+-   [步驟 2：在 Azure 中建立儲存體帳戶][步驟 2：在 Azure 中建立儲存體帳戶]
+-   [步驟 3：準備 Azure 的連線][步驟 3：準備 Azure 的連線]
+-   [步驟 4：將映像上傳至 Azure][步驟 4：將映像上傳至 Azure]
 
 ## <span id="prepimage"></span> </a>步驟 1：準備要上傳的映像
 
@@ -85,15 +85,15 @@ Azure Linux 代理程式 (Waagent) 與 NetworkManager 不相容。網路組態�
 
     **注意：**此步驟僅適用於 CentOS 6.2 和 6.3。在 CentOS 6.4+ 中，Linux Integration Services 已是核心中的可用項目。
 
-    a) 從[下載中心][]取得包含 Linux Integration Services 之驅動程式的 .iso 檔案。
+    a) 從[下載中心][下載中心]取得包含 Linux Integration Services 之驅動程式的 .iso 檔案。
 
     b) 在 Hyper-V 管理員的 **[動作]** 窗格中，按一下 **[設定]**。
 
-    ![開啟 Hyper-V 設定][]
+    ![開啟 Hyper-V 設定][開啟 Hyper-V 設定]
 
     c) 在 **[硬體]** 窗格中，按一下 **[IDE 控制器 1]**。
 
-    ![使用安裝媒體新增 DVD 光碟機][]
+    ![使用安裝媒體新增 DVD 光碟機][使用安裝媒體新增 DVD 光碟機]
 
     d) 在 **[IDE 控制器]** 方塊中，按一下 **[DVD 光碟機]**，再按 **[新增]**。
 
@@ -311,10 +311,10 @@ Azure Linux 代理程式 (Waagent) 與 NetworkManager 不相容。網路組態�
 
 ### 準備 SUSE Linux Enterprise Server 11 SP2 和 SP3 作業系統
 
-**注意：** [SUSE Studio][] (英文) 可輕鬆建立及管理您用於 Azure 和 Hyper-V 的 SLES/opeSUSE 映像。此外，您可以將下列 SUSE Studio 程式庫中的官方映像，下載或複製到您自己的 SUSE Studio 帳戶來輕鬆進行自訂：
+**注意：** [SUSE Studio][SUSE Studio] (英文) 可輕鬆建立及管理您用於 Azure 和 Hyper-V 的 SLES/opeSUSE 映像。此外，您可以將下列 SUSE Studio 程式庫中的官方映像，下載或複製到您自己的 SUSE Studio 帳戶來輕鬆進行自訂：
 
-> -   [SUSE Studio Gallery 上的 SLES 11 SP2 for Azure][]
-> -   [SUSE Studio Gallery 上的 SLES 11 SP3 for Azure][]
+> -   [SUSE Studio Gallery 上的 SLES 11 SP2 for Azure][SUSE Studio Gallery 上的 SLES 11 SP2 for Azure]
+> -   [SUSE Studio Gallery 上的 SLES 11 SP3 for Azure][SUSE Studio Gallery 上的 SLES 11 SP3 for Azure]
 
 1.  在 Hyper-V 管理員的中央窗格中，選取虛擬機器。
 
@@ -335,7 +335,7 @@ Azure Linux 代理程式 (Waagent) 與 NetworkManager 不相容。網路組態�
 
         "No repositories defined. Use the 'zypper addrepo' command to add one or more repositories."
 
-    then the repositories may need to be re-enabled or the system registered.This can be done via the suse\_register utility.如需詳細資訊，請參閱 [SLES 文件][] (英文)。
+    then the repositories may need to be re-enabled or the system registered.This can be done via the suse\_register utility.如需詳細資訊，請參閱 [SLES 文件][SLES 文件] (英文)。
 
     如果有其中一個相關的更新儲存機制未啟用，請使用下列命令加以啟用：
 
@@ -394,9 +394,9 @@ Azure Linux 代理程式 (Waagent) 與 NetworkManager 不相容。網路組態�
 
 ### 準備 openSUSE 12.3 作業系統
 
-**注意：** [SUSE Studio][] (英文) 可輕鬆建立及管理您用於 Azure 和 Hyper-V 的 SLES/opeSUSE 映像。此外，您可以將下列 SUSE Studio 程式庫中的官方映像，下載或複製到您自己的 SUSE Studio 帳戶來輕鬆進行自訂：
+**注意：** [SUSE Studio][SUSE Studio] (英文) 可輕鬆建立及管理您用於 Azure 和 Hyper-V 的 SLES/opeSUSE 映像。此外，您可以將下列 SUSE Studio 程式庫中的官方映像，下載或複製到您自己的 SUSE Studio 帳戶來輕鬆進行自訂：
 
-> -   [SUSE Studio Gallery 上的 openSUSE 12.3 for Azure][]
+> -   [SUSE Studio Gallery 上的 openSUSE 12.3 for Azure][SUSE Studio Gallery 上的 openSUSE 12.3 for Azure]
 
 1.  在 Hyper-V 管理員的中央窗格中，選取虛擬機器。
 
@@ -490,15 +490,15 @@ Azure Linux 代理程式 (Waagent) 與 NetworkManager 不相容。網路組態�
 
 2.  按一下命令列上的 [新增]。
 
-    ![建立儲存體帳戶][]
+    ![建立儲存體帳戶][建立儲存體帳戶]
 
 3.  按一下 [儲存體帳戶]，然後按一下 [快速建立]。
 
-    ![快速建立儲存體帳戶][]
+    ![快速建立儲存體帳戶][快速建立儲存體帳戶]
 
 4.  依照下列方式填入欄位：
 
-    ![輸入儲存體帳戶詳細資料][]
+    ![輸入儲存體帳戶詳細資料][輸入儲存體帳戶詳細資料]
 
  - 在 **URL** 下，為儲存體帳戶輸入要在 URL 中使用的子網域名稱。此項目可以包含 3 至 24 個小寫字母與數字。此名稱會成為 URL 內用來為訂閱的 Blob、「佇列」或「資料表」資源定址的主機名稱。
 
@@ -510,7 +510,7 @@ Azure Linux 代理程式 (Waagent) 與 NetworkManager 不相容。網路組態�
 
     帳戶此時會列在 **[儲存體帳戶]** 下。
 
-    ![已成功建立儲存體帳戶][]
+    ![已成功建立儲存體帳戶][已成功建立儲存體帳戶]
 
 ## <span id="#connect"></span> </a>步驟 3：準備 Azure 的連線
 
@@ -532,7 +532,7 @@ Azure Linux 代理程式 (Waagent) 與 NetworkManager 不相容。網路組態�
 
     其中，`<PathToFile>` 是 .publishsettings 檔案的完整路徑。
 
-    如需詳細資訊，請參閱[開始使用 Azure Cmdlet][]
+    如需詳細資訊，請參閱[開始使用 Azure Cmdlet][開始使用 Azure Cmdlet]
 
 ## <span id="upload"></span> </a>步驟 4：將映像上傳至 Azure
 
@@ -544,7 +544,7 @@ Azure Linux 代理程式 (Waagent) 與 NetworkManager 不相容。網路組態�
 
     `Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
 
-    如需詳細資訊，請參閱 [Add-AzureVhd][]。
+    如需詳細資訊，請參閱 [Add-AzureVhd][Add-AzureVhd]。
 
 -   使用 Linux 命令列工具上傳映像。您可以使用下列命令來上傳映像：
 
@@ -556,11 +556,11 @@ Azure Linux 代理程式 (Waagent) 與 NetworkManager 不相容。網路組態�
 
 此處所列並非完整清單，因為每個散發套件都不同；且即使您符合下列所有條件，仍很可能需要詳加審視您的映像，以確保它可在平台上正確執行。
 
-正因如此，建議您從我們的其中一個[合作夥伴背書映像][]開始著手進行。
+正因如此，建議您從我們的其中一個[合作夥伴背書映像][合作夥伴背書映像]開始著手進行。
 
 下列清單取代了讓您自行建立 VHD 之程序的步驟 1：
 
-1.  您必須確定您所執行的核心包含 Hyper-V 的最新 LIS 驅動程式，或是您已成功加以編譯 (這些驅動程式採用開放原始碼)。驅動程式位於[此位置上][]
+1.  您必須確定您所執行的核心包含 Hyper-V 的最新 LIS 驅動程式，或是您已成功加以編譯 (這些驅動程式採用開放原始碼)。驅動程式位於[此位置上][此位置上]
 
 2.  您的核心也應包含用來佈建映像的最新版 ATA PiiX 驅動程式，且驅動程式後續應具有適用於核心的修正程式：commit cd006086fa5d91414d8ff9ff2b78fbb593878e3c Date:Fri May 4 22:15:11 2012 +0100 ata\_piix:defer disks to the Hyper-V drivers by default
 
@@ -574,7 +574,7 @@ Azure Linux 代理程式 (Waagent) 與 NetworkManager 不相容。網路組態�
 
 6.  您應確定所有掛接在核心中的 SCSI 裝置都具有 300 秒或更長的 I/O 逾時。
 
-7.  您必須依照 [Linux 代理程式指南][]中的步驟安裝 Azure Linux 代理程式。此代理程式已在 Apache 2 授權下發行，您可以在[代理程式 GitHub 位置][]上取得最新版本
+7.  您必須依照 [Linux 代理程式指南][Linux 代理程式指南]中的步驟安裝 Azure Linux 代理程式。此代理程式已在 Apache 2 授權下發行，您可以在[代理程式 GitHub 位置][代理程式 GitHub 位置]上取得最新版本
 
 8.  在 /etc/sudoers 中註解化以下一行 (如果存在)：
 

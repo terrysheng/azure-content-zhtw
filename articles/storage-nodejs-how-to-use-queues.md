@@ -1,39 +1,39 @@
 <properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Queue Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # 如何從 Node.js 使用佇列服務
 
-本指南將示範如何使用 Windows Azure 佇列服務執行一般案例。這些範例使用 Node.js API 撰寫。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。如需佇列的詳細資訊，請參閱[後續步驟][]一節。
+本指南將示範如何使用 Windows Azure 佇列服務執行一般案例。這些範例使用 Node.js API 撰寫。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。如需佇列的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [什麼是佇列服務？][]
--   [概念][]
--   [建立 Azure 儲存體帳戶][]
--   [建立 Node.js 應用程式][]
--   [設定您的應用程式以存取儲存體][]
--   [設定 Azure 儲存體連接字串][]
--   [作法：建立佇列][]
--   [作法：將訊息插入佇列][]
--   [作法：查看下一個訊息][]
--   [作法：清除下一個佇列訊息][]
--   [作法：變更佇列訊息的內容][]
--   [作法：清除佇列訊息的其他選項][]
--   [作法：取得佇列長度][]
--   [作法：刪除佇列][]
--   [作法：使用共用存取簽章][]
--   [後續步驟][]
+-   [什麼是佇列服務？][什麼是佇列服務？]
+-   [概念][概念]
+-   [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
+-   [建立 Node.js 應用程式][建立 Node.js 應用程式]
+-   [設定您的應用程式以存取儲存體][設定您的應用程式以存取儲存體]
+-   [設定 Azure 儲存體連接字串][設定 Azure 儲存體連接字串]
+-   [作法：建立佇列][作法：建立佇列]
+-   [作法：將訊息插入佇列][作法：將訊息插入佇列]
+-   [作法：查看下一個訊息][作法：查看下一個訊息]
+-   [作法：清除下一個佇列訊息][作法：清除下一個佇列訊息]
+-   [作法：變更佇列訊息的內容][作法：變更佇列訊息的內容]
+-   [作法：清除佇列訊息的其他選項][作法：清除佇列訊息的其他選項]
+-   [作法：取得佇列長度][作法：取得佇列長度]
+-   [作法：刪除佇列][作法：刪除佇列]
+-   [作法：使用共用存取簽章][作法：使用共用存取簽章]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <a name="create-account"></a>建立 Azure 儲存體帳戶
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>建立 Node.js 應用程式
 
-建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][]、[Node.js 雲端服務][] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站][]。
+建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][建立 Node.js 應用程式並將其部署到 Azure 網站]、[Node.js 雲端服務][Node.js 雲端服務] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站][使用 WebMatrix 的網站]。
 
 ## <a name="configure-access"> </a>設定您的應用程式以存取儲存體
 
@@ -67,7 +67,7 @@
 
 Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_ACCESS\_KEY 或 AZURE\_STORAGE\_CONNECTION\_STRING，以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則在呼叫 **createQueueService** 時必須指定帳戶資訊。
 
-如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][]。
+如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][使用儲存體的 Node.js Web 應用程式]。
 
 ## <a name="create-queue"> </a>作法：建立佇列
 
@@ -313,9 +313,9 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
 
 了解佇列儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   請參閱 MSDN 參考：[在 Azure 中儲存及存取資料][]。
--   造訪 [Azure 儲存體團隊部落格][] (英文)。
--   請造訪 GitHub 上的 [Azure Storage SDK for Node][] 儲存機制 (英文)。
+-   請參閱 MSDN 參考：[在 Azure 中儲存及存取資料][在 Azure 中儲存及存取資料]。
+-   造訪 [Azure 儲存體團隊部落格][Azure 儲存體團隊部落格] (英文)。
+-   請造訪 GitHub 上的 [Azure Storage SDK for Node][Azure Storage SDK for Node] 儲存機制 (英文)。
 
   [後續步驟]: #next-steps
   [什麼是佇列服務？]: #what-is
@@ -339,6 +339,6 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [Node.js 雲端服務]: /zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [使用 WebMatrix 的網站]: /zh-tw/documentation/articles/web-sites-nodejs-use-webmatrix/
   [使用儲存體的 Node.js Web 應用程式]: /zh-tw/documentation/articles/storage-nodejs-use-table-storage-web-site/
-  [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node

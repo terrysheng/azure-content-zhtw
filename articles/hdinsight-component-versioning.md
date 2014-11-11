@@ -1,12 +1,12 @@
 <properties linkid="manage-services-hdinsight-version" urlDisplayName="HDInsight Hadoop Version" pageTitle="What's new in Hadoop cluster versions of HDInsight? | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # HDInsight 所提供 Hadoop 叢集版本的新功能
 
 ## HDInsight 版本
 
-HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個版本選擇都會佈建特定版本的 Hortonworks Data Platform (HDP) 散發，以及該散發內包含的一組元件。下表列舉了與每個 HDInsight 叢集版本相關聯的元件版本。請注意，[Azure HDInsight][] 目前所使用的預設叢集版本為採用 HDP 2.1 的 3.1 版。
+HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個版本選擇都會佈建特定版本的 Hortonworks Data Platform (HDP) 散發，以及該散發內包含的一組元件。下表列舉了與每個 HDInsight 叢集版本相關聯的元件版本。請注意，[Azure HDInsight][Azure HDInsight] 目前所使用的預設叢集版本為採用 HDP 2.1 的 3.1 版。
 
 <table>
 <colgroup>
@@ -122,11 +122,11 @@ HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個版本�
 
 **取得目前的元件版本資訊**
 
-在 HDInsight 的未來更新中，可能會變更 HDInsight 叢集版本相關的元件版本。若要判斷可用的元件和驗證叢集所使用的版本，有一個辦法就是使用 Ambari REST API。**GetComponentInformation** 命令可用來擷取服務元件的相關資訊。如需詳細資訊，請參閱＜[Ambari 文件][]＞(英文)。另一種取得此資訊的作法就是使用遠端桌面登入叢集，然後直接檢查 "C:\\apps\\dist" 目錄的內容。
+在 HDInsight 的未來更新中，可能會變更 HDInsight 叢集版本相關的元件版本。若要判斷可用的元件和驗證叢集所使用的版本，有一個辦法就是使用 Ambari REST API。**GetComponentInformation** 命令可用來擷取服務元件的相關資訊。如需詳細資訊，請參閱＜[Ambari 文件][Ambari 文件]＞(英文)。另一種取得此資訊的作法就是使用遠端桌面登入叢集，然後直接檢查 "C:\\apps\\dist" 目錄的內容。
 
 **版本資訊**
 
-請參閱 [HDInsight 版本資訊][]，以取得 HDInsight 最新版本的其他版本資訊。
+請參閱 [HDInsight 版本資訊][HDInsight 版本資訊]，以取得 HDInsight 最新版本的其他版本資訊。
 
 ### 佈建 HDInsight 叢集時選取版本
 
@@ -161,7 +161,7 @@ HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個版本�
 下表列出目前可用的 HDInsight 版本、它們使用的相對應 Hortonworks Data Platform (HDP) 版本及其發行日期。另外也會提供其支援到期日和淘汰日期 (已知道的話)。請注意：
 
 -   依預設，系統會為 HDInsight 2.1、3.0 和 3.1 叢集部署搭配兩個前端節點的高可用性叢集。HDInsight 1.6 叢集並不適用。
--   在特定版本的支援到期後，您可能無法透過 Azure 管理入口網站取得。下表指出可在 Azure 管理入口網站上取得的版本。您可透過 PowerShell [New-AzureHDInsightCluster][] 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到其淘汰日期為止。
+-   在特定版本的支援到期後，您可能無法透過 Azure 管理入口網站取得。下表指出可在 Azure 管理入口網站上取得的版本。您可透過 PowerShell [New-AzureHDInsightCluster][New-AzureHDInsightCluster] 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到其淘汰日期為止。
 
 <table border="1">
 <tr>
@@ -322,23 +322,23 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 
 [淘汰日期] 是指在此日期之後便無法在 HDInsight 上建立叢集版本。
 
-> [WACOM.NOTE] HDInsight 2.1 和 3.0 叢集可在使用 Windows Server 2012 R2 64 位元版本並支援 .NET Framework 4.0、4.5 和 4.5.1 的 Azure 客體 OS [Family 4][] 上執行。
+> [WACOM.NOTE] HDInsight 2.1 和 3.0 叢集可在使用 Windows Server 2012 R2 64 位元版本並支援 .NET Framework 4.0、4.5 和 4.5.1 的 Azure 客體 OS [Family 4][Family 4] 上執行。
 
 ## 與 HDInsight 版本相關聯的 Hortonworks 版本資訊
 
--   HDInsight 叢集 3.1 版採用以 [Hortonworks Data Platform 2.1][] 為基礎的 Hadoop 發佈。這是使用 Azure HDInsight 入口網站時會建立的預設 Hadoop 叢集。
+-   HDInsight 叢集 3.1 版採用以 [Hortonworks Data Platform 2.1][Hortonworks Data Platform 2.1] 為基礎的 Hadoop 發佈。這是使用 Azure HDInsight 入口網站時會建立的預設 Hadoop 叢集。
 
--   HDInsight 叢集 3.0 版採用以 [Hortonworks Data Platform 2.0][] 為基礎的 Hadoop 散發。
+-   HDInsight 叢集 3.0 版採用以 [Hortonworks Data Platform 2.0][Hortonworks Data Platform 2.0] 為基礎的 Hadoop 散發。
 
--   HDInsight 叢集 2.1 版採用以 [Hortonworks Data Platform 1.3][] 為基礎的 Hadoop 散發。
+-   HDInsight 叢集 2.1 版採用以 [Hortonworks Data Platform 1.3][Hortonworks Data Platform 1.3] 為基礎的 Hadoop 散發。
 
--   HDInsight 叢集 1.6 版採用以 [Hortonworks Data Platform 1.1][] 為基礎的 Hadoop 散發。
+-   HDInsight 叢集 1.6 版採用以 [Hortonworks Data Platform 1.1][Hortonworks Data Platform 1.1] 為基礎的 Hadoop 散發。
 
   [Azure HDInsight]: http://go.microsoft.com/fwlink/?LinkID=285601
   [Ambari 文件]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
   [HDInsight 版本資訊]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-release-notes/
-  [New-AzureHDInsightCluster]: http://msdn.microsoft.com/en-us/library/dn593744.aspx
-  [Family 4]: http://msdn.microsoft.com/en-us/library/azure/ee924680.aspx#explanation
+  [New-AzureHDInsightCluster]: http://msdn.microsoft.com/zh-tw/library/dn593744.aspx
+  [Family 4]: http://msdn.microsoft.com/zh-tw/library/azure/ee924680.aspx#explanation
   [Hortonworks Data Platform 2.1]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html
   [Hortonworks Data Platform 2.0]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
   [Hortonworks Data Platform 1.3]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html

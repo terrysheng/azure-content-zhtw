@@ -1,22 +1,22 @@
 <properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Configure Traffic Manager Settings" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="traffic-manager" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="traffic-manager" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # 如何進行流量管理員設定
 
 Azure 流量管理員可讓您控制 Azure 代管服務的使用者流量分配。
 
-流量管理員的運作方式是在主要公司網域名稱的 DNS 查詢上套用情報原則引擎。更新貴公司擁有的 DNS 資源記錄，以指向流量管理員網域。連接至這些網域的流量管理員原則會接著將主要公司網域名稱的 DNS 查詢，解析成流量管理員原則中所包含之特定 Azure 代管服務的 IP 位址。如需詳細資訊，請參閱 [Azure 流量管理員的概觀][] (英文)。
+流量管理員的運作方式是在主要公司網域名稱的 DNS 查詢上套用情報原則引擎。更新貴公司擁有的 DNS 資源記錄，以指向流量管理員網域。連接至這些網域的流量管理員原則會接著將主要公司網域名稱的 DNS 查詢，解析成流量管理員原則中所包含之特定 Azure 代管服務的 IP 位址。如需詳細資訊，請參閱 [Azure 流量管理員的概觀][Azure 流量管理員的概觀] (英文)。
 
 ## 目錄
 
--   [作法：將公司網際網路網域指向流量管理員網域][]
--   [作法：測試原則][]
--   [作法：暫時停用原則和代管服務][]
--   [作法：編輯原則][]
--   [作法：代管服務集合中的平均負載平衡流量][]
--   [作法：建立容錯移轉原則][]
--   [作法：根據網路效能將連入流量導向代管服務][]
+-   [作法：將公司網際網路網域指向流量管理員網域][作法：將公司網際網路網域指向流量管理員網域]
+-   [作法：測試原則][作法：測試原則]
+-   [作法：暫時停用原則和代管服務][作法：暫時停用原則和代管服務]
+-   [作法：編輯原則][作法：編輯原則]
+-   [作法：代管服務集合中的平均負載平衡流量][作法：代管服務集合中的平均負載平衡流量]
+-   [作法：建立容錯移轉原則][作法：建立容錯移轉原則]
+-   [作法：根據網路效能將連入流量導向代管服務][作法：根據網路效能將連入流量導向代管服務]
 
 ## <span id="howto_point_company"></span></a>作法：將公司網際網路網域指向流量管理員網域
 
@@ -35,7 +35,7 @@ Azure 流量管理員可讓您控制 Azure 代管服務的使用者流量分配�
 
 -   知道正在測試原則中 **Azure 代管服務的 IP 位址**。您可以從 Azure 管理入口網站中取得此資訊。按一下服務的生產部署。在右側內容窗格中，最後一個項目會是 VIP，也就是該代管服務的虛擬 IP 位址。
 
-    ![hosted service IP location][]
+    ![hosted service IP location][hosted service IP location]
 
     **圖 1** - 代管服務 IP 位置
 
@@ -59,7 +59,7 @@ Azure 流量管理員可讓您控制 Azure 代管服務的使用者流量分配�
 > > -   您在命令列上 "nslookup" 後面所輸入的流量管理員網域名稱和流量管理員網域解析成的 IP 位址。
 > >     第二個 IP 位址是要檢查的重點。它應符合正在測試流量管理員原則中其中一個代管服務的 VIP。
 
-> > ![nslookup command example][]
+> > ![nslookup command example][nslookup command example]
 
 > > **圖 2** - nslookup 命令範例
 
@@ -161,21 +161,21 @@ Azure 流量管理員可讓您控制 Azure 代管服務的使用者流量分配�
 
 常見的負載平衡模式提供一組完全相同的代管服務，並以循環配置資源方式將流量傳送到每一個代管服務。本文將概述設定流量管理員網域和原則，以執行這個負載平衡類型的步驟。
 
-如需流量管理員所提供的其他負載平衡方法詳細資訊，請參閱 [Azure 流量管理員的概觀][] (英文)，並捲動到 ＜Azure 流量管理員中的負載平衡方法＞一節。
+如需流量管理員所提供的其他負載平衡方法詳細資訊，請參閱 [Azure 流量管理員的概觀][Azure 流量管理員的概觀] (英文)，並捲動到 ＜Azure 流量管理員中的負載平衡方法＞一節。
 
-1.  **將您的代管服務部署**到您的生產環境中。如需開發與部署 Azure 代管服務的詳細資訊，請參閱 [Azure 代管服務][] (英文)。
+1.  **將您的代管服務部署**到您的生產環境中。如需開發與部署 Azure 代管服務的詳細資訊，請參閱 [Azure 代管服務][Azure 代管服務] (英文)。
 
 2.  **登入管理入口網站中的流量管理員區域**，網址是 [][]<http://manage.windowsazure.com></a> (英文)。在入口網站頁面的左下方按一下 [虛擬網路]，然後從左窗格的選項中選擇 [流量管理員]。
 
 3.  **選擇原則，並按一下 [建立]。** 從左導覽樹狀結構中選擇 **Policies** 資料夾，以啟用頂端工具列中的 [建立]。選擇 [建立]。[Create Traffic Manager policy] 對話方塊便會隨即出現。
 
-    ![Create button for policies][]
+    ![Create button for policies][Create button for policies]
 
     **圖 1** - 建立原則的按鈕
 
 4.  **選擇訂用帳戶。** 原則和網域會與單一訂用帳戶相關聯。
 
-5.  **選取 [循環配置資源] 負載平衡方法。**如需流量管理員所提供的其他負載平衡方法詳細資訊，請參閱 [Azure 流量管理員的概觀][] (英文)，並捲動到＜Azure 流量管理員中的負載平衡方法＞一節。
+5.  **選取 [循環配置資源] 負載平衡方法。**如需流量管理員所提供的其他負載平衡方法詳細資訊，請參閱 [Azure 流量管理員的概觀][Azure 流量管理員的概觀] (英文)，並捲動到＜Azure 流量管理員中的負載平衡方法＞一節。
 
 6.  **尋找代管服務，並將他們新增至原則。** 使用篩選方塊，來尋找內含您在方塊中所輸入字串的代管服務。清除此方塊以顯示生產中的所有代管服務，以取得您在步驟 4 中所選取的訂用帳戶。使用箭頭按鈕將他們新增至原則。[Selected DNS names] 方塊中的順序不會影響此負載平衡方法。
 
@@ -187,7 +187,7 @@ Azure 流量管理員可讓您控制 Azure 代管服務的使用者流量分配�
 
     [Create Traffic Manager policy] 對話方塊應該類似以下範例。
 
-    ![Dialog box for Round Robin load balancing method][]
+    ![Dialog box for Round Robin load balancing method][Dialog box for Round Robin load balancing method]
 
     **圖 2** - [循環配置資源] 負載平衡方法的對話方塊
 
@@ -202,21 +202,21 @@ Azure 流量管理員可讓您控制 Azure 代管服務的使用者流量分配�
 
 組織通常會想要為其服務提供可靠性。這樣做的方法是透過提供備份服務，以避免發生其主要服務當機的情況。服務容錯移轉的一個常見模式是提供一組完全相同的代管服務，並將流量連同一或多個備份清單傳送到主要服務。本文將概述設定流量管理員原則，以執行這個容錯移轉備份類型的步驟。
 
-如需流量管理員所提供的其他負載平衡方法詳細資訊，請參閱 [Azure 流量管理員的概觀][] (英文)，並捲動到 ＜Azure 流量管理員中的負載平衡方法＞一節。
+如需流量管理員所提供的其他負載平衡方法詳細資訊，請參閱 [Azure 流量管理員的概觀][Azure 流量管理員的概觀] (英文)，並捲動到 ＜Azure 流量管理員中的負載平衡方法＞一節。
 
-1.  **將您的代管服務部署**到您的生產環境中。如需開發與部署代管服務的詳細資訊，請參閱 [Azure 代管服務][] (英文)。
+1.  **將您的代管服務部署**到您的生產環境中。如需開發與部署代管服務的詳細資訊，請參閱 [Azure 代管服務][Azure 代管服務] (英文)。
 
 2.  **登入管理入口網站中的流量管理員區域**，網址是 [][]<http://manage.windowsazure.com></a> (英文)。在入口網站頁面的左下方按一下 [虛擬網路]，然後從左窗格的選項中選擇 [流量管理員]。
 
 3.  **選擇原則，並按一下 [建立]。** 從左導覽樹狀結構中選擇 **Policies** 資料夾，以啟用頂端工具列中的 [建立]。選擇 [建立]。[Create Traffic Manager policy] 對話方塊便會隨即出現。
 
-    ![Create button for policies][]
+    ![Create button for policies][Create button for policies]
 
     **圖 1** - 建立原則的按鈕
 
 4.  **選擇訂用帳戶。** 原則和網域會與單一訂用帳戶相關聯。
 
-5.  **選取 [容錯移轉原則] 負載平衡方法。**如需流量管理員所提供的其他負載平衡方法詳細資訊，請參閱 [Azure 流量管理員的概觀][] (英文)，並捲動到＜Azure 流量管理員中的負載平衡方法＞一節。
+5.  **選取 [容錯移轉原則] 負載平衡方法。**如需流量管理員所提供的其他負載平衡方法詳細資訊，請參閱 [Azure 流量管理員的概觀][Azure 流量管理員的概觀] (英文)，並捲動到＜Azure 流量管理員中的負載平衡方法＞一節。
 
 6.  **尋找代管服務，並將他們新增至原則。** 使用篩選方塊，來尋找內含您在方塊中所輸入字串的代管服務。清除此方塊以顯示生產中的所有代管服務，以取得您在步驟 4 中所選取的訂用帳戶。使用箭頭按鈕將他們新增至原則。當您選取 [容錯移轉] 負載平衡方法時，選取服務的順序便很重要。主要的代管服務會在上方。視需要使用向上和向下箭頭來變更順序。
 
@@ -228,7 +228,7 @@ Azure 流量管理員可讓您控制 Azure 代管服務的使用者流量分配�
 
     [Create Traffic Manager policy] 對話方塊看起來應該類似以下範例。
 
-    ![Dialog box for Failover load balancing method][]
+    ![Dialog box for Failover load balancing method][Dialog box for Failover load balancing method]
 
     **圖 2** - [容錯移轉] 負載平衡方法的對話方塊
 
@@ -241,24 +241,24 @@ Azure 流量管理員可讓您控制 Azure 代管服務的使用者流量分配�
 
 ## <span id="howto_direct"></span></a>作法：根據網路效能將連入流量導向代管服務
 
-為了要能夠負載平衡位於全球不同資料中心的代管服務，您可以將連入流量導向最靠近的代管服務。雖然「最靠近」可能直接對應地理位置的距離，但它也可以對應針對服務要求提供最低延遲的位置。[效能] 負載平衡方法可讓您根據位置和延遲進行分配，但無法考量在網路組態或負載中的即時變更。如需流量管理員所提供的其他負載平衡方法詳細資訊，請參閱 [Azure 流量管理員的概觀][] (英文)，並捲動到＜Azure 流量管理員中的負載平衡方法＞一節。
+為了要能夠負載平衡位於全球不同資料中心的代管服務，您可以將連入流量導向最靠近的代管服務。雖然「最靠近」可能直接對應地理位置的距離，但它也可以對應針對服務要求提供最低延遲的位置。[效能] 負載平衡方法可讓您根據位置和延遲進行分配，但無法考量在網路組態或負載中的即時變更。如需流量管理員所提供的其他負載平衡方法詳細資訊，請參閱 [Azure 流量管理員的概觀][Azure 流量管理員的概觀] (英文)，並捲動到＜Azure 流量管理員中的負載平衡方法＞一節。
 
 下列步驟將逐步引導您完成此程序：
 
-1.  **將您的代管服務部署**到您的生產環境中。如需詳細資訊，請參閱[建立 Azure 的代管服務][]。
+1.  **將您的代管服務部署**到您的生產環境中。如需詳細資訊，請參閱[建立 Azure 的代管服務][建立 Azure 的代管服務]。
     另請參閱 [Azure Traffic Manager 概觀][1]中的＜代管服務和原則的最佳做法＞一節。
 
 2.  **登入管理入口網站中的流量管理員區域**，網址是 [][]<http://manage.windowsazure.com></a> (英文)。在入口網站頁面的左下方按一下 [虛擬網路]，然後從左窗格的選項中選擇 [流量管理員]。
 
 3.  **選擇原則，並按一下 [建立]。** 從左導覽樹狀結構中選擇 **Policies** 資料夾，以啟用頂端工具列中的 [建立]。選擇 [建立]。[Create Traffic Manager policy] 對話方塊便會隨即出現。
 
-    ![Create button for policies][]
+    ![Create button for policies][Create button for policies]
 
     **圖 1** - 建立原則的按鈕
 
 4.  **選擇訂用帳戶。** 原則和網域會與單一訂用帳戶相關聯。
 
-5.  **挑選 [效能] 負載平衡方法。**如需流量管理員所提供的其他負載平衡方法詳細資訊，請參閱 [Azure 流量管理員的概觀][] (英文)，並捲動到＜Azure 流量管理員中的負載平衡方法＞一節。
+5.  **挑選 [效能] 負載平衡方法。**如需流量管理員所提供的其他負載平衡方法詳細資訊，請參閱 [Azure 流量管理員的概觀][Azure 流量管理員的概觀] (英文)，並捲動到＜Azure 流量管理員中的負載平衡方法＞一節。
 
 6.  **尋找代管服務，並將他們新增至原則。** 使用篩選方塊，來尋找內含您在方塊中所輸入字串的代管服務。清除此方塊以顯示生產中的所有代管服務，以取得您在步驟 4 中所選取的訂用帳戶。使用箭頭按鈕將他們新增至原則。[Selected DNS names] 中的順序不會影響此負載平衡方法。
 
@@ -270,7 +270,7 @@ Azure 流量管理員可讓您控制 Azure 代管服務的使用者流量分配�
 
     [Create Traffic Manager policy] 對話方塊看起來應該類似以下範例。
 
-    ![Dialog box for Performance load balancing method][]
+    ![Dialog box for Performance load balancing method][Dialog box for Performance load balancing method]
 
     **圖 2** - [效能] 負載平衡方法的對話方塊
 
@@ -281,7 +281,7 @@ Azure 流量管理員可讓您控制 Azure 代管服務的使用者流量分配�
     `www.contoso.com IN CNAME contoso.trafficmanager.net`
      如需詳細資訊，請參閱[作法：將公司網際網路網域指向 Azure 流量管理員網域][作法：將公司網際網路網域指向流量管理員網域]。
 
-  [Azure 流量管理員的概觀]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx
+  [Azure 流量管理員的概觀]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh744833.aspx
   [作法：將公司網際網路網域指向流量管理員網域]: #howto_point_company
   [作法：測試原則]: #howto_test
   [作法：暫時停用原則和代管服務]: #howto_temp_disable
@@ -291,11 +291,11 @@ Azure 流量管理員可讓您控制 Azure 代管服務的使用者流量分配�
   [作法：根據網路效能將連入流量導向代管服務]: #howto_direct
   [hosted service IP location]: ./media/traffic-manager-configure-settings/hosted_service_IP_location.png
   [nslookup command example]: ./media/traffic-manager-configure-settings/nslookup_command_example.png
-  [1]: http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring
+  [1]: http://msdn.microsoft.com/zh-tw/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring
   []: http://manage.windowsazure.com
   [Azure 代管服務]: http://msdn.microsoft.com/library/gg432967.aspx
   [Create button for policies]: ./media/traffic-manager-configure-settings/Create_button_for_policies.png
   [Dialog box for Round Robin load balancing method]: ./media/traffic-manager-configure-settings/Dialog_box_for_Round_Robin_load_balancing_method.png
   [Dialog box for Failover load balancing method]: ./media/traffic-manager-configure-settings/Dialog_box_for_Failover_load_balancing_method.png
-  [建立 Azure 的代管服務]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432967.aspx
+  [建立 Azure 的代管服務]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg432967.aspx
   [Dialog box for Performance load balancing method]: ./media/traffic-manager-configure-settings/Dialog_box_for_Performance_load_balancing_method.png

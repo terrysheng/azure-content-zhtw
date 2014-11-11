@@ -1,31 +1,31 @@
 <properties linkid="develop-media-services-tutorials-get-started" urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # <a name="getting-started"></a>開始使用媒體服務
 
 本教學課程說明如何使用 Azure 媒體服務來開始開發。其中介紹基本的媒體服務工作流程，以及媒體服務開發最常用的程式設計物件和必要工作。完成本教學課程時，您將能夠播放您已上傳、編碼和下載的範例媒體檔案。或者，您也可以瀏覽至伺服器上的編碼資產並播放。
 
-這裡提供含有本教學課程之程式碼的 C# Visual Studio 專案：[下載][]。
+這裡提供含有本教學課程之程式碼的 C# Visual Studio 專案：[下載][下載]。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
--   [設定專案][]
--   [取得媒體服務伺服器內容][]
--   [建立資產並將資產相關聯的檔案上傳至媒體服務][]
--   [將資產編碼和下載輸出資產][]
+-   [設定專案][設定專案]
+-   [取得媒體服務伺服器內容][取得媒體服務伺服器內容]
+-   [建立資產並將資產相關聯的檔案上傳至媒體服務][建立資產並將資產相關聯的檔案上傳至媒體服務]
+-   [將資產編碼和下載輸出資產][將資產編碼和下載輸出資產]
 
 ## 必要條件
 
 根據 Azure Media Services SDK 來逐步演練和開發之前需要有下列必要條件。
 
--   新的或現有 Azure 訂用帳戶中的媒體服務帳戶。如需詳細資料，請參閱[如何建立媒體服務帳戶][] (英文)。
+-   新的或現有 Azure 訂用帳戶中的媒體服務帳戶。如需詳細資料，請參閱[如何建立媒體服務帳戶][如何建立媒體服務帳戶] (英文)。
 -   作業系統：Windows 7、Windows 2008 R2 或 Windows 8。
 -   .NET Framework 4.5 或 .NET Framework 4。
 -   Visual Studio 2012 或 Visual Studio 2010 SP1 (Professional、Premium、Ultimate 或 Express)。
--   使用 [windowsazure.mediaservices Nuget][] 封裝來安裝 **Azure SDK for .NET**、**Azure Media Services SDK for .NET** 和 **WCF Data Services 5.0 for OData V3 程式庫**，並將參考加入至專案。下一節示範如何安裝和加入這些參考。
+-   使用 [windowsazure.mediaservices Nuget][windowsazure.mediaservices Nuget] 封裝來安裝 **Azure SDK for .NET**、**Azure Media Services SDK for .NET** 和 **WCF Data Services 5.0 for OData V3 程式庫**，並將參考加入至專案。下一節示範如何安裝和加入這些參考。
 
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 免費試用</a>。</p></div>
+<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 免費試用</a>。</p></div>
 
 ## <span id="Step1"></span></a>設定專案
 
@@ -35,7 +35,7 @@
 
     若要使用 [管理參考] 對話方塊來加入參考，請執行下列動作：以滑鼠右鍵按一下 [方案總管] 中的 [參考] 節點，然後選取 [加入參考]。在 [管理參考] 對話方塊中，選取適當的組件 (在此案例中是 [System.Configuration])。
 
-3.  使用 [windowsazure.mediaservices Nuget][] 封裝，加入 **Azure SDK for .NET**.(Microsoft.WindowsAzure.StorageClient.dll)、**Azure Media Services SDK for .NET** (Microsoft.WindowsAzure.MediaServices.Client.dll) 和 **WCF Data Services 5.0 for OData V3** (Microsoft.Data.OData.dll) 程式庫的參考 (如果尚未這麼做)。
+3.  使用 [windowsazure.mediaservices Nuget][windowsazure.mediaservices Nuget] 封裝，加入 **Azure SDK for .NET**.(Microsoft.WindowsAzure.StorageClient.dll)、**Azure Media Services SDK for .NET** (Microsoft.WindowsAzure.MediaServices.Client.dll) 和 **WCF Data Services 5.0 for OData V3** (Microsoft.Data.OData.dll) 程式庫的參考 (如果尚未這麼做)。
 
     若要使用 Nuget 加入參考，請執行下列動作。在 Visual Studio [主要功能表] 中，依序選取 [工具] -\> [Library Package Manager] -\> [Package Manager Console]。在主控台視窗中，輸入 *Install-Package [package name]* 並按 Enter 鍵 (在此案例中，請使用下列命令：*Install-Package windowsazure.mediaservices*)。
 
@@ -168,7 +168,7 @@
 
 ## <span id="Step4"></span></a>將伺服器上的資產編碼並下載輸出資產
 
-在媒體服務中，您可以建立作業，以多種方式處理媒體內容：編碼、加密、轉換格式等。媒體服務作業通常包含一或多項工作來指定工作處理的細節。在本節中，您將建立基本的編碼工作，然後透過一項作業使用 Azure Media Encoder 來執行此工作。此工作使用預設字串來指定要執行的編碼類型。若要查看可用的編碼值，請參閱 [Azure Media Encoder 的工作預設字串][]。媒體服務支援與 Microsoft Expression Encoder 相同的媒體檔案輸入和輸出格式。如需支援的格式清單，請參閱 [Azure Media Encoder 支援的轉碼器與檔案類型][]。
+在媒體服務中，您可以建立作業，以多種方式處理媒體內容：編碼、加密、轉換格式等。媒體服務作業通常包含一或多項工作來指定工作處理的細節。在本節中，您將建立基本的編碼工作，然後透過一項作業使用 Azure Media Encoder 來執行此工作。此工作使用預設字串來指定要執行的編碼類型。若要查看可用的編碼值，請參閱 [Azure Media Encoder 的工作預設字串][Azure Media Encoder 的工作預設字串]。媒體服務支援與 Microsoft Expression Encoder 相同的媒體檔案輸入和輸出格式。如需支援的格式清單，請參閱 [Azure Media Encoder 支援的轉碼器與檔案類型][Azure Media Encoder 支援的轉碼器與檔案類型]。
 
 1.  將下列 **CreateEncodingJob** 方法定義加入至類別。此方法示範如何完成編碼作業的一些必要工作：
    -   宣告新的作業。
@@ -621,8 +621,8 @@
 
 此逐步解說已示範建立簡單的媒體服務應用程式所需的一連串程式設計工作。您已學到基本的媒體服務程式設計工作，包括取得伺服器內容、建立資產、將資產編碼，以及下載或存取伺服器上的資產。關於後續步驟和更進階的開發工作，請參閱：
 
--   [如何使用媒體服務][]
--   [使用 Media Services REST API 建立應用程式][]
+-   [如何使用媒體服務][如何使用媒體服務]
+-   [使用 Media Services REST API 建立應用程式][使用 Media Services REST API 建立應用程式]
 
 <!-- Anchors. -->
 
@@ -633,9 +633,8 @@
   [將資產編碼和下載輸出資產]: #Step4
   [如何建立媒體服務帳戶]: http://go.microsoft.com/fwlink/?LinkId=256662
   [windowsazure.mediaservices Nuget]: http://nuget.org/packages/windowsazure.mediaservices
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5
-  [Azure Media Encoder 的工作預設字串]: http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx
-  [Azure Media Encoder 支援的轉碼器與檔案類型]: http://msdn.microsoft.com/en-us/library/windowsazure/hh973634.aspx
+  [Azure Media Encoder 的工作預設字串]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj129582.aspx
+  [Azure Media Encoder 支援的轉碼器與檔案類型]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh973634.aspx
   [1]: http://msdn.microsoft.com/library/windowsazure/jj129582.aspx
-  [如何使用媒體服務]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/media-services/
-  [使用 Media Services REST API 建立應用程式]: http://msdn.microsoft.com/en-us/library/windowsazure/hh973618.aspx
+  [如何使用媒體服務]: http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/media-services/
+  [使用 Media Services REST API 建立應用程式]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh973618.aspx

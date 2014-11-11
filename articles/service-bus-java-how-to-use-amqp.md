@@ -1,6 +1,6 @@
 <properties linkid="develop-java-how-to-guides-service-bus-amqp" urldisplayname="Service Bus AMQP" headerexpose="" pageTitle="How to use AMQP 1.0 with the Java Service Bus API - Azure" metakeywords="Java Messsage AMQP, Service Bus AMQP, download AMQP JMS library" footerexpose="" description="Learn how to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." umbraconavihide="0" disquscomments="1" metaCanonical="" title="How to use the Java Message Service (JMS) API with Service Bus &amp; AMQP 1.0" authors="seethm"  solutions="" documentationCenter="Java" writer="sethm" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="seethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="seethm" />
 
 # 如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0
 
@@ -16,7 +16,7 @@
 
 # 開始使用服務匯流排
 
-本指南假設您已經有服務匯流排命名空間，其中包含名稱為「queue1」的佇列。如果沒有，您可以使用 [Azure 管理入口網站][]建立命名空間和佇列。如需如何建立服務匯流排命名空間和佇列的詳細資訊，請參閱標題為「[如何使用服務匯流排佇列][]」的作法指南。
+本指南假設您已經有服務匯流排命名空間，其中包含名稱為「queue1」的佇列。如果沒有，您可以使用 [Azure 管理入口網站][Azure 管理入口網站]建立命名空間和佇列。如需如何建立服務匯流排命名空間和佇列的詳細資訊，請參閱標題為「[如何使用服務匯流排佇列][如何使用服務匯流排佇列]」的作法指南。
 
 ## 下載 AMQP 1.0 JMS 用戶端程式庫
 
@@ -135,7 +135,7 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
   </tr>
 </table>
 
-**注意**：從服務匯流排主題訂閱收到在 JNDI 中指定的實體名稱應該是主題的名稱。以 JMS 應用程式程式碼建立持續性訂閱時，將建立訂閱名稱。[Service Bus AMQP 1.0 開發人員指南][]提供處理 JMS 服務匯流排主題訂閱的詳細資料。
+**注意**：從服務匯流排主題訂閱收到在 JNDI 中指定的實體名稱應該是主題的名稱。以 JMS 應用程式程式碼建立持續性訂閱時，將建立訂閱名稱。[Service Bus AMQP 1.0 開發人員指南][Service Bus AMQP 1.0 開發人員指南]提供處理 JMS 服務匯流排主題訂閱的詳細資料。
 
 ### 撰寫 JMS 應用程式
 
@@ -270,9 +270,9 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 
 本指南說明使用 JMS 傳送和接收服務匯流排的訊息。不過，AMQP 1.0 的其中一個主要優點是能夠從不同語言撰寫的元件建立應用程式，並確實完整交換訊息。
 
-使用上述的範例 JMS 應用程式和取自隨附指南[如何透過服務匯流排 .NET API 使用 AMQP 1.0][] 的類似 .NET 應用程式，即可交換 .NET 與 Java 之間的訊息。
+使用上述的範例 JMS 應用程式和取自隨附指南[如何透過服務匯流排 .NET API 使用 AMQP 1.0][如何透過服務匯流排 .NET API 使用 AMQP 1.0] 的類似 .NET 應用程式，即可交換 .NET 與 Java 之間的訊息。
 
-如需使用服務匯流排與 AMQP 1.0 傳送跨平台訊息的詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南][]。
+如需使用服務匯流排與 AMQP 1.0 傳送跨平台訊息的詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南][Service Bus AMQP 1.0 開發人員指南]。
 
 ### JMS 到 .NET
 
@@ -342,12 +342,12 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 
 本作法指南說明如何以常用的 JMS API 和 AMQP 1.0 從 Java 使用服務匯流排代理訊息功能 (佇列和發佈/訂閱主題)。
 
-您也可以使用包括 .NET、C、Python 和 PHP 在內的其他語言所撰寫的 Service Bus AMQP 1.0。使用這些不同語言組建的元件可使用服務匯流排中的 AMQP 1.0 支援可靠而真實地交換訊息。如需詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南][]。
+您也可以使用包括 .NET、C、Python 和 PHP 在內的其他語言所撰寫的 Service Bus AMQP 1.0。使用這些不同語言組建的元件可使用服務匯流排中的 AMQP 1.0 支援可靠而真實地交換訊息。如需詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南][Service Bus AMQP 1.0 開發人員指南]。
 
 ## 進一步資訊
 
--   [Azure 服務匯流排中的 AMQP 1.0 支援][]
--   [如何透過服務匯流排 .NET API 使用 AMQP 1.0][]
+-   [Azure 服務匯流排中的 AMQP 1.0 支援][Azure 服務匯流排中的 AMQP 1.0 支援]
+-   [如何透過服務匯流排 .NET API 使用 AMQP 1.0][如何透過服務匯流排 .NET API 使用 AMQP 1.0]
 -   [服務匯流排 AMQP 1.0 開發人員指南][Service Bus AMQP 1.0 開發人員指南]
 -   [如何使用服務匯流排佇列][2]
 

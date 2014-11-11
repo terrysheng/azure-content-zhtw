@@ -1,10 +1,10 @@
 <properties linkid="develop-php-website-with-storage" urlDisplayName="Web w/ Storage" pageTitle="PHP website with table storage - Azure tutorial" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="This tutorial shows you how to create a PHP website and use the Azure Tables storage service in the back-end." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # 使用 Azure 儲存體建立 PHP 網站
 
-本教學課程示範如何建立 PHP 網站，以及在後端使用 Azure 資料表儲存體服務。本教學課程假定您的電腦已經安裝 [PHP][] 與一部 Web 伺服器。本教學課程裡的說明可運用在包括 Windows、Mac 與 Linux 的任何作業系統上。完成本指南的步驟後，您將擁有一台在 Azure 上執行的 PHP 網站，並能夠存取資料表儲存體服務。
+本教學課程示範如何建立 PHP 網站，以及在後端使用 Azure 資料表儲存體服務。本教學課程假定您的電腦已經安裝 [PHP][PHP] 與一部 Web 伺服器。本教學課程裡的說明可運用在包括 Windows、Mac 與 Linux 的任何作業系統上。完成本指南的步驟後，您將擁有一台在 Azure 上執行的 PHP 網站，並能夠存取資料表儲存體服務。
 
 您將了解：
 
@@ -15,15 +15,15 @@
 
 您將在 PHP 中建立簡單的 Tasklist Web 應用程式。完成之應用程式的螢幕擷取畫面如下：
 
-![Azure PHP web site][]
+![Azure PHP web site][Azure PHP web site]
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## 安裝 Azure 用戶端程式庫
 
 若要透過 Composer 安裝 PHP Client Libraries for Azure，請依照下列步驟進行：
 
-1.  [安裝 Git][]
+1.  [安裝 Git][安裝 Git]
 
     > [WACOM.NOTE]
     > 在 Windows 中，您也需要將 Git 可執行檔新增至 PATH 環境變數。
@@ -43,7 +43,7 @@
             "minimum-stability": "dev"
         }
 
-3.  將 **[composer.phar][]** 下載到專案根目錄中。
+3.  將 **[composer.phar][composer.phar]** 下載到專案根目錄中。
 
 4.  開啟命令提示字元，在專案根目錄中執行此命令
 
@@ -264,7 +264,7 @@ Tasklist 應用程式首頁會列出所有現有工作，並允許插入新的�
         $entities = $result->getEntities();     
         $entity = $entities[0];
 
-    如您所見，傳入的查詢篩選形式為 `Key eq 'Value'`。查詢語法的完整描述可[在此][]取得。
+    如您所見，傳入的查詢篩選形式為 `Key eq 'Value'`。查詢語法的完整描述可[在此][在此]取得。
 
 -   接著您可以變更任何屬性：
 
@@ -302,19 +302,19 @@ Tasklist 應用程式首頁會列出所有現有工作，並允許插入新的�
 
 若要讓您的應用程式將資料儲存至雲端，首先您需要在 Azure 建立儲存體帳戶，然後將適當的驗證資訊傳遞至 *Configuration* 類別。
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 
 2.  按一下入口網站左下方的 [+ 新增] 圖示。
 
-    ![Create New Azure web site][]
+    ![Create New Azure web site][Create New Azure web site]
 
 3.  依序按一下 [資料服務]、[儲存體] 及 [快速建立]。
 
-    ![Custom Create a new web site][]
+    ![Custom Create a new web site][Custom Create a new web site]
 
     輸入一個 **URL** 值，然後在 [區域] 下拉式清單中為您的網站選取資料中心。按一下對話方塊底部的 [建立儲存體帳戶] 按鈕。
 
-    ![Fill in web site details][]
+    ![Fill in web site details][Fill in web site details]
 
     建立儲存體帳戶後，您會看到 [Creation of Storage Account '[NAME]' completed successfully] 的字樣。
 
@@ -322,7 +322,7 @@ Tasklist 應用程式首頁會列出所有現有工作，並允許插入新的�
 
 5.  從下方的應用程式列中選取 [管理金鑰]。
 
-    ![Select Manage Keys][]
+    ![Select Manage Keys][Select Manage Keys]
 
 6.  請記下您剛建立的儲存體帳戶名稱以及主要金鑰。
 
@@ -334,7 +334,7 @@ Tasklist 應用程式首頁會列出所有現有工作，並允許插入新的�
 
 遵循下列步驟以建立 Azure 網站：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  按一下入口網站左下方的 [+ 新增] 圖示。
 
     ![Create New Azure Web Site][Create New Azure web site]
@@ -351,25 +351,25 @@ Tasklist 應用程式首頁會列出所有現有工作，並允許插入新的�
 
 4.  按一下網站清單中顯示的網站名稱，以開啟該網站的 [快速入門] 儀表板。
 
-    ![Open web site dashboard][]
+    ![Open web site dashboard][Open web site dashboard]
 
 5.  在 [快速啟動] 頁面右下方，選取 [Set up a deployment from source control]。
 
-    ![Set up Git publishing][]
+    ![Set up Git publishing][Set up Git publishing]
 
 6.  當系統詢問您「您的來源程式碼在哪裡？」時，選取 [Local Git repository]，然後按一下該箭頭。
 
-    ![where is your source code][]
+    ![where is your source code][where is your source code]
 
 7.  若要啟用 Git 發佈，您必須提供使用者名稱和密碼。記下您所建立的使用者名稱和密碼。(如果您之前設定過 Git 儲存機制，系統將會略過此步驟。)
 
-    ![Create publishing credentials][]
+    ![Create publishing credentials][Create publishing credentials]
 
     設定儲存機制需要幾秒鐘的時間。
 
 8.  一旦 Git 儲存機制就緒，系統會顯示 Git 命令的使用指示，以便設定本機儲存機制並將檔案發送至 Azure。
 
-    ![建立網站的儲存機制之後傳回的 Git 部署指示。][]
+    ![建立網站的儲存機制之後傳回的 Git 部署指示。][建立網站的儲存機制之後傳回的 Git 部署指示。]
 
     記下相關指示，以便在下一節中用來發行應用程式。
 
@@ -435,4 +435,4 @@ Tasklist 應用程式首頁會列出所有現有工作，並允許插入新的�
   [where is your source code]: ./media/web-sites-php-storage/where_is_code.png
   [Create publishing credentials]: ./media/web-sites-php-storage/git-deployment-credentials.png
   [建立網站的儲存機制之後傳回的 Git 部署指示。]: ./media/web-sites-php-storage/git-instructions.png
-  [http://[您的]: http://[your
+

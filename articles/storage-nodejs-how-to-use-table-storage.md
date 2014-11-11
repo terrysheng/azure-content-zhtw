@@ -1,39 +1,39 @@
 <properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # 如何從 Node.js 使用資料表服務
 
-本指南將示範如何使用 Azure 資料表服務執行一般案例。這些範例使用 Node.js API 撰寫。所涵蓋的案例包括「建立和刪除資料表」、「在資料表中插入及查詢實體」。如需資料表的詳細資訊，請參閱[後續步驟][]一節。
+本指南將示範如何使用 Azure 資料表服務執行一般案例。這些範例使用 Node.js API 撰寫。所涵蓋的案例包括「建立和刪除資料表」、「在資料表中插入及查詢實體」。如需資料表的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [什麼是資料表服務？][]
--   [概念][]
--   [建立 Azure 儲存體帳戶][]
--   [建立 Node.js 應用程式][]
--   [設定您的應用程式以存取儲存體][]
--   [設定 Azure 儲存體連接][]
--   [作法：建立資料表][]
--   [作法：將實體加入至資料表][]
--   [作法：更新實體][]
--   [作法：使用實體群組][]
--   [作法：擷取實體][]
--   [作法：查詢實體集合][]
--   [作法：刪除實體][]
--   [作法：刪除資料表][]
--   [作法：使用共用存取簽章][]
--   [後續步驟][]
+-   [什麼是資料表服務？][什麼是資料表服務？]
+-   [概念][概念]
+-   [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
+-   [建立 Node.js 應用程式][建立 Node.js 應用程式]
+-   [設定您的應用程式以存取儲存體][設定您的應用程式以存取儲存體]
+-   [設定 Azure 儲存體連接][設定 Azure 儲存體連接]
+-   [作法：建立資料表][作法：建立資料表]
+-   [作法：將實體加入至資料表][作法：將實體加入至資料表]
+-   [作法：更新實體][作法：更新實體]
+-   [作法：使用實體群組][作法：使用實體群組]
+-   [作法：擷取實體][作法：擷取實體]
+-   [作法：查詢實體集合][作法：查詢實體集合]
+-   [作法：刪除實體][作法：刪除實體]
+-   [作法：刪除資料表][作法：刪除資料表]
+-   [作法：使用共用存取簽章][作法：使用共用存取簽章]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <a name="create-account"></a>建立 Azure 儲存體帳戶
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>建立 Node.js 應用程式
 
-建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][]、[Node.js 雲端服務][] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站][]。
+建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][建立 Node.js 應用程式並將其部署到 Azure 網站]、[Node.js 雲端服務][Node.js 雲端服務] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站][使用 WebMatrix 的網站]。
 
 ## <a name="configure-access"> </a>設定您的應用程式以存取儲存體
 
@@ -67,7 +67,7 @@
 
 Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_ACCESS\_KEY 或 AZURE\_STORAGE\_CONNECTION\_STRING，以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則呼叫 **TableService** 時必須指定帳戶資訊。
 
-如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][]。
+如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][使用儲存體的 Node.js Web 應用程式]。
 
 ## <a name="create-table"> </a>如何建立資料表
 
@@ -111,7 +111,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 -   **RowKey** - 在資料分割內唯一地識別實體。
 
-**PartitionKey** 和 **RowKey** 都必須是字串值。如需詳細資訊，請參閱[了解表格服務資料模型][]。
+**PartitionKey** 和 **RowKey** 都必須是字串值。如需詳細資訊，請參閱[了解表格服務資料模型][了解表格服務資料模型]。
 
 以下是定義實體的範例。請注意，**dueDate** 定義為 **Edm.DateTime** 型別。可選擇是否指定型別，若未指定，則會推斷型別。
 
@@ -142,7 +142,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
         }
     });
 
-若操作成功，`result`會包含插入之記錄的 [ETag][]，`response` 將包含操作的相關資訊。
+若操作成功，`result`會包含插入之記錄的 [ETag][ETag]，`response` 將包含操作的相關資訊。
 
 > [WACOM.NOTE] 依預設，**insertEntity** 不會透過 `response` 資訊傳回已插入的實體。若您打算對此實體執行其他操作，或想要快取資訊，則比較實用的作法是透過此參數傳回以做為部分 `result`。您可以啟用 **echoContent** 來達成目的，如下所示：
 >
@@ -295,7 +295,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
       }
     });
 
-> [WACOM.NOTE] 刪除項目時應該考慮使用 ETag，以確保項目未被另一個程序修改過。請參閱[作法：更新實體][]，以取得使用 ETag 的相關資訊。
+> [WACOM.NOTE] 刪除項目時應該考慮使用 ETag，以確保項目未被另一個程序修改過。請參閱[作法：更新實體][作法：更新實體]，以取得使用 ETag 的相關資訊。
 
 ## <a name="delete-table"> </a>如何刪除資料表
 
@@ -396,9 +396,9 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
 
 了解資料表儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   請參閱 MSDN 參考：[在 Azure 中儲存及存取資料][]。
--   造訪 [Azure 儲存體團隊部落格][] (英文)。
--   請造訪 GitHub 上的 [Azure Storage SDK for Node][] 儲存機制 (英文)。
+-   請參閱 MSDN 參考：[在 Azure 中儲存及存取資料][在 Azure 中儲存及存取資料]。
+-   造訪 [Azure 儲存體團隊部落格][Azure 儲存體團隊部落格] (英文)。
+-   請造訪 GitHub 上的 [Azure Storage SDK for Node][Azure Storage SDK for Node] 儲存機制 (英文)。
 
   [後續步驟]: #next-steps
   [什麼是資料表服務？]: #what-is
@@ -424,6 +424,6 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [使用儲存體的 Node.js Web 應用程式]: /zh-tw/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [了解表格服務資料模型]: http://msdn.microsoft.com/library/azure/dd179338.aspx
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
-  [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node

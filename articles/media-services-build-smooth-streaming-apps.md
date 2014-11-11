@@ -1,12 +1,12 @@
 <properties linkid="develop-media-services-tutorials-smooth-streaming-windows-store-app" urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Smooth Streaming Windows Store App - Azure .NET tutorials" metaKeywords="" description="Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content." metaCanonical="" services="media-services" documentationCenter="" title="How to Build a Smooth Streaming Windows Store Application" authors="Michael Greenn" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Michael Greenn"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Michael="" Greenn" />
 
 # 如何建置 Smooth Streaming Windows 市集應用程式
 
-Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放隨選與即時 Smooth Streaming 內容的 Windows 市集應用程式。除了將 Smooth Streaming 內容進行基本播放，SDK 也提供 Microsoft PlayReady 保護、品質等級限制、Live DVR、音訊資料流切換、接聽狀態更新 (例如品質等級變更) 和錯誤事件等這類豐富的功能。如需所支援功能的詳細資訊，請參閱[版本資訊][] (英文)。
+Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放隨選與即時 Smooth Streaming 內容的 Windows 市集應用程式。除了將 Smooth Streaming 內容進行基本播放，SDK 也提供 Microsoft PlayReady 保護、品質等級限制、Live DVR、音訊資料流切換、接聽狀態更新 (例如品質等級變更) 和錯誤事件等這類豐富的功能。如需所支援功能的詳細資訊，請參閱[版本資訊][版本資訊] (英文)。
 
-本教學課程涵蓋 API。對於播放程式開發，Microsoft 強裂建議使用 [Player Framework for Windows 8][] (英文)。播放程式架構可讓應用程式建置起來更容易，並可提供許多其他功能。
+本教學課程涵蓋 API。對於播放程式開發，Microsoft 強裂建議使用 [Player Framework for Windows 8][Player Framework for Windows 8] (英文)。播放程式架構可讓應用程式建置起來更容易，並可提供許多其他功能。
 
 本教學課程包含四個課程：
 
@@ -17,19 +17,19 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 
 # 必要條件
 
--   Windows 8 32 位元或 64 位元。您可以從 MSDN 取得 [Windows 8 Enterprise 評估版][]。
--   Windows 8 上已安裝 Visual Studio 2012 或 Visual Studio Express 2012 for Windows 8。您可以從[這裡][]取得試用版。
--   [Microsoft Smooth Streaming Client SDK for Windows 8][] (英文)。
+-   Windows 8 32 位元或 64 位元。您可以從 MSDN 取得 [Windows 8 Enterprise 評估版][Windows 8 Enterprise 評估版]。
+-   Windows 8 上已安裝 Visual Studio 2012 或 Visual Studio Express 2012 for Windows 8。您可以從[這裡][這裡]取得試用版。
+-   [Microsoft Smooth Streaming Client SDK for Windows 8][Microsoft Smooth Streaming Client SDK for Windows 8] (英文)。
 
-您可以從 MSDN 開發人員程式碼範例 (Code Gallery) 下載每個課程的已完成解答：[課程 1][] (英文)、[課程 2][] (英文)、[課程 3][] (英文) 和[課程 4][] (英文)。
+您可以從 MSDN 開發人員程式碼範例 (Code Gallery) 下載每個課程的已完成解答：[課程 1][課程 1] (英文)、[課程 2][課程 2] (英文)、[課程 3][課程 3] (英文) 和[課程 4][課程 4] (英文)。
 
 # 課程 1：建立基本的 Smooth Streaming 市集應用程式
 
 在本課程中，您將建立 Windows 市集應用程式，並使其具有 MediaElement 控制項來播放 Smooth Stream 內容。執行中的應用程式看起來如下：
 
-![Smooth Streaming Windows Store application example][]
+![Smooth Streaming Windows Store application example][Smooth Streaming Windows Store application example]
 
-如需關於開發 Windows 市集應用程式的詳細資訊，請參閱[開發 Windows 8 適用的好用應用程式][]。
+如需關於開發 Windows 市集應用程式的詳細資訊，請參閱[開發 Windows 8 適用的好用應用程式][開發 Windows 8 適用的好用應用程式]。
 本課程包含下列程序：
 
 1.  建立 Windows 市集專案
@@ -188,7 +188,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。若要啟用 Smo
 
 完成的程式碼後置檔案看起來像這樣：
 
-![Codeview in Visual Studio of Smooth Streaming Windows Store application][]
+![Codeview in Visual Studio of Smooth Streaming Windows Store application][Codeview in Visual Studio of Smooth Streaming Windows Store application]
 
 **編譯和測試應用程式**
 
@@ -954,20 +954,18 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
 
 # 其他資源：
 
--   [如何建置具有進階功能的 Smooth Streaming Windows 8 JavaScript 應用程式 (英文)][]
--   [Smooth Streaming 技術概觀 (英文)][]
+-   [如何建置具有進階功能的 Smooth Streaming Windows 8 JavaScript 應用程式 (英文)][如何建置具有進階功能的 Smooth Streaming Windows 8 JavaScript 應用程式 (英文)]
+-   [Smooth Streaming 技術概觀 (英文)][Smooth Streaming 技術概觀 (英文)]
 
   [版本資訊]: http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes
   [Player Framework for Windows 8]: http://playerframework.codeplex.com/
-  [Windows 8 Enterprise 評估版]: http://msdn.microsoft.com/en-us/evalcenter/jj554510.aspx
-  [這裡]: http://www.microsoft.com/visualstudio/11/en-us/downloads
+  [Windows 8 Enterprise 評估版]: http://msdn.microsoft.com/zh-tw/evalcenter/jj554510.aspx
+  [這裡]: http://www.microsoft.com/visualstudio/11/zh-tw/downloads
   [Microsoft Smooth Streaming Client SDK for Windows 8]: http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home
   [課程 1]: http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "簡單 Windows 8 Smooth Streaming Media Player"
   [課程 2]: http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "具有滑動軸控制項的簡單 Windows 8 Smooth Streaming Media Player"
   [課程 3]: http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "可選擇資訊流的 Windows 8 Smooth Streaming Media Player"
   [課程 4]: http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "可選擇曲目的 Windows 8 Smooth Streaming Media Player"
   [Smooth Streaming Windows Store application example]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
-  [開發 Windows 8 適用的好用應用程式]: http://msdn.microsoft.com/en-us/windows/apps/br229512.aspx
+  [開發 Windows 8 適用的好用應用程式]: http://msdn.microsoft.com/zh-tw/windows/apps/br229512.aspx
   [Codeview in Visual Studio of Smooth Streaming Windows Store application]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-  [如何建置具有進階功能的 Smooth Streaming Windows 8 JavaScript 應用程式 (英文)]: http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx
-  [Smooth Streaming 技術概觀 (英文)]: http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview

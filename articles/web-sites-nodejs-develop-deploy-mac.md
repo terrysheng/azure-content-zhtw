@@ -1,16 +1,16 @@
 <properties linkid="develop-node-create-a-website-mac" urlDisplayName="Website" pageTitle="Create a Node.js website on Mac - Azure tutorials" metaKeywords="Azure create website Node, Azure deploy website Node, website Node.js, Node website" description="Learn how to build and deploy a Node.js website in Azure. Sample code is written in Java." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 建置並部署 Node.js 網站至 Azure
 
-本教學課程說明如何建立 [Node][] (英文) 應用程式，並使用 [Git][] (英文) 將其部署至 Azure 網站。本教學課程中的指示可運用在任何足以執行 Node 應用程式的作業系統上。
+本教學課程說明如何建立 [Node][Node] (英文) 應用程式，並使用 [Git][Git] (英文) 將其部署至 Azure 網站。本教學課程中的指示可運用在任何足以執行 Node 應用程式的作業系統上。
 
 如果您偏好觀看影片，右側的短片會執行與本教學課程相同的步驟。
 
 完成之應用程式的螢幕擷取畫面如下：
 
-![顯示「Hello World」訊息的瀏覽器。][]
+![顯示「Hello World」訊息的瀏覽器。][顯示「Hello World」訊息的瀏覽器。]
 
 ## 建立 Azure 網站並啟用 Git 發行
 
@@ -20,35 +20,35 @@
 <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 免費試用</a>。</p>
 </div>
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 
 2.  按一下入口網站左下方的 [+新增] 圖示
 
-    ![Azure 入口網站將 +新增連結反白標示。][]
+    ![Azure 入口網站將 +新增連結反白標示。][Azure 入口網站將 +新增連結反白標示。]
 
 3.  依序按一下 [網站] 及 [快速建立]。輸入 **URL** 值，然後在 [區域] 下拉式清單中為您的網站選取資料中心。按一下對話方塊底部的核取記號。
 
-    ![快速建立對話方塊][]
+    ![快速建立對話方塊][快速建立對話方塊]
 
 4.  一旦網站狀態變更為 [執行中]，按一下網站名稱可存取 [儀表板]。
 
-    ![Open web site dashboard][]
+    ![Open web site dashboard][Open web site dashboard]
 
 5.  在 [快速啟動] 頁面右下方，選取 [Set up a deployment from source control]。
 
-    ![Set up Git publishing][]
+    ![Set up Git publishing][Set up Git publishing]
 
 6.  當系統詢問您「您的原始程式碼在哪裡？」時，選取 [Local Git repository]，然後按一下該箭頭。
 
-    ![where is your source code][]
+    ![where is your source code][where is your source code]
 
 7.  若要啟用 Git 發佈，您必須提供使用者名稱和密碼。如果您先前已經為 Azure 網站啟用了發行功能，則系統不會提示您輸入使用者名稱或密碼。而是會使用您先前指定的使用者名稱與密碼來建立 Git 儲存機制。請記下使用者名稱與密碼，因為您將為您所建立的所有 Azure 網站使用該資訊進行 Git 發行。
 
-    ![提示您輸入使用者名稱與密碼的對話方塊。][]
+    ![提示您輸入使用者名稱與密碼的對話方塊。][提示您輸入使用者名稱與密碼的對話方塊。]
 
 8.  一旦 Git 儲存機制就緒，系統會顯示 Git 命令的使用指示，以便設定本機儲存機制並將檔案發送至 Azure。
 
-    ![建立網站的儲存機制後傳回的 Git 部署指示。][]
+    ![建立網站的儲存機制後傳回的 Git 部署指示。][建立網站的儲存機制後傳回的 Git 部署指示。]
 
 ## 在本機建置與測試您的應用程式
 
@@ -116,7 +116,7 @@
 
     如果您瀏覽至管理入口網站內的 Azure 網站部署索引標籤，會在部署歷程記錄中看到您的第一次部署：
 
-    ![入口網站上的 Git 部署狀態][]
+    ![入口網站上的 Git 部署狀態][入口網站上的 Git 部署狀態]
 
 5.  在管理入口網站內，使用 Azure 網站頁面上的 [瀏覽] 按鈕瀏覽至您的網站。
 
@@ -131,7 +131,7 @@
 
     系統會提示您輸入先前建立的密碼。如果您瀏覽至管理入口網站內的 Azure 網站部署索引標籤，會看到更新的部署歷程記錄：
 
-    ![入口網站上的 Git 部署狀態已更新][]
+    ![入口網站上的 Git 部署狀態已更新][入口網站上的 Git 部署狀態已更新]
 
 3.  使用 [瀏覽] 按鈕瀏覽至您的網站，並注意更新已經套用。
 
@@ -141,25 +141,23 @@
 
 ## 後續步驟
 
-雖然本文內的步驟使用 Azure 入口網站來建立網站，但是您也可以使用[適用於 Mac 與 Linux 的 Azure 命令列工具][]來執行相同的操作。
+雖然本文內的步驟使用 Azure 入口網站來建立網站，但是您也可以使用[適用於 Mac 與 Linux 的 Azure 命令列工具][適用於 Mac 與 Linux 的 Azure 命令列工具]來執行相同的操作。
 
-Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。若要了解 Azure 網站如何與模組搭配使用，請參閱[使用 Node.js 模組與 Azure 應用程式搭配][]。
+Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。若要了解 Azure 網站如何與模組搭配使用，請參閱[使用 Node.js 模組與 Azure 應用程式搭配][使用 Node.js 模組與 Azure 應用程式搭配]。
 
-若要深入了解 Azure 隨附的 Node.js 版本，以及如何指定要與您的應用程式搭配使用的版本，請參閱[在 Azure 應用程式中指定 Node.js 版本][] (英文)。
+若要深入了解 Azure 隨附的 Node.js 版本，以及如何指定要與您的應用程式搭配使用的版本，請參閱[在 Azure 應用程式中指定 Node.js 版本][在 Azure 應用程式中指定 Node.js 版本] (英文)。
 
-如果您在將應用程式部署到 Azure 後遇到問題，請參閱[如何在 Azure 網站中對 Node.js 應用程式進行偵錯][] (英文) 以獲得診斷問題的詳細資訊。
+如果您在將應用程式部署到 Azure 後遇到問題，請參閱[如何在 Azure 網站中對 Node.js 應用程式進行偵錯][如何在 Azure 網站中對 Node.js 應用程式進行偵錯] (英文) 以獲得診斷問題的詳細資訊。
 
 ## 其他資源
 
--   [Azure PowerShell][]
+-   [Azure PowerShell][Azure PowerShell]
 -   [適用於 Mac 和 Linux 的 Azure 命令列工具][適用於 Mac 與 Linux 的 Azure 命令列工具]
 
   [Node]: http://nodejs.org
   [Git]: http://git-scm.com
   [顯示「Hello World」訊息的瀏覽器。]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
-  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A7171371E
   [Azure 管理入口網站]: http://manage.windowsazure.com
-  [Azure 入口網站將 +新增連結反白標示。]: ./media/web-sites-nodejs-develop-deploy-mac/plus-new.png
   [快速建立對話方塊]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png
   [Open web site dashboard]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
   [Set up Git publishing]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png
@@ -167,8 +165,6 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
   [提示您輸入使用者名稱與密碼的對話方塊。]: ./media/web-sites-nodejs-develop-deploy-mac/git-deployment-credentials.png
   [建立網站的儲存機制後傳回的 Git 部署指示。]: ./media/web-sites-nodejs-develop-deploy-mac/git-instructions.png
   [1]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png
-  [2]: http://git-scm.com/
-  [Git 下載頁面]: http://git-scm.com/download
   [入口網站上的 Git 部署狀態]: ./media/web-sites-nodejs-develop-deploy-mac/git_deployments_first.png
   [入口網站上的 Git 部署狀態已更新]: ./media/web-sites-nodejs-develop-deploy-mac/git_deployments_second.png
   [適用於 Mac 與 Linux 的 Azure 命令列工具]: /zh-tw/documentation/articles/xplat-cli/

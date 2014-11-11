@@ -1,6 +1,6 @@
 <properties linkid="manage-services-create-a-virtual-network" urlDisplayName="Tutorial: Create a cloud-only virtual network" pageTitle="Tutorial: Create a cloud-only virtual network" metaKeywords="" description="Learn how to create an example cloud-only Azure Virtual Network in this tutorial." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Tutorial: Create a Clound-only Virtual Network in Azure" authors="cherylmc" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc"></tags>
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc" />
 
 # 教學課程：在 Azure 中建立純雲端虛擬網路
 
@@ -33,7 +33,7 @@
 
 2.  在畫面左下角，按一下 [新增] \> [網路服務] \> [虛擬網路]，然後按一下 [自訂建立] 開始組態精靈。
 
-    ![][]
+    ![][0]
 
 3.  在 [虛擬網路詳細資料] 頁面上，輸入下列資訊：
 
@@ -92,11 +92,10 @@
   [createvnet]: ./media/create-virtual-network/createVNet_06_VNetExample.png
   [在管理入口網站中設定純雲端虛擬網路]: http://msdn.microsoft.com/library/azure/dn631643.aspx
   [虛擬網路]: http://msdn.microsoft.com/library/windowsazure/jj156007.aspx
-  [教學課程：建立跨單位虛擬網路以提供站對站連線能力]: /zh-TW/manage/services/networking/cross-premises-connectivity/
   [Try Azure]: http://www.windowsazure.com/pricing/free-trial/
   [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠]: http://azure.microsoft.com/zh-TW/pricing/member-offers/msdn-benefits-details/
   [Azure 管理入口網站]: http://manage.windowsazure.com/
-  []: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
+  [0]: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
   [1]: ./media/create-virtual-network/createVNet_02_VirtualNetworkDetails.png
   [關於管理入口網站中的虛擬網路設定]: http://go.microsoft.com/fwlink/?linkid=248092&clcid=0x409
   [2]: ./media/create-virtual-network/createVNet_04_VirtualNetworkAddressSpaces.png

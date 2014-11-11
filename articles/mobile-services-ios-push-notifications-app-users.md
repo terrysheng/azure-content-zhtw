@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-push-notifications-to-users-ios" urlDisplayName="Push Notifications to Users (iOS)" pageTitle="Push notifications to users (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # 使用行動服務推播通知給使用者
 
@@ -8,14 +8,14 @@
 <a href="/zh-tw/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone">Windows Phone</a><a href="/zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS" class="current">iOS</a><a href="/zh-tw/develop/mobile/tutorials/push-notifications-to-users-android" title="Android" class="current">Android</a>
 </div>
 
-本主題將透過新增可儲存 Apple 推播通知服務 (APNS) 權杖的資料表，來延伸[上一個推播通知教學課程][]。這些權杖接著可用來傳送推播通知給 iPhone 或 iPad 應用程式的使用者。
+本主題將透過新增可儲存 Apple 推播通知服務 (APNS) 權杖的資料表，來延伸[上一個推播通知教學課程][上一個推播通知教學課程]。這些權杖接著可用來傳送推播通知給 iPhone 或 iPad 應用程式的使用者。
 
 本教學課程將引導您逐步完成以下在您的應用程式中更新推播通知的步驟：
 
-1.  [建立 Devices 資料表][]
-2.  [更新應用程式][]
-3.  [更新伺服器指令碼][]
-4.  [驗證推播通知行為][]
+1.  [建立 Devices 資料表][建立 Devices 資料表]
+2.  [更新應用程式][更新應用程式]
+3.  [更新伺服器指令碼][更新伺服器指令碼]
+4.  [驗證推播通知行為][驗證推播通知行為]
 
 本教學課程會以行動服務快速入門為基礎，並依據上一個[開始使用推播通知][上一個推播通知教學課程]教學課程建立。開始此教學課程之前，您必須先完成[開始使用推播通知][上一個推播通知教學課程]。
 
@@ -24,9 +24,9 @@
 ## <span class="short-header">建立資料表</span>建立新的 Devices 資料表
 
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
-    ![][]
+    ![][0]
 
 2.  按一下 [資料] 索引標籤，然後按一下 [建立]。
 
@@ -206,29 +206,26 @@
 
 這將結束示範使用推播通知基本概念的教學課程。考慮更深入了解下列行動服務主題：
 
--   [開始使用資料][]
+-   [開始使用資料][開始使用資料]
     深入了解使用行動服務來儲存與查詢資料。
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何使用 Windows 帳戶驗證您的應用程式的使用者。
 
--   [行動服務伺服器指令碼參考][]
+-   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何註冊和使用伺服器指令碼。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Phone]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-android "Android"
   [上一個推播通知教學課程]: /zh-tw/develop/mobile/tutorials/get-started-with-push-ios
   [建立 Devices 資料表]: #create-table
   [更新應用程式]: #update-app
   [更新伺服器指令碼]: #update-scripts
   [驗證推播通知行為]: #test-app
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-ios-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-ios-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-ios-push-notifications-app-users/mobile-create-table.png
   [2]: ./media/mobile-services-ios-push-notifications-app-users/mobile-create-devices-table.png
   [3]: ./media/mobile-services-ios-push-notifications-app-users/mobile-portal-data-tables-devices.png

@@ -1,24 +1,24 @@
 <properties pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Store app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
 # 開始在行動服務中使用推播通知
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push-legacy][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-push-legacy](../includes/mobile-services-selector-get-started-push-legacy.md)]
 
 本主題說明如何使用 Azure 行動服務將推播通知傳送至 Windows Phone Silverlight 應用程式。在本教學課程中，您會啟用透過 Azure 通知中心將推播通知傳送至快速入門專案的功能。完成後，您的行動服務就會在每次插入記錄時使用通知中心傳送推播通知。您所建立的通知中心可透過行動服務免費使用、可在行動服務以外個別管理，並且可供其他應用程式和服務使用。
 
-> [WACOM.NOTE]本教學課程示範行動服務與通知中心的整合，這是您從行動服務傳送推播通知的方式。如果您的行動服務較舊，是使用舊式的推播，而尚未升級為使用通知中心，建議您依照此教學課程中的說明進行升級。如果您選擇現在不升級，則應遵循下列版本的教學課程進行：[開始使用推播通知 (舊式)][]。
+> [WACOM.NOTE]本教學課程示範行動服務與通知中心的整合，這是您從行動服務傳送推播通知的方式。如果您的行動服務較舊，是使用舊式的推播，而尚未升級為使用通知中心，建議您依照此教學課程中的說明進行升級。如果您選擇現在不升級，則應遵循下列版本的教學課程進行：[開始使用推播通知 (舊式)][開始使用推播通知 (舊式)]。
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 
-1.  [更新應用程式以註冊通知][]
-2.  [更新伺服器指令碼以傳送推播通知][]
-3.  [插入資料以接收推播通知][]
+1.  [更新應用程式以註冊通知][更新應用程式以註冊通知]
+2.  [更新伺服器指令碼以傳送推播通知][更新伺服器指令碼以傳送推播通知]
+3.  [插入資料以接收推播通知][插入資料以接收推播通知]
 
-本教學課程會以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務][]或[開始使用資料][]，將您的專案連接到行動服務。若未連接行動服務，[新增推播通知] 精靈會為您建立此連線。
+本教學課程會以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務][開始使用行動服務]或[開始使用資料][開始使用資料]，將您的專案連接到行動服務。若未連接行動服務，[新增推播通知] 精靈會為您建立此連線。
 
-> [WACOM.NOTE]若要傳送推播通知到 Windows Phone 8.1 市集應用程式，請遵循此教學課程的 [Windows 市集應用程式][]版本進行。
+> [WACOM.NOTE]若要傳送推播通知到 Windows Phone 8.1 市集應用程式，請遵循此教學課程的 [Windows 市集應用程式][Windows 市集應用程式]版本進行。
 
 ## <span id="update-app"></span></a>更新應用程式以註冊通知
 
@@ -67,7 +67,7 @@
 
 5.  在 [方案總管] 中展開 [屬性]，開啟 WMAppManifest.xml 檔案，按一下 [功能] 索引標籤，確定已核取 \*\*ID\_**CAP**\_PUSH\_NOTIFICATION\*\* 功能。
 
-    ![][]
+    ![][0]
 
     </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">如此可確定您的應用程式可以提出快顯通知。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">
 
@@ -109,13 +109,13 @@
 
 3.  按一下 [推播] 索引標籤，核取 [Enable unauthenticated push notifications]，然後按一下 [儲存]。
 
-    > [WACOM.NOTE]如果您是使用較舊的行動服務來完成此教學課程，您可能會在 [推播] 索引標籤底部看到 [啟用增強型推播] 連結。現在按一下此連結，即可將您的行動服務升級，與通知中心整合。此變更無法回復。如需如何在生產環境的行動服務中啟用增強型推播通知的詳細資訊，請參閱[此指引][] (英文)。
+    > [WACOM.NOTE]如果您是使用較舊的行動服務來完成此教學課程，您可能會在 [推播] 索引標籤底部看到 [啟用增強型推播] 連結。現在按一下此連結，即可將您的行動服務升級，與通知中心整合。此變更無法回復。如需如何在生產環境的行動服務中啟用增強型推播通知的詳細資訊，請參閱[此指引][此指引] (英文)。
 
     ![][2]
 
     這會使行動服務以未經驗證的模式連接到 MPNS，以傳送推播通知。
 
-    > [WACOM.NOTE]本教學課程使用未經驗證模式的 MPNS。在此模式中，MPNS 會限制可傳送至裝置通道的通知數。若要移除此限制，您必須按一下 [上傳] 並選取憑證，以產生憑證並加以上傳。如需產生憑證的詳細資訊，請參閱[設定已驗證的 Web 服務以傳送 Windows Phone 的推播通知][] (英文)。
+    > [WACOM.NOTE]本教學課程使用未經驗證模式的 MPNS。在此模式中，MPNS 會限制可傳送至裝置通道的通知數。若要移除此限制，您必須按一下 [上傳] 並選取憑證，以產生憑證並加以上傳。如需產生憑證的詳細資訊，請參閱[設定已驗證的 Web 服務以傳送 Windows Phone 的推播通知][設定已驗證的 Web 服務以傳送 Windows Phone 的推播通知] (英文)。
 
 ## <span id="test"></span></a>在應用程式中測試推播通知
 
@@ -131,35 +131,35 @@
 
     ![][4]
 
-    > [WACOM.NOTE]如果您仍在應用程式中，就不會收到該通知。若要在應用程式作用中的情況下，接收快顯通知，您必須處理 [ShellToastNotificationReceived][] 事件。
+    > [WACOM.NOTE]如果您仍在應用程式中，就不會收到該通知。若要在應用程式作用中的情況下，接收快顯通知，您必須處理 [ShellToastNotificationReceived][ShellToastNotificationReceived] 事件。
 
 ## <a name="next-steps"> </a>後續步驟
 
 此教學課程示範如何讓 Windows 市集應用程式能夠使用行動服務和通知中心來傳送推播通知的基本步驟。接著，請考慮完成下列其中一個教學課程：
 
--   [將推播通知傳送給驗證的使用者][]
+-   [將推播通知傳送給驗證的使用者][將推播通知傳送給驗證的使用者]
     了解如何利用標籤，從行動服務將推播通知只傳送給驗證的使用者。
 
--   [將廣播通知傳送給訂閱者][]
+-   [將廣播通知傳送給訂閱者][將廣播通知傳送給訂閱者]
     了解使用者如何註冊及接收其所需之類別的推播通知。
 
 <!---+ [Send template-based notifications to subscribers]     <br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end. -->
 
 在下列主題中深入了解行動服務和通知中心：
 
--   [開始使用資料][]
+-   [開始使用資料][開始使用資料]
     深入了解如何使用行動服務儲存和查詢資料。
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何使用行動服務驗證使用不同帳戶類型的應用程式使用者。
 
--   [什麼是通知中心？][]
+-   [什麼是通知中心？][什麼是通知中心？]
     深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
 
--   [行動服務 .NET 作法概念參考資料][]
+-   [行動服務 .NET 作法概念參考資料][行動服務 .NET 作法概念參考資料]
     深入了解如何使用搭配 .NET 的行動服務。
 
--   [行動服務伺服器指令碼參考][]
+-   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何在您的行動服務中實作商務邏輯。
 
 <!-- Anchors. --> 
@@ -167,14 +167,13 @@
 <!-- URLs. -->
 
   [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
-  [開始使用推播通知 (舊式)]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-push/
   [更新應用程式以註冊通知]: #update-app
   [更新伺服器指令碼以傳送推播通知]: #update-scripts
   [插入資料以接收推播通知]: #test
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-data
   [Windows 市集應用程式]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
-  []: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
+  [0]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
   [1]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-insert-script-push2.png
   [此指引]: http://go.microsoft.com/fwlink/p/?LinkId=391951
   [2]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-push-tab.png

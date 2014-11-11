@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-create-and-deploy-a-cloud-service" urlDisplayName="How to create and deploy" pageTitle="How to create and deploy a cloud service - Azure" metaKeywords="Azure creating cloud service, deleting cloud service" description="Learn how to create and deploy a cloud service using the Quick Create method in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Create and Deploy a Cloud Service" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # 如何建立和部署雲端服務
 
@@ -112,19 +112,19 @@ Azure SDK 提供準備這些必要部署檔案的工具。您可以從 [Azure �
     在下載頁面上，您也能夠安裝以 Node.js、Java、PHP 和其他語言開發 Web 應用程式所用的用戶端程式庫和原始程式碼，這些都可以部署為可擴充的 Azure 雲端服務。
 
     > [WACOM.NOTE]
-    > 對於過去建立的雲端服務 (過去稱為「託管服務」)，您將需要確定虛擬機器 (角色執行個體) 上的客體作業系統與您安裝的 Azure SDK 版本相容。如需詳細資訊，請參閱 [Azure SDK .NET 版本資訊][]。
+    > 對於過去建立的雲端服務 (過去稱為「託管服務」)，您將需要確定虛擬機器 (角色執行個體) 上的客體作業系統與您安裝的 Azure SDK 版本相容。如需詳細資訊，請參閱 [Azure SDK .NET 版本資訊][Azure SDK .NET 版本資訊]。
 
-2.  在[管理入口網站][]中，按一下 [雲端服務]。然後按一下雲端服務的名稱以開啟儀表板，再按一下 [儀表板]。
+2.  在[管理入口網站][管理入口網站]中，按一下 [雲端服務]。然後按一下雲端服務的名稱以開啟儀表板，再按一下 [儀表板]。
 
 3.  按一下 [生產] 或 [預備]。
 
     如果您想要先在 Azure 中測試雲端服務，再部署到生產環境，則您可以部署到預備環境。在預備環境中，雲端服務的全域唯一識別碼 (GUID) 將識別 URL (*GUID*.cloudapp.net) 中的雲端服務。在生產環境中，將使用指派給您更易記的 DNS 前置詞 (例如，*myservice*.cloudapp.net)。您準備將預備的雲端服務升級到生產環境時，請使用 [交換] 將用戶端要求重新導向到該部署。
 
-    ![CloudServices\_QuickStartPage][]
+    ![CloudServices\_QuickStartPage][CloudServices\_QuickStartPage]
 
 4.  按一下儀表板上的 [上傳] 部署您的雲端服務。
 
-    ![CloudServices\_UploadaPackage][]
+    ![CloudServices\_UploadaPackage][CloudServices\_UploadaPackage]
 
 5.  在 [部署標籤] 中，輸入新部署的名稱，例如 MyCloudServicev1。
 
@@ -134,13 +134,13 @@ Azure SDK 提供準備這些必要部署檔案的工具。您可以從 [Azure �
 
 8.  如果雲端服務將包含只有一個執行個體的任何角色，請選取 [Deploy even if one or more roles contain a single instance] 核取方塊，讓部署繼續進行。
 
-如果每個角色至少有兩個執行個體，Azure 只能保證在維護和服務更新期間存取雲端服務的成功率為 99.95%。若有需要，您可以在部署雲端服務後，在 [Scale] 頁面上新增其他角色執行個體。如需詳細資訊，請參閱[服務等級協定][]。
+如果每個角色至少有兩個執行個體，Azure 只能保證在維護和服務更新期間存取雲端服務的成功率為 99.95%。若有需要，您可以在部署雲端服務後，在 [Scale] 頁面上新增其他角色執行個體。如需詳細資訊，請參閱[服務等級協定][服務等級協定]。
 
 1.  按一下 [確定] (核取記號) 開始雲端服務部署。
 
     您可以在訊息區域監視部署的狀態。按一下向下箭頭將隱藏訊息。
 
-    ![CloudServices\_UploadProgress][]
+    ![CloudServices\_UploadProgress][CloudServices\_UploadProgress]
 
 ### 確認部署是否成功完成
 
@@ -166,17 +166,9 @@ Azure SDK 提供準備這些必要部署檔案的工具。您可以從 [Azure �
   [對於角色設定遠端桌面連線概觀]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433010.aspx
   [啟用 Azure 診斷]: http://www.windowsazure.com/zh-tw/develop/net/common-tasks/diagnostics/
   [管理入口網站]: http://manage.windowsazure.com/
-  [CloudServices\_QuickCreate]: ./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png
   [同質群組的相關作業]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460798.aspx
 
 
-  [CloudServices\_CloudServicesPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png
-  [CloudServices\_EmptyDashboard]: ./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png
-  [CloudServices\_CertificatesPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_CertificatesPage.png
-  [CloudServices\_AddaCertificate]: ./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png
-  [CloudServices\_CertificateProgress]: ./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png
   [Azure SDK .NET 版本資訊]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh552718.aspx
-  [CloudServices\_QuickStartPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_QuickStartPage.png
-  [CloudServices\_UploadaPackage]: ./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png
   [服務等級協定]: http://www.windowsazure.com/zh-tw/support/legal/sla/
   [CloudServices_UploadProgress]: ./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)

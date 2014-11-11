@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-monitor-a-storage-account" urlDisplayName="How to monitor" pageTitle="How to monitor a storage account | Microsoft Azure" metaKeywords="Azure monitor storage accounts, storage account management portal, storage account dashboard, storage metrics table, storage metrics chart" description="Learn how to monitor a storage account in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Monitor a Storage Account" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # <span id="createstorageaccount"></span></a>如何監視儲存體帳戶
 
@@ -10,25 +10,25 @@
 
 <div class="dev-callout"> 
 <b>注意</b> 
-<p>其他成本也與在管理入口網站中查看監視資料相關。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx">儲存體分析及計費</a>。</p> 
+<p>其他成本也與在管理入口網站中查看監視資料相關。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/hh360997.aspx">儲存體分析及計費</a>。</p> 
 </div>
 
 ## 目錄
 
--   [作法：設定儲存體帳戶的監視][]
--   [作法：自訂儀表板以進行監視][]
+-   [作法：設定儲存體帳戶的監視][作法：設定儲存體帳戶的監視]
+-   [作法：自訂儀表板以進行監視][作法：自訂儀表板以進行監視]
 -   <a href="#customizemonitorpage">作法：自訂 [監視] 頁面</a>
--   [作法：將度量新增至度量表][]
+-   [作法：將度量新增至度量表][作法：將度量新增至度量表]
 -   <a href="#customizemetricschart">作法：自訂 [監視] 頁面上的度量圖表</a>
--   [作法：設定記錄][]
+-   [作法：設定記錄][作法：設定記錄]
 
 ## <span id="configurestoragemonitoring"></span></a>作法：設定儲存體帳戶的監視
 
-1.  在[管理入口網站][]中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
+1.  在[管理入口網站][管理入口網站]中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
 
 2.  按一下 [設定]，然後向下捲動到 Blob、資料表及佇列服務的 [監視] 設定，如下所示。
 
-    ![MonitoringOptions][]
+    ![MonitoringOptions][MonitoringOptions]
 
 3.  在 [監視] 中，設定每個服務的監視等級和資料保留原則：
 
@@ -46,7 +46,7 @@
 
 您應該在大約一小時後，開始在儀表板及 [監視] 頁面上看到監視資料。
 
-度量存放在儲存體帳戶中的四個資料表：$MetricsTransactionsBlob、$MetricsTransactionsTable、$MetricsTransactionsQueue 及 $MetricsCapacityBlob。如需詳細資訊，請參閱[關於儲存體分析度量][]。
+度量存放在儲存體帳戶中的四個資料表：$MetricsTransactionsBlob、$MetricsTransactionsTable、$MetricsTransactionsQueue 及 $MetricsCapacityBlob。如需詳細資訊，請參閱[關於儲存體分析度量][關於儲存體分析度量]。
 
 設定監視等級與保留原則之後，您可以在管理入口網站選擇要監視哪些可用的度量，以及在度量圖表上繪製哪些度量。每個監視等級會顯示一組預設的度量。您可以使用 [Add Metrics] 從度量清單新增或移除度量。
 
@@ -54,7 +54,7 @@
 
 在儀表板上，您可以從九個可用度量中選擇最多六個度量，繪製在度量圖表上。針對每個服務 (Blob、資料表和佇列)，可以使用「可用性」、「成功百分比」和「要求總數」等度量。對於最小或詳細資訊監視，儀表板上的可用度量相同。
 
-1.  在[管理入口網站][]中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
+1.  在[管理入口網站][管理入口網站]中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
 
 2.  若要變更圖表上繪製的度量，請採取下列其中一個動作：
 
@@ -62,7 +62,7 @@
 
 -   若要隱藏圖表上繪製的度量，請清除度量標頭旁邊的核取方塊。
 
-    ![Monitoring\_nmore][]
+    ![Monitoring\_nmore][Monitoring\_nmore]
 
 1.  圖表預設會顯示趨勢，且只顯示每個度量的目前值 (圖表頂端的 [相對] 選項)。若要顯示 Y 軸以看到絕對值，請選取 [絕對]。
 
@@ -80,40 +80,40 @@
 
 ## <span id="addmonitoringmetrics"></span></a>作法：將度量新增至度量表
 
-1.  在[管理入口網站][]中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
+1.  在[管理入口網站][管理入口網站]中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
 
 2.  按一下 [監視]。
 
     即會開啟 [監視] 頁面。依預設，度量表會顯示一部份可用於監視的度量。下圖顯示所有三個服務都設定詳細資訊監視的儲存體帳戶預設 [監視] 顯示。請使用 [Add Metrics] 從所有可用度量中選取您要監視的度量。
 
-    ![Monitoring\_VerboseDisplay][]
+    ![Monitoring\_VerboseDisplay][Monitoring\_VerboseDisplay]
 
     <div class="dev-callout"> 
 <b>注意</b> 
-<p>選取度量時請考慮成本。重新整理監視顯示時有相關的交易和出口流量成本。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx">儲存體分析及計費</a>。</p> 
+<p>選取度量時請考慮成本。重新整理監視顯示時有相關的交易和出口流量成本。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/hh360997.aspx">儲存體分析及計費</a>。</p> 
 </div>
 
 3.  按一下 [Add Metrics]。
 
     最小監視中可用的彙總度量在清單的頂端。如果選取核取方塊，度量便會顯示在度量清單中。
 
-    ![AddMetricsInitialDisplay][]
+    ![AddMetricsInitialDisplay][AddMetricsInitialDisplay]
 
 4.  移動游標停留在對話方塊的右邊，以顯示捲軸，您可以拖曳捲軸來將其他度量捲入檢視中。
 
-    ![AddMetricsScrollbar][]
+    ![AddMetricsScrollbar][AddMetricsScrollbar]
 
 5.  按一下度量旁邊的向下箭頭，展開可以包含該度量的操作清單。選取要在管理入口網站的度量表中檢視的每個操作。
 
     在下圖中，已展開 AUTHORIZATION ERROR PERCENTAGE 度量。
 
-    ![ExpandCollapse][]
+    ![ExpandCollapse][ExpandCollapse]
 
 6.  選取所有服務的度量後，按一下 [確定] (核取記號) 更新監視組態。選取的度量隨即新增到度量表。
 
 7.  若要從度量表刪除度量，請按一下度量加以選取，然後按一下 [Delete Metric]，如下所示。
 
-    ![DeleteMetric][]
+    ![DeleteMetric][DeleteMetric]
 
 ## <span id="customizemetricschart"></span></a>作法：自訂 [監視] 頁面上的度量圖表
 
@@ -127,11 +127,11 @@
 
 針對儲存體帳戶能使用的每個儲存服務 (Blob、資料表和佇列)，您可以儲存「讀取要求」、「寫入要求」及/或「刪除要求」的診斷記錄檔，也可以設定每個服務的資料保留原則。
 
-1.  在[管理入口網站][]中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
+1.  在[管理入口網站][管理入口網站]中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
 
 2.  按一下 [設定]，然後使用鍵盤上的向下箭頭，向下捲動到 [記錄] (如下所示)。
 
-    ![Storagelogging][]
+    ![Storagelogging][Storagelogging]
 
 3.  針對每個服務 (Blob、資料表和佇列)，設定下列各項：
 
@@ -141,21 +141,18 @@
 
 4.  按一下 [儲存]。
 
-診斷記錄檔儲存在儲存體帳戶中的 $logs Blob 容器。如需存取 $logs 容器的詳細資訊，請參閱[關於儲存體分析記錄][]。
+診斷記錄檔儲存在儲存體帳戶中的 $logs Blob 容器。如需存取 $logs 容器的詳細資訊，請參閱[關於儲存體分析記錄][關於儲存體分析記錄]。
 
-  [儲存體分析及計費]: http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx
   [作法：設定儲存體帳戶的監視]: #configurestoragemonitoring
   [作法：自訂儀表板以進行監視]: #customizestoragemonitoring
   [作法：將度量新增至度量表]: #addmonitoringmetrics
   [作法：設定記錄]: #configurelogging
   [管理入口網站]: https://manage.windowsazure.com/
   [MonitoringOptions]: ./media/storage-monitor-storage-account/Storage_MonitoringOptions.png
-  [關於儲存體分析度量]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343258.aspx
-  [Monitoring\_nmore]: ./media/storage-monitor-storage-account/storage_Monitoring_nmore.png
-  [Monitoring\_VerboseDisplay]: ./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png
+  [關於儲存體分析度量]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh343258.aspx
   [AddMetricsInitialDisplay]: ./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png
   [AddMetricsScrollbar]: ./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png
   [ExpandCollapse]: ./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png
   [DeleteMetric]: ./media/storage-monitor-storage-account/Storage_DeleteMetric.png
   [Storagelogging]: ./media/storage-monitor-storage-account/Storage_LoggingOptions.png
-  [關於儲存體分析記錄]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343262.aspx
+  [關於儲存體分析記錄]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh343262.aspx

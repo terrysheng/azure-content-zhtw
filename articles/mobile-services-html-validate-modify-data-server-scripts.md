@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-html" urlDisplayName="Validate Data - HTML5" pageTitle="User server scripts to validate and modify data (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your HTML app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 使用伺服器指令碼在行動服務中驗證與修改資料
 
@@ -12,20 +12,20 @@
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [新增字串長度驗證][]
-2.  [更新用戶端以支援驗證][]
-3.  [插入時新增時間戳記][]
-4.  [更新用戶端以顯示時間戳記][]
+1.  [新增字串長度驗證][新增字串長度驗證]
+2.  [更新用戶端以支援驗證][更新用戶端以支援驗證]
+3.  [插入時新增時間戳記][插入時新增時間戳記]
+4.  [更新用戶端以顯示時間戳記][更新用戶端以顯示時間戳記]
 
-本教學課程會以上一堂教學課程[開始使用資料][]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料][]。
+本教學課程會以上一堂教學課程[開始使用資料][開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料][開始使用資料]。
 
 ## <a name="string-length-validation"></a>新增驗證
 
 驗證使用者提交的資料長度一向是最佳做法。首先，註冊可驗證傳送至行動服務之字串資料長度的指令碼，並拒絕太長的字串，在此案例中為不得超過 10 個字元。
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
-    ![][]
+    ![][0]
 
 2.  按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
@@ -57,7 +57,7 @@
 
 現在，行動服務正在驗證資料並傳送錯誤回應，您必須更新您的應用程式以便處理驗證的錯誤回應。
 
-1.  從您完成[開始使用資料][]教學課程時所修改之專案的 **server** 子資料夾，執行下列其中一個命令檔案。
+1.  從您完成[開始使用資料][開始使用資料]教學課程時所修改之專案的 **server** 子資料夾，執行下列其中一個命令檔案。
 
     -   **launch-windows** (Windows 電腦)
     -   **launch-mac.command** (Mac OS X 電腦)
@@ -186,29 +186,21 @@
 
 ## <a name="next-steps"> </a>後續步驟
 
-現在，您已完成本教學課程，請考慮繼續進行資料數列中最後的教學課程：[使用分頁縮小查詢範圍][]。
+現在，您已完成本教學課程，請考慮繼續進行資料數列中最後的教學課程：[使用分頁縮小查詢範圍][使用分頁縮小查詢範圍]。
 
-如需詳細資訊，請參閱[使用伺服器指令碼][]和[行動服務 HTML/JavaScript 作法概念參考][]
+如需詳細資訊，請參閱[使用伺服器指令碼][使用伺服器指令碼]和[行動服務 HTML/JavaScript 作法概念參考][行動服務 HTML/JavaScript 作法概念參考]
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-js "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone"
-  [iOS]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
-  [Android]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
-  [HTML]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
-  [Xamarin.iOS]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
   [新增字串長度驗證]: #string-length-validation
   [更新用戶端以支援驗證]: #update-client-validation
   [插入時新增時間戳記]: #add-timestamp
   [更新用戶端以顯示時間戳記]: #update-client-timestamp
   [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-html
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-insert-script-users.png
   [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-html

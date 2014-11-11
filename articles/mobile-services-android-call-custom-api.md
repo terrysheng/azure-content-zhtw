@@ -1,6 +1,6 @@
 <properties writer="ricksal" pageTitle="Call a custom API from an Android client | Mobile Dev Center" metaKeywords="" description="Learn how to define a custom API and then call it from an Android app that uses Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 從用戶端呼叫自訂 API
 
@@ -12,42 +12,34 @@
 
 本主題中所建立的自訂 API 可讓您傳送單一 POST 要求，該要求會將行動服務的資料表中所有 todo 項目的「已完成」旗標設定為 `true`。若沒有此自訂 API，用戶端必須傳送個別要求，來為資料表中的每個 todo 項目更新旗標。
 
-將此功能新增至您在完成[開始使用行動服務][]或[開始使用資料][]教學課程時所建立的應用程式。若要達到此目的，您將需要完成下列步驟：
+將此功能新增至您在完成[開始使用行動服務][開始使用行動服務]或[開始使用資料][開始使用資料]教學課程時所建立的應用程式。若要達到此目的，您將需要完成下列步驟：
 
-1.  [定義自訂 API][]
-2.  [更新應用程式以呼叫自訂 API][]
-3.  [測試應用程式][]
+1.  [定義自訂 API][定義自訂 API]
+2.  [更新應用程式以呼叫自訂 API][更新應用程式以呼叫自訂 API]
+3.  [測試應用程式][測試應用程式]
 
-本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][]或[開始使用資料][]。
+本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][開始使用行動服務]或[開始使用資料][開始使用資料]。
 
 ## <a name="define-custom-api"></a>定義自訂 API
 
-[WACOM.INCLUDE [mobile-services-create-custom-api][]]
+[WACOM.INCLUDE [mobile-services-create-custom-api](../includes/mobile-services-create-custom-api.md)]
 
-[WACOM.INCLUDE [mobile-services-android-call-custom-api][]]
+[WACOM.INCLUDE [mobile-services-android-call-custom-api](../includes/mobile-services-android-call-custom-api.md)]
 
 ## 後續步驟
 
 您已建立自訂 API，並從您的 Android 應用程式呼叫此 API，現在請考慮搜尋有關下列行動服務主題的更多資訊：
 
--   [行動服務伺服器指令碼參照][]
+-   [行動服務伺服器指令碼參照][行動服務伺服器指令碼參照]
      (英文) 深入了解建立自訂 API。
 
--   [在來源控制中儲存伺服器指令碼][]
+-   [在來源控制中儲存伺服器指令碼][在來源控制中儲存伺服器指令碼]
     了解如何使用來源控制功能，來更輕鬆及安全地開發並發佈自訂 API 指令碼。
 
 <!-- Anchors. --> 
 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/mobile-services-ios-call-custom-api "iOS"
-  [Android]: /zh-tw/documentation/articles/mobile-services-android-call-custom-api "Android"
-  [HTML]: /zh-tw/documentation/articles/mobile-services-html-call-custom-api "HTML"
-  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-call-custom-api ".NET 後端"
-  [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-android-call-custom-api "JavaScript 後端"
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-android-get-started/
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-android-get-started-data/
   [定義自訂 API]: #define-custom-api

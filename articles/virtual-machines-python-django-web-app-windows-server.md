@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-app-with-django" urlDisplayName="Web with Django (Windows)" pageTitle="Python web app with Django - Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" description="A tutorial that teaches you how to host a Django-based website on Azure using a Windows Server 2008 R2 virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Django Hello World Web 應用程式
 
@@ -17,22 +17,22 @@
 
 完成之應用程式的螢幕擷取畫面如下：
 
-![A browser window displaying the hello world page on Azure][]
+![A browser window displaying the hello world page on Azure][A browser window displaying the hello world page on Azure]
 
-[WACOM.INCLUDE [create-account-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## 建立及設定 Azure 虛擬機器以裝載 Django
 
-1.  按照[此處][] (英文) 提供的指示，建立 *Windows Server 2012 Datacenter* 散發套件的 Azure 虛擬機器。
+1.  按照[此處][此處] (英文) 提供的指示，建立 *Windows Server 2012 Datacenter* 散發套件的 Azure 虛擬機器。
 
 2.  指示 Azure 將連接埠 **80** 的流量從 Web 導向虛擬機器上的連接埠 **80**：
 
  - 在 Azure 入口網站中瀏覽至新建立的虛擬機器，並按一下 [端點] 索引標籤。
  - 按一下畫面底部的 [加入端點] 按鈕。
-    ![加入端點][]
+    ![加入端點][加入端點]
 
  - 開啟 [TCP] 通訊協定的 [公用連接埠 80]，比照 [私人連接埠 80]。
-    ![][]
+    ![][0]
 
 1.  使用 Windows *Remote Desktop* 從遠端登入新建立的 Azure 虛擬機器。
 
@@ -40,7 +40,7 @@
 
 ## <span id="setup"></span> </a>設定開發環境
 
-若要設定您的 Python 和 Django 環境，請參閱[安裝指南][] (英文) 以了解詳細資訊。
+若要設定您的 Python 和 Django 環境，請參閱[安裝指南][安裝指南] (英文) 以了解詳細資訊。
 
 **備註 1：**您「只」需要從 Windows WebPI 安裝程式將 **Django** 產品安裝在 Azure 虛擬機器上，即可讓「這個」特定的教學課程運作。
 
@@ -70,13 +70,13 @@
 
     您應該會看見下列內容：
 
-    ![IIS config1][]
+    ![IIS config1][IIS config1]
 
 6.  告訴 FastCGI 到 WSGI 的閘道要使用哪個 WSGI 處理常式：
 
         %windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python27\python.exe', arguments='C:\Python27\Scripts\wfastcgi.py'].environmentVariables.[name='WSGI_HANDLER',value='django.core.handlers.wsgi.WSGIHandler()']" /commit:apphost
 
-7.  從 [codeplex][] (英文) 下載 wfastcgi.py 並將它儲存至 C:\\Python27\\Scripts。這是先前的命令用來登錄 FastCGI 處理常式的位置。或者，您也可以使用 Web Platform Installer 來進行安裝。請搜尋 'WFastCGI'。
+7.  從 [codeplex][codeplex] (英文) 下載 wfastcgi.py 並將它儲存至 C:\\Python27\\Scripts。這是先前的命令用來登錄 FastCGI 處理常式的位置。或者，您也可以使用 Web Platform Installer 來進行安裝。請搜尋 'WFastCGI'。
 
 ## 建立新的 Django 應用程式
 
@@ -88,7 +88,7 @@
 
     C:\\Python27\\python.exe -m django.bin.django-admin startproject DjangoApplication
 
-    ![The result of the New-AzureService command][]
+    ![The result of the New-AzureService command][The result of the New-AzureService command]
 
     **django-admin.py** 指令碼會為 Django 型網站產生一個基本結構：
 
@@ -113,19 +113,17 @@
 
 3.  最後，在您的瀏覽器中載入網頁。
 
-![A browser window displaying the hello world page on Azure][]
+![A browser window displaying the hello world page on Azure][A browser window displaying the hello world page on Azure]
 
 ## 關閉 Azure 虛擬機器
 
 完成本教學課程時，請關閉並/或移除新建立的 Azure 虛擬機器釋出資源供其他教學課程使用，並避免產生 Azure 使用的費用。
 
-  [Windows]: /zh-tw/develop/python/tutorials/web-app-with-django/ "Windows"
-  [Mac/Linux]: /zh-tw/develop/python/tutorials/django-hello-world-(maclinux)/ "MacLinux"
   [A browser window displaying the hello world page on Azure]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-browser-azure.png
   [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [此處]: /zh-tw/manage/windows/tutorials/virtual-machine-from-gallery/
   [加入端點]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png
-  []: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
+  [0]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
   [安裝指南]: ../python-how-to-install/
   [IIS config1]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-iis1.png
   [codeplex]: http://go.microsoft.com/fwlink/?LinkID=316392&clcid=0x409

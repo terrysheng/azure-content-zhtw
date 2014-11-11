@@ -1,10 +1,10 @@
 <properties pageTitle="Get Started with Azure Mobile Services for iOS apps" metaKeywords="Azure iOS application, mobile service iOS, getting started Azure iOS" description="Follow this tutorial to get started using Azure Mobile Services for iOS development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="hero-article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="hero-article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # <a name="getting-started"> </a>開始使用行動服務
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -16,11 +16,11 @@
 
 </div>
 
-在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單*待辦事項*應用程式。您將建立的行動服務會使用 JavaScript 建立伺服器端商務邏輯。若要建立可讓您在 Visual Studio 以支援的 .NET 語言撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [.NET 後端版本][]。
+在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單*待辦事項*應用程式。您將建立的行動服務會使用 JavaScript 建立伺服器端商務邏輯。若要建立可讓您在 Visual Studio 以支援的 .NET 語言撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [.NET 後端版本][.NET 後端版本]。
 
 以下是完成應用程式的螢幕擷取畫面：
 
-![][]
+![][0]
 
 完成本教學課程需使用 XCode 4.5 及 iOS 5.0 或更新版本。
 
@@ -28,7 +28,7 @@
 
 ## <a name="create-new-service"> </a>建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## <span class="short-header">建立新的應用程式</span>建立新的 iOS 應用程式
 
@@ -46,7 +46,7 @@
 
     ![][2]
 
-3.  下載並安裝 [Xcode][] v4.4 或更新版本 (若您尚未這麼做)。
+3.  下載並安裝 [Xcode][Xcode] v4.4 或更新版本 (若您尚未這麼做)。
 
 4.  按一下 [Create TodoItems table] 以建立儲存應用程式資料的資料表。
 
@@ -56,7 +56,7 @@
 
 ## 執行新的 iOS 應用程式
 
-[WACOM.INCLUDE [mobile-services-ios-run-app][]]
+[WACOM.INCLUDE [mobile-services-ios-run-app](../includes/mobile-services-ios-run-app.md)]
 
 1.  
 
@@ -76,16 +76,16 @@
 
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
--   [開始使用資料][]
+-   [開始使用資料][開始使用資料]
     深入了解使用行動服務來儲存與查詢資料。
 
--   [開始使用離線資料同步][]
+-   [開始使用離線資料同步][開始使用離線資料同步]
     了解如何使用離線資料同步，讓您的應用程式更穩健及具備回應力。
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何向身分識別提供者驗證應用程式的使用者。
 
--   [開始使用推播通知][]
+-   [開始使用推播通知][開始使用推播通知]
     了解如何將極為基本的推播通知傳送到應用程式。
 
 <!-- Anchors. --> 
@@ -93,10 +93,8 @@
 <!-- URLs. -->
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [觀看教學課程]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/iOS-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart
   [.NET 後端版本]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started
-  []: ./media/mobile-services-ios-get-started/mobile-quickstart-completed-ios.png
-  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F
+  [0]: ./media/mobile-services-ios-get-started/mobile-quickstart-completed-ios.png
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-ios-get-started/mobile-portal-quickstart-ios.png
   [2]: ./media/mobile-services-ios-get-started/mobile-quickstart-steps-ios.png

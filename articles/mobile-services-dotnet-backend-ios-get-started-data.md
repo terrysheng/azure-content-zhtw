@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-ios" urlDisplayName="Get Started with Data" pageTitle="Get started with data (iOS) | Mobile Dev Center" metaKeywords="Azure iOS data, Azure mobile services data, " description="Learn how to get started using Mobile Services to leverage data in your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 開始使用行動服務中的資料
 
@@ -50,7 +50,7 @@
 
 4.  在應用程式的文字方塊中鍵入一些文字，然後按一下 **+** 按鈕。
 
-    ![][]
+    ![][0]
 
     Notice that the saved text is displayed in the list below.
 
@@ -120,17 +120,13 @@
 -   [開始使用推送通知][開始使用推送通知]
     了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+  <!-- Anchors. --> 
 
-  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "iOS"
-  [Android]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Android"
-  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ ".NET 後端"
-  [JavaScript 後端]: /zh-tw/develop/mobile/tutorials/get-started-with-data-ios/ "JavaScript 後端"
+  <!-- Images. -->
+
+  <!-- URLs. -->
+
   [JavaScript 後端版本]: /zh-tw/develop/mobile/tutorials/get-started-with-data-ios
-  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-ios
   [下載 iOS 應用程式專案]: #download-app
   [建立行動服務]: #create-service
   [在本機下載服務]: #download-the-service-locally
@@ -143,7 +139,7 @@
   [Visual Studio Express for Web]: http://go.microsoft.com/p/?linkid=9832232
   [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F
   [GetStartedWithData 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=268622
-  []: ./media/mobile-services-dotnet-backend-ios-get-started-data/mobile-quickstart-startup-ios.png
+  [0]: ./media/mobile-services-dotnet-backend-ios-get-started-data/mobile-quickstart-startup-ios.png
   [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
   [mobile-services-ios-download-service-locally]: ../includes/mobile-services-ios-download-service-locally.md
   [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md

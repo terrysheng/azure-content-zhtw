@@ -1,40 +1,40 @@
 <properties linkid="dev-net-how-to-use-blog-storage-service-java" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # 如何使用 Java 的 Blob 儲存體
 
-本指南將示範如何使用 Microsoft Azure Blob 儲存體服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][]。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][]一節。
+本指南將示範如何使用 Microsoft Azure Blob 儲存體服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][Azure Storage SDK for Java]。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
-注意：有一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。如需詳細資訊，請參閱 [Azure Storage SDK for Android][]。
+注意：有一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。如需詳細資訊，請參閱 [Azure Storage SDK for Android][Azure Storage SDK for Android]。
 
 ## <a name="Contents"> </a>目錄
 
--   [什麼是 Blob 儲存體][]
--   [概念][]
--   [建立 Azure 儲存體帳戶][]
--   [建立 Java 應用程式][]
--   [設定您的應用程式以存取 Blob 儲存體][]
--   [設定 Azure 儲存體連接字串][]
--   [作法：建立容器][]
--   [作法：將 Blob 上傳至容器][]
--   [作法：列出容器中的 Blob][]
--   [作法：下載 Blob][]
--   [作法：刪除 Blob][]
--   [作法：刪除 Blob 容器][]
--   [後續步驟][]
+-   [什麼是 Blob 儲存體][什麼是 Blob 儲存體]
+-   [概念][概念]
+-   [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
+-   [建立 Java 應用程式][建立 Java 應用程式]
+-   [設定您的應用程式以存取 Blob 儲存體][設定您的應用程式以存取 Blob 儲存體]
+-   [設定 Azure 儲存體連接字串][設定 Azure 儲存體連接字串]
+-   [作法：建立容器][作法：建立容器]
+-   [作法：將 Blob 上傳至容器][作法：將 Blob 上傳至容器]
+-   [作法：列出容器中的 Blob][作法：列出容器中的 Blob]
+-   [作法：下載 Blob][作法：下載 Blob]
+-   [作法：刪除 Blob][作法：刪除 Blob]
+-   [作法：刪除 Blob 容器][作法：刪除 Blob 容器]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <span id="CreateAccount"></span></a>建立 Azure 儲存體帳戶
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"> </a>建立 Java 應用程式
 
 在本指南中，您將使用儲存體功能，這些功能可執行於本機的 Java 應用程式內，也可執行於在 Azure 中之 Web 角色或背景工作角色內執行的程式碼中。
 
-若要這樣做，您需要安裝 Java Development Kit (JDK)，並在 Azure 訂用帳戶中建立 Azure 儲存體帳戶。完成此動作之後，您需要驗證開發系統符合 GitHub 上的 [Azure Storage SDK for Java][] 儲存機制中所列出的最低需求和相依性。如果系統符合這些需求，則您可以依照指示，從該儲存機制中下載 Azure Storage Libraries for Java 並安裝在系統上。完成這些工作之後，您就能夠利用本文中的範例來建立 Java 應用程式。
+若要這樣做，您需要安裝 Java Development Kit (JDK)，並在 Azure 訂用帳戶中建立 Azure 儲存體帳戶。完成此動作之後，您需要驗證開發系統符合 GitHub 上的 [Azure Storage SDK for Java][Azure Storage SDK for Java] 儲存機制中所列出的最低需求和相依性。如果系統符合這些需求，則您可以依照指示，從該儲存機制中下載 Azure Storage Libraries for Java 並安裝在系統上。完成這些工作之後，您就能夠利用本文中的範例來建立 Java 應用程式。
 
 ## <a name="ConfigureStorage"> </a>設定您的應用程式以存取 Blob 儲存體
 
@@ -65,7 +65,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## <a name="CreateContainer"> </a>作法：建立容器
 
-CloudBlobClient 物件可讓您取得容器和 Blob 的參考物件。下列程式碼將建立 **CloudBlobClient** 物件。(注意：還有其他方法可建立 **CloudStorageAccount** 物件。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考][] (英文) 中的 **CloudStorageAccount**)
+CloudBlobClient 物件可讓您取得容器和 Blob 的參考物件。下列程式碼將建立 **CloudBlobClient** 物件。(注意：還有其他方法可建立 **CloudStorageAccount** 物件。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考][Azure 儲存體用戶端 SDK 參考] (英文) 中的 **CloudStorageAccount**)
 
 所有 Blob 皆位於一個容器中。使用 **CloudBlobClient** 物件來取得想要使用容器的參考。如果容器不存在，可以使用 **createIfNotExists** 方法建立，如果存在，此方法則會傳回現有的容器。根據預設，新容器屬私人性質，您必須指定儲存體存取金鑰 (如上面所做過的) 才能從此容器下載 blob。
 
@@ -162,7 +162,7 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
 
 例如，您可能有名為 "photos" 的容器，當中您可能上傳名為 "rootphoto1"、"2010/photo1"、"2010/photo2" 和 "2011/photo1" 的 Blob。這會在 "photos" 容器內建立虛擬目錄 "2010" 和 "2011"。當您在 "photos" 容器上呼叫 **ListBlobs** 時，傳回的集合將包含 **CloudBlobDirectory** 和 **CloudBlob** 物件，其分別代表最上層所包含的目錄和 Blob。在此情況下，系統會傳回目錄 "2010" 和 "2011"，以及照片 "rootphoto1"。您可以使用 **instanceof** 運算子來區別這些物件。
 
-您可以選擇性地將參數傳入 **listBlobs** 方法，並將 **useFlatBlobListing** 參數設為 true。如此會導致不論目錄為何，都會傳回每個 Blob。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考][] (英文) 中的 **CloudBlobContainer.listBlobs**。
+您可以選擇性地將參數傳入 **listBlobs** 方法，並將 **useFlatBlobListing** 參數設為 true。如此會導致不論目錄為何，都會傳回每個 Blob。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考][Azure 儲存體用戶端 SDK 參考] (英文) 中的 **CloudBlobContainer.listBlobs**。
 
 ## <a name="DownloadBlob"> </a>作法：下載 Blob
 
@@ -250,10 +250,10 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
 
 了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   [Azure Storage SDK for Java][]
--   [Azure 儲存體用戶端 SDK 參考][]
--   [Azure 儲存體 REST API][]
--   [Azure 儲存體團隊部落格][]
+-   [Azure Storage SDK for Java][Azure Storage SDK for Java]
+-   [Azure 儲存體用戶端 SDK 參考][Azure 儲存體用戶端 SDK 參考]
+-   [Azure 儲存體 REST API][Azure 儲存體 REST API]
+-   [Azure 儲存體團隊部落格][Azure 儲存體團隊部落格]
 
   [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
   [後續步驟]: #NextSteps
@@ -273,5 +273,5 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
-  [Azure 儲存體 REST API]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+  [Azure 儲存體 REST API]: http://msdn.microsoft.com/zh-tw/library/azure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/

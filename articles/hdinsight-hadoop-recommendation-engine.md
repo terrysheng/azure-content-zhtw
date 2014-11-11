@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-recommendation-engine-using-mahout" urlDisplayName="Hadoop Recommendation Engine" pageTitle="Hadoop recommendation engine (.NET) | Azure" metaKeywords="Azure Apache Mahout, Azure recommendation example, Azure recommendation tutorial, Azure recommendation engine" description="A tutorial that teaches how to use the Apache Mahout recommendation engine with Azure to create song suggestions based on listening habits." disqusComments="1" umbracoNaviHide="1" title="Simple recommendation engine using Apache Mahout" authors="jgao" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao" />
 
 # 使用 Apache Mahout 的簡單建議引擎
 
@@ -8,7 +8,7 @@ Apache Mahout™ 是針對用於可延展機器學習應用程式所建置的機
 
 Apache Mahout 提供項目型共同作業篩選的內建實作。此方式廣泛用來進行建議資料採礦。項目型共同作業篩選是由 Amazon.com 所開發。這裡的想法是可以利用使用者喜好設定 (呈現項目喜好設定之間的相互關聯) 上的資料來猜想類似群組之未來使用者的喜好。
 
-在本教學課程中，您使用 [Million Song Dataset][] (英文) 網站，並下載[資料集][] (英文) 以根據使用者過去的聽歌習慣來建立使用者的歌曲建議。
+在本教學課程中，您使用 [Million Song Dataset][Million Song Dataset] (英文) 網站，並下載[資料集][資料集] (英文) 以根據使用者過去的聽歌習慣來建立使用者的歌曲建議。
 
 您將了解：
 
@@ -16,20 +16,20 @@ Apache Mahout 提供項目型共同作業篩選的內建實作。此方式廣泛
 
 本教學課程包含下列區段：
 
-1.  [設定和組態][]
-2.  [檢查和格式化資料][]
-3.  [安裝 Mahout][]
-4.  [執行 Mahout 工作][]
+1.  [設定和組態][設定和組態]
+2.  [檢查和格式化資料][檢查和格式化資料]
+3.  [安裝 Mahout][安裝 Mahout]
+4.  [執行 Mahout 工作][執行 Mahout 工作]
 
 ## <a name="setup"></a>設定和組態
 
-本教學課程假設您已設定 Azure 和 HDinsight Preview，而且您已建立可在其上執行範例的 HDInsight 叢集。如果您尚未這麼做，請參閱[開始使用 Azure HDInsight][] 教學課程，以取得如何滿足這些必要條件檢查的指示。
+本教學課程假設您已設定 Azure 和 HDinsight Preview，而且您已建立可在其上執行範例的 HDInsight 叢集。如果您尚未這麼做，請參閱[開始使用 Azure HDInsight][開始使用 Azure HDInsight] 教學課程，以取得如何滿足這些必要條件檢查的指示。
 
 ## <a name="segment1"></a>檢查和格式化資料
 
 此範例處理使用者表達對特定歌曲喜好的方式。假設使用者聽歌的次數是一種度量，表示該使用者對歌曲的喜好。您可以使用在喜好設定資料中偵測到的模式，根據使用者的一些表達出來的音樂喜好來預測未來使用者的喜好。您可以在 [Echo Nest Taste Profile Subset][Million Song Dataset] 網頁 (英文) 的＜說明＞(英文) 小節中檢視此資料集的範例：
 
-![The Echo Nest Taste Profile Subset][]
+![The Echo Nest Taste Profile Subset][The Echo Nest Taste Profile Subset]
 
 ### Million Song Dataset 中的範例資料
 
@@ -42,7 +42,7 @@ Apache Mahout 提供項目型共同作業篩選的內建實作。此方式廣泛
 
 請啟動 Visual Studio 2010 來開始使用。在 Visual Studio 中，請選取 [檔案] -\> [新增] -\> [專案]。在 [已安裝的範本] 窗格的 [Visual C#] 節點內，選取 [視窗] 類別，然後從清單中選取 [主控台應用程式]。將專案命名為 "ConvertToMahoutInput"，然後按一下 [確定] 按鈕。
 
-![creating a console application][]
+![creating a console application][creating a console application]
 
 ### 建立主控台應用程式
 
@@ -132,7 +132,7 @@ Apache Mahout 提供項目型共同作業篩選的內建實作。此方式廣泛
 
     執行此公用程式時，請包括含有 **train\_triplets.txt** 位置的命令列引數。若要這麼做，請在 [方案總管] 的 [ConvertToMahoutInput] 專案節點上按一下滑鼠右鍵，然後選取 [屬性]。在專案屬性頁面上，選取左側的 [偵錯] 索引標籤，然後將 \<localpath\>train\_triplets.txt 的路徑新增至 [命令列引數] 文字方塊：
 
-    ![setting command line arguments][]
+    ![setting command line arguments][setting command line arguments]
 
 ### 設定命令列引數
 
@@ -142,17 +142,17 @@ Apache Mahout 提供項目型共同作業篩選的內建實作。此方式廣泛
 
 -   開啟 HDInsight 叢集連接埠，然後按一下 [遠端桌面] 圖示。
 
-    ![The Manage Cluster Icon][]
+    ![The Manage Cluster Icon][The Manage Cluster Icon]
 
 ### 遠端桌面圖示
 
-HDInsight 預設不會包括 Mahout。但是，因為它是 Hadoop 生態系統的一部分，所以可以從 [Mahout][] 網站進行下載。最新版本是 0.7，但是這組指示與 0.5 或 0.7 版相容。
+HDInsight 預設不會包括 Mahout。但是，因為它是 Hadoop 生態系統的一部分，所以可以從 [Mahout][Mahout] 網站進行下載。最新版本是 0.7，但是這組指示與 0.5 或 0.7 版相容。
 
-1.  首先，將 [Mahout 0.7 版][] (英文) 下載至您的本機電腦。
+1.  首先，將 [Mahout 0.7 版][Mahout 0.7 版] (英文) 下載至您的本機電腦。
 
 2.  接著，將它複製至叢集，方法是選取本機 ZIP 檔案，並按 Ctrl+V 進行複製，然後將它貼到 Hadoop 叢集。
 
-    ![Uploading Mahout][]
+    ![Uploading Mahout][Uploading Mahout]
 
 ### 將 Mahout 複製至前端節點
 
@@ -175,7 +175,7 @@ HDInsight 預設不會包括 Mahout。但是，因為它是 Hadoop 生態系統�
 
 此時，您應該開啟 Hadoop 終端機視窗，並瀏覽到含有 users.txt 和 mInput.txt 的資料夾。
 
-![Mahout command window][]
+![Mahout command window][Mahout command window]
 
 ### Hadoop 命令視窗
 
@@ -224,7 +224,7 @@ HDInsight 預設不會包括 Mahout。但是，因為它是 Hadoop 生態系統�
   [檢查和格式化資料]: #segment1
   [安裝 Mahout]: #Segment2
   [執行 Mahout 工作]: #segment2
-  [開始使用 Azure HDInsight]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+  [開始使用 Azure HDInsight]: /zh-tw/manage/services/hdinsight/get-started-hdinsight/
   [The Echo Nest Taste Profile Subset]: ./media/hdinsight-hadoop-recommendation-engine/the-echo-nest-taste-profile-subset.png
   [creating a console application]: ./media/hdinsight-hadoop-recommendation-engine/creating-a-console-application.png
   [setting command line arguments]: ./media/hdinsight-hadoop-recommendation-engine/setting-command-line-arguments.png
@@ -232,6 +232,4 @@ HDInsight 預設不會包括 Mahout。但是，因為它是 Hadoop 生態系統�
   [Mahout]: http://mahout.apache.org/
   [Mahout 0.7 版]: http://www.apache.org/dyn/closer.cgi/mahout/
   [Uploading Mahout]: ./media/hdinsight-hadoop-recommendation-engine/uploading-mahout.PNG
-  [儲存機制]: https://github.com/wenming/BigDataSamples/tree/master/mahout
-  [ZIP 檔案]: https://github.com/wenming/BigDataSamples/archive/master.zip
   [Mahout command window]: ./media/hdinsight-hadoop-recommendation-engine/mahout-commandwindow.PNG

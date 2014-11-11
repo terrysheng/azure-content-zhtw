@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-how-to-html-client" urlDisplayName="HTML Client" pageTitle="How to use an HTML client - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="Learn how to use an HTML client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # 如何使用 Azure 行動服務的 HTML/JavaScript 用戶端
 
@@ -8,33 +8,33 @@
 <a href="/zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript" class="current">HTML/JavaScript</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
 </div>
 
-本指南顯示使用 Azure 行動服務的 HTML/JavaScript 用戶端來執行常見的案例。所涵蓋的案例包括查詢資料、插入、更新及刪除資料、驗證使用者以及處理錯誤。如果您不熟悉行動服務，請考慮先完成行動服務 [Windows 市集 JavaScript 快速入門][] (英文) 或 [HTML 快速入門][] (英文)。快速入門教學課程可協助您設定帳戶，並建立您的第一個行動服務。
+本指南顯示使用 Azure 行動服務的 HTML/JavaScript 用戶端來執行常見的案例。所涵蓋的案例包括查詢資料、插入、更新及刪除資料、驗證使用者以及處理錯誤。如果您不熟悉行動服務，請考慮先完成行動服務 [Windows 市集 JavaScript 快速入門][Windows 市集 JavaScript 快速入門] (英文) 或 [HTML 快速入門][HTML 快速入門] (英文)。快速入門教學課程可協助您設定帳戶，並建立您的第一個行動服務。
 
 ## 目錄
 
--   [什麼是行動服務][]
--   [概念][]
--   [作法：建立行動服務用戶端][]
--   [作法：查詢行動服務中的資料][]
+-   [什麼是行動服務][什麼是行動服務]
+-   [概念][概念]
+-   [作法：建立行動服務用戶端][作法：建立行動服務用戶端]
+-   [作法：查詢行動服務中的資料][作法：查詢行動服務中的資料]
 
-    -   [篩選傳回資料][]
-    -   [排序傳回資料][]
-    -   [以分頁方式傳回資料][]
-    -   [選取特定資料欄][]
-    -   [按 ID 查詢資料][]
-    -   [執行 OData 查詢作業][]
--   [作法：將資料插入行動服務][]
--   [作法：修改行動服務中的資料][]
--   [作法：刪除行動服務中的資料][]
--   [作法：在使用者介面中顯示資料][]
--   [作法：驗證使用者][]
--   [作法：處理錯誤][]
--   [作法：使用 Promise][]
--   [作法：自訂要求標頭][]
--   [作法：使用跨原始來源資源分享][]
--   [後續步驟][]
+    -   [篩選傳回資料][篩選傳回資料]
+    -   [排序傳回資料][排序傳回資料]
+    -   [以分頁方式傳回資料][以分頁方式傳回資料]
+    -   [選取特定資料欄][選取特定資料欄]
+    -   [按 ID 查詢資料][按 ID 查詢資料]
+    -   [執行 OData 查詢作業][執行 OData 查詢作業]
+-   [作法：將資料插入行動服務][作法：將資料插入行動服務]
+-   [作法：修改行動服務中的資料][作法：修改行動服務中的資料]
+-   [作法：刪除行動服務中的資料][作法：刪除行動服務中的資料]
+-   [作法：在使用者介面中顯示資料][作法：在使用者介面中顯示資料]
+-   [作法：驗證使用者][作法：驗證使用者]
+-   [作法：處理錯誤][作法：處理錯誤]
+-   [作法：使用 Promise][作法：使用 Promise]
+-   [作法：自訂要求標頭][作法：自訂要求標頭]
+-   [作法：使用跨原始來源資源分享][作法：使用跨原始來源資源分享]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [mobile-services-concepts][]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="create-client"></a>作法：建立行動服務用戶端
 
@@ -49,7 +49,7 @@
     var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-您必須將預留位置 `AppUrl` 取代成行動服務的應用程式 URL，將 `AppKey` 取代成應用程式金鑰。若要了解如何取得行動服務的應用程式 URL 和應用程式金鑰，請參閱教學課程[在 Windows 市集 JavaScript 中開始使用資料][] (英文) 或[在 HTML/JavaScript 中開始使用資料][] (英文)。
+您必須將預留位置 `AppUrl` 取代成行動服務的應用程式 URL，將 `AppKey` 取代成應用程式金鑰。若要了解如何取得行動服務的應用程式 URL 和應用程式金鑰，請參閱教學課程[在 Windows 市集 JavaScript 中開始使用資料][在 Windows 市集 JavaScript 中開始使用資料] (英文) 或[在 HTML/JavaScript 中開始使用資料][在 HTML/JavaScript 中開始使用資料] (英文)。
 
 ## <a name="querying"></a>作法：查詢行動服務中的資料
 
@@ -259,7 +259,7 @@
         }, handleError);
     }
 
-> [WACOM.NOTE]當您提供原始的 OData 查詢選項字串至 `read` 函數中時，不能也在相同的查詢中使用查詢產生器方法。在此情況下，您必須將整個查詢撰寫成 OData 查詢字串。如需 OData 系統查詢選項的詳細資訊，請參閱 [OData 系統查詢選項參考][] (英文)。
+> [WACOM.NOTE]當您提供原始的 OData 查詢選項字串至 `read` 函數中時，不能也在相同的查詢中使用查詢產生器方法。在此情況下，您必須將整個查詢撰寫成 OData 查詢字串。如需 OData 系統查詢選項的詳細資訊，請參閱 [OData 系統查詢選項參考][OData 系統查詢選項參考] (英文)。
 
 ## <a name="inserting"></a><span class="short-header">插入資料</span>作法：將資料插入行動服務
 
@@ -314,11 +314,11 @@
 
 `id` 的值必須是唯一的，且不可包含下列字集中的字元：
 
--   控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]。如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1][] (英文)。
+-   控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]。如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1][ASCII 控制碼 C0 和 C1] (英文)。
 -   可以列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?**(0x003F)、**\\** (0x005C)、**\`** (0x0060)
 -   識別碼 "." 和 ".."
 
-另外，您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表][] (英文)。
+另外，您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表][使用 CLI 管理行動服務資料表] (英文)。
 
 ## <a name="modifying"></a><span class="short-header">修改資料</span>作法：修改行動服務中的資料
 
@@ -384,17 +384,17 @@
                alert("Error: " + err);
             });
 
-在 Windows 市集應用程式中，查詢結果可用來建立 [WinJS.Binding.List] 物件，而此物件可繫結為 [ListView][] 物件的資料來源。如需詳細資訊，請參閱[資料繫結 (使用 JavaScript 和 HTML 的 Windows 市集應用程式)][]。
+在 Windows 市集應用程式中，查詢結果可用來建立 [WinJS.Binding.List] 物件，而此物件可繫結為 [ListView][ListView] 物件的資料來源。如需詳細資訊，請參閱[資料繫結 (使用 JavaScript 和 HTML 的 Windows 市集應用程式)][資料繫結 (使用 JavaScript 和 HTML 的 Windows 市集應用程式)]。
 
 ## <a name="caching"></a><span class="short-header">驗證</span>作法：驗證使用者
 
-行動服務支援使用各種外部識別提供者來驗證與授權應用程式使用者：Facebook、Google、Microsoft 帳戶和 Twitter。您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。您也可以使用通過驗證使用者的身分識別來實作伺服器指令碼中的授權規則。如需詳細資訊，請參閱[開始使用驗證][]教學課程。
+行動服務支援使用各種外部識別提供者來驗證與授權應用程式使用者：Facebook、Google、Microsoft 帳戶和 Twitter。您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。您也可以使用通過驗證使用者的身分識別來實作伺服器指令碼中的授權規則。如需詳細資訊，請參閱[開始使用驗證][開始使用驗證]教學課程。
 
 支援兩種驗證流程：*伺服器流程*和*用戶端流程*。由於伺服器流程採用提供者的 Web 驗證介面，因此所提供的驗證體驗也最為簡單。用戶端流程依賴提供者專屬的裝置專用 SDK，可以與裝置特有的功能深入整合，例如單一登入。
 
 ### 伺服器流程
 
-若要讓行動服務管理 Windows 市集或 HTML5 應用程式中的驗證程序，您必須向身分識別提供者註冊應用程式。接著在您的行動服務中，您必須設定提供者所提供的應用程式 ID 和密碼。如需詳細資訊，請參閱「開始使用驗證」教學課程 ([Windows 市集][]/[HTML][開始使用驗證])。
+若要讓行動服務管理 Windows 市集或 HTML5 應用程式中的驗證程序，您必須向身分識別提供者註冊應用程式。接著在您的行動服務中，您必須設定提供者所提供的應用程式 ID 和密碼。如需詳細資訊，請參閱「開始使用驗證」教學課程 ([Windows 市集][Windows 市集]/[HTML][開始使用驗證])。
 
 註冊身分識別提供者之後，請直接以提供者的 MobileServiceAuthenticationProvider 值來呼叫 LoginAsync 方法。例如，若要以 Facebook 登入，請使用下列程式碼。
 
@@ -406,7 +406,7 @@
 
 如果您使用的身分識別提供者不是 Facebook，請將傳遞至上述 `login` 方法的值，變更為下列其中一個值：`microsoftaccount`、`facebook`、`twitter`、`google` 或 `windowsazureactivedirectory`。
 
-在此案例中，行動服務透過顯示所選提供者的登入頁面，並在使用識別提供者成功登入後產生行動服務驗證權杖的方式，來管理 OAuth 2.0 驗證流程。[login][] 函數完成時會傳回 JSON 物件 (**user**)，此物件會在 **userId** 和 **authenticationToken** 欄位中分別顯示使用者識別碼和行動服務驗證權杖。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱「快取驗證權杖」。
+在此案例中，行動服務透過顯示所選提供者的登入頁面，並在使用識別提供者成功登入後產生行動服務驗證權杖的方式，來管理 OAuth 2.0 驗證流程。[login][login] 函數完成時會傳回 JSON 物件 (**user**)，此物件會在 **userId** 和 **authenticationToken** 欄位中分別顯示使用者識別碼和行動服務驗證權杖。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱「快取驗證權杖」。
 
 <div class="dev-callout"><b>Windows 市集應用程式</b>
 <p>使用 Microsoft 帳戶登入提供者來驗證 Windows 市集應用程式的使用者時，也應該向行動服務註冊應用程式封裝。向行動服務註冊 Windows 市集應用程式封裝資訊之後，用戶端就能夠重複使用 Microsoft 帳戶登入認證來享受單一登入的方便性。如果您沒有執行此動作，Microsoft 帳戶登入使用者會在每次呼叫登入方法時j都會看到登入提示。若要了解如何註冊 Windows 市集應用程式封裝，請參閱<a href="/zh-tw/develop/mobile/how-to-guides/register-windows-store-app-package/" target="_blank">註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證</a>。向行動服務註冊封裝資訊之後，請呼叫 <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> 方法，並在 <em>useSingleSignOn</em> 參數中提供 <strong>true</strong> 值以重複使用認證。</p>
@@ -430,7 +430,7 @@
               });
         });
 
-這個簡化的範例從 Live Connect 取得權杖，然後呼叫 [login][] 函數來提供權杖給行動服務。有關如何使用 Microsoft 帳戶來提供單一登入體驗的完整範例，請參閱[使用單一登入來驗證應用程式][]。
+這個簡化的範例從 Live Connect 取得權杖，然後呼叫 [login][login] 函數來提供權杖給行動服務。有關如何使用 Microsoft 帳戶來提供單一登入體驗的完整範例，請參閱[使用單一登入來驗證應用程式][使用單一登入來驗證應用程式]。
 
 使用 Facebook 或 Google API 進行用戶端驗證時，範例稍有變化。
 
@@ -448,7 +448,7 @@
 
 ### 快取驗證權杖
 
-在某些情況下，在使用者首次驗證之後就可以避免呼叫登入方法。使用者第一次登入時，我們可以使用 [sessionStorage][] 或 [localStorage][sessionStorage] 來快取目前的使用者身分識別，然後在後續每次登入時，我們就檢查快取中是否已經有使用者身分識別。如果快取是空的，或呼叫失敗 (表示目前的登入工作階段已過期)，我們仍然需要完成登入程序。
+在某些情況下，在使用者首次驗證之後就可以避免呼叫登入方法。使用者第一次登入時，我們可以使用 [sessionStorage][sessionStorage] 或 [localStorage][sessionStorage] 來快取目前的使用者身分識別，然後在後續每次登入時，我們就檢查快取中是否已經有使用者身分識別。如果快取是空的，或呼叫失敗 (表示目前的登入工作階段已過期)，我們仍然需要完成登入程序。
 
         // After logging in
         sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
@@ -506,7 +506,7 @@
 
 Promise 提供一種機制，可排定工作來處理尚未計算的值。這是一種管理非同步 API 互動的抽象觀念。
 
-當所提供的函數順利完成或發生錯誤時，`done` promise 就會立即執行。與 `then` promise 不同，此函數一定會擲回函數內未處理的任何錯誤，而且在處理常式執行完成之後，會擲回原本由 then 在錯誤狀態下以 promise 傳回的任何錯誤。如需詳細資訊，請參閱 [Promise.done 方法][] (英文)。
+當所提供的函數順利完成或發生錯誤時，`done` promise 就會立即執行。與 `then` promise 不同，此函數一定會擲回函數內未處理的任何錯誤，而且在處理常式執行完成之後，會擲回原本由 then 在錯誤狀態下以 promise 傳回的任何錯誤。如需詳細資訊，請參閱 [Promise.done 方法][Promise.done 方法] (英文)。
 
             promise.done(onComplete, onError);
 
@@ -519,7 +519,7 @@ Promise 提供一種機制，可排定工作來處理尚未計算的值。這是
                alert("Error: " + err);
             });
 
-`then` promise 與 `done` promise 相同，但不同於 `then` promise 的是，`done` 一定會擲回函數內未處理的任何錯誤。如果您沒有提供錯誤處理常式給 `then`，而作業發生錯誤，它不會擲回例外狀兄，但會傳回錯誤狀態的 promise。如需詳細資訊，請參閱 [Promise.then 方法][] (英文)。
+`then` promise 與 `done` promise 相同，但不同於 `then` promise 的是，`done` 一定會擲回函數內未處理的任何錯誤。如果您沒有提供錯誤處理常式給 `then`，而作業發生錯誤，它不會擲回例外狀兄，但會傳回錯誤狀態的 promise。如需詳細資訊，請參閱 [Promise.then 方法][Promise.then 方法] (英文)。
 
             promise.then(onComplete, onError).done( /* Your success and error handlers */ );
 
@@ -532,7 +532,7 @@ Promise 提供一種機制，可排定工作來處理尚未計算的值。這是
                alert("Error: " + err);
             });
 
-Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳回的 promise 上呼叫 `then` 或 `done`，以鏈結 promise 作業。將 `then` 用於作業的過渡階段 (例如 `.then().then()`)，將 `done` 用於作業的最終階段 (例如 `.then().then().done()`)。您可以鏈結多個 `then` 函數，因為 `then` 會傳回 promise。您無法鏈結多個 `done` 方法，因為它會傳回 undefined。[鏈結 Promise (使用 JavaScript 和 HTML 的 Windows 執行階段應用程式)][]。
+Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳回的 promise 上呼叫 `then` 或 `done`，以鏈結 promise 作業。將 `then` 用於作業的過渡階段 (例如 `.then().then()`)，將 `done` 用於作業的最終階段 (例如 `.then().then().done()`)。您可以鏈結多個 `then` 函數，因為 `then` 會傳回 promise。您無法鏈結多個 `done` 方法，因為它會傳回 undefined。[鏈結 Promise (使用 JavaScript 和 HTML 的 Windows 執行階段應用程式)][鏈結 Promise (使用 JavaScript 和 HTML 的 Windows 執行階段應用程式)]。
 
             todoItemTable.insert({
                text: "foo"
@@ -563,32 +563,27 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 
 現在，您已完成本作法概念參考資料主題，下列內容將詳細說明如何在行動服務中執行重要工作：
 
--   [開始使用行動服務][]
+-   [開始使用行動服務][開始使用行動服務]
     了解如何使用行動服務的基本概念。
 
--   [開始使用資料][]
+-   [開始使用資料][開始使用資料]
     深入了解使用行動服務來儲存與查詢資料。
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何向身分識別提供者驗證應用程式的使用者。
 
--   [使用指令檔驗證與修改資料][]
+-   [使用指令檔驗證與修改資料][使用指令檔驗證與修改資料]
     深入了解在行動服務中使用伺服器指令檔，來驗證並變更從應用程式傳送出來的資料。
 
--   [使用分頁縮小查詢範圍][]
+-   [使用分頁縮小查詢範圍][使用分頁縮小查詢範圍]
     了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
--   [使用指令碼來授權使用者][]
+-   [使用指令碼來授權使用者][使用指令碼來授權使用者]
     了解如何根據驗證的使用者來取得行動服務所提供的使用者識別碼，並用來篩選行動服務所傳回的資料。
 
 <!-- Anchors. --> 
 <!-- URLs. -->
 
-  [.NET Framework]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Windows 市集 JavaScript 快速入門]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started
   [HTML 快速入門]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-html
   [什麼是行動服務]: #what-is
@@ -618,17 +613,13 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
   [ASCII 控制碼 C0 和 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
   [使用 CLI 管理行動服務資料表]: http://www.windowsazure.com/zh-tw/manage/linux/other-resources/command-line-tools/#Mobile_Tables
   [ListView]: http://msdn.microsoft.com/zh-tw/library/windows/apps/br211837.aspx
-  [資料繫結 (使用 JavaScript 和 HTML 的 Windows 市集應用程式)]: http://msdn.microsoft.com/zh-tw/library/windows/apps/hh758311.aspx
   [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-html
   [Windows 市集]: /zh-tw/develop/mobile/tutorials/get-started-with-users-js
   [login]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554236.aspx
-  [註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證]: /zh-tw/develop/mobile/how-to-guides/register-windows-store-app-package/
-  [1]: http://go.microsoft.com/fwlink/p/?LinkId=322050
   [使用單一登入來驗證應用程式]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
   [sessionStorage]: http://msdn.microsoft.com/zh-tw/library/cc197062(v=vs.85).aspx
   [Promise.done 方法]: http://msdn.microsoft.com/zh-tw/library/windows/apps/hh701079.aspx
   [Promise.then 方法]: http://msdn.microsoft.com/zh-tw/library/windows/apps/br229728.aspx
-  [鏈結 Promise (使用 JavaScript 和 HTML 的 Windows 執行階段應用程式)]: http://msdn.microsoft.com/zh-tw/library/windows/apps/hh700334.aspx
   [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-html
   [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-html
   [使用指令檔驗證與修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-html

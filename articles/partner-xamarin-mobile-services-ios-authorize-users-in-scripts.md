@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-xamarin-ios" urlDisplayName="Authorize Users in Scripts (Xamarin.iOS)" pageTitle="Authorize users in scripts (Xamarin.iOS) - Azure Mobile Services" metaKeywords="Azure authorizing user, Xamarin.iOS scripts authorization, authorize mobile services" description="Learn how to authorize users with scripts in your Azure Mobile Services app for Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Use scripts to authorize users in Mobile Services" documentationCenter="Mobile" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # 使用指令碼為行動服務中的使用者授權
 
@@ -10,13 +10,13 @@
 
 本主題說明如何使用伺服器指令碼為已驗證的使用者授權，使其可從 Xamarin.iOS 應用程式存取 Azure 行動服務中的資料。在本教學課程中，您將在行動服務中註冊指令碼，根據經驗證使用者的 userId 篩選查詢，確保每位使用者只能看到他們自己的資料。
 
-本教學課程會以行動服務快速入門為基礎，並依據上一個[開始使用驗證][]教學課程建立。開始此教學課程之前，您必須先完成[開始使用驗證][]。
+本教學課程會以行動服務快速入門為基礎，並依據上一個[開始使用驗證][開始使用驗證]教學課程建立。開始此教學課程之前，您必須先完成[開始使用驗證][開始使用驗證]。
 
 ## <a name="register-scripts"></a>註冊指令碼
 
 由於快速入門應用程式會讀取與插入資料，您必須對 TodoItem 資料表註冊這些作業的指令碼。
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
     ![][0]
 
@@ -52,7 +52,7 @@
 
 ## 測試應用程式
 
-1.  在 Xamarin Studio 或 Visual Studio 中，開啟您完成[開始使用驗證][]教學課程時所修改的專案。
+1.  在 Xamarin Studio 或 Visual Studio 中，開啟您完成[開始使用驗證][開始使用驗證]教學課程時所修改的專案。
 
 2.  按 [執行] 按鈕以建置專案並在 iPhone 模擬器中啟動應用程式，然後使用您選擇的身分識別提供者登入。
 
@@ -72,27 +72,19 @@
 
 這將結束示範使用驗證基本概念的教學課程。考慮更深入了解下列行動服務主題：
 
--   [開始使用資料][]
+-   [開始使用資料][開始使用資料]
     深入了解使用行動服務來儲存與查詢資料。
 
--   [開始使用推播通知][]
+-   [開始使用推播通知][開始使用推播通知]
     了解如何將極為基本的推播通知傳送到應用程式。
 
--   [行動服務伺服器指令碼參考][]
+-   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何註冊和使用伺服器指令碼。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-dotnet "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-js "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-wp8 "Windows Phone"
-  [iOS]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-ios "iOS"
-  [Android]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-android "Android"
-  [HTML]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-html "HTML"
-  [iOS C#]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios "Xamarin.iOS"
-  [Android C#]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android "Xamarin.Android"
   [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-ios
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [0]: ./media/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/mobile-services-selection.png

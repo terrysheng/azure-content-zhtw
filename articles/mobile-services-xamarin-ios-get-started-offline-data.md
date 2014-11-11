@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-offline-data-ios" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Xamarin iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data in Mobile Services" authors="donnam,wesmc" editor="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam,wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam,wesmc" />
 
 # 開始在行動服務中使用離線資料同步
 
@@ -158,7 +158,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 3.  在 [待辦事項] 清單中新增項目。
 
-    ![][]
+    ![][0]
 
 4.  登入 Microsoft Azure 管理入口網站，並檢視您的行動服務的資料庫。如果您的行動服務使用 JavaScript 後端，則您可以從行動服務的 [資料] 索引標籤瀏覽資料。如果您在行動服務中使用 .NET 後端，您可以在「SQL Azure 擴充功能」中對您的資料庫按一下 [管理] 按鈕，以對您的資料表執行查詢。
 
@@ -200,11 +200,6 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 <!-- Anchors. --> <!-- Images --> <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows 市集 C#"
-  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /zh-tw/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
   [開始使用行動服務]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
   [開始使用資料]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
   [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28
@@ -212,10 +207,8 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
   [測試連接到行動服務的應用程式]: #test-online-app
   [Xamarin 延伸]: http://xamarin.com/visual-studio
   [Xamarin Studio]: http://xamarin.com/download
-  [Azure 行動服務 SDK 1.3.0-alpha3 版 (或更新版本)]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-alpha3
-  [Azure 行動服務 SQLite Store 1.0.0-alpha2 版 (或更新版本)]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-alpha2
   [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
-  []: ./media/mobile-services-xamarin-ios-get-started-offline-data/mobile-quickstart-startup-ios.png
+  [0]: ./media/mobile-services-xamarin-ios-get-started-offline-data/mobile-quickstart-startup-ios.png
   [1]: ./media/mobile-services-xamarin-ios-get-started-offline-data/mobile-quickstart-completed-ios.png
   [2]: ./media/mobile-services-xamarin-ios-get-started-offline-data/mobile-data-browse.png
   [如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/

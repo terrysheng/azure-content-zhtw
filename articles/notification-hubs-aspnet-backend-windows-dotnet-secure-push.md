@@ -1,6 +1,6 @@
 <properties title="Azure Notification Hubs Secure Push" pageTitle="Azure Notification Hubs Secure Push" metaKeywords="Azure push notifications, Azure notification hubs, Azure messaging, secure push" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Azure 通知中心安全推播
 
@@ -71,7 +71,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 2.  展開 [市集應用程式]，然後按一下 [Windows Phone 應用程式]，再按一下 [Windows 執行階段元件 (Windows Phone)]。將專案命名為 **PushBackgroundComponent**，然後按一下 [確定] 以建立專案。
 
-    ![][]
+    ![][0]
 
 3.  在 [方案總管] 中，以滑鼠右鍵按一下 **PushBackgroundComponent (Windows Phone 8.1)** 專案，然後按一下 [新增]，再按一下 [類別]。將新類別命名為 **PushBackgroundTask.cs**。按一下 [新增] 以產生類別。
 
@@ -169,11 +169,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 4.  在 **NotifyUserWindowsPhone** 應用程式 UI 中，按一下 **[Log in and register]**。然後按一下 [傳送推播]。
 
-  [Windows Universal]: /zh-tw/documentation/articles/notification-hubs-windows-dotnet-secure-push/ "Windows Universal"
-  [iOS]: /zh-tw/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/ "iOS"
-  [Android]: /zh-tw/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/ "Android"
-  [開始使用通知中心 (Windows 市集)]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md
-  []: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
+  [0]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
   [1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
   [2]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png

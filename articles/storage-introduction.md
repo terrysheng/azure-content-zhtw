@@ -1,6 +1,6 @@
 <properties linkid="storage-introduction" urlDisplayName="Introduction to Azure Storage" pageTitle="Introduction to Storage | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure " description="An overview of Microsoft Azure Storage." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Introduction to Microsoft Azure Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Microsoft Azure 儲存體簡介
 
@@ -35,17 +35,17 @@ Azure 儲存體服務包括 Blob 儲存體、資料表儲存體、佇列儲存�
 -   **佇列儲存體**針對工作流程處理及雲端服務元件間的通訊，提供可靠的訊息服務。
 -   **檔案儲存體**為使用標準 SMB 2.1 通訊協定的舊版應用程式提供共用儲存體。Azure 虛擬機器和雲端服務可以透過掛接的共用，在應用程式元件之間共用檔案資料，而內部部署應用程式可以透過檔案服務 REST API，存取共用中的檔案資料。
 
-Blob、資料表和佇列儲存體包含在每一個儲存體帳戶中，而檔案儲存體可依要求透過 [Azure 預覽頁面][]取得。
+Blob、資料表和佇列儲存體包含在每一個儲存體帳戶中，而檔案儲存體可依要求透過 [Azure 預覽頁面][Azure 預覽頁面]取得。
 
-儲存體帳戶是指可讓您存取 Azure 儲存體的唯一命名空間。每個儲存體帳戶都可包含多達 500 TB 的 Blob、佇列、資料表和檔案資料的組合。如需 Azure 儲存體帳戶容量的詳細資訊，請參閱＜[Azure 儲存體延展性和效能目標][]＞。
+儲存體帳戶是指可讓您存取 Azure 儲存體的唯一命名空間。每個儲存體帳戶都可包含多達 500 TB 的 Blob、佇列、資料表和檔案資料的組合。如需 Azure 儲存體帳戶容量的詳細資訊，請參閱＜[Azure 儲存體延展性和效能目標][Azure 儲存體延展性和效能目標]＞。
 
 下圖顯示 Azure 儲存體資源之間的關係：
 
-![Azure 儲存體資源][]
+![Azure 儲存體資源][Azure 儲存體資源]
 
 在建立儲存體帳戶之前，您必須擁有 Azure 訂用帳戶，訂用帳戶是指可讓您存取各種 Azure 服務的方案。單一訂用帳戶可讓您建立最多 20 個唯一命名的儲存體帳戶。
 
-您可以利用[免費試用版][]來開始使用 Azure。在決定購買方案之後，您便可以選擇各種[購買選項][]。如果您是 [MSDN 訂閱者][]，您將取得可在 Azure 服務 (包括 Azure 儲存體) 中使用的每月免費額度。
+您可以利用[免費試用版][免費試用版]來開始使用 Azure。在決定購買方案之後，您便可以選擇各種[購買選項][購買選項]。如果您是 [MSDN 訂閱者][MSDN 訂閱者]，您將取得可在 Azure 服務 (包括 Azure 儲存體) 中使用的每月免費額度。
 
 ## Blob 儲存體
 
@@ -62,7 +62,7 @@ Blob、資料表和佇列儲存體包含在每一個儲存體帳戶中，而檔�
 
 Blob 儲存體提供兩種 Blob 類型：區塊 Blob 和頁面 Blob (磁碟)。區塊 Blob 已針對串流和儲存雲端物件進行最佳化，是儲存文件、媒體檔案、備份等的不錯選擇。區塊 Blob 的大小可高達 200 GB。頁面 Blob 已針對顯示 IaaS 磁碟與支援隨機寫入進行最佳化，且大小可能可以高達 1 TB。Azure 虛擬機器網路附加 IaaS 磁碟是以頁面 Blob 方式儲存的 VHD。
 
-若是超大型資料集，網路限制會使得透過線路上傳或下載資料至 Blob 儲存體變得不切實際，您可以將硬碟送至 Microsoft，以便使用 [Azure 匯入/匯出服務][]直接從資料中心匯入或匯出資料。您也可以複製儲存體帳戶或跨不同儲存體帳戶內的 Blob 資料。
+若是超大型資料集，網路限制會使得透過線路上傳或下載資料至 Blob 儲存體變得不切實際，您可以將硬碟送至 Microsoft，以便使用 [Azure 匯入/匯出服務][Azure 匯入/匯出服務]直接從資料中心匯入或匯出資料。您也可以複製儲存體帳戶或跨不同儲存體帳戶內的 Blob 資料。
 
 ## 資料表儲存體
 
@@ -100,13 +100,13 @@ Blob 儲存體提供兩種 Blob 類型：區塊 Blob 和頁面 Blob (磁碟)。�
 
 建立儲存體帳戶時所指派的兩組存取金鑰可用於驗證。當您定期重新產生金鑰作為一般安全性金鑰管理作法時，擁有兩組金鑰可確保您的應用程式保持為可用狀態。
 
-如果您確實需要允許使用者對儲存體資源進行控管存取，則您可以建立[共用存取簽章][]。共用存取簽章是指可附加在 URL 後面的權杖，可提供容器、Blob、資料表或佇列的委派存取。在權杖有效的期限內，擁有權杖的任何人都可以存取它在指定權限中所指向的資源。請注意，Azure 檔案儲存體目前不支援共用存取簽章。
+如果您確實需要允許使用者對儲存體資源進行控管存取，則您可以建立[共用存取簽章][共用存取簽章]。共用存取簽章是指可附加在 URL 後面的權杖，可提供容器、Blob、資料表或佇列的委派存取。在權杖有效的期限內，擁有權杖的任何人都可以存取它在指定權限中所指向的資源。請注意，Azure 檔案儲存體目前不支援共用存取簽章。
 
 最後，您可以指定容器及其 Blob 或特定的 Blob 是否可供公用存取。當您將容器或 Blob 指定為公用時，任何人都可以進行匿名讀取；不需要驗證。公用容器和 Blob 對於公開資源 (例如網站上所託管的媒體和文件) 而言非常有用。若要縮短全球使用者的網路延遲，您可以使用 Azure CDN 來快取網站所用的 Blob 資料。
 
 ## 持久性和高可用性的複寫
 
-[WACOM.INCLUDE [storage-replication-options][]]
+[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ## 定價
 
@@ -114,84 +114,84 @@ Blob 儲存體提供兩種 Blob 類型：區塊 Blob 和頁面 Blob (磁碟)。�
 
 儲存體容量是指您用於儲存資料的儲存體帳戶配額。若只是儲存資料，則成本是由您所儲存的資料量和複寫資料的方式來決定。對 Azure 儲存體進行的每個讀取和寫入操作也會對服務提出要求。出口流量是指傳出 Windows Azure 地區的資料。當您儲存體帳戶中的資料受不同地區中執行的應用程式存取時，不論該應用程式是雲端服務還是其他某類應用程式，您都要負擔出口流量的費用。(若為 Windows Azure 服務，您可以採取步驟，將資料和服務群組在相同的資料中心，以減少或消除處理和出口流量費用。)
 
-[儲存體定價詳細資料][]頁面提供了儲存體容量、複寫和交易的詳細定價資料。[資料傳輸定價詳細資料][]則提供了出口流量的詳細定價資訊。您可以使用 [Azure 儲存體定價計算機][]，以協助消除成本。
+[儲存體定價詳細資料][儲存體定價詳細資料]頁面提供了儲存體容量、複寫和交易的詳細定價資料。[資料傳輸定價詳細資料][資料傳輸定價詳細資料]則提供了出口流量的詳細定價資訊。您可以使用 [Azure 儲存體定價計算機][Azure 儲存體定價計算機]，以協助消除成本。
 
 ## 針對儲存體進行開發
 
-Azure 儲存體可透過 [REST API][] 公開儲存體資源，任何可提出 HTTP/HTTPS 要求的語言都可呼叫 REST API。另外，Azure 儲存體還提供了幾種熱門語言的程式設計程式庫。這些程式庫可透過處理詳細資料 (例如同步和非同步叫用、進行批次操作、例外狀況管理、自動重試、運作方式等等) 來簡化使用 Azure 儲存體的許多項目。程式庫目前適用於下列語言和平台，以及正在研發的其他語言和平台：
+Azure 儲存體可透過 [REST API][REST API] 公開儲存體資源，任何可提出 HTTP/HTTPS 要求的語言都可呼叫 REST API。另外，Azure 儲存體還提供了幾種熱門語言的程式設計程式庫。這些程式庫可透過處理詳細資料 (例如同步和非同步叫用、進行批次操作、例外狀況管理、自動重試、運作方式等等) 來簡化使用 Azure 儲存體的許多項目。程式庫目前適用於下列語言和平台，以及正在研發的其他語言和平台：
 
--   [.NET][]
--   [機器碼][]
--   [Java/Android][]
--   [Node.js][]
--   [PHP][]
--   [Ruby][]
--   [Python][]
--   [PowerShell][]
+-   [.NET][.NET]
+-   [機器碼][機器碼]
+-   [Java/Android][Java/Android]
+-   [Node.js][Node.js]
+-   [PHP][PHP]
+-   [Ruby][Ruby]
+-   [Python][Python]
+-   [PowerShell][PowerShell]
 
 ## 後續步驟
 
 若要開始使用 Azure 儲存體，請探索以下資源：
 
--   [Azure 儲存體文件][]
--   [Azure 儲存體延展性和效能目標][]
+-   [Azure 儲存體文件][Azure 儲存體文件]
+-   [Azure 儲存體延展性和效能目標][Azure 儲存體延展性和效能目標]
 
 ### 針對 .NET 開發人員
 
--   [如何使用 .NET 的 Blob 儲存體][]
--   [如何使用 .NET 的資料表儲存體][]
--   [如何使用 .NET 的佇列儲存體][]
+-   [如何使用 .NET 的 Blob 儲存體][如何使用 .NET 的 Blob 儲存體]
+-   [如何使用 .NET 的資料表儲存體][如何使用 .NET 的資料表儲存體]
+-   [如何使用 .NET 的佇列儲存體][如何使用 .NET 的佇列儲存體]
 
 ### 針對 Java/Android 開發人員
 
--   [如何從 Java/Android 使用 Blob 儲存體][]
--   [如何從 Java/Android 使用資料表儲存體][]
--   [如何從 Java/Android 使用查詢儲存體][]
+-   [如何從 Java/Android 使用 Blob 儲存體][如何從 Java/Android 使用 Blob 儲存體]
+-   [如何從 Java/Android 使用資料表儲存體][如何從 Java/Android 使用資料表儲存體]
+-   [如何從 Java/Android 使用查詢儲存體][如何從 Java/Android 使用查詢儲存體]
 
 ### 針對 Node.js 開發人員
 
--   [如何使用 Node.js 的 Blob 儲存體][]
--   [如何使用 Node.js 的資料表儲存體][]
--   [如何使用 Node.js 的佇列儲存體][]
+-   [如何使用 Node.js 的 Blob 儲存體][如何使用 Node.js 的 Blob 儲存體]
+-   [如何使用 Node.js 的資料表儲存體][如何使用 Node.js 的資料表儲存體]
+-   [如何使用 Node.js 的佇列儲存體][如何使用 Node.js 的佇列儲存體]
 
 ### 針對 PHP 開發人員
 
--   [如何使用 PHP 的 Blob 儲存體][]
--   [如何使用 PHP 的資料表儲存體][]
--   [如何使用 PHP 的佇列儲存體][]
+-   [如何使用 PHP 的 Blob 儲存體][如何使用 PHP 的 Blob 儲存體]
+-   [如何使用 PHP 的資料表儲存體][如何使用 PHP 的資料表儲存體]
+-   [如何使用 PHP 的佇列儲存體][如何使用 PHP 的佇列儲存體]
 
 ### 針對 Ruby 開發人員
 
--   [如何使用 Ruby 的 Blob 儲存體][]
--   [如何使用 Ruby 的資料表儲存體][]
--   [如何使用 Ruby 的佇列儲存體][]
+-   [如何使用 Ruby 的 Blob 儲存體][如何使用 Ruby 的 Blob 儲存體]
+-   [如何使用 Ruby 的資料表儲存體][如何使用 Ruby 的資料表儲存體]
+-   [如何使用 Ruby 的佇列儲存體][如何使用 Ruby 的佇列儲存體]
 
 ### 針對 Python 開發人員
 
--   [如何使用 Python 的 Blob 儲存體][]
--   [如何使用 Python 的資料表儲存體][]
--   [如何使用 Python 的佇列儲存體][]
+-   [如何使用 Python 的 Blob 儲存體][如何使用 Python 的 Blob 儲存體]
+-   [如何使用 Python 的資料表儲存體][如何使用 Python 的資料表儲存體]
+-   [如何使用 Python 的佇列儲存體][如何使用 Python 的佇列儲存體]
 
-  [Azure 預覽頁面]: /en-us/services/preview/
+  [Azure 預覽頁面]: /zh-tw/services/preview/
   [Azure 儲存體延展性和效能目標]: http://msdn.microsoft.com/library/windowsazure/dn249410.aspx
   [Azure 儲存體資源]: ./media/storage-introduction/storage-concepts.png
-  [免費試用版]: /en-us/pricing/free-trial/
-  [購買選項]: /en-us/pricing/purchase-options/
-  [MSDN 訂閱者]: /en-us/pricing/member-offers/msdn-benefits-details/
+  [免費試用版]: /zh-tw/pricing/free-trial/
+  [購買選項]: /zh-tw/pricing/purchase-options/
+  [MSDN 訂閱者]: /zh-tw/pricing/member-offers/msdn-benefits-details/
   [Azure 匯入/匯出服務]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-import-export-service/
   [共用存取簽章]: ../storage-dotnet-shared-access-signature-part-1/
   [storage-replication-options]: ../includes/storage-replication-options.md
-  [儲存體定價詳細資料]: /en-us/pricing/details/storage/
-  [資料傳輸定價詳細資料]: /en-us/pricing/details/data-transfers/
-  [Azure 儲存體定價計算機]: /en-us/pricing/calculator/?scenario=data-management
+  [儲存體定價詳細資料]: /zh-tw/pricing/details/storage/
+  [資料傳輸定價詳細資料]: /zh-tw/pricing/details/data-transfers/
+  [Azure 儲存體定價計算機]: /zh-tw/pricing/calculator/?scenario=data-management
   [REST API]: http://msdn.microsoft.com/library/windowsazure/dd179355.aspx
   [.NET]: http://msdn.microsoft.com/library/dn495001.aspx
   [機器碼]: http://msdn.microsoft.com/library/dn495438.aspx
-  [Java/Android]: /en-us/develop/java/
-  [Node.js]: /en-us/develop/nodejs/
-  [PHP]: /en-us/develop/php/
-  [Ruby]: /en-us/develop/ruby/
-  [Python]: /en-us/develop/python/
+  [Java/Android]: /zh-tw/develop/java/
+  [Node.js]: /zh-tw/develop/nodejs/
+  [PHP]: /zh-tw/develop/php/
+  [Ruby]: /zh-tw/develop/ruby/
+  [Python]: /zh-tw/develop/python/
   [PowerShell]: http://msdn.microsoft.com/library/dn495240.aspx
   [Azure 儲存體文件]: /zh-tw/documentation/services/storage/
   [如何使用 .NET 的 Blob 儲存體]: ../storage-dotnet-how-to-use-blobs/

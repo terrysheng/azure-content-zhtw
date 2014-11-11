@@ -1,10 +1,10 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-5-worker-role-b" pageTitle="Azure Cloud Service Tutorial: Worker Role with Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # 建置 Azure Email Service 應用程式的背景工作角色 B (電子郵件寄件者) - 5/5
 
-這是一系列教學課程的第五個教學課程 (共五個)，顯示如何建置和部署 Azure Email Service 範例應用程式。如需應用程式和教學課程系列的詳細資訊，請參閱[系列的第一個教學課程][]。
+這是一系列教學課程的第五個教學課程 (共五個)，顯示如何建置和部署 Azure Email Service 範例應用程式。如需應用程式和教學課程系列的詳細資訊，請參閱[系列的第一個教學課程][系列的第一個教學課程]。
 
 在本教學課程中，您將了解：
 
@@ -16,23 +16,23 @@
 
 ## 本教學課程章節
 
--   [將背景工作角色 B 專案加入方案][]
--   [將參考加入 Web 專案][]
--   [將 SendGrid NuGet 封裝加入專案][]
--   [加入專案設定][]
--   [新增在背景工作角色啟動時所執行的程式碼][]
--   [測試背景工作角色 B][]
--   [後續步驟][]
+-   [將背景工作角色 B 專案加入方案][將背景工作角色 B 專案加入方案]
+-   [將參考加入 Web 專案][將參考加入 Web 專案]
+-   [將 SendGrid NuGet 封裝加入專案][將 SendGrid NuGet 封裝加入專案]
+-   [加入專案設定][加入專案設定]
+-   [新增在背景工作角色啟動時所執行的程式碼][新增在背景工作角色啟動時所執行的程式碼]
+-   [測試背景工作角色 B][測試背景工作角色 B]
+-   [後續步驟][後續步驟]
 
 ## <a name="addworkerrole"></a><span class="short-header">新增背景工作角色 B</span>將背景工作角色 B 專案新增至方案
 
 1.  在 [方案總管] 中，以滑鼠右鍵按一下雲端服務專案，然後選擇 [新的背景工作角色專案]。
 
-    ![New worker role project menu][]
+    ![New worker role project menu][New worker role project menu]
 
 2.  在 [新增角色專案] 對話方塊中，依序選取 [C#]、[背景工作角色]，將專案命名為 WorkerRoleB，然後按一下 [新增]。
 
-    ![New role project dialog box][]
+    ![New role project dialog box][New role project dialog box]
 
 ## <a name="addreference"></a>將參考加入 Web 專案
 
@@ -42,7 +42,7 @@
 
 2.  在 [參考管理員] 中，將參考加入 MvcWebRole 專案。
 
-    ![Add reference to MvcWebRole][]
+    ![Add reference to MvcWebRole][Add reference to MvcWebRole]
 
 ## <a name="addsendgrid"></a>將 SendGrid NuGet 封裝加入專案
 
@@ -50,13 +50,13 @@
 
 1.  在 [方案總管] 中以滑鼠右鍵按一下 WorkerRoleB 專案，然後選擇 [管理 NuGet 封裝]。
 
-    ![Manage NuGet Packages][]
+    ![Manage NuGet Packages][Manage NuGet Packages]
 
 2.  在 [管理 NuGet 封裝] 對話方塊中，選取 [線上] 索引標籤，在搜尋方塊中輸入 "sendgrid"，然後按 Enter 鍵。
 
 3.  在 **SendGrid** 封裝上按一下 [安裝]。
 
-    ![Install the Sendgrid package][]
+    ![Install the Sendgrid package][Install the Sendgrid package]
 
 4.  關閉對話方塊。
 
@@ -64,7 +64,7 @@
 
 如同背景工作角色 A，背景工作角色 B 也必須要有儲存帳號認證，才能使用資料表、佇列和 Blob。此外，若要傳送電子郵件，背景工作角色必須將認證內嵌在對 SendGrid 服務的呼叫中。而若要建構要在傳送的電子郵件中加入的取消訂閱連結，背景工作角色必須得知應用程式的 URL。這些值均儲存在專案設定中。
 
-儲存帳號認證的相關程序，與[第三個教學課程][]所提供的程序相同。
+儲存帳號認證的相關程序，與[第三個教學課程][第三個教學課程]所提供的程序相同。
 
 1.  在 [方案總管] 中，於雲端專案中的 [角色] 下，以滑鼠右鍵按一下 **WorkerRoleB**，然後選擇 [屬性]。
 
@@ -86,13 +86,13 @@
 
 1.  在 [屬性] 視窗的 [設定] 索引標籤中，按一下 [新增設定]，然後新增 [字串] 類型的三項新設定：
 
-    -   **名稱**：SendGridUserName、**值**：您在[第二個教學課程][]中建立的 SendGrid 使用者名稱。
+    -   **名稱**：SendGridUserName、**值**：您在[第二個教學課程][第二個教學課程]中建立的 SendGrid 使用者名稱。
 
     -   **名稱**：SendGridPassword、**值**：SendGrid 密碼。
 
     -   **名稱**：AzureMailServiceURL、**值**：應用程式在您加以部署時所將具備的基礎 URL，例如：<http://sampleurl.cloudapp.net>。
 
-    ![New settings in WorkerRoleB project][]
+    ![New settings in WorkerRoleB project][New settings in WorkerRoleB project]
 
 ## <a name="addcode"></a>加入在背景工作角色啟動時所執行的程式碼
 
@@ -233,13 +233,13 @@
                         System.Threading.Thread.Sleep(1000 * 60);
                     }
 
-設置睡眠時間的目的，是要盡可能降低 Azure 儲存體交易成本，如[上一個教學課程][]所說明。
+設置睡眠時間的目的，是要盡可能降低 Azure 儲存體交易成本，如[上一個教學課程][上一個教學課程]所說明。
 
-當 [GetMessage][] 方法從佇列中提取佇列項目時，所有存取該佇列的其他背景工作和 Web 角色將有 30 秒的時間看不見該佇列項目。這是為了確保只有一個背景工作角色執行個體可提取給定的佇列訊息，以進行處理。您可以將[可見度逾時][]參數傳遞至 `GetMessage` 方法，以明確設定這個「獨佔租用」時間 (看不見佇列項目的時間)。如果背景工作角色處理佇列訊息所需的時間可能超過 30 秒，您應增加獨佔租用時間，以防止其他角色執行個體處理相同訊息。
+當 [GetMessage][GetMessage] 方法從佇列中提取佇列項目時，所有存取該佇列的其他背景工作和 Web 角色將有 30 秒的時間看不見該佇列項目。這是為了確保只有一個背景工作角色執行個體可提取給定的佇列訊息，以進行處理。您可以將[可見度逾時][可見度逾時]參數傳遞至 `GetMessage` 方法，以明確設定這個「獨佔租用」時間 (看不見佇列項目的時間)。如果背景工作角色處理佇列訊息所需的時間可能超過 30 秒，您應增加獨佔租用時間，以防止其他角色執行個體處理相同訊息。
 
 另一方面，獨佔租用時間也不應設為過大的值。例如，如果獨佔租用時間設為 48 小時，而您的背景工作角色在清除佇列中的訊息後非預期地關閉，則其他背景工作角色將有 48 小時無法處理訊息。獨佔租用上限為 7 天。
 
-[GetMessages][] 方法 (請留意名稱結尾加了 "s") 在一次呼叫中最多可從佇列中提取 32 個訊息。每次佇列存取都會產生少許交易成本，且無論傳回了 32 個訊息還是零個訊息，交易成本都是一樣的。下列程式碼會在一次呼叫中擷取最多 32 個訊息，並加以處理。
+[GetMessages][GetMessages] 方法 (請留意名稱結尾加了 "s") 在一次呼叫中最多可從佇列中提取 32 個訊息。每次佇列存取都會產生少許交易成本，且無論傳回了 32 個訊息還是零個訊息，交易成本都是一樣的。下列程式碼會在一次呼叫中擷取最多 32 個訊息，並加以處理。
 
         foreach (CloudQueueMessage msg in sendEmailQueue.GetMessages(32))
         {
@@ -401,7 +401,7 @@
 
 使用 SendGrid 傳送電子郵件的實際工作，可藉由 `SendEmailToList` 方法來完成。如果您要使用 SendGrid 以外的服務，您只需變更此方法中的程式碼即可。
 
-**注意：**如果您在專案設定中的認證無效，您對 SendGrid 的呼叫將會失敗，但系統不會指出應用程式的失敗。如果您在生產應用程式中使用 SendGrid，請考慮為 Web API 設定個別的認證，以避免在系統管理員變更其 SendGrid 使用者帳號密碼時導致無訊息失敗。如需詳細資訊，請參閱 [SendGrid MultiAuth - 多個帳號認證][]。您可以在 [][]<https://sendgrid.com/credentials></a> 上設定認證。
+**注意：**如果您在專案設定中的認證無效，您對 SendGrid 的呼叫將會失敗，但系統不會指出應用程式的失敗。如果您在生產應用程式中使用 SendGrid，請考慮為 Web API 設定個別的認證，以避免在系統管理員變更其 SendGrid 使用者帳號密碼時導致無訊息失敗。如需詳細資訊，請參閱 [SendGrid MultiAuth - 多個帳號認證][SendGrid MultiAuth - 多個帳號認證]。您可以在 [][]<https://sendgrid.com/credentials></a> 上設定認證。
 
         private void SendEmailToList(string emailAddress, string fromEmailAddress, string subjectLine,
             string htmlMessageBodyRef, string textMessageBodyRef)
@@ -516,51 +516,51 @@
 
 ## <a name="nextsteps"></a>後續步驟
 
-現在您已從頭建置 Azure Email Service 應用程式，而其結果與下載已完成的專案相同。若要部署至雲端、在雲端中測試，並升級至生產環境，您可以使用[第二個教學課程][]中的相同程序。
+現在您已從頭建置 Azure Email Service 應用程式，而其結果與下載已完成的專案相同。若要部署至雲端、在雲端中測試，並升級至生產環境，您可以使用[第二個教學課程][第二個教學課程]中的相同程序。
 
-如需示範如何在 Azure 儲存體資料表服務佇列中使用 LINQ 的範例應用程式，請參閱 [PhluffyFotos][] (英文)。
+如需示範如何在 Azure 儲存體資料表服務佇列中使用 LINQ 的範例應用程式，請參閱 [PhluffyFotos][PhluffyFotos] (英文)。
 
 若要深入了解 Azure 儲存體，請參閱下列資源：
 
--   [Windows Azure 儲存體須知][] (Bruno Terkaly 的部落格)
+-   [Windows Azure 儲存體須知][Windows Azure 儲存體須知] (Bruno Terkaly 的部落格)
 
 若要深入了解 Azure 資料表服務，請參閱下列資源：
 
--   [Azure 資料表儲存體須知][] (Bruno Terkaly 的部落格) (英文)
--   [如何充分發揮 Windows Azure 資料表的效益][] (Azure 儲存體團隊部落格) (英文)
--   [如何在 .NET 中使用資料表儲存體服務][]
--   [Windows Azure 儲存體用戶端程式庫 2.0 資料表深入探討][] (Azure 儲存體團隊部落格) (英文)
--   [Real World:設計 Azure 資料表儲存體的可調整分割策略][] (英文)
+-   [Azure 資料表儲存體須知][Azure 資料表儲存體須知] (Bruno Terkaly 的部落格) (英文)
+-   [如何充分發揮 Windows Azure 資料表的效益][如何充分發揮 Windows Azure 資料表的效益] (Azure 儲存體團隊部落格) (英文)
+-   [如何在 .NET 中使用資料表儲存體服務][如何在 .NET 中使用資料表儲存體服務]
+-   [Windows Azure 儲存體用戶端程式庫 2.0 資料表深入探討][Windows Azure 儲存體用戶端程式庫 2.0 資料表深入探討] (Azure 儲存體團隊部落格) (英文)
+-   [Real World:設計 Azure 資料表儲存體的可調整分割策略][Real World:設計 Azure 資料表儲存體的可調整分割策略] (英文)
 
 若要深入了解 Azure 佇列服務和 Azure 服務匯流排佇列，請參閱下列資源：
 
--   [以佇列為中心的工作模式 (運用 Windows Azure 建構真實的雲端應用程式)][]
--   [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照][]
--   [如何在 .NET 中使用佇列儲存體服務][]
+-   [以佇列為中心的工作模式 (運用 Windows Azure 建構真實的雲端應用程式)][以佇列為中心的工作模式 (運用 Windows Azure 建構真實的雲端應用程式)]
+-   [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照][Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照]
+-   [如何在 .NET 中使用佇列儲存體服務][如何在 .NET 中使用佇列儲存體服務]
 
 若要深入了解 Azure Blob 服務，請參閱下列資源：
 
--   [非結構化 Blob 儲存體 (運用 Windows Azure 建構真實的雲端應用程式)][]
--   [如何在 .NET 中使用 Azure Blob 儲存體服務][]
+-   [非結構化 Blob 儲存體 (運用 Windows Azure 建構真實的雲端應用程式)][非結構化 Blob 儲存體 (運用 Windows Azure 建構真實的雲端應用程式)]
+-   [如何在 .NET 中使用 Azure Blob 儲存體服務][如何在 .NET 中使用 Azure Blob 儲存體服務]
 
 若要深入了解 Azure 雲端服務角色的自動調整，請參閱下列資源：
 
--   [如何使用自動調整應用程式區塊][]
--   [自動調整與 Azure][]
--   [使用 Azure 建置彈性、可自動調整的方案][] (MSDN 第 9 頻道視訊)
+-   [如何使用自動調整應用程式區塊][如何使用自動調整應用程式區塊]
+-   [自動調整與 Azure][自動調整與 Azure]
+-   [使用 Azure 建置彈性、可自動調整的方案][使用 Azure 建置彈性、可自動調整的方案] (MSDN 第 9 頻道視訊)
 
 ## <a name="Acknowledgments"></a><span class="short-header">答謝</span>答謝
 
-這些教學課程和範例應用程式由 [Rick Anderson][] 和 Tom Dykstra 所撰寫。在此答謝下列人員的協助：
+這些教學課程和範例應用程式由 [Rick Anderson][Rick Anderson] 和 Tom Dykstra 所撰寫。在此答謝下列人員的協助：
 
--   Barry Dorrans (Twitter [@blowdart][])
--   [Cory Fowler][] (Twitter [@SyntaxC4][] )
--   [Joe Giardino][]
+-   Barry Dorrans (Twitter [@blowdart][@blowdart])
+-   [Cory Fowler][Cory Fowler] (Twitter [@SyntaxC4][@SyntaxC4] )
+-   [Joe Giardino][Joe Giardino]
 -   Don Glover
 -   Jai Haridas
--   [Scott Hunter][] (Twitter：[@coolcsh][])
--   [Brian Swan][]
--   [Daniel Wang][]
+-   [Scott Hunter][Scott Hunter] (Twitter：[@coolcsh][@coolcsh])
+-   [Brian Swan][Brian Swan]
+-   [Daniel Wang][Daniel Wang]
 -   提供意見反應的 Developer Advisory Council 成員：
    * Damir Arh
    * Jean-Luc Boucho
@@ -604,10 +604,8 @@
   [如何在 .NET 中使用資料表儲存體服務]: http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/table-services/
   [Windows Azure 儲存體用戶端程式庫 2.0 資料表深入探討]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx
   [Real World:設計 Azure 資料表儲存體的可調整分割策略]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh508997.aspx
-  [以佇列為中心的工作模式 (運用 Windows Azure 建構真實的雲端應用程式)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
   [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh767287.aspx
   [如何在 .NET 中使用佇列儲存體服務]: /zh-tw/develop/net/how-to-guides/queue-service/
-  [非結構化 Blob 儲存體 (運用 Windows Azure 建構真實的雲端應用程式)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
   [如何在 .NET 中使用 Azure Blob 儲存體服務]: /zh-tw/develop/net/how-to-guides/blob-storage/
   [如何使用自動調整應用程式區塊]: /zh-tw/develop/net/how-to-guides/autoscaling/
   [自動調整與 Azure]: http://msdn.microsoft.com/zh-tw/library/hh680945(v=PandP.50).aspx

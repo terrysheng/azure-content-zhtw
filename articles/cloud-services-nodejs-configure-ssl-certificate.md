@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-enablessl" urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service (Node.js) - Azure" metaKeywords="Node.js Azure SSL, Node.js Azure HTTPS" description="Learn how to specify an HTTPS endpoint for a Node.js web role and how to upload an SSL certificate to secure your application." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Web Role" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 在 Azure Web 角色中設定 Node.js 應用程式的 SSL
 
@@ -12,11 +12,11 @@
 
 此工作包含下列步驟：
 
--   [步驟 1：建立 Node.js 服務並將服務發行至雲端][]
--   [步驟 2：取得 SSL 憑證][]
--   [步驟 3：匯入 SSL 憑證][]
--   [步驟 4：修改服務定義檔和組態檔][]
--   [步驟 5：使用 HTTPS 來連線至角色執行個體][]
+-   [步驟 1：建立 Node.js 服務並將服務發行至雲端][步驟 1：建立 Node.js 服務並將服務發行至雲端]
+-   [步驟 2：取得 SSL 憑證][步驟 2：取得 SSL 憑證]
+-   [步驟 3：匯入 SSL 憑證][步驟 3：匯入 SSL 憑證]
+-   [步驟 4：修改服務定義檔和組態檔][步驟 4：修改服務定義檔和組態檔]
+-   [步驟 5：使用 HTTPS 來連線至角色執行個體][步驟 5：使用 HTTPS 來連線至角色執行個體]
 
 ## <a name="step1"> </a>步驟 1：建立 Node.js 服務並將服務發行至雲端
 
@@ -27,13 +27,13 @@
 
 1.  從 [開始] 功能表 或 [開始畫面] 中，搜尋 **Azure PowerShell**。最後，以滑鼠右鍵按一下 [Azure PowerShell]，然後選取 [以系統管理員身分執行]。
 
-    ![Azure PowerShell icon][]
+    ![Azure PowerShell icon][Azure PowerShell icon]
 
-[WACOM.INCLUDE [install-dev-tools][]]
+[WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 1.  使用 **New-AzureServiceProject** Cmdlet 建立新的服務專案。
 
-    ![][]
+    ![][0]
 
 2.  使用 **Add-AzureNodeWebRole** Cmdlet 將 Web 角色加入至您的服務：
 
@@ -77,13 +77,13 @@
 
 1.  使用 Windows 檔案總管，瀏覽至含有憑證的 **.pfx** 檔案所在的目錄，然後按兩下憑證。這時會顯示 [憑證匯入精靈]。
 
-    ![憑證精靈][]
+    ![憑證精靈][憑證精靈]
 
 2.  在 [存放區位置] 區段中，選取 [目前使用者]，然後按 [下一步]。這樣會將憑證安裝到您使用者帳戶的憑證存放區。
 
 3.  繼續執行精靈，接受預設值，一直到出現 [私密金鑰保護] 畫面為止。在這裡，您必須輸入憑證的密碼 (若有的話)。您也必須選取 [將這個金鑰設成可匯出]。最後，按 [下一步]。
 
-    ![私密金鑰保護][]
+    ![私密金鑰保護][私密金鑰保護]
 
 4.  繼續執行精靈，接受預設值，一直到順利安裝憑證為止。
 
@@ -104,7 +104,7 @@
         ...
         </WebRole>
 
-    **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。因為我們將憑證安裝到使用者憑證存放區，所以使用的值為 "My"。也可以使用其他憑證存放區位置。如需詳細資訊，請參閱[將憑證與服務產生關聯][]。
+    **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。因為我們將憑證安裝到使用者憑證存放區，所以使用的值為 "My"。也可以使用其他憑證存放區位置。如需詳細資訊，請參閱[將憑證與服務產生關聯][將憑證與服務產生關聯]。
 
 2.  在服務定義檔中，更新 **Endpoints** 區段內的 **InputEndpoint** 元素來啟用 HTTPS：
 
@@ -143,7 +143,7 @@
 
 2.  向下捲動並按一下顯示為 [網站 URL] 的連結：
 
-    ![the site url][]
+    ![the site url][the site url]
 
     <div class="dev-callout">
 <strong>注意</strong>
@@ -160,11 +160,10 @@
 
 [如何使憑證與服務產生關聯][將憑證與服務產生關聯]
 
-[在 Azure 背景工作角色中設定 Node.js 應用程式的 SSL][]
+[在 Azure 背景工作角色中設定 Node.js 應用程式的 SSL][在 Azure 背景工作角色中設定 Node.js 應用程式的 SSL]
 
-[如何在 HTTPS 端點上設定 SSL 憑證][]
+[如何在 HTTPS 端點上設定 SSL 憑證][如何在 HTTPS 端點上設定 SSL 憑證]
 
-  [設定 Azure 網站的 SSL 憑證]: ../web-sites-configure-ssl-certificate/
   [步驟 1：建立 Node.js 服務並將服務發行至雲端]: #step1
   [步驟 2：取得 SSL 憑證]: #step2
   [步驟 3：匯入 SSL 憑證]: #step3
@@ -172,10 +171,9 @@
   [步驟 5：使用 HTTPS 來連線至角色執行個體]: #step5
   [Azure PowerShell icon]: ./media/cloud-services-nodejs-configure-ssl-certificate/azure-powershell-start.png
   [install-dev-tools]: ../includes/install-dev-tools.md
-  []: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-01.png
+  [0]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-01.png
   [1]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-02.png
   [2]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-03.png
-  [如何使用 Azure PowerShell 來處理 Node.js]: https://www.windowsazure.com/zh-TW/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings
   [憑證精靈]: ./media/cloud-services-nodejs-configure-ssl-certificate/certificateimport.png
   [私密金鑰保護]: ./media/cloud-services-nodejs-configure-ssl-certificate/exportable.png
   [將憑證與服務產生關聯]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg465718.aspx

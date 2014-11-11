@@ -1,6 +1,6 @@
 <properties urlDisplayName=".NET Client Library" pageTitle="Creating a Leaderboard App with Azure Mobile Services .NET Backend" metaKeywords="Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to build a Windows Store app using Azure Mobile Services with a .NET backend." documentationCenter="Mobile" title="Creating a Leaderboard App with Azure Mobile Services .NET Backend" authors="mwasson" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mwasson"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mwasson" />
 
 # 使用 Azure 行動服務 .NET 後端建立排行榜應用程式
 
@@ -43,7 +43,7 @@ Web API 是一個開放原始碼架構，可為 .NET 開發人員提供建立 RE
 
 *排行榜*會顯示遊戲的玩家清單，以及每個玩家的分數和排名。排行榜可作為較大遊戲的一部分，或作為單獨的應用程式。排行榜是實際的應用程式，但簡單易懂而可用於教學課程。以下是此應用程式的螢幕擷取畫面：
 
-![][]
+![][0]
 
 為了方便說明此應用程式，其中不含任何實際的遊戲。您可以新增玩家，以及提交每個玩家的分數。當您提交分數時，行動服務會計算新排名。在後端上，行動服務會建立具有兩個資料表的資料庫：
 
@@ -710,7 +710,11 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
 -   [新增推播通知][新增推播通知]；例如，當某人新增玩家或更新分數時。
 -   [開始使用驗證][開始使用驗證]
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+  <!-- Anchors. -->
+
+  <!-- Images. -->
+
+  <!-- URLs. -->
 
   [ASP.NET Web API]: http://asp.net/web-api
   [Overview]: #overview
@@ -727,13 +731,13 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
   [發佈行動服務]: #publish-your-mobile-service
   [後續步驟]: #next-steps
   [Visual Studio 2013 Update 2]: http://go.microsoft.com/fwlink/p/?LinkID=390465
-  []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/01leaderboard.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/01leaderboard.png
   [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/02leaderboard.png
   [這裡]: http://code.msdn.microsoft.com/Leaderboard-App-with-Azure-9acf63af
   [2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/03leaderboard.png
   [3]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/04leaderboard.png
   [4]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/05leaderboard.png
-  [EF Code First]: http://msdn.microsoft.com/en-US/data/ee712907#codefirst
+  [EF Code First]: http://msdn.microsoft.com/zh-tw/data/ee712907#codefirst
   [處理資料庫寫入衝突]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
   [導覽屬性]: http://msdn.microsoft.com/zh-tw/data/jj713564.aspx
   [5]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/06leaderboard.png

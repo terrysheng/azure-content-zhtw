@@ -1,30 +1,30 @@
 <properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Ruby) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Ruby" description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Queues" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # 如何使用服務匯流排佇列
 
-本指南將說明如何使用服務匯流排佇列。這些範例均以 Ruby 撰寫，並使用 Azure gem。本文說明的案例包括「建立佇列」、「傳送並接收訊息」，以及「刪除佇列」。如需佇列的詳細資訊，請參閱[後續步驟][]一節。
+本指南將說明如何使用服務匯流排佇列。這些範例均以 Ruby 撰寫，並使用 Azure gem。本文說明的案例包括「建立佇列」、「傳送並接收訊息」，以及「刪除佇列」。如需佇列的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [什麼是服務匯流排佇列？][]
--   [建立服務命名空間][]
--   [取得命名空間的預設管理認證][]
--   [建立 Ruby 應用程式][]
--   [設定應用程式使用服務匯流排][]
--   [設定 Azure 服務匯流排連接][]
--   [如何建立佇列][]
--   [如何傳送訊息至佇列][]
--   [如何從佇列接收訊息][]
--   [如何處理應用程式當機與無法讀取的訊息][]
--   [後續步驟][]
+-   [什麼是服務匯流排佇列？][什麼是服務匯流排佇列？]
+-   [建立服務命名空間][建立服務命名空間]
+-   [取得命名空間的預設管理認證][取得命名空間的預設管理認證]
+-   [建立 Ruby 應用程式][建立 Ruby 應用程式]
+-   [設定應用程式使用服務匯流排][設定應用程式使用服務匯流排]
+-   [設定 Azure 服務匯流排連接][設定 Azure 服務匯流排連接]
+-   [如何建立佇列][如何建立佇列]
+-   [如何傳送訊息至佇列][如何傳送訊息至佇列]
+-   [如何從佇列接收訊息][如何從佇列接收訊息]
+-   [如何處理應用程式當機與無法讀取的訊息][如何處理應用程式當機與無法讀取的訊息]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span id="create-a-ruby-application"></span></a>建立 Ruby 應用程式
 
-建立 Ruby 應用程式。如需指示，請參閱[在 Azure 上建立 Ruby 應用程式][] (英文)。
+建立 Ruby 應用程式。如需指示，請參閱[在 Azure 上建立 Ruby 應用程式][在 Azure 上建立 Ruby 應用程式] (英文)。
 
 ## <span id="configure-your-application-to-use-service-bus"></span></a> 設定應用程式使用服務匯流排
 
@@ -107,10 +107,10 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 了解基本的服務匯流排佇列之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 參考：[佇列、主題和訂閱][]
--   請造訪 GitHub 上的 [Azure SDK for Ruby][] 儲存機制 (英文)。
+-   請參閱 MSDN 參考：[佇列、主題和訂閱][佇列、主題和訂閱]
+-   請造訪 GitHub 上的 [Azure SDK for Ruby][Azure SDK for Ruby] 儲存機制 (英文)。
 
-若要比較本文所討論的 Azure 服務匯流排佇列與[如何使用 Azure 佇列服務][]一文中討論的 Azure 佇列，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照][]。
+若要比較本文所討論的 Azure 服務匯流排佇列與[如何使用 Azure 佇列服務][如何使用 Azure 佇列服務]一文中討論的 Azure 佇列，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照][Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照]。
 
   [後續步驟]: #next-steps
   [什麼是服務匯流排佇列？]: #what-are-service-bus-queues

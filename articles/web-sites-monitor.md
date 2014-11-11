@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor websites - Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Learn how to monitor Azure websites by using the Monitor page in the Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # <a name="howtomonitor"></a>如何監視網站
 
@@ -8,17 +8,17 @@
 
 ## 目錄
 
--   [作法：新增網站度量][]
--   [作法：接收來自網站度量的警示][]
--   [作法：檢視網站的使用量配額][]
--   [作法：減少資源使用量][]
--   [超過資源使用量配額時的後續動作][]
--   [作法：設定診斷功能及下載網站記錄][]
--   [作法：監視 Web 端點狀態][]
+-   [作法：新增網站度量][作法：新增網站度量]
+-   [作法：接收來自網站度量的警示][作法：接收來自網站度量的警示]
+-   [作法：檢視網站的使用量配額][作法：檢視網站的使用量配額]
+-   [作法：減少資源使用量][作法：減少資源使用量]
+-   [超過資源使用量配額時的後續動作][超過資源使用量配額時的後續動作]
+-   [作法：設定診斷功能及下載網站記錄][作法：設定診斷功能及下載網站記錄]
+-   [作法：監視 Web 端點狀態][作法：監視 Web 端點狀態]
 
 ## <a name="websitemetrics"></a>作法：加入網站度量
 
-1.  在 [Azure 管理入口網站][]中，從網站的 [管理] 頁面按一下 [監視] 索引標籤以顯示 [監視] 管理頁面。依預設，[監視] 頁面之圖表顯示的度量與 [儀表板] 頁面的圖表相同。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站]中，從網站的 [管理] 頁面按一下 [監視] 索引標籤以顯示 [監視] 管理頁面。依預設，[監視] 頁面之圖表顯示的度量與 [儀表板] 頁面的圖表相同。
 
 2.  若要檢視網站的其他度量，請按一下頁面底部的 [加入度量] 以顯示 [選擇度量] 對話方塊。
 
@@ -47,14 +47,14 @@
 
 ## <a name="howtoreceivealerts"></a>作法：接收來自網站度量的警示
 
-在**標準**網站模式下，您可以接收以網站監視度量為基礎的警示。您必須先設定監視所用的 Web 端點才能使用警示功能，您可以在 [設定] 頁面的 [監視] 區段中加已設定。在 Azure 管理入口網站的 [設定] 頁面中，您可以建立規則以在選擇之度量達到指定的值時觸發警示。您也可以選擇在觸發警示時傳送電子郵件。如需詳細資訊，請參閱 [如何：在 Windows Azure 中接收警示通知及管理警示規則][]。
+在**標準**網站模式下，您可以接收以網站監視度量為基礎的警示。您必須先設定監視所用的 Web 端點才能使用警示功能，您可以在 [設定] 頁面的 [監視] 區段中加已設定。在 Azure 管理入口網站的 [設定] 頁面中，您可以建立規則以在選擇之度量達到指定的值時觸發警示。您也可以選擇在觸發警示時傳送電子郵件。如需詳細資訊，請參閱 [如何：在 Windows Azure 中接收警示通知及管理警示規則][如何：在 Windows Azure 中接收警示通知及管理警示規則]。
 
 ## <a name="howtoviewusage"></a>作法：檢視網站的使用量配額
 
 在網站的 [調整] 管理頁面中，您可以將網站設定為以**共用**或**標準**網站模式運作。利用**共用**網站模式，每個 Azure 訂用帳戶都能存取針對執行每個區域最多 100 個網站而提供的資源集區。基於此目的而供應給每個網站訂用帳戶的資源集區，將由相同地理區域中設定為以**共用**模式執行的其他網站共用。由於這些資源需與其他網站共用，因此所有訂用帳戶在使用這些資源時均會受到限制。套用在訂用帳戶上的資源使用限制，係以列示於各網站 [儀表板] 管理頁面之 [使用量概觀] 區段下的使用量配額來表示。
 
 **注意**
-將網站設定為以 [標準] 模式運作時，系統會配置等同於 [Azure 的虛擬機器和雲端服務大小][]內表格之**小型** (預設值)、**中型**或**大型**虛擬機器大小的專屬資源。對於以**標準**模式運作的網站，訂用帳戶可使用的資源並沒有限制。然而，每個區域容許建立的**標準**模式網站數目只有 500 個。
+將網站設定為以 [標準] 模式運作時，系統會配置等同於 [Azure 的虛擬機器和雲端服務大小][Azure 的虛擬機器和雲端服務大小]內表格之**小型** (預設值)、**中型**或**大型**虛擬機器大小的專屬資源。對於以**標準**模式運作的網站，訂用帳戶可使用的資源並沒有限制。然而，每個區域容許建立的**標準**模式網站數目只有 500 個。
 
 ### 檢視設定為共用網站模式之網站的使用量配額
 
@@ -114,7 +114,7 @@
 
     若要指定 Azure 儲存體帳戶和 Blob，請選擇 [開啟]、選擇 [Logging Level]，然後再選擇 [Manage Blob Storage]。指定要使用的儲存體帳戶、Blob 容器及 Blob 名稱，或建立新的容器和 Blob。
 
-如需 Azure 儲存體帳戶的詳細資訊，請參閱[如何管理儲存體帳戶][]。
+如需 Azure 儲存體帳戶的詳細資訊，請參閱[如何管理儲存體帳戶][如何管理儲存體帳戶]。
 
 <div class="dev-callout"> 
 <b>注意</b> 
@@ -146,7 +146,7 @@
 
 -   **Web 伺服器記錄功能** - 開啟 Web 伺服器記錄功能以使用 W3C 擴充記錄檔格式儲存網站記錄。Web 伺服器記錄功能會產生涵蓋所有傳入網站之要求的記錄，其中包括用戶端 IP 位址、要求的 URI、回應的 HTTP 狀態碼及用戶端的使用者代理程式字串等資訊。您可以將記錄儲存在 Azure 儲存體帳戶或檔案系統中。
 
-若要將 Web 伺服器記錄儲存在 Azure 儲存體帳戶，請選擇 [儲存體]，然後再選擇 [管理儲存體] 以指定儲存體帳戶和用來保存記錄的 Azure Blob 容器。如需 Azure 儲存體帳戶的詳細資訊，請參閱[如何管理儲存體帳戶][]。
+若要將 Web 伺服器記錄儲存在 Azure 儲存體帳戶，請選擇 [儲存體]，然後再選擇 [管理儲存體] 以指定儲存體帳戶和用來保存記錄的 Azure Blob 容器。如需 Azure 儲存體帳戶的詳細資訊，請參閱[如何管理儲存體帳戶][如何管理儲存體帳戶]。
 
 若要將 Web 伺服器記錄儲存在檔案系統中，請選擇 [檔案系統]。如此能啟用 [配額] 方塊以供您設定容納記錄檔的磁碟空間上限。大小的下限為 25MB，上限為 100MB。預設大小為 35MB。
 
@@ -193,7 +193,7 @@
 
 1.  開啟網站的 [儀表板] 管理頁面，接著記下 [診斷記錄] 列示的 FTP 站台和 [部署使用者] 列示的帳戶。FTP 站台是記錄檔的所在位置，而列示於 [Deployment User] 下的帳戶可用來通過 FTP 站台的驗證。
 2.  如果您尚未建立部署認證，列示於 [Deployment User] 下的帳戶將會是 [未設定]。在這種情況下，您必須建立部署認證 (如 [儀表板] 的 [Reset Deployment Credentials] 區段所述)，因為您必須使用這些認證來通過儲存記錄檔之 FTP 站台的驗證。Azure 不支援使用 Live ID 認證來通過此 FTP 站台的驗證。
-3.  請考慮使用 FTP 用戶端 (如 [FileZilla][]) 來連接 FTP 站台。與瀏覽器普遍的功能相比，FTP 用戶端更能簡化認證的指定和 FTP 站台資料夾的檢視。
+3.  請考慮使用 FTP 用戶端 (如 [FileZilla][FileZilla]) 來連接 FTP 站台。與瀏覽器普遍的功能相比，FTP 用戶端更能簡化認證的指定和 FTP 站台資料夾的檢視。
 4.  請將 FTP 站台上的記錄檔複製到本機電腦。
 
 **Azure PowerShell**
@@ -270,7 +270,7 @@
 
 **記錄檔類型：Web 伺服器記錄**
 
--   位置：/LogFiles/http/RawLogs。儲存在檔案中的資訊是使用 [W3C 擴充記錄檔格式][] (英文) 加以格式化。Azure 網站未使用 s-computername、s-ip 及 cs-version 等欄位。
+-   位置：/LogFiles/http/RawLogs。儲存在檔案中的資訊是使用 [W3C 擴充記錄檔格式][W3C 擴充記錄檔格式] (英文) 加以格式化。Azure 網站未使用 s-computername、s-ip 及 cs-version 等欄位。
 
 -   檔案讀取方法：記錄檔剖析器。用來剖析及查詢 IIS 記錄檔。Microsoft 下載中心 <http://go.microsoft.com/fwlink/?LinkId=246619> (英文) 備有 Log Parser 2.2 可供使用。
 
@@ -297,9 +297,9 @@
 
 如需網站端點監視的詳細資訊，請觀看以下影片：
 
--   [Scott Guthrie introduces Azure Web Sites and sets up Endpoint Monitoring][]
+-   [Scott Guthrie introduces Azure Web Sites and sets up Endpoint Monitoring][Scott Guthrie introduces Azure Web Sites and sets up Endpoint Monitoring]
 
--   [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow][]
+-   [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow][Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow]
 
   [作法：新增網站度量]: #websitemetrics
   [作法：接收來自網站度量的警示]: #howtoreceivealerts
@@ -312,12 +312,7 @@
   [如何：在 Windows Azure 中接收警示通知及管理警示規則]: http://go.microsoft.com/fwlink/?LinkId=309356
   [Azure 的虛擬機器和雲端服務大小]: http://go.microsoft.com/fwlink/?LinkID=309169
   [如何管理儲存體帳戶]: https://www.windowsazure.com/zh-tw/manage/services/storage/how-to-manage-a-storage-account/
-  [如何使用 Azure PowerShell]: http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/powershell-cmdlets/
-  [啟用 Azure 網站的診斷記錄功能]: /zh-tw/develop/net/common-tasks/diagnostics-logging-and-instrumentation/
-  [如何在 Azure 網站中偵錯 Node.js 應用程式]: /zh-tw/develop/nodejs/how-to-guides/Debug-Website/
   [FileZilla]: http://go.microsoft.com/fwlink/?LinkId=247914
-  [Windows Azure Cmdlet 使用者入門]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554332.aspx
-  [如何使用 Azure 命令列工具]: http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/command-line-tools/
   [W3C 擴充記錄檔格式]: http://go.microsoft.com/fwlink/?LinkID=90561
   []: http://contoso.cloudapp.net
   [Scott Guthrie introduces Azure Web Sites and sets up Endpoint Monitoring]: http://www.windowsazure.com/zh-tw/documentation/videos/websites-and-endpoint-monitoring-scottgu/

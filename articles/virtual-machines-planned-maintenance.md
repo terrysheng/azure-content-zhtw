@@ -1,6 +1,6 @@
 <properties title="Planned maintenance for Azure virtual machines" pageTitle="Planned maintenance for Azure virtual machines" description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kenazk" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk" />
 
 # Azure 虛擬機器的計劃性維護
 
@@ -33,7 +33,7 @@ Microsoft Azure 保證計劃性維護事件不會造成兩個不同 UD 的虛擬
 
 <!--Image reference-->
 
-![][]
+![][0]
 
 ## 單一執行個體更新
 
@@ -57,5 +57,5 @@ Microsoft Azure 保證計劃性維護事件不會造成兩個不同 UD 的虛擬
   [管理虛擬機器的可用性]: http://azure.microsoft.com/zh-tw/documentation/articles/virtual-machines-manage-availability/
   [服務等級協定]: ../../support/legal/sla/
   [在可用性設定組中設定多個虛擬機器以取得備援]: http://azure.microsoft.com/zh-tw/documentation/articles/virtual-machines-manage-availability/#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-  []: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
+  [0]: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
   [1]: ./media/virtual-machines-planned-maintenance/vmplanned1.png

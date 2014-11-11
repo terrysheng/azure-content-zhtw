@@ -1,47 +1,47 @@
 <properties linkid="develop-php-how-to-guides-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (PHP) - Azure" metaKeywords="" description="Learn how to use Service Bus topics with PHP in Azure." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # 如何使用服務匯流排主題/訂閱
 
-本指南將說明如何使用服務匯流排主題和訂閱。這些範例均是以 PHP 撰寫，並使用 [Azure SDK for PHP][] (英文)。所涵蓋的案例包括**建立主題和訂閱**、**建立訂閱篩選器**、**傳送訊息至主題**、**接收訂閱的訊息**，及**刪除主題和訂閱**。
+本指南將說明如何使用服務匯流排主題和訂閱。這些範例均是以 PHP 撰寫，並使用 [Azure SDK for PHP][Azure SDK for PHP] (英文)。所涵蓋的案例包括**建立主題和訂閱**、**建立訂閱篩選器**、**傳送訊息至主題**、**接收訂閱的訊息**，及**刪除主題和訂閱**。
 
 ## 目錄
 
--   [什麼是服務匯流排主題和訂閱？][]
--   [建立服務命名空間][]
--   [取得命名空間的預設管理認證][]
--   [建立 PHP 應用程式][]
--   [取得 Azure 用戶端程式庫][]
--   [設定應用程式使用服務匯流排][]
--   [作法：建立主題][]
--   [作法：建立訂閱][]
--   [作法：傳送訊息至主題][]
--   [作法：自訂閱接收訊息][]
--   [作法：處理應用程式當機與無法讀取的訊息][]
--   [作法：刪除主題和訂閱][]
--   [後續步驟][]
+-   [什麼是服務匯流排主題和訂閱？][什麼是服務匯流排主題和訂閱？]
+-   [建立服務命名空間][建立服務命名空間]
+-   [取得命名空間的預設管理認證][取得命名空間的預設管理認證]
+-   [建立 PHP 應用程式][建立 PHP 應用程式]
+-   [取得 Azure 用戶端程式庫][取得 Azure 用戶端程式庫]
+-   [設定應用程式使用服務匯流排][設定應用程式使用服務匯流排]
+-   [作法：建立主題][作法：建立主題]
+-   [作法：建立訂閱][作法：建立訂閱]
+-   [作法：傳送訊息至主題][作法：傳送訊息至主題]
+-   [作法：自訂閱接收訊息][作法：自訂閱接收訊息]
+-   [作法：處理應用程式當機與無法讀取的訊息][作法：處理應用程式當機與無法讀取的訊息]
+-   [作法：刪除主題和訂閱][作法：刪除主題和訂閱]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <span id="CreateApplication"></span></a>建立 PHP 應用程式
 
-若要建立 PHP 應用程式並使其存取 Azure Blob 服務，唯一要求就是在您的程式碼中參考 [Azure SDK for PHP][] 中的類別。您可以使用任何開發工具來建立應用程式 (包括 [記事本])。
+若要建立 PHP 應用程式並使其存取 Azure Blob 服務，唯一要求就是在您的程式碼中參考 [Azure SDK for PHP][Azure SDK for PHP] 中的類別。您可以使用任何開發工具來建立應用程式 (包括 [記事本])。
 
 > [WACOM.NOTE]
-> 您的 PHP 安裝也必須已安裝並啟用 [OpenSSL 延伸][]。
+> 您的 PHP 安裝也必須已安裝並啟用 [OpenSSL 延伸][OpenSSL 延伸]。
 
 在本指南中，您將使用可從 PHP 應用程式內本機呼叫的服務功能，或可在 Azure Web 角色、背景工作角色或網站內執行的程式碼中呼叫的服務功能。
 
 ## <span id="GetClientLibrary"></span></a>取得 Azure 用戶端程式庫
 
-[WACOM.INCLUDE [get-client-libraries][]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="ConfigureApp"></span></a>設定應用程式使用服務匯流排
 
 若要使用 Azure 服務匯流排主題 API，您必須：
 
-1.  參考使用 [require\_once][] 陳述式的自動換片器檔案，以及
+1.  參考使用 [require\_once][require\_once] 陳述式的自動換片器檔案，以及
 2.  參考任何您可能使用的類別。
 
 下列範例說明如何納入自動換片器檔案及參考 **ServiceBusService** 類別。
@@ -145,12 +145,12 @@
 
 ### 使用篩選器建立訂閱
 
-您也可以設定篩選器，讓您界定傳送至主題的哪些訊息應出現在特定主題訂閱中。訂閱所支援的最具彈性篩選器類型是實作 SQL92 子集的 **SqlFilter**。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需 SqlFilters 的詳細資訊，請參閱 [SqlFilter.SqlExpression 屬性][]。
+您也可以設定篩選器，讓您界定傳送至主題的哪些訊息應出現在特定主題訂閱中。訂閱所支援的最具彈性篩選器類型是實作 SQL92 子集的 **SqlFilter**。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需 SqlFilters 的詳細資訊，請參閱 [SqlFilter.SqlExpression 屬性][SqlFilter.SqlExpression 屬性]。
 
    > [WACOM.NOTE]
    > Each rule on a subscription processes incoming messages independently, adding their result messages to the subscription. In addition, each new subscription has a default <b>Rule</b> with a filter that adds all messages from the topic to the subscription. To receive only messages matching your filter, you must remove the default rule. You can remove the default rule by using the <b>ServiceBusRestProxy->deleteRule</b> method.
 
-以下範例將建立名為 "HighMessages"、且其 **SqlFilter** 只選取自訂 **MessageNumber** 屬性大於 3 之訊息的訂閱 (請參閱[作法：傳送訊息至主題][]，以取得將自訂屬性新增至訊息的相關資訊)：
+以下範例將建立名為 "HighMessages"、且其 **SqlFilter** 只選取自訂 **MessageNumber** 屬性大於 3 之訊息的訂閱 (請參閱[作法：傳送訊息至主題][作法：傳送訊息至主題]，以取得將自訂屬性新增至訊息的相關資訊)：
 
     $subscriptionInfo = new SubscriptionInfo("HighMessages");
     $serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
@@ -206,7 +206,7 @@
         echo $code.": ".$error_message."<br />";
     }
 
-傳送至服務匯流排主題的訊息是 **BrokeredMessage** 類別的執行個體。**BrokeredMessage** 物件具有一組標準屬性和方法 (例如 **getLabel**、**getTimeToLive**、**setLabel** 和 **setTimeToLive**)，和用來保存自訂應用程式特定屬性的屬性。下列範例示範如何將五個測試訊息傳送至我們先前建立的 `mytopic` 主題。**setProperty** 方法會用來將自訂屬性 (`MessageNumber`) 新增至每個訊息。請注意每個訊息的 `MessageNumber` 屬性值有何不同之處 (這一點可用來判斷哪些訂閱會接收訊息，如先前的[作法：建立訂閱][]一節所說明)：
+傳送至服務匯流排主題的訊息是 **BrokeredMessage** 類別的執行個體。**BrokeredMessage** 物件具有一組標準屬性和方法 (例如 **getLabel**、**getTimeToLive**、**setLabel** 和 **setTimeToLive**)，和用來保存自訂應用程式特定屬性的屬性。下列範例示範如何將五個測試訊息傳送至我們先前建立的 `mytopic` 主題。**setProperty** 方法會用來將自訂屬性 (`MessageNumber`) 新增至每個訊息。請注意每個訊息的 `MessageNumber` 屬性值有何不同之處 (這一點可用來判斷哪些訂閱會接收訊息，如先前的[作法：建立訂閱][作法：建立訂閱]一節所說明)：
 
     for($i = 0; $i < 5; $i++){
         // Create message.
@@ -312,7 +312,7 @@
 
 ## <span id="NextSteps"></span></a>後續步驟
 
-現在您已了解服務匯流排佇列的基本概念，請參閱 MSDN主題[佇列、主題和訂閱][]，以取得詳細資訊。
+現在您已了解服務匯流排佇列的基本概念，請參閱 MSDN主題[佇列、主題和訂閱][佇列、主題和訂閱]，以取得詳細資訊。
 
   [Azure SDK for PHP]: http://go.microsoft.com/fwlink/?LinkId=252473
   [什麼是服務匯流排主題和訂閱？]: #what-are-service-bus-topics
@@ -331,6 +331,5 @@
   [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [OpenSSL 延伸]: http://php.net/openssl
   [get-client-libraries]: ../includes/get-client-libraries.md
-  [require\_once]: http://php.net/require_once
   [SqlFilter.SqlExpression 屬性]: http://msdn.microsoft.com/zh-TW/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [佇列、主題和訂閱]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh367516.aspx

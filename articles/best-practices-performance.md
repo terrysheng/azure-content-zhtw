@@ -1,6 +1,6 @@
 <properties linkid="develop-dotnet-performance" urlDisplayName="Performance" pageTitle="Performance best practices - Azure" metaKeywords="Azure optimization, Azure best practice performance" description="Learn about best practices for performance in Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
 
 # 提高 Azure 應用程式效能的最佳作法
 
@@ -334,22 +334,12 @@ Azure 具有擴充性，因此可以變更最初決定的容量：不論是要�
 
   [「相較於所用時間和資源所完成的有用工作量」]: http://go.microsoft.com/fwlink/?LinkId=252650
   [測試應用程式的負載]: http://www.visualstudio.com/get-started/load-test-your-app-vs
-  [資料庫設計和模型化基礎 (英文)]: http://go.microsoft.com/fwlink/?LinkId=252675
-  [通往資料庫設計殿堂的階梯 (英文)]: http://go.microsoft.com/fwlink/?LinkId=252676
-  [資料庫設計 (英文)]: http://go.microsoft.com/fwlink/?LinkId=252677
-  [Azure 資料表儲存體和 Azure SQL Database - 比較和對照 (英文)]: http://msdn.microsoft.com/zh-TW/library/jj553018.aspx
-  [Azure 資料表儲存體效能考量 (英文)]: http://go.microsoft.com/fwlink/?LinkId=252663
-  [SQL Database 和 Azure 資料表儲存體 (英文)]: http://go.microsoft.com/fwlink/?LinkId=252664
-  [透過批次執行 Azure 資料表儲存體插入作業來增進效能 (英文)]: http://go.microsoft.com/fwlink/?LinkID=252665
-  [SQL Database 效能和彈性指南 (英文)]: http://go.microsoft.com/fwlink/?LinkId=221876
-  [Windows Azure SQL Database (先前稱為 SQL Azure) 中的同盟]: http://go.microsoft.com/fwlink/?LinkId=252668
   [使用同盟進行資料庫設計的擴充優先方法：第 1 部分 - 挑選同盟及同盟索引鍵]: http://go.microsoft.com/fwlink/?LinkId=252671
   [使用同盟進行資料庫設計的擴充優先方法：第 2 部分 - 標註和部署同盟的結構描述]: http://go.microsoft.com/fwlink/?LinkId=252672
   [第 2 部分]: http://go.microsoft.com/fwlink/?LinkId=252673
   [如何利用 SQL Database 進行分區]: http://go.microsoft.com/fwlink/?LinkId=252678
   [SQL Server 與 SQL Database 分區程式庫]: http://go.microsoft.com/fwlink/?LinkId=252679
   [簡介 Azure 快取服務]: http://go.microsoft.com/fwlink/?LinkId=252680
-  [Windows \#Azure 快取效能考量]: http://go.microsoft.com/fwlink/?LinkId=252681
   [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對比]: http://go.microsoft.com/fwlink/?LinkId=252682
   [使用服務匯流排代理訊息改善效能的最佳作法]: http://go.microsoft.com/fwlink/?LinkID=252683
   [巨量資料]: /zh-TW/solutions/big-data/
@@ -370,7 +360,6 @@ Azure 具有擴充性，因此可以變更最初決定的容量：不論是要�
   [深入了解 SQL Database 的效能]: http://go.microsoft.com/fwlink/?LinkId=252877
   [內部部署 SQL Database 與 SQL Server]: http://go.microsoft.com/fwlink/?LinkId=252878
   [使用動態管理檢視監視 Windows Azure SQL Database]: http://go.microsoft.com/fwlink/?LinkId=236195
-  [可供 SQL Database 用來分析您是否遺漏 SQL Profiler 的有用 DMV (英文)]: http://go.microsoft.com/fwlink/?LinkId=252879
   [Cerebrata]: http://go.microsoft.com/fwlink/?LinkId=252880
   [SQL Server 和 SQL Database 效能測試：Enzo SQL Baseline]: http://enzosqlbaseline.codeplex.com/
   [SQL Database]: http://go.microsoft.com/fwlink/?LinkId=246930

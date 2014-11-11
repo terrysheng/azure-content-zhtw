@@ -1,6 +1,6 @@
 <properties linkid="video-center-detail" urlDisplayName="details" pageTitle="Video Center Details" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use ASP.NET Web Forms Output Caching with Azure Websites" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # 如何將 ASP.NET Web Form 輸出快取與 Azure 網站搭配使用
 
@@ -10,28 +10,28 @@
 
 以下是使用快取服務 (預覽) 以因應頁面輸出快取需要的基本步驟：
 
--   [建立快取。][]
--   [設定 ASP.NET 專案使用 Azure 快取。][]
--   [修改 web.config 檔案。][]
--   [使用輸出快取暫時傳回頁面的快取版本。][]
+-   [建立快取。][建立快取。]
+-   [設定 ASP.NET 專案使用 Azure 快取。][設定 ASP.NET 專案使用 Azure 快取。]
+-   [修改 web.config 檔案。][修改 web.config 檔案。]
+-   [使用輸出快取暫時傳回頁面的快取版本。][使用輸出快取暫時傳回頁面的快取版本。]
 
 ## <span id="createcache"></span></a>建立快取
 
 受管理的快取服務中的快取執行個體會使用 PowerShell Cmdlet 來建立。
 
-> 一旦使用 PowerShell Cmdlet 來建立受管理的快取服務執行個體，就能在 [Azure 管理入口網站][]中檢視這些執行個體。
+> 一旦使用 PowerShell Cmdlet 來建立受管理的快取服務執行個體，就能在 [Azure 管理入口網站][Azure 管理入口網站]中檢視這些執行個體。
 
 若要建立受管理的快取服務執行個體，請開啟 Azure PowerShell 命令視窗。
 
-> 如需安裝和使用 Azure PowerShell 的指示，請參閱[如何安裝和設定 Azure PowerShell][]。
+> 如需安裝和使用 Azure PowerShell 的指示，請參閱[如何安裝和設定 Azure PowerShell][如何安裝和設定 Azure PowerShell]。
 
-叫用 [Add-AzureAccount][] Cmdlet，然後輸入與您帳戶相關聯的電子郵件地址和密碼。預設會選擇某一個訂閱並在您叫用 [Add-AzureAccount][] Cmdlet 之後顯示。若要變更該訂閱，請叫用 [Select-AzureSubscription][] Cmdlet。
+叫用 [Add-AzureAccount][Add-AzureAccount] Cmdlet，然後輸入與您帳戶相關聯的電子郵件地址和密碼。預設會選擇某一個訂閱並在您叫用 [Add-AzureAccount][Add-AzureAccount] Cmdlet 之後顯示。若要變更該訂閱，請叫用 [Select-AzureSubscription][Select-AzureSubscription] Cmdlet。
 
-> 如果您已使用帳戶的憑證來設定 Azure PowerShell，那麼就可以跳過此步驟。如需將 Azure PowerShell 與 Azure 帳戶連接的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][]。
+> 如果您已使用帳戶的憑證來設定 Azure PowerShell，那麼就可以跳過此步驟。如需將 Azure PowerShell 與 Azure 帳戶連接的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][如何安裝和設定 Azure PowerShell]。
 
-預設會選擇並顯示某一個訂閱。若要變更該訂閱，請叫用 [Select-AzureSubscription][] Cmdlet。
+預設會選擇並顯示某一個訂閱。若要變更該訂閱，請叫用 [Select-AzureSubscription][Select-AzureSubscription] Cmdlet。
 
-叫用 [New-AzureManagedCache][] Cmdlet，然後指定快取的名稱、地區、快取提供項目及大小。
+叫用 [New-AzureManagedCache][New-AzureManagedCache] Cmdlet，然後指定快取的名稱、地區、快取提供項目及大小。
 
 針對 [名稱]，請輸入要用於快取端點的子網域名稱。端點必須是介於 6 到 20 個字元之間的字串、僅包含小寫數字和字母，而且必須以字母開頭。
 
@@ -43,17 +43,17 @@
 -   標準 - 大小從 1GB 到 10GB 的快取 (每次增量 1GB)，支援通知和最多 10 個具名快取
 -   高級 - 大小從 5GB 到 150GB 的快取 (每次增量 5GB)，支援通知、高可用性和最多 10 個具名快取
 
-請選擇符合應用程式需求的 [SKU] 和 [記憶體]。請注意，有些快取功能 (例如通知和高可用性) 只有特定快取提供項目才會提供。如需選擇應用程式最適用的快取提供項目和大小的詳細資訊，請參閱 [快取提供項目][]。
+請選擇符合應用程式需求的 [SKU] 和 [記憶體]。請注意，有些快取功能 (例如通知和高可用性) 只有特定快取提供項目才會提供。如需選擇應用程式最適用的快取提供項目和大小的詳細資訊，請參閱 [快取提供項目][快取提供項目]。
 
 在下列範例中，基本 128MB 快取是透過位於美國中南部地理區域、名稱為 contosocache 所建立。
 
     New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
 
-> 如需在建立快取時可使用的完整參數和值清單，請參閱 [New-AzureManagedCache][] Cmdlet 文件。
+> 如需在建立快取時可使用的完整參數和值清單，請參閱 [New-AzureManagedCache][New-AzureManagedCache] Cmdlet 文件。
 
-一旦叫用 PowerShell Cmdlet，就會在幾分鐘內建立快取。建立該項快取之後，您的新快取不僅有 `Running` 狀態、可用於預設設定，還可在 [Azure 管理入口網站][]中檢視和設定。
+一旦叫用 PowerShell Cmdlet，就會在幾分鐘內建立快取。建立該項快取之後，您的新快取不僅有 `Running` 狀態、可用於預設設定，還可在 [Azure 管理入口網站][Azure 管理入口網站]中檢視和設定。
 
-您可以在 Azure PowerShell 視窗中監視建立進度。一旦快取可供使用，[New-AzureManagedCache][] Cmdlet 將會顯示快取資訊，如下列範例所示。
+您可以在 Azure PowerShell 視窗中監視建立進度。一旦快取可供使用，[New-AzureManagedCache][New-AzureManagedCache] Cmdlet 將會顯示快取資訊，如下列範例所示。
 
     PS C:\> Add-AzureAccount
     VERBOSE: Account "user@domain.com" has been added.
@@ -82,13 +82,13 @@
 
 ## <span id="configureproject"></span></a>設定 ASP.NET 專案
 
-1.  首先，確保您[已安裝最新的][] **Azure SDK for .NET**。
+1.  首先，確保您[已安裝最新的][已安裝最新的] **Azure SDK for .NET**。
 
 2.  在 Visual Studio 中，在 [解決方案總管] 中以滑鼠右鍵按一下 ASP.NET 專案，然後選取 [管理 NuGet 封裝]。(如果您使用的是 WebMatrix，則改為按一下工具列上的 [NuGet] 按鈕)
 
 3.  在 [線上搜尋] 編輯方塊中，輸入 **WindowsAzure.Caching**。
 
-    ![NuGetDialog][]
+    ![NuGetDialog][NuGetDialog]
 
 4.  選取 [Azure 快取] 封裝，然後按一下 [安裝] 按鈕。
 
@@ -102,19 +102,19 @@
 
 3.  接著取消由 Azure 快取 NuGet 封裝所新增的 **caching** 元素註解。最後結果應該會類似下列螢幕擷取畫面。
 
-    ![OutputConfig][]
+    ![OutputConfig][OutputConfig]
 
 4.  接下來，找到 **dataCacheClients** 區段。取消 **securityProperties** 子系元素註解。
 
-    ![CacheConfig][]
+    ![CacheConfig][CacheConfig]
 
 5.  在 **autoDiscover** 元素中，將 **identifier** 屬性設定到您的快取端點 URL 中。若要找到您的端點 URL，請前往 Azure 管理入口網站中的快取屬性。在 [儀表板] 索引標籤中，複製 [quick glance] 區段中的 **ENDPOINT URL** 值。
 
-    ![EndpointURL][]
+    ![EndpointURL][EndpointURL]
 
 6.  在 **messageSecurity** 元素中，將 **authorizationInfo** 屬性設定到您的快取存取金鑰中。若要尋找存取金鑰，請在 Azure 管理入口網站中選取您的快取。然後按一下下方列上的 [管理金鑰] 圖示。按一下 [主要存取金鑰] 文字方塊旁的複製按鈕。
 
-    ![ManageKeys][]
+    ![ManageKeys][ManageKeys]
 
 ## <span id="useoutputcaching"></span></a>使用輸出快取
 

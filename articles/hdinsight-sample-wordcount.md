@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The WordCount Hadoop sample in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The WordCount Hadoop sample in HDInsight" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # HDInsight 中的字數 Hadoop 範例
 
@@ -15,20 +15,20 @@ Hadoop MapReduce 程式會讀取文字檔，並計算每個字的出現頻率。
 
 **必要條件**：
 
--   您必須具有 Azure 帳號。如需帳號註冊方式的相關資訊，請參閱 [Azure 免費試用][]頁面。
+-   您必須具有 Azure 帳號。如需帳號註冊方式的相關資訊，請參閱 [Azure 免費試用][Azure 免費試用]頁面。
 
--   您必須已佈建 HDInsight 叢集。如需此類叢集之各種建立方式的相關指示，[開始使用 Azure HDInsight][]或[佈建 HDInsight 叢集][]
+-   您必須已佈建 HDInsight 叢集。如需此類叢集之各種建立方式的相關指示，[開始使用 Azure HDInsight][開始使用 Azure HDInsight]或[佈建 HDInsight 叢集][佈建 HDInsight 叢集]
 
--   您必須已安裝 Azure PowerShell 並加以設定，使其可用於您的帳號。如需如何執行此動作的相關指示，請參閱[安裝並設定 Azure PowerShell][]
+-   您必須已安裝 Azure PowerShell 並加以設定，使其可用於您的帳號。如需如何執行此動作的相關指示，請參閱[安裝並設定 Azure PowerShell][安裝並設定 Azure PowerShell]
 
 ## 本文內容
 
 本文將說明如何執行範例，介紹適用於 MapReduce 程式的 Java 程式碼、彙總您的學習成果，以及列出部分的後續步驟。其中包含下列幾節。
 
-1.  [使用 Azure PowerShell 執行範例][]
-2.  [適用於 WordCount MapReduce 程式的 Java 程式碼][]
-3.  [摘要][]
-4.  [後續步驟][]
+1.  [使用 Azure PowerShell 執行範例][使用 Azure PowerShell 執行範例]
+2.  [適用於 WordCount MapReduce 程式的 Java 程式碼][適用於 WordCount MapReduce 程式的 Java 程式碼]
+3.  [摘要][摘要]
+4.  [後續步驟][後續步驟]
 
 ## <span id="run-sample"></span></a>使用 Azure PowerShell 執行範例
 
@@ -101,7 +101,7 @@ Hadoop MapReduce 程式會讀取文字檔，並計算每個字的出現頻率。
 
 WordCount 指令碼的輸出應會在 cmd 視窗中顯示如下：
 
-![HDI.Sample.WordCount.Output][]
+![HDI.Sample.WordCount.Output][HDI.Sample.WordCount.Output]
 
 請注意，MapReduce 工作的輸出檔是固定不變的。因此，如果您重新執行此範例，將需要變更輸出檔的名稱。
 
@@ -184,14 +184,14 @@ WordCount 指令碼的輸出應會在 cmd 視窗中顯示如下：
 如需執行其他範例，及提供在 Azure HDInsight 上透過 Azure PowerShell 使用 Pig、Hive 和 MapReduce 工作的相關指示，請參閱下列主題：
 
 -   [Azure HDInsight 使用者入門][開始使用 Azure HDInsight]
--   [範例：10GB GraySort][]
--   [範例：Pi 估算器][]
--   [範例：C# 串流][]
--   [搭配 HDInsight 使用 Pig][]
--   [搭配 HDInsight 使用 Hive][]
--   [Azure HDInsight SDK 文件][]
+-   [範例：10GB GraySort][範例：10GB GraySort]
+-   [範例：Pi 估算器][範例：Pi 估算器]
+-   [範例：C# 串流][範例：C# 串流]
+-   [搭配 HDInsight 使用 Pig][搭配 HDInsight 使用 Pig]
+-   [搭配 HDInsight 使用 Hive][搭配 HDInsight 使用 Hive]
+-   [Azure HDInsight SDK 文件][Azure HDInsight SDK 文件]
 
-  [Azure 免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Azure 免費試用]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
   [開始使用 Azure HDInsight]: ../hdinsight-get-started/
   [佈建 HDInsight 叢集]: ../hdinsight-provision-clusters/
   [安裝並設定 Azure PowerShell]: ../install-configure-powershell/
@@ -205,4 +205,4 @@ WordCount 指令碼的輸出應會在 cmd 視窗中顯示如下：
   [範例：C# 串流]: ../hdinsight-sample-csharp-streaming/
   [搭配 HDInsight 使用 Pig]: ../hdinsight-use-pig/
   [搭配 HDInsight 使用 Hive]: ../hdinsight-use-hive/
-  [Azure HDInsight SDK 文件]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Azure HDInsight SDK 文件]: http://msdnstage.redmond.corp.microsoft.com/zh-tw/library/dn479185.aspx

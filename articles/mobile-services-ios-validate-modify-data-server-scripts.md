@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-ios" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate and modify data (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # 使用伺服器指令碼在行動服務中驗證與修改資料
 
@@ -10,16 +10,16 @@
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [新增字串長度驗證][]
-2.  [更新用戶端以支援驗證][]
+1.  [新增字串長度驗證][新增字串長度驗證]
+2.  [更新用戶端以支援驗證][更新用戶端以支援驗證]
 
-本教學課程會以上一堂教學課程[開始使用資料][]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料][]。
+本教學課程會以上一堂教學課程[開始使用資料][開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料][開始使用資料]。
 
 ## <a name="string-length-validation"></a>新增驗證
 
 驗證使用者提交的資料長度一向是最佳做法。首先，註冊可驗證傳送至行動服務之字串資料長度的指令碼，並拒絕太長的字串，在此案例中為不得超過 10 個字元。
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
     ![][0]
 
@@ -51,7 +51,7 @@
 
 現在，行動服務正在驗證資料並傳送錯誤回應，您必須更新您的應用程式以便處理驗證的錯誤回應。
 
-1.  在 Xcode 中，開啟您完成教學課程[開始使用資料][]時所修改的專案。
+1.  在 Xcode 中，開啟您完成教學課程[開始使用資料][開始使用資料]時所修改的專案。
 
 2.  按 [執行] 按鈕 (Command + R) 以建置專案並啟動應用程式，在文字方塊中輸入超過 10 個字元的文字，然後按一下加號 (**+**) 圖示。
 
@@ -104,31 +104,23 @@
 
 ## <a name="next-steps"> </a>後續步驟
 
-現在，您已完成本教學課程，請考慮繼續進行資料數列中最後的教學課程：[使用分頁縮小查詢範圍][]。
+現在，您已完成本教學課程，請考慮繼續進行資料數列中最後的教學課程：[使用分頁縮小查詢範圍][使用分頁縮小查詢範圍]。
 
 您也可以在授權使用者及傳送推播通知時使用伺服器指令碼。如需詳細資訊，請參閱下列教學課程：
 
--   [使用指令碼授權使用者][]
+-   [使用指令碼授權使用者][使用指令碼授權使用者]
     了解如何根據通過驗證使用者的 ID 來篩選資料。
 
--   [開始使用推播通知][]
+-   [開始使用推播通知][開始使用推播通知]
     了解如何將極為基本的推播通知傳送到應用程式。
 
--   [行動服務伺服器指令碼參考][]
+-   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何註冊和使用伺服器指令碼。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-validate-modify-data-server-scripts "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/mobile-services-ios-validate-modify-data-server-scripts "iOS"
-  [Android]: /zh-tw/documentation/articles/mobile-services-android-validate-modify-data-server-scripts "Android"
-  [HTML]: /zh-tw/documentation/articles/mobile-services-html-validate-modify-data-server-scripts "HTML"
-  [Xamarin.iOS]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-android-validate-modify-data-server-scripts "Xamarin.Android"
   [新增字串長度驗證]: #string-length-validation
   [更新用戶端以支援驗證]: #update-client-validation
   [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-ios

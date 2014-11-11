@@ -1,6 +1,6 @@
 <properties umbracoNaviHide="0" pageTitle="Application Model" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="Learn about the Azure hosted service application model. Understand core concepts, design considerations, defining and configuring your application, and scaling." linkid="dev-net-fundamentals-application-model" urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Application Model" authors="robb" manager="johndaw" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
 
 # Azure 執行模型
 
@@ -8,16 +8,16 @@ Azure 對於執行的應用程式提供不同的執行模型。各個執行模�
 
 ## 目錄
 
--   [虛擬機器][]
--   [網站][]
--   [雲端服務][]
--   [我應該使用什麼？做決定][]
+-   [虛擬機器][虛擬機器]
+-   [網站][網站]
+-   [雲端服務][雲端服務]
+-   [我應該使用什麼？做決定][我應該使用什麼？做決定]
 
 ## <span id="VMachine"></span></a>虛擬機器
 
-Azure 虛擬機器可以讓開發人員、IT 操作人員及其他人在雲端建立和使用虛擬機器。提供所謂的「基礎結構即服務 (IaaS)」，這項技術可用於許多方面。[圖 1][] 顯示其基本元件。
+Azure 虛擬機器可以讓開發人員、IT 操作人員及其他人在雲端建立和使用虛擬機器。提供所謂的「基礎結構即服務 (IaaS)」，這項技術可用於許多方面。[圖 1][圖 1] 顯示其基本元件。
 
-<a name="Fig1"></a>![01\_CreatingVMs][]
+<a name="Fig1"></a>![01\_CreatingVMs][01\_CreatingVMs]
 
 **圖 1：Azure 虛擬機器提供「基礎結構即服務」。**
 
@@ -28,7 +28,7 @@ Azure 虛擬機器可以讓開發人員、IT 操作人員及其他人在雲端�
 開始進行時，您有兩個選擇
 
 1.  上傳您自己的 VHD
-2.  使用 Microsoft 及其合作夥伴在 Azure 虛擬機器組件庫或 Microsoft 開放原始碼 [VMDepot][] 網站提供的 VHD。
+2.  使用 Microsoft 及其合作夥伴在 Azure 虛擬機器組件庫或 Microsoft 開放原始碼 [VMDepot][VMDepot] 網站提供的 VHD。
 
 組件庫和 VMDepot 中的 VHD 均包含乾淨的 Microsoft 和 Linux 作業系統映像，以及其中安裝 Microsoft 和其他協力廠商產品的映像。這些選項隨著時間不斷增加。其中包含下列的各種版本、版次和組態：
 
@@ -38,7 +38,7 @@ Azure 虛擬機器可以讓開發人員、IT 操作人員及其他人在雲端�
 -   BizTalk Server
 -   SharePoint Server
 
-您可以藉由 VHD 指定新 VM 的大小。[Azure 的虛擬機器和雲端服務大小][]列出各個大小的完整統計資料。
+您可以藉由 VHD 指定新 VM 的大小。[Azure 的虛擬機器和雲端服務大小][Azure 的虛擬機器和雲端服務大小]列出各個大小的完整統計資料。
 
 -   **超小**，具備共用核心及 768MB 記憶體。
 -   **小**，具備 1 個核心及 1.75GB 記憶體。
@@ -73,9 +73,9 @@ Azure 虛擬機器可用於許多用途。Microsoft 著重的主要案例包括�
 
 ### 群組 VM：雲端服務
 
-您使用 Azure 虛擬機器建立新的 VM 時，可以選擇獨立執行或在*雲端服務*的 VM 群組中執行。(儘管名稱類似，但是兩者並不相同，所以請勿將這個概念與 Azure 的 PaaS 技術名稱「雲端服務」相混淆。)各個獨立的 VM 都會被指派各自的公用 IP 位址，透過一個公用 IP 位址即可存取同一個雲端服務中所有的 VM。[圖 2][] 顯示運作架構。
+您使用 Azure 虛擬機器建立新的 VM 時，可以選擇獨立執行或在*雲端服務*的 VM 群組中執行。(儘管名稱類似，但是兩者並不相同，所以請勿將這個概念與 Azure 的 PaaS 技術名稱「雲端服務」相混淆。)各個獨立的 VM 都會被指派各自的公用 IP 位址，透過一個公用 IP 位址即可存取同一個雲端服務中所有的 VM。[圖 2][圖 2] 顯示運作架構。
 
-<a name="Fig2"></a>![02\_CloudServices][]
+<a name="Fig2"></a>![02\_CloudServices][02\_CloudServices]
 
 **圖 2：各個獨立的 VM 都有各自的公用 IP 位址，透過一個公用 IP 位址即可存取分組為同一個雲端服務的 VM。**
 
@@ -87,9 +87,9 @@ Azure 虛擬機器可用於許多用途。Microsoft 著重的主要案例包括�
 
 ### 案例：使用 SQL Server 執行應用程式
 
-為了更深入了解 Azure 虛擬機器的運作方式，可以更進一步探討一些案例。例如，假設您要建立可靠且可擴充的 Web 應用程式在 Azure 上執行。其中一種方式是在一或多個 Azure VM 中執行應用程式的邏輯，然後使用 SQL Server 進行資料管理。[圖 3][] 顯示運作架構。
+為了更深入了解 Azure 虛擬機器的運作方式，可以更進一步探討一些案例。例如，假設您要建立可靠且可擴充的 Web 應用程式在 Azure 上執行。其中一種方式是在一或多個 Azure VM 中執行應用程式的邏輯，然後使用 SQL Server 進行資料管理。[圖 3][圖 3] 顯示運作架構。
 
-<a name="Fig3"></a>![03\_AppUsingSQLServer][]
+<a name="Fig3"></a>![03\_AppUsingSQLServer][03\_AppUsingSQLServer]
 
 **圖 3：在 Azure 虛擬機器中執行的應用程式可以使用 SQL Server 進行儲存。**
 
@@ -97,9 +97,9 @@ Azure 虛擬機器可用於許多用途。Microsoft 著重的主要案例包括�
 
 ### 案例：執行 SharePoint 伺服器陣列
 
-假設組織想要建立 SharePoint 伺服器陣列，但是不要在自己的資料中心執行該伺服器陣列。或許內部部署資料中心缺乏資源，或者建立伺服器陣列的業務單位不想要與內部 IT 小組往來。在這些情況下，在 Azure 虛擬機器執行 SharePoint 有其道理。[圖 4][] 顯示運作架構。
+假設組織想要建立 SharePoint 伺服器陣列，但是不要在自己的資料中心執行該伺服器陣列。或許內部部署資料中心缺乏資源，或者建立伺服器陣列的業務單位不想要與內部 IT 小組往來。在這些情況下，在 Azure 虛擬機器執行 SharePoint 有其道理。[圖 4][圖 4] 顯示運作架構。
 
-<a name="Fig4"></a>![04\_SharePointFarm][]
+<a name="Fig4"></a>![04\_SharePointFarm][04\_SharePointFarm]
 
 **圖 4：Azure 虛擬機器能夠讓 SharePoint 伺服器陣列在雲端運作。**
 
@@ -118,20 +118,20 @@ SharePoint 伺服器陣列有多個元件，分別在從不同 VHD 建立的 Azu
 使用者可以用各種方式使用 Web 技術。公司可能需要移轉或設定能夠處理一週數百萬次點擊，並且可部署到全球多個資料中心的平台服務網站。Web 設計機構可能與開發人員團隊合作，建立能夠處理成千上萬個使用者的自訂 Web 應用程式。企業開發人員可能需要設定應用程式，對於經過驗證的使用者從使用者的企業 Active Directory 追蹤雲端中的費用報告。IT 顧問可能使用常用的開放原始碼應用程式，設定小型企業的內容管理系統。
 以上所有作業都可以使用 Azure 虛擬機器完成。不過，建立和管理原始 VM 需要一些技巧和努力。如果您需要實作網站或 Web 應用程式，有一個較簡單 (且較低成本) 的方案：這種方法通常稱為「平台即服務」(PaaS)。如圖 5 所示，Azure 對於網站提供這種方法。
 
-<a name="Fig5"></a>![05\_Websites][]
+<a name="Fig5"></a>![05\_Websites][05\_Websites]
 
 **圖 5：Azure 網站支援靜態網站、常用 Web 應用程式，以及使用各種技術建立的自訂 Web 應用程式。**
 
 Azure 網站以 Azure 雲端服務為建置基礎，能夠建立最適合執行 Web 應用程式的「平台即服務」方案。如圖所示，網站在一組個別的 VM 上執行，這些 VM 可能包含多位使用者建立的多個網站，網站也在屬於個別使用者的標準 VM 上執行。VM 是 Azure 網站管理的資源集區一部分，因此可達到高可靠性和容錯性。
 開始使用相當簡單。藉由 Azure 網站，使用者可以選擇眾多應用程式、架構和範本，並且在短時間內建立網站。使用者可以接著使用自己最愛的開發工具 (WebMatrix、Visual Studio、其他任何編輯器) 和原始檔控制選項來設定持續整合，並且進行團隊開發。以 MySQL 資料庫為基礎的應用程式可以使用 Microsoft 合作夥伴 ClearDB 對於 Azure 提供的 MySQL 服務。
 開發人員可以建立網站的大型可擴充 Web 應用程式。這項技術支援使用 ASP.NET、PHP、Node.js 和 Python 建立應用程式。例如，應用程式可以使用黏性工作階段，而且現有的 Web 應用程式可以移到這個雲端平台，完全不需要變更。以網站為建置基礎的應用程式可以自由運用 Azure 的其他層面，例如服務匯流排、SQL Database 和 Blob 儲存體。您也可以在不同的 VM 中執行應用程式的多個複本，而且網站可自動進行要求的負載平衡。由於新的網站執行個體建立於已經存在的 VM 中，因此可以很快啟動新的應用程式執行個體，速度比等候新 VM 建立還快。
-如[圖 5][] 所示，您可以透過多種方式，將程式碼和其他 Web 內容發佈到網站。您可以使用 FTP、FTPS 或 Microsoft 的 WebDeploy 技術。網站也支援從原始檔控制系統發佈程式碼，包括 Git、GitHub、CodePlex、BitBucket、Dropbox、Mercurial、Team Foundation Server 和雲端架構 Team Foundation Service。
+如[圖 5][圖 5] 所示，您可以透過多種方式，將程式碼和其他 Web 內容發佈到網站。您可以使用 FTP、FTPS 或 Microsoft 的 WebDeploy 技術。網站也支援從原始檔控制系統發佈程式碼，包括 Git、GitHub、CodePlex、BitBucket、Dropbox、Mercurial、Team Foundation Server 和雲端架構 Team Foundation Service。
 
 ## <span id="CloudServices"></span></a>雲端服務
 
-Azure 虛擬機器提供 IaaS，而 Azure 網站提供虛擬主機。第三個運算選項「雲端服務」提供*平台即服務 (PaaS)*。這項技術能夠支援可擴充、可靠且低操作成本的應用程式。開發人員也不需要擔心管理使用的平台，而能夠完全專注在應用程式上。[圖 6][] 闡明此概念。
+Azure 虛擬機器提供 IaaS，而 Azure 網站提供虛擬主機。第三個運算選項「雲端服務」提供*平台即服務 (PaaS)*。這項技術能夠支援可擴充、可靠且低操作成本的應用程式。開發人員也不需要擔心管理使用的平台，而能夠完全專注在應用程式上。[圖 6][圖 6] 闡明此概念。
 
-<a name="Fig6"></a>![06\_CloudServices2][]
+<a name="Fig6"></a>![06\_CloudServices2][06\_CloudServices2]
 
 **圖 6：Azure 雲端服務提供「平台即服務」。**
 
@@ -171,9 +171,9 @@ Azure 提供的初始執行模型「雲端服務」是明確的 PaaS 作法。Pa
 
 所有 3 個 Azure 執行模型各有利弊。做出最好的選擇需要了解這些優缺點、知道您嘗試完成的目標，然後選擇最適合的作法。
 
-有時候，任何一個單一的執行模型都不是正確的選項。在這種情況下，可以併用多個選項。例如，假設您要建置發揮雲端服務 Web 角色管理效益的應用程式，而且您也基於相容性或效能因素而需要使用標準 SQL Server。在這種情況下，最好的選項是併用執行模型，如[圖 7][] 所示。
+有時候，任何一個單一的執行模型都不是正確的選項。在這種情況下，可以併用多個選項。例如，假設您要建置發揮雲端服務 Web 角色管理效益的應用程式，而且您也基於相容性或效能因素而需要使用標準 SQL Server。在這種情況下，最好的選項是併用執行模型，如[圖 7][圖 7] 所示。
 
-<a name="Fig7"></a>![07\_CombineTechnologies][]
+<a name="Fig7"></a>![07\_CombineTechnologies][07\_CombineTechnologies]
 
 **圖 7：單一應用程式可以使用多個執行模型。**
 
@@ -186,18 +186,11 @@ Azure 提供不同的執行模型，因為雲端平台需要支援許多不同�
   [雲端服務]: #CloudServices
   [我應該使用什麼？做決定]: #WhatShouldIUse
   [圖 1]: #Fig1
-  [01\_CreatingVMs]: ./media/fundamentals-application-models/ExecModels_01_CreatingVMs.png
   [VMDepot]: http://vmdepot.msopentech.com/
   [Azure 的虛擬機器和雲端服務大小]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn197896.aspx
   [圖 2]: #Fig2
-  [02\_CloudServices]: ./media/fundamentals-application-models/ExecModels_02_CloudServices.png
   [圖 3]: #Fig3
-  [03\_AppUsingSQLServer]: ./media/fundamentals-application-models/ExecModels_03_AppUsingSQLServer.png
   [圖 4]: #Fig4
-  [04\_SharePointFarm]: ./media/fundamentals-application-models/ExecModels_04_SharePointFarm.png
-  [05\_Websites]: ./media/fundamentals-application-models/ExecModels_05_Websites.png
   [圖 5]: #Fig5
   [圖 6]: #Fig6
-  [06\_CloudServices2]: ./media/fundamentals-application-models/ExecModels_06_CloudServices2.png
   [圖 7]: #Fig7
-  [07\_CombineTechnologies]: ./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png

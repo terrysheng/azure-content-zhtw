@@ -1,10 +1,10 @@
 <properties linkid="manage-windows-common-tasks-install-mysql" urlDisplayName="Install MySQL" pageTitle="Create a virtual machine running MySQL in Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Create an Azure virtual machine running Windows Server 2008 R2, and then install and configure a MySQL database on the virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running Windows Server 2008 R2 in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/15/2013" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/15/2013" ms.author="kathydav" />
 
 # 在 Azure 中執行 Windows Server 2008 R2 的虛擬機器上安裝 MySQL
 
-[MySQL][] 是一種很受歡迎的開放原始碼 SQL 資料庫。在 [Azure 管理入口網站][]中，您可以從映像庫建立執行 Windows Server 2008 R2 的虛擬機器。接著，就可以在虛擬機器上安裝和設定 MySQL 資料庫。
+[MySQL][MySQL] 是一種很受歡迎的開放原始碼 SQL 資料庫。在 [Azure 管理入口網站][Azure 管理入口網站]中，您可以從映像庫建立執行 Windows Server 2008 R2 的虛擬機器。接著，就可以在虛擬機器上安裝和設定 MySQL 資料庫。
 
 在本教學課程中，您將了解如何：
 
@@ -14,11 +14,11 @@
 
 ## 建立執行 Windows Server 2008 R2 的虛擬機器
 
-[WACOM.INCLUDE [create-and-configure-windows-server-2008-vm-in-portal][]]
+[WACOM.INCLUDE [create-and-configure-windows-server-2008-vm-in-portal](../includes/create-and-configure-windows-server-2008-vm-in-portal.md)]
 
 ## 連接資料磁碟
 
-[WACOM.INCLUDE [attach-data-disk-windows-server-2008-vm-in-portal][]]
+[WACOM.INCLUDE [attach-data-disk-windows-server-2008-vm-in-portal](../includes/attach-data-disk-windows-server-2008-vm-in-portal.md)]
 
 ## 在虛擬機器上安裝和執行 MySQL Community Server
 
@@ -28,7 +28,7 @@
 
 2.  選取右上方的 [工具] 按鈕。在 [網際網路選項] 中，選取 [安全性] 索引標籤，接著選取 [受信任的網站] 圖示，最後按一下 [網站] 按鈕。將 <i>http://\*.mysql.com </i> 加入受信任的網站清單。
 
-3.  移至[下載 MySQL Community Server][] (英文)。
+3.  移至[下載 MySQL Community Server][下載 MySQL Community Server] (英文)。
 
 4.  在 [Platform] 下拉式功能表中選取 [Microsoft Windows]，然後按一下 [Select]。
 
@@ -40,7 +40,7 @@
 
 8.  按 [下一步]。
 
-    ![MySQL Setup][]
+    ![MySQL Setup][MySQL Setup]
 
 9.  接受授權合約，然後按 [下一步]。
 
@@ -56,7 +56,7 @@
 
 12. 啟動 MySQL Configuration Wizard，然後按 [Next]。
 
-    ![Configure MySQL][]
+    ![Configure MySQL][Configure MySQL]
 
 13. 選取 [Detailed Configuration]，然後按 [Next]。
 
@@ -129,9 +129,9 @@
 
         quit
 
-30. 安裝 MySQL 後，您必須設定端點，以便遠端存取 MySQL。登入 [Azure 管理入口網站][]。在 Azure 入口網站中，依序按一下 [虛擬機器]、新虛擬機器的名稱、[端點] 和 [加入端點]。
+30. 安裝 MySQL 後，您必須設定端點，以便遠端存取 MySQL。登入 [Azure 管理入口網站][Azure 管理入口網站]。在 Azure 入口網站中，依序按一下 [虛擬機器]、新虛擬機器的名稱、[端點] 和 [加入端點]。
 
-    ![Endpoints][]
+    ![Endpoints][Endpoints]
 
 31. 選取 [加入端點]，按一下箭頭繼續。
 
@@ -151,7 +151,7 @@
 
 ## 摘要
 
-在本教學課程中，您學到如何建立 Windows 2008 R2 虛擬機器和從遠端連接它。您也學到如何在虛擬機器上安裝和設定 MySQL，以及建立資料庫和新的 MySQL 使用者。如需 MySQL 的詳細資訊，請參閱 [MySQL 文件][]。
+在本教學課程中，您學到如何建立 Windows 2008 R2 虛擬機器和從遠端連接它。您也學到如何在虛擬機器上安裝和設定 MySQL，以及建立資料庫和新的 MySQL 使用者。如需 MySQL 的詳細資訊，請參閱 [MySQL 文件][MySQL 文件]。
 
   [MySQL]: http://www.mysql.com
   [Azure 管理入口網站]: http://manage.windowsazure.com

@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with push notifications (Appcelerator) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator team;mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator="" team;mahender" />
 
 # 開始在行動服務中使用推播通知 (舊式推播)
 
@@ -62,7 +62,7 @@
 
 2.  依序按一下 [檔案] -\> [新增] -\> [行動模組專案]。
 
-    ![][]
+    ![][0]
 
 3.  在下個視窗中輸入專案設定的資料：
 
@@ -443,12 +443,6 @@
 如此即會註冊新的 insert 指令碼，該指令碼會使用[行動服務推播物件][行動服務推播物件]將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。
 
 <!-- Images. -->  
-  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/mobile-services-ios-get-started-push "iOS"
-  [Android]: /zh-tw/documentation/articles/mobile-services-android-get-started-push "Android"
-  [Appcelerator]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
 <!-- Anchors. -->
   [產生憑證簽署要求]: #certificates
   [註冊您的應用程式並啟用推播通知]: #register
@@ -465,8 +459,8 @@
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
   [啟用 GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [安裝 Java 開發工具]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
-  []: http://developer.android.com/sdk/ndk/index.html
-  []: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0011.png
+  [0]: http://developer.android.com/sdk/ndk/index.html
+  [0]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0011.png
   [1]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0031.png
   [2]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0041.png
   [3]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0061.png

@@ -1,28 +1,28 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-xamarin-android" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate and modify data (Xamarin Android) | Mobile Dev Center" metaKeywords="access and change data, Azure Mobile Services, mobile devices, Azure, mobile, Xamarin.Android" description="Learn how to validate and modify data sent using server scripts from your Xamarin.Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # 使用伺服器指令碼在行動服務中驗證與修改資料
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
 </div>
 
-本主題將示範如何在 Azure 行動服務中運用伺服器指令碼。您可在行動服務中註冊伺服器指令碼，並使用該指令碼來針對插入和更新資料執行各種操作，包括驗證與資料修改。在本教學課程中，您將定義並註冊可驗證與修改資料的伺服器指令碼。由於伺服器端指令碼的行為常會影響用戶端，您也可以更新您的 Android 應用程式，以充分利用這些新行為。完成的程式碼可從 [ValidateModifyData 應用程式][]範例中取得。
+本主題將示範如何在 Azure 行動服務中運用伺服器指令碼。您可在行動服務中註冊伺服器指令碼，並使用該指令碼來針對插入和更新資料執行各種操作，包括驗證與資料修改。在本教學課程中，您將定義並註冊可驗證與修改資料的伺服器指令碼。由於伺服器端指令碼的行為常會影響用戶端，您也可以更新您的 Android 應用程式，以充分利用這些新行為。完成的程式碼可從 [ValidateModifyData 應用程式][ValidateModifyData 應用程式]範例中取得。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [新增字串長度驗證][]
-2.  [更新用戶端以支援驗證][]
-3.  [插入時新增時間戳記][]
-4.  [更新用戶端以顯示時間戳記][]
+1.  [新增字串長度驗證][新增字串長度驗證]
+2.  [更新用戶端以支援驗證][更新用戶端以支援驗證]
+3.  [插入時新增時間戳記][插入時新增時間戳記]
+4.  [更新用戶端以顯示時間戳記][更新用戶端以顯示時間戳記]
 
-本教學課程會以上一堂教學課程[開始使用資料][]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料][]。
+本教學課程會以上一堂教學課程[開始使用資料][開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料][開始使用資料]。
 
 ## <a name="string-length-validation"></a>新增驗證
 
 驗證使用者提交的資料長度一向是最佳做法。首先，註冊可驗證傳送至行動服務之字串資料長度的指令碼，並拒絕太長的字串，在此案例中為不得超過 10 個字元。
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
     ![][0]
 
@@ -54,7 +54,7 @@
 
 現在，行動服務正在驗證資料並傳送錯誤回應，您必須確認應用程式能夠正確處理驗證的錯誤回應。
 
-1.  在 Xamarin Studio 中，開啟您完成[開始使用資料][]教學課程時所建立的專案。
+1.  在 Xamarin Studio 中，開啟您完成[開始使用資料][開始使用資料]教學課程時所建立的專案。
 
 2.  在 TodoActivity.cs 檔案中找出 **AddItem** 方法，並以下列程式碼取代 CreateAndShowDialog 方法的呼叫：
 
@@ -146,31 +146,23 @@
 
 ## <a name="next-steps"> </a>後續步驟
 
-現在，您已完成本教學課程，請考慮繼續進行資料數列中最後的教學課程：[使用分頁縮小查詢範圍][]。
+現在，您已完成本教學課程，請考慮繼續進行資料數列中最後的教學課程：[使用分頁縮小查詢範圍][使用分頁縮小查詢範圍]。
 
 您也可以在授權使用者及傳送推播通知時使用伺服器指令碼。如需詳細資訊，請參閱下列教學課程：
 
--   [使用指令碼授權使用者][]
+-   [使用指令碼授權使用者][使用指令碼授權使用者]
     了解如何根據通過驗證使用者的 ID 來篩選資料。
 
--   [開始使用推播通知][]
+-   [開始使用推播通知][開始使用推播通知]
     了解如何將極為基本的推播通知傳送到應用程式。
 
--   [行動服務伺服器指令碼參考][]
+-   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何註冊和使用伺服器指令碼。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-js "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone"
-  [iOS]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
-  [Android]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
-  [HTML]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
-  [Xamarin.iOS]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
   [ValidateModifyData 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=331330
   [新增字串長度驗證]: #string-length-validation
   [更新用戶端以支援驗證]: #update-client-validation

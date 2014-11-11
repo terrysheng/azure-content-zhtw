@@ -1,31 +1,31 @@
 <properties linkid="manage-services-hdinsight-analyze-flight-delay-data" urlDisplayName="Analyze flight delay data with Hadoop in HDInsight" pageTitle="Analyze flight delay data using Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how to upload data to HDInsight, how to process the data using Hive, and how to export the results to SQL Database using Sqoop." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze flight delay data using Hadoop in HDInsight " authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # 在 HDInsight 上使用 Hadoop 分析航班延誤資料
 
-Hive 提供一種透過 SQL 式指令碼語言執行 Hadoop MapReduce 工作的工具，稱為 *[HiveQL][]*，可用來總結、查詢和分析大量資料。本教學課程說明如何使用 Hive 來計算機場的平均誤點時間，以及如何使用 Sqoop 將結果匯出至 SQL Database。
+Hive 提供一種透過 SQL 式指令碼語言執行 Hadoop MapReduce 工作的工具，稱為 *[HiveQL][HiveQL]*，可用來總結、查詢和分析大量資料。本教學課程說明如何使用 Hive 來計算機場的平均誤點時間，以及如何使用 Sqoop 將結果匯出至 SQL Database。
 
 **必要條件：**
 
 開始進行本教學課程之前，您必須具備下列條件：
 
--   Azure HDInsight 叢集。如需佈建 HDInsight 叢集的相關資訊，請參閱[開始使用 HDInsight][] 或[佈建 HDInsight 叢集][]。
--   已安裝並設定 Azure PowerShell 的工作站。如需指示，請參閱[安裝並設定 Azure PowerShell][]。
+-   Azure HDInsight 叢集。如需佈建 HDInsight 叢集的相關資訊，請參閱[開始使用 HDInsight][開始使用 HDInsight] 或[佈建 HDInsight 叢集][佈建 HDInsight 叢集]。
+-   已安裝並設定 Azure PowerShell 的工作站。如需指示，請參閱[安裝並設定 Azure PowerShell][安裝並設定 Azure PowerShell]。
 
 **預估完成時間：** 30 分鐘
 
 ## 本教學課程內容
 
--   [教學課程前置工作][]
--   [建立及上傳 HiveQL 指令碼][]
--   [執行 HiveQL 指令碼][]
--   [將輸出匯出至 Azure SQL Database][]
--   [後續步驟][]
+-   [教學課程前置工作][教學課程前置工作]
+-   [建立及上傳 HiveQL 指令碼][建立及上傳 HiveQL 指令碼]
+-   [執行 HiveQL 指令碼][執行 HiveQL 指令碼]
+-   [將輸出匯出至 Azure SQL Database][將輸出匯出至 Azure SQL Database]
+-   [後續步驟][後續步驟]
 
 ## <span id="prepare"></span></a>教學課程前置工作
 
-本教學課程將在您的工作站上使用取自[創新技術研究管理部運輸統計處][] (RITA) 的飛行航班準點率資料。您將執行下列作業：
+本教學課程將在您的工作站上使用取自[創新技術研究管理部運輸統計處][創新技術研究管理部運輸統計處] (RITA) 的飛行航班準點率資料。您將執行下列作業：
 
 1.  使用網頁瀏覽器，將準點率資料從 RITA 下載至您的工作站
 2.  使用 Azure PowerShell 將資料上傳至 HDInsight
@@ -33,9 +33,9 @@ Hive 提供一種透過 SQL 式指令碼語言執行 Hadoop MapReduce 工作的�
 
 **了解 HDInsight 儲存體**
 
-HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB* 或 *Azure 儲存體 - Blob*。WASB 是 Microsoft 在 Azure Blob 儲存體上的 HDFS 實作。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][]。
+HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB* 或 *Azure 儲存體 - Blob*。WASB 是 Microsoft 在 Azure Blob 儲存體上的 HDFS 實作。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][搭配 HDInsight 使用 Azure Blob 儲存體]。
 
-當您佈建 HDInsight 叢集時，會將一個 Blob 儲存體容器指定為預設檔案系統，如同在 HDFS 中一般。除了此容器以外，您也可以在佈建過程中，從相同的 Azure 儲存體帳戶或不同的 Azure 儲存體帳戶新增其他容器。如需有關新增其他儲存體帳戶的詳細資訊，請參閱[佈建 HDInsight 叢集][]。
+當您佈建 HDInsight 叢集時，會將一個 Blob 儲存體容器指定為預設檔案系統，如同在 HDFS 中一般。除了此容器以外，您也可以在佈建過程中，從相同的 Azure 儲存體帳戶或不同的 Azure 儲存體帳戶新增其他容器。如需有關新增其他儲存體帳戶的詳細資訊，請參閱[佈建 HDInsight 叢集][佈建 HDInsight 叢集]。
 
 為簡化本教學課程中使用的 PowerShell 指令碼，所有檔案都會儲存在位於 */tutorials/flightdelays* 的預設檔案系統容器中。根據預設，此容器的名稱會與 HDInsight 叢集名稱相同。
 
@@ -45,7 +45,7 @@ WASB 語法如下：
 
 > [WACOM.NOTE] HDInsight 叢集 3.0 版僅支援 *wasb://* 語法。HDInsight 2.1 和 1.6 支援舊的 *asv://* 語法，但在 HDInsight 3.0 叢集中已不受支援，未來的版本也不加以支援。
 
-> The WASB path is virtual path.如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][]。
+> The WASB path is virtual path.如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][搭配 HDInsight 使用 Azure Blob 儲存體]。
 
 儲存在預設檔案系統容器中的檔案，可使用下列任一 URI (範例中使用 flightdelays.hql) 從 HDInsight 存取：
 
@@ -84,7 +84,7 @@ WASB 語法如下：
 
 **下載航班資料**
 
-1.  瀏覽至[創新技術研究管理部運輸統計處][] (RITA)。
+1.  瀏覽至[創新技術研究管理部運輸統計處][創新技術研究管理部運輸統計處] (RITA)。
 2.  在此頁面上選取下列值：
 
 	<table border="1">
@@ -102,7 +102,7 @@ WASB 語法如下：
 
 **將航班誤點資料上傳至 Azure Blob 儲存體**
 
-1.  開啟 Azure PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell][]。
+1.  開啟 Azure PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell][安裝並設定 Azure PowerShell]。
 2.  執行下列命令，以連接到您的 Azure 訂用帳戶：
 
         Add-AzureAccount
@@ -609,9 +609,9 @@ HiveQL 指令碼將執行下列作業：
 
 ## <span id="executehqlscript"></span></a>執行 HiveQL 指令碼
 
-您可以使用數種 Azure PowerShell Cmdlet 來執行 Hive。本教學課程使用 Invoke-Hive。若要使用其他方法，請參閱[搭配 HDInsight 使用 Hive][]。使用 Invoke-Hive 可讓您執行 HiveQL 陳述式或 HiveQL 指令碼。您將會使用先前建立並上傳至 Azure Blob 儲存體的 HiveQL 指令碼。
+您可以使用數種 Azure PowerShell Cmdlet 來執行 Hive。本教學課程使用 Invoke-Hive。若要使用其他方法，請參閱[搭配 HDInsight 使用 Hive][搭配 HDInsight 使用 Hive]。使用 Invoke-Hive 可讓您執行 HiveQL 陳述式或 HiveQL 指令碼。您將會使用先前建立並上傳至 Azure Blob 儲存體的 HiveQL 指令碼。
 
-Hive 路徑有已知問題。如需修正此問題的指示，請參閱 [TechNet Wiki][]。
+Hive 路徑有已知問題。如需修正此問題的指示，請參閱 [TechNet Wiki][TechNet Wiki]。
 
 **使用 PowerShell 執行 Hive 查詢**
 
@@ -871,19 +871,19 @@ Hive 路徑有已知問題。如需修正此問題的指示，請參閱 [TechNet
 
 5.  連接到您的 SQL Database，然後在 *AvgDelays* 資料表中依城市檢視航班誤點平均值。
 
-    ![HDI.FlightDelays.AvgDelays.Dataset][]
+    ![HDI.FlightDelays.AvgDelays.Dataset][HDI.FlightDelays.AvgDelays.Dataset]
 
 ## <span id="nextsteps"></span></a>後續步驟
 
 現在您已了解如何將檔案上傳至 Blob 儲存體、如何使用 Blob 儲存體中的資料填入 Hive 資料表、如何執行 Hive 查詢，以及如何使用 Sqoop 將資料從 HDFS 匯出至 Azure SQL Database。若要深入了解，請參閱下列文章：
 
--   [開始使用 HDInsight][]
--   [搭配 HDInsight 使用 Hive][]
--   [在 HDInsight 上使用 Oozie][]
--   [搭配 HDInsight 使用 Sqoop][]
--   [搭配 HDInsight 使用 Pig][]
--   [開發 HDInsight 的 Java MapReduce 程式][]
--   [開發 HDInsight 的 C# Hadoop 串流程式][]
+-   [開始使用 HDInsight][開始使用 HDInsight]
+-   [搭配 HDInsight 使用 Hive][搭配 HDInsight 使用 Hive]
+-   [在 HDInsight 上使用 Oozie][在 HDInsight 上使用 Oozie]
+-   [搭配 HDInsight 使用 Sqoop][搭配 HDInsight 使用 Sqoop]
+-   [搭配 HDInsight 使用 Pig][搭配 HDInsight 使用 Pig]
+-   [開發 HDInsight 的 Java MapReduce 程式][開發 HDInsight 的 Java MapReduce 程式]
+-   [開發 HDInsight 的 C# Hadoop 串流程式][開發 HDInsight 的 C# Hadoop 串流程式]
 
   [HiveQL]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
   [開始使用 HDInsight]: ../hdinsight-get-started/

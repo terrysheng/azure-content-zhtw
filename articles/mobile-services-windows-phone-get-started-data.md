@@ -1,10 +1,10 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-wp8" urlDisplayName="Get Started with Data" pageTitle="Get started with data (WP8) - Azure Mobile Services" metaKeywords="" description="Learn how to get started using data from your Azure Mobile Services Windows Phone 8 app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga" />
 
 # 開始使用行動服務中的資料
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -22,23 +22,23 @@
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [下載 Windows Phone 8 應用程式專案][]
-2.  [建立行動服務][]
-3.  [新增用於儲存的資料表][]
-4.  [更新應用程式以使用行動服務][]
-5.  [針對行動服務進行應用程式測試][]
+1.  [下載 Windows Phone 8 應用程式專案][下載 Windows Phone 8 應用程式專案]
+2.  [建立行動服務][建立行動服務]
+3.  [新增用於儲存的資料表][新增用於儲存的資料表]
+4.  [更新應用程式以使用行動服務][更新應用程式以使用行動服務]
+5.  [針對行動服務進行應用程式測試][針對行動服務進行應用程式測試]
 
-本教學課程需要 Visual Studio 2012 Express for Windows Phone 8 和可在 Windows 8 上執行的 [Windows Phone 8 SDK][]。若要完成本教學課程，以建立新的 Windows Phone 8.1 應用程式，您必須使用 Visual Studio 2013 Update 2 或更新版本。
+本教學課程需要 Visual Studio 2012 Express for Windows Phone 8 和可在 Windows 8 上執行的 [Windows Phone 8 SDK][Windows Phone 8 SDK]。若要完成本教學課程，以建立新的 Windows Phone 8.1 應用程式，您必須使用 Visual Studio 2013 Update 2 或更新版本。
 
-> [WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
+> [WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][Azure 免費試用]。
 
 ## <a name="download-app"></a>下載 GetStartedWithData 專案
 
-本教學課程以 [GetStartedWithData 應用程式][] (英文) (此為一Windows Phone Silverlight 8 應用程式專案) 為基礎而建立。除了會將新增項目儲存在本機記憶體中之外，由此應用程式與行動服務快速入門所產生的應用程式兩者的 UI 完全相同。
+本教學課程以 [GetStartedWithData 應用程式][GetStartedWithData 應用程式] (英文) (此為一Windows Phone Silverlight 8 應用程式專案) 為基礎而建立。除了會將新增項目儲存在本機記憶體中之外，由此應用程式與行動服務快速入門所產生的應用程式兩者的 UI 完全相同。
 
 1.  從 [開發人員程式碼範例網站][GetStartedWithData 應用程式] (英文) 下載 GetStartedWithData 範例應用程式專案。
 
-    > [WACOM.NOTE]若要建立 Windows Phone Silverlght 8.1 應用程式，只要將已下載之 Windows Phone Silverlight 8 應用程式專案的目標 OS 變更為 Windows Phone 8.1 即可。若要建立 Windows Phone 市集應用程式，請下載 GetStartedWithData 範例應用程式專案的 [Windows Phone 市集應用程式版本][]。
+    > [WACOM.NOTE]若要建立 Windows Phone Silverlght 8.1 應用程式，只要將已下載之 Windows Phone Silverlight 8 應用程式專案的目標 OS 變更為 Windows Phone 8.1 即可。若要建立 Windows Phone 市集應用程式，請下載 GetStartedWithData 範例應用程式專案的 [Windows Phone 市集應用程式版本][Windows Phone 市集應用程式版本]。
 
 2.  在 Visual Studio 中，開啟下載的專案並檢查 MainPage.xaml.cs 檔案。
 
@@ -54,11 +54,11 @@
 
 ## <a name="create-service"></a><span class="short-header">建立行動服務</span>在管理入口網站中建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">新增資料表</span>將資料表新增至行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2][]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
 ## <a name="update-app"></a><span class="short-header">更新應用程式</span>更新應用程式以使用行動服務進行資料存取
 
@@ -147,7 +147,7 @@
 
     這會傳送新項目以插入至行動服務。
 
-3.  在[管理入口網站][]中按一下 [行動服務]，然後按一下您的行動服務。
+3.  在[管理入口網站][管理入口網站]中按一下 [行動服務]，然後按一下您的行動服務。
 
 4.  按一下 [資料] 索引標籤，然後按一下 [瀏覽]。
 
@@ -161,18 +161,18 @@
 
 本教學課程將示範啟用 Windows Phone 8 應用程式，進而使用行動服務資料的基本概念。接下來，請考慮完成本教學課程中採用 GetStartedWithData 應用程式所建立的下列教學課程：
 
--   [使用指令檔驗證與修改資料][]
+-   [使用指令檔驗證與修改資料][使用指令檔驗證與修改資料]
     深入了解在行動服務中使用伺服器指令檔，來驗證並變更從應用程式傳送出來的資料。
 
--   [使用分頁縮小查詢範圍][]
+-   [使用分頁縮小查詢範圍][使用分頁縮小查詢範圍]
     了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
 完成資料數列之後，您可以嘗試下列其中一個 Windows Phone 8 教學課程：
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何驗證應用程式的使用者。
 
--   [開始使用推送通知][]
+-   [開始使用推送通知][開始使用推送通知]
     了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
 
 <!-- Anchors. --> 
@@ -180,8 +180,6 @@
 <!-- URLs. -->
 
   [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
-  [觀看教學課程]: http://go.microsoft.com/fwlink/?LinkID=298628
-  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-wp8
   [下載 Windows Phone 8 應用程式專案]: #download-app
   [建立行動服務]: #create-service
   [新增用於儲存的資料表]: #add-table

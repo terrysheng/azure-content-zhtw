@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-dotnet-vs2013" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services (universal Windows apps)" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 開始使用行動服務中的資料 (通用 Windows 應用程式)
 
@@ -27,7 +27,7 @@
 
 1.  從[開發人員程式碼範例網站][GetStartedWithMobileServices 應用程式]中下載 C# 版本的 GetStartedWithMobileServices 範例應用程式。
 
-    ![][]
+    ![][0]
 
 2.  在 Visual Studio 2013 中，開啟下載的專案並檢查 MainPage.xaml.cs 檔案。
 
@@ -105,7 +105,7 @@
 
         await todoTable.UpdateAsync(item);
 
-    在變更文字或勾選方塊時.
+    This sends an item update to the mobile service.
 
 應用程式現已更新為使用行動服務進行後端儲存，我們可以開始在行動服務中測試應用程式。
 
@@ -143,7 +143,7 @@
 
 7.  在應用程式中檢查清單中的其中一個項目，然後按一下 [重新整理] 按鈕。
 
-    請注意，已檢查的項目此時會從清單中消失。每個重新整理結果會在行動服務間來回，目前傳回的是篩選過的資料。
+    請注意，已檢查的項目此時會從清單中消失。Each refresh results in a round-trip to the mobile service, which now returns filtered data.
 
 這將結束**開始使用資料**教學課程。
 
@@ -168,28 +168,23 @@
 -   [行動服務 .NET 作法概念參考資料][行動服務 .NET 作法概念參考資料]
     深入了解如何使用搭配 .NET 的行動服務。
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+  <!-- Anchors. --> 
 
-  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/ "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-data/ "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-data/ "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/mobile-services-ios-get-started-data/ "iOS"
-  [Android]: /zh-tw/documentation/articles/mobile-services-android-get-started-data/ "Android"
-  [HTML]: /zh-tw/documentation/articles/mobile-services-html-get-started-data/ "HTML"
-  [Xamarin.iOS]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/ "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/ "Xamarin.Android"
+  <!-- Images. --> 
+
+  <!-- URLs. -->
+
   [下載 Windows 市集應用程式專案]: #download-app
   [從 Visual Studio 建立行動服務]: #create-service
   [新增要儲存的資料表並更新應用程式]: #add-table
   [針對行動服務進行應用程式測試]: #test-app
   [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28
   [GetStartedWithMobileServices 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=328660
-  []: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-data-sample-download-dotnet-vs12.png
+  [0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-data-sample-download-dotnet-vs12.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-quickstart-startup.png
   [mobile-services-create-new-service-vs2013]: ../includes/mobile-services-create-new-service-vs2013.md
   [MobileServiceClient 類別]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   [mobile-services-create-new-table-vs2013]: ../includes/mobile-services-create-new-table-vs2013.md
-  [動態結構描述]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193175.aspx
   [管理入口網站]: https://manage.windowsazure.com/
   [2]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-todoitem-data-browse.png
   [使用指令檔驗證與修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet

@@ -1,6 +1,6 @@
 <properties title="Diagnose performance issues on a running website" pageTitle="Diagnose performance issues on a running website" description="Monitor a website's performance without re-deploying it." metaKeywords="analytics monitoring application insights" authors="awills"  />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills"></tags>
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
 
 <!-- Required end of Sprint 69 - AUX48 -->
 
@@ -35,7 +35,7 @@ Web 應用程式運作不正常嗎？快速診斷例外狀況和效能問題，�
 2.  請確定您有 [Web Platform Installer][Web Platform Installer] 5.0 版或更新版本。
 3.  使用 Web Platform Installer 安裝 Application Insights 代理程式。
 
-    ![][]
+    ![][0]
 
 4.  在安裝精靈中，登入 Microsoft Azure。
 
@@ -104,7 +104,7 @@ web.config 也有一些變動。
 
   [Microsoft Azure 帳戶]: http://azure.com
   [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-  []: ./media/appinsights/appinsights-031-wpi.png
+  [0]: ./media/appinsights/appinsights-031-wpi.png
   [1]: ./media/appinsights/appinsights-035-signin.png
   [2]: ./media/appinsights/appinsights-036-configAIC.png
   [Web 測試]: ../app-insights-monitor-web-app-availability/

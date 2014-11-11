@@ -1,10 +1,10 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-javascript-vs2013" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # 開始使用行動服務中的資料
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 <div class="dev-center-tutorial-subselector">
 <a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title=".NET 後端" class="current">.NET 後端</a> | 
@@ -15,26 +15,26 @@
 
 您將在本教學課程中建立的行動服務為 .NET 後端行動服務。.NET 後端可讓您將 .NET 語言和 Visual Studio 用於行動服務中的伺服器端商業邏輯，而且您可以在本機電腦上執行及偵錯行動服務。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 JavaScript 後端版本。
 
-> [WACOM.NOTE]本主題說明如何將 Azure 行動服務新增至 Windows 市集專案。您可以使用 Visual Studio 2013 工具，將相同的 .NET 後端行動服務新增至通用 Windows 應用程式專案。如需詳細資訊，請參閱此教學課程的[通用 Windows 應用程式版本][]。
+> [WACOM.NOTE]本主題說明如何將 Azure 行動服務新增至 Windows 市集專案。您可以使用 Visual Studio 2013 工具，將相同的 .NET 後端行動服務新增至通用 Windows 應用程式專案。如需詳細資訊，請參閱此教學課程的[通用 Windows 應用程式版本][通用 Windows 應用程式版本]。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [下載 Windows 市集應用程式專案][]
-2.  [建立新的行動服務][]
-3.  [在本機下載行動服務][]
-4.  [更新 Windows 市集應用程式以使用行動服務][]
-5.  [對本機代管的服務測試 Windows 市集應用程式][]
-6.  [將行動服務發佈至 Azure][]
-7.  [對 Azure 代管的服務測試 Windows 市集應用程式][]
+1.  [下載 Windows 市集應用程式專案][下載 Windows 市集應用程式專案]
+2.  [建立新的行動服務][建立新的行動服務]
+3.  [在本機下載行動服務][在本機下載行動服務]
+4.  [更新 Windows 市集應用程式以使用行動服務][更新 Windows 市集應用程式以使用行動服務]
+5.  [對本機代管的服務測試 Windows 市集應用程式][對本機代管的服務測試 Windows 市集應用程式]
+6.  [將行動服務發佈至 Azure][將行動服務發佈至 Azure]
+7.  [對 Azure 代管的服務測試 Windows 市集應用程式][對 Azure 代管的服務測試 Windows 市集應用程式]
 
 若要完成此教學課程，您需要下列項目：
 
--   使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
--   [Visual Studio Professional 2013][]。您可以使用免費試用版。
+-   使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][Azure 免費試用]。
+-   [Visual Studio Professional 2013][Visual Studio Professional 2013]。您可以使用免費試用版。
 
 ## <a name="download-app"></a>下載 GetStartedWithData 專案
 
-本教學課程是採用 [GetStartedWithMobileServices 應用程式][]所建立，此應用程式是 Visual Studio 2013 中的 Windows 市集應用程式專案。除了會將新增項目儲存在本機記憶體中之外，此應用程式的 UI 與行動服務快速入門所產生的應用程式 UI 是類似的。
+本教學課程是採用 [GetStartedWithMobileServices 應用程式][GetStartedWithMobileServices 應用程式]所建立，此應用程式是 Visual Studio 2013 中的 Windows 市集應用程式專案。除了會將新增項目儲存在本機記憶體中之外，此應用程式的 UI 與行動服務快速入門所產生的應用程式 UI 是類似的。
 
 1.  從[開發人員程式碼範例網站][GetStartedWithMobileServices 應用程式] (英文) 下載 JavaScript 版本的 GetStartedWithMobileServices 範例應用程式。
 
@@ -48,17 +48,17 @@
 
 5.  在應用程式中，在 [Insert a TodoItem] 下的方塊中輸入文字，然後按一下 [儲存]。
 
-    ![][]
+    ![][0]
 
     請注意，儲存的文字會顯示在 [查詢和更新資料] 下方的第二個資料欄中。
 
 ## <a name="create-service"></a>建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## <a name="download-the-service-locally"></a>下載行動服務專案並將其新增至方案
 
-1.  在 [Azure 管理入口網站][]中，按一下新的行動服務或是其雲端圖示索引標籤，以移至概觀頁面。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站]中，按一下新的行動服務或是其雲端圖示索引標籤，以移至概觀頁面。
 
     ![][1]
 
@@ -176,11 +176,11 @@
 
 ## <a name="test-locally-hosted"></a>對本機代管的服務測試 Windows 市集應用程式
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-data][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-data](../includes/mobile-services-dotnet-backend-test-local-service-data.md)]
 
 ## <a name="publish-mobile-service"></a>將行動服務發佈至 Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## <a name="test-azure-hosted"></a>測試發佈至 Azure 的行動服務
 
@@ -220,25 +220,25 @@
 
 本教學課程示範讓 Windows 市集應用程式能夠在行動服務中處理資料的基本概念。接下來，考慮完成本教學課程中採用 GetStartedWithData 應用程式所建立的下列其中一個教學課程：
 
--   [使用指令檔驗證與修改資料][]
+-   [使用指令檔驗證與修改資料][使用指令檔驗證與修改資料]
 
     深入了解在行動服務中使用伺服器指令檔，來驗證並變更從應用程式傳送出來的資料。
 
--   [使用分頁縮小查詢範圍][]
+-   [使用分頁縮小查詢範圍][使用分頁縮小查詢範圍]
 
     了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
 完成資料序列之後，請嘗試下列其中一個其他教學課程：
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
 
     了解如何驗證應用程式的使用者。
 
--   [開始使用推播通知][]
+-   [開始使用推播通知][開始使用推播通知]
 
     了解如何將極為基本的推播通知傳送到應用程式。
 
--   [行動服務 .NET 作法概念性參考][]
+-   [行動服務 .NET 作法概念性參考][行動服務 .NET 作法概念性參考]
 
     深入了解如何搭配使用行動服務與 HTML 和 JavaScript。
 
@@ -247,8 +247,6 @@
 <!-- URLs. -->
 
   [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
-  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ ".NET 後端"
-  [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-data/ "JavaScript 後端"
   [通用 Windows 應用程式版本]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-data
   [下載 Windows 市集應用程式專案]: #download-app
   [建立新的行動服務]: #create-service
@@ -260,7 +258,7 @@
   [Azure 免費試用]: http://azure.microsoft.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-javascript-get-started-data%2F
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
   [GetStartedWithMobileServices 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=328660
-  []: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/app-view.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/app-view.png
   [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/mobile-service-overview-page.png

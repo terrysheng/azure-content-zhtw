@@ -1,10 +1,10 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" pageTitle="Azure Cloud Service Tutorial: Worker Role with Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # 建置 Azure 電子郵件服務應用程式的背景工作角色 A (電子郵件排程器) - 4 of 5。
 
-這是一系列教學課程的第四個教學課程 (共五個)，說明如何建置和部署 Azure 電子郵件服務範例應用程式。如需應用程式和教學課程系列的詳細資訊，請參閱[系列的第一個教學課程][]。
+這是一系列教學課程的第四個教學課程 (共五個)，說明如何建置和部署 Azure 電子郵件服務範例應用程式。如需應用程式和教學課程系列的詳細資訊，請參閱[系列的第一個教學課程][系列的第一個教學課程]。
 
 在本教學課程中，您將了解：
 
@@ -18,11 +18,11 @@
 
 ## 本教學課程章節
 
--   [將參考加入 Web 專案][]
--   [加入 SendEmail 模型][]
--   [新增在背景工作角色啟動時所執行的程式碼][]
--   [測試背景工作角色 A][]
--   [後續步驟][]
+-   [將參考加入 Web 專案][將參考加入 Web 專案]
+-   [加入 SendEmail 模型][加入 SendEmail 模型]
+-   [新增在背景工作角色啟動時所執行的程式碼][新增在背景工作角色啟動時所執行的程式碼]
+-   [測試背景工作角色 A][測試背景工作角色 A]
+-   [後續步驟][後續步驟]
 
 ## <a name="addref"></a><span class="short-header">新增專案參考</span>新增 Web 專案的參考
 
@@ -34,13 +34,13 @@
 
 2.  在 [參考管理員] 中，將參考加入 MvcWebRole 專案，然後按一下 [確定]。
 
-    ![Add reference to MvcWebRole][]
+    ![Add reference to MvcWebRole][Add reference to MvcWebRole]
 
 ## <a name="addmodel"></a>加入 SendEmail 模型
 
 背景工作角色 A 會在 `Message` 資料表中建立 `SendEmail` 資料列，而背景工作角色 B 會讀取這些資料列，以取得傳送電子郵件時所需的資訊。下圖顯示 `Message` 資料表中兩個 `Message` 資料列和三個 `SendEmail` 資料列的一小部分屬性。
 
-![含有 sendmail 的訊息資料表][]
+![含有 sendmail 的訊息資料表][含有 sendmail 的訊息資料表]
 
 `Message` 資料表中的這些資料列有數種用途：
 
@@ -130,9 +130,9 @@
 
 您可能已在早期關於使用 Azure 儲存體的文件中，看到以迴圈來檢查傳輸錯誤的初始化程式碼。這已不再需要，因為 API 現在有個內建重試機制，可以額外嘗試最多 3 次來化解暫時性網路失敗。
 
-`OnStart` 方法所呼叫的 `ConfigureDiagnostics` 方法會設定追蹤，讓您能夠查看 `Trace.Information` 和 `Trace.Error` 方法的輸出。[第二個教學課程][]中會說明此方法。
+`OnStart` 方法所呼叫的 `ConfigureDiagnostics` 方法會設定追蹤，讓您能夠查看 `Trace.Information` 和 `Trace.Error` 方法的輸出。[第二個教學課程][第二個教學課程]中會說明此方法。
 
-[ServicePointManager.DefaultConnectionLimit][] 設定指定可在 .NET 中開啟之並行 TCP 連線的最大數目。[ServicePointManager][] 類別的文件說明背景工作角色執行個體連線的每個唯一主機都是個別連線。例如，這個背景工作角色會有三個並行連線，分別用於資料表、Blob 和佇列。對於某些連線 (例如 SQL Server 連線)，用戶端軟體會進行連線共用，如此可減少 `ServicePointManager` 所管理的並行連線數目。`DefaultConnectionLimit` 的最佳數目部分取決於您連線的後端服務。對於某些服務，具有 500 個開啟的連線可能不會造成問題，但其他服務可能只有 5 個連線便會超過負荷。在許多情況下，每個處理器一般建議最多使用 12 個連線。
+[ServicePointManager.DefaultConnectionLimit][ServicePointManager.DefaultConnectionLimit] 設定指定可在 .NET 中開啟之並行 TCP 連線的最大數目。[ServicePointManager][ServicePointManager] 類別的文件說明背景工作角色執行個體連線的每個唯一主機都是個別連線。例如，這個背景工作角色會有三個並行連線，分別用於資料表、Blob 和佇列。對於某些連線 (例如 SQL Server 連線)，用戶端軟體會進行連線共用，如此可減少 `ServicePointManager` 所管理的並行連線數目。`DefaultConnectionLimit` 的最佳數目部分取決於您連線的後端服務。對於某些服務，具有 500 個開啟的連線可能不會造成問題，但其他服務可能只有 5 個連線便會超過負荷。在許多情況下，每個處理器一般建議最多使用 12 個連線。
 
 ### OnStop 方法
 
@@ -155,7 +155,7 @@
 
 `Run` 方法會監視 `onStopCalled` 變數，並在該變數變更為 `true` 時停止提取任何新的工作項目進行處理。`OnStop` 與 `Run` 方法之間的這項協調可讓工作者處理序得以正常關閉。
 
-Azure 會定期安裝作業系統更新，以確保平台安全、可靠且效能良好。這些更新通常需要將雲端服務所裝載於的電腦關機再重新啟動。如需詳細資訊，請參閱[角色執行個體由於作業系統升級而重新啟動][] (英文)。
+Azure 會定期安裝作業系統更新，以確保平台安全、可靠且效能良好。這些更新通常需要將雲端服務所裝載於的電腦關機再重新啟動。如需詳細資訊，請參閱[角色執行個體由於作業系統升級而重新啟動][角色執行個體由於作業系統升級而重新啟動] (英文)。
 
 ### Run 方法
 
@@ -246,7 +246,7 @@ Azure 會定期安裝作業系統更新，以確保平台安全、可靠且效�
             }
         }
 
-請注意，所有工作都是以 `while` 區塊中的無限迴圈完成，而 `while` 區塊中的所有程式碼都包裝在 `try`-`catch` 區塊中，以防止發生無法處理的例外狀況。如果發生無法處理的例外狀況，則 Azure 會引發 [UnhandledException][] 事件、終止工作者處理序，並使角色離線。Azure 將會重新啟動背景工作角色，但是這需要數分鐘的時間。`try` 區塊會呼叫 `TraceError` 以記錄錯誤，然後睡眠 60 秒，因此，如果錯誤持續發生，錯誤訊息並不會重複出現太多次。在生產應用程式中，您可以在 `try` 區塊中傳送電子郵件給系統管理員。
+請注意，所有工作都是以 `while` 區塊中的無限迴圈完成，而 `while` 區塊中的所有程式碼都包裝在 `try`-`catch` 區塊中，以防止發生無法處理的例外狀況。如果發生無法處理的例外狀況，則 Azure 會引發 [UnhandledException][UnhandledException] 事件、終止工作者處理序，並使角色離線。Azure 將會重新啟動背景工作角色，但是這需要數分鐘的時間。`try` 區塊會呼叫 `TraceError` 以記錄錯誤，然後睡眠 60 秒，因此，如果錯誤持續發生，錯誤訊息並不會重複出現太多次。在生產應用程式中，您可以在 `try` 區塊中傳送電子郵件給系統管理員。
 
 `Run` 方法會處理查詢，來找出 `message` 資料表中排程日期為明天之前的 `message` 資料列：
 
@@ -498,11 +498,11 @@ Azure 會定期安裝作業系統更新，以確保平台安全、可靠且效�
 
 3.  建立要傳送到您所建立郵寄清單的訊息，並將排程日期設為今天或過去某個日期。
 
-    ![New message in pending status][]
+    ![New message in pending status][New message in pending status]
 
 4.  在稍微超過一分鐘後 (因為 Run 方法有一分鐘的睡眠時間)，重新整理 [訊息] 網頁，您就會看到狀態變更為 Processing。(您可能會看到它先變更為 Queuing，但是從 Queuing 變到 Processing 的速度通常很快，讓您來不及看到 Queuing。)
 
-    ![New message in processing status][]
+    ![New message in processing status][New message in processing status]
 
 5.  開啟 [伺服器總管]，然後開啟開發儲存體的節點。
 
@@ -510,13 +510,13 @@ Azure 會定期安裝作業系統更新，以確保平台安全、可靠且效�
 
     您會看見目的地電子郵件清單中的每個已驗證訂閱者都有一則佇列訊息。
 
-    ![Queue message in ASE][]
+    ![Queue message in ASE][Queue message in ASE]
 
 7.  按兩下佇列訊息。
 
     您會看到佇列訊息的內容：資料分割索引鍵 (日期)、資料列索引鍵 (MessageRef 值加電子郵件地址) 和重新啟動旗標，彼此以逗號分隔。
 
-    ![Queue message contents in ASE][]
+    ![Queue message contents in ASE][Queue message contents in ASE]
 
 8.  關閉 [檢視訊息] 對話方塊。
 
@@ -526,15 +526,15 @@ Azure 會定期安裝作業系統更新，以確保平台安全、可靠且效�
 
 10. 按兩下資料列索引鍵中包含 "message" 的資料列，以查看 Web 角色所建立之資料列的內容。
 
-    ![訊息資料列][]
+    ![訊息資料列][訊息資料列]
 
 11. 按兩下資料列索引鍵中包含電子郵件地址的資料列，以查看背景工作角色 A 所建立之 `SendEmail` 資料列的內容。
 
-    ![SendEmail row in Message table][]
+    ![SendEmail row in Message table][SendEmail row in Message table]
 
 ## <a name="nextsteps"></a>後續步驟
 
-您現在已建置背景工作角色 A，並已確認它會建立背景工作角色 B 傳送電子郵件時所需的佇列訊息與資料表列。在[下一個教學課程][]中，您將建置和測試背景工作角色 B。
+您現在已建置背景工作角色 A，並已確認它會建立背景工作角色 B 傳送電子郵件時所需的佇列訊息與資料表列。在[下一個教學課程][下一個教學課程]中，您將建置和測試背景工作角色 B。
 
 如需使用 Azure 儲存體資料表、佇列和 Blob 的其他資源連結，請參閱[本系列的最後一個教學課程][下一個教學課程]。
 

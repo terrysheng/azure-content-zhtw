@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-js-vs2013" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (Android JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android JavaScript app." metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal"  solutions="" writer="ricksal" manager="" editor=""   />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # <a name="getting-started-with-push"> </a>開始在行動服務中使用推播通知
 
@@ -12,35 +12,35 @@
 
 本主題說明如何使用 Azure 行動服務傳送推播通知至 Android 應用程式。在本教學課程中，您會使用 Google 雲端通訊 (GCM) 將推播通知新增至快速入門專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
-> [WACOM.NOTE]本教學課程示範行動服務與通知中心的整合，這是您從行動服務傳送推播通知的方式。如果您的行動服務較舊，是使用舊式的推播，而尚未升級為使用通知中心，建議您依照此教學課程中的說明進行升級。如果您選擇現在不升級，則應遵循下列版本的教學課程進行：[開始使用推播通知 (舊式)][]。
+> [WACOM.NOTE]本教學課程示範行動服務與通知中心的整合，這是您從行動服務傳送推播通知的方式。如果您的行動服務較舊，是使用舊式的推播，而尚未升級為使用通知中心，建議您依照此教學課程中的說明進行升級。如果您選擇現在不升級，則應遵循下列版本的教學課程進行：[開始使用推播通知 (舊式)][開始使用推播通知 (舊式)]。
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 
-1.  [啟用 Google 雲端通訊][]
-2.  [設定行動服務][]
-3.  [將推播通知新增至應用程式][]
-4.  [更新指令碼來傳送推播通知][]
-5.  [插入資料以接收通知][]
+1.  [啟用 Google 雲端通訊][啟用 Google 雲端通訊]
+2.  [設定行動服務][設定行動服務]
+3.  [將推播通知新增至應用程式][將推播通知新增至應用程式]
+4.  [更新指令碼來傳送推播通知][更新指令碼來傳送推播通知]
+5.  [插入資料以接收通知][插入資料以接收通知]
 
-本教學課程會以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務][]或[開始使用資料][]，將您的專案連接到行動服務。
+本教學課程會以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務][開始使用行動服務]或[開始使用資料][開始使用資料]，將您的專案連接到行動服務。
 
 ## <span id="register"></span></a>啟用 Google 雲端通訊
 
-> [WACOM.NOTE]若要完成此程序，您必須要有已通過電子郵件地址驗證的 Google 帳戶。若要建立新的 Google 帳戶，請前往 [accounts.google.com][]。
+> [WACOM.NOTE]若要完成此程序，您必須要有已通過電子郵件地址驗證的 Google 帳戶。若要建立新的 Google 帳戶，請前往 [accounts.google.com][accounts.google.com]。
 
-[WACOM.INCLUDE [啟用 GCM][]]
+[WACOM.INCLUDE [啟用 GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 接下來，您將使用此 API 金鑰值，讓行動服務能夠使用 GCM 進行驗證，並代表您的應用程式傳送推播通知。
 
 ## <span id="configure"></span></a>設定行動服務來傳送推播要求
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
-    ![][]
+    ![][0]
 
 2.  按一下 [推播] 索引標籤，輸入前一個程序中從 GCM 取得的 [API Key] 值，然後按一下 [儲存]。
 
-    > [WACOM.NOTE]如果您是使用較舊的行動服務來完成此教學課程，您可能會在 [推播] 索引標籤底部看到 [啟用增強型推播] 連結。現在按一下此連結，即可將您的行動服務升級，與通知中心整合。此變更無法回復。如需如何在生產環境的行動服務中啟用增強型推播通知的詳細資訊，請參閱[此指引][] (英文)。
+    > [WACOM.NOTE]如果您是使用較舊的行動服務來完成此教學課程，您可能會在 [推播] 索引標籤底部看到 [啟用增強型推播] 連結。現在按一下此連結，即可將您的行動服務升級，與通知中心整合。此變更無法回復。如需如何在生產環境的行動服務中啟用增強型推播通知的詳細資訊，請參閱[此指引][此指引] (英文)。
 
     ![][1]
 
@@ -54,19 +54,19 @@
 
 ### 驗證 Android SDK 版本
 
-[WACOM.INCLUDE [Verify SDK][]]
+[WACOM.INCLUDE [Verify SDK](../includes/mobile-services-verify-android-sdk-version.md)]
 
 下一個步驟是安裝 Google Play 服務。Google 雲端通訊在開發和測試方面有一些 API 層級的最低需求，這些是資訊清單中的 **minSdkVersion** 屬性所必須遵守。
 
-如果您要以較舊的裝置進行測試，請參考[設定 Google Play 服務 SDK][]，以確認此值可以設得多低，並加以適當設定。
+如果您要以較舊的裝置進行測試，請參考[設定 Google Play 服務 SDK][設定 Google Play 服務 SDK]，以確認此值可以設得多低，並加以適當設定。
 
 ### 新增 Google Play 服務至專案
 
-[WACOM.INCLUDE [新增 Play 服務][]]
+[WACOM.INCLUDE [新增 Play 服務](../includes/mobile-services-add-Google-play-services.md)]
 
 ### 新增程式碼
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-push][]]
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
 ## <span id="update-scripts"></span></a>在管理入口網站中更新已註冊的插入指令碼
 
@@ -108,7 +108,7 @@
           });
         }
 
-    如此即會註冊新的 insert 指令碼，該指令碼會在插入成功之後，使用 [gcm 物件][]將推播通知傳送給所有已註冊的裝置。
+    如此即會註冊新的 insert 指令碼，該指令碼會在插入成功之後，使用 [gcm 物件][gcm 物件]將推播通知傳送給所有已註冊的裝置。
 
 ## <span id="test"></span></a>在應用程式中測試推播通知
 
@@ -152,33 +152,26 @@
 
 在下列主題中深入了解行動服務和通知中心：
 
--   [開始使用資料][]
+-   [開始使用資料][開始使用資料]
     深入了解如何使用行動服務儲存和查詢資料。
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何使用行動服務驗證使用不同帳戶類型的應用程式使用者。
 
--   [什麼是通知中心？][]
+-   [什麼是通知中心？][什麼是通知中心？]
     深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
 
--   [如何使用適用於行動服務的 Android 用戶端程式庫][]
+-   [如何使用適用於行動服務的 Android 用戶端程式庫][如何使用適用於行動服務的 Android 用戶端程式庫]
     深入了解如何搭配使用行動服務與 Android。
 
--   [行動服務伺服器指令碼參考][]
+-   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何在您的行動服務中實作商務邏輯。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/mobile-services-javascript-backend-ios-get-started-push "iOS"
   [Android]: /zh-tw/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android"
-  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ ".NET 後端"
-  [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-javascript-backend-android-get-started-push/ "JavaScript 後端"
-  [開始使用推播通知 (舊式)]: /zh-tw/documentation/articles/mobile-services-android-get-started-push/
   [啟用 Google 雲端通訊]: #register
   [設定行動服務]: #configure
   [將推播通知新增至應用程式]: #add-push
@@ -189,7 +182,7 @@
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
   [啟用 GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [此指引]: http://go.microsoft.com/fwlink/p/?LinkId=391951
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
   [Verify SDK]: ../includes/mobile-services-verify-android-sdk-version.md

@@ -1,6 +1,6 @@
 <properties pageTitle="Service-side authorization (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 行動服務使用者的伺服器端授權
 
@@ -18,15 +18,15 @@
 
 </div>
 
-本教學課程會以行動服務快速入門為基礎，並依據上一個[開始使用驗證][]教學課程建立。開始此教學課程之前，您必須先完成[開始使用驗證][]。
+本教學課程會以行動服務快速入門為基礎，並依據上一個[開始使用驗證][開始使用驗證]教學課程建立。開始此教學課程之前，您必須先完成[開始使用驗證][開始使用驗證]。
 
 ## <a name="register-scripts"></a>註冊指令碼
 
 由於快速入門應用程式會讀取與插入資料，您必須對 TodoItem 資料表註冊這些作業的指令碼。
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
-    ![][]
+    ![][0]
 
 2.  按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
@@ -60,7 +60,7 @@
 
 ## 測試應用程式
 
-1.  在 Visual Studio 2012 Express for Windows 8 中，開啟您在完成[開始使用驗證][]教學課程時所修改的專案。
+1.  在 Visual Studio 2012 Express for Windows 8 中，開啟您在完成[開始使用驗證][開始使用驗證]教學課程時所修改的專案。
 
 2.  按 F5 鍵執行應用程式，然後以您選擇的識別提供者登入。
 
@@ -80,36 +80,25 @@
 
 這將結束示範使用驗證基本概念的教學課程。考慮更深入了解下列行動服務主題：
 
--   [開始使用資料][]
+-   [開始使用資料][開始使用資料]
     深入了解使用行動服務來儲存與查詢資料。
 
--   [開始使用推播通知][]
+-   [開始使用推播通知][開始使用推播通知]
     了解如何將極為基本的推播通知傳送到應用程式。
 
--   [行動服務伺服器指令碼參考][]
+-   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何註冊和使用伺服器指令碼。
 
--   [行動服務 .NET 作法概念參考資料][]
+-   [行動服務 .NET 作法概念參考資料][行動服務 .NET 作法概念參考資料]
     深入了解如何使用搭配 .NET 的行動服務。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/mobile-services-ios-authorize-users-in-scripts "iOS"
-  [Android]: /zh-tw/documentation/articles/mobile-services-android-authorize-users-in-scripts "Android"
-  [HTML]: /zh-tw/documentation/articles/mobile-services-html-authorize-users-in-scripts "HTML"
-  [Xamarin.iOS]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts "Xamarin.Android"
-  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/ ".NET 後端"
-  [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts/ "JavaScript 後端"
-  [觀看教學課程]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Authenticate-and-Authorize-users-with-Server-Scripts-in-Windows-Azure-Mobile-Servi
   [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-insert-script-users.png
   [3]: ./media/mobile-services-windows-store-dotnet-authorize-users-in-scripts/mobile-quickstart-startup.png

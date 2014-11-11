@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-how-to-guides/work-with-android-client-library" urlDisplayName="Android Client Library" pageTitle="Working with the Mobile Services Android Client Library" metaKeywords="" description="Learn how to use an Android client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the Android client library for Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # 如何使用行動服務的 Android 用戶端程式庫
 
@@ -8,46 +8,46 @@
 <a href="/zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
 </div>
 
-本指南將說明如何使用 Azure 行動服務的 Android 用戶端執行一般案例。所涵蓋的案例包括查詢資料，以及插入、更新和刪除資料、驗證使用者、處理錯誤和自訂用戶端。如果您不熟悉行動服務，您應考慮首先完成[行動服務快速入門][]。快速入門教學課程可協助您設定帳戶，並建立您的第一個行動服務。
+本指南將說明如何使用 Azure 行動服務的 Android 用戶端執行一般案例。所涵蓋的案例包括查詢資料，以及插入、更新和刪除資料、驗證使用者、處理錯誤和自訂用戶端。如果您不熟悉行動服務，您應考慮首先完成[行動服務快速入門][行動服務快速入門]。快速入門教學課程可協助您設定帳戶，並建立您的第一個行動服務。
 
-相關範例以 Java 撰寫，且必須使用[行動服務 SDK][]。本教學課程也須使用包含 Eclipse 整合式開發環境 (IDE) 和 Android Developer Tools (ADT) 外掛程式的 [Android SDK][]。行動服務 SDK 支援 Android 2.2 版或更新版本，但建議您以 Android 4.2 版或更新版本作為建置基礎。
+相關範例以 Java 撰寫，且必須使用[行動服務 SDK][行動服務 SDK]。本教學課程也須使用包含 Eclipse 整合式開發環境 (IDE) 和 Android Developer Tools (ADT) 外掛程式的 [Android SDK][Android SDK]。行動服務 SDK 支援 Android 2.2 版或更新版本，但建議您以 Android 4.2 版或更新版本作為建置基礎。
 
 ## 目錄
 
--   [什麼是行動服務][]
--   [概念][]
--   [設定和必要條件][]
--   [作法：建立行動服務用戶端][]
--   [作法：建立資料表參考][]
-    -   [API 結構][]
--   [作法：查詢行動服務中的資料][]
-    -   [篩選傳回資料][]
-    -   [排序傳回資料][]
-    -   [以分頁方式傳回資料][]
-    -   [選取特定資料欄][]
-    -   [作法：串連查詢方法][]
--   [作法：將資料插入行動服務][]
--   [作法：更新行動服務中的資料][]
--   [作法：刪除行動服務中的資料][]
--   [作法：查閱特定項目][]
--   [作法：使用不具類型的資料][]
--   [作法：將資料繫結到使用者介面][]
-    -   [作法：定義配置][]
-    -   [作法：定義配接器][]
-    -   [作法：使用配接器][]
--   [作法：驗證使用者][]
-    -   [快取驗證權杖][]
--   [作法：處理錯誤][]
--   [作法：自訂用戶端][]
-    -   [自訂要求標頭][]
-    -   [自訂序列化][]
--   [後續步驟][]
+-   [什麼是行動服務][什麼是行動服務]
+-   [概念][概念]
+-   [設定和必要條件][設定和必要條件]
+-   [作法：建立行動服務用戶端][作法：建立行動服務用戶端]
+-   [作法：建立資料表參考][作法：建立資料表參考]
+    -   [API 結構][API 結構]
+-   [作法：查詢行動服務中的資料][作法：查詢行動服務中的資料]
+    -   [篩選傳回資料][篩選傳回資料]
+    -   [排序傳回資料][排序傳回資料]
+    -   [以分頁方式傳回資料][以分頁方式傳回資料]
+    -   [選取特定資料欄][選取特定資料欄]
+    -   [作法：串連查詢方法][作法：串連查詢方法]
+-   [作法：將資料插入行動服務][作法：將資料插入行動服務]
+-   [作法：更新行動服務中的資料][作法：更新行動服務中的資料]
+-   [作法：刪除行動服務中的資料][作法：刪除行動服務中的資料]
+-   [作法：查閱特定項目][作法：查閱特定項目]
+-   [作法：使用不具類型的資料][作法：使用不具類型的資料]
+-   [作法：將資料繫結到使用者介面][作法：將資料繫結到使用者介面]
+    -   [作法：定義配置][作法：定義配置]
+    -   [作法：定義配接器][作法：定義配接器]
+    -   [作法：使用配接器][作法：使用配接器]
+-   [作法：驗證使用者][作法：驗證使用者]
+    -   [快取驗證權杖][快取驗證權杖]
+-   [作法：處理錯誤][作法：處理錯誤]
+-   [作法：自訂用戶端][作法：自訂用戶端]
+    -   [自訂要求標頭][自訂要求標頭]
+    -   [自訂序列化][自訂序列化]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [mobile-services-concepts][]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="setup"></a><span class="short-header">設定</span>設定和必要條件
 
-我們假設您已建立行動服務和資料表。如需詳細資訊，請參閱[建立資料表][]。在本主題所使用的程式碼中，我們假設資料表的名稱為 *ToDoItem*，且其中包含下列資料行：
+我們假設您已建立行動服務和資料表。如需詳細資訊，請參閱[建立資料表][建立資料表]。在本主題所使用的程式碼中，我們假設資料表的名稱為 *ToDoItem*，且其中包含下列資料行：
 
 -   id
 -   text
@@ -65,11 +65,11 @@
         private Integer duration;
     }
 
-啟用動態結構描述時，Azure 行動服務會根據插入或更新要求中的物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述][]。
+啟用動態結構描述時，Azure 行動服務會根據插入或更新要求中的物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述][動態結構描述]。
 
 ## <a name="create-client"></a><span class="short-header">建立行動服務用戶端</span>作法：建立行動服務用戶端
 
-下列程式碼將建立用來存取行動服務的 [MobileServiceClient][] 物件。
+下列程式碼將建立用來存取行動服務的 [MobileServiceClient][MobileServiceClient] 物件。
 
             MobileServiceClient mClient = new MobileServiceClient(
                     "MobileServiceUrl", // Replace with the above Site URL
@@ -80,9 +80,9 @@
 
 ## <a name="instantiating"></a><span class="short-header">建立資料表參考</span>作法：建立資料表參考
 
-要查詢或修改行動服務中的資料，最簡單的方式就是使用*型別程式設計模型*，因為 Java 屬於強型別語言 (後續我們將討論*不具型別的*模型)。此模型在用戶端與行動服務之間傳送資料時，可使用 [gson][] 程式庫對 JSON 進行緊密的序列化和還原序列化：完全不需要開發人員介入，全都可由架構處理。
+要查詢或修改行動服務中的資料，最簡單的方式就是使用*型別程式設計模型*，因為 Java 屬於強型別語言 (後續我們將討論*不具型別的*模型)。此模型在用戶端與行動服務之間傳送資料時，可使用 [gson][gson] 程式庫對 JSON 進行緊密的序列化和還原序列化：完全不需要開發人員介入，全都可由架構處理。
 
-查詢或修改資料的第一步，是要在 [**MobileServiceClient**][MobileServiceClient] 上呼叫 **getTable** 方法，以建立 [MobileServiceTable][] 物件。我們將考量此方法的兩個多載：
+查詢或修改資料的第一步，是要在 [**MobileServiceClient**][MobileServiceClient] 上呼叫 **getTable** 方法，以建立 [MobileServiceTable][MobileServiceTable] 物件。我們將考量此方法的兩個多載：
 
     public class MobileServiceClient {
         public <E> MobileServiceTable<E> getTable(Class<E> clazz);
@@ -91,11 +91,11 @@
 
 在下列程式碼中，*mClient* 是對您的行動服務用戶端的參考。
 
-[第一個多載][]會在類別名稱與資料表名稱相同的情況下使用：
+[第一個多載][第一個多載]會在類別名稱與資料表名稱相同的情況下使用：
 
         MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 
-[第二個多載][]會在資料表名稱與類型名稱不同時使用。
+[第二個多載][第二個多載]會在資料表名稱與類型名稱不同時使用。
 
         MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
@@ -122,7 +122,7 @@
                 }
             });
 
-此類查詢會使用 [**TableQueryCallback\<E\>**][] 回呼物件。
+此類查詢會使用 [**TableQueryCallback\<E\>**][**TableQueryCallback\<E\>**] 回呼物件。
 
 *result* 參數會傳回查詢的結果集，而*例外狀況*測試之成功分支內的程式碼會顯示如何剖析個別資料列。
 
@@ -144,23 +144,23 @@
             }
         });
 
-您使用 [**where**][] 方法呼叫，對資料表參考執行篩選。接著您又依序使用 [**field**][] 方法呼叫，以及指定邏輯述詞的方法呼叫。可能的數詞方法包括 [**eq**][]、[**ne**][]、[**gt**][]、[**ge**][]、[**lt**][]、[**le**][] 等。
+您使用 [**where**][**where**] 方法呼叫，對資料表參考執行篩選。接著您又依序使用 [**field**][**field**] 方法呼叫，以及指定邏輯述詞的方法呼叫。可能的數詞方法包括 [**eq**][**eq**]、[**ne**][**ne**]、[**gt**][**gt**]、[**ge**][**ge**]、[**lt**][**lt**]、[**le**][**le**] 等。
 
 這已足以用來比較數字/字串欄位與特定值。但您能做的絕對不僅止於此。
 
-例如，您可以依日期進行篩選。您可以比較整個日期欄位，也可以使用下列方法比較日期的某些部分：[**year**][]、[**month**][]、[**day**][]、[**hour**][]、[**minute**][] 和 [**second**][]。下列節錄的程式碼會為*到期日*為 2013 年的項目新增篩選器。
+例如，您可以依日期進行篩選。您可以比較整個日期欄位，也可以使用下列方法比較日期的某些部分：[**year**][**year**]、[**month**][**month**]、[**day**][**day**]、[**hour**][**hour**]、[**minute**][**minute**] 和 [**second**][**second**]。下列節錄的程式碼會為*到期日*為 2013 年的項目新增篩選器。
 
         mToDoTable.where().year("due").eq(2013)
 
-您可以使用 [**startsWith**][]、[**endsWith**][]、[**concat**][]、[**subString**][]、[**indexOf**][]、[**replace**][]、[**toLower**][]、[**toUpper**][]、[**trim**][] 和 [**length**][] 等方法，對字串欄位執行多種複雜的篩選。下列節錄的程式碼會對 *text* 資料行的開頭為 "PRI0" 的資料表資料列進行篩選。
+您可以使用 [**startsWith**][**startsWith**]、[**endsWith**][**endsWith**]、[**concat**][**concat**]、[**subString**][**subString**]、[**indexOf**][**indexOf**]、[**replace**][**replace**]、[**toLower**][**toLower**]、[**toUpper**][**toUpper**]、[**trim**][**trim**] 和 [**length**][**length**] 等方法，對字串欄位執行多種複雜的篩選。下列節錄的程式碼會對 *text* 資料行的開頭為 "PRI0" 的資料表資料列進行篩選。
 
         mToDoTable.where().startsWith("text", "PRI0")
 
-數字欄位也可透過 [**add**][]、[**sub**][]、[**mul**][]、[**div**][]、[**mod**][]、[**floor**][]、[**ceiling**][] 和 [**round**][] 等方法，進行多種更複雜的篩選。下列節錄的程式碼會對 *duration* 為偶數的資料表資料列進行篩選。
+數字欄位也可透過 [**add**][**add**]、[**sub**][**sub**]、[**mul**][**mul**]、[**div**][**div**]、[**mod**][**mod**]、[**floor**][**floor**]、[**ceiling**][**ceiling**] 和 [**round**][**round**] 等方法，進行多種更複雜的篩選。下列節錄的程式碼會對 *duration* 為偶數的資料表資料列進行篩選。
 
         mToDoTable.where().field("duration").mod(2).eq(0)
 
-您可以將述詞與 [**and**][]、[**or**][]、[**not**][] 等方法相結合。下列節錄的程式碼會結合前述的兩個範例。
+您可以將述詞與 [**and**][**and**]、[**or**][**or**]、[**not**][**not**] 等方法相結合。下列節錄的程式碼會結合前述的兩個範例。
 
         mToDoTable.where().year("due").eq(2013).and().startsWith("text", "PRI0")
 
@@ -171,7 +171,7 @@
                         .and
                     (startsWith("text", "PRI0").or().field("duration").gt(10))
 
-如需篩選的詳細討論與範例，請參閱[探索功能豐富的行動服務 Android 用戶端查詢模型][] (英文)。
+如需篩選的詳細討論與範例，請參閱[探索功能豐富的行動服務 Android 用戶端查詢模型][探索功能豐富的行動服務 Android 用戶端查詢模型] (英文)。
 
 ### <a name="sorting"></a>作法：排序傳回資料
 
@@ -182,9 +182,9 @@
                 /* same implementation as above */ 
             }); 
 
-[**orderBy**][] 方法的第一個參數是一個字串，代表作為排序依據的欄位名稱。
+[**orderBy**][**orderBy**] 方法的第一個參數是一個字串，代表作為排序依據的欄位名稱。
 
-第二個參數會使用 [**QueryOrder**][] 列舉，指定要進行遞增還是遞減排序。
+第二個參數會使用 [**QueryOrder**][**QueryOrder**] 列舉，指定要進行遞增還是遞減排序。
 
 請注意，如果您使用 ***where*** 方法進行篩選，***where*** 方法必須要在 ***orderBy*** 方法之前叫用。
 
@@ -224,13 +224,13 @@
 
 在此，select 函數的參數是您要傳回之資料表資料行的字串名稱。
 
-如果有 [**where**][1] 和 [**orderBy**][2] 等方法存在，[**select**][] 方法就必須跟隨在這些方法之後。而其後可以跟隨 [**top**][] 之類的方法。
+如果有 [**where**][1] 和 [**orderBy**][2] 等方法存在，[**select**][**select**] 方法就必須跟隨在這些方法之後。而其後可以跟隨 [**top**][**top**] 之類的方法。
 
 ### <a name="chaining"></a>作法：串連查詢方法
 
 用來查詢行動服務資料表的方法是可以串連的。這可讓您從排序和分頁的篩選資料列中選取特定資料行，或執行類似作業。您可以建立複雜的邏輯篩選器。
 
-之所以能有此效用，是因為您所使用的查詢方法會傳回 [**MobileServiceQuery\<T\>**][] 物件，而這些物件後續又可供其他方法加以叫用。若要結束這一系列的方法，而實際執行查詢，您可以呼叫 [**execute**][] 方法。
+之所以能有此效用，是因為您所使用的查詢方法會傳回 [**MobileServiceQuery\<T\>**][**MobileServiceQuery\<T\>**] 物件，而這些物件後續又可供其他方法加以叫用。若要結束這一系列的方法，而實際執行查詢，您可以呼叫 [**execute**][**execute**] 方法。
 
 在下列程式碼範例中，*mToDoTable* 是行動服務 *ToDoItem* 資料表的參考。
 
@@ -257,7 +257,7 @@
         mToDoItem.duration = 5; 
         
 
-接著，您呼叫 [**insert**][] 方法。
+接著，您呼叫 [**insert**][**insert**] 方法。
 
         mToDoTable.insert(mToDoItem, new TableOperationCallback<ToDoItem>() {
             public void onCompleted(ToDoItem entity, 
@@ -269,7 +269,7 @@
             }
         });
 
-在**插入**作業中，回呼物件為 [**TableOperationCallback\<ToDoItem\>**][]。
+在**插入**作業中，回呼物件為 [**TableOperationCallback\<ToDoItem\>**][**TableOperationCallback\<ToDoItem\>**]。
 
 **onCompleted** 方法的實體參數包含新插入的物件。成功的程式碼會顯示如何存取插入之資料列的 *id*。
 
@@ -306,11 +306,11 @@
 
 `id` 的值必須是唯一的，且不可包含下列字集中的字元：
 
--   控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]。如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1][] (英文)。
+-   控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]。如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1][ASCII 控制碼 C0 和 C1] (英文)。
 -   可以列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?**(0x003F)、**\\** (0x005C)、**\`** (0x0060)
 -   識別碼 "." 和 ".."
 
-另外，您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表][] (英文)。
+另外，您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表][使用 CLI 管理行動服務資料表] (英文)。
 
 ## <a name="updating"></a><span class="short-header">更新資料</span>作法：更新行動服務中的資料
 
@@ -342,7 +342,7 @@
             }
         });
 
-請注意，在*刪除*案例中，回呼物件為 [**TableDeleteCallback**][]，而 **onCompleted** 方法則因為不會傳回資料表資料列，有些許不同。
+請注意，在*刪除*案例中，回呼物件為 [**TableDeleteCallback**][**TableDeleteCallback**]，而 **onCompleted** 方法則因為不會傳回資料表資料列，有些許不同。
 
 下列程式碼將說明另一種執行方式。此方式會指定要刪除之資料列的 ID 欄位值 (假設等於 "37BBF396-11F0-4B39-85C8-B319C729AF6D")，以刪除 ToDoItem 資料表中的現有項目。
 
@@ -372,7 +372,7 @@
 
 不具型別的程式設計模型可讓您精確掌控 JSON 序列化，因此在某些情況下，您可能會想加以使用，例如：您的行動服務資料表包含大量資料行，但您只需要參考其中幾個而已。使用型別模型時，您必須在資料類別中定義所有行動服務資料表的資料行。但在使用不具型別的模型時，您只需定義需要使用的資料行即可。
 
-和型別模型一樣，首先您必須取得資料表參考，但在此案例中這會是 [MobileServicesJsonTable][] 物件。您在行動服務用戶端的執行個體上呼叫 [getTable()][] 方法，以取得參考。
+和型別模型一樣，首先您必須取得資料表參考，但在此案例中這會是 [MobileServicesJsonTable][MobileServicesJsonTable] 物件。您在行動服務用戶端的執行個體上呼叫 [getTable()][getTable()] 方法，以取得參考。
 
 您使用此方法的下列過載，因為這是不具型別的 JSON 型程式設計模型所適用的：
 
@@ -392,14 +392,14 @@
 
 ### <a name="json_insert"></a>作法：插入不具型別的資料表中
 
-下列程式碼將說明如何執行插入。第一個步驟是建立屬於 [gson][] 程式庫的 [**JsonObject**][]。
+下列程式碼將說明如何執行插入。第一個步驟是建立屬於 [gson][gson] 程式庫的 [**JsonObject**][**JsonObject**]。
 
         JsonObject task = new JsonObject();
         task.addProperty("text", "Wake up");
         task.addProperty("complete", false);
         task.addProperty("duration", 5);
 
-下一個步驟是插入物件。傳至 [**insert**][3] 方法的回呼函數是 [**TableJsonOperationCallback**][] 類別的執行個體。請留意 JsonObject 如何成為 *onCompleted* 方法的第一個參數。
+下一個步驟是插入物件。傳至 [**insert**][3] 方法的回呼函數是 [**TableJsonOperationCallback**][**TableJsonOperationCallback**] 類別的執行個體。請留意 JsonObject 如何成為 *onCompleted* 方法的第一個參數。
 
         mTable.insert(task, new TableJsonOperationCallback() {
             public void onCompleted(JsonObject jsonObject, 
@@ -435,7 +435,7 @@
 
 ### <a name="json_get"></a>作法：從不具型別的資料表傳回所有資料列
 
-下列程式碼將說明如何擷取整個資料表。請留意到，不具型別的程式設計模型會使用不同的回呼物件：[**TableJsonQueryCallback**][]。
+下列程式碼將說明如何擷取整個資料表。請留意到，不具型別的程式設計模型會使用不同的回呼物件：[**TableJsonQueryCallback**][**TableJsonQueryCallback**]。
 
         mTable.execute(new TableJsonQueryCallback() {
             public void onCompleted(JsonElement result, 
@@ -553,7 +553,7 @@
 
 ## <a name="authentication"></a><span class="short-header">驗證</span>作法：驗證使用者
 
-行動服務支援使用各種外部識別提供者來驗證與授權應用程式使用者：Facebook、Google、Microsoft 帳戶、Twitter 和 Azure Active Directory。您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。您也可以使用通過驗證使用者的身分識別來實作伺服器指令碼中的授權規則。如需詳細資訊，請參閱[開始使用驗證][] (英文)。
+行動服務支援使用各種外部識別提供者來驗證與授權應用程式使用者：Facebook、Google、Microsoft 帳戶、Twitter 和 Azure Active Directory。您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。您也可以使用通過驗證使用者的身分識別來實作伺服器指令碼中的授權規則。如需詳細資訊，請參閱[開始使用驗證][開始使用驗證] (英文)。
 
 支援兩種驗證流程：*伺服器*流程和*用戶端*流程。由於伺服器流程採用提供者的 Web 驗證介面，因此所提供的驗證體驗也最為簡單。用戶端流程依賴提供者專屬的裝置專用 SDK，可以與裝置特有的功能深入整合，例如單一登入。
 
@@ -573,7 +573,7 @@
 
 您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。您也可以使用已驗證的使用者 ID 來修改要求。
 
-前兩項工作可使用 [Azure 管理入口網站][]來完成。如需詳細資訊，請參閱[開始使用驗證][] (英文)。
+前兩項工作可使用 [Azure 管理入口網站][Azure 管理入口網站]來完成。如需詳細資訊，請參閱[開始使用驗證][開始使用驗證] (英文)。
 
 ### <a name="caching"></a>作法：將驗證碼新增至您的應用程式
 
@@ -669,7 +669,7 @@
 
 ## <a name="errors"></a><span class="short-header">錯誤處理</span>作法：處理錯誤
 
-您可以在[此處][]檢視執行驗證和處理錯誤的範例；此範例的驗證是透過會傳回錯誤例外狀況的伺服器指令碼，以及會處理例外狀況的用戶端程式碼來實作的。
+您可以在[此處][此處]檢視執行驗證和處理錯誤的範例；此範例的驗證是透過會傳回錯誤例外狀況的伺服器指令碼，以及會處理例外狀況的用戶端程式碼來實作的。
 
 另一種方式是提供*全域*錯誤處理常式。前述存取行動服務資料表的程式碼，牽涉到三種不同的回呼物件：
 
@@ -723,7 +723,7 @@
 -   mComplete
 -   mDuration
 
-您必須將用戶端名稱序列化為 JSON 名稱，且這些名稱必須與伺服器上的 *ToDoItem* 資料表的資料行名稱相符。下列使用 [gson][] 程式庫的程式碼會執行此動作。
+您必須將用戶端名稱序列化為 JSON 名稱，且這些名稱必須與伺服器上的 *ToDoItem* 資料表的資料行名稱相符。下列使用 [gson][gson] 程式庫的程式碼會執行此動作。
 
     @com.google.gson.annotations.SerializedName("text")
     private String mText;
@@ -746,9 +746,9 @@
 
 ### <a name="conversions"></a>作法：自動化資料行名稱對應
 
-在上一節中我們了解到，要為一個只有幾個資料行的小型資料表對應資料行名稱，並不困難。但假設我們的資料表有許多資料行，例如 20 或 30 個。此時，我們可以呼叫 [gson][] API，並指定會套用至每個資料行的轉換策略，而無須為每一個資料行名稱加註。
+在上一節中我們了解到，要為一個只有幾個資料行的小型資料表對應資料行名稱，並不困難。但假設我們的資料表有許多資料行，例如 20 或 30 個。此時，我們可以呼叫 [gson][gson] API，並指定會套用至每個資料行的轉換策略，而無須為每一個資料行名稱加註。
 
-若要這麼做，我們可以使用 Android 用戶端程式庫在背景用來將 Java 物件序列化為 JSON 資料 (會傳送至 Azure 行動服務) 的 [gson][] 程式庫。
+若要這麼做，我們可以使用 Android 用戶端程式庫在背景用來將 Java 物件序列化為 JSON 資料 (會傳送至 Azure 行動服務) 的 [gson][gson] 程式庫。
 
 下列程式碼會使用 *setFieldNamingStrategy()* 方法 (在此方法中可定義 *FieldNamingStrategy()* 方法)。此方法會刪除每個欄位名稱的起始字元 ("m")，然後將下一個字元轉換為小寫。此程式碼也會啟用輸出 JSON 的美化顯示功能。
 
@@ -770,7 +770,7 @@
 
 到目前為止，我們的序列化範例所示範的，都是能夠輕易序列化為 JSON 和行動服務資料表的基本類型，例如整數和字串。假設我們想要將複雜的物件新增至用戶端類型，而該物件無法自動序列化為 JSON 和資料表。例如，我們可能想要將字串陣列新增至用戶端物件。現在，要如何執行序列化，以及如何將陣列儲存到行動服務資料表中，全都可由我們指定。
 
-若要檢視其執行範例，請參閱部落格貼文[在行動服務 Android 用戶端中使用][][gson][] 程式庫自訂序列化</a> (英文)。
+若要檢視其執行範例，請參閱部落格貼文[在行動服務 Android 用戶端中使用][在行動服務 Android 用戶端中使用][gson][gson] 程式庫自訂序列化</a> (英文)。
 
 只要有無法自動序列化為 JSON 和行動服務資料表的複雜物件出現時，我們即可使用此一般方法。
 
@@ -784,11 +784,6 @@
 
 <!-- URLs. -->
 
-  [.NET Framework]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [行動服務快速入門]: /zh-tw/develop/mobile/tutorials/get-started-android/
   [行動服務 SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
   [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125&clcid=0x409
@@ -828,62 +823,16 @@
   [MobileServiceTable]: http://go.microsoft.com/fwlink/p/?LinkId=296835
   [第一個多載]: http://go.microsoft.com/fwlink/p/?LinkId=296839
   [第二個多載]: http://go.microsoft.com/fwlink/p/?LinkId=296840
-  [**TableQueryCallback\<E\>**]: http://go.microsoft.com/fwlink/p/?LinkId=296849
-  [**where**]: http://go.microsoft.com/fwlink/p/?LinkId=296867
-  [**field**]: http://go.microsoft.com/fwlink/p/?LinkId=296869
   [**eq**]: http://go.microsoft.com/fwlink/p/?LinkId=298461
   [**ne**]: http://go.microsoft.com/fwlink/p/?LinkId=298462
-  [**gt**]: http://go.microsoft.com/fwlink/p/?LinkId=298463
-  [**ge**]: http://go.microsoft.com/fwlink/p/?LinkId=298464
-  [**lt**]: http://go.microsoft.com/fwlink/p/?LinkId=298465
   [**le**]: http://go.microsoft.com/fwlink/p/?LinkId=298466
-  [**year**]: http://go.microsoft.com/fwlink/p/?LinkId=298467
-  [**month**]: http://go.microsoft.com/fwlink/p/?LinkId=298468
-  [**day**]: http://go.microsoft.com/fwlink/p/?LinkId=298469
-  [**hour**]: http://go.microsoft.com/fwlink/p/?LinkId=298470
-  [**minute**]: http://go.microsoft.com/fwlink/p/?LinkId=298471
-  [**second**]: http://go.microsoft.com/fwlink/p/?LinkId=298472
-  [**startsWith**]: http://go.microsoft.com/fwlink/p/?LinkId=298473
-  [**endsWith**]: http://go.microsoft.com/fwlink/p/?LinkId=298474
-  [**concat**]: http://go.microsoft.com/fwlink/p/?LinkId=298475
-  [**subString**]: http://go.microsoft.com/fwlink/p/?LinkId=298477
-  [**indexOf**]: http://go.microsoft.com/fwlink/p/?LinkId=298488
-  [**replace**]: http://go.microsoft.com/fwlink/p/?LinkId=298491
-  [**toLower**]: http://go.microsoft.com/fwlink/p/?LinkId=298492
-  [**toUpper**]: http://go.microsoft.com/fwlink/p/?LinkId=298493
-  [**trim**]: http://go.microsoft.com/fwlink/p/?LinkId=298495
-  [**length**]: http://go.microsoft.com/fwlink/p/?LinkId=298496
-  [**add**]: http://go.microsoft.com/fwlink/p/?LinkId=298497
-  [**sub**]: http://go.microsoft.com/fwlink/p/?LinkId=298499
-  [**mul**]: http://go.microsoft.com/fwlink/p/?LinkId=298500
-  [**div**]: http://go.microsoft.com/fwlink/p/?LinkId=298502
-  [**mod**]: http://go.microsoft.com/fwlink/p/?LinkId=298503
-  [**floor**]: http://go.microsoft.com/fwlink/p/?LinkId=298505
-  [**ceiling**]: http://go.microsoft.com/fwlink/p/?LinkId=298506
-  [**round**]: http://go.microsoft.com/fwlink/p/?LinkId=298507
-  [**and**]: http://go.microsoft.com/fwlink/p/?LinkId=298512
-  [**or**]: http://go.microsoft.com/fwlink/p/?LinkId=298514
-  [**not**]: http://go.microsoft.com/fwlink/p/?LinkId=298515
   [探索功能豐富的行動服務 Android 用戶端查詢模型]: http://hashtagfail.com/post/46493261719/mobile-services-android-querying
-  [**orderBy**]: http://go.microsoft.com/fwlink/p/?LinkId=298519
-  [**QueryOrder**]: http://go.microsoft.com/fwlink/p/?LinkId=298521
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=296296
   [2]: http://go.microsoft.com/fwlink/p/?LinkId=296313
-  [**select**]: http://go.microsoft.com/fwlink/p/?LinkId=290689
-  [**top**]: http://go.microsoft.com/fwlink/p/?LinkId=298731
-  [**MobileServiceQuery\<T\>**]: http://go.microsoft.com/fwlink/p/?LinkId=298551
-  [**execute**]: http://go.microsoft.com/fwlink/p/?LinkId=298554
-  [**insert**]: http://go.microsoft.com/fwlink/p/?LinkId=296862
-  [**TableOperationCallback\<ToDoItem\>**]: http://go.microsoft.com/fwlink/p/?LinkId=296865
   [ASCII 控制碼 C0 和 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
   [使用 CLI 管理行動服務資料表]: http://www.windowsazure.com/zh-tw/manage/linux/other-resources/command-line-tools/#Mobile_Tables
-  [**TableDeleteCallback**]: http://go.microsoft.com/fwlink/p/?LinkId=296858
   [MobileServicesJsonTable]: http://go.microsoft.com/fwlink/p/?LinkId=298733
-  [getTable()]: http://go.microsoft.com/fwlink/p/?LinkId=298734
-  [**JsonObject**]: http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/JsonObject.html
   [3]: http://go.microsoft.com/fwlink/p/?LinkId=298535
-  [**TableJsonOperationCallback**]: http://go.microsoft.com/fwlink/p/?LinkId=298532
-  [**TableJsonQueryCallback**]: http://go.microsoft.com/fwlink/p/?LinkId=298543
   [開始使用驗證]: http://go.microsoft.com/fwlink/p/?LinkId=296316
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [此處]: https://www.windowsazure.com/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/

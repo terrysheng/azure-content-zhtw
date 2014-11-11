@@ -1,10 +1,10 @@
 <properties linkid="develop-php-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (PHP) - Azure feature guides" metaKeywords="Azure SQL Database PHP, SQL Database PHP" description="Learn how to create and connect to an Azure SQL Database from PHP." metaCanonical="" services="sql-database" documentationCenter="PHP" title="How to Access Azure SQL Database from PHP" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 如何從 PHP 存取 Azure SQL Database
 
-本指南將示範從 PHP 使用 Azure SQL Database 的基本概念。相關範例是以 PHP 撰寫的。涵蓋的案例包括**建立 SQL Database** 和**連接到 SQL Database**。本指南涵蓋從[管理入口網站][]建立 SQL Database。如需從生產入口網站執行這些工作的相關資訊，請參閱[開始使用 PHP 和 SQL Azure][] (英文)。如需詳細資訊，請參閱[後續步驟][]一節。
+本指南將示範從 PHP 使用 Azure SQL Database 的基本概念。相關範例是以 PHP 撰寫的。涵蓋的案例包括**建立 SQL Database** 和**連接到 SQL Database**。本指南涵蓋從[管理入口網站][管理入口網站]建立 SQL Database。如需從生產入口網站執行這些工作的相關資訊，請參閱[開始使用 PHP 和 SQL Azure][開始使用 PHP 和 SQL Azure] (英文)。如需詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 什麼是 Azure SQL Database
 
@@ -12,22 +12,22 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 
 ## 目錄
 
--   [概念][]
--   [作法：設定環境][]
--   [作法：建立 SQL Database][]
--   [作法：取得 SQL Database 連線資訊][]
--   [作法：連接到 SQL Database 執行個體][]
--   [後續步驟][]
+-   [概念][概念]
+-   [作法：設定環境][作法：設定環境]
+-   [作法：建立 SQL Database][作法：建立 SQL Database]
+-   [作法：取得 SQL Database 連線資訊][作法：取得 SQL Database 連線資訊]
+-   [作法：連接到 SQL Database 執行個體][作法：連接到 SQL Database 執行個體]
+-   [後續步驟][後續步驟]
 
 ## <span id="Concepts"></span></a> 概念
 
-由於 Azure SQL Database 是以 SQL Server 技術為基礎組建的，因此從 PHP 存取 SQL Database 與從 PHP 存取 SQL Server 非常類似。您可以在本機開發應用程式 (使用 SQL Server)，然後藉由只變更連線字串來連接 SQL Database。然而，SQL Database 和 SQL Server 之間存在某些可能會影響應用程式的差異。如需詳細資訊，請參閱 [Azure SQL Database 指導方針和限制][]。
+由於 Azure SQL Database 是以 SQL Server 技術為基礎組建的，因此從 PHP 存取 SQL Database 與從 PHP 存取 SQL Server 非常類似。您可以在本機開發應用程式 (使用 SQL Server)，然後藉由只變更連線字串來連接 SQL Database。然而，SQL Database 和 SQL Server 之間存在某些可能會影響應用程式的差異。如需詳細資訊，請參閱 [Azure SQL Database 指導方針和限制][Azure SQL Database 指導方針和限制]。
 
-從 PHP 存取 SQL Database 的建議方法是使用 [Microsoft Drivers for PHP for SQL Server][]。(本文中的範例將使用這些驅動程式。)The Microsoft Drivers for PHP for SQL Server 僅適用於 Windows。
+從 PHP 存取 SQL Database 的建議方法是使用 [Microsoft Drivers for PHP for SQL Server][Microsoft Drivers for PHP for SQL Server]。(本文中的範例將使用這些驅動程式。)The Microsoft Drivers for PHP for SQL Server 僅適用於 Windows。
 
 ## <span id="Setup"></span></a>作法：設定環境
 
-設定開發環境的建議方法是使用 [Microsoft Web Platform Installer][]。Web Platform Installer 可讓您選擇 Web 開發平台的元素，並且會自動安裝及設定這些元素。只要下載 Web Platform Installer 並選擇安裝 WebMatrix、PHP for WebMatrix 及 SQL Server Express，我們將會為您設定完整的開發環境。
+設定開發環境的建議方法是使用 [Microsoft Web Platform Installer][Microsoft Web Platform Installer]。Web Platform Installer 可讓您選擇 Web 開發平台的元素，並且會自動安裝及設定這些元素。只要下載 Web Platform Installer 並選擇安裝 WebMatrix、PHP for WebMatrix 及 SQL Server Express，我們將會為您設定完整的開發環境。
 
 您也可以手動設定環境：
 
@@ -39,36 +39,36 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 
 遵循下列步驟以建立 Azure SQL Database：
 
-1.  登入[管理入口網站][]。
+1.  登入[管理入口網站][管理入口網站]。
 2.  按一下入口網站左下方的 [新增]。
 
-    ![Create New Azure Web Site][]
+    ![Create New Azure Web Site][Create New Azure Web Site]
 
 3.  依序按一下[資料服務]、[SQL DATABASE] 及 [CUSTOM CREATE]。
 
-    ![Custom Create a new SQL Database][]
+    ![Custom Create a new SQL Database][Custom Create a new SQL Database]
 
 4.  輸入資料庫的 [名稱] 值、選取 \[版本] (WEB 或 BUSINESS)、針對您的資料庫選取 [最大大小]，選擇 [定序]，然後選取 [新增 SQL Database 伺服器]。按一下對話方塊底部的箭頭。(請注意，如果先前已建立 SQL Database，可以從 [選擇伺服器] 下拉式清單選擇現有的伺服器)。
 
-    ![Fill in SQL Database settings][]
+    ![Fill in SQL Database settings][Fill in SQL Database settings]
 
 5.  輸入系統管理員名稱和密碼 (並確認密碼)，選擇將要建立新 SQL 資料庫的區域，然後勾選 `Allow Azure Services to access the server` 方塊。
 
-    ![Create new SQL Database server][]
+    ![Create new SQL Database server][Create new SQL Database server]
 
 若要查看伺服器和資料庫資訊，請按一下管理入口網站中的 [SQL Database]。您可以接著按一下 [資料庫] 或 [伺服器]，查看相關資訊。
 
-![View server and database information][]
+![View server and database information][View server and database information]
 
 ## <span id="ConnectionInfo"></span></a>作法：取得 SQL Database 連線資訊
 
 若要取得 SQL Database 連線資訊，請按一下入口網站中的 [SQL DATABASE]，然後按一下資料庫的名稱。
 
-![View database information][]
+![View database information][View database information]
 
 接著按一下 [View SQL Database connection strings for ADO.NET, ODBC, PHP, and JDBC]。
 
-![Show connection strings][]
+![Show connection strings][Show connection strings]
 
 在結果視窗的 PHP 區段中，記下 **SERVER**、**DATABASE** 及 **USERNAME** 的值。您的密碼會是建立 SQL Database 時所用的密碼。
 
@@ -106,7 +106,7 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 
 ## <span id="NextSteps"></span></a>後續步驟
 
-如前文提及，SQL Database 的使用方法與 SQL Server 非常類似。一旦建立 SQL Database 連線 (如前文所示) 後，您便可以使用 **SQLSRV** 或 **PDO\_SQLSRV** API 來插入、擷取、更新及刪除資料。如需 **SQLSRV** 和 **PDO\_SQLSRV** API 的相關資訊，請參閱 [Microsoft Drivers for PHP for SQL Server 文件][] (英文)。然而，SQL Database 和 SQL Server 之間存在某些可能會影響應用程式的差異。如需詳細資訊，請參閱 [Azure SQL Database 指導方針和限制][]。
+如前文提及，SQL Database 的使用方法與 SQL Server 非常類似。一旦建立 SQL Database 連線 (如前文所示) 後，您便可以使用 **SQLSRV** 或 **PDO\_SQLSRV** API 來插入、擷取、更新及刪除資料。如需 **SQLSRV** 和 **PDO\_SQLSRV** API 的相關資訊，請參閱 [Microsoft Drivers for PHP for SQL Server 文件][Microsoft Drivers for PHP for SQL Server 文件] (英文)。然而，SQL Database 和 SQL Server 之間存在某些可能會影響應用程式的差異。如需詳細資訊，請參閱 [Azure SQL Database 指導方針和限制][Azure SQL Database 指導方針和限制]。
 
 示範如何在 Azure 上搭配使用 SQL 資料庫和 PHP 的範例，位於 <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-sqlazure>。
 

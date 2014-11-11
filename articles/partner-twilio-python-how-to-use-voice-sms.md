@@ -1,23 +1,23 @@
 <properties linkid="develop-php-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (PHP) - Azure" metaKeywords="Azure PHP Twilio, Azure phone calls, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in PHP." metaCanonical="" services="" documentationCenter="" title="How to Use Twilio for Voice and SMS Capabilities in PHP" authors="MicrosoftHelp@twilio.com" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
 
 # 如何在 PHP 中透過 Twilio 使用語音和簡訊功能
 
-本指南示範如何在 Azure 上透過 Twilio API 服務執行常見的程式設計工作。涵蓋的案例包括打電話和傳送簡訊 (SMS)。如需有關如何在應用程式中使用 Twilio 語音和 SMS 的詳細資訊，請參閱[後續步驟][]一節。
+本指南示範如何在 Azure 上透過 Twilio API 服務執行常見的程式設計工作。涵蓋的案例包括打電話和傳送簡訊 (SMS)。如需有關如何在應用程式中使用 Twilio 語音和 SMS 的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [什麼是 Twilio？][]
--   [Twilio 定價][]
--   [概念][]
--   [建立 Twilio 帳戶][]
--   [驗證電話號碼][]
--   [建立 PHP 應用程式][]
--   [設定應用程式以使用 Twilio 程式庫][]
--   [作法：撥出電話][]
--   [作法：傳送簡訊][]
--   [作法：從您自己的網站提供 TwiML 回應][]
+-   [什麼是 Twilio？][什麼是 Twilio？]
+-   [Twilio 定價][Twilio 定價]
+-   [概念][概念]
+-   [建立 Twilio 帳戶][建立 Twilio 帳戶]
+-   [驗證電話號碼][驗證電話號碼]
+-   [建立 PHP 應用程式][建立 PHP 應用程式]
+-   [設定應用程式以使用 Twilio 程式庫][設定應用程式以使用 Twilio 程式庫]
+-   [作法：撥出電話][作法：撥出電話]
+-   [作法：傳送簡訊][作法：傳送簡訊]
+-   [作法：從您自己的網站提供 TwiML 回應][作法：從您自己的網站提供 TwiML 回應]
 
 ## <span id="WhatIs"></span></a>什麼是 Twilio？
 
@@ -33,7 +33,7 @@ Twilio 是隨收隨付的服務。不需要設定費，隨時都可結清帳戶�
 
 ## <span id="Concepts"></span></a> 概念
 
-Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。用戶端程式庫有多種語言版本，相關清單請參閱＜[Twilio API 程式庫][]＞(英文)。
+Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。用戶端程式庫有多種語言版本，相關清單請參閱＜[Twilio API 程式庫][Twilio API 程式庫]＞(英文)。
 
 Twilio API 的兩大重點是 Twilio 動詞和 Twilio 標記語言 (TwiML)。
 
@@ -67,25 +67,25 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 
 當應用程式呼叫 Twilio API 時，其中一個 API 參數是傳回 TwiML 回應的 URL。在開發用途上，您可以使用 Twilio 提供的 URL 來提供應用程式所使用的 TwiML 回應。您也可以裝載您自己的 URL 來產生 TwiML 回應，另一種選擇是使用 **TwiMLResponse** 物件。
 
-如需 Twilio 動詞、屬性和 TwiML 的詳細資訊，請參閱 [TwiML][]。如需 Twilio API 的詳細資訊，請參閱 [Twilio API][]。
+如需 Twilio 動詞、屬性和 TwiML 的詳細資訊，請參閱 [TwiML][TwiML]。如需 Twilio API 的詳細資訊，請參閱 [Twilio API][Twilio API]。
 
 ## <span id="CreateAccount"></span></a>建立 Twilio 帳戶
 
-準備取得 Twilio 帳戶時，請至[試用 Twilio][] 註冊。您可以先使用免費帳戶，稍後再升級帳戶。
+準備取得 Twilio 帳戶時，請至[試用 Twilio][試用 Twilio] 註冊。您可以先使用免費帳戶，稍後再升級帳戶。
 
-註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面][] (英文) 的 **ACCOUNT SID** 和 **AUTH TOKEN** 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
+註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面][Twilio 帳戶頁面] (英文) 的 **ACCOUNT SID** 和 **AUTH TOKEN** 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
 
 ## <span id="VerifyPhoneNumbers"></span></a>驗證電話號碼
 
-各種電話號碼都必須經過您在 Twilio 的帳戶來驗證。例如，如果想要使用來電者 ID 現有的電話號碼向外撥打電話，則必須向 Twilio 驗證此電話號碼。同樣地，在您升級之前，如果想要傳送簡訊給某個電話號碼，也必須向 Twilio 驗證此號碼。在升級之後，您無須驗證電話號碼即可傳送簡訊給任何號碼。如需如何驗證電話號碼的詳細資訊，請參閱[管理電話號碼][]。以下某些程式碼依賴需要向 Twilio 驗證的電話號碼。
+各種電話號碼都必須經過您在 Twilio 的帳戶來驗證。例如，如果想要使用來電者 ID 現有的電話號碼向外撥打電話，則必須向 Twilio 驗證此電話號碼。同樣地，在您升級之前，如果想要傳送簡訊給某個電話號碼，也必須向 Twilio 驗證此號碼。在升級之後，您無須驗證電話號碼即可傳送簡訊給任何號碼。如需如何驗證電話號碼的詳細資訊，請參閱[管理電話號碼][管理電話號碼]。以下某些程式碼依賴需要向 Twilio 驗證的電話號碼。
 
-除了在應用程式中使用現有的電話號碼，您也可以購買 Twilio 電話號碼。如需有關購買 Twilio 電話號碼的詳細資訊，請參閱＜[Twilio 電話號碼說明][]＞(英文)。
+除了在應用程式中使用現有的電話號碼，您也可以購買 Twilio 電話號碼。如需有關購買 Twilio 電話號碼的詳細資訊，請參閱＜[Twilio 電話號碼說明][Twilio 電話號碼說明]＞(英文)。
 
 ## <span id="create_app"></span></a>建立 PHP 應用程式
 
-使用 Twilio 服務且執行於 Azure 的 PHP 應用程式，與其他使用 Twilio 服務的 PHP 應用程式並無不同。雖然 Twilio 服務是以 REST 為基礎，並且可透過數種方式從 PHP 撥打，但本文的重點是要說明如何搭配使用 Twilio 服務與 [適用於 PHP 的 Twiliofor 程式庫 (由 Github 提供)][]。若想進一步了解如何使用適用於 PHP 的 Twilio 程式庫，請參閱 [][]<http://readthedocs.org/docs/twilio-php/en/latest/index.html></a>。
+使用 Twilio 服務且執行於 Azure 的 PHP 應用程式，與其他使用 Twilio 服務的 PHP 應用程式並無不同。雖然 Twilio 服務是以 REST 為基礎，並且可透過數種方式從 PHP 撥打，但本文的重點是要說明如何搭配使用 Twilio 服務與 [適用於 PHP 的 Twiliofor 程式庫 (由 Github 提供)][適用於 PHP 的 Twiliofor 程式庫 (由 Github 提供)]。若想進一步了解如何使用適用於 PHP 的 Twilio 程式庫，請參閱 [][]<http://readthedocs.org/docs/twilio-php/en/latest/index.html></a>。
 
-如需建置 Twilio/PHP 應用程式以及將其部署至 Azure 的詳細指示，請參閱[如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話][]。
+如需建置 Twilio/PHP 應用程式以及將其部署至 Azure 的詳細指示，請參閱[如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話][如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話]。
 
 ## <span id="configure_app"></span></a>設定應用程式以使用 Twilio 程式庫
 
@@ -240,7 +240,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
         echo 'Error: ' . $e->getMessage();
     }
 
-如需在具有 PHP 的 Azure 中使用 Twilio 的相關資訊，請參閱[如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話][]。
+如需在具有 PHP 的 Azure 中使用 Twilio 的相關資訊，請參閱[如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話][如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話]。
 
 ## <span id="AdditionalServices"></span></a>作法：使用其他 Twilio 服務
 
@@ -250,11 +250,11 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 
 了解基本的 Twilio 服務之後，請參考下列連結以取得更多資訊：
 
--   [Twilio 安全性方針][]
--   [Twilio 作法指南與範例程式碼][]
--   [Twilio 快速入門教學課程][]
--   [GitHub 上的 Twilio][]
--   [洽詢 Twilio 支援][]
+-   [Twilio 安全性方針][Twilio 安全性方針]
+-   [Twilio 作法指南與範例程式碼][Twilio 作法指南與範例程式碼]
+-   [Twilio 快速入門教學課程][Twilio 快速入門教學課程]
+-   [GitHub 上的 Twilio][GitHub 上的 Twilio]
+-   [洽詢 Twilio 支援][洽詢 Twilio 支援]
 
   [後續步驟]: #NextSteps
   [什麼是 Twilio？]: #WhatIs
@@ -275,7 +275,6 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
   [Twilio 帳戶頁面]: https://www.twilio.com/user/account
   [管理電話號碼]: https://www.twilio.com/user/account/phone-numbers/verified#
   [Twilio 電話號碼說明]: https://www.twilio.com/help/faq/phone-numbers
-  [適用於 PHP 的 Twiliofor 程式庫 (由 Github 提供)]: https://github.com/twilio/twilio-php
   []: http://readthedocs.org/docs/twilio-php/en/latest/index.html
   [如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話]: http://windowsazure.com/zh-TW/documentation/articles/partner-twilio-php-make-phone-call
   [2]: https://github.com/twilio/twilio-php/blob/master/README.md

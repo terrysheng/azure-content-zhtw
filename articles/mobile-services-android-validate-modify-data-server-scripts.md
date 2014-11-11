@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-android" urlDisplayName="Validate Data - Android" pageTitle="Use server scripts to validate and modify data (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # 使用伺服器指令碼在行動服務中驗證與修改資料
 
@@ -12,20 +12,20 @@
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [新增字串長度驗證][]
-2.  [更新用戶端以支援驗證][]
-3.  [插入時新增時間戳記][]
-4.  [更新用戶端以顯示時間戳記][]
+1.  [新增字串長度驗證][新增字串長度驗證]
+2.  [更新用戶端以支援驗證][更新用戶端以支援驗證]
+3.  [插入時新增時間戳記][插入時新增時間戳記]
+4.  [更新用戶端以顯示時間戳記][更新用戶端以顯示時間戳記]
 
-本教學課程會以上一堂教學課程[開始使用資料][]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料][]。
+本教學課程會以上一堂教學課程[開始使用資料][開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料][開始使用資料]。
 
 ## <a name="string-length-validation"></a>新增驗證
 
 驗證使用者提交的資料長度一向是最佳做法。首先，註冊可驗證傳送至行動服務之字串資料長度的指令碼，並拒絕太長的字串，在此案例中為不得超過 10 個字元。
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
-    ![][]
+    ![][0]
 
 2.  按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
@@ -55,7 +55,7 @@
 
 現在，行動服務正在驗證資料並傳送錯誤回應，您必須確認應用程式能夠正確處理驗證的錯誤回應。
 
-1.  在 Eclipse 中，開啟您完成教學課程[開始使用資料][]時所建立的專案。
+1.  在 Eclipse 中，開啟您完成教學課程[開始使用資料][開始使用資料]時所建立的專案。
 
 2.  在 ToDoActivity.java 檔案中找出 **addItem** 方法，並使用下列程式碼取代 createAndShowDialog 方法的呼叫：
 
@@ -198,17 +198,17 @@
 
 ## <a name="next-steps"> </a>後續步驟
 
-現在，您已完成本教學課程，請考慮繼續進行資料數列中最後的教學課程：[使用分頁縮小查詢範圍][]。
+現在，您已完成本教學課程，請考慮繼續進行資料數列中最後的教學課程：[使用分頁縮小查詢範圍][使用分頁縮小查詢範圍]。
 
 您也可以在授權使用者及傳送推播通知時使用伺服器指令碼。如需詳細資訊，請參閱下列教學課程：
 
--   [使用指令碼授權使用者][]
+-   [使用指令碼授權使用者][使用指令碼授權使用者]
     了解如何根據通過驗證使用者的 ID 來篩選資料。
 
--   [開始使用推播通知][]
+-   [開始使用推播通知][開始使用推播通知]
     了解如何將極為基本的推播通知傳送到應用程式。
 
--   [行動服務伺服器指令碼參考][]
+-   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何註冊和使用伺服器指令碼。
 
 <!-- Anchors. --> 
@@ -217,21 +217,13 @@
 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-js "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone"
-  [iOS]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
-  [Android]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
-  [HTML]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
-  [Xamarin.iOS]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
   [新增字串長度驗證]: #string-length-validation
   [更新用戶端以支援驗證]: #update-client-validation
   [插入時新增時間戳記]: #add-timestamp
   [更新用戶端以顯示時間戳記]: #update-client-timestamp
   [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-android
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-insert-script-users.png
   [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-android

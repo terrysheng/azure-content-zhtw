@@ -1,14 +1,14 @@
 <properties linkid="dev-net-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (.NET) - Azure" metaKeywords="Get started Azure Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions C# " description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications. " metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # 如何使用服務匯流排主題/訂閱
 
-<span>本指南將說明如何使用服務匯流排主題和訂閱。這些範例均以 C# 撰寫並使用 .NET API。所涵蓋的案例包括**建立主題和訂閱、建立訂閱篩選器、傳送訊息**至主題、**接收訂閱的訊息**，及**刪除主題和訂閱**。如需主題和訂閱的詳細資訊，請參閱 [後續步驟][] 一節。 </span>
+<span>本指南將說明如何使用服務匯流排主題和訂閱。這些範例均以 C# 撰寫並使用 .NET API。所涵蓋的案例包括**建立主題和訂閱、建立訂閱篩選器、傳送訊息**至主題、**接收訂閱的訊息**，及**刪除主題和訂閱**。如需主題和訂閱的詳細資訊，請參閱 [後續步驟][後續步驟] 一節。 </span>
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <span class="short-header">設定應用程式</span>設定應用程式使用服務匯流排
 
@@ -23,7 +23,7 @@
 1.  在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後按一下 [管理 NuGet 封裝]。
 2.  搜尋 "WindowsAzure" 並選取 [Azure 服務匯流排] 項目。按一下 [安裝] 完成安裝作業，然後關閉此對話方塊。
 
-    ![][]
+    ![][0]
 
 您現在可以開始對服務匯流排撰寫程式碼。
 
@@ -146,7 +146,7 @@
 
 您也可以設定篩選器，讓您指定傳送至主題的哪些訊息應出現在特定主題訂閱中。
 
-訂閱所支援的最具彈性篩選器類型是實作 SQL92 子集的**SqlFilter**。SQL 篩選器會針對發佈至主題之訊息的屬性進行作業。如需可與 SQL 篩選器搭配使用之運算式的詳細資訊，請檢閱 [SqlFilter.SqlExpression][] 語法。
+訂閱所支援的最具彈性篩選器類型是實作 SQL92 子集的**SqlFilter**。SQL 篩選器會針對發佈至主題之訊息的屬性進行作業。如需可與 SQL 篩選器搭配使用之運算式的詳細資訊，請檢閱 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 語法。
 
 以下範例將建立名為 "HighMessages" 並帶有只選取自訂 **MessageNumber** 屬性大於 3 的訊息之 **SqlFilter** 的訂閱：
 
@@ -271,16 +271,16 @@
 
 了解基本的服務匯流排主題和訂閱之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 參考：[佇列、主題和訂閱][] (英文)。
--   [SqlFilter][] 的 API 參考資料。
+-   請參閱 MSDN 參考：[佇列、主題和訂閱][佇列、主題和訂閱] (英文)。
+-   [SqlFilter][SqlFilter] 的 API 參考資料。
 -   建立一個可行的應用程式，往返傳送或
     接收服務匯流排佇列的訊息：[服務匯流排代理訊息 .NET
-    教學課程][]。
+    教學課程][服務匯流排代理訊息 .NET
+    教學課程]。
 
   [後續步驟]: #nextsteps
   [create-account-note]: ../includes/create-account-note.md
   [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
-  []: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   [佇列、主題和訂閱]: http://msdn.microsoft.com/zh-tw/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/zh-tw/library/microsoft.servicebus.messaging.sqlfilter.aspx
-  [服務匯流排代理訊息 .NET 教學課程]: http://msdn.microsoft.com/zh-tw/library/hh367512.aspx

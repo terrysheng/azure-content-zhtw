@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-monitor-new-relic" urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="Store server scripts in source control - Azure Mobile Services" metaKeywords="" description="Learn how to use the New Relic add-on to monitor your mobile service." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="new relic"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="new="" relic" />
 
 # 使用 New Relic 監視行動服務
 
@@ -8,18 +8,18 @@
 
 本教學課程將引導您完成下列步驟：
 
-1.  [使用 Azure 市集註冊 New Relic][]。
-2.  [安裝 New Relic 模組][]。
-3.  [啟用行動服務的 New Relic 開發人員分析][]。
-4.  [在 New Relic 儀表板中監視行動服務][]。
+1.  [使用 Azure 市集註冊 New Relic][使用 Azure 市集註冊 New Relic]。
+2.  [安裝 New Relic 模組][安裝 New Relic 模組]。
+3.  [啟用行動服務的 New Relic 開發人員分析][啟用行動服務的 New Relic 開發人員分析]。
+4.  [在 New Relic 儀表板中監視行動服務][在 New Relic 儀表板中監視行動服務]。
 
-若要完成本教學課程，您必須已經建立行動服務，方法是完成[開始使用行動服務][]或[開始使用資料][]教學課程。
+若要完成本教學課程，您必須已經建立行動服務，方法是完成[開始使用行動服務][開始使用行動服務]或[開始使用資料][開始使用資料]教學課程。
 
 ## <a name="sign-up"></a>使用 Azure 市集註冊 New Relic
 
 第一個步驟是購買 New Relic 服務。本教學課程說明如何從 Azure 市集購買此服務。行動服務支援不是購買自 Azure 市集的 New Relic 訂閱。
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 
 2.  在管理入口網站的下方窗格中，按一下 [新增]。
 
@@ -43,13 +43,13 @@
 
 在註冊 New Relic 服務之後，您必須在行動服務中安裝 New Relic Node.js 模組。您必須啟用行動服務的原始檔控制，才能上傳此模組。
 
-1.  如果您尚未這麼做，請依照[在原始檔控制中儲存伺服器指令碼][]教學課程中的步驟進行，以啟用行動服務的原始檔控制、複製儲存機制，及安裝 [Node Package Manager (NPM)][]。
+1.  如果您尚未這麼做，請依照[在原始檔控制中儲存伺服器指令碼][在原始檔控制中儲存伺服器指令碼]教學課程中的步驟進行，以啟用行動服務的原始檔控制、複製儲存機制，及安裝 [Node Package Manager (NPM)][Node Package Manager (NPM)]。
 
 2.  瀏覽至本機 Git 儲存機制的 `.\service` 資料夾，然後在命令提示字元中執行下列命令：
 
         npm install newrelic
 
-    NPM 會在 `\newrelic` 子目錄中安裝 [New Relic 模組][]。
+    NPM 會在 `\newrelic` 子目錄中安裝 [New Relic 模組][New Relic 模組]。
 
 3.  開啟 Git 命令列工具，例如 **GitBash** (Windows) 或 **Bash** (Unix Shell)，並在 Git 命令提示字元中鍵入下列命令：
 
@@ -59,13 +59,13 @@
 
     這會將新的 `newrelic` 模組上傳至您的行動服務。
 
-接著，您將在[管理入口網站][]中啟用 New Relic 監視行動服務。
+接著，您將在[管理入口網站][管理入口網站]中啟用 New Relic 監視行動服務。
 
 ## <a name="enable-service"></a>啟用行動服務的 New Relic 開發人員分析
 
-1.  在[管理入口網站][]中，選取您的行動服務，然後按一下 [設定] 索引標籤。
+1.  在[管理入口網站][管理入口網站]中，選取您的行動服務，然後按一下 [設定] 索引標籤。
 
-    ![][]
+    ![][0]
 
 2.  向下捲動到 [開發人員分析] 並執行下列其中一個動作，視 New Relic 訂閱的購買方式而定：
 
@@ -93,7 +93,7 @@
 
 2.  等候幾分鐘的時間來完成資料處理，然後瀏覽到 New Relic 儀表板。
 
-    當以附加元件方式購買 New Relic 訂閱時，請在[管理入口網站][]中選取此訂閱，並按一下 [管理]。
+    當以附加元件方式購買 New Relic 訂閱時，請在[管理入口網站][管理入口網站]中選取此訂閱，並按一下 [管理]。
 
 3.  在 New Relic 中按一下 [應用程式]，然後按一下您的行動服務。
 
@@ -105,8 +105,8 @@
 
 ## <a name="next-steps"> </a>後續步驟
 
--   如需定價資訊，請參閱＜[Azure 市集的 New Relic 頁面][]＞。
--   如需有關使用 New Relic 的詳細資訊，請參閱 New Relic 文件中的[應用程式概觀][] (英文)。
+-   如需定價資訊，請參閱＜[Azure 市集的 New Relic 頁面][Azure 市集的 New Relic 頁面]＞。
+-   如需有關使用 New Relic 的詳細資訊，請參閱 New Relic 文件中的[應用程式概觀][應用程式概觀] (英文)。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
@@ -120,10 +120,9 @@
   [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [在原始檔控制中儲存伺服器指令碼]: /zh-tw/develop/mobile/tutorials/store-scripts-in-source-control/
-  [Node Package Manager (NPM)]: http://nodejs.org/
   [New Relic 模組]: https://npmjs.org/package/newrelic
   [管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/store-new-relic-mobile-services-monitor/mobile-configure-tab.png
+  [0]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-tab.png
   [1]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring.png
   [2]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring-custom.png
   [3]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring-complete.png

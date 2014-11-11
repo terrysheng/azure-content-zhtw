@@ -1,10 +1,10 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-xamarin-ios" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Xamarin.iOS) - Azure Mobile Services" metaKeywords="Azure Xamarin.iOS data, Azure mobile services data, " description="Learn how to store and access data from your Azure Mobile Services Xamarin.iOS app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="donnam" manager="dwrede" services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam" />
 
 # 開始使用行動服務中的資料
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 本主題將示範如何使用 Azure 行動服務，進而運用 Xamarin.iOS 應用程式中的資料。在本教學課程中，您將下載應用程式，並在記憶體中儲存資料、建立新的行動服務、將行動服務與該應用程式整合，然後登入 Azure 管理入口網站查看執行應用程式時所做的資料變更。
 
@@ -14,13 +14,13 @@
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [下載 Xamarin.iOS 應用程式專案][]
-2.  [建立行動服務][]
-3.  [新增用於儲存的資料表][]
-4.  [更新應用程式以使用行動服務][]
-5.  [針對行動服務進行應用程式測試][]
+1.  [下載 Xamarin.iOS 應用程式專案][下載 Xamarin.iOS 應用程式專案]
+2.  [建立行動服務][建立行動服務]
+3.  [新增用於儲存的資料表][新增用於儲存的資料表]
+4.  [更新應用程式以使用行動服務][更新應用程式以使用行動服務]
+5.  [針對行動服務進行應用程式測試][針對行動服務進行應用程式測試]
 
-本教學課程需要 [Azure 行動服務元件][]、[XCode 5.0][]、[Xamarin.iOS] 及 iOS 5.0 或更新版本。
+本教學課程需要 [Azure 行動服務元件][Azure 行動服務元件]、[XCode 5.0][XCode 5.0]、[Xamarin.iOS] 及 iOS 5.0 或更新版本。
 
 <div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-xamarin-ios%2F" target="_blank">Azure 免費試用</a>。</p></div>
 
@@ -44,7 +44,7 @@
 
 ## <a name="create-service"></a><span class="short-header">建立行動服務</span>在管理入口網站中建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">新增資料表</span>將資料表新增至行動服務
 
@@ -66,7 +66,7 @@
 
     <div class="dev-callout"> 
 <b>注意</b> 
-<p>行動服務快速入門中使用相同的資料表名稱。However, each table is created in a schema that is specific to a given mobile service.目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。</p> 
+<p>行動服務快速入門中使用相同的資料表名稱。但每個資料表會以給定行動服務專用的結構描述建立。目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。</p> 
 </div>
 
 4.  按一下新的 **TodoItem** 資料表，並驗證其中不含資料列。
@@ -166,7 +166,7 @@
 
     這會傳送新項目以插入至行動服務。
 
-3.  在[管理入口網站][]中按一下 [行動服務]，然後按一下您的行動服務。
+3.  在[管理入口網站][管理入口網站]中按一下 [行動服務]，然後按一下您的行動服務。
 
 4.  按一下 [資料] 索引標籤，然後按一下 [瀏覽]。
 
@@ -186,18 +186,18 @@
 
 接下來，考慮完成本教學課程中採用 GetStartedWithData 應用程式所建立的下列其中一個教學課程：
 
--   [使用指令檔驗證與修改資料][]
+-   [使用指令檔驗證與修改資料][使用指令檔驗證與修改資料]
     深入了解在行動服務中使用伺服器指令檔，來驗證並變更從應用程式傳送出來的資料。
 
--   [使用分頁縮小查詢範圍][]
+-   [使用分頁縮小查詢範圍][使用分頁縮小查詢範圍]
     了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
 完成資料數列之後，請嘗試下列其他 iOS 教學課程：
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何驗證應用程式的使用者。
 
--   [開始使用推送通知][]
+-   [開始使用推送通知][開始使用推送通知]
     了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
 
 <!-- Anchors. --> 
@@ -205,7 +205,6 @@
 <!-- URLs. TODO:: update download link, github link, and completed example project with new Xamarin.iOs projects -->
 
   [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
-  [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-xamarin-ios
   [下載 Xamarin.iOS 應用程式專案]: http://go.microsoft.com/fwlink/p/?LinkId=331302
   [建立行動服務]: #create-service
   [新增用於儲存的資料表]: #add-table
@@ -213,7 +212,6 @@
   [針對行動服務進行應用程式測試]: #test-app
   [Azure 行動服務元件]: http://components.xamarin.com/view/azure-mobile-services/
   [XCode 5.0]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-xamarin-ios%2F
   [0]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png
   [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-data-tab-empty.png

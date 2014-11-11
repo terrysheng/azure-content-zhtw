@@ -1,21 +1,21 @@
 <properties linkid="dev-net-commons-tasks-diagnostics" urlDisplayName="Diagnostics" pageTitle="How to use diagnostics (.NET) - Azure feature guide" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Learn how to use diagnostic data in Azure for debugging, measuring performance, monitoring, traffic analysis, and more." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # 在 Azure 雲端服務和虛擬機器中啟用診斷
 
-Azure Diagnostics 1.2 可讓您從 Azure 中執行的背景工作角色、Web 角色或虛擬機器收集診斷資料。本指南說明如何使用 Azure Diagnostics 1.2。如需建立記錄及追蹤策略，以及使用診斷和其他技術來疑難排解問題的其他深入指引，請參閱[開發 Azure 應用程式的疑難排解最佳作法][] (英文)。
+Azure Diagnostics 1.2 可讓您從 Azure 中執行的背景工作角色、Web 角色或虛擬機器收集診斷資料。本指南說明如何使用 Azure Diagnostics 1.2。如需建立記錄及追蹤策略，以及使用診斷和其他技術來疑難排解問題的其他深入指引，請參閱[開發 Azure 應用程式的疑難排解最佳作法][開發 Azure 應用程式的疑難排解最佳作法] (英文)。
 
 ## 目錄
 
--   [概觀][]
--   [如何在背景工作角色中啟用診斷][]
--   [如何在虛擬機器中啟用診斷][]
--   [範例組態檔和結構描述][]
--   [疑難排解][]
--   [常見問題集][]
--   [Azure Diagnostics 1.0 與 1.2 的比較][]
--   [其他資源][]
+-   [概觀][概觀]
+-   [如何在背景工作角色中啟用診斷][如何在背景工作角色中啟用診斷]
+-   [如何在虛擬機器中啟用診斷][如何在虛擬機器中啟用診斷]
+-   [範例組態檔和結構描述][範例組態檔和結構描述]
+-   [疑難排解][疑難排解]
+-   [常見問題集][常見問題集]
+-   [Azure Diagnostics 1.0 與 1.2 的比較][Azure Diagnostics 1.0 與 1.2 的比較]
+-   [其他資源][其他資源]
 
 ## <a name="overview"></a><span class="short-header">概觀</span>概觀
 
@@ -27,7 +27,7 @@ Azure Diagnostics 1.2 是可讓您從 Azure 中執行的背景工作角色、Web
 2.  Diagnostics 1.0 是 Azure SDK 的一部分，會在部署雲端服務時一併部署。Diagnostics 1.2 是擴充功能，需要另外部署。
 3.  Diagnostics 1.2 可收集 ETW 和 .NET EventSource 事件。
 
-如需更詳細的比較，請參閱本文結尾的 [Azure Diagnostics 1.0 與 1.2 的比較][]。
+如需更詳細的比較，請參閱本文結尾的 [Azure Diagnostics 1.0 與 1.2 的比較][Azure Diagnostics 1.0 與 1.2 的比較]。
 
 Azure 診斷可收集下列類型的遙測資料：
 
@@ -83,7 +83,7 @@ Azure 診斷可收集下列類型的遙測資料：
 
 ### 必要條件
 
-本文假設您擁有 Azure 訂用帳戶，並且搭配 Azure SDK 使用 Visual Studio 2013。如果您沒有 Azure 訂用帳戶，可以註冊[免費試用版][]。請務必[安裝及設定 Azure PowerShell 0.8.7 版或更新版本][]。
+本文假設您擁有 Azure 訂用帳戶，並且搭配 Azure SDK 使用 Visual Studio 2013。如果您沒有 Azure 訂用帳戶，可以註冊[免費試用版][免費試用版]。請務必[安裝及設定 Azure PowerShell 0.8.7 版或更新版本][安裝及設定 Azure PowerShell 0.8.7 版或更新版本]。
 
 ### 步驟 1：建立背景工作角色
 
@@ -96,7 +96,7 @@ Azure 診斷可收集下列類型的遙測資料：
 
 ### 步驟 2：實作您的程式碼
 
-以下列程式碼取代 WorkerRole.cs 的內容。繼承自 [EventSource 類別][]的 SampleEventSourceWriter 類別實作四種記錄方法：**SendEnums**、**MessageMethod**、**SetOther** 和 **HighFreq**。傳遞至 **WriteEvent** 方法的第一個參數定義個別事件的識別碼。Run 方法實作一個無限迴圈，每 10 秒呼叫一次在 **SampleEventSourceWriter** 類別中實作的每種記錄方法。
+以下列程式碼取代 WorkerRole.cs 的內容。繼承自 [EventSource 類別][EventSource 類別]的 SampleEventSourceWriter 類別實作四種記錄方法：**SendEnums**、**MessageMethod**、**SetOther** 和 **HighFreq**。傳遞至 **WriteEvent** 方法的第一個參數定義個別事件的識別碼。Run 方法實作一個無限迴圈，每 10 秒呼叫一次在 **SampleEventSourceWriter** 類別中實作的每種記錄方法。
 
     using Microsoft.WindowsAzure.ServiceRuntime;
     using System;
@@ -193,7 +193,7 @@ Azure 診斷可收集下列類型的遙測資料：
 
 3.  以滑鼠右鍵按一下 **WorkerRole1** 專案，然後選取 [加入] -\> [新增項目...] -\> [Visual C# 項目] -\> [資料] -\> [XML 檔]，將 XML 檔加入您的 **WorkerRole1** 專案。將檔案命名為 “WadExample.xml”。
 
-    ![CloudServices\_diag\_add\_xml][]
+    ![CloudServices\_diag\_add\_xml][CloudServices\_diag\_add\_xml]
 
 4.  將 WadConfig.xsd 與組態檔產生關聯。確定 WadExample.xml 編輯器視窗是使用中視窗。按 **F4** 鍵開啟 [屬性] 視窗。在 [屬性] 視窗中，按一下 [結構描述] 屬性。在 [結構描述] 屬性中，按一下 [...]。按一下 [加入...] 按鈕並瀏覽至您儲存 XSD 檔的位置，然後選取檔案 WadConfig.xsd。按一下 [確定]。
 5.  以下列 XML 取代 WadExample.xml 組態檔的內容，然後儲存檔案。這個組態檔定義兩個效能計數器，分別收集：CPU 使用率和記憶體使用量。組態會接著定義四個事件，分別對應至 SampleEventSourceWriter 類別中的方法。
@@ -236,15 +236,15 @@ Azure 診斷可收集下列類型的遙測資料：
 ### 步驟 6：查看您的遙測資料
 
 在 Visual Studio 的 [伺服器總管] 中，瀏覽至 wadexample 儲存體帳戶。在雲端服務執行約 5 分鐘之後，您應該會看到資料表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。按兩下其中一個資料表以檢視收集的遙測資料。
-![CloudServices\_diag\_tables][]
+![CloudServices\_diag\_tables][CloudServices\_diag\_tables]
 
 ## <a name="virtual-machine"></a><span class="short-header">在虛擬機器中啟用診斷</span>如何在虛擬機器中啟用診斷
 
-本逐步解說說明如何從遠端的開發電腦將診斷安裝至 Azure 虛擬機器。您也將了解如何實作在該 Azure 虛擬機器上執行，並使用 .NET [EventSource 類別][]發出遙測資料的應用程式。Azure 診斷可用來收集遙測資料，並將資料儲存在 Azure 儲存體帳戶。
+本逐步解說說明如何從遠端的開發電腦將診斷安裝至 Azure 虛擬機器。您也將了解如何實作在該 Azure 虛擬機器上執行，並使用 .NET [EventSource 類別][EventSource 類別]發出遙測資料的應用程式。Azure 診斷可用來收集遙測資料，並將資料儲存在 Azure 儲存體帳戶。
 
 ### 必要條件
 
-本逐步解說假設您擁有 Azure 訂用帳戶，並且搭配 Azure SDK 使用 Visual Studio 2013。如果您沒有 Azure 訂用帳戶，可以註冊[免費試用版][]。請務必[安裝及設定 Azure PowerShell 0.8.7 版或更新版本][]。
+本逐步解說假設您擁有 Azure 訂用帳戶，並且搭配 Azure SDK 使用 Visual Studio 2013。如果您沒有 Azure 訂用帳戶，可以註冊[免費試用版][免費試用版]。請務必[安裝及設定 Azure PowerShell 0.8.7 版或更新版本][安裝及設定 Azure PowerShell 0.8.7 版或更新版本]。
 
 ### 步驟 1：建立虛擬機器
 
@@ -260,7 +260,7 @@ Azure 診斷可收集下列類型的遙測資料：
 
 1.  在您的開發電腦上，啟動 Visual Studio 2013。
 2.  建立以 .NET Framework 4.5 為目標的新 Visual C# 主控台應用程式。將專案命名為 “WadExampleVM”。
-    ![CloudServices\_diag\_new\_project][]
+    ![CloudServices\_diag\_new\_project][CloudServices\_diag\_new\_project]
 3.  以下列程式碼取代 Program.cs 的內容。**SampleEventSourceWriter** 類別實作四種記錄方法：**SendEnums**、**MessageMethod**、**SetOther** 和 **HighFreq**。傳遞至 WriteEvent 方法的第一個參數定義個別事件的識別碼。Run 方法實作一個無限迴圈，每 10 秒呼叫一次在 **SampleEventSourceWriter** 類別中實作的每種記錄方法。
 
         using System;
@@ -389,11 +389,11 @@ Azure 診斷可收集下列類型的遙測資料：
 ### 步驟 6：查看您的遙測資料
 
 在 Visual Studio 的 [伺服器總管] 中，瀏覽至 wadexample 儲存體帳戶。在 VM 執行約 5 分鐘之後，您應該會看到資料表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。按兩下其中一個資料表以檢視收集的遙測資料。
-![CloudServices\_diag\_wadexamplevm\_tables][]
+![CloudServices\_diag\_wadexamplevm\_tables][CloudServices\_diag\_wadexamplevm\_tables]
 
 ## <a name="configuration-file-schema"></a><span class="short-header">範例組態檔和結構描述</span>組態檔結構描述
 
-診斷組態檔定義當診斷監視器啟動時，用來初始化診斷組態設定的值。您可以在下列位置找到範例組態檔及有關其結構描述的詳細文件：[Azure Diagnostics 1.2 組態結構描述][] (英文)。
+診斷組態檔定義當診斷監視器啟動時，用來初始化診斷組態設定的值。您可以在下列位置找到範例組態檔及有關其結構描述的詳細文件：[Azure Diagnostics 1.2 組態結構描述][Azure Diagnostics 1.2 組態結構描述] (英文)。
 
 ## <a name="troubleshooting"></a><span class="short-header">疑難排解</span>疑難排解
 
@@ -768,10 +768,10 @@ WADdest2
 
 ## <a name="additional"></a><span class="short-header">其他資源</span>其他資源
 
--   [開發 Azure 應用程式的疑難排解最佳作法][]
--   [使用 Windows Azure 診斷收集記錄資料][]
--   [偵錯 Azure 應用程式][]
--   [設定 Azure 診斷][]
+-   [開發 Azure 應用程式的疑難排解最佳作法][開發 Azure 應用程式的疑難排解最佳作法]
+-   [使用 Windows Azure 診斷收集記錄資料][使用 Windows Azure 診斷收集記錄資料]
+-   [偵錯 Azure 應用程式][偵錯 Azure 應用程式]
+-   [設定 Azure 診斷][設定 Azure 診斷]
 
   [開發 Azure 應用程式的疑難排解最佳作法]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh771389.aspx
   [概觀]: #overview
@@ -785,12 +785,7 @@ WADdest2
   [EventSource 類別]: http://msdn.microsoft.com/zh-tw/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
   [免費試用版]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
   [安裝及設定 Azure PowerShell 0.8.7 版或更新版本]: http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/
-  [CloudServices\_diag\_add\_xml]: ./media/cloud-services-dotnet-diagnostics/AddXmlFile.png
-  [CloudServices\_diag\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleTables.png
-  [CloudServices\_diag\_new\_project]: ./media/cloud-services-dotnet-diagnostics/NewProject.png
-  [CloudServices\_diag\_wadexamplevm\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png
   [Azure Diagnostics 1.2 組態結構描述]: http://msdn.microsoft.com/zh-tw/library/azure/dn782207.aspx
-  [進行解碼]: http://www.bing.com/search?q=base64+decoder
   [使用 Windows Azure 診斷收集記錄資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433048.aspx
   [偵錯 Azure 應用程式]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405479.aspx
   [設定 Azure 診斷]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn186185.aspx

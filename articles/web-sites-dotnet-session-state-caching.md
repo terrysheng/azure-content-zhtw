@@ -1,10 +1,10 @@
 <properties linkid="video-center-index" urlDisplayName="index" pageTitle="Use ASP.NET session state with Azure Websites" metaKeywords="azure cache service session state" description="Learn how to use the Azure Cache Service to support ASP.NET session state caching." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use ASP.NET Session State with Azure Websites" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra" />
 
 # 如何將 ASP.NET 工作階段狀態與 Azure 網站搭配使用
 
-*作者 [Rick Anderson][]。2014 年 7 月 1 日更新。*
+*作者 [Rick Anderson][Rick Anderson]。2014 年 7 月 1 日更新。*
 
 本主題說明如何將 Azure Redis 快取服務 (預覽) 用於工作階段狀態。
 
@@ -12,14 +12,14 @@
 
 以下是使用快取服務 (預覽) 以因應工作階段狀態快取需要的基本步驟：
 
--   [建立快取。][]
--   [將 RedisSessionStateProvider NuGet 封裝新增至 Web 應用程式。][]
--   [修改 web.config 檔案。][]
--   [使用工作階段物件來儲存與擷取快取項目。][]
+-   [建立快取。][建立快取。]
+-   [將 RedisSessionStateProvider NuGet 封裝新增至 Web 應用程式。][將 RedisSessionStateProvider NuGet 封裝新增至 Web 應用程式。]
+-   [修改 web.config 檔案。][修改 web.config 檔案。]
+-   [使用工作階段物件來儲存與擷取快取項目。][使用工作階段物件來儲存與擷取快取項目。]
 
 ## <span id="createcache"></span></a>建立快取
 
-遵循[這些指示][]以建立快取。
+遵循[這些指示][這些指示]以建立快取。
 
 ## <span id="configureproject"></span></a>將 RedisSessionStateProvider NuGet 封裝新增至 Web 應用程式
 
@@ -29,7 +29,7 @@
 
 若要從 [工具] \> [NuGet 封裝管理員] \> [管理解決方案的 NugGet 封裝] 安裝，請搜尋 `RedisSessionStateProvider`，然後務必指定 [包含搶鮮版]。
 
-如需詳細資訊，請參閱 [NuGet RedisSessionStateProvider 頁面][]和[設定快取用戶端][] 。
+如需詳細資訊，請參閱 [NuGet RedisSessionStateProvider 頁面][NuGet RedisSessionStateProvider 頁面]和[設定快取用戶端][設定快取用戶端] 。
 
 ## <span id="configurewebconfig"></span></a>修改 Web.Config 檔案
 
@@ -37,7 +37,7 @@
 
 1.  開啟 *web.config*，然後尋找 **sessionState** 元素。
 
-2.  輸入 `host`、`accessKey`、`port` (SSL 連接埠應為 6380) 的值，然後將 `SSL` 設定為 `true`。這些值可自您快取執行個體的 Azure 管理預覽入口網站分頁取得。如需詳細資訊，請參閱[連接到快取][]。
+2.  輸入 `host`、`accessKey`、`port` (SSL 連接埠應為 6380) 的值，然後將 `SSL` 設定為 `true`。這些值可自您快取執行個體的 Azure 管理預覽入口網站分頁取得。如需詳細資訊，請參閱[連接到快取][連接到快取]。
     下列標記顯示 *web.config* 檔案的變更。
 
 
@@ -83,8 +83,8 @@
     if (objValue != null)
        strValue = (string)obj;  
 
-您也可以使用 Redis 快取來快取 Web 應用程式中物件。如需詳細資訊，請參閱[使用 Azure Redis 快取的 MVC 電影應用程式 (15 分鐘)][]。
-如需如何使用 ASP.NET 工作階段狀態的詳細資訊，請參閱 [ASP.NET 工作階段狀態概觀][]。
+您也可以使用 Redis 快取來快取 Web 應用程式中物件。如需詳細資訊，請參閱[使用 Azure Redis 快取的 MVC 電影應用程式 (15 分鐘)][使用 Azure Redis 快取的 MVC 電影應用程式 (15 分鐘)]。
+如需如何使用 ASP.NET 工作階段狀態的詳細資訊，請參閱 [ASP.NET 工作階段狀態概觀][ASP.NET 工作階段狀態概觀]。
 
   [Rick Anderson]: https://twitter.com/RickAndMSFT
   [建立快取。]: #createcache
@@ -95,5 +95,4 @@
   [NuGet RedisSessionStateProvider 頁面]: http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/
   [設定快取用戶端]: http://azure.microsoft.com/zh-TW/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#NuGet
   [連接到快取]: http://azure.microsoft.com/zh-TW/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache
-  [使用 Azure Redis 快取的 MVC 電影應用程式 (15 分鐘)]: http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
   [ASP.NET 工作階段狀態概觀]: http://msdn.microsoft.com/zh-TW/library/ms178581.aspx

@@ -1,35 +1,35 @@
 <properties linkid="dev-ruby-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Ruby) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Ruby" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Blob Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # 如何使用 Ruby 的 Blob 服務
 
-本指南將示範如何使用 Azure Blob 服務執行一般案例。這些範例使用 Ruby API 撰寫。所涵蓋的案例包括「上傳」、「列出」、「下載」和「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][]一節。
+本指南將示範如何使用 Azure Blob 服務執行一般案例。這些範例使用 Ruby API 撰寫。所涵蓋的案例包括「上傳」、「列出」、「下載」和「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [什麼是 Blob 服務？][]
--   [概念][]
--   [建立 Azure 儲存體帳戶][]
--   [建立 Ruby 應用程式][]
--   [設定您的應用程式以存取儲存體][]
--   [設定 Azure 儲存體連接][]
--   [作法：建立容器][]
--   [作法：將 Blob 上傳至容器][]
--   [作法：列出容器中的 Blob][]
--   [作法：下載 Blob][]
--   [作法：刪除 Blob][]
+-   [什麼是 Blob 服務？][什麼是 Blob 服務？]
+-   [概念][概念]
+-   [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
+-   [建立 Ruby 應用程式][建立 Ruby 應用程式]
+-   [設定您的應用程式以存取儲存體][設定您的應用程式以存取儲存體]
+-   [設定 Azure 儲存體連接][設定 Azure 儲存體連接]
+-   [作法：建立容器][作法：建立容器]
+-   [作法：將 Blob 上傳至容器][作法：將 Blob 上傳至容器]
+-   [作法：列出容器中的 Blob][作法：列出容器中的 Blob]
+-   [作法：下載 Blob][作法：下載 Blob]
+-   [作法：刪除 Blob][作法：刪除 Blob]
 -   [後續步驟][1]
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <span id="CreateAccount"></span></a>建立 Azure 儲存體帳戶
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="CreateRubyApp"></span></a>建立 Ruby 應用程式
 
-建立 Ruby 應用程式。如需指示，請參閱[在 Azure 上建立 Ruby 應用程式][] (英文)。
+建立 Ruby 應用程式。如需指示，請參閱[在 Azure 上建立 Ruby 應用程式][在 Azure 上建立 Ruby 應用程式] (英文)。
 
 ## <span id="ConfigAccessStorage"></span></a>設定您的應用程式以存取儲存體
 
@@ -56,7 +56,7 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 
 若要取得這些值，請執行下列動作：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  瀏覽到您要使用的儲存體帳戶
 3.  按一下導覽窗格底部的 [管理金鑰]。
 4.  在快顯對話方塊中，您將會看到儲存體帳戶名稱、主要存取金鑰和次要存取金鑰。如需存取金鑰，您可使用主要存取金鑰或次要存取金鑰。
@@ -137,9 +137,9 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 
 了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][]
--   造訪 [Azure 儲存體團隊部落格][] (英文)。
--   請造訪 GitHub 上的 [Azure SDK for Ruby][] 儲存機制 (英文)。
+-   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][在 Azure 中儲存和存取資料]
+-   造訪 [Azure 儲存體團隊部落格][Azure 儲存體團隊部落格] (英文)。
+-   請造訪 GitHub 上的 [Azure SDK for Ruby][Azure SDK for Ruby] 儲存機制 (英文)。
 
   [後續步驟]: #next-steps
   [什麼是 Blob 服務？]: #what-is
@@ -156,8 +156,8 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
   [1]: #NextSteps
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [在 Azure 上建立 Ruby 應用程式]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+  [在 Azure 上建立 Ruby 應用程式]: /zh-tw/develop/ruby/tutorials/web-app-with-linux-vm/
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure SDK for Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby

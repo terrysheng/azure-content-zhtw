@@ -1,6 +1,6 @@
 <properties umbracoNaviHide="0" pageTitle="How to Manage SQL Database" metaKeywords="Azure SQL database, SQL database, manage sql database, add logins, connect to sql database" description="Learn how to manage Azure SQL database." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg" />
 
 # <span id="swap"></span></a>如何管理 SQL Database
 
@@ -8,8 +8,8 @@
 
 ## 目錄
 
--   [作法：使用 Management Studio 連接到 Azure 中的 SQL Database][]
--   [作法：將登入和使用者新增至 Azure 中的 SQL Database][]
+-   [作法：使用 Management Studio 連接到 Azure 中的 SQL Database][作法：使用 Management Studio 連接到 Azure 中的 SQL Database]
+-   [作法：將登入和使用者新增至 Azure 中的 SQL Database][作法：將登入和使用者新增至 Azure 中的 SQL Database]
 
 ## <span id="connect"></span></a>作法：使用 Management Studio 連接到 Azure 中的 SQL Database
 
@@ -17,7 +17,7 @@ Management Studio 是一項管理工具，可讓您在單一工作區中管理�
 
 Management Studio 具有目前無法在管理入口網站中使用的功能，例如語法檢查程式，以及儲存指令碼和具名查詢以供重複使用的功能。SQL Database 是表格式資料流 (TDS) 端點。任何可用於 TDS 的工具 (包括 Management Studio)，都適用於 SQL Database 作業。您為內部部署伺服器開發的指令碼，將會在 SQL Database 邏輯伺服器上執行。
 
-在下列步驟中，您將使用 Management Studio 連接到 Azure 上的邏輯伺服器。此步驟需要具備 SQL Server Management Studio 2008 R2 或 2012 版本。如果您需要下載或連線至 Management Studio 的說明，請參閱本網站上的[使用 Management Studio 管理 SQL 資料庫][]。
+在下列步驟中，您將使用 Management Studio 連接到 Azure 上的邏輯伺服器。此步驟需要具備 SQL Server Management Studio 2008 R2 或 2012 版本。如果您需要下載或連線至 Management Studio 的說明，請參閱本網站上的[使用 Management Studio 管理 SQL 資料庫][使用 Management Studio 管理 SQL 資料庫]。
 
 在某些情況下，您必須先建立防火牆例外狀況，使本機系統的連接埠 1433 允許輸出要求，您才能進行連接。依預設受到保護的電腦通常不會開放連接埠 1433。
 
@@ -117,7 +117,7 @@ GRANT VIEW DATABASE STATE to 'sqlops';
 
 6.  開啟第二個查詢視窗，並將連線內容變更為 *sqlwriter*。此時，相同的查詢應可成功執行。
 
-現在，您已建立並測試數個登入。如需詳細資訊，請參閱[管理 SQL Database 中的資料庫和登入][]和[使用動態管理檢視監視 SQL Database][]。
+現在，您已建立並測試數個登入。如需詳細資訊，請參閱[管理 SQL Database 中的資料庫和登入][管理 SQL Database 中的資料庫和登入]和[使用動態管理檢視監視 SQL Database][使用動態管理檢視監視 SQL Database]。
 
   [作法：使用 Management Studio 連接到 Azure 中的 SQL Database]: #connect
   [作法：將登入和使用者新增至 Azure 中的 SQL Database]: #addlogins

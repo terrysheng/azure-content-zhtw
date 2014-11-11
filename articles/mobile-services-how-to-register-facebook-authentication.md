@@ -1,20 +1,20 @@
 <properties linkid="develop-mobile-how-to-guides-register-for-facebook-authentication" urlDisplayName="Register for Facebook Authentication" pageTitle="Register for Facebook authentication - Mobile Services" metaKeywords="Azure Facebook, Azure Facebook, Azure authenticate Mobile Services" description="Learn how to use Facebook authentication in your Azure Mobile Services app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Facebook authentication with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 在行動服務中註冊應用程式以採用 Facebook 驗證
 
 本主題說明如何在 Azure 行動服務中註冊您的應用程式，使其能夠採用 Facebook 驗證。
 
-> [WACOM.NOTE] 本教學課程有關 [Azure 行動服務][]，此方案可協助您建置適用於任何平台的可擴充行動應用程式。行動服務讓同步處理資料、驗證使用者及推播通知等作業變得簡單。此頁面支援[開始使用驗證][]教學課程，顯示如何將使用者登入您的應用程式。如果這是您第一次使用行動服務，請完成[開始使用行動服務][]教學課程。
+> [WACOM.NOTE] 本教學課程有關 [Azure 行動服務][Azure 行動服務]，此方案可協助您建置適用於任何平台的可擴充行動應用程式。行動服務讓同步處理資料、驗證使用者及推播通知等作業變得簡單。此頁面支援[開始使用驗證][開始使用驗證]教學課程，顯示如何將使用者登入您的應用程式。如果這是您第一次使用行動服務，請完成[開始使用行動服務][開始使用行動服務]教學課程。
 
-若要完成本主題的程序，您必須具有已通過電子郵件地址與手機號碼驗證的 Facebook 帳戶。若要建立新的 Facebook 帳戶，請前往 [facebook.com][]。
+若要完成本主題的程序，您必須具有已通過電子郵件地址與手機號碼驗證的 Facebook 帳戶。若要建立新的 Facebook 帳戶，請前往 [facebook.com][facebook.com]。
 
-1.  瀏覽至 [Facebook 開發人員][]網站，並以您的 Facebook 帳戶認證登入。
+1.  瀏覽至 [Facebook 開發人員][Facebook 開發人員]網站，並以您的 Facebook 帳戶認證登入。
 
 2.  (選用) 按一下 [應用程式]，然後按一下 [Register as a Developer]，接受政策並遵循註冊步驟 (若您尚未註冊)。
 
-    ![][]
+    ![][0]
 
 3.  按一下 [應用程式]，然後按一下 [製作新應用程式]。
 
@@ -63,7 +63,7 @@
   [開始使用行動服務]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started/
   [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
   [Facebook 開發人員]: http://go.microsoft.com/fwlink/p/?LinkId=268286
-  []: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-developer-register.png
+  [0]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-developer-register.png
   [1]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-add-app.png
   [2]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-new-app-dialog.png
   [3]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app.png

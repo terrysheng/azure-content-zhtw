@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-js" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (JavaScript)" metaKeywords="" description="Learn how to use push notifications in your Windows Store app with Azure Mobile Services." metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/" disqusComments="1" umbracoNaviHide="1" title="Get started with push notifications in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="glenga" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 開始使用 Visual Studio 2012 在行動服務中使用推播通知
 
@@ -17,30 +17,30 @@
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 
-1.  [針對推播通知註冊您的應用程式及設定行動服務][]
-2.  [建立 Registrations 資料表][]
-3.  [新增推播通知至應用程式][]
-4.  [更新指令碼來傳送推播通知][]
-5.  [插入資料以接收通知][]
+1.  [針對推播通知註冊您的應用程式及設定行動服務][針對推播通知註冊您的應用程式及設定行動服務]
+2.  [建立 Registrations 資料表][建立 Registrations 資料表]
+3.  [新增推播通知至應用程式][新增推播通知至應用程式]
+4.  [更新指令碼來傳送推播通知][更新指令碼來傳送推播通知]
+5.  [插入資料以接收通知][插入資料以接收通知]
 
 本教學課程需要下列各項：
 
 -   Microsoft Visual Studio 2012 Express for Windows 8
 -   有效的 Windows 市集帳戶
 
-本教學課程以[開始使用資料][]教學課程為基礎。在開始本教學課程之前，您必須先完成[此教學課程][開始使用資料]。
+本教學課程以[開始使用資料][開始使用資料]教學課程為基礎。在開始本教學課程之前，您必須先完成[此教學課程][開始使用資料]。
 
 ## <a name="register"></a><span class="short-header">註冊應用程式</span>向 Windows 市集註冊應用程式
 
 若要能夠從行動服務傳送推播通知給 Windows 市集應用程式，您必須將應用程式提交至 Windows 市集。接著您必須設定您的行動服務，以便與 WNS 進行整合。
 
-[WACOM.INCLUDE [mobile-services-register-windows-store-app][]]
+[WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
 您的行動服務和您的應用程式現在都已完成設定，而可與 WNS 搭配使用。接下來，您將建立用來儲存註冊的新資料表。
 
 ## <a name="create-table"></a>建立新資料表
 
-[WACOM.INCLUDE [mobile-services-create-new-push-table][]]
+[WACOM.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
 
 ## <a name="add-push"></a><span class="short-header">新增推播通知</span>新增推播通知至應用程式
 
@@ -73,7 +73,7 @@
 
 ## <a name="update-scripts"></a><span class="short-header">更新 insert 指令碼</span>在管理入口網站中更新已註冊的 insert 指令碼
 
-[WACOM.INCLUDE [mobile-services-update-registrations-script][]]
+[WACOM.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
 
 1.  按一下 [TodoItem]，按一下 [指令碼]，然後選取 [插入]。
 
@@ -125,44 +125,36 @@
 
 本教學課程將示範行動服務所提供的基本推播通知功能。如果您的應用程式需要更進階的功能，例如傳送跨平台通知、訂閱型路由或是極大的磁碟區，請考慮在您的行動服務中使用 Azure 通知中心。如需詳細資訊，請參閱下列通知中心主題：
 
--   [開始使用通知中心][]
+-   [開始使用通知中心][開始使用通知中心]
     了解如何在 Windows 市集應用程式中利用通知中心。
 
--   [將通知傳送給訂閱者][]
+-   [將通知傳送給訂閱者][將通知傳送給訂閱者]
     了解使用者如何註冊及接收其所需類別的推播通知。
 
--   [將通知傳送給使用者][]
+-   [將通知傳送給使用者][將通知傳送給使用者]
     了解如何將推播通知從行動服務傳送給任何裝置上的特定使用者。
 
--   [將交叉平台通知傳送給使用者][]
+-   [將交叉平台通知傳送給使用者][將交叉平台通知傳送給使用者]
     了解如何使用範本從行動服務傳送推播通知，但不必在您的後端製作平台特定裝載。
 
 考慮更深入了解下列行動服務主題：
 
--   [開始使用資料][]
+-   [開始使用資料][開始使用資料]
     深入了解使用行動服務來儲存與查詢資料。
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何使用 Windows 帳戶驗證您的應用程式的使用者。
 
--   [行動服務伺服器指令碼參考][]
+-   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何註冊和使用伺服器指令碼。
 
--   [行動服務 HTML/JavaScript 作法概念參考][]
+-   [行動服務 HTML/JavaScript 作法概念參考][行動服務 HTML/JavaScript 作法概念參考]
     深入了解如何將行動服務搭配 HTML 及 JavaScript 使用。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012 "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/develop/mobile/tutorials/get-started-with-push-js-vs2012 "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone"
-  [iOS]: /zh-tw/develop/mobile/tutorials/get-started-with-push-ios "iOS"
-  [Android]: /zh-tw/develop/mobile/tutorials/get-started-with-push-android "Android"
-  [Xamarin.iOS]: /zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-android "Xamarin.Android"
-  [開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-js
   [針對推播通知註冊您的應用程式及設定行動服務]: #register
   [建立 Registrations 資料表]: #create-table
   [新增推播通知至應用程式]: #add-push

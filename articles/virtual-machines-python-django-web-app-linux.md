@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Azure tutorial" metaKeywords="" description="A tutorial that shows how to host a Django-based website on Azure using a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application (mac-linux)" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Django Hello World Web 應用程式 (mac-linux)
 
@@ -17,13 +17,13 @@
 
 完成之應用程式的螢幕擷取畫面如下：
 
-![A browser window displaying the hello world page on Azure][]
+![A browser window displaying the hello world page on Azure][A browser window displaying the hello world page on Azure]
 
-[WACOM.INCLUDE [create-account-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## 建立及設定 Azure 虛擬機器以裝載 Django
 
-1.  按照[此處][] (英文) 提供的指示，建立 *Ubuntu Server 14.04* 散發套件的 Azure 虛擬機器。
+1.  按照[此處][此處] (英文) 提供的指示，建立 *Ubuntu Server 14.04* 散發套件的 Azure 虛擬機器。
 
     **注意：**您「只」需要建立虛擬機器。請停在標題為＜如何在建立虛擬機器之後登入＞的小節。
 
@@ -31,13 +31,13 @@
 
     -   在 Azure 入口網站中瀏覽至新建立的虛擬機器，並按一下 [端點] 索引標籤。
     -   按一下畫面底部的 [加入端點] 按鈕。
-        ![加入端點][]
+        ![加入端點][加入端點]
     -   開啟 [TCP] 通訊協定的 [公用連接埠 80]，比照 [私人連接埠 80]。
-        ![port80][]
+        ![port80][port80]
 
 ## <span id="setup"></span> </a>設定開發環境
 
-**注意：**如果您需要安裝 Python 或想要使用用戶端程式庫，請參閱 [Python 安裝指南][] (英文)。
+**注意：**如果您需要安裝 Python 或想要使用用戶端程式庫，請參閱 [Python 安裝指南][Python 安裝指南] (英文)。
 
 Ubuntu Linux VM 已經預先安裝 Python 2.7，但是並未安裝 Apache 或 Django。請按照下列步驟連線至您的 VM 以安裝 Apache 和 Django。
 
@@ -106,14 +106,12 @@ Ubuntu Linux VM 已經預先安裝 Python 2.7，但是並未安裝 Apache 或 Dj
 
 4.  最後，在您的瀏覽器中載入網頁：
 
-    ![A browser window displaying the hello world page on Azure][]
+    ![A browser window displaying the hello world page on Azure][A browser window displaying the hello world page on Azure]
 
 ## 關閉 Azure 虛擬機器
 
 完成本教學課程時，請關閉並/或移除新建立的 Azure 虛擬機器釋出資源供其他教學課程使用，並避免產生 Azure 使用的費用。
 
-  [Windows]: /zh-tw/develop/python/tutorials/web-app-with-django/ "Windows"
-  [Mac/Linux]: /zh-tw/develop/python/tutorials/django-hello-world-(maclinux)/ "Mac/Linux"
   [A browser window displaying the hello world page on Azure]: ./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-browser.png
   [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [此處]: /zh-tw/manage/linux/tutorials/virtual-machine-from-gallery/

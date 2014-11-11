@@ -1,6 +1,6 @@
 <properties linkid="obile-services-how-to-dotnet-client" urlDisplayName=".NET Client Library" pageTitle="Working with the Mobile Services .NET Client Library" metaKeywords="Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to use an .NET client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Azure Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # 如何使用適用於 Azure 行動服務的 .NET 用戶端
 
@@ -9,42 +9,42 @@
 <a href="/zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
 </div>
 
-本指南將示範如何在 Windows 市集應用程式和 Windows Phone 應用程式中，使用適用於 Azure 行動服務的 .NET 用戶端來執行常見案例。所涵蓋的案例包括查詢資料、插入、更新及刪除資料、驗證使用者以及處理錯誤。如果您不熟悉行動服務，您應考慮首先完成「行動服務快速入門」教學課程 ([Windows 市集快速入門教學課程][]/[Windows Phone 快速入門教學課程][]) 和「開始使用 .NET 中的資料」教學課程 ([Windows 市集資料教學課程][]/[Windows Phone 資料教學課程][])。快速入門教學課程需要 [Mobile Services SDK][]，來協助您設定帳戶並建立第一個行動服務。
+本指南將示範如何在 Windows 市集應用程式和 Windows Phone 應用程式中，使用適用於 Azure 行動服務的 .NET 用戶端來執行常見案例。所涵蓋的案例包括查詢資料、插入、更新及刪除資料、驗證使用者以及處理錯誤。如果您不熟悉行動服務，您應考慮首先完成「行動服務快速入門」教學課程 ([Windows 市集快速入門教學課程][Windows 市集快速入門教學課程]/[Windows Phone 快速入門教學課程][Windows Phone 快速入門教學課程]) 和「開始使用 .NET 中的資料」教學課程 ([Windows 市集資料教學課程][Windows 市集資料教學課程]/[Windows Phone 資料教學課程][Windows Phone 資料教學課程])。快速入門教學課程需要 [Mobile Services SDK][Mobile Services SDK]，來協助您設定帳戶並建立第一個行動服務。
 
 ## 目錄
 
--   [什麼是行動服務][]
--   [概念][]
--   [作法：建立行動服務用戶端][]
--   [作法：建立資料表參考][]
--   [作法：查詢行動服務中的資料][]
+-   [什麼是行動服務][什麼是行動服務]
+-   [概念][概念]
+-   [作法：建立行動服務用戶端][作法：建立行動服務用戶端]
+-   [作法：建立資料表參考][作法：建立資料表參考]
+-   [作法：查詢行動服務中的資料][作法：查詢行動服務中的資料]
 
-    -   [篩選傳回資料][]
-    -   [排序傳回資料][]
-    -   [以分頁方式傳回資料][]
-    -   [選取特定資料欄][]
-    -   [按 ID 查詢資料][]
--   [作法：將資料插入行動服務][]
--   [作法：修改行動服務中的資料][]
--   [作法：刪除行動服務中的資料][]
--   [作法：呼叫自訂 API][]
--   [作法：使用開放式並行存取][]
--   [作法：將資料繫結到行動服務中的使用者介面][]
--   [作法：驗證使用者][]
--   [作法：處理錯誤][]
--   [作法：使用不具類型的資料][]
--   [作法：設計單位測試][]
--   [作法：自訂用戶端][]
+    -   [篩選傳回資料][篩選傳回資料]
+    -   [排序傳回資料][排序傳回資料]
+    -   [以分頁方式傳回資料][以分頁方式傳回資料]
+    -   [選取特定資料欄][選取特定資料欄]
+    -   [按 ID 查詢資料][按 ID 查詢資料]
+-   [作法：將資料插入行動服務][作法：將資料插入行動服務]
+-   [作法：修改行動服務中的資料][作法：修改行動服務中的資料]
+-   [作法：刪除行動服務中的資料][作法：刪除行動服務中的資料]
+-   [作法：呼叫自訂 API][作法：呼叫自訂 API]
+-   [作法：使用開放式並行存取][作法：使用開放式並行存取]
+-   [作法：將資料繫結到行動服務中的使用者介面][作法：將資料繫結到行動服務中的使用者介面]
+-   [作法：驗證使用者][作法：驗證使用者]
+-   [作法：處理錯誤][作法：處理錯誤]
+-   [作法：使用不具類型的資料][作法：使用不具類型的資料]
+-   [作法：設計單位測試][作法：設計單位測試]
+-   [作法：自訂用戶端][作法：自訂用戶端]
 
-    -   [自訂要求標頭][]
-    -   [自訂序列化][]
--   [後續步驟][]
+    -   [自訂要求標頭][自訂要求標頭]
+    -   [自訂序列化][自訂序列化]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [mobile-services-concepts][]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="setup"></a><span class="short-header">設定</span>設定和必要條件
 
-我們假設您已建立行動服務和資料表。如需詳細資訊，請參閱[建立資料表][]。在本主題使用的程式碼中，資料表的名稱為 `TodoItem`，且其內容包含下列資料欄：`Id`、`Text` 和 `Complete`。
+我們假設您已建立行動服務和資料表。如需詳細資訊，請參閱[建立資料表][建立資料表]。在本主題使用的程式碼中，資料表的名稱為 `TodoItem`，且其內容包含下列資料欄：`Id`、`Text` 和 `Complete`。
 
 其對應的具類型用戶端 .NET 類型如下：
 
@@ -59,7 +59,7 @@
         public bool Complete { get; set; }
     }
 
-啟用動態結構描述時，Azure 行動服務會根據插入或更新要求中的物件自動產生新欄位。如需詳細資訊，請參閱[動態結構描述][]。
+啟用動態結構描述時，Azure 行動服務會根據插入或更新要求中的物件自動產生新欄位。如需詳細資訊，請參閱[動態結構描述][動態結構描述]。
 
 ## <a name="create-client"></a><span class="short-header">建立行動服務用戶端</span>作法：建立行動服務用戶端
 
@@ -74,7 +74,7 @@
 
 ## <a name="instantiating"></a><span class="short-header">建立資料表參考</span>作法：建立資料表參考
 
-只要是可存取或修改行動服務資料表中之資料的所有程式碼，都會呼叫 `MobileServiceTable` 物件上的函數。您可透過呼叫 `MobileServiceClient` 執行個體上的 [GetTable][] 函數，來取得資料表的參考。
+只要是可存取或修改行動服務資料表中之資料的所有程式碼，都會呼叫 `MobileServiceTable` 物件上的函數。您可透過呼叫 `MobileServiceClient` 執行個體上的 [GetTable][GetTable] 函數，來取得資料表的參考。
 
     IMobileServiceTable<TodoItem> todoTable = 
         client.GetTable<TodoItem>();
@@ -85,7 +85,7 @@
 
 本節將說明如何對行動服務發出查詢。小節將說明例如排序、篩選及分頁等其他方面。
 
-> [WACOM.NOTE] 依預設，伺服器導向頁面大小可用來防止傳回所有資料列。這可避免預設的大型資料集要求對服務造成負面影響。若要傳回 50 筆以上的資料列，請依照[以分頁方式傳回資料][]的說明，使用 `Take` 方法。
+> [WACOM.NOTE] 依預設，伺服器導向頁面大小可用來防止傳回所有資料列。這可避免預設的大型資料集要求對服務造成負面影響。若要傳回 50 筆以上的資料列，請依照[以分頁方式傳回資料][以分頁方式傳回資料]的說明，使用 `Take` 方法。
 
 ### <a name="filtering"></a>作法：篩選傳回資料
 
@@ -97,7 +97,7 @@
        .Where(todoItem => todoItem.Complete == false)
        .ToListAsync();
 
-您可以使用訊息檢查軟體 (例如瀏覽器開發人員工具或 [Fiddler][]) 來檢視傳送至行動服務的要求 URI。如果您查看下面的要求 URI，您會注意到我們打算修改查詢字串本身：
+您可以使用訊息檢查軟體 (例如瀏覽器開發人員工具或 [Fiddler][Fiddler]) 來檢視傳送至行動服務的要求 URI。如果您查看下面的要求 URI，您會注意到我們打算修改查詢字串本身：
 
     GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1                  
 
@@ -152,7 +152,7 @@
 
 ### <a name="paging"></a>作法：以分頁方式傳回資料
 
-依預設，伺服器僅會傳回前 50 筆資料列。您可以提高傳回的資料列數，方法是呼叫 [Take][] 方法。使用 `Take` 搭配 [Skip][] 方法來要求查詢傳回之總資料集的特定「頁面」。執行下列查詢時，會傳回資料表中的前三個項目。
+依預設，伺服器僅會傳回前 50 筆資料列。您可以提高傳回的資料列數，方法是呼叫 [Take][Take] 方法。使用 `Take` 搭配 [Skip][Skip] 方法來要求查詢傳回之總資料集的特定「頁面」。執行下列查詢時，會傳回資料表中的前三個項目。
 
     // Define a filtered query that returns the top 3 items.
     MobileServiceTableQuery<TodoItem> query = todoTable
@@ -168,7 +168,7 @@
     List<TodoItem> items = await query.ToListAsync();
             
 
-您也可以使用 [IncludeTotalCount][] (英文) 方法，確保查詢會忽略指定的任何採取分頁/限制子句，而取得已傳回 *all* 記錄的總數：
+您也可以使用 [IncludeTotalCount][IncludeTotalCount] (英文) 方法，確保查詢會忽略指定的任何採取分頁/限制子句，而取得已傳回 *all* 記錄的總數：
 
     query = query.IncludeTotalCount();
 
@@ -240,11 +240,11 @@
 
 `id` 的值必須是唯一的，且不可包含下列字集中的字元：
 
--   控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]。如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1][] (英文)。
+-   控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]。如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1][ASCII 控制碼 C0 和 C1] (英文)。
 -   可以列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?**(0x003F)、**\\** (0x005C)、**\`** (0x0060)
 -   識別碼 "." 和 ".."
 
-另外，您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表][] (英文)。
+另外，您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表][使用 CLI 管理行動服務資料表] (英文)。
 
 若要插入不具類型的資料，您可以充份利用 Json.NET，如下所示。
 
@@ -295,15 +295,15 @@
 
 ## <a name="#custom-api"></a>作法：呼叫自訂 API
 
-自訂 API 可讓您定義自訂端點，並用來公開無法對應插入、更新、刪除或讀取等操作的伺服器功能。透過使用自訂 API，您可以進一步控制訊息，包括讀取與設定 HTTP 訊息標頭，並定義除了 JSON 以外的訊息內文格式。如需完整範例，包括如何在您的行動服務中建立自訂 API，請參閱[從用戶端呼叫自訂 API][] (英文)。
+自訂 API 可讓您定義自訂端點，並用來公開無法對應插入、更新、刪除或讀取等操作的伺服器功能。透過使用自訂 API，您可以進一步控制訊息，包括讀取與設定 HTTP 訊息標頭，並定義除了 JSON 以外的訊息內文格式。如需完整範例，包括如何在您的行動服務中建立自訂 API，請參閱[從用戶端呼叫自訂 API][從用戶端呼叫自訂 API] (英文)。
 
-若要呼叫自訂 API，您可以呼叫用戶端上的其中一個 [InvokeApiAsync][] 方法多載。例如，下列程式碼字行會傳送 POST 要求至行動服務上的 **completeAll** API：
+若要呼叫自訂 API，您可以呼叫用戶端上的其中一個 [InvokeApiAsync][InvokeApiAsync] 方法多載。例如，下列程式碼字行會傳送 POST 要求至行動服務上的 **completeAll** API：
 
     var result = await App.MobileService
         .InvokeApiAsync<MarkAllResult>("completeAll", 
         System.Net.Http.HttpMethod.Post, null);
 
-請注意，這是具類型的方法呼叫，它會要求定義 **MarkAllResult** 傳回類型。具類型的和不具類型的方法皆受支援。這個範例幾乎沒什麼用處，因為它是具類型的、不傳送任何裝載、沒有查詢參數，而且不會變更要求標頭。如需 [InvokeApiAsync][] 更實際的範例，以及更完整的討論，請參閱 [Azure 行動服務用戶端 SDK 中的自訂 API][] (英文)。
+請注意，這是具類型的方法呼叫，它會要求定義 **MarkAllResult** 傳回類型。具類型的和不具類型的方法皆受支援。這個範例幾乎沒什麼用處，因為它是具類型的、不傳送任何裝載、沒有查詢參數，而且不會變更要求標頭。如需 [InvokeApiAsync][InvokeApiAsync] 更實際的範例，以及更完整的討論，請參閱 [Azure 行動服務用戶端 SDK 中的自訂 API][Azure 行動服務用戶端 SDK 中的自訂 API] (英文)。
 
 ## <a name="optimisticconcurrency"></a>作法：使用開放式並行存取
 
@@ -390,7 +390,7 @@
         await msgDialog.ShowAsync();
     }
 
-如需為行動服務使用開放式並型存取的完整範例，請參閱[開放式並型存取教學課程][] (英文)。
+如需為行動服務使用開放式並型存取的完整範例，請參閱[開放式並型存取教學課程][開放式並型存取教學課程] (英文)。
 
 ## <a name="binding"></a><span class="short-header">顯示資料</span>作法：將資料繫結到行動服務中的使用者介面
 
@@ -408,7 +408,7 @@
     ListBox lb = new ListBox();
     lb.ItemsSource = items;
 
-Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoading][] 的介面。此介面允許控制項在使用者捲動時要求額外資料。Windows 市集應用程式可透過 `MobileServiceIncrementalLoadingCollection` 為此介面提供內建支援，以自動處理控制項的呼叫。若要在 Windows 市集應用程式中使用 `MobileServiceIncrementalLoadingCollection`，請執行下列程式碼：
+Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoading][ISupportIncrementalLoading] 的介面。此介面允許控制項在使用者捲動時要求額外資料。Windows 市集應用程式可透過 `MobileServiceIncrementalLoadingCollection` 為此介面提供內建支援，以自動處理控制項的呼叫。若要在 Windows 市集應用程式中使用 `MobileServiceIncrementalLoadingCollection`，請執行下列程式碼：
 
             MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
         items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -424,20 +424,20 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 
 當您使用藉由呼叫 `ToCollectionAsync` 或 `ToCollection` 來建立的集合時，您會取得可繫結至 UI 控制項的集合。此集合有分頁感知功能，例如，控制項可要求集合「載入更多項目」，集合便會為此控制項執行此動作。此時，控制項會在未涉及使用者程式碼的情況下啟動流程。不過，因為集合會從網路中載入資料，因此載入有時候可能會失敗。若要處理這類失敗，您可以覆寫 `MobileServiceIncrementalLoadingCollection` 上的 `OnException` 方法，以處理呼叫控制項執行的 `LoadMoreItemsAsync` 時，所造成的例外狀況。
 
-最後，想像您的資料表有許多欄位，但您只想要在控制項中顯示其中部分欄位。您可以使用上述＜[選取特定資料欄][]＞一節中的指引，以選取要在 UI 中顯示的特定資料欄。
+最後，想像您的資料表有許多欄位，但您只想要在控制項中顯示其中部分欄位。您可以使用上述＜[選取特定資料欄][選取特定資料欄]＞一節中的指引，以選取要在 UI 中顯示的特定資料欄。
 
 ## <a name="authentication"></a><span class="short-header">驗證</span>作法：驗證使用者
 
-行動服務支援使用各種外部識別提供者來驗證與授權應用程式使用者：Facebook、Google、Microsoft 帳戶、Twitter 和 Azure Active Directory。您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。您也可以使用通過驗證使用者的身分識別來實作伺服器指令碼中的授權規則。如需詳細資訊，請參閱「開始使用驗證」教學課程 ([Windows Store][] (英文)/[Windows Phone][] (英文))
+行動服務支援使用各種外部識別提供者來驗證與授權應用程式使用者：Facebook、Google、Microsoft 帳戶、Twitter 和 Azure Active Directory。您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。您也可以使用通過驗證使用者的身分識別來實作伺服器指令碼中的授權規則。如需詳細資訊，請參閱「開始使用驗證」教學課程 ([Windows Store][Windows Store] (英文)/[Windows Phone][Windows Phone] (英文))
 
 支援兩種驗證流程：*伺服器流程*和*用戶端流程*。由於伺服器流程採用提供者的 Web 驗證介面，因此所提供的驗證體驗也最為簡單。因為用戶端流程採用提供者特定的裝置特定 SDK，因此可允許與裝置特定功能的深入整合。
 
 ### 伺服器流程
 
 若要讓行動服務管理 Windows 市集或 Windows Phone 應用程式中的驗證程序，
-您必須向識別提供者註冊您的應用程式。接著在您的行動服務中，您必須設定提供者所提供的應用程式 ID 和密碼。如需詳細資訊，請參閱「開始使用驗證」教學課程 ([Windows Store][]/[Windows Phone][])。
+您必須向識別提供者註冊您的應用程式。接著在您的行動服務中，您必須設定提供者所提供的應用程式 ID 和密碼。如需詳細資訊，請參閱「開始使用驗證」教學課程 ([Windows Store][Windows Store]/[Windows Phone][Windows Phone])。
 
-在註冊識別提供者之後，您只需使用提供者的 [MobileServiceAuthenticationProvider][] 值來呼叫 [LoginAsync 方法][]即可。例如，下列程式碼將透過使用 Facebook 來初始化伺服器流程登入。
+在註冊識別提供者之後，您只需使用提供者的 [MobileServiceAuthenticationProvider][MobileServiceAuthenticationProvider] 值來呼叫 [LoginAsync 方法][LoginAsync 方法]即可。例如，下列程式碼將透過使用 Facebook 來初始化伺服器流程登入。
 
     private MobileServiceUser user;
     private async System.Threading.Tasks.Task Authenticate()
@@ -463,9 +463,9 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
         }
     }
 
-如果您打算使用除了 Facebook 以外的識別提供者，請將上方的 [MobileServiceAuthenticationProvider][] 值變更成您提供者。
+如果您打算使用除了 Facebook 以外的識別提供者，請將上方的 [MobileServiceAuthenticationProvider][MobileServiceAuthenticationProvider] 值變更成您提供者。
 
-在此案例中，行動服務透過顯示所選提供者的登入頁面，並在使用識別提供者成功登入後產生行動服務驗證權杖的方式，來管理 OAuth 2.0 驗證流程。[LoginAsync 方法][] 會傳回 [MobileServiceUser][]，並提供通過驗證使用者的 [userId][] 和 [MobileServiceAuthenticationToken][]，以作為 JSON Web 權杖 (JWT)。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱[快取驗證權杖][]。
+在此案例中，行動服務透過顯示所選提供者的登入頁面，並在使用識別提供者成功登入後產生行動服務驗證權杖的方式，來管理 OAuth 2.0 驗證流程。[LoginAsync 方法][LoginAsync 方法] 會傳回 [MobileServiceUser][MobileServiceUser]，並提供通過驗證使用者的 [userId][userId] 和 [MobileServiceAuthenticationToken][MobileServiceAuthenticationToken]，以作為 JSON Web 權杖 (JWT)。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱[快取驗證權杖][快取驗證權杖]。
 
 <div class="dev-callout"><b>Windows 市集應用程式</b>
 <p>使用 Microsoft 帳戶登入提供者來驗證 Windows 市集應用程式的使用者時，也應該向行動服務註冊應用程式封裝。向行動服務註冊 Windows 市集應用程式封裝資訊之後，用戶端就能夠重複使用 Microsoft 帳戶登入認證來享受單一登入的方便性。如果您沒有執行此動作，Microsoft 帳戶登入使用者會在每次呼叫登入方法時j都會看到登入提示。若要了解如何註冊 Windows 市集應用程式封裝，請參閱<a href="/zh-tw/develop/mobile/how-to-guides/register-windows-store-app-package/" target="_blank">註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證</a>。在向行動服務註冊封裝資訊後，您便可以透過為 <em>useSingleSignOn</em> 參數提供 <strong>true</strong> 值以重複使用認證的方式呼叫 <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> 方法。</p>
@@ -514,11 +514,11 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
     user = await client
         .LoginWithMicrosoftAccountAsync(authentication_token_value);
 
-如需如何使用 Microsoft 帳戶提供單一登入體驗的範例，請參閱「使用單一登入驗證應用程式」教學課程 ([Windows 市集][]/[Windows Phone][1])。
+如需如何使用 Microsoft 帳戶提供單一登入體驗的範例，請參閱「使用單一登入驗證應用程式」教學課程 ([Windows 市集][Windows 市集]/[Windows Phone][1])。
 
 ### <a name="caching"></a>快取驗證權杖
 
-在某些情況下，在使用者首次驗證之後就可以避免呼叫登入方法。您可以使用 [PasswordVault][]，Windows 市集應用程式便可在目前使用者首次登入時快取其使用者識別，之後您可以每次在快取中查看是否已有此使用者識別存在。當沒有快取時，您仍需透過登入程序傳送使用者。
+在某些情況下，在使用者首次驗證之後就可以避免呼叫登入方法。您可以使用 [PasswordVault][PasswordVault]，Windows 市集應用程式便可在目前使用者首次登入時快取其使用者識別，之後您可以每次在快取中查看是否已有此使用者識別存在。當沒有快取時，您仍需透過登入程序傳送使用者。
 
     // After logging in
     PasswordVault vault = new PasswordVault();
@@ -545,7 +545,7 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
     client.Logout();
     vault.Remove(vault.Retrieve("Facebook", user.UserId));
 
-若是 Windows Phone 應用程式，您可以使用 [ProtectedData][] 類別來加密與快取資料，並在獨立的儲存體中儲存敏感資訊。
+若是 Windows Phone 應用程式，您可以使用 [ProtectedData][ProtectedData] 類別來加密與快取資料，並在獨立的儲存體中儲存敏感資訊。
 
 ## <a name="errors"></a><span class="short-header">錯誤處理</span>作法：處理錯誤
 
@@ -591,7 +591,7 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
     // Lookup untyped data using OData
     JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 
-您將收到可用作屬性包的 JSON 值。如需有關 JToken 和 Json.NET 的詳細資訊，請參閱 [Json.NET][]
+您將收到可用作屬性包的 JSON 值。如需有關 JToken 和 Json.NET 的詳細資訊，請參閱 [Json.NET][Json.NET]
 
 ## <a name="unit-testing"></a><span class="short-header">設計測試</span>作法：設計單位測試
 
@@ -630,7 +630,7 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 
 ### <a name="serialization"></a>作法：自訂序列化
 
-[MobileServiceClient][] 類別會公開 [JsonSerializerSettings][] 類型的 `SerializerSettings` 屬性。
+[MobileServiceClient][MobileServiceClient] 類別會公開 [JsonSerializerSettings][JsonSerializerSettings] 類型的 `SerializerSettings` 屬性。
 
 透過此屬性，您可以設定許多 Json.NET 屬性，例如，包括一個可將所有屬性轉換為小寫的屬性：
 
@@ -642,33 +642,28 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 
 現在，您已完成本作法概念參考資料主題，下列內容將詳細說明如何在行動服務中執行重要工作：
 
--   [開始使用行動服務][]
+-   [開始使用行動服務][開始使用行動服務]
     了解如何使用行動服務的基本概念。
 
--   [開始使用資料][]
+-   [開始使用資料][開始使用資料]
     深入了解使用行動服務來儲存與查詢資料。
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何向身分識別提供者驗證應用程式的使用者。
 
--   [使用指令檔驗證與修改資料][]
+-   [使用指令檔驗證與修改資料][使用指令檔驗證與修改資料]
     深入了解在行動服務中使用伺服器指令檔，來驗證並變更從應用程式傳送出來的資料。
 
--   [使用分頁縮小查詢範圍][]
+-   [使用分頁縮小查詢範圍][使用分頁縮小查詢範圍]
     了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
--   [使用指令碼來授權使用者][]
+-   [使用指令碼來授權使用者][使用指令碼來授權使用者]
     了解如何根據驗證的使用者來取得行動服務所提供的使用者識別碼，並用來篩選行動服務所傳回的資料。
 
 <!-- Anchors. -->
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [.NET Framework]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Windows 市集快速入門教學課程]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started/
   [Windows Phone 快速入門教學課程]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-wp8/
   [Windows 市集資料教學課程]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet/
@@ -721,8 +716,6 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
   [userId]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
   [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
   [快取驗證權杖]: #caching
-  [註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證]: /zh-tw/develop/mobile/how-to-guides/register-windows-store-app-package/
-  [LoginAsync]: http://go.microsoft.com/fwlink/p/?LinkId=311594
   [Windows 市集]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
   [1]: /zh-tw/develop/mobile/tutorials/single-sign-on-wp8/
   [PasswordVault]: http://msdn.microsoft.com/zh-tw/library/windows/apps/windows.security.credentials.passwordvault.aspx

@@ -1,27 +1,27 @@
 <properties linkid="dev-java-how-to-access-control" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Java) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Java, Azure email Java" description="Learn how send email with the SendGrid email service on Azure. Code samples written in Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 如何使用 SendGrid 透過 Java 傳送電子郵件
 
-本指南示範如何在 Azure 上透過 SendGrid 電子郵件服務執行常見程式設計工作。相關範例是以 Java 撰寫的。涵蓋的案例包括**建構電子郵件**、**傳送電子郵件**、**新增附件**、**使用篩選器**及**更新屬性**。如需 SendGrid 及傳送電子郵件的詳細資訊，請參閱[後續步驟][]一節。
+本指南示範如何在 Azure 上透過 SendGrid 電子郵件服務執行常見程式設計工作。相關範例是以 Java 撰寫的。涵蓋的案例包括**建構電子郵件**、**傳送電子郵件**、**新增附件**、**使用篩選器**及**更新屬性**。如需 SendGrid 及傳送電子郵件的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [什麼是 SendGrid 電子郵件服務？][]
--   [建立 SendGrid 帳戶][]
--   [作法：使用 javax.mail 程式庫][]
--   [作法：建立電子郵件][]
--   [作法：傳送電子郵件][]
--   [作法：新增附件][]
--   [作法：使用篩選器來啟用頁尾、追蹤和分析][]
--   [作法：更新電子郵件屬性][]
--   [作法：使用其他 SendGrid 服務][]
--   [後續步驟][]
+-   [什麼是 SendGrid 電子郵件服務？][什麼是 SendGrid 電子郵件服務？]
+-   [建立 SendGrid 帳戶][建立 SendGrid 帳戶]
+-   [作法：使用 javax.mail 程式庫][作法：使用 javax.mail 程式庫]
+-   [作法：建立電子郵件][作法：建立電子郵件]
+-   [作法：傳送電子郵件][作法：傳送電子郵件]
+-   [作法：新增附件][作法：新增附件]
+-   [作法：使用篩選器來啟用頁尾、追蹤和分析][作法：使用篩選器來啟用頁尾、追蹤和分析]
+-   [作法：更新電子郵件屬性][作法：更新電子郵件屬性]
+-   [作法：使用其他 SendGrid 服務][作法：使用其他 SendGrid 服務]
+-   [後續步驟][後續步驟]
 
 ## <a name="bkmk_WhatIsSendGrid"> </a>什麼是 SendGrid 電子郵件服務？
 
-SendGrid 是[雲端架構電子郵件服務][] (英文)，能提供可靠的[交易式電子郵件傳遞][] (英文)、擴充性和即時分析，以及有彈性的 API來輕鬆進行自訂整合。常見的 SendGrid 使用案例包括：
+SendGrid 是[雲端架構電子郵件服務][雲端架構電子郵件服務] (英文)，能提供可靠的[交易式電子郵件傳遞][交易式電子郵件傳遞] (英文)、擴充性和即時分析，以及有彈性的 API來輕鬆進行自訂整合。常見的 SendGrid 使用案例包括：
 
 -   自動傳送回條給客戶
 -   管理通訊群組清單，以便將每月
@@ -36,7 +36,7 @@ SendGrid 是[雲端架構電子郵件服務][] (英文)，能提供可靠的[交
 
 ## <a name="bkmk_CreateSendGridAcct"> </a>建立 SendGrid 帳戶
 
-[WACOM.INCLUDE [sendgrid-sign-up][]]
+[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="bkmk_HowToUseJavax"> </a>作法：使用 javax.mail 程式庫
 
@@ -76,8 +76,8 @@ SendGrid 是[雲端架構電子郵件服務][] (英文)，能提供可靠的[交
         Authenticator auth = new SMTPAuthenticator();
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
-4.  建立郵件並指派 [收件者]、[寄件者]、[主旨] 和內容值。如[作法：建立電子郵件][]一節所示。
-5.  透過 <span class="auto-style1">javax.mail.Transport</span> 物件傳送郵件。如[作法：傳送電子郵件][]一節所示。
+4.  建立郵件並指派 [收件者]、[寄件者]、[主旨] 和內容值。如[作法：建立電子郵件][作法：建立電子郵件]一節所示。
+5.  透過 <span class="auto-style1">javax.mail.Transport</span> 物件傳送郵件。如[作法：傳送電子郵件][作法：傳送電子郵件]一節所示。
 
 ## <a name="bkmk_HowToCreateEmail"> </a>作法：建立電子郵件
 
@@ -131,7 +131,7 @@ SendGrid 是[雲端架構電子郵件服務][] (英文)，能提供可靠的[交
 
 ## <a name="bkmk_HowToUseFilters"> </a>作法：使用篩選器來啟用頁尾、追蹤和分析
 
-SendGrid 提供了運用*篩選器*的其他電子郵件功能。這些設定可新增到電子郵件以啟用特定功能，例如啟用點擊追蹤、Google分析、訂閱追蹤等。如需完整的篩選器清單，請參閱[篩選器設定][]。
+SendGrid 提供了運用*篩選器*的其他電子郵件功能。這些設定可新增到電子郵件以啟用特定功能，例如啟用點擊追蹤、Google分析、訂閱追蹤等。如需完整的篩選器清單，請參閱[篩選器設定][篩選器設定]。
 
 -   下列程式碼顯示如何插入頁尾篩選器，以使 HTML 文字出現在傳送之電子郵件的底部。
 
@@ -178,13 +178,13 @@ SendGrid 提供了運用*篩選器*的其他電子郵件功能。這些設定可
 
 ## <a name="bkmk_HowToUseAdditionalSvcs"> </a>作法：使用其他 SendGrid 服務
 
-SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGrid 功能。如需完整詳細資料，請參閱 [SendGrid API 文件][] (英文)。
+SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGrid 功能。如需完整詳細資料，請參閱 [SendGrid API 文件][SendGrid API 文件] (英文)。
 
 ## <a name="bkmk_NextSteps"> </a>後續步驟
 
 了解 SendGrid 電子郵件服務的基本概念後，請參考下列連結以取得更多資訊。
 
--   示範在 Azure 部署中使用 SendGrid 的範例：[如何在 Azure 部署中使用 SendGrid 透過 Java 傳送電子郵件][]
+-   示範在 Azure 部署中使用 SendGrid 的範例：[如何在 Azure 部署中使用 SendGrid 透過 Java 傳送電子郵件][如何在 Azure 部署中使用 SendGrid 透過 Java 傳送電子郵件]
 -   SendGrid Java 資訊：<http://sendgrid.com/docs/Code_Examples/java.html>
 -   SendGrid API 文件：<http://sendgrid.com/docs/API_Reference/index.html>
 -   Azure 客戶的 SendGrid 特別優惠：<http://sendgrid.com/azure.html>

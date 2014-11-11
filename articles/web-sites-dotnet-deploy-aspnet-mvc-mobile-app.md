@@ -1,20 +1,20 @@
 <properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 mobile website - Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="A tutorial that teaches you how to deploy a web application to an Azure website using mobile features in ASP.NET MVC 5 web application." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande" />
 
 # 在 Azure 網站上部署 ASP.NET MVC 5 行動 Web 應用程式
 
-本教學課程教您如何建置行動便利的 ASP.NET MVC 5 Web 應用程式，並將其部署至 Windows Azure 的基本做法。在本教學課程中，您需要[Visual Studio Express 2013 for Web][] 或 Professional Edition 的 Visual Studio (如果您已具備此版本)。
+本教學課程教您如何建置行動便利的 ASP.NET MVC 5 Web 應用程式，並將其部署至 Windows Azure 的基本做法。在本教學課程中，您需要[Visual Studio Express 2013 for Web][Visual Studio Express 2013 for Web] 或 Professional Edition 的 Visual Studio (如果您已具備此版本)。
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ### 您要建置的內容
 
-在本教學課程中，您要將行動功能加入[入門專案][] (英文) 裡提供的簡單會議清單應用程式。如同在 Internet Explorer 11 F12 開發人員工具的瀏覽器模擬器中所見，以下螢幕擷取畫面示範完成的應用程式中的 ASP.NET 工作階段。
+在本教學課程中，您要將行動功能加入[入門專案][入門專案] (英文) 裡提供的簡單會議清單應用程式。如同在 Internet Explorer 11 F12 開發人員工具的瀏覽器模擬器中所見，以下螢幕擷取畫面示範完成的應用程式中的 ASP.NET 工作階段。
 
-![][]
+![][0]
 
-您可以使用 Internet Explorer 11 F12 開發人員工具和 [Fiddler 工具][] (英文)，協助偵錯應用程式。
+您可以使用 Internet Explorer 11 F12 開發人員工具和 [Fiddler 工具][Fiddler 工具] (英文)，協助偵錯應用程式。
 
 ### 您要學習的技術
 
@@ -32,37 +32,37 @@
 
 安裝 Azure SDK for the .NET Framework，以設定您的開發環境。
 
-1.  若要安裝 Azure SDK for .NET，請按一下底下連結：如果您尚未安裝 Visual Studio 2013，按下該連結會進行安裝。本教學課程需要安裝 Visual Studio 2013。[Azure SDK for Visual Studio 2013][] (英文)
+1.  若要安裝 Azure SDK for .NET，請按一下底下連結：如果您尚未安裝 Visual Studio 2013，按下該連結會進行安裝。本教學課程需要安裝 Visual Studio 2013。[Azure SDK for Visual Studio 2013][Azure SDK for Visual Studio 2013] (英文)
 2.  在 [Web Platform Installer] 視窗中，按一下 [安裝] 並繼續進行安裝。
 
-    ![Web Platform Installer - Azure SDK for .NET][]
+    ![Web Platform Installer - Azure SDK for .NET][Web Platform Installer - Azure SDK for .NET]
 
 您還需要一個行動瀏覽器模擬器。下列任一種都可使用：
 
--   [Internet Explorer 11 F12 開發人員工具][]中的瀏覽器模擬器
+-   [Internet Explorer 11 F12 開發人員工具][Internet Explorer 11 F12 開發人員工具]中的瀏覽器模擬器
     (使用於所有行動瀏覽器螢幕擷取畫面中)。它具有 Windows Phone 8、Windows Phone 7 和 Apple iPad 的使用者代理程式字串預設項目。
--   [Google Chrome DevTools][] (英文) 中的瀏覽器模擬器。它包含許多 Android 裝置，以及 Apple iPhone、Apple iPad 和 Amazon Kindle Fire 的預設項目。它也會模擬觸控事件。
--   [Opera Mobile 模擬器][]
+-   [Google Chrome DevTools][Google Chrome DevTools] (英文) 中的瀏覽器模擬器。它包含許多 Android 裝置，以及 Apple iPhone、Apple iPad 和 Amazon Kindle Fire 的預設項目。它也會模擬觸控事件。
+-   [Opera Mobile 模擬器][Opera Mobile 模擬器]
 
 此處提供具有 C# 原始程式碼的 Visual Studio 專案來幫助您完成此主題：
 
 -   [入門專案下載][入門專案]
--   [完成專案下載][]
+-   [完成專案下載][完成專案下載]
 
 ## 本教學課程中的步驟
 
--   [將入門專案部署至 Windows Azure 網站][]
--   [Bootstrap CSS 架構][]
--   [覆寫檢視、配置與部分檢視][]
--   [改善演講者清單][]
--   [改善標籤清單][]
--   [改善日期清單][]
--   [改善 SessionsTable 檢視][]
--   [改善 SessionByCode 檢視][]
+-   [將入門專案部署至 Windows Azure 網站][將入門專案部署至 Windows Azure 網站]
+-   [Bootstrap CSS 架構][Bootstrap CSS 架構]
+-   [覆寫檢視、配置與部分檢視][覆寫檢視、配置與部分檢視]
+-   [改善演講者清單][改善演講者清單]
+-   [改善標籤清單][改善標籤清單]
+-   [改善日期清單][改善日期清單]
+-   [改善 SessionsTable 檢視][改善 SessionsTable 檢視]
+-   [改善 SessionByCode 檢視][改善 SessionByCode 檢視]
 
 ### <a name="bkmk_DeployStarterProject"></a>將入門專案部署至 Windows Azure 網站
 
-1.  下載會議清單應用程式[入門專案][] (英文)。
+1.  下載會議清單應用程式[入門專案][入門專案] (英文)。
 
 2.  接著在 Windows 檔案總管中，以滑鼠右鍵按一下 Mvc5Mobile.zip 檔案並選擇 [內容]。
 
@@ -142,7 +142,7 @@ MVC 5 範本中的新功能是內建的 Bootstrap 支援。您已經看到它是
 
 Bootstrap 並非專屬於 ASP.NET MVC 5，您也可以在所有 Web 應用程式中利用這些功能。但它目前內建於ASP.NET MVC 5 專案範本中，所以 MVC 5 Web 應用程式可根據預設利用 Bootstrap。
 
-如需 Bootstrap 的詳細資訊，請移至[Bootstrap][] (英文) 網站。
+如需 Bootstrap 的詳細資訊，請移至[Bootstrap][Bootstrap] (英文) 網站。
 
 您將在下一節看到如何提供行動瀏覽器專用的檢視。
 
@@ -243,7 +243,7 @@ Bootstrap 並非專屬於 ASP.NET MVC 5，您也可以在所有 Web 應用程式
 
 如您方才所見，雖然可以在行動裝置上讀取 *Speakers* 檢視，但是連結卻非常微小而不容易點選。在本節中，您要使 *AllSpeakers* 檢視適合行動用途，以顯示大尺寸又容易點選的連結，並包含可快速找到演講者的搜尋方塊。
 
-您可以使用 Bootstrap [連結清單群組][] (英文) 樣式改善 *Speakers* 檢視。在 *Views\\Home\\AllSpeakers.cshtml* 中，使用以下程式碼取代 Razor 檔案的內容。
+您可以使用 Bootstrap [連結清單群組][連結清單群組] (英文) 樣式改善 *Speakers* 檢視。在 *Views\\Home\\AllSpeakers.cshtml* 中，使用以下程式碼取代 Razor 檔案的內容。
 
      @model IEnumerable<string>
 
@@ -266,7 +266,7 @@ Bootstrap 並非專屬於 ASP.NET MVC 5，您也可以在所有 Web 應用程式
 
 ![][18]
 
-Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊都可以點選，以提供更好的使用者體驗。切換成桌面檢視，會發現此檢視也有一致的外觀與風格。
+Bootstrap [連結清單群組][連結清單群組] (英文) 樣式讓每個連結的整個方塊都可以點選，以提供更好的使用者體驗。切換成桌面檢視，會發現此檢視也有一致的外觀與風格。
 
 ![][19]
 
@@ -295,7 +295,7 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
         }
     </div>
 
-請注意，`<form>` 和 `<input>` 標籤都有已套用於自身的 Bootstrap樣式。`<span>` 元素會將 Bootstrap[glyphicon][] (英文) 加入搜尋方塊。
+請注意，`<form>` 和 `<input>` 標籤都有已套用於自身的 Bootstrap樣式。`<span>` 元素會將 Bootstrap[glyphicon][glyphicon] (英文) 加入搜尋方塊。
 
 在 *Scripts* 資料夾中，加入名為 *filter.js* 的 JavaScript 檔案。開啟該檔案，並將以下程式碼貼入其中：
 
@@ -369,7 +369,7 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
 
 ![][23]
 
-您可以依照日期，組織時間日期值，以進一步改善 *Dates* 檢視。這可以透過 Bootstrap[面板][] (英文) 樣式完成。以下列程式碼取代 *Views\\Home\\AllDates.cshtml* 檔案的內容：
+您可以依照日期，組織時間日期值，以進一步改善 *Dates* 檢視。這可以透過 Bootstrap[面板][面板] (英文) 樣式完成。以下列程式碼取代 *Views\\Home\\AllDates.cshtml* 檔案的內容：
 
     @model IEnumerable<DateTime>
 
@@ -397,7 +397,7 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
         </div>
     }
 
-此程式碼會為清單中每個不同的日期建立個別 `<div class="panel panel-primary">` 標籤，並分別為連結使用如上所述的[連結清單群組][] (英文)。以下是此程式碼執行時行動瀏覽器的樣貌：
+此程式碼會為清單中每個不同的日期建立個別 `<div class="panel panel-primary">` 標籤，並分別為連結使用如上所述的[連結清單群組][連結清單群組] (英文)。以下是此程式碼執行時行動瀏覽器的樣貌：
 
 ![][24]
 
@@ -452,18 +452,18 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
 
 此程式碼會執行 3 個動作：
 
--   使用 Bootstrap [自訂連結清單群組][] (英文)
+-   使用 Bootstrap [自訂連結清單群組][自訂連結清單群組] (英文)
     ，以垂直方式格式化工作階段資訊，使您可以
     在行動瀏覽器上閱讀所有資訊 (使用 list-group-item-text 之類的類別)。
--   將[方格系統][] (英文) 套用至配置，
+-   將[方格系統][方格系統] (英文) 套用至配置，
     讓工作階段項目能在桌面瀏覽器中水平流動，
     並在行動瀏覽器中垂直流動 (使用 col-md-4 類別)。
--   使用[回應靈敏的公用程式][]，於行動瀏覽器中檢視時，
+-   使用[回應靈敏的公用程式][回應靈敏的公用程式]，於行動瀏覽器中檢視時，
     隱藏工作階段標籤 (使用 hidden-xs 類別)。
 
 您也可以點選標題連結，以進入個別工作階段。下圖反映了程式碼變更。
 
-![][]
+![][0]
 
 您自動套用的 Bootstrap 方格系統會在行動瀏覽器中自動以垂直方式排列工作階段。此外，請注意標籤並未顯示。切換成桌面瀏覽器。
 
@@ -481,7 +481,7 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
 
 點選 **ASP.NET** 連結。隨即會顯示 ASP.NET 標籤的工作階段。
 
-![][]
+![][0]
 
 選擇**使用 ASP.NET 和 AngularJS 建置單一頁面應用程式**連結。
 
@@ -549,12 +549,12 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
 
 ## 另請參閱
 
--   [Bootstrap][] 網站 (英文)
--   [官方 Bootstrap 部落格][]
--   [Tutorial Republic 的 Twitter Bootstrap 教學課程][]
--   [Bootstrap 練習場][]
--   [W3C 推薦的行動 Web 應用程式最佳做法][]
--   [W3C 針對媒體查詢的候選推薦做法][]
+-   [Bootstrap][Bootstrap] 網站 (英文)
+-   [官方 Bootstrap 部落格][官方 Bootstrap 部落格]
+-   [Tutorial Republic 的 Twitter Bootstrap 教學課程][Tutorial Republic 的 Twitter Bootstrap 教學課程]
+-   [Bootstrap 練習場][Bootstrap 練習場]
+-   [W3C 推薦的行動 Web 應用程式最佳做法][W3C 推薦的行動 Web 應用程式最佳做法]
+-   [W3C 針對媒體查詢的候選推薦做法][W3C 針對媒體查詢的候選推薦做法]
 
 <!-- Internal Links --> 
 <!-- External Links --> 
@@ -563,7 +563,7 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
   [Visual Studio Express 2013 for Web]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [入門專案]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409
-  []: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
+  [0]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
   [Fiddler 工具]: http://www.fiddler2.com/fiddler2/
   [Azure SDK for Visual Studio 2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [Web Platform Installer - Azure SDK for .NET]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-identity-multi-factor-authentication" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="What is Azure Multi-Factor Authentication?" authors="billmath" solutions="" manager="terrylan" editor="lisatoft" />
 
-<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="billmath"></tags>
+<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="billmath" />
 
 # 什麼是 Azure Multi-Factor Authentication？
 
@@ -13,11 +13,11 @@
 多因素驗證的安全性仰賴其分層方法。使用多重驗證因素會為攻擊者帶來相當程度的挑戰。即使攻擊者試圖打探使用者的密碼，在不持有信任裝置的情況下便沒有任何意義。反之，如果使用者不小心遺失裝置，拾獲該裝置的人仍然無法使用此裝置，除非他或她也知道使用者的密碼。
 Azure Multi-Factor Authentication 是一種多因素驗證服務，需要使用者同時使用行動裝置應用程式、通話或簡訊來驗證登入。它可與 Azure Active Directory 搭配使用，來保護內部部署資源和 Azure Multi-Factor Authentication Server 的安全，它還可以使用 SDK 來與自訂應用程式和目錄搭配使用。
 
-![Azure Multi-Factor Authentication][]
+![Azure Multi-Factor Authentication][Azure Multi-Factor Authentication]
 
 ### 保護雲端 Azure Active Directory 的安全
 
-啟用適用於 Azure AD 身分識別的 Multi-Factor Authentication，系統將於使用者下次登入時出現設定其他驗證的提示。使用 Multi-Factor Authentication 來保護 Azure、Microsoft Online Services (如 Office 365 和 Dynamics CRM Online)，以及無需額外設定即可整合 Azure AD 的協力廠商雲端服務的安全。您可以快速啟用大量全域使用者和應用程式的多因素驗證。[詳細資訊][]
+啟用適用於 Azure AD 身分識別的 Multi-Factor Authentication，系統將於使用者下次登入時出現設定其他驗證的提示。使用 Multi-Factor Authentication 來保護 Azure、Microsoft Online Services (如 Office 365 和 Dynamics CRM Online)，以及無需額外設定即可整合 Azure AD 的協力廠商雲端服務的安全。您可以快速啟用大量全域使用者和應用程式的多因素驗證。[詳細資訊][詳細資訊]
 
 ### 保護內部部署資源和 Active Directory 的安全
 
@@ -40,13 +40,13 @@ Azure Multi-Factor Authentication 技術支援的 Multi-Factor Authentication fo
 
 下列內容將說明可用的多因素驗證版本，以及所提供的功能簡短摘要。您可以使用此內容來判斷適合您的多因素驗證版本。[詳細資訊][4]
 
-![Azure Multi-Factor Authentication 功能比較][]
+![Azure Multi-Factor Authentication 功能比較][Azure Multi-Factor Authentication 功能比較]
 
 **其他資源**
 
--   [以組織方式註冊 Azure][]
--   [Azure 身分識別][]
--   [Azure Multi-Factor Authentication Library][]
+-   [以組織方式註冊 Azure][以組織方式註冊 Azure]
+-   [Azure 身分識別][Azure 身分識別]
+-   [Azure Multi-Factor Authentication Library][Azure Multi-Factor Authentication Library]
 
   [Azure Multi-Factor Authentication]: ./media/multi-factor-authentication/WAMFA1.png
   [詳細資訊]: http://msdn.microsoft.com/zh-tw/library/dn249466.aspx

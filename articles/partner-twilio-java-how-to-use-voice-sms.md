@@ -1,25 +1,25 @@
 <properties linkid="develop-java-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (Java) - Azure" metaKeywords="Twilio, Twilio API, phone calls, SMS message, TwiML responses, Azure Twilio Java" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Java." metaCanonical="" services="" videoId="" scriptId="" documentationCenter="Java" title="How to Use Twilio for Voice and SMS Capabilities in Java" authors="MicrosoftHelp@twilio.com; robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm" />
 
 # 如何在 Java 中透過 Twilio 使用語音和簡訊功能
 
-本指南示範如何在 Azure 上透過 Twilio API 服務執行常見的程式設計工作。涵蓋的案例包括打電話和傳送簡訊 (SMS)。如需有關如何在應用程式中使用 Twilio 語音和 SMS 的詳細資訊，請參閱[後續步驟][]一節。
+本指南示範如何在 Azure 上透過 Twilio API 服務執行常見的程式設計工作。涵蓋的案例包括打電話和傳送簡訊 (SMS)。如需有關如何在應用程式中使用 Twilio 語音和 SMS 的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [什麼是 Twilio？][]
--   [Twilio 定價][]
--   [概念][]
--   [建立 Twilio 帳戶][]
--   [驗證電話號碼][]
--   [建立 Java 應用程式][]
--   [設定應用程式以使用 Twilio 程式庫][]
--   [作法：撥出電話][]
--   [作法：傳送簡訊][]
--   [作法：從您自己的網站提供 TwiML 回應][]
--   [作法：使用其他 Twilio 服務][]
--   [後續步驟][]
+-   [什麼是 Twilio？][什麼是 Twilio？]
+-   [Twilio 定價][Twilio 定價]
+-   [概念][概念]
+-   [建立 Twilio 帳戶][建立 Twilio 帳戶]
+-   [驗證電話號碼][驗證電話號碼]
+-   [建立 Java 應用程式][建立 Java 應用程式]
+-   [設定應用程式以使用 Twilio 程式庫][設定應用程式以使用 Twilio 程式庫]
+-   [作法：撥出電話][作法：撥出電話]
+-   [作法：傳送簡訊][作法：傳送簡訊]
+-   [作法：從您自己的網站提供 TwiML 回應][作法：從您自己的網站提供 TwiML 回應]
+-   [作法：使用其他 Twilio 服務][作法：使用其他 Twilio 服務]
+-   [後續步驟][後續步驟]
 
 ## <span id="WhatIs"></span></a>什麼是 Twilio？
 
@@ -29,11 +29,11 @@ Twilio 是一種電話語音 Web 服務 API，能夠讓您使用現有的 Web �
 
 ## <span id="Pricing"></span></a>Twilio 定價和特別優惠
 
-[Twilio 定價][1] (英文) 提供 Twilio 的定價資訊。Azure 客戶享有[特別優惠][]：免費 1000 則文字簡訊或接聽 1000 分鐘電話。若要註冊獲得這項優惠或取得詳細資訊，請造訪 [][特別優惠]<http://ahoy.twilio.com/azure></a> (英文)。
+[Twilio 定價][1] (英文) 提供 Twilio 的定價資訊。Azure 客戶享有[特別優惠][特別優惠]：免費 1000 則文字簡訊或接聽 1000 分鐘電話。若要註冊獲得這項優惠或取得詳細資訊，請造訪 [][特別優惠]<http://ahoy.twilio.com/azure></a> (英文)。
 
 ## <span id="Concepts"></span></a> 概念
 
-Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。用戶端程式庫有多種語言版本，相關清單請參閱＜[Twilio API 程式庫][]＞(英文)。
+Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。用戶端程式庫有多種語言版本，相關清單請參閱＜[Twilio API 程式庫][Twilio API 程式庫]＞(英文)。
 
 Twilio API 的兩大重點是 Twilio 動詞和 Twilio 標記語言 (TwiML)。
 
@@ -67,26 +67,26 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 
 當應用程式呼叫 Twilio API 時，其中一個 API 參數是傳回 TwiML 回應的 URL。在開發用途上，您可以使用 Twilio 提供的 URL 來提供應用程式所使用的 TwiML 回應。您也可以裝載您自己的 URL 來產生 TwiML 回應，另一種選擇是使用 **TwiMLResponse** 物件。
 
-如需 Twilio 動詞、屬性和 TwiML 的詳細資訊，請參閱 [TwiML][]。如需 Twilio API 的詳細資訊，請參閱 [Twilio API][]。
+如需 Twilio 動詞、屬性和 TwiML 的詳細資訊，請參閱 [TwiML][TwiML]。如需 Twilio API 的詳細資訊，請參閱 [Twilio API][Twilio API]。
 
 ## <span id="CreateAccount"></span></a>建立 Twilio 帳戶
 
-準備取得 Twilio 帳戶時，請至[試用 Twilio][] 註冊。您可以先使用免費帳戶，稍後再升級帳戶。
+準備取得 Twilio 帳戶時，請至[試用 Twilio][試用 Twilio] 註冊。您可以先使用免費帳戶，稍後再升級帳戶。
 
-註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面][] (英文) 的 **ACCOUNT SID** 和 **AUTH TOKEN** 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
+註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面][Twilio 帳戶頁面] (英文) 的 **ACCOUNT SID** 和 **AUTH TOKEN** 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
 
 ## <span id="VerifyPhoneNumbers"></span></a>驗證電話號碼
 
-各種電話號碼都必須經過您在 Twilio 的帳戶來驗證。例如，如果想要向外撥打電話，則必須向 Twilio 驗證此電話號碼為外撥來電者識別碼。同樣地，如果想要以某個電話號碼來接收簡訊，則必須向 Twilio 驗證此受話電話號碼。如需如何驗證電話號碼的詳細資訊，請參閱[管理電話號碼][]。以下某些程式碼依賴需要向 Twilio 驗證的電話號碼。
+各種電話號碼都必須經過您在 Twilio 的帳戶來驗證。例如，如果想要向外撥打電話，則必須向 Twilio 驗證此電話號碼為外撥來電者識別碼。同樣地，如果想要以某個電話號碼來接收簡訊，則必須向 Twilio 驗證此受話電話號碼。如需如何驗證電話號碼的詳細資訊，請參閱[管理電話號碼][管理電話號碼]。以下某些程式碼依賴需要向 Twilio 驗證的電話號碼。
 
-除了在應用程式中使用現有的電話號碼，您也可以購買 Twilio 電話號碼。如需有關購買 Twilio 電話號碼的詳細資訊，請參閱＜[Twilio 電話號碼說明][]＞(英文)。
+除了在應用程式中使用現有的電話號碼，您也可以購買 Twilio 電話號碼。如需有關購買 Twilio 電話號碼的詳細資訊，請參閱＜[Twilio 電話號碼說明][Twilio 電話號碼說明]＞(英文)。
 
 ## <span id="create_app"></span></a>建立 Java 應用程式
 
 1.  取得 Twilio JAR 並將它加到您的 Java 組建路徑和 WAR 部署組件。在 [][]<https://github.com/twilio/twilio-java></a> 上，您可以下載 GitHub 來源及建立自己的 JAR，或下載預先建置的 JAR (可能有相依性)。
-2.  確定 JDK 的 **cacerts** 金鑰存放區包含 MD5 指紋為 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (序號為 35:DE:F4:CF 且 SHA1 指紋為 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A) 的 Equifax 安全憑證授權單位憑證。這是 [][2]<https://api.twilio.com></a> 服務的憑證授權單位 (CA) 憑證，會在您使用 Twilio API 時受到呼叫。如需關於確定 JDK 的 **cacerts** 金鑰存放區包含正確 CA 憑證的詳細資訊，請參閱[新增憑證至 Java CA 憑證存放區][]。
+2.  確定 JDK 的 **cacerts** 金鑰存放區包含 MD5 指紋為 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (序號為 35:DE:F4:CF 且 SHA1 指紋為 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A) 的 Equifax 安全憑證授權單位憑證。這是 [][2]<https://api.twilio.com></a> 服務的憑證授權單位 (CA) 憑證，會在您使用 Twilio API 時受到呼叫。如需關於確定 JDK 的 **cacerts** 金鑰存放區包含正確 CA 憑證的詳細資訊，請參閱[新增憑證至 Java CA 憑證存放區][新增憑證至 Java CA 憑證存放區]。
 
-[如何從 Azure 中的 Java 應用程式使用 Twilio 撥打電話][]中提供使用 Java 版 Twilio 用戶端程式庫的詳細指示。
+[如何從 Azure 中的 Java 應用程式使用 Twilio 撥打電話][如何從 Azure 中的 Java 應用程式使用 Twilio 撥打電話]中提供使用 Java 版 Twilio 用戶端程式庫的詳細指示。
 
 ## <span id="configure_app"></span></a>設定應用程式以使用 Twilio 程式庫
 
@@ -201,7 +201,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
         <Say>Good bye.</Say>
     </Response>
 
-**ApiVersion** 參數會出現在 Twilio 語音要求 (而非 SMS 要求) 中。若要查看 Twilio 語音和 SMS 要求的可用要求參數，請分別參閱 <https://www.twilio.com/docs/api/twiml/twilio_request> (英文) 及 <https://www.twilio.com/docs/api/twiml/sms/twilio_request> (英文)。**RoleName** 環境參數會隨附在 Azure 部署中。(如果您要新增自訂環境參數，以便可以從 **System.getenv** 選擇這些參數，請參閱[其他角色組態設定][]的環境變數一節。)
+**ApiVersion** 參數會出現在 Twilio 語音要求 (而非 SMS 要求) 中。若要查看 Twilio 語音和 SMS 要求的可用要求參數，請分別參閱 <https://www.twilio.com/docs/api/twiml/twilio_request> (英文) 及 <https://www.twilio.com/docs/api/twiml/sms/twilio_request> (英文)。**RoleName** 環境參數會隨附在 Azure 部署中。(如果您要新增自訂環境參數，以便可以從 **System.getenv** 選擇這些參數，請參閱[其他角色組態設定][其他角色組態設定]的環境變數一節。)
 
 設定 JSP 頁面來提供 TwiML 回應之後，請使用 JSP 頁面的 URL 作為傳遞到 **CallFactory.create** 方法的 URL。例如，如果將名稱為 MyTwiML 的 Web 應用程式部署到 Azure 代管的服務，而且 JSP 頁面的名稱是 mytwiml.jsp，則可以將 URL 傳遞到 **CallFactory.create**，如下所示：
 
@@ -216,7 +216,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 
 另一個選項是透過 **com.twilio.sdk.verbs** 封裝中的 **TwiMLResponse** 類別進行 TwiML 回應。
 
-如需關於透過 Java 在 Azure 中使用 Twilio 的詳細資訊，請參閱[如何從 Azure 中的 Java 應用程式使用 Twilio 撥打電話][]。
+如需關於透過 Java 在 Azure 中使用 Twilio 的詳細資訊，請參閱[如何從 Azure 中的 Java 應用程式使用 Twilio 撥打電話][如何從 Azure 中的 Java 應用程式使用 Twilio 撥打電話]。
 
 ## <span id="AdditionalServices"></span></a>作法：使用其他 Twilio 服務
 
@@ -226,11 +226,11 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 
 了解基本的 Twilio 服務之後，請參考下列連結以取得更多資訊：
 
--   [Twilio 安全性方針][]
--   [Twilio 作法與範例程式碼][]
--   [Twilio 快速入門教學課程][]
--   [GitHub 上的 Twilio][]
--   [洽詢 Twilio 支援][]
+-   [Twilio 安全性方針][Twilio 安全性方針]
+-   [Twilio 作法與範例程式碼][Twilio 作法與範例程式碼]
+-   [Twilio 快速入門教學課程][Twilio 快速入門教學課程]
+-   [GitHub 上的 Twilio][GitHub 上的 Twilio]
+-   [洽詢 Twilio 支援][洽詢 Twilio 支援]
 
   [後續步驟]: #NextSteps
   [什麼是 Twilio？]: #WhatIs

@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with GoDaddy" pageTitle="Configure a GoDaddy domain name for an Azure website that uses Traffic Manager" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth" />
 
 # 使用流量管理員設定 Azure 網站的自訂網域名稱 (GoDaddy)
 
@@ -8,30 +8,30 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/zh-TW/documentation/articles/web-sites-godaddy-custom-domain-name/" title="網站">網站</a> | <a href="/zh-TW/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/" title="使用流量管理員的網站" class="current">使用流量管理員的網站</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-本文針對透過 Azure 網站在 [Go Daddy][] 中購買的自訂網域名稱，提供使用的相關指示。
+本文針對透過 Azure 網站在 [Go Daddy][Go Daddy] 中購買的自訂網域名稱，提供使用的相關指示。
 
-[WACOM.INCLUDE [tmwebsitefooter][]]
+[WACOM.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 本文內容：
 
--   [了解 DNS 記錄][]
--   [將網站設定為標準模式][]
--   [新增自訂網域的 DNS 記錄][]
--   [啟用網站的流量管理員][]
+-   [了解 DNS 記錄][了解 DNS 記錄]
+-   [將網站設定為標準模式][將網站設定為標準模式]
+-   [新增自訂網域的 DNS 記錄][新增自訂網域的 DNS 記錄]
+-   [啟用網站的流量管理員][啟用網站的流量管理員]
 
 ## <a name="understanding-records"></a>了解 DNS 記錄
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
 
 ## <a name="bkmk_configsharedmode"></a>將網站設定為標準模式
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -42,15 +42,15 @@
 
 1.  在 GoDaddy.com 中登入您的帳戶，並依序選取 [我的帳戶]、[Manage your domains]。最後，選取您要在 Azure 網站中使用的網域名稱。
 
-    ![custom domain page for GoDaddy][]
+    ![custom domain page for GoDaddy][custom domain page for GoDaddy]
 
 2.  在 [網域詳細資料] 頁面中，選取 [DNS Zone File] 索引標籤。此區段可用來新增與修改網域名稱的 DNS 記錄。選取 [編輯] 按鈕，以顯示 [Zone File Editor]。
 
-    ![DNS Zone File tab][]
+    ![DNS Zone File tab][DNS Zone File tab]
 
 3.  [Zone File Editor] 會依每個記錄類型被分為不同區段，從作為第一個區段的 A 記錄開始 (列為 [A (主機)])，接著是 CNAME 記錄 (列為 [CNAME (別名)])。若要新增項目，請使用對應區段下方的 [快速新增] 按鈕。若要編輯現有項目，請選取該項目並修改現有資訊。
 
-    ![zone file editor][]
+    ![zone file editor][zone file editor]
 
     > [WACOM.NOTE] 在將項目新增至區域檔案之前，請注意，GoDaddy 已為熱門子網域 (在編輯器中稱為 [主機]) 建立 DNS 記錄，例如**電子郵件**、**檔案**、**郵件**及其他。如果您要使用的名稱已存在，請修改現有記錄，而非建立新記錄。
 
@@ -64,17 +64,6 @@
 
 [WACOM.INCLUDE [modes][1]]
 
-  [自訂網域]: /zh-TW/documentation/articles/web-sites-custom-domain-name "自訂網域"
-  [GoDaddy]: /zh-TW/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [網路解決方案]: /zh-TW/documentation/articles/web-sites-network-solutions-custom-domain-name "網路解決方案"
-  [Register.com]: /zh-TW/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /zh-TW/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /zh-TW/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /zh-TW/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /zh-TW/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /zh-TW/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [網站]: /zh-TW/documentation/articles/web-sites-godaddy-custom-domain-name/ "網站"
-  [使用流量管理員的網站]: /zh-TW/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/ "使用流量管理員的網站"
   [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [Go Daddy]: https://godaddy.com

@@ -1,10 +1,10 @@
 <properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="" pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # 共用存取簽章，第 2 部分：透過 Blob 服務來建立與使用 SAS
 
-本教學課程的[第 1 部分][]探討了共用存取簽章 (SAS)，並說明使用它們的最佳作法。第 2 部分顯示如何產生然後使用共用存取簽章以搭配 Azure Blob 服務。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。所涵蓋的案例包括使用共用存取簽章的以下層面：
+本教學課程的[第 1 部分][第 1 部分]探討了共用存取簽章 (SAS)，並說明使用它們的最佳作法。第 2 部分顯示如何產生然後使用共用存取簽章以搭配 Azure Blob 服務。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。所涵蓋的案例包括使用共用存取簽章的以下層面：
 
 -   在容器上產生共用存取簽章
 -   在 blob 上產生共用存取簽章
@@ -17,11 +17,11 @@
 
 # 第 1 部分：建立主控台應用程式以產生共用存取簽章
 
-首先，請確定您已安裝 Azure Storage Client Library for .NET。您可以安裝包含最新用戶端程式庫組件的 [NuGet 封裝][] (英文)，這是確定您具有最新修正程式的建議方法。您也可以在最新版 [Azure SDK for .NET][] 中一起下載用戶端程式庫。
+首先，請確定您已安裝 Azure Storage Client Library for .NET。您可以安裝包含最新用戶端程式庫組件的 [NuGet 封裝][NuGet 封裝] (英文)，這是確定您具有最新修正程式的建議方法。您也可以在最新版 [Azure SDK for .NET][Azure SDK for .NET] 中一起下載用戶端程式庫。
 
 在 Visual Studio 中，建立新的 Windows 主控台應用程式，並將它命名為 **GenerateSharedAccessSignatures**。使用下列任一種方法，新增對 **Microsoft.WindowsAzure.Configuration.dll** 及 **Microsoft.WindowsAzure.Storage.dll** 的參照：
 
--   如果要安裝 NuGet 封裝，請先安裝 [NuGet Package Manager Extension for Visual Studio][]。在 Visual Studio 中，選取 [Project | Manage NuGet Packages]、在線上搜尋 [Azure 儲存體]，並遵循安裝指示。
+-   如果要安裝 NuGet 封裝，請先安裝 [NuGet Package Manager Extension for Visual Studio][NuGet Package Manager Extension for Visual Studio]。在 Visual Studio 中，選取 [Project | Manage NuGet Packages]、在線上搜尋 [Azure 儲存體]，並遵循安裝指示。
 -   或者，在您的 Azure SDK 安裝中找到組件，並新增對它們的參照。
 
 在 Program.cs 檔的頂端，新增下列 **using** 陳述式：
@@ -273,7 +273,7 @@
 
 執行 GenerateSharedAccessSignatures 主控台應用程式時，您將在主控台視窗中看到類似如下的輸出。這些是您將在教學課程第 2 部分使用的共用存取簽章。
 
-![sas-console-output-1][]
+![sas-console-output-1][sas-console-output-1]
 
 # 第 2 部分：建立主控台應用程式以測試共用存取簽章
 
@@ -508,24 +508,22 @@
 
 執行主控台應用程式，並觀察輸出，以查看哪些簽章允許哪些操作。主控台視窗中的輸出類似如下範例：
 
-![sas-console-output-2][]
+![sas-console-output-2][sas-console-output-2]
 
 # 後續步驟
 
 [共用存取簽章，第 1 部分：了解 SAS 模型][第 1 部分]
 
-[管理 Azure 儲存體資源的存取][]
+[管理 Azure 儲存體資源的存取][管理 Azure 儲存體資源的存取]
 
-[使用共用存取簽章 (REST API) 來委派存取權][]
+[使用共用存取簽章 (REST API) 來委派存取權][使用共用存取簽章 (REST API) 來委派存取權]
 
-[資料表與佇列 SAS 簡介 (英文)][]
+[資料表與佇列 SAS 簡介 (英文)][資料表與佇列 SAS 簡介 (英文)]
 
   [第 1 部分]: ../storage-dotnet-shared-access-signature-part-1/
   [NuGet 封裝]: http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 封裝"
-  [Azure SDK for .NET]: http://www.windowsazure.com/en-us/downloads/
+  [Azure SDK for .NET]: http://www.windowsazure.com/zh-tw/downloads/
   [NuGet Package Manager Extension for Visual Studio]: http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
   [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
   [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
-  [管理 Azure 儲存體資源的存取]: http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx
-  [使用共用存取簽章 (REST API) 來委派存取權]: http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx
-  [資料表與佇列 SAS 簡介 (英文)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx
+  [管理 Azure 儲存體資源的存取]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee393343.aspx

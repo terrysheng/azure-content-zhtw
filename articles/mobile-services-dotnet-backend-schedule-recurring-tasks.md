@@ -1,6 +1,6 @@
 <properties  pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 在行動服務中為週期性工作排程
 
@@ -16,18 +16,18 @@
 
 本教學課程將逐步引導您完成下列步驟，以瞭解如何使用工作排程器，來建立向 Twitter 要求推文資料並在新的 Updates 資料表中儲存推文的排定工作：
 
--   [註冊以取得 Twitter 存取權與儲存認證][]
--   [下載並安裝 LINQ to Twitter 程式庫][]
--   [建立新的 Updates 資料表][]
--   [建立新的排定工作][]
--   [在本機測試排定工作][]
--   [發佈服務及註冊工作][]
+-   [註冊以取得 Twitter 存取權與儲存認證][註冊以取得 Twitter 存取權與儲存認證]
+-   [下載並安裝 LINQ to Twitter 程式庫][下載並安裝 LINQ to Twitter 程式庫]
+-   [建立新的 Updates 資料表][建立新的 Updates 資料表]
+-   [建立新的排定工作][建立新的排定工作]
+-   [在本機測試排定工作][在本機測試排定工作]
+-   [發佈服務及註冊工作][發佈服務及註冊工作]
 
-> [WACOM.NOTE]本教學課程採用第三方 LINQ to Twitter 程式庫，以簡化對 Twitter v1.1. API 的 OAuth 2.0 存取。您必須下載並安裝 LINQ to Twitter NuGet 封裝，才能完成本教學課程。如需詳細資訊，請參閱 [LINQ to Twitter CodePlex 專案][]。
+> [WACOM.NOTE]本教學課程採用第三方 LINQ to Twitter 程式庫，以簡化對 Twitter v1.1. API 的 OAuth 2.0 存取。您必須下載並安裝 LINQ to Twitter NuGet 封裝，才能完成本教學課程。如需詳細資訊，請參閱 [LINQ to Twitter CodePlex 專案][LINQ to Twitter CodePlex 專案]。
 
 ## <a name="get-oauth-credentials"></a>註冊以取得 Twitter v1.1 API 的存取權與儲存認證
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access][]]
+[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
 1.  在 Visual Studio 的 [方案總管] 中，開啟行動服務專案的 web.config 檔案，找出 **MS\_TwitterConsumerKey** 和 **MS\_TwitterConsumerSecret** 應用程式設定，並將這些金鑰的值取代為您在入口網站中設定的 Twitter 消費者金鑰值和消費者密碼值。
 
@@ -44,7 +44,7 @@
 
 2.  在左窗格中選取 [線上] 類別、搜尋 `linq2twitter`，按一下 **linqtotwitter** 封裝上的 [安裝]，然後閱讀並接受授權合約。
 
-    ![][]
+    ![][0]
 
     這會將 Linq to Twitter 程式庫新增至您的行動服務專案。
 
@@ -85,7 +85,7 @@
 
     服務會使用 Updates 資料表 (在第一次存取 DbSet 時建立於資料庫中) 儲存推文資料。
 
-    > [WACOM.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。無法針對 Azure 中的 SQL Database 使用預設的初始設定式。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型][] (英文)。
+    > [WACOM.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。無法針對 Azure 中的 SQL Database 使用預設的初始設定式。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型][如何使用 Code First Migrations 更新資料模型] (英文)。
 
 接下來，請建立可存取 Twitter 並將推文資料儲存於全新 Updates 資料表中的排定工作。
 
@@ -237,7 +237,7 @@
 
 1.  將行動服務專案重新發佈至 Azure。
 
-2.  在[Azure 管理入口網站][]中，按一下 [行動服務]，然後按一下您的應用程式。
+2.  在[Azure 管理入口網站][Azure 管理入口網站]中，按一下 [行動服務]，然後按一下您的應用程式。
 
     ![][4]
 
@@ -261,7 +261,7 @@
 
     > [WACOM.NOTE]POST 要求仍然可以用來啟動已排程的工作。</cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">不過，授權預設會提供給使用者，表示要求必須在標頭中包含應用程式金鑰。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">
 
-6.  (選用)在 [Azure 管理入口網站][]中，對您行動服務的相關資料庫按一下 [管理]。
+6.  (選用)在 [Azure 管理入口網站][Azure 管理入口網站]中，對您行動服務的相關資料庫按一下 [管理]。
 
     ![][8]
 
@@ -275,8 +275,6 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ ".NET 後端"
-  [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-schedule-recurring-tasks/ "JavaScript 後端"
   [註冊以取得 Twitter 存取權與儲存認證]: #get-oauth-credentials
   [下載並安裝 LINQ to Twitter 程式庫]: #install-linq2twitter
   [建立新的 Updates 資料表]: #create-table
@@ -285,7 +283,7 @@
   [發佈服務及註冊工作]: #register-job
   [LINQ to Twitter CodePlex 專案]: http://linqtotwitter.codeplex.com/
   [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
-  []: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
+  [0]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
   [1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-component-model-reference.png
   [如何使用 Code First Migrations 更新資料模型]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations
   [2]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-start-page.png

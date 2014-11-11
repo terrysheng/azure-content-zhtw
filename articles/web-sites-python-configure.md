@@ -1,6 +1,6 @@
 <properties linkid="develop-python-tutorials-web-sites-configuration" urlDisplayName="Configuring Python with Azure Websites" pageTitle="Configuring Python with Azure Websites" metaKeywords="" description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Azure Websites." metaCanonical="" services="web-sites" documentationCenter="Python" title="Configuring Python with Azure Websites" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # 在 Azure 網站上設定 Python
 
@@ -21,7 +21,7 @@ WSGI 是由 [PEP 3333][PEP 3333] 描述的一項 Python 標準，此標準定義
 
 簡單地說，如果您還沒有網站，則可以從 Azure 管理入口網站建立一個網站。選取 [網站] 功能並使用 [快速建立] 選項，然後為您的網站指定一個 URL。
 
-![][]
+![][0]
 
 ## Git 發行
 
@@ -131,10 +131,10 @@ Git 發行設定完畢後，會建立一個 Git 儲存機制並與您的網站�
 
 ![][5]
 
-  []: http://www.windowsazure.com/zh-TW/develop/python/tutorials/web-sites-with-django
+  [0]: http://www.windowsazure.com/zh-TW/develop/python/tutorials/web-sites-with-django
   [PEP 3333]: http://www.python.org/dev/peps/pep-3333/
   [1]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/how-to-create-websites
-  []: ./media/web-sites-python-configure/configure-python-create-website.png
+  [0]: ./media/web-sites-python-configure/configure-python-create-website.png
   [2]: ./media/web-sites-python-configure/configure-python-git.png
   [3]: ./media/web-sites-python-configure/configure-python-handler-mapping.png
   [4]: ./media/web-sites-python-configure/configure-python-app-settings.png

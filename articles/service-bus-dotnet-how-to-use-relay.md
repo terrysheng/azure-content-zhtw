@@ -1,18 +1,18 @@
 <properties linkid="dev-net-how-to-service-bus-relay" urlDisplayName="Service Bus Relay" pageTitle="How to use Service Bus relay (.NET) - Azure" metaKeywords="get started azure Service Bus Relay C# " description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # 如何使用服務匯流排轉送服務
 
-本指南將示範如何使用「服務匯流排」轉送服務。這些範例均以 C# 撰寫，並使用 Windows Communication Foundation API以及包含在服務匯流排組件 (Azure .NET 程式庫的一部分) 中的擴充功能。如需服務匯流排轉送的詳細資訊，請參閱 [後續步驟][]一節。
+本指南將示範如何使用「服務匯流排」轉送服務。這些範例均以 C# 撰寫，並使用 Windows Communication Foundation API以及包含在服務匯流排組件 (Azure .NET 程式庫的一部分) 中的擴充功能。如需服務匯流排轉送的詳細資訊，請參閱 [後續步驟][後續步驟]一節。
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## <span class="short-header">什麼是服務匯流排轉送</span>什麼是服務匯流排轉送
 
 服務匯流排**轉送**服務可讓您建立一個可在 Azure 資料中心和您自己的內部部署企業環境中執行的**混合式**應用程式。服務匯流排轉送可幫助達成此目標，方法是讓您以安全的方式，向公用雲端公開位於企業網路內部的 Windows Communication Foundation (WCF) 服務，而無需開啟防火牆連線或要求對企業網路的基礎結構進行侵入式變更。
 
-![轉送概念][]
+![轉送概念][轉送概念]
 
 服務匯流排轉送可讓您代管位於現有企業環境內的 WCF 服務。您可以接著將接聽這些 WCF 服務的傳入工作階段和要求，委派給在 Azure 內部執行的服務匯流排。這可讓您將這些服務公開給在 Azure 中執行的應用程式程式碼，或是給行動工作者或外部網路合作夥伴環境。服務匯流排可讓您以精細的層次安全地控制可存取這些服務的使用者。它提供了功能強大且安全的方式，來公開應用程式功能及現有企業解決方案的資料，並從雲端加以利用。
 
@@ -24,14 +24,14 @@
 
 建立服務命名空間：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 
 2.  在管理入口網站的左側瀏覽窗格中，按一下 [服務匯流排]
     。
 
 3.  在管理入口網站的下方窗格中，按一下 [建立]。
 
-    ![][]
+    ![][0]
 
 4.  在 [加入新的命名空間] 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用。
 
@@ -52,7 +52,7 @@
 若要在新的命名空間上執行管理作業 (例如建立轉送連線)，您必須取得命名空間的管理認證。
 
 1.  在左側瀏覽窗格中，按一下 [服務匯流排] 節點，以顯示可用的命名空間清單：
-    ![][]
+    ![][0]
 
 2.  從顯示的清單中，選取您剛建立的命名空間：
     ![][3]
@@ -242,15 +242,15 @@
 
 了解基本的服務匯流排**轉送**服務之後，請參考下列連結以取得更多資訊。
 
--   建立服務：[建立服務匯流排的服務][]。
--   建立用戶端：[建立服務匯流排用戶端應用程式][]。
--   服務匯流排範例：從 [Azure 範例][]中下載。
+-   建立服務：[建立服務匯流排的服務][建立服務匯流排的服務]。
+-   建立用戶端：[建立服務匯流排用戶端應用程式][建立服務匯流排用戶端應用程式]。
+-   服務匯流排範例：從 [Azure 範例][Azure 範例]中下載。
 
   [後續步驟]: #next_steps
   [create-account-note]: ../includes/create-account-note.md
   [轉送概念]: ./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png
   [Azure 管理入口網站]: http://manage.windowsazure.com
-  []: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png
   [1]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png
   [2]: ./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png
   [3]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png

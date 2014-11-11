@@ -1,23 +1,23 @@
 <properties linkid="develop-mobile-tutorials-get-started-wp8" urlDisplayName="Get Started (WP8)" pageTitle="Get Started with Azure Mobile Services for Windows Phone apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Phone development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # <a name="getting-started"> </a>開始使用行動服務
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-本教學課程說明如何使用 Azure 行動服務在 Windows Phone 8 應用程式中新增雲端型後端服務。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單*待辦事項*應用程式。您所將建立的行動服務，會使用 Visual Studio 與支援的 .NET 語言撰寫伺服器端商務邏輯，並管理行動服務。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 後端版本][]。
+本教學課程說明如何使用 Azure 行動服務在 Windows Phone 8 應用程式中新增雲端型後端服務。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單*待辦事項*應用程式。您所將建立的行動服務，會使用 Visual Studio 與支援的 .NET 語言撰寫伺服器端商務邏輯，並管理行動服務。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 後端版本][JavaScript 後端版本]。
 
 以下是完成應用程式的螢幕擷取畫面：
 
-![][]
+![][0]
 
-> [WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，您可以註冊 Azure 試用版並取得高達 10 項的免費行動服務。此外，在試用期間結束後您仍可繼續使用這些服務。如需詳細資訊，請參閱 [Azure 免費試用][]。
-> 本教學課程需要 [Visual Studio Professional 2013][]。您可以使用免費試用版。若要建立新的 Windows Phone 8.1 應用程式，您必須具備 Visual Studio 2013 Update 2 或更新的版本。
+> [WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，您可以註冊 Azure 試用版並取得高達 10 項的免費行動服務。此外，在試用期間結束後您仍可繼續使用這些服務。如需詳細資訊，請參閱 [Azure 免費試用][Azure 免費試用]。
+> 本教學課程需要 [Visual Studio Professional 2013][Visual Studio Professional 2013]。您可以使用免費試用版。若要建立新的 Windows Phone 8.1 應用程式，您必須具備 Visual Studio 2013 Update 2 或更新的版本。
 
 ## <a name="create-new-service"> </a>建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## 建立新的 Windows Phone 應用程式
 
@@ -35,7 +35,7 @@
 
     ![][2]
 
-3.  在您的本機電腦或虛擬機器下載並安裝 [Visual Studio Professional 2013][] (如果您尚未這麼做)。
+3.  在您的本機電腦或虛擬機器下載並安裝 [Visual Studio Professional 2013][Visual Studio Professional 2013] (如果您尚未這麼做)。
 
 4.  在 [Download and publish you service to the cloud] 下，按一下 [下載]。
 
@@ -45,15 +45,15 @@
 
 ## 在本機電腦上測試行動服務
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
-> [WACOM.NOTE]要執行連接本機服務的 Windows Phone 應用程式，必須額外執行幾個設定步驟。本主題將不說明其執行方式，但您可以在[如何從 Windows Phone 8 模擬器連接到本機 Web 服務][]中了解相關資訊。
+> [WACOM.NOTE]要執行連接本機服務的 Windows Phone 應用程式，必須額外執行幾個設定步驟。本主題將不說明其執行方式，但您可以在[如何從 Windows Phone 8 模擬器連接到本機 Web 服務][如何從 Windows Phone 8 模擬器連接到本機 Web 服務]中了解相關資訊。
 
 ## 發佈行動服務
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-1.  在 Windows Phone 應用程式專案中開啟 App.xaml.cs 檔案、找出建立 [MobileServiceClient][] 執行個體的程式碼、使用 *localhost* 將建立此用戶端的程式碼註解化，然後使用遠端行動服務 URL 將建立此用戶端程式碼取消註解，如下所示：
+1.  在 Windows Phone 應用程式專案中開啟 App.xaml.cs 檔案、找出建立 [MobileServiceClient][MobileServiceClient] 執行個體的程式碼、使用 *localhost* 將建立此用戶端的程式碼註解化，然後使用遠端行動服務 URL 將建立此用戶端程式碼取消註解，如下所示：
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
                     "https://todolist.azure-mobile.net/",
@@ -76,25 +76,25 @@
 
 ![][3]
 
-這會說明如何對執行於 Azure 中的行動服務執行新的用戶端應用程式。您必須設定 Web 伺服器和防火牆以允許來自您的 Windows Phone 裝置或模擬器的存取，才能對執行於本機電腦上的行動服務測試 Windows Phone 應用程式。如需詳細資訊，請參閱[設定本機 Web 伺服器以允許連接到本機行動服務][]。
+這會說明如何對執行於 Azure 中的行動服務執行新的用戶端應用程式。您必須設定 Web 伺服器和防火牆以允許來自您的 Windows Phone 裝置或模擬器的存取，才能對執行於本機電腦上的行動服務測試 Windows Phone 應用程式。如需詳細資訊，請參閱[設定本機 Web 伺服器以允許連接到本機行動服務][設定本機 Web 伺服器以允許連接到本機行動服務]。
 
 ## <a name="next-steps"> </a>後續步驟
 
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
--   [開始使用資料][]
+-   [開始使用資料][開始使用資料]
     深入了解使用行動服務來儲存與查詢資料。
 
--   [開始使用離線資料同步][]
+-   [開始使用離線資料同步][開始使用離線資料同步]
     了解如何使用離線資料同步，讓您的應用程式更穩健及具備回應力。
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何向身分識別提供者驗證應用程式的使用者。
 
--   [開始使用推播通知][]
+-   [開始使用推播通知][開始使用推播通知]
     了解如何將極為基本的推播通知傳送到應用程式。
 
--   [行動服務 .NET 後端疑難排解][]
+-   [行動服務 .NET 後端疑難排解][行動服務 .NET 後端疑難排解]
      了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
 
 <!-- Anchors. --> 
@@ -103,7 +103,7 @@
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [JavaScript 後端版本]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started
-  []: ./media/mobile-services-windows-phone-get-started/mobile-quickstart-completed-wp8.png
+  [0]: ./media/mobile-services-windows-phone-get-started/mobile-quickstart-completed-wp8.png
   [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-phone-get-started%2F
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
   [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md

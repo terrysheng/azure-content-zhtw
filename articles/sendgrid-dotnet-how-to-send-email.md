@@ -1,28 +1,28 @@
 <properties linkid="dev-net-how-to-sendgrid-email-service" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (.NET) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid .NET, Azure email .NET, Azure SendGrid C#, Azure email C#" description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." metaCanonical="" services="" documentationCenter=".NET" title="How to Send Email Using SendGrid with Azure" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="carolz" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
 # 如何在 Azure 上使用 SendGrid 傳送電子郵件
 
 上次更新時間：2014 年 8 月 21 日
 
-本指南示範如何在 Azure 上透過 SendGrid 電子郵件服務執行常見程式設計工作。這些範例均以 C# 撰寫，並使用 .NET API。涵蓋的案例包括**建構電子郵件**、**傳送電子郵件**、**新增附件**及**使用篩選器**。如需 SendGrid 及傳送電子郵件的詳細資訊，請參閱[後續步驟][]一節。
+本指南示範如何在 Azure 上透過 SendGrid 電子郵件服務執行常見程式設計工作。這些範例均以 C# 撰寫，並使用 .NET API。涵蓋的案例包括**建構電子郵件**、**傳送電子郵件**、**新增附件**及**使用篩選器**。如需 SendGrid 及傳送電子郵件的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## <a name="toc"></a>目錄
 
-[什麼是 SendGrid 電子郵件服務？][]
-[建立 SendGrid 帳戶][]
-[參考 SendGrid .NET 類別庫][]
-[作法：建立電子郵件][]
-[作法：傳送電子郵件][]
-[作法：新增附件][]
-[作法：使用篩選器來啟用頁尾、追蹤和分析][]
-[作法：使用其他 SendGrid 服務][]
-[後續步驟][]
+[什麼是 SendGrid 電子郵件服務？][什麼是 SendGrid 電子郵件服務？]
+[建立 SendGrid 帳戶][建立 SendGrid 帳戶]
+[參考 SendGrid .NET 類別庫][參考 SendGrid .NET 類別庫]
+[作法：建立電子郵件][作法：建立電子郵件]
+[作法：傳送電子郵件][作法：傳送電子郵件]
+[作法：新增附件][作法：新增附件]
+[作法：使用篩選器來啟用頁尾、追蹤和分析][作法：使用篩選器來啟用頁尾、追蹤和分析]
+[作法：使用其他 SendGrid 服務][作法：使用其他 SendGrid 服務]
+[後續步驟][後續步驟]
 
 ## <a name="whatis"></a><span class="short-header">什麼是 SendGrid 電子郵件服務？</span>
 
-SendGrid 是[雲端架構電子郵件服務][] (英文)，能提供可靠的[交易式電子郵件傳遞][] (英文)、擴充性和即時分析，以及有彈性的 API來輕鬆進行自訂整合。常見的 SendGrid 使用案例包括：
+SendGrid 是[雲端架構電子郵件服務][雲端架構電子郵件服務] (英文)，能提供可靠的[交易式電子郵件傳遞][交易式電子郵件傳遞] (英文)、擴充性和即時分析，以及有彈性的 API來輕鬆進行自訂整合。常見的 SendGrid 使用案例包括：
 
 -   自動傳送回條給客戶。
 -   管理通訊群組清單，以便將每月
@@ -36,11 +36,11 @@ SendGrid 是[雲端架構電子郵件服務][] (英文)，能提供可靠的[交
 
 ## <a name="createaccount"></a><span class="short-header">建立 SendGrid 帳戶</span>
 
-[WACOM.INCLUDE [sendgrid-sign-up][]]
+[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="reference"></a><span class="short-header">參考 SendGrid .NET 類別庫</span>參考 SendGrid .NET 類別庫
 
-[SendGrid NuGet 封裝][] 是取得 SendGrid API及透過所有相依性設定應用程式的最簡單方式。NuGet 是 Microsoft Visual Studio 2012 隨附的 Visual Studio 延伸模組，能輕鬆地安裝及更新程式庫和工具。
+[SendGrid NuGet 封裝][SendGrid NuGet 封裝] 是取得 SendGrid API及透過所有相依性設定應用程式的最簡單方式。NuGet 是 Microsoft Visual Studio 2012 隨附的 Visual Studio 延伸模組，能輕鬆地安裝及更新程式庫和工具。
 
 <div class="dev-callout">
 <b>注意</b>
@@ -105,11 +105,11 @@ SendGrid 的 .NET 類別庫稱為 **SendGridMail**。其中包含下列命名空
     myMessage.Html = "<p>Hello World!</p>";
     myMessage.Text = "Hello World plain text!";
 
-如需 **SendGrid** 類型支援的所有屬性和方法的詳細資訊，請參閱 GitHub 上的 [sendgrid-csharp][] (英文)。
+如需 **SendGrid** 類型支援的所有屬性和方法的詳細資訊，請參閱 GitHub 上的 [sendgrid-csharp][sendgrid-csharp] (英文)。
 
 ## <a name="sendemail"></a><span class="short-header">作法：傳送電子郵件</span>
 
-建立電子郵件之後，您可以使用 SendGrid 提供的 Web API 進行傳送。或者，您也可以[使用 .NET 的內建程式庫][]。
+建立電子郵件之後，您可以使用 SendGrid 提供的 Web API 進行傳送。或者，您也可以[使用 .NET 的內建程式庫][使用 .NET 的內建程式庫]。
 
 您必須提供 SendGrid 帳戶認證 (使用者名稱和密碼)，才能傳送電子郵件。下列程式碼示範如何在 **NetworkCredential** 物件中包裝認證：
 
@@ -172,7 +172,7 @@ SendGrid 的 .NET 類別庫稱為 **SendGridMail**。其中包含下列命名空
 
 ## <a name="usefilters"></a><span class="short-header">作法：使用篩選器來啟用頁尾、追蹤和分析</span>
 
-SendGrid 提供了運用篩選器的其他電子郵件功能。這些設定可新增到電子郵件以啟用特定功能，例如點選追蹤、Google 分析、訂閱追蹤等。如需完整的篩選器清單，請參閱[篩選器設定][] (英文)。
+SendGrid 提供了運用篩選器的其他電子郵件功能。這些設定可新增到電子郵件以啟用特定功能，例如點選追蹤、Google 分析、訂閱追蹤等。如需完整的篩選器清單，請參閱[篩選器設定][篩選器設定] (英文)。
 
 使用與 **SendGrid** 類別一起實作的方法，即可將篩選器套用到 **SendGrid** 電子郵件。
 
@@ -207,13 +207,13 @@ SendGrid 提供了運用篩選器的其他電子郵件功能。這些設定可�
 ## <a name="useservices"></a><span class="short-header">作法：使用其他 SendGrid 服務</span>
 
 SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGrid 功能。
-如需完整詳細資料，請參閱 [SendGrid API 文件][] (英文)。
+如需完整詳細資料，請參閱 [SendGrid API 文件][SendGrid API 文件] (英文)。
 
 ## <a name="nextsteps"></a><span class="short-header">後續步驟</span>後續步驟
 
 了解 SendGrid 電子郵件服務的基本概念後，請參考下列連結以取得更多資訊。
 
--   SendGrid C# 程式庫儲存機制：[sendgrid-csharp][]
+-   SendGrid C# 程式庫儲存機制：[sendgrid-csharp][sendgrid-csharp]
 -   SendGrid API 文件：<http://docs.sendgrid.com/documentation/api/>
 -   Azure 客戶的 SendGrid 特別優惠：[][]<http://sendgrid.com></a>
 

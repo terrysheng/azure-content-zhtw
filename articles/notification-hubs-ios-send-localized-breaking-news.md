@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-send-localized-breaking-news-iOS" urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news to iOS devices" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # 使用通知中心將當地語系化的即時新聞傳送至 iOS 裝置
 
@@ -8,14 +8,14 @@
 <a href="/zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-TW/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS" class="current">iOS</a>
 </div>
 
-本主題將說明如何使用 Azure 通知中心的**範本**功能，廣播已由語言和裝置當地語系化的即時新聞通知。在本教學課程中，首先您會執行在[使用通知中心傳送即時新聞][]中建立的 Windows 市集應用程式。完成之後，您將可註冊您感興趣的類別、指定您要接收哪種語言的通知，並以該語言針對選取的類別接收推播通知。
+本主題將說明如何使用 Azure 通知中心的**範本**功能，廣播已由語言和裝置當地語系化的即時新聞通知。在本教學課程中，首先您會執行在[使用通知中心傳送即時新聞][使用通知中心傳送即時新聞]中建立的 Windows 市集應用程式。完成之後，您將可註冊您感興趣的類別、指定您要接收哪種語言的通知，並以該語言針對選取的類別接收推播通知。
 
 本教學課程會逐步引導您完成啟用此案例的基本步驟：
 
-1.  [範本概念][]
-2.  [應用程式使用者介面][]
-3.  [建置 iOS 應用程式][]
-4.  [從後端傳送通知][]
+1.  [範本概念][範本概念]
+2.  [應用程式使用者介面][應用程式使用者介面]
+3.  [建置 iOS 應用程式][建置 iOS 應用程式]
+4.  [從後端傳送通知][從後端傳送通知]
 
 此案例分成兩部分：
 
@@ -25,7 +25,7 @@
 
 ## 必要條件
 
-您必須已完成[使用通知中心傳送即時新聞][]教學課程，並具有可用的程式碼，因為此教學課程是直接根據該程式碼而建置的。
+您必須已完成[使用通知中心傳送即時新聞][使用通知中心傳送即時新聞]教學課程，並具有可用的程式碼，因為此教學課程是直接根據該程式碼而建置的。
 
 您也需要 Visual Studio 2012。
 
@@ -53,15 +53,15 @@
         }
     }
 
-範本的功能非常強大，您可以在[通知中心指引][]一文中了解詳情。如需範本運算式語言的參考，請參閱我們的[作法：服務匯流排通知中心 (iOS 應用程式)][]。
+範本的功能非常強大，您可以在[通知中心指引][通知中心指引]一文中了解詳情。如需範本運算式語言的參考，請參閱我們的[作法：服務匯流排通知中心 (iOS 應用程式)][作法：服務匯流排通知中心 (iOS 應用程式)]。
 
 ## <a name="ui"></a><span class="short-header">應用程式 UI</span>應用程式使用者介面
 
-現在，我們將修改您在[使用通知中心傳送即時新聞][]主題中建立的即時新聞應用程式，以使用範本傳送當地語系化的即時新聞。
+現在，我們將修改您在[使用通知中心傳送即時新聞][使用通知中心傳送即時新聞]主題中建立的即時新聞應用程式，以使用範本傳送當地語系化的即時新聞。
 
 在您的 MainStoryboard\_iPhone.storyboard 中，以我們支援的三種語言新增「分段控制」：英文、法文和中文。
 
-![][]
+![][0]
 
 接著，請確實在您的 ViewController.h 中新增 IBOutlet，如下所示：
 
@@ -156,15 +156,15 @@
 
 ## <a name="send"></a><span class="short-header">傳送當地語系化的通知</span>從後端傳送當地語系化的通知
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end][]]
+[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 ## 後續步驟
 
 如需使用範本的詳細資訊，請參閱：
 
--   [使用通知中心來通知使用者：ASP.NET][]
--   [使用通知中心來通知使用者：行動服務][]
--   [通知中心指引][]
+-   [使用通知中心來通知使用者：ASP.NET][使用通知中心來通知使用者：ASP.NET]
+-   [使用通知中心來通知使用者：行動服務][使用通知中心來通知使用者：行動服務]
+-   [通知中心指引][通知中心指引]
 
 如需範本運算式語言的參考，請參閱 [iOS 的通知中心作法][作法：服務匯流排通知中心 (iOS 應用程式)]。
 
@@ -172,16 +172,13 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/ "Windows 市集 C#"
-  [iOS]: /zh-TW/documentation/articles/notification-hubs-ios-send-localized-breaking-news/ "iOS"
   [使用通知中心傳送即時新聞]: /zh-TW/manage/services/notification-hubs/breaking-news-ios
   [範本概念]: #concepts
   [應用程式使用者介面]: #ui
   [建置 iOS 應用程式]: #building-client
   [從後端傳送通知]: #send
   [通知中心指引]: http://msdn.microsoft.com/zh-TW/library/jj927170.aspx
-  [作法：服務匯流排通知中心 (iOS 應用程式)]: http://msdn.microsoft.com/zh-TW/library/jj927168.aspx
-  []: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
+  [0]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
   [1]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
   [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
   [使用通知中心來通知使用者：ASP.NET]: /zh-TW/manage/services/notification-hubs/notify-users-aspnet

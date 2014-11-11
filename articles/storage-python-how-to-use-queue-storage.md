@@ -1,33 +1,33 @@
 <properties linkid="develop-python-queue-service" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # 如何從 Python 使用佇列儲存體服務
 
-本指南將示範如何使用 Windows Azure 佇列儲存體服務執行一般案例。這些範例使用 Python API 撰寫。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。如需佇列的詳細資訊，請參閱[後續步驟][]一節。
+本指南將示範如何使用 Windows Azure 佇列儲存體服務執行一般案例。這些範例使用 Python API 撰寫。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。如需佇列的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
-[什麼是佇列儲存體？][]
- [概念][]
- [建立 Azure 儲存體帳戶][]
- [作法：建立佇列][]
- [作法：將訊息插入佇列][]
- [作法：查看下一個訊息][]
- [作法：清除下一個佇列訊息][]
- [作法：變更佇列訊息的內容][]
- [作法：清除佇列訊息的其他選項][]
- [作法：取得佇列長度][]
- [作法：刪除佇列][]
- [後續步驟][]
+[什麼是佇列儲存體？][什麼是佇列儲存體？]
+ [概念][概念]
+ [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
+ [作法：建立佇列][作法：建立佇列]
+ [作法：將訊息插入佇列][作法：將訊息插入佇列]
+ [作法：查看下一個訊息][作法：查看下一個訊息]
+ [作法：清除下一個佇列訊息][作法：清除下一個佇列訊息]
+ [作法：變更佇列訊息的內容][作法：變更佇列訊息的內容]
+ [作法：清除佇列訊息的其他選項][作法：清除佇列訊息的其他選項]
+ [作法：取得佇列長度][作法：取得佇列長度]
+ [作法：刪除佇列][作法：刪除佇列]
+ [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <a name="create-account"> </a>建立 Azure 儲存體帳戶
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-**注意：** 如果您需要安裝 Python 或用戶端程式庫，請參閱 [Python 安裝指南][]。
+**注意：** 如果您需要安裝 Python 或用戶端程式庫，請參閱 [Python 安裝指南][Python 安裝指南]。
 
 ## <a name="create-queue"> </a>作法：建立佇列
 
@@ -99,8 +99,8 @@
 
 了解佇列儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][]
--   造訪 [Azure 儲存體團隊部落格][] (英文)。
+-   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][在 Azure 中儲存和存取資料]
+-   造訪 [Azure 儲存體團隊部落格][Azure 儲存體團隊部落格] (英文)。
 
   [後續步驟]: #next-steps
   [什麼是佇列儲存體？]: #what-is
@@ -117,5 +117,5 @@
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [Python 安裝指南]: ../python-how-to-install/
-  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/

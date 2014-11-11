@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-ios" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/24/2014" ms.author="krisragh"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/24/2014" ms.author="krisragh" />
 
 # 開始使用通知中心
 
@@ -11,17 +11,17 @@
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 
-1.  [產生憑證簽署要求][]
-2.  [註冊您的應用程式並啟用推播通知][]
-3.  [建立應用程式的佈建設定檔][]
-4.  [設定您的通知中樞][]
-5.  [將您的應用程式連接到通知中樞][]
-6.  [從後端傳送通知][]
+1.  [產生憑證簽署要求][產生憑證簽署要求]
+2.  [註冊您的應用程式並啟用推播通知][註冊您的應用程式並啟用推播通知]
+3.  [建立應用程式的佈建設定檔][建立應用程式的佈建設定檔]
+4.  [設定您的通知中樞][設定您的通知中樞]
+5.  [將您的應用程式連接到通知中樞][將您的應用程式連接到通知中樞]
+6.  [從後端傳送通知][從後端傳送通知]
 
 本教學課程將示範使用通知中心的簡單廣播案例。請確定依照下一個教學課程的步驟進行，以了解如何使用通知中心來處理特定使用者和裝置群組。本教學課程需要下列先決條件：
 
--   [行動服務 iOS SDK][]
--   [XCode 4.5][]
+-   [行動服務 iOS SDK][行動服務 iOS SDK]
+-   [XCode 4.5][XCode 4.5]
 -   iOS 5.0 (或以上版本) 功能裝置
 -   iOS Developer Program 成員資格
 
@@ -29,19 +29,19 @@
 
  <strong>注意</strong> <p>若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-TW/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。</p>
 
-[WACOM.INCLUDE [啟用 Apple 推播通知][]]
+[WACOM.INCLUDE [啟用 Apple 推播通知](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="configure-hub"></a>設定您的通知中樞
 
 1.  在 Keychain Access 中，以滑鼠右鍵按一下快速入門應用程式的新憑證 [我的憑證]。按一下 [匯出]、為檔案命名、選取 [.p12] 格式，然後按一下 [儲存]。
 
-    ![][]
+    ![][0]
 
 記下匯出憑證的檔案名稱和位置。
 
 > [WACOM.NOTE] 本教學課程將建立 QuickStart.p12 檔案。Your file name and location might be different.
 
-1.  登入 [Azure 管理入口網站][]，並按一下畫面底部的 [+新增]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，並按一下畫面底部的 [+新增]。
 
 2.  依序按一下 [App Services]、[服務匯流排]、[Notification Hub]、[快速建立]。
 
@@ -118,7 +118,7 @@
 
 ## <a name="send"></a>從後端傳送通知
 
-您可以使用 [REST 介面][]，從任何後端使用通知中樞傳送通知。在本教學課程中，您將透過 .NET 主控台應用程式來傳送通知。有關如何從與通知中樞整合的 Azure Mobile Services 傳送通知的範例，請參閱**開始在行動服務中使用推播通知** ([.NET 後端][] | [JavaScript 後端][.NET 後端])。如需如何使用 REST API 傳送通知的範例，請參閱**如何從 Java/PHP 使用通知中樞** ([Java][] | [PHP][])。
+您可以使用 [REST 介面][REST 介面]，從任何後端使用通知中樞傳送通知。在本教學課程中，您將透過 .NET 主控台應用程式來傳送通知。有關如何從與通知中樞整合的 Azure Mobile Services 傳送通知的範例，請參閱**開始在行動服務中使用推播通知** ([.NET 後端][.NET 後端] | [JavaScript 後端][.NET 後端])。如需如何使用 REST API 傳送通知的範例，請參閱**如何從 Java/PHP 使用通知中樞** ([Java][Java] | [PHP][PHP])。
 
 1.  在 Visual Studio 中，從 [檔案] 功能表選取 [開新檔案]、[專案...]，然後按一下 [Visual C#] 下方的 [Windows] 和 [主控台應用程式]，再按一下 [確定]。
 
@@ -134,7 +134,7 @@
 
         Install-Package WindowsAzure.ServiceBus
 
-    這會使用 [WindowsAzure.ServiceBus NuGet 封裝][]，來新增 Azure 服務匯流排 SDK 的參考。
+    這會使用 [WindowsAzure.ServiceBus NuGet 封裝][WindowsAzure.ServiceBus NuGet 封裝]，來新增 Azure 服務匯流排 SDK 的參考。
 
 4.  開啟檔案 Program.cs，並新增下列 `using` 陳述式：
 
@@ -162,23 +162,16 @@
 
     您應該會在裝置上收到警示。如果您使用 Wi-fi，請確定連線正在運作。
 
-您可以在 Apple [本機和推播通知程式設計指南][] (英文) 中找到所有可能的裝載。
+您可以在 Apple [本機和推播通知程式設計指南][本機和推播通知程式設計指南] (英文) 中找到所有可能的裝載。
 
 ## <a name="next-steps"> </a>後續步驟
 
-在此簡單範例中，您將廣播通知到您的所有 iOS 裝置。若要以特定使用者為目標，請參閱教學課程[使用通知中心來推播通知給使用者][]，在此同時，如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞][]。在[通知中心指引][]中深入了解如何使用通知中心。
+在此簡單範例中，您將廣播通知到您的所有 iOS 裝置。若要以特定使用者為目標，請參閱教學課程[使用通知中心來推播通知給使用者][使用通知中心來推播通知給使用者]，在此同時，如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞][使用通知中心傳送即時新聞]。在[通知中心指引][通知中心指引]中深入了解如何使用通知中心。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Universal]: /zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /zh-TW/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /zh-TW/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /zh-TW/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /zh-TW/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /zh-TW/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /zh-TW/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [產生憑證簽署要求]: #certificates
   [註冊您的應用程式並啟用推播通知]: #register
   [建立應用程式的佈建設定檔]: #profile
@@ -187,9 +180,8 @@
   [從後端傳送通知]: #send
   [行動服務 iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [Azure 免費試用]: http://www.windowsazure.com/zh-TW/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [啟用 Apple 推播通知]: ../includes/enable-apple-push-notifications.md
-  []: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-27.png
+  [0]: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-27.png
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [1]: ./media/notification-hubs-ios-get-started/notification-hub-create-from-portal.png
   [2]: ./media/notification-hubs-ios-get-started/notification-hub-create-from-portal2.png

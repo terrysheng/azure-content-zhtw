@@ -1,6 +1,6 @@
 <properties linkid="biztalk-backup-restore" urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="BizTalk Services: Backup and Restore | Azure" metaKeywords="" description="BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the BizTalk Services configuration is taken." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # BizTalk 服務：備份與還原
 
@@ -58,7 +58,7 @@ Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Az
 2.  將 [備份狀態] 設為 [自動]。
 3.  選取要儲存備份的 [儲存體帳戶]，輸入建立備份的 [頻率] 以及備份的保留時間 ([保留天數])：
 
-    ![][]
+    ![][0]
 
     **注意事項**
 
@@ -248,7 +248,7 @@ BizTalk 服務設定
   [BizTalk 服務：版本圖表]: http://azure.microsoft.com/zh-TW/documentation/articles/biztalk-editions-feature-chart/
   [隨選備份]: #backupnow
   [排定備份]: #backupschedule
-  []: ./media/biztalk-backup-restore/AutomaticBU.png
+  [0]: ./media/biztalk-backup-restore/AutomaticBU.png
   [Last scheduled backup status]: ./media/biztalk-backup-restore/status-last-backup.png
   [BizTalk 服務：使用作業記錄檔進行疑難排解]: http://go.microsoft.com/fwlink/?LinkId=391211
   [還原 BizTalk 服務 REST API]: http://go.microsoft.com/fwlink/p/?LinkID=325582

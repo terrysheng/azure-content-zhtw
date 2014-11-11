@@ -1,14 +1,14 @@
 <properties linkid="develop-python-web-app-with-blob-storage" urlDisplayName="Web App with Blob Storage" pageTitle="Python web app with table storage | Microsoft Azure" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="A tutorial that teaches you how to create a Python web application using the Azure Client Libraries. Django is used as the web framework." metaCanonical="" services="storage" documentationCenter="Python" title="Python Web Application using Table Storage" authors="huvalo" solutions="" videoId="" scriptId="" manager="" editor="mollybos" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # 使用資料表儲存體的 Python Web 應用程式
 
-在此教學課程中，您將了解如何建立使用資料表儲存體搭配 Azure Client Libraries for Python 的應用程式。如果這是您的第一個 Python Azure 應用程式，您可能會想先參閱 [Django Hello World Web 應用程式][] (英文)。
+在此教學課程中，您將了解如何建立使用資料表儲存體搭配 Azure Client Libraries for Python 的應用程式。如果這是您的第一個 Python Azure 應用程式，您可能會想先參閱 [Django Hello World Web 應用程式][Django Hello World Web 應用程式] (英文)。
 
 在此指南中，您將建立一個可部署到 Azure 的 Web 架構工作清單應用程式。使用者可透過工作清單來擷取工作、新增工作及將工作標示為已完成。我們將使用 Django 作為 Web 架構。
 
-工作項目會儲存於 Azure 儲存體中。Azure 儲存體提供可容錯且高度可用的非結構化資料儲存體。Azure 儲存體包括數種可儲存和存取資料的資料結構，並且您可以從 Azure SDK for Python 中所隨附的 API 或透過 REST API 來運用儲存體服務。如需詳細資訊，請參閱[在 Azure 中儲存和存取資料][] (英文)。
+工作項目會儲存於 Azure 儲存體中。Azure 儲存體提供可容錯且高度可用的非結構化資料儲存體。Azure 儲存體包括數種可儲存和存取資料的資料結構，並且您可以從 Azure SDK for Python 中所隨附的 API 或透過 REST API 來運用儲存體服務。如需詳細資訊，請參閱[在 Azure 中儲存和存取資料][在 Azure 中儲存和存取資料] (英文)。
 
 您將了解：
 
@@ -16,19 +16,19 @@
 
 完成的應用程式螢幕擷取畫面將與下圖類似 (新增的工作項目會有所差異)：
 
-![][]
+![][0]
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## <span id="setup"></span> </a>設定開發環境
 
-**注意：** 如果您需要安裝 Python 或用戶端程式庫，請參閱 [Python 安裝指南][]。
+**注意：** 如果您需要安裝 Python 或用戶端程式庫，請參閱 [Python 安裝指南][Python 安裝指南]。
 
 *Windows 注意事項*：如果使用 Windows WebPI 安裝程式，則您已安裝 Django 和用戶端程式庫。
 
 ## 在 Azure 中建立儲存體帳戶
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## 建立 Django 專案
 
@@ -165,18 +165,18 @@
 
 ## 在計算模擬器中執行應用程式、發行並停止/刪除您的應用程式
 
-現在您已在內建 Django 伺服器上順利執行應用程式，您可以進一步試用該應用程式，方法是將它部署到 Azure 模擬器 (僅限 Windows) 然後發行至 Azure。如需如何執行此動作的一般指示，請參閱文章 [Django Hello World Web 應用程式][] (英文)，文中將詳細討論這些步驟。
+現在您已在內建 Django 伺服器上順利執行應用程式，您可以進一步試用該應用程式，方法是將它部署到 Azure 模擬器 (僅限 Windows) 然後發行至 Azure。如需如何執行此動作的一般指示，請參閱文章 [Django Hello World Web 應用程式][Django Hello World Web 應用程式] (英文)，文中將詳細討論這些步驟。
 
 ## <span id="NextSteps"></span></a>後續步驟
 
 了解 Azure 資料表儲存體服務的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][]
+-   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][在 Azure 中儲存和存取資料]
 -   請造訪 Azure 儲存體團隊部落格：<http://blogs.msdn.com/b/windowsazurestorage/>
 
   [Django Hello World Web 應用程式]: http://windowsazure.com/zh-tw/documentation/articles/virtual-machines-python-django-web-app-windows-server
-  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  []: ./media/storage-python-use-table-storage-web-app/web-app-with-storage-Finaloutput-mac.png
+  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
+  [0]: ./media/storage-python-use-table-storage-web-app/web-app-with-storage-Finaloutput-mac.png
   [create-account-note]: ../includes/create-account-note.md
   [Python 安裝指南]: http://windowsazure.com/zh-tw/documentation/articles/python-how-to-install
   [create-storage-account]: ../includes/create-storage-account.md

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-command-line" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters using Cross-Platform Command-Line | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="Learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer Hadoop clusters using the Cross-platform Command-line Interface" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # 使用跨平台命令列介面管理 HDInsight 上的 Hadoop 叢集
 
@@ -8,23 +8,23 @@
 
 此命令列工具採用開放原始碼。原始程式碼會在 GitHub 中受到管理 (<https://github.com/WindowsAzure/azure-sdk-tools-xplat>)。
 
-本文僅提供從 Windows 使用此命令列介面的相關資訊。如需如何使用此命令列介面的一般指引，請參閱[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具][]。如需完整的參考文件，請參閱[適用於 Mac 和 Linux 的 Azure 命令列工具][]。
+本文僅提供從 Windows 使用此命令列介面的相關資訊。如需如何使用此命令列介面的一般指引，請參閱[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具][如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]。如需完整的參考文件，請參閱[適用於 Mac 和 Linux 的 Azure 命令列工具][適用於 Mac 和 Linux 的 Azure 命令列工具]。
 
 **必要條件：**
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
--   **Azure 訂用帳戶**。Azure 是訂用帳戶型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][]、[成員優惠][]或[免費試用][]。
+-   **Azure 訂用帳戶**。Azure 是訂用帳戶型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][購買選項]、[成員優惠][成員優惠]或[免費試用][免費試用]。
 
 ## 本文內容
 
--   [安裝][]
--   [下載和匯入 Azure 帳戶 publishsettings][]
--   [佈建叢集][]
--   [使用組態檔來佈建叢集][]
--   [列出和顯示叢集][]
--   [刪除叢集][]
--   [後續步驟][]
+-   [安裝][安裝]
+-   [下載和匯入 Azure 帳戶 publishsettings][下載和匯入 Azure 帳戶 publishsettings]
+-   [佈建叢集][佈建叢集]
+-   [使用組態檔來佈建叢集][使用組態檔來佈建叢集]
+-   [列出和顯示叢集][列出和顯示叢集]
+-   [刪除叢集][刪除叢集]
+-   [後續步驟][後續步驟]
 
 ## <span id="installation"></span></a>安裝
 
@@ -54,7 +54,7 @@
 
 **使用 Windows Installer 安裝命令列介面**
 
-1.  瀏覽至 **<http://azure.microsoft.com/en-us/downloads/>**。
+1.  瀏覽至 **<http://azure.microsoft.com/zh-tw/downloads/>**。
 2.  向下捲動至 [命令列工具] 區段，然後按一下 [跨平台命令列介面]，並依照 Web Platform Installer 精靈操作。
 
 ## <span id="importsettings"></span></a>下載和匯入 Azure 帳戶 publishsettings
@@ -70,7 +70,7 @@
 
         azure account download
 
-    ![HDI.CLIAccountDownloadImport][]
+    ![HDI.CLIAccountDownloadImport][HDI.CLIAccountDownloadImport]
 
     此命令會顯示下載檔案的指示，包括 URL。
 3.  開啟 **Internet Explorer**，然後瀏覽至命令提示字元視窗中列出的 URL。
@@ -97,7 +97,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 > -   美國東部
 > -   美國西部
 
-如需使用 Azure 管理入口網站建立 Azure 儲存帳號的相關資訊，請參閱[如何建立儲存帳號][]。
+如需使用 Azure 管理入口網站建立 Azure 儲存帳號的相關資訊，請參閱[如何建立儲存帳號][如何建立儲存帳號]。
 
 如果您已有儲存帳號，但不知道帳號名稱和帳號金鑰，您可以使用下列命令來擷取資訊：
 
@@ -108,7 +108,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
     -- Lists the keys for a storage account
     azure account storage keys list <StorageAccountName>
 
-如需有關使用管理入口網站取得資訊的詳細資訊，請參閱＜*作法：檢視、複製及重新產生儲存體存取金鑰*一節 (位於[如何管理儲存體帳戶][]中)。
+如需有關使用管理入口網站取得資訊的詳細資訊，請參閱＜*作法：檢視、複製及重新產生儲存體存取金鑰*一節 (位於[如何管理儲存體帳戶][如何管理儲存體帳戶]中)。
 
 *azure hdinsight cluster create* 命令會建立容器 (如果不存在)。如果您選擇預先建立容器，您可以使用下列命令：
 
@@ -119,7 +119,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
     azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
 
-![HDI.CLIClusterCreation][]
+![HDI.CLIClusterCreation][HDI.CLIClusterCreation]
 
 ## <span id="provisionconfigfile"></span></a>使用組態檔佈建 HDInsight 叢集
 
@@ -141,7 +141,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
     azure hdinsight cluster create --config <file>
          
 
-![HDI.CLIClusterCreationConfig][]
+![HDI.CLIClusterCreationConfig][HDI.CLIClusterCreationConfig]
 
 ## <span id="listshow"></span></a> 列出和顯示叢集詳細資料
 
@@ -150,7 +150,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 
-![HDI.CLIListCluster][]
+![HDI.CLIListCluster][HDI.CLIListCluster]
 
 ## <span id="delete"></span></a> 刪除叢集
 
@@ -162,17 +162,17 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 本文中，您學到如何執行不同的 HDInsight 叢集管理工作。若要深入了解，請參閱下列文章：
 
--   [使用管理入口網站管理 HDInsight][]
--   [使用 PowerShell 管理 HDInsight][]
--   [Azure HDInsight 使用者入門][]
--   [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具][]
--   [適用於 Mac 和 Linux 的 Azure 命令列工具][]
+-   [使用管理入口網站管理 HDInsight][使用管理入口網站管理 HDInsight]
+-   [使用 PowerShell 管理 HDInsight][使用 PowerShell 管理 HDInsight]
+-   [Azure HDInsight 使用者入門][Azure HDInsight 使用者入門]
+-   [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具][如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]
+-   [適用於 Mac 和 Linux 的 Azure 命令列工具][適用於 Mac 和 Linux 的 Azure 命令列工具]
 
   [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]: ../xplat-cli/
   [適用於 Mac 和 Linux 的 Azure 命令列工具]: ../command-line-tools/
-  [購買選項]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [成員優惠]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [購買選項]: http://azure.microsoft.com/zh-tw/pricing/purchase-options/
+  [成員優惠]: http://azure.microsoft.com/zh-tw/pricing/member-offers/
+  [免費試用]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
   [安裝]: #installation
   [下載和匯入 Azure 帳戶 publishsettings]: #importsettings
   [佈建叢集]: #provision

@@ -1,35 +1,35 @@
 <properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="ghogen" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # Azure 中雲端服務的連續傳遞
 
 本文所述的程序顯示如何為 Azure 雲端應用程式設定連續傳遞。這個程序可讓您自動建立套件，並在每次進行程式碼簽入之後，將套件部署至 Azure。本文所述的套件建置流程等同於 Visual Studio 中的 [封裝] 命令，而發行步驟等同於 Visual Studio 中的 [發行] 命令。文中會說明使用 MSBuild 命令列陳述式和 Windows PowerShell 指令碼來建立組建伺服器的方法，同時也會示範如何選擇性地設定 Visual Studio Team Foundation Server - Team Build 定義來使用 MSBuild 命令和 PowerShell 指令碼。您可根據自己的組建環境及 Azure 目標環境自訂此程序。
 
-此動作也可以用 Visual Studio Online (託管於 Azure 中的 TFS 版本) 來執行，這樣會變得更容易。如需詳細資訊，請參閱[使用 Visual Studio Online 連續傳遞至 Azure][]。
+此動作也可以用 Visual Studio Online (託管於 Azure 中的 TFS 版本) 來執行，這樣會變得更容易。如需詳細資訊，請參閱[使用 Visual Studio Online 連續傳遞至 Azure][使用 Visual Studio Online 連續傳遞至 Azure]。
 
 開始之前，您應該先從 Visual Studio 發行應用程式。如此可確保當您嘗試將發行程序自動化時，所有資源皆可用並已初始化。
 
 此工作包含下列步驟：
 
--   [步驟 1：設定組建伺服器][]
--   [步驟 2：使用 MSBuild 命令來建置套件][]
--   [步驟 3：使用 TFS Team Build 來建置套件 (選用)][]
--   [步驟 4：使用 PowerShell 指令碼來發佈套件][]
--   [步驟 5：使用 TFS Team Build 來發佈套件 (選用)][]
+-   [步驟 1：設定組建伺服器][步驟 1：設定組建伺服器]
+-   [步驟 2：使用 MSBuild 命令來建置套件][步驟 2：使用 MSBuild 命令來建置套件]
+-   [步驟 3：使用 TFS Team Build 來建置套件 (選用)][步驟 3：使用 TFS Team Build 來建置套件 (選用)]
+-   [步驟 4：使用 PowerShell 指令碼來發佈套件][步驟 4：使用 PowerShell 指令碼來發佈套件]
+-   [步驟 5：使用 TFS Team Build 來發佈套件 (選用)][步驟 5：使用 TFS Team Build 來發佈套件 (選用)]
 
 ## <a name="step1"> </a><span class="short-header">設定組建伺服器</span>步驟 1：設定組建伺服器
 
 您必須先在組建伺服器上安裝必要的軟體與工具，才能使用 MSBuild 建立 Azure 套件。
 
-組建伺服器上不需要安裝 Visual Studio。若要使用 Team Foundation Build Service 來管理組建伺服器，請遵循 [Team Foundation Build Service][] 文件中的指示進行。
+組建伺服器上不需要安裝 Visual Studio。若要使用 Team Foundation Build Service 來管理組建伺服器，請遵循 [Team Foundation Build Service][Team Foundation Build Service] 文件中的指示進行。
 
-1.  在組建伺服器上，安裝 [.NET Framework 4][] 或 [.NET Framework 4.5][] (其中
+1.  在組建伺服器上，安裝 [.NET Framework 4][.NET Framework 4] 或 [.NET Framework 4.5][.NET Framework 4.5] (其中
     含 MSBuild)。
-2.  安裝 [Azure Authoring Tools][] (尋找
+2.  安裝 [Azure Authoring Tools][Azure Authoring Tools] (尋找
     WindowsAzureAuthoringTools-x86.msi 或 WindowsAzureAuthoringTools-x64.msi，
     視組建伺服器的處理器而定)。
-3.  安裝 [Windows Azure Libraries][] (尋找 WindowsAzureLibsForNet-x86.msi 或 WindowsAzureLibsForNet-x64.msi)。
+3.  安裝 [Windows Azure Libraries][Windows Azure Libraries] (尋找 WindowsAzureLibsForNet-x86.msi 或 WindowsAzureLibsForNet-x64.msi)。
 4.  將 Microsoft.WebApplication.targets 檔案從 Visual Studio 安裝
     複製到組建伺服器。在已安裝 Visual Studio 的
     電腦上，這個檔案位於目錄 C:\\Program Files
@@ -41,7 +41,7 @@
 
 ## <a name="step2"> </a><span class="short-header">使用 MSBuild 來建置套件</span>步驟 2：使用 MSBuild 命令來建置套件
 
-本節說明如何建構 MSBuild 命令來建置Azure 套件。請在組建伺服器上執行這個步驟，以確認一切已正確設定，且 MSBuild 命令會執行您要它執行的動作。您可以將此命令列加入組建伺服器上的現有建置指令碼，也可以在 TFS 組建定義中使用這個命令列 (說明於下節)。如需命令列參數及 MSBuild 的詳細資訊，請參閱 [MSBuild 命令列參考][]。
+本節說明如何建構 MSBuild 命令來建置Azure 套件。請在組建伺服器上執行這個步驟，以確認一切已正確設定，且 MSBuild 命令會執行您要它執行的動作。您可以將此命令列加入組建伺服器上的現有建置指令碼，也可以在 TFS 組建定義中使用這個命令列 (說明於下節)。如需命令列參數及 MSBuild 的詳細資訊，請參閱 [MSBuild 命令列參考][MSBuild 命令列參考]。
 
 1.  如果組建伺服器上已安裝 Visual Studio，請按一下[開始]、[所有程式]，然後在 [Visual Studio Tools]資料夾中找出並按一下 [Visual Studio Commmand Prompt]。
 
@@ -57,7 +57,7 @@
 
     此選項可以縮寫為 /t:Publish。當已安裝 Azure SDK 時，MSBuild 中的 /t:Publish 選項不應該與 Visual Studio 中的 [發行] 命令混淆。/t:Publish 選項只會建置 Azure套件。其並不會如 Visual Studio 中的 [發行] 命令一樣部署套件。
 
-    (選擇性) 您可以指定專案名稱做為 MSBuild參數。如果未指定，則會使用目前目錄。如需MSBuild 命令列選項的詳細資訊，請參閱 [MSBuild 命令列參考][]。
+    (選擇性) 您可以指定專案名稱做為 MSBuild參數。如果未指定，則會使用目前目錄。如需MSBuild 命令列選項的詳細資訊，請參閱 [MSBuild 命令列參考][MSBuild 命令列參考]。
 
 4.  尋找輸出。依預設，這個命令會建立相對於專案根資料夾的目錄，例如 *ProjectDir*\\bin\\*Configuration*\\app.publish\\。當您建置 Azure 專案時，會產生兩個檔案，即套件檔本身及伴隨的組態檔：
 
@@ -78,13 +78,13 @@
 
 ## <a name="step3"> </a><span class="short-header">使用 TFS 來建置套件</span>步驟 3：使用 TFS Team Build 來建置套件 (選用)
 
-如果已設定 Team Foundation Server (TFS) 做為組建控制器，並設定組建伺服器做為 TFS 組建電腦，則可以為Azure 套件設定自動化組建。如需如何設定及使用 Team Foundation Server 做為建置系統的相關資訊，請參閱[了解 Team Foundation 建置系統][]。請意，下列程序假設您已依[設定組建電腦][]所述來設定組建伺服器。
+如果已設定 Team Foundation Server (TFS) 做為組建控制器，並設定組建伺服器做為 TFS 組建電腦，則可以為Azure 套件設定自動化組建。如需如何設定及使用 Team Foundation Server 做為建置系統的相關資訊，請參閱[了解 Team Foundation 建置系統][了解 Team Foundation 建置系統]。請意，下列程序假設您已依[設定組建電腦][設定組建電腦]所述來設定組建伺服器。
 
 若要設定 TFS 來建置 Azure 套件，請執行下列步驟：
 
 1.  在開發電腦上的 Visual Studio，於 [檢視]功能表選擇 [Team Explorer]，或選擇 Ctrl+\\、Ctrl+M。在 [Team Explorer] 視窗中，展開 [組建] 節點，以滑鼠右鍵按一下 [所有組建定義]，然後按一下 [新增組建定義]：
 
-    ![][]
+    ![][0]
 
 2.  按一下 [處理序] 索引標籤。在 [處理序] 索引標籤上選擇預設範本，在 [要建置的項目] 下選擇專案，然後展開格線中的 [進階] 區段。
 
@@ -105,7 +105,7 @@
 
 本節說明如何建構 Windows PowerShell 指令碼，以使用選用參數將雲端應用程式套件輸出發行至 Azure。您可以在自訂建置自動化的建置步驟之後呼叫這個指令碼，也可以從 Visual Studio TFS Team Build 中的「流程範本」工作流程活動中呼叫。
 
-1.  安裝 [Azure PowerShell Cmdlet][] (0.6.1 版或更高版本)。
+1.  安裝 [Azure PowerShell Cmdlet][Azure PowerShell Cmdlet] (0.6.1 版或更高版本)。
     在 Cmdlet 設定階段期間，選擇安裝為嵌入式管理單元。請注意，這個正式支援的版本會取代透過 CodePlex 提供的更舊版本 (這些舊版本的編號為 2.x.x)。
 
 2.  使用 [開始] 功能表啟動 Azure PowerShell。如果以這個方式啟動，則會載入 Azure PowerShell Cmdlet。
@@ -125,7 +125,7 @@
 
     如此會顯示訂閱的相關資訊。確認一切正確無誤。
 
-5.  將[本文結尾][]提供的指令碼範本，儲存為指令碼資料夾中的
+5.  將[本文結尾][本文結尾]提供的指令碼範本，儲存為指令碼資料夾中的
     c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**。
 
 6.  檢閱指令碼的參數區段。加入或修改任何預設值。您永遠可以傳入明確參數來覆寫這些值。
@@ -173,7 +173,7 @@
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
     或者，您也可以使用 Azure 管理入口網站，匯出憑證檔 PFX 與私密金鑰，並將憑證上傳至每個目標雲端服務。若要深入了解，請閱讀下列文章：
-    [<http://msdn.microsoft.com/zh-tw/library/windowsazure/gg443832.aspx>][]。
+    [<http://msdn.microsoft.com/zh-tw/library/windowsazure/gg443832.aspx>][<http://msdn.microsoft.com/zh-tw/library/windowsazure/gg443832.aspx>]。
 
     **升級部署以及刪除部署再新增部署**
 
@@ -579,14 +579,12 @@ script filename'，Input=' PublishScriptLocation'，Result='PublishScriptFilePat
 
 ## 後續步驟
 
-若要在使用連續傳遞時啟用遠端偵錯，請參閱[這些指示][] (英文)。
+若要在使用連續傳遞時啟用遠端偵錯，請參閱[這些指示][這些指示] (英文)。
 
   [使用 Visual Studio Online 連續傳遞至 Azure]: ../cloud-services-continuous-delivery-use-vso/
   [步驟 1：設定組建伺服器]: #step1
   [步驟 2：使用 MSBuild 命令來建置套件]: #step2
-  [步驟 3：使用 TFS Team Build 來建置套件 (選用)]: #step3
   [步驟 4：使用 PowerShell 指令碼來發佈套件]: #step4
-  [步驟 5：使用 TFS Team Build 來發佈套件 (選用)]: #step5
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
@@ -596,7 +594,7 @@ script filename'，Input=' PublishScriptLocation'，Result='PublishScriptFilePat
   [MSBuild 命令列參考]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [了解 Team Foundation 建置系統]: http://go.microsoft.com/fwlink/?LinkId=238798
   [設定組建電腦]: http://go.microsoft.com/fwlink/?LinkId=238799
-  []: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
+  [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
   [1]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
   [Azure PowerShell Cmdlet]: http://go.microsoft.com/fwlink/?LinkId=256262
   [本文結尾]: #script

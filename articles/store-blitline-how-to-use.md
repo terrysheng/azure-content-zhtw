@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-guides-blitline-image-processing-service" urlDisplayName="Blitline Image Processing Service" pageTitle="How to use Blitline for image processing - Azure feature guide " metaKeywords="" description="Learn how to use the Blitline service to process images within an Azure application." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Azure and Azure Storage" authors="pennij" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pennij"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pennij" />
 
 # 如何使用搭配 Azure 和 Azure 儲存體的 Blitline
 
@@ -8,12 +8,12 @@
 
 ## 目錄
 
-[什麼是 Blitline？][]
-[Blitline 不是什麼][]
-[建立 Blitline 帳戶][]
-[如何建立 Blitline 工作][]
-[如何將影像儲存至您的 Azure 儲存體][]
-[後續步驟][]
+[什麼是 Blitline？][什麼是 Blitline？]
+[Blitline 不是什麼][Blitline 不是什麼]
+[建立 Blitline 帳戶][建立 Blitline 帳戶]
+[如何建立 Blitline 工作][如何建立 Blitline 工作]
+[如何將影像儲存至您的 Azure 儲存體][如何將影像儲存至您的 Azure 儲存體]
+[後續步驟][後續步驟]
 
 ## <span id="whatis"></span></a>什麼是 Blitline？
 
@@ -37,7 +37,7 @@ Blitline 是雲端影像處理服務，可提供企業級的影像處理，而�
 
 ## <span id="createaccount"></span></a>建立 Blitline 帳戶
 
-[WACOM.INCLUDE [blitline-signup][]]
+[WACOM.INCLUDE [blitline-signup](../includes/blitline-signup.md)]
 
 ## <span id="createjob"></span></a>如何建立 Blitline 工作
 
@@ -81,7 +81,7 @@ Blitline 使用 JSON 定義您要對影像採取的動作。此 JSON 是由幾�
     }
 
 這代表 Blitline 已收到您的要求，它已將您的要求置入處理佇列，且當它完成影像時的影像位置：
-**[https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\\\_APP\\\_ID/CK3f0xBF\_2bV6wf7gEZE8w.jpg][]**
+**[https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\\_APP\\_ID/CK3f0xBF\_2bV6wf7gEZE8w.jpg][https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\\_APP\\_ID/CK3f0xBF\_2bV6wf7gEZE8w.jpg]**
 
 ## <span id="saveazure"></span></a>如何將影像儲存至您的 Azure 儲存體帳戶
 
@@ -114,7 +114,7 @@ SAS 必須包含整個 SAS URL，包括目的地檔案的檔案名稱。
 
     http://blitline.blob.core.windows.net/sample/image.jpg?sr=b&sv=2012-02-12&st=2013-04-12T03%3A18%3A30Z&se=2013-04-12T04%3A18%3A30Z&sp=w&sig=Bte2hkkbwTT2sqlkkKLop2asByrE0sIfeesOwj7jNA5o%3D
 
-您也可以參閱[此處][] (英文) 的最新版本 Blitline Azure 儲存體文件。
+您也可以參閱[此處][此處] (英文) 的最新版本 Blitline Azure 儲存體文件。
 
 ## <span id="nextsteps"></span></a>後續步驟
 
@@ -133,5 +133,4 @@ SAS 必須包含整個 SAS URL，包括目的地檔案的檔案名稱。
   [後續步驟]: #nextsteps
   []: http://www.blitline.com
   [blitline-signup]: ../includes/blitline-signup.md
-  [https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\\\_APP\\\_ID/CK3f0xBF\_2bV6wf7gEZE8w.jpg]: https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg
   [此處]: http://www.blitline.com/docs/azure_storage

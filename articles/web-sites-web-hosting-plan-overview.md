@@ -1,6 +1,6 @@
 <properties pageTitle="What is a web hosting plan?" description="Web hosting plan overview" title="What is a web hosting plan?" services="web-sites" authors="adamab" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
 
 # 什麼是 Web 主控方案？
 
@@ -34,7 +34,7 @@ Web 主控方案代表可跨網站共用的一組特性和功能。Web 主控方
 
 您可以查看所有訂閱的所有相關 Web 主控方案，方法是使用左功能表列的 [瀏覽] 按鈕，然後按一下畫面出現之活動窗格右上角的 [全部]。
 
-![][]
+![][0]
 ![][1]
 
 您也可以查看網站刀鋒上方出現之資源群組的圖形表示，了解每個網站所關聯的 Web 主控方案。
@@ -53,7 +53,7 @@ Web 主控方案代表可跨網站共用的一組特性和功能。Web 主控方
 
   [請移至此處]: http://go.microsoft.com/fwlink/?LinkID=394421
   [深入瞭解 Web 主控方案的管理]: http://go.microsoft.com/fwlink/?LinkID=394411
-  []: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
+  [0]: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
   [1]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
   [2]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
   [3]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png

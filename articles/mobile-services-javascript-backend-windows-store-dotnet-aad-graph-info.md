@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-javascript-aad-graph-info" urlDisplayName="Accessing Azure Active Directory Graph Information" pageTitle="Accessing Azure Active Directory Graph Information (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to access Azure Active Directory information using the Graph API in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Accessing Azure Active Directory Graph Information" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/20/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/20/2014" ms.author="wesmc" />
 
 # 存取 Azure Active Directory 圖形資訊
 
@@ -48,7 +48,7 @@
 
 1.  在 [Azure 管理入口網站][Azure 管理入口網站]中，為您的行動服務建立新的 GetUserInfo 自訂 API，然後將 get 方法的參數設為 [僅限通過驗證的使用者]。
 
-    ![][]
+    ![][0]
 
 2.  為新的 GetUserInfo API 開啟指令碼編輯器，並將下列變數移至指令碼的最上方。
 
@@ -143,9 +143,6 @@
 
 <!-- Anchors. --> <!-- Images --> <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-aad-graph-info/ "Windows 市集 C#"
-  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/ ".NET 後端"
-  [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/ "JavaScript 後端"
   [圖形 API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
   [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
   [在 AAD 中產生應用程式註冊的存取金鑰]: #generate-key
@@ -157,7 +154,7 @@
   [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [圖形 REST API]: http://msdn.microsoft.com/zh-tw/library/azure/hh974478.aspx
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png
+  [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png
   [取得使用者]: http://msdn.microsoft.com/zh-tw/library/azure/dn151678.aspx
   [mobile-services-aad-graph-info-update-app]: ../includes/mobile-services-aad-graph-info-update-app.md
   [mobile-services-aad-graph-info-test-app]: ../includes/mobile-services-aad-graph-info-test-app.md

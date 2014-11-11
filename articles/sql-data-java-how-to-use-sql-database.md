@@ -1,10 +1,10 @@
 <properties linkid="develop-java-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Azure (Java) - Azure feature guide" metaKeywords="" description="Learn how to use the Azure SQL Database from Java code. " metaCanonical="" services="sql-database" documentationCenter="Java" title="How to Use Azure SQL Database in Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 如何使用採用 Java 的 Azure SQL Database
 
-下列步驟說明如何使用採用 Java 的 Azure SQL Database。為節省篇幅，僅顯示命令列範例，但幾乎類似的步驟也適用於 Azure 或其他環境中內部部署託管的 Web 應用程式。本指南涵蓋從 [Azure 管理入口網站][]建立伺服器與建立資料庫。
+下列步驟說明如何使用採用 Java 的 Azure SQL Database。為節省篇幅，僅顯示命令列範例，但幾乎類似的步驟也適用於 Azure 或其他環境中內部部署託管的 Web 應用程式。本指南涵蓋從 [Azure 管理入口網站][Azure 管理入口網站]建立伺服器與建立資料庫。
 
 ## 什麼是 Azure SQL Database
 
@@ -12,32 +12,32 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 
 ## 目錄
 
--   [概念][]
--   [必要條件][]
--   [建立 Azure SQL Database][]
--   [判斷 SQL Database 連接字串][]
--   [允許存取 IP 位址範圍][]
--   [使用採用 Java 的 Azure SQL Database][]
--   [從程式碼與 Azure SQL Database 通訊][]
--   [建立資料表][]
--   [建立資料表上的索引][]
--   [插入資料列][]
--   [擷取資料列][]
--   [使用 WHERE 子句擷取資料列][]
--   [擷取資料列的計數][]
--   [更新資料列][]
--   [刪除資料列][]
--   [檢查資料表是否存在][]
--   [放置索引][]
--   [放置資料表][]
--   [在 Azure 部署中使用採用 Java 的 SQL Database][]
--   [後續步驟][]
+-   [概念][概念]
+-   [必要條件][必要條件]
+-   [建立 Azure SQL Database][建立 Azure SQL Database]
+-   [判斷 SQL Database 連接字串][判斷 SQL Database 連接字串]
+-   [允許存取 IP 位址範圍][允許存取 IP 位址範圍]
+-   [使用採用 Java 的 Azure SQL Database][使用採用 Java 的 Azure SQL Database]
+-   [從程式碼與 Azure SQL Database 通訊][從程式碼與 Azure SQL Database 通訊]
+-   [建立資料表][建立資料表]
+-   [建立資料表上的索引][建立資料表上的索引]
+-   [插入資料列][插入資料列]
+-   [擷取資料列][擷取資料列]
+-   [使用 WHERE 子句擷取資料列][使用 WHERE 子句擷取資料列]
+-   [擷取資料列的計數][擷取資料列的計數]
+-   [更新資料列][更新資料列]
+-   [刪除資料列][刪除資料列]
+-   [檢查資料表是否存在][檢查資料表是否存在]
+-   [放置索引][放置索引]
+-   [放置資料表][放置資料表]
+-   [在 Azure 部署中使用採用 Java 的 SQL Database][在 Azure 部署中使用採用 Java 的 SQL Database]
+-   [後續步驟][後續步驟]
 
 ## <span id="concepts"></span></a> 概念
 
-由於 Azure SQL Database 是以 SQL Server 技術為基礎組建的，因此從 Java 存取 SQL Database 與從 Java 存取 SQL Server 非常類似。您可以在本機開發應用程式 (使用 SQL Server)，然後藉由只變更連線字串來連接 SQL Database。您可以將 SQL Server JDBC 驅動程式用於應用程式中。然而，SQL Database 和 SQL Server 之間存在某些可能會影響應用程式的差異。如需詳細資訊，請參閱 [Azure SQL Database 指導方針和限制][]。
+由於 Azure SQL Database 是以 SQL Server 技術為基礎組建的，因此從 Java 存取 SQL Database 與從 Java 存取 SQL Server 非常類似。您可以在本機開發應用程式 (使用 SQL Server)，然後藉由只變更連線字串來連接 SQL Database。您可以將 SQL Server JDBC 驅動程式用於應用程式中。然而，SQL Database 和 SQL Server 之間存在某些可能會影響應用程式的差異。如需詳細資訊，請參閱 [Azure SQL Database 指導方針和限制][Azure SQL Database 指導方針和限制]。
 
-如需 SQL Database 的其他資源，請參閱[後續步驟][]一節。
+如需 SQL Database 的其他資源，請參閱[後續步驟][後續步驟]一節。
 
 ## <span id="prerequisites"></span></a>必要條件
 
@@ -45,8 +45,8 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 
 -   Java Developer Kit (JDK) 1.6 版或更新版本。
 -   Azure 訂閱，可從 <http://www.microsoft.com/windowsazure/offers/> 取得。
--   如果使用 Eclipse，您將需要 Eclipse IDE for Java EE Developers (Indigo 或更新版本)。這可透過 <http://www.eclipse.org/downloads/> 下載。您還需要 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)。在此外掛程式安裝期間，請確定其中包括 Microsoft JDBC Driver 4.0 for SQL Server。如需詳細資訊，請參閱[安裝 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)][] (英文)。
--   如果不是使用 Eclipse，您將需要 Microsoft JDBC Driver 4.0 for SQL Server，這可從 [http://www.microsoft.com/zh-tw/download/details.aspx?id=11774][] 下載。
+-   如果使用 Eclipse，您將需要 Eclipse IDE for Java EE Developers (Indigo 或更新版本)。這可透過 <http://www.eclipse.org/downloads/> 下載。您還需要 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)。在此外掛程式安裝期間，請確定其中包括 Microsoft JDBC Driver 4.0 for SQL Server。如需詳細資訊，請參閱[安裝 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)][安裝 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)] (英文)。
+-   如果不是使用 Eclipse，您將需要 Microsoft JDBC Driver 4.0 for SQL Server，這可從 [http://www.microsoft.com/zh-tw/download/details.aspx?id=11774][http://www.microsoft.com/zh-tw/download/details.aspx?id=11774] 下載。
 
 ## <span id="create_db"></span></a>建立 Azure SQL Database
 
@@ -55,21 +55,21 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 1.  登入 [Azure 管理入口網站][1]。
 2.  按一下 [新增]。
 
-    ![Create new SQL database][]
+    ![Create new SQL database][Create new SQL database]
 
 3.  按一下 [SQL Database]，再按一下 [Custom Create]。
 
-    ![Create custom SQL database][]
+    ![Create custom SQL database][Create custom SQL database]
 
 4.  在 [資料庫設定] 對話方塊中指定資料庫名稱。在本指南中，將使用 **gettingstarted** 作為資料庫名稱。
 5.  在 [伺服器] 中選取 [New SQL Database server]。在其他欄位中使用預設值。
 
-    ![SQL database settings][]
+    ![SQL database settings][SQL database settings]
 
 6.  按下一個箭頭。
 7.  在 [伺服器設定] 對話方塊中指定 SQL Server 登入名稱。在本指南中會使用 **MySQLAdmin**。指定並確認密碼。指定區域，並確定已勾選 [允許 Azure 服務存取伺服器]。
 
-    ![SQL server settings][]
+    ![SQL server settings][SQL server settings]
 
 8.  按一下 [完成] 按鈕。
 
@@ -81,7 +81,7 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 4.  按一下 [顯示連接字串]。
 5.  反白顯示 **JDBC** 連接字串的內容。
 
-    ![Determine JDBC connection string][]
+    ![Determine JDBC connection string][Determine JDBC connection string]
 
 6.  以滑鼠右鍵按一下反白顯示的 **JDBC** 連接字串內容，並按一下 [複製]。
 7.  您現在可以將此值貼到程式碼檔案中，以建立下列格式的連接字串。以您在上一個步驟中所複製的文字取代 *your\_server* (共有兩個位置)，並以在建立 SQL Database 帳戶時所指定的密碼值取代*your\_password*。(並分別取代指派給 **database=** 和 **user=** 的值，如果您沒有使用 **gettingstarted** 和 **MySQLAdmin** 的話。)
@@ -107,7 +107,7 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 6.  按一下 [設定]。
 7.  在 [允許的 IP 位址] 下輸入新的 IP 規則名稱。指定 IP 位址的起始和結束範圍。為了方便起見，會顯示目前的用戶端 IP 位址。下列範例允許使用單一用戶端 IP 位址 (您的 IP 位址會有所不同)。
 
-    ![Allowed IP addresses dialog][]
+    ![Allowed IP addresses dialog][Allowed IP addresses dialog]
 
 8.  按一下 [完成] 按鈕。您所指定的 IP 位址將無法存取您的資料庫伺服器。
 
@@ -693,7 +693,7 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 3.  在 [New Assembly Directive] 對話方塊中，按一下 [Java Build Path Entries]，再按 [下一步]。
 4.  選取 [Microsoft JDBC Driver 4.0 SQL Server]，然後按一下 [完成]。
 5.  按一下 [確定] 以關閉 [內容] 對話方塊。
-6.  將專案的 WAR 檔案匯出至您的 approot 資料夾，並根據[使用 Azure Plugin for Eclipse with Java 建立 Hello World 應用程式 (由 Microsoft Open Technologies 提供)][] (英文) 中所記載的步驟重建 Azure 專案。該主題也說明如何在運算模擬器和 Azure 中執行應用程式。
+6.  將專案的 WAR 檔案匯出至您的 approot 資料夾，並根據[使用 Azure Plugin for Eclipse with Java 建立 Hello World 應用程式 (由 Microsoft Open Technologies 提供)][使用 Azure Plugin for Eclipse with Java 建立 Hello World 應用程式 (由 Microsoft Open Technologies 提供)] (英文) 中所記載的步驟重建 Azure 專案。該主題也說明如何在運算模擬器和 Azure 中執行應用程式。
 
 **如果不是使用 Eclipse，請將 Microsoft JDBC Driver 4.0 SQL Server 納入套件。**
 
@@ -701,7 +701,7 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
 
 ## <span id="nextsteps"></span></a>後續步驟
 
-若要深入了解 Microsoft JDBC Driver for SQL Server，請參閱 [JDBC 驅動程式的概觀][] (英文)。若要深入了解 SQL Database，請參閱 [SQL Database 概觀][] (英文)。
+若要深入了解 Microsoft JDBC Driver for SQL Server，請參閱 [JDBC 驅動程式的概觀][JDBC 驅動程式的概觀] (英文)。若要深入了解 SQL Database，請參閱 [SQL Database 概觀][SQL Database 概觀] (英文)。
 
   [Azure 管理入口網站]: https://windows.azure.com
   [概念]: #concepts
@@ -725,16 +725,12 @@ Azure SQL Database 為 Azure 提供關聯式資料庫管理系統，並以 SQL S
   [在 Azure 部署中使用採用 Java 的 SQL Database]: #using_in_azure
   [後續步驟]: #nextsteps
   [Azure SQL Database 指導方針和限制]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ff394102.aspx
-  [安裝 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh690946.aspx
-  [http://www.microsoft.com/zh-tw/download/details.aspx?id=11774]: http://www.microsoft.com/zh-TW/download/details.aspx?id=11774
   [1]: https://manage.windowsazure.com
   [Create new SQL database]: ./media/sql-data-java-how-to-use-sql-database/WA_New.png
   [Create custom SQL database]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_DB_Create.png
   [SQL database settings]: ./media/sql-data-java-how-to-use-sql-database/WA_CustomCreate_1.png
   [SQL server settings]: ./media/sql-data-java-how-to-use-sql-database/WA_CustomCreate_2.png
   [Determine JDBC connection string]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_JDBC_ConnectionString.png
-  ["user=MySQLAdmin@\*your\_server\*]: mailto:"user=MySQLAdmin@*your_server*
   [Allowed IP addresses dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
-  [使用 Azure Plugin for Eclipse with Java 建立 Hello World 應用程式 (由 Microsoft Open Technologies 提供)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh690944.aspx
   [JDBC 驅動程式的概觀]: http://msdn.microsoft.com/zh-TW/library/ms378749.aspx
   [SQL Database 概觀]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee336241.aspx

@@ -1,6 +1,6 @@
 <properties umbracoNaviHide="0" pageTitle="How To Configure Cloud Services" metaKeywords="Azure cloud services, cloud service, configure cloud service" description="Learn how to configure Azure cloud services." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="Sign up for Azure as an organization" authors="terrylan" manager="terrylan" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan" />
 
 # 以組織方式註冊 Azure
 
@@ -27,7 +27,7 @@
 如果您的組織已使用 Active Directory 內部部署，則您可以利用 Azure AD 的目錄整合功能，例如目錄同步和單一登入，以進一步將每個現有的內部部署身分識別延伸至雲端，讓管理者和使用者的操作更順暢。[詳細資訊][3]
 
   [disclaimer]: ../includes/disclaimer.md
-  [詳細資訊]: http://windows.microsoft.com/en-US/windows-live/sign-in-what-is-microsoft-account
+  [詳細資訊]: http://windows.microsoft.com/zh-tw/windows-live/sign-in-what-is-microsoft-account
   [1]: http://technet.microsoft.com/zh-TW/library/jj573650
   [2]: http://technet.microsoft.com/zh-TW/library/hh967619
   [3]: http://technet.microsoft.com/zh-TW/library/jj573653

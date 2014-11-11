@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-optimistic-concurrent-data-wp8" urlDisplayName="Optimistic concurrency" pageTitle="Handle database write conflicts with optimistic concurrency (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conlicts" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # 處理資料庫寫入衝突
 
@@ -14,22 +14,22 @@
 
 在本教學課程中，您會在快速入門應用程式中新增功能，以處理更新 TodoItem 資料庫時所發生的爭用情況。本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [更新應用程式以允許更新][]
-2.  [在應用程式中啟用衝突偵測][]
-3.  [在應用程式中測試資料庫寫入衝突][]
-4.  [以伺服器指令碼自動處理衝突的解決方式][]
+1.  [更新應用程式以允許更新][更新應用程式以允許更新]
+2.  [在應用程式中啟用衝突偵測][在應用程式中啟用衝突偵測]
+3.  [在應用程式中測試資料庫寫入衝突][在應用程式中測試資料庫寫入衝突]
+4.  [以伺服器指令碼自動處理衝突的解決方式][以伺服器指令碼自動處理衝突的解決方式]
 
 本教學課程需要下列各項
 
 -   Microsoft Visual Studio 2012 Express for Windows Phone 8 或更新版本。
--   Windows 8 上執行的 [Windows Phone 8 SDK][]。
--   [Azure 帳戶][]
--   本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][]。
+-   Windows 8 上執行的 [Windows Phone 8 SDK][Windows Phone 8 SDK]。
+-   [Azure 帳戶][Azure 帳戶]
+-   本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][開始使用行動服務]。
 -   Azure 行動服務 NuGet 封裝 1.1.0 或更新版本。若要取得最新版本，請遵循下列步驟：
 
     1.  在 Visual Studio 中開啟專案，在 [方案總管] 中以滑鼠右鍵按一下專案，然後按一下 [管理 NuGet 封裝]。
 
-        ![][]
+        ![][0]
 
     2.  展開 [線上]，然後按一下 [Microsoft and .NET]。在搜尋文字方塊中，輸入 [Azure 行動服務]。在 [Azure 行動服務] NuGet 封裝上，按一下 [安裝]。
 
@@ -39,7 +39,7 @@
 
 在本節中您將會更新 TodoList 使用者介面，使 ListBox 控制項中各個項目的文字能夠進行更新。ListBox 將包含資料庫資料表中各個項目的 CheckBox 和 TextBox 控制項。您將可更新 TodoItem 的文字欄位。應用程式會處理來自該 TextBox 的 `LostFocus` 事件，以更新資料庫中的項目。
 
-1.  在 Visual Studio 中，開啟您在[開始使用行動服務][]教學課程中下載的 TodoList 專案。
+1.  在 Visual Studio 中，開啟您在[開始使用行動服務][開始使用行動服務]教學課程中下載的 TodoList 專案。
 2.  在 Visual Studio 的 [方案總管] 中開啟 MainPage.xaml，將 `phone:LongListSelector` 定義取代為如下所示的 ListBox，然後儲存變更。
 
         <ListBox Grid.Row="4" Grid.ColumnSpan="2" Name="ListItems">
@@ -90,7 +90,7 @@
 
 ## <a name="enableOC"></a><span class="short-header">啟用開放式並行存取</span>在應用程式中啟用衝突偵測
 
-在部分案例中，兩個或多個用戶端可能會同時對相同項目寫入變更。在沒有偵測到任何衝突的情況下，最後寫入將覆寫任何先前的更新，即使這不是您想要的結果。[開放式並行存取控制項][]會假設每筆交易都可以認可，因此不會使用任何資源鎖定。在認可交易之前，開放式並行存取控制項會驗證沒有其他交易已修改此資料。如果資料已修改，則會復原認可的交易。Azure 行動服務支援開放式並行存取控制項，方法是使用新增至每個資料表的 `__version` 系統屬性資料欄來追蹤對每個項目的變更。在本節中，我們將使應用程式能夠透過 `__version` 系統屬性偵測這些寫入衝突。在嘗試更新期間，如果記錄自前次查詢後有所變更，系統將會以 `MobileServicePreconditionFailedException` 通知應用程式。此時，應用程式將可選擇是要認可它對資料庫的變更，還是保留資料庫的最後變更。如需行動服務之系統屬性的詳細資訊，請參閱[系統屬性][]。
+在部分案例中，兩個或多個用戶端可能會同時對相同項目寫入變更。在沒有偵測到任何衝突的情況下，最後寫入將覆寫任何先前的更新，即使這不是您想要的結果。[開放式並行存取控制項][開放式並行存取控制項]會假設每筆交易都可以認可，因此不會使用任何資源鎖定。在認可交易之前，開放式並行存取控制項會驗證沒有其他交易已修改此資料。如果資料已修改，則會復原認可的交易。Azure 行動服務支援開放式並行存取控制項，方法是使用新增至每個資料表的 `__version` 系統屬性資料欄來追蹤對每個項目的變更。在本節中，我們將使應用程式能夠透過 `__version` 系統屬性偵測這些寫入衝突。在嘗試更新期間，如果記錄自前次查詢後有所變更，系統將會以 `MobileServicePreconditionFailedException` 通知應用程式。此時，應用程式將可選擇是要認可它對資料庫的變更，還是保留資料庫的最後變更。如需行動服務之系統屬性的詳細資訊，請參閱[系統屬性][系統屬性]。
 
 1.  在 MainPage.xaml.cs 中，以下列程式碼更新 **TodoItem** 類別定義，以加入可用來支援寫入衝突偵測的 **\_\_version** 系統屬性：
 
@@ -220,7 +220,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 下列步驟將引導您新增伺服器更新指令碼並加以測試。
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
     ![][9]
 
@@ -274,27 +274,24 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 本教學課程示範如何讓 Windows Phone 8 應用程式處理在行動服務中使用資料時所發生的寫入衝突。您可以接著完成我們資料序列中的下列其中一個教學課程：
 
--   [使用指令檔驗證與修改資料][]
+-   [使用指令檔驗證與修改資料][使用指令檔驗證與修改資料]
     深入了解在行動服務中使用伺服器指令檔，來驗證並變更從應用程式傳送出來的資料。
 
--   [使用分頁縮小查詢範圍][]
+-   [使用分頁縮小查詢範圍][使用分頁縮小查詢範圍]
     了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
 完成資料數列之後，您可以嘗試下列其中一個 Windows Phone 8 教學課程：
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何驗證應用程式的使用者。
 
--   [開始使用推送通知][]
+-   [開始使用推送通知][開始使用推送通知]
     了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/ "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/develop/mobile/tutorials/handle-database-write-conflicts-wp8/ "Windows Phone"
   [更新應用程式以允許更新]: #uiupdate
   [在應用程式中啟用衝突偵測]: #enableOC
   [在應用程式中測試資料庫寫入衝突]: #test-app
@@ -302,7 +299,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
   [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
   [Azure 帳戶]: http://www.windowsazure.com/zh-tw/pricing/free-trial/
   [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-wp8
-  []: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
+  [0]: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
   [1]: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
   [開放式並行存取控制項]: http://go.microsoft.com/fwlink/?LinkId=330935
   [系統屬性]: http://go.microsoft.com/fwlink/?LinkId=331143

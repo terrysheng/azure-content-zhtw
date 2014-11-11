@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-push-notifications-to-users-wp8" urlDisplayName="Push Notifications to Users (WP8)" pageTitle="Push notifications to users (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your Windows Phone app." metaCanonical="" services="" documentationCenter="" title="Push notifications to users by using Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 使用行動服務推播通知給使用者
 
@@ -8,20 +8,20 @@
 <a href="/zh-tw/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS">iOS</a><a href="/zh-tw/develop/mobile/tutorials/push-notifications-to-users-android" title="Android">Android</a>
 </div>
 
-本主題將延伸[上一個推播通知教學課程][]，方法是新增資料表以儲存 Microsoft 推播通知服務 (MPNS) 通道 URI。您可以接著使用這些通道來傳送推播通知給 Windows Phone 8 應用程式的使用者。
+本主題將延伸[上一個推播通知教學課程][上一個推播通知教學課程]，方法是新增資料表以儲存 Microsoft 推播通知服務 (MPNS) 通道 URI。您可以接著使用這些通道來傳送推播通知給 Windows Phone 8 應用程式的使用者。
 
 本教學課程將引導您逐步完成以下在您的應用程式中更新推播通知的步驟：
 
-1.  [建立 Channel 資料表][]
-2.  [更新應用程式][]
-3.  [更新伺服器指令碼][]
-4.  [驗證推播通知行為][]
+1.  [建立 Channel 資料表][建立 Channel 資料表]
+2.  [更新應用程式][更新應用程式]
+3.  [更新伺服器指令碼][更新伺服器指令碼]
+4.  [驗證推播通知行為][驗證推播通知行為]
 
 本教學課程會以行動服務快速入門為基礎，並依據上一個[開始使用推播通知][上一個推播通知教學課程]教學課程建立。開始此教學課程之前，您必須先完成[開始使用推播通知][上一個推播通知教學課程]。
 
 ## <a name="create-table"></a>建立新資料表
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
     ![][0]
 
@@ -184,22 +184,19 @@
 
 這將結束示範使用推播通知基本概念的教學課程。考慮更深入了解下列行動服務主題：
 
--   [開始使用資料][]
+-   [開始使用資料][開始使用資料]
     深入了解使用行動服務來儲存與查詢資料。
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何使用 Windows 帳戶驗證您的應用程式的使用者。
 
--   [行動服務伺服器指令碼參考][]
+-   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何註冊和使用伺服器指令碼。
 
 <!-- anchors --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Phone]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-android "Android"
   [上一個推播通知教學課程]: /zh-tw/develop/mobile/tutorials/get-started-with-push-wp8
   [建立 Channel 資料表]: #create-table
   [更新應用程式]: #update-app

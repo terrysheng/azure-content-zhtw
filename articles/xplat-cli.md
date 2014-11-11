@@ -1,6 +1,6 @@
 <properties linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/zh-tw/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="carolz" services="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
 
 # 安裝與設定 Azure 跨平台命令列介面
 
@@ -14,11 +14,11 @@ xplat-cli 是以 JavaScript 撰寫的，需要搭配 Node.js 一起使用。使�
 
 ## 本文件內容
 
--   [如何安裝 Azure 跨平台命令列介面][]
--   [如何連線至您的 Azure 訂閱][]
--   [如何使用 Azure 跨平台命令列介面][]
--   [如何撰寫 Azure 跨平台命令列介面指令碼][]
--   [其他資源][]
+-   [如何安裝 Azure 跨平台命令列介面][如何安裝 Azure 跨平台命令列介面]
+-   [如何連線至您的 Azure 訂閱][如何連線至您的 Azure 訂閱]
+-   [如何使用 Azure 跨平台命令列介面][如何使用 Azure 跨平台命令列介面]
+-   [如何撰寫 Azure 跨平台命令列介面指令碼][如何撰寫 Azure 跨平台命令列介面指令碼]
+-   [其他資源][其他資源]
 
 ## <span id="install"></span></a>如何安裝 Azure 跨平台命令列介面
 
@@ -32,9 +32,9 @@ xplat-cli 是以 JavaScript 撰寫的，需要搭配 Node.js 一起使用。使�
 
 我們提供以下安裝程式套件：
 
--   [Windows 安裝程式][]
+-   [Windows 安裝程式][Windows 安裝程式]
 
--   [OS X 安裝程式][]
+-   [OS X 安裝程式][OS X 安裝程式]
 
 ### 使用 npm
 
@@ -82,7 +82,7 @@ xplat-cli 是以 JavaScript 撰寫的，需要搭配 Node.js 一起使用。使�
 
     > [WACOM.NOTE] 登入方法僅適用於組織帳戶。組織帳戶是您的組織所管理的使用者，並定義於您的組織的 Azure Active Directory 租用戶中。如果您目前沒有組織帳戶，而是使用 Microsoft 帳戶登入您的 Azure 訂閱，則您可以透過下列步驟輕鬆地建立帳戶。
     >
-    > 1.  登入 [Azure 管理入口網站][]，然後按一下 [Active Directory]。
+    > 1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，然後按一下 [Active Directory]。
     >
     > 2.  如果不存在任何目錄，請選取 [Create your directory] 並提供要求的資訊。
     >
@@ -94,13 +94,13 @@ xplat-cli 是以 JavaScript 撰寫的，需要搭配 Node.js 一起使用。使�
     >
     > 5.  最後，登出 Azure 入口網站，然後使用新的組織帳戶重新登入。如果這是您第一次使用此帳戶登入，系統會提示您變更密碼。
     >
-    > 如需 Microsoft Azure 的組織帳戶詳細資訊，請參閱[以組織身分註冊 Microsoft Azure][] (英文)。
+    > 如需 Microsoft Azure 的組織帳戶詳細資訊，請參閱[以組織身分註冊 Microsoft Azure][以組織身分註冊 Microsoft Azure] (英文)。
 
 -   發行設定檔方法會安裝憑證，只要訂閱與憑證有效，該憑證便可讓您執行管理工作。此方法可讓您更容易對長時間執行的工作進行自動化。當您下載並匯入資訊後，就不需要重新提供資訊。不過，由於任何能夠存取該憑證的使用者都能管理訂閱，此方法會讓您較難以管理訂閱的存取權限。
 
-如需驗證與訂閱管理的詳細資訊，請參閱[帳戶式驗證與憑證式驗證之間的差別][] (英文)。
+如需驗證與訂閱管理的詳細資訊，請參閱[帳戶式驗證與憑證式驗證之間的差別][帳戶式驗證與憑證式驗證之間的差別] (英文)。
 
-如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
+如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][Azure 免費試用]。
 
 ### 使用登入方法
 
@@ -250,7 +250,7 @@ xplat-cli 預設會設為 Azure 服務管理模式。若要切換至資源管理
 
 > [WACOM.NOTE] 資源管理員模式與 Azure 服務管理模式是互斥的。亦即，任一模式所建立的資源，將無法由另一種模式來管理。
 
-如需將 xplat-cli 與資源管理員搭配使用的詳細資訊，請參閱[將 Azure 跨平台命令列介面與資源管理員搭配使用][]。
+如需將 xplat-cli 與資源管理員搭配使用的詳細資訊，請參閱[將 Azure 跨平台命令列介面與資源管理員搭配使用][將 Azure 跨平台命令列介面與資源管理員搭配使用]。
 
 ### 在 Azure 服務管理模式中使用服務
 
@@ -300,11 +300,11 @@ xplat-cli 可讓您輕鬆地管理 Azure 服務。在下列範例中，您將學
 
 雖然此範例示範了如何將命令串連在一起，您也可以使用由您的命令列轉譯器所提供的指令碼撰寫功能，建立更精細的指令碼。不同的命令列轉譯器具有不同的指令碼撰寫功能與語法。Bash 可能是最廣泛運用在 UNIX 架構系統 (包括 Linux 與 OS X) 上的命令列轉譯器。
 
-如需使用 Bash 撰寫指令碼的詳細資訊，請參閱[進階的 Bash 指令碼撰寫指南][] (英文)。
+如需使用 Bash 撰寫指令碼的詳細資訊，請參閱[進階的 Bash 指令碼撰寫指南][進階的 Bash 指令碼撰寫指南] (英文)。
 
-如需在 OS X 或 Linux 架構的系統上撰寫指令碼的更通用資訊，請參閱 [Shell 指令碼][] (英文)。
+如需在 OS X 或 Linux 架構的系統上撰寫指令碼的更通用資訊，請參閱 [Shell 指令碼][Shell 指令碼] (英文)。
 
-如需使用批次檔撰寫 Windows 架構系統指令碼的詳細資訊，請參閱[命令列參考 A-Z][] (英文)。
+如需使用批次檔撰寫 Windows 架構系統指令碼的詳細資訊，請參閱[命令列參考 A-Z][命令列參考 A-Z] (英文)。
 
 ### 了解結果
 
@@ -356,7 +356,7 @@ xplat-cli 可讓您輕鬆地管理 Azure 服務。在下列範例中，您將學
     data:    myawesomesite  Running  Free  myawesomesite.azurewebsites.net
     info:    site list command OK
 
-請注意，`verbose:` 資訊的外觀與 JSON 格式的資料類似。如果您使用的公用程式 (例如 [jsawk][] 或 [jq][]) 本身即能識別 JSON 格式，便可使用 `--json` 參數傳回 JSON 格式的資訊。例如：
+請注意，`verbose:` 資訊的外觀與 JSON 格式的資料類似。如果您使用的公用程式 (例如 [jsawk][jsawk] 或 [jq][jq]) 本身即能識別 JSON 格式，便可使用 `--json` 參數傳回 JSON 格式的資訊。例如：
 
     azure site list --json | jsawk -n 'out(this.Name)' | xargs -L 1 azure site delete -q 
 
@@ -378,14 +378,12 @@ xplat-cli 可讓您輕鬆地管理 Azure 服務。在下列範例中，您將學
 
 ## <span id="additional-resources"></span></a>其他資源
 
--   如需 xplat-cli 的詳細資訊、要下載來源程式碼、報告問題，或是對專案發表意見，請造訪 [Azure 跨平台命令列介面的 GitHub 儲存機制][] (英文)。
+-   如需 xplat-cli 的詳細資訊、要下載來源程式碼、報告問題，或是對專案發表意見，請造訪 [Azure 跨平台命令列介面的 GitHub 儲存機制][Azure 跨平台命令列介面的 GitHub 儲存機制] (英文)。
 
--   如果您在使用 xplat-cli 或 Azure 方面遇到問題，請造訪 [Azure 論壇][] (英文)。
+-   如果您在使用 xplat-cli 或 Azure 方面遇到問題，請造訪 [Azure 論壇][Azure 論壇] (英文)。
 
 -   如需 Azure 的詳細資訊，請參閱 [][2]<http://azure.microsoft.com/></a>。
 
-  [PowerShell]: /zh-tw/manage/install-and-configure-windows-powershell/ "PowerShell"
-  [跨平台 CLI]: /zh-tw/manage/install-and-configure-cli/ "跨平台 CLI"
   []: https://github.com/WindowsAzure/azure-sdk-tools-xplat
   [如何安裝 Azure 跨平台命令列介面]: #install
   [如何連線至您的 Azure 訂閱]: #configure
@@ -405,5 +403,5 @@ xplat-cli 可讓您輕鬆地管理 Azure 服務。在下列範例中，您將學
   [命令列參考 A-Z]: http://technet.microsoft.com/zh-tw/library/bb490890.aspx
   [jsawk]: https://github.com/micha/jsawk
   [jq]: http://stedolan.github.io/jq/
-  [Azure 論壇]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home
+  [Azure 論壇]: http://social.msdn.microsoft.com/Forums/windowsazure/zh-tw/home
   [2]: http://azure.microsoft.com

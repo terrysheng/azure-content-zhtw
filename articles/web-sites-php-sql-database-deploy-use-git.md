@@ -1,13 +1,13 @@
 <properties linkid="develop-php-website-with-sql-database-and-git" urlDisplayName="Web w/ SQL + Git" pageTitle="PHP website with SQL Database and Git - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in SQL Database and use Git deployment to Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter="PHP" title="Create a PHP website with a SQL Database and deploy using Git" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 透過 SQL 資料庫建立 PHP 網站並使用 Git 來部署
 
-本教學課程說明如何搭配 Azure SQL 資料庫建立 PHP Azure 網站及如何使用 Git 來部署。本教學課程假設您的電腦上已安裝 [PHP][]、[SQL Server Express][]、[Microsoft Drivers for SQL Server for PHP][]、Web 伺服器和 [Git][]。完成本指南後，您將會有一個在 Azure 中執行的 PHP-SQL 資料庫網站。
+本教學課程說明如何搭配 Azure SQL 資料庫建立 PHP Azure 網站及如何使用 Git 來部署。本教學課程假設您的電腦上已安裝 [PHP][PHP]、[SQL Server Express][SQL Server Express]、[Microsoft Drivers for SQL Server for PHP][Microsoft Drivers for SQL Server for PHP]、Web 伺服器和 [Git][Git]。完成本指南後，您將會有一個在 Azure 中執行的 PHP-SQL 資料庫網站。
 
 > [WACOM.NOTE]
-> 您可以使用 [Microsoft Web Platform Installer][] 來安裝和設定 PHP、SQL Server Express、適用於 SQL Server for PHP 的 Microsoft 驅動程式和 Internet Information Services (IIS)。
+> 您可以使用 [Microsoft Web Platform Installer][Microsoft Web Platform Installer] 來安裝和設定 PHP、SQL Server Express、適用於 SQL Server for PHP 的 Microsoft 驅動程式和 Internet Information Services (IIS)。
 
 您將了解：
 
@@ -16,57 +16,57 @@
 
 依照本教學課程進行，您將使用 PHP 建置一個簡易的註冊網頁應用程式。該應用程式將在 Azure 網站中託管。完成之應用程式的螢幕擷取畫面如下：
 
-![Azure PHP Web Site][]
+![Azure PHP Web Site][Azure PHP Web Site]
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## 建立 Azure 網站並設定 Git 發行
 
 請依照下列步驟來建立 Azure 網站和 SQL 資料庫：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  按一下入口網站左下方的 [新增] 圖示。
-    ![建立新的 Azure 網站][]
+    ![建立新的 Azure 網站][建立新的 Azure 網站]
 
 3.  依序按一下 [網站] 及 [自訂建立]。
 
-    ![Custom Create a new Web Site][]
+    ![Custom Create a new Web Site][Custom Create a new Web Site]
 
     輸入 [URL] 的值，然後從 [資料庫] 下拉式清單中選取 [建立新的 SQL 資料庫]，接著在 [地區] 下拉式清單中為您的網站選取資料中心。按一下對話方塊底部的箭頭。
 
-    ![Fill in web site details][]
+    ![Fill in web site details][Fill in web site details]
 
-4.  輸入資料庫的 [名稱] 值、選取 [版本] [(WEB 或 BUSINESS)][]、選取資料庫的 [大小上限]、選擇 [定序]，並選取 [新的 SQL Database 伺服器]。按一下對話方塊底部的箭頭。
+4.  輸入資料庫的 [名稱] 值、選取 [版本] [(WEB 或 BUSINESS)][(WEB 或 BUSINESS)]、選取資料庫的 [大小上限]、選擇 [定序]，並選取 [新的 SQL Database 伺服器]。按一下對話方塊底部的箭頭。
 
-    ![Fill in SQL Database settings][]
+    ![Fill in SQL Database settings][Fill in SQL Database settings]
 
 5.  輸入系統管理員名稱和密碼 (並確認密碼)，選擇將要建立新 SQL 資料庫伺服器的區域，然後勾選 `Allow Azure Services to access the server` 方塊。
 
-    ![Create new SQL Database server][]
+    ![Create new SQL Database server][Create new SQL Database server]
 
     建立網站後，您會看到「建立網站 "[SITENAME]" 成功」的字樣。現在，您可以啟用 Git 發佈。
 
 6.  按一下網站清單中顯示的網站名稱，以開啟該網站的 [快速入門] 儀表板。
 
-    ![Open web site dashboard][]
+    ![Open web site dashboard][Open web site dashboard]
 
 7.  在 [快速入門] 頁面底部，選取 [設定從原始檔控制進行部署]。
 
-    ![Set up Git publishing][]
+    ![Set up Git publishing][Set up Git publishing]
 
 8.  當系統詢問您「您的來源程式碼在哪裡？」時，選取 [Local Git repository]，然後按一下該箭頭。
 
-    ![where is your source code][]
+    ![where is your source code][where is your source code]
 
 9.  若要啟用 Git 發佈，您必須提供使用者名稱和密碼。記下您所建立的使用者名稱和密碼。(如果您之前設定過 Git 儲存機制，系統將會略過此步驟。)
 
-    ![Create publishing credentials][]
+    ![Create publishing credentials][Create publishing credentials]
 
     設定儲存機制需要幾秒鐘的時間。
 
 10. 當您的儲存機制準備就緒時，您會看到將應用程式檔案發佈至該儲存機制的指示。請記下這些指示，以供稍後使用。
 
-    ![Git instructions][]
+    ![Git instructions][Git instructions]
 
 ## 取得 SQL Database 連線資訊
 
@@ -74,11 +74,11 @@
 
 1.  從 Azure 管理入口網站中，按一下 [已連結的資源]，然後按一下資料庫名稱。
 
-    ![Linked Resources][]
+    ![Linked Resources][Linked Resources]
 
 2.  按一下 [View connection strings]。
 
-    ![Connection string][]
+    ![Connection string][Connection string]
 
 3.  從所產生對話方塊的 [PHP] 區段中，請記下 `SERVER`、`DATABASE` 和 `USERNAME` 的值。
 
@@ -89,7 +89,7 @@
 -   **index.php**：顯示註冊表單，以及內含註冊者資訊的資料表。
 -   **createtable.php**：建立應用程式的 SQL Database 資料表。只會使用一次此檔案。
 
-若要在本機執行應用程式，請遵循下列步驟。請注意，這些步驟假設您的本機電腦上已設定 PHP、SQL Server Express 和 Web 伺服器，且您已啟用 [SQL Server 的 PDO 延伸模組][]。
+若要在本機執行應用程式，請遵循下列步驟。請注意，這些步驟假設您的本機電腦上已設定 PHP、SQL Server Express 和 Web 伺服器，且您已啟用 [SQL Server 的 PDO 延伸模組][SQL Server 的 PDO 延伸模組]。
 
 1.  建立名為 `registration` 的 SQL Server 資料庫。您可以從 `sqlcmd` 命令提示字元中使用下列命令來建立此資料庫：
 
@@ -283,7 +283,6 @@
   [建立新的 Azure 網站]: ./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg
   [Custom Create a new Web Site]: ./media/web-sites-php-sql-database-deploy-use-git/custom_create.png
   [Fill in web site details]: ./media/web-sites-php-sql-database-deploy-use-git/website_details_sqlazure.jpg
-  [(WEB 或 BUSINESS)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee621788.aspx
   [Fill in SQL Database settings]: ./media/web-sites-php-sql-database-deploy-use-git/database_settings.jpg
   [Create new SQL Database server]: ./media/web-sites-php-sql-database-deploy-use-git/create_server.jpg
   [Open web site dashboard]: ./media/web-sites-php-sql-database-deploy-use-git/go_to_dashboard.png
@@ -294,4 +293,3 @@
   [Linked Resources]: ./media/web-sites-php-sql-database-deploy-use-git/linked_resources.jpg
   [Connection string]: ./media/web-sites-php-sql-database-deploy-use-git/connection_string.jpg
   [SQL Server 的 PDO 延伸模組]: http://php.net/pdo_sqlsrv
-  [http://[網站]: http://[site

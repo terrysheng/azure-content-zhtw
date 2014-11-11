@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # 開始在行動服務中使用推播通知
 
@@ -110,7 +110,7 @@
 
 1.  在管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
-    ![][]
+    ![][0]
 
 2.  在 [todoitem] 中，按一下 [指令碼] 索引標籤，然後選取 [插入]。
 
@@ -189,14 +189,6 @@
 
 <!-- Anchors. --> <!-- Images. --> <!-- URLs.   -->
 
-  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/mobile-services-javascript-backend-ios-get-started-push "iOS"
-  [Android]: /zh-tw/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android"
-  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ ".NET 後端"
-  [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "JavaScript 後端"
-  [開始使用推播通知 (舊版)]: /zh-tw/documentation/articles/mobile-services-ios-get-started-push/
   [產生憑證簽署要求]: #certificates
   [註冊您的應用程式並啟用推播通知]: #register
   [建立應用程式的佈建設定檔]: #profile
@@ -209,7 +201,7 @@
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-ios-get-started
   [啟用 Apple 推播通知]: ../includes/enable-apple-push-notifications.md
   [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
-  []: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
+  [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [apns 物件]: http://go.microsoft.com/fwlink/p/?LinkId=272333
   [2]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png

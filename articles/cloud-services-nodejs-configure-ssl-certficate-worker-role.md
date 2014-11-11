@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-enablesslworker" urlDisplayName="Enable SSL worker role" pageTitle="Configure SSL for a cloud service (Node.js) worker role" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Worker Role" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 在 Azure 背景工作角色中設定 Node.js 應用程式的 SSL
 
@@ -12,11 +12,11 @@
 
 此工作包含下列步驟：
 
--   [步驟 1：建立 Node.js 服務並將服務發行至雲端][]
--   [步驟 2：取得 SSL 憑證][]
--   [步驟 3：修改應用程式來使用 SSL 憑證][]
--   [步驟 4：修改服務定義檔][]
--   [步驟 5：使用 HTTPS 來連線至角色執行個體][]
+-   [步驟 1：建立 Node.js 服務並將服務發行至雲端][步驟 1：建立 Node.js 服務並將服務發行至雲端]
+-   [步驟 2：取得 SSL 憑證][步驟 2：取得 SSL 憑證]
+-   [步驟 3：修改應用程式來使用 SSL 憑證][步驟 3：修改應用程式來使用 SSL 憑證]
+-   [步驟 4：修改服務定義檔][步驟 4：修改服務定義檔]
+-   [步驟 5：使用 HTTPS 來連線至角色執行個體][步驟 5：使用 HTTPS 來連線至角色執行個體]
 
 ## <a name="step1"> </a>步驟 1：建立 Node.js 服務並將服務發行至雲端
 
@@ -24,11 +24,11 @@
 
 1.  從 [開始] 功能表 或 [開始畫面] 中，搜尋 **Azure PowerShell**。最後，以滑鼠右鍵按一下 [Azure PowerShell]，然後選取 [以系統管理員身分執行]。
 
-    ![Azure PowerShell icon][]
+    ![Azure PowerShell icon][Azure PowerShell icon]
 
 2.  使用 **New-AzureServiceProject** Cmdlet 建立新的服務。
 
-    ![][]
+    ![][0]
 
 3.  使用 **Add-AzureNodeWorkerRole** Cmdlet 將背景工作角色加入至您的服務：
 
@@ -118,7 +118,7 @@
 
 2.  向下捲動並按一下顯示為 [網站 URL] 的連結：
 
-    ![the site url][]
+    ![the site url][the site url]
 
     <div class="dev-callout">
 <strong>注意</strong>
@@ -133,11 +133,11 @@
 
 ## 其他資源
 
-[如何使憑證與服務產生關聯][]
+[如何使憑證與服務產生關聯][如何使憑證與服務產生關聯]
 
-[在 Azure Web 角色中設定 Node.js 應用程式的 SSL][]
+[在 Azure Web 角色中設定 Node.js 應用程式的 SSL][在 Azure Web 角色中設定 Node.js 應用程式的 SSL]
 
-[如何在 HTTPS 端點上設定 SSL 憑證][]
+[如何在 HTTPS 端點上設定 SSL 憑證][如何在 HTTPS 端點上設定 SSL 憑證]
 
   [步驟 1：建立 Node.js 服務並將服務發行至雲端]: #step1
   [步驟 2：取得 SSL 憑證]: #step2
@@ -145,10 +145,9 @@
   [步驟 4：修改服務定義檔]: #step4
   [步驟 5：使用 HTTPS 來連線至角色執行個體]: #step5
   [Azure PowerShell icon]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/azure-powershell-start.png
-  []: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
+  [0]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
   [1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png
   [2]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
-  [如何使用 Azure PowerShell 來處理 Node.js]: https://www.windowsazure.com/zh-TW/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings
   [the site url]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/site-url.png
   [3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png
   [如何使憑證與服務產生關聯]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg465718.aspx

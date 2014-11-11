@@ -1,46 +1,46 @@
 <properties linkid="manage-services-hdinsight-provision-hadoop-clusters" urlDisplayName="HDInsight Administration" pageTitle="Provision Hadoop clusters in HDInsight | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to provision clusters for Azure HDInsight using the management portal, PowerShell, or the command line." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision Hadoop clusters in HDInsight" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # 使用自訂選項在 HDInsight 上佈建 Hadoop 叢集
 
-在本文中，您將了解在 Azure HDInsight 上自訂佈建 Hadoop 叢集的不同方式 - 使用 Azure 管理入口網站、PowerShell、命令列工具或 HDInsight .NET SDK。本文將針對佈建 Hadoop 叢集進行討論。如需如何佈建 HBase 叢集的指示，請參閱[在 HDInsight 上佈建 HBase 叢集][]。請參閱 [Hadoop 和 HBase 之間的差別？][]，以了解最優先的選擇理由。
+在本文中，您將了解在 Azure HDInsight 上自訂佈建 Hadoop 叢集的不同方式 - 使用 Azure 管理入口網站、PowerShell、命令列工具或 HDInsight .NET SDK。本文將針對佈建 Hadoop 叢集進行討論。如需如何佈建 HBase 叢集的指示，請參閱[在 HDInsight 上佈建 HBase 叢集][在 HDInsight 上佈建 HBase 叢集]。請參閱 [Hadoop 和 HBase 之間的差別？][Hadoop 和 HBase 之間的差別？]，以了解最優先的選擇理由。
 
 ## 什麼是 HDInsight 叢集？
 
-您有沒有想過為什麼我們每次針對 Hadoop 或 BigData 進行討論時，都一定會提到叢集？那是因為 Hadoop 允許大型資料的分散式處理，散佈到叢集的不同節點中。叢集具有主/從架構，包含一個主要 (亦稱為前端節點或名稱節點) 和任意數目的從屬 (亦稱為資料節點)。如需詳細資訊，請參閱 [Apache Hadoop][]。
+您有沒有想過為什麼我們每次針對 Hadoop 或 BigData 進行討論時，都一定會提到叢集？那是因為 Hadoop 允許大型資料的分散式處理，散佈到叢集的不同節點中。叢集具有主/從架構，包含一個主要 (亦稱為前端節點或名稱節點) 和任意數目的從屬 (亦稱為資料節點)。如需詳細資訊，請參閱 [Apache Hadoop][Apache Hadoop]。
 
-HDInsight 叢集摘要了 Hadoop 實作詳細資料，因此您無需擔心如何與叢集的不同節點通訊。佈建 HDInsight 叢集時，您可以佈建包含 Hadoop 及相關應用程式的 Azure 運算資源。如需詳細資訊，請參閱 [HDInsight 中 Hadoop 的簡介][]。
+HDInsight 叢集摘要了 Hadoop 實作詳細資料，因此您無需擔心如何與叢集的不同節點通訊。佈建 HDInsight 叢集時，您可以佈建包含 Hadoop 及相關應用程式的 Azure 運算資源。如需詳細資訊，請參閱 [HDInsight 中 Hadoop 的簡介][HDInsight 中 Hadoop 的簡介]。
 
-本文針對佈建叢集的不同方式提供指示。如果您想知道佈建叢集的快速入門方法，請參閱[開始使用 Azure HDInsight][]。
+本文針對佈建叢集的不同方式提供指示。如果您想知道佈建叢集的快速入門方法，請參閱[開始使用 Azure HDInsight][開始使用 Azure HDInsight]。
 
 **必要條件：**
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
--   Azure 訂用帳戶。Azure 是訂用帳戶型平台。HDInsight PowerShell Cmdlet 會為您的訂用帳戶執行相關工作。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][]、[成員優惠][]或[免費試用][]。
+-   Azure 訂用帳戶。Azure 是訂用帳戶型平台。HDInsight PowerShell Cmdlet 會為您的訂用帳戶執行相關工作。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][購買選項]、[成員優惠][成員優惠]或[免費試用][免費試用]。
 
 ## 本文內容
 
--   [使用 Azure 管理入口網站][]
--   [使用 Azure PowerShell][]
--   [使用跨平台命令列][]
--   [使用 HDInsight .NET SDK][]
--   [後續步驟][]
+-   [使用 Azure 管理入口網站][使用 Azure 管理入口網站]
+-   [使用 Azure PowerShell][使用 Azure PowerShell]
+-   [使用跨平台命令列][使用跨平台命令列]
+-   [使用 HDInsight .NET SDK][使用 HDInsight .NET SDK]
+-   [後續步驟][後續步驟]
 
 ## <span id="portal"></span></a>使用 Azure 管理入口網站
 
-HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相同的資料中心上必須要有 Azure 儲存帳號，您才能建立 HDInsight 叢集。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][]。如需建立 Azure 儲存帳號的詳細資訊，請參閱[如何建立儲存帳號][]。
+HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相同的資料中心上必須要有 Azure 儲存帳號，您才能建立 HDInsight 叢集。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][搭配 HDInsight 使用 Azure Blob 儲存體]。如需建立 Azure 儲存帳號的詳細資訊，請參閱[如何建立儲存帳號][如何建立儲存帳號]。
 
 > [WACOM.NOTE] 目前只有「東亞」、「東南亞」、「北歐」、「西歐」、「美國東部」、「美國西部」、「美國中北部」和「美國中南部」等區域可以代管 HDInsight 叢集。
 
 **使用自訂建立選項建立 HDInsight 叢集**
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  按一下頁面底部的 [+新增]，然後依序按一下 [資料服務]、[HDInsight]、[自訂建立]。
 3.  在 [叢集詳細資料] 頁面上，輸入或選擇下列值：
 
-    ![HDI.CustomCreateCluster][]
+    ![HDI.CustomCreateCluster][HDI.CustomCreateCluster]
 
     <table>
     <colgroup>
@@ -85,7 +85,7 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 5.  在 [Configure Cluster User] 頁面上，提供下列值：
 
-    ![HDI.CustomCreateCluster.ClusterUser][]
+    ![HDI.CustomCreateCluster.ClusterUser][HDI.CustomCreateCluster.ClusterUser]
 
     | 屬性                      | 值                                                                                                                                                                                             |
     |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -102,7 +102,7 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 6.  在 [儲存體帳戶] 頁面上，提供下列值：
 
-    ![HDI.CustomCreateCluster.StorageAccount][]
+    ![HDI.CustomCreateCluster.StorageAccount][HDI.CustomCreateCluster.StorageAccount]
 
     <table>
     <colgroup>
@@ -152,7 +152,7 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 7.  在 [儲存體帳戶] 頁面上，輸入其他儲存體帳戶的帳戶資訊：
 
-    ![HDI.CustomCreateCluster.AddOnStorage][]
+    ![HDI.CustomCreateCluster.AddOnStorage][HDI.CustomCreateCluster.AddOnStorage]
 
     在這裡，您可以選擇現有儲存體、建立新儲存體或使用其他 Azure 訂用帳戶的儲存體。提供值的程序會與上個步驟類似。
 
@@ -162,7 +162,7 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 ## <span id="powershell"></span></a>使用 Azure PowerShell
 
-Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。本節提供如何佈建 HDInsight 叢集的指示，如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell][]。如需有關在 HDInsight 上使用 PowerShell 的詳細資訊，請參閱[使用 PowerShell 來管理 HDInsight][]。如需 HDInsight PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考文件][]。
+Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。本節提供如何佈建 HDInsight 叢集的指示，如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell][安裝並設定 Azure PowerShell]。如需有關在 HDInsight 上使用 PowerShell 的詳細資訊，請參閱[使用 PowerShell 來管理 HDInsight][使用 PowerShell 來管理 HDInsight]。如需 HDInsight PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考文件][HDInsight Cmdlet 參考文件]。
 
 以下是使用 PowerShell 佈建 HDInsight 叢集時所需執行的程序：
 
@@ -228,7 +228,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
     出現提示時，請輸入叢集的認證。叢集佈建可能需要幾分鐘的時間。
 
-    ![HDI.CLI.Provision][]
+    ![HDI.CLI.Provision][HDI.CLI.Provision]
 
 **使用自訂組態選項佈建 HDInsight 叢集**
 
@@ -281,7 +281,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 ## <span id="cli"></span></a>使用跨平台命令列
 
-另一個佈建 HDInsight 叢集的選項，是跨平台命令列介面。命令列工具在 Node.js 中實作。在任何支援 Node.js 的平台上都可使用，包括 Windows、Mac 和 Linux。此命令列工具採用開放原始碼。原始程式碼會在 GitHub 中受到管理 (<https://github.com/Azure/azure-sdk-tools-xplat>)。如需如何使用此命令列介面的一般指引，請參閱[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具][]。如需完整的參考文件，請參閱[適用於 Mac 和 Linux 的 Azure 命令列工具][]。本文僅提供從 Windows 使用此命令列介面的相關資訊。
+另一個佈建 HDInsight 叢集的選項，是跨平台命令列介面。命令列工具在 Node.js 中實作。在任何支援 Node.js 的平台上都可使用，包括 Windows、Mac 和 Linux。此命令列工具採用開放原始碼。原始程式碼會在 GitHub 中受到管理 (<https://github.com/Azure/azure-sdk-tools-xplat>)。如需如何使用此命令列介面的一般指引，請參閱[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具][如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]。如需完整的參考文件，請參閱[適用於 Mac 和 Linux 的 Azure 命令列工具][適用於 Mac 和 Linux 的 Azure 命令列工具]。本文僅提供從 Windows 使用此命令列介面的相關資訊。
 
 以下是使用跨平台命令列佈建 HDInsight 叢集時所需執行的程序：
 
@@ -316,7 +316,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 **使用 Windows Installer 安裝命令列介面**
 
-1.  瀏覽至 **<http://azure.microsoft.com/en-us/downloads/>**。
+1.  瀏覽至 **<http://azure.microsoft.com/zh-tw/downloads/>**。
 2.  向下捲動至 [命令列工具] 區段，然後按一下 [跨平台命令列介面]，並依照 Web Platform Installer 精靈操作。
 
 **下載及匯入發佈設定**
@@ -330,7 +330,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
         azure account download
 
-    ![HDI.CLIAccountDownloadImport][]
+    ![HDI.CLIAccountDownloadImport][HDI.CLIAccountDownloadImport]
 
     此命令會開啟可下載發行設定檔案的網頁。
 
@@ -351,7 +351,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
     出現位置提示時，請選取可佈建 HDINsight 叢集的位置。儲存體必須與 HDInsight 叢集位於相同的位置。目前只有「東亞」、「東南亞」、「北歐」、「西歐」、「美國東部」、「美國西部」、「美國中北部」和「美國中南部」等區域可以代管 HDInsight 叢集。
 
-如需使用 Azure 管理入口網站建立 Azure 儲存帳號的相關資訊，請參閱[如何建立儲存帳號][]。
+如需使用 Azure 管理入口網站建立 Azure 儲存帳號的相關資訊，請參閱[如何建立儲存帳號][如何建立儲存帳號]。
 
 如果您已經有儲存體帳戶，但不知道帳戶名稱和帳戶金鑰，則您可以使用下列命令來擷取資訊：
 
@@ -364,7 +364,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
     -- Lists the keys for a storage account
     azure storage account keys list <StorageAccountName>
 
-如需有關使用管理入口網站取得資訊的詳細資訊，請參閱＜*作法：檢視、複製及重新產生儲存體存取金鑰*一節 (位於[如何管理儲存體帳戶][]中)。
+如需有關使用管理入口網站取得資訊的詳細資訊，請參閱＜*作法：檢視、複製及重新產生儲存體存取金鑰*一節 (位於[如何管理儲存體帳戶][如何管理儲存體帳戶]中)。
 
 HDInsight 叢集還要求儲存體帳戶內要有容器。如果您所提供的儲存體帳戶沒有容器，則 *azure hdinsight cluster create* 會提示您輸入容器名稱並建立容器。不過，如果您想要預先建立容器，您可以使用下列命令：
 
@@ -379,7 +379,7 @@ HDInsight 叢集還要求儲存體帳戶內要有容器。如果您所提供的�
 
         azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey <storageAccountKey> --storageContainer <SorageContainerName> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
 
-    ![HDI.CLIClusterCreation][]
+    ![HDI.CLIClusterCreation][HDI.CLIClusterCreation]
 
 **使用組態檔佈建 HDInsight 叢集**
 
@@ -410,7 +410,7 @@ HDInsight 叢集還要求儲存體帳戶內要有容器。如果您所提供的�
 
     > [WACOM.NOTE] 用於 metastore 的 Azure SQL Database 必須允許與其他 Azure 服務 (包括 Azure HDInsight) 的連線能力。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [設定]，然後在 [Windows Azure 服務] 中，依序按一下 [是] 和 [儲存]。
 
-    ![HDI.CLIClusterCreationConfig][]
+    ![HDI.CLIClusterCreationConfig][HDI.CLIClusterCreationConfig]
 
 **列出並顯示叢集詳細資料**
 
@@ -419,7 +419,7 @@ HDInsight 叢集還要求儲存體帳戶內要有容器。如果您所提供的�
         azure hdinsight cluster list
         azure hdinsight cluster show <ClusterName>
 
-    ![HDI.CLIListCluster][]
+    ![HDI.CLIListCluster][HDI.CLIListCluster]
 
 **刪除叢集**
 
@@ -440,17 +440,17 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
 
 **安裝 HDInsight .NET SDK**
 
-您可以從 [NuGet][] 安裝最新發佈的 SDK 組建。下一個程序會顯示相關指示。
+您可以從 [NuGet][NuGet] 安裝最新發佈的 SDK 組建。下一個程序會顯示相關指示。
 
 **建立自我簽署憑證**
 
-1.  建立用來驗證要求的自我簽署憑證。您可以使用 IIS 或 [makecert][] 來建立憑證。
+1.  建立用來驗證要求的自我簽署憑證。您可以使用 IIS 或 [makecert][makecert] 來建立憑證。
 
 2.  瀏覽至憑證位置，以滑鼠右鍵按一下此憑證，按一下 [安裝憑證] 將憑證安裝到電腦的個人存放區。編輯憑證屬性，並為它指派一個更容易記住的名稱。
 
 3.  將憑證匯入 Azure 管理入口網站。在入口網站中，按一下頁面左下角的 [設定]，然後按一下 [管理憑證]。按一下頁面底部的 [上傳]，並遵照指示將您在前一個步驟中所建立的 .cer 檔案上傳。
 
-    ![HDI.ClusterCreate.UploadCert][]
+    ![HDI.ClusterCreate.UploadCert][HDI.ClusterCreate.UploadCert]
 
 **建立 Visual Studio 主控台應用程式**
 
@@ -544,17 +544,17 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
 
 -   [Azure HDInsight 使用者入門][開始使用 Azure HDInsight]
 -   [使用 PowerShell 管理 HDInsight][使用 PowerShell 來管理 HDInsight]
--   [以程式設計方式提交 Hadoop 工作][]
--   [Azure HDInsight SDK 文件][]
+-   [以程式設計方式提交 Hadoop 工作][以程式設計方式提交 Hadoop 工作]
+-   [Azure HDInsight SDK 文件][Azure HDInsight SDK 文件]
 
   [在 HDInsight 上佈建 HBase 叢集]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hbase-get-started/
   [Hadoop 和 HBase 之間的差別？]: http://go.microsoft.com/fwlink/?LinkId=510237
   [Apache Hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
   [HDInsight 中 Hadoop 的簡介]: ../hdinsight-introduction/
   [開始使用 Azure HDInsight]: ../hdinsight-get-started/
-  [購買選項]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [成員優惠]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [購買選項]: http://azure.microsoft.com/zh-tw/pricing/purchase-options/
+  [成員優惠]: http://azure.microsoft.com/zh-tw/pricing/member-offers/
+  [免費試用]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
   [使用 Azure 管理入口網站]: #portal
   [使用 Azure PowerShell]: #powershell
   [使用跨平台命令列]: #cli
@@ -569,7 +569,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
   [HDI.CustomCreateCluster.AddOnStorage]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.AddOnStorage.png
   [安裝並設定 Azure PowerShell]: ../install-configure-powershell/
   [使用 PowerShell 來管理 HDInsight]: ../hdinsight-administer-use-powershell/
-  [HDInsight Cmdlet 參考文件]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+  [HDInsight Cmdlet 參考文件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn479228.aspx
   [HDI.CLI.Provision]: ./media/hdinsight-provision-clusters/HDI.ps.provision.png
   [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]: ../xplat-cli/
   [適用於 Mac 和 Linux 的 Azure 命令列工具]: ../command-line-tools/
@@ -579,7 +579,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
   [HDI.CLIClusterCreationConfig]: ./media/hdinsight-provision-clusters/HDI.CLIClusterCreationConfig.png
   [HDI.CLIListCluster]: ./media/hdinsight-provision-clusters/HDI.CLIListClusters.png "List and show clusters"
   [NuGet]: http://nuget.codeplex.com/wikipage?title=Getting%20Started
-  [makecert]: http://msdn.microsoft.com/en-us/library/bfsktky3(v=vs.110).aspx
+  [makecert]: http://msdn.microsoft.com/zh-tw/library/bfsktky3(v=vs.110).aspx
   [HDI.ClusterCreate.UploadCert]: ./media/hdinsight-get-started/HDI.ClusterCreate.UploadCert.png
   [以程式設計方式提交 Hadoop 工作]: ../hdinsight-submit-hadoop-jobs-programmatically/
-  [Azure HDInsight SDK 文件]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Azure HDInsight SDK 文件]: http://msdnstage.redmond.corp.microsoft.com/zh-tw/library/dn479185.aspx

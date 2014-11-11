@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-how-to-guides-import-publish-settings" urlDisplayName="Import your subscription publish settings file in Visual Studio 2013" pageTitle="Import your publish settings file in Visual Studio 2013 | Mobile Services" metaKeywords="Azure import publishsettings, mobile services" description="Learn how to import a subscription publish settings file for your Azure Mobile Services application in Visual Studio 2013." title="Import your subscription publish settings file in Visual Studio 2013" documentationCenter="Mobile" services="" solutions="" manager="" editor="" videoId="" scriptId="" authors="glenga" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 在 Visual Studio 2013 中匯入您的訂閱發佈設定檔案
 
@@ -8,21 +8,21 @@
 
 1.  在 Visual Studio 2013 中，開啟 [方案總管]、在專案上按一下滑鼠右鍵，然後依序按一下 **[新增]**、**[已連接服務]**。
 
-    ![add connected service][]
+    ![add connected service][add connected service]
 
 2.  在 [服務管理員] 對話方塊中，按一下 **[建立服務]**，然後從 [建立行動服務] 對話方塊的 **[訂閱]** 中，選取 **\<匯入...\>**。
 
-    ![create a new mobile service from VS 2013][]
+    ![create a new mobile service from VS 2013][create a new mobile service from VS 2013]
 
 3.  在 [匯入 Azure 訂閱] 中按一下 [下載訂閱檔案]，登入您的 Azure 帳戶 (如有必要)，在瀏覽器要求儲存檔案時，按一下 [儲存]。
 
-    ![download subscription file in VS][]
+    ![download subscription file in VS][download subscription file in VS]
 
     <div class="dev-callout"><strong>注意</strong> <p>登入視窗會顯示在瀏覽器中，它有可能會在 Visual Studio 視窗下面。請記得記下儲存 .publishsettings 檔案的下載位置。如果您的專案已連線到 Azure 訂閱，您可以略過此步驟。</p></div>
 
 4.  按一下 [瀏覽] 並瀏覽至儲存 .publishsettings 檔案的位置，選取此檔案，然後依序按一下 [開啟]、[匯入]。
 
-    ![import subscription in VS][]
+    ![import subscription in VS][import subscription in VS]
 
     Visual Studio 會匯入連線到 Azure 訂閱所需的資料。當訂閱已經有一或多個現有的行動服務時，便會顯示這些服務名稱。
 

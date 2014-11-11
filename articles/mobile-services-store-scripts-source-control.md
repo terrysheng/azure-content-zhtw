@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-store-scripts-in-source-control" urlDisplayName="Store server scripts in source control" pageTitle="Store server scripts in source control - Azure Mobile Services" metaKeywords="" description="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" services="" documentationCenter="Mobile" title="Store server scripts in source control" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 在原始檔控制中儲存伺服器指令碼
 
@@ -8,18 +8,18 @@
 
 本教學課程將引導您完成下列步驟：
 
-1.  [在行動服務中啟用原始檔控制][]。
-2.  [安裝 Git 與建立本機儲存機制][]。
-3.  [將更新指令碼檔案部署到行動服務][]。
-4.  [在伺服器指令碼中運用共用程式碼和 Node.js 模組][]。
+1.  [在行動服務中啟用原始檔控制][在行動服務中啟用原始檔控制]。
+2.  [安裝 Git 與建立本機儲存機制][安裝 Git 與建立本機儲存機制]。
+3.  [將更新指令碼檔案部署到行動服務][將更新指令碼檔案部署到行動服務]。
+4.  [在伺服器指令碼中運用共用程式碼和 Node.js 模組][在伺服器指令碼中運用共用程式碼和 Node.js 模組]。
 
-若要完成本教學課程，您必須已經建立行動服務，方法是完成[開始使用行動服務][]或[開始使用資料][]教學課程。
+若要完成本教學課程，您必須已經建立行動服務，方法是完成[開始使用行動服務][開始使用行動服務]或[開始使用資料][開始使用資料]教學課程。
 
 ## <a name="enable-source-control"></a><span class="short-header">啟用原始檔控制</span>在行動服務中啟用原始檔控制
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的行動服務。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的行動服務。
 
-    ![][]
+    ![][0]
 
 2.  按一下 [儀表板] 索引標籤，然後按一下 [Quick glance] 下的 [Set up source control]，並按一下 [是] 以確認。
 
@@ -46,7 +46,7 @@
 
 1.  在您的本機電腦上安裝 Git。
 
-    安裝 Git 所需的步驟會因作業系統而有所不同。如需作業系統特定的發佈和安裝指引，請參閱[安裝 Git][]。
+    安裝 Git 所需的步驟會因作業系統而有所不同。如需作業系統特定的發佈和安裝指引，請參閱[安裝 Git][安裝 Git]。
 
     > [WACOM.NOTE]
     > 在某些作業系統上，會同時提供命令列和 GUI 兩種版本的 Git。本文提供的指示將使用命令列版本。
@@ -68,13 +68,13 @@
 
 6.  瀏覽至您執行 `git clone` 命令的目錄，並注意下列目錄結構：
 
-    ![4][]
+    ![4][4]
 
     在此案例中，會建立以此行動服務的名稱命名的新目錄，這裡就是資料服務的本機儲存機制。
 
 7.  開啟 .\\service\\table 子資料夾並注意其中包含 TodoItem.json 檔案，這是 TodoItem 資料表上操作權限的 JSON 表示。
 
-    如果伺服器指令碼已定義在這個資料表上，您也會有一或數個名為`TodoItem.<operation>.js` 的檔案，其中會包含適用於給定資料表作業的指令碼。排程器和自訂 API 指令碼會在名為排程器和自訂 API 指令碼的個別資料夾中分別進行維護。如需詳細資訊，請參閱[原始檔控制][]。
+    如果伺服器指令碼已定義在這個資料表上，您也會有一或數個名為`TodoItem.<operation>.js` 的檔案，其中會包含適用於給定資料表作業的指令碼。排程器和自訂 API 指令碼會在名為排程器和自訂 API 指令碼的個別資料夾中分別進行維護。如需詳細資訊，請參閱[原始檔控制][原始檔控制]。
 
 現在您已建立本機儲存機制，您可以對伺服器指令碼進行變更，並將變更推送回行動服務。
 
@@ -117,17 +117,17 @@
 
 ## <a name="use-npm"></a><span class="short-header">共用程式碼和模組</span>在伺服器指令碼中運用共用程式碼和 Node.js 模組
 
-行動服務提供整組核心 Node.js 模組的存取權，透過 **require** 函數，您可以在您的程式碼中使用這些模組。行動服務也可以使用不是核心 Node.js 封裝一部分的 Node.js 模組，您甚至可以將自己的共用程式碼定義為 Node.js 模組。如需關於建立模組的詳細資訊，請參閱 Node.js API 參考文件中的[模組][] (英文)。
+行動服務提供整組核心 Node.js 模組的存取權，透過 **require** 函數，您可以在您的程式碼中使用這些模組。行動服務也可以使用不是核心 Node.js 封裝一部分的 Node.js 模組，您甚至可以將自己的共用程式碼定義為 Node.js 模組。如需關於建立模組的詳細資訊，請參閱 Node.js API 參考文件中的[模組][模組] (英文)。
 
-接著，您可以在行動服務中新增 [node-uuid][] Node.js 模組，方法是使用原始檔控制和 Node.js 封裝管理員 (NPM)。接著便可使用此模組，來為插入項目上的 **uuid** 屬性產生新的 GUID 值。
+接著，您可以在行動服務中新增 [node-uuid][node-uuid] Node.js 模組，方法是使用原始檔控制和 Node.js 封裝管理員 (NPM)。接著便可使用此模組，來為插入項目上的 **uuid** 屬性產生新的 GUID 值。
 
-1.  如果您尚未這麼做，請依照 [Node.js 網站][] (英文) 上的步驟，在您的本機電腦上安裝 Node.js。
+1.  如果您尚未這麼做，請依照 [Node.js 網站][Node.js 網站] (英文) 上的步驟，在您的本機電腦上安裝 Node.js。
 
 2.  瀏覽至本機 Git 儲存機制的 `.\service` 資料夾，然後在命令提示字元中執行下列命令：
 
         npm install node-uuid
 
-    NPM 會在目前位置中建立 `node_modules` 目錄，並在 `\node-uuid` 子目錄中安裝 [node-uuid][] 模組。
+    NPM 會在目前位置中建立 `node_modules` 目錄，並在 `\node-uuid` 子目錄中安裝 [node-uuid][node-uuid] 模組。
 
     <div class="dev-callout">
 <strong>注意</strong>
@@ -157,10 +157,10 @@
 
 現在，您已完成本教學課程，您知道如何在原始檔控制中儲存指令碼。請考慮了解更多有關使用伺服器指令碼和自訂 API 的詳細資料：
 
--   [在行動服務中使用伺服器指令碼][]
+-   [在行動服務中使用伺服器指令碼][在行動服務中使用伺服器指令碼]
     說明如何使用伺服器指令碼、工作排程器和自訂 API。
 
--   [定義支援提取通知的自訂 API][]
+-   [定義支援提取通知的自訂 API][定義支援提取通知的自訂 API]
     說明如何使用自訂 API 來支援可在 Windows 市集應用程式中更新動態磚的定期通知。
 
 <!-- Anchors. --> 
@@ -174,7 +174,7 @@
   [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started
   [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-store-scripts-source-control/mobile-services-selection.png
+  [0]: ./media/mobile-services-store-scripts-source-control/mobile-services-selection.png
   [1]: ./media/mobile-services-store-scripts-source-control/mobile-setup-source-control.png
   [2]: ./media/mobile-services-store-scripts-source-control/mobile-source-control-credentials.png
   [3]: ./media/mobile-services-store-scripts-source-control/mobile-source-control-configure.png

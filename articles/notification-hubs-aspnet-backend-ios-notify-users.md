@@ -1,6 +1,6 @@
 <properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in Objective-C using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Azure 通知中心通知使用者
 
@@ -36,7 +36,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
     您的腳本應如下所示：
 
-    ![][]
+    ![][0]
 
 2.  在 ViewController.m 的介面部分中，建立 UITextFields 和 UIButtons 的出口
 
@@ -328,10 +328,6 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 4.  在 iOS 應用程式 UI 中，按一下 [登入]。然後按一下 [傳送推播]。
 
-  [Windows Universal]: /zh-tw/documentation/articles/notification-hubs-windows-dotnet-notify-users/ "Windows Universal"
-  [iOS]: /zh-tw/documentation/articles/notification-hubs-/ "iOS"
-  [Android]: /zh-tw/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/ "Android"
   [從您的應用程式後端註冊]: http://msdn.microsoft.com/zh-tw/library/dn743807.aspx
-  [開始使用通知中心 (iOS)]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-ios-get-started/
   [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
-  []: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png
+  [0]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png

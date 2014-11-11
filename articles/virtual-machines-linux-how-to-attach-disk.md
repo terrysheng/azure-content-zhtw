@@ -1,23 +1,23 @@
 <properties linkid="manage-linux-howto-attach-a-disk" urlDisplayName="Attach a disk" pageTitle="Attach a disk to a virtual machine running Linux in Azure" metaKeywords="disk VM Azure, initialize new disk Azure, initialize disk Azure Linux, attaching empty disk Azure" description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use." metaCanonical="http://www.windowsazure.com/zh-tw/manage/windows/how-to-guides/attach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav" />
 
 # 如何將資料磁碟連接至 Linux 虛擬機器
 
 您可以附加空的磁碟和含有資料的磁碟。在這兩種情況下，磁碟實際上是位於 Azure 儲存體帳戶中的 .vhd 檔案。另外，在這兩種情況下，當您附加磁碟之後，磁碟必須完成初始化才能使用。
 
 > [WACOM.NOTE] 最好使用一或多個不同的磁碟來儲存虛擬機器的資料。當您建立 Azure 虛擬機器時，它會有作業系統磁碟和暫存磁碟。**請勿使用暫存磁碟來儲存資料。**顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。
-> 暫存磁碟通常由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的 **/mnt**)。換句話說，在 Linux 上，核心有可能將資料磁碟命名為 `/dev/sdc`。若是如此，您將需要分割、格式化及掛接該資源。如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南][] (英文)。
+> 暫存磁碟通常由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的 **/mnt**)。換句話說，在 Linux 上，核心有可能將資料磁碟命名為 `/dev/sdc`。若是如此，您將需要分割、格式化及掛接該資源。如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南][Azure Linux 代理程式使用者指南] (英文)。
 
--   [作法：連接空的磁碟][]
--   [作法：連接現有磁碟][]
--   [作法：在 Linux 中初始化新的資料磁碟][]
+-   [作法：連接空的磁碟][作法：連接空的磁碟]
+-   [作法：連接現有磁碟][作法：連接現有磁碟]
+-   [作法：在 Linux 中初始化新的資料磁碟][作法：在 Linux 中初始化新的資料磁碟]
 
-[WACOM.INCLUDE [howto-attach-disk-windows-linux][]]
+[WACOM.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
 ## <span id="initializeinlinux"></span></a>作法：在 Linux 中初始化新的資料磁碟
 
-1.  使用[如何登入執行 Linux 的虛擬機器][]中列出的步驟，連線至虛擬機器。
+1.  使用[如何登入執行 Linux 的虛擬機器][如何登入執行 Linux 的虛擬機器]中列出的步驟，連線至虛擬機器。
 
 2.  在 SSH 視窗中，輸入下列命令，然後輸入您為了管理虛擬機器而建立之帳戶的密碼：
 
@@ -25,7 +25,7 @@
 
     在出現的訊息中，您可以找到最後一個新增之資料磁碟的識別碼。
 
-    ![取得磁碟訊息][]
+    ![取得磁碟訊息][取得磁碟訊息]
 
 3.  在 SSH 視窗中，輸入下列命令來建立新的裝置，然後輸入帳戶密碼：
 
@@ -35,25 +35,25 @@
 
 4.  輸入 **n** 建立新的磁碟分割。
 
-    ![建立新的裝置][]
+    ![建立新的裝置][建立新的裝置]
 
 5.  輸入 **p** 將磁碟分割設為主要磁碟分割，輸入 **1** 設為第一個磁碟分割，然後按 Enter 鍵接受預設的磁柱值。
 
-    ![建立磁碟分割][]
+    ![建立磁碟分割][建立磁碟分割]
 
 6.  輸入 **p** 查看目前分割之磁碟的詳細資料。
 
-    ![列出磁碟資訊][]
+    ![列出磁碟資訊][列出磁碟資訊]
 
 7.  輸入 **w** 寫入磁碟的設定。
 
-    ![寫入磁碟變更][]
+    ![寫入磁碟變更][寫入磁碟變更]
 
 8.  在新的磁碟分割上建立檔案系統。例如，輸入下列命令，然後輸入帳戶密碼：
 
         # sudo mkfs -t ext4 /dev/sdc1
 
-    ![建立檔案系統][]
+    ![建立檔案系統][建立檔案系統]
 
     > [WACOM.NOTE] 請注意，SUSE Linux Enterprise 11 系統只支援對 ext4 檔案系統的唯讀存取。針對這些系統，建議您將新檔案系統格式化為 ext3，而非 ext4。
 

@@ -1,10 +1,10 @@
 <properties linkid="develop-java-tutorials-jenkins-continuous-integration" urlDisplayName="Jenkins Continuous Integration" pageTitle="Using Azure Storage with a Jenkins Continuous Integration Solution | Microsoft Azure" metaKeywords="" description="This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution." metaCanonical="" services="storage" documentationCenter="Java" title="Using Azure Storage with a Jenkins Continuous Integration solution" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 使用 Azure 儲存體搭配 Jenkins 連續整合解決方案
 
-*作者：[Microsoft Open Technologies Inc.][] (英文)*
+*作者：[Microsoft Open Technologies Inc.][Microsoft Open Technologies Inc.] (英文)*
 
 下列資訊說明如何使用 Azure Blob 服務，作為 Jenkins 連續整合 (CI) 解決方案所建立的組建成品儲存機制，或作為在組建程序中要使用之可下載檔案的來源。您會發現這很實用的其中一種情況就是，當您在敏捷式開發環境中編寫程式碼 (使用 Java 或其他語言) 時，組建是根據連續整合來執行，而您需要一個存放庫來存放組建成品，以便能夠將這些成品分享給其他組織成員或客戶，或是維護封存等等。另一種情況是當組建工作本身需要其他檔案時，例如，要隨組建輸入一起下載的相依性項目。
 
@@ -12,21 +12,21 @@
 
 ## 目錄
 
--   [Jenkins 概觀][]
--   [使用 Blob 服務的優點][]
--   [必要條件][]
--   [如何使用 Blob 服務搭配 Jenkins CI][]
--   [如何安裝 Azure 儲存體外掛程式][]
--   [如何設定 Azure 儲存體外掛程式來使用您的儲存體帳戶][]
--   [如何建立會將您的組建成品上傳至您儲存體帳戶的建置後動作][]
--   [如何建立從 Azure Blob 儲存體下載的組建步驟][]
--   [Blob 服務所使用的元件][]
+-   [Jenkins 概觀][Jenkins 概觀]
+-   [使用 Blob 服務的優點][使用 Blob 服務的優點]
+-   [必要條件][必要條件]
+-   [如何使用 Blob 服務搭配 Jenkins CI][如何使用 Blob 服務搭配 Jenkins CI]
+-   [如何安裝 Azure 儲存體外掛程式][如何安裝 Azure 儲存體外掛程式]
+-   [如何設定 Azure 儲存體外掛程式來使用您的儲存體帳戶][如何設定 Azure 儲存體外掛程式來使用您的儲存體帳戶]
+-   [如何建立會將您的組建成品上傳至您儲存體帳戶的建置後動作][如何建立會將您的組建成品上傳至您儲存體帳戶的建置後動作]
+-   [如何建立從 Azure Blob 儲存體下載的組建步驟][如何建立從 Azure Blob 儲存體下載的組建步驟]
+-   [Blob 服務所使用的元件][Blob 服務所使用的元件]
 
 ## <a name="overview"></a><span class="short header">概觀</span>Jenkins 概觀
 
 Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自動且頻繁的方式產生組建，來實現軟體專案的連續整合，從而提升開發人員產能。組建會分版本存在，而組建成品可以上傳至各種存放庫。本主題將示範如何使用 Azure Blob 儲存體作為組建成品的存放庫。其中也示範如何從 Azure Blob 儲存體下載相依性項目。
 
-如需 Jenkins 的詳細資訊，請參閱[認識 Jenkins][] (英文)。
+如需 Jenkins 的詳細資訊，請參閱[認識 Jenkins][認識 Jenkins] (英文)。
 
 ## <a name="benefits"></a><span class="short header">優點</span>使用 Blob 服務的優點
 
@@ -56,7 +56,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 
 -   一個 Azure 帳戶。您可以在 <http://www.windowsazure.com> 註冊 Azure 帳戶。
 
--   一個 Azure 儲存體帳戶。如果您還沒有儲存體帳戶，可以使用[如何建立儲存體帳戶][]中的步驟建立一個帳戶。
+-   一個 Azure 儲存體帳戶。如果您還沒有儲存體帳戶，可以使用[如何建立儲存體帳戶][如何建立儲存體帳戶]中的步驟建立一個帳戶。
 
 -   建議您熟悉 Jenkins CI 解決方案，但這並非必要，因為下列內容將使用一個基本範例來示範使用 Blob 服務作為 Jenkins CI 組建成品的存放庫時所需的步驟。
 
@@ -108,7 +108,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 
     在您為 [Execute Windows batch command] 輸入指令碼的 [Command] 區段底下有一個 Jenkins 所辨識環境變數的連結。按一下該連結即可了解各環境變數名稱和描述。請注意，含有特殊字元的環境變數 (例如 **BUILD\_URL** 環境變數) 不能當做容器名稱或共同虛擬路徑。
 
-8.  在此範例中，請按一下 [Make new container public by default]。(如果您想要使用私用容器，則需要建立共用存取簽章來允許存取。這已超出本主題的範圍。若要深入了解共用存取簽章，請參閱[建立共用存取簽章][]。)
+8.  在此範例中，請按一下 [Make new container public by default]。(如果您想要使用私用容器，則需要建立共用存取簽章來允許存取。這已超出本主題的範圍。若要深入了解共用存取簽章，請參閱[建立共用存取簽章][建立共用存取簽章]。)
 9.  [選擇性] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [Clean container before uploading] (若不想清除容器的內容，請維持不核取)。
 10. 在 [List of Artifacts to upload] 中，輸 **text/*.txt**。
 11. 在 [Common virtual path for uploaded artifacts] 中，基於本教學課程的目的，輸入 **${BUILD\_ID}/${BUILD\_NUMBER}**。
@@ -143,7 +143,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 
 -   **儲存體帳戶**：所有對 Azure 儲存體的存取都是透過儲存體帳戶進行。這是存取 blob 用的最高等級的命名空間。帳戶可以包含不限數目的容器，只要它們的大小總計低於 100TB 即可。
 -   **容器**：容器提供一組 Blob 的群組。所有 Blob 都必須放在容器中。一個帳戶可以包含的容器不限數量。容器可以儲存無限制的 Blob。
--   **Blob**：任何類型和大小的檔案。Azure 儲存中可以儲存兩種 Blob：區塊和分頁 Blob。大部分檔案都是區塊 Blob。單一區塊 Blob 的大小上限為 200GB。本教學課程使用區塊 Blob。分頁 Blob (另一種 Blob 類型) 的大小上限為 1TB，當檔案中的位元組範圍經常修改時，分頁 Blob 的效率較高。如需關於 Blob 的詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob][]。
+-   **Blob**：任何類型和大小的檔案。Azure 儲存中可以儲存兩種 Blob：區塊和分頁 Blob。大部分檔案都是區塊 Blob。單一區塊 Blob 的大小上限為 200GB。本教學課程使用區塊 Blob。分頁 Blob (另一種 Blob 類型) 的大小上限為 1TB，當檔案中的位元組範圍經常修改時，分頁 Blob 的效率較高。如需關於 Blob 的詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob][了解區塊 Blob 和分頁 Blob]。
 -   **URL 格式**：可利用下列 URL 格式來定址 Blob：
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -167,4 +167,4 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
   [認識 Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
   [如何建立儲存體帳戶]: http://go.microsoft.com/fwlink/?LinkId=279823
   [建立共用存取簽章]: http://go.microsoft.com/fwlink/?LinkId=279889
-  [了解區塊 Blob 和分頁 Blob]: http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx
+  [了解區塊 Blob 和分頁 Blob]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee691964.aspx

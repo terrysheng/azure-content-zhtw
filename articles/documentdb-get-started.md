@@ -1,6 +1,6 @@
 <properties title="Get started with a DocumentDB account" pageTitle="Get started with a DocumentDB account | Azure" description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within the account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # 開始使用 DocumentDB 帳戶
 
@@ -33,7 +33,7 @@
 
 從 DocumentDB 帳戶的 Azure 管理預覽入口網站分頁中，可取得 DocumentDB 帳戶端點和金鑰。
 
-![][]
+![][0]
 
 > 請注意，[金鑰] 分頁中的 DocumentDB 存取金鑰會授與對於 DocumentDB 帳戶及其資源的管理存取權。DocumentDB 也支援使用資源金鑰，可讓用戶端根據您已授與的權限來讀取、寫入和刪除 DocumentDB 帳戶中的資源，而不需要帳戶金鑰。
 
@@ -196,7 +196,7 @@ DocumentDB 對每個集合中儲存的 JSON 文件，支援豐富的查詢。以
   [建立文件]: #CreateDoc
   [查詢 DocumentDB 資源]: #Query
   [後續步驟]: #NextSteps
-  []: ./media/documentdb-get-started/gs1.png
+  [0]: ./media/documentdb-get-started/gs1.png
   [Windows Azure 網站：應用程式字串與連接字串的運作方式]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
   [監視 DocumentDB 帳戶]: http://go.microsoft.com/fwlink/p/?LinkId=402378
   [DocumentDB 文件頁面]: http://go.microsoft.com/fwlink/p/?LinkID=402319

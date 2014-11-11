@@ -1,25 +1,25 @@
 <properties linkid="manage-services-how-to-create-websites" urlDisplayName="How to create" pageTitle="How to create websites - Azure service management" metaKeywords="Azure creating website, Azure deleting website" description="Learn how to create a website using the Azure Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create and Deploy a Website" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # 如何建立網站
 
 本主題說明如何從組件庫或使用管理入口網站來建立網站。
 
-如需關於如何將內容部署到已建立之 Azure 網站的詳細資訊，請參閱 [Azure 網站][]中的＜**部署**＞一節。
+如需關於如何將內容部署到已建立之 Azure 網站的詳細資訊，請參閱 [Azure 網站][Azure 網站]中的＜**部署**＞一節。
 
 ## 目錄
 
--   [作法：使用管理入口網站來建立網站][]
--   [作法：從藝廊建立網站][]
--   [作法：刪除網站][]
--   [後續步驟][]
+-   [作法：使用管理入口網站來建立網站][作法：使用管理入口網站來建立網站]
+-   [作法：從藝廊建立網站][作法：從藝廊建立網站]
+-   [作法：刪除網站][作法：刪除網站]
+-   [後續步驟][後續步驟]
 
 ## <a name="createawebsiteportal"></a>作法：使用管理入口網站來建立網站
 
 執行下列步驟在 Azure 中建立網站。
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 
 2.  按一下 [管理入口網站] 左下角的 [新建] 圖示。
 
@@ -59,7 +59,7 @@
 
 ## <a name="howtocreatefromgallery"></a>作法：從組件庫建立網站
 
-[WACOM.INCLUDE [website-from-gallery][]]
+[WACOM.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 
 ## <a name="deleteawebsite"></a>作法：刪除網站
 
@@ -67,7 +67,7 @@
 
 ## <a name="nextsteps"></a>後續步驟
 
-如需詳細資訊，請參閱 [Azure 網站][]。
+如需詳細資訊，請參閱 [Azure 網站][Azure 網站]。
 
   [Azure 網站]: /zh-TW/documentation/services/web-sites/
   [作法：使用管理入口網站來建立網站]: #createawebsiteportal

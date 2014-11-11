@@ -1,31 +1,31 @@
 <properties linkid="dev-nodejs-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Node.js) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Node.js" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Service Bus Topics/Subscriptions" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 如何使用服務匯流排主題/訂閱
 
-本指南將示範如何從 Node.js 應用程式使用服務匯流排主題和訂閱。涵蓋的案例包括「建立主題和訂閱」、「建立訂閱篩選器」、「傳送訊息至主題」、「接收訂閱的訊息」，以及「刪除主題和訂閱」。如需主題和訂閱的詳細資訊，請參閱＜[後續步驟][]＞一節。
+本指南將示範如何從 Node.js 應用程式使用服務匯流排主題和訂閱。涵蓋的案例包括「建立主題和訂閱」、「建立訂閱篩選器」、「傳送訊息至主題」、「接收訂閱的訊息」，以及「刪除主題和訂閱」。如需主題和訂閱的詳細資訊，請參閱＜[後續步驟][後續步驟]＞一節。
 
 ## 目錄
 
--   [什麼是服務匯流排主題和訂閱？][]
--   [建立服務命名空間][]
--   [取得命名空間的預設管理認證][]
--   [建立 Node.js 應用程式][]
--   [設定應用程式使用服務匯流排][]
--   [作法：建立主題][]
--   [作法：建立訂閱][]
--   [作法：傳送訊息至主題][]
--   [作法：自訂閱接收訊息][]
--   [作法：處理應用程式當機與無法讀取的訊息][]
--   [作法：刪除主題和訂閱][]
+-   [什麼是服務匯流排主題和訂閱？][什麼是服務匯流排主題和訂閱？]
+-   [建立服務命名空間][建立服務命名空間]
+-   [取得命名空間的預設管理認證][取得命名空間的預設管理認證]
+-   [建立 Node.js 應用程式][建立 Node.js 應用程式]
+-   [設定應用程式使用服務匯流排][設定應用程式使用服務匯流排]
+-   [作法：建立主題][作法：建立主題]
+-   [作法：建立訂閱][作法：建立訂閱]
+-   [作法：傳送訊息至主題][作法：傳送訊息至主題]
+-   [作法：自訂閱接收訊息][作法：自訂閱接收訊息]
+-   [作法：處理應用程式當機與無法讀取的訊息][作法：處理應用程式當機與無法讀取的訊息]
+-   [作法：刪除主題和訂閱][作法：刪除主題和訂閱]
 -   [後續步驟][1]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <a name="create-app"></a>建立 Node.js 應用程式
 
-建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][]、[Node.js 雲端服務][] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站][]。
+建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][建立 Node.js 應用程式並將其部署到 Azure 網站]、[Node.js 雲端服務][Node.js 雲端服務] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站][使用 WebMatrix 的網站]。
 
 ## <a name="configure-app"></a> 設定應用程式使用服務匯流排
 
@@ -61,9 +61,9 @@
 
 Azure 模組將讀取環境變數 AZURE\_SERVICEBUS\_NAMESPACE 和 AZURE\_SERVICEBUS\_ACCESS\_KEY，以取得連接至 Azure 服務匯流排所需的資訊。如果未設定這些環境變數，則在呼叫 **createServiceBusService** 時必須指定帳戶資訊。
 
-如需在 Azure 雲端服務組態檔中設定環境變數的範例，請參閱[使用儲存體的 Node.js 雲端服務][]。
+如需在 Azure 雲端服務組態檔中設定環境變數的範例，請參閱[使用儲存體的 Node.js 雲端服務][使用儲存體的 Node.js 雲端服務]。
 
-如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][]。
+如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][使用儲存體的 Node.js Web 應用程式]。
 
 ## <a name="create-topic"></a> 如何建立主題
 
@@ -133,7 +133,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 您也可以設定篩選器，讓您界定哪些傳送至主題的訊息應出現在特定主題訂閱中。
 
-訂閱所支援的最具彈性篩選器類型是實作 SQL92 子集的**SqlFilter**。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用的運算式詳細資料，請檢閱 [SqlFilter.SqlExpression][] 語法。
+訂閱所支援的最具彈性篩選器類型是實作 SQL92 子集的**SqlFilter**。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用的運算式詳細資料，請檢閱 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 語法。
 
 您可以使用 **ServiceBusService** 物件的 **createRule** 方法將篩選器新增至訂閱。此方法可讓您將新篩選器新增至現有的訂閱中。
 
@@ -295,9 +295,9 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 現在您已了解服務匯流排主題的基本概念，請參考下列連結，以取得更多資訊。
 
--   請參閱 MSDN 參考：[佇列、主題和訂閱][] (英文)。
--   [SqlFilter][] 的 API 參考資料。
--   造訪 GitHub 上的 [Azure SDK for Node][] (英文) 儲存機制。
+-   請參閱 MSDN 參考：[佇列、主題和訂閱][佇列、主題和訂閱] (英文)。
+-   [SqlFilter][SqlFilter] 的 API 參考資料。
+-   造訪 GitHub 上的 [Azure SDK for Node][Azure SDK for Node] (英文) 儲存機制。
 
   [後續步驟]: #nextsteps
   [什麼是服務匯流排主題和訂閱？]: #what-are-service-bus-topics

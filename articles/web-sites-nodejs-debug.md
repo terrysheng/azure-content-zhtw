@@ -1,12 +1,12 @@
 <properties linkid="dev-nodejs-how-to-debug-website" urlDisplayName="Debug Websites (Node)" pageTitle="How to Debug Azure Websites in Node.js" metaKeywords="debug website azure, debugging azure, troubleshooting azure web site, troubleshoot azure website node" description="Learn how to debug an Azure website in Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 如何在 Azure 網站中偵錯 Node.js 應用程式
 
 Azure 提供內建的診斷功能，可協助您針對 Azure 網站所託管的 Node.js 應用程式進行偵錯。本文中，您將了解如何啟用 stdout 和 stderr 記錄、在瀏覽器中顯示錯誤資訊，以及如何下載和檢視記錄檔。
 
-對於 Azure 上裝載的 Node.js 應用程式，診斷程式由 [IISNode][] 提供。本文只討論最常用來收集診斷資訊的設定，不提供 IISNode 的完整使用參考。如需有關使用 IISNode 的詳細資訊，請參閱 GitHub 的 [IISNode Readme][]。
+對於 Azure 上裝載的 Node.js 應用程式，診斷程式由 [IISNode][IISNode] 提供。本文只討論最常用來收集診斷資訊的設定，不提供 IISNode 的完整使用參考。如需有關使用 IISNode 的詳細資訊，請參閱 GitHub 的 [IISNode Readme][IISNode Readme]。
 
 ## <span id="enablelogging"></span></a>啟用記錄
 
@@ -36,9 +36,9 @@ Azure 提供內建的診斷功能，可協助您針對 Azure 網站所託管的 
 <p>如果網站是以 Azure 命令列工具或 Azure PowerShell Cmdlet 建立，則會自動建立預設的 <strong>IISNode.yml</strong> 檔案。</p>
 </div>
 
-您可以從 [Azure 管理入口網站][]選取網站，然後選取 [重新啟動] 按鈕，即可重新啟動網站：
+您可以從 [Azure 管理入口網站][Azure 管理入口網站]選取網站，然後選取 [重新啟動] 按鈕，即可重新啟動網站：
 
-![restart button][]
+![restart button][restart button]
 
 如果開發環境中已安裝 Azure 命令列工具，您可以使用下列命令來重新啟動網站：
 
@@ -55,7 +55,7 @@ Azure 提供內建的診斷功能，可協助您針對 Azure 網站所託管的 
 
     npm install azure-cli -g
 
-安裝之後，可使用 'azure' 命令來存取工具。必須先設定命令列工具來使用您的 Azure 訂閱。如需有關如何完成此工作的詳細資訊，請參閱＜[如何使用 Azure 命令列工具][]＞文章的＜**如何使用 Azure 命令列工具**＞一節。
+安裝之後，可使用 'azure' 命令來存取工具。必須先設定命令列工具來使用您的 Azure 訂閱。如需有關如何完成此工作的詳細資訊，請參閱＜[如何使用 Azure 命令列工具][如何使用 Azure 命令列工具]＞文章的＜**如何使用 Azure 命令列工具**＞一節。
 
 ### FTP
 
@@ -100,15 +100,14 @@ Azure 提供內建的診斷功能，可協助您針對 Azure 網站所託管的 
 
 本文中，您學到如何啟用和存取 Azure 的診斷資訊。此資訊有助於了解應用程式發生的問題，但也可能指出您使用的模組有問題，或 Azure 網站使用的 Node.js 版本和部署環境中使用的版本不同。
 
-如需有關在 Azure 上使用模組的詳細資訊，請參閱＜[在 Azure 應用程式中使用 Node.js 模組][]＞(英文)。
+如需有關在 Azure 上使用模組的詳細資訊，請參閱＜[在 Azure 應用程式中使用 Node.js 模組][在 Azure 應用程式中使用 Node.js 模組]＞(英文)。
 
-如需有關為應用程式指定 Node.js 版本的詳細資訊，請參閱＜[在 Azure 應用程式中指定 Node.js 版本][]＞(英文)。
+如需有關為應用程式指定 Node.js 版本的詳細資訊，請參閱＜[在 Azure 應用程式中指定 Node.js 版本][在 Azure 應用程式中指定 Node.js 版本]＞(英文)。
 
   [IISNode]: https://github.com/tjanczuk/iisnode
   [IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [restart button]: ./media/web-sites-nodejs-debug/restartbutton.png
-  [iisnode\_schema.xml]: https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml
   [如何使用 Azure 命令列工具]: /zh-TW/documentation/articles/xplat-cli/
   [在 Azure 應用程式中使用 Node.js 模組]: /zh-TW/documentation/articles/nodejs-use-node-modules-azure-apps/
   [在 Azure 應用程式中指定 Node.js 版本]: /zh-TW/documentation/articles/nodejs-specify-node-version-azure-apps/

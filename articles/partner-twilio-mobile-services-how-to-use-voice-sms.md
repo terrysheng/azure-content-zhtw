@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-twilio-for-voice-and-sms" pageTitle="Use Twilio for Voice and SMS Capabilities | Mobile Dev Center" metaKeywords="" description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="MicrosoftHelp@twilio.com" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
 
 # 如何從行動服務透過 Twilio 使用語音和簡訊功能
 
@@ -14,13 +14,13 @@ Twilio 正在形塑商業環境的未來，可讓開發人員將語音、VoIP �
 
 ## <span id="Pricing"></span></a>Twilio 定價和特別優惠
 
-Azure 客戶享有[特別優惠][]：升級 Twilio 帳戶即贈送價值 $10 的 Twilio 點數。此 Twilio 點數可用來折抵任何 Twilio 使用量 ($10 點數相當於最多傳送 1,000 則簡訊，或最多接收 1000 分鐘的撥入語音，視電話號碼所在地點或通話目的地而定)。請至 [ahoy.twilio.com/azure][特別優惠] 兌換 Twilio 點數來開始使用。
+Azure 客戶享有[特別優惠][特別優惠]：升級 Twilio 帳戶即贈送價值 $10 的 Twilio 點數。此 Twilio 點數可用來折抵任何 Twilio 使用量 ($10 點數相當於最多傳送 1,000 則簡訊，或最多接收 1000 分鐘的撥入語音，視電話號碼所在地點或通話目的地而定)。請至 [ahoy.twilio.com/azure][特別優惠] 兌換 Twilio 點數來開始使用。
 
-Twilio 是隨收隨付的服務。不需要設定費，隨時都可結清帳戶。如需詳細資訊，請參閱＜[Twilio 定價][]＞(英文)。
+Twilio 是隨收隨付的服務。不需要設定費，隨時都可結清帳戶。如需詳細資訊，請參閱＜[Twilio 定價][Twilio 定價]＞(英文)。
 
 ## <span id="Concepts"></span></a> 概念
 
-Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。用戶端程式庫有多種語言版本，相關清單請參閱＜[Twilio API 程式庫][]＞(英文)。其他教學課程會說明如何使用 Twilio 和以 [.NET][]、[node.js][]、[Java][]、[PHP][]、[Python][] 或 [Ruby][] 撰寫的 Azure 應用程式。
+Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。用戶端程式庫有多種語言版本，相關清單請參閱＜[Twilio API 程式庫][Twilio API 程式庫]＞(英文)。其他教學課程會說明如何使用 Twilio 和以 [.NET][.NET]、[node.js][node.js]、[Java][Java]、[PHP][PHP]、[Python][Python] 或 [Ruby][Ruby] 撰寫的 Azure 應用程式。
 
 Twilio API 的兩大重點是 Twilio 動詞和 Twilio 標記語言 (TwiML)。
 
@@ -28,7 +28,7 @@ Twilio API 的兩大重點是 Twilio 動詞和 Twilio 標記語言 (TwiML)。
 
 API 採用 Twilio 動詞。例如，**\<Say\>** 動詞指示 Twilio 在通話中用語音傳遞訊息。
 
-以下是 Twilio 動詞清單。如需了解其他動詞和功能，請參閱＜[Twilio 標記語言文件][]＞(英文)。
+以下是 Twilio 動詞清單。如需了解其他動詞和功能，請參閱＜[Twilio 標記語言文件][Twilio 標記語言文件]＞(英文)。
 
 -   **\<Dial\>**：使撥號者接通另一支電話。
 -   **\<Gather\>**：收集電話按鍵上輸入的號碼。
@@ -54,29 +54,29 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 
 當應用程式呼叫 Twilio API 時，其中一個 API 參數是傳回 TwiML 回應的 URL。在開發用途上，您可以使用 Twilio 提供的 URL 來提供應用程式所使用的 TwiML 回應。您也可以裝載您自己的 URL 來產生 TwiML 回應，另一種選擇是使用 **TwiMLResponse** 物件。
 
-如需 Twilio 動詞、屬性和 TwiML 的詳細資訊，請參閱 [TwiML][Twilio 標記語言文件]。如需 Twilio API 的詳細資訊，請參閱 [Twilio API][]。
+如需 Twilio 動詞、屬性和 TwiML 的詳細資訊，請參閱 [TwiML][Twilio 標記語言文件]。如需 Twilio API 的詳細資訊，請參閱 [Twilio API][Twilio API]。
 
 ## <span id="CreateAccount"></span></a>建立 Twilio 帳戶
 
-準備取得 Twilio 帳戶時，請至[試用 Twilio][] 註冊。您可以先使用免費帳戶，稍後再升級帳戶。
+準備取得 Twilio 帳戶時，請至[試用 Twilio][試用 Twilio] 註冊。您可以先使用免費帳戶，稍後再升級帳戶。
 
-註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面][] (英文) 的 **ACCOUNT SID** 和 **AUTH TOKEN** 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
+註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面][Twilio 帳戶頁面] (英文) 的 **ACCOUNT SID** 和 **AUTH TOKEN** 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
 
 ## <span id="VerifyPhoneNumbers"></span></a>驗證電話號碼
 
-各種電話號碼都必須經過您在 Twilio 的帳戶來驗證。例如，如果想要向外撥打電話，則必須向 Twilio 驗證此電話號碼為外撥來電者識別碼。同樣地，如果想要以某個電話號碼來接收簡訊，則必須向 Twilio 驗證此受話電話號碼。如需有關如何驗證電話號碼的詳細資訊，請參閱＜[管理電話號碼][]＞(英文)。以下某些程式碼依賴需要向 Twilio 驗證的電話號碼。
+各種電話號碼都必須經過您在 Twilio 的帳戶來驗證。例如，如果想要向外撥打電話，則必須向 Twilio 驗證此電話號碼為外撥來電者識別碼。同樣地，如果想要以某個電話號碼來接收簡訊，則必須向 Twilio 驗證此受話電話號碼。如需有關如何驗證電話號碼的詳細資訊，請參閱＜[管理電話號碼][管理電話號碼]＞(英文)。以下某些程式碼依賴需要向 Twilio 驗證的電話號碼。
 
-除了在應用程式中使用現有的電話號碼，您也可以購買 Twilio 電話號碼。如需有關購買 Twilio 電話號碼的詳細資訊，請參閱＜[Twilio 電話號碼說明][]＞(英文)。
+除了在應用程式中使用現有的電話號碼，您也可以購買 Twilio 電話號碼。如需有關購買 Twilio 電話號碼的詳細資訊，請參閱＜[Twilio 電話號碼說明][Twilio 電話號碼說明]＞(英文)。
 
 ## <span id="create_app"></span></a>建立行動服務
 
-代管已啟用 Twilio 功能之應用程式的行動服務，與其他行動服務並無不同。您只是在服務中新增 Twilio node.js 程式庫，以便從您的行動服務自訂 API 指令碼加以參考而已。如需建立初始行動服務的相關資訊，請參閱[開始使用行動服務][]。
+代管已啟用 Twilio 功能之應用程式的行動服務，與其他行動服務並無不同。您只是在服務中新增 Twilio node.js 程式庫，以便從您的行動服務自訂 API 指令碼加以參考而已。如需建立初始行動服務的相關資訊，請參閱[開始使用行動服務][開始使用行動服務]。
 
 ## <span id="VerifyPhoneNumbers"></span></a>設定行動服務以使用 Twilio Node.js 程式庫
 
 Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您方便而輕鬆地與 Twilio REST API 和 Twilio 用戶端互動，以產生 TwiML 回應。
 
-若要在行動服務中使用 Twilio node.js 程式庫，您必須利用行動服務 npm 模組支援 (只要將您的指令碼儲存在來源控制中，即可支援)。[在來源控制中儲存指令碼][]教學課程會逐步引導您在行動服務中首次設定來源控制，並將您的伺服器指令碼儲存在 Git 儲存機制中。
+若要在行動服務中使用 Twilio node.js 程式庫，您必須利用行動服務 npm 模組支援 (只要將您的指令碼儲存在來源控制中，即可支援)。[在來源控制中儲存指令碼][在來源控制中儲存指令碼]教學課程會逐步引導您在行動服務中首次設定來源控制，並將您的伺服器指令碼儲存在 Git 儲存機制中。
 
 設定行動服務的來源控制後，請開啟 [行動服務] 儀表板上的 [設定] 索引標籤，然後找出 Git URL 並加以複製。
 
@@ -92,7 +92,7 @@ to:
 
 出現提示時，請輸入您為服務設定來源控制時所使用的認證。登入之後，您將會看見 Azure 行動服務主控台。
 
-![Mobile Service Console][]
+![Mobile Service Console][Mobile Service Console]
 
 在主控台中，將目錄切換至 scripts 資料夾：
 
@@ -127,7 +127,7 @@ to:
 
 如需有關傳入至 **client.makeCall** 函數之參數的詳細資訊，請參閱 [][]<http://www.twilio.com/docs/api/rest/making-calls></a>。
 
-如前所述，此程式碼使用 Twilio 提供的網站來傳回 TwiML 回應。您可以改用您自己的網站來提供 TwiML 回應。如需詳細資訊，請參閱 [如何：從您自己的網站提供 TwiML 回應][]。
+如前所述，此程式碼使用 Twilio 提供的網站來傳回 TwiML 回應。您可以改用您自己的網站來提供 TwiML 回應。如需詳細資訊，請參閱 [如何：從您自己的網站提供 TwiML 回應][如何：從您自己的網站提供 TwiML 回應]。
 
 ## <span id="howto_send_sms"></span></a>作法：傳送簡訊
 
@@ -202,7 +202,7 @@ to:
         });
     };
 
-[WACOM.INCLUDE [twilio\_additional\_services\_and\_next\_steps][]]
+[WACOM.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
   [特別優惠]: http://ahoy.twilio.com/azure
   [Twilio 定價]: http://www.twilio.com/pricing
@@ -224,7 +224,5 @@ to:
   [Mobile Service Console]: ./media/partner-twilio-mobile-services-how-to-use-voice-sms/twilio-kuduconsole.png
   []: http://www.twilio.com/docs/api/rest/making-calls
   [如何：從您自己的網站提供 TwiML 回應]: #howto_provide_twiml_responses
-  [twimlet\_message\_url]: http://twimlets.com/message
-  [twimlet\_message\_url\_hello\_world]: http://twimlets.com/message?Message%5B0%5D=Hello%20World
   [1]: https://www.twilio.com/docs/api/twiml
-  [twilio\_additional\_services\_and\_next\_steps]: ../includes/twilio_additional_services_and_next_steps.md
+  [twilio_additional_services_and_next_steps]: ../includes/twilio_additional_services_and_next_steps.md

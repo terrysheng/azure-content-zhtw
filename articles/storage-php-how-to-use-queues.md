@@ -1,34 +1,34 @@
 <properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="How to use the queue service (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # 如何透過 PHP 使用佇列服務
 
-本指南將示範如何使用 Azure 佇列服務執行一般案例。這些範例均是以 Windows SDK for PHP 中的類別撰寫。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。如需佇列的詳細資訊，請參閱[後續步驟][]一節。
+本指南將示範如何使用 Azure 佇列服務執行一般案例。這些範例均是以 Windows SDK for PHP 中的類別撰寫。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。如需佇列的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [什麼是佇列儲存體][]
--   [概念][]
--   [建立 Azure 儲存體帳戶][]
--   [建立 PHP 應用程式][]
--   [設定您的應用程式以存取佇列服務][]
--   [設定 Azure 儲存體連接][]
--   [作法：建立佇列][]
--   [作法：將訊息新增至佇列][]
--   [作法：查看下一個訊息][]
--   [作法：將下一個訊息清除佇列][]
--   [作法：變更佇列訊息的內容][]
--   [其他將訊息移出佇列的選項][]
--   [作法：取得佇列長度][]
--   [作法：刪除佇列][]
+-   [什麼是佇列儲存體][什麼是佇列儲存體]
+-   [概念][概念]
+-   [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
+-   [建立 PHP 應用程式][建立 PHP 應用程式]
+-   [設定您的應用程式以存取佇列服務][設定您的應用程式以存取佇列服務]
+-   [設定 Azure 儲存體連接][設定 Azure 儲存體連接]
+-   [作法：建立佇列][作法：建立佇列]
+-   [作法：將訊息新增至佇列][作法：將訊息新增至佇列]
+-   [作法：查看下一個訊息][作法：查看下一個訊息]
+-   [作法：將下一個訊息清除佇列][作法：將下一個訊息清除佇列]
+-   [作法：變更佇列訊息的內容][作法：變更佇列訊息的內容]
+-   [其他將訊息移出佇列的選項][其他將訊息移出佇列的選項]
+-   [作法：取得佇列長度][作法：取得佇列長度]
+-   [作法：刪除佇列][作法：刪除佇列]
 -   [後續步驟][1]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <span id="create-account"></span></a>建立 Azure 儲存體帳戶
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="create-app"></span></a>建立 PHP 應用程式
 
@@ -38,13 +38,13 @@
 
 ## <span id="GetClientLibrary"></span></a>取得 Azure 用戶端程式庫
 
-[WACOM.INCLUDE [get-client-libraries][]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="configure-app"></span></a>設定您的應用程式以存取佇列服務
 
 若要使用 Azure 佇列服務 API，您必須：
 
-1.  參考使用 [require\_once][] 陳述式的自動換片器檔案，以及
+1.  參考使用 [require\_once][require\_once] 陳述式的自動換片器檔案，以及
 2.  參考任何您可能使用的類別。
 
 下列範例顯示如何納入自動換片器檔案及參考 **ServicesBuilder** 類別。
@@ -110,7 +110,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -140,7 +140,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -169,7 +169,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -223,7 +223,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -265,7 +265,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -312,7 +312,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -338,7 +338,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -365,7 +365,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -375,7 +375,7 @@
 
 了解 Azure 佇列服務的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][]
+-   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][在 Azure 中儲存和存取資料]
 -   請造訪 Azure 儲存體團隊部落格：<http://blogs.msdn.com/b/windowsazurestorage/>
 
   [後續步驟]: #NextSteps
@@ -397,5 +397,4 @@
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [get-client-libraries]: ../includes/get-client-libraries.md
-  [require\_once]: http://www.php.net/manual/en/function.require-once.php
-  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx

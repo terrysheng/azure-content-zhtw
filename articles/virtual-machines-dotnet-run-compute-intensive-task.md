@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-compute-intensive-task-on-a-virtual-machine" urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="How to run a compute-intensive task in .NET on an Azure virtual machine" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
 # 如何在 Azure 虛擬機器上以 .NET 執行需密集運算的工作
 
@@ -20,17 +20,17 @@
 
 本教學課程將使用旅行業務員問題 (Traveling Salesman Problem) 來進行大量運算工作。以下是執行需密集運算之工作的 .NET 應用程式範例：
 
-![Traveling Salesman Problem solver][]
+![Traveling Salesman Problem solver][Traveling Salesman Problem solver]
 
 以下是監控需密集運算之工作的 .NET 應用程式範例：
 
-![Traveling Salesman Problem client][]
+![Traveling Salesman Problem client][Traveling Salesman Problem client]
 
-[WACOM.INCLUDE [create-account-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## 建立虛擬機器
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  按一下 [新增]。
 3.  按一下 [虛擬機器]。
 4.  按一下 [快速建立]。
@@ -55,22 +55,22 @@
 
 建立服務命名空間：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  在管理入口網站的左方瀏覽窗格中，按一下 [服務匯流排]。
 3.  在管理入口網站的下方窗格中，按一下 [建立]。
 
-    ![Create new service bus][]
+    ![Create new service bus][Create new service bus]
 
 4.  在 [Create a namespace] 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用，因為該名稱必須是唯一名稱。
 
-    ![Create a namespace dialog][]
+    ![Create a namespace dialog][Create a namespace dialog]
 
 5.  確定命名空間名稱可用之後，請選擇要代管命名空間的區域 (務必使用要代管虛擬機器的相同區域)。
     **重要事項**<br /><p>挑選您使用或打算使用於虛擬機器的<strong>相同區域</strong>。這樣可以獲得最佳效能。</p>
 6.  如果您用以登入的帳戶有一個以上的 Azure 訂閱，請選取要用於命名空間的訂閱 (如果您用以登入的帳戶只有一個訂閱，您就不會看到含有訂閱的下拉式清單)。
 7.  按一下核取記號。此時系統會建立並啟用服務命名空間。系統為帳戶提供資源時，您可能需要等幾分鐘。
 
-    ![Click create screenshot][]
+    ![Click create screenshot][Click create screenshot]
 
 然後，您建立的命名空間就會出現在管理入口網站中，稍待片刻就會生效。等到狀態變成 [作用中] 之後，再繼續進行下一步。
 
@@ -79,16 +79,16 @@
 若要在新的命名空間上執行管理作業 (例如建立佇列)，您必須取得命名空間的管理認證。
 
 1.  在左側瀏覽窗格中，按一下 [服務匯流排] 節點，以顯示可用的命名空間清單：<br />
-    ![可用的命名空間 螢幕擷取畫面][]
+    ![可用的命名空間 螢幕擷取畫面][可用的命名空間 螢幕擷取畫面]
 2.  從顯示的清單中，選取您剛建立的命名空間：<br />
-    ![命名空間清單 螢幕擷取畫面][]
+    ![命名空間清單 螢幕擷取畫面][命名空間清單 螢幕擷取畫面]
 3.  按一下 [存取金鑰]。<br />
-    ![存取金鑰 按鈕][]
+    ![存取金鑰 按鈕][存取金鑰 按鈕]
 4.  在此對話方塊中，找出 [Default Issuer] 和 [Default Key] 項目。請記下這些值，接下來會利用此資訊對命名空間執行作業。
 
 ## 如何建立 .NET 應用程式以便執行需密集運算的工作
 
-1.  在您的部署機器 (不一定是您建立的虛擬機器) 上，下載 [Azure SDK for .NET][]。
+1.  在您的部署機器 (不一定是您建立的虛擬機器) 上，下載 [Azure SDK for .NET][Azure SDK for .NET]。
 2.  利用名為 **TSPSolver** 的專案建立 .NET 主控台應用程式。確定已針對 **NET Framework 4** (而非 **.NET Framework 4 用戶端設定檔**) 設定目標 Framework。執行下列動作，即可在您建立專案後設定此目標 Framework：在 Visual Studio 的功能表中，依序按一下 [專案]、[屬性]、[應用程式] 索引標籤，然後設定 [目標 Framework] 的值。
 3.  加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，於 [TSPSolver] 上按一下滑鼠右鍵，按一下 [新增參考]、按一下 [瀏覽] 索引標籤，瀏覽至 **C:\\Program Files\\Microsoft SDKs\\Windows Azure.NET SDK\\2012-06\\ref** 並選取 **Microsoft.ServiceBus.dll** 作為參考。
 4.  加入 System Runtime Serialization 程式庫中。在 Visual Studio 方案總管中，於 [TSPSolver] 上按一下滑鼠右鍵，按一下 [新增參考]、按一下 [.NET] 索引標籤，然後選取 **System.Runtime.Serialization** 作為參考。
@@ -535,7 +535,7 @@
 
 ## 使用 TSPSolver 建立和刪除佇列的替代方式
 
-除了使用 TSPSolver 建立或刪除佇列，您也可以使用 [Azure 管理入口網站][]來建立或刪除佇列。請造訪管理入口網站的服務匯流排區段，存取用於建立或刪除佇列的使用者介面，以及擷取連接字串、發行者和存取金鑰。您也可以檢視服務匯流排佇列的儀表板，進而檢視連入和連出訊息的度量。
+除了使用 TSPSolver 建立或刪除佇列，您也可以使用 [Azure 管理入口網站][Azure 管理入口網站]來建立或刪除佇列。請造訪管理入口網站的服務匯流排區段，存取用於建立或刪除佇列的使用者介面，以及擷取連接字串、發行者和存取金鑰。您也可以檢視服務匯流排佇列的儀表板，進而檢視連入和連出訊息的度量。
 
   [Traveling Salesman Problem solver]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
   [Traveling Salesman Problem client]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png

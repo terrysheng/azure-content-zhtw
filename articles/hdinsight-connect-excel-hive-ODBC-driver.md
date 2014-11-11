@@ -1,31 +1,31 @@
 <properties linkid="manage-services-hdinsight-connect-excel-with-hive-ODBC" urlDisplayName="Connect Excel to HDInsight" pageTitle="Connect Excel to Hadoop with the Hive ODBC Driver | Azure" metaKeywords="" description="Learn how to set up and use the Microsoft Hive ODBC driver for Excel to query data in an HDInsight cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Connect Excel to Hadoop with the Microsoft Hive ODBC Driver" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # 使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 Hadoop
 
 Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智慧 (BI) 元件與 Azure HDInsight 所部署的 Apache Hadoop 叢集相整合。舉例來說，此整合可讓您使用 Microsoft Hive 開放式資料庫連接 (ODBC) 驅動程式，將 Excel 連接到 HDInsight 上 Hadoop 叢集的 Hive 資料倉儲。
 
-您也可以從 Excel 使用 Microsoft Power Query for Excel，連接與 HDInsight 叢集和其他資料來源 (包括其他 (非 HDInsight) Hadoop 叢集) 相關聯的資料。如需安裝和使用 Power Query 的相關資訊，請參閱[使用 Power Query 將 Excel 連接到 HDInsight][]。
+您也可以從 Excel 使用 Microsoft Power Query for Excel，連接與 HDInsight 叢集和其他資料來源 (包括其他 (非 HDInsight) Hadoop 叢集) 相關聯的資料。如需安裝和使用 Power Query 的相關資訊，請參閱[使用 Power Query 將 Excel 連接到 HDInsight][使用 Power Query 將 Excel 連接到 HDInsight]。
 
 **必要條件**：
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
--   HDInsight 叢集。若要設定此叢集，請參閱 [Azure HDInsight 使用者入門][]。
+-   HDInsight 叢集。若要設定此叢集，請參閱 [Azure HDInsight 使用者入門][Azure HDInsight 使用者入門]。
 -   執行 Windows 8、Windows 7、Windows Server 2012 或 Windows Server 2008 R2 的電腦。
 -   Office 2013 Professional Plus、Office 365 Pro Plus、Excel 2013 Standalone 或 Office 2010 Professional Plus。
 
 ## 本文內容
 
-1.  [安裝 Microsoft Hive ODBC 驅動程式][]
-2.  [建立 Hive ODBC 資料來源][]
-3.  [從 HDInsight 叢集將資料匯入 Excel 中][]
-4.  [後續步驟][]
+1.  [安裝 Microsoft Hive ODBC 驅動程式][安裝 Microsoft Hive ODBC 驅動程式]
+2.  [建立 Hive ODBC 資料來源][建立 Hive ODBC 資料來源]
+3.  [從 HDInsight 叢集將資料匯入 Excel 中][從 HDInsight 叢集將資料匯入 Excel 中]
+4.  [後續步驟][後續步驟]
 
 ## <span id="InstallHiveODBCDriver"></span></a>安裝 Microsoft Hive ODBC 驅動程式
 
-從[下載中心][]下載並安裝 Microsoft Hive ODBC 驅動程式。
+從[下載中心][下載中心]下載並安裝 Microsoft Hive ODBC 驅動程式。
 
 此驅動程式可安裝在 32 位元或 64 位元版的 Windows 7、Windows 8、Windows Server 2008 R2 和 Windows Server 2012 上，並可供連接到 Azure HDInsight (1.6 版和更新版本) 與 Azure HDInsight Emulator (v.1.0.0.0 和更新版本)。您應安裝與您要使用 ODBC 驅動程式的應用程式版本相符的版本。本教學課程將會從 Office Excel 使用此驅動程式。
 
@@ -36,7 +36,7 @@ Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智�
 1.  在 Windows 8 中，按視窗鍵以開啟 [開始] 畫面，然後輸入**資料來源**。
 2.  根據您的 Office 版本，按一下 [設定 ODBC 資料來源 (32 位元)] 或 [設定 ODBC 資料來源 (64 位元)]。如果您使用 Windows 7，請從 [系統管理工具] 中選擇 [ODBC 資料來源 (32 位元)] 或 [ODBC 資料來源 (64 位元)]。這會啟動 [ODBC 資料來源管理員] 對話方塊。
 
-    ![OBDC data source administrator][]
+    ![OBDC data source administrator][OBDC data source administrator]
 
 3.  在 [使用者 DNS] 中按一下 [新增]，以開啟 [建立新資料來源] 精靈。
 4.  選取 [Microsoft Hive ODBC 驅動程式]，然後按一下 [完成]。這會啟動 [Microsoft Hive ODBC 驅動程式 DNS 設定] 對話方塊。
@@ -66,7 +66,7 @@ Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智�
 			十進位資料行小數位數</td><td>資料類型的長度和精確度可能會影響傳回資料的方式。如果失去精確度且 (或) 發生截斷狀況，將會傳回不正確的資訊。</td></tr>
 	</table>
  
-    ![進階選項][]
+    ![進階選項][進階選項]
 
 6.  按一下 [測試] 以測試資料來源。資料來源正確設定時，會顯示*「測試順利完成！」*。
 7.  按一下 [確定] 以關閉 [測試] 對話方塊。新的資料來源此時應會列示在 [ODBC 資料來源管理員] 中。
@@ -79,19 +79,19 @@ Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智�
 1.  在 Excel 中開啟新的或現有的活頁簿。
 2.  在 [資料] 索引標籤上按一下 [取得外部資料] 磚，按一下 [從其他資料來源]，然後按一下 [從資料連接精靈]，以啟動 [資料連接精靈]。
 
-    ![Open data connection wizard][]
+    ![Open data connection wizard][Open data connection wizard]
 
 3.  選取 **ODBC DSN** 作為資料來源，然後按 [下一步]。
 4.  從 ODBC 資料來源中，選取您在上一個步驟中建立的資料來源名稱，然後按 [下一步]。
 5.  在精靈中重新輸入叢集的密碼，然後按一下 [測試] 以驗證組態。
 6.  按一下 [確定] 以關閉 [測試] 對話方塊。
 7.  按一下 [確定]。等待 [選取資料庫及資料表] 對話方塊開啟。這可能需要幾秒鐘的時間。
-8.  選取您要匯入的資料表，然後按 [下一步]。*hivesampletable* 是 HDInsight 叢集隨附的範例 Hive 資料表。您可以選擇此資料表 (如果尚未建立)。如需執行 Hive 查詢及建立 Hive 資料表的詳細資訊，請參閱[搭配 HDInsight 使用 Hive][]。
+8.  選取您要匯入的資料表，然後按 [下一步]。*hivesampletable* 是 HDInsight 叢集隨附的範例 Hive 資料表。您可以選擇此資料表 (如果尚未建立)。如需執行 Hive 查詢及建立 Hive 資料表的詳細資訊，請參閱[搭配 HDInsight 使用 Hive][搭配 HDInsight 使用 Hive]。
 9.  按一下 [完成]。
 10. 在 [匯入資料] 對話方塊中，您可以變更或指定查詢。若要執行此動作，請按一下 [屬性]。這可能需要幾秒鐘的時間。
 11. 按一下 [定義] 索引標籤，然後將 [LIMIT 200] 附加至 [命令文字] 文字方塊中的 Hive Select 陳述式。此修改會將傳回的記錄數限定為 200 個。
 
-    ![Connection Properties][]
+    ![Connection Properties][Connection Properties]
 
 12. 按一下 [確定] 以關閉 [連接屬性] 對話方塊。
 13. 按一下 [確定] 以關閉 [匯入資料] 對話方塊。
@@ -101,9 +101,9 @@ Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智�
 
 在本文中，您已了解到如何使用 Microsoft Hive ODBC 驅動程式將 HDInsight 服務中的資料擷取至 Excel。同樣地，您也可以將 HDInsight 服務中的資料擷取至 SQL Database。此外也可以將資料上傳至 HDInsight 服務。若要深入了解，請參閱：
 
--   [使用 HDInsight 分析班機延誤資料][]
--   [將資料上傳到 HDInsight][]
--   [搭配 HDInsight 使用 Sqoop][]
+-   [使用 HDInsight 分析班機延誤資料][使用 HDInsight 分析班機延誤資料]
+-   [將資料上傳到 HDInsight][將資料上傳到 HDInsight]
+-   [搭配 HDInsight 使用 Sqoop][搭配 HDInsight 使用 Sqoop]
 
   [使用 Power Query 將 Excel 連接到 HDInsight]: ../hdinsight-connect-excel-power-query/
   [Azure HDInsight 使用者入門]: ../hdinsight-get-started/

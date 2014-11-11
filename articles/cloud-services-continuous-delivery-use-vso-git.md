@@ -1,6 +1,6 @@
 <properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # 使用 Visual Studio Online 和 Git 連續傳遞至 Azure
 
@@ -29,7 +29,7 @@
 1.  如果您還沒有 Visual Studio Online 帳戶，請依照[這裡][1]的指示進行。建立小組專案時，請選擇 Git 作為原始檔控制系統。依照指示將 Visual Studio 連接至小組專案。
 
 2.  在 Team Explorer 中，選擇 [複製這個儲存機制] 連結。
-    ![][]
+    ![][0]
 
 3.  指定本機複本的位置，然後選擇 [複製] 按鈕。
 
@@ -187,11 +187,10 @@
   [步驟 2：建立專案並推送至 Git 儲存機制。]: #step2
   [步驟 3：將專案連線至 Azure。]: #step3
   [步驟 4：進行變更並觸發重建和重新部署。]: #step4
-  [步驟 5：重新部署舊版組建 (選用)]: #step5
   [步驟 6：變更生產部署]: #step6
   [步驟 7：從工作分支部署]: #step7
   [1]: http://go.microsoft.com/fwlink/?LinkId=397665
-  []: ./media/cloud-services-continuous-delivery-use-vso-git/CloneThisRepository.PNG
+  [0]: ./media/cloud-services-continuous-delivery-use-vso-git/CloneThisRepository.PNG
   [2]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateNewSolutionInClonedRepo.PNG
   [開始使用 Azure 和 ASP.NET]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-get-started/
   [3]: ./media/cloud-services-continuous-delivery-use-vso-git/CommitMenuItem.PNG

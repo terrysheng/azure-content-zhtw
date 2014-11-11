@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Get started with push notifications (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # 開始在行動服務中使用推播通知 (舊版為推播)
 
@@ -18,36 +18,36 @@
 
 本主題說明如何使用 Azure 行動服務傳送推播通知至 Android 應用程式。在本教學課程中，您會使用 Google 雲端通訊 (GCM) 服務將推播通知新增至快速入門專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
-> [WACOM.NOTE]本主題支援「尚未升級」為使用通知中樞整合的「現有」行動服務。當您建立「新的」行動服務時，會自動啟用這項整合功能。如需新的行動服務，請參閱[開始使用推播通知][]。
+> [WACOM.NOTE]本主題支援「尚未升級」為使用通知中樞整合的「現有」行動服務。當您建立「新的」行動服務時，會自動啟用這項整合功能。如需新的行動服務，請參閱[開始使用推播通知][開始使用推播通知]。
 >
-> 行動服務與 Azure 通知中樞整合，以支援其他推播通知功能，例如範本、多個平台和改善的規模。*您應該升級現有的行動服務，以盡可能使用通知中樞*。升級後，請參閱這一版的[開始使用推播通知][]。
+> 行動服務與 Azure 通知中樞整合，以支援其他推播通知功能，例如範本、多個平台和改善的規模。*您應該升級現有的行動服務，以盡可能使用通知中樞*。升級後，請參閱這一版的[開始使用推播通知][開始使用推播通知]。
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 
--   [啟用 Google 雲端通訊][]
--   [設定行動服務][]
--   [將推播通知新增至應用程式][]
--   [更新指令碼來傳送推播通知][]
--   [插入資料以接收通知][]
+-   [啟用 Google 雲端通訊][啟用 Google 雲端通訊]
+-   [設定行動服務][設定行動服務]
+-   [將推播通知新增至應用程式][將推播通知新增至應用程式]
+-   [更新指令碼來傳送推播通知][更新指令碼來傳送推播通知]
+-   [插入資料以接收通知][插入資料以接收通知]
 
 本教學課程需要下列各項：
 
--   [行動服務 Android SDK][]
+-   [行動服務 Android SDK][行動服務 Android SDK]
 -   有效的 Google 帳戶
 
-本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][]。
+本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][開始使用行動服務]。
 
 ## <span id="register"></span></a>啟用 Google 雲端通訊
 
-[WACOM.INCLUDE [啟用 GCM][]]
+[WACOM.INCLUDE [啟用 GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 接下來，您將使用此 API 金鑰值，讓行動服務能夠使用 GCM 進行驗證並代表您的應用程式傳送推播通知。
 
 ## <span id="configure"></span></a>設定行動服務來傳送推播要求
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
-    ![][]
+    ![][0]
 
 2.  按一下 [發送] 索引標籤，輸入前一個程序中從 GCM 取得的 [API Key] 值，然後按一下 [儲存]。
 
@@ -59,11 +59,11 @@
 
 ### 新增 Google Play 服務至專案
 
-[WACOM.INCLUDE [新增 Play 服務][]]
+[WACOM.INCLUDE [新增 Play 服務](../includes/mobile-services-add-Google-play-services.md)]
 
 ### 新增程式碼
 
-1.  開啟專案檔案 **AndroidManifest.xml**。Google 雲端通訊在開發和測試方面有一些 API 層級的最低需求，這些是資訊清單中的 **minSdkVersion** 屬性所必須遵守。如果您因為是使用舊款裝置而需要將此值設為低於 16，請參閱[設定 Google Play 服務 SDK][] (英文)判斷可設到多低。請適當設定此屬性。
+1.  開啟專案檔案 **AndroidManifest.xml**。Google 雲端通訊在開發和測試方面有一些 API 層級的最低需求，這些是資訊清單中的 **minSdkVersion** 屬性所必須遵守。如果您因為是使用舊款裝置而需要將此值設為低於 16，請參閱[設定 Google Play 服務 SDK][設定 Google Play 服務 SDK] (英文)判斷可設到多低。請適當設定此屬性。
 
 2.  在 `uses-sdk` 元素中，確定 **targetSdkVersion** 已設為步驟 1 所安裝 SDK 平台的版本號碼。最好是設為最新可用版本。
 
@@ -113,7 +113,7 @@
 <p>當行動服務上已啟用動態結構描述，且插入的新項目含有此屬性時，<strong>TodoItem</strong> 資料表中就會自動新增 <strong>handle</strong> 欄。</p>
 </div>
 
-8.  下載並解壓縮[行動服務 Android SDK][]，開啟 **notifications** 資料夾，將 **notifications-1.0.1.jar** 檔案複製到您 Eclipse 專案的 *libs* 資料夾，然後重新整理 *libs* 資料夾。
+8.  下載並解壓縮[行動服務 Android SDK][行動服務 Android SDK]，開啟 **notifications** 資料夾，將 **notifications-1.0.1.jar** 檔案複製到您 Eclipse 專案的 *libs* 資料夾，然後重新整理 *libs* 資料夾。
 
     <div class="dev-callout"><b>注意</b>
 <p>檔案名稱結尾的數字在後續 SDK 版本中可能會變更。</p>
@@ -205,7 +205,7 @@
             });
         }
 
-    如此即會註冊新的 insert 指令碼，該指令碼會使用 [gcm 物件][]將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。
+    如此即會註冊新的 insert 指令碼，該指令碼會使用 [gcm 物件][gcm 物件]將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。
 
 ## <span id="test"></span></a>在應用程式中測試推播通知
 
@@ -245,20 +245,13 @@
 
 ## <a name="next-steps"></a>後續步驟
 
-在這個簡單範例中，使用者收到推播通知，其中含有剛插入的資料。用戶端會在要求中提供 GCM 所使用的裝置權杖給行動服務。在下一個教學課程[推播通知至應用程式使用者][]中，您將另行建立 Devices 資料表來儲存裝置權杖，並在發生插入動作時傳送推播通知給已儲存的所有通道。
+在這個簡單範例中，使用者收到推播通知，其中含有剛插入的資料。用戶端會在要求中提供 GCM 所使用的裝置權杖給行動服務。在下一個教學課程[推播通知至應用程式使用者][推播通知至應用程式使用者]中，您將另行建立 Devices 資料表來儲存裝置權杖，並在發生插入動作時傳送推播通知給已儲存的所有通道。
 
 <!-- Images. --> 
 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/develop/mobile/tutorials/get-started-with-push-js "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone"
-  [iOS]: /zh-tw/develop/mobile/tutorials/get-started-with-push-ios "iOS"
   [Android]: /zh-tw/develop/mobile/tutorials/get-started-with-push-android "Android"
-  [Appcelerator]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
-  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ ".NET 後端"
-  [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-android-get-started-push/ "JavaScript 後端"
   [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
   [啟用 Google 雲端通訊]: #register
   [設定行動服務]: #configure
@@ -270,7 +263,7 @@
   [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-android
   [啟用 GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
   [新增 Play 服務]: ../includes/mobile-services-add-Google-play-services.md
   [設定 Google Play 服務 SDK]: http://go.microsoft.com/fwlink/?LinkId=389801

@@ -1,6 +1,6 @@
 <properties title="Explore your metrics" pageTitle="Explore your metrics" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills"></tags>
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
 
 # 探索度量
 
@@ -16,7 +16,7 @@
 
 經由檢測應用程式的程式碼，可監視應用程式健全狀況。
 
-![][]
+![][0]
 
 ### 平均回應時間
 
@@ -105,7 +105,7 @@
   [應用程式健全狀況]: #health
   [流量分析]: #usage
   [後續步驟]: #next
-  []: ./media/appinsights/appinsights-42reqs.png
+  [0]: ./media/appinsights/appinsights-42reqs.png
   [1]: ./media/appinsights/appinsights-43webtests.png
   [Web 測試]: ../app-insights-monitor-web-app-availability/
   [2]: ./media/appinsights/appinsights-44slowest.png

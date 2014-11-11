@@ -1,6 +1,6 @@
 <properties title="Azure Notification Hubs Notify Users" pageTitle="Azure Notification Hubs Notify Users" metaKeywords="Azure push notifications, Azure notification hubs" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Azure 通知中心通知使用者
 
@@ -30,7 +30,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 2.  展開 **[市集應用程式]**，然後按一下 **[Windows Phone 應用程式]**，再按一下 **[空白應用程式 (Windows Phone)]**。
 
-    ![][]
+    ![][0]
 
 3.  在 **[名稱]** 方塊中輸入 **NotifyUserWindowsPhone**，然後按一下 **[確定]** 以產生專案。
 
@@ -236,15 +236,11 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 4.  在 **NotifyUserWindowsPhone** 應用程式 UI 中，按一下 [Log in and register]。然後按一下 **[傳送推播]**。
 
-  [Windows Universal]: /zh-tw/documentation/articles/notification-hubs-windows-dotnet-notify-users/ "Windows Universal"
-  [iOS]: /zh-tw/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/ "iOS"
-  [Android]: /zh-tw/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/ "Android"
   [從您的應用程式後端註冊]: http://msdn.microsoft.com/zh-tw/library/dn743807.aspx
-  [開始使用通知中心 (Windows Store)]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   [向 Windows 市集註冊您的應用程式]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register
   [設計您的通知中心]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub
   [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
-  []: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
+  [0]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
   [1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png
   [2]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push11.png
   [Windows Dev Center]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409

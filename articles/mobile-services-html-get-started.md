@@ -1,10 +1,10 @@
 <properties pageTitle="Get Started with Azure Mobile Services for HTML 5 apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for HTML development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
 
 # <a name="getting-started"> </a>開始使用行動服務
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -17,7 +17,7 @@
 
 以下是完成應用程式的螢幕擷取畫面：
 
-![][]
+![][0]
 
 此教學課程是 HTML 應用程式其他所有行動服務教學課程的先修課程。
 
@@ -27,9 +27,9 @@
 
 -   本教學課程需要您的本機電腦正在執行下列其中一部網頁伺服器：
 
-    -   **在 Windows 上**：IIS Express。IIS Express 是由 [Microsoft Web Platform Installer][] 所安裝。
+    -   **在 Windows 上**：IIS Express。IIS Express 是由 [Microsoft Web Platform Installer][Microsoft Web Platform Installer] 所安裝。
     -   **在 MacOS X 上**：Python (應該已安裝)。
-    -   **在 Linux 上**：Python。您必須安裝[最新版本的 Python][] (英文)。
+    -   **在 Linux 上**：Python。您必須安裝[最新版本的 Python][最新版本的 Python] (英文)。
 
     您可以使用任何網頁伺服器來裝載應用程式，但是這些是已下載指令碼所支援的網頁伺服器。
 
@@ -37,7 +37,7 @@
 
 ## <a name="create-new-service"> </a>建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## 
 
@@ -113,16 +113,16 @@
 
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
--   **[開始使用資料][]**
+-   **[開始使用資料][開始使用資料]**
     深入了解使用行動服務來儲存與查詢資料。
 
--   **[從 HTML 應用程式呼叫自訂 API][]**
+-   **[從 HTML 應用程式呼叫自訂 API][從 HTML 應用程式呼叫自訂 API]**
     將您的 HTML 應用程式與行動服務代管的自訂 API 連接。
 
--   **[開始使用驗證][]**
+-   **[開始使用驗證][開始使用驗證]**
     了解如何向身分識別提供者驗證應用程式的使用者。
 
--   **[行動服務 HTML/JavaScript 作法概念參考][]**
+-   **[行動服務 HTML/JavaScript 作法概念參考][行動服務 HTML/JavaScript 作法概念參考]**
     深入了解如何搭配使用行動服務與 HTML/JavaScript
 
 <!-- Anchors. --> 
@@ -130,16 +130,13 @@
 <!-- URLs. -->
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [觀看教學課程]: http://go.microsoft.com/fwlink/?LinkId=287040
-  []: ./media/mobile-services-html-get-started/mobile-quickstart-completed-html.png
-  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F
+  [0]: ./media/mobile-services-html-get-started/mobile-quickstart-completed-html.png
   [Microsoft Web Platform Installer]: http://go.microsoft.com/fwlink/p/?LinkId=286333
   [最新版本的 Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-html-get-started/mobile-portal-quickstart-html.png
   [2]: ./media/mobile-services-html-get-started/mobile-quickstart-steps-html.png
   [3]: ./media/mobile-services-html-get-started/mobile-services-set-cors-localhost.png
-  [跨原始來源資源分享]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn155871.aspx
   [4]: ./media/mobile-services-html-get-started/mobile-quickstart-startup-html.png
   [5]: ./media/mobile-services-html-get-started/mobile-data-tab.png
   [6]: ./media/mobile-services-html-get-started/mobile-data-browse.png

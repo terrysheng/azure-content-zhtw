@@ -1,36 +1,36 @@
 <properties linkid="dev-net-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage from .NET | Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use Microsoft Azure Blob storage to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Blob storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # 如何使用 .NET 的 Blob 儲存體
 
-本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][]一節。
+本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
-> [WACOM.NOTE] 本指南以 Azure .NET Storage Client Library 2.x 和更新版本為對象。建議的版本是儲存體用戶端程式庫 4.x，可透過 [NuGet][] 或從 [Azure SDK for .NET][] 中取得。請參閱下列[作法：以程式設計方式存取 Blob 儲存體][]，以詳細了解如何取得儲存體用戶端程式庫。
+> [WACOM.NOTE] 本指南以 Azure .NET Storage Client Library 2.x 和更新版本為對象。建議的版本是儲存體用戶端程式庫 4.x，可透過 [NuGet][NuGet] 或從 [Azure SDK for .NET][Azure SDK for .NET] 中取得。請參閱下列[作法：以程式設計方式存取 Blob 儲存體][作法：以程式設計方式存取 Blob 儲存體]，以詳細了解如何取得儲存體用戶端程式庫。
 
 ## 目錄
 
--   [什麼是 Blob 儲存體][]
--   [概念][]
--   [建立 Azure 儲存體帳戶][]
--   [設定儲存體連接字串][]
--   [作法：以程式設計方式存取 Blob 儲存體][]
--   [作法：建立容器][]
--   [作法：將 Blob 上傳至容器][]
--   [作法：列出容器中的 Blob][]
--   [作法：下載 Blob][]
--   [作法：刪除 Blob][]
--   [後續步驟][]
+-   [什麼是 Blob 儲存體][什麼是 Blob 儲存體]
+-   [概念][概念]
+-   [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
+-   [設定儲存體連接字串][設定儲存體連接字串]
+-   [作法：以程式設計方式存取 Blob 儲存體][作法：以程式設計方式存取 Blob 儲存體]
+-   [作法：建立容器][作法：建立容器]
+-   [作法：將 Blob 上傳至容器][作法：將 Blob 上傳至容器]
+-   [作法：列出容器中的 Blob][作法：列出容器中的 Blob]
+-   [作法：下載 Blob][作法：下載 Blob]
+-   [作法：刪除 Blob][作法：刪除 Blob]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <a name="create-account"></a><span class="short-header">建立帳戶</span>建立 Azure 儲存體帳戶
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="setup-connection-string"></a><span class="short-header">設定連接字串</span>設定儲存體連接字串
 
-[WACOM.INCLUDE [storage-configure-connection-string][]]
+[WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
 ## <a name="configure-access"> </a><span class="short-header">以程式設計方式存取</span>作法：以程式設計方式存取 Blob 儲存體
 
@@ -38,7 +38,7 @@
 
 您可以使用 NuGet 來取得 `Microsoft.WindowsAzure.Storage.dll` 組件。在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。在線上搜尋 "WindowsAzure.Storage"，再按一下 [安裝] 以安裝 Azure 儲存體封裝與相依性。
 
-`Microsoft.WindowsAzure.Storage.dll` 也隨附於 Azure SDK for .NET (可自 [.NET 開發人員中心][]下載)。此組件會安裝在 `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` 目錄。
+`Microsoft.WindowsAzure.Storage.dll` 也隨附於 Azure SDK for .NET (可自 [.NET 開發人員中心][.NET 開發人員中心]下載)。此組件會安裝在 `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` 目錄。
 
 ### 命名空間宣告
 
@@ -70,7 +70,7 @@
 
 ### ODataLib 相依性
 
-Storage Client Library for .NET 中的 ODataLib 相依性現已透過 ODataLib (5.0.2 版) 封裝解決，該封裝是由 NuGet 而非 WCF Data Services 提供。您可以直接下載 ODataLib 程式庫，或是由您的程式碼專案透過 NuGet 參照這些程式庫。這些 ODataLib 封裝具體來說是 [OData][]、[Edm][] 和 [Spatial][]。
+Storage Client Library for .NET 中的 ODataLib 相依性現已透過 ODataLib (5.0.2 版) 封裝解決，該封裝是由 NuGet 而非 WCF Data Services 提供。您可以直接下載 ODataLib 程式庫，或是由您的程式碼專案透過 NuGet 參照這些程式庫。這些 ODataLib 封裝具體來說是 [OData][OData]、[Edm][Edm] 和 [Spatial][Spatial]。
 
 ## <a name="create-container"> </a><span class="short-header">建立容器</span>作法：建立容器
 
@@ -198,7 +198,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
     Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
-如需詳細資訊，請參閱 [CloudBlobContainer.ListBlobs][]。
+如需詳細資訊，請參閱 [CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs]。
 
 ## <a name="download-blobs"> </a><span class="short-header">下載 Blob</span>作法：下載 Blob
 
@@ -270,20 +270,20 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
 -   如需可用 API 的完整詳細資訊，請檢視 Blob 服務參考文件：
-    -   [Storage Client Library for .NET 參考資料][]
-    -   [REST API 參考資料][]
--   請參閱[在 Azure 中儲存和存取資料][]，深入了解可使用 Azure 儲存體執行的更多進階工作。
--   若要了解如何在 Azure 網站的後端程序中使用 Azure 儲存體，請參閱[開始使用 Azure WebJobs SDK][]。
+    -   [Storage Client Library for .NET 參考資料][Storage Client Library for .NET 參考資料]
+    -   [REST API 參考資料][REST API 參考資料]
+-   請參閱[在 Azure 中儲存和存取資料][在 Azure 中儲存和存取資料]，深入了解可使用 Azure 儲存體執行的更多進階工作。
+-   若要了解如何在 Azure 網站的後端程序中使用 Azure 儲存體，請參閱[開始使用 Azure WebJobs SDK][開始使用 Azure WebJobs SDK]。
 -   如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
-    -   使用[資料表儲存體][]儲存結構化資料。
-    -   使用[佇列儲存體][]儲存非結構化資料。
-    -   使用 [SQL Database][] 儲存關聯式資料。
+    -   使用[資料表儲存體][資料表儲存體]儲存結構化資料。
+    -   使用[佇列儲存體][佇列儲存體]儲存非結構化資料。
+    -   使用 [SQL Database][SQL Database] 儲存關聯式資料。
 
 </p>
 
   [後續步驟]: #next-steps
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
-  [Azure SDK for .NET]: /en-us/downloads/
+  [Azure SDK for .NET]: /zh-tw/downloads/
   [作法：以程式設計方式存取 Blob 儲存體]: #configure-access
   [什麼是 Blob 儲存體]: #what-is
   [概念]: #concepts
@@ -297,13 +297,13 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
-  [.NET 開發人員中心]: http://www.windowsazure.com/en-us/develop/net/#
+  [.NET 開發人員中心]: http://www.windowsazure.com/zh-tw/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [Storage Client Library for .NET 參考資料]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [REST API 參考資料]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
-  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [REST API 參考資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179355
+  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
   [開始使用 Azure WebJobs SDK]: /zh-tw/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [資料表儲存體]: /zh-tw/documentation/articles/storage-dotnet-how-to-use-tables/
   [佇列儲存體]: /zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/

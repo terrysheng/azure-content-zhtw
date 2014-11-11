@@ -1,6 +1,6 @@
 <properties title="Azure Notification Hubs Secure Push" pageTitle="Azure Notification Hubs Secure Push" metaKeywords="Azure push notifications, Azure notification hubs, secure push" description="Learn how to send secure push notifications to an iOS app from Azure. Code samples written in Objective-C and C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Azure 通知中心安全推播
 
@@ -98,7 +98,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 4.  接著按一下中央窗格頂端的 [功能] 索引標籤，並勾選 [遠端通知] 核取方塊。
 
-    ![][]
+    ![][0]
 
 5.  在 **AppDelegate.m** 中，新增下列可處理推播通知的方法：
 
@@ -137,9 +137,5 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 4.  在 iOS 應用程式 UI 中，按一下 [登入]。然後按一下 [傳送推播]。您應該會在您的通知中心內看見安全通知。
 
-  [Windows Universal]: /zh-tw/documentation/articles/notification-hubs-windows-dotnet-secure-push/ "Windows Universal"
-  [iOS]: /zh-tw/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/ "iOS"
-  [Android]: /zh-tw/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/ "Android"
-  [開始使用通知中心 (iOS)]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-ios-get-started/
   [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md
-  []: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
+  [0]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png

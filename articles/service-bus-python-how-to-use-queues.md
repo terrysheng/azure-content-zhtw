@@ -1,25 +1,25 @@
 <properties linkid="develop-python-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Python) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" description="Learn how to use Service Bus queues in Azure. Code samples written in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # 如何使用服務匯流排佇列
 
-本指南將說明如何使用服務匯流排佇列。相關範例是以 Python 所撰寫，並使用 Python Azure 模組。本文說明的案例包括「建立佇列」、「傳送並接收訊息」，以及「刪除佇列」。如需佇列的詳細資訊，請參閱[後續步驟][]一節。
+本指南將說明如何使用服務匯流排佇列。相關範例是以 Python 所撰寫，並使用 Python Azure 模組。本文說明的案例包括「建立佇列」、「傳送並接收訊息」，以及「刪除佇列」。如需佇列的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [什麼是服務匯流排佇列？][]
--   [建立服務命名空間][]
--   [取得命名空間的預設管理認證][]
--   [作法：建立佇列][]
--   [作法：傳送訊息至佇列][]
--   [作法：從佇列接收訊息][]
--   [作法：處理應用程式當機與無法讀取的訊息][]
--   [後續步驟][]
+-   [什麼是服務匯流排佇列？][什麼是服務匯流排佇列？]
+-   [建立服務命名空間][建立服務命名空間]
+-   [取得命名空間的預設管理認證][取得命名空間的預設管理認證]
+-   [作法：建立佇列][作法：建立佇列]
+-   [作法：傳送訊息至佇列][作法：傳送訊息至佇列]
+-   [作法：從佇列接收訊息][作法：從佇列接收訊息]
+-   [作法：處理應用程式當機與無法讀取的訊息][作法：處理應用程式當機與無法讀取的訊息]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-**注意：** 如果您需要安裝 Python 或用戶端程式庫，請參閱 [Python 安裝指南][]。
+**注意：** 如果您需要安裝 Python 或用戶端程式庫，請參閱 [Python 安裝指南][Python 安裝指南]。
 
 ## <a name="create-queue"> </a>如何建立佇列
 
@@ -87,7 +87,7 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
 
 現在您已了解服務匯流排佇列的基本概念，請參考下列連結，以取得更多資訊。
 
--   請參閱 MSDN 參考：[佇列、主題和訂閱。][]
+-   請參閱 MSDN 參考：[佇列、主題和訂閱。][佇列、主題和訂閱。]
 
   [後續步驟]: #next-steps
   [什麼是服務匯流排佇列？]: #what-are-service-bus-queues

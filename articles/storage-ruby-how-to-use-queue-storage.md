@@ -1,38 +1,38 @@
 <properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # 如何從 Ruby 使用佇列儲存體服務
 
-本指南將示範如何使用 Windows Azure 佇列儲存體服務執行一般案例。這些範例使用 Ruby API 撰寫。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。如需佇列的詳細資訊，請參閱[後續步驟][]一節。
+本指南將示範如何使用 Windows Azure 佇列儲存體服務執行一般案例。這些範例使用 Ruby API 撰寫。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。如需佇列的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [什麼是佇列儲存體？][]
--   [概念][]
--   [建立 Azure 儲存體帳戶][]
--   [建立 Ruby 應用程式][]
--   [設定您的應用程式以存取儲存體][]
--   [設定 Azure 儲存體連接][]
--   [作法：建立佇列][]
--   [作法：將訊息插入佇列][]
--   [作法：查看下一個訊息][]
--   [作法：清除下一個佇列訊息][]
--   [作法：變更佇列訊息的內容][]
--   [作法：清除佇列訊息的其他選項][]
--   [作法：取得佇列長度][]
--   [作法：刪除佇列][]
--   [後續步驟][]
+-   [什麼是佇列儲存體？][什麼是佇列儲存體？]
+-   [概念][概念]
+-   [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
+-   [建立 Ruby 應用程式][建立 Ruby 應用程式]
+-   [設定您的應用程式以存取儲存體][設定您的應用程式以存取儲存體]
+-   [設定 Azure 儲存體連接][設定 Azure 儲存體連接]
+-   [作法：建立佇列][作法：建立佇列]
+-   [作法：將訊息插入佇列][作法：將訊息插入佇列]
+-   [作法：查看下一個訊息][作法：查看下一個訊息]
+-   [作法：清除下一個佇列訊息][作法：清除下一個佇列訊息]
+-   [作法：變更佇列訊息的內容][作法：變更佇列訊息的內容]
+-   [作法：清除佇列訊息的其他選項][作法：清除佇列訊息的其他選項]
+-   [作法：取得佇列長度][作法：取得佇列長度]
+-   [作法：刪除佇列][作法：刪除佇列]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <span id="CreateAccount"></span></a>建立 Azure 儲存體帳戶
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="create-a-ruby-application"></span></a>建立 Ruby 應用程式
 
-建立 Ruby 應用程式。如需指示，請參閱[在 Azure 上建立 Ruby 應用程式][] (英文)。
+建立 Ruby 應用程式。如需指示，請參閱[在 Azure 上建立 Ruby 應用程式][在 Azure 上建立 Ruby 應用程式] (英文)。
 
 ## <span id="configure-your-application-to-access-storage"></span></a>設定您的應用程式以存取儲存體
 
@@ -59,7 +59,7 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 
 若要取得這些值，請執行下列動作：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  瀏覽到您要使用的儲存體帳戶
 3.  按一下導覽窗格底部的 [管理金鑰]。
 4.  在快顯對話方塊中，您將會看到儲存體帳戶名稱、主要存取金鑰和次要存取金鑰。如需存取金鑰，您可以選取主要存取金鑰或次要存取金鑰。
@@ -147,11 +147,11 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 
 了解佇列儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][]
--   造訪 [Azure 儲存體團隊部落格][] (英文)。
--   請造訪 GitHub 上的 [Azure SDK for Ruby][] 儲存機制 (英文)。
+-   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][在 Azure 中儲存和存取資料]
+-   造訪 [Azure 儲存體團隊部落格][Azure 儲存體團隊部落格] (英文)。
+-   請造訪 GitHub 上的 [Azure SDK for Ruby][Azure SDK for Ruby] 儲存機制 (英文)。
 
-若要比較本文所討論的 Azure 佇列服務與[如何使用服務匯流排佇列][]一文中討論的 Azure 服務匯流排佇列，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照][]。
+若要比較本文所討論的 Azure 佇列服務與[如何使用服務匯流排佇列][如何使用服務匯流排佇列]一文中討論的 Azure 服務匯流排佇列，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照][Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照]。
 
   [後續步驟]: #next-steps
   [什麼是佇列儲存體？]: #what-is
@@ -170,10 +170,10 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
   [作法：刪除佇列]: #how-to-delete-a-queue
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [在 Azure 上建立 Ruby 應用程式]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+  [在 Azure 上建立 Ruby 應用程式]: /zh-tw/develop/ruby/tutorials/web-app-with-linux-vm/
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure SDK for Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby
-  [如何使用服務匯流排佇列]: /en-us/develop/ruby/how-to-guides/service-bus-queues/
-  [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
+  [如何使用服務匯流排佇列]: /zh-tw/develop/ruby/how-to-guides/service-bus-queues/
+  [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh767287.aspx

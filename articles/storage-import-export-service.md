@@ -1,6 +1,6 @@
 <properties linkid="manage-services-import-export" urlDisplayName="Azure Import/Export Service" pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" metaKeywords="" description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # 使用 Microsoft Azure 匯入/匯出服務將資料移轉至 Blob 儲存體
 
@@ -13,7 +13,7 @@
 -   使用 Azure 管理入口網站。
 -   使用服務的 REST 介面。
 
-本文提供匯入/匯出服務的概觀，並說明如何透過管理入口網站使用匯入/匯出服務。如需 REST API 的相關資訊，請參閱 [Azure 匯入/匯出服務 REST API 參考][]。
+本文提供匯入/匯出服務的概觀，並說明如何透過管理入口網站使用匯入/匯出服務。如需 REST API 的相關資訊，請參閱 [Azure 匯入/匯出服務 REST API 參考][Azure 匯入/匯出服務 REST API 參考]。
 
 ## 匯入/匯出服務的概觀
 
@@ -35,7 +35,7 @@
 
 ### 需求和範圍
 
-1.  **訂用帳戶和儲存體帳戶：**您必須有現有的 Azure 訂用帳戶以及一或多個儲存體帳戶，才能使用匯入/匯出服務。每項工作都只能從僅只一個儲存體帳戶收送資料。換句話說，一項工作不能跨越多個儲存體帳戶。如需建立新儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶][] (英文)。
+1.  **訂用帳戶和儲存體帳戶：**您必須有現有的 Azure 訂用帳戶以及一或多個儲存體帳戶，才能使用匯入/匯出服務。每項工作都只能從僅只一個儲存體帳戶收送資料。換句話說，一項工作不能跨越多個儲存體帳戶。如需建立新儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶][如何建立儲存體帳戶] (英文)。
 2.  **硬碟：**只有 3.5 英吋的 SATA II/III 硬碟能夠用於匯入/匯出服務。不支援大於 4TB 的硬碟。若為匯入工作，將只會處理磁碟機上的第一個資料磁碟區。此資料磁碟區必須以 NTFS 格式化。您可以將 SATA II/III 磁碟附加至大多數使用 SATA II/III USB 介面卡的外部電腦。
 3.  **BitLocker 加密：**必須使用 BitLocker 和以數值密碼保護的加密金鑰來加密硬碟上儲存的所有資料。
 4.  **Blob 儲存體目標：**從區塊 Blob 和頁面 Blob 可以上傳或下載資料。
@@ -48,7 +48,7 @@
 
 ### 準備磁碟機
 
-建立匯入工作之前，請透過 Microsoft Azure 匯入/匯出工具備妥磁碟機。如需有關使用 Microsoft Azure 匯入/匯出工具的詳細資訊，請參閱 [Microsoft Azure 匯入/匯出工具參考][]。您可以下載作為獨立封裝的 [Microsoft Azure 匯入/匯出工具][]。
+建立匯入工作之前，請透過 Microsoft Azure 匯入/匯出工具備妥磁碟機。如需有關使用 Microsoft Azure 匯入/匯出工具的詳細資訊，請參閱 [Microsoft Azure 匯入/匯出工具參考][Microsoft Azure 匯入/匯出工具參考]。您可以下載作為獨立封裝的 [Microsoft Azure 匯入/匯出工具][Microsoft Azure 匯入/匯出工具]。
 
 若要準備磁碟機，請遵循以下三個步驟：
 
@@ -68,7 +68,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 4.  在步驟 3，上傳在磁碟機準備步驟中取得的磁碟機日誌檔案。您需要針對已備妥的每個磁碟機上傳一個檔案。
 
-    ![建立匯入工作 - 步驟 3][]
+    ![建立匯入工作 - 步驟 3][建立匯入工作 - 步驟 3]
 
 5.  在步驟 4，輸入匯入工作的描述性名稱。請注意，您輸入的名稱只能包含小寫字母、數字、連字號和底線，必須以字母開頭，且不得包含空格。當工作正在進行中和一旦完成後，您將使用您所選的名稱來進行追蹤。
 
@@ -94,7 +94,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 3.  在步驟 3，指定您要從儲存體帳戶匯出至空白磁碟機的 Blob 您可以選擇匯出儲存體帳戶中所有的 Blob 資料，也可以指定要匯出哪幾個或哪幾組 Blob。
 
-    ![建立匯出工作 - 步驟 3][]
+    ![建立匯出工作 - 步驟 3][建立匯出工作 - 步驟 3]
 
     -   若要指定要匯出的 Blob，請使用 [等於] 選取器，指定 Blob 的相對路徑 (以容器名稱開頭)。使用 *$root* 指定根容器。
     -   若要指定以某個首碼開頭的所有 Blob，請使用 [開頭為] 選取器，指定首碼 (以正斜線 '/' 開頭)。此首碼可以是容器名稱的首碼、完整容器名稱，或是後面接著 Blob 名稱首碼的完整容器名稱。
@@ -199,7 +199,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 若為匯出工作，您可以檢視和複製服務為磁碟機產生的 BitLocker 金鑰，以便在您從 Azure 資料中心收到磁碟機時，將匯出的資料解密。在管理入口網站中瀏覽至您的儲存體帳戶，然後按一下 [匯入/匯出] 索引標籤。從清單中選取您的匯出工作，然後按一下 [檢視金鑰] 按鈕。BitLocker 金鑰如下所示：
 
-![檢視匯出工作的 BitLocker 金鑰][]
+![檢視匯出工作的 BitLocker 金鑰][檢視匯出工作的 BitLocker 金鑰]
 
 ## 常見問題集
 
@@ -207,7 +207,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 **匯入/匯出服務的定價為何？**
 
--   如需定價資訊，請參閱[定價頁面][]。
+-   如需定價資訊，請參閱[定價頁面][定價頁面]。
 
 **匯入或匯出資料需要多久時間？**
 
@@ -256,9 +256,9 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 **支援的快遞服務有哪些？**
 
--   在美國和歐洲地區僅支援 [聯邦快遞][] (FedEx)。所有包裹都會透過 FedEx Ground 或 FedEx International Economy 寄回。
+-   在美國和歐洲地區僅支援 [聯邦快遞][聯邦快遞] (FedEx)。所有包裹都會透過 FedEx Ground 或 FedEx International Economy 寄回。
 
--   在亞洲地區僅支援 [DHL][]。所有包裹都會透過 DHL Express Worldwide 寄回。
+-   在亞洲地區僅支援 [DHL][DHL]。所有包裹都會透過 DHL Express Worldwide 寄回。
 
     <div class="dev-callout">
 <strong>重要事項</strong>
@@ -267,7 +267,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 **退件是否有任何相關的成本？**
 
--   Microsoft 會使您在建立工作時提供的貨運公司客戶編號，將磁碟機從資料中心寄到您的寄回地址。請務必提供資料中心區域所支援之貨運公司的貨運公司客戶編號。您可以建立 [FedEx][聯邦快遞] (適用於美國和歐洲) 或 [DHL][] (亞洲) 貨運公司客戶 (若沒有的話)。
+-   Microsoft 會使您在建立工作時提供的貨運公司客戶編號，將磁碟機從資料中心寄到您的寄回地址。請務必提供資料中心區域所支援之貨運公司的貨運公司客戶編號。您可以建立 [FedEx][聯邦快遞] (適用於美國和歐洲) 或 [DHL][DHL] (亞洲) 貨運公司客戶 (若沒有的話)。
 
 -   寄回費用由您的運貨公司客戶收取，由運貨公司決定。
 
@@ -290,7 +290,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 <p>請注意，您寄送的實體媒體可能需要跨國界。您必須確定實體媒體和資料的匯入和/或匯出符合相關管轄法律。在寄出實體媒體之前，請洽詢顧問來確認您的媒體和資料可以合法地寄到所識別的資料中心。這有助於確保及時送達 Microsoft。</p>
 </div>
 
--   在寄送包裹時，您必須遵守 [Microsoft Azure 服務條款][]中的條款。
+-   在寄送包裹時，您必須遵守 [Microsoft Azure 服務條款][Microsoft Azure 服務條款]中的條款。
 
 **我可以為了匯入/匯出工作向 Microsoft 購買磁碟機嗎？**
 
@@ -310,4 +310,4 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
   [定價頁面]: http://go.microsoft.com/fwlink/?LinkId=329033
   [聯邦快遞]: http://www.fedex.com/us/oadr/
   [DHL]: http://www.dhl-welcome.com/Tutorial/
-  [Microsoft Azure 服務條款]: http://azure.microsoft.com/en-us/support/legal/services-terms/
+  [Microsoft Azure 服務條款]: http://azure.microsoft.com/zh-tw/support/legal/services-terms/

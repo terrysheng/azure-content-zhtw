@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-use-Ambari" urlDisplayName="Monitor Hadoop clusters  in HDInsight using the Ambari API" pageTitle="Monitor Hadoop clusters in HDInsight using the Ambari API | Azure" metaKeywords="" description="Use the Apache Ambari APIs for provisioning, managing, and monitoring Hadoop clusters. Ambari's intuitive operator tools and APIs hide the complexity of Hadoop." services="hdinsight" documentationCenter="" title="Monitor Hadoop clusters in HDInsight using the Ambari API" umbracoNaviHide="0" disqusComments="1" authors="jgao" editor="cgronlun" manager="paulettm" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # 使用 Ambari API 監視 HDInsight 上的 Hadoop 叢集
 
@@ -10,15 +10,15 @@
 
 ## 本文內容
 
--   [什麼是 Ambari？][]
--   [必要條件][]
--   [快速啟動][]
--   [Ambari 監視 API][]
--   [後續步驟][]
+-   [什麼是 Ambari？][什麼是 Ambari？]
+-   [必要條件][必要條件]
+-   [快速啟動][快速啟動]
+-   [Ambari 監視 API][Ambari 監視 API]
+-   [後續步驟][後續步驟]
 
 ## <span id="whatisambari"></span></a>什麼是 Ambari？
 
-[Apache Ambari][] 可用來佈建、管理及監視 Apache Hadoop 叢集。其中包含一組直接易懂的操作員工具和健全的 API 集，可消除 Hadoop 的複雜性，並簡化叢集作業。如需這些 API 的詳細資訊，請參閱 [Ambari API 參考資料][]。
+[Apache Ambari][Apache Ambari] 可用來佈建、管理及監視 Apache Hadoop 叢集。其中包含一組直接易懂的操作員工具和健全的 API 集，可消除 Hadoop 的複雜性，並簡化叢集作業。如需這些 API 的詳細資訊，請參閱 [Ambari API 參考資料][Ambari API 參考資料]。
 
 HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版可支援 Ambari API v1.0。本文僅說明如何在 HDInsight 叢集 2.1 版上執行 Ambari API。
 
@@ -26,13 +26,13 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 
 開始進行本教學課程之前，您必須具備下列條件：
 
--   已安裝並設定 Azure PowerShell 的**工作站**。如需指示，請參閱[安裝並設定 Azure PowerShell][]。若要執行 PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[執行 Windows PowerShell 指令碼][]。
+-   已安裝並設定 Azure PowerShell 的**工作站**。如需指示，請參閱[安裝並設定 Azure PowerShell][安裝並設定 Azure PowerShell]。若要執行 PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[執行 Windows PowerShell 指令碼][執行 Windows PowerShell 指令碼]。
 
-    [Curl][] 是選用項目。您可以從[這裡][]加以安裝。
+    [Curl][Curl] 是選用項目。您可以從[這裡][這裡]加以安裝。
 
     > [WACOM.NOTE] 在 Windows 上使用 curl 命令時，對選項值請使用雙引號，而不要使用單引號。
 
--   **Azure HDInsight 叢集**。如需叢集佈建的指示，請參閱[開始使用 HDInsight][] 或[佈建 HDInsight 叢集][]。進行教學課程時，您將需要下列資料：
+-   **Azure HDInsight 叢集**。如需叢集佈建的指示，請參閱[開始使用 HDInsight][開始使用 HDInsight] 或[佈建 HDInsight 叢集][佈建 HDInsight 叢集]。進行教學課程時，您將需要下列資料：
 
     <table>
     <colgroup>
@@ -97,7 +97,7 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 
 輸出如下：
 
-![Jobtracker Output][]
+![Jobtracker Output][Jobtracker Output]
 
 **使用 curl**
 
@@ -124,7 +124,7 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 
 ## <span id="monitor"></span></a>Ambari 監視 API
 
-下表列出部分最常用的 Ambari 監視 API 呼叫。如需 API 的詳細資訊，請參閱 [Ambari API 參考資料][]。
+下表列出部分最常用的 Ambari 監視 API 呼叫。如需 API 的詳細資訊，請參閱 [Ambari API 參考資料][Ambari API 參考資料]。
 
 <table>
 <colgroup>
@@ -207,11 +207,11 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 
 現在，您已了解如何使用 Ambari 監視 API。若要深入了解，請參閱：
 
--   [使用管理入口網站管理 HDInsight 叢集][]
--   [使用 Azure PowerShell 管理 HDInsight 叢集][]
--   [使用命令列介面管理 HDInsight 叢集][]
--   [HDInsight 文件][]
--   [開始使用 HDInsight][]
+-   [使用管理入口網站管理 HDInsight 叢集][使用管理入口網站管理 HDInsight 叢集]
+-   [使用 Azure PowerShell 管理 HDInsight 叢集][使用 Azure PowerShell 管理 HDInsight 叢集]
+-   [使用命令列介面管理 HDInsight 叢集][使用命令列介面管理 HDInsight 叢集]
+-   [HDInsight 文件][HDInsight 文件]
+-   [開始使用 HDInsight][開始使用 HDInsight]
 
   [什麼是 Ambari？]: #whatisambari
   [必要條件]: #prerequisites
@@ -221,7 +221,7 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
   [Apache Ambari]: http://ambari.apache.org/
   [Ambari API 參考資料]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
   [安裝並設定 Azure PowerShell]: ../install-configure-powershell/
-  [執行 Windows PowerShell 指令碼]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+  [執行 Windows PowerShell 指令碼]: http://technet.microsoft.com/zh-tw/library/ee176949.aspx
   [Curl]: http://curl.haxx.se
   [這裡]: http://curl.haxx.se/download.html
   [開始使用 HDInsight]: ../hdinsight-get-started/

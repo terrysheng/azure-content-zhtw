@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website to use a custom domain name" pageTitle="Configure a custom domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth, mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth, mwasson" />
 
 # 設定 Azure 網站的自訂網域名稱
 
@@ -8,24 +8,24 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/zh-tw/documentation/articles/web-sites-custom-domain-name/" title="網站" class="current">網站</a> | <a href="/zh-tw/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="使用流量管理員的網站">使用流量管理員的網站</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 當您建立網站時，Azure 會為該網站指派 azurewebsites.net 的子網域。例如，若網站名為 **contoso**，則 URL 為 **contoso.azurewebsites.net**。Azure 也會指派虛擬 IP 位址。
 
-![contoso.azurewebsites.net 子網域][]
+![contoso.azurewebsites.net 子網域][contoso.azurewebsites.net 子網域]
 
 若是生產的網站，您可能會想讓使用者看到自訂網域名稱。本文說明如何以 Azure 網站設定自訂網域。(本文提供所有網域註冊機構的一般指示。本文最上方的索引標籤為特定註冊機構的部分文章連結。)
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 本文內容：
 
--   [概觀][]
--   [DNS 記錄類型][]
--   [尋找虛擬 IP 位址][]
--   [建立 DNS 記錄][]
--   [建立 “awverify” 記錄 (僅限 A 記錄)][]
--   [在網站上啟用網域名稱][]
+-   [概觀][概觀]
+-   [DNS 記錄類型][DNS 記錄類型]
+-   [尋找虛擬 IP 位址][尋找虛擬 IP 位址]
+-   [建立 DNS 記錄][建立 DNS 記錄]
+-   [建立 “awverify” 記錄 (僅限 A 記錄)][建立 “awverify” 記錄 (僅限 A 記錄)]
+-   [在網站上啟用網域名稱][在網站上啟用網域名稱]
 
 ## 概觀
 
@@ -41,7 +41,7 @@
 -   對應子網域。例如 **blogs.contoso.com**。您可以將不同的子網域對應至不同的網站。
 -   對應萬用字元。例如 \***.contoso.com**。萬用字元項目會套用至網域的所有子網域。
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 ## DNS 記錄類型
 
@@ -58,11 +58,11 @@
 
 若您要建立 CNAME 記錄，可略過此步驟。若要建立 A 記錄，您需要網站的虛擬 IP 位址。取得 IP 位址：
 
-1.  在瀏覽器中開啟 [Azure 管理入口網站][]。
+1.  在瀏覽器中開啟 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  在 [網站] 索引標籤中，按一下網站名稱，並選取 [儀表板]。
-3.  選取頁面底部的 [管理網域]。(若此選項為停用，請確認您使用的模式是否為共用、基本或標準模式。如需詳細資訊，請參閱[如何調整網站][]。)
+3.  選取頁面底部的 [管理網域]。(若此選項為停用，請確認您使用的模式是否為共用、基本或標準模式。如需詳細資訊，請參閱[如何調整網站][如何調整網站]。)
 
-    ![][]
+    ![][0]
 
 4.  IP 位址列於接近對話方塊底部的地方。
 
@@ -120,17 +120,7 @@
 <!-- Anchors. --> 
 <!-- Images -->
 
-  [自訂網域]: /zh-tw/documentation/articles/web-sites-custom-domain-name "自訂網域"
-  [GoDaddy]: /zh-tw/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [網路解決方案]: /zh-tw/documentation/articles/web-sites-network-solutions-custom-domain-name "網路解決方案"
-  [Register.com]: /zh-tw/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /zh-tw/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /zh-tw/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /zh-tw/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /zh-tw/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /zh-tw/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
   [網站]: /zh-tw/documentation/articles/web-sites-custom-domain-name/ "網站"
-  [使用流量管理員的網站]: /zh-tw/documentation/articles/web-sites-traffic-manager-custom-domain-name/ "使用流量管理員的網站"
   [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [contoso.azurewebsites.net 子網域]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
   [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
@@ -138,11 +128,10 @@
   [DNS 記錄類型]: #dns-record-types
   [尋找虛擬 IP 位址]: #find-the-virtual-ip-address
   [建立 DNS 記錄]: #create-the-dns-records
-  [建立 “awverify” 記錄 (僅限 A 記錄)]: #awverify
   [在網站上啟用網域名稱]: #enable-the-domain-name-on-your-website
   [modes]: ../includes/custom-dns-web-site-modes.md
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [如何調整網站]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-scale/
-  []: media/web-sites-custom-domain-name/dncmntask-cname-6.png
+  [0]: media/web-sites-custom-domain-name/dncmntask-cname-6.png
   [1]: media/web-sites-custom-domain-name/ipaddress.png
   [2]: ../includes/custom-dns-web-site-enable-on-web-site.md

@@ -1,8 +1,11 @@
 <properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-Azure-Site-Recovery" pageTitle="Configure Azure Site Recovery to protect virtual machines on Hyper-V server located in VMM clouds" metaKeywords="Azure Site Recovery, VMM, clouds, disaster recovery" description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in VMM clouds from one on-premises site to another. Azure Site Recovery can also replicate, failover, and recover Hyper-V virtual machine data between VMM clouds and Microsoft Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery: On-Premises to Azure Protection" editor="jimbe" manager="cfreeman" authors="" />
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+
 
 # 開始使用 Azure 站台復原：內部部署至 Azure 保護
+
+
 
 <div class="dev-callout"> 
 
@@ -40,8 +43,8 @@
 
 </div>
 
-## <span id="before"></span></a>開始之前
 
+<h2><a id="before"></a>開始之前</h2> 
 <div class="dev-callout"> 
 <P>開始本教學課程之前，請檢查先決條件。</P>
 
@@ -62,18 +65,18 @@
 <UL>
 <LI><b>VMM 伺服器</b> - 在 System Center 2012 R2 上執行 VMM 伺服器。</LI>
 <LI><b>VMM 雲端</b> - VMM 伺服器上至少一個雲端，此雲端應該包含：
-    <UL>
-<LI>一或多個 VMM 主機群組</LI>
-<LI>每個主機群組中的一或多個 Hyper-V 主機伺服器。</LI>
-<li>雲端中來源 Hyper-V 伺服器上的一或多個虛擬機器。虛擬機器應該為第 1 代。</li>
-        </UL></LI>  
+	<UL>
+	<LI>或多個 VMM 主機群組</LI>
+	<LI>每個主機群組中的一或多個 Hyper-V 主機伺服器。</LI>
+	<li>雲端中來源 Hyper-V 伺服器上的一或多個虛擬機器。虛擬機器應該為第 1 代。</li>
+		</UL></LI>	
 </UL>
 
 <h3><a id="VMPrereq"></a>虛擬機器先決條件</h3>
 
 <UL>
 <LI><b>世代</b> - Azure 僅支援第 1 代虛擬機器。</LI>
-<LI>如需容錯移轉至 Azure 的虛擬機器支援需求的完整清單，請參閱《規劃指南》中的＜<a href="http://go.microsoft.com/fwlink/?LinkId=402602">必要條件和支援</a>＞。 </LI>  
+<LI>如需容錯移轉至 Azure 的虛擬機器支援需求的完整清單，請參閱《規劃指南》中的＜<a href="http://go.microsoft.com/fwlink/?LinkId=402602">必要條件和支援</a>＞。 </LI>	
 </UL>
 
 <h2><a id="tutorial"></a>教學課程步驟</h2> 
@@ -147,11 +150,9 @@ makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5
 完成這些步驟後，您將能夠在設定保存庫時選擇要上傳的 .cer 憑證，並且在安裝提供者期間註冊 VMM 伺服器時選取 .pfx 憑證。
 </div>
 
-<a name="vault"></a>
 
-## 步驟 2：建立保存庫
+<a name="vault"></a> <h2> 步驟 2：建立保存庫</h2>
 
-</p>
 1.  登入[管理入口網站][管理入口網站]。
 
 2.  展開 [資料服務]，展開 [復原服務]，然後按一下 [Site Recovery Vault]。
@@ -167,9 +168,7 @@ makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5
 
 檢查狀態列來確定已成功建立保存庫。保存庫在主要復原服務頁面上會列為 [作用中] 。
 
-<a name="upload"></a>
-
-## 步驟 3：設定保存庫
+<a name="upload"></a> <h2>步驟 3：設定保存庫</h2>
 
 
 1.  在 [復原服務] 頁面中，按一下保存庫開啟 [快速入門] 頁面。隨時都可以利用此圖示來開啟快速入門。
@@ -189,46 +188,46 @@ makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5
 
     ![管理憑證][1]
 
-<a name="download"></a>
+<a name="download"></a> <h2> 步驟 4：安裝 Azure 站台復原提供者</h2>
+ 
 
-## 步驟 4：安裝 Azure 站台復原提供者
-
-1. 在 [快速入門] 頁面上，按一下 [Download Provider]，取得最新版的提供者安裝檔案。
+1.  在 [快速入門] 頁面上，按一下 [Download Provider]，取得最新版的提供者安裝檔案。
 
     ![Download Provider File][Download Provider File]
 
-2. 在來源 VMM 伺服器上執行此檔案。
+2.  在來源 VMM 伺服器上執行此檔案。
 
     ![下載代理程式][下載代理程式]
 
-3. 安裝提供者之後，繼續執行安裝程式，在保存庫中註冊伺服器。
+3.  安裝提供者之後，繼續執行安裝程式，在保存庫中註冊伺服器。
     ![Setup Complete][Setup Complete]
-4. 在 [網際網路連線] 頁面上，指定 VMM 伺服器上執行的提供者連線到網際網路的方式。按 [下一步]，使用伺服器上設定的預設網際網路連線設定。
+4.  在 [網際網路連線] 頁面上，指定 VMM 伺服器上執行的提供者連線到網際網路的方式。按 [下一步]，使用伺服器上設定的預設網際網路連線設定。
     ![Internet Settings][Internet Settings]
-5. 在 [Vault Registration] 頁面上，執行下列動作：
+5.  在 [Vault Registration] 頁面上，執行下列動作：
+	<ul>
+	<li>選取您已匯入到 VMM 伺服器的私密金鑰 (.pfx)。</li>
+	<li>選取您要在其中註冊伺服器的保存庫。</li>
+	<li>指定保存庫金鑰。這是您先前產生的保存庫金鑰。從 [快速入門] 頁面剪貼金鑰值。</li>
+	</ul>
 
-    -   選取您已匯入到 VMM 伺服器的私密金鑰 (.pfx)。
-    -   選取您要在其中註冊伺服器的保存庫。
-    -   指定保存庫金鑰。這是您先前產生的保存庫金鑰。從 [快速入門] 頁面剪貼金鑰值。
+	![憑證註冊][憑證註冊]
 
-    ![憑證註冊][憑證註冊]
-
-6. 在 [資料加密] 頁面上，指定在特定雲端的複寫期間是否允許資料加密的選項。如果選取此選項，將會自動產生 SSL 憑證。執行容錯移轉時，您需要選取此憑證。啟用此設定之後，您可以在 Azure 站台復原入口網站中對雲端啟用或停用資料加密。在本教學課程中，請保留預設設定，然後按 [下一步]。
+6.  在 [資料加密] 頁面上，指定在特定雲端的複寫期間是否允許資料加密的選項。如果選取此選項，將會自動產生 SSL 憑證。執行容錯移轉時，您需要選取此憑證。啟用此設定之後，您可以在 Azure 站台復原入口網站中對雲端啟用或停用資料加密。在本教學課程中，請保留預設設定，然後按 [下一步]。
 
     ![憑證保存庫][憑證保存庫]
 
-7. 在 [VMM 伺服器] 頁面上，執行下列動作：
+7.  在 [VMM 伺服器] 頁面上，執行下列動作：
 
-    -   指定 VMM 伺服器的易記名稱。這個名稱將在 Azure 站台復原主控台中用來識別該伺服器。
-    -   選取 [Synchronize cloud metadata with the vault]，同步處理 VMM 雲端的相關資訊與 Azure 站台復原保存庫。這個動作只需要在每個伺服器上進行一次。如果不要同步處理所有雲端，您可以個別發佈每個雲端來同步處理該雲端，然後您就可以設定雲端保護設定。
+	- 指定 VMM 伺服器的易記名稱。這個名稱將在 Azure 站台復原主控台中用來識別該伺服器。
+	- 選取 [Synchronize cloud metadata with the vault]，同步處理 VMM 雲端的相關資訊與 Azure 站台復原保存庫。這個動作只需要在每個伺服器上進行一次。如果不要同步處理所有雲端，您可以個別發佈每個雲端來同步處理該雲端，然後您就可以設定雲端保護設定。
 
-8. 按一下 [註冊] 完成此程序。
+8.  按一下 [註冊] 完成此程序。
 
     ![PublishCloud][PublishCloud]
 
 在成功註冊伺服器之後，該伺服器的易記名稱將顯示在保存庫中 [伺服器] 頁面的 [資源]索引標籤上。
 
-## <span id="storage"></span></a>步驟 5：安裝 Azure 復原服務代理程式
+<h2><span id="storage"></span></a>步驟 5：安裝 Azure 復原服務代理程式</h2>
 
 在 VMM 雲端中您要保護的每一個 Hyper-V 主機伺服器上，安裝 Azure 復原服務代理程式。
 
@@ -245,7 +244,7 @@ makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5
 
 在 [網際網路連線] 頁面上，指定 VMM 伺服器上執行的提供者連線到網際網路的方式。按 [下一步]，使用伺服器上設定的預設網際網路連線設定![Recovery Services Agent location][Recovery Services Agent location]
 
-## <span id="clouds"></span></a>步驟 6：設定雲端保護設定
+<h2><span id="clouds"></span></a>步驟 6：設定雲端保護設定</h2>
 
 註冊 VMM 伺服器之後，您就可以設定雲端保護設定。您已在安裝提供者時啟用 [Synchronize cloud data with the vault] 選項，所以 VMM 伺服器上的所有雲端會出現在保存庫的 [受保護項目] 索引標籤中。
 
@@ -273,11 +272,14 @@ makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5
 
 儲存設定之後，將會建立工作，可在 [工作] 索引標籤上監視此工作。將會對 VMM 雲端中的所有 Hyper-V 主機伺服器設定複寫。 儲存之後，可在 [設定] 索引標籤上修改雲端設定。若要修改目標位置或目標儲存體，您需要移除雲端組態，然後重新設定雲端。請注意，如果您變更儲存體帳戶，則只會對修改儲存體帳戶之後才啟用保護的虛擬機器套用變更。現有的虛擬機器不會移轉至新的儲存體帳戶。
 
-## <span id="networkmapping"></span></a>步驟 7：設定網路對應
+<h2><span id="networkmapping"></span></a>步驟 7：設定網路對應</h2>
 
 您可以選擇性地啟用網路對應，將來源 VM 網路對應到目標 Azure 虛擬網路。如果您未建立網路對應，則只有相同復原計畫中容錯移轉的虛擬機器才能在 Azure 中彼此連接。如果您建立網路對應，則在相同網路上容錯移轉的所有虛擬機器可以彼此連接，而不論它們所屬的復原計畫。此外，如果目標 Azure 網路上已設定網路閘道，則虛擬機器可以連接到內部部署虛擬機器。如果您要在本教學課程中設定網路對應，請參閱部署指南中的[設定網路對應][設定網路對應]。
 
-## <span id="virtualmachines"></span></a>步驟 8：對虛擬機器啟用保護
+
+
+
+<h2><span id="virtualmachines"></span></a>步驟 8：對虛擬機器啟用保護</h2>
 
 正確設定伺服器、雲端和網路後，您就可以對雲端中的虛擬機器啟用保護。
 
@@ -298,9 +300,9 @@ makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5
 
 ![Virtual machine protection job][Virtual machine protection job]
 
-## <span id="recoveryplans"></span></a>步驟 9：設定並執行復原計畫
-
+<h2><span id="recoveryplans"></span></a>步驟 9：設定並執行復原計畫</h2>
 復原計劃會將虛擬機器聚集成群組，以便能夠形成單一單位來進行容錯移轉。若要建立復原計畫，請執行下列動作：
+
 
 1.  在 [Recovery Plans] 索引標籤上，按一下 [建立]。
 2.  在 [Specify the Recovery Page Name and Target] 頁面上，選取來源 VMM 伺服器和 Azure 當作目標。
@@ -312,23 +314,18 @@ makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5
 
     ![復原計畫 VM][復原計畫 VM]
 
-### <span id="run"></span></a>測試容錯移轉
+<h3><span id="run"></span></a>測試容錯移轉</h3>
 
 復原計畫可以在主動測試或計劃性容錯移轉期間執行，也可以在非計劃性容錯移轉期間執行。本逐步解說描述如何測試 VMM 至 Azure 的容錯移轉，以確認容錯移轉策略如預期運作。測試容錯移轉會在隔離的網路中模擬您的容錯移轉與復原機制。請注意：
+<UL>
+<li>如果您在容錯移轉之後要使用遠端桌面連接到 Azure 中的虛擬機器，請先在虛擬機器上啟用遠端桌面連線，再執行測試容錯移轉。</li>
+<li>容錯移轉之後，您將透過遠端桌面使用公用 IP 位址連接到 Azure 中的虛擬機器。如果想要這樣做，請確定沒有任何網域原則禁止您使用公用位址連接到虛擬機器。</li>
+</UL>
 
--   如果您在容錯移轉之後要使用遠端桌面連接到 Azure 中的虛擬機器，請先在虛擬機器上啟用遠端桌面連線，再執行測試容錯移轉。
--   容錯移轉之後，您將透過遠端桌面使用公用 IP 位址連接到 Azure 中的虛擬機器。如果想要這樣做，請確定沒有任何網域原則禁止您使用公用位址連接到虛擬機器。
-
-</p>
-#### 
-
-<p>
-<span id="runtest"></span></a>執行容錯移轉
-
-</h5>
+<h4><span id="runtest"></span></a>執行容錯移轉</h4>
 執行復原計畫的測試容錯移轉，如下所述：
 
-</p>
+
 1.  在執行復原計畫之前，您可以驗證計畫中的虛擬機器設定。若要這樣做，請開啟雲端的屬性頁面，按一下虛擬機器。在 [Source and Target Properties for Failover] 頁面上，驗證設定。尤其要驗證 Azure 中對目標虛擬機器建議的大小，以及網路設定都正確。如需虛擬機器先決條件的完整清單，請參閱[必要條件和支援][3]。
 
 ![Virtual Machine Properties][Virtual Machine Properties]
@@ -343,28 +340,23 @@ makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5
 
 1.  在 Azure 中確認虛擬機器成功啟動。
 2.  按一下 [記事] 記錄並儲存關於測試容錯移轉的任何觀察。
-3.  除了 [工作] 索引標籤上的詳細資料，當您執行復原計畫的測試容錯移轉時，程序會顯示在復原計劃詳細資料頁面上。您可以檢視容錯移轉步驟和狀態，並檢視或建立測試容錯移轉的記事。
+3.  除了 [工作] 索引標籤上的詳細資料，當您執行復原計畫的測試容錯移轉時，程序會顯示在復原計劃詳細資料頁面上。您可以檢視容錯移轉步驟和狀態，並檢視或建立測試容錯移轉的記事。  
 
-#### 
 
-<p>
-<span id="runtest"></span></a>監視活動
-
-</h5>
-
+<h4><span id="runtest"></span></a>監視活動</h4>
 您可以使用 [工作]索引標籤和 [儀表板]，以檢視和監視 Azure 站台復原保存庫所執行的主要工作，包括設定雲端的保護、啟用和停用虛擬機器的保護、執行容錯移轉 (計劃性、非計劃性或測試)，以及認可非計劃性容錯移轉。
 
-</p>
 從 [工作] 索引標籤中，您可以檢視工作、深入了解工作詳細資料和錯誤、執行工作查詢來擷取符合特定條件的工作、將工作匯出到 Excel，以及重新啟動失敗的工作。
 
 從 [儀表板] 中，您可以下載最新版的提供者和代理程式安裝檔案、取得保存庫的組態資訊、查看由保存庫負責保護的虛擬機器數目、查看最近的工作、管理保存庫憑證，以及重新同步處理虛擬機器。
 
 如需有關與工作和儀表板互動的詳細資訊，請參閱[作業和監視指南][作業和監視指南]。
 
-## <span id="next"></span></a>後續步驟
-
--   若要在完整生產環境中規劃和部署 Azure 站台復原，請參閱 [Azure 站台復原的規劃指南][規劃 Azure 站台復原部署]和 [Azure 站台復原的部署指南][Azure 站台復原的部署指南]。
--   若有任何問題，請造訪 [Azure 復原服務論壇][Azure 復原服務論壇] (英文)。
+<h2><span id="next"></span></a>後續步驟</h2>
+<UL>
+<LI>若要在完整生產環境中規劃和部署 Azure 站台復原，請參閱 [Azure 站台復原的規劃指南][規劃 Azure 站台復原部署]和 [Azure 站台復原的部署指南][Azure 站台復原的部署指南]。
+<LI>若有任何問題，請造訪 [Azure 復原服務論壇][Azure 復原服務論壇] (英文)。</LI>
+</UL>
 
   [開始使用 Azure 站台復原：內部部署至內部部署保護]: http://go.microsoft.com/fwlink/?LinkId=398765
   [規劃 Azure 站台復原部署]: http://go.microsoft.com/fwlink/?LinkId=321294

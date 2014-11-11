@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-site-with-django" urlDisplayName="Websites with Django" pageTitle="Python Websites with Django - Azure tutorial" metaKeywords="Azure django, django website" description="A tutorial that introduces you to running a Python website on Azure." metaCanonical="" services="web-sites" documentationCenter="Python" title="Creating Websites with Django" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # 使用 Django 建立網站
 
@@ -8,7 +8,7 @@
 
 本教學課程示範如何部署以 Django Web 架構組建的應用程式。本教學課程會引導您逐步完成應用程式和所需之程式庫的部署，包括 Django。您會將上述內容全部放入 Git 儲存機制，以便快速而簡便地將更新推送到網站。最終，您會透過 Azure 設定新建立的網站，使其執行您的 Python 應用程式。
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 本教學課程使用 Python 2.7 和 Django 1.4。您可以自行取得，或使用 [][]<http://www.windowsazure.com/zh-tw/develop/python/></a> (英文) 的 Windows Installer 連結迅速而便利地進行安裝。
 
@@ -16,7 +16,7 @@
 
 > [WACOM.NOTE] 您現在可以藉由開啟網站的 [設定] 索引標籤，並變更 [Python 版本] 設定，來選取要在 Azure 網站入口網站中使用的 Python 版本。
 
-您還需要安裝將網站推送到 Azure 的部署選項。可用的部署工具很多，不過本教學課程使用 Git。我們推薦使用 [msysgit][] (英文)。
+您還需要安裝將網站推送到 Azure 的部署選項。可用的部署工具很多，不過本教學課程使用 Git。我們推薦使用 [msysgit][msysgit] (英文)。
 
 **注意**：Python 專案目前不支援 TFS 發佈。
 
@@ -26,7 +26,7 @@
 
 建立應用程式的第一步是透過 Azure 管理入口網站建立網站。若要建立網站，您需要登入入口網站並按一下左下角的 [新增] 按鈕。隨即會出現一個視窗。按一下 [快速建立]、輸入 URL，然後選取 [建立網站]。
 
-![][]
+![][0]
 
 系統隨即會迅速地設定網站。接下來，您需要新增透過 Git 發佈的支援功能。您可以藉由選擇 [設定從原始檔控制進行部署] 來完成操作。
 
@@ -61,7 +61,7 @@
 
 ![][5]
 
-接下來，建立初始的 Django 應用程式。您可以從命令列建立應用程式，如同建立其他任何 Django 應用程式一般，也可以使用 [Python Tools for Visual Studio][] (英文) 來建立專案。以下內容展示這兩種選項。
+接下來，建立初始的 Django 應用程式。您可以從命令列建立應用程式，如同建立其他任何 Django 應用程式一般，也可以使用 [Python Tools for Visual Studio][Python Tools for Visual Studio] (英文) 來建立專案。以下內容展示這兩種選項。
 
 **選項 1：**
 若要從命令列建立新專案，請執行以下命令。該命令會在 DjangoApplication 資料夾內建立 Django 應用程式：
@@ -120,7 +120,7 @@
 
 ## 後續步驟
 
-現階段，您可以利用目前使用中的工具來繼續開發 Django 應用程式。如果您使用 [Python Tools for Visual Studio][] (英文) 來進行部署，也許會想要安裝 [VisualGit][] (英文) 以從 Visual Studio 內部取得原始檔控制整合。
+現階段，您可以利用目前使用中的工具來繼續開發 Django 應用程式。如果您使用 [Python Tools for Visual Studio][Python Tools for Visual Studio] (英文) 來進行部署，也許會想要安裝 [VisualGit][VisualGit] (英文) 以從 Visual Studio 內部取得原始檔控制整合。
 
 您的應用程式可能會擁有 Python 和 Django 之外的相依性。如果您使用 [][]<http://www.windowsazure.com/zh-tw/develop/python/></a> (英文) 的安裝程式來安裝 Python，便已安裝了可用來快速新增相依性的 PIP。例如，若要安裝自然語言工具組和該工具組的所有相依性，請輸入：
 
@@ -133,9 +133,9 @@
 現在，您可以前往 DjangoApplication 目錄，再依照平常的用法使用 manage.py 來開始將新應用程式加入 Django 專案。
 
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
-  []: http://www.windowsazure.com/zh-tw/develop/python/
+  [0]: http://www.windowsazure.com/zh-tw/develop/python/
   [msysgit]: http://code.google.com/p/msysgit/
-  []: ./media/web-sites-python-create-deploy-django-app/django-ws-003.png
+  [0]: ./media/web-sites-python-create-deploy-django-app/django-ws-003.png
   [1]: ./media/web-sites-python-create-deploy-django-app/django-ws-004.png
   [2]: ./media/web-sites-python-create-deploy-django-app/django-ws-005.png
   [3]: ./media/web-sites-python-create-deploy-django-app/django-ws-006.png

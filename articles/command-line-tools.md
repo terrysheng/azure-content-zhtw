@@ -1,12 +1,12 @@
 <properties linkid="manage-linux-other-resources-command-line-tools" urlDisplayName="Command-Line Tools" pageTitle="Azure Command-Line Tools for Mac and Linux" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Learn about using the command-line tool for Mac and Linux in Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="carolz" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
 
 # 適用於 Mac 和 Linux 的 Azure 命令列工具
 
 此工具可用來從 Mac 和 Linux 桌上型電腦建立、部署及管理虛擬機器、網站與 Azure 行動服務。此功能類似於隨 Azure SDK for .NET/Node.JS/PHP 安裝之 Windows PowerShell Cmdlet 所提供的功能。
 
-若要在 Mac 上安裝此工具，請下載並執行 [Azure SDK 安裝程式][]。
+若要在 Mac 上安裝此工具，請下載並執行 [Azure SDK 安裝程式][Azure SDK 安裝程式]。
 
 若要在 Linux 上安裝此工具，請安裝最新版 Node.JS，然後使用 NPM 進行安裝：
 
@@ -18,20 +18,20 @@
 
 **目錄：**
 
--   [管理帳戶資訊及發佈設定][]
--   [管理 Azure 虛擬機器的命令][]
--   [管理 Azure 虛擬機器端點的命令][]
--   [管理 Azure 虛擬機器映像的命令][]
--   [管理 Azure 虛擬機器資料磁碟的命令][]
--   [管理 Azure 雲端服務的命令][]
--   [管理 Azure 憑證的命令][]
--   [管理網站的命令][]
--   [管理 Azure 行動服務的命令][]
--   [管理工具本機設定][]
--   [管理服務匯流排的命令][]
--   [管理儲存體物件的命令][]
--   [管理 SQL Database 的命令][]
--   [管理虛擬網路的命令][]
+-   [管理帳戶資訊及發佈設定][管理帳戶資訊及發佈設定]
+-   [管理 Azure 虛擬機器的命令][管理 Azure 虛擬機器的命令]
+-   [管理 Azure 虛擬機器端點的命令][管理 Azure 虛擬機器端點的命令]
+-   [管理 Azure 虛擬機器映像的命令][管理 Azure 虛擬機器映像的命令]
+-   [管理 Azure 虛擬機器資料磁碟的命令][管理 Azure 虛擬機器資料磁碟的命令]
+-   [管理 Azure 雲端服務的命令][管理 Azure 雲端服務的命令]
+-   [管理 Azure 憑證的命令][管理 Azure 憑證的命令]
+-   [管理網站的命令][管理網站的命令]
+-   [管理 Azure 行動服務的命令][管理 Azure 行動服務的命令]
+-   [管理工具本機設定][管理工具本機設定]
+-   [管理服務匯流排的命令][管理服務匯流排的命令]
+-   [管理儲存體物件的命令][管理儲存體物件的命令]
+-   [管理 SQL Database 的命令][管理 SQL Database 的命令]
+-   [管理虛擬網路的命令][管理虛擬網路的命令]
 
 ## <a name="Manage_your_account_information_and_publish_settings"></a>管理帳戶資訊及發佈設定
 
@@ -186,7 +186,7 @@ This command creates a new affinity group
 
 下圖顯示 Azure 虛擬機器裝載於 Azure 雲端服務之生產部署環境中的情形。
 
-![Azure Technical Diagram][]
+![Azure Technical Diagram][Azure Technical Diagram]
 
 **create-new** 會在 Blob 儲存體 (也就是圖中的 e:\\) 建立磁碟機；**attach** 會將已建立但未連接的磁碟連接至虛擬機器。
 
@@ -345,7 +345,7 @@ This command creates a new affinity group
 
 下圖顯示某個虛擬機器之多個執行個體的一般部署架構。請注意，在此範例中，每個虛擬機器上的連接埠 3389 皆開啟 (供進行 RDP 存取)，且每個虛擬機器上皆有內部 IP 位址 (例如，168.55.11.1)，供負載平衡器用來將流量路由傳送至虛擬機器。此內部 IP 位址也可用於進行虛擬機器之間的通訊。
 
-![azurenetworkdiagram][]
+![azurenetworkdiagram][azurenetworkdiagram]
 
 給虛擬機器的外部要求會先通過負載平衡器。因此，遇到含多個虛擬機器的部署，不能在要求中指定要找特定虛擬機器。當部署含多個虛擬機器時，必須設定虛擬機器 (vm-port) 與負載平衡器 (lb-port) 之間的連接埠對應。
 
@@ -658,7 +658,7 @@ Azure 雲端服務是 Web 角色與工作角色上裝載的應用程式和服務
 
 ## <a name="Commands_to_manage_your_Azure_certificates"></a>管理 Azure 憑證的命令
 
-Azure 服務憑證是與您 Azure 帳戶連線的 SSL 憑證。如需 Azure 憑證的詳細資訊，請參閱[管理憑證][]。
+Azure 服務憑證是與您 Azure 帳戶連線的 SSL 憑證。如需 Azure 憑證的詳細資訊，請參閱[管理憑證][管理憑證]。
 
 **service cert list [options]**
 
@@ -1135,12 +1135,12 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 
 Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服務。行動服務命令可分為下列類別：
 
--   [管理行動服務執行個體的命令][]
--   [管理行動服務組態的命令][]
--   [管理行動服務資料表的命令][]
--   [管理行動服務指令碼的命令][]
--   [管理排程工作的命令][]
--   [調整行動服務的命令][]
+-   [管理行動服務執行個體的命令][管理行動服務執行個體的命令]
+-   [管理行動服務組態的命令][管理行動服務組態的命令]
+-   [管理行動服務資料表的命令][管理行動服務資料表的命令]
+-   [管理行動服務指令碼的命令][管理行動服務指令碼的命令]
+-   [管理排程工作的命令][管理排程工作的命令]
+-   [調整行動服務的命令][調整行動服務的命令]
 
 下列選項適用於大部分行動服務命令：
 
@@ -1459,7 +1459,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 ### <a name="Mobile_Scripts"></a>管理指令碼的命令
 
-本節中的命令可用來管理屬於行動服務的伺服器指令碼。如需詳細資訊，請參閱[在行動服務中使用伺服器指令碼][]。
+本節中的命令可用來管理屬於行動服務的伺服器指令碼。如需詳細資訊，請參閱[在行動服務中使用伺服器指令碼][在行動服務中使用伺服器指令碼]。
 
 **mobile script list [options] [servicename]**
 
@@ -1517,7 +1517,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 ### <a name="Mobile_Jobs"></a>管理排程工作的命令
 
-本節中的命令可用來管理屬於行動服務的排程工作。如需詳細資訊，請參閱[排程作業][]。
+本節中的命令可用來管理屬於行動服務的排程工作。如需詳細資訊，請參閱[排程作業][排程作業]。
 
 **mobile job list [options] [servicename]**
 
@@ -1593,7 +1593,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 ### <a name="Mobile_Scale"></a>調整行動服務的命令
 
-本節中的命令可用來調整行動服務。如需詳細資訊，請參閱[調整行動服務][] (英文)。
+本節中的命令可用來調整行動服務。如需詳細資訊，請參閱[調整行動服務][調整行動服務] (英文)。
 
 **mobile scale show [options] [servicename]**
 

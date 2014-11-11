@@ -1,14 +1,14 @@
 <properties linkid="dev-net-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Learn how to use Service Bus queues in Azure. Code samples written in C# using the .NET API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # 如何使用服務匯流排佇列
 
-<span>本指南將示範如何使用服務匯流排佇列。這些範例均以 C# 撰寫並使用 .NET API。所涵蓋的案例包括 **建立佇列、傳送並接收訊息**，以及**刪除佇列**。如需佇列的詳細資訊，請參閱[後續步驟][]一節。 </span>
+<span>本指南將示範如何使用服務匯流排佇列。這些範例均以 C# 撰寫並使用 .NET API。所涵蓋的案例包括 **建立佇列、傳送並接收訊息**，以及**刪除佇列**。如需佇列的詳細資訊，請參閱[後續步驟][後續步驟]一節。 </span>
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span class="short-header">設定應用程式</span>設定應用程式使用服務匯流排
 
@@ -23,7 +23,7 @@
 1.  在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後按一下 [管理 NuGet 封裝]。
 2.  搜尋 "WindowsAzure" 並選取 [Azure 服務匯流排] 項目。按一下 [安裝] 完成安裝作業，然後關閉此對話方塊。
 
-    ![][]
+    ![][0]
 
 您現在可以開始對服務匯流排撰寫程式碼。
 
@@ -205,13 +205,13 @@
 
 了解基本的服務匯流排佇列之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 參考：[佇列、主題和訂閱。][]
+-   請參閱 MSDN 參考：[佇列、主題和訂閱。][佇列、主題和訂閱。]
 -   建立一個可行的應用程式，往返傳送或接收服務匯流排佇列的訊息：
-    [服務匯流排代理訊息 .NET 教學課程][]。
+    [服務匯流排代理訊息 .NET 教學課程][服務匯流排代理訊息 .NET 教學課程]。
 
   [後續步驟]: #next-steps
   [create-account-note]: ../includes/create-account-note.md
   [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
-  []: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [佇列、主題和訂閱。]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367516.aspx
   [服務匯流排代理訊息 .NET 教學課程]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367512.aspx

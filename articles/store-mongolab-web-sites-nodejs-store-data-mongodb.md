@@ -1,6 +1,6 @@
 <properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Website with MongoDB" pageTitle="Node.js website with MongoDB on MongoLab - Azure" metaKeywords="" description="Learn how to create a Node.js Azure Website that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On" authors="eric@mongolab.com" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="eric@mongolab.com"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="eric@mongolab.com" />
 
 # 以使用 MongoLab 附加元件的 MongoDB 在 Azure 上建立 Node.js 應用程式
 
@@ -8,41 +8,41 @@
 
 探險家們大家好！歡迎使用「MongoDB 即服務」。在本教學課程中，您將：
 
-1.  [佈建資料庫][] - Azure 市集中的 [MongoLab][] (英文) 附加元件將提供您在 Azure 雲端主控並由 MongoLab 的雲端資料庫平台管理的 MangoDB 資料庫。
-2.  [建立應用程式][] - 簡單的 Node.js 應用程式，用於維護工作清單。
-3.  [部署應用程式][] - 只要將幾個組態勾點連結在一起，就可以讓推播程式碼變得輕鬆無比。
-4.  [管理資料庫][] - 最後，我們將展示 MongoLab 的網頁式資料庫管理入口網站，您可在此輕鬆執行資料的搜尋、虛擬化、修改。
+1.  [佈建資料庫][佈建資料庫] - Azure 市集中的 [MongoLab][MongoLab] (英文) 附加元件將提供您在 Azure 雲端主控並由 MongoLab 的雲端資料庫平台管理的 MangoDB 資料庫。
+2.  [建立應用程式][建立應用程式] - 簡單的 Node.js 應用程式，用於維護工作清單。
+3.  [部署應用程式][部署應用程式] - 只要將幾個組態勾點連結在一起，就可以讓推播程式碼變得輕鬆無比。
+4.  [管理資料庫][管理資料庫] - 最後，我們將展示 MongoLab 的網頁式資料庫管理入口網站，您可在此輕鬆執行資料的搜尋、虛擬化、修改。
 
 進行本教學課程的過程中若有任何問題，可隨時發送電子郵件至 [support@mongolab.com](mailto:support@mongolab.com)。
 
 請確定您已安裝下列各項再繼續：
 
--   [Node.js][] 0.8.14 以上版本
+-   [Node.js][Node.js] 0.8.14 以上版本
 
--   [Git][]
+-   [Git][Git]
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## 快速開始
 
-如果您已對 Azure 市集有一定的了解，請從本節著手快速開始。否則，請繼續前往到底下的[佈建資料庫][]。
+如果您已對 Azure 市集有一定的了解，請從本節著手快速開始。否則，請繼續前往到底下的[佈建資料庫][佈建資料庫]。
 
 1.  開啟 Azure 市集。
     
-    ![市集][]
+    ![市集][市集]
 2.  按一下 MongoLab 附加元件。
     
 	![MongoLab][1]
 3.  在 [附加元件] 清單中按一下您的 MongoLab 附加元件，然後按一下 [連線資訊]。
     
-	![ConnectionInfoButton][]
+	![ConnectionInfoButton][ConnectionInfoButton]
 4.  將 MONGOLAB\_URI 複製到剪貼簿。
     
-	![ConnectionInfoScreen][]
+	![ConnectionInfoScreen][ConnectionInfoScreen]
     **此 URI 包含您的資料庫使用者名稱和密碼。這是機密資訊，請勿洩露。**
 5.  將這個值新增到 Azure Web 應用程式的 [組態] 功能表中的 [連接字串] 清單：
     
-	![WebSiteConnectionStrings][]
+	![WebSiteConnectionStrings][WebSiteConnectionStrings]
 6.  在 [名稱] 中，輸入 MONGOLAB\_URI。
 7.  在 [值] 中，貼上我們在上一節取得的連接字串。
 8.  在 [類型] 下拉式清單中選取 [自訂] (取代預設的 [SQLAzure])。
@@ -61,11 +61,11 @@
 
 ## <a name="provision"></a>佈建資料庫
 
-[WACOM.INCLUDE [howto-provision-mongolab][]]
+[WACOM.INCLUDE [howto-provision-mongolab](../includes/howto-provision-mongolab.md)]
 
 ## <a name="create"></a>建立應用程式
 
-在本節中，您將設定開發環境，使用 Node.js、Express、MongoDB 設置用於基本工作清單 Web 應用程式的程式碼。[Express][] (英文) 提供節點的檢視控制器架構，[Mongoose][] (英文) 則是用來與節點中的 MongoDB 通訊的驅動程式。
+在本節中，您將設定開發環境，使用 Node.js、Express、MongoDB 設置用於基本工作清單 Web 應用程式的程式碼。[Express][Express] (英文) 提供節點的檢視控制器架構，[Mongoose][Mongoose] (英文) 則是用來與節點中的 MongoDB 通訊的驅動程式。
 
 ### 設定
 
@@ -319,7 +319,7 @@
 
     npm install azure-cli -g
 
-若您已從 [Azure 開發人員中心][]安裝 **Azure SDK for Node.js**，則應該已經安裝命令列工具。如需詳細資訊，請參閱[適用於 Mac 和 Linux 的 Azure 命令列工具][]。
+若您已從 [Azure 開發人員中心][Azure 開發人員中心]安裝 **Azure SDK for Node.js**，則應該已經安裝命令列工具。如需詳細資訊，請參閱[適用於 Mac 和 Linux 的 Azure 命令列工具][適用於 Mac 和 Linux 的 Azure 命令列工具]。
 
 雖然 Azure 命令列工具主要是為了 Mac 和 Linux 使用者而建立，但這些工具會以 Node.js 為基礎，且應該可在任何可執行 Node 的系統上使用。
 
@@ -331,7 +331,7 @@
 
         azure account download
 
-    ![下載頁面][]
+    ![下載頁面][下載頁面]
 
     檔案應該會自動開始下載，如果沒有，您可以按一下頁面開頭的連結手動下載檔案。
 
@@ -357,15 +357,15 @@
 
 1.  在 Azure 入口網站，按一下 [新增]。
     
-	![New][]
+	![New][New]
 2.  選取 [運算] \> [網站] \> [快速建立]。
     
-	![CreateSite][]
+	![CreateSite][CreateSite]
 3.  輸入 URL 前置詞。選擇您喜愛的名稱，但記住一定要獨一無二 (很可能無法使用 'mymongoapp')。
 4.  按一下 [建立網站]。
 5.  當網站建立完成時，按一下網站清單中的網站名稱。網站儀表板隨即顯示。
     
-	![WebSiteDashboard][]
+	![WebSiteDashboard][WebSiteDashboard]
 6.  按一下 [quick glance] 底下的 [Set up Git publishing]，然後輸入要使用的 git 使用者名稱和密碼。要發佈至您的網站時將使用這個密碼 (步驟 9)。
 7.  如果您以上述步驟建立網站，以下命令將會完成此程序。不過，若您已有多個 Azure 網站，可以跳過以上步驟，同樣使用此命令建立新的網站。在您的 **tasklist** 專案目錄中：
 
@@ -375,8 +375,8 @@
 
     `--git` 參數將建立：
     A. 本機 git 儲存機制，位置在 **tasklist** 資料夾中 (若其中還沒有此項目)。
-    A. 名為 'azure' 的 [Git 遠端][]，這會用於將應用程式發佈至 Azure。
-    A. [iisnode.yml][] 檔案，內含 Azure 用於主控節點應用程式的設定。
+    A. 名為 'azure' 的 [Git 遠端][Git 遠端]，這會用於將應用程式發佈至 Azure。
+    A. [iisnode.yml][iisnode.yml] 檔案，內含 Azure 用於主控節點應用程式的設定。
     A. .gitignore 檔案，用以防止 node-modules 資料夾發佈至 .git。
 
     一旦此命令完成，您將會看到類似以下的輸出。請注意，**Created website at** 開頭的這一行包含網站的 URL。
@@ -429,21 +429,21 @@
 
 #### 取得 MongoLab 連接字串
 
-[WACOM.INCLUDE [howto-get-connectioninfo-mongolab][]]
+[WACOM.INCLUDE [howto-get-connectioninfo-mongolab](../includes/howto-get-connectioninfo-mongolab.md)]
 
 #### 將連接字串加入網站的環境變數
 
-[WACOM.INCLUDE [howto-save-connectioninfo-mongolab][]]
+[WACOM.INCLUDE [howto-save-connectioninfo-mongolab](../includes/howto-save-connectioninfo-mongolab.md)]
 
 ## 成功！
 
 從您的專案目錄執行 `azure site browse` 可自動開啟瀏覽器，或手動開啟瀏覽器並瀏覽至您的網站 URL (myuniquesite.azurewebsites.net)：
 
-![顯示空白工作清單的網頁][]
+![顯示空白工作清單的網頁][顯示空白工作清單的網頁]
 
 ## <a name="manage"></a>管理資料庫
 
-[WACOM.INCLUDE [howto-access-mongolab-ui][]]
+[WACOM.INCLUDE [howto-access-mongolab-ui](../includes/howto-access-mongolab-ui.md)]
 
 恭喜！您剛啟動 Node.js 應用程式，並有由 MongoLab 主控之 MongoDB 資料庫的支援！現在，您擁有 MongoLab 資料庫，如果對於資料庫有任何問題或疑慮，或者要取得 MongoDB 或節點驅動程式的協助，可連絡 [support@mongolab.com](mailto:support@mongolab.com)。祝您好運！
 
@@ -452,7 +452,6 @@
   [建立應用程式]: #create
   [部署應用程式]: #deploy
   [管理資料庫]: #manage
-  [\<a href="mailto:support@mongolab.com"\>support@mongolab.com\</a\>]: mailto:support@mongolab.com
   [Node.js]: http://nodejs.org
   [Git]: http://git-scm.com
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md

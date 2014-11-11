@@ -1,32 +1,32 @@
 <properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="How to use blob storage (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="robmcm" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 如何透過 PHP 使用 Blob 服務
 
-本指南將示範如何使用 Azure Blob 服務執行一般案例。這些範例均是以 PHP 撰寫，並使用 [Azure SDK for PHP][] (英文)。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][]一節。
+本指南將示範如何使用 Azure Blob 服務執行一般案例。這些範例均是以 PHP 撰寫，並使用 [Azure SDK for PHP][Azure SDK for PHP] (英文)。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [什麼是 Blob 儲存體][]
--   [概念][]
--   [建立 Azure 儲存體帳戶][]
--   [建立 PHP 應用程式][]
--   [設定您的應用程式以存取 Blob 服務][]
--   [設定 Azure 儲存體連接][]
--   [作法：建立容器][]
--   [作法：將 Blob 上傳至容器][]
--   [作法：列出容器中的 Blob][]
--   [作法：下載 Blob][]
--   [作法：刪除 Blob][]
--   [作法：刪除 Blob 容器][]
--   [後續步驟][]
+-   [什麼是 Blob 儲存體][什麼是 Blob 儲存體]
+-   [概念][概念]
+-   [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
+-   [建立 PHP 應用程式][建立 PHP 應用程式]
+-   [設定您的應用程式以存取 Blob 服務][設定您的應用程式以存取 Blob 服務]
+-   [設定 Azure 儲存體連接][設定 Azure 儲存體連接]
+-   [作法：建立容器][作法：建立容器]
+-   [作法：將 Blob 上傳至容器][作法：將 Blob 上傳至容器]
+-   [作法：列出容器中的 Blob][作法：列出容器中的 Blob]
+-   [作法：下載 Blob][作法：下載 Blob]
+-   [作法：刪除 Blob][作法：刪除 Blob]
+-   [作法：刪除 Blob 容器][作法：刪除 Blob 容器]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <span id="CreateAccount"></span></a>建立 Azure 儲存體帳戶
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="CreateApplication"></span></a>建立 PHP 應用程式
 
@@ -36,13 +36,13 @@
 
 ## <span id="GetClientLibrary"></span></a>取得 Azure 用戶端程式庫
 
-[WACOM.INCLUDE [get-client-libraries][]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="ConfigureStorage"></span></a>設定您的應用程式以存取 Blob 服務
 
 若要使用 Azure Blob 服務 API，您必須：
 
-1.  參考使用 [require\_once][] 陳述式的自動換片器檔案，以及
+1.  參考使用 [require\_once][require\_once] 陳述式的自動換片器檔案，以及
 2.  參考任何您可能使用的類別。
 
 下列範例顯示如何納入自動換片器檔案及參考 **ServicesBuilder** 類別。
@@ -128,19 +128,19 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-呼叫 **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** 可讓容器和 Blob 資料開放透過匿名要求來存取。呼叫 **setPublicAccess(PublicAccessType::BLOBS\_ONLY)** 可讓 Blob 資料開放透過匿名要求來存取。如需容器 ACL 的詳細資訊，請參閱[設定容器 ACL (REST API)][] (英文)。
+呼叫 **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** 可讓容器和 Blob 資料開放透過匿名要求來存取。呼叫 **setPublicAccess(PublicAccessType::BLOBS\_ONLY)** 可讓 Blob 資料開放透過匿名要求來存取。如需容器 ACL 的詳細資訊，請參閱[設定容器 ACL (REST API)][設定容器 ACL (REST API)] (英文)。
 
-如需 Blob 服務錯誤碼的詳細資訊，請參閱 [Blob 服務錯誤碼][] (英文)。
+如需 Blob 服務錯誤碼的詳細資訊，請參閱 [Blob 服務錯誤碼][Blob 服務錯誤碼] (英文)。
 
 ## <span id="UploadBlob"></span></a>作法：將 Blob 上傳至容器
 
-若要將檔案當作 Blob 上傳，請使用 **BlobRestProxy-\>createBlockBlob** 方法。如果 Blob 不存在，此作業將予以建立，若已存在，則予以覆寫。下列程式碼範例假設已建立容器，並使用 [fopen][] (英文) 將檔案當作串流開啟。
+若要將檔案當作 Blob 上傳，請使用 **BlobRestProxy-\>createBlockBlob** 方法。如果 Blob 不存在，此作業將予以建立，若已存在，則予以覆寫。下列程式碼範例假設已建立容器，並使用 [fopen][fopen] (英文) 將檔案當作串流開啟。
 
     require_once 'vendor\autoload.php';
 
@@ -161,13 +161,13 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-請注意，上述範例會以串流方式上傳 Blob。不過，也可以使用 [file\_get\_contents][] 之類的函數將 Blob 當作字串上傳。若要這樣做，請變更上述 `$content = file_get_contents("c:\myfile.txt");` 範例中的 `$content = fopen("c:\myfile.txt", "r");`。
+請注意，上述範例會以串流方式上傳 Blob。不過，也可以使用 [file\_get\_contents][file\_get\_contents] 之類的函數將 Blob 當作字串上傳。若要這樣做，請變更上述 `$content = file_get_contents("c:\myfile.txt");` 範例中的 `$content = fopen("c:\myfile.txt", "r");`。
 
 ## <span id="ListBlobs"></span></a>作法：列出容器中的 Blob
 
@@ -195,7 +195,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -222,13 +222,13 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-請注意，以上範例會以串流資源形式 (預設行為) 取得 Blob。不過，您可以使用 [stream\_get\_contents][] 函數將傳回的串流轉換成字串。
+請注意，以上範例會以串流資源形式 (預設行為) 取得 Blob。不過，您可以使用 [stream\_get\_contents][stream\_get\_contents] 函數將傳回的串流轉換成字串。
 
 ## <span id="DeleteBlob"></span></a>作法：刪除 Blob
 
@@ -250,7 +250,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -276,7 +276,7 @@
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+        // http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -286,7 +286,7 @@
 
 了解 Azure Blob 服務的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][]
+-   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][在 Azure 中儲存和存取資料]
 -   請造訪 Azure 儲存體團隊部落格：<http://blogs.msdn.com/b/windowsazurestorage/>
 -   請參閱 <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php> 中的 PHP 區塊 Blob 範例。
 -   請參閱 <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php> 中的 PHP 分頁 Blob 範例
@@ -308,10 +308,6 @@
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [get-client-libraries]: ../includes/get-client-libraries.md
-  [require\_once]: http://php.net/require_once
-  [設定容器 ACL (REST API)]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179391.aspx
-  [Blob 服務錯誤碼]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+  [Blob 服務錯誤碼]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179439.aspx
   [fopen]: http://www.php.net/fopen
-  [file\_get\_contents]: http://php.net/file_get_contents
-  [stream\_get\_contents]: http://www.php.net/stream_get_contents
-  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx

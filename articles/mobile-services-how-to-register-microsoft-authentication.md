@@ -1,18 +1,18 @@
 <properties pageTitle="Register for Microsoft authentication - Mobile Services" metaKeywords="Azure registering application, Azure Microsoft authentication, application authenticate, authenticate mobile services" description="Learn how to register for Microsoft authentication in your Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" title="Register your apps to use a Microsoft Account login" authors="glenga" services="mobile-services" documentationCenter="Mobile" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 註冊應用程式來使用 Microsoft 帳戶登入
 
 本主題說明如何註冊應用程式，以使用 Live Connect 做為 Azure 行動服務的驗證提供者。
 
-> [WACOM.NOTE]若要設定適用於 Windows 8.1 或 Windows Phone 8.1 應用程式的 Microsoft 帳戶驗證，請參閱[註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證][]。
+> [WACOM.NOTE]若要設定適用於 Windows 8.1 或 Windows Phone 8.1 應用程式的 Microsoft 帳戶驗證，請參閱[註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證][註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證]。
 
-1.  瀏覽到 Live Connect 開發人員中心的[我的應用程式][]頁面，並視需要使用您的 Microsoft 帳戶登入。
+1.  瀏覽到 Live Connect 開發人員中心的[我的應用程式][我的應用程式]頁面，並視需要使用您的 Microsoft 帳戶登入。
 
 2.  按一下 [建立應用程式]、然後輸入 [應用程式名稱]，並按一下 [I accept]。
 
-    ![][]
+    ![][0]
 
     這會向 Live Connect 註冊應用程式。
 
@@ -42,6 +42,6 @@
 
   [註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證]: /zh-tw/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
   [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-  []: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-live-connect-add-app.png
+  [0]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-live-connect-add-app.png
   [1]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth-2.png
   [2]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth.png

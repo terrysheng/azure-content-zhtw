@@ -1,6 +1,6 @@
 <properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 如何在虛擬機器上以 Java 執行大量運算工作
 
@@ -20,17 +20,17 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 本教學課程將使用旅行業務員問題 (Traveling Salesman Problem) 來進行大量運算工作。以下是執行大量運算工作的 Java 應用程式範例：
 
-![Traveling Salesman Problem solver][]
+![Traveling Salesman Problem solver][Traveling Salesman Problem solver]
 
 以下是監視大量運算工作的 Java 應用程式範例：
 
-![Traveling Salesman Problem client][]
+![Traveling Salesman Problem client][Traveling Salesman Problem client]
 
-[WACOM.INCLUDE [create-account-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## 建立虛擬機器
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  依序按一下 [新增]、[運算]、[虛擬機器] 及 [從組件庫]。
 3.  在 [虛擬機器映象選取] 對話方塊中，選取 [JDK 7 Windows Server 2012]。
     請注意，唯有當您擁有尚未做好在 JDK 7 中運作之準備的舊版應用程式時，才能選取 [JDK 6 Windows Server 2012]。
@@ -60,7 +60,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 4.  按一下 [連接]。
 5.  視需要回應提示以連接虛擬機器。當要求提供系統管理員名稱和密碼的提示出現時，請使用在建立虛擬機器時提供的值。
 
-請注意，Azure 服務匯流排功能會要求安裝 Baltimore CyberTrust Root 憑證做為您 JRE 的 **cacerts** 存放區的一部分。這個憑證會自動包含在本教學課程所使用的 JRE 中。如果您的 JRE **cacerts** 存放區中沒有這個憑證，請參閱[將憑證加入 Java CA 憑證存放區][]，以了解有關加入這個憑證的資訊 (以及有關檢視您 cacerts 存放區中憑證的資訊)。
+請注意，Azure 服務匯流排功能會要求安裝 Baltimore CyberTrust Root 憑證做為您 JRE 的 **cacerts** 存放區的一部分。這個憑證會自動包含在本教學課程所使用的 JRE 中。如果您的 JRE **cacerts** 存放區中沒有這個憑證，請參閱[將憑證加入 Java CA 憑證存放區][將憑證加入 Java CA 憑證存放區]，以了解有關加入這個憑證的資訊 (以及有關檢視您 cacerts 存放區中憑證的資訊)。
 
 ## 如何建立服務匯流排命名空間
 
@@ -70,12 +70,12 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 建立服務命名空間：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  在管理入口網站左下方的瀏覽窗格中，按一下 [服務匯流排、存取控制和快取]。
 3.  在管理入口網站左上方的瀏覽窗格中，按一下 [服務匯流排] 節點，然後按一下 [新增] 按鈕。<br />
-    ![服務匯流排 節點螢幕擷取畫面][]
+    ![服務匯流排 節點螢幕擷取畫面][服務匯流排 節點螢幕擷取畫面]
 4.  在 [建立新服務命名空間] 對話方塊中輸入一個「命名空間」，然後確認它是唯一的，按一下 [檢查可用性]按鈕。
-    ![建立新服務命名空間 螢幕擷取畫面][]
+    ![建立新服務命名空間 螢幕擷取畫面][建立新服務命名空間 螢幕擷取畫面]
 5.  確定命名空間名稱可用之後，選擇要裝載命名空間的國家或地區，然後按一下 [建立命名空間] 按鈕。
 
     然後，您建立的命名空間就會出現在管理入口網站中，稍待片刻就會生效。等到狀態變成 [作用中] 之後，再繼續進行下一步。
@@ -85,20 +85,20 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 若要在新的命名空間上執行管理作業 (例如建立佇列)，您必須取得命名空間的管理認證。
 
 1.  在左側瀏覽窗格中，按一下 [服務匯流排] 節點，以顯示可用的命名空間清單：<br />
-    ![可用的命名空間 螢幕擷取畫面][]
+    ![可用的命名空間 螢幕擷取畫面][可用的命名空間 螢幕擷取畫面]
 2.  從顯示的清單中，選取您剛建立的命名空間：<br />
-    ![命名空間清單 螢幕擷取畫面][]
+    ![命名空間清單 螢幕擷取畫面][命名空間清單 螢幕擷取畫面]
 3.  右邊的 [屬性] 窗格將會列出新命名空間的屬性：<br />
-    ![屬性 窗格螢幕擷取畫面][]
+    ![屬性 窗格螢幕擷取畫面][屬性 窗格螢幕擷取畫面]
 4.  [預設金鑰] 是隱藏的。請按一下 [檢視] 按鈕以顯示安全性認證：<br />
-    ![預設金鑰 螢幕擷取畫面][]
+    ![預設金鑰 螢幕擷取畫面][預設金鑰 螢幕擷取畫面]
 5.  記下 [預設核發者] 和 [預設金鑰]，
     因為您將在下面使用這項資訊來執行
     命名空間作業。
 
 ## 如何建立執行大量運算工作的 Java 應用程式
 
-1.  在您的開發電腦 (不一定要是您所建立的虛擬機器) 上，下載 [Azure SDK for Java][] (英文)。
+1.  在您的開發電腦 (不一定要是您所建立的虛擬機器) 上，下載 [Azure SDK for Java][Azure SDK for Java] (英文)。
 2.  使用本節結尾的範例程式碼建立一個 Java 主控台應用程式。為因應本教學課程的目的，我們將使用 **TSPSolver.java** 做為 Java 檔案名稱。請將 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 及 **your\_service\_bus\_key** 預留位置，分別修改成使用您服務匯流排 [命名空間]、[Default Issuer] 及 [預設金鑰] 的值。
 3.  編碼完成之後，將應用程式匯出至可執行的 Java 存檔 (JAR)，並將所需的程式庫封裝至產生的 JAR 中。為因應本教學課程的目的，我們將使用 **TSPSolver.jar** 做為產生的 JAR 名稱。
 

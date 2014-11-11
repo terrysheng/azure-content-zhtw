@@ -1,6 +1,6 @@
 <properties pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C# or JavaScript. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
 
 # <a name="getting-started"> </a>開始使用行動服務
 
@@ -36,17 +36,17 @@
 
 以下是完成應用程式的螢幕擷取畫面：
 
-![][]
+![][0]
 
 完成本教學課程是 Windows 市集應用程式所有其他行動服務教學課程的先決條件。
 
-> [WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
+> [WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][Azure 免費試用]。
 
-> 本教學課程需要 Visual Studio 2013。若要使用 Visual Studio 2012 連接 Windows 市集應用程式，請依照主題[使用 Visual Studio 2012 開始使用行動服務中的資料][]中的步驟進行。
+> 本教學課程需要 Visual Studio 2013。若要使用 Visual Studio 2012 連接 Windows 市集應用程式，請依照主題[使用 Visual Studio 2012 開始使用行動服務中的資料][使用 Visual Studio 2012 開始使用行動服務中的資料]中的步驟進行。
 
 ## 建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## 建立新的 Windows 市集應用程式
 
@@ -64,7 +64,7 @@
 
     ![][2]
 
-3.  如果您尚未這麼做，請在您的本機電腦或虛擬機器下載並安裝 [Visual Studio 2013 Express for Windows][]。
+3.  如果您尚未這麼做，請在您的本機電腦或虛擬機器下載並安裝 [Visual Studio 2013 Express for Windows][Visual Studio 2013 Express for Windows]。
 
 4.  按一下 [Create TodoItem table] 以建立儲存應用程式資料的資料表。
 
@@ -100,7 +100,7 @@
 
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
--   **開始使用資料** ( [C#][] / [JavaScript][] )
+-   **開始使用資料** ( [C#][C#] / [JavaScript][JavaScript] )
     深入了解使用行動服務儲存和查詢資料的相關資訊。
 
 -   **開始使用驗證** ( [C#][6] / [JavaScript][7] )
@@ -113,20 +113,7 @@
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集]: /zh-tw/documentation/articles/mobile-services-windows-store-get-started "Windows 市集"
-  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/mobile-services-ios-get-started "iOS"
-  [Android]: /zh-tw/documentation/articles/mobile-services-android-get-started "Android"
-  [HTML]: /zh-tw/documentation/articles/mobile-services-html-get-started "HTML"
-  [Xamarin.iOS]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android"
-  [Sencha]: /zh-tw/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha"
-  [PhoneGap]: /zh-tw/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap"
-  [Appcelerator]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started "Appcelerator"
-  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/ ".NET 後端"
-  [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-windows-store-get-started/ "JavaScript 後端"
-  [觀看教學課程]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Introduction-to-Windows-Azure-Mobile-Services
-  []: ./media/mobile-services-windows-store-get-started/mobile-quickstart-completed.png
+  [0]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-completed.png
   [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [使用 Visual Studio 2012 開始使用行動服務中的資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md

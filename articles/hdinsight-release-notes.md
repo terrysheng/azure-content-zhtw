@@ -1,6 +1,6 @@
 <properties title="HDInsight Release Notes" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Microsoft HDInsight 版本資訊
 
@@ -44,7 +44,7 @@
 -   **HDP 2.1 可用性**：HDInsight 3.1 (含 HDP 2.1) 現在已正式發行，也是新叢集的預設版本。
 -   **HBase – Azure 管理入口網站改善**：我們提供預覽版的 HBase 叢集。您現在從入口網站中，按三下滑鼠就可以建立 HBase 叢集。
 
-![][]
+![][0]
 
 HBase 可讓您在 HDInsight 上建置各種即時工作負載，包括處理大型資料集的互動式網站，甚至是將數百萬個端點的感應器和遙測資料儲存起來的服務，都沒問題。下一步是使用 Hadoop 工作來分析這些工作負載中的資料，透過既有的體驗，像是 PowerShell 和 Hive 叢集儀表板，這立即就能在 HDInsight 中進行。
 
@@ -428,7 +428,7 @@ SQL Server JDBC 驅動程式僅供 HDInsight 內部使用，不適用於外部�
   [New-AzureHDInsightCluster]: http://msdn.microsoft.com/zh-tw/library/dn593744.aspx
   [HDInsight SDK]: http://msdn.microsoft.com/zh-tw/library/azure/dn469975.aspx
   [HDInsight 所提供叢集版本的新功能]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-component-versioning/
-  []: http://i.imgur.com/cmOl5fM.png
+  [0]: http://i.imgur.com/cmOl5fM.png
   [Mahout]: http://hortonworks.com/hadoop/mahout/
   [Breiman 範例]: https://mahout.apache.org/users/classification/breiman-example.html
   [Apache Hive 13 for Enterprise Hadoop 效能評比]: http://hortonworks.com/blog/benchmarking-apache-hive-13-enterprise-hadoop/

@@ -1,6 +1,6 @@
 <properties title="Manage an Azure Machine Learning workspace" pageTitle="Manage a Machine Learning workspace | Azure" description="Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services" metaKeywords="" services="" solutions="" documentationCenter="" authors="derrickv" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv" />
 
 # 管理 Azure Machine Learning 工作區
 
@@ -14,7 +14,7 @@
 2.  在 Microsoft Azure 服務面板中，按一下 **[機器學習]**。
 3.  在 **[機器學習]** 清單中，按一下工作區。
 
-![][]
+![][0]
 
 ## 如何授與或暫停使用者的存取權
 
@@ -28,4 +28,4 @@
 
 <!--Image references-->
 
-  []: ./media/machine-learning-manage-workspace/mw1.png
+  [0]: ./media/machine-learning-manage-workspace/mw1.png

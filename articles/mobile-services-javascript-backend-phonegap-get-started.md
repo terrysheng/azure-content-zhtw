@@ -1,8 +1,8 @@
 <properties pageTitle="Get started with Mobile Services with PhoneGap | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for PhoneGap development for iOS, Android, and Windows Phone." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 # <a name="getting-started"> </a>開始使用行動服務
 
@@ -10,7 +10,7 @@
 
 以下是完成應用程式的螢幕擷取畫面：
 
-![][]
+![][0]
 
 ### <a name="additional-requirements"></a>其他需求
 
@@ -18,14 +18,14 @@
 
 PhoneGap 支援多個平台的開發。除了 PhoneGap 工具本身以外，您還必須為所要使用的各個平台安裝下列工具：
 
--   Windows Phone：安裝 [Visual Studio 2012 Express for Windows Phone][]
--   iOS：安裝 [Xcode][] (必須是 4.4 以上的版本)
--   Android：安裝 [Android Developer Tools][]
+-   Windows Phone：安裝 [Visual Studio 2012 Express for Windows Phone][Visual Studio 2012 Express for Windows Phone]
+-   iOS：安裝 [Xcode][Xcode] (必須是 4.4 以上的版本)
+-   Android：安裝 [Android Developer Tools][Android Developer Tools]
     <br/>(Mobile Services SDK for Android 支援適用於 Android 2.2 或更新版本的應用程式。若要執行快速入門應用程式，則必須使用 Android 4.2 或更新版本。)
 
 ## <a name="create-new-service"> </a>建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## <span class="short-header">建立新的應用程式</span>建立新的 PhoneGap 應用程式
 
@@ -73,7 +73,7 @@ PhoneGap 支援多個平台的開發。除了 PhoneGap 工具本身以外，您�
 
     2.  按 [執行] 按鈕以建立專案，並在 iPhone 模擬器中啟動應用程式 (此專案的預設選項)。
 
-        ![][]
+        ![][0]
 
     -   **Android**
 
@@ -138,17 +138,17 @@ PhoneGap 支援多個平台的開發。除了 PhoneGap 工具本身以外，您�
 
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
--   [開始使用資料][]
+-   [開始使用資料][開始使用資料]
     深入了解使用行動服務來儲存與查詢資料。
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何向身分識別提供者驗證應用程式的使用者。
 
 <!-- Images. --> 
 <!-- URLs. -->
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  []: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png
+  [0]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png
   [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
   [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Android Developer Tools]: https://go.microsoft.com/fwLink/p/?LinkID=280125

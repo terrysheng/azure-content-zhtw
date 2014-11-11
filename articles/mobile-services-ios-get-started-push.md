@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app (legacy push)." metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # 開始在行動服務中使用推播通知 (舊版為推播)
 
@@ -17,36 +17,36 @@
 
 本主題說明如何使用 Azure 行動服務將推播通知傳送至 iOS 應用程式。在本教學課程中，您會使用 Apple 推播通知服務 (APNS) 將推播通知新增至快速入門專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
-> [WACOM.NOTE]此主題支援「尚未升級」來使用通知中心整合的「現有」行動服務。當您建立「新的」行動服務時，會自動啟用這個整合的功能。如需新的行動服務，請參閱[開始使用推播通知][]。
+> [WACOM.NOTE]此主題支援「尚未升級」來使用通知中心整合的「現有」行動服務。當您建立「新的」行動服務時，會自動啟用這個整合的功能。如需新的行動服務，請參閱[開始使用推播通知][開始使用推播通知]。
 >
-> 行動服務已與 Azure 通知中心整合，以支援其他推播通知功能，例如範本、多個平台和提升的範圍。*您應該升級現有的行動服務，以盡可能使用通知中樞*。升級之後，請參閱這一版的[開始使用推播通知][]。
+> 行動服務已與 Azure 通知中心整合，以支援其他推播通知功能，例如範本、多個平台和提升的範圍。*您應該升級現有的行動服務，以盡可能使用通知中樞*。升級之後，請參閱這一版的[開始使用推播通知][開始使用推播通知]。
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 
-1.  [產生憑證簽署要求][]
-2.  [註冊您的應用程式並啟用推播通知][]
-3.  [建立應用程式的佈建設定檔][]
-4.  [設定行動服務][]
-5.  [新增推播通知至應用程式][]
-6.  [更新指令碼來傳送推播通知][]
-7.  [插入資料以接收通知][]
+1.  [產生憑證簽署要求][產生憑證簽署要求]
+2.  [註冊您的應用程式並啟用推播通知][註冊您的應用程式並啟用推播通知]
+3.  [建立應用程式的佈建設定檔][建立應用程式的佈建設定檔]
+4.  [設定行動服務][設定行動服務]
+5.  [新增推播通知至應用程式][新增推播通知至應用程式]
+6.  [更新指令碼來傳送推播通知][更新指令碼來傳送推播通知]
+7.  [插入資料以接收通知][插入資料以接收通知]
 
 本教學課程需要下列各項：
 
--   [行動服務 iOS SDK][]
--   [Xcode 4.5][]
+-   [行動服務 iOS SDK][行動服務 iOS SDK]
+-   [Xcode 4.5][Xcode 4.5]
 -   iOS 5.0 (或以上版本) 功能裝置
 -   iOS Developer Program 成員資格
 
 > [WACOM.NOTE] 基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
 
-本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][]。
+本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][開始使用行動服務]。
 
-[WACOM.INCLUDE [Enable Apple Push Notifications][]]
+[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 ## 設定行動服務傳送推播要求
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push][]]
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## 將推播通知新增至應用程式
 
@@ -120,7 +120,7 @@
             @"deviceToken" : delegate.deviceToken
         };
 
-    This adds a reference to the **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
+    這會加入對 **QSAppDelegate** 的參考以取得裝置權杖，然後再修改要求裝載，以加入該裝置權杖。
 
     > [WACOM.NOTE] 您必須在呼叫 **addItem** 方法之前加入此程式碼。
 
@@ -154,7 +154,7 @@
             }, 2500);
         }
 
-    這會註冊新的 insert 指令碼，它會使用 [apns 物件][]將推播通知 (插入的文字) 傳送至插入要求中提供的裝置。
+    這會註冊新的 insert 指令碼，它會使用 [apns 物件][apns 物件]將推播通知 (插入的文字) 傳送至插入要求中提供的裝置。
 
     > [WACOM.NOTE] 此指令碼會延遲傳送通知，讓您有時間關閉應用程式，以接收快顯通知。
 
@@ -182,20 +182,12 @@
 
 ## 後續步驟
 
-在這個簡單範例中，使用者收到推播通知，其中含有剛插入的資料。用戶端會在要求中提供 APNS 所使用的裝置權杖給行動服務。在下一個教學課程[推播通知至應用程式使用者][]中，您將另行建立 Devices 資料表來儲存裝置權杖，並在發生插入動作時傳送推播通知給已儲存的所有通道。
+在這個簡單範例中，使用者收到推播通知，其中含有剛插入的資料。用戶端會在要求中提供 APNS 所使用的裝置權杖給行動服務。在下一個教學課程[推播通知至應用程式使用者][推播通知至應用程式使用者]中，您將另行建立 Devices 資料表來儲存裝置權杖，並在發生插入動作時傳送推播通知給已儲存的所有通道。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-push "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/mobile-services-ios-get-started-push "iOS"
-  [Android]: /zh-tw/documentation/articles/mobile-services-android-get-started-push "Android"
-  [Appcelerator]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
-  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ ".NET 後端"
-  [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-ios-get-started-push/ "JavaScript 後端"
   [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
   [產生憑證簽署要求]: #certificates
   [註冊您的應用程式並啟用推播通知]: #register

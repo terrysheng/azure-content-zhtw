@@ -1,6 +1,6 @@
 <properties linkid="services-linux-cassandra-with-linux" urlDisplayName="Cassandra with Linux" pageTitle="Run Cassandra with Linux on Azure" metaKeywords="" description="Explains how to run a Cassandra cluster on Linux in Azure Virtual Machines." metaCanonical="" services="virtual-machines" documentationCenter="nodejs" title="Running Cassandra with Linux on Azure and Accessing it from Node.js" authors="hanuk" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanuk"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanuk" />
 
 # <span></span></a>在 Azure 上執行 Cassandra 搭配 Linux 並透過 Node.js 進行存取
 
@@ -8,14 +8,14 @@
 
 ## 目錄
 
--   [概觀][]
--   [Cassandra 部署圖解][]
--   [複合式部署][]
--   [Azure 虛擬機器部署][]
--   [工作 1：部署 Linux 叢集][]
--   [工作 2：在每部虛擬機器上安裝 Cassandra][]
--   [工作 3：透過 Node.js 存取 Cassandra 叢集][]
--   [結論][]
+-   [概觀][概觀]
+-   [Cassandra 部署圖解][Cassandra 部署圖解]
+-   [複合式部署][複合式部署]
+-   [Azure 虛擬機器部署][Azure 虛擬機器部署]
+-   [工作 1：部署 Linux 叢集][工作 1：部署 Linux 叢集]
+-   [工作 2：在每部虛擬機器上安裝 Cassandra][工作 2：在每部虛擬機器上安裝 Cassandra]
+-   [工作 3：透過 Node.js 存取 Cassandra 叢集][工作 3：透過 Node.js 存取 Cassandra 叢集]
+-   [結論][結論]
 
 ## <span id="overview"></span> </a>概觀
 
@@ -23,7 +23,7 @@ Azure 透過可允許以無結構描述方式儲存商務物件的 Azure 資料�
 
 ## <span id="schematic"></span> </a>Cassandra 部署圖解
 
-Azure 虛擬機器功能使得在 Microsoft 公用雲端執行 NoSQL 資料庫 (例如 [Cassandra][]) 與在私人雲端環境執行這類資料庫一樣容易，唯一的差異在於 Azure 虛擬機器基礎結構特定的虛擬機器組態。撰寫本文時，Cassandra 還無法在 Azure 上以受管理的服務形式提供使用，因此在本文中，我們將著眼於在虛擬機器上設定 Cassandra 叢集，並從另一個也裝載於虛擬機器內的 Linux 執行個體存取此叢集。本文所示的 node.js 程式碼片段也可以從 PaaS 裝載的 Web 應用程式或 Web 服務來使用。Azure 的其中一個核心力量就是可允許能夠充分利用 PaaS 和 IaaS 世界的複合式應用程式模型。
+Azure 虛擬機器功能使得在 Microsoft 公用雲端執行 NoSQL 資料庫 (例如 [Cassandra][Cassandra]) 與在私人雲端環境執行這類資料庫一樣容易，唯一的差異在於 Azure 虛擬機器基礎結構特定的虛擬機器組態。撰寫本文時，Cassandra 還無法在 Azure 上以受管理的服務形式提供使用，因此在本文中，我們將著眼於在虛擬機器上設定 Cassandra 叢集，並從另一個也裝載於虛擬機器內的 Linux 執行個體存取此叢集。本文所示的 node.js 程式碼片段也可以從 PaaS 裝載的 Web 應用程式或 Web 服務來使用。Azure 的其中一個核心力量就是可允許能夠充分利用 PaaS 和 IaaS 世界的複合式應用程式模型。
 
 Cassandra 應用程式環境有兩個可行的部署模型：獨立式 (Self-Contained) 虛擬機器部署和複合式部署。在複合式部署中，將會使用 Thrift 介面透過負載平衡器，從 PaaS 裝載的 Azure Web 應用程式 (或 Web 服務) 取用虛擬機器裝載的 Cassandra 叢集。雖然在發生主要空間 (key space) 錯誤時，每個 Cassandra 節點都會透過 Proxy 將要求傳遞給其他對等節點，但是負載平衡器能夠協助提供基本的要求負載平衡。此外，負載平衡器也會建立受防火牆保護的沙箱來提供更好的資料控制。
 
@@ -31,11 +31,11 @@ Cassandra 應用程式環境有兩個可行的部署模型：獨立式 (Self-Con
 
 複合式部署的目標是一方面要將 PaaS 的使用量最大化，一方面又要讓虛擬機器的磁碟使用量保持在絕對的最小值，為的是要避免由虛擬機器的基礎結構管理所加諸的額外負荷。考量到伺服器管理所帶來的額外負荷，因此請只部署那些需要可設定狀態之行為且因各種原因 (包括上市時間、無法查看原始程式碼及存取作業系統的層級低) 而無法輕易修改的元件。
 
-![Composite deployment diagram][]
+![Composite deployment diagram][Composite deployment diagram]
 
 ## <span id="deployment"></span> </a>Azure 虛擬機器部署
 
-![Virtual machine deployment][]
+![Virtual machine deployment][Virtual machine deployment]
 
 上圖中是將一個 4 節點的 Cassandra 叢集部署在虛擬機器內可允許 Thrift 流量的負載平衡器後方。Azure 裝載的 PaaS 應用程式會使用語言特定 Thrift 程式庫來存取叢集。有適用於各種語言 (包括 Java、C#、Node.js、Python 及 C++) 的程式庫。第二個圖中顯示的獨立式虛擬機器部署會透過在虛擬機器上裝載的另一個雲端服務內執行的應用程式取用資料。
 
@@ -43,15 +43,15 @@ Cassandra 應用程式環境有兩個可行的部署模型：獨立式 (Self-Con
 
 一般建立叢集的順序如下：
 
-![Sequence diagram for creating a cluster][]
+![Sequence diagram for creating a cluster][Sequence diagram for creating a cluster]
 
 **步驟 1：產生 SSH 金鑰組**
 
-在佈建階段，Azure 需要 PEM 或 DER 編碼的 X509 公用金鑰。請參考[如何在 Azure 上使用 SSH 搭配 Linux][] (英文) 上的指示來產生公用/私密金鑰組。若您計劃在 Windows 或 Linux 上使用 putty.exe 做為 SSH 用戶端，您必須使用 puttygen.exe，將 PEM 編碼的 RSA 私密金鑰轉換為 PPK 格式。如需此操作的指示，請參閱 [為 Windows Azure 上的 Linux VM 部署產生 SSH 金鑰組][] (英文)。
+在佈建階段，Azure 需要 PEM 或 DER 編碼的 X509 公用金鑰。請參考[如何在 Azure 上使用 SSH 搭配 Linux][如何在 Azure 上使用 SSH 搭配 Linux] (英文) 上的指示來產生公用/私密金鑰組。若您計劃在 Windows 或 Linux 上使用 putty.exe 做為 SSH 用戶端，您必須使用 puttygen.exe，將 PEM 編碼的 RSA 私密金鑰轉換為 PPK 格式。如需此操作的指示，請參閱 [為 Windows Azure 上的 Linux VM 部署產生 SSH 金鑰組][為 Windows Azure 上的 Linux VM 部署產生 SSH 金鑰組] (英文)。
 
 **步驟 2：建立 Ubuntu VM**
 
-若要建立第一部 Ubuntu VM，請登入 Azure 預覽入口網站，依序按一下 [新增]、[虛擬機器]、[From Gallery]、[Unbuntu Server 12.xx]，然後再按向右箭號。如需說明如何建立 Linux VM 的教學課程，請參閱[建立執行 Linux 的虛擬機器][] (英文)。
+若要建立第一部 Ubuntu VM，請登入 Azure 預覽入口網站，依序按一下 [新增]、[虛擬機器]、[From Gallery]、[Unbuntu Server 12.xx]，然後再按向右箭號。如需說明如何建立 Linux VM 的教學課程，請參閱[建立執行 Linux 的虛擬機器][建立執行 Linux 的虛擬機器] (英文)。
 
 然後，在 [VM 組態] 畫面中輸入下列資訊：
 
@@ -247,7 +247,7 @@ e. 現在，請選取第二部 VM，然後重複執行上述程序，但必須�
 
 既然我們已經備妥 VM，現在即可在每部 VM 上安裝 Cassandra。由於 Cassandra 在許多 Linux 散發套件中都不是標準組件，因此讓我們來採取手動部署程序。
 
-[請注意，我們在每部 VM 上都是使用手動方式進行軟體安裝。不過，您可以加速這個程序，方法是安裝一部充分運作的 Cassandra VM，擷取它做為基礎映像，然後從此基礎映像建立其他執行個體。如需有關擷取 Linux 映像的指示，請參閱[如何擷取執行 Linux 之虛擬機器的映像][] (英文)。
+[請注意，我們在每部 VM 上都是使用手動方式進行軟體安裝。不過，您可以加速這個程序，方法是安裝一部充分運作的 Cassandra VM，擷取它做為基礎映像，然後從此基礎映像建立其他執行個體。如需有關擷取 Linux 映像的指示，請參閱[如何擷取執行 Linux 之虛擬機器的映像][請注意，我們在每部 VM 上都是使用手動方式進行軟體安裝。不過，您可以加速這個程序，方法是安裝一部充分運作的 Cassandra VM，擷取它做為基礎映像，然後從此基礎映像建立其他執行個體。如需有關擷取 Linux 映像的指示，請參閱[如何擷取執行 Linux 之虛擬機器的映像] (英文)。
 
 ## <span id="task2"></span> </a>工作 2：在每部虛擬機器上安裝 Cassandra
 
@@ -410,7 +410,7 @@ Cassandra 需要 Java 虛擬機器，因此請使用下列適用於 Debian 衍�
 
 ## <span id="task3"></span> </a>工作 3：透過 Node.js 存取 Cassandra 叢集
 
-請使用先前工作中所述的程序在 Azure 上建立 Linux VM。請確定此 VM 是獨立 VM，因為我們將使用它做為用戶端來存取 Cassandra 叢集。我們將先從 GitHub 安裝 Node.js、NPM 及 [cassandra-client][]，再從此 VM 連線至 Cassandra 叢集：
+請使用先前工作中所述的程序在 Azure 上建立 Linux VM。請確定此 VM 是獨立 VM，因為我們將使用它做為用戶端來存取 Cassandra 叢集。我們將先從 GitHub 安裝 Node.js、NPM 及 [cassandra-client][cassandra-client]，再從此 VM 連線至 Cassandra 叢集：
 
 **步驟 1：安裝 Node.js 和 NPM**
 
@@ -445,7 +445,7 @@ e) 執行下列命令以從穩定的二進位檔安裝 NPM
 
 Cassandra 儲存體使用 KEYSPACE 和 COLUMNFAMILY 的概念，這些概念大致上可相當於 RDBMS 用語中的 DATABASE 和 TABLE 結構。KEYSAPCE 會包含一組 COLUMNFAMILY 定義。每個 COLUMNFAMILY 會包含一組資料列，每個資料列又會包含數個資料欄，如下方的複合檢視所示：
 
-![Rows and columns][]
+![Rows and columns][Rows and columns]
 
 我們將使用先前部署的 Cassandra 叢集，透過建立及查詢上述資料結構示範 node.js 存取。我們將建立一個簡單的 node.js 指令碼來執行叢集的基本準備以儲存客戶資料。指令碼中顯示的技術可以輕鬆用於 node.js Web 應用程式或 Web 服務。請記住，程式碼片段的用意僅在於示範運作方式，若要做為真實世界的方案，所顯示的程式碼還有很大的改善空間 (例如安全性、記錄、延展性等)。
 
@@ -479,7 +479,7 @@ Cassandra 儲存體使用 KEYSPACE 和 COLUMNFAMILY 的概念，這些概念大�
        con.shutdown();
     } 
 
-createKeysapce 函數會以回呼函數做為引數，這個引數將用來執行 COLUMNFAMILY 建立函數，因為 KEYSPACE 是建立資料欄系列的必要條件。請注意，我們必須連線至「系統」的 KEYSPACE 以取得應用程式 KEYSPACE 定義。在這些程式碼片段中一致地使用了 [Cassandra 查詢語言 (Cassandra Query Language，CQL)][] (英文) 來與叢集整合。由於上述指令碼中撰寫的 CQL 並沒有任何參數標記，因此我們在 PooledConnection.execute() 方法使用空白的參數集合 ("[]")。
+createKeysapce 函數會以回呼函數做為引數，這個引數將用來執行 COLUMNFAMILY 建立函數，因為 KEYSPACE 是建立資料欄系列的必要條件。請注意，我們必須連線至「系統」的 KEYSPACE 以取得應用程式 KEYSPACE 定義。在這些程式碼片段中一致地使用了 [Cassandra 查詢語言 (Cassandra Query Language，CQL)][Cassandra 查詢語言 (Cassandra Query Language，CQL)] (英文) 來與叢集整合。由於上述指令碼中撰寫的 CQL 並沒有任何參數標記，因此我們在 PooledConnection.execute() 方法使用空白的參數集合 ("[]")。
 
 順利建立主要空間之後，將會執行下列程式碼片段中所示的 createColumnFamily() 函數，以建立必要的 COLUMNFAMILY 定義：
 
@@ -601,4 +601,3 @@ Azure 虛擬機器功能允許建立 Linux (由 Microsoft 合作夥伴提供映�
   [1]: http://wiki.apache.org/cassandra/GettingStarted
   [cassandra-client]: https://github.com/racker/node-cassandra-client
   [Rows and columns]: ./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux3.png
-  [Cassandra 查詢語言 (Cassandra Query Language，CQL)]: http://cassandra.apache.org/doc/cql/CQL.html

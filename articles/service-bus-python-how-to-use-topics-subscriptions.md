@@ -1,27 +1,27 @@
 <properties linkid="develop-python-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Python) - Azure" metaKeywords="Get started Azure Service Bus topics publising subscribe messaging Python" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Python applications." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Topics/Subscriptions" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # 如何使用服務匯流排主題/訂閱
 
-本指南將說明如何從 Python 應用程式使用服務匯流排主題和訂閱。涵蓋的案例包括「建立主題和訂閱」、「建立訂閱篩選器」、「傳送訊息至主題」、「接收訂閱的訊息」，以及「刪除主題和訂閱」。如需主題和訂閱的詳細資訊，請參閱＜[後續步驟][]＞一節。
+本指南將說明如何從 Python 應用程式使用服務匯流排主題和訂閱。涵蓋的案例包括「建立主題和訂閱」、「建立訂閱篩選器」、「傳送訊息至主題」、「接收訂閱的訊息」，以及「刪除主題和訂閱」。如需主題和訂閱的詳細資訊，請參閱＜[後續步驟][後續步驟]＞一節。
 
 ## 目錄
 
--   [什麼是服務匯流排主題和訂閱？][]
--   [建立服務命名空間][]
--   [取得命名空間的預設管理認證][]
--   [作法：建立主題][]
--   [作法：建立訂閱][]
--   [作法：傳送訊息至主題][]
--   [作法：自訂閱接收訊息][]
--   [作法：處理應用程式當機與無法讀取的訊息][]
--   [作法：刪除主題和訂閱][]
--   [後續步驟][]
+-   [什麼是服務匯流排主題和訂閱？][什麼是服務匯流排主題和訂閱？]
+-   [建立服務命名空間][建立服務命名空間]
+-   [取得命名空間的預設管理認證][取得命名空間的預設管理認證]
+-   [作法：建立主題][作法：建立主題]
+-   [作法：建立訂閱][作法：建立訂閱]
+-   [作法：傳送訊息至主題][作法：傳送訊息至主題]
+-   [作法：自訂閱接收訊息][作法：自訂閱接收訊息]
+-   [作法：處理應用程式當機與無法讀取的訊息][作法：處理應用程式當機與無法讀取的訊息]
+-   [作法：刪除主題和訂閱][作法：刪除主題和訂閱]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-**注意：** 如果您需要安裝 Python 或用戶端程式庫，請參閱 [Python 安裝指南][]。
+**注意：** 如果您需要安裝 Python 或用戶端程式庫，請參閱 [Python 安裝指南][Python 安裝指南]。
 
 ## <a name="How_to_Create_a_Topic"></a> 如何建立主題
 
@@ -64,7 +64,7 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
 
 您也可以設定篩選器，讓您界定哪些傳送至主題的訊息應出現在特定主題訂閱中。
 
-訂閱所支援的最具彈性篩選器類型是實作 SQL92 子集的**SqlFilter**。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用的運算式詳細資料，請檢閱 [SqlFilter.SqlExpression][] 語法。
+訂閱所支援的最具彈性篩選器類型是實作 SQL92 子集的**SqlFilter**。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用的運算式詳細資料，請檢閱 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 語法。
 
 您可以使用 **ServiceBusService** 物件的 **create\_rule** 方法將篩選器新增至訂閱。此方法可讓您將新篩選器新增至現有的訂閱中。
 
@@ -146,8 +146,8 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
 
 現在您已了解服務匯流排主題的基本概念，請參考下列連結，以取得更多資訊。
 
--   請參閱 MSDN 參考：[佇列、主題和訂閱][] (英文)。
--   [SqlFilter][] 的 API 參考資料。
+-   請參閱 MSDN 參考：[佇列、主題和訂閱][佇列、主題和訂閱] (英文)。
+-   [SqlFilter][SqlFilter] 的 API 參考資料。
 
   [後續步驟]: #Next_Steps
   [什麼是服務匯流排主題和訂閱？]: #what-are-service-bus-topics

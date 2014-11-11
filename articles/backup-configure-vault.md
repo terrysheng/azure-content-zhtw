@@ -1,6 +1,6 @@
 <properties linkid="manage-services-recovery-configure-backup-vault" urlDisplayName="Configure a Backup Vault" pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="disaster recovery" description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="raynew" solutions="" manager="johndaw" editor="tysonn" />
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew"></tags>
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
 
 # <span id="configure-a-backup-vault-tutorial"></span></a>設定 Azure 備份以輕鬆迅速地備份 Windows Server
 
@@ -21,19 +21,19 @@
 
 ## <span id="create"></span></a>建立備份保存庫
 
-1.  登入[管理入口網站][]。
+1.  登入[管理入口網站][管理入口網站]。
 
 2.  按一下 [新增]，依序指向 [資料服務] 和 [復原服務]，然後依序按一下 [備份保存庫] 和 [快速建立]。
 
 3.  在 [名稱] 中，輸入易記名稱來識別備份保存庫。
 
 4.  在 [區域] 中，選取備份保存庫的區域。
-    ![新增備份保存庫][]
+    ![新增備份保存庫][新增備份保存庫]
 
 5.  按一下 [建立保存庫]。
 
     要等備份保存庫建立好，可能需要一些時間。若要檢查狀態，可以監控位於入口網站底部的通知。建立好備份保存庫之後，將有一則訊息告訴您已順立建立保存庫，而且該保存庫將以 [作用中] 狀態列在復原服務的資源中。
-    ![備份保存庫建立][]
+    ![備份保存庫建立][備份保存庫建立]
 
 6.  如果您有多個與組織帳戶相關聯的訂用帳戶，請選擇與備份保存庫相關聯的正確帳戶。
 
@@ -41,7 +41,7 @@
 
 保存庫認證透過取代憑證向伺服器註冊您的 Azure 服務。您仍可使用憑證，但保存庫認證在使用上更容易，因為您可以使用 Azure 入口網站產生及下載保存庫認證。
 
-1.  登入[管理入口網站][]。
+1.  登入[管理入口網站][管理入口網站]。
 
 2.  按一下 [復原服務]，然後選取您要向伺服器註冊的備份保存庫。備份保存庫的 [快速啟動] 頁面隨即出現。
 
@@ -51,20 +51,20 @@
 
 ## <span id="download"></span></a>下載並安裝備份代理程式
 
-1.  在[管理入口網站][]中。
+1.  在[管理入口網站][管理入口網站]中。
 
 2.  按一下 [復原服務]，然後選取備份保存庫以檢視其 [快速啟動] 頁面。
 
 3.  在 [快速啟動] 頁面上，選取您要下載的代理程式類型。您可以選擇下載 **Azure Backup Agent**、**Windows Server 和 System Center Data Protection Manager** 或 **Windows Server Essentials**。如需詳細資訊，請參閱：
 
-    -   [安裝 Azure Backup Agent for Windows Server 2012 and System Center 2012 SP1 - Data Protection Manager][]
-    -   [安裝 Azure Backup Agent for Windows Server 2012 Essentials][]
+    -   [安裝 Azure Backup Agent for Windows Server 2012 and System Center 2012 SP1 - Data Protection Manager][安裝 Azure Backup Agent for Windows Server 2012 and System Center 2012 SP1 - Data Protection Manager]
+    -   [安裝 Azure Backup Agent for Windows Server 2012 Essentials][安裝 Azure Backup Agent for Windows Server 2012 Essentials]
 
 安裝好代理程式後，您就可以使用適當的本機管理介面 (例如 Microsoft Management Console 嵌入式管理單元、System Center Data Protection Manager 主控台，或 Windows Server Essentials 儀表板)，來設定伺服器的備份原則。
 
 ## <span id="manage"></span></a>管理備份保存庫與伺服器
 
-1.  登入[管理入口網站][]。
+1.  登入[管理入口網站][管理入口網站]。
 
 2.  按一下 [復原服務]，然後按一下備份保存庫的名稱以檢視 [快速啟動] 頁面。
 
@@ -75,22 +75,21 @@
     -   **保存庫認證**。這個 [快速概覽] 功能表項目可用來設定您的保存庫認證。
 
 4.  按一下 [受保護項目]，以檢視已從伺服器備份的項目。這份清單僅做提供資訊之用。
-    ![受保護項目][]
+    ![受保護項目][受保護項目]
 
 5.  按一下 [伺服器]，以檢視已註冊至此保存庫的伺服器名稱。您可以在其中執行下列工作：
 
     -   **允許重新註冊**。為伺服器選取此選項時，您可以使用代理程式中的註冊精靈，再次向備份保存庫註冊伺服器。如果憑證中有錯誤，或必須重建伺服器，您可能需要重新註冊。每個伺服器名稱僅能重新註冊一次。
     -   **刪除**。從備份保存庫中刪除伺服器。所有與該伺服器相關聯的已儲存資料都將立即刪除。
 
-        ![已刪除的伺服器][]
+        ![已刪除的伺服器][已刪除的伺服器]
 
 ## <span id="next"></span></a>後續步驟
 
--   若要深入了解 Azure 備份，請參閱 [Azure 備份概觀][] (英文)。
+-   若要深入了解 Azure 備份，請參閱 [Azure 備份概觀][Azure 備份概觀] (英文)。
 
--   造訪 [Azure 備份論壇][] (英文)。
+-   造訪 [Azure 備份論壇][Azure 備份論壇] (英文)。
 
-  [Azure 免費試用]: /zh-tw/pricing/free-trial/
   [管理入口網站]: https://manage.windowsazure.com
   [新增備份保存庫]: http://i.imgur.com/506c7ch.png
   [備份保存庫建立]: http://i.imgur.com/grtLcKM.png

@@ -1,22 +1,22 @@
 <properties linkid="manage-services-how-to-manage-a-storage-account" urlDisplayName="How to manage" pageTitle="How to manage storage accounts | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Learn how to manage storage accounts in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # <span id="managestorageaccounts"></span></a>如何管理儲存體帳戶
 
 ## 目錄
 
--   [作法：管理儲存體帳戶複寫][]
--   [作法：檢視、複製和重新產生儲存體存取金鑰][]
--   [作法：刪除儲存體帳戶][]
+-   [作法：管理儲存體帳戶複寫][作法：管理儲存體帳戶複寫]
+-   [作法：檢視、複製和重新產生儲存體存取金鑰][作法：檢視、複製和重新產生儲存體存取金鑰]
+-   [作法：刪除儲存體帳戶][作法：刪除儲存體帳戶]
 
 ## <span id="georeplication"></span></a>作法：複製儲存體帳戶資料以實現持久性和高可用性
 
-[WACOM.INCLUDE [storage-replication-options][]]
+[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ### 指定儲存體帳戶的複寫設定
 
-1.  在 [Azure 管理入口網站][]中，按一下 [儲存體]，然後按一下您的儲存體帳戶名稱以顯示儀表板。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站]中，按一下 [儲存體]，然後按一下您的儲存體帳戶名稱以顯示儀表板。
 
 2.  按一下 [設定]。
 
@@ -28,19 +28,19 @@
 
 當您建立儲存體帳戶時，Azure 會產生兩個 512 位元的儲存體存取金鑰，作為存取儲存體帳戶時的驗證憑藉。透過提供這兩個儲存體存取金鑰，Azure 讓您可重新產生金鑰，同時又不需中斷儲存體服務或對該服務的存取。
 
-在[管理入口網站][]中，於儀表板或 [儲存體] 頁面上使用 [管理金鑰]，來檢視、複製和重新產生用於存取 Blob、資料表與佇列服務的儲存體存取金鑰。
+在[管理入口網站][管理入口網站]中，於儀表板或 [儲存體] 頁面上使用 [管理金鑰]，來檢視、複製和重新產生用於存取 Blob、資料表與佇列服務的儲存體存取金鑰。
 
 ### 複製儲存體存取金鑰
 
-您可以使用 [管理金鑰] 來複製要在連接字串使用中的儲存體存取金鑰。連接字串需有要在驗證中使用的儲存體帳戶名稱和金鑰。如需關於設定連接字串以存取 Azure 儲存體服務的詳細資訊，請參閱[設定連接字串][]。
+您可以使用 [管理金鑰] 來複製要在連接字串使用中的儲存體存取金鑰。連接字串需有要在驗證中使用的儲存體帳戶名稱和金鑰。如需關於設定連接字串以存取 Azure 儲存體服務的詳細資訊，請參閱[設定連接字串][設定連接字串]。
 
-1.  在[管理入口網站][]中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
+1.  在[管理入口網站][管理入口網站]中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
 
 2.  按一下 [管理金鑰]。
 
     [管理存取金鑰] 隨即開啟。
 
-    ![Managekeys][]
+    ![Managekeys][Managekeys]
 
 3.  若要複製儲存體存取金鑰，請選取金鑰文字。然後按一下滑鼠右鍵並按一下 [複製]。
 
@@ -62,7 +62,7 @@
 
 1.  更新應用程式程式碼中的連接字串，以參考儲存體帳戶的次要存取金鑰。
 
-2.  重新產生儲存體帳戶的主要存取金鑰。在[管理入口網站][]中，從儀表板或 [設定] 頁面按一下 [管理金鑰]。按一下主要存取金鑰下的 [重新產生]，然後按一下 [是] 確認要產生新的金鑰。
+2.  重新產生儲存體帳戶的主要存取金鑰。在[管理入口網站][管理入口網站]中，從儀表板或 [設定] 頁面按一下 [管理金鑰]。按一下主要存取金鑰下的 [重新產生]，然後按一下 [是] 確認要產生新的金鑰。
 
 3.  更新程式碼中的連接字串，以參考新的主要存取金鑰。
 
@@ -84,7 +84,7 @@
     </p>
 </div>
 
-1.  在[管理入口網站][]中，按一下 [儲存體]。
+1.  在[管理入口網站][管理入口網站]中，按一下 [儲存體]。
 
 2.  在儲存體帳戶項目中名稱以外的任何位置，然後按一下 [刪除]。
 
@@ -100,5 +100,5 @@
   [storage-replication-options]: ../includes/storage-replication-options.md
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [管理入口網站]: http://manage.windowsazure.com
-  [設定連接字串]: http://msdn.microsoft.com/en-us/library/ee758697.aspx
+  [設定連接字串]: http://msdn.microsoft.com/zh-tw/library/ee758697.aspx
   [Managekeys]: ./media/storage-manage-storage-account/Storage_ManageKeys.png

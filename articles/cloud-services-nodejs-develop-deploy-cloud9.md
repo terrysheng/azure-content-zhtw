@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-cloud9" urlDisplayName="Deploying with Cloud9" pageTitle="Node.js deploying with Cloud9 - Azure tutorial" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" description="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Deploying an Azure App from Cloud9" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 從 Cloud9 部署 Azure 應用程式
 
@@ -13,25 +13,25 @@
 -   更新現有的 Azure 部署
 -   在預備與生產部署之間移動專案
 
-[Cloud9 IDE][] 提供跨平台的瀏覽器型開發環境。Cloud9 針對 Node.js 專案支援的其中一個功能，是您可以從 IDE 直接部署至 Azure。Cloud9 也會與 GitHub 和 BitBucket 儲存機制服務整合，因此可以輕鬆地與其他人共用您的專案。
+[Cloud9 IDE][Cloud9 IDE] 提供跨平台的瀏覽器型開發環境。Cloud9 針對 Node.js 專案支援的其中一個功能，是您可以從 IDE 直接部署至 Azure。Cloud9 也會與 GitHub 和 BitBucket 儲存機制服務整合，因此可以輕鬆地與其他人共用您的專案。
 
 使用 Cloud9，您可以從許多現代瀏覽器和作業系統開發應用程式並將它部署至 Azure，而不需要在本機安裝其他開發工具或 SDK。下列步驟示範如何在 Mac 上使用 Google Chrome。
 
 ## 註冊
 
-若要使用 Cloud9，您需要先瀏覽其網站並[註冊訂閱][Cloud9 IDE]。您可以使用現有 GitHub 或 BitBucket 帳戶登入，或建立 Cloud9 帳戶。您可以取得免費訂閱方案，以及提供其他功能的付費方案。如需詳細資訊，請參閱 [Cloud9 IDE][] (英文)。
+若要使用 Cloud9，您需要先瀏覽其網站並[註冊訂閱][Cloud9 IDE]。您可以使用現有 GitHub 或 BitBucket 帳戶登入，或建立 Cloud9 帳戶。您可以取得免費訂閱方案，以及提供其他功能的付費方案。如需詳細資訊，請參閱 [Cloud9 IDE][Cloud9 IDE] (英文)。
 
 ## 建立 Node.js 專案
 
 1.  登入 Cloud9、按一下 [我的專案] 旁邊的 [+] 符號，
     然後選取 [建立新專案]。
 
-    ![create new Cloud9 project][]
+    ![create new Cloud9 project][create new Cloud9 project]
 
 2.  在 [建立新專案] 對話方塊中，輸入專案名稱、存取權和專案類型。
     按一下 [建立] 建立專案。
 
-    ![create new project dialog Cloud9][]
+    ![create new project dialog Cloud9][create new project dialog Cloud9]
 
     <div class="dev-callout">
 <strong>注意</strong>
@@ -45,11 +45,11 @@
 
 3.  建立專案之後，請按一下 [Start Editing]。如果這是您第一次使用 Cloud9 IDE，則可以選擇進行服務的導覽。如果您想要跳過此導覽，稍後再進行檢視，請選取 [Just the editor,please]。
 
-    ![start editing the Cloud9 project][]
+    ![start editing the Cloud9 project][start editing the Cloud9 project]
 
 4.  若要建立新的 Node 應用程式，請選取 [檔案]，然後選取 [新檔案]。
 
-    ![create new file in the Cloud9 project][]
+    ![create new file in the Cloud9 project][create new file in the Cloud9 project]
 
 5.  將會顯示標題為 **Untitled1** 的新索引標籤。請在 [Untitled1] 索引標籤上輸入下列程式碼，
     以建立 Node 應用程式：
@@ -74,7 +74,7 @@
 <p>您可能會注意到指出未使用 req 變數的警告符號。您可以放心地略過此警告。</p>
 </div>
 
-    ![save the server.js file][]
+    ![save the server.js file][save the server.js file]
 
 ## 執行應用程式
 
@@ -85,15 +85,15 @@
 
 1.  在 Cloud9 偵錯工具中，按一下 [偵錯] 執行應用程式。
 
-    ![run in the debugger][]
+    ![run in the debugger][run in the debugger]
 
 2.  將會顯示輸出視窗。按一下列出的 URL，透過瀏覽器視窗來存取應用程式。
 
-    ![output window][]
+    ![output window][output window]
 
     產生的應用程式外觀如下：
 
-    ![application running in browser][]
+    ![application running in browser][application running in browser]
 
 3.  若要停止偵錯應用程式，請按一下 [停止]。
 
@@ -102,13 +102,13 @@
 若要將應用程式部署至 Azure，您需要有帳戶。如果您還沒有 Azure 帳戶，
 則可遵循下列步驟來註冊免費試用版：
 
-[WACOM.INCLUDE [create-azure-account][]]
+[WACOM.INCLUDE [create-azure-account](../includes/create-azure-account.md)]
 
 ## 建立部署
 
 1.  若要建立新的部署，請選取 [部署]，然後按一下 [+] 建立部署伺服器。
 
-    [建立新部署][]
+    [建立新部署][建立新部署]
 
 2.  在 [Add a deploy target] 對話方塊中輸入部署名稱，然後選取 [選擇類型] 清單中的 [Azure]。您指定的部署名稱將會用來識別 Cloud9 內的部署；它將不會對應到 Azure 內的部署名稱。
 
@@ -116,7 +116,7 @@
 
     1.  按一下 [Download Azure Settings]。
 
-        ![download publish settings][]
+        ![download publish settings][download publish settings]
 
         這會開啟 Azure 管理入口網站，並提示您下載 Azure 發佈設定。您需要先登入 Azure 帳戶，才能開始進行。
 
@@ -126,13 +126,13 @@
 
     4.  選取檔案之後，按一下 [上傳]。
 
-4.  按一下 [+ 新建] 建立新的託管服務。「託管服務」是應用程式部署到 Azure 時託管應用程式的容器。如需詳細資訊，請參閱[雲端服務][]。
+4.  按一下 [+ 新建] 建立新的託管服務。「託管服務」是應用程式部署到 Azure 時託管應用程式的容器。如需詳細資訊，請參閱[雲端服務][雲端服務]。
 
-    ![create a new deployment][]
+    ![create a new deployment][create a new deployment]
 
 5.  系統將會提示您輸入新託管服務的名稱，以及執行個體數目、主機 OS 和資料中心這類組態選項。指定的部署名稱將會用作 Azure 中的託管服務名稱。在 Azure 系統內，此名稱必須是唯一的。
 
-    ![create a new hosted service][]
+    ![create a new hosted service][create a new hosted service]
 
     <div class="dev-callout">
 <strong>注意</strong>
@@ -148,7 +148,7 @@
 
 1.  選取您在先前步驟中建立的部署。此時會顯示對話方塊，來提供此部署的相關資訊，以及將在部署至 Windows Azure 之後使用的生產 URL。
 
-    ![select a deployment][]
+    ![select a deployment][select a deployment]
 
 2.  選取 [部署到生產環境]。
 
@@ -156,17 +156,17 @@
 
 4.  如果這是您第一次將此專案部署至 Azure，則會接收到 [No web.config found] 錯誤。請選取 [是] 建立檔案。這會將 'Web.cloud.config' 檔案新增至專案。
 
-    ![no web.config file found message][]
+    ![no web.config file found message][no web.config file found message]
 
-5.  如果這是您第一次將此專案部署至 Azure，則會接收到 [No 'csdef' file present] 錯誤。請選取 [是] 建立 .csdef 檔案。這會將 'ServiceDefinition.csdef' 檔案新增至專案。ServiceDefinition.csdef 是發佈應用程式所需的 Azure 特定檔案。如需詳細資訊，請參閱[雲端服務][]。
+5.  如果這是您第一次將此專案部署至 Azure，則會接收到 [No 'csdef' file present] 錯誤。請選取 [是] 建立 .csdef 檔案。這會將 'ServiceDefinition.csdef' 檔案新增至專案。ServiceDefinition.csdef 是發佈應用程式所需的 Azure 特定檔案。如需詳細資訊，請參閱[雲端服務][雲端服務]。
 
-6.  系統將會提示您選取此應用程式的執行個體大小。選取 [小型]，然後按一下 [建立]。如需 Azure VM 大小的詳細資料，請參閱[設定雲端服務的大小][]。
+6.  系統將會提示您選取此應用程式的執行個體大小。選取 [小型]，然後按一下 [建立]。如需 Azure VM 大小的詳細資料，請參閱[設定雲端服務的大小][設定雲端服務的大小]。
 
-    ![specify csdef file values][]
+    ![specify csdef file values][specify csdef file values]
 
 7.  部署項目將會顯示部署程序的狀態。完成之後，部署將會顯示為 [使用中]。
 
-    ![deployment status][]
+    ![deployment status][deployment status]
 
     <div class="dev-callout">
 <strong>注意</strong>
@@ -175,7 +175,7 @@
 
 8.  部署對話方塊包括生產 URL 的連結。部署完成時，請按一下 URL，以瀏覽至您在 Azure 中執行的應用程式。
 
-    ![Azure production URL link][]
+    ![Azure production URL link][Azure production URL link]
 
 ## 更新應用程式
 
@@ -202,11 +202,11 @@
 
 3.  將應用程式部署至預備環境時，將會在 [主控台] 輸出中顯示 GUID 型預備 URL (如下面的螢幕擷取畫面所示)。按一下 URL，即可在瀏覽器中開啟預備應用程式。
 
-    ![console output showing staging URL][]
+    ![console output showing staging URL][console output showing staging URL]
 
 ## 使用 VIP 交換，將更新移動至生產環境
 
-將服務部署至生產或預備環境時，會將虛擬 IP 位址 (VIP) 指派給該環境中的服務。當您想要將服務從預備環境移至生產環境時，只需執行 VIP 交換就能達成，而不需重新部署，而 VIP 交換會交換預備和生產部署。VIP 交換會將測試過的預備應用程式放到生產環境中，而生產環境中不會產生任何停機時間。如需更多詳細資料，請參閱[在 Azure 中管理部署][]。
+將服務部署至生產或預備環境時，會將虛擬 IP 位址 (VIP) 指派給該環境中的服務。當您想要將服務從預備環境移至生產環境時，只需執行 VIP 交換就能達成，而不需重新部署，而 VIP 交換會交換預備和生產部署。VIP 交換會將測試過的預備應用程式放到生產環境中，而生產環境中不會產生任何停機時間。如需更多詳細資料，請參閱[在 Azure 中管理部署][在 Azure 中管理部署]。
 
 1.  在部署對話方塊中，按一下 [開啟入口網站] 連結，以開啟 Azure 管理入口網站。
 
@@ -223,19 +223,19 @@
 
 4.  若要執行 VIP 交換，請選取託管服務，然後按一下功能區中的 [交換 VIP]。
 
-    ![VIP SWAP][]
+    ![VIP SWAP][VIP SWAP]
 
 5.  在顯示的 [交換 VIP] 對話方塊中，按一下 [確定]。
 
 6.  瀏覽至生產應用程式。您將會看到先前部署至預備環境的應用程式版本現在為生產版本。
 
-    ![Production application running on Azure][]
+    ![Production application running on Azure][Production application running on Azure]
 
 ## 使用遠端桌面
 
 如果您已在建立部署時啟用 RDP 並指定使用者名稱和密碼，則可選取特定執行個體，然後選取功能區上的 [連線]，以使用 [遠端桌面] 連線到您的託管服務。
 
-![Connect to an instance][]
+![Connect to an instance][Connect to an instance]
 
 當您按一下 [連線] 時，系統會提示您開啟或下載 .RDP 檔案。此檔案包含連線到遠端桌面工作階段所需的資訊。如果在 Windows 系統上執行此檔案，則系統會提示您提供在建立部署時所輸入的使用者名稱和密碼，接著將您連線到所選取執行個體的桌面。
 
@@ -253,7 +253,7 @@ Cloud9 著重在提供 IDE，並未提供將應用程式部署至 Azure 之後�
 
 1.  在部署對話方塊中，按一下 [Open portal] 連結，以開啟 Azure 管理入口網站。
 
-    ![Link from deploy dialog to Azure Management Portal][]
+    ![Link from deploy dialog to Azure Management Portal][Link from deploy dialog to Azure Management Portal]
 
 2.  使用您的認證來登入入口網站。
 
@@ -261,13 +261,13 @@ Cloud9 著重在提供 IDE，並未提供將應用程式部署至 Azure 之後�
 
 4.  選取預備部署 (以 [環境] 值表示)。按一下功能區中的 [刪除] 來刪除應用程式。
 
-    ![delete the deployment][]
+    ![delete the deployment][delete the deployment]
 
 5.  選取生產部署，然後按一下 [刪除] 一併刪除該應用程式。
 
 ## 其他資源
 
--   [Cloud9 文件][]
+-   [Cloud9 文件][Cloud9 文件]
 
   [Cloud9 IDE]: http://cloud9ide.com/
   [create new Cloud9 project]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_create_project.png

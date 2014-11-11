@@ -1,37 +1,37 @@
 <properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # 如何從 Node.js 使用 Blob 服務
 
-本指南將示範如何使用 Azure Blob 服務執行一般案例。這些範例使用 Node.js API 撰寫。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][]一節。
+本指南將示範如何使用 Azure Blob 服務執行一般案例。這些範例使用 Node.js API 撰寫。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [什麼是 Blob 服務？][]
--   [概念][]
--   [建立 Azure 儲存體帳戶][]
--   [建立 Node.js 應用程式][]
--   [設定您的應用程式以存取儲存體][]
--   [設定 Azure 儲存體連接字串][]
--   [作法：建立容器][]
--   [作法：將 Blob 上傳至容器][]
--   [作法：列出容器中的 Blob][]
--   [作法：下載 Blob][]
--   [作法：刪除 Blob][]
--   [作法：並行存取][]
--   [作法：使用共用存取簽章][]
--   [後續步驟][]
+-   [什麼是 Blob 服務？][什麼是 Blob 服務？]
+-   [概念][概念]
+-   [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
+-   [建立 Node.js 應用程式][建立 Node.js 應用程式]
+-   [設定您的應用程式以存取儲存體][設定您的應用程式以存取儲存體]
+-   [設定 Azure 儲存體連接字串][設定 Azure 儲存體連接字串]
+-   [作法：建立容器][作法：建立容器]
+-   [作法：將 Blob 上傳至容器][作法：將 Blob 上傳至容器]
+-   [作法：列出容器中的 Blob][作法：列出容器中的 Blob]
+-   [作法：下載 Blob][作法：下載 Blob]
+-   [作法：刪除 Blob][作法：刪除 Blob]
+-   [作法：並行存取][作法：並行存取]
+-   [作法：使用共用存取簽章][作法：使用共用存取簽章]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <a name="create-account"></a>建立 Azure 儲存體帳戶
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>建立 Node.js 應用程式
 
-建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][]、[Node.js 雲端服務][] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站][]。
+建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][建立 Node.js 應用程式並將其部署到 Azure 網站]、[Node.js 雲端服務][Node.js 雲端服務] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站][使用 WebMatrix 的網站]。
 
 ## <a name="configure-access"> </a>設定您的應用程式以存取儲存體
 
@@ -65,7 +65,7 @@
 
 Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_ACCESS\_KEY 或 AZURE\_STORAGE\_CONNECTION\_STRING，以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則呼叫 **createBlobService** 時必須指定帳戶資訊。
 
-如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][]。
+如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式][使用儲存體的 Node.js Web 應用程式]。
 
 ## <a name="create-container"> </a>作法：建立容器
 
@@ -85,7 +85,7 @@ Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_AC
       }
     });
 
-如果建立容器，`result` 為 true。如果容器已存在， `result` 為 false。`response` 將包含操作的相關資訊，包括容器的 [ETag][] 資訊。
+如果建立容器，`result` 為 true。如果容器已存在， `result` 為 false。`response` 將包含操作的相關資訊，包括容器的 [ETag][ETag] 資訊。
 
 ### 容器安全性
 
@@ -132,7 +132,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 ## <a name="upload-blob"> </a>作法：將 Blob 上傳至容器
 
-Blob 可以是區塊，或以分頁為基礎。Block 區塊可讓您更有效率地上傳大型資料，而分頁 Blob 最適合讀寫操作。如需詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob][]。
+Blob 可以是區塊，或以分頁為基礎。Block 區塊可讓您更有效率地上傳大型資料，而分頁 Blob 最適合讀寫操作。如需詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob][了解區塊 Blob 和分頁 Blob]。
 
 ### 區塊 Blob
 
@@ -355,9 +355,9 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
 
 了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   請參閱 MSDN 參考：[在 Azure 中儲存及存取資料][]。
--   造訪 [Azure 儲存體團隊部落格][] (英文)。
--   請造訪 GitHub 上的 [Azure Storage SDK for Node][] 儲存機制 (英文)。
+-   請參閱 MSDN 參考：[在 Azure 中儲存及存取資料][在 Azure 中儲存及存取資料]。
+-   造訪 [Azure 儲存體團隊部落格][Azure 儲存體團隊部落格] (英文)。
+-   請造訪 GitHub 上的 [Azure Storage SDK for Node][Azure Storage SDK for Node] 儲存機制 (英文)。
 
   [後續步驟]: #next-steps
   [什麼是 Blob 服務？]: #what-is
@@ -375,12 +375,12 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [作法：使用共用存取簽章]: #sas
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [建立 Node.js 應用程式並將其部署到 Azure 網站]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+  [建立 Node.js 應用程式並將其部署到 Azure 網站]: /zh-tw/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js 雲端服務]: /zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [使用 WebMatrix 的網站]: /zh-tw/documentation/articles/web-sites-nodejs-use-webmatrix/
   [使用儲存體的 Node.js Web 應用程式]: /zh-tw/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
-  [了解區塊 Blob 和分頁 Blob]: http://msdn.microsoft.com/en-us/library/azure/ee691964.aspx
-  [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [了解區塊 Blob 和分頁 Blob]: http://msdn.microsoft.com/zh-tw/library/azure/ee691964.aspx
+  [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node

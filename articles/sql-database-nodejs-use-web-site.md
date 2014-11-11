@@ -1,10 +1,10 @@
 <properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Website with SQL Database" pageTitle="Node.js website with SQL Database - Azure tutorial" metaKeywords="" description="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Azure" metaCanonical="" services="web-sites,sql-database" documentationCenter="nodejs" title="Node.js Web Application using the Azure SQL Database" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # 使用 Azure SQL Database 的 Node.js Web 應用程式
 
-本教學課程將示範如何使用 Azure 資料管理所提供的 SQL Database，進而從 Azure 上所代管的 [node][] 應用程式來儲存與存取資料。本教學課程假設您先前有過一些使用節點及 [Git][] 的經驗。
+本教學課程將示範如何使用 Azure 資料管理所提供的 SQL Database，進而從 Azure 上所代管的 [node][node] 應用程式來儲存與存取資料。本教學課程假設您先前有過一些使用節點及 [Git][Git] 的經驗。
 
 您將了解：
 
@@ -20,7 +20,7 @@
 
 本教學課程的專案檔案將存放於 **tasklist** 目錄中，完成的應用程式應類似這樣：
 
-![A web page displaying an empty tasklist][]
+![A web page displaying an empty tasklist][A web page displaying an empty tasklist]
 
 <div class="dev-callout">
 <b>注意</b>
@@ -41,11 +41,11 @@
 
 在依照本文中的指示進行之前，您應確定已安裝下列項目：
 
--   [node][] 版本 0.6.14 或更高版本
+-   [node][node] 版本 0.6.14 或更高版本
 
--   [Git][]
+-   [Git][Git]
 
--   Microsoft SQL Server Native Client 程式庫 - 作為 [Microsoft SQL Server 2012 功能套件][]的一部分提供
+-   Microsoft SQL Server Native Client 程式庫 - 作為 [Microsoft SQL Server 2012 功能套件][Microsoft SQL Server 2012 功能套件]的一部分提供
 
 -   文字編輯器
 
@@ -57,46 +57,46 @@
 
 請依照下列步驟來建立 Azure 網站和 SQL 資料庫：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  按一下入口網站左下方的 [+ 新增] 圖示。
 
-    ![Create New Azure Website][]
+    ![Create New Azure Website][Create New Azure Website]
 
 3.  依序按一下 [網站] 及 [自訂建立]。
 
-    ![Custom Create a new Website][]
+    ![Custom Create a new Website][Custom Create a new Website]
 
     輸入 [URL] 的值，然後從 [資料庫] 下拉式清單中選取 [建立新的 SQL 資料庫]，接著在 [地區] 下拉式清單中為您的網站選取資料中心。按一下對話方塊底部的箭頭。
 
-    ![填入網站詳細資料][]
+    ![填入網站詳細資料][填入網站詳細資料]
 
-4.  在資料庫的 [名稱] 中輸入值，依序選取 \[版本] [(WEB 或 BUSINESS)][]、資料庫的 [最大大小]，並選擇 [定序]，然後選取 [NEW SQL Database server]。按一下對話方塊底部的箭頭。
+4.  在資料庫的 [名稱] 中輸入值，依序選取 \[版本] [(WEB 或 BUSINESS)][(WEB 或 BUSINESS)]、資料庫的 [最大大小]，並選擇 [定序]，然後選取 [NEW SQL Database server]。按一下對話方塊底部的箭頭。
 
-    ![Fill in SQL Database settings][]
+    ![Fill in SQL Database settings][Fill in SQL Database settings]
 
 5.  輸入系統管理員名稱和密碼 (及確認密碼)，選擇將要建立新 SQL Database 伺服器的所在區域，然後勾選 [Allow Azure Services to access the server] 方塊。
 
-    ![Create new SQL Database server][]
+    ![Create new SQL Database server][Create new SQL Database server]
 
     建立網站後，您會看到「建立網站 '[SITENAME]' 成功」的字樣。現在，您可以啟用 Git 發佈。
 
 6.  按一下網站清單中顯示的網站名稱，以開啟該網站的 [快速入門] 儀表板。
 
-    ![Open website dashboard][]
+    ![Open website dashboard][Open website dashboard]
 
 7.  按一下 [快速啟動] 頁面底部的 \[Set up Git publishing] 。
 
-    ![Set up Git publishing][]
+    ![Set up Git publishing][Set up Git publishing]
 
 8.  若要啟用 Git 發佈，您必須提供使用者名稱和密碼。記下您所建立的使用者名稱和密碼。(如果您之前設定過 Git 儲存機制，系統將會略過此步驟。)
 
-    ![Create publishing credentials][]
+    ![Create publishing credentials][Create publishing credentials]
 
     設定儲存機制需要幾秒鐘的時間。
 
 9.  當您的儲存機制準備就緒時，您會看到將應用程式檔案發佈至該儲存機制的指示。請記下這些指示，以供稍後使用。
 
-    ![Git instructions][]
+    ![Git instructions][Git instructions]
 
 ## 取得 SQL Database 連線資訊
 
@@ -104,11 +104,11 @@
 
 1.  在 Azure 管理入口網站中，按一下 \[LINKED RESOURCES]，然後按一下資料庫名稱。
 
-    ![Linked Resources][]
+    ![Linked Resources][Linked Resources]
 
 2.  按一下 [View connection strings]。
 
-    ![Connection string][]
+    ![Connection string][Connection string]
 
 3.  從產生的對話方塊的 [ODBC] 區段中，記下連接字串以供稍後使用。
 
@@ -118,29 +118,29 @@
 
 1.  在 Azure 管理入口網站中，選取您的 SQL Database 然後按一下頁面底部的 [管理]。如果您收到指出「目前 IP 不是防火牆規則的一部分」的訊息，請選取 [確定] 以新增此 IP 位址。
 
-    ![manage button][]
+    ![manage button][manage button]
 
 2.  使用稍早建立資料庫伺服器時所選取的登入名稱和密碼登入。
 
-    ![database manage login][]
+    ![database manage login][database manage login]
 
 3.  選取頁面左下方的 [設計]，然後選取 [新增資料表]。
 
-    ![New table][]
+    ![New table][New table]
 
 4.  輸入 'tasks' 作為 [資料表名稱]，並勾選 [識別碼] 欄中的 [為識別?]。
 
-    ![table name set to tasks and is identity checked][]
+    ![table name set to tasks and is identity checked][table name set to tasks and is identity checked]
 
 5.  將 [資料行1] 變更為 [名稱] 並將 [資料行2] 變更為 [類別]。透過按一下 [加入資料行] 按鈕來新增兩個資料行。第一個新增資料行的名稱應該是 [建立時間] 且類型為 [日期]。第二個新增資料行的名稱應該是 [已完成] 且類型為 [位元]。這兩個新增資料行都應標示為 [必要的?]。
 
-    ![completed table design][]
+    ![completed table design][completed table design]
 
 6.  按一下 [儲存] 按鈕以儲存資料表的變更。您現在可以關閉 SQL Database 管理頁面。
 
 ## 安裝模組及產生樣板
 
-在本節中，您將建立新的 Node 應用程式，並使用 npm 來新增模組封裝。若是工作清單應用程式，您將會用到 [express][] 和 [node-sqlserver][] 模組。Express 模組可提供節點的模型檢視控制器架構，而 node-sqlserver 模組可提供與 Azure SQL Database 的連線能力。
+在本節中，您將建立新的 Node 應用程式，並使用 npm 來新增模組封裝。若是工作清單應用程式，您將會用到 [express][express] 和 [node-sqlserver][node-sqlserver] 模組。Express 模組可提供節點的模型檢視控制器架構，而 node-sqlserver 模組可提供與 Azure SQL Database 的連線能力。
 
 ### 安裝 Express 及產生樣板
 
@@ -216,7 +216,7 @@
 
     npm install nconf -save
 
-3.  接下來，從[下載中心][]中下載二進位版本的 Microsoft Driver for Node.JS for SQL Server。
+3.  接下來，從[下載中心][下載中心]中下載二進位版本的 Microsoft Driver for Node.JS for SQL Server。
 
 4.  將此封存解壓縮到 **tasklist\\node\_modules** 目錄。
 
@@ -335,7 +335,7 @@
 
 ### 修改全域版面配置
 
-**views** 目錄中的 **layout.jade** 檔是用來作為其他 **.jade** 檔案的全域範本。在此步驟中，您將修改它以使用 [Twitter Bootstrap][]，這個工具組能夠方便設計美觀的網站。
+**views** 目錄中的 **layout.jade** 檔是用來作為其他 **.jade** 檔案的全域範本。在此步驟中，您將修改它以使用 [Twitter Bootstrap][Twitter Bootstrap]，這個工具組能夠方便設計美觀的網站。
 
 1.  下載並解壓縮 [Twitter Bootstrap][1] 的檔案。將 **bootstrap.min.css** 檔案從 **bootstrap\\css** 資料夾複製到您工作清單應用程式的 **public\\stylesheets** 目錄。
 
@@ -383,15 +383,15 @@
 
         node app.js
 
-3.  開啟瀏覽器，導覽至 <http://127.0.0.1:3000>。這應該會顯示如下所示的網頁：
+3.  開啟瀏覽器，導覽至 http://127.0.0.1:3000。這應該會顯示如下所示的網頁：
 
-    ![顯示空白工作清單的網頁][]
+    ![顯示空白工作清單的網頁][顯示空白工作清單的網頁]
 
 4.  使用所提供的 [項目名稱] 和 [項目類別] 欄位來輸入資訊，然後按一下 [新增項目]。
 
 5.  系統應更新此頁面以在 [ToDo] 清單中顯示此項目。
 
-    ![An image of the new item in the list of tasks][]
+    ![An image of the new item in the list of tasks][An image of the new item in the list of tasks]
 
 6.  若要完成工作，您只需勾選 [已完成] 資料行中的核取方塊，然後按一下 [更新工作]。
 
@@ -426,19 +426,19 @@
 
 1.  在 Azure 管理入口網站中，按一下 [網站]，然後選取您的網站。
 
-    ![Open website dashboard][]
+    ![Open website dashboard][Open website dashboard]
 
 2.  按一下 [設定]，然後尋找頁面中的 [應用程式設定] 區段。
 
-    ![configure link][]
+    ![configure link][configure link]
 
 3.  在 [應用程式設定] 區段中，在 [機碼] 欄位中輸入 **SQL\_CONN**，並在 [值] 欄位中輸入 ODBC 連接字串。最後，按一下核取記號。
 
-    ![app settings][]
+    ![app settings][app settings]
 
 4.  最後，按一下頁面底部的 [儲存] 圖示，以對執行階段環境認可此變更。
 
-    ![app settings save][]
+    ![app settings save][app settings save]
 
 5.  從命令列變更目錄至 **tasklist** 目錄，輸入下列命令以移除 **config.json** 檔案：
 
@@ -453,17 +453,17 @@
 
 ## 後續步驟
 
--   [使用 MongoDB 的 Node.js Web 應用程式][]
+-   [使用 MongoDB 的 Node.js Web 應用程式][使用 MongoDB 的 Node.js Web 應用程式]
 
--   [使用資料表儲存體的 Node.js Web 應用程式][]
+-   [使用資料表儲存體的 Node.js Web 應用程式][使用資料表儲存體的 Node.js Web 應用程式]
 
 ## 其他資源
 
-[適用於 Mac 和 Linux 的 Azure 命令列工具][]
-[建立並部署 Node.js 應用程式至 Azure 網站][]
-[使用 Git 發佈至 Azure 網站][]
-[Azure 開發人員中心][]
-[使用資料表儲存體的 Node.js Web 應用程式][]
+[適用於 Mac 和 Linux 的 Azure 命令列工具][適用於 Mac 和 Linux 的 Azure 命令列工具]
+[建立並部署 Node.js 應用程式至 Azure 網站][建立並部署 Node.js 應用程式至 Azure 網站]
+[使用 Git 發佈至 Azure 網站][使用 Git 發佈至 Azure 網站]
+[Azure 開發人員中心][Azure 開發人員中心]
+[使用資料表儲存體的 Node.js Web 應用程式][使用資料表儲存體的 Node.js Web 應用程式]
 
   [node]: http://nodejs.org
   [Git]: http://git-scm.com
@@ -473,7 +473,6 @@
   [Create New Azure Website]: ./media/sql-database-nodejs-use-web-site/new_website.jpg
   [Custom Create a new Website]: ./media/sql-database-nodejs-use-web-site/custom_create.png
   [填入網站詳細資料]: ./media/sql-database-nodejs-use-web-site/website_details_sqlazure.jpg
-  [(WEB 或 BUSINESS)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee621788.aspx
   [Fill in SQL Database settings]: ./media/sql-database-nodejs-use-web-site/database_settings.jpg
   [Create new SQL Database server]: ./media/sql-database-nodejs-use-web-site/create_server.jpg
   [Open website dashboard]: ./media/sql-database-nodejs-use-web-site/go_to_dashboard.png
@@ -494,7 +493,6 @@
   [1]: http://getbootstrap.com/
   [顯示空白工作清單的網頁]: ./media/sql-database-nodejs-use-web-site/sql_todo_empty.png
   [An image of the new item in the list of tasks]: ./media/sql-database-nodejs-use-web-site/sql_todo_list.png
-  [http://[網站]: http://[site
   [configure link]: ./media/sql-database-nodejs-use-web-site/sql-task-configure.png
   [app settings]: ./media/sql-database-nodejs-use-web-site/appsettings.png
   [app settings save]: ./media/sql-database-nodejs-use-web-site/savebutton.png

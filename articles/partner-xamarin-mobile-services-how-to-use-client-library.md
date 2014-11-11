@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-how-to-xamarin-client" urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Azure Mobile Services feature guide" metaKeywords="Azure Mobile Services, Xamarin, iOS, Android, .NET client" description="Learn how to use the Xamarin Component client for Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Xamarin Component client for Azure Mobile Services" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # 如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端
 
@@ -9,35 +9,35 @@
 <a href="/zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
 </div>
 
-本指南將示範如何在 iOS 版和 Android 版 Xamarin 應用程式中，使用適用於 Azure 行動服務的 Xamarin 元件用戶端來執行常見案例。所涵蓋的案例包括查詢資料、插入、更新及刪除資料、驗證使用者以及處理錯誤。如果您不熟悉行動服務，您應考慮首先完成「行動服務快速入門」教學課程 ([Xamarin.iOS][]/[Xamarin.Android][]) 和「開始使用 .NET 中的資料」教學課程 ([Xamarin.iOS][1]/[Xamarin.Android][2])。快速入門教學課程需要 [Xamarin][3] [Mobile Services SDK][]，來協助您設定帳戶並建立第一個行動服務。
+本指南將示範如何在 iOS 版和 Android 版 Xamarin 應用程式中，使用適用於 Azure 行動服務的 Xamarin 元件用戶端來執行常見案例。所涵蓋的案例包括查詢資料、插入、更新及刪除資料、驗證使用者以及處理錯誤。如果您不熟悉行動服務，您應考慮首先完成「行動服務快速入門」教學課程 ([Xamarin.iOS][Xamarin.iOS]/[Xamarin.Android][Xamarin.Android]) 和「開始使用 .NET 中的資料」教學課程 ([Xamarin.iOS][1]/[Xamarin.Android][2])。快速入門教學課程需要 [Xamarin][3] [Mobile Services SDK][Mobile Services SDK]，來協助您設定帳戶並建立第一個行動服務。
 
 ## 目錄
 
--   [什麼是行動服務][]
--   [概念][]
--   [作法：建立行動服務用戶端][]
--   [作法：建立資料表參考][]
--   [作法：查詢行動服務中的資料][]
+-   [什麼是行動服務][什麼是行動服務]
+-   [概念][概念]
+-   [作法：建立行動服務用戶端][作法：建立行動服務用戶端]
+-   [作法：建立資料表參考][作法：建立資料表參考]
+-   [作法：查詢行動服務中的資料][作法：查詢行動服務中的資料]
 
-    -   [篩選傳回資料][]
-    -   [排序傳回資料][]
-    -   [以分頁方式傳回資料][]
-    -   [選取特定資料欄][]
-    -   [按 ID 查詢資料][]
--   [作法：將資料插入行動服務][]
--   [作法：修改行動服務中的資料][]
--   [作法：刪除行動服務中的資料][]
--   [作法：驗證使用者][]
--   [作法：處理錯誤][]
--   [作法：使用不具類型的資料][]
--   [作法：設計單位測試][]
--   [後續步驟][]
+    -   [篩選傳回資料][篩選傳回資料]
+    -   [排序傳回資料][排序傳回資料]
+    -   [以分頁方式傳回資料][以分頁方式傳回資料]
+    -   [選取特定資料欄][選取特定資料欄]
+    -   [按 ID 查詢資料][按 ID 查詢資料]
+-   [作法：將資料插入行動服務][作法：將資料插入行動服務]
+-   [作法：修改行動服務中的資料][作法：修改行動服務中的資料]
+-   [作法：刪除行動服務中的資料][作法：刪除行動服務中的資料]
+-   [作法：驗證使用者][作法：驗證使用者]
+-   [作法：處理錯誤][作法：處理錯誤]
+-   [作法：使用不具類型的資料][作法：使用不具類型的資料]
+-   [作法：設計單位測試][作法：設計單位測試]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [mobile-services-concepts][]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="setup"></a><span class="short-header">設定</span>設定和必要條件
 
-我們假設您已建立行動服務和資料表。如需詳細資訊，請參閱[建立資料表][]。在本主題使用的程式碼中，資料表的名稱為 `TodoItem`，且其內容包含下列資料欄：`id`、`Text` 和 `Complete`。
+我們假設您已建立行動服務和資料表。如需詳細資訊，請參閱[建立資料表][建立資料表]。在本主題使用的程式碼中，資料表的名稱為 `TodoItem`，且其內容包含下列資料欄：`id`、`Text` 和 `Complete`。
 
 其對應的具類型用戶端 .NET 類型如下：
 
@@ -52,7 +52,7 @@
         public bool Complete { get; set; }
     }
 
-啟用動態結構描述時，Azure 行動服務會根據插入或更新要求中的物件自動產生新欄位。如需詳細資訊，請參閱[動態結構描述][]。
+啟用動態結構描述時，Azure 行動服務會根據插入或更新要求中的物件自動產生新欄位。如需詳細資訊，請參閱[動態結構描述][動態結構描述]。
 
 ## <a name="create-client"></a><span class="short-header">建立行動服務用戶端</span>作法：建立行動服務用戶端
 
@@ -67,7 +67,7 @@
 
 ## <a name="instantiating"></a><span class="short-header">建立資料表參考</span>作法：建立資料表參考
 
-只要是可存取或修改行動服務資料表中之資料的所有程式碼，都會呼叫 `MobileServiceTable` 物件上的函數。您可透過呼叫 `MobileServiceClient` 執行個體上的 [GetTable][] 函數，來取得資料表的參考。
+只要是可存取或修改行動服務資料表中之資料的所有程式碼，都會呼叫 `MobileServiceTable` 物件上的函數。您可透過呼叫 `MobileServiceClient` 執行個體上的 [GetTable][GetTable] 函數，來取得資料表的參考。
 
     IMobileServiceTable<TodoItem> todoTable = 
         client.GetTable<TodoItem>();
@@ -163,7 +163,7 @@
     List<TodoItem> items = await query.ToListAsync();
             
 
-您也可以使用 [IncludeTotalCount][] (英文) 方法，確保查詢會忽略指定的任何採取分頁/限制子句，而取得已傳回 *all* 記錄的總數：
+您也可以使用 [IncludeTotalCount][IncludeTotalCount] (英文) 方法，確保查詢會忽略指定的任何採取分頁/限制子句，而取得已傳回 *all* 記錄的總數：
 
     query = query.IncludeTotalCount();
 
@@ -262,7 +262,7 @@
 若要讓行動服務管理 Windows 市集或 Windows Phone 應用程式中的驗證程序，
 您必須向識別提供者註冊您的應用程式。接著在您的行動服務中，您必須設定提供者所提供的應用程式 ID 和密碼。如需詳細資訊，請參閱「開始使用驗證」教學課程 ([Xamarin.iOS][4]/[Xamarin.Android][5])。
 
-在註冊識別提供者之後，您只需使用提供者的 [MobileServiceAuthenticationProvider][] 值來呼叫 [LoginAsync 方法][]即可。例如，下列程式碼將透過使用 Facebook 來初始化伺服器流程登入。
+在註冊識別提供者之後，您只需使用提供者的 [MobileServiceAuthenticationProvider][MobileServiceAuthenticationProvider] 值來呼叫 [LoginAsync 方法][LoginAsync 方法]即可。例如，下列程式碼將透過使用 Facebook 來初始化伺服器流程登入。
 
     private MobileServiceUser user;
     private async System.Threading.Tasks.Task Authenticate()
@@ -288,9 +288,9 @@
         }
     }
 
-如果您打算使用除了 Facebook 以外的識別提供者，請將上方的 [MobileServiceAuthenticationProvider][] 值變更成您提供者。
+如果您打算使用除了 Facebook 以外的識別提供者，請將上方的 [MobileServiceAuthenticationProvider][MobileServiceAuthenticationProvider] 值變更成您提供者。
 
-在此案例中，行動服務透過顯示所選提供者的登入頁面，並在使用識別提供者成功登入後產生行動服務驗證權杖的方式，來管理 OAuth 2.0 驗證流程。[LoginAsync 方法][] 會傳回 [MobileServiceUser][]，並提供通過驗證使用者的 [userId][] 和 [MobileServiceAuthenticationToken][]，以作為 JSON Web 權杖 (JWT)。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱[快取驗證權杖][]。
+在此案例中，行動服務透過顯示所選提供者的登入頁面，並在使用識別提供者成功登入後產生行動服務驗證權杖的方式，來管理 OAuth 2.0 驗證流程。[LoginAsync 方法][LoginAsync 方法] 會傳回 [MobileServiceUser][MobileServiceUser]，並提供通過驗證使用者的 [userId][userId] 和 [MobileServiceAuthenticationToken][MobileServiceAuthenticationToken]，以作為 JSON Web 權杖 (JWT)。您可以快取並重複使用此權杖，直到它到期為止。如需詳細資訊，請參閱[快取驗證權杖][快取驗證權杖]。
 
 ### 用戶端流程
 
@@ -331,7 +331,7 @@
 
 ### <a name="caching"></a>快取驗證權杖
 
-在某些情況下，在使用者首次驗證之後就可以避免呼叫登入方法。您可以使用本機安全存放區 (例如 [Xamarin.Auth][])，便可在目前使用者首次登入時快取其使用者識別，之後您可以每次在快取中查看是否已有此使用者識別存在。當沒有快取時，您仍需透過登入程序傳送使用者。
+在某些情況下，在使用者首次驗證之後就可以避免呼叫登入方法。您可以使用本機安全存放區 (例如 [Xamarin.Auth][Xamarin.Auth])，便可在目前使用者首次登入時快取其使用者識別，之後您可以每次在快取中查看是否已有此使用者識別存在。當沒有快取時，您仍需透過登入程序傳送使用者。
 
     using Xamarin.Auth;
     var accountStore = AccountStore.Create(); // Xamarin.iOS
@@ -406,7 +406,7 @@ Xamarin 元件用戶端是專為強型別案例所設計的。不過，較弱型
     // Lookup untyped data using OData
     JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 
-您將收到可用作屬性包的 JSON 值。如需有關 JToken 和 Json.NET 的詳細資訊，請參閱 [Json.NET][]
+您將收到可用作屬性包的 JSON 值。如需有關 JToken 和 Json.NET 的詳細資訊，請參閱 [Json.NET][Json.NET]
 
 ## <a name="unit-testing"></a><span class="short-header">設計測試</span>作法：設計單位測試
 
@@ -437,10 +437,6 @@ Xamarin 元件用戶端是專為強型別案例所設計的。不過，較弱型
 <!-- Anchors. --> 
 <!-- URLs. -->
 
-  [.NET Framework]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
   [Xamarin]: /zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Xamarin.iOS]: /zh-tw/develop/mobile/tutorials/get-started-xamarin-ios/
   [Xamarin.Android]: /zh-tw/develop/mobile/tutorials/get-started-xamarin-android/

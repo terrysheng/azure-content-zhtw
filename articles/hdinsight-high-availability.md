@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-high-availability" urlDisplayName="HDInsight High Availability" pageTitle="Availability of Hadoop clusters in HDInsight | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight deploys highly available and reliable clusters." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Availability of Hadoop clusters in HDInsight" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # HDInsight 上 Hadoop 叢集的可用性和可靠性
 
@@ -8,13 +8,13 @@
 
 已在 HDInsight 所部署的 Hadoop 叢集中新增第二個前端節點，以提升管理工作負載所需服務的可用性和可靠性。Hadoop 叢集的標準實作通常包含單一前端節點。這些叢集是專為順利管理背景工作節點錯誤所設計的，但任何在前端節點上執行的主要服務中斷都有可能導致叢集停止運作。
 
-![][]
+![][0]
 
-HDInsight 會透過新增次要前端節點 (Head Node1)，來將這個單一失敗點移除。已新增 [ZooKeeper][] 節點 (ZK) 並將其用於前端節點的「選出領導者」，以確保背景工作節點和閘道 (GW) 知道容錯移轉至次要前端節點 (Head Node1) 的時機，以及作用中前端節點 (HeadNode0) 變成非作用中狀態的時機。
+HDInsight 會透過新增次要前端節點 (Head Node1)，來將這個單一失敗點移除。已新增 [ZooKeeper][ZooKeeper] 節點 (ZK) 並將其用於前端節點的「選出領導者」，以確保背景工作節點和閘道 (GW) 知道容錯移轉至次要前端節點 (Head Node1) 的時機，以及作用中前端節點 (HeadNode0) 變成非作用中狀態的時機。
 
 ## 如何檢查作用中前端節點的服務狀態
 
-若要判斷哪個前端節點處於作用中狀態，並要檢查在該前端節點上執行的服務狀態，您必須使用遠端桌面通訊協定 (RDP) 連線到 Hadoop 叢集。依預設，系統會停用 Azure 中的遠端進入叢集功能，因此您必須首先將它啟用。如需如何在入口網站中執行此動作的指示，請參閱[使用 RDP 連線到 HDInsight 叢集][]
+若要判斷哪個前端節點處於作用中狀態，並要檢查在該前端節點上執行的服務狀態，您必須使用遠端桌面通訊協定 (RDP) 連線到 Hadoop 叢集。依預設，系統會停用 Azure 中的遠端進入叢集功能，因此您必須首先將它啟用。如需如何在入口網站中執行此動作的指示，請參閱[使用 RDP 連線到 HDInsight 叢集][使用 RDP 連線到 HDInsight 叢集]
 一旦遠端連線進入叢集後，連按兩下位於桌面上的 [Hadoop Service Available Status] 圖示，以取得執行 Namenode、Jobtracker、Templeton、Oozieservice、Metastore 和 Hiveserver2 服務的前端節點狀態，或在 HDI 3.0 中，取得執行 Namenode、Resource Manager、History Server、Templeton、Oozieservice、Metastore 和 Hiveserver2 的前端節點狀態。
 
 ![][1]
@@ -31,13 +31,13 @@ HDInsight 會透過新增次要前端節點 (Head Node1)，來將這個單一失
 
 您可以使用 Azure PowerShell Cmdlet 或 HDInsight SDK 來設定超大型 VM。
 
-[使用 PowerShell 管理 HDInsight][] 中記載使用 PowerShell 建立與佈建叢集的說明。超大型前端節點的組態要求將 `-HeadNodeVMSize ExtraLarge` 參數加入此程式碼中所使用的 `New-AzureHDInsightcluster` Cmdlet。
+[使用 PowerShell 管理 HDInsight][使用 PowerShell 管理 HDInsight] 中記載使用 PowerShell 建立與佈建叢集的說明。超大型前端節點的組態要求將 `-HeadNodeVMSize ExtraLarge` 參數加入此程式碼中所使用的 `New-AzureHDInsightcluster` Cmdlet。
 
     # Create a new HDInsight cluster in Azure PowerShell
     # Configured with an ExtraLarge Headnode VM
     New-AzureHDInsightCluster -Name $clusterName -Location $location -HeadNodeVMSize ExtraLarge -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
 
-SDK 的情況十分類似。[使用 HDInsight .NET SDK][] 中記載使用 SDK 建立與佈建叢集的說明。超大型前端節點的組態要求將 `HeadNodeSize = NodeVMSize.ExtraLarge` 參數加入此程式碼中所使用的 `ClusterCreateParameters()` 方法。
+SDK 的情況十分類似。[使用 HDInsight .NET SDK][使用 HDInsight .NET SDK] 中記載使用 SDK 建立與佈建叢集的說明。超大型前端節點的組態要求將 `HeadNodeSize = NodeVMSize.ExtraLarge` 參數加入此程式碼中所使用的 `ClusterCreateParameters()` 方法。
 
     # Create a new HDInsight cluster with the HDInsight SDK
     # Configured with an ExtraLarge Headnode VM
@@ -56,11 +56,11 @@ SDK 的情況十分類似。[使用 HDInsight .NET SDK][] 中記載使用 SDK �
 
 **參考**
 
--   [ZooKeeper][]
--   [使用 RDP 連線到 HDInsight 叢集][]
+-   [ZooKeeper][ZooKeeper]
+-   [使用 RDP 連線到 HDInsight 叢集][使用 RDP 連線到 HDInsight 叢集]
 -   [使用 HDInsight .NET SD][使用 HDInsight .NET SDK]
 
-  []: http://i.imgur.com/jrUmrH4.png
+  [0]: http://i.imgur.com/jrUmrH4.png
   [ZooKeeper]: http://zookeeper.apache.org/
   [使用 RDP 連線到 HDInsight 叢集]: ../hdinsight-administer-use-management-portal/#rdp
   [1]: http://i.imgur.com/MYTkCHW.png

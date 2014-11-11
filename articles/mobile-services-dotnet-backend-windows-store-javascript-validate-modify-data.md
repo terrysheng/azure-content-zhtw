@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-validate-modify-and-augment-data-javascript" urlDisplayName="Validate and Modify Data" pageTitle="Use the .Net backend to validate and modify data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to validate, modify, and augment data for your Javascript Windows Store app with .Net backend Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # 使用 .Net 後端在行動服務中驗證與修改資料
 
@@ -27,17 +27,17 @@
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [新增字串長度驗證][]
-2.  [更新用戶端以支援驗證][]
-3.  [測試長度驗證][]
-4.  [新增 CompleteDate 的時間戳記欄位][]
-5.  [更新用戶端以顯示 CompleteDate][]
+1.  [新增字串長度驗證][新增字串長度驗證]
+2.  [更新用戶端以支援驗證][更新用戶端以支援驗證]
+3.  [測試長度驗證][測試長度驗證]
+4.  [新增 CompleteDate 的時間戳記欄位][新增 CompleteDate 的時間戳記欄位]
+5.  [更新用戶端以顯示 CompleteDate][更新用戶端以顯示 CompleteDate]
 
-本教學課程會以先前的教學課程[開始使用][]或[開始使用資料][]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須先完成[開始使用][]或[開始使用資料][]教學課程。
+本教學課程會以先前的教學課程[開始使用][開始使用]或[開始使用資料][開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須先完成[開始使用][開始使用]或[開始使用資料][開始使用資料]教學課程。
 
 ## <a name="string-length-validation"></a>將驗證程式碼新增至行動服務
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 ## <a name="update-client-validation"></a>更新用戶端
 
@@ -70,7 +70,7 @@
 
 2.  為新的 todo 項目輸入長度超過 10 個字元的文字，然後按一下 [儲存]。
 
-    ![][]
+    ![][0]
 
 3.  此時會出現如下的訊息對話方塊，以回應無效文字。
 
@@ -78,7 +78,7 @@
 
 ## <a name="add-timestamp"></a>新增 CompleteDate 的時間戳記欄位
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
 ## <a name="update-client-timestamp"></a>更新用戶端以顯示 CompleteDate
 
@@ -134,33 +134,23 @@
 
 ## <a name="next-steps"> </a>後續步驟
 
-現在，您已完成本教學課程，請考慮繼續進行資料數列中最後的教學課程：[使用分頁縮小查詢範圍][]。
+現在，您已完成本教學課程，請考慮繼續進行資料數列中最後的教學課程：[使用分頁縮小查詢範圍][使用分頁縮小查詢範圍]。
 
 您也可以在授權使用者及傳送推播通知時使用伺服器指令碼。如需詳細資訊，請參閱下列教學課程：
 
--   [使用者的服務端授權][]
+-   [使用者的服務端授權][使用者的服務端授權]
     了解如何根據已驗證的使用者 ID 來篩選資料。
 
--   [開始使用推播通知][]
+-   [開始使用推播通知][開始使用推播通知]
     了解如何將極為基本的推播通知傳送到應用程式。
 
--   [行動服務 .NET 作法概念參考資料][]
+-   [行動服務 .NET 作法概念參考資料][行動服務 .NET 作法概念參考資料]
     深入了解如何使用搭配 .NET 的行動服務。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Windows Phone"
-  [iOS]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
-  [Android]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
-  [HTML]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
-  [Xamarin.iOS]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
-  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ ".NET 後端"
-  [JavaScript 後端]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/ "JavaScript 後端"
   [新增字串長度驗證]: #string-length-validation
   [更新用戶端以支援驗證]: #update-client-validation
   [測試長度驗證]: #test-length-validation
@@ -169,7 +159,7 @@
   [開始使用]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/
   [mobile-services-dotnet-backend-add-validation]: ../includes/mobile-services-dotnet-backend-add-validation.md
-  []: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-invalid-text-length.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-invalid-text-length.png
   [1]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-invalid-text-length-exception-dialog.png
   [mobile-services-dotnet-backend-add-completedate]: ../includes/mobile-services-dotnet-backend-add-completedate.md
   [2]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-rebuild-solution.png

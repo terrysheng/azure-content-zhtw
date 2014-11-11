@@ -1,29 +1,29 @@
 <properties linkid="manage-services-how-to-manage-a-cloud-service" urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Learn how to manage cloud services in the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # 如何管理雲端服務
 
-[WACOM.INCLUDE [disclaimer][]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 在 Azure 管理入口網站的 [雲端服務] 區域中，您可以更新服務角色或部署、將預備部署升級至生產部署、將資源連結至您的雲端服務 (以方便您查看資源依存性並將資源一起調整)，以及刪除雲端服務或部署。
 
 ## 目錄
 
--   [作法：更新雲端服務角色或部署][]
--   [作法：交換部署以使預備部署升格為生產部署][]
--   [作法：將資源連結到雲端服務][]
--   [作法：刪除部署和雲端服務][]
+-   [作法：更新雲端服務角色或部署][作法：更新雲端服務角色或部署]
+-   [作法：交換部署以使預備部署升格為生產部署][作法：交換部署以使預備部署升格為生產部署]
+-   [作法：將資源連結到雲端服務][作法：將資源連結到雲端服務]
+-   [作法：刪除部署和雲端服務][作法：刪除部署和雲端服務]
 
 ## <span id="updaterole"></span></a>作法：更新雲端服務角色或部署
 
 如果您需要更新雲端服務的應用程式程式碼，請使用儀表板上、[雲端服務] 頁面上或 [執行個體] 頁面上的 [更新]。您可以更新單一角色或所有角色。您將需要上傳新的服務套件和服務組態檔。
 
-1.  在 [Azure 管理入口網站][]中，按一下儀表板上、[雲端服務] 頁面上或 [執行個體] 頁面上的 [更新]。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站]中，按一下儀表板上、[雲端服務] 頁面上或 [執行個體] 頁面上的 [更新]。
 
     [更新部署] 隨即開啟。
 
-    ![UpdateDeployment][]
+    ![UpdateDeployment][UpdateDeployment]
 
 2.  在 [部署標籤] 中，輸入部署的識別名稱 (例如，mycloudservicev2)。您將在儀表板的 [快速入門] 下發現此部署名稱。
 
@@ -57,7 +57,7 @@
 
     隨即開啟下列確認提示。
 
-    ![Cloud Services Swap][]
+    ![Cloud Services Swap][Cloud Services Swap]
 
 4.  確認部署資訊無誤之後，按一下 [是] 交換部署。
 
@@ -69,7 +69,7 @@
 
 若要顯示您的雲端服務對其他資源的依存性，您可以將 Azure SQL Database 執行個體或儲存體帳戶連結到雲端服務。您可以在 [Linked Resources] 頁面上連結和取消連結資源。然後在雲端服務儀表板上監視其使用情形。如果連結的儲存體帳戶已開啟監視功能，則您可以在雲端服務儀表板上監視 [要求總數]。
 
-您可以使用 [連結] 將新的或現有 SQL Database 執行個體或儲存體帳戶連結到您的雲端服務。然後，您便可以在 [調整] 頁面上調整資料庫以及使用該資料庫的雲端服務角色。(儲存體帳戶會在使用量增加時自動調整。) 如需詳細資訊，請參閱[如何調整雲端服務和連結的資源][] (英文)。
+您可以使用 [連結] 將新的或現有 SQL Database 執行個體或儲存體帳戶連結到您的雲端服務。然後，您便可以在 [調整] 頁面上調整資料庫以及使用該資料庫的雲端服務角色。(儲存體帳戶會在使用量增加時自動調整。) 如需詳細資訊，請參閱[如何調整雲端服務和連結的資源][如何調整雲端服務和連結的資源] (英文)。
 
 您也可以在管理入口網站的 [資料庫] 節點中監視、管理和調整資料庫。
 
@@ -79,35 +79,35 @@
 
 ### 將 SQL Database 執行個體連結到雲端服務
 
-1.  在[管理入口網站][]中，按一下 [雲端服務]。然後按一下雲端服務的名稱以開啟儀表板。
+1.  在[管理入口網站][管理入口網站]中，按一下 [雲端服務]。然後按一下雲端服務的名稱以開啟儀表板。
 
 2.  按一下 [Linked Resources]。
 
     [Linked Resources] 頁面隨即開啟。
 
-    ![LinkedResourcesPage][]
+    ![LinkedResourcesPage][LinkedResourcesPage]
 
 3.  按一下 [Link a Resource] 或 [連結]。
 
     [Link Resource] 精靈隨即啟動。
 
-    ![Link Page1][]
+    ![Link Page1][Link Page1]
 
 4.  按一下 [建立新的資源] 或 [Link an existing resource]。
 
-5.  選擇要連結的資源類型。在[管理入口網站][]中，按一下 [SQL Database]。(預覽版管理入口網站不支援將儲存體帳戶連結到雲端服務。)
+5.  選擇要連結的資源類型。在[管理入口網站][管理入口網站]中，按一下 [SQL Database]。(預覽版管理入口網站不支援將儲存體帳戶連結到雲端服務。)
 
 6.  若要完成資料庫組態，請依照管理入口網站 [SQL Databases] 區域的說明指示執行。
 
     您可以在訊息區域中追蹤連結作業的進度。
 
-    ![Link Progress][]
+    ![Link Progress][Link Progress]
 
-    連結完成時，您可以在雲端服務儀表板上監視已連結資源的狀態。如需關於調整已連結之 SQL Database 的詳細資訊，請參閱[如何調整雲端服務和連結的資源][] (英文)。
+    連結完成時，您可以在雲端服務儀表板上監視已連結資源的狀態。如需關於調整已連結之 SQL Database 的詳細資訊，請參閱[如何調整雲端服務和連結的資源][如何調整雲端服務和連結的資源] (英文)。
 
 ### 取消連結已連結的資源
 
-1.  在[管理入口網站][]中，按一下 [雲端服務]。然後按一下雲端服務的名稱以開啟儀表板。
+1.  在[管理入口網站][管理入口網站]中，按一下 [雲端服務]。然後按一下雲端服務的名稱以開啟儀表板。
 
 2.  按一下 [Linked Resources]，然後選取資源。
 
@@ -123,13 +123,13 @@
 
 使用下列程序，刪除部署或雲端服務。
 
-1.  在[管理入口網站][]中，按一下 [雲端服務]。
+1.  在[管理入口網站][管理入口網站]中，按一下 [雲端服務]。
 
 2.  選取雲端服務，然後按一下 [刪除]。(若要選取雲端服務而不開啟儀表板，請在雲端服務項目中按一下名稱以外的任何位置。)
 
     如果您有預備或生產的部署，則會在視窗底部看到與下面類似的選項功能表。刪除雲端服務之前，您必須先刪除任何現有的部署。
 
-    ![Delete Menu][]
+    ![Delete Menu][Delete Menu]
 
 3.  若要刪除部署，請按一下 [Delete production deployment] 或 [Delete staging deployment]。然後，在確認提示處按一下 [是]。
 
@@ -138,7 +138,7 @@
 5.  若要刪除雲端服務，請按一下 [刪除雲端服務]。然後，在確認提示處按一下 [是]。
 
 > [WACOM.NOTE]
-> 如果對雲端服務設定了詳細資訊監視，則當您刪除該雲端服務時，Azure 並不會從您的儲存體帳戶中刪除監視資料。您將需要手動刪除資料。如需何處可找到這些度量表的相關資訊，請參閱[如何監視雲端服務][]中的＜作法：從管理入口網站外部存取詳細資訊監視資料＞。
+> 如果對雲端服務設定了詳細資訊監視，則當您刪除該雲端服務時，Azure 並不會從您的儲存體帳戶中刪除監視資料。您將需要手動刪除資料。如需何處可找到這些度量表的相關資訊，請參閱[如何監視雲端服務][如何監視雲端服務]中的＜作法：從管理入口網站外部存取詳細資訊監視資料＞。
 
   [disclaimer]: ../includes/disclaimer.md
   [作法：更新雲端服務角色或部署]: #updaterole

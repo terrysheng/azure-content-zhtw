@@ -1,6 +1,6 @@
 <properties linkid="manage-services-sql-databases-datasync" urlDisplayName="How to sync data" pageTitle="Getting started with SQL Databases Data Sync" metaKeywords="" description="" metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Data Sync" authors="spelleru" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelleru"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelleru" />
 
 # 開始使用 Azure SQL 資料同步
 
@@ -10,16 +10,16 @@
 
 ## 目錄
 
--   [步驟 1：連接到 Azure SQL Database][]
--   [步驟 2：新增用戶端代理程式][]
--   [步驟 3：向用戶端代理程式註冊 SQL Server 資料庫][]
--   [步驟 4：建立同步群組][]
--   [步驟 5：定義要同步的資料][]
--   [步驟 6：設定同步群組][]
+-   [步驟 1：連接到 Azure SQL Database][步驟 1：連接到 Azure SQL Database]
+-   [步驟 2：新增用戶端代理程式][步驟 2：新增用戶端代理程式]
+-   [步驟 3：向用戶端代理程式註冊 SQL Server 資料庫][步驟 3：向用戶端代理程式註冊 SQL Server 資料庫]
+-   [步驟 4：建立同步群組][步驟 4：建立同步群組]
+-   [步驟 5：定義要同步的資料][步驟 5：定義要同步的資料]
+-   [步驟 6：設定同步群組][步驟 6：設定同步群組]
 
 ## <span id="Connect"></span></a>步驟 1：連接到 Azure SQL Database
 
-1.  登入[管理入口網站][]。
+1.  登入[管理入口網站][管理入口網站]。
 
 2.  按一下左窗格中的 [SQL DATABASES]。
 
@@ -29,7 +29,7 @@
 
 5.  如果之前尚未新增代理程式，請**按一下在此下載**。
 
-    ![Image1][]
+    ![Image1][Image1]
 
 ## <span id="AddAgent"></span></a>步驟 2：新增用戶端代理程式
 
@@ -41,7 +41,7 @@
 
 -   **.NET Framework 4.0**
 
-您可以從[這裡][]安裝 .NET Framework 4.0。
+您可以從[這裡][這裡]安裝 .NET Framework 4.0。
 
 -   **Microsoft SQL Server 2008 R2 SP1 系統 CLR 類型 (x86)**
 
@@ -53,7 +53,7 @@
 
 ### <span id="InstallClient"></span></a>步驟 2b：安裝新的用戶端代理程式
 
-遵循[安裝 SQL 資料同步 (預覽) 用戶端代理程式][]中的指示，以安裝代理程式。
+遵循[安裝 SQL 資料同步 (預覽) 用戶端代理程式][安裝 SQL 資料同步 (預覽) 用戶端代理程式]中的指示，以安裝代理程式。
 
 ### <span id="RegisterSSDb"></span></a>步驟 2c：完成新增 SQL 資料同步代理程式精靈
 
@@ -66,17 +66,17 @@
 ## <span id="RegisterSSDB"></span></a>步驟 3：向用戶端代理程式註冊 SQL Server 資料庫
 
 安裝用戶端代理程式之後，請將您要納入代理程式之同步群組中的每個內部部署 SQL Server 資料庫進行註冊。
-若要向代理程式註冊資料庫，請遵循[向用戶端代理程式註冊 SQL Server 資料庫][]中的指示。
+若要向代理程式註冊資料庫，請遵循[向用戶端代理程式註冊 SQL Server 資料庫][向用戶端代理程式註冊 SQL Server 資料庫]中的指示。
 
 ## <span id="CreateSG"></span></a>步驟 4：建立同步群組
 
 ### <span id="StartNewSGWizard"></span></a>步驟 4a：啟動新增同步群組精靈
 
-1.  返回[管理入口網站][]。
+1.  返回[管理入口網站][管理入口網站]。
 2.  按一下 [SQL DATABASE]。
 3.  按一下頁面底部的 [ADD SYNC]，然後選取下拉式清單中的 [New Sync Group]。
 
-    ![Image2][]
+    ![Image2][Image2]
 
 ### <span></span></a>步驟 4b：輸入基本設定
 
@@ -84,7 +84,7 @@
 2.  從下拉式清單中選取 [區域] (資料中心) 以裝載此同步群組。
 3.  按一下向右箭頭。
 
-    ![Image3][]
+    ![Image3][Image3]
 
 ### <span id="DefineHubDB"></span></a>步驟 4c：定義同步中心
 
@@ -99,7 +99,7 @@
 
 1.  按一下向右箭頭。
 
-    ![Image4][]
+    ![Image4][Image4]
 
 ### <span id="AddRefDB"></span></a>步驟 4d：新增參考資料庫
 
@@ -122,13 +122,13 @@
 
 5.  再按一次核取記號。您即可返回 SQL Database 下的 [同步] 頁面。此同步群組現在會與您的其他同步群組和代理程式列在一起。
 
-    ![Image5][]
+    ![Image5][Image5]
 
 ## <span id="SyncRules"></span></a>步驟 5：定義要同步的資料
 
 Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果您也想篩選資料欄，僅只同步具有特定值 (例如，年齡 \>=65) 的資料列，請使用 Azure 的 SQL 資料同步入口網站以及「選取要同步的資料表、資料欄和資料列」的文件，以定義要同步的資料。
 
-1.  返回[管理入口網站][]。
+1.  返回[管理入口網站][管理入口網站]。
 2.  按一下 [SQL DATABASE]。
 3.  按一下 [同步] 索引標籤。
 4.  按一下此同步群組的名稱。
@@ -144,14 +144,14 @@ Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果�
 10. 按一下 [儲存]，然後等待同步群組完成佈建。
 11. 若要返回 [資料同步] 登陸頁面，請按一下畫面左上方的向後鍵 (在同步群組名稱之上)。
 
-    ![Image6][]
+    ![Image6][Image6]
 
 ## <span id="Configure"></span></a>步驟 6：設定同步群組
 
 您可隨時按一下 [資料同步] 登陸頁面底部的 [同步]，以同步處理同步群組。
 如果您要同步群組依照排程進行同步處理，請設定該同步群組。
 
-1.  返回[管理入口網站][]。
+1.  返回[管理入口網站][管理入口網站]。
 2.  按一下 [SQL DATABASE]。
 3.  按一下 [同步] 索引標籤。
 4.  按一下此同步群組的名稱。
@@ -165,7 +165,7 @@ Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果�
 
 8.  按一下 [儲存]。
 
-![Image7][]
+![Image7][Image7]
 
 恭喜！您已建立一個同時包含 SQL Database 執行個體與 SQL Server 資料庫的同步群組。
 
@@ -174,9 +174,9 @@ Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果�
 如需 SQL Database 與 SQL 資料同步的其他資訊，請參閱：
 
 -   [註冊 SQL Database 的 Premium 版] (../sign-up-for-sql-database-premium/)
--   [SQL 資料同步 (WA 入口網站)][]
--   [開始使用 Azure SQL Database][]
--   [SQL Server 資料庫生命週期][]
+-   [SQL 資料同步 (WA 入口網站)][SQL 資料同步 (WA 入口網站)]
+-   [開始使用 Azure SQL Database][開始使用 Azure SQL Database]
+-   [SQL Server 資料庫生命週期][SQL Server 資料庫生命週期]
 
   [步驟 1：連接到 Azure SQL Database]: #Connect
   [步驟 2：新增用戶端代理程式]: #AddAgent
@@ -188,7 +188,6 @@ Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果�
   [Image1]: ./media/sql-database-get-started-data-sync/SQLDatabaseScreen-Figure1.PNG
   [這裡]: http://go.microsoft.com/fwlink/?linkid=205836
   [1]: http://www.microsoft.com/download/en/details.aspx?id=26728
-  [安裝 SQL 資料同步 (預覽) 用戶端代理程式]: http://msdn.microsoft.com/zh-tw/library/jj823137.aspx
   [向用戶端代理程式註冊 SQL Server 資料庫]: http://msdn.microsoft.com/zh-tw/library/jj823138.aspx
   [Image2]: ./media/sql-database-get-started-data-sync/NewSyncGroup-Figure2.png
   [Image3]: ./media/sql-database-get-started-data-sync/NewSyncGroupName-Figure3.PNG
@@ -196,6 +195,5 @@ Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果�
   [Image5]: ./media/sql-database-get-started-data-sync/NewSyncGroupReference-Figure5.PNG
   [Image6]: ./media/sql-database-get-started-data-sync/NewSyncGroupSyncRules-Figure6.PNG
   [Image7]: ./media/sql-database-get-started-data-sync/NewSyncGroupConfigure-Figure7.PNG
-  [SQL 資料同步 (WA 入口網站)]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj856263.aspx
   [開始使用 Azure SQL Database]: ../getting-started-w-sql-databases/
   [SQL Server 資料庫生命週期]: http://go.microsoft.com/fwlink/?LinkId=275193

@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-windowsdotnet" urlDisplayName="Get started with notification hubs" pageTitle="Get started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Getting Started with Notification Hubs" authors="glenga" solutions="" manager="dwrede" editor="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
 # 開始使用通知中心
 
@@ -11,10 +11,10 @@
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 
-1.  [針對推播通知註冊應用程式][]
-2.  [設定您的通知中心][]
-3.  [將您的應用程式連接到通知中心][]
-4.  [從後端傳送通知][]
+1.  [針對推播通知註冊應用程式][針對推播通知註冊應用程式]
+2.  [設定您的通知中心][設定您的通知中心]
+3.  [將您的應用程式連接到通知中心][將您的應用程式連接到通知中心]
+4.  [從後端傳送通知][從後端傳送通知]
 
 本教學課程將示範使用通知中心的簡單廣播案例。請確定依照下一個教學課程的步驟進行，以了解如何使用通知中心來處理特定使用者和裝置群組。本教學課程需要下列各項：
 
@@ -24,7 +24,7 @@
 -   有效的 Windows 市集帳戶
 
 -   使用中的 Azure 帳戶。
-    如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
+    如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][Azure 免費試用]。
 
 完成本教學課程是 Windows 市集應用程式所有其他通知中心教學課程的先決條件。
 
@@ -32,7 +32,7 @@
 
 若要從行動服務傳送推播通知給 Windows 市集應用程式，您必須將應用程式提交到 Windows 市集。接著您必須設定您的通知中心，以便與 WNS 進行整合。
 
-1.  如果您尚未註冊您的應用程式，請瀏覽至 Windows 市集應用程式之開發人員中心的[提交應用程式頁面][]，使用您的 Microsoft 帳戶登入，然後按一下 [應用程式名稱]。
+1.  如果您尚未註冊您的應用程式，請瀏覽至 Windows 市集應用程式之開發人員中心的[提交應用程式頁面][提交應用程式頁面]，使用您的 Microsoft 帳戶登入，然後按一下 [應用程式名稱]。
 
     ![][0]
 
@@ -80,7 +80,7 @@
 
 ## <a name="configure-hub"></a>設定您的通知中心
 
-1.  登入 [Azure 管理入口網站][]，並按一下畫面底部的 [新增]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，並按一下畫面底部的 [新增]。
 
 2.  依序按一下 [App Services]、[服務匯流排]、[Notification Hub]、[快速建立]。
 
@@ -118,7 +118,7 @@
 
     ![][15]
 
-    此時會在所有專案中使用 [WindowsAzure.Messaging.Managed NuGet 封裝][]，下載、安裝並新增適用於 Windows 的 Azure 訊息程式庫參照。
+    此時會在所有專案中使用 [WindowsAzure.Messaging.Managed NuGet 封裝][WindowsAzure.Messaging.Managed NuGet 封裝]，下載、安裝並新增適用於 Windows 的 Azure 訊息程式庫參照。
 
 3.  開啟 App.xaml.cs 專案檔案並新增下列 `using` 陳述式：
 
@@ -175,7 +175,7 @@
 
 ## <a name="send"></a>從後端傳送通知
 
-您可以使用 [REST 介面][]，從任何後端使用通知中心傳送通知。在本教學課程中，您將透過 .NET 主控台應用程式來傳送通知。如需從整合通知中心之 Azure 行動服務後端傳送通知的範例，請參閱**開始在行動服務中使用推播通知** ([.NET backend][] | [JavaScript backend][.NET backend])。如需使用 REST API 傳送通知的範例，請參閱**如何從 Java/PHP 使用通知中心** ([Java][] | [PHP][])。
+您可以使用 [REST 介面][REST 介面]，從任何後端使用通知中心傳送通知。在本教學課程中，您將透過 .NET 主控台應用程式來傳送通知。如需從整合通知中心之 Azure 行動服務後端傳送通知的範例，請參閱**開始在行動服務中使用推播通知** ([.NET backend][.NET backend] | [JavaScript backend][.NET backend])。如需使用 REST API 傳送通知的範例，請參閱**如何從 Java/PHP 使用通知中心** ([Java][Java] | [PHP][PHP])。
 
 1.  以滑鼠右鍵按一下方案，選取 [新增] 和 [新增專案...]，然後按一下 [Visual C#] 下方的 [Windows] 和 [主控台應用程式]，再按一下 [確定]。
 
@@ -191,7 +191,7 @@
 
         Install-Package WindowsAzure.ServiceBus
 
-    即可使用 [WindowsAzure.ServiceBus NuGet 封裝][]來新增 Azure 服務匯流排 SDK 的參照。
+    即可使用 [WindowsAzure.ServiceBus NuGet 封裝][WindowsAzure.ServiceBus NuGet 封裝]來新增 Azure 服務匯流排 SDK 的參照。
 
 4.  開啟檔案 Program.cs，並新增下列 `using` 陳述式：
 
@@ -222,23 +222,17 @@
 
     您將會在所有註冊裝置上收到快顯通知。按一下或點選快顯橫幅即會載入應用程式。
 
-您可以在 MSDN 上的[快顯目錄][] (英文)、[磚目錄][] (英文) 和[徽章概觀][]主題中找到所有支援的裝載。
+您可以在 MSDN 上的[快顯目錄][快顯目錄] (英文)、[磚目錄][磚目錄] (英文) 和[徽章概觀][徽章概觀]主題中找到所有支援的裝載。
 
 ## <a name="next-steps"> </a>後續步驟
 
-在此簡單範例中，您將傳送廣播通知到您的所有 Windows 裝置。為了鎖定特定使用者，請參閱教學課程[使用通知中心來推播通知給使用者][]。如果您想要按興趣群組分隔使用者，請參閱[使用通知中心傳送即時新聞][]。若要深入了解如何使用通知中心，請參閱[通知中心指引][]。
+在此簡單範例中，您將傳送廣播通知到您的所有 Windows 裝置。為了鎖定特定使用者，請參閱教學課程[使用通知中心來推播通知給使用者][使用通知中心來推播通知給使用者]。如果您想要按興趣群組分隔使用者，請參閱[使用通知中心傳送即時新聞][使用通知中心傳送即時新聞]。若要深入了解如何使用通知中心，請參閱[通知中心指引][通知中心指引]。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 通用]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows 通用"
   [Windows Phone]: /zh-tw/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /zh-tw/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /zh-tw/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /zh-tw/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [1]: /zh-tw/documentation/articles/notification-hubs-windows-phone-get-started/
   [針對推播通知註冊應用程式]: #register
   [設定您的通知中心]: #configure-hub

@@ -1,6 +1,6 @@
 <properties linkid="develop-java-how-to-twilio-phone-call" urlDisplayName="How to Make a Phone Call from Twilio in Java" pageTitle="How to Make a phone call from Twilio (Java) - Azure" metaKeywords="Azure Twilio call, Twilio call website, Azure Twilio Java" description="Learn how to make a phone call from a web page using Twilio in a Java application on Azure." metaCanonical="" services="" documentationCenter="Java" title="How to Make a Phone Call Using Twilio in a Java Application on Azure" authors="MicrosoftHelp@twilio.com; robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm" />
 
 # 如何在 Azure 上的 Java 應用程式中使用 Twilio 撥打電話
 
@@ -189,7 +189,6 @@
   [4]: http://github.com/twilio/twilio-java
   [5]: http://api.twilio.com
   [新增憑證至 Java CA 憑證存放區]: ../java-add-certificate-ca-store
-  [使用 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供) 建立 Hello World 應用程式]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh690944.aspx
   [Azure Call Response Using Twilio and Java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
   [如何從 Java 使用 Blob 儲存體服務]: http://www.windowsazure.com/zh-TW/develop/java/how-to-guides/blob-storage/
   [在 Java 中使用 SQL Database]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh749029.aspx

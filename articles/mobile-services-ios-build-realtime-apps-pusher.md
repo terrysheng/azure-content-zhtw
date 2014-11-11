@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-build-realtime-apps-with-pusher-ios" urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Build Realtime Apps with Pusher (iOS) - Mobile Services" metaKeywords="" description="Learn how to use Pusher to send notifications to your Azure Media Services app on iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # 使用行動服務和 Pusher 建立即時應用程式
 
@@ -10,22 +10,22 @@
 
 本主題將示範如何在您的 Azure 行動服務型應用程式中新增即時功能。完成時，您的 TodoList 資料將在您應用程式所有執行中的執行個體上即時同步。
 
-[推播通知給使用者][]教學課程將示範如何使用推播通知來通知使用者 Todo 清單中有新項目。推播通知相當適合用於顯示非經常性變更。不過，應用程式有時候需要經常性即時通知。使用 Pusher API 即可將即時通知新增至行動服務。在本教學課程中，我們將行動服務搭配 Pusher 使用，以便在應用程式的任何執行中執行個體發生變更時，保持 Todo 清單同步。
+[推播通知給使用者][推播通知給使用者]教學課程將示範如何使用推播通知來通知使用者 Todo 清單中有新項目。推播通知相當適合用於顯示非經常性變更。不過，應用程式有時候需要經常性即時通知。使用 Pusher API 即可將即時通知新增至行動服務。在本教學課程中，我們將行動服務搭配 Pusher 使用，以便在應用程式的任何執行中執行個體發生變更時，保持 Todo 清單同步。
 
 Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即時應用程式變得相當輕鬆容易。您可以使用 Pusher 快速建立即時民調、聊天室、多人遊戲和共同作業應用程式 (以廣播即時資料和內容)，不過優點不僅止於此！如需詳細資訊，請參閱 [][]<http://pusher.com></a> (英文)。
 
 本教學課程將逐步引導您完成下列基本步驟，將即時共同作業新增至 Todo 清單應用程式：
 
-1.  [建立 Pusher 帳戶][]
-2.  [更新應用程式][]
-3.  [安裝服務指令碼][]
-4.  [測試應用程式][]
+1.  [建立 Pusher 帳戶][建立 Pusher 帳戶]
+2.  [更新應用程式][更新應用程式]
+3.  [安裝服務指令碼][安裝服務指令碼]
+4.  [測試應用程式][測試應用程式]
 
-本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][]。
+本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][開始使用行動服務]。
 
 ## <a name="sign-up"></a>建立新的 Pusher 帳戶
 
-[WACOM.INCLUDE [pusher-sign-up][]]
+[WACOM.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
 
 ## <a name="update-app"></a>更新應用程式
 
@@ -33,9 +33,9 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 
 ### 安裝 libPusher 程式庫
 
-[libPusher][] 程式庫可以讓您從 iOS 存取 Pusher。
+[libPusher][libPusher] 程式庫可以讓您從 iOS 存取 Pusher。
 
-1.  [從這裡][] (英文) 下載 libPusher 程式庫。
+1.  [從這裡][從這裡] (英文) 下載 libPusher 程式庫。
 
 2.  在您的專案中建立名稱為 *libPusher* 的群組。
 
@@ -43,7 +43,7 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 
 4.  勾選 [Copy items into destination group's folder]，然後按一下 [完成]
 
-    ![][]
+    ![][0]
 
    這會將 libPusher 檔案複製到您的專案。
 
@@ -259,7 +259,7 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 
 現在剩下要做的就是設定服務指令碼。我們會插入程式碼，以在 TodoList 資料表中插入或更新了項目時套用。
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的行動服務。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的行動服務。
 
 2.  在管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
@@ -375,15 +375,14 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 -   Pusher API 文件：<http://pusher.com/docs>
 -   Pusher 教學課程：<http://pusher.com/tutorials>
 
-若要深入了解註冊和使用服務指令碼，請參閱[行動服務伺服器指令碼參照][]。
+若要深入了解註冊和使用服務指令碼，請參閱[行動服務伺服器指令碼參照][行動服務伺服器指令碼參照]。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [iOS]:  "iOS"
   [推播通知給使用者]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios
-  []: http://pusher.com
+  [0]: http://pusher.com
   [建立 Pusher 帳戶]: #sign-up
   [更新應用程式]: #update-app
   [安裝服務指令碼]: #install-scripts
@@ -392,7 +391,7 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
   [pusher-sign-up]: ../includes/pusher-sign-up.md
   [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
   [從這裡]: http://go.microsoft.com/fwlink/p/?LinkId=276998
-  []: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png
+  [0]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png
   [1]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-build-phase.png
   [2]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-linker-flag.png
   [Azure 管理入口網站]: https://manage.windowsazure.com/

@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (.NET) - Azure feature guide" metaKeywords="Azure Access Control Service authentication C#" description="Learn how to use Access Control Service (ACS) in your Azure application to authenticate users when they try to gain access to a web app." metaCanonical="" services="active-directory" documentationCenter=".NET" title="How to Authenticate Web Users with Azure Active Directory Access Control" authors="mbaldwin, juneb" solutions="" manager="mbaldwin" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin, juneb"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin, juneb" />
 
 # 如何利用 Azure Active Directory 存取控制來驗證 Web 使用者
 
@@ -8,17 +8,17 @@
 
 ## <span class="short-header">目錄</span>目錄
 
--   [什麼是 ACS？][]
--   [概念][]
--   [必要條件][]
--   [建立存取控制命名空間][]
--   [建立 ASP.NET MVC 應用程式][]
--   [整合您的 Web 應用程式與 ACS][]
--   [測試與 ACS 的整合][]
--   [檢視 ACS 所傳送的宣告][]
--   [在 ACS 管理入口網站中檢視應用程式][]
--   [新增身分識別提供者][]
--   [接下來][]
+-   [什麼是 ACS？][什麼是 ACS？]
+-   [概念][概念]
+-   [必要條件][必要條件]
+-   [建立存取控制命名空間][建立存取控制命名空間]
+-   [建立 ASP.NET MVC 應用程式][建立 ASP.NET MVC 應用程式]
+-   [整合您的 Web 應用程式與 ACS][整合您的 Web 應用程式與 ACS]
+-   [測試與 ACS 的整合][測試與 ACS 的整合]
+-   [檢視 ACS 所傳送的宣告][檢視 ACS 所傳送的宣告]
+-   [在 ACS 管理入口網站中檢視應用程式][在 ACS 管理入口網站中檢視應用程式]
+-   [新增身分識別提供者][新增身分識別提供者]
+-   [接下來][接下來]
 
 ## <span class="short-header">什麼是 ACS？</span>什麼是 ACS？
 
@@ -34,7 +34,7 @@
 -   一個管理入口網站，可用來對 ACS 設定進行系統管理
     存取。
 
-如需 ACS 的詳細資訊，請參閱＜[存取控制服務 2.0][]＞。
+如需 ACS 的詳細資訊，請參閱＜[存取控制服務 2.0][存取控制服務 2.0]＞。
 
 ## <span class="short-header">概念</span>概念
 
@@ -58,7 +58,7 @@ ACS 是以宣告式身分識別為原則來打造，後者是為內部部署上�
 
 下圖顯示 ACS 驗證與 Web 應用程式如何搭配運作：
 
-![][]
+![][0]
 
 1.  用戶端 (在此案例中是指瀏覽器) 向 RP 要求一個頁面。
 2.  因為要求尚未經過驗證，所以 RP 將
@@ -82,14 +82,14 @@ ACS 是以宣告式身分識別為原則來打造，後者是為內部部署上�
 
 -   Azure 訂閱
 -   Microsoft Visual Studio 2012
--   Visual Studio 2012 的 Identity and Access Tool (若要下載，請參閱 [Identity and Access Tool][] (英文))
+-   Visual Studio 2012 的 Identity and Access Tool (若要下載，請參閱 [Identity and Access Tool][Identity and Access Tool] (英文))
 
 ## <span class="short-header">建立存取控制命名空間</span>建立存取控制命名空間
 
 若要使用 Azure 中的 Active Directory 存取控制，請建立存取控制命名空間。這個命名空間可提供在您的應用程式內
 定址 ACS 資源的唯一範圍。
 
-1.  登入 [Azure 管理入口網站][] (<https://manage.WindowsAzure.com>)。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站] (<https://manage.WindowsAzure.com>)。
 
 2.  按一下 [Active Directory]。
 
@@ -283,7 +283,7 @@ Azure 即會建立並啟動命名空間。
 
 ![][15]
 
-如需關於在應用程式中使用宣告的詳細資訊，請參閱 [Windows Identity Foundation 文件庫 (機器翻譯)][]。
+如需關於在應用程式中使用宣告的詳細資訊，請參閱 [Windows Identity Foundation 文件庫 (機器翻譯)][Windows Identity Foundation 文件庫 (機器翻譯)]。
 
 ## <a name="bkmk_VP"></a>在 ACS 管理入口網站中檢視應用程式
 
@@ -293,7 +293,7 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
 
 您可以在 ACS 管理入口網站中檢閱並變更這些組態設定。請使用下列步驟在入口網站中檢閱變更。
 
-1.  登入 Windows [Azure 管理入口網站][]。
+1.  登入 Windows [Azure 管理入口網站][Azure 管理入口網站]。
 
 2.  按一下 [Active Directory]。
 
@@ -355,7 +355,7 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
 
 您也可以新增規則至命名空間，來決定哪些宣告會傳送至應用程式以依應用程式商務邏輯進行處理。
 
-若要進一步探索 ACS 功能及試試其他案例，請參閱[存取控制服務 2.0][] (英文)。
+若要進一步探索 ACS 功能及試試其他案例，請參閱[存取控制服務 2.0][存取控制服務 2.0] (英文)。
 
   [什麼是 ACS？]: #what-is
   [概念]: #concepts
@@ -369,7 +369,7 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
   [新增身分識別提供者]: #add-IP
   [接下來]: #whats-next
   [存取控制服務 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
-  []: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
+  [0]: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
   [Identity and Access Tool]: http://go.microsoft.com/fwlink/?LinkID=245849
   [Azure 管理入口網站]: http://manage.WindowsAzure.com
   [1]: ./media/active-directory-dotnet-how-to-use-access-control/acsCreateNamespace.png
@@ -387,7 +387,6 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
   [13]: ./media/active-directory-dotnet-how-to-use-access-control/acsMSFTAcct.png
   [14]: ./media/active-directory-dotnet-how-to-use-access-control/rzAv.png
   [15]: ./media/active-directory-dotnet-how-to-use-access-control/rzCl.png
-  [Windows Identity Foundation 文件庫 (機器翻譯)]: http://msdn.microsoft.com/zh-tw/library/hh377151.aspx
   [16]: ./media/active-directory-dotnet-how-to-use-access-control/acsACSPortal.png
   [17]: ./media/active-directory-dotnet-how-to-use-access-control/acsRPPage.png
   [18]: ./media/active-directory-dotnet-how-to-use-access-control/acsEdit-RP.png

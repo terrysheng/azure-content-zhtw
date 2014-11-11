@@ -1,14 +1,14 @@
 <properties linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Web App with Storage" pageTitle="Web app with table storage (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." metaCanonical="" services="cloud-services,storage" documentationCenter="Node.js" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # 使用儲存體的 Node.js Web 應用程式
 
-在本教學課程中，您將擴充在[使用 Express 的 Node.js Web 應用程式][] (英文) 教學課程中所建立的應用程式，方法是使用 Windows Azure Client Libraries for Node.js 來搭配資料管理服務使用。您將擴充您的應用程式，以建立一個可部署到 Azure 的 Web 架構工作清單應用程式。使用者可透過工作清單來擷取工作、新增工作及將工作標示為已完成。
+在本教學課程中，您將擴充在[使用 Express 的 Node.js Web 應用程式][使用 Express 的 Node.js Web 應用程式] (英文) 教學課程中所建立的應用程式，方法是使用 Windows Azure Client Libraries for Node.js 來搭配資料管理服務使用。您將擴充您的應用程式，以建立一個可部署到 Azure 的 Web 架構工作清單應用程式。使用者可透過工作清單來擷取工作、新增工作及將工作標示為已完成。
 
-工作項目會儲存於 Azure 儲存體中。Azure 儲存體提供可容錯且高度可用的非結構化資料儲存體。Azure 儲存體包括數種可儲存和存取資料的資料結構，並且您可以從 Azure SDK for Node.js 中所隨附的 API 或透過 REST API 來運用儲存體服務。如需詳細資訊，請參閱[在 Azure 中儲存和存取資料][] (英文)。
+工作項目會儲存於 Azure 儲存體中。Azure 儲存體提供可容錯且高度可用的非結構化資料儲存體。Azure 儲存體包括數種可儲存和存取資料的資料結構，並且您可以從 Azure SDK for Node.js 中所隨附的 API 或透過 REST API 來運用儲存體服務。如需詳細資訊，請參閱[在 Azure 中儲存和存取資料][在 Azure 中儲存和存取資料] (英文)。
 
-本教學課程假設您已完成 [Node.js Web 應用程式][] (英文) 和[使用 Express 的 Node.js][使用 Express 的 Node.js Web 應用程式] (英文) 教學課程。
+本教學課程假設您已完成 [Node.js Web 應用程式][Node.js Web 應用程式] (英文) 和[使用 Express 的 Node.js][使用 Express 的 Node.js Web 應用程式] (英文) 教學課程。
 
 您將了解：
 
@@ -17,7 +17,7 @@
 
 完成之應用程式的螢幕擷取畫面如下：
 
-![The completed web page in internet explorer][]
+![The completed web page in internet explorer][The completed web page in internet explorer]
 
 ## 在 Web.Config 中設定儲存體認證
 
@@ -56,7 +56,7 @@
         <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
         <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
 
-    ![web.cloud.config 檔案內容][]
+    ![web.cloud.config 檔案內容][web.cloud.config 檔案內容]
 
 6.  儲存檔案並關閉記事本。
 
@@ -306,7 +306,7 @@
 
 ### 修改全域版面配置
 
-**views** 目錄中的 **layout.jade** 檔是用來作為其他 **.jade** 檔案的全域範本。在此步驟中，您將修改它以使用 [Twitter Bootstrap][]，這個工具組能夠方便設計美觀的網站。
+**views** 目錄中的 **layout.jade** 檔是用來作為其他 **.jade** 檔案的全域範本。在此步驟中，您將修改它以使用 [Twitter Bootstrap][Twitter Bootstrap]，這個工具組能夠方便設計美觀的網站。
 
 1.  下載並解壓縮 [Twitter Bootstrap][1] 的檔案。將 **bootstrap.min.css** 檔案從 **bootstrap\\dist\\css** 資料夾複製到您 tasklist 應用程式的 **public\\stylesheets** 目錄。
 
@@ -334,7 +334,7 @@
 
 瀏覽器會開啟並顯示下列頁面：
 
-![A web paged titled My Task List with a table containing tasks and fields to add a new task.][]
+![A web paged titled My Task List with a table containing tasks and fields to add a new task.][A web paged titled My Task List with a table containing tasks and fields to add a new task.]
 
 使用表單新增項目，或將現有的項目標示為已完成以移除它們。
 
@@ -387,9 +387,9 @@ Azure 會根據每小時的耗用伺服器時間向 Web 角色執行個體收費
 
     刪除服務可能需要幾分鐘的時間。刪除服務後，您將收到表示已刪除服務的訊息。
 
-  [使用 Express 的 Node.js Web 應用程式]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/
-  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Node.js Web 應用程式]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
+  [使用 Express 的 Node.js Web 應用程式]: http://www.windowsazure.com/zh-tw/develop/nodejs/tutorials/web-app-with-express/
+  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
+  [Node.js Web 應用程式]: http://www.windowsazure.com/zh-tw/develop/nodejs/tutorials/getting-started/
   [The completed web page in internet explorer]: ./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png
   [web.cloud.config 檔案內容]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png
   [Twitter Bootstrap]: https://github.com/twbs/bootstrap

@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-android" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # 開始使用通知中心
 
@@ -11,18 +11,18 @@
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 
--   [啟用 Google 雲端通訊][]
--   [設定您的通知中心][]
--   [將您的應用程式連接到通知中心][]
--   [如何傳送通知至應用程式][]
--   [測試應用程式][]
+-   [啟用 Google 雲端通訊][啟用 Google 雲端通訊]
+-   [設定您的通知中心][設定您的通知中心]
+-   [將您的應用程式連接到通知中心][將您的應用程式連接到通知中心]
+-   [如何傳送通知至應用程式][如何傳送通知至應用程式]
+-   [測試應用程式][測試應用程式]
 
 本教學課程將示範使用通知中心的簡單廣播案例。請確定依照下一個教學課程的步驟進行，以查看如何使用通知中心來處理特定使用者和裝置群組。
 
 本教學課程需要下列各項：
 
--   Android SDK (假設您將使用 Eclipse)，您可以從[此處][]下載。
--   [行動服務 Android SDK][]
+-   Android SDK (假設您將使用 Eclipse)，您可以從[此處][此處]下載。
+-   [行動服務 Android SDK][行動服務 Android SDK]
 
 完成本教學課程是 Android 應用程式所有其他通知中心教學課程的先決條件。
 
@@ -30,17 +30,17 @@
 
 ## <span id="register"></span></a>啟用 Google 雲端通訊
 
-[WACOM.INCLUDE [啟用 GCM][]]
+[WACOM.INCLUDE [啟用 GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 接下來，您將使用此 API 金鑰值，讓通知中心能夠使用 GCM 進行驗證並代表您的應用程式傳送推播通知。
 
 ## <span id="configure-hub"></span></a>設定您的通知中心
 
-1.  登入 [Azure 管理入口網站][]，並按一下畫面底部的 [+新增]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，並按一下畫面底部的 [+新增]。
 
 2.  依序按一下 [App Services]、[服務匯流排]、[Notification Hub]、[快速建立]。
 
-    ![][]
+    ![][0]
 
 3.  為您的通知中心輸入名稱、選取所需的區域，然後按一下 [Create a new Notification Hub]。
 
@@ -76,13 +76,13 @@
 
 ### 新增 Google Play 服務至專案
 
-[WACOM.INCLUDE [新增 Play 服務][]]
+[WACOM.INCLUDE [新增 Play 服務](../includes/mobile-services-add-Google-play-services.md)]
 
 ### 新增程式碼
 
 1.  從[此處][行動服務 Android SDK]下載通知中心 Android SDK。解壓縮 .zip 檔案，並在 [封裝總管] 中將 notificationhubs\\notification-hubs-0.1.jar 檔案複製到專案的 \\libs 目錄。
 
-2.  下載並解壓縮[行動服務 Android SDK][]，開啟 **notifications** 資料夾，將 **notifications-1.0.1.jar** 檔案複製到您 Eclipse 專案的 *libs* 資料夾，然後重新整理 *libs* 資料夾。
+2.  下載並解壓縮[行動服務 Android SDK][行動服務 Android SDK]，開啟 **notifications** 資料夾，將 **notifications-1.0.1.jar** 檔案複製到您 Eclipse 專案的 *libs* 資料夾，然後重新整理 *libs* 資料夾。
 
     <div class="dev-callout"><b>注意</b>
 <p>檔案名稱結尾的數字在後續 SDK 版本中可能會變更。</p>
@@ -214,7 +214,7 @@
 
 ## <a name="send"></a>如何傳送通知至應用程式
 
-您可以使用 [REST 介面][]，從任何後端使用通知中樞傳送通知。在本教學課程中，您將透過 .NET 主控台應用程式來傳送通知。有關如何從與通知中樞整合的 Azure Mobile Services 傳送通知的範例，請參閱**開始在行動服務中使用推播通知** ([.NET 後端][] | [JavaScript 後端][.NET 後端])。如需如何使用 REST API 傳送通知的範例，請參閱**如何從 Java/PHP 使用通知中樞** ([Java][] | [PHP][])。
+您可以使用 [REST 介面][REST 介面]，從任何後端使用通知中樞傳送通知。在本教學課程中，您將透過 .NET 主控台應用程式來傳送通知。有關如何從與通知中樞整合的 Azure Mobile Services 傳送通知的範例，請參閱**開始在行動服務中使用推播通知** ([.NET 後端][.NET 後端] | [JavaScript 後端][.NET 後端])。如需如何使用 REST API 傳送通知的範例，請參閱**如何從 Java/PHP 使用通知中樞** ([Java][Java] | [PHP][PHP])。
 
 1.  在 Visual Studio 中，從 [檔案] 功能表選取 [開新檔案]、[專案...]，然後按一下 [Visual C#] 下方的 [Windows] 和 [主控台應用程式]，再按一下 [確定]。
 
@@ -230,7 +230,7 @@
 
         Install-Package WindowsAzure.ServiceBus
 
-    這會使用 [WindowsAzure.ServiceBus NuGet 封裝][]，來新增 Azure 服務匯流排 SDK 的參考。
+    這會使用 [WindowsAzure.ServiceBus NuGet 封裝][WindowsAzure.ServiceBus NuGet 封裝]，來新增 Azure 服務匯流排 SDK 的參考。
 
 4.  開啟檔案 Program.cs，並新增下列 `using` 陳述式：
 
@@ -285,18 +285,11 @@
 
 ## <a name="next-steps"> </a>後續步驟
 
-在此簡單範例中，您將廣播通知到您的所有 Android 裝置。若要以特定使用者為目標，請參閱教學課程[使用通知中心來推播通知給使用者][]，在此同時，如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞][]。在[通知中心指引][]中深入了解如何使用通知中心。
+在此簡單範例中，您將廣播通知到您的所有 Android 裝置。若要以特定使用者為目標，請參閱教學課程[使用通知中心來推播通知給使用者][使用通知中心來推播通知給使用者]，在此同時，如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞][使用通知中心傳送即時新聞]。在[通知中心指引][通知中心指引]中深入了解如何使用通知中心。
 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows Universal]: /zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /zh-TW/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /zh-TW/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /zh-TW/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /zh-TW/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /zh-TW/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /zh-TW/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [啟用 Google 雲端通訊]: #register
   [設定您的通知中心]: #configure-hub
   [將您的應用程式連接到通知中心]: #connecting-app
@@ -304,10 +297,9 @@
   [測試應用程式]: #run-app
   [此處]: http://go.microsoft.com/fwlink/?LinkId=389797
   [行動服務 Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-  [Azure 免費試用]: http://www.windowsazure.com/zh-TW/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [啟用 GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
+  [0]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
   [1]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal2.png
   [2]: ./media/notification-hubs-android-get-started/notification-hub-select-from-portal.png
   [3]: ./media/notification-hubs-android-get-started/notification-hub-select-from-portal2.png

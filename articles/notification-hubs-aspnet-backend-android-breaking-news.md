@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-send-breaking-news-ios" urlDisplayName="Breaking News" pageTitle="Notification Hubs Breaking News Tutorial - iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="elioda" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
 
 # 使用通知中心傳送即時新聞
 
@@ -88,7 +88,7 @@
 
     您的 main\_activity.xml 圖形版面配置此時應如下所示：
 
-    ![][]
+    ![][0]
 
 3.  現在，在與 [MainActivity] 類別相同的封裝中建立類別 [通知]。
 
@@ -294,17 +294,13 @@
 
 <!-- Anchors. --> <!-- Images. --> <!-- URLs.-->
 
-  [Windows Universal]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Universal"
-  [Windows Phone]: /zh-tw/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
-  [Android]: /zh-tw/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
   [通知中心指引]: http://msdn.microsoft.com/zh-tw/library/jj927170.aspx
   [在應用程式中新增類別選項]: #adding-categories
   [註冊通知]: #register
   [從後端傳送通知]: #send
   [執行應用程式並產生通知]: #test-app
   [開始使用通知中心]: /zh-tw/documentation/articles/notification-hubs-android-get-started/
-  []: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
+  [0]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [使用通知中心廣播已當地語系化的即時新聞]: /zh-tw/manage/services/notification-hubs/breaking-news-localized-dotnet/
   [使用通知中心來通知使用者]: /zh-tw/manage/services/notification-hubs/notify-users

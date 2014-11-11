@@ -1,43 +1,43 @@
 <properties linkid="dev-net-how-to-use-queue-storage-service-java" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Queue storage service from Java" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # 如何使用 Java 的佇列儲存體
 
-本指南將示範如何使用 Azure 佇列儲存服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][]。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立」和「刪除」佇列。如需佇列的詳細資訊，請參閱[後續步驟][]一節。
+本指南將示範如何使用 Azure 佇列儲存服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][Azure Storage SDK for Java]。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立」和「刪除」佇列。如需佇列的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
-注意：有一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。如需詳細資訊，請參閱 [Azure Storage SDK for Android][]。
+注意：有一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。如需詳細資訊，請參閱 [Azure Storage SDK for Android][Azure Storage SDK for Android]。
 
 ## <a name="Contents"> </a>目錄
 
--   [什麼是佇列儲存體][]
--   [概念][]
--   [建立 Azure 儲存體帳戶][]
--   [建立 Java 應用程式][]
--   [設定您的應用程式以存取佇列儲存體][]
--   [設定 Azure 儲存體連接字串][]
--   [作法：建立佇列][]
--   [作法：將訊息新增至佇列][]
--   [作法：查看下一個訊息][]
--   [作法：變更佇列訊息的內容][]
--   [作法：取得佇列長度][]
--   [作法：清除下一個佇列訊息][]
--   [清除佇列訊息的其他選項][]
--   [作法：列出佇列][]
--   [作法：刪除佇列][]
--   [後續步驟][]
+-   [什麼是佇列儲存體][什麼是佇列儲存體]
+-   [概念][概念]
+-   [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
+-   [建立 Java 應用程式][建立 Java 應用程式]
+-   [設定您的應用程式以存取佇列儲存體][設定您的應用程式以存取佇列儲存體]
+-   [設定 Azure 儲存體連接字串][設定 Azure 儲存體連接字串]
+-   [作法：建立佇列][作法：建立佇列]
+-   [作法：將訊息新增至佇列][作法：將訊息新增至佇列]
+-   [作法：查看下一個訊息][作法：查看下一個訊息]
+-   [作法：變更佇列訊息的內容][作法：變更佇列訊息的內容]
+-   [作法：取得佇列長度][作法：取得佇列長度]
+-   [作法：清除下一個佇列訊息][作法：清除下一個佇列訊息]
+-   [清除佇列訊息的其他選項][清除佇列訊息的其他選項]
+-   [作法：列出佇列][作法：列出佇列]
+-   [作法：刪除佇列][作法：刪除佇列]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <span id="CreateAccount"></span></a>建立 Azure 儲存體帳戶
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"> </a>建立 Java 應用程式
 
 在本指南中，您將使用儲存體功能，這些功能可執行於本機的 Java 應用程式內，也可執行於在 Azure 中之 Web 角色或背景工作角色內執行的程式碼中。
 
-若要這樣做，您需要安裝 Java Development Kit (JDK)，並在 Azure 訂用帳戶中建立 Azure 儲存體帳戶。完成此動作之後，您需要驗證開發系統符合 GitHub 上的 [Azure Storage SDK for Java][] 儲存機制中所列出的最低需求和相依性。如果系統符合這些需求，則您可以依照指示，從該儲存機制中下載 Azure Storage Libraries for Java 並安裝在系統上。完成這些工作之後，您就能夠利用本文中的範例來建立 Java 應用程式。
+若要這樣做，您需要安裝 Java Development Kit (JDK)，並在 Azure 訂用帳戶中建立 Azure 儲存體帳戶。完成此動作之後，您需要驗證開發系統符合 GitHub 上的 [Azure Storage SDK for Java][Azure Storage SDK for Java] 儲存機制中所列出的最低需求和相依性。如果系統符合這些需求，則您可以依照指示，從該儲存機制中下載 Azure Storage Libraries for Java 並安裝在系統上。完成這些工作之後，您就能夠利用本文中的範例來建立 Java 應用程式。
 
 ## <a name="ConfigureStorage"> </a>設定您的應用程式以存取佇列儲存體
 
@@ -67,7 +67,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## <a name="create-queue"> </a>作法：建立佇列
 
-**CloudQueueClient** 物件可讓您取得佇列的參照物件。下列程式碼將建立 **CloudQueueClient** 物件。(注意：還有其他方法可建立 **CloudStorageAccount** 物件。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考][] (英文) 中的 **CloudStorageAccount**)
+**CloudQueueClient** 物件可讓您取得佇列的參照物件。下列程式碼將建立 **CloudQueueClient** 物件。(注意：還有其他方法可建立 **CloudStorageAccount** 物件。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考][Azure 儲存體用戶端 SDK 參考] (英文) 中的 **CloudStorageAccount**)
 
 使用 **CloudQueueClient** 物件來取得想要使用佇列的參照。如果佇列不存在，您可以建立佇列。
 
@@ -381,10 +381,10 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 了解佇列儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   [Azure Storage SDK for Java][]
--   [Azure 儲存體用戶端 SDK 參考][]
--   [Azure 儲存體 REST API][]
--   [Azure 儲存體團隊部落格][]
+-   [Azure Storage SDK for Java][Azure Storage SDK for Java]
+-   [Azure 儲存體用戶端 SDK 參考][Azure 儲存體用戶端 SDK 參考]
+-   [Azure 儲存體 REST API][Azure 儲存體 REST API]
+-   [Azure 儲存體團隊部落格][Azure 儲存體團隊部落格]
 
   [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
   [後續步驟]: #NextSteps
@@ -407,5 +407,5 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
-  [Azure 儲存體 REST API]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+  [Azure 儲存體 REST API]: http://msdn.microsoft.com/zh-tw/library/azure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/

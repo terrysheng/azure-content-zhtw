@@ -1,20 +1,20 @@
 <properties linkid="dev-net-transform-extend-site" urlDisplayName="Service Bus Topics" pageTitle="Transform and extend your site" metaKeywords="none" description="TBD" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="cephalin" writer="cephalin" editor="mollybos" manager="wpickett" title="Transform and extend your site"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # 轉換和擴充網站
 
-使用 [XML 文件轉換][] (XDT) 宣告，即可在您的 Windows Azure 網站中轉換 [ApplicationHost.config][] 檔案。您也可以使用 XDT 宣告來新增私人網站擴充功能，以啟用自訂網站管理動作。本文包含一個 PHP Manager 網站擴充功能範例，該範例透過 Web 介面來啟用 PHP 設定的管理功能。
+使用 [XML 文件轉換][XML 文件轉換] (XDT) 宣告，即可在您的 Windows Azure 網站中轉換 [ApplicationHost.config][ApplicationHost.config] 檔案。您也可以使用 XDT 宣告來新增私人網站擴充功能，以啟用自訂網站管理動作。本文包含一個 PHP Manager 網站擴充功能範例，該範例透過 Web 介面來啟用 PHP 設定的管理功能。
 
 <!-- MINI TOC -->
 
--   [轉換 ApplicationHost.config 中的網站組態][]
--   [擴充網站][]
-    -   [私人網站擴充功能概觀][]
-    -   [網站擴充功能範例：PHP Manager][]
-        -   [PHP Manager Web 應用程式][]
-        -   [applicationHost.xdt 檔案][]
-    -   [網站擴充功能部署][]
+-   [轉換 ApplicationHost.config 中的網站組態][轉換 ApplicationHost.config 中的網站組態]
+-   [擴充網站][擴充網站]
+    -   [私人網站擴充功能概觀][私人網站擴充功能概觀]
+    -   [網站擴充功能範例：PHP Manager][網站擴充功能範例：PHP Manager]
+        -   [PHP Manager Web 應用程式][PHP Manager Web 應用程式]
+        -   [applicationHost.xdt 檔案][applicationHost.xdt 檔案]
+    -   [網站擴充功能部署][網站擴充功能部署]
 
 ## <span id="transform"></span></a>轉換 ApplicationHost.config 中的網站組態
 
@@ -67,13 +67,13 @@ PHP Manager 是一項網站擴充功能，讓管理員可以使用 Web 介面輕
 
 以下是 PHP Manager 網站的首頁：
 
-![TransformSitePHPUI][]
+![TransformSitePHPUI][TransformSitePHPUI]
 
 如您所見，網站擴充功能就像是一般的 Web 應用程式，但網站的根資料夾中有額外的 ApplicationHost.xdt 檔案 (本文的下一節會提供有關 ApplicationHost.xdt 檔案的詳細資料)。
 
 PHP Manager 擴充功能是使用 Visual Studio ASP.NET MVC 4 Web 應用程式範本建立的。[方案總管] 的下列檢視可顯示 PHP Manager 網站擴充功能的結構。
 
-![TransformSiteSolEx][]
+![TransformSiteSolEx][TransformSiteSolEx]
 
 檔案 I/O 所需的唯一特殊邏輯就是指出網站的 wwwroot 目錄位於何處。如下列程式碼範例所示，環境變數 "HOME" 表示網站根路徑，而加上 "site\\wwwroot" 即可建立 wwwroot 路徑：
 
@@ -156,11 +156,11 @@ PHP Manager 擴充功能是使用 Visual Studio ASP.NET MVC 4 Web 應用程式�
 
 接著，在 Windows Azure 網站入口網站中，移至具有您擴充功能之網站的 [設定] 索引標籤。在 [應用程式設定] 區段中，新增 `WEBSITE_PRIVATE_EXTENSIONS` 索引鍵並指定 `1` 的值。
 
-![TransformSiteappSettings][]
+![TransformSiteappSettings][TransformSiteappSettings]
 
 最後，在 Windows Azure 入口網站中重新啟動您的網站，以啟用您的擴充功能。
 
-![TransformSiteRestart][]
+![TransformSiteRestart][TransformSiteRestart]
 
 您應能在下列位置看見您的網站擴充功能：
 

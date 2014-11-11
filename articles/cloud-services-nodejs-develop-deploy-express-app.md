@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-basic-web-app-with-express" urlDisplayName="Web App with Express" pageTitle="Web App with Express (Node.js) - Azure Tutorial" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="An tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build a Node.js web application using Express on an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 在 Azure 雲端服務上使用 Express 建立 Node.js Web 應用程式
 
@@ -119,5 +119,4 @@ Node.js 包含核心執行階段的一組基本功能。開發人員在開發 No
   [A web page containing welcome to express.]: ./media/cloud-services-nodejs-develop-deploy-express-app/node28.png
   [The contents of the index.jade file.]: ./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png
   []: http://jade-lang.com
-  [The index.jade file, the last line reads:p Welcome to \#{title} in Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node31.png
   [A browser window, the page contains Welcome to Express in Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node32.png

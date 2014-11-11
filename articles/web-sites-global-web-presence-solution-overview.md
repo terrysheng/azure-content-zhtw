@@ -1,6 +1,6 @@
 <properties linkid="websites-global-web-presence" urlDisplayName="Create a Global Web Presence on Azure Websites" pageTitle="Create a Global Web Presence on Azure Websites" metaKeywords="" description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure Websites. This includes deployment, custom domains, SSL, and monitoring." metaCanonical="http://www.windowsazure.com/zh-TW/documentation/articles/web-sites-global-web-presence-solution-overview/" services="" documentationCenter="" title="Create a Global Web Presence on Azure Websites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jroth" />
 
 # 在 Azure 網站上建立全域網站空間
 
@@ -220,7 +220,6 @@ Azure 網站會針對實際網站 URL 自動提供安全連線。例如，當您
 
   [數位行銷活動]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/digital-marketing-campaign-solution-overview
 
-  [商務應用程式]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/business-application-solution-overview
   [GlobalWebCreate]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Create.png
 
   [開始使用 Azure 網站和 ASP.NET]: /zh-TW/documentation/articles/web-sites-dotnet-get-started
@@ -246,11 +245,3 @@ Azure 網站會針對實際網站 URL 自動提供安全連線。例如，當您
   [GlobalWebMonitor4]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor4.png
   [1]: /zh-TW/manage/services/web-sites/digital-marketing-campaign-solution-overview
   [如何監視網站]: /zh-TW/manage/services/web-sites/how-to-monitor-websites/
-  [2]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/choose-web-app-service
-  [3]: http://azure.microsoft.com/zh-TW/documentation/articles/web-sites-dotnet-get-started/
-  [4]: http://www.windowsazure.com/zh-TW/develop/net/common-tasks/publishing-with-git/
-  [將 ASP.NET Web 應用程式部署至 Azure 網站]: http://www.windowsazure.com/zh-TW/develop/net/tutorials/get-started/
-  [5]: http://www.windowsazure.com/zh-TW/develop/net/tutorials/website-with-webmatrix/
-  [6]: http://www.windowsazure.com/zh-TW/develop/net/common-tasks/custom-dns-web-site/
-  [7]: http://www.windowsazure.com/zh-TW/develop/net/common-tasks/enable-ssl-web-site/
-  [8]: http://www.windowsazure.com/zh-TW/manage/services/web-sites/how-to-monitor-websites/

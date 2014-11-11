@@ -1,6 +1,6 @@
 <properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" description="A tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" services="cloud-services,service-bus" documentationCenter=".NET" title=".NET Multi-Tier Application Using Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
 
 # 使用服務匯流排佇列的 .NET 多層式應用程式
 
@@ -15,15 +15,15 @@
     多層式應用程式。
 -   如何使用服務匯流排佇列，在階層之間進行通訊。
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-在本教學課程中，您將在 Azure 雲端服務建置和執行多層式應用程式。前端將為 ASP.NET MVC Web 角色，而後端將為背景工作角色。您可以建立相同的多層式應用程式，並使其前端作為部署至 Azure 網站而非雲端服務的 Web 專案。如需 Azure 網站前端不同作法的指示，請參閱[後續步驟][]一節。
+在本教學課程中，您將在 Azure 雲端服務建置和執行多層式應用程式。前端將為 ASP.NET MVC Web 角色，而後端將為背景工作角色。您可以建立相同的多層式應用程式，並使其前端作為部署至 Azure 網站而非雲端服務的 Web 專案。如需 Azure 網站前端不同作法的指示，請參閱[後續步驟][後續步驟]一節。
 
 以下顯示完整應用程式的螢幕擷取畫面：
 
-![][]
+![][0]
 
-**附註** Azure 也會提供儲存體佇列功能。如需 Azure 儲存體佇列和服務匯流排佇列的詳細資訊，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對比][]。
+**附註** Azure 也會提供儲存體佇列功能。如需 Azure 儲存體佇列和服務匯流排佇列的詳細資訊，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對比][Azure 佇列和 Azure 服務匯流排佇列 - 比較和對比]。
 
 ## <span class="short-header">內部角色通訊</span>案例概觀：內部角色通訊
 
@@ -54,7 +54,7 @@
 
 1.  若要安裝 Azure SDK for .NET，請按一下底下按鈕：
 
-    [取得工具和 SDK (英文)][]
+    [取得工具和 SDK (英文)][取得工具和 SDK (英文)]
 
 2.  按一下 [install the SDK]。
 
@@ -81,7 +81,7 @@
 
 ### 使用管理入口網站設定命名空間
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 
 2.  在管理入口網站的左側瀏覽窗格中，按一下 [服務匯流排]
     。
@@ -116,7 +116,7 @@
 
 ### 使用 Visual Studio 伺服器總管來管理命名空間與傳訊實體
 
-若要使用 Visual Studio 而非管理入口網站來管理命名空間並取得連線資訊，請遵循[這裡][]所述的程序 (**從 Visual Studio 連線至 Azure** 一節)。在您登入 Azure 時，伺服器總管 [Microsoft Azure] 樹狀目錄下的 [服務匯流排] 節點，將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 [屬性]，查看在 Visual Studio [屬性] 窗格中所顯示，與此命名空間關聯的連線字串與其他中繼資料。
+若要使用 Visual Studio 而非管理入口網站來管理命名空間並取得連線資訊，請遵循[這裡][這裡]所述的程序 (**從 Visual Studio 連線至 Azure** 一節)。在您登入 Azure 時，伺服器總管 [Microsoft Azure] 樹狀目錄下的 [服務匯流排] 節點，將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 [屬性]，查看在 Visual Studio [屬性] 窗格中所顯示，與此命名空間關聯的連線字串與其他中繼資料。
 
 請記下 **SharedAccessKey** 值，或將它複製到剪貼簿：
 
@@ -384,7 +384,7 @@
 
 ## <span class="short-header">組態管理員</span>雲端組態管理員
 
-Azure 支援一組受管理 API，其提供一致的方式，跨 Microsoft 雲端服務建立 Azure 服務用戶端 (例如服務匯流排) 的新執行個體。這些 API 可讓您具現化這些用戶端 (例如，**CloudBlobClient**、**QueueClient**、**TopicClient**)，不管應用程式是裝載在何處 (在內部部署、在 Microsoft 雲端服務、在網站，或在永續性 VM 角色中) 都一樣。您也可以使用這些 API，擷取具現化這些用戶端所需的組態資訊，以及變更組態，而不必重新部署呼叫端應用程式。API 位於 [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] 類別中。用戶端也有 API。
+Azure 支援一組受管理 API，其提供一致的方式，跨 Microsoft 雲端服務建立 Azure 服務用戶端 (例如服務匯流排) 的新執行個體。這些 API 可讓您具現化這些用戶端 (例如，**CloudBlobClient**、**QueueClient**、**TopicClient**)，不管應用程式是裝載在何處 (在內部部署、在 Microsoft 雲端服務、在網站，或在永續性 VM 角色中) 都一樣。您也可以使用這些 API，擷取具現化這些用戶端所需的組態資訊，以及變更組態，而不必重新部署呼叫端應用程式。API 位於 [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][Microsoft.WindowsAzure.Configuration.CloudConfigurationManager] 類別中。用戶端也有 API。
 
 ### Connection string
 
@@ -484,15 +484,15 @@ Azure 支援一組受管理 API，其提供一致的方式，跨 Microsoft 雲�
 
 若要深入了解服務匯流排，請參閱下列資源：
 
--   [Azure 服務匯流排][]
--   [服務匯流排作法][]
--   [如何使用服務匯流排佇列][]
+-   [Azure 服務匯流排][Azure 服務匯流排]
+-   [服務匯流排作法][服務匯流排作法]
+-   [如何使用服務匯流排佇列][如何使用服務匯流排佇列]
 
 若要深入了解多層式案例，或了解如何將應用程式部署至雲端服務，請參閱：
 
--   [使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式][]
+-   [使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式][使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式]
 
-您可能想要在 Azure 網站而非 Azure 雲端服務中實作多層式應用程式的前端。若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型][] (英文)。
+您可能想要在 Azure 網站而非 Azure 雲端服務中實作多層式應用程式的前端。若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型][Azure 執行模型] (英文)。
 
 若要以標準 Web 專案而非雲端服務 Web 角色的形式實作您在本教學課程中建立的應用程式，請在遵循本教學課程中的步驟時注意下列差異：
 
@@ -502,15 +502,14 @@ Azure 支援一組受管理 API，其提供一致的方式，跨 Microsoft 雲�
 
 3.  您可以個別測試前端與後端，也可以同時在不同 Visual Studio 執行個體中執行這兩者。
 
-若要了解如何將前端部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站][]。若要了解如何將後端部署至 Azure 雲端服務，請參閱[使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式][]。
+若要了解如何將前端部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站][將 ASP.NET Web 應用程式部署至 Azure 網站]。若要了解如何將後端部署至 Azure 雲端服務，請參閱[使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式][使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式]。
 
   [create-account-note]: ../includes/create-account-note.md
   [後續步驟]: #nextsteps
-  []: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+  [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對比]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh767287.aspx
   [1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
   [2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-  [取得工具和 SDK (英文)]: http://go.microsoft.com/fwlink/?LinkId=271920
   [3]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
   [4]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
   [5]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png

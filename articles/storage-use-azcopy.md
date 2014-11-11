@@ -1,6 +1,6 @@
 <properties linkid="storage-use-azcopy" urlDisplayName="AzCopy" pageTitle="How to use AzCopy with Microsoft Azure Storage" metaKeywords="Get started Azure AzCopy   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure file   Azure file storage   Azure file share   AzCopy" description="Learn how to use the AzCopy utility to upload, download, and copy blob and file content." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use AzCopy with Microsoft Azure Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="tamram" />
 
 # 開始使用 AzCopy 命令列公用程式
 
@@ -666,11 +666,4 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
   [最新版本的 AzCopy]: http://aka.ms/downloadazcopy
   [非同步跨帳戶複製 Blob 簡介]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx
   [Azure 儲存體簡介]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-introduction/
-  [在 Blob 儲存體中儲存檔案 (英文)]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/
-  [使用檔案儲存體在 Azure 中建立 SMB 檔案共用 (英文)]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-files/
   [Microsoft Azure 檔案服務簡介]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx
-  [AzCopy 2.5：針對大規模複製案例最佳化 (英文)]: http://go.microsoft.com/fwlink/?LinkId=507682
-  [AzCopy：支援讀取存取地理區域備援儲存體 (英文)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx
-  [AzCopy：使用可重新啟動模式和 SAS 權杖傳輸資料 (英文)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx
-  [AzCopy：使用跨帳戶複製 Blob (英文)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx
-  [AzCopy：上傳/下載 Windows Azure Blob 的檔案 (英文)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx

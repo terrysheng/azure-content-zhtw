@@ -1,6 +1,6 @@
 <properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 如何從 PHP 使用服務管理
 
@@ -564,7 +564,6 @@ Azure 提供兩種部署環境：執行和生產。一般而言，將服務部�
   [服務套件]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg433093
   [Azure PowerShell Cmdlet]: ../install-configure-powershell/
   [cspack 命令列工具]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg432988.aspx
-  [Azure 服務組態結構描述 (.cscfg 檔)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee758710.aspx
   [在 Azure 中管理部署概觀]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh386336.aspx
   [儲存服務]: ../storage-whatis-account/
   [Blob]: ../storage-php-how-to-use-blobs/

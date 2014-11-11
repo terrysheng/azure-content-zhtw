@@ -1,10 +1,10 @@
 <properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Website with Storage" pageTitle="Node.js website with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # 使用 Azure 資料表服務的 Node.js Web 應用程式
 
-本教學課程說明如何使用 Azure 資料管理所提供的資料表服務，從 Azure 上代管的 [node][] 應用程式儲存及存取資料。本教學課程假設您先前有過一些使用節點及 [Git][] 的經驗。
+本教學課程說明如何使用 Azure 資料管理所提供的資料表服務，從 Azure 上代管的 [node][node] 應用程式儲存及存取資料。本教學課程假設您先前有過一些使用節點及 [Git][Git] 的經驗。
 
 您將了解：
 
@@ -18,7 +18,7 @@
 
 本教學課程的專案檔案將存放於 **tasklist** 目錄中，完成的應用程式應類似這樣：
 
-![A web page displaying an empty tasklist][]
+![A web page displaying an empty tasklist][A web page displaying an empty tasklist]
 
 > [WACOM.NOTE] 本教學課程會參考 **tasklist** 資料夾。在此忽略此資料夾的完整路徑，是因為不同作業系統有不同的路徑語義。您應該在本機檔案系統中易於存取的位置建立此資料夾，例如 **~/node/tasklist** 或 **c:\\node\\tasklist**。
 
@@ -28,41 +28,41 @@
 
 在依照本文中的指示進行之前，您應確定已安裝下列項目：
 
--   [node][] 版本 0.10.24 或更高版本
+-   [node][node] 版本 0.10.24 或更高版本
 
--   [Git][]
+-   [Git][Git]
 
 -   文字編輯器
 
 -   網頁瀏覽器
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## 建立儲存體帳戶
 
 執行下列步驟來建立儲存體帳戶。此帳戶將用於本教學課程的後續指示。
 
-1.  開啟網頁瀏覽器並移至 [Azure 入口網站][]。若出現提示，請用您的 Azure 訂用帳戶資訊登入。
+1.  開啟網頁瀏覽器並移至 [Azure 入口網站][Azure 入口網站]。若出現提示，請用您的 Azure 訂用帳戶資訊登入。
 
 2.  在入口網站底部，按一下 [+ NEW] 然後選取 [儲存體帳戶]。
 
-    ![+new][]
+    ![+new][+new]
 
-    ![storage account][]
+    ![storage account][storage account]
 
 3.  選取 [快速建立]，然後輸入此儲存體帳戶的 URL 和區域/同質群組。由於這是教學課程，且不需要複寫到全域，請取消核取 [啟用地理區域複寫]。最後，按一下 [建立儲存體帳戶]。
 
-    ![quick create][]
+    ![quick create][quick create]
 
     記下您輸入的 URL，因為這將在後面的步驟中參考為帳戶名稱。
 
 4.  建立儲存體帳戶之後，按一下頁面底部的 [管理金鑰]。如此會顯示此儲存體帳戶的主要和次要存取金鑰。複製並儲存主要存取金鑰，然後按一下核取記號。
 
-    ![access keys][]
+    ![access keys][access keys]
 
 ## 安裝模組及產生樣板
 
-在本節中，您將建立新的 Node 應用程式，並使用 npm 來新增模組封裝。針對工作清單應用程式，您將使用 [Express][] 和 [Azure][] 模組。Express 模組提供節點的模型檢視控制器架構，Azure 模組則提供資料表服務的連線。
+在本節中，您將建立新的 Node 應用程式，並使用 npm 來新增模組封裝。針對工作清單應用程式，您將使用 [Express][Express] 和 [Azure][Azure] 模組。Express 模組提供節點的模型檢視控制器架構，Azure 模組則提供資料表服務的連線。
 
 ### 安裝 Express 及產生樣板
 
@@ -421,7 +421,7 @@
 
 ### 修改全域版面配置
 
-**views** 目錄中的 **layout.jade** 檔是用來作為其他 **.jade** 檔案的全域範本。在此步驟中，您將修改它以使用 [Twitter Bootstrap][]，這個工具組能夠方便設計美觀的網站。
+**views** 目錄中的 **layout.jade** 檔是用來作為其他 **.jade** 檔案的全域範本。在此步驟中，您將修改它以使用 [Twitter Bootstrap][Twitter Bootstrap]，這個工具組能夠方便設計美觀的網站。
 
 1.  下載並解壓縮 [Twitter Bootstrap][1] 的檔案。將 **bootstrap.min.css** 檔案從 **bootstrap\\dist\\css** 資料夾複製到您 tasklist 應用程式的 **public\\stylesheets** 目錄。
 
@@ -478,7 +478,7 @@
 
 5.  頁面應該會更新，將項目顯示在待辦事項資料表中。
 
-    ![An image of the new item in the list of tasks][]
+    ![An image of the new item in the list of tasks][An image of the new item in the list of tasks]
 
 6.  若要完成工作，您只需勾選 [已完成] 資料行中的核取方塊，然後按一下 [更新工作]。
 
@@ -488,7 +488,7 @@
 
 本節的步驟使用 Azure 命令列工具建立新的 Azure 網站，然後使用 Git 部署您的應用程式。若要執行這些步驟，必須有 Azure 訂用帳戶。
 
-> [WACOM.NOTE] 也可以使用 Azure 入口網站執行這些步驟。如需使用 Azure 入口網站部署 Node.js 應用程式的步驟，請參閱[建立並部署 Node.js 應用程式至 Azure 網站][]。
+> [WACOM.NOTE] 也可以使用 Azure 入口網站執行這些步驟。如需使用 Azure 入口網站部署 Node.js 應用程式的步驟，請參閱[建立並部署 Node.js 應用程式至 Azure 網站][建立並部署 Node.js 應用程式至 Azure 網站]。
 
 > [WACOM.NOTE] 如果這是您建立的第一個 Azure 網站，您必須使用 Azure 入口網站部署此應用程式。
 
@@ -496,7 +496,7 @@
 
 如果您還沒有 Azure 訂用帳戶，可以[免費][Azure 入口網站]註冊。登入之後，依照這些步驟繼續執行此教學課程。
 
-[WACOM.INCLUDE [antares-iaas-signup][]]
+[WACOM.INCLUDE [antares-iaas-signup](../includes/antares-iaas-signup.md)]
 
 ### 安裝適用於 Mac 和 Linux 的 Azure 命令列工具
 
@@ -504,7 +504,7 @@
 
     npm install azure-cli -g
 
-> [WACOM.NOTE] 如需詳細資訊，請參閱[安裝及設定 Azure 跨平台命令列介面][]。
+> [WACOM.NOTE] 如需詳細資訊，請參閱[安裝及設定 Azure 跨平台命令列介面][安裝及設定 Azure 跨平台命令列介面]。
 
 > [WACOM.NOTE] 雖然命令列工具主要是為了 Mac 和 Linux 使用者而建立，不過它們是以 Node.js 為基礎，且應該可在任何能執行 Node 的系統上使用。
 
@@ -518,7 +518,7 @@
 
         azure account download
 
-    ![下載頁面][]
+    ![下載頁面][下載頁面]
 
     檔案應該會自動開始下載，如果沒有，您可以按一下頁面開頭的連結手動下載檔案。
 
@@ -550,7 +550,7 @@
 
     系統將提示您輸入網站名稱，及它將位於哪個資料中心。請提供唯一的名稱，並選取地理位置與您接近的資料中心。
 
-    `--git` 參數將在 Azure 上建立此網站的 Git 儲存機制。它也會在目前目錄中初始化 Git 儲存機制 (如果還沒有儲存機制的話)。它也會建立名為 'azure' 的 [Git 遠端][]，用於將應用程式發行至 Azure。最後，它將建立 **web.config** 檔，其中包含 Azure 代管節點應用程式所使用的設定。
+    `--git` 參數將在 Azure 上建立此網站的 Git 儲存機制。它也會在目前目錄中初始化 Git 儲存機制 (如果還沒有儲存機制的話)。它也會建立名為 'azure' 的 [Git 遠端][Git 遠端]，用於將應用程式發行至 Azure。最後，它將建立 **web.config** 檔，其中包含 Azure 代管節點應用程式所使用的設定。
 
     > [WACOM.NOTE] 若從已有 Git 儲存機制的目錄執行此命令，則無法將目錄重新初始化。
 
@@ -599,11 +599,11 @@
 
 1.  從管理入口網站，按一下 [網站]**Websites**，然後選取您的網站。
 
-    ![Open website dashboard][]
+    ![Open website dashboard][Open website dashboard]
 
 2.  按一下 [設定]，然後尋找頁面中的 [應用程式設定] 區段。
 
-    ![configure link][]
+    ![configure link][configure link]
 
 3.  在 [應用程式設定] 區段的 [機碼] 欄位輸入 **STORAGE\_NAME**，並在 [值] 欄位輸入儲存體帳戶的名稱。按一下核取記號移到下個欄位。針對下列機碼和值重複此程序：
 
@@ -613,11 +613,11 @@
 
     -   **TABLE\_NAME** - 'tasks'
 
-    ![app settings][]
+    ![app settings][app settings]
 
 4.  最後，按一下頁面底部的 [儲存] 圖示，以對執行階段環境認可此變更。
 
-    ![app settings save][]
+    ![app settings save][app settings save]
 
 5.  從命令列變更目錄至 **tasklist** 目錄，輸入下列命令以移除 **config.json** 檔案：
 
@@ -632,7 +632,7 @@
 
 ## 後續步驟
 
-雖然本文的步驟說明如何使用資料表服務來存放資訊，您也可以使用 MongoDB。如需詳細資訊，請參閱[使用 MongoDB 的 Node.js Web 應用程式][]。
+雖然本文的步驟說明如何使用資料表服務來存放資訊，您也可以使用 MongoDB。如需詳細資訊，請參閱[使用 MongoDB 的 Node.js Web 應用程式][使用 MongoDB 的 Node.js Web 應用程式]。
 
 ## 其他資源
 
@@ -645,7 +645,6 @@
   [A web page displaying an empty tasklist]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Azure 入口網站]: http://windowsazure.com
-  [+new]: ./media/storage-nodejs-use-table-storage-web-site/plus-new.png
   [storage account]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
   [quick create]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
   [access keys]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
@@ -665,4 +664,4 @@
   [app settings save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
   [使用 MongoDB 的 Node.js Web 應用程式]: /zh-tw/documentation/articles/web-sites-nodejs-store-data-mongodb/
   [使用 Git 發佈至 Azure 網站]: /zh-tw/documentation/articles/web-sites-publish-source-control/
-  [Azure 開發人員中心]: /en-us/develop/nodejs/
+  [Azure 開發人員中心]: /zh-tw/develop/nodejs/

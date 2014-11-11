@@ -1,32 +1,32 @@
 <properties linkid="dev-ruby-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Ruby) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic ruby" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Topics/Subscriptions" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # 如何使用服務匯流排主題/訂閱
 
-本指南將說明如何從 Ruby 應用程式使用服務匯流排主題和訂閱。所涵蓋的案例包括**建立主題和訂閱、建立訂閱篩選器、傳送訊息**至主題、**接收訂閱的訊息**，及**刪除主題和訂閱**。如需主題和訂閱的詳細資訊，請參閱[後續步驟][]一節。
+本指南將說明如何從 Ruby 應用程式使用服務匯流排主題和訂閱。所涵蓋的案例包括**建立主題和訂閱、建立訂閱篩選器、傳送訊息**至主題、**接收訂閱的訊息**，及**刪除主題和訂閱**。如需主題和訂閱的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [什麼是服務匯流排主題和訂閱][]
--   [建立服務命名空間][]
--   [取得命名空間的預設管理認證][]
--   [建立 Ruby 應用程式][]
--   [設定應用程式使用服務匯流排][]
--   [設定 Azure 服務匯流排連接][]
--   [如何建立主題][]
--   [如何建立訂閱][]
--   [如何傳送訊息至主題][]
--   [如何自訂閱接收訊息][]
--   [如何處理應用程式當機與無法讀取的訊息][]
--   [如何刪除主題和訂閱][]
--   [後續步驟][]
+-   [什麼是服務匯流排主題和訂閱][什麼是服務匯流排主題和訂閱]
+-   [建立服務命名空間][建立服務命名空間]
+-   [取得命名空間的預設管理認證][取得命名空間的預設管理認證]
+-   [建立 Ruby 應用程式][建立 Ruby 應用程式]
+-   [設定應用程式使用服務匯流排][設定應用程式使用服務匯流排]
+-   [設定 Azure 服務匯流排連接][設定 Azure 服務匯流排連接]
+-   [如何建立主題][如何建立主題]
+-   [如何建立訂閱][如何建立訂閱]
+-   [如何傳送訊息至主題][如何傳送訊息至主題]
+-   [如何自訂閱接收訊息][如何自訂閱接收訊息]
+-   [如何處理應用程式當機與無法讀取的訊息][如何處理應用程式當機與無法讀取的訊息]
+-   [如何刪除主題和訂閱][如何刪除主題和訂閱]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <span id="create-a-ruby-application"></span></a>建立 Ruby 應用程式
 
-建立 Ruby 應用程式。如需指示，請參閱[在 Azure 上建立 Ruby 應用程式][] (英文)。
+建立 Ruby 應用程式。如需指示，請參閱[在 Azure 上建立 Ruby 應用程式][在 Azure 上建立 Ruby 應用程式] (英文)。
 
 ## <span id="configure-your-application-to-use-service-bus"></span></a> 設定應用程式使用服務匯流排
 
@@ -88,7 +88,7 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 您也可以設定篩選器，讓您界定傳送至主題的哪些訊息應出現在特定主題訂閱中。
 
-在訂閱支援的篩選器中，**Azure::ServiceBus::SqlFilter** 是最具彈性的類型，可用來實作 SQL92 的子集。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用的運算式詳細資料，請檢閱 [SqlFilter.SqlExpression][] 語法。
+在訂閱支援的篩選器中，**Azure::ServiceBus::SqlFilter** 是最具彈性的類型，可用來實作 SQL92 的子集。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用的運算式詳細資料，請檢閱 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 語法。
 
 您可以使用 **Azure::ServiceBusService** 物件的 **create\_rule()** 方法，將篩選器新增至訂閱。此方法可讓您將篩選器新增至現有的訂閱中。
 
@@ -165,7 +165,7 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 ## <span id="how-to-delete-topics-and-subscriptions"></span></a> 如何刪除主題和訂閱
 
-主題和訂閱是持續性的，您必須透過 [Azure 管理入口網站][]或程式設計明確地加以刪除。下列範例說明如何刪除名為 "test-topic" 的主題：
+主題和訂閱是持續性的，您必須透過 [Azure 管理入口網站][Azure 管理入口網站]或程式設計明確地加以刪除。下列範例說明如何刪除名為 "test-topic" 的主題：
 
     azure_service_bus_service.delete_topic("test-topic")
 
@@ -177,9 +177,9 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 了解基本的服務匯流排主題之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 參考：[佇列、主題和訂閱][]
--   [SqlFilter][] 的 API 參考資料。
--   請造訪 GitHub 上的 [Azure SDK for Ruby][] 儲存機制 (英文)。
+-   請參閱 MSDN 參考：[佇列、主題和訂閱][佇列、主題和訂閱]
+-   [SqlFilter][SqlFilter] 的 API 參考資料。
+-   請造訪 GitHub 上的 [Azure SDK for Ruby][Azure SDK for Ruby] 儲存機制 (英文)。
 
   [後續步驟]: #NextSteps
   [什麼是服務匯流排主題和訂閱]: #what-are-service-bus-topics

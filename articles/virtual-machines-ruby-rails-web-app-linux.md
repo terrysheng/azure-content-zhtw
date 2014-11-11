@@ -1,6 +1,6 @@
 <properties linkid="dev-ruby-web-app-with-linux-vm" urlDisplayName="Ruby on Rails Web App on Azure using Linux VM" pageTitle="Ruby on Rails Web App on Azure using Linux VM" metaKeywords="Azure Ruby web application, Azure Ruby application, Ruby app Azure, Ruby azure vm, ruby virthal machine, ruby linux vm" description="Host a Ruby on Rails-based website on Azure using a Linux virtual machine. " metaCanonical="" services="virtual-machines" documentationCenter="Ruby" title="Ruby on Rails Web application on an Azure VM" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Azure VM 上的 Ruby on Rails Web 應用程式
 
@@ -18,33 +18,33 @@
 
 以下是完成後應用程式的螢幕擷取畫面：
 
-![顯示列出貼文的瀏覽器][]
+![顯示列出貼文的瀏覽器][顯示列出貼文的瀏覽器]
 
 ## 本文內容
 
--   [設定開發環境][]
+-   [設定開發環境][設定開發環境]
 
--   [建立 Rails 應用程式][]
+-   [建立 Rails 應用程式][建立 Rails 應用程式]
 
--   [測試應用程式][]
+-   [測試應用程式][測試應用程式]
 
--   [建立 Azure 虛擬機器][]
+-   [建立 Azure 虛擬機器][建立 Azure 虛擬機器]
 
--   [將應用程式複製到 VM][]
+-   [將應用程式複製到 VM][將應用程式複製到 VM]
 
--   [安裝 gem 並啟動應用程式][]
+-   [安裝 gem 並啟動應用程式][安裝 gem 並啟動應用程式]
 
--   [後續步驟][]
+-   [後續步驟][後續步驟]
 
 ## <span id="setup"></span></a>設定開發環境
 
 1.  在開發環境中安裝 Ruby。端視您的作業系統而定，步驟可能不同。
 
-    -   **Apple OS X** - Ruby 有許多 OS X 版的散發套件。本教學課程已在 OS X 上利用 [Homebrew][] 來安裝 **rbenv** 和 **ruby-build** 而完成驗證。在 [][]<https://github.com/sstephenson/rbenv/></a> 可找到安裝資訊。
+    -   **Apple OS X** - Ruby 有許多 OS X 版的散發套件。本教學課程已在 OS X 上利用 [Homebrew][Homebrew] 來安裝 **rbenv** 和 **ruby-build** 而完成驗證。在 [][]<https://github.com/sstephenson/rbenv/></a> 可找到安裝資訊。
 
     -   **Linux** - 使用散發套件封裝管理系統。本教學課程使用 ruby1.9.1 及 ruby1.9.1-dev 封裝，在 Ubuntu 12.10 通過驗證。
 
-    -   **Windows** - Windows 有多個 Ruby 散發套件。本教學課程使用 [RailsInstaller][] 1.9.3-p392 通過驗證。
+    -   **Windows** - Windows 有多個 Ruby 散發套件。本教學課程使用 [RailsInstaller][RailsInstaller] 1.9.3-p392 通過驗證。
 
 2.  開啟新的命令列或終端機工作階段，並輸入下列命令安裝 Ruby on Rails：
 
@@ -64,7 +64,7 @@
 
 3. 您也必須安裝 JavaScript 直譯器，以便 Rails 用來編譯 Rails 應用程式所用的 CoffeeScript 資產。[][1]<https://github.com/sstephenson/execjs#readme></a> 提供支援的直譯器清單。
 
-    本教學課程的驗證期間使用 [Node.js][]，它適用於 OS X、Linux 和 Windows 作業系統。
+    本教學課程的驗證期間使用 [Node.js][Node.js]，它適用於 OS X、Linux 和 Windows 作業系統。
 
 ## <span id="create"></span></a>建立 Rails 應用程式
 
@@ -89,7 +89,7 @@
 
         rake db:migrate
 
-    這將使用 Rails 的預設資料庫提供者，也就是 [SQLite3 Database][]。雖然您可能會想要對於生產應用程式使用不同的資料庫，不過 SQLite 對於本教學課程的目的而言已經夠用。
+    這將使用 Rails 的預設資料庫提供者，也就是 [SQLite3 Database][SQLite3 Database]。雖然您可能會想要對於生產應用程式使用不同的資料庫，不過 SQLite 對於本教學課程的目的而言已經夠用。
 
 ## <span id="test"></span></a>測試應用程式
 
@@ -111,17 +111,17 @@
 
 2.  開啟瀏覽器，導覽至 <http://localhost:3000/>。您應該會看到如下所示的頁面：
 
-    ![預設 rails 頁面][]
+    ![預設 rails 頁面][預設 rails 頁面]
 
     此頁面是靜態的歡迎畫面。若要檢視由樣板命令產生的表單，請瀏覽到 <http://localhost:3000/posts>。您應該會看到如下所示的頁面：
 
-    ![列出貼文的頁面][]
+    ![列出貼文的頁面][列出貼文的頁面]
 
     若要停止伺服器程序，請在命令列中輸入 CTRL+C
 
 ## <span id="createvm"></span></a>建立 Azure 虛擬機器
 
-按照[此處][]提供的指示建立代管 Linux 的 Azure 虛擬機器。
+按照[此處][此處]提供的指示建立代管 Linux 的 Azure 虛擬機器。
 
 <div class="dev-callout">
 <strong>注意</strong>
@@ -224,13 +224,13 @@
         [2013-03-12 19:11:31] INFO  ruby 1.9.3 (2012-04-20) [x86_64-linux]
         [2013-03-12 19:11:31] INFO  WEBrick::HTTPServer#start: pid=9789 port=3000
 
-4.  在瀏覽器中，瀏覽至 [Azure 管理入口網站][]並選取虛擬機器。
+4.  在瀏覽器中，瀏覽至 [Azure 管理入口網站][Azure 管理入口網站]並選取虛擬機器。
 
-    ![虛擬機器清單][]
+    ![虛擬機器清單][虛擬機器清單]
 
 5.  選取頁面頂端的 [端點]，並按一下頁面底端的 [+ 新增端點]。
 
-    ![端點頁面][]
+    ![端點頁面][端點頁面]
 
 6.  在 [新增端點] 對話方塊中，按一下右下方的箭頭繼續進入第二頁，並在表單中輸入下列資訊：
 
@@ -244,7 +244,7 @@
 
     這將建立公用連接埠 80，將流量傳送至 Rails 伺服器接聽的私人連接埠 3000。
 
-    ![新節點對話方塊][]
+    ![新節點對話方塊][新節點對話方塊]
 
 7.  按一下核取記號來儲存端點。
 
@@ -260,17 +260,17 @@
 
 在本文中，您已經了解如何建立基本表單型 Rails 應用程式並發佈至 Azure 虛擬機器。我們執行的大部分動作都是手動進行，而且，在生產環境中，應該自動進行。另外，大部分生產環境均代管 Rails 應用程式以及 Apache 或 NginX 之類的其他伺服器程序，處理傳送至多個 Rails 應用程式及執行個體並提供靜態資源的要求。
 
-如需 Rails 應用程式自動部署以及使用 Unicorn 網頁伺服器和 NginX 的資訊，請參閱[現代化商務的雲端][]。
+如需 Rails 應用程式自動部署以及使用 Unicorn 網頁伺服器和 NginX 的資訊，請參閱[現代化商務的雲端][現代化商務的雲端]。
 
-如果要深入了解 Ruby on Rails，請參閱 [Ruby on Rails 指南][] (英文)。
+如果要深入了解 Ruby on Rails，請參閱 [Ruby on Rails 指南][Ruby on Rails 指南] (英文)。
 
 若要深入了解如何使用 Azure SDK for Ruby 從 Ruby 應用程式存取 Azure，請參閱：
 
--   [使用 Blob 儲存非結構化資料][]
+-   [使用 Blob 儲存非結構化資料][使用 Blob 儲存非結構化資料]
 
--   [使用資料表儲存機碼值組][]
+-   [使用資料表儲存機碼值組][使用資料表儲存機碼值組]
 
--   [使用內容傳遞網路提供高頻寬內容][]
+-   [使用內容傳遞網路提供高頻寬內容][使用內容傳遞網路提供高頻寬內容]
 
 <!-- WA.com links --> 
 <!-- External Links --> 
@@ -293,7 +293,6 @@
   [預設 rails 頁面]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailslocal.png
   [列出貼文的頁面]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilslocal.png
   [此處]: /zh-tw/documentation/articles/virtual-machines-linux-tutorial
-  [PuTTY 下載頁面]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [虛擬機器清單]: ./media/virtual-machines-ruby-rails-web-app-linux/vmlist.png
   [端點頁面]: ./media/virtual-machines-ruby-rails-web-app-linux/endpoints.png

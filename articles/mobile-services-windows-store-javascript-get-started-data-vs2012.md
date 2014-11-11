@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-js" urlDisplayName="Get Started with Data" pageTitle="Get started with data (JavaScript) - Mobile Services" metaKeywords="" description="Learn how to get started using data with Azure Mobile Services." metaCanonical="https://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet/" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="glenga" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 開始以 Visual Studio 2012 使用行動服務中的資料
 
@@ -16,17 +16,17 @@
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [下載 Windows 市集應用程式專案][]
-2.  [建立行動服務][]
-3.  [新增用於儲存的資料表][]
-4.  [更新應用程式以使用行動服務][]
-5.  [針對行動服務進行應用程式測試][]
+1.  [下載 Windows 市集應用程式專案][下載 Windows 市集應用程式專案]
+2.  [建立行動服務][建立行動服務]
+3.  [新增用於儲存的資料表][新增用於儲存的資料表]
+4.  [更新應用程式以使用行動服務][更新應用程式以使用行動服務]
+5.  [針對行動服務進行應用程式測試][針對行動服務進行應用程式測試]
 
 <div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-js%2F" target="_blank">Azure 免費試用</a>。</p></div>
 
 ## <a name="download-app"></a><span class="short-header">下載專案</span>下載 GetStartedWithData 專案
 
-本教學課程以 [GetStartedWithData 應用程式][] (英文) (Windows 市集應用程式) 為基礎而建立。除了會將新增項目儲存在本機記憶體中之外，由此應用程式與行動服務快速入門所產生的應用程式兩者的 UI 完全相同。
+本教學課程以 [GetStartedWithData 應用程式][GetStartedWithData 應用程式] (英文) (Windows 市集應用程式) 為基礎而建立。除了會將新增項目儲存在本機記憶體中之外，由此應用程式與行動服務快速入門所產生的應用程式兩者的 UI 完全相同。
 
 1.  從[開發人員程式碼範例網站][GetStartedWithData 應用程式] (英文) 下載 JavaScript 版本的 GetStartedWithData 範例應用程式。
 
@@ -46,11 +46,11 @@
 
 ## <a name="create-service"></a><span class="short-header">建立行動服務</span>在管理入口網站中建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">新增資料表</span>將資料表新增至行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2][]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
 ## <a name="update-app"></a><span class="short-header">更新應用程式</span>更新應用程式以使用行動服務進行資料存取
 
@@ -134,7 +134,7 @@
 
     這會傳送新項目以插入至行動服務。
 
-3.  在[管理入口網站][]中按一下 [行動服務]，然後按一下您的行動服務。
+3.  在[管理入口網站][管理入口網站]中按一下 [行動服務]，然後按一下您的行動服務。
 
 4.  按一下 [資料] 索引標籤，然後按一下 [瀏覽]。
 
@@ -168,39 +168,29 @@
 
 本教學課程示範讓 Windows 市集應用程式能夠在行動服務中處理資料的基本概念。接下來，考慮完成本教學課程中採用 GetStartedWithData 應用程式所建立的下列其中一個教學課程：
 
--   [使用指令檔驗證與修改資料][]
+-   [使用指令檔驗證與修改資料][使用指令檔驗證與修改資料]
     深入了解在行動服務中使用伺服器指令檔，來驗證並變更從應用程式傳送出來的資料。
 
--   [使用分頁縮小查詢範圍][]
+-   [使用分頁縮小查詢範圍][使用分頁縮小查詢範圍]
     了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
 完成資料序列之後，請嘗試下列其中一個其他教學課程：
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何驗證應用程式的使用者。
 
--   [開始使用推播通知][]
+-   [開始使用推播通知][開始使用推播通知]
     了解如何將極為基本的推播通知傳送到應用程式。
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012 "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/develop/mobile/tutorials/get-started-with-data-js-vs2012 "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone"
-  [iOS]: /zh-tw/develop/mobile/tutorials/get-started-with-data-ios "iOS"
-  [Android]: /zh-tw/develop/mobile/tutorials/get-started-with-data-android "Android"
-  [HTML]: /zh-tw/develop/mobile/tutorials/get-started-with-data-html "HTML"
-  [Xamarin.iOS]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android"
-  [開始使用行動服務中的資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-js/
   [下載 Windows 市集應用程式專案]: #download-app
   [建立行動服務]: #create-service
   [新增用於儲存的資料表]: #add-table
   [更新應用程式以使用行動服務]: #update-app
   [針對行動服務進行應用程式測試]: #test-app
-  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-js%2F
   [GetStartedWithData 應用程式]: http://go.microsoft.com/fwlink/?LinkId=262308
   [0]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-data-sample-download-js.png
   [1]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-quickstart-startup.png

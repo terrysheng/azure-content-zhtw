@@ -1,6 +1,6 @@
 <properties pageTitle="Azure Spring 2014 release highlights - .NET Dev Center" metaKeywords="azure .net sdk 2.3" description="Learn about the new tools and features available for Azure .NET developers." documentationCenter=".NET" title="Azure Spring 2014 release highlights" authors="mollybos" solutions="" manager="carolz" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mollybos"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mollybos" />
 
 # Azure Spring 2014 Release 要點
 
@@ -123,7 +123,6 @@ Azure SDK 2.3 包含更新的儲存體模擬器，而儲存體用戶端程式庫
   [開始使用 Azure 和 ASP.NET]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-dotnet-get-started/
   [開始使用 Azure Tools for Visual Studio]: http://msdn.microsoft.com/zh-tw/library/azure/ff687127.aspx
   [在 Visual Studio 2013 中建立 ASP.NET Web 專案]: http://asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio
-  [組建 2014：Visual Studio 2013 Update 2 中關於 ASP.NET 和 Web 的新功能及未來方向 (影片)]: http://channel9.msdn.com/Events/Build/2014/3-602
   [在 Visual Studio 中進行雲端服務或虛擬機器的偵錯]: http://msdn.microsoft.com/zh-tw/library/azure/ff683670.aspx
   [使用 Emulator Express 執行及偵錯雲端服務]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn339018.aspx
   [疑難排解 Visual Studio 中的 Azure 網站]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio
@@ -133,17 +132,11 @@ Azure SDK 2.3 包含更新的儲存體模擬器，而儲存體用戶端程式庫
   [使用伺服器總管瀏覽儲存體資源]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff683677.aspx
   [如何安裝和設定 Azure PowerShell]: http://www.windowsazure.com/zh-tw/documentation/articles/install-configure-powershell/
   [Azure PowerShell 文件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156055.aspx
-  [組建 2014：在 Azure 中使用新的 SDK、工具和服務，自動化無所不在 (影片)]: http://channel9.msdn.com/Events/Build/2014/3-621
   [使用 Windows PowerShell 指令碼來發行至開發和測試環境]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn642480.aspx
-  [雲端報導：Azure 行動服務 .NET 後端 (影片)]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-137-The-Azure-Mobile-Services-NET-Backend-with-Yavor-Georgiev
   [Azure 行動開發人員中心]: /zh-tw/develop/mobile/
-  [快速入門：新增行動服務 (.NET 後端)]: http://msdn.microsoft.com/zh-tw/library/windows/apps/xaml/dn629482.aspx
   [如何使用 Visual Studio 將推播通知傳送到正在執行的應用程式]: http://msdn.microsoft.com/zh-tw/library/windows/apps/xaml/dn614131.aspx
-  [如何在行動服務中建立自訂 API 和已排程工作 (.NET 後端)]: http://msdn.microsoft.com/zh-tw/library/windows/apps/xaml/dn614130.aspx
   [Azure 儲存體用戶端程式庫 3.0]: http://go.microsoft.com/fwlink/?LinkId=394927
   [Azure 儲存體簡介]: /zh-tw/documentation/articles/storage-introduction/
-  [組建 2014：Microsoft Azure 儲存體 – 新功能、最佳作法和模式 (影片)]: http://channel9.msdn.com/Events/Build/2014/3-628
   [Microsoft Azure Storage @ BUILD 2014]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/08/microsoft-azure-storage-build-2014.aspx
   [將 Azure PowerShell 與資源管理員搭配使用]: http://go.microsoft.com/fwlink/?LinkID=394767
   [搭配使用 Azure 跨平台命令列介面與資源管理員]: /zh-tw/documentation/articles/xplat-cli-azure-resource-manager/
-  [組建 2014：Azure 資源群組模型：現代雲端的現代化管理 (影片)]: http://channel9.msdn.com/Events/Build/2014/2-607

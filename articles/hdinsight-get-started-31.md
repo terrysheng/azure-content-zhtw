@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop-3.0" urlDisplayName="Get Started" pageTitle="Get started using Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution. Learn how to provision clusters, run hive jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # 開始使用 HDInsight (預覽版) 中的 Hadoop 2.4
 
@@ -200,9 +200,6 @@ Excel 的 Power Query 增益集可用來將 HDInsight 的輸出匯出到 Excel�
 -   [開發 HDInsight 的 C# Hadoop 串流程式][開發 HDInsight 的 C# Hadoop 串流程式]
 -   [開發 HDInsight 的 Java MapReduce 程式][開發 HDInsight 的 Java MapReduce 程式]
 
-  [Hadoop 2.2]: ../hdinsight-get-started "開始使用 HDInsight 中的 Hadoop 2.2"
-  [Hadoop 2.4]: ../hdinsight-get-started-31 "開始使用 HDInsight 中的 Hadoop 2.4"
-  [Hadoop 1.2]: ../hdinsight-get-started-21 "開始使用 HDInsight 中的 Hadoop 1.2"
   [Apache Hadoop]: http://hadoop.apache.org/
   [HDInsight 所提供叢集版本的新功能]: ../hdinsight-component-versioning/
   [![HDI.getstarted.video][img-hdi-getstarted-video]]: https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS

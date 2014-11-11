@@ -1,16 +1,16 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" pageTitle="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # Azure 雲端服務教學課程：ASP.NET MVC Web 角色、背景工作角色以及 Azure 儲存體資料表、佇列和 Blob - 1/5
 
-本教學課程系列說明如何建立及部署在 Azure 雲端服務中執行，並使用 Azure 儲存體資料表、佇列和 Blob 的多層式 ASP.NET MVC Web 應用程式。您可以從 MSDN Code Gallery 下載[完整的應用程式][]，或從 TechNet E-Book Gallery 下載舊版的[電子書][]。
+本教學課程系列說明如何建立及部署在 Azure 雲端服務中執行，並使用 Azure 儲存體資料表、佇列和 Blob 的多層式 ASP.NET MVC Web 應用程式。您可以從 MSDN Code Gallery 下載[完整的應用程式][完整的應用程式]，或從 TechNet E-Book Gallery 下載舊版的[電子書][電子書]。
 
 以下圖表顯示應用程式的這些部分的互動情況：
 
-![電子郵件訊息處理][]
+![電子郵件訊息處理][電子郵件訊息處理]
 
-本教學課程系列分成 5 部分。如果您需要雲端服務、佇列和 Blob 的更快且更簡單的介紹，請參閱[開始使用 Azure 雲端服務和 ASP.NET][] (英文)。或者，您也可以在「網站」和 WebJobs 中執行多層式應用程式；如需詳細資訊，請參閱[開始使用 Azure WebJobs SDK][] (英文)。
+本教學課程系列分成 5 部分。如果您需要雲端服務、佇列和 Blob 的更快且更簡單的介紹，請參閱[開始使用 Azure 雲端服務和 ASP.NET][開始使用 Azure 雲端服務和 ASP.NET] (英文)。或者，您也可以在「網站」和 WebJobs 中執行多層式應用程式；如需詳細資訊，請參閱[開始使用 Azure WebJobs SDK][開始使用 Azure WebJobs SDK] (英文)。
 
 在本教學課程系列中，您將了解：
 
@@ -30,24 +30,24 @@
 本系列有五個教學課程：
 
 1.  **Azure 電子郵件服務應用程式簡介** (本教學課程)。深入了解應用程式和其架構。如果您只想查看如何部署，或想查看程式碼，您可以略過這個教學課程，稍後再回頭進一步了解架構。
-2.  [設定及部署 Azure 電子郵件服務應用程式][]。如何下載範例應用程式，並加以設定、在本機測試、部署，以及在雲端測試。
-3.  [建置 Azure 電子郵件服務應用程式的 Web 角色][]。如何建置應用程式的 MVC 元件，並在本機加以測試。
-4.  [建置 Azure 電子郵件服務應用程式的背景工作角色 A (電子郵件排程器)][]。如何建置後端元件 (來建立傳送電子郵件時所需的佇列工作項目)，並在本機加以測試。
-5.  [建置 Azure 電子郵件服務應用程式的背景工作角色 B (電子郵件寄件者)][]。如何建置後端元件 (來處理傳送電子郵件時所需的佇列工作項目)，並在本機加以測試。
+2.  [設定及部署 Azure 電子郵件服務應用程式][設定及部署 Azure 電子郵件服務應用程式]。如何下載範例應用程式，並加以設定、在本機測試、部署，以及在雲端測試。
+3.  [建置 Azure 電子郵件服務應用程式的 Web 角色][建置 Azure 電子郵件服務應用程式的 Web 角色]。如何建置應用程式的 MVC 元件，並在本機加以測試。
+4.  [建置 Azure 電子郵件服務應用程式的背景工作角色 A (電子郵件排程器)][建置 Azure 電子郵件服務應用程式的背景工作角色 A (電子郵件排程器)]。如何建置後端元件 (來建立傳送電子郵件時所需的佇列工作項目)，並在本機加以測試。
+5.  [建置 Azure 電子郵件服務應用程式的背景工作角色 B (電子郵件寄件者)][建置 Azure 電子郵件服務應用程式的背景工作角色 B (電子郵件寄件者)]。如何建置後端元件 (來處理傳送電子郵件時所需的佇列工作項目)，並在本機加以測試。
 
 ## 本教學課程章節
 
--   [必要條件][]
--   [前端概觀][]
--   [後端概觀][]
--   [Azure 資料表][]
--   [Azure 佇列][]
--   [資料圖][]
--   [Azure Blob][]
--   [Azure 雲端服務與 Azure 網站的比較][]
--   [成本][]
--   [驗證和授權][]
--   [後續步驟][]
+-   [必要條件][必要條件]
+-   [前端概觀][前端概觀]
+-   [後端概觀][後端概觀]
+-   [Azure 資料表][Azure 資料表]
+-   [Azure 佇列][Azure 佇列]
+-   [資料圖][資料圖]
+-   [Azure Blob][Azure Blob]
+-   [Azure 雲端服務與 Azure 網站的比較][Azure 雲端服務與 Azure 網站的比較]
+-   [成本][成本]
+-   [驗證和授權][驗證和授權]
+-   [後續步驟][後續步驟]
 
 ## 必要條件
 
@@ -56,7 +56,7 @@
 -   Visual Studio 2013 Update 2
 -   Visual Studio 2013 Express for Web Update 2
 
-您也需要 Azure 訂用帳戶。您可以建立[免費試用帳戶][]或[啟用 MSDN 訂戶權益][]。
+您也需要 Azure 訂用帳戶。您可以建立[免費試用帳戶][免費試用帳戶]或[啟用 MSDN 訂戶權益][啟用 MSDN 訂戶權益]。
 
 ## <a name="frontend"></a>前端概觀
 
@@ -64,29 +64,29 @@
 
 (螢幕擷取畫面顯示的是 Visual Studio 2012 範本樣式；其內容與 Visual Studio 2013 相同，但樣式不同。)
 
-![Mailing List Index Page][]
+![Mailing List Index Page][Mailing List Index Page]
 
-![Subscriber Index Page][]
+![Subscriber Index Page][Subscriber Index Page]
 
 還有一組頁面可讓系統管理員用來建立要傳送給電子郵件清單的訊息。
 
-![訊息索引頁面][]
+![訊息索引頁面][訊息索引頁面]
 
-![訊息建立頁面][]
+![訊息建立頁面][訊息建立頁面]
 
 這項服務的用戶端是公司，這些公司提供機會讓自己的客戶在用戶端網站上申請成為郵寄清單的一份子。例如，系統管理員為 Contoso 大學歷史系系辦公告設定了清單。當學生按一下 Contoso 大學網站上的連結表示想要收到歷史系系辦公告時，Contoso 大學便會對 Azure 電子郵件服務應用程式進行 Web 服務呼叫。此服務方法會造成傳送電子郵件給客戶。該電子郵件包含一個超連結，如果收件者按一下連結，就會顯示一個歡迎客戶使用歷史系系辦公告清單的頁面。
 
-![確認電子郵件][]
+![確認電子郵件][確認電子郵件]
 
-![歡迎使用清單頁面][]
+![歡迎使用清單頁面][歡迎使用清單頁面]
 
 所傳送的每封電子郵件 (但訂閱確認除外) 都包含一個取消訂閱的超連結。如果收件者按一下連結，就會顯示一個詢問是否確認要取消訂閱的網頁。
 
-![確認取消訂閱頁面][]
+![確認取消訂閱頁面][確認取消訂閱頁面]
 
 如果收件者按一下 [確認] 按鈕，就會顯示一個表示已從清單中移除該人員的頁面。
 
-![Unsubscribe confirmed page][]
+![Unsubscribe confirmed page][Unsubscribe confirmed page]
 
 ## <a name="backend"></a>後端概觀
 
@@ -100,19 +100,19 @@
 
 第二個背景工作角色 (稱為背景工作角色 B) 會輪詢佇列，看看是否有工作項目。背景工作角色 B 在找到工作項目時，會傳送電子郵件來處理項目，然後從佇列中刪除工作項目。下圖顯示這些關係。
 
-![電子郵件訊息處理][]
+![電子郵件訊息處理][電子郵件訊息處理]
 
 如果背景工作角色 B 當機而必須重新啟動，並不會造成任何電子郵件漏傳，因為要等到傳送了電子郵件後，電子郵件的佇列工作項目才會刪除。這個應用程式也可防止萬一背景工作角色 A 當機而必須重新啟動時，造成有電子郵件多傳。
 
-![防止多傳電子郵件][]
+![防止多傳電子郵件][防止多傳電子郵件]
 
 背景工作角色 B 會輪詢訂閱佇列，看看 Web API 服務方法是否在該處放置了任何代表新訂閱的工作項目。一旦找到這類項目，就會傳送確認電子郵件。
 
-![訂閱佇列訊息處理][]
+![訂閱佇列訊息處理][訂閱佇列訊息處理]
 
 ## <a name="tables"></a>Azure 資料表
 
-Azure 電子郵件服務應用程式會將資料儲存在 Azure 儲存體資料表中。Azure 資料表是一種 NoSQL 資料存放區，而不是 [Azure SQL Database][] 之類的關聯式資料庫。當效率和延展性比資料正規化與關係完整性更重要時，Azure 資料表是不錯的選擇。例如，在此應用程式中，一個背景工作角色會在每次有佇列工作項目建立時就建立一列，而另一個背景工作角色會在每次有電子郵件傳出時就擷取並更新一列，這時如果使用關聯式資料庫，就可能會出現效能瓶頸。此外，Azure 資料表也比 Azure SQL 便宜。如需 Azure 資料表的詳細資訊，請參閱[本系列的最後一個教學課程][建置 Azure 電子郵件服務應用程式的背景工作角色 B (電子郵件寄件者)]。
+Azure 電子郵件服務應用程式會將資料儲存在 Azure 儲存體資料表中。Azure 資料表是一種 NoSQL 資料存放區，而不是 [Azure SQL Database][Azure SQL Database] 之類的關聯式資料庫。當效率和延展性比資料正規化與關係完整性更重要時，Azure 資料表是不錯的選擇。例如，在此應用程式中，一個背景工作角色會在每次有佇列工作項目建立時就建立一列，而另一個背景工作角色會在每次有電子郵件傳出時就擷取並更新一列，這時如果使用關聯式資料庫，就可能會出現效能瓶頸。此外，Azure 資料表也比 Azure SQL 便宜。如需 Azure 資料表的詳細資訊，請參閱[本系列的最後一個教學課程][建置 Azure 電子郵件服務應用程式的背景工作角色 B (電子郵件寄件者)]。
 
 下列各節將說明此 Azure 電子郵件服務應用程式所用之各項 Azure 資料表的內容。如需各資料表和其彼此關係的圖解，請參閱本頁稍後的 [Azure 電子郵件服務資料圖][資料圖]。
 
@@ -148,7 +148,7 @@ Azure 電子郵件服務應用程式會將資料儲存在 Azure 儲存體資料�
 | PartitionKey   | String   | ListName：郵寄清單的名稱 (唯一識別碼)，例如：contoso1。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | RowKey         | String   | EmailAddress：訂閱者電子郵件地址，例如：student1@contoso.edu。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | SubscriberGUID | String   | 在電子郵件地址新增至清單時產生。用於訂閱與取消訂閱連結中，以降低將別人的電子郵件地址訂閱或取消訂閱的可能性。                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
-                              「訂閱」和「取消訂閱」網頁的某些查詢只會指定 PartitionKey 和這個屬性。不使用 RowKey 就查詢資料分割，將使應用程式的延展性受限，因為當郵寄清單大小增加時，查詢需要的時間將更長。有個提升延展性的選項，就是新增查閱列並使其 RowKey 屬性含有 SubscriberGUID。例如，就每個電子郵件地址而言，一個列的 RowKey 可以是 "email:student1@domain.com"，而相同訂閱者另一列的 RowKey 可以是 "guid:6f32b03b-90ed-41a9-b8ac-c1310c67b66a"。要實現這點很簡單，因為資料分割內列上的不可部分完成批次交易很容易撰寫。如需詳細資訊，請參閱[真實世界：設計 Azure 資料表儲存體的可調整分割策略][] (英文)  |
+                              「訂閱」和「取消訂閱」網頁的某些查詢只會指定 PartitionKey 和這個屬性。不使用 RowKey 就查詢資料分割，將使應用程式的延展性受限，因為當郵寄清單大小增加時，查詢需要的時間將更長。有個提升延展性的選項，就是新增查閱列並使其 RowKey 屬性含有 SubscriberGUID。例如，就每個電子郵件地址而言，一個列的 RowKey 可以是 "email:student1@domain.com"，而相同訂閱者另一列的 RowKey 可以是 "guid:6f32b03b-90ed-41a9-b8ac-c1310c67b66a"。要實現這點很簡單，因為資料分割內列上的不可部分完成批次交易很容易撰寫。如需詳細資訊，請參閱[真實世界：設計 Azure 資料表儲存體的可調整分割策略][真實世界：設計 Azure 資料表儲存體的可調整分割策略] (英文)  |
 | Verified       | Boolean  | 一開始為新的訂閱者建立列時，此值為 false。只有在新的訂閱者按一下歡迎電子郵件中的確認超連結，或系統管理員將它設為 true 之後，才會變更為 true。如果傳送訊息給清單時，訊息其中一個訂閱者的 Verified 值為 false，則不會傳送電子郵件給該訂閱者。                                                                                                                                                                                                                                                                                                                                        |
 
 下列清單示範資料表中的資料可能長什麼樣子。
@@ -857,7 +857,7 @@ Azure 電子郵件服務應用程式使用兩個佇列，分別名為 `AzureMail
 
 下圖顯示各資料表與佇列之間的關係。
 
-![Azure 電子郵件服務應用程式的資料圖][]
+![Azure 電子郵件服務應用程式的資料圖][Azure 電子郵件服務應用程式的資料圖]
 
 ## <a name="blobs"></a>Azure Blob
 
@@ -873,22 +873,22 @@ Blob 是儲存在 Blob 容器中，就像檔案是儲存在資料夾中一樣。
 
 Azure 電子郵件服務已設定成讓前端和後端全都在 Azure 雲端服務中執行。
 
-![應用程式架構概觀][]
+![應用程式架構概觀][應用程式架構概觀]
 
 替代的架構是在 Azure 網站中執行前端。
 
-![替代的應用程式架構][]
+![替代的應用程式架構][替代的應用程式架構]
 
-另一個替代方法是在 Azure 網站中執行前端，並且使用 WebJob 功能在執行前端的相同伺服器上執行後端。如需詳細資訊，請參閱[開始使用 Azure WebJobs SDK][] (英文)。
+另一個替代方法是在 Azure 網站中執行前端，並且使用 WebJob 功能在執行前端的相同伺服器上執行後端。如需詳細資訊，請參閱[開始使用 Azure WebJobs SDK][開始使用 Azure WebJobs SDK] (英文)。
 
 ## <a name="cost"></a>成本
 
 本節概略介紹在 Azure 執行範例應用程式所需的成本，其中的費率乃是原本在 2012 年 12 月發佈本教學課程時的有效費率。在根據成本做出任何商業決策之前，請務必到下列網頁查看最新費率：
 
--   [Azure 定價計算機][]
--   [SendGrid Azure (英文)][]
+-   [Azure 定價計算機][Azure 定價計算機]
+-   [SendGrid Azure (英文)][SendGrid Azure (英文)]
 
-成本會受您決定要維護的 Web 與背景工作角色執行個體數目所影響。為了達到 [Azure 雲端服務 99.95% 的服務等級協定 (SLA)][]，您必須針對每個角色各部署兩個以上的執行個體。至少必須執行兩個角色執行個體的原因之一，是因為執行您應用程式的虛擬機器每個月會因為要進行作業系統升級，而重新啟動兩次左右。(如需作業系統升級的詳細資訊，請參閱[角色執行個體由於作業系統升級而重新啟動][] (英文)。)
+成本會受您決定要維護的 Web 與背景工作角色執行個體數目所影響。為了達到 [Azure 雲端服務 99.95% 的服務等級協定 (SLA)][Azure 雲端服務 99.95% 的服務等級協定 (SLA)]，您必須針對每個角色各部署兩個以上的執行個體。至少必須執行兩個角色執行個體的原因之一，是因為執行您應用程式的虛擬機器每個月會因為要進行作業系統升級，而重新啟動兩次左右。(如需作業系統升級的詳細資訊，請參閱[角色執行個體由於作業系統升級而重新啟動][角色執行個體由於作業系統升級而重新啟動] (英文)。)
 
 在此範例中，兩個背景工作角色所執行的工作並無時間上的急迫性，不需要達到 99.5% 的 SLA。因此，只要工作負載用一個執行個體就能應付，只執行每個背景工作角色的單一執行個體並無不妥。Web 角色執行個體則有時間上的急迫性，也就是說，使用者預期網站不會有任何停機的情況發生，因此生產應用程式應該至少有兩個 Web 角色執行個體。
 
@@ -1018,23 +1018,23 @@ $60.43
 </td>
 </tr>
 </table>
-您可以看見，角色執行個體為整體成本中的主要部分。角色執行個體即使停止也會產生成本，因此您必須刪除角色執行個體，才能不產生任何費用。節省成本的方法之一為將背景工作角色 A 與背景工作角色 B 中的所有程式碼都移到一個背景工作角色中。在這些教學課程中，我們刻意選擇實作兩個背景工作執行個體，以便簡化向外延展的過程。背景工作角色 B 執行的工作是由 Azure 佇列服務協調，這表示您可以僅增加背景工作角色 B 的執行個體數目，向外延展該角色。(背景工作角色 B 為高負載條件的限制因素。) 背景工作角色 A 執行的工作不是由佇列協調，因此您無法執行背景工作角色 A 的多個執行個體。如果這兩個背景工作角色合併，而您想要啟用向外延展，則您會需要實作一個機制，確保背景工作角色 A 工作只會在一個執行個體中執行。([CloudFx][] (英文)就提供了這樣一個機制。請參閱 [WorkerRole.cs 範例][] (英文)。)
+您可以看見，角色執行個體為整體成本中的主要部分。角色執行個體即使停止也會產生成本，因此您必須刪除角色執行個體，才能不產生任何費用。節省成本的方法之一為將背景工作角色 A 與背景工作角色 B 中的所有程式碼都移到一個背景工作角色中。在這些教學課程中，我們刻意選擇實作兩個背景工作執行個體，以便簡化向外延展的過程。背景工作角色 B 執行的工作是由 Azure 佇列服務協調，這表示您可以僅增加背景工作角色 B 的執行個體數目，向外延展該角色。(背景工作角色 B 為高負載條件的限制因素。) 背景工作角色 A 執行的工作不是由佇列協調，因此您無法執行背景工作角色 A 的多個執行個體。如果這兩個背景工作角色合併，而您想要啟用向外延展，則您會需要實作一個機制，確保背景工作角色 A 工作只會在一個執行個體中執行。([CloudFx][CloudFx] (英文)就提供了這樣一個機制。請參閱 [WorkerRole.cs 範例][WorkerRole.cs 範例] (英文)。)
 
-也可以將這兩個背景工作角色中的所有程式碼都移到 Web 角色中，讓一切都在 Web 角色中執行。不過，在 ASP.NET 執行背景工作並不受支援，也不被視為健全，而且此架構將使延展性變複雜。如需詳細資訊，請參閱[在 ASP.NET 實作週期性背景工作的危險][] (英文)。另請參閱[如何在 Azure 結合背景工作與 Web 角色][] (英文) 和[將多個 Azure 背景工作角色結合成一個 Azure Web 角色][] (英文)。如果您想要朝這個方向進行，[在 Azure 網站中執行並使用 WebJobs 功能執行後端工作][]會是更佳的解決方案。
+也可以將這兩個背景工作角色中的所有程式碼都移到 Web 角色中，讓一切都在 Web 角色中執行。不過，在 ASP.NET 執行背景工作並不受支援，也不被視為健全，而且此架構將使延展性變複雜。如需詳細資訊，請參閱[在 ASP.NET 實作週期性背景工作的危險][在 ASP.NET 實作週期性背景工作的危險] (英文)。另請參閱[如何在 Azure 結合背景工作與 Web 角色][如何在 Azure 結合背景工作與 Web 角色] (英文) 和[將多個 Azure 背景工作角色結合成一個 Azure Web 角色][將多個 Azure 背景工作角色結合成一個 Azure Web 角色] (英文)。如果您想要朝這個方向進行，[在 Azure 網站中執行並使用 WebJobs 功能執行後端工作][在 Azure 網站中執行並使用 WebJobs 功能執行後端工作]會是更佳的解決方案。
 
-另一個使成本降低的替代架構是使用[自動調整應用程式區塊][]，以僅在已排定的期間自動部署背景工作角色，並在工作完成時加以刪除。如需自動調整的詳細資訊，請參閱[本系列的最後一個教學課程][建置 Azure 電子郵件服務應用程式的背景工作角色 B (電子郵件寄件者)]。
+另一個使成本降低的替代架構是使用[自動調整應用程式區塊][自動調整應用程式區塊]，以僅在已排定的期間自動部署背景工作角色，並在工作完成時加以刪除。如需自動調整的詳細資訊，請參閱[本系列的最後一個教學課程][建置 Azure 電子郵件服務應用程式的背景工作角色 B (電子郵件寄件者)]。
 
 未來的 Azure 可能會針對排定的重新開機提供通知機制，讓您能夠在重新開機時間範圍僅讓一個額外的 Web 角色執行個體運轉上線。您將達不到 99.95 SLA，但可以減少幾乎一半的成本，並確保您的 Web 應用程式在重新開機期間仍然可用。
 
 ## <a name="auth"></a>驗證和授權
 
-在生產應用程式中，您會實作驗證與授權機制，如 ASP.NET MVC Web 前端的 [ASP.NET 身分識別][]，包括 ASP.NET Web API 服務方法。也有其他選項 (例如使用共用密鑰) 可保護 Web API 服務方法的安全。範例應用程式中省略了驗證與授權功能，以方便設定和部署。
+在生產應用程式中，您會實作驗證與授權機制，如 ASP.NET MVC Web 前端的 [ASP.NET 身分識別][ASP.NET 身分識別]，包括 ASP.NET Web API 服務方法。也有其他選項 (例如使用共用密鑰) 可保護 Web API 服務方法的安全。範例應用程式中省略了驗證與授權功能，以方便設定和部署。
 
 ## <a name="nextsteps"></a>後續步驟
 
 在[下一個教學課程][設定及部署 Azure 電子郵件服務應用程式]中，您將下載範例專案、設定開發環境、設定適用於環境的專案，然後在本機與雲端測試專案。在教學課程 3 到 5 中，您將看到如何從頭建置專案。
 
-如需使用 Azure 儲存體資料表、佇列和 Blob 的其他資源連結，請參閱[本系列的最後一個教學課程][]。
+如需使用 Azure 儲存體資料表、佇列和 Blob 的其他資源連結，請參閱[本系列的最後一個教學課程][本系列的最後一個教學課程]。
 
 <div><a href="/zh-tw/develop/net/tutorials/multi-tier-web-site/2-download-and-run/" class="site-arrowboxcta download-cta">教學課程 2</a></div>
 
@@ -1045,8 +1045,6 @@ $60.43
   [開始使用 Azure WebJobs SDK]: /zh-tw/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [設定及部署 Azure 電子郵件服務應用程式]: /zh-tw/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
   [建置 Azure 電子郵件服務應用程式的 Web 角色]: /zh-tw/develop/net/tutorials/multi-tier-web-site/3-web-role/
-  [建置 Azure 電子郵件服務應用程式的背景工作角色 A (電子郵件排程器)]: /zh-tw/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
-  [建置 Azure 電子郵件服務應用程式的背景工作角色 B (電子郵件寄件者)]: /zh-tw/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
   [必要條件]: #prerequisites
   [前端概觀]: #frontend
   [後端概觀]: #backend
@@ -1076,8 +1074,6 @@ $60.43
   [應用程式架構概觀]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-architecture-overview.png
   [替代的應用程式架構]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-overview/mtas-alternative-architecture.png
   [Azure 定價計算機]: http://www.windowsazure.com/zh-tw/pricing/calculator/
-  [SendGrid Azure (英文)]: http://sendgrid.com/windowsazure.html
-  [Azure 雲端服務 99.95% 的服務等級協定 (SLA)]: https://www.windowsazure.com/zh-tw/support/legal/sla/ "SLA"
   [角色執行個體由於作業系統升級而重新啟動]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
   [CloudFx]: http://nuget.org/packages/Microsoft.Experience.CloudFx "CloudFX"
   [WorkerRole.cs 範例]: http://code.msdn.microsoft.com/windowsazure/CloudFx-Samples-60c3a852/sourcecode?fileId=57087&pathId=528472169

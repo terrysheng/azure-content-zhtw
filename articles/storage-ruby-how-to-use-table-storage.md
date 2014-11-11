@@ -1,39 +1,39 @@
 <properties linkid="dev-ruby-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Table Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # 如何使用 Ruby 的資料表服務
 
-本指南將示範如何使用 Azure 資料表服務執行一般案例。這些範例使用 Ruby API 撰寫。所涵蓋的案例包括「建立和刪除資料表」、「在資料表中插入及查詢實體」。如需資料表的詳細資訊，請參閱[後續步驟][]一節。
+本指南將示範如何使用 Azure 資料表服務執行一般案例。這些範例使用 Ruby API 撰寫。所涵蓋的案例包括「建立和刪除資料表」、「在資料表中插入及查詢實體」。如需資料表的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
--   [什麼是資料表服務？][]
--   [概念][]
--   [建立 Azure 儲存體帳戶][]
--   [建立 Ruby 應用程式][]
--   [設定您的應用程式以存取儲存體][]
--   [設定 Azure 儲存體連接][]
--   [作法：建立資料表][]
--   [作法：將實體加入至資料表][]
--   [作法：更新實體][]
--   [作法：使用實體群組][]
--   [作法：查詢實體][]
--   [作法：查詢實體集合][]
--   [作法：查詢實體屬性的子集][]
--   [作法：刪除實體][]
--   [作法：刪除資料表][]
--   [後續步驟][]
+-   [什麼是資料表服務？][什麼是資料表服務？]
+-   [概念][概念]
+-   [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
+-   [建立 Ruby 應用程式][建立 Ruby 應用程式]
+-   [設定您的應用程式以存取儲存體][設定您的應用程式以存取儲存體]
+-   [設定 Azure 儲存體連接][設定 Azure 儲存體連接]
+-   [作法：建立資料表][作法：建立資料表]
+-   [作法：將實體加入至資料表][作法：將實體加入至資料表]
+-   [作法：更新實體][作法：更新實體]
+-   [作法：使用實體群組][作法：使用實體群組]
+-   [作法：查詢實體][作法：查詢實體]
+-   [作法：查詢實體集合][作法：查詢實體集合]
+-   [作法：查詢實體屬性的子集][作法：查詢實體屬性的子集]
+-   [作法：刪除實體][作法：刪除實體]
+-   [作法：刪除資料表][作法：刪除資料表]
+-   [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <span id="create-a-windows-azure-storage-account"></span></a>建立 Azure 儲存體帳戶
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="create-a-ruby-application"></span></a>建立 Ruby 應用程式
 
-建立 Ruby 應用程式。如需指示，請參閱[在 Azure 上建立 Ruby 應用程式][] (英文)。
+建立 Ruby 應用程式。如需指示，請參閱[在 Azure 上建立 Ruby 應用程式][在 Azure 上建立 Ruby 應用程式] (英文)。
 
 ## <span id="configure-your-application-to-access-storage"></span></a>設定您的應用程式以存取儲存體
 
@@ -60,7 +60,7 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 
 若要取得這些值，請執行下列動作：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 
 2.  瀏覽到您要使用的儲存體帳戶。
 
@@ -156,9 +156,9 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 
 了解資料表儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][]
--   造訪 [Azure 儲存體團隊部落格][] (英文)。
--   請造訪 GitHub 上的 [Azure SDK for Ruby][] 儲存機制 (英文)。
+-   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][在 Azure 中儲存和存取資料]
+-   造訪 [Azure 儲存體團隊部落格][Azure 儲存體團隊部落格] (英文)。
+-   請造訪 GitHub 上的 [Azure SDK for Ruby][Azure SDK for Ruby] 儲存機制 (英文)。
 
   [後續步驟]: #next-steps
   [什麼是資料表服務？]: #what-is
@@ -178,8 +178,8 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
   [作法：刪除資料表]: #how-to-delete-a-table
   [howto-table-storage]: ../includes/howto-table-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [在 Azure 上建立 Ruby 應用程式]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+  [在 Azure 上建立 Ruby 應用程式]: /zh-tw/develop/ruby/tutorials/web-app-with-linux-vm/
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
   [Azure SDK for Ruby]: http://github.com/WindowsAzure/azure-sdk-for-ruby

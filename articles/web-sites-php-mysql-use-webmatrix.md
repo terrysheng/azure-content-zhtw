@@ -1,6 +1,10 @@
 <properties linkid="develop-php-website-with-mysql-and-webmatrix" urlDisplayName="Web w/ WebMatrix" pageTitle="PHP website with MySQL and WebMatrix - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in MySQL." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create and deploy a PHP-MySQL Azure Website using WebMatrix" authors="" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+
+
+
+
 
 # 使用 WebMatrix 建立並部署 PHP-MySQL Azure 網站
 
@@ -20,7 +24,7 @@
 
 ![Azure PHP Web Site][Azure PHP Web Site]
 
-[WACOM.INCLUDE [create-account-and-websites-note][create-account-and-websites-note]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## 必要條件
 
@@ -146,9 +150,9 @@
 
     ![WebMatrix - Publish][WebMatrix - Publish]
 
-3.  瀏覽至 [http://[您的][http://[您的]網站名稱].azurewebsites.net/createtable.php 來建立`items` 資料表。
+3.  瀏覽至 http://[您的網站名稱].azurewebsites.net/createtable.php 來建立`items` 資料表。
 
-4.  最後，瀏覽至 [http://[您的][http://[您的]網站名稱].azurewebsites.net/index.php 來使用應用程式。
+4.  最後，瀏覽至 http://[您的網 站名稱].azurewebsites.net/index.php 來使用應用程式。
 
 ## 修改和重新發行應用程式
 
@@ -194,7 +198,6 @@
   [WebMatrix - Launch createtable.php in browser]: ./media/web-sites-php-mysql-use-webmatrix/edit_run.png
   [建立 Azure 網站和 MySQL 資料庫]: #CreateWebsite
   [WebMatrix - Publish]: ./media/web-sites-php-mysql-use-webmatrix/edit_publish.png
-  [http://[您的]: http://[your
   [WebMatrix - Open Remote View]: ./media/web-sites-php-mysql-use-webmatrix/OpenRemoteView.png
   [WebMatrix - Open index file]: ./media/web-sites-php-mysql-use-webmatrix/Remote_editIndex.png
   [WebMatrix - Launch site in Remote]: ./media/web-sites-php-mysql-use-webmatrix/Remote_run.png

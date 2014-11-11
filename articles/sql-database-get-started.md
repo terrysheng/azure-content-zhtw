@@ -1,6 +1,6 @@
 <properties linkid="manage-services-getting-started-with-sqldbs" urlDisplayName="How to create and provision" pageTitle="Getting started with SQL Database - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="loclar"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="loclar"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="loclar" />
 
 # 開始使用 Microsoft Azure SQL Database
 
@@ -546,7 +546,7 @@ SQL Server 驗證登入資訊可用於伺服器連線。存取 SQL Database 伺�
 
 2.  在 [資料連線精靈] 中，輸入您 SQL Database 伺服器的完整網域名稱，後面接著輸入具備資料庫存取權限的 SQL Server 驗證登入。
 
-    您可以在 Azure 管理入口網站上，SQL Database [伺服器] 頁面的 [儀表板] 上，於 [管理 URL] 中找到此伺服器名稱。伺服器名稱包含一系列的字母和數字，後面接著 '.database.windows.net'。在 [資料庫連線精靈] 中指定此名稱。指定名稱時請勿包含 <http://> 或 <https://> 前置詞。
+    您可以在 Azure 管理入口網站上，SQL Database [伺服器] 頁面的 [儀表板] 上，於 [管理 URL] 中找到此伺服器名稱。伺服器名稱包含一系列的字母和數字，後面接著 '.database.windows.net'。在 [資料庫連線精靈] 中指定此名稱。指定名稱時請勿包含 http:// 或 https:// 前置詞。
 
    輸入 SQL Server 驗證登入。針對測試目的，您可以使用在設定伺服器時所建立的系統管理員登入。針對一般資料存取目的，請使用與您剛剛所建立的類似資料庫使用者登入。
 

@@ -212,11 +212,17 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
     此檔案有兩個儲存體連接字串，一個供應用程式使用，另一個供記錄使用。在本教學課程中，您將對兩者使用相同帳戶。此連接字串會與您稍早所見的連接字串具有相同的預留位置。
 
-    ``` prettyprint
-    <configuration><connectionStrings> <add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/> <add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/> <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/></connectionStrings> <startup> <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /></startup></configuration>
-    ```
+  	<pre class="prettyprint">&lt;configuration&gt;
+    &lt;connectionStrings&gt;
+        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
+    &lt;/connectionStrings&gt;
+        &lt;startup&gt; 
+            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
+    &lt;/startup&gt;
+&lt;/configuration&gt;</pre>
 
-    </p>
     依預設，WebJobs SDK 會尋找名為 AzureWebJobsStorage 和 AzureWebJobsDashboard 的連接字串。另一種方式是，您可以任意儲存您要的連接字串，並將它明確傳遞至 `JobHost` 物件。
 
 6.  使用您的儲存體帳戶值來取代 *[accountname]* 和 *[accesskey]* 所有出現的位置，就像您在 Web 專案中執行的一樣。(或者您可以將 *Web.config* 檔案中已完成的連接字串複製到這兩個 *App.config* 檔案連接字串中。)
@@ -657,7 +663,7 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-\*\_Layout.cshtml\* 檔案可設定頁首與頁尾中的應用程式名稱，並建立 "Ads" 功能表項目。
+*\_Layout.cshtml* 檔案可設定頁首與頁尾中的應用程式名稱，並建立 "Ads" 功能表項目。
 
 ### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
@@ -903,7 +909,6 @@ WebJobs SDK 會在收到佇列訊息時呼叫此方法。此方法會建立縮�
   [Settings step]: ./media/websites-dotnet-webjobs-sdk-get-started/settingsstep.png
   [Click Start Preview]: ./media/websites-dotnet-webjobs-sdk-get-started/previewstep.png
   [WebJobs files in preview window]: ./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png
-  [避免將敏感資訊 (例如連接字串) 放在儲存於原始程式碼儲存機制的檔案]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets
   [Connection strings in management portal]: ./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png
   [WebJobs tab]: ./media/websites-dotnet-webjobs-sdk-get-started/wjtab.png
   [WebJobs SDK dashboard]: ./media/websites-dotnet-webjobs-sdk-get-started/wjdashboardhome.png
@@ -923,7 +928,6 @@ WebJobs SDK 會在收到佇列訊息時呼叫此方法。此方法會建立縮�
   [HttpPostedFileBase]: http://msdn.microsoft.com/zh-tw/library/system.web.httppostedfilebase.aspx
   [WebJobs SDK 0.3.0 Beta 通知]: http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/http://azure.microsoft.com/blog/2014/06/18/announcing-the-0-3-0-beta-preview-of-microsoft-azure-webjobs-sdk/
   [應用程式的雲端服務版本]: /zh-tw/documentation/articles/cloud-services-dotnet-get-started/
-  [https://{websitename}.scm.azurewebsites.net/azurejobs/\#/functions]: https://{websitename}.scm.azurewebsites.net/azurejobs/#/functions
   [使用 WebJobs SDK 來取得本機開發的儀表板]: http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx
   [相依性插入]: http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection
   [存放庫和工作單位模式]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo

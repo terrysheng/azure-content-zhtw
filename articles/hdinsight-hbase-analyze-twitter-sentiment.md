@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze realt-time Twitter sentiment with Hbase in HDInsight" pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" metaKeywords="" description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze real-time Twitter sentiment with HBase in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+ <properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze realt-time Twitter sentiment with Hbase in HDInsight" pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" metaKeywords="" description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze real-time Twitter sentiment with HBase in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="jgao" />
 
 # 使用 HDInsight 中的 HBase 分析即時的 Twitter 情緒
 
@@ -80,11 +80,11 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) (英文) 來授權要求。
 2.  在 [檔案] 功能表中指向 [新增]，然後按一下 [專案]。
 3.  輸入或選取下列值：
 
-    -   範本：**Visual C#**
-    -   範本：**主控台應用程式**
-    -   Name:**TweetSentimentStreaming**
-    -   位置：**C:\\Tutorials**
-    -   方案名稱：**TweetSentimentStreaming**
+	-   範本：**Visual C#**
+	-   範本：**主控台應用程式**
+	-   Name:**TweetSentimentStreaming**
+	-   位置：**C:\\Tutorials**
+	-   方案名稱：**TweetSentimentStreaming**
 
 4.  按一下 [確定] 以繼續。
 
@@ -576,7 +576,7 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) (英文) 來授權要求。
 
 5.  在 **HBaseReader** 類別中變更常數值：
 
-    -   **CLUSTERNAME**：HBase 叢集名稱。例如，*<https://><hbaseclustername>.azurehdinsight.net/*。
+    -   **CLUSTERNAME**：HBase 叢集名稱。例如，*https://<hbaseclustername>.azurehdinsight.net/*。
     -   **HADOOPUSERNAME**：HBase 叢集 Hadoop 使用者的使用者名稱。預設名稱為 *admin*。
     -   **HADOOPUSERPASSWORD**：HBase 叢集 Hadoop 使用者的密碼。
     -   **HBASETABLENAME** = "tweets\_by\_words";
@@ -623,28 +623,28 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) (英文) 來授權要求。
 4.  複製以下程式碼並貼到檔案中。該程式碼由 Alastair Aitchison 所撰寫。如需詳細資訊，請參閱 [http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/](http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/) (英文)。
 
         /*******************************************************************************
-        * Author: Alastair Aitchison
-        * Website: http://alastaira.wordpress.com
-        * Date: 15th April 2011
-        * 
-        * Description: 
-        * This JavaScript file provides an algorithm that can be used to add a heatmap
-        * overlay on a Bing Maps v7 control. The intensity and temperature palette
-        * of the heatmap are designed to be easily customisable.
-        *
-        * Requirements:
-        * The heatmap layer itself is created dynamically on the client-side using
-        * the HTML5 <canvas> element, and therefore requires a browser that supports
-        * this element. It has been tested on IE9, Firefox 3.6/4 and 
-        * Chrome 10 browsers. If you can confirm whether it works on other browsers or
-        * not, I'd love to hear from you!
+		* Author: Alastair Aitchison
+		* Website: http://alastaira.wordpress.com
+		* Date: 15th April 2011
+		* 
+		* Description: 
+		* This JavaScript file provides an algorithm that can be used to add a heatmap
+		* overlay on a Bing Maps v7 control. The intensity and temperature palette
+		* of the heatmap are designed to be easily customisable.
+		*
+		* Requirements:
+		* The heatmap layer itself is created dynamically on the client-side using
+		* the HTML5 <canvas> element, and therefore requires a browser that supports
+		* this element. It has been tested on IE9, Firefox 3.6/4 and 
+		* Chrome 10 browsers. If you can confirm whether it works on other browsers or
+		* not, I'd love to hear from you!
 
-        * Usage:
-        * The HeatMapLayer constructor requires:
-        * - A reference to a map object
-        * - An array or Microsoft.Maps.Location items
-        * - Optional parameters to customise the appearance of the layer
-        *  (Radius,, Unit, Intensity, and ColourGradient), and a callback function
+		* Usage:
+		* The HeatMapLayer constructor requires:
+		* - A reference to a map object
+		* - An array or Microsoft.Maps.Location items
+		* - Optional parameters to customise the appearance of the layer
+		*  (Radius,, Unit, Intensity, and ColourGradient), and a callback function
         *
         */
 

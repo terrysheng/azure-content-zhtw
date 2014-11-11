@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-xamarin-ios-get-started" urlDisplayName="Get Started with Mobile Services for Xamarin iOS apps" pageTitle="Get Started with Mobile Services for Xamarin iOS apps - Azure Mobile Services" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development" metaCanonical="" services="" documentationCenter="Mobile" title="Get Started with Mobile Services for Xamarin iOS apps" authors="donnam" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # <a name="getting-started"> </a>開始使用行動服務
 
@@ -12,7 +12,7 @@
 
 以下是完成應用程式的螢幕擷取畫面：
 
-![][]
+![][0]
 
 完成本教學課程是 Xamarin iOS 應用程式所有其他行動服務教學課程的先決條件。
 
@@ -87,12 +87,13 @@
 -   [開始使用推播通知][開始使用推播通知]
     了解如何將極為基本的推播通知傳送到應用程式。
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+<!-- Anchors. -->
+<!-- Images. -->
+<!-- URLs. -->
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [JavaScript 後端版本]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started
-  [快速入門：新增行動服務 (.NET 後端)]: http://msdn.microsoft.com/zh-tw/library/windows/apps/dn629482.aspx
-  []: ./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-completed-ios.png
+  [0]: ./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-completed-ios.png
   [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
   [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md

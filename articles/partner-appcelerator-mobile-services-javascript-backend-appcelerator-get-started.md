@@ -1,6 +1,6 @@
 <properties pageTitle="Get Started with Azure Mobile Services for Appcelerator Titanium" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator team;mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator="" team;mahender" />
 
 # <a name="getting-started"> </a>開始使用行動服務
 
@@ -40,7 +40,7 @@
 
 1.  開啟 Titanium studio，並移至 [檔案] -\> [匯入] 以匯入先前下載的專案。
 
-    ![][]
+    ![][0]
 
 2.  在下個畫面中，選取 [Existing Projects into Workspace]，然後按 [下一步]。
 
@@ -70,11 +70,11 @@
 
     ![][7]
 
-如此會傳送 POST 要求到 Windows Azure 中代管的新行動服務。</cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">要求中的資料會插入</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> TodoItem </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">資料表中。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"></cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">行動服務會傳回資料表中儲存的項目，而該資料會顯示在清單中。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">
+    如此會傳送 POST 要求到 Windows Azure 中代管的新行動服務。</cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">要求中的資料會插入</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> TodoItem </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">資料表中。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"></cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">行動服務會傳回資料表中儲存的項目，而該資料會顯示在清單中。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">
 
-![][8]
+    ![][8]
 
-> [WACOM.NOTE]您可以檢閱存取行動服務來查詢和插入資料的程式碼，這可以在 TodoService.m 檔案中找到。
+    > [WACOM.NOTE]您可以檢閱存取行動服務來查詢和插入資料的程式碼，這可以在 TodoService.m 檔案中找到。
 
 1.  回到管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。
 
@@ -100,7 +100,7 @@
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [Todolist 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=506859
 <!-- Images. --> 
-  []: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image007.png
+  [0]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image007.png
   [1]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image008.png
   [2]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image009.png
   [3]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image010.png

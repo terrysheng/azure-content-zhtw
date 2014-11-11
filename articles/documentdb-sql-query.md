@@ -1,9 +1,8 @@
 <properties title="Query with DocumentDB SQL" pageTitle="Query with DocumentDB SQL | Azure" description="DocumentDB supports querying of documents using SQL-like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes." metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # 查詢 DocumentDB
-
 Azure DocumentDB 支援在階層式 JSON 文件上使用熟悉的 SQL (結構化查詢語言) 來查詢文件。DocumentDB 確實是無結構描述。透過直接在資料庫引擎內承諾 JSON 資料模型，它提供 JSON 文件的自動編製索引，而不需要明確的結構描述或建立次要索引。
 設計 DocumentDB 的查詢語言時，有兩個目標：
 
@@ -132,7 +131,7 @@ Azure DocumentDB 支援在階層式 JSON 文件上使用熟悉的 SQL (結構化
 
 -   因為 DocumentDB SQL 處理 JSON 值，所以它處理樹狀形式的實體，而不是資料列和資料行。因此，此語言可讓人員參照樹狀目錄中任意深度的節點，例如 `Node1.Node2.Node3…..Nodem`，其類似於參照 `<table>.<column>` 之兩個部分參考的關聯式 SQL。
 -   語言處理無結構描述的資料。因此，需要動態繫結類型系統。相同的運算式可能會對不同的文件產生不同的類型。查詢的結果是有效的 JSON 值，但不保證是固定的結構描述。
--   DocumentDB 只支援嚴謹的 JSON 文件。這表示類型系統和運算式只能處理 JSON 類型。如需詳細資料，請參閱 [JSON 規格] (<http://www.json.org/> (英文))。
+-   DocumentDB 只支援嚴謹的 JSON 文件。這表示類型系統和運算式只能處理 JSON 類型。如需詳細資料，請參閱 [JSON 規格] (http://www.json.org/) (英文))。
 -   DocumentDB 集合是 JSON 文件的無結構描述容器。集合中文件內以及跨文件之資料實體中的關聯，是透過內含項目進行隱含地擷取，而不是透過 PK-FK 關聯。這是本文稍後討論之文件內聯結中值得指出的重要部分。
 
 # DocumentDB 索引
@@ -153,7 +152,7 @@ Azure DocumentDB 支援在階層式 JSON 文件上使用熟悉的 SQL (結構化
 
 -   有效率地儲存：基於成本效益，索引的磁碟儲存體額外負荷有所限制且可預測。這十分重要，因為 DocumentDB 允許開發人員做出索引額外負荷與查詢效能之間的成本取捨。
 
-如需如何設定集合的索引原則，請參閱 MSDN 上的 [DocumentDB 範例] (<http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content> (英文))。現在，讓我們深入討論 DocumentDB SQL 語言。
+如需如何設定集合的索引原則，請參閱 MSDN 上的 [DocumentDB 範例] (http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content) (英文))。現在，讓我們深入討論 DocumentDB SQL 語言。
 
 # DocumentDB 查詢基礎
 
@@ -1432,7 +1431,7 @@ LINQ 是一種 .NET 程式設計模型，將運算表示為對物件串流的查
 
 下圖顯示使用 DocumentDB 支援 LINQ 查詢的架構。開發人員可以使用 DocumentDB 用戶端建立 **IQueryable** 物件，以將查詢導向 DocumentDB 查詢提供者，而該查詢提供者接著會將 LINQ 查詢轉譯為 DocumentDB 查詢。然後，將查詢傳遞給 DocumentDB 伺服器，以擷取一組具有 JSON 格式的結果。傳回的結果會在用戶端還原序列化為 .NET 物件的串流。
 
-![][]
+![][0]
 
 ## .NET 和 JSON 對應
 
@@ -1844,7 +1843,7 @@ DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用
 
 如果查詢的結果無法放入結果的單一頁面內，則 REST API 會透過 `x-ms-continuation-token` 傳回接續 Token。用戶端可以透過在後續結果中包括標頭，以將結果分頁。每頁的結果數目也可以透過 `x-ms-max-item-count` 控制。
 
-若要管理查詢的資料一致性原則，請使用 `x-ms-consistency-level` 標頭 (例如所有 REST API 要求)。針對工作階段一致性，也需要在查詢要求中回應最新的 `x-ms-session-token` Cookie 標頭。請注意，所查詢集合的索引原則也可能會影響查詢結果的一致性。運用預設索引原則設定，集合的索引一律會具有最新文件內容，而且查詢結果會符合針對資料所選擇的一致性。如果編索引原則放寬為 Lazy，則查詢可能會傳回過時的結果。如需詳細資訊，請參閱 [DocumentDB 一致性層級][]。
+若要管理查詢的資料一致性原則，請使用 `x-ms-consistency-level` 標頭 (例如所有 REST API 要求)。針對工作階段一致性，也需要在查詢要求中回應最新的 `x-ms-session-token` Cookie 標頭。請注意，所查詢集合的索引原則也可能會影響查詢結果的一致性。運用預設索引原則設定，集合的索引一律會具有最新文件內容，而且查詢結果會符合針對資料所選擇的一致性。如果編索引原則放寬為 Lazy，則查詢可能會傳回過時的結果。如需詳細資訊，請參閱 [DocumentDB 一致性層級][consistency-levels]。
 
 如果集合上所設定的索引原則無法支援指定的查詢，則 DocumentDB 伺服器會傳回 400「不正確的要求」。針對範圍查詢 (針對雜湊 (相等) 查閱所設定的路徑) 以及明確地排除不進行編製索引的路徑，會傳回此訊息。`x-ms-documentdb-query-enable-scan` 標頭可以指定成允許查詢在無法使用索引時執行掃描。
 
@@ -1925,7 +1924,7 @@ DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用
 
 開發人員也可以明確地控制分頁，方法是使用 `IQueryable` 物件建立 `IDocumentQueryable`，然後讀取 `ResponseContinuationToken` 值，並將它們以 `FeedOptions` 中的 `RequestContinuationToken` 傳回。`EnableScanInQuery` 可以設定為在設定的索引原則不支援查詢時啟用掃描。
 
-如需查詢的其他範例，請參閱 [DocumentDB .NET 範例] (<http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content> (英文))。
+如需查詢的其他範例，請參閱 [DocumentDB .NET 範例] (http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content) (英文))。
 
 ## JavaScript 伺服器端 API
 
@@ -1965,25 +1964,21 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 
 # 參考
 
-1.  [Azure DocumentDB 簡介][]
-2.  [DocumentDB SQL 語言規格] (<http://go.microsoft.com/fwlink/p/?LinkID=510612> (英文))
-3.  [DocumentDB .NET 範例] (<http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content> (英文))
-4.  [DocumentDB 一致性層級][]
-5.  ANSI SQL 2011 - [][]<http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681></a> (英文)
-6.  JSON [][1]<http://json.org/></a> (英文)
-7.  Javascript 規格 [][2]<http://www.ecma-international.org/publications/standards/Ecma-262.htm></a> (英文)
-8.  LINQ [][3]<http://msdn.microsoft.com/en-us/library/bb308959.aspx></a> (英文)
-9.  大型資料庫的查詢評估技術 [][4]<http://dl.acm.org/citation.cfm?id=152611></a> (英文)
-10. 平行關聯式資料庫系統中的查詢處理 (IEEE Computer Society Press，1994 年)
-11. Lu, Ooi, Tan, 平行關聯式資料庫系統中的查詢處理 (IEEE Computer Society Press，1994 年)。
-12. Christopher Olston、Benjamin Reed、Utkarsh Srivastava、Ravi Kumar、Andrew Tomkins：Pig Latin：資料處理的 Not-So-Foreign 語言，SIGMOD 2008。
-13. G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
+1.	[Azure DocumentDB 簡介] [introduction]
+2.	[DocumentDB SQL 語言規格] (http://go.microsoft.com/fwlink/p/?LinkID=510612)
+3.	[DocumentDB .NET 範例] (http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content)
+4.	[DocumentDB 一致性層級][consistency-levels]
+5.	ANSI SQL 2011 - [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)  (英文)
+6.	JSON [http://json.org/](http://json.org/) (英文)
+7.	Javascript 規格 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) (英文)
+8.	LINQ [http://msdn.microsoft.com/zh-tw/library/bb308959.aspx](http://msdn.microsoft.com/zh-tw/library/bb308959.aspx) (英文)
+9.	大型資料庫的查詢評估技術 [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611) (英文)
+10.	平行關聯式資料庫系統中的查詢處理 (IEEE Computer Society Press，1994 年)
+11.	Lu, Ooi, Tan, 平行關聯式資料庫系統中的查詢處理 (IEEE Computer Society Press，1994 年)。
+12.	Christopher Olston、Benjamin Reed、Utkarsh Srivastava、Ravi Kumar、Andrew Tomkins：Pig Latin：資料處理的 Not-So-Foreign 語言，SIGMOD 2008。
+13.    G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
 
-  []: ./media/documentdb-sql-query/sql-query1.png
-  [DocumentDB 一致性層級]: ../documentdb-consistency-levels
-  [Azure DocumentDB 簡介]: ../documentdb-introduction
-  []: http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681
-  [1]: http://json.org/
-  [2]: http://www.ecma-international.org/publications/standards/Ecma-262.htm
-  [3]: http://msdn.microsoft.com/en-us/library/bb308959.aspx
-  [4]: http://dl.acm.org/citation.cfm?id=152611
+  [0]: ./media/documentdb-sql-query/sql-query1.png
+  [consistency-levels]: ../documentdb-consistency-levels
+  [introduction]: ../documentdb-introduction
+

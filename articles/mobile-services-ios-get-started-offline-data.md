@@ -29,15 +29,19 @@
 
 **完整教學課程即將推出。在這段期間，請參閱範例 [iOS 離線待辦事項清單][iOS 離線待辦事項清單]和[同好部落格貼文][同好部落格貼文]。**
 
-<!-- ## Next steps  * [How to use the Mobile Services client library for iOS]    --> <!-- URLs. -->
+<!-- ## Next steps
 
-  [Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows 市集 C#"
-  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /zh-tw/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
-  [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-ios-get-started/
-  [開始使用資料]: /zh-tw/documentation/articles/mobile-services-ios-get-started-data/
-  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28
-  [iOS 離線待辦事項清單]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
-  [同好部落格貼文]: http://aka.ms/iosoffline
+* [How to use the Mobile Services client library for iOS]
+   -->
+
+<!-- URLs. -->
+[Windows 市集 C#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows 市集 C#"
+[Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
+[iOS]: /zh-tw/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
+[Xamarin.iOS]: /zh-tw/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
+[Xamarin.Android]: /zh-tw/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
+[開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-ios-get-started/
+[開始使用資料]: /zh-tw/documentation/articles/mobile-services-ios-get-started-data/
+[Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28
+[iOS 離線待辦事項清單]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
+[同好部落格貼文]: http://aka.ms/iosoffline

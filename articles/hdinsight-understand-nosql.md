@@ -1,6 +1,6 @@
-<properties linkid="manage-hdinsight-understand-nosql" urlDisplayName="Understand NoSQL technologies" pageTitle="Understanding NoSQL Technologies on Azure | Azure" metaKeywords="" description="Learn how NoSQL technologies on HDInsight can help you manage data not suited to relational databases, such as big data sets and JSON documents or graphs." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="dchappell" />
+<properties urlDisplayName="Understand NoSQL technologies" pageTitle="了解 Azure 上的 NoSQL 技術 | Azure" metaKeywords="" description="了解 HDInsight 上的 NoSQL 技術如何協助您管理不適用於關聯式資料庫的資料，例如巨量資料集和 JSON 文件或圖形。" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="資料管理：了解 Azure 上的 NoSQL 技術" authors="dchappell" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="dchappell"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="dchappell" />
 
 # 資料管理：了解 Azure 上的 NoSQL 技術
 
@@ -21,14 +21,14 @@
 -   Azure NoSQL 技術：分析資料
 
     -   Hadoop MapReduce
-    -   HDInsight
+    -   Oozie 協調器
 
 **作者：** David Chappell, Principal of Chappell & Associates
 
-**發行日期：** 2013 年 11 月
+**發行日期：**2013 年 11 月
 
 **修訂：** 1.0
 
-**下載：** [了解 Azure 上的 NoSQL 技術 PDF 檔案][]
+**下載：** [了解 Azure 上的 NoSQL 技術 PDF 檔案][了解 Azure 上的 NoSQL 技術 PDF 檔案]
 
   [了解 Azure 上的 NoSQL 技術 PDF 檔案]: http://go.microsoft.com/fwlink/p/?LinkId=330292

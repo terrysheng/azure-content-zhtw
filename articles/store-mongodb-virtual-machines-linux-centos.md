@@ -1,4 +1,4 @@
-<properties linkid="store-mongodb-virtual-machines-linux-centos" urlDisplayName="Install MongoDB" pageTitle="nstall MongoDB on a virtual machine running CentOS Linux in Azure" metaKeywords="Azure, MongoDB" description="Learn how to install Mongo DB on a virtual machine in Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Azure" authors="bbenz, MSOpenTech" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Install MongoDB" pageTitle="在 Azure 中執行 CentOS Linux 的虛擬機器上安裝 MongoDB" metaKeywords="Azure, MongoDB" description="了解如何在 Azure 的虛擬機器上安裝 Mongo DB。" metaCanonical="" services="" documentationCenter="" title="在 Azure 中執行 CentOS Linux 的虛擬機器上安裝 MongoDB" authors="bbenz, MSOpenTech" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="" ms.topic="article" ms.date="01/01/1900" ms.author="bbenz, MSOpenTech" />
 
@@ -26,6 +26,4 @@
 
   [MongoDB]: http://www.mongodb.org/
   [Azure 管理入口網站]: http://manage.windowsazure.com
-  [create-and-configure-centos-vm-in-portal]: ../includes/create-and-configure-centos-vm-in-portal.md
-  [install-and-run-mongo-on-centos-vm]: ../includes/install-and-run-mongo-on-centos-vm.md
   [MongoDB 文件]: http://www.mongodb.org/display/DOCS/Home

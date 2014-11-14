@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-howto-configure-raid" urlDisplayName="Configure RAID on Linux" pageTitle="Configure software RAID on avirtual machine running Linux in Azure" metaKeywords="raid in Azure, madadm Azure, stripe disks in Azure" description="Learn how to use mdadm to configure RAID on Linux in Azure." metaCanonical="http://www.windowsazure.com/zh-tw/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="szark" manager="timlt" editor=""  />
+<properties urlDisplayName="Configure RAID on Linux" pageTitle="在 Azure 中執行 Linux 的虛擬機器上設定軟體 RAID" metaKeywords="raid in Azure, madadm Azure, stripe disks in Azure" description="了解如何使用 mdadm，在 Azure 的 Linux 上設定 RAID。" metaCanonical="http://www.windowsazure.com/zh-tw/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="szark" manager="timlt" editor=""  />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
 # 在 Linux 上設定軟體 RAID
 
@@ -8,9 +8,9 @@
 
 ## 連接資料磁碟
 
-設定 RAID 裝置通常需要兩個以上的空白資料磁碟。本文將不會詳細說明如何將資料磁碟連接至 Linux 虛擬機器。請參閱 Windows Azure 文章[連接磁碟][]，以取得如何在 Azure 上將空白資料磁碟連接至 Linux 虛擬機器的詳細指示。
+設定 RAID 裝置通常需要兩個以上的空白資料磁碟。本文將不會詳細說明如何將資料磁碟連接至 Linux 虛擬機器。請參閱 Windows Azure 文章[連接磁碟][連接磁碟]，以取得如何在 Azure 上將空白資料磁碟連接至 Linux 虛擬機器的詳細指示。
 
-> [WACOM.NOTE] ExtraSmall VM 大小不支援將多個資料磁碟連接到虛擬機器。如需支援的 VM 大小與資料磁碟數目的詳細資訊，請參閱 [Windows Azure 的虛擬機器和雲端服務大小][] (英文)。
+> [WACOM.NOTE] ExtraSmall VM 大小不支援將多個資料磁碟連接到虛擬機器。如需支援的 VM 大小與資料磁碟數目的詳細資訊，請參閱 [Windows Azure 的虛擬機器和雲端服務大小][Windows Azure 的虛擬機器和雲端服務大小] (英文)。
 
 ## 安裝 mdadm 公用程式
 
@@ -86,7 +86,7 @@
         # sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
           /dev/sdc1 /dev/sdd1 /dev/sde1
 
-    在本範例中，執行此命令後，便會建立一個名為 **/dev/md127** 的新 RAID 裝置。同時請注意，如果這些資料磁碟先前是另一個無用 RAID 陣列的一部分，則您可能需要在 `mdadm` 命令中加上 `--force` 參數。
+在本範例中，執行此命令後，便會建立一個名為 **/dev/md127** 的新 RAID 裝置。同時請注意，如果這些資料磁碟先前是另一個無用 RAID 陣列的一部分，則您可能需要在 `mdadm` 命令中加上 `--force` 參數。
 
 1.  在新的 RAID 裝置上建立檔案系統
 

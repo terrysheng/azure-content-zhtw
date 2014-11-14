@@ -1,6 +1,6 @@
-<properties linkid="develop-php-common-tasks-create-web-and-worker-roles" urlDisplayName="Create Web and Worker Roles" pageTitle="Create Web and Worker Roles" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="How to create PHP web and worker roles" authors="bswan" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Create Web and Worker Roles" pageTitle="建立 Web 角色和背景工作角色" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="如何建立 PHP Web 和背景工作角色" authors="bswan" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="bswan"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="bswan" />
 
 # 如何建立 PHP Web 和背景工作角色
 
@@ -216,19 +216,19 @@ Azure 計算和儲存模擬器所提供的本機環境，可讓您在 Azure 應�
   [作法：使用您自己的 PHP 執行階段]: #OwnPHP
   [作法：在計算和儲存模擬器中執行您的應用程式]: #Emulators
   [作法：發佈您的應用程式]: #Publish
-  [Azure 網站]: /zh-TW/develop/net/fundamentals/compute/#WebSites
-  [Azure 虛擬機器]: /zh-TW/develop/net/fundamentals/compute/#VMachine
-  [Azure 雲端服務]: /zh-TW/develop/net/fundamentals/compute/#CloudServices
-  [什麼是雲端服務？]: /zh-TW/manage/services/cloud-services/what-is-a-cloud-service/
-  [Azure SDK for PHP]: /zh-TW/develop/php/common-tasks/download-php-sdk/
+  [Azure 網站]: /zh-tw/develop/net/fundamentals/compute/#WebSites
+  [Azure 虛擬機器]: /zh-tw/develop/net/fundamentals/compute/#VMachine
+  [Azure 雲端服務]: /zh-tw/develop/net/fundamentals/compute/#CloudServices
+  [什麼是雲端服務？]: /zh-tw/manage/services/cloud-services/what-is-a-cloud-service/
+  [Azure SDK for PHP]: /zh-tw/develop/php/common-tasks/download-php-sdk/
   [安裝 Azure PowerShell 和 Azure 模擬器]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
-  [服務定義 (.csdef)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee758711.aspx
-  [服務組態 (.cscfg)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee758710.aspx
+  [服務定義 (.csdef)]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758711.aspx
+  [服務組態 (.cscfg)]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758710.aspx
   [適用於 PHP for SQL Server 的 Microsoft 驅動程式]: http://php.net/sqlsrv
-  [SQL Server Native Client 2012]: http://msdn.microsoft.com/zh-TW/sqlserver/aa937733.aspx
+  [SQL Server Native Client 2012]: http://msdn.microsoft.com/zh-tw/sqlserver/aa937733.aspx
   [sqlncli.msi x64 安裝程式]: http://go.microsoft.com/fwlink/?LinkID=239648
   [Internet Information Services (IIS)]: http://www.iis.net/
-  [計算模擬器與 Azure 之間的差異]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg432960.aspx
-  [儲存模擬器與 Azure 儲存服務之間的差異]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg433135.aspx
-  [作法：匯入發佈設定]: /zh-TW/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
-  [作法：將雲端服務部署至 Azure]: /zh-TW/develop/php/how-to-guides/powershell-cmdlets/#Deploy
+  [計算模擬器與 Azure 之間的差異]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg432960.aspx
+  [儲存模擬器與 Azure 儲存服務之間的差異]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433135.aspx
+  [作法：匯入發佈設定]: /zh-tw/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
+  [作法：將雲端服務部署至 Azure]: /zh-tw/develop/php/how-to-guides/powershell-cmdlets/#Deploy

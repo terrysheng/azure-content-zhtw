@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-file-storage" urlDisplayName="File Service" pageTitle="How to use Azure File storage | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure File storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="File Service" pageTitle="如何使用 Azure 檔案儲存體 | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="了解如何使用 Microsoft Azure 檔案儲存體來建立檔案共用和管理檔案內容。範例以 PowerShell 和 C# 撰寫。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="如何在 .NET 中使用 Microsoft Azure 檔案儲存體" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -55,7 +55,7 @@
 
 -   **URL 格式：** 您可利用下列 URL
     格式來定址檔案：
-    `https://<storage account>.file.core.windows.net/<share>/<directory/directories>/<file>`
+    https://`<storage account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`
 
     下列範例 URL 可用來定址上圖的
     其中一個檔案：
@@ -262,7 +262,6 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
   [Azure 儲存體延展性和效能目標]: http://msdn.microsoft.com/zh-tw/library/dn249410.aspx
   [命名和參考共用、目錄、檔案及中繼資料]: http://msdn.microsoft.com/zh-tw/library/azure/dn167011.aspx
   [Microsoft Azure 預覽版頁面]: /zh-tw/services/preview/
-  [create-storage-account]: ../includes/create-storage-account.md
   [如何安裝和設定 Azure PowerShell]: /zh-tw/documentation/articles/install-configure-powershell/
   [建立執行 Windows Server 的虛擬機器]: /zh-tw/documentation/articles/virtual-machines-windows-tutorial/
   [如何登入執行 Windows Server 的虛擬機器]: /zh-tw/documentation/articles/virtual-machines-log-on-windows-server/

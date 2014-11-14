@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-sample-pi-estimator" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The Pi estimator Hadoop sample in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample,  hadoop, mapreduce" description="Learn how to run an Hadoop MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The Pi estimator Hadoop sample in HDInsight" authors="bradsev" />
+<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="HDInsight 中的 Pi 估算器 Hadoop 範例 | Azure" metaKeywords="hdinsight, hdinsight sample,  hadoop, mapreduce" description="了解如何在 HDInsight 上執行 Hadoop MapReduce 範例。" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="HDInsight 中的 Pi 估算器 Hadoop 範例" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # HDInsight 中的 Pi 估算器 Hadoop 範例
 
@@ -14,7 +14,7 @@
 
 .jar 檔案包含 Azure 的 Hadoop 在部署應用程式時所需的檔案，是一個可供下載的 .zip 檔案。您可以利用各種壓縮公用程式來解壓縮此檔案，以方便探索其中的檔案。
 
-＜[執行 HDInsight 範例][]＞列出其他範例來協助您更快使用 HDInsight 來執行 MapReduce 工作，也提供執行指示的連結。
+＜[執行 HDInsight 範例][執行 HDInsight 範例]＞列出其他範例來協助您更快使用 HDInsight 來執行 MapReduce 工作，也提供執行指示的連結。
 
 **您將了解：**
 
@@ -23,26 +23,26 @@
 
 **必要條件**：
 
--   您必須具有 Azure 帳號。如需帳號註冊方式的相關資訊，請參閱 [Azure 免費試用][]頁面。
+-   您必須具有 Azure 帳號。如需帳號註冊方式的相關資訊，請參閱 [Azure 免費試用][Azure 免費試用]頁面。
 
--   您必須已佈建 HDInsight 叢集。如需有關透過其他各種方法建立此類叢集的指示，請參閱[佈建 HDInsight 叢集][]。
+-   您必須已佈建 HDInsight 叢集。如需有關透過其他各種方法建立此類叢集的指示，請參閱[佈建 HDInsight 叢集][佈建 HDInsight 叢集]。
 
--   您必須已安裝 Azure PowerShell 並加以設定，使其可用於您的帳號。如需執行此項作業之指示，請參閱＜[安裝和設定 Azure PowerShell][]＞。
+-   您必須已安裝 Azure PowerShell 並加以設定，使其可用於您的帳號。如需執行此項作業之指示，請參閱＜[安裝和設定 Azure PowerShell][安裝和設定 Azure PowerShell]＞。
 
 ## 本文內容
 
 本主題說明如何執行範例、呈現 Pi 估計器 MapReduce 程式的 Java 程式碼、總結所學知識及概述一些後續步驟。其中包含下列幾節。
 
-1.  [使用 Azure PowerShell 執行範例][]
-2.  [Pi 估計器 MapReduce 程式的 Java 程式碼][]
-3.  [摘要][]
-4.  [後續步驟][]
+1.  [使用 Azure PowerShell 執行範例][使用 Azure PowerShell 執行範例]
+2.  [Pi 估計器 MapReduce 程式的 Java 程式碼][Pi 估計器 MapReduce 程式的 Java 程式碼]
+3.  [摘要][摘要]
+4.  [後續步驟][後續步驟]
 
 ## <span id="run-sample"></span></a>使用 Azure PowerShell 執行範例
 
 **提交 MapReduce 工作**
 
-1.  開啟 Azure PowerShell。如需有關開啟 Azure PowerShell 主控台視窗的指示，請參閱[安裝和設定 Azure PowerShell][]。
+1.  開啟 Azure PowerShell。如需有關開啟 Azure PowerShell 主控台視窗的指示，請參閱[安裝和設定 Azure PowerShell][安裝和設定 Azure PowerShell]。
 2.  在下列命令中設定 2 個變數，然後執行這些命令：
 
         $subscriptionName = "<SubscriptionName>"   # Azure subscription name
@@ -50,11 +50,9 @@
 
 3.  執行下列命令來建立 MapReduce 定義：
 
-        $piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "pi" -Arguments "16", "10000000" 
+        $piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "pi" -Arguments "16", "10000000" 
 
-    > [WACOM.NOTE] *hadoop-examples.jar* 隨附於 2.1 版 HDInsight 叢集。在 3.0 版 HDInsight 叢集上，該檔案已重新命名為 *hadoop-mapreduce.jar*。
-
-    第一個引數指出要建立多少個對應 (預設為 16 個)。第二個引數指出每個對應要產生多少個樣本 (預設為 1 千萬個)。因此，此程式使用 16\*1 千萬 = 1 億 6 千萬個隨機點來估計 Pi。
+    第一個引數指出要建立多少個對應 (預設為 16 個)。第二個引數指出每個對應要產生多少個樣本 (預設為 1 千萬個)。因此，此程式使用 16\*1 千萬 = 1 億 6 千萬個隨機點來估計 Pi。第三個引數指出在 HDInsight 3.0 和 3.1 叢集上用來執行範例的 jar 檔位置和名稱(此檔案的內容如下)。
 
 4.  執行下列命令來提交 MapReduce 工作，並等待工作完成：
 
@@ -163,8 +161,8 @@
     HaltonSequence(long startindex) {   
     index = startindex; 
     x = new double[K.length];   
-    q = new double[K.length][]; 
-    d = new int[K.length][];    
+    q = new double[K.length][K.length]; 
+    d = new int[K.length][K.length];    
     for(int i = 0; i < K.length; i++) { 
     q[i] = new double[K[i]];    
     d[i] = new int[K[i]];   
@@ -415,7 +413,7 @@
 
 本教學課程中，您看到如何在 HDInsight 上執行 MapReduce 工作，以及如何使用蒙特卡羅法，此方法需要且會產生可由此服務來管理的大型資料集。
 
-以下是在預設 HDInsight 2.1 叢集上執行此範例所使用的完整指令碼。(只需變更 .jar 檔案名稱，便可在 HDInsight 3.0 叢集上執行此範例：將 hadoop-examples.jar 變成 hadoop-mapreduce-examples.jar。)
+以下是在預設 HDInsight 3.1 叢集或 3.0 叢集上執行此範例所使用的完整指令碼。
 
     ### Provide the Windows Azure subscription name and the HDInsight cluster name. 
     $subscriptionName = "<SubscriptionName>" 
@@ -425,7 +423,7 @@
     Select-AzureSubscription $subscriptionName 
 
     ### Create a MapReduce job definition. 
-    $piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -ClassName "pi" –Arguments “32”, “1000000000” -JarFile "wasb:///example/jars/hadoop-examples.jar"
+    $piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -ClassName "pi" –Arguments “32”, “1000000000” -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar"
 
     ### Run the MapReduce job. 
     $piJob = $piEstimatorJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName
@@ -440,16 +438,16 @@
 
 關於執行其他範例的教學課程，以及如何以 Azure PowerShell 在 Azure HDInsight 上使用 Pig、Hive 和 MapReduce 工作的指示，請參閱下列主題：
 
--   [Azure HDInsight 使用者入門][]
--   [範例：10GB GraySort][]
--   [範例：字數統計][]
--   [範例：C# 串流][]
--   [搭配 HDInsight 使用 Pig][]
--   [搭配 HDInsight 使用 Hive][]
--   [Azure HDInsight SDK 文件][]
+-   [Azure HDInsight 使用者入門][Azure HDInsight 使用者入門]
+-   [範例：10GB GraySort][範例：10GB GraySort]
+-   [範例：字數統計][範例：字數統計]
+-   [範例：C# 串流][範例：C# 串流]
+-   [搭配 HDInsight 使用 Pig][搭配 HDInsight 使用 Pig]
+-   [搭配 HDInsight 使用 Hive][搭配 HDInsight 使用 Hive]
+-   [Azure HDInsight SDK 文件][Azure HDInsight SDK 文件]
 
   [執行 HDInsight 範例]: ../hdinsight-run-samples/
-  [Azure 免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Azure 免費試用]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
   [佈建 HDInsight 叢集]: ../hdinsight-provision-clusters/
   [安裝和設定 Azure PowerShell]: ../install-configure-powershell/
   [使用 Azure PowerShell 執行範例]: #run-sample
@@ -462,4 +460,4 @@
   [範例：C# 串流]: ../hdinsight-sample-csharp-streaming/
   [搭配 HDInsight 使用 Pig]: ../hdinsight-use-pig/
   [搭配 HDInsight 使用 Hive]: ../hdinsight-use-hive/
-  [Azure HDInsight SDK 文件]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Azure HDInsight SDK 文件]: http://msdnstage.redmond.corp.microsoft.com/zh-tw/library/dn479185.aspx

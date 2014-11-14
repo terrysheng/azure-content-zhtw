@@ -1,6 +1,6 @@
-<properties linkid="develop-php-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="PHP" title="How to use the Table service from PHP" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="如何使用資料表儲存體 (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="了解如何使用 PHP 的資料表服務來建立和刪除資料表，以及插入、刪除和查詢資料表。" metaCanonical="" services="storage" documentationCenter="PHP" title="如何透過 PHP 使用資料表服務" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # 如何透過 PHP 使用資料表服務
 
@@ -74,6 +74,7 @@
 
 -   直接將連接字串傳遞給它，或
 -   使用 **CloudConfigurationManager (CCM)** 到多種外部來源檢查連接字串：
+
     -   預設已支援一種外部來源，即環境變數
     -   您可以擴充 **ConnectionStringSource** 類別以加入新來源
 
@@ -486,9 +487,7 @@
   [作法：更新實體]: #UpdateEntity
   [作法：批次資料表作業]: #BatchOperations
   [作法：刪除資料表]: #DeleteTable
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [get-client-libraries]: ../includes/get-client-libraries.md
+  [require\_once]: http://php.net/require_once
   [設定表格服務作業的逾時值]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dd894042.aspx
   [了解表格服務資料模型]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179338.aspx
   [查詢資料表和實體]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dd894031.aspx

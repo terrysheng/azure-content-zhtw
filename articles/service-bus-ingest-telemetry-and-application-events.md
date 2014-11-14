@@ -1,6 +1,6 @@
-<properties pageTitle="Ingest Telemetry and Application Events at Scale" metaKeywords="Service Bus, telemetry, events" description="Learn how to ingest telemetry and application events at scale across your business solutions." services="service-bus" documentationCenter=".NET" title="Ingest Telemetry and Application Events at Scale" authors="sethm" solutions="" manager="dwrede" editor="dwrede" />
+<properties pageTitle="大規模擷取遙測和應用程式事件" metaKeywords="Service Bus, telemetry, events" description="了解如何為您的各個商業解決方案大規模擷取遙測和應用程式事件。" services="service-bus" documentationCenter=".NET" title="大規模擷取遙測和應用程式事件" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Ingest 遙測和應用程式事件規模
 
@@ -20,7 +20,7 @@
 ## 相關服務
 
 -   [儲存體][儲存體]
--   [HDInsight][HDInsight]
+-   [Oozie 協調器][Oozie 協調器]
 
   [事件中心]: http://msdn.microsoft.com/zh-tw/library/dn789973.aspx
   [事件中心定價詳細資料]: http://azure.microsoft.com/zh-tw/pricing/details/event-hubs/
@@ -28,4 +28,4 @@
   [事件中心 REST API 參考]: http://go.microsoft.com/fwlink/?LinkId=403977
   [事件中心程式碼範例]: http://go.microsoft.com/fwlink/?LinkID=402449
   [儲存體]: http://azure.microsoft.com/zh-tw/documentation/services/storage/
-  [HDInsight]: http://azure.microsoft.com/zh-tw/documentation/services/hdinsight/
+  [Oozie 協調器]: http://azure.microsoft.com/zh-tw/documentation/services/hdinsight/

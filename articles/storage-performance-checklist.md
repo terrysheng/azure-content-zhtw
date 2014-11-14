@@ -1,0 +1,716 @@
+<properties title="Microsoft Azure 儲存體效能與延展性檢查清單" pageTitle="Microsoft Azure 儲存體效能與延展性檢查清單" description="必要" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="Tamra Myers" videoId="Optional" scriptId="Optional" />
+
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/08/2014" ms.author="tamram" />
+
+# Microsoft Azure 儲存體效能與延展性檢查清單
+
+## 簡介
+
+在推出 Microsoft Azure 儲存體服務後，Microsoft 針對以具效能方式使用這些服務方面，開發許多已經實證的做法，本文的目的在於將最重要的做法整合成「檢查清單」的樣式清單。本文旨在協助應用程式開發人員驗證他們在 Azure 儲存體上使用的做法是否已經實證，並協助他們識別應該考慮採用的其他已經實證做法。本文並不嘗試包含每個可能的效能與延展性最佳化做法 — 它會將影響不大或無法廣泛適用的做法排除。對於設計過程中可預測的應用程式行為，一開始便謹記這些行為將可避免設計遇到效能問題。
+
+每位使用 Azure 儲存體的應用程式開發人員都應該花一點時間閱讀本文，並檢查他或她的應用程式是否遵循以下所列的每個已經實證做法。
+
+## 檢查清單
+
+本文將已經實證做法分成下列幾類。已經實證做法的適用對象：
+
+-   所有 Azure 儲存體服務 (Blob、資料表、佇列和檔案)
+-   Blob
+-   資料表
+-   佇列
+
+Azure 檔案服務目前為預覽版，我們將於日後加入以下的已經實證做法。
+
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">完成</th>
+<th align="left">領域</th>
+<th align="left">類別</th>
+<th align="left">問題</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">所有服務</td>
+<td align="left">延展性目標</td>
+<td align="left"><a href="#subheading1">您的應用程式是否旨在避免達到延展性目標？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">所有服務</td>
+<td align="left">網路</td>
+<td align="left"><a href="#subheading2">用戶端裝置是否有足夠高的頻寬和足夠低的延遲，以達到所需的效能？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">所有服務</td>
+<td align="left">網路</td>
+<td align="left"><a href="#subheading3">用戶端裝置是否有足夠高的品質連結？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">所有服務</td>
+<td align="left">網路</td>
+<td align="left"><a href="#subheading4">用戶端應用程式的位置是否靠近儲存體帳戶？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">所有服務</td>
+<td align="left">內容發佈</td>
+<td align="left"><a href="#subheadin5">您是否會使用 CDN 進行內容發佈？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">所有服務</td>
+<td align="left">直接用戶端存取</td>
+<td align="left"><a href="#subheading6">您是否會使用 SAS 和 CORS (而不是 Proxy) 來允許儲存體的直接存取？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">所有服務</td>
+<td align="left">快取</td>
+<td align="left"><a href="#subheading7">您的應用程式是否會針對重複使用和極少變更的資料進行快取？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">所有服務</td>
+<td align="left">快取</td>
+<td align="left"><a href="#subheading8">您的應用程式是否會批次執行更新 (在用戶端快取更新，然後以大型集合的方式上傳)？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">所有服務</td>
+<td align="left">.NET 組態</td>
+<td align="left"><a href="#subheading9">您是否已設定用戶端使用足夠數量的並行連線？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">所有服務</td>
+<td align="left">.NET 組態</td>
+<td align="left"><a href="#subheading10">您是否已設定 .NET 使用足夠數量的執行緒？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">所有服務</td>
+<td align="left">.NET 組態</td>
+<td align="left"><a href="#subheading11">您使用的是已改善記憶體回收的 .NET 4.5 或更新版本嗎？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">所有服務</td>
+<td align="left">平行處理原則</td>
+<td align="left"><a href="#subheading12">您是否已確保平行處理原則已適當地受到限制，因此您的用戶端功能或延展性目標不會超載？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">所有服務</td>
+<td align="left">工具</td>
+<td align="left"><a href="#subheading13">您是否使用 Microsoft 所提供的最新用戶端程式庫和工具版本？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">所有服務</td>
+<td align="left">重試</td>
+<td align="left"><a href="#subheading14">您是否針對節流錯誤和逾時使用指數輪詢重試原則？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">所有服務</td>
+<td align="left">重試</td>
+<td align="left"><a href="#subheading15">您的應用程式是否避免重試不能再嘗試的錯誤？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Blob</td>
+<td align="left">延展性目標</td>
+<td align="left"><a href="#subheading16">您的應用程式是否不超過單一 Blob 的頻寬或操作延展性目標？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Blob</td>
+<td align="left">複製 Blob</td>
+<td align="left"><a href="#subheading17">您是否以有效的方式複製 Blob？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Blob</td>
+<td align="left">複製 Blob</td>
+<td align="left"><a href="#subheading18">您是否使用 AzCopy 進行 Blob 的大量複製？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Blob</td>
+<td align="left">複製 Blob</td>
+<td align="left"><a href="#subheading19">您是否使用 Azure 匯入/匯出來轉換超大量的資料？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Blob</td>
+<td align="left">使用中繼資料</td>
+<td align="left"><a href="#subheading20">您是否將 Blob 相關的常用中繼資料儲存在它的中繼資料內？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Blob</td>
+<td align="left">快速上傳</td>
+<td align="left"><a href="#subheading21">嘗試快速上傳一個 Blob 時，您是否平行上傳區塊？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Blob</td>
+<td align="left">快速上傳</td>
+<td align="left"><a href="#subheading22">嘗試快速上傳多個 Blob 時，您是否平行上傳 Blob？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Blob</td>
+<td align="left">正確的 Blob 類型</td>
+<td align="left"><a href="#subheading23">您是否在適當的時機使用分頁 Blob 或區塊 Blob？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">資料表</td>
+<td align="left">延展性目標</td>
+<td align="left"><a href="#subheading24">您的每秒實體數是否逐漸達到延展性目標？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">資料表</td>
+<td align="left">組態</td>
+<td align="left"><a href="#subheading25">您是否使用 JSON 來處理資料表要求？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">資料表</td>
+<td align="left">組態</td>
+<td align="left"><a href="#subheading26">您是否已關閉 Nagle 以提高小型要求的效能？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">資料表</td>
+<td align="left">資料表和資料分割</td>
+<td align="left"><a href="#subheading27">您是否已正確分割您的資料？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">資料表</td>
+<td align="left">常用資料分割</td>
+<td align="left"><a href="#subheading28">您是否避免只開頭附加和只結尾附加模式？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">資料表</td>
+<td align="left">常用資料分割</td>
+<td align="left"><a href="#subheading29">您的插入/更新是否散佈到許多資料分割中？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">資料表</td>
+<td align="left">查詢範圍</td>
+<td align="left"><a href="#subheading30">您是否設計結構描述以允許在大部分情況下使用點查詢，並盡量少用資料表查詢？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">資料表</td>
+<td align="left">查詢密度</td>
+<td align="left"><a href="#subheading31">您的查詢是否通常只掃描並傳回應用程式將使用的列？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">資料表</td>
+<td align="left">限制傳回資料</td>
+<td align="left"><a href="#subheading32">您是否使用篩選來避免傳回不需要的實體？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">資料表</td>
+<td align="left">限制傳回資料</td>
+<td align="left"><a href="#subheading33">您是否使用投射來避免傳回不需要的屬性？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">資料表</td>
+<td align="left">反正規化</td>
+<td align="left"><a href="#subheading34">您是否將資料反正規化，以便您在嘗試取得資料時，避免不敷使用的查詢或多個讀取要求？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">資料表</td>
+<td align="left">插入/更新/刪除</td>
+<td align="left"><a href="#subheading35">您是否批次執行必須是交易式，或可同時完成以減少反覆存取的要求？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">資料表</td>
+<td align="left">插入/更新/刪除</td>
+<td align="left"><a href="#subheading36">您是否避免擷取實體，以避免判斷是要呼叫插入或更新？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">資料表</td>
+<td align="left">插入/更新/刪除</td>
+<td align="left"><a href="#subheading37">您是否考慮將經常會被一起擷取的一系列資料，以屬性的方式儲存在單一實體中 (而非儲存在多個實體中)？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">資料表</td>
+<td align="left">插入/更新/刪除</td>
+<td align="left"><a href="#subheading38">針對總是會被一起擷取並可以批次執行方式寫入的實體 (例如時間序列資料)，您是否考慮使用 Blob (而非資料表)？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">佇列</td>
+<td align="left">延展性目標</td>
+<td align="left"><a href="#subheading39">您的每秒訊息數是否逐漸達到延展性目標？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">佇列</td>
+<td align="left">組態</td>
+<td align="left"><a href="#subheading40">您是否已關閉 Nagle 以提高小型要求的效能？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">佇列</td>
+<td align="left">訊息大小</td>
+<td align="left"><a href="#subheading41">您的訊息是否精簡以提高佇列效能？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">佇列</td>
+<td align="left">大量擷取</td>
+<td align="left"><a href="#subheading41">您是否在單一 &quot;Get&quot; 操作中擷取多則訊息？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">佇列</td>
+<td align="left">輪詢頻率</td>
+<td align="left"><a href="#subheading42">您是否夠常輪詢以降低可察覺的應用程式延遲？</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">佇列</td>
+<td align="left">更新訊息</td>
+<td align="left"><a href="#subheading43">您是否使用 UpdateMessage 來儲存處理訊息時的進度，避免在出現錯誤時需要重新處理整個訊息？</a></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">佇列</td>
+<td align="left">架構</td>
+<td align="left"><a href="#subheading44">您是否透過將長時間執行的工作負載排除在重要路徑外，然後再個別進行調整的方式，使用佇列來讓您的整個應用程式更有彈性？</a></td>
+</tr>
+</tbody>
+</table>
+
+## <a name="allservices"></a>所有服務
+
+本節列出適用於使用任何 Azure 儲存體服務 (Blob、資料表、佇列或檔案) 的已經實證做法。
+
+### <a name="subheading1"></a>延展性目標
+
+每個 Azure 儲存體服務都有容量 (GB)、交易費率和頻寬的延展性目標。如果您的應用程式達到或超過任何延展性目標，它可能會遇到增加的交易延遲或節流。當儲存體服務對您的應用程式進行節流時，該服務會開始針對某些儲存體交易傳回「503 伺服器忙碌」或「500 作業逾時」錯誤碼。本節將討論特別是處理延展性目標和頻寬延展性目標的常見方法。後續處理個別儲存體服務的小節將討論在該特定服務內容中的延展性目標：
+
+-   [Blob 頻寬和每秒要求數][您的應用程式是否不超過單一 Blob 的頻寬或操作延展性目標？]
+-   [每秒資料表實體數][您的每秒實體數是否逐漸達到延展性目標？]
+-   [每秒佇列訊息數][您的每秒訊息數是否逐漸達到延展性目標？]
+
+#### <a name="sub1bandwidth"></a>所有服務的頻寬延展性目標
+
+本文撰寫期間，美國地理區域備援儲存體 (GRS) 帳戶的輸入 (傳送至儲存體帳戶的資料) 頻寬目標是每秒 10 GB (Gbps)，輸出 (從儲存體帳戶傳送出去的資料) 頻寬目標是 20 Gbps。若是本機備援儲存體 (LRS) 帳戶，則會有較高的限制 – 輸入是 20 Gbps，輸出是 30 Gbps。國際頻寬可能有較低的限制，您可以在我們的[延展性目標頁面][延展性目標頁面]上找到此資訊。如需有關儲存體備援選項的詳細資訊，請參閱下方的[有用資源][有用資源]連結。
+
+#### 達到延展性目標時該採取哪些作業
+
+如果您的應用程式即將達到單一儲存體帳戶的延展性目標，您可以考慮採用下列其中一個方法：
+
+-   重新思考會造成您的應用程式達到或超出延展性目標的工作負載。您是否能夠以不同的方式設計工作負載，以使用較少的頻寬或容量或使用較少的交易？
+-   如果應用程式必須超出其中一個延展性目標，您應建立多個儲存體帳戶，並將您的應用程式資料在這幾個儲存體帳戶中進行分割。如果您要使用此模式，那麼請確定設計您的應用程式，以便日後可以增加更多儲存體帳戶以取得負載平衡。本文撰寫期間，每個 Azure 訂閱可以擁有高達 100 個儲存體帳戶。除了儲存資料、進行交易或傳輸資料等使用方式外，儲存體帳戶也不會有其他費用。
+-   如果您的應用程式達到頻寬目標，請考慮在用戶端壓縮資料，以便降低將資料傳送至儲存體服務所需的頻寬。請注意，在節省頻寬並提高網路效能的同時，這也可能出現某些負面影響。您應針對在用戶端壓縮和解壓縮資料的額外處理需求所造成的效能影響進行評估。此外，儲存壓縮的資料可能會使得疑難排解問題變得更加困難，因為這會提高使用標準工具檢視已儲存資料的難度。
+-   如果您的應用程式達到延展性目標，那麼請確定使用指數輪詢進行重試 (請參閱[重試][您是否針對節流錯誤和逾時使用指數輪詢重試原則？])。最好的方式是確保您一定不會達到延展性目標 (方法是使用上述其中一個方法)，但這可確保您的應用程式不會持續快速重試，而降低節流的效能。
+
+#### 有用資源
+
+下列連結提供有關延展性目標的其他詳細資料：
+
+-   您可以在 [MSDN 上的 Azure 儲存體延展性和效能目標][延展性目標頁面]頁面上檢視目前的延展性目標。
+-   您可以在部落格文章：[Windows Azure 儲存體備援選項與讀取存取地理區域備援儲存體][Windows Azure 儲存體備援選項與讀取存取地理區域備援儲存體] (英文) 中了解更多有關儲存體備援選項 – 如需詳細資訊，請參閱下一節。
+-   如需 Azure 服務的目前定價資訊，請參閱 [Azure 定價概述][Azure 定價概述]。
+
+### 網路
+
+雖然 API 呼叫非常重要，但應用程式的實體網路限制經常會對效能產生重大影響。下列說明了使用者可能會遇到的部分限制。
+
+#### 用戶端網路功能
+
+##### <a name="subheading2"></a>輸送量
+
+頻寬的問題經常是用戶端的功能。例如，當單一儲存體帳戶可處理 10 Gbps 或以上的輸入 (請參閱[頻寬延展性目標][頻寬延展性目標]) 時，「小型」 Azure 背景工作角色執行個體只能達到 100 Mbps 左右的網路速度。較大型的 Azure 執行個體擁有較大容量的 NIC，因此，如果您需要單一機器的較高網路限制，您應考慮使用較大型的執行個體或更多的 VM。如果您打算從內部部署應用程式存取儲存體服務，則同樣的規則亦適用於：了解用戶端裝置的網路功能和與 Azure 儲存體位置的網路連線能力，以及視需要進行改善或設計您的應用程式以便使用其功能。
+
+##### <a name="subheading3"></a>連結品質
+
+與任何網路使用方式一樣，請留意導致錯誤和封包遺失的網路狀況將會減慢有效的輸送量。使用 WireShark 或 NetMon 可能有助於診斷此問題。
+
+##### 有用資源
+
+如需虛擬機器大小與所配置頻寬的詳細資訊，請參閱 MSDN 上的 [Azure 雲端服務上大規模服務設計的最佳做法][Azure 雲端服務上大規模服務設計的最佳做法]。
+
+#### <a name="subheading4"></a>位置
+
+在任何分散式環境中，將用戶端放置於伺服器附近可提供最佳的效能。若要以最低的延遲時間存取 Azure 儲存體，對用戶端而言的最佳位置是在同一個 Azure 區域內。例如，如果您擁有使用 Azure 儲存體的 Azure 網站，您應將這兩者置於單一區域內 (例如，美國西部或東南亞)。這可降低延遲和成本 — 本文撰寫期間，在單一區域內的頻寬使用量是免費的。
+
+如果不在 Azure 中託管 (例如行動裝置應用程式或內部部署企業服務) 您的用戶端應用程式，則將儲存體帳戶再次置於用來存取帳戶之裝置附近的區域內，這通常可以降低延遲。如果您的用戶端分散的十分廣泛 (例如，有些用戶端在北美，有些在歐洲)，則您應考慮使用多個儲存體帳戶：一個在北美區域，一個在歐洲區域。這可協助這兩個區域內的使用者降低延遲。如果應用程式儲存的資料特定用於個別使用者，且不需要複寫儲存體帳戶之間的資料，則此方法通常較容易實作。如需廣泛的內容發佈，我們建議 CDN – 如需詳細資料，請參閱下一節。
+
+### <a name="subheading5"></a>內容發佈
+
+有時，應用程式需要提供相同的內容給位於相同或多個區域中的多位使用者，例如，網站首頁上所用的產品示範影片。在本案例中，您應使用如 Azure CDN 的內容傳遞網路 (CDN)，且 CDN 會將 Azure 儲存體作為資料的原始來源使用。不同於在單一區域內存在，且無法以低延遲方式傳遞內容到其他區域的 Azure 儲存體帳戶，Azure CDN 會使用在全球多個資料中心內的伺服器。此外，CDN 通常可以支援比單一儲存體帳戶高很多的輸出限制。
+
+如需 Azure CDN 的詳細資訊，請參閱 [Azure CDN][Azure CDN]。
+
+### <a name="subheading6"></a>使用 SAS 和 CORS
+
+當您必須在使用者的網頁瀏覽器或行動電話應用程式中授權程式碼 (例如 JavaScript) 以存取 Azure 儲存體中的資料時，一個方法是將 Web 角色中的應用程式作為 Proxy 使用：使用者的裝置會透過 Web 角色進行驗證，這樣就會依次使用儲存體服務進行驗證。如此一來，您可以避免在未受到保護的裝置上公開您的儲存體帳戶金鑰。不過，因為在使用者裝置和儲存體服務之間傳輸的所有資料都必須通過 Web 角色，所以這會在 Web 角色上加上大量負荷。您可以透過使用共用存取簽章 (SAS)，有時與跨原始來源資源分享 (CORS) 標頭搭配使用，來避免將 Web 角色作為儲存體服務的 Proxy 使用。使用 SAS，您可以透過有限的存取權杖，允許使用者裝置直接對儲存體服務提出要求。例如，如果使用者想要將相片上傳到您的應用程式，您的 Web 角色可產生 SAS 權杖，可授與接下來 30 分鐘內寫入特定 Blob 或容器的權限 (時間過後 SAS 權杖便會過期)，並將它傳送到使用者裝置。
+
+通常，在某個網域上由網站託管的頁面中，瀏覽器不允許 JavaScript 對另一個網域執行特定作業 (例如 “PUT”)。例如，如果您在 “contosomarketing.cloudapp.net” 上主控 Web 角色，並想要使用用戶端 JavaScript 來將 Blob 上傳至您在 “contosoproducts.blob.core.windows.net” 的儲存體帳戶，則瀏覽器的「相同原始原則」將會禁止此作業。CORS 是個瀏覽器功能，可允許目標網域 (在此案例中是儲存體帳戶) 與信任源自來源網域 (在此案例中是 Web 角色) 要求的瀏覽器進行通訊。
+
+這些技術可協助您避免 Web 應用程式上的不必要負荷 (和瓶頸)。
+
+#### 有用資源
+
+如需 SAS 的詳細資訊，請參閱[共用存取簽章：第 1 部分：了解 SAS 模型][共用存取簽章：第 1 部分：了解 SAS 模型]。
+
+如需 CORS 的詳細資訊，請參閱 [MSDN 上之 Azure 儲存體服務的跨原始來源資源分享 (CORS) 支援][MSDN 上之 Azure 儲存體服務的跨原始來源資源分享 (CORS) 支援] (英文)。
+
+### 快取
+
+#### <a name="subheading7"></a>取得資料
+
+一般來說，從服務中一次取得資料勝過分兩次取得資料。以 Web 角色身分執行的 MVC Web 應用程式為例，該應用程式已從儲存體服務中擷取 50MB Blob 作為使用者的內容。然後，應用程式可以在每次使用者要求內容時擷取相同的 Blob，或在本機中將內容快取至磁碟，並在後續的使用者要求中重複使用此快取版本。此外，每當使用者要求資料時，此應用程式可以使用修改時間的條件式標頭發出 GET，這可避免在未修改 Blob 的情況下取得整個 Blob。您可以將這個相同模式套用到使用資料表實體上。
+
+在某些情況下，您會決定應用程式可假定 Blob 在被擷取之後的短時間內仍然有效，並且應用程式無需在此期間內檢查 Blob 是否遭到修改。
+
+組態、查詢和其他持續被應用程式使用的資料是進行快取的最佳候選對象。
+
+如需如何使用 .NET 來取得 Blob 屬性，以找出最後修改日期的範例，請參閱 MSDN 上的[設定和擷取屬性及中繼資料][設定和擷取屬性及中繼資料]。如需條件式下載的詳細資訊，請參閱 MSDN 上的[有條件地重新整理 Blob 的本機複本][有條件地重新整理 Blob 的本機複本]。
+
+#### <a name="subheading8"></a>以批次方式上傳資料
+
+在某些應用程式案例中，您可以在本機彙總資料，然後以批次方式將它定期上傳，而非立即上傳每一份資料。例如，Web 應用程式可能會保存活動的記錄檔：應用程式可以在每次活動發生時，以資料表實體的格式 (這需要許多儲存體作業) 將每個活動的詳細資料上傳到 Blob，或可以將活動詳細資料儲存到本機記錄檔，然後以使用分隔符號的檔案格式將所有活動詳細資料定期上傳到 Blob。如果每筆記錄項目的大小是 1KB，您可以在單一 “Put Blob” 交易中上傳上千筆記錄項目 (您可以在單一交易中上傳的 Blob 大小上限為 64MB)。當然，如果本機機器在上傳之前出現當機狀況，您將有可能遺失部分的記錄資料：應用程式開發人員必須針對用戶端裝置故障或上傳失敗的可能性進行設計。如果必須上傳活動資料以取得 Timespan (而不是只是單一活動)，則我們建議選擇 Blob 勝過資料表。
+
+### .NET 組態
+
+如果使用 .NET Framework，本節會列出數個可用來大幅改善效能的快速組態設定。如果使用其他語言，請查看類似的概念是否適用於您所選擇的語言。
+
+#### <a name="subheading9"></a>提高預設的連線限制
+
+在 .NET 中，下列程式碼可將預設的連線限制 (此值在用戶端環境中通常為 2，或在伺服器環境中通常為 10) 提高到 100。一般而言，您應將此值大約設為應用程式所使用的執行緒數量。
+
+    ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
+
+您必須在開啟任何連線之前設定連線限制。
+
+若是其他程式設計語言，請參閱該語言的文件以確定如何設定連線限制。
+
+如需詳細資訊，請參閱 MSDN 上的 [Web 服務：並行連線][Web 服務：並行連線] (英文) 文章。
+
+#### <a name="subheading10"></a>如果使用同步程式碼搭配 Async Task，則提高 ThreadPool 的執行緒數量下限
+
+此程式碼將提高執行緒集合的執行緒數量下限：
+
+    ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
+
+如需詳細資訊，請參閱 MSDN 上的 [ThreadPool.SetMinThreads 方法][ThreadPool.SetMinThreads 方法]。
+
+#### <a name="subheading11"></a>允分運用 .NET 4.5 記憶體回收
+
+在用戶端應用程式中使用 .NET 4.5 或更新版本，以便在伺服器記憶體回收中充分運用效能改善。
+
+如需詳細資訊，請參閱 MSDN 上的 [.NET 4.5 中的效能改善概觀][.NET 4.5 中的效能改善概觀] (英文) 文章。
+
+### <a name="subheading12"></a>無限制的平行處理原則
+
+雖然平行處理原則對效能而言是一大利器，但在使用無限制的平行處理原則 (沒有執行緒數量和/或平行要求的限制) 來上傳或下載資料、使用多個背景工作來存取相同儲存體帳戶內的多個資料分割 (容器、佇列或資料表分割)，或存取相同資料分割中的多個項目時，請小心處理。如果平行處理原則沒有限制，則您的應用程式可超出用戶端裝置的功能或儲存體帳戶的延展性目標，因而產生較長的延遲與節流作業。
+
+### <a name="subheading13"></a>儲存體用戶端程式庫和工具
+
+一律使用 Microsoft 所提供的最新版用戶端程式庫和工具。本文撰寫期間，適用於 .NET、Windows Phone、Windows Runtime 和 Java 的包括 RTM 程式庫，以及其他語言 (如 node.js 和 C++) 的預覽程式庫。此外，Microsoft 也推出 PowerShell Cmdlet 和以 Node.js 開發的跨平台命令列工具，可用於使用 Azure 儲存體。Microsoft 主動開發根據效能考量的這些工具，透過最新的服務版本將他們保持在最新的狀態，並確保這些工具會在內部處理許多已經實證的效能做法。
+
+### 重試
+
+#### <a name="subheading14"></a>節流/ServerBusy
+
+在某些情況下，儲存體服務可節流應用程式，或因某些暫時性狀況而無法服務要求，並傳回「503 伺服器忙碌」訊息或「500 逾時」。如果您的應用程式即將達到其中任何一個延展性目標，或如果系統重新平衡分割資料以允許較高輸送量，則有可能會發生這個問題。用戶端應用程式通常應會重試導致此類錯誤的作業：稍後嘗試相同要求即可成功。不過，如果儲存體服務因為您的應用程式超出延展性目標而進行節流，或即使服務因為一些其他原因而無法服務要求，則積極重試的結果通常會使問題雪上加霜。基於這個原因，您應使用指數輪詢 (用戶端程式庫預設為此行為)。例如，您的應用程式可能會在 2 秒後進行重試、然後 4 秒、然後 10 秒、然後 30 秒，最後會完全放棄。此行為會大幅降低您的應用程式在服務上的負荷，而不會使任何問題惡化。
+
+請注意，因為連線能力錯誤不是節流的結果，且被認為是暫時性的，因此可以立即重試連線能力錯誤。
+
+#### <a name="subheading15"></a>不能再嘗試的錯誤
+
+用戶端程式庫會留意哪些錯誤可以重試哪些無法重試。不過，如果您根據儲存體 REST API 來撰寫自己的程式碼，請記住不要重試下列錯誤：例如，400 (不正確的要求) 回應指出用戶端應用程式傳送的要求無法處理，因為它不是使用預期的格式。每次重新傳送此要求都將產生相同回應，所以重試並沒有用。如果您打算根據儲存體 REST API 撰寫自己的程式碼，請留意錯誤碼所代表的意思，以及重試 (或不重試) 每個錯誤碼的正確方式。
+
+#### 有用資源
+
+如需儲存體錯誤碼的詳細資訊，請參閱 Microsoft Azure 網站上的[狀態和錯誤碼][狀態和錯誤碼]。
+
+## Blob
+
+除了上述[所有服務][所有服務]的已經實證做法以外，下列已經實證的做法尤其適用於 Blob 服務。
+
+### Blob 特定的延展性目標
+
+#### <a name="subheading16"></a>每個 Blob 的頻寬和操作
+
+您能夠以高達上限 60 MB/秒 (這大約是 480 Mbps，已超出許多用戶端網路的功能，包括用戶端裝置上的實體 NIC) 的速度來讀取或寫入單一 Blob。此外，單一 Blob 每秒支援高達 500 個要求。如果您有多個需要讀取相同 Blob 的用戶端，您可能超出這些限制，您應考慮使用 CDN 來分散 Blob。
+
+如需 Blob 的目標輸送量詳細資訊，請參閱 MSDN 上的 [Azure 儲存體延展性和效能目標][延展性目標頁面]。
+
+### 複製與移動 Blob
+
+#### <a name="subheading17"></a>複製 Blob
+
+儲存體 REST API 版本 2012-02-12 介紹跨帳戶複製 Blob 的實用功能：用戶端應用程式可指示儲存體服務從另一個來源 (可能是不同的儲存體帳戶) 複製 Blob，然後讓服務非同步執行複製作業。當您從其他儲存體帳戶移轉資料時，這可大幅降低應用程式所需的頻寬，因為您無需下載及上傳資料。
+
+不過，一個考量是在儲存體帳戶之間進行複製時，不會保證完成複製的時間。如果您的應用程式需要在您的掌控下快速完成 Blob 複製，則複製 Blob 的最佳方式可能是將它下載到 VM，然後再將它上傳至目的地。如需該情況下的完全可預測性，請確保該複製作業是由執行於相同 Azure 區域的 VM 所執行，否則網路狀況可以 (且很可能會) 影響您的複製效能。此外，您能夠以程式設計方式監控非同步複製作業的進度。
+
+請注意，在相同儲存體帳戶本身內進行複製通常可快速完成。
+
+如需詳細資訊，請參閱[在 MSDN 上複製 Blob][在 MSDN 上複製 Blob]。
+
+#### <a name="subheading18"></a>使用 AzCopy
+
+Azure 儲存體團隊推出一個命令列工具 “AzCopy”，旨在協助將多個 Blob 大量傳輸至儲存體帳戶、從儲存體帳戶複製，及跨儲存體帳戶進行複製。此工具已針對此案例進行最佳化，且可達到高傳輸率。建議在大量上傳、下載和複製案例中使用此工具。您可以深入了解此工具，並在[此處][此處]下載。
+
+#### <a name="subheading19"></a>Azure 匯入/匯出服務
+
+Azure 儲存體針對超大量的資料 (大於 1TB) 提供匯入/匯出服務，這允許透過寄送硬碟的方式，從 Blob 儲存體進行上傳和下載。您可以將資料放在硬碟上，並將它寄送到 Microsoft 進行上傳，或寄送空白硬碟到 Microsoft 以下載資料。您可以在[此處][2]閱讀相關資訊。這會比透過網路來上傳/下載此大量資料還要有效率。
+
+### <a name="subheading20"></a>使用中繼資料
+
+Blob 服務支援包含 Blob 中繼資料的標頭要求。例如，如果您的應用程式需要相片的 EXIF 資料，它可以擷取相片並擷取該資料。若要節省頻寬並提高效能，當應用程式上傳相片時，您的應用程式可以將 EXIF 資料儲存在 Blob 的中繼資料內：接著，您可以在每次讀取 Blob 時，僅使用 HEAD 要求來擷取中繼資料內的 EXIF 資料，這可節省大量頻寬和擷取 EXIF 資料所需的處理時間。這在您僅需要中繼資料而非 Blob 完整內容的案例中，此操作會很有幫助。請注意，每個 Blob 僅可儲存 8KB 的中繼資料 (此服務不接受超過此值的儲存要求)，因此如果資料不符合該大小，則您可能無法使用此方法。
+
+如需如何使用 .NET 來取得 Blob 中繼資料，請參閱 MSDN 上的[設定和擷取屬性及中繼資料][設定和擷取屬性及中繼資料]。
+
+### 快速上傳
+
+若要快速上傳 Blob，第一個要回答的問題是：您打算上傳一個或多個 Blob？使用下列指引，根據您的案例來判斷所要使用的正確方法。
+
+#### <a name="subheading21"></a>快速上傳一個大型 Blob
+
+若要快速上傳單一大型 Blob，您的用戶端應用程式應平行上傳其區塊或分頁 (請留意個別 Blob 和儲存體帳戶整體的延展性目標)。請注意，Microsoft-提供的正式 RTM 儲存體用戶端程式庫 (.NET、Java) 能夠執行此作業。在每個程式庫中，使用下列特定的物件/屬性來設定並行層級：
+
+-   .NET：在要使用的 BlobRequestOptions 物件上設定 ParallelOperationThreadCount。
+-   Java/Android：使用 BlobRequestOptions.setConcurrentRequestCount()
+-   Node.js：在要求選項或在 Blob 服務上使用 parallelOperationThreadCount。
+-   C++：使用 blob\_request\_options::set\_parallelism\_factor 方法。
+
+#### <a name="subheading22"></a>快速上傳多個 Blob
+
+若要快速上傳多個 Blob，請平行上傳 Blob。因為這個方法會將上傳散佈到儲存體服務的多個資料分割，因此會比搭配平行區塊上傳一次上傳單一 Blob 的方法要快。單一 Blob 僅支援 60 MB/秒 (大約是 480 Mbps) 的輸送量。本文撰寫期間，GRS 帳戶支援高達 20 Gbps 輸入，這比個別 Blob 所支援的輸送量要大的多。[AzCopy][您是否使用 AzCopy 進行 Blob 的大量複製？] 依預設會執行平行上傳，在此案例中我們建議使用此方法。
+
+### <a name="subheading23"></a>選擇 Blob 的正確類型
+
+Azure 儲存體支援兩種 Blob 類型：*分頁* Blob 和*區塊* Blob。在指定使用的案例中，您的 Blob 類型選擇將會影響解決方案的效能和延展性。若要有效率地上傳大量資料，則區塊 Blob 會是合適的方法：例如，用戶端應用程式可能需要將相片或影片上傳至 Blob 儲存體。如果應用程式必須在資料上執行隨機寫入，則分頁 Blob 會是合適的方法：例如，Azure VHD 會以分頁 Blob 的方式儲存。
+
+如需詳細資訊，請參閱 MSDN 上的[了解區塊 Blob 和分頁 Blob][了解區塊 Blob 和分頁 Blob]。
+
+## 資料表
+
+除了上述[所有服務][所有服務]的已經實證做法以外，下列已經實證的做法尤其適用於資料表服務。
+
+### <a name="subheading24"></a>資料表特定的延展性目標
+
+除了整個儲存體帳戶的頻寬限制外，資料表還有下列特定的延展性限制。請注意，系統會在您的流量增加時進行負載平衡，但是如果您的流量突然暴增，您可以無法立即取得此輸送量。如果您的模式暴增，當儲存體服務自動負載平衡資料表時，您應預期會在暴增期間看到節流和/或逾時。緩慢增加通常會有較好的結果，因為它讓系統有時間適當地負載平衡。
+
+#### 每秒的實體數 (帳戶)
+
+存取資料表的延展性限制為一個帳戶每秒最高 20,000 個實體 (每個 1KB)。一般來說，已插入、更新、刪除或掃描的每個實體都會算在這個目標內。因此包含 100 個實體的批次插入會算為 100 個實體。掃描 1,000 個實體並傳回 5 的查詢會算為 1,000 個實體。
+
+#### 每秒的實體數 (資料分割)
+
+在單一資料分割內，存取資料表的延展性目標為每秒 2,000 個實體 (每個 1KB)，使用上一節所述的相同計算方法。
+
+### 組態
+
+本節將列出數個快速組態設定，可用來在資料表服務中大幅改善效能：
+
+#### <a name="subheading25"></a>使用 JSON
+
+自儲存體服務版本 2013-08-15 開始，資料表服務支援使用 JSON (而非以 XML 為基礎的 AtomPub 格式) 來轉換資料表資料。這可降低約 75% 的裝載大小，並可大幅提高您的應用程式效能。
+
+如需詳細資訊，請參閱 [Windows Azure 資料表：JSON 簡介][Windows Azure 資料表：JSON 簡介] (英文) 文章和 MSDN 上的[表格服務作業的裝載格式][表格服務作業的裝載格式]。
+
+#### <a name="subheading26"></a>關閉 Nagle
+
+在不同的 TCP/IP 網路中已廣泛採用 Nagle 的演算法，來作為提高網路效能的方法。不過，它並非是所有情況下的最佳作法 (例如高互動式環境)。在 Azure 儲存體中，Nagle 的演算法對於資料表和佇列服務要求的效能有負面的影響，可以的話您應將它停用。
+
+如需詳細資訊，請參閱我們的部落格文章 [Nagle 的演算法並不適用於小型要求][Nagle 的演算法並不適用於小型要求] (英文)，其中說明 Nagle 的演算法與資料表和佇列要求互動不佳的原因，以及說明如何將它在您的用戶端應用程式中停用。
+
+### 結構描述
+
+如何呈現與查詢您的資料是影響資料表服務效能的單一最大因素。雖然每個應用程式都有所不同，本節將概述與下列項目相關的部分一般已經實證做法：
+
+-   資料表設計
+-   有效率的查詢
+-   有效率的資料更新
+
+#### <a name="subheading27"></a>資料表和資料分割
+
+資料表會被分為幾個資料分割。儲存在資料分割中的每個實體會共用相同的資料分割索引鍵，並會有可在資料分割中識別該實體的唯一資料列索引鍵。資料分割提供了優點，但也同時引進延展性限制。
+
+-   優點：在包含高達 100 個不同儲存體作業 (總大小限制為 4MB) 的單一、不可部分完成的批次交易中，您可以在相同資料分割中更新實體。假設要擷取相同的實體數，則查詢單一資料分割中的資料會比查詢跨越資料分割的資料還要更有效率 (請繼續閱讀，以取得有關查詢資料表資料的進一步建議)。
+-   延展性限制：因為資料分割支援不可部分完成的批次交易，因此無法針對儲存在單一資料分割中的實體存取進行負載平衡。基於這個原因，個別資料表分割的延展性目標會低於資料表服務整體。
+
+由於資料表和資料分割的這些特性，您應採用下列設計原則：
+
+-   用戶端應用程式在相同工作邏輯單位中經常更新或查詢的資料應位於相同的資料分割中。這有可能是因為應用程式正在聚總寫入，或因為您想要充分運用不可部分完成的批次作業。另外，在單一查詢中，查詢單一資料分割中的資料會比查詢跨資料分割中的資料還要有效率。
+-   用戶端應用程式在相同工作邏輯單位 (單一查詢或批次更新) 中無法插入/更新或查詢的資料應位於不同的資料分割中。一個重要事項是單一資料表中的資料分割索引鍵數目沒有限制，因此擁有數百萬個資料分割索引鍵也不是問題，而且還不會影響效能。例如，如果您的應用程式是具備使用者登入的常用網站，則使用使用者識別碼作為資料分割索引鍵可能是個不錯的選擇。
+
+#### 常用資料分割
+
+常用資料分割是指收到某個帳戶的不相稱百分比流量，但因為它是單一資料分割，所以無法進行負載平衡的資料分割。一般來說，可以用下列兩種方法其中之一來建立常用資料分割：
+
+##### <a name="subheading28"></a>只開頭附加和只結尾附加模式
+
+所謂的「只開頭附加」模式，是指在此模式下，對指定 PK 的全部 (或幾乎全部) 流量會根據目前時間增加和減少。一個範例是如果您的應用程式使用目前日期作為記錄資料的資料分割索引鍵。這會造成所有插入都會跑到資料表的最後一個資料分割，且因為所有寫入都會跑到資料表的結尾處，所以系統無法負載平衡。如果進入該資料分割的流量超出資料分割層級的延展性目標，則會造成節流。最好的方法是確保流量會傳送到多個資料分割，以在資料表中啟用負載平衡要求。
+
+##### <a name="subheading29"></a>高流量資料
+
+如果您的資料分割結構描述導致使用單一資料分割的資料比使用其他資料分割的資料高出甚多，當該資料分割達到單一資料分割的延展性目標時，您也可能會看到節流。最好的方式是確定您的資料分割結構描述不會造成任何單一資料分割達到延展性目標。
+
+#### 查詢
+
+本節說明可查詢資料表服務的已經實證做法。
+
+##### <a name="subheading30"></a>查詢範圍
+
+您可以透過數種方式來指定查詢的實體範圍。下列是使用每個方式的討論。
+
+一般來說，請避免掃描 (大於單一實體的查詢)，但如果您必須掃描，請嘗試組織您的資料，以方便掃描可以擷取所需資料，而無需掃描或傳回您不需要的大量實體數。
+
+###### 點查詢
+
+點查詢只會擷取一個實體。做法是指定要擷取的實體分割索引鍵和資料列索引鍵。這些查詢非常有效率，您應盡可能地加以使用。
+
+###### 資料分割查詢
+
+資料分割查詢是指可擷取一組共用常見分割索引鍵之資料的查詢。通常，除了分割索引鍵，查詢還會指定資料列索引鍵值的範圍或某些實體屬性值的範圍。這些查詢會比點查詢沒有效率，且應謹慎使用。
+
+###### 資料表查詢
+
+資料表查詢是指可擷取一組不共用常見分割索引鍵之實體的查詢。這些查詢非常沒有效率，您應盡量避免使用。
+
+##### <a name="subheading31"></a>查詢密度
+
+與為了尋找傳回的集合所掃描的實體數相較之下，查詢效率的另一個主要因素是傳回的實體數。如果您的應用程式使用屬性值只有 1% 資料共用的篩選來執行資料表查詢，則查詢會為所傳回的每一個實體掃描 100 個實體。上述的資料表延展性目標全都與掃描的實體數有關，而與傳回的實體數無關：低查詢密度很容易導致資料表服務對您的應用程式進行節流，因為它必須掃描許多實體才能擷取到您要的實體。請參閱下面的[反正規化][您是否將資料反正規化，以便您在嘗試取得資料時，避免不敷使用的查詢或多個讀取要求？]一節，以取得如何避免此問題的詳細資訊。
+
+##### 限制傳回的資料量
+
+###### <a name="subheading32"></a>篩選
+
+在您知道查詢將傳回用戶端應用程式不需要之實體的情況下，請考慮使用篩選來減少傳回集合的大小。雖然未傳回至用戶端的實體仍然算在延展性目標內，但您的應用程式效能將會因為網路裝載大小減輕以及用戶端應用程式必須處理的實體數減少而提升。請參閱[查詢密度][您的查詢是否通常只掃描並傳回應用程式將使用的列？]上面的注意事項，不過，延展性目標會與掃描的實體數有關，因此即使只傳回幾個實體，篩選出許多實體的查詢仍然可能會導致節流。
+
+###### <a name="subheading33"></a>投射
+
+如果您的用戶端應用程式只需要資料表中一組有限的實體屬性，則您可以使用投射來限制傳回資料集的大小。與篩選一樣，此功能可協助降低網路負荷及用戶端處理。
+
+##### <a name="subheading34"></a>反正規化
+
+與使用關聯式資料庫不同的是，為求有效率地查詢資料表資料的已經實證做法會導致將您的資料反正規化。也就是說，為了尋找用戶端所需的資料，在多個實體 (每個您可能用來尋找資料的索引鍵一個實體) 中複製相同的資料，可將查詢所必須掃描的實體數降到最低。例如，在電子商務網站中，您可能想要根據客戶識別碼 (向我提供此客戶的訂單) 和根據日期 (向我提供某個日期的訂單) 來尋找一筆訂單。在資料表儲存體中，最好是儲存實體 (或它的參照) 兩次 – 一次包括資料表名稱、PK 和 RK，可根據客戶識別碼加快尋找的速度，一次可根據日期加快尋找的速度。
+
+#### 插入/更新/刪除
+
+本節說明可修改儲存在資料表服務中實體的已經實證做法。
+
+##### <a name="subheading35"></a>批次執行
+
+在 Azure 儲存體中，批次交易又稱為實體群組交易 (ETG)；ETG 內的所有作業都必須位於單一資料表的單一資料分割上。可能的話，請使用 ETG 以批次的方式執行插入、更新及刪除。這會減少從用戶端應用程式到伺服器的反覆存取次數、減少計費交易數目 (為方便計費，ETG 會被視為單一交易，並可包含最多 100 個儲存體作業)，以及啟用不可部分完成的更新 (在 ETG 內的所有作業已成功或已失敗)。具有高延遲的環境 (例如行動裝置) 將會因為使用 ETG 而獲得極大的好處。
+
+##### <a name="subheading36"></a>Upsert
+
+您應盡可能地使用資料表 **Upsert** 作業。**Upsert** 有兩種類型，這兩種類型都會比傳統的 **Insert** 和 **Update** 作業還要有效率。
+
+-   **InsertOrMerge**：當您想要上傳實體屬性的子集，但不確定此實體是否已存在時，請使用此選項。如果實體已存在，則此呼叫會更新包含在 **Upsert** 作業的屬性，並將所有現有的屬性保留不變，如果實體不存在，則此呼叫會插入新的實體。這類似於在查詢中使用投射，在此情況下，您只需要上傳正在變更的屬性。
+-   **InsertOrReplace**：當您想要上傳全新的實體，但不確定此實體是否已存在時，請使用此選項。您應該只在知道此全新上傳的實體完全正確時才使用此選項，因為它會完全覆寫舊的實體。例如，您想要更新儲存使用者目前位置的實體，而不管應用程式先前是否已儲存使用者的位置資料；新的位置實體已完成，而且您無需任何先前實體的任何資訊。
+
+##### <a name="subheading37"></a>在單一實體中儲存資料序列
+
+有時候，應用程式會一次儲存必須經常擷取的資料序列：例如，應用程式可能會隨著時間追蹤 CPU 使用量，以便繪製資料在過去 24 小時的機動圖表。一個方法是每個小時有一個資料表實體，且每個實體會代表特定的小時數，並儲存該小時的 CPU 使用量。若要繪製此資料，應用程式必須擷取保存過去 24 小時資料的實體。
+
+或者，應用程式可以用單一實體的不同屬性，來儲存每個小時的 CPU 使用量：若要更新每個小時，應用程式可以使用單一 **InsertOrMerge Upsert** 呼叫來更新最後一個小時的值。若要繪製此資料，應用程式只需擷取單一實體 (而不是 24 個實體)，提供極有效率的查詢 (請參閱上面[查詢範圍][您是否設計結構描述以允許在大部分情況下使用點查詢，並盡量少用資料表查詢？]的討論)。
+
+##### <a name="subheading38"></a>在 Blob 中儲存結構化資料
+
+有時候，結構化資料好像應該要以資料表方式呈現，但實體範圍總是會被一起擷取，並可批次插入。記錄檔是這個狀況的良好範例。在此案例中，您可以批次處理數分鐘的記錄，然後也總是一次擷取數分鐘的記錄。在此案例中，為了達到最佳化效能，最好是使用 Blob (而不是資料表)，因為您可以大幅降低寫入/傳回的物件數，以及通常需要提出的要求數。
+
+## 佇列
+
+### <a name="subheading39&quot;"></a>Scalability Limits
+
+A single queue can process approximately 2,000 messages (1KB each) per second (each AddMessage, GetMessage, and DeleteMessage count as a message here). If this is insufficient for your application, you should use multiple queues and spread the messages across them.
+
+You can view the current scalability targets on the page [Azure Storage Scalability and Performance Targets][延展性目標頁面] on MSDN.
+
+### <a name="subheading40&quot;"></a>關閉 Nagle
+
+請參閱討論 Nagle 演算法的資料表組態一節 — Nagle 演算法通常對佇列要求的效能有負面影響，您應將它停用。
+
+### <a name="subheading41&quot;"></a>Message Size
+
+Queue performance and scalability decreases as message size increases. You should place only the information the receiver needs in a message.
+
+### <a name="subheading42&quot;"></a>批次擷取
+
+您可以在單一作業中，從佇列擷取高達 32 則的訊息。這可降低與用戶端應用程式之間反覆存取的次數，這在具有高延遲的環境 (例如行動裝置) 中特別有用。
+
+### <a name="subheading43&quot;"></a>Queue Polling Interval
+
+Most applications poll for messages from a queue, which can be one of the largest sources of transactions for that application. Select your polling interval wisely: polling too frequently could cause your application to approach the scalability targets for the queue. However, at 200,000 transactions for $0.01 (at the time of writing), a single processor polling once every second for a month would cost less than 15 cents so cost is not typically a factor that affects your choice of polling interval.
+
+For up to date cost information, see [Storage Pricing Details][Storage Pricing Details].
+
+### <a name="subheading44&quot;"></a>UpdateMessage
+
+您可以使用 **UpdateMessage** 來增加隱藏逾時，或更新訊息的狀態資訊。雖然這是個強大的功能，請記住，每個 **UpdateMessage** 作業都會算在延展性目標內。不過，相較於在工作的每個階段完成時，將工作從一個佇列傳遞到下一個佇列的工作流程，這會更有效率。使用 **UpdateMessage** 作業可讓應用程式將工作狀態儲存到訊息，然後繼續工作，而不是每次步驟完成時，便重新佇列訊息以進行下個工作步驟。
+
+如需詳細資訊，請參閱[作法：變更佇列訊息的內容][作法：變更佇列訊息的內容] (英文) 文章。
+
+### \<a name=subheading45"\>\</a\>應用程式架構\</h3\> \<p\>您應使用佇列，讓應用程式變得具擴充性。下列將列出您可以使用佇列，讓應用程式變得較具擴充性的幾個方式：\</p\> \<ul\> \<li\>您可以使用佇列來建立工作的待處理項目，以便在您的應用程式中處理及穩住工作負載。例如，您可以佇列使用者的要求，以執行需密集使用處理器的工作 (例如重新調整上傳的影像)。\</li\> \<li\>您可以使用佇列來脫離應用程式的零件，以便您可以個別進行調整。例如，Web 前端可以將使用者的調查結果放到佇列中，以供日後分析與儲存。您可以加入更多的背景工作角色執行個體，以視需要處理佇列資料。\</li\> \</ul\> \<h2 id="conclusion"\>結論\</h2\> \<p\>本文討論一些最常見的已經實證做法，以便在使用 Azure 儲存體時將效能最佳化。我們鼓勵每位應用程式開發人員根據上述的每個做法來評估他們的應用程式，並考慮照著建議去做，為其使用 Azure 儲存體的應用程式取得最佳效能。\</p\>
+
+  [您是否針對節流錯誤和逾時使用指數輪詢重試原則？]: #subheading14
+  [您的應用程式是否不超過單一 Blob 的頻寬或操作延展性目標？]: #subheading16
+  [您是否使用 AzCopy 進行 Blob 的大量複製？]: #subheading18
+  [您的每秒實體數是否逐漸達到延展性目標？]: #subheading24
+  [您是否設計結構描述以允許在大部分情況下使用點查詢，並盡量少用資料表查詢？]: #subheading30
+  [您的查詢是否通常只掃描並傳回應用程式將使用的列？]: #subheading31
+  [您是否將資料反正規化，以便您在嘗試取得資料時，避免不敷使用的查詢或多個讀取要求？]: #subheading34
+  [您的每秒訊息數是否逐漸達到延展性目標？]: #subheading39
+  [延展性目標頁面]: http://msdn.microsoft.com/zh-tw/library/azure/dn249410.aspx
+  [有用資源]: #sub1useful
+  [Windows Azure 儲存體備援選項與讀取存取地理區域備援儲存體]: http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx
+  [Azure 定價概述]: http://azure.microsoft.com/zh-tw/pricing/overview/
+  [頻寬延展性目標]: #sub1bandwidth
+  [Azure 雲端服務上大規模服務設計的最佳做法]: http://msdn.microsoft.com/zh-tw/library/dn197896.aspx
+  [Azure CDN]: http://azure.microsoft.com/zh-tw/services/cdn/
+  [共用存取簽章：第 1 部分：了解 SAS 模型]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-shared-access-signature-part-1/
+  [MSDN 上之 Azure 儲存體服務的跨原始來源資源分享 (CORS) 支援]: http://msdn.microsoft.com/library/azure/dn535601.aspx
+  [設定和擷取屬性及中繼資料]: http://msdn.microsoft.com/zh-tw/library/hh225342.aspx
+  [有條件地重新整理 Blob 的本機複本]: http://msdn.microsoft.com/zh-tw/library/azure/dd179371.aspx
+  [Web 服務：並行連線]: http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx
+  [ThreadPool.SetMinThreads 方法]: http://msdn.microsoft.com/zh-tw/library/system.threading.threadpool.setminthreads(v=vs.110).aspx
+  [.NET 4.5 中的效能改善概觀]: http://msdn.microsoft.com/zh-tw/magazine/hh882452.aspx
+  [狀態和錯誤碼]: http://msdn.microsoft.com/zh-tw/library/azure/dd179382.aspx
+  [所有服務]: #allservices
+  [在 MSDN 上複製 Blob]: http://msdn.microsoft.com/zh-tw/library/dd894037.aspx
+  [此處]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-use-azcopy/
+  [2]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-import-export-service/
+  [了解區塊 Blob 和分頁 Blob]: http://msdn.microsoft.com/zh-tw/library/azure/ee691964.aspx
+  [Windows Azure 資料表：JSON 簡介]: http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx
+  [表格服務作業的裝載格式]: http://msdn.microsoft.com/zh-tw/library/azure/dn535600.aspx
+  [Nagle 的演算法並不適用於小型要求]: http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx
+  [Storage Pricing Details]: http://azure.microsoft.com/zh-tw/pricing/details/storage/
+  [作法：變更佇列訊息的內容]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/#change-contents

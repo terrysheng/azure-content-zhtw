@@ -1,6 +1,6 @@
-<properties linkid="dev-net-how-to-use-queue-storage-service-java" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Queue storage service from Java" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="如何使用佇列服務 (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。範例以 Java 撰寫。" metaCanonical="" services="storage" documentationCenter="Java" title="如何使用 Java 的佇列儲存體服務" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # 如何使用 Java 的佇列儲存體
 
@@ -404,8 +404,6 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
   [清除佇列訊息的其他選項]: #additional-options
   [作法：列出佇列]: #list-queues
   [作法：刪除佇列]: #delete-queue
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
   [Azure 儲存體 REST API]: http://msdn.microsoft.com/zh-tw/library/azure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/

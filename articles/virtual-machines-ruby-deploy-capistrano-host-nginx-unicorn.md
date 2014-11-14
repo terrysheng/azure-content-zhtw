@@ -1,10 +1,10 @@
-<properties linkid="dev-ruby-web-app-with-linux-vm-capistrano" urlDisplayName="Ruby on Rails Azure VM Capistrano" pageTitle="Deploying a Ruby on Rails Web application to an Azure Virtual Machine using Capistrano - tutorial" metaKeywords="ruby on rails, ruby on rails azure, rails azure, rails vm, capistrano azure vm, capistrano azure rails, unicorn azure vm, unicorn azure rails, unicorn nginx capistrano, unicorn nginx capistrano azure, nginx azure" description="Learn how to deploy a Ruby on Rails application to an Azure Virtual Machine using Capistrano, Unicorn and Nginx." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Deploy a Ruby on Rails Web application to an Azure VM using Capistrano" authors="larryfr" />
+<properties urlDisplayName="Ruby on Rails Azure VM Capistrano" pageTitle="使用 Capistrano 將 Ruby on Rails Web 應用程式部署至 Azure 虛擬機器 - 教學課程" metaKeywords="ruby on rails, ruby on rails azure, rails azure, rails vm, capistrano azure vm, capistrano azure rails, unicorn azure vm, unicorn azure rails, unicorn nginx capistrano, unicorn nginx capistrano azure, nginx azure" description="了解如何使用 Capistrano、Unicorn 和 Nginx，將 Ruby on Rails 應用程式部署至 Azure 虛擬機器。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="使用 Capistrano 將 Ruby on Rails Web 應用程式部署至 Azure VM" authors="larryfr" manager="wpickett" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 使用 Capistrano 將 Ruby on Rails Web 應用程式部署至 Azure VM
 
-本教學課程說明如何使用 [Capistrano 3][] 將 Ruby on Rails 網站部署到 Azure 虛擬機器。部署之後，將使用 [Nginx][] 和 [Unicorn][] 來主控網站。[PostgreSQL][] 會儲存已部署之應用程式的應用程式資料。
+本教學課程說明如何使用 [Capistrano 3][Capistrano 3] 將 Ruby on Rails 網站部署到 Azure 虛擬機器。部署之後，將使用 [Nginx][Nginx] 和 [Unicorn][Unicorn] 來主控網站。[PostgreSQL][PostgreSQL] 會儲存已部署之應用程式的應用程式資料。
 
 本教學課程假設您未曾使用過 Azure，但熟悉 Ruby、Rails、Git 和 Linux。完成本教學課程後，您將在雲端啟動並執行 Ruby on Rails 型應用程式。
 
@@ -22,7 +22,7 @@
 
 以下是完成後應用程式的螢幕擷取畫面：
 
-![顯示列出貼文的瀏覽器][]
+![顯示列出貼文的瀏覽器][顯示列出貼文的瀏覽器]
 
 > [WACOM.NOTE] 本教學課程使用的應用程式包含原生二進位元件。如果您的開發環境不是 Linux 架構，則在部署至 VM 時可能會發生錯誤。在部署期間使用的 Gemfile.lock 檔案會包含平台特定 gem，其中可能不含 VM 所需的原生 Linux 版本 gem 的項目。
 >
@@ -30,30 +30,33 @@
 
 ## 本文內容
 
--   [設定開發環境][]
+-   [設定開發環境][設定開發環境]
 
--   [建立 Rails 應用程式][]
+-   [建立 Rails 應用程式][建立 Rails 應用程式]
 
--   [測試應用程式][]
+-   [測試應用程式][測試應用程式]
 
--   [建立原始碼儲存機制][]
+-   [建立原始碼儲存機制][建立原始碼儲存機制]
 
--   [建立 Azure 虛擬機器][]
+-   [建立 Azure 虛擬機器][建立 Azure 虛擬機器]
 
--   [測試 Nginx][]
+-   [測試 Nginx][測試 Nginx]
 
--   [準備部署][]
+-   [準備部署][準備部署]
 
--   [部署][]
+-   [部署][部署]
 
--   [後續步驟][]
+-   [後續步驟][後續步驟]
 
 ## <span id="setup"></span></a>設定開發環境
 
-1.  在開發環境中安裝 Ruby。端視您的作業系統而定，步驟可能不同。  
-    -   **Apple OS X** - Ruby 有數個 OS X 版的散發套件。本教學課程已在 OS X 上利用 [Homebrew][] 來安裝 **rbenv**、**ruby-build** 和 **Ruby 2.0.0-p451** 而完成驗證。在 [][]<https://github.com/sstephenson/rbenv/></a> 可找到安裝資訊。  
-    -   **Linux** - 使用散發套件封裝管理系統。本教學課程已使用 **rbenv**、**ruby-build** 和 **Ruby 2.0.0-p451**，在 Ubuntu 12.10 上完成驗證。  
-    -   **Windows** - Windows 有多個 Ruby 散發套件。本教學課程已使用 [RubyInstaller][] 安裝 **Ruby 2.0.0-p451** 而完成驗證。命令是使用 [Git for Windows][] 隨附的 **GitBash** 命令列而發出的。  
+1.  在開發環境中安裝 Ruby。端視您的作業系統而定，步驟可能不同。
+
+    -   **Apple OS X** - Ruby 有數個 OS X 版的散發套件。本教學課程已在 OS X 上利用 [Homebrew][Homebrew] 來安裝 **rbenv**、**ruby-build** 和 **Ruby 2.0.0-p451** 而完成驗證。在 <https://github.com/sstephenson/rbenv/> 可找到安裝資訊。
+
+    -   **Linux** - 使用散發套件封裝管理系統。本教學課程已使用 **rbenv**、**ruby-build** 和 **Ruby 2.0.0-p451**，在 Ubuntu 12.10 上完成驗證。
+
+    -   **Windows** - Windows 有多個 Ruby 散發套件。本教學課程已使用 [RubyInstaller][RubyInstaller] 安裝 **Ruby 2.0.0-p451** 而完成驗證。命令是使用 [Git for Windows][Git for Windows] 隨附的 **GitBash** 命令列而發出的。
 
 2.  開啟新的命令列或終端機工作階段，並輸入下列命令安裝 Ruby on Rails：
 
@@ -65,9 +68,9 @@
 
     > [WACOM.NOTE] 本教學課程使用 Rails gem 4.0.4 版。
 
-3.  您也必須安裝 JavaScript 直譯器，以便 Rails 用來編譯 Rails 應用程式所用的 CoffeeScript 資產。[][1]<https://github.com/sstephenson/execjs#readme></a> 提供支援的直譯器清單。
+3.  您也必須安裝 JavaScript 直譯器，以便 Rails 用來編譯 Rails 應用程式所用的 CoffeeScript 資產。<https://github.com/sstephenson/execjs#readme> 提供支援的直譯器清單。
 
-    > [WACOM.NOTE] 本教學課程使用 [Node.js](<http://nodejs.org/>)，因為它適用於 OS X、Linux 和 Windows 作業系統。
+    > [WACOM.NOTE] 本教學課程使用 [Node.js](http://nodejs.org/)，因為它適用於 OS X、Linux 和 Windows 作業系統。
 
 ## <span id="create"></span></a>建立 Rails 應用程式
 
@@ -89,9 +92,9 @@
 
         rake db:migrate
 
-    這會使用 Rails 的預設資料庫提供者 (也就是 [SQLite3 資料庫][])，建立用以儲存貼文的資料庫結構描述。
+    這會使用 Rails 的預設資料庫提供者 (也就是 [SQLite3 資料庫][SQLite3 資料庫])，建立用以儲存貼文的資料庫結構描述。
 
-4.  若要將貼文的索引顯示為首頁，請修改 **config/routes.rb** 檔案，並在`resources :posts` 後面新增下列項目。
+4.  若要將貼文的索引顯示為首頁，請修改 **config/routes.rb** 檔案，並在 `resources :posts` 資料行後新增以下項目。
 
         root 'posts#index'
 
@@ -113,19 +116,19 @@
         [2013-03-12 19:11:31] INFO  ruby 2.0.0 (2014-02-24) [x86_64-linux]
         [2013-03-12 19:11:31] INFO  WEBrick::HTTPServer#start: pid=9789 port=3000
 
-2.  開啟瀏覽器，導覽至 \<http://localhost:3000/\>。您應該會看到如下的頁面。
+2.  開啟瀏覽器，並瀏覽到 http://localhost:3000/。您應該會看到如下的頁面。
 
-    ![列出貼文的頁面][]
+    ![列出貼文的頁面][列出貼文的頁面]
 
     若要停止伺服器程序，請在命令列中輸入 CTRL+C
 
 ## <span id="repository"></span></a>建立原始碼儲存機制
 
-使用 Capistrano 部署應用程式時，會從儲存機制提取檔案。在本教學課程中，我們會使用 [Git][] 進行版本控制，並使用 [GitHub][] 做為儲存機制。
+使用 Capistrano 部署應用程式時，會從儲存機制提取檔案。在本教學課程中，我們會使用 [Git][Git] 進行版本控制，並使用 [GitHub][GitHub] 做為儲存機制。
 
-1.  在 [GitHub][] 上建立新的儲存機制。如果您沒有 GitHub 帳戶，您可以註冊免費帳戶。下列步驟假設儲存機制名稱為 **blog\_app**。
+1.  在 [GitHub][GitHub] 上建立新的儲存機制。如果您沒有 GitHub 帳戶，您可以註冊免費帳戶。下列步驟假設儲存機制名稱為 **blog\_app**。
 
-    > [WACOM.NOTE] 若要支援應用程式的自動部署，您應使用 SSH 金鑰向 GitHub 驗證。如需詳細資訊，請參閱[產生 SSH 金鑰][]上的 GitHub 文件。
+    > [WACOM.NOTE] 若要支援應用程式的自動部署，您應使用 SSH 金鑰向 GitHub 驗證。如需詳細資訊，請參閱[產生 SSH 金鑰][產生 SSH 金鑰]上的 GitHub 文件。
 
 2.  從命令提示字元中，切換至 **blog\_app** 目錄並執行下列命令，將應用程式上傳至您的 GitHub 儲存機制。以您的 GitHub 帳戶名稱取代 **YourGitHubName**。
 
@@ -139,9 +142,9 @@
 
 ## <span id="createvm"></span></a>建立 Azure 虛擬機器
 
-按照[此處][]提供的指示建立代管 Linux 的 Azure 虛擬機器。
+按照[此處][此處]提供的指示建立代管 Linux 的 Azure 虛擬機器。
 
-1.  登入 Azure [管理入口網站][]。在命令列上選取 [新增]。
+1.  登入 Azure [管理入口網站][管理入口網站]。在命令列上選取 [新增]。
 
 2.  選取 [虛擬機器]，然後選取 [從組件庫]。
 
@@ -153,11 +156,11 @@
 
 5.  在 [新使用者名稱] 中，輸入此機器的系統管理員帳戶名稱。
 
-    > [WACOM.NOTE] 在本教學課程中，系統管理員帳戶也將用來部署應用程式。如需為部署建立個別帳戶的相關資訊，請參閱 [Capistrano][] 文件。
+    > [WACOM.NOTE] 在本教學課程中，系統管理員帳戶也將用來部署應用程式。如需為部署建立個別帳戶的相關資訊，請參閱 [Capistrano][Capistrano] 文件。
 
 6.  在 [驗證] 下，勾選 [Upload compatible SSH key for authentication]，然後瀏覽並選取包含憑證的 **.pem** 檔案。最後，選取箭頭以繼續。
 
-    > [WACOM.NOTE] 如果您不清楚如何產生或使用 SSH 金鑰，請參閱[如何在 Azure 上搭配使用 SSH 與 Linux][]，以取得建立 SSH 金鑰的指示。
+    > [WACOM.NOTE] 如果您不清楚如何產生或使用 SSH 金鑰，請參閱[如何在 Azure 上搭配使用 SSH 與 Linux][如何在 Azure 上搭配使用 SSH 與 Linux]，以取得建立 SSH 金鑰的指示。
     >
     > 您也可以啟用密碼驗證，但必須同時提供 SSH 金鑰，因為將部署自動化時會用到此金鑰。
 
@@ -206,7 +209,7 @@
 
     ruby -v
 
-這應該會傳回`ruby 2.0.0p451` 做為版本。
+這應該會傳回 `ruby 2.0.0p451` 做為版本。
 
 ### 安裝 PostgreSQL
 
@@ -229,7 +232,7 @@ Rails 用於開發的預設資料庫是 SQLite。您在實際執行環境中通�
 
         psql -U my_username -W my_database
 
-    您應會看見`database=>` 提示。若要結束 psql 公用程式，請在提示下輸入`\q` 。
+    您應會看見 `database=>` 提示。若要結束 psql 公用程式，請在提示下輸入 `\q`。
 
 ### <span id="nginx"></span></a>測試 Nginx
 
@@ -243,7 +246,7 @@ Rails 用於開發的預設資料庫是 SQLite。您在實際執行環境中通�
 
 2.  導覽至虛擬機器的 DNS 名稱，以測試您的應用程式。網站應如下所示：
 
-    ![nginx welcome page][]
+    ![nginx welcome page][nginx welcome page]
 
     > [WACOM.NOTE] 本教學課程後續使用的部署指令碼，會將 blog\_app 設為由 Nginx 維護的預設網站。
 
@@ -288,7 +291,7 @@ Rails 用於開發的預設資料庫是 SQLite。您在實際執行環境中通�
 
         cap install
 
-    當`cap install` 命令完成後，下列檔案和目錄即會新增至您的應用程式。
+    `cap install` 命令完成後，下列檔案和目錄即會新增至您的應用程式。
 
         ├── Capfile
         ├── config
@@ -320,7 +323,7 @@ Rails 用於開發的預設資料庫是 SQLite。您在實際執行環境中通�
 
     完成以上變更後，請儲存檔案。
 
-5.  編輯 **config/deploy.rb** 檔案，並以下列項目取代檔案內容。以您的應用程式名稱取代 **YourApplicationName**，並以此專案之 GitHub 儲存機制的 URL 取代 **<https://github.com/YourGitHubName/YourRepoName.git>**。
+5.  編輯 **config/deploy.rb** 檔案，並以下列項目取代檔案內容。以您的應用程式名稱取代 **YourApplicationName**，並以此專案之 GitHub 儲存機制的 URL 取代 **https://github.com/YourGitHubName/YourRepoName.git**。
 
         lock '3.1.0'
         # application name and the github repository
@@ -403,9 +406,9 @@ Rails 用於開發的預設資料庫是 SQLite。您在實際執行環境中通�
 
     Capistrano 會使用 SSH 連接到 VM，然後建立應用程式所將部署到的目錄 (~/apps)。如果這是第一次部署，則 capistrano-postgresql gem 也會在伺服器的 PostgreSQL 中建立角色和資料庫。此外也會建立 Rails 將用來連接到資料庫的 database.yml 組態檔。
 
-    > [WACOM.NOTE] 如果在部署時發生「從驗證通訊端讀取回應長度時發生錯誤」的錯誤，您可能必須使用`ssh-agent` 命令在您的開發環境中啟動 SSH 代理程式。例如，將`eval $(ssh-agent)` 新增至您的 ~/.bash\_profile 檔案。
+    > [WACOM.NOTE] 如果在部署時發生「從驗證通訊端讀取回應長度時發生錯誤」的錯誤，您可能必須使用 `ssh-agent` 命令。例如，將 `eval $(ssh-agent)` 新增至您的 ~/.bash\_profile 檔案。
     >
-    > 您還可能必須使用`ssh-add` 命令，將 SSH 金鑰新增至代理程式快取。
+    > 您還可能必須使用 `ssh-add` 命令將 SSH 金鑰新增到代理程式快取中。
 
 2.  使用下列命令執行實際執行部署。這會將應用程式部署至虛擬機器、啟動 Unicorn 服務，然後把 Nginx 設定成將流量路由傳送至 Unicorn。
 
@@ -417,33 +420,33 @@ Rails 用於開發的預設資料庫是 SQLite。您在實際執行環境中通�
 
     > [WACOM.NOTE] 部署的某些部分可能會傳回「結束狀態 1 (失敗)」。一般而言，只要部署順利完成，就可以忽略前述情況。
 
-    > [WACOM.NOTE] 在某些系統上，對 GitHub 進行驗證時，可能會發生 SSH 代理程式無法將認證轉送至遠端 VM 的情況。如果發生此情況，您可以修改 **config/deploy.rb** 檔案以解決此錯誤，並將`set :repo_url` 程式碼行變更為在存取 Github 時使用 HTTPS。使用 HTTPS 時，您必須將 GitHub 使用者名稱和密碼 (或驗證權杖) 指定為 URL 的一部分。例如：
+    > [WACOM.NOTE] 在某些系統上，對 GitHub 進行驗證時，可能會發生 SSH 代理程式無法將認證轉送至遠端 VM 的情況。如果發生此情況，您可以修改 **config/deploy.rb** 檔案以解決此錯誤，並變更 `set :repo_url` 程式碼行以便在存取Github 時使用 HTTPS。使用 HTTPS 時，您必須將 GitHub 使用者名稱和密碼 (或驗證權杖) 指定為 URL 的一部分。例如：
     >
     > \`set :repo\_url, 'https://you:yourpassword@github.com/You/yourrepository.git'
     >
     > 雖然這樣應該可讓您迴避錯誤並完成此教學課程，但這並不是實際執行部署的建議解決方案，因為這樣會將您的驗證認證以純文字的形式儲存在應用程式中。您應在作業系統的文件中，參閱有關於使用 SSH 代理程式進行轉送的部分。
 
-現在，Ruby on Rails 應用程式應該已在 Azure 虛擬機器上執行。若要驗證這一點，請在網頁瀏覽器中輸入虛擬機器的 DNS 名稱。例如 <http://railsvm.cloudapp.net>。應該會出現貼文索引，且您應該能夠建立、編輯和刪除貼文。
+現在，Ruby on Rails 應用程式應該已在 Azure 虛擬機器上執行。若要驗證這一點，請在網頁瀏覽器中輸入虛擬機器的 DNS 名稱。例如，http://railsvm.cloudapp.net。應該會出現貼文索引，且您應該能夠建立、編輯和刪除貼文。
 
 ## <span id="next"></span></a>後續步驟
 
 在本文中，您學到如何使用 Capistrano 建立基本的 Rails 應用程式，並發佈至 Azure 虛擬機器。使用如同本文中的基本應用程式，只能稍微討論到在部署中使用 Capistrano 的功能而已。如需使用 Capistrano 的詳細資訊，請參閱：
 
 -   [Capistranorb.com][Capistrano] - Capistrano 網站。
--   [Azure、Ruby on Rails、Capistrano 3 和 PostgreSQL][] - 部署至 Azure 的替代方法，與自訂部署指令碼有關。
--   [Capistrano 3 教學課程][] - 使用 Capistrano 3 的教學課程。
+-   [Azure、Ruby on Rails、Capistrano 3 和 PostgreSQL][Azure、Ruby on Rails、Capistrano 3 和 PostgreSQL] - 部署至 Azure 的替代方法，與自訂部署指令碼有關。
+-   [Capistrano 3 教學課程][Capistrano 3 教學課程] - 使用 Capistrano 3 的教學課程。
 
-如需有關建立 Rails 應用程式並只使用 SSH 來部署至 Azure VM 的另一個基本範例，請參閱＜[使用 Linux 虛擬機器來裝載 Ruby on Rails Web 應用程式][]＞。
+如需有關建立 Rails 應用程式並只使用 SSH 來部署至 Azure VM 的另一個基本範例，請參閱＜[使用 Linux 虛擬機器來裝載 Ruby on Rails Web 應用程式][使用 Linux 虛擬機器來裝載 Ruby on Rails Web 應用程式]＞。
 
-如果要深入了解 Ruby on Rails，請參閱 [Ruby on Rails 指南][] (英文)。
+如果要深入了解 Ruby on Rails，請參閱 [Ruby on Rails 指南][Ruby on Rails 指南] (英文)。
 
 若要深入了解如何使用 Azure SDK for Ruby 從 Ruby 應用程式存取 Azure，請參閱：
 
--   [使用 Blob 儲存非結構化資料][]
+-   [使用 Blob 儲存非結構化資料][使用 Blob 儲存非結構化資料]
 
--   [使用資料表儲存機碼值組][]
+-   [使用資料表儲存機碼值組][使用資料表儲存機碼值組]
 
--   [使用內容傳遞網路提供高頻寬內容][]
+-   [使用內容傳遞網路提供高頻寬內容][使用內容傳遞網路提供高頻寬內容]
 
   [Capistrano 3]: https://github.com/capistrano/capistrano/
   [Nginx]: http://nginx.org/
@@ -460,24 +463,22 @@ Rails 用於開發的預設資料庫是 SQLite。您在實際執行環境中通�
   [部署]: #deploy
   [後續步驟]: #next
   [Homebrew]: http://brew.sh/
-  []: https://github.com/sstephenson/rbenv/
   [RubyInstaller]: http://RubyInstaller.org/
   [Git for Windows]: http://git-scm.com/download/win
-  [1]: https://github.com/sstephenson/execjs#readme
   [SQLite3 資料庫]: http://www.sqlite.org/
   [列出貼文的頁面]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/blograilslocal.png
   [Git]: http://git-scm.com/
   [GitHub]: https://github.com/
   [產生 SSH 金鑰]: https://help.github.com/articles/generating-ssh-keys
-  [此處]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
+  [此處]: /zh-tw/manage/linux/tutorials/virtual-machine-from-gallery/
   [管理入口網站]: https://manage.windowsazure.com/
   [Capistrano]: http://capistranorb.com
   [如何在 Azure 上搭配使用 SSH 與 Linux]: http://azure.microsoft.com/zh-tw/documentation/articles/linux-use-ssh-key/
   [nginx welcome page]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/welcomenginx.png
   [Azure、Ruby on Rails、Capistrano 3 和 PostgreSQL]: http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql
   [Capistrano 3 教學課程]: http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/
-  [使用 Linux 虛擬機器來裝載 Ruby on Rails Web 應用程式]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+  [使用 Linux 虛擬機器來裝載 Ruby on Rails Web 應用程式]: /zh-tw/develop/ruby/tutorials/web-app-with-linux-vm/
   [Ruby on Rails 指南]: http://guides.rubyonrails.org/
-  [使用 Blob 儲存非結構化資料]: /en-us/develop/ruby/how-to-guides/blob-storage/
-  [使用資料表儲存機碼值組]: /en-us/develop/ruby/how-to-guides/table-service/
-  [使用內容傳遞網路提供高頻寬內容]: /en-us/develop/ruby/app-services/
+  [使用 Blob 儲存非結構化資料]: /zh-tw/develop/ruby/how-to-guides/blob-storage/
+  [使用資料表儲存機碼值組]: /zh-tw/develop/ruby/how-to-guides/table-service/
+  [使用內容傳遞網路提供高頻寬內容]: /zh-tw/develop/ruby/app-services/

@@ -1,6 +1,6 @@
-<properties title="Using load-balanced sets to clusterize MySQL on Linux" pageTitle="Using load-balanced sets to clusterize MySQL on Linux" description="An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example" metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" />
+<properties title="在 Linux 上使用負載平衡集合將 MySQL 叢集化" pageTitle="在 Linux 上使用負載平衡集合將 MySQL 叢集化" description="本文說明在 Azure 上設定負載平衡、高可用性 Linux 叢集的模式，使用 MySQL作為範例" metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" manager="timlt" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jparrel"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jparrel" />
 
 # 在 Linux 上使用負載平衡集合將 MySQL 叢集化
 

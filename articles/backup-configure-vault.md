@@ -1,4 +1,4 @@
-<properties linkid="manage-services-recovery-configure-backup-vault" urlDisplayName="Configure a Backup Vault" pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="disaster recovery" description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="raynew" solutions="" manager="johndaw" editor="tysonn" />
+<properties urlDisplayName="Configure a Backup Vault" pageTitle="設定 Azure 復原服務以輕鬆迅速地備份 Windows Server" metaKeywords="disaster recovery" description="本教學課程讓您了解如何使用 Microsoft Azure 雲端產品中的備份服務，將 Windows Server 備份至雲端。" metaCanonical="" services="recovery-services" documentationCenter="" title="設定 Azure 備份以輕鬆迅速地備份 Windows Server" authors="raynew" solutions="" manager="johndaw" editor="tysonn" />
 
 <tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
 
@@ -27,7 +27,7 @@
 
 3.  在 [名稱] 中，輸入易記名稱來識別備份保存庫。
 
-4.  在 [區域] 中，選取備份保存庫的區域。
+4.  在 [地區] 中，選取備份保存庫的地區。
     ![新增備份保存庫][新增備份保存庫]
 
 5.  按一下 [建立保存庫]。

@@ -1,10 +1,12 @@
-<properties linkid="dev-node-remotedesktop" urlDisplayName="Enable Remote Desktop" pageTitle="Enable remote desktop for cloud services (Node.js)" metaKeywords="Azure Node.js remote access, Azure Node.js remote connection, Azure Node.js VM access, Azure Node.js virtual machine access" description="Learn how to enable remote-desktop access for the virtual machines hosting your Azure Node.js application. " metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Enabling Remote Desktop in Azure" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Enable Remote Desktop" pageTitle="對雲端服務啟用遠端桌面 (Node.js)" metaKeywords="Azure Node.js remote access, Azure Node.js remote connection, Azure Node.js VM access, Azure Node.js virtual machine access" description="了解如何對裝載 Azure Node.js 應用程式的虛擬機器啟用遠端桌面存取。" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="在 Azure 中啟用遠端桌面" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # 在 Azure 中啟用遠端桌面
 
-遠端桌面可讓您存取在 Azure 中執行之角色執行個體的桌面。您可以使用遠端桌面連線來設定虛擬機器，或對應用程式的問題進行疑難排解。
+遠端桌面可讓您存取在 Azure 中執行之角色執行個體的桌面。
+您可以使用遠端桌面連線來設定虛擬機器，
+或對應用程式的問題進行疑難排解。
 
 <div class="dev-callout">
 <b>注意</b>
@@ -19,7 +21,9 @@
 
 ## <a name="step1"> </a>步驟 1：使用 Azure PowerShell 設定服務的遠端桌面存取
 
-若要使用遠端桌面，您必須使用在雲端中用以驗證角色執行個體的使用者名稱、密碼和憑證，來設定您的服務定義和服務組態。[Azure PowerShell][Azure PowerShell] 包含 **Enable-AzureServiceProjectRemoteDesktop** Cmdlet，可為您執行這項設定。
+若要使用遠端桌面，您必須使用在雲端中用以驗證角色執行個體的使用者名稱、密碼和憑證，
+來設定您的服務定義和服務組態。
+[Azure PowerShell][Azure PowerShell] 包含 **Enable-AzureServiceProjectRemoteDesktop** Cmdlet，可為您執行這項設定。
 
 在建立服務定義的電腦中，執行下列步驟。
 
@@ -27,11 +31,15 @@
 
     ![Azure PowerShell start menu entry][Azure PowerShell start menu entry]
 
-2.  將目錄切換至服務目錄、輸入 **Enable-AzureServiceProjectRemoteDesktop**，然後輸入您在雲端中驗證角色執行個體時所使用的使用者名稱和密碼。
+2.  將目錄切換至服務目錄、輸入
+    **Enable-AzureServiceProjectRemoteDesktop**，
+    然後輸入您在雲端中驗證角色執行個體時所使用的使用者名稱和密碼。
 
     ![enable-azureserviceprojectremotedesktop][enable-azureserviceprojectremotedesktop]
 
-3.  將服務組態變更發佈至雲端。在**Azure PowerShell** 提示下，輸入**Publish-AzureServiceProject**。
+3.  將服務組態變更發佈至雲端。在
+    **Azure PowerShell** 提示下，輸入
+    **Publish-AzureServiceProject**。
 
     ![publish-azureserviceproject][publish-azureserviceproject]
 
@@ -49,7 +57,8 @@
 
     ![The instances page][The instances page]
 
-3.  當您按一下 [連接] 時，網頁瀏覽器會提示您儲存 .rdp 檔案。 如果您使用的是 Internet Explorer，請按一下 [開啟]。
+3.  當您按一下 [連接] 時，網頁瀏覽器會提示您儲存 .rdp 檔案。
+    如果您使用的是 Internet Explorer，請按一下 [開啟]。
 
     ![prompt to open or save the .rdp file][prompt to open or save the .rdp file]
 
@@ -57,23 +66,31 @@
 
     ![Windows security prompt][Windows security prompt]
 
-5.  按一下 [連接] 時會出現安全性提示，要求您輸入存取執行個體所需的認證。輸入您在[步驟 1][步驟 1：使用 Azure PowerShell 設定服務的遠端桌面存取] 中建立的密碼，然後按一下 [確定]。
+5.  按一下 [連接] 時會出現安全性提示，要求您輸入存取執行個體所需的認證。
+    輸入您
+    在[步驟 1][步驟 1：使用 Azure PowerShell 設定服務的遠端桌面存取] 中建立的密碼，然後按一下 [確定]。
 
     ![username/password prompt][username/password prompt]
 
-建立連線之後，[遠端桌面連線] 即會在 Azure 中顯示執行個體的桌面。您已成功取得執行個體的遠端存取，並且可執行任何必要工作來管理您的應用程式。
+建立連線之後，[遠端桌面連線] 即會在 Azure 中顯示執行個體的桌面。
+您已成功取得執行個體的遠端存取，
+並且可執行任何必要工作來管理您的應用程式。
 
 ![Remote desktop session][Remote desktop session]
 
 ## <a name="step3"> </a>步驟 3：使用 Azure PowerShell 將服務設定成停用遠端桌面存取
 
-當您不再需要透過遠端桌面連線到雲端中的角色執行個體時，可使用 [Azure PowerShell][Azure PowerShell] 停用遠端桌面存取
+當您不再需要透過遠端桌面連線到雲端中的角色執行個體時，
+可使用 [Azure PowerShell][Azure PowerShell] 停用遠端桌面存取
 
 1.  在 [開始] 功能表中，選取 [Azure PowerShell]。
 
-2.  將目錄切換至服務目錄，然後輸入**Disable-AzureServiceProjectRemoteDesktop**：
+2.  將目錄切換至服務目錄，然後輸入
+    **Disable-AzureServiceProjectRemoteDesktop**：
 
-3.  將服務組態變更發佈至雲端。在**Azure PowerShell** 提示下，輸入**Publish-AzureServiceProject**：
+3.  將服務組態變更發佈至雲端。在
+    **Azure PowerShell** 提示下，輸入
+    **Publish-AzureServiceProject**：
 
 ## 其他資源
 
@@ -94,5 +111,5 @@
   [Windows security prompt]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
   [username/password prompt]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
   [Remote desktop session]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
-  [從遠端存取 Azure 中的角色執行個體]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh124107.aspx
-  [搭配使用遠端桌面與 Azure 角色]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg443832.aspx
+  [從遠端存取 Azure 中的角色執行個體]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh124107.aspx
+  [搭配使用遠端桌面與 Azure 角色]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg443832.aspx

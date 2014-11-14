@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Website with Storage" pageTitle="Node.js website with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Website with Storage" pageTitle="使用資料表儲存體的 Node.js 網站 | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="本教學課程說明如何使用 Azure 資料表服務，從託管於 Azure 網站上的節點應用程式儲存資料。" metaCanonical="" services="web-sites,storage" documentationCenter="nodejs" title="使用 Azure 資料表服務的 Node.js Web 應用程式" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 使用 Azure 資料表服務的 Node.js Web 應用程式
 
@@ -470,7 +470,7 @@
 
         npm start
 
-3.  開啟瀏覽器，導覽至 <http://127.0.0.1:3000>。這應該會顯示如下所示的網頁：
+3.  開啟網頁瀏覽器並瀏覽到 http://127.0.0.1:3000。這應會顯示如下的網頁：
 
     ![顯示空白工作清單的網頁][A web page displaying an empty tasklist]
 
@@ -636,15 +636,15 @@
 
 ## 其他資源
 
-[適用於 Mac 和 Linux 的 Azure 命令列工具] [建立並部署 Node.js 應用程式至 Azure 網站]
-[使用 Git 發佈至 Azure 網站] []
-[Azure 開發人員中心] []
+[適用於 Mac 和 Linux 的 Azure 命令列工具] [建立並部署 Node.js 應用程式至 Azure 網站]：/zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[使用 Git 發佈至 Azure 網站][使用 Git 發佈至 Azure 網站]：/zh-tw/documentation/articles/web-sites-publish-source-control/
+[Azure 開發人員中心]：/zh-tw/develop/nodejs/
 
   [node]: http://nodejs.org
   [Git]: http://git-scm.com
   [A web page displaying an empty tasklist]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Azure 入口網站]: http://windowsazure.com
+  [+new]: ./media/storage-nodejs-use-table-storage-web-site/plus-new.png
   [storage account]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
   [quick create]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
   [access keys]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
@@ -654,7 +654,6 @@
   [1]: http://getbootstrap.com/
   [An image of the new item in the list of tasks]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
   [建立並部署 Node.js 應用程式至 Azure 網站]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [antares-iaas-signup]: ../includes/antares-iaas-signup.md
   [安裝及設定 Azure 跨平台命令列介面]: /zh-tw/documentation/articles/xplat-cli/
   [下載頁面]: ./media/storage-nodejs-use-table-storage-web-site/azure-account-download-cli.png
   [Git 遠端]: http://git-scm.com/docs/git-remote
@@ -664,4 +663,3 @@
   [app settings save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
   [使用 MongoDB 的 Node.js Web 應用程式]: /zh-tw/documentation/articles/web-sites-nodejs-store-data-mongodb/
   [使用 Git 發佈至 Azure 網站]: /zh-tw/documentation/articles/web-sites-publish-source-control/
-  [Azure 開發人員中心]: /zh-tw/develop/nodejs/

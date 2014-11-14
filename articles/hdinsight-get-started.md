@@ -1,14 +1,10 @@
-<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Get started using Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution. Learn how to provision clusters, run hive jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop in HDInsight" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="開始使用 HDInsight 中的 Hadoop | Azure" metaKeywords="" description="開始使用 HDInsight 中的 Hadoop，巨量資料解決方案。了解如何佈建叢集、執行 Hive 工作，以及將資料輸出至 Excel 進行分析。" metaCanonical="" services="hdinsight" documentationCenter="" title="開始使用 HDInsight 中的 Hadoop" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="nitinme" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="nitinme" />
 
-# 開始使用 HDInsight 中的 Hadoop 2.4
+# 開始使用 HDInsight 中的 Hadoop
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../hdinsight-get-started" title="開始使用 HDInsight 中的 Hadoop 2.4" class="current">Hadoop 2.4</a>
-<a href="../hdinsight-get-started-30" title="開始使用 HDInsight 中的 Hadoop 2.2">Hadoop 2.2</a>
-<!--a href="../hdinsight-get-started-21" title="Get started using Hadoop 1.2 in HDInsight">Hadoop 1.2</a-->
-</div>
+<!--div class="dev-center-tutorial-selector sublanding"> <a href="../hdinsight-get-started" title="Get started using Hadoop 2.4 in HDInsight" class="current">Hadoop 2.4</a> <a href="../hdinsight-get-started-30" title="Get started using Hadoop 2.2 in HDInsight">Hadoop 2.2</a> <!--a href="../hdinsight-get-started-21" title="Get started using Hadoop 1.2 in HDInsight">Hadoop 1.2</a> </div-->
 
 HDInsight 使得 Apache Hadoop (一個 MapReduce 軟體架構) 可以在更簡單、更有擴充性且更符合成本效益的 Azure 環境中發揮作用。HDInsight 也提供使用 Azure Blob 儲存來管理和儲存資料的高成本效益作法。
 
@@ -36,17 +32,17 @@ HDInsight 使得 Apache Hadoop (一個 MapReduce 軟體架構) 可以在更簡�
 
 開始進行本教學課程之前，您必須具備下列條件：
 
--   Azure 訂用帳戶。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][購買選項]、[成員優惠][成員優惠]或[免費試用][免費試用]。
+-   Azure 訂閱。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][購買選項]、[成員優惠][成員優惠]或[免費試用][免費試用]。
 -   安裝 Office 2013 Professional Plus、Office 365 Pro Plus、Excel 2013 Standalone 或 Office 2010 Professional Plus 的電腦。
 
-**預估完成時間：** 30 分鐘
+**預估完成時間：**30 分鐘
 
 ## 本教學課程內容
 
 -   [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
 -   [佈建 HDInsight 叢集][佈建 HDInsight 叢集]
--   [執行 Hive 工作][執行 Hive 工作]
--   [連接到 Microsoft 商業智慧工具][連接到 Microsoft 商業智慧工具]
+-   [從入口網站執行範例][從入口網站執行範例]
+-   [執行 HIVE 工作][執行 HIVE 工作]
 -   [後續步驟][後續步驟]
 
 ## <a name="storage"></a>建立 Azure 儲存體帳戶
@@ -79,7 +75,9 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
 
 ## <a name="provision"></a>佈建 HDInsight 叢集
 
-佈建 HDInsight 叢集時，您可以佈建包含 Hadoop 及相關應用程式的 Azure 運算資源。在本節中，您將佈建採用 Hadoop 2.4 版的 HDInsight 叢集 3.1 版。如果您想要採用 Hadoop 2.2 版佈建 HDInsight 叢集，請按一下本文開頭部分的特定版本索引標籤。您也可以使用 HDInsight PowerShell Cmdlet 或使用 HDInsight .NET SDK 來建立其他版本的 Hadoop 叢集。如需相關指示，請參閱[使用自訂選項佈建 HDInsight 叢集][使用自訂選項佈建 HDInsight 叢集]。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱 [HDInsight 元件版本設定][HDInsight 元件版本設定]頁面。
+佈建 HDInsight 叢集時，您可以佈建包含 Hadoop 及相關應用程式的 Azure 運算資源。在本節中，您將佈建採用 Hadoop 2.4 版的 HDInsight 叢集 3.1 版。您也可以使用 Azure 入口網站、HDInsight PowerShell Cmdlet 或 HDInsight .NET SDK 來建立其他版本的 Hadoop 叢集。如需相關指示，請參閱[使用自訂選項佈建 HDInsight 叢集][使用自訂選項佈建 HDInsight 叢集]。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱 [HDInsight 元件版本設定][HDInsight 元件版本設定]頁面。
+
+[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 **佈建 HDInsight 叢集**
 
@@ -95,15 +93,13 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
 
 4.  輸入或選取下列值：
 
-	<table border="1">
-	<tr><th>名稱</th><th>值</th></tr>
-	<tr><td>叢集名稱</td><td>叢集的名稱</td></tr>
-	<tr><td>叢集大小</td><td>您要部署的資料節點數。預設值為 4。但您也可以從下拉式清單中選擇使用 1 或 2 個資料節點。使用 [Custom Create] 選項可以指定任何數目的資料節點。另外也提供各種叢集大小的費率定價詳細資料。按一下下拉式方塊正上方的 [?] 符號，並遵循快顯功能表上的連結。</td></tr>
-	<tr><td>密碼</td><td> <i>admin</i> 帳戶的密碼。如果不是使用 [Custom Create] 選項，系統會將叢集使用者名稱指定為 "admin"。請注意，這「不是」指佈建叢集所在 VM 的 Windows 系統管理員帳戶。您可以使用 [Custom Create] 精靈來變更帳戶名稱。</td></tr>
-	<tr><td>儲存體帳戶</td><td>從下拉式方塊中，選取您建立的儲存體帳戶。                                                                                                                                                                                                           
-                   一旦選擇儲存體帳戶之後，便無法變更。如果移除儲存體帳戶，則無法再使用叢集。 HDInsight 叢集會並存於與儲存體帳戶相同的資料中心內。
-	</td></tr>
-	</table>
+    | 名稱       | 值                                                                                                                                                                                                                                            |
+    |------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | 叢集名稱   | 叢集的名稱                                                                                                                                                                                                                                    |
+    | 叢集大小   | 您要部署的資料節點數。預設值為 4。但您也可以從下拉式清單中選擇使用 1 或 2 個資料節點。使用 [自訂建立] 選項可以指定任何數目的叢集節點。另外也提供各種叢集大小的費率定價詳細資料。按一下下拉式方塊正上方的 [?] 符號，並遵循快顯功能表上的連結。 |
+    | 密碼       | *admin* 帳戶的密碼。如果不是使用 [自訂建立] 選項，則指定叢集使用者名稱 "admin"。請注意，這「不是」指佈建叢集所在 VM 的 Windows 系統管理員帳戶。您可以使用 [Custom Create] 精靈來變更帳戶名稱。                                                |
+    | 儲存體帳戶 | 從下拉式方塊中，選取您建立的儲存體帳戶。                                                                                                                                                                                                      
+                   一旦選擇儲存體帳戶之後，便無法變更。如果移除儲存體帳戶，則無法再使用叢集。 HDInsight 叢集會並存於與儲存體帳戶相同的資料中心內。                                                                                                               |
 
     保留叢集名稱的複本。稍後在教學課程中將會需要這些資訊。
 
@@ -111,7 +107,18 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
 
     > [WACOM.NOTE] 以上程序會採用 HDInsight 叢集 3.1 版建立叢集。若要建立其他叢集版本，您可以在管理入口網站中使用自訂建立方法，或使用 Azure PowerShell。如需每個叢集版本之間的差異相關資訊，請參閱 [HDInsight 所提供叢集版本的新功能][HDInsight 所提供叢集版本的新功能]。如需使用 [CUSTOM CREATE] 選項的相關資訊，請參閱[使用自訂選項佈建 HDInsight 叢集][使用自訂選項佈建 HDInsight 叢集]。
 
-## <a name="sample"></a>執行 Hive 工作
+## <a name="sample"></a>從入口網站執行範例
+
+佈建成功的 HDInsight 叢集會提供查詢主控台，可從入口網站直接執行範例。您可以利用範例來逐步完成一些基本案例，以了解如何使用 HDInsight。這些範例隨附所有必要的元件，例如要分析的資料及在資料上執行的查詢。
+
+**若要執行範例**，請從 Azure 管理入口網站按一下您要執行範例的叢集名稱，然後按一下頁面底部的 [Query Console]。從開啟的網頁中，按一下 [Getting Started Gallery] 索引標籤，然後在 [範例] 類別下，按一下您要執行的範例。依照網頁上的指示完成範例。如需深入了解每個範例的用途，請按下面的連結。
+
+| 範例               | 用途                                                                                                              |
+|--------------------|-------------------------------------------------------------------------------------------------------------------|
+| [感應器資料分析][感應器資料分析] | 了解如何使用 HDInsight 來處理暖氣、通風和空調 (HVAC) 系統所產生的歷史資料，以識別無法可靠地維持規定溫度的系統。   |
+| [網站記錄分析][網站記錄分析]   | 了解如何使用 HDInsight 來分析網站記錄檔，以深入了解一天之中來自外部網站的造訪次數，以及使用者遭遇網站錯誤的摘要。 |
+
+## <a name="hivequery"></a>從入口網站執行 HIVE 查詢
 
 現在您已佈建一個 HDInsight 叢集，下一個步驟是執行 Hive 工作，以查詢 HDInsight 叢集隨附的範例 Hive 資料表 *hivesampletable*。此資料表會包含行動裝置製造商、平台及模型等資料。查詢這個資料表，以擷取特定製造商的行動裝置資料。
 
@@ -119,7 +126,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
 
 1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  按一下左窗格上的 [HDInsight]。您會看見已建立的叢集清單，其中包含您在上一節中建立的叢集。
-3.  按一下您要執行 Hive 工作的叢集名稱，然後按一下頁面底部的 [管理叢集]。
+3.  按一下您要執行 Hive 工作的叢集名稱，然後按一下頁面底部的 [QUERY CONSOLE]。
 4.  它會在不同瀏覽器索引標籤上開啟網頁。輸入 Hadoop 使用者帳戶和密碼。預設使用者名稱為 **admin**；密碼是您在佈建叢集時所輸入的密碼。儀表板顯示如下：
 
     ![hdi.dashboard][hdi.dashboard]
@@ -156,11 +163,11 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
 
 1.  在叢集儀表板中，按一下頂端的 [檔案瀏覽器]。
 2.  依序按一下您的儲存體帳戶名稱、容器名稱 (會與您的叢集名稱相同)，然後按一下 [使用者]。
-3.  按一下 [admin]，然後按一下其上次修改時間比您先前記下的工作開始時間稍晚的 GUID 號碼。記下此 GUID。您在下一節將會用到此號碼。
+3.  按一下 [admin]，然後按一下其上次修改時間比您先前記下的工作開始時間稍晚的 GUID。記下此 GUID。您在下一節將會用到此號碼。
 
     ![hdi.dashboard.query.browse.output][hdi.dashboard.query.browse.output]
 
-## <a name="powerquery"></a>連接到 Microsoft 商業智慧工具
+### <a name="powerquery"></a>連接到 Microsoft 商業智慧工具
 
 您可以使用適用於 Microsoft Excel 的 Power Query 增益集，將工作輸出從 HDInsight 匯入 Excel，然後使用 Excel 的 Microsoft 商業智慧 (BI) 工具來進一步分析結果。
 
@@ -181,7 +188,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
 4.  輸入 Azure Blob 儲存體帳戶的 [帳戶金鑰]，然後按一下 [儲存]。
 5.  在右邊的瀏覽器窗格中，按兩下 Blob 儲存體容器名稱。依預設，容器名稱與叢集名稱相同。
 
-6.  在 [名稱] 欄中找到 **stdout**。驗證對應 [資料夾路徑] 欄中的 GUID 是否符合您先前記下的 GUID。按一下 **stdout** 左邊的 [二進位]。
+6.  在 [名稱] 欄中找到 **stdout**。驗證對應 [資料夾路徑] 欄中的 GUID 是否符合您先前記下的 GUID。相符就表示輸出資料對應於您提交的工作。按一下 **stdout** 左邊的 [二進位]。
 
     ![HDI.GettingStarted.PowerQuery.ImportData2][HDI.GettingStarted.PowerQuery.ImportData2]
 
@@ -206,7 +213,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
   [MapReduce]: http://go.microsoft.com/fwlink/?LinkId=510086
   [HDFS]: http://go.microsoft.com/fwlink/?LinkId=510087
   [Hive]: http://go.microsoft.com/fwlink/?LinkId=510085
-  [HDInsight 中 Hadoop 的簡介]: ../hdinsight-introduction/
+  [HDInsight 中 Hadoop 的簡介]: ../hdinsight-hadoop-introduction/
   [開始使用 HDInsight Emulator]: ../hdinsight-get-started-emulator/
   [在 HDInsight 上佈建 HBase 叢集]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hbase-get-started/
   [Hadoop 和 HBase 之間的差別？]: http://go.microsoft.com/fwlink/?LinkId=510237
@@ -216,8 +223,8 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
   [免費試用]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
   [建立 Azure 儲存體帳戶]: #storage
   [佈建 HDInsight 叢集]: #provision
-  [執行 Hive 工作]: #sample
-  [連接到 Microsoft 商業智慧工具]: #powerquery
+  [從入口網站執行範例]: #sample
+  [執行 HIVE 工作]: #hivequery
   [後續步驟]: #nextsteps
   [搭配 HDInsight 使用 Azure Blob 儲存體]: ../hdinsight-use-blob-storage/
   [使用自訂選項佈建 HDInsight 叢集]: ../hdinsight-provision-clusters/
@@ -228,6 +235,8 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
   [HDI.ClusterStatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
   [HDI.QuickCreateCluster]: ./media/hdinsight-get-started/HDI.QuickCreateCluster.png
   [HDInsight 所提供叢集版本的新功能]: ../hdinsight-component-versioning/
+  [感應器資料分析]: ../hdinsight-hive-analyze-sensor-data/
+  [網站記錄分析]: ../hdinsight-hive-analyze-website-log/
   [hdi.dashboard]: ./media/hdinsight-get-started/HDI.dashboard.png
   [hdi.dashboard.query.select]: ./media/hdinsight-get-started/HDI.dashboard.query.select.png
   [hdi.dashboard.query.select.result]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.png

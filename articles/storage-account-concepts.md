@@ -1,6 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Storage Account Concepts | Azure" metaKeywords="Azure storage, storage service, service, storage account, account, create storage account, create account" description="Learn about storage account concepts." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="Storage Account Concepts" services="storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties umbracoNaviHide="0" pageTitle="儲存體帳戶概念 | Azure" metaKeywords="Azure storage, storage service, service, storage account, account, create storage account, create account" description="了解儲存體帳戶的概念。" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="儲存體帳戶概念" services="storage" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # 儲存體帳戶概念
 
@@ -12,7 +12,7 @@
 
 儲存體帳戶的「端點」代表存取 Blob、資料表、佇列或檔案時所依據的最高層級命名空間。儲存體帳戶的預設端點具有下列格式：
 
--   Blob 服務： http://*mystorageaccount*.blob.core.windows.net
+-   Blob 服務：http://*mystorageaccount*.blob.core.windows.net
 
 -   資料表服務：http://*mystorageaccount*.table.core.windows.net
 
@@ -26,9 +26,9 @@
 
 當您建立儲存體帳戶時，Azure 會產生兩個 512 位元的儲存體存取金鑰，作為存取儲存體帳戶時的驗證憑藉。透過提供這兩個儲存體存取金鑰，Azure 讓您可重新產生金鑰，同時又不需中斷儲存體服務或對該服務的存取。
 
-建議您避免將儲存體帳戶存取金鑰透露給其他任何人。如果您認為帳戶已被盜用，您可以從入口網站重新產生存取金鑰。請選取您的儲存體帳戶，然後選擇 **管理存取金鑰**。
+建議您避免將儲存體帳戶存取金鑰透露給其他任何人。如果您認為帳戶已被盜用，您可以從入口網站重新產生存取金鑰。請選取您的儲存體帳戶，然後選擇 [管理存取金鑰]。
 
-若要允許存取儲存體資源但不要公開您的存取金鑰，您可以使用*共用存取簽章*。共用存取簽章可在您定義的間隔期間內，使用您所指定的權限，來存取帳戶中的資源。如需詳細資訊，請參閱[共用存取簽章教學課程][共用存取簽章教學課程]。
+若要允許存取儲存體資源但不要公開您的存取金鑰，您可以使用「共用存取簽章」。共用存取簽章可在您定義的間隔期間內，使用您所指定的權限，來存取帳戶中的資源。如需詳細資訊，請參閱[共用存取簽章教學課程][共用存取簽章教學課程]。
 
 ## 儲存體帳戶度量和記錄
 
@@ -40,7 +40,6 @@
 
 「同質群組」是將您的 Azure 服務和 VM 與 Azure 儲存體帳戶依地理位置而形成的群組。同質群組會將電腦工作負載置於相同的資料中心內或目標使用者對象附近，因而能改善服務效能。此外，當您儲存體帳戶中的資料是由同一同質群組中的服務存取時，出口流量並不會產生任何費用。
 
-  [storage-replication-options]: ../includes/storage-replication-options.md
   [共用存取簽章教學課程]: ../storage-dotnet-shared-access-signature-part-1/
   [儲存體分析度量資料表結構描述]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh343264.aspx
   [關於儲存體分析度量]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh343258.aspx

@@ -1,12 +1,12 @@
-<properties linkid="hdinsight-use-time-based-oozie-coordinator-with-hdinsight" urlDisplayName="Use time-based Hadoop Oozie Coordinator in HDInsight" pageTitle="Use time-based Hadoop Oozie Coordinator in HDInsight | Azure" metaKeywords="" description="Use time-based Hadoop Oozie Coordinator in HDInsight, a big data solution. Learn how to define Oozie workflows and coordinators, and submit coordinator jobs." metaCanonical="" services="hdinsight" documentationCenter="" title="Use time-based Hadoop Remove the # signs if you want to run the additional functions.Oozie Coordinator in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Use time-based Hadoop Oozie Coordinator in HDInsight" pageTitle="在 HDInsight 上使用以時間為基礎的 Hadoop Oozie 協調器 | Azure" metaKeywords="" description="在 HDInsight 上使用以時間為基礎的 Hadoop Oozie 協調器：一個巨量資料解決方案。了解如何定義 Oozie 工作流程和協調器，以及提交協調器工作。" metaCanonical="" services="hdinsight" documentationCenter="" title="在 HDInsight 上使用以時間為基礎的 Hadoop Oozie 協調器" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # 在 HDInsight 上將以時間為基礎的 Oozie 協調器與 Hadoop 搭配使用
 
 了解如何定義工作流程和協調器，以及如何觸發以時間為基礎的協調器工作。進行本文之前先完成[在 HDInsight 上使用 Oozie][在 HDInsight 上使用 Oozie]，將有所幫助。
 
-**預估完成時間：** 40 分鐘
+**預估完成時間：**40 分鐘
 
 ## 本文內容
 

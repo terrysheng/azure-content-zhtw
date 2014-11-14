@@ -1,4 +1,4 @@
-<properties pageTitle="Get Started with Azure Mobile Services for HTML 5 apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for HTML development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+<properties pageTitle="開始為 HTML 5 應用程式使用 Azure 行動服務" metaKeywords="" description="遵循此教學課程，可開始使用 Azure 行動服務進行 HTML 開發。" metaCanonical="" services="" documentationCenter="Mobile" title="開始使用行動服務" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
 
@@ -7,11 +7,18 @@
 [WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
+
 <div class="dev-onpage-left-content">
-<p>本教學課程說明如何使用 Azure行動服務在 HTML 應用程式中新增雲端型後端服務。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單<em>待辦事項</em>應用程式。您可以按一下右方的短片，來檢視本教學課程的影片版。</p>
+
+本教學課程說明如何使用 Azure行動服務在 HTML 應用程式中新增雲端型後端服務。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單*待辦事項*應用程式。您可以按一下右方的短片，來檢視本教學課程的影片版。
+
 </div>
 
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">觀看教學課程</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">播放影片</span></a> <span class="time">上午 03:51:00</span></div>
+<div class="dev-onpage-video-wrapper">
+
+[觀看教學課程][觀看教學課程] [<span class="icon">播放影片</span>][觀看教學課程] <span class="time">上午 03:51:00</span>
+
+</div>
 
 </div>
 
@@ -21,7 +28,12 @@
 
 此教學課程是 HTML 應用程式其他所有行動服務教學課程的先修課程。
 
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F" target="_blank">Azure 免費試用</a>。</p></div>
+<div class="dev-callout">
+
+**注意**
+若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][Azure 免費試用]。
+
+</div>
 
 ### 其他需求
 
@@ -54,7 +66,7 @@
 
     ![][1]
 
-    這會顯示三個簡單的步驟，告訴您如何建立及託管連接到您行動服務的 HTML 應用程式。
+    This displays the three easy steps to create and host an HTML app connected to your mobile service.
 
     ![][2]
 
@@ -68,9 +80,12 @@
 
     ![][3]
 
-    <div class="dev-callout"><b>注意</b>
-<p>如果您將快速入門應用程式部署至 localhost 以外的 Web 伺服器，您必須將該 Web 伺服器的主機名稱新增至 [允許提出要求的主機名稱] 清單。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dn155871.aspx" target="_blank">跨原始來源資源分享</a> (英文)。</p>
-</div>
+    <div class="dev-callout">
+
+    **注意**
+    如果您將快速入門應用程式部署至 localhost 以外的 Web 伺服器，您必須將該 Web 伺服器的主機名稱新增至 [允許提出要求的主機名稱] 清單。如需詳細資訊，請參閱[跨原始來源資源分享][跨原始來源資源分享] (英文)。
+
+    </div>
 
 ## 裝載並執行 HTML 應用程式
 
@@ -82,9 +97,12 @@
     -   **launch-mac.command** (Mac OS X 電腦)
     -   **launch-linux.sh** (Linux 電腦)
 
-    <div class="dev-callout"><b>注意</b>
-<p>在 Windows 電腦上，PowerShell 要求您確認想要執行指令碼時，請輸入 'R'。因為指令碼是從網際網路中下載，所以您的網頁瀏覽器可能會警告您不要執行指令碼。發生此情況時，您必須要求瀏覽器繼續載入指令碼。</p>
-</div>
+    <div class="dev-callout">
+
+    **注意**
+    在 Windows 電腦上，PowerShell 要求您確認想要執行指令碼時，請輸入 'R'。因為指令碼是從網際網路中下載，所以您的網頁瀏覽器可能會警告您不要執行指令碼。發生此情況時，您必須要求瀏覽器繼續載入指令碼。
+
+    </div>
 
     這樣會在本機電腦上啟動 Web 伺服器來裝載新的應用程式。
 
@@ -96,10 +114,12 @@
 
     如此會傳送 POST 要求到 Azure 中代管的新行動服務。要求中的資料會插入 TodoItem 資料表中。行動服務會傳回資料表中儲存的項目，並且在應用程式的第二個資料欄中顯示資料。
 
-    <div class="dev-callout"> 
-<b>注意</b> 
-<p>您可以檢閱造成存取您行動服務來進行查詢和插入資料的程式碼，該程式碼位於 app.js 檔案中。</p> 
-</div>
+    <div class="dev-callout">
+
+    **注意**
+    您可以檢閱造成存取您行動服務來進行查詢和插入資料的程式碼，該程式碼位於 app.js 檔案中。
+
+    </div>
 
 4.  回到管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。
 
@@ -125,18 +145,17 @@
 -   **[行動服務 HTML/JavaScript 作法概念參考][行動服務 HTML/JavaScript 作法概念參考]**
     深入了解如何搭配使用行動服務與 HTML/JavaScript
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
+  [觀看教學課程]: http://go.microsoft.com/fwlink/?LinkId=287040
   [0]: ./media/mobile-services-html-get-started/mobile-quickstart-completed-html.png
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F
   [Microsoft Web Platform Installer]: http://go.microsoft.com/fwlink/p/?LinkId=286333
   [最新版本的 Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-html-get-started/mobile-portal-quickstart-html.png
   [2]: ./media/mobile-services-html-get-started/mobile-quickstart-steps-html.png
   [3]: ./media/mobile-services-html-get-started/mobile-services-set-cors-localhost.png
+  [跨原始來源資源分享]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn155871.aspx
   [4]: ./media/mobile-services-html-get-started/mobile-quickstart-startup-html.png
   [5]: ./media/mobile-services-html-get-started/mobile-data-tab.png
   [6]: ./media/mobile-services-html-get-started/mobile-data-browse.png

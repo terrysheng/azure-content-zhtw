@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-cloud9" urlDisplayName="Deploying with Cloud9" pageTitle="Node.js deploying with Cloud9 - Azure tutorial" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" description="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Deploying an Azure App from Cloud9" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Deploying with Cloud9" pageTitle="使用 Cloud9 來部署 Node.js - Azure 教學課程" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" description="了解如何使用 Cloud9 IDE 開發和建置 Node.js 應用程式，並將它部署至 Azure。" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="從 Cloud9 部署 Azure 應用程式" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # 從 Cloud9 部署 Azure 應用程式
 
@@ -13,13 +13,22 @@
 -   更新現有的 Azure 部署
 -   在預備與生產部署之間移動專案
 
-[Cloud9 IDE][Cloud9 IDE] 提供跨平台的瀏覽器型開發環境。Cloud9 針對 Node.js 專案支援的其中一個功能，是您可以從 IDE 直接部署至 Azure。Cloud9 也會與 GitHub 和 BitBucket 儲存機制服務整合，因此可以輕鬆地與其他人共用您的專案。
+[Cloud9 IDE][Cloud9 IDE] 提供跨平台的瀏覽器型開發環境。
+Cloud9 針對 Node.js 專案支援的其中一個功能，
+是您可以從 IDE 直接部署至 Azure。
+Cloud9 也會與 GitHub 和 BitBucket 儲存機制服務整合，因此可以輕鬆地與其他人共用您的專案。
 
-使用 Cloud9，您可以從許多現代瀏覽器和作業系統開發應用程式並將它部署至 Azure，而不需要在本機安裝其他開發工具或 SDK。下列步驟示範如何在 Mac 上使用 Google Chrome。
+使用 Cloud9，您可以從許多現代瀏覽器和作業系統開發應用程式並將它部署至 Azure，
+而不需要在本機安裝其他開發工具或 SDK。
+下列步驟示範如何在 Mac 上使用 Google Chrome。
 
 ## 註冊
 
-若要使用 Cloud9，您需要先瀏覽其網站並[註冊訂閱][Cloud9 IDE]。您可以使用現有 GitHub 或 BitBucket 帳戶登入，或建立 Cloud9 帳戶。您可以取得免費訂閱方案，以及提供其他功能的付費方案。如需詳細資訊，請參閱 [Cloud9 IDE][Cloud9 IDE] (英文)。
+若要使用 Cloud9，您需要先瀏覽其網站並[註冊訂閱][Cloud9 IDE]。
+您可以使用現有 GitHub 或 BitBucket 帳戶登入，或建立 Cloud9 帳戶。
+您可以取得免費訂閱方案，
+以及提供其他功能的付費方案。
+如需詳細資訊，請參閱 [Cloud9 IDE][Cloud9 IDE] (英文)。
 
 ## 建立 Node.js 專案
 
@@ -34,14 +43,18 @@
     ![create new project dialog Cloud9][create new project dialog Cloud9]
 
     <div class="dev-callout">
-<strong>注意</strong>
-<p>某些選項需要付費型 Cloud9 計畫。</p>
-</div>
+
+    **注意**
+    某些選項需要付費型 Cloud9 計畫。
+
+    </div>
 
     <div class="dev-callout">
-<strong>注意</strong>
-<p>部署至 Azure 時，不會使用 Cloud9 專案的專案名稱。</p>
-</div>
+
+    **注意**
+    部署至 Azure 時，不會使用 Cloud9 專案的專案名稱。
+
+    </div>
 
 3.  建立專案之後，請按一下 [Start Editing]。如果這是您第一次使用 Cloud9 IDE，則可以選擇進行服務的導覽。如果您想要跳過此導覽，稍後再進行檢視，請選取 [Just the editor,please]。
 
@@ -62,25 +75,31 @@
         }).listen(port);
 
     <div class="dev-callout">
-<strong>注意</strong>
-<p>如果使用 process.env.PORT，則不論在 Cloud9 偵錯工具中執行或部署至 Azure 時，都可確保應用程式挑選到正確的連接埠。</p>
-</div>
+
+    **注意**
+    如果使用 process.env.PORT，則不論在 Cloud9 偵錯工具中執行或部署至 Azure 時，都可確保應用程式挑選到正確的連接埠。
+
+    </div>
 
 6.  若要儲存程式碼，請選取 [檔案]，然後選取 [另存新檔]。在 [另存新檔] 對話方塊中，
     輸入 **server.js** 作為檔案名稱，然後按一下 [儲存]。
 
     <div class="dev-callout">
-<strong>注意</strong>
-<p>您可能會注意到指出未使用 req 變數的警告符號。您可以放心地略過此警告。</p>
-</div>
+
+    **注意**
+    您可能會注意到指出未使用 req 變數的警告符號。您可以放心地略過此警告。
+
+    </div>
 
     ![save the server.js file][save the server.js file]
 
 ## 執行應用程式
 
 <div class="dev-callout">
-<strong>注意</strong>
-<p>雖然本節中提供的步驟對 Hello World 應用程式就已足夠，但如果是使用外部模組的應用程式，則可能需要針對偵錯環境選取特定版本的 Node.js。若要這樣做，請從偵錯下拉式清單中選取 [設定...]，然後選取特定版本的 Node.js。例如，如果您未選取 Node.js 0.6.x，則可能會在使用「azure」模組時接收到驗證錯誤。</p>
+
+**注意**
+雖然本節中提供的步驟對 Hello World 應用程式就已足夠，但如果是使用外部模組的應用程式，則可能需要針對偵錯環境選取特定版本的 Node.js。若要這樣做，請從偵錯下拉式清單中選取 [設定...]，然後選取特定版本的 Node.js。例如，如果您未選取 Node.js 0.6.x，則可能會在使用「azure」模組時接收到驗證錯誤。
+
 </div>
 
 1.  在 Cloud9 偵錯工具中，按一下 [偵錯] 執行應用程式。
@@ -135,18 +154,24 @@
     ![create a new hosted service][create a new hosted service]
 
     <div class="dev-callout">
-<strong>注意</strong>
-<p>在 [新增部署目標] 對話方塊的 [選擇現有的部署] 區段下，會列出所有現有的 Azure 託管服務；如果選取現有的託管服務，即會將此專案部署至該服務。</p>
-</div>
+
+    **注意**
+    在 [新增部署目標] 對話方塊的 [選擇現有的部署] 區段下，會列出所有現有的 Azure 託管服務；如果選取現有的託管服務，即會將此專案部署至該服務。
+
+    </div>
 
     <div class="dev-callout">
-<strong>注意</strong>
-<p>如果選取 [啟用 RDP] 並提供使用者名稱和密碼，則會啟用您部署的遠端桌面。</p>
-</div>
+
+    **注意**
+    如果選取 [啟用 RDP] 並提供使用者名稱和密碼，則會啟用您部署的遠端桌面。
+
+    </div>
 
 ## 部署至 Azure 生產環境
 
-1.  選取您在先前步驟中建立的部署。此時會顯示對話方塊，來提供此部署的相關資訊，以及將在部署至 Windows Azure 之後使用的生產 URL。
+1.  選取您在先前步驟中建立的部署。此時會顯示對話方塊，
+    來提供此部署的相關資訊，
+    以及將在部署至 Windows Azure 之後使用的生產 URL。
 
     ![select a deployment][select a deployment]
 
@@ -169,9 +194,11 @@
     ![deployment status][deployment status]
 
     <div class="dev-callout">
-<strong>注意</strong>
-<p>會將 GUID 指派給透過 Cloud 9 IDE 所部署的專案，以做為 Azure 中的部署名稱。</p>
-</div>
+
+    **注意**
+    會將 GUID 指派給透過 Cloud 9 IDE 所部署的專案，以做為 Azure 中的部署名稱。
+
+    </div>
 
 8.  部署對話方塊包括生產 URL 的連結。部署完成時，請按一下 URL，以瀏覽至您在 Azure 中執行的應用程式。
 
@@ -206,7 +233,14 @@
 
 ## 使用 VIP 交換，將更新移動至生產環境
 
-將服務部署至生產或預備環境時，會將虛擬 IP 位址 (VIP) 指派給該環境中的服務。當您想要將服務從預備環境移至生產環境時，只需執行 VIP 交換就能達成，而不需重新部署，而 VIP 交換會交換預備和生產部署。VIP 交換會將測試過的預備應用程式放到生產環境中，而生產環境中不會產生任何停機時間。如需更多詳細資料，請參閱[在 Azure 中管理部署][在 Azure 中管理部署]。
+將服務部署至生產或預備環境時，
+會將虛擬 IP 位址 (VIP) 指派給該環境中的服務。
+當您想要將服務從預備環境移至生產環境時，
+只需執行 VIP 交換就能達成，而不需重新部署，
+而 VIP 交換會交換預備和生產部署。
+VIP 交換會將測試過的預備應用程式放到生產環境中，而生產環境中不會產生任何停機時間。
+如需更多詳細資料，
+請參閱[在 Azure 中管理部署][在 Azure 中管理部署]。
 
 1.  在部署對話方塊中，按一下 [開啟入口網站] 連結，以開啟 Azure 管理入口網站。
 
@@ -240,9 +274,10 @@
 當您按一下 [連線] 時，系統會提示您開啟或下載 .RDP 檔案。此檔案包含連線到遠端桌面工作階段所需的資訊。如果在 Windows 系統上執行此檔案，則系統會提示您提供在建立部署時所輸入的使用者名稱和密碼，接著將您連線到所選取執行個體的桌面。
 
 <div class="dev-callout">
-<strong>注意</strong>
-<p>用來連線到應用程式託管執行個體的 .RDP 檔案只適用於 WIndows 上的 [遠端桌面] 
-應用程式。</p>
+
+**注意**
+用來連線到應用程式託管執行個體的 .RDP 檔案只適用於 WIndows 上的 [遠端桌面] 應用程式。
+
 </div>
 
 ## 停止和刪除應用程式
@@ -278,19 +313,18 @@ Cloud9 著重在提供 IDE，並未提供將應用程式部署至 Azure 之後�
   [run in the debugger]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug.png
   [output window]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_output.png
   [application running in browser]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug_browser.png
-  [create-azure-account]: ../includes/create-azure-account.md
   [download publish settings]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_choosetypeandcert.png
-  [雲端服務]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj155995.aspx
-  [建立新部署]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png
+  [雲端服務]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj155995.aspx
+  [create a new deployment]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png
   [create a new hosted service]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_new_hosted_service_settings.png
   [select a deployment]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_select_deployment.png
   [no web.config file found message]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_no_web_config.png
-  [設定雲端服務的大小]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee814754.aspx
+  [設定雲端服務的大小]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee814754.aspx
   [specify csdef file values]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createcsdef.png
   [deployment status]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_deployment_status.png
   [Azure production URL link]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_production_url.png
   [console output showing staging URL]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_staging_console_output.png
-  [在 Azure 中管理部署]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg433027.aspx
+  [在 Azure 中管理部署]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433027.aspx
   [VIP SWAP]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_portal_vipswap.png
   [Production application running on Azure]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_production_on_azure.png
   [Connect to an instance]: ./media/cloud-services-nodejs-develop-deploy-cloud9/connect.png

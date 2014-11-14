@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-manage-a-storage-account" urlDisplayName="How to manage" pageTitle="How to manage storage accounts | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Learn how to manage storage accounts in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="How to manage" pageTitle="如何管理儲存體帳戶 | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="了解如何使用管理入口網站來管理 Azure 中的儲存體帳戶。" metaCanonical="" services="storage" documentationCenter="" title="如何管理儲存體帳戶" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -68,7 +68,7 @@
 
 4.  重新產生次要存取金鑰。
 
-<h2><a id="deletestorageaccount"></a>作法：刪除儲存體帳戶</h2>
+## <span id="deletestorageaccount"></span></a>作法：刪除儲存體帳戶
 
 若要移除不再使用的儲存體帳戶，請在儀表板或 [設定] 頁面上使用 [刪除]。[刪除] 會刪除整個儲存體帳戶，包括帳戶中的所有 Blob、資料表和佇列。
 
@@ -97,7 +97,6 @@
   [作法：管理儲存體帳戶複寫]: #georeplication
   [作法：檢視、複製和重新產生儲存體存取金鑰]: #regeneratestoragekeys
   [作法：刪除儲存體帳戶]: #deletestorageaccount
-  [storage-replication-options]: ../includes/storage-replication-options.md
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [管理入口網站]: http://manage.windowsazure.com
   [設定連接字串]: http://msdn.microsoft.com/zh-tw/library/ee758697.aspx

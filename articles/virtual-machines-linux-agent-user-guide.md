@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-howto-linux-agent" urlDisplayName="Linux Agent guide" pageTitle="Linux Agent User Guide for Azure" metaKeywords="" description="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Linux Agent guide" pageTitle="適用於 Azure 的 Linux 代理程式使用者指南" metaKeywords="" description="了解如何安裝和設定 Linux 代理程式 (waagent)，來管理虛擬機器與 Azure 網狀架構控制器之間的互動。" metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux 代理程式使用者指南" authors="timlt" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
 # Azure Linux 代理程式使用者指南
 
@@ -9,26 +9,27 @@
 Azure Linux 代理程式 (waagent) 管理虛擬機器與 Azure 網狀架構控制器之間的互動。它為 Linux IaaS 部署提供下列功能：
 
 -   **映像檔佈建**
- -   建立使用者帳戶
- -   設定 SSH 驗證類型
- -   部署 SSH 公開金鑰和金鑰組
- -   設定主機名稱
- -   將主機名稱發佈至平台 DNS
- -   將 SSH 主機金鑰和指紋報告給平台
- -   資源磁碟管理
- -   格式化和掛接資源磁碟
- -   設定交換空間
+-   建立使用者帳戶
+-   設定 SSH 驗證類型
+-   部署 SSH 公開金鑰和金鑰組
+-   設定主機名稱
+-   將主機名稱發佈至平台 DNS
+-   將 SSH 主機金鑰和指紋報告給平台
+-   資源磁碟管理
+-   格式化和掛接資源磁碟
+-   設定交換空間
 -   **網路**
- -   管理路由以提高平台 DHCP 伺服器的相容性
- -   確保網路介面名稱的穩定性
+-   管理路由以提高平台 DHCP 伺服器的相容性
+-   確保網路介面名稱的穩定性
 -   **核心**
- -   設定虛擬 NUMA
- -   取用 /dev/random 的 Hyper-V Entropy
- -   設定根裝置 (可能在遠端) 的 SCSI 逾時
+-   設定虛擬 NUMA
+-   取用 /dev/random 的 Hyper-V Entropy
+-   設定根裝置 (可能在遠端) 的 SCSI 逾時
 -   **診斷**
- -   將主控台重新導向至序列埠
+-   將主控台重新導向至序列埠
 -   **SCVMM 部署**
- -   在 System Center Virtual Machine Manager 2012 R2 環境中
+
+    -   在 System Center Virtual Machine Manager 2012 R2 環境中
         執行時偵測和啟動 Linux 的 VMM 代理程式
 
 資訊經由兩個管道從平台流向代理程式：
@@ -41,11 +42,12 @@ Azure Linux 代理程式 (waagent) 管理虛擬機器與 Azure 網狀架構控�
 
 您可以直接從下列位置取得最新版的 Linux 代理程式：
 
--   [在 Azure 上支援 Linux 的不同散發提供者][]
--   或從[適用於 Azure Linux 代理程式的 Github 開放原始碼儲存機制][]
+-   [在 Azure 上支援 Linux 的不同散發提供者][在 Azure 上支援 Linux 的不同散發提供者]
+-   或從[適用於 Azure Linux 代理程式的 Github 開放原始碼儲存機制][適用於 Azure Linux 代理程式的 Github 開放原始碼儲存機制]
 
 ### 支援的 Linux 散發套件
 
+-   CoreOS
 -   CentOS 6.2+
 -   Debian 7.0+
 -   Ubuntu 12.04+
@@ -92,37 +94,37 @@ Waagent 需要一些系統封裝才能正確運作：
 -   help:列出支援的命令和旗標。
 
 -   install：手動安裝代理程式
+-   檢查系統的必要相依性
 
- -   檢查系統的必要相依性
- -   建立 SysV init 指令碼 (/etc/init.d/waagent)、logrotate 組態檔 (/etc/logrotate.d/waagent) 及設定映像檔在開機時執行 init 指令碼
+-   建立 SysV init 指令碼 (/etc/init.d/waagent)、logrotate 組態檔 (/etc/logrotate.d/waagent) 及設定映像檔在開機時執行 init 指令碼
 
- -   將範例組態檔寫入 /etc/waagent.conf
+-   將範例組態檔寫入 /etc/waagent.conf
 
- -   任何現有的組態檔會移至 /etc/waagent.conf.old
+-   任何現有的組態檔會移至 /etc/waagent.conf.old
 
- -   偵測核心版本，必要的話套用 VNUMA 解決方案
+-   偵測核心版本，必要的話套用 VNUMA 解決方案
 
- -   將可能干擾網路的 udev 規則 (/lib/udev/rules.d/75-persistent-net-generator.rules、/etc/udev/rules.d/70-persistent-net.rules) 移至 /var/lib/waagent/
+-   將可能干擾網路的 udev 規則 (/lib/udev/rules.d/75-persistent-net-generator.rules、/etc/udev/rules.d/70-persistent-net.rules) 移至 /var/lib/waagent/
 
 -   uninstall：移除 waagent 和相關聯的檔案
- -   從系統中取消註冊 init 指令碼並刪除它
+-   從系統中取消註冊 init 指令碼並刪除它
 
- -   在 /etc/waagent.conf 在刪除 logrotate 設定和 waagent 組態檔
+-   在 /etc/waagent.conf 在刪除 logrotate 設定和 waagent 組態檔
 
- -   還原安裝期間移動的任何 udev 規則
+-   還原安裝期間移動的任何 udev 規則
 
- -   不支援自動還原 VNUMA 解決方案，必要的話，請手動編輯 GRUB 組態檔來重新啟用 NUMA。
+-   不支援自動還原 VNUMA 解決方案，必要的話，請手動編輯 GRUB 組態檔來重新啟用 NUMA。
 
 -   deprovision：嘗試清理系統，使之適合重新佈建。此作業會刪除下列項目：
- -   所有 SSH 主機金鑰 (如果組態檔中的 Provisioning.RegenerateSshHostKeyPair 是 'y')
+-   所有 SSH 主機金鑰 (如果組態檔中的 Provisioning.RegenerateSshHostKeyPair 是 'y')
 
- -   /etc/resolv.conf 中的名稱伺服器設定
+-   /etc/resolv.conf 中的名稱伺服器設定
 
- -   /etc/shadow 中的根密碼 (如果組態檔中的 Provisioning.DeleteRootPassword 是 'y')
+-   /etc/shadow 中的根密碼 (如果組態檔中的 Provisioning.DeleteRootPassword 是 'y')
 
- -   快取的 DHCP 用戶端租用
+-   快取的 DHCP 用戶端租用
 
- -   將主機名稱重設為 localhost.localdomain
+-   將主機名稱重設為 localhost.localdomain
 
 **警告：**取消佈建不能保證映像檔中的所有機密資訊都清除完畢而適合再度散發。
 

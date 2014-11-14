@@ -1,6 +1,6 @@
-<properties title="Load Balancing for Azure Infrastructure Services" pageTitle="Load Balancing for Azure Infrastructure Services" description="Describes the facilities to perform load balancing with Traffic Manager and load balancer." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt" />
+<properties title="Azure 基礎結構服務的負載平衡" pageTitle="Azure 基礎結構服務的負載平衡" description="說明透過流量管理員和負載平衡器執行負載平衡的機制。" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="cherylmc" videoId="" scriptId="" manager="adinah" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="josephd"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="cherylmc" />
 
 # Azure 基礎結構服務的負載平衡
 
@@ -21,11 +21,11 @@ Azure Traffic Manager 使用三種不同的負載平衡方法來分配流量︰
 -   **效能**：當您在不同地理位置擁有端點，且您為了最低的寫入延遲要求用戶端使用「最靠近」的端點時才使用此方法。
 -   **循環配置資源：**在您想要分配位於相同資料中心的一組雲端服務，或位於不同資料中心的雲端服務或網站的負載時，才使用此方法。
 
-如需詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法][]。
+如需詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法][關於 Traffic Manager 負載平衡方法]。
 
 下圖顯示在不同雲端服務間使用循環配置資源負載平衡方法分配流量的範例。
 
-![loadbalancing][]
+![loadbalancing][loadbalancing]
 
 基礎程序如下︰
 
@@ -34,7 +34,7 @@ Azure Traffic Manager 使用三種不同的負載平衡方法來分配流量︰
 3.  Traffic Manager 傳回循環配置資源清單中雲端服務的 DNS 名稱。網際網路用戶端的 DNS 伺服器將該名稱解析為 IP 位址，並傳送至網際網路用戶端。
 4.  網際網路用戶端連接至所選的雲端服務。
 
-如需詳細資訊，請參閱 [Traffic Manager][]。
+如需詳細資訊，請參閱 [Traffic Manager][Traffic Manager]。
 
 ## 虛擬機器的 Azure 負載平衡
 
@@ -46,7 +46,7 @@ Azure 負載平衡器會隨機分配稱為負載平衡集之組態中的多個�
 
 ![loadbalancing][1]
 
-如需詳細資訊，請參閱 [Azure 負載平衡器][]。如須建立負載平衡集的步驟，請參閱[設定負載平衡集][]。
+如需詳細資訊，請參閱 [Azure 負載平衡器][Azure 負載平衡器]。如須建立負載平衡集的步驟，請參閱[設定負載平衡集][設定負載平衡集]。
 
 Azure 也可在雲端服務或虛擬網路中進行負載平衡。這稱為內部負載平衡，可用於以下方式︰
 
@@ -60,7 +60,7 @@ Azure 也可在雲端服務或虛擬網路中進行負載平衡。這稱為內�
 
 ![loadbalancing][2]
 
-如需詳細資訊，請參閱[內部負載平衡][]。如須建立負載平衡集的步驟，請參閱[設定內部負載平衡集][]。
+如需詳細資訊，請參閱[內部負載平衡][內部負載平衡]。如須建立負載平衡集的步驟，請參閱[設定內部負載平衡集][設定內部負載平衡集]。
 
 <!-- LINKS -->
 

@@ -1,6 +1,6 @@
-<properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="How to use the queue service (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="" />
+<properties title="如何使用佇列服務 (PHP) - Azure 功能指南" pageTitle="如何使用佇列服務 (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。範例以 PHP 撰寫。" documentationCenter="PHP" services="storage" authors="tamram" manager="adinah" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # 如何透過 PHP 使用佇列服務
 
@@ -394,7 +394,5 @@
   [作法：取得佇列長度]: #get-queue-length
   [作法：刪除佇列]: #delete-queue
   [1]: #next-steps
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [get-client-libraries]: ../includes/get-client-libraries.md
+  [require\_once]: http://www.php.net/manual/en/function.require-once.php
   [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx

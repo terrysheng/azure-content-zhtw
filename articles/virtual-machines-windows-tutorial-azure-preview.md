@@ -1,12 +1,12 @@
-<properties linkid="virtual-machines-windows-tutorial-azure-preview" urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="Create a virtual machine running Windows Server in the Azure Preview Portal" metaKeywords="Azure image gallery vm" description="Learn how to create an Azure virtual machine (VM) running Windows Server, using the VM Gallery in the Azure Preview Portal" metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="danlep,kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Create a virtual machine in the Preview Portal" pageTitle="在 Azure 預覽入口網站中建立執行 Windows 的虛擬機器" metaKeywords="Azure image gallery vm" description="了解如何使用 Azure 預覽入口網站中的 VM 映像庫，來建立執行 Windows 的 Azure 虛擬機器 (VM)" metaCanonical="" services="virtual-machines" documentationCenter="" title="在 Azure 預覽入口網站中建立執行 Windows 的虛擬機器" authors="danlep,kathydav,rasquill" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="danlep,kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="danlep,kathydav,rasquill" />
 
-# 在 Azure 預覽入口網站中建立執行 Windows Server 的虛擬機器
+# 在 Azure 預覽入口網站中建立執行 Windows 的虛擬機器
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/virtual-machines-windows-tutorial/" title="Azure 入口網站">Azure 入口網站</a><a href="/zh-tw/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure 預覽入口網站" class="current">Azure 預覽入口網站</a></div>
 
-本教學課程說明如何使用 Azure 預覽入口網站中的 VM 映像庫，輕鬆建立執行 Windows Server 的 Azure 虛擬機器 (VM)。映像庫提供多種映像，包括 Windows 作業系統、Linux 架構的作業系統和應用程式映像。
+本教學課程說明如何使用 Azure 預覽入口網站中的映像庫 (以 Windows Server 映像為例)，輕鬆建立執行 Windows 的 Azure 虛擬機器 (VM)。映像庫提供多種映像，包括 Windows 作業系統、Linux 架構的作業系統和應用程式映像。
 
 > [WACOM.NOTE] 您不需要有任何 Azure VM 的使用經驗，也能完成本教學課程。但您必須要有 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資料，請參閱＜[建立 Azure 帳戶][建立 Azure 帳戶]＞。
 
@@ -19,7 +19,9 @@
 
 ## <span id="createvirtualmachine"></span> </a>如何建立虛擬機器
 
-本節說明如何使用預覽入口網站來建立執行 Windows Server 的 VM。您可以在大部分的組態中使用 Azure 的預設設定，只需幾分鐘的時間即可建立 VM。
+本節說明如何使用預覽入口網站來建立 VM (以 Windows Server 為例)。您可以在大部分的組態中使用 Azure 的預設設定，只需幾分鐘的時間即可建立 VM。
+
+> [WACOM.NOTE] 映像庫中可用映像的數量和種類，會視您所擁有的訂閱類型而定。本教學課程使用 Windows Server 映像，但 MSDN 訂閱可有會有其他可供您使用的映像，包括桌面映像。
 
 1.  登入 [Azure 預覽入口網站][1]。如果您還沒有訂閱，請參考[免費試用][免費試用]優惠。
 
@@ -89,7 +91,8 @@
 
 [管理虛擬機器的可用性][管理虛擬機器的可用性]
 
-  [Azure 入口網站]: /zh-tw/documentation/articles/virtual-machines-windows-tutorial/ "Azure 入口網站"
+[關於 Azure VM 組態設定][關於 Azure VM 組態設定]
+
   [Azure 預覽入口網站]: /zh-tw/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Azure 預覽入口網站"
   [建立 Azure 帳戶]: http://www.windowsazure.com/zh-tw/develop/php/tutorials/create-a-windows-azure-account/
   [如何建立虛擬機器]: #createvirtualmachine
@@ -111,3 +114,4 @@
   [如何建立和上傳包含 Windows Server 作業系統的個人虛擬硬碟]: http://www.windowsazure.com/zh-tw/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
   [將資料磁碟連接至虛擬機器]: http://www.windowsazure.com/zh-tw/documentation/articles/storage-windows-attach-disk/
   [管理虛擬機器的可用性]: http://www.windowsazure.com/zh-tw/documentation/articles/manage-availability-virtual-machines/
+  [關於 Azure VM 組態設定]: http://msdn.microsoft.com/library/azure/dn763935.aspx

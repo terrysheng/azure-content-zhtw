@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="szark" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Install LAMP stack" pageTitle="在 Linux 虛擬機器上安裝 LAMP 堆疊" metaKeywords="" description="了解如何在 Azure 中的 Linux 虛擬機器 (VM) 上安裝 LAMP 堆疊。您可以在 Ubuntu 或 CentOS 上進行安裝。" metaCanonical="" services="virtual-machines" documentationCenter="" title="在 Azure 中的 Linux 虛擬機器上安裝 LAMP 堆疊" authors="szark" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
@@ -6,10 +6,10 @@
 
 LAMP 堆疊由下列不同元素組成：
 
--   <strong>L</strong>inux - 作業系統
--   <strong>A</strong>pache - Web 伺服器
--   <strong>M</strong>ySQL - 資料庫伺服器
--   <strong>P</strong>HP - 程式設計語言
+-   **L**inux - 作業系統
+-   **A**pache - Web 伺服器
+-   **M**ySQL - 資料庫伺服器
+-   **P**HP - 程式設計語言
 
 ## 安裝在 Ubuntu 上
 
@@ -98,9 +98,7 @@ LAMP 堆疊由下列不同元素組成：
 
 有許多關於在 Ubuntu 上設定 LAMP 堆疊的資源可供參考。
 
--   [][]<https://help.ubuntu.com/community/ApacheMySQLPHP></a>
--   [][1]<http://fedorasolved.org/server-solutions/lamp-stack></a>
+-   <https://help.ubuntu.com/community/ApacheMySQLPHP>
+-   <http://fedorasolved.org/server-solutions/lamp-stack>
 
   [設定端點]: http://azure.microsoft.com/zh-tw/documentation/articles/virtual-machines-set-up-endpoints/
-  []: https://help.ubuntu.com/community/ApacheMySQLPHP
-  [1]: http://fedorasolved.org/server-solutions/lamp-stack

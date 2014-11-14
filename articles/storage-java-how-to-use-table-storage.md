@@ -1,6 +1,6 @@
-<properties linkid="dev-java-how-to-use-table-storage" urlDisplayName="Table Service" pageTitle="How to use table storage (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Learn how to use the table storage service in Azure. Code samples are written in Java code." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="如何使用資料表儲存體 (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="如何在 Azure 中使用資料表儲存體服務。程式碼範例以 Java 程式碼撰寫。" metaCanonical="" services="storage" documentationCenter="Java" title="如何從 Java 使用資料表儲存體服務" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # 如何使用 Java 的資料表儲存體
 
@@ -71,7 +71,9 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## <a name="CreateTable"> </a>作法：建立資料表
 
-**CloudTableClient** 物件可讓您取得資料表和實體的參照物件。下列程式碼會建立 **CloudTableClient** 物件，並使用此物件建立新的 **CloudTable** 物件，以代表一個名為 "people" 的資料表。(注意：還有其他方法可建立 **CloudStorageAccount** 物件。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考][Azure 儲存體用戶端 SDK 參考] (英文) 中的 **CloudStorageAccount**)
+**CloudTableClient** 物件可讓您取得資料表和實體的參照物件。
+下列程式碼會建立 **CloudTableClient** 物件，
+並使用此物件建立新的 **CloudTable** 物件，以代表一個名為 "people" 的資料表。(注意：還有其他方法可建立 **CloudStorageAccount** 物件。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考][Azure 儲存體用戶端 SDK 參考] (英文) 中的 **CloudStorageAccount**)
 
     try
     {
@@ -578,8 +580,6 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
   [作法：插入或取代實體]: #InsertOrReplace
   [作法：刪除實體]: #DeleteEntity
   [作法：刪除資料表]: #DeleteTable
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
   [部落格文章]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [Azure 儲存體 REST API]: http://msdn.microsoft.com/zh-tw/library/azure/gg433040.aspx

@@ -1,4 +1,4 @@
-<properties linkid="manage-windows-common-tasks-install-mysql" urlDisplayName="Install MySQL" pageTitle="Create a virtual machine running MySQL in Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Create an Azure virtual machine running Windows Server 2008 R2, and then install and configure a MySQL database on the virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running Windows Server 2008 R2 in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Install MySQL" pageTitle="在 Azure 中建立執行 MySQL 的虛擬機器" metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="建立執行 Windows Server 2008 R2 的 Azure 虛擬機器，然後在該虛擬機器上安裝及設定 MySQL 資料庫。" metaCanonical="" services="virtual-machines" documentationCenter="" title="在 Azure 中執行 Windows Server 2008 R2 的虛擬機器上安裝 MySQL" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/15/2013" ms.author="kathydav" />
 
@@ -26,7 +26,7 @@
 
 1.  使用遠端桌面連線到虛擬機器之後，從 [開始] 功能表中開啟 Internet Explorer。
 
-2.  選取右上方的 [工具] 按鈕。在 [網際網路選項] 中，選取 [安全性] 索引標籤，接著選取 [受信任的網站] 圖示，最後按一下 [網站] 按鈕。將 <i>http://\*.mysql.com </i> 加入受信任的網站清單。
+2.  選取右上方的 [工具] 按鈕。在 [網際網路選項] 中，選取 [安全性] 索引標籤，接著選取 [受信任的網站] 圖示，最後按一下 [網站] 按鈕。將 *http://\*.mysql.com* 加入至受信任的網站清單。
 
 3.  移至[下載 MySQL Community Server][下載 MySQL Community Server] (英文)。
 
@@ -34,7 +34,7 @@
 
 5.  尋找最新版的 [Windows (x86, 64-bit), MSI Installer]，然後按一下 [Download]。
 
-6.  選取 [No thanks, just start my download!]\(或註冊帳戶)。如果出現提示，請選取鏡像網站來下載 MySQL 安裝程式，並將安裝程式儲存至桌面。
+6.  選取 [No thanks, just start my download!](或註冊帳戶)。如果出現提示，請選取鏡像網站來下載 MySQL 安裝程式，並將安裝程式儲存至桌面。
 
 7.  在桌面上按兩下安裝程式開始安裝。
 
@@ -78,7 +78,7 @@
 
     ![Configure MySQL][8]
 
-18. 選取 [Enable TCP/IP Networking] 和 [Add firewall exception for this port] \(這樣會在 Windows 防火牆中建立名為 **MySQL Server** 的輸入規則)。
+18. 選取 [Enable TCP/IP Networking] 和 [Add firewall exception for this port] (這樣會在 Windows 防火牆中建立名為 **MySQL Server** 的輸入規則)。
 
     ![Configure MySQL][9]
 
@@ -155,8 +155,6 @@
 
   [MySQL]: http://www.mysql.com
   [Azure 管理入口網站]: http://manage.windowsazure.com
-  [create-and-configure-windows-server-2008-vm-in-portal]: ../includes/create-and-configure-windows-server-2008-vm-in-portal.md
-  [attach-data-disk-windows-server-2008-vm-in-portal]: ../includes/attach-data-disk-windows-server-2008-vm-in-portal.md
   [下載 MySQL Community Server]: http://www.mysql.com/downloads/mysql/
   [MySQL Setup]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall1.png
   [1]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall2.png

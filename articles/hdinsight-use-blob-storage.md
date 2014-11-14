@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-howto-blob-store" urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="Use Blob storage with Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how HDInsight uses Blob storage as the underlying data store for HDFS and how you can query data from the store." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Use Azure Blob storage with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="在 HDInsight 上將 Blob 儲存體與 Hadoop 搭配使用 | Azure" metaKeywords="" description="了解 HDInsight 如何使用 Blob 儲存體作為 HDFS 的基礎資料存放區，以及如何查詢存放區中的資料。" metaCanonical="" services="storage,hdinsight" documentationCenter="" title="在 HDInsight 上將 Azure Blob 儲存體與 Hadoop 搭配使用" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # 在 HDInsight 上將 Azure Blob 儲存體與 Hadoop 搭配使用
 
@@ -117,7 +117,7 @@ Blob 儲存容器以機碼/值組來儲存資料，沒有目錄階層。然而�
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
-> [WACOM.NOTE] 在儲存體模擬器 (在 HDInsight 模擬器上執行) 上定址檔案的語法是 <i>wasb://&lt;ContainerName&gt;@storageemulator</i>.
+> [WACOM.NOTE] 在儲存體模擬器 (在 HDInsight 模擬器上執行) 上定址檔案的語法是 *wasb://\<ContainerName\>@storageemulator*。
 
 URI 配置提供未加密存取，使用的是 *wasb:*首碼，也提供 SSL 加密存取，使用的是 *wasbs*。建議儘量使用 *wasbs*，即使存取相同 Azure 資料中心內的資料也一樣。
 
@@ -262,7 +262,6 @@ $clusterName = "<hdinsightclustername>"
   [HDI.QuickCreate]: ./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png
   [HDI.CustomCreateStorageAccount]: ./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png
   [Azure PowerShell]: ../install-configure-powershell/
-  [//\<ContainerName\>@storageemulator]: mailto://<ContainerName>@storageemulator
   [Blob.PowerShell.cmdlets]: ./media/hdinsight-use-blob-storage/HDI.PowerShell.BlobCommands.png
   [將資料上傳至 HDInsight]: ../hdinsight-upload-data/
   [搭配 HDInsight 使用 Hive]: ../hdinsight-use-hive/

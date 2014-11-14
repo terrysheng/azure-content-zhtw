@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-tutorials-get-started" urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Get Started with Media Services" pageTitle="開始使用媒體服務 - Azure" metaKeywords="Azure media services" description="透過 Azure 使用媒體服務的簡介。" metaCanonical="" services="media-services" documentationCenter="" title="開始使用媒體服務" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # <a name="getting-started"></a>開始使用媒體服務
 
@@ -20,12 +20,13 @@
 根據 Azure Media Services SDK 來逐步演練和開發之前需要有下列必要條件。
 
 -   新的或現有 Azure 訂用帳戶中的媒體服務帳戶。如需詳細資料，請參閱[如何建立媒體服務帳戶][如何建立媒體服務帳戶] (英文)。
--   作業系統：Windows 7、Windows 2008 R2 或 Windows 8。
+-   作業系統：Windows 7、Windows 2008 R2、Windows 8 或更新版本。
 -   .NET Framework 4.5 或 .NET Framework 4。
--   Visual Studio 2012 或 Visual Studio 2010 SP1 (Professional、Premium、Ultimate 或 Express)。
+-   Visual Studio 2012、Visual Studio 2010 SP1 (Professional、Premium、Ultimate 或 Express) 或更新版本。
 -   使用 [windowsazure.mediaservices Nuget][windowsazure.mediaservices Nuget] 封裝來安裝 **Azure SDK for .NET**、**Azure Media Services SDK for .NET** 和 **WCF Data Services 5.0 for OData V3 程式庫**，並將參考加入至專案。下一節示範如何安裝和加入這些參考。
 
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 免費試用</a>。</p></div>
+> [WACOM.NOTE]
+> 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][Azure 免費試用]。
 
 ## <span id="Step1"></span></a>設定專案
 
@@ -67,7 +68,7 @@
         using Microsoft.WindowsAzure;
         using Microsoft.WindowsAzure.MediaServices.Client;
 
-7.  加入下列類別層級路徑變數。**_supportFiles** 路徑應該指向您在先前步驟中建立的資料夾。
+7.  加入下列類別層級路徑變數。\*\*\_supportFiles\*\* 路徑應該指向您在先前步驟中建立的資料夾。
 
         // Base support files path.  Update this field to point to the base path  
         // for the local support files folder that you create. 
@@ -96,7 +97,7 @@
 
 媒體服務內容物件包含進行媒體服務程式設計時需要存取的所有基本物件和集合。內容包含重要集合的參考，包括作業、資產、檔案、存取原則、定位器和其他物件。大部分的媒體服務程式設計工作中都必須取得伺服器內容。
 
-在 Program.cs 檔案中，加入下列程式碼當做 **Main** 方法中的第一個項目。此程式碼使用 app.config 檔案中的媒體服務帳戶名稱和帳戶金鑰值，以建立伺服器內容的執行個體。此執行個體要指派給您在類別層級上建立的 **_context** 變數。
+在 Program.cs 檔案中，加入下列程式碼當做 **Main** 方法中的第一個項目。此程式碼使用 app.config 檔案中的媒體服務帳戶名稱和帳戶金鑰值，以建立伺服器內容的執行個體。此執行個體要指派給您在類別層級上建立的 \*\*\_context\*\* 變數。
 
     // Get the service context.
     _context = new CloudMediaContext(_accountName, _accountKey);
@@ -106,17 +107,18 @@
 本節的程式碼會執行下列動作：
 
 1.  建立空的資產
-
      當您建立資產時，您可以指定三種不同的加密選項。
 
     -   **AssetCreationOptions.None**：不加密。如果要建立未加密的資產，您必須設定此選項。
     -   **AssetCreationOptions.CommonEncryptionProtected**：適用於 Common Encryption Protected (CENC) 檔案。例如，已使用 PlayReady 加密的一組檔案。
     -   **AssetCreationOptions.StorageEncrypted**：儲存體加密。將尚未上傳至 Azure 儲存體的純文字輸入檔加密。
 
-        <div class="dev-callout"> 
-<strong>注意</strong> 
-<p>媒體服務提供磁碟上的儲存體加密，而不是在線上加密，例如數位版權管理員 (DRM)。</p> 
-</div>
+        <div class="dev-callout">
+
+        **注意**
+        媒體服務提供磁碟上的儲存體加密，而不是在線上加密，例如數位版權管理員 (DRM)。
+
+        </div>
 
 2.  建立要與資產相關聯的 AssetFile 執行個體。
 3.  建立 AccessPolicy 執行個體，以定義存取資產所需的權限和規定期間。
@@ -162,7 +164,7 @@
         return asset;
     }
 
-在 Main 方法中，在 **_context = new CloudMediaContext(\_accountName, \_accountKey);** 行後面加入方法的呼叫。
+在 Main 方法中，在 \*\*\_context = new CloudMediaContext(\_accountName, \_accountKey);\*\* 行後面加入方法的呼叫。
 
     IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, _singleInputFilePath)
 
@@ -171,134 +173,133 @@
 在媒體服務中，您可以建立作業，以多種方式處理媒體內容：編碼、加密、轉換格式等。媒體服務作業通常包含一或多項工作來指定工作處理的細節。在本節中，您將建立基本的編碼工作，然後透過一項作業使用 Azure Media Encoder 來執行此工作。此工作使用預設字串來指定要執行的編碼類型。若要查看可用的編碼值，請參閱 [Azure Media Encoder 的工作預設字串][Azure Media Encoder 的工作預設字串]。媒體服務支援與 Microsoft Expression Encoder 相同的媒體檔案輸入和輸出格式。如需支援的格式清單，請參閱 [Azure Media Encoder 支援的轉碼器與檔案類型][Azure Media Encoder 支援的轉碼器與檔案類型]。
 
 1.  將下列 **CreateEncodingJob** 方法定義加入至類別。此方法示範如何完成編碼作業的一些必要工作：
-   -   宣告新的作業。
-   -   宣告媒體處理器來處理作業。媒體處理器是一種負責處理編碼、加密、格式轉換和其他相關處理作業的元件。有許多種可用的媒體處理器 (您可以使用 using \_context.MediaProcessors 來逐一取得所有媒體處理器)。GetLatestMediaProcessorByName 方法 (稍後出現於此逐步解說中) 會傳回 Azure Media Encoder 處理器。
-   -   宣告新的工作。每個作業有一或多項工作。請注意，您需要在工作中傳入易記名稱、媒體處理器執行個體、工作組態字串和工作建立選項。組態字串指定編碼設定。此範例使用 **H264 Broadband 720p** 設定。此預設字串會產生單一 MP4 檔案。如需此預設字串和其他預設字串的詳細資訊，請參閱 [Azure Media Encoder 的工作預設字串][1]。
-   -   將輸入資產加入至工作。在此範例中，輸入資產是您在上一節建立的資產。
-   -   將輸出資產加入至工作。對於輸出資產，請指定易記名稱、一個布林值來指出工作完成後是否將輸出儲存在伺服器，以及一個 **AssetCreationOptions.None** 值來指出輸出在儲存和傳輸時不加密。
-   -   提交作業。  
-       提交作業是編碼作業所需的最後一步。  
-       此方法也會示範如何執行其他實用 (但選擇性) 的工作，例如追蹤作業進度和存取編碼作業所建立的資產。
 
-    <pre><code>
-    static IJob CreateEncodingJob(IAsset asset, string inputMediaFilePath, string outputFolder)
-    {
-        // Declare a new job.
-        IJob job = _context.Jobs.Create("My encoding job");
-        // Get a media processor reference, and pass to it the name of the 
-        // processor to use for the specific task.
-        IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
-    
-        // Create a task with the encoding details, using a string preset.
-        ITask task = job.Tasks.AddNew("My encoding task",
-            processor,
-            "H264 Broadband 720p",
-            Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.ProtectedConfiguration);
-    
-        // Specify the input asset to be encoded.
-        task.InputAssets.Add(asset);
-        // Add an output asset to contain the results of the job. 
-        // This output is specified as AssetCreationOptions.None, which 
-        // means the output asset is not encrypted. 
-        task.OutputAssets.AddNew("Output asset",
-            AssetCreationOptions.None);
-        // Use the following event handler to check job progress.  
-        job.StateChanged += new
-                EventHandler&lt;JobStateChangedEventArgs&gt;(StateChanged);
-    
-        // Launch the job.
-        job.Submit();
-    
-        // Optionally log job details. This displays basic job details
-        // to the console and saves them to a JobDetails-{JobId}.txt file 
-        // in your output folder.
-        LogJobDetails(job.Id);
-    
-        // Check job execution and wait for job to finish. 
-        Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-        progressJobTask.Wait();
-    
-        // **********
-        // Optional code.  Code after this point is not required for 
-        // an encoding job, but shows how to access the assets that 
-        // are the output of a job, either by creating URLs to the 
-        // asset on the server, or by downloading. 
-        // **********
-    
-        // Get an updated job reference.
-        job = GetJob(job.Id);
-    
-        // If job state is Error the event handling 
-        // method for job progress should log errors.  Here we check 
-        // for error state and exit if needed.
-        if (job.State == JobState.Error)
+    -   宣告新的作業。
+    -   宣告媒體處理器來處理作業。媒體處理器是一種負責處理編碼、加密、格式轉換和其他相關處理作業的元件。有許多種可用的媒體處理器 (您可以使用 using \_context.MediaProcessors 來逐一取得所有媒體處理器)。GetLatestMediaProcessorByName 方法 (稍後出現於此逐步解說中) 會傳回 Azure Media Encoder 處理器。
+    -   宣告新的工作。每個作業有一或多項工作。請注意，您需要在工作中傳入易記名稱、媒體處理器執行個體、工作組態字串和工作建立選項。組態字串指定編碼設定。此範例使用 **H264 Broadband 720p** 設定。此預設字串會產生單一 MP4 檔案。如需此預設字串和其他預設字串的詳細資訊，請參閱 [Azure Media Encoder 的工作預設字串][1]。
+    -   將輸入資產加入至工作。在此範例中，輸入資產是您在上一節建立的資產。
+    -   將輸出資產加入至工作。對於輸出資產，請指定易記名稱、一個布林值來指出工作完成後是否將輸出儲存在伺服器，以及一個 **AssetCreationOptions.None** 值來指出輸出在儲存和傳輸時不加密。
+    -   提交作業。
+         提交作業是編碼作業所需的最後一步。
+
+    此方法也會示範如何執行其他實用 (但選擇性) 的工作，例如追蹤作業進度和存取編碼作業所建立的資產。
+
+        static IJob CreateEncodingJob(IAsset asset, string inputMediaFilePath, string outputFolder)
         {
-            Console.WriteLine("\nExiting method due to job error.");
+            // Declare a new job.
+            IJob job = _context.Jobs.Create("My encoding job");
+            // Get a media processor reference, and pass to it the name of the 
+            // processor to use for the specific task.
+            IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
+
+            // Create a task with the encoding details, using a string preset.
+            ITask task = job.Tasks.AddNew("My encoding task",
+                processor,
+                "H264 Broadband 720p",
+                Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.ProtectedConfiguration);
+
+            // Specify the input asset to be encoded.
+            task.InputAssets.Add(asset);
+            // Add an output asset to contain the results of the job. 
+            // This output is specified as AssetCreationOptions.None, which 
+            // means the output asset is not encrypted. 
+            task.OutputAssets.AddNew("Output asset",
+                AssetCreationOptions.None);
+            // Use the following event handler to check job progress.  
+            job.StateChanged += new
+                    EventHandler<JobStateChangedEventArgs>(StateChanged);
+
+            // Launch the job.
+            job.Submit();
+
+            // Optionally log job details. This displays basic job details
+            // to the console and saves them to a JobDetails-{JobId}.txt file 
+            // in your output folder.
+            LogJobDetails(job.Id);
+
+            // Check job execution and wait for job to finish. 
+            Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
+            progressJobTask.Wait();
+
+            // **********
+            // Optional code.  Code after this point is not required for 
+            // an encoding job, but shows how to access the assets that 
+            // are the output of a job, either by creating URLs to the 
+            // asset on the server, or by downloading. 
+            // **********
+
+            // Get an updated job reference.
+            job = GetJob(job.Id);
+
+            // If job state is Error the event handling 
+            // method for job progress should log errors.  Here we check 
+            // for error state and exit if needed.
+            if (job.State == JobState.Error)
+            {
+                Console.WriteLine("\nExiting method due to job error.");
+                return job;
+            }
+
+            // Get a reference to the output asset from the job.
+            IAsset outputAsset = job.OutputMediaAssets[0];
+            IAccessPolicy policy = null;
+            ILocator locator = null;
+
+            // Declare an access policy for permissions on the asset. 
+            // You can call an async or sync create method. 
+            policy =
+                _context.AccessPolicies.Create("My 30 days readonly policy",
+                    TimeSpan.FromDays(30),
+                    AccessPermissions.Read);
+
+            // Create a SAS locator to enable direct access to the asset 
+            // in blob storage. You can call a sync or async create method.  
+            // You can set the optional startTime param as 5 minutes 
+            // earlier than Now to compensate for differences in time  
+            // between the client and server clocks. 
+
+            locator = _context.Locators.CreateLocator(LocatorType.Sas, outputAsset,
+                policy,
+                DateTime.UtcNow.AddMinutes(-5));
+
+            // Build a list of SAS URLs to each file in the asset. 
+            List<String> sasUrlList = GetAssetSasUrlList(outputAsset, locator);
+
+            // Write the URL list to a local file. You can use the saved 
+            // SAS URLs to browse directly to the files in the asset.
+            if (sasUrlList != null)
+            {
+                string outFilePath = Path.GetFullPath(outputFolder + @"\" + "FileSasUrlList.txt");
+                StringBuilder fileList = new StringBuilder();
+                foreach (string url in sasUrlList)
+                {
+                    fileList.AppendLine(url);
+                    fileList.AppendLine();
+                }
+                WriteToFile(outFilePath, fileList.ToString());
+
+                // Optionally download the output to the local machine.
+                DownloadAssetToLocal(job.Id, outputFolder);
+            }
+
+            
             return job;
         }
-    
-        // Get a reference to the output asset from the job.
-        IAsset outputAsset = job.OutputMediaAssets[0];
-        IAccessPolicy policy = null;
-        ILocator locator = null;
-    
-        // Declare an access policy for permissions on the asset. 
-        // You can call an async or sync create method. 
-        policy =
-            _context.AccessPolicies.Create("My 30 days readonly policy",
-                TimeSpan.FromDays(30),
-                AccessPermissions.Read);
-    
-        // Create a SAS locator to enable direct access to the asset 
-        // in blob storage. You can call a sync or async create method.  
-        // You can set the optional startTime param as 5 minutes 
-        // earlier than Now to compensate for differences in time  
-        // between the client and server clocks. 
-    
-        locator = _context.Locators.CreateLocator(LocatorType.Sas, outputAsset,
-            policy,
-            DateTime.UtcNow.AddMinutes(-5));
-    
-        // Build a list of SAS URLs to each file in the asset. 
-        List&lt;String&gt; sasUrlList = GetAssetSasUrlList(outputAsset, locator);
-    
-        // Write the URL list to a local file. You can use the saved 
-        // SAS URLs to browse directly to the files in the asset.
-        if (sasUrlList != null)
-        {
-            string outFilePath = Path.GetFullPath(outputFolder + @"\" + "FileSasUrlList.txt");
-            StringBuilder fileList = new StringBuilder();
-            foreach (string url in sasUrlList)
-            {
-                fileList.AppendLine(url);
-                fileList.AppendLine();
-            }
-            WriteToFile(outFilePath, fileList.ToString());
-    
-            // Optionally download the output to the local machine.
-            DownloadAssetToLocal(job.Id, outputFolder);
-        }
-    
-        
-        return job;
-    }
-    
-    </code></pre>
 
 2.  在 **Main** 方法中，在您先前加入的幾行後面加入呼叫 **CreateEncodingJob** 方法。
 
         CreateEncodingJob(asset, _singleInputFilePath, _outputFilesFolder);
 
 3.  將下列協助程式方法加入至類別。需要有這些方法來支援 **CreateEncodingJob** 方法。以下是協助程式方法的摘要。
-    -   **GetLatestMediaProcessorByName** 方法傳回適當的媒體處理器來處理編碼、加密或其他相關的處理工作。您可以使用想要建立的處理器的適當字串名稱，建立媒體處理器。在此方法的 mediaProcessor 參數中可傳入的字串包括：**Azure Media Encoder**、**Azure Media Packager**、**Azure Media Encryptor**、**Storage Decryption**。
+    -   **GetLatestMediaProcessorByName** 方法傳回適當的媒體處理器來處理編碼、加密或其他相關的處理工作。您可以使用想要建立的處理器的適當字串名稱，建立媒體處理器。在此方法的 mediaProcessor 參數中可傳入的字串包括：**Azure Media Encoder**、**Windows Azure Media Packager**、**Windows Azure Media Encryptor**、**Storage Decryption**。
 
             private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
             {
                 // The possible strings that can be passed into the 
                 // method for the mediaProcessor parameter:
                 //   Azure Media Encoder
-                //   Azure Media Packager
-                //   Azure Media Encryptor
+                //   Windows Azure Media Packager
+                //   Windows Azure Media Encryptor
                 //   Storage Decryption
 
                 var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
@@ -413,52 +414,51 @@
             }
 
     -   在服務媒體中將資產編碼之後，您可以存取從編碼作業產生的輸出資產。此逐步解說顯示兩種方法來存取編碼作業的輸出：
+
         -   對伺服器上的資產建立 SAS URL。
         -   從伺服器下載輸出資產。
-    GetAssetSasUrlList 方法對資產中的所有檔案建立 SAS URL 清單。
 
-        <pre><code>
-        static List&lt;String&gt; GetAssetSasUrlList(IAsset asset, ILocator locator)
-        {
-            // Declare a list to contain all the SAS URLs.
-            List&lt;String&gt; fileSasUrlList = new List&lt;String&gt;();
-        
-            // If the asset has files, build a list of URLs to 
-            // each file in the asset and return. 
-            foreach (IAssetFile file in asset.AssetFiles)
+        GetAssetSasUrlList 方法對資產中的所有檔案建立 SAS URL 清單。
+
+            static List<String> GetAssetSasUrlList(IAsset asset, ILocator locator)
             {
-                string sasUrl = BuildFileSasUrl(file, locator);
-                fileSasUrlList.Add(sasUrl);
+                // Declare a list to contain all the SAS URLs.
+                List<String> fileSasUrlList = new List<String>();
+
+                // If the asset has files, build a list of URLs to 
+                // each file in the asset and return. 
+                foreach (IAssetFile file in asset.AssetFiles)
+                {
+                    string sasUrl = BuildFileSasUrl(file, locator);
+                    fileSasUrlList.Add(sasUrl);
+                }
+
+                // Return the list of SAS URLs.
+                return fileSasUrlList;
             }
-        
-            // Return the list of SAS URLs.
-            return fileSasUrlList;
-        }
-        
-        // Create and return a SAS URL to a single file in an asset. 
-        static string BuildFileSasUrl(IAssetFile file, ILocator locator)
-        {
-            // Take the locator path, add the file name, and build 
-            // a full SAS URL to access this file. This is the only 
-            // code required to build the full URL.
-            var uriBuilder = new UriBuilder(locator.Path);
-            uriBuilder.Path += "/" + file.Name;
-        
-            // Optional:  print the locator.Path to the asset, and 
-            // the full SAS URL to the file
-            Console.WriteLine("Locator path: ");
-            Console.WriteLine(locator.Path);
-            Console.WriteLine();
-            Console.WriteLine("Full URL to file: ");
-            Console.WriteLine(uriBuilder.Uri.AbsoluteUri);
-            Console.WriteLine();
-        
-        
-            //Return the SAS URL.
-            return uriBuilder.Uri.AbsoluteUri;
-        }
-        
-        </code></pre>
+
+            // Create and return a SAS URL to a single file in an asset. 
+            static string BuildFileSasUrl(IAssetFile file, ILocator locator)
+            {
+                // Take the locator path, add the file name, and build 
+                // a full SAS URL to access this file. This is the only 
+                // code required to build the full URL.
+                var uriBuilder = new UriBuilder(locator.Path);
+                uriBuilder.Path += "/" + file.Name;
+
+                // Optional:  print the locator.Path to the asset, and 
+                // the full SAS URL to the file
+                Console.WriteLine("Locator path: ");
+                Console.WriteLine(locator.Path);
+                Console.WriteLine();
+                Console.WriteLine("Full URL to file: ");
+                Console.WriteLine(uriBuilder.Uri.AbsoluteUri);
+                Console.WriteLine();
+
+
+                //Return the SAS URL.
+                return uriBuilder.Uri.AbsoluteUri;
+            }
 
     -   **DownloadAssetToLocal** 方法將資產中的每個檔案下載至本機資料夾。在此範例中，因為建立的資產有一個輸入媒體檔案，所以輸出資產檔案集合包含兩個檔案：編碼媒體檔案 (.mp4 檔案) 和含有資產中繼資料的 .xml 檔案。此方法會下載這兩個檔案。
 
@@ -612,10 +612,8 @@
 
 5.  將 .mp4 媒體檔案和 \_metadata.xml 檔案下載至 outputFiles 資料夾。
 
-<div class="dev-callout"> 
-<strong>注意</strong> 
-<p>在媒體服務物件模型中，資產是一種媒體服務內容集合物件，代表一個以上的檔案。定位器路徑提供的 Azure Blob URL 是此資產在 Azure 儲存體中的基本路徑。若要存取資產內的特定檔案，請將檔案名稱加入至基本定位器路徑。</p> 
-</div>
+> [WACOM.NOTE]
+> 在媒體服務物件模型中，資產是一種媒體服務內容集合物件，代表一個以上的檔案。定位器路徑提供的 Azure Blob URL 是此資產在 Azure 儲存體中的基本路徑。若要存取資產內的特定檔案，請將檔案名稱加入至基本定位器路徑。
 
 ## 後續步驟
 
@@ -633,8 +631,9 @@
   [將資產編碼和下載輸出資產]: #Step4
   [如何建立媒體服務帳戶]: http://go.microsoft.com/fwlink/?LinkId=256662
   [windowsazure.mediaservices Nuget]: http://nuget.org/packages/windowsazure.mediaservices
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A8A8397B5
   [Azure Media Encoder 的工作預設字串]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj129582.aspx
   [Azure Media Encoder 支援的轉碼器與檔案類型]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh973634.aspx
   [1]: http://msdn.microsoft.com/library/windowsazure/jj129582.aspx
-  [如何使用媒體服務]: http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/media-services/
+  [如何使用媒體服務]: http://azure.microsoft.com/zh-tw/develop/media-services/resources/
   [使用 Media Services REST API 建立應用程式]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh973618.aspx

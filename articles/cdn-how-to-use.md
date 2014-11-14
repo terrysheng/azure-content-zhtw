@@ -1,7 +1,6 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="How to use CDN - Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons" description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content." metaCanonical="" services="" documentationCenter=".NET" title="" authors="akucer" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="CDN" pageTitle="如何使用 CDN - Azure 功能指南" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons" description="了解如何使用 Azure 內容傳遞網路 (CDN) 來快取 Blob 和靜態內容，以傳遞高頻寬內容。" metaCanonical="" services="" documentationCenter=".NET" title="" authors="akucer" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="akucer" />
 
 [WACOM.INCLUDE [cdn](../includes/cdn.md)]
 
-  [cdn]: ../includes/cdn.md

@@ -1,12 +1,14 @@
-<properties linkid="storage-use-azcopy" urlDisplayName="AzCopy" pageTitle="How to use AzCopy with Microsoft Azure Storage" metaKeywords="Get started Azure AzCopy   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure file   Azure file storage   Azure file share   AzCopy" description="Learn how to use the AzCopy utility to upload, download, and copy blob and file content." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use AzCopy with Microsoft Azure Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="AzCopy" pageTitle="如何搭配使用 AzCopy 與 Microsoft Azure 儲存體" metaKeywords="Get started Azure AzCopy   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure file   Azure file storage   Azure file share   AzCopy" description="了解如何使用 AzCopy 公用程式來上傳、下載和複製 Blob 與檔案內容。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="如何搭配使用 AzCopy 與 Microsoft Azure 儲存體" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="tamram" />
 
 # 開始使用 AzCopy 命令列公用程式
 
-AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將資料複製到和複製出 Microsoft Azure Blob 和檔案儲存體所設計。本指南提供使用 AzCopy 的概觀。
+AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將資料複製到和複製出 Microsoft Azure Blob、檔案和資料表儲存體所設計。本指南提供使用 AzCopy 的概觀。
 
-> [WACOM.NOTE] 本指南假設您已安裝 AzCopy 2.5 或更新版本。請注意，AzCopy 目前為發行前版本，未來版本中的命令列選項及其功能有可能會有更動。
+> [WACOM.NOTE] 本指南假設您已安裝 AzCopy 3.0.0 或更新版本。AzCopy 3.x 現在已正式運作。
+> 本指南也會說明 AzCopy 4.0.0 (AzCopy 的預覽版本) 的使用方式。本指南中僅以預覽版本形式提供的函數，會指定為*預覽*。
+> 請注意，AzCopy 4.x 的命令列選項和功能在未來的版本中可能會變更。
 
 ## 目錄
 
@@ -14,13 +16,14 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
 -   [了解 AzCopy 命令列語法][了解 AzCopy 命令列語法]
 -   [限制複製資料時的並行寫入][限制複製資料時的並行寫入]
 -   [使用 AzCopy 複製 Azure Blob][使用 AzCopy 複製 Azure Blob]
--   [使用 AzCopy 複製在 Azure 檔案共用中的檔案][使用 AzCopy 複製在 Azure 檔案共用中的檔案]
+-   [使用 AzCopy 複製在 Azure 檔案共用中的檔案 (僅限預覽版本)][使用 AzCopy 複製在 Azure 檔案共用中的檔案 (僅限預覽版本)]
+-   [使用 AzCopy 複製 Azure 資料表實體 (僅限預覽版本)][使用 AzCopy 複製 Azure 資料表實體 (僅限預覽版本)]
 -   [AzCopy 版本][AzCopy 版本]
 -   [後續步驟][後續步驟]
 
 ## <span id="install"></span></a> 下載並安裝 AzCopy
 
-1.  下載[最新版本的 AzCopy][最新版本的 AzCopy]。
+1.  下載[最新版本的 AzCopy][最新版本的 AzCopy] 或[最新預覽版本][最新預覽版本]。
 2.  執行安裝。依預設，AzCopy 安裝會在 `%ProgramFiles(x86)%\Microsoft SDKs\Azure\` (在執行 64 位元 Windows 的機器上) 或 `%ProgramFiles%\Microsoft SDKs\Azure\` (在執行 32 位元 Windows 的機器上) 下建立一個名為 `AzCopy` 的資料夾。不過，您可以在安裝精靈中變更安裝路徑。
 3.  若有需要，您可以在您的系統路徑中加入 AzCopy 安裝位置。
 
@@ -28,249 +31,141 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
 
 接下來，開啟命令視窗，並瀏覽至電腦上的 AzCopy 安裝目錄，也就是 `AzCopy.exe` 可執行檔的位置。AzCopy 命令的基本語法是：
 
-    AzCopy <source> <destination> [filepattern] [options]
+    AzCopy /Source:<source> /Dest:<destination> /Pattern:<filepattern> [Options]
 
--   `<source>` 參數可指定要複製的來源資料。來源可以是檔案系統目錄、Blob 容器、Blob 虛擬目錄或儲存體檔案共用。
+> [WACOM.NOTE] 自 AzCopy 3.0.0 版起，每個指定的參數都必須納入參數名稱 (*例如* `/ParameterName:ParameterValue`)，才能使用 AzCopy 命令列語法。
 
--   `<destination>` 參數可指定複製的目的地。目的地可以是檔案系統目錄、Blob 容器、Blob 虛擬目錄或儲存體檔案共用。
+下表說明 AzCopy 的參數。您也可以從命令列中輸入下列其中一個命令，以取得 AzCopy 的使用說明：
 
--   選擇性 `filepattern` 參數的行為取決於來源資料的位置以及是否有遞迴模式選項。遞迴模式可透過 `/S` 選項進行指定。
+-   如需 AzCopy 的詳細命令列說明： `AzCopy /?`
+-   如需任何 AzCopy 參數的詳細說明： `AzCopy /?:SourceKey`
+-   如需命令列範例： `AzCopy /?:Samples`
 
-    如果指定來源是檔案系統中的目錄，則標準萬用字元便會立即生效，且所提供的檔案模式會與目錄中的檔案做比對。如果已指定 `/S` 選項，則 AzCopy 也會將指定模式與該目錄下任何子資料夾中的所有檔案做比對。
-
-    如果指定來源是 Blob 容器或虛擬目錄，則萬用字元並不適用。如果已指定 `/S` 選項，則 AzCopy 會將指定的檔案模式解譯為 Blob 首碼。如果未指定 `/S` 選項，則 AzCopy 會將檔案模型與確切 Blob 名稱做比對。
-
-    如果指定來源是 Azure 檔案共用，則您必須指定確切檔案名稱 (*例如*`abc.txt`) 以複製單一檔案，或指定 `/S` 選項以遞迴方式複製共用中的所有檔案。嘗試一起指定檔案模式和 `/S` 選項將會造成錯誤。
-
-    未指定檔案模式時所使用的預設檔案模式如下：若是檔案系統目錄是 `*.*`，若是 Azure Blob 或檔案儲存體資源則是空白首碼。
-
-    > [WACOM.NOTE] 基於效能考量，AzCopy 2.5 版不再支援單一命令中的多個檔案模式。您現在必須發佈多個命令，每個命令均具有單一檔案模式，以解決多個檔案模式的案例。
-
--   下表說明 `options` 參數的可用選項。您也可以在命令列中輸入 `AzCopy /?` 以取得選項的說明。
-
-<table>
-  <tr>
-<th>選項名稱</th>
-<th>說明</th>
-<th>適用於 Blob 儲存體 (Y/N)</th>
-<th>適用於檔案儲存體 (Y/N)</th>
-  </tr>
-  <tr>
-<td><b>/DestKey:&lt;storage-key&gt;</b></td>
-<td>指定目的地資源的儲存體帳戶金鑰。</td>
-<td>Y</td>
-<td>Y</td>
-  </tr>
-  <tr>
-<td><b>/DestSAS:&lt;container-SAS&gt;</b></td>
-<td>指定目的地容器的共用存取簽章 (SAS) (如果適用的話)。為 SAS 加上雙引號，因為它可能包含特殊命令列字元。<br />
-如果目的地資源是 Blob，您可以指定此選項後面接著 SAS 權杖，或者您可以不使用此選項，直接將 SAS 指定為目的地 Blob URI 的一部分。<br />
-此選項僅適用於 Blob 儲存體，而且只有在相同儲存體帳戶內上傳或複製 Blob 時才有效。</td>
-<td>Y</td>
-<td>N</td>
-  </tr>
-  <tr>
-<td><b>/SourceKey:&lt;storage-key&gt;</b></td>
-<td>指定來源資源的儲存體帳戶金鑰。</td>
-<td>Y</td>
-<td>Y</td>
-  </tr>
-  <tr>
-<td><b>/SourceSAS:&lt;container-SAS&gt;</b></td>
-<td>指定來源容器的共用存取簽章 (如果適用的話)。為 SAS 加上雙引號，因為它可能包含特殊命令列字元。 
-        <br />
-如果未提供金鑰及 SAS，則可透過匿名存取讀取容器。 
-        <br />
-此選項僅適用於 Blob 儲存體。</td>
-<td>Y</td>
-<td>N</td>
-  </tr>
-  <tr>
-<td><b>/S</b></td>
-<td>指定複製作業的遞迴模式。在遞迴模式中，AzCopy 將複製所有符合指定檔案模式的 Blob 或檔案，包括子資料夾中的 Blob 或檔案。</td>
-<td>Y</td>
-<td>Y</td>
-  </tr>
-  <tr>
-<td><b>/BlobType:&lt;block | page&gt;</b></td>
-<td>指定目的地是區塊 Blob 或是分頁 Blob。此選項僅在目的地是 Blob 時才適用；否則便會產生錯誤。如果目的地是 Blob 且未指定此選項，則 AzCopy 會依預設假設需要區塊 Blob。</td>
-<td>Y</td>
-<td>N</td>
-  </tr>
-  <tr>
-<td><b>/CheckMd5</b></td>
-<td>計算下載資料的 MD5 雜湊，並驗證 MD5 雜湊是否儲存在符合計算之雜湊的 Blob 或檔案的 Content-MD5 屬性中。MD5 檢查依預設為關閉，因此您必須指定此選項，才能在下載資料時執行 MD5 檢查。
-    <br />
-請注意，Azure 儲存體並不保證儲存供 Blob 或檔案使用的 MD5 雜湊是最新的版本。每次修改 Blob 或檔案時將 MD5 更新是用戶端的責任。
-    <br />
-在上傳至服務之後，AzCopy 一定會為 Azure Blob 或檔案設定 Content-MD5 屬性。</td>
-<td>Y</td>
-<td>Y</td>
-  </tr>
-  <tr>
-<td><b>/Snapshot</b></td>
-<td>指出是否傳輸快照。此選項僅在來源是 Blob 才有效。 
-        <br />
-已傳輸的 Blob 快照會以下列格式重新命名：[blob-name] (snapshot-time)[extension]。 
-        <br />
-依預設，不會複製快照。</td>
-<td>Y</td>
-<td>N</td>
-  </tr>
-  <tr>
-<td><b>/V:[verbose log-file]</b></td>
-<td>將詳細資訊狀態訊息輸出至記錄檔。依預設，在 <code data-inline="1">%LocalAppData%\Microsoft\Azure\AzCopy</code> 中詳細資訊記錄檔會被命名為 <code data-inline="1">AzCopyVerbose.log</code>。如果您在此選項中指定現有檔案位置，則詳細資訊記錄將會被附加到該檔案。</td>
-<td>Y</td>
-<td>Y</td>
-  </tr>
-  <tr>
-<td><b>/Z:[journal-file-folder]</b></td>
-<td>指定用於繼續作業的日誌檔案資料夾。<br />
-如果作業遭到中斷，AzCopy 絕對支援繼續作業。<br />
-如果未指定此選項，或指定此選項但沒有指定資料夾路徑，則 AzCopy 將在預設位置上建立日誌檔案，預設位置是 <code data-inline="1">%LocalAppData%\Microsoft\Azure\AzCopy</code>。<br />
-每次發佈命令至 AzCopy 時，它會檢查預設資料夾或透過此選項指定的資料夾中是否有日誌檔案存在。如果在這兩個地方都找不到日誌檔案，AzCopy 會將此作業視為新的作業，並產生新的日誌檔案。
-        <br />
-如果找到日誌檔案，則 AzCopy 將檢查所輸入的命令列是否符合日誌檔案中的命令列。如果這兩個命令列相符，AzCopy 便會繼續未完成的作業。如果這兩個命令列不符，系統將提示您覆寫日誌檔案並開始新的作業，或取消目前作業。 
-        <br />
-成功完成作業時，系統便會將日誌檔案刪除。
-        <br />
-請注意，不支援根據舊版的 AzCopy 所建立的日誌檔案繼續作業。</td>
-<td>Y</td>
-<td>Y</td>
-  </tr>
-  <tr>
-<td><b>/@:response-file</b></td>
-<td>指定包含參數的檔案。AzCopy 處理檔案中的參數，就好像在命令列上指定這些參數一様。<br /> 
-在回應檔案中，您可以在單行中指定多個參數，或每一行各自指定一個參數。請注意，各個參數無法橫跨多行。 
-        <br />
-回應檔案可包含開頭為 <code data-inline="1">#</code> 符號的命令列。 
-        <br />
-您可以指定多個回應檔案。不過，請記住 AzCopy 不支援巢狀回應檔案。</td>
-<td>Y</td>
-<td>Y</td>
-  </tr>
-  <tr>
-<td><b>/Y</b></td>
-<td>隱藏所有 AzCopy 確認提示。</td>
-<td>Y</td>
-<td>Y</td>
-  </tr>
-  <tr>
-<td><b>/L</b></td>
-<td>僅指定清單作業，不會複製資料。</td>
-<td>Y</td>
-<td>Y</td>
-  </tr>
-  <tr>
-<td><b>/MT</b></td>
-<td>將下載檔案的最後修改時間設定為與來源 Blob 或檔案相同的最後修改時間。</td>
-<td>Y</td>
-<td>Y</td>
-  </tr>
-  <tr>
-<td><b>/XN</b></td>
-<td>排除較新的來源資源。如果來源比目的地還要新，則不會複製資源。</td>
-<td>Y</td>
-<td>Y</td>
-  </tr>
-  <tr>
-<td><b>/XO</b></td>
-<td>排除較舊的來源資源。如果來源資源比目的地還要舊，則不會複製資源。</td>
-<td>Y</td>
-<td>Y</td>
-  </tr>
-  <tr>
-<td><b>/A</b></td>
-<td>僅上傳已設定 [封存] 屬性的檔案。</td>
-<td>Y</td>
-<td>Y</td>
-  </tr>
-  <tr>
-<td><b>/IA:[RASHCNETOI]</b></td>
-<td>僅上傳已設定任何指定屬性的檔案。<br />
-可用屬性包括：  
-        <br />
-R&nbsp;&nbsp;&nbsp;唯讀檔案
-        <br />
-A&nbsp;&nbsp;&nbsp;準備封存的檔案
-        <br />
-S&nbsp;&nbsp;&nbsp;系統檔案
-        <br />
-H&nbsp;&nbsp;&nbsp;隱藏檔案
-        <br />
-C&nbsp;&nbsp;&nbsp;壓縮檔案
-        <br />
-N&nbsp;&nbsp;&nbsp;正常檔案
-        <br />
-E&nbsp;&nbsp;&nbsp;加密檔案
-        <br />
-T&nbsp;&nbsp;&nbsp;暫存檔案
-        <br />
-O&nbsp;&nbsp;&nbsp;離線檔案
-        <br />
-I&nbsp;&nbsp;&nbsp;未編製索引的檔案</td>
-<td>Y</td>
-<td>Y</td>
-  </tr>
-  <tr>
-<td><b>/XA:[RASHCNETOI]</b></td>
-<td>排除已設定任何指定屬性的檔案。<br />
-可用屬性包括：  
-        <br />
-R&nbsp;&nbsp;&nbsp;唯讀檔案  
-        <br />
-A&nbsp;&nbsp;&nbsp;準備封存的檔案  
-        <br />
-S&nbsp;&nbsp;&nbsp;系統檔案  
-        <br />
-H&nbsp;&nbsp;&nbsp;隱藏檔案  
-        <br />
-C&nbsp;&nbsp;&nbsp;壓縮檔案  
-        <br />
-N&nbsp;&nbsp;&nbsp;正常檔案  
-        <br />
-E&nbsp;&nbsp;&nbsp;加密檔案  
-        <br />
-T&nbsp;&nbsp;&nbsp;暫存檔案  
-        <br />
-O&nbsp;&nbsp;&nbsp;離線檔案  
-        <br />
-I&nbsp;&nbsp;&nbsp;未編製索引的檔案</td>
-<td>Y</td>
-<td>Y</td>
-  </tr>
-  <tr>
-<td><b>/Delimiter:&lt;delimiter&gt;</b></td>
-<td>指出在 Blob 名稱中，用來分隔虛擬目錄的分隔符號字元。<br />
-依預設，AzCopy 會使用 / 作為分隔符號字元。不過，AzCopy 支援使用任何常見字元 (例如 @、# 或 %) 作為分隔符號。如果您必須在命令列中包含其中一個特殊字元，請為檔案名稱加上雙引號。 
-        <br />
-此選項僅適用於下載 Blob。</td>
-<td>Y</td>
-<td>N</td>
-  </tr>
-  <tr>
-<td><b>/NC</b></td>
-<td>指定並行作業的數目。 
-        <br />
-預設數目是執行中核心處理器數目的 8 倍。因此如果您的電腦擁有 8 個核心，則依預設 AzCopy 會啟動 64 個並行作業。<br />
-請注意，在低頻寬環境中的大量並行作業有可能會拖垮網路連線，並阻止完全完成作業。根據實際可用網路頻寬來節流處理並行作業。</td>
-<td>Y</td>
-<td>Y</td>
-  </tr>
-  <tr>
-<td><b>/SourceType:Blob</b></td>
-<td>指定 <code data-inline="1">source</code> 資源是可在本機開發環境中使用，並在儲存體模擬器中執行的 Blob。</td>
-<td>Y</td>
-<td>N</td>
-  </tr>
-  <tr>
-<td><b>/DestType:Blob</b></td>
-<td>指定 <code data-inline="1">destination</code> 資源是可在本機開發環境中使用，並在儲存體模擬器中執行的 Blob。</td>
-<td>Y</td>
-<td>N</td>
-  </tr>
-</table>
-
+| 選項名稱                                                                | 說明                                                                                                                                                                                                           | 適用於 Blob 儲存體 (Y/N) | 適用於檔案儲存體 (Y/N) (僅限預覽版本) | 適用於資料表儲存體 (Y/N) (僅限預覽版本) |
+|-------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|---------------------------------------|-----------------------------------------|
+| **/Source:\<source\>**                                                  | 指定要複製的來源資料。來源可以是檔案系統目錄、Blob 容器、Blob 虛擬目錄、儲存體檔案共用、儲存體檔案目錄或 Azure 資料表。                                                                                        | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | Y                                       
+                                                                                                                                                                                                                                                                                                                                                                (僅限預覽)                              |
+| **/Dest:\<destination\>**                                               | 指定複製的目的地。目的地可以是檔案系統目錄、Blob 容器、Blob 虛擬目錄、儲存體檔案共用、儲存體檔案目錄或 Azure 資料表。                                                                                          | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | Y                                       
+                                                                                                                                                                                                                                                                                                                                                                (僅限預覽)                              |
+| **/Pattern:\<file-pattern\>**                                           | 指定一個檔案模式以指出所要複製的檔案。/Pattern 參數的行為取決於來源資料的位置以及是否有遞迴模式選項。遞迴模式可透過選項 /S 來指定。                                                                            
+                                                                            如果指定來源是檔案系統中的目錄，則標準萬用字元便會立即生效，且所提供的檔案模式會與目錄中的檔案做比對。如果已指定選項 /S，則 AzCopy 也會將指定模式與該目錄下任何子資料夾中的所有檔案做比對。                    
+                                                                            如果指定來源是 Blob 容器或虛擬目錄，則萬用字元並不適用。如果已指定選項 /S，則 AzCopy 會將指定的檔案模式解譯為 Blob 首碼。如果未指定選項 /S，則 AzCopy 會將檔案模型與確切 Blob 名稱做比對。                     
+                                                                            如果指定來源是 Azure 檔案共用，則您必須指定確切檔案名稱 (例如 abc.txt) 以複製單一檔案，或指定選項 /S 以遞迴方式複製共用中的所有檔案。嘗試同時指定檔案模式和選項 /S，將會造成錯誤。                             
+                                                                            未指定檔案模式時所使用的預設檔案模式如下：若是檔案系統位置，則是 \*.\*，若是 Azure 儲存體位置，則是空白首碼。不支援指定多個檔案模式。                                                                          | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | N                                       |
+| **/DestKey:\<storage-key\>**                                            | 指定目的地資源的儲存體帳戶金鑰。                                                                                                                                                                               | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | Y                                       
+                                                                                                                                                                                                                                                                                                                                                                (僅限預覽)                              |
+| **/DestSAS:\<sas-token\>**                                              | 指定目的地容器的共用存取簽章 (SAS) (如果適用的話)。為 SAS 加上雙引號，因為它可能包含特殊命令列字元。                                                                                                           
+                                                                            如果目的地資源是 Blob 容器或資料表，您可以指定此選項後面接著 SAS 權杖，或者您可以不使用此選項，直接將 SAS 指定為目的地 Blob URI 的一部分。                                                                     
+                                                                            如果來源和目的地都是 Blob，則目的地 Blob 必須與來源 Blob 位於相同的儲存體帳戶中。                                                                                                                              | Y                        | N                                     | Y                                       
+                                                                                                                                                                                                                                                                                                                                                                (僅限預覽)                              |
+| **/SourceKey:\<storage-key\>**                                          | 指定來源資源的儲存體帳戶金鑰。                                                                                                                                                                                 | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | Y                                       
+                                                                                                                                                                                                                                                                                                                                                                (僅限預覽)                              |
+| **/SourceSAS:\<sas-token\>**                                            | 指定來源容器的共用存取簽章 (如果適用的話)。為 SAS 加上雙引號，因為它可能包含特殊命令列字元。                                                                                                                   
+                                                                            如果來源資源是 Blob 容器，且未提供金鑰及 SAS，則可透過匿名存取讀取該 Blob 容器。                                                                                                                               
+                                                                            如果來源是資料表，則必須提供金鑰或 SAS。                                                                                                                                                                       | Y                        | N                                     | Y                                       
+                                                                                                                                                                                                                                                                                                                                                                (僅限預覽)                              |
+| **/S**                                                                  | 指定複製作業的遞迴模式。在遞迴模式中，AzCopy 將複製所有符合指定檔案模式的 Blob 或檔案，包括子資料夾中的 Blob 或檔案。                                                                                          | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | N                                       |
+| **/BlobType:\<block | page\>**                                          | 指定目的地 Blob 是區塊 Blob 還是分頁 Blob。此選項僅在上傳 Blob 時才適用；否則將會產生錯誤。如果目的地是 Blob 且未指定此選項，則 AzCopy 依預設將會建立區塊 Blob。                                               | Y                        | N                                     | N                                       |
+| **/CheckMD5**                                                           | 計算下載資料的 MD5 雜湊，並驗證 MD5 雜湊是否儲存在符合計算之雜湊的 Blob 或檔案的 Content-MD5 屬性中。MD5 檢查依預設為關閉，因此您必須指定此選項，才能在下載資料時執行 MD5 檢查。                               
+                                                                            請注意，Azure 儲存體並不保證儲存供 Blob 或檔案使用的 MD5 雜湊是最新的版本。每次修改 Blob 或檔案時將 MD5 更新是用戶端的責任。                                                                                   
+                                                                            在上傳至服務之後，AzCopy 一定會為 Azure Blob 或檔案設定 Content-MD5 屬性。                                                                                                                                     | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | N                                       |
+| **/Snapshot**                                                           | 指出是否傳輸快照。此選項僅在來源是 Blob 才有效。                                                                                                                                                               
+                                                                            已傳輸的 Blob 快照會以下列格式重新命名：[blob-name] (snapshot-time)[extension]。                                                                                                                               
+                                                                            依預設，不會複製快照。                                                                                                                                                                                         | Y                        | N                                     | N                                       |
+| **/V:[verbose log-file]**                                               | 將詳細資訊狀態訊息輸出至記錄檔。依預設，在 `%LocalAppData%\Microsoft\Azure\AzCopy` 中詳細資訊記錄檔會被命名為 `AzCopyVerbose.log`。如果您在此選項中指定現有檔案位置，則詳細資訊記錄將會被附加到該檔案。        | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | Y                                       
+                                                                                                                                                                                                                                                                                                                                                                (僅限預覽)                              |
+| **/Z:[journal-file-folder]**                                            | 指定用於繼續作業的日誌檔案資料夾。                                                                                                                                                                             
+                                                                            如果作業遭到中斷，AzCopy 絕對支援繼續作業。                                                                                                                                                                    
+                                                                            如果未指定此選項，或指定此選項但沒有指定資料夾路徑，則 AzCopy 將在預設位置上建立日誌檔案，預設位置是 `%LocalAppData%\Microsoft\Azure\AzCopy`。                                                                 
+                                                                            每次發佈命令至 AzCopy 時，它會檢查預設資料夾或透過此選項指定的資料夾中是否有日誌檔案存在。如果在這兩個地方都找不到日誌檔案，AzCopy 會將此作業視為新的作業，並產生新的日誌檔案。                                
+                                                                            如果找到日誌檔案，則 AzCopy 將檢查所輸入的命令列是否符合日誌檔案中的命令列。如果這兩個命令列相符，AzCopy 便會繼續未完成的作業。如果這兩個命令列不符，系統將提示您覆寫日誌檔案並開始新的作業，或取消目前作業。  
+                                                                            成功完成作業時，系統便會將日誌檔案刪除。                                                                                                                                                                       
+                                                                            請注意，不支援根據舊版的 AzCopy 所建立的日誌檔案繼續作業。                                                                                                                                                     | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | Y                                       
+                                                                                                                                                                                                                                                                                                                                                                (僅限預覽)                              |
+| **/@:parameter-file**                                                   | 指定包含參數的檔案。AzCopy 處理檔案中的參數，就好像在命令列上指定這些參數一様。                                                                                                                                
+                                                                            在回應檔案中，您可以在單行中指定多個參數，或每一行各自指定一個參數。請注意，各個參數無法橫跨多行。                                                                                                             
+                                                                            回應檔案可包含開頭為 `#` 符號的命令列。                                                                                                                                                                        
+                                                                            您可以指定多個回應檔案。不過，請記住 AzCopy 不支援巢狀回應檔案。                                                                                                                                               | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | Y                                       
+                                                                                                                                                                                                                                                                                                                                                                (僅限預覽)                              |
+| **/Y**                                                                  | 隱藏所有 AzCopy 確認提示。                                                                                                                                                                                     | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | Y                                       
+                                                                                                                                                                                                                                                                                                                                                                (僅限預覽)                              |
+| **/L**                                                                  | 僅指定清單作業，不會複製資料。                                                                                                                                                                                 | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | N                                       |
+| **/MT**                                                                 | 將下載檔案的最後修改時間設定為與來源 Blob 或檔案相同的最後修改時間。                                                                                                                                           | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | N                                       |
+| **/XN**                                                                 | 排除較新的來源資源。如果來源比目的地還要新，則不會複製資源。                                                                                                                                                   | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | N                                       |
+| **/XO**                                                                 | 排除較舊的來源資源。如果來源資源比目的地還要舊，則不會複製資源。                                                                                                                                               | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | N                                       |
+| **/A**                                                                  | 僅上傳已設定 [封存] 屬性的檔案。                                                                                                                                                                               | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | N                                       |
+| **/IA:[RASHCNETOI]**                                                    | 僅上傳已設定任何指定屬性的檔案。                                                                                                                                                                               
+                                                                            可用屬性包括：                                                                                                                                                                                                 
+                                                                            R   唯讀檔案                                                                                                                                                                                                   
+                                                                            A   準備封存的檔案                                                                                                                                                                                             
+                                                                            S   系統檔案                                                                                                                                                                                                   
+                                                                            H   隱藏檔案                                                                                                                                                                                                   
+                                                                            C   壓縮檔案                                                                                                                                                                                                   
+                                                                            N   正常檔案                                                                                                                                                                                                   
+                                                                            E   加密檔案                                                                                                                                                                                                   
+                                                                            T   暫存檔案                                                                                                                                                                                                   
+                                                                            O   離線檔案                                                                                                                                                                                                   
+                                                                            I   未編製索引的檔案                                                                                                                                                                                           | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | N                                       |
+| **/XA:[RASHCNETOI]**                                                    | 排除已設定任何指定屬性的檔案。                                                                                                                                                                                 
+                                                                            可用屬性包括：                                                                                                                                                                                                 
+                                                                            R   唯讀檔案                                                                                                                                                                                                   
+                                                                            A   準備封存的檔案                                                                                                                                                                                             
+                                                                            S   系統檔案                                                                                                                                                                                                   
+                                                                            H   隱藏檔案                                                                                                                                                                                                   
+                                                                            C   壓縮檔案                                                                                                                                                                                                   
+                                                                            N   正常檔案                                                                                                                                                                                                   
+                                                                            E   加密檔案                                                                                                                                                                                                   
+                                                                            T   暫存檔案                                                                                                                                                                                                   
+                                                                            O   離線檔案                                                                                                                                                                                                   
+                                                                            I   未編製索引的檔案                                                                                                                                                                                           | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | N                                       |
+| **/Delimiter:\<delimiter\>**                                            | 指出在 Blob 名稱中，用來分隔虛擬目錄的分隔符號字元。                                                                                                                                                           
+                                                                            依預設，AzCopy 會使用 / 作為分隔符號字元。不過，AzCopy 支援使用任何常見字元 (例如 @、\# 或 %) 作為分隔符號。如果您必須在命令列中包含其中一個特殊字元，請為檔案名稱加上雙引號。                                 
+                                                                            此選項僅適用於下載 Blob。                                                                                                                                                                                      | Y                        | N                                     | N                                       |
+| **/NC:\<number-of-concurrents\>**                                       | 指定並行作業的數目。                                                                                                                                                                                           
+                                                                            AzCopy 依預設會啟動特定數量的並行作業，以提高資料傳輸的輸送量。請注意，在低頻寬環境中的大量並行作業有可能會拖垮網路連線，並使作業無法完成。根據實際可用網路頻寬來節流處理並行作業。                            
+                                                                            並行作業數的上限為 512。                                                                                                                                                                                       | Y                        | Y                                     
+                                                                                                                                                                                                                                                                                                                        (僅限預覽)                            | N                                       |
+| **/SourceType:Blob|Table**                                              | 指定 `source` 資源是可在本機開發環境中使用，並在儲存體模擬器中執行的 Blob。                                                                                                                                    | Y                        | N                                     | Y                                       
+                                                                                                                                                                                                                                                                                                                                                                (僅限預覽)                              |
+| **/DestType:Blob|Table**                                                | 指定 `destination` 資源是可在本機開發環境中使用，並在儲存體模擬器中執行的 Blob。                                                                                                                               | Y                        | N                                     | Y                                       
+                                                                                                                                                                                                                                                                                                                                                                (僅限預覽)                              |
+| **/PKRS:\<"key1\#key2\#key3\#..."\>**                                   | 分割資料分割索引鍵範圍以支援平行匯出資料表資料的作業，這樣可以加快匯出作業的速度。                                                                                                                             
+                                                                            若未指定此選項，AzCopy 會使用單一執行緒來匯出資料表實體。例如，如果使用者指定 /PKRS:"aa\#bb"，則 AzCopy 會啟動三個並行作業。                                                                                   
+                                                                            每個作業分別會匯出三個資料分割索引鍵範圍的其中一個，如下所示：                                                                                                                                                 
+                                                                               [\<first partition key\>, aa)                                                                                                                                                                               
+                                                                               [aa, bb)                                                                                                                                                                                                    
+                                                                               [bb, \<last partition key\>]                                                                                                                                                                                | N                        | N                                     | Y                                       
+                                                                                                                                                                                                                                                                                                                                                                (僅限預覽)                              |
+| **/SplitSize:**<file-size>**\<file-size\>**                             | 指定匯出的檔案分割大小 (以 MB 為單位)。                                                                                                                                                                        
+                                                                            若未指定此選項，則 AzCopy 會將資料表資料匯出至單一檔案。                                                                                                                                                       
+                                                                            如果資料表資料匯出至 Blob，且匯出的檔案大小達到 Blob 的大小限制 200 GB，則 AzCopy 會分割匯出的檔案，即使未指定此選項亦然。                                                                                     | N                        | N                                     | Y                                       
+                                                                                                                                                                                                                                                                                                                                                                (僅限預覽)                              |
+| **/EntityOperation:\<InsertOrSkip | InsertOrMerge | InsertOrReplace\>** | 指定資料表資料匯入行為。                                                                                                                                                                                       
+                                                                            InsertOrSkip - 略過現有實體，或插入新實體 (若不存在於資料表中)。                                                                                                                                               
+                                                                            InsertOrMerge - 合併現有實體，或插入新實體 (若不存在於資料表中)。                                                                                                                                              
+                                                                            InsertOrReplace - 取代現有實體，或插入新實體 (若不存在於資料表中)。                                                                                                                                            | N                        | N                                     | Y                                       
+                                                                                                                                                                                                                                                                                                                                                                (僅限預覽)                              |
+| **/Manifest:\<manifest-file\>**                                         | 指定匯入作業的資訊清單檔。                                                                                                                                                                                     
+                                                                            資訊清單檔會在匯出作業期間產生。                                                                                                                                                                               | N                        | N                                     | Y                                       
+                                                                                                                                                                                                                                                                                                                                                                (僅限預覽)                              |
 
 ## <span id="limit-writes"></span></a> 限制複製資料時的並行寫入
 
@@ -286,11 +181,11 @@ I&nbsp;&nbsp;&nbsp;未編製索引的檔案</td>
 
 **將檔案從檔案系統上傳至 Blob 儲存體：**
 
-    AzCopy C:\myfolder https://myaccount.blob.core.windows.net/mycontainer /destkey:key abc.txt
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:abc.txt
 
 **將 Blob 從 Blob 儲存體下載到檔案系統：**
 
-    AzCopy https://myaccount.blob.core.windows.net/mycontainer C:\myfolder /sourcekey:key abc.txt
+    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
 ### 透過伺服器端複製來複製 Blob
 
@@ -298,11 +193,11 @@ I&nbsp;&nbsp;&nbsp;未編製索引的檔案</td>
 
 **在儲存體帳戶內複製 Blob：**
 
-    AzCopy https://myaccount.blob.core.windows.net/mycontainer/mycontainer1 https://myaccount.blob.core.windows.net/mycontainer2 /sourcekey:key /destkey:key abc.txt 
+    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt 
 
 **在不同儲存體帳戶內複製 Blob：**
 
-    AzCopy https://sourceaccount.blob.core.windows.net/mycontainer/mycontainer1 https://destaccount.blob.core.windows.net/mycontainer2 /sourcekey:key1 /destkey:key2 abc.txt
+    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
 
 ### 從次要區域複製 Blob
 
@@ -310,35 +205,35 @@ I&nbsp;&nbsp;&nbsp;未編製索引的檔案</td>
 
 **將 Blob 從次要帳戶複製到主要帳戶：**
 
-    AzCopy https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 https://myaccount2.blob.core.windows.net/mynewcontainer2 /sourcekey:key1 /destkey:key2 abc.txt
+    AzCopy /Source:https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 /Dest:https://myaccount2.blob.core.windows.net/mynewcontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
 
 **將次要區域中的 Blob 下載到檔案系統中的某個檔案：**
 
-    AzCopy https://myaccount-secondary.blob.core.windows.net/mynewcontainer C:\myfolder /sourcekey:key abc.txt
+    AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
 ### 將檔案上傳至新的 Blob 容器或虛擬目錄
 
 **將檔案上傳至新的 Blob 容器**
 
-    AzCopy C:\myfolder https://myaccount.blob.core.windows.net/mynewcontainer /destkey:key abc.txt
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mynewcontainer /DestKey:key /Pattern:abc.txt
 
 請注意，如果指定的目的地容器不存在，則 AzCopy 將建立此容器並將檔案上傳至該容器中。
 
 **將檔案上傳至新的 Blob 虛擬目錄**
 
-    AzCopy C:\myfolder https://myaccount.blob.core.windows.net/mycontainer/vd /destkey:key abc.txt
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
 
 請注意，如果指定的虛擬目錄不存在，則 AzCopy 將上傳檔案並在其名稱中加上此虛擬目錄 (*例如*，上述範例中的 `vd/abc.txt`)。
 
 ### 將 Blob 下載到新的資料夾
 
-    AzCopy https://myaccount.blob.core.windows.net/mycontainer C:\myfolder /sourcekey:key abc.txt
+    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
 如果資料夾 `C:\myfolder` 尚未存在，AzCopy 將在檔案系統中建立此資料夾，並將 `abc.txt` 下載到新的資料夾。
 
 ### 將目錄中的檔案和子資料夾以遞迴方式上傳至容器
 
-    AzCopy C:\myfolder https://myaccount.blob.core.windows.net/mycontainer /destkey:key /S
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /S
 
 指定 `/S` 選項以遞迴方式複製指定目錄的內容到 Blob 儲存體，這表示也會複製所有的子資料夾及其檔案。例如，假設下列檔案位於 `C:\myfolder` 資料夾內：
 
@@ -358,7 +253,7 @@ I&nbsp;&nbsp;&nbsp;未編製索引的檔案</td>
 
 ### 將檔案從目錄以非遞迴方式上傳至容器
 
-    AzCopy C:\myfolder https://myaccount.blob.core.windows.net/mycontainer /destkey:key
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key
 
 如果您未在命令列上指定 `/S` 選項，則 AzCopy 將不會以遞迴方式複製。只有指定目錄中的檔案會被複製；任何子資料夾及其檔案「不會」被複製。例如，假設下列檔案位於 `C:\myfolder` 資料夾內：
 
@@ -376,7 +271,7 @@ I&nbsp;&nbsp;&nbsp;未編製索引的檔案</td>
 
 ### 將容器中的所有 Blob 以遞迴方式下載到檔案系統中的目錄
 
-    AzCopy https://myaccount.blob.core.windows.net/mycontainer C:\myfolder /sourcekey:key /S
+    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /S
 
 假設下列 Blob 位於指定容器中：
 
@@ -396,7 +291,7 @@ I&nbsp;&nbsp;&nbsp;未編製索引的檔案</td>
 
 ### 將虛擬 Blob 目錄中的 Blob 以遞迴方式下載到檔案系統中的目錄
 
-    AzCopy https://myaccount.blob.core.windows.net/mycontainer/vd1/ C:\myfolder /sourcekey:key /S
+    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer/vd1/ /Dest:C:\myfolder /SourceKey:key /S
 
 假設下列 Blob 位於指定容器中：
 
@@ -413,7 +308,7 @@ I&nbsp;&nbsp;&nbsp;未編製索引的檔案</td>
 
 ### 將符合指定檔案模式的檔案以遞迴方式上傳至容器
 
-    AzCopy C:\myfolder https://myaccount.blob.core.windows.net/mycontainer /destkey:key a* /S
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:a* /S
 
 假設下列檔案位於 `C:\myfolder` 資料夾內：
 
@@ -434,7 +329,7 @@ I&nbsp;&nbsp;&nbsp;未編製索引的檔案</td>
 
 ### 將具有指定首碼的 Blob 以遞迴方式下載到檔案系統
 
-    AzCopy https://myaccount.blob.core.windows.net/mycontainer C:\myfolder /sourcekey:key a /S
+    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:a /S
 
 假設下列 Blob 位於指定容器中。所有以首碼 `a` 開頭的 Blob 將會被複製：
 
@@ -455,7 +350,7 @@ I&nbsp;&nbsp;&nbsp;未編製索引的檔案</td>
 
 ### 將 Blob 及其快照複製到另一個儲存體帳戶
 
-    AzCopy https://sourceaccount.blob.core.windows.net/mycontainer/mycontainer1 https://destaccount.blob.core.windows.net/mycontainer2 /sourcekey:key1 /destkey:key2 abc.txt /snapshot
+    AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt /Snapshot
 
 複製作業之後，目標容器將包含 Blob 及其快照。假設上述範例中的 Blob 有兩份快照，則容器將包含下列 Blob 及快照：
 
@@ -473,11 +368,11 @@ I&nbsp;&nbsp;&nbsp;未編製索引的檔案</td>
 
 假設名為 `source.txt` 且指定來源容器的回應檔案：
 
-    http://myaccount.blob.core.windows.net/mycontainer
+    /Source:http://myaccount.blob.core.windows.net/mycontainer
 
 及名為 `dest.txt` 且在檔案系統中指定目的地資料夾的回應檔案：
 
-    C:\myfolder
+    /Dest:C:\myfolder
 
 及名為 `options.txt` 且指定 AzCopy 選項的回應檔案：
 
@@ -485,19 +380,19 @@ I&nbsp;&nbsp;&nbsp;未編製索引的檔案</td>
 
 若要使用這些回應檔案 (所有這些檔案皆位於 `C:\responsefiles` 目錄內) 呼叫 AzCopy，請使用此命令：
 
-    AzCopy /@:"C:\responsefiles\source.txt" /@:"C:\responsefiles\dest.txt" /sourcekey:[sourcekey] /@:"C:\responsefiles\options.txt"   
+    AzCopy /@:"C:\responsefiles\source.txt" /@:"C:\responsefiles\dest.txt" /SourceKey:<sourcekey> /@:"C:\responsefiles\options.txt"   
 
 AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一樣：
 
-    AzCopy http://myaccount.blob.core.windows.net/mycontainer C:\myfolder /sourcekey:[sourcekey] /S /Y
+    AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
 
 **指定多行回應檔案**
 
 假設名為 `copyoperation.txt` 且包含下列資料行的回應檔案。每一行會各自指定一個 AzCopy 參數：
 
-    http://myaccount.blob.core.windows.net/mycontainer
-    C:\myfolder
-    /sourcekey:[sourcekey]
+    /Source:http://myaccount.blob.core.windows.net/mycontainer
+    /Dest:C:\myfolder
+    /SourceKey:<sourcekey>
     /S 
     /Y
 
@@ -507,7 +402,7 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 
 AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一樣：
 
-    AzCopy http://myaccount.blob.core.windows.net/mycontainer C:\myfolder /sourcekey:[sourcekey] /S /Y
+    AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
 
 請注意，必須在一行內指定完一個 AzCopy 參數。例如，如果您將參數分割成兩行，如以下的 `/sourcekey` 參數所示，則 AzCopy 將會失敗：
 
@@ -522,19 +417,19 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 
 **使用 /sourceSAS 選項為來源容器指定 SAS**
 
-    AzCopy https://myaccount.blob.core.windows.net/mycontainer1 C:\myfolder /sourceSAS:SAS /S
+    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /DestC:\myfolder /SourceSAS:SAS /S
 
 **為來源容器 URI 上的來源容器指定 SAS**
 
-    AzCopy https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASToken C:\myfolder /S
+    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASToken /Dest:C:\myfolder /S
 
 **使用 /destSAS 選項為目的地容器指定 SAS**
 
-    AzCopy C:\myfolder https://myaccount.blob.core.windows.net/mycontainer1 /destSAS:SAS abc.txt
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer1 /DestSAS:SAS /Pattern:abc.txt
 
 **為來源和目的地容器指定 SAS**
 
-    AzCopy https://myaccount.blob.core.windows.net/mycontainer1 https://myaccount.blob.core.windows.net/mycontainer2 /sourceSAS:SAS1 /destSAS:SAS2 abc.txt
+    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceSAS:SAS1 /DestSAS:SAS2 /Pattern:abc.txt
 
 ### 指定日誌檔案資料夾
 
@@ -544,13 +439,13 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 
 **使用日誌檔案的預設位置**
 
-    AzCopy C:\myfolder https://myaccount.blob.core.windows.net/mycontainer /destkey:key /Z
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z
 
 如果省略 `/Z` 選項，或指定 `/Z` 選項但沒有指定資料夾路徑 (如上所示)，則 AzCopy 會在預設位置上建立日誌檔案，預設位置是 `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`。如果日誌檔案已存在，則 AzCopy 會根據此日誌檔案繼續作業。
 
 **指定日誌檔案的自訂位置**
 
-    AzCopy C:\myfolder https://myaccount.blob.core.windows.net/mycontainer /destkey:key /Z:C:\journalfolder\
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z:C:\journalfolder\
 
 如果日誌檔案不存在，本範例將建立日誌檔案。如果日誌檔案已存在，則 AzCopy 會根據此日誌檔案繼續作業。
 
@@ -564,19 +459,19 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 
 **寫入預設位置上的詳細資訊記錄檔**
 
-    AzCopy C:\myfolder https://myaccount.blob.core.windows.net/mycontainer /destkey:key /V
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V
 
 如果指定 `/V` 選項，但沒有提供詳細資訊記錄的檔案路徑，則 AzCopy 會在預設位置上建立記錄檔，預設位置是 `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`。
 
 **寫入自訂位置上的詳細資訊記錄檔**
 
-    AzCopy C:\myfolder https://myaccount.blob.core.windows.net/mycontainer /destkey:key /V:C:\myfolder\azcopy1.log
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V:C:\myfolder\azcopy1.log
 
 請注意，如果您在 `/V` 選項後面指定相對路徑 (例如 `/V:test/azcopy1.log`)，則系統會在目前工作目錄中、名為 `test` 的子資料夾內建立詳細資訊記錄。
 
 ### 將下載檔案的最後修改時間設定為與來源 Blob 相同的最後修改時間
 
-    AzCopy https://myaccount.blob.core.windows.net/mycontainer C:\myfolder /sourcekey:key /MT
+    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT
 
 ### 根據其最後修改時間，將 Blob 從複製作業中排除
 
@@ -584,11 +479,11 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 
 **將比目的地檔案還要新的 Blob 排除**
 
-    AzCopy https://myaccount.blob.core.windows.net/mycontainer C:\myfolder /sourcekey:key /MT /XN
+    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XN
 
 **將比目的地檔案還要舊的 Blob 排除**
 
-    AzCopy https://myaccount.blob.core.windows.net/mycontainer C:\myfolder /sourcekey:key /MT /XO
+    AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
 
 ### 指定要啟動的並行作業數目
 
@@ -596,46 +491,106 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 
 ### 在儲存體模擬器中針對 Blob 資源執行 AzCopy
 
-    AzCopy https://127.0.0.1:10004/myaccount/myfileshare/ C:\myfolder /SourceKey:key /SourceType:Blob /S
+    AzCopy /Source:https://127.0.0.1:10004/myaccount/myfileshare/ /Dest:C:\myfolder /SourceKey:key /SourceType:Blob /S
 
-## <span id="copy-files"></span></a> 使用 AzCopy 複製在 Azure 檔案共用中的檔案
+## <span id="copy-files"></span></a>使用 AzCopy 複製 Azure 檔案儲存體中的檔案 (僅限預覽版本)
 
 下列範例說明使用 AzCopy 複製 Azure 檔案的各種案例。
 
 ### 將檔案從 Azure 檔案共用下載到檔案系統
 
-    AzCopy https://myaccount.file.core.windows.net/myfileshare/myfolder1/ C:\myfolder /SourceKey:key abc.txt
+    AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
 請注意，如果指定來源是 Azure 檔案共用，則您必須指定確切檔案名稱 (*例如*`abc.txt`) 以複製單一檔案，或指定 `/S` 選項以遞迴方式複製共用中的所有檔案。嘗試一起指定檔案模式和 `/S` 選項將會造成錯誤。
 
 ### 將 Azure 檔案共用中的檔案和資料夾以遞迴方式下載到檔案系統
 
-    AzCopy https://myaccount.file.core.windows.net/myfileshare/ C:\myfolder /SourceKey:key /S
+    AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myfolder /SourceKey:key /S
 
 請注意，將不會複製任何空白資料夾。
 
 ### 將檔案和資料夾從檔案系統以遞迴方式上傳至 Azure 檔案共用
 
-    AzCopy C:\myfolder https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /S
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /S
 
 請注意，將不會複製任何空白資料夾。
 
 ### 將符合指定檔案模式的檔案以遞迴方式上傳至 Azure 檔案共用
 
-    AzCopy C:\myfolder https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key ab* /S
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:ab* /S
+
+## <span id="copy-entities"></span></a>使用 AzCopy 複製 Azure 資料表中的實體 (僅限預覽版本)
+
+下列範例說明使用 AzCopy 複製 Azure 資料表實體的各種案例。
+
+### 將實體匯出至本機檔案系統
+
+    AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:D:\test\ /SourceKey:key
+
+### 將實體匯出至 Azure Blob
+
+    AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:https://myaccount.blob.core.windows.net/mycontainer/ /SourceKey:key1 /Destkey:key2
+
+AzCopy 將會使用下列命令慣例，在本機資料夾或 Blob 容器中產生 JSON 資料檔案：
+
+    <account name>_<table name>_<timestamp>_<volume index>_<CRC>.json
+
+產生的 JSON 資料檔案會遵循基本中繼資料的裝載格式。如需此裝載格式的詳細資訊，請參閱[資料表服務作業的裝載格式][資料表服務作業的裝載格式]。
+
+### 分割匯出檔案
+
+    AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
+
+AzCopy 會在分割資料檔案名稱中使用*磁碟區索引*，以區分多個檔案。磁碟區索引由兩部分組成：*資料分割索引鍵範圍索引*和*分割檔案索引*。兩個索引皆以零為基礎。
+
+如果使用者未指定選項 `/PKRS` (將在下節中介紹)，資料分割索引鍵範圍索引將會是 0。
+
+例如，假設 AzCopy 在使用者指定選項 `/SplitSize` 之後產生了兩個資料檔案。產生的資料檔案名稱可能會是：
+
+    myaccount_mytable_20140903T051850.8128447Z_0_0_C3040FE8.json
+    myaccount_mytable_20140903T051850.8128447Z_0_1_0AB9AC20.json
+
+請注意，選項 `/SplitSize` 的最小可能值為 32MB。如果指定的目的地是 Blob 儲存體，則 AzCopy 將會在其大小達到 Blob 大小限制 (200GB) 時分割資料檔案，無論使用者是否已指定選項 `/SplitSize`。
+
+### 並行匯出實體
+
+    AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:D:\test\ /SourceKey:key /PKRS:"aa#bb"
+
+當使用者指定選項 `/PKRS` 時，AzCopy 將會啟動並行作業以匯出實體。每個作業分別會匯出一個資料分割索引鍵範圍。
+
+請注意，並行作業的數目也會由選項 `/NC` 控制。在複製資料表實體時，AzCopy 會以核心處理器的數目作為 `/NC` 的預設值，即使未指定 `/NC` 亦然。當使用者指定選項 `/PKRS` 時，AzCopy 會從兩個值 (資料分割索引鍵範圍和隱含或明確指定的並行作業) 中選擇較小者來使用，以決定要啟動的並行作業數目。如需詳細資訊，請在命令列上輸入 `AzCopy /?:NC`。
+
+### 並行匯入實體
+
+    AzCopy /Source:D:\test\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace 
+
+當您匯出資料表實體時，AzCopy 會將資訊清單檔寫入至指定的目的地資料夾或 Blob 容器。匯入程序會使用資訊清單檔來尋找必要的資料檔案，並在匯入程序期間執行資料驗證。資訊清單檔會使用下列命令慣例：
+
+    <account name>_<table name>_<timestamp>.manifest
+
+選項 `/EntityOperation` 指出如何將實體插入資料表中。可能的值包括：
+
+-   `InsertOrSkip`：略過現有實體，或插入新實體 (若不存在於資料表中)。
+-   `InsertOrMerge`：合併現有實體，或插入新實體 (若不存在於資料表中)。
+-   `InsertOrReplace`：取代現有實體，或插入新實體 (若不存在於資料表中)。
+
+請注意，您無法在匯入案例中指定選項 `/PKRS`。不同於必須指定選項 `/PKRS` 以啟動並行作業的匯出案例，AzCopy 依預設會在您匯入實體時啟動並行作業。依預設啟動的並行作業數目會等於核心處理器的數目；但您可以使用選項 `/NC` 指定不同的並行數目。如需詳細資訊，請在命令列上輸入 `AzCopy /?:NC`。
 
 ## <span id="versions"></span></a> AzCopy 版本
 
-| 版本       | 新功能                                                                   |
-|------------|--------------------------------------------------------------------------|
-| **V2.5.0** | **目前版本。針對大規模複製案例最佳化效能，並介紹數個重要的可用性改良。** |
-| V2.4.1     | 支援在安裝精靈中指定目的地資料夾。                                       |
-| V2.4.0     | 支援上傳與下載 Azure 檔案儲存體的檔案。                                  |
-| V2.3.0     | 支援讀取存取地理區域備援儲存體帳戶。                                     |
-| V2.2.2     | 已升級並使用 Azure 儲存體用戶端程式庫 3.0.3 版。                         |
-| V2.2.1     | 已修正在相同儲存體帳戶中複製大量檔案時的效能問題。                       |
-| V2.2       | 支援設定 Blob 名稱的虛擬目錄分隔符號。支援指定日誌檔案路徑。             |
-| V2.1       | 提供超過 20 個選項，以有效的方式支援 Blob 上傳、下載及複製作業。         |
+| 版本       | 新功能                                                                                                                                       |
+|------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| **V4.0.0** | **目前的預覽版本。包含 V3.0.0 中的所有功能。也支援對 Azure 檔案儲存體的出入檔案複製，以及對 Azure 資料表儲存體的出入實體複製。**             |
+| **V3.0.0** | **目前版本。修改 AzCopy 命令列語法以要求參數名稱，並重新設計命令列說明。此版本僅支援對 Azure Blob 儲存體的出入複製。**                       |
+| V2.5.1     | 目前版本。最佳化使用選項 /xo 和 /xn 時的效能。修正與來源檔案名稱中的特殊字元有關的錯誤，以及在使用者輸入錯誤命令列語法後發生的日誌檔案損毀。 |
+| V2.5.0     | 針對大規模複製案例最佳化效能，並介紹數個重要的可用性改良。                                                                                   |
+| V2.4.1     | 支援在安裝精靈中指定目的地資料夾。                                                                                                           |
+| V2.4.0     | 支援上傳與下載 Azure 檔案儲存體的檔案。                                                                                                      |
+| V2.3.0     | 支援讀取存取地理區域備援儲存體帳戶。                                                                                                         |
+| V2.2.2     | 已升級並使用 Azure 儲存體用戶端程式庫 3.0.3 版。                                                                                             |
+| V2.2.1     | 已修正在相同儲存體帳戶中複製大量檔案時的效能問題。                                                                                           |
+| V2.2       | 支援設定 Blob 名稱的虛擬目錄分隔符號。支援指定日誌檔案路徑。                                                                                 |
+| V2.1       | 提供超過 20 個選項，以有效的方式支援 Blob 上傳、下載及複製作業。                                                                             |
 
 ## <span id="next-steps"></span></a>後續步驟
 
@@ -660,10 +615,20 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
   [了解 AzCopy 命令列語法]: #syntax
   [限制複製資料時的並行寫入]: #limit-writes
   [使用 AzCopy 複製 Azure Blob]: #copy-blobs
-  [使用 AzCopy 複製在 Azure 檔案共用中的檔案]: #copy-files
+  [使用 AzCopy 複製在 Azure 檔案共用中的檔案 (僅限預覽版本)]: #copy-files
+  [使用 AzCopy 複製 Azure 資料表實體 (僅限預覽版本)]: #copy-entities
   [AzCopy 版本]: #versions
   [後續步驟]: #next-steps
   [最新版本的 AzCopy]: http://aka.ms/downloadazcopy
+  [最新預覽版本]: http://aka.ms/downloadazcopypr
   [非同步跨帳戶複製 Blob 簡介]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx
+  [資料表服務作業的裝載格式]: http://msdn.microsoft.com/library/azure/dn535600.aspx
   [Azure 儲存體簡介]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-introduction/
+  [在 Blob 儲存體中儲存檔案 (英文)]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/
+  [使用檔案儲存體在 Azure 中建立 SMB 檔案共用 (英文)]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-files/
   [Microsoft Azure 檔案服務簡介]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx
+  [AzCopy 2.5：針對大規模複製案例最佳化 (英文)]: http://go.microsoft.com/fwlink/?LinkId=507682
+  [AzCopy：支援讀取存取地理區域備援儲存體 (英文)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx
+  [AzCopy：使用可重新啟動模式和 SAS 權杖傳輸資料 (英文)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx
+  [AzCopy：使用跨帳戶複製 Blob (英文)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx
+  [AzCopy：上傳/下載 Windows Azure Blob 的檔案 (英文)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx

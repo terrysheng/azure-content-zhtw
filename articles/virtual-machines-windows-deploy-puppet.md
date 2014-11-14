@@ -1,6 +1,6 @@
-<properties title="About Puppet and Azure Virtual Machines" pageTitle="About Puppet and Azure Virtual Machines" description="Describes installing and configuring Puppet on a VM in Azure" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
+<properties title="關於 Puppet 和 Azure 虛擬機器" pageTitle="關於 Puppet 和 Azure 虛擬機器" description="說明如何在 Azure VM 上安裝和設定 Puppet" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="07/29/2014" ms.author="kathydav" />
 
 # 關於 Puppet 和 Azure 虛擬機器
 
@@ -26,6 +26,7 @@ Puppet 是一個主從式架構系統。Puppet Master 和 Puppet Enterprise 代�
 <!--Link references-->
 
   [Microsoft Windows 和 Azure]: http://puppetlabs.com/solutions/microsoft
+  [與 Microsoft Azure 和 Visual Studio 的全新整合 (英文)]: http://puppetlabs.com/blog/new-integrations-windows-azure-and-visual-studio
   [如何登入執行 Windows Server 的虛擬機器]: ../virtual-machines-log-on-windows-server/
   [如何登入執行 Linux 的虛擬機器]: ../virtual-machines-linux-how-to-log-on
   [管理延伸模組]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

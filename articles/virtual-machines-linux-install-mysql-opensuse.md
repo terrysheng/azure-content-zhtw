@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-common-task-mysql-virtual-machine" urlDisplayName="Install MySQL" pageTitle="Install MySQL on a Linux virtual machine in Azure" metaKeywords="Azure vm OpenSUSE, Linux vm" description="Learn how to create an Azure virtual machine with OpenSUSE Linux, and then use SSH or PuTTY to install MySQL." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running OpenSUSE Linux in Azure" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Install MySQL" pageTitle="在 Azure 中的 Linux 虛擬機器上安裝 MySQL" metaKeywords="Azure vm OpenSUSE, Linux vm" description="了解如何在 OpenSUSE Linux 上建立 Azure 虛擬機器，然後使用 SSH 或 PuTTY 來安裝 MySQL。" metaCanonical="" services="virtual-machines" documentationCenter="" title="在 Azure 中執行 OpenSUSE Linux 的虛擬機器上安裝 MySQL" authors="timlt" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
@@ -28,6 +28,4 @@
 
   [MySQL]: http://www.mysql.com
   [Azure 管理入口網站]: http://manage.windowsazure.com
-  [create-and-configure-opensuse-vm-in-portal]: ../includes/create-and-configure-opensuse-vm-in-portal.md
-  [install-and-run-mysql-on-opensuse-vm]: ../includes/install-and-run-mysql-on-opensuse-vm.md
   [MySQL 文件]: http://dev.mysql.com/doc/

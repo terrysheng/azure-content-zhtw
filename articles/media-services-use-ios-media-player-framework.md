@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-how-to-guides-ios-media-player-framework" urlDisplayName="iOS Media Player Framework" pageTitle="Use the iOS Media Player Framework with Azure Media Services" metaKeywords="" description="Learn how to use the Media Services iOS Media Player Framework library to create rich, dynamic apps.," metaCanonical="" services="media-services" documentationCenter="" title="How to use the Azure Media Services iOS Media Player Framework" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="iOS Media Player Framework" pageTitle="使用 Azure 媒體服務的 iOS 媒體播放器架構" metaKeywords="" description="了解如何使用媒體服務 iOS 媒體播放器架構程式庫來建立豐富而動態的應用程式。" metaCanonical="" services="media-services" documentationCenter="" title="如何使用 Azure 媒體服務 iOS 媒體播放器架構" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # 如何使用 Azure 媒體服務 iOS 媒體播放器架構
 
@@ -31,7 +31,7 @@ SDK 包含一個 SamplePlayer 應用程式，以展示如何將 iOS 應用程式
 
 3.  範例播放器的結構如下：
 
-![HLS Sample Code structure][]
+![HLS Sample Code structure][HLS Sample Code structure]
 
 1.  在 iPad 資料夾下，有 2 個 .xib 檔：**SeekbarViewController** 及 **SamplePlayerViewController**。這些檔案負責建立 iPad 應用程式 UI 配置。在 iPhone 資料夾下也同樣有 2 個 .xib 檔，分別定義搜尋列和控制器。
 
@@ -43,7 +43,7 @@ SDK 包含一個 SamplePlayer 應用程式，以展示如何將 iOS 應用程式
 
 ### SamplePlayerViewController\_iPad.xib
 
-![Sample Player Address Bar][]
+![Sample Player Address Bar][Sample Player Address Bar]
 
 -   **Media URL** (媒體 URL) 是用來載入媒體資料流的 URL。應用程式已預先填入媒體 URL 的清單，使用 URL 選取按鈕即可擇一使用。或者，您也可以輸入自己的 Http 即時資料流 (HLS) 內容 URL。此媒體內容將作為第一個主要內容。
     **注意：請勿將此 URL 留空。**
@@ -52,7 +52,7 @@ SDK 包含一個 SamplePlayer 應用程式，以展示如何將 iOS 應用程式
 
 ### SeekbarViewController\_iPad.xib
 
-![Seek Bar Controller][]
+![Seek Bar Controller][Seek Bar Controller]
 
 -   使用 **Play Button** (播放按鈕) 可播放和暫停媒體播放。
 
@@ -87,7 +87,8 @@ SDK 包含一個 SamplePlayer 應用程式，以展示如何將 iOS 應用程式
 -   **MediaTime** 物件可控制要當成主要內容來排定的視訊短片。在上一個範例中，視訊短片是排定為具有 80 秒的時間長度 (從 0 秒到 80 秒)；
 -   **clipBeginMediaTime** 代表視訊開始播放的開始時間。例如，如果 **clipBeginMediaTime** 為 5，則此視訊短片將於視訊短片的 5 秒處開始。
 -   **clipEndMediaTime** 代表視訊播放的結束時間。如果 **clipEndMediaTime** 為 100，則視訊播放將於視訊短片的 100 秒處結束。
-    \*我們接著要求架構進行 **appendContentClip** 來排定 **MediaTime**。上一個範例在 `[NSURL URLWithString:url]` 中設定主要內容 URL，並且使用 **withMedia** 設定該媒體的排定：`[framework appendContentClip:[NSURL URLWithString:url] withMediaTime:mediaTime andGetClipId:&clipId])` .
+    \*我們接著要求架構進行 **appendContentClip** 來排定 **MediaTime**。上一個範例在 `[NSURL URLWithString:url]` 中設定主要內容 URL，並且使用 **withMedia** 設定該媒體的排定：
+     `[framework appendContentClip:[NSURL URLWithString:url] withMediaTime:mediaTime andGetClipId:&clipId])` .
 
 **注意：**務必先排定主要內容再排定任何廣告 (包括片頭廣告)。
 
@@ -205,7 +206,7 @@ SDK 包含一個 SamplePlayer 應用程式，以展示如何將 iOS 應用程式
 以下是一些必須注意的重點：
 
 -   對於第一個短片， **appendTo** 是 -1。而且當我們呼叫 `[framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex]` 時，`adIndex` 將收到唯一的值，表示廣告組合的這個第一個短片結束。然後，對於廣告組合的第二個短片，設定 **appendTo** 作為 `adpodInfo2.appendTo = adIndex;`，以指定第一個短片的結束處成為第二個短片的開始處，使第二個短片的開始與第一個短片的結束相連。
--    接著，您必須將類型設定為 `AdType_Pod`，表示這是廣告組合。
+-   \* 接著，您必須將類型設定為 `AdType_Pod`，表示這是廣告組合。
 
 ### 如何排定單次播放或「連續」廣告
 
@@ -214,7 +215,7 @@ SDK 包含一個 SamplePlayer 應用程式，以展示如何將 iOS 應用程式
 
 如上一段程式碼範例所示，如果將 **deleteAfterPlay** 設定為 **YES**，這個廣告將只播放一次。如果將 **deleteAfterPlay** 設定為 **NO**，這個廣告將持續播放，亦即我們所謂的「連續廣告」。
 
-### 如需詳細資訊，請參閱 [Azure 媒體播放器架構 wiki][] (英文)。
+### 如需詳細資訊，請參閱 [Azure 媒體播放器架構 wiki][Azure 媒體播放器架構 wiki] (英文)。
 
   [HLS Sample Code structure]: http://mingfeiy.com/wp-content/uploads/2013/01/HLS-Structure.png
   [Sample Player Address Bar]: http://mingfeiy.com/wp-content/uploads/2013/01/addressbar.png

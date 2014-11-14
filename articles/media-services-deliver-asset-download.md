@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-media-assets" urlDisplayName="Delivering Media Assets" pageTitle="How to Deliver Media Assets - Azure" metaKeywords="" description="Learn about options for delivering media assets that have been uploaded to Media Services in Azure. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver an Asset by Download" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Delivering Media Assets" pageTitle="如何傳遞媒體資產 - Azure" metaKeywords="" description="了解在 Azure 中，已上傳至媒體服務的媒體資產有哪些傳遞選項。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" metaCanonical="" services="media-services" documentationCenter="" title="作法：透過下載來傳遞資產" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # 作法：透過下載來傳遞資產
 
-本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是＜[作法：管理資產][]。
+本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是＜[作法：管理資產][作法：管理資產]。
 
 此主題將討論已上傳至媒體服務的媒體資產有哪些傳遞選項。您可以透過多種應用程式案例來傳遞媒體服務內容。您可以下載媒體資產，或使用定位器加以存取。您可以將媒體內容傳送至另一個應用程式，或是另一個內容提供者。若要改善效能和延展性，您也可以使用 Azure CDN 之類的內容傳遞網路 (CDN) 來傳遞內容。
 
@@ -62,15 +62,15 @@
 
 如需有關傳遞資產的詳細資訊，請參閱：
 
--   [使用 Media Services for .NET 傳遞資產][]
--   [使用 Media Services REST API 傳遞資產][]
+-   [使用 Media Services for .NET 傳遞資產][使用 Media Services for .NET 傳遞資產]
+-   [使用 Media Services REST API 傳遞資產][使用 Media Services REST API 傳遞資產]
 
 </p>
 ## 後續步驟
 
-此主題說明了從 Azure 儲存體下載資產的方式。如需其他資產傳遞方式的相關資訊，請移至[如何傳遞串流內容][]主題。
+此主題說明了從 Azure 儲存體下載資產的方式。如需其他資產傳遞方式的相關資訊，請移至[如何傳遞串流內容][如何傳遞串流內容]主題。
 
-  [作法：管理資產]: http://go.microsoft.com/fwlink/?LinkID=301815&clcid=0x409
-  [使用 Media Services for .NET 傳遞資產]: http://msdn.microsoft.com/en-us/library/jj129575.aspx
-  [使用 Media Services REST API 傳遞資產]: http://msdn.microsoft.com/en-us/library/jj129578.aspx
-  [如何傳遞串流內容]: http://go.microsoft.com/fwlink/?LinkID=301942
+  [作法：管理資產]: ../media-services-manage-assets/
+  [使用 Media Services for .NET 傳遞資產]: http://msdn.microsoft.com/zh-tw/library/jj129575.aspx
+  [使用 Media Services REST API 傳遞資產]: http://msdn.microsoft.com/zh-tw/library/jj129578.aspx
+  [如何傳遞串流內容]: ../media-services-deliver-streaming-content/

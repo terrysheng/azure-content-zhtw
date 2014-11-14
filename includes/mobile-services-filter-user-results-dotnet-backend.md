@@ -10,7 +10,7 @@
 
         public string UserId { get; set; }
 
-    > [WACOM.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。無法針對 Azure 中的 SQL Database 使用預設的初始設定式。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型][] (英文)。
+    > [WACOM.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。無法針對 Azure 中的 SQL Database 使用預設的初始設定式。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型][如何使用 Code First Migrations 更新資料模型] (英文)。
 
 3.  在 [方案總管] 中，展開 Controllers 資料夾，開啟 TodoItemController.cs 專案檔案，再加入下列 **using** 陳述式：
 
@@ -39,4 +39,4 @@
 
 6.  將行動服務專案重新發佈至 Azure。
 
-  [如何使用 Code First Migrations 更新資料模型]: /zh-TW/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+  [如何使用 Code First Migrations 更新資料模型]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations

@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-upload-data-for-hadoop-jobs-in-hdinsight" urlDisplayName="Upload Data" pageTitle="Upload data for Hadoop jobs in HDInsight | Azure" metaKeywords="" description="Learn how to upload and access data in HDInsight using Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Upload data for Hadoop jobs in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Upload Data" pageTitle="在 HDInsight 上將 Hadoop 工作的資料上傳 | Azure" metaKeywords="" description="了解如何使用 Azure 儲存體總管、Azure PowerShell、Hadoop 命令列或 Sqoop 在 HDInsight 中上傳和存取資料。" metaCanonical="" services="storage,hdinsight" documentationCenter="" title="在 HDInsight 上將 Hadoop 工作的資料上傳" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -77,7 +77,7 @@ Blob 儲存容器以機碼/值組來儲存資料，沒有目錄階層。然而�
 
 ## <span id="storageexplorer"></span></a>使用 Azure 儲存體總管將資料上傳至 Blob 儲存體
 
-*Azure 儲存體總管*是在一種 Azure 儲存體中檢查和變更資料的實用工具。它是免費工具，可從 [][]<http://azurestorageexplorer.codeplex.com/></a> (英文) 下載。
+*Azure 儲存體總管*是在一種 Azure 儲存體中檢查和變更資料的實用工具。它是免費工具，可從 <http://azurestorageexplorer.codeplex.com/> (英文) 下載。
 
 使用此工具之前，必須先知道您的 Azure 儲存體帳戶名稱和帳戶金鑰。有關取得此資訊的指示，請參閱＜[管理儲存體帳戶][管理儲存體帳戶]＞的＜作法：檢視、複製和重新產生儲存體存取金鑰＞一節 (英文)。
 
@@ -96,7 +96,6 @@ Blob 儲存容器以機碼/值組來儲存資料，沒有目錄階層。然而�
 
 5.  從 [容器 中，按一下與 HDInsight 叢集相關聯的容器。建立 HDInsight 叢集時，必須指定容器。否則，叢集建立程序會為您建立容器。
 6.  在 [Blob] 下，按一下 [上傳]。
-
 7.  指定要上傳的檔案，然後按一下 [開啟]。
 
 ## <span id="commandline"></span></a> 使用 Hadoop 命令列將資料上傳至 Blob 儲存體
@@ -199,7 +198,6 @@ Sqoop 是一種專門在 Hadoop 和關聯式資料庫之間傳送資料的工具
   [使用 Sqoop 將資料從 Azure SQL Database 匯入至 Blob 儲存體]: #sqoop
   [下載 AzCopy]: http://aka.ms/WaCopy
   [安裝和設定 Azure PowerShell]: ../install-configure-powershell/
-  []: http://azurestorageexplorer.codeplex.com/ "Azure 儲存體總管"
   [管理儲存體帳戶]: ../storage-manage-storage-account/
   [HDI.AzureStorageExplorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
   [HDI.ASEAddAccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png

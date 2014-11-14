@@ -1,23 +1,23 @@
-<properties linkid="manage-windows-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Windows Server" metaKeywords="Azure capture image vm, capturing vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server 2008 R2. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
+<properties urlDisplayName="Capture an image" pageTitle="對執行 Windows Server 的虛擬機器擷取映像" metaKeywords="Azure capture image vm, capturing vm" description="了解如何對執行 Windows Server 2008 R2 的 Azure 虛擬機器 (VM) 擷取映像。" metaCanonical="" services="virtual-machines" documentationCenter="" title="如何對執行 Windows Server 的虛擬機器擷取映像" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # 如何擷取 Windows 虛擬機器以做為範本
 
 本文說明如何擷取 Windows 虛擬機器，以便用它做為範本建立其他虛擬機器。這個虛擬機器範本包括 OS 磁碟和任何連接虛擬機器的資料磁碟。它不包含網路組態，因此您將需要在建立使用該範本的其他虛擬機器時加以設定。
 
-擷取虛擬機器之後，它會出現在您建立虛擬機器時的 [My Images] 下。映像檔會在您的儲存體帳戶中儲存為 VHD。如需映像的詳細資訊，請參閱[管理磁碟和映像][] (英文)。
+擷取虛擬機器之後，它會出現在您建立虛擬機器時的 [My Images] 下。映像檔會在您的儲存體帳戶中儲存為 VHD。如需映像的詳細資訊，請參閱[管理磁碟和映像][管理磁碟和映像] (英文)。
 
 ## 開始之前
 
 這些步驟假設您已建立 Azure 虛擬機器且設定好作業系統，包括連接任何資料磁碟。如果您還沒這麼做，請參閱下列指示：
 
--   [如何建立自訂虛擬機器 (英文)][]
--   [如何將資料磁碟附加至虛擬機器][]
+-   [如何建立自訂虛擬機器 (英文)][如何建立自訂虛擬機器 (英文)]
+-   [如何將資料磁碟附加至虛擬機器][如何將資料磁碟附加至虛擬機器]
 
 ## 擷取虛擬機器
 
-1.  按一下命令列上的 [連線]，連線到虛擬機器。如需詳細資訊，請參閱[如何登入執行 Windows Server 的虛擬機器][]。
+1.  按一下命令列上的 [連線]，連線到虛擬機器。如需詳細資訊，請參閱[如何登入執行 Windows Server 的虛擬機器][如何登入執行 Windows Server 的虛擬機器]。
 
 2.  以系統管理員身分開啟 [命令提示字元] 視窗。
 
@@ -25,21 +25,21 @@
 
 4.  [系統準備工具] 對話方塊隨即出現。執行下列動作：
 
-    -   在 [系統清理動作] 中選取 [Enter System Out-of-Box Experience (OOBE)]，並確認 [一般化] 已勾選。如需使用 Sysprep 的詳細資訊，請參閱[如何使用 Sysprep：簡介][] (英文)。
+    -   在 [系統清理動作] 中選取 [Enter System Out-of-Box Experience (OOBE)]，並確認 [一般化] 已勾選。如需使用 Sysprep 的詳細資訊，請參閱[如何使用 Sysprep：簡介][如何使用 Sysprep：簡介] (英文)。
 
     -   在 [關機選項]中選取 [關機]。
 
     -   按一下 [確定]。
 
-    ![執行 Sysprep][]
+    ![執行 Sysprep][執行 Sysprep]
 
-5.  Sysprep 會將虛擬機器關機，這會在[管理入口網站][] 中，將機器的狀態變更為 [已停止]。
+5.  Sysprep 會將虛擬機器關機，這會在[管理入口網站][管理入口網站] 中，將機器的狀態變更為 [已停止]。
 
 6.  按一下 [虛擬機器]，然後選取要擷取的虛擬機器。
 
 7.  按一下命令列上的 [擷取]。
 
-    ![擷取虛擬機器][]
+    ![擷取虛擬機器][擷取虛擬機器]
 
     [擷取虛擬機器] 對話方塊隨即出現。
 
@@ -51,7 +51,7 @@
 
     新映像現在會出現在 [映像] 下。
 
-    ![Image capture successful][]
+    ![Image capture successful][Image capture successful]
 
 ## 後續步驟
 

@@ -1,16 +1,16 @@
-<properties linkid="develop-media-services-how-to-guides-encrypt-assets" urlDisplayName="Encrypt Assets in Media Services" pageTitle="How to Encrypt Assets in Media Services - Azure" metaKeywords="" description="Learn how to use Microsoft PlayReady Protection to encrypt an asset in Media Services. Code samples are written in C# and use the Media Services SDK for .NET. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Encrypt Assets in Media Services" pageTitle="如何為媒體服務中的資產加密 - Azure" metaKeywords="" description="了解如何使用 Microsoft PlayReady 保護為媒體服務中的資產加密。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" metaCanonical="" services="media-services" documentationCenter="" title="作法：使用 PlayReady 保護來保護資產" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # <a name="playready"></a>作法：使用 PlayReady 保護來保護資產
 
-本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是＜[作法：檢查工作進度][]。
+本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是＜[作法：檢查工作進度][作法：檢查工作進度]。
 
 在 Azure 媒體服務中，您可以提交一個與 Microsoft PlayReady 保護整合的工作來加密資產。本節中的程式碼會取得輸入資料夾中的數個串流檔案、建立一項工作並使用 PlayReady 保護將這些檔案加密。
 
 下列範例示範如何建立一個簡單的工作來提供 PlayReady 保護。
 
-1.  擷取組態資料。您可以從 [Azure 媒體編碼程式的工作預設設定][]主題取得範例組態檔。
+1.  擷取組態資料。您可以從 [Azure 媒體編碼程式的工作預設設定][Azure 媒體編碼程式的工作預設設定]主題取得範例組態檔。
 2.  上傳 MP4 輸入檔
 3.  將 MP4 檔案轉換成 Smooth Streaming 資產
 4.  使用 PlayReady 將資產加密
@@ -32,7 +32,7 @@
         string configMp4ToSmooth = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaPackager_MP4ToSmooth.xml"));
 
         // Get a media processor instance
-        IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Packager");
+        IMediaProcessor processor = GetLatestMediaProcessorByName("Windows Azure Media Packager");
 
         // Create a task with the conversion details, using the configuration data 
         ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task",
@@ -55,7 +55,7 @@
         string configPlayReady = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaEncryptor_PlayReadyProtection.xml"));
 
         // Get a media processor instance
-        IMediaProcessor playreadyProcessor = GetLatestMediaProcessorByName("Azure Media Encryptor");
+        IMediaProcessor playreadyProcessor = GetLatestMediaProcessorByName("Windows Azure Media Encryptor");
 
         // Create a second task, specifying a task name, the media processor, and configuration
         ITask playreadyTask = job.Tasks.AddNew("My PlayReady Task",
@@ -103,16 +103,16 @@
 
 如需 PlayReady 保護的詳細資訊，請參閱：
 
--   [以 Microsoft PlayReady 保護資產][]
--   [Microsoft PlayReady (英文)][]
+-   [以 Microsoft PlayReady 保護資產][以 Microsoft PlayReady 保護資產]
+-   [Microsoft PlayReady (英文)][Microsoft PlayReady (英文)]
 
 </p>
 ## 後續步驟
 
-您已了解如何使用媒體服務來保護資產， 現在可移至[如何管理資產][]主題。
+您已了解如何使用媒體服務來保護資產， 現在可移至[如何管理資產][如何管理資產]主題。
 
-  [作法：檢查工作進度]: http://go.microsoft.com/fwlink/?LinkID=301737&clcid=0x409
-  [Azure 媒體編碼程式的工作預設設定]: http://msdn.microsoft.com/en-us/library/hh973610.aspx
-  [以 Microsoft PlayReady 保護資產]: http://msdn.microsoft.com/en-us/library/dn189154.aspx
+  [作法：檢查工作進度]: ../media-services-check-job-progress/
+  [Azure 媒體編碼程式的工作預設設定]: http://msdn.microsoft.com/zh-tw/library/hh973610.aspx
+  [以 Microsoft PlayReady 保護資產]: http://msdn.microsoft.com/zh-tw/library/dn189154.aspx
   [Microsoft PlayReady (英文)]: http://www.microsoft.com/PlayReady/
-  [如何管理資產]: http://go.microsoft.com/fwlink/?LinkID=301943&clcid=0x409
+  [如何管理資產]: ../media-services-manage-assets/

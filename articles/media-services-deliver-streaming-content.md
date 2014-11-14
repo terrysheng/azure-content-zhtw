@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-streaming-content" urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="How to Deliver Streaming Content from Media Services – Azure" metaKeywords="" description="Learn how to deliver streaming content from Media Services using a direct URL. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to: Deliver streaming content" authors="" />
+<properties urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="如何從媒體服務傳遞串流內容 &ndash; Azure" metaKeywords="" description="了解如何使用直接 URL 從媒體服務傳遞串流內容。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="作法：傳遞串流內容" authors="juliako" manager="dwrede" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # 作法：傳遞串流內容
 
-本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是＜[作法：透過下載來傳遞資產][]＞ (英文)。
+本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是＜[作法：透過下載來傳遞資產][作法：透過下載來傳遞資產]＞ (英文)。
 
 除了從媒體服務下載媒體內容，您還可以使用調適性位元速率串流來傳遞內容。例如，您可以對媒體服務原始伺服器上的串流內容建立導向 URL，稱為定位器。用戶端應用程式 (例如 Microsoft Silverlight) 可以直接從定位器播放串流內容。
 
@@ -70,15 +70,15 @@
 </p>
 如需有關傳遞資產的詳細資訊，請參閱：
 
--   [使用 Media Services for .NET 傳遞資產][]
--   [使用 Media Services REST API 傳遞資產][]
+-   [使用 Media Services for .NET 傳遞資產][使用 Media Services for .NET 傳遞資產]
+-   [使用 Media Services REST API 傳遞資產][使用 Media Services REST API 傳遞資產]
 
 </p>
 ## 後續步驟
 
-目前為止，我們已說明從 Azure 儲存體和使用 Smooth Streaming 來傳遞資產。下一個主題＜[如何傳遞 HLS 內容][]＞將討論使用 Apple HTTP 即時資料流 (HLS) 來傳遞串流內容。
+目前為止，我們已說明從 Azure 儲存體和使用 Smooth Streaming 來傳遞資產。下一個主題＜[如何傳遞 HLS 內容][如何傳遞 HLS 內容]＞將討論使用 Apple HTTP 即時資料流 (HLS) 來傳遞串流內容。
 
-  [作法：透過下載來傳遞資產]: http://go.microsoft.com/fwlink/?LinkID=301734&clcid=0x409
-  [使用 Media Services for .NET 傳遞資產]: http://msdn.microsoft.com/en-us/library/jj129575.aspx
-  [使用 Media Services REST API 傳遞資產]: http://msdn.microsoft.com/en-us/library/jj129578.aspx
-  [如何傳遞 HLS 內容]: http://go.microsoft.com/fwlink/?LinkId=301817
+  [作法：透過下載來傳遞資產]: ../media-services-deliver-asset-download/
+  [使用 Media Services for .NET 傳遞資產]: http://msdn.microsoft.com/zh-tw/library/jj129575.aspx
+  [使用 Media Services REST API 傳遞資產]: http://msdn.microsoft.com/zh-tw/library/jj129578.aspx
+  [如何傳遞 HLS 內容]: ../media-services-deliver-http-live-streaming-content/

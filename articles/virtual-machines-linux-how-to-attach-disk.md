@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-howto-attach-a-disk" urlDisplayName="Attach a disk" pageTitle="Attach a disk to a virtual machine running Linux in Azure" metaKeywords="disk VM Azure, initialize new disk Azure, initialize disk Azure Linux, attaching empty disk Azure" description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use." metaCanonical="http://www.windowsazure.com/zh-tw/manage/windows/how-to-guides/attach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Attach a disk" pageTitle="將磁碟附加至在 Azure 中執行 Linux 的虛擬機器" metaKeywords="disk VM Azure, initialize new disk Azure, initialize disk Azure Linux, attaching empty disk Azure" description="了解如何將資料磁碟附加至 Azure 虛擬機器，並初始化磁碟以便開始使用。" metaCanonical="http://www.windowsazure.com/zh-tw/manage/windows/how-to-guides/attach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav" />
 
@@ -106,7 +106,6 @@
   [作法：連接空的磁碟]: #attachempty
   [作法：連接現有磁碟]: #attachexisting
   [作法：在 Linux 中初始化新的資料磁碟]: #initializeinlinux
-  [howto-attach-disk-windows-linux]: ../includes/howto-attach-disk-windows-linux.md
   [如何登入執行 Linux 的虛擬機器]: ../virtual-machines-linux-how-to-log-on/
   [取得磁碟訊息]: ./media/virtual-machines-linux-how-to-attach-disk/DiskMessages.png
   [建立新的裝置]: ./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png

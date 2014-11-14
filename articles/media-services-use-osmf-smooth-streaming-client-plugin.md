@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-tutorials-smooth-streaming-plugin-for-open-source-media-framework" urlDisplayName="Smooth Streaming Plugin" pageTitle="Smooth Streaming Plugin for the Open Source Media Framework" metaKeywords="" description="Learn how to use the Azure Media Services Smooth Streaming plugin for the Adobe Open Source Media Framework." metaCanonical="" services="media-services" documentationCenter="" title="How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Smooth Streaming Plugin" pageTitle="Open Source Media Framework 的 Smooth Streaming 外掛程式" metaKeywords="" description="了解如何使用 Adobe Open Source Media Framework 的 Azure 媒體服務 Smooth Streaming 外掛程式。" metaCanonical="" services="media-services" documentationCenter="" title="如何使用 Adobe Open Source Media Framework 的 Microsoft Smooth Streaming 外掛程式" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # 如何使用 Adobe Open Source Media Framework 的 Microsoft Smooth Streaming 外掛程式
 
@@ -329,7 +329,7 @@ OSMF 外掛程式可以靜態方式 (在編譯時) 或動態方式 (在執行階
 Smooth Streaming for OSMF 動態外掛程式與 [Strobe Media Playback (SMP)][Strobe Media Playback (SMP)] 是相容的。您可以使用 SS for OSMF 外掛程式，將 Smooth Streaming 內容播放新增至 SMP。若要這麼做，請使用下列步驟，在 Web 伺服器下複製 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf"，以進行 HTTP 載入：
 
 1.  瀏覽 [Strobe Media Playback 設定頁面][Strobe Media Playback 設定頁面]。
-2.  將 src 設為 Smooth Streaming 來源 (例如 <http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest>)
+2.  將 src 設為 Smooth Streaming 來源 (例如 http://devplatem.vo.msecnd.net/Sintel/Sintel\_H264.ism/manifest)
 3.  進行所需的組態變更，然後按一下 [Preview and Update]。
 
     **注意** 您的內容 Web 伺服器需要有效的 crossdomain.xml。
@@ -387,5 +387,6 @@ Smooth Streaming for OSMF 動態外掛程式與 [Strobe Media Playback (SMP)][St
   [使用 Flash Player]: http://forums.adobe.com/message/4483498#4483498
   [Adobe Flash Player 11.3 - 錯誤 3210964]: https://bugbase.adobe.com/index.cfm?event=bug&id=3210964
   [OSMF 外掛程式頁面]: http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf
+  [Strobe Media Playback (SMP)]: http://osmf.org/strobe_mediaplayback.html
   [Strobe Media Playback 設定頁面]: http://osmf.org/dev/2.0gm/setup.html
   [OSMF 開發頁面]: http://osmf.org/resources.html

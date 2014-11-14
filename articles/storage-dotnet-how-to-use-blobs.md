@@ -1,10 +1,14 @@
-<properties linkid="dev-net-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage from .NET | Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use Microsoft Azure Blob storage to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Blob storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="Blob Service" pageTitle="如何使用 .NET 的 Blob 儲存體 | Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="了解如何使用 Microsoft Azure Blob 儲存體來上傳、下載、列出及刪除 Blob 內容。範例是以 C# 撰寫的。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="如何在 .NET 中使用 Microsoft Azure Blob 儲存體" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # 如何使用 .NET 的 Blob 儲存體
 
-本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][後續步驟]一節。
+本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。
+這些範例均以 C# 撰寫，並使用
+ Azure Storage Client Library for .NET。所涵蓋的案例包括
+「上傳」、「列出」、「下載」及「刪除」Blob。
+如需 Blob 的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 > [WACOM.NOTE] 本指南以 Azure .NET Storage Client Library 2.x 和更新版本為對象。建議的版本是儲存體用戶端程式庫 4.x，可透過 [NuGet][NuGet] 或從 [Azure SDK for .NET][Azure SDK for .NET] 中取得。請參閱下列[作法：以程式設計方式存取 Blob 儲存體][作法：以程式設計方式存取 Blob 儲存體]，以詳細了解如何取得儲存體用戶端程式庫。
 
@@ -20,29 +24,31 @@
 -   [作法：列出容器中的 Blob][作法：列出容器中的 Blob]
 -   [作法：下載 Blob][作法：下載 Blob]
 -   [作法：刪除 Blob][作法：刪除 Blob]
+-   [作法：以非同步方式分頁列出 Blob][作法：以非同步方式分頁列出 Blob]
 -   [後續步驟][後續步驟]
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
-## <a name="create-account"></a><span class="short-header">建立帳戶</span>建立 Azure 儲存體帳戶
+## <a name="create-account"></a><span class="short-header">建立 Azure 儲存體帳戶</span>
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-## <a name="setup-connection-string"></a><span class="short-header">設定連接字串</span>設定儲存體連接字串
+## <a name="setup-connection-string"></a><span class="short-header">設定儲存體連接字串</span>
 
 [WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
-## <a name="configure-access"> </a><span class="short-header">以程式設計方式存取</span>作法：以程式設計方式存取 Blob 儲存體
+## <a name="configure-access"> </a><span class="short-header">作法：以程式設計方式存取 Blob 儲存體</span>
 
 ### 取得組件
 
-您可以使用 NuGet 來取得 `Microsoft.WindowsAzure.Storage.dll` 組件。在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。在線上搜尋 "WindowsAzure.Storage"，再按一下 [安裝] 以安裝 Azure 儲存體封裝與相依性。
+建議您使用 NuGet 來取得 `Microsoft.WindowsAzure.Storage.dll` 組件。在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。在線上搜尋 "WindowsAzure.Storage"，再按一下 [安裝] 以安裝 Azure 儲存體封裝與相依性。
 
-`Microsoft.WindowsAzure.Storage.dll` 也隨附於 Azure SDK for .NET (可自 [.NET 開發人員中心][.NET 開發人員中心]下載)。此組件會安裝在 `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` 目錄。
+`Microsoft.WindowsAzure.Storage.dll` 也隨附於 Azure SDK for .NET (可自 [.NET 開發人員中心][.NET 開發人員中心]下載)。此組件會安裝在 `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`lt;sdk-version\>\\ref\\</code> 目錄。
 
 ### 命名空間宣告
 
-將下列命名空間宣告，新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 C# 檔案內的頂端：
+將下列命名空間宣告，新增至您想要在其中以程式設計方式存取 Azure
+儲存體之任何 C# 檔案內的頂端：
 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
@@ -52,7 +58,13 @@
 
 ### 擷取連接字串
 
-您可以使用 **CloudStorageAccount** 類型來代表儲存體帳戶資訊。如果您使用 Azure 專案範本且 (或) 具有 Microsoft.WindowsAzure.CloudConfigurationManager 參照，可以使用 **CloudConfigurationManager** 類型，擷取 Azure 服務設定中的儲存體連接字串與儲存體帳戶資訊：
+您可以使用 **CloudStorageAccount** 類型來代表儲存體帳戶資訊。
+如果您使用
+ Azure 專案範本且 (或) 具有 Microsoft.WindowsAzure.CloudConfigurationManager
+ 參照，可以使用
+**CloudConfigurationManager** 類型，
+擷取 Azure 服務設定中的儲存體連接字串與
+儲存體帳戶資訊：
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -64,7 +76,9 @@
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
 
-**CloudBlobClient** 類型可讓您擷取物件，這些物件代表 Blob 儲存體服務中儲存的容器和 Blob。下列程式碼會使用我們在前面擷取的儲存體帳戶物件來建立 **CloudBlobClient** 物件：
+**CloudBlobClient** 類型可讓您擷取物件，這些物件代表 Blob 儲存體服務中
+儲存的容器和 Blob。
+下列程式碼會使用我們在前面擷取的儲存體帳戶物件來建立 **CloudBlobClient** 物件：
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
@@ -72,9 +86,9 @@
 
 Storage Client Library for .NET 中的 ODataLib 相依性現已透過 ODataLib (5.0.2 版) 封裝解決，該封裝是由 NuGet 而非 WCF Data Services 提供。您可以直接下載 ODataLib 程式庫，或是由您的程式碼專案透過 NuGet 參照這些程式庫。這些 ODataLib 封裝具體來說是 [OData][OData]、[Edm][Edm] 和 [Spatial][Spatial]。
 
-## <a name="create-container"> </a><span class="short-header">建立容器</span>作法：建立容器
+## <a name="create-container"> </a><span class="short-header">作法：建立容器</span>
 
-所有儲存體 Blob 皆位於一個容器中。您可以使用 **CloudBlobClient** 物件來取得想要使用之容器的參照。如果容器不存在，您可以建立容器：
+儲存體 Blob 中的每個 Blob 必須位於一個容器中。此範例說明如何建立尚不存在的容器：
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -89,20 +103,26 @@ Storage Client Library for .NET 中的 ODataLib 相依性現已透過 ODataLib (
     // Create the container if it doesn't already exist.
     container.CreateIfNotExists();
 
-根據預設，新容器屬私人性質，您必須指定儲存體存取金鑰才能從此容器下載 Blob。若要讓所有人都能使用容器中的檔案，您可以使用下列
+根據預設，新容器屬私人性質，您必須指定
+儲存體存取金鑰才能從此容器下載 Blob。
+若要讓所有人都能使用容器中的檔案，您可以使用下列
 程式碼將容器設定為公用容器：
 
     container.SetPermissions(
         new BlobContainerPermissions { PublicAccess = 
         BlobContainerPublicAccessType.Blob }); 
 
-網際網路上的任何人都可以看到公用容器中的 Blob，但要有適當的存取金鑰，才能修改或刪除這些 Blob。
+網際網路上的任何人都可以看到公用容器中的 Blob，但要有適當的存取金鑰，
+才能修改或刪除這些 Blob。
 
-## <a name="upload-blob"> </a><span class="short-header">上傳至容器</span>作法：將 Blob 上傳至容器
+## <a name="upload-blob"> </a><span class="short-header">作法：將 Blob 上傳至容器</span>
 
 Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，建議使用區塊 Blob 的類型。
 
-若要將檔案上傳至區塊 Blob，請取得容器參照，並使用該參照來取得區塊 Blob 參照。擁有 Blob 參照後，即可藉由呼叫 **UploadFromStream** 方法，將任何資料流上傳至其中。此操作會建立 Blob (如果其並不存在) 或覆寫 Blob (如果其已存在)。下列範例顯示如何將 Blob 上傳到容器，並假設已建立該容器。
+若要將檔案上傳至區塊 Blob，請取得容器參照，並使用該參照來取得區塊 Blob 參照。
+擁有 Blob 參照後，即可藉由呼叫
+ **UploadFromStream** 方法，將任何資料流上傳至其中。此操作會建立 Blob (如果其並不存在) 或覆寫 Blob (如果其已存在)。
+下列範例顯示如何將 Blob 上傳到容器，並假設已建立該容器。
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -123,9 +143,15 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
         blockBlob.UploadFromStream(fileStream);
     } 
 
-## <a name="list-blob"> </a><span class="short-header">列出容器中的 Blob</span>作法：列出容器中的 Blob
+## <a name="list-blob"> </a><span class="short-header">作法：列出容器中的 Blob</span>
 
-若要列出容器中的 Blob，請先取得容器參照。然後您即可使用容器的 **ListBlobs** 方法來擷取 Blob 和 (或) 其中的目錄。若要針對傳回的 **IListBlobItem** 存取一組豐富的屬性與方法，您必須先將它轉換成 **CloudBlockBlob**、**CloudPageBlob** 或 **CloudBlobDirectory** 物件。如果不清楚類型，可使用類型檢查來決定要將其轉換至何種類型。下列程式碼示範如何擷取和輸出 `photos` 容器中每個項目的 URI：
+若要列出容器中的 Blob，請先取得容器參照。
+然後您即可使用容器的 **ListBlobs** 方法來擷取 Blob 和 (或) 其中的目錄。
+若要針對傳回的 **IListBlobItem** 存取一組豐富的屬性與方法，
+您必須先將它轉換成 **CloudBlockBlob**、
+**CloudPageBlob** 或 **CloudBlobDirectory** 物件。如果不清楚類型，可使用類型檢查來決定
+要將其轉換至何種類型。下列程式碼示範如何
+擷取和輸出 `photos` 容器中每個項目的 URI：
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -162,7 +188,9 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
         }
     }
 
-如上所示，Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更像資料夾的結構組織 Blob。例如，假設此容器中有名為 `photos` 的一組區塊 Blob：
+如上所示，Blob 服務也具備容器中之目錄的概念。
+正因如此，您能夠以更像資料夾的結構組織 Blob。
+例如，假設此容器中有名為 `photos` 的一組區塊 Blob：
 
     photo1.jpg
     2010/architecture/description.txt
@@ -173,13 +201,17 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
     2011/architecture/description.txt
     2011/photo7.jpg
 
-當您在 'photos' 容器上呼叫 **ListBlobs** (如以上範例所示)，傳回的集合將包含 **CloudBlobDirectory** 和 **CloudBlockBlob** 物件，其分別代表最上層所包含的目錄和 Blob。以下是最終得到的輸出：
+當您在 'photos' 容器上呼叫 **ListBlobs** (如以上範例所示)，
+傳回的集合將包含 **CloudBlobDirectory** 和 **CloudBlockBlob** 物件，
+其分別代表最上層所包含的目錄和 Blob。以下是最終得到的輸出：
 
     Directory: https://<accountname>.blob.core.windows.net/photos/2010/
     Directory: https://<accountname>.blob.core.windows.net/photos/2011/
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
-此外，您可以選擇將 **ListBlobs** 方法的 **UseFlatBlobListing** 參數設定為 **true**。如此會導致不論目錄為何，都將每個 Blob 各當成一個 **CloudBlockBlob** 來傳回。以下是 **ListBlobs** 的呼叫：
+此外，您可以選擇將 **ListBlobs** 方法的 **UseFlatBlobListing** 參數設定為
+**true**。如此會導致不論目錄為何，都將每個 Blob 各當成一個 **CloudBlockBlob**
+ 來傳回。以下是 **ListBlobs** 的呼叫：
 
     // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -200,9 +232,11 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
 如需詳細資訊，請參閱 [CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs]。
 
-## <a name="download-blobs"> </a><span class="short-header">下載 Blob</span>作法：下載 Blob
+## <a name="download-blobs"> </a><span class="short-header">作法：下載 Blob</span>
 
-若要下載 Blob，請先擷取 Blob 參照，然後呼叫 **DownloadToStream** 方法。下列範例使用 **DownloadToStream** 方法將 Blob 內容傳送給資料流物件，您接著可將該物件永久儲存成本機檔案。
+若要下載 Blob，請先擷取 Blob 參照，然後呼叫 **DownloadToStream** 方法。下列範例
+使用 **DownloadToStream** 方法將 Blob 內容傳送給資料流物件，
+您接著可將該物件永久儲存成本機檔案。
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -245,9 +279,10 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
         text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
     }
 
-## <a name="delete-blobs"> </a><span class="short-header">刪除 Blob</span>作法：刪除 Blob
+## <a name="delete-blobs"> </a><span class="short-header">作法：刪除 Blob</span>
 
-若要刪除 Blob，請先取得 Blob 參照，然後在該參照上呼叫 **Delete** 方法。
+若要刪除 Blob，請先取得 Blob 參照，然後在該參照上呼叫
+**Delete** 方法。
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -265,13 +300,75 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
     // Delete the blob.
     blockBlob.Delete(); 
 
+## <a name="list-blobs-async"> </a><span class="short-header">作法：以非同步方式分頁列出 Blob</span>
+
+如果您要列出大量的 Blob，或是要控制在單一列出作業中傳回的結果數，您可以在結果頁面中列出 Blob。此範例說明如何以非同步方式分頁傳回結果，使執行不會因為等待大型結果集傳回而中斷。
+
+此範例說明一般 Blob 列出方式，但您也可以執行階層式列出，方法是將 **ListBlobsSegmentedAsync** 方法的 `useFlatBlobListing` 參數設為 `false`。
+
+範例方法會呼叫非同步方法，因此前面必須加上 `async` 關鍵字，且必須傳回 **Task** 物件。為 **ListBlobsSegmentedAsync** 方法指定的 await 關鍵字會擱置範例方法的執行，直到列出工作完成為止。
+
+    async public static Task ListBlobsSegmentedInFlatListing()
+    {
+        // Retrieve storage account from connection string.
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+        // Create the blob client.
+        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+        // Retrieve reference to a previously created container.
+        CloudBlobContainer container = blobClient.GetContainerReference("myblobs");
+
+        //List blobs in pages.
+        Console.WriteLine("List blobs in pages:");
+
+        //List blobs with a paging size of 10, for the purposes of the example. 
+        //The first call does not include the continuation token.
+        BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(
+                "", true, BlobListingDetails.All, 10, null, null, null);
+
+        //Enumerate the result segment returned.
+        int i = 0;
+        if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
+        foreach (var blobItem in resultSegment.Results)
+        {
+            Console.WriteLine("\t{0}", blobItem.StorageUri.PrimaryUri);
+        }
+        Console.WriteLine();
+
+        //Get the continuation token, if there are additional pages of results.
+        BlobContinuationToken continuationToken = resultSegment.ContinuationToken;
+
+        //Check whether there are more results and list them in pages of 10 while a continuation token is returned.
+        while (continuationToken != null)
+        {
+            //This overload allows control of the page size. 
+            //You can return all remaining results by passing null for the maxResults parameter, 
+            //or by calling a different overload.
+            resultSegment = await container.ListBlobsSegmentedAsync(
+                    "", true, BlobListingDetails.All, 10, continuationToken, null, null);
+            if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
+            foreach (var blobItem in resultSegment.Results)
+            {
+                Console.WriteLine("\t{0}", blobItem.StorageUri.PrimaryUri);
+            }
+            Console.WriteLine();
+
+            //Get the next continuation token.
+            continuationToken = resultSegment.ContinuationToken;
+        }
+    }
+
 ## <a name="next-steps"></a><span class="short-header">後續步驟</span>
 
-了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
+了解 Blob 儲存體的基礎概念之後，請參考下列連結
+以了解如何執行更複雜的儲存工作。
 
 -   如需可用 API 的完整詳細資訊，請檢視 Blob 服務參考文件：
     -   [Storage Client Library for .NET 參考資料][Storage Client Library for .NET 參考資料]
     -   [REST API 參考資料][REST API 參考資料]
+
 -   請參閱[在 Azure 中儲存和存取資料][在 Azure 中儲存和存取資料]，深入了解可使用 Azure 儲存體執行的更多進階工作。
 -   若要了解如何在 Azure 網站的後端程序中使用 Azure 儲存體，請參閱[開始使用 Azure WebJobs SDK][開始使用 Azure WebJobs SDK]。
 -   如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
@@ -294,9 +391,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
   [作法：列出容器中的 Blob]: #list-blob
   [作法：下載 Blob]: #download-blobs
   [作法：刪除 Blob]: #delete-blobs
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
+  [作法：以非同步方式分頁列出 Blob]: #list-blobs-async
   [.NET 開發人員中心]: http://www.windowsazure.com/zh-tw/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2

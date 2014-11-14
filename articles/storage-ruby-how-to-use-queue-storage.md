@@ -1,10 +1,15 @@
-<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="如何使用佇列服務 (Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。範例以 Ruby 撰寫。" metaCanonical="" services="storage" documentationCenter="Ruby" title="如何從 Ruby 使用佇列儲存體服務" authors="guayan" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # 如何從 Ruby 使用佇列儲存體服務
 
-本指南將示範如何使用 Windows Azure 佇列儲存體服務執行一般案例。這些範例使用 Ruby API 撰寫。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。如需佇列的詳細資訊，請參閱[後續步驟][後續步驟]一節。
+本指南將示範如何使用 Windows Azure 佇列儲存體服務執行一般案例。
+這些範例使用 Ruby API 撰寫。
+所涵蓋的案例包括「插入」、「查看」、「取得」
+和「刪除」佇列訊息，以及「建立和刪除
+佇列」。如需佇列的詳細資訊，請參閱
+[後續步驟][後續步驟]一節。
 
 ## 目錄
 
@@ -32,7 +37,8 @@
 
 ## <span id="create-a-ruby-application"></span></a>建立 Ruby 應用程式
 
-建立 Ruby 應用程式。如需指示，請參閱[在 Azure 上建立 Ruby 應用程式][在 Azure 上建立 Ruby 應用程式] (英文)。
+建立 Ruby 應用程式。如需指示，
+請參閱[在 Azure 上建立 Ruby 應用程式][在 Azure 上建立 Ruby 應用程式] (英文)。
 
 ## <span id="configure-your-application-to-access-storage"></span></a>設定您的應用程式以存取儲存體
 
@@ -52,7 +58,9 @@
 
 ## <span id="setup-a-windows-azure-storage-connection"></span></a>設定 Azure 儲存體連接
 
-azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORAGE\_ACCESS\_KEY**，以取得連接 Azure 儲存體帳戶所需的資訊。若未設定這些環境變數，您必須使用下列程式碼，在使用 **Azure::QueueService** 之前指定帳戶資訊：
+azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORAGE\_ACCESS\_KEY**
+，以取得連接 Azure 儲存體帳戶所需的資訊。若未設定這些環境變數，您必須使用下列程式碼，
+在使用 **Azure::QueueService** 之前指定帳戶資訊：
 
     Azure.config.storage_account_name = "<your azure storage account>"
     Azure.config.storage_access_key = "<your Azure storage access key>"
@@ -168,8 +176,6 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
   [作法：清除佇列訊息的其他選項]: #how-to-additional-options-for-dequeuing-messages
   [作法：取得佇列長度]: #how-to-get-the-queue-length
   [作法：刪除佇列]: #how-to-delete-a-queue
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [在 Azure 上建立 Ruby 應用程式]: /zh-tw/develop/ruby/tutorials/web-app-with-linux-vm/
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx

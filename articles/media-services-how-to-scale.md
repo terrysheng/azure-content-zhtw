@@ -1,36 +1,34 @@
-<properties linkid="manage-services-mediaservices-scale-media-service" urlDisplayName="How to scale" pageTitle="How to Scale a media service | Azure Documentation" metaKeywords="" description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with." metaCanonical="" services="media-services" documentationCenter="" title="How to Scale a Media Service" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="How to scale" pageTitle="如何調整媒體服務 | Azure 文件" metaKeywords="" description="了解如何指定要佈建給帳戶的隨選串流保留單元和編碼保留單元，以調整媒體服務。" metaCanonical="" services="media-services" documentationCenter="" title="如何調整媒體服務" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/26/2014" ms.author="juliako" />
 
 # 如何調整媒體服務
 
-[WACOM.INCLUDE [disclaimer][]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 您可以指定要佈建給帳戶的**隨選串流保留單元**和**編碼保留單元**來調整媒體服務。
 
 ## 隨選串流保留單元
 
-隨選串流保留單元為您提供專用的流出容量 (以 200 Mbps 為增量來購買) 和其他功能 (目前包括[動態封裝功能][])。依預設，隨選串流是以共用執行個體模型來設定，可與其他所有使用者共用伺服器資源 (例如，運算、流出容量等)。若要改進隨選串流輸送量，建議購買隨選串流保留單元。
+隨選串流保留單元為您提供專用的流出容量 (以 200 Mbps 為增量來購買) 和其他功能 (目前包括[動態封裝功能][動態封裝功能])。依預設，隨選串流是以共用執行個體模型來設定，可與其他所有使用者共用伺服器資源 (例如，運算、流出容量等)。若要改進隨選串流輸送量，建議購買隨選串流保留單元。
 
 若要變更隨選串流保留單元的數目，請執行下列動作：
 
-1.  在[管理入口網站][]中，按一下 [媒體服務]。接著，按一下媒體服務的名稱。
+1.  在[管理入口網站][管理入口網站]中，按一下 [媒體服務]。接著，按一下媒體服務的名稱。
 
-2.  選取 [ORIGINS] 頁面。然後，按一下您要修改的原始來源。
+2.  選取 [串流端點] 頁面。然後，按一下您要修改的串流端點。
 
-    ![Origin page][]
+3.  若要指定串流單元數目，請選取 [調整] 索引標籤，然後移動 [reserved capacity] 滑動軸。
 
-3.  若要指定保留單元數目，請選取 [調整] 索引標籤，然後移動 [reserved capacity] 滑動軸。
-
-    ![Scale page][]
+    ![Scale page][Scale page]
 
 4.  按 [儲存] 以儲存您的變更。
 
     任何新的隨選串流單元大約需要 20 分鐘才能配置完成。
 
-    **注意：**目前，從隨選串流單元的任何正值回到無，可能會使隨選串流停用長達一小時。
+    > [Azure.Note] 目前，從隨選串流單元的任何正值回到無，可能會使隨選串流停用長達一小時。
 
-    **注意：**計算成本時會使用 24 小時內指定的最大單元數。如需定價詳細資料的相關資訊，請參閱＜[媒體服務定價詳細資料][]＞。
+    > [Azure.Note] 計算成本時會使用 24 小時內指定的最大單元數。如需定價詳細資料的相關資訊，請參閱＜[媒體服務定價詳細資料][媒體服務定價詳細資料]＞。
 
 ## 編碼保留單元
 
@@ -38,17 +36,25 @@
 
 若要變更編碼保留單元的數目，請執行下列動作：
 
-1.  在[管理入口網站][]中，按一下 [媒體服務]。接著，按一下媒體服務的名稱。
+1.  在[管理入口網站][管理入口網站]中，按一下 [媒體服務]。接著，按一下媒體服務的名稱。
 
-2.  選取 [處理器] 頁面。
+2.  選取 [編碼] 頁面。
 
-    ![Processors page][]
+    [編碼] 頁面可讓您從三種不同的編碼保留單元中選取：Basic、Standard 和 Premium (如下所示)。
+
+    ![Processors page][Processors page]
+
+    您可以使用 [編碼] 滑動軸，為選取的 [保留單元類型] 變更保留單元數。
+
+    不同保留單元類型之間的主要差異為速度。例如，在執行相同編碼工作的前提下，使用 Standard 保留單元類型的速度會比 Basic 類型快。如需詳細資訊，請參閱 [Milan Gada][Milan Gada] 撰寫的部落格「編碼保留單元類型」。
+
+    > [Azure.Note] 下列資料中心並未提供 Premium 保留單元類型：新加坡、香港特別行政區、大阪、北京、上海。
 
 3.  按 [儲存] 以儲存您的變更。
 
-    新的編碼保留單元幾乎是立即配置。
+    新的編碼保留單元會在您按 [儲存] 後立即配置。
 
-    **注意：**計算成本時會使用 24 小時內指定的最大單元數。
+    > [Azure.Note] 計算成本時會使用 24 小時內指定的最大單元數。
 
 ## 建立支援票證
 
@@ -57,7 +63,7 @@
 若要建立支援票證，請執行下列動作：
 
 1.  在[管理入口網站][1]登入您的 Azure 帳戶。
-2.  移至[支援][]。
+2.  移至[支援][支援]。
 3.  按一下 [取得支援]。
 4.  選取您的訂用帳戶。
 5.  在支援類型下，選取 [技術]。
@@ -68,12 +74,11 @@
 10. 依照下一頁的指示進行，然後輸入您需要多少編碼保留單元或隨選串流保留單元的詳細資料。
 11. 按一下 [提交] 來建立票證。
 
-  [disclaimer]: ../includes/disclaimer.md
   [動態封裝功能]: http://go.microsoft.com/fwlink/?LinkId=276874
   [管理入口網站]: https://manage.windowsazure.com/
-  [Origin page]: ./media/media-services-how-to-scale/media-services-origin-page.png
   [Scale page]: ./media/media-services-how-to-scale/media-services-origin-scale.png
   [媒體服務定價詳細資料]: http://go.microsoft.com/fwlink/?LinkId=275107
   [Processors page]: ./media/media-services-how-to-scale/media-services-encoding-scale.png
+  [Milan Gada]: http://azure.microsoft.com/blog/author/milanga/
   [1]: http://manage.windowsazure.com
-  [支援]: http://www.windowsazure.com/en-us/support/contact/
+  [支援]: http://www.windowsazure.com/zh-tw/support/contact/

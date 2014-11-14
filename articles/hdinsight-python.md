@@ -1,12 +1,12 @@
-<properties linkid="python-hdinsight" urlDisplayName="Python with HDInsight" pageTitle="Use Python with Hive and Pig in Azure HDInsight" metaKeywords="" description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Python with Hive and Pig in HDInsight" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Python with HDInsight" pageTitle="在 Azure HDInsight 中搭配 Hive 與 Pig 來使用 Python" metaKeywords="" description="了解如何在 Azure HDInsight 上從 Hive 和 Pig 中使用 Python 使用者定義函數 (UDF)。" metaCanonical="" services="hdinsight" documentationCenter="" title="在 HDInsight 中搭配 Hive 與 Pig 來使用 Python" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 在 HDInsight 中搭配 Hive 與 Pig 來使用 Python
 
 Hive 與 Pig 很適合在 HDInsight 中處理資料，但您有時需要更通用的語言。Hive 與 Pig 都可讓您使用各種程式設計語言來建立使用者定義函數 (UDF)。在本文中，您將了解如何從 Hive 和 Pig 中使用 Python UDF。
 
-> [WACOM.NOTE] 本文中的步驟適用於 HDInsight 叢集 2.1、3.0 和 3.1 版 (預覽)。
+> [WACOM.NOTE] 本文中的步驟適用於 HDInsight 叢集 2.1、3.0 和 3.1 版。
 
 ## 目錄
 
@@ -112,7 +112,7 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 先前，我們因為輸入沒有一致的結構描述而將 **LINE** 輸入定義為 chararray，記得嗎？**jython.py** 的用途就是將資料轉換成一致的結構描述，以便輸出。運作方式如下：
 
-1.  <**@outputSchema*>\* 陳述式針對將傳回給 Pig 的資料定義格式。在此案例中，這是一個 **data bag** (一種 Pig 資料類型)。Bag 包含下列欄位，全部都是 chararray (字串)：
+1.  **@outputSchema** 陳述式針對將傳回給 Pig 的資料定義格式。在此案例中，這是一個 **data bag** (一種 Pig 資料類型)。Bag 包含下列欄位，全部都是 chararray (字串)：
 
     -   date - 記錄項目的建立日期
     -   time - 記錄項目的建立時間
@@ -128,7 +128,7 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 5.  最後，將值傳回給 Pig。
 
-當資料傳回給 Pig 時，資料將具有如同 <**@outputSchema*>\* 陳述式中所定義的一致性結構描述。
+當資料傳回給 Pig 時，資料將具有如同 **@outputSchema** 陳述式中所定義的一致結構描述。
 
 請參閱[執行範例][執行範例]，以了解如何在 HDInsight 叢集上執行此範例。
 
@@ -159,7 +159,7 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 ### 使用 Hive 儀表板 (只有 Hive 範例)
 
-1.  上傳檔案之後，開啟瀏覽器並導覽至 <https://YourClusterName.azurehdinsight.net/>。提示您輸入認證時，請輸入您叢集的管理員使用者名稱和密碼。
+1.  上傳檔案之後，開啟瀏覽器並導覽至 https://YourClusterName.azurehdinsight.net/。提示您輸入認證時，請輸入您叢集的管理員使用者名稱和密碼。
 
     > [WACOM.NOTE] 在 Azure 管理入口網站中，您也可以 [HDInsight 儀表板] 底部的 [管理叢集] 連結來啟動 Hive 儀表板。
 

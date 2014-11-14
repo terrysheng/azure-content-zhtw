@@ -59,9 +59,9 @@
 
         quit
 
-11. 安裝 MySQL 後，您必須設定端點，以便遠端存取 MySQL。登入 [Azure 管理入口網站][]。在 Azure 入口網站，依序按一下 [虛擬機器]、新 VM 的名稱及 [端點]。
+11. 安裝 MySQL 後，您必須設定端點，以便遠端存取 MySQL。登入 [Azure 管理入口網站][Azure 管理入口網站]。在 Azure 入口網站，依序按一下 [虛擬機器]、新 VM 的名稱及 [端點]。
 
-    ![Endpoints][]
+    ![Endpoints][Endpoints]
 
 12. 按一下頁面底部的 [新增端點]。
     ![Endpoints][1]
@@ -77,7 +77,7 @@
 
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
-15. 您已成功設定 MySQL，並建立了資料庫和新使用者。如需 MySQL 的詳細資訊，請參閱 [MySQL 文件][]。
+15. 您已成功設定 MySQL，並建立了資料庫和新使用者。如需 MySQL 的詳細資訊，請參閱 [MySQL 文件][MySQL 文件]。
 
   [Azure 管理入口網站]: http://manage.windowsazure.com
   [Endpoints]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpoint.png

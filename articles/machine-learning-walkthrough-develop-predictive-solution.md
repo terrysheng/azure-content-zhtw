@@ -1,6 +1,6 @@
-<properties title="Develop a predictive solution with Azure Machine Learning" pageTitle="Develop a predictive solution with Machine Learning | Azure" description="Walkthrough of how to create a predictive analytics experiment in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="使用 Azure Machine Learning 開發預測方案" pageTitle="使用機器學習開發預測方案 | Azure" description="逐步解說如何在 Azure Machine Learning Studio 中建立預測分析實驗" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 
 # 使用 Azure Machine Learning 開發預測方案
 
@@ -12,15 +12,15 @@
 
 我們將遵循下列步驟：
 
-1.  [建立 ML 工作區][]
-2.  [上傳現有資料][]
-3.  [建立新實驗][]
-4.  [訓練及評估模型][]
-5.  [發佈 Web 服務][]
-6.  [存取 Web 服務][]
+1.  [建立 ML 工作區][建立 ML 工作區]
+2.  [上傳現有資料][上傳現有資料]
+3.  [建立新實驗][建立新實驗]
+4.  [訓練及評估模型][訓練及評估模型]
+5.  [發佈 Web 服務][發佈 Web 服務]
+6.  [存取 Web 服務][存取 Web 服務]
 
 此逐步解說以隨附於 ML Studio 的簡化版
-[信用風險預測範例實驗][]為基礎。
+[信用風險預測範例實驗][信用風險預測範例實驗]為基礎。
 
   [建立 ML 工作區]: ../machine-learning-walkthrough-1-create-ml-workspace/
   [上傳現有資料]: ../machine-learning-walkthrough-2-upload-data/

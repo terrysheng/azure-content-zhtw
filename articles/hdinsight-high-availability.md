@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-high-availability" urlDisplayName="HDInsight High Availability" pageTitle="Availability of Hadoop clusters in HDInsight | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight deploys highly available and reliable clusters." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Availability of Hadoop clusters in HDInsight" authors="bradsev" />
+<properties urlDisplayName="HDInsight High Availability" pageTitle="HDInsight 中的 Hadoop 叢集可用性 | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight 部署高可用性和可靠性的叢集。" services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="HDInsight 中的 Hadoop 叢集可用性" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -58,7 +58,7 @@ SDK 的情況十分類似。[使用 HDInsight .NET SDK][使用 HDInsight .NET SD
 
 -   [ZooKeeper][ZooKeeper]
 -   [使用 RDP 連線到 HDInsight 叢集][使用 RDP 連線到 HDInsight 叢集]
--   [使用 HDInsight .NET SD][使用 HDInsight .NET SDK]
+-   [使用 HDInsight .NET SDK][使用 HDInsight .NET SDK]
 
   [0]: http://i.imgur.com/jrUmrH4.png
   [ZooKeeper]: http://zookeeper.apache.org/

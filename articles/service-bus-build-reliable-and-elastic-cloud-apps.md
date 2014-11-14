@@ -1,6 +1,6 @@
-<properties pageTitle="Build Reliable and Elastic Cloud Apps with Messaging" metaKeywords="Service Bus, Cloud, elastic" description="Learn how to build reliable and elastic cloud applications with messaging in Microsoft Azure." services="service-bus" title="Build Reliable and Elastic Cloud Apps with Messaging" authors="sethm" solutions="" manager="dwrede" editor="dwrede" />
+<properties pageTitle="建置可靠且彈性、具有傳訊功能的雲端應用程式" metaKeywords="Service Bus, Cloud, elastic" description="了解如何在 Microsoft Azure 中建置可靠且彈性、具有傳訊功能的雲端應用程式。" services="service-bus" title="建置可靠且彈性、具有傳訊功能的雲端應用程式" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # 建置可靠且彈性、具有傳訊功能的雲端應用程式
 

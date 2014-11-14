@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-command-line" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters using Cross-Platform Command-Line | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="Learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer Hadoop clusters using the Cross-platform Command-line Interface" authors="jgao" />
+<properties urlDisplayName="HDInsight Administration" pageTitle="使用跨平台命令列管理 Hadoop 叢集 | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="了解在任何支援 Node.js 的平台上，包括 Windows、Mac 和 Linux，如何使用跨平台命令列介面來管理 HDInsight 中的 Hadoop 叢集。" services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="使用跨平台命令列介面來管理 Hadoop 叢集" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -33,8 +33,8 @@
 **使用 NPM 安裝命令列介面**
 
 1.  瀏覽至 **www.nodejs.org**。
-2.  按一下 \[安裝]，並依照指示使用預設設定操作。
-3.  從您的工作站開啟 \[命令提示字元] (或是 *Azure 命令提示字元*或 *VS2012 開發人員命令提示字元*)。
+2.  按一下 [安裝]，並依照指示使用預設設定操作。
+3.  從您的工作站開啟 [命令提示字元] (或是 *Azure 命令提示字元*或 *VS2012 開發人員命令提示字元*)。
 4.  在命令提示字元視窗中執行下列命令。
 
         npm install -g azure-cli
@@ -54,7 +54,7 @@
 
 **使用 Windows Installer 安裝命令列介面**
 
-1.  瀏覽至 **<http://azure.microsoft.com/zh-tw/downloads/>**。
+1.  瀏覽至 **http://azure.microsoft.com/zh-tw/downloads/**。
 2.  向下捲動至 [命令列工具] 區段，然後按一下 [跨平台命令列介面]，並依照 Web Platform Installer 精靈操作。
 
 ## <span id="importsettings"></span></a>下載和匯入 Azure 帳戶 publishsettings
@@ -73,6 +73,7 @@
     ![HDI.CLIAccountDownloadImport][HDI.CLIAccountDownloadImport]
 
     此命令會顯示下載檔案的指示，包括 URL。
+
 3.  開啟 **Internet Explorer**，然後瀏覽至命令提示字元視窗中列出的 URL。
 4.  按一下 [儲存]，將檔案儲存至工作站。
 5.  在命令提示字元視窗中執行下列命令，以匯入 publishsettings 檔案：
@@ -82,6 +83,8 @@
     在上一個螢幕擷取畫面中，publishsettings 檔案已儲存至工作站的 C:\\HDInsight 資料夾。
 
 ## <span id="provision"></span></a>佈建 HDInsight 叢集
+
+[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要有 Azure 儲存帳號，您才能建立 HDInsight 叢集。
 

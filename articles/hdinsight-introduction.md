@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-introduction-hdinsight" urlDisplayName="HDInsight Introduction" pageTitle="Introduction to Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how Azure HDInsight uses Apache Hadoop clusters in the cloud, to provide a software framework to manage, analyze, and report on big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Introduction to Hadoop in HDInsight" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="HDInsight Introduction" pageTitle="HDInsight 中 Hadoop 的簡介 | Azure" metaKeywords="" description="了解 Azure HDInsight 如何使用雲端中的 Apache Hadoop 叢集，以提供軟體架構來管理、分析和報告巨量資料。" metaCanonical="" services="hdinsight" documentationCenter="" title="HDInsight 中 Hadoop 的簡介" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -22,7 +22,7 @@ Apache Hadoop 是有助於巨量資料管理和分析的軟體架構。Apache Ha
 
 Pig 及 Hive 之類與 Hadoop 相關的其他專案均以 HDFS 及 MapReduce 架構為基礎。這類專案可提供比直接使用 MapReduce 程式更簡單的叢集管理方法。例如，Pig 能夠讓您使用稱為 Pig Latin 的程序語言撰寫程式，這些程式將編譯為叢集上的 MapReduce 程式。它也提供管理資料流程的流暢控制。Hive 是一種資料倉儲基礎結構，對於叢集中儲存的檔案所保留的資料提供資料表抽象，使用稱為 HiveQL 的宣告語言撰寫類似 SQL 的陳述式即可查詢這些資料。
 
-### HDInsight
+### Oozie 協調器
 
 Azure HDInsight 讓 Apache Hadoop 成為雲端的服務。它使得 HDFS/MapReduce 軟體架構以及 Pig、Hive 和 Oozie 之類相關的專案可以在更簡單、更有擴充性且更符合成本效益的環境中發揮作用。
 

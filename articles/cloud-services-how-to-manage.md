@@ -1,10 +1,8 @@
-<properties linkid="manage-services-how-to-manage-a-cloud-service" urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Learn how to manage cloud services in the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="How to manage" pageTitle="如何管理雲端服務 - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="了解如何在 Azure 管理入口網站中管理雲端服務。" metaCanonical="" services="cloud-services" documentationCenter="" title="如何管理雲端服務" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
 
 # 如何管理雲端服務
-
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 在 Azure 管理入口網站的 [雲端服務] 區域中，您可以更新服務角色或部署、將預備部署升級至生產部署、將資源連結至您的雲端服務 (以方便您查看資源依存性並將資源一起調整)，以及刪除雲端服務或部署。
 
@@ -21,25 +19,23 @@
 
 1.  在 [Azure 管理入口網站][Azure 管理入口網站]中，按一下儀表板上、[雲端服務] 頁面上或 [執行個體] 頁面上的 [更新]。
 
-    [更新部署] 隨即開啟。
-
     ![UpdateDeployment][UpdateDeployment]
 
-2.  在 [部署標籤] 中，輸入部署的識別名稱 (例如，mycloudservicev2)。您將在儀表板的 [快速入門] 下發現此部署名稱。
+2.  在 [部署標籤] 中，輸入部署的識別名稱 (例如，mycloudservice4)。您將在儀表板的 [快速入門] 下發現此部署標籤。
 
-3.  在 [封裝檔案] 中，使用 [瀏覽] 上傳服務套件檔 (.cspkg)。
+3.  在 [封裝] 中，使用 [瀏覽] 上傳服務套件檔 (.cspkg)。
 
-4.  在 [組態檔] 中，使用 [瀏覽] 上傳服務組態檔 (.cscfg)。
+4.  在 [組態] 中，使用 [瀏覽] 上傳服務組態檔 (.cscfg)。
 
-5.  若要升級雲端服務中的所有角色，請在 [角色] 中選取 [全部]。若要升級某個角色，請選取想要升級的角色。即使您選取特定角色來更新，服務組態檔中的更新還是會套用至所有角色。
+5.  若要升級雲端服務中的所有角色，請在 [角色] 中選取 [全部]。若要執行單一角色更新，請選取您要更新的角色。即使您選取特定角色來更新，服務組態檔中的更新還是會套用至所有角色。
 
-6.  如果升級會造成角色數目或任何角色的大小變更，請選取 [Allow update if role sizes or number of roles changes] 核取方塊，讓更新能夠繼續。
+6.  如果更新會造成角色數目或任何角色的大小變更，請選取 [Allow update if role sizes or number of roles changes] 核取方塊，讓更新能夠繼續。
 
     請注意，如果您變更角色的大小 (亦即，角色執行個體所裝載於之虛擬機器的大小) 或角色數目，則必須重新製作每個角色執行個體 (虛擬機器) 的映像，因而遺失本機資料。
 
 7.  如果有任何服務角色只有一個角色執行個體，請選取 [Update even if one or more role contain a single instance] 核取方塊，讓升級能夠繼續。
 
-    要讓 Azure 保證服務在雲端服務更新期間有 99.95% 的可用性，每個角色都至少必須有兩個角色執行個體 (虛擬機器)。如此才能讓一個虛擬機器在受到更新時，還有另一個虛擬機器可以處理用戶端要求。
+    每個角色都至少必須有兩個角色執行個體 (virtu\*\*al 機器)，Azure 才能保證服務在雲端服務更新期間有 99.95% 的可用性。如此才能讓一個虛擬機器在受到更新時，還有另一個虛擬機器可以處理用戶端要求。
 
 8.  按一下 [確定] (核取記號) 開始更新服務。
 
@@ -140,7 +136,6 @@
 > [WACOM.NOTE]
 > 如果對雲端服務設定了詳細資訊監視，則當您刪除該雲端服務時，Azure 並不會從您的儲存體帳戶中刪除監視資料。您將需要手動刪除資料。如需何處可找到這些度量表的相關資訊，請參閱[如何監視雲端服務][如何監視雲端服務]中的＜作法：從管理入口網站外部存取詳細資訊監視資料＞。
 
-  [disclaimer]: ../includes/disclaimer.md
   [作法：更新雲端服務角色或部署]: #updaterole
   [作法：交換部署以使預備部署升格為生產部署]: #swap
   [作法：將資源連結到雲端服務]: #linkresources

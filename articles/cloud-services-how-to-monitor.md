@@ -1,6 +1,6 @@
-<properties linkid="manage-services-how-to-monitor-a-cloud-service" urlDisplayName="How to monitor" pageTitle="How to monitor a cloud service - Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="Learn how to monitor cloud services by using the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Monitor Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="How to monitor" pageTitle="如何監視雲端服務 - Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="了解如何使用 Azure 管理入口網站來監視雲端服務。" metaCanonical="" services="cloud-services" documentationCenter="" title="如何監視雲端服務" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
 
 # 如何監視雲端服務
 
@@ -24,7 +24,7 @@
 依預設，對於使用從角色執行個體 (虛擬機器) 的主機作業系統收集的效能計數器進行的新雲端服務，將提供最小監視。最小度量僅限於 [CPU 百分比]、[資料輸入]、[資料輸出]、[磁碟讀取輸送量] 和 [磁碟寫入輸送量]。設定詳細資訊監視之後，即可收到以虛擬機器 (角色執行個體) 內的效能資料為基礎的其他度量。詳細度量能夠進一步分析應用程式作業期間發生的問題。
 
 > [WACOM.NOTE]
-> 如果您使用詳細資訊監視，可以在角色執行個體啟動時、透過診斷組態檔或使用 Azure 診斷 API 從遠端加入更多效能計數器。若要能夠在管理入口網站中監視這些度量，您必須先新增效能計數器，才能設定詳細資訊監視。如需詳細資訊，請參閱[使用 Azure 診斷收集記錄資料][使用 Azure 診斷收集記錄資料]和[在 Azure 應用程式中建立及使用效能計數器][在 Azure 應用程式中建立及使用效能計數器]。
+> 如果使用詳細資訊監視，您可以在角色執行個體啟動時，透過診斷組態檔新增更多效能計數器。若要能夠在管理入口網站中監視這些度量，您必須先新增效能計數器，才能設定詳細資訊監視。如需詳細資訊，請參閱＜[啟用 Azure 診斷][啟用 Azure 診斷]＞。
 
 依預設，角色執行個體的效能計數器資料會每隔 3 分鐘取樣一次，並且從執行個體傳輸。您啟用詳細資訊監視時，將每隔 5 分鐘、1 小時和 12 小時對於各個角色執行個體和各個角色的角色執行個體彙總原始效能計數器資料。經過 10 天後將清除彙總的資料。
 
@@ -41,13 +41,13 @@
 -   建立儲存體帳戶儲存監視資料。您可以對於不同的角色使用不同的儲存體帳戶。如需詳細資訊，請參閱**儲存體帳戶**的說明，或參閱[如何建立儲存體帳戶][如何建立儲存體帳戶]。
 
 -   對於雲端服務角色啟用 Azure 診斷。
-    您必須更新雲端服務定義檔 (.csdef) 和雲端服務組態檔 (.cscfg)。如需詳細資訊，請參閱[設定 Azure 診斷功能][設定 Azure 診斷功能]。
+    如需詳細資訊，請參閱＜[啟用 Azure 診斷][1]＞。
 
 在管理入口網站中，您可以新增或修改診斷連線字串，Azure 診斷使用該字串來存取儲存詳細資訊監視資料的儲存體帳戶，您也可以將監視層級設定為詳細資訊或最小。由於詳細資訊監視將資料儲存在儲存體帳戶中，因此您必須先設定診斷連線字串，才能將監視層級設定為詳細資訊。
 
 ### 設定詳細資訊監視的診斷連線字串
 
-1.  對於將用來儲存詳細資訊監視資料的儲存體帳戶複製儲存體存取金鑰。在 [Azure 管理入口網站][Azure 管理入口網站]中，您可以使用 [儲存體帳戶] 頁面上的 [管理金鑰]。如需詳細資訊，請參閱[如何管理雲端服務][如何管理雲端服務] (英文) 或參閱 [儲存體帳戶] 頁面的說明。
+1.  對於將用來儲存詳細資訊監視資料的儲存體帳戶，複製儲存體存取金鑰。在 [Azure 管理入口網站][Azure 管理入口網站]中，您可以使用 [儲存體帳戶] 頁面上的 [管理金鑰]。如需詳細資訊，請參閱[如何管理雲端服務][如何管理雲端服務] (英文) 或參閱 [儲存體帳戶] 頁面的說明。
 
 2.  開啟 [雲端服務]。然後，按一下要設定的雲端服務名稱，將儀表板開啟。
 
@@ -107,10 +107,12 @@
 
     在度量表中，最多可以顯示 50 個度量。
 
-    <div class="dev-callout"> 
-<b>提示</b> 
-<p>在詳細資訊監視中，度量清單可包含許多度量。若要顯示捲軸，請移動游標停留在對話方塊的右邊。若要篩選清單，請按一下搜尋圖示，並且在搜尋方塊中輸入文字，如下所示。</p> 
-</div>
+    <div class="dev-callout">
+
+    **提示**
+    在詳細資訊監視中，度量清單可包含許多度量。若要顯示捲軸，請移動游標停留在對話方塊的右邊。若要篩選清單，請按一下搜尋圖示，並且在搜尋方塊中輸入文字，如下所示。
+
+    </div>
 
     ![加入度量搜尋][加入度量搜尋]
 
@@ -176,19 +178,17 @@
 
     WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
 
-  [disclaimer]: ../includes/disclaimer.md
   [概念]: #concepts
   [作法：設定雲端服務的監視]: #verbose
   [作法：接收雲端服務度量的警示]: #receivealerts
   [作法：將度量新增至度量表]: #addmetrics
   [作法：自訂度量圖表]: #customizechart
   [作法：從管理入口網站外部存取詳細資訊監視資料]: #accessverbose
-  [使用 Azure 診斷收集記錄資料]: http://msdn.microsoft.com/zh-tw/library/gg433048.aspx
-  [在 Azure 應用程式中建立及使用效能計數器]: http://msdn.microsoft.com/zh-tw/library/hh411542.aspx
+  [啟用 Azure 診斷]: http://azure.microsoft.com/zh-tw/documentation/articles/cloud-services-dotnet-diagnostics/
   [如何建立儲存體帳戶]: /zh-tw/manage/services/storage/how-to-create-a-storage-account/
-  [設定 Azure 診斷功能]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn186185.aspx
+  [1]: /zh-tw/documentation/articles/cloud-services-dotnet-diagnostics/
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  [如何管理雲端服務]: http://www.windowsazure.com/zh-tw/manage/services/cloud-services/how-to-manage-a-cloud-service/
+  [如何管理雲端服務]: /zh-tw/documentation/articles/cloud-services-how-to-manage/
   [監視選項]: ./media/cloud-services-how-to-monitor/CloudServices_MonitoringOptions.png
   [如何：在 Windows Azure 中接收警示通知及管理警示規則]: http://go.microsoft.com/fwlink/?LinkId=309356
   [管理入口網站]: http://manage.windowsazure.com/

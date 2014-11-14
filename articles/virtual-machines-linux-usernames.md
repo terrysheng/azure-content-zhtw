@@ -1,6 +1,6 @@
-<properties linkid="services-linux-user-names" urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="User Names in Linux" pageTitle="在 Azure 上選取適用於 Linux 的使用者名稱" metaKeywords="" description="了解如何在 Azure 中選取適用於 Linux 虛擬機器的使用者名稱。" metaCanonical="" services="virtual-machines" documentationCenter="" title="在 Azure 上選取適用於 Linux 的使用者名稱" authors="szark" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
 # 在 Azure 上選取適用於 Linux 的使用者名稱
 
@@ -8,7 +8,7 @@
 
 **但是**，Linux 會定義一組建立新使用者時不應使用的使用者名稱。若您嘗試以現有的系統使用者 (定義為具有 UID 0-99 的使用者) 佈建 Linux VM，則佈建程序會**失敗**。典型的範例就是具有 UID 0 的 `root` 使用者。
 
--   另請參閱：[Linux 標準基礎 - 使用者 ID 範圍][]
+-   另請參閱：[Linux 標準基礎 - 使用者 ID 範圍][Linux 標準基礎 - 使用者 ID 範圍]
 
 下列清單包含您應避免在佈建 Linux 虛擬機器時使用的使用者名稱。為了保險起見，建議您在佈建 Linux VM 時，**請勿使用這些使用者名稱**，否則佈建程序可能會失敗。
 

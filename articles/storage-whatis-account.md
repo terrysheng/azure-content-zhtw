@@ -1,6 +1,6 @@
-<properties linkid="manage-services-what-is-a-storage-account" urlDisplayName="What is a Storage Account" pageTitle="What is a storage account? | Microsoft Azure" metaKeywords="" description="Learn about the different types of storage accounts available in Azure, and get definitions for key storage terms." metaCanonical="" services="storage" documentationCenter="" title="What is a Storage Account?" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="What is a Storage Account" pageTitle="什麼是儲存體帳戶？| Microsoft Azure" metaKeywords="" description="了解 Azure 中所提供的不同儲存體帳戶類型，並取得關鍵儲存體術語的定義。" metaCanonical="" services="storage" documentationCenter="" title="什麼是儲存體帳戶？" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # 什麼是儲存體帳戶？
 
@@ -55,7 +55,6 @@ Azure 儲存體包括三項服務：Blob 儲存體、資料表儲存體和佇列
   [Azure 儲存體延展性和效能目標]: http://msdn.microsoft.com/zh-tw/library/dn249410.aspx
   [儲存體定價詳細資料]: http://www.windowsazure.com/zh-tw/pricing/details/#storage
   [資料傳輸定價詳細資料]: http://www.windowsazure.com/zh-tw/pricing/details/data-transfers/
-  [storage-replication-options]: ../includes/storage-replication-options.md
   [共用存取簽章教學課程]: ../storage-dotnet-shared-access-signature-part-1/
   [儲存體分析度量資料表結構描述]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh343264.aspx
   [關於儲存體分析度量]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh343258.aspx

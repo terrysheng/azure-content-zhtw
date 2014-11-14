@@ -1,4 +1,4 @@
-<properties linkid="provisioning-biztalk-service" urlDisplayName="Provision BizTalk Services in management portal" pageTitle="Create BizTalk Services in management portal | Azure" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" description="Learn how to provision a BizTalk service in the Azure Management Portal, as well as create an optional SQL database server and Storage account." metaCanonical="http://www.windowsazure.com/zh-TW/manage/services/biztalk-services/provisioning-biztalk-service" services="biztalk-services" documentationCenter="" title="BizTalk Services: Provisioning Using Azure Management Portal" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+<properties urlDisplayName="Provision BizTalk Services in management portal" pageTitle="在管理入口網站中建立 BizTalk 服務 | Azure" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" description="了解如何在 Azure 管理入口網站中佈建 BizTalk 服務，以及建立選擇性 SQL 資料庫伺服器和儲存體帳戶。" metaCanonical="http://www.windowsazure.com/zh-tw/manage/services/biztalk-services/provisioning-biztalk-service" services="biztalk-services" documentationCenter="" title="BizTalk 服務：使用 Azure 管理入口網站進行佈建" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
 <tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
@@ -11,9 +11,11 @@
 -   [說明各項需求][說明各項需求]
 -   [全新的混合式連線！][全新的混合式連線！]
 
-<div class="dev-callout"> 
-<b>秘訣</b> 
-<p>若要登入 Azure 管理入口網站，您需要 Azure 帳戶和 Azure 訂閱。如果沒有帳戶，您可在幾分鐘內建立免費試用帳戶。查看 <a href="http://go.microsoft.com/fwlink/p/?LinkID=239738">Azure 免費試用</a>。</p> 
+<div class="dev-callout">
+
+**秘訣**
+若要登入 Azure 管理入口網站，您需要 Azure 帳戶和 Azure 訂閱。如果沒有帳戶，您可在幾分鐘內建立免費試用帳戶。查看 [Azure 免費試用][Azure 免費試用]。
+
 </div>
 
 ## <a name="BizTalk"></a>建立 BizTalk 服務
@@ -22,97 +24,69 @@
 
 1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  選取導覽窗格底部的 [新增]：
-<br/>
-    ![選取新增按鈕][選取新增按鈕]
+    ![選取 [新增] 按鈕][]
 
 3.  選取 [應用程式服務] \> [BIZTALK 服務] \> [自訂建立]：
     ![選取 BizTalk 服務然後選取自訂建立][選取 BizTalk 服務然後選取自訂建立]
 
 4.  輸入 BizTalk 服務設定。
 
- <table border="1">
-<tr>
-<td><strong>BizTalk 服務名稱</strong></td>
-<td>您可以輸入任何名稱，但請使用特定的名稱。部分範例包括：<br/><br/>
-<em>mycompany</em>.biztalk.windows.net<br/>
-<em>mycompanymyapplication</em>.biztalk.windows.net<br/>
-<em>myapplication</em>.biztalk.windows.net<br/><br/>
-&quot;.biztalk.windows.net&quot; 會自動新增至您輸入的名稱。這會建立一個用來存取 BizTalk 服務的 URL，例如 <strong>https://<em>myapplication</em>.biztalk.windows.net</strong>。
-</td>
-</tr>
-<tr>
-<td><strong>版本</strong></td>
-<td>如果您是處於測試/開發階段，請選擇 [開發人員]<strong></strong>。如果您處於實際執行階段，請使用 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">BizTalk 服務：版本圖表</a>來判定<strong>高級</strong>、<strong>標準</strong>還是<strong>基本</strong>為您的商業案例的正確選擇。  
-</td>
-</tr>
-<tr>
-<td><strong>區域</strong></td>
-<td>選取地理區域來主控您的 BizTalk 服務。</td>
-</tr>
-<tr>
-<td><strong>網域 URL</strong></td>
-<td><strong>選用</strong>。依預設，網域 URL 為 <em>YourBizTalkServiceName</em>.biztalk.windows.net。也可以輸入自訂網域。比方說，如果您的網域為 <em>contoso</em>，則可以輸入： <br/><br/>
-<em>MyCompany</em>.contoso.com<br/>
-<em>MyCompanyMyApplication</em>.contoso.com<br/>
-<em>MyApplication</em>.contoso.com<br/>
-<em>YourBizTalkServiceName</em>.contoso.com<br/>
-</td>
-</tr>
-</table>    
-   選取下一個箭頭。
-5. 輸入儲存體和資料庫設定：
- <table border="1">
-<tr>
-<td><strong>監視/封存儲存體帳戶</strong></td>
-<td>選取現有的儲存體帳戶或選取 [建立新的儲存體帳戶]。 <br/><br/>
-如果您建立新的儲存體帳戶，請輸入 [儲存體帳戶名稱]<strong></strong>。</td>
-</tr>
-<tr>
-<td><strong>追蹤資料庫</strong></td>
-<td>如果您使用現有的 Azure SQL Database，其他 BizTalk 服務將無法使用它。您需要建立 Azure SQL Database 伺服器時輸入的登入名稱和密碼。<br/><br/>
-<div class="dev-callout"> 
-<b>秘訣</b> 
-<p>在與 BizTalk 服務相同的區域中建立追蹤資料庫和監視/封存儲存體帳戶。</p> 
-</div>
-</td>
-</tr>
-</table>
+    |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **BizTalk 服務名稱** | 您可以輸入任何名稱，但請使用特定的名稱。部分範例包括：                                                                                                                
+                             *mycompany*.biztalk.windows.net                                                                                                                                       
+                             *mycompanymyapplication*.biztalk.windows.net                                                                                                                          
+                             *myapplication*.biztalk.windows.net                                                                                                                                   
+                             ".biztalk.windows.net" 會自動新增至您輸入的名稱。這會建立一個用來存取 BizTalk 服務的 URL，例如 **https://*myapplication*.biztalk.windows.net**。                      |
+    | **版本**             | 如果您是處於測試/開發階段，請選擇 [開發人員]。如果您處於實際執行階段，請使用 [BizTalk 服務：版本圖表][BizTalk 服務：版本圖表]來判定**高級**、**標準**還是**基本**為您的商業案例的正確選擇。 |
+    | **區域**             | 選取地理區域來主控您的 BizTalk 服務。                                                                                                                                 |
+    | **網域 URL**         | **選用**。依預設，網域 URL 為 *YourBizTalkServiceName*.biztalk.windows.net。也可以輸入自訂網域。比方說，如果您的網域為 *contoso*，則可以輸入：                        
+                             *MyCompany*.contoso.com                                                                                                                                               
+                             *MyCompanyMyApplication*.contoso.com                                                                                                                                  
+                             *MyApplication*.contoso.com                                                                                                                                           
+                             *YourBizTalkServiceName*.contoso.com                                                                                                                                  |
 
- 選取下一個箭頭。
+    選取下一個箭頭。
 
-6. 輸入資料庫設定：
- <table border="1">
-<tr>
-<td><strong>名稱</strong></td>
-<td>可在前一個畫面中選取 [建立新的 SQL Database 執行個體]<strong></strong> 時使用。
-<br/><br/>
-輸入 BizTalk 服務要使用的 SQL Database 名稱。</td>
-</tr>
-<tr>
-<td><strong>伺服器</strong></td>
-<td>可在前一個畫面中選取 [建立新的 SQL Database 執行個體]<strong></strong> 時使用。
-<br/><br/>
-選取現有的 SQL Database 伺服器，或是建立全新的 SQL Database 伺服器。</td>
-</tr>
-<tr>
-<td><strong>伺服器登入名稱</strong></td>
-<td>輸入登入使用者名稱。</td>
-</tr>
-<tr>
-<td><strong>伺服器登入密碼</strong></td>
-<td>輸入登入密碼。</td>
-</tr>
-<tr>
-<td><strong>區域</strong></td>
-<td>可在選取 [建立新的 SQL Database 執行個體]<strong></strong> 時使用。選取地理區域來主控您的 SQL Database。</td>
-</tr>
-</table>
+5.  輸入儲存體和資料庫設定：
+
+    <table>
+    <colgroup>
+    <col width="50%" />
+    <col width="50%" />
+    </colgroup>
+    <tbody>
+    <tr class="odd">
+    <td align="left"><strong>監視/封存儲存體帳戶</strong></td>
+    <td align="left">選取現有的儲存體帳戶或選取 [建立新的儲存體帳戶]。<br /><br /> 如果您建立新的儲存體帳戶，請輸入 [儲存體帳戶名稱]。</td>
+    </tr>
+    <tr class="even">
+    <td align="left"><strong>追蹤資料庫</strong></td>
+    <td align="left">如果您使用現有的 Azure SQL Database，其他 BizTalk 服務將無法使用它。您需要建立 Azure SQL Database 伺服器時輸入的登入名稱和密碼。<br /><br />
+    <div class="dev-callout">
+    <strong>秘訣</strong>
+    <p>在與 BizTalk 服務相同的區域中建立追蹤資料庫和監視/封存儲存體帳戶。</p>
+    </div></td>
+    </tr>
+    </tbody>
+    </table>
+
+    選取下一個箭頭。
+
+6.  輸入資料庫設定：
+
+    |--------------------|-----------------------------------------------------------------------------------------|
+    | **名稱**           | 可在前一個畫面中選取 [建立新的 SQL Database 執行個體] 時使用。                          
+                           輸入 BizTalk 服務要使用的 SQL Database 名稱。                                           |
+    | **伺服器**         | 可在前一個畫面中選取 [建立新的 SQL Database 執行個體] 時使用。                          
+                           選取現有的 SQL Database 伺服器，或是建立全新的 SQL Database 伺服器。                    |
+    | **伺服器登入名稱** | 輸入登入使用者名稱。                                                                    |
+    | **伺服器登入密碼** | 輸入登入密碼。                                                                          |
+    | **區域**           | 可在選取 [建立新的 SQL Database 執行個體] 時使用。選取地理區域來主控您的 SQL Database。 |
 
 選取核取記號來完成精靈。進度圖示即會顯示：
-<br />
 ![完成時，進度圖示即會顯示][完成時，進度圖示即會顯示]
 
-完成時，會建立 Azure BizTalk 服務，並備妥供應用程式使用。預設設定已夠用。如果想要變更預設設定，請在左導覽窗格中選取 [BIZTALK 服務]，然後選取 BizTalk 服務。其他設定會顯示在[儀表板、監視器 和 調整][儀表板、監視器 和 調整] 索引標籤中。
+完成時，會建立 Azure BizTalk 服務，並備妥供應用程式使用。預設設定已夠用。如果想要變更預設設定，請在左導覽窗格中選取 [BIZTALK 服務]，然後選取 BizTalk 服務。其他設定會顯示在[[儀表板]、[監視器] 和 [調整]][] 索引標籤中。
 
 有一些無法完成的作業，視 BizTalk 服務的狀態而定。如需這些作業的清單，請參閱 [BizTalk 服務狀態圖][BizTalk 服務狀態圖]。
 
@@ -170,84 +144,112 @@
 這些需求並不適用於免費版本。
 
 <table border="1">
+
 <tr bgcolor="FAF9F9">
-        <td><strong>您需要什麼</strong></td>
-        <td><strong>您為何需要它</strong></td>
-</tr>
-<tr>
-<td>Azure 訂閱</td>
-<td>訂閱可判定誰能夠登入 Azure 管理入口網站。帳戶持有者會在<a HREF="https://account.windowsazure.com/Subscriptions"> Azure 訂閱</a>建立訂閱。
-<br/><br/>
-帳戶可擁有多個訂閱，並可被任何授權的一方管理。例如，您的 Azure 帳戶持有者建立一個名稱為 <em>BizTalkServiceSubscription</em> 的訂閱，並給與您公司內的 BizTalk 系統管理員 (例如 <a href="mailto:ContosoBTSAdmins@live.com">ContosoBTSAdmins@live.com</a>) 存取此訂閱的權限。在此案例中，BizTalk 系統管理員可以登入 Azure 管理入口網站，並對訂閱中的所有代管服務 (包括 Azure BizTalk 服務) 具有完整系統管理員權限。BizTalk 系統管理員不是 Azure 帳戶持有者，因此無權存取任何任何計費資訊。
-<br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577">管理 Azure 管理入口網站中的訂閱和儲存體帳戶</a> (英文) 提供更多相關資訊。
+
+<td>
+**您需要什麼**
+
 </td>
+
+<td>
+**您為何需要它**
+
+</td>
+
 </tr>
+
 <tr>
-<td>Azure SQL Database</td>
-<td>儲存 BizTalk 服務所使用的資料表、檢視和儲存程序，包括追蹤資料。
-<br/><br/>
+
+<td>
+Azure 訂閱
+
+</td>
+
+<td>
+訂閱可判定誰能夠登入 Azure 管理入口網站。帳戶持有者會在[Azure 訂閱][Azure 訂閱]建立訂閱。
+Azure 帳戶可擁有多個訂閱，並可被任何授權的一方管理。例如，您的 Azure 帳戶持有者建立一個名稱為 *BizTalkServiceSubscription* 的訂閱，並給與您公司內的 BizTalk 系統管理員 (例如 ContosoBTSAdmins@live.com) 存取此訂閱的權限。在此案例中，BizTalk 系統管理員可以登入 Azure 管理入口網站，並對訂閱中的所有代管服務 (包括 Azure BizTalk 服務) 具有完整系統管理員權限。BizTalk 系統管理員不是 Azure 帳戶持有者，因此無權存取任何任何計費資訊。
+[管理 Azure 管理入口網站中的訂閱和儲存體帳戶][管理 Azure 管理入口網站中的訂閱和儲存體帳戶] (英文) 提供更多相關資訊。
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Azure SQL Database
+
+</td>
+
+<td>
+儲存 BizTalk 服務所使用的資料表、檢視和儲存程序，包括追蹤資料。
 當您建立 BizTalk 服務時，可以使用現有的 Azure SQL Server、Azure SQL Database，或是自動建立一個新的伺服器或資料庫。
-<br/><br/>
-SQL Database 會自動調整。一般來說，預設的調整對 BizTalk 服務已夠用。修改調整會影響定價。參閱<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=234930"> Azure SQL Database 中的帳戶和計費</a>
-<br/><br/>
-<strong>記事</strong>
-<br/>
-<ul>
-<li> 當您建立新的 Azure SQL Server 和 Database 時，即會自動啟用 Azure 服務。BizTalk 服務需要啟用 Azure 服務。</li>
-<li>如果在現有的 Azure SQL Server 上建立新的 Azure SQL Database，則不會變更伺服器的防火牆規則。因此，可能不允許其他 Azure 服務存取伺服器的資料庫。</li>
-</ul>
+SQL Database 會自動調整。一般來說，預設的調整對 BizTalk 服務已夠用。修改調整會影響定價。參閱[Azure SQL Database 中的帳戶和計費][Azure SQL Database 中的帳戶和計費]
+**記事**
+
+-   當您建立新的 Azure SQL Server 和 Database 時，即會自動啟用 Azure 服務。BizTalk 服務需要啟用 Azure 服務。
+-   如果在現有的 Azure SQL Server 上建立新的 Azure SQL Database，則不會變更伺服器的防火牆規則。因此，可能不允許其他 Azure 服務存取伺服器的資料庫。
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+Azure 存取控制命名空間
+
+</td>
+
+<td>
+利用 Azure BizTalk 服務進行驗證。從 Visual Studio 部署 BizTalk 服務專案時，您可以輸入此存取控制命名空間。當建立 BizTalk 服務時，會自動建立存取控制命名空間。
+
+</td>
+
+</tr>
+</p>
+<tr>
+<td>
+Azure 儲存體帳戶
+
+</td>
+<td>
+允許使用 BizTalk 服務所用的資料表、Blob 和佇列，以儲存下列檔案：
+
+-   監視 BizTalk 服務的記錄檔。監視輸出也會顯示在 Azure 管理入口網站的 [監視] 索引標籤中。
+-   在夥伴之間建立 X12 或 AS2 協定時，您可以啟用封存功能來儲存訊息內容。此資料儲存在此儲存體帳戶中。
+
+ 當建立 BizTalk 服務時，您可以使用現有的儲存體帳戶，或自動建立新的儲存體帳戶。
+ 預設儲存體設定對 BizTalk 服務已夠用。
+ 當建立儲存體帳戶時，會自動建立主要金鑰和次要金鑰。這些金鑰可控制儲存體帳戶的存取。BizTalk 服務會自動使用主要金鑰。
+ 參閱[儲存體][儲存體]以取得更多資訊。
+
 </td>
 </tr>
 <tr>
-<td>Azure 存取控制命名空間</td>
-<td>利用 Azure BizTalk 服務進行驗證。從 Visual Studio 部署 BizTalk 服務專案時，您可以輸入此存取控制命名空間。當建立 BizTalk 服務時，會自動建立存取控制命名空間。</td>
-</tr>
+<td>
+SSL 專用憑證
 
-<tr>
-<td>Azure 儲存體帳戶</td>
-<td>允許使用 BizTalk 服務所用的資料表、Blob 和佇列，以儲存下列檔案：
-
-<ul>
-<li>監視 BizTalk 服務的記錄檔。監視輸出也會顯示在 Azure 管理入口網站的 [監視] 索引標籤中。</li>
-<li>在夥伴之間建立 X12 或 AS2 協定時，您可以啟用封存功能來儲存訊息內容。此資料儲存在此儲存體帳戶中。</li>
-</ul>
-<br/>
-當建立 BizTalk 服務時，您可以使用現有的儲存體帳戶，或自動建立新的儲存體帳戶。
-<br/><br/>
-預設儲存體設定對 BizTalk 服務已夠用。 
-<br/><br/>
-當建立儲存體帳戶時，會自動建立主要金鑰和次要金鑰。這些金鑰可控制儲存體帳戶的存取。BizTalk 服務會自動使用主要金鑰。
-<br/><br/>
-參閱<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285671">儲存體</a>以取得更多資訊。
 </td>
-</tr>
-
-<tr>
-<td>SSL 專用憑證</td>
 <td>
 當建立 Azure BizTalk 服務時，也會建立一個 HTTPS URL，其中包括 BizTalk 服務名稱。此 URL 會自動設定為使用自我簽署的開發專用憑證。若為生產案例，您需要私密的 SSL 憑證。
-<br/><br/>
-<strong>重要 SSL 憑證資訊</strong>
+ **重要 SSL 憑證資訊**
 
-<ul>
-<li>憑證到期日必須少於 5 年。</li>
-<li>所有專用憑證都需要一個密碼。知道此密碼，而且最佳作法為與系統管理員分享此密碼。</li>
-<li>自我簽署憑證是在測試/開發環境中使用。當使用自我簽署憑證時，請將憑證匯入至您的個人憑證存放區和受信任的根授權單位憑證存放區。</li>
-</ul>
-<br/>將實際執行憑證要求傳送至您的憑證授權單位時，請提供下列憑證內容：
-<br/>
+-   憑證到期日必須少於 5 年。
+-   所有專用憑證都需要一個密碼。知道此密碼，而且最佳作法為與系統管理員分享此密碼。
+-   自我簽署憑證是在測試/開發環境中使用。當使用自我簽署憑證時，請將憑證匯入至您的個人憑證存放區和受信任的根授權單位憑證存放區。
 
-<ul>
-<li><strong>增強金鑰使用方法</strong>: Azure BizTalk 服務至少需要伺服器驗證。</li>
-<li><strong>一般名稱</strong>：輸入 Azure BizTalk 服務 URL 的完整網域名稱 (FQDN)。參閱本主題中的<a HREF="#BizTalk">建立 BizTalk 服務</a>。</li>
-</ul>
-<br/>
-在建立 BizTalk 服務後，可以加入新的或不同的憑證。
+將實際執行憑證要求傳送至您的憑證授權單位時，請提供下列憑證內容：
+
+-   **增強金鑰使用方法**：Azure BizTalk 服務至少需要伺服器驗證。
+-   **一般名稱**：輸入 Azure BizTalk 服務 URL 的完整網域名稱 (FQDN)。參閱本主題中的[建立 BizTalk 服務][建立 BizTalk 服務]。
+
+ 在建立 BizTalk 服務後，可以加入新的或不同的憑證。
+
 </td>
 </tr>
 </table>
-
 ## <a name="HC"></a>混合式連線
 
 當您建立 Azure BizTalk 服務時，[混合式連線] 索引標籤可供使用：
@@ -260,11 +262,11 @@ SQL Database 會自動調整。一般來說，預設的調整對 BizTalk 服務�
 
 ## 下一步
 
-現在，既然已建立 BizTalk 服務，請讓自己熟悉一下各種不同的 [BizTalk 服務：儀表板、監視器和調整索引標籤][儀表板、監視器 和 調整] (英文) 中的不同索引標籤。您的 BizTalk 服務已準備好可供您的應用程式使用。若要開始建立應用程式，請移至 [Azure BizTalk 服務][Azure BizTalk 服務] (英文)。
+現在，既然已建立 BizTalk 服務，請讓自己熟悉一下各種不同的 [BizTalk 服務：儀表板、監視器和調整索引標籤][[儀表板]、[監視器] 和 [調整]] (英文) 中的不同索引標籤。您的 BizTalk 服務已準備好可供您的應用程式使用。若要開始建立應用程式，請移至 [Azure BizTalk 服務][Azure BizTalk 服務] (英文)。
 
 ## 另請參閱
 
--   [BizTalk 服務：版本圖表][BizTalk 服務：版本圖表]
+-   [BizTalk 服務：開發人員、基本、標準和高級版本圖表][BizTalk 服務：版本圖表]
 -   [BizTalk 服務：狀態圖][BizTalk 服務狀態圖]
 -   [BizTalk 服務：備份與還原][BizTalk 服務：備份與還原]
      (英文)
@@ -273,18 +275,19 @@ SQL Database 會自動調整。一般來說，預設的調整對 BizTalk 服務�
 -   [BizTalk 服務：簽發者名稱和簽發者金鑰][BizTalk 服務：簽發者名稱和簽發者金鑰]
      (英文)
 -   [如何開始使用 Azure BizTalk 服務 SDK][如何開始使用 Azure BizTalk 服務 SDK]
--   [混合式連線][混合式連線]
+-   [Hybrid Connections][混合式連線]
 
   [建立 BizTalk 服務]: #BizTalk
   [佈建後續步驟]: #PostProv
   [說明各項需求]: #Requirements
   [全新的混合式連線！]: #HC
+  [Azure 免費試用]: http://go.microsoft.com/fwlink/p/?LinkID=239738
   [Azure 管理入口網站]: http://go.microsoft.com/fwlink/p/?LinkID=213885
-  [選取新增按鈕]: ./media/biztalk-provision-services/WABS_New.png
+  [選取 [新增] 按鈕]: ./media/biztalk-provision-services/WABS_New.png
   [選取 BizTalk 服務然後選取自訂建立]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
   [BizTalk 服務：版本圖表]: http://go.microsoft.com/fwlink/p/?LinkID=302279
   [完成時，進度圖示即會顯示]: ./media/biztalk-provision-services/WABS_ProgressComplete.png
-  [儀表板、監視器 和 調整]: http://go.microsoft.com/fwlink/p/?LinkID=302281
+  [[儀表板]、[監視器] 和 [調整]]: http://go.microsoft.com/fwlink/p/?LinkID=302281
   [BizTalk 服務狀態圖]: http://go.microsoft.com/fwlink/p/?LinkID=329870
   [在本機電腦上安裝憑證]: #InstallCert
   [新增實際執行備妥憑證]: #AddCert
@@ -293,6 +296,10 @@ SQL Database 會自動調整。一般來說，預設的調整對 BizTalk 服務�
   [選取連接資訊]: ./media/biztalk-provision-services/WABS_ACSConnectInformation.png
   [存取控制管理入口網站的 ACS 服務身分識別]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
   [管理您的 ACS 命名空間]: http://go.microsoft.com/fwlink/p/?LinkID=285670
+  [Azure 訂閱]: https://account.windowsazure.com/Subscriptions
+  [管理 Azure 管理入口網站中的訂閱和儲存體帳戶]: http://go.microsoft.com/fwlink/p/?LinkID=267577
+  [Azure SQL Database 中的帳戶和計費]: http://go.microsoft.com/fwlink/p/?LinkID=234930
+  [儲存體]: http://go.microsoft.com/fwlink/p/?LinkID=285671
   [混合式連線索引標籤]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
   [混合式連線]: http://go.microsoft.com/fwlink/p/?LinkID=397274
   [Azure BizTalk 服務]: http://go.microsoft.com/fwlink/p/?LinkID=235197

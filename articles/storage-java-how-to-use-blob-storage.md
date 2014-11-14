@@ -1,6 +1,6 @@
-<properties linkid="dev-net-how-to-use-blog-storage-service-java" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Blob Service" pageTitle="如何使用 Blob 儲存體 (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="了解如何使用 Azure Blob 服務來上傳、下載、列出及刪除 Blob 內容。範例以 Java 撰寫。" metaCanonical="" services="storage" documentationCenter="Java" title="如何使用 Java 的 Blob 儲存體" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # 如何使用 Java 的 Blob 儲存體
 
@@ -162,7 +162,10 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
 
 例如，您可能有名為 "photos" 的容器，當中您可能上傳名為 "rootphoto1"、"2010/photo1"、"2010/photo2" 和 "2011/photo1" 的 Blob。這會在 "photos" 容器內建立虛擬目錄 "2010" 和 "2011"。當您在 "photos" 容器上呼叫 **ListBlobs** 時，傳回的集合將包含 **CloudBlobDirectory** 和 **CloudBlob** 物件，其分別代表最上層所包含的目錄和 Blob。在此情況下，系統會傳回目錄 "2010" 和 "2011"，以及照片 "rootphoto1"。您可以使用 **instanceof** 運算子來區別這些物件。
 
-您可以選擇性地將參數傳入 **listBlobs** 方法，並將 **useFlatBlobListing** 參數設為 true。如此會導致不論目錄為何，都會傳回每個 Blob。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考][Azure 儲存體用戶端 SDK 參考] (英文) 中的 **CloudBlobContainer.listBlobs**。
+您可以選擇性地將參數傳入 **listBlobs** 方法，
+並將 **useFlatBlobListing** 參數設為 true。如此會導致不論目錄為何，
+都會傳回每個 Blob。
+如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考][Azure 儲存體用戶端 SDK 參考] (英文) 中的 **CloudBlobContainer.listBlobs**。
 
 ## <a name="DownloadBlob"> </a>作法：下載 Blob
 
@@ -224,7 +227,8 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
 
 ## <a name="DeleteContainer"> </a>作法：刪除 Blob 容器
 
-最後，若要刪除 Blob 容器，請取得 Blob 容器參考，然後呼叫 **deleteIfExists**。
+最後，若要刪除 Blob 容器，請取得 Blob 容器參考，
+然後呼叫 **deleteIfExists**。
 
     try
     {
@@ -270,8 +274,6 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
   [作法：下載 Blob]: #DownloadBlob
   [作法：刪除 Blob]: #DeleteBlob
   [作法：刪除 Blob 容器]: #DeleteContainer
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
   [Azure 儲存體 REST API]: http://msdn.microsoft.com/zh-tw/library/azure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/

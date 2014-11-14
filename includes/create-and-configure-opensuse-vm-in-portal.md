@@ -1,12 +1,12 @@
 <properties writer="kathydav" editor="tysonn" manager="jeffreyg" />
 
-**重要事項**：如果您想要讓虛擬機器使用虛擬網路，請務必在建立虛擬機器時指定虛擬網路。只有在建立虛擬機器時，才能將虛擬機器設定為加入虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀][]。
+**重要事項**：如果您想要讓虛擬機器使用虛擬網路，請務必在建立虛擬機器時指定虛擬網路。只有在建立虛擬機器時，才能將虛擬機器設定為加入虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀][Azure 虛擬網路概觀]。
 
-1.  使用 Azure 帳戶，登入 [Azure 管理入口網站][]。
+1.  使用 Azure 帳戶，登入 [Azure 管理入口網站][Azure 管理入口網站]。
 
 2.  在管理入口網站中，依序按一下網頁左下角的 [+新增]、[虛擬機器] 和 [從藝廊]。
 
-    ![建立新的虛擬機器][]
+    ![建立新的虛擬機器][建立新的虛擬機器]
 
 3.  從 [平台映像] 中選取 OpenSUSE 虛擬機器映像，然後按一下頁面右下角的 [下一步] 箭頭。
 
@@ -14,7 +14,7 @@
 
     -   提供 [虛擬機器名稱] (如 "testlinuxvm")。
     -   指定 [新使用者名稱] (如 "newuser")，此名稱將新增至 Sudoers 清單檔案。
-    -   在 [新密碼] 方塊中，輸入[強式密碼][]。
+    -   在 [新密碼] 方塊中，輸入[強式密碼][強式密碼]。
     -   在 [確認密碼] 方塊中，重新輸入密碼。
     -   從 [大小] 下拉式清單中選取適當的大小。
 
@@ -26,7 +26,7 @@
     -   在 [DNS 名稱] 方塊中，輸入有效的 DNS 位址。例如，"testlinuxvm"。
     -   在 [區域/同質群組/虛擬網路] 方塊中，選取這個虛擬映像將託管於的區域。
 
-	按 [下一步] 箭頭以繼續。
+按 [下一步] 箭頭以繼續。
 
 1.  在 [虛擬機器選項] 頁面的 [可用性設定組] 方塊中，選取 [(無)]。按一下打勾記號繼續。
 
@@ -54,12 +54,12 @@
 
 ### 使用 PuTTY 進行連線
 
-如果您是使用 Windows 電腦，請使用 PuTTY 連線至 VM。PuTTY 可自 [PuTTY 下載頁面][]下載取得。
+如果您是使用 Windows 電腦，請使用 PuTTY 連線至 VM。PuTTY 可自 [PuTTY 下載頁面][PuTTY 下載頁面]下載取得。
 
 1.  下載 **putty.exe** 並將其儲存至您電腦上的目錄中。開啟命令提示字元，瀏覽至該資料夾，然後執行 **putty.exe**。
 
 2.  在 [Host Name] 中輸入 "testlinuxvm.cloudapp.net"，並在 [Port] 中輸入 "22"。
-    ![PuTTY Screen][]
+    ![PuTTY Screen][PuTTY Screen]
 
 ## 更新虛擬機器 (選用)
 
@@ -74,6 +74,6 @@
   [Azure 虛擬網路概觀]: http://go.microsoft.com/fwlink/p/?LinkID=294063
   [Azure 管理入口網站]: http://manage.windowsazure.com
   [建立新的虛擬機器]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
-  [強式密碼]: http://msdn.microsoft.com/en-us/library/ms161962.aspx
+  [強式密碼]: http://msdn.microsoft.com/zh-tw/library/ms161962.aspx
   [PuTTY 下載頁面]: http://www.puttyssh.org/download.html
   [PuTTY Screen]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png

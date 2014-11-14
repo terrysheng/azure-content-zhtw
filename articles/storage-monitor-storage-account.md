@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-monitor-a-storage-account" urlDisplayName="How to monitor" pageTitle="How to monitor a storage account | Microsoft Azure" metaKeywords="Azure monitor storage accounts, storage account management portal, storage account dashboard, storage metrics table, storage metrics chart" description="Learn how to monitor a storage account in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Monitor a Storage Account" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="How to monitor" pageTitle="如何監視儲存體帳戶 | Microsoft Azure" metaKeywords="Azure monitor storage accounts, storage account management portal, storage account dashboard, storage metrics table, storage metrics chart" description="了解如何使用管理入口網站來監視 Azure 中的儲存體帳戶。" metaCanonical="" services="storage" documentationCenter="" title="如何監視儲存體帳戶" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -8,18 +8,20 @@
 
 在設定儲存體帳戶的監視之前，不會收集任何監視資料，且儀表板和 [監視] 頁面上的度量圖表為空白。
 
-<div class="dev-callout"> 
-<b>注意</b> 
-<p>其他成本也與在管理入口網站中查看監視資料相關。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/hh360997.aspx">儲存體分析及計費</a>。</p> 
+<div class="dev-callout">
+
+**注意**
+其他成本也與在管理入口網站中查看監視資料相關。如需詳細資訊，請參閱[儲存體分析及計費][儲存體分析及計費]。
+
 </div>
 
 ## 目錄
 
 -   [作法：設定儲存體帳戶的監視][作法：設定儲存體帳戶的監視]
 -   [作法：自訂儀表板以進行監視][作法：自訂儀表板以進行監視]
--   <a href="#customizemonitorpage">作法：自訂 [監視] 頁面</a>
+-   [作法：自訂 [監視] 頁面][]
 -   [作法：將度量新增至度量表][作法：將度量新增至度量表]
--   <a href="#customizemetricschart">作法：自訂 [監視] 頁面上的度量圖表</a>
+-   [作法：自訂 [監視] 頁面上的度量圖表][]
 -   [作法：設定記錄][作法：設定記錄]
 
 ## <span id="configurestoragemonitoring"></span></a>作法：設定儲存體帳戶的監視
@@ -58,7 +60,7 @@
 
 2.  若要變更圖表上繪製的度量，請採取下列其中一個動作：
 
--   若要新增度量到圖表，請按一下度量標頭旁邊的核取方塊。在縮小顯示上，按一下 [*n* more] 存取無法顯示在標頭區域的標頭。
+-   若要新增度量到圖表，請按一下度量標頭旁邊的核取方塊。在縮小顯示上，按一下 [n more]**** 存取無法顯示在標頭區域的標頭。
 
 -   若要隱藏圖表上繪製的度量，請清除度量標頭旁邊的核取方塊。
 
@@ -88,10 +90,12 @@
 
     ![Monitoring\_VerboseDisplay][Monitoring\_VerboseDisplay]
 
-    <div class="dev-callout"> 
-<b>注意</b> 
-<p>選取度量時請考慮成本。重新整理監視顯示時有相關的交易和出口流量成本。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/hh360997.aspx">儲存體分析及計費</a>。</p> 
-</div>
+    <div class="dev-callout">
+
+    **注意**
+    選取度量時請考慮成本。重新整理監視顯示時有相關的交易和出口流量成本。如需詳細資訊，請參閱[儲存體分析及計費][儲存體分析及計費]。
+
+    </div>
 
 3.  按一下 [Add Metrics]。
 
@@ -143,13 +147,18 @@
 
 診斷記錄檔儲存在儲存體帳戶中的 $logs Blob 容器。如需存取 $logs 容器的詳細資訊，請參閱[關於儲存體分析記錄][關於儲存體分析記錄]。
 
+  [儲存體分析及計費]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh360997.aspx
   [作法：設定儲存體帳戶的監視]: #configurestoragemonitoring
   [作法：自訂儀表板以進行監視]: #customizestoragemonitoring
+  [作法：自訂 [監視] 頁面]: #customizemonitorpage
   [作法：將度量新增至度量表]: #addmonitoringmetrics
+  [作法：自訂 [監視] 頁面上的度量圖表]: #customizemetricschart
   [作法：設定記錄]: #configurelogging
   [管理入口網站]: https://manage.windowsazure.com/
   [MonitoringOptions]: ./media/storage-monitor-storage-account/Storage_MonitoringOptions.png
   [關於儲存體分析度量]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh343258.aspx
+  [Monitoring\_nmore]: ./media/storage-monitor-storage-account/storage_Monitoring_nmore.png
+  [Monitoring\_VerboseDisplay]: ./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png
   [AddMetricsInitialDisplay]: ./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png
   [AddMetricsScrollbar]: ./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png
   [ExpandCollapse]: ./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png

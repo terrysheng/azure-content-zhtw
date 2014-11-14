@@ -1,4 +1,4 @@
-<properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="How to use blob storage (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="robmcm" manager="wpickett" editor="mollybos" />
+<properties title="如何使用 Blob 儲存體 (PHP) | Azure 功能指南" pageTitle="如何使用 Blob 儲存體 (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="了解如何使用 Azure Blob 服務來上傳、列出、下載及刪除 Blob。程式碼範例以 PHP 撰寫。" documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="robmcm" manager="adinah" editor="mollybos" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -71,6 +71,7 @@
 
 -   直接將連接字串傳遞給它，或
 -   使用 **CloudConfigurationManager (CCM)** 到多種外部來源檢查連接字串：
+
     -   預設已支援一種外部來源，即環境變數
     -   您可以擴充 **ConnectionStringSource** 類別以加入新來源
 
@@ -305,9 +306,10 @@
   [作法：下載 Blob]: #DownloadBlob
   [作法：刪除 Blob]: #DeleteBlob
   [作法：刪除 Blob 容器]: #DeleteContainer
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [get-client-libraries]: ../includes/get-client-libraries.md
+  [require\_once]: http://php.net/require_once
+  [設定容器 ACL (REST API)]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179391.aspx
   [Blob 服務錯誤碼]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179439.aspx
   [fopen]: http://www.php.net/fopen
+  [file\_get\_contents]: http://php.net/file_get_contents
+  [stream\_get\_contents]: http://www.php.net/stream_get_contents
   [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx

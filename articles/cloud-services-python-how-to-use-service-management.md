@@ -1,47 +1,47 @@
-<properties linkid="develop-python-service-management" urlDisplayName="Service Management" pageTitle="How to use the service management API (Python) - feature guide" metaKeywords="" description="Learn how to programmatically perform common service management tasks from Python." metaCanonical="" services="cloud-services" documentationCenter="Python" title="How to use Service Management from Python" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="Service Management" pageTitle="如何使用服務管理 API (Python) - 功能指南" metaKeywords="" description="了解如何透過程式設計從 Python 執行一般服務管理工作。" metaCanonical="" services="cloud-services" documentationCenter="Python" title="如何從 Python 使用服務管理" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
 
 # 如何從 Python 使用服務管理
 
-本指南將說明如何透過程式設計從 Python 執行一般服務管理工作。[Azure SDK for Python][] 中的 **ServiceManagementService** 類別支援以程式設計方式存取[管理入口網站][]中提供的多種服務管理相關功能 (例如**建立、更新及刪除雲端服務、部署、資料管理服務、虛擬機器和親和性群組**)。這項功能在建置需要以程式設計方式存取服務管理的應用程式時，將有所幫助。
+本指南將說明如何透過程式設計從 Python 執行一般服務管理工作。[Azure SDK for Python][Azure SDK for Python] 中的 **ServiceManagementService** 類別支援以程式設計方式存取[管理入口網站][管理入口網站]中提供的多種服務管理相關功能 (例如**建立、更新及刪除雲端服務、部署、資料管理服務、虛擬機器和親和性群組**)。這項功能在建置需要以程式設計方式存取服務管理的應用程式時，將有所幫助。
 
 ## 目錄
 
--   [什麼是服務管理][]
--   [概念][]
--   [作法：連接到服務管理][]
--   [作法：列出可用位置][]
--   [作法：建立雲端服務][]
--   [作法：刪除雲端服務][]
--   [作法：建立部署][]
--   [作法：更新部署][]
--   [作法：在執行與生產環境之間移動部署][]
--   [作法：刪除部署][]
--   [作法：建立儲存服務][]
--   [作法：刪除儲存服務][]
--   [作法：建立親和性群組][]
--   [作法：刪除親和性群組][]
--   [作法：列出可用作業系統][]
--   [作法：建立作業系統映像][]
--   [作法：刪除作業系統映像][]
--   [作法：建立虛擬機器][]
--   [作法：刪除虛擬機器][]
--   [後續步驟][]
+-   [什麼是服務管理][什麼是服務管理]
+-   [概念][概念]
+-   [作法：連接到服務管理][作法：連接到服務管理]
+-   [作法：列出可用位置][作法：列出可用位置]
+-   [作法：建立雲端服務][作法：建立雲端服務]
+-   [作法：刪除雲端服務][作法：刪除雲端服務]
+-   [作法：建立部署][作法：建立部署]
+-   [作法：更新部署][作法：更新部署]
+-   [作法：在執行與生產環境之間移動部署][作法：在執行與生產環境之間移動部署]
+-   [作法：刪除部署][作法：刪除部署]
+-   [作法：建立儲存服務][作法：建立儲存服務]
+-   [作法：刪除儲存服務][作法：刪除儲存服務]
+-   [作法：建立親和性群組][作法：建立親和性群組]
+-   [作法：刪除親和性群組][作法：刪除親和性群組]
+-   [作法：列出可用作業系統][作法：列出可用作業系統]
+-   [作法：建立作業系統映像][作法：建立作業系統映像]
+-   [作法：刪除作業系統映像][作法：刪除作業系統映像]
+-   [作法：建立虛擬機器][作法：建立虛擬機器]
+-   [作法：刪除虛擬機器][作法：刪除虛擬機器]
+-   [後續步驟][後續步驟]
 
 ## <a name="WhatIs"> </a>什麼是服務管理
 
-管理服務 API 可讓使用者以程式設計方式存取[管理入口網站][]所提供的多種服務管理功能。Azure SDK for Python 可讓您管理雲端服務、儲存帳號和親和性群組。
+管理服務 API 可讓使用者以程式設計方式存取[管理入口網站][管理入口網站]所提供的多種服務管理功能。Azure SDK for Python 可讓您管理雲端服務、儲存帳號和親和性群組。
 
-若要使用服務管理 API，您必須[建立 Azure 帳號][]。
+若要使用服務管理 API，您必須[建立 Azure 帳號][建立 Azure 帳號]。
 
 ## <a name="Concepts"> </a> 概念
 
-Azure SDK for Python 含有 [Azure 服務管理 API][]，這是一種 REST API。所有 API 作業都會透過 SSL 而執行，並可使用 X.509 v3 憑證相互驗證。管理服務可從執行於 Azure 的服務內存取，或直接透過網際網路，從任何可傳送 HTTPS 要求和接收 HTTPS 回應的應用程式存取。
+Azure SDK for Python 含有 [Azure 服務管理 API][Azure 服務管理 API]，這是一種 REST API。所有 API 作業都會透過 SSL 而執行，並可使用 X.509 v3 憑證相互驗證。管理服務可從執行於 Azure 的服務內存取，或直接透過網際網路，從任何可傳送 HTTPS 要求和接收 HTTPS 回應的應用程式存取。
 
 ## <a name="Connect"> </a>作法：連線到服務管理
 
-若要連接到服務管理端點，您必須具備 Azure 訂閱 ID 和有效的管理憑證。您可以透過[管理入口網站][]取得訂閱 ID。
+若要連接到服務管理端點，您必須具備 Azure 訂閱 ID 和有效的管理憑證。您可以透過[管理入口網站][管理入口網站]取得訂閱 ID。
 
 > [WACOM.NOTE] 從 Azure SDK for Python v0.8.0 開始，目前在 Windows 上執行時就能使用以 OpenSSL 建立的憑證。這需要使用 Python 2.7.4 或更新版本。
 
@@ -51,9 +51,9 @@ Azure SDK for Python 含有 [Azure 服務管理 API][]，這是一種 REST API�
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-此命令會建立 `.cer` 檔案，並將其安裝在 [個人] 憑證存放區中。如需詳細資訊，請參閱[建立及上傳 Azure 的管理憑證][]。
+此命令會建立 `.cer` 檔案，並將其安裝在 [個人] 憑證存放區中。如需詳細資訊，請參閱[建立及上傳 Azure 的管理憑證][建立及上傳 Azure 的管理憑證]。
 
-建立憑證後，您必須透過[管理入口網站][]中 [設定] 索引標籤的 [上傳] 動作，將 `.cer` 檔案上傳至 Azure。
+建立憑證後，您必須透過[管理入口網站][管理入口網站]中 [設定] 索引標籤的 [上傳] 動作，將 `.cer` 檔案上傳至 Azure。
 
 取得訂閱識別碼、建立憑證，並將 `.cer` 檔案上傳至 Azure 之後，您可以將訂閱識別碼和 [個人] 憑證存放區中的憑證位置傳送至 **ServiceManagementService**，以連接到 Azure 管理端點 (同樣地，請使用您的憑證名稱來取代 *AzureCertificate*)：
 
@@ -69,7 +69,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API][]，這是一種 REST API�
 
 ### Windows/Mac/Linux 上的管理憑證 (OpenSSL)
 
-您可以使用 [OpenSSL][] 建立管理憑證。實際上您需要建立兩個憑證，一個用於伺服器 (`.cer` 檔案)，一個用於用戶端 (`.pem` 檔案)。若要建立 `.pem` 檔案，請執行下列命令：
+您可以使用 [OpenSSL][OpenSSL] 建立管理憑證。實際上您需要建立兩個憑證，一個用於伺服器 (`.cer` 檔案)，一個用於用戶端 (`.pem` 檔案)。若要建立 `.pem` 檔案，請執行下列命令：
 
     `openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
 
@@ -77,9 +77,9 @@ Azure SDK for Python 含有 [Azure 服務管理 API][]，這是一種 REST API�
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-如需 Azure 憑證的詳細資訊，請參閱[在 Azure 中管理憑證][]。如需 OpenSSL 參數的完整說明，請參閱 [][]<http://www.openssl.org/docs/apps/openssl.html></a> 上的文件。
+如需 Azure 憑證的詳細資訊，請參閱[在 Azure 中管理憑證][在 Azure 中管理憑證]。如需 OpenSSL 參數的完整說明，請參閱 <http://www.openssl.org/docs/apps/openssl.html> 上的文件。
 
-建立這些檔案後，您必須透過[管理入口網站][]中 [設定] 索引標籤的 [上傳] 動作，將 `.cer` 檔案上傳至 Azure，且必須記下 `.pem` 檔案的儲存位置。
+建立這些檔案後，您必須透過[管理入口網站][管理入口網站]中 [設定] 索引標籤的 [上傳] 動作，將 `.cer` 檔案上傳至 Azure，且必須記下 `.pem` 檔案的儲存位置。
 
 取得訂閱識別碼、建立憑證，並將 `.cer` 檔案上傳至 Azure 之後，您可以將訂閱識別碼和 `.pem` 檔案的路徑傳送至 **ServiceManagementService**，以連接到 Azure 管理端點：
 
@@ -119,7 +119,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API][]，這是一種 REST API�
 
 ## <a name="CreateCloudService"> </a>作法：建立雲端服務
 
-當您在 Azure 中建立應用程式並加以執行時，程式碼和組態會統稱為 Azure [雲端服務][] (在舊版的 Azure 中稱為*代管服務*)。**create\_hosted\_service** 方法可讓您藉由提供代管服務名稱 (在 Azure 中必須是唯一的)、標籤 (自動編碼為 base64)、描述和位置，來建立新的代管服務。您可以指定服務的親和性群組，而不指定位置。
+當您在 Azure 中建立應用程式並加以執行時，程式碼和組態會統稱為 Azure [雲端服務][雲端服務] (在舊版的 Azure 中稱為*代管服務*)。**create\_hosted\_service** 方法可讓您藉由提供代管服務名稱 (在 Azure 中必須是唯一的)、標籤 (自動編碼為 base64)、描述和位置，來建立新的代管服務。您可以指定服務的親和性群組，而不指定位置。
 
     from azure import *
     from azure.servicemanagement import *
@@ -163,16 +163,16 @@ Azure SDK for Python 含有 [Azure 服務管理 API][]，這是一種 REST API�
 
     sms.delete_hosted_service('myhostedservice')
 
-請注意，您必須先刪除服務的所有部署，才能刪除該服務。(請參閱[作法：刪除部署][]，以取得詳細資訊。)
+請注意，您必須先刪除服務的所有部署，才能刪除該服務。(請參閱[作法：刪除部署][作法：刪除部署]，以取得詳細資訊。)
 
 ## <a name="CreateDeployment"> </a>作法：建立部署
 
-**create\_deployment** 方法會上傳新的[服務封裝][]，並在執行或生產環境中建立新部署。此方法的參數如下：
+**create\_deployment** 方法會上傳新的[服務封裝][服務封裝]，並在執行或生產環境中建立新部署。此方法的參數如下：
 
 -   **name**：代管服務的名稱。
 -   **deployment\_name**：部署的名稱。
 -   **slot**：代表 `staging` 或 `production` 位置的字串。
--   **package\_url**：部署封裝 (.cspgk 檔案) 的 URL。封裝檔必須在 Azure Blob 儲存帳號中，儲存於與封裝要上傳到的代管服務相同的訂閱下。您可以使用 [Azure PowerShell Cmdlet][] 或 [cspack 命令列工具][]來建立部署封裝。
+-   **package\_url**：部署封裝 (.cspgk 檔案) 的 URL。封裝檔必須在 Azure Blob 儲存帳號中，儲存於與封裝要上傳到的代管服務相同的訂閱下。您可以使用 [Azure PowerShell Cmdlet][Azure PowerShell Cmdlet] 或 [cspack 命令列工具][cspack 命令列工具]來建立部署封裝。
 -   **configuration**：編碼為 base64 的服務組態檔 (.cscfg 檔案)。
 -   **label**：代管服務名稱 (自動編碼為 base64) 的標籤。
 
@@ -216,7 +216,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API][]，這是一種 REST API�
 
 部署可使用 **change\_deployment\_configuration** 方法或 **update\_deployment\_status** 方法來更新。
 
-**change\_deployment\_configuration** 方法可讓您上傳新的服務組態檔 (`.cscfg`)，這會變更數個服務設定的任何一個 (包括部署中的執行個體數目)。如需詳細資訊，請參閱 [Azure 服務組態結構描述 (.cscfg 檔)][]。下列範例說明如何上傳新的服務組態檔：
+**change\_deployment\_configuration** 方法可讓您上傳新的服務組態檔 (`.cscfg`)，這會變更數個服務設定的任何一個 (包括部署中的執行個體數目)。如需詳細資訊，請參閱 [Azure 服務組態結構描述 (.cscfg 檔)][Azure 服務組態結構描述 (.cscfg 檔)]。下列範例說明如何上傳新的服務組態檔：
 
     from azure import *
     from azure.servicemanagement import *
@@ -249,7 +249,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API][]，這是一種 REST API�
 
 ## <a name="MoveDeployments"> </a>作法：在執行與生產環境之間移動部署
 
-Azure 提供兩種部署環境：執行和生產。一般而言，將服務部署至生產環境之前，會先將其部署至執行環境中進行測試。等到要將服務從執行環境升級至生產環境時，您就無須再重新部署服務。您只須切換部署即可。(如需切換部署的詳細資訊，請參閱[部署 Azure 服務][]。)
+Azure 提供兩種部署環境：執行和生產。一般而言，將服務部署至生產環境之前，會先將其部署至執行環境中進行測試。等到要將服務從執行環境升級至生產環境時，您就無須再重新部署服務。您只須切換部署即可。(如需切換部署的詳細資訊，請參閱[部署 Azure 服務][部署 Azure 服務]。)
 
 下列範例示範如何使用 **swap\_deployment** 方法來交換兩個部署 (部署名稱為 `v1` 和 `v2`)。在此範例中，呼叫 **swap\_deployment** 之前，部署 `v1` 位於生產位置中，而部署 `v2` 位於預備位置中。呼叫 **swap\_deployment** 之後，`v2` 位於生產中，而 `v1` 位於預備中。
 
@@ -273,7 +273,7 @@ Azure 提供兩種部署環境：執行和生產。一般而言，將服務部�
 
 ## <a name="CreateStorageService"> </a>作法：建立儲存服務
 
-[儲存服務][]可讓您存取 Azure [Blob][]、[資料表][]和[佇列][]。若要建立儲存服務，您必須要有服務的名稱 (3 到 24 個小寫字元，且在 Azure 中是唯一的)、描述、標籤 (最多 100 個字元，會自動編碼為 base64)，以及位置或親和性群組。下列範例說明如何藉由指定位置來建立儲存服務。如果您要使用親和性群組，您必須先建立親和性群組 (請參閱[作法：建立親和性群組][])，並使用 **affinity\_group** 參數加以設定。
+[儲存服務][儲存服務]可讓您存取 Azure [Blob][Blob]、[資料表][資料表]和[佇列][佇列]。若要建立儲存服務，您必須要有服務的名稱 (3 到 24 個小寫字元，且在 Azure 中是唯一的)、描述、標籤 (最多 100 個字元，會自動編碼為 base64)，以及位置或親和性群組。下列範例說明如何藉由指定位置來建立儲存服務。如果您要使用親和性群組，您必須先建立親和性群組 (請參閱[作法：建立親和性群組][作法：建立親和性群組])，並使用 **affinity\_group** 參數加以設定。
 
     from azure import *
     from azure.servicemanagement import *
@@ -452,7 +452,7 @@ Azure 提供兩種部署環境：執行和生產。一般而言，將服務部�
         location=location)
 
     # Name of an os image as returned by list_os_images
-    image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-zh-TW-30GB.vhd'
+    image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-zh-tw-30GB.vhd'
 
     # Destination storage account container/blob where the VM disk
     # will be created
@@ -494,9 +494,9 @@ Azure 提供兩種部署環境：執行和生產。一般而言，將服務部�
 了解服務管理的基本概念之後，您可以參考下列連結以執行更複雜的工作。
 
 -   請參閱 MSDN 參考：[雲端服務][服務封裝]
--   請參閱 MSDN 參考：[虛擬機器][]
+-   請參閱 MSDN 參考：[虛擬機器][虛擬機器]
 
-  [Azure SDK for Python]: https://www.windowsazure.com/zh-TW/develop/python/common-tasks/install-python/
+  [Azure SDK for Python]: https://www.windowsazure.com/zh-tw/develop/python/common-tasks/install-python/
   [管理入口網站]: https://manage.windowsazure.com/
   [什麼是服務管理]: #WhatIs
   [概念]: #Concepts
@@ -518,20 +518,19 @@ Azure 提供兩種部署環境：執行和生產。一般而言，將服務部�
   [作法：建立虛擬機器]: #CreateVM
   [作法：刪除虛擬機器]: #DeleteVM
   [後續步驟]: #NextSteps
-  [建立 Azure 帳號]: http://www.windowsazure.com/zh-TW/pricing/free-trial/
-  [Azure 服務管理 API]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee460799.aspx
-  [建立及上傳 Azure 的管理憑證]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg551722.aspx
+  [建立 Azure 帳號]: http://www.windowsazure.com/zh-tw/pricing/free-trial/
+  [Azure 服務管理 API]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460799.aspx
+  [建立及上傳 Azure 的管理憑證]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg551722.aspx
   [OpenSSL]: http://www.openssl.org/
-  [在 Azure 中管理憑證]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg981929.aspx
-  []: http://www.openssl.org/docs/apps/openssl.html
-  [雲端服務]: http://windowsazure.com/zh-TW/documentation/articles/cloud-services-what-is
-  [服務封裝]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj155995.aspx
-  [Azure PowerShell Cmdlet]: https://www.windowsazure.com/zh-TW/develop/php/how-to-guides/powershell-cmdlets/
-  [cspack 命令列工具]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg432988.aspx
-  [Azure 服務組態結構描述 (.cscfg 檔)]: http://msdn.microsoft.com/zh-TW/library/windowsazure/ee758710.aspx
-  [部署 Azure 服務]: http://msdn.microsoft.com/zh-TW/library/windowsazure/gg433027.aspx
-  [儲存服務]: https://www.windowsazure.com/zh-TW/manage/services/storage/what-is-a-storage-account/
-  [Blob]: https://www.windowsazure.com/zh-TW/develop/python/how-to-guides/blob-service/
-  [資料表]: https://www.windowsazure.com/zh-TW/develop/python/how-to-guides/table-service/
-  [佇列]: https://www.windowsazure.com/zh-TW/develop/python/how-to-guides/queue-service/
-  [虛擬機器]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj156003.aspx
+  [在 Azure 中管理憑證]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg981929.aspx
+  [雲端服務]: http://windowsazure.com/zh-tw/documentation/articles/cloud-services-what-is
+  [服務封裝]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj155995.aspx
+  [Azure PowerShell Cmdlet]: https://www.windowsazure.com/zh-tw/develop/php/how-to-guides/powershell-cmdlets/
+  [cspack 命令列工具]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg432988.aspx
+  [Azure 服務組態結構描述 (.cscfg 檔)]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758710.aspx
+  [部署 Azure 服務]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433027.aspx
+  [儲存服務]: https://www.windowsazure.com/zh-tw/manage/services/storage/what-is-a-storage-account/
+  [Blob]: https://www.windowsazure.com/zh-tw/develop/python/how-to-guides/blob-service/
+  [資料表]: https://www.windowsazure.com/zh-tw/develop/python/how-to-guides/table-service/
+  [佇列]: https://www.windowsazure.com/zh-tw/develop/python/how-to-guides/queue-service/
+  [虛擬機器]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156003.aspx

@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-hbase-overview" urlDisplayName="HDInsight HBase overview" pageTitle="An overview of HBase in HDInsight | Azure" metaKeywords="" description="An introduction to HBase in HDInsight, use-cases and a comparison with other database solutions ." metaCanonical="" services="hdinsight" documentationCenter="" title="HDInsight HBase overview" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="HDInsight HBase overview" pageTitle="HDInsight 中的 HBase 概觀 | Azure" metaKeywords="" description="HDInsight 中的 HBase 簡介、使用案例，以及與其他資料庫解決方案的比較。" metaCanonical="" services="hdinsight" documentationCenter="" title="HDInsight HBase 概觀" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="bradsev" />
 
 # HDInsight HBase 概觀
 
@@ -12,11 +12,11 @@ HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針
 
 HDInsight HBase 是以與 Azure 環境整合之受管理叢集的形式來提供。叢集依設定會將資料直接儲存在 Azure Blob 儲存體中，而在效能/成本的選擇中提供低延遲性與高度彈性。這讓客戶得以建置可使用大型資料集的互動式網站、建置可從數百萬個端點儲存感應器和遙測資料的服務，以及透過 Hadoop 工作分析這項資料。HBase 和 Hadoop 是在 Azure 中處理巨量資料專案的好起點，其尤其可以讓即時應用程式使用大型資料集。
 
-HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區功能、讀取和寫入的強大一致性，以及自動容錯移轉功能。透過在記憶體內部快取讀取和高輸送量的串流寫入，來提高效能。HDInsight HBase 也提供虛擬網路佈建功能。如需詳細資訊，請參閱[在 Azure 虛擬網路上佈建 HDInsight 叢集][] (英文)。
+HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區功能、讀取和寫入的強大一致性，以及自動容錯移轉功能。透過在記憶體內部快取讀取和高輸送量的串流寫入，來提高效能。HDInsight HBase 也提供虛擬網路佈建功能。如需詳細資訊，請參閱[在 Azure 虛擬網路上佈建 HDInsight 叢集][在 Azure 虛擬網路上佈建 HDInsight 叢集] (英文)。
 
 ## 如何管理 HDInsight HBase 中的資料？
 
-要管理 HBase 中的資料，可使用 HBase Shell 的 `create` `get`、`put` 和 `scan` 命令。要將資料寫入資料庫，需使用 `put`，而讀取則需使用 `get` 命令。`scan` 命令可用來取得資料表中多個資料列裡的資料。您也可以使用 HBase C# API 管理資料，其在 HBase REST API 之上提供用戶端程式庫。HBase 資料庫也可使用 Hive 進行查詢。如需這些程式設計模型的簡介，請參閱[開始在 HDInsight 中搭配使用 HBase 與 Hadoop][] (英文)。也提供副處理器，其可處理託管資料庫之節點中的資料。
+要管理 HBase 中的資料，可使用 HBase Shell 的 `create` `get`、`put` 和 `scan` 命令。要將資料寫入資料庫，需使用 `put`，而讀取則需使用 `get` 命令。`scan` 命令可用來取得資料表中多個資料列裡的資料。您也可以使用 HBase C# API 管理資料，其在 HBase REST API 之上提供用戶端程式庫。HBase 資料庫也可使用 Hive 進行查詢。如需這些程式設計模型的簡介，請參閱[開始在 HDInsight 中搭配使用 HBase 與 Hadoop][開始在 HDInsight 中搭配使用 HBase 與 Hadoop] (英文)。也提供副處理器，其可處理託管資料庫之節點中的資料。
 
 ## 案例：HBase 的使用案例有哪些？
 
@@ -33,7 +33,7 @@ HBase 適合用來擷取從多個來源不斷收集而來的資料。這包括�
 
 ### 使用案例 \#3：即時查詢
 
-[Phoenix][] 是適用於 Apache HBase 的 SQL 查詢引擎。它是以 JDBC 驅動程式的形式進行存取，並可使用 SQL 查詢和管理 HBase 資料表。
+[Phoenix][Phoenix] 是適用於 Apache HBase 的 SQL 查詢引擎。它是以 JDBC 驅動程式的形式進行存取，並可使用 SQL 查詢和管理 HBase 資料表。
 
 ### 使用案例 \#4：HBase 即平台
 
@@ -45,17 +45,17 @@ HBase 適合用來擷取從多個來源不斷收集而來的資料。這包括�
 
 [在 Azure 虛擬網路上佈建 HDInsight 叢集 (英文)][在 Azure 虛擬網路上佈建 HDInsight 叢集]
 
-[使用 HDInsight 中的 HBase 分析 Twitter 情緒 (英文)][]
+[使用 HDInsight 中的 HBase 分析 Twitter 情緒 (英文)][使用 HDInsight 中的 HBase 分析 Twitter 情緒 (英文)]
 
-[使用 Maven 建置搭配使用 HBase 和 HDInsight (Hadoop) 的 Java 應用程式 (英文)][]
+[使用 Maven 建置搭配使用 HBase 和 HDInsight (Hadoop) 的 Java 應用程式 (英文)][使用 Maven 建置搭配使用 HBase 和 HDInsight (Hadoop) 的 Java 應用程式 (英文)]
 
-[C# HBase SDK (英文)][]
+[C# HBase SDK (英文)][C# HBase SDK (英文)]
 
 ## <a name="see-also"></a>另請參閱
 
-[Apache HBase (英文)][]
+[Apache HBase (英文)][Apache HBase (英文)]
 
-[Bigtable：結構化資料的分散式儲存體系統][] (英文)
+[Bigtable：結構化資料的分散式儲存體系統][Bigtable：結構化資料的分散式儲存體系統] (英文)
 
   [在 Azure 虛擬網路上佈建 HDInsight 叢集]: ../hdinsight-hbase-provision-vnet/
   [開始在 HDInsight 中搭配使用 HBase 與 Hadoop]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hbase-get-started/

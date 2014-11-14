@@ -1,10 +1,14 @@
-<properties linkid="dev-ruby-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Table Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="如何使用資料表儲存體 (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="如何在 Azure 中使用資料表儲存體服務。程式碼範例以 Ruby API 撰寫。" metaCanonical="" services="storage" documentationCenter="Ruby" title="如何使用 Ruby 的資料表服務" authors="guayan" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # 如何使用 Ruby 的資料表服務
 
-本指南將示範如何使用 Azure 資料表服務執行一般案例。這些範例使用 Ruby API 撰寫。所涵蓋的案例包括「建立和刪除資料表」、「在資料表中插入及查詢實體」。如需資料表的詳細資訊，請參閱[後續步驟][後續步驟]一節。
+本指南將示範如何使用 Azure 資料表服務執行一般案例。
+這些範例使用 Ruby API 撰寫。
+所涵蓋的案例包括「建立和刪除資料表」、
+「在資料表中插入及查詢實體」。如需資料表的詳細資訊，
+請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
@@ -33,11 +37,13 @@
 
 ## <span id="create-a-ruby-application"></span></a>建立 Ruby 應用程式
 
-建立 Ruby 應用程式。如需指示，請參閱[在 Azure 上建立 Ruby 應用程式][在 Azure 上建立 Ruby 應用程式] (英文)。
+建立 Ruby 應用程式。如需指示，
+請參閱[在 Azure 上建立 Ruby 應用程式][在 Azure 上建立 Ruby 應用程式] (英文)。
 
 ## <span id="configure-your-application-to-access-storage"></span></a>設定您的應用程式以存取儲存體
 
-若要使用 Azure 儲存體，您需要下載並使用 Ruby azure 套件，這包含一組便利程式庫，能與儲存體 REST 服務通訊。
+若要使用 Azure 儲存體，您需要下載並使用 Ruby azure 套件，這包含一組便利程式庫，
+能與儲存體 REST 服務通訊。
 
 ### 使用 RubyGems 來取得套件
 
@@ -53,7 +59,8 @@
 
 ## <span id="setup-a-windows-azure-storage-connection"></span></a>設定 Azure 儲存體連接
 
-azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORAGE\_ACCESS\_KEY**，以取得連接 Azure 儲存體帳戶所需的資訊。如果尚未設定這些環境變數，您必須使用下列程式碼，在使用 **Azure::TableService** 之前指定帳戶資訊：
+azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORAGE\_ACCESS\_KEY**
+，以取得連接 Azure 儲存體帳戶所需的資訊。如果尚未設定這些環境變數，您必須使用下列程式碼，在使用 **Azure::TableService** 之前指定帳戶資訊：
 
     Azure.config.storage_account_name = "<your azure storage account>"
     Azure.config.storage_access_key = "<your azure storage access key>"
@@ -176,8 +183,6 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
   [作法：查詢實體屬性的子集]: #how-to-query-a-subset-of-entity-properties
   [作法：刪除實體]: #how-to-delete-an-entity
   [作法：刪除資料表]: #how-to-delete-a-table
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [在 Azure 上建立 Ruby 應用程式]: /zh-tw/develop/ruby/tutorials/web-app-with-linux-vm/
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx

@@ -1,6 +1,6 @@
-<properties title="Microsoft Azure Machine Learning Frequently Asked Questions (FAQ)" pageTitle="Azure Machine Learning FAQ | Azure" description="Frequently asked questions about Microsoft Azure Machine Learning" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" videoId="" scriptId="" />
+<properties title="Microsoft Azure Machine Learning 常見問題集 (FAQ)" pageTitle="Azure Machine Learning 常見問題集 | Azure" description="關於 Microsoft Azure Machine Learning 的常見問題" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pamehta"></tags>
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="pamehta" />
 
 # Microsoft Azure Machine Learning 常見問題集 (FAQ)
 
@@ -22,7 +22,7 @@ ML API 服務可讓您以可調整、容錯 Web 服務的形式，部署在 ML S
 
 **4. 如何存取 Microsoft Azure Machine Learning？**
 
-若要開始使用 Azure Machine Learning，請瀏覽[開始使用頁面][]。請瀏覽 [Azure Machine Learning 中心][]以取得服務的更新、閱讀最新的 ML 團隊部落格、透過論壇參加我們的機器學習社群、存取產生說明、檢視模型庫，以及提供服務的意見反映以協助我們建構產品藍圖。
+若要開始使用 Azure Machine Learning，請瀏覽[開始使用頁面][開始使用頁面]。請瀏覽 [Azure Machine Learning 中心][Azure Machine Learning 中心]以取得服務的更新、閱讀最新的 ML 團隊部落格、透過論壇參加我們的機器學習社群、存取產生說明、檢視模型庫，以及提供服務的意見反映以協助我們建構產品藍圖。
 
 ### 計費
 
@@ -36,11 +36,11 @@ Azure ML Studio 服務會依作用中實驗的計算時數計費，不足一小�
 -   API 服務預測時數 - 此計量會包含在實際執行環境中執行的 Web 服務所產生的計算費用。
 -   API 服務預測 (以 1000 次為單位) - 此計量會包含對實際執行 Web 服務的呼叫所產生的費用。
 
-如需定價的詳細資訊，請瀏覽 [定價] 頁面：<http://azure.microsoft.com/en-us/pricing/details/machine-learning/>。
+如需定價的詳細資訊，請瀏覽 [定價] 頁面：<http://azure.microsoft.com/zh-tw/pricing/details/machine-learning/>。
 
 **6. Azure Machine Learning 是否有免費試用版？**
 
-Azure ML 包含在 Azure 免費試用版中。在註冊 Azure 免費試用版後，您可以試用任何 Azure 服務一個月。若要深入了解 Azure 免費試用版，請瀏覽 <http://azure.microsoft.com/en-us/pricing/free-trial-faq/>。
+Azure ML 包含在 Azure 免費試用版中。在註冊 Azure 免費試用版後，您可以試用任何 Azure 服務一個月。若要深入了解 Azure 免費試用版，請瀏覽 <http://azure.microsoft.com/zh-tw/pricing/free-trial-faq/>。
 
 ### MACHINE LEARNING STUDIO
 
@@ -62,7 +62,7 @@ ML Studio 提供最新的 ML 演算法，例如 Scalable Boosted Decision 樹、
 
 **10. 我想要的機器學習演算法、資料來源、資料格式、資料轉換作業不在 Azure ML Studio 中，我有哪些選擇？**
 
-您可以瀏覽[使用者意見反應論壇][]，以檢視我們所追蹤的功能要求。如果您要找的功能已有人要求，請投票給該要求。如果您要找的功能不存在，請建立新要求。您也可以在此論壇中檢視您的要求狀態。我們會密切追蹤此清單，並經常更新功能可用性的狀態。
+您可以瀏覽[使用者意見反應論壇][使用者意見反應論壇]，以檢視我們所追蹤的功能要求。如果您要找的功能已有人要求，請投票給該要求。如果您要找的功能不存在，請建立新要求。您也可以在此論壇中檢視您的要求狀態。我們會密切追蹤此清單，並經常更新功能可用性的狀態。
 
 **11. 是否可將現有的程式碼放入 ML Studio 中？**
 
@@ -100,7 +100,7 @@ ML Studio 目前支援 350 個以上的 R 封裝，且數量仍在持續增加�
 
 **17. 哪裡可以取得 Azure ML 的訓練？**
 
-[Azure Machine Learning 中心][]包含視訊教學課程和操作方式指南。這些逐步操作方式指南提供了服務的簡介，並且說明匯入資料、清除資料、建置預測模型以及使用 Azure ML 將其部署在實際執行環境中的資料科學生命週期。
+[Azure Machine Learning 中心][Azure Machine Learning 中心]包含視訊教學課程和操作方式指南。這些逐步操作方式指南提供了服務的簡介，並且說明匯入資料、清除資料、建置預測模型以及使用 Azure ML 將其部署在實際執行環境中的資料科學生命週期。
 
 視訊教學課程提供 ML Studio 和 ML API 服務的視覺化導覽。視訊教學課程會說明服務的範圍、最常用的資料入口，以及如何清除和處理模組、建置預測模型及部署預測模型。視訊教學課程也將涵蓋工作區佈建以及將預備模型部署至實際執行環境之類的工作。
 
@@ -108,9 +108,9 @@ ML Studio 目前支援 350 個以上的 R 封裝，且數量仍在持續增加�
 
 **18. 如何取得 Azure ML 的支援？**
 
-Azure ML 的支援含括在 Azure 支援項目中。若要取得 Azure ML 的技術支援，請選取「機器學習」做為服務，我們將為您提供您可以提交支援票證的主題類別。若要深入了解 Azure 支援項目，請瀏覽 <http://azure.microsoft.com/en-us/support/options/>
+Azure ML 的支援含括在 Azure 支援項目中。若要取得 Azure ML 的技術支援，請選取「機器學習」做為服務，我們將為您提供您可以提交支援票證的主題類別。若要深入了解 Azure 支援項目，請瀏覽 <http://azure.microsoft.com/zh-tw/support/options/>
 
-Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure ML 的相關問題。此論壇由 Azure ML 團隊控管。請瀏覽 [Azure 論壇][]。
+Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure ML 的相關問題。此論壇由 Azure ML 團隊控管。請瀏覽 [Azure 論壇][Azure 論壇]。
 
   [開始使用頁面]: http://go.microsoft.com/fwlink/?LinkId=404226
   [Azure Machine Learning 中心]: http://azure.microsoft.com/zh-tw/documentation/services/machine-learning/

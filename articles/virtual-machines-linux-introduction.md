@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-fundamentals-intro-to-linux" urlDisplayName="Intro to Linux" pageTitle="Introduction to Linux in Azure - Azure Tutorial" metaKeywords="Azure Linux vm, Linux vm" description="Learn about using Linux virtual machines on Azure." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Introduction to Linux on Azure" authors="szark" solutions="" manager="" editor="" />
+<properties urlDisplayName="Intro to Linux" pageTitle="Azure 上的 Linux 簡介 - Azure 教學課程" metaKeywords="Azure Linux vm, Linux vm" description="了解如何使用 Azure 上的 Linux 虛擬機器" metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Azure 上的 Linux 簡介" authors="szark" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
 # Azure 上的 Linux 簡介
 
@@ -36,11 +36,11 @@
 
         chmod 600 myPrivateKey.key
 
-3.  將 myCert.pem 轉換成 myCert.cer (DER 編碼的 X509 憑證)
+3.  將 `myCert.pem` 轉換成 `myCert.cer` (DER 編碼的 X509 憑證)
 
         openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
-4.  建立 Linux 虛擬機器時上傳 myCert.cer。佈建程序會針對虛擬機器中的指定使用者，自動將此憑證中的公開金鑰安裝至 authorized\_keys 檔案中。
+4.  建立 Linux 虛擬機器時上傳 `myCert.cer`。佈建程序會為虛擬機器中的指定使用者，自動將此憑證中的公開金鑰安裝至 `~/.ssh/authorized_keys` 檔案中。
 
 5.  使用 ssh 來連線到 Linux 虛擬機器。
 
@@ -48,13 +48,17 @@
 
     第一次登入時，將提示您接受主機公開金鑰的指紋。
 
-6.  您可以選擇將 myPrivateKey.key 複製到 ~/.ssh/id\_rsa，讓 openssh 用戶端自動挑選此金鑰，而不需要使用 -i 選項。
+6.  您可以選擇性地將 `myPrivateKey.key` 複製到 `~/.ssh/id_rsa`，以便 openssh 用戶端能夠自動選擇該金鑰，而無需使用 -i 選項。
+    或者，您可以修改 `~/.ssh/config` 以包含虛擬機器的區段：
+
+        Host servicename.cloudapp.net
+          IdentityFile %d/.ssh/myPrivateKey.key
 
 ### 從現有 OpenSSH 相容金鑰產生金鑰
 
 上一個範例說明如何建立用於 Windows Azure 的新金鑰。在某些情況下，使用者可能已經有現有的 OpenSSH 相容公用與私密金鑰組，而希望對 Windows Azure 使用相同的金鑰。
 
-`openssl` 公用程式可以直接讀取 OpenSSH 私密金鑰。下列命令將使用現有的 SSH 私密金鑰 (在下例中為 id\_rsa) 建立 Windows Azure 需要的 `.pem` 公開金鑰：
+`openssl` 公用程式可以直接讀取 OpenSSH 私密金鑰。下列命令將使用現有的 SSH 私密金鑰 (在下例中為 id\_rsa)，並建立 Windows Azure 所需的 `.pem` 公開金鑰：
 
     # openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 

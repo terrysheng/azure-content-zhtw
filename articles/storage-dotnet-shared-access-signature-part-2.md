@@ -1,4 +1,4 @@
-<properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="" pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="" pageTitle="透過 Blob 服務來建立與使用 SAS | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="探討如何透過 Blob 服務來產生及使用共用存取簽章" metaCanonical="" services="storage" documentationCenter="" title="第 2 部分：透過 Blob 服務來建立與使用 SAS" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -91,7 +91,7 @@
 
 編譯並執行以輸出新容器的共用存取簽章 URI。URI 將類似如下 URI：
 
-<https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D>
+https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D
 
 執行程式碼之後，您在容器上建立的共用存取簽章將在接下來四個小時內有效。簽章會授與用戶端權限以列出容器中的 blob，以及將新的 blob 寫入容器。
 
@@ -139,7 +139,7 @@
 
 編譯並執行以輸出新 blob 的共用存取簽章 URI。URI 將類似如下 URI：
 
-<https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D>
+https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
 
 ## 在容器上建立預存存取原則
 
@@ -527,3 +527,5 @@
   [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
   [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
   [管理 Azure 儲存體資源的存取]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee393343.aspx
+  [使用共用存取簽章 (REST API) 來委派存取權]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee395415.aspx
+  [資料表與佇列 SAS 簡介 (英文)]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

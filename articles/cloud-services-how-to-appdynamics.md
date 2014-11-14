@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-use-appdynamics" urlDisplayName="Monitor with AppDynamics" pageTitle="How to use AppDynamics with Azure" metaKeywords="" description="Learn how to use AppDynamics for Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How To Use AppDynamics for Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Monitor with AppDynamics" pageTitle="如何使用 Azure 上的 AppDynamics" metaKeywords="" description="了解如何使用 AppDynamics for Azure。" metaCanonical="" services="cloud-services" documentationCenter="" title="如何使用 AppDynamics for Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
@@ -8,13 +8,13 @@
 
 ## 目錄
 
--   [什麼是 AppDynamics？](#what)
--   [必要條件](#prereq)
--   [註冊 AppDynamics 帳戶](#register)
--   [從 AppDynamics 下載 .NET 代理程式](#download)
--   [將 .NET 代理程式加入至 Azure 角色並修改啟動](#addagent)
--   [將 AppDynamics 檢測的應用程式發行至 Azure](#publish)
--   [監視應用程式](#monitor)
+-   [什麼是 AppDynamics？][什麼是 AppDynamics？]
+-   [必要條件][必要條件]
+-   [註冊 AppDynamics 帳戶][註冊 AppDynamics 帳戶]
+-   [從 AppDynamics 下載 .NET 代理程式][從 AppDynamics 下載 .NET 代理程式]
+-   [將 .NET 代理程式加入至 Azure 角色並修改啟動][將 .NET 代理程式加入至 Azure 角色並修改啟動]
+-   [將 AppDynamics 檢測的應用程式發行至 Azure][將 AppDynamics 檢測的應用程式發行至 Azure]
+-   [監視應用程式][監視應用程式]
 
 ## <span id="what"></span></a>什麼是 AppDynamics？
 
@@ -30,7 +30,7 @@ AppDynamics 中有兩個元件：
 
 -   AppDynamics 控制器：代理程式會將資訊傳送至 Azure 上的 AppDynamics 控制器代管服務。您可以使用網頁瀏覽器主控台來登入控制器，以監視、分析和疑難排解您的應用程式。
 
-    ![AppDynamics Diagram](./media/cloud-services-how-to-appdynamics/addiagram.png)
+    ![AppDynamics Diagram][AppDynamics Diagram]
 
 ## <span id="prereq"></span></a>必要條件
 
@@ -43,7 +43,7 @@ AppDynamics 中有兩個元件：
 
 註冊 AppDynamics for Azure 帳戶：
 
-1.  在 Azure Marketplace 上，按一下 AppDynamics 的 [免費試用] 或 [註冊] [https://datamarket.azure.com/browse/Applications](https://datamarket.azure.com/browse/Applications)。
+1.  在 Azure Marketplace 按一下 AppDynamics 的 [免費試用] 或 [註冊] (<https://datamarket.azure.com/browse/Applications>)。
 
     如果選擇 [註冊]，您會收到免費版本的 AppDynamics Pro for Azure，具備完整的功能，但在 30 天後會降級到免費版本的 AppDynamics Lite for Azure，功能就有所限制。選擇此選項不需要提供信用卡。您可以隨時升級到 AppDynamics Pro for Azure。
 
@@ -109,7 +109,7 @@ AppDynamics 中有兩個元件：
 
 5.  在您要監視的每一個 Web 角色和背景工作角色中，設定 AppDynamics 代理程式 .msi 檔案和 startup.cmd file 檔案的 [複製到輸出目錄] 屬性設為 [永遠複製]。
 
-    ![Copy Always](./media/cloud-services-how-to-appdynamics/adcopyalways.png)
+    ![Copy Always][Copy Always]
 
 6.  在 Azure 專案的 ServiceDefinition.csdef 檔案中，加入 Startup Task 元素，並指定每一個 WorkerRole 和 WebRole 元素的參數來叫用 startup.cmd。
 
@@ -121,13 +121,13 @@ AppDynamics 中有兩個元件：
 
     其中：
 
-    -   *your controller host* 和 *your controller port* 是指派給您帳戶的控制器主機和連接埠，*your account name* 和 *your access key* 是 AppDynamics 指派給您的認證。此資訊在您向 AppDynamics 註冊時所寄出的電子郵件中，也在您的 AppDynamic 首頁上。請參閱[註冊 AppDynamics 帳戶](#register)。
+    -   *your controller host* 和 *your controller port* 是指派給您帳戶的控制器主機和連接埠，*your account name* 和 *your access key* 是 AppDynamics 指派給您的認證。此資訊在您向 AppDynamics 註冊時所寄出的電子郵件中，也在您的 AppDynamic 首頁上。請參閱[註冊 AppDynamics 帳戶][註冊 AppDynamics 帳戶]。
 
     -   *your application name* 是您選擇的應用程式名稱。此名稱在 AppDynamics 控制器介面中用來識別應用程式。
 
     ServiceDefinition.csdef 檔案的內容如下：
 
-    ![Service Definition](./media/cloud-services-how-to-appdynamics/adscreen.png)
+    ![Service Definition][Service Definition]
 
 ## <a name="publish"></a>將 AppDynamics 檢測的應用程式發行至 Azure
 
@@ -151,6 +151,15 @@ AppDynamics 中有兩個元件：
 
 請參閱 AppDynamics 帳戶首頁上的文件和影片連結。
 
-本文的 Wiki 版本中有最新內容，網址是 [http://docs.appdynamics.com/display/ADAZ/How+To+Use+AppDynamics+for+Windows+Azure](http://docs.appdynamics.com/display/ADAZ/How+To+Use+AppDynamics+for+Windows+Azure)。
+本文的 Wiki 版本中有最新內容，網址是 <http://docs.appdynamics.com/display/ADAZ/How+To+Use+AppDynamics+for+Windows+Azure>。
 
-
+  [什麼是 AppDynamics？]: #what
+  [必要條件]: #prereq
+  [註冊 AppDynamics 帳戶]: #register
+  [從 AppDynamics 下載 .NET 代理程式]: #download
+  [將 .NET 代理程式加入至 Azure 角色並修改啟動]: #addagent
+  [將 AppDynamics 檢測的應用程式發行至 Azure]: #publish
+  [監視應用程式]: #monitor
+  [AppDynamics Diagram]: ./media/cloud-services-how-to-appdynamics/addiagram.png
+  [Copy Always]: ./media/cloud-services-how-to-appdynamics/adcopyalways.png
+  [Service Definition]: ./media/cloud-services-how-to-appdynamics/adscreen.png

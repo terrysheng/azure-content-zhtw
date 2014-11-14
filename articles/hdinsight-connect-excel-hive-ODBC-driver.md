@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-connect-excel-with-hive-ODBC" urlDisplayName="Connect Excel to HDInsight" pageTitle="Connect Excel to Hadoop with the Hive ODBC Driver | Azure" metaKeywords="" description="Learn how to set up and use the Microsoft Hive ODBC driver for Excel to query data in an HDInsight cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Connect Excel to Hadoop with the Microsoft Hive ODBC Driver" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Connect Excel to HDInsight" pageTitle="使用 Hive ODBC 驅動程式將 Excel 連接到 Hadoop | Azure" metaKeywords="" description="了解如何在 Excel 中設定和使用 Microsoft Hive ODBC 驅動程式來查詢 HDInsight 叢集中的資料。" metaCanonical="" services="hdinsight" documentationCenter="" title="使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 Hadoop" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -43,29 +43,27 @@ Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智�
 
 5.  輸入或選取下列值：
 
-	<table border="1">
-	<tr><td><strong>屬性</strong></td><td><strong>說明</strong></td></tr>
-	<tr><td>資料來源名稱</td><td>為資料來源指定名稱</td></tr>
-	<tr><td>主機</td><td>輸入 <hdinsightclustername>.azurehdinsight.net。例如 myHDICluster.azurehdinsight.net </td></tr>
-	<tr><td>連接埠</td><td>使用 <strong>443</strong>. (此連接埠已從 563 變更為 443。) </td></tr>
-	<tr><td>資料庫</td><td>使用 <strong>預設值</strong>.</td></tr>
-	<tr><td>Hive 伺服器類型</td><td>選取 <strong>Hive Server 2</strong></td></tr>
-	<tr><td>機制</td><td>選取 <strong>Azure HDInsight 服務</strong></td></tr>
-	<tr><td>HTTP 路徑 </td><td>保留為空白。</td></tr>
-	<tr><td>使用者名稱</td><td>輸入 HDInsight 叢集使用者的使用者名稱。這是在叢集佈建程序中所建立的使用者名稱。如果您使用快速建立選項，預設使用者名稱會是 <strong>admin</strong>.</td></tr>
-	<tr><td>密碼 </td><td>輸入 HDInsight 叢集使用者的密碼。</td></tr>
-	</table>
+    |-----------------|---------------------------------------------------------------------------------------------------------------------------------------|
+    | **屬性**        | **說明**                                                                                                                              |
+    | 資料來源名稱    | 為資料來源指定名稱                                                                                                                    |
+    | 主機            | 輸入 <hdinsightclustername>.azurehdinsight.net。例如 myHDICluster.azurehdinsight.net                                                  |
+    | 連接埠          | 使用 **443**。(此連接埠已從 563 變更為 443。)                                                                                         |
+    | 資料庫          | 請使用 [預設值]。                                                                                                                     |
+    | Hive 伺服器類型 | 選取 [Hive Server 2]                                                                                                                  |
+    | 機制            | 選取 [Azure HDInsight 服務]                                                                                                           |
+    | HTTP 路徑       | 保留為空白。                                                                                                                          |
+    | 使用者名稱      | 輸入 HDInsight 叢集使用者的使用者名稱。這是在叢集佈建程序中所建立的使用者名稱。如果您使用快速建立選項，預設使用者名稱會是 **admin**。 |
+    | 密碼            | 輸入 HDInsight 叢集使用者的密碼。                                                                                                     |
 
     當您按一下 [進階選項] 時，您必須留意某些重要參數：
 
-	<table border="1">
-	<tr><td>使用原生查詢</td><td>選取此選項時，ODBC 驅動程式不會嘗試將 TSQL 轉換為 HiveQL。只有在百分之百確定您所提交的是純 HiveQL 陳述式時，才應使用此選項。連接到 SQL Server 或 Azure SQL Database 時，您應將其保留為未勾選。</td></tr>
-	<tr><td>每個區塊擷取的資料列</td><td>在擷取大量記錄時可能必須調整此參數，以確保最佳效能。</td></tr>
-	<tr><td>預設字串資料行長度、 <br/>
-			二進位資料行長度、 <br/>
-			十進位資料行小數位數</td><td>資料類型的長度和精確度可能會影響傳回資料的方式。如果失去精確度且 (或) 發生截斷狀況，將會傳回不正確的資訊。</td></tr>
-	</table>
- 
+    |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | 使用原生查詢          | 選取此選項時，ODBC 驅動程式不會嘗試將 TSQL 轉換為 HiveQL。只有在百分之百確定您所提交的是純 HiveQL 陳述式時，才應使用此選項。連接到 SQL Server 或 Azure SQL Database 時，您應將其保留為未勾選。 |
+    | 每個區塊擷取的資料列  | 在擷取大量記錄時可能必須調整此參數，以確保最佳效能。                                                                                                                                           |
+    | 預設字串資料行長度、  
+      二進位資料行長度、    
+      十進位資料行小數位數  | 資料類型的長度和精確度可能會影響傳回資料的方式。如果失去精確度且 (或) 發生截斷狀況，將會傳回不正確的資訊。                                                                                     |
+
     ![進階選項][進階選項]
 
 6.  按一下 [測試] 以測試資料來源。資料來源正確設定時，會顯示*「測試順利完成！」*。

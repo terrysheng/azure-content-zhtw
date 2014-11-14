@@ -1,6 +1,6 @@
-<properties linkid="manage-windows-common-tasks-vm-availability" urlDisplayName="Manage Availability of VMs" pageTitle="Manage the availability of virtual machines - Azure" metaKeywords="" description="Learn how to use multiple virtual machines to ensure high availability for your Azure application. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Manage Availability of VMs" pageTitle="管理虛擬機器的可用性 - Azure" metaKeywords="" description="了解如何使用多部虛擬機器以確保 Azure 應用程式的高可用性。 " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk" />
 
 # 管理虛擬機器的可用性
 
@@ -16,22 +16,24 @@
 
 為了減少一或多個這些事件造成的停機所帶來的影響，建議您為虛擬機器使用下列高可用性的最佳做法：
 
--   [針對備援在可用性設定組中設定多部虛擬機器][]
--   [將每個應用程式層設定至不同的可用性設定組中][]
--   [將負載平衡器與可用性設定組結合][]
--   [避免可用性設定組中只有一部執行個體虛擬機器][]
+-   [針對備援在可用性設定組中設定多部虛擬機器][針對備援在可用性設定組中設定多部虛擬機器]
+-   [將每個應用程式層設定至不同的可用性設定組中][將每個應用程式層設定至不同的可用性設定組中]
+-   [將負載平衡器與可用性設定組結合][將負載平衡器與可用性設定組結合]
+-   [避免可用性設定組中只有一部執行個體虛擬機器][避免可用性設定組中只有一部執行個體虛擬機器]
 
 ### 針對備援在可用性設定組中設定多部虛擬機器
 
-若要為應用程式提供備援，建議您在可用性設定組中，將兩部以上的虛擬機器組成群組。這項組態可以確保在規劃或未規劃的維護事件發生期間，至少有一部虛擬機器可以使用，且符合 99.95% 的 Azure SLA。如需服務等級協定的詳細資訊，請參閱[服務等級協定][]中的＜雲端服務、虛擬機器及虛擬網路＞一節。
+若要為應用程式提供備援，建議您在可用性設定組中，將兩部以上的虛擬機器組成群組。這項組態可以確保在規劃或未規劃的維護事件發生期間，至少有一部虛擬機器可以使用，且符合 99.95% 的 Azure SLA。如需服務等級協定的詳細資訊，請參閱[服務等級協定][服務等級協定]中的＜雲端服務、虛擬機器及虛擬網路＞一節。
 
-可用性設定組中的每部虛擬機器，都會具有基礎 Azure 平台指派的更新網域 (UD) 和錯誤網域 (FD)。在指定的可用性設定組中，指派了五個非使用者可設定的 UD，表示虛擬機器群組和可同時重新啟動的基礎實體硬體。當一個可用性設定組中設定了超過五部虛擬機器，會將第六部虛擬機器放入與第一部虛擬機器相同的 UD 中，而第七部則會放入與第二部相同的 UD 中，以此類推。重新啟動的 UD 順序可能不會在規劃的維護事件期間循序進行，而只會一次重新啟動一個 UD。
+基礎 Azure 平台會為可用性設定組中的每部虛擬機器指定一個更新網域 (UD) 和一個容錯網域 (FD)。在指定的可用性設定組中，指派了五個非使用者可設定的 UD，表示虛擬機器群組和可同時重新啟動的基礎實體硬體。當一個可用性設定組中設定了超過五部虛擬機器，會將第六部虛擬機器放入與第一部虛擬機器相同的 UD 中，而第七部則會放入與第二部相同的 UD 中，以此類推。重新啟動的 UD 順序可能不會在規劃的維護事件期間循序進行，而只會一次重新啟動一個 UD。
 
 FD 定義共用通用電源和網路交換器的虛擬機器群組。根據預設，可用性設定組中設定的虛擬機器會分置於兩個 FD 中。將虛擬機器放入可用性設定組，無法保護應用程式不會遭受作業系統錯誤或特定應用程式錯誤，而只會限制可能的實體硬體錯誤、網路中斷或電源中斷所帶來的影響。
 
 <!--Image reference-->
 
-![UD FD 組態][]
+![UD FD 組態][UD FD 組態]
+
+> [WACOM.NOTE] 如需相關指示，請參閱[如何設定虛擬機器的可用性設定組][如何設定虛擬機器的可用性設定組]。
 
 ### 將每個應用程式層設定至不同的可用性設定組中
 
@@ -41,11 +43,11 @@ FD 定義共用通用電源和網路交換器的虛擬機器群組。根據預�
 
 <!--Image reference-->
 
-![應用程式層][]
+![應用程式層][應用程式層]
 
 ### 將負載平衡器與可用性設定組結合
 
-將 Azure 負載平衡器與可用性設定組結合，以獲得最多的應用程式備援能力。Azure 負載平衡器會在多部虛擬機器之間分配流量。我們的標準層虛擬機器中包含 Azure 負載平衡器。請注意，並非所有的虛擬機器層都包含 Azure 負載平衡器。如需關於負載平衡虛擬機器的詳細資訊，請參閱[負載平衡虛擬機器][]。
+將 Azure 負載平衡器與可用性設定組結合，以獲得最多的應用程式備援能力。Azure 負載平衡器會在多部虛擬機器之間分配流量。我們的標準層虛擬機器中包含 Azure 負載平衡器。請注意，並非所有的虛擬機器層都包含 Azure 負載平衡器。如需關於負載平衡虛擬機器的詳細資訊，請參閱[負載平衡虛擬機器][負載平衡虛擬機器]。
 
 若負載平衡器沒有設定為平衡多部虛擬機器之間的流量，則所有規劃的維護事件都只會影響處理流量的虛擬機器，並導致應用程式層中斷。將同一個層的多部虛擬機器放在相同的負載平衡器和可用性設定組下，可讓至少一個執行個體持續處理流量。
 
@@ -53,11 +55,14 @@ FD 定義共用通用電源和網路交換器的虛擬機器群組。根據預�
 
 避免一個可用性設定組中只有一部執行個體虛擬機器。此組態的虛擬機器不符合 SLA 的保證，且會在 Azure 規劃的維護事件期間發生停機狀況。甚至，若您在某個可用性設定組中只部署一個 VM 執行個體，就不會收到平台維護的事先警告或通知。在此組態中，您的單一虛擬機器執行個體會在發生平台維護時，沒有事先警告就重新啟動。
 
+<!-- Link references -->
+
   [針對備援在可用性設定組中設定多部虛擬機器]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
   [將每個應用程式層設定至不同的可用性設定組中]: #configure-each-application-tier-into-separate-availability-sets
   [將負載平衡器與可用性設定組結合]: #combine-the-load-balancer-with-availability-sets
   [避免可用性設定組中只有一部執行個體虛擬機器]: #avoid-single-instance-virtual-machines-in-availability-sets
   [服務等級協定]: ../../../support/legal/sla/
   [UD FD 組態]: ./media/virtual-machines-manage-availability/ud-fd-configuration.png
+  [如何設定虛擬機器的可用性設定組]: ../virtual-machines-how-to-configure-availability
   [應用程式層]: ./media/virtual-machines-manage-availability/application-tiers.png
   [負載平衡虛擬機器]: ../load-balance-virtual-machines/

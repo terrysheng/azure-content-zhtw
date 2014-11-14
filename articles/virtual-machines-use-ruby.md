@@ -1,6 +1,6 @@
-<properties linkid="manage-services-identity-multi-factor-authentication" urlDisplayName="What is Azure Multi-Factor Authentication?" pageTitle="What is Azure Multi-Factor Authentication?" metaKeywords="" description="Learn more about Azure Multi-Factor Authentication, a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions." metaCanonical="" services="active-directory,multi-factor-authentication" documentationCenter="" title="How to Manage Azure Virtual Machines using Ruby" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="What is Azure Multi-Factor Authentication?" pageTitle="什麼是 Azure Multi-Factor Authentication？" metaKeywords="" description="深入了解 Azure Multi-Factor Authentication，Multi-Factor Authentication 是需要使用多種驗證方法，並在使用者登入和交易中新增重要第二安全性階層的驗證方法。" metaCanonical="" services="active-directory,multi-factor-authentication" documentationCenter="" title="如何使用 Ruby 管理 Azure 虛擬機器" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 如何使用 Ruby 管理 Azure 虛擬機器
 
@@ -8,21 +8,21 @@
 
 ## 目錄
 
--   [什麼是服務管理？][]
--   [概念][]
--   [建立管理憑證][]
--   [建立 Ruby 應用程式][]
--   [設定您的應用程式以使用 SDK][]
--   [設定 Azure 管理連線][]
--   [作法：使用虛擬機器][]
--   [作法：使用映像和磁碟][]
--   [作法：使用雲端服務][]
--   [作法：使用儲存服務][]
--   [後續步驟][]
+-   [什麼是服務管理？][什麼是服務管理？]
+-   [概念][概念]
+-   [建立管理憑證][建立管理憑證]
+-   [建立 Ruby 應用程式][建立 Ruby 應用程式]
+-   [設定您的應用程式以使用 SDK][設定您的應用程式以使用 SDK]
+-   [設定 Azure 管理連線][設定 Azure 管理連線]
+-   [作法：使用虛擬機器][作法：使用虛擬機器]
+-   [作法：使用映像和磁碟][作法：使用映像和磁碟]
+-   [作法：使用雲端服務][作法：使用雲端服務]
+-   [作法：使用儲存服務][作法：使用儲存服務]
+-   [後續步驟][後續步驟]
 
 ## <a name="what-is"> </a>什麼是服務管理？
 
-Azure 提供[適用於服務管理作業的 REST API][]，包括 Azure 虛擬機器的管理作業。Azure SDK for ruby 可透過 **Azure::VirtualMachineSerivce** 類別公開虛擬機器的管理作業。有許多可透過 [Azure 管理入口網站][]使用的虛擬機器管理功能，都是使用此類別來存取的。
+Azure 提供[適用於服務管理作業的 REST API][適用於服務管理作業的 REST API]，包括 Azure 虛擬機器的管理作業。Azure SDK for ruby 可透過 **Azure::VirtualMachineSerivce** 類別公開虛擬機器的管理作業。有許多可透過 [Azure 管理入口網站][Azure 管理入口網站]使用的虛擬機器管理功能，都是使用此類別來存取的。
 
 雖然服務管理 API 可用來管理多種在 Azure 上受到代管理的服務，但本文將只會詳述 Azure 虛擬機器的管理作業。
 
@@ -38,7 +38,7 @@ Azure 虛擬機器在雲端服務中會以「角色」的形式實作。每個�
 
 在執行服務管理作業時 (例如透過 **Azure::VirtualMachineService** 類別公開的作業)，您必須提供 Azure 訂閱 ID，以及包含訂閱管理憑證的檔案。在對 Azure REST API 進行驗證時，SDK 將會使用這兩個項目。
 
-您可以使用 Azure 跨平台命令列介面 (xplat-cli) 取得訂閱 ID 和管理憑證。如需安裝及設定 xplat-cli 的相關資訊，請參閱[安裝與設定 Azure 跨平台命令列介面][] (英文)。
+您可以使用 Azure 跨平台命令列介面 (xplat-cli) 取得訂閱 ID 和管理憑證。如需安裝及設定 xplat-cli 的相關資訊，請參閱[安裝與設定 Azure 跨平台命令列介面][安裝與設定 Azure 跨平台命令列介面] (英文)。
 
 xplat-cli 設定完成後，您即可執行下列步驟，以擷取 Azure 訂閱 ID 並匯出管理憑證：
 
@@ -89,9 +89,11 @@ xplat-cli 設定完成後，您即可執行下列步驟，以擷取 Azure 訂閱
         7 gems installed
 
     <div class="dev-callout">
-<b>注意</b>
-<p>若您收到與權限相關的錯誤，請改用 <code data-inline="1">sudo gem install azure</code>。</p>
-</div>
+
+    **注意**
+    若您收到與權限相關的錯誤，請改用 `sudo gem install azure`。
+
+    </div>
 
 ### 必須使用 gem
 
@@ -174,7 +176,7 @@ Azure 虛擬機器的管理作業可使用 **Azure::VirtualMachineService** 類�
 
 -   **:ssh\_port** - 將會用於 SSH 通訊的公用連接埠。如果省略此選項，SSH 連接埠會預設為 22。
 
--   **:vm\_size** - VM 的大小。此選項會決定 VM 的記憶體大小、核心數目、頻寬和其他實際特性。請參閱 [Azure 的虛擬機器和雲端服務大小][]，以了解可用大小和實際特性。
+-   **:vm\_size** - VM 的大小。此選項會決定 VM 的記憶體大小、核心數目、頻寬和其他實際特性。請參閱 [Azure 的虛擬機器和雲端服務大小][Azure 的虛擬機器和雲端服務大小]，以了解可用大小和實際特性。
 
 -   **:winrm\_transport** - 可用於 WinRM 的傳輸陣列。有效的傳輸為 'http' 和 'https'。如果您將 'https' 指定為傳輸，則必須同時使用 **:ssh\_private\_key\_file** 和 **:ssh\_certificate\_file**，指定用以保護 HTTPS 通訊的憑證。
 
@@ -220,8 +222,10 @@ Azure 虛擬機器的管理作業可使用 **Azure::VirtualMachineService** 類�
     vm = vm_mgr.delete_virtual_machine('myvm', 'mycloudservice')
 
 <div class="dev-callout">
-<b>警告</b>
-<p><b>delete_virtual_machine</b> 方法會刪除與虛擬機器相關聯的雲端服務和磁碟。</p>
+
+**警告**
+**delete\_virtual\_machine** 方法會刪除與虛擬機器相關聯的雲端服務和磁碟。
+
 </div>
 
 ### 作法：關閉虛擬機器
@@ -350,9 +354,9 @@ Azure 雲端服務的管理作業可使用 **Azure::StorageService** 類別來�
 
 了解以程式設計方式建立 Azure 虛擬機器的基礎概念之後，請參考下列連結，以了解如何使用 VM 執行更多功能。
 
--   造訪[虛擬機器][]功能頁面
+-   造訪[虛擬機器][虛擬機器]功能頁面
 -   請參閱 MSDN 參考：[虛擬機器][1]
--   了解如何代管[虛擬機器上的 Ruby on Rails 應用程式][]
+-   了解如何代管[虛擬機器上的 Ruby on Rails 應用程式][虛擬機器上的 Ruby on Rails 應用程式]
 
   [什麼是服務管理？]: #what-is
   [概念]: #concepts

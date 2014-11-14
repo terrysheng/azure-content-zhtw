@@ -1,37 +1,37 @@
-<properties linkid="manage-linux-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Linux" metaKeywords="Azure Linux vm, Linux vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Linux. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Capture an image" pageTitle="對執行 Linux 的虛擬機器擷取映像" metaKeywords="Azure Linux vm, Linux vm" description="了解如何對執行 Linux 的 Azure 虛擬機器 (VM) 擷取映像。" metaCanonical="" services="virtual-machines" documentationCenter="" title="如何對執行 Linux 的虛擬機器擷取映像" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
-# 如何擷取 Linux 虛擬機器以做為範本
+# 如何擷取 Linux 虛擬機器作為範本使用
 
 本文說明如何擷取 Linux 虛擬機器，以便用它做為範本建立其他虛擬機器。這個虛擬機器範本包括 OS 磁碟和任何連接虛擬機器的資料磁碟。它不包含網路組態，因此您將需要在建立使用該範本的其他虛擬機器時加以設定。
 
-擷取虛擬機器之後，它會出現在您建立虛擬機器時的 [My Images] 下。映像檔會在您的儲存體帳戶中儲存為 VHD。如需映像的詳細資訊，請參閱[管理磁碟和映像][] (英文)。
+擷取虛擬機器之後，它會出現在您建立虛擬機器時的 [My Images] 下。映像檔會在您的儲存體帳戶中儲存為 VHD。如需映像的詳細資訊，請參閱[管理磁碟和映像][管理磁碟和映像] (英文)。
 
 ## 開始之前
 
 這些步驟假設您已建立 Azure 虛擬機器且設定好作業系統，包括連接任何資料磁碟。如果您還沒這麼做，請參閱下列指示：
 
--   [如何建立自訂虛擬機器 (英文)][]
--   [如何將資料磁碟附加至虛擬機器][]
+-   [如何建立自訂虛擬機器 (英文)][如何建立自訂虛擬機器 (英文)]
+-   [如何將資料磁碟附加至虛擬機器][如何將資料磁碟附加至虛擬機器]
 
 ## 擷取虛擬機器
 
-1.  按一下命令列上的 [連線]，連線到虛擬機器。如需詳細資訊，請參閱[如何登入執行 Linux 的虛擬機器][]。
+1.  按一下命令列上的 [連線]，連線到虛擬機器。如需詳細資訊，請參閱[如何登入執行 Linux 的虛擬機器][如何登入執行 Linux 的虛擬機器]。
 
 2.  在 SSH 視窗中，輸入下列命令，然後輸入您在虛擬機器上建立之帳戶的密碼。請注意，不同版本的 `waagent` 公用程式可能會有稍微不同的輸出：
 
     `sudo waagent -deprovision`
 
-    ![Deprovision the virtual machine][]
+    ![Deprovision the virtual machine][Deprovision the virtual machine]
 
 3.  輸入 **y** 繼續。
 
-    ![Deprovision of virtual machine successful][]
+    ![Deprovision of virtual machine successful][Deprovision of virtual machine successful]
 
 4.  輸入 **Exit** 關閉 SSH 用戶端。
 
-5.  在[管理入口網站][]中，選取虛擬機器，然後按一下 [關閉]。
+5.  在[管理入口網站][管理入口網站]中，選取虛擬機器，然後按一下 [關閉]。
 
 6.  當虛擬機器停止時，按一下命令列上的 [擷取]，開啟 [擷取虛擬機器] 對話方塊。
 
@@ -43,7 +43,7 @@
 
     新映像現在會出現在 [映像] 下。擷取此映像後，虛擬機器便會遭刪除。
 
-    ![Image capture successful][]
+    ![Image capture successful][Image capture successful]
 
 ## 後續步驟
 

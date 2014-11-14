@@ -1,4 +1,4 @@
-<properties linkid="storage-introduction" urlDisplayName="Introduction to Azure Storage" pageTitle="Introduction to Storage | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure " description="An overview of Microsoft Azure Storage." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Introduction to Microsoft Azure Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="Introduction to Azure Storage" pageTitle="儲存體簡介 | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure " description="Microsoft Azure 儲存體的概觀。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Microsoft Azure 儲存體簡介" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -43,7 +43,7 @@ Blob、資料表和佇列儲存體包含在每一個儲存體帳戶中，而檔�
 
 ![Azure 儲存體資源][Azure 儲存體資源]
 
-在建立儲存體帳戶之前，您必須擁有 Azure 訂用帳戶，訂用帳戶是指可讓您存取各種 Azure 服務的方案。單一訂用帳戶可讓您建立最多 20 個唯一命名的儲存體帳戶。
+在建立儲存體帳戶之前，您必須擁有 Azure 訂用帳戶，訂用帳戶是指可讓您存取各種 Azure 服務的方案。單一訂用帳戶可讓您建立最多 100 個唯一命名的儲存體帳戶。如需批量價格的相關資訊，請參閱[儲存體定價詳細資料][儲存體定價詳細資料]。
 
 您可以利用[免費試用版][免費試用版]來開始使用 Azure。在決定購買方案之後，您便可以選擇各種[購買選項][購買選項]。如果您是 [MSDN 訂閱者][MSDN 訂閱者]，您將取得可在 Azure 服務 (包括 Azure 儲存體) 中使用的每月免費額度。
 
@@ -70,7 +70,7 @@ Blob 儲存體提供兩種 Blob 類型：區塊 Blob 和頁面 Blob (磁碟)。�
 
 資料表儲存體屬於索引鍵屬性儲存，代表資料表中的每個值會與具型別的屬性名稱一起儲存。屬性名稱可用來篩選與指定選取條件。一組屬性及其值就構成一個實體。因為資料表儲存體沒有結構描述，因此相同資料表中的兩個實體可包含不同屬性集合，且這些屬性可以是不同類型。
 
-您可以使用資料表儲存體來儲存具彈性的資料集，例如 Web 應用程式的使用者資料、通訊錄、裝置資訊，以及服務所需的任何其他中繼資料類型。您可以在資料表中儲存任意數目的實體，且儲存體帳戶可能包含任意數目的資料表，儲存體帳戶的容量限制高達 200 TB。
+您可以使用資料表儲存體來儲存具彈性的資料集，例如 Web 應用程式的使用者資料、通訊錄、裝置資訊，以及服務所需的任何其他中繼資料類型。您可以在資料表中儲存任意數目的實體，且儲存體帳戶可包含任意數目的資料表，最高可達儲存體帳戶的容量限制。
 
 如同 Blob 和佇列，開發人員可以使用標準 REST 通訊協定來管理與存取資料表儲存體，不過，資料表儲存體也支援 OData 通訊協定的子集、簡化進階查詢功能，及啟用 JSON 和 AtomPub (以 XML 為基礎) 格式。
 
@@ -80,7 +80,7 @@ Blob 儲存體提供兩種 Blob 類型：區塊 Blob 和頁面 Blob (磁碟)。�
 
 設計擴充性的應用程式時，會經常分離應用程式元件，以便進行個別擴充。佇列儲存體針對應用程式元件間的非同步通訊，提供可靠的訊息服務解決方案，無論應用程式元件是在雲端、桌面、內部部署伺服器或行動裝置上執行。佇列儲存體也支援管理非同步工作並建置處理工作流程。
 
-儲存體帳戶可包含任意數目的佇列。佇列可包含任意數目的訊息，儲存體帳戶的容量限制高達 200 TB。個別訊息的大小可能高達 64 KB。
+儲存體帳戶可包含任意數目的佇列。佇列可包含任意數目的訊息，最高可達儲存體帳戶的容量限制。個別訊息的大小可能高達 64 KB。
 
 ## 檔案儲存體
 
@@ -114,7 +114,7 @@ Blob 儲存體提供兩種 Blob 類型：區塊 Blob 和頁面 Blob (磁碟)。�
 
 儲存體容量是指您用於儲存資料的儲存體帳戶配額。若只是儲存資料，則成本是由您所儲存的資料量和複寫資料的方式來決定。對 Azure 儲存體進行的每個讀取和寫入操作也會對服務提出要求。出口流量是指傳出 Windows Azure 地區的資料。當您儲存體帳戶中的資料受不同地區中執行的應用程式存取時，不論該應用程式是雲端服務還是其他某類應用程式，您都要負擔出口流量的費用。(若為 Windows Azure 服務，您可以採取步驟，將資料和服務群組在相同的資料中心，以減少或消除處理和出口流量費用。)
 
-[儲存體定價詳細資料][儲存體定價詳細資料]頁面提供了儲存體容量、複寫和交易的詳細定價資料。[資料傳輸定價詳細資料][資料傳輸定價詳細資料]則提供了出口流量的詳細定價資訊。您可以使用 [Azure 儲存體定價計算機][Azure 儲存體定價計算機]，以協助消除成本。
+[儲存體定價詳細資料][1]頁面提供了儲存體容量、複寫和交易的詳細定價資料。[資料傳輸定價詳細資料][資料傳輸定價詳細資料]則提供了出口流量的詳細定價資訊。您可以使用 [Azure 儲存體定價計算機][Azure 儲存體定價計算機]，以協助消除成本。
 
 ## 針對儲存體進行開發
 
@@ -175,17 +175,17 @@ Azure 儲存體可透過 [REST API][REST API] 公開儲存體資源，任何可�
   [Azure 預覽頁面]: /zh-tw/services/preview/
   [Azure 儲存體延展性和效能目標]: http://msdn.microsoft.com/library/windowsazure/dn249410.aspx
   [Azure 儲存體資源]: ./media/storage-introduction/storage-concepts.png
+  [儲存體定價詳細資料]: http://www.windowsazure.com/zh-tw/pricing/details/storage/
   [免費試用版]: /zh-tw/pricing/free-trial/
   [購買選項]: /zh-tw/pricing/purchase-options/
   [MSDN 訂閱者]: /zh-tw/pricing/member-offers/msdn-benefits-details/
   [Azure 匯入/匯出服務]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-import-export-service/
   [共用存取簽章]: ../storage-dotnet-shared-access-signature-part-1/
-  [storage-replication-options]: ../includes/storage-replication-options.md
-  [儲存體定價詳細資料]: /zh-tw/pricing/details/storage/
+  [1]: /zh-tw/pricing/details/storage/
   [資料傳輸定價詳細資料]: /zh-tw/pricing/details/data-transfers/
   [Azure 儲存體定價計算機]: /zh-tw/pricing/calculator/?scenario=data-management
   [REST API]: http://msdn.microsoft.com/library/windowsazure/dd179355.aspx
-  [.NET]: http://msdn.microsoft.com/library/dn495001.aspx
+  [.NET]: http://go.microsoft.com/fwlink/?LinkID=390731
   [機器碼]: http://msdn.microsoft.com/library/dn495438.aspx
   [Java/Android]: /zh-tw/develop/java/
   [Node.js]: /zh-tw/develop/nodejs/

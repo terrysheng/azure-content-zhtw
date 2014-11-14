@@ -1,6 +1,6 @@
-<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="" editor="" />
+<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="在 Azure 中使用 Visual Studio Online 來連續傳遞" metaKeywords="" description="了解如何將 Visual Studio Online 小組專案設定為自動建立和部署至 Azure 網站或雲端服務。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="使用 Visual Studio Online 和 Git 連續傳遞至 Azure" authors="ghogen" solutions="" manager="douge" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
 # 使用 Visual Studio Online 和 Git 連續傳遞至 Azure
 
@@ -8,9 +8,15 @@
 
 您需要安裝 Visual Studio 2013 和 Azure SDK。如果尚無 Visual Studio 2013，請至 [www.visualstudio.com][www.visualstudio.com] 選擇 [免費開始用] 連結來下載。從[這裡][這裡]安裝 Azure SDK。
 
+<div class="wa-note">
+  <span class="wa-icon-bulb"></span>
+<h5><a name="note"></a>您需要 Visual Studio Online 帳戶，才能完成本教學課程：</h5>
+<p>您可以<a href="http://go.microsoft.com/fwlink/p/?LinkId=512979">免費開啟 Visual Studio Online 帳戶</a>。</p>
+</div>
+
 若要使用 Visual Studio Online 將雲端服務設定為自動建立和部署至 Azure，請依照下列步驟進行：
 
--   [步驟 1：註冊 Visual Studio Online 並建立 Git 儲存機制。][步驟 1：註冊 Visual Studio Online 並建立 Git 儲存機制。]
+-   [步驟 1：建立 Git 儲存機制。][步驟 1：建立 Git 儲存機制。]
 
 -   [步驟 2：建立專案並推送至 Git 儲存機制。][步驟 2：建立專案並推送至 Git 儲存機制。]
 
@@ -24,7 +30,7 @@
 
 -   [步驟 7：從工作分支部署][步驟 7：從工作分支部署]
 
-## <a name="step1"></a><span class="short-header">步驟 1：註冊 Visual Studio Online 並建立 Git 儲存機制。</span>步驟 1：註冊 Visual Studio Online 並建立 Git 儲存機制
+## <a name="step1"></a><span class="short-header">步驟 1：建立 Git 儲存機制。</span>步驟 1：建立 Git 儲存機制
 
 1.  如果您還沒有 Visual Studio Online 帳戶，請依照[這裡][1]的指示進行。建立小組專案時，請選擇 Git 作為原始檔控制系統。依照指示將 Visual Studio 連接至小組專案。
 
@@ -110,15 +116,80 @@
     如果您不要使用預設值，請指定屬性的值。Azure 發行屬性在 [部署] 區段中，您也可能需要設定 MSBuild 參數。例如，在雲端服務專案中，若要指定 "Cloud" 以外的服務組態，請將 MSbuild 參數設為 /p:TargetProfile=*YourProfile*，其中 *YourProfile* 符合一個以 ServiceConfiguration.*YourProfile*.cscfg 命名的服務組態檔。
     下表顯示 [部署] 區段中可用的屬性：
 
-  <table>
-  <tr><td><b>屬性</b></td><td><b>預設值</b></td></tr>
-  <tr><td>允許未受信任的憑證</td><td>若為 false，則必須由根授權單位簽署 SSL 憑證。</td></tr>
-  <tr><td>允許升級</td><td>允許部署更新現有的部署而非建立新的部署。保留 IP 位址。</td></tr>
-  <tr><td>不要刪除</td><td>若為 true，則不覆寫現有的不相關部署 (允許升級)。</td></tr>
-  <tr><td>部署設定的路徑</td><td>網站的 .pubxml 檔案路徑 (相對於儲存機制的根資料夾)。雲端服務會忽略此參數。</td></tr>
-  <tr><td>Sharepoint 部署環境</td><td>與服務名稱相同</td></tr>
-  <tr><td>Windows Azure 部署環境</td><td>網站或雲端服務名稱</td></tr>
-  </table>
+    <table>
+
+    <tr>
+    <td>
+    **屬性**
+
+    </td>
+    <td>
+    **預設值**
+
+    </td>
+    </tr>
+    </p>
+    > <tr>
+    > <td>
+    > 允許未受信任的憑證
+    >
+    > </td>
+    > <td>
+    > 若為 false，則必須由根授權單位簽署 SSL 憑證。
+    >
+    > </td>
+    > </tr>
+    > <tr>
+    > <td>
+    > 允許升級
+    >
+    > </td>
+    > <td>
+    > 允許部署更新現有的部署而非建立新的部署。保留 IP 位址。
+    >
+    > </td>
+    > </tr>
+    > <tr>
+    > <td>
+    > 不要刪除
+    >
+    > </td>
+    > <td>
+    > 若為 true，則不覆寫現有的不相關部署 (允許升級)。
+    >
+    > </td>
+    > </tr>
+    > <tr>
+    > <td>
+    > 部署設定的路徑
+    >
+    > </td>
+    > <td>
+    > 網站的 .pubxml 檔案路徑 (相對於儲存機制的根資料夾)。雲端服務會忽略此參數。
+    >
+    > </td>
+    > </tr>
+    > <tr>
+    > <td>
+    > Sharepoint 部署環境
+    >
+    > </td>
+    > <td>
+    > 與服務名稱相同
+    >
+    > </td>
+    > </tr>
+    > <tr>
+    > <td>
+    > Windows Azure 部署環境
+    >
+    > </td>
+    > <td>
+    > 網站或雲端服務名稱
+    >
+    > </td>
+    > </tr>
+    > </table>
 
 11. 現在應該已順利完成您的組建。
     ![][20]
@@ -183,10 +254,11 @@
 
   [www.visualstudio.com]: http://www.visualstudio.com
   [這裡]: http://go.microsoft.com/fwlink/?LinkId=239540
-  [步驟 1：註冊 Visual Studio Online 並建立 Git 儲存機制。]: #step1
+  [步驟 1：建立 Git 儲存機制。]: #step1
   [步驟 2：建立專案並推送至 Git 儲存機制。]: #step2
   [步驟 3：將專案連線至 Azure。]: #step3
   [步驟 4：進行變更並觸發重建和重新部署。]: #step4
+  [步驟 5：重新部署舊版組建 (選用)]: #step5
   [步驟 6：變更生產部署]: #step6
   [步驟 7：從工作分支部署]: #step7
   [1]: http://go.microsoft.com/fwlink/?LinkId=397665

@@ -1,10 +1,14 @@
-<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="如何使用資料表儲存體 (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="如何在 Azure 中使用資料表儲存體服務。程式碼範例以 Node.js API 撰寫。" metaCanonical="" services="storage" documentationCenter="nodejs" title="如何從 Node.js 使用資料表服務" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 如何從 Node.js 使用資料表服務
 
-本指南將示範如何使用 Azure 資料表服務執行一般案例。這些範例使用 Node.js API 撰寫。所涵蓋的案例包括「建立和刪除資料表」、「在資料表中插入及查詢實體」。如需資料表的詳細資訊，請參閱[後續步驟][後續步驟]一節。
+本指南將示範如何使用 Azure 資料表服務執行一般案例。
+這些範例使用 Node.js API 撰寫。
+所涵蓋的案例包括「建立和刪除資料表」、
+「在資料表中插入及查詢實體」。如需資料表的詳細資訊，
+請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
@@ -41,7 +45,7 @@
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用命令列介面，例如 **PowerShell** (Windows)、\[終端機] (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
+1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
 
 2.  在命令視窗中輸入 **npm install azure-storage**，該命令應能產生以下輸出：
 
@@ -55,11 +59,14 @@
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  您可以手動執行 **ls** 命令，確認已建立 **node\_modules** 資料夾。在該資料夾內，您會找到 **azure-storage** 封裝，其中包含您存取儲存體所需的程式庫。
+3.  您可以手動執行 **ls** 命令，確認已建立
+    **node\_modules** 資料夾。在該資料夾內，
+    您會找到 **azure-storage** 封裝，其中包含您存取儲存體所需的程式庫。
 
 ### 匯入封裝
 
-使用記事本或其他文字編輯器，將以下內容新增至您要使用儲存體之應用程式的 **server.js** 檔案頂端：
+使用記事本或其他文字編輯器，將以下內容新增至您要使用儲存體之應用程式的
+**server.js** 檔案頂端：
 
     var azure = require('azure-storage');
 
@@ -76,7 +83,8 @@ Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_AC
 
     var tableSvc = azure.createTableService();
 
-呼叫 **createTableIfNotExists** 會以指定的名稱建立新的資料表(若尚未存在)。如果名為 'mytable' 的資料表尚不存在，下列範例便會建立這個新資料表：
+呼叫 **createTableIfNotExists** 會以指定的名稱建立新的資料表
+(若尚未存在)。如果名為 'mytable' 的資料表尚不存在，下列範例便會建立這個新資料表：
 
     tableSvc.createTableIfNotExists('mytable', function(error, result, response){
         if(!error){
@@ -105,7 +113,8 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 ## <a name="add-entity"> </a>如何將實體新增至資料表
 
-若要新增實體，請先建立一個定義實體屬性的物件。所有實體必須包含 **PartitionKey** 和 **RowKey**，這些是實體的唯一識別碼。
+若要新增實體，請先建立一個定義實體屬性的物件。
+所有實體必須包含 **PartitionKey** 和 **RowKey**，這些是實體的唯一識別碼。
 
 -   **PartitionKey** - 決定儲存實體的資料分割。
 
@@ -134,7 +143,8 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
       dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
     };
 
-若要將實體新增至資料表，請將實體物件傳給 **insertEntity** 方法。
+若要將實體新增至資料表，請將實體物件傳給
+ **insertEntity** 方法。
 
     tableSvc.insertEntity('mytable',task, function (error, result, response) {
         if(!error){
@@ -177,14 +187,16 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 >     `entity2['.metadata'].etag = currentEtag;`
 >
 > 3.  執行更新操作。如果您在擷取 ETag 值時已修改實體，例如您應用程式的其他執行個體，會傳回 `error`，指出不符合要求中指定的更新條件。
-
+>
 使用 **updateEntity** 及 **mergeEntity** 時，如果正在更新的實體不存在，則更新操作會失敗。因此，如果您要儲存一個實體，而不管它是否已存在，您應該改用 **insertOrReplaceEntity** 或 **insertOrMergeEntity**。
 
 在 `result` 更新操作成功時將包含已更新之實體的 **Etag**。
 
 ## <a name="change-entities"> </a>如何使用實體群組
 
-有時候批次提交多個操作是有意義的，可以確保伺服器會進行不可部分完成的處理。若要達到此目的，請使用 **TableBatch** 類別建立批次，然後使用 **TableService** 的 **executeBatch** 方法來執行批次操作。
+有時候批次提交多個操作是有意義的，可以確保伺服器會進行不可部分完成的處理。
+若要達到此目的，
+請使用 **TableBatch** 類別建立批次，然後使用 **TableService** 的 **executeBatch** 方法來執行批次操作。
 
 下列範例示範在批次中提交兩個實體：
 
@@ -282,7 +294,10 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 ## <a name="delete-entity"> </a>如何刪除實體
 
-您可以使用實體的資料分割和資料列索引鍵來刪除實體。在這個範例中，**task1** 物件包含要刪除之實體的 **RowKey** 和 **PartitionKey** 值。然後將物件傳給 **deleteEntity** 方法。
+您可以使用實體的資料分割和資料列索引鍵來刪除實體。在這個範例中，
+**task1** 物件包含要刪除之實體的 **RowKey** 和
+**PartitionKey** 值。然後將物件
+傳給 **deleteEntity** 方法。
 
     var task = { 
       PartitionKey: {'_':'hometasks'},
@@ -416,8 +431,6 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [作法：刪除實體]: #delete-entity
   [作法：刪除資料表]: #delete-table
   [作法：使用共用存取簽章]: #sas
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [建立 Node.js 應用程式並將其部署到 Azure 網站]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [Node.js 雲端服務]: /zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [使用 WebMatrix 的網站]: /zh-tw/documentation/articles/web-sites-nodejs-use-webmatrix/

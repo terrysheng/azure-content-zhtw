@@ -1,14 +1,14 @@
-<properties title="Generate movie recommendations using Mahout" pageTitle="Generate movie recommendations using Mahout with Microsoft Azure HDInsight (Hadoop)" description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop)" metaKeywords="Azure hdinsight mahout, Azure hdinsight machine learning, azure hadoop mahout, azure hadoop machine learning" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" />
+<properties title="使用 Mahout 來產生電影推薦" pageTitle="搭配 Microsoft Azure HDInsight (Hadoop) 使用 Mahout 來產生電影推薦" description="了解如何搭配 HDInsight (Hadoop) 使用 Apache Mahout 機器學習庫來產生電影推薦" metaKeywords="Azure hdinsight mahout, Azure hdinsight machine learning, azure hadoop mahout, azure hadoop machine learning" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 搭配 HDInsight (Hadoop) 使用 Apache Mahout 來產生電影推薦
 
 了解如何搭配 Microsoft Azure HDInsight (Hadoop) 使用 [Apache Mahout][Apache Mahout] 機器學習庫來產生電影推薦。
 
 > [WACOM.NOTE] 您必須有 HDInsight 叢集，才能使用本文的資訊。如需有關建立此叢集的資訊，請參閱[開始使用 Azure HDInsight][開始使用 Azure HDInsight]。
-
-> [WACOM.NOTE] Mahout 隨附於 HDInsight 3.1 叢集。如果您使用舊版的 HDInsight，請參閱[安裝 Mahout][安裝 Mahout] 再繼續。
+>
+> Mahout 隨附於 HDInsight 3.1 叢集。如果您使用舊版的 HDInsight，請參閱[安裝 Mahout][安裝 Mahout] 再繼續。
 
 ## <a name="learn"></a>學習目標
 
@@ -70,7 +70,7 @@ GroupLens Research 提供 Mahout 相容格式的[電影評價資料][電影評�
     $clusterName = "the cluster name"
 
     # The location of the Mahout jar file.
-    $jarFile = "C:\apps\dist\mahout-0.9.0.2.1.3.0-1887\examples\target\mahout-examples-0.9.0.2.1.3.0-1887-job.jar"
+    $jarFile = "file:///c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar"
     # NOTE: The version number portion of the file path
     # may change in future versions of HDInsight.
     # Use the following to find the location and name
@@ -260,13 +260,13 @@ Mahout 可用的其中一個分類方法是建置[隨機森林][隨機森林]。
 
 Mahout 目前的實作與 University of California, Irvine (UCI) 儲存機制格式相容 [這有何重要、這是什麼格式]
 
-1.  從 [][]<http://nsl.cs.unb.ca/NSL-KDD/></a> 下載下列檔案。
+1.  從 <http://nsl.cs.unb.ca/NSL-KDD/> 下載下列檔案。
 
 -   [KDDTrain+.ARFF][KDDTrain+.ARFF] - 訓練檔案
 
 -   [KDDTest+.ARFF][KDDTest+.ARFF] - 測試資料
 
-1.  開啟每一個檔案並移除頂端以 <'@'> 開頭的各行，然後儲存檔案。如果未移除，則在 Mahout 中使用此資料時會發生錯誤。
+1.  開啟每一個檔案並移除頂端以 '@' 開頭的各行，然後儲存檔案。如果未移除，則在 Mahout 中使用此資料時會發生錯誤。
 
 2.  將檔案上傳至 **example/data**。您可以使用 [HDInsight-Tools][HDInsight-Tools] PowerShell 模組中的 `Add-HDInsightFile` 函數來完成此動作。
 
@@ -405,7 +405,6 @@ Mahout 工作不會清除在處理期間所建立的暫存檔。此外，工作�
   [HDInsight-Tools]: https://github.com/Blackmist/hdinsight-tools
   [將資料上傳至 HDInsight]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-upload-data/
   [隨機森林]: http://en.wikipedia.org/wiki/Random_forest
-  []: http://nsl.cs.unb.ca/NSL-KDD/
   [KDDTrain+.ARFF]: http://nsl.cs.unb.ca/NSL-KDD/KDDTrain+.arff
   [KDDTest+.ARFF]: http://nsl.cs.unb.ca/NSL-KDD/KDDTest+.arff
   [Azure 管理入口網站]: https://manage.windowsazure.com/

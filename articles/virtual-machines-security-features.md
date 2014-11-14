@@ -1,6 +1,6 @@
-<properties title="Security offerings for Azure Virtual Machines" pageTitle="Security offerings for Azure Virtual Machines" description="Quick overview of key security features for Azure VMs and links to details" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
+<properties title="Azure 虛擬機器的安全性產品" pageTitle="Azure 虛擬機器的安全性產品" description="Azure VM 重要安全性功能的快速概觀及詳細資料的連結" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav" />
 
 # Azure 虛擬機器的安全性產品
 
@@ -22,6 +22,12 @@ Azure 提供數個防毒/反惡意程式碼解決方案的選項，但管理則�
 
 網路存取控制清單 (ACL) 可讓您選擇性地允許或拒絕輸入虛擬機器端點的流量。此封包篩選功能提供了一層額外的安全性。如需此作業的運作方式和指示的連結，請參閱[關於網路存取控制清單 (ACL)][關於網路存取控制清單 (ACL)]。
 
+## 其他資源
+
+Microsoft Azure 信任中心上的[資源][資源]
+
   [如何在 Azure VM 上安裝和設定 Symantec Endpoint Protection]: http://go.microsoft.com/fwlink/p/?LinkId=404207
   [如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service]: http://go.microsoft.com/fwlink/p/?LinkId=404206
   [在 Azure 虛擬機器上部署反惡意程式碼解決方案]: http://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/
+  [關於網路存取控制清單 (ACL)]: http://go.microsoft.com/fwlink/?LinkId=506655
+  [資源]: http://azure.microsoft.com/zh-tw/support/trust-center/resources/

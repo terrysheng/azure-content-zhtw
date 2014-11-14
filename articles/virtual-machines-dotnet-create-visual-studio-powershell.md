@@ -1,6 +1,6 @@
-<properties linkid="dotnet-visualstudio-create-virtual-machine" urlDisplayName="Create a virtual machine for a website" pageTitle="Creating a virtual machine for a web project using Visual Studio" metaKeywords="Visual Studio, ASP.NET, web project, virtual machine" description="Create a virtual machine for a website" metaCanonical="" services="" documentationCenter="" title="Creating a virtual machine for a website with Visual Studio" authors="ghogen" solutions="" manager="" editor="" />
+<properties urlDisplayName="Create a virtual machine for a website" pageTitle="使用 Visual Studio 建立 Web 專案的虛擬機器" metaKeywords="Visual Studio, ASP.NET, web project, virtual machine" description="建立網站的虛擬機器" metaCanonical="" services="" documentationCenter="" title="使用 Visual Studio 建立網站的虛擬機器" authors="ghogen" solutions="" manager="douge" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
 # 使用 Visual Studio 建立網站的虛擬機器
 
@@ -8,23 +8,23 @@
 
 若要在建立網站時建立虛擬機器，請依照下列步驟進行：
 
-1.  在 Visual Studio 中，依序選擇 **[檔案]**、**[新增專案]**、**[Web]**，及 **[ASP.NET Web 應用程式]**。
-2.  在 **[New ASP.NET Project]** 對話方塊中，選取您要的 Web 應用程式類型，然後在對話方塊的 Azure 區段 (位於右下角) 中，確定已勾選 **[Host in the cloud]** 核取方塊 (在某些安裝中，此核取方塊會標示為 **[Create remote resources]**)。
+1.  在 Visual Studio 中，依序選擇 [檔案]、[新增專案]、[Web]，及 [ASP.NET Web 應用程式]。
+2.  在 [New ASP.NET Project] 對話方塊中，選取您要的 Web 應用程式類型，然後在對話方塊的 Azure 區段 (位於右下角) 中，確定已勾選 [Host in the cloud] 核取方塊 (在某些安裝中，此核取方塊會標示為 [Create remote resources])。
 
-    ![][]
+    ![][0]
 
-3.  選擇 **[虛擬機器]**，然後選擇 **[確定]** 按鈕。
+3.  選擇 [虛擬機器]，然後選擇 [確定] 按鈕。
 4.  如果出現提示，請登入 Azure。[建立虛擬機器] 對話方塊隨即出現。
 
     ![][1]
 
 5.  在 [DNS 名稱] 方塊中，輸入虛擬機器的名稱。DNS 名稱在 Azure 中必須是唯一的。如果您輸入的名稱無法使用，便會出現紅色的驚嘆號。
 6.  在映像清單中，在虛擬機器上選擇您要的作業系統映像。您可以選擇任何標準映像，或選擇您上傳至 Azure 的專屬映像。
-7.  除非您計畫安裝其他的 Web 伺服器，否則請將 **[Enable IIS and Web Deploy]** 核取方塊保持為已勾選。如果停用 [Web 部署]，您將無法從 Visual Studio 發佈。您可以將 IIS 和 Web 部署加入任何已封裝的 Windows Server 映像，包括您專屬的自訂映像。
-8.  在 **[大小]** 清單中，選擇虛擬機器的大小。
+7.  除非您計畫安裝其他的 Web 伺服器，否則請將 [Enable IIS and Web Deploy] 核取方塊保持為已勾選。如果停用 [Web 部署]，您將無法從 Visual Studio 發佈。您可以將 IIS 和 Web 部署加入任何已封裝的 Windows Server 映像，包括您專屬的自訂映像。
+8.  在 [大小] 清單中，選擇虛擬機器的大小。
 9.  指定此虛擬機器的登入認證。請記下這些資訊，因為您在透過遠端桌面存取機器時將會需要這些資訊。
-10. 在 **[位置]** 清單中，選擇 [區域]、[虛擬網路] 或將代管虛擬機器的 [同質群組]。您可以使用同質群組，以確保彼此之間擁有許多網路流量的 Azure 資源會被放置在相同的資料中心內，或者您可以使用區域來指定確切的資料中心位置。
-11. 選擇 **[確定]** 以開始建立虛擬機器的程序。您可以依照 [輸出] 視窗中的進度執行。
+10. 在 [位置] 清單中，選擇 [區域]、[虛擬網路] 或將代管虛擬機器的 [同質群組]。您可以使用同質群組，以確保彼此之間擁有許多網路流量的 Azure 資源會被放置在相同的資料中心內，或者您可以使用區域來指定確切的資料中心位置。
+11. 選擇 [確定] 以開始建立虛擬機器的程序。您可以依照 [輸出] 視窗中的進度執行。
 
     ![][2]
 
@@ -38,13 +38,13 @@
 
     ![][3]
 
-1.  (選擇性) 在 **[伺服器總管]** 中，展開 **[虛擬機器]** 節點，為所建立的虛擬機器選擇節點，然後選擇 **[Connect with Remote Desktop]** 以連線到虛擬機器。
+1.  (選擇性) 在 [伺服器總管] 中，展開 [虛擬機器] 節點，為所建立的虛擬機器選擇節點，然後選擇 [Connect with Remote Desktop] 以連線到虛擬機器。
 
 # 後續步驟
 
 如果您要自訂您所建立的發佈指令碼，請參閱[此處][此處]以取得更多深入資訊。
 
-  []: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_NewProject.PNG
+  [0]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_NewProject.PNG
   [1]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_CreateVM.PNG
   [2]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_Provisioning.png
   [3]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SolutionExplorer.png

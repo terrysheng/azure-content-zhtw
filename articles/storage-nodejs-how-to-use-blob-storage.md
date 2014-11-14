@@ -1,10 +1,14 @@
-<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Blob Service" pageTitle="如何使用 Blob 儲存體 (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="了解如何使用 Azure Blob 服務來上傳、下載、列出及刪除 Blob 內容。範例以 Node.js 撰寫。" metaCanonical="" services="storage" documentationCenter="nodejs" title="如何從 Node.js 使用 Blob 服務" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 如何從 Node.js 使用 Blob 服務
 
-本指南將示範如何使用 Azure Blob 服務執行一般案例。這些範例使用 Node.js API 撰寫。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][後續步驟]一節。
+本指南將示範如何使用 Azure Blob 服務執行一般案例。
+這些範例使用 Node.js API 撰寫。
+所涵蓋的案例包括「上傳」、「列出」、
+「下載」及「刪除」Blob。如需 Blob 的詳細資訊，
+請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
@@ -53,11 +57,14 @@
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  您可以手動執行 **ls** 命令，確認已建立 **node\_modules** 資料夾。在該資料夾內找出 **azure-storage** 封裝，其中包含您存取儲存體所需的程式庫。
+3.  您可以手動執行 **ls** 命令，確認已建立
+    **node\_modules** 資料夾。在該資料夾內找出
+    **azure-storage** 封裝，其中包含您存取儲存體所需的程式庫。
 
 ### 匯入封裝
 
-使用記事本或其他文字編輯器，將以下內容新增至您要使用儲存體之應用程式的 **server.js** 檔案頂端：
+使用記事本或其他文字編輯器，將以下內容新增至您要使用儲存體之應用程式的
+**server.js** 檔案頂端：
 
     var azure = require('azure-storage');
 
@@ -69,7 +76,9 @@ Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_AC
 
 ## <a name="create-container"> </a>作法：建立容器
 
-**BlobService** 物件讓您能使用容器及 blob。下列程式碼會建立 **BlobService** 物件。將下列內容新增至接近 **server.js** 的頂端：
+**BlobService** 物件讓您能使用容器及 blob。
+下列程式碼會建立 **BlobService** 物件。將下列內容新增至
+接近 **server.js** 的頂端：
 
     var blobSvc = azure.createBlobService();
 
@@ -162,7 +171,7 @@ Blob 可以是區塊，或以分頁為基礎。Block 區塊可讓您更有效率
 
 -   **createPageBlob** - 建立特定長度的新分頁 Blob。
 
--   **createPageBlobFromFile** - 建立新的分頁 Blob 並上傳檔案的內容。
+-   **createPageBlobFromLocalFile** - 建立新的分頁 Blob 並上傳檔案的內容。
 
 -   **createPageBlobFromStream** - 建立新的分頁 Blob 並上傳串流的內容。
 
@@ -172,7 +181,7 @@ Blob 可以是區塊，或以分頁為基礎。Block 區塊可讓您更有效率
 
 下列範例會將 **test.txt** 檔的內容上傳至 **mypageblob**。
 
-    blobSvc.createPageBlobFromFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
+    blobSvc.createPageBlobFromLocalFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
       if(!error){
         // file uploaded
       }
@@ -373,8 +382,6 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [作法：刪除 Blob]: #delete-blobs
   [作法：並行存取]: #concurrent-access
   [作法：使用共用存取簽章]: #sas
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [建立 Node.js 應用程式並將其部署到 Azure 網站]: /zh-tw/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js 雲端服務]: /zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [使用 WebMatrix 的網站]: /zh-tw/documentation/articles/web-sites-nodejs-use-webmatrix/

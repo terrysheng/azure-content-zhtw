@@ -1,4 +1,4 @@
-<properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Tomcat on Virtual Machine" pageTitle="虛擬機器上的 Tomcat - Azure 教學課程" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="了解如何建立執行 Windows 的虛擬機器，並設定此機器執行 Apache Tomcat 應用程式伺服器。" metaCanonical="" services="virtual-machines" documentationCenter="Java" title="如何在虛擬機器上執行 Java 應用程式伺服器" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -28,19 +28,24 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
     請注意，唯有當您擁有尚未做好在 JDK 7 中運作之準備的舊版應用程式時，才能選取 [JDK 6 Windows Server 2012]。
 4.  按 [下一步]。
 5.  在 [虛擬機器組態] 對話方塊中：
+
     1.  指定虛擬機器的名稱。
     2.  指定要用於虛擬機器的大小。
     3.  在 [使用者名稱] 欄位中輸入系統管理員的名稱。請記住即將輸入的名稱和密碼，因為當您從遠端登入此虛擬機器時將需要用到它們。
     4.  在 [新增密碼] 欄位中輸入密碼，然後在 [確認] 欄位中再輸入一次。此為系統管理員帳戶的密碼。
     5.  按 [下一步]。
+
 6.  在下一個 [虛擬機器組態] 對話方塊中：
+
     1.  對於 [雲端服務]，請使用預設值 [Create a new cloud service]
     2.  [Cloud service DNS name] 的值在整個 cloudapp.net 中必須是唯一的。如有需要，請修改此值，讓 Azure 指出此值是唯一的。
     3.  指定區域、同質群組或虛擬網路。為因應本教學課程的目的，請指定如 [美國西部] 的區域。
     4.  對於 [儲存體帳戶]，請選取 [Use an automatically generated storage account]。
     5.  對於 [可用性設定組]，請選取 [(無)]。
     6.  按 [下一步]。
+
 7.  在最終的 [虛擬機器組態] 對話方塊中：
+
     1.  接受預設的端點項目。
     2.  按一下 [完成]。
 
@@ -49,8 +54,9 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 1.  登入[管理入口網站][Azure 管理入口網站]。
 2.  按一下 [虛擬機器]。
 3.  按一下要登入的虛擬機器名稱。
-4.  按一下 [連接]。
-5.  視需要回應提示以連接虛擬機器。當要求提供系統管理員名稱和密碼的提示出現時，請使用在建立虛擬機器時提供的值。
+4.  在啟動虛擬機器後，頁面底部的快顯功能表將可允許連線。
+5.  按一下 [連接]。
+6.  視需要回應提示以連接虛擬機器。這應會需要儲存或開啟包含連線詳細資料的 .rdp 檔案。您可能必須複製作為 .rdp 檔案第一行最後一個部分的 url:port，並將它貼入遠端登入應用程式中。
 
 ## 將 Java 應用程式伺服器安裝在虛擬機器上
 
@@ -80,6 +86,7 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 5.  按一下 [新增]。
 6.  在 [新增端點] 對話方塊中，確認 [Add standalone endpoint] 已勾選，然後按 [下一步]。
 7.  在 [新端點詳細資訊] 對話方塊中：
+
     1.  指定端點的名稱，如 **HttpIn**。
     2.  指定 [TCP] 通訊協定。
     3.  指定公用連接埠 [80]。
@@ -94,29 +101,29 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 4.  依序按一下 [系統及安全性]、[Windows 防火牆] 及 [進階設定]。
 5.  按一下 [輸入規則]，然後按一下 [新增規則]。
 
-    ![新增輸入規則][新增輸入規則]
+![新增輸入規則][新增輸入規則]
 
 1.  針對新規則的 [規則類型] 選取 [連接埠]，然後按 [下一步]。
 
-    ![新增輸入規則連接埠][新增輸入規則連接埠]
+![新增輸入規則連接埠][新增輸入規則連接埠]
 
 1.  選取 [TCP] 通訊協定並指定連接埠 [8080]，然後按 [下一步]。
 
-    ![新增輸入規則][1]
+![新增輸入規則][1]
 
 1.  選擇 [允許連線]，然後按 [下一步]。
 
-    ![新增輸入規則動作][新增輸入規則動作]
+![新增輸入規則動作][新增輸入規則動作]
 
 1.  確認設定檔的 [網域]、[私人] 及 [公用] 均已勾選，然後按 [下一步]。
 
-    ![新增輸入規則設定檔][新增輸入規則設定檔]
+![新增輸入規則設定檔][新增輸入規則設定檔]
 
 1.  指定規則的名稱 (如 **HttpIn**，不過規則名稱不一定要與端點名稱相符)，然後按一下 [完成]。
 
-    ![新增輸入規則名稱][新增輸入規則名稱]
+![新增輸入規則名稱][新增輸入規則名稱]
 
-此時，您應該可以使用 **http://*your_DNS_name*.cloudapp.net**格式的 URL (其中**<i> your\_DNS\_name</i>** 代表在建立虛擬機器時指定的 DNS 名稱)，從外部瀏覽器檢視 Tomcat 網站。
+此時，您應該可以使用 **http://*your\_DNS\_name*.cloudapp.net** 格式的 URL (其中 ***your\_DNS\_name*** 代表在建立虛擬機器時指定的 DNS 名稱)，從外部瀏覽器檢視 Tomcat 網站。
 
 ## 應用程式生命週期考量
 
@@ -132,7 +139,6 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 -   藉由檢視 <http://www.windowsazure.com/zh-tw/develop/java/> 提供的資訊來了解其他您可能會想要納入 Java 應用程式中的服務，如 Azure 儲存體、服務匯流排、SQL Database 等。
 
   [執行 Apache Tomcat 的虛擬機器]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
-  [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [新增輸入規則]: ./media/virtual-machines-java-run-tomcat-application-server/NewInboundRule.png
   [新增輸入規則連接埠]: ./media/virtual-machines-java-run-tomcat-application-server/NewRulePort.png

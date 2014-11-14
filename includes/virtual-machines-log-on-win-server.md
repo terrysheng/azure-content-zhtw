@@ -1,4 +1,4 @@
-<properties linkid="manage-windows-howto-logon" urlDisplayName="Log on to a VM" pageTitle="Log on to a virtual machine running Windows Server" metaKeywords="Azure logging on vm, vm portal" description="Learn how to log on to a virtual machine running Windows Server 2008 R2 by using the Azure Management Portal." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties linkid="manage-windows-howto-logon" urlDisplayName="Log on to a VM" pageTitle="登入執行 Windows Server 的虛擬機器" metaKeywords="Azure logging on vm, vm portal" description="了解如何使用 Azure 管理入口網站來登入執行 Windows Server 2008 R2 的虛擬機器。" metaCanonical="" services="virtual-machines" documentationCenter="" title="如何登入執行 Windows Server 的虛擬機器" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
 
 > [WACOM.NOTE] 如需需求和疑難排解秘訣，請參閱[透過 RDP 或 SSH 連線至 Azure 虛擬機器][透過 RDP 或 SSH 連線至 Azure 虛擬機器]。
 

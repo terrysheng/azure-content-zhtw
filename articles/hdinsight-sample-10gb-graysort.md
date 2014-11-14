@@ -1,12 +1,12 @@
-<properties linkid="manage-services-hdinsight-sample-10gb-graysort" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The 10GB GraySort sample | Azure" metaKeywords="hdinsight, hadoop, hdinsight administration, hdinsight administration azure" description="Learn how to run a general purpose GraySort on Hadoop with HDInsight using Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The 10GB GraySort sample" authors="bradsev" />
+<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="10GB GraySort 範例 | Azure" metaKeywords="hdinsight, hadoop, hdinsight administration, hdinsight administration azure" description="了解如何使用 Azure PowerShell 在 HDInsight 的 Hadoop 上執行一般用途的 GraySort。" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="10GB GraySort 範例" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # HDInsight 中的 10GB GraySort Hadoop 範例
 
 本範例主題說明如何使用 Azure PowerShell，在 Azure HDInsight 上執行一般用途的 GraySort Hadoop MapReduce 程式。GraySort 是一種效能評比排序，度量就是排序龐大的資料量時 (通常至少為 100 TB) 所達成的排序速度 (TB/分鐘)。
 
-本範例使用不是很大的 10 GB 資料，所以執行起來相當快。本範例使用 Owen O'Malley 和 Arun Murthy 所開發的 MapReduce 應用程式，此應用程式於 2009 年的年度一般用途 ("daytona") TB 排序效能評比中，速度達到 0.578 TB/分鐘 (173 分鐘內達到 100 TB)。如需此效能評比和其他排序效能評比的詳細資訊，請參閱 [Sortbenchmark][] 網站。
+本範例使用不是很大的 10 GB 資料，所以執行起來相當快。本範例使用 Owen O'Malley 和 Arun Murthy 所開發的 MapReduce 應用程式，此應用程式於 2009 年的年度一般用途 ("daytona") TB 排序效能評比中，速度達到 0.578 TB/分鐘 (173 分鐘內達到 100 TB)。如需此效能評比和其他排序效能評比的詳細資訊，請參閱 [Sortbenchmark][Sortbenchmark] 網站。
 
 本範例使用三組 MapReduce 程式：
 
@@ -23,20 +23,20 @@
 
 **必要條件**：
 
--   您必須具有 Azure 帳號。如需帳號註冊方式的相關資訊，請參閱 [Azure 免費試用][]頁面。
+-   您必須具有 Azure 帳號。如需帳號註冊方式的相關資訊，請參閱 [Azure 免費試用][Azure 免費試用]頁面。
 
--   您必須已佈建 HDInsight 叢集。如需有關透過其他各種方法建立此類叢集的指示，請參閱[佈建 HDInsight 叢集][]。
+-   您必須已佈建 HDInsight 叢集。如需有關透過其他各種方法建立此類叢集的指示，請參閱[佈建 HDInsight 叢集][佈建 HDInsight 叢集]。
 
--   您必須已安裝 Azure PowerShell 並加以設定，使其可用於您的帳號。如需執行此項作業之指示，請參閱＜[安裝和設定 Azure PowerShell][]＞。
+-   您必須已安裝 Azure PowerShell 並加以設定，使其可用於您的帳號。如需執行此項作業之指示，請參閱＜[安裝和設定 Azure PowerShell][安裝和設定 Azure PowerShell]＞。
 
 ## 本文內容
 
 本主題說明如何執行構成範例的一組 MapReduce 程式、呈現 MapReduce 程式的 Java 程式碼、總結所學知識及概述一些後續步驟。其中包含下列幾節。
 
-1.  [使用 Azure PowerShell 執行範例][]
-2.  [TeraSort MapReduce 程式的 Java 程式碼][]
-3.  [摘要][]
-4.  [後續步驟][]
+1.  [使用 Azure PowerShell 執行範例][使用 Azure PowerShell 執行範例]
+2.  [TeraSort MapReduce 程式的 Java 程式碼][TeraSort MapReduce 程式的 Java 程式碼]
+3.  [摘要][摘要]
+4.  [後續步驟][後續步驟]
 
 ## <span id="run-sample"></span></a>使用 Azure PowerShell 執行範例
 
@@ -48,7 +48,7 @@
 
 **執行 TeraGen 程式**
 
-1.  開啟 Azure PowerShell。如需有關開啟 Azure PowerShell 主控台視窗的指示，請參閱[安裝和設定 Azure PowerShell][]。
+1.  開啟 Azure PowerShell。如需有關開啟 Azure PowerShell 主控台視窗的指示，請參閱[安裝和設定 Azure PowerShell][安裝和設定 Azure PowerShell]。
 2.  在下列命令中設定 2 個變數，然後執行這些命令：
 
         # Provide the Azure subscription name and the HDInsight cluster name.
@@ -397,16 +397,16 @@
 
 關於執行其他範例的教學課程，以及如何以 Azure PowerShell 在 Azure HDInsight 上使用 Pig、Hive 和 MapReduce 工作的指示，請參閱下列主題：
 
--   [Azure HDInsight 使用者入門][]
--   [範例：Pi 估算器][]
--   [範例：字數統計][]
--   [範例：C# 串流][]
--   [搭配 HDInsight 使用 Pig][]
--   [搭配 HDInsight 使用 Hive][]
--   [Azure HDInsight SDK 文件][]
+-   [Azure HDInsight 使用者入門][Azure HDInsight 使用者入門]
+-   [範例：Pi 估算器][範例：Pi 估算器]
+-   [範例：字數統計][範例：字數統計]
+-   [範例：C# 串流][範例：C# 串流]
+-   [搭配 HDInsight 使用 Pig][搭配 HDInsight 使用 Pig]
+-   [搭配 HDInsight 使用 Hive][搭配 HDInsight 使用 Hive]
+-   [Azure HDInsight SDK 文件][Azure HDInsight SDK 文件]
 
   [Sortbenchmark]: http://sortbenchmark.org/
-  [Azure 免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Azure 免費試用]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
   [佈建 HDInsight 叢集]: ../hdinsight-provision-clusters/
   [安裝和設定 Azure PowerShell]: ../install-configure-powershell/
   [使用 Azure PowerShell 執行範例]: #run-sample
@@ -419,4 +419,4 @@
   [範例：C# 串流]: ../hdinsight-sample-csharp-streaming/
   [搭配 HDInsight 使用 Pig]: ../hdinsight-use-pig/
   [搭配 HDInsight 使用 Hive]: ../hdinsight-use-hive/
-  [Azure HDInsight SDK 文件]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Azure HDInsight SDK 文件]: http://msdnstage.redmond.corp.microsoft.com/zh-tw/library/dn479185.aspx

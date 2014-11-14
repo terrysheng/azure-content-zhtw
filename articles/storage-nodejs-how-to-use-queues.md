@@ -1,10 +1,14 @@
-<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Queue Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="如何使用佇列服務 (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。範例以 Node.js 撰寫。" metaCanonical="" services="storage" documentationCenter="nodejs" title="如何從 Node.js 使用佇列服務" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 如何從 Node.js 使用佇列服務
 
-本指南將示範如何使用 Windows Azure 佇列服務執行一般案例。這些範例使用 Node.js API 撰寫。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。如需佇列的詳細資訊，請參閱[後續步驟][後續步驟]一節。
+本指南將示範如何使用 Windows Azure 佇列服務執行一般案例。
+這些範例使用 Node.js API 撰寫。
+所涵蓋的案例包括「插入」、「查看」、
+「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。
+如需佇列的詳細資訊，請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
@@ -55,11 +59,14 @@
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  您可以手動執行 **ls** 命令，確認已建立 **node\_modules** 資料夾。在該資料夾內，您會找到 **azure-storage** 封裝，其中包含您存取儲存體所需的程式庫。
+3.  您可以手動執行 **ls** 命令，確認已建立
+    **node\_modules** 資料夾。在該資料夾內，
+    您會找到 **azure-storage** 封裝，其中包含您存取儲存體所需的程式庫。
 
 ### 匯入封裝
 
-使用記事本或其他文字編輯器，將以下內容新增至您要使用儲存體之應用程式的 **server.js** 檔案頂端：
+使用記事本或其他文字編輯器，將以下內容新增至您要使用儲存體之應用程式的
+**server.js** 檔案頂端：
 
     var azure = require('azure-storage');
 
@@ -75,7 +82,8 @@ Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_AC
 
     var queueSvc = azure.createQueueService();
 
-請使用 **createQueueIfNotExists** 方法，此方法會傳回指定的佇列 (如果佇列已經存在)，或以指定的名稱建立新佇列 (如果佇列不存在)。
+請使用 **createQueueIfNotExists** 方法，此方法會傳回指定的佇列 (如果佇列已經存在)，
+或以指定的名稱建立新佇列 (如果佇列不存在)。
 
     queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
       if(!error){
@@ -104,7 +112,8 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 ## <a name="insert-message"> </a>作法：將訊息插入佇列
 
-若要將訊息插入佇列，請使用 **createMessage** 方法建立新訊息，然後將該訊息加到佇列中。
+若要將訊息插入佇列，請使用 **createMessage** 方法建立新訊息，
+然後將該訊息加到佇列中。
 
     queueSvc.createMessage('myqueue', "Hello world!", function(error, result, response){
       if(!error){
@@ -114,7 +123,9 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 ## <a name="peek-message"> </a>作法：查看下一個訊息
 
-透過呼叫 **peekMessages** 方法，您可以在佇列前面查看訊息，而無需將它從佇列中移除。**peekMessages** 預設會查看單一訊息。
+透過呼叫 **peekMessages** 方法，您可以在佇列前面查看訊息，
+而無需將它從佇列中移除。
+**peekMessages** 預設會查看單一訊息。
 
     queueSvc.peekMessages('myqueue', function(error, result, response){
       if(!error){
@@ -333,8 +344,6 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [作法：取得佇列長度]: #get-queue-length
   [作法：刪除佇列]: #delete-queue
   [作法：使用共用存取簽章]: #sas
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [建立 Node.js 應用程式並將其部署到 Azure 網站]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [Node.js 雲端服務]: /zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [使用 WebMatrix 的網站]: /zh-tw/documentation/articles/web-sites-nodejs-use-webmatrix/

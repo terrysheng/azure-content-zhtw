@@ -1,10 +1,10 @@
-<properties pageTitle="Customizing the developer portal in Azure API Management" metaKeywords="" description="Customizing the developer portal in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="Customizing the developer portal in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+<properties pageTitle="在 Azure API 管理中自訂開發人員入口網站" metaKeywords="" description="在 Azure API 管理中自訂開發人員入口網站。" metaCanonical="" services="api-management" documentationCenter="API Management" title="在 Azure API 管理中自訂開發人員入口網站" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # 在 Azure API 管理中自訂開發人員入口網站
 
-本指南示範如何在 API 管理 (預覽) 中修改開發人員入口網站的外觀及操作，以便與您的品牌一致。
+本指南示範如何在 API 管理中修改開發人員入口網站的外觀及操作，以便與您的品牌一致。
 
 ## 本主題內容
 
@@ -17,7 +17,7 @@
 
 入口網站自訂的一個主要層面，便是將所有頁面頂端的文字以您的公司名稱或標誌取代。
 
-開發人員入口網站內的內容，是透過經 Azure 管理入口網站存取的發行者入口網站加以修改。若要連接「API 管理」主控台，請在 API 管理服務的 Azure 入口網站中按一下 \[管理主控台**\]。
+開發人員入口網站內的內容，是透過經 Azure 管理入口網站存取的發行者入口網站加以修改。若要連接「API 管理」主控台，請在 API 管理服務的 Azure 入口網站中按一下 [管理主控台]。
 
 ![管理主控台][管理主控台]
 
@@ -47,7 +47,7 @@
 
 > 如果您熟悉[啟動程序][啟動程序]，事實上，開發人員入口網站所使用啟動程序佈景主題內的這些規則[變數較少][變數較少]。
 
-讓我們變更頁首文字的色彩。選取位於 <**@headings-color**> 欄位中的項目以及 \#000000。這是黑色的十六進位碼執行這項作業，您會看見文字方塊末端出現方形色彩指示器。如果您按一下該指示器，將出現色彩選擇器，供您選擇色彩。
+讓我們變更頁首文字的色彩。選取位於 **@headings-color** 欄位中的項目以及類型 \#000000。這是黑色的十六進位碼。執行這項作業，您會看見文字方塊末端出現方形色彩指示器。如果您按一下該指示器，將出現色彩選擇器，供您選擇色彩。
 
 ![Color picker][Color picker]
 

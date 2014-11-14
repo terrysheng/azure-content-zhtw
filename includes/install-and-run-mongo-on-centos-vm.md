@@ -28,7 +28,7 @@
         $ sudo mkdir -p /srv/datadrive/data
         $ sudo chown `id -u` /srv/datadrive/data
 
-    如需在 Linux 上安裝 MongoDB 的詳細資訊，請參閱[快速入門 Unix][]。
+    如需在 Linux 上安裝 MongoDB 的詳細資訊，請參閱[快速入門 Unix][快速入門 Unix]。
 
 5.  若要啟動資料庫，請執行：
 
@@ -52,7 +52,7 @@
 
 7.  一旦 MongoDB 安裝完成，您必須設定端點，讓 MongoDB 可以遠端存取。在 [管理入口網站] 中，按一下 [虛擬機器]，接著按一下新虛擬機器的名稱，再按一下 [端點]。
 
-    ![Endpoints][]
+    ![Endpoints][Endpoints]
 
 8.  按一下頁面底部的 [新增端點]。
 
@@ -62,7 +62,6 @@
 
     ![Endpoints][2]
 
-  [安全性與驗證]: http://www.mongodb.org/display/DOCS/Security+and+Authentication
   [快速入門 Unix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
   [Endpoints]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
   [1]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png

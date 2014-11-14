@@ -1,10 +1,14 @@
-<properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="huvalo" videoId="" scriptId="" />
+<properties urlDisplayName="Blob Service" pageTitle="如何使用 Blob 儲存體 (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="了解如何使用 Azure Blob 服務來上傳、列出、下載及刪除 Blob。" metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="如何從 Python 使用 Blob 服務" authors="huvalo" videoId="" scriptId="" manager="wpickett" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo" />
 
 # 如何從 Python 使用 Blob 儲存體服務
 
-本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。這些範例使用 Python API 撰寫。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][後續步驟]一節。
+本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。
+這些範例使用 Python API 撰寫。
+所涵蓋的案例包括「上傳」、「列出」、
+「下載」及「刪除」Blob。如需 Blob 的詳細資訊，
+請參閱[後續步驟][後續步驟]一節。
 
 ## 目錄
 
@@ -29,9 +33,11 @@
 
 **注意：** 如果您需要安裝 Python 或用戶端程式庫，請參閱 [Python 安裝指南][Python 安裝指南]。
 
-**BlobService** 物件讓您能使用容器及 blob。下列程式碼會建立 **BlobService** 物件。將下列內容新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 Python 檔案內的頂端附近：
+**BlobService** 物件讓您能使用容器及 blob。
+下列程式碼會建立 **BlobService** 物件。將下列內容新增至
+您想要在其中以程式設計方式存取 Azure 儲存體之任何 Python 檔案內的頂端附近：
 
-    from azure.storage import *
+    from azure.storage import BlobService
 
 下列程式碼會使用儲存體帳戶名稱和帳戶金鑰來建立 **BlobService** 物件：將 'myaccount' 和 'mykey' 取代為真實的帳戶和金鑰。
 
@@ -49,7 +55,8 @@
 
     blob_service.set_container_acl('mycontainer', x_ms_blob_public_access='container')
 
-做此變更之後，網際網路上的任何人都可以看到公用容器中的 Blob，但只有您能修改或刪除它們。
+做此變更之後，網際網路上的任何人都可以看到公用容器中的 Blob，
+但只有您能修改或刪除它們。
 
 ## <a name="upload-blob"> </a>作法：將 Blob 上傳至容器
 
@@ -63,7 +70,9 @@
 
 ## <a name="list-blob"> </a>作法：列出容器中的 Blob
 
-若要列出容器中的 Blob，請搭配使用 **list\_blobs** 方法與 **for** 迴圈，顯示容器中每個 Blob 的名稱。下列程式碼將容器中每個 Blob 的 **name** 和 **url** 輸出到主控台。
+若要列出容器中的 Blob，請搭配使用 **list\_blobs** 方法與
+**for** 迴圈，顯示容器中每個 Blob 的名稱。
+下列程式碼將容器中每個 Blob 的 **name** 和 **url** 輸出到主控台。
 
     blobs = blob_service.list_blobs('mycontainer')
     for blob in blobs:
@@ -86,7 +95,8 @@
 
 ## <a name="next-steps"> </a>後續步驟
 
-了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
+了解 Blob 儲存體的基礎概念之後，
+請參考下列連結以了解如何執行更複雜的儲存工作。
 
 -   請參閱 MSDN 參考：[在 Azure 中儲存和存取資料][在 Azure 中儲存和存取資料]
 -   造訪 [Azure 儲存體團隊部落格][Azure 儲存體團隊部落格] (英文)。
@@ -101,8 +111,6 @@
   [作法：下載 Blob]: #download-blobs
   [作法：刪除 Blob]: #delete-blobs
   [作法：上傳及下載大型 Blob]: #large-blobs
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [Python 安裝指南]: ../python-how-to-install/
   [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/

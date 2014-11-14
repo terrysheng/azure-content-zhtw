@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-create-assets" urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Create Encrypted Asset and Upload to Storage Azure" metaKeywords="" description="Learn how to get media content into Media Services by creating and uploading an encrypted asset." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="建立加密資產並上傳至儲存體 Azure" metaKeywords="" description="了解如何建立並上傳加密資產，以將媒體內容移至媒體服務中。" metaCanonical="" services="media-services" documentationCenter="" title="作法：建立加密資產並上傳至儲存體" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # <a name="create-asset"> </a><span class="short header">作法：建立加密資產並上傳至儲存體</span>
 
-本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是[進行電腦的媒體服務設定][] (英文)。
+本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是[進行電腦的媒體服務設定][進行電腦的媒體服務設定] (英文)。
 
 若要將媒體內容導入媒體服務中，請先建立資產並為其新增檔案，然後上傳資產。我們將此程序稱為嵌入內容。
 
@@ -14,7 +14,8 @@
 -   **AssetCreationOptions.CommonEncryptionProtected**：適用於 Common Encryption Protected (CENC) 檔案。例如，已使用 PlayReady 加密的一組檔案。
 -   **AssetCreationOptions.StorageEncrypted**：儲存體加密。將尚未上傳至 Azure 儲存體的純文字輸入檔加密。
 
-**注意**：媒體服務所提供的是磁碟式儲存體加密，而不是透過數位版權管理員 (Digital Rights Manager, DRM) 等線路的加密。
+> WACOM.NOTE
+> 媒體服務可為您的資產提供磁碟上的儲存體加密，而不是在線上加密，例如數位版權管理員 (DRM)。
 
 下方的範例程式碼會執行下列動作：
 
@@ -113,7 +114,7 @@
 
 ## 後續步驟
 
-您已將資產上傳至媒體服務，現在請移至[如何取得媒體處理器][] (英文) 主題。
+您已將資產上傳至媒體服務，現在請移至[如何取得媒體處理器][如何取得媒體處理器] (英文) 主題。
 
   [進行電腦的媒體服務設定]: http://go.microsoft.com/fwlink/?LinkID=301751&clcid=0x409
-  [如何取得媒體處理器]: http://go.microsoft.com/fwlink/?LinkID=301732&clcid=0x409
+  [如何取得媒體處理器]: ../media-services-get-media-processor/

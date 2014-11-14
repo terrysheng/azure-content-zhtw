@@ -1,6 +1,6 @@
-<properties title="virtual-machines-how-to-inject-custom-data" pageTitle="Injecting Custom Data into Azure Virtual Machines" description="This topic describes how to inject custom data into an Azure Virtual Machine when the instance is created and how to locate the custom data on either Windows or Linux." metaKeywords="Azure linux vm, linux vm, userdata vm, user data vm, custom data vm, windows custom data" services="virtual-machines" solutions="" documentationCenter="" authors="rasquill" manager="dongill" editor="tysonn" videoId="" scriptId="" />
+<properties title="virtual-machines-how-to-inject-custom-data" pageTitle="將自訂資料插入 Azure 虛擬機器" description="本主題說明如何在建立執行個體時，將自訂資料插入 Azure 虛擬機器，以及如何在 Windows 或 Linux 上尋找自訂資料。" metaKeywords="Azure linux vm, linux vm, userdata vm, user data vm, custom data vm, windows custom data" services="virtual-machines" solutions="" documentationCenter="" authors="rasquill" manager="timlt" editor="tysonn" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="rasquill"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="rasquill" />
 
 # 將自訂資料插入 Azure 虛擬機器
 
@@ -38,7 +38,7 @@
 
 -   如果您的 Azure 虛擬機器是 Windows 虛擬機器，則自訂資料檔案會被儲存到 `%SYSTEMDRIVE%\AzureData\CustomData.bin`，而且雖然從本機電腦傳送到新虛擬機器的資料是 base64 編碼，系統會自動將它解碼並立即開啟使用。
 
-    > [WACOM.NOTE] 如果檔案已存在，則會被覆寫。目錄上的安全性會設為 [System:Full Control] 和 [Administrators:Full Control]。
+> [WACOM.NOTE] 如果檔案已存在，則會被覆寫。目錄上的安全性會設為 [System:Full Control] 和 [Administrators:Full Control]。
 
 -   如果您的 Azure 虛擬機器是 Linux 虛擬機器，則自訂資料檔案會位於下列兩個地方，但因為資料會是 base64 編碼，您必須先將資料解碼。
 

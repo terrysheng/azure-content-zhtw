@@ -1,32 +1,32 @@
-<properties urlDisplayName="Blob Service" pageTitle="如何使用 Blob 儲存體 (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="了解如何使用 Azure Blob 服務來上傳、下載、列出及刪除 Blob 內容。範例以 Java 撰寫。" metaCanonical="" services="storage" documentationCenter="Java" title="如何使用 Java 的 Blob 儲存體" authors="tamram" solutions="" manager="adinah" editor="" />
+﻿<properties urlDisplayName="Blob Service" pageTitle="如何使用 Blob 儲存體 (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="tamram" solutions="" manager="adinah" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # 如何使用 Java 的 Blob 儲存體
 
-本指南將示範如何使用 Microsoft Azure Blob 儲存體服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][Azure Storage SDK for Java]。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][後續步驟]一節。
+本指南將示範如何使用 Microsoft Azure Blob 儲存體服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][]。所涵蓋的案例包括**「上傳」**、**「列出」**、**「下載」**及**「刪除」**Blob。如需 Blob 的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
 
-注意：有一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。如需詳細資訊，請參閱 [Azure Storage SDK for Android][Azure Storage SDK for Android]。
+注意：有一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。如需詳細資訊，請參閱 [Azure Storage SDK for Android][]。 
 
 ## <a name="Contents"> </a>目錄
 
--   [什麼是 Blob 儲存體][什麼是 Blob 儲存體]
--   [概念][概念]
--   [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
--   [建立 Java 應用程式][建立 Java 應用程式]
--   [設定您的應用程式以存取 Blob 儲存體][設定您的應用程式以存取 Blob 儲存體]
--   [設定 Azure 儲存體連接字串][設定 Azure 儲存體連接字串]
--   [作法：建立容器][作法：建立容器]
--   [作法：將 Blob 上傳至容器][作法：將 Blob 上傳至容器]
--   [作法：列出容器中的 Blob][作法：列出容器中的 Blob]
--   [作法：下載 Blob][作法：下載 Blob]
--   [作法：刪除 Blob][作法：刪除 Blob]
--   [作法：刪除 Blob 容器][作法：刪除 Blob 容器]
--   [後續步驟][後續步驟]
+* [什麼是 Blob 儲存體](#what-is)
+* [概念](#Concepts)
+* [建立 Azure 儲存體帳戶](#CreateAccount)
+* [建立 Java 應用程式](#CreateApplication)
+* [設定您的應用程式以存取 Blob 儲存體](#ConfigureStorage)
+* [設定 Azure 儲存體連接字串](#ConnectionString)
+* [作法：建立容器](#CreateContainer)
+* [作法：將 Blob 上傳至容器](#UploadBlob)
+* [作法：列出容器中的 Blob](#ListBlobs)
+* [作法：下載 Blob](#DownloadBlob)
+* [作法：刪除 Blob](#DeleteBlob)
+* [作法：刪除 Blob 容器](#DeleteContainer)
+* [後續步驟](#NextSteps)
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
-## <span id="CreateAccount"></span></a>建立 Azure 儲存體帳戶
+<h2><a id="CreateAccount"></a>建立 Azure 儲存體帳戶</h2>
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
@@ -34,7 +34,7 @@
 
 在本指南中，您將使用儲存體功能，這些功能可執行於本機的 Java 應用程式內，也可執行於在 Azure 中之 Web 角色或背景工作角色內執行的程式碼中。
 
-若要這樣做，您需要安裝 Java Development Kit (JDK)，並在 Azure 訂用帳戶中建立 Azure 儲存體帳戶。完成此動作之後，您需要驗證開發系統符合 GitHub 上的 [Azure Storage SDK for Java][Azure Storage SDK for Java] 儲存機制中所列出的最低需求和相依性。如果系統符合這些需求，則您可以依照指示，從該儲存機制中下載 Azure Storage Libraries for Java 並安裝在系統上。完成這些工作之後，您就能夠利用本文中的範例來建立 Java 應用程式。
+若要這樣做，您需要安裝 Java Development Kit (JDK)，並在 Azure 訂用帳戶中建立 Azure 儲存體帳戶。完成此動作之後，您需要驗證開發系統符合 GitHub 上的 [Azure Storage SDK for Java][] 儲存機制中所列出的最低需求和相依性。如果系統符合這些需求，則您可以依照指示，從該儲存機制中下載 Azure Storage Libraries for Java 並安裝在系統上。完成這些工作之後，您就能夠利用本文中的範例來建立 Java 應用程式。
 
 ## <a name="ConfigureStorage"> </a>設定您的應用程式以存取 Blob 儲存體
 
@@ -46,8 +46,8 @@
 
 ## <a name="ConnectionString"> </a>設定 Azure 儲存體連接字串
 
-Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時
-所用的端點與認證。在用戶端應用程式中執行時，您必須以下列格式提供儲存體連接字串 (其中的 *AccountName* 和 *AccountKey* 值要使用您儲存體帳戶的名稱，以及在管理入口網站中針對該儲存體帳戶而列出的主要存取金鑰)。本範例將示範如何宣告靜態欄位來存放連接字串：
+Azure 儲存體用戶端會使用儲存體連接字串來儲存
+存取資料管理服務時所用的端點與認證。在用戶端應用程式中執行時，您必須以下列格式提供儲存體連接字串 (其中的 *AccountName* 和 *AccountKey* 值要使用您儲存體帳戶的名稱，以及在管理入口網站中針對該儲存體帳戶而列出的主要存取金鑰)。本範例將示範如何宣告靜態欄位來存放連接字串：
 
     // Define the connection-string with your values
     public static final String storageConnectionString = 
@@ -65,24 +65,24 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## <a name="CreateContainer"> </a>作法：建立容器
 
-CloudBlobClient 物件可讓您取得容器和 Blob 的參考物件。下列程式碼將建立 **CloudBlobClient** 物件。(注意：還有其他方法可建立 **CloudStorageAccount** 物件。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考][Azure 儲存體用戶端 SDK 參考] (英文) 中的 **CloudStorageAccount**)
+CloudBlobClient 物件可讓您取得容器和 Blob 的參考物件。下列程式碼將建立 **CloudBlobClient** 物件。(注意：還有其他方法可建立 **CloudStorageAccount** 物件。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考] (英文) 中的 **CloudStorageAccount**)。
 
 所有 Blob 皆位於一個容器中。使用 **CloudBlobClient** 物件來取得想要使用容器的參考。如果容器不存在，可以使用 **createIfNotExists** 方法建立，如果存在，此方法則會傳回現有的容器。根據預設，新容器屬私人性質，您必須指定儲存體存取金鑰 (如上面所做過的) 才能從此容器下載 blob。
 
-    try
+	try
     {
         // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
+    	CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the blob client.
-       CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+    	// 建立 Blob 用戶端。
+	   CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-       // Get a reference to a container.
-       // The container name must be lower case
-       CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
+	   // Get a reference to a container.
+	   // The container name must be lower case
+	   CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 
-       // Create the container if it does not exist.
-        container.createIfNotExists();
+	   // Create the container if it does not exist.
+    	container.createIfNotExists();
     }
     catch (Exception e)
     {
@@ -90,7 +90,7 @@ CloudBlobClient 物件可讓您取得容器和 Blob 的參考物件。下列程�
         e.printStackTrace();
     }
 
-### 選擇性：設定公用存取的容器
+###選用：設定公用存取的容器 ###
 
 依預設會將容器的權限設定為私人存取，但針對網際網路上的所有使用者，您可以輕鬆地將容器的權限設定為公用、唯讀存取：
 
@@ -107,24 +107,24 @@ CloudBlobClient 物件可讓您取得容器和 Blob 的參考物件。下列程�
 
 若要將檔案上傳至 Blob，請取得容器參考，並使用該參考來取得 Blob 參考。擁有 Blob 參考後，即可在 Blob 參考上呼叫 upload，上傳任何資料流。如果 Blob 不存在，此作業將予以建立，若已存在，則予以覆寫。此程式碼範例顯示此點，並假設已經建立好容器。
 
-    try
+	try
     {
         // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
+    	CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the blob client.
-        CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+    	// 建立 Blob 用戶端。
+    	CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-       // Retrieve reference to a previously created container.
-        CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
-            
+	   // 擷取先前建立之容器的參照。
+    	CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
+			
         // Define the path to a local file.
         final String filePath = "C:\\myimages\\myimage.jpg";
 
-        // Create or overwrite the "myimage.jpg" blob with contents from a local file.
-        CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
-        File source = new File(filePath);
-        blob.upload(new FileInputStream(source), source.length());
+    	// Create or overwrite the "myimage.jpg" blob with contents from a local file.
+    	CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
+    	File source = new File(filePath);
+    	blob.upload(new FileInputStream(source), source.length());
     }
     catch (Exception e)
     {
@@ -136,21 +136,21 @@ CloudBlobClient 物件可讓您取得容器和 Blob 的參考物件。下列程�
 
 若要列出容器中的 Blob，請先取得容器參考，就像上傳 Blob 那樣。您可以使用容器的 **listBlobs** 方法搭配 **for** 迴圈。下列程式碼將容器中每個 Blob 的 URI 輸出到主控台。
 
-    try
+	try
     {
         // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
+    	CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the blob client.
-        CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+    	// 建立 Blob 用戶端。
+    	CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-        // Retrieve reference to a previously created container.
-        CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
-            
-        // Loop over blobs within the container and output the URI to each of them.
-        for (ListBlobItem blobItem : container.listBlobs()) {
-           System.out.println(blobItem.getUri());
-       }
+    	// 擷取先前建立之容器的參照。
+    	CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
+			
+    	// Loop over blobs within the container and output the URI to each of them.
+    	for (ListBlobItem blobItem :container.listBlobs()) {
+	       System.out.println(blobItem.getUri());
+	   }
     }
     catch (Exception e)
     {
@@ -163,9 +163,9 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
 例如，您可能有名為 "photos" 的容器，當中您可能上傳名為 "rootphoto1"、"2010/photo1"、"2010/photo2" 和 "2011/photo1" 的 Blob。這會在 "photos" 容器內建立虛擬目錄 "2010" 和 "2011"。當您在 "photos" 容器上呼叫 **ListBlobs** 時，傳回的集合將包含 **CloudBlobDirectory** 和 **CloudBlob** 物件，其分別代表最上層所包含的目錄和 Blob。在此情況下，系統會傳回目錄 "2010" 和 "2011"，以及照片 "rootphoto1"。您可以使用 **instanceof** 運算子來區別這些物件。
 
 您可以選擇性地將參數傳入 **listBlobs** 方法，
-並將 **useFlatBlobListing** 參數設為 true。如此會導致不論目錄為何，
-都會傳回每個 Blob。
-如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考][Azure 儲存體用戶端 SDK 參考] (英文) 中的 **CloudBlobContainer.listBlobs**。
+並將**useFlatBlobListing** 參數設為 true。如此會導致
+不論目錄為何，都會傳回每個 Blob。如需
+詳細資訊，請參閱 [Azure 存體用戶端 SDK 參考] (英文) 中的 **CloudBlobContainer.listBlobs**。
 
 ## <a name="DownloadBlob"> </a>作法：下載 Blob
 
@@ -173,24 +173,24 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
 
     try
     {
-        // Retrieve storage account from connection-string.
-       CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
+    	// Retrieve storage account from connection-string.
+	   CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-       // Create the blob client.
-       CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+	   // 建立 Blob 用戶端。
+	   CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-       // Retrieve reference to a previously created container.
-       CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
-            
-       // Loop through each blob item in the container.
-       for (ListBlobItem blobItem : container.listBlobs()) {
-           // If the item is a blob, not a virtual directory.
-           if (blobItem instanceof CloudBlob) {
-               // Download the item and save it to a file with the same name.
-                CloudBlob blob = (CloudBlob) blobItem;
-                blob.download(new FileOutputStream("C:\\mydownloads\\" + blob.getName()));
-            }
-        }
+	   // 擷取先前建立之容器的參照。
+	   CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
+			
+	   // Loop through each blob item in the container.
+	   for (ListBlobItem blobItem :container.listBlobs()) {
+	       // If the item is a blob, not a virtual directory.
+	       if (blobItem instanceof CloudBlob) {
+	           // Download the item and save it to a file with the same name.
+    	        CloudBlob blob = (CloudBlob) blobItem;
+    	        blob.download(new FileOutputStream("C:\\mydownloads\\" + blob.getName()));
+    	    }
+    	}
     }
     catch (Exception e)
     {
@@ -204,20 +204,20 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
 
     try
     {
-       // Retrieve storage account from connection-string.
-       CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
+	   // Retrieve storage account from connection-string.
+	   CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-       // Create the blob client.
-       CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+	   // 建立 Blob 用戶端。
+	   CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-       // Retrieve reference to a previously created container.
-       CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
-            
-       // Retrieve reference to a blob named "myimage.jpg".
-       CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
+	   // 擷取先前建立之容器的參照。
+	   CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
+			
+	   // Retrieve reference to a blob named "myimage.jpg".
+	   CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
 
-       // Delete the blob.
-       blob.deleteIfExists();
+	   // 刪除 Blob。
+	   blob.deleteIfExists();
     }
     catch (Exception e)
     {
@@ -227,22 +227,22 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
 
 ## <a name="DeleteContainer"> </a>作法：刪除 Blob 容器
 
-最後，若要刪除 Blob 容器，請取得 Blob 容器參考，
-然後呼叫 **deleteIfExists**。
+最後，若要刪除 Blob 容器，請取得 Blob 容器參考，然後
+呼叫 **deleteIfExists**。
 
     try
     {
-       // Retrieve storage account from connection-string.
-       CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
+	   // Retrieve storage account from connection-string.
+	   CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-       // Create the blob client.
-       CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+	   // 建立 Blob 用戶端。
+	   CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-       // Retrieve reference to a previously created container.
-       CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
-            
-       // Delete the blob container.
-       container.deleteIfExists();
+	   // 擷取先前建立之容器的參照。
+	   CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
+			
+	   // Delete the blob container.
+	   container.deleteIfExists();
     }
     catch (Exception e)
     {
@@ -254,26 +254,14 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
 
 了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   [Azure Storage SDK for Java][Azure Storage SDK for Java]
--   [Azure 儲存體用戶端 SDK 參考][Azure 儲存體用戶端 SDK 參考]
--   [Azure 儲存體 REST API][Azure 儲存體 REST API]
--   [Azure 儲存體團隊部落格][Azure 儲存體團隊部落格]
+- [Azure Storage SDK for Java]
+- [Azure 儲存體用戶端 SDK 參考]
+- [Azure 儲存體 REST API]
+- [Azure 儲存體團隊部落格]
 
-  [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
-  [後續步驟]: #NextSteps
-  [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-  [什麼是 Blob 儲存體]: #what-is
-  [概念]: #Concepts
-  [建立 Azure 儲存體帳戶]: #CreateAccount
-  [建立 Java 應用程式]: #CreateApplication
-  [設定您的應用程式以存取 Blob 儲存體]: #ConfigureStorage
-  [設定 Azure 儲存體連接字串]: #ConnectionString
-  [作法：建立容器]: #CreateContainer
-  [作法：將 Blob 上傳至容器]: #UploadBlob
-  [作法：列出容器中的 Blob]: #ListBlobs
-  [作法：下載 Blob]: #DownloadBlob
-  [作法：刪除 Blob]: #DeleteBlob
-  [作法：刪除 Blob 容器]: #DeleteContainer
-  [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
-  [Azure 儲存體 REST API]: http://msdn.microsoft.com/zh-tw/library/azure/gg433040.aspx
-  [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure SDK for Java]: http://www.windowsazure.com/zh-tw/develop/java/
+[Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
+[Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
+[Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
+[Azure 儲存體 REST API]: http://msdn.microsoft.com/zh-tw/library/azure/gg433040.aspx
+[Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/

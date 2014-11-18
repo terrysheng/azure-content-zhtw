@@ -1,21 +1,11 @@
-<properties urlDisplayName="HDInsight Emulator release notes" pageTitle="版本資訊：Microsoft HDInsight Emulator for Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="取得最新版 HDInsight Hadoop Emulator 的最新資訊。" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="版本資訊：Microsoft HDInsight Emulator for Azure" authors="jgao" />
+<properties linkid="hdinsight-emulator-release-notes" urlDisplayName="HDInsight Emulator release notes" pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Release notes: Microsoft HDInsight Emulator for Azure" authors="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/03/2014" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cgronlun" />
 
 # 版本資訊：Microsoft HDInsight Emulator for Azure
 
 > [WACOM.NOTE]
 > 要確認版本號碼，最簡單的方式是在 [新增/移除程式] 中查看 "Microsoft HDInsight Emulator for Azure" (1.0.0.0 或更新版本) 或 "Microsoft HDInsight Developer Preview" (1.0.0.0 之前的版本) 的項目。
-
-## 2.0.0.0 版，發行日期為 2014 年 8 月 29 日
-
--   此版本將 HDInsight Emulator 更新為以 3.1 版的服務中目前存在的同一組 Hadoop 專案為目標。
-
--   與此產品的預覽版本相同，此版本仍然以開發人員使用為主，因此僅支援單一節點部署。
-
-### 新功能
-
--   [HDInsight 所提供叢集版本的新功能][HDInsight 所提供叢集版本的新功能]，對應至 3.1 版的服務。其中包括 Hive 0.13 和 Tez 支援。
 
 ## 1.0.0.0 版，發行日期為 2013 年 10 月 28 日
 
@@ -73,7 +63,7 @@
 
 -   連接到多個叢集，包括本機安裝，以及使用 Azure HDInsight 服務從遠端執行的叢集。
 
--   如需 HDInsight 服務的詳細資訊，請參閱 <http://azure.microsoft.com/zh-tw/documentation/services/hdinsight/>。
+-   如需 HDInsight 服務的詳細資訊，請參閱 [][]<http://azure.microsoft.com/zh-tw/documentation/services/hdinsight/></a>。
 
 -   設定本機叢集上的 WASB
 
@@ -143,7 +133,7 @@
 
             %HADOOP_NODE%\stop-onebox.cmd && %HADOOP_NODE%\start-onebox.cmd
 
-    3.  使用完整 URI 存取該帳戶的任何檔案：asv://{container}@{account}/{path} (or asvs:// if you want to use HTTPS for accessing the data).範例：
+    3.  使用完整 URI 存取該帳戶的任何檔案：asv://{container}@{account}/{path} (或 asvs://，如果您要使用 HTTPS 來存取資料)。範例：
 
             hadoop fs -lsr 
             asvs://MyHadoopOnAzureContainerName@MyHadoopOnAzureAccountName/example/data/
@@ -255,5 +245,5 @@
 
 -   [開始使用 HDInsight Emulator][開始使用 HDInsight Emulator]
 
-  [HDInsight 所提供叢集版本的新功能]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-component-versioning/
+  []: http://azure.microsoft.com/zh-tw/documentation/services/hdinsight/
   [開始使用 HDInsight Emulator]: ../hdinsight-get-started-emulator/

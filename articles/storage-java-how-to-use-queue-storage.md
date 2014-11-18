@@ -1,35 +1,35 @@
-<properties urlDisplayName="Queue Service" pageTitle="如何使用佇列服務 (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。範例以 Java 撰寫。" metaCanonical="" services="storage" documentationCenter="Java" title="如何使用 Java 的佇列儲存體服務" authors="tamram" solutions="" manager="adinah" editor="" />
+﻿<properties urlDisplayName="Queue Service" pageTitle="如何使用佇列服務 (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Queue storage service from Java" authors="tamram" solutions="" manager="adinah" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # 如何使用 Java 的佇列儲存體
 
-本指南將示範如何使用 Azure 佇列儲存服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][Azure Storage SDK for Java]。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立」和「刪除」佇列。如需佇列的詳細資訊，請參閱[後續步驟][後續步驟]一節。
+本指南將示範如何使用 Azure 佇列儲存服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][]。所涵蓋的案例包括**「插入」**、**「查看」**、**「取得」**和**「刪除」**佇列訊息，以及**「建立**和**刪除**佇列」。如需佇列的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
 
-注意：有一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。如需詳細資訊，請參閱 [Azure Storage SDK for Android][Azure Storage SDK for Android]。
+注意：有一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。如需詳細資訊，請參閱 [Azure Storage SDK for Android][]。 
 
 ## <a name="Contents"> </a>目錄
 
--   [什麼是佇列儲存體][什麼是佇列儲存體]
--   [概念][概念]
--   [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
--   [建立 Java 應用程式][建立 Java 應用程式]
--   [設定您的應用程式以存取佇列儲存體][設定您的應用程式以存取佇列儲存體]
--   [設定 Azure 儲存體連接字串][設定 Azure 儲存體連接字串]
--   [作法：建立佇列][作法：建立佇列]
--   [作法：將訊息新增至佇列][作法：將訊息新增至佇列]
--   [作法：查看下一個訊息][作法：查看下一個訊息]
--   [作法：變更佇列訊息的內容][作法：變更佇列訊息的內容]
--   [作法：取得佇列長度][作法：取得佇列長度]
--   [作法：清除下一個佇列訊息][作法：清除下一個佇列訊息]
--   [清除佇列訊息的其他選項][清除佇列訊息的其他選項]
--   [作法：列出佇列][作法：列出佇列]
--   [作法：刪除佇列][作法：刪除佇列]
--   [後續步驟][後續步驟]
+* [什麼是佇列儲存體](#what-is)
+* [概念](#Concepts)
+* [建立 Azure 儲存體帳戶](#CreateAccount)
+* [建立 Java 應用程式](#CreateApplication)
+* [設定您的應用程式以存取佇列儲存體](#ConfigureStorage)
+* [設定 Azure 儲存體連接字串](#ConnectionString)
+* [作法：建立佇列](#create-queue)
+* [作法：將訊息新增至佇列](#add-message)
+* [作法：查看下一個訊息](#peek-message)
+* [作法：變更佇列訊息的內容](#change-message)
+* [作法：取得佇列長度](#get-queue-length)
+* [作法：清除下一個佇列訊息](#dequeue-message)
+* [清除佇列訊息的其他選項](#additional-options)
+* [作法：列出佇列](#list-queues)
+* [作法：刪除佇列](#delete-queue)
+* [後續步驟](#NextSteps)
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-## <span id="CreateAccount"></span></a>建立 Azure 儲存體帳戶
+<h2><a id="CreateAccount"></a>建立 Azure 儲存體帳戶</h2>
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
@@ -37,7 +37,7 @@
 
 在本指南中，您將使用儲存體功能，這些功能可執行於本機的 Java 應用程式內，也可執行於在 Azure 中之 Web 角色或背景工作角色內執行的程式碼中。
 
-若要這樣做，您需要安裝 Java Development Kit (JDK)，並在 Azure 訂用帳戶中建立 Azure 儲存體帳戶。完成此動作之後，您需要驗證開發系統符合 GitHub 上的 [Azure Storage SDK for Java][Azure Storage SDK for Java] 儲存機制中所列出的最低需求和相依性。如果系統符合這些需求，則您可以依照指示，從該儲存機制中下載 Azure Storage Libraries for Java 並安裝在系統上。完成這些工作之後，您就能夠利用本文中的範例來建立 Java 應用程式。
+若要這樣做，您需要安裝 Java Development Kit (JDK)，並在 Azure 訂用帳戶中建立 Azure 儲存體帳戶。完成此動作之後，您需要驗證開發系統符合 GitHub 上的 [Azure Storage SDK for Java][] 儲存機制中所列出的最低需求和相依性。如果系統符合這些需求，則您可以依照指示，從該儲存機制中下載 Azure Storage Libraries for Java 並安裝在系統上。完成這些工作之後，您就能夠利用本文中的範例來建立 Java 應用程式。
 
 ## <a name="ConfigureStorage"> </a>設定您的應用程式以存取佇列儲存體
 
@@ -67,24 +67,24 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## <a name="create-queue"> </a>作法：建立佇列
 
-**CloudQueueClient** 物件可讓您取得佇列的參照物件。下列程式碼將建立 **CloudQueueClient** 物件。(注意：還有其他方法可建立 **CloudStorageAccount** 物件。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考][Azure 儲存體用戶端 SDK 參考] (英文) 中的 **CloudStorageAccount**)
+**CloudQueueClient** 物件可讓您取得佇列的參照物件。下列程式碼將建立 **CloudQueueClient** 物件。(注意：還有其他方法可建立 **CloudStorageAccount** 物件。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考] (英文) 中的 **CloudStorageAccount**)。
 
 使用 **CloudQueueClient** 物件來取得想要使用佇列的參照。如果佇列不存在，您可以建立佇列。
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Retrieve storage account from connection-string.
+    	CloudStorageAccount storageAccount = 
+	       CloudStorageAccount.parse(storageConnectionString);
 
-       // Create the queue client.
-       CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+	   // 建立佇列用戶端。
+	   CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-       // Retrieve a reference to a queue.
-       CloudQueue queue = queueClient.getQueueReference("myqueue");
+	   // 擷取佇列的參照。
+	   CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-       // Create the queue if it doesn't already exist.
-       queue.createIfNotExists();
+	   // 如果佇列不存在，則建立佇列。
+	   queue.createIfNotExists();
     }
     catch (Exception e)
     {
@@ -98,22 +98,22 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Retrieve storage account from connection-string.
+    	CloudStorageAccount storageAccount = 
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
-        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+    	// 建立佇列用戶端。
+    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-        // Retrieve a reference to a queue.
-        CloudQueue queue = queueClient.getQueueReference("myqueue");
+    	// 擷取佇列的參照。
+    	CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-        // Create the queue if it doesn't already exist.
-        queue.createIfNotExists();
+    	// 如果佇列不存在，則建立佇列。
+    	queue.createIfNotExists();
 
-        // Create a message and add it to the queue.
-        CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-        queue.addMessage(message);
+    	// 建立訊息並將它新增至佇列。
+    	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
+    	queue.addMessage(message);
     }
     catch (Exception e)
     {
@@ -127,24 +127,24 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Retrieve storage account from connection-string.
+    	CloudStorageAccount storageAccount = 
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
-        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+    	// 建立佇列用戶端。
+    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-        // Retrieve a reference to a queue.
-        CloudQueue queue = queueClient.getQueueReference("myqueue");
-            
-        // Peek at the next message.
-        CloudQueueMessage peekedMessage = queue.peekMessage();
-            
-        // Output the message value.
-        if (peekedMessage != null)
-        {
-          System.out.println(peekedMessage.getMessageContentAsString());
-       }
+    	// 擷取佇列的參照。
+    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+			
+    	// Peek at the next message.
+    	CloudQueueMessage peekedMessage = queue.peekMessage();
+			
+    	// Output the message value.
+    	if (peekedMessage != null)
+    	{
+		  System.out.println(peekedMessage.getMessageContentAsString());
+	   }
     }
     catch (Exception e)
     {
@@ -156,7 +156,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 您可以在佇列中就地變更訊息內容。如果訊息代表工作作業，則您可以使用此功能來更新工作作業的狀態。下列程式碼將使用新的內容更新佇列訊息，並將可見度逾時設定延長 60 秒。這可儲存與訊息相關的工作狀態，並提供用戶端多一分鐘的時間繼續處理訊息。您可以使用此技巧來追蹤佇列訊息上的多步驟工作流程，如果因為硬體或軟體故障而導致某個處理步驟失敗，將無需從頭開始。通常，您也會保留重試計數，如果訊息重試超過 *n* 次，您會將它刪除。這麼做可防止每次處理時便觸發應用程式錯誤的訊息。
 
-下列程式碼範例會在訊息佇列中搜尋，找出內容符合 "Hello, World" 的第一個訊息，然後修改訊息內容並結束。
+下列程式碼範例會在訊息佇列中搜尋，找出內容符合 "Hello, World" 的第一個訊息，然後修改訊息內容並結束。 
 
     try
     {
@@ -164,17 +164,17 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         CloudStorageAccount storageAccount = 
             CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
-        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+    	// 建立佇列用戶端。
+    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-        // Retrieve a reference to a queue.
-        CloudQueue queue = queueClient.getQueueReference("myqueue");
+    	// 擷取佇列的參照。
+    	CloudQueue queue = queueClient.getQueueReference("myqueue");
 
         // The maximum number of messages that can be retrieved is 32. 
         final int MAX_NUMBER_OF_MESSAGES_TO_PEEK = 32;
 
         // Loop through the messages in the queue.
-        for (CloudQueueMessage message : queue.retrieveMessages(MAX_NUMBER_OF_MESSAGES_TO_PEEK,1,null,null))
+        for (CloudQueueMessage message :queue.retrieveMessages(MAX_NUMBER_OF_MESSAGES_TO_PEEK,1,null,null))
         {
             // Check for a specific string.
             if (message.getMessageContentAsString().equals("Hello, World"))
@@ -201,21 +201,21 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Retrieve storage account from connection-string.
+    	CloudStorageAccount storageAccount = 
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
-        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+    	// 建立佇列用戶端。
+    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-        // Retrieve a reference to a queue.
-        CloudQueue queue = queueClient.getQueueReference("myqueue");
+    	// 擷取佇列的參照。
+    	CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-        // Retrieve the first visible message in the queue.
-        CloudQueueMessage message = queue.retrieveMessage();
-            
-        if (message != null)
-        {
+    	// Retrieve the first visible message in the queue.
+    	CloudQueueMessage message = queue.retrieveMessage();
+			
+    	if (message != null)
+    	{
             // Modify the message content.
             message.setMessageContent("Updated contents.");
             // Set it to be visible in 60 seconds.
@@ -224,7 +224,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
                 MessageUpdateFields.VISIBILITY);
             // Update the message.
             queue.updateMessage(message, 60, updateFields, null, null);
-        }
+    	}
     }
     catch (Exception e)
     {
@@ -238,24 +238,24 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Retrieve storage account from connection-string.
+    	CloudStorageAccount storageAccount = 
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
-        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+    	// 建立佇列用戶端。
+    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-        // Retrieve a reference to a queue.
-        CloudQueue queue = queueClient.getQueueReference("myqueue");
+    	// 擷取佇列的參照。
+    	CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-       // Download the approximate message count from the server.
-        queue.downloadAttributes();
+	   // Download the approximate message count from the server.
+    	queue.downloadAttributes();
 
-        // Retrieve the newly cached approximate message count.
-        long cachedMessageCount = queue.getApproximateMessageCount();
-            
-        // Display the queue length.
-        System.out.println(String.format("Queue length: %d", cachedMessageCount));
+    	// Retrieve the newly cached approximate message count.
+    	long cachedMessageCount = queue.getApproximateMessageCount();
+			
+    	// Display the queue length.
+    	System.out.println(String.format("Queue length:%d", cachedMessageCount));
     }
     catch (Exception e)
     {
@@ -269,24 +269,24 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
-            CloudStorageAccount.parse(storageConnectionString);
+    	// Retrieve storage account from connection-string.
+    	CloudStorageAccount storageAccount = 
+    	    CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
-        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+    	// 建立佇列用戶端。
+    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-        // Retrieve a reference to a queue.
-        CloudQueue queue = queueClient.getQueueReference("myqueue");
+    	// 擷取佇列的參照。
+    	CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-        // Retrieve the first visible message in the queue.
-        CloudQueueMessage retrievedMessage = queue.retrieveMessage();
-            
-        if (retrievedMessage != null)
-        {
-            // Process the message in less than 30 seconds, and then delete the message.
-            queue.deleteMessage(retrievedMessage);
-        }
+    	// Retrieve the first visible message in the queue.
+    	CloudQueueMessage retrievedMessage = queue.retrieveMessage();
+			
+    	if (retrievedMessage != null)
+    	{
+    		// Process the message in less than 30 seconds, and then delete the message.
+    		queue.deleteMessage(retrievedMessage);
+    	}
     }
     catch (Exception e)
     {
@@ -294,11 +294,12 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         e.printStackTrace();
     }
 
+
 ## <a name="additional-options"> </a>清除佇列訊息的其他選項
 
 自訂從佇列中擷取訊息的方法有兩種。首先，您可以取得一批訊息 (最多 32 個)。其次，您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完全處理每個訊息。
 
-下列程式碼範例使用 **retrieveMessages** 方法，在一次呼叫中取得 20 個訊息。接著它會使用 **for** 迴圈處理每個訊息。它也會將可見度逾時設定為每個訊息五分鐘 (300 秒)。請注意，系統會針對所有訊息同時開始計時五分鐘，所以從呼叫 **retrieveMessages** 開始的五分鐘後，任何尚未刪除的訊息都會重新出現。
+下列程式碼範例將使用 **retrieveMessages** 方法，在一次呼叫中取得 20 個訊息。接著它會使用 **for** 迴圈處理每個訊息。它也會將可見度逾時設定為每個訊息五分鐘 (300 秒)。請注意，系統會針對所有訊息同時開始計時五分鐘，所以從呼叫 **retrieveMessages** 開始的五分鐘後，任何尚未刪除的訊息都會重新出現。
 
     try
     {
@@ -306,14 +307,14 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         CloudStorageAccount storageAccount = 
             CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
+        // 建立佇列用戶端。
         CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-        // Retrieve a reference to a queue.
+        // 擷取佇列的參照。
         CloudQueue queue = queueClient.getQueueReference("myqueue");
 
         // Retrieve 20 messages from the queue with a visibility timeout of 300 seconds.
-        for (CloudQueueMessage message : queue.retrieveMessages(20, 300, null, null)) {
+        for (CloudQueueMessage message :queue.retrieveMessages(20, 300, null, null)) {
             // Do processing for all messages in less than 5 minutes, 
             // deleting each message after processing.
             queue.deleteMessage(message);
@@ -327,7 +328,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## <a name="list-queues"> </a>作法：列出佇列
 
-若要取得目前佇列的清單，請呼叫 **CloudQueueClient.listQueues()** 方法，此方法會傳回 **CloudQueue** 物件的集合。
+若要取得目前佇列的清單，請呼叫 **CloudQueueClient.listQueues()** 方法，此方法會傳回 **CloudQueue** 物件的集合。 
 
     try
     {
@@ -335,12 +336,12 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
+        // 建立佇列用戶端。
         CloudQueueClient queueClient =
             storageAccount.createCloudQueueClient();
 
         // Loop through the collection of queues.
-        for (CloudQueue queue : queueClient.listQueues())
+        for (CloudQueue queue :queueClient.listQueues())
         {
             // Output each queue name.
             System.out.println(queue.getName());
@@ -362,10 +363,10 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         CloudStorageAccount storageAccount = 
             CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
+        // 建立佇列用戶端。
         CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-        // Retrieve a reference to a queue.
+        // 擷取佇列的參照。
         CloudQueue queue = queueClient.getQueueReference("myqueue");
 
         // Delete the queue if it exists.
@@ -381,29 +382,14 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 了解佇列儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
--   [Azure Storage SDK for Java][Azure Storage SDK for Java]
--   [Azure 儲存體用戶端 SDK 參考][Azure 儲存體用戶端 SDK 參考]
--   [Azure 儲存體 REST API][Azure 儲存體 REST API]
--   [Azure 儲存體團隊部落格][Azure 儲存體團隊部落格]
+- [Azure Storage SDK for Java]
+- [Azure 儲存體用戶端 SDK 參考]
+- [Azure 儲存體 REST API]
+- [Azure 儲存體團隊部落格]
 
-  [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
-  [後續步驟]: #NextSteps
-  [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-  [什麼是佇列儲存體]: #what-is
-  [概念]: #Concepts
-  [建立 Azure 儲存體帳戶]: #CreateAccount
-  [建立 Java 應用程式]: #CreateApplication
-  [設定您的應用程式以存取佇列儲存體]: #ConfigureStorage
-  [設定 Azure 儲存體連接字串]: #ConnectionString
-  [作法：建立佇列]: #create-queue
-  [作法：將訊息新增至佇列]: #add-message
-  [作法：查看下一個訊息]: #peek-message
-  [作法：變更佇列訊息的內容]: #change-message
-  [作法：取得佇列長度]: #get-queue-length
-  [作法：清除下一個佇列訊息]: #dequeue-message
-  [清除佇列訊息的其他選項]: #additional-options
-  [作法：列出佇列]: #list-queues
-  [作法：刪除佇列]: #delete-queue
-  [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
-  [Azure 儲存體 REST API]: http://msdn.microsoft.com/zh-tw/library/azure/gg433040.aspx
-  [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure SDK for Java]: http://www.windowsazure.com/zh-tw/develop/java/
+[Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
+[Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
+[Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
+[Azure 儲存體 REST API]: http://msdn.microsoft.com/zh-tw/library/azure/gg433040.aspx
+[Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/

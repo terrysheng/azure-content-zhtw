@@ -1,6 +1,6 @@
 <properties title="Interact with DocumentDB resources" pageTitle="Interact with DocumentDB resources | Azure" description="DocumentDB manages resources--uniquely identified by logical URIs--that developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # 與 DocumentDB 資源互動
 
@@ -12,7 +12,7 @@ DocumentDB 提供透過 HTTP 的簡單且開放 RESTful 程式設計模型。在
 
 DocumentDB 所管理的實體稱為「資源」，而資源可透過其邏輯 URI 來唯一識別。開發人員可以使用標準 HTTP 動詞命令、要求/回應標頭和狀態碼來與資源互動。如下圖所示，DocumentDB 的「資源模型」是由資料庫帳戶下轄的一組資源所組成，而每個資源都可以透過邏輯和穩定 URI 來定址。在本文件中，一組資源稱為摘要。
 
-![][]
+![][0]
 
 ## 資料庫帳戶的階層式資源模型
 
@@ -279,18 +279,18 @@ DocumentDB 服務將做出下列回應：
 
 ## 參考
 
--   REST [][]<http://en.wikipedia.org/wiki/Representational_state_transfer></a> (英文)
--   JSON 規格 [][2][http://www.ietf.org/rfc/rfc4627.txt][2]</a> (英文)
--   HTTP 規格 [][3]<http://www.w3.org/Protocols/rfc2616/rfc2616.html></a> (英文)
--   實體標記 [][4]<http://en.wikipedia.org/wiki/HTTP_ETag></a> (英文)
--   [查詢 DocumentDB][]
--   [DocumentDB SQL 參考][]
--   [DocumentDB 程式設計：預存程序、觸發程序和 UDF][]
--   [DocumentDB 參考文件][]
+-   REST [http://en.wikipedia.org/wiki/Representational_state_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer) (英文)
+-   JSON 規格 [http://www.ietf.org/rfc/rfc4627.txt][2] (英文)
+-   HTTP 規格 [http://www.w3.org/Protocols/rfc2616/rfc2616.html][3] (英文)
+-   實體標記 [http://en.wikipedia.org/wiki/HTTP_ETag][4] (英文)
+-   [查詢 DocumentDB][查詢 DocumentDB]
+-   [DocumentDB SQL 參考][DocumentDB SQL 參考]
+-   [DocumentDB 程式設計：預存程序、觸發程序和 UDF][DocumentDB 程式設計：預存程序、觸發程序和 UDF]
+-   [DocumentDB 參考文件][DocumentDB 參考文件]
 
-  []: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
+  [0]: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
   [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
-  []: http://en.wikipedia.org/wiki/Representational_state_transfer
+  [0]: http://en.wikipedia.org/wiki/Representational_state_transfer
   [2]: http://-www.ietf.org/rfc/rfc4627.txt
   [3]: http://www.w3.org/Protocols/rfc2616/rfc2616.html
   [4]: http://en.wikipedia.org/wiki/HTTP_ETag

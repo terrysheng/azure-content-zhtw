@@ -76,7 +76,7 @@
 
 在 <http://www.capptain.com> 上了解 Capptain 還可為您的應用程式執行哪些工作
 
-<!-- Anchors. --> <!-- URLs. -->
+ 
 
   [Capptain]: http://www.capptain.com
   [初始化 Capptain SDK]: #initialize

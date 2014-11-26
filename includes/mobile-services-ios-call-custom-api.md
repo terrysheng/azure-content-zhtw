@@ -87,6 +87,6 @@
 
 4.  點選 [全部] 按鈕。出現警示方塊，指出標示為完成的項目數，並重新執行篩選查詢，以便清除清單的所有項目。
 
-    ![][]
+    ![][0]
 
-  []: ./media/mobile-services-ios-call-custom-api/mobile-custom-api-ios-completed.png
+  [0]: ./media/mobile-services-ios-call-custom-api/mobile-custom-api-ios-completed.png

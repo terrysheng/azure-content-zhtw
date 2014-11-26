@@ -1,26 +1,14 @@
-<properties urlDisplayName="Web App with Storage" pageTitle="使用資料表儲存體的 Web 應用程式 (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="本教學課程以「使用 Express 的 Web 應用程式」教學課程為基礎，再加上 Azure 儲存體服務和 Azure 模組建置而成。" metaCanonical="" services="cloud-services,storage" documentationCenter="nodejs" title="使用儲存體的 Node.js Web 應用程式" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Web App with Storage" pageTitle="Web app with table storage (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." metaCanonical="" services="cloud-services,storage" documentationCenter="Node.js" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # 使用儲存體的 Node.js Web 應用程式
 
-在本教學課程中，您將擴充在
-[使用 Express 的 Node.js Web 應用程式][使用 Express 的 Node.js Web 應用程式] (英文) 教學課程中所建立的應用程式，
-方法是使用 Windows Azure Client Libraries for Node.js 來搭配資料管理服務使用。
-您將擴充您的應用程式，以建立一個可部署到 Azure 的 Web 架構工作清單應用程式。
-使用者可透過工作清單來擷取工作、
-新增工作及將工作標示為已完成。
+在本教學課程中，您將擴充在[使用 Express 的 Node.js Web 應用程式][使用 Express 的 Node.js Web 應用程式] (英文) 教學課程中所建立的應用程式，方法是使用 Windows Azure Client Libraries for Node.js 來搭配資料管理服務使用。您將擴充您的應用程式，以建立一個可部署到 Azure 的 Web 架構工作清單應用程式。使用者可透過工作清單來擷取工作、新增工作及將工作標示為已完成。
 
-工作項目會儲存於 Azure 儲存體中。Azure
- 儲存體提供可容錯且高度可用的非結構化資料儲存體。
-Azure 儲存體包括數種可儲存和存取資料的資料結構，
-並且您可以從 Azure SDK for Node.js 中所隨附的 API 或透過
- REST API 來運用儲存體服務。
-如需詳細資訊，請參閱[在 Azure 中儲存和存取資料][在 Azure 中儲存和存取資料] (英文)。
+工作項目會儲存於 Azure 儲存體中。Azure 儲存體提供可容錯且高度可用的非結構化資料儲存體。Azure 儲存體包括數種可儲存和存取資料的資料結構，並且您可以從 Azure SDK for Node.js 中所隨附的 API 或透過 REST API 來運用儲存體服務。如需詳細資訊，請參閱[在 Azure 中儲存和存取資料][在 Azure 中儲存和存取資料] (英文)。
 
-本教學課程假設您已完成 [Node.js Web
-應用程式][Node.js Web
-應用程式] (英文) 和[使用 Express 的 Node.js][使用 Express 的 Node.js Web 應用程式] (英文) 教學課程。
+本教學課程假設您已完成 [Node.js Web 應用程式][Node.js Web 應用程式] (英文) 和[使用 Express 的 Node.js][使用 Express 的 Node.js Web 應用程式] (英文) 教學課程。
 
 您將了解：
 
@@ -33,16 +21,13 @@ Azure 儲存體包括數種可儲存和存取資料的資料結構，
 
 ## 在 Web.Config 中設定儲存體認證
 
-若要存取 Azure 儲存體，您必須傳入儲存體認證。
-若要這樣做，您必須使用 web.config 應用程式設定。
-這些設定會以環境變數形式傳遞至 Node，
-然後由 Azure SDK 讀取。
+若要存取 Azure 儲存體，您必須傳入儲存體認證。若要這樣做，您必須使用 web.config 應用程式設定。這些設定會以環境變數形式傳遞至 Node，然後由 Azure SDK 讀取。
 
 <div class="dev-callout">
-
-**注意**
-只有當將應用程式部署到 Azure 時， 才會用到儲存體認證。在模擬器中執行時，應用程式 將使用儲存體模擬器。
-
+<strong>注意</strong>
+<p>只有當將應用程式部署到 Azure 時，
+才會用到儲存體認證。在模擬器中執行時，應用程式
+將使用儲存體模擬器。</p>
 </div>
 
 執行下列步驟以擷取儲存體帳戶認證，並將他們新增至 web.config 設定：
@@ -58,11 +43,9 @@ Azure 儲存體包括數種可儲存和存取資料的資料結構，
     這會擷取與託管服務相關的儲存體帳戶和帳戶金鑰清單。
 
     <div class="dev-callout">
-
-    **注意**
-    由於 Azure SDK 會在您部署服務時建立儲存體帳戶，因此，從上一個說明的部署應用程式中應已有儲存體帳戶存在。
-
-    </div>
+<strong>注意</strong>
+<p>由於 Azure SDK 會在您部署服務時建立儲存體帳戶，因此，從上一個說明的部署應用程式中應已有儲存體帳戶存在。</p>
+</div>
 
 4.  開啟包含環境設定 (將應用程式部署到 Azure 時會用到) 的 **ServiceDefinition.csdef** 檔案：
 
@@ -384,11 +367,9 @@ Azure 儲存體包括數種可儲存和存取資料的資料結構，
 
 ## 停止並刪除您的應用程式
 
-在部署應用程式之後，您可能會想要將它停用以避免成本，
-或在免費試用時間間隔內建置並部署其他應用程式。
+在部署應用程式之後，您可能會想要將它停用以避免成本，或在免費試用時間間隔內建置並部署其他應用程式。
 
-Azure 會根據每小時的耗用伺服器時間向 Web 角色執行個體收費，
-而且部署應用程式之後即會耗用伺服器時間，即使執行個體未執行並處於已停止狀態也是一樣。
+Azure 會根據每小時的耗用伺服器時間向 Web 角色執行個體收費，而且部署應用程式之後即會耗用伺服器時間，即使執行個體未執行並處於已停止狀態也是一樣。
 
 下列步驟示範如何停止並刪除應用程式。
 
@@ -408,6 +389,7 @@ Azure 會根據每小時的耗用伺服器時間向 Web 角色執行個體收費
 
   [使用 Express 的 Node.js Web 應用程式]: http://www.windowsazure.com/zh-tw/develop/nodejs/tutorials/web-app-with-express/
   [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
+  [Node.js Web 應用程式]: http://www.windowsazure.com/zh-tw/develop/nodejs/tutorials/getting-started/
   [The completed web page in internet explorer]: ./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png
   [web.cloud.config 檔案內容]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png
   [Twitter Bootstrap]: https://github.com/twbs/bootstrap

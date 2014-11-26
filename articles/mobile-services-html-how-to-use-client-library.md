@@ -581,8 +581,8 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 -   [使用指令碼來授權使用者][使用指令碼來授權使用者]
     了解如何根據驗證的使用者來取得行動服務所提供的使用者識別碼，並用來篩選行動服務所傳回的資料。
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [Windows 市集 JavaScript 快速入門]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started
   [HTML 快速入門]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-html
@@ -606,7 +606,6 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
   [作法：自訂要求標頭]: #customizing
   [作法：使用跨原始來源資源分享]: #hostnames
   [後續步驟]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [在 Windows 市集 JavaScript 中開始使用資料]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-js
   [在 HTML/JavaScript 中開始使用資料]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-html/
   [OData 系統查詢選項參考]: http://go.microsoft.com/fwlink/p/?LinkId=444502

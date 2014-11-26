@@ -1,6 +1,6 @@
 您的行動服務已準備就緒，現在可以更新應用程式以便在行動服務 (而非本機收集) 中儲存項目。
 
-1.  如果您尚未安裝 [Mobile Services iOS SDK][]，請立即安裝。
+1.  如果您尚未安裝 [Mobile Services iOS SDK][Mobile Services iOS SDK]，請立即安裝。
 
 2.  在 Xcode 的 [專案導覽] 中，開啟位於 [快速入門] 資料夾中的 TodoService.m 和 TodoService.h 檔案，並新增下列 import 陳述式：
 
@@ -30,7 +30,7 @@
 
 6.  按一下 [儀表板] 索引標籤並記下 [網站 URL]，然後按一下 [管理金鑰] 並記下 [應用程式金鑰]。
 
-    ![][]
+    ![][0]
 
     從應用程式程式碼存取行動服務時，您將會用到這些值。
 
@@ -112,4 +112,4 @@
 應用程式現已更新為使用行動服務進行後端儲存，我們可以開始在行動服務中測試應用程式。
 
   [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-  []: ./media/mobile-services-ios-enable-mobile-service-access/mobile-dashboard-tab.png
+  [0]: ./media/mobile-services-ios-enable-mobile-service-access/mobile-dashboard-tab.png

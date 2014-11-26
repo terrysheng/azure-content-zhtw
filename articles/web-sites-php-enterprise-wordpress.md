@@ -347,14 +347,6 @@ Azure 網站針對關鍵的大規模 [WordPress][WordPress] 網站，提供可�
   [Azure 市集]: http://azure.microsoft.com/zh-tw/gallery/store/
   [an Azure Website, hosted in multiple regions, using CDBR High Availability router for MySQL, with Managed Cache, Blob storage, and CDN]: ./media/web-sites-enterprise-wordpress/performance-diagram.png
   [內容發佈網路 (Content Distribution Network，CDN)]: http://azure.microsoft.com/zh-tw/documentation/articles/cdn-how-to-use/
-  [使用 Blob 儲存體的 WordPress 外掛程式]: https://wordpress.org/plugins/windows-azure-storage/
-  [SendGrid]: http://azure.microsoft.com/zh-tw/gallery/store/sendgrid/sendgrid-azure/
-  [使用 SendGrid 的 WordPress 外掛程式]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
-  [Azure 網站中的自訂網域名稱]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-custom-domain-name/
-  [Azure 網站中的 HTTPS 支援]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-configure-ssl-certificate/
-  [Azure 網站的預備發佈支援]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-staged-publishing/
-  [在 Azure 網站中的診斷記錄]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-enable-diagnostic-log/
-  [監視 Azure 網站]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-monitor/
   [部署 Azure 網站]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-deploy/
   [備份 Azure 網站]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-backup/
   [還原 Azure 網站]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-restore/
@@ -371,12 +363,6 @@ Azure 網站針對關鍵的大規模 [WordPress][WordPress] 網站，提供可�
   [Velvet Blues Update URLs 外掛程式]: https://wordpress.org/plugins/velvet-blues-update-urls/
   [MySQL Workbench]: http://www.mysql.com/products/workbench/
   [搜尋與取代 WordPress 資料庫指令碼]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
-  [WebJobs 簡介]: http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx
-  [停用 ARR Cookie]: http://blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx
-  [Redis 物件快取 WordPress 外掛程式]: https://wordpress.org/plugins/redis-object-cache/
-  [如何透過 Wincache 來加快 WordPress 的速度]: http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/
-  [建立 Azure 儲存體帳戶]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-create-storage-account/
-  [使用者指南]: http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx
   []: resources
   [WordPress 最佳化]: http://codex.wordpress.org/WordPress_Optimization
   [將 WordPress 網站轉換成多網站]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-php-convert-wordpress-multisite/

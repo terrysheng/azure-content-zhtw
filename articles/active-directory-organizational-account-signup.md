@@ -26,7 +26,6 @@
 
 如果您的組織已使用 Active Directory 內部部署，則您可以利用 Azure AD 的目錄整合功能，例如目錄同步和單一登入，以進一步將每個現有的內部部署身分識別延伸至雲端，讓管理者和使用者的操作更順暢。[詳細資訊][3]
 
-  [disclaimer]: ../includes/disclaimer.md
   [詳細資訊]: http://windows.microsoft.com/zh-tw/windows-live/sign-in-what-is-microsoft-account
   [1]: http://technet.microsoft.com/zh-TW/library/jj573650
   [2]: http://technet.microsoft.com/zh-TW/library/hh967619

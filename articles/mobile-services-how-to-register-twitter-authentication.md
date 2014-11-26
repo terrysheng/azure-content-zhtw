@@ -40,9 +40,9 @@
 
 現在您已準備好提供消費者金鑰和消費者密碼值給行動服務，以在您的應用程式中採用 Twitter 登入驗證。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
   [0]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-developers.png

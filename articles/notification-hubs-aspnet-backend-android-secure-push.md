@@ -116,4 +116,3 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 4.  在 Android 應用程式 UI 中，按一下 **[登入]**。然後按一下 **[傳送推播]**。
 
-  [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md

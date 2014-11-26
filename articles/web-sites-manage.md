@@ -1,6 +1,6 @@
 <properties linkid="manage-scenarios-how-to-manage-websites" urlDisplayName="How to manage" pageTitle="How to manage websites - Microsoft Azure service management" metaKeywords="Azure portal website management" description="A reference for the Portal website management pages in Microsoft Azure. Details are provided for each website management page." metaCanonical="" services="web-sites" documentationCenter="" title="How to Manage Websites" authors="cephalin"  solutions="" writer="mwasson" manager="wpickett" editor=""  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson" />
 
 # <a name="howtomanage"></a>透過 Azure 管理入口網站管理網站
 
@@ -10,7 +10,7 @@
 
 [快速入門] 管理頁面包括以下幾個區段：
 
--   **Get the tools** - 提供連至[安裝 WebMatrix][] (英文) 和 [Microsoft Azure SDK][] (英文) 的連結。
+-   **Get the tools** - 提供連至[安裝 WebMatrix][安裝 WebMatrix] (英文) 和 [Microsoft Azure SDK][Microsoft Azure SDK] (英文) 的連結。
 -   **發佈您的應用程式** - 提供的連結可以：下載網站的發行設定檔、重設網站的部署認證、在非預備網站中增加預備發佈 (部署) 位置、了解預備發佈。
 -   **整合原始檔控制** - 從原始檔控制工具或網站，如 TFS、CodePlex、GitHub、Dropbox、Bitbucket 或本機 Git，設定及管理部署。
 
@@ -26,9 +26,9 @@
 -   **Http Server Errors** - 已傳送的 Http「5xx 伺服器錯誤」訊息數目。
 -   **要求** - 網站所有用戶端要求的計數。
 
-**注意：**您可以選擇 [監視] 管理頁面底部的 [Add Metrics]，在頁面中增加其他效能度量。如需詳細資訊，請參閱[如何監視網站][] (英文)。
+**注意：**您可以選擇 [監視] 管理頁面底部的 [Add Metrics]，在頁面中增加其他效能度量。如需詳細資訊，請參閱[如何監視網站][如何監視網站] (英文)。
 
-**Web Endpoint Status** - 已設定要監視之 Web 端點的清單。若尚未設定端點，按一下 [Configure Web Endpoint Monitoring]，然後移至 [設定] 管理頁面的 [監視] 區段。如需詳細資訊，請參閱[如何監視網站][] (英文)。
+**Web Endpoint Status** - 已設定要監視之 Web 端點的清單。若尚未設定端點，按一下 [Configure Web Endpoint Monitoring]，然後移至 [設定] 管理頁面的 [監視] 區段。如需詳細資訊，請參閱[如何監視網站][如何監視網站] (英文)。
 
 **Autoscale Status** - 在標準模式中，您可以自動調整您的資源，這麼一來就只會消耗您所需要的資源。若要啟用自動調整，選擇 [Configure Autoscale] 以前往 [調整] 頁面。若您的網站為 [免費] 或 [共用] 模式，則必須先變更為 [標準] 模式 (在 [調整] 頁面上進行)，才能設定自動調整。[自動調整作業記錄檔] 將帶您前往 [管理服務] 入口網站，您可在此檢視網站的自動調整歷程記錄。預設的查詢是最近 24 小時，但您可修改查詢。
 
@@ -41,7 +41,7 @@
 -   **檢視適用的附加元件** - 會開啟 [從市集購買] 對話方塊，您可在其中選擇要購買的附加元件，為網站提供額外的功能。部分附加元件在您的區域或環境中可能不提供。
 -   **檢視連接字串** - 檢視您的網站的資料庫連接字串。
 -   **下載發行設定檔** - 按一下此連結可為您的網站下載發行設定檔。發行設定檔包含您的認證 (使用者名稱和密碼) 和 URL，用於以 FTP 和 Git 上傳內容至您的網站。設定檔為 XML 格式，可在文字編輯器中檢視。
--   **設定部署認證** - 按一下此選項建立使用者名稱和密碼，用於以 FTP 和 Git 上傳內容至您的網站。您可以使用這些認證將內容推送至訂閱中的任何網站。(請參閱 [FTP 認證][]。)**注意**：不支援使用 Microsoft 帳戶 (Live ID) 認證對 FTP 主機或 Git 儲存機制進行驗證。
+-   **設定部署認證** - 按一下此選項建立使用者名稱和密碼，用於以 FTP 和 Git 上傳內容至您的網站。您可以使用這些認證將內容推送至訂閱中的任何網站。(請參閱 [FTP 認證][FTP 認證]。)**注意**：不支援使用 Microsoft 帳戶 (Live ID) 認證對 FTP 主機或 Git 儲存機制進行驗證。
 -   **重設您的發行設定檔認證** - 重設您的網站的發行設定檔。先前下載的發行設定檔將變無效。
 -   **Set up deployment from source control** - 會顯示對話方塊，您可在其中設定從 Team Foundation Service、CodePlex、GitHub、Dropbox、Bitbucket 或本機 Git 進行連續發佈。
 -   **Add a new deployment slot** - 標準模式的網站可使用此功能建立網站的預備位置。預備位置 (預備網站) 可讓您先驗證網站的內容和組態，再切換到實際執行環境。您也可以使用網站的預備版本逐漸增加內容更新，然後在預備位置上完成更新後，將網站切換至實際執行環境。(您無法為預備中的網站增加預備位置。)
@@ -52,10 +52,10 @@
 -   **管理服務** - 按一下 [作業記錄檔] 連結可從 Microsoft Azure 管理服務入口網站檢視網站的作業記錄檔。
 -   **虛擬 IP 位址** - 若您已經在 [設定] 索引標籤的 [SSL 繫結] 區段中為網站設定 IP 型 SSL 繫結，則會顯示網站的虛擬 IP 位址。
 -   **網站 URL** - 指定網站在網際網路上的公開存取位址。
--   **運算模式** - 指定網站是以免費、共用、基本或標準模式執行。如需 Web 規模群組模式的詳細資訊，請參閱[如何調整網站][] (英文)。
--   **FTP 主機名稱** - 指定透過 FTP 發佈至網站時所要使用的 URL (請參閱 [FTP 認證][])。
--   **FTPS 主機名稱** - 指定透過 FTPS 發佈至網站時所要使用的 URL (請參閱 [FTP 認證][])。
--   **部署使用者/FTP 使用者** - 指出透過 FTP 或 Git 將網站部署至 Microsoft Azure 時所使用的帳戶 (請參閱 [FTP 認證][])。
+-   **運算模式** - 指定網站是以免費、共用、基本或標準模式執行。如需 Web 規模群組模式的詳細資訊，請參閱[如何調整網站][如何調整網站] (英文)。
+-   **FTP 主機名稱** - 指定透過 FTP 發佈至網站時所要使用的 URL (請參閱 [FTP 認證][FTP 認證])。
+-   **FTPS 主機名稱** - 指定透過 FTPS 發佈至網站時所要使用的 URL (請參閱 [FTP 認證][FTP 認證])。
+-   **部署使用者/FTP 使用者** - 指出透過 FTP 或 Git 將網站部署至 Microsoft Azure 時所使用的帳戶 (請參閱 [FTP 認證][FTP 認證])。
 -   **FTP 診斷記錄** - 若已在 [設定] 管理頁面上啟用診斷記錄，指定網站診斷記錄的 FTP 位置。
 -   **FTPS 診斷記錄** - 若已在 [設定] 管理頁面上啟用診斷記錄，指定網站診斷記錄的 FTPS 位置。
 -   **位置** - 指定代管網站的資料中心所在區域。
@@ -68,17 +68,17 @@
 
 ## 監視
 
-[監視] 管理頁面以圖表顯示網站的使用情況資訊。依預設，此圖表會顯示和 [儀表板] 頁面上的圖表相同的度量，如前文的＜儀表板＞一節中所述。此圖表也可設定為顯示「HTTP 成功」、「HTTP 重新導向」、「HTTP 401 錯誤」、「HTTP 403 錯誤」、「HTTP 404 錯誤」和「HTTP 406 錯誤」等度量。如需這些度量的詳細資訊，請參閱[如何監視網站][] (英文)。
+[監視] 管理頁面以圖表顯示網站的使用情況資訊。依預設，此圖表會顯示和 [儀表板] 頁面上的圖表相同的度量，如前文的＜儀表板＞一節中所述。此圖表也可設定為顯示「HTTP 成功」、「HTTP 重新導向」、「HTTP 401 錯誤」、「HTTP 403 錯誤」、「HTTP 404 錯誤」和「HTTP 406 錯誤」等度量。如需這些度量的詳細資訊，請參閱[如何監視網站][如何監視網站] (英文)。
 
 ## WebJobs
 
-WebJobs 管理頁面可讓您為網站建立隨需、排程或持續執行的工作。如需詳細資訊，請參閱[如何在 Microsoft Azure 網站中使用 WebJobs 功能][] (英文)。
+WebJobs 管理頁面可讓您為網站建立隨需、排程或持續執行的工作。如需詳細資訊，請參閱[如何在 Microsoft Azure 網站中使用 WebJobs 功能][如何在 Microsoft Azure 網站中使用 WebJobs 功能] (英文)。
 
 ## 設定
 
 [設定] 管理頁面可用於設定應用程式專用的設定。
 
-如需詳細資訊，請參閱[如何設定網站][]。
+如需詳細資訊，請參閱[如何設定網站][如何設定網站]。
 
 ## 調整
 
@@ -86,7 +86,7 @@ WebJobs 管理頁面可讓您為網站建立隨需、排程或持續執行的工
 
 在 [標準] 模式中，您也可以變更 [執行個體大小]，增加每個執行個體的核心計數和記憶體容量。為了獲得更好的成本效益，您可以選擇 [自動調整] 選項，讓 Microsoft Azure 為網站動態配置資源。
 
-如需設定網站規模選項的詳細資訊，請參閱[如何調整網站][]。
+如需設定網站規模選項的詳細資訊，請參閱[如何調整網站][如何調整網站]。
 
 ## Linked Resources
 
@@ -94,7 +94,7 @@ WebJobs 管理頁面可讓您為網站建立隨需、排程或持續執行的工
 
 ## 備份
 
-[備份] 管理頁面可讓您建立網站的自動或手動備份、還原網站至先前的狀態、依據其中一個備份建立新網站。如需詳細資訊，請參閱 [Microsoft Azure 網站備份][] (英文) 和[還原 Microsoft Azure 網站][] (英文)。
+[備份] 管理頁面可讓您建立網站的自動或手動備份、還原網站至先前的狀態、依據其中一個備份建立新網站。如需詳細資訊，請參閱 [Microsoft Azure 網站備份][Microsoft Azure 網站備份] (英文) 和[還原 Microsoft Azure 網站][還原 Microsoft Azure 網站] (英文)。
 
 ## 管理頁面圖示
 
@@ -190,7 +190,7 @@ WebJobs 管理頁面可讓您為網站建立隨需、排程或持續執行的工
 若要重設密碼，請按一下 [重設您的發行設定檔認證]。若要取得新的認證，請再下載一次發行設定檔。發行設定檔認證會與該網站相關聯。每個網站都有自己的發行設定檔。
 
 <!-- LINKS --> 
-<!-- Anchors. -->
+
 
   [安裝 WebMatrix]: http://go.microsoft.com/fwlink/?LinkID=226244
   [Microsoft Azure SDK]: http://go.microsoft.com/fwlink/?LinkId=246928

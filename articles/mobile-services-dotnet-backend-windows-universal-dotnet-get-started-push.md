@@ -91,11 +91,10 @@
 -   [如何使用 Azure 行動服務的 .NET 用戶端][如何使用 Azure 行動服務的 .NET 用戶端]
     深入了解如何使用 C# Windows 應用程式裡的行動服務。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
+
   [開始在行動服務中使用推播通知]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push
   [此版本]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push
   [針對推播通知註冊應用程式]: #register
@@ -104,11 +103,7 @@
   [在應用程式中測試推播通知]: #test
   [Microsoft 市集帳戶]: http://go.microsoft.com/fwlink/p/?LinkId=280045
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=391934
-  [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
   [MobileServiceClient]: http://msdn.microsoft.com/zh-tw/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
-  [mobile-services-dotnet-backend-update-server-push]: ../includes/mobile-services-dotnet-backend-update-server-push.md
-  [mobile-services-dotnet-backend-configure-local-push-vs2013]: ../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md
-  [mobile-services-dotnet-backend-windows-universal-test-push]: ../includes/mobile-services-dotnet-backend-windows-universal-test-push.md
   [將推播通知傳送給驗證的使用者]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data
   [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users

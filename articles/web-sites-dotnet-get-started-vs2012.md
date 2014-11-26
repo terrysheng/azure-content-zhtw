@@ -1,12 +1,12 @@
 <properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Get started with Azure Websites and ASP.NET" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra" />
 
 # 開始使用 Azure 網站和 ASP.NET
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/get-started/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/develop/net/tutorials/get-started/" title="Visual Studio 2013">Visual Studio 2013</a><a href="/zh-tw/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a></div>
 
-<div class="dev-callout"><strong>注意</strong><p>現已提供<a href="/en-us/develop/net/tutorials/get-started/">新版的教學課程</a>。如果您想要使用 Visual Studio 2012，仍舊可以遵循此版本的教學課程說明，但是可能缺少某些最新的 Azure SDK 功能說明。</p></div>
+<div class="dev-callout"><strong>注意</strong><p>現已提供<a href="/zh-tw/develop/net/tutorials/get-started/">新版的教學課程</a>。如果您想要使用 Visual Studio 2012，仍舊可以遵循此版本的教學課程說明，但是可能缺少某些最新的 Azure SDK 功能說明。</p></div>
 
 本教學課程示範如何使用 Visual Studio 2012 中或 Visual Studio 2012 for Web Express 中的 [Publish Web] 精靈，以將 ASP.NET Web 應用程式部署至 Azure 網站。您可以視個人偏好，使用 Visual Studio 2010 或 Visual Web Developer Express 2010 來遵循此教學課程步驟。
 
@@ -23,7 +23,7 @@
 
 ![網站範例][網站範例]
 
-<div class="dev-callout"><p><strong>注意</strong>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有這類帳戶，可以<a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">啟用自己的 MSDN 訂戶權益</a>或是<a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">申請免費試用</a>。</p></div>
+<div class="dev-callout"><p><strong>注意</strong>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有這類帳戶，可以<a href="/zh-tw/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">啟用自己的 MSDN 訂戶權益</a>或是<a href="/zh-tw/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">申請免費試用</a>。</p></div>
 
 ### 教學課程區段
 
@@ -33,7 +33,7 @@
 4.  [將應用程式部署至 Azure][將應用程式部署至 Azure]
 5.  [後續步驟][後續步驟]
 
-[WACOM.INCLUDE [install-sdk-2012-only][install-sdk-2012-only]]
+[WACOM.INCLUDE [install-sdk-2012-only](../includes/install-sdk-2012-only.md)]
 
 ## <a name="setupwindowsazure"></a><span class="short-header">建立網站</span>
 
@@ -209,18 +209,12 @@
 
 在某些情況下，您可能會想要在 Azure 雲端服務 (而非 Azure 網站) 中執行應用程式。如需詳細資訊，請參閱 [Azure 執行模型][Azure 執行模型]和 [Azure 網站、雲端服務與虛擬機器之比較][Azure 網站、雲端服務與虛擬機器之比較]。如需觀看教學課程系列來了解如何建立多層式 ASP.NET Web 應用程式並將它部署至雲端服務，請參閱[使用儲存體資料表、佇列和 Blob 的 .NET 多層式應用程式][使用儲存體資料表、佇列和 Blob 的 .NET 多層式應用程式]。
 
-  [Visual Studio 2013]: /en-us/develop/net/tutorials/get-started/ "Visual Studio 2013"
-  [Visual Studio 2012]: /en-us/develop/net/tutorials/get-started-vs2012/ "Visual Studio 2012"
-  [新版的教學課程]: /en-us/develop/net/tutorials/get-started/
   [網站範例]: ./media/web-sites-dotnet-get-started-vs2012/DeployedWebSite.png
-  [啟用自己的 MSDN 訂戶權益]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-  [申請免費試用]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
   [設定開發環境]: #setupdevenv
   [在 Azure 中建立網站]: #setupwindowsazure
   [建立 ASP.NET MVC 4 應用程式]: #createmvc4app
   [將應用程式部署至 Azure]: #deploytowindowsazure
   [後續步驟]: #nextsteps
-  [install-sdk-2012-only]: ../includes/install-sdk-2012-only.md
   [Azure 管理入口網站]: http://manage.windowsazure.com
   [新網站]: ./media/web-sites-dotnet-get-started-vs2012/WebSiteNew.png
   [Quick create]: ./media/web-sites-dotnet-get-started-vs2012/ClickQuickCreate.png
@@ -247,12 +241,12 @@
   [Azure Web Sites in Server Explorer]: ./media/web-sites-dotnet-get-started-vs2012/ServerExplorerWSSettings.png
   [Web Site Configuration in Visual Studio]: ./media/web-sites-dotnet-get-started-vs2012/WSConfigurationInVS.png
   [Management Portal Dashboard Tab]: ./media/web-sites-dotnet-get-started-vs2012/MPStopStartDelete.png
-  [如何管理網站]: /en-us/manage/services/web-sites/how-to-manage-websites/
+  [如何管理網站]: /zh-tw/manage/services/web-sites/how-to-manage-websites/
   [Management Portal Scale Tab]: ./media/web-sites-dotnet-get-started-vs2012/MPScale.png
-  [如何調整網站]: /en-us/manage/services/web-sites/how-to-scale-websites/
+  [如何調整網站]: /zh-tw/manage/services/web-sites/how-to-scale-websites/
   [Visual Studio 中的記錄]: ./media/web-sites-dotnet-get-started-vs2012/LogsInVS.png
-  [在 Visual Studio 中疑難排解 Azure 網站]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
-  [將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 應用程式部署至 Azure 網站]: /en-us/develop/net/tutorials/web-site-with-sql-database/
-  [Azure 執行模型]: /en-us/develop/net/fundamentals/compute/
+  [在 Visual Studio 中疑難排解 Azure 網站]: /zh-tw/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
+  [將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 應用程式部署至 Azure 網站]: /zh-tw/develop/net/tutorials/web-site-with-sql-database/
+  [Azure 執行模型]: /zh-tw/develop/net/fundamentals/compute/
   [Azure 網站、雲端服務與虛擬機器之比較]: http://azure.microsoft.com/zh-tw/documentation/articles/choose-web-site-cloud-service-vm/
-  [使用儲存體資料表、佇列和 Blob 的 .NET 多層式應用程式]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+  [使用儲存體資料表、佇列和 Blob 的 .NET 多層式應用程式]: /zh-tw/develop/net/tutorials/multi-tier-web-site/1-overview/

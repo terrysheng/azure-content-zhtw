@@ -1,6 +1,6 @@
 <properties title="開始使用 Azure 儲存體" pageTitle="開始使用 Azure 儲存體" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb"></tags>
+<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
 
 > [AZURE.SELECTOR]
 >
@@ -46,5 +46,4 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
   [佇列]: /documentation/articles/vs-storage-aspnet-vnext-getting-started-queues/
   [資料表]: /documentation/articles/vs-storage-aspnet-vnext-getting-started-tables/
   [如何從 .NET 使用 Blob 儲存體]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/ "如何從 .NET 使用 Blob 儲存體"
-  [vs-storage-getting-started-blobs-include]: ../includes/vs-storage-getting-started-blobs-include.md
   [ASP.NET vNext]: http://www.asp.net/vnext

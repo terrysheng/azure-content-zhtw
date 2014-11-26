@@ -1,19 +1,19 @@
 本節說明如何從 .NET 主控台和任何其他應用程式傳送通知。
-如果您正在使用行動服務，請參閱[開始使用推送][]教學課程。如果您想要使用 Java 或 PHP，請參閱[如何從 Java/PHP 使用通知中樞][]。您可以使用[通知中心 REST 介面][]，從任何後端傳送通知。
+如果您正在使用行動服務，請參閱[開始使用推送][開始使用推送]教學課程。如果您想要使用 Java 或 PHP，請參閱[如何從 Java/PHP 使用通知中樞][如何從 Java/PHP 使用通知中樞]。您可以使用[通知中心 REST 介面][通知中心 REST 介面]，從任何後端傳送通知。
 
 下列程式碼會傳送通知給 Windows 市集、Windows Phone、iOS 和 Android 裝置。
 
-如果您在完成[開始使用通知中心][]時建立了主控台應用程式，則請略過步驟 1-3。
+如果您在完成[開始使用通知中心][開始使用通知中心]時建立了主控台應用程式，則請略過步驟 1-3。
 
 1.  在 Visual Studio 中建立新的 Visual C# 主控台應用程式：
 
-    ![][]
+    ![][0]
 
 2.  在 Visual Studio 主功能表中，依序按一下 **[工具]**、**[Library Package Manager]** 和 **[Package Manager Console]**，然後在主控台視窗中輸入下列資訊並按 **Enter** 鍵：
 
         Install-Package WindowsAzure.ServiceBus
 
-    透過使用 [WindowsAzure.ServiceBus NuGet 封裝][]，將在 Azure 服務匯流排 SDK 中新增參照。
+    透過使用 [WindowsAzure.ServiceBus NuGet 封裝][WindowsAzure.ServiceBus NuGet 封裝]，將在 Azure 服務匯流排 SDK 中新增參照。
 
 3.  開啟檔案 Program.cs，並新增下列`using` 陳述式：
 
@@ -81,11 +81,11 @@
          SendNotificationAsync();
          Console.ReadLine();
 
-<!-- Anchors --> <!-- Images. --> <!-- URLs. -->
+<!-- Anchors -->  
 
   [開始使用推送]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
   [如何從 Java/PHP 使用通知中樞]: /zh-tw/documentation/articles/notification-hubs-java-backend-how-to/
-  [通知中心 REST 介面]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+  [通知中心 REST 介面]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn223264.aspx
   [開始使用通知中心]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-  []: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
+  [0]: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
   [WindowsAzure.ServiceBus NuGet 封裝]: http://nuget.org/packages/WindowsAzure.ServiceBus/

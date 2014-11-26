@@ -111,16 +111,13 @@
 
 在下一堂教學課程[使用指令碼授權使用者][使用指令碼授權使用者]中，您將使用行動服務根據通過驗證使用者所提供的使用者 ID 值，並用它來篩選行動服務所傳回的資料。深入了解如何透過 HTML/JavaScript 來使用行動服務，請參閱[行動服務 HTML/JavaScript 作法概念性參考][行動服務 HTML/JavaScript 作法概念性參考]
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
+
   [註冊您的應用程式以驗證與設定行動服務]: #register
   [對通過驗證的使用者限制資料表權限]: #permissions
   [將驗證新增至應用程式]: #add-authentication
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-html-get-started
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [使用指令碼授權使用者]: /zh-tw/documentation/articles/mobile-services-html-authorize-users-in-scripts
   [行動服務 HTML/JavaScript 作法概念性參考]: /zh-tw/documentation/articles/mobile-services-html-how-to-use-client-library

@@ -1,4 +1,4 @@
-Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循這些指示建立必要的憑證，並將憑證上傳至您的行動服務。如需正式的 APNS 功能文件，請參閱 [Apple 推播通知服務][] (英文)。
+Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循這些指示建立必要的憑證，並將憑證上傳至您的行動服務。如需正式的 APNS 功能文件，請參閱 [Apple 推播通知服務][Apple 推播通知服務] (英文)。
 
 ## 產生憑證簽署要求檔案
 
@@ -8,7 +8,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
 2.  按一下 [Keychain Access]，並展開 [Certificate Assistant]，然後按一下 [Request a Certificate from a Certificate Authority...]。
 
-    ![][]
+    ![][0]
 
 3.  選取您的 [使用者電子郵件地址] 和 [一般名稱]，確定已勾選 [Saved to disk]，然後按一下 [繼續]。請將 [CA Email Address] 欄位留空，因為它不是必要資訊。
 
@@ -26,7 +26,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
 若要從行動服務將推播通知傳送至 iOS 應用程式，您必須向 Apple 註冊您的應用程式，並註冊進行推播通知。
 
-1.  如果您尚未註冊應用程式，請瀏覽至 Apple 開發人員中心的 [iOS 佈建入口網站][]，然後使用您的 Apple ID 登入，並按一下 [識別碼]，接著按一下 [App IDs]，最後按一下 **+** 號註冊新的應用程式。
+1.  如果您尚未註冊應用程式，請瀏覽至 Apple 開發人員中心的 [iOS 佈建入口網站][iOS 佈建入口網站]，然後使用您的 Apple ID 登入，並按一下 [識別碼]，接著按一下 [App IDs]，最後按一下 **+** 號註冊新的應用程式。
 
     ![][3]
 
@@ -86,7 +86,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
 ## 建立應用程式的佈建設定檔
 
-1.  返回 [iOS 佈建入口網站][]，選取 [Provisioning Profiles]，並選取 [全部]，然後按一下 **+** 按鈕建立新的設定檔。如此會啟動 **Add iOS Provisiong Profile** 精靈
+1.  返回 [iOS 佈建入口網站][iOS 佈建入口網站]，選取 [Provisioning Profiles]，並選取 [全部]，然後按一下 **+** 按鈕建立新的設定檔。如此會啟動 **Add iOS Provisiong Profile** 精靈
 
     ![][14]
 
@@ -123,7 +123,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 這將確保 Xcode 專案使用新的設定檔進行程式碼簽署。接著，您必須將憑證上傳到 Azure。
 
   [Apple 推播通知服務]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-  []: ./media/enable-apple-push-notifications/mobile-services-ios-push-step5.png
+  [0]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step5.png
   [1]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step6.png
   [2]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step7.png
   [iOS 佈建入口網站]: http://go.microsoft.com/fwlink/p/?LinkId=272456

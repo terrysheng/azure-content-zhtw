@@ -2,20 +2,20 @@
 
 1.  在 Azure 入口網站中，選取 [網站]。
 2.  按一下網站清單中的網站名稱。  
-    ![WebSiteEntry][]  
+    ![WebSiteEntry][WebSiteEntry]  
     網站儀表板隨即顯示。
 
 3.  按一下功能表列的 [設定]。  
-    ![WebSiteDashboardConfig][]
+    ![WebSiteDashboardConfig][WebSiteDashboardConfig]
 
 4.  向下捲動到 [連接字串] 區段。  
-    ![WebSiteConnectionStrings][]
+    ![WebSiteConnectionStrings][WebSiteConnectionStrings]
 
 5.  在 [名稱] 中，輸入 MONGOLAB\_URI。
 6.  在 [值] 中，貼上我們在上一節取得的連接字串。
 7.  在 [類型] 下拉式清單中選取 [自訂\] (取代預設的 **SQLAzure**)。
 8.  按一下工具列的 [儲存]。		
-    ![SaveWebSite][]
+    ![SaveWebSite][SaveWebSite]
 
 **注意：** Azure 會在此變數前面加上 **CUSTOMCONNSTR\_**，所以上述程式碼會參考 **CUSTOMCONNSTR\_MONGOLAB\_URI**。
 

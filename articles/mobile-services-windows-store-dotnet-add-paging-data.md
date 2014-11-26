@@ -30,12 +30,11 @@
 -   [行動服務 .NET 作法概念參考資料][行動服務 .NET 作法概念參考資料]
     深入了解如何使用搭配 .NET 的行動服務。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
-  [mobile-services-windows-dotnet-paging]: ../includes/mobile-services-windows-dotnet-paging.md
   [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
   [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/
   [行動服務 .NET 作法概念參考資料]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library

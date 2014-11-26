@@ -1,157 +1,88 @@
-<properties urlDisplayName="Autoscaling" pageTitle="使用自動調整應用程式區塊 (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="了解如何使用 Azure 的自動調整應用程式。程式碼範例是以 C# 撰寫並使用 .NET API。" metaCanonical="" services="cloud-services" documentationCenter=".NET" title="如何使用自動調整應用程式區塊" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties linkid="dev-net-how-to-autoscaling" urlDisplayName="Autoscaling" pageTitle="Use the autoscaling application block (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="How to Use the Autoscaling Application Block" authors="timlt" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
 # 如何使用自動調整應用程式區塊
 
-本指南將示範如何從
- [Microsoft Enterprise Library 5.0
-Integration Pack for Azure][Microsoft Enterprise Library 5.0
-Integration Pack for Azure] 使用自動調整應用程式區塊執行一般案例。這些範例均以 C# 撰寫，
-並使用 .NET API。涵蓋的案例包括**主控
-區塊**，**使用限制規則**和**使用重新啟動規則**。如需
-自動調整應用程式區塊的詳細資訊，請參閱[後續步驟][後續步驟]一節。
+本指南將示範如何從 [Microsoft Enterprise Library 5.0 Integration Pack for Azure][Microsoft Enterprise Library 5.0 Integration Pack for Azure] 使用自動調整應用程式區塊執行一般案例。這些範例均以 C# 撰寫並使用 .NET API。涵蓋的案例包括**主控區塊**，**使用限制規則**和**使用重新啟動規則**。如需自動調整應用程式區塊的詳細資訊，請參閱 [後續步驟][後續步驟]一節。
 
 ## 目錄
 
 [何謂自動調整應用程式區塊？][何謂自動調整應用程式區塊？]
+
  [概念][概念]
+
  [從目標 Azure 應用程式收集效能計數器資料][從目標 Azure 應用程式收集效能計數器資料]
+
  [設定自動調整應用程式區塊的主機應用程式][設定自動調整應用程式區塊的主機應用程式]
+
  [作法：具現化和執行自動調整器][作法：具現化和執行自動調整器] [作法：定義您的服務模型][作法：定義您的服務模型]
+
  [作法：定義您的自動調整規則][作法：定義您的自動調整規則]
+
  [作法：設定自動調整應用程式區塊][作法：設定自動調整應用程式區塊]
+
  [後續步驟][後續步驟]
+
 
 ## <span id="WhatIs"></span> </a>何謂自動調整應用程式區塊？
 
-自動調整應用程式區塊可以根據您特別針對應用程式所定義的規則，
-自動調整 Windows Azure 應用
-程式。您可以使用這些規則，來協助 Azure
-應用程式維護其輸送量，以回應其工作負載中的變更
-，同時控制與主控 Azure 中的
-應用程式相關聯的成本。除了
-增加或減少
-應用程式中的角色執行個體數目來進行調整外，區塊還可讓您使用其他
-調整動作，例如節流應用程式內的特定功能，或
-使用自定的動作。
+自動調整應用程式區塊可以根據您特別針對應用程式所定義的規則，自動調整 Windows Azure 應用程式。您可以使用這些規則，來協助 Azure 應用程式維護其輸送量，以回應其工作負載中的變更，同時控制與主控 Azure 中的應用程式相關聯的成本。除了增加或減少應用程式中的角色執行個體數目來進行調整外，區塊還可讓您使用其他調整動作，例如節流應用程式內的特定功能，或使用自定的動作。
 
-您可以選擇主控 Azure 角色或內部部署應用程式
-中的區塊。
+您可以選擇主控 Azure 角色或內部部署應用程式中的區塊。
 
-自動調整應用程式區塊是 [Microsoft Enterprise Library 5.0 Integration Pack for Azure][Microsoft Enterprise Library 5.0
-Integration Pack for Azure] 的一部分。
+自動調整應用程式區塊是 [Microsoft Enterprise Library 5.0 Integration Pack for Azure] 的一部分。
 
 ## <span id="Concepts"></span> </a> 概念
 
-在下圖中，綠色線顯示兩天內 Azure 角色的執行中
-執行個體數目的繪圖。執行個體數目
-會在一段時間後自動變更，以回應一組
-自動調整規則。
+在下圖中，綠色線顯示兩天內 Azure 角色的執行中執行個體數目的繪圖。執行個體數目會在一段時間後自動變更，以回應一組自動調整規則。
 
 ![diagram of sample autoscaling][diagram of sample autoscaling]
 
-區塊會使用兩種規則，來定義應用程式的
-自動調整行為：
+區塊會使用兩種規則，來定義應用程式的自動調整行為：
 
--   **限制規則：** 若要設定執行個體數目的上限和下限，
-    比方說，在每個早上 8:00 與 10:00 之間，
-    您想要最少四個，最多八個執行個體，
-    則可以使用**限制規則**。在圖解中，紅色線和藍色
-    線代表限制規則。例如，在圖解中的點 **A**，角色執行個體的
-    數目下限從二升高至
-    四，以便可在此時容納預期增加的
-    應用程式工作負載。在圖解中的點 **B**，
-    避免角色執行個體的數目上升超過五，
-    以便可以控制應用程式的執行成本。
+-   **限制規則：** 若要設定執行個體數目的上限和下限，比方說，在每個早上 8:00 與 10:00 之間，您想要最少四個，最多八個執行個體，則可以使用**限制規則**。在圖解中，紅色線和藍色線代表限制規則。例如，在圖解中的點 **A**，角色執行個體的數目下限從二升高至四，以便可在此時容納預期增加的應用程式工作負載。在圖解中的點 **B**，避免角色執行個體的數目上升超過五，以便可以控制應用程式的執行成本。
 
--   **重新啟動規則：** 若要讓角色執行個體的數目可以變更，
-    以回應需求中不可預期的變更，請使用**重新啟動
-    規則**。在圖解的點 **C**，區塊會自動
-    將角色執行個體的數目從四減少至三，
-    以回應工作負載的減少。在點 **D**，區塊
-    偵測到工作負載增加，並自動將執行中的
-    角色執行個體數目從三增加至四。
+-   **重新啟動規則：** 若要讓角色執行個體的數目可以變更，以回應需求中不可預期的變更，請使用**重新啟動規則**。在圖解的點 **C**，區塊會自動將角色執行個體的數目從四減少至三，以回應工作負載的減少。在點 **D**，區塊偵測到工作負載增加，並自動將執行中的角色執行個體數目從三增加至四。
 
 區塊會將其組態設定儲存在兩個存放區中：
 
--   **規則存放區：** 規則存放區會為您保存商業組態；
-    您已對 Azure 應用程式定義的
-    所有自動調整規則的清單。此存放區通常為 XML 檔案，
-    位於自動調整應用程式區塊可以讀取它的位置，例如，
-    位於 Azure Blob 儲存體或位於本機檔案。
+-   **規則存放區：** 規則存放區會為您保存商業組態；您已對 Azure 應用程式定義的所有自動調整規則的清單。此存放區通常為 XML 檔案，位於自動調整應用程式區塊可以讀取它的位置，例如，位於 Azure Blob 儲存體或位於本機檔案。
 
--   **服務資訊存放區：** 服務資訊存放區會存放
-    您的作業組態，也就是 Azure 應用程式的
-    服務模型。此服務模型包括 Azure 應用程式的所有
-    相關資訊 (例如名稱
-    和儲存體帳戶詳細資料)，區塊需要這些資訊，才能從目標 Azure 應用程式收集
-    資料點，並
-    執行調整作業。
+-   **服務資訊存放區：** 服務資訊存放區會存放您的作業組態，也就是 Azure 應用程式的服務模型。此服務模型包括 Azure 應用程式的所有相關資訊 (例如名稱和儲存體帳戶詳細資料)，區塊需要這些資訊，才能從目標 Azure 應用程式收集資料點，並執行調整作業。
 
 ## <span id="PerfCounter"></span> </a>從目標 Azure 應用程式收集效能計數器資料
 
-重新啟動規則可以使用角色中的效能計數器資料，作為規則定義
-的一部分。例如，重新啟動規則可能監視 Azure 角色的 CPU
-使用率，以判定區塊
-是否應該初始化調整作業。區塊會從 Azure 儲存體中
-名稱為
-**WADPerformanceCountersTable** 的 Azure 診斷資料表讀取效能計數器資料。
+重新啟動規則可以使用角色中的效能計數器資料，作為規則定義的一部分。例如，重新啟動規則可能監視 Azure 角色的 CPU使用率，以判定區塊是否應該初始化調整作業。區塊會從 Azure 儲存體中名稱為  **WADPerformanceCountersTable** 的 Azure 診斷資料表讀取效能計數器資料。
 
-依預設，Azure 不會將效能計數器資料寫入
-Azure 儲存體中的 Azure 診斷資料表。因此，您
-應該修改需要從中收集效能
-計數器資料的角色，以儲存此資料。如需如何在應用程式中啟用
-效能計數器的詳細資料，請參閱[在 Azure 中使用效能計數器][在 Azure 中使用效能計數器]。
+依預設，Azure 不會將效能計數器資料寫入Azure 儲存體中的 Azure 診斷資料表。因此，您應該修改需要從中收集效能計數器資料的角色，以儲存此資料。如需如何在應用程式中啟用效能計數器的詳細資料，請參閱[在 Azure 中使用效能計數器][在 Azure 中使用效能計數器]。
 
 ## <span id="CreateHost"></span> </a>設定自動調整應用程式區塊的主機應用程式
 
-您可以利用 Azure
- 角色或內部部署應用程式主控自動調整應用程式區塊。通常，從您要自動調整的目標應用程式中
-，利用個別應用程式主控
-自動調整應用程式區塊。本節提供
-如何設定主機應用程式的指導方針。
+您可以利用 Azure角色或內部部署應用程式主控自動調整應用程式區塊。通常，從您要自動調整的目標應用程式中，利用個別應用程式主控自動調整應用程式區塊。本節提供如何設定主機應用程式的指導方針。
 
 ### 取得自動調整應用程式區塊 NuGet 套件
 
-可在 Visual
- Studio 專案中使用自動調整應用程式區塊前，您將需要取得自動調整應用程式
-區塊二進位檔，並在專案新增中它們的參考。NuGet
-Visual Studio 擴充功能可讓您輕易地安裝和更新 Visual Studio 和 Visual Web Developer 中
-的程式庫和工具。自動調整
-應用程式區塊 NuGet 套件是取得自動調整
-應用程式區塊 API 的最簡單方法。如需 **NuGet**，以及如何
-安裝和使用 **NuGet** Visual Studio 擴充功能的詳細資訊，請參閱 [NuGet][NuGet]
- 網站。
+可在 VisualStudio 專案中使用自動調整應用程式區塊前，您將需要取得自動調整應用程式區塊二進位檔，並在專案新增中它們的參考。NuGet Visual Studio 擴充功能可讓您輕易地安裝和更新 Visual Studio 和 Visual Web Developer 中的程式庫和工具。自動調整應用程式區塊 NuGet 套件是取得自動調整
+應用程式區塊 API 的最簡單方法。如需 **NuGet**，以及如何安裝和使用 **NuGet** Visual Studio 擴充功能的詳細資訊，請參閱 [NuGet][NuGet] 網站。
 
-一旦安裝了 NuGet Package Manager，若要在應用程式中安裝自動調整 NuGet
- 套件，請執行下列動作：
+一旦安裝了 NuGet Package Manager，若要在應用程式中安裝自動調整 NuGet套件，請執行下列動作：
 
-1.  開啟 [NuGet Package Manager 主控台] 視窗。在 [工具]
-     功能表中，依序選取 [Library Package Manager]、[Package Manager Console]**
-    **。
+1.  開啟 [NuGet Package Manager 主控台] 視窗。在 [工具]功能表中，依序選取 [Library Package Manager]、[Package Manager Console]。
 
-2.  在 NuGet Package Manager 主控台
-    視窗中輸入下列命令：
+2.  在 NuGet Package Manager 主控台視窗中輸入下列命令：
 
         PM> Install-Package EnterpriseLibrary.WindowsAzure.Autoscaling
 
-安裝 NuGet 更新，即可利用您使用自動調整
-應用程式區塊時所需的所有必要組件
-和參考來更新專案。您的專案現在包括 XML 結構描述檔案，用於
-自動調整規則定義和自動調整服務資訊。
-專案現在也包括 readme 檔案，其中包含自動調整
-應用程式區塊的重要資訊：
+安裝 NuGet 更新，即可利用您使用自動調整應用程式區塊時所需的所有必要組件和參考來更新專案。您的專案現在包括 XML 結構描述檔案，用於自動調整規則定義和自動調整服務資訊。專案現在也包括 readme 檔案，其中包含自動調整應用程式區塊的重要資訊：
 
 ![files configured by autoscaling NuGet package][files configured by autoscaling NuGet package]
 
 ### 將目標 Framework 設定為 .NET Framework 4
 
-您的專案必須將 .NET Framework 4 設為目標。若要變更或驗證
-目標架構：
+您的專案必須將 .NET Framework 4 設為目標。若要變更或驗證目標架構：
 
-1.  在 [方案總管] 中，於專案名稱上按一下滑鼠右鍵，然後選取 [內容]
-    。
+1.  在 [方案總管] 中，於專案名稱上按一下滑鼠右鍵，然後選取 [內容]。
 
 2.  在內容視窗的 [應用程式] 索引標籤中，確定目標架構設為 [.NET Framework 4]。
 
@@ -159,18 +90,14 @@ Visual Studio 擴充功能可讓您輕易地安裝和更新 Visual Studio 和 Vi
 
 ### 新增命名空間參考
 
-將下列程式碼命名空間宣告，新增至您想要在其中以程式設計方式
-存取自動調整應用程式區塊之任何 C# 檔案
-內的頂端：
+將下列程式碼命名空間宣告，新增至您想要在其中以程式設計方式存取自動調整應用程式區塊之任何 C# 檔案內的頂端：
 
     using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
     using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.Autoscaling;
 
 ## <span id="Instantiate"></span> </a>作法：具現化和執行自動調整器
 
-使用 **IServiceLocator.GetInstance** 方法，來具現化
-自動調整器，然後呼叫 **Autoscaler.Start** 方法來執行
-**自動調整器**。
+使用 **IServiceLocator.GetInstance** 方法，來具現化自動調整器，然後呼叫**Autoscaler.Start** 方法來執行**自動調整器**。
 
     Autoscaler scaler =
         EnterpriseLibraryContainer.Current.GetInstance<Autoscaler>();
@@ -178,138 +105,109 @@ Visual Studio 擴充功能可讓您輕易地安裝和更新 Visual Studio 和 Vi
 
 ## <span id="DefineServiceModel"></span> </a>作法：定義您的服務模型
 
-通常，您會將服務模型 (Windows Azure 環境中的描述，
-包括訂閱、代管服務、角色和儲存體帳戶的
-相關資訊) 儲存在 XML 檔案中。您可在專案的
-AutoscalingServiceModel.xsd
- **檔案中找到此 XML 檔案的結構描述複本**。在 Visual Studio 中，
-當您編輯服務模型 XML 檔案時，
-此結構描述會提供 Intellisense 和驗證。
+通常，您會將服務模型 (Windows Azure 環境中的描述，包括訂閱、代管服務、角色和儲存體帳戶的相關資訊) 儲存在 XML 檔案中。您可在專案的AutoscalingServiceModel.xsd **檔案中找到此 XML 檔案的結構描述複本**。在 Visual Studio 中，當您編輯服務模型 XML 檔案時，此結構描述會提供 Intellisense 和驗證。
 
 在專案中建立一個稱為 **services.xml** 的新 XML 檔案。
 
-在 Visual Studio 中，您必須確定服務模型檔案複製
-至輸出資料夾。作法：
+在 Visual Studio 中，您必須確定服務模型檔案複製至輸出資料夾。作法：
 
 1.  在檔案上按一下滑鼠右鍵，然後選取 [內容]。
 
-2.  在 [內容] 窗格內，將 [複製到輸出目錄]
-     值設為 [永遠複製]。
+2.  在 [內容] 窗格內，將 [複製到輸出目錄]值設為 [永遠複製]。
 
     ![Set Copy to Output Directory value][Set Copy to Output Directory value]
 
     下列程式碼範例顯示 **services.xml** 檔案中的範例服務模型：
+    
+    <?xml version="1.0" encoding="utf-8" ?>
+    <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel">
+      <subscriptions>
+        <subscription name="[subscriptionname]"
+                      certificateThumbprint="[managementcertificatethumbprint]"
+                      subscriptionId="[subscriptionid]"
+                      certificateStoreLocation="CurrentUser"
+                      certificateStoreName="My">
+          <services>
+            <service dnsPrefix="[hostedservicednsprefix]" slot="Staging">
+              <roles>
+                <role alias="AutoscalingApplicationRole"
+                      roleName="[targetrolename]"
+                      wadStorageAccountName="targetstorage"/>
+              </roles>
+            </service>
+          </services>
+          <storageAccounts>
+            <storageAccount alias="targetstorage"
+              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]">
+            </storageAccount>
+          </storageAccounts>
+        </subscription>
+      </subscriptions>
+    </serviceModel>
 
-    <servicemodel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel">
-     <subscriptions>
-     <subscription name="[subscriptionname]" certificatethumbprint="[managementcertificatethumbprint]" subscriptionid="[subscriptionid]" certificatestorelocation="CurrentUser" certificatestorename="My">
-     <services>
-     <service dnsprefix="[hostedservicednsprefix]" slot="Staging">
-     <roles>
-     <role alias="AutoscalingApplicationRole" rolename="[targetrolename]" wadstorageaccountname="targetstorage"></role>
-     </roles>
-     </service>
-     </services>
-     <storageaccounts>
-     <storageaccount alias="targetstorage" connectionstring="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]">
-     </storageaccount>
-     </storageaccounts>
-     </subscription>
-     </subscriptions>
-    </servicemodel>
-
-您必須將方括弧中的值取代為
-環境和目標應用程式特有的值。若要找出其中多個值
-，您將需要登入 [Azure 管理入口網站][Azure 管理入口網站]。
-
+您必須將方括弧中的值取代為環境和目標應用程式特有的值。若要找出其中多個值，您將需要登入 [Azure 管理入口網站][Azure 管理入口網站]。<br/>
 登入管理入口網站。
 
--   **[subscriptionname]：** 選擇易記名稱以參照
-    Azure 訂閱，而此訂閱包含您
-    要在其中使用自動調整的應用程式。
+-   **[subscriptionname]：** 選擇易記名稱以參照Azure 訂閱，而此訂閱包含您要在其中使用自動調整的應用程式。
 
--   **[subscriptionid]：** Azure 訂閱的唯一 ID，
-    而此訂閱包含您要在其中使用
-    自動調整的應用程式。
+-   **[subscriptionid]：** Azure 訂閱的唯一 ID，而此訂閱包含您要在其中使用自動調整的應用程式。
 
-    1.  在 Azure 管理入口網站中，按一下
-        **雲端服務**。
+    1.  在 Azure 管理入口網站中，按一下**雲端服務**。
 
-    2.  在雲端服務清單中，按一下主控您要在其中使用
-        自動調整之應用程式的服務。右邊
-        的 [快速瀏覽] 窗格將顯示
-         [訂閱識別碼]。
+    2.  在雲端服務清單中，按一下主控您要在其中使用自動調整之應用程式的服務。右邊的 [快速瀏覽] 窗格將顯示[訂閱識別碼]。
 
         ![image][1]
 
     -   **[hostedservicednsprefix]：** 您要在其中使用自動調整之代管服務的 DNS 前置詞。
 
-    1.  在 Azure 管理入口網站中，按一下
-        **雲端服務**。
+    1.  在 Azure 管理入口網站中，按一下**雲端服務**。
 
-    2.  在雲端服務清單中，找出主控您要在其中使用自動調整之
-        應用程式的服務。雲端服務的名稱為
-        **DNS Prefix**。
+    2.  在雲端服務清單中，找出主控您要在其中使用自動調整之應用程式的服務。雲端服務的名稱為**DNS Prefix**。
 
         ![image][2]
 
     -   **[targetrolename]：** 作為自動調整規則目標的角色名稱。
 
-    1.  在 Azure 管理入口網站中，按一下
-        **雲端服務**。
+    1.  在 Azure 管理入口網站中，按一下**雲端服務**。
 
-    2.  在雲端服務清單中，按一下主控
-        您要在其中使用自動調整之應用程式的服務，然後按一下
-         [執行個體]。\*\*角色\* 資料欄顯示目標角色的
-        名稱。
+    2.  在雲端服務清單中，按一下主控您要在其中使用自動調整之應用程式的服務，然後按一下[執行個體]。\*\*角色\* 資料欄顯示目標角色的名稱。
 
         ![image][3]
 
     -   **[storageaccountname]** 和 **[storageaccountkey]：**您用於目標 Azure 應用程式的 Azure 儲存體帳戶名稱。
 
-    1.  在 Azure 管理入口網站中，按一下
-         [儲存體]。
+    1.  在 Azure 管理入口網站中，按一下[儲存體]。
 
-    2.  在儲存體帳戶的清單中，選取您要使用的儲存體帳戶。
-        [名稱] 資料欄將顯示 [名稱]。
+    2.  在儲存體帳戶的清單中，選取您要使用的儲存體帳戶。[名稱] 資料欄將顯示 [名稱]。
 
-    3.  按一下畫面底端的 [管理金鑰] 按鈕，
-        以取得主要存取金鑰。
+    3.  按一下畫面底端的 [管理金鑰] 按鈕，以取得主要存取金鑰。
 
         ![image][4]
 
     -   **[managementcertificatethumbprint]：** 管理憑證的 [指紋]，區塊將使用此管理憑證，來保護目標應用程式的調整要求的安全。
 
-    1.  在 Azure 管理入口網站中，按一下
-         [設定]。
+    1.  在 Azure 管理入口網站中，按一下[設定]。
 
     2.  [指紋] 資料欄將顯示 [指紋]。
 
         ![image][5]
 
-若要深入了解服務模型檔案的內容，請參閱
-[儲存您的服務資訊資料][儲存您的服務資訊資料]。
+若要深入了解服務模型檔案的內容，請參閱[儲存您的服務資訊資料][儲存您的服務資訊資料]。
 
 ## <span id="DefineAutoscalingRules"></span> </a>作法：定義您的自動調整規則
 
-通常，您可以將控制目標應用程式中
-角色執行個體數目的自動調整規則儲存在 XML 檔案中。您可在專案的
-AutoscalingServiceModel.xsd **檔案中找到此 XML 檔案的結構描述複本**
-。在 Visual Studio 中，當您編輯 XML 檔案時
-，此結構描述會提供 Intellisense 和驗證。
+通常，您可以將控制目標應用程式中角色執行個體數目的自動調整規則儲存在 XML 檔案中。您可在專案的
+AutoscalingServiceModel.xsd **檔案中找到此 XML 檔案的結構描述複本**。在 Visual Studio 中，當您編輯 XML 檔案時，此結構描述會提供 Intellisense 和驗證。
 
 在專案中建立一個名稱為 **rules.xml** 的新 XML 檔案。
 
-在 Visual Studio 中，您必須確定規則檔案
-複製至輸出資料夾。作法：
+在 Visual Studio 中，您必須確定規則檔案複製至輸出資料夾。作法：
 
 1.  在檔案上按一下滑鼠右鍵，然後選取 [內容]。
 
-2.  在 [內容] 窗格內，將 [複製到輸出目錄]
-     值設為 [永遠複製]。
+2.  在 [內容] 窗格內，將 [複製到輸出目錄]值設為 [永遠複製]。
 
-下列程式碼範例顯示 **rules.xml**
- 檔案中設定的範例規則：
+下列程式碼範例顯示 **rules.xml**檔案中設定的範例規則：
 
     <?xml version="1.0" encoding="utf-8" ?>
     <rules xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/rules">
@@ -350,97 +248,55 @@ AutoscalingServiceModel.xsd **檔案中找到此 XML 檔案的結構描述複本
       </operands>
     </rules>
 
-在此範例中，有三個自動調整規則 (一個**限制規則
-和兩個重新啟動規則**)，在名稱為
-**AutoscalingApplicationRole**
- (其為**服務模型**中定義的角色別名) 上操作：
+在此範例中，有三個自動調整規則 (一個**限制規則和兩個重新啟動規則**)，在名稱為
+**AutoscalingApplicationRole**(其為**服務模型**中定義的角色別名) 上操作：
 
--   限制規則永遠作用中，並將
-    角色執行個體的數目下限設為二，而將角色執行個體的數目上限設為
-    六。
+-   限制規則永遠作用中，並將角色執行個體的數目下限設為二，而將角色執行個體的數目上限設為六。
 
--   這兩個重新啟動規則會使用名稱為 **WebRoleA\_CPU\_Avg\_5m** 的
-    **運算元**，計算名稱為
-    AutoscalingApplicationRole
-     **的 Azure 角色最後五分鐘的平均 CPU 使用率。**此角色定義在
-    **服務模型**中。
+-   這兩個重新啟動規則會使用名稱為 **WebRoleA\_CPU\_Avg\_5m** 的**運算元**，計算名稱為AutoscalingApplicationRole**的 Azure 角色最後五分鐘的平均 CPU 使用率。 此角色定義在**服務模型**中。
 
--   如果過去五分鐘的平均 CPU 使用率
-    大於或等於 60%，則名稱為 **ScaleUpOnHighUtilization** 的重新啟動規則
-    會增加目標角色的
-    執行個體計數。
+-   如果過去五分鐘的平均 CPU 使用率大於或等於 60%，則名稱為 **ScaleUpOnHighUtilization** 的重新啟動規則會增加目標角色的執行個體計數。
 
--   如果過去五分鐘的平均 CPU 使用率小於 60%，則名稱為 **ScaleDownOnLowUtilization** 的重新啟動規則
-    會減少目標角色的
-    執行個體計數。
+-   如果過去五分鐘的平均 CPU 使用率小於 60%，則名稱為 **ScaleDownOnLowUtilization** 的重新啟動規則會減少目標角色的執行個體計數。
 
 ## <span id="Configure"></span> </a>作法：設定自動調整應用程式區塊
 
-在定義了服務模型和自動調整規則後，您
-必須將自動調整應用程式區塊設定成使用它們。此
-作業組態資訊儲存在應用程式
-組態檔中。
+在定義了服務模型和自動調整規則後，您必須將自動調整應用程式區塊設定成使用它們。此作業組態資訊儲存在應用程式組態檔中。
 
-依預設，自動調整應用程式區塊預期自動調整
-規則和服務模型儲存在 Azure Blob 中。在此
-範例中，您將區塊設定成從本機檔案
-系統中載入它們。
+依預設，自動調整應用程式區塊預期自動調整規則和服務模型儲存在 Azure Blob 中。在此範例中，您將區塊設定成從本機檔案系統中載入它們。
 
 ### 在主機應用程式中設定自動調整應用程式區塊
 
-1.  在方案總管的 **App.config** 檔案上按一下滑鼠右鍵，然後
-    按一下 [Edit Configuration File]。
+1.  在方案總管的 **App.config** 檔案上按一下滑鼠右鍵，然後按一下 [Edit Configuration File]。
 
-2.  在 [區塊] 功能表中，按一下 [Add Autoscaling Settings]：
+2.  在 [區塊] 功能表中，按一下 [Add Autoscaling Settings]：<br/>
     ![映像][映像]
 
-3.  展開 [Autoscaling Settings]，然後
-    按一下 [Data Points Store Storage Account] 旁邊的省略符號 (...)、新增 Azure 儲存體帳戶的 [帳戶名稱]**
-    ** 和 [帳戶金鑰]，區塊將在此儲存體帳戶儲存
-    其收集的資料點 (請參閱
-    [作法：定義您的服務模型][作法：定義您的服務模型]，如果您不確定可在何處
-    找到這些值)，然後按一下 [確定]：
+3.  展開 [Autoscaling Settings]，然後按一下 [Data Points Store Storage Account] 旁邊的省略符號 (...)、新增 Azure 儲存體帳戶的 [帳戶名稱] 和 [帳戶金鑰]，區塊將在此儲存體帳戶儲存其收集的資料點 (請參閱 [作法：定義您的服務模型][作法：定義您的服務模型]，如果您不確定可在何處找到這些值)，然後按一下 [確定]：
 
     ![image][6]
 
-4.  展開 [Autoscaling Settings] 區段，以顯示 [Rules Store]**
-    ** 和 [Service Information Store] 區段。依預設，它們
-    會設定成使用 Azure Blob 儲存體：
+4.  展開 [Autoscaling Settings] 區段，以顯示 [Rules Store] 和 [Service Information Store] 區段。依預設，它們會設定成使用 Azure Blob 儲存體：
     ![映像][7]
 
-5.  按一下 [Rules Store] 旁邊的加號 (+)、指向 [Set Rules Store]**
-    **，然後按一下 [Use Local File Rules Store]，
-    再按一下 [是]。
+5.  按一下 [Rules Store] 旁邊的加號 (+)、指向 [Set Rules Store]，然後按一下 [Use Local File Rules Store]，再按一下 [是]。
 
-6.  在 [檔案名稱] 方塊中，輸入 **rules.xml**。這是包含
-    自動調整規則的檔案名稱：
+6.  在 [檔案名稱] 方塊中，輸入 **rules.xml**。這是包含自動調整規則的檔案名稱：
     ![映像][8]
 
-7.  按一下 [Service Information Store] 旁邊的加號 (+)、指向
-    [Set Service Information Store]，然後按一下 [Use Local File Service Information Store]**
-    ，**再按一下 [是]。
+7.  按一下 [Service Information Store] 旁邊的加號 (+)、指向[Set Service Information Store]，然後按一下 [Use Local File Service Information Store]，再按一下 [是]。
 
-8.  在 [檔案名稱] 方塊中，輸入 **services.xml**。這是包含
-    自動調整規則的檔案名稱：
+8.  在 [檔案名稱] 方塊中，輸入 **services.xml**。這是包含自動調整規則的檔案名稱：
     ![映像][9]
 
-9.  在 Enterprise Library Configuration 視窗的 [檔案]
-     功能表上，按一下 [儲存] 以儲存您的組態變更。然後，在
-     [Enterprise Library Configuration] 視窗的 [檔案] 功能表上，
-    按一下 [結束]。
+9.  在 Enterprise Library Configuration 視窗的 [檔案]功能表上，按一下 [儲存] 以儲存您的組態變更。然後，在[Enterprise Library Configuration] 視窗的 [檔案] 功能表上，按一下 [結束]。
 
-若要取得自動調整
-應用程式區塊正在執行之動作的詳細資訊，
-您需要擷取其寫入的記錄訊息。例如，如果您是在主控台
-應用程式中主控區塊，則可在 Visual Studio 的 [輸出] 視窗中
-檢視記錄訊息。下節顯示如何設定此
+若要取得自動調整應用程式區塊正在執行之動作的詳細資訊，您需要擷取其寫入的記錄訊息。例如，如果您是在主控台應用程式中主控區塊，則可在 Visual Studio 的 [輸出] 視窗中檢視記錄訊息。下節顯示如何設定此
 行為。
 
 ### 設定如何記錄在自動調整應用程式區塊主機應用程式中
 
-1.  在 Visual Studio 中，按兩下方案總管中的 **App.config** 檔案，
-    以在編輯器中開啟它。然後，新增
-    **system.diagnostics** 區段，如下列範例所示：
+1.  在 Visual Studio 中，按兩下方案總管中的 **App.config** 檔案，以在編輯器中開啟它。然後，新增 **system.diagnostics** 區段，如下列範例所示：
 
         <?xml version="1.0" encoding="utf-8" ?>
         <configuration>
@@ -458,13 +314,7 @@ AutoscalingServiceModel.xsd **檔案中找到此 XML 檔案的結構描述複本
 
 2.  儲存您的變更。
 
-您現在可以執行自動調整應用程式區塊主機主控台
-應用程式，並觀察自動調整規則如何使用您的目標 Azure
- 應用程式。當執行主機主控台應用程式時，
-您應該在 Visual Studio 的 [輸出] 視窗中
-看到如下的訊息。這些記錄訊息可協助您了解
-區塊的行為。例如，它們指出區塊符合哪些規則，
-以及區塊正在採取哪些動作。
+您現在可以執行自動調整應用程式區塊主機主控台應用程式，並觀察自動調整規則如何使用您的目標 Azure 應用程式。當執行主機主控台應用程式時，您應該在 Visual Studio 的 [輸出] 視窗中看到如下的訊息。這些記錄訊息可協助您了解區塊的行為。例如，它們指出區塊符合哪些規則，以及區塊正在採取哪些動作。
 
     Autoscaling General Verbose: 1002 : Rule match.
     [BEGIN DATA]{"EvaluationId":"6b27dfa0-b671-44a3-adf1-bb1e0b7c3726",
@@ -498,9 +348,7 @@ AutoscalingServiceModel.xsd **檔案中找到此 XML 檔案的結構描述複本
 
 ## <span id="NextSteps"></span> </a>後續步驟
 
-既然已了解使用自動調整應用程式區塊的基礎概念，
-請遵循下列連結，
-以了解如何實作更複雜的自動調整案例：
+既然已了解使用自動調整應用程式區塊的基礎概念，請遵循下列連結，以了解如何實作更複雜的自動調整案例：
 
 -   [在背景工作角色中主控自動調整應用程式區塊][在背景工作角色中主控自動調整應用程式區塊]
 -   [實作節流行為][實作節流行為]
@@ -514,6 +362,8 @@ AutoscalingServiceModel.xsd **檔案中找到此 XML 檔案的結構描述複本
 -   [Sage 如何使用自動調整減少 Azure 主控成本][Sage 如何使用自動調整減少 Azure 主控成本]
 -   [利用 Azure 上的自動調整減少 TechNet 和 MSDN 主控成本和環境影響][利用 Azure 上的自動調整減少 TechNet 和 MSDN 主控成本和環境影響]
 
+  [Microsoft Enterprise Library 5.0 Integration Pack for Azure]:
+    http://go.microsoft.com/fwlink/?LinkID=235134
   [後續步驟]: #NextSteps
   [何謂自動調整應用程式區塊？]: #WhatIs
   [概念]: #Concepts
@@ -524,7 +374,7 @@ AutoscalingServiceModel.xsd **檔案中找到此 XML 檔案的結構描述複本
   [作法：定義您的自動調整規則]: #DefineAutoscalingRules
   [作法：設定自動調整應用程式區塊]: #Configure
   [diagram of sample autoscaling]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling01.png
-  [在 Azure 中使用效能計數器]: http://www.windowsazure.com/zh-tw/develop/net/common-tasks/performance-profiling/
+  [在 Azure 中使用效能計數器]: http://www.windowsazure.com/zh-TW/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [files configured by autoscaling NuGet package]: ./media/cloud-services-dotnet-autoscaling-application-block/auotscaling02.png
   [image]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling03.png
@@ -535,20 +385,20 @@ AutoscalingServiceModel.xsd **檔案中找到此 XML 檔案的結構描述複本
   [3]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling07.png
   [4]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling08.png
   [5]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling09.png
-  [儲存您的服務資訊資料]: http://msdn.microsoft.com/zh-tw/library/hh680878(PandP.50).aspx
+  [儲存您的服務資訊資料]: http://msdn.microsoft.com/zh-TW/library/hh680878(PandP.50).aspx
   [映像]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png
   [6]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png
   [7]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png
   [8]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png
   [9]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png
-  [在背景工作角色中主控自動調整應用程式區塊]: http://msdn.microsoft.com/zh-tw/library/hh680914(PandP.50).aspx
-  [實作節流行為]: http://msdn.microsoft.com/zh-tw/library/hh680896(PandP.50).aspx
-  [了解規則等級和重新調整]: http://msdn.microsoft.com/zh-tw/library/hh680923(PandP.50).aspx
-  [延伸並修改自動調整應用程式區塊]: http://msdn.microsoft.com/zh-tw/library/hh680889(PandP.50).aspx
-  [使用最佳化穩定器來避免高頻率振盪和最佳化成本]: http://msdn.microsoft.com/zh-tw/library/hh680951(PandP.50).aspx
-  [使用通知和手動調整]: http://msdn.microsoft.com/zh-tw/library/hh680885(PandP.50).aspx
-  [定義調整群組]: http://msdn.microsoft.com/zh-tw/library/hh680902(PandP.50).aspx
-  [使用 WASABiCmdlets 透過 Windows PowerShell 操作區塊]: http://msdn.microsoft.com/zh-tw/library/hh680938(PandP.50).aspx
-  [Enterprise Library 5.0 Integration Pack for Azure 開發人員指南]: http://msdn.microsoft.com/zh-tw/library/hh680949(PandP.50).aspx
-  [Sage 如何使用自動調整減少 Azure 主控成本]: http://msdn.microsoft.com/zh-tw/library/jj838716(PandP.50).aspx
-  [利用 Azure 上的自動調整減少 TechNet 和 MSDN 主控成本和環境影響]: http://msdn.microsoft.com/zh-tw/library/jj838718(PandP.50).aspx
+  [在背景工作角色中主控自動調整應用程式區塊]: http://msdn.microsoft.com/zh-TW/library/hh680914(PandP.50).aspx
+  [實作節流行為]: http://msdn.microsoft.com/zh-TW/library/hh680896(PandP.50).aspx
+  [了解規則等級和重新調整]: http://msdn.microsoft.com/zh-TW/library/hh680923(PandP.50).aspx
+  [延伸並修改自動調整應用程式區塊]: http://msdn.microsoft.com/zh-TW/library/hh680889(PandP.50).aspx
+  [使用最佳化穩定器來避免高頻率振盪和最佳化成本]: http://msdn.microsoft.com/zh-TW/library/hh680951(PandP.50).aspx
+  [使用通知和手動調整]: http://msdn.microsoft.com/zh-TW/library/hh680885(PandP.50).aspx
+  [定義調整群組]: http://msdn.microsoft.com/zh-TW/library/hh680902(PandP.50).aspx
+  [使用 WASABiCmdlets 透過 Windows PowerShell 操作區塊]: http://msdn.microsoft.com/zh-TW/library/hh680938(PandP.50).aspx
+  [Enterprise Library 5.0 Integration Pack for Azure 開發人員指南]: http://msdn.microsoft.com/zh-TW/library/hh680949(PandP.50).aspx
+  [Sage 如何使用自動調整減少 Azure 主控成本]: http://msdn.microsoft.com/zh-TW/library/jj838716(PandP.50).aspx
+  [利用 Azure 上的自動調整減少 TechNet 和 MSDN 主控成本和環境影響]: http://msdn.microsoft.com/zh-TW/library/jj838718(PandP.50).aspx

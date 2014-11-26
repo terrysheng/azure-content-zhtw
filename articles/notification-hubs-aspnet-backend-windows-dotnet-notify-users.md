@@ -239,7 +239,6 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
   [從您的應用程式後端註冊]: http://msdn.microsoft.com/zh-tw/library/dn743807.aspx
   [向 Windows 市集註冊您的應用程式]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register
   [設計您的通知中心]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub
-  [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
   [0]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
   [1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png
   [2]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push11.png

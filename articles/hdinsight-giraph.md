@@ -1,4 +1,4 @@
-<properties title="如何在 HDInsight 上使用 Giraph" pageTitle="如何在 Azure HDInsight 上使用 Apache Giraph" description="了解如何在 Azure HDInsight 上使用 Apache Giraph 執行圖形處理" metaKeywords="Azure HDInsight Apache Giraph, hdinsight giraph, hdinsight graph, hadoop giraph, azure hadoop, hadoop graph" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" manager="paulettm" />
+<properties title="How to use Giraph with HDInsight" pageTitle="How to use Apache Giraph with Azure HDInsight" description="Learn how to use Apache Giraph to perform graph processing with Azure HDInsight" metaKeywords="Azure HDInsight Apache Giraph, hdinsight giraph, hdinsight graph, hadoop giraph, azure hadoop, hadoop graph" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/14/2014" ms.author="larryfr" />
 
@@ -211,7 +211,6 @@ Giraph 工作會在執行階段建立指定的輸出目錄。如果目錄已存�
   [Pregel]: http://people.apache.org/~edwardyoon/documents/pregel.pdf
   [1.1 版分支]: https://github.com/apache/giraph/tree/release-1.1
   [有向圖形]: http://en.wikipedia.org/wiki/Directed_graph
-  [tiny\_graph.txt drawn as circles with lines of varying distance between]: .\media\hdinsight-giraph\giraph-graph.png
   [Drawing of objects as circles with shortest paths drawn between]: .\media\hdinsight-giraph\giraph-graph-out.png
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [HDInsight 所提供叢集版本的新功能]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-component-versioning/

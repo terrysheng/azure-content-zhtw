@@ -1,4 +1,4 @@
-<properties urlDisplayName="HDInsight Hadoop Version" pageTitle="HDInsight 的 Hadoop 叢集版本的新功能| Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。請參閱支援的 Hadoop 和 HortonWorks Data Platform (HDP) 配送版本。" services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="HDInsight 所提供叢集版本的新功能" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-version" urlDisplayName="HDInsight Hadoop Version" pageTitle="What's new in Hadoop cluster versions of HDInsight? | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -62,7 +62,7 @@ HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個版本�
 <td align="left">0.9.0</td>
 </tr>
 <tr class="even">
-<td align="left">情緒</td>
+<td align="left">HBase</td>
 <td align="left">0.98.0</td>
 <td align="left"></td>
 <td align="left"></td>
@@ -152,11 +152,9 @@ HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個版本�
 
 -   **Hive 效能**：採用**最佳化資料列單欄式 (Optimized Row Columnar, ORC)** 格式，大幅改善 Hive 查詢回應時間 (最快達到 40x) 和資料壓縮 (最高達到 80%)。
 
--   **Pig、Sqoop、Oozie、Ambari**：HDinsight 叢集 3.0 版 (HDP 2.0/Hadoop 2.2) 的元件版本升級，與 HDinsight 叢集 2.1 版 (HDP 1.3/Hadoop 1.2) 的地位同等。詳情請參閱下列版本表格。
+-   **Pig、Sqoop、Qozie、Ambari**：HDinsight 叢集 3.0 版 (HDP 2.0/Hadoop 2.2) 的元件版本升級，與 HDinsight 叢集 2.1 版 (HDP 1.3/Hadoop 1.2) 的地位同等。詳情請參閱下列版本表格。
 
 -   **Mahout**：HDInsight 3.1 Hadoop 叢集會預先安裝這個可調整的機器學習演算法程式庫。以便您在無需任何其他叢集組態需求的情況下執行 Mahout 工作。
-
--   **虛擬網路支援**：HDInsight 叢集可以與 Azure 虛擬網路一起使用來支援隔離雲端資源，或支援將這些雲端資源與資料中心裡的那些雲端資源連結的混合式案例。
 
 ## 支援的版本
 

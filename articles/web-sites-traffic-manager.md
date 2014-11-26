@@ -1,6 +1,6 @@
 <properties linkid="web-sites-traffic-manager" urlDisplayName="Controlling Windows Azure Websites Traffic with Azure Traffic Manager" pageTitle="Controlling Azure Websites Traffic with Azure Traffic Manager" metaKeywords="Azure Web Sites, Traffic Manager, request routing, round robin, failover, performance" description="This article provides summary information for  Azure Traffic Manager as it relates to Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Controlling Azure Websites Traffic with Azure Traffic Manager" authors="cephalin"  solutions="" writer="cephalin" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # 使用 Azure 流量管理員來控制 Azure 網站的流量
 
@@ -20,7 +20,7 @@ Azure 流量管理員使用三種不同的負載平衡方法。下列清單說�
 
 -   **效能**：效能方法可根據前往用戶端的最短來回時間來分散流量。效能方法可用於相同地區或不同地區內的網站。
 
-如需 Azure 流量管理員中負載平衡的詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法][]。
+如需 Azure 流量管理員中負載平衡的詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法][關於 Traffic Manager 負載平衡方法]。
 
 ## Azure 網站和流量管理員設定檔
 
@@ -38,19 +38,19 @@ Azure 流量管理員使用三種不同的負載平衡方法。下列清單說�
 
 -   將網站新增至設定檔後，在網站之入口網站頁面的儀表板上，[網站 URL] 將顯示網站的自訂網域 URL (如果已設定一個)。否則會顯示流量管理員設定檔 URL (例如，`contoso.trafficmgr.com`)。網站的直接網域名稱和流量管理員 URL 二者，都會顯示在網站之 [設定] 頁面的 [網域名稱] 區段下方。
 
--   您的自訂網域名稱將如預期般運作，但除了將之新增至網站外，您還必須設定 DNS 對應以指向流量管理員 URL。如需有關如何設定 Azure 網站之自訂網域的詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱][]。
+-   您的自訂網域名稱將如預期般運作，但除了將之新增至網站外，您還必須設定 DNS 對應以指向流量管理員 URL。如需有關如何設定 Azure 網站之自訂網域的詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱][設定 Azure 網站的自訂網域名稱]。
 
 -   您只能將標準模式的網站新增至 Azure 流量管理員設定檔。
 
 ## 後續步驟
 
-如需 Azure 流量管理員的概念和技術概觀，請參閱 [Traffic Manager 概觀][]。
+如需 Azure 流量管理員的概念和技術概觀，請參閱 [Traffic Manager 概觀][Traffic Manager 概觀]。
 
-如需如何設定 Azure 流量管理員的詳細資訊，包括適用於 Azure 網站用途，請參閱[流量管理員組態工作][]。
+如需如何設定 Azure 流量管理員的詳細資訊，包括適用於 Azure 網站用途，請參閱[流量管理員組態工作][流量管理員組態工作]。
 
-如需 Azure 流量管理員中負載平衡的詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法][]。
+如需 Azure 流量管理員中負載平衡的詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法][關於 Traffic Manager 負載平衡方法]。
 
-如需將流量管理員與 Azure 網站搭配使用的詳細資訊，請參閱[將 Windows Azure 流量管理員與 WAWS 搭配使用][]和 [Azure 流量管理員現在可以與 Azure 網站整合][]部落格文章。
+如需將流量管理員與 Azure 網站搭配使用的詳細資訊，請參閱[將 Windows Azure 流量管理員與 WAWS 搭配使用][將 Windows Azure 流量管理員與 WAWS 搭配使用]和 [Azure 流量管理員現在可以與 Azure 網站整合][Azure 流量管理員現在可以與 Azure 網站整合]部落格文章。
 
   [關於 Traffic Manager 負載平衡方法]: http://msdn.microsoft.com/zh-TW/library/windowsazure/dn339010.aspx
   [設定 Azure 網站的自訂網域名稱]: https://www.windowsazure.com/zh-TW/documentation/articles/web-sites-custom-domain-name/

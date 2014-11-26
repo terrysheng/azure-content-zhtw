@@ -10,13 +10,12 @@
 
 [WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-<!-- Anchors. --> 
+ 
 
-<!-- Images. --> 
+ 
 
-<!-- URLs. -->
+
 
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/
   [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A30A4DDE2&returnurl=http%3A%2F%2FFzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-how-to-create-new-service%2F
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md

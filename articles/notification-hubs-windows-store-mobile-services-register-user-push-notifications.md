@@ -107,9 +107,9 @@
 
 現在，用戶端應用程式已更新，請回到[使用通知中心來通知使用者][使用通知中心來通知使用者]，並更新行動服務，以使用通知中心傳送通知。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [使用通知中心來通知使用者]: /zh-TW/manage/services/notification-hubs/notify-users
   [開始使用驗證]: /zh-TW/develop/mobile/tutorials/get-started-with-users-dotnet/

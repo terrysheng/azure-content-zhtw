@@ -1,6 +1,6 @@
 <properties title="How to scale a website" pageTitle="How to scale a website" description="Learn how to scale your hosting plan in Azure." authors="stepsic"  />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stepsic"></tags>
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stepsic" />
 
 # 如何調整網站
 
@@ -10,18 +10,18 @@
 
 ## 調整 Web 主控方案
 
-1.  在 [Azure 入口網站預覽][]中，依序按一下 [瀏覽]、[網站] 和網站的名稱，以開啟分頁。
+1.  在 [Azure 入口網站預覽][Azure 入口網站預覽]中，依序按一下 [瀏覽]、[網站] 和網站的名稱，以開啟分頁。
 2.  在網站分頁上，[作業] 透鏡上的 [調整] 組件可為您指出 Web 主控方案的狀態：當您手動調整時，會顯示 [關閉]、依一或多個效能度量調整時會顯示 [效能]，啟用多個自動調整設定檔時則會顯示 [排程]。
     
-	![調整組件][]
+	![調整組件][調整組件]
 3.  按一下組件，將會進入 [調整] 分頁。在調整分頁頂端，您可以檢視 Web 主控方案之自動調整動作的歷程記錄。
 
-    ![Scale blade][]
+    ![Scale blade][Scale blade]
 
 4.  您可以使用 [執行個體] 滑動軸，手動調整執行 Web 主控方案的虛擬機器數。
 5.  如果您要讓執行個體數目依據負載自動調整，請選取 [自動調整模式] 下的 [效能]。此時，您將無法在「Azure 入口網站預覽」中選取 [排程]。
     
-	![依據 CPU 百分比調整分頁][]
+	![依據 CPU 百分比調整分頁][依據 CPU 百分比調整分頁]
 6.  選取 [效能] 後，會出現兩項變更：
 
     -   [執行個體範圍] 此時會讓您選擇最大和最小執行個體計數。無論負載多寡，自動調整一律會將您限定在此範圍內。
@@ -30,7 +30,7 @@
 7.  [CPU 百分比] 區段可讓您為 Web 主控方案中的所有執行個體設定平均 CPU 的目標。平均 CPU 超過您所定義的最大值時，即會擴大。
 啟用自動調整時，您會在網站分頁上的組件中看見 [效能]，並且會在圖表中看見您的調整歷程記錄：
 
-	![Scale blade with CPU Percentage][]
+	![Scale blade with CPU Percentage][Scale blade with CPU Percentage]
 
 請注意，在「Azure 入口網站預覽」中，您無法變更共用 Web 主控方案的執行個體數目。
 
@@ -47,11 +47,11 @@
 
 有兩種方式可讓您依據其他度量進行調整。如果您要依單一度量進行調整，請選取 [CPU 百分比] 滑動軸旁的＞形箭號。這會開啟 [度量詳細資料] 分頁：
 
-![Entry point to scale metrics][]
+![Entry point to scale metrics][Entry point to scale metrics]
 
 若要逐一依據一個度量進行調整，您可以按一下命令列中的 [新增度量]：
 
-![Add metrics][]
+![Add metrics][Add metrics]
 
 [度量詳細資料] 分頁包含您設定最佳調整設定檔所需的所有控制項。請在頂端選擇要做為調整依據的新度量。
 
@@ -67,7 +67,7 @@
 -   擴大或縮小依據 - 調整動作的大小
 -   等待期間 - 在前次調整動作之後，此規則要再次執行調整前所應等待的時間
 
-![Multiple scale rules][]
+![Multiple scale rules][Multiple scale rules]
 
 透過多項調整規則，您將可更靈活地隨著效能變更進行擴大 (或縮小)。例如，您可以定義兩項調整規則：
 

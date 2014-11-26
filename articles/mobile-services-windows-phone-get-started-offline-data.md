@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-offline-data-wp8" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Phone application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data sync in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
 
 # 開始在行動服務中使用離線資料同步
 
@@ -14,27 +14,27 @@
 
 本主題將說明如何使用 Azure 行動服務的離線功能。Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時，仍可與本機資料庫互動。離線功能可讓您在重新上線時同步處理本機變更與行動服務。
 
-在本教學課程中，您將會更新[開始使用行動服務][]或[開始使用資料][]教學課程中的應用程式，以支援 Azure 行動服務的離線功能。接著，您會在中斷連線的離線狀態下新增資料、將這些項目同步處理至線上資料庫，然後登入 Azure 管理入口網站，以檢視執行應用程式時對資料所做的變更。
+在本教學課程中，您將會更新[開始使用行動服務][開始使用行動服務]或[開始使用資料][開始使用資料]教學課程中的應用程式，以支援 Azure 行動服務的離線功能。接著，您會在中斷連線的離線狀態下新增資料、將這些項目同步處理至線上資料庫，然後登入 Azure 管理入口網站，以檢視執行應用程式時對資料所做的變更。
 
-> [WACOM.NOTE] 本教學課程旨在協助您深入了解如何透過行動服務，來使用 Azure 儲存並擷取 Windows Phone 應用程式中的資料。如果這是您第一次接觸行動服務，請考慮首先完成教學課程[開始使用行動服務][]。
+> [WACOM.NOTE] 本教學課程旨在協助您深入了解如何透過行動服務，來使用 Azure 儲存並擷取 Windows Phone 應用程式中的資料。如果這是您第一次接觸行動服務，請考慮首先完成教學課程[開始使用行動服務][開始使用行動服務]。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [更新應用程式以支援離線功能][]
-2.  [在離線狀態下測試應用程式][]
-3.  [更新應用程式以重新連接您的行動服務][]
-4.  [測試連接到行動服務的應用程式][]
+1.  [更新應用程式以支援離線功能][更新應用程式以支援離線功能]
+2.  [在離線狀態下測試應用程式][在離線狀態下測試應用程式]
+3.  [更新應用程式以重新連接您的行動服務][更新應用程式以重新連接您的行動服務]
+4.  [測試連接到行動服務的應用程式][測試連接到行動服務的應用程式]
 
 本教學課程需要下列各項：
 
 -   Visual Studio 2012
--   [Windows Phone 8 SDK][]
--   完成[開始使用行動服務][]或[開始使用資料][]教學課程。
--   [Azure 行動服務 SDK 1.3.0-alpha4 版 (或更新版本)][]
--   [Azure 行動服務 SQLite Store 1.0.0-alpha4 版 (或更新版本)][]
--   [SQLite for Windows Phone 8][]
+-   [Windows Phone 8 SDK][Windows Phone 8 SDK]
+-   完成[開始使用行動服務][開始使用行動服務]或[開始使用資料][開始使用資料]教學課程。
+-   [Azure 行動服務 SDK 1.3.0-alpha4 版 (或更新版本)][Azure 行動服務 SDK 1.3.0-alpha4 版 (或更新版本)]
+-   [Azure 行動服務 SQLite Store 1.0.0-alpha4 版 (或更新版本)][Azure 行動服務 SQLite Store 1.0.0-alpha4 版 (或更新版本)]
+-   [SQLite for Windows Phone 8][SQLite for Windows Phone 8]
 
-> [WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
+> [WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][Azure 免費試用]。
 
 ## <a name="enable-offline-app"></a>更新應用程式以支援離線功能
 
@@ -42,15 +42,15 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 本節將以 SQLite 做為離線功能的本機存放區。
 
-> [WACOM.NOTE] 您可以略過本節，直接下載某個已具有離線支援的「開始使用」專案。若要下載具有離線支援的專案，請參閱[開始使用 Windows Phone 的離線範例][]。
+> [WACOM.NOTE] 您可以略過本節，直接下載某個已具有離線支援的「開始使用」專案。若要下載具有離線支援的專案，請參閱[開始使用 Windows Phone 的離線範例][開始使用 Windows Phone 的離線範例]。
 
-1.  安裝 SQLite for Windows Phone 8 專案。您可以從連結 [SQLite for Windows Phone 8][] 加以安裝。
+1.  安裝 SQLite for Windows Phone 8 專案。您可以從連結 [SQLite for Windows Phone 8][SQLite for Windows Phone 8] 加以安裝。
 
     > [WACOM.NOTE] 如果您要使用 Internet Explorer，當您按一下安裝 SQLite 的連結時，系統會提示您下載 .zip 檔案格式的 .vsix。請以 .vsix 副檔名將此檔案儲存至您的硬碟，而不要使用 .zip。在 Windows 檔案總管中按兩下此 .vsix 檔案，以執行安裝。
 
-2.  在 Visual Studio 中，開啟您在[開始使用行動服務][]或[開始使用資料][]教學課程中完成的專案。在 [方案總管] 中，以滑鼠右鍵按一下專案下的 [參考]，然後在 \[Windows Phone\] \> [延伸] 下新增 [SQLite for Windows Phone] 的參考。
+2.  在 Visual Studio 中，開啟您在[開始使用行動服務][開始使用行動服務]或[開始使用資料][開始使用資料]教學課程中完成的專案。在 [方案總管] 中，以滑鼠右鍵按一下專案下的 [參考]，然後在 \[Windows Phone\] \> [延伸] 下新增 [SQLite for Windows Phone] 的參考。
 
-    ![][]
+    ![][0]
 
 3.  SQLite Runtime 會要求您變更要建置到 **x86**、**x64** 或 **ARM** 之專案的處理器架構。[任何 CPU] 不受支援。將處理器架構變更為您要測試的其中一項支援設定。
 
@@ -235,19 +235,14 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
     此外，也有 **PullAsync()** 的多載可允許指定查詢。請注意，在行動服務的預覽版離線支援中，**PullAsync** 將會讀取對應資料表 (或查詢) 中的所有資料列 -- 舉例來說，它不會嘗試僅讀取比前次同步還新的資料列。如果資料列已存在於本機同步資料表中，則將保持不變。
 
--   若要下載具有離線支援的專案，請參閱[開始使用 Windows Phone 的離線範例][]。
+-   若要下載具有離線支援的專案，請參閱[開始使用 Windows Phone 的離線範例][開始使用 Windows Phone 的離線範例]。
 
 ## 後續步驟
 
--   [處理行動服務的離線支援衝突][]
+-   [處理行動服務的離線支援衝突][處理行動服務的離線支援衝突]
 
 
 
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "Windows 市集 C#"
-  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /zh-tw/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started/
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-data/
   [更新應用程式以支援離線功能]: #enable-offline-app
@@ -258,9 +253,9 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
   [Azure 行動服務 SDK 1.3.0-alpha4 版 (或更新版本)]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-alpha4
   [Azure 行動服務 SQLite Store 1.0.0-alpha4 版 (或更新版本)]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-alpha4
   [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28
+  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28
   [開始使用 Windows Phone 的離線範例]: http://go.microsoft.com/fwlink/?LinkId=397952
-  []: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
+  [0]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
   [1]: ./media/mobile-services-windows-phone-get-started-offline-data/vs-select-processor-architecture.png
   [2]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-sqlitestore-nuget.png
   [3]: ./media/mobile-services-windows-phone-get-started-offline-data/ui-screenshot.png

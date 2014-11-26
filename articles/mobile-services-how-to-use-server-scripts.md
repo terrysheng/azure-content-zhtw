@@ -895,8 +895,8 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 
 為防止登入超載，您應該移除或停用在生產中不必要的 console.log() 呼叫。
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [簡介]: #intro
   [資料表作業]: #table-scripts

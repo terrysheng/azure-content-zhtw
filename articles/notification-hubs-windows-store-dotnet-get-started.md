@@ -228,9 +228,9 @@
 
 在此簡單範例中，您將傳送廣播通知到您的所有 Windows 裝置。為了鎖定特定使用者，請參閱教學課程[使用通知中心來推播通知給使用者][使用通知中心來推播通知給使用者]。如果您想要按興趣群組分隔使用者，請參閱[使用通知中心傳送即時新聞][使用通知中心傳送即時新聞]。若要深入了解如何使用通知中心，請參閱[通知中心指引][通知中心指引]。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Windows Phone]: /zh-tw/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
   [1]: /zh-tw/documentation/articles/notification-hubs-windows-phone-get-started/

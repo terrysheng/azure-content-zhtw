@@ -1,6 +1,6 @@
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
-    ![][]
+    ![][0]
 
 2.  按一下 [資料] 索引標籤，然後按一下 [建立]。
 
@@ -19,6 +19,6 @@
 <!-- URLs -->
 
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-create-new-push-table/mobile-services-selection.png
+  [0]: ./media/mobile-services-create-new-push-table/mobile-services-selection.png
   [1]: ./media/mobile-services-create-new-push-table/mobile-create-table.png
   [2]: ./media/mobile-services-create-new-push-table/mobile-create-registrations-table.png

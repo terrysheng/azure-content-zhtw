@@ -6,7 +6,7 @@
 
 3.  輸入新 todoitem 的文字。然後按一下 [儲存]。這會在 IIS Express 本機代管的行動服務所建立的資料庫中，插入新的 todoItem。
 
-    ![][]
+    ![][0]
 
 4.  按一下其中一個項目的核取方塊，將其標示為已完成。
 
@@ -16,6 +16,6 @@
 
     ![][2]
 
-  []: ./media/mobile-services-dotnet-backend-test-local-service-data/new-local-todoitem.png
+  [0]: ./media/mobile-services-dotnet-backend-test-local-service-data/new-local-todoitem.png
   [1]: ./media/mobile-services-dotnet-backend-test-local-service-data/local-item-checked.png
   [2]: ./media/mobile-services-dotnet-backend-test-local-service-data/vs-show-local-table-data.png

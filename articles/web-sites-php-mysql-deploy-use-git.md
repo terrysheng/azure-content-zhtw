@@ -1,10 +1,10 @@
 <properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP website with MySQL and Git - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use Git deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 建立 PHP-MySQL Azure 網站並使用 Git 部署
 
-本教學課程說明如何建立 PHP-MySQL Azure 網站，以及如何使用 Git 部署該網站。您會使用 [PHP][]、MySQL 命令列工具 ([MySQL][install-mysql] 裡的一項工具)、Web 伺服器，以及安裝在您的電腦上的 [Git][]。本教學課程裡的說明可運用在包括 Windows、Mac 與 Linux 的任何作業系統上。完成本指南的步驟後，您將擁有在 Azure 上運作的 PHP/MySQL 網站。
+本教學課程說明如何建立 PHP-MySQL Azure 網站，以及如何使用 Git 部署該網站。您會使用 [PHP][PHP]、MySQL 命令列工具 ([MySQL][install-mysql] 裡的一項工具)、Web 伺服器，以及安裝在您的電腦上的 [Git][Git]。本教學課程裡的說明可運用在包括 Windows、Mac 與 Linux 的任何作業系統上。完成本指南的步驟後，您將擁有在 Azure 上運作的 PHP/MySQL 網站。
 
 您將了解：
 
@@ -13,57 +13,57 @@
 
 依照本教學課程進行，您將使用 PHP 建置一個簡易的註冊網頁應用程式。該應用程式將在 Azure 網站中託管。完成之應用程式的螢幕擷取畫面如下：
 
-![Azure PHP web site][]
+![Azure PHP web site][Azure PHP web site]
 
 <div class="dev-callout"><strong>注意</strong> <p>若要完成本教學課程，您需要已啟用 Azure 網站功能的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Azure 免費試用</a>。</p> </div>
 
 ## 設定開發環境
 
-本教學課程假設您已經具備 [PHP][]、MySQL 命令列工具 ([MySQL][install-mysql] 裡的一項工具)、Web 伺服器，以及安裝在您的電腦上的 [Git][]。
+本教學課程假設您已經具備 [PHP][PHP]、MySQL 命令列工具 ([MySQL][install-mysql] 裡的一項工具)、Web 伺服器，以及安裝在您的電腦上的 [Git][Git]。
 
 > [WACOM.NOTE]
-> 如果您是在 Windows 電腦上執行本教學課程，則您可以安裝 [Azure SDK for PHP][] 來設定電腦使用 PHP 並自動設定 IIS (Windows 內建的 Web 伺服器)。
+> 如果您是在 Windows 電腦上執行本教學課程，則您可以安裝 [Azure SDK for PHP][Azure SDK for PHP] 來設定電腦使用 PHP 並自動設定 IIS (Windows 內建的 Web 伺服器)。
 
 ## <span id="create-web-site-and-set-up-git"></span></a>建立 Azure 網站並設定 Git 發行
 
 依照以下步驟建立 Azure 網站與 MySQL 資料庫：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  按一下入口網站左下方的 [新增] 圖示。
 
-    ![Create New Azure web site][]
+    ![Create New Azure web site][Create New Azure web site]
 
 3.  依序按一下 [網站] 及 [自訂建立]。
 
-    ![Custom Create a new web site][]
+    ![Custom Create a new web site][Custom Create a new web site]
 
     輸入 **URL** 的值，然後從 [資料庫] 下拉式清單中選取 [建立新的 MySQL 資料庫]，接著在 [區域] 下拉式清單中為您的網站選取資料中心。按一下對話方塊底部的箭頭。
 
-    ![Fill in web site details][]
+    ![Fill in web site details][Fill in web site details]
 
 4.  輸入資料庫的 [名稱] 值，然後在 [區域] 下拉式清單中選取資料庫的資料中心，接著核取代表您同意法律條款的方塊。按一下對話方塊底部的核取記號。
 
-    ![建立新的 MySQL 資料庫][]
+    ![建立新的 MySQL 資料庫][建立新的 MySQL 資料庫]
 
     建立網站後，您會看到「建立網站 "[SITENAME]" 成功」的字樣。現在，您可以啟用 Git 發佈。
 
 5.  按一下網站清單中顯示的網站名稱，以開啟該網站的 [快速入門] 儀表板。
 
-    ![Open web site dashboard][]
+    ![Open web site dashboard][Open web site dashboard]
 
 6.  在 [快速啟動] 下方，按一下 [設定 Git 發行]。
 
-    ![Set up Git publishing][]
+    ![Set up Git publishing][Set up Git publishing]
 
 7.  若要啟用 Git 發佈，您必須提供使用者名稱和密碼。記下您所建立的使用者名稱和密碼。(如果您之前設定過 Git 儲存機制，系統將會略過此步驟。)
 
-    ![Create publishing credentials][]
+    ![Create publishing credentials][Create publishing credentials]
 
     設定儲存機制需要幾秒鐘的時間。
 
 8.  當您的儲存機制準備就緒時，您會看到將應用程式檔案發佈至該儲存機制的指示。請記下這些指示，以供稍後使用。
 
-    ![Git instructions][]
+    ![Git instructions][Git instructions]
 
 ## 取得遠端 MySQL 連線資訊
 
@@ -71,7 +71,7 @@
 
 1.  從網站的儀表板上，按一下頁面右側的 [檢視連接字串] 連結：
 
-    ![取得資料庫連線資訊][]
+    ![取得資料庫連線資訊][取得資料庫連線資訊]
 
 2.  記下 `Database`、`Data Source`、`User Id` 和 `Password` 的值。
 
@@ -83,7 +83,7 @@
 
 -   **index.php**：顯示註冊表單，以及內含註冊者資訊的資料表。
 
-若要在本機建置與執行應用程式，請遵循下列步驟。請注意，這些步驟假設您具有 PHP、MySQL 命令列工具 (MySQL 的一部分)，以及一部在本機電腦上設定的 Web 伺服器，而且您已經啟用了 [MySQL 的 PDO 延伸功能][]。
+若要在本機建置與執行應用程式，請遵循下列步驟。請注意，這些步驟假設您具有 PHP、MySQL 命令列工具 (MySQL 的一部分)，以及一部在本機電腦上設定的 Web 伺服器，而且您已經啟用了 [MySQL 的 PDO 延伸功能][MySQL 的 PDO 延伸功能]。
 
 1.  使用您先前擷取的 `Data Source`、`User Id`、`Password` 和 `Database` 值，連線到遠端 MySQL 伺服器：
 
@@ -208,11 +208,11 @@
 
     系統會提示您輸入先前建立的密碼。
 
-    ![透過 Git 初始發送至 Azure][]
+    ![透過 Git 初始發送至 Azure][透過 Git 初始發送至 Azure]
 
 3.  瀏覽至 **http://[site name].azurewebsites.net/index.php**，以開始使用該應用程式 (此項資訊會儲存在您的帳戶儀表板上)：
 
-    ![Azure PHP web site][]
+    ![Azure PHP web site][Azure PHP web site]
 
 發行應用程式之後，您可以開始對其進行變更，並使用 Git 來發行它們。
 
@@ -229,20 +229,19 @@
 
     系統會提示您輸入先前建立的密碼。
 
-    ![透過 Git 將網站變更發送至 Azure][]
+    ![透過 Git 將網站變更發送至 Azure][透過 Git 將網站變更發送至 Azure]
 
 3.  瀏覽至 **http://[site name].azurewebsites.net/index.php**，以查看您的應用程式以及您所做的任何變更：
 
-    ![Azure PHP web site][]
+    ![Azure PHP web site][Azure PHP web site]
 
 4.  您也可以在 Azure 管理入口網站的 [部署] 索引標籤中看到新的部署項目：
 
-    ![網站部署項目清單][]
+    ![網站部署項目清單][網站部署項目清單]
 
   [PHP]: http://www.php.net/manual/en/install.php
   [Git]: http://git-scm.com/
   [Azure PHP web site]: ./media/web-sites-php-mysql-deploy-use-git/running_app_2.png
-  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A74E0F923
   [Azure SDK for PHP]: http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [Create New Azure web site]: ./media/web-sites-php-mysql-deploy-use-git/new_website.jpg

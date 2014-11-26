@@ -172,14 +172,13 @@
 -   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     <br/>深入了解如何註冊和使用伺服器指令碼。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [註冊以取得 Twitter 存取權與儲存認證]: #get-oauth-credentials
   [建立新的 Updates 資料表]: #create-table
   [建立新的排定工作]: #add-job
-  [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
   [0]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
   [1]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
   [2]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png

@@ -1,6 +1,6 @@
 <properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Azure Websites Web Hosting Plans In-Depth Overview - Windows Azure feature guide" description="Learn how Web Hosting Plans for Azure Websites work, and how they benefit your management experience." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Byron Tardif and Yochay Kiryaty"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Byron="" Tardif="" and="" Yochay="" Kiryaty" />
 </br>
 
 # Azure 網站 Web 主控方案深入概觀
@@ -19,7 +19,7 @@ Web 主控方案 (WHP) 代表可跨網站共用的一組特性和功能。Web �
 您可以在一個資源群組中有多個 Web 主控方案，而每個主控方案將有自己的一組特性與功能，供其關聯的網站使用。下圖說明這個關係：
 </br>
 </br>
-![Resource Groups and Web Hosting Plans][]
+![Resource Groups and Web Hosting Plans][Resource Groups and Web Hosting Plans]
 </br>
 </br>
 能夠在單一資源群組中有多個 Web 主控方案，可讓您將不同網站配置到不同資源，主要是網站上執行的虛擬機器。例如，此功能可讓您在開發人員與測試和生產網站之間將資源區隔開，其中您可能想為生產網站配置一個 Web 主控方案 (擁有自己專屬的一組資源)，以及為開發人員和測試網站配置第二個 Web 主控方案。
@@ -33,7 +33,7 @@ Web 主控方案 (WHP) 代表可跨網站共用的一組特性和功能。Web �
 建立新網站時，如果您即將建立代表新 Web 應用程式的網站，應該考慮建立新資源群組。在此情況下，建立新資源群組、關聯的 Web 主控方案和網站是正確選擇。透過新 Azure 入口網站預覽使用組件庫或新的網站 + SQL 選項來建立這類新網站時，入口網站將預設成為您的新網站建立新資源群組和 Web 主控方案。不過，如果有需要，您可以覆寫這些預設值。
 </br>
 </br>
-![Creating a new Web Hosting Plan][]
+![Creating a new Web Hosting Plan][Creating a new Web Hosting Plan]
 </br>
 </br>
 您一律可以將新網站或任何其他資源加入現有的資源群組。從現有資源群組的內容建立新網站時，新網站精靈會預設為現有資源和 Web 主控方案。在這裡，您也可以視需要覆寫這些預設值。加入新網站到現有資源群組時，您可以選擇加入網站到現有 Web 主控方案 (這是新 Azure 入口網站預覽的預設選項)，或您也可以建立新 Web 主控方案，來加入這個網站。
@@ -51,13 +51,13 @@ Web 主控方案 (WHP) 代表可跨網站共用的一組特性和功能。Web �
 如果您在 Azure 網站上已經有網站，您將會看到自己的所有網站都會顯示在 Azure 預覽入口網站上。按一下左側瀏覽窗格上的 [瀏覽] 按鈕，並選取 [網站]，即可看到所有網站的簡單列表：
 </br>
 </br>
-![See all your website as a flat list][]
+![See all your website as a flat list][See all your website as a flat list]
 </br>
 </br>
 按一下左側瀏覽窗格上的 [瀏覽] 按鈕，並選取 [資源群組]，即可看到已為您建立的所有資源群組：
 </br>
 </br>
-![See all the resource groups that have been created][]
+![See all the resource groups that have been created][See all the resource groups that have been created]
 </br>
 </br>
 您也會注意到，在您已擁有網站的每個區域中會有自動產生的預設資源群組。為網站自動產生的資源群組名稱為 *Default-Web-<location name>*，其中，位置名稱代表 Azure 區域 (例如，*Default-Web-WestUS*)。在每個資源群組中，您會找到群組區域的所有現有網站。在完整版 Azure 入口網站或 Azure 預覽入口網站中，您過去建立以及日後要建立的每個網站，將可在兩個入口網站上使用。
@@ -84,18 +84,18 @@ Web 主控方案 (WHP) 代表可跨網站共用的一組特性和功能。Web �
     若要使用新 [Azure 入口網站預覽] 中的 UI 來執行此動作，請按一下 [新增] 並選取 [網站]，即可開啟網站建立分頁。在以下的第一個影像中，您可以在左下角看到 [新增] 圖示，而在第二個影像中，您可以看到 [網站] 建立分頁、[Web 主控方案] 分頁和 [價格層] 分頁：
     </br>
     </br>
-    ![Create a new website][]
+    ![Create a new website][Create a new website]
     </br>
     </br>
-    ![Website, Web Hosting Plan and pricing tier blades][]
+    ![Website, Web Hosting Plan and pricing tier blades][Website, Web Hosting Plan and pricing tier blades]
     </br>
     </br>
-    在這個範例中，我們選擇建立一個名為 **contosomarketing** 的新網站，並將它放在名為 **contoso** 的新 Web 主控方案中。為這個 Web 主控方案選取的價格層為**小型標準**。如需 Web 主控方案價格層，以及每個層級所提供之功能、價格和調整選項的詳細資料，請造訪 [Azure 網站 Web 主控方案規格][]。
+    在這個範例中，我們選擇建立一個名為 **contosomarketing** 的新網站，並將它放在名為 **contoso** 的新 Web 主控方案中。為這個 Web 主控方案選取的價格層為**小型標準**。如需 Web 主控方案價格層，以及每個層級所提供之功能、價格和調整選項的詳細資料，請造訪 [Azure 網站 Web 主控方案規格][Azure 網站 Web 主控方案規格]。
     </br>
     您也應該知道，您也可以在現有的 Azure 入口網站中建立 Web 主控方案。實現方式是從 [Web 主控方案] 下拉式清單選取 [建立新 Web 主控方案]，利用 [快速建立] 精靈進行：
     </br>
     </br>
-    ![Create new web hosting plan in the existing portal][]
+    ![Create new web hosting plan in the existing portal][Create new web hosting plan in the existing portal]
     </br>
     </br>
     在這個範例中，我們選擇建立一個名為 **northwind** 的新網站，以及選擇建立新的 Web 主控方案。此作業的結果會是名為 **default0** 的新 Web 主控方案，其包含 **northwind** 網站。透過此方式建立的所有 Web 主控方案將遵循此命名慣例，而 Web 主控方案在建立之後即不能加以重新命名。同時，透過此程序建立的 Web 主控方案將建立在**免費**價格層。
@@ -111,13 +111,13 @@ Web 主控方案 (WHP) 代表可跨網站共用的一組特性和功能。Web �
     然後，在網站建立分頁選取主控方案：
     </br>
     </br>
-    ![Select a hosting plan][]
+    ![Select a hosting plan][Select a hosting plan]
     </br>
     </br>
     您也可以使用現有的 Azure 入口網站，將網站建立到特定的 Web 主控方案。這是在 [快速建立] 精靈中完成。輸入網站 URL 之後，使用 [Web 主控方案] 下拉式清單來選取要加入網站的方案：
     </br>
     </br>
-    ![Select a hosting plan in the existing portal][]
+    ![Select a hosting plan in the existing portal][Select a hosting plan in the existing portal]
     </br>
     </br>
     **問**：如何將網站移至不同的 Web 主控方案？
@@ -127,7 +127,7 @@ Web 主控方案 (WHP) 代表可跨網站共用的一組特性和功能。Web �
     若要將網站移至其他方案，請導覽至您要移動之網站的網站分頁。然後按一下 [Web 主控方案]：
     </br>
     </br>
-    ![Choose a new or existing web hosting plan][]
+    ![Choose a new or existing web hosting plan][Choose a new or existing web hosting plan]
     </br>
     </br>
     這隨即會開啟 [Web 主控方案] 分頁。在此時，您可以挑選現有的 Web 主控方案，或建立新的方案。在不同地理位置或資源群組中的方案，會呈現灰色停用狀態，而無法加以選取。
@@ -142,13 +142,13 @@ Web 主控方案 (WHP) 代表可跨網站共用的一組特性和功能。Web �
     在以下的影像中，您可以看到 **Web 主控方案**分頁以及**價格層**分頁。按一下 [Web 主控方案] 分頁中的 [價格層] 部分，可展開 [價格層] 分頁，您可以在其中變更 Web 主控方案的價格層：
     </br>
     </br>
-    ![The Web Hosting Plan blade and the Pricing Tier][]
+    ![The Web Hosting Plan blade and the Pricing Tier][The Web Hosting Plan blade and the Pricing Tier]
     </br>
     </br>
     擴大方案的第二個方式是，利用增加 Web 主控方案中執行個體的數量，來向外擴大。在以下的影像中，您可以看到 **Web 主控方案**分頁和**調整規模**分頁。按一下 [Web 主控方案] 分頁中的 [調整規模] 區域可將其展開，並允許變更方案的執行個體計數：
     </br>
     </br>
-    ![Changing the instance count of a hosting plan][]
+    ![Changing the instance count of a hosting plan][Changing the instance count of a hosting plan]
     </br>
     </br>
     由於上圖中的 Web 主控方案是設為使用**標準**價格層，隨即會啟用 [自動調整規模] 選項。
@@ -156,7 +156,7 @@ Web 主控方案 (WHP) 代表可跨網站共用的一組特性和功能。Web �
     在完整的 Azure 入口網站中執行此動作，可在 [調整規模] 索引標籤中進行，如下圖所示：
     </br>
     </br>
-    ![Changing the instance count of a hosting plan in the existing portal][]
+    ![Changing the instance count of a hosting plan in the existing portal][Changing the instance count of a hosting plan in the existing portal]
     </br>
     </br>
     **問**：如何刪除 Web 主控方案？
@@ -164,7 +164,7 @@ Web 主控方案 (WHP) 代表可跨網站共用的一組特性和功能。Web �
     **答**：若要刪除 Web 主控方案，您必須先刪除與其關聯的所有網站。一旦 Web 主控方案中的所有網站都已被刪除，便可從 [Web 主控方案] 分頁刪除 Web 主控方案：
     </br>
     </br>
-    ![Deleting a web hosting plan][]
+    ![Deleting a web hosting plan][Deleting a web hosting plan]
     </br>
     </br>
     在完整版 Azure 入口網站中，刪除 Web 主控方案中的最後一個網站，將會自動刪除關聯的 Web 主控方案。
@@ -174,13 +174,13 @@ Web 主控方案 (WHP) 代表可跨網站共用的一組特性和功能。Web �
     **答**：您可以使用 [Web 主控方案] 分頁中的 [監視] 部分來監視 Web 主控方案：
     </br>
     </br>
-    ![Monitoring a web hosting plan][]
+    ![Monitoring a web hosting plan][Monitoring a web hosting plan]
     </br>
     </br>
     監視控制項可透過在控制項上按一下滑鼠右鍵並選取 [編輯查詢] 加以自訂：
     </br>
     </br>
-    ![Editing the monitoring controls][]
+    ![Editing the monitoring controls][Editing the monitoring controls]
     </br>
     </br>
     公開的度量為：

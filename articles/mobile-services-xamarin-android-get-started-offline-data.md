@@ -156,7 +156,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 -   [如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端][如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端]
 
-<!-- Anchors. --> <!-- Images --> <!-- URLs. -->
+ <!-- Images --> 
 
   [開始使用行動服務]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started/
   [開始使用資料]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/

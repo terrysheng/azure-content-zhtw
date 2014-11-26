@@ -1,6 +1,6 @@
 1.  在管理入口網站中，按一下 **[資料]** 索引標籤，然後按一下 **[註冊]** 資料表。
 
-    ![][]
+    ![][0]
 
 2.  在 **[註冊]** 中，按一下 **[指令碼]** 索引標籤，然後選取 **[插入]**。
 
@@ -26,5 +26,5 @@
 
 這會註冊新的 insert 指令碼，此指令碼會將註冊資訊儲存在新資料表中。
 
-  []: ./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png
+  [0]: ./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png
   [1]: ./media/mobile-services-update-registrations-script/mobile-insert-script-registrations.png

@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-java-back-end-how-to" urlDisplayName="How to use Notification Hubs with Java" pageTitle="How to use Notification Hubs with Java" metaKeywords="" description="Learn how to use Azure Notification Hubs from a Java back-end." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="elioda" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
 
 # 如何使用 Java/PHP 的通知中心
 
@@ -356,8 +356,6 @@ NotificationHub hub = new NotificationHub("{connection string}", "{hubname}");
 -   繼續了解 [即時新聞教學課程] 中的通知中心標記功能
 -   了解 [通知使用者教學課程] 中的推播通知給個人使用者
 
-  [Java]: /zh-tw/documentation/articles/notification-hubs-java-backend-how-to/ "Java"
-  [PHP]: /zh-tw/documentation/articles/notification-hubs-php-backend-how-to/ "PHP"
   [通知中心 REST API]: http://msdn.microsoft.com/zh-tw/library/dn223264.aspx
   [開始使用教學課程]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-ios-get-started/
   [.NET 通知中心 SDK]: http://msdn.microsoft.com/zh-tw/library/jj933431.aspx

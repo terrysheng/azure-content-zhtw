@@ -778,11 +778,11 @@
 
 如需 Android 用戶端 API 的 Javadocs 參考，請至[][]<http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/package-summary.html></a>
 
-<!-- Anchors. --> 
+ 
 
-<!-- Images. --> 
+ 
 
-<!-- URLs. -->
+
 
   [行動服務快速入門]: /zh-tw/develop/mobile/tutorials/get-started-android/
   [行動服務 SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
@@ -815,7 +815,6 @@
   [自訂要求標頭]: #headers
   [自訂序列化]: #serialization
   [後續步驟]: #next-steps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [建立資料表]: http://go.microsoft.com/fwlink/p/?LinkId=298592
   [動態結構描述]: http://go.microsoft.com/fwlink/p/?LinkId=296271
   [MobileServiceClient]: http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html

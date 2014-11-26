@@ -390,30 +390,3 @@
 </table>
 </p>
 
-  [開發 Azure 應用程式的安全性最佳作法]: http://go.microsoft.com/?linkid=9751405
-  [Azure 安全性概觀]: http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf
-  [從 Active Directory 單一登入 Azure 應用程式白皮書]: http://download.microsoft.com/download/F/2/6/F26E80C5-C43B-4913-99AB-F2E4DFBFCBBF/Single%20Sign-On%20from%20Active%20Directory%20to%20a%20Windows%20Azure%20Application%20Whitepaper-RTW.pdf
-  [Azure 資料表 - 程式設計資料表儲存體]: http://go.microsoft.com/fwlink/?LinkId=153401
-  [Service Bus for the Azure AppFabric 的開發人員指南]: http://go.microsoft.com/?linkid=9751403
-  [Azure 佇列 - 程式設計佇列儲存體]: http://go.microsoft.com/fwlink/?LinkId=153402
-  [Azure 磁碟機技術白皮書- 在 NTFS 雲端應用程式中使用持久磁碟機]: http://go.microsoft.com/?linkid=9710117
-  [Azure 簡介]: http://go.microsoft.com/?linkid=9682907
-  [Azure 二進位大型物件 - 程式設計二進位大型物件儲存體]: http://go.microsoft.com/fwlink/?LinkId=153400
-  [Azure 程式設計模型]: http://go.microsoft.com/?linkid=9751501
-  [Windows HPC Server 和 Azure]: http://go.microsoft.com/?linkid=9752158
-  [相似性與差異性 - SQL Azure 與 SQL Server]: http://go.microsoft.com/?linkid=9692818
-  [IT 即服務]: http://go.microsoft.com/?linkid=9752188
-  [SQL Azure 的安全性方針]: http://go.microsoft.com/?linkid=9736945
-  [適用於開發人員的 Azure AppFabric 簡介]: http://download.microsoft.com/download/E/B/5/EB512F2E-7771-40A3-8025-0DC6D9429951/An%20Introduction%20to%20Windows%20Azure%20platform%20AppFabric%20for%20Developers.docx
-  [Azure 和 ISV - 適用於決策者的指南]: http://download.microsoft.com/download/F/9/E/F9EAD956-18D1-42D8-AB1C-7F119856ABBF/Windows%20Azure%20for%20ISVs,%20v1.2--Chappell.pdf
-  [雲端最佳化 - 建立雲端運算業務決策的架構]: http://go.microsoft.com/?linkid=9751401
-  [Azure AppFabric 概觀]: http://download.microsoft.com/download/C/A/7/CA7A9801-736E-421E-A386-16B37C83FFE8/Windows-Azure-AppFabric-PDC10-Overview.docx
-  [雲端經濟體系]: http://go.microsoft.com/?linkid=9752190
-  [系統整合器技術白皮書]: http://go.microsoft.com/?linkid=9696879
-  [適合業務領導層的雲端平台]: http://go.microsoft.com/?linkid=9761001
-  [架構使用 Azure AppFabric 快取的應用程式]: http://go.microsoft.com/?linkid=9776229
-  [Microsoft SQL Azure 概觀]: http://go.microsoft.com/?linkid=9686976
-  [自訂 IIS Web/Microsoft SQL Server 應用程式移轉案例]: http://go.microsoft.com/?linkid=9737837
-  [自訂 Web (快速擴充焦點) 應用程式移轉案例]: http://go.microsoft.com/?linkid=9737839
-  [自訂電子商務 (彈性焦點) 應用程式移轉案例]: http://go.microsoft.com/?linkid=9737838
-  [使用 SQL Azure 進行開發和部署]: http://go.microsoft.com/?linkid=9736946

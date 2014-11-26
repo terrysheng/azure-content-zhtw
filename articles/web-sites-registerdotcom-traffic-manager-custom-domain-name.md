@@ -58,21 +58,14 @@
 
 ## <a name="enabledomain"></a>啟用流量管理員網站
 
-[WACOM.INCLUDE [modes][2]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
   [Register.com]: /zh-TW/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [1]: https://www.register.com
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [了解 DNS 記錄]: #understanding-records
   [將網站設定為標準模式]: #bkmk_configsharedmode
   [新增自訂網域的 DNS 記錄]: #bkmk_configurecname
   [啟用網站的流量管理員]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [the my account page]: ./media/web-sites-custom-domain-name/rdotcom-myaccount.png
   [Advanced technical settings]: ./media/web-sites-custom-domain-name/rdotcom-advancedsettingstm.png
   [cname form]: ./media/web-sites-custom-domain-name/rdotcom-editcnamerecordtm.png
-  [2]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

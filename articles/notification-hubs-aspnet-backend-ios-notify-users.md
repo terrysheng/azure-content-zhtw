@@ -329,5 +329,4 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 4.  在 iOS 應用程式 UI 中，按一下 [登入]。然後按一下 [傳送推播]。
 
   [從您的應用程式後端註冊]: http://msdn.microsoft.com/zh-tw/library/dn743807.aspx
-  [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
   [0]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png

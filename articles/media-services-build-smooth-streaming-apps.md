@@ -1,6 +1,6 @@
-<properties urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Smooth Streaming Windows 市集應用程式 - Azure .NET 教學課程" metaKeywords="" description="了解如何使用 Azure 媒體服務建立可用 XML MediaElement 控制項來播放 Smooth Streaming 內容的 C# Windows 市集應用程式。" metaCanonical="" services="media-services" documentationCenter="" title="如何建置 Smooth Streaming Windows 市集應用程式" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties linkid="develop-media-services-tutorials-smooth-streaming-windows-store-app" urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Smooth Streaming Windows Store App - Azure .NET tutorials" metaKeywords="" description="Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content." metaCanonical="" services="media-services" documentationCenter="" title="How to Build a Smooth Streaming Windows Store Application" authors="Michael Greenn" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Michael="" Greenn" />
 
 # 如何建置 Smooth Streaming Windows 市集應用程式
 
@@ -39,7 +39,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 
 **建立 Windows 市集專案**
 
-1.  執行 Visual Studio 2012 或更新版本。
+1.  執行 Visual Studio 2012
 2.  在 [檔案] 功能表中按一下 [新增]，然後按一下 [專案]。
 3.  從 [新增專案] 對話方塊中，輸入或選取下列值：
 
@@ -446,7 +446,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。若要啟用 Smo
         }
         #endregion sliderMediaPlayer
 
-    **注意：**CoreDispatcher 用來從非 UI 執行緒對 UI 執行緒進行變更。如果發送器執行緒發生瓶頸，開發人員可以選擇使用自己想要更新之 UI-element 所提供的發送器。例如：
+    **注意：** CoreDispatcher 用來從非 UI 執行緒對 UI 執行緒進行變更。如果發送器執行緒發生瓶頸，開發人員可以選擇使用自己想要更新之 UI-element 所提供的發送器。例如：
 
         await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
           timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 
@@ -726,7 +726,7 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。在
 
     因此，當 MediaElement 資訊清單就緒時，程式碼會取得可用資料流清單，並將這份清單填入 UI 清單方塊。
 
-6.  Inside the MainPage class, locate the UI buttons click events region, and then add the following function definition:
+6.  在 MainPage 類別中，尋找 UI 按鈕並按下事件區域，接著新增下列函數定義：
 
         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
         {
@@ -929,7 +929,7 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
         getTracks(manifestObject);
         refreshAvailableTracksListBoxItemSource();
 
-6.  Inside the MainPage class, locate the UI buttons click events region, and then add the following function definition:
+6.  在 MainPage 類別中，尋找 UI 按鈕並按下事件區域，接著新增下列函數定義：
 
         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
         {
@@ -969,5 +969,3 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
   [Smooth Streaming Windows Store application example]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
   [開發 Windows 8 適用的好用應用程式]: http://msdn.microsoft.com/zh-tw/windows/apps/br229512.aspx
   [Codeview in Visual Studio of Smooth Streaming Windows Store application]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-  [如何建置具有進階功能的 Smooth Streaming Windows 8 JavaScript 應用程式 (英文)]: http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx
-  [Smooth Streaming 技術概觀 (英文)]: http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview

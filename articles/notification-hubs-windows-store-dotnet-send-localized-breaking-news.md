@@ -157,9 +157,9 @@
 
 如需使用範本的詳細資訊，請參閱[使用通知中心來通知使用者：ASP.NET][使用通知中心來通知使用者：ASP.NET]、[使用通知中心來通知使用者：行動服務][使用通知中心來通知使用者：行動服務]，並參閱[通知中心指引][通知中心指引]。[Windows 市集的通知中心作法][Windows 市集的通知中心作法]則提供了範本運算式語言的參考。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [使用通知中心傳送即時新聞]: /zh-TW/manage/services/notification-hubs/breaking-news-dotnet
   [範本概念]: #concepts
@@ -168,6 +168,5 @@
   [從後端傳送通知]: #send
   [通知中心指引]: http://msdn.microsoft.com/zh-TW/library/jj927170.aspx
   [Windows 市集的通知中心作法]: http://msdn.microsoft.com/zh-TW/library/jj927172.aspx
-  [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
   [使用通知中心來通知使用者：ASP.NET]: /zh-TW/manage/services/notification-hubs/notify-users-aspnet
   [使用通知中心來通知使用者：行動服務]: /zh-TW/manage/services/notification-hubs/notify-users

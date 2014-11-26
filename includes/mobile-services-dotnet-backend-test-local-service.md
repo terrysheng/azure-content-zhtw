@@ -4,8 +4,8 @@
 
 2.  按 **F5** 鍵以重新建至專案，並在本機啟動行動服務。
 
-    ![][]
+    ![][0]
 
     在行動服務成功啟動後，會顯示一個網頁。
 
-  []: ./media/mobile-services-dotnet-backend-test-local-service/mobile-service-startup.png
+  [0]: ./media/mobile-services-dotnet-backend-test-local-service/mobile-service-startup.png

@@ -1,6 +1,6 @@
 1.  登入 [Azure 管理入口網站]、按一下 [行動服務]，然後按一下您的行動服務。
 
-    ![][]
+    ![][0]
 
 2.  按一下 [推播] 索引標籤、針對 [權限] 選取 [僅限驗證的使用者]，然後按一下 [編輯指令碼]。
 
@@ -45,5 +45,5 @@
 
 4.  依序按一下向後鍵、[資料] 索引標籤、[TodoItem] 及 [指令碼]，然後選取 [插入]。
 
-  []: ./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-push-registration-endpoint.png

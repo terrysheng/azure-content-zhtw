@@ -1,4 +1,4 @@
-<properties title="如何在 Azure VM 上安裝和設定 Trend" pageTitle="如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service" description="說明如何在 Azure 的 VM 上安裝和設定 Trend Micro 安全性" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties title="How to install and configure Trend on an Azure VM" pageTitle="How to install and configure Trend Micro Deep Security as a Service on an Azure VM" description="Describes installing and configuring Trend Micro security on a VM in Azure" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
@@ -16,9 +16,9 @@
 
 此 [From Gallery] 選項會開啟可協助您設定虛擬機器的精靈。您可以使用精靈的最後一個頁面，來安裝 VM 代理程式和 Trend 安全性延伸模組。如需一般指示，請參閱[建立執行 Windows Server 的虛擬機器][建立執行 Windows Server 的虛擬機器] (英文)。當您進入精靈的最後一個頁面時，請執行下列動作：
 
-1.  在 [VM Agent] 下，勾選 [Install VM Agent]。
+1.  在 [VM Agent] 下，勾選 **[Install VM Agent]**。
 
-2.  在 [Security Extensions] 下，勾選 [Trend Micro Deep Security Agent]。
+2.  在 [Security Extensions] 下，勾選 **[Trend Micro Deep Security Agent]**。
 
 3.  按一下核取記號以建立虛擬機器。
 
@@ -48,7 +48,7 @@
 
     `Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA -VM $vm.VM`
 
-    > [WACOM.NOTE] 如果您想要安裝特定版本，請執行下列命令以取得可用版本清單：`Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA`。然後，在執行 Set-AzureVMExtension 時加上 Version 參數。
+    > [WACOM.NOTE] 如果您想要安裝特定版本，請執行下列命令以取得可用版本清單： `Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA`。然後，在執行 Set-AzureVMExtension 時加上 Version 參數。
 
 3.  更新 VM，這會安裝 SDeep Security 代理程式：
 

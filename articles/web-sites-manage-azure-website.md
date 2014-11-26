@@ -1,6 +1,6 @@
 <properties title="Manage an Azure website" pageTitle="Manage an Azure website" description="Links to resources for managing a Microsoft Azure website." services="web-sites" solutions="web" documentationCenter="" authors="mwasson" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson" />
 
 # 管理 Azure 網站
 
@@ -78,7 +78,7 @@
 -   [使用 Team Foundation 版本控制 (TFVC)][使用 Team Foundation 版本控制 (TFVC)]
 -   [使用 Git (英文)][使用 Git (英文)]
 
-<!-- Anchors. -->
+
 
   [將網站部署到生產環境之前]: #before-you-deploy-your-site-to-production
   [當網站運作時]: #while-your-website-is-running

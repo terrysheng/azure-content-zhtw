@@ -129,7 +129,7 @@
 
 若要深入了解 JavaScript 後端行動服務的排程工作，請參閱：[在 JavaScript 後端行動服務中排程週期性工作][3]。
 
-<!-- Anchors. --> <!-- Images --> <!-- URLs. -->
+ <!-- Images --> 
 
   [SQL 位元類型]: http://msdn.microsoft.com/zh-tw/library/ms177603.aspx
   [REST 查詢作業]: http://msdn.microsoft.com/zh-tw/library/azure/jj677199.aspx

@@ -110,16 +110,13 @@
 
 在下一堂教學課程[使用指令碼授權使用者][使用指令碼授權使用者]中，您將使用行動服務根據通過驗證使用者所提供的使用者 ID 值，並用它來篩選行動服務所傳回的資料。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
+ 
+ 
 <!-- URLs. TODO:: update completed example project link with project download -->
 
-  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
   [註冊您的應用程式以驗證與設定行動服務]: #register
   [對通過驗證的使用者限制資料表權限]: #permissions
   [將驗證新增至應用程式]: #add-authentication
   [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-xamarin-ios
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331328
   [使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios

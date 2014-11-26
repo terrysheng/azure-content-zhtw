@@ -1,6 +1,6 @@
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
-    ![][]
+    ![][0]
 
 2.  按一下 [API] 索引標籤，然後按一下 [Create a custom API]。
 
@@ -34,24 +34,24 @@
             })
         };
 
-    此程式碼使用 [mssql 物件][]直接存取 **todoitem** 資料表，以在所有項目上設定完成旗標。因為使用了 **exports.post** 函數，所以用戶端會傳送 POST 要求以執行此操作。系統會以整數值將變更的列數傳回給用戶端。
+    此程式碼使用 [mssql 物件][mssql 物件]直接存取 **todoitem** 資料表，以在所有項目上設定完成旗標。因為使用了 **exports.post** 函數，所以用戶端會傳送 POST 要求以執行此操作。系統會以整數值將變更的列數傳回給用戶端。
 
 > [WACOM.NOTE\]
-> [Express.js 程式庫][]會實作提供給自訂 API 函數的 [request][] 和 [response][] 物件。如需相關資訊，請參閱[自訂 API][]。
+> [Express.js 程式庫][Express.js 程式庫]會實作提供給自訂 API 函數的 [request][request] 和 [response][response] 物件。如需相關資訊，請參閱[自訂 API][自訂 API]。
 
 接著，您將會修改快速入門應用程式，以加入新按鈕和非同步呼叫新自訂 API 的程式碼。
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-create-custom-api/mobile-services-selection.png
+  [0]: ./media/mobile-services-create-custom-api/mobile-services-selection.png
   [1]: ./media/mobile-services-create-custom-api/mobile-custom-api-create.png
   [2]: ./media/mobile-services-create-custom-api/mobile-custom-api-create-dialog2.png
   [3]: ./media/mobile-services-create-custom-api/mobile-custom-api-select2.png
-  [mssql 物件]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
+  [mssql 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554212.aspx
   [Express.js 程式庫]: http://go.microsoft.com/fwlink/p/?LinkId=309046
-  [request]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx
-  [response]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303373.aspx
-  [自訂 API]: http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx
+  [request]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554218.aspx
+  [response]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn303373.aspx
+  [自訂 API]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn280974.aspx

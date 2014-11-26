@@ -2,21 +2,21 @@
 
 Azure 網站支援從原始程式碼控制和儲存機制工具 (如 BitBucket、CodePlex、Dropbox、Git、GitHub、Mercurial 和 TFS) 進行連續部署。您可以使用這些工具來維護網站的內容和程式碼，然後隨時都能快速輕鬆地將變更推播到網站。
 
-在本文中，您將了解如何使用 Git，從本機電腦直接發佈到 Azure 網站 (在 Azure 中，這個發佈方法稱為「本機 Git」)。您還能了解如何從儲存機制網站 (如 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial) 進行連續部署。如需有關使用 TFS 持續部署的詳細資訊，請參閱＜[使用 Visual Studio Online 持續傳遞至 Azure][]＞(英文)。
+在本文中，您將了解如何使用 Git，從本機電腦直接發佈到 Azure 網站 (在 Azure 中，這個發佈方法稱為「本機 Git」)。您還能了解如何從儲存機制網站 (如 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial) 進行連續部署。如需有關使用 TFS 持續部署的詳細資訊，請參閱＜[使用 Visual Studio Online 持續傳遞至 Azure][使用 Visual Studio Online 持續傳遞至 Azure]＞(英文)。
 
-> [WACOM.NOTE] 本文中描述的許多 Git 命令會在使用[適用於 Mac 和 Linux 的 Azure 命令列工具][]建立網站時自動執行。
+> [WACOM.NOTE] 本文中描述的許多 Git 命令會在使用[適用於 Mac 和 Linux 的 Azure 命令列工具][適用於 Mac 和 Linux 的 Azure 命令列工具]建立網站時自動執行。
 
 此工作包含下列步驟：
 
--   [安裝 Git][]
--   [建立本機儲存機制][]
--   [新增網頁][]
--   [啟用網站儲存機制][]
--   [部署專案][]
-    -   [將本機檔案發佈至 Azure (本機 Git)][]
-    -   [部署儲存機制網站 (如 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial) 的檔案][]
-    -   [從 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial 部署 Visual Studio 方案][]
--   [疑難排解][]
+-   [安裝 Git][安裝 Git]
+-   [建立本機儲存機制][建立本機儲存機制]
+-   [新增網頁][新增網頁]
+-   [啟用網站儲存機制][啟用網站儲存機制]
+-   [部署專案][部署專案]
+    -   [將本機檔案發佈至 Azure (本機 Git)][將本機檔案發佈至 Azure (本機 Git)]
+    -   [部署儲存機制網站 (如 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial) 的檔案][部署儲存機制網站 (如 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial) 的檔案]
+    -   [從 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial 部署 Visual Studio 方案][從 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial 部署 Visual Studio 方案]
+-   [疑難排解][疑難排解]
 
 ## <span id="Step2"></span></a>安裝 Git
 
@@ -44,7 +44,7 @@ Azure 網站支援從原始程式碼控制和儲存機制工具 (如 BitBucket�
 
 ## <span id="Step3"></span></a>新增網頁
 
-Azure 網站支援以各種程式設計語言建立的應用程式。以此範例為例，您將使用靜態 .html 檔案。如需以其他程式設計語言將網站發佈至 Azure 的相關資料，請參閱 [Azure 開發人員中心][]。
+Azure 網站支援以各種程式設計語言建立的應用程式。以此範例為例，您將使用靜態 .html 檔案。如需以其他程式設計語言將網站發佈至 Azure 的相關資料，請參閱 [Azure 開發人員中心][Azure 開發人員中心]。
 
 1.  使用文字編輯器，在 Git 儲存機制的根目錄 (您稍早建立的 MyGitRepository 目錄) 中建立名為 **index.html** 的新檔案。
 
@@ -72,29 +72,29 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
 
 請執行下列步驟，使用 Azure 入口網站來啟用網站的 Git 儲存機制：
 
-1.  登入 [Azure 入口網站][]。
+1.  登入 [Azure 入口網站][Azure 入口網站]。
 
 2.  按一下 [新增] 按鈕，以建立您將啟用儲存機制的新網站。
 
 3.  請等待 [網站] 檢視中的網站建立程序完成，然後選取該網站。
 
-    ![顯示所選網站的影像][]
+    ![顯示所選網站的影像][顯示所選網站的影像]
 
 4.  選取 [儀表板] 索引標籤。
 
 5.  在 [Quick Glance] 區段中，選取 [設定從原始檔控制進行部署]。下列 [SET UP DEPLOYMENT] 對話方塊隨即出現。
 
-    ![git-WhereIsYourSourceCode][]
+    ![git-WhereIsYourSourceCode][git-WhereIsYourSourceCode]
 
 6.  選擇 [本機 Git]，然後按 [下一步] 箭頭。
 
 7.  如果這是您第一次在 Azure 中設定儲存機制，就需要為它建立登入認證。您將使用這些認證來登入 Azure 儲存機制，並推播來自您本機 Git 儲存機制的變更。
 
-    ![][]
+    ![][0]
 
 8.  在短暫延遲之後，您應該可以看到一則儲存機制已就緒的訊息。
 
-    ![git-instructions][]
+    ![git-instructions][git-instructions]
 
 ## <span id="Step5"></span></a>部署專案
 
@@ -134,7 +134,7 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
 
 4.  在入口網站中，按一下入口網站底部的 **[瀏覽]** 連結，以驗證 **index.html** 是否已部署完成。隨即會出現包含 'Hello Git!' 的頁面。
 
-    ![包含 'Hello Git!' 的網頁][]
+    ![包含 'Hello Git!' 的網頁][包含 'Hello Git!' 的網頁]
 
 5.  使用文字編輯器，將 **index.html** 檔案內容變更成包含 'Yay!'，然後儲存檔案。
 
@@ -146,7 +146,7 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
 
     一旦完成 **[推送]** 命令之後，請重新整理瀏覽器 (您可能需要按 Ctrl+F5，瀏覽器才能正常重新整理)，並請注意頁面內容現已反映最新的認可變更。
 
-    ![包含 'Yay!' 的網頁][]
+    ![包含 'Yay!' 的網頁][包含 'Yay!' 的網頁]
 
 ### <span id="Step7"></span></a>部署來自儲存機制網站 (如 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial) 的檔案
 
@@ -154,7 +154,7 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
 
 以上兩種方法的結果都是將專案部署到 Azure 網站，當您有多人同時執行專案，並想確保無論是誰做出最近更新都一定會發佈最新版本時，連續部署是非常有用的。如果您使用上述其中一個工具作為應用程式的中央儲存機制，持續部署也很有用。
 
-無論是從 GitHub、CodePlex 或 BitBucket 部署檔案，都會要求您將本機專案發佈到這些服務的其中之一。如需將專案發佈到這些服務的詳細資訊，請參閱[建立儲存機制 (GitHub)][]、[使用 Git 與 CodePlex][]、[建立儲存機制 (BitBucket)][]、[使用 Dropbox 分享 Git 儲存機制][]或[快速入門 - Mercurial][]。
+無論是從 GitHub、CodePlex 或 BitBucket 部署檔案，都會要求您將本機專案發佈到這些服務的其中之一。如需將專案發佈到這些服務的詳細資訊，請參閱[建立儲存機制 (GitHub)][建立儲存機制 (GitHub)]、[使用 Git 與 CodePlex][使用 Git 與 CodePlex]、[建立儲存機制 (BitBucket)][建立儲存機制 (BitBucket)]、[使用 Dropbox 分享 Git 儲存機制][使用 Dropbox 分享 Git 儲存機制]或[快速入門 - Mercurial][快速入門 - Mercurial]。
 
 1.  先將您的網站檔案放入將用於連續部署的所選儲存機制中。
 
@@ -166,7 +166,7 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
 
 5.  在您授權 Azure 存取您的帳戶之後，系統將會提示您一份儲存機制清單。
 
-    ![git-ChooseARepositoryToDeploy][]
+    ![git-ChooseARepositoryToDeploy][git-ChooseARepositoryToDeploy]
 
 6.  選取您想要與 Azure 網站建立關聯的儲存機制。按一下核取記號以繼續。
 
@@ -174,13 +174,13 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
 
 7.  Azure 將與所選儲存機制建立關聯，然後從主要分支取得檔案。在此程序完成後，[部署] 頁面上的 [部署歷程記錄] 將出現一則如下所示的 [現用部署] 訊息：
 
-    ![git-githubdeployed][]
+    ![git-githubdeployed][git-githubdeployed]
 
 8.  此時，您已將專案從您選擇的儲存機制部署到 Azure 網站。若要驗證此網站是否正在使用中，請按一下入口網站底部的 [瀏覽] 連結。瀏覽器應會瀏覽至網站。
 
 9.  若要確認是否會發生連續部署，請對您的專案進行變更，然後將此變更推播至與此網站相關聯的儲存機制。在推播至儲存機制完成後不久，您的網站應會進行更新以反映變更。您可以在網站的 [部署] 頁面上確認它是否已提取更新。
 
-    ![git-GitHubDeployed-Updated][]
+    ![git-GitHubDeployed-Updated][git-GitHubDeployed-Updated]
 
 ### <span id="Step75"></span></a>從 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial 部署 Visual Studio 方案
 
@@ -188,7 +188,7 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
 
 將您的 Visual Studio 方案推播至 Azure 網站的步驟和[上一節][部署儲存機制網站 (如 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial) 的檔案]的一樣，可提供您設定解決方案和儲存機制的步驟，如下：
 
--   在您的儲存機制根目錄中，新增 `.gitignore` 檔案，然後指定要從儲存機制排除的所有檔案和資料夾，例如 `Obj`、`Bin` 及 `packages` 資料夾 (如需詳細資訊，請參閱 [gitignore 文件][])。例如：
+-   在您的儲存機制根目錄中，新增 `.gitignore` 檔案，然後指定要從儲存機制排除的所有檔案和資料夾，例如 `Obj`、`Bin` 及 `packages` 資料夾 (如需詳細資訊，請參閱 [gitignore 文件][gitignore 文件])。例如：
 
         [Oo]bj/
         [Bb]in/
@@ -210,7 +210,7 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
 
 -   使用儲存機制根目錄中的 .sln 檔案，將整個解決方案的目錄樹狀結構新增至您的儲存機制。
 
--   在您的 Visual Studio 方案中，[啟用 NuGet 封裝還原][]可讓 Visual Studio 自動還原遺失的封裝。
+-   在您的 Visual Studio 方案中，[啟用 NuGet 封裝還原][啟用 NuGet 封裝還原]可讓 Visual Studio 自動還原遺失的封裝。
 
 一旦您設定儲存機制 (如前所述)，並設定 Azure 網站以便從某一個線上 Git 儲存機制繼續進行發佈之後，就能夠在 Visual Studio 中本機開發 ASP.NET 應用程式，並且只需將變更推播至線上 Git 儲存機制，就能持續部署您的程式碼。
 
@@ -218,11 +218,11 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
 
 持續部署會藉由提供網站 [設定] 索引標籤的 [部署] 區段中所找到的 [部署觸發 URL] 來進行運作。
 
-![git-DeploymentTrigger][]
+![git-DeploymentTrigger][git-DeploymentTrigger]
 
 為您的儲存機制進行更新時，POST 要求會被傳送到此 URL，而您的 Azure 網站便會收到該儲存機制已更新的通知。此時，它會擷取更新並在您的網站上部署更新。
 
-如需位於 Azure 網站之 Git 部署程序後方的引擎詳細資訊，請參閱[專案 Kudu][] (英文)。
+如需位於 Azure 網站之 Git 部署程序後方的引擎詳細資訊，請參閱[專案 Kudu][專案 Kudu] (英文)。
 
 #### 指定要使用的分支
 
@@ -238,7 +238,7 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
 
 您可以從 Azure [儀表板] 中停用持續部署。在 [Quick Glance] 區段下，選擇要與正在使用的儲存機制中斷連線的選項：
 
-![git-DisconnectFromGitHub][]
+![git-DisconnectFromGitHub][git-DisconnectFromGitHub]
 
 在對確認訊息回答 [是] 之後，如果您想要設定從其他原始檔進行發佈，您可以回到 [Quick Glance] 然後按一下 [設定從原始檔控制進行部署]。
 
@@ -302,10 +302,10 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
 
 ## 其他資源
 
--   [如何使用適用於 Azure 的 PowerShell][]
+-   [如何使用適用於 Azure 的 PowerShell][如何使用適用於 Azure 的 PowerShell]
 -   [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具][適用於 Mac 和 Linux 的 Azure 命令列工具]
--   [Git 文件][]
--   [專案 Kudu][]
+-   [Git 文件][Git 文件]
+-   [專案 Kudu][專案 Kudu]
 
   [使用 Visual Studio Online 持續傳遞至 Azure]: http://www.windowsazure.com/zh-TW/develop/net/common-tasks/publishing-with-tfs/
   [適用於 Mac 和 Linux 的 Azure 命令列工具]: /zh-TW/develop/nodejs/how-to-guides/command-line-tools/
@@ -323,7 +323,7 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
   [Azure 入口網站]: http://manage.windowsazure.com
   [顯示所選網站的影像]: ./media/publishing-with-git/git-select-website.png
   [git-WhereIsYourSourceCode]: ./media/publishing-with-git/git-WhereIsYourSourceCode.png
-  []: ./media/publishing-with-git/git_credentials.png
+  [0]: ./media/publishing-with-git/git_credentials.png
   [git-instructions]: ./media/publishing-with-git/git-instructions.png
   [包含 'Hello Git!' 的網頁]: ./media/publishing-with-git/git-hello-git.png
   [包含 'Yay!' 的網頁]: ./media/publishing-with-git/git-yay.png

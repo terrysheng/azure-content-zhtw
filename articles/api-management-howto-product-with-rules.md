@@ -1,6 +1,6 @@
 <properties pageTitle="How to create and configure advanced product settings in Azure API Management" metaKeywords="" description="Learn how to configure a product with quota and rate limit policies." metaCanonical="" services="" documentationCenter="API Management" title="How to create and configure advanced product settings in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # 如何在 Azure API 管理中建立和設定進階產品設定
 
@@ -10,13 +10,13 @@
 
 ## 本主題內容
 
--   [建立產品][]
--   [將 API 加入至產品][]
--   [設定呼叫費率限制和配額原則][]
--   [發行產品][]
--   [為開發人員帳戶訂閱產品][]
--   [呼叫作業並測試費率限制][]
--   [後續步驟][]
+-   [建立產品][建立產品]
+-   [將 API 加入至產品][將 API 加入至產品]
+-   [設定呼叫費率限制和配額原則][設定呼叫費率限制和配額原則]
+-   [發行產品][發行產品]
+-   [為開發人員帳戶訂閱產品][為開發人員帳戶訂閱產品]
+-   [呼叫作業並測試費率限制][呼叫作業並測試費率限制]
+-   [後續步驟][後續步驟]
 
 ## <a name="create-product"> </a>建立產品
 
@@ -24,17 +24,17 @@
 
 若要開始，請在 API 管理服務的 Azure 入口網站中按一下 [管理主控台]。這會帶您前往 API 管理的管理入口網站。
 
-> 如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][]教學課程中的[建立 API 管理服務執行個體][]。
+> 如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][開始使用 Azure API 管理]教學課程中的[建立 API 管理服務執行個體][建立 API 管理服務執行個體]。
 
-![API Management console][]
+![API Management console][API Management console]
 
 從左側的 [API 管理] 功能表按一下 [產品]，以顯示 [產品] 頁面。
 
-![Add product][]
+![Add product][Add product]
 
 按一下 [加入產品] 以顯示 [加入新的產品] 快顯視窗。
 
-![Add new product][]
+![Add new product][Add new product]
 
 在 [標題] 文字方塊中輸入 **Free Trial**。
 
@@ -44,13 +44,13 @@
 
 輸入所有值之後，按一下 [儲存] 來建立產品。
 
-![Product added][]
+![Product added][Product added]
 
 依預設，**Administrator** 群組中的使用者可看見新產品。我們即將加入 **Developers** 群組。按一下 [免費試用]，並選取 [可見度] 索引標籤。
 
-> 在 API 管理中，群組的作用是管理產品對於開發人員的可見度。產品會將可見度授與群組，而開發人員可檢視並訂閱其所屬群組可見的產品。如需詳細資訊，請參閱[如何在 Azure API 管理中建立和使用群組][]。
+> 在 API 管理中，群組的作用是管理產品對於開發人員的可見度。產品會將可見度授與群組，而開發人員可檢視並訂閱其所屬群組可見的產品。如需詳細資訊，請參閱[如何在 Azure API 管理中建立和使用群組][如何在 Azure API 管理中建立和使用群組]。
 
-![Add developers group][]
+![Add developers group][Add developers group]
 
 核取 [開發人員] 群組，然後按一下 [儲存]。
 
@@ -58,37 +58,37 @@
 
 在教學課程的這個步驟中，我們會將 Echo API 加入至新的「免費試用」產品。
 
-> 每個 API 管理服務執行個體隨附預先設定的範例 Echo API，可供您試驗與了解 API 管理。如需詳細資訊，請參閱[開始使用 Azure API 管理][]。
+> 每個 API 管理服務執行個體隨附預先設定的範例 Echo API，可供您試驗與了解 API 管理。如需詳細資訊，請參閱[開始使用 Azure API 管理][開始使用 Azure API 管理]。
 
 從左側的 [API 管理] 功能表按一下 [產品]，並按 [免費試用] 來設定產品。
 
-![Configure product][]
+![Configure product][Configure product]
 
 按一下 [加入 API 至產品]。
 
-![Add API to product][]
+![Add API to product][Add API to product]
 
 核取 [Echo API] 旁的核取方塊，然後按一下 [儲存]。
 
-![Add Echo API][]
+![Add Echo API][Add Echo API]
 
 ## <a name="policies"> </a>設定呼叫費率限制和配額原則
 
 費率限制和配額是在原則編輯器中設定。從左側的 [API 管理] 功能表按一下 [原則]，並從 [免費試用] 選取 [Policy Scope Product] 下拉式清單來設定產品。
 
-![Product policy][]
+![Product policy][Product policy]
 
 按一下 [加入原則] 來匯入原則範本，並開始建立費率限制和配額原則。
 
-![Add policy][]
+![Add policy][Add policy]
 
 若要插入原則，請將游標放在原則範本的 [輸入] 或 [輸出] 區段上。費率限制和配額原則為輸入原則，因此將游標放置在輸入元素中。
 
-![Policy editor][]
+![Policy editor][Policy editor]
 
 我們要在本教學課程中加入的兩個原則為**限制呼叫費率**和**設定使用量配額**原則。
 
-![Policy statements][]
+![Policy statements][Policy statements]
 
 游標放置在 [輸入] 原則元素中之後，按一下 [限制呼叫費率] 旁的箭頭來插入其原則範本。
 
@@ -153,17 +153,17 @@
 
 設定需要的原則之後，請按一下 [儲存]。
 
-![Save policy][]
+![Save policy][Save policy]
 
 ## <a name="publish-product"> </a>發行產品
 
 現在已加入 API，也已設定原則，產品即已備妥可供開發人員使用。在產品可供開發人員使用之前，必須先發行產品。從左側的 [API 管理] 功能表按一下 [產品]，並按 [免費試用] 來設定產品。
 
-![Configure product][]
+![Configure product][Configure product]
 
 按一下 [發行]，然後按 [是，發行] 確認。
 
-![Publish product][]
+![Publish product][Publish product]
 
 ## <a name="subscribe-account"> </a>為開發人員帳戶訂閱產品
 
@@ -173,11 +173,11 @@
 
 在左側的 [API 管理] 功能表上按一下 [開發人員]，然後按您的開發人員帳戶的名稱。在此範例中，我們要使用 **Clayton Gragg** 開發人員帳戶。
 
-![Configure developer][]
+![Configure developer][Configure developer]
 
 按一下 [加入訂閱]。
 
-![Add subscription][]
+![Add subscription][Add subscription]
 
 核取 [免費試用] 旁的核取方塊，然後按一下 [訂閱]。
 
@@ -187,7 +187,7 @@
 
 現在免費試用產品已設定和發行，我們可以呼叫一些作業並測試費率限制原則。在右上角的功能表中按一下 [開發人員入口網站]，切換到開發人員入口網站。
 
-![Developer portal][]
+![Developer portal][Developer portal]
 
 在上方功能表中按一下 [API]，然後選取 [Echo API]。
 
@@ -197,17 +197,17 @@
 
 選取 [GET Resource] 作業，然後按一下 [開啟主控台]。
 
-![Open console][]
+![Open console][Open console]
 
 保留預設的參數值，並選取您的**免費試用**產品的訂閱金鑰。
 
-![Subscription key][]
+![Subscription key][Subscription key]
 
 > 如果您有多個訂閱，請務必選取**免費試用**的金鑰，否則在先前步驟中設定的原則將不會生效。
 
 按一下 [HTTP Get]，然後檢視回應。記下 [200 OK] 的 [回應狀態]。
 
-![Operation results][]
+![Operation results][Operation results]
 
 按一下 [HTTP Get]，將費率設為大於每分鐘 10 個呼叫的費率限制原則。超出費率限制原則時，會傳回 [429 Too many Requests] 回應狀態。
 
@@ -219,7 +219,7 @@
 
 ## <a name="next-steps"> </a>後續步驟
 
--   在[開始使用進階 API 組態][]教學課程中查看其他主題。
+-   在[開始使用進階 API 組態][開始使用進階 API 組態]教學課程中查看其他主題。
 
   [建立產品]: #create-product
   [將 API 加入至產品]: #add-api

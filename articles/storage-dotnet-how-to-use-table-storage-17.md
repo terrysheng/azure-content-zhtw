@@ -3,7 +3,7 @@
 如何使用資料表儲存體服務
 ========================
 
-[1.7 版](/en-us/develop/net/how-to-guides/table-services-v17/ "1.7 版") [2.0 版](/en-us/develop/net/how-to-guides/table-services/ "2.0 版")
+[1.7 版](/zh-tw/develop/net/how-to-guides/table-services-v17/ "1.7 版") [2.0 版](/zh-tw/develop/net/how-to-guides/table-services/ "2.0 版")
 
 本指南將示範如何使用 Azure 資料表儲存體服務執行一般案例。這些範例均以 C\# 程式碼撰寫，並使用 .NET API。所涵蓋的案例包括「建立和刪除資料表」、「在資料表中插入及查詢實體」****。如需資料表的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
@@ -418,6 +418,6 @@ Azure .NET 儲存體 API 可支援使用儲存體連接字串，來設定存取�
     -   [REST API 參考](http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179355)
 -   請參閱[在 Azure 中儲存和存取資料](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx)，深入了解可使用 Azure 儲存體執行的更多進階工作。
 -   如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
-    -   使用 [Blog 儲存體](/en-us/develop/net/how-to-guides/blob-storage/)儲存非結構化資料。
-    -   使用 [SQL Database](/en-us/develop/net/how-to-guides/sql-database/) 儲存關聯式資料。
+    -   使用 [Blog 儲存體](/zh-tw/develop/net/how-to-guides/blob-storage/)儲存非結構化資料。
+    -   使用 [SQL Database](/zh-tw/develop/net/how-to-guides/sql-database/) 儲存關聯式資料。
 

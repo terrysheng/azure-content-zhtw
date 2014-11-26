@@ -1,6 +1,6 @@
 <properties pageTitle="Managing Role-Based Access Control with Azure Cross-Platform Command-Line Interface" metaKeywords="ResourceManager, Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli, RBAC" description="Managing role-based access control with cross-platform command-line interface" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # 使用跨平台命令列介面管理角色存取控制
 
@@ -133,8 +133,6 @@ Azure Preview 入口網站以及 Azure 資源管理員 API 裡的角色存取控
 -   [使用 Windows PowerShell 來設定角色存取控制][使用 Windows PowerShell 來設定角色存取控制]
 -   [為角色存取控制進行疑難排解][為角色存取控制進行疑難排解]
 
-  [Windows PowerShell]: /zh-tw/documentation/articles/powershell-rbac.md "Windows PowerShell"
-  [跨平台 CLI]: /zh-tw/documentation/articles/xplat-cli-rbac.md "跨平台 CLI"
   [安裝與設定 Azure 跨平台命令列介面]: http://azure.microsoft.com/zh-tw/documentation/articles/xplat-cli/
   [搭配使用 Azure 跨平台命令列介面與資源管理員]: http://azure.microsoft.com/zh-tw/documentation/articles/xplat-cli-azure-resource-manager/
   [連線到您的訂閱]: #connect

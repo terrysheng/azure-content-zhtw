@@ -168,9 +168,9 @@
 
 如需範本運算式語言的參考，請參閱 [iOS 的通知中心作法][作法：服務匯流排通知中心 (iOS 應用程式)]。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [使用通知中心傳送即時新聞]: /zh-TW/manage/services/notification-hubs/breaking-news-ios
   [範本概念]: #concepts
@@ -180,6 +180,5 @@
   [通知中心指引]: http://msdn.microsoft.com/zh-TW/library/jj927170.aspx
   [0]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
   [1]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
-  [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
   [使用通知中心來通知使用者：ASP.NET]: /zh-TW/manage/services/notification-hubs/notify-users-aspnet
   [使用通知中心來通知使用者：行動服務]: /zh-TW/manage/services/notification-hubs/notify-users

@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning API service operations" pageTitle="Machine Learning API service operations | Azure" description="Creating and managing Azure Machine Learning web services" metaKeywords="" services="" solutions="" documentationCenter="" authors="derrickv" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv" />
 
 # Azure 機器學習 API 服務作業
 
@@ -28,7 +28,7 @@ Azure ML 允許從 Azure Machine Learning Studio (ML Studio) 中所定義的 ML 
 
 下圖將分兩個部分說明高階步驟：第一部分是建置模型，第二部分是將它發佈為 Web 服務。本文件會著重在圖 1 的右側圖表 – 發佈評分 Web 服務 - 以及說明該程序所涉及的概念。
 
-![][]
+![][0]
 
 圖 1：佈建、建置及發佈評分 Web 服務
 
@@ -220,7 +220,7 @@ RRS Web 服務是一個 REST 端點，可在用戶端應用程式中使用各種
 
 <!--Link references-->
 
-  []: ./media/machine-learning-overview-of-azure-ml-process/oamlp1.png
+  [0]: ./media/machine-learning-overview-of-azure-ml-process/oamlp1.png
   [1]: ./media/machine-learning-overview-of-azure-ml-process/oamlp2.png
   [2]: ./media/machine-learning-overview-of-azure-ml-process/oamlp3.png
   [3]: ./media/machine-learning-overview-of-azure-ml-process/oamlp4.png

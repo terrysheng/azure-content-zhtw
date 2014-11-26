@@ -1,6 +1,6 @@
 1.  按 [執行] 按鈕以建置專案並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [確定] 以接受推播通知。確認登入和驗證成功。
 
-    ![][]
+    ![][0]
 
     > [WACOM.NOTE] 您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
 
@@ -18,7 +18,7 @@
 
 您已成功完成此教學課程。
 
-  []: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
+  [0]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
   [2]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
   [3]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png

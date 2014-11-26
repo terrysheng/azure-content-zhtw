@@ -1,6 +1,6 @@
-<properties urlDisplayName="How to create" pageTitle="建立媒體服務帳戶 - Azure" metaKeywords="" description="說明如何在 Azure 中建立新的媒體服務帳戶。" metaCanonical="" services="media-services" documentationCenter="" title="如何建立媒體服務帳戶" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties linkid="manage-services-mediaservices-create-a-media-services-account" urlDisplayName="How to create" pageTitle="Create a Media Services Account - Azure" metaKeywords="" description="Describes how to create a new Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Create a Media Services Account" authors="migree" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
 
 # 如何建立媒體服務帳戶
 
@@ -19,9 +19,7 @@ Azure 管理入口網站提供一種方法來快速建立 Azure 媒體服務帳�
 
 -   **媒體服務帳戶**。您的帳戶可讓您存取 Azure 中提供的一組雲端型媒體服務。媒體服務帳戶並不會儲存實際媒體內容。而是在您的帳戶中儲存媒體內容和媒體處理工作的中繼資料。當您建立帳戶時，您會選取一個可用的媒體服務區域。所選取的區域會是儲存您帳戶之中繼資料記錄的資料中心。
 
-    > [WACOM.NOTE]
-    > 可用的媒體服務區域如下：「西歐」、「東南亞」、「東亞」、「北歐」、「美國西部」、「美國東部」。媒體服務不會使用同質群組。
-
+    -   **注意：**可用的媒體服務區域如下：「西歐」、「東南亞」、「東亞」、「北歐」、「美國西部」、「美國東部」。媒體服務不會使用同質群組。
 -   **相關聯的儲存體帳戶**。您的儲存體帳戶就是與媒體服務帳戶相關聯的 Azure 儲存體帳戶。儲存體帳戶提供媒體檔案的 Blob 儲存體，而且必須與媒體服務帳戶位於相同的地理區域中。建立媒體服務帳戶時，可以選擇相同區域中的現有儲存體帳戶，也可以在相同區域中建立新的儲存體帳戶。如果您刪除媒體服務帳戶，並不會刪除相關儲存體帳戶中的 Blob。
 
 ## <span id="quick"></span></a>作法：使用「快速建立」建立媒體服務帳戶
@@ -50,7 +48,11 @@ Azure 管理入口網站提供一種方法來快速建立 Azure 媒體服務帳�
 
     此外，您還可以檢視使用 Azure Media Services SDK 來完成下列工作的程式碼：上傳、編碼和發佈視訊。您可以按一下 [WRITE SOME CODE] 區段下的其中一個連結，並複製程式碼，然後將該程式碼用在您的應用程式中。
 
-<!-- Reusable paths. --> <!-- Anchors. --> <!-- URLs. -->
+<!-- Reusable paths. -->
+
+
+
+
 
   [概念]: #concepts
   [作法：使用「快速建立」建立媒體服務帳戶]: #quick

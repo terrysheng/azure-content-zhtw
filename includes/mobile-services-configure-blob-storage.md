@@ -1,10 +1,10 @@
 已註冊新的插入指令檔，該指令檔會在插入新 Todo 項目時產生 SAS。
 
-1.  如果您尚未建立儲存體帳戶，請參閱[如何建立儲存體帳戶][]。
+1.  如果您尚未建立儲存體帳戶，請參閱[如何建立儲存體帳戶][如何建立儲存體帳戶]。
 
 2.  在管理入口網站中，按一下 [儲存體]、儲存體帳戶和 [管理金鑰]。
 
-    ![][]
+    ![][0]
 
 3.  請記下 [儲存體帳戶名稱] 和 [存取金鑰]。
 
@@ -17,7 +17,7 @@
 
     ![][2]
 
-    儲存體帳戶存取金鑰會以加密方式儲存在應用程式設定中。您可以在執行期間從任何伺服器指令碼存取此金鑰。如需詳細資訊，請參閱[應用程式設定][]。
+    儲存體帳戶存取金鑰會以加密方式儲存在應用程式設定中。您可以在執行期間從任何伺服器指令碼存取此金鑰。如需詳細資訊，請參閱[應用程式設定][應用程式設定]。
 
 5.  按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
@@ -82,7 +82,7 @@
 
     這會以新指令碼取代 TodoItem 資料表發生插入時所叫用的函數。這個新指令碼會對插入產生新的 SAS (有效期間為 5 分鐘)，以及將產生的 SAS 值指派給所傳回項目的 `sasQueryString` 屬性。`imageUri` 屬性也會設定為新 BLOB 的資源路徑，以便於繫結期間在用戶端 UI 中顯示映像。
 
-    > [WACOM.NOTE] 此程式碼會為個別 BLOB 建立 SAS。如果您需要使用相同的 SAS 將多個 Blob 上傳至容器，您可以改用空白的 Blob 資源名稱呼叫 [generateSharedAccessSignature 方法][]，如下所示：
+    > [WACOM.NOTE] 此程式碼會為個別 BLOB 建立 SAS。如果您需要使用相同的 SAS 將多個 Blob 上傳至容器，您可以改用空白的 Blob 資源名稱呼叫 [generateSharedAccessSignature 方法][generateSharedAccessSignature 方法]，如下所示：
     >
     >     blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);
     >
@@ -90,15 +90,15 @@
 
 接著，您將會更新快速入門應用程式，以使用插入時產生的 SAS 來新增映像上傳功能。
 
-<!-- Anchors. -->  
+  
 
-<!-- URLs. -->
+
 
   [如何建立儲存體帳戶]: /zh-tw/manage/services/storage/how-to-create-a-storage-account
   [generateSharedAccessSignature 方法]: http://go.microsoft.com/fwlink/?LinkId=390455
 
-<!-- Images. -->
-  []: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
+
+  [0]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
   [1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
   [2]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
   [應用程式設定]: http://msdn.microsoft.com/zh-tw/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

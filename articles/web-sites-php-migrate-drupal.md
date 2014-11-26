@@ -1,31 +1,31 @@
 <properties linkid="migrating-drupal-to-azure-websites" urlDisplayName="Migrating Drupal to Azure Websites" pageTitle="Migrating Drupal to Azure Websites" metaKeywords="Drupal, PHP, Web Sites" description="Migrate a Drupal PHP site to Azure Websites." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Migrating Drupal to Azure Websites" authors="cephalin; jroth" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin; jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin; jroth" />
 
 # 將 Drupal 移轉至 Azure 網站
 
 因為 Azure 網站同時支援 PHP 與 MySQL，所以將 Drupal 網站移轉至 Azure 網站相當直接。而且，因為 Drupal 與 PHP 可在任何平台上執行，所以不論您目前的平台為何，此處理程序應可適用於將 Drupal 移至 Azure 網站。如此一來，Drupal 安裝可能大不相同，可能有一些未涵蓋於下列資料中的獨特移轉步驟。請注意，因為 Azure 網站不支援 Drush 工具，所以並未採用。
 
 > [WACOM.NOTE]
-> 如果您正在移動大型而複雜的 Drupal 應用程式，另一個選項就是考慮使用 Azure 雲端服務。如需有關網站與雲端服務之間差異的詳細資訊，請參閱[Azure 網站、雲端服務和 VM：使用時機][]。如需將 Drupal 移至雲端服務的說明，請參閱＜[將 Drupal 網站從 LAMP 移轉至 Azure][]＞(英文)。
+> 如果您正在移動大型而複雜的 Drupal 應用程式，另一個選項就是考慮使用 Azure 雲端服務。如需有關網站與雲端服務之間差異的詳細資訊，請參閱[Azure 網站、雲端服務和 VM：使用時機][Azure 網站、雲端服務和 VM：使用時機]。如需將 Drupal 移至雲端服務的說明，請參閱＜[將 Drupal 網站從 LAMP 移轉至 Azure][將 Drupal 網站從 LAMP 移轉至 Azure]＞(英文)。
 
 ## 目錄
 
--   [建立 Azure 網站][]
--   [複製資料庫][]
--   [修改 Settings.php][]
--   [部署 Drupal 程式碼][]
--   [相關資訊][]
+-   [建立 Azure 網站][建立 Azure 網站]
+-   [複製資料庫][複製資料庫]
+-   [修改 Settings.php][修改 Settings.php]
+-   [部署 Drupal 程式碼][部署 Drupal 程式碼]
+-   [相關資訊][相關資訊]
 
 ## <a name="create-siteanddb"></a><span class="short-header">建立 Azure 網站和 MySQL 資料庫</span>1. 建立 Azure 網站和 MySQL 資料庫
 
-首先，完成逐步教學課程，了解如何利用 MySQL 建立新的網站：[建立 PHP-MySQL Azure 網站並使用 Git 部署][]。如果您打算使用 Git 來發行 Drupal 網站，請遵循教學課程中說明如何設定 Git 儲存機制的步驟。請務必遵循＜**取得遠端 MySQL 連線資訊**＞一節中的指示，因為您稍後會需要該資訊。您可以為了部署 Drupal 網站而忽略其餘的教學課程，但如果這是您第一次使用 Azure 網站 (和 Git)，您可能會發現其他有用文章。
+首先，完成逐步教學課程，了解如何利用 MySQL 建立新的網站：[建立 PHP-MySQL Azure 網站並使用 Git 部署][建立 PHP-MySQL Azure 網站並使用 Git 部署]。如果您打算使用 Git 來發行 Drupal 網站，請遵循教學課程中說明如何設定 Git 儲存機制的步驟。請務必遵循＜**取得遠端 MySQL 連線資訊**＞一節中的指示，因為您稍後會需要該資訊。您可以為了部署 Drupal 網站而忽略其餘的教學課程，但如果這是您第一次使用 Azure 網站 (和 Git)，您可能會發現其他有用文章。
 
 設定採用 MySQL 資料庫的新網站之後，您現在即可取得 MySQL 資料庫連線資訊和 (選用) Git 儲存機制。下一個步驟是在 Azure 網站中將資料庫複製到 MySQL。
 
 ## <a name="copy-database"></a><span class="short-header">在 Azure 網站中將資料庫複製到 MySQL</span>2. 在 Azure 網站中將資料庫複製到 MySQL
 
-將資料庫移轉到 Azure 中的方法有很多種。其中一種適用於 MySQL 資料庫的方法是使用 [MySqlDump][] 工具。下列命令提供如何從本機電腦複製到 Azure 網站的範例：
+將資料庫移轉到 Azure 中的方法有很多種。其中一種適用於 MySQL 資料庫的方法是使用 [MySqlDump][MySqlDump] 工具。下列命令提供如何從本機電腦複製到 Azure 網站的範例：
 
     mysqldump -u local_username --password=local_password  drupal | mysql -h remote_host -u remote_username --password=remote_password remote_db_name
 
@@ -76,11 +76,11 @@
 
 如需詳細資訊，請參閱下列文章和主題：
 
--   [Azure 網站：PHP 觀點][]
--   [Azure 網站、雲端服務和 VM：使用時機][]
--   [在 Azure 網站中利用 .user.ini 檔案設定 PHP][]
--   [Azure 整合模組][]
--   [Azure Blob 儲存體模組][]
+-   [Azure 網站：PHP 觀點][Azure 網站：PHP 觀點]
+-   [Azure 網站、雲端服務和 VM：使用時機][Azure 網站、雲端服務和 VM：使用時機]
+-   [在 Azure 網站中利用 .user.ini 檔案設定 PHP][在 Azure 網站中利用 .user.ini 檔案設定 PHP]
+-   [Azure 整合模組][Azure 整合模組]
+-   [Azure Blob 儲存體模組][Azure Blob 儲存體模組]
 
   [Azure 網站、雲端服務和 VM：使用時機]: http://go.microsoft.com/fwlink/?LinkId=310123
   [將 Drupal 網站從 LAMP 移轉至 Azure]: http://blogs.msdn.com/b/brian_swan/archive/2012/03/19/azure-real-world-migrating-drupal-from-lamp-to-windows-azure.aspx

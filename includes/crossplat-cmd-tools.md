@@ -1,15 +1,15 @@
 # 如何使用適用於 Mac 和 Linux 的 Azure 命令列工具
 
-本指南說明如何使用適用於 Mac 和 Linux 的 Azure 命令列工具，在 Azure 中建立和管理服務。涵蓋的案例包括**安裝工具**、**匯入發行設定**、**建立和管理 Azure 網站**和**建立和管理 Azure 虛擬機器**。如需完整的參考文件，請參閱＜[適用於 Mac 和 Linux 的 Azure 命令列工具文件][]＞。
+本指南說明如何使用適用於 Mac 和 Linux 的 Azure 命令列工具，在 Azure 中建立和管理服務。涵蓋的案例包括**安裝工具**、**匯入發行設定**、**建立和管理 Azure 網站**和**建立和管理 Azure 虛擬機器**。如需完整的參考文件，請參閱＜[適用於 Mac 和 Linux 的 Azure 命令列工具文件][適用於 Mac 和 Linux 的 Azure 命令列工具文件]＞。
 
 ## 目錄
 
--   [什麼是適用於 Mac 和 Linux 的 Azure 命令列工具][]
--   [如何安裝適用於 Mac 和 Linux 的 Azure 命令列工具][]
--   [如何建立 Azure 帳戶][]
--   [如何下載和匯入發行設定][]
--   [如何建立和管理 Azure 網站][]
--   [如何建立和管理 Azure 虛擬機器][]
+-   [什麼是適用於 Mac 和 Linux 的 Azure 命令列工具][什麼是適用於 Mac 和 Linux 的 Azure 命令列工具]
+-   [如何安裝適用於 Mac 和 Linux 的 Azure 命令列工具][如何安裝適用於 Mac 和 Linux 的 Azure 命令列工具]
+-   [如何建立 Azure 帳戶][如何建立 Azure 帳戶]
+-   [如何下載和匯入發行設定][如何下載和匯入發行設定]
+-   [如何建立和管理 Azure 網站][如何建立和管理 Azure 網站]
+-   [如何建立和管理 Azure 虛擬機器][如何建立和管理 Azure 虛擬機器]
 
 ## <span id="Overview"></span></a>什麼是適用於 Mac 和 Linux 的 Azure 命令列工具
 
@@ -27,9 +27,9 @@
 
 下列清單包含安裝命令列工具的相關資訊，視作業系統而定：
 
--   **Mac**：下載 [Azure SDK 安裝程式][]。開啟已下載的 .pkg 檔案，並依照提示完成安裝步驟。
+-   **Mac**：下載 [Azure SDK 安裝程式][Azure SDK 安裝程式]。開啟已下載的 .pkg 檔案，並依照提示完成安裝步驟。
 
--   **Linux**：安裝最新版本的 [Node.js][] (請參閱[透過封裝管理員來安裝 Node.js][])，然後執行下列命令：
+-   **Linux**：安裝最新版本的 [Node.js][Node.js] (請參閱[透過封裝管理員來安裝 Node.js][透過封裝管理員來安裝 Node.js])，然後執行下列命令：
 
         npm install azure-cli -g
 
@@ -37,7 +37,7 @@
 
         sudo npm install azure-cli -g
 
--   **Windows**：執行 Winows 安裝程式 (.msi 檔案)，該檔案可於以下位置取得：[Azure 命令列工具][]。
+-   **Windows**：執行 Winows 安裝程式 (.msi 檔案)，該檔案可於以下位置取得：[Azure 命令列工具][Azure 命令列工具]。
 
 若要測試安裝，請在命令提示字元中輸入 `azure`。如果安裝成功，您會看到所有可用的 `azure` 命令的清單。
 
@@ -47,7 +47,7 @@
 
 請開啟網頁瀏覽器，瀏覽到 [][]<http://www.windowsazure.com></a>，然後按一下右上角的 [免費試用]。
 
-![Azure 網站][]
+![Azure 網站][Azure 網站]
 
 依照指示來建立帳戶。
 
@@ -176,7 +176,7 @@ Azure 虛擬機器是使用您提供的映像或映像庫中的虛擬機器映�
 
 您可以使用 `vm create` 命令從可用的映象檔之一佈建並啟動虛擬機器。下列範例顯示如何從映像庫中的映像 (CentOS 6.2) 建立 Linux 虛擬機器 (名為 `myVM`)。虛擬機器的根使用者名稱和密碼分別是 `myusername` 和 `Mypassw0rd`。(請注意，`--location` 參數指定要建立虛擬機器的資料中心。如果省略 `--location` 參數，此命令會提示您選擇位置)。
 
-    azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd myusername --location "West US"
+    azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-zh-tw-30GB.vhd myusername --location "West US"
 
 您可以選擇將 `--ssh` 旗標 (Linux) 或 `--rdp` 旗標 (Windows) 傳給 `vm create`，以允許從遠端連線至新建立的虛擬機器。
 

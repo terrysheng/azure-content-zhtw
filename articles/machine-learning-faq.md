@@ -116,4 +116,4 @@ Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure
   [Azure Machine Learning 中心]: http://azure.microsoft.com/zh-tw/documentation/services/machine-learning/
   [使用者意見反應論壇]: http://go.microsoft.com/fwlink/?LinkId=404231
   [1]: https://windowsazure.uservoice.com/forums/257792-machine-learning
-  [Azure 論壇]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning
+  [Azure 論壇]: http://social.msdn.microsoft.com/Forums/windowsazure/zh-tw/home?forum=MachineLearning

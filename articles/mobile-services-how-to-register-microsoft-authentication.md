@@ -36,9 +36,9 @@
 
 現在，您可以在應用程式中提供用戶端識別碼和用戶端密碼值給行動服務，以使用 Microsoft 帳戶進行驗證。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證]: /zh-tw/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
   [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039

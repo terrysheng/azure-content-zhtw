@@ -75,4 +75,3 @@
   [作法：刪除網站]: #deleteawebsite
   [後續步驟]: #nextsteps
   [Azure 管理入口網站]: http://manage.windowsazure.com/
-  [website-from-gallery]: ../includes/website-from-gallery.md

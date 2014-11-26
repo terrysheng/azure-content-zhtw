@@ -66,9 +66,9 @@
 
 有關於在行動服務中使用資料的基本概念教學課程，在此告一段落。接著，請在[開始使用驗證][開始使用驗證]中了解如何驗證應用程式的使用者。深入了解如何透過 HTML/JavaScript 來使用行動服務，請參閱[行動服務 HTML/JavaScript 作法概念性參考][行動服務 HTML/JavaScript 作法概念性參考]
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-html
   [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-html

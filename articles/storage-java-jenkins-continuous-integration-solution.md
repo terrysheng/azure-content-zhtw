@@ -1,4 +1,4 @@
-<properties urlDisplayName="Jenkins Continuous Integration" pageTitle="使用 Azure 儲存體搭配 Jenkins 連續整合解決方案 | Microsoft Azure" metaKeywords="" description="本教學課程說明如何使用 Azure Blob 服務作為 Jenkins 連續整合解決方案所建立之組建成品的存放庫。" metaCanonical="" services="storage" documentationCenter="Java" title="使用 Azure 儲存體搭配 Jenkins 連續整合解決方案" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties linkid="develop-java-tutorials-jenkins-continuous-integration" urlDisplayName="Jenkins Continuous Integration" pageTitle="Using Azure Storage with a Jenkins Continuous Integration Solution | Microsoft Azure" metaKeywords="" description="This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution." metaCanonical="" services="storage" documentationCenter="Java" title="Using Azure Storage with a Jenkins Continuous Integration solution" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -37,7 +37,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 -   在您的客戶和合作夥伴下載組建成品時提供良好的效能。
 -   提供使用者存取原則控制，可以選擇匿名存取、期限型共用存取簽章存取、私用存取等。
 
-## <a name="prerequisites"></a><span class="short header">必要條件</span>必要條件
+## <a name="prerequisites"></a><span class="short header">必要條件</span>
 
 若要使用 Blob 服務搭配 Jenkins CI 解決方案，您將需要下列項目：
 
@@ -78,7 +78,6 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 1.  在 Jenkins 儀表板中，按一下 [Manage Jenkins]。
 2.  在 [Manage Jenkins] 頁面中，按一下 [Configure System]。
 3.  在 [Microsoft Azure Storage Account Configuration] 區段中：
-
     1.  輸入您的儲存體帳戶名稱，您可從 Azure 入口網站 <https://manage.windowsazure.com> 取得此名稱。
     2.  輸入您的儲存體帳戶金鑰，這項資訊也可以從 Azure 入口網站取得。
     3.  如果您使用的是公用 Azure 雲端，請在 [Blob Service Endpoint URL] 使用預設值。如果您使用的是不同的 Azure 雲端，請使用 Azure 管理入口網站中為您儲存體帳戶指定的端點。
@@ -111,19 +110,18 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 
 8.  在此範例中，請按一下 [Make new container public by default]。(如果您想要使用私用容器，則需要建立共用存取簽章來允許存取。這已超出本主題的範圍。若要深入了解共用存取簽章，請參閱[建立共用存取簽章][建立共用存取簽章]。)
 9.  [選擇性] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [Clean container before uploading] (若不想清除容器的內容，請維持不核取)。
-10. 在 [List of Artifacts to upload] 中，輸 \*\*text/\*.txt\*\*。
+10. 在 [List of Artifacts to upload] 中，輸 **text/*.txt**。
 11. 在 [Common virtual path for uploaded artifacts] 中，基於本教學課程的目的，輸入 **${BUILD\_ID}/${BUILD\_NUMBER}**。
 12. 按一下 [Save] 儲存您的設定。
 13. 在 Jenkins 儀表板中，按一下 [Build Now] 執行 **MyJob**。檢查主控台輸出中的狀態。當建置後動作開始上傳組建成品時，主控台輸出中將會包含 Azure 儲存體的狀態訊息。
 14. 順利完成作業時，您就可以開啟公用 Blob 來檢查組建成品。
-
     1.  登入 Azure 管理入口網站 <https://manage.windowsazure.com>。
     2.  按一下 [儲存體]。
     3.  按一下用於 Jenkins 的儲存體帳戶名稱。
     4.  按一下 [容器]。
     5.  按一下名為 **myjob** 的容器，這是您建立 Jenkins 工作時所指派之工作名稱的小寫版本。在 Azure 儲存體中，容器名稱和 Blob 名稱皆為小寫 (並且區分大小寫)。在名為 **myjob** 之容器的 Blob 清單中，您應該會看到 **hello.txt** 和 **date.txt**。請複製這些項目中任何一項的 URL，然後在瀏覽器中開啟它。您會看到文字檔已上傳作為組建成品。
 
-每一工作只能建立一個將成品上傳至 Azure Blob 儲存體的建置後動作。請注意，將成品上傳至 Azure Blob 儲存體的單一建置後動作可以在 [List of Artifacts to upload] 內，使用分號作為分隔符號來指定不同的檔案 (包含萬用字元) 和檔案路徑。例如，若 Jenkins 組建在您工作區的 **build** 資料夾中產生 JAR 檔和 TXT 檔，且您想將兩者都上傳至 Azure Blob 儲存體，請在 [List of Artifacts to upload] 中使用下列值：**build/\*.jar;build/\*.txt**。您也可以使用雙冒號語法來指定要在 Blob 名稱內使用的路徑。例如，若您想要在 Blob 路徑中使用 **binaries** 上傳 JAR，並在 Blob 路徑中使用 **notices** 上傳 TXT，請在 [List of Artifacts to upload] 中使用下列值：**build/\*.jar::binaries;build/\*.txt::notices**。
+每一工作只能建立一個將成品上傳至 Azure Blob 儲存體的建置後動作。請注意，將成品上傳至 Azure Blob 儲存體的單一建置後動作可以在 [List of Artifacts to upload] 內，使用分號作為分隔符號來指定不同的檔案 (包含萬用字元) 和檔案路徑。例如，若 Jenkins 組建在您工作區的 **build** 資料夾中產生 JAR 檔和 TXT 檔，且您想將兩者都上傳至 Azure Blob 儲存體，請在 [List of Artifacts to upload] 中使用下列值：**build/\*.jar;build/\*.txt**。您也可以使用雙冒號語法來指定要在 Blob 名稱內使用的路徑。例如，若您想要在 Blob 路徑中使用 **binaries** 上傳 JAR，並在 Blob 路徑中使用 **notices** 上傳 TXT，請在 [List of Artifacts to upload] 中使用下列值：**build/\*.<jar::binaries;build/>\*.txt::notices**。
 
 ## <a name="howtocreatebuildstep"></a><span class="short header">如何建立組建步驟</span>如何建立從 Azure Blob 儲存體下載的組建步驟
 

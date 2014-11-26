@@ -13,4 +13,3 @@
 
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
-  [啟用 Apple 推播通知]: ../includes/enable-apple-push-notifications.md

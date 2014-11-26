@@ -200,9 +200,9 @@ Pig 和 Hive 提供較高階的語言，可編譯成以 Java 撰寫並於 HDFS �
 
 您已看到如何從互動式 JavaScript 主控台執行 Hadoop 工作，以及如何使用主控台來檢查工作的結果。您也看到如何使用互動式 Hive 主控台來建立和查詢含有 MapReduce 程式輸出的資料表，以檢查和處理 Hadoop 工作的結果。您已看到主控台中使用的 Pig Latin 和 Hive QL 陳述式範例。最後，您看到 JavaScript 和 Hive 主控台的 REPL 互動式性質如何讓您輕鬆使用 Hadoop 叢集。若要深入了解，請參閱下列文章：
 
--   [搭配 HDInsight 使用 Pig](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [搭配 HDInsight 使用 Hive](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
--   [搭配 HDInsight 使用 MapReduce](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
+-   [搭配 HDInsight 使用 Pig](/zh-tw/manage/services/hdinsight/using-pig-with-hdinsight/)
+-   [搭配 HDInsight 使用 Hive](/zh-tw/manage/services/hdinsight/using-hive-with-hdinsight/)
+-   [搭配 HDInsight 使用 MapReduce](/zh-tw/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
 
 [hdi-hive-showdescribetable]:./media/hdinsight-interactive-console/HDI.Hive.ShowDescribeTable.PNG "Hive Table Confirmation")
 

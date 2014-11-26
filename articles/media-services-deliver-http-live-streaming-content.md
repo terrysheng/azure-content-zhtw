@@ -82,6 +82,6 @@
   [開始使用 Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [使用 Media Services SDK for .NET 建立應用程式]: http://go.microsoft.com/fwlink/?linkid=247821
   [使用 Azure Media Services REST API 建立應用程式]: http://go.microsoft.com/fwlink/?linkid=252967
-  [媒體服務論壇]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+  [媒體服務論壇]: http://social.msdn.microsoft.com/Forums/zh-tw/MediaServices/threads
   [如何監視媒體服務帳戶]: ../media-services-monitor-services-account/
   [如何管理媒體服務中的內容]: ../media-services-manage-content/

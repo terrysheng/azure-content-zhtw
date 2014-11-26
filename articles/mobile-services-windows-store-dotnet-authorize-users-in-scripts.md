@@ -92,9 +92,9 @@
 -   [行動服務 .NET 作法概念參考資料][行動服務 .NET 作法概念參考資料]
     深入了解如何使用搭配 .NET 的行動服務。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet
   [Azure 管理入口網站]: https://manage.windowsazure.com/

@@ -1,4 +1,4 @@
-<properties urlDisplayName="" pageTitle="共用存取簽章：了解 SAS 模型 | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="了解如何使用共用存取簽章來委派對 Blob、佇列和資料表資源的存取" metaCanonical="" services="storage" documentationCenter="" title="第 1 部分：了解 SAS 模型" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties linkid="manage-services-storage-net-shared-access-signature-part-1" urlDisplayName="" pageTitle="Shared access signatures: Understanding the SAS Model | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -16,13 +16,13 @@
 
 證明 SAS 非常有用的一個常見案例，就是使用者在您的儲存體帳戶中讀取和寫入自己的資料。在儲存體帳戶儲存使用者資料的案例中，典型的設計模式有兩種：
 
-1. 用戶端通過前端 Proxy 服務 (執行驗證) 來上傳與下載資料。此前端 Proxy 服務有個好處，那就是允許商務規則的驗證，但在大量資料或大量交易的情況下，建立可調整以符合需求的服務可能十分昂貴或困難。
+1\. 用戶端通過前端 Proxy 服務 (執行驗證) 來上傳與下載資料。此前端 Proxy 服務有個好處，那就是允許商務規則的驗證，但在大量資料或大量交易的情況下，建立可調整以符合需求的服務可能十分昂貴或困難。
 
-[sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
+![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
-2. 輕量型服務可視需要驗證用戶端，然後產生 SAS。在用戶端收到 SAS 之後，他們可以使用 SAS 所定義的權限，並在 SAS 允許的間隔內直接存取帳戶資源。SAS 可減輕透過前端 Proxy 服務路由所有資料的需求。
+2\. 輕量型服務可視需要驗證用戶端，然後產生 SAS。在用戶端收到 SAS 之後，他們可以使用 SAS 所定義的權限，並在 SAS 允許的間隔內直接存取帳戶資源。SAS 可減輕透過前端 Proxy 服務路由所有資料的需求。
 
-[sas-storage-provider-service][sas-storage-provider-service]
+![sas-storage-provider-service][sas-storage-provider-service]
 
 視所涉及的案例而定，許多實際服務可能會混合運用這兩種方法，在部分資料透過前端 Proxy 進行處理與驗證時，其他資料會使用 SAS 直接儲存與/或讀取。
 
@@ -39,7 +39,7 @@
 
 以下是提供讀取和寫入 Blob 權限的 SAS URI 範例。此資料表會細分 URI 的每一部分，以了解它會如何影響 SAS：
 
-https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
+<https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D>
 
 <table>
 <colgroup>
@@ -133,11 +133,10 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&s
 [使用共用存取簽章 (REST API) 來委派存取權][使用共用存取簽章 (REST API) 來委派存取權]
 
 [資料表和佇列 SAS 的簡介][資料表和佇列 SAS 的簡介]
- [sas-storage-fe-proxy-service]：./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]：./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
+[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
   [第 2 部分]: ../storage-dotnet-shared-access-signature-part-2/
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx
   [管理 Azure 儲存體資源的存取]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee393343.aspx
-  [使用共用存取簽章 (REST API) 來委派存取權]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee395415.aspx
   [資料表和佇列 SAS 的簡介]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

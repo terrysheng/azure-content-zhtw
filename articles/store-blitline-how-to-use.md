@@ -132,5 +132,4 @@ SAS 必須包含整個 SAS URL，包括目的地檔案的檔案名稱。
   [如何將影像儲存至您的 Azure 儲存體]: #saveazure
   [後續步驟]: #nextsteps
   []: http://www.blitline.com
-  [blitline-signup]: ../includes/blitline-signup.md
   [此處]: http://www.blitline.com/docs/azure_storage

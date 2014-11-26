@@ -24,7 +24,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 
 CNAME 記錄將*特定的*網域 (例如 **mail.contoso.com** 或 **www.contoso.com**) 對應到其他 (正式) 網域名稱。在 Azure 網站案例中，正式網域名稱就是網站的 **\<yoursitename\>.azurewebsites.net** 網域名稱。建立之後，CNAME 還會建立 **\<yoursitename\>.azurewebsites.net** 網域名稱的別名。CNAME 項目會自動解析 **\<yoursitename\>.azurewebsites.net** 網域名稱的 IP 位址，就算網站的 IP 位址變更，您也不需要採取任何動作。
 
-> [WACOM.NOTE] 使用 CNAME 記錄時，某些網域註冊機構只允許您對應子網域 (如 **www.contoso.com**)，而不是根名稱 (如 **contoso.com**)。如需關於 CNAME 記錄的詳細資訊，請參閱註冊機構提供的文件、[維基百科 CNAME 記錄條目][]，或 [IETF 網域名稱 - 實作與規格][]文件。
+> [WACOM.NOTE] 使用 CNAME 記錄時，某些網域註冊機構只允許您對應子網域 (如 **www.contoso.com**)，而不是根名稱 (如 **contoso.com**)。如需關於 CNAME 記錄的詳細資訊，請參閱註冊機構提供的文件、[維基百科 CNAME 記錄條目][維基百科 CNAME 記錄條目]，或 [IETF 網域名稱 - 實作與規格][IETF 網域名稱 - 實作與規格]文件。
 
 ### Azure 網站 DNS 詳細規格
 
@@ -38,13 +38,13 @@ CNAME 記錄將*特定的*網域 (例如 **mail.contoso.com** 或 **www.contoso.
 
 您可以執行下列步驟來尋找您網站的 IP 位址，以及 **awverify** 名稱和 **.azurewebsites.net** 名稱。
 
-1.  在瀏覽器中開啟 [Azure 管理入口網站][]。
+1.  在瀏覽器中開啟 [Azure 管理入口網站][Azure 管理入口網站]。
 
 2.  在 [網站] 索引標籤中，按一下網站名稱，選取 [儀表板]，然後從頁面底部選取 [管理網域]。
 
-    ![][]
+    ![][0]
 
-    > [WACOM.NOTE] 如果 [管理網域] 未啟用，這代表您使用的是免費網站。您無法在免費網站中使用自訂網域名稱，且必須升級到「共用」、「基本」或「標準」模式。如需網站模式的詳細資訊，包括如何變更網站的模式，請參閱[如何調整網站][] (英文)。
+    > [WACOM.NOTE] 如果 [管理網域] 未啟用，這代表您使用的是免費網站。您無法在免費網站中使用自訂網域名稱，且必須升級到「共用」、「基本」或「標準」模式。如需網站模式的詳細資訊，包括如何變更網站的模式，請參閱[如何調整網站][如何調整網站] (英文)。
 
 3.  在 [管理自訂網域] 對話方塊中，您會看到 **awverify** 資訊、目前指派的 **.azurewebsites.net** 網域名稱，以及虛擬 IP 位址。儲存此資訊，在建立 DNS 記錄時會用得到。
 
@@ -53,6 +53,6 @@ CNAME 記錄將*特定的*網域 (例如 **mail.contoso.com** 或 **www.contoso.
   [維基百科 CNAME 記錄條目]: http://en.wikipedia.org/wiki/CNAME_record
   [IETF 網域名稱 - 實作與規格]: http://tools.ietf.org/html/rfc1035
   [Azure 管理入口網站]: https://manage.windowsazure.com
-  []: ./media/custom-dns-web-site/dncmntask-cname-6.png
+  [0]: ./media/custom-dns-web-site/dncmntask-cname-6.png
   [如何調整網站]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-scale/
   [1]: ./media/custom-dns-web-site/managecustomdomains.png

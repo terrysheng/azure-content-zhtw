@@ -56,9 +56,9 @@
 
 現在，您已可在應用程式中使用 Azure Active Directory 進行驗證。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [使用 Active Directory Authentication Library 單一登入來驗證您的應用程式]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
   [Azure 管理入口網站]: https://manage.windowsazure.com/

@@ -73,7 +73,6 @@ Azure 將開始執行建立和部署作業。在建立和部署網站的同時�
   [Orchard]: http://www.orchardproject.net/
   [下載其他模組和佈景主題]: http://gallery.orchardproject.net/
   [Orchard blog]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [建立新的]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
   [從組件庫建立]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png
   [Orchard from list]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-03.png

@@ -1,10 +1,10 @@
 ## <a name="add-select-images"></a>更新快速入門用戶端應用程式以擷取和上傳影像
 
-在本節中，您會從[開始使用行動服務][] (英文) 教學課程中更新專案，以便拍照並將相片上傳至 Azure Blob 儲存體。為了擷取影像，此教學課程從 `Microsoft.Phone.Tasks` 命名空間使用 [CameraCaptureTask][]。此類別會啟動 Windows Phone 裝置的相機 UI 以擷取相片，並將影像自動儲存到 Windows Phone 裝置上的相機相簿。如果不希望將影像儲存至相機相簿，請改用 `Microsoft.Devices` 命名空間的 [PhotoCamera][] 類別。
+在本節中，您會從[開始使用行動服務][開始使用行動服務] (英文) 教學課程中更新專案，以便拍照並將相片上傳至 Azure Blob 儲存體。為了擷取影像，此教學課程從 `Microsoft.Phone.Tasks` 命名空間使用 [CameraCaptureTask][CameraCaptureTask]。此類別會啟動 Windows Phone 裝置的相機 UI 以擷取相片，並將影像自動儲存到 Windows Phone 裝置上的相機相簿。如果不希望將影像儲存至相機相簿，請改用 `Microsoft.Devices` 命名空間的 [PhotoCamera][PhotoCamera] 類別。
 
 1.  在 Visual Studio 的 [方案總管] 中，展開專案下方的 [屬性]。接下來開啟 WMAppManifest.xml 檔案，然後在 [功能] 索引標籤上按一下 [ID\_CAP\_ISV\_CAMERA] 以啟用相機。關閉檔案以儲存您的變更。
 
-    ![][]
+    ![][0]
 
     如此能確保您的應用程式可以使用連接至電腦的相機。第一次執行該應用程式時，系統會要求使用者允許u30456 相機進行存取。
 
@@ -42,7 +42,7 @@
             </phone:LongListSelector>
         </Grid>
 
-    這樣可以新增一個按鈕來啟動 [CameraCaptureTask][]，並在 **ItemTemplate** 中新增一個影像，將其繫結來源設為 Blob 儲存體服務中已上傳影像的 URI。
+    這樣可以新增一個按鈕來啟動 [CameraCaptureTask][CameraCaptureTask]，並在 **ItemTemplate** 中新增一個影像，將其繫結來源設為 Blob 儲存體服務中已上傳影像的 URI。
 
 3.  開啟 MainPage.xaml.cs 專案檔案並新增下列 **using** 陳述式：
 
@@ -65,7 +65,7 @@
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
-5.  在 MainPage.xaml.cs 專案檔案中更新 MainPage 類別。新增下列程式碼以宣告 [CameraCaptureTask][] ，以及將參照擷取之影像的串流物件：
+5.  在 MainPage.xaml.cs 專案檔案中更新 MainPage 類別。新增下列程式碼以宣告 [CameraCaptureTask][CameraCaptureTask] ，以及將參照擷取之影像的串流物件：
 
         // Using the CameraCaptureTask to allow the user to capture a todo item image //
         CameraCaptureTask cameraCaptureTask;
@@ -177,7 +177,7 @@
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started
   [CameraCaptureTask]: http://msdn.microsoft.com/zh-tw/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
   [PhotoCamera]: http://msdn.microsoft.com/zh-tw/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
-  []: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png
+  [0]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png
   [1]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png
   [2]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-wp8.png
   [3]: ./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-accept-wp8.png

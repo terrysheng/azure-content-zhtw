@@ -1,4 +1,4 @@
-<properties urlDisplayName="Analyze Twitter data with HDInsight Hadoop" pageTitle="在 HDInsight 上使用 Hadoop 分析 Twitter 資料 | Azure" metaKeywords="" description="了解如何在 HDInsight 中的 Hadoop 上使用 Hive 來分析 Twitter 資料，以找出特定單字的使用頻率。" metaCanonical="" services="HDInsight" documentationCenter="" title="在 HDInsight 上使用 Hadoop 分析 Twitter 資料" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze Twitter data with HDInsight Hadoop" pageTitle="Analyze Twitter data with Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word." metaCanonical="" services="HDInsight" documentationCenter="" title="Analyze Twitter data with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -8,7 +8,7 @@
 
 社群網站是驅使採用「巨量資料」的其中一個主要動力。像 Twitter 之類的網站所提供的公開 API，是分析和了解流行趨勢的一項實用的資料來源。在本教學課程中，您將使用 Twitter 串流 API 連接到 Twitter Web 服務以取得某些推文，然後使用 Hive，取得傳送了最多內含特定文字之推文的 Twitter 使用者清單。
 
-**預估完成時間：**30 分鐘
+**預估完成時間：** 30 分鐘
 
 ## 本文內容
 
@@ -78,7 +78,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
 
 當您佈建 HDInsight 叢集時，會將一個 Blob 儲存體容器指定為預設檔案系統，如同在 HDFS 中一般。除了此容器以外，您也可以在佈建過程中，從相同的 Azure 儲存體帳戶或不同的 Azure 儲存體帳戶新增其他容器。如需有關新增其他儲存體帳戶的詳細資訊，請參閱[佈建 HDInsight 叢集][佈建 HDInsight 叢集]。
 
-> [WACOM.NOTE] 為簡化本教學課程中使用的 PowerShell 指令碼，所有檔案都儲存在位於 */tutorials/twitter* 的預設檔案系統容器中。根據預設，此容器的名稱會與 HDInsight 叢集名稱相同。如果您選擇使用不同的容器來儲存這些檔案，請相應地更新指令碼。
+為簡化本教學課程中使用的 PowerShell 指令碼，所有檔案都會儲存在位於 */tutorials/twitter* 的預設檔案系統容器中。根據預設，此容器的名稱會與 HDInsight 叢集名稱相同。
 
 WASB 語法如下：
 
@@ -100,12 +100,13 @@ WASB 語法如下：
 
 下表列出本教學課程中使用的檔案：
 
-| 檔案                               | 說明                                                                      |
-|------------------------------------|---------------------------------------------------------------------------|
-| /tutorials/twitter/data/tweets.txt | Hive 工作的來源資料。                                                     |
-| /tutorials/twitter/output          | Hive 工作的輸出資料夾。預設檔案 Hive 工作的輸出檔案名稱為 **000000\_0**。 |
-| tutorials/twitter/twitter.hql      | HiveQL 指令碼檔案。                                                       |
-| /tutorials/twitter/jobstatus       | Hadoop 工作狀態。                                                         |
+<table border="1">
+<tr><th>檔案</th><th>說明</th></tr>
+<tr><td>/tutorials/twitter/data/tweets.txt</td><td>Hive 工作的來源資料。 </td></tr>
+<tr><td>/tutorials/twitter/output</td><td>Hive 工作的輸出資料夾。預設檔案 Hive 工作的輸出檔案名稱為 <strong>000000_0</strong>. </td></tr>
+<tr><td>tutorials/twitter/twitter.hql</td><td>HiveQL 指令碼檔案。</td></tr>
+<tr><td>/tutorials/twitter/jobstatus</td><td>Hadoop 工作狀態。</td></tr>
+</table>
 
 ## <span id="feed"></span></a>取得 Twitter 摘要
 
@@ -119,16 +120,16 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 
 **建立 Twitter 應用程式**
 
-1.  登入 <https://apps.twitter.com/>。如果您沒有 Twitter 帳戶，請按一下 [立即註冊] 連結。
+1.  登入 [][]<https://apps.twitter.com/></a>。如果您沒有 Twitter 帳戶，請按一下 [立即註冊] 連結。
 2.  按一下 [建立新的應用程式]。
 3.  輸入 [名稱]、[說明]、[網站]。您可以在 [網站] 欄位中自行設定 URL。下表列出部分要使用的範例值：
 
-    | 欄位 | 值                            |
-    |------|-------------------------------|
-    | 名稱 | MyHDInsightApp                |
-    | 說明 | MyHDInsightApp                |
-    | 網站 | http://www.myhdinsightapp.com |
-
+	<table border="1">
+	<tr><th>欄位</th><th>值</th></tr>
+	<tr><td>名稱</td><td>MyHDInsightApp</td></tr>
+	<tr><td>說明</td><td>MyHDInsightApp</td></tr>
+	<tr><td>網站</td><td>http://www.myhdinsightapp.com</td></tr>
+	</table>
 4.  核取 [Yes, I agree]然後按一下 [Create your Twitter application]。
 5.  按一下 [權限] 索引標籤。預設權限為 [唯讀]。本教學課程使用預設值即可。
 6.  按一下 [API 金鑰] 索引標籤。
@@ -521,7 +522,7 @@ HiveQL 指令碼將執行下列作業：
   [完成教學課程]: #cleanup
   [後續步驟]: #nextsteps
   [安裝並設定 Azure PowerShell]: ../install-configure-powershell
-  [執行 Windows PowerShell 指令碼]: http://technet.microsoft.com/zh-tw/library/ee176961.aspx
+  [執行 Windows PowerShell 指令碼]: http://technet.microsoft.com/zh-tw/library/ee176949.aspx
   [開始使用 HDInsight]: ../hdinsight-get-started/
   [佈建 HDInsight 叢集]: ../hdinsight-provision-clusters/
   [搭配 HDInsight 使用 Azure Blob 儲存體]: ../hdinsight-use-blob-storage/
@@ -530,7 +531,7 @@ HiveQL 指令碼將執行下列作業：
   [推文資料]: https://dev.twitter.com/docs/platform-objects/tweets
   [oauth.net]: http://oauth.net/
   [OAuth 的入門指南]: http://hueniverse.com/oauth/
-  [*Curl*]: http://curl.haxx.se
+  []: https://apps.twitter.com/
   [這裡]: http://curl.haxx.se/download.html
   [在 Windows 8 和 Windows 上啟動 Windows PowerShell]: http://technet.microsoft.com/zh-tw/library/hh847889.aspx
   [搭配 HDInsight 使用 Blob 儲存體]: ../hdinsight-use-blob-storage/#powershell

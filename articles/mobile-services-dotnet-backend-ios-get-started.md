@@ -83,19 +83,14 @@
 -   [行動服務 .NET 後端的疑難排解][行動服務 .NET 後端的疑難排解] (英文)
      了解如何診斷及修正使用行動服務 .NET 後端時可能發生的問題。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
+
   [JavaScript 後端版本]: /zh-tw/documentation/articles/mobile-services-ios-get-started
   [0]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-quickstart-completed-ios.png
-  [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
   [1]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-quickstart-steps-vs.png
-  [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md
-  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
   [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [mobile-services-ios-run-app]: ../includes/mobile-services-ios-run-app.md
   [設定本機 Web 伺服器以允許連接到本機行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
   [開始使用離線資料同步]: /zh-tw/documentation/articles/mobile-services-ios-get-started-offline-data

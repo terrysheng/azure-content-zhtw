@@ -2,6 +2,6 @@
 
 2.  在 NuGet 套件管理員中，依序按一下 [線上] 及 [Include Prerelease]。輸入 **Microsoft.IdentityModel.Clients.ActiveDirectory** 作為搜尋詞彙。然後按一下 [安裝] 以安裝 Active Directory Authentication Library Nuget 封裝。
 
-	![][]
+	![][0]
 
-  []: ./media/mobile-services-dotnet-adal-install-nuget/mobile-services-adal-nuget-package.png
+  [0]: ./media/mobile-services-dotnet-adal-install-nuget/mobile-services-adal-nuget-package.png

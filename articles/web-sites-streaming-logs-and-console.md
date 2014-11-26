@@ -1,6 +1,6 @@
 <properties pageTitle="Streaming logs and console" description="Streaming logs and console overview" title="Streaming logs and console" authors="adamab" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
 
 ## 串流記錄和主控台
 
@@ -38,9 +38,9 @@ Trace 類別位於 System.Diagnostics 命名空間。
 
 ### 如何啟用和檢視串流記錄
 
-可依每個網站為基礎啟用診斷。從[入口網站][]，按一下左側功能表列的 [瀏覽] 按鈕，再按 [網站] 以取得所有網站清單。
+可依每個網站為基礎啟用診斷。從[入口網站][入口網站]，按一下左側功能表列的 [瀏覽] 按鈕，再按 [網站] 以取得所有網站清單。
 
-![][]
+![][0]
 
 按一下要設定的網站名稱。接著按一下名為 [診斷記錄] 的部分，再將 [Application Logging (Filesystem)] 參數轉換成 [開啟] 設定。接著出現 [等級] 選項，可讓您變更要擷取之追蹤的嚴重性等級。如果您才剛熟悉此功能，應該將此選項設定為 [詳細資訊]，因此這可確保記錄追蹤陳述式。
 
@@ -68,9 +68,9 @@ dir
 cd
 `````````````````````````
 
-<!-- Images. -->
+
 
   [入口網站]: https://portal.azure.com
-  []: ./media/web-sites-streaming-logs-and-console/browse-sites.png
+  [0]: ./media/web-sites-streaming-logs-and-console/browse-sites.png
   [1]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
   [2]: ./media/web-sites-streaming-logs-and-console/console.png

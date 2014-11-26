@@ -1,6 +1,6 @@
 <properties title="Build a web application with Python and Flask (MVC) using DocumentDB" pageTitle="Build a web app with Python and Flask using DocumentDB | Azure" description="Learn how to use DocumentDB to store and access data from an Python and Flask (MVC) web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong"></tags>
+<tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
 
 # <a name="_Toc395888515"></a><a name="_Toc395809324">使用 DocumentDB 建置具有 Python 和 Flask (MVC) 的 Web 應用程式</a>
 
@@ -33,20 +33,20 @@
 按照本逐步解說進行後，您將建置可讓您舉行投票活動的簡單投票
 應用程式。
 
-![替代文字][]
+![替代文字][替代文字]
 
 <a name="_Toc395888520"></a><a name="_Toc395809329">必要條件</a>
 
 在依照本文中的指示進行之前，您應該確定
 已安裝下列項目：
 
-Visual Studio 2013 (或免費版本的 [Visual Studio Express][] (英文))
+Visual Studio 2013 (或免費版本的 [Visual Studio Express][Visual Studio Express] (英文))
 
-[這裡][]的 Python Tools for Visual Studio
+[這裡][這裡]的 Python Tools for Visual Studio
 
 [這裡][1]提供的 Azure SDK for Visual Studio 2013 2.4 版或更高版本
 
-Azure 跨平台命令列工具，可透過 [Microsoft Web Platform Installer][] (英文) 取得
+Azure 跨平台命令列工具，可透過 [Microsoft Web Platform Installer][Microsoft Web Platform Installer] (英文) 取得
 
 # <a name="_Toc395888519"></a><a name="_Toc395809328">建立 DocumentDB 資料庫帳戶</a>
 
@@ -105,7 +105,7 @@ Azure 跨平台命令列工具，可透過 [Microsoft Web Platform Installer][] 
 虛擬環境。
 
 對於 Flask 的初學者而言，這個網路架構可協助我們在 Python 中更快速地建置
-Web 應用程式。[按一下這裡可存取 Flask 教學課程][] (英文)。
+Web 應用程式。[按一下這裡可存取 Flask 教學課程][按一下這裡可存取 Flask 教學課程] (英文)。
 
 ![替代文字][10]
 
@@ -428,13 +428,13 @@ DocumentDB 正常運作的完整應用程式，我們現在要將此應用程式
 恭喜！您剛剛已經使用 Azure DocumentDB 建置您的第一個 Python 應用程式，
 並將它發佈至 Azure 網站。
 
-如果您想要完整的方案，請[按一下這裡][] (附註：您還是需要
+如果您想要完整的方案，請[按一下這裡][按一下這裡] (附註：您還是需要
 如上所述新增虛擬環境並安裝 python 工具和封裝)。
 
 </h1>
 
   [替代文字]: ./media/documentdb-python-application/image1.png
-  [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+  [Visual Studio Express]: http://www.visualstudio.com/zh-tw/products/visual-studio-express-vs.aspx
   [這裡]: https://pytools.codeplex.com/releases/view/123624
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx

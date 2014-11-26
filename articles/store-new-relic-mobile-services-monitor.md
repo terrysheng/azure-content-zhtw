@@ -108,9 +108,9 @@
 -   如需定價資訊，請參閱＜[Azure 市集的 New Relic 頁面][Azure 市集的 New Relic 頁面]＞。
 -   如需有關使用 New Relic 的詳細資訊，請參閱 New Relic 文件中的[應用程式概觀][應用程式概觀] (英文)。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [使用 Azure 市集註冊 New Relic]: #sign-up
   [安裝 New Relic 模組]: #install-module

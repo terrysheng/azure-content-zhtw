@@ -396,9 +396,9 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 
     所有方法皆已新增非同步支援。
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+  
 
-  [Azure 媒體服務 MSDN 論壇]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=MediaServices
+  [Azure 媒體服務 MSDN 論壇]: http://social.msdn.microsoft.com/forums/azure/zh-tw/home?forum=MediaServices
   [目前的已知問題]: #issues
   [REST API 版本歷程記錄]: #rest_version_history
   [2014 年 10 月版本]: #october_changes_14

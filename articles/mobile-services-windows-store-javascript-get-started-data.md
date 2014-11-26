@@ -127,11 +127,10 @@
 -   [行動服務 HTML/JavaScript 作法概念參考][行動服務 HTML/JavaScript 作法概念參考]
     深入了解如何將行動服務搭配 HTML 及 JavaScript 使用。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
+
   [通用 Windows 應用程式版本]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data
   [下載 Windows 市集應用程式專案]: #download-app
   [建立行動服務]: #create-service
@@ -142,10 +141,7 @@
   [使用 Visual Studio 2012 開始使用行動服務中的資料]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-data-vs2012
   [GetStartedWithMobileServices 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=328660
   [0]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2013/mobile-quickstart-startup.png
-  [mobile-services-create-new-service-vs2013]: ../includes/mobile-services-create-new-service-vs2013.md
-  [mobile-services-create-new-table-vs2013]: ../includes/mobile-services-create-new-table-vs2013.md
   [動態結構描述]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193175.aspx
-  [mobile-services-windows-javascript-update-data-app]: ../includes/mobile-services-windows-javascript-update-data-app.md
   [管理入口網站]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2013/mobile-todoitem-data-browse.png
   [使用指令檔驗證與修改資料]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/

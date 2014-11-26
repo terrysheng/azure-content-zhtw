@@ -2,11 +2,11 @@
 
 2.  在應用程式的 [Insert a TodoItem] 中輸入文字，然後按一下 [儲存]。
 
-    ![][]
+    ![][0]
 
     Note that after the insert completes, the app receives a push notification from WNS.
 
     ![][1]
 
-  []: ./media/mobile-services-windows-store-test-push/mobile-quickstart-push1.png
+  [0]: ./media/mobile-services-windows-store-test-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-windows-store-test-push/mobile-quickstart-push2.png

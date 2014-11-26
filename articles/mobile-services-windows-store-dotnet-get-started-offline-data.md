@@ -258,9 +258,9 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
 -   [處理行動服務的離線支援衝突][處理行動服務的離線支援衝突]
 
-<!-- Anchors. --> 
+ 
 <!-- Images --> 
-<!-- URLs. -->
+
 
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-store-get-started/
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/

@@ -561,7 +561,6 @@ Bootstrap [連結清單群組][連結清單群組] (英文) 樣式讓每個連�
 <!-- Images -->
 
   [Visual Studio Express 2013 for Web]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [入門專案]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409
   [0]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
   [Fiddler 工具]: http://www.fiddler2.com/fiddler2/

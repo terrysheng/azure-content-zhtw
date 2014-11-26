@@ -175,7 +175,7 @@
 
 您也可以檢閱 MSDN 上的 [Azure Search REST API][Azure Search REST API 文件]。
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->\r\n<!--Image references-->
 
   [必要條件]: #sub-1
   [建立 Azure Search 索引]: #sub-2

@@ -1,6 +1,6 @@
 您的行動服務已準備就緒，現在可以更新應用程式以便在行動服務 (而非本機收集) 中儲存項目。
 
-1.  如果您還沒有 [Mobile Services Android SDK][]，請立即下載並將壓縮檔解壓縮。
+1.  如果您還沒有 [Mobile Services Android SDK][Mobile Services Android SDK]，請立即下載並將壓縮檔解壓縮。
 
 2.  將`.jar` 檔案從 SDK 的`mobileservices` 資料夾複製到 GetStartedWithData 專案的`libs` 資料夾。
 
@@ -43,7 +43,7 @@
 
 11. 按一下 [儀表板] 索引標籤並記下 [網站 URL]，然後按一下 [管理金鑰] 並記下 [應用程式金鑰]。
 
-    ![][]
+    ![][0]
 
     從應用程式程式碼存取行動服務時，您將會用到這些值。
 
@@ -124,7 +124,7 @@
 
     這會查詢行動服務，並傳回所有未標示為完成的項目。項目會加入至配接器來繫結。
 
-<!-- URLs. -->
+
 
   [Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
-  []: ./media/download-android-sample-code/mobile-dashboard-tab.png
+  [0]: ./media/download-android-sample-code/mobile-dashboard-tab.png

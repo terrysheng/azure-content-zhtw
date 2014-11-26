@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-android" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # 開始使用行動服務中的資料
 
@@ -19,7 +19,7 @@
 
 本主題將說明如何以 Azure 行動服務做為 Android 應用程式的後端資料來源。在本教學課程中，您將建立新的行動服務、下載 Eclipse Android 專案以取得在記憶體中儲存資料的應用程式、整合行動服務與該應用程式，然後檢視執行應用程式時所做的資料變更。
 
-您將在本教學課程中建立的行動服務，將可在行動服務中支援 .NET 執行階段。如此，您即可在行動服務中使用 .NET 語言和 Visual Studio 來撰寫伺服器端商務邏輯。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 後端版本][]。
+您將在本教學課程中建立的行動服務，將可在行動服務中支援 .NET 執行階段。如此，您即可在行動服務中使用 .NET 語言和 Visual Studio 來撰寫伺服器端商務邏輯。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 後端版本][JavaScript 後端版本]。
 
 <div class="dev-callout"><b>注意</b>
 <p>本教學課程需要 Visual Studio 2013。</p>
@@ -27,13 +27,13 @@
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [建立新的行動服務][]
-2.  [在本機下載服務][]
-3.  [測試行動服務][]
-4.  [將行動服務發佈至 Azure][]
-5.  [下載 GetStartedWithData 專案][]
-6.  [更新應用程式以使用行動服務進行資料存取][]
-7.  [對已發佈的行動服務進行應用程式測試][]
+1.  [建立新的行動服務][建立新的行動服務]
+2.  [在本機下載服務][在本機下載服務]
+3.  [測試行動服務][測試行動服務]
+4.  [將行動服務發佈至 Azure][將行動服務發佈至 Azure]
+5.  [下載 GetStartedWithData 專案][下載 GetStartedWithData 專案]
+6.  [更新應用程式以使用行動服務進行資料存取][更新應用程式以使用行動服務進行資料存取]
+7.  [對已發佈的行動服務進行應用程式測試][對已發佈的行動服務進行應用程式測試]
 
 <div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 免費試用</a>。</p></div>
 
@@ -105,24 +105,17 @@ Android 的**開始使用資料**教學課程到此結束。
 
 完成以下其中一項教學課程：
 
--   [開始使用驗證][]  
+-   [開始使用驗證][開始使用驗證]  
     了解如何驗證應用程式的使用者。
 
--   [開始使用推播通知][]  
+-   [開始使用推播通知][開始使用推播通知]  
     了解如何將極為基本的推播通知傳送到應用程式。
 
--   [行動服務 .NET 作法概念參考資料][]  
+-   [行動服務 .NET 作法概念參考資料][行動服務 .NET 作法概念參考資料]  
     深入了解如何使用搭配 .NET 的行動服務。
 
 
 
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "iOS"
-  [Android]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Android"
-  [.NET 後端]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ ".NET 後端"
-  [JavaScript 後端]: /zh-tw/develop/mobile/tutorials/get-started-with-data-android/ "JavaScript 後端"
   [JavaScript 後端版本]: /zh-tw/develop/mobile/tutorials/get-started-with-data-android
   [建立新的行動服務]: #create-service
   [在本機下載服務]: #download-the-service-locally
@@ -131,14 +124,6 @@ Android 的**開始使用資料**教學課程到此結束。
   [下載 GetStartedWithData 專案]: #download-app
   [更新應用程式以使用行動服務進行資料存取]: #update-app
   [對已發佈的行動服務進行應用程式測試]: #test-app
-  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
-  [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
-  [mobile-services-download-service-locally]: ../includes/mobile-services-download-service-locally.md
-  [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md
-  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
-  [mobile-services-verify-android-sdk-version]: ../includes/mobile-services-verify-android-sdk-version.md
-  [mobile-services-android-run-sample-code]: ../includes/mobile-services-android-run-sample-code.md
-  [mobile-services-android-getting-started-with-data]: ../includes/mobile-services-android-getting-started-with-data.md
   [0]: ./media/mobile-services-dotnet-backend-android-get-started-data/manage-sql-azure-database.png
   [2]: ./media/mobile-services-dotnet-backend-android-get-started-data/sql-azure-query.png
   [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-android

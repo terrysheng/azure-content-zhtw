@@ -328,8 +328,6 @@
   [作法：處理應用程式當機與無法讀取的訊息]: #HandleCrashes
   [作法：刪除主題和訂閱]: #DeleteTopicsAndSubscriptions
   [後續步驟]: #NextSteps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [OpenSSL 延伸]: http://php.net/openssl
-  [get-client-libraries]: ../includes/get-client-libraries.md
   [SqlFilter.SqlExpression 屬性]: http://msdn.microsoft.com/zh-TW/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [佇列、主題和訂閱]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh367516.aspx

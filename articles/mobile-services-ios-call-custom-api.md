@@ -36,8 +36,8 @@
 -   [在來源控制中儲存伺服器指令碼][在來源控制中儲存伺服器指令碼]
     了解如何使用來源控制功能，來更輕鬆及安全地開發並發佈自訂 API 指令碼。
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-ios-get-started/
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-ios-get-started-data/
@@ -46,7 +46,5 @@
   [測試應用程式]: #test-app
   [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
-  [mobile-services-ios-call-custom-api]: ../includes/mobile-services-ios-call-custom-api.md
   [行動服務伺服器指令碼參照]: http://go.microsoft.com/fwlink/?LinkId=262293
   [在來源控制中儲存伺服器指令碼]: /zh-tw/documentation/articles/mobile-services-store-scripts-source-control

@@ -215,9 +215,9 @@
 -   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何註冊和使用伺服器指令碼。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [上一個推播通知教學課程]: /zh-tw/develop/mobile/tutorials/get-started-with-push-ios
   [建立 Devices 資料表]: #create-table

@@ -1,6 +1,6 @@
 1.  如果行動服務目前正在 IIS Express 中執行，請確實加以停止。以滑鼠右鍵按一下 IIS Express 系統匣圖示，然後對行動服務按一下 [停止]。
 
-    ![][]
+    ![][0]
 
 2.  在命令提示字元視窗中執行 **ipconfig** 命令，為您的工作站查閱有效的本機 IP 位址。
 
@@ -24,7 +24,7 @@
             </bindings>
         </site>
 
-5.  開啟 Windows 防火牆主控台，然後建立新的連接埠規則，以允許對連接埠的連線。如需建立新的 Windows 防火牆連接埠規則的詳細資訊，請參閱[如何新增 Windows 防火牆連接埠規則][]。
+5.  開啟 Windows 防火牆主控台，然後建立新的連接埠規則，以允許對連接埠的連線。如需建立新的 Windows 防火牆連接埠規則的詳細資訊，請參閱[如何新增 Windows 防火牆連接埠規則][如何新增 Windows 防火牆連接埠規則]。
 
     > [WACOM.NOTE] 如果您的測試機器已加入某個網域，則防火牆例外可能會由網域原則所控制。在此情況下，您必須與網域管理員連絡，以了解機器連接埠的例外。
 
@@ -32,8 +32,8 @@
 
     > [WACOM.NOTE] 在完成對服務的本機測試後，您應刪除先前建立的 Windows 防火牆規則。
 
-<!-- URLs. -->
 
-  []: ./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png
+
+  [0]: ./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png
   [1]: ./media/mobile-services-how-to-configure-iis-express/ipconfig.png
   [如何新增 Windows 防火牆連接埠規則]: http://go.microsoft.com/fwlink/?LinkId=392240

@@ -1,6 +1,6 @@
 <properties linkid="biztalk-troubleshoot-using-ops-logs" urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="BizTalk Services: Troubleshoot using ops logs | Azure" metaKeywords="" description="BizTalk Services: Troubleshoot using ops logs" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors="mandia"  solutions="" writer="nitinme" manager="dwrede" editor="cgronlun"  />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # BizTalk 服務：使用作業記錄檔進行疑難排解
 
@@ -96,9 +96,6 @@
 -   [BizTalk 服務：簽發者名稱和簽發者金鑰][BizTalk 服務：簽發者名稱和簽發者金鑰] (英文)
 -   [如何開始使用 Azure BizTalk 服務 SDK][如何開始使用 Azure BizTalk 服務 SDK]
 
-  [BizTalk Service REST API]: http://msdn.microsoft.com/zh-TW/library/windowsazure/dn232347.aspx
-  [使用 Azure 管理服務進行追蹤的作業]: #bizops
-  [追蹤訊息]: http://msdn.microsoft.com/library/windowsazure/hh949805.aspx
   [檢視作業記錄檔]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
   [備份 BizTalk 服務]: http://go.microsoft.com/fwlink/p/?LinkID=325584
   [從備份還原 BizTalk 服務]: http://go.microsoft.com/fwlink/p/?LinkID=325582

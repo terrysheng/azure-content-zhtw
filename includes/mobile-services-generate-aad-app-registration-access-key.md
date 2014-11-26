@@ -1,4 +1,4 @@
-1.  在 [Azure 管理入口網站][] 中，按一下目錄頁面上的 [應用程式] 索引標籤。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站] 中，按一下目錄頁面上的 [應用程式] 索引標籤。
 
 2.  按一下整合的應用程式註冊。
 
@@ -6,13 +6,13 @@
 4.  按一下 [1 年] 期以取得新的金鑰。然後按一下 [儲存]，入口網站便會隨即顯示新您的金鑰值。
 5.  儲存後，請複製顯示的 [用戶端識別碼] 和 [金鑰]。請注意，金鑰值在儲存後只會顯示一次。
 
-    ![][]
+    ![][0]
 
 6.  向下捲動到整合的應用程式組態頁面底部，並啟用應用程式的 [Read directory data] 權限，然後按一下 [儲存]。
 
     ![][1]
 
-7.  在 [Azure 管理入口網站][]中，向後巡覽至您的行動服務，然後按一下 [設定] 索引標籤。向下捲動到 [應用程式設定] 區段，並新增下列應用程式設定，然後按一下 [儲存]。
+7.  在 [Azure 管理入口網站][Azure 管理入口網站]中，向後巡覽至您的行動服務，然後按一下 [設定] 索引標籤。向下捲動到 [應用程式設定] 區段，並新增下列應用程式設定，然後按一下 [儲存]。
 
     | 應用程式設定名稱    | 說明                                                          |
     |---------------------|---------------------------------------------------------------|
@@ -23,6 +23,6 @@
     ![][2]
 
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-generate-aad-app-registration-access-key/client-id-and-key.png
+  [0]: ./media/mobile-services-generate-aad-app-registration-access-key/client-id-and-key.png
   [1]: ./media/mobile-services-generate-aad-app-registration-access-key/app-perms.png
   [2]: ./media/mobile-services-generate-aad-app-registration-access-key/aad-app-settings.png

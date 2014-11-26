@@ -2,7 +2,7 @@
 
 服務匯流排主題和訂閱支援**發佈/訂閱訊息通訊**模型。使用主題和訂閱時，分散式應用程式的元件彼此不直接通訊，而是透過扮演中繼角色的主題來交換訊息。
 
-![主題概念][]
+![主題概念][主題概念]
 
 相較於服務匯流排佇列，服務匯流排佇列的每個訊息只會由單一取用者處理，主題和訂閱採用發佈/訂閱模式，提供**一對多**的通訊形式。一個主題可以登錄多個訂閱。當訊息傳送至主題時，每個訂閱都可取得訊息來個別處理。
 
@@ -16,13 +16,13 @@
 
 建立服務命名空間：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 
 2.  在管理入口網站的左側瀏覽窗格中，按一下 [服務匯流排]
 
 3.  在管理入口網站的下方窗格中，按一下 [建立]。
 
-    ![][]
+    ![][0]
 
 4.  在 [Add a new namespace] 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用。
 
@@ -44,7 +44,7 @@
 
 1.  在左側瀏覽窗格中，按一下 [服務匯流排] 節點，以顯示可用的命名空間清單：
 
-    ![][]
+    ![][0]
 
 2.  從顯示的清單中，選取您剛建立的命名空間：
 
@@ -58,7 +58,7 @@
 
 ### 從伺服器總管取得管理認證
 
-若要使用 Visual Studio 而非管理入口網站取得連線資訊，請遵循[這裡][]所述的程序，請見標題**從 Visual Studio 連線至 Azure**一節。在您登入 Azure 時，伺服器總管 [Microsoft Azure] 樹狀目錄下的 [服務匯流排] 節點，將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 [屬性]，查看在 Visual Studio [屬性] 窗格中所顯示，與此命名空間關聯的連線字串與其他中繼資料。
+若要使用 Visual Studio 而非管理入口網站取得連線資訊，請遵循[這裡][這裡]所述的程序，請見標題**從 Visual Studio 連線至 Azure**一節。在您登入 Azure 時，伺服器總管 [Microsoft Azure] 樹狀目錄下的 [服務匯流排] 節點，將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 [屬性]，查看在 Visual Studio [屬性] 窗格中所顯示，與此命名空間關聯的連線字串與其他中繼資料。
 
 請記下 **SharedAccessKey** 值，或將它複製到剪貼簿：
 
@@ -66,10 +66,10 @@
 
   [主題概念]: ./media/howto-service-bus-topics/sb-topics-01.png
   [Azure 管理入口網站]: http://manage.windowsazure.com
-  []: ./media/howto-service-bus-topics/sb-queues-13.png
+  [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [1]: ./media/howto-service-bus-topics/sb-queues-04.png
   [2]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
   [3]: ./media/howto-service-bus-topics/sb-queues-09.png
   [4]: ./media/howto-service-bus-topics/sb-queues-06.png
-  [這裡]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [這裡]: http://http://msdn.microsoft.com/zh-tw/library/windowsazure/ff687127.aspx
   [5]: ./media/howto-service-bus-topics/VSProperties.png

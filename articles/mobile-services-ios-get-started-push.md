@@ -184,9 +184,9 @@
 
 在這個簡單範例中，使用者收到推播通知，其中含有剛插入的資料。用戶端會在要求中提供 APNS 所使用的裝置權杖給行動服務。在下一個教學課程[推播通知至應用程式使用者][推播通知至應用程式使用者]中，您將另行建立 Devices 資料表來儲存裝置權杖，並在發生插入動作時傳送推播通知給已儲存的所有通道。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
   [產生憑證簽署要求]: #certificates
@@ -199,8 +199,6 @@
   [行動服務 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [Xcode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-ios
-  [Enable Apple Push Notifications]: ../includes/enable-apple-push-notifications.md
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [apns 物件]: http://go.microsoft.com/fwlink/p/?LinkId=272333

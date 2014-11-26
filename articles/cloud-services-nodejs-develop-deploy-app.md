@@ -1,27 +1,18 @@
-<properties urlDisplayName="Cloud Service" pageTitle="Node.js 入門指南 - Azure 教學課程" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="協助您開發簡單 Node.js Web 應用程式並部署至 Azure 的端對端教學課程。" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="建立 Node.js 應用程式並部署到 Azure 雲端服務" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties linkid="dev-nodejs-getting-started" urlDisplayName="Cloud Service" pageTitle="Node.js Getting Started Guide - Azure Tutorial" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 建立 Node.js 應用程式並部署到 Azure 雲端服務
 
-完成這個指南之後，您將有簡單的 Node.js 應用程式
-在 Azure 雲端服務中執行。雲端服務是 Azure 中可擴充雲端
-應用程式的建置組塊。可以個別獨立
-管理和向外延展應用程式的前端和後端元件。雲端服務
-提供穩定裝載各個角色的強固專用虛擬機器。
+完成這個指南之後，您將有簡單的 Node.js 應用程式在 Azure 雲端服務中執行。雲端服務是 Azure 中可擴充雲端應用程式的建置組塊。可以個別獨立管理和向外延展應用程式的前端和後端元件。雲端服務提供穩定裝載各個角色的強固專用虛擬機器。
 
 如需雲端服務及其相較於 Azure 網站和虛擬機器的詳細資訊，請參閱 [Azure 網站、雲端服務與虛擬機器的比較][Azure 網站、雲端服務與虛擬機器的比較]。
 
-<div class="dev-callout">
-
-**尋求建置簡單的網站？**
-如果您只需要簡單的網站前端，請考慮[使用輕量型 Azure 網站][使用輕量型 Azure 網站]。隨著網站擴大，以及需求改變，您可以很輕易地升級到雲端服務。
-
+<div class="dev-callout"><strong>尋求建置簡單的網站？</strong>
+<p>如果您只需要簡單的網站前端，請考慮<a href="/zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/">使用輕量型 Azure 網站</a>。隨著網站擴大，以及需求改變，您可以很輕易地升級到雲端服務。</p>
 </div>
 
-按照本教學課程進行，您將建立在 Web 角色內代管的簡單 Web 應用程式。您
-將使用計算模擬器在本機測試您的應用程式，然後使用 PowerShell 命令列
-工具部署應用程式。
+按照本教學課程進行，您將建立在 Web 角色內代管的簡單 Web 應用程式。您將使用計算模擬器在本機測試您的應用程式，然後使用 PowerShell 命令列工具部署應用程式。
 
 完成之應用程式的螢幕擷取畫面如下：
 
@@ -58,14 +49,12 @@
         發行您的應用程式所需的 Azure 特定
         檔案。
 
-    如需這些檔案的詳細資訊，請參閱
-    [建立 Azure 託管服務的概觀][建立 Azure 託管服務的概觀]。
+    如需這些檔案的詳細資訊，請參閱[建立 Azure 託管服務的概觀][建立 Azure 託管服務的概觀]。
 
     -   **deploymentSettings.json** 儲存 Azure PowerShell 部署 Cmdlet
          使用的本機設定。
 
-4.  輸入下列命令，使用
-    **Add-AzureNodeWebRole Cmdlet** 新增 Web 角色。
+4.  輸入下列命令，使用 **Add-AzureNodeWebRole Cmdlet** 新增 Web 角色。
 
         PS C:\node\helloworld> Add-AzureNodeWebRole
 
@@ -76,11 +65,9 @@
     **Add-AzureNodeWebRole** Cmdlet 會建立應用程式的新目錄，並產生基本 Node.js 應用程式的樣板。它也會修改上一個步驟中建立的 **ServiceConfiguration.Cloud.csfg**、**ServiceConfiguration.Local.csfg** 和 **ServiceDefinition.csdef** 檔案，新增新角色的組態項目。
 
     <div class="dev-callout">
-
-    **注意**
-    依預設，如果您不提供角色名稱，將為您建立一個名稱。您可以提供名稱作為 **Add-AzureNodeWebRole** 的第一個參數。例如，`Add-AzureNodeWebRole MyRole`
-
-    </div>
+<b>注意</b>
+<p>依預設，如果您不提供角色名稱，將為您建立一個名稱。您可以提供名稱作為 <b>Add-AzureNodeWebRole</b> 的第一個參數。例如，<code data-inline="1">Add-AzureNodeWebRole MyRole</code></p>
+</div>
 
 5.  使用下列命令瀏覽到 **WebRole1** 目錄，然後在記事本中開啟 **server.js** 檔案。
 
@@ -97,10 +84,7 @@
 
 ## 在模擬器本機執行您的應用程式
 
-Azure SDK 安裝的其中一個工具是 Azure
- 計算模擬器，可以讓您在本機測試您的應用程式。
-計算模擬器可模擬您的應用程式部署到雲端
-執行時的環境。執行下列步驟在模擬器中測試應用程式。
+Azure SDK 安裝的其中一個工具是 Azure 計算模擬器，可以讓您在本機測試您的應用程式。計算模擬器可模擬您的應用程式部署到雲端執行時的環境。執行下列步驟在模擬器中測試應用程式。
 
 1.  關閉記事本，並切換回 Windows PowerShell 視窗。
     輸入下列 Cmdlet 在模擬器中執行您的服務：
@@ -136,11 +120,9 @@ Azure SDK 安裝的其中一個工具是 Azure
         PS C:\node\helloworld\WebRole1> Import-AzurePublishSettingsFile [path to file]
 
     <div class="dev-callout">
-
-    **注意**
-    在匯入發佈設定之後，請考慮刪除下載的 .publishSettings 檔案，因為它包含了他人可用來存取您帳戶的資訊。
-
-    </div>
+<b>注意</b>
+<p>在匯入發佈設定之後，請考慮刪除下載的 .publishSettings 檔案，因為它包含了他人可用來存取您帳戶的資訊。</p>
+</div>
 
 ### 發佈應用程式
 
@@ -201,14 +183,12 @@ Azure SDK 安裝的其中一個工具是 Azure
     ![Remove-AzureService 命令的狀態][Remove-AzureService 命令的狀態]
 
     <div class="dev-callout">
-
-    **注意**
-    刪除服務不會刪除初次發佈服務時建立的儲存體帳戶，而且將持續對使用的儲存體計費。如需 刪除儲存體帳戶的詳細資訊，請參閱[如何從 Azure 訂用帳戶刪除儲存體帳戶][如何從 Azure 訂用帳戶刪除儲存體帳戶]。
-
-    </div>
+<strong>注意</strong>
+<p>刪除服務不會刪除初次發佈服務時建立的儲存體帳戶，而且將持續對使用的儲存體計費。如需
+刪除儲存體帳戶的詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/hh531562.aspx">如何從 Azure 訂用帳戶刪除儲存體帳戶</a>。</p>
+</div>
 
   [Azure 網站、雲端服務與虛擬機器的比較]: http://azure.microsoft.com/zh-tw/documentation/articles/choose-web-site-cloud-service-vm/
-  [使用輕量型 Azure 網站]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [A browser window displaying the hello world page.The URL indicates the page is hosted on Azure.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
   [Azure PowerShell icon]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
   [New-AzureService helloworld 命令的結果]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
@@ -221,4 +201,3 @@ Azure SDK 安裝的其中一個工具是 Azure
   [1]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
   [Stop-AzureService 命令的狀態]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
   [Remove-AzureService 命令的狀態]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
-  [如何從 Azure 訂用帳戶刪除儲存體帳戶]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh531562.aspx

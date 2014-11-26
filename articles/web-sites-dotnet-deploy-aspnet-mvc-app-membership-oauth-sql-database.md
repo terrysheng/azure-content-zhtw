@@ -697,7 +697,6 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
   [使用成員資格 API]: #mbrDB
   [1]: #bkmk_deploytowindowsazure11
   [後續步驟]: #nextsteps
-  [install-sdk-2013-only]: ../includes/install-sdk-2013-only.md
   [Visual Studio 2013 Update 2 RC]: http://go.microsoft.com/fwlink/?LinkId=390521
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [New button in Management Portal]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rxWSnew2.png

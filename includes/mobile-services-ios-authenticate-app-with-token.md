@@ -2,7 +2,7 @@
 
 > [WACOM.NOTE]無論您使用用戶端管理或服務管理驗證，皆可以快取行動服務發行的權杖。本教學課程使用服務管理驗證。
 
-1.  建議在 iOS 用戶端上用來加密和儲存驗證權杖的方法是使用 Keychain。若要這樣做，請建立類別 KeychainWrapper，從 [LensRocket 範例][]複製 [KeychainWrapper.m][] 和 [KeychainWrapper.h][]。我們使用這個 KeychainWrapper 作為 Apple 文件中定義的 KeychainWrapper，並不會說明自動參考計數 (ARC)。
+1.  建議在 iOS 用戶端上用來加密和儲存驗證權杖的方法是使用 Keychain。若要這樣做，請建立類別 KeychainWrapper，從 [LensRocket 範例][LensRocket 範例]複製 [KeychainWrapper.m][KeychainWrapper.m] 和 [KeychainWrapper.h][KeychainWrapper.h]。我們使用這個 KeychainWrapper 作為 Apple 文件中定義的 KeychainWrapper，並不會說明自動參考計數 (ARC)。
 
 2.  開啟專案檔 **QSTodoListViewController.m**，然後新增下列程式碼：
 
@@ -73,7 +73,7 @@
             [self refresh];
         }
 
-5.  如果應用程式向您應通過的行動服務提出要求 (因為使用者已通過驗證)，但您收到 401 回應 (未經授權的錯誤)，則表示您所忽略的使用者權杖已經到期。在適用於可用來與行動服務互動的每個方法的完成處理常式中，我們應該檢查 401 回應，或者可在某一個位置處理一些事項：MSFilter 的 handleRequest 方法。如需查看處理這個案例的方式，請參閱[這個部落格文章][]
+5.  如果應用程式向您應通過的行動服務提出要求 (因為使用者已通過驗證)，但您收到 401 回應 (未經授權的錯誤)，則表示您所忽略的使用者權杖已經到期。在適用於可用來與行動服務互動的每個方法的完成處理常式中，我們應該檢查 401 回應，或者可在某一個位置處理一些事項：MSFilter 的 handleRequest 方法。如需查看處理這個案例的方式，請參閱[這個部落格文章][這個部落格文章]
 
   [LensRocket 範例]: https://github.com/WindowsAzure-Samples/iOS-LensRocket
   [KeychainWrapper.m]: https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.m

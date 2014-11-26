@@ -97,6 +97,5 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
   [作法：傳送訊息至佇列]: #send-messages
   [作法：從佇列接收訊息]: #receive-messages
   [作法：處理應用程式當機與無法讀取的訊息]: #handle-crashes
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Python 安裝指南]: ../python-how-to-install/
   [佇列、主題和訂閱。]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh367516.aspx

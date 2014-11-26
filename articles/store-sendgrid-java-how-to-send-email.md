@@ -201,7 +201,6 @@ SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGri
   [作法：使用其他 SendGrid 服務]: #bkmk_HowToUseAdditionalSvcs
   [雲端架構電子郵件服務]: http://sendgrid.com/solutions
   [交易式電子郵件傳遞]: http://sendgrid.com/transactional-email
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [篩選器設定]: http://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
   [SendGrid API 文件]: http://sendgrid.com/docs/API_Reference/index.html
   [如何在 Azure 部署中使用 SendGrid 透過 Java 傳送電子郵件]: ../store-sendgrid-java-how-to-send-email-example/

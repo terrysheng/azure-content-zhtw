@@ -292,7 +292,7 @@
 
     了解如何推播通知給特定的經驗證使用者。在僅傳送通知給特定使用者的情況下，這是很好的解決方案。
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs.-->
+  <!-- URLs.-->
 
   [通知中心指引]: http://msdn.microsoft.com/zh-tw/library/jj927170.aspx
   [在應用程式中新增類別選項]: #adding-categories
@@ -301,6 +301,5 @@
   [執行應用程式並產生通知]: #test-app
   [開始使用通知中心]: /zh-tw/documentation/articles/notification-hubs-android-get-started/
   [0]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [使用通知中心廣播已當地語系化的即時新聞]: /zh-tw/manage/services/notification-hubs/breaking-news-localized-dotnet/
   [使用通知中心來通知使用者]: /zh-tw/manage/services/notification-hubs/notify-users

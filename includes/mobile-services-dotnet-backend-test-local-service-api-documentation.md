@@ -18,7 +18,7 @@
 
 4.  按一下 [GET tables/TodoItem] 連結。
 
-    ![][]
+    ![][0]
 
     如此能顯示 API 的 GET 回應頁面。
 
@@ -33,7 +33,7 @@
   [start mobile service project locally]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/vs-start-debug-service-project.png
   [verify the mobile service in the taskbar]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/iis-express-tray.png
   [mobile service start up page]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-welcome-page.png
-  []: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-api-documentation-page.png
+  [0]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-api-documentation-page.png
   [1]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-try-this-out-get-todoitems.png
   [如何對 .NET 後端行動服務進行資料模型變更]: ./zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/
   [2]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/service-try-this-out-get-response.png

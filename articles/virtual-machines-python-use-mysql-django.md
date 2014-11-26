@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-app-with-django-and-mysql" urlDisplayName="Web with Django + MySQL" pageTitle="Python web app with Django and MySQL - Azure tutorial" metaKeywords="Azure django web app, Azure Django MySQL, Azure django Python" description="A tutorial that teaches you how to use MySQL in with Django on an Azure virtual machine. Code samples written in Python." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World - MySQL Windows Edition" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Django Hello World - MySQL Windows 版本
 
@@ -222,7 +222,7 @@
 
 2.  從本機網頁瀏覽器中，開啟 **http://*yourVmName*.cloudapp.net** (其中 *yourVmName* 是您在虛擬機器建立步驟中使用的名稱)。您應該會看見 "Hello ...!" ，如以下螢幕擷取畫面所示。這表示 Django 在虛擬機器中執行，並且正常運作。
 
-    ![][]
+    ![][0]
 
     重新整理網頁瀏覽器數次，您應該會看見訊息從 *"Hello **\<country abc\>**"* 變更為 *"Hello **\<some other country\>**"*。
 

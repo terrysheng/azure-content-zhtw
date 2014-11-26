@@ -882,13 +882,11 @@ WebJobs SDK 會在收到佇列訊息時呼叫此方法。此方法會建立縮�
   [後續步驟]: #next-steps
   [ASP.NET MVC]: http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started
   [Web Forms]: http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview
-  [free-trial-note]: ../includes/free-trial-note.md
   [WebJobs]: /zh-tw/documentation/articles/web-sites-create-web-jobs/
   [AlwaysOn]: http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx
   [Ad table]: ./media/websites-dotnet-webjobs-sdk-get-started/adtable.png
   [Contoso Ads architecture]: ./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png
   [Azure 網站、雲端服務與虛擬機器之比較]: /zh-tw/documentation/articles/choose-web-site-cloud-service-vm/
-  [install-sdk-2013-only]: ../includes/install-sdk-2013-only.md
   [Azure 管理入口網站]: http://manage.windowsazure.com
   [如何管理儲存體帳戶]: /zh-tw/documentation/articles/storage-manage-storage-account/
   [New storage account]: ./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png

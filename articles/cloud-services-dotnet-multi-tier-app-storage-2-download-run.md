@@ -1,10 +1,10 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-2-download-and-run" pageTitle="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, MVC Web Role tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="riande,tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande,tdykstra"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande,tdykstra" />
 
 # 設定和部署 Azure 電子郵件服務應用程式 - 第 2 課 (共 5 課)
 
-這是由五個教學課程組成的系列中的第二個教學課程，示範如何建置和部署 Azure 電子郵件服務範例應用程式。如需應用程式和教學課程系列的詳細資訊，請參閱[系列的第一個教學課程][]。
+這是由五個教學課程組成的系列中的第二個教學課程，示範如何建置和部署 Azure 電子郵件服務範例應用程式。如需應用程式和教學課程系列的詳細資訊，請參閱[系列的第一個教學課程][系列的第一個教學課程]。
 
 在本教學課程中，您將了解：
 
@@ -17,23 +17,23 @@
 
 ### 教學課程區段
 
--   [設定開發環境][]
--   [下載並執行已完成的方案][]
--   [檢視 Visual Studio 中的開發儲存體][]
--   [建立 Azure 儲存體帳戶][]
--   [建立雲端服務][]
--   [設定 Azure 儲存體的應用程式][]
--   [將應用程式設為使用 SendGrid][]
--   [將應用程式部署至 Azure][]
--   [將應用程式從預備提升至實際執行][]
--   [設定和檢視追蹤資料][]
--   [新增另一個背景工作角色執行個體來處理增加的負載][]
+-   [設定開發環境][設定開發環境]
+-   [下載並執行已完成的方案][下載並執行已完成的方案]
+-   [檢視 Visual Studio 中的開發儲存體][檢視 Visual Studio 中的開發儲存體]
+-   [建立 Azure 儲存體帳戶][建立 Azure 儲存體帳戶]
+-   [建立雲端服務][建立雲端服務]
+-   [設定 Azure 儲存體的應用程式][設定 Azure 儲存體的應用程式]
+-   [將應用程式設為使用 SendGrid][將應用程式設為使用 SendGrid]
+-   [將應用程式部署至 Azure][將應用程式部署至 Azure]
+-   [將應用程式從預備提升至實際執行][將應用程式從預備提升至實際執行]
+-   [設定和檢視追蹤資料][設定和檢視追蹤資料]
+-   [新增另一個背景工作角色執行個體來處理增加的負載][新增另一個背景工作角色執行個體來處理增加的負載]
 
-[WACOM.INCLUDE [install-sdk-2013-only][]]
+[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 ## <a name="downloadcnfg"></a><span class="short-header">下載並執行</span>下載並執行已完成的方案
 
-1.  下載並解壓縮[已完成的方案][] (英文)。
+1.  下載並解壓縮[已完成的方案][已完成的方案] (英文)。
 
 2.  啟動 Visual Studio。
 
@@ -53,7 +53,7 @@
 
     (螢幕擷取畫面顯示的是 Visual Studio 2012 專案範本中的網頁樣式，但內容與 Visual Studio 2013 相同。)
 
-    ![Run the App.][]
+    ![Run the App.][Run the App.]
 
 8.  按一下 [新建]。
 
@@ -63,19 +63,19 @@
 
 10. 建立幾個郵寄清單項目。
 
-    ![Mailing List Index Page][]
+    ![Mailing List Index Page][Mailing List Index Page]
 
 11. 按一下 [訂閱者]，然後新增一些訂閱者。將 [已驗證] 設為 `true`.
 
-    ![Subscriber Index Page][]
+    ![Subscriber Index Page][Subscriber Index Page]
 
 12. 準備新增訊息，方法是建立一個 *.txt* 檔案，包含您要傳送的電子郵件本文。然後建立一個 *.htm* 檔案，包含相同文字，但具有一些 HTML (例如，使訊息的其中一個字變為粗體或斜體)。您將在下一個步驟中使用這些檔案。
 
 13. 按一下 [訊息]，然後新增一些訊息。選取您在前一個步驟中建立的檔案。請勿變更預設為未來一週的排程日期。等到您設定 SendGrid 後，應用程式才會傳送訊息。
 
-    ![訊息建立頁面][]
+    ![訊息建立頁面][訊息建立頁面]
 
-    ![訊息索引頁面][]
+    ![訊息索引頁面][訊息索引頁面]
 
     您輸入和檢視的資料會受到 Azure 儲存體模擬器的管理。儲存體模擬器會使用 SQL Server Express LocalDB 資料庫，模擬 Azure 儲存體在雲端中的運作方式。應用程式使用儲存體模擬器的原因是，那是您在下載專案時設定要使用的儲存體。此設定儲存在 **AzureEmailService** 專案的 *.cscfg* 檔案中。*ServiceConfiguration.Local.cscfg* 檔案會決定當您在 Visual Studio 本機執行應用程式時使用的項目，而 *ServiceConfiguration.Cloud.cscfg* 檔案則會決定當您將應用程式部署至雲端時使用的項目。稍後您將看到如何設定應用程式來使用 Azure 儲存體帳戶。
 
@@ -93,29 +93,29 @@
 
 3.  展開 [資料表]，以查看您在先前步驟中建立的資料表。
 
-    ![Server Explorer][]
+    ![Server Explorer][Server Explorer]
 
 4.  按兩下 [郵寄清單] 資料表。
 
-    ![VS storage explorer][]
+    ![VS storage explorer][VS storage explorer]
 
     請注意視窗如何顯示資料表中的不同結構描述。`MailingList` 實體具有`Description` and`FromEmailAddress` 屬性，而`Subscriber` 實體具有`Verified` 屬性 (和`SubscriberGUID` 因為影像不夠寬而未顯示)。在資料表中，所有屬性都有對應的資料欄，而且如果特定的資料表列是用於沒有特定屬性的實體，則該資料格會空白。
 
-另一項可用來使用 Azure 儲存體資源的工具是 [Azure 儲存體總管][] (英文)。
+另一項可用來使用 Azure 儲存體資源的工具是 [Azure 儲存體總管][Azure 儲存體總管] (英文)。
 
 ## <a name="createWASA"></a>建立 Azure 儲存體帳戶
 
 在 Visual Studio 中執行範例應用程式時，您可以在雲端中存取 Azure 儲存體模擬器或 Azure 儲存體帳戶中的資料表、佇列和 Blob。在教學課程的這一節當中，您會建立 Azure 儲存體帳戶，並設定 Visual Studio，以在稍後的教學課程中使用。
 
-1.  在瀏覽器中開啟 [Azure 管理入口網站][]。
+1.  在瀏覽器中開啟 [Azure 管理入口網站][Azure 管理入口網站]。
 
-2.  在 [Azure 管理入口網站][]中，按一下 [儲存體]，然後按一下 [新增]。
+2.  在 [Azure 管理入口網站][Azure 管理入口網站]中，按一下 [儲存體]，然後按一下 [新增]。
 
-    ![New Storage][]
+    ![New Storage][New Storage]
 
 1.  按一下 [快速建立]。
 
-    ![Quick Create][]
+    ![Quick Create][Quick Create]
 
 1.  在 URL 輸入方塊中，輸入 URL 前置詞。
 
@@ -125,21 +125,21 @@
 
 3.  將 [複寫] 下拉式方塊設為 [Locally redundant]。
 
-    對儲存體帳戶啟用地理區域複寫時，儲存內容會複寫至次要位置，以便能在主要位置發生嚴重災難時容錯移轉至該位置。地理區域複寫會引發額外成本。對於測試和開發帳戶，您通常不會想要付費使用地理區域複寫功能。如需詳細資訊，請參閱[如何管理儲存體帳戶][]。
+    對儲存體帳戶啟用地理區域複寫時，儲存內容會複寫至次要位置，以便能在主要位置發生嚴重災難時容錯移轉至該位置。地理區域複寫會引發額外成本。對於測試和開發帳戶，您通常不會想要付費使用地理區域複寫功能。如需詳細資訊，請參閱[如何管理儲存體帳戶][如何管理儲存體帳戶]。
 
 4.  按一下 [建立儲存體帳戶]。
 
     在下面的影像中，已建立儲存體帳戶，其 URL 為 `aestest3.core.windows.net`.
 
-    ![create storage with URL prefix][]
+    ![create storage with URL prefix][create storage with URL prefix]
 
     此步驟可能需要幾分鐘時間才能完成。等待時，您可以重複這些步驟，並建立實際執行儲存體帳戶。具有一個用於本機開發的測試儲存體帳戶、另一個用於 Azure 測試的測試儲存體帳戶，以及一個實際執行儲存體帳戶，通常可為你帶來便利。
 
 5.  按一下您在前一個步驟中建立的測試帳戶，然後按一下 [Manage Access Keys] 圖示。
 
-    ![Manage Keys][]
+    ![Manage Keys][Manage Keys]
 
-    ![Keys GUID][]
+    ![Keys GUID][Keys GUID]
 
     Visual Studio 會在您選取儲存體帳戶時自動以其中一個金鑰設定連接字串。您也可以手動更新連接字串。
 
@@ -147,9 +147,9 @@
 
 ## <a name="createcloudsvc"></a><span class="short-header">建立雲端服務</span>建立雲端服務
 
-1.  在 [Azure 管理入口網站][]中按一下 [雲端服務]，然後按一下 [新增] 圖示。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站]中按一下 [雲端服務]，然後按一下 [新增] 圖示。
 
-    ![Quick Cloud][]
+    ![Quick Cloud][Quick Cloud]
 
 2.  按一下 [快速建立]。
 
@@ -161,7 +161,7 @@
 
     您應該在先前建立儲存體帳戶的相同區域中建立雲端服務。當雲端服務與儲存體帳戶位於不同的資料中心 (不同的區域) 時，延遲時間會增加，而且您將由於使用資料中心外的頻寬而付費。資料中心內的頻寬則是免費的。
 
-    Azure 同質群組提供一種機制，可將資料中心內的資源之間的距離縮至最短，因而可以減少延遲時間。本教學課程不會使用同質群組。如需詳細資訊，請參閱[如何在 Azure 中建立同質群組][] (英文)。
+    Azure 同質群組提供一種機制，可將資料中心內的資源之間的距離縮至最短，因而可以減少延遲時間。本教學課程不會使用同質群組。如需詳細資訊，請參閱[如何在 Azure 中建立同質群組][如何在 Azure 中建立同質群組] (英文)。
 
 5.  按一下 [建立雲端服務]。
 
@@ -175,7 +175,7 @@
 
 1.  在 [方案總管] 中，於 **AzureEmailService** 專案的 [角色] 下的 **MvcWebRole** 上按一下滑鼠右鍵，然後按一下 [屬性]。
 
-    ![Right Click Properties][]
+    ![Right Click Properties][Right Click Properties]
 
 2.  在 [MvcWebRole [角色]] 視窗中，按一下 [設定] 索引標籤。
 
@@ -207,7 +207,7 @@
 
     在`Role` 元素 (屬於兩個背景工作角色) 中，您會看到相同的兩個連接字串。
 
-    您可以直接編輯這些檔案，而不要使用 Visual Studio [角色] 視窗。如需組態檔的詳細資訊，請參閱[設定 Azure 專案][]。
+    您可以直接編輯這些檔案，而不要使用 Visual Studio [角色] 視窗。如需組態檔的詳細資訊，請參閱[設定 Azure 專案][設定 Azure 專案]。
 
 ### 測試已設定為使用儲存體帳戶的應用程式
 
@@ -225,13 +225,13 @@
 
 1.  在 [方案總管] 的 **AzureEmailService** 雲端專案上按一下滑鼠右鍵，然後選取 [屬性]。
 
-    ![Selecting cloud project properties][]
+    ![Selecting cloud project properties][Selecting cloud project properties]
 
 2.  選取 [開發] 索引標籤。
 
 3.  將 [Start Azure storage emulator] 設為 **False**。
 
-    ![停用儲存體模擬器自動啟動][]
+    ![停用儲存體模擬器自動啟動][停用儲存體模擬器自動啟動]
 
     **注意**：只有在不是使用儲存體模擬器時，才可將此屬性設為 false。
 
@@ -239,7 +239,7 @@
 
 4.  在 Windows 系統匣的運算模擬器圖示上按一下滑鼠右鍵，然後按一下 [Shutdown Storage Emulator]。
 
-    ![ASE][]
+    ![ASE][ASE]
 
 ## <a name="sendGrid"></a><span class="short-header">SendGrid</span>將應用程式設為使用 SendGrid
 
@@ -249,7 +249,7 @@
 
 ### 建立 SendGrid 帳戶
 
-1.  遵循[如何在 Azure 使用 SendGrid 來傳送電子郵件][] (英文) 中的指示，來註冊免費帳戶。
+1.  遵循[如何在 Azure 使用 SendGrid 來傳送電子郵件][如何在 Azure 使用 SendGrid 來傳送電子郵件] (英文) 中的指示，來註冊免費帳戶。
 
 ### 更新背景工作角色屬性中的 SendGrid 認證
 
@@ -259,7 +259,7 @@
 
 1.  編輯 *ServiceConfiguration.Cloud.cscfg* 檔案 (位於`AzureEmailService` 專案中)，然後將您在上一個步驟中取得的 SendGrid 使用者名稱和密碼值，輸入具有這些設定的`WorkerRoleB` 元素中。下列程式碼顯示 WorkerRoleB 元素。
 
-    ![SendGridSettings][]
+    ![SendGridSettings][SendGridSettings]
 
 2.  還有一個 AzureMailServiceURL 設定。將此值設為您在建立 Azure 雲端服務時選取的 URL，例如："<http://aescloud.cloudapp.net>"。
 
@@ -277,7 +277,7 @@
 
 1.  開啟 *Web.Release.config* 檔案 (位於`MvcWebRole` 專案的根資料夾中)，然後將 **ipAddress** 屬性值 127.0.0.1 取代為您的 IP 位址。(若要在 [方案總管] 中查看 **Web.Release.config** 檔案，您必須展開 *Web.config* 檔案。)
 
-    您可以利用 [Bing][] 或其他搜尋引擎搜尋 "Find my IP"，來尋找您的 IP 位址。
+    您可以利用 [Bing][Bing] 或其他搜尋引擎搜尋 "Find my IP"，來尋找您的 IP 位址。
 
     當應用程式發佈時，即會套用 *Web.release.config* 檔案中指定的轉換，並在部署至雲端的 *web.config* 檔案中更新 IP 限制元素。在建立套件之後，您可以在 *AzureEmailService\\MvcWebRole\\obj\\Release\\TransformWebConfig\\transformed* 資料夾中檢視已轉換的 *web.config* 檔案。
 
@@ -301,23 +301,23 @@
 
 2.  在 **AzureEmailService** 雲端專案上按一下滑鼠右鍵，然後選取 [發佈]。
 
-    ![Package][]
+    ![Package][Package]
 
     [Publish Azure Application] 對話方塊隨即出現。
 
-    ![Cloud Package][]
+    ![Cloud Package][Cloud Package]
 
-3.  如果先前已使用自動方法來匯入儲存體帳戶認證，則下拉式清單中會有 Azure 訂閱可供您加以選取，然後按 **[下一步]**。否則，按一下 **[Sign in to download credentials]**，並遵循[設定 Azure 儲存體的應用程式][]中的指示，下載並匯入您的發佈設定。
+3.  如果先前已使用自動方法來匯入儲存體帳戶認證，則下拉式清單中會有 Azure 訂閱可供您加以選取，然後按 **[下一步]**。否則，按一下 **[Sign in to download credentials]**，並遵循[設定 Azure 儲存體的應用程式][設定 Azure 儲存體的應用程式]中的指示，下載並匯入您的發佈設定。
 
 4.  在 [一般設定] 索引標籤中，驗證您的雲端服務在 [雲端服務] 下拉式清單中已被選取。
 
 5.  在 [環境] 下拉式清單中，將 [實際執行] 變更為 [預備]。
 
-    ![儀表板][]
+    ![儀表板][儀表板]
 
 6.  保留 [組建組態] 的預設 [發行] 設定，以及 [服務組態] 的 [雲端] 設定。
 
-    [進階] 索引標籤中的預設設定適用於本教學課程。[進階] 索引標籤上有幾個對開發和測試有用的設定。如需進階索引標籤的詳細資訊，請參閱[發佈 Windows Azure 應用程式精靈][]。
+    [進階] 索引標籤中的預設設定適用於本教學課程。[進階] 索引標籤上有幾個對開發和測試有用的設定。如需進階索引標籤的詳細資訊，請參閱[發佈 Windows Azure 應用程式精靈][發佈 Windows Azure 應用程式精靈]。
 
 7.  按 [下一步]。
 
@@ -327,7 +327,7 @@
 
 9.  檢閱設定，然後按一下 [發佈]。
 
-    ![pub][]
+    ![pub][pub]
 
     [Azure 活動記錄檔] 視窗即會在 Visual Studio 開啟。
 
@@ -345,7 +345,7 @@
 
 3.  在 [郵寄清單]、[訂閱者] 和 [訊息] 網頁中輸入一些資料來測試應用程式。
 
-    **注意**：應用程式測試完成後，請予以刪除，以免需要支付您未使用的資源。如果您是使用 [Azure 免費試用帳戶][]，已部署的三個角色會在數週內用光您的每月限制。若要使用 Azure 管理入口網站刪除部署，請選取雲端服務，並按一下頁面底部的 [刪除]，然後選取實際執行或預備部署。
+    **注意**：應用程式測試完成後，請予以刪除，以免需要支付您未使用的資源。如果您是使用 [Azure 免費試用帳戶][Azure 免費試用帳戶]，已部署的三個角色會在數週內用光您的每月限制。若要使用 Azure 管理入口網站刪除部署，請選取雲端服務，並按一下頁面底部的 [刪除]，然後選取實際執行或預備部署。
 
     ![pub][8]
 
@@ -357,7 +357,7 @@
 
 ## <a name="swap"></a>將應用程式從預備提升至實際執行
 
-1.  在 [Azure 管理入口網站][]中，按一下左窗格中的 [雲端服務] 圖示，然後選取您的雲端服務，再按一下 \[儀表板\] 索引標籤。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站]中，按一下左窗格中的 [雲端服務] 圖示，然後選取您的雲端服務，再按一下 \[儀表板\] 索引標籤。
 
 2.  按一下 [交換]。
 
@@ -400,31 +400,31 @@
 
     在此程式碼中，`DiagnosticMonitor` 設定為最多儲存 500 MB 的追蹤資訊 (超過 500 MB 後會覆寫存在最久的資料)，並設為儲存所有追蹤訊息 (LogLevel.Verbose)。 `ScheduledTransferPeriod` 會每分鐘將追蹤資料傳送至儲存體。您必須設定`ScheduledTransferPeriod` 以儲存追蹤資料。
 
-    每一個背景工作和 Web 角色中的`ConfigureDiagnostics` 方法，會將追蹤接聽程式設定為在您呼叫追蹤 API 時記錄資料。如需詳細資訊，請參閱[在 Azure 雲端應用程式中使用追蹤][] (英文)。
+    每一個背景工作和 Web 角色中的`ConfigureDiagnostics` 方法，會將追蹤接聽程式設定為在您呼叫追蹤 API 時記錄資料。如需詳細資訊，請參閱[在 Azure 雲端應用程式中使用追蹤][在 Azure 雲端應用程式中使用追蹤] (英文)。
 
-2.  在 **[伺服器總管]** 中，按兩下 **WADLogsTable** (展開 **[Azure]** / **[儲存體]** / **[yourstorageaccountname]** / **[資料表]**)，以取得先前新增的儲存體帳戶。您可以輸入[為資料表設計工具建構篩選條件字串][]，以限制顯示的實體。下列影像只顯示警告和錯誤訊息。
+2.  在 **[伺服器總管]** 中，按兩下 **WADLogsTable** (展開 **[Azure]** / **[儲存體]** / **[yourstorageaccountname]** / **[資料表]**)，以取得先前新增的儲存體帳戶。您可以輸入[為資料表設計工具建構篩選條件字串][為資料表設計工具建構篩選條件字串]，以限制顯示的實體。下列影像只顯示警告和錯誤訊息。
 
     ![儀表板][12]
 
 ## <a name="addRole"></a>新增另一個背景工作角色執行個體來處理增加的負載
 
-有兩種方法可擴充 Azure 角色中的運算資源，那就是指定[設定雲端服務的大小][] 和 (或) 指定執行中虛擬機器的執行個體計數。
+有兩種方法可擴充 Azure 角色中的運算資源，那就是指定[設定雲端服務的大小][設定雲端服務的大小] 和 (或) 指定執行中虛擬機器的執行個體計數。
 
-虛擬機器 (VM) 大小指定於`vmsize` 屬性中 (屬於`WebRole` 或`WorkerRole` 元素，位於 *ServiceDefinition.csdef* 檔案中)。預設設定為`Small` 此設定會提供一個核心和 1.75 GB 的 RAM。對於使用大量記憶體、磁碟和頻寬的多執行緒應用程式，您可以增加虛擬機器大小以提高效能。例如，`ExtraLarge` 虛擬機器有 8 個 CPU 核心和 14 GB 的 RAM。對單一電腦增加記憶體、CPU 核心、磁碟和頻寬即為「擴充 (硬體資源)」。適合進行擴充的候選對象包括使用[非同步方法][] (英文)的 ASP.NET Web 應用程式。如需每一個虛擬機器大小所提供資源的說明，請參閱[設定雲端服務的大小][]。
+虛擬機器 (VM) 大小指定於`vmsize` 屬性中 (屬於`WebRole` 或`WorkerRole` 元素，位於 *ServiceDefinition.csdef* 檔案中)。預設設定為`Small` 此設定會提供一個核心和 1.75 GB 的 RAM。對於使用大量記憶體、磁碟和頻寬的多執行緒應用程式，您可以增加虛擬機器大小以提高效能。例如，`ExtraLarge` 虛擬機器有 8 個 CPU 核心和 14 GB 的 RAM。對單一電腦增加記憶體、CPU 核心、磁碟和頻寬即為「擴充 (硬體資源)」。適合進行擴充的候選對象包括使用[非同步方法][非同步方法] (英文)的 ASP.NET Web 應用程式。如需每一個虛擬機器大小所提供資源的說明，請參閱[設定雲端服務的大小][設定雲端服務的大小]。
 
 此應用程式中的背景工作角色 B 為高負載下的限制元件，因為它會執行傳送電子郵件的工作。(背景工作角色 A 只建立佇列訊息，不會大量耗用資源。)因為背景工作角色 B 不是多執行緒，而且沒有大量記憶體，因此不適合進行擴充。背景工作角色 B 可藉由增加執行個體計數，以線性方式進行擴充 (亦即，執行個體加倍時，效能也幾乎加倍)。增加運算執行個體數目即為「擴充 (機器數量)」。每一個執行個體都需要成本，因此請在應用程式有需要時再擴充。
 
-您可以更新 Visual Studio UI 中的設定，或直接編輯 *ServiceConfiguration.\*.cscfg* 檔案，來擴充 Web 角色或背景工作角色。執行個體計數指定於角色 \[屬性\] 視窗的 \[組態\] 索引標籤中，以及`Instances` 元素中 (位於 *.cscfg* 檔案中)。更新設定時必須部署已更新的組態檔，變更才能生效。或者，對於短暫增加的負載，您可以手動變更角色執行個體數目，或設定 Azure 以根據您指定的準則自動變更執行個體數目。如需自動調整的詳細資訊，請參閱[本系列的最後一個教學課程][]。
+您可以更新 Visual Studio UI 中的設定，或直接編輯 *ServiceConfiguration.\*.cscfg* 檔案，來擴充 Web 角色或背景工作角色。執行個體計數指定於角色 \[屬性\] 視窗的 \[組態\] 索引標籤中，以及`Instances` 元素中 (位於 *.cscfg* 檔案中)。更新設定時必須部署已更新的組態檔，變更才能生效。或者，對於短暫增加的負載，您可以手動變更角色執行個體數目，或設定 Azure 以根據您指定的準則自動變更執行個體數目。如需自動調整的詳細資訊，請參閱[本系列的最後一個教學課程][本系列的最後一個教學課程]。
 
 在教學課程的這一節當中，您將使用管理入口網站擴充背景工作角色 B，但是您會先看到如何在 Visual Studio 執行此作業。
 
 若要在 Visual Studio 執行此作業，您需要在雲端專案的 [角色] 下，對某個角色按一下滑鼠右鍵，並選取 [屬性]。
 
-![Right Click Properties][]
+![Right Click Properties][Right Click Properties]
 
 然後，您需要選取左邊的 [組態] 索引標籤，並在 [服務組態] 下拉式清單中選取 [雲端]。
 
-![執行個體計數][]
+![執行個體計數][執行個體計數]
 
 請注意，您也可以在此索引標籤中設定虛擬機器大小。
 
@@ -434,23 +434,23 @@
 
 2.  增加背景工作角色 B 的執行個體數目，然後按一下 [儲存]。
 
-    ![增加執行個體][]
+    ![增加執行個體][增加執行個體]
 
     佈建新的虛擬機器可能需要數分鐘的時間。
 
 3.  選取 [執行個體] 索引標籤，以在應用程式中查看每一個角色執行個體。
 
-    ![view instances][]
+    ![view instances][view instances]
 
 ## <a name="nextsteps"></a>後續步驟
 
-現在您已看到如何設定、部署及擴充已完成的應用程式。後續的教學課程會示範如何從頭組建應用程式。在[下一個教學課程][]中，您將組建 Web 角色。
+現在您已看到如何設定、部署及擴充已完成的應用程式。後續的教學課程會示範如何從頭組建應用程式。在[下一個教學課程][下一個教學課程]中，您將組建 Web 角色。
 
 如需使用 Azure 儲存體資料表、佇列和 Blob 的其他資源連結，請參閱[本系列的最後一個教學課程][13]。
 
-<div><a href="/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/" class="site-arrowboxcta download-cta">教學課程 3</a></div>
+<div><a href="/zh-tw/develop/net/tutorials/multi-tier-web-site/3-web-role/" class="site-arrowboxcta download-cta">教學課程 3</a></div>
 
-  [系列的第一個教學課程]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+  [系列的第一個教學課程]: /zh-tw/develop/net/tutorials/multi-tier-web-site/1-overview/
   [設定開發環境]: #setupdevenv
   [下載並執行已完成的方案]: #downloadcnfg
   [建立 Azure 儲存體帳戶]: #createWASA
@@ -461,7 +461,6 @@
   [將應用程式從預備提升至實際執行]: #swap
   [設定和檢視追蹤資料]: #trace
   [新增另一個背景工作角色執行個體來處理增加的負載]: #addRole
-  [install-sdk-2013-only]: ../includes/install-sdk-2013-only.md
   [已完成的方案]: http://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   [Run the App.]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-mailinglist1.png
   [1]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create1.png
@@ -475,21 +474,21 @@
   [Azure 管理入口網站]: http://manage.windowsazure.com
   [New Storage]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-portal-new-storage.png
   [Quick Create]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-storage-quick.png
-  [如何管理儲存體帳戶]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
+  [如何管理儲存體帳戶]: /zh-tw/manage/services/storage/how-to-manage-a-storage-account/
   [create storage with URL prefix]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create-storage-url-test.png
   [Manage Keys]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-manage-keys.png
   [Keys GUID]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-guid-keys.PNG
   [Quick Cloud]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-new-cloud.png
-  [如何在 Azure 中建立同質群組]: http://msdn.microsoft.com/en-us/library/jj156209.aspx
+  [如何在 Azure 中建立同質群組]: http://msdn.microsoft.com/zh-tw/library/jj156209.aspx
   [2]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create-cloud.png
   [Right Click Properties]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-rt-prop.png
   [3]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-elip.png
   [4]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-enter.png
-  [設定 Azure 專案]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx
+  [設定 Azure 專案]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405486.aspx
   [Selecting cloud project properties]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-aesp.png
   [停用儲存體模擬器自動啟動]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-1.png
   [ASE]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-se4.png
-  [如何在 Azure 使用 SendGrid 來傳送電子郵件]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid"
+  [如何在 Azure 使用 SendGrid 來傳送電子郵件]: http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid"
   [SendGridSettings]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-sg.png
   [Bing]: http://www.bing.com/search?q=find+my+IP&qs=n&form=QBLH&pq=find+my+ip&sc=8-10&sp=-1&sk= "find my IP"
   [Package]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-6.png
@@ -500,19 +499,19 @@
   [5]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-11.png
   [6]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-9.png
   [7]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c55.png
-  [Azure 免費試用帳戶]: http://www.windowsazure.com/en-us/pricing/free-trial/ "免費試用帳戶"
+  [Azure 免費試用帳戶]: http://www.windowsazure.com/zh-tw/pricing/free-trial/ "免費試用帳戶"
   [8]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-19.png
   [9]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-12.png
   [10]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c6.png
   [11]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c7.png
   [在 Azure 雲端應用程式中使用追蹤]: http://blogs.msdn.com/b/windowsazure/archive/2012/10/24/using-trace-in-windows-azure-cloud-applications-1.aspx "在 Azure 中使用追蹤"
-  [為資料表設計工具建構篩選條件字串]: http://msdn.microsoft.com/en-us/library/windowsazure/ff683669.aspx "WCF 篩選條件"
+  [為資料表設計工具建構篩選條件字串]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff683669.aspx "WCF 篩選條件"
   [12]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-trc.png
-  [設定雲端服務的大小]: http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "虛擬機器大小"
+  [設定雲端服務的大小]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee814754.aspx "虛擬機器大小"
   [非同步方法]: http://www.asp.net/mvc/tutorials/mvc-4/using-asynchronous-methods-in-aspnet-mvc-4 "非同步 MVC"
-  [本系列的最後一個教學課程]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
+  [本系列的最後一個教學課程]: /zh-tw/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
   [執行個體計數]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-instanceCnt.png
   [增加執行個體]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-in3.png
   [view instances]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-in2.png
-  [下一個教學課程]: /en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/
-  [13]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps
+  [下一個教學課程]: /zh-tw/develop/net/tutorials/multi-tier-web-site/3-web-role/
+  [13]: /zh-tw/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps

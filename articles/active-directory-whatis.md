@@ -1,10 +1,10 @@
 <properties linkid="manage-services-identity-what-is-windows-azure-AD" urlDisplayName="What is Azure AD?" pageTitle="What is Azure Active Directory?" metaKeywords="" description="Use Azure Active Directory to extend your existing on-premises identities into the cloud for an improved admin and end user experience while Microsoft keeps Active Directory running in the cloud with high scale, high availability, and integrated disaster recovery. Or, develop Azure AD integrated applications for your organization or for other organizations." metaCanonical="" services="active-directory" documentationCenter="" title="What is Azure Active Directory?" authors="justinha" solutions="" manager="terrylan" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="justinha"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="justinha" />
 
 # 什麼是 Azure Active Directory？
 
-Azure Active Directory 是一項可在雲端中提供身分識別與存取管理功能的服務。就如同 Active Directory 是透過 Windows Server 作業系統提供給客戶的內部部署身分識別管理服務，Azure Active Directory (Azure AD) 是透過 Azure 提供的雲端型身分識別管理服務。[詳細資訊][]
+Azure Active Directory 是一項可在雲端中提供身分識別與存取管理功能的服務。就如同 Active Directory 是透過 Windows Server 作業系統提供給客戶的內部部署身分識別管理服務，Azure Active Directory (Azure AD) 是透過 Azure 提供的雲端型身分識別管理服務。[詳細資訊][詳細資訊]
 
 因為這是貴組織的雲端目錄，所以您可以決定誰是您的使用者、哪些資訊保留在雲端中、誰可以使用或管理這些資訊，以及哪些應用程式或服務可以存取這些資訊。
 
@@ -21,9 +21,9 @@ Azure AD 可以用作貴組織的獨立式雲端目錄，但是您也可以將 A
 
 **其他資源**
 
--   [以組織方式註冊 Azure][]
--   [Azure 身分識別][]
--   [MSDN 上的 Azure AD 程式庫][]
+-   [以組織方式註冊 Azure][以組織方式註冊 Azure]
+-   [Azure 身分識別][Azure 身分識別]
+-   [MSDN 上的 Azure AD 程式庫][MSDN 上的 Azure AD 程式庫]
 
   [詳細資訊]: http://msdn.microsoft.com/library/hh967611.aspx
   [1]: http://msdn.microsoft.com/library/jj573653

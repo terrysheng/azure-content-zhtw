@@ -16,7 +16,7 @@ CNAME 記錄將*特定的*網域 (例如 **mail.contoso.com** 或 **www.contoso.
 
 一旦流量到達流量管理員，流量管理員接著會使用針對其設定的負載平衡方法，將流量路由到您的網站。這對網站的訪客而言完全是透明的。訪客只會在其瀏覽器中看到自訂的網域名稱。
 
-> [WACOM.NOTE] 使用 CNAME 記錄時，某些網域註冊機構只允許您對應子網域 (如 **www.contoso.com**)，而不是根名稱 (如 **contoso.com**)。如需關於 CNAME 記錄的詳細資訊，請參閱註冊機構提供的文件、[維基百科 CNAME 記錄條目][]，或 [IETF 網域名稱 - 實作與規格][]文件。
+> [WACOM.NOTE] 使用 CNAME 記錄時，某些網域註冊機構只允許您對應子網域 (如 **www.contoso.com**)，而不是根名稱 (如 **contoso.com**)。如需關於 CNAME 記錄的詳細資訊，請參閱註冊機構提供的文件、[維基百科 CNAME 記錄條目][維基百科 CNAME 記錄條目]，或 [IETF 網域名稱 - 實作與規格][IETF 網域名稱 - 實作與規格]文件。
 
   [維基百科 CNAME 記錄條目]: http://en.wikipedia.org/wiki/CNAME_record
   [IETF 網域名稱 - 實作與規格]: http://tools.ietf.org/html/rfc1035

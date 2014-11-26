@@ -710,11 +710,11 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
 -   [新增推播通知][新增推播通知]；例如，當某人新增玩家或更新分數時。
 -   [開始使用驗證][開始使用驗證]
 
-  <!-- Anchors. -->
+  
 
-  <!-- Images. -->
+  
 
-  <!-- URLs. -->
+  
 
   [ASP.NET Web API]: http://asp.net/web-api
   [Overview]: #overview

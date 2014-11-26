@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-android" urlDisplayName="Add paging to data" pageTitle="Add paging to data (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Android app from Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # 使用分頁縮小行動服務查詢範圍
 
@@ -13,9 +13,9 @@
 <p>為防止行動裝置用戶端出現資料溢位的狀況，行動服務會實作自動分頁限制，而將回應中的項目數上限預設為 50 個。您可以指定頁面大小，以明確要求在回應中傳回最多 1,000 個項目。</p>
 </div>
 
-本教學課程會以上一堂教學課程[開始使用資料][]中的步驟和範例應用程式為基礎。開始進行此教學課程之前，您至少必須先完成資料序列中的第一個教學課程[開始使用資料][]。
+本教學課程會以上一堂教學課程[開始使用資料][開始使用資料]中的步驟和範例應用程式為基礎。開始進行此教學課程之前，您至少必須先完成資料序列中的第一個教學課程[開始使用資料][開始使用資料]。
 
-1.  在 Eclipse 中，開啟您完成教學課程[開始使用資料][]時所建立的專案。
+1.  在 Eclipse 中，開啟您完成教學課程[開始使用資料][開始使用資料]時所建立的專案。
 
 2.  從 [執行] 功能表按一下 [執行] 以啟動應用程式，然後在文字方塊中輸入文字，再按一下 [新增] 按鈕。
 
@@ -91,26 +91,18 @@
 
 有關於在行動服務中使用資料的基本概念教學課程，在此告一段落。考慮更深入了解下列行動服務主題：
 
--   [開始使用驗證][]
+-   [開始使用驗證][開始使用驗證]
     了解如何使用 Windows 帳戶驗證您的應用程式的使用者。
 
--   [開始使用推播通知][]
+-   [開始使用推播通知][開始使用推播通知]
     了解如何將極為基本的推播通知傳送到應用程式。
 
-<!-- Anchors. --> 
+ 
 
-<!-- Images. --> 
+ 
 
-<!-- URLs. -->
 
-  [Windows 市集 C#]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-dotnet "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-js "Windows 市集 JavaScript"
-  [Windows Phone]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-wp8 "Windows Phone"
-  [iOS]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-ios "iOS"
-  [Android]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-android "Android"
-  [HTML]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-html "HTML"
-  [Xamarin.iOS]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-xamarin-android "Xamarin.Android"
+
   [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-android
   [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-android
   [開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-android

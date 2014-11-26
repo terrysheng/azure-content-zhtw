@@ -105,13 +105,12 @@ Android 的**開始使用資料**教學課程到此結束。
 -   [開始使用推送通知][開始使用推送通知]
     了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
 
-<!-- Anchors. --> 
+ 
 
-<!-- Images. --> 
+ 
 
-<!-- URLs. -->
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
+
   [下載 Android 應用程式專案]: #download-app
   [建立行動服務]: #create-service
   [新增用於儲存的資料表]: #add-table
@@ -119,12 +118,6 @@ Android 的**開始使用資料**教學課程到此結束。
   [針對行動服務進行應用程式測試]: #test-app
   [Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
   [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-  [download-android-sample-code]: ../includes/download-android-sample-code.md
-  [Verify SDK]: ../includes/mobile-services-verify-android-sdk-version.md
-  [mobile-services-android-run-sample-code]: ../includes/mobile-services-android-run-sample-code.md
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
-  [mobile-services-android-getting-started-with-data]: ../includes/mobile-services-android-getting-started-with-data.md
   [管理入口網站]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-android-get-started-data/mobile-todoitem-data-browse.png
   [使用指令檔驗證與修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet

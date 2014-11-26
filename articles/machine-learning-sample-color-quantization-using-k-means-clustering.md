@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning Sample: Color quantization using K-Means clustering" pageTitle="Machine Learning Sample: Color quantization using K-Means clustering | Azure" description="A sample Azure Machine Learning experiment that evaluates using different K-Means clustering values for quantizing a color image." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
 # Azure Machine Learning 範例：使用 K-Means 叢集的色彩量化
 
@@ -148,10 +148,4 @@
 
   [色彩量化]: http://en.wikipedia.org/wiki/Color_quantization "色彩量化"
   [Model]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image1.png
-  [Original]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2a.jpg
-  [K=10]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2b.png
-  [K=20]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2c.png
-  [K=50]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2d.png
-  [K=100]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2e.png
-  [K=500]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2f.png
   [Output of Execute R Script module]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image3.png

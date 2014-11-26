@@ -122,7 +122,7 @@
 
 ![][0]
 
-<!-- Anchors. --> <!-- URLs. -->
+ 
 
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
   [向 Azure Active Directory 註冊您的行動服務]: #register-mobile-service-aad
@@ -134,9 +134,6 @@
   [Xamarin Studio]: http://xamarin.com/download
   [開始使用資料]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
   [Active Directory Authentication Library for iOS 的 Xamarin 繫結]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
-  [mobile-services-dotnet-adal-register-service]: ../includes/mobile-services-dotnet-adal-register-service.md
-  [mobile-services-dotnet-adal-register-client]: ../includes/mobile-services-dotnet-adal-register-client.md
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [如何向 Azure Active Directory 註冊]: /zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [0]: ./media/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication/mobile-services-app-run.png

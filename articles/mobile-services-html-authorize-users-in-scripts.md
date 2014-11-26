@@ -79,9 +79,9 @@
 -   [行動服務 HTML/JavaScript 作法概念參考][行動服務 HTML/JavaScript 作法概念參考]
     深入了解如何搭配使用行動服務與 HTML/JavaScript。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-html
   [Azure 管理入口網站]: https://manage.windowsazure.com/

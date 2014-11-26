@@ -279,8 +279,6 @@
     教學課程]。
 
   [後續步驟]: #nextsteps
-  [create-account-note]: ../includes/create-account-note.md
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [0]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   [佇列、主題和訂閱]: http://msdn.microsoft.com/zh-tw/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/zh-tw/library/microsoft.servicebus.messaging.sqlfilter.aspx

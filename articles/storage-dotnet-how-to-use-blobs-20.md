@@ -239,7 +239,7 @@ Azure Storage Client Library for .NET 可支援使用儲存體連接字串，來
     Block blob of length 399751: https://<a ccountname>.blob.core.windows.net/photos/2011/photo7.jpg
     Block blob of length 505623: https://<a ccountname>.blob.core.windows.net/photos/photo1.jpg
 
- 如需詳細資訊，請參閱 [CloudBlobContainer.ListBlobs][]。
+ 如需詳細資訊，請參閱 [CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs]。
 
 ## <a name="download-blobs"> </a><span  class="short-header">下載 Blob</span>作法：下載 Blob
 
@@ -316,8 +316,8 @@ Azure Storage Client Library for .NET 可支援使用儲存體連接字串，來
 
 *  請參閱[在 Azure 中儲存和存取資料][8]，深入了解可使用 Azure 儲存體執行的更多進階工作。
 *  如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
-  *  使用[資料表儲存體](/en-us/develop/net/how-to-guides/table-services/)儲存結構化資料。
-  *  使用 [SQL Database](/en-us/develop/net/how-to-guides/sql-database/) 儲存關聯式資料。
+  *  使用[資料表儲存體](/zh-tw/develop/net/how-to-guides/table-services/)儲存結構化資料。
+  *  使用 [SQL Database](/zh-tw/develop/net/how-to-guides/sql-database/) 儲存關聯式資料。
   
 
 

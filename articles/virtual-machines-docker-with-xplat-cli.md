@@ -100,7 +100,7 @@
 
 您已準備好開始移至 [Docker 使用者指南][Docker 使用者指南]，並使用 Docker VM。若要在新入口網站中建立具有 Docker 功能的 VM，請參閱[如何搭配使用 Docker VM 擴充程式與入口網站][如何搭配使用 Docker VM 擴充程式與入口網站]。
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->\r\n<!--Image references-->\r\n<!--Link references-->
 
   [Docker]: https://www.docker.com/
   [Linux 容器]: http://en.wikipedia.org/wiki/LXC

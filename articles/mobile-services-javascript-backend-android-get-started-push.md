@@ -167,9 +167,9 @@
 -   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何在您的行動服務中實作商務邏輯。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Android]: /zh-tw/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android"
   [啟用 Google 雲端通訊]: #register
@@ -180,15 +180,11 @@
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-android-get-started/
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-android-get-started-data/
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
-  [啟用 GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [此指引]: http://go.microsoft.com/fwlink/p/?LinkId=391951
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
-  [Verify SDK]: ../includes/mobile-services-verify-android-sdk-version.md
   [設定 Google Play 服務 SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
-  [新增 Play 服務]: ../includes/mobile-services-add-Google-play-services.md
-  [mobile-services-android-getting-started-with-push]: ../includes/mobile-services-android-getting-started-with-push.md
   [2]: ./media/mobile-services-android-get-started-push/mobile-portal-data-tables.png
   [3]: ./media/mobile-services-android-get-started-push/mobile-insert-script-push2.png
   [gcm 物件]: http://go.microsoft.com/fwlink/p/?LinkId=282645

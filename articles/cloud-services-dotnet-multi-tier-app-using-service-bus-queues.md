@@ -504,7 +504,6 @@ Azure 支援一組受管理 API，其提供一致的方式，跨 Microsoft 雲�
 
 若要了解如何將前端部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站][將 ASP.NET Web 應用程式部署至 Azure 網站]。若要了解如何將後端部署至 Azure 雲端服務，請參閱[使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式][使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式]。
 
-  [create-account-note]: ../includes/create-account-note.md
   [後續步驟]: #nextsteps
   [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對比]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh767287.aspx

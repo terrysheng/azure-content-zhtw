@@ -1,6 +1,6 @@
 <properties linkid="develop-nodejs-common-tasks-specifying-a-node-version" urlDisplayName="Specifying a Node.js Version" pageTitle="Specifying a Node.js Version" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 在 Azure 應用程式中指定 Node.js 版本
 
@@ -49,7 +49,7 @@ Azure 目前提供 Node.js 0.6.17、0.6.20 和 0.8.4 版。除非另有指定，
 
     這將顯示當您瀏覽網站時會使用的 Node.js 版本。
 
-2.  建立新網站並記下網站的名稱。例如，以下使用 [Azure 命令列工具][]建立新的 Azure 網站 (名稱為 **mywebsite**)，然後編輯該網站的 Git 存放庫。
+2.  建立新網站並記下網站的名稱。例如，以下使用 [Azure 命令列工具][Azure 命令列工具]建立新的 Azure 網站 (名稱為 **mywebsite**)，然後編輯該網站的 Git 存放庫。
 
         azure site create mywebsite --git
 
@@ -77,7 +77,7 @@ Azure 目前提供 Node.js 0.6.17、0.6.20 和 0.8.4 版。除非另有指定，
 
 ## 後續步驟
 
-您已了解如何指定應用程式使用的 Node.js 版本，現在請了解如何[使用模組][]、[建置並部署 Node.js 網站][]和[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具][Azure 命令列工具]。
+您已了解如何指定應用程式使用的 Node.js 版本，現在請了解如何[使用模組][使用模組]、[建置並部署 Node.js 網站][建置並部署 Node.js 網站]和[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具][Azure 命令列工具]。
 
   [Azure 命令列工具]: /zh-TW/documentation/articles/xplat-cli/
   [使用模組]: /zh-TW/documentation/articles/nodejs-use-node-modules-azure-apps/

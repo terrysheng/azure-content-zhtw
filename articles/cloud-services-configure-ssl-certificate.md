@@ -1,4 +1,4 @@
-<properties urlDisplayName="Enable SSL" pageTitle="設定雲端服務的 SSL - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="了解如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。" metaCanonical="" services="cloud-services" documentationCenter=".NET" title="在 Azure 設定應用程式的 SSL" authors="timlt" solutions="" manager="timlt" editor="mollybos" />
+<properties linkid="dev-net-commons-tasks-enable-ssl" urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="timlt" solutions="" manager="timlt" editor="mollybos" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
@@ -40,10 +40,7 @@
 
 您的應用程式必須已設定為使用憑證，而且您必須新增 HTTPS 端點。因此，您需要更新服務定義檔與服務組態檔。
 
-1.  在開發環境中，開啟服務定義檔
-    (CSDEF)，在 **WebRole** 區段內加入 **Certificates**
-    區段，並包括下列憑證相關
-    資訊：
+1.  在開發環境中，開啟服務定義檔(CSDEF)，在 **WebRole** 區段內加入 **Certificates** 區段，並包括下列憑證相關資訊：
 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
@@ -57,8 +54,7 @@
 
     **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。我們已選擇將憑證儲存在 CA (憑證授權單位) 存放區中，但是您也可以選擇其他選項。如需詳細資訊，請參閱[如何使憑證與服務產生關聯][如何使憑證與服務產生關聯] (英文)。
 
-2.  在服務定義檔中，於 **Endpoints** 區段內
-    加入 **InputEndpoint** 元素，以啟用 HTTPS：
+2.  在服務定義檔中，於 **Endpoints** 區段內加入 **InputEndpoint** 元素，以啟用 HTTPS：
 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
@@ -69,9 +65,7 @@
         ...
         </WebRole>
 
-3.  在服務定義檔中，於 **Sites** 區段內
-    加入 **Binding** 元素。如此會加入 HTTPS 繫結，以將端點
-    對應至您的站台：
+3.  在服務定義檔中，於 **Sites** 區段內加入 **Binding** 元素。如此會加入 HTTPS 繫結，以將端點對應至您的站台：
 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
@@ -85,12 +79,9 @@
         ...
         </WebRole>
 
-    如此即已對服務定義檔完成所有必要變更，
-    但是您仍然需要將憑證資訊新增至服務組態檔。
+    如此即已對服務定義檔完成所有必要變更，但是您仍然需要將憑證資訊加入服務組態檔。
 
-4.  在服務組態檔 (CSCFG) (ServiceConfiguration.Cloud.cscfg) 中，於 **Role** 區段內
-    加入 **Certificates** 區段，以將下面顯示的範例
-    指紋值取代為憑證的指紋值：
+4.  在服務組態檔 (CSCFG) (ServiceConfiguration.Cloud.cscfg) 中，於 **Role** 區段內加入 **Certificates** 區段，以將下面顯示的範例指紋值取代為憑證的指紋值：
 
         <Role name="Deployment">
         ...
@@ -104,17 +95,11 @@
 
 (上述範例針對指紋演算法的部分使用 **sha1**。請指定適當的值做為憑證的指紋演算法。)
 
-您已更新服務定義檔與服務組態檔，
-現在請封裝您的部署，以上傳至 Azure。如果
-您是使用 **cspack**，請確定未使用
-**/generateConfigurationFile** 旗標，因為如此會覆寫
-您剛插入的憑證資訊。
+您已更新服務定義檔與服務組態檔，現在請封裝您的部署，以上傳至 Azure。如果您是使用 **cspack**，請確定未使用 **/generateConfigurationFile** 旗標，因為如此會覆寫您剛插入的憑證資訊。
 
 ## <a name="step3"> </a><span class="short-header">上傳至 Azure</span>步驟 3：上傳部署套件和憑證
 
-您的部署套件已更新為使用該憑證，而且
-您已加入 HTTPS 端點。現在您可以利用管理入口網站
-將套件和憑證上傳至 Azure。
+您的部署套件已更新為使用該憑證，而且您已加入 HTTPS 端點。現在您可以利用管理入口網站將套件和憑證上傳至 Azure。
 
 1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  按一下 [新增]、按一下 [雲端服務]，然後按一下 [Custom Create]。
@@ -124,9 +109,7 @@
     ![發佈您的雲端服務][發佈您的雲端服務]
 
 5.  按 [下一步] 按鈕。
-6.  在 [加入憑證] 對話方塊中，輸入 SSL
-    憑證檔 .pfx 的位置、憑證的密碼，然後按一下
-    [附加憑證]。
+6.  在 [加入憑證] 對話方塊中，輸入 SSL憑證檔 .pfx 的位置、憑證的密碼，然後按一下[附加憑證]。
 
     ![新增憑證][新增憑證]
 
@@ -138,7 +121,7 @@
 
 ## <a name="step4"> </a><span class="short-header">使用 HTTPS 連線</span>步驟 4：使用 HTTPS 連線至角色執行個體
 
-您的部署已在 Azure 啟動並在執行中，現在您可以使用 HTTPS 來與其連線。
+您的部署已在 Azure 啟動並執行，現在您可以使用 HTTPS 來與其連線。
 
 1.  在管理入口網站中，選取您的部署，然後按一下 [網站 URL] 下的連結。
 
@@ -146,10 +129,7 @@
 
 2.  在網頁瀏覽器中，將連結修改為使用 **https** 而非 **http**，然後造訪網頁。
 
-    **注意：**如果使用自我簽署憑證，則當您
-    在瀏覽器中瀏覽至與該自我簽署憑證相關聯的 HTTPS 端點時，
-    您將會看見憑證錯誤。使用
-    信任的憑證授權單位所簽署的憑證，則不會有這個問題；因此，您可以忽略該錯誤。(另一個選項為新增自我簽署憑證至使用者的受信任憑證授權單位憑證存放區。)
+    **注意：**如果使用自我簽署憑證，則當您在瀏覽器中瀏覽至與該自我簽署憑證相關聯的 HTTPS 端點時，您將會看見憑證錯誤。使用信任的憑證授權單位所簽署的憑證，則不會有這個問題；因此，您可以忽略該錯誤。(另一個選項為新增自我簽署憑證至使用者的受信任憑證授權單位憑證存放區。)
 
     ![SSL 範例網站][SSL 範例網站]
 
@@ -173,4 +153,3 @@
   [附加的憑證]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificateComplete.png
   [判定網站 URL]: ./media/cloud-services-dotnet-configure-ssl-certificate/CopyURL.png
   [SSL 範例網站]: ./media/cloud-services-dotnet-configure-ssl-certificate/SSLCloudService.png
-  [如何在 HTTPS 端點上設定 SSL 憑證 (英文)]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff795779.aspx

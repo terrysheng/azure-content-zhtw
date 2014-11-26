@@ -235,9 +235,9 @@
 
     了解如何推播通知給特定的經驗證使用者。在僅傳送通知給特定使用者的情況下，這是很好的解決方案。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [通知中心指引]: http://msdn.microsoft.com/zh-TW/library/jj927170.aspx
   [在應用程式中新增類別選項]: #adding-categories
@@ -247,7 +247,6 @@
   [開始使用通知中心]: /zh-TW/manage/services/notification-hubs/get-started-notification-hubs-ios/
   [0]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
   [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios3.png
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
   [使用通知中心廣播已當地語系化的即時新聞]: /zh-TW/manage/services/notification-hubs/breaking-news-localized-dotnet/
   [使用通知中心來通知使用者]: /zh-TW/manage/services/notification-hubs/notify-users/

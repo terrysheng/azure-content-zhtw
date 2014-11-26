@@ -46,9 +46,9 @@
 
 [WACOM.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [安裝儲存體用戶端程式庫]: #install-storage-client
   [更新用戶端應用程式以擷取影像]: #add-select-images
@@ -59,6 +59,4 @@
   [Windows Phone SDK 8.0]: http://www.microsoft.com/zh-tw/download/details.aspx?id=35471
   [Azure 儲存體帳戶]: /zh-tw/documentation/articles/storage-create-storage-account/
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started
-  [mobile-services-dotnet-backend-configure-blob-storage]: ../includes/mobile-services-dotnet-backend-configure-blob-storage.md
   [0]: ./media/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [mobile-services-windows-phone-upload-to-blob-storage]: ../includes/mobile-services-windows-phone-upload-to-blob-storage.md

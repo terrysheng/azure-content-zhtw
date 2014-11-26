@@ -1,10 +1,10 @@
 <properties linkid="manage-services-notification-hubs-notify-users-xplat-aspnet" urlDisplayName="Notify Users xplat aspnet" pageTitle="Send cross-platform notifications to users with Notification Hubs (ASP.NET)" metaKeywords="" description="Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms." metaCanonical="" services="notification-hubs" documentationCenter="" title="Send cross-platform notifications to users with Notification Hubs" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 使用通知中心向使用者傳送跨平台通知
 
-在上一堂教學課程[使用通知中心來通知使用者][]中，您已了解如何將通知推播至所有由特定經驗證使用者所註冊的裝置。在該教學課程中，需要用多個要求來傳送通知給每個支援的用戶端平台。通知中心可支援範本，讓您指定特定裝置接收通知的方式。這使得傳送跨平台通知變得更簡單。本主題示範如何運用範本，在單一要求中傳送以所有平台為目標的跨平台通知。如需這些範本的詳細資訊，請參閱 [Azure 通知中心概觀][]。
+在上一堂教學課程[使用通知中心來通知使用者][使用通知中心來通知使用者]中，您已了解如何將通知推播至所有由特定經驗證使用者所註冊的裝置。在該教學課程中，需要用多個要求來傳送通知給每個支援的用戶端平台。通知中心可支援範本，讓您指定特定裝置接收通知的方式。這使得傳送跨平台通知變得更簡單。本主題示範如何運用範本，在單一要求中傳送以所有平台為目標的跨平台通知。如需這些範本的詳細資訊，請參閱 [Azure 通知中心概觀][Azure 通知中心概觀]。
 
 <div class="dev-callout"><b>注意</b>
 <p>通知中心可以讓裝置註冊多個具有相同標籤的範本。在此情況下，當傳入的訊息符合該標籤時，就會有多個通知傳遞至裝置 (每個通知各用於一個範本)。如此一來，您就能讓相同訊息顯示在多個視覺通知中，例如以徽章形式和 Windows 市集應用程式中的快顯通知形式。</p>
@@ -72,18 +72,18 @@
 
 您已完成本教學課程，現在可參閱下列主題進一步了解通知中心和範本：
 
--   **使用通知中心傳送即時新聞 ([Windows 市集 C#][] / [iOS][Windows 市集 C#])**
+-   **使用通知中心傳送即時新聞 ([Windows 市集 C#][Windows 市集 C#] / [iOS][Windows 市集 C#])**
     示範另一個使用範本的案例
 
--   **[Azure 通知中心概觀][]**
+-   **[Azure 通知中心概觀][Azure 通知中心概觀]**
     概觀主題包含範本的詳細資訊。
 
--   **[Windows 市集的通知中心作法][]**
+-   **[Windows 市集的通知中心作法][Windows 市集的通知中心作法]**
      (英文) 包含範本運算式語言參考。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [使用通知中心來通知使用者]: /zh-TW/manage/services/notification-hubs/notify-users-aspnet
   [Azure 通知中心概觀]: http://go.microsoft.com/fwlink/p/?LinkId=317339

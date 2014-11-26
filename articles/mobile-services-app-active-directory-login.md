@@ -26,11 +26,11 @@
 
 現在，您可以在應用程式中提供用戶端識別碼和用戶端密碼值給行動服務，以使用 Azure Active Directory 進行驗證。
 
-<!-- Anchors. --> 
+ 
 
-<!-- Images. --> 
+ 
 
-<!-- URLs. -->
+
 
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-app-active-directory-login/mobile-services-live-connect-add-app.png

@@ -113,7 +113,7 @@
 
 您已準備好開始移至 [Docker 使用者指南][Docker 使用者指南]，並使用 Docker VM。如果您想要在 Azure 上快速並重複地建立 Docker VM，請參閱 [如何從 Azure 跨平台介面 (xplat-cli) 使用 Docker VM 擴充程式][如何從 Azure 跨平台介面 (xplat-cli) 使用 Docker VM 擴充程式] (英文)
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->\r\n<!--Image references-->\r\n<!--Link references-->
 
   [Docker]: https://www.docker.com/
   [Linux 容器]: http://en.wikipedia.org/wiki/LXC

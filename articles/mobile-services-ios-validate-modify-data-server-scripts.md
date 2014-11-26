@@ -117,9 +117,9 @@
 -   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何註冊和使用伺服器指令碼。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [新增字串長度驗證]: #string-length-validation
   [更新用戶端以支援驗證]: #update-client-validation

@@ -1,6 +1,6 @@
 <properties title="Interact with DocumentDB resources" pageTitle="Interact with DocumentDB resources | Azure" description="DocumentDB manages resources--uniquely identified by logical URIs--that developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # DocumentDB 資源模型和概念
 
@@ -8,7 +8,7 @@ DocumentDB 提供透過 HTTP 的簡單且開放 RESTful 程式設計模型。Doc
 
 > [AZURE.NOTE] 此外，它也提供高效率的 TCP 通訊協定，而 TCP 通訊協定在通訊模型中也是 RESTful，並且可以透過 .NET 用戶端 SDK 取得。
 
-![][]
+![][0]
 
 **資料庫帳戶的階層式資源模型**
 
@@ -110,7 +110,7 @@ DocumentDB 提供透過 HTTP 的簡單且開放 RESTful 程式設計模型。Doc
 </tbody>
 </table>
 
-請注意，除了從 Azure 入口網站佈建、設定和管理資料庫帳戶之外，您還可以使用程式設計方式，透過 [Azure DocumentDB REST API][] 以及用戶端 SDK 來建立和管理 DocumentDB 資料庫帳戶。
+請注意，除了從 Azure 入口網站佈建、設定和管理資料庫帳戶之外，您還可以使用程式設計方式，透過 [Azure DocumentDB REST API][Azure DocumentDB REST API] 以及用戶端 SDK 來建立和管理 DocumentDB 資料庫帳戶。
 
  
 
@@ -126,7 +126,7 @@ DocumentDB 中的資料庫是一或多個集合和使用者的邏輯容器。您
 
 DocumentDB 資料庫同時也是使用者的容器。使用者因此是一組權限的邏輯命名空間，可針對集合、文件和附件提供微調的授權/存取權。
 
-與 DocumentDB 資源模型中的其他資源相同，使用 [Azure DocumentDB REST API][] 或任何用戶端 SDK，即可輕鬆地建立、取代、刪除、讀取或列舉資料庫。DocumentDB 保證讀取或查詢資料庫資源之中繼資料的強式一致性。刪除資料庫會自動確定您無法存取其內所含的任何集合或使用者。即使 DocumentDB 在背景回收佈建為所刪除資料庫一部分的儲存體和輸送量，但是針對所刪除資料庫佈建的儲存體和輸送量還是立即可用。
+與 DocumentDB 資源模型中的其他資源相同，使用 [Azure DocumentDB REST API][Azure DocumentDB REST API] 或任何用戶端 SDK，即可輕鬆地建立、取代、刪除、讀取或列舉資料庫。DocumentDB 保證讀取或查詢資料庫資源之中繼資料的強式一致性。刪除資料庫會自動確定您無法存取其內所含的任何集合或使用者。即使 DocumentDB 在背景回收佈建為所刪除資料庫一部分的儲存體和輸送量，但是針對所刪除資料庫佈建的儲存體和輸送量還是立即可用。
 
 # 集合
 
@@ -158,7 +158,7 @@ DocumentDB 是真正無結構描述資料庫系統。它不會假設或不需要
 2.  關聯式作業 (包括複合、篩選、投射、彙總和自我聯結) 的子集。
 3.  使用 (1) 和 (2) 撰寫的純 JavaScript 型 UDF
 
-DocumentDB 查詢模型嘗試打破功能、效率和簡化之間的平衡。DocumentDB 的資料庫引擎本質上會編譯和執行 SQL 查詢陳述式。您可以使用 [Azure DocumentDB REST API][] 或任何用戶端 SDK 來查詢集合。.NET SDK 隨附於 LINQ 提供者。在未來的版本中，將會提供原生底線對應，而從用戶端 JavaScript SDK 以及使用伺服器端預存程序和觸發程序都可以使用它。
+DocumentDB 查詢模型嘗試打破功能、效率和簡化之間的平衡。DocumentDB 的資料庫引擎本質上會編譯和執行 SQL 查詢陳述式。您可以使用 [Azure DocumentDB REST API][Azure DocumentDB REST API] 或任何用戶端 SDK 來查詢集合。.NET SDK 隨附於 LINQ 提供者。在未來的版本中，將會提供原生底線對應，而從用戶端 JavaScript SDK 以及使用伺服器端預存程序和觸發程序都可以使用它。
 
 ## 多文件交易
 
@@ -220,7 +220,7 @@ DocumentDB 查詢模型嘗試打破功能、效率和簡化之間的平衡。Doc
 
 預存程序和觸發程序會透過定義良好的物件模型 (可公開目前集合內容)，以與集合以及集合內的文件互動。
 
-使用 [Azure DocumentDB REST API][] 或任何用戶端 SDK，即可輕鬆地建立、刪除、讀取或列舉 DocumentDB 中的文件。DocumentDB 一律提供讀取或查詢集合之中繼資料的強式一致性。刪除集合會自動確定您無法存取其內所含的任何文件、附件、預存程序、觸發程序和 UDF。即使 DocumentDB 在背景回收佈建為所刪除集合一部分的儲存體和輸送量，但是針對所刪除集合佈建的儲存體和輸送量還是立即可用。
+使用 [Azure DocumentDB REST API][Azure DocumentDB REST API] 或任何用戶端 SDK，即可輕鬆地建立、刪除、讀取或列舉 DocumentDB 中的文件。DocumentDB 一律提供讀取或查詢集合之中繼資料的強式一致性。刪除集合會自動確定您無法存取其內所含的任何文件、附件、預存程序、觸發程序和 UDF。即使 DocumentDB 在背景回收佈建為所刪除集合一部分的儲存體和輸送量，但是針對所刪除集合佈建的儲存體和輸送量還是立即可用。
 
  
 
@@ -421,9 +421,9 @@ DocumentDB 中的使用者代表用於分組權限的邏輯命名空間。Docume
 
 與所有其他資源相同，使用 REST API 或任何用戶端 SDK，即可輕鬆地在 DocumentDB 中建立、取代、刪除、讀取或列舉權限。DocumentDB 一律提供讀取或查詢權限之中繼資料的強式一致性。
 
-  []: ./media/documentdb-resources/resources1.png
+  [0]: ./media/documentdb-resources/resources1.png
   [1]: ./media/documentdb-resources/resources2.png
-  []: http://portal.azure.com/
+  [0]: http://portal.azure.com/
   [Azure DocumentDB REST API]: http://go.microsoft.com/fwlink/p/?LinkID=402413
   [2]: ./media/documentdb-resources/resources3.png
   [3]: ./media/documentdb-resources/resources4.png

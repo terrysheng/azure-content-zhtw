@@ -3,7 +3,7 @@
 # 開始使用行動服務中的驗證
 
  
-<div  class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows 市集 C#" class="current">Windows 市集 C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
+<div  class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows 市集 C#" class="current">Windows 市集 C#</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-users-js" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone">Windows Phone</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-users-android" title="Android">Android</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-users-html" title="HTML">HTML</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
 
  
 <div  class="dev-onpage-video-clear clearfix">
@@ -21,9 +21,9 @@
 2.  [限制只有經驗證的使用者具有資料表的權限](#permissions)
 3.  [新增驗證至應用程式](#add-authentication)
 
-本教學課程以行動服務快速入門為基礎。您也必須先完成[開始使用行動服務](/en-us/develop/mobile/tutorials/get-started)教學課程。
+本教學課程以行動服務快速入門為基礎。您也必須先完成[開始使用行動服務](/zh-tw/develop/mobile/tutorials/get-started)教學課程。
 <div class="dev-callout"><b>注意</b>
-	<p>本教學課程示範行動服務所提供以各種身分識別提供者來驗證使用者的基本方法。此方法設定起來很簡單，而且可支援多個提供者。不過，此方法也需要使用者在每次啟用應用程式時進行登入。若要改用 Live Connect 在您的 Windows 市集應用程式中提供單一登入體驗，請參閱<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet">使用 Live Connect 在 Windows 市集應用程式提供單一登入功能</a>。</p>
+	<p>本教學課程示範行動服務所提供以各種身分識別提供者來驗證使用者的基本方法。此方法設定起來很簡單，而且可支援多個提供者。不過，此方法也需要使用者在每次啟用應用程式時進行登入。若要改用 Live Connect 在您的 Windows 市集應用程式中提供單一登入體驗，請參閱<a href="/zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet">使用 Live Connect 在 Windows 市集應用程式提供單一登入功能</a>。</p>
 </div>
 
  <h2><a name="register"></a><span  class="short-header">註冊應用程式</span>註冊應用程式進行驗證，並設定行動服務</h2>
@@ -43,10 +43,10 @@
 
 3.  從以下清單中選擇一個支援的身分識別提供者，並依照步驟向該提供者註冊您的應用程式：
 
-	* [Microsoft  帳戶](/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication/)
-	* [Facebook  登入](/en-us/develop/mobile/how-to-guides/register-for-facebook-authentication/)
-	* [Twitter  登入](/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/)
-	* [Google  登入](/en-us/develop/mobile/how-to-guides/register-for-google-authentication/)
+	* [Microsoft  帳戶](/zh-tw/develop/mobile/how-to-guides/register-for-microsoft-authentication/)
+	* [Facebook  登入](/zh-tw/develop/mobile/how-to-guides/register-for-facebook-authentication/)
+	* [Twitter  登入](/zh-tw/develop/mobile/how-to-guides/register-for-twitter-authentication/)
+	* [Google  登入](/zh-tw/develop/mobile/how-to-guides/register-for-google-authentication/)
 	* [Azure Active  Directory](/zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
   
   	請務必記下提供者所產生的用戶端身分識別與密鑰值。
@@ -59,7 +59,7 @@
     
 	![][13]
 
-2.  (選用) 完成[註冊 Windows 市集應用程式套件以採用 Microsoft 驗證](/en-us/develop/mobile/how-to-guides/register-windows-store-app-package)中的步驟。
+2.  (選用) 完成[註冊 Windows 市集應用程式套件以採用 Microsoft 驗證](/zh-tw/develop/mobile/how-to-guides/register-windows-store-app-package)中的步驟。
 <div class="dev-callout"><b>注意</b>
 <p>這個步驟僅適用於「Microsoft 帳戶」登入提供者，所以是選用步驟。當您向行動服務註冊您的 Windows 市集應用程式套件資訊時，用戶端能夠重複使用「Microsoft 帳戶」登入認證來達到單一登入體驗。若您沒有這麼做，您的「Microsoft 帳戶」登入使用者將在每次呼叫登入方法時都看到登入提示。若您打算使用「Microsoft 帳戶」身分識別提供者，請完成這個步驟。</p>
 </div>
@@ -79,7 +79,7 @@
     
 	![][15]
 
-3.  在 Visual Studio 2012 Express for Windows 8 中，開啟您在完成[開始使用行動服務](/en-us/develop/mobile/tutorials/get-started)教學課程時所建立的專案。
+3.  在 Visual Studio 2012 Express for Windows 8 中，開啟您在完成[開始使用行動服務](/zh-tw/develop/mobile/tutorials/get-started)教學課程時所建立的專案。
 
 4.  按 F5 鍵執行此快速入門型應用程式；確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。
     
@@ -141,15 +141,15 @@
 
 ## <a name="next-steps"> </a>後續步驟
 
-在下一個教學課程[以指令碼授權使用者](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet)中，您將使用由行動服務根據經驗證的使用者而提供的使用者 ID 值，來篩選行動服務傳回的資料。如需深入了解如何使用行動服務與 .NET，請參閱[行動服務 .NET 作法概念參考](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)。
+在下一個教學課程[以指令碼授權使用者](/zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-dotnet)中，您將使用由行動服務根據經驗證的使用者而提供的使用者 ID 值，來篩選行動服務傳回的資料。如需深入了解如何使用行動服務與 .NET，請參閱[行動服務 .NET 作法概念參考](/zh-tw/develop/mobile/how-to-guides/work-with-net-client-library)。
 
-<!-- Anchors. -->
+
 [註冊應用程式進行驗證，並設定行動服務]: #register
 [限制只有經驗證的使用者具有資料表的權限]: #permissions
 [新增驗證至應用程式]: #add-authentication
 [後續步驟]:#next-steps
 
-<!-- Images. -->
+
 
 
 
@@ -168,18 +168,18 @@
 [15]: ./media/mobile-services-dotnet-get-started-users/mobile-portal-change-table-perms.png
 
 
-<!-- URLs. -->
+
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Single sign-on for Windows Store apps by using Live Connect]: ./mobile-services-single-sign-on-win8-dotnet.md
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js
+[Get started with Mobile Services]: /zh-tw/develop/mobile/tutorials/get-started
+[Get started with data]: /zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet
+[Authorize users with scripts]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[JavaScript and HTML]: /zh-tw/develop/mobile/tutorials/get-started-with-users-js
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
-[Register your Windows Store app package for Microsoft authentication]: /en-us/develop/mobile/how-to-guides/register-windows-store-app-package
+[Mobile Services .NET How-to Conceptual Reference]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
+[Register your Windows Store app package for Microsoft authentication]: /zh-tw/develop/mobile/how-to-guides/register-windows-store-app-package

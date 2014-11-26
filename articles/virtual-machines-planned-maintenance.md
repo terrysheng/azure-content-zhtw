@@ -1,4 +1,4 @@
-<properties title="Azure 虛擬機器的計劃性維護" pageTitle="Azure 虛擬機器的計劃性維護" description="了解什麼是 Azure 計劃性維護，以及它會如何影響在 Azure 中執行的虛擬機器。" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kenazk" videoId="" scriptId="" manager="timlt" />
+<properties title="Planned maintenance for Azure virtual machines" pageTitle="Planned maintenance for Azure virtual machines" description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kenazk" videoId="" scriptId="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk" />
 
@@ -47,7 +47,7 @@ Microsoft Azure 保證計劃性維護事件不會造成兩個不同 UD 的虛擬
 
 ![][1]
 
-<!--Anchors--> <!--Link references-->
+<!--Anchors-->\r\n<!--Link references-->
 
   [了解計劃性與非計劃性維護]: ../virtual-machines-manage-availability/#Understand-planned-versus-unplanned-maintenance/
   [虛擬機器組態]: #virtual-machine-configurations

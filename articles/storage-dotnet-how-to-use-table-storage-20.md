@@ -479,8 +479,8 @@ Azure Storage Client Library for .NET 可支援使用儲存體連接字串，來
 
 *  請參閱[在 Azure 中儲存和存取資料][9]，深入了解可使用 Azure 儲存體執行的更多進階工作。
 *  如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
-  *  使用 [Blog 儲存體](/en-us/develop/net/how-to-guides/blob-storage/)儲存非結構化資料。
-  *  使用 [SQL Database](/en-us/develop/net/how-to-guides/sql-database/) 儲存關聯式資料。
+  *  使用 [Blog 儲存體](/zh-tw/develop/net/how-to-guides/blob-storage/)儲存非結構化資料。
+  *  使用 [SQL Database](/zh-tw/develop/net/how-to-guides/sql-database/) 儲存關聯式資料。
   
 
 

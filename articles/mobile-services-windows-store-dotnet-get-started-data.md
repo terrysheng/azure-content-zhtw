@@ -129,11 +129,10 @@
 -   [行動服務 .NET 作法概念參考資料][行動服務 .NET 作法概念參考資料]
     深入了解如何使用搭配 .NET 的行動服務。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
+
   [通用 Windows 應用程式版本]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data
   [下載 Windows 市集應用程式專案]: #download-app
   [從 Visual Studio 建立行動服務]: #create-service
@@ -143,11 +142,8 @@
   [Azure 免費試用]: http://azure.microsoft.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-dotnet-get-started-data%2F
   [GetStartedWithMobileServices 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=328660
   [0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-quickstart-startup.png
-  [mobile-services-create-new-service-vs2013]: ../includes/mobile-services-create-new-service-vs2013.md
   [MobileServiceClient 類別]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-  [mobile-services-create-new-table-vs2013]: ../includes/mobile-services-create-new-table-vs2013.md
   [動態結構描述]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193175.aspx
-  [mobile-services-windows-dotnet-update-data-app]: ../includes/mobile-services-windows-dotnet-update-data-app.md
   [管理入口網站]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-todoitem-data-browse.png
   [使用指令檔驗證與修改資料]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/

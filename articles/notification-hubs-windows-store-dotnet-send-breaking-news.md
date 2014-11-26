@@ -201,9 +201,9 @@
 
     了解如何推播通知給特定的經驗證使用者。在僅傳送通知給特定使用者的情況下，這是很好的解決方案。
 
-<!-- Anchors. --> 
+ 
 
-<!-- Images. --> 
+ 
 
 <!-- URLs.-->
 
@@ -215,7 +215,6 @@
   [從後端傳送通知]: #send
   [執行應用程式並產生通知]: #test-app
   [開始使用通知中心]: /zh-TW/manage/services/notification-hubs/getting-started-windows-dotnet/
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [0]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
   [2]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
   [3]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png

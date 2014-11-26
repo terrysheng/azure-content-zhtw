@@ -192,9 +192,9 @@
 -   [行動服務 .NET 作法概念參考資料][行動服務 .NET 作法概念參考資料]
     深入了解如何使用搭配 .NET 的行動服務。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/
   [建立 Registrations 資料表]: #create-table
@@ -204,9 +204,7 @@
   [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
   [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-wp8
   [開始使用通知中心]: /zh-tw/manage/services/notification-hubs/getting-started-windows-dotnet/
-  [mobile-services-create-new-push-table]: ../includes/mobile-services-create-new-push-table.md
   [0]: ./media/mobile-services-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
-  [mobile-services-update-registrations-script]: ../includes/mobile-services-update-registrations-script.md
   [1]: ./media/mobile-services-windows-phone-get-started-push/mobile-insert-script-push2.png
   [2]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push1-wp8.png
   [3]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push2-wp8.png

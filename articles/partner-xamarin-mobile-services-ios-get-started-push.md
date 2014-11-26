@@ -8,4 +8,3 @@
 
 > [WACOM.NOTE]我們對行動服務的推播通知做了些許變更。請密切注意 Xamarin iOS 的最新教學課程！
 
-  [mobile-services-selector-get-started-push-xamarin]: ../includes/mobile-services-selector-get-started-push-xamarin.md

@@ -1,4 +1,4 @@
-<properties urlDisplayName="Learn HDInsight" pageTitle="HDInsight 的學習地圖 | Azure" metaKeywords="" description="取得建議的學習資源流程以完整了解 HDInsight" metaCanonical="" services="hdinsight" documentationCenter="" title="HDInsight 的學習地圖" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-learning-map" urlDisplayName="Learn HDInsight" pageTitle="Learning Map for HDInsight | Azure" metaKeywords="" description="Get a suggested flow of resources to go through for learning all you need to know about HDInsight" metaCanonical="" services="hdinsight" documentationCenter="" title="Learning map for HDInsight" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/25/2014" ms.author="nitinme" />
 
@@ -9,11 +9,11 @@ HDInsight 提供您在 Azure 上使用「巨量資料」的能力，讓您在雲
 <object type="image/svg+xml" data="https://mysstorage.blob.core.windows.net/picture/HDI.Content.Flow.svg" width="100%" height="100%">
 </object>
 
-<!--center><iframe width="780" height="1407" src="https://mysstorage.blob.core.windows.net/picture/HDI.Content.Flow.svg" frameborder="0"></iframe></center-->
+<!--center><iframe width="780" height="1407" src="https://mysstorage.blob.core.windows.net/picture/HDI.Content.Flow.svg" frameborder="0"></iframe></center--> 
 
 <!--center><img src = "https://mysstorage.blob.core.windows.net/picture/HDI.ContentFlow.png" title = "" usemap="#imagemap">
 	<map name="imagemap">
-	  <area shape="rect" alt="What is Hadoop on HDInsight" title="What is Hadoop on HDInsight" coords="591,70,717,99" href="http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hadoop-introduction/" target="_blank" />
+	  <area shape="rect" alt="What is Hadoop on HDInsight" title="What is Hadoop on HDInsight" coords="591,70,717,99" href="http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-introduction/" target="_blank" />
 	  <area shape="rect" alt="What is HBase on HDInsight" title="What is HBase on HDInsight" coords="591,107,718,136" href="http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hbase-overview/" target="_blank" />
 	  <area shape="rect" alt="How is the data stored in HDInsight" title="How is the data stored in HDInsight" coords="591,144,717,174" href="http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-use-blob-storage/" target="_blank" />
 	  <area shape="rect" alt="Get started with HDInsight" title="Get started with HDInsight" coords="591,204,717,233" href="http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-get-started/" target="_blank" />
@@ -59,7 +59,7 @@ HDInsight 提供您在 Azure 上使用「巨量資料」的能力，讓您在雲
 </img></center-->
 
 
-[hadoop-hdinsight-intro]: ../hdinsight-hadoop-introduction/
+[hadoop-hdinsight-intro]: ../hdinsight-introduction/
 
 [azure-purchase-options]: http://azure.microsoft.com/zh-tw/pricing/purchase-options/
 

@@ -46,15 +46,15 @@
 * [行動服務 Android 作法概念性參考]
   <br/>深入了解如何搭配使用行動服務與 Android。
 
-<!-- Anchors. -->
+
 [註冊伺服器指令碼]: #register-scripts
 [後續步驟]：#next-steps
 
-<!-- Images. -->
+
 
 [3]: ./media/mobile-services-dotnet-backend-android-authorize-users-in-scripts/mobile-quickstart-startup-android.png
 
-<!-- URLs. -->
+
 [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started
 [開始使用資料]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
 [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-users

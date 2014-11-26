@@ -49,7 +49,7 @@ Web 主控方案代表可跨網站共用的一組特性和功能。Web 主控方
 
 若要開始使用 Azure，請參閱 [Microsoft Azure 免費試用][Microsoft Azure 免費試用]。
 
-<!-- Images. -->
+
 
   [請移至此處]: http://go.microsoft.com/fwlink/?LinkID=394421
   [深入瞭解 Web 主控方案的管理]: http://go.microsoft.com/fwlink/?LinkID=394411

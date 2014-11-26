@@ -175,11 +175,10 @@
 -   [開始使用推送通知][開始使用推送通知]
     了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
+
   [下載 Windows Phone 8 應用程式專案]: #download-app
   [建立行動服務]: #create-service
   [新增用於儲存的資料表]: #add-table
@@ -190,8 +189,6 @@
   [GetStartedWithData 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=271146
   [Windows Phone 市集應用程式版本]: http://go.microsoft.com/fwlink/p/?LinkId=397372
   [0]: ./media/mobile-services-windows-phone-get-started-data/mobile-quickstart-startup-wp8.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
   [1]: ./media/mobile-services-windows-phone-get-started-data/mobile-add-nuget-package-wp.png
   [2]: ./media/mobile-services-windows-phone-get-started-data/mobile-dashboard-tab.png
   [管理入口網站]: https://manage.windowsazure.com/

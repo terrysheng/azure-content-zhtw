@@ -194,8 +194,8 @@
     深入了解如何註冊和使用伺服器指令碼。
 
 <!-- anchors --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+
 
   [上一個推播通知教學課程]: /zh-tw/develop/mobile/tutorials/get-started-with-push-wp8
   [建立 Channel 資料表]: #create-table

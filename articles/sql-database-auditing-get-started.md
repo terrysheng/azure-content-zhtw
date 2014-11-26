@@ -1,4 +1,4 @@
-<properties title="開始使用 SQL Database 稽核" pageTitle="開始使用 SQL Database 稽核 | Azure" description="開始使用 SQL Database 稽核" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId="" manager="jeffreyg" />
+<properties title="Get started with SQL database auditing" pageTitle="Get started with SQL database auditing | Azure" description="Get started with SQL database auditing" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId=""  />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg" />
 
@@ -45,28 +45,29 @@ Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azu
 ## <span id="subheading-2"></span></a>設定資料庫的稽核
 
 1.  [註冊稽核預覽版][註冊預覽版]。
-2.  啟動 [Azure 預覽入口網站][Azure 預覽入口網站]，位址是 https://portal.azure.com。
-3.  按一下您要稽核的資料庫，然後按一下 [Auditing Preview]，以啟用稽核預覽版並啟動稽核組態分頁。
+2.  另請務必[註冊新服務層的預覽版][註冊新服務層的預覽版]，並建立 Basic、Standard 或 Premium 資料庫。
+3.  啟動 [Azure 預覽入口網站][Azure 預覽入口網站]，位址是 <https://portal.azure.com>。
+4.  按一下您要稽核的資料庫，然後按一下 **[Auditing Preview]**，以啟用稽核預覽版並啟動稽核組態分頁。
 
     ![][0]
 
-4.  在稽核組態分頁中，選取將儲存記錄的 Azure 儲存體帳戶。**秘訣：** 在所有稽核的資料庫中使用相同的儲存體帳戶，以充分利用預先設定的報告範本。
+5.  在稽核組態分頁中，選取將儲存記錄的 Azure 儲存體帳戶。**秘訣：** 在所有稽核的資料庫中使用相同的儲存體帳戶，以充分利用預先設定的報告範本。
 
     ![][1]
 
-5.  在 [Auditing Options] 下，按一下 [全部] 以記錄所有事件，或選擇個別事件類型。
+6.  在 **[Auditing Options]** 下，按一下 [全部] 以記錄所有事件，或選擇個別事件類型。
 
     ![][2]
 
-6.  如果您要將這些設定套用到伺服器上的所有未來資料庫以及尚未設定稽核的資料庫，請勾選 [Save this Configuration as Default]。您稍後可以依照下列相同步驟，來為每個資料庫覆寫設定。
+7.  如果您要將這些設定套用到伺服器上的所有未來資料庫以及尚未設定稽核的資料庫，請勾選 **[Save this Configuration as Default]**。您稍後可以依照下列相同步驟，來為每個資料庫覆寫設定。
 
     ![][3]
 
-7.  按一下 [Show database connection strings]，然後為您的應用程式複製或記下適當的已啟用安全性連接字串。在任何您想稽核其活動的用戶端應用程式中使用此字串。
+8.  按一下 **[Show database connection strings]**，然後為您的應用程式複製或記下適當的已啟用安全性連接字串。在任何您想稽核其活動的用戶端應用程式中使用此字串。
 
     ![][4]
 
-8.  按一下 [確定]。
+9.  按一下 **[確定]**。
 
 ## <span id="subheading-3"></span>分析稽核記錄和報告</a>
 
@@ -80,14 +81,14 @@ Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azu
 
 ![][5]
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
-
+<!--Anchors-->
   [註冊預覽版]: http://go.microsoft.com/fwlink/?LinkId=404163
   [Azure 信任中心]: http://azure.microsoft.com/zh-tw/support/trust-center/compliance/
   [Azure SQL Database 稽核基本概念]: #subheading-1
   [設定資料庫的稽核]: #subheading-2
   [分析稽核記錄和報告]: #subheading-3
-  [稽核記錄格式參考 (doc 檔案下載)]: http://go.microsoft.com/fwlink/?LinkId=506733
+<!--Image references-->
+  [註冊新服務層的預覽版]: https://account.windowsazure.com/PreviewFeatures?fid=premiumdb
   [Azure 預覽入口網站]: https://portal.azure.com
   [0]: ./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png
   [1]: ./media/sql-database-auditing-get-started/sql-database-get-started-storageaccount.png
@@ -97,5 +98,5 @@ Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azu
   [Azure 儲存體總管]: http://azurestorageexplorer.codeplex.com/
   [可下載的 Excel 試算表]: http://go.microsoft.com/fwlink/?LinkId=403540
   [此處]: http://www.microsoft.com/zh-tw/download/details.aspx?id=39379
-  [作法 (doc 下載)]: http://go.microsoft.com/fwlink/?LinkId=506731
   [5]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png
+<!--Link references-->

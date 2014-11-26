@@ -51,15 +51,12 @@
 
 [WACOM.INCLUDE [mobile-services-android-test-push-users](../includes/mobile-services-android-test-push-users.md)]
 
-<!-- Anchors. --> 
+ 
 
-<!-- URLs. -->
+
 
   [推播通知]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
   [將服務更新為需要驗證才能註冊]: #register
   [將應用程式更新為註冊之前需要登入]: #update-app
   [測試應用程式]: #test
   [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-  [mobile-services-dotnet-backend-push-notifications-app-users]: ../includes/mobile-services-dotnet-backend-push-notifications-app-users.md
-  [mobile-services-android-push-notifications-app-users]: ../includes/mobile-services-android-push-notifications-app-users.md
-  [mobile-services-android-test-push-users]: ../includes/mobile-services-android-test-push-users.md

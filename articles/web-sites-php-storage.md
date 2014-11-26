@@ -417,7 +417,6 @@ Tasklist 應用程式首頁會列出所有現有工作，並允許插入新的�
 
   [PHP]: http://www.php.net/manual/en/install.php
   [Azure PHP web site]: ./media/web-sites-php-storage/ws-storage-app.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [安裝 Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
   [composer.phar]: http://getcomposer.org/composer.phar
   []: http://msdn.microsoft.com/zh-TW/library/windowsazure/dd179438.aspx

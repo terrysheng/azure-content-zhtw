@@ -96,11 +96,9 @@
 
     成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
 
-<!-- Anchors. -->  
+  
   [註冊您的應用程式以驗證與設定行動服務]: #register
   [對通過驗證的使用者限制資料表權限]: #permissions
   [將驗證新增至應用程式]: #add-authentication
-<!-- URLs. -->
+
   [開始使用行動服務]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md

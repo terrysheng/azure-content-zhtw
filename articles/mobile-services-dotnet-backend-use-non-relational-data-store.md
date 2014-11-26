@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-use-non-relational-data-store" urlDisplayName="Build a Service Using a Non-Relational Data Store" pageTitle="Build a Service Using a Non-Relational Data Store - Azure Mobile Services" metaKeywords="" description="Learn how to use a non-relational data store such as MongoDB or Azure Table Storage with your .NET based mobile service" metaCanonical="" services="" documentationCenter="Mobile" title="Build a Service Using a Non-Relational Data Store" authors="yavorg, mahender" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg, mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg, mahender" />
 
 # 使用 .NET 後端以 MongoDB 作為資料存放區來建置服務
 
@@ -20,7 +20,7 @@
 
 2.  選取 [MongoLab] 附加元件，然後導覽精靈以註冊帳戶。如需 MongoLab 的詳細資訊，請參閱 [MongoLab 附加元件頁面][MongoLab 附加元件頁面]。
 
-    ![][]
+    ![][0]
 
 3.  帳戶設定完成後，請選取 [連線資訊]，然後複製連線字串。
 
@@ -85,7 +85,7 @@
 
 3.  建立新項目。應用程式應會照原本的方式運作，差別在於，現在您的資料將會送到非關聯式存放區。
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+  
 
   [建立非關聯式存放區]: #create-store
   [修改資料和控制器]: #modify-service
@@ -94,5 +94,5 @@
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [MongoLab 附加元件頁面]: /zh-tw/gallery/store/mongolab/mongolab
-  []: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/create-mongo-lab.png
+  [0]: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/create-mongo-lab.png
   [1]: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/mongo-connection-string.png

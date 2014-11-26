@@ -108,23 +108,21 @@
 -   [開始使用推播通知][開始使用推播通知]
     了解如何將極為基本的推播通知傳送到應用程式。
 
-<!-- Anchors. --> 
+ 
 
 
-<!-- URLs. -->
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
+
 
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-android-get-started-data/
   [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-android-get-started-users/
   [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
 
 
-<!-- Images. --> 
+ 
 
   [0]: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
   [Android Developer Tools]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png
   [2]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android.png
   [3]: ./media/mobile-services-android-get-started/mobile-services-import-android-workspace.png

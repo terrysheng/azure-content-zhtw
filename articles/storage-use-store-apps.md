@@ -72,6 +72,6 @@
   [適用於 Windows 市集應用程式的 WCF 資料服務工具]: http://www.microsoft.com/zh-tw/download/details.aspx?id=30714
   [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
   [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
-  [async 關鍵字]: http://msdn.microsoft.com/en-US/library/vstudio/hh156513.aspx
+  [async 關鍵字]: http://msdn.microsoft.com/zh-tw/library/vstudio/hh156513.aspx
   [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
   [使用對話方塊管理 NuGet 套件]: http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog

@@ -1,8 +1,10 @@
-<properties urlDisplayName="How to scale" pageTitle="如何調整雲端服務 - Azure" metaKeywords="Azure link resource, scaling cloud service" description="了解如何在 Azure 中調整雲端服務和連結的資源。" metaCanonical="" services="cloud-services" documentationCenter="" title="如何調整應用程式" authors="davidmu" solutions="" manager="timlt" editor="" />
+<properties linkid="manage-services-how-to-scale-a-cloud-service" urlDisplayName="How to scale" pageTitle="How to scale a cloud service - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Learn how to scale a cloud service and linked resources in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="jeffreyg" editor="mattshel" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu" />
 
 # 如何調整應用程式
+
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 在 Azure 管理入口網站的 [調整] 頁面上，您可以手動調整應用程式，也可以設定參數來自動調整應用程式。您可以調整執行 Web 角色、背景工作角色或虛擬機器的應用程式。若要調整執行 Web 角色或背景工作角色執行個體的應用程式，您可以新增或移除角色執行個體來容納工作負載。
 

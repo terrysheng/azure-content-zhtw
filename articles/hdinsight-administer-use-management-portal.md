@@ -1,4 +1,4 @@
-<properties urlDisplayName="Administration" pageTitle="使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集 | Azure" metaKeywords="" description="了解如何管理 HDInsight 服務。建立 HDInsight 叢集、開啟互動式 JavaScript 主控台，以及開啟 Hadoop 命令主控台。" metaCanonical="" services="hdinsight" documentationCenter="" title="使用 Azure 管理入口網站管理 HDInsight 上的 Hadoop 叢集" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-howto-administer-hdinsight" urlDisplayName="Administration" pageTitle="Manage Hadoop clusters in HDInsight using Azure Portal | Azure" metaKeywords="" description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console." metaCanonical="" services="hdinsight" documentationCenter="" title="Manage Hadoop clusters in HDInsight using the Azure Management Portal" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -22,7 +22,6 @@
 -   [自訂 HDInsight 叢集][自訂 HDInsight 叢集]
 -   [變更 HDInsight 叢集使用者名稱和密碼][變更 HDInsight 叢集使用者名稱和密碼]
 -   [使用 RDP 連線到 HDInsight 叢集][使用 RDP 連線到 HDInsight 叢集]
--   [建立自我簽署憑證][建立自我簽署憑證]
 -   [授與/撤銷 HTTP 服務存取][授與/撤銷 HTTP 服務存取]
 -   [開啟 Hadoop 命令主控台][開啟 Hadoop 命令主控台]
 -   [後續步驟][後續步驟]
@@ -47,7 +46,6 @@ HDInsight 叢集使用 Azure Blob 儲存體容器做為預設檔案系統。如�
 
 1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  按一下頁面底部的 [新增]，然後依序按 [資料服務]、[HDInsight] 和 [快速建立]。
-
 3.  提供 [叢集名稱]、[叢集大小]、[Cluster Admin Password] 和 Azure [儲存體帳戶]，然後按一下 [Create HDInsight Cluster]。叢集在建立並執行之後，狀態會顯示 [執行中]。
 
     ![HDI.QuickCreate][HDI.QuickCreate]
@@ -117,20 +115,6 @@ HDInsight 叢集可以有兩個使用者帳戶。HDInsight 叢集使用者帳戶
 3.  按一下想要連線的 HDInsight 叢集。
 4.  按一下頁面頂端的 [組態]。
 5.  按一下 [連線]，然後依照指示執行。
-
-## <span id="cert"></span></a>建立自我簽署憑證
-
-如果您要在叢集上使用 .NET SDK 執行任何作業，您必須在工作站建立自我簽署憑證，並將憑證上傳至 Azure 訂用帳戶。此工作只需要執行一次。只要憑證有效，您可以將相同的憑證安裝在其他電腦上。
-
-**建立自我簽署憑證**
-
-1.  建立用來驗證要求的自我簽署憑證。您可以使用 IIS 或 [makecert][makecert] 來建立憑證。
-
-2.  瀏覽至憑證位置，以滑鼠右鍵按一下此憑證，按一下 [安裝憑證] 將憑證安裝到電腦的個人存放區。編輯憑證屬性，並為它指派一個更容易記住的名稱。
-
-3.  將憑證匯入 Azure 管理入口網站。在入口網站中，按一下頁面左下角的 [設定]，然後按一下 [管理憑證]。按一下頁面底部的 [上傳]，並遵照指示將您在前一個步驟中所建立的 .cer 檔案上傳。
-
-    ![HDI.ClusterCreate.UploadCert][HDI.ClusterCreate.UploadCert]
 
 ## <span id="httpservice"></span></a> 授與/撤銷 HTTP 服務存取
 
@@ -211,7 +195,6 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
   [自訂 HDInsight 叢集]: #customize
   [變更 HDInsight 叢集使用者名稱和密碼]: #password
   [使用 RDP 連線到 HDInsight 叢集]: #rdp
-  [建立自我簽署憑證]: #cert
   [授與/撤銷 HTTP 服務存取]: #httpservice
   [開啟 Hadoop 命令主控台]: #hadoopcmd
   [後續步驟]: #nextsteps
@@ -226,8 +209,6 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
   [Microsoft 支援]: http://azure.microsoft.com/zh-tw/support/options/
   [啟用遠端桌面]: #enablerdp
   [HDI.CreateRDPUser]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
-  [makecert]: http://msdn.microsoft.com/zh-tw/library/bfsktky3(v=vs.110).aspx
-  [HDI.ClusterCreate.UploadCert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
   [HDI.HadoopCommandLine]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Hadoop command line"
   [Hadoop 命令參考]: http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html
   [Azure HDInsight 使用者入門]: ../hdinsight-get-started/

@@ -124,9 +124,9 @@
 -   [行動服務伺服器指令碼參照][行動服務伺服器指令碼參照]
      (英文) 深入了解建立自訂 API。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [定期通知]: http://msdn.microsoft.com/zh-tw/library/windows/apps/jj150587.aspx
   [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started/#create-new-service

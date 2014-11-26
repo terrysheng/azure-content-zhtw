@@ -54,19 +54,14 @@
 
 在下一個[行動服務使用者的伺服器端授權][行動服務使用者的伺服器端授權]教學課程中，您將使用由行動服務根據經驗證的使用者而提供的使用者識別碼值，來篩選行動服務傳回的資料。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
+
   [註冊您的應用程式以驗證與設定行動服務]: #register
   [對通過驗證的使用者限制資料表權限]: #permissions
   [將驗證新增至應用程式]: #add-authentication
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started
   [使用 Live Connect 在 Windows Phone 應用程式提供單一登入功能]: /zh-tw/documentation/articles/mobile-services-windows-phone-single-sign-on
   [這篇文章]: http://go.microsoft.com/fwlink/p/?LinkId=506605
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
-  [mobile-services-windows-phone-authenticate-app]: ../includes/mobile-services-windows-phone-authenticate-app.md
-  [mobile-services-windows-phone-authenticate-app-with-token]: ../includes/mobile-services-windows-phone-authenticate-app-with-token.md
   [行動服務使用者的伺服器端授權]: /zh-tw/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts

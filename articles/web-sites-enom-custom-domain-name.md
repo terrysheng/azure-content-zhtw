@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website to use a domain name registered with eNom" pageTitle="Configure an eNom domain name for an Azure website" metaKeywords="Windows Azure, Windows Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth" />
 
 # 設定 Azure 網站的自訂網域名稱 (eNom)
 
@@ -8,28 +8,28 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/zh-TW/documentation/articles/web-sites-enom-custom-domain-name/" title="網站" class="current">網站</a> | <a href="/zh-TW/documentation/articles/web-sites-enom-traffic-manager-custom-domain-name/" title="使用流量管理員的網站">使用流量管理員的網站</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-本文提供使用 Azure 網站，從 [eNom][] 購買的自訂網域名稱的使用指示。
+本文提供使用 Azure 網站，從 [eNom][eNom] 購買的自訂網域名稱的使用指示。
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 本文內容：
 
--   [了解 DNS 記錄][]
--   [將網站設定為基本、共用或標準模式][]
--   [新增自訂網域的 DNS 記錄][]
--   [在網站上啟用網域][]
+-   [了解 DNS 記錄][了解 DNS 記錄]
+-   [將網站設定為基本、共用或標準模式][將網站設定為基本、共用或標準模式]
+-   [新增自訂網域的 DNS 記錄][新增自訂網域的 DNS 記錄]
+-   [在網站上啟用網域][在網站上啟用網域]
 
 ## <a name="understanding-records"></a>了解 DNS 記錄
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 ## <a name="bkmk_configsharedmode"></a>將網站設定為基本、共用或標準模式
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -42,11 +42,11 @@
 
 2.  在 [我的網域] 頁面中，使用 [管理網域] 欄位來選取 [主機記錄]。如此會顯示主機記錄欄位。
 
-    ![DNS Zone File tab][]
+    ![DNS Zone File tab][DNS Zone File tab]
 
 3.  [主機記錄] 編輯器可讓您使用 [記錄類型] 欄位，來選取特定記錄類型。若是 Azure 網站，您只能使用 [CNAME (別名)] 或 [A (位址)] 選項。
 
-    ![zone file editor][]
+    ![zone file editor][zone file editor]
 
     > [WACOM.NOTE] 在將項目新增至區域檔案之前，請注意，eNom 已為根網域建立 DNS 記錄 (<'@'>)，並為子網域建立萬用字元 ('\*')。如果您希望將根網域重新導向至網站，或使用萬用字元 A 記錄，則您應修改這些項目，而非建立新項目。
 
@@ -70,29 +70,12 @@
 
 ## <a name="enabledomain"></a>在網站上啟用網域名稱
 
-[WACOM.INCLUDE [modes][1]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
-  [自訂網域]: /zh-TW/documentation/articles/web-sites-custom-domain-name "自訂網域"
-  [GoDaddy]: /zh-TW/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [網路解決方案]: /zh-TW/documentation/articles/web-sites-network-solutions-custom-domain-name "網路解決方案"
-  [Register.com]: /zh-TW/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /zh-TW/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /zh-TW/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /zh-TW/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /zh-TW/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /zh-TW/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [網站]: /zh-TW/documentation/articles/web-sites-enom-custom-domain-name/ "網站"
-  [使用流量管理員的網站]: /zh-TW/documentation/articles/web-sites-enom-traffic-manager-custom-domain-name/ "使用流量管理員的網站"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro.md
   [eNom]: https://enom.com
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [了解 DNS 記錄]: #understanding-records
   [將網站設定為基本、共用或標準模式]: #bkmk_configsharedmode
   [新增自訂網域的 DNS 記錄]: #bkmk_configurecname
   [在網站上啟用網域]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-raw.md
-  [modes]: ../includes/custom-dns-web-site-modes.md
   [DNS Zone File tab]: ./media/web-sites-custom-domain-name/e-hostrecords.png
   [zone file editor]: ./media/web-sites-custom-domain-name/e-editrecords.png
-  [1]: ../includes/custom-dns-web-site-enable-on-web-site.md

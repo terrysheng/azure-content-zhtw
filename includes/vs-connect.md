@@ -10,6 +10,6 @@
 
     <div class="dev-callout"><strong>安全性注意事項：</strong><br /> <p>將訂用帳戶檔案下載至原始程式碼目錄以外的資料夾 (例如，[下載] 資料夾)，然後在完成匯入之後將其刪除。惡意使用者一旦能夠存取此訂用帳戶檔案，就能夠編輯、建立和刪除您的 Azure 服務。</p></div>
 
-    如需詳細資訊，請參閱[如何從 Visual Studio 連線至 Azure][]。
+    如需詳細資訊，請參閱[如何從 Visual Studio 連線至 Azure][如何從 Visual Studio 連線至 Azure]。
 
   [如何從 Visual Studio 連線至 Azure]: http://go.microsoft.com/fwlink/?LinkId=324796

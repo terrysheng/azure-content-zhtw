@@ -434,8 +434,8 @@ Xamarin 元件用戶端是專為強型別案例所設計的。不過，較弱型
 -   使用指令碼授權使用者 ([Xamarin.iOS][16]/[Xamarin.Android][17])
     了解如何以通過驗證的使用者為基準，取得行動服務所提供的使用者 ID 值，並用它來篩選行動服務所傳回的資料。
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [Xamarin]: /zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Xamarin.iOS]: /zh-tw/develop/mobile/tutorials/get-started-xamarin-ios/
@@ -462,7 +462,6 @@ Xamarin 元件用戶端是專為強型別案例所設計的。不過，較弱型
   [作法：使用不具類型的資料]: #untyped
   [作法：設計單位測試]: #unit-testing
   [後續步驟]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [建立資料表]: http://go.microsoft.com/fwlink/?LinkId=298592
   [動態結構描述]: http://go.microsoft.com/fwlink/?LinkId=296271
   [GetTable]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554275.aspx

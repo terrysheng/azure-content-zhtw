@@ -1,6 +1,6 @@
 <properties title="Manage DocumentDB capacity and performance" pageTitle="Manage DocumentDB capacity and performance | Azure" description="Learn how you can elastically scale DocumentDB to meet the performance and storage needs of your application." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # 管理 DocumentDB 的容量和效能
 
@@ -58,7 +58,7 @@ DocumentDB 是受到完整管理、可大幅擴充的文件導向 NoSQL 資料�
 
 若要獲得精確的應用程式要求單位數，您可以使用要求單位計算機來計算各種作業耗用的要求單位。您也可以檢查 x-ms-request-charge 回應標頭，其中含有給定要求所耗用的要求單位數。
 
-[要求單位計算機][]
+[要求單位計算機][要求單位計算機]
 
 # 集合及佈建的輸送量
 
@@ -71,7 +71,7 @@ DocumentDB 是受到完整管理、可大幅擴充的文件導向 NoSQL 資料�
 -   「工作階段」和「最終」一致性層級提供大約 2000 次讀取文件的要求，以及 500 次插入/取代/刪除文件的作業。
 -   「增強式」和「界限-陳舊」一致性層級提供大約 1200 次讀取文件的要求，以及 500 次插入/取代/刪除文件的作業。使用「界限-陳舊」來進行插入/取代/刪除作業時，其延遲時間遠低於「增強式」。
 
-[要求單位計算機][]
+[要求單位計算機][要求單位計算機]
 
 # 佈建的文件儲存體和索引額外負荷
 
@@ -79,6 +79,6 @@ DocumentDB 是受到完整管理、可大幅擴充的文件導向 NoSQL 資料�
 
 依預設，DocumentDB 會自動將所有文件編製索引。不過，如果您想要微調索引額外負荷，您可以選擇排除一些文件，不要在插入或取代文件時對這些文件編製索引。您可以設定 DocumentDB 集合，排除對集合中的所有文件編製索引。您也可以設定 DocumentDB 集合，選擇只將 JSON 文件中具有萬用字元的一些屬性或路徑編製索引。排除屬性或文件也可以改善寫入輸送量，也就是說，您會耗用較少的要求單位。
 
-[要求單位計算機][]
+[要求單位計算機][要求單位計算機]
 
   [要求單位計算機]: http://go.microsoft.com/fwlink/?LinkID=510088

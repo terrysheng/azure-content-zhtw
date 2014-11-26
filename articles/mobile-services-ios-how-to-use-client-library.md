@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-how-to-ios-client" urlDisplayName="iOS Client Library" pageTitle="How to use the iOS client library - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="Learn how to use the iOS client library for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 如何使用行動服務的 iOS 用戶端程式庫
 
@@ -437,11 +437,6 @@ MSQuery 物件可讓您控制下列查詢行為：
 
 
 
-  [.NET Framework]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /zh-tw/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /zh-tw/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /zh-tw/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [行動服務 SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [iOS SDK]: https://developer.apple.com/xcode
   [行動服務快速入門]: /zh-tw/develop/mobile/tutorials/get-started-ios
@@ -459,7 +454,6 @@ MSQuery 物件可讓您控制下列查詢行為：
   [作法：將資料繫結到使用者介面]: #binding
   [作法：驗證使用者]: #authentication
   [作法：處理錯誤]: #errors
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [建立資料表]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193162.aspx
   [Link Binary With Libraries]: https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html
   [以分頁方式傳回資料]: #paging

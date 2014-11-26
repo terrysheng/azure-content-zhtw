@@ -1,21 +1,21 @@
 <properties linkid="develop-net-common-tasks-diagnostics-logging-and-instrumentation" urlDisplayName="Enable diagnostic logging" pageTitle="Enable diagnostic logging - Azure Websites" metaKeywords="Azure diagnostics web sites, Azure Management Portal diagnostics, Azure diagnostics, web site diagnostics, web site debug" description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Websites" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 對 Azure 網站啟用診斷記錄
 
 Azure 提供內建的診斷功能，可協助您針對 Azure 網站所託管的應用程式進行偵錯。本文將說明如何啟用診斷記錄，並在您的應用程式中加入診斷工具，以及如何存取 Azure 所記錄的資訊。
 
-> [WACOM.NOTE] 本文說明如何透過 Azure 管理入口網站、Azure PowerShell 與 Azure 跨平台命令列介面來處理診斷記錄。如需透過 Visual Studio 使用診斷記錄的詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure 網站][]。
+> [WACOM.NOTE] 本文說明如何透過 Azure 管理入口網站、Azure PowerShell 與 Azure 跨平台命令列介面來處理診斷記錄。如需透過 Visual Studio 使用診斷記錄的詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure 網站][在 Visual Studio 中疑難排解 Azure 網站]。
 
 ## 目錄
 
--   [什麼是：網站診斷？][]
--   [作法：啟用診斷][]
--   [作法：下載記錄][]
--   [作法：串流記錄][]
--   [作法：瞭解診斷記錄][]
--   [後續步驟][]
+-   [什麼是：網站診斷？][什麼是：網站診斷？]
+-   [作法：啟用診斷][作法：啟用診斷]
+-   [作法：下載記錄][作法：下載記錄]
+-   [作法：串流記錄][作法：串流記錄]
+-   [作法：瞭解診斷記錄][作法：瞭解診斷記錄]
+-   [後續步驟][後續步驟]
 
 <a name="whatisdiag"></a>
 
@@ -30,11 +30,11 @@ Azure 網站提供診斷功能，供您用來記錄來自 Web 伺服器與 Web �
 
 -   **詳細錯誤記錄** - 針對代表有錯誤的 HTTP 狀態碼 (狀態碼 400 或更大) 記錄詳細的錯誤資訊。這當中包含的資訊可協助您判斷為何伺服器傳回錯誤碼。
 -   **失敗要求追蹤** - 針對失敗要求記錄詳細資訊，包括用於處理要求的 IIS 元件追蹤，以及每個元件所花的時間。如果您嘗試提升網站效能或是想要從傳回的特定 HTTP 錯誤中找到發生原因，這個方法非常實用。
--   **Web 伺服器記錄** - 使用 [W3C 擴充記錄檔格式][]來記錄網站上所有的 HTTP 交易。當您需要判斷整體網站指標，像是處理的要求數量或是有多少要求來自特定 IP 位址時，此報告便非常實用
+-   **Web 伺服器記錄** - 使用 [W3C 擴充記錄檔格式][W3C 擴充記錄檔格式]來記錄網站上所有的 HTTP 交易。當您需要判斷整體網站指標，像是處理的要求數量或是有多少要求來自特定 IP 位址時，此報告便非常實用
 
 ### 應用程式診斷
 
-應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。ASP.NET 應用程式會使用 [System.Diagnostics.Trace][] 類別將資訊記錄到應用程式診斷記錄。例如：
+應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。ASP.NET 應用程式會使用 [System.Diagnostics.Trace][System.Diagnostics.Trace] 類別將資訊記錄到應用程式診斷記錄。例如：
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -51,13 +51,13 @@ Azure 網站會在您將應用程式發行至網站時，一併記錄部署資�
 ## 作法：啟用診斷
 
 </p>
-您可以造訪 [Azure 管理入口網站][]中的 Azure 網站 [設定] 頁面，啟用診斷功能。在 [設定] 頁面上，使用 [應用程式診斷] 與 [網站診斷] 區段來啟用記錄。
+您可以造訪 [Azure 管理入口網站][Azure 管理入口網站]中的 Azure 網站 [設定] 頁面，啟用診斷功能。在 [設定] 頁面上，使用 [應用程式診斷] 與 [網站診斷] 區段來啟用記錄。
 
 啟用 [應用程式診斷] 功能時，您必須同時選取 [記錄層級] 以及是否要對 [檔案系統]、[資料表儲存體] 或是 [Blob 儲存體] 啟用記錄功能。雖然以上三個儲存位置全都提供相同的基本資訊供您記錄事件，[資料表儲存體] 與 [Blob 儲存體] 會比 [檔案系統] 記錄更多的資訊，例如執行個體識別碼、執行緒識別碼以及更細緻的時間戳記 (刻度格式)。
 
 啟用 [網站診斷] 後，您必須針對 [Web 伺服器記錄] 選取 [儲存] 或 [檔案系統]。選取 [儲存] 可讓您選取儲存體帳戶，並接著選取可供寫入記錄的 Blob 容器。[網站診斷] 的其他所有記錄 都只會寫入檔案系統。
 
-> [WACOM.NOTE] 儲存在 [資料表儲存體] 或 [Blob 儲存體] 內的資訊 只能透過儲存用戶端，或是能夠直接使用這些儲存系統的應用程式來存取。例如，Visual Studio 2013 內含的 [儲存體總管] 可用來探索資料表或 Blob 儲存體，而 HDInsight 則可存取儲存在 Blob 儲存體內的資料。您也可以使用任何一項 [Azure SDK][]，撰寫可存取 Azure 儲存體的應用程式。
+> [WACOM.NOTE] 儲存在 [資料表儲存體] 或 [Blob 儲存體] 內的資訊 只能透過儲存用戶端，或是能夠直接使用這些儲存系統的應用程式來存取。例如，Visual Studio 2013 內含的 [儲存體總管] 可用來探索資料表或 Blob 儲存體，而 HDInsight 則可存取儲存在 Blob 儲存體內的資料。您也可以使用任何一項 [Azure SDK][Azure SDK]，撰寫可存取 Azure 儲存體的應用程式。
 
 以下列出當您啟用 [應用程式診斷] 時可用的設定：
 
@@ -69,7 +69,7 @@ Azure 網站會在您將應用程式發行至網站時，一併記錄部署資�
 
 > [WACOM.NOTE] 包括檔案系統、資料表儲存體或是 Blob 儲存體的任意組合都可以同時啟用，並個別具有記錄層級組態。例如，您也許想要將各種錯誤與警告資訊記錄到 Blob 儲存體做為長期的記錄解決方案，同時啟用詳細資訊層級的檔案系統記錄功能。
 
-> [WACOM.NOTE] 您也可以使用 **Set-AzureWebsite** Cmdlet，從 Azure PowerShell 中啟用診斷。如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell][] (英文)。
+> [WACOM.NOTE] 您也可以使用 **Set-AzureWebsite** Cmdlet，從 Azure PowerShell 中啟用診斷。如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell][如何使用 Azure PowerShell] (英文)。
 
 <a name="download"></a>
 
@@ -86,7 +86,7 @@ Azure 網站會在您將應用程式發行至網站時，一併記錄部署資�
 
 -   **詳細錯誤記錄** - /LogFiles/DetailedErrors/。此資料夾包含一或多個 .htm 檔案，內含已經發生的任何 HTTP 錯誤之詳細資訊。
 
--   **Web 伺服器記錄** - /LogFiles/http/RawLogs。此資料夾包含一或多個運用 [W3C 擴充記錄檔格式][]來格式化的文字檔案。
+-   **Web 伺服器記錄** - /LogFiles/http/RawLogs。此資料夾包含一或多個運用 [W3C 擴充記錄檔格式][W3C 擴充記錄檔格式]來格式化的文字檔案。
 
 -   **部署記錄** - /LogFiles/Git。此資料夾包含由內部部署處理序所產生，並可供 Azure 網站運用的記錄，以及 Git 部署記錄。
 
@@ -104,7 +104,7 @@ Azure 網站會在您將應用程式發行至網站時，一併記錄部署資�
 
 此舉會將 **-Name** 參數所指定的網站記錄儲存到目前目錄中名為 **logs.zip** 的檔案中。
 
-> [WACOM.NOTE] 如果您尚未安裝 Azure PowerShell，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure PowerShell][] (英文)。
+> [WACOM.NOTE] 如果您尚未安裝 Azure PowerShell，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure PowerShell][如何使用 Azure PowerShell] (英文)。
 
 ### 使用 Azure 命列列工具來下載
 
@@ -114,7 +114,7 @@ Azure 網站會在您將應用程式發行至網站時，一併記錄部署資�
 
 此舉會將名為 websitename 的網站記錄儲存至目前目錄中名為 **diagnostics.zip** 的檔案。
 
-> [WACOM.NOTE] 如果您尚未安裝 Azure 命令列工具，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure 命令列工具][] (英文)。
+> [WACOM.NOTE] 如果您尚未安裝 Azure 命令列工具，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure 命令列工具][如何使用 Azure 命令列工具] (英文)。
 
 <a name="streamlogs"></a>
 
@@ -145,7 +145,7 @@ Azure 網站會在您將應用程式發行至網站時，一併記錄部署資�
 
 若要檢視可用的路徑清單，請使用 -ListPath 參數。
 
-> [WACOM.NOTE] 如果您尚未安裝 Azure PowerShell，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure PowerShell][] (英文)。
+> [WACOM.NOTE] 如果您尚未安裝 Azure PowerShell，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure PowerShell][如何使用 Azure PowerShell] (英文)。
 
 ### 使用 Azure 命列列工具來串流
 
@@ -163,7 +163,7 @@ Azure 網站會在您將應用程式發行至網站時，一併記錄部署資�
 
     azure site log tail websitename --path http
 
-> [WACOM.NOTE] 如果您尚未安裝 Azure 命令列工具，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure 命令列工具][] (英文)。
+> [WACOM.NOTE] 如果您尚未安裝 Azure 命令列工具，或是尚未將其設定為使用您的 Azure 訂閱，請參閱[如何使用 Azure 命令列工具][如何使用 Azure 命令列工具] (英文)。
 
 <a name="understandlogs"></a>
 
@@ -375,7 +375,7 @@ Tid
 
 失敗要求追蹤會儲存在名為 **fr\#\#\#\#\#\#.xml** 的 XML 檔案中。為了讓您輕鬆地檢視記錄資訊，系統會在 XML 檔案所屬的相同目錄中，提供名為 **freb.xsl** 的 XSL 樣式表。在 Internet Explorer 中開啟其中一個 XML 檔案會使用 XSL 樣式表，提供格式化的追蹤資訊顯示。此資訊類似以下內容：
 
-![在瀏覽器中檢視的失敗要求][]
+![在瀏覽器中檢視的失敗要求][在瀏覽器中檢視的失敗要求]
 
 ### 詳細的錯誤記錄
 
@@ -383,7 +383,7 @@ Tid
 
 ### Web 伺服器記錄
 
-Web 伺服器記錄使用 [W3C 擴充記錄檔案格式][W3C 擴充記錄檔格式]來格式化。此項資訊可透過文字編輯器來讀取，或是運用[記錄檔剖析器][] (英文) 之類的公用程式來剖析。
+Web 伺服器記錄使用 [W3C 擴充記錄檔案格式][W3C 擴充記錄檔格式]來格式化。此項資訊可透過文字編輯器來讀取，或是運用[記錄檔剖析器][記錄檔剖析器] (英文) 之類的公用程式來剖析。
 
 > [WACOM.NOTE] Azure 網站所產生的記錄並不支援 **s-computername**、**s-ip** 或 **cs-version** 欄位。
 
@@ -392,10 +392,10 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式][W3C 擴充記錄檔格�
 ## 後續步驟
 
 </p>
--   [如何監視網站][]
--   [教學課程 - 疑難排解網站][]
+-   [如何監視網站][如何監視網站]
+-   [教學課程 - 疑難排解網站][教學課程 - 疑難排解網站]
 -   [疑難排解 Visual Studio 中的 Azure 網站][在 Visual Studio 中疑難排解 Azure 網站]
--   [分析 HDInsight 中的網站記錄][]
+-   [分析 HDInsight 中的網站記錄][分析 HDInsight 中的網站記錄]
 
   [在 Visual Studio 中疑難排解 Azure 網站]: /zh-TW/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [什麼是：網站診斷？]: #whatisdiag

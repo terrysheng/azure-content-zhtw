@@ -1,4 +1,4 @@
-<properties urlDisplayName="Azure Import/Export Service" pageTitle="使用匯入/匯出將資料移轉至 Blob 儲存體 | Microsoft Azure" metaKeywords="" description="了解如何在 Azure 管理入口網站中建立匯入和匯出工作，以將資料移轉至 Blob 儲存體。" metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="使用 Azure 匯入/匯出服務將資料移轉至 Blob 儲存體" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties linkid="manage-services-import-export" urlDisplayName="Azure Import/Export Service" pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" metaKeywords="" description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -24,13 +24,11 @@
 
 當您建立工作時，您會通知匯入/匯出服務您將運送一或多個硬碟至 Azure 資料中心。若為匯入工作，您將運送含有檔案資料的硬碟。若為匯出工作，您將運送空的硬碟。
 
-為了準備要針對匯入工作運送的硬碟，您將會執行 [Microsoft Azure 匯入/匯出工具] 工具，該工具能將您的資料複製到磁碟機、利用 BitLocker 加密磁碟機上的資料，以及產生下面討論的磁碟機日誌檔案。
+為了準備要針對匯入工作運送的硬碟，您將會執行 \[Microsoft Azure 匯入/匯出工具\] 工具，該工具能將您的資料複製到磁碟機、利用 BitLocker 加密磁碟機上的資料，以及產生下面討論的磁碟機日誌檔案。
 
 <div class="dev-callout">
-
-**注意**
-必須使用「BitLocker 磁碟機加密」將磁碟機上的資料加密。此功能可保護傳輸中的資料。若為匯出工作，匯入/匯出服務會在將磁碟機送回給您之前，加密您的資料。
-
+<strong>注意</strong>
+<p>必須使用「BitLocker 磁碟機加密」將磁碟機上的資料加密。此功能可保護傳輸中的資料。若為匯出工作，匯入/匯出服務會在將磁碟機送回給您之前，加密您的資料。</p>
 </div>
 
 當您建立匯入或匯出工作時，您還需要「磁碟機 ID」，這是磁碟機製造商指派給特定硬碟的序號。磁碟機 ID 會顯示在磁碟機的外部。
@@ -103,15 +101,50 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
     下表顯示有效 Blob 路徑範例：
 
-    |------------|------------------|------------------------------------------------------|
-    | **選取器** | **Blob 路徑**    | **說明**                                             |
-    | 開頭為     | /                | 匯出儲存體帳戶中的所有 Blob                          |
-    | 開頭為     | /$root/          | 匯出根容器中的所有 Blob                              |
-    | 開頭為     | /book            | 匯出任何容器中以首碼 **book** 開頭的所有 Blob        |
-    | 開頭為     | /music/          | 匯出容器 **music** 中的所有 Blob                     |
-    | 開頭為     | /music/love      | 匯出容器 **music** 中以首碼 **love** 開頭的所有 Blob |
-    | 等於       | $root/logo.bmp   | 匯出根容器中的 Blob **logo.bmp**                     |
-    | 等於       | videos/story.mp4 | 匯出容器 **videos** 中的 Blob **story.mp4**          |
+   	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+		<tbody>
+			<tr>
+				<td><strong>選取器</strong></td>
+				<td><strong>Blob 路徑</strong></td>
+				<td><strong>說明</strong></td>
+			</tr>
+			<tr>
+				<td>開頭為</td>
+				<td>/</td>
+				<td>匯出儲存體帳戶中的所有 Blob </td>
+			</tr>
+			<tr>
+				<td>開頭為</td>
+				<td>/$root/</td>
+				<td>匯出根容器中的所有 Blob </td>
+			</tr>
+			<tr>
+				<td>開頭為</td>
+				<td>/book</td>
+				<td>匯出任何容器中以首碼 <b>book</b> 開頭的所有 Blob </td>
+			</tr>
+			<tr>
+				<td>開頭為</td>
+				<td>/music/</td>
+				<td>匯出容器 <b>music</b> 中的所有 Blob </td>
+			</tr>
+			<tr>
+				<td>開頭為</td>
+				<td>/music/love</td>
+				<td>匯出容器 <b>music</b> 中以首碼 <b>love</b> 開頭的所有 Blob </td>
+			</tr>
+			<tr>
+				<td>等於</td>
+				<td>$root/logo.bmp</td>
+				<td>匯出根容器中的 Blob <b>logo.bmp</b> </td>
+			</tr>
+			<tr>
+				<td>等於</td>
+				<td>videos/story.mp4</td>
+				<td>匯出容器 <b>videos</b> 中的 Blob <b>story.mp4</b></td>
+			</tr>
+		</tbody>
+	</table>
 
 4.  在步驟 4，輸入匯出工作的描述性名稱。您輸入的名稱只能包含小寫字母、數字、連字號和底線，必須以字母開頭，且不得包含空格。
 
@@ -133,13 +166,34 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 下表說明每項工作狀態的意義：
 
-|--------------|-----------------------------------------------------------------------|
-| **工作狀態** | **說明**                                                              |
-| 建立中       | 工作已建立，但您尚未提供運送資訊。                                    |
-| 運送中       | 工作已建立，且您已提供運送資訊。                                      |
-| 移轉中       | 您的資料正從硬碟移轉 (適用於匯入工作) 或移轉至硬碟 (適用於匯出工作)。 |
-| 包裝中       | 資料移轉已完成，而您的硬碟正準備送回給您。                            |
-| 完成         | 您的硬碟已送回給您。                                                  |
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+	<tbody>
+		<tr>
+			<td><strong>工作狀態</strong></td>
+			<td><strong>說明</strong></td>
+		</tr>
+		<tr>
+			<td>建立中</td>
+			<td>工作已建立，但您尚未提供運送資訊。</td>
+		</tr>
+		<tr>
+			<td>運送中</td>
+			<td>工作已建立，且您已提供運送資訊。</td>
+		</tr>
+		<tr>
+			<td>移轉中</td>
+			<td>您的資料正從硬碟移轉 (適用於匯入工作) 或移轉至硬碟 (適用於匯出工作)。</td>
+		</tr>
+		<tr>
+			<td>包裝中</td>
+			<td>資料移轉已完成，而您的硬碟正準備送回給您。</td>
+		</tr>
+		<tr>
+			<td>完成</td>
+			<td>您的硬碟已送回給您。</td>
+		</tr>
+	</tbody>
+</table>                              
 
 ## 檢視匯出工作的 BitLocker 金鑰
 
@@ -162,12 +216,11 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 **支援的介面類型有哪些？**
 
 -   匯入/匯出服務支援 3.5 英吋的 SATA II/III 內部硬碟機 (HDD)。您可以在運送之前，使用下列轉換器將 USB 裝置中的資料移轉至 SATA：
-
     -   Anker 68UPSATAA-02BU
     -   Anker 68UPSHHDS-BU
     -   Startech SATADOCK22UE
 
-> [WACOM.NOTE] 若您有以上未列出的轉換器，您可以嘗試使用您的轉換器執行 [Microsoft Azure 匯入/匯出工具] 來準備磁碟機，看看是否有用，再決定購買支援的轉換器。
+> [WACOM.NOTE] 若您有以上未列出的轉換器，您可以嘗試使用您的轉換器執行 \[Microsoft Azure 匯入/匯出工具\] 來準備磁碟機，看看是否有用，再決定購買支援的轉換器。
 
 **如果我想匯入或匯出的磁碟機超過 10 個，我該怎麼做？**
 
@@ -208,11 +261,9 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 -   在亞洲地區僅支援 [DHL][DHL]。所有包裹都會透過 DHL Express Worldwide 寄回。
 
     <div class="dev-callout">
-
-    **重要事項**
-    您必須將追蹤號碼提供給 Azure 匯入/匯出服務；否則無法處理您的工作。
-
-    </div>
+<strong>重要事項</strong>
+<p>您必須將追蹤號碼提供給 Azure 匯入/匯出服務；否則無法處理您的工作。</p>
+</div>
 
 **退件是否有任何相關的成本？**
 
@@ -235,11 +286,9 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 -   將會提供您的儲存體帳戶所在區域中的寄送地址給您。例如，假設您住在美國，而儲存體帳戶位於西歐資料中心，則會提供歐洲的寄送地址讓您寄出磁碟機。
 
     <div class="dev-callout">
-
-    **重要事項**
-    請注意，您寄送的實體媒體可能需要跨國界。您必須確定實體媒體和資料的匯入和/或匯出符合相關管轄法律。在寄出實體媒體之前，請洽詢顧問來確認您的媒體和資料可以合法地寄到所識別的資料中心。這有助於確保及時送達 Microsoft。
-
-    </div>
+<strong>重要事項</strong>
+<p>請注意，您寄送的實體媒體可能需要跨國界。您必須確定實體媒體和資料的匯入和/或匯出符合相關管轄法律。在寄出實體媒體之前，請洽詢顧問來確認您的媒體和資料可以合法地寄到所識別的資料中心。這有助於確保及時送達 Microsoft。</p>
+</div>
 
 -   在寄送包裹時，您必須遵守 [Microsoft Azure 服務條款][Microsoft Azure 服務條款]中的條款。
 

@@ -1,6 +1,6 @@
 <properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 <div>
 <div class="left-nav">
@@ -56,7 +56,7 @@
 
 簡言之，要提供具有高度延展性的服務，的確需要考量許多事項，但也有不少目標和需求是許多多租用戶應用程式所共有的。有些可能與特定案例無關，且個別目標和需求的重要性也可能隨著案例而不同。如果您是多租用戶應用程式的提供者，您也會有目標和需求，例如：達到租用戶的目標和需求、利潤、收費、多重服務層級、佈建、可維護性監視和自動化等。
 
-若想進一步了解多租用戶應用程式的其他設計注意事項，請參閱[在 Azure 上代管多租用戶應用程式][] (英文)。
+若想進一步了解多租用戶應用程式的其他設計注意事項，請參閱[在 Azure 上代管多租用戶應用程式][在 Azure 上代管多租用戶應用程式] (英文)。
 
 Azure 有多項功能可讓您處理在設計多租用戶系統時遇到的重大問題。
 
@@ -107,16 +107,4 @@ Azure 提供許多可為應用程式佈建新租用戶的方式。就租用戶�
 
 <!--links-->
 
-  [運算]: /zh-TW/develop/net/compute/
-  [資料服務]: /zh-TW/develop/net/data/
-  [應用程式服務]: /zh-TW/develop/net/app-services/
-  [參考]: /zh-TW/develop/net/reference/
-  [指引]: /zh-TW/develop/net/guidance/
-  [架構]: /zh-TW/develop/net/architecture/
-  [範例]: /zh-TW/develop/net/samples/
-  [以案例為基礎的教學課程]: /zh-TW/develop/net/end-to-end-Apps/
-  [論壇]: /zh-TW/support/forums/
-  [應用程式架構概觀]: /zh-TW/develop/net/architecture/#overviews
-  [應用程式模式：負載測試]: /zh-TW/develop/net/architecture/load-testing-pattern/
-  [設計模式]: /zh-TW/develop/net/architecture/#designpatterns
   [在 Azure 上代管多租用戶應用程式]: http://msdn.microsoft.com/zh-TW/library/hh534480.aspx

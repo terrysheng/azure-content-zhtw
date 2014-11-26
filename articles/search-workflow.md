@@ -2,23 +2,23 @@
 
 # Azure 搜尋：開發工作流程
 
-[WACOM.INCLUDE [本文使用 Azure 預覽入口網站][]]
+[WACOM.INCLUDE [本文使用 Azure 預覽入口網站](../includes/preview-portal-note.md)]
 
 本文提供藍圖以及一些最佳方法，供您在建立與維護搜尋服務和其索引時使用。
 
-我們假設您已佈建此服務。如果您尚未進行佈建，請參閱[在 Azure 預覽入口網站中設定搜尋][]以開始作業。
+我們假設您已佈建此服務。如果您尚未進行佈建，請參閱[在 Azure 預覽入口網站中設定搜尋][在 Azure 預覽入口網站中設定搜尋]以開始作業。
 
--   [步驟 1：建立索引][]
--   [步驟 2：新增文件][]
--   [步驟 3：查詢索引][]
--   [步驟 4：上傳或刪除索引及文件][]
--   [儲存體設計考量][]
+-   [步驟 1：建立索引][步驟 1：建立索引]
+-   [步驟 2：新增文件][步驟 2：新增文件]
+-   [步驟 3：查詢索引][步驟 3：查詢索引]
+-   [步驟 4：上傳或刪除索引及文件][步驟 4：上傳或刪除索引及文件]
+-   [儲存體設計考量][儲存體設計考量]
 
 ## 步驟 1：建立索引
 
 針對包含搜尋資料和屬性的搜尋索引進行查詢 (至少是非系統查詢)。在此步驟中，您會以 JSON 格式定義索引的結構描述，並執行 HTTPS PUT 要求在服務中建立索引。
 
-一般來說，索引會以程式碼的形式存在您的本機開發環境中。索引定義中也沒有內建工具或編輯器。如需建立索引的詳細資訊，請參閱 MSDN 上的[建立索引 (Azure 搜尋 API)][]。
+一般來說，索引會以程式碼的形式存在您的本機開發環境中。索引定義中也沒有內建工具或編輯器。如需建立索引的詳細資訊，請參閱 MSDN 上的[建立索引 (Azure 搜尋 API)][建立索引 (Azure 搜尋 API)]。
 
 ## 步驟 2：新增文件
 
@@ -36,8 +36,8 @@
 
 文件建立索引後，您即可執行搜尋查詢。您可以使用 OData 或簡單的查詢語法，一次查詢一個索引：
 
--   [適用於 Azure 搜尋的 OData 運算式語法][]
--   [Azure 搜尋中的簡單查詢語法][]
+-   [適用於 Azure 搜尋的 OData 運算式語法][適用於 Azure 搜尋的 OData 運算式語法]
+-   [Azure 搜尋中的簡單查詢語法][Azure 搜尋中的簡單查詢語法]
 
 ## 步驟 4：上傳或刪除索引及文件
 
@@ -51,20 +51,19 @@
 
 文件中的欄位並非都是可搜尋的。例如，如果您的應用程式是音樂和影片的線上目錄，我們建議您將二進位檔儲存在 BLOB 或一些其他儲存體中。二進位檔本身並不可搜尋，因此並不需要將其存在 Azure 搜尋儲存體中。您應該將影像、影片、聲音檔存在其他服務或位置中，而將連結到檔案位置的 URL 存在文件中的欄位裡。
 
-如需建立索引或文件的詳細資訊，請參閱 [Azure 搜尋 Rest API][]。
+如需建立索引或文件的詳細資訊，請參閱 [Azure 搜尋 Rest API][Azure 搜尋 Rest API]。
 
 <!--Anchors-->
 <!--Image references-->
 <!--Link references-->
 
-  [本文使用 Azure 預覽入口網站]: ../includes/preview-portal-note.md
   [在 Azure 預覽入口網站中設定搜尋]: ../search-configure/
   [步驟 1：建立索引]: #sub-1
   [步驟 2：新增文件]: #sub-2
   [步驟 3：查詢索引]: #sub-3
   [步驟 4：上傳或刪除索引及文件]: #sub-4
   [儲存體設計考量]: #sub-5
-  [建立索引 (Azure 搜尋 API)]: http://msdn.microsoft.com/en-us/library/dn798941.aspx
-  [適用於 Azure 搜尋的 OData 運算式語法]: http://msdn.microsoft.com/en-us/library/dn798921.aspx
-  [Azure 搜尋中的簡單查詢語法]: http://msdn.microsoft.com/en-us/library/dn798920.aspx
-  [Azure 搜尋 Rest API]: http://msdn.microsoft.com/en-us/library/dn798935.aspx
+  [建立索引 (Azure 搜尋 API)]: http://msdn.microsoft.com/zh-tw/library/dn798941.aspx
+  [適用於 Azure 搜尋的 OData 運算式語法]: http://msdn.microsoft.com/zh-tw/library/dn798921.aspx
+  [Azure 搜尋中的簡單查詢語法]: http://msdn.microsoft.com/zh-tw/library/dn798920.aspx
+  [Azure 搜尋 Rest API]: http://msdn.microsoft.com/zh-tw/library/dn798935.aspx

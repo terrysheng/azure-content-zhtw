@@ -225,4 +225,3 @@ to:
   []: http://www.twilio.com/docs/api/rest/making-calls
   [如何：從您自己的網站提供 TwiML 回應]: #howto_provide_twiml_responses
   [1]: https://www.twilio.com/docs/api/twiml
-  [twilio_additional_services_and_next_steps]: ../includes/twilio_additional_services_and_next_steps.md

@@ -2,27 +2,27 @@
 
 # 在 Azure 預覽入口網站中設定搜尋
 
-[WACOM.INCLUDE [本文使用 Azure 預覽入口網站][]]
+[WACOM.INCLUDE [本文使用 Azure 預覽入口網站](../includes/preview-portal-note.md)]
 
 新的預覽入口網站有提供 Microsoft Azure 搜尋 (公開預覽) 服務。身為管理員，當您選擇共用服務時，可以在現有訂用帳戶中免費新增搜尋服務，或是如果您選擇的是專用資源，則可以用較低的費率新增搜尋服務。本文包含下列章節：
 
 <!--Table of contents -->
 
--   [開始使用免費服務][]
--   [升級至標準搜尋][]
--   [測試服務作業][]
--   [瀏覽搜尋服務設定頁面][]
--   [立即試用][]
+-   [開始使用免費服務][開始使用免費服務]
+-   [升級至標準搜尋][升級至標準搜尋]
+-   [測試服務作業][測試服務作業]
+-   [瀏覽搜尋服務設定頁面][瀏覽搜尋服務設定頁面]
+-   [立即試用][立即試用]
 
 ## 開始使用免費服務
 
 訂戶可自動且免費地存取共用的多租用戶搜尋服務，此服務可用於學習、概念證明測試或是小型開發搜尋專案。請使用下列步驟註冊免費版本。
 
-1.  使用您現有的訂用帳戶登入 [Azure 預覽入口網站][]。請注意，此 URL 會引導您前往預覽入口網站。
+1.  使用您現有的訂用帳戶登入 [Azure 預覽入口網站][Azure 預覽入口網站]。請注意，此 URL 會引導您前往預覽入口網站。
 
 2.  按一下頁面底部的 [新增]。
 
-    ![][]
+    ![][0]
 
 3.  按一下頁面頂端的 [全部]。
 
@@ -74,7 +74,7 @@
 
 [使用量] 顯示文件計數、可用資源及儲存體限制。
 
-接著前往[測試服務作業][]，可取得如何使用這些值連接至服務的指示。
+接著前往[測試服務作業][測試服務作業]，可取得如何使用這些值連接至服務的指示。
 
 ## 升級至標準搜尋
 
@@ -88,7 +88,7 @@
 
 **步驟 1 - 建立價格層設為標準的新服務**
 
-1.  使用您現有的訂用帳戶登入 [Azure 預覽入口網站][]。
+1.  使用您現有的訂用帳戶登入 [Azure 預覽入口網站][Azure 預覽入口網站]。
 
 2.  按一下頁面底部的 [新增]。
 
@@ -116,13 +116,13 @@
 
 2.  使用滑桿新增副本和 (或) 資料分割。
 
-額外的複本和資料分割會以搜尋單位計費。當您新增資源時，頁面上會顯示要支援任何特定資源設定所需要的搜尋單位總數。您可以查看[定價詳細資料][]以取得每單位的計費資訊。
+額外的複本和資料分割會以搜尋單位計費。當您新增資源時，頁面上會顯示要支援任何特定資源設定所需要的搜尋單位總數。您可以查看[定價詳細資料][定價詳細資料]以取得每單位的計費資訊。
 
 ![][10]
 
 ## 測試服務作業
 
-設定搜尋服務的最後一個步驟是，確認您的服務可否從用戶端應用程式上操作和存取。此程序使用 Fiddler (您可以[透過 Telerik 免費下載][]) 來發出 HTTP 要求和檢視回應。藉由使用 Fiddler，您無須撰寫任何程式碼就可立即測試 API。
+設定搜尋服務的最後一個步驟是，確認您的服務可否從用戶端應用程式上操作和存取。此程序使用 Fiddler (您可以[透過 Telerik 免費下載][透過 Telerik 免費下載]) 來發出 HTTP 要求和檢視回應。藉由使用 Fiddler，您無須撰寫任何程式碼就可立即測試 API。
 
 下列程序在共用及標準搜尋中皆適用。在以下步驟中，您將建立索引、上傳文件、查詢索引，然後查詢系統以取得服務資訊。
 
@@ -286,7 +286,7 @@
 
 ![][14]
 
-下列範例查詢來自 MSDN 上的[搜尋索引作業 (Azure 搜尋 API)][] (英文)。此主題中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢：
+下列範例查詢來自 MSDN 上的[搜尋索引作業 (Azure 搜尋 API)][搜尋索引作業 (Azure 搜尋 API)] (英文)。此主題中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢：
 
 **取代空格之前：**
 
@@ -327,7 +327,7 @@
 
 如果您需要複習如何尋找設定頁面，請依循以下步驟尋找服務儀表板。
 
-1.  使用您現有的訂用帳戶登入 [Azure 預覽入口網站][]。
+1.  使用您現有的訂用帳戶登入 [Azure 預覽入口網站][Azure 預覽入口網站]。
 2.  按一下 [瀏覽] | [全部]。
 
     ![][17]
@@ -346,26 +346,25 @@
 
 準備好前往下一個步驟了嗎？下列連結會引導您前往其他資料頁面，這些頁面會說明如何建置和管理使用 Azure 搜尋的搜尋應用程式。
 
-[建立第一個 Azure 搜尋方案][]
+[建立第一個 Azure 搜尋方案][建立第一個 Azure 搜尋方案]
 
-[在 Microsoft Azure 中管理搜尋方案][]
+[在 Microsoft Azure 中管理搜尋方案][在 Microsoft Azure 中管理搜尋方案]
 
-[Azure 搜尋的技術概觀][]
+[Azure 搜尋的技術概觀][Azure 搜尋的技術概觀]
 
-[Azure 搜尋 REST API][]
+[Azure 搜尋 REST API][Azure 搜尋 REST API]
 
 <!--Anchors-->
 <!--Image references-->
 <!--Link references-->
 
-  [本文使用 Azure 預覽入口網站]: ../includes/preview-portal-note.md
   [開始使用免費服務]: #sub-1
   [升級至標準搜尋]: #sub-2
   [測試服務作業]: #sub-3
   [瀏覽搜尋服務設定頁面]: #sub-4
   [立即試用]: #next-steps
   [Azure 預覽入口網站]: https://portal.azure.com
-  []: ./media/search-configure/AzureSearch_Configure1_1_New.PNG
+  [0]: ./media/search-configure/AzureSearch_Configure1_1_New.PNG
   [1]: ./media/search-configure/AzureSearch_Configure1_2_Everything.PNG
   [2]: ./media/search-configure/Azuresearch_Configure1_3_Gallery.PNG
   [3]: ./media/search-configure/AzureSearch_Configure1_4_GallerySeeAll.PNG
@@ -382,11 +381,11 @@
   [12]: ./media/search-configure/AzureSearch_Configure1_12_POSTDocs.PNG
   [13]: ./media/search-configure/AzureSearch_Configure1_13_GETQuery.PNG
   [14]: ./media/search-configure/AzureSearch_Configure1_14_GETQueryResponse.PNG
-  [搜尋索引作業 (Azure 搜尋 API)]: http://msdn.microsoft.com/en-us/library/dn798927.aspx
+  [搜尋索引作業 (Azure 搜尋 API)]: http://msdn.microsoft.com/zh-tw/library/dn798927.aspx
   [15]: ./media/search-configure/AzureSearch_Configure1_15_Stats.PNG
   [16]: ./media/search-configure/AzureSearch_Configure1_16_StatsResponse.PNG
   [17]: ./media/search-configure/AzureSearch_Configure1_17_BrowseEverything.PNG
   [建立第一個 Azure 搜尋方案]: ../search-create-first-solution/
   [在 Microsoft Azure 中管理搜尋方案]: ../search-manage/
-  [Azure 搜尋的技術概觀]: http://msdn.microsoft.com/en-us/library/dn798933.aspx
-  [Azure 搜尋 REST API]: http://msdn.microsoft.com/en-us/library/dn798935.aspx
+  [Azure 搜尋的技術概觀]: http://msdn.microsoft.com/zh-tw/library/dn798933.aspx
+  [Azure 搜尋 REST API]: http://msdn.microsoft.com/zh-tw/library/dn798935.aspx

@@ -1,6 +1,6 @@
 <properties title="Build a web application with ASP.NET MVC using DocumentDB" pageTitle="Build a web application with ASP.NET MVC using DocumentDB | Azure" description="Learn how to use DocumentDB to build a To Do List web application. You'll store and access data from an ASP.NET MVC web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="hawong"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="hawong" />
 
 # <a name="_Toc395809351">使用 DocumentDB 建置具有 ASP.NET MVC 的 Web 應用程式</a>
 
@@ -33,7 +33,7 @@
 完成工作。在 Azure DocumentDB 中，這些工作將會儲存為
 JSON 文件。
 
-![替代文字][]
+![替代文字][替代文字]
 
 # <a name="_Toc395637760">必要條件</a>
 
@@ -42,10 +42,10 @@ JSON 文件。
 
 Git for Windows <http://www.git-scm.com/downloads> (英文)
 
-Visual Studio 2013 (或免費版本的 [Visual Studio Express][] (英文))
+Visual Studio 2013 (或免費版本的 [Visual Studio Express][Visual Studio Express] (英文))
 
 Azure SDK for .NET 2.3 版或更高版本，可透過
-[Microsoft Web Platform Installer][] (英文) 取得
+[Microsoft Web Platform Installer][Microsoft Web Platform Installer] (英文) 取得
 
 本文件中的所有螢幕擷取畫面都是使用已套用 Update 3 的 
 Visual Studio 2013 以及 Azure SDK for .NET 2.4 版所取得。
@@ -642,7 +642,7 @@ Visual Studio 可讓這項作業變得十分簡單，為您完成
 [這裡] (<http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409>) (英文)
 
   [替代文字]: ./media/documentdb-dotnet-application/image1.png
-  [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+  [Visual Studio Express]: http://www.visualstudio.com/zh-tw/products/visual-studio-express-vs.aspx
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [1]: ./media/documentdb-dotnet-application/image2.png
   [2]: ./media/documentdb-dotnet-application/image3.png

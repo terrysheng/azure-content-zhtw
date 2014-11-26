@@ -162,11 +162,10 @@
 -   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何在您的行動服務中實作商務邏輯。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
+
   [更新應用程式以註冊通知]: #update-app
   [更新伺服器指令碼以傳送推播通知]: #update-scripts
   [插入資料以接收推播通知]: #test

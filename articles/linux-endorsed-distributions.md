@@ -38,7 +38,7 @@ Azure 上的 SUSE Linux Enterprise Server 是一個經證實可為雲端運算�
 支援的版本
 ----------
 
-下表顯示不同的配送版本、Linux Integration Services (LIS) 驅動程式，以及經測試過可在 Azure 上運作的 Azure Linux 代理程式版本。LIS 驅動程式可自 <http://www.microsoft.com/en-us/download/details.aspx?id=34603> 取得 。各版 Linux 代理程式可自 <https://github.com/windowsazure/walinuxagent> (英文) 取得。
+下表顯示不同的配送版本、Linux Integration Services (LIS) 驅動程式，以及經測試過可在 Azure 上運作的 Azure Linux 代理程式版本。LIS 驅動程式可自 <http://www.microsoft.com/zh-tw/download/details.aspx?id=34603> 取得 。各版 Linux 代理程式可自 <https://github.com/windowsazure/walinuxagent> (英文) 取得。
 
 有些配送映像版本需要有核心相容性修補程式才能在 Azure 中適當運作，在此情況下，表中也包含這類修補程式的連結。
 

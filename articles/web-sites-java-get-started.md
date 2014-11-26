@@ -1,14 +1,14 @@
 <properties linkid="develop-java-tutorials-web-site-get-started" urlDisplayName="Get started with Azure" pageTitle="Get started with Microsoft Azure Websites using Java" metaKeywords="" description="This tutorial shows you how to deploy a Java website to Microsoft Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Get started with Azure and Java" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 開始使用 Azure 網站和 Java
 
 本教學課程說明如何使用 Azure 應用程式組件庫或 Azure 網站組態 UI，在使用 Java 的 Microsoft Azure 上建立網站。
 
-如果您不打算使用這些技術 (例如，如果您要自訂您的應用程式容器)，請參閱[將自訂 Java 網站上傳至 Azure][]。
+如果您不打算使用這些技術 (例如，如果您要自訂您的應用程式容器)，請參閱[將自訂 Java 網站上傳至 Azure][將自訂 Java 網站上傳至 Azure]。
 
-> [WACOM.NOTE] 若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益][]或是[申請免費試用][]。
+> [WACOM.NOTE] 若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益][啟用自己的 MSDN 訂戶權益]或是[申請免費試用][申請免費試用]。
 
 # 使用 Azure 應用程式組件庫來建立 Java 網站
 
@@ -16,11 +16,11 @@
 
 下列內容說明從應用程式組件庫，使用 Tomcat 建置網站的方式會顯示如下：
 
-![Web site using Apache Tomcat][]
+![Web site using Apache Tomcat][Web site using Apache Tomcat]
 
 下列內容說明從應用程式組件庫，使用 Jetty 建置網站的方式會顯示如下：
 
-![Web site using Jetty][]
+![Web site using Jetty][Web site using Jetty]
 
 1.  登入 Microsoft Azure 管理入口網站。
 2.  依序按一下 [新增]、[運算]、[網站] 及 [從組件庫]。
@@ -55,7 +55,7 @@
 
 # 後續步驟
 
-此時，在 Azure 上，您會擁有作為 Java 網站執行的 Java 應用程式伺服器。若要加入自己的應用程式或網頁，請參閱[將應用程式或網頁新增至 Java 網站][]。
+此時，在 Azure 上，您會擁有作為 Java 網站執行的 Java 應用程式伺服器。若要加入自己的應用程式或網頁，請參閱[將應用程式或網頁新增至 Java 網站][將應用程式或網頁新增至 Java 網站]。
 
   [將自訂 Java 網站上傳至 Azure]: ../web-sites-java-custom-upload
   [啟用自己的 MSDN 訂戶權益]: /zh-TW/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F

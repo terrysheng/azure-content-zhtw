@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-handle-conflcits-offline-data-dotnet" urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Handle Conflicts with offline data in Mobile Services (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows phone application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
 
 # 處理行動服務中的離線資料同步衝突
 
@@ -11,31 +11,31 @@
 
 本主題將說明在使用 Azure 行動服務的離線功能時，應如何同步處理資料及處理衝突。在本教學課程中，您將下載同時支援離線和線上資料的應用程式、將行動服務與該應用程式整合，然後登入 Azure 管理入口網站，以檢視執行應用程式時所做的資料庫更新。
 
-本教學課程會以先前的教學課程[開始使用資料][]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須先完成[開始使用離線資料][開始使用資料]。
+本教學課程會以先前的教學課程[開始使用資料][開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須先完成[開始使用離線資料][開始使用資料]。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [下載 Windows Phone 專案][]
-2.  [為資料庫新增到期日資料行][]
- -   [更新 .NET 後端行動服務的資料庫][]
- -   [更新 JavaScript 行動服務的資料庫][]
-1.  [對行動服務進行應用程式測試][]
-2.  [手動更新後端中的資料以產生衝突][]
+1.  [下載 Windows Phone 專案][下載 Windows Phone 專案]
+2.  [為資料庫新增到期日資料行][為資料庫新增到期日資料行]
+ -   [更新 .NET 後端行動服務的資料庫][更新 .NET 後端行動服務的資料庫]
+ -   [更新 JavaScript 行動服務的資料庫][更新 JavaScript 行動服務的資料庫]
+1.  [對行動服務進行應用程式測試][對行動服務進行應用程式測試]
+2.  [手動更新後端中的資料以產生衝突][手動更新後端中的資料以產生衝突]
 
-本教學課程需要 Visual Studio 2012 和 [Windows Phone 8 SDK][]。
+本教學課程需要 Visual Studio 2012 和 [Windows Phone 8 SDK][Windows Phone 8 SDK]。
 
 ## <a name="download-app"></a>下載範例專案
 
-本教學課程以[處理衝突程式碼範例][] (這是 Visual Studio 2012 中的 Windows Phone 8 專案之一) 做為建置基礎。  
+本教學課程以[處理衝突程式碼範例][處理衝突程式碼範例] (這是 Visual Studio 2012 中的 Windows Phone 8 專案之一) 做為建置基礎。  
 
 
 此應用程式的 UI 與[開始使用離線資料][開始使用資料]教學課程中的應用程式相類似，差別在於前者的每個 TodoItem 都有新的日期資料行。
 
-![][]
+![][0]
 
-1.  下載 Windows Phone 版本的[處理衝突程式碼範例][]。
+1.  下載 Windows Phone 版本的[處理衝突程式碼範例][處理衝突程式碼範例]。
 
-2.  安裝 [SQLite for Windows Phone 8][] (如果尚未安裝)。
+2.  安裝 [SQLite for Windows Phone 8][SQLite for Windows Phone 8] (如果尚未安裝)。
 
 3.  在 Visual Studio 2012 中，開啟下載的專案。在 \[Windows Phone\] \> [延伸] 下，新增 [SQLite for Windows Phone] 的參考。
 
@@ -73,7 +73,7 @@
 
     在 WebApiConfig.cs 檔案中，注意您的預設資料庫初始設定式類別是衍生自`DropCreateDatabaseIfModelChanges` 類別。這意味對模型的任何變更都會導致資料表捨棄，並重新建立以容納新模型。因此資料表的資料將流失，並且將重新植入資料表。請修改資料庫初始設定式的 Seed 方法，使`Seed()` 初始化函數如下所示，以初始化新的 DueDate 資料行。儲存 WebApiConfig.cs 檔案。
 
-    > [WACOM.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型][] (英文)。
+    > [WACOM.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型][如何使用 Code First Migrations 更新資料模型] (英文)。
 
         new TodoItem { Id = "1", Text = "First item", Complete = false, DueDate = DateTime.Today },
         new TodoItem { Id = "2", Text = "Second item", Complete = false, DueDate = DateTime.Today },
@@ -88,7 +88,7 @@
 
 對於 JavaScript 後端行動服務，您將會新增名為 **TodoWithDate** 的新資料表。若要為 JavaScript 後端行動服務新增 **TodoWithDate** 資料表，請遵循下列步驟。
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 
 2.  導覽至行動服務的 [資料] 索引標籤。
 
@@ -111,9 +111,9 @@
 
 4.  和之前一樣，在文字方塊中輸入文字，然後按一下 [儲存] 以儲存一些新的 todo 項目。這會將資料儲存至本機同步資料表，但不會儲存至伺服器。
 
-     ![][]
+     ![][0]
 
-5.  若要檢視資料庫的現行狀態，請登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的行動服務。
+5.  若要檢視資料庫的現行狀態，請登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的行動服務。
 
  -   如果您在行動服務中使用 JavaScript 後端，請按一下 [資料] 索引標籤，然後按一下 [TodoWithDate] 資料表。按一下 [瀏覽] 以確認資料表仍是空白的，因為我們尚未將變更從應用程式推送至伺服器。
 
@@ -194,8 +194,6 @@
 
 
 
-  [Windows 市集 C\#]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "Windows 市集 C#"
-  [Windows Phone]: /zh-tw/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-offline-data
   [下載 Windows Phone 專案]: #download-app
   [為資料庫新增到期日資料行]: #add-column
@@ -205,7 +203,7 @@
   [手動更新後端中的資料以產生衝突]: #handle-conflict
   [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
   [處理衝突程式碼範例]: http://go.microsoft.com/fwlink/?LinkId=398257
-  []: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
+  [0]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
   [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
   [如何使用 Code First Migrations 更新資料模型]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
   [Azure 管理入口網站]: https://manage.windowsazure.com/

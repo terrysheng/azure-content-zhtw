@@ -287,8 +287,8 @@
 
 在此簡單範例中，您將廣播通知到您的所有 Android 裝置。若要以特定使用者為目標，請參閱教學課程[使用通知中心來推播通知給使用者][使用通知中心來推播通知給使用者]，在此同時，如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞][使用通知中心傳送即時新聞]。在[通知中心指引][通知中心指引]中深入了解如何使用通知中心。
 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+
 
   [啟用 Google 雲端通訊]: #register
   [設定您的通知中心]: #configure-hub
@@ -297,7 +297,6 @@
   [測試應用程式]: #run-app
   [此處]: http://go.microsoft.com/fwlink/?LinkId=389797
   [行動服務 Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-  [啟用 GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [0]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
   [1]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal2.png
@@ -306,7 +305,6 @@
   [4]: ./media/notification-hubs-android-get-started/notification-hub-configure-android.png
   [5]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app.png
   [6]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app2.png
-  [新增 Play 服務]: ../includes/mobile-services-add-Google-play-services.md
   [7]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
   [REST 介面]: http://msdn.microsoft.com/zh-TW/library/windowsazure/dn223264.aspx
   [.NET 後端]: /zh-TW/documentation/articles/mobile-services-javascript-backend-android-get-started-push/

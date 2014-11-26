@@ -72,22 +72,15 @@
 
 ## <a name="enabledomain"></a>啟用流量管理員網站
 
-[WACOM.INCLUDE [modes][3]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
   [Moniker]: /zh-TW/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [1]: https://moniker.com
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [了解 DNS 記錄]: #understanding-records
   [將網站設定為標準模式]: #bkmk_configsharedmode
   [新增自訂網域的 DNS 記錄]: #bkmk_configurecname
   [啟用網站的流量管理員]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [My Domains page for Moniker]: .\media\web-sites-moniker-custom-domain-name\Moniker_MyDomains.png
   [Moniker Zone Template Management]: .\media\web-sites-moniker-custom-domain-name\Moniker_ZoneManager.png
   [Moniker Create Zone Template]: .\media\web-sites-moniker-custom-domain-name\Moniker_CreateZoneTemplate_TM.png
   [2]: .\media\web-sites-moniker-custom-domain-name\Moniker_ZoneAssignment.png
-  [3]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

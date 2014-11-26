@@ -1,18 +1,18 @@
 <properties linkid="create-vso-project-setup-continuous-deployment" urlDisplayName="How to create a VSO project and setup Continuous Deployment" pageTitle="How to create a Visual Studio Online team project and setup Continuous Deployment - Windows Azure" metaKeywords="Visual Studio Online create team project, continuous deployment to Azure" description="Learn how to create a Visual Studio Online team project and configure it for continuous deployment to Windows Azure." metaCanonical="" services="cloud-services, visual-studio-online" documentationCenter="" title="How to Create and Deploy a Cloud Service" authors="jimlamb" solutions="" writer="jimlamb" manager="" editor=""  />
 
-<tags ms.service="visual-studio-online" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jimlamb"></tags>
+<tags ms.service="visual-studio-online" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jimlamb" />
 
 # 建立 Visual Studio Online 專案並對 Windows Azure 設定連續部署
 
-[WACOM.INCLUDE [disclaimer][]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Windows Azure 管理入口網站可讓您在 Visual Studio Online 上建立小組專案，並設定 Web 應用程式以進行網站的連續部署。
 
 ## 目錄
 
--   [如何建立小組專案][]
--   [如何建立新的 Web 應用程式，並將它新增至 Git 版本控制][]
--   [如何設定連續部署][]
+-   [如何建立小組專案][如何建立小組專案]
+-   [如何建立新的 Web 應用程式，並將它新增至 Git 版本控制][如何建立新的 Web 應用程式，並將它新增至 Git 版本控制]
+-   [如何設定連續部署][如何設定連續部署]
 
 ## <a name="create_team_project"></a>如何建立小組專案
 
@@ -20,8 +20,8 @@ Windows Azure 管理入口網站可讓您在 Visual Studio Online 上建立小�
 2.  按一下左下角的 [新增]。
 3.  按一下 [小組專案]
 4.  提供小組專案名稱。請注意，在專案建立之後，您便無法變更小組專案的名稱。
-5.  選擇您要在專案中使用的版本控制類型。您可以選擇 Git (分散式版本控制系統) 或 Team Foundation 版本控制 (集中式版本控制系統)。不確定要使用哪個系統？在[按此][]深入了解。
-6.  選擇流程範本。如需流程範本的比較，請參閱[使用小組專案成品][]。
+5.  選擇您要在專案中使用的版本控制類型。您可以選擇 Git (分散式版本控制系統) 或 Team Foundation 版本控制 (集中式版本控制系統)。不確定要使用哪個系統？在[按此][按此]深入了解。
+6.  選擇流程範本。如需流程範本的比較，請參閱[使用小組專案成品][使用小組專案成品]。
 7.  選擇要用來建立小組專案、新增使用者，及監控資源使用的 Visual Studio Online 帳戶。
 8.  保持 [Add to Startboard] 核取方塊為勾選狀態，如此一來，您的新小組專案便會自動出現在您的開始面板上。
 9.  按一下 [建立]。
@@ -57,7 +57,6 @@ Windows Azure 管理入口網站可讓您在 Visual Studio Online 上建立小�
 3.  在組建 blade 中，按一下 [部署] 部分中的第一個項目，以開啟相關網站。
 4.  在網站 blade 中，按一下 [瀏覽] blade 層級命令，以瀏覽網站並確認 Web 應用程式的部署。
 
-  [disclaimer]: ../includes/disclaimer.md
   [如何建立小組專案]: #create_team_project
   [如何建立新的 Web 應用程式，並將它新增至 Git 版本控制]: #create_web_app
   [如何設定連續部署]: #continuous_deployment

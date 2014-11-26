@@ -2,7 +2,7 @@
 
 1.  在 [方案總管] 中，以滑鼠右鍵按一下行動服務專案，按一下 [發行]，然後在 [發行 Web] 對話方塊中，按一下 [Azure 行動服務]。
 
-    ![][]
+    ![][0]
 
 2.  使用您的 Azure 帳戶認證登入，並從 [Existing Mobile Services] 中選取您的服務，然後按一下 [確定]。
 
@@ -18,6 +18,6 @@
 
     發佈成功後，您會再次看到行動服務已啟動並執行的確認頁面，而這次是在 Azure 中。
 
-  []: ./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish.png
+  [0]: ./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish.png
   [1]: ./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-select-service.png
   [2]: ./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-2.png

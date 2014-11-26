@@ -1,15 +1,15 @@
 <properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" description="Step 2: Upload existing public data into Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
-這是逐步解說的第二個步驟[使用 Azure ML 開發預測方案][]：
+這是逐步解說的第二個步驟[使用 Azure ML 開發預測方案][使用 Azure ML 開發預測方案]：
 
-1.  [建立 ML 工作區][]
+1.  [建立 ML 工作區][建立 ML 工作區]
 2.  **上傳現有資料**
-3.  [建立新實驗][]
-4.  [訓練及評估模型][]
-5.  [發佈 Web 服務][]
-6.  [存取 Web 服務][]
+3.  [建立新實驗][建立新實驗]
+4.  [訓練及評估模型][訓練及評估模型]
+5.  [發佈 Web 服務][發佈 Web 服務]
+6.  [存取 Web 服務][存取 Web 服務]
 
 ------------------------------------------------------------------------
 
@@ -52,7 +52,7 @@ UCI 網站提供了功能向量的屬性說明，這些屬性包括財務資訊�
 6.  針對資料類型，請選取「不具標頭的一般 CSV 檔案 (.nh.csv)」
 7.  視需要新增說明
 8.  按一下 [確定]  
-    ![Upload the dataset][]
+    ![Upload the dataset][Upload the dataset]
 
 這會將資料上傳至我們可在實驗中使用的 [資料集] 模組。
 

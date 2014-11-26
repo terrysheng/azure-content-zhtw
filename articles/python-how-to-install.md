@@ -1,6 +1,6 @@
 <properties linkid="develop-python-install-python" urlDisplayName="Install Python" pageTitle="Install Python and the SDK - Azure" metaKeywords="Azure Python SDK" description="Learn how to install Python and the SDK to use with Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # 安裝 Python 和 SDK
 
@@ -45,7 +45,7 @@ Azure SDK for Python 內含的元件可讓您開發、部署及管理適用於 A
 
 ## 在 Windows 上進行安裝
 
-對於 Windows，您可以使用隨附的 [WebPI 安裝程式][]，從主要的 Python 開發人員中心進行簡化安裝 (安裝程式會從 www.python.org 取得 CPython)。
+對於 Windows，您可以使用隨附的 [WebPI 安裝程式][WebPI 安裝程式]，從主要的 Python 開發人員中心進行簡化安裝 (安裝程式會從 www.python.org 取得 CPython)。
 
 **注意：**在 Windows Server 上，若要下載 WebPI 安裝程式，您可能需要設定 IE ESC 設定 ([開始]/[系統管理工具]/[伺服器管理員]，然後按一下 [設定 IE ESC]，將其設定為 [關閉])
 
@@ -55,15 +55,15 @@ Azure SDK for Python 內含的元件可讓您開發、部署及管理適用於 A
 
 WebPI 安裝程式提供開發 Python Azure 應用程式所需的任何項目。
 
-![how-to-install-python-webpi-27-1][]
+![how-to-install-python-webpi-27-1][how-to-install-python-webpi-27-1]
 
 完成後，您應該可以看見這個確認安裝選擇的畫面：
 
-![how-to-install-python-webpi-27-2][]
+![how-to-install-python-webpi-27-2][how-to-install-python-webpi-27-2]
 
 安裝完成後，請在提示字元中輸入 python 以確認安裝作業順利完成。由於安裝方法不盡相同，您可能需要設定 "path" 變數才能找到 (正確版本的) Python：
 
-![how-to-install-python-win-run-27][]
+![how-to-install-python-win-run-27][how-to-install-python-win-run-27]
 
 安裝完成後，您應該可以在預設位置取用 Python 和用戶端程式庫：
 
@@ -73,15 +73,15 @@ WebPI 安裝程式提供開發 Python Azure 應用程式所需的任何項目。
 
 WebPI 安裝程式提供開發 Python Azure 應用程式所需的任何項目。
 
-![how-to-install-python-webpi-34-1][]
+![how-to-install-python-webpi-34-1][how-to-install-python-webpi-34-1]
 
 完成後，您應該可以看見這個確認安裝選擇的畫面：
 
-![how-to-install-python-webpi-34-2][]
+![how-to-install-python-webpi-34-2][how-to-install-python-webpi-34-2]
 
 安裝完成後，請在提示字元中輸入 python 以確認安裝作業順利完成。由於安裝方法不盡相同，您可能需要設定 "path" 變數才能找到 (正確版本的) Python：
 
-![how-to-install-python-win-run-34][]
+![how-to-install-python-win-run-34][how-to-install-python-win-run-34]
 
 安裝完成後，您應該可以在預設位置取用 Python 和用戶端程式庫：
 
@@ -89,19 +89,19 @@ WebPI 安裝程式提供開發 Python Azure 應用程式所需的任何項目。
 
 ### 取得更多封裝
 
-由於此版本主要著重於 Web 應用程式，因此您可以隨時瀏覽 [Python 封裝索引 (PyPI)][] (英文) 來選擇其他種類豐富的軟體。如果您選擇安裝散發版本，便擁有從 Web 開發到工程運算等多樣化案例中令人感興趣的主要部分。
+由於此版本主要著重於 Web 應用程式，因此您可以隨時瀏覽 [Python 封裝索引 (PyPI)][Python 封裝索引 (PyPI)] (英文) 來選擇其他種類豐富的軟體。如果您選擇安裝散發版本，便擁有從 Web 開發到工程運算等多樣化案例中令人感興趣的主要部分。
 
 ### Python Tools for Visual Studio
 
 Python Tools for Visual Studio (PTVS) 是 Microsoft 提供的免費/OSS 外掛程式，它能將 VS 轉變為成熟的 Python IDE：
 
-![how-to-install-python-ptvs][]
+![how-to-install-python-ptvs][how-to-install-python-ptvs]
 
 您可以選擇是否要使用 PTVS，不過我們建議您使用，因為它能提供 Python 和 Django 專案/方案支援、偵錯、程式碼剖析、互動式視窗、範本編輯和 IntelliSense。
 
-PTVS 也能讓您使用[部署至雲端服務和網站][]的支援，輕鬆部署至 Microsoft Azure。
+PTVS 也能讓您使用[部署至雲端服務和網站][部署至雲端服務和網站]的支援，輕鬆部署至 Microsoft Azure。
 
-PTVS 可以和您現有的 Visual Studio 2010、2012 或 2013 安裝一同運作。如需詳細資訊並進行下載，請參閱 [CodePlex 上的 Python Tools for Visual Studio][] (英文)。
+PTVS 可以和您現有的 Visual Studio 2010、2012 或 2013 安裝一同運作。如需詳細資訊並進行下載，請參閱 [CodePlex 上的 Python Tools for Visual Studio][CodePlex 上的 Python Tools for Visual Studio] (英文)。
 
 ## Windows 解除安裝
 
@@ -117,7 +117,7 @@ PTVS 可以和您現有的 Visual Studio 2010、2012 或 2013 安裝一同運作
 
 您的 Dev 機器很可能已安裝 Python。您可以輸入以下內容來加以查看：
 
-![how-to-install-python-linux-run][]
+![how-to-install-python-linux-run][how-to-install-python-linux-run]
 
 我們現在看到這個在 Azure 上執行的 Ubuntu Server 14.04 LTS VM 已安裝 CPython 2.7.6。如果您想要升級，請遵循 OS 的建議套件升級指示。
 
@@ -131,7 +131,7 @@ PTVS 可以和您現有的 Visual Studio 2010、2012 或 2013 安裝一同運作
 
 您現在應該能看見用戶端程式庫已安裝在 **site-packages** 下。在 MacOS 上：
 
-![how-to-install-python-mac-site][]
+![how-to-install-python-mac-site][how-to-install-python-mac-site]
 
 在 Mac/Linux 上進行開發時，支援兩個主要案例：
 
@@ -141,21 +141,21 @@ PTVS 可以和您現有的 Visual Studio 2010、2012 或 2013 安裝一同運作
 
 第一個案例可讓您透過適用於 Azure REST API 的 Pythonic 包裝函式撰寫運用 Azure PaaS 功能 (如 Blob 儲存體、佇列等) 之優勢且內容豐富的 Web 應用程式。這些功用在 Windows、Mac 及 Linux 上均相同。如需範例，請參閱教學課程和作法指南。您也可以在 Linux VM 內部使用這些用戶端程式庫。
 
-對於 VM 案例，您只需要啟動選擇的 Linux VM (Ubuntu、CentOS、Suse)，便能執行/管理所需的項目。例如，您可以在 Windows/Mac/Linux 機器上執行 [IPython][] REPL/notebook，然後將瀏覽器指向在 Azure 上執行 IPython Engine 的 Linux 或 Windows 多重處理器 VM。如需 IPython 安裝的詳細資訊，請參閱 IPython 教學課程。
+對於 VM 案例，您只需要啟動選擇的 Linux VM (Ubuntu、CentOS、Suse)，便能執行/管理所需的項目。例如，您可以在 Windows/Mac/Linux 機器上執行 [IPython][IPython] REPL/notebook，然後將瀏覽器指向在 Azure 上執行 IPython Engine 的 Linux 或 Windows 多重處理器 VM。如需 IPython 安裝的詳細資訊，請參閱 IPython 教學課程。
 
-如需設定 Linux VM 的相關資訊，請參閱 [Linux 管理小節][]。
+如需設定 Linux VM 的相關資訊，請參閱 [Linux 管理小節][Linux 管理小節]。
 
 ## 其他軟體和資源：
 
--   [Enthought Python 散發 (英文)][]
--   [ActiveState Python 散發 (英文)][]
--   [SciPy - Scientific Python 程式庫套件 (英文)][]
--   [NumPy - Python 的數值程式庫 (英文)][]
--   [Django 專案 - 成熟的 Web 架構/CMS (英文)][]
+-   [Enthought Python 散發 (英文)][Enthought Python 散發 (英文)]
+-   [ActiveState Python 散發 (英文)][ActiveState Python 散發 (英文)]
+-   [SciPy - Scientific Python 程式庫套件 (英文)][SciPy - Scientific Python 程式庫套件 (英文)]
+-   [NumPy - Python 的數值程式庫 (英文)][NumPy - Python 的數值程式庫 (英文)]
+-   [Django 專案 - 成熟的 Web 架構/CMS (英文)][Django 專案 - 成熟的 Web 架構/CMS (英文)]
 -   [IPython - 先進的 Python REPL/Notebook (英文)][IPython]
--   [Azure 上的 IPython Notebook][]
+-   [Azure 上的 IPython Notebook][Azure 上的 IPython Notebook]
 -   [CodePlex 上的 Python Tools for Visual Studio (英文)][CodePlex 上的 Python Tools for Visual Studio]
--   [Virtualenv (英文)][]
+-   [Virtualenv (英文)][Virtualenv (英文)]
 
   [WebPI 安裝程式]: http://go.microsoft.com/fwlink/?LinkId=254281&clcid=0x409
   [how-to-install-python-webpi-27-1]: ./media/python-how-to-install/how-to-install-python-webpi-27-1.png

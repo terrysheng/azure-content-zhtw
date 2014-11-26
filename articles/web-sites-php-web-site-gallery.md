@@ -13,6 +13,5 @@
 -   [建立 PHP-MySQL Azure 網站並使用 Git 部署][建立 PHP-MySQL Azure 網站並使用 Git 部署] -- 從頭開始建立 PHP 網站，並使用 Git 將網站部署到 Azure 網站。
 -   [其他 PHP 教學課程][其他 PHP 教學課程] - 使用 PHP 和 Azure 建立其他類型的應用程式
 
-  [website-from-gallery]: ../includes/website-from-gallery.md
   [建立 PHP-MySQL Azure 網站並使用 Git 部署]: /zh-tw/develop/php/tutorials/website-w-mysql-and-git/
   [其他 PHP 教學課程]: /zh-tw/develop/php/tutorials/

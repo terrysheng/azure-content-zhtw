@@ -1,12 +1,12 @@
-1.  在 [Azure 管理入口網站][]中，按一下新的行動服務或是其雲端圖示索引標籤，以移至概觀頁面。
+1.  在 [Azure 管理入口網站][Azure 管理入口網站]中，按一下新的行動服務或是其雲端圖示索引標籤，以移至概觀頁面。
 
-    ![][]
+    ![][0]
 
 2.  按一下 [iOS] 平台。在 [開始使用] 區段下，展開 [Create a new iOS app]。
 
     ![][1]
 
-3.  下載並安裝 [Visual Studio Professional 2013][] 或更新版本 (若您尚未這麼做)。
+3.  下載並安裝 [Visual Studio Professional 2013][Visual Studio Professional 2013] 或更新版本 (若您尚未這麼做)。
 
 4.  在 [Download and publish your service to the cloud] 下，按一下 [下載]。
 
@@ -18,10 +18,10 @@
 
     ![][2]
 
-<!-- URLs. -->
+
 
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-ios-download-service-locally/mobile-portal-quickstart-ios.png
+  [0]: ./media/mobile-services-ios-download-service-locally/mobile-portal-quickstart-ios.png
   [1]: ./media/mobile-services-ios-download-service-locally/download-service-project.png
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=391934
   [2]: ./media/mobile-services-ios-download-service-locally/download-publish-profile.png

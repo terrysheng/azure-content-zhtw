@@ -39,7 +39,7 @@
 
 您現在已經建立可供行動應用程式使用的新行動服務。
 
-<!-- URLs. -->
+
 
   [管理入口網站]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-create-new-service/plus-new.png

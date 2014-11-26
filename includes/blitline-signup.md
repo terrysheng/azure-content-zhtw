@@ -1,14 +1,14 @@
 ### 註冊 Blitline 帳戶
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 
 2.  在管理入口網站的下方窗格中，按一下 [新增]。
 
-    ![command-bar-new][]
+    ![command-bar-new][command-bar-new]
 
 3.  按一下 [市集]。
 
-    ![blitline-store][]
+    ![blitline-store][blitline-store]
 
 4.  在 [選擇附加元件] 對話方塊中，選取 [Blitline]，然後按一下向右箭頭。
 
@@ -16,7 +16,7 @@
 
 6.  在 Azure 設定中，輸入名稱來識別您的 **Blitline** 服務，或使用預設值 [Blitline]。名稱的長度必須介於 1 到 100 個字元之間，而且只能包含英數字元、連字號、句點和底線。此名稱在已訂用的 Azure 市集項目清單中必須是唯一的。
 
-    ![store-screen-1][]
+    ![store-screen-1][store-screen-1]
 
 7.  選擇地區值，例如美國西部。
 
@@ -30,11 +30,11 @@
 
 1.  按一下 [連線資訊]。
 
-    ![blitline-connection-info-button][]
+    ![blitline-connection-info-button][blitline-connection-info-button]
 
 2.  在 [連線資訊] 對話方塊中，可以看到您的應用程式識別碼
 
-    ![blitline-connection-info][]
+    ![blitline-connection-info][blitline-connection-info]
 
 <!--images-->
 

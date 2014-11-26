@@ -1,6 +1,6 @@
 <properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Website with MongoDB" pageTitle="Node.js website with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/zh-TW/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="larryfr"  solutions="" writer="" manager="" editor=""  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 以虛擬機器中的 MongoDB 在 Azure 上建立 Node.js 應用程式
 
@@ -502,7 +502,6 @@ Azure 跨平台命令列介面 (xplat-cli) 可讓您執行 Azure 服務的管理
   [以使用 MongoLab 附加元件的 MongoDB 在 Azure 上建立 Node.js 應用程式]: /zh-TW/develop/nodejs/tutorials/website-with-mongodb-mongolab/
   [A web page displaying an empty tasklist]: ./media/store-mongodb-web-sites-nodejs-use-mac/todo_list_empty.png
   [Git]: http://git-scm.com
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [MongoDB 安裝指南]: http://docs.mongodb.org/manual/installation/
   [將 MongoDB 安裝在 Azure 上的 Linux]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
   [Azure 管理入口網站]: https://manage.windowsazure.com/
@@ -515,7 +514,6 @@ Azure 跨平台命令列介面 (xplat-cli) 可讓您執行 Azure 服務的管理
   [如何在 Azure 上搭配使用 SSH 與 Linux]: http://www.windowsazure.com/zh-TW/documentation/articles/linux-use-ssh-key/
   [虛擬機器組態的螢幕擷取畫面]: ./media/web-sites-nodejs-store-data-mongodb/vmconfig.png
   [端點組態的螢幕擷取畫面]: ./media/web-sites-nodejs-store-data-mongodb/endpoints.png
-  [http://\<YourVMDNSName\>.cloudapp.net:28017/\_\_]: http://<YourVMDNSName>.cloudapp.net:28017/__
   [MongoDB 文件]: http://docs.mongodb.org/manual/
   [Express]: http://expressjs.com
   [Mongoose]: http://mongoosejs.com

@@ -2,7 +2,7 @@
 
 1.  返回行動服務的 [推送] 索引標籤，按一下 [通知中樞] 連結。
 
-    ![][]
+    ![][0]
 
     這會瀏覽至行動服務所使用的通知中樞。
 
@@ -20,6 +20,6 @@
 
 現在，已設定行動服務專案在本機執行時連接至 Azure 的通知中樞。請注意，請務必使用相同通知中樞名稱和連接字串作為入口網站，因為在 Azure 執行時，入口網站設定會覆寫這些 Web.config 專案設定。
 
-  []: ./media/mobile-services-dotnet-backend-configure-local-push/link-to-notification-hub.png
+  [0]: ./media/mobile-services-dotnet-backend-configure-local-push/link-to-notification-hub.png
   [1]: ./media/mobile-services-dotnet-backend-configure-local-push/notification-hub-page.png
   [2]: ./media/mobile-services-dotnet-backend-configure-local-push/notification-hub-connection-string.png

@@ -98,9 +98,9 @@
 -   [行動服務 HTML/JavaScript 作法概念參考][行動服務 HTML/JavaScript 作法概念參考]
     深入了解如何將行動服務搭配 HTML 及 JavaScript 使用。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/
   [針對推播通知註冊您的應用程式及設定行動服務]: #register
@@ -108,8 +108,6 @@
   [插入資料以接收通知]: #test
   [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started/
   [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-js/
-  [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [mobile-services-create-new-push-vs2013-2]: ../includes/mobile-services-create-new-push-vs2013-2.md
   [0]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push2.png
   [開始使用通知中心]: /zh-tw/manage/services/notification-hubs/getting-started-windows-dotnet/

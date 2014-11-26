@@ -271,9 +271,9 @@
 
 恭喜！您已順利地在行動服務上建立新的排定工作。系統會依排程執行此工作，直到您停用或修改此工作為止。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [註冊以取得 Twitter 存取權與儲存認證]: #get-oauth-credentials
   [下載並安裝 LINQ to Twitter 程式庫]: #install-linq2twitter
@@ -282,7 +282,6 @@
   [在本機測試排定工作]: #run-job-locally
   [發佈服務及註冊工作]: #register-job
   [LINQ to Twitter CodePlex 專案]: http://linqtotwitter.codeplex.com/
-  [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
   [0]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
   [1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-component-model-reference.png
   [如何使用 Code First Migrations 更新資料模型]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations

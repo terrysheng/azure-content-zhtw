@@ -278,7 +278,6 @@
   [Git]: http://git-scm.com/
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure PHP Web Site]: ./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [建立新的 Azure 網站]: ./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg
   [Custom Create a new Web Site]: ./media/web-sites-php-sql-database-deploy-use-git/custom_create.png

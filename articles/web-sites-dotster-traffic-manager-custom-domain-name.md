@@ -68,22 +68,15 @@
 
 ## <a name="enabledomain"></a>啟用流量管理員網站
 
-[WACOM.INCLUDE [modes][4]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [Dotster.com]: https://dotster.com
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [了解 DNS 記錄]: #understanding-records
   [將網站設定為標準模式]: #bkmk_configsharedmode
   [新增自訂網域的 DNS 記錄]: #bkmk_configurecname
   [啟用網站的流量管理員]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [Domain Central Dotster Menu]: .\media\web-sites-dotster-custom-domain-name\Dotster_DomainCentralMenu.png
   [Dotster Domain Configuration Options]: .\media\web-sites-dotster-custom-domain-name\Dotster_DomainMenu.png
   [1]: .\media\web-sites-dotster-custom-domain-name\Dotster_Nameservers.png
   [2]: .\media\web-sites-dotster-custom-domain-name\Dotster_DNS.png
   [3]: .\media\web-sites-dotster-custom-domain-name\Dotster_DNS_CNAME_TM.png
-  [4]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

@@ -104,11 +104,10 @@
 -   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何在您的行動服務中實作商務邏輯。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
+
   [通用 Windows 應用程式版本]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data
   [向 WNS 註冊您的應用程式，並設定行動服務]: #register
   [更新應用程式以註冊通知]: #update-app
@@ -117,10 +116,7 @@
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-store-get-started
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
   [開始在行動服務中使用推播通知]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push
-  [mobile-services-notification-hubs-register-windows-store-app]: ../includes/mobile-services-notification-hubs-register-windows-store-app.md
   [0]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-app-enable-toast-win8.png
-  [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
-  [mobile-services-windows-store-test-push]: ../includes/mobile-services-windows-store-test-push.md
   [將推播通知傳送給驗證的使用者]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/
   [將廣播通知傳送給訂閱者]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
   [將範本型通知傳送給訂閱者]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/

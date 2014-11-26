@@ -102,7 +102,7 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][Az
 -   [服務匯流排佇列][服務匯流排佇列]
 -   [服務匯流排主題][服務匯流排主題]
 
-<!--Link references--> <!--External Link references-->
+<!--Link references-->\r\n<!--External Link references-->
 
   [Python Tools for Visual Studio]: http://pytools.codeplex.com
   [必要條件]: #prerequisites

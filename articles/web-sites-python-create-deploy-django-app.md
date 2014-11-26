@@ -132,7 +132,6 @@
 
 現在，您可以前往 DjangoApplication 目錄，再依照平常的用法使用 manage.py 來開始將新應用程式加入 Django 專案。
 
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [0]: http://www.windowsazure.com/zh-tw/develop/python/
   [msysgit]: http://code.google.com/p/msysgit/
   [0]: ./media/web-sites-python-create-deploy-django-app/django-ws-003.png

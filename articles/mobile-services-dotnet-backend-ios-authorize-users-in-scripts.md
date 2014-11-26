@@ -46,13 +46,12 @@
 * [行動服務 .NET 如何概念參考]
   <br/>深入了解如何並用行動服務與 .NET
 
-<!-- Anchors. --> 
+ 
 <!-- Images. --
 
-<!-- URLs. -->
+
 
   [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
-  [mobile-services-filter-user-results-dotnet-backend]: ../includes/mobile-services-filter-user-results-dotnet-backend.md
   [0]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
   [使用推播通知]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push

@@ -439,7 +439,7 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 
 您新增了可對使用者顯示警示的 **QSUIAlertViewWithBlock** 協助程式類別，最後將程式碼新增至 **QSTodoListViewController**，以提示使用者透過三種方式之一來協調衝突。
 
-<!-- URLs. -->
+
 
   [開始使用離線資料]: /zh-tw/documentation/articles/mobile-services-ios-get-started-offline-data/
   [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28

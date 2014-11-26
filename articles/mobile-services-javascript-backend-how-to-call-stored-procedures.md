@@ -1,6 +1,6 @@
 <properties pageTitle="Calling SQL stored procedures with a JavaScript back end" metaKeywords="stored procedures, SQL, mobile devices, Azure" description="explains how to use SQL stored procedures in a mobile services JavaScript backed." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Calling SQL stored procedures with a JavaScript back end" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # 使用 JavaScript 後端呼叫 SQL 預存程序
 
@@ -145,8 +145,8 @@
 
 您也可以使用 Azure 入口網站來管理及建立新的預存程序。
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [呼叫簡易預存程序]: #simple
   [呼叫具有參數的預存程序]: #parameters
@@ -160,7 +160,7 @@
   [iOS]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-call-custom-api/
   [Android]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-android-call-custom-api/
   [HTML]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-html-call-custom-api/
-  [如何使用指令碼執行多個讀取作業]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/fccf4ae7-f43c-4c2d-8518-32e2df84a824/how-do-i-do-more-than-1-read-operation-by-scripting?forum=azuremobile
+  [如何使用指令碼執行多個讀取作業]: http://social.msdn.microsoft.com/Forums/windowsazure/zh-tw/fccf4ae7-f43c-4c2d-8518-32e2df84a824/how-do-i-do-more-than-1-read-operation-by-scripting?forum=azuremobile
   [從不同的結構描述存取預存程序]: http://blogs.msdn.com/b/jpsanders/archive/2013/05/02/windows-azure-mobile-services-accessing-a-stored-procedure-from-a-different-schema.aspx
   [使用JavaScript 後端行動服務]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-how-to-use-server-scripts/
   [mssql 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554212.aspx

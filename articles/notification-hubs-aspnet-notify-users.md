@@ -3,7 +3,7 @@
 使用通知中心來通知使用者
 ========================
 
-[行動服務](/en-us/manage/services/notification-hubs/notify-users "行動服務")[ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet "ASP.NET")
+[行動服務](/zh-tw/manage/services/notification-hubs/notify-users "行動服務")[ASP.NET](/zh-tw/manage/services/notification-hubs/notify-users-aspnet "ASP.NET")
 
 本教學課程將示範如何使用 Azure 通知中心，來將推播通知傳送到特定裝置上的特定應用程式使用者。ASP.NET Web API 後端可用來驗證用戶端並產生通知。本教學課程會以您在上一個**開始使用通知中心**教學課程中所建立的通知中心為基礎。將通知註冊程式碼從用戶端移至後端服務。這可確保只有在服務已明確地驗證用戶端之後才會完成註冊。這也代表通知中心認證不會隨著用戶端應用程式一起散佈。服務也可控制註冊期間所要求的標籤。
 
@@ -17,11 +17,11 @@
 --------
 
 -   Visual Studio 2012。您也可以分別使用 Visual Studio Express 2012 for Web 和 Visual Studio Express 2012 for Windows 8 來建立 ASP.NET 應用程式和 Windows 市集應用程式。
--   本教學課程會以您在**開始使用通知中心**中所建立的應用程式和通知中心為基礎。在開始本教學課程之前，您必須首先完成教學課程**開始使用通知中心** ([Windows 市集 C\#](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet)/[iOS](/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios)/[Android](/en-us/manage/services/notification-hubs/get-started-notification-hubs-android))。
+-   本教學課程會以您在**開始使用通知中心**中所建立的應用程式和通知中心為基礎。在開始本教學課程之前，您必須首先完成教學課程**開始使用通知中心** ([Windows 市集 C\#](/zh-tw/manage/services/notification-hubs/getting-started-windows-dotnet)/[iOS](/zh-tw/manage/services/notification-hubs/get-started-notification-hubs-ios)/[Android](/zh-tw/manage/services/notification-hubs/get-started-notification-hubs-android))。
 
 **注意**
 
-您在本教學課程中所建立的 ASP.NET Web API 專案會在您的本機電腦上執行。您也可以將 ASP.NET Web API 專案發佈至 Azure。如需詳細資訊，請參閱[使用 ASP.NET Web API 和 SQL Database 建立行動便利的 REST 服務](/en-us/develop/net/tutorials/rest-service-using-web-api/)。
+您在本教學課程中所建立的 ASP.NET Web API 專案會在您的本機電腦上執行。您也可以將 ASP.NET Web API 專案發佈至 Azure。如需詳細資訊，請參閱[使用 ASP.NET Web API 和 SQL Database 建立行動便利的 REST 服務](/zh-tw/develop/net/tutorials/rest-service-using-web-api/)。
 
 建立 ASP.NET 應用程式使用驗證建立 ASP.NET 應用程式
 --------------------------------------------------
@@ -290,8 +290,8 @@
 
 2.  視您的用戶端平台而定，請依照下列其中一個**使用 ASP.NET Web API 來註冊目前使用者以取得推播通知**版本中的步驟進行：
 
-    -   [Windows 市集 C\# 版本](/en-us/manage/services/notification-hubs/register-users-aspnet-dotnet)
-    -   [iOS 版本](/en-us/manage/services/notification-hubs/howto-register-user-with-aspnet-ios)
+    -   [Windows 市集 C\# 版本](/zh-tw/manage/services/notification-hubs/register-users-aspnet-dotnet)
+    -   [iOS 版本](/zh-tw/manage/services/notification-hubs/howto-register-user-with-aspnet-ios)
 
 3.  執行更新的應用程式、透過使用相同的使用者名稱和密碼字串來登入服務，然後驗證是否顯示指派給通知的註冊 ID。
 
@@ -299,7 +299,7 @@
 
     **注意**
 
-    當要求傳送通知的目標平台沒有註冊時，後端上便會發生錯誤。在此情況下，可以忽略此錯誤。若要查看如何使用範本避免此狀況，請參閱[使用通知中心傳送跨平台通知給使用者](/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet)。
+    當要求傳送通知的目標平台沒有註冊時，後端上便會發生錯誤。在此情況下，可以忽略此錯誤。若要查看如何使用範本避免此狀況，請參閱[使用通知中心傳送跨平台通知給使用者](/zh-tw/manage/services/notification-hubs/notify-users-xplat-aspnet)。
 
 4.  (選擇性) 將此用戶端應用程式部署到第二台裝置，然後執行此應用程式並插入文字。
 
@@ -310,10 +310,10 @@
 
 現在您已完成本教學課程，請考慮完成下列教學課程：
 
--   **使用通知中心傳送重大消息 ([Windows 市集 C\#](/en-us/manage/services/notification-hubs/breaking-news-dotnet) / [iOS](/en-us/manage/services/notification-hubs/breaking-news-dotnet))**
+-   **使用通知中心傳送重大消息 ([Windows 市集 C\#](/zh-tw/manage/services/notification-hubs/breaking-news-dotnet) / [iOS](/zh-tw/manage/services/notification-hubs/breaking-news-dotnet))**
     此平台特定教學課程將示範如何使用標籤，來讓使用者訂閱他們感興趣的通知類型。
 
--   **[使用通知中心傳送跨平台通知給使用者](/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet)**
+-   **[使用通知中心傳送跨平台通知給使用者](/zh-tw/manage/services/notification-hubs/notify-users-xplat-aspnet)**
     此教學課程會延伸目前的**使用通知中心通知使用者**教學課程，來使用平台特定範本註冊通知。這可讓您在伺服器端程式碼中，使用單一方法傳送通知。
 
 如需有關通知中心的詳細資訊，請參閱 [Azure 通知中心](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj927170.aspx)。

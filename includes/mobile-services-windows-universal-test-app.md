@@ -2,7 +2,7 @@
 
 2.  在應用程式的 [Insert a TodoItem] 中輸入有意義的文字，例如*完成教學課程*，然後按一下 [儲存]。
 
-    ![][]
+    ![][0]
 
     如此會傳送 POST 要求到 Azure 中代管的新行動服務。
 
@@ -12,5 +12,5 @@
 
     請注意，從先前步驟中儲存的資料，會在應用程式啟動後從行動服務載入。
 
-  []: ./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png
+  [0]: ./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png
   [1]: ./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png

@@ -97,8 +97,8 @@
 
 4.  按一下 [Complete All] 按鈕。
 
-    ![][]
+    ![][0]
 
     </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">出現訊息對話方塊，指出標示為完成的項目數，並重新執行篩選</cf><cf font="Microsoft JhengHei" complexscriptsfont="Microsoft JhengHei" asiantextfont="Microsoft JhengHei" fontcolor="000000">查詢，以便清除清單的所有項目。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">
 
-  []: ./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png
+  [0]: ./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png

@@ -1,6 +1,6 @@
 <properties linkid="dev-net-service-bus-amqp-overview" urlDisplayName="Azure Notification Hubs" pageTitle="Azure Notification Hubs" metaKeywords="Azure push notifications, Azure notification hubs, Azure messaging" description="Learn how to use push notifications in Azure. Code samples written in C# using the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" manager="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Azure 通知中心
 
@@ -29,7 +29,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 3.  若要傳送推播通知，應用程式後端必須使用控制代碼連絡 PNS，以將特定的用戶端應用程式執行個體訂為目標。
 4.  PNS 會將通知轉送至控制代碼所指定的裝置。
 
-![][]
+![][0]
 
 ## <span class="short-header">推播通知的挑戰</span>推播通知的挑戰
 
@@ -62,18 +62,18 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 您可以在以下主題找到「通知中樞」的詳細資訊：
 
--   **[客戶如何使用通知中樞][]**
+-   **[客戶如何使用通知中樞][客戶如何使用通知中樞]**
 
--   **[通知中樞教學課程和指南][]**
+-   **[通知中樞教學課程和指南][通知中樞教學課程和指南]**
 
--   **通知中樞快速入門教學課程** ([iOS][]、[Android][]、[Windows Universal][]、[Windows Phone][]、[Kindle][]、[Xamarin.iOS][]、[Xamarin.Android][])
+-   **通知中樞快速入門教學課程** ([iOS][iOS]、[Android][Android]、[Windows Universal][Windows Universal]、[Windows Phone][Windows Phone]、[Kindle][Kindle]、[Xamarin.iOS][Xamarin.iOS]、[Xamarin.Android][Xamarin.Android])
 
 針對推播通知，相關的 .NET 受管理 API 參考位於此處：
 
--   [Microsoft.WindowsAzure.Messaging.NotificationHub][]
--   [Microsoft.ServiceBus.Notifications][]
+-   [Microsoft.WindowsAzure.Messaging.NotificationHub][Microsoft.WindowsAzure.Messaging.NotificationHub]
+-   [Microsoft.ServiceBus.Notifications][Microsoft.ServiceBus.Notifications]
 
-  []: ./media/notification-hubs-overview/SBPushNotifications1.gif
+  [0]: ./media/notification-hubs-overview/SBPushNotifications1.gif
   [1]: ./media/notification-hubs-overview/SBPushNotifications2.gif
   [客戶如何使用通知中樞]: http://azure.microsoft.com/zh-TW/services/notification-hubs
   [通知中樞教學課程和指南]: http://azure.microsoft.com/zh-TW/documentation/services/notification-hubs

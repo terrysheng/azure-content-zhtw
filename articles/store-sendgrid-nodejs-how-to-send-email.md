@@ -232,7 +232,6 @@ SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGri
   [雲端架構電子郵件服務]: http://sendgrid.com/solutions
   [交易式電子郵件傳遞]: http://sendgrid.com/transactional-email
   []: http://sendgrid.com
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
   [SMTP 與 Web API 的比較]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/
   [篩選器設定]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/

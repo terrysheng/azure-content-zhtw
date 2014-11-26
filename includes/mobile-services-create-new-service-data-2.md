@@ -4,13 +4,13 @@
 
 2.  按一下 [資料] 索引標籤，然後按一下 [建立]。
 
-    ![mobile-data-tab-empty][]
+    ![mobile-data-tab-empty][mobile-data-tab-empty]
 
     這樣做會顯示 [建立新資料表] 對話方塊。
 
 3.  在 [資料表名稱] 中輸入 *TodoItem*，然後按一下核取按鈕。
 
-    ![mobile-create-todoitem-table][]
+    ![mobile-create-todoitem-table][mobile-create-todoitem-table]
 
 這會建立包含預設權限集的新儲存資料表 **TodoItem**。這表示擁有應用程式金鑰 (隨應用程式散佈) 的人都可以存取與變更資料表中的資料。
 

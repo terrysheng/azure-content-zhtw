@@ -1,16 +1,16 @@
 <properties linkid="service-bus-monitor-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Monitor Service Bus Messaging Entities - Azure" metaKeywords="" description="Learn how to monitor your Service Bus entities using the Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Monitor Service Bus Messaging Entities" authors="sethm" solutions="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # 如何監視服務匯流排訊息實體
 
-本主題將說明如何使用 [Azure 管理入口網站][]來管理及監視您的服務匯流排實體。此入口網站可讓您詳盡檢視佇列和主題的狀態。您也可以監視其使用情形。
+本主題將說明如何使用 [Azure 管理入口網站][Azure 管理入口網站]來管理及監視您的服務匯流排實體。此入口網站可讓您詳盡檢視佇列和主題的狀態。您也可以監視其使用情形。
 
 ## 如何監視服務匯流排佇列上的活動
 
 若要監視服務匯流排佇列，請執行下列動作：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  按一下左側導覽列上的 [服務匯流排] 圖示，以取得服務命名空間清單。
 3.  按一下您要監視的佇列所在的命名空間。
 4.  在頁面頂端的樞紐列中，按一下 [佇列]。
@@ -28,13 +28,13 @@
 
 儀表板上的 [速覽] 會以 [佇列長度] 的形式反映佇列的現行大小。它也會顯示佇列或主題的其他屬性。這項資訊每 10 秒會重新整理一次。
 
-![][]
+![][0]
 
 ## 如何監視服務匯流排主題上的活動
 
 若要監視服務匯流排主題，請執行下列動作：
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  按一下左側導覽列上的 [服務匯流排] 圖示，以取得服務命名空間清單。
 3.  按一下您要監視的主題所在的命名空間。
 4.  在頁面頂端的樞紐列中，按一下 [主題]。
@@ -45,5 +45,5 @@
 ![][1]
 
   [Azure 管理入口網站]: http://manage.windowsazure.com
-  []: ./media/service-bus-monitor-message-entities/QueueDashboard.png
+  [0]: ./media/service-bus-monitor-message-entities/QueueDashboard.png
   [1]: ./media/service-bus-monitor-message-entities/AddMetrics.png

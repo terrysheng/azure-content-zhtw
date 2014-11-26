@@ -3,9 +3,9 @@
 # 如何在 .NET 中使用 Azure Blob 儲存體服務
 
 <div  class="dev-center-tutorial-selector">
-[1.7 版](/en-us/develop/net/how-to-guides/blob-storage-v17/ "1.7 版"){:
+[1.7 版](/zh-tw/develop/net/how-to-guides/blob-storage-v17/ "1.7 版"){:
  .current} [2.0
-版](/en-us/develop/net/how-to-guides/blob-storage/ "2.0 版")
+版](/zh-tw/develop/net/how-to-guides/blob-storage/ "2.0 版")
 </div>
 
 本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。這些範例均以 C# 撰寫並使用 .NET API。所涵蓋的案例包括**上傳」**、**列出**、**下載**及**刪除**Blob。如需 Blob 的詳細資訊，請參閱[後續步驟](#next-steps)一節。
@@ -173,7 +173,7 @@ Azure .NET 儲存體 API 可支援使用儲存體連接字串，來設定存取�
     } 
 
 Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更像資料夾的結構組織 Blob。例如，您擁有名為 'photos' 的容器，您可在此容器中上傳名為 'rootphoto1'、'2010/photo1'、'2010/photo2' 和 '2011/photo1' 的 Blob。這會以虛擬方式在 'photos' 容器內建立目錄 '2010' 和 '2011'。當您在 'photos' 容器上呼叫 **ListBlobs** 時，傳回的集合將包含 **CloudBlobDirectory** 和 **CloudBlob** 物件，其分別代表最上層所包含的目錄和 Blob。在此案例中，將會傳回目錄 '2010' 和 '2011' 以及照片 'rootphoto1'。您可以選擇性地傳入將 **UseFlatBlobListing** 設定為 **true** 的新 **BlobRequestOptions** 類別。這會導致不論目錄為何，將傳回所有 Blob。如需詳細資訊，請參閱
-[CloudBlobContainer.ListBlobs][]。
+[CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs]。
 
 <h2> <a name="download-blobs"> </a><span  class="short-header">下載 Blob</span>作法：下載 Blob</h2>
 
@@ -231,8 +231,8 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
 
 *  請參閱[在 Azure 中儲存和存取資料][4]，深入了解可使用 Azure 儲存體執行的更多進階工作。
 *  如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
-  *  使用[資料表儲存體](/en-us/develop/net/how-to-guides/table-services/)儲存結構化資料。
-  *  使用 [SQL Database](/en-us/develop/net/how-to-guides/sql-database/) 儲存關聯式資料。
+  *  使用[資料表儲存體](/zh-tw/develop/net/how-to-guides/table-services/)儲存結構化資料。
+  *  使用 [SQL Database](/zh-tw/develop/net/how-to-guides/sql-database/) 儲存關聯式資料。
   
 
 

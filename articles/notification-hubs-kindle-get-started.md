@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-kindle" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to send push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="sethm" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-kindle" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-kindle" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # 開始使用通知中心
 
@@ -11,14 +11,14 @@
 
 本教學課程需要下列各項：
 
--   Android SDK (假設您將使用 Eclipse)，您可以從[此處][]下載。
--   請依照[這裡][]提供的步驟，針對 Kindle 設定您的開發環境。
+-   Android SDK (假設您將使用 Eclipse)，您可以從[此處][此處]下載。
+-   請依照[這裡][這裡]提供的步驟，針對 Kindle 設定您的開發環境。
 
 ## 將新的應用程式新增至開發人員入口網站
 
-1.  首先，請在[開發人員入口網站][]中建立應用程式。
+1.  首先，請在[開發人員入口網站][開發人員入口網站]中建立應用程式。
 
-    ![][]
+    ![][0]
 
 2.  複製 [應用程式金鑰]。
 
@@ -62,7 +62,7 @@
 
 將 ADM 程式庫新增至您的 Eclipse 專案。
 
-1.  若要取得 ADM 程式庫，請[下載 SDK][]。將 SDK zip 檔案解壓縮。
+1.  若要取得 ADM 程式庫，請[下載 SDK][下載 SDK]。將 SDK zip 檔案解壓縮。
 2.  在 Eclipse 中，以滑鼠右鍵按一下您的專案，然後按一下 [屬性]。選取左側的 [Java 組建路徑]，然後選取頂端的 [程式庫] 索引標籤。按一下 [新增外部 Jar]，然後從您解壓縮 Amazon SDK 的目錄中選取檔案 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar`。
 3.  下載 NotificationHubs Android SDK (連結)。
 4.  將封裝解壓縮，然後將檔案 `notification-hubs-sdk.jar` 拖曳到 Eclipse 的 `libs` 資料夾中。
@@ -253,19 +253,12 @@
 
 ![][7]
 
-<!-- URLs. -->
 
-  [Windows Universal]: /zh-TW/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /zh-TW/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /zh-TW/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /zh-TW/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /zh-TW/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /zh-TW/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /zh-TW/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
+
   [此處]: http://go.microsoft.com/fwlink/?LinkId=389797
   [這裡]: https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment
   [開發人員入口網站]: https://developer.amazon.com/home.html
-  []: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
+  [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
   [1]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png
   [2]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal3.png
   [3]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal4.png

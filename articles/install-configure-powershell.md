@@ -1,6 +1,6 @@
 <properties linkid="Install-Config-Windows-Azure-PowerShell" urlDisplayName="Azure PowerShell" pageTitle="How to install and configure Azure PowerShell" description="Learn how to install and configure Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="stevenka" documentationCenter="" services="" solutions="" authors="stevenka" title="How to install and configure Azure PowerShell" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka;juneb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka;juneb" />
 
 # 如何安裝和設定 Azure PowerShell
 
@@ -8,18 +8,18 @@
 
 您可以使用 Windows PowerShell (不論是透過在命令提示字元中互動輸入，還是透過指令碼自動執行) 在 Azure 中執行各種工作。Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows PowerShell 管理 Azure。您可以使用 Cmdlet 來建立、測試、部署和管理透過 Azure 平台傳遞的解決方案和服務。您可透過 Azure 管理入口網站執行的工作，大多也可使用 Cmdlet 來執行。例如，您可以建立和設定雲端服務、虛擬機器、虛擬網路和網站。
 
-此模組是以可下載檔案的形式散布，且原始程式碼是透過公開可用的存放庫受到管理。本主題稍後的安裝指示將提供可下載檔案的連結。如需原始程式碼的詳細資訊，請參閱 [Azure PowerShell 程式碼存放庫][]。
+此模組是以可下載檔案的形式散布，且原始程式碼是透過公開可用的存放庫受到管理。本主題稍後的安裝指示將提供可下載檔案的連結。如需原始程式碼的詳細資訊，請參閱 [Azure PowerShell 程式碼存放庫][Azure PowerShell 程式碼存放庫]。
 
 本指南提供關於安裝和設定 Azure PowerShell 來管理 Azure 平台的基本資訊。
 
 ## 目錄
 
--   [使用 Azure PowerShell 的先決條件][]
--   [作法：安裝 Azure PowerShell][]
--   [作法：連線至您的訂閱][]
--   [如何使用 Cmdlet：範例][]
--   [取得說明][]
--   [其他資源][]
+-   [使用 Azure PowerShell 的先決條件][使用 Azure PowerShell 的先決條件]
+-   [作法：安裝 Azure PowerShell][作法：安裝 Azure PowerShell]
+-   [作法：連線至您的訂閱][作法：連線至您的訂閱]
+-   [如何使用 Cmdlet：範例][如何使用 Cmdlet：範例]
+-   [取得說明][取得說明]
+-   [其他資源][其他資源]
 
 ### <span id="Prereq"></span></a>使用 Azure PowerShell 的先決條件
 
@@ -31,9 +31,9 @@ Azure 是訂用帳戶型平台。這表示您需要有訂閱才能使用平台�
 
 ## <span id="Install"></span></a>作法：安裝 Azure PowerShell
 
-您可以執行 [Microsoft Web Platform Installer][] 來下載和安裝 Azure PowerShell 模組。出現提示時，請按一下 [執行]。Web Platform Installer 會安裝 Azure PowerShell 模組和所有相依項目。請依照提示來完成安裝。
+您可以執行 [Microsoft Web Platform Installer][Microsoft Web Platform Installer] 來下載和安裝 Azure PowerShell 模組。出現提示時，請按一下 [執行]。Web Platform Installer 會安裝 Azure PowerShell 模組和所有相依項目。請依照提示來完成安裝。
 
-如需 Azure 之可用命令列工具的詳細資訊，請參閱[命令列工具][]。
+如需 Azure 之可用命令列工具的詳細資訊，請參閱[命令列工具][命令列工具]。
 
 安裝此模組也會安裝 Azure PowerShell 的自訂主控台。您可以從標準 Windows PowerShell 主控台或 Azure PowerShell 主控台執行 Cmdlet。
 
@@ -45,7 +45,7 @@ Azure 是訂用帳戶型平台。這表示您需要有訂閱才能使用平台�
 
 ## <span id="Connect"></span></a>作法：連線至您的訂閱
 
-要使用 Azure 就必須有訂閱。如果您沒有訂閱，請參閱[開始使用 Azure][]。
+要使用 Azure 就必須有訂閱。如果您沒有訂閱，請參閱[開始使用 Azure][開始使用 Azure]。
 
 Cmdlet 需要有您的訂閱，才能用來管理您的服務。有兩種方法可提供訂閱資訊給 Windows PowerShell。您可以使用包含這些資訊的管理憑證，或者使用您的 Microsoft 帳戶或組織帳戶登入 Azure。登入時，Azure Active Directory (Azure AD) 會驗證認證，並傳回存取權杖，讓 Azure PowerShell 可管理您的帳戶。
 
@@ -54,11 +54,11 @@ Cmdlet 需要有您的訂閱，才能用來管理您的服務。有兩種方法�
 -   Azure AD 是建議的驗證方法，因為使用這個方法可更輕鬆地管理對訂閱的存取。透過 0.8.6 版的更新，如果使用組織帳戶，也可啟用 Azure AD 驗證的自動化案例。另外也適用於 Azure 資源管理員 API。
 -   使用憑證方法時，只要訂閱和憑證有效，即可使用訂閱資訊。不過，此方法會讓您更難以管理對共用訂閱的存取，例如當有多個人獲授權來存取帳戶時。此外，Azure 資源管理員 API 不接受憑證驗證。
 
-如需 Azure 中之驗證與訂閱管理的詳細資訊，請參閱[管理帳戶、訂閱和系統管理角色][]。
+如需 Azure 中之驗證與訂閱管理的詳細資訊，請參閱[管理帳戶、訂閱和系統管理角色][管理帳戶、訂閱和系統管理角色]。
 
 ### 使用 Azure AD 方法
 
-1.  依照此文章的指示，開啟 Azure PowerShell 主控台：[作法：安裝 Azure PowerShell][]。
+1.  依照此文章的指示，開啟 Azure PowerShell 主控台：[作法：安裝 Azure PowerShell][作法：安裝 Azure PowerShell]。
 
 2.  輸入以下命令：
 
@@ -82,7 +82,7 @@ Cmdlet 需要有您的訂閱，才能用來管理您的服務。有兩種方法�
 
     > [WACOM.NOTE] 這個非互動式登入方法僅適用於組織帳戶。組織帳戶是您的組織所管理的使用者，並定義於您的組織的 Azure Active Directory 租用戶中。如果您目前沒有組織帳戶，而是使用 Microsoft 帳戶登入您的 Azure 訂閱，則您可以透過下列步驟輕鬆地建立帳戶。
     >
-    > 1.  登入 [Azure 管理入口網站][]，然後按一下 [Active Directory]。
+    > 1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，然後按一下 [Active Directory]。
     >
     > 2.  如果不存在任何目錄，請選取 [Create your directory] 並提供要求的資訊。
     >
@@ -94,7 +94,7 @@ Cmdlet 需要有您的訂閱，才能用來管理您的服務。有兩種方法�
     >
     > 5.  最後，登出 Azure 入口網站，然後使用新的組織帳戶重新登入。如果這是您第一次使用此帳戶登入，系統會提示您變更密碼。
     >
-    > 如需 Microsoft Azure 的組織帳戶詳細資訊，請參閱[以組織身分註冊 Microsoft Azure][] (英文)。
+    > 如需 Microsoft Azure 的組織帳戶詳細資訊，請參閱[以組織身分註冊 Microsoft Azure][以組織身分註冊 Microsoft Azure] (英文)。
 
 ### 使用憑證方法
 
@@ -120,7 +120,7 @@ Azure 模組包含可協助您下載和匯入憑證的 Cmdlet。
 
 1.  使用您的 Azure 帳戶認證登入 [Azure 管理入口網站][2]。
 
-2.  依照此文章的指示，開啟 Azure PowerShell 主控台：[作法：安裝 Azure PowerShell][]。
+2.  依照此文章的指示，開啟 Azure PowerShell 主控台：[作法：安裝 Azure PowerShell][作法：安裝 Azure PowerShell]。
 
 3.  輸入以下命令：
 
@@ -134,7 +134,7 @@ Azure 模組包含可協助您下載和匯入憑證的 Cmdlet。
 
     `Import-AzurePublishSettingsFile C:\UsersImport-AzurePublishSettingsFile C:\Users\<UserProfile>\Downloads\<SubscriptionName>-credentials.publishsettings`lt;UserProfile\>\\Downloads`Import-AzurePublishSettingsFile C:\Users\<UserProfile>\Downloads\<SubscriptionName>-credentials.publishsettings`lt;SubscriptionName\>-credentials.publishsettings</code>
 
-> [WACOM.NOTE] 如果您在匯入自己的發行設定之後，被加到其他訂閱中成為共同管理員，則需要重複這個程序來下載新的 .publishsettings 檔案，然後再匯入那些設定。如需加入共同管理員來協助管理訂閱服務的相關資訊，請參閱[加入及移除 Azure 訂用帳戶的共同管理員][]。
+> [WACOM.NOTE] 如果您在匯入自己的發行設定之後，被加到其他訂閱中成為共同管理員，則需要重複這個程序來下載新的 .publishsettings 檔案，然後再匯入那些設定。如需加入共同管理員來協助管理訂閱服務的相關資訊，請參閱[加入及移除 Azure 訂用帳戶的共同管理員][加入及移除 Azure 訂用帳戶的共同管理員]。
 
 ### 檢視帳戶與訂閱詳細資料
 
@@ -236,29 +236,27 @@ Azure 模組包含可協助您下載和匯入憑證的 Cmdlet。
     </tbody>
     </table>
 
--   您也可以在 Azure 程式庫中取得 Azure PowerShell 模組中各 Cmdlet 的參考資訊。如需詳細資訊，請參閱 [Azure Cmdlet 參考][]。
+-   您也可以在 Azure 程式庫中取得 Azure PowerShell 模組中各 Cmdlet 的參考資訊。如需詳細資訊，請參閱 [Azure Cmdlet 參考][Azure Cmdlet 參考]。
 
 如需從社群獲得說明，請試試下列熱門論壇：
 
--   [MSDN 上的 Azure 論壇][]
--   [Stackoverflow][]
+-   [MSDN 上的 Azure 論壇][MSDN 上的 Azure 論壇]
+-   [Stackoverflow][Stackoverflow]
 
 ## <span id="Resources"></span></a>其他資源
 
 有一些資源可供您用來學習如何使用 Azure 和 Windows PowerShell。
 
--   若要提供對 Cmdlet 的意見反應、報告問題或存取原始程式碼，請參閱 [Azure PowerShell 程式碼存放庫][]。
+-   若要提供對 Cmdlet 的意見反應、報告問題或存取原始程式碼，請參閱 [Azure PowerShell 程式碼存放庫][Azure PowerShell 程式碼存放庫]。
 
--   若要深入了解 Windows PowerShell 命令列和指令碼環境，請參閱 [TechNet 指令碼中心][]。
+-   若要深入了解 Windows PowerShell 命令列和指令碼環境，請參閱 [TechNet 指令碼中心][TechNet 指令碼中心]。
 
--   如需有關安裝、了解、使用和自訂 Windows PowerShell 的詳細資訊，請參閱[使用 Windows PowerShell 撰寫指令碼][]。
+-   如需有關安裝、了解、使用和自訂 Windows PowerShell 的詳細資訊，請參閱[使用 Windows PowerShell 撰寫指令碼][使用 Windows PowerShell 撰寫指令碼]。
 
--   如需指令碼的作用，以及如何在 Windows PowerShell 中執行指令碼等詳細資訊，請參閱[執行指令碼][]。本文包含關於建立指令碼及設定電腦來執行指令碼的基本資訊。
+-   如需指令碼的作用，以及如何在 Windows PowerShell 中執行指令碼等詳細資訊，請參閱[執行指令碼][執行指令碼]。本文包含關於建立指令碼及設定電腦來執行指令碼的基本資訊。
 
--   如需 Azure AD 之 Cmdlet 的詳細資訊，請參閱[使用 Windows PowerShell 管理 Azure AD][]。
+-   如需 Azure AD 之 Cmdlet 的詳細資訊，請參閱[使用 Windows PowerShell 管理 Azure AD][使用 Windows PowerShell 管理 Azure AD]。
 
-  [PowerShell]: /zh-tw/manage/install-and-configure-windows-powershell/ "PowerShell"
-  [跨平台 CLI]: /zh-tw/manage/install-and-configure-cli/ "跨平台 CLI"
   [Azure PowerShell 程式碼存放庫]: https://github.com/WindowsAzure/azure-sdk-tools
   [使用 Azure PowerShell 的先決條件]: #Prereq
   [作法：安裝 Azure PowerShell]: #Install
@@ -272,9 +270,6 @@ Azure 模組包含可協助您下載和匯入憑證的 Cmdlet。
   [管理帳戶、訂閱和系統管理角色]: http://go.microsoft.com/fwlink/?LinkId=324796
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [以組織身分註冊 Microsoft Azure]: http://azure.microsoft.com/zh-tw/documentation/articles/sign-up-organization/
-  [Azure 資源管理員 Cmdlet]: http://go.microsoft.com/fwlink/?LinkID=394765
-  [1]: http://manage.windowsazure.com/
-  [Microsoft Online Services 客戶入口網站]: http://go.microsoft.com/fwlink/p/?LinkId=324875
   [2]: http://manage.windowsazure.com
   [加入及移除 Azure 訂用帳戶的共同管理員]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg456328.aspx
   [Azure Cmdlet 參考]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554330.aspx

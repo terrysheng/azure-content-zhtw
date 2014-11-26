@@ -2,7 +2,7 @@
 
 當人們使用 HTTPS 瀏覽您的網站時，網站與瀏覽器之間的通訊會以安全通訊端層 (SSL) 加密保護。這是最常用來保護在網際網路上傳送之資料的方法，並可讓訪客安心知道其與您網站進行的交易正受到安全保護。本文討論如何對 Azure 網站啟用 HTTPS。
 
-> [WACOM.NOTE] 若要對自訂網域名稱啟用 HTTPS，您必須設定網站為使用標準模式。如果您目前正使用免費或共用模式，則換成使用標準模式可能會帶來額外成本。如需共用與標準模式定價的詳細資訊，請參閱[定價詳細資料][]。若要開始使用 Azure，請參閱 [Microsoft Azure 免費試用][]。
+> [WACOM.NOTE] 若要對自訂網域名稱啟用 HTTPS，您必須設定網站為使用標準模式。如果您目前正使用免費或共用模式，則換成使用標準模式可能會帶來額外成本。如需共用與標準模式定價的詳細資訊，請參閱[定價詳細資料][定價詳細資料]。若要開始使用 Azure，請參閱 [Microsoft Azure 免費試用][Microsoft Azure 免費試用]。
 
 [][]
 
@@ -18,7 +18,7 @@
 ## 自訂網域名稱
 
 </p>
-若要對自訂網域名稱 (如 **contoso.com**) 啟用 HTTPS，您必須向網域名稱註冊機構註冊自訂網域名稱。如需關於如何設定 Azure 網站之網域名稱的詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱][]。在註冊自訂網域名稱並設定您的網站來回應該自訂名稱之後，您必須要求網域的 SSL 憑證。
+若要對自訂網域名稱 (如 **contoso.com**) 啟用 HTTPS，您必須向網域名稱註冊機構註冊自訂網域名稱。如需關於如何設定 Azure 網站之網域名稱的詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱][設定 Azure 網站的自訂網域名稱]。在註冊自訂網域名稱並設定您的網站來回應該自訂名稱之後，您必須要求網域的 SSL 憑證。
 
 註冊網域名稱後，您也可以建立子網域 (如 **www.contoso.com** 或 **mail.contoso.com**)。在要求 SSL 憑證之前，您必須先決定有哪些網域名稱要由該憑證保護。這將決定您必須取得的憑證類型。如果您只需要保護單一網域名稱 (如 **contoso.com** 或 **www.contoso.com**)，則基本憑證可能就已足夠。如果您需要保護多個網域名稱 (如 **contoso.com**、**www.contoso.com** 和 **mail.contoso.com**)，則需要有萬用憑證或具主體替代名稱 (subjectAltName，簡稱 SAN) 的憑證。
 
@@ -39,7 +39,7 @@ Microsof 針對自動為您網站建立的 \*.azurewebsites.net 網域名稱，�
 ## 取得憑證
 
 </p>
-與 Azure 網站搭配使用的 SSL 憑證必須經過憑證授權單位 (CA) (專門核發憑證的受信任第三方) 所簽署。如果您還沒有此類憑證，則必須向銷售 SSL 憑證的公司取得。如需憑證授權單位的清單，請參閱 Microsoft TechNet Wiki 上的 [Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)][]。
+與 Azure 網站搭配使用的 SSL 憑證必須經過憑證授權單位 (CA) (專門核發憑證的受信任第三方) 所簽署。如果您還沒有此類憑證，則必須向銷售 SSL 憑證的公司取得。如需憑證授權單位的清單，請參閱 Microsoft TechNet Wiki 上的 [Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)][Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)]。
 
 憑證必須符合 Azure 中對於 SSL 憑證的下列要求：
 
@@ -49,7 +49,7 @@ Microsof 針對自動為您網站建立的 \*.azurewebsites.net 網域名稱，�
 
 -   憑證的主體名稱必須符合用來存取網站的網域。如果您需要利用此憑證來供應多個網域，則必須如前文所討論，使用萬用字元值或指定 subjectAltName 值。
 
-    -   如需關於設定 Azure 網站之自訂網域名稱的詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱][]。
+    -   如需關於設定 Azure 網站之自訂網域名稱的詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱][設定 Azure 網站的自訂網域名稱]。
 
     > [WACOM.NOTE] 請不要嘗試取得或產生 azurewebsites.net 網域的憑證。
 
@@ -57,7 +57,7 @@ Microsof 針對自動為您網站建立的 \*.azurewebsites.net 網域名稱，�
 
 > [WACOM.NOTE] Azure 網站不支援私人 CA 伺服器所核發的憑證。
 
-若要向憑證授權單位取得 SSL 憑證，您必須產生憑證簽署要求 (CSR)，以傳送給 CA。CA 之後會傳回用來完成 CSR 的憑證。產生 CSR 的兩個常用方法為使用 certmgr.exe 或 [OpenSSL][] 應用程式。Certmgr.exe 僅適用於 Windows，OpenSSL 則適用於大部分的平台。使用這兩種公用程式的步驟如下。
+若要向憑證授權單位取得 SSL 憑證，您必須產生憑證簽署要求 (CSR)，以傳送給 CA。CA 之後會傳回用來完成 CSR 的憑證。產生 CSR 的兩個常用方法為使用 certmgr.exe 或 [OpenSSL][OpenSSL] 應用程式。Certmgr.exe 僅適用於 Windows，OpenSSL 則適用於大部分的平台。使用這兩種公用程式的步驟如下。
 
 > [WACOM.NOTE] Azure 網站支援橢圓曲線密碼編譯 (ECC) 憑證；不過，他們相對而言比較新，您應該在具體步驟中使用 CA 來建立 CSR。在您取得 ECC 憑證後，您可以將它上傳到您的網站，如下列步驟所述。
 
@@ -65,17 +65,17 @@ Microsof 針對自動為您網站建立的 \*.azurewebsites.net 網域名稱，�
 
 > [WACOM.NOTE] 不論遵循哪個系列的步驟，系統都會提示您輸入「一般名稱」。如果您將會取得萬用憑證來用於多個網域 (www.contoso.com、 sales.contoso.com)，則此值應該是 \*.domainname (例如，\*.contoso.com)。如果您將會取得單一網域名稱的憑證，則此值必須是使用者將在瀏覽器中輸入來造訪您網站的確切值。例如， www.contoso.com。
 >
-> 如果您需要同時支援萬用字元名稱 (如 \*.contoso.com) 和根網域名稱 (如 contoso.com)，則可以使用萬用字元主體替代名稱 (SAN) 憑證。如需建立憑證要求並讓其使用 SubjectAltName 延伸的範例，請參閱 [SubjectAltName 憑證][]。
+> 如果您需要同時支援萬用字元名稱 (如 \*.contoso.com) 和根網域名稱 (如 contoso.com)，則可以使用萬用字元主體替代名稱 (SAN) 憑證。如需建立憑證要求並讓其使用 SubjectAltName 延伸的範例，請參閱 [SubjectAltName 憑證][SubjectAltName 憑證]。
 >
-> 如需關於如何設定 Azure 網站之網域名稱的詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱][]。
+> 如需關於如何設定 Azure 網站之網域名稱的詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱][設定 Azure 網站的自訂網域名稱]。
 
 ### 使用 Certreq.exe 取得憑證 (僅限 Windows)
 
 Certreq.exe 是一項用來建立憑證要求的 Windows 公用程式。自 Windows XP/Windows Server 2000 起，它就已是基本 Windows 安裝的一部分，因此新版 Windows 系統上應該會提供。請透過下列步驟，使用 certreq.exe 來取得 SSL 憑證。
 
-如果您想要建立自我簽署憑證以進行測試，請參閱本文件的[自我簽署憑證][]一節。
+如果您想要建立自我簽署憑證以進行測試，請參閱本文件的[自我簽署憑證][自我簽署憑證]一節。
 
-如果您想要使用 IIS 管理員建立憑證要求，請參閱[使用 IIS 管理員取得憑證][]一節。
+如果您想要使用 IIS 管理員建立憑證要求，請參閱[使用 IIS 管理員取得憑證][使用 IIS 管理員取得憑證]一節。
 
 1.  開啟 [記事本]，然後建立含有下列內容的新文件。將 Subject 一行中的 **mysite.com** 取代為您網站的自訂網域名稱。例如，Subject = "CN=www.contoso.com"。
 
@@ -93,7 +93,7 @@ Certreq.exe 是一項用來建立憑證要求的 Windows 公用程式。自 Wind
         [EnhancedKeyUsageExtension]
         OID=1.3.6.1.5.5.7.3.1
 
-    如需上面所指定選項以及其他可用選項的詳細資訊，請參閱 [Certreq 參考文件][]。
+    如需上面所指定選項以及其他可用選項的詳細資訊，請參閱 [Certreq 參考文件][Certreq 參考文件]。
 
 2.  將文字檔儲存為 **myrequest.txt**。
 
@@ -107,7 +107,7 @@ Certreq.exe 是一項用來建立憑證要求的 Windows 公用程式。自 Wind
 
 5.  將 **myrequest.csr** 提交至憑證授權單位，以取得 SSL 憑證。這可能包括上傳檔案，或在 [記事本] 中開啟檔案並將內容直接貼到 Web 表單。
 
-    如需憑證授權單位的清單，請參閱 Microsoft TechNet Wiki 上的 [Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)][]。
+    如需憑證授權單位的清單，請參閱 Microsoft TechNet Wiki 上的 [Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)][Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)]。
 
 6.  等到憑證授權單位提供憑證檔 (.CER) 給您後，將該檔案儲存至用來產生要求的電腦，然後使用下列命令來接受要求並完成憑證產生程序。
 
@@ -121,23 +121,23 @@ Certreq.exe 是一項用來建立憑證要求的 Windows 公用程式。自 Wind
 
 8.  若要從憑證存放區中匯出憑證，請從 [開始畫面] 或 [開始功能表] 執行 **certmgr.msc**。出現 [憑證管理員] 時，展開 [個人] 資料夾，然後選取 [憑證]。在 [核發給] 欄位中，找出有哪個項目具有您為了它而要求憑證的自訂網域名稱。[核發者] 欄位中應該會列出您用於此憑證的憑證授權單位。
 
-    ![在這裡插入憑證管理員的影像][]
+    ![在這裡插入憑證管理員的影像][在這裡插入憑證管理員的影像]
 
 9.  在憑證上按一下滑鼠右鍵，並選取 [所有工作]，然後選取 [匯出]。在 [憑證匯出精靈] 中，按 [下一步]，然後選取 [是，匯出私密金鑰]。按 [下一步]。
 
-    ![匯出私密金鑰][]
+    ![匯出私密金鑰][匯出私密金鑰]
 
 10. 選取 [個人資訊交換 - PKCS \#12]、[包含憑證鏈結中的所有憑證] 和 [匯出所有延伸內容]。按 [下一步]。
 
-    ![包括所有憑證和延伸內容][]
+    ![包括所有憑證和延伸內容][包括所有憑證和延伸內容]
 
 11. 選取 [密碼]，然後輸入並確認密碼。按 [下一步]。
 
-    ![指定密碼][]
+    ![指定密碼][指定密碼]
 
 12. 提供將包含所匯出憑證的路徑和檔名。檔名的副檔名應該為 **.pfx**。按 [下一步]，完成此程序。
 
-    ![提供檔案路徑][]
+    ![提供檔案路徑][提供檔案路徑]
 
 您現在可以將所匯出的 PFX 檔案上傳至 Azure 網站。
 
@@ -163,7 +163,7 @@ Certreq.exe 是一項用來建立憑證要求的 Windows 公用程式。自 Wind
 
     此程序完成之後，您應會有兩個檔案：**myserver.key** 和 **server.csr**。**server.csr** 包含憑證簽署要求。
 
-3.  將您的 CSR 提交至憑證授權單位，以便取得 SSL 憑證。如需憑證授權單位的清單，請參閱 Microsoft TechNet Wiki 上的 [Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)][]。
+3.  將您的 CSR 提交至憑證授權單位，以便取得 SSL 憑證。如需憑證授權單位的清單，請參閱 Microsoft TechNet Wiki 上的 [Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)][Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)]。
 
 4.  從 CA 取得憑證之後，將它儲存成名稱為 **myserver.crt** 的檔案。如果您的 CA 提供文字格式的憑證，則只需要將憑證文字貼入 **myserver.crt** 檔案。在文字編輯器中檢視檔案時，檔案內容應該與下列類似：
 
@@ -213,54 +213,54 @@ openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -c
 </p>
 若要對自訂網域啟用 HTTPS，Azure 網站必須處於標準模式。請使用下列步驟切換至標準模式。
 
-> [WACOM.NOTE] 在將網站從免費網站模式切換至標準網站模式之前，您應該先移除網站訂閱的花費上限，以免帳單期間還未結束，網站就因為已達花費上限而變得無法使用。如需共用與標準模式定價的詳細資訊，請參閱[定價詳細資料][]。
+> [WACOM.NOTE] 在將網站從免費網站模式切換至標準網站模式之前，您應該先移除網站訂閱的花費上限，以免帳單期間還未結束，網站就因為已達花費上限而變得無法使用。如需共用與標準模式定價的詳細資訊，請參閱[定價詳細資料][定價詳細資料]。
 
-1.  在瀏覽器中開啟[管理入口網站][]。
+1.  在瀏覽器中開啟[管理入口網站][管理入口網站]。
 
 2.  在 [網站] 索引標籤中，按一下您網站的名稱。
 
-    ![選取網站][]
+    ![選取網站][選取網站]
 
 3.  按一下 [調整] 索引標籤。
 
-    ![調整索引標籤][]
+    ![調整索引標籤][調整索引標籤]
 
 4.  在 [一般] 區段中，按一下 [標準] 以設定網站模式。
 
-    ![已選取標準模式][]
+    ![已選取標準模式][已選取標準模式]
 
 5.  按一下 [儲存]。當提示出現時，按一下 [是]。
 
-    > [WACOM.NOTE] 如果您收到 [設定網站 '\<site name\>' 的調整失敗] 錯誤，可以使用詳細資料按鈕以取得更多資訊。您可能會收到 [可用標準執行個體伺服器不足，無法滿足此要求] 錯誤。如果您收到此錯誤，請連絡 [Azure 支援][]。
+    > [WACOM.NOTE] 如果您收到 [設定網站 '\<site name\>' 的調整失敗] 錯誤，可以使用詳細資料按鈕以取得更多資訊。您可能會收到 [可用標準執行個體伺服器不足，無法滿足此要求] 錯誤。如果您收到此錯誤，請連絡 [Azure 支援][Azure 支援]。
 
 [][4]
 
 ## 設定 SSL
 
 </p>
-在執行本節中的步驟之前，您必須先建立自訂網域名稱與 Azure 網站的關聯。如需詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱][]。
+在執行本節中的步驟之前，您必須先建立自訂網域名稱與 Azure 網站的關聯。如需詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱][設定 Azure 網站的自訂網域名稱]。
 
 1.  在瀏覽器中開啟 [Azure 管理入口網站][管理入口網站]。
 
 2.  在 [網站] 索引標籤中，按一下您網站的名稱，然後選取 [設定] 索引標籤。
 
-    ![設定索引標籤][]
+    ![設定索引標籤][設定索引標籤]
 
 3.  在 [憑證] 區段中，按一下 \[上傳憑證\]
 
-    ![上傳憑證][]
+    ![上傳憑證][上傳憑證]
 
 4.  使用 [上傳憑證] 對話方塊，選取之前以 IIS 管理員或 OpenSSL 建立的 .pfx 憑證檔案。指定當初用來保護 .pfx 檔案的密碼 (如果有的話)。最後，按一下 [檢查] 以上傳憑證。
 
-    ![上傳憑證對話方塊][]
+    ![上傳憑證對話方塊][上傳憑證對話方塊]
 
-5.  在 [設定] 索引標籤的 \[SSL 繫結\] 區段中，使用下拉式清單選取要以 SSL 保護的網域名稱，以及要使用的憑證。您也可以選擇使用[伺服器名稱指示][] (SNI) 還是 IP SSL。
+5.  在 [設定] 索引標籤的 \[SSL 繫結\] 區段中，使用下拉式清單選取要以 SSL 保護的網域名稱，以及要使用的憑證。您也可以選擇使用[伺服器名稱指示][伺服器名稱指示] (SNI) 還是 IP SSL。
 
-    ![SSL 繫結][]
+    ![SSL 繫結][SSL 繫結]
 
     -   IP SSL 會將伺服器的專用公用 IP 位址對應至網域名稱，以建立憑證與網域名稱的關聯。這需要與您服務相關聯的每個網域名稱 (contoso.com、fabricam.com 等) 都有專用 IP 位址。這是傳統用來建立 SSL 憑證與網頁伺服器之關聯的方法。
 
-    -   SNI SSL 是 SSL 和[傳輸層安全性][] (TLS) 的延伸，可讓多個網域共用相同的 IP 位址，而每個網域都有個別的安全性憑證。現今大部分的瀏覽器 (包括 Internet Explorer、Chrome、Firefox 和 Opera) 都支援 SNI，不過，較舊的瀏覽器可能不支援 SNI。如需 SNI 的詳細資訊，請參閱 Wikipedia 上的[伺服器名稱指示][]一文。
+    -   SNI SSL 是 SSL 和[傳輸層安全性][傳輸層安全性] (TLS) 的延伸，可讓多個網域共用相同的 IP 位址，而每個網域都有個別的安全性憑證。現今大部分的瀏覽器 (包括 Internet Explorer、Chrome、Firefox 和 Opera) 都支援 SNI，不過，較舊的瀏覽器可能不支援 SNI。如需 SNI 的詳細資訊，請參閱 Wikipedia 上的[伺服器名稱指示][伺服器名稱指示]一文。
 
 6.  按一下 [儲存]，儲存變更並啟用 SSL。
 
@@ -268,7 +268,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -c
 >
 > 1.  在設定 IP SSL 繫結之後，您的網站會獲指派專用 IP 位址。您可以在網站的 [儀表板] 頁面上 (在 [Quick Glance] 區段中) 找到這個 IP 位址。它將會列出成為 \[虛擬 IP 位址\]：
 >
->     ![虛擬 IP 位址][]
+>     ![虛擬 IP 位址][虛擬 IP 位址]
 >
 >     請注意，此 IP 位址與先前用來設定您網域之 A 記錄的虛擬 IP 位址不同。如果您設定成使用 SNI SSL，或未設定成使用 SSL，則不會列出此項目的位址。
 >
@@ -333,7 +333,7 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 
     此程序完成之後，您應會有兩個檔案：**myserver.key** 和 **server.csr**。**server.csr** 包含憑證簽署要求。
 
-5.  將您的 CSR 提交至憑證授權單位，以便取得 SSL 憑證。如需憑證授權單位的清單，請參閱 Microsoft TechNet Wiki 上的 [Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)][]。
+5.  將您的 CSR 提交至憑證授權單位，以便取得 SSL 憑證。如需憑證授權單位的清單，請參閱 Microsoft TechNet Wiki 上的 [Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)][Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)]。
 
 6.  從 CA 取得憑證之後，將它儲存成名稱為 **myserver.crt** 的檔案。如果您的 CA 提供文字格式的憑證，則只需要將憑證文字貼入 **myserver.crt** 檔案。在文字編輯器中檢視檔案時，檔案內容應該與下列類似：
 
@@ -380,17 +380,17 @@ openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -c
 
 如果您熟悉 IIS 管理員，可以用它來產生可用於 Azure 網站的憑證。
 
-1.  使用 IIS 管理員來產生憑證簽署要求 (CSR)，以便傳送至憑證授權單位。如需產生 CSR 的詳細資訊，請參閱[要求網際網路伺服器憑證 (IIS 7)][]。
+1.  使用 IIS 管理員來產生憑證簽署要求 (CSR)，以便傳送至憑證授權單位。如需產生 CSR 的詳細資訊，請參閱[要求網際網路伺服器憑證 (IIS 7)][要求網際網路伺服器憑證 (IIS 7)]。
 
-2.  將您的 CSR 提交至憑證授權單位，以便取得 SSL 憑證。如需憑證授權單位的清單，請參閱 Microsoft TechNet Wiki 上的 [Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)][]。
+2.  將您的 CSR 提交至憑證授權單位，以便取得 SSL 憑證。如需憑證授權單位的清單，請參閱 Microsoft TechNet Wiki 上的 [Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)][Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)]。
 
-3.  使用憑證授權單位廠商所提供的憑證來完成 CSR。如需完成 CSR 的詳細資訊，請參閱[安裝網際網路伺服器憑證 (IIS 7)][]。
+3.  使用憑證授權單位廠商所提供的憑證來完成 CSR。如需完成 CSR 的詳細資訊，請參閱[安裝網際網路伺服器憑證 (IIS 7)][安裝網際網路伺服器憑證 (IIS 7)]。
 
 4.  如果 CA 使用中繼憑證，您必須先安裝這些憑證，再於接下來的步驟匯出憑證。這些憑證通常是從 CA 個別下載而得，並且有分數種格式來用於不同的網頁伺服器類型。請選取針對 Microsoft IIS 所提供的版本。
 
     下載憑證之後，請在檔案總管中於該憑證上按一下滑鼠右鍵，然後選取 [安裝憑證]。使用 [憑證匯入精靈] 中的預設值，並持續選取 [下一步]，直到匯入完成。
 
-5.  從 IIS 管理員匯出憑證。如需匯出憑證的詳細資訊，請參閱[匯出伺服器憑證 (IIS 7)][]。後面的步驟中會將所匯出的檔案上傳至 Azure 來用於您的 Azure 網站。
+5.  從 IIS 管理員匯出憑證。如需匯出憑證的詳細資訊，請參閱[匯出伺服器憑證 (IIS 7)][匯出伺服器憑證 (IIS 7)]。後面的步驟中會將所匯出的檔案上傳至 Azure 來用於您的 Azure 網站。
 
     <div class="dev-callout"> 
 <b>注意</b>
@@ -486,11 +486,11 @@ openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -c
 
     此命令所產生的 **myserver.pfx** 可以用來基於測試目的來保護您的 Azure 網站。
 
-  [定價詳細資料]: https://www.windowsazure.com/en-us/pricing/details/
-  [Microsoft Azure 免費試用]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [定價詳細資料]: https://www.windowsazure.com/zh-tw/pricing/details/
+  [Microsoft Azure 免費試用]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
   []: bkmk_azurewebsites
   [1]: bkmk_domainname
-  [設定 Azure 網站的自訂網域名稱]: /en-us/develop/net/common-tasks/custom-dns-web-site/
+  [設定 Azure 網站的自訂網域名稱]: /zh-tw/develop/net/common-tasks/custom-dns-web-site/
   [2]: bkmk_getcert
   [Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)]: http://go.microsoft.com/fwlink/?LinkID=269988
   [OpenSSL]: http://www.openssl.org/
@@ -508,7 +508,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -c
   [選取網站]: ./media/configure-ssl-web-site/sslwebsite.png
   [調整索引標籤]: ./media/configure-ssl-web-site/sslscale.png
   [已選取標準模式]: ./media/configure-ssl-web-site/sslreserved.png
-  [Azure 支援]: http://www.windowsazure.com/en-us/support/options/
+  [Azure 支援]: http://www.windowsazure.com/zh-tw/support/options/
   [4]: bkmk_configuressl
   [設定索引標籤]: ./media/configure-ssl-web-site/sslconfig.png
   [上傳憑證]: ./media/configure-ssl-web-site/ssluploadcert.png
@@ -518,7 +518,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -c
   [傳輸層安全性]: http://en.wikipedia.org/wiki/Transport_Layer_Security
   [虛擬 IP 位址]: ./media/configure-ssl-web-site/staticip.png
   [5]: bkmk_subjectaltname
-  [要求網際網路伺服器憑證 (IIS 7)]: http://technet.microsoft.com/en-us/library/cc732906(WS.10).aspx
-  [安裝網際網路伺服器憑證 (IIS 7)]: http://technet.microsoft.com/en-us/library/cc771816(WS.10).aspx
-  [匯出伺服器憑證 (IIS 7)]: http://technet.microsoft.com/en-us/library/cc731386(WS.10).aspx
+  [要求網際網路伺服器憑證 (IIS 7)]: http://technet.microsoft.com/zh-tw/library/cc732906(WS.10).aspx
+  [安裝網際網路伺服器憑證 (IIS 7)]: http://technet.microsoft.com/zh-tw/library/cc771816(WS.10).aspx
+  [匯出伺服器憑證 (IIS 7)]: http://technet.microsoft.com/zh-tw/library/cc731386(WS.10).aspx
   [6]: bkmk_selfsigned

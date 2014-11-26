@@ -377,9 +377,9 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 
 若要深入了解註冊和使用服務指令碼，請參閱[行動服務伺服器指令碼參照][行動服務伺服器指令碼參照]。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [推播通知給使用者]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios
   [0]: http://pusher.com
@@ -388,7 +388,6 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
   [安裝服務指令碼]: #install-scripts
   [測試應用程式]: #test-app
   [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started
-  [pusher-sign-up]: ../includes/pusher-sign-up.md
   [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
   [從這裡]: http://go.microsoft.com/fwlink/p/?LinkId=276998
   [0]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png

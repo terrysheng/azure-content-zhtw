@@ -45,7 +45,7 @@ AMQP 1.0 是一個有效率且可靠的有線等級訊息通訊協定，可以�
 
 下圖說明的是一個部署範例，其中的 Java 用戶端是在 Linux 上執行並使用標準的 Java 訊息服務 (JMS) API 撰寫而成，而 .NET 用戶端則是在 Windows 上執行並使用 AMQP 1.0 透過服務匯流排來交換訊息。
 
-![][]
+![][0]
 
 **圖 1：範例部署案例示範使用服務匯流排和 AMQP 1.0 的跨平台訊息服務**
 
@@ -69,12 +69,12 @@ AMQP 1.0 是一個有效率且可靠的有線等級訊息通訊協定，可以�
 
 ## 參考
 
--   [如何透過服務匯流排 .NET API 使用 AMQP 1.0][]
--   [如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0][]
--   [服務匯流排 AMQP 1.0 開發人員指南][]
--   [OASIS 進階訊息佇列通訊協定 (AMQP) 版本 1.0 規格][]
+-   [如何透過服務匯流排 .NET API 使用 AMQP 1.0][如何透過服務匯流排 .NET API 使用 AMQP 1.0]
+-   [如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0][如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0]
+-   [服務匯流排 AMQP 1.0 開發人員指南][服務匯流排 AMQP 1.0 開發人員指南]
+-   [OASIS 進階訊息佇列通訊協定 (AMQP) 版本 1.0 規格][OASIS 進階訊息佇列通訊協定 (AMQP) 版本 1.0 規格]
 
-  []: ./media/service-bus-amqp-overview/Example1.png
+  [0]: ./media/service-bus-amqp-overview/Example1.png
   [如何透過服務匯流排 .NET API 使用 AMQP 1.0]: http://aka.ms/lym3vk
   [如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0]: http://aka.ms/ll1fm3
   [服務匯流排 AMQP 1.0 開發人員指南]: http://msdn.microsoft.com/zh-TW/library/windowsazure/jj841071.aspx

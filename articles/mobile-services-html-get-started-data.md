@@ -262,11 +262,10 @@
 
 完成資料數列之後，若要了解如何驗證應用程式的使用者，您可以完成[開始使用驗證][開始使用驗證]來嘗試另一個教學課程。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
+
   [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-html
   [下載 HTML 應用程式專案]: #download-app
   [建立行動服務]: #create-service
@@ -275,7 +274,6 @@
   [針對行動服務進行應用程式測試]: #test-app
   [GetStartedWithData 應用程式]: http://go.microsoft.com/fwlink/?LinkID=286345
   [0]: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/mobile-services-html-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/mobile-services-html-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png

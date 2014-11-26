@@ -1,6 +1,6 @@
 <properties linkid="manage-services-networking-active-directory-forest" urlDisplayName="Active Directory forest" pageTitle="Install an Active Directory forest on an Azure virtual network" metaKeywords="" description="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on an Azure Virtual Network." metaCanonical="" services="active-directory,virtual-network" documentationCenter="" title="Install a new Active Directory forest in Azure" authors="Justinha"  solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft"  />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="Justinha"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="Justinha" />
 
 # 在 Azure 虛擬網路上安裝新的 Active Directory 樹系
 
@@ -230,7 +230,6 @@
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [執行 Set-AzureStaticVNetIP Azure PowerShell Cmdlet]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn630228.aspx
   [安裝 AD DS]: http://technet.microsoft.com/library/jj574166.aspx
-  [在 Azure 虛擬機器上部署 Windows Server Active Directory 的方針 (英文)]: http://msdn.microsoft.com/library/azure/jj156090.aspx
   [在管理入口網站中設定純雲端虛擬網路]: http://msdn.microsoft.com/zh-tw/library/dn631643.aspx
   [在管理入口網站中設定站對站 VPN]: http://msdn.microsoft.com/zh-tw/library/dn133795.aspx
   [1]: http://azure.microsoft.com/zh-tw/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/

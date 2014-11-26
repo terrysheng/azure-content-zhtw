@@ -1,13 +1,10 @@
-<properties urlDisplayName="Web App with Express" pageTitle="Web 應用程式與 Express (Node.js) - Azure 教學課程" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="以雲端服務教學課程為基礎的教學課程，示範如何使用 Express 模組。" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="在 Azure 雲端服務上使用 Express 建立 Node.js Web 應用程式" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties linkid="dev-nodejs-basic-web-app-with-express" urlDisplayName="Web App with Express" pageTitle="Web App with Express (Node.js) - Azure Tutorial" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="An tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build a Node.js web application using Express on an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 在 Azure 雲端服務上使用 Express 建立 Node.js Web 應用程式
 
-Node.js 包含核心執行階段的一組基本功能。
-開發人員在開發 Node.js 應用程式時，通常會使用協力廠商模組來提供更多功能。
-在本教學課程中，
-您將使用 [Express][Express] 模組來建立新的應用程式，此模組提供建立 Node.js Web 應用程式的 MVC 架構。
+Node.js 包含核心執行階段的一組基本功能。開發人員在開發 Node.js 應用程式時，通常會使用協力廠商模組來提供更多功能。在本教學課程中，您將使用 [Express][Express] 模組來建立新的應用程式，此模組提供建立 Node.js Web 應用程式的 MVC 架構。
 
 完成之應用程式的螢幕擷取畫面如下：
 
@@ -88,7 +85,7 @@ Node.js 包含核心執行階段的一組基本功能。
     ![The contents of the index.jade file.][The contents of the index.jade file.]
 
     Jade 是 Express 應用程式使用的預設檢視引擎。如需 Jade 檢視引擎的詳細資訊，
-    請參閱 <http://jade-lang.com>。
+    請參閱 [][]<http://jade-lang.com></a>。
 
 2.  修改最後一行文字，加上 **in Azure**。
 
@@ -120,5 +117,5 @@ Node.js 包含核心執行階段的一組基本功能。
   [The output of the npm install command]: ./media/cloud-services-nodejs-develop-deploy-express-app/node26.png
   [A web page containing welcome to express.]: ./media/cloud-services-nodejs-develop-deploy-express-app/node28.png
   [The contents of the index.jade file.]: ./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png
-  [The index.jade file, the last line reads:p Welcome to \#{title} in Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node31.png
+  []: http://jade-lang.com
   [A browser window, the page contains Welcome to Express in Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node32.png

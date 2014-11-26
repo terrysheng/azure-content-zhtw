@@ -1,8 +1,8 @@
 您必須向身分識別提供者註冊應用程式，才能驗證使用者。然後，您必須向行動服務註冊由提供者產生的用戶端密碼。
 
-1.  登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的行動服務。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的行動服務。
 
-    ![][]
+    ![][0]
 
 2.  按一下 [儀表板] 索引標籤，記下 [Mobile Service URL] 值。
 
@@ -31,14 +31,9 @@
 
     現在，行動服務和應用程式已設定為使用您選擇的驗證提供者。
 
-<!-- URLs. -->
+
 
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-register-authentication/mobile-services-selection.png
+  [0]: ./media/mobile-services-register-authentication/mobile-services-selection.png
   [1]: ./media/mobile-services-register-authentication/mobile-service-uri.png
-  [Microsoft 帳戶]: /zh-TW/documentation/articles/mobile-services-how-to-register-microsoft-authentication/
-  [Facebook 登入]: /zh-TW/documentation/articles/mobile-services-how-to-register-facebook-authentication/
-  [Twitter 登入]: /zh-TW/documentation/articles/mobile-services-how-to-register-twitter-authentication/
-  [Google 登入]: /zh-TW/documentation/articles/mobile-services-how-to-register-google-authentication/
-  [Azure Active Directory]: /zh-TW/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [2]: ./media/mobile-services-register-authentication/mobile-identity-tab.png

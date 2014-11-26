@@ -26,15 +26,15 @@
 
 * 完成以下教學課程中任一項：
   
-  * [在 Azure 中建立虛擬網路](/en-us/manage/services/networking/create-a-virtual-network/)
+  * [在 Azure 中建立虛擬網路](/zh-tw/manage/services/networking/create-a-virtual-network/)
     
     -或-
   
-  * [建立虛擬網路以實現跨單位連線](/en-us/manage/services/networking/cross-premises-connectivity/)
+  * [建立虛擬網路以實現跨單位連線](/zh-tw/manage/services/networking/cross-premises-connectivity/)
 
 * 至少有一個有效作用中訂閱的 Windows Live 帳戶。
 
-* 以下項目的名稱，如[在 Azure 中建立虛擬網路](/en-us/manage/services/networking/create-a-virtual-network/)或[建立虛擬網路以實現跨單位連線](/en-us/manage/services/networking/cross-premises-connectivity/)所述：
+* 以下項目的名稱，如[在 Azure 中建立虛擬網路](/zh-tw/manage/services/networking/create-a-virtual-network/)或[建立虛擬網路以實現跨單位連線](/zh-tw/manage/services/networking/cross-premises-connectivity/)所述：
   
   * 指派給虛擬網路的同質群組。
   
@@ -136,7 +136,7 @@
 
 ## 後續步驟
 
-若要在剛建立的 VM 上針對內部部署 Active Directory 網域安裝額外的網域控制站，請參閱[在 Azure 虛擬網路中安裝複寫 Active Directory 網域控制站](/en-us/manage/services/networking/replica-domain-controller/)。
+若要在剛建立的 VM 上針對內部部署 Active Directory 網域安裝額外的網域控制站，請參閱[在 Azure 虛擬網路中安裝複寫 Active Directory 網域控制站](/zh-tw/manage/services/networking/replica-domain-controller/)。
 
 ## 另請參閱
 

@@ -62,9 +62,9 @@
 * [Get started with push notifications]  
   <br/>Learn how to send a very basic push notification to your app. 
 --> 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-ios
   [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-ios

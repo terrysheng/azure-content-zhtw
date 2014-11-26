@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user" urlDisplayName="Access SharePoint on behalf of the user" pageTitle="Access SharePoint on behalf of the user | Mobile Dev Center" metaKeywords="" description="Learn how to make calls to SharePoint on behalf of the user" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Access SharePoint on behalf of the user" authors="mahender" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
 
 # 代表使用者存取 SharePoint
 
@@ -36,7 +36,7 @@
 
 1.  在 [Azure 管理入口網站][Azure 管理入口網站]的 [Active Directory] 區段中，選取您的租用戶。導覽至您為行動服務建立的 Web 應用程式。
 
-    ![][]
+    ![][0]
 
 2.  在 [設定] 索引標籤中，將頁面向下捲動至「其他應用程式的權限」區段。選取 [Office 365 SharePoint Online]，然後授與 [編輯或刪除使用者的檔案] 委派權限。然後按一下 [儲存]。
 
@@ -185,9 +185,8 @@
 
     ![][4]
 
-<!-- Images. --> <!-- Anchors. --> <!-- URLs. -->
+  
 
-  [觀看教學課程]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services
   [針對 SharePoint 的委派存取註冊您的應用程式]: #configure-permissionss
   [將 SharePoint 資訊新增至您的行動服務]: #store-credentials
   [取得存取權杖及呼叫 SharePoint API]: #obtain-token
@@ -196,9 +195,8 @@
   [SharePoint Online]: http://office.microsoft.com/zh-tw/sharepoint/
   [使用 Active Directory Authentication Library 單一登入驗證您的應用程式]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-web-application.png
+  [0]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-web-application.png
   [1]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-sharepoint-permissions.png
   [2]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-manage-secret-key.png
   [3]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/mobile-services-app-settings-sharepoint.png
-  [mobile-services-dotnet-adal-install-nuget]: ../includes/mobile-services-dotnet-adal-install-nuget.md
   [4]: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/sharepoint-document-created.png

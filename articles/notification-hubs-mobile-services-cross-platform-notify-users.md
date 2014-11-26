@@ -110,9 +110,9 @@
 -   **[Windows 市集的通知中心作法][Windows 市集的通知中心作法]**
      (英文) 包含範本運算式語言參考。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [行動服務]: /zh-TW/documentation/articles/notification-hubs-mobile-services-cross-platform-notify-users/ "行動服務"
   [使用通知中心來通知使用者]: /zh-TW/manage/services/notification-hubs/notify-users

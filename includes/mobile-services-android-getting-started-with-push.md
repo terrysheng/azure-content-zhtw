@@ -19,7 +19,7 @@
             </intent-filter>
         </receiver>
 
-4.  下載並解壓縮[行動服務 Android SDK][]，開啟 **notifications** 資料夾，將 **notifications-1.0.1.jar** 檔案複製到您 Eclipse 專案的 *libs* 資料夾，然後重新整理 *libs* 資料夾。
+4.  下載並解壓縮[行動服務 Android SDK][行動服務 Android SDK]，開啟 **notifications** 資料夾，將 **notifications-1.0.1.jar** 檔案複製到您 Eclipse 專案的 *libs* 資料夾，然後重新整理 *libs* 資料夾。
 
     <div class="dev-callout"><b>注意</b>
 <p>檔案名稱結尾的數字在後續 SDK 版本中可能會變更。</p>
@@ -43,7 +43,7 @@
 
 9.  在 [名稱] 中輸入`MyHandler`，在 [超級類別] 中輸入`com.microsoft.windowsazure.notifications.NotificationsHandler`，然後按一下 [完成]
 
-    ![][]
+    ![][0]
 
     如此即會建立新的 MyHandler 類別。
 
@@ -113,7 +113,7 @@
 
 您的應用程式現在已更新為支援推播通知。
 
-<!-- URLs. -->
+
 
   [行動服務 Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
-  []: ./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png

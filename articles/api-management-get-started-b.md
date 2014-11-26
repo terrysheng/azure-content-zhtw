@@ -1,6 +1,4 @@
-<properties pageTitle="開始使用 Azure API 管理" metaKeywords="" description="了解如何建立 API、操作及開始使用 API 管理。" metaCanonical="" services="api-management" documentationCenter="API Management" title="開始使用 Azure API 管理" authors="sdanie" solutions="" manager="dwrede" editor="" />
-
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
 # 開始使用 Azure API 管理
 
@@ -49,7 +47,7 @@ API 是透過您經由 Azure 管理入口網站存取的「API 管理」主控�
 以下三個欄位可用來設定新 API。
 
 -   在 [Web API Title] 文字方塊中輸入 **My Echo API**。[Web API Title] 提供 API 的獨特描述性名稱。會顯示在開發人員和管理入口網站中。
--   在 [Web 服務 URL] 中輸入 **http://echoapi.cloudapp.net/api**。[Web 服務 URL] 會參考實作 API 的 HTTP 服務。API 管理則將要求轉送至此位址。
+-   在 [Web 服務 URL] 中輸入 **<http://echoapi.cloudapp.net/api>**。[Web 服務 URL] 會參考實作 API 的 HTTP 服務。API 管理則將要求轉送至此位址。
 -   在 [Web API URL 尾碼] 中輸入 **myecho**。[Web API URL 尾碼] 會附加到 API 管理服務的基礎 URL。您的 API 將共用共同的基礎 URL，而且可由基礎之後附加的唯一尾碼來加以識別。
 
 按一下 [儲存] 建立 API。建立新 API 之後，API 的摘要頁面隨即會顯示在管理入口網站中。

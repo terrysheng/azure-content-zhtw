@@ -2,7 +2,7 @@
 
 1.  按一下 [TodoItem]，按一下 [指令碼]，然後選取 [插入]。
 
-    ![][]
+    ![][0]
 
 2.  使用下列程式碼來取代 insert 函數，然後按一下 **[儲存]**：
 
@@ -31,4 +31,4 @@
 
     這個 insert 指令碼會在插入成功後，傳送推播通知 (含所插入項目的文字) 給 Windows 市集應用程式註冊。
 
-  []: ./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png
+  [0]: ./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png

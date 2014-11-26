@@ -2,7 +2,7 @@
 
 1.  在 Visual Studio 2012 中，開啟 Package.appxmanifest 檔案，並在 [功能] 索引標籤中啟用 [網路攝影機] 和 [麥克風] 功能。
 
-    ![][]
+    ![][0]
 
     </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">如此能確保您的應用程式可以使用連接至電腦的相機。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"></cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">第一次執行該應用程式時，系統會要求使用者允許u30456 相機進行存取。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">
 
@@ -142,7 +142,7 @@
 
     > [WACOM.NOTE]將新項目的`imageUri` 屬性繫結至 **Image** 控制項時，系統會從 Blob 儲存體服務自動下載映像。
 
-  []: ./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png
+  [0]: ./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png
   [1]: ./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar.png
   [2]: ./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-camera.png
   [3]: ./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar2.png

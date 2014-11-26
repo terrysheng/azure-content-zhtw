@@ -1,15 +1,10 @@
-<properties urldisplayname="Team Foundation Service" headerexpose="" pageTitle="在本機的計算模擬器中分析雲端服務" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="使用 Visual Studio 分析工具，在 Azure 計算模擬器中本機測試雲端服務的效能" authors="ghogen" manager="douge" />
+<properties linkid="dev-net-common-tasks-profiling-in-compute-emulator" urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler" authors="ghogen" manager="douge" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
 # 使用 Visual Studio 分析工具，在 Azure 計算模擬器中本機測試雲端服務的效能
 
-各種工具和技術可用於測試雲端服務的效能。
-當您將雲端服務發行至 Azure 時，可以讓 Visual Studio 收集分析資料，
-然後在本機分析它 (如[測試雲端服務的效能][測試雲端服務的效能]中所述)。
-您也可以使用診斷來追蹤各種效能
-計數器 (如[在 Azure 中使用效能計數器][在 Azure 中使用效能計數器]中所述)。
-您可能也想要先在計算模擬器中本機分析應用程式，再將之部署至雲端。
+各種工具和技術可用於測試雲端服務的效能。當您將雲端服務發行至 Azure 時，可以讓 Visual Studio 收集分析資料，然後在本機分析它 (如[測試雲端服務的效能][測試雲端服務的效能]中所述)。您也可以使用診斷來追蹤各種效能計數器 (如[在 Azure 中使用效能計數器][在 Azure 中使用效能計數器]中所述)。您可能也想要先在計算模擬器中本機分析應用程式，再將之部署至雲端。
 
 本文涵蓋進行分析的「CPU 取樣」方法，這可以在模擬器上本機完成。CPU 取樣不是非常侵入式的分析方法。分析工具會按指定的取樣間隔取得呼叫堆疊的快照集。會收集一段時間的資料，而且資料會顯示在報告中。此分析方法傾向指出在計算密集應用程式中的哪個位置完成大部分的 CPU 工作。這可讓您有機會聚焦在應用程式耗用最多時間的「最忙碌路徑」。
 
@@ -33,7 +28,7 @@
 
 ## <a name="step1"> </a>步驟 1：設定 Visual Studio 進行分析
 
-首先，有些 Visual Studio 組態選項可能在進行分析時很實用。若要讓分析報告發揮作用，您需要應用程式的符號 (.pdb 檔案)，也需要系統庫的符號。您會希望確定參考可用的符號伺服器。若要這樣做，請在 Visual Studio 的 [工具] 功能表上，依序選擇 [選項]、[偵錯] 和 [符號]。請確定 Microsoft Symbol Servers 列在 [符號檔 (.pdb) 位置] 下方。您也可以參考 http://referencesource.microsoft.com/symbols，其中可能有其他符號檔案。
+首先，有些 Visual Studio 組態選項可能在進行分析時很實用。若要讓分析報告發揮作用，您需要應用程式的符號 (.pdb 檔案)，也需要系統庫的符號。您會希望確定參考可用的符號伺服器。若要這樣做，請在 Visual Studio 的 [工具] 功能表上，依序選擇 [選項]、[偵錯] 和 [符號]。請確定 Microsoft Symbol Servers 列在 [符號檔 (.pdb) 位置] 下方。您也可以參考 <http://referencesource.microsoft.com/symbols>，其中可能有其他符號檔案。
 
 ![][0]
 
@@ -170,8 +165,8 @@
 
 在 Visual Studio 2010 分析工具中，不支援在模擬器中檢測 Azure 二進位，但是，如果您想要測試記憶體配置，則可以在分析時選擇該選項。您也可以選擇並行分析來協助您判斷執行緒是否浪費時間來競爭鎖定，或選擇階層互動分析來協助您追蹤在應用程式階層之間互動時的效能問題 (最常發生在資料層與背景工作角色之間)。您可以檢視應用程式所產生的資料庫查詢，以及使用分析資料來提高資料庫的使用。如需階層互動分析的相關資訊，請參閱[逐步解說：在 Visual Studio Team System 2010 中使用階層互動分析][逐步解說：在 Visual Studio Team System 2010 中使用階層互動分析]。
 
-  [測試雲端服務的效能]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh369930.aspx
-  [在 Azure 中使用效能計數器]: http://www.windowsazure.com/zh-tw/develop/net/common-tasks/performance-profiling
+  [測試雲端服務的效能]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh369930.aspx
+  [在 Azure 中使用效能計數器]: http://www.windowsazure.com/zh-TW/develop/net/common-tasks/performance-profiling
   [步驟 1：設定 Visual Studio 進行分析]: #step1
   [步驟 2：連結至程序]: #step2
   [步驟 3：檢視分析報告]: #step3

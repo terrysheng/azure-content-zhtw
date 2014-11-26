@@ -1,6 +1,6 @@
 <properties title="開始使用 Azure 儲存體" pageTitle="開始使用 Azure 儲存體" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb"></tags>
+<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
 
 > [AZURE.SELECTOR]
 >
@@ -39,5 +39,4 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
   [Blob]: /documentation/articles/vs-storage-aspnet-getting-started-blobs/
   [資料表]: /documentation/articles/vs-storage-aspnet-getting-started-tables/
   [如何從 .NET 使用佇列儲存體]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/
-  [vs-storage-getting-started-queues-include]: ../includes/vs-storage-getting-started-queues-include.md
   [ASP.NET]: http://www.asp.net

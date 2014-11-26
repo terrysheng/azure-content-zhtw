@@ -61,7 +61,9 @@
 
 ### 使用 msysgit ###
 
-1.  從下列位置下載並安裝 msysgit：[http://msysgit.github.com/][1] 2.  從安裝的目錄執行 `msys` (範例：c:\\msysgit\\msys.exe) 3.  輸入 `cd bin` 切換到 `bin` 目錄
+1.  從下列位置下載並安裝 msysgit：[http://msysgit.github.com/][1] 
+2.  從安裝的目錄執行 `msys` (範例：c:\\msysgit\\msys.exe) 
+3.  輸入 `cd bin` 切換到 `bin` 目錄
 
 ### 使用 GitHub for Windows
 

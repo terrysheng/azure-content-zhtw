@@ -245,7 +245,6 @@
   [PHP]: http://www.php.net/manual/en/install.php
   [MySQL]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
   [Azure PHP Web Site]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/running_app_2.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [Create New Azure Web Site]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/new_website.jpg
   [Custom Create a new Web Site]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/custom_create.png

@@ -54,9 +54,9 @@
 
 現在您已準備好提供應用程式 ID 和應用程式密碼值給行動服務，以在您的應用程式中採用 Facebook 登入驗證。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Azure 行動服務]: http://azure.microsoft.com/zh-tw/services/mobile-services/
   [開始使用驗證]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started-users/

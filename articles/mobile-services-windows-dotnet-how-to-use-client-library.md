@@ -660,9 +660,9 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 -   [使用指令碼來授權使用者][使用指令碼來授權使用者]
     了解如何根據驗證的使用者來取得行動服務所提供的使用者識別碼，並用來篩選行動服務所傳回的資料。
 
-<!-- Anchors. -->
-<!-- Images. --> 
-<!-- URLs. -->
+
+ 
+
 
   [Windows 市集快速入門教學課程]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started/
   [Windows Phone 快速入門教學課程]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-wp8/
@@ -693,7 +693,6 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
   [自訂要求標頭]: #headers
   [自訂序列化]: #serialization
   [後續步驟]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [建立資料表]: http://go.microsoft.com/fwlink/?LinkId=298592
   [動態結構描述]: http://go.microsoft.com/fwlink/?LinkId=296271
   [GetTable]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554275.aspx

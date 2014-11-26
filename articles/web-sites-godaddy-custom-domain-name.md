@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website to use a domain name registered with GoDaddy" pageTitle="Configure a GoDaddy domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth" />
 
 # 設定 Azure 網站的自訂網域名稱 (GoDaddy)
 
@@ -8,23 +8,23 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/zh-TW/documentation/articles/web-sites-godaddy-custom-domain-name/" title="網站" class="current">網站</a> | <a href="/zh-TW/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/" title="使用流量管理員的網站">使用流量管理員的網站</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-本文針對透過 Azure 網站在 [Go Daddy][] 中購買的自訂網域名稱，提供使用的相關指示。
+本文針對透過 Azure 網站在 [Go Daddy][Go Daddy] 中購買的自訂網域名稱，提供使用的相關指示。
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 本文內容：
 
--   [了解 DNS 記錄][]
--   [新增自訂網域的 DNS 記錄][]
--   [在網站上啟用網域][]
+-   [了解 DNS 記錄][了解 DNS 記錄]
+-   [新增自訂網域的 DNS 記錄][新增自訂網域的 DNS 記錄]
+-   [在網站上啟用網域][在網站上啟用網域]
 
 ## <a name="understanding-records"></a>了解 DNS 記錄
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 ## <a name="bkmk_configurecname"></a>新增自訂網域的 DNS 記錄
 
@@ -32,11 +32,11 @@
 
 1.  在 GoDaddy.com 中登入您的帳戶，並依序選取 [我的帳戶]、[管理我的網域]。最後，在下拉式功能表中選取您要與 Azure 網站搭配使用的網域名稱，然後選取 [管理 DNS]。
 
-    ![custom domain page for GoDaddy][]
+    ![custom domain page for GoDaddy][custom domain page for GoDaddy]
 
 2.  在 [網域詳細資料] 頁面中，捲動至 [DNS 區域檔案] 索引標籤。此區段可用來新增與修改網域名稱的 DNS 記錄。
 
-    ![DNS Zone File tab][]
+    ![DNS Zone File tab][DNS Zone File tab]
 
     選取 [新增記錄] 以新增現有記錄。
 
@@ -46,11 +46,11 @@
 
 3.  新增記錄時，您必須先選取記錄類型。
 
-    ![選取記錄類型][]
+    ![選取記錄類型][選取記錄類型]
 
     接下來，您必須提供 [主機] (自訂網域或子網域) 及其 [指向] 位置。
 
-    ![新增區域記錄][]
+    ![新增區域記錄][新增區域記錄]
 
     -   新增 [A (主機) 記錄] 時，您必須將 [主機] 欄位設定為 <**@**> (這代表根網域名稱，例如 **contoso.com**)、\* (符合多個子網域的萬用字元)，或您要使用的子網域 (例如 **www**)。您必須將 [指向] 欄位設定為您 Azure 網站的 IP 位址。
 
@@ -66,29 +66,13 @@
 
 ## <a name="enabledomain"></a>在網站上啟用網域名稱
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
 
-  [自訂網域]: /zh-TW/documentation/articles/web-sites-custom-domain-name "自訂網域"
-  [GoDaddy]: /zh-TW/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [網路解決方案]: /zh-TW/documentation/articles/web-sites-network-solutions-custom-domain-name "網路解決方案"
-  [Register.com]: /zh-TW/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /zh-TW/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /zh-TW/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /zh-TW/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /zh-TW/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /zh-TW/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [網站]: /zh-TW/documentation/articles/web-sites-godaddy-custom-domain-name/ "網站"
-  [使用流量管理員的網站]: /zh-TW/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/ "使用流量管理員的網站"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro.md
   [Go Daddy]: https://godaddy.com
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [了解 DNS 記錄]: #understanding-records
   [新增自訂網域的 DNS 記錄]: #bkmk_configurecname
   [在網站上啟用網域]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-raw.md
   [custom domain page for GoDaddy]: ./media/web-sites-custom-domain-name/godaddy-customdomain.png
   [DNS Zone File tab]: ./media/web-sites-custom-domain-name/godaddy-zonetab.png
   [選取記錄類型]: ./media/web-sites-custom-domain-name/godaddy-selectrecordtype.png
   [新增區域記錄]: ./media/web-sites-custom-domain-name/godaddy-addzonerecord.png
-  [modes]: ../includes/custom-dns-web-site-enable-on-web-site.md

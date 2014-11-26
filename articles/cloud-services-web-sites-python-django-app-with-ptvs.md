@@ -1,6 +1,6 @@
 <properties linkid="develop-python-tutorials-django-with-python-tools-for-visual-studio" urlDisplayName="Django with Python Tools for Visual Studio 2.0" pageTitle="Creating Django applications with Python Tools for Visual Studio 2.0" metaKeywords="" description="Learn how to use the Python Tools for Visual Studio to create a Django application that stores data in a SQL Database or MySQL database instance and can be deployed to a website or cloud service." metaCanonical="" services="web-sites,cloud-services" documentationCenter="Python" title="Creating Django applications with Python Tools 2.0 for Visual Studio" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # 使用 Python Tools 2.0 for Visual Studio 建立 Django 應用程式
 
@@ -306,7 +306,7 @@ Python Tools for Visual Studio 支援 Python 虛擬環境。我們將建立 Djan
 
 8.  瀏覽至 **<http://localhost>:{port}/**。您會看到已加入的民調的索引。
 
-    ![][]
+    ![][0]
 
 9.  按一下其中一個民調前往投票頁面。
 
@@ -566,9 +566,7 @@ Python Tools for Visual Studio 支援發行至 Azure 網站和雲端服務。接
 
 在本教學課程中，我們使用 [Python Tools for Visual Studio][Python Tools 2.0 for Visual Studio] 開發 Django 應用程式。我們共使用 3 個不同的資料庫：sqlite3、SQL Server 和 MySQL 資料庫。最後，會將應用程式發行至 Azure 網站和雲端服務。
 
-  [觀看教學課程]: http://www.youtube.com/watch?v=wkqjafvvU5w
-  []: https://www.djangoproject.com/
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
+  [0]: https://www.djangoproject.com/
   [Python Tools 2.0 for Visual Studio]: http://pytools.codeplex.com
   [Python 2.7 (32 位元)]: http://www.python.org/download/
   [下載此專案的原始程式碼]: http://download-codeplex.sec.s-msft.com/Download?ProjectName=pytools&DownloadId=783376
@@ -585,7 +583,7 @@ Python Tools for Visual Studio 支援發行至 Azure 網站和雲端服務。接
   [Web Browser]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-008-dev-server.png
   [Add Poll]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-009-admin-login.png
   [Poll Index]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-009-admin-add-poll.png
-  []: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-010-index.png
+  [0]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-010-index.png
   [Poll Detail]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-011-detail.png
   [Poll Results]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-012-results.png
   [1]: ./media/cloud-services-python-create-deploy-django-app/django-tutorial-013-solution-explorer.png

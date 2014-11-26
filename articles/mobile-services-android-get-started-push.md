@@ -247,9 +247,9 @@
 
 在這個簡單範例中，使用者收到推播通知，其中含有剛插入的資料。用戶端會在要求中提供 GCM 所使用的裝置權杖給行動服務。在下一個教學課程[推播通知至應用程式使用者][推播通知至應用程式使用者]中，您將另行建立 Devices 資料表來儲存裝置權杖，並在發生插入動作時傳送推播通知給已儲存的所有通道。
 
-<!-- Images. --> 
+ 
 
-<!-- URLs. -->
+
 
   [Android]: /zh-tw/develop/mobile/tutorials/get-started-with-push-android "Android"
   [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
@@ -261,11 +261,9 @@
 
   [行動服務 Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
   [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-android
-  [啟用 GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
-  [新增 Play 服務]: ../includes/mobile-services-add-Google-play-services.md
   [設定 Google Play 服務 SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
   [2]: ./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png
   [3]: ./media/mobile-services-android-get-started-push/mobile-portal-data-tables.png

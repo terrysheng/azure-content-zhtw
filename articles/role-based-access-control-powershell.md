@@ -1,6 +1,6 @@
 <properties pageTitle="Managing Role-Based Access Control with Windows PowerShell" metaKeywords="ResourceManager, PowerShell, Azure PowerShell, RBAC" description="Managing role-based access control with Windows PowerShell" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Windows PowerShell" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # 使用 Windows PowerShell 管理角色存取控制
 
@@ -148,8 +148,6 @@
 -   [使用 XPLAT CLI 設定角色存取控制][使用 XPLAT CLI 設定角色存取控制]
 -   [為角色存取控制進行疑難排解][為角色存取控制進行疑難排解]
 
-  [Windows PowerShell]: /zh-tw/documentation/articles/powershell-rbac.md "Windows PowerShell"
-  [跨平台 CLI]: /zh-tw/documentation/articles/xplat-cli-rbac.md "跨平台 CLI"
   [Windows Management Framework 3.0]: http://www.microsoft.com/zh-tw/download/details.aspx?id=34595
   [Windows Management Framework 4.0]: http://www.microsoft.com/zh-tw/download/details.aspx?id=40855
   [如何安裝和設定 Windows Azure PowerShell]: http://www.windowsazure.com/zh-tw/documentation/articles/install-configure-powershell/

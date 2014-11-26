@@ -65,9 +65,9 @@
 -   [開始使用推播通知][開始使用推播通知]
     了解如何將極為基本的推播通知傳送到應用程式。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-android
   [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-android

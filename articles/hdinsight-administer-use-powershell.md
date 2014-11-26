@@ -1,4 +1,4 @@
-<properties urlDisplayName="HDInsight Administration" pageTitle="使用 Azure PowerShell 管理 HDInsight 中的 Hadoop 叢集 | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, Hadoop, administration, administer" description="了解如何使用 Azure PowerShell 對 HDInsight 中的 Hadoop 叢集執行管理工作。" services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="使用 Azure PowerShell 管理 HDInsight 上的 Hadoop 叢集" authors="jgao" />
+<properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-powershell" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters in HDInsight with Azure PowerShell | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, Hadoop, administration, administer" description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Manage Hadoop clusters in HDInsight using Azure PowerShell" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -10,7 +10,7 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
--   Azure 訂閱。Azure 是訂用帳戶型平台。HDInsight PowerShell Cmdlet 會為您的訂用帳戶執行相關工作。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][購買選項]、[成員優惠][成員優惠]或[免費試用][免費試用]。
+-   Azure 訂用帳戶。Azure 是訂用帳戶型平台。HDInsight PowerShell Cmdlet 會為您的訂用帳戶執行相關工作。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][購買選項]、[成員優惠][成員優惠]或[免費試用][免費試用]。
 
 -   具有 Azure PowerShell 的工作站。如需指示，請參閱[安裝並設定 Azure PowerShell][安裝並設定 Azure PowerShell]。
 
@@ -28,8 +28,6 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 ## <span id="provision"></span></a>佈建 HDInsight 叢集
 
 HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要有 Azure 儲存帳號和儲存容器，您才能建立 HDInsight 叢集。
-
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 **建立 Azure 儲存體帳戶**
 
@@ -58,7 +56,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
     # List the keys for a storage account
     Get-AzureStorageKey <StorageAccountName>
 
-如需有關使用管理入口網站取得資訊的詳細資訊，請參閱＜*作法：檢視、複製及重新產生儲存體存取金鑰*一節 (位於[如何管理儲存體帳戶][如何管理儲存體帳戶]中)。
+如需有關使用管理入口網站取得資訊的詳細資訊，請參閱＜*作法：檢視、複製及重新產生儲存體存取金鑰*＞一節 (位於[如何管理儲存體帳戶][如何管理儲存體帳戶]中)。
 
 **建立 Azure 儲存容器**
 
@@ -152,8 +150,7 @@ HDInsight 叢集配送提供一些 MapReduce 範例。其中一個範例是計�
 
 > [WACOM.NOTE] *hadoop-examples.jar* 隨附於 2.1 版 HDInsight 叢集。在 3.0 版 HDInsight 叢集上，該檔案已重新命名為 *hadoop-mapreduce.jar*。
 
-如需 WASB 首碼的詳細資訊，請參閱 [對於 HDInsight 使用 Azure Blob 儲存體][hdinsight-
-storage]。
+如需 WASB 首碼的詳細資訊，請參閱 [對於 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
 
 **下載 MapReduce 工作輸出**
 
@@ -241,3 +238,4 @@ Hive 工作會先顯示叢集上所建立的 Hive 資料表，以及從 hivesamp
   [佈建 HDInsight 叢集]: ../hdinsight-provision-clusters/
   [以程式設計方式提交 Hadoop 工作]: ../hdinsight-submit-hadoop-jobs-programmatically/
   [Azure HDInsight 使用者入門]: ../hdinsight-get-started/
+  [hdinsight-storage]: ../hdinsight-use-blob-storage/

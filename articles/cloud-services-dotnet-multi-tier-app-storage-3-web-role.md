@@ -1,10 +1,10 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-3-web-role" pageTitle="Azure Cloud Service Tutorial: ASP.NET Web Role with Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, ASP.NET MVC tutorial, Azure web role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # 建置 Azure Email Service 應用程式的 Web 角色 - 3/5
 
-這是一系列教學課程的第三個教學課程 (共五個)，顯示如何建置和部署 Azure Email Service 範例應用程式。如需應用程式和教學課程系列的詳細資訊，請參閱[系列的第一個教學課程][]。
+這是一系列教學課程的第三個教學課程 (共五個)，顯示如何建置和部署 Azure Email Service 範例應用程式。如需應用程式和教學課程系列的詳細資訊，請參閱[系列的第一個教學課程][系列的第一個教學課程]。
 
 在本教學課程中，您將了解：
 
@@ -14,16 +14,16 @@
 
 ## 本教學課程章節
 
--   [建立 Visual Studio 方案][]
--   [更新儲存體用戶端程式庫 NuGet 封裝][]
--   [設定專案以使用儲存體模擬器][]
--   [設定追蹤及處理重新啟動][]
--   [新增程式碼，以在 Application\_Start 方法中建立資料表、佇列和 Blob 容器][]
--   [建立及測試郵寄清單][]
--   [建立及測試訂閱者控制器和檢視][]
--   [建立及測試訊息控制器和檢視][]
--   [建立及測試取消訂閱者控制器和檢視][]
--   [後續步驟][]
+-   [建立 Visual Studio 方案][建立 Visual Studio 方案]
+-   [更新儲存體用戶端程式庫 NuGet 封裝][更新儲存體用戶端程式庫 NuGet 封裝]
+-   [設定專案以使用儲存體模擬器][設定專案以使用儲存體模擬器]
+-   [設定追蹤及處理重新啟動][設定追蹤及處理重新啟動]
+-   [新增程式碼，以在 Application\_Start 方法中建立資料表、佇列和 Blob 容器][新增程式碼，以在 Application\_Start 方法中建立資料表、佇列和 Blob 容器]
+-   [建立及測試郵寄清單][建立及測試郵寄清單]
+-   [建立及測試訂閱者控制器和檢視][建立及測試訂閱者控制器和檢視]
+-   [建立及測試訊息控制器和檢視][建立及測試訊息控制器和檢視]
+-   [建立及測試取消訂閱者控制器和檢視][建立及測試取消訂閱者控制器和檢視]
+-   [後續步驟][後續步驟]
 
 ## <a name="cloudproject"></a>建立 Visual Studio 方案
 
@@ -35,27 +35,27 @@
 
 2.  從 [檔案] 功能表中，選取 [新增專案]。
 
-    ![New Project menu][]
+    ![New Project menu][New Project menu]
 
 3.  展開 [C\#]，並選取 [已安裝的範本] 下的 [雲端]，然後選取 [Azure 雲端服務]。
 
 4.  將應用程式命名為 **AzureEmailService**，然後按一下 [確定]。
 
-    ![New Project dialog box][]
+    ![New Project dialog box][New Project dialog box]
 
 5.  在 [New Azure Cloud Service] 對話方塊中，選取 [ASP.NET Web 角色]，然後按一下指向右側的箭號。
 
-    ![New Azure Cloud Project dialog box][]
+    ![New Azure Cloud Project dialog box][New Azure Cloud Project dialog box]
 
 6.  在右側的欄位中，將滑鼠指標移至 [WebRole1] 上方，然後按一下鉛筆圖示以變更 Web 角色的名稱。
 
 7.  輸入 MvcWebRole 做為新名稱，然後按 Enter 鍵。
 
-    ![New Azure Cloud Project dialog box - renaming the web role][]
+    ![New Azure Cloud Project dialog box - renaming the web role][New Azure Cloud Project dialog box - renaming the web role]
 
 8.  依照新增 [背景工作角色] 的相同程序進行，並將它命名為 WorkerRoleA，然後按一下 [確定]。
 
-    ![New Azure Cloud Project dialog box - adding a worker role][]
+    ![New Azure Cloud Project dialog box - adding a worker role][New Azure Cloud Project dialog box - adding a worker role]
 
 9.  在 [New ASP.NET Project] 對話方塊中，選取 [MVC] 範本，選取 [Web API] 核取方塊，然後按一下 [變更驗證]。
 
@@ -63,7 +63,7 @@
 
 10. 在 [變更驗證] 對話方塊中，按一下 \[不需要驗證\]，然後按一下 [確定]。
 
-    ![不需要驗證][]
+    ![不需要驗證][不需要驗證]
 
 11. 在 [New ASP.NET Project] 對話方塊中，按一下 [確定]。
 
@@ -71,7 +71,7 @@
 
 在本節中，您將更新系統管理員 Web UI 的每個頁面上顯示的頁首、頁尾和功能表項目。應用程式會有三組系統管理員網頁：一個是針對郵寄清單、一個是針對郵寄清單訂閱者，而一個是針對郵件。
 
-1.  如果您尚未下載[已完成的方案][] (英文)，請先加以下載，再繼續執行下一個步驟。
+1.  如果您尚未下載[已完成的方案][已完成的方案] (英文)，請先加以下載，再繼續執行下一個步驟。
 
     在後續的教學課程中，當您需要新增程式碼時，您會從已下載的專案將檔案複製到新專案中，而不會複製並貼上程式碼片段。本教學課程將示範並說明您要複製之程式碼的主要部分。
 
@@ -93,11 +93,11 @@
 
     如果您經常啟動不是 Azure 雲端服務專案的 Web 專案，您會注意到首頁需要較長的時間才會顯示在瀏覽器中。
 
-    ![home page][]
+    ![home page][home page]
 
     之所以會延遲，是因為 Visual Studio 會啟動 Azure 計算模擬器和 Azure 儲存體模擬器。您可以在 Windows 系統匣中看到計算模擬器圖示：
 
-    ![Compute emulator in system tray][]
+    ![Compute emulator in system tray][Compute emulator in system tray]
 
 2.  關閉瀏覽器。
 
@@ -107,15 +107,15 @@
 
 1.  在 Visual Studio [工具] 功能表中，將滑鼠指標移至 [Library Package Manager] 上方，然後按一下 [Manage NuGet Packages for Solution]。
 
-    ![Manage NuGet Packages for Solution in menu][]
+    ![Manage NuGet Packages for Solution in menu][Manage NuGet Packages for Solution in menu]
 
 2.  在 [Manage NuGet Packages] 對話方塊的左窗格中，選取 [更新]，並向下捲動到 [Azure 儲存體] 封裝，然後按一下 [更新]。
 
-    ![Azure Storage package in Manage NuGet Packages dialog box][]
+    ![Azure Storage package in Manage NuGet Packages dialog box][Azure Storage package in Manage NuGet Packages dialog box]
 
 3.  在 [選取專案] 對話方塊中，確定已選取兩個專案，然後按一下 [確定]。
 
-    ![Selecting both projects in the Select Projects dialog box][]
+    ![Selecting both projects in the Select Projects dialog box][Selecting both projects in the Select Projects dialog box]
 
 4.  接受授權合約以完成封裝的安裝，然後關閉 [Manage NuGet Packages] 對話方塊。
 
@@ -125,7 +125,7 @@
 
 1.  在 [方案總管] 中，於 **AzureEmailService** 雲端專案之 [角色] 的 **MvcWebRole** 上按一下滑鼠右鍵，然後選擇 [屬性]。
 
-    ![Web role properties][]
+    ![Web role properties][Web role properties]
 
 2.  確定已選取 [服務組態] 下拉式清單中的 [所有組態]。
 
@@ -137,7 +137,7 @@
 
 6.  按一下該行右邊的省略符號 (**...**) 按鈕，以開啟 [儲存體帳戶連接字串] 對話方塊。
 
-    ![Right Click Properties][]
+    ![Right Click Properties][Right Click Properties]
 
 7.  在 [Create Storage Connection String] 對話方塊中，按一下 [Azure 儲存體模擬器] 選項按鈕，然後按一下 [確定]。
 
@@ -161,7 +161,7 @@
 -   您只需要在一個位置新增設定，就可以將正確設定 XML 新增至全部三個檔案。
 -   針對這三個設定檔案產生正確的 XML。*ServiceDefinition.csdf* 檔案定義每個 *.cscfg* 組態檔中必須要有的設定。如果 *ServiceDefinition.csdf* 檔案和兩個 *.cscfg* 組態檔設定不一致，則會從 Visual Studio 收到下列錯誤訊息：*目前服務模型不同步。請確定服務組態和定義檔案有效。*
 
-    ![Invalid service configuration and definition files error][]
+    ![Invalid service configuration and definition files error][Invalid service configuration and definition files error]
 
 如果出現此錯誤，除非您手動編輯檔案以解決不一致問題，否則屬性編輯器將無法運作。
 
@@ -169,9 +169,9 @@
 
 1.  在 MvcWebRole 專案中，從已下載的專案新增 *WebRole.cs* 檔案。
 
-這會新增設定記錄的方法，並從在 Web 角色啟動時執行的`OnStart` 方法加以呼叫。新`ConfigureDiagnostics` 方法中的程式碼在[第二個教學課程][]中有相關說明。
+這會新增設定記錄的方法，並從在 Web 角色啟動時執行的`OnStart` 方法加以呼叫。新`ConfigureDiagnostics` 方法中的程式碼在[第二個教學課程][第二個教學課程]中有相關說明。
 
-這也會新增在 Web 角色收到即將關閉通知時執行的程式碼。Azure 雲端服務應用程式每個月大約會重新啟動兩次進行作業系統更新。(如需作業系統更新的詳細資訊，請參閱[角色執行個體因作業系統升級而重新啟動][] (英文)。)即將關閉 Web 應用程式時，會引發`OnStop` 事件。Visual Studio 所建立的 Web 角色樣板不會覆寫`OnStop` 方法，因此，應用程式在關閉之前只有幾秒的時間可以完成 HTTP 要求的處理。您可以新增程式碼來覆寫`OnStop` 方法，以確保能夠正常處理關閉。
+這也會新增在 Web 角色收到即將關閉通知時執行的程式碼。Azure 雲端服務應用程式每個月大約會重新啟動兩次進行作業系統更新。(如需作業系統更新的詳細資訊，請參閱[角色執行個體因作業系統升級而重新啟動][角色執行個體因作業系統升級而重新啟動] (英文)。)即將關閉 Web 應用程式時，會引發`OnStop` 事件。Visual Studio 所建立的 Web 角色樣板不會覆寫`OnStop` 方法，因此，應用程式在關閉之前只有幾秒的時間可以完成 HTTP 要求的處理。您可以新增程式碼來覆寫`OnStop` 方法，以確保能夠正常處理關閉。
 
 您剛剛新增的檔案包含下列`OnStop` 方法覆寫。
 
@@ -192,7 +192,7 @@ Azure 去除角色之後，負載平衡器會停止將要求傳送至角色執�
 
 在針對`OnStop` 方法顯示的程式碼中，會為下列項目建立 ASP.NET 效能計數器：`Requests Current`. `Requests Current` 計數器值包含目前要求數目，包括放入佇列、目前執行或等待寫入用戶端的要求。系統會每秒檢查一次`Requests Current` 值，如果降為零，則會傳回`OnStop` 方法。一旦傳回`OnStop` ，角色即會關閉。
 
-從`OnStop` 方法呼叫，而未執行[隨選傳輸][]時，追蹤資料不會儲存。您可以即時檢視`OnStop` 追蹤資訊，方法是透過遠端桌面連線使用 [dbgview][] 公用程式。
+從`OnStop` 方法呼叫，而未執行[隨選傳輸][隨選傳輸]時，追蹤資料不會儲存。您可以即時檢視`OnStop` 追蹤資訊，方法是透過遠端桌面連線使用 [dbgview][dbgview] 公用程式。
 
 ## <a name="createifnotexists"></a>新增程式碼，以在 Application\_Start 方法中建立資料表、佇列和 Blob 容器
 
@@ -268,17 +268,17 @@ Web 應用程式會使用`MailingList` 資料表、`Message` 資料表`azuremail
             public string Description { get; set; }
         }
 
-    要使用 Azure 儲存體 API，資料表作業的實體類別必須衍生自 [TableEntity][]。`TableEntity` 會定義`PartitionKey`, `RowKey`, `TimeStamp`和`ETag` 欄位。系統會使用`TimeStamp` and`ETag` 屬性。在教學課程後續的內容中，您將了解如何使用`ETag` 屬性進行並行處理。
+    要使用 Azure 儲存體 API，資料表作業的實體類別必須衍生自 [TableEntity][TableEntity]。`TableEntity` 會定義`PartitionKey`, `RowKey`, `TimeStamp`和`ETag` 欄位。系統會使用`TimeStamp` and`ETag` 屬性。在教學課程後續的內容中，您將了解如何使用`ETag` 屬性進行並行處理。
 
-    (當您想要使用資料表資料列做為鍵值組的 Dictionary 集合，而非使用預先定義的模型類別時，也會使用 [DynamicTableEntity][] 類別。如需詳細資訊，請參閱 [Azure 儲存體用戶端程式庫 2.0 資料表深入探討][] (英文)。)
+    (當您想要使用資料表資料列做為鍵值組的 Dictionary 集合，而非使用預先定義的模型類別時，也會使用 [DynamicTableEntity][DynamicTableEntity] 類別。如需詳細資訊，請參閱 [Azure 儲存體用戶端程式庫 2.0 資料表深入探討][Azure 儲存體用戶端程式庫 2.0 資料表深入探討] (英文)。)
 
     `mailinglist` 資料表分割索引鍵是清單名稱。在此實體類別中，分割索引鍵值的存取方式是使用`PartitionKey` 屬性 (定義於`TableEntity` 類別中) 或`ListName` 屬性 (定義於`MailingList` 類別中)。 `ListName` 屬性使用`PartitionKey` 做為其支援變數。定義`ListName` 屬性，可讓您在程式碼中使用更具描述性的變數名稱，並簡化 Web UI 的程式設計，因為格式和驗證 DataAnnotations 屬性可以新增至`ListName` 屬性，但是無法直接新增至`PartitionKey` 屬性。
 
     `RegularExpression` 屬性 (屬於`ListName` 屬性) 可讓 MVC 驗證使用者輸入，確保輸入的清單名稱值只包含英數字元或底線。這項限制的實作是要保持簡單的清單名稱，以輕鬆地將清單名稱用於 URL 的查詢字串中。
 
-    > [WACOM.NOTE] 如果您想要讓清單名稱格式的限制較少，在查詢字串中使用清單名稱時，您可以允許其他字元和 URL 編碼清單名稱。不過，在 Azure 資料表分割索引鍵或資料列索引鍵中不允許使用特定字元，因此您至少需要排除那些字元。如需分割索引鍵或資料列索引鍵欄位中不允許或導致問題之字元的詳細資訊，請參閱[了解表格服務資料模型][]和 [PartitionKey 或 RowKey 中的 % 字元][] (英文)。
+    > [WACOM.NOTE] 如果您想要讓清單名稱格式的限制較少，在查詢字串中使用清單名稱時，您可以允許其他字元和 URL 編碼清單名稱。不過，在 Azure 資料表分割索引鍵或資料列索引鍵中不允許使用特定字元，因此您至少需要排除那些字元。如需分割索引鍵或資料列索引鍵欄位中不允許或導致問題之字元的詳細資訊，請參閱[了解表格服務資料模型][了解表格服務資料模型]和 [PartitionKey 或 RowKey 中的 % 字元][PartitionKey 或 RowKey 中的 % 字元] (英文)。
 
-    `MailingList` 類別會定義將`RowKey` 設定為硬式編碼字串 "mailinglist" 的預設建構函式，因為此資料表中的所有郵寄清單資料列都會使用該值做為其資料列索引鍵。(如需資料表結構的說明，請參閱[系列的第一個教學課程][]。)基於此目的，可能已選擇任何常數值，只要它絕對不會與電子郵件地址相同 (即此資料表中訂閱者資料列的資料列索引鍵)。
+    `MailingList` 類別會定義將`RowKey` 設定為硬式編碼字串 "mailinglist" 的預設建構函式，因為此資料表中的所有郵寄清單資料列都會使用該值做為其資料列索引鍵。(如需資料表結構的說明，請參閱[系列的第一個教學課程][系列的第一個教學課程]。)基於此目的，可能已選擇任何常數值，只要它絕對不會與電子郵件地址相同 (即此資料表中訂閱者資料列的資料列索引鍵)。
 
     在建立新的`MailingList` 實體時一律必須輸入清單名稱和「寄件者」電子郵件地址，因此這兩個項目具有`Required` 屬性。
 
@@ -305,7 +305,7 @@ Web 應用程式會使用`MailingList` 資料表、`Message` 資料表`azuremail
 
     接下來是`FindRowAsync` 方法，只要控制器需要查詢`MailingList` 資料表的特定郵寄清單項目就會予以呼叫 (例如編輯郵寄清單項目)。此程式碼會擷取單一`MailingList` 實體，方法是使用傳遞給它的分割索引鍵和資料列索引鍵值。此控制器所編輯的資料列就是資料列索引鍵為 "MailingList" 的資料列，因此可能已針對資料列索引鍵硬式編碼 "MailingList"，但是指定分割索引鍵和資料列索引鍵是用於所有控制器中`FindRow` 方法的一種模式。
 
-    > [WACOM.NOTE] 對於 Web 角色中的 I/O 作業，應用程式會使用 ASP.NET 4.5 非同步程式碼，以有效使用伺服器資源。如需 Web 應用程式中的非同步程式碼的相關資訊，請參閱[使用 .NET 4.5 的非同步支援避免封鎖呼叫][] (英文)。
+    > [WACOM.NOTE] 對於 Web 角色中的 I/O 作業，應用程式會使用 ASP.NET 4.5 非同步程式碼，以有效使用伺服器資源。如需 Web 應用程式中的非同步程式碼的相關資訊，請參閱[使用 .NET 4.5 的非同步支援避免封鎖呼叫][使用 .NET 4.5 的非同步支援避免封鎖呼叫] (英文)。
 
         private async Task<MailingList> FindRowAsync(string partitionKey, string rowKey)
         {
@@ -319,7 +319,7 @@ Web 應用程式會使用`MailingList` 資料表、`Message` 資料表`azuremail
             return mailingList;
         }
 
-    此`FindRow` 方法中的程式碼會傳回郵寄清單資料列。對應`FindRow` 方法中的程式碼 (`Subscriber` 控制器) 會從相同的`mailinglist` 資料表傳回訂閱者資料列。這兩種方法中的程式碼是類似的，差別在於 [TableOperation.Retrieve][] 方法所使用的模型類型。
+    此`FindRow` 方法中的程式碼會傳回郵寄清單資料列。對應`FindRow` 方法中的程式碼 (`Subscriber` 控制器) 會從相同的`mailinglist` 資料表傳回訂閱者資料列。這兩種方法中的程式碼是類似的，差別在於 [TableOperation.Retrieve][TableOperation.Retrieve] 方法所使用的模型類型。
 
         private async Task<Subscriber> FindRowAsync(string partitionKey, string rowKey)
         {
@@ -351,11 +351,11 @@ Web 應用程式會使用`MailingList` 資料表、`Message` 資料表`azuremail
             token = currentSegment.ContinuationToken;
         }
 
-    `ExecuteQuerySegmentedAsync` 方法會將大型結果集切分。它最多會傳回 1,000 個資料列。如果您執行的查詢會擷取 1,000 個以上的資料列，您將得到 1,000 個資料列和接續權杖。您可以使用接續權杖，執行從前一個查詢結束之處開始的另一個查詢。以下顯示範例應用程式的簡化程式碼：所有的部分都彙總在一份清單中。對於實際執行應用程式，您會實作分頁程式碼。如需大型結果集和接續權杖的詳細資訊，請參閱[如何最佳利用 Azure 資料表][] (英文) 和 [Azure 資料表：極度預期接續權杖][] (英文)。
+    `ExecuteQuerySegmentedAsync` 方法會將大型結果集切分。它最多會傳回 1,000 個資料列。如果您執行的查詢會擷取 1,000 個以上的資料列，您將得到 1,000 個資料列和接續權杖。您可以使用接續權杖，執行從前一個查詢結束之處開始的另一個查詢。以下顯示範例應用程式的簡化程式碼：所有的部分都彙總在一份清單中。對於實際執行應用程式，您會實作分頁程式碼。如需大型結果集和接續權杖的詳細資訊，請參閱[如何最佳利用 Azure 資料表][如何最佳利用 Azure 資料表] (英文) 和 [Azure 資料表：極度預期接續權杖][Azure 資料表：極度預期接續權杖] (英文)。
 
-    當您建立`OperationContext` 物件時，您可以設定`ClientID` 屬性值，以提供由 Azure 儲存體寫入的記錄所將包含的唯一識別碼。您可以使用此識別碼，經由儲存體作業記錄來追蹤導致儲存體服務活動的程式碼。如需 Azure 儲存體記錄的相關資訊，請參閱 [Azure 儲存體記錄：使用記錄追蹤儲存體要求][] (英文)。
+    當您建立`OperationContext` 物件時，您可以設定`ClientID` 屬性值，以提供由 Azure 儲存體寫入的記錄所將包含的唯一識別碼。您可以使用此識別碼，經由儲存體作業記錄來追蹤導致儲存體服務活動的程式碼。如需 Azure 儲存體記錄的相關資訊，請參閱 [Azure 儲存體記錄：使用記錄追蹤儲存體要求][Azure 儲存體記錄：使用記錄追蹤儲存體要求] (英文)。
 
-    透過 SCL 2.1 和更新版本的 API，您也可以使用 LINQ 進行資料表查詢。如需程式碼範例以了解如何使用 LINQ，請參閱 [PhluffyFotos][]。
+    透過 SCL 2.1 和更新版本的 API，您也可以使用 LINQ 進行資料表查詢。如需程式碼範例以了解如何使用 LINQ，請參閱 [PhluffyFotos][PhluffyFotos]。
 
     如果您未指定重試原則，API 會使用指數方式增加的逾時限制自動重試三次。如果是使用者等待頁面出現的 Web 介面，這可能會導致無法接受的冗長等待時間。因此，此程式碼指定線性重試 (這樣一來，就不會每次都增加逾時限制) 以及使用者等待的合理逾時限制。重試原則指定於`webUIRetryPolicy` 物件中，而此物件會傳至`ExecuteQuerySegmentedAsync` 方法。 `webUIRetryPolicy` 物件定義於控制器建構函式中：
 
@@ -559,11 +559,11 @@ Web 應用程式會使用`MailingList` 資料表、`Message` 資料表`azuremail
 
 1.  按 CTRL+F5，以執行專案。
 
-    ![Empty MailingList Index page][]
+    ![Empty MailingList Index page][Empty MailingList Index page]
 
 2.  使用 **Create** 函數新增一些郵寄清單，並嘗試 **Edit** 和 **Delete** 函數確定其運作。
 
-    ![MailingList Index page with rows][]
+    ![MailingList Index page with rows][MailingList Index page with rows]
 
 ## <a name="subscriber"></a><span class="short-header">訂閱者</span>建立與測試訂閱者控制器和檢視
 
@@ -612,7 +612,7 @@ Web 應用程式會使用`MailingList` 資料表、`Message` 資料表`azuremail
             }
         
 
-`Subscriber` 資料列使用電子郵件地址 (而非常數 "mailinglist") 做為資料列索引鍵。(如需資料表結構的說明，請參閱[系列的第一個教學課程][]。)因此我們定義了`EmailAddress` 屬性，使用`RowKey` 屬性做為其支援欄位，正如同`ListName` 使用`PartitionKey` 做為其支援欄位。如稍早的說明，這可讓您在屬性 (Property) 上放置格式和驗證 DataAnnotations 屬性 (Attribute)。
+`Subscriber` 資料列使用電子郵件地址 (而非常數 "mailinglist") 做為資料列索引鍵。(如需資料表結構的說明，請參閱[系列的第一個教學課程][系列的第一個教學課程]。)因此我們定義了`EmailAddress` 屬性，使用`RowKey` 屬性做為其支援欄位，正如同`ListName` 使用`PartitionKey` 做為其支援欄位。如稍早的說明，這可讓您在屬性 (Property) 上放置格式和驗證 DataAnnotations 屬性 (Attribute)。
 
 `SubscriberGUID` 值會在`Subscriber` 實體建立時產生。它用於訂閱和取消訂閱連結，協助確保只有授權人員才能訂閱或取消訂閱電子郵件地址。
 
@@ -768,11 +768,11 @@ MVC 模型繫結器傳至`Edit` 方法的參數，包含原始清單名稱和電
 
 1.  按 CTRL+F5 執行專案，然後按一下 [訂閱者]。
 
-    ![Empty Subscriber Index page][]
+    ![Empty Subscriber Index page][Empty Subscriber Index page]
 
 2.  使用 **Create** 函數新增一些郵寄清單，並嘗試 **Edit** 和 **Delete** 函數確定其運作。
 
-    ![Subscribers Index page with rows][]
+    ![Subscribers Index page with rows][Subscribers Index page with rows]
 
 ## <a name="message"></a>建立及測試訊息控制器和檢視
 
@@ -844,7 +844,7 @@ MVC 模型繫結器傳至`Edit` 方法的參數，包含原始清單名稱和電
 
 預設建構函式也會將新`message` 資料列的預設狀態設定為「擱置」。
 
-如需`Message` 資料表結構的詳細資訊，請參閱[系列的第一個教學課程][]。
+如需`Message` 資料表結構的詳細資訊，請參閱[系列的第一個教學課程][系列的第一個教學課程]。
 
 ### 新增 Message MVC 控制器
 
@@ -1007,7 +1007,7 @@ Blob 儲存在 Blob 容器中。Azure Email Service 應用程式會在名稱為 
 
 1.  按 CTRL+F5 執行專案，然後按一下 [郵件]。
 
-    ![Empty Message Index page][]
+    ![Empty Message Index page][Empty Message Index page]
 
 2.  使用 **Create** 函數新增一些郵寄清單，並嘗試 **Edit** 和 **Delete** 函數確定其運作。
 
@@ -1082,7 +1082,7 @@ Blob 儲存在 Blob 容器中。Azure Email Service 應用程式會在名稱為 
             return View(unsubscribeVM);
         }
 
-注意：SubscriberGUID 不在分割索引鍵或資料列索引鍵中，因此此查詢的效能會隨著資料分割大小 (郵寄清單中的電子郵件地址數目) 的增加而降低。如需讓此查詢更具延展性之替代方式的相關資訊，請參閱[系列的第一個教學課程][]。
+注意：SubscriberGUID 不在分割索引鍵或資料列索引鍵中，因此此查詢的效能會隨著資料分割大小 (郵寄清單中的電子郵件地址數目) 的增加而降低。如需讓此查詢更具延展性之替代方式的相關資訊，請參閱[系列的第一個教學課程][系列的第一個教學課程]。
 
 `HttpPost Index` 方法同樣會使用 GUID 和清單名稱取得訂閱者資訊，並填入檢視模型屬性。然後，如果已按一下 [確認] 按鈕，則會刪除`MailingList` 資料表中的訂閱者資料列。如果已按下 [確認] 按鈕，則也會將`Confirm` 屬性設為`true`，否則會將`Confirm` 屬性設為`false`. `Confirm` 屬性的值會告知此檢視顯示 [取消訂閱] 頁面的已確認或已取消版本。
 
@@ -1188,7 +1188,7 @@ Blob 儲存在 Blob 容器中。Azure Email Service 應用程式會在名稱為 
 
 6.  在 [編輯實體] 對話方塊中，選取並複製`SubscriberGUID` 值。
 
-    ![Azure 儲存體總管][]
+    ![Azure 儲存體總管][Azure 儲存體總管]
 
 7.  切換回瀏覽器視窗。在瀏覽器的網址列中，將 URL 中的 "Subscriber" 變更為 "unsubscribe?ID=[guidvalue]&listName=[listname]"，其中 [guidvalue] 是您從 Azure 儲存體總管複製的 GUID，而 [listname] 是郵寄清單的名稱。例如：
 
@@ -1196,11 +1196,11 @@ Blob 儲存在 Blob 容器中。Azure Email Service 應用程式會在名稱為 
 
     顯示要求確認之 [取消訂閱] 頁面的版本：
 
-    ![Unsubscribe page][]
+    ![Unsubscribe page][Unsubscribe page]
 
 8.  按一下 [確認]，您會看到已取消訂閱電子郵件地址的確認。
 
-    ![Unsubscribe confirmed page][]
+    ![Unsubscribe confirmed page][Unsubscribe confirmed page]
 
 9.  回到 [訂閱者] [索引] 頁面，以驗證訂閱者資料列已不存在。
 
@@ -1218,13 +1218,13 @@ Blob 儲存在 Blob 容器中。Azure Email Service 應用程式會在名稱為 
 -   Controllers\\SubscribeController.cs
 -   Views\\Subscribe\\Index.cshtml
 
-在[下一個教學課程][]中，您將設定和程式設計背景工作角色 A (排程電子郵件的背景工作角色)。
+在[下一個教學課程][下一個教學課程]中，您將設定和程式設計背景工作角色 A (排程電子郵件的背景工作角色)。
 
-如需使用 Azure 儲存體資料表、佇列和 Blob 的其他資源連結，請參閱[本系列的最後一個教學課程][]。
+如需使用 Azure 儲存體資料表、佇列和 Blob 的其他資源連結，請參閱[本系列的最後一個教學課程][本系列的最後一個教學課程]。
 
-<div><a href="/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/" class="site-arrowboxcta download-cta">教學課程 4</a></div>
+<div><a href="/zh-tw/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/" class="site-arrowboxcta download-cta">教學課程 4</a></div>
 
-  [系列的第一個教學課程]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+  [系列的第一個教學課程]: /zh-tw/develop/net/tutorials/multi-tier-web-site/1-overview/
   [建立 Visual Studio 方案]: #cloudproject
   [更新儲存體用戶端程式庫 NuGet 封裝]: #updatescl
   [設定專案以使用儲存體模擬器]: #configurestorage
@@ -1251,17 +1251,17 @@ Blob 儲存在 Blob 容器中。Azure Email Service 應用程式會在名稱為 
   [Web role properties]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-mvcwebrole-properties-menu.png
   [Right Click Properties]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-elip.png
   [Invalid service configuration and definition files error]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-er1.png
-  [第二個教學課程]: /en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
+  [第二個教學課程]: /zh-tw/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
   [角色執行個體因作業系統升級而重新啟動]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
-  [隨選傳輸]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433075.aspx
-  [dbgview]: http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx
-  [TableEntity]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.tableentity.aspx
-  [DynamicTableEntity]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.dynamictableentity.aspx
+  [隨選傳輸]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433075.aspx
+  [dbgview]: http://technet.microsoft.com/zh-tw/sysinternals/bb896647.aspx
+  [TableEntity]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.storage.table.tableentity.aspx
+  [DynamicTableEntity]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.storage.table.dynamictableentity.aspx
   [Azure 儲存體用戶端程式庫 2.0 資料表深入探討]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx
-  [了解表格服務資料模型]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx
+  [了解表格服務資料模型]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179338.aspx
   [PartitionKey 或 RowKey 中的 % 字元]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/05/28/partitionkey-or-rowkey-containing-the-percent-character-causes-some-windows-azure-tables-apis-to-fail.aspx
   [使用 .NET 4.5 的非同步支援避免封鎖呼叫]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async
-  [TableOperation.Retrieve]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx
+  [TableOperation.Retrieve]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx
   [如何最佳利用 Azure 資料表]: http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx
   [Azure 資料表：極度預期接續權杖]: http://blog.smarx.com/posts/windows-azure-tables-expect-continuation-tokens-seriously
   [Azure 儲存體記錄：使用記錄追蹤儲存體要求]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx
@@ -1275,5 +1275,5 @@ Blob 儲存在 Blob 容器中。Azure Email Service 應用程式會在名稱為 
   [Azure 儲存體總管]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-ase-edit-entity-unsubscribe.png
   [Unsubscribe page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-unsubscribe-query-page.png
   [Unsubscribe confirmed page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-web-role/mtas-unsubscribe-confirmation-page.png
-  [下一個教學課程]: /en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
-  [本系列的最後一個教學課程]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps
+  [下一個教學課程]: /zh-tw/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/
+  [本系列的最後一個教學課程]: /zh-tw/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/#nextsteps

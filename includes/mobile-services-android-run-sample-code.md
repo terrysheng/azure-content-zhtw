@@ -1,6 +1,6 @@
 1.  在 [套件瀏覽器] 中，依序展開 [GetStartedWithData]、[src] 和 [.com.example.GetStartedWithData]，然後檢查 ToDoActivity.java 檔案。
 
-    ![][]
+    ![][0]
 
     請注意，`//TODO` 註解會指定讓此應用程式可與您的行動服務搭配使用的必要步驟。
 
@@ -14,5 +14,5 @@
 
     注意已儲存的文字會存在記憶體內部收集中，並顯示在下表。
 
-  []: ./media/download-android-sample-code/mobile-eclipse-project.png
+  [0]: ./media/download-android-sample-code/mobile-eclipse-project.png
   [1]: ./media/download-android-sample-code/mobile-quickstart-startup-android.png

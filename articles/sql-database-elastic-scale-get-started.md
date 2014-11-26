@@ -94,7 +94,7 @@ Elastic Scale 程式庫和服務範本是免費的。Elastic Scale 不會在您�
 -   第 9 頻道：[Elastic Scale 概觀][1]
 -   論壇：[Azure SQL Database 論壇][Azure SQL Database 論壇]
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->\r\n<!--Image references-->
 
   [Elastic Scale 概觀]: http://go.microsoft.com/?linkid=9862592
   [Elastic Scale 文件目錄]: ./sql-database-elastic-scale-documentation-map.md
@@ -118,4 +118,4 @@ Elastic Scale 程式庫和服務範本是免費的。Elastic Scale 不會在您�
   [指令碼中心的分區彈性]: http://go.microsoft.com/?linkid=9862617
   [Elastic Scale 公告]: http://go.microsoft.com/?linkid=9862608
   [1]: http://go.microsoft.com/?linkid=9862609
-  [Azure SQL Database 論壇]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=ssdsgetstarted
+  [Azure SQL Database 論壇]: http://social.msdn.microsoft.com/forums/azure/zh-tw/home?forum=ssdsgetstarted

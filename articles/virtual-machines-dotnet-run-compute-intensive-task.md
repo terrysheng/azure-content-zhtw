@@ -1,4 +1,4 @@
-<properties urlDisplayName="Compute Intensive .NET Task" pageTitle="虛擬機器上需密集運算的 .NET 工作 - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="了解如何在 Azure 虛擬機器上部署與執行需密集運算的 .NET 應用程式，並使用服務匯流排佇列來遠端監控進度。" metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="如何在 Azure 虛擬機器上以 .NET 執行需密集運算的工作" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties linkid="develop-net-tutorials-compute-intensive-task-on-a-virtual-machine" urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="How to run a compute-intensive task in .NET on an Azure virtual machine" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
@@ -51,9 +51,7 @@
 
 ## 如何建立服務匯流排命名空間
 
-若要開始在 Azure 中使用服務匯流排佇列，
-首先必須建立服務命名空間。服務命名空間提供範圍容器，
-可在應用程式內定址服務匯流排資源。
+若要開始在 Azure 中使用服務匯流排佇列，首先必須建立服務命名空間。服務命名空間提供範圍容器，可在應用程式內定址服務匯流排資源。
 
 建立服務命名空間：
 
@@ -68,13 +66,7 @@
     ![Create a namespace dialog][Create a namespace dialog]
 
 5.  確定命名空間名稱可用之後，請選擇要代管命名空間的區域 (務必使用要代管虛擬機器的相同區域)。
-    <div class="dev-callout">
-
-    **重要事項**
-    挑選您使用或打算使用於虛擬機器的**相同區域**。這樣可以獲得最佳效能。
-
-    </div>
-
+    **重要事項**<br /><p>挑選您使用或打算使用於虛擬機器的<strong>相同區域</strong>。這樣可以獲得最佳效能。</p>
 6.  如果您用以登入的帳戶有一個以上的 Azure 訂閱，請選取要用於命名空間的訂閱 (如果您用以登入的帳戶只有一個訂閱，您就不會看到含有訂閱的下拉式清單)。
 7.  按一下核取記號。此時系統會建立並啟用服務命名空間。系統為帳戶提供資源時，您可能需要等幾分鐘。
 
@@ -84,17 +76,14 @@
 
 ## 取得命名空間的預設管理認證
 
-若要在新的命名空間上執行管理作業 (例如建立佇列)，
-您必須取得命名空間的
-管理認證。
+若要在新的命名空間上執行管理作業 (例如建立佇列)，您必須取得命名空間的管理認證。
 
-1.  在左側瀏覽窗格中，按一下 [服務匯流排] 節點，以
-    顯示可用的命名空間清單：
-    ![[可用的命名空間] 螢幕擷取畫面][]
-2.  從顯示的清單中，選取您剛建立的命名空間：
-    ![[命名空間清單] 螢幕擷取畫面][]
-3.  按一下 [存取金鑰]。
-    ![[存取金鑰] 按鈕][]
+1.  在左側瀏覽窗格中，按一下 [服務匯流排] 節點，以顯示可用的命名空間清單：<br />
+    ![可用的命名空間 螢幕擷取畫面][可用的命名空間 螢幕擷取畫面]
+2.  從顯示的清單中，選取您剛建立的命名空間：<br />
+    ![命名空間清單 螢幕擷取畫面][命名空間清單 螢幕擷取畫面]
+3.  按一下 [存取金鑰]。<br />
+    ![存取金鑰 按鈕][存取金鑰 按鈕]
 4.  在此對話方塊中，找出 [Default Issuer] 和 [Default Key] 項目。請記下這些值，接下來會利用此資訊對命名空間執行作業。
 
 ## 如何建立 .NET 應用程式以便執行需密集運算的工作
@@ -107,17 +96,17 @@
 6.  請將 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 及 **your\_service\_bus\_key** 預留位置，分別修改成使用您服務匯流排 [命名空間]、[Default Issuer] 及 [預設金鑰] 的值。
 7.  編譯應用程式。這會在您專案的 **bin** 資料夾 (**bin\\release** 或 **bin\\debug**，視您的目標為版本或偵錯組建而定) 中建立 **TSPSolver.exe**。您稍後會將此可執行檔和 Microsoft.ServiceBus.dll 複製到您的虛擬機器。
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.IO;
+    	using System;
+    	using System.Collections.Generic;
+    	using System.Linq;
+    	using System.Text;
+    	using System.IO;
 
-    using Microsoft.ServiceBus;
-    using Microsoft.ServiceBus.Messaging;
+    	using Microsoft.ServiceBus;
+    	using Microsoft.ServiceBus.Messaging;
 
-    namespace TSPSolver
-    {
+    	namespace TSPSolver
+    	{
         class Program
         {
             // Value specifying how often to provide an update to the console.
@@ -321,10 +310,10 @@
                     Console.WriteLine(exception.Message);
                     Console.WriteLine(exception.StackTrace);
                     Environment.Exit(-1);
-                }
-            }
+                 }
+             }
+          }
         }
-    }
 
 ## 如何建立 .NET 應用程式以便監控需密集運算之工作的進度
 
@@ -335,18 +324,18 @@
 5.  請將 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 及 **your\_service\_bus\_key** 預留位置，分別修改成使用您服務匯流排 [命名空間]、[Default Issuer] 及 [預設金鑰] 的值。
 6.  編譯應用程式。這會在您專案的 **bin** 資料夾 (**bin\\release** 或 **bin\\debug**，視您的目標為版本或偵錯組建而定) 中建立 **TSPClient.exe**。您可以從部署機器執行此程式碼，或將此可執行檔和 Microsoft.ServiceBus.dll 複製到將執行用戶端應用程式的機器 (不一定要在您的虛擬機器上)。
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.IO;
+    	using System;
+    	using System.Collections.Generic;
+    	using System.Linq;
+    	using System.Text;
+    	using System.IO;
 
-    using Microsoft.ServiceBus;
-    using Microsoft.ServiceBus.Messaging;
-    using System.Threading; // For Thread.Sleep
+    	using Microsoft.ServiceBus;
+    	using Microsoft.ServiceBus.Messaging;
+    	using System.Threading; // For Thread.Sleep
 
-    namespace TSPClient
-    {
+    	namespace TSPClient
+    	{
         class Program
         {
 
@@ -439,10 +428,10 @@
                     Console.WriteLine(exception.Message);
                     Console.WriteLine(exception.StackTrace);
                     Environment.Exit(-1);
-                }
-            }
+                 }
+             }
+          }
         }
-    }
 
 ## 如何執行 .NET 應用程式
 
@@ -515,7 +504,7 @@
 
         TSPSolver 8
 
-如果您未指定數字，此 solver 將會針對 10 個城市執行。當求解器找到目前最短的路徑時，將會把這些路徑加入佇列中。
+    如果您未指定數字，此 solver 將會針對 10 個城市執行。當求解器找到目前最短的路徑時，將會把這些路徑加入佇列中。
 
 求解器將會執行直到完成所有路徑檢查為止。
 
@@ -554,7 +543,7 @@
   [Create new service bus]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ServiceBusCreateNew.png
   [Create a namespace dialog]: ./media/virtual-machines-dotnet-run-compute-intensive-task/CreateNameSpaceDialog.png
   [Click create screenshot]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ClickCreate.png
-  [[可用的命名空間] 螢幕擷取畫面]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AvailableNamespaces.png
-  [[命名空間清單] 螢幕擷取畫面]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
-  [[存取金鑰] 按鈕]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
+  [可用的命名空間 螢幕擷取畫面]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AvailableNamespaces.png
+  [命名空間清單 螢幕擷取畫面]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
+  [存取金鑰 按鈕]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
   [Azure SDK for .NET]: http://www.windowsazure.com/zh-tw/develop/net/

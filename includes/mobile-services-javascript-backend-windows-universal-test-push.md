@@ -8,7 +8,7 @@
 
 3.  再執行 Windows 市集應用程式一次，接著在 [Insert a TodoItem] 中輸入文字，然後按一下 [儲存]。
 
-    ![][]
+    ![][0]
 
     請注意，插入作業完成後，Windows 市集應用程式和 Windows Phone 應用程式都會收到來自 WNS 的推播通知。
 
@@ -18,6 +18,6 @@
 
     ![][2]
 
-  []: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png
+  [0]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push2.png
   [2]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png

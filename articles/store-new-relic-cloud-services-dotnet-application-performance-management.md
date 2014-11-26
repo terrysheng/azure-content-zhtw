@@ -1,25 +1,16 @@
-<properties urlDisplayName="New Relic" pageTitle="將 New Relic 與 Azure 搭配使用 - Azure 功能指南" metaKeywords="" description="了解如何使用 New Relic 服務來管理與監控 Azure 應用程式。" metaCanonical="" services="" documentationCenter=".NET" title="Azure 上的 New Relic 應用程式效能管理" authors="" solutions="" manager="dwrede" editor="" />
+<properties linkid="develop-net-how-to-guides-new-relic" urlDisplayName="New Relic" pageTitle="Using New Relic with Azure - Azure feature guides" metaKeywords="" description="Learn how to use the New Relic service to manage and monitor your Azure application." metaCanonical="" services="" documentationCenter=".NET" title="New Relic Application Performance Management on Azure" authors="" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new="" relic" />
 
 # Azure 上的 New Relic 應用程式效能管理
 
-本指南說明如何將 New Relic 的世界級效能監視加入 Azure 託管的
-應用程式。我們將討論以快速又簡單的程序
-將 New Relic 加入應用程式，並介紹一些 New Relic 功能。
-如需有關使用 New Relic 的詳細資訊，請參閱＜[使用 New Relic][使用 New Relic]＞。
+本指南說明如何將 New Relic 的世界級效能監視加入 Azure 託管的應用程式。我們將討論以快速又簡單的程序將 New Relic 加入應用程式，並介紹一些 New Relic 功能。如需有關使用 New Relic 的詳細資訊，請參閱＜[使用 New Relic][使用 New Relic]＞。
 
 ## 什麼是 New Relic？
 
-New Relic 是一種開發人員專用工具，可監視生產應用程式，並深入探索其效能
-和可靠性。主要是
-讓您在識別和診斷效能問題時可節省時間，並隨手取得解決這些問題
-所需的資訊。
+New Relic 是一種開發人員專用工具，可監視生產應用程式，並深入探索其效能和可靠性。主要是讓您在識別和診斷效能問題時可節省時間，並隨手取得解決這些問題所需的資訊。
 
-New Relic 會追蹤 Web 交易的載入時間和輸送量，包括來自伺服器和
-使用者瀏覽器。它會顯示您在資料庫中花費多少時間、
-分析較慢的查詢和 Web 要求、提供運作時間監視和警示、
-追蹤應用程式例外狀況，還有許多其他功能。
+New Relic 會追蹤 Web 交易的載入時間和輸送量，包括來自伺服器和使用者瀏覽器。它會顯示您在資料庫中花費多少時間、分析較慢的查詢和 Web 要求、提供運作時間監視和警示、追蹤應用程式例外狀況，還有許多其他功能。
 
 ## 透過 Azure 市集享受 New Relic 優惠價格
 

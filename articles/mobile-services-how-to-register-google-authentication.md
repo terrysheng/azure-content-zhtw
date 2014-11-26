@@ -34,9 +34,9 @@
 
 現在您已準備好提供用戶端識別碼和用戶端密碼值給行動服務，以在您的應用程式中採用 Google 登入驗證。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
   [0]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-new-project.png

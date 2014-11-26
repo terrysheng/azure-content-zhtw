@@ -288,9 +288,9 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 -   [開始使用推送通知][開始使用推送通知]
     了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [更新應用程式以允許更新]: #uiupdate
   [在應用程式中啟用衝突偵測]: #enableOC

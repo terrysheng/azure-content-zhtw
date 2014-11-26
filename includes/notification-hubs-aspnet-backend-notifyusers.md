@@ -4,7 +4,7 @@
 
 > [AZURE.NOTE] **重要事項**：開始本教學課程之前，請確定您已安裝最新版本的 NuGet Package Manager。若要檢查版本，請啟動 Visual Studio。在 [工具] 功能表中，按一下 [擴充功能和更新]。搜尋 **NuGet Package Manager for Visual Studio 2013**，然後確定您已安裝 2.8.50313.46 版或更新版本。否則的話，請解除安裝，然後重新安裝 NuGet Package Manager。
 >
-> ![][]
+> ![][0]
 
 1.  使用較高的權限啟動 Visual Studio (以系統管理員的身分執行)。
 2.  在 Visual Studio 或 Visual Studio Express 中，依序按一下 [檔案]、[新增] 和 [專案]，並依序展開 [範本]、[Visual C\#]，然後按一下 [Web] 和 [ASP.NET Web 應用程式]，輸入名稱：**AppBackend**，然後按一下 [確定]。
@@ -50,7 +50,7 @@
 
         using Microsoft.ServiceBus.Notifications;
 
-12. 在`Notifications()` 方法中，使用通知中樞的連接字串 (包含完整存取權) 和中樞名稱來取代下列程式碼行中的兩個預留位置。您可以從 [Azure 管理入口網站][]取得這些值：
+12. 在`Notifications()` 方法中，使用通知中樞的連接字串 (包含完整存取權) 和中樞名稱來取代下列程式碼行中的兩個預留位置。您可以從 [Azure 管理入口網站][Azure 管理入口網站]取得這些值：
 
         Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}", "{hub name}");
 
@@ -280,7 +280,7 @@
 
     ![][10]
 
-  []: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
+  [0]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
   [1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
   [2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
   [3]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push5.png

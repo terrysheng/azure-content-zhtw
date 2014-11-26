@@ -1,16 +1,16 @@
 <properties linkid="develop-php-tutorials-convert-wordpress-to-multisite" urlDisplayName="Convert a WordPress Site to a Multisite" pageTitle="Convert a WordPress Site to a Multisite" metaKeywords="WordPress, Multisite" description="Learn how to take an existing WordPress website created through the gallery in Azure and convert it to WordPress Multisite" metaCanonical="" services="web-sites" documentationCenter="PHP" title="Convert a WordPress Site to a Multisite" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # 將 WordPress 網站轉換成多網站
 
-*作者：[Ben Lobaugh][]，[Microsoft Open Technologies Inc.][]*
+*作者：[Ben Lobaugh][Ben Lobaugh]，[Microsoft Open Technologies Inc.][Microsoft Open Technologies Inc.]*
 
 本教學課程中，您將了解如何將透過 Azure 的組件庫所建立的現有 WordPress 網站，轉換成 WordPress 多網站安裝。此外，您也將了解如何將自訂網域指派給安裝內的每一個子網站。
 
-本文假設您目前已安裝 WordPress。如果沒有，請依照＜[從 Azure 中的組件庫建立 WordPress 網站][]＞所提供的指引進行。
+本文假設您目前已安裝 WordPress。如果沒有，請依照＜[從 Azure 中的組件庫建立 WordPress 網站][從 Azure 中的組件庫建立 WordPress 網站]＞所提供的指引進行。
 
-將現有的 WordPress 單一網站安裝轉換成多網站通常相當簡單，以下許多初始步驟都直接取材自 [WordPress Codex][] 的＜[建立網站][]＞頁面 (英文)。
+將現有的 WordPress 單一網站安裝轉換成多網站通常相當簡單，以下許多初始步驟都直接取材自 [WordPress Codex][WordPress Codex] 的＜[建立網站][建立網站]＞頁面 (英文)。
 
 讓我們開始吧！
 
@@ -18,9 +18,9 @@
 
 您需要先在 `wp-config.php` 檔案中使用 **WP\_ALLOW\_MULTISITE** 常數來啟用多網站。有兩種方法可編輯網站檔案：第一種是透過 FTP，第二種是透過 Git。如果不熟悉如何設定這些方法，請參閱下列教學課程：
 
--   [PHP 網站與 MySQL 和 FTP][]
+-   [PHP 網站與 MySQL 和 FTP][PHP 網站與 MySQL 和 FTP]
 
--   [PHP 網站與 MySQL 和 Git][]
+-   [PHP 網站與 MySQL 和 Git][PHP 網站與 MySQL 和 Git]
 
 使用您選擇的編輯器開啟 `wp-config.php` 檔案，然後在 `/* That's all, stop editing! Happy blogging. */` 那一行上方新增下列程式碼。
 
@@ -34,11 +34,11 @@
 
 登入網站的 *wp-admin* 區域，在 [Tools] 功能表下應該會出現名為 [Network Setup] 的新項目。按一下 [Network Setup]，填寫網路的詳細資料。
 
-![Network Setup Screen][]
+![Network Setup Screen][Network Setup Screen]
 
 本教學課程採用「子目錄」網站結構描述，因為這總是沒有問題，我們將於教學課程稍後設定每一個子網站的自訂網域。不過，只要透過入口網站來對應網域，並適當地設定萬用字元 DNS，就能夠設定子網域安裝。
 
-如需子網域和子目錄設定兩者的詳細資訊，請參閱 WordPress Codex 上的＜[多網站網路的類型][]＞文章 (英文)。
+如需子網域和子目錄設定兩者的詳細資訊，請參閱 WordPress Codex 上的＜[多網站網路的類型][多網站網路的類型]＞文章 (英文)。
 
 ## 啟用網路
 
@@ -52,7 +52,7 @@
 
 # 新增自訂網域
 
-[WordPress MU Domain Mapping][] 外掛程式可讓您輕鬆地將自訂網域加入至網路中的任何網站。為了讓外掛程式正常運作，您需要在入口網站上執行其他一些設定，也需要在網域註冊機構上這樣做。
+[WordPress MU Domain Mapping][WordPress MU Domain Mapping] 外掛程式可讓您輕鬆地將自訂網域加入至網路中的任何網站。為了讓外掛程式正常運作，您需要在入口網站上執行其他一些設定，也需要在網域註冊機構上這樣做。
 
 ## 允許將網域對應至網站
 
@@ -83,7 +83,7 @@ DNS 變更需要一些時間才會完全生效，如果無法立即執行下列�
 
 此時會出現 [管理自訂網域] 快顯對話方塊。請在這裡輸入想要指派給網站的所有網域。如果其中未列出某個網域，就表示不論網域 DNS 如何設定，都無法在 WordPress 內對應此網域。
 
-![Manage custom domains dialog][]
+![Manage custom domains dialog][Manage custom domains dialog]
 
 在文字方塊中輸入網域之後，Azure 會驗證您先前建立的 *awverify* CNAME 記錄。如果 DNS 未完整傳播，則會出現紅色指標。如果成功，則會出現綠色勾選記號。
 
@@ -99,7 +99,7 @@ DNS 變更需要一些時間才會完全生效，如果無法立即執行下列�
 
 ## 安裝和設定外掛程式
 
-WordPress 多網站目前沒有內建的方法可對應自訂網域。不過，有一個稱為 [WordPress MU Domain Mapping][] 的外掛程式可為您增加此功能。請登入網站的 [Network Admin] 部分，並安裝 **WordPress MU Domain Mapping** 外掛程式。
+WordPress 多網站目前沒有內建的方法可對應自訂網域。不過，有一個稱為 [WordPress MU Domain Mapping][WordPress MU Domain Mapping] 的外掛程式可為您增加此功能。請登入網站的 [Network Admin] 部分，並安裝 **WordPress MU Domain Mapping** 外掛程式。
 
 安裝並啟動此外掛程式之後，請移至 [Settings] \> [Domain Mapping] 來設定外掛程式。在第一個文字方塊 [Server IP Address] 中，輸入您用來設定網域 A 記錄的 IP 位址。設定您要的任何 [Domain Options] (預設值通常就很適合)，然後按一下 [Save]。
 

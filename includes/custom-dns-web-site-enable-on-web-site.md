@@ -4,11 +4,11 @@
 >
 > 您可以使用 <http://www.digwebinterface.com/> 之類的服務來驗證 CNAME 已生效。
 
-1.  在瀏覽器中開啟 [Azure 管理入口網站][]。
+1.  在瀏覽器中開啟 [Azure 管理入口網站][Azure 管理入口網站]。
 
 2.  在 [網站] 索引標籤中，按一下網站名稱，選取 [儀表板]，然後從頁面底部選取 [管理網域]。
 
-    ![][]
+    ![][0]
 
 3.  使用 [網域名稱] 文字方塊來輸入此網站所關聯的網域名稱。
 
@@ -21,5 +21,5 @@
 此時，您必須能在瀏覽器中輸入自訂網域名稱，並且能成功移至您的 Azure 網站。
 
   [Azure 管理入口網站]: https://manage.windowsazure.com
-  []: ./media/custom-dns-web-site/dncmntask-cname-6.png
+  [0]: ./media/custom-dns-web-site/dncmntask-cname-6.png
   [1]: ./media/custom-dns-web-site/dncmntask-cname-7.png

@@ -42,13 +42,13 @@ Hadoop .NET SDK 所提供的 .NET 用戶端程式庫，可讓您輕鬆地從 .NE
 教學課程前置工作
 ----------------
 
-您必須具備 [Azure 訂閱](http://www.windowsazure.com/zh-tw/pricing/free-trial/) 和 [Azure 儲存體帳戶](http://www.windowsazure.com/zh-tw/manage/services/storage/how-to-create-a-storage-account/)，才能開始執行。您也必須知道您的 Azure 儲存體帳戶名稱和帳戶金鑰。有關取得此資訊的指示，請參閱[如何管理儲存體帳戶](/en-us/manage/services/storage/how-to-manage-a-storage-account/)的*作法：檢視、複製及重新產生儲存體存取金鑰*一節。
+您必須具備 [Azure 訂閱](http://www.windowsazure.com/zh-tw/pricing/free-trial/) 和 [Azure 儲存體帳戶](http://www.windowsazure.com/zh-tw/manage/services/storage/how-to-create-a-storage-account/)，才能開始執行。您也必須知道您的 Azure 儲存體帳戶名稱和帳戶金鑰。有關取得此資訊的指示，請參閱[如何管理儲存體帳戶](/zh-tw/manage/services/storage/how-to-manage-a-storage-account/)的*作法：檢視、複製及重新產生儲存體存取金鑰*一節。
 
 您還必須下載此教學課程中使用的 Actors.txt 檔案。請執行下列步驟，將此檔案下載至您的開發環境：
 
 1.  在您的本機電腦上建立 C:\\Tutorials 資料夾。
 
-2.  下載 [Actors.txt](http://www.microsoft.com/en-us/download/details.aspx?id=37003)，並將檔案儲存至 C:\\Tutorials 資料夾。
+2.  下載 [Actors.txt](http://www.microsoft.com/zh-tw/download/details.aspx?id=37003)，並將檔案儲存至 C:\\Tutorials 資料夾。
 
 建立應用程式
 ------------
@@ -154,7 +154,7 @@ Hadoop .NET SDK 所提供的 .NET 用戶端程式庫，可讓您輕鬆地從 .NE
         Console.WriteLine("\nPress any key to continue.");
         Console.ReadKey();
 
-10. 更新應用程式中的限制。Azure HDInsight 服務會使用 Azure Blob 儲存體作為預設檔案系統。在 HDInsight 佈建程序中，會將 Blob 指定為預設檔案系統。您可以選擇使用預設的檔案系統容器，或是不同 Blob 儲存體中的容器。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](/en-us/manage/services/hdinsight/howto-blob-store/)。
+10. 更新應用程式中的限制。Azure HDInsight 服務會使用 Azure Blob 儲存體作為預設檔案系統。在 HDInsight 佈建程序中，會將 Blob 指定為預設檔案系統。您可以選擇使用預設的檔案系統容器，或是不同 Blob 儲存體中的容器。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](/zh-tw/manage/services/hdinsight/howto-blob-store/)。
 
     如果您選擇使用預設的檔案系統容器，您可以從遠端連接到叢集，在 *c:\\apps\\dist\\hadoop-1.1.0-SNAPSHOT\\conf\>core-site.xml* 組態檔中尋找儲存體帳戶名稱、儲存體金鑰和容器名稱。作為預設檔案系統的容器可藉由搜尋 *fs.default.name* 來尋找，儲存體帳戶名稱和帳戶金鑰則可藉由搜尋 *fs.azure.account.key* 來尋找。
 
@@ -180,8 +180,8 @@ LOAD DATA INPATH 作業是一項移動作業，可將 Actors.txt 資料移至 Hi
 
 現在，您已了解如何使用 Hadoop .NET SDK 建立 .NET 應用程式。若要深入了解，請參閱下列文章：
 
--   [開始使用 Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [搭配 HDInsight 使用 Pig](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [搭配 HDInsight 使用 MapReduce](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
--   [搭配 HDInsight 使用 Hive](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
+-   [開始使用 Azure HDInsight](/zh-tw/manage/services/hdinsight/get-started-hdinsight/)
+-   [搭配 HDInsight 使用 Pig](/zh-tw/manage/services/hdinsight/using-pig-with-hdinsight/)
+-   [搭配 HDInsight 使用 MapReduce](/zh-tw/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
+-   [搭配 HDInsight 使用 Hive](/zh-tw/manage/services/hdinsight/using-hive-with-hdinsight/)
 

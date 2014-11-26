@@ -169,7 +169,6 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 4.  在 **NotifyUserWindowsPhone** 應用程式 UI 中，按一下 **[Log in and register]**。然後按一下 [傳送推播]。
 
-  [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md
   [0]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
   [1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
   [2]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png

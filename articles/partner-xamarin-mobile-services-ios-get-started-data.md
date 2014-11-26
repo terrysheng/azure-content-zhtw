@@ -200,11 +200,10 @@
 -   [開始使用推送通知][開始使用推送通知]
     了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
+ 
+ 
 <!-- URLs. TODO:: update download link, github link, and completed example project with new Xamarin.iOs projects -->
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [下載 Xamarin.iOS 應用程式專案]: http://go.microsoft.com/fwlink/p/?LinkId=331302
   [建立行動服務]: #create-service
   [新增用於儲存的資料表]: #add-table
@@ -213,7 +212,6 @@
   [Azure 行動服務元件]: http://components.xamarin.com/view/azure-mobile-services/
   [XCode 5.0]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [0]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-dashboard-tab.png

@@ -28,9 +28,9 @@
 
     <div class="dev-callout"><strong>安全性注意事項</strong> <p>在匯入發佈設定之後，請考慮刪除下載的 .publishsettings 檔案，因為它包含了他人可用來存取您帳戶的資訊。如果您打算保留此檔案以供其他連線應用程式專案使用，請確保此檔案安全無虞。</p></div>
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [add connected service]: ./media/mobile-services-create-new-service-vs2013/mobile-add-connected-service.png
   [create a new mobile service from VS 2013]: ./media/mobile-services-create-new-service-vs2013/mobile-create-service-from-vs2013.png

@@ -1,6 +1,6 @@
 <properties title="Create a simple experiment in Azure Machine Learning Studio" pageTitle="Create a simple experiment in Machine Learning Studio | Azure" description="How to create an experiment to train and test a simple model in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
 # 在 Azure Machine Learning Studio 中建立簡易實驗
 
@@ -13,13 +13,13 @@
 遵循在 ML Studio 中建置實驗的五個基本步驟，可讓您建立、訓練模型，並為其評分：
 
 -   建立模型
-    -   [步驟 1：取得資料][]
-    -   [步驟 2：前置處理資料][]
-    -   [步驟 3：定義功能][]
+    -   [步驟 1：取得資料][步驟 1：取得資料]
+    -   [步驟 2：前置處理資料][步驟 2：前置處理資料]
+    -   [步驟 3：定義功能][步驟 3：定義功能]
 -   訓練模型
-    -   [步驟 4：選擇及套用學習演算法][]
+    -   [步驟 4：選擇及套用學習演算法][步驟 4：選擇及套用學習演算法]
 -   對模型評分和測試
-    -   [步驟 5：預測新資料][]
+    -   [步驟 5：預測新資料][步驟 5：預測新資料]
 
 在此範例中，我們將使用範例汽車資料逐步建立迴歸模型。其目的是要使用製造和技術規格等不同變數，預測汽車的價格。
 
@@ -31,15 +31,15 @@ ML Studio 包含多項範例資料集，而您可以從許多不同的來源匯�
 
 2.  實驗畫布左側是資料集和模組的調色盤。在此調色盤頂端的搜尋方塊中輸入「汽車」，可尋找標示為「汽車價格資料 (原始)」的資料集。
 
-    ![Palette search][]
+    ![Palette search][Palette search]
 
 3.  將資料集拖曳到實驗畫布。
 
-    ![Dataset][]
+    ![Dataset][Dataset]
 
 若想知道此資料的呈現情形，請按兩下汽車資料集底部的輸出連接埠，然後選取 [視覺化]。資料集中的變數會顯示為資料行，汽車的各個執行個體會顯示為資料列。最右邊的資料行「價格」(資料行 26) 是我們嘗試要預測的目標變數。
 
-![Dataset visualization][]
+![Dataset visualization][Dataset visualization]
 
 按一下右上角的 "**x**"，以關閉視覺化視窗。
 
@@ -59,23 +59,23 @@ ML Studio 包含多項範例資料集，而您可以從許多不同的來源匯�
     -   在下一個資料列中，選取 [排除] 和 [資料行名稱]，然後按一下文字方塊內部。此時會顯示資料行清單 - 選取「自負虧損」，此項目將會新增至文字方塊。
     -   按一下核取記號 [確定] 按鈕，以關閉資料行選取器。
 
-    ![Select columns][]
+    ![Select columns][Select columns]
 
     [Project Columns] 的屬性窗格指出它會通過資料集中的所有資料行，但「自負虧損」除外。
 
-    ![Project Columns properties][]
+    ![Project Columns properties][Project Columns properties]
 
     > **要訣** - 您可以按兩下模組並輸入文字，為模組新增註解。這有助於您快速檢視模組在您實驗中的執行情況。在此案例中，請按兩下 [Project Columns] 模組，然後輸入註解「排除自負虧損」。
 
 3.  將 [Missing Values Scrubber] 模組拖曳到實驗畫布，然後將其連接到 [Project Columns] 模組。在屬性窗格中的 [For missing values] 下，選取 [Remove entire row]，藉由移除含有遺漏值的資料列來清除資料。按兩下模組，並輸入註解「移除遺漏值資料列」。
 
-    ![Missing Values Scrubber properties][]
+    ![Missing Values Scrubber properties][Missing Values Scrubber properties]
 
 4.  按一下實驗畫布下方的 [執行]，以執行實驗。
 
 實驗完成時，所有模組都會呈現綠色核取標記，表示它們已順利完成。同時也請留意位於右上角的「執行完成」狀態。
 
-![First experiment run][]
+![First experiment run][First experiment run]
 
 至此，所有實驗皆已完成資料清除。若要檢視已清除的資料集，請按兩下 [Missing Values Scrubber] 模組的輸出連接埠，然後選取 [視覺化]。請注意，此時已不包含「自負虧損」資料行，而且也沒有遺漏值。
 
@@ -121,7 +121,7 @@ ML Studio 包含多項範例資料集，而您可以從許多不同的來源匯�
 
 4.  找出 [訓練模型] 模組，並將其拖曳到實驗。按一下 [Launch column selector]，然後選取*價格*資料行。這是我們的模型所將預測的值。
 
-    ![選取「價格」資料行][]
+    ![選取「價格」資料行][選取「價格」資料行]
 
 5.  將左側輸入連接埠連接到 [線性迴歸] 模組的輸出，並將右側輸入連接埠連接到 [分割] 模組的訓練資料輸出 (左側連接埠)。
 
@@ -129,7 +129,7 @@ ML Studio 包含多項範例資料集，而您可以從許多不同的來源匯�
 
 結果是經過訓練的迴歸模型，可用來為新範例評分以進行預測。
 
-![Applying the learning algorithm][]
+![Applying the learning algorithm][Applying the learning algorithm]
 
 ### 步驟 5：預測新資料
 
@@ -137,7 +137,7 @@ ML Studio 包含多項範例資料集，而您可以從許多不同的來源匯�
 
 1.  找出 [評分模型] 模組並拖曳到實驗畫布，然後將左側輸入連接埠連接到 [訓練模型] 模組的輸出，然後將右側輸入連接埠連接到 [分割] 模組的測試資料輸出 (右側連接埠)。
 
-    ![Score Model module][]
+    ![Score Model module][Score Model module]
 
 2.  執行實驗，並檢視 [評分模型] 模組的輸出 (按兩下輸出連接埠，然後選取 [視覺化])。輸出會顯示價格的預測值，以及來自測試資料的已知值。
 
@@ -153,11 +153,11 @@ ML Studio 包含多項範例資料集，而您可以從許多不同的來源匯�
 
     每一項誤差統計資料都是愈小愈好 - 值愈小，表示預測愈符合實際值。就 [決定係數] 而言，其值愈接近一 (1.0)，預測就愈精準。
 
-    ![Evaluation results][]
+    ![Evaluation results][Evaluation results]
 
 實驗最終應呈現如下：
 
-![Complete experiment][]
+![Complete experiment][Complete experiment]
 
 ### 後續步驟
 
@@ -167,7 +167,7 @@ ML Studio 包含多項範例資料集，而您可以從許多不同的來源匯�
 
 如果您對模型感到滿意，您可以將其發佈為 Web 服務，用以透過新資料預測汽車價格。如需詳細資訊，請參閱 ML Studio 說明主題 [發佈實驗]。
 
-對於預測模型的建立、訓練、評分和發佈如需更完整而詳細的逐步解說，請參閱[逐步介紹：使用 Azure Machine Learning 開發預測方案][] (英文)。
+對於預測模型的建立、訓練、評分和發佈如需更完整而詳細的逐步解說，請參閱[逐步介紹：使用 Azure Machine Learning 開發預測方案][逐步介紹：使用 Azure Machine Learning 開發預測方案] (英文)。
 
 <!-- Images -->
 

@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="應用程式模型" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="了解 Azure 裝載的服務應用程式模型。了解核心概念、設計考量、定義和設定應用程式，以及調整大小。" urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="應用程式模型" authors="robb" manager="johndaw" />
+<properties umbracoNaviHide="0" pageTitle="Application Model" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="Learn about the Azure hosted service application model. Understand core concepts, design considerations, defining and configuring your application, and scaling." linkid="dev-net-fundamentals-application-model" urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Application Model" authors="robb" manager="johndaw" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
 
@@ -67,7 +67,7 @@ Azure 虛擬機器可用於許多用途。Microsoft 著重的主要案例包括�
 -   **開發和測試的 VM。**開發群組一般需要有特定組態可建立應用程式的 VM。Azure 虛擬機器能夠以直接且經濟的方式建立和使用這些 VM，並且於不再需要時加以移除。
 -   **在雲端執行應用程式。**對於部分應用程式，在公用雲端執行具有經濟效益。以尖峰需求量相當大的應用程式為例。為資料中心購買足夠的機器來執行這個應用程式當然不成問題，但是大部分機器在大多數情況下很可能閒置不用。在 Azure 執行這個應用程式只會讓您在有必要的情況下付費使用額外的 VM，只要需求尖峰一過就可以關閉。另外，假設您立即需要隨選運算資源，但是不想受約束。同樣地，Azure 會是正確的選擇。
 -   **將您自己的資料中心擴展到公用雲端。**藉由 Azure 虛擬網路，貴公司可以建立虛擬網路 (VNET) 讓一組 Azure VM 成為您本身內部部署網路的一部分。這能夠在 Azure 上執行如 SharePoint 的應用程式和其他應用程式，因此比在資料中心部署和執行這些應用程式更簡單及/或更節省成本。
--   **災害復原。**IaaS 型災害復原可以讓您在確實需要運算資源時才付費使用，而不需要將成本持續浪費在不常使用的備份資料中心上。例如，如果主要資料中心故障，您可以建立在 Azure 上執行的 VM 來執行基本的應用程式，然後於不再需要時關閉這些應用程式。
+-   **災害復原。** IaaS 型災害復原可以讓您在確實需要運算資源時才付費使用，而不需要將成本持續浪費在不常使用的備份資料中心上。例如，如果主要資料中心故障，您可以建立在 Azure 上執行的 VM 來執行基本的應用程式，然後於不再需要時關閉這些應用程式。
 
 這些只是可能性，但是正好說明您可以如何使用 Azure 虛擬機器。
 
@@ -186,18 +186,11 @@ Azure 提供不同的執行模型，因為雲端平台需要支援許多不同�
   [雲端服務]: #CloudServices
   [我應該使用什麼？做決定]: #WhatShouldIUse
   [圖 1]: #Fig1
-  [01\_CreatingVMs]: ./media/fundamentals-application-models/ExecModels_01_CreatingVMs.png
   [VMDepot]: http://vmdepot.msopentech.com/
   [Azure 的虛擬機器和雲端服務大小]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn197896.aspx
   [圖 2]: #Fig2
-  [02\_CloudServices]: ./media/fundamentals-application-models/ExecModels_02_CloudServices.png
   [圖 3]: #Fig3
-  [03\_AppUsingSQLServer]: ./media/fundamentals-application-models/ExecModels_03_AppUsingSQLServer.png
   [圖 4]: #Fig4
-  [04\_SharePointFarm]: ./media/fundamentals-application-models/ExecModels_04_SharePointFarm.png
-  [05\_Websites]: ./media/fundamentals-application-models/ExecModels_05_Websites.png
   [圖 5]: #Fig5
   [圖 6]: #Fig6
-  [06\_CloudServices2]: ./media/fundamentals-application-models/ExecModels_06_CloudServices2.png
   [圖 7]: #Fig7
-  [07\_CombineTechnologies]: ./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png

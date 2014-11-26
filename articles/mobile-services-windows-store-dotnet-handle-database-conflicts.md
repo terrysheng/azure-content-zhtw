@@ -335,9 +335,9 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 -   [開始使用推送通知]
     <br/>了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [更新應用程式以允許更新]: #uiupdate
   [在應用程式中啟用衝突偵測]: #enableOC
@@ -352,7 +352,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
   [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-dotnet
   [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet
   [開始使用推送通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet
-<!-- Images. -->
+
 [0]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
 [1]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package2.png
 [2]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1.png 

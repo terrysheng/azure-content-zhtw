@@ -190,9 +190,9 @@
 
 如需詳細資訊，請參閱[使用伺服器指令碼][使用伺服器指令碼]和[行動服務 HTML/JavaScript 作法概念參考][行動服務 HTML/JavaScript 作法概念參考]
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [新增字串長度驗證]: #string-length-validation
   [更新用戶端以支援驗證]: #update-client-validation

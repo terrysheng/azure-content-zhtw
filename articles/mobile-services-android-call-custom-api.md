@@ -36,16 +36,14 @@
 -   [在來源控制中儲存伺服器指令碼][在來源控制中儲存伺服器指令碼]
     了解如何使用來源控制功能，來更輕鬆及安全地開發並發佈自訂 API 指令碼。
 
-<!-- Anchors. --> 
+ 
 
-<!-- URLs. -->
+
 
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-android-get-started/
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-android-get-started-data/
   [定義自訂 API]: #define-custom-api
   [更新應用程式以呼叫自訂 API]: #update-app
   [測試應用程式]: #test-app
-  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
-  [mobile-services-android-call-custom-api]: ../includes/mobile-services-android-call-custom-api.md
   [行動服務伺服器指令碼參照]: http://go.microsoft.com/fwlink/?LinkId=262293
   [在來源控制中儲存伺服器指令碼]: /zh-tw/documentation/articles/mobile-services-store-scripts-source-control

@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-nokia-x" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="kirillg" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-nokia-x" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="piyushjo"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-nokia-x" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="piyushjo" />
 
 # 開始使用通知中心
 
@@ -31,7 +31,7 @@
 
 2.  移至 [建立服務] 索引標籤，並透過提供 [寄件者識別碼] 和 [服務描述] 建立新的服務
 
-    ![][]
+    ![][0]
 
 3.  成功建立服務後，請記下 [寄件者識別碼] 和 [授權金鑰]。
 
@@ -343,31 +343,23 @@
 
 4.  若要使用 .Net 主控台應用程式傳送測試通知，您只需在 Visual Studio 中按 F5 鍵以執行應用程式，它便會傳送即將顯示在裝置或模擬器上方通知區域的通知。
 
-<!-- URLs. -->
-  [Windows Universal]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /zh-tw/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /zh-tw/documentation/articles/notification-hubs-ios-get-started/ "iOS"
+
   [Android]: /zh-tw/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /zh-tw/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Nokia X]: /zh-tw/documentation/articles/notification-hubs-nokia-x-get-started/ "Nokia X"
-  [Xamarin.iOS]: /zh-tw/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /zh-tw/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [設定 Nokia 通知服務]: #register
   [設定您的通知中心]: #configure-hub
   [將您的應用程式連接到通知中心]: #connect-hub
   [如何傳送通知至應用程式]: #send
   [測試應用程式]: #test-app
-  [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [此處]: http://developer.nokia.com/resources/library/nokia-x/getting-started/environment-setup.html
   [1]: http://developer.nokia.com/resources/library/nokia-x/getting-started/device-setup.html
   [2]: http://go.microsoft.com/fwlink/?linkid=389797&clcid=0x409
   [3]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
   [Nokia 通知 API 開發人員主控台]: https://console.push.nokia.com/ncm/Web/index.jsp
-  []: ./media/notification-hubs-nokia-x-get-started/NokiaConsole.png
+  [0]: ./media/notification-hubs-nokia-x-get-started/NokiaConsole.png
   [4]: ./media/notification-hubs-nokia-x-get-started/NokiaConsoleService.png
   [連結]: http://developer.nokia.com/resources/library/nokia-x/nokia-notifications/nokia-notifications-developer-guide.html
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-<!-- Images. --> 
+ 
   [5]: ./media/notification-hubs-nokia-x-get-started/AzureManagementPortal.png
   [6]: ./media/notification-hubs-nokia-x-get-started/AzureManagementCreateNH.png
   [7]: ./media/notification-hubs-nokia-x-get-started/NHConfigureTopItem.png

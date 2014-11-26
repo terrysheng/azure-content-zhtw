@@ -1,4 +1,4 @@
-<properties urlDisplayName="TSP on Virtual Machine" pageTitle="在 VM 上大量運算 Java 應用程式 - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="了解如何建立可執行大量運算 Java 應用程式 (此應用程式又可由另一個 Java 應用程式監控) 的 Azure 虛擬機器。" metaCanonical="" services="virtual-machines" documentationCenter="Java" title="如何在虛擬機器上以 Java 執行大量運算工作" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+<properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -36,24 +36,19 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
     請注意，唯有當您擁有尚未做好在 JDK 7 中運作之準備的舊版應用程式時，才能選取 [JDK 6 Windows Server 2012]。
 4.  按 [下一步]。
 5.  在 [虛擬機器組態] 對話方塊中：
-
     1.  指定虛擬機器的名稱。
     2.  指定要用於虛擬機器的大小。
     3.  在 [使用者名稱] 欄位中輸入系統管理員的名稱。請記住即將輸入的名稱和密碼，因為當您從遠端登入此虛擬機器時將需要用到它們。
     4.  在 [新增密碼] 欄位中輸入密碼，然後在 [確認] 欄位中再輸入一次。此為系統管理員帳戶的密碼。
     5.  按 [下一步]。
-
 6.  在下一個 [虛擬機器組態] 對話方塊中：
-
     1.  對於 [雲端服務]，請使用預設值 [Create a new cloud service]
     2.  [Cloud service DNS name] 的值在整個 cloudapp.net 中必須是唯一的。如有需要，請修改此值，讓 Azure 指出此值是唯一的。
     3.  指定區域、同質群組或虛擬網路。為因應本教學課程的目的，請指定如 [美國西部] 的區域。
     4.  對於 [儲存體帳戶]，請選取 [Use an automatically generated storage account]。
     5.  對於 [可用性設定組]，請選取 [(無)]。
     6.  按 [下一步]。
-
 7.  在最終的 [虛擬機器組態] 對話方塊中：
-
     1.  接受預設的端點項目。
     2.  按一下 [完成]。
 
@@ -77,36 +72,26 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  在管理入口網站左下方的瀏覽窗格中，按一下 [服務匯流排、存取控制和快取]。
-3.  在管理入口網站左上方的瀏覽窗格中，按一下 [服務匯流排]
-     節點，然後按一下 [新增] 按鈕。
-    ![[服務匯流排] 節點螢幕擷取畫面][]
-4.  在 [建立新服務命名空間] 對話方塊中輸入一個「命名空間」
-    ，然後確認它是唯一的，按一下 [檢查可用性]
-     按鈕。
-    ![[建立新服務命名空間] 螢幕擷取畫面][]
-5.  確定命名空間名稱可用之後，選擇要裝載命名空間的國家或地區，
-    然後按一下 [建立命名空間] 按鈕。
+3.  在管理入口網站左上方的瀏覽窗格中，按一下 [服務匯流排] 節點，然後按一下 [新增] 按鈕。<br />
+    ![服務匯流排 節點螢幕擷取畫面][服務匯流排 節點螢幕擷取畫面]
+4.  在 [建立新服務命名空間] 對話方塊中輸入一個「命名空間」，然後確認它是唯一的，按一下 [檢查可用性]按鈕。
+    ![建立新服務命名空間 螢幕擷取畫面][建立新服務命名空間 螢幕擷取畫面]
+5.  確定命名空間名稱可用之後，選擇要裝載命名空間的國家或地區，然後按一下 [建立命名空間] 按鈕。
 
-    然後，您建立的命名空間就會出現在管理入口網站中，
-    稍待片刻就會生效。等到狀態變成 [作用中] 之後，再繼續進行下一步。
+    然後，您建立的命名空間就會出現在管理入口網站中，稍待片刻就會生效。等到狀態變成 [作用中] 之後，再繼續進行下一步。
 
 ## 取得命名空間的預設管理認證
 
-若要在新的命名空間上執行管理作業 (例如建立佇列)，
-您必須取得命名空間的
-管理認證。
+若要在新的命名空間上執行管理作業 (例如建立佇列)，您必須取得命名空間的管理認證。
 
-1.  在左側瀏覽窗格中，按一下 [服務匯流排] 節點，以
-    顯示可用的命名空間清單：
-    ![[可用的命名空間] 螢幕擷取畫面][]
-2.  從顯示的清單中，選取您剛建立的命名空間：
-    ![[命名空間清單] 螢幕擷取畫面][]
-3.  右邊的 [屬性] 窗格將會列出
-    新命名空間的屬性：
-    ![[屬性] 窗格螢幕擷取畫面][]
-4.  [預設金鑰] 是隱藏的。請按一下 [檢視] 按鈕以顯示
-    安全性認證：
-    ![[預設金鑰] 螢幕擷取畫面][]
+1.  在左側瀏覽窗格中，按一下 [服務匯流排] 節點，以顯示可用的命名空間清單：<br />
+    ![可用的命名空間 螢幕擷取畫面][可用的命名空間 螢幕擷取畫面]
+2.  從顯示的清單中，選取您剛建立的命名空間：<br />
+    ![命名空間清單 螢幕擷取畫面][命名空間清單 螢幕擷取畫面]
+3.  右邊的 [屬性] 窗格將會列出新命名空間的屬性：<br />
+    ![屬性 窗格螢幕擷取畫面][屬性 窗格螢幕擷取畫面]
+4.  [預設金鑰] 是隱藏的。請按一下 [檢視] 按鈕以顯示安全性認證：<br />
+    ![預設金鑰 螢幕擷取畫面][預設金鑰 螢幕擷取畫面]
 5.  記下 [預設核發者] 和 [預設金鑰]，
     因為您將在下面使用這項資訊來執行
     命名空間作業。
@@ -117,20 +102,20 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 2.  使用本節結尾的範例程式碼建立一個 Java 主控台應用程式。為因應本教學課程的目的，我們將使用 **TSPSolver.java** 做為 Java 檔案名稱。請將 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 及 **your\_service\_bus\_key** 預留位置，分別修改成使用您服務匯流排 [命名空間]、[Default Issuer] 及 [預設金鑰] 的值。
 3.  編碼完成之後，將應用程式匯出至可執行的 Java 存檔 (JAR)，並將所需的程式庫封裝至產生的 JAR 中。為因應本教學課程的目的，我們將使用 **TSPSolver.jar** 做為產生的 JAR 名稱。
 
-    // TSPSolver.java
+        // TSPSolver.java
 
-    import com.microsoft.windowsazure.services.core.Configuration;
-    import com.microsoft.windowsazure.services.core.ServiceException;
-    import com.microsoft.windowsazure.services.serviceBus.*;
-    import com.microsoft.windowsazure.services.serviceBus.models.*;
-    import java.io.*;
-    import java.text.DateFormat;
-    import java.text.SimpleDateFormat;
-    import java.util.ArrayList;
-    import java.util.Date;
-    import java.util.List;
+        import com.microsoft.windowsazure.services.core.Configuration;
+        import com.microsoft.windowsazure.services.core.ServiceException;
+        import com.microsoft.windowsazure.services.serviceBus.*;
+        import com.microsoft.windowsazure.services.serviceBus.models.*;
+        import java.io.*;
+        import java.text.DateFormat;
+        import java.text.SimpleDateFormat;
+        import java.util.ArrayList;
+        import java.util.Date;
+        import java.util.List;
 
-    public class TSPSolver {
+        public class TSPSolver {
 
         //  Value specifying how often to provide an update to the console.
         private static long loopCheck = 100000000;  
@@ -293,27 +278,27 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
                 System.out.println(e.getMessage());
                 e.printStackTrace();
                 System.exit(-1);
-            }
-        }
+             }
+          }
 
-    }
+        }
 
 ## 如何建立監視大量運算工作進度的 Java 應用程式
 
 1.  在您的開發電腦上，使用本節結尾的範例程式碼建立一個 Java 主控台應用程式。為因應本教學課程的目的，我們將使用 **TSPClient.java** 做為 Java 檔案名稱。如上述，請將 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 及 **your\_service\_bus\_key** 預留位置，分別修改成使用您服務匯流排 [命名空間]、[Default Issuer] 及 [預設金鑰] 的值。
 2.  將應用程式匯出至可執行的 JAR，並將所需的程式庫封裝至產生的 JAR 中。為因應本教學課程的目的，我們將使用 **TSPClient.jar** 做為產生的 JAR 名稱。
 
-    // TSPClient.java
+        // TSPClient.java
 
-    import java.util.Date;
-    import java.text.DateFormat;
-    import java.text.SimpleDateFormat;
-    import com.microsoft.windowsazure.services.serviceBus.*;
-    import com.microsoft.windowsazure.services.serviceBus.models.*;
-    import com.microsoft.windowsazure.services.core.*;
+    	import java.util.Date;
+    	import java.text.DateFormat;
+    	import java.text.SimpleDateFormat;
+    	import com.microsoft.windowsazure.services.serviceBus.*;
+    	import com.microsoft.windowsazure.services.serviceBus.models.*;
+    	import com.microsoft.windowsazure.services.core.*;
 
-    public class TSPClient 
-    {
+    	public class TSPClient 
+    	{
 
         public static void main(String[] args) 
         {
@@ -407,11 +392,11 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
                 System.out.println(e.getMessage());
                 e.printStackTrace();
                 System.exit(-1);
-            }
+             }
 
-        }
+          }
         
-    }
+        }
 
 ## 如何執行 Java 應用程式
 
@@ -485,7 +470,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
         java -jar TSPSolver.jar 8
 
-如果您沒有指定數目，它將會針對 10 個城市執行。當求解器找到目前最短的路徑時，將會把這些路徑加入佇列中。
+    如果您沒有指定數目，它將會針對 10 個城市執行。當求解器找到目前最短的路徑時，將會把這些路徑加入佇列中。
 
 > [WACOM.NOTE]
 > 您指定的數目越大，求解器就會花越長的時間執行。例如，針對 14 個城市執行可能需花數分鐘，而針對 15 個城市執行可能需花數小時。增加至 16 個或更多城市可能需花數天執行 (最終可能達數周、數月及數年)。這是因為隨著城市數目增加，求解器所評估的排列數目也隨之激增的緣故。
@@ -519,10 +504,10 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
   [Traveling Salesman Problem client]: ./media/virtual-machines-java-run-compute-intensive-task/WA_JavaTSPClient.png
   [Azure 管理入口網站]: https://manage.windowsazure.com
   [將憑證加入 Java CA 憑證存放區]: ../java-add-certificate-ca-store
-  [[服務匯流排] 節點螢幕擷取畫面]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_02_SvcBusNode.jpg
-  [[建立新服務命名空間] 螢幕擷取畫面]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_03_CreateNewSvcNamespace.jpg
-  [[可用的命名空間] 螢幕擷取畫面]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
-  [[命名空間清單] 螢幕擷取畫面]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
-  [[屬性] 窗格螢幕擷取畫面]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
-  [[預設金鑰] 螢幕擷取畫面]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
+  [服務匯流排 節點螢幕擷取畫面]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_02_SvcBusNode.jpg
+  [建立新服務命名空間 螢幕擷取畫面]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_03_CreateNewSvcNamespace.jpg
+  [可用的命名空間 螢幕擷取畫面]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
+  [命名空間清單 螢幕擷取畫面]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
+  [屬性 窗格螢幕擷取畫面]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
+  [預設金鑰 螢幕擷取畫面]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
   [Azure SDK for Java]: http://www.windowsazure.com/zh-tw/develop/java/

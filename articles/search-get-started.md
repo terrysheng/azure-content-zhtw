@@ -367,7 +367,7 @@ Microsoft Azure Search (公用預覽) 是一項可讓您將搜尋功能內嵌到
 
 -   [雲端報導第 152 集：在 Azure Search 中產生索引][雲端報導第 152 集：在 Azure Search 中產生索引]
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->\r\n<!--Image references-->\r\n<!--Link references-->
 
   [Azure Search 案例和功能]: http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/
   [開始使用免費服務]: #sub-1

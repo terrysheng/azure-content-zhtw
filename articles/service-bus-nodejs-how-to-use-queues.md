@@ -178,7 +178,6 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
   [作法：傳送訊息至佇列]: #send-messages
   [作法：從佇列接收訊息]: #receive-messages
   [作法：處理應用程式當機與無法讀取的訊息]: #handle-crashes
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [建立 Node.js 應用程式並將其部署到 Azure 網站]: /zh-TW/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js 雲端服務]: /zh-TW/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [使用 WebMatrix 的網站]: /zh-TW/develop/nodejs/tutorials/web-site-with-webmatrix/

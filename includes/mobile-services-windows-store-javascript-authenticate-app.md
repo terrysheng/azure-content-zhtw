@@ -34,7 +34,7 @@
 
     如此會建立一個成員變數來存放目前使用者，並建立一個方法來處理驗證程序。使用者透過 Facebook 登入來驗證。如果您使用的身分識別提供者不是 Facebook，請將傳給上述 **login** 方法的值變更為下列其中一個：*microsoftaccount*、*twitter*、*google* 或 *windowsazureactivedirectory*。
 
-    > [WACOM.NOTE]如果您已向行動服務註冊您的 Windows 市集應用程式封裝資訊，則應該為 *useSingleSignOn* 參數提供 **true** 值以呼叫 [login][] 方法。若您沒有這麼做，您的使用者將在每次呼叫登入方法時都看到登入提示。
+    > [WACOM.NOTE]如果您已向行動服務註冊您的 Windows 市集應用程式封裝資訊，則應該為 *useSingleSignOn* 參數提供 **true** 值以呼叫 [login][login] 方法。若您沒有這麼做，您的使用者將在每次呼叫登入方法時都看到登入提示。
 
 2.  按 F5 鍵執行應用程式，並以您選擇的身分識別提供者登入應用程式。
 

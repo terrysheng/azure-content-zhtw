@@ -14,19 +14,19 @@
 
 3.  按一下 [應用程式名稱] 清單中的新註冊，然後按 [下一步]。
 
-    ![mobile-add-push-notifications-vs2013-3][]
+    ![mobile-add-push-notifications-vs2013-3][mobile-add-push-notifications-vs2013-3]
 
 4.  在 [選取服務] 頁面中按一下您行動服務的名稱，然後按一下 [下一步] 與 [完成]。
 
     您的行動服務所使用的通知中心已透過 Windows 通知服務 (WNS) 註冊更新。您現在可以使用 Azure 通知中心，透過 WNS 從行動服務傳送通知至您的應用程式。
 
-    > [WACOM.NOTE]本教學課程示範由行動服務後端傳送通知。您可以使用相同的通知中心註冊，來從任何後端服務傳送通知。如需詳細資訊，請參閱[通知中心概觀][]。
+    > [WACOM.NOTE]本教學課程示範由行動服務後端傳送通知。您可以使用相同的通知中心註冊，來從任何後端服務傳送通知。如需詳細資訊，請參閱[通知中心概觀][通知中心概觀]。
 
 5.  當您完成精靈時，Visual Studio 會開啟新的 [推播設定即將完成] 頁面。此頁面提供與本教學課程相異的設定行動服務專案傳送通知之替代方法的詳細資料。
 
     > [WACOM.NOTE][加入推播通知精靈] 加入至您的通用 Windows 應用程式解決方案之程式碼為平台特定。在本節中，您將會透過分享行動服務用戶端程式碼移除此備援，如此能使通用應用程式更容易維護。
 
-<!-- URLs. -->
+
 
   [mobile-add-push-notifications-vs2013-3]: ../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-3.png
   [通知中心概觀]: http://msdn.microsoft.com/zh-tw/library/azure/jj927170.aspx

@@ -236,11 +236,11 @@
 -   [如何使用適用於行動服務的 Android 用戶端程式庫][如何使用適用於行動服務的 Android 用戶端程式庫]
     深入了解如何將 .NET 搭配行動服務使用。
 
-<!-- Anchors. --> 
+ 
 
-<!-- Images. --> 
+ 
 
-<!-- URLs. -->
+
 
   [上一個推播通知教學課程]: /zh-tw/develop/mobile/tutorials/get-started-with-push-android
   [建立 Registration 資料表]: #create-table

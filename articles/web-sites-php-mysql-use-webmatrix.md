@@ -179,7 +179,6 @@
 
   [MySQL]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
   [Azure PHP Web Site]: ./media/web-sites-php-mysql-use-webmatrix/tasklist_app_windows.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [下載]: http://go.microsoft.com/fwlink/?LinkId=252506
   [管理入口網站]: https://manage.windowsazure.com
   [Create New Azure Web Site]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite1.jpg

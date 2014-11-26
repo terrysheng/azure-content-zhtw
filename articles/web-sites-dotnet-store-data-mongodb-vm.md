@@ -486,7 +486,6 @@ MongoDB C# 驅動程式現已安裝。**MongoDB.Driver.dll** 和 **MongoDB.Bson.
 <!-- TOC BOOKMARKS -->
 
   [MongoDB]: http://www.mongodb.org
-  [create-account-and-websites-and-vms-note]: ../includes/create-account-and-websites-and-vms-note.md
   [建立虛擬機器和安裝 MongoDB]: #virtualmachine
   [在部署電腦上建立和執行 My Task List ASP.NET 應用程式]: #createapp
   [建立 Azure 網站]: #createwebsite

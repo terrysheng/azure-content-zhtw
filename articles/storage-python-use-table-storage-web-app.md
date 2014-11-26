@@ -1,4 +1,4 @@
-<properties urlDisplayName="Web App with Blob Storage" pageTitle="使用資料表儲存體的 Python Web 應用程式 | Microsoft Azure" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="本教學課程會說明如何使用 Azure 用戶端程式庫建立 Python Web 應用程式。Django 會作為 Web 架構。" metaCanonical="" services="storage" documentationCenter="Python" title="使用資料表儲存體的 Python Web 應用程式" authors="huvalo" solutions="" videoId="" scriptId="" manager="wpickett" editor="mollybos" />
+<properties linkid="develop-python-web-app-with-blob-storage" urlDisplayName="Web App with Blob Storage" pageTitle="Python web app with table storage | Microsoft Azure" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="A tutorial that teaches you how to create a Python web application using the Azure Client Libraries. Django is used as the web framework." metaCanonical="" services="storage" documentationCenter="Python" title="Python Web Application using Table Storage" authors="huvalo" solutions="" videoId="" scriptId="" manager="" editor="mollybos" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
@@ -8,8 +8,7 @@
 
 在此指南中，您將建立一個可部署到 Azure 的 Web 架構工作清單應用程式。使用者可透過工作清單來擷取工作、新增工作及將工作標示為已完成。我們將使用 Django 作為 Web 架構。
 
-工作項目會儲存於 Azure 儲存體中。Azure 儲存體提供可容錯且高度可用的非結構化資料儲存體。Azure 儲存體包括數種可儲存和存取資料的資料結構，並且您可以從 Azure SDK for Python 中所隨附的 API 或透過 REST API 來運用儲存體服務。
-如需詳細資訊，請參閱[在 Azure 中儲存和存取資料][在 Azure 中儲存和存取資料] (英文)。
+工作項目會儲存於 Azure 儲存體中。Azure 儲存體提供可容錯且高度可用的非結構化資料儲存體。Azure 儲存體包括數種可儲存和存取資料的資料結構，並且您可以從 Azure SDK for Python 中所隨附的 API 或透過 REST API 來運用儲存體服務。如需詳細資訊，請參閱[在 Azure 中儲存和存取資料][在 Azure 中儲存和存取資料] (英文)。
 
 您將了解：
 

@@ -1,6 +1,6 @@
 <properties linkid="develop-nodejs-common-tasks-working-with-node-modules" urlDisplayName="Working with Node.js Modules" pageTitle="Working with Node.js Modules" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Using Node.js Modules with Azure applications" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # 使用 Node.js 模組與 Azure 應用程式搭配
 
@@ -41,7 +41,7 @@ Azure 網站不支援原生模組。某些模組 (例如 JSDOM 和 MongoDB) 擁�
 
 **package.json** 檔案是一種方法，可用來指定應用程式要求的最上層相依性，以便主控平台可安裝相依性，而不是要求您包含 **node\_packages** 資料夾作為部署的一部分。在部署應用程式之後，您可使用 **npm install** 命令，來剖析 **package.json** 檔案並安裝所有列出的相依性。
 
-開發期間，當安裝模組將模組項目自動新增至 **package.json** 檔案時，您可以使用 **--save**、**--save-dev** 或 **--save-optional** 參數。如需詳細資訊，請參閱 [npm-install][] (英文)。
+開發期間，當安裝模組將模組項目自動新增至 **package.json** 檔案時，您可以使用 **--save**、**--save-dev** 或 **--save-optional** 參數。如需詳細資訊，請參閱 [npm-install][npm-install] (英文)。
 
 有關 **package.json** 檔案的一個潛在問題是它只指定最上層相依性的版本。每個已安裝模組不一定會指定它所相依的模組版本，而且您最終得到的相依性鏈結可能與在開發中所用的不同。
 
@@ -56,7 +56,7 @@ Azure 網站不支援原生模組。某些模組 (例如 JSDOM 和 MongoDB) 擁�
 
 **npm-shrinkwrap.json** 檔案嘗試解決 **package.json** 檔案的模組版本設定限制。**package.json** 檔案只包含最上層模組的版本，而 **npm-shrinkwrap.json** 檔案包含完整模組相依性鏈結的版本需求。
 
-當您的應用程式準備好開始生產時，您可以鎖定版本需求，並使用 **npm shrinkwrap** 命令建立 **npm-shrinkwrap.json** 檔案。這會使用目前安裝在 **node\_modules** 資料夾中的版本，並將他們記錄到 **npm-shrinkwrap.json** 檔案。在部署應用程式到主控環境之後，使用 **npm install** 命令來剖析 **npm-shrinkwrap.json** 檔案，並安裝所有列出的相依性。如需詳細資訊，請參閱 [npm-install][] (英文)。
+當您的應用程式準備好開始生產時，您可以鎖定版本需求，並使用 **npm shrinkwrap** 命令建立 **npm-shrinkwrap.json** 檔案。這會使用目前安裝在 **node\_modules** 資料夾中的版本，並將他們記錄到 **npm-shrinkwrap.json** 檔案。在部署應用程式到主控環境之後，使用 **npm install** 命令來剖析 **npm-shrinkwrap.json** 檔案，並安裝所有列出的相依性。如需詳細資訊，請參閱 [npm-install][npm-install] (英文)。
 
 > [WACOM.NOTE]
 > 部署到 Azure 網站時，如果您的 **npm-shrinkwrap.json** 檔案參考原生模組，當使用 Git 發行應用程式時，您將會看到一則如下所示的錯誤訊息：
@@ -67,9 +67,8 @@ Azure 網站不支援原生模組。某些模組 (例如 JSDOM 和 MongoDB) 擁�
 
 ## 後續步驟
 
-現在，您了解如何搭配 Node.js 模組與 Azure 使用，接著了解如何[指定 Node.js 版本][]、[建立與部署 Node.js 網站][]，和[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具][]。
+現在，您了解如何搭配 Node.js 模組與 Azure 使用，接著了解如何[指定 Node.js 版本][指定 Node.js 版本]、[建立與部署 Node.js 網站][建立與部署 Node.js 網站]，和[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具][如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]。
 
-  [執行 npm 安裝以避免部署節點模組的 Azure 啟動工作]: http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure
   [npm-install]: https://npmjs.org/doc/install.html
   [指定 Node.js 版本]: /zh-TW/documentation/articles/nodejs-specify-node-version-azure-apps/
   [建立與部署 Node.js 網站]: /zh-TW/documentation/articles/web-sites-nodejs-develop-deploy-mac/

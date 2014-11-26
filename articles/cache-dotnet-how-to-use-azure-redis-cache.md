@@ -1,6 +1,6 @@
 <properties pageTitle="How to Use Azure Redis Cache" metaKeywords="" description="Learn how to create a use a cache in Azure Redis Cache" metaCanonical="" services="" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # 如何使用 Azure Redis 快取
 
@@ -295,7 +295,7 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
   [從快取加入和擷取物件]: #add-object
   [指定快取中物件的到期時間]: #specify-expiration
   [將 ASP.NET 工作階段狀態儲存在快取中]: #store-session
-  [快取定價詳細資料]: http://www.windowsazure.com/en-us/pricing/details/cache/
+  [快取定價詳細資料]: http://www.windowsazure.com/zh-tw/pricing/details/cache/
   [Azure Redis 快取概觀]: http://go.microsoft.com/fwlink/?LinkId=320830
   [設定快取]: #enable-caching
   [New cache]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-new-cache-menu.png
@@ -312,7 +312,7 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
   [StackExchange.Redis 組態模型]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
   [Cache properties]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-properties.png
   [Manage keys]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-keys.png
-  [在快取中使用 .NET 物件]: http://msdn.microsoft.com/en-us/library/dn690521.aspx#Objects
+  [在快取中使用 .NET 物件]: http://msdn.microsoft.com/zh-tw/library/dn690521.aspx#Objects
   [Redis Cache Session State NuGet Package]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-session-state-provider.png
   [Azure Redis 工作階段狀態提供者]: http://go.microsoft.com/fwlink/?LinkId=398249
   [Redis]: http://redis.io/documentation

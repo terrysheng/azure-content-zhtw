@@ -1,6 +1,6 @@
 <properties title="Create an Umbraco website from the gallery in Microsoft Azure" pageTitle="Create an Umbraco website from the gallery in Microsoft Azure" description="required" metaKeywords="Azure, gallery, Umbraco, web site, website" services="web-sites" solutions="web" documentationCenter="" authors="timamm" manager="paulettm" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
 
 # 在 Microsoft Azure 中從映像庫建立 Umbraco 網站
 
@@ -43,7 +43,7 @@ Umbraco CMS 是個功能齊全的開放原始碼內容管理系統，可用來�
 
 完成部署後，入口網站中的開始面板會顯示已建立 Umbraco CMS 的資源群組，在此案例中是 **UmbracoCMSgroup**。在 [摘要] 區段中，按一下網站名稱 (在此案例中是 **umbracocmsgroup**) 以查看網站的屬性。另外，在 [摘要] 區段中，您還可以選取資料庫資源，以查看相關資料庫的屬性。
 
-![][]
+![][0]
 
 ## 啟動和設定 Umbraco CMS 網站
 
@@ -104,7 +104,7 @@ Umbraco CMS 是個功能齊全的開放原始碼內容管理系統，可用來�
   [Configure resources]: ./media/web-sites-gallery-umbraco/04AppSettings.PNG
   [Create a SQL Server on Azure]: ./media/web-sites-gallery-umbraco/05NewServer.PNG
   [1]: ./media/web-sites-gallery-umbraco/06UmbracoCMSGroup.PNG
-  []: ./media/web-sites-gallery-umbraco/07UmbracoCMSGroupBlade.PNG
+  [0]: ./media/web-sites-gallery-umbraco/07UmbracoCMSGroupBlade.PNG
   [Browse to your site]: ./media/web-sites-gallery-umbraco/08UmbracoCMSGroupRunning.PNG
   [Install Umbraco wizard]: ./media/web-sites-gallery-umbraco/09InstallUmbraco7.png
   [Configure your database]: ./media/web-sites-gallery-umbraco/10ConfigureYourDatabase.png

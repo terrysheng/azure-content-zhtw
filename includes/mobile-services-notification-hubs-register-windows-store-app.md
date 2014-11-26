@@ -1,6 +1,6 @@
-1.  如果您尚未註冊您的應用程式，請瀏覽至 Windows 市集應用程式之開發人員中心的[提交應用程式頁面][]，使用您的 Microsoft 帳戶登入，然後按一下 [應用程式名稱]。
+1.  如果您尚未註冊您的應用程式，請瀏覽至 Windows 市集應用程式之開發人員中心的[提交應用程式頁面][提交應用程式頁面]，使用您的 Microsoft 帳戶登入，然後按一下 [應用程式名稱]。
 
-    ![][]
+    ![][0]
 
 2.  在 [應用程式名稱] 中為您的應用程式輸入名稱，然後依序按一下 [保留應用程式名稱] 和 [儲存]。
 
@@ -42,22 +42,22 @@
 <p>用戶端密碼和封裝 SID 是重要的安全性認證。請勿與任何人共用這些密碼，或與您的應用程式一起散發密碼。</p>
 </div>
 
-11. 登入 [Azure 管理入口網站][]，按一下 [行動服務]，然後按一下您的應用程式。
+11. 登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
     ![][7]
 
 12. 按一下 [推播] 索引標籤，輸入您從 WNS 取得的 [用戶端密碼] 和 [封裝 SID] 值，然後按一下 [儲存]。
 
-    > [WACOM.NOTE]當您使用舊版行動服務完成這個教學課程時，可能會在 [推播] 索引標籤底部看見名為 [啟用進階推送] 的連結。立即按一下這個連結，即可升級您的行動服務來與通知中樞整合。這個變更無法回復。如需如何在生產行動服務中啟用進階推播通知的詳細資料，請參閱[此指引][]。
+    > [WACOM.NOTE]當您使用舊版行動服務完成這個教學課程時，可能會在 [推播] 索引標籤底部看見名為 [啟用進階推送] 的連結。立即按一下這個連結，即可升級您的行動服務來與通知中樞整合。這個變更無法回復。如需如何在生產行動服務中啟用進階推播通知的詳細資料，請參閱[此指引][此指引]。
 
     ![][8]
 
     > [WACOM.NOTE]當您在入口網站的 [推播] 索引標籤中設定進階推播通知的 WNS 認證時，這些認證將會與通知中樞共用，以設定您應用程式適用的通知中樞。
 
-<!-- URLs. -->
+
 
   [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-  []: ./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png
+  [0]: ./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png
   [1]: ./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-win8-app-name.png
   [2]: ./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-store-association.png
   [3]: ./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png

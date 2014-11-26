@@ -70,9 +70,9 @@
 
   深入了解如何搭配使用行動服務與 .NET
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [安裝儲存體用戶端程式庫]: #install-storage-client
   [更新插入指令碼以產生 SAS]: #update-scripts
@@ -82,8 +82,6 @@
   [Azure 儲存體帳戶]: /zh-tw/manage/services/storage/how-to-create-a-storage-account
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started
   [0]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [mobile-services-configure-blob-storage]: ../includes/mobile-services-configure-blob-storage.md
-  [mobile-services-windows-phone-upload-to-blob-storage]: ../includes/mobile-services-windows-phone-upload-to-blob-storage.md
   [使用 SendGrid 從行動服務傳送電子郵件]: /zh-tw/develop/mobile/tutorials/send-email-with-sendgrid/
   [在行動服務中排程後端工作]: /zh-tw/develop/mobile/tutorials/schedule-backend-tasks/
   [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/p/?LinkId=262293

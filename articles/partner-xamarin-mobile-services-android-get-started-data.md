@@ -1,30 +1,30 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-xamarin-android" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Xamarin.Android) - Azure Mobile Services" metaKeywords="Azure Xamarin.Android data, Azure mobile services data" description="Learn how to store and access data from your Azure Mobile Services Xamarin.Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services" documentationCenter="Mobile" authors="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # 開始使用行動服務中的資料
 
 <div class="dev-center-tutorial-selector sublanding">    
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows 市集 C#">Windows 市集 C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
+<a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-js" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
 </div>
 
 本主題將示範如何使用 Azure 行動服務，進而運用 Xamarin.Android 應用程式中的資料。在本教學課程中，您將下載應用程式，並在記憶體中儲存資料、建立新的行動服務、將行動服務與該應用程式整合，然後登入 Azure 管理入口網站查看執行應用程式時所做的資料變更。
 
 <div class="dev-callout"><b>注意</b>
-<p>本教學課程是為了協助您充分了解行動服務如何讓您從 Xamarin.Android 應用程式中利用 Azure 來儲存和擷取資料。因此，本主題將逐步說明已在行動服務快速入門中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮首先完成教學課程<a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android">開始使用行動服務</a>。</p>
+<p>本教學課程是為了協助您充分了解行動服務如何讓您從 Xamarin.Android 應用程式中利用 Azure 來儲存和擷取資料。因此，本主題將逐步說明已在行動服務快速入門中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮首先完成教學課程<a href="/zh-tw/develop/mobile/tutorials/get-started-xamarin-android">開始使用行動服務</a>。</p>
 </div>
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [下載 Xamarin.Android 應用程式專案][]
-2.  [建立行動服務][]
-3.  [新增用於儲存的資料表][]
-4.  [更新應用程式以使用行動服務][]
-5.  [針對行動服務進行應用程式測試][]
+1.  [下載 Xamarin.Android 應用程式專案][下載 Xamarin.Android 應用程式專案]
+2.  [建立行動服務][建立行動服務]
+3.  [新增用於儲存的資料表][新增用於儲存的資料表]
+4.  [更新應用程式以使用行動服務][更新應用程式以使用行動服務]
+5.  [針對行動服務進行應用程式測試][針對行動服務進行應用程式測試]
 
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Azure 免費試用</a>。</p></div>
+<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Azure 免費試用</a>。</p></div>
 
-本教學課程需要 [Azure 行動服務元件][]、[Xamarin.Android] 及 Android SDK 4.2 或更新版本。
+本教學課程需要 [Azure 行動服務元件][Azure 行動服務元件]、[Xamarin.Android] 及 Android SDK 4.2 或更新版本。
 
 <div class="dev-callout"><b>注意</b>
 <p>下載的 GetStartedWithData 專案需要以 Android 4.2 或更新版本為目標。不過，Mobile Services SDK 只需要 Android 2.2 或更新版本。</p>
@@ -48,13 +48,13 @@
 
 5.  在應用程式中輸入有意義的文字 (例如 *Complete the tutorial*)，然後按一下 [新增]。
 
-    ![][]
+    ![][0]
 
     注意已儲存的文字會存在記憶體內部收集中，並顯示在下表。
 
 ## <a name="create-service"></a><span class="short-header">建立行動服務</span>在管理入口網站中建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data][]]
+[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ## <a name="add-table"></a><span class="short-header">新增資料表</span>將資料表新增至行動服務
 
@@ -209,7 +209,7 @@
 
     這會傳送新項目以插入至行動服務。
 
-3.  在[管理入口網站][]中按一下 [行動服務]，然後按一下您的行動服務。
+3.  在[管理入口網站][管理入口網站]中按一下 [行動服務]，然後按一下您的行動服務。
 
 4.  按一下 [資料] 索引標籤，然後按一下 [瀏覽]。
 
@@ -229,46 +229,36 @@
 
 接下來，考慮完成本教學課程中採用 GetStartedWithData 應用程式所建立的下列其中一個教學課程：
 
--   [使用指令檔驗證與修改資料][]  
+-   [使用指令檔驗證與修改資料][使用指令檔驗證與修改資料]  
     深入了解在行動服務中使用伺服器指令檔，來驗證並變更從應用程式傳送出來的資料。
 
--   [使用分頁縮小查詢範圍][]  
+-   [使用分頁縮小查詢範圍][使用分頁縮小查詢範圍]  
     了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
 完成資料系列後，可試著閱讀這些另外的 Xamarin.Android 教學課程：
 
--   [開始使用驗證][]  
+-   [開始使用驗證][開始使用驗證]  
     了解如何驗證應用程式的使用者。
 
--   [開始使用推送通知][]  
+-   [開始使用推送通知][開始使用推送通知]  
     了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
 
 
 
-  [Windows 市集 C\#]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet "Windows 市集 C#"
-  [Windows 市集 JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-data-js "Windows 市集 JavaScript"
-  [Windows Phone]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone"
-  [iOS]: /en-us/develop/mobile/tutorials/get-started-with-data-ios "iOS"
-  [Android]: /en-us/develop/mobile/tutorials/get-started-with-data-android "Android"
-  [HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-html "HTML"
-  [Xamarin.iOS]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android"
-  [開始使用行動服務]: /en-us/develop/mobile/tutorials/get-started-xamarin-android
+  [Xamarin.Android]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android"
   [下載 Xamarin.Android 應用程式專案]: http://go.microsoft.com/fwlink/p/?LinkId=331302
   [建立行動服務]: #create-service
   [新增用於儲存的資料表]: #add-table
   [更新應用程式以使用行動服務]: #update-app
   [針對行動服務進行應用程式測試]: #test-app
-  [Azure 免費試用]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5
   [Azure 行動服務元件]: http://components.xamarin.com/view/azure-mobile-services/
-  []: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-quickstart-startup-android.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
+  [0]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-quickstart-startup-android.png
   [1]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-dashboard-tab.png
   [管理入口網站]: https://manage.windowsazure.com/
   [4]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-todoitem-data-browse.png
-  [使用指令檔驗證與修改資料]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
-  [使用分頁縮小查詢範圍]: /en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android
-  [開始使用驗證]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android
-  [開始使用推送通知]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android
+  [使用指令檔驗證與修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
+  [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-xamarin-android
+  [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-android
+  [開始使用推送通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-android

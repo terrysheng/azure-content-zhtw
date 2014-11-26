@@ -182,5 +182,4 @@
   [作法：從佇列接收訊息]: #bkmk_HowToReceiveMsgs
   [作法：處理應用程式當機與無法讀取的訊息]: #bkmk_HowToHandleAppCrashes
   [後續步驟]: #bkmk_NextSteps
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [佇列、主題和訂閱]: http://msdn.microsoft.com/zh-TW/library/windowsazure/hh367516.aspx

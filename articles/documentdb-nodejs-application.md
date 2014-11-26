@@ -1,6 +1,6 @@
 <properties title="Build a Node.js web application using DocumentDB" pageTitle="Build a Node.js web application using DocumentDB | Azure" description="Learn how to use Azure DocumentDB to store and access data from a Node.js application hosted on Azure." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="ryancraw" manager="jhubbard" editor="cgronlun" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="ryancraw"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="ryancraw" />
 
 # <a name="_Toc395783175">使用 DocumentDB 建置 Node.js Web 應用程式</a>
 
@@ -31,23 +31,23 @@ JSON 文件。
 在依照本文中的指示進行之前，您應該確定
 已安裝下列項目：
 
-[Node.js][] v0.10.29 版或更高版本
+[Node.js][Node.js] v0.10.29 版或更高版本
 
-[Git][]
+[Git][Git]
 
-[Visual Studio 2013][] (含 Update 3)
+[Visual Studio 2013][Visual Studio 2013] (含 Update 3)
 
-[Node.js Tools for Visual Studio][]
+[Node.js Tools for Visual Studio][Node.js Tools for Visual Studio]
 
 **注意：**在本教學課程中，雖然我們使用 Visual Studio 來建置、偵錯和部署
 Node.js 專案，但是您可以按照平時執行 Node.js 專案的方式，使用慣用的編輯器
 並直接在選擇的平台上執行 Node.js。
-接著，您可以使用 [Azure CLI][] 工具
+接著，您可以使用 [Azure CLI][Azure CLI] 工具
 將應用程式部署至 Azure 網站。
 
 # <a name="_Toc395637761">建立 DocumentDB 資料庫帳戶</a>
 
-若要在 Azure 中佈建 DocumentDB 資料庫帳戶，請開啟 [Azure 管理入口網站][]
+若要在 Azure 中佈建 DocumentDB 資料庫帳戶，請開啟 [Azure 管理入口網站][Azure 管理入口網站]
 ，並按一下首頁上的 [Azure Gallery] 磚，或按一下畫面左下角的 "+"。
 
 ![替代文字][1]
@@ -494,14 +494,14 @@ Visual Studio 就會連線到 Azure 訂用帳戶，並發佈
 恭喜！您剛剛已經使用 Azure DocumentDB 建置您的第一個Node.js Express Web
 應用程式，並將它發佈至 Azure 網站。
 
-您可以在[這裡][]下載完整參考應用程式的原始程式碼。
+您可以在[這裡][這裡]下載完整參考應用程式的原始程式碼。
 
 </h1>
 
   [0]: ./media/documentdb-nodejs-application/image1.png
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
-  [Visual Studio 2013]: http://msdn.microsoft.com/en-us/vstudio/cc136611.aspx
+  [Visual Studio 2013]: http://msdn.microsoft.com/zh-tw/vstudio/cc136611.aspx
   [Node.js Tools for Visual Studio]: https://nodejstools.codeplex.com/
   [Azure CLI]: http://azure.microsoft.com/zh-tw/documentation/articles/xplat-cli/
   [Azure 管理入口網站]: http://portal.azure.com

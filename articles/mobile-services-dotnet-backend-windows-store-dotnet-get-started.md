@@ -94,11 +94,12 @@
 
 如需通用 Windows 應用程式的詳細資訊，請參閱[從單一行動服務支援多個裝置平台](/zh-tw/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs) (英文)。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [建置目標為 Windows 和 Windows Phone 的通用 Windows 應用程式]: http://msdn.microsoft.com/zh-tw/library/windows/apps/xaml/dn609832.aspx
+  [快速入門：新增行動服務 (.NET 後端)]: http://msdn.microsoft.com/zh-tw/library/windows/apps/dn629482.aspx
   [開始使用 Windows Phone 的資料]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data
   [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F
   [6]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-portal-quickstart.png

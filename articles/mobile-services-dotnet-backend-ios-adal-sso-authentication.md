@@ -102,7 +102,7 @@
 
 ![][0]
 
-<!-- Anchors. --> <!-- URLs. -->
+ 
 
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
   [向 Azure Active Directory 註冊您的行動服務]: #register-mobile-service-aad
@@ -112,9 +112,6 @@
   [使用驗證測試用戶端]: #test-client
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-ios-get-started-data/
   [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
-  [mobile-services-dotnet-adal-register-service]: ../includes/mobile-services-dotnet-adal-register-service.md
-  [mobile-services-dotnet-adal-register-client]: ../includes/mobile-services-dotnet-adal-register-client.md
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [如何向 Azure Active Directory 註冊]: /zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [0]: ./media/mobile-services-dotnet-backend-ios-adal-sso-authentication/mobile-services-app-run.png

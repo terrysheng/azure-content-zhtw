@@ -805,7 +805,7 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 
 本文撰寫期間，Application Insights 已經進入預覽階段。您可以在以下位置找到詳細資訊：[MSDN 上的 Application Insights for Visual Studio Online][MSDN 上的 Application Insights for Visual Studio Online].(英文)。
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->\r\n<!--Image references-->
 
   [簡介]: #introduction
   [本指南架構]: #how-this-guide-is-organized

@@ -1,4 +1,4 @@
-<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="在 Azure 中使用 Visual Studio Online 來連續傳遞" metaKeywords="" description="了解如何將 Visual Studio Online 小組專案設定為自動建立和部署至 Azure 網站或雲端服務。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="使用 Visual Studio Online 連續傳遞至 Azure" authors="ghogen" solutions="" manager="douge" editor="" />
+<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="douge" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
@@ -36,11 +36,7 @@
 
 ## <a name="step2"> </a><span class="short-header">將專案簽入至原始檔控制。</span>步驟 2：將專案簽入至原始檔控制
 
-1.  在 Visual Studio 中，開啟您要部署的解決方案，或建立新解決方案。
-    您可以遵循本逐步解說的步驟來部署網站或雲端服務 (Azure 應用程式)。
-    如果要建立新解決方案，請建立新的 Azure 雲端服務專案，
-    或建立新的 ASP.NET MVC 專案。請確定專案以 .NET Framework 4 或 4.5 為目標，如果是建立雲端服務專案，請加入 ASP.NET MVC Web 角色和背景工作角色，然後對 Web 角色選擇網際網路應用程式。出現提示時，選擇 [網際網路應用程式]。
-    如果要建立網站，請選擇 ASP.NET Web 應用程式專案範本，然後選擇 MVC。請參閱＜[開始使用 Azure 和 ASP.NET][開始使用 Azure 和 ASP.NET]＞。
+1.  在 Visual Studio 中，開啟您要部署的解決方案，或建立新解決方案。您可以遵循本逐步解說的步驟來部署網站或雲端服務 (Azure 應用程式)。如果要建立新解決方案，請建立新的 Azure 雲端服務專案，或建立新的 ASP.NET MVC 專案。請確定專案以 .NET Framework 4 或 4.5 為目標，如果是建立雲端服務專案，請加入 ASP.NET MVC Web 角色和背景工作角色，然後對 Web 角色選擇網際網路應用程式。出現提示時，選擇 [網際網路應用程式]。如果要建立網站，請選擇 ASP.NET Web 應用程式專案範本，然後選擇 MVC。請參閱＜[開始使用 Azure 和 ASP.NET][開始使用 Azure 和 ASP.NET]＞。
 
 2.  開啟解決方案的內容功能表，選取 [將解決方案加入至原始檔控制]。
     ![][0]
@@ -113,81 +109,69 @@
     ![][23]
     如果不想要使用預設值，請指定屬性的值。Azure 發行的屬性位於 [部署] 區段中。
     下表顯示 [部署] 區段中的可用屬性：
-
+    
     <table>
 
     <tr>
     <td>
-    **屬性**
+    <b>屬性</b>
 
     </td>
     <td>
-    **預設值**
+    <b>預設值</b>
 
     </td>
     </tr>
     </p>
-    > <tr>
+    <tr>
+    <td>
+    允許未受信任的憑證
+    </td>
+    <td>
+    如果為 false，SSL 憑證必須經過根授權單位簽署。
+    </td>
+    </tr>
+    <tr>
+    <td>
+    允許升級
+    </td>
+    <td>
+    允許部署更新現有的部署，而不是建立新的部署。保留 IP 位址。
+    </td>
+    </tr>
+    <tr>
+    <td>
+    不要刪除
+    </td>
+    <td>
+    如果為 true，則不要覆寫現有不相關的部署 (允許升級)。
+    </td>
+    </tr>
+    <tr>
+    <td>
+    部署設定的路徑
+    </td>
+    <td>
+    網站之 .pubxml 檔的路徑，這是儲存機制根資料夾的相對路徑。雲端服務則會忽略。
+    </td>
+    </tr>
+    <tr>
+    <td>
+    SharePoint 部署環境
+    </td>
     > <td>
-    > 允許未受信任的憑證
-    >
-    > </td>
-    > <td>
-    > 若為 false，則必須由根授權單位簽署 SSL 憑證。
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > 允許升級
-    >
-    > </td>
-    > <td>
-    > 允許部署更新現有的部署而非建立新的部署。保留 IP 位址。
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > 不要刪除
-    >
-    > </td>
-    > <td>
-    > 若為 true，則不覆寫現有的不相關部署 (允許升級)。
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > 部署設定的路徑
-    >
-    > </td>
-    > <td>
-    > 網站的 .pubxml 檔案路徑 (相對於儲存機制的根資料夾)。雲端服務會忽略此參數。
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > Sharepoint 部署環境
-    >
-    > </td>
-    > <td>
-    > 與服務名稱相同
-    >
-    > </td>
-    > </tr>
-    > <tr>
-    > <td>
-    > Windows Azure 部署環境
-    >
-    > </td>
-    > <td>
-    > 網站或雲端服務名稱
-    >
-    > </td>
-    > </tr>
-    > </table>
+    與服務名稱相同
+    </td>
+    </tr>
+    <tr>
+    <td>
+    Windows Azure 部署環境
+    </td>
+    <td>
+    網站或雲端服務名稱
+    </td>
+    </tr>
+    </table>
 
 如果使用多個服務組態 (.cscfg 檔)，則可以在 [組建、進階、MSBuild 引數] 設定中指定所需的服務組態。例如，若要使用 ServiceConfiguration.Test.cscfg，請設定 MSBuild 引數的命令列選項 /p:TargetProfile=Test。
 ![][24]
@@ -292,9 +276,6 @@
   [步驟 2：將專案簽入至原始檔控制。]: #step2
   [步驟 3：將專案連線至 Azure。]: #step3
   [步驟 4：進行變更並觸發重建和重新部署。]: #step4
-  [步驟 5：重新部署舊版組建 (選用)]: #step5
-  [步驟 6：變更生產部署 (僅雲端服務)]: #step6
-  [步驟 7：執行單元測試 (選用)]: #step7
   [1]: http://go.microsoft.com/fwlink/?LinkId=512980
   [本逐步解說的 Git 版本]: http://go.microsoft.com/fwlink/p/?LinkId=397358
   [開始使用 Azure 和 ASP.NET]: http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-get-started/

@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (.NET) - Azure" metaKeywords="Azure Twilio, Azure phone calls, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to use Twilio for voice and SMS capabilities from Azure" authors="MicrosoftHelp@twilio.com" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
 
 # 如何透過 Twilio 來使用 Azure 的語音和簡訊功能
 
@@ -359,7 +359,7 @@ Twilio.Client.Capability
 
 如需有關在 Azure with ASP.NET 上使用 Twilio 的詳細資訊，請參閱＜[如何在 Azure 的 Web 角色中使用 Twilio 來撥打電話][如何在 Azure 的 Web 角色中使用 Twilio 來撥打電話]＞。
 
-[WACOM.INCLUDE [twilio\_additional\_services\_and\_next\_steps][twilio\_additional\_services\_and\_next\_steps]]
+[WACOM.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
   [後續步驟]: #NextSteps
   [什麼是 Twilio？]: #WhatIs
@@ -383,7 +383,7 @@ Twilio.Client.Capability
   [Twilio 帳戶頁面]: https://www.twilio.com/user/account
   [管理電話號碼]: https://www.twilio.com/user/account/phone-numbers/verified#
   [Twilio 電話號碼說明]: https://www.twilio.com/help/faq/phone-numbers
-  [使用 Visual Studio 建立 Azure 專案]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx
+  [使用 Visual Studio 建立 Azure 專案]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405487.aspx
   [使用 NuGet 封裝管理員延伸模組]: http://www.twilio.com/docs/csharp/install
   [GitHub]: https://github.com/twilio/twilio-csharp
   []: http://nuget.org/
@@ -391,5 +391,4 @@ Twilio.Client.Capability
   [3]: http://twimlets.com/message
   [4]: https://www.twilio.com/docs/api/twiml
   [如何在 Azure 的 Web 角色中使用 Twilio 來撥打電話]: ../partner-twilio-cloud-services-dotnet-phone-call-web-role/
-  [twilio\_additional\_services\_and\_next\_steps]: ../includes/twilio_additional_services_and_next_steps.md
-  
+

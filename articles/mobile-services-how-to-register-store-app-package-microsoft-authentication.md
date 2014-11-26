@@ -16,11 +16,10 @@ Azure 行動服務對於用戶端導向和伺服器導向的驗證方法均可�
 
 在註冊應用程式封裝後，在您呼叫 [LoginAsync][LoginAsync] 方法時，請記得為 *useSingleSignOn* 提供 **true** 值。這可讓您的使用者在使用 Microsoft 帳戶時有更理想的登入體驗。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [快速入門：新增行動服務的推播通知]: http://go.microsoft.com/fwlink/p/?LinkId=309101
   [使用 Live Connect 單一登入驗證 Windows 市集應用程式]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-  [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
   [LoginAsync]: http://go.microsoft.com/fwlink/p/?LinkId=311594

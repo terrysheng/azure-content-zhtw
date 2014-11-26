@@ -56,9 +56,9 @@
 
 -   基本驗證。此方法支援多種驗證提供者，但需要使用者在每次啟動應用程式時進行登入。如需詳細資訊，請參閱[開始使用驗證][開始使用驗證] (英文)。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
   [0]: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-services-submit-win8-app.png

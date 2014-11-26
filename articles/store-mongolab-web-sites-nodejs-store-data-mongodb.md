@@ -454,13 +454,11 @@
   [管理資料庫]: #manage
   [Node.js]: http://nodejs.org
   [Git]: http://git-scm.com
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [市集]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-store.png
   [1]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/entry-mongolab.png
   [ConnectionInfoButton]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png
   [ConnectionInfoScreen]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png
   [WebSiteConnectionStrings]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/focus-mongolab-websiteconnectionstring.png
-  [howto-provision-mongolab]: ../includes/howto-provision-mongolab.md
   [Express]: http://expressjs.com
   [Mongoose]: http://mongoosejs.com
   [Azure 開發人員中心]: /zh-tw/develop/nodejs/
@@ -471,7 +469,4 @@
   [WebSiteDashboard]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/screen-mongolab-websitedashboard.png
   [Git 遠端]: http://git-scm.com/docs/git-remote
   [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-  [howto-get-connectioninfo-mongolab]: ../includes/howto-get-connectioninfo-mongolab.md
-  [howto-save-connectioninfo-mongolab]: ../includes/howto-save-connectioninfo-mongolab.md
   [顯示空白工作清單的網頁]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png
-  [howto-access-mongolab-ui]: ../includes/howto-access-mongolab-ui.md

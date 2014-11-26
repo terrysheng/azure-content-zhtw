@@ -280,11 +280,11 @@
 
     ![][4]
 
-  <!-- Anchors. -->
+  
 
-  <!-- Images. --> 
+   
 
-  <!-- URLs. -->
+  
 
   [使用者入門]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
   [設定帳戶資料表]: #table-setup
@@ -294,7 +294,6 @@
   [將行動服務設定為需要驗證]: #require-authentication
   [使用測試用戶端測試登入流程]: #test-login
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
   [0]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-debug-start.png
   [1]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-try-out.png
   [2]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-test-client.png

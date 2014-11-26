@@ -247,7 +247,6 @@
 -   服務匯流排範例：從 [Azure 範例][Azure 範例]中下載。
 
   [後續步驟]: #next_steps
-  [create-account-note]: ../includes/create-account-note.md
   [轉送概念]: ./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png
   [Azure 管理入口網站]: http://manage.windowsazure.com
   [0]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png

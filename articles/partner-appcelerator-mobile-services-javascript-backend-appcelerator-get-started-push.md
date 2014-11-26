@@ -442,8 +442,8 @@
 
 如此即會註冊新的 insert 指令碼，該指令碼會使用[行動服務推播物件][行動服務推播物件]將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。
 
-<!-- Images. -->  
-<!-- Anchors. -->
+  
+
   [產生憑證簽署要求]: #certificates
   [註冊您的應用程式並啟用推播通知]: #register
   [建立應用程式的佈建設定檔]: #profile
@@ -453,11 +453,9 @@
   [新增推播通知至應用程式]: #add-push
   [更新指令碼來傳送推播通知]: #update-scripts
   [插入資料以接收通知]: #test
-<!-- URLs. -->
+
   [開始使用行動服務]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
-  [啟用 Apple 推播通知]: ../includes/enable-apple-push-notifications.md
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
-  [啟用 GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [安裝 Java 開發工具]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
   [0]: http://developer.android.com/sdk/ndk/index.html
   [0]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0011.png
@@ -465,7 +463,6 @@
   [2]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0041.png
   [3]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0061.png
   [Using Titanium Modules]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   [4]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image062.png
   [5]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image064.png
   [6]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image066.png

@@ -13,7 +13,7 @@
 
 **注意**：本主題假設您正在設計您的應用程式，或您已順利部署 Azure 應用程式，但出現意外狀況。本主題不會討論如何在 Azure
 上部署應用程式。如需開發與部署 Azure 應用程式的詳細資訊，請參閱
-[https://www.windowsazure.com/en-us/develop/overview/][1]。
+[https://www.windowsazure.com/zh-tw/develop/overview/][1]。
 
 本主題將首先說明可協助您設計應用程式的一些最佳作法，方便您在發生問題時有效地進行疑難排解。(如果您的應用程式設計未事先允許您依照程式碼流程，當發生問題時，有可能很難找到問題所在。)無論使用的應用程式模型或語言為何，這些最佳作法適用於所有在
 Azure 上執行的應用程式類型。
@@ -236,7 +236,7 @@ Azure 網站可啟用下列診斷選項的組態：
 * 失敗的要求追蹤
 
 如需這些主題的相關資訊，請參閱：[疑難排解 Azure
-網站](/en-us/develop/net/best-practices/troubleshooting-web-sites/)。
+網站](/zh-tw/develop/net/best-practices/troubleshooting-web-sites/)。
 
 當 Azure 網站的 Web 伺服器記錄已啟用時，網站將會使用 [W3C 擴充記錄檔格式][26]，在記錄檔中記錄所有的 HTTP
 交易。您接著可以使用[記錄檔剖析器][27]來查詢記錄檔。您可以在 [記錄檔剖析器 Plus][28] 和 [TechNet
@@ -486,12 +486,12 @@ Azure 快取有兩種類別：Azure 共用快取和角色型 Azure 快取 (預�
 
 
 
-[1]: https://www.windowsazure.com/en-us/develop/overview/
+[1]: https://www.windowsazure.com/zh-tw/develop/overview/
 [2]: http://msdn.microsoft.com/zh-tw/library/hh680918%28v=pandp.50%29.aspx
 [3]: http://nuget.org/packages/Microsoft.Experience.CloudFx
 [4]: http://msdn.microsoft.com/zh-tw/magazine/ff714589.aspx
 [5]: http://www.microsoft.com/download/en/details.aspx?id=11324
-[6]: http://www.microsoft.com/en-us/server-cloud/system-center/operations-manager.aspx
+[6]: http://www.microsoft.com/zh-tw/server-cloud/system-center/operations-manager.aspx
 [7]: http://wapmmc.codeplex.com/
 [8]: http://cerebrata.com/Products/AzureDiagnosticsManager/
 [9]: http://cerebrata.com/Products/CloudStorageStudio/
@@ -502,7 +502,7 @@ Azure 快取有兩種類別：Azure 共用快取和角色型 Azure 快取 (預�
 [14]: http://pingdom.com/
 [15]: http://www.alertbot.com/products/website-monitoring/default.aspx
 [16]: http://www.apicasystem.com/integration-partners/
-[17]: http://www.microsoft.com/en-us/server-cloud/system-center/avicode.aspx
+[17]: http://www.microsoft.com/zh-tw/server-cloud/system-center/avicode.aspx
 [18]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh369930.aspx
 [19]: http://azurevmassist.codeplex.com/
 [20]: https://github.com/dannycoates/node-inspector
@@ -514,11 +514,11 @@ Azure 快取有兩種類別：Azure 共用快取和角色型 Azure 快取 (預�
 [26]: http://go.microsoft.com/fwlink/?LinkID=90561
 [27]: http://go.microsoft.com/fwlink/?LinkId=246619
 [28]: http://logparserplus.com/Examples
-[29]: http://technet.microsoft.com/en-us/library/ee692659.aspx
+[29]: http://technet.microsoft.com/zh-tw/library/ee692659.aspx
 [30]: http://logparserplus.com/article/2
 [31]: http://www.microsoft.com/downloads/en/details.aspx?familyid=7287252C-402E-4F72-97A5-E0FD290D4B76&displaylang=enBlockquote
 [32]: http://msdn.microsoft.com/zh-tw/library/7a50syb3%28v=vs.90%29.aspx
-[33]: http://technet.microsoft.com/en-us/edge/Video/hh867800
+[33]: http://technet.microsoft.com/zh-tw/edge/Video/hh867800
 [34]: https://www.suse.com/documentation/
 [35]: https://help.ubuntu.com/
 [36]: http://centos.org/
@@ -546,7 +546,7 @@ Azure 快取有兩種類別：Azure 共用快取和角色型 Azure 快取 (預�
 [58]: http://social.technet.microsoft.com/wiki/contents/articles/1104.troubleshoot-and-optimize-queries-with-sql-azure.aspx
 [59]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2011/DBI314
 [60]: http://blogs.msdn.com/b/sqlazure/archive/2010/07/27/10043069.aspx?PageIndex=2#comments
-[61]: http://www.microsoft.com/en-us/download/details.aspx?id=10631
+[61]: http://www.microsoft.com/zh-tw/download/details.aspx?id=10631
 [62]: http://go.microsoft.com/fwlink/p/?LinkId=166622
 [63]: http://social.technet.microsoft.com/wiki/contents/articles/4235.retry-logic-for-transient-failures-in-sql-azure.aspx
 [64]: http://code.msdn.microsoft.com/windowsazure/SQL-Azure-Retry-Logic-2d0a8401

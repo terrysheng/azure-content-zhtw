@@ -12,7 +12,7 @@
 
 3.  在 Azure 管理入口網站中，對您行動服務的相關資料庫按一下 [管理]。
 
-    ![][]
+    ![][0]
 
 4.  在管理入口網站中執行查詢，以檢視 Windows 市集應用程式所做的變更。您的查詢會與下列查詢相類似，但將使用您的資料庫名稱，而非 `todolist`。
 
@@ -22,5 +22,5 @@
 
 Android 的**開始使用資料**教學課程到此結束。
 
-  []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png
   [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/sql-azure-query.png

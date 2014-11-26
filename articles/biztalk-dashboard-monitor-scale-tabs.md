@@ -1,6 +1,6 @@
 <properties linkid="manage-services-biztalk-services-dashboard-monitor-scale-tabs" urlDisplayName="Dashboard, Monitor, Scale, Configure and Hybrid Connections tabs" pageTitle="Dashboard, Monitor, and Scale in BizTalk Services | Azure" metaKeywords="BizTalk Services, Azure, dashboard, monitor, scale, wabs, mabs" description="Learn about the controls on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, and Scale." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Monitor and Scale tabs" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # BizTalk 服務：儀表板、監視器、調整、設定和混合式連線索引標籤
 
@@ -356,18 +356,12 @@
   [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
   [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
 
-  [學習中心]: http://azure.microsoft.com/zh-TW/documentation/services/biztalk-services/
-  [在 BizTalk 服務入口網站上設定 EDI 訊息的元件]: http://go.microsoft.com/fwlink/p/?LinkID=303653
-  [管理 ACS 命名空間]: http://go.microsoft.com/fwlink/p/?LinkID=285670
   [可用的度量]: #Metrics
-  [建立 BizTalk 服務]: http://go.microsoft.com/fwlink/p/?LinkID=302280
-  [BizTalk 服務：服務狀態圖]: http://go.microsoft.com/fwlink/p/?LinkID=329870
   [選取加入度量]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
   [BizTalk 服務：版本圖表]: http://go.microsoft.com/fwlink/p/?LinkID=302279
   [BizTalk 服務：備份與還原]: http://go.microsoft.com/fwlink/p/?LinkID=329873
   [混合式連線：將 Azure 網站連線到內部部署資源]: http://go.microsoft.com/fwlink/p/?LinkId=397538
   [Azure 行動服務與混合式連線]: http://azure.microsoft.com/zh-TW/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started
-  [2]: http://go.microsoft.com/fwlink/p/?LinkID=397274
   [BizTalk 服務：節流]: http://go.microsoft.com/fwlink/p/?LinkID=302282
   [BizTalk 服務：簽發者名稱和簽發者金鑰]: http://go.microsoft.com/fwlink/p/?LinkID=303941
   [如何開始使用 Azure BizTalk 服務 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=302335

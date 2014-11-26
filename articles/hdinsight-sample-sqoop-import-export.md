@@ -19,7 +19,7 @@ Sqoop 是 Cloudera, Inc. 的開放原始碼軟體產品。在 2011 年，Sqoop �
 
 **必要條件**：
 
-您具有 Windows Azure 帳戶，且您的訂閱已啟用 HDInsight 服務。您已安裝 Windows Azure PowerShell 和適用於 Windows Azure HDInsight 的 Powershell 工具，且已設定它們供您的帳戶使用。關於此作法的指示，請參閱＜[開始使用 Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)＞
+您具有 Windows Azure 帳戶，且您的訂閱已啟用 HDInsight 服務。您已安裝 Windows Azure PowerShell 和適用於 Windows Azure HDInsight 的 Powershell 工具，且已設定它們供您的帳戶使用。關於此作法的指示，請參閱＜[開始使用 Windows Azure HDInsight](/zh-tw/manage/services/hdinsight/get-started-hdinsight/)＞
 
 在 SQL 資料庫上設定防火牆時，您也需要目前位置的對外 IP 位址。若要取得此位址，請移至 [WhatIsMyIP](http://www.whatismyip.com/) 網站並記下此位址。稍後在程序中，您也需要 Haddop 叢集前端的對外 IP 位址。您可以用相同的方式取得此 IP 位址。
 
@@ -125,12 +125,12 @@ TBD:本節的螢幕擷取畫面 - 這仍然是 RDP 方法。
 
 關於執行其他範例的教學課程，以及如何以 Windows Azure PowerShell 在 Windows Azure HDInsight 上使用 Pig、Hive 和 MapReduce 工作的指示，請參閱下列主題：
 
--   [範例：Pi 估算器](/en-us/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/)
--   [範例：字數統計](/en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/)
--   [範例：C\# 串流](/en-us/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/)
--   [範例：10GB GraySort](/en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/)
--   [教學課程：使用 Pig](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [教學課程：使用 Hive](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
--   [教學課程：使用 MapReduce](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
--   [Windows Azure HDInsight SDK 文件](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx)
+-   [範例：Pi 估算器](/zh-tw/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/)
+-   [範例：字數統計](/zh-tw/manage/services/hdinsight/howto-run-samples/sample-wordcount/)
+-   [範例：C\# 串流](/zh-tw/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/)
+-   [範例：10GB GraySort](/zh-tw/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/)
+-   [教學課程：使用 Pig](/zh-tw/manage/services/hdinsight/using-pig-with-hdinsight/)
+-   [教學課程：使用 Hive](/zh-tw/manage/services/hdinsight/using-hive-with-hdinsight/)
+-   [教學課程：使用 MapReduce](/zh-tw/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
+-   [Windows Azure HDInsight SDK 文件](http://msdnstage.redmond.corp.microsoft.com/zh-tw/library/dn479185.aspx)
 

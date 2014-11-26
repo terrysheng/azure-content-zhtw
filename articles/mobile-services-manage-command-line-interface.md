@@ -1,28 +1,28 @@
 <properties linkid="develop-mobile-tutorials-command-line-administration" urlDisplayName="Command Line Administration" pageTitle="Administering a Mobile Service at the command line - Azure tutorial" metaKeywords="" description="Learn how to create, deploy, and manage your Azure Mobile Service using command-line tools." metaCanonical="" services="" documentationCenter="Mobile" title="Automate mobile services with command-line tools" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # 使用命令列工具將行動服務自動化
 
 本主題將示範如何使用 Azure 命令列工具將 Azure 行動服務的建立和管理自動化。本主題將示範如何安裝並開始使用命令列工具來執行下列行動服務工作：
 
--   [建立新的行動服務][]
--   [建立新資料表][]
--   [將指令碼註冊到資料表作業][]
--   [列出資料表][]
--   [刪除現有資料表][]
--   [列出行動服務][]
--   [刪除現有行動服務][]
+-   [建立新的行動服務][建立新的行動服務]
+-   [建立新資料表][建立新資料表]
+-   [將指令碼註冊到資料表作業][將指令碼註冊到資料表作業]
+-   [列出資料表][列出資料表]
+-   [刪除現有資料表][刪除現有資料表]
+-   [列出行動服務][列出行動服務]
+-   [刪除現有行動服務][刪除現有行動服務]
 
 這些個別的命令結合為一個指令碼或批次檔後，即可將行動服務的建立、確認和刪除程序自動化。
 
 若要使用 Azure 命令列工具管理行動服務，您需要已啟用 Azure 行動服務功能的 Azure 帳戶。
 
--   如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
+-   如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][Azure 免費試用]。
 
--   如果您現已有帳戶，但需要啟用 Azure 行動服務預覽版，則請參閱[啟用 Azure 預覽功能][]。
+-   如果您現已有帳戶，但需要啟用 Azure 行動服務預覽版，則請參閱[啟用 Azure 預覽功能][啟用 Azure 預覽功能]。
 
-本主題涵蓋 Azure 命令列工具支援的一些常用管理工作。如需詳細資訊，請參閱 [Azure 命令列工具文件][]。
+本主題涵蓋 Azure 命令列工具支援的一些常用管理工作。如需詳細資訊，請參閱 [Azure 命令列工具文件][Azure 命令列工具文件]。
 
 <!--+  You must download and install the Azure command-line tools to your local machine. To do this, follow the instructions in the first section of this topic.   + (Optional) To be able to execute HTTP requests directly from the command-line, you must use cURL or an equivalent tool. cURL runs on a variety of platforms. Locate and install cURL for your specific platform from the <a href=http://go.microsoft.com/fwlink/p/?LinkId=275676 target="_blank">cURL download  page</a>.-->
 
@@ -30,11 +30,11 @@
 
 下列清單包含安裝命令列工具的相關資訊，視作業系統而定：
 
--   **Windows**：下載 [Azure 命令列工具安裝程式][]。開啟已下載的 .msi 檔案，並依照提示完成安裝步驟。
+-   **Windows**：下載 [Azure 命令列工具安裝程式][Azure 命令列工具安裝程式]。開啟已下載的 .msi 檔案，並依照提示完成安裝步驟。
 
--   **Mac**：下載 [Azure SDK 安裝程式][]。開啟已下載的 .pkg 檔案，並依照提示完成安裝步驟。
+-   **Mac**：下載 [Azure SDK 安裝程式][Azure SDK 安裝程式]。開啟已下載的 .pkg 檔案，並依照提示完成安裝步驟。
 
--   **Linux**：安裝最新版本的 [Node.js][] (請參閱[透過封裝管理員來安裝 Node.js][])，然後執行下列命令：
+-   **Linux**：安裝最新版本的 [Node.js][Node.js] (請參閱[透過封裝管理員來安裝 Node.js][透過封裝管理員來安裝 Node.js])，然後執行下列命令：
 
         npm install azure-cli -g
 
@@ -61,7 +61,7 @@
 
         azure account -help
 
-匯入發行設定之後，基於安全的考量，請刪除 `.publishsettings` 檔案。如需詳細資訊，請參閱[如何安裝適用於 Mac 和 Linux 的 Azure 命令列工具][] (英文)。您現在即可開始從命令列或批次檔建立和管理 Azure 行動服務。
+匯入發行設定之後，基於安全的考量，請刪除 `.publishsettings` 檔案。如需詳細資訊，請參閱[如何安裝適用於 Mac 和 Linux 的 Azure 命令列工具][如何安裝適用於 Mac 和 Linux 的 Azure 命令列工具] (英文)。您現在即可開始從命令列或批次檔建立和管理 Azure 行動服務。
 
 ## <a name="create-service"></a><span class="short-header">建立服務</span>如何建立行動服務
 
@@ -105,7 +105,7 @@
 
         azure mobile table create <service-name> <table-name> -p read=public,delete=admin
 
-下表顯示指令碼權限值與 [Azure 管理入口網站][]中之權限值的比較。
+下表顯示指令碼權限值與 [Azure 管理入口網站][Azure 管理入口網站]中之權限值的比較。
 
 | 指令碼值               | 管理入口網站值           |
 |------------------------|--------------------------|
@@ -148,7 +148,7 @@
             ...
         } 
 
-如需關於註冊指令碼的詳細資訊，請參閱[行動服務伺服器指令碼參照][]。
+如需關於註冊指令碼的詳細資訊，請參閱[行動服務伺服器指令碼參照][行動服務伺服器指令碼參照]。
 
 
 <h2><a name="test-service"></a><span class="short-header">測試新行動服務 serviceTest</span>測試新行動服務 serviceTest</h2>
@@ -158,9 +158,9 @@
 ## <a name="nextsteps"> </a>後續步
 後續步驟...
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [建立新的行動服務]: #create-service
   [建立新資料表]: #create-table

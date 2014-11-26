@@ -69,20 +69,16 @@
 -   [如何使用 Azure 行動服務的 HTML/JavaScript 用戶端][如何使用 Azure 行動服務的 HTML/JavaScript 用戶端]
     深入了解如何使用來自 HTML 與 JavaScript 應用程式的行動服務。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
+
   [此版本]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push
   [針對推播通知註冊應用程式]: #register
   [更新服務以傳送推播通知]: #update-service
   [在應用程式中測試推播通知]: #test
   [Microsoft 市集帳戶]: http://go.microsoft.com/fwlink/p/?LinkId=280045
   [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
-  [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
-  [mobile-services-javascript-backend-windows-universal-test-push]: ../includes/mobile-services-javascript-backend-windows-universal-test-push.md
   [將推播通知傳送給驗證的使用者]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users/
   [開始使用資料]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data
   [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-users

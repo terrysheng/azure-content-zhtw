@@ -1,6 +1,6 @@
 <properties pageTitle="How to customize the look and feel of the developer portal in Azure API Management" metaKeywords="" description="How to customize the look and feel of the developer portal in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to customize the look and feel of the developer portal in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # 如何在 Azure API 管理中自訂開發人員入口網站的外觀與風格
 

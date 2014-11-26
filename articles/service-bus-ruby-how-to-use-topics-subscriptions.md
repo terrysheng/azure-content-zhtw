@@ -194,7 +194,6 @@ azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
   [如何自訂閱接收訊息]: #how-to-receive-messages-from-a-subscription
   [如何處理應用程式當機與無法讀取的訊息]: #how-to-handle-application-crashes-and-unreadable-messages
   [如何刪除主題和訂閱]: #how-to-delete-topics-and-subscriptions
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [在 Azure 上建立 Ruby 應用程式]: /zh-TW/develop/ruby/tutorials/web-app-with-linux-vm/
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/zh-TW/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Azure 管理入口網站]: https://manage.windowsazure.com

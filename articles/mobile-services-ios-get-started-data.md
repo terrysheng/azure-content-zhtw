@@ -97,11 +97,10 @@
 -   [開始使用推送通知][開始使用推送通知]
     了解如何使用行動服務將非常基本的推送通知傳送到應用程式。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
+
   [下載 iOS 應用程式專案]: #download-app
   [建立行動服務]: #create-service
   [新增用於儲存的資料表]: #add-table
@@ -112,9 +111,6 @@
   [Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F
   [GetStartedWithData 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=268622
   [0]: ./media/mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
-  [mobile-services-ios-enable-mobile-service-access]: ../includes/mobile-services-ios-enable-mobile-service-access.md
   [管理入口網站]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-ios-get-started-data/mobile-todoitem-data-browse.png
   [使用指令檔驗證與修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet

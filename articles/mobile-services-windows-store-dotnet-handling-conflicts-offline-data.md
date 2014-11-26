@@ -192,7 +192,7 @@
 
 取消推送時，`PushAsync` 會擲出 `MobileServicePushFailedException`，且例外狀況屬性 `PushResult.Status` 的值將是 `MobileServicePushStatus.CancelledByOperation`。
 
-<!-- Anchors. --> 
+ 
 <!-- Images --> 
 <!-- URLs -->
 

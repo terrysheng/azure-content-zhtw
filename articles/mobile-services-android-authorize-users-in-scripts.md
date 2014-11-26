@@ -79,15 +79,15 @@
 -   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何註冊和使用伺服器指令碼。
 
-<!-- Anchors. --> 
+ 
 
 
-<!-- URLs. -->
+
 
   [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-android
   [Azure 管理入口網站]: https://manage.windowsazure.com/
 
-<!-- Images. --> 
+ 
 
   [0]: ./media/mobile-services-android-authorize-users-in-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-android-authorize-users-in-scripts/mobile-portal-data-tables.png

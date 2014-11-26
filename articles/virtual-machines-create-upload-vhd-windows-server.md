@@ -1,4 +1,4 @@
-<properties urlDisplayName="Upload a VHD" pageTitle="建立並上傳 Windows Server VHD 到 Azure" metaKeywords="Azure VHD, uploading VHD" description="了解在已安裝 Windows Server 作業系統的 Azure 中建立並上傳虛擬硬碟 (VHD)。" metaCanonical="" services="virtual-machines" documentationCenter="" title="建立並上傳 Windows Server VHD 到 Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties linkid="manage-windows-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Windows Server VHD to Azure" metaKeywords="Azure VHD, uploading VHD" description="Learn to create and upload a virtual hard disk (VHD) in Azure that has the Windows Server operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Create and upload a Windows Server VHD to Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="kathydav" />
 
@@ -124,8 +124,7 @@ x64
 
 </table>
 
-</p>
-</p>
+
 此工作包含下列步驟：
 
 -   [步驟 1：準備要上傳的映像][步驟 1：準備要上傳的映像]
@@ -143,7 +142,7 @@ x64
 
 2.  以系統管理員身分開啟 [命令提示字元] 視窗。切換至 **%windir%\\system32\\sysprep** 目錄，然後執行 `sysprep.exe`。
 
-    ![開啟 [命令提示字元] 視窗][]
+    ![開啟 命令提示字元 視窗][開啟 命令提示字元 視窗]
 
 3.  [系統準備工具] 對話方塊隨即出現。
 
@@ -308,7 +307,7 @@ x64
   [步驟 3：準備 Azure 的連線]: #prepAzure
   [步驟 4：上傳 .vhd 檔案]: #upload
   [如何使用 Sysprep：簡介]: http://technet.microsoft.com/zh-tw/library/bb457073.aspx
-  [開啟 [命令提示字元] 視窗]: ./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png
+  [開啟 命令提示字元 視窗]: ./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png
   [啟動 Sysprep]: ./media/virtual-machines-create-upload-vhd-windows-server/sysprepgeneral.png
   [快速建立儲存體帳戶]: ./media/virtual-machines-create-upload-vhd-windows-server/Storage-quick-create.png
   [如何管理儲存體帳戶]: http://www.windowsazure.com/zh-tw/documentation/articles/storage-manage-storage-account/

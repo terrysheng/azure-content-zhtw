@@ -1,6 +1,6 @@
-<properties urlDisplayName="Diagnostics" pageTitle="如何使用診斷 (.NET) - Azure 功能指南" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="了解如何在 Azure 中使用診斷資料進行偵錯、測量效能、監視、流量分析等。" metaCanonical="" services="cloud-services" documentationCenter=".NET" title="啟用 Azure 中的診斷" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties linkid="dev-net-commons-tasks-diagnostics" urlDisplayName="Diagnostics" pageTitle="How to use diagnostics (.NET) - Azure feature guide" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Learn how to use diagnostic data in Azure for debugging, measuring performance, monitoring, traffic analysis, and more." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # 在 Azure 雲端服務和虛擬機器中啟用診斷
 
@@ -31,17 +31,51 @@ Azure Diagnostics 1.2 是可讓您從 Azure 中執行的背景工作角色、Web
 
 Azure 診斷可收集下列類型的遙測資料：
 
-|--------------------------|--------------------------------------------------------|
-| **資料來源**             | **說明**                                               |
-| IIS 記錄檔               | IIS 網站的相關資訊。                                   |
-| Azure 診斷基礎結構記錄檔 | 診斷本身的相關資訊。                                   |
-| IIS 失敗要求記錄檔       | IIS 網站或應用程式之失敗要求的相關資訊。               |
-| Windows 事件記錄檔       | 傳送至 Windows 事件記錄系統的資訊。                    |
-| 效能計數器               | 作業系統和自訂效能計數器。                             |
-| 損毀傾印                 | 應用程式損毀時之處理序狀態的相關資訊。                 |
-| 自訂錯誤記錄檔           | 您的應用程式或服務所建立的記錄檔。                     |
-| .NET EventSource         | 您的程式碼使用 .NET [EventSource 類別][EventSource 類別]所產生的事件。 |
-| 以資訊清單為基礎的 ETW   | 任何處理序所產生的 ETW 事件。                          |
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+    <tr>
+<td style="width: 100px;"><strong>資料來源</strong></td>
+<td><strong>說明</strong></td>
+    </tr>
+    <tr>
+<td>IIS 記錄檔</td>
+<td>IIS 網站的相關資訊。</td>            
+    </tr>
+    <tr>
+<td>Azure 診斷基礎結構記錄檔</td>
+<td>診斷本身的相關資訊。</td>            
+    </tr>
+    <tr>
+<td>IIS 失敗要求記錄檔 </td>
+<td>IIS 網站或應用程式之失敗要求的相關資訊。</td>            
+    </tr>
+    <tr>
+<td>Windows 事件記錄檔</td>
+<td>傳送至 Windows 事件記錄系統的資訊。</td>            
+    </tr>
+    <tr>
+<td>效能計數器</td>
+<td>作業系統和自訂效能計數器。</td>            
+    </tr>
+    <tr>
+<td>損毀傾印</td>
+<td>應用程式損毀時之處理序狀態的相關資訊。</td>            
+    </tr>
+    <tr>
+<td>自訂錯誤記錄檔</td>
+<td>您的應用程式或服務所建立的記錄檔。</td>            
+    </tr>
+    <tr>
+<td>.NET EventSource</td>
+<td>您的程式碼使用 .NET <a href="http://msdn.microsoft.com/zh-tw/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">EventSource 類別</a>所產生的事件。</td>            
+    </tr>
+    <tr>
+<td>以資訊清單為基礎的 ETW</td>
+<td>任何處理序所產生的 ETW 事件。</td>            
+    </tr>
+        
+</tbody>
+</table>
 
 ## <a name="worker-role"></a><span class="short-header">在背景工作角色中啟用診斷</span>如何在背景工作角色中啟用診斷
 
@@ -590,29 +624,147 @@ WADdest2
 
 下表比較 Azure Diagnostics 1.0 版與 1.1/1.2 版所支援的功能：
 
-|--------------------|---------------------|-------------------------|
-| **支援的角色類型** | **Diagnostics 1.0** | **Diagnostics 1.1/1.2** |
-| Web 角色           | 是                  | 是                      |
-| 背景工作角色       | 是                  | 是                      |
-| IaaS               | 否                  | 是                      |
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+    <tr>
+<td style="width: 100px;"><strong>支援的角色類型</strong></td>
+<td><strong>Diagnostics 1.0</strong></td>
+<td><strong>Diagnostics 1.1/1.2</strong></td>
+    </tr>
 
-|-----------------------------------------------------------------|---------------------|-------------------------|
-| **組態和部署**                                                  | **Diagnostics 1.0** | **Diagnostics 1.1/1.2** |
-| 與 Visual Studio 的整合 - 已整合到 Azure Web/背景工作開發體驗。 | 是                  | 否                      |
-| PowerShell 指令碼- 用於管理在角色上安裝及設定診斷的指令碼。     | 是                  | 是                      |
+    <tr>
+<td>Web 角色</td>
+<td>是</td>
+<td>是</td>
+    </tr>
+    <tr>
+<td>背景工作角色</td>
+<td>是</td>
+<td>是</td>
+    </tr>
+    <tr>
+<td>IaaS</td>
+<td>否</td>
+<td>是</td>
+    </tr>
+</tbody>
+</table>
 
-|---------------------------------|--------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|-------------------------|
-| **資料來源**                    | **預設集合** | **格式** | **說明**                                                                                                                                                                                                                       | **Diagnostics 1.0** | **Diagnostics 1.1/1.2** |
-| System.Diagnostics.Trace 記錄檔 | 是           | 資料表   | 記錄從您的程式碼傳送至追蹤接聽項的追蹤訊息 (追蹤接聽項必須加入 web.config 或 app.config 檔)。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至儲存體資料表 WADLogsTable。                                                  | 是                  | 否 (使用 EventSource)   |
-| IIS 記錄檔                      | 是           | Blob     | 記錄 IIS 網站的相關資訊。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至您指定的容器。                                                                                                                                   | 是                  | 是                      |
-| Azure 診斷基礎結構記錄檔        | 是           | 資料表   | 記錄診斷基礎結構、RemoteAccess 模組和 RemoteForwarder 模組的相關資訊。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至儲存體資料表 WADDiagnosticInfrastructureLogsTable。                                                 | 是                  | 是                      |
-| IIS 失敗要求記錄檔              | 否           | Blob     | 記錄 IIS 網站或應用程式之失敗要求的相關資訊。您也必須在 Web.config 中，設定 system.WebServer 下的追蹤選項來啟用記錄檔。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至您指定的容器。                                     | 是                  | 是                      |
-| Windows 事件記錄檔              | 否           | 資料表   | 記錄作業系統、應用程式或驅動程式之執行效能的相關資訊。您必須明確指定效能計數器。加入這些記錄檔時，效能計數器資料會依 scheduledTransferPeriod 傳輸間隔傳輸至儲存體資料表 WADPerformanceCountersTable。                          | 是                  | 是                      |
-| 效能計數器                      | 否           | 資料表   | 記錄作業系統、應用程式或驅動程式之執行效能的相關資訊。您必須明確指定效能計數器。加入這些記錄檔時，效能計數器資料會依 scheduledTransferPeriod 傳輸間隔傳輸至儲存體資料表 WADPerformanceCountersTable。                          | 是                  | 是                      |
-| 損毀傾印                        | 否           | Blob     | 記錄系統當機時之作業系統狀態的相關資訊。會在本機收集小型損毀傾印。您可以啟用完整傾印。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至您指定的容器。由於 ASP.NET 處理大多數例外狀況，這通常只對背景工作角色或 VM 才有用。 | 是                  | 是                      |
-| 自訂錯誤記錄檔                  | 否           | Blob     | 透過本機儲存體資源，您可以記錄自訂資料並立即傳輸至您指定的容器。                                                                                                                                                               | 是                  | 是                      |
-| EventSource                     | 否           | 資料表   | 記錄您的程式碼使用 .NET EventSource 類別所產生的事件。                                                                                                                                                                         | 否                  | 是                      |
-| 以資訊清單為基礎的 ETW          | 否           | 資料表   | 任何處理序所產生的 ETW 事件。                                                                                                                                                                                                  | 否                  | 是                      |
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+    <tr>
+<td style="width: 100px;"><strong>組態和部署</strong></td>
+<td><strong>Diagnostics 1.0</strong></td>
+<td><strong>Diagnostics 1.1/1.2</strong></td>
+    </tr>
+
+    <tr>
+<td>與 Visual Studio 的整合 - 已整合到 Azure Web/背景工作開發體驗。</td>
+<td>是</td>
+<td>否</td>
+    </tr>
+    <tr>
+<td>PowerShell 指令碼- 用於管理在角色上安裝及設定診斷的指令碼。</td>
+<td>是</td>
+<td>是</td>
+    </tr>
+    
+</tbody>
+</table>
+
+
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+    <tr>
+<td style="width: 100px;"><strong>資料來源</strong></td>
+<td><strong>預設集合</strong></td>
+<td><strong>格式</strong></td>
+<td><strong>說明</strong></td>
+<td><strong>Diagnostics 1.0</strong></td>
+<td><strong>Diagnostics 1.1/1.2</strong></td>
+    </tr>
+    <tr>
+<td>System.Diagnostics.Trace 記錄檔</td>
+<td>是</td>
+<td>資料表</td>
+<td>記錄從您的程式碼傳送至追蹤接聽項的追蹤訊息 (追蹤接聽項必須加入 web.config 或 app.config 檔)。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至儲存體資料表 WADLogsTable。</td>
+<td>是</td>
+<td>否 (使用 EventSource)</td>
+    </tr>
+    <tr>
+<td>IIS 記錄檔</td>
+<td>是</td>
+<td>Blob</td>
+<td>記錄 IIS 網站的相關資訊。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至您指定的容器。</td>
+<td>是</td>
+<td>是</td>
+    </tr>
+    <tr>
+<td>Azure 診斷基礎結構記錄檔</td>
+<td>是</td>
+<td>資料表</td>
+<td>記錄診斷基礎結構、RemoteAccess 模組和 RemoteForwarder 模組的相關資訊。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至儲存體資料表 WADDiagnosticInfrastructureLogsTable。</td>
+<td>是</td>
+<td>是</td>
+    </tr>
+    <tr>
+<td>IIS 失敗要求記錄檔</td>
+<td>否</td>
+<td>Blob</td>
+<td>記錄 IIS 網站或應用程式之失敗要求的相關資訊。您也必須在 Web.config 中，設定 system.WebServer 下的追蹤選項來啟用記錄檔。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至您指定的容器。</td>
+<td>是</td>
+<td>是</td>
+    </tr>
+    <tr>
+<td>Windows 事件記錄檔</td>
+<td>否</td>
+<td>資料表</td>
+<td>記錄作業系統、應用程式或驅動程式之執行效能的相關資訊。您必須明確指定效能計數器。加入這些記錄檔時，效能計數器資料會依 scheduledTransferPeriod 傳輸間隔傳輸至儲存體資料表 WADPerformanceCountersTable。</td>
+<td>是</td>
+<td>是</td>
+    </tr>
+    <tr>
+<td>效能計數器</td>
+<td>否</td>
+<td>資料表</td>
+<td>記錄作業系統、應用程式或驅動程式之執行效能的相關資訊。您必須明確指定效能計數器。加入這些記錄檔時，效能計數器資料會依 scheduledTransferPeriod 傳輸間隔傳輸至儲存體資料表 WADPerformanceCountersTable。</td>
+<td>是</td>
+<td>是</td>
+    </tr>
+    <tr>
+<td>損毀傾印</td>
+<td>否</td>
+<td>Blob</td>
+<td>記錄系統當機時之作業系統狀態的相關資訊。會在本機收集小型損毀傾印。您可以啟用完整傾印。記錄檔資料將依 scheduledTransferPeriod 傳輸間隔傳輸至您指定的容器。由於 ASP.NET 處理大多數例外狀況，這通常只對背景工作角色或 VM 才有用。</td>
+<td>是</td>
+<td>是</td>
+    </tr>
+    <tr>
+<td>自訂錯誤記錄檔</td>
+<td>否</td>
+<td>Blob</td>
+<td>透過本機儲存體資源，您可以記錄自訂資料並立即傳輸至您指定的容器。</td>
+<td>是</td>
+<td>是</td>
+    </tr>
+    <tr>
+<td>EventSource</td>
+<td>否</td>
+<td>資料表</td>
+<td>記錄您的程式碼使用 .NET EventSource 類別所產生的事件。</td>
+<td>否</td>
+<td>是</td>
+    </tr>
+    <tr>
+<td>以資訊清單為基礎的 ETW</td>
+<td>否</td>
+<td>資料表</td>
+<td>任何處理序所產生的 ETW 事件。</td>
+<td>否</td>
+<td>是</td>
+    </tr>
+</tbody>
+</table>
 
 ## <a name="additional"></a><span class="short-header">其他資源</span>其他資源
 
@@ -633,10 +785,6 @@ WADdest2
   [EventSource 類別]: http://msdn.microsoft.com/zh-tw/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
   [免費試用版]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
   [安裝及設定 Azure PowerShell 0.8.7 版或更新版本]: http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/
-  [CloudServices\_diag\_add\_xml]: ./media/cloud-services-dotnet-diagnostics/AddXmlFile.png
-  [CloudServices\_diag\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleTables.png
-  [CloudServices\_diag\_new\_project]: ./media/cloud-services-dotnet-diagnostics/NewProject.png
-  [CloudServices\_diag\_wadexamplevm\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png
   [Azure Diagnostics 1.2 組態結構描述]: http://msdn.microsoft.com/zh-tw/library/azure/dn782207.aspx
   [使用 Windows Azure 診斷收集記錄資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433048.aspx
   [偵錯 Azure 應用程式]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405479.aspx

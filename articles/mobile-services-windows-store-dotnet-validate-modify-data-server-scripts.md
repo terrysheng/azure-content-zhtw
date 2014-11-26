@@ -214,9 +214,9 @@ public DateTime createdAt { set; get; }
 -   [行動服務 .NET 作法概念參考資料][行動服務 .NET 作法概念參考資料]
     深入了解如何使用搭配 .NET 的行動服務。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [新增字串長度驗證]: #string-length-validation
   [更新用戶端以支援驗證]: #update-client-validation

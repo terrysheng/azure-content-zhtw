@@ -1,4 +1,4 @@
-<properties urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="使用 Microsoft .NET Library for Avro 將資料序列化 | Azure" metaKeywords="" description="了解 Azure HDInsight 如何使用 Avro 將巨量資料序列化。" metaCanonical="" services="hdinsight" documentationCenter="" title="使用 Microsoft .NET Library for Avro 將資料序列化 " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="hdinsight-dotnet-avro-serialization" urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="Serialize data with the Microsoft .NET Library for Avro | Azure" metaKeywords="" description="Learn how Azure HDInsight uses Avro to serialize big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Serialize data with the Microsoft .NET Library for Avro " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -38,7 +38,7 @@ Azure HDInsight 和其他 Apache Hadoop 環境中廣泛採用了 Apache Avro 序
 
 Microsoft .NET Library for Avro 會以 NuGet 封裝發行，您可以使用下列程序在 Visual Studio 中安裝 NuGet 封裝：
 
--   依序選取 [專案] 索引標籤 -\> [管理 NuGet 封裝]
+-   依序選取 [專案] 索引標籤 -\> [管理 NuGet 封裝]。
 -   在 [線上搜尋] 方塊中搜尋 "Microsoft.Hadoop.Avro"。
 -   按一下 [Microsoft .NET Library for Avro] 旁邊的 [安裝] 按鈕。
 
@@ -1304,22 +1304,13 @@ Microsoft .NET Library for Avro 可使用反映、根據要序列化的 C# 物�
 
   [JSON]: http://www.json.org
   [Apache Avro 規格]: http://avro.apache.org/docs/current/spec.html
-  [**AvroRecord**]: http://msdn.microsoft.com/zh-tw/library/microsoft.hadoop.avro.avrorecord.aspx
   [Microsoft .NET Framework v4.0]: http://www.microsoft.com/zh-tw/download/details.aspx?id=17851
   [Newtonsoft Json.NET]: http://james.newtonking.com/json
   [Azure 程式碼範例]: http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-86055923
   [1]: http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111
-  [**使用反映進行序列化**]: #Scenario1
-  [**使用一般記錄進行序列化**]: #Scenario2
   [**使用物件容器檔案與反映進行序列化**]: #Scenario3
   [**使用物件容器檔案與一般記錄進行序列化**]: #Scenario4
-  [**使用物件容器檔案和自訂壓縮轉碼器進行序列化**]: #Scenario5
-  [**IAvroSeralizer<t>**]: http://msdn.microsoft.com/zh-tw/library/dn627341.aspx
-  [**AvroContainer**]: http://msdn.microsoft.com/zh-tw/library/microsoft.hadoop.avro.container.avrocontainer.aspx
-  [**SequentialWriter<sensordata>**]: http://msdn.microsoft.com/zh-tw/library/dn627340.aspx
-  [**Deflate**]: http://msdn.microsoft.com/zh-tw/library/system.io.compression.deflatestream(v=vs.100).aspx
   [2]: http://msdn.microsoft.com/zh-tw/library/system.io.compression.deflatestream(v=vs.110).aspx
-  [**Codex.Null**]: http://msdn.microsoft.com/zh-tw/library/microsoft.hadoop.avro.container.codec.null.aspx
   [Avro 規格]: http://avro.apache.org/docs/current/spec.html#Required+Codecs
   [3]: http://avro.apache.org/docs/current/spec.html#snappy
   [zlib]: http://zlib.net/

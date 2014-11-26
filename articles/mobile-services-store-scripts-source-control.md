@@ -163,9 +163,9 @@
 -   [定義支援提取通知的自訂 API][定義支援提取通知的自訂 API]
     說明如何使用自訂 API 來支援可在 Windows 市集應用程式中更新動態磚的定期通知。
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [在行動服務中啟用原始檔控制]: #enable-source-control
   [安裝 Git 與建立本機儲存機制]: #clone-repo

@@ -239,5 +239,4 @@
   [作法：處理應用程式當機與無法讀取的訊息]: #bkmk_HowToHandleAppCrash
   [作法：刪除主題和訂閱]: #bkmk_HowToDeleteTopics
   [後續步驟]: #bkmk_NextSteps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [服務匯流排佇列、主題和訂閱]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx

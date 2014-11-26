@@ -40,8 +40,8 @@
 另請參閱
 --------
 
--   [作法：管理 HDInsight](/en-us/manage/services/hdinsight/howto-administer-hdinsight/)
--   [作法：以程式設計方式部署 HDInsight 叢集](/en-us/manage/services/hdinsight/howto-deploy-cluster/)
--   [作法：以程式設計方式在 HDInsight 叢集上執行遠端工作](/en-us/manage/services/hdinsight/howto-execute-jobs-programmatically/)
--   [教學課程：開始使用 Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+-   [作法：管理 HDInsight](/zh-tw/manage/services/hdinsight/howto-administer-hdinsight/)
+-   [作法：以程式設計方式部署 HDInsight 叢集](/zh-tw/manage/services/hdinsight/howto-deploy-cluster/)
+-   [作法：以程式設計方式在 HDInsight 叢集上執行遠端工作](/zh-tw/manage/services/hdinsight/howto-execute-jobs-programmatically/)
+-   [教學課程：開始使用 Azure HDInsight](/zh-tw/manage/services/hdinsight/get-started-hdinsight/)
 

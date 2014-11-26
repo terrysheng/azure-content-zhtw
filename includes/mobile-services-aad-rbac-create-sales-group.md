@@ -8,7 +8,7 @@
 4.  建立名為 **Dave** 的另一位使用者。記下該使用者的暫時密碼。
 5.  新使用者看起來應該會如下所示。
 
-    ![][]
+    ![][0]
 
 ### 建立 Sales 群組
 
@@ -28,7 +28,7 @@
 
     ![][3]
 
-  []: ./media/mobile-services-aad-rbac-create-sales-group/users.png
+  [0]: ./media/mobile-services-aad-rbac-create-sales-group/users.png
   [1]: ./media/mobile-services-aad-rbac-create-sales-group/sales-group.png
   [2]: ./media/mobile-services-aad-rbac-create-sales-group/group-membership.png
   [3]: ./media/mobile-services-aad-rbac-create-sales-group/sales-group-id.png

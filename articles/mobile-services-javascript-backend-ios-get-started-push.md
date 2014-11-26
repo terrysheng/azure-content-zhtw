@@ -187,7 +187,7 @@
 -   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
     深入了解如何在您的行動服務中實作商業邏輯。
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs.   -->
+  <!-- URLs.   -->
 
   [產生憑證簽署要求]: #certificates
   [註冊您的應用程式並啟用推播通知]: #register
@@ -199,8 +199,6 @@
   [行動服務 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-ios-get-started
-  [啟用 Apple 推播通知]: ../includes/enable-apple-push-notifications.md
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [apns 物件]: http://go.microsoft.com/fwlink/p/?LinkId=272333

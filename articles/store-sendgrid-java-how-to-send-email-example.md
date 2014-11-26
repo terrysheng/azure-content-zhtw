@@ -1,16 +1,16 @@
 <properties linkid="store-requestform-preview" urlDisplayName="Request Azure Store Integration" pageTitle="How to Send Email Using SendGrid from Java in an Azure Deployment" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Send Email Using SendGrid from Java in an Azure Deployment" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 如何在 Azure 部署中使用 SendGrid 透過 Java 傳送電子郵件
 
 下列範例將說明如何從 Azure 代管的網頁上使用 SendGrid 傳送電子郵件。產生的應用程式會提示使用者提供電子郵件值，如下列螢幕擷取畫面所示。
 
-![Email form][]
+![Email form][Email form]
 
 產生的電子郵件將會類似下列螢幕擷取畫面。
 
-![Email message][]
+![Email message][Email message]
 
 您必須執行下列動作才能使用本主題中的程式碼：
 
@@ -18,9 +18,9 @@
 2.  將 JAR 新增至您的 Java 建置路徑。
 3.  如果您使用 Eclipse 建立此 Java 應用程式，您可以使用 Eclipse 的部署組件功能在應用程式部署檔案 (WAR) 中加入 SendGrid 程式庫。如果您並非使用 Eclipse 建立此 Java 應用程式，請確定這些程式庫與您的 Java 應用程式包含在相同的 Azure 角色內，且已新增至應用程式的類別路徑。
 
-您還必須擁有自己的 SendGrid 使用者名稱和密碼，才能傳送電子郵件。若要開始使用 SendGrid，請參閱[如何使用 SendGrid 透過 Java 傳送電子郵件][]。
+您還必須擁有自己的 SendGrid 使用者名稱和密碼，才能傳送電子郵件。若要開始使用 SendGrid，請參閱[如何使用 SendGrid 透過 Java 傳送電子郵件][如何使用 SendGrid 透過 Java 傳送電子郵件]。
 
-此外，強烈建議您熟悉[在 Eclipse 建立 Azure 的 Hello World 應用程式][]上的資訊，或熟悉其他在 Azure 中代管 Java 應用程式的技術 (如果您未使用 Eclipse)。
+此外，強烈建議您熟悉[在 Eclipse 建立 Azure 的 Hello World 應用程式][在 Eclipse 建立 Azure 的 Hello World 應用程式]上的資訊，或熟悉其他在 Azure 中代管 Java 應用程式的技術 (如果您未使用 Eclipse)。
 
 ## 建立用以傳送電子郵件的 Web 表單
 
@@ -190,7 +190,7 @@
 
 除了傳送電子郵件以外，emailform.jsp 也會將結果提供給使用者，如下列螢幕擷取畫面所示：
 
-![Send mail result][]
+![Send mail result][Send mail result]
 
 ## 後續步驟
 
@@ -198,9 +198,9 @@
 
 此程式碼可說明如何在 Azure 上的 Java 中使用 SendGrid。在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。例如：
 
--   您可以使用 Azure 儲存體 Blob 或 SQL Database 來儲存電子郵件地址和電子郵件訊息，而不使用 Web 表單。如需在 Java 中使用 Azure 儲存體 Blob 的相關資訊，請參閱[如何從 Java 使用 Blob 儲存體服務][]。如需在 Java 中使用 SQL Database 的相關資訊，請參閱[在 Java 中使用 SQL Database][]。
--   您可以使用 `RoleEnvironment.getConfigurationSettings`，從部署的組態設定中擷取 SendGrid 使用者名稱和密碼，而不使用 Web 表單擷取這些值。如需 `RoleEnvironment` 類別的相關資訊，請參閱[在 JSP 中使用 Azure Service Runtime Library][]，以及 <http://dl.windowsazure.com/javadoc> 上的 Azure Service Runtime 封裝文件。
--   如需在 Java 中使用 SendGrid 的詳細資訊，請參閱[如何使用 SendGrid 透過 Java 傳送電子郵件][]。
+-   您可以使用 Azure 儲存體 Blob 或 SQL Database 來儲存電子郵件地址和電子郵件訊息，而不使用 Web 表單。如需在 Java 中使用 Azure 儲存體 Blob 的相關資訊，請參閱[如何從 Java 使用 Blob 儲存體服務][如何從 Java 使用 Blob 儲存體服務]。如需在 Java 中使用 SQL Database 的相關資訊，請參閱[在 Java 中使用 SQL Database][在 Java 中使用 SQL Database]。
+-   您可以使用 `RoleEnvironment.getConfigurationSettings`，從部署的組態設定中擷取 SendGrid 使用者名稱和密碼，而不使用 Web 表單擷取這些值。如需 `RoleEnvironment` 類別的相關資訊，請參閱[在 JSP 中使用 Azure Service Runtime Library][在 JSP 中使用 Azure Service Runtime Library]，以及 <http://dl.windowsazure.com/javadoc> 上的 Azure Service Runtime 封裝文件。
+-   如需在 Java 中使用 SendGrid 的詳細資訊，請參閱[如何使用 SendGrid 透過 Java 傳送電子郵件][如何使用 SendGrid 透過 Java 傳送電子郵件]。
 
   [Email form]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg
   [Email message]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailSent.jpg

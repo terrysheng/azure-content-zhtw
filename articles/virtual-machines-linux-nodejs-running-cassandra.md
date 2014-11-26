@@ -1,10 +1,10 @@
-<properties urlDisplayName="Cassandra with Linux" pageTitle="使用 Azure 上的 Linux 來執行 Cassandra" metaKeywords="" description="說明如何在 Azure 的 Linux 虛擬機器上執行 Cassandra 叢集" metaCanonical="" services="virtual-machines" documentationCenter="nodejs" title="在 Azure 上執行 Cassandra 搭配 Linux 並透過 Node.js 進行存取" authors="hanuk" solutions="" manager="timlt" editor="" />
+<properties linkid="services-linux-cassandra-with-linux" urlDisplayName="Cassandra with Linux" pageTitle="Run Cassandra with Linux on Azure" metaKeywords="" description="Explains how to run a Cassandra cluster on Linux in Azure Virtual Machines." metaCanonical="" services="virtual-machines" documentationCenter="nodejs" title="Running Cassandra with Linux on Azure and Accessing it from Node.js" authors="hanuk" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanuk" />
 
 # <span></span></a>在 Azure 上執行 Cassandra 搭配 Linux 並透過 Node.js 進行存取
 
-**作者：**Hanu Kommalapati
+**作者：** Hanu Kommalapati
 
 ## 目錄
 
@@ -56,65 +56,77 @@ Cassandra 應用程式環境有兩個可行的部署模型：獨立式 (Self-Con
 然後，在 [VM 組態] 畫面中輸入下列資訊：
 
 <table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">欄位名稱</th>
-<th align="left">欄位值</th>
-<th align="left">備註</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">虛擬機器名稱</td>
-<td align="left">hk-cas1</td>
-<td align="left">這是 VM 的主機名稱</td>
-</tr>
-<tr class="even">
-<td align="left">新使用者名稱</td>
-<td align="left">localadmin</td>
-<td align="left">&quot;admin&quot; 在 Ubuntu 12.xx 中是保留的使用者名稱</td>
-</tr>
-<tr class="odd">
-<td align="left">新密碼</td>
-<td align="left"><em>強式密碼</em></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">確認密碼</td>
-<td align="left"><em>強式密碼</em></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">大小</td>
-<td align="left">小型</td>
-<td align="left">根據 IO 需求選取 VM。</td>
-</tr>
-<tr class="even">
-<td align="left">Secure using SSH Key for Authentication</td>
-<td align="left">按一下核取方塊</td>
-<td align="left">如果您想要以 SSH 金鑰確保安全，請核取此方塊</td>
-</tr>
-<tr class="odd">
-<td align="left">憑證</td>
-<td align="left"><em>公用金鑰憑證的檔案名稱</em></td>
-<td align="left">以 OpenSSL 或其他工具產生的 DER 或 PEM 編碼 SSH 公用金鑰</td>
-</tr>
-</tbody>
+    <tr>
+<th>欄位名稱</th>
+<th>欄位值</th>
+<th>備註</th>
+    </tr>
+    <tr>
+<td>虛擬機器名稱</td>
+<td>hk-cas1</td>
+<td>這是 VM 的主機名稱</td>
+    </tr>
+    <tr>
+<td>新使用者名稱</td>
+<td>localadmin</td>
+<td>&quot;admin&quot; 在 Ubuntu 12.xx 中是保留的使用者名稱</td>
+    </tr>
+    <tr>
+<td>新密碼</td>
+<td><i>強式密碼</i></td>
+        <td></td>
+    </tr>
+    <tr>
+<td>確認密碼</td>
+<td><i>強式密碼</i></td>
+        <td></td>
+    </tr>
+    <tr>
+<td>大小</td>
+<td>小型</td>
+<td>根據 IO 需求選取 VM。 </td>
+    </tr>
+    <tr>
+<td>Secure using SSH Key for Authentication</td>
+<td>按一下核取方塊</td>
+<td>如果您想要以 SSH 金鑰確保安全，請核取此方塊</td>
+    </tr>
+    <tr>
+<td>憑證</td>
+<td><i>公用金鑰憑證的檔案名稱</i></td>
+<td>以 OpenSSL 或其他工具產生的 DER 或 PEM 編碼 SSH 公用金鑰</td>
+    </tr>
 </table>
 
 在 [VM 模式] 畫面中，輸入下列資訊：
 
-| 欄位名稱               | 欄位值                  | 備註                                                                     |
-|------------------------|-------------------------|--------------------------------------------------------------------------|
-| 獨立虛擬 VM            | 「核取」選項按鈕方塊    | 這是針對第一部 VM，對於後續 VM，我們將使用 [Connect to Existing VM] 選項 |
-| DNS 名稱               | *唯一名稱*.cloudapp.net | 提供一個機器中立的負載平衡器名稱                                         |
-| 儲存體帳戶             | *預設儲存體帳戶*        | 使用您建立的預設儲存體帳戶                                               |
-| 地區/同質群組/虛擬機器 | 美國西部                | 選取您 Web 應用程式存取 Cassandra 叢集時的來源地區                       |
+<table>
+    <tr>
+<th>欄位名稱</th>
+<th>欄位值</th>
+<th>備註</th>
+    </tr>
+    <tr>
+<td>獨立虛擬 VM</td>
+<td>「核取」選項按鈕方塊</td>
+<td>這是針對第一部 VM，對於後續 VM，我們將使用 [Connect to Existing VM] 選項</td>
+    </tr>
+    <tr>
+<td>DNS 名稱</td>
+<td><i>唯一名稱</i>.cloudapp.net</td>
+<td>提供一個機器中立的負載平衡器名稱</td>
+    </tr>
+    <tr>
+<td>儲存體帳戶</td>
+<td><i>預設儲存體帳戶</i></td>
+<td>使用您建立的預設儲存體帳戶</td>
+    </tr>
+    <tr>
+<td>地區/同質群組/虛擬機器</td>
+<td>美國西部</td>
+<td>選取您 Web 應用程式存取 Cassandra 叢集時的來源地區</td>
+    </tr>
+</table>
 
 針對所有將加入 Cassandra 叢集的虛擬機器，重複執行上述程序。此時，所有機器都將成為相同網路的一部分，而可以互相 Ping 到對方。如果 Ping 沒有作用，請檢查 VM 的防火牆 (例如 iptables) 組態以確定允許 ICMP。順利測試完網路連線之後，請務必停用 ICMP 以減少攻擊媒介。
 
@@ -251,7 +263,7 @@ Cassandra 需要 Java 虛擬機器，因此請使用下列適用於 Debian 衍�
 
 1.  使用 SSH 登入 Linux (Ubuntu) VM 執行個體。
 
-2.  使用 wget 從 (http://cassandra.apache.org/download/)[http://cassandra.apache.org/download/] 建議的鏡像網站，將 Cassandra 位元 apache-cassandra-bin.tar.gz 下載至 "~/downloads" 目錄。請注意，下載的檔案中不會包含版本號碼，以便確保該發行集保持版本中立。
+2.  使用 wget 從 (<http://cassandra.apache.org/download/>)[<http://cassandra.apache.org/download/>] 建議的鏡像網站，將 Cassandra 位元 apache-cassandra-bin.tar.gz 下載至 "~/downloads" 目錄。請注意，下載的檔案中不會包含版本號碼，以便確保該發行集保持版本中立。
 
 3.  執行下列命令將 tar ball 檔案解壓縮至預設登入目錄：
 
@@ -302,7 +314,7 @@ Cassandra 需要 Java 虛擬機器，因此請使用下列適用於 Debian 衍�
 
 請針對叢集中的所有節點，重複執行步驟 1 到 5。
 
-既然所有個別的 VM 都已備妥必要的軟體，現在即可透過種子組態在節點之間建立通訊。如需有關多節點叢集組態的詳細資料，請檢閱位於 <http://wiki.apache.org/cassandra/MultinodeCluster> (英文) 的資訊。
+既然所有個別的 VM 都已備妥必要的軟體，現在即可透過種子組態在節點之間建立通訊。如需有關多節點叢集組態的詳細資料，請檢閱位於 [][]<http://wiki.apache.org/cassandra/MultinodeCluster></a> (英文) 的資訊。
 
 **步驟 6：設定多節點叢集**
 
@@ -317,7 +329,7 @@ Cassandra 需要 Java 虛擬機器，因此請使用下列適用於 Debian 衍�
 新節點將使用這裡指定的 IP 位址來了解環狀拓撲。請設定最可靠的節點做為您的種子，使用逗號分隔的格式："*host1*,*host2*"。範例設定："hk-ub1,hk-ub2"。
 
 我們將接受種子伺服器所提供的預設權杖，因為這不是本練習的焦點所在。若要產生最佳權杖，請參閱位於下列網址的 Python 指令碼：
-<http://wiki.apache.org/cassandra/GettingStarted> (英文)
+[][1]<http://wiki.apache.org/cassandra/GettingStarted></a> (英文)
 
 請重新啟動所有節點上的 Cassandra 以套用上述變更。
 
@@ -585,6 +597,7 @@ Azure 虛擬機器功能允許建立 Linux (由 Microsoft 合作夥伴提供映�
   [為 Windows Azure 上的 Linux VM 部署產生 SSH 金鑰組]: http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx
   [建立執行 Linux 的虛擬機器]: http://www.windowsazure.com/zh-tw/manage/linux/tutorials/virtual-machine-from-gallery/
   [如何擷取執行 Linux 之虛擬機器的映像]: https://www.windowsazure.com/zh-tw/manage/linux/how-to-guides/capture-an-image/
+  []: http://wiki.apache.org/cassandra/MultinodeCluster
+  [1]: http://wiki.apache.org/cassandra/GettingStarted
   [cassandra-client]: https://github.com/racker/node-cassandra-client
   [Rows and columns]: ./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux3.png
-  [Cassandra 查詢語言 (Cassandra Query Language，CQL)]: http://cassandra.apache.org/doc/cql/CQL.html

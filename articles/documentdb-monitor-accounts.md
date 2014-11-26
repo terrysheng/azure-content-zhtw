@@ -1,6 +1,6 @@
 <properties title="Monitor a DocumentDB Account" pageTitle="Monitor a DocumentDB account | Azure" description="Learn how to monitor your DocumentDB account for performance metrics (such as requests and server errors) and usage metrics (such as storage consumption)." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, monitor, accounts" services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="brradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="brradsev" />
 
 # 監視 DocumentDB 帳戶
 
@@ -23,7 +23,7 @@
     -   當日的要求總數。
     -   當日的每秒平均要求數
 
-    ![][]
+    ![][0]
 
 3.  按一下 [Total Requests or Average Requests per Second] 組件會開啟詳細的 [度量] 分頁。
 4.  [度量] 分頁會顯示您已選取之度量的詳細資料。分頁上方是圖形，圖形下方有一個資料表顯示所選度量的彙總值，例如平均值、最小值和最大值。度量分頁也會顯示已定義的警示清單，且依目前度量分頁上出現的度量來篩選 (因此，如果您有許多警示，只會看到此處顯示相關的警示)。
@@ -106,7 +106,7 @@ Azure Preview 入口網站可讓您建立並排度量圖表。
   [作法：檢視 DocumentDB 帳戶的使用量度量]: #view
   [作法：設定 DocumentDB 帳戶的效能度量警示]: #setup
   [後續步驟]: #next
-  []: http://i.imgur.com/y7pigTT.png
+  [0]: http://i.imgur.com/y7pigTT.png
   [1]: http://i.imgur.com/6rBNPBL.png
   [2]: http://i.imgur.com/tRZEHk1.png
   [3]: http://i.imgur.com/G4UTi5U.png

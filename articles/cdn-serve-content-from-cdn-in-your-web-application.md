@@ -1,6 +1,6 @@
 <properties linkid="cdn-serve-content-from-cdn-in-your-web-application" urlDisplayName="Use Content from a CDN in Your Web Application" pageTitle="Use Content from a CDN in Your Web Application" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN" description="A tutorial that teaches you how to use content from a CDN to improve the performance of your Web application." metaCanonical="" services="cdn" documentationCenter=".NET" title="Use Content from a CDN in Your Web Application" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
 
-<tags ms.service="cdn" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="cdn" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # 在 Web 應用程式中從 Azure CDN 提供內容
 
@@ -58,7 +58,7 @@
 1.  若要建立 CDN 端點，請登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  按一下 [新增] \> [資料服務] \> [儲存體] \> [快速建立]，建立儲存體帳戶。指定 URL、位置，然後按一下 [建立儲存體帳戶]。
 
-    ![][]
+    ![][0]
 
     > [WACOM.NOTE] 請注意，我使用 [東亞] 作為區域，因為這地點夠遠，可讓我稍後從北美洲測試 CDN。
 
@@ -277,10 +277,8 @@
   [Microsoft Azure 帳戶]: http://azure.microsoft.com/zh-tw/account/
   [Azure SDK]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9811175&clcid=0x409
-  [免費申請 Azure 帳戶]: http://azure.microsoft.com/zh-tw/pricing/free-trial/?WT.mc_id=A261C142F
-  [啟用 MSDN 訂戶權益]: http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [Azure 管理入口網站]: http://manage.windowsazure.com/
-  []: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG
+  [0]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG
   [1]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG
   [2]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-fail.PNG
   [3]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-succeed.PNG

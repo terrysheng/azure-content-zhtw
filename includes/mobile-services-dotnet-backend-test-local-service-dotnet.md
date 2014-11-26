@@ -6,7 +6,7 @@
 
 2.  按 **F5** 鍵以重新建至專案，並在本機啟動行動服務。
 
-    ![][]
+    ![][0]
 
     在行動服務成功啟動後，會顯示一個網頁。
 
@@ -18,4 +18,4 @@
 
     這會將 POST 要求傳送至本機行動服務。要求中的資料會插入 TodoItem 資料表中。行動服務會傳回資料表中儲存的項目，並且在應用程式的第二個資料欄中顯示資料。
 
-  []: ./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png
+  [0]: ./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png

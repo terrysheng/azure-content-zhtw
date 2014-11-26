@@ -807,5 +807,5 @@ Business Edition 支援同盟。如需詳細資訊，請參閱 [SQL 資料庫中
 了解 SQL Database 管理的基礎概念之後，請參考下列連結，以了解如何執行更複雜的管理工作。
 
 -   請參閱 MSDN 上的 [SQL Database](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg619386)
--   造訪 [SQL Database TechNet WIKI](http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-en-us.aspx)
+-   造訪 [SQL Database TechNet WIKI](http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-zh-tw.aspx)
 

@@ -2,21 +2,21 @@
 
 1.  在 Visual Studio 2013 中，開啟 [方案總管]、在專案上按一下滑鼠右鍵，然後依序按一下 **[新增]**、**[已連接服務]**。
 
-    ![add connected service][]
+    ![add connected service][add connected service]
 
 2.  在 [服務管理員] 對話方塊中，按一下 **[建立服務]**，然後從 [建立行動服務] 對話方塊的 **[訂閱]** 中，選取 **\<匯入...\>**。
 
-    ![create a new mobile service from VS 2013][]
+    ![create a new mobile service from VS 2013][create a new mobile service from VS 2013]
 
 3.  在 [匯入 Azure 訂閱] 中按一下 [下載訂閱檔案]，登入您的 Azure 帳戶 (如有必要)，在瀏覽器要求儲存檔案時，按一下 [儲存]。
 
-    ![download subscription file in VS][]
+    ![download subscription file in VS][download subscription file in VS]
 
     <div class="dev-callout"><strong>注意</strong> <p>登入視窗會顯示在瀏覽器中，它有可能會在 Visual Studio 視窗下面。請記得記下儲存 .publishsettings 檔案的下載位置。如果您的專案已連線到 Azure 訂閱，您可以略過此步驟。</p></div>
 
 4.  按一下 [瀏覽] 並瀏覽至儲存 .publishsettings 檔案的位置，選取此檔案，然後依序按一下 [開啟]、[匯入]。
 
-    ![import subscription in VS][]
+    ![import subscription in VS][import subscription in VS]
 
     Visual Studio 會匯入連線到 Azure 訂閱所需的資料。當訂閱已經有一或多個現有的行動服務時，便會顯示這些服務名稱。
 
@@ -28,7 +28,7 @@
 
 6.  在 **[資料庫]** 中選取 **\<建立免費的 SQL Database\>**，提供 **[伺服器使用者名稱]**、**[伺服器密碼]** 和 **[伺服器密碼確認]**，然後按一下 **[建立]**。
 
-    ![從 VS 2013 建立服務 (第 2 部分)][]
+    ![從 VS 2013 建立服務 (第 2 部分)][從 VS 2013 建立服務 (第 2 部分)]
 
     > [WACOM.NOTE]
     > 作為本教學課程的一部分，您需要建立新的 SQL Database 執行個體和伺服器。您可以重新使用這個新資料庫並加以管理，或使用任何其他的 SQL Database 執行個體。您只能有一個免費的資料庫執行個體。如果新行動服務的區域已經有資料庫存在，您可以改選現有的資料庫。當您選擇現有的資料庫時，請確保您提供的是正確的登入認證。如果您提供不正確的登入認證，則行動服務會建立在不健全的狀態下。

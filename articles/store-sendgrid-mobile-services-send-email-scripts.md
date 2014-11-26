@@ -104,9 +104,9 @@ SendGrid 是[雲端架構電子郵件服務][雲端架構電子郵件服務] (�
 -   Azure 客戶的 SendGrid 特別優惠：
     <http://sendgrid.com/azure.html>
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [雲端架構電子郵件服務]: http://sendgrid.com/solutions
   [交易式電子郵件傳遞]: http://sendgrid.com/transactional-email
@@ -114,7 +114,6 @@ SendGrid 是[雲端架構電子郵件服務][雲端架構電子郵件服務] (�
   [新增指令碼以傳送電子郵件]: #add-script
   [插入資料以接收電子郵件]: #insert-data
   [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [0]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
   [1]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-insert-script-push2.png

@@ -10,7 +10,7 @@
 
 4.  在應用程式的 [Insert a TodoItem] 中輸入一些文字，然後按一下 [儲存]。
 
-    ![][]
+    ![][0]
 
     請注意，儲存的文字隨即會顯示。
 
@@ -21,5 +21,5 @@
 6.  重複步驟 3 和 4 以確認範例的行為相同。
 
   [GetStartedWithMobileServices 應用程式]: http://go.microsoft.com/fwlink/p/?LinkID=510826
-  []: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png
+  [0]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png
   [1]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png

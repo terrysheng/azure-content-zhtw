@@ -1,19 +1,19 @@
 接下來，您將建立新的行動服務來取代記憶體內部資料儲存區清單。依照下列步驟即可建立新的行動服務。
 
-1.  登入 [Azure 管理入口網站][]。
+1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
 2.  在導覽窗格的底端，按一下 **[新增]**。
 
-    ![plus-new][]
+    ![plus-new][plus-new]
 
 3.  展開 **[運算]** 和 **[行動服務]**，然後按一下 **[建立]**。
 
-    ![mobile-create][]
+    ![mobile-create][mobile-create]
 
     隨即出現 **[新增行動服務]** 對話方塊。
 
 4.  在 **[建立行動服務]** 頁面中，選取 **[Create a free 20 MB SQL database]**，然後在 **[URL]** 文字方塊中輸入新行動服務的子網域名稱，並等候進行名稱驗證。一旦名稱驗證完成之後，按一下向右鍵按鈕前往下一頁。
 
-    ![mobile-create-page1][]
+    ![mobile-create-page1][mobile-create-page1]
 
     這將顯示 **[指定資料庫設定]** 頁面。
 
@@ -23,7 +23,7 @@
 
 5.  在 **[名稱]** 中輸入新資料庫的名稱，然後輸入 **[登入名稱]** (也就是新 SQL Database 伺服器的系統管理員登入名稱)，輸入並確認密碼，然後按一下核取按鈕以完成程序。
 
-    ![mobile-create-page2][]
+    ![mobile-create-page2][mobile-create-page2]
 
     <div class="dev-callout"> 
 <b>注意</b> 

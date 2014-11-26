@@ -1,114 +1,36 @@
-<properties linkid="manage-services-hdinsight-develop-Java-MapReduce-programs-for-HDInsight-Hadoop" urlDisplayName="HDInsight Tutorials" pageTitle="在 HDInsight 上開發 Hadoop 的 Java MapReduce 程式 | Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="了解如何在 HDInsight 模擬器上開發 Java MapReduce 程式，以及如何部署至 HDInsight。" services="hdinsight" title="在 HDInsight 上開發 Hadoop 的 Java MapReduce 程式" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="nitinme" />
+<properties linkid="manage-services-hdinsight-develop-Java-MapReduce-programs-for-HDInsight-Hadoop" urlDisplayName="HDInsight Tutorials" pageTitle="Develop Java MapReduce programs for Hadoop in HDInsight | Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight." services="hdinsight" title="Develop Java MapReduce programs for Hadoop in HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/10/2014" ms.author="nitinme" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # 在 HDInsight 上開發 Hadoop 的 Java MapReduce 程式
 
-本教學課程引導您完成一項端對端案例，在 Apache Haven 上使用 Java 來開發字數統計 Hadoop MapReduce 工作。本教學課程也說明如何在 HDInsight Emulator 上測試應用程式，然後部署到 Azure HDInsight 叢集上執行。
+本教學課程引導您完成一個端對端案例，目的是在 HDInsight Emulator 上開發和測試採用 Java 的字數統計 Hadoop MapReduce 工作，然後在 Azure HDInsight 上部署並執行此工作。
 
 **必要條件：**
 
-開始進行本教學課程之前，您必須完成下列工作：
+開始進行本教學課程之前，您必須具備下列條件：
 
 -   安裝 Azure HDInsight Emulator。如需指示，請參閱＜[開始使用 HDInsight Emulator][開始使用 HDInsight Emulator]＞。
 -   在模擬器電腦上安裝 Azure PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell][安裝並設定 Azure PowerShell]。
--   在模擬器電腦上安裝 Java 平台 JDK 7 或更高版本。模擬器電腦上已有此版本。
--   安裝和設定 [Apache Maven][Apache Maven]。
 -   取得 Azure 訂用帳戶。如需指示，請參閱＜[購買選項][購買選項]＞、＜[成員優惠][成員優惠]＞或＜[免費試用][免費試用]＞。
 
 ## 本文內容
 
--   [使用 Apache Maven 以 Java 建立字數統計 MapReduce 程式][使用 Apache Maven 以 Java 建立字數統計 MapReduce 程式]
+-   [在 Java 中開發字數統計 MapReduce 程式][在 Java 中開發字數統計 MapReduce 程式]
 -   [在模擬器上測試程式][在模擬器上測試程式]
 -   [將資料檔和應用程式上傳至 Azure Blob 儲存體][將資料檔和應用程式上傳至 Azure Blob 儲存體]
 -   [在 Azure HDInsight 上執行 MapReduce 程式][在 Azure HDInsight 上執行 MapReduce 程式]
 -   [擷取 MapReduce 結果][擷取 MapReduce 結果]
 -   [後續步驟][後續步驟]
 
-## <a name="develop"></a>使用 Apache Maven 以 Java 建立 MapReduce 程式
+## <a name="develop"></a>在 Java 中開發字數統計 MapReduce 程式
 
-建立字數統計 MapReduce 應用程式。這是一個簡單的應用程式，可計算給定輸入集中每個字的出現次數。本節中，我們將執行下列工作：
+字數統計是一個簡單的應用程式，可計算給定輸入集中每個字的出現次數。
 
-1.  使用 Apache Maven 建立專案
-2.  更新專案的物件模型 (POM)
-3.  建立字數統計 MapReduce 應用程式
-4.  建置和封裝應用程式
+**在 Java 中撰寫字數統計 MapReduce 工作**
 
-**使用 Maven 建立專案**
-
-1.  建立目錄 \*\*C:\\Tutorials\\WordCountJava\*\*。
-2.  從開發環境的命令列中，將目錄切換至您建立的位置。
-3.  使用隨 Maven 一起安裝的 **mvn** 命令來產生專案的結構。
-
-        mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-
-    這會在目前的目錄中建立新目錄，名稱由 **artifactID** 參數指定 (此範例中為 **wordcountjava**)。此目錄包含下列項目。
-
-    -   **pom.xml** - 專案物件模型 ([POM][POM]) 包含用來建置專案的資訊和組態詳細資料。
-
-    -   **src** - 含有 **main\\java\\org\\apache\\hadoop\\examples** 目錄的目錄，您將在此撰寫應用程式。
-
-4.  刪除 **src\\test\\java\\org\\apache\\hadoop\\examples\\apptest.java** 檔案，因為此範例中不會用到。
-
-**更新專案物件模型 (POM)**
-
-1.  編輯 **pom.xml** 檔案，在 `<dependencies>` 區段內新增下列程式碼。
-
-        <dependency>
-          <groupId>org.apache.hadoop</groupId>
-          <artifactId>hadoop-mapreduce-examples</artifactId>
-          <version>2.5.1</version>
-        </dependency>
-        <dependency>
-          <groupId>org.apache.hadoop</groupId>
-          <artifactId>hadoop-mapreduce-client-common</artifactId>
-          <version>2.5.1</version>
-        </dependency>
-        <dependency>                                                                                     
-          <groupId>org.apache.hadoop</groupId>                                                                                                       
-          <artifactId>hadoop-common</artifactId>                                                                                                         
-          <version>2.5.1</version>                                                                                            
-        </dependency>
-
-    這向 Maven 表示專案需要特定版本 (列於 <version\> 內) 的程式庫 (列於 <artifactid\> 內)。編譯時，將會從預設 Maven 儲存機制下載此版本。您可以使用 [Maven 儲存機制搜尋][Maven 儲存機制搜尋] (英文) 檢視詳細資訊。
-
-2.  將下列程式碼新增至 **pom.xml** 檔案。這必須在檔案中的 `<project>...</project>` 標籤內；例如，在 `</dependencies>` 和 `</project>` 之間。
-
-        <build>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-shade-plugin</artifactId>
-              <version>2.3</version>
-              <configuration>
-                <transformers>
-                  <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
-                  </transformer>
-                </transformers>
-              </configuration>
-              <executions>
-                <execution>
-                  <phase>package</phase>
-                    <goals>
-                      <goal>shade</goal>
-                    </goals>
-                </execution>
-              </executions>
-            </plugin>       
-          </plugins>
-        </build>
-
-    這會設定 [maven-shade-plugin][maven-shade-plugin]，用來防止以 Maven 所建立的 JAR 中發生授權重複。使用此項目的理由在於，重複的授權檔會導致 HDInsight 叢集在執行階段發生錯誤。使用 maven-shade-plugin 與 `ApacheLicenseResourceTransformer` 實作可防止此錯誤。
-
-    maven-shade-plugin 也會產生 uberjar (或 fatjar)，內含應用程式需要的所有相依項目。
-
-3.  儲存 **pom.xml** 檔案。
-
-**建立字數統計應用程式**
-
-1.  移至 **wordcountjava\\src\\main\\java\\org\\apache\\hadoop\\examples** 目錄，將 **app.java** 檔案重新命名為 **WordCount.java**。
-2.  開啟記事本。
-3.  將下列程式複製並貼到記事本中。
+1.  開啟記事本。
+2.  將下列程式複製並貼到記事本中。
 
         package org.apache.hadoop.examples;
 
@@ -181,29 +103,40 @@
 
     請注意，封裝名稱是 **org.apache.hadoop.examples**，類別名稱是 **WordCount**。提交 MapReduce 工作時會用到這些名稱。
 
-4.  儲存檔案。
+3.  將檔案儲存為 **c:\\Tutorials\\WordCountJava\\WordCount.java**。建立資料夾結構 (若不存在的話)。
 
-**建置和封裝應用程式**
+HDInsight 模擬器隨附 *javac* 編譯器。
 
-1.  開啟命令提示字元，切換至 **wordcountjava** 目錄。
+**編譯 MapReduce 程式**
 
-2.  使用下列命令來建置含有應用程式的 JAR。
+1.  開啟命令提示字元。
+2.  切換至 **c:\\Tutorials\\WordCountJava** 目錄。這是字數統計 MapReduce 程式的資料夾。
+3.  執行下列命令來檢查兩個 jar 檔案是否存在：
 
-        mvn clean package
+        dir %hadoop_home%\hadoop-core-1.1.0-SNAPSHOT.jar
+        dir %hadoop_home%\lib\commons-cli-1.2.jar
 
-    這會清除任何先前的組建成品、下載任何尚未安裝的相依項目，然後建置並封裝應用程式。
+4.  執行下列命令來編譯程式：
 
-3.  指令完成時，**wordcountjava\\target** 目錄將包含一個名為 **wordcountjava-1.0-SNAPSHOT.jar** 的檔案。
+        C:\Hadoop\java\bin\javac -classpath %hadoop_home%\hadoop-core-1.1.0-SNAPSHOT.jar;%hadoop_home%\lib\commons-cli-1.2.jar WordCount.java
 
-    > [WACOM.NOTE] **wordcountjava-1.0-SNAPSHOT.jar** 檔案是一個 uberjar (有時稱為 fatjar)，內含執行應用程式所需的所有相依項目。
+    javac 位於 C:\\Hadoop\\java\\bin 資料夾中。最後一個參數是目前資料夾中的 java 程式。編譯器會在目前資料夾中建立 3 個類別檔案。
+
+5.  執行下列命令來建立 jar 檔案：
+
+        C:\Hadoop\java\bin\jar -cvf WordCount.jar *.class
+
+    此命令會在目前資料夾中建立 WordCount.jar 檔案。
+
+    ![HDI.EMulator.WordCount.Compile][HDI.EMulator.WordCount.Compile]
 
 ## <a name="test"></a>在模擬器上測試程式
 
-在 HDInsight Emulator 上測試 MapReduce 工作時需要執行下列程序：
+在模擬器上測試 MapReduce 工作時需要執行下列程序：
 
 1.  將資料檔案上傳至模擬器上的 HDFS
-2.  建立本機使用者群組
-3.  執行字數統計 MapReduce 工作
+2.  提交字數統計 MapReduce 工作
+3.  檢查工作狀態
 4.  擷取工作結果
 
 依預設，HDInsight 模擬器會使用 HDFS 做為預設檔案系統。您也可以選擇設定 HDInsight 模擬器來使用 Azure Blob 儲存體。如需詳細資料，請參閱＜[開始使用 HDInsight Emulator][1]＞。
@@ -212,13 +145,14 @@
 
 本教學課程使用下列 HDFS 資料夾結構：
 
-|---------------------------|----------------------------------|
-| 資料夾                    | 注意                             |
-| /WordCount                | 字數統計專案的根資料夾。         |
-| /WordCount/Apps           | 對應器和歸納器可執行檔的資料夾。 |
-| /WordCount/Input          | MapReduce 來源檔案資料夾。       |
-| /WordCount/Output         | MapReduce 輸出檔案資料夾。       |
-| /WordCount/MRStatusOutput | 工作輸出資料夾。                 |
+<table border="1">
+<tr><td>資料夾</td><td> 注意</td></tr>
+<tr><td>/WordCount</td><td>字數統計專案的根資料夾。 </td></tr>
+<tr><td>/WordCount/Apps</td><td>對應器和歸納器可執行檔的資料夾。</td></tr>
+<tr><td>/WordCount/Input</td><td>MapReduce 來源檔案資料夾。</td></tr>
+<tr><td>/WordCount/Output</td><td>MapReduce 輸出檔案資料夾。</td></tr>
+<tr><td>/WordCount/MRStatusOutput</td><td>工作輸出資料夾。</td></tr>
+</table>
 
 本教學課程使用 %hadoop\_home% 目錄中的 .txt 檔案做為資料檔案。
 
@@ -237,7 +171,7 @@
 
 3.  執行下列命令將一些文字檔案複製到 HDFS 上的輸入資料夾：
 
-        hadoop fs -copyFromLocal C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common\*.txt /WordCount/Input
+        hadoop fs -copyFromLocal %hadoop_home%\*.txt /WordCount/Input
 
     MapReduce 工作將計算這些檔案中的字數。
 
@@ -245,35 +179,24 @@
 
         hadoop fs -ls /WordCount/Input
 
-**建立本機使用者群組**
-
-為了在叢集上成功執行 MapReduce 工作，您必須建立名為 hdfs 的使用者群組。在此群組中，您也必須加入使用者 hadoop 和您用來登入模擬器的本機使用者。從提高權限的命令提示字元中，使用下列命令：
-
-        # Add a user group called hdfs      
-        net localgroup hdfs /add
-
-        # Adds a user called hadoop to the group
-        net localgroup hdfs hadoop /add
-
-        # Adds the local user to the group
-        net localgroup hdfs <username> /add
+    您會看到大約八個 .txt 檔案。
 
 **使用 Hadoop 命令列執行 MapReduce 工作**
 
 1.  從桌面開啟 Hadoop 命令列。
 2.  執行下列命令從 HDFS 中刪除 /WordCount/Output 資料夾結構。/WordCount/Output 是字數統計 MapReduce 工作的輸出資料夾。如果此資料夾已存在，MapReduce 工作會失敗。如果是第二次執行工作，則這是必要的步驟。
 
-        hadoop fs -rm - r /WordCount/Output
+        hadoop fs -rmr /WordCount/Output
 
 3.  執行以下命令：
 
-        hadoop jar C:\Tutorials\WordCountJava\wordcountjava\target\wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /WordCount/Input /WordCount/Output
+        hadoop jar c:\Tutorials\WordCountJava\wordcount\target\wordcount-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /WordCount/Input /WordCount/Output
 
     如果工作順利完成，應該會得到類似下列螢幕擷取畫面的輸出：
 
     ![HDI.EMulator.WordCount.Run][HDI.EMulator.WordCount.Run]
 
-    從螢幕擷取畫面中，您可以看到對應和歸納都已 100% 完成。其中也列出工作識別碼。從桌面開啟 [Hadoop MapReduce 狀態] 捷徑並尋找相同的工作識別碼，可擷取同樣的報告。
+    從螢幕擷取畫面中，您可以看到對應和歸納都已 100% 完成。其中也列出工作識別碼 job\_201312092021\_0002。從桌面開啟 [Hadoop MapReduce 狀態] 捷徑並尋找工作識別碼，也可擷取同樣的報告。
 
 另一個執行 MapReduce 工作的方法是使用 Azure PowerShell。如需指示，請參閱＜[開始使用 HDInsight Emulator][開始使用 HDInsight Emulator]＞。
 
@@ -283,19 +206,19 @@
 2.  執行下列命令來顯示輸出：
 
         hadoop fs -ls /WordCount/Output/
-        hadoop fs -cat /WordCount/Output/part-r-00000
+        hadoop fs -cat /WordCount/Output/part-00000
 
     您可以在命令尾端附加 "|more" 來取得頁面檢視。或者，使用 findstr 命令來尋找字串模式：
 
-        hadoop fs -cat /WordCount/Output/part-r-00000 | findstr "there"
+        hadoop fs -cat /WordCount/Output/part-00000 | findstr "there"
 
 目前為止，您已開發字數統計 MapReduce 工作，並於模擬器上成功測試。下一步是在 Azure HDInsight 上部署並執行。
 
-## <span id="upload"></span></a>將資料和應用程式上傳至 Azure Blob 儲存體
+## <span id="upload"></span></a>將資料上傳至 Azure Blob 儲存體
 
 Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight 叢集時，Azure Blob 儲存體容器用來儲存系統檔案。您可以使用此預設容器或不同的容器 (在相同的 Azure 儲存體帳戶上，或與叢集相同的資料中心上的不同儲存體帳戶) 來儲存資料檔案。
 
-本教學課程中，您將在另一個儲存體帳戶上建立容器來儲存資料檔案和 MapReduce 應用程式。資料檔是模擬器工作站上的 **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common** 目錄中的文字檔。
+本教學課程中，您將在另一個儲存體帳戶上建立容器來儲存資料檔案和 MapReduce 應用程式。資料檔案是工作站的 %hadoop\_home% 目錄中的文字檔案。
 
 **建立 Blob 儲存體和容器**
 
@@ -336,7 +259,7 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
         $storageAccountName_Data = "<AzureStorageAccountName>"  
         $containerName_Data = "<ContainerName>"
 
-        $localFolder = "C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common\"
+        $localFolder = "c:\Hadoop\hadoop-1.1.0-SNAPSHOT"
         $destFolder = "WordCount/Input"
 
     **$storageAccountName\_Data** 和 **$containerName\_Data** 與您在上一個程序中的定義相同。
@@ -375,7 +298,7 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
         Write-Host "The Uploaded data files:" -BackgroundColor Green
         Get-AzureStorageBlob -Container $containerName_Data -Context $destContext -Prefix $destFolder
 
-    您應該會看到已上傳的文字資料檔案。
+    您應該會看到大約 8 個文字資料檔案。
 
 **上傳字數統計應用程式**
 
@@ -414,7 +337,7 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 
 ## <a name="run"></a>在 Azure HDInsight 上執行 MapReduce 工作
 
-本節中，您將建立 PowerShell 指令碼來執行下列工作：
+下列 PowerShell 指令碼會執行下列工作：
 
 1.  佈建 HDInsight 叢集
 
@@ -442,17 +365,17 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 
         # The storage account and the HDInsight cluster variables
         $subscriptionName = "<AzureSubscriptionName>"
-        $stringPrefix = "<StringForPrefix>"
+        $serviceNameToken = "<ServiceNameTokenString>"
         $location = "<MicrosoftDataCenter>"     ### must match the data storage account location
         $clusterNodes = <NumberOFNodesInTheCluster>
 
         $storageAccountName_Data = "<TheDataStorageAccountName>"
         $containerName_Data = "<TheDataBlobStorageContainerName>"
 
-        $clusterName = $stringPrefix + "hdicluster"
+        $clusterName = $serviceNameToken + "hdicluster"
 
-        $storageAccountName_Default = $stringPrefix + "hdistore"
-        $containerName_Default =  $stringPrefix + "hdicluster"
+        $storageAccountName_Default = $serviceNameToken + "hdistore"
+        $containerName_Default =  $serviceNameToken + "hdicluster"
 
         # The MapReduce job variables
         $jarFile = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/jars/WordCount.jar"
@@ -514,10 +437,7 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
         Write-Host "Delete the storage account" -ForegroundColor Green
         Remove-AzureStorageAccount -StorageAccountName $storageAccountName_Default
 
-3.  設定指令碼中的前六個變數。**$stringPrefix** 對 HDInsight 叢集名稱、儲存體帳戶名稱和 Blob 儲存體容器名稱的指定字串加上首碼。因為這些項目的名稱必須為 3 到 24 個字元，請確定您指定的字串和此指令碼使用的名稱，合計不超過名稱的字元限制。**$stringPrefix** 必須全部為小寫。
-
-    **$storageAccountName\_Data** 和 **$containerName\_Data** 是用來儲存資料檔案和應用程式的儲存體帳戶和容器。**$location** 必須符合資料儲存體帳戶位置。
-
+3.  設定指令碼中的前六個變數。**$serviceNameToken** 將做為 HDInsight 叢集名稱、預設儲存體帳戶名稱及預設 Blob 儲存體容器名稱。因為服務名稱必須為 3 到 24 個字元，且指令檔會將最多 10 個字元的字串附加至名稱，所以您必須將字串限制在 14 個字元以下。$serviceNameToken 必須為小寫。**$storageAccountName\_Data** 和 **$containerName\_Data** 是用來儲存資料檔案和應用程式的儲存體帳戶和容器。**$location** 必須符合資料儲存體帳戶位置。
 4.  檢閱其餘變數。
 5.  儲存指令碼檔案。
 6.  開啟 Azure PowerShell。
@@ -572,19 +492,16 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 
   [開始使用 HDInsight Emulator]: ../hdinsight-get-started-emulator/
   [安裝並設定 Azure PowerShell]: ../install-configure-powershell/
-  [Apache Maven]: http://maven.apache.org/
   [購買選項]: http://azure.microsoft.com/zh-tw/pricing/purchase-options/
   [成員優惠]: http://azure.microsoft.com/zh-tw/pricing/member-offers/
   [免費試用]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
-  [使用 Apache Maven 以 Java 建立字數統計 MapReduce 程式]: #develop
+  [在 Java 中開發字數統計 MapReduce 程式]: #develop
   [在模擬器上測試程式]: #test
   [將資料檔和應用程式上傳至 Azure Blob 儲存體]: #upload
   [在 Azure HDInsight 上執行 MapReduce 程式]: #run
   [擷取 MapReduce 結果]: #retrieve
   [後續步驟]: #nextsteps
-  [POM]: http://maven.apache.org/guides/introduction/introduction-to-the-pom.html
-  [Maven 儲存機制搜尋]: http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar
-  [maven-shade-plugin]: http://maven.apache.org/plugins/maven-shade-plugin/
+  [HDI.EMulator.WordCount.Compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
   [1]: ../hdinsight-get-started-emulator/#blobstorage
   [將資料上傳到 HDInsight]: ../hdinsight-upload-data/
   [HDI.EMulator.WordCount.Run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png

@@ -94,12 +94,10 @@
 -   [開始使用推播通知][開始使用推播通知]
     了解如何將極為基本的推播通知傳送到應用程式。
 
-<!-- URLs. -->
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
+
   [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [Todolist 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=506859
-<!-- Images. --> 
+ 
   [0]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image007.png
   [1]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image008.png
   [2]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image009.png

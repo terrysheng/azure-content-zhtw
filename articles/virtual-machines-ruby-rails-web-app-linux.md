@@ -1,4 +1,4 @@
-<properties urlDisplayName="Ruby on Rails Web App on Azure using Linux VM" pageTitle="在使用 Linux VM 之 Azure 上的 Ruby on Rails Web 應用程式" metaKeywords="Azure Ruby web application, Azure Ruby application, Ruby app Azure, Ruby azure vm, ruby virthal machine, ruby linux vm" description="在使用 Linux 虛擬機器的 Azure 上裝載 Ruby on Rails 型網站。" metaCanonical="" services="virtual-machines" documentationCenter="Ruby" title="Azure VM 上的 Ruby on Rails Web 應用程式" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties linkid="dev-ruby-web-app-with-linux-vm" urlDisplayName="Ruby on Rails Web App on Azure using Linux VM" pageTitle="Ruby on Rails Web App on Azure using Linux VM" metaKeywords="Azure Ruby web application, Azure Ruby application, Ruby app Azure, Ruby azure vm, ruby virthal machine, ruby linux vm" description="Host a Ruby on Rails-based website on Azure using a Linux virtual machine. " metaCanonical="" services="virtual-machines" documentationCenter="Ruby" title="Ruby on Rails Web application on an Azure VM" authors="larryfr" solutions="" manager="" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -40,7 +40,7 @@
 
 1.  在開發環境中安裝 Ruby。端視您的作業系統而定，步驟可能不同。
 
-    -   **Apple OS X** - Ruby 有許多 OS X 版的散發套件。本教學課程已在 OS X 上利用 [Homebrew][Homebrew] 來安裝 **rbenv** 和 **ruby-build** 而完成驗證。在 <https://github.com/sstephenson/rbenv/> 可找到安裝資訊。
+    -   **Apple OS X** - Ruby 有許多 OS X 版的散發套件。本教學課程已在 OS X 上利用 [Homebrew][Homebrew] 來安裝 **rbenv** 和 **ruby-build** 而完成驗證。在 [][]<https://github.com/sstephenson/rbenv/></a> 可找到安裝資訊。
 
     -   **Linux** - 使用散發套件封裝管理系統。本教學課程使用 ruby1.9.1 及 ruby1.9.1-dev 封裝，在 Ubuntu 12.10 通過驗證。
 
@@ -51,24 +51,18 @@
         gem install rails --no-rdoc --no-ri
 
     <div class="dev-callout">
-
-    **注意**
-    此命令可能需要某些作業系統的管理員或根權限。如果您執行此命令, try using 'sudo' as follows:
-
-    ``` prettyprint
-    sudo gem install rails
-    ```
-
+    <strong>注意</strong>
+    <p>此命令可能需要某些作業系統的管理員或根權限。如果您執行此命令, try using 'sudo' as follows:</p>
+    <pre class="prettyprint">sudo gem install rails</pre>
     </div>
 
     <div class="dev-callout">
-
-    **注意**
-    本教學課程使用 Rails gem 3.2.12 版。
+    <strong>注意</strong>
+    <p>本教學課程使用 Rails gem 3.2.12 版。</p>
 
     </div>
 
-3.  您也必須安裝 JavaScript 直譯器，以便 Rails 用來編譯 Rails 應用程式所用的 CoffeeScript 資產。<https://github.com/sstephenson/execjs#readme> 提供支援的直譯器清單。
+3. 您也必須安裝 JavaScript 直譯器，以便 Rails 用來編譯 Rails 應用程式所用的 CoffeeScript 資產。[][1]<https://github.com/sstephenson/execjs#readme></a> 提供支援的直譯器清單。
 
     本教學課程的驗證期間使用 [Node.js][Node.js]，它適用於 OS X、Linux 和 Windows 作業系統。
 
@@ -81,11 +75,9 @@
     此命令會建立名稱為 **blog\_app** 的新目錄，並且填入 Rails 應用程式所需的檔案和子目錄。
 
     <div class="dev-callout">
-
-    **注意**
-    此命令可能需要一分鐘以上的時間才能完成。它會以無訊息的方式安裝預設應用程式所需的 gem，在這段期間，可能呈現看似無反應的狀態。
-
-    </div>
+<strong>注意</strong>
+<p>此命令可能需要一分鐘以上的時間才能完成。它會以無訊息的方式安裝預設應用程式所需的 gem，在這段期間，可能呈現看似無反應的狀態。</p>
+</div>
 
 2.  將目錄變更為 **blog\_app** 目錄，然後使用下列命令建立基本部落格樣板：
 
@@ -117,11 +109,11 @@
         [2013-03-12 19:11:31] INFO  ruby 1.9.3 (2012-04-20) [x86_64-linux]
         [2013-03-12 19:11:31] INFO  WEBrick::HTTPServer#start: pid=9789 port=3000
 
-2.  開啟瀏覽器，並瀏覽到 http://localhost:3000/。您應該會看到如下所示的頁面：
+2.  開啟瀏覽器，導覽至 <http://localhost:3000/>。您應該會看到如下所示的頁面：
 
     ![預設 rails 頁面][預設 rails 頁面]
 
-    此頁面是靜態的歡迎畫面。若要檢視由樣板命令產生的表單，請瀏覽到 http://localhost:3000/posts。您應該會看到如下所示的頁面：
+    此頁面是靜態的歡迎畫面。若要檢視由樣板命令產生的表單，請瀏覽到 <http://localhost:3000/posts>。您應該會看到如下所示的頁面：
 
     ![列出貼文的頁面][列出貼文的頁面]
 
@@ -132,17 +124,13 @@
 按照[此處][此處]提供的指示建立代管 Linux 的 Azure 虛擬機器。
 
 <div class="dev-callout">
+<strong>注意</strong>
 
-**注意**
-本教學課程的步驟是在裝載 Ubuntu 12.10 的 Azure 虛擬機器上執行。如果您使用不同的 Linux 散發套件，可能需要不同的步驟才能完成相同的工作。
-
-</div>
+<p>本教學課程的步驟是在裝載 Ubuntu 12.10 的 Azure 虛擬機器上執行。如果您使用不同的 Linux 散發套件，可能需要不同的步驟才能完成相同的工作。</p></div>
 
 <div class="dev-callout">
-
-**注意**
-您**只**需要建立虛擬機器。瞭解如何使用 SSH 連線至虛擬機器後停止。
-
+<strong>注意</strong>
+<p>您<strong>只</strong>需要建立虛擬機器。瞭解如何使用 SSH 連線至虛擬機器後停止。</p>
 </div>
 
 建立 Azure 虛擬機器後執行下列步驟，在虛擬機器上安裝 Ruby and Rails：
@@ -156,11 +144,9 @@
         ssh railsdev@railsvm.cloudapp.net -p 61830
 
     <div class="dev-callout">
-
-    **注意**
-    如果您使用 Windows 做為開發環境，您可以使用 **PuTTY** for SSH 功能之類的公用程式。PuTTY 可自 [PuTTY 下載頁面][PuTTY 下載頁面] (英文) 下載取得。
-
-    </div>
+<strong>注意</strong>
+<p>如果您使用 Windows 做為開發環境，您可以使用 <b>PuTTY</b> for SSH 功能之類的公用程式。PuTTY 可自 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY 下載頁面</a> (英文) 下載取得。</p>
+</div>
 
 2.  從 SSH 工作階段中，使用下列命令在 VM 上安裝 Ruby：
 
@@ -191,10 +177,8 @@
     scp -r -P 54822 -C ~/blog_app railsdev@railsvm.cloudapp.net:
 
 <div class="dev-callout">
-
-**注意**
-如果您使用 Windows 做為開發環境，您可以使用 **pscp** for scp 功能之類的公用程式。Pscp 可自 [PuTTY 下載頁面][PuTTY 下載頁面] (英文) 下載取得。
-
+<strong>注意</strong>
+<p>如果您使用 Windows 做為開發環境，您可以使用 <b>pscp</b> for scp 功能之類的公用程式。Pscp 可自 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY 下載頁面</a> (英文) 下載取得。</p>
 </div>
 
 用於此命令的參數有下列效果：
@@ -207,7 +191,7 @@
 
 -   **directory-to-copy**：要複製的本機目錄
 
--   **user@vmdns**：將檔案複製到其中及使用者登入所用的機器位址
+-   <**user@vmdns**>：將檔案複製到其中及使用者登入所用的機器位址
 
 在複製作業後，**blog\_app** 目錄將位在使用者主目錄中。在虛擬機器的 SSH 工作階段中使用下列命令，檢視已複製的檔案：
 
@@ -266,7 +250,7 @@
 
 8.  訊息應該會出現，顯示**更新進行中**。這個訊息消失後，端點便在作用中。您現在可以瀏覽至虛擬機器的 DNS 名稱，測試您的應用程式。網站應如下所示：
 
-    ![預設 rails 頁面][1]
+    ![預設 rails 頁面][2]
 
     將 **/posts** 附加到 URL 之後應該會顯示樣板命令所產生的頁面。
 
@@ -288,7 +272,9 @@
 
 -   [使用內容傳遞網路提供高頻寬內容][使用內容傳遞網路提供高頻寬內容]
 
-<!-- WA.com links --> <!-- External Links --> <!-- Images -->
+<!-- WA.com links --> 
+<!-- External Links --> 
+<!-- Images -->
 
   [顯示列出貼文的瀏覽器]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilscloud.png
   [設定開發環境]: #setup
@@ -299,18 +285,19 @@
   [安裝 gem 並啟動應用程式]: #start
   [後續步驟]: #next
   [Homebrew]: http://brew.sh/
+  []: https://github.com/sstephenson/rbenv/
   [RailsInstaller]: http://railsinstaller.org/
+  [1]: https://github.com/sstephenson/execjs#readme
   [Node.js]: http://nodejs.org/
   [SQLite3 Database]: http://www.sqlite.org/
   [預設 rails 頁面]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailslocal.png
   [列出貼文的頁面]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilslocal.png
   [此處]: /zh-tw/documentation/articles/virtual-machines-linux-tutorial
-  [PuTTY 下載頁面]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
   [Azure 管理入口網站]: https://manage.windowsazure.com/
   [虛擬機器清單]: ./media/virtual-machines-ruby-rails-web-app-linux/vmlist.png
   [端點頁面]: ./media/virtual-machines-ruby-rails-web-app-linux/endpoints.png
   [新節點對話方塊]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
-  [1]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailscloud.png
+  [2]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailscloud.png
   [現代化商務的雲端]: /zh-tw/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
   [Ruby on Rails 指南]: http://guides.rubyonrails.org/
   [使用 Blob 儲存非結構化資料]: /zh-tw/documentation/articles/storage-ruby-how-to-use-blob-storage

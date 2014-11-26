@@ -157,7 +157,7 @@
 
 在下一個教學課程[行動服務中使用 AAD 的角色型存取控制][行動服務中使用 AAD 的角色型存取控制]中，您將會搭配使用角色型存取控制與 Azure Active Directory (AAD) 來檢查群組成員資格，然後允許存取。
 
-<!-- Anchors. --> <!-- Images --> <!-- URLs. -->
+ <!-- Images --> 
 
   [圖形用戶端程式庫]: http://go.microsoft.com/fwlink/?LinkId=510536
   [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
@@ -167,8 +167,5 @@
   [測試應用程式]: #test-app
   [自訂 API 教學課程]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
   [註冊使用 Azure Active Directory 登入]: /zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [Azure 管理入口網站]: https://manage.windowsazure.com/
-  [mobile-services-aad-graph-info-update-app]: ../includes/mobile-services-aad-graph-info-update-app.md
-  [mobile-services-aad-graph-info-test-app]: ../includes/mobile-services-aad-graph-info-test-app.md
   [行動服務中使用 AAD 的角色型存取控制]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/

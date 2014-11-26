@@ -13,6 +13,6 @@
 
 了解如何使用 Active Directory 與 Chris Risner 的[存取受到 iOS 和 Android 的 Azure Active Directory 保護的資源][存取受到 iOS 和 Android 的 Azure Active Directory 保護的資源]教學課程，來驗證您的應用程式及存取資源。
 
-<!-- URLs. -->
+
 
   [存取受到 iOS 和 Android 的 Azure Active Directory 保護的資源]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android

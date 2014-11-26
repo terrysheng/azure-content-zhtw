@@ -1,6 +1,6 @@
 <properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Analyzing Customer Churn using Microsoft Machine Learning | Azure" description="Case study of developing an integrated model for analyzing and scoring customer churn" metaKeywords="" services="" solutions="" documentationCenter="" authors="barga" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="barga"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="barga" />
 
 # 使用 Microsoft Azure Machine Learning 分析客戶流失
 
@@ -24,7 +24,7 @@
 2.  介入模型讓您考量介入程度如何影響客戶流失機率和顧客終身價值 (CLV) 的數量。
 3.  此分析會形成定性分析，再逐步發展成以客戶族群為目標的積極行銷活動，以提供最佳服務。
 
-![][]
+![][0]
 
 這種前瞻性作法是解決客戶流失最好的方式，但有其複雜性：我們必須開發一套雙模型原型，並追蹤模型之間的相依性。模型之間的互動可封裝起來，如下圖所示：
 
@@ -215,7 +215,7 @@ Azure Cloud ML 中另一項吸引人的功能是已經可以將自訂模組加�
 
 *圖 12 客戶流失原型的簡報擷取畫面*
 
-  []: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
+  [0]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
   [1]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-2.png
   [2]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-3.png
   [3]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-4.png

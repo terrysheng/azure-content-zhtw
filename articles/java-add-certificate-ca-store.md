@@ -1,6 +1,6 @@
 <properties linkid="develop-java-how-to-add-a-certificate" urlDisplayName="Add a Cert to the CA Store" pageTitle="Add a certificate to the Java CA store - Azure" metaKeywords="Azure Twilio Java, Twilio Java Certificate, Azure Service Bus Certificate" description="Learn how to add a certificate authority (CA) certificate to the Java CA certificate (cacerts) store for Twilio service or Azure Service Bus." metaCanonical="" services="" documentationCenter="Java" title="Adding a Certificate to the Java CA Certificates Store" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # 新增憑證至 Java CA 憑證存放區
 
@@ -16,7 +16,7 @@
 
     系統會提示您輸入存放區密碼。預設密碼為 **changeit**。(若要變更密碼，請參閱 keytool 文件，網址為 <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>。)這個範例假設 MD5 指紋為 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 的憑證未列在其中，而您想要將它匯入 (Twilio API service 需要這個特定的憑證)。
 
-2.  從 [GeoTrust 根憑證][] (英文)列出的憑證清單取得憑證。以滑鼠右鍵按一下序號為 35:DE:F4:CF 之憑證的連結，將它儲存到 **jdk\\jre\\lib\\security** 資料夾中。基於本範例的目的，它是儲存成名為 **Equifax\_Secure\_Certificate\_Authority.cer** 的檔案。
+2.  從 [GeoTrust 根憑證][GeoTrust 根憑證] (英文)列出的憑證清單取得憑證。以滑鼠右鍵按一下序號為 35:DE:F4:CF 之憑證的連結，將它儲存到 **jdk\\jre\\lib\\security** 資料夾中。基於本範例的目的，它是儲存成名為 **Equifax\_Secure\_Certificate\_Authority.cer** 的檔案。
 3.  透過下列命令匯入憑證：
 
     `keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer`
@@ -39,7 +39,7 @@ Baltimore 憑證可能已經安裝於您的 cacerts 存放區，因此請記得�
 
 如果您需要新增 Baltimore CyberTrust 根憑證，它的序號是 02:00:00:b9、 SHA1 指紋是 d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74。從 <https://cacert.omniroot.com/bc2025.crt> 下載它並儲存到副檔名為 **.cer** 的本機檔案，然後使用 **keytool** 匯入，如上文所述。
 
-如需 Azure 所用根憑證的詳細資訊，請參閱 [Windows Azure 根憑證移轉][] (英文)。
+如需 Azure 所用根憑證的詳細資訊，請參閱 [Windows Azure 根憑證移轉][Windows Azure 根憑證移轉] (英文)。
 
   [GeoTrust 根憑證]: http://www.geotrust.com/resources/root-certificates/
   [Windows Azure 根憑證移轉]: http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx

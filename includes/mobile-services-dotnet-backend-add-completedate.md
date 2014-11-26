@@ -1,10 +1,10 @@
-在本節中，我們將新增名為 **CompleteDate** 的新時間戳記欄位來修改資料庫的模型。此欄位將記錄前次完成的 Todo 項目時間。Entity Framework 將使用從 [DropCreateDatabaseIfModelChanges][] 衍生的預設資料庫初始設定式類別，根據我們的模型變更來更新資料庫。
+在本節中，我們將新增名為 **CompleteDate** 的新時間戳記欄位來修改資料庫的模型。此欄位將記錄前次完成的 Todo 項目時間。Entity Framework 將使用從 [DropCreateDatabaseIfModelChanges][DropCreateDatabaseIfModelChanges] 衍生的預設資料庫初始設定式類別，根據我們的模型變更來更新資料庫。
 
 1.  在 Visual Studio 的 [方案總管] 中，展開 todolist 服務專案中的 **App\_Start** 資料夾。開啟 WebApiConfig.cs 檔案。
 
 2.  在 WebApiConfig.cs 檔案中，注意您的預設資料庫初始設定式類別是衍生自 `DropCreateDatabaseIfModelChanges` 類別。這意味對模型的任何變更都會導致資料表捨棄，並重新建立以容納新模型。因此資料表的資料將流失，並且將重新植入資料表。修改資料庫初始設定式的 Seed 方法，以便如下所示將種子資料儲存至 WebApiConfig.cs 檔案。
 
-    > [WACOM.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型][] (英文)。
+    > [WACOM.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型][如何使用 Code First Migrations 更新資料模型] (英文)。
 
         List<TodoItem> todoItems = new List<TodoItem>
         {

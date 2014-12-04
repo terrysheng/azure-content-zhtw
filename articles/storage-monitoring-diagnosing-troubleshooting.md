@@ -129,7 +129,7 @@ Azure 入口網站同時可提供會影響各種 Azure 服務的事件通知。
 
 您應該監視儲存體帳戶中的儲存體服務可用性，方法是監視每小時或每分鐘度量表內的 [可用性] 資料欄，亦即 **$MetricsHourPrimaryTransactionsBlob**、**$MetricsHourPrimaryTransactionsTable**、**$MetricsHourPrimaryTransactionsQueue**、**$MetricsMinutePrimaryTransactionsBlob**、**$MetricsMinutePrimaryTransactionsTable**、**$MetricsMinutePrimaryTransactionsQueue**、**$MetricsCapacityBlob**。[可用性] 資料欄內含的百分比值代表服務的可用性，或是由資料列所代表的 API 操作 (如果資料列內含整體服務度量或是特定 API 操作度量，則會顯示 **RowKey**)。
 
-任何小於 100% 的值，皆表示某些儲存體要求已經失敗。您可以檢視度量資料裡的其他資料欄，查看裡面帶有各種錯誤類型 (例如 **ServerTimeoutError**) 的要求數量，以了解這些要求失敗的原因。當暫時性伺服器逾時狀態出現，以致於服務移動資料分割以便提供更佳的負載平衡要求時，您應該會看到 [可用性] 百分比暫時低於 100%；用戶端應用程式裡的重試邏輯應該會處理此類間歇性狀況。[][] 頁面會列出儲存體度量納入其 [可用性] 計算中的交易類型。
+任何小於 100% 的值，皆表示某些儲存體要求已經失敗。您可以檢視度量資料裡的其他資料欄，查看裡面帶有各種錯誤類型 (例如 **ServerTimeoutError**) 的要求數量，以了解這些要求失敗的原因。當暫時性伺服器逾時狀態出現，以致於服務移動資料分割以便提供更佳的負載平衡要求時，您應該會看到 [可用性] 百分比暫時低於 100%；用戶端應用程式裡的重試邏輯應該會處理此類間歇性狀況。<a href="http://msdn.microsoft.com/zh-tw/library/azure/hh343260.aspx" target="_blank"></a> 頁面會列出儲存體度量納入其 [可用性] 計算中的交易類型。
 
 在 Azure 入口網站中，您可以在儲存體帳戶的 [監視] 頁面上新增警示規則，以便在某項服務的 [可用性] 低於您指定的閥值時通知您。
 
@@ -452,22 +452,143 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 如果您的用戶端應用程式擲回 HTTP 403 (禁止) 錯誤，則可能是因為用戶端在傳送儲存體要求時使用過期的共用存取簽章 (SAS) (但也可能是時鐘誤差、無效的金鑰與空白標頭引起)。如果原因出在 SAS 金鑰過期，那麼您將無法在伺服器端的儲存體記錄資料中看到任何項目。下列資料表以儲存體用戶端程式庫所產生的用戶端記錄為例，說明此問題的原因：
 
-|--------------------------------|--------------|--------------|-------------------|--------------------------------------------------------------------------------------------------|
-| **來源**                       | **詳細程度** | **詳細程度** | **用戶端要求 ID** | **作業內容**                                                                                     |
-| Microsoft.WindowsAzure.Storage | 資訊         | 3            | 85d077ab -…       | 從主要位置開始作業 (依據位置模式 PrimaryOnly)。                                                  |
-| Microsoft.WindowsAzure.Storage | 資訊         | 3            | 85d077ab -…       | 開始將要求同步至 https://domemaildist.blob.core.windows.netazure                                 
-                                                                                    imblobcontainer/blobCreatedViaSAS.txt?                                                            
-                                                                                    sv=2014-02-14&sr=c&si=mypolicy                                                                    
-                                                                                    &sig=OFnd4Rd7z01fIvh%                                                                             
-                                                                                    2BmcR6zbudIH2F5Ikm%                                                                               
-                                                                                    2FyhNYZEmJNQ%3D&api-version=2014-02-14.                                                           |
-| Microsoft.WindowsAzure.Storage | 資訊         | 3            | 85d077ab -…       |  等候回應。                                                                                      |
-| Microsoft.WindowsAzure.Storage | 警告         | 2            | 85d077ab -…       |  等候回應時擲回例外:遠端伺服器傳回錯誤:(403) 禁止..                                              |
-| Microsoft.WindowsAzure.Storage | 資訊         | 3            | 85d077ab -…       |  收到回應。狀態碼 = 403，要求 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d，Content-MD5 =，ETag = . |
-| Microsoft.WindowsAzure.Storage | 警告         | 2            | 85d077ab -…       |  作業期間擲回例外:遠端伺服器傳回錯誤:(403) 禁止..                                                |
-| Microsoft.WindowsAzure.Storage | 資訊         | 3            | 85d077ab -…       | 檢查是否應該重試作業。重試計數 = 0，HTTP 狀態碼 = 403，例外 = 遠端伺服器傳回錯誤:(403) 禁止..    |
-| Microsoft.WindowsAzure.Storage | 資訊         | 3            | 85d077ab -…       | 以下位置已經設為「主要」(依據位置模式)。                                                         |
-| Microsoft.WindowsAzure.Storage | 錯誤         | 1            | 85d077ab -…       | 重試原則不允許重試。出現「遠端伺服器傳回錯誤:」錯誤(403) 禁止。                                  |
+<table>
+ <tr>
+    <td><b>來源</b></td>
+    <td><b>詳細程度</b></td>
+    <td><b>詳細程度</b></td>
+    <td><b>用戶端要求 ID</b></td>
+    <td><b>作業內容</b></td>
+ </tr>
+ <tr>
+    <td>Microsoft.WindowsAzure.Storage</td>
+    <td>資訊</td>
+        <td>3</td>
+    <td>85d077ab-…</td>
+    <td>從主要位置開始作業 (依據位置模式 PrimaryOnly)。</td>
+ </tr>
+ <tr>
+    <td>Microsoft.WindowsAzure.Storage</td>
+    <td>資訊</td>
+        <td>3</td>
+    <td>85d077ab -…</td>
+    <td>開始將要求同步至 
+https://domemaildist.blob.core.windows.netazure<br>imblobcontainer/blobCreatedViaSAS.txt?
+	    <br>sv=2014-02-14&amp;sr=c&amp;si=mypolicy
+	    <br>&amp;sig=OFnd4Rd7z01fIvh%
+	    <br>2BmcR6zbudIH2F5Ikm%
+	    <br>2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14.</td>
+ </tr>
+ <tr>
+    <td>Microsoft.WindowsAzure.Storage</td>
+    <td>資訊</td>
+    <td>3</td>
+    <td>85d077ab -…</td>
+    <td>等候回應。</td>
+ </tr>
+ <tr>
+  <td>
+Microsoft.WindowsAzure.Storage 
+  </td>
+  <td>
+警告 
+  </td>
+  <td>
+  2 
+  </td>
+  <td>
+85d077ab -… 
+  </td>
+  <td>
+等候回應時擲回例外:遠端伺服器傳回錯誤:(403) 禁止.. 
+  </td>
+ </tr>
+ <tr>
+  <td>
+Microsoft.WindowsAzure.Storage 
+  </td>
+  <td>
+資訊 
+  </td>
+  <td>
+  3 
+  </td>
+  <td>
+85d077ab -… 
+  </td>
+  <td>
+收到回應。狀態碼 = 403，要求 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d，Content-MD5 =，ETag = . 
+  </td>
+ </tr>
+ <tr>
+  <td>
+  Microsoft.WindowsAzure.Storage 
+  </td>
+  <td>
+  警告 
+  </td>
+  <td>
+  2 
+  </td>
+  <td>
+  85d077ab -… 
+  </td>
+  <td>
+  作業期間擲回例外:遠端伺服器傳回錯誤:(403) 禁止.. 
+  </td>
+ </tr>
+ <tr>
+  <td>
+  Microsoft.WindowsAzure.Storage 
+  </td>
+  <td>
+  資訊 
+  </td>
+  <td>
+  3 
+  </td>
+  <td>
+  85d077ab -… 
+  </td>
+  <td>
+  檢查是否應該重試作業。重試計數 = 0，HTTP 狀態碼 = 403，例外 = 遠端伺服器傳回錯誤:(403) 禁止.. 
+  </td>
+ </tr>
+ <tr>
+  <td>
+  Microsoft.WindowsAzure.Storage 
+  </td>
+  <td>
+  資訊 
+  </td>
+  <td>
+  3 
+  </td>
+  <td>
+  85d077ab -… 
+  </td>
+  <td>
+  以下位置已經設為「主要」(依據位置模式)。 
+  </td>
+ </tr>
+ <tr>
+  <td>
+  Microsoft.WindowsAzure.Storage 
+  </td>
+  <td>
+  錯誤 
+  </td>
+  <td>
+  1 
+  </td>
+  <td>
+  85d077ab -… 
+  </td>
+  <td>
+  重試原則不允許重試。出現「遠端伺服器傳回錯誤:」錯誤(403) 禁止。 
+  </td>
+ </tr>
+</table>
 
 在此案例中，您應該調查 SAS 權杖為何在用戶端將權杖傳送給伺服器之前到期：
 
@@ -497,54 +618,207 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 下列由儲存體用戶端程式庫所產生的用戶端記錄，說明了當用戶端找不到 Blob 所建立的容器時的問題。此記錄內含下列儲存體作業的詳細資料：
 
-|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **要求 ID**  | **作業**                                                                                                                                                          |
-| 07b26a5d-... | **DeleteIfExists** 方法用於刪除 Blob 容器。請注意，此作業內含 **HEAD** 要求，可檢查容器是否存在。                                                                 |
-| e2d06d78…    | **CreateIfNotExists** 方法用於建立 Blob 容器。請注意，此作業內含 **HEAD** 要求，可檢查容器是否存在。Auch die Eigenschaften **HEAD** 傳回 404 訊息，但會持續作業。 |
-| de8b1c3c-... | **UploadFromStream** 方法用於建立 Blob。Auch die Eigenschaften **PUT** 要求失敗，並顯示 404 訊息                                                                  |
+<table>
+  <tr>
+        <td>
+      <b>要求 ID</b>
+    </td>
+        <td>
+      <b>作業</b>
+    </td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+        <td>
+      <b>DeleteIfExists</b> 方法用於刪除 Blob 容器。請注意，此作業內含 
+      <b>HEAD</b> 要求，可檢查容器是否存在。</td>
+  </tr>
+  <tr>
+    <td>e2d06d78…</td>
+        <td>
+      <b>CreateIfNotExists</b> 方法用於建立 Blob 容器。請注意，此作業內含 
+      <b>HEAD</b> 要求，可檢查容器是否存在。Auch die Eigenschaften 
+      <b>HEAD</b> 傳回 404 訊息，但會持續作業。</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+        <td>
+      <b>UploadFromStream</b> 方法用於建立 Blob。Auch die Eigenschaften 
+      <b>PUT</b> 要求失敗，並顯示 404 訊息</td>
+  </tr>
+</table>
 
 記錄項目：
 
-|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **要求 ID**  | **作業內容**                                                                                                                                                                                                                              |
-| 07b26a5d-... |  開始將要求同步至 https://domemaildist.blob.core.windows.net/azuremmblobcontainer。                                                                                                                                                       |
-| 07b26a5d-... |  StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.                                                 |
-| 07b26a5d-... |  等候回應。                                                                                                                                                                                                                               |
-| 07b26a5d-... |  收到回應。狀態碼 = 200，要求 ID = eeead849-...Content-MD5 = ，ETag = "0x8D14D2DC63D059B".                                                                                                                                                |
-| 07b26a5d-... |  回應標頭已成功處理完畢，並繼續剩下的作業。                                                                                                                                                                                               |
-| 07b26a5d-... |  正在下載回應內文。                                                                                                                                                                                                                       |
-| 07b26a5d-... |  作業順利完成。                                                                                                                                                                                                                           |
-| 07b26a5d-... |  開始將要求同步至 https://domemaildist.blob.core.windows.net/azuremmblobcontainer。                                                                                                                                                       |
-| 07b26a5d-... |  StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.                                               |
-| 07b26a5d-... |  等候回應。                                                                                                                                                                                                                               |
-| 07b26a5d-... |  收到回應。狀態碼 = 202，要求 ID = 6ab2a4cf-...，Content-MD5 = ，ETag = .                                                                                                                                                                 |
-| 07b26a5d-... |  回應標頭已成功處理完畢，並繼續剩下的作業。                                                                                                                                                                                               |
-| 07b26a5d-... |  正在下載回應內文。                                                                                                                                                                                                                       |
-| 07b26a5d-... |  作業順利完成。                                                                                                                                                                                                                           |
-| e2d06d78-... |  開始將要求同步至 https://domemaildist.blob.core.windows.net/azuremmblobcontainer。                                                                                                                                                       |
-| e2d06d78-... |  StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.                                                 |
-| e2d06d78-... |  等候回應。                                                                                                                                                                                                                               |
-| de8b1c3c-... |  開始將要求同步至 https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt。                                                                                                                                       |
-| de8b1c3c-... |  StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
-| de8b1c3c-... |  正在準備寫入要求資料。                                                                                                                                                                                                                   |
-| e2d06d78-... |  等候回應時擲回例外:遠端伺服器傳回錯誤:(404) 找不到..                                                                                                                                                                                     |
-| e2d06d78-... |  收到回應。狀態碼 = 404，要求 ID = 353ae3bc-...，Content-MD5 = ，ETag = .                                                                                                                                                                 |
-| e2d06d78-... |  回應標頭已成功處理完畢，並繼續剩下的作業。                                                                                                                                                                                               |
-| e2d06d78-... |  正在下載回應內文。                                                                                                                                                                                                                       |
-| e2d06d78-... |  作業順利完成。                                                                                                                                                                                                                           |
-| e2d06d78-... |  開始將要求同步至 https://domemaildist.blob.core.windows.net/azuremmblobcontainer。                                                                                                                                                       |
-| e2d06d78-... |  StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.                                                 |
-| e2d06d78-... |  等候回應。                                                                                                                                                                                                                               |
-| de8b1c3c-... |  正在寫入要求資料。                                                                                                                                                                                                                       |
-| de8b1c3c-... |  等候回應。                                                                                                                                                                                                                               |
-| e2d06d78-... |  等候回應時擲回例外:遠端伺服器傳回錯誤:(409) 衝突..                                                                                                                                                                                       |
-| e2d06d78-... |  收到回應。狀態碼 = 409，要求 ID = c27da20e-...，Content-MD5 = ，ETag = .                                                                                                                                                                 |
-| e2d06d78-... |  正在下載錯誤回應內文。                                                                                                                                                                                                                   |
-| de8b1c3c-... |  等候回應時擲回例外:遠端伺服器傳回錯誤:(404) 找不到..                                                                                                                                                                                     |
-| de8b1c3c-... |  收到回應。狀態碼 = 404，回應 ID = 0eaeab3e-...，Content-MD5 = ，ETag = .                                                                                                                                                                 |
-| de8b1c3c-... |  作業期間擲回例外:遠端伺服器傳回錯誤:(404) 找不到..                                                                                                                                                                                       |
-| de8b1c3c-... | 重試原則不允許重試。出現「遠端伺服器傳回錯誤:」錯誤(404) 找不到..                                                                                                                                                                         |
-| e2d06d78-... | 重試原則不允許重試。出現「遠端伺服器傳回錯誤:」錯誤(409) 衝突..                                                                                                                                                                           |
+<table>
+  <tr>
+    <td>
+      <b>要求 ID</b>
+    </td>
+    <td>
+      <b>作業內容</b>
+    </td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;開始將要求同步至 https://domemaildist.blob.core.windows.net/azuremmblobcontainer。</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11
+    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;等候回應。</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;收到回應。狀態碼 = 200，要求 ID = eeead849-...Content-MD5 = ，ETag =
+&quot;0x8D14D2DC63D059B&quot;.</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;回應標頭已成功處理完畢，並繼續剩下的作業。</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;正在下載回應內文。</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;作業順利完成。</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;開始將要求同步至 https://domemaildist.blob.core.windows.net/azuremmblobcontainer。</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12
+GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;等候回應。</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;收到回應。狀態碼 = 202，要求 ID = 6ab2a4cf-...，Content-MD5 = ，ETag = .</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;回應標頭已成功處理完畢，並繼續剩下的作業。</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;正在下載回應內文。</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;作業順利完成。</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;開始將要求同步至 https://domemaildist.blob.core.windows.net/azuremmblobcontainer。</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12
+GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;等候回應。</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;開始將要求同步至 https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt。</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;StringToSign =
+PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun
+2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt.</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;正在準備寫入要求資料。</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;等候回應時擲回例外:遠端伺服器傳回錯誤:(404) 找不到..</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;收到回應。狀態碼 = 404，要求 ID = 353ae3bc-...，Content-MD5 = ，ETag = .</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;回應標頭已成功處理完畢，並繼續剩下的作業。</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;正在下載回應內文。</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;作業順利完成。</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;開始將要求同步至 https://domemaildist.blob.core.windows.net/azuremmblobcontainer。</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12
+GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;等候回應。</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;正在寫入要求資料。</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;等候回應。</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;等候回應時擲回例外:遠端伺服器傳回錯誤:(409) 衝突..</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;收到回應。狀態碼 = 409，要求 ID = c27da20e-...，Content-MD5 = ，ETag = .</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;正在下載錯誤回應內文。</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;等候回應時擲回例外:遠端伺服器傳回錯誤:(404) 找不到..</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;收到回應。狀態碼 = 404，回應 ID = 0eaeab3e-...，Content-MD5 = ，ETag = .</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;作業期間擲回例外:遠端伺服器傳回錯誤:(404) 找不到..</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>重試原則不允許重試。出現「遠端伺服器傳回錯誤:」錯誤(404) 找不到..</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>重試原則不允許重試。出現「遠端伺服器傳回錯誤:」錯誤(409) 衝突..</td>
+  </tr>
+</table>
 
 在此範例中，記錄顯示用戶端正將來自 **UploadFromStream** 方法的要求 (de8b1c3c-...) 穿插到來自 **CreateIfNotExists** 方法 (要求 ID e2d06d78…) 的要求；而這種現象是因為用戶端應用程式正以非同步方式叫用這些方法所致。您應該修改用戶端裡的非同步程式碼，確保該程式碼在嘗試將任何資料上傳至容器的 Blob 之前，先建立該容器。理想的情況是，您應該事先建立所有容器。
 
@@ -554,16 +828,45 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 下列資料表顯示來自儲存體記錄檔案的伺服器端記錄訊息範例：
 
-|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 要求開始時間  | 2014-05-30T06:17:48.4473697Z                                                                                                                           |
-| 作業類型      | GetBlobProperties                                                                                                                                      |
-| 要求狀態      | SASAuthorizationError                                                                                                                                  |
-| HTTP 狀態碼   | 404                                                                                                                                                    |
-| 驗證類型      | Sas                                                                                                                                                    |
-| 服務類型      | Blob                                                                                                                                                   |
-| 要求 URL      | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&api-version=2014-02-14& |
-| 要求 ID 標頭  | a1f348d5-8032-4912-93ef-b393e5252a3b                                                                                                                   |
-| 用戶端要求 ID | 2d064953-8436-4ee0-aa0c-65cb874f7929                                                                                                                   |
+<table>
+  <tr>
+    <td>要求開始時間</td>
+    <td>2014-05-30T06:17:48.4473697Z</td>
+  </tr>
+  <tr>
+    <td>作業類型</td>
+    <td>GetBlobProperties</td>
+  </tr>
+  <tr>
+    <td>要求狀態</td>
+    <td>SASAuthorizationError</td>
+  </tr>
+  <tr>
+    <td>HTTP 狀態碼</td>
+    <td>404</td>
+  </tr>
+  <tr>
+    <td>驗證類型</td>
+    <td>Sas</td>
+  </tr>
+  <tr>
+    <td>服務類型</td>
+    <td>Blob</td>
+  </tr>
+  <tr>
+    <td>要求 URL</td>
+    <td>
+https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=XXXXX&amp;api-version=2014-02-14&amp;</td>
+  </tr>
+  <tr>
+    <td>要求 ID 標頭</td>
+    <td>a1f348d5-8032-4912-93ef-b393e5252a3b</td>
+  </tr>
+  <tr>
+    <td>用戶端要求 ID</td>
+    <td>2d064953-8436-4ee0-aa0c-65cb874f7929</td>
+  </tr>
+</table>
 
 您應該調查為何您的用戶端應用程式會嘗試執行無執行權限的作業。
 
@@ -612,12 +915,53 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 下表顯示來自伺服器端記錄的兩項用戶端作業摘要：**DeleteIfExists** 隨後緊接 **CreateIfNotExists** (使用相同的 Blob 容器名稱)。請注意，每個用戶端作業都會導致兩個要求傳送至伺服器，首先傳送的 **GetContainerProperties** 要求會檢查該容器是否存在，緊接著會傳送 **DeleteContainer** 或 **CreateContainer** 要求。
 
-|------------------|------------------------|----------|--------------|-------------------|
-| **Timestamp**    | **作業**               | **結果** | **容器名稱** | **用戶端要求 ID** |
-| 05:10:13.7167225 | GetContainerProperties | 200      | mmcont       | c9f52c89-…        |
-| 05:10:13.8167325 | DeleteContainer        | 202      | mmcont       | c9f52c89-…        |
-| 05:10:13.8987407 | GetContainerProperties | 404      | mmcont       | bc881924-…        |
-| 05:10:14.2147723 | CreateContainer        | 409      | mmcont       | bc881924-…        |
+<table>
+  <tr>
+    <td>
+      <b>Timestamp</b>
+    </td>
+    <td>
+      <b>作業</b>
+    </td>
+    <td>
+      <b>結果</b>
+    </td>
+    <td>
+      <b>容器名稱</b>
+    </td>
+    <td>
+      <b>用戶端要求 ID</b>
+    </td>
+  </tr>
+  <tr>
+    <td>05:10:13.7167225</td>
+    <td>GetContainerProperties</td>
+    <td>200</td>
+    <td>mmcont</td>
+    <td>c9f52c89-…</td>
+  </tr>
+  <tr>
+    <td>05:10:13.8167325</td>
+    <td>DeleteContainer</td>
+    <td>202</td>
+    <td>mmcont</td>
+    <td>c9f52c89-…</td>
+  </tr>
+  <tr>
+    <td>05:10:13.8987407</td>
+    <td>GetContainerProperties</td>
+    <td>404</td>
+    <td>mmcont</td>
+    <td>bc881924-…</td>
+  </tr>
+  <tr>
+    <td>05:10:14.2147723</td>
+    <td>CreateContainer</td>
+    <td>409</td>
+    <td>mmcont</td>
+    <td>bc881924-…</td>
+  </tr>
+</table>
 
 用戶端應用程式裡的程式碼會刪除 Blob 容器，接著使用相同名稱立即重新建立一個 Blob 容器：**CreateIfNotExists** 方法 (用戶端要求 ID bc881924-…) 最終會失敗，並出現 HTTP 409 (衝突) 錯誤。當用戶端刪除 Blob 容器、資料表或佇列時，需要等候簡短時間，才能使該名稱再度生效。
 
@@ -805,7 +1149,6 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 
 本文撰寫期間，Application Insights 已經進入預覽階段。您可以在以下位置找到詳細資訊：[MSDN 上的 Application Insights for Visual Studio Online][MSDN 上的 Application Insights for Visual Studio Online].(英文)。
 
-<!--Anchors-->\r\n<!--Image references-->
 
   [簡介]: #introduction
   [本指南架構]: #how-this-guide-is-organized

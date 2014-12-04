@@ -649,29 +649,29 @@ Azure 儲存體支援兩種 Blob 類型：*分頁* Blob 和*區塊* Blob。在�
 
 ## 佇列
 
-### <a name="subheading39&quot;"></a>Scalability Limits
+### <a name="subheading39&quot;"></a>延展性限制
 
-A single queue can process approximately 2,000 messages (1KB each) per second (each AddMessage, GetMessage, and DeleteMessage count as a message here). If this is insufficient for your application, you should use multiple queues and spread the messages across them.
+單一佇列每秒可處理大約2,000 個訊息 (每個大小 1KB，每個 AddMessage、GetMessage 和 DeleteMessage 在這裡都算訊息)。如果這樣的速度對您的應用程式來說效率不高，您應該使用多個佇列並在將訊息散發到這些佇列中。
 
-You can view the current scalability targets on the page [Azure Storage Scalability and Performance Targets][延展性目標頁面] on MSDN.
+您可以在頁面上檢視目前的延展性目標 [Azure 儲存體延展性和效能目標][延展性目標頁面]。
 
 ### <a name="subheading40&quot;"></a>關閉 Nagle
 
 請參閱討論 Nagle 演算法的資料表組態一節 — Nagle 演算法通常對佇列要求的效能有負面影響，您應將它停用。
 
-### <a name="subheading41&quot;"></a>Message Size
+### <a name="subheading41&quot;"></a>訊息大小
 
-Queue performance and scalability decreases as message size increases. You should place only the information the receiver needs in a message.
+當訊息大小增加時，會降低佇列效能和延展性。請只在訊息中增加接收者需要的內容。
 
 ### <a name="subheading42&quot;"></a>批次擷取
 
 您可以在單一作業中，從佇列擷取高達 32 則的訊息。這可降低與用戶端應用程式之間反覆存取的次數，這在具有高延遲的環境 (例如行動裝置) 中特別有用。
 
-### <a name="subheading43&quot;"></a>Queue Polling Interval
+### <a name="subheading43&quot;"></a>佇列輪詢間隔
 
-Most applications poll for messages from a queue, which can be one of the largest sources of transactions for that application. Select your polling interval wisely: polling too frequently could cause your application to approach the scalability targets for the queue. However, at 200,000 transactions for $0.01 (at the time of writing), a single processor polling once every second for a month would cost less than 15 cents so cost is not typically a factor that affects your choice of polling interval.
+大部分應用程式會從佇列輪詢訊息，佇列可能是應用程式最大的交易來源之一。請慎選您的輪詢間隔：太常輪詢可能會讓應用程式接近延展性目標。不過，若是 200,000 筆交易收費 $0.01 (在寫入時)，為期一個月的每秒單一處理器輪詢成本可能會少於 15 美元；因此，成本並不是會影響您選擇輪詢間隔時的唯一因素。
 
-For up to date cost information, see [Storage Pricing Details][Storage Pricing Details].
+如需最新的價格資訊，請參閱 [儲存體定價詳細資料][Storage Pricing Details].
 
 ### <a name="subheading44&quot;"></a>UpdateMessage
 

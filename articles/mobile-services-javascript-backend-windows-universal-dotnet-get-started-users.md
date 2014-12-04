@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with authentication (Windows Store) | Mobile Dev Center" metaKeywords="authentication, Facebook, Google, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/18/2014" ms.author="Glenn="" Gailey" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/18/2014" ms.author="Glenn Gailey" />
 
 # 在行動服務中開始使用驗證
 
@@ -28,7 +28,7 @@
 1.  (選用) 完成[註冊 Windows 市集應用程式套件以採用 Microsoft 驗證][註冊 Windows 市集應用程式套件以採用 Microsoft 驗證]中的步驟。
 
     <div class="dev-callout"><b>注意</b>
-<p>這個步驟僅適用於「Microsoft 帳戶」登入提供者，所以是選用步驟。向行動服務註冊 Windows 市集應用程式封裝資訊之後，用戶端就能夠重複使用 Microsoft 帳戶登入認證來享受單一登入的方便性。如果您沒有執行此動作，Microsoft 帳戶登入使用者會在每次呼叫登入方法時j都會看到登入提示。若您打算使用「Microsoft 帳戶」身分識別提供者，請完成這個步驟。</p>
+    <p>這個步驟僅適用於「Microsoft 帳戶」登入提供者，所以是選用步驟。向行動服務註冊 Windows 市集應用程式封裝資訊之後，用戶端就能夠重複使用 Microsoft 帳戶登入認證來享受單一登入的方便性。如果您沒有執行此動作，Microsoft 帳戶登入使用者會在每次呼叫登入方法時j都會看到登入提示。若您打算使用「Microsoft 帳戶」身分識別提供者，請完成這個步驟。</p>
     </div>
 
 ## <a name="permissions"></a> 限制只有經驗證的使用者具有權限
@@ -39,7 +39,8 @@
 
 2.  在共用專案中，開啟 App.xaml.cs 專案檔案並找到 [MobileServiceClient][MobileServiceClient] 的定義，然後確保該定義已設定為連接至 Azure 中執行的行動服務。
 
-    <div class="dev-callout"><strong>注意</strong><p>當您使用 Visual Studio 工具將您的應用程式連接到行動服務時，此工具會分別針對個別用戶端平台需要產生共兩組 <strong>MobileServiceClient</strong> 定義。這時您可以順勢將使用 <code data-inline="1">#if...#endif</code> 包裝的 <strong>MobileServiceClient</strong> 定義統一至單一未包裝的定義以供這兩個應用程式版本使用，藉此簡化產生的程式碼。</p></div>
+    <div class="dev-callout"><strong>注意</strong>
+    <p>當您使用 Visual Studio 工具將您的應用程式連接到行動服務時，此工具會分別針對個別用戶端平台需要產生共兩組 <strong>MobileServiceClient</strong> 定義。這時您可以順勢將使用 <code data-inline="1">#if...#endif</code> 包裝的 <strong>MobileServiceClient</strong> 定義統一至單一未包裝的定義以供這兩個應用程式版本使用，藉此簡化產生的程式碼。</p></div>
 
 3.  按 F5 鍵執行 Windows 市集應用程式；確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。
 

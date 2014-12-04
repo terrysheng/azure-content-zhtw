@@ -306,13 +306,13 @@
   [在管理入口網站中監控及管理網站]: #monitor-and-manage-the-site-in-the-management-portal
   [後續步驟]: #next-steps
   [MVC 和 Web Form]: http://www.asp.net/get-started/websites
-   [延遲]: http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090
+  [延遲]: http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090
   [Azure 管理入口網站]: /zh-tw/services/management-portal/
   [設定]: /zh-tw/documentation/articles/web-sites-configure//
   [WebSockets]: /blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/
   [診斷記錄]: /zh-tw/documentation/articles/web-sites-enable-diagnostic-log/
   [連接字串值]: /blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
-   [調整]: /zh-tw/documentation/articles/web-sites-scale/
+  [調整]: /zh-tw/documentation/articles/web-sites-scale/
   [Azure 預覽入口網站]: /zh-tw/overview/preview-portal/
   [來源控制系統]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
   [自動化部署]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery

@@ -30,7 +30,7 @@
 
 2.  在 C 磁碟機上建立新的 **node** 目錄，並切換到 c:\\node 目錄：
 
-    ![顯示命令「mkdir c:\node」和「cd node」的命令提示字元。][顯示命令「mkdir c:\node」和「cd node」的命令提示字元。]
+    ![顯示命令「mkdir c:\node」和「cd node」的命令提示字元。][mkdir]
 
 3.  輸入下列 Cmdlet 建立新的解決方案：
 
@@ -201,3 +201,4 @@ Azure SDK 安裝的其中一個工具是 Azure 計算模擬器，可以讓您在
   [1]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
   [Stop-AzureService 命令的狀態]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
   [Remove-AzureService 命令的狀態]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+  [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png

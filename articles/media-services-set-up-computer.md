@@ -59,14 +59,14 @@
 
 通常最好定義 **CloudMediaContext** 類型的模組層級變數，以保存伺服器內容的參考。如需詳細資訊，請參閱[使用 Media Services SDK for .NET 連接到媒體服務][使用 Media Services SDK for .NET 連接到媒體服務]。
 
-本主題的其餘程式碼範例使用一個名為 \*\*\_context\*\* 的變數來參考伺服器內容。
+本主題的其餘程式碼範例使用一個名為 \_**context** 的變數來參考伺服器內容。
 
 ## 後續步驟
 
-現在，您已設定電腦並建立 Visual Studio 方案來進行媒體服務程式設計，請移至＜如何建立加密資產和上傳至儲存體＞主題。
-＜如何建立媒體服務帳戶＞：../media-services-create-account/
-[如何建立加密資產和上傳至儲存體]：../media-services-create-encrypted-asset-upload-storage/
+現在，您已設定電腦並建立 Visual Studio 方案來進行媒體服務程式設計，請移至[如何建立加密資產和上傳至儲存體]主題。
 
+
+  [如何建立加密資產和上傳至儲存體]: ../media-services-create-encrypted-asset-upload-storage/
   [如何建立媒體服務帳戶]: ../media-services-create-account/
   [windowsazure.mediaservices Nuget]: http://nuget.org/packages/windowsazure.mediaservices
   [使用 Media Services SDK for .NET 連接到媒體服務]: http://msdn.microsoft.com/zh-tw/library/azure/jj129571.aspx

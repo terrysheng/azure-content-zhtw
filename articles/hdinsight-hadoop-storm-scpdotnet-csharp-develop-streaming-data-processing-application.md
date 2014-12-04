@@ -68,12 +68,11 @@ ISCPSpout 為非交易式 spout 的介面。
 
         public abstract void Emit(string streamId, List<object> values, long seqId);  
 
-如果非交易式拓撲中不支援認可，則 Ack() 和 Fail() 可保持為空白函數。
+如果非交易式拓撲中不支援認可，則 Ack() 和 Fail() 可保持為空白函數。  
 
 這些函數中的 “parms” 輸入參數只是空的 Dictionary，保留供未來使用。
 
 ### ISCPBolt
-
 ISCPBolt 為非交易式 bolt 的介面。
 
     public interface ISCPBolt : ISCPPlugin
@@ -81,10 +80,9 @@ ISCPBolt 為非交易式 bolt 的介面。
         void Execute(SCPTuple tuple);
     }
 
-有新的 Tuple 可用時，將會呼叫 Execute() 函數來處理它。
+有新的 Tuple 可用時，將會呼叫 Execute() 函數來處理它。  
 
 ### ISCPTxSpout
-
 ISCPTxSpout 為交易式 spout 的介面。
 
     public interface ISCPTxSpout : ISCPPlugin
@@ -354,38 +352,15 @@ SCP 拓撲規格是特定領域的語言，用來描述和設定 SCP 拓撲。�
 
 SCP.NET 已增加下列函數來定義交易式拓撲：
 
-| 新函數                 | 參數          | 說明                                                                                 |
-|------------------------|---------------|--------------------------------------------------------------------------------------|
-| **tx-topolopy**        | topology-name 
-                           spout-map     
-                           bolt-map      | 以拓撲名稱、spout 定義對應和 bolt 定義對應來定義交易式拓撲                           |
-| **scp-tx-spout**       | exec-name     
-                           args          
-                           fields        | 定義交易式 spout。它會以 ***exec-name*** 並使用 ***args*** 來執行應用程式。          
-                                          ***fields*** 是 spout 的輸出欄位                                                      |
-| **scp-tx-batch-bolt**  | exec-name     
-                           args          
-                           fields        | 定義交易式批次 Bolt。它會以 ***exec-name*** 並使用 ***args*** 來執行應用程式。       
-                                          Fields 是 bolt 的輸出欄位。                                                           |
-| **scp-tx-commit-bolt** | exec-name     
-                           args          
-                           fields        | 定義交易式認可者 Bolt。它會以 ***exec-name*** 並使用 args 來執行應用程式。           
-                                          ***fields*** 是 bolt 的輸出欄位                                                       |
-| **nontx-topolopy**     | topology-name 
-                           spout-map     
-                           bolt-map      | 以拓撲名稱、spout 定義對應和 bolt 定義對應來定義非交易式拓撲                         |
-| **scp-spout**          | exec-name     
-                          args           
-                          fields         
-                          parameters     | 定義非交易式 spout。它會以 ***exec-name*** 並使用 ***args*** 來執行應用程式。        
-                                          ***fields*** 是 spout 的輸出欄位                                                      
-                                          ***parameters*** 是選擇性，可用來指定一些參數，例如 "nontransactional.ack.enabled"。  |
-| **scp-bolt**           | exec-name     
-                          args           
-                          fields         
-                          parameters     | 定義非交易式 Bolt。它會以 ***exec-name*** 並使用 ***args*** 來執行應用程式。         
-                                          ***fields*** 是 bolt 的輸出欄位                                                       
-                                          ***parameters*** 是選擇性，可用來指定一些參數，例如 "nontransactional.ack.enabled"。  |
+|New Functions|	Parameters|	Description
+|-------------|-----------|-----------
+|**tx-topolopy**|	topology-name<br> spout-map<br> bolt-map|	 以拓撲名稱、spout 定義對應和 bolt 定義對應來定義交易式拓撲
+|**scp-tx-spout**|	exec-name<br> args<br> fields|	定義交易式 spout。它會以 ***exec-name*** 並使用 ***args*** 來執行應用程式。<br><br>***fields*** 是 spout 的輸出欄位
+|**scp-tx-batch-bolt**|	exec-name<br> args<br> fields| 	定義交易式批次 Bolt。它會以 ***exec-name*** 並使用 ***args*** 來執行應用程式。<br><br>Fields 是 bolt 的輸出欄位。
+|**scp-tx-commit-bolt**|	exec-name<br>args<br>fields|	定義交易式認可者 Bolt。 它會以 ***exec-name*** 並使用 args 來執行應用程式。<br><br>***fields*** 是 bolt 的輸出欄位	
+|**nontx-topolopy**|	topology-name<br> spout-map<br>bolt-map|	以拓撲名稱、spout 定義對應和 bolt 定義對應來定義非交易式拓撲
+|**scp-spout**|	exec-name<br>args<br>fields<br>parameters|	定義非交易式 spout。 它會以 ***exec-name*** 並使用 ***args*** 來執行應用程式。<br><br>***fields*** 是 spout 的輸出欄位<br><br>***parameters*** 是選擇性，可用來指定一些參數，例如 "nontransactional.ack.enabled"。
+|**scp-bolt**|	exec-name<br>args<br>fields<br>parameters|	定義非交易式 Bolt。它會以 ***exec-name*** 並使用 ***args*** 來執行應用程式。<br><br>***fields*** 是 bolt 的輸出欄位<br><br>***parameters*** 是選擇性，可用來指定一些參數，例如 "nontransactional.ack.enabled"。
 
 SCP.NET 定義下列關鍵字：
 

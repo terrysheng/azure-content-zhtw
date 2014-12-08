@@ -1,27 +1,30 @@
-<properties title="Monitor your app's health and usage with Application Insights" pageTitle="Monitor your app's health and usage with Application Insights" description="Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+﻿<properties title="Monitor your app's health and usage with Application Insights" pageTitle="使用 Application Insights 來監視應用程式的健康情況和流量" description="Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
-
-# 監視 Web 應用程式的效能
+ 
+# 監視 Web 應用程式的效能 (英文)
 
 *Application Insights 目前僅供預覽。*
 
+
 確認應用程式的運作狀況良好，以及迅速找出任何失敗。[Application Insights][start] 能指出任何效能問題和例外狀況，以及協助您尋找及診斷根本原因。
 
-Application Insights 能監視託管於內部部署設施或虛擬機器上的 ASP.NET Web 應用程式和 Microsoft Azure 網站。
+Application Insights 能監視託管於內部部署設施或虛擬機器上的 ASP.NET Web 應用程式和 Microsoft Azure 網站。 
 
--   [設定效能監視](#setup)
--   [查看資料](#view)
--   [它們有哪些意義？](#metrics)
--   [診斷問題](#diagnosis)
--   [後續步驟](#next)
+* [設定效能監視](#setup)
+* [查看資料](#view)
+* [它們有哪些意義？](#metrics)
+* [診斷問題](#diagnosis)
+* [後續步驟](#next)
 
 ## <a name="setup"></a>設定效能監視
 
 如果您尚未將 Application Insights 新增至專案中 (亦即專案沒有 ApplicationInsights.config)，請選擇以下任一種方法來開始使用：
 
--   [將 Application Insights 新增至 Visual Studio 中的應用程式專案][start] (英文) - 建議的方法。除了被動效能監視之外，您還可以插入診斷記錄及追蹤流量。
--   [立即監視即時網站的效能][redfield] (英文) - 如果您選用這個方法，便不需要更新應用程式專案或重新部署網站。
+* [將 Application Insights 新增至 Visual Studio 中的應用程式專案][greenbrown] (英文) - 建議的方法。除了被動效能監視之外，您還可以插入診斷記錄及追蹤流量。
+* [立即監視即時網站的效能][redfield] - 如果您選用這個方法，便不需要更新應用程式專案或重新部署網站。
+* [對於 Microsoft Azure 網站，](../insights-how-to-customize-monitoring/)  您已經可以在網站的 [監視] 透鏡上查看度量。 
+
 
 ## <a name="view"></a>檢視報告
 
@@ -31,11 +34,13 @@ Application Insights 能監視託管於內部部署設施或虛擬機器上的 A
 
 ![](./media/appinsights/appinsights-09eventcount.png)
 
+
 從專案開啟 Application Insights。
 
 ![Right-click your project and open the Azure portal](./media/appinsights/appinsights-04-openPortal.png)
 
-在 [應用程式健全狀況] 磚內搜尋資料。剛開始的時候，您只會看見一或兩個資料點。例如：
+
+在 [**應用程式健全狀況**] 磚中尋找資料。剛開始的時候，您只會看見一或兩個資料點。例如：
 
 ![Click through to more data](./media/appinsights/appinsights-41firstHealth.png)
 
@@ -47,6 +52,7 @@ Application Insights 能監視託管於內部部署設施或虛擬機器上的 A
 
 按一下任一個磚可查看詳細資料，以及查看較長期的結果。例如，按一下 [要求] 磚，然後選取時間範圍：
 
+
 ![Click through to more data and select a time range](./media/appinsights/appinsights-48metrics.png)
 
 按一下圖形以選擇要顯示的度量：
@@ -55,9 +61,11 @@ Application Insights 能監視託管於內部部署設施或虛擬機器上的 A
 
 > [AZURE.NOTE] **取消勾選所有度量**可查看所有可供選擇的項目。度量分為多個群組；當您選取群組的任何成員時，只有該群組的其他成員會出現。
 
+
 ## <a name="metrics"></a>它們有哪些意義？效能磚和報告
 
 您可以取用多種效能度量。我們從預設顯示在應用程式分頁中的度量開始討論。
+
 
 ### 要求
 
@@ -79,11 +87,13 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
 ![](./media/appinsights/appinsights-42reqs.png)
 
+
 ### 最慢的要求
 
 ![](./media/appinsights/appinsights-44slowest.png)
 
 顯示可能需要進行效能調整的要求。
+
 
 ### 失敗的要求
 
@@ -91,7 +101,7 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
 丟出無法攔截之例外狀況的要求計數。
 
-按一下磚可查看特定失敗的詳細資料；選取個別要求可查看要求的詳細資料。
+按一下磚可查看特定失敗的詳細資料；選取個別要求可查看要求的詳細資料。 
 
 系統只會針對各項檢查保留一個具代表性的失敗範例。
 
@@ -101,44 +111,31 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
 ![Deselect all metrics to see the whole set](./media/appinsights/appinsights-62allchoices.png)
 
+
 選取任何度量都會隱藏其他無法顯示在同一圖表中的度量。
+
 
 ## <a name="diagnosis"></a>診斷問題
 
 以下是幾個尋找及診斷效能問題的訣竅：
 
--   設定 [Web 測試][availability] (英文)，以在網站故障、回應異常或過於緩慢時收到警示。
--   比較要求計數與其他度量，了解失敗或回應過慢的情況是否與負載有關。
--   在程式碼中[插入及搜尋追蹤陳述式][diagnostic] (英文) 有助於找出問題所在。
+* 設定 [Web 測試][availability]，以在網站故障、回應異常或過於緩慢時收到警示。 
+* 比較要求計數與其他度量，了解失敗或回應過慢的情況是否與負載有關。
+在程式碼中* [插入及搜尋追蹤陳述式][diagnostic] 有助於找出問題所在。
 
 ## <a name="next"></a>後續步驟
 
-[Web 測試][availability] (英文) - 定期從全世界傳送 Web 要求給應用程式。
+[Web 測試][availability] - 定期從全世界傳送 Web 要求給應用程式。
 
-[擷取及搜尋診斷追蹤][diagnostic] (英文) - 插入追蹤呼叫並詳查結果，以便找出問題所在。
+[擷取及搜尋診斷追蹤][diagnostic] - 插入追蹤呼叫並詳查結果，以便找出問題所在。
 
-[流量追蹤][usage] (英文) - 了解使用者使用應用程式的情況。
+[流量追蹤][usage] - 了解使用者使用應用程式的情況。
 
-[疑難排解][qna] (英文) - 和問答集
+[疑難排解][qna] - 和問答集
 
-## 詳細資訊
 
--   [Application Insights - 開始使用 (英文)][start]
--   [立即監視即時網頁伺服器 (英文)][redfield]
--   [監視 Web 應用程式的效能 (英文)][perf]
--   [搜尋診斷記錄 (英文)][diagnostic]
--   [利用 Web 測試追蹤可用性 (英文)][availability]
--   [追蹤流量][usage]
--   [問答集和疑難排解 (英文)][qna]
 
-<!--Link references-->
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
-[start]: ../app-insights-start-monitoring-app-health-usage/
-[redfield]: ../app-insights-monitor-performance-live-website-now/
-[perf]: ../app-insights-web-monitor-performance/
-[diagnostic]: ../app-insights-search-diagnostic-logs/ 
-[availability]: ../app-insights-monitor-web-app-availability/
-[usage]: ../app-insights-web-track-usage/
-[qna]: ../app-insights-troubleshoot-faq/
-[webclient]: ../app-insights-start-monitoring-app-health-usage/#webclient
+
 

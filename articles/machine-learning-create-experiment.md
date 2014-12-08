@@ -1,192 +1,193 @@
-<properties title="Create a simple experiment in Azure Machine Learning Studio" pageTitle="Create a simple experiment in Machine Learning Studio | Azure" description="How to create an experiment to train and test a simple model in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+﻿<properties title="Create a simple experiment in Azure Machine Learning Studio" pageTitle="在 Machine Learning Studio 中建立簡易實驗 | Azure" description="How to create an experiment to train and test a simple model in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
 
-# 在 Azure Machine Learning Studio 中建立簡易實驗
-
-預測性分析實驗在其核心部分，包含用以*建立模型*、*訓練模型*和*對模型評分與測試*的元件。您可以結合這些元件，以建立會取用資料、以此資料為基礎訓練模型，以及將模型套用至新資料的實驗。您也可以將模組新增至前置處理資料並選取功能、將資料分割為訓練和測試集，以及評估或交叉驗證模型的品質。
+#在 Azure Machine Learning Studio 中建立簡易實驗 
+ 
+預測性分析實驗的核心部分包含了用以*建立模型*、*定型模型*和*對模型評分與測試*的元件。您可以結合這些元件，以建立會取用資料、以此資料為基礎訓練模型，以及將模型套用至新資料的實驗。您也可以將模組新增至前置處理資料並選取功能、將資料分割為定型和測試集，以及評估或交叉驗證模型的品質。  
 
 在本文中，我們將使用 Microsoft Azure Machine Learning Studio 來開發及檢測簡易的預測性分析實驗。
 
-## 建立實驗的五個步驟
+##建立實驗的五個步驟 
 
-遵循在 ML Studio 中建置實驗的五個基本步驟，可讓您建立、訓練模型，並為其評分：
+遵循在 ML Studio 中建置實驗的五個基本步驟，可讓您建立、訓練模型，並為其評分：  
 
--   建立模型
-    -   [步驟 1：取得資料][步驟 1：取得資料]
-    -   [步驟 2：前置處理資料][步驟 2：前置處理資料]
-    -   [步驟 3：定義功能][步驟 3：定義功能]
--   訓練模型
-    -   [步驟 4：選擇及套用學習演算法][步驟 4：選擇及套用學習演算法]
--   對模型評分和測試
-    -   [步驟 5：預測新資料][步驟 5：預測新資料]
+- 建立模型 
+	- [步驟 1：取得資料]
+	- [步驟 2：前置處理資料]
+	- [步驟 3：定義功能]
+- 訓練模型 
+	- [步驟 4：選擇及套用學習演算法]
+- 對模型評分和測試 
+	- [步驟 5：預測新資料] 
 
-在此範例中，我們將使用範例汽車資料逐步建立迴歸模型。其目的是要使用製造和技術規格等不同變數，預測汽車的價格。
+[步驟 1：取得資料]: #step-1-get-data
+[步驟 2：前置處理資料]: #step-2-pre-process-data
+[步驟 3：定義功能]: #step-3-define-features
+[步驟 4：選擇及套用學習演算法]: #step-4-choose-and-apply-a-learning-algorithm
+[步驟 5：預測新資料]: #step-5-predict-over-new-data 
+
+在此範例中，我們將使用範例汽車資料逐步建立迴歸模型。其目的是要使用製造和技術規格等不同變數，預測汽車的價格。 
 
 ### 步驟 1：取得資料
 
-ML Studio 包含多項範例資料集，而您可以從許多不同的來源匯入資料。在此範例中，我們將使用內含的範例資料集「汽車價格資料 (原始)」，此資料集代表汽車價格資料。
+ML Studio 包含多項範例資料集，而您可以從許多不同的來源匯入資料。在此範例中，我們將使用內含的範例資料集「**汽車價格資料 (原始)**」，此資料集代表汽車價格資料。
 
-1.  按一下位於 ML Studio 視窗底部的 [+新增] 並選取 [實驗]，以啟動新實驗。將實驗從「未命名」重新命名為有意義的名稱，例如「汽車價格預測」。
+1. 按一下 ML Studio 視窗底部的 [**+新增**] 並選取 [**實驗**]，以啟動新實驗。將實驗從「未命名」重新命名為有意義的名稱，例如「汽車價格預測」。
 
-2.  實驗畫布左側是資料集和模組的調色盤。在此調色盤頂端的搜尋方塊中輸入「汽車」，可尋找標示為「汽車價格資料 (原始)」的資料集。
+2. 實驗畫布左側是資料集和模組的調色盤。在此調色盤頂端的搜尋方塊中輸入「汽車」，可尋找標示為「**汽車價格資料 (原始)**」的資料集。 
 
-    ![Palette search][Palette search]
+	![Palette search][screen1a]
 
-3.  將資料集拖曳到實驗畫布。
+3. 將資料集拖曳到實驗畫布。 
 
-    ![Dataset][Dataset]
+	![Dataset][screen1]
 
-若想知道此資料的呈現情形，請按兩下汽車資料集底部的輸出連接埠，然後選取 [視覺化]。資料集中的變數會顯示為資料行，汽車的各個執行個體會顯示為資料列。最右邊的資料行「價格」(資料行 26) 是我們嘗試要預測的目標變數。
+若想知道此資料的呈現情形，請按一下汽車資料集底部的輸出連接埠，然後選取 [**視覺化**]。資料集中的變數會顯示為資料行，汽車的各個執行個體會顯示為資料列。最右邊的資料行「價格」(資料行 26) 是我們嘗試要預測的目標變數。 
 
-![Dataset visualization][Dataset visualization]
+![Dataset visualization][screen1b]
 
 按一下右上角的 "**x**"，以關閉視覺化視窗。
 
 ### 步驟 2：前置處理資料
 
-資料集通常必須先經過某些前置處理，才能進行分析。您在不同資料列的資料行中可能會發現遺漏值 - 要分析資料，必須將這些遺漏值清除。在我們的案例中，我們只會移除含有遺漏值的資料列。此外，「自負虧損」資料行含有比例很高的遺漏值，因此我們會將該資料行從模型中完全排除。
+資料集通常必須先經過某些前置處理，才能進行分析。您在不同資料列的資料行中可能會發現遺漏值 - 要分析資料，必須將這些遺漏值清除。在我們的案例中，我們只會移除含有遺漏值的資料列。此外，「自負虧損」資料行含有比例很高的遺漏值，因此我們會將該資料行從模型中完全排除。 
 
-> **要訣** - 在使用大部分的模組時，都必須從輸入資料中清除遺漏值。
+>**要訣** - 在使用大部分的模組時，都必須從輸入資料中清除遺漏值。 
 
-首先我們會移除「自負虧損」資料行，接著我們會移除任何含有遺漏資料的資料列。
+首先我們會移除「自負虧損」資料行，接著我們會移除任何含有遺漏資料的資料列。 
 
-1.  將 [Project Columns] 模組拖曳到實驗畫布，並將其連接到 [汽車價格資料 (原始)] 資料集的輸出連接埠。此模組可讓我們選取要將哪些資料行包含在模型中，或是從模型中排除。
+1. 將 [**專案資料行**] 模組拖曳到實驗畫布，並將其連接到 [**汽車價格資料 (原始)**] 資料集的輸出連接埠。此模組可讓我們選取要將哪些資料行包含在模型中，或是從模型中排除。 
 
-2.  選取 [Project Columns] 模組，然後按一下屬性窗格中的 [Launch column selector]。
+2. 選取 [**專案資料行**] 模組，然後按一下屬性窗格中的 [**Launch column selector**]。 
 
-    -   確定在篩選下拉式清單 [Begin With] 中選取了 [All columns]。這會指示 [Project Columns] 通過所有的資料行 (我們將要排除的資料行除外)。
-    -   在下一個資料列中，選取 [排除] 和 [資料行名稱]，然後按一下文字方塊內部。此時會顯示資料行清單 - 選取「自負虧損」，此項目將會新增至文字方塊。
-    -   按一下核取記號 [確定] 按鈕，以關閉資料行選取器。
+	- 確定在篩選下拉式清單 [**Begin With**] 中選取了 [**所有資料行**]。這會指示 [**專案資料行**] 通過所有的資料行 (我們將要排除的資料行除外)。 
+	- 在下一個資料列中，選取 [**排除**] 和 [**資料行名稱**]，然後按一下文字方塊內部。此時會顯示資料行清單 - 選取「自負虧損」，此項目將會新增至文字方塊。 
+	- 按一下核取記號 [**確定**] 按鈕，以關閉資料行選取器。
 
-    ![Select columns][Select columns]
+    ![Select columns][screen3]
+	
+	[**專案資料行**] 的屬性窗格指出它會通過資料集中除了「自負虧損」以外的所有資料行。 
 
-    [Project Columns] 的屬性窗格指出它會通過資料集中的所有資料行，但「自負虧損」除外。
+    ![Project Columns properties][screen4]
 
-    ![Project Columns properties][Project Columns properties]
+    >**要訣** - 您可以按兩下模組並輸入文字，為模組新增註解。這有助於您快速檢視模組在您實驗中的執行情況。在此案例中，請按兩下 [**專案資料行**] 模組，然後輸入註解「排除自負虧損」。 
 
-    > **要訣** - 您可以按兩下模組並輸入文字，為模組新增註解。這有助於您快速檢視模組在您實驗中的執行情況。在此案例中，請按兩下 [Project Columns] 模組，然後輸入註解「排除自負虧損」。
+3. 將 [**遺漏值清除程式**] 模組拖曳到實驗畫布，然後將其連接到 [**專案資料行**] 模組。在屬性窗格中的 [**For missing values**] 下，選取 [**Remove entire row**]，藉由移除含有遺漏值的資料列來清除資料。按兩下模組，並輸入註解「移除遺漏值資料列」。
 
-3.  將 [Missing Values Scrubber] 模組拖曳到實驗畫布，然後將其連接到 [Project Columns] 模組。在屬性窗格中的 [For missing values] 下，選取 [Remove entire row]，藉由移除含有遺漏值的資料列來清除資料。按兩下模組，並輸入註解「移除遺漏值資料列」。
+	![Missing Values Scrubber properties][screen4a]
 
-    ![Missing Values Scrubber properties][Missing Values Scrubber properties]
-
-4.  按一下實驗畫布下方的 [執行]，以執行實驗。
+4. 按一下實驗畫布下方的 [**執行**]，以執行實驗。
 
 實驗完成時，所有模組都會呈現綠色核取標記，表示它們已順利完成。同時也請留意位於右上角的「執行完成」狀態。
 
-![First experiment run][First experiment run]
+![First experiment run][screen5]
 
-至此，所有實驗皆已完成資料清除。若要檢視已清除的資料集，請按兩下 [Missing Values Scrubber] 模組的輸出連接埠，然後選取 [視覺化]。請注意，此時已不包含「自負虧損」資料行，而且也沒有遺漏值。
+至此，所有實驗皆已完成資料清除。若要檢視已清除的資料集，請按一下 [**遺漏值清除程式**] 模組的輸出連接埠，然後選取 [**視覺化**]。請注意，此時已不包含「自負虧損」資料行，而且也沒有遺漏值。
 
 現在我們已清除資料，而可以指定要在預測模型中使用哪些功能。
 
 ### 步驟 3：定義功能
 
-在機器學習中，*功能*是您關注之項目的個別、可測量的屬性。在我們的資料集中，每一個資料列分別代表一部汽車，而每個資料行則是該部汽車的功能。要找到理想的功能集來建立預測模型，必須針對現有的問題進行實驗，並具備相關知識。有些功能會比其他功能更適合用來預測目標。此外，有些功能會與其他功能高度關聯 (例如 city-mpg 與 highway-mpg)，因此將不會在模型中新增太多新資訊，並且可以移除。
+在機器學習中，*功能*會是您有興趣了解的可測量個別屬性。在我們的資料集中，每一個資料列分別代表一部汽車，而每個資料行則是該部汽車的功能。要找到理想的功能集來建立預測模型，必須針對現有的問題進行實驗，並具備相關知識。有些功能會比其他功能更適合用來預測目標。此外，有些功能會與其他功能高度關聯 (例如 city-mpg 與 highway-mpg)，因此將不會在模型中新增太多新資訊，並且可以移除。
 
-我們將建置一個模型，並在其中使用我們資料集中的功能子集。您可以重新選取不同功能、再次執行實驗，然後確認是否會有較理想的結果。首先，我們將嘗試選取下列具有 [Project Columns] 模組的功能 (資料行)。請注意，為了訓練模型，我們必須加入所要預測的*價格*值。
+我們將建置一個模型，並在其中使用我們資料集中的功能子集。您可以重新選取不同功能、再次執行實驗，然後確認是否會有較理想的結果。首先，我們將嘗試選取下列具有 [**專案資料行**] 模組的功能 (資料行)。請注意，為了定型模型，我們必須加入所要預測的*價格*值。
 
-    make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+	make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
-1.  將 [Project Columns] 模組拖曳到實驗畫布，然後將其連接到 [Missing Values Scrubber] 模組。按兩下模組，並輸入「選取要預測的功能」。
+1. 將另一個 [**專案資料行**] 模組拖曳到實驗畫布，然後將其連接到 [**遺漏值清除程式**] 模組。按兩下模組，並輸入「選取要預測的功能」。
 
-2.  按一下屬性窗格中的 [Launch column selector]。
+2. 按一下屬性窗格中的 [**Launch column selector**]。 
 
-3.  在資料行選取器中，為 [Begin With] 選取 [No columns]，然後在篩選資料列中選取 [包含] 和 [資料行名稱]。輸入資料行名稱的清單。這會指示模組僅通過我們指定的資料行。
+3. 在資料行選取器中，為 [**Begin With**] 選取 [**No columns**]，然後在篩選資料列中選取 [**包含**] 和 [**資料行名稱**]。輸入資料行名稱的清單。這會指示模組僅通過我們指定的資料行。
 
-    > **要訣** - 由於現在我們已執行過實驗，因此資料的資料行定義已從原始資料集通過 [Missing Values Scrubber] 模組。當您將 [Project Columns] 連接到 [Missing Values Scrubber] 時，[Project Columns] 模組將可辨識資料中的資料行定義。當您按一下資料行名稱方塊時，將會顯示資料行清單，而您可以逐一選取要新增至清單的資料行。
+	>**要訣** - 由於現在我們已執行過實驗，因此資料的資料行定義已從原始資料集通過 [**遺漏值清除程式**] 模組。當您將 [**專案資料行**] 連接到 [**遺漏值清除程式**] 時，[**專案資料行**] 模組將可辨識資料中的資料行定義。當您按一下資料行名稱方塊時，將會顯示資料行清單，而您可以逐一選取要新增至清單的資料行。 
 
-4.  按一下 [確定]。
+4. 按一下 [**確定**]。
 
-![Select columns][1]
+![Select columns][screen6]
 
-這會產生將在後續步驟的學習演算法中使用的資料集。後續您可以選取不同的功能重新嘗試。
+這會產生將在後續步驟的學習演算法中使用的資料集。後續您可以選取不同的功能重新嘗試。 
 
 ### 步驟 4：選擇及套用學習演算法
 
-現在，資料已備妥，訓練和測試是建構預測模型的要素。*分類*和*迴歸*是兩種受監督的機器學習技術。「分類」可用來從一組已定義的值進行預測，例如色彩 (紅色、藍色或綠色)。「迴歸」可用來從一組連續值進行預測，例如人的年齡。
+現在，資料已備妥，定型和測試是建構預測模型的要素。*分類*和*迴歸*是兩種受監督的機器學習技術。「分類」可用來從一組已定義的值進行預測，例如色彩 (紅色、藍色或綠色)。「迴歸」可用來從一組連續值進行預測，例如人的年齡。
 
-我們想要預測汽車的價格 (可能是任何值)，因此我們將使用迴歸模型。在此範例中，我們將訓練簡易*線性迴歸*模型，並在下一個步驟中加以測試。
+我們想要預測汽車的價格 (可能是任何值)，因此我們將使用迴歸模型。在此範例中，我們將定型簡易*線性迴歸*模型，並在下一個步驟中加以測試。 
 
-1.  將資料分成訓練集和測試集。選取 [分割] 模組並拖曳到實驗畫布，然後將其連接到最後一個 [Project Columns] 模組的輸出。將 [Fraction of rows in the first output dataset] 設為 0.75。如此，我們將使用 75% 的資料來訓練模型，並保留 25% 做為測試之用。
+1. 將資料分成定型集和測試集。選取 [**分割**] 模組並拖曳到實驗畫布，然後將其連接到最後一個 [**專案資料行**] 模組的輸出。將 [**Fraction of rows in the first output dataset**] 設為 0.75。如此，我們將使用 75% 的資料來定型模型，並保留 25% 做為測試之用。
 
-    > **要訣** - 變更 [Random seed] 參數，可讓您為訓練和測試產生不同的隨機範例。此參數會控制虛擬隨機數字產生器的植入。
+	>**要訣** - 變更 [**隨機種子**] 參數，可讓您為定型和測試產生不同的隨機範例。此參數會控制虛擬隨機數字產生器的植入。
+	
+2. 執行實驗。這可讓 [**專案資料行**] 和 [**分割**] 模組將資料行定義傳遞至我們接下來要新增的模組。  
 
-2.  執行實驗。這可讓 [Project Columns] 和 [分割] 模組經由資料行定義傳至我們接下來要新增的模組。
+2. 若要選取學習演算法，請在畫布左側的模組調色盤中展開 [**機器學習**] 類別，然後展開 [**初始化模型**]。這會顯示數個可用來初始化學習演算法的模組類別。 
 
-3.  若要選取學習演算法，請在畫布左側的模組調色盤中展開 [機器學習] 類別，然後展開 [初始化模型]。這會顯示數個可用來初始化學習演算法的模組類別。
+	在此範例實驗中，請選取 [**迴歸**] 類別下的 [**線性迴歸**] 模組 (您也可以在調色盤搜尋方塊中輸入「線性迴歸」以尋找模組)，然後將其拖曳到實驗畫布。
 
-    在此範例實驗中，請選取 [迴歸] 類別下的 [線性迴歸] 模組 (您也可以在調色盤搜尋方塊中輸入「線性迴歸」以尋找模組)，然後將其拖曳到實驗畫布。
+3. 找出 [**定型模型**] 模組，並將其拖曳到實驗。按一下 [**Launch column selector**]，然後選取*價格*資料行。這是我們的模型所將預測的值。
 
-4.  找出 [訓練模型] 模組，並將其拖曳到實驗。按一下 [Launch column selector]，然後選取*價格*資料行。這是我們的模型所將預測的值。
+	![Select "price" column][screen7]
 
-    ![選取「價格」資料行][選取「價格」資料行]
+4. 將左側輸入連接埠連接到 [**線性迴歸**] 模組的輸出，並將右側輸入連接埠連接到 [**分割**] 模組的定型資料輸出 (左側連接埠)。  
 
-5.  將左側輸入連接埠連接到 [線性迴歸] 模組的輸出，並將右側輸入連接埠連接到 [分割] 模組的訓練資料輸出 (左側連接埠)。
+5. 執行實驗。 
 
-6.  執行實驗。
+結果是經過訓練的迴歸模型，可用來為新範例評分以進行預測。 
 
-結果是經過訓練的迴歸模型，可用來為新範例評分以進行預測。
+![Applying the learning algorithm][screen8]
 
-![Applying the learning algorithm][Applying the learning algorithm]
+### 步驟 5：預測新資料 
 
-### 步驟 5：預測新資料
+現在已完成模型的訓練，我們可以用它來為其他 25% 的資料評分，並觀察模型的運作是否理想。 
 
-現在已完成模型的訓練，我們可以用它來為其他 25% 的資料評分，並觀察模型的運作是否理想。
+1. 找出 [**評分模型**] 模組並拖曳到實驗畫布，然後將左側輸入連接埠連接到 [**定型模型**] 模組的輸出，然後將右側輸入連接埠連接到 [**分割**] 組的測試資料輸出 (右側連接埠)。  
 
-1.  找出 [評分模型] 模組並拖曳到實驗畫布，然後將左側輸入連接埠連接到 [訓練模型] 模組的輸出，然後將右側輸入連接埠連接到 [分割] 模組的測試資料輸出 (右側連接埠)。
+	![Score Model module][screen8a]
 
-    ![Score Model module][Score Model module]
+2. 執行實驗，並檢視 [**評分模型**] 模組的輸出 (按兩下輸出連接埠，然後選取 [**視覺化**])。輸出會顯示價格的預測值，以及來自測試資料的已知值。  
 
-2.  執行實驗，並檢視 [評分模型] 模組的輸出 (按兩下輸出連接埠，然後選取 [視覺化])。輸出會顯示價格的預測值，以及來自測試資料的已知值。
+3. 最後，若要測試結果的品質，請選取 [**評估模型**] 模組並拖曳到實驗畫布，然後將左側輸入連接埠連接到 [**評分模型**] 模組的輸出 (由於 [**評估模型**] 模組可用來比較兩個模型，因此會有兩個輸入連接埠)。
+ 
+4. 執行實驗，並檢視 [**評估模型**] 模組的輸出 (按兩下輸出連接埠，然後選取 [**視覺化**])。我們的模型會顯示下列統計資料。
 
-3.  最後，若要測試結果的品質，請選取 [評估模型] 模組並拖曳到實驗畫布，然後將左側輸入連接埠連接到 [評分模型] 模組的輸出 (由於 [評估模型] 模組可用來比較兩個模型，因此會有兩個輸入連接埠)。
+	- **平均絕對誤差** (MAE) - 絕對誤差的平均值 (*誤差*是指預測值與實際值之間的差異)。
+	- **均方根誤差** (RMSE) - 對測試資料集所做預測的平方誤差平均值的平方根。
+	- **相對絕對誤差** - 相對於實際值與所有實際值平均值之間的絕對差異的絕對誤差平均值。
+	- **相對平方誤差** - 相對於實際值與所有實際值平均值之間的平方差異的平方誤差平均值。
+	- **決定係數** - 稱為「R 平方值」，這是一個統計度量，可指出模型對於資料的適用程度。
+	
+	每一項誤差統計資料都是愈小愈好 - 值愈小，表示預測愈符合實際值。就 [**決定係數**] 而言，其值愈接近一 (1.0)，預測就愈精準。
 
-4.  執行實驗，並檢視 [評估模型] 模組的輸出 (按兩下輸出連接埠，然後選取 [視覺化])。我們的模型會顯示下列統計資料。
-
-    -   **平均絕對誤差** (MAE) - 絕對誤差的平均值 (*誤差*是指預測值與實際值之間的差異)。
-    -   **均方根誤差** (RMSE) - 對測試資料集所做之預測的平方誤差的評分根平均值。
-    -   **相對絕對誤差** - 相對於實際值與所有實際值之平均值之間的絕對差異的絕對誤差平均值。
-    -   **相對平方誤差** - 相對於實際值與所有實際值之平均值之間的平方差異的平方誤差平均值。
-    -   **決定係數** - 也稱為「R 平方值」，這是一個統計度量，可指出模型對於資料的適用程度。
-
-    每一項誤差統計資料都是愈小愈好 - 值愈小，表示預測愈符合實際值。就 [決定係數] 而言，其值愈接近一 (1.0)，預測就愈精準。
-
-    ![Evaluation results][Evaluation results]
+	![Evaluation results][screen9]
 
 實驗最終應呈現如下：
 
-![Complete experiment][Complete experiment]
+![Complete experiment][screen10]
 
 ### 後續步驟
 
-現在您已完成實驗的設定，您可以逐一檢測以嘗試改善模型。例如，您可以變更您在預測中使用的功能。或者，您可以修改 [線性迴歸] 演算法的屬性，或嘗試完全不同的演算法。您甚至可以同時在實驗中新增多個演算法，並使用 [評估模型] 模組加以比較 (兩兩相較)。
+現在您已完成實驗的設定，您可以逐一檢測以嘗試改善模型。例如，您可以變更您在預測中使用的功能。或者，您可以修改 [**線性迴歸**] 演算法的屬性，或嘗試完全不同的演算法。甚至可以同時在實驗中新增多個演算法，並使用 [**評估模型**] 模組加以比較 (兩兩相較)。 
 
-> **要訣** - 使用實驗畫布下方的 [另存新檔] 按鈕，可為實驗的任何檢測製作複本。您可以按一下畫布下方的 [檢視執行歷程記錄]，以檢視實驗的所有檢測。如需詳細資訊，請參閱 ML Studio 說明主題 [檢視執行歷程記錄]。
+>**要訣** - 使用實驗畫布下方的 [**另存新檔**] 按鈕，可為實驗的任何檢測製作複本。您可以按一下畫布下方的 [**檢視執行歷程記錄**]，以檢視實驗的所有檢測。如需詳細資訊，請參閱 ML Studio 說明主題 [**檢視執行歷程記錄**]。
 
-如果您對模型感到滿意，您可以將其發佈為 Web 服務，用以透過新資料預測汽車價格。如需詳細資訊，請參閱 ML Studio 說明主題 [發佈實驗]。
+如果您對模型感到滿意，您可以將其發佈為 Web 服務，用以透過新資料預測汽車價格。如需詳細資訊，請參閱 ML Studio 說明主題 [**發佈實驗**]。
 
-對於預測模型的建立、訓練、評分和發佈如需更完整而詳細的逐步解說，請參閱[逐步介紹：使用 Azure Machine Learning 開發預測方案][逐步介紹：使用 Azure Machine Learning 開發預測方案] (英文)。
+對於預測模型的建立、定型、評分和發佈如需更完整而詳細的逐步解說，請參閱 [逐步介紹：使用 Azure Machine Learning 開發預測方案](http://azure.microsoft.com/zh-tw/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/) (英文)。 
+
 
 <!-- Images -->
-
-  [步驟 1：取得資料]: #step-1-get-data
-  [步驟 2：前置處理資料]: #step-2-pre-process-data
-  [步驟 3：定義功能]: #step-3-define-features
-  [步驟 4：選擇及套用學習演算法]: #step-4-choose-and-apply-a-learning-algorithm
-  [步驟 5：預測新資料]: #step-5-predict-over-new-data
-  [Palette search]: ./media/machine-learning-create-experiment/screen1a.png
-  [Dataset]: ./media/machine-learning-create-experiment/screen1.png
-  [Dataset visualization]: ./media/machine-learning-create-experiment/screen1b.png
-  [Select columns]: ./media/machine-learning-create-experiment/screen3.png
-  [Project Columns properties]: ./media/machine-learning-create-experiment/screen4.png
-  [Missing Values Scrubber properties]: ./media/machine-learning-create-experiment/screen4a.png
-  [First experiment run]: ./media/machine-learning-create-experiment/screen5.png
-  [1]: ./media/machine-learning-create-experiment/screen6.png
-  [選取「價格」資料行]: ./media/machine-learning-create-experiment/screen7.png
-  [Applying the learning algorithm]: ./media/machine-learning-create-experiment/screen8.png
-  [Score Model module]: ./media/machine-learning-create-experiment/screen8a.png
-  [Evaluation results]: ./media/machine-learning-create-experiment/screen9.png
-  [Complete experiment]: ./media/machine-learning-create-experiment/screen10.png
-  [逐步介紹：使用 Azure Machine Learning 開發預測方案]: http://azure.microsoft.com/zh-tw/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/
+[screen1]:./media/machine-learning-create-experiment/screen1.png
+[screen1a]:./media/machine-learning-create-experiment/screen1a.png
+[screen1b]:./media/machine-learning-create-experiment/screen1b.png
+[screen2]:./media/machine-learning-create-experiment/screen2.png
+[screen3]:./media/machine-learning-create-experiment/screen3.png
+[screen4]:./media/machine-learning-create-experiment/screen4.png
+[screen4a]:./media/machine-learning-create-experiment/screen4a.png
+[screen5]:./media/machine-learning-create-experiment/screen5.png
+[screen6]:./media/machine-learning-create-experiment/screen6.png
+[screen7]:./media/machine-learning-create-experiment/screen7.png
+[screen8]:./media/machine-learning-create-experiment/screen8.png
+[screen8a]:./media/machine-learning-create-experiment/screen8a.png
+[screen9]:./media/machine-learning-create-experiment/screen9.png
+[screen10]:./media/machine-learning-create-experiment/screen10.png

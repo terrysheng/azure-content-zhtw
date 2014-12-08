@@ -1,65 +1,53 @@
-<properties title="Application Insights" pageTitle="Application Insights" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  />
+﻿<properties title="Application Insights" pageTitle="Application Insights - 開始監視應用程式的健康情況和流量" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
 
-# Application Insights - 開始使用
+# Application Insights - 開始監視應用程式的健康情況和流量
 
-*Application Insights 處於預覽階段。*
+*Application Insights 目前為預覽階段。*
 
-Application Insights 可讓您監視即時應用程式的可用性、效能和使用情形(不見得一定是 Microsoft Azure 應用程式)。設定很簡單，一下子就能看到結果。
+Application Insights 可讓您監視即時應用程式在以下各方面的情況：
 
--   **可用性** - 確定 Web 應用程式可用且可回應。我們每隔幾分鐘就會從全球各地測試您的 URL，讓您知道是否有問題。
--   **效能** - 診斷 Web 服務中的任何效能問題或例外狀況。了解回應時間如何隨著要求計數而變化、查明 CPU 或其他資源是否遭到過度使用、從例外狀況取得堆疊追蹤，以及輕鬆地搜尋記錄追蹤。
--   **使用情形** - 了解使用者如何使用您的應用程式，讓您將開發工作投注在最實用的部分。目前，您可以監視 Web 應用程式、Windows 市集和 Windows Phone 應用程式。
+* **可用性** - 我們會每隔幾分鐘從世界各地測試一下 URL。
+* **效能** - 偵測及診斷效能問題和例外狀況。
+* **流量** - 了解哪些使用者將應用程式運用在哪些用途，以利改善應用程式。
+
+組態作業非常簡單，幾分鐘之內就能看到結果。我們目前支援 ASP.NET Web 應用程式 (位於您自己的伺服器上或 Azure 上)。
+
 
 ## 開始使用
 
-有兩種方式可開始使用：
+從這個圖表左邊的進入點依照任何組合、任何順序開始。挑選適合您的途徑。如果您正在開發 ASP.NET Web 應用程式，首先請將 Application Insights 加入至您的 Web 專案 - 稍後可輕鬆加入其他項目。
 
--   [在 Visual Studio 中將 Application Insights 加入至專案][在 Visual Studio 中將 Application Insights 加入至專案]
+您在 [Microsoft Azure](http://azure.com) 中需要帳戶 (除非使用 VSO 版本)。
 
-    將 Application Insights 加入至專案來追蹤使用情形、效能和可用性，以及分析診斷記錄。您在偵錯模式下幾分鐘內就可以看到資料，然後部署專案來取得即時資料。
+<table >
+<tr valign="top"><th>需求</th><th colspan="2">作法</th><th>What you get</th></tr>
+<tr valign="top"><td>取得 ASP.NET 應用程式的效能和流量分析</td><td colspan="2"><a href="../app-insights-start-monitoring-app-health-usage/">將 Application Insights 加入至 Web 專案</a></td><td>效能度量：載入計數、回應時間、...</td></tr>
+<tr valign="top"><td></td><td></td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">從伺服器程式碼傳送事件和度量</a></td><td>自訂商務分析</td></tr>
+<tr valign="top"><td></td><td></td><td><a href="../app-insights-search-diagnostic-logs/">從伺服器傳送追蹤和例外狀況遙測，或擷取協力廠商記錄資料。</td><td>伺服器應用程式診斷。搜尋和篩選記錄資料。</a></td></tr>
+<tr valign="top"><td>從網頁 (在任何平台上) 取得流量分析</td><td colspan="2"><a href="../app-insights-web-track-usage/">在網頁中插入 AI 指令碼</a></td><td>流量分析：頁面檢視、回訪使用者、工作階段計數</td></tr>
+<tr valign="top"><td></td><td>&nbsp;&nbsp;</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">在網頁指令碼中撰寫事件和度量呼叫</a></td><td>自訂使用者體驗分析</td></tr>
+<tr valign="top"><td></td><td></td><td><a href="../app-insights-search-diagnostic-logs/">在網頁指令碼中撰寫追蹤和診斷呼叫</a></td><td>搜尋和篩選記錄資料。</td></tr>
+<tr valign="top"><td>在已執行於 Web 伺服器的 ASP.NET 應用程式中診斷問題</td><td colspan="2"><a href="../app-insights-monitor-performance-live-website-now/">在 Web 伺服器上安裝狀態監視器</a></td><td>相依性呼叫持續時間和計數；CPU、記憶體和網路計數器；載入計數、回應時間</td></tr>
+<tr valign="top"><td>監視任何網頁的可用性</td><td colspan="2"><a href="../app-insights-monitor-web-app-availability/">在 Application Insights 上設定 Web 測試</a></td><td>可用性監視和警示</td></tr>
+<tr valign="top"><td>取得 Windows Phone 應用程式、Windows 市集應用程式或 Java 網站的效能及流量分析</td><td colspan="2"><a href="http://msdn.microsoft.com/library/dn481095.aspx">現在，請使用 VSO 舊版的 Application Insights</a></td><td>流量和效能分析。<a href="http://msdn.microsoft.com/library/dn793604.aspx">我們正逐步打造 Azure 版本的功能。</a></td></tr>
+</table>
 
-    如果是更新或建立專案，請使用此選項。
 
-    [將 Application Insights 加入至專案來開始使用。][在 Visual Studio 中將 Application Insights 加入至專案]
+## <a name="video"></a>視訊
 
--   [立即診斷即時 Web 服務的問題][立即診斷即時 Web 服務的問題]
+#### 簡介
 
-    在 IIS 伺服器上安裝 Application Insights 代理程式，幾分鐘之內就能看到效能資料。查看要求計數、回應時間、資源負載，並取得例外狀況追蹤。
+> [AZURE.VIDEO application-insights-introduction]
 
-    如果您需要立即了解 Web 伺服器的運作情形，請使用此選項。不需要重新部署您的程式碼。但您需要有伺服器的管理存取權，以及 Microsoft Azure 帳戶。
+#### 開始使用
 
-    您可以隨時加入可用性監視。
+> [AZURE.VIDEO getting-started-with-application-insights]
 
-    稍後，您可以使用其他選項，將 Application Insights 加入至專案來分析診斷記錄和追蹤使用情形。
 
-    [在 Web 伺服器上安裝 Application Insights 來開始使用。][立即診斷即時 Web 服務的問題]
 
-> [WACOM.NOTE] Visual Studio Online 中有[舊版的 Application Insights][舊版的 Application Insights]。我們正從頭開始將它重建為 Microsoft Azure 的一部分，而這也是您正在此處閱讀的新版本。
 
-![Example application monitor in Application Insights][Example application monitor in Application Insights]
+[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
-## 詳細資訊
 
--   [Application Insights][Application Insights]
--   [將 Application Insights 加入至專案][在 Visual Studio 中將 Application Insights 加入至專案]
--   [立即監視即時 Web 伺服器][立即診斷即時 Web 服務的問題]
--   [在 Application Insights 中探索度量][在 Application Insights 中探索度量]
--   [診斷記錄搜尋][診斷記錄搜尋]
--   [使用 Web 測試來追蹤可用性][使用 Web 測試來追蹤可用性]
--   [使用事件和度量來追蹤使用量][使用事件和度量來追蹤使用量]
--   [問與答及疑難排解][問與答及疑難排解]
-
-<!--Link references-->
-
-  [在 Visual Studio 中將 Application Insights 加入至專案]: ../app-insights-monitor-application-health-usage/
-  [立即診斷即時 Web 服務的問題]: ../app-insights-monitor-performance-live-website-now/
-  [舊版的 Application Insights]: http://msdn.microsoft.com/zh-tw/library/dn481095.aspx
-  [Example application monitor in Application Insights]: ./media/appinsights/appinsights-00-appblade.png
-  [Application Insights]: ../app-insights-get-started/
-  [在 Application Insights 中探索度量]: ../app-insights-explore-metrics/
-  [診斷記錄搜尋]: ../app-insights-search-diagnostic-logs/
-  [使用 Web 測試來追蹤可用性]: ../app-insights-monitor-web-app-availability/
-  [使用事件和度量來追蹤使用量]: ../app-insights-web-track-usage-custom-events-metrics/
-  [問與答及疑難排解]: ../app-insights-troubleshoot-faq/

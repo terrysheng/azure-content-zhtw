@@ -62,7 +62,7 @@
 
 -   若要隱藏圖表上繪製的度量，請清除度量標頭旁邊的核取方塊。
 
-    ![Monitoring\_nmore][Monitoring\_nmore]
+    ![Monitoring\_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
 
 1.  圖表預設會顯示趨勢，且只顯示每個度量的目前值 (圖表頂端的 [相對] 選項)。若要顯示 Y 軸以看到絕對值，請選取 [絕對]。
 
@@ -86,12 +86,12 @@
 
     即會開啟 [監視] 頁面。依預設，度量表會顯示一部份可用於監視的度量。下圖顯示所有三個服務都設定詳細資訊監視的儲存體帳戶預設 [監視] 顯示。請使用 [Add Metrics] 從所有可用度量中選取您要監視的度量。
 
-    ![Monitoring\_VerboseDisplay][Monitoring\_VerboseDisplay]
+    ![Monitoring\_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
     <div class="dev-callout"> 
-<b>注意</b> 
-<p>選取度量時請考慮成本。重新整理監視顯示時有相關的交易和出口流量成本。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/hh360997.aspx">儲存體分析及計費</a>。</p> 
-</div>
+    <b>注意</b> 
+    <p>選取度量時請考慮成本。重新整理監視顯示時有相關的交易和出口流量成本。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/hh360997.aspx">儲存體分析及計費</a>。</p> 
+    </div>
 
 3.  按一下 [Add Metrics]。
 

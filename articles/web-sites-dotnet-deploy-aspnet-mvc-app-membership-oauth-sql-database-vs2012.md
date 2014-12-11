@@ -385,7 +385,7 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 
 ![Create New FB app][Create New FB app]
 
-在 [App Domain] 中輸入 localhost，並在 [網站 URL] 中輸入 \<http://localhost/\>。針對 [Sandbox Mode] 按一下 [啟用]，再按 [儲存變更]。
+在 [App Domain] 中輸入 localhost，並在 [網站 URL] 中輸入 http://localhost/。針對 [Sandbox Mode] 按一下 [啟用]，再按 [儲存變更]。
 
 您需要 [應用程式識別碼] 與 [應用程式密鑰] 以便在此應用程式中實作 OAuth。
 ![New FB app][New FB app]
@@ -524,8 +524,8 @@ Azure 網站內含有效的安全憑證，因此當您部署至 Azure 時，不�
 
 從 [Microsoft SQL Server 2012 Express 下載中心][Microsoft SQL Server 2012 Express 下載中心]安裝 SSMS：
 
--   適用 64 位元系統的 [ENU\x64\SQLManagementStudio\_x64\_ENU.exe][ENU\x64\SQLManagementStudio\_x64\_ENU.exe]。
--   適用 32 位元系統[ENU\x86\SQLManagementStudio\_x86\_ENU.exe][ENU\x86\SQLManagementStudio\_x86\_ENU.exe]。
+-   適用 64 位元系統的 [ENU\x64\SQLManagementStudio\_x64\_ENU.exe](http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe)。
+-   適用 32 位元系統[ENU\x86\SQLManagementStudio\_x86\_ENU.exe](http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe)。
 
 如果您選擇了系統無法使用的程式，該程式將無法安裝，這時請嘗試下載另一個程式。
 

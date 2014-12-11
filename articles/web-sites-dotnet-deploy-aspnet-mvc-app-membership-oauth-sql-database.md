@@ -113,7 +113,7 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 
 1.  在 [方案總管]，開啟 *Views\\Shared* 資料夾中的 *Layout.cshtml* 檔案。
 
-    ![\_Layout.cshtml in Solution Explorer][\_Layout.cshtml in Solution Explorer]
+    ![\_Layout.cshtml in Solution Explorer][newapp004]
 
 2.  以 "Contact Manager" 取代兩個出現的 "My ASP.NET MVC Application" 字樣。
 3.  以 "CM Demo" 取代 "Application name"。
@@ -424,12 +424,17 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 在本節中，您將套用 [Authorize][Authorize] 屬性來限制對動作方法的存取。匿名使用者只能檢視首頁控制器的 **Index** 動作方法。註冊的使用者能夠查看連絡人資料 (Cm 控制器的 [索引] 和 [詳細資料] 頁面)、[關於] 和 [連絡人] 頁面。只有 *canEdit* 角色中的使用者才能存取用來變更資料的動作方法。
 
 1.  將 [Authorize][Authorize] 篩選器和 [RequireHttps][RequireHttps] 篩選器新增至應用程式。替代的方法是將 [Authorize][Authorize] 屬性和 [RequireHttps][RequireHttps] 屬性新增至每個控制器，但將這些屬性套用至整個應用程式是最安全的做法。藉由全面新增這些屬性，您所新增的每個新控制器和動作方法都會自動受到保護，而不需要您記得哪些已套用、哪些未套用。如需詳細資訊，請參閱[保護您的 ASP.NET MVC 應用程式和新 AllowAnonymous 屬性][保護您的 ASP.NET MVC 應用程式和新 AllowAnonymous 屬性]。開啟 *App\_Start\\FilterConfig.cs* 檔案，並以下列程式碼 (其會新增兩個篩選器) 取代 *RegisterGlobalFilters* 方法：
+		<pre>
+        public static void
+        RegisterGlobalFilters(GlobalFilterCollection filters)
+        {
+            filters.Add(new HandleErrorAttribute());
+            <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute());
+            filters.Add(new RequireHttpsAttribute());</mark>
+        }
+		</pre>
+<span></span>
 
-         public static void RegisterGlobalFilters(GlobalFilterCollection filters) { filters.Add(new HandleErrorAttribute()); filters.Add(new System.Web.Mvc.AuthorizeAttribute()); filters.Add(new RequireHttpsAttribute()); } 
-
-    <span></span>
-
-    </p>
     下圖顯示變更的程式碼：
 
     ![程式碼影像][4]
@@ -447,7 +452,7 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 
 ## 對專案啟用 SSL
 
-1.  啟用 SSL。在 [方案總管]，按一下 [ContactManager] 專案，再按一下 F4 帶出 [屬性] 對話方塊。將 [SSL 已啟用] 變更為 true。複製 [SSL URL]。除非您先前已建立 SSL 網站，否則 SSL URL 將是 \<https://localhost:44300/\>。
+1.  啟用 SSL。在 [方案總管]，按一下 [ContactManager] 專案，再按一下 F4 帶出 [屬性] 對話方塊。將 [SSL 已啟用] 變更為 true。複製 [SSL URL]。除非您先前已建立 SSL 網站，否則 SSL URL 將是 https://localhost:44300/。
 
     ![enable SSL][enable SSL]
 
@@ -776,3 +781,4 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
   [@RickAndMSFT]: https://twitter.com/RickAndMSFT
   [@blowdart]: https://twitter.com/blowdart
   [告訴我如何處理程式碼]: http://aspnet.uservoice.com/forums/228522-show-me-how-with-code
+  [newapp004]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-createapp-004.png

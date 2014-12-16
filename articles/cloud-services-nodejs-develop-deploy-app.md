@@ -189,7 +189,7 @@ Azure SDK 安裝的其中一個工具是 Azure 計算模擬器，可以讓您在
 </div>
 
   [Azure 網站、雲端服務與虛擬機器的比較]: http://azure.microsoft.com/zh-tw/documentation/articles/choose-web-site-cloud-service-vm/
-  [A browser window displaying the hello world page.The URL indicates the page is hosted on Azure.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
+  [A browser window displaying the hello world page.The URL indicates the page is hosted on Azure.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
   [Azure PowerShell icon]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
   [New-AzureService helloworld 命令的結果]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
   [建立 Azure 託管服務的概觀]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj155995.aspx

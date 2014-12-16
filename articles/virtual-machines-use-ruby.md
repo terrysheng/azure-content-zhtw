@@ -89,11 +89,9 @@ xplat-cli 設定完成後，您即可執行下列步驟，以擷取 Azure 訂閱
         7 gems installed
 
     <div class="dev-callout">
-
-    **注意**
-    若您收到與權限相關的錯誤，請改用 `sudo gem install azure`。
-
-    </div>
+    <strong>注意</strong>
+    <p>若您收到與權限相關的錯誤，請改用 <code>sudo gem install azure</code>。</p>
+	</div>
 
 ### 必須使用 gem
 

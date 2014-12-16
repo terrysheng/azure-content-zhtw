@@ -128,7 +128,7 @@
 
 4.  按一下 [+ 新建] 建立新的託管服務。「託管服務」是應用程式部署到 Azure 時託管應用程式的容器。如需詳細資訊，請參閱[雲端服務][雲端服務]。
 
-    ![create a new deployment][create a new deployment]
+    ![create a new deployment](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png)
 
 5.  系統將會提示您輸入新託管服務的名稱，以及執行個體數目、主機 OS 和資料中心這類組態選項。指定的部署名稱將會用作 Azure 中的託管服務名稱。在 Azure 系統內，此名稱必須是唯一的。
 

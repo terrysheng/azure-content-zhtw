@@ -1,6 +1,6 @@
-<properties urlDisplayName="" pageTitle="Role based access control troubleshooting" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Role based access control troubleshooting" authors="Stephen Siciliano"  solutions="" writer="" manager="" editor=""  />
+﻿<properties urlDisplayName="" pageTitle="角色存取控制疑難排解" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Role based access control troubleshooting" authors="Stephen Siciliano"  solutions="" writer="" manager="terrylan" editor=""  />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Stephen="" Siciliano" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="Stephen Siciliano" />
 
 # 角色存取控制疑難排解
 
@@ -9,72 +9,68 @@
 [角色存取控制](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-configure/)是一項強大的功能，能讓您將精細的存取權限委派給 Azure 裡的資源。亦即您可以放心且精確地授予特定個人所需的權限。然而，Azure 資源的資源模型有時可能很複雜，且不容易完全了解您所授予的權限內容。
 
 本文說明在 Preview 入口網站中使用一些新的角色時，會有哪些情況。此版本共有三種預先建立的角色：
-
--   擁有者
--   參與者
--   讀取者
+* 擁有者
+* 參與者
+* 讀取者
 
 擁有者與參與者都可以完整存取管理經驗，差別在於參與者無法將存取權限授予其他使用者或群組。讀取者角色則是比較有趣，因此我們會在本文中多花點時間介紹。[請參閱這篇文章](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-configure/)，了解如何授予存取權限的詳細資料。
 
 ## 網站工作負載
 
-### 擁有唯讀存取權限
+### 擁有唯讀存取權限 
 
-如果您授予使用者或是您自身僅有網站的讀取存取權限，那麼您可能無法使用一些停用的功能。以下管理功能需要網站的**寫入**存取權限 (參與者或擁有者角色)，而且無法在任何唯讀情況中使用。
-
-1.  命令 (例如，開始、停止等)
-2.  變更像是一般組態的設定、調整設定、備份設定與監視設定。
-3.  存取發佈認證與其他機密，像是應用程式設定與連接字串。
-4.  串流記錄
-5.  診斷記錄組態
-6.  網站主控台 (命令提示字元)
-7.  有效的近期部署項目 (以便本機 git 持續部署)
-8.  預估的花費
-9.  Web 測試
+如果您授予使用者或是您自身僅有網站的讀取存取權限，那麼您可能無法使用一些停用的功能。以下管理功能需要網站的**寫入**存取權限 (參與者或擁有者角色)，而且無法在任何唯讀情況中使用。 
+ 
+1. 命令 (例如，開始、停止等)
+2. 變更像是一般組態的設定、調整設定、備份設定與監視設定。
+3. 存取發佈認證與其他機密，像是應用程式設定與連接字串。
+4. 串流記錄
+5. 診斷記錄組態
+6. 網站主控台 (命令提示字元)
+7. 有效的近期部署項目 (以便本機 git 持續部署)
+8. 預估的花費
+9. Web 測試
 10. 虛擬網路 (只有當虛擬網路先前是由具備寫入存取權限的使用者所設定，才會顯示出來)。
-
-如果您無法存取上述任何一個部分，您需要具備該網站的參與者存取權限。
+ 
+如果您無法存取上述任何一個部分，您需要具備該網站的參與者存取權限。 
 
 ### 處理相關資源
-
+ 
 網站因為幾個互有關聯的資源而顯得複雜。以下是具有多個網站的典型資源群組：
 
-![網站資源群組](./media/role-based-access-control-troubleshooting/Website-resource-model.png)
+![Website resource group](./media/role-based-access-control-troubleshooting/Website-resource-model.png)
 
-如此一來，如果您只授予某人網站存取權限，該網站分頁上的諸多功能將全數停用。
-
-1.  這些項目需要存取對應至您的網站的 **Web 代管方案**：
-    -   檢視網站的價格層 (例如，免費、共用、基本或標準)。
-    -   調整組態 (亦即，執行個體數量、VM 大小、自動調整設定)。
-    -   配額 (例如，儲存容量、頻寬、CPU)。
-2.  這些項目都需要存取內含您的網站的整個**資源群組**：
-    -   SSL 憑證與繫結 (這是因為相同的資源群組與地理位置的各個網站之間，會共用 SSL 憑證)。
-    -   警示規則
-    -   自動調整設定
-    -   應用程式見解元件
-    -   Web 測試
+如此一來，如果您只授予某人網站存取權限，該網站分頁上的諸多功能將全數停用。 
+ 
+1. 這些項目需要存取對應至您的網站的 **Web 代管方案**：  
+    * 檢視網站的價格層 (例如，免費、共用、基本或標準)。
+    * 調整組態 (亦即，執行個體數量、VM 大小、自動調整設定)。
+    * 配額 (例如，儲存容量、頻寬、CPU)。
+2. 這些項目都需要存取內含您的網站的整個**資源群組**：  
+    * SSL 憑證與繫結 (這是因為相同的資源群組與地理位置的各個網站之間，會共用 SSL 憑證)。
+    * 警示規則
+    * 自動調整設定
+    * 應用程式見解元件
+    * Web 測試
 
 ## 虛擬機器工作負載
 
 差不多與網站相同的是，虛擬機器分頁上的某些功能需要具備虛擬機器 (或是資源群組中的其他資源) 的寫入存取權限。
 
 虛擬機器具備以下相關資源：
+* 網域名稱
+* 虛擬網路
+* 儲存體帳戶
+* 警示規則
 
--   網域名稱
--   虛擬網路
--   儲存體帳戶
--   警示規則
-
-1.  這些項目都需要具備虛擬機器的**寫入**存取權限：
-    -   Endpoints
-    -   IP 位址
-    -   磁碟
-    -   擴充功能
-2.  這些項目都需要同時具備虛擬機器與所屬之**資源群組** (連同網域名稱) 的寫入存取權限：
-    -   可用性集合
-    -   負載平衡集合
-    -   警示規則
-
+1. 這些項目都需要具備虛擬機器的**寫入**存取權限：  
+    * Endpoints
+    * IP 位址
+    * 磁碟
+    * 擴充功能
+2. 這些項目都需要同時具備虛擬機器與所屬之**資源群組** (連同網域名稱) 的寫入存取權限：  
+    * 可用性集合
+    * 負載平衡集合
+    * 警示規則
+    
 如果您無法存取上述任何一個部分，請洽詢您的系統管理員，取得資源群組的參與者存取權限。
-
-

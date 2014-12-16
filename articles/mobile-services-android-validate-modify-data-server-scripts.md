@@ -1,41 +1,39 @@
-<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-android" urlDisplayName="Validate Data - Android" pageTitle="Use server scripts to validate and modify data (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="ricksal" solutions="" manager="" editor="" />
+﻿<properties urlDisplayName="Validate Data - Android" pageTitle="使用伺服器指令碼驗證與修改資料 (Android) | 行動開發人員中心" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Android app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="ricksal" />
 
 # 使用伺服器指令碼在行動服務中驗證與修改資料
 
-<div class="dev-center-tutorial-selector sublanding"> 
-<a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows 市集 C#">Windows 市集 C#</a><a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows 市集 JavaScript">Windows 市集 JavaScript</a><a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android" class="current">Android</a><a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML" class="current">HTML</a><a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
 本主題將示範如何在 Azure 行動服務中運用伺服器指令碼。您可在行動服務中註冊伺服器指令碼，並使用該指令碼來針對插入和更新資料執行各種操作，包括驗證與資料修改。在本教學課程中，您將定義並註冊可驗證與修改資料的伺服器指令碼。由於伺服器端指令碼的行為常會影響用戶端，您也可以更新您的 Android 應用程式，以充分利用這些新行為。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1.  [新增字串長度驗證][新增字串長度驗證]
-2.  [更新用戶端以支援驗證][更新用戶端以支援驗證]
-3.  [插入時新增時間戳記][插入時新增時間戳記]
-4.  [更新用戶端以顯示時間戳記][更新用戶端以顯示時間戳記]
+1. [新增字串長度驗證]
+2. [更新用戶端以支援驗證]
+3. [插入時新增時間戳記]
+4. [更新用戶端以顯示時間戳記]
 
-本教學課程會以上一堂教學課程[開始使用資料][開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料][開始使用資料]。
+本教學課程會以先前的教學課程[開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料]。  
 
 ## <a name="string-length-validation"></a>新增驗證
 
 驗證使用者提交的資料長度一向是最佳做法。首先，註冊可驗證傳送至行動服務之字串資料長度的指令碼，並拒絕太長的字串，在此案例中為不得超過 10 個字元。
 
-1.  登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
+1. 登入 [Azure 管理入口網站]，按一下 [**行動服務**]，然後按一下您的應用程式。 
 
-    ![][0]
+   	![][0]
 
-2.  按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
+2. 按一下 [**資料**] 索引標籤，然後按一下 **TodoItem** 資料表。
 
-    ![][1]
+   	![][1]
 
-3.  按一下 [指令碼]，然後選取 [插入] 作業。
+3. 按一下 [**指令碼**]，然後選取 [**Insert**] 作業。
 
-    ![][2]
+   	![][2]
 
-4.  以下列函數取代現有的指令碼，然後按一下 [儲存]。
+4. 以下列函數取代現有的指令碼，然後按一下 [**儲存**]。
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -48,24 +46,24 @@
     本指令碼會檢查 **text** 屬性的長度，並在長度超過 10 個字元時傳送錯誤回應。否則，系統會呼叫 **execute** 方法以完成插入。
 
     <div class="dev-callout"> 
-<b>注意</b> 
-<p>您可以將位於 [指令碼] 索引標籤上的已註冊指令碼移除，方法是依序按一下 [清除] 和 [儲存]。</p></div>
+	<b>注意</b> 
+	<p>您可以在 [<strong>指令碼</strong>] 索引標籤上按一下 [<strong>清除</strong>]，再按一下 [<strong>儲存</strong>]，即可移除已註冊的指令碼。</p></div>
 
 ## <a name="update-client-validation"></a>更新用戶端
 
 現在，行動服務正在驗證資料並傳送錯誤回應，您必須確認應用程式能夠正確處理驗證的錯誤回應。
 
-1.  在 Eclipse 中，開啟您完成教學課程[開始使用資料][開始使用資料]時所建立的專案。
+1. 在 Eclipse 中，開啟您完成教學課程[開始使用資料]時所建立的專案。
 
-2.  在 ToDoActivity.java 檔案中找出 **addItem** 方法，並使用下列程式碼取代 createAndShowDialog 方法的呼叫：
+2. 在 ToDoActivity.java 檔案中找出 **addItem** 方法，並使用下列程式碼取代 createAndShowDialog 方法的呼叫：
 
-        createAndShowDialog(exception.getCause().getMessage(), "Error");
+		createAndShowDialog(exception.getCause().getMessage(), "Error");
 
-    這會顯示行動服務所傳回的錯誤訊息。
+	這會顯示行動服務所傳回的錯誤訊息。 
 
-3.  從 [執行] 功能表按一下 [執行] 以啟動應用程式，然後在文字方塊中輸入 10 個字元以上的文字，再按一下 [新增] 按鈕。
+3. 從 [**執行**] 功能表中，按一下 [**執行**] 啟動應用程式，然後在文字方塊中輸入超過 10 個字元的文字，再按一下 [**新增**] 按鈕。
 
-請留意到，此時會處理錯誤，並對使用者顯示錯誤訊息。
+  請留意到，此時會處理錯誤，並對使用者顯示錯誤訊息。
 
 ## <a name="add-timestamp"></a>新增時間戳記
 
@@ -75,7 +73,7 @@
 <p>此處所示範的 <b>createdAt</b> 時間戳記屬性現為備援屬性。行動服務會自動建立每個資料表的 <b>__createdAt</b> 系統屬性。</p>
 </div>
 
-1.  在[管理入口網站][Azure 管理入口網站]的 [指令碼] 索引標籤中，使用下列函數來取代目前的 **Insert** 指令碼，然後按一下 [儲存]。
+1. 在 [**指令碼**] 索引標籤中 (位於 [[管理入口網站]])，使用下列函數取代目前的 **Insert** 指令碼，然後按一下 [**儲存**]。
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -86,147 +84,153 @@
             }
         }
 
-    此函數可強化上一個 insert 指令碼，方法是在呼叫 **request**.**execute** 來插入物件之前，先將新的 **createdAt** 時間戳記屬性新增至物件。
+    此函數可強化上一個 insert 指令碼，方法是在呼叫 **request**.**execute** 來插入物件之前，先將新的 **createdAt** 時間戳記屬性新增至物件。 
 
     <div class="dev-callout"><b>注意</b>
-<p>首次執行插入指令碼時，必須啟用動態結構描述。在啟用動態結構描述的情況下，行動服務會在首次執行時自動將 <strong>createdAt</strong> 欄新增至 <strong>TodoItem</strong> 資料表。依預設會啟用新行動服務的動態結構描述，您應先加以停用，再發佈應用程式。</p>
-</div>
+	<p>首次執行插入指令碼時，必須啟用動態結構描述。在啟用動態結構描述的情況下，行動服務會在首次執行時自動將 <strong>createdAt</strong> 欄新增至 <strong>TodoItem</strong> 資料表。依預設會啟用新行動服務的動態結構描述，您應先加以停用，再發佈應用程式。</p>
+    </div>
 
-2.  從 [執行] 功能表按一下 [執行] 以啟動應用程式，然後在文字方塊中輸入少於 10 個字元的文字，再按一下 [新增]。
+2. 從 [**執行**] 功能表中，按一下 [**執行**] 啟動應用程式，然後在文字方塊中輸入少於 10 個字元的文字，再按一下 [**新增**]。
 
-    請注意新的時間戳記不會出現在應用程式 UI 中。
+   	請注意新的時間戳記不會出現在應用程式 UI 中。
 
-3.  回到管理入口網站中，按一下 [todoitem] 資料表中的 [瀏覽] 索引標籤。
-
-    請注意，現在會有一個 **createdAt** 資料行，且新插入的項目會具有時間戳記值。
-
+3. 回到管理入口網站，按一下 **todoitem** 資料表中的 [**瀏覽**] 索引標籤。
+   
+   	請注意，現在會有一個 **createdAt** 資料行，且新插入的項目會具有時間戳記值。
+  
 接下來，您必須更新 Android 應用程式以顯示此新資料欄。
 
 ## <a name="update-client-timestamp"></a>重新更新用戶端
 
 針對無法序列化成已定義類型屬性的回應，行動服務用戶端將忽略該回應中的任何資料。最後步驟是更新用戶端以顯示此新資料。
 
-1.  在 [封裝總管] 中開啟 ToDoItem.java 檔案，然後新增下列 **import** 陳述式：
+1. 在 [封裝總管] 中開啟 ToDoItem.java 檔案，然後新增下列 **import** 陳述式：
 
-        import java.util.Date;
+		import java.util.Date;
 
-2.  在 **TodoItem** 類別的私人欄位定義中新增下列程式碼：
+2. 在 **TodoItem** 類別的私人欄位定義中新增下列程式碼：
 
-        /**
-         * Timestamp of the item inserted by the service.
-         */
-        @com.google.gson.annotations.SerializedName("createdAt")
-        private Date mCreatedAt;
-
+		/**
+		 * Timestamp of the item inserted by the service.
+		 */
+		@com.google.gson.annotations.SerializedName("createdAt")
+		private Date mCreatedAt;
+  
     <div class="dev-callout"><b>注意</b>
-<p><code data-inline="1">SerializedName</code> 註解會指示用戶端，將應用程式中的新 <code data-inline="1">mCreatedAt</code> 屬性對應至 TodoItem 資料表中所定義之具有不同名稱的 <code data-inline="1">createdAt</code> 資料行。使用此註解，您的應用程式便可擁有物件上的屬性名稱，且該名稱會與 SQL Database 中的資料欄名稱不同。若是沒有此註解，則會因大小寫差異而發生錯誤。</p>
-</div>
+	<p><code>SerializedName</code> 註解會指示用戶端，將應用程式中的新 <code>mCreatedAt</code> 屬性對應至 TodoItem 資料表中所定義、且具有不同名稱的 <code>createdAt</code> 資料行。使用此註解，您的應用程式便可擁有物件上的屬性名稱，且該名稱會與 SQL Database 中的資料欄名稱不同。若是沒有此註解，則會因大小寫差異而發生錯誤。</p>
+    </div>
 
-3.  在 ToDoItem 類別中新增下列方法，以取得及設定新的 mCreatedAt 屬性：
+2. 在 ToDoItem 類別中新增下列方法，以取得及設定新的 mCreatedAt 屬性：
 
-        /**
-         * Sets the timestamp.
-         * 
-         * @param date
-         *            timestamp to set
-         */
-        public final void setCreatedAt(Date date) {
-            mCreatedAt = date;
-        }
+		/**
+		 * Sets the timestamp.
+		 * 
+		 * @param date
+		 *            timestamp to set
+		 */
+		public final void setCreatedAt(Date date) {
+			mCreatedAt = date;
+		}
+		
+		/**
+		 * Returns the timestamp.
+		 */
+		public Date getCreatedAt() {
+			return mCreatedAt;
+		}
 
-        /**
-         * Returns the timestamp.
-         */
-        public Date getCreatedAt() {
-            return mCreatedAt;
-        }
+5. 在 [封裝總管] 中開啟 ToDoItemAdapter.java 檔案，然後新增下列 **import** 陳述式：
 
-4.  在 [封裝總管] 中開啟 ToDoItemAdapter.java 檔案，然後新增下列 **import** 陳述式：
+		import java.text.DateFormat;
 
-        import java.text.DateFormat;
+6. 在 GetView 方法中新增下列程式碼：
 
-5.  在 GetView 方法中新增下列程式碼：
+		String createdAtText = "";
+		if (currentItem.getCreatedAt() != null){
+			DateFormat formatter = DateFormat.getDateInstance(DateFormat.SHORT);
+			createdAtText = formatter.format(currentItem.getCreatedAt());
+		}
 
-        String createdAtText = "";
-        if (currentItem.getCreatedAt() != null){
-            DateFormat formatter = DateFormat.getDateInstance(DateFormat.SHORT);
-            createdAtText = formatter.format(currentItem.getCreatedAt());
-        }
+   	This generates a formatted date string when a timestamp value exists. 
 
-    如此一來，若有時間戳記，則會產生格式化的日期字串。
+7. 找出程式碼 `checkBox.setText(currentItem.getText());`，並將此程式碼行取代為下列內容：
 
-6.  找出程式碼 `checkBox.setText(currentItem.getText());`，並將這行程式碼取代為下列內容：
+		checkBox.setText(currentItem.getText() + " " + createdAtText);
 
-        checkBox.setText(currentItem.getText() + " " + createdAtText);
+	這會將時間戳記日期附加至顯示的項目。
+	
+6. 從 [**執行**] 功能表中，按一下 [**執行**] 來啟動應用程式。 
 
-    這會將時間戳記日期附加至顯示的項目。
+   	請留意到，只有在您更新 insert 指令碼後插入的項目，才會顯示時間戳記。
 
-7.  在 [Run] 功能表中按一下 [Run] 啟動應用程式。
+7. 使用下列程式碼取代現有的 **RefreshItemsFromTable** 方法：
 
-    請留意到，只有在您更新 insert 指令碼後插入的項目，才會顯示時間戳記。
+		private void refreshItemsFromTable() {
+			
+			mToDoTable.where().field("complete").eq(false).and().field("createdAt").ne((String)null)
+					.execute(new TableQueryCallback<ToDoItem>() {
+	
+						public void onCompleted(List<ToDoItem> result, int count,
+								Exception exception, ServiceFilterResponse response) {
+							if (exception == null) {
+								mAdapter.clear();
+	
+								for (ToDoItem item : result) {
+									mAdapter.add(item);
+								}
+	
+							} else {
+								createAndShowDialog(exception, "Error");
+							}
+						}
+					});
+		}
 
-8.  使用下列程式碼來取代現有的 **RefreshItemsFromTable** 方法：
+   	This method updates the query to also filter out items that do not have a timestamp value.
+	
+8. 從 [**執行**] 功能表中，按一下 [**執行**] 來啟動應用程式。
 
-        private void refreshItemsFromTable() {
-
-            mToDoTable.where().field("complete").eq(false).and().field("createdAt").ne((String)null)
-                    .execute(new TableQueryCallback<ToDoItem>() {
-
-                        public void onCompleted(List<ToDoItem> result, int count,
-                                Exception exception, ServiceFilterResponse response) {
-                            if (exception == null) {
-                                mAdapter.clear();
-
-                                for (ToDoItem item : result) {
-                                    mAdapter.add(item);
-                                }
-
-                            } else {
-                                createAndShowDialog(exception, "Error");
-                            }
-                        }
-                    });
-        }
-
-    此方法會更新查詢，篩選出沒有時間戳記的項目。
-
-9.  在 [Run] 功能表中按一下 [Run] 啟動應用程式。
-
-    請留意到，所有已建立但不含時間戳記值的項目，都會從 UI 中消失。
+   	請留意到，所有已建立但不含時間戳記值的項目，都會從 UI 中消失。
 
 您已完成此使用資料教學課程。
 
 ## <a name="next-steps"> </a>後續步驟
 
-現在，您已完成本教學課程，請考慮繼續進行資料數列中最後的教學課程：[使用分頁縮小查詢範圍][使用分頁縮小查詢範圍]。
+現在，您已完成本教學課程，請考慮繼續進行資料數列中最後的教學課程：[使用分頁縮小查詢範圍]。
 
 您也可以在授權使用者及傳送推播通知時使用伺服器指令碼。如需詳細資訊，請參閱下列教學課程：
 
--   [使用指令碼授權使用者][使用指令碼授權使用者]
-    了解如何根據通過驗證使用者的 ID 來篩選資料。
+* [使用指令碼授權使用者]
+  <br/>了解如何根據通過驗證的使用者識別碼篩選資料。
 
--   [開始使用推播通知][開始使用推播通知]
-    了解如何將極為基本的推播通知傳送到應用程式。
+* [開始使用推播通知] 
+  <br/>了解如何將非常基本的推播通知傳送至您的應用程式。
 
--   [行動服務伺服器指令碼參考][行動服務伺服器指令碼參考]
-    深入了解如何註冊和使用伺服器指令碼。
+* [行動服務伺服器指令碼參考]
+  <br/>進一步了解註冊和使用伺服器指令碼。
 
- 
+<!-- Anchors. -->
+[新增字串長度驗證]: #string-length-validation
+[更新用戶端以支援驗證]: #update-client-validation
+[插入時新增時間戳記]: #add-timestamp
+[更新用戶端以顯示時間戳記]: #update-client-timestamp
+[後續步驟]: #next-steps
 
- 
+<!-- Images. -->
+[0]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-services-selection.png
+[1]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-portal-data-tables.png
+[2]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-insert-script-users.png
 
 
 
-  [新增字串長度驗證]: #string-length-validation
-  [更新用戶端以支援驗證]: #update-client-validation
-  [插入時新增時間戳記]: #add-timestamp
-  [更新用戶端以顯示時間戳記]: #update-client-timestamp
-  [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-android
-  [Azure 管理入口網站]: https://manage.windowsazure.com/
-  [0]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-services-selection.png
-  [1]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-portal-data-tables.png
-  [2]: ./media/mobile-services-android-validate-modify-data-server-scripts/mobile-insert-script-users.png
-  [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-android
-  [使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-android
-  [開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-android
-  [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
+<!-- URLs. -->
+[行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
+[開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-android
+[使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-android
+[使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-android
+[開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-android
+[開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-android
+[開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-android
+
+[管理入口網站]: https://manage.windowsazure.com/
+[Azure 管理入口網站]: https://manage.windowsazure.com/

@@ -1,39 +1,39 @@
-<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="How to use the SendGrid email service (PHP) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
+﻿<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="如何使用 SendGrid 電子郵件服務 (PHP) - Azure" metaKeywords="Azure SendGrid, Azure 電子郵件服務, Azure SendGrid PHP, Azure 電子郵件 PHP" description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
 
 # 如何透過 PHP 使用 SendGrid 電子郵件服務
 
-本指南示範如何在 Azure 上透過 SendGrid 電子郵件服務執行常見程式設計工作。這些範例是以 PHP 撰寫。
-所涵蓋的案例包括**建構電子郵件**、**傳送電子郵件**以及**新增附件**。如需有關 SendGrid 及傳送電子郵件的詳細資訊，請參閱[後續步驟][後續步驟]一節。
+本指南示範如何在 Azure 上透過 SendGrid 電子郵件服務執行常見程式設計工作。相關範例是以 PHP 撰寫的。
+涵蓋的案例包括**建構電子郵件**、**傳送電子郵件**和**新增附件**。如需 SendGrid 及傳送電子郵件的詳細資訊，請參閱[後續步驟][]一節。
 
 ## 目錄
 
--   [什麼是 SendGrid 電子郵件服務][什麼是 SendGrid 電子郵件服務]
--   [建立 SendGrid 帳戶][建立 SendGrid 帳戶]
--   [透過 PHP 應用程式使用 SendGrid][透過 PHP 應用程式使用 SendGrid]
--   [作法：傳送電子郵件][作法：傳送電子郵件]
--   [作法：新增附件][作法：新增附件]
--   [作法：使用篩選器來啟用頁尾、追蹤和分析][作法：使用篩選器來啟用頁尾、追蹤和分析]
--   [後續步驟][後續步驟]
+-   [什麼是 SendGrid 電子郵件服務][]
+-   [建立 SendGrid 帳戶][]
+-   [透過 PHP 應用程式使用 SendGrid][]
+-   [作法：傳送電子郵件][]
+-   [作法：新增附件][]
+-   [作法：使用篩選器來啟用頁尾、追蹤和分析][]
+-   [後續步驟][]
 
 ## <a name="bkmk_WhatIsSendGrid"> </a>什麼是 SendGrid 電子郵件服務？
 
-SendGrid 是[雲端架構電子郵件服務][雲端架構電子郵件服務] (英文)，能提供可靠的
-[交易式電子郵件傳遞][交易式電子郵件傳遞] (英文)、擴充性和即時分析，以及有彈性的 API
-來輕鬆進行自訂整合。常見的 SendGrid 使用案例
+SendGrid 是一種[雲端架構電子郵件服務]，可提供可靠的
+[交易式電子郵件傳遞]、延展性和即時分析，以及有彈性的 API
+讓使用者輕鬆進行自訂整合。常見的 SendGrid 使用案例
 包括：
 
 -   自動傳送回條給客戶
--   管理通訊群組清單，以便將每月
-    電子傳單和特別優惠傳送給客戶
--   收集即時事物 (如封鎖的電子郵件) 的度量以及
-    客戶回應
+-   管理為客戶傳送電子傳單和特別優惠的
+    通訊群組清單
+-   收集封鎖的電子郵件、客戶的回應情形等項目的
+    即時度量
 -   產生報表，協助找出趨勢
 -   轉寄客戶查詢
--   透過電子郵件從您的應用程式傳送通知
+- 透過電子郵件從您的應用程式傳送通知
 
-如需詳細資訊，請參閱 [][]<http://sendgrid.com></a>。
+如需詳細資訊，請參閱 [https://sendgrid.com][]。
 
 ## <a name="bkmk_CreateSendGrid"> </a>建立 SendGrid 帳戶
 
@@ -41,27 +41,27 @@ SendGrid 是[雲端架構電子郵件服務][雲端架構電子郵件服務] (�
 
 ## <a name="bkmk_UsingSendGridfromPHP"> </a>透過 PHP 應用程式使用 SendGrid
 
-在 Azure PHP 應用程式中使用 SendGrid 並不需要特別的
-設定或編碼。因為 SendGrid 這項服務可以
-透過雲端應用程式來存取，和透過
-內部部署應用程式來存取的方式相同。
+在 Azure PHP 應用程式中使用 SendGrid，並不需要特殊的
+組態或程式碼。SendGrid 是一項服務，因此可以
+從雲端應用程式中存取，且其方式完全等同於
+從內部部署應用程式的存取。
 
 ## <a name="bkmk_HowToSendEmail"> </a>作法：傳送電子郵件
 
-您可以使用 SendGrid 提供的 SMTP 或 Web API
-傳送電子郵件。
+您可以使用 SendGrid 提供的 SMTP 或 Web API 傳送
+電子郵件。
 
 ### SMTP API
 
-若要使用 SendGrid SMTP API 傳送電子郵件，請使用 *Swift Mailer*，它是
-元件型資料庫，可透過 PHP 應用程式傳送電子郵件。
-您可以從 [][1]<http://swiftmailer.org/download></a>
- 下載 *Swift Mailer* 程式庫。要使用程式庫傳送電子郵件，
-需要建立
+若要使用 SendGrid SMTP API 傳送電子郵件，請使用 *Swift Mailer* 這個
+以元件為基礎的程式庫，它可讓您從 PHP 應用程式傳送電子郵件。您
+可以從下列位置下載 *Swift Mailer* 程式庫：
+[http://swiftmailer.org/download][]。要使用此程式庫傳送電子郵件，
+必須建立
 <span class="auto-style2">Swift\_SmtpTransport</span>、
-<span class="auto-style2">Swift\_Mailer</span> 及
-<span class="auto-style2">Swift\_Message</span> 類別的執行個體、設定
-適當屬性，以及呼叫
+<span class="auto-style2">Swift\_Mailer</span> 和
+<span class="auto-style2">Swift\_Message</span> 類別的執行個體，設定
+適當的屬性，並呼叫
 <span class="auto-style2">Swift\_Mailer::send</span> 方法。
 
     <?php
@@ -128,11 +128,11 @@ SendGrid 是[雲端架構電子郵件服務][雲端架構電子郵件服務] (�
 
 ### Web API
 
-透過 PHP 的 [curl 函數][curl 函數]使用 SendGrid Web API 傳送電子郵件。
+透過 PHP 的 [curl 函數][]，使用 SendGrid Web API 傳送電子郵件。
 
     <?php
 
-     $url = 'http://sendgrid.com/';
+     $url = 'https://api.sendgrid.com/';
      $user = 'USERNAME';
      $pass = 'PASSWORD'; 
 
@@ -143,7 +143,7 @@ SendGrid 是[雲端架構電子郵件服務][雲端架構電子郵件服務] (�
           'subject' => 'testing from curl',
           'html' => 'testing body',
           'text' => 'testing body',
-          'from' => 'anna@sendgrid.com',
+          'from' => 'anna@contoso.com',
        );
        
      $request = $url.'api/mail.send.json';
@@ -168,16 +168,16 @@ SendGrid 是[雲端架構電子郵件服務][雲端架構電子郵件服務] (�
      // print everything out
      print_r($response);
 
-SendGrid 的 Web API 與 REST API 十分類似，但並非真的是
-REST 型 API，因為在大部分的呼叫中，GET 和 POST 動詞
-可以交換使用。
+SendGrid 的 Web API 非常類似於 REST API，不過它
+並不是真正的 RESTful API，因為大部分的呼叫中，GET 與 POST 動詞
+是可以互換使用的。
 
 ## <a name="bkmk_HowToAddAttachment"> </a>作法：新增附件
 
 ### SMTP API
 
-要使用 SMTP API 傳送附件，您必須在使用 Swift Mailer
-傳送電子郵件的範例指令碼中額外撰寫一行程式碼。
+要使用 SMTP API 傳送附件，必須
+在使用 Swift Mailer 傳送電子郵件的範例指令碼中額外新增一行程式碼。
 
     <?php
      include_once "lib/swift_required.php";
@@ -248,23 +248,23 @@ REST 型 API，因為在大部分的呼叫中，GET 和 POST 動詞
 
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 
-這一行程式碼會對
-<span class="auto-style2">Swift\_Message</span> 物件呼叫附加方法，並對
-<span class="auto-style2">Swift\_Attachment</span> 類別使用靜態
-方法 <span class="auto-style2">fromPath</span> 來取得檔案並
-附加到郵件中。
+這行程式碼會在
+<span class="auto-style2">Swift\_Message</span> 物件上呼叫 attach 方法，並使用靜態
+方法 <span class="auto-style2">fromPath</span> (在
+<span class="auto-style2">Swift\_Attachment</span> 類別上) 以取得檔案，
+並將其附加至訊息。
 
 ### Web API
 
-使用 Web API 傳送附件與使用 Web API 傳送
-電子郵件十分類似。但請注意，在接下來的範例中，
-參數陣列必須包含此元素：
+使用 Web API 傳送附件的作業非常類似於
+使用 Web API 傳送電子郵件。但請注意，在下列範例中，
+參數陣列必須包含此項目：
 
      'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
 
     <?php
 
-     $url = 'http://sendgrid.com/';
+     $url = 'https://api.sendgrid.com/';
      $user = 'USERNAME';
      $pass = 'PASSWORD';
      
@@ -278,7 +278,7 @@ REST 型 API，因為在大部分的呼叫中，GET 和 POST 動詞
          'subject' => 'test of file sends',
          'html' => '<p> the HTML </p>',
          'text' => 'the plain text',
-         'from' => 'anna@sendgrid.com',
+         'from' => 'anna@contoso.com',
          'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
      );
      
@@ -308,15 +308,15 @@ REST 型 API，因為在大部分的呼叫中，GET 和 POST 動詞
 
 ## <a name="bkmk_HowToUseFilters"> </a>作法：使用篩選器來啟用頁尾、追蹤和分析
 
-SendGrid 提供了運用
-篩選器的其他電子郵件功能。這些設定可新增到電子郵件
-以啟用特定功能，例如啟用點擊追蹤、Google
+SendGrid 提供了運用「篩選器」的其他電子郵件
+功能。這些設定可以新增至電子郵件訊息，
+以啟用特定功能，例如啟用追蹤、Google
 分析、訂閱追蹤等。
 
 您可以使用篩選器屬性對訊息套用篩選器。每個
 篩選器都是由包含篩選器特定設定的雜湊來指定。
-以下範例會啟用頁尾篩選器，並指定
-文字訊息來附加到電子郵件訊息的下方。
+下列範例會啟用頁尾篩選器，並指定
+將附加至電子郵件訊息底部的文字訊息：
 
     <?php
      /*
@@ -354,11 +354,11 @@ SendGrid 提供了運用
      $subject = 'Example SendGrid Email';
      
      // Where is this message coming from. For example, this message can be from support@yourcompany.com, info@yourcompany.com
-     $from = array('someone@example.com' =&gt; 'Name Of Your Company');
+     $from = array('someone@example.com' => 'Name Of Your Company');
      
      // If you do not specify a sender list above, you can specifiy the user here. If 
      // a sender list IS specified above, this email address becomes irrelevant.
-     $to = array('john@contoso.com'=&gt;'Personal Name Of Recipient');
+     $to = array('john@contoso.com'=>'Personal Name Of Recipient');
      
      # Create the body of the message (a plain-text and an HTML version). 
      # text is your plain-text email 
@@ -407,8 +407,7 @@ SendGrid 提供了運用
      
      // add SMTPAPI header to the message
      // *****IMPORTANT NOTE*****
-     // SendGrid's asJSON function escapes characters. If you are using Swift 
-     Mailer's
+     // SendGrid's asJSON function escapes characters. If you are using Swift Mailer's
      // PHP Mailer functions, the getTextHeader function will also escape characters.
      // This can cause the filter to be dropped.
      $headers = $message->getHeaders();
@@ -437,11 +436,11 @@ SendGrid 提供了運用
 
 ## <a name="bkmk_NextSteps"> </a>後續步驟
 
-了解 SendGrid 電子郵件服務的基本概念後，請參考下列連結
-以取得更多資訊。
+了解 SendGrid 電子郵件服務的基本概念後，請參考
+下列連結以取得更多資訊。
 
 -   SendGrid 文件：<https://sendgrid.com/docs>
--   Azure 客戶的 SendGrid 特別優惠：<http://sendgrid.com/azure.html>
+-   Azure 客戶的 SendGrid 特別優惠：<https://sendgrid.com/windowsazure.html>
 
   [後續步驟]: #bkmk_NextSteps
   [什麼是 SendGrid 電子郵件服務]: #bkmk_WhatIsSendGrid
@@ -450,8 +449,12 @@ SendGrid 提供了運用
   [作法：傳送電子郵件]: #bkmk_HowToSendEmail
   [作法：新增附件]: #bkmk_HowToAddAttachment
   [作法：使用篩選器來啟用頁尾、追蹤和分析]: #bkmk_HowToUseFilters
-  [雲端架構電子郵件服務]: http://sendgrid.com/solutions
-  [交易式電子郵件傳遞]: http://sendgrid.com/transactional-email
-  []: http://sendgrid.com
-  [1]: http://swiftmailer.org/download
+  [作法：使用其他 SendGrid 服務]: #bkmk_HowToUseAdditionalSvcs
+  [https://sendgrid.com]: https://sendgrid.com
+  [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
+  [特別優惠]: https://www.sendgrid.com/windowsazure.html
+  [封裝和部署 Azure 的 PHP 應用程式]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh674499(v=VS.103).aspx
+  [http://swiftmailer.org/download]: http://swiftmailer.org/download
   [curl 函數]: http://php.net/curl
+  [cloud-based email service]: https://sendgrid.com/email-solutions
+  [transactional email delivery]: https://sendgrid.com/transactional-email

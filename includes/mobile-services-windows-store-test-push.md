@@ -1,12 +1,10 @@
-1.  在 Visual Studio 中，按 F5 鍵以執行此應用程式。
+﻿
+1. 在 Visual Studio 中，按 F5 鍵以執行此應用程式。
 
-2.  在應用程式的 [Insert a TodoItem] 中輸入文字，然後按一下 [儲存]。
+2. 在應用程式的 [**插入 TodoItem**] 中輸入文字，然後按一下 [**儲存**]。
 
-    ![][0]
+   	![](./media/mobile-services-windows-store-test-push/mobile-quickstart-push1.png)
 
-    Note that after the insert completes, the app receives a push notification from WNS.
+   	Note that after the insert completes, the app receives a push notification from WNS.
 
-    ![][1]
-
-  [0]: ./media/mobile-services-windows-store-test-push/mobile-quickstart-push1.png
-  [1]: ./media/mobile-services-windows-store-test-push/mobile-quickstart-push2.png
+   	![](./media/mobile-services-windows-store-test-push/mobile-quickstart-push2.png)

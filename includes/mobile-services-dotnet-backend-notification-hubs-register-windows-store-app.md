@@ -1,67 +1,59 @@
-1.  如果您尚未註冊您的應用程式，請瀏覽至 Windows 市集應用程式之開發人員中心的[提交應用程式頁面][提交應用程式頁面]，使用您的 Microsoft 帳戶登入，然後按一下 [應用程式名稱]。
+﻿
 
-    ![][0]
+1. 如果您尚未註冊您的應用程式，請瀏覽至 Windows 市集應用程式之開發人員中心的[提交應用程式頁面]，使用您的 Microsoft 帳戶登入，然後按一下 [**應用程式名稱**]。
 
-2.  在 [應用程式名稱] 中為您的應用程式輸入名稱，然後依序按一下 [保留應用程式名稱] 和 [儲存]。
+   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png)
 
-    ![][1]
+2. 在 [**應用程式名稱**] 中輸入您的應用程式名稱，按一下 [**保留應用程式名稱**]，然後按一下 [**儲存**]。
 
-    This creates a new Windows Store registration for your app.
+   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-name.png)
 
-3.  在 Visual Studio 中，開啟您完成**開始使用行動服務**教學課程時所建立的 Windows 市集應用程式專案。
+   	This creates a new Windows Store registration for your app.
 
-4.  在 [方案總管] 中，以滑鼠右鍵按一下此專案，然後依序按一下 [市集] 和 [將應用程式與市集建立關聯...]。
+3. 在 Visual Studio 中，開啟您完成**開始使用行動服務**教學課程時所建立的 Windows 市集應用程式專案。
 
-    ![][2]
+4. 在 [方案總管] 中，以滑鼠右鍵按一下此專案，然後依序按一下 [**市集**] 和 [**[將應用程式與市集建立關聯...**]。 
 
-    這將會顯示 [將您的應用程式與 Windows 市集建立關聯] 精靈。
+  	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-store-association.png)
 
-5.  在此精靈中，按一下 [登入]，然後使用您的 Microsoft 帳戶登入。
+   	這將會顯示 [**將您的應用程式與 Windows 市集建立關聯**] 精靈。
 
-6.  選取您在步驟 2 中註冊的應用程式，按 [下一步]，然後按一下 [關聯]。
+5. 在此精靈中，按一下 [**登入**]，然後使用您的 Microsoft 帳戶登入。
 
-    ![][3]
+6. 選取您在步驟 2 中註冊的應用程式，按 [**下一步**]，然後按一下 [**關聯**]。
 
-    This adds the required Windows Store registration information to the application manifest.
+   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png)
 
-7.  (選用) 重複執行步驟 4-6，也會註冊通用 Windows 應用程式的 Windows Phone 市集專案。
+   	這麼做會將必要的 Windows 市集資訊新增到應用程式資訊清單。    
 
-8.  回到新應用程式的 Windows 開發人員中心頁面，按一下 **[服務]**。
+7. (選用) 重複執行步驟 4-6，也會註冊通用 Windows 應用程式的 Windows Phone 市集專案。
 
-    ![][4]
+8. 回到新應用程式的 Windows 開發人員中心頁面，按一下 [**服務**]。 
 
-9.  在 [服務] 頁面中，按一下 [Azure 行動服務] 下的 [Live Services site]。
+   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-edit-app.png) 
 
-    ![][5]
+9. 在 [服務] 頁面中，按一下 [**Azure 行動服務**] 之下的 [**Live 服務網站**]。
 
-10. 按一下 **[驗證您的服務]**，並記下 **[用戶端密碼]** 和 **[封裝安全性識別碼 (SID)]** 的值。
+	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit2-app.png)
 
-    ![][6]
+10. 按一下 [**驗證您的服務**]，並記下 [**用戶端密碼**] 和 [**封裝安全性識別碼 (SID)**] 的值。 
+
+   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 
     <div class="dev-callout"><b>安全性注意事項</b>
-<p>用戶端密碼和封裝 SID 是重要的安全性認證。請勿與任何人共用這些密碼，或與您的應用程式一起散發密碼。</p>
-</div>
+	<p>用戶端密碼和封裝 SID 是重要的安全性認證。請勿與任何人共用這些密碼，或與您的應用程式一起散發密碼。</p>
+    </div> 
 
-11. 登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
+11. 登入 [[Azure 管理入口網站]]，按一下 [**行動服務**]，然後按一下您的應用程式。
 
-    ![][7]
+   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-selection.png)
 
-12. 按一下 [推播] 索引標籤，輸入您在步驟 4 中從 WNS 取得的 [用戶端密碼] 和 [封裝 SID] 值，然後按一下 [儲存]。
+12. 按一下 [**推播**] 索引標籤並輸入從步驟 4 中 WNS 取得的 [**用戶端密碼**] 和 [**封裝 SID**] 值，然後按一下 [**儲存**]。	
 
-    ![][8]
+   	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-push-tab.png)
 
-    > [WACOM.NOTE]當您在入口網站的 [推播] 索引標籤中設定進階推播通知的 WNS 認證時，這些認證將會與通知中樞共用，以設定您應用程式適用的通知中樞。
+	>[WACOM.NOTE]當您在入口網站的 [**推播**] 索引標籤中設定進階推播通知的 WNS 認證時，這些認證將會與通知中樞共用，以設定您應用程式適用的通知中樞。
 
-
-
-  [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-  [0]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-submit-win8-app.png
-  [1]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-name.png
-  [2]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-store-association.png
-  [3]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png
-  [4]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-edit-app.png
-  [5]: ./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit2-app.png
-  [6]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-push-auth.png
-  [Azure 管理入口網站]: https://manage.windowsazure.com/
-  [7]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-selection.png
-  [8]: ./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-push-tab.png
+<!-- URLs. -->
+[提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Azure 管理入口網站]: https://manage.windowsazure.com/

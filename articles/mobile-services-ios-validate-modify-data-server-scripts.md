@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate Data" pageTitle="使用伺服器指令碼驗證與修改資料 (iOS) | 行動開發人員中心" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate Data" pageTitle="使用伺服器指令碼驗證與修改資料 (iOS) | 行動開發人員中心" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
@@ -16,23 +16,23 @@
 
 本教學課程會以先前的教學課程[開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料]。  
 
-## <a name="string-length-validation"></a>Add validation
+## <a name="string-length-validation"></a>新增驗證
 
-It is always a good practice to validate the length of data that is submitted by users. First, you register a script that validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.
+驗證使用者提交的資料長度一向是最佳做法。首先，註冊可驗證傳送至行動服務之字串資料長度的指令碼，並拒絕太長的字串，在此案例中為不得超過 10 個字元
 
-1. Log into the [Azure Management Portal], click **Mobile Services**, and then click your app.
+1. 登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
    	![][0]
 
-2. Click the **Data** tab, then click the **TodoItem** table.
+2. 按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
    	![][1]
 
-3. Click **Script**, then select the **Insert** operation.
+3. 按一下 [指令碼]，然後選取 [插入] 作業。
 
    	![][2]
 
-4. Replace the existing script with the following function, and then click **Save**.
+4. 以下列函數取代現有的指令碼，然後按一下 [儲存]。
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -42,27 +42,27 @@ It is always a good practice to validate the length of data that is submitted by
             }
         }
 
-    This script checks the length of the **text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
+    本指令碼會檢查 **text** 屬性的長度，並在長度超過 10 個字元時傳送錯誤回應。否則，系統會呼叫 **execute** 方法以完成插入。
 
     <div class="dev-callout">
-	<b>Note</b>
-	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>
+	<b>注意</b> 
+    <p>您可以將位於 [指令碼] 索引標籤上的已註冊的指令碼移除，方法是依序按一下 [清除]、[儲存]。.</p></div>
 
-## <a name="update-client-validation"></a>Update the client
+## <a name="update-client-validation"></a>更新用戶端
 
-Now that the mobile service is validating data and sending error responses, you need to update your app to be able to handle error responses from validation.
+現在，行動服務正在驗證資料並傳送錯誤回應，您必須更新您的應用程式以便處理驗證的錯誤回應
 
-1. In Xcode, open the project that you modified when you completed the tutorial [Get started with data].
+1. 在 Xcode 中，開啟您完成教學課程[開始使用資料][開始使用資料]時所修改的專案
 
-2. Press the **Run** button (Command + R) to build the project and start the app, then type text longer than 10 characters in the textbox and click the  plus (**+**) icon.
+2. 按 [執行] 按鈕 (Command + R) 以建置專案並啟動應用程式，在文字方塊中輸入超過 10 個字元的文字，然後按一下加號 (**+**) 圖示。
 
-   	Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.
+   	請留意到，由於行動服務傳回了 400 回應 (不正確的要求)，因此應用程式發出未處理的錯誤。
 
-3. In the QSTodoService.m file, locate the following line of code in the **addItem** method:
+3. 在 QSTodoService.m 檔案中，找出位於 **addItem** 方法中的下列程式碼行：
 
         [self logErrorIfNotNil:error];
 
-   	After this line of code, replace the remainder of the completion block with the following code:
+   	在這行程式碼之後，以下列程式碼更新 completion 區塊的剩餘部分：
 
         BOOL goodRequest = !((error) && (error.code == MSErrorMessageErrorCode));
 
@@ -93,13 +93,13 @@ Now that the mobile service is validating data and sending error responses, you 
             }
         }
 
-   	This logs the error to the output window and displays it to the user.
+   	這會將錯誤記錄至輸出視窗，並且對使用者顯示。
 
-4. Rebuild and start the app.
+4. 重新建置並啟動應用程式。
 
    	![][4]
 
-  	Notice that error is handled and the error messaged is displayed to the user.
+  	請留意到，此時會處理錯誤，並對使用者顯示錯誤訊息。
 
 <!--## <a name="add-timestamp"></a>Add a timestamp
 

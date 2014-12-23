@@ -1,27 +1,26 @@
-<properties title="開始使用行動服務" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
 
 > [AZURE.SELECTOR]
->
-> -   [開始使用][開始使用]
-> -   [發生什麼情形][發生什麼情形]
+> - [開始使用](/documentation/articles/vs-mobile-services-javascript-getting-started/)
+> - [發生什麼情形](/documentation/articles/vs-mobile-services-javascript-what-happened/)
 
 ## 開始使用行動服務
 
 依照這些範例中之程式碼執行的第一個步驟取決於您要連線的行動服務類型。
 
-對於 JavaScript 後端行動服務，請建立名為 TodoItem 的資料表。若要建立資料表，請在 [伺服器總管] 的 [Azure] 節點下尋找行動服務，在行動服務的節點上按一下滑鼠右鍵以開啟內容功能表，然後選擇 [建立資料表]。輸入 "TodoItem" 做為資料表名稱。
+對於 JavaScript 後端行動服務，請建立名為 TodoItem 的資料表。若要建立資料表，請在 [伺服器總管] 的 [Azure] 節點下尋找行動服務，在行動服務的節點上按一下滑鼠右鍵以開啟內容功能表，然後選擇 [**建立資料表**]。輸入 "TodoItem" 做為資料表名稱。
 
-若使用 .NET 後端行動服務，則 Visual Studio 為您建立的預設專案範本中已有 TodoItem 資料表，但您必須將它發行到 Azure。若要發行它，請開啟行動服務專案的內容功能表，然後選擇 [發行 Web]。接受預設值，然後選擇 [發行] 按鈕。
+若使用 .NET 後端行動服務，則 Visual Studio 為您建立的預設專案範本中已有 TodoItem 資料表，但您必須將它發行到 Azure。若要發行它，請開啟行動服務專案的內容功能表，然後選擇 [**發行 Web**]。接受預設值，然後選擇 [**發行**] 按鈕。
 
-##### 取得資料表的參考
+#####取得資料表的參考
 
 用戶端物件已加入至專案。它的名稱就是行動服務的名稱再加上 "Client"。下列程式碼可取得資料表的參考，而該資料表包含 TodoItem 的資料，可在後續操作中用來讀取和更新資料表。
 
-    var todoTable = yourMobileServiceClient.getTable('TodoItem');
+	var todoTable = yourMobileServiceClient.getTable('TodoItem');
 
-##### 加入項目
+#####加入項目 
 
 將新的項目插入至資料表。自動會建立 id (字串類型的 GUID) 作為新資料列的主要索引鍵。請勿變更 id 欄的類型，因為行動服務基礎結構會用到它。
 
@@ -33,7 +32,7 @@
         });
     };
 
-##### 讀取/查詢資料表
+#####讀取/查詢資料表
 
 下列程式碼會查詢資料表的所有項目、更新本機集合，然後將結果繫結至 UI 元素 listItems。
 
@@ -57,29 +56,24 @@
         listItems.winControl.itemDataSource = todoItems.dataSource;
     });
 
-有關更多您可以使用的查詢範例，請參閱 [query 物件][query 物件]。
+有關更多您可以使用的查詢範例，請參閱 [query 物件](http://msdn.microsoft.com/library/azure/jj613353.aspx)。
 
-##### 更新項目
+#####更新項目
 
-更新資料表中的資料列。在此範例中，todoItem 是更新的項目，而項目就是從行動服務傳回的相同項目。當行動服務回應時，就使用 [splice][splice] 方法在本機 todoItems 清單中更新此項目。在傳回的 [Promise][Promise] 物件上呼叫 [done][Promise] 方法，以取得所插入物件的複本，並處理任何錯誤。
+更新資料表中的資料列。在此範例中，todoItem 是更新的項目，而項目就是從行動服務傳回的相同項目。當行動服務回應時，就使用 [splice](http://msdn.microsoft.com/library/windows/apps/Hh700810.aspx) 方法在本機 todoItems 清單中更新此項目。在傳回的 [Promise]() 物件上呼叫 [done]() 方法，以取得所插入物件的複本，並處理任何錯誤。
 
         todoTable.update(todoItem).done(function (item) {
             todoItems.splice(todoItems.indexOf(item), 1, item);
         });
 
-##### 刪除項目
+#####刪除項目
 
-刪除資料表中的資料列。在傳回的 [Promise][Promise] 物件上呼叫 [done][Promise] 方法，以取得所插入物件的複本，並處理任何錯誤。
+刪除資料表中的資料列。在傳回的 [Promise]() 物件上呼叫 [done]() 方法，以取得所插入物件的複本，並處理任何錯誤。
 
-    todoTable.delete(todoItem).done(function (item) {
-        todoItems.splice(todoItems.indexOf(item), 1);
+	todoTable.delete(todoItem).done(function (item) {
+	    todoItems.splice(todoItems.indexOf(item), 1);
     }
 
-[深入了解行動服務][深入了解行動服務]
 
-  [開始使用]: /documentation/articles/vs-mobile-services-javascript-getting-started/
-  [發生什麼情形]: /documentation/articles/vs-mobile-services-javascript-what-happened/
-  [query 物件]: http://msdn.microsoft.com/library/azure/jj613353.aspx
-  [splice]: http://msdn.microsoft.com/library/windows/apps/Hh700810.aspx
-  [Promise]: 
-  [深入了解行動服務]: http://azure.microsoft.com/documentation/services/mobile-services/
+
+[深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)

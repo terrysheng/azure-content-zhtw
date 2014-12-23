@@ -1,8 +1,13 @@
-1.  在 Visual Studio 中，開啟 MainPage.xaml.cs，然後在檔案頂端新增下列`using` 陳述式。
+﻿
 
+下面的指示適用於測試 Windows 市集用戶端應用程式，但您可以在 Azure 行動服務所支援的任何平台上進行測試。 
+
+
+1. 在 Visual Studio 中，開啟 MainPage.xaml.cs 並在檔案頂端新增下列 `using` 陳述式。
+ 
         using System.Net.Http;
 
-2.  在 MainPage.xaml.cs 中，在命名空間中新增下列類別定義，以協助序列化使用者資訊。
+2. 在 MainPage.xaml.cs 中，在命名空間中新增下列類別定義，以協助序列化使用者資訊。
 
         public class UserInfo
         {
@@ -13,7 +18,8 @@
             public String postalCode { get; set; }
         }
 
-3.  在 MainPage.xaml.cs 中，更新`AuthenticateAsync` 方法以呼叫自訂 API 從 AAD 中傳回使用者的其他資訊。
+
+3. 在 MainPage.xaml.cs 中，更新 `AuthenticateAsync` 方法以呼叫自訂 API 從 AAD 中傳回使用者的其他資訊。 
 
         private async System.Threading.Tasks.Task AuthenticateAsync()
         {
@@ -34,13 +40,12 @@
                 {
                     message = "You must log in. Login Required";
                 }
-
+                
                 var dialog = new MessageDialog(message);
                 dialog.Commands.Add(new UICommand("OK"));
                 await dialog.ShowAsync();
             }
         }
 
-4.  儲存變更，並建置服務以驗證沒有語法錯誤。
 
-
+4. 儲存變更，並建置服務以驗證沒有語法錯誤。  

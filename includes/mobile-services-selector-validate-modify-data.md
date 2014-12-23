@@ -1,0 +1,12 @@
+﻿> [AZURE.SELECTOR-LIST (平台 | 後端)]
+- [(iOS | JavaScript)](/zh-tw/documentation/articles/mobile-services-ios-validate-modify-data-server-scripts/)
+- [(Windows 市集 C# | .NET)](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/)
+- [(Windows 市集 C# | Javascript)](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/)
+- [(Windows 市集 JavaScript | .NET)](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/)
+- [(Windows 市集 JavaScript | Javascript)](/zh-tw/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/)
+- [(Windows Phone | .NET)](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/)
+- [(Windows Phone | Javascript)](/zh-tw/documentation/articles/mobile-services-windows-phone-validate-modify-data-server-scripts/)
+- [(Android | Javascript)](/zh-tw/documentation/articles/mobile-services-android-validate-modify-data-server-scripts/)
+- [(Xamarin iOS | Javascript)](/zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/)
+- [(Xamarin Android | Javascript)](/zh-tw/documentation/articles/partner-xamarin-mobile-services-android-validate-modify-data-server-scripts/)
+- [(HTML | Javascript)](/zh-tw/documentation/articles/mobile-services-html-validate-modify-data-server-scripts/)

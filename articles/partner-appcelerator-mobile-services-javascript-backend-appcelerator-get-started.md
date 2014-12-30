@@ -1,6 +1,6 @@
-﻿<properties pageTitle="開始使用 Appcelerator Titanium 的 Azure 行動服務 " metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="開始為 Appcelerator Titanium 使用 Azure 行動服務" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator team;mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
 # <a name="getting-started"> </a>開始使用行動服務
 
@@ -8,7 +8,7 @@
 
 本教學課程說明如何將 Azure 行動服務運用在已建置 Appcelerator 的應用程式中。
 
-在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單「_待辦事項清單_」應用程式。您建立的行動服務會使用 JavaScript 建立伺服器端商務邏輯。
+在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單 _To do list_ 應用程式。您建立的行動服務會使用 JavaScript 建立伺服器端商務邏輯。
 
 若要完成本教學課程，您需要 [Appcelerator Titanium]。
 
@@ -24,15 +24,15 @@
 
 1. 在 [行動服務] 入口網站中，選取您行動服務的 [**資料**] 索引標籤。
 
-2. 按一下 [**加入新的資料表**]，並建立名為 **TodoItem** 的新資料表。
+2. 按一下 [**加入資料表**]，並建立名為 **TodoItem** 的新資料表。
 
 3. 下載新的 Appcelerator [Todolist 應用程式]，然後解壓縮專案。
 
 4. 下載並安裝 [Appcelerator Titanium Studio][Appcelerator Titanium] 和 SDK v3.2.1 或更新版本 (若您尚未這麼做)。您還需要 Xcode (v 5.0 +) 和/或 Android SDK (v 4.3+) 才能執行專案。
 
-5. 回到 [行動服務] 入口網站中，在 [**儀表板**] 下選取 [**管理金鑰**]，並複製 [**應用程式金鑰**]。
+5. 回到 [行動服務] 入口網站，選取 [**儀表板**] 下的 [**管理金鑰**]，然後將 [**應用程式金鑰**] 複製出去。
 
-5. 在應用程式的 index.js 中，使用您的行動服務中的值來取代 `<---應用程式名稱---->` 和 `<------------應用程式金鑰------------>`。
+5. 在應用程式的 index.js 中，以行動服務的值取代 `<---App Name---->` 和 `<------------APP KEY------------>`。
 
 ## 執行新的 Appcelerator 應用程式 ##
 
@@ -42,7 +42,7 @@
 
     ![][0]
 
-2.	在下個畫面中，選取 [**Existing Projects into Workspace**]，然後按 [**下一步**]。
+2.	在下個畫面中，選取 [**將現有專案匯入工作區**]，然後按 [**下一步**]。
 
     ![][1]
 
@@ -75,9 +75,9 @@
 ![][8]
 
 
->[WACOM.NOTE] 您可以檢閱造成存取您行動服務來進行查詢和插入資料的程式碼，該程式碼位於 TodoService.m 檔案中。
+>[WACOM.NOTE] 您可以檢閱存取行動服務來查詢和插入資料的程式碼，這可以在 TodoService.m 檔案中找到。
 
-4. 回到管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItems**] 資料表。
+4. 回到管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItems**] 表格。
 
    	![][9]
 
@@ -90,10 +90,10 @@
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作： 
 
 * [開始使用驗證]
-  <br/>了解如何透過身分識別提供者來驗證您的應用程式使用者。
+  <br/>了解如何向身分識別提供者驗證應用程式的使用者。
 
 * [開始使用推播通知] 
-  <br/>了解如何將非常基本的推播通知傳送至您的應用程式。
+  <br/>了解如何將極為基本的推播通知傳送到應用程式。
 
 
 
@@ -111,7 +111,9 @@
 [10]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/mobile-data-browse.png
 
 <!-- URLs. -->
-[Todolist 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=506859
+[待辦清單應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=506859
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
 [開始使用驗證]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
 [開始使用推播通知]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
+
+<!--HONumber=35_1-->

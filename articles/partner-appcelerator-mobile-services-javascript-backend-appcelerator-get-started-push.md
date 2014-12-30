@@ -1,6 +1,6 @@
-﻿<properties pageTitle="開始使用推播通知 (Appcelerator) | 行動開發人員中心 " metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="開始使用推播通知 (Appcelerator) | 行動開發人員中心" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Appcelerator app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator team;mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
 # 開始在行動服務中使用推播通知 (舊版為推播)
 <div class="dev-center-tutorial-selector sublanding">
@@ -16,7 +16,7 @@
 
 本主題說明如何使用 Windows Azure 行動服務，傳送推播通知至透過 Appcelerator Titanium Studio 開發的 iOS 和 Android 應用程式。在本教學課程中，您會使用 Apple 推播通知服務 (APNS) 和 Google 雲端通訊將推播通知新增至快速入門專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
->[WACOM.NOTE] 行動服務與 Azure 通知中心整合，以支援其他推播通知功能，例如範本、多個平台和改善的規模。本主題支援尚未升級到使用通知中心整合的現有行動服務。建立新的行動服務時，此整合式功能便會自動啟用。您應升級服務，盡可能使用通知中心。**針對使用 Appcelerator 推播的通知中心，我們會儘快設法取得合適的教學課程。**
+>[WACOM.NOTE] 行動服務與 Azure 通知中樞整合，以支援其他推播通知功能，例如範本、多個平台和改善的規模。本主題支援尚未升級到使用通知中心整合的現有行動服務。建立新的行動服務時，此整合式功能便會自動啟用。您應升級服務，盡可能使用通知中心。**針對使用 Appcelerator 推播的通知中心，我們會儘快設法取得可用的教學課程。**
 
 1.	[產生憑證簽署要求]
 2.	[註冊您的應用程式並啟用推播通知]
@@ -38,15 +38,15 @@
 
 > [WACOM.NOTE] 基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
 
-本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務]。
+本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須先完成[開始使用行動服務]。
 
-[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+[WACOM.INCLUDE [啟用 Apple 推播通知](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="register-gcm"></a>啟用 Google 雲端通訊
 
 >[WACOM.NOTE]若要完成此程序，您必須要有已通過電子郵件地址驗證的 Google 帳戶。若要建立新的 Google 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>。
 
-[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[WACOM.INCLUDE [啟用 GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 
 ##  <a name="gcm-module"></a>建立 Titanium 的 GCM 模組
@@ -55,7 +55,7 @@
 
 如果您打算建立 Android 模組，您將需要在 Appcelerator Titanium Studio 內安裝 Java 支援。請參閱 Appcelerator 的[安裝 Java 開發工具]，以取得簡短步驟 (如果您尚未這樣做)。
 
-您將需要安裝 Android NDK。從 [http://developer.android.com/sdk/ndk/index.html](http://developer.android.com/sdk/ndk/index.html) 下載適當的 .zip 檔案，並將它解壓縮到磁碟上的某個位置。記位此位置。 
+您將需要安裝 Android NDK。從 [http://developer.android.com/sdk/ndk/index.html] 下載適當的 .zip 檔案，(http://developer.android.com/sdk/ndk/index.html) 並將檔案解壓縮到磁碟的某些位置。記位此位置。 
 
 ### 建立新模組
 
@@ -67,11 +67,11 @@
 
 3. 在下個視窗中輸入專案設定的資料： 
 
-    * **專案名稱：** 在此案例中，我們使用 "notificationhub" (可以相同)。
+    * **專案名稱：**在此案例中，我們使用 "&quot;notificationhub&quot; (可以相同)。
 
-    * **模組識別碼：**在此案例中，我們使用 "com.winwire.notificationhub"。此值也必須與應用程式識別碼相符。
+    * **模組識別碼：**在此案例中，我們使用 &quot;com.winwire.notificationhub&quot;。此值也必須與應用程式識別碼相符。
 
-    * **部署目標：** 在此案例中，我們選取 Android。
+    * **部署目標：**在此案例中，我們選取 Android。
 
     > [WACOM.NOTE] 請注意，工作區的名稱不得包含空格，否則建立編譯時將會發生問題。
 
@@ -125,13 +125,13 @@
 
 > [WACOM.NOTE] 在上述程式碼中，您必須使用應用程式的封裝名稱 (模組識別碼) 來取代 *com.winwire.notificationhub* 文字的所有執行個體。
 
-7. 在您的 [通知中心] 模組中，以滑鼠右鍵按一下 "src" 資料夾，移至 [新增]，並選取 [資料夾]。提供如 com.google.android.gcm 的資料夾名稱。
+7. 在通知中心模組中，以滑鼠右鍵按一下 [src] 資料夾，移至 [新增]，然後選取 [資料夾]。提供如 com.google.android.gcm 的資料夾名稱。
 
 > [WACOM.NOTE] 如果您在 [新增] 選項中看不到 [資料夾]，則請選取 [其他] 並展開 [一般]，然後選取 [資料夾]。
 
-8. 現在，您可以在這裡下載 ".java" 檔案 (gcm.zip)，並將這些檔案複製到剛剛建立的資料夾 (com.google.android.gcm)。
+8. 現在，您可以在這裡下載 &quot;.java&quot; 檔案 (gcm.zip)，並將這些檔案複製到新建立的資料夾 (com.google.android.gcm)。
 
-9. 現在，尋找以模組識別碼命名的資料夾，然後將它展開。在該資料夾中，您可以看到 ".java" 檔案的清單。在這些檔案中，開啟以專案名稱+module.java 命名的檔案 (例如，如果您的專案名稱是 notificationhub，則看起來會像是 "NotificationhubModule.java")，然後在開頭處新增下列程式碼行。
+9. 現在，尋找以模組識別碼命名的資料夾，然後將它展開。在該資料夾中，您可以看到 ".java" 檔案的清單。在這些檔案中，開啟以專案名稱+module.java 命名的檔案 (例如，如果您的專案名稱是 notificationhub，則看起來會像是 &quot;NotificationhubModule.java&quot;)，然後在開頭處新增下列程式碼行。
 
         private static NotificationhubModule _THIS;
         private KrollFunction successCallback;
@@ -200,20 +200,20 @@
 	        return _THIS;
         }
 
-12. 現在下載 module.zip，並將檔案複製到以模組識別碼作為其名稱的資料夾。
+12. 現在下載 module.zip，並將檔案複製到以模組識別碼做為其名稱的資料夾。
 
-> [WACOM.NOTE] 在上述檔案中，您必須使用應用程式的封裝名稱 (模組識別碼) 來取代 *com.winwire.notificationhub* 文字的所有執行個體。並使用 ProjectName+Module (例如 "NotificationhubModule") 來取代 "NotificationhubModule"。
+> [WACOM.NOTE] 在上述檔案中，您必須使用應用程式的封裝名稱 (模組識別碼) 來取代 *com.winwire.notificationhub* 文字的所有執行個體。並使用 ProjectName+Module (例如 &quot;NotificationhubModule&quot;) 來取代 &quot;NotificationhubModule&quot;。
 
 ### 建置/封裝模組
 
-依序選擇 **[部署] > [封裝] - [Android 模組]**。您無法使用 Studio (也無法使用 BlackBerry NDK CLI 工具或 Momentics IDE) 來建置 BlackBerry 模組。 
+依序選擇 [**部署 > 封裝 - Android 模組**]。您無法使用 Studio (也無法使用 BlackBerry NDK CLI 工具或 Momentics IDE) 來建置 BlackBerry 模組。 
 
 ![][3]
 
 
-您可能接著會選擇為所有專案或特定專案部署此模組。這符合如 [使用 Titanium 模組] 中所述的安裝規則，但還是做個總結：
+您可能接著會選擇為所有專案或特定專案部署此模組。這符合如[使用 Titanium 模組]中所述的安裝規則，但還是做個總結：
 
-- 若是所有專案：則會將模組 .zip 檔案拖放到 Titanium SDK 安裝位置的根目錄。 
+- 適用於所有專案：則會將模組 .zip 檔案拖放到 Titanium SDK 安裝位置的根目錄。 
 
 - 若是特定專案：則會將模組 .zip 檔案拖放到專案的根目錄。 
 
@@ -253,11 +253,11 @@
     </tr>
     <td>Windows 7
     </td>
-    <td>C:\Users\username\AppData\Roaming (或 C:\ProgramData\Titanium on Titanium Studio 1.0.1 and earlier)
+    <td>C:\Users\username\AppData\Roaming (or C:\ProgramData\Titanium on Titanium Studio 1.0.1 and earlier)
     </td>
     </tr><td>Windows XP
     </td>
-    <td>C:\Documents and Settings\username\Application Data (或 C:\Documents and Settings\All Users\Application Data\Titanium on Titanium Studio 1.0.1 and earlier)
+    <td>C:\Documents and Settings\username\Application Data (or C:\Documents and Settings\All Users\Application Data\Titanium on Titanium Studio 1.0.1 and earlier)
     </td>
     </tr><td>Linux
     </td>
@@ -439,7 +439,7 @@
 
 
 
-如此即會註冊新的 insert 指令碼，該指令碼會使用 [行動服務推播物件] 將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。
+如此即會註冊新的 insert 指令碼，該指令碼會使用[行動服務推播物件]將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。
 
 
 <!-- Images. -->
@@ -452,19 +452,21 @@
 [6]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image066.png
 
 <!-- Anchors. -->
-[產生憑證簽署要求]: #certificates
-[註冊您的應用程式並啟用推播通知]: #register
-[建立應用程式的佈建設定檔]: #profile
-[啟用 Google 雲端通訊]: #register-gcm
-[建立 Titanium 的 GCM 模組]: #gcm-module
-[設定行動服務]: #configure
-[新增推播通知至應用程式]: #add-push
+[產生憑證簽署要求]： #certificates
+[註冊您的應用程式並啟用推播通知]： #register
+[建立應用程式的佈建設定檔]： #profile
+[啟用 Google 雲端通訊]： #register-gcm
+[建立 Titanium 的 GCM 模組]： #gcm-module
+[設定行動服務]： #configure
+[新增推播通知至應用程式]： #add-push
 [更新指令碼來傳送推播通知]: #update-scripts
-[插入資料以接收通知]: #test
+[插入資料以接收通知]： #test
 
 <!-- URLs. -->
 [開始使用行動服務]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
-[使用 Titanium 模組]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
-[Windows Azure 管理入口網站]: https://manage.windowsazure.com/
-[行動服務推播物件]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
+[使用 Titanium 模組]： http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
+[Windows Azure 管理入口網站]： https://manage.windowsazure.com/
+[行動服務推播物件]： http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
 [安裝 Java 開發工具]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
+
+<!--HONumber=35_1-->

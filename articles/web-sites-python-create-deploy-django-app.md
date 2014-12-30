@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Websites with Django" pageTitle="採用 Django 的 Python 網站 - Azure 教學課程" metaKeywords="Azure django, django 網站" description="A tutorial that introduces you to running a Python website on Azure." metaCanonical="" services="web-sites" documentationCenter="Python" title="Creating Websites with Django" authors="huvalo" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Websites with Django" pageTitle="採用 Django 的 Python 網站 - Azure 教學課程" metaKeywords="Azure django, django website" description="A tutorial that introduces you to running a Python website on Azure." metaCanonical="" services="web-sites" documentationCenter="Python" title="Creating Websites with Django" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="08/01/2014" ms.author="huvalo" />
 
 
 
@@ -11,15 +11,18 @@
 
 本教學課程示範如何部署以 Django Web 架構組建的應用程式。本教學課程會引導您逐步完成應用程式和所需之程式庫的部署，包括 Django。您會將上述內容全部放入 Git 儲存機制，以便快速而簡便地將更新推送到網站。最終，您會透過 Azure 設定新建立的網站，使其執行您的 Python 應用程式。  
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+> [WACOM.NOTE]
+> 若要完成此教學課程，您需要 Azure 帳戶。您可以 <a href="http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/">啟用 MSDN 訂戶權益</a> 或 <a href="http://azure.microsoft.com/zh-tw/pricing/free-trial/">申請免費試用</a>。
+> 
+> 如果您要在註冊帳戶前開始使用 Azure 網站，請移至 <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>，您可以在 Azure 網站中立即建立短期的免費 ASP.NET 簡易版網站。不需要信用卡，沒有承諾。
 
-本教學課程使用 Python 2.7 和 Django 1.4。您可以自行取得，或使用 [http://www.windowsazure.com/zh-tw/develop/python/](http://www.windowsazure.com/zh-tw/develop/python/) (英文) 的 Windows Installer 連結迅速而便利地進行安裝。  
+本教學課程使用 Python 2.7 和 Django 1.4。您可以自行取得，或使用 [http://www.windowsazure.com/zh-tw/develop/python/] 上的 Windows Installer 連結迅速而便利地進行安裝(http://www.windowsazure.com/zh-tw/develop/python/)。  
 
 **注意**：Azure 網站現在隨附預先安裝的 Python (您可以選擇 2.7.3 或 3.4.0) 和 wfastcgi 處理常式。不過 Django 等 Web 架構則未包含在內。如果您喜歡的話，也可以使用不同的 Python 解譯器。只要將它納入 Git 儲存機制，再將網站設定為使用該解譯器 (而非已安裝的 Python 2.7 解譯器) 即可。
 
-> [WACOM.NOTE]您可以開啟網站的 [設定] 索引標籤，然後變更 [**Python 版本**] 設定，藉此選取要在 Azure 網站入口網站中使用的 Python 版本。
+> [WACOM.NOTE] 您現在可以開啟網站的 [設定] 索引標籤，然後變更 [**Python 版本**] 設定，藉此選取要在 Azure 網站入口網站中使用的 Python 版本。
 
-您還需要安裝將網站推送到 Azure 的部署選項。可用的部署工具很多，不過本教學課程使用 Git。我們推薦使用 [msysgit](http://code.google.com/p/msysgit/) (英文)。 
+您還需要安裝將網站推送到 Azure 的部署選項。可用的部署工具很多，不過本教學課程使用 Git。我們推薦使用 [msysgit](http://code.google.com/p/msysgit/)。 
 
 **注意**：Python 專案目前不支援 TFS 發佈。
 
@@ -35,7 +38,7 @@
 
 ![](./media/web-sites-python-create-deploy-django-app/django-ws-004.png)
 
-在 [**Set up deployment**] 對話方塊中，向下捲動並選取 [**Local Git**] 選項。按一下向右箭頭以繼續操作。
+在 [**設定佈署**] 對話方塊中，向下捲動並選取 [**本機 Git**] 選項。按一下向右箭頭以繼續操作。
 
 ![](./media/web-sites-python-create-deploy-django-app/django-ws-005.png)
 
@@ -65,7 +68,7 @@
 
 ![](./media/web-sites-python-create-deploy-django-app/django-ws-008.png)
  
-接下來，建立初始的 Django 應用程式。您可以從命令列建立應用程式，如同建立其他任何 Django 應用程式一般，也可以使用 [Python Tools for Visual Studio](http://pytools.codeplex.com/) (英文) 來建立專案。以下內容展示這兩種選項。
+接下來，建立初始的 Django 應用程式。您可以從命令列建立應用程式，如同建立其他任何 Django 應用程式一般，也可以使用 [Python Tools for Visual Studio](http://pytools.codeplex.com/) 建立專案。以下內容展示這兩種選項。
 
 **選項 1：** 
 若要從命令列建立新專案，請執行以下命令。該命令會在 DjangoApplication 資料夾內建立 Django 應用程式：
@@ -96,9 +99,9 @@
 
 ## 網站組態
 
-現在您需要設定網站，使其得知 Django 專案並使用 wfastcgi 處理常式。若要這樣做，您可以按一下畫面頂端的 [**設定**] 索引標籤，然後向下捲動到頁面的下半部 (含有 [**應用程式設定**] 等區段)。  
+現在您需要設定網站，使其得知 Django 專案並使用 wfastcgi 處理常式。若要這樣做，您可以按一下畫面頂端的 [設定] 索引標籤，然後向下捲動到頁面的下半部 (含有 [**應用程式設定**] 和 [ **處理常式對應**] 等區段)。  
 
-於此處配置的所有設定會在實際的要求期間轉變成環境變數。這表示您可以利用這點來設定 DJANGO\_SETTINGS\_MODULE 環境變數以及 PYTHONPATH 和 WSGI\_HANDLER。如果應用程式有其他組態值，您可以在此處予以指派並從環境中挑選。有時候您會想要設定網站中檔案的路徑。例如，您可以為 PYTHONPATH 設定此項目。當網站以 Azure 網站形式運作時，它的位置會在 **D:\home\site\wwwroot\** 之中，因此您可以將這項資訊用於需要磁碟中檔案之完整路徑的場合。
+於此處配置的所有設定會在實際的要求期間轉變成環境變數。這表示您可以利用這點來設定 DJANGO\_SETTINGS\_MODULE 環境變數以及 PYTHONPATH and WSGI\_HANDLER。如果應用程式有其他組態值，您可以在此處予以指派並從環境中挑選。有時候您會想要設定網站中檔案的路徑。例如，您可以為 PYTHONPATH 設定此項目。當網站以 Azure 網站形式運作時，它的位置會在 **D:\home\site\wwwroot\** 之中，因此您可以將這項資訊用於需要磁碟中檔案之完整路徑的場合。
 
 若要設定 Django 應用程式，您需要建立三個環境變數。第一個是 DJANGO\_SETTINGS\_MODULE，它能提供用於組態的 Django 應用程式模組名稱。第二個是 PYTHONPATH 環境變數，它能指定設定模組所在的套件。第三個是 WSGI\_HANDLER。此變數是模組/套件名稱，再加上要使用之模組中的屬性 (如 mypackage.mymodule.handler)。請加上括弧以指出應呼叫該屬性。綜觀以上資訊，請將這些變數設定為：
                 
@@ -124,9 +127,9 @@
 
 ## 後續步驟
 
-現階段，您可以利用目前使用中的工具來繼續開發 Django 應用程式。如果您使用 [Python Tools for Visual Studio](http://pytools.codeplex.com/) (英文) 來進行部署，也許會想要安裝 [VisualGit](http://code.google.com/p/visualgit/) (英文) 以從 Visual Studio 內部取得原始檔控制整合。  
+現階段，您可以利用目前使用中的工具來繼續開發 Django 應用程式。如果您使用 [Python Tools for Visual Studio](http://pytools.codeplex.com/) 進行佈署，您可能會安裝 [VisualGit](http://code.google.com/p/visualgit/) 以取得 Visual Studio 中的原始檔控制整合。  
 
-您的應用程式可能會擁有 Python 和 Django 之外的相依性。如果您使用 [http://www.windowsazure.com/zh-tw/develop/python/](http://www.windowsazure.com/zh-tw/develop/python/) (英文) 的安裝程式來安裝 Python，便已安裝了可用來快速新增相依性的 PIP。例如，若要安裝自然語言工具組和該工具組的所有相依性，請輸入：
+您的應用程式可能會擁有 Python 和 Django 之外的相依性。如果您已使用 [http://www.windowsazure.com/zh-tw/develop/python/] 上的安裝程式來安裝 Python(http://www.windowsazure.com/zh-tw/develop/python/)，您便已安裝 PIP 並可將它用於快速加入新的相依性。例如，若要安裝自然語言工具組和該工具組的所有相依性，請輸入：
 
 	pip install nltk
 
@@ -135,3 +138,5 @@
 複製檔案後，請執行命令 **git status** 來查看新增的檔案，接著再依序執行 **git add** 和 **git commit** 來認可儲存機制的變更。最後，您可以執行 **git push** 將更新的網站部署到 Azure。
 
 現在，您可以前往 DjangoApplication 目錄，再依照平常的用法使用 manage.py 來開始將新應用程式加入 Django 專案。  
+
+<!--HONumber=35_1-->

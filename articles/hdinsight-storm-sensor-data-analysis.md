@@ -1,1344 +1,1340 @@
-<properties title="使用 Storm 和 HDInsight 分析感應器資料" pageTitle="使用 Apache Storm 和 Microsoft Azure HDInsight (Hadoop) 分析感應器資料" description="了解如何在 HDInsight (Hadoop) 上使用 Apache Storm 來即時處理感應器資料" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" />
+﻿<properties title="Analyzing sensor data with Storm and HDInsight" pageTitle="分析感應器資料，方法是使用 Apache Storm 和 Microsoft Azure HDInsight (Hadoop)" description="學習如何搭配使用 Apache Storm 和 HDInsight (Hadoop) 來即時處理感應器資料" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
 
-# 在 HDInsight (Hadoop) 中使用 Storm 和 HBase 分析感應器資料
+#在 HDInsight (Hadoop) 中使用 Storm 和 HBase 分析感應器資料
 
 了解如何建置解決方案，以使用 HDInsight Storm 叢集處理來自 Azure 事件中心的感應器資料。在處理期間，Storm 拓撲會將傳入的資料儲存到 HBase 叢集。拓撲也會使用 SignalR，透過 Azure 網站裝載的 Web 型儀表板來提供近乎即時的資訊。
 
-> [AZURE.NOTE] <https://github.com/Blackmist/hdinsight-eventhub-example> 上提供此專案的完整版本。
+> [AZURE.NOTE] [https://github.com/Blackmist/hdinsight-eventhub-example] 上提供此專案的完整版本(https://github.com/Blackmist/hdinsight-eventhub-example)。
 
-## 必要條件
+##必要條件
 
--   Azure 訂用帳戶
+* Azure 訂用帳戶
 
--   Visual Studio 與 [Microsoft Azure SDK for .NET][Microsoft Azure SDK for .NET]
+* Visual Studio 與 [Microsoft Azure SDK for .NET](http://azure.microsoft.com/zh-tw/downloads/archive-net-downloads/)
 
--   [Java 和 JDK][Java 和 JDK]
+* [Java 和 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
--   [Maven][Maven]
+* [Maven](http://maven.apache.org/what-is-maven.html)
 
--   [Git][Git]
+* [Git](http://git-scm.com/)
 
-> [AZURE.NOTE] 您也可以透過 [Chocolatey NuGet][Chocolatey NuGet] 封裝管理員取得 Java、JDK、Maven 和 Git。
+> [AZURE.NOTE] 您也可以透過 [Chocolatey NuGet] 封裝管理員取得 Java、JDK、Maven 和 Git(http://chocolatey.org/) 。
 
-## 建立儀表板
+##建立儀表板
 
-儀表板用來顯示近乎即時的感應器資訊。在此案例中，儀表板是 Azure 網站中裝載的一個 ASP.NET 應用程式。此應用程式的主要用途是做為 [SignalR][SignalR] 中心，在處理訊息時可接收來自 Storm 拓撲的資訊。
+儀表板用來顯示近乎即時的感應器資訊。在此案例中，儀表板是 Azure 網站中裝載的一個 ASP.NET 應用程式。此應用程式的主要目的是做為 [SignalR](http://www.asp.net/signalr/overview/getting-started/introduction-to-signalr) 集線器，以便在處理訊息時從 Storm 拓撲接收資訊。
 
 網站也包含 index.html 靜態檔案，此檔案也連接到 SignalR，並使用 D3.js 來繪製 Storm 拓撲所傳送的資料。
 
-> [WACOM.NOTE] 雖然也可以使用原始的 WebSocket 來代替 SignalR，但如果您需要擴充網站，WebSocket 並未提供內建的調整機制。您可以使用 Azure 服務匯流排來調整 SignalR (<http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus>)。
+> [WACOM.NOTE] 雖然也可以使用原始的 WebSocket 來代替 SignalR，但如果您需要擴充網站，WebSocket 並未提供內建的調整機制。您可以使用 Azure 服務匯流排來調整 SignalR ([http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus](http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus))。
 >
-> 有關使用 Storm 拓撲並透過原始 WebSocket 來與 Python 網站通訊的範例，請參閱＜[Storm 推文情緒 D3 視覺化][Storm 推文情緒 D3 視覺化]＞(英文) 專案。
+> 有關使用 Storm 拓撲並透過原始 WebSocket 來與 Python 網站通訊的範例，請參閱 [Storm 推文情緒 D3 視覺化] (英文)(https://github.com/P7h/StormTweetsSentimentD3Viz) 專案。
 
-1.  在 Visual Studio 中，使用 [ASP.NET Web 應用程式] 專案範本建立新的 C# 應用程式。將新應用程式命名為 [Dashboard]。
+1. 在 Visual Studio 中，使用 [**ASP.NET Web 應用程式**] 專案範本建立新的 C# 應用程式。將新應用程式命名為 **Dashboard**。
 
-2.  在 [新增 ASP.NET 專案] 視窗中，選取 [空白] 應用程式範本。在 [Microsoft Azure] 區段中，選取 [雲端中的主機] 和 [網站]。最後按一下 [確定]。
+2. 在 [**新增 ASP.NET 專案**] 視窗中，選取 [**空白**] 應用程式範本。在 [**Windows Azure**] 區段中，選取 [**雲端中的主機**] 和 [**網站**]。最後按一下 [**確定**]。
 
-    > [AZURE.NOTE] 如果出現提示，請登入 Azure 訂用帳戶。
+	> [AZURE.NOTE] 如果出現提示，請登入 Azure 訂用帳戶。
 
-3.  在 [Configure Windows Azure Site] 對話方塊中，輸入網站的 [網站名稱] 和 [區域]，然後按一下 [確定]。將會建立裝載儀表板的 Azure 網站。
+3. 在 [**設定 Windows Azure 網站**] 對話方塊中，輸入網站的 [**網站名稱**] 和 [**地區**]，然後按一下 [**確定**]。將會建立裝載儀表板的 Azure 網站。
 
-4.  在 [方案總管] 中，以滑鼠右鍵按一下專案，然後選取 [加入 | SignalR Hub Class (v2)]。將類別命名為 [DashHub.cs] 並加入至專案。此類別將包含可在 HDInsight 與儀表板網頁之間轉送資料的 SignalR 中心。
+3. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案，然後選取 [**加入 | SignalR Hub Class (v2)**]。將類別命名為 [**DashHub.cs**] 並加入至專案。此類別將包含可在 HDInsight 與儀表板網頁之間轉送資料的 SignalR 中心。
 
-    > [AZURE.NOTE] 如果您使用 Visual Studio 2012，則沒有 [SignalR Hub Class (v2)] 範本可用。您可以加入一個稱為 DashHub 的一般**類別**做為代替。您也需要手動安裝 SignalR 封裝，請開啟 [工具 | 程式庫套件管理員 | 套件管理器主控台]，並執行下列命令：
-    >
-    > `install-package Microsoft.AspNet.SignalR`
+	> [AZURE.NOTE] 如果您使用 Visual Studio 2012，則沒有 [**SignalR Hub Class (v2)**] 範本可用。您可以加入一個稱為 DashHub 的一般**類別**做為代替。您也需要手動安裝 SignalR 封裝，請開啟 [**工具 | 程式庫封裝管理員 | Package Manager Console**]，並執行下列命令：
+	>
+	> `install-package Microsoft.AspNet.SignalR`
 
-5.  使用下列程式碼取代 **DashHub.cs** 中的程式碼。
+4. 使用下列程式碼取代 **DashHub.cs** 中的程式碼。
 
-        using System;
-        using System.Collections.Generic;
-        using System.Linq;
-        using System.Web;
-        using Microsoft.AspNet.SignalR;
+		using System;
+		using System.Collections.Generic;
+		using System.Linq;
+		using System.Web;
+		using Microsoft.AspNet.SignalR;
 
-        namespace dashboard
-        {
-            public class DashHub : Hub
-            {
-                public void Send(string message)
-                {
-                    // Call the broadcastMessage method to update clients.
-                    Clients.All.broadcastMessage(message);
-                }
-            }
-        }
+		namespace dashboard
+		{
+		    public class DashHub : Hub
+		    {
+		        public void Send(string message)
+		        {
+		            // Call the broadcastMessage method to update clients.
+		            Clients.All.broadcastMessage(message);
+		        }
+		    }
+		}
 
-6.  在 [方案總管] 中，以滑鼠右鍵按一下專案，然後選取 [加入 | OWIN 啟動類別]。將新類別命名為 **Startup.cs**。
+5. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案，然後選取 [**加入 | OWIN 啟動類別**]。將新類別命名為 **Startup.cs**。
 
-    > [AZURE.NOTE] 如果您使用 Visual Studio 2012，則沒有 [OWIN 啟動類別] 範本可用。您可以建立一個稱為 Startup 的**類別**做為代替。
+	> [AZURE.NOTE] 如果您使用 Visual Studio 2012，則沒有 [**OWIN 啟動類別**] 範本可用。您可以建立一個稱為 Startup 的**類別**做為代替。
 
-7.  使用下列程式碼取代 **Startup.cs** 的內容。
+6. 使用下列程式碼取代 **Startup.cs** 的內容。
 
-        using System;
-        using System.Threading.Tasks;
-        using Microsoft.Owin;
-        using Owin;
+		using System;
+		using System.Threading.Tasks;
+		using Microsoft.Owin;
+		using Owin;
 
-        [assembly: OwinStartup(typeof(dashboard.Startup))]
+		[assembly: OwinStartup(typeof(dashboard.Startup))]
 
-        namespace dashboard
-        {
-            public class Startup
-            {
-                public void Configuration(IAppBuilder app)
-                {
-                    // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
-                    app.MapSignalR();
-                }
-            }
-        }
+		namespace dashboard
+		{
+		    public class Startup
+		    {
+		        public void Configuration(IAppBuilder app)
+		        {
+		            // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
+		            app.MapSignalR();
+		        }
+		    }
+		}
 
-8.  在 [方案總管] 中，以滑鼠右鍵按一下專案，然後按一下 [加入 | HTML 網頁]。將新頁面命名為 **index.html**。此頁面將包含此專案的即時儀表板。它會接收來自 DashHub 的資訊，並使用 D3.js 來顯示圖形。
+7. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案，然後按一下 [**加入 | HTML 網頁**]。將新頁面命名為 **index.html**。此頁面將包含此專案的即時儀表板。它會接收來自 DashHub 的資訊，並使用 D3.js 來顯示圖形。
 
-9.  在 [方案總管] 中，以滑鼠右鍵按一下 [index.html]，然後選取 [設為起始頁]。
+8. 在 [**方案總管**] 中，以滑鼠右鍵按一下 [**index.html**]，然後選取 [**設為起始頁**]。
 
 10. 使用下列程式碼取代 **index.html** 檔案中的程式碼。
 
-        <!DOCTYPE html>
-        <html xmlns="http://www.w3.org/1999/xhtml">
-        <head>
-            <title>Dashboard</title>
-            <style>
+		<!DOCTYPE html>
+		<html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+		    <title>Dashboard</title>
+		    <style>
 
-                .x.axis line {
-                    shape-rendering: auto;
-                }
+		        .x.axis line {
+		            shape-rendering: auto;
+		        }
 
-                .line {
-                    fill: none;
-                    stroke-width: 1.5px;
-                }
+		        .line {
+		            fill: none;
+		            stroke-width: 1.5px;
+		        }
 
-            </style>
-            <!--Script references. -->
-            <!--Reference the jQuery library. -->
-            <script src="Scripts/jquery-1.10.2.min.js"></script>
-            <!--Reference the SignalR library. -->
-            <script src="Scripts/jquery.signalR-2.0.2.min.js"></script>
-            <!--Reference the autogenerated SignalR hub script. -->
-            <script src="signalr/hubs"></script>
-            <!--Reference d3.js.-->
-            <script src="http://d3js.org/d3.v3.min.js"></script>
-        </head>
-        <body>
-            <script>
-                $(function () {
-                    //Huge thanks to Mike Bostok for his Path Transitions article - http://bost.ocks.org/mike/path/
-                    var n = 243,                                 //number of x coordinates in the graph
-                    duration = 750,                          //duration for transitions
-                    deviceValue=[0,0,0,0,0,0,0,0,0,0],       //temp holding for each device value
-                    now = new Date(Date.now() - duration),   //Now
-                    //fill an array of arrays with dummy data to start the chart
-                    //each item in the top-level array is a line
-                    //each item in the line arrays represents the X coordinate across a graph
-                    //The 'value' within each line array represents the Y coordinate for that point
-                    data = [                                 
-                        d3.range(n).map(function () { return { value: 0 }; }),
-                        d3.range(n).map(function () { return { value: 0 }; }),
-                        d3.range(n).map(function () { return { value: 0 }; }),
-                        d3.range(n).map(function () { return { value: 0 }; }),
-                        d3.range(n).map(function () { return { value: 0 }; }),
-                        d3.range(n).map(function () { return { value: 0 }; }),
-                        d3.range(n).map(function () { return { value: 0 }; }),
-                        d3.range(n).map(function () { return { value: 0 }; }),
-                        d3.range(n).map(function () { return { value: 0 }; }),
-                        d3.range(n).map(function () { return { value: 0 }; }),
-                        d3.range(n).map(function () { return { value: 0 }; })
-                    ];
+		    </style>
+		    <!--Script references. -->
+		    <!--Reference the jQuery library. -->
+		    <script src="Scripts/jquery-1.10.2.min.js"></script>
+		    <!--Reference the SignalR library. -->
+		    <script src="Scripts/jquery.signalR-2.0.2.min.js"></script>
+		    <!--Reference the autogenerated SignalR hub script. -->
+		    <script src="signalr/hubs"></script>
+		    <!--Reference d3.js.-->
+		    <script src="http://d3js.org/d3.v3.min.js"></script>
+		</head>
+		<body>
+		    <script>
+		        $(function () {
+		            //Huge thanks to Mike Bostok for his Path Transitions article - http://bost.ocks.org/mike/path/
+		            var n = 243,                                 //number of x coordinates in the graph
+		            duration = 750,                          //duration for transitions
+		            deviceValue=[0,0,0,0,0,0,0,0,0,0],       //temp holding for each device value
+		            now = new Date(Date.now() - duration),   //Now
+		            //fill an array of arrays with dummy data to start the chart
+		            //each item in the top-level array is a line
+		            //each item in the line arrays represents the X coordinate across a graph
+		            //The 'value' within each line array represents the Y coordinate for that point
+		            data = [
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; }),
+		                d3.range(n).map(function () { return { value: 0 }; })
+		            ];
 
-                    //Color scale for 10 items
-                    var color = d3.scale.category10();
-                    //The domain for color (the device IDs)
-                    var devices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-                    //This will auto-generate colors for this range of IDs
-                    color.domain(devices);
+		            //Color scale for 10 items
+		            var color = d3.scale.category10();
+		            //The domain for color (the device IDs)
+		            var devices = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+		            //This will auto-generate colors for this range of IDs
+		            color.domain(devices);
 
-                    //set margins and figure out width/height
-                    var margin = {top: 6, right: 0, bottom: 20, left: 40},
-                        width = 960 - margin.right,
-                        height = 240 - margin.top - margin.bottom;
+		            //set margins and figure out width/height
+		            var margin = {top: 6, right: 0, bottom: 20, left: 40},
+		                width = 960 - margin.right,
+		                height = 240 - margin.top - margin.bottom;
 
-                    //the time scale for the X axis
-                    var x = d3.time.scale()
-                        .domain([now - (n - 2) * duration, now - duration])
-                        .range([0, width]);
+		            //the time scale for the X axis
+		            var x = d3.time.scale()
+		                .domain([now - (n - 2) * duration, now - duration])
+		                .range([0, width]);
 
-                    //the numerical scale for the Y axis
-                    var y = d3.scale.linear()
-                        .domain([100, 0])
-                        .range([0, height]);
+		            //the numerical scale for the Y axis
+		            var y = d3.scale.linear()
+		                .domain([100, 0])
+		                .range([0, height]);
 
-                    //The line, which is really just a
-                    //couple functions that we can pass data to
-                    //in order to get back x/y coords.
-                    var line = d3.svg.line()
-                        .interpolate("basis")
-                        .x(function (d, i) { return x(now - (n - 1 - i) * duration); })
-                        .y(function (d, i) { return y(d.value); });
+		            //The line, which is really just a
+		            //couple functions that we can pass data to
+		            //in order to get back x/y coords.
+		            var line = d3.svg.line()
+		                .interpolate("basis")
+		                .x(function (d, i) { return x(now - (n - 1 - i) * duration); })
+		                .y(function (d, i) { return y(d.value); });
 
-                    //Find the HTML body element and add a child SVG element
-                    var svg = d3.select("body").append("svg")
-                        .attr("width", width + margin.left + margin.right)
-                        .attr("height", height + margin.top + margin.bottom)
-                      .append("g")
-                        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		            //Find the HTML body element and add a child SVG element
+		            var svg = d3.select("body").append("svg")
+		                .attr("width", width + margin.left + margin.right)
+		                .attr("height", height + margin.top + margin.bottom)
+		              .append("g")
+		                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-                    //Define a clipping path, because we need to clip
-                    //the graph to render only the bits we want to see
-                    //as it moves
-                    svg.append("defs").append("clipPath")
-                        .attr("id", "clip")
-                      .append("rect")
-                        .attr("width", width)
-                        .attr("height", height);
+		            //Define a clipping path, because we need to clip
+		            //the graph to render only the bits we want to see
+		            //as it moves
+		            svg.append("defs").append("clipPath")
+		                .attr("id", "clip")
+		              .append("rect")
+		                .attr("width", width)
+		                .attr("height", height);
 
-                    //Append the x axis
-                    var axis = svg.append("g")
-                        .attr("class", "x axis")
-                        .attr("transform", "translate(0," + height + ")")
-                        .call(x.axis = d3.svg.axis().scale(x).orient("bottom"));
+		            //Append the x axis
+		            var axis = svg.append("g")
+		                .attr("class", "x axis")
+		                .attr("transform", "translate(0," + height + ")")
+		                .call(x.axis = d3.svg.axis().scale(x).orient("bottom"));
 
-                    //append the y axis
-                    var yaxis = svg.append("g")
-                        .attr("class", "y axis")
-                        .call(y.axis = d3.svg.axis().scale(y).orient("left").ticks(5));
+		            //append the y axis
+		            var yaxis = svg.append("g")
+		                .attr("class", "y axis")
+		                .call(y.axis = d3.svg.axis().scale(y).orient("left").ticks(5));
 
-                    //append the clipping path
-                    var linegroup = svg.append("g")
-                      .attr("clip-path", "url(#clip)");
+		            //append the clipping path
+		            var linegroup = svg.append("g")
+		              .attr("clip-path", "url(#clip)");
 
-                    //magic. Select all paths with a class of .line
-                    //if they don't exist, make them.
-                    //use the points in the line object to define
-                    //the paths
-                    //set the color to the cooresponding auto-generated coclor
-                    var path = linegroup.selectAll(".line")
-                      .data(data)
-                      .enter().append("path")
-                      .attr("class", "line")
-                      .attr("d", line)
-                      .style("stroke", function (d, i) { return color(i); });
+		            //magic. Select all paths with a class of .line
+		            //if they don't exist, make them.
+		            //use the points in the line object to define
+		            //the paths
+		            //set the color to the cooresponding auto-generated coclor
+		            var path = linegroup.selectAll(".line")
+		              .data(data)
+		              .enter().append("path")
+		              .attr("class", "line")
+		              .attr("d", line)
+		              .style("stroke", function (d, i) { return color(i); });
 
-                    //We need to transition the graph after all
-                    //lines have been updated. There's no
-                    //built-in for this, so this function
-                    //does reference counting on end events
-                    //for each line, then applies whatever
-                    //callback when all are finished.
-                    function endall(transition, callback) {
-                        var n = 0;
-                        transition
-                            .each(function () { ++n; })
-                            .each("end", function () { if (!--n) callback.apply(this, arguments); });
-                    }
+		            //We need to transition the graph after all
+		            //lines have been updated. There's no
+		            //built-in for this, so this function
+		            //does reference counting on end events
+		            //for each line, then applies whatever
+		            //callback when all are finished.
+		            function endall(transition, callback) {
+		                var n = 0;
+		                transition
+		                    .each(function () { ++n; })
+		                    .each("end", function () { if (!--n) callback.apply(this, arguments); });
+		            }
 
-                    //wire up the SignalR client and listen for messages
-                    var chat = $.connection.dashHub;
-                    chat.client.broadcastMessage = function (message) {
-                        //parse the JSON data
-                        var incomingData = JSON.parse(message);
-                        //stuff it in the global array slot for the device ID
-                        deviceValue[incomingData.device] = incomingData.temperature;
+		            //wire up the SignalR client and listen for messages
+		            var chat = $.connection.dashHub;
+		            chat.client.broadcastMessage = function (message) {
+		                //parse the JSON data
+		                var incomingData = JSON.parse(message);
+		                //stuff it in the global array slot for the device ID
+		                deviceValue[incomingData.device] = incomingData.temperature;
 
-                    };
-                    //start listening
-                    $.connection.hub.start();
-                    //tick for D3 graphics
-                    tick();
+		            };
+		            //start listening
+		            $.connection.hub.start();
+		            //tick for D3 graphics
+		            tick();
 
-                    function tick() {
-                        // update the domains
-                        now = new Date();
-                        x.domain([now - (n - 2) * duration, now - duration]);
+		            function tick() {
+		                // update the domains
+		                now = new Date();
+		                x.domain([now - (n - 2) * duration, now - duration]);
 
-                        //push the (presumably) fresh data deviceValue array onto
-                        //the arrays that define the lines.
-                        for (i = 0; i < 10; i++) {
-                            data[i].push({ value: deviceValue[i] });
-                            //data[1].push({ value: maxValue });
-                        }
-                        //slide the x-axis left
-                        axis.transition()
-                            .duration(duration)
-                            .ease("linear")
-                            .call(x.axis);
+		                //push the (presumably) fresh data deviceValue array onto
+		                //the arrays that define the lines.
+		                for (i = 0; i < 10; i++) {
+		                    data[i].push({ value: deviceValue[i] });
+		                    //data[1].push({ value: maxValue });
+		                }
+		                //slide the x-axis left
+		                axis.transition()
+		                    .duration(duration)
+		                    .ease("linear")
+		                    .call(x.axis);
 
-                        //Update the paths based on the updated line data
-                        //and slide left
-                        path
-                            .attr("d", line)
-                            .attr("transform", null)
-                        .transition()
-                            .duration(duration)
-                            .ease("linear")
-                            .attr("transform", "translate(" + x(now - (n - 1) * duration) + ",0)")
-                            .call(endall, tick);
+		                //Update the paths based on the updated line data
+		                //and slide left
+		                path
+		                    .attr("d", line)
+		                    .attr("transform", null)
+		                .transition()
+		                    .duration(duration)
+		                    .ease("linear")
+		                    .attr("transform", "translate(" + x(now - (n - 1) * duration) + ",0)")
+		                    .call(endall, tick);
 
-                        // pop the old data point off the front
-                        // of the arrays
-                        for (var i = 0; i < data.length; i++) {
-                            data[i].shift();
-                        };
-                    };
-                 })()
-                </script>
-            </body>
-        </html>
+		                // pop the old data point off the front
+		                // of the arrays
+		                for (var i = 0; i < data.length; i++) {
+		                    data[i].shift();
+		                };
+		            };
+		         })()
+		        </script>
+		    </body>
+		</html>
 
-    > [AZURE.NOTE] 封裝管理員可能安裝更新版本的 SignalR 指令碼。請確認下列指令碼參考對應至專案中的指令碼檔案版本 (如果您是使用 NuGet 而不是新增中心來加入 SignalR，則會不同)。
+	> [AZURE.NOTE] 封裝管理員可能安裝更新版本的 SignalR 指令碼。請確認下列指令碼參考對應至專案中的指令碼檔案版本 (如果您是使用 NuGet 而不是新增中心來加入 SignalR，則會不同)。
 
-11. 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後按一下 [加入 | HTML 網頁]。將新頁面命名為 **test.html**。此頁面可傳送和接收訊息，以測試 DashHub 和儀表板。
+11. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案，然後按一下 [**加入 | HTML 網頁**]。將新頁面命名為 **test.html**。此頁面可傳送和接收訊息，以測試 DashHub 和儀表板。
 
-12. 使用下列程式碼取代 **test.html** 檔案中的程式碼。
+11. 使用下列程式碼取代 **test.html** 檔案中的程式碼。
 
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>Test</title>
-            <style type="text/css">
-                .container {
-                    background-color: #99CCFF;
-                    border: thick solid #808080;
-                    padding: 20px;
-                    margin: 20px;
-                }
-            </style>
-        </head>
-        <body>
-            <div class="container">
-                <input type="text" id="message" />
-                <input type="button" id="sendmessage" value="Send" />
-                <input type="hidden" id="displayname" />
-                <ul id="discussion"></ul>
-            </div>
-            <!--Script references. -->
-            <!--Reference the jQuery library. -->
-            <script src="Scripts/jquery-1.10.2.min.js"></script>
-            <!--Reference the SignalR library. -->
-            <script src="Scripts/jquery.signalR-2.0.2.min.js"></script>
-            <!--Reference the autogenerated SignalR hub script. -->
-            <script src="signalr/hubs"></script>
-            <!--Add script to update the page and send messages.-->
-            <script type="text/javascript">
-                $(function () {
-                    // Declare a proxy to reference the hub.
-                    var chat = $.connection.dashHub;
-                    // Create a function that the hub can call to broadcast messages.
-                    chat.client.broadcastMessage = function (message) {
-                        // Html encode display the message.
-                        var encodedMsg = $('<div />').text(message).html();
-                        // Add the message to the page.
-                        $('#discussion').append('<li>' + encodedMsg + '</li>');
-                    };
-                    // Set initial focus to message input box.
-                    $('#message').focus();
-                    // Start the connection.
-                    $.connection.hub.start().done(function () {
-                        $('#sendmessage').click(function () {
-                            // Call the Send method on the hub.
-                            chat.server.send($('#message').val());
-                            // Clear text box and reset focus for next comment.
-                            $('#message').val('').focus();
-                        });
-                    });
-                });
-            </script>
-        </body>
-        </html>
+		<!DOCTYPE html>
+		<html>
+		<head>
+		    <title>Test</title>
+		    <style type="text/css">
+		        .container {
+		            background-color: #99CCFF;
+		            border: thick solid #808080;
+		            padding: 20px;
+		            margin: 20px;
+		        }
+		    </style>
+		</head>
+		<body>
+		    <div class="container">
+		        <input type="text" id="message" />
+		        <input type="button" id="sendmessage" value="Send" />
+		        <input type="hidden" id="displayname" />
+		        <ul id="discussion"></ul>
+		    </div>
+		    <!--Script references. -->
+		    <!--Reference the jQuery library. -->
+		    <script src="Scripts/jquery-1.10.2.min.js"></script>
+		    <!--Reference the SignalR library. -->
+		    <script src="Scripts/jquery.signalR-2.0.2.min.js"></script>
+		    <!--Reference the autogenerated SignalR hub script. -->
+		    <script src="signalr/hubs"></script>
+		    <!--Add script to update the page and send messages.-->
+		    <script type="text/javascript">
+		        $(function () {
+		            // Declare a proxy to reference the hub.
+		            var chat = $.connection.dashHub;
+		            // Create a function that the hub can call to broadcast messages.
+		            chat.client.broadcastMessage = function (message) {
+		                // Html encode display the message.
+		                var encodedMsg = $('<div />').text(message).html();
+		                // Add the message to the page.
+		                $('#discussion').append('<li>' + encodedMsg + '</li>');
+		            };
+		            // Set initial focus to message input box.
+		            $('#message').focus();
+		            // Start the connection.
+		            $.connection.hub.start().done(function () {
+		                $('#sendmessage').click(function () {
+		                    // Call the Send method on the hub.
+		                    chat.server.send($('#message').val());
+		                    // Clear text box and reset focus for next comment.
+		                    $('#message').val('').focus();
+		                });
+		            });
+		        });
+		    </script>
+		</body>
+		</html>
 
-13. 將專案 [全部儲存]。
+11. 將專案 [**全部儲存**]。
 
-14. 在 [方案總管] 中，以滑鼠右鍵按一下 [Dashboard] 專案，然後選取 [發行]。選取您為此專案建立的網站，然後按一下 [發行]。
+12. 在 [**方案總管**] 中，以滑鼠右鍵按一下 [**Dashboard**] 專案，然後選取 [**發行**]。選取您為此專案建立的網站，然後按一下 [**發行**]。
 
-15. 網站發行之後，應該會開啟網頁顯示移動時間軸。
+13. 網站發行之後，應該會開啟網頁顯示移動時間軸。
 
-### 測試儀表板
+###測試儀表板
 
-1.  若要確認 SignalR 正在運作，而且儀表板會將傳送至 SignalR 的資料顯示為圖形線條，請開啟新的瀏覽器視窗並移至此網站的 **test.html** 頁面。例如，**http://mydashboard.azurewebsites.net/test.html**。
+14. 若要確認 SignalR 正在運作，而且儀表板會將傳送至 SignalR 的資料顯示為圖形線條，請開啟新的瀏覽器視窗並移至此網站的 **test.html** 頁面。例如， **http://mydashboard.azurewebsites.net/test.html**。
 
-2.  儀表板需要值為 **device id** 和 **temperature** 的 JSON 格式資料。例如 **{"device":0, "temperature":80}**。在 **test.html** 頁面上，使用裝置 ID 0 到 9 輸入一些測試值，而儀表板在另一個頁面中開啟。請注意，每個裝置 ID 的線條會以不同顏色繪製。
+15. 儀表板需要值為 **device id** 和 **temperature** 的 JSON 格式資料。例如 **{"device":0, "temperature":80}**。在 **test.html** 頁面上，使用裝置 ID 0 到 9 輸入一些測試值，而儀表板在另一個頁面中開啟。請注意，每個裝置 ID 的線條會以不同顏色繪製。
 
-## 設定事件中心
+##設定事件中心
 
 事件中心用來接收感應器的訊息 (事件)。請使用下列步驟建立新的事件中心。
 
-1.  從 [Azure 入口網站][Azure 入口網站]，選取 [新增 | 服務匯流排 | Event Hub | 自訂建立]。
+1. 從 [Azure 入口網站](https://manage.windowsazure.com)中，選取 **新增 | 服務匯流排 | 事件中心 | 自訂建立**。
 
-2.  在 [Add a new Event Hub] 對話方塊中，輸入 [Event Hub Name]，選取要建立中心的 [區域]，然後建立新的命名空間或選取現有的命名空間。最後，按一下**箭頭**。
+2. 在 [**Add a new Event Hub**] 對話方塊中，輸入 [**Event Hub Name**]，選取要建立中心的 [**地區**]，然後建立新的命名空間或選取現有的命名空間。最後，按一下**箭頭**。
 
-3.  在 [Configure Event Hub] 對話方塊中，輸入 [資料分割計數] 和 [Message Retention] 值。在此範例中，資料分割計數使用 10，訊息保留使用 1。
+2. 在 [**設定事件中心**] 對話方塊上，輸入 [**資料分割計數**] 和 [ **訊息保留**] 值。在此範例中，資料分割計數使用 10，訊息保留使用 1。
 
-4.  建立事件中心之後，選取命名空間，然後選取 [Event Hubs]。最後，選取您稍早建立的事件中心。
+3. 建立事件中心之後，選取命名空間，然後選取 [**事件中心**]。最後，選取您稍早建立的事件中心。
 
-5.  選取 [設定]，然後使用下列資訊建立兩個新的存取原則。
+4. 選取 [**設定**]，然後使用下列資訊建立兩個新的存取原則。
 
-    | 名稱    | 權限 |
-    |---------|------|
-    | devices | 傳送 |
-    | storm   | 接聽 |
+	<table>
+	<tr><th>Name</th><th>Permissions</th></tr>
+	<tr><td>devices</td><td>Send</td></tr>
+	<tr><td>storm</td><td>Listen</td></tr>
+	</table>
 
-    建立權限之後，在頁面底部選取 [儲存] 圖示。這樣會建立共用存取原則，用以傳送訊息至此中心和讀取此中心的訊息。
+	建立權限之後，在頁面底部選取 [**儲存**] 圖示。這樣會建立共用存取原則，用以傳送訊息至此中心和讀取此中心的訊息。
 
-6.  儲存原則之後，使用頁面底部的 [Shared access key generator]，擷取 **devices** 和 **storm** 原則的金鑰。儲存這些金鑰，稍後會用到。
+5. 儲存原則之後，使用頁面底部的 [**Shared access key generator**]，擷取 **devices** 和 **storm** 原則的金鑰。儲存這些金鑰，稍後會用到。
 
-### 將訊息傳送至事件中心
+###將訊息傳送至事件中心
 
 因為並非每個人都有一組簡單、標準的感應器可用，所以使用一個 .NET 應用程式來產生隨機數字。使用下列步驟建立的 .NET 應用程式每秒會產生 10 個裝置的事件，直到您按下某個鍵來停止應用程式為止。
 
-1.  在 Visual Studio 中，建立 [Windows 桌面] 專案，並選取 [主控台應用程式] 專案範本。將專案命名為 **SendEvents**，然後按一下 [確定]。
+1. 在 Visual Studio 中，建立 [**Windows 桌面**] 專案，並選取 [**主控台應用程式**] 專案範本。將專案命名為 **SendEvents**，然後按一下 [**確定**]。
 
-2.  在 [方案總管] 中，以滑鼠右鍵按一下 [SendEvents]，然後選取 [管理 NuGet 封裝]。
+2. 在 [**方案總管**] 中，以滑鼠右鍵按一下 [**SendEvents**]，然後選取 [**管理 NuGet 封裝**]。
 
-3.  在 [管理 NuGet 封裝] 中，搜尋並安裝下列封裝。
+3. 在 [**管理 NuGet 封裝**] 中，搜尋並安裝下列封裝。
 
-    -   **Microsoft Azure 服務匯流排**
-    -   **JSON.Net**
+	* **Microsoft Azure 服務匯流排**
+	* **JSON.Net**
 
-    安裝封裝之後，**關閉**封裝管理員。
+	安裝封裝之後，**關閉**封裝管理員。
 
-4.  使用下列程式碼取代 **Program.cs** 的內容。
+4. 使用下列程式碼取代 **Program.cs** 的內容。
 
-        using System;
-        using System.Collections.Generic;
-        using System.Linq;
-        using System.Text;
-        using System.Threading.Tasks;
-        using Microsoft.ServiceBus.Messaging;
-        using Newtonsoft.Json;
-        using Microsoft.ServiceBus;
-        using System.Threading;
+		using System;
+		using System.Collections.Generic;
+		using System.Linq;
+		using System.Text;
+		using System.Threading.Tasks;
+		using Microsoft.ServiceBus.Messaging;
+		using Newtonsoft.Json;
+		using Microsoft.ServiceBus;
+		using System.Threading;
 
-        namespace SendEvents
-        {
-            class Program
-            {
+		namespace SendEvents
+		{
+		    class Program
+		    {
 
-                static int numberOfDevices = 10;
-                static string eventHubName = "temperature";
-                static string eventHubNamespace = "namespace";
-                static string sharedAccessPolicyName = "devices";
-                static string sharedAccessPolicyKey = "key for devices policy";
+		        static int numberOfDevices = 10;
+		        static string eventHubName = "temperature";
+		        static string eventHubNamespace = "namespace";
+		        static string sharedAccessPolicyName = "devices";
+		        static string sharedAccessPolicyKey = "key for devices policy";
 
-                static void Main(string[] args)
-                {
-                    var settings = new MessagingFactorySettings()
-                    {
-                        TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(sharedAccessPolicyName, sharedAccessPolicyKey),
-                        TransportType = TransportType.Amqp
-                    };
-                    var factory = MessagingFactory.Create(
-                         ServiceBusEnvironment.CreateServiceUri("sb", eventHubNamespace, ""), settings);
+		        static void Main(string[] args)
+		        {
+		            var settings = new MessagingFactorySettings()
+		            {
+		                TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(sharedAccessPolicyName, sharedAccessPolicyKey),
+		                TransportType = TransportType.Amqp
+		            };
+		            var factory = MessagingFactory.Create(
+		                 ServiceBusEnvironment.CreateServiceUri("sb", eventHubNamespace, ""), settings);
 
-                    EventHubClient client = factory.CreateEventHubClient(eventHubName);
+		            EventHubClient client = factory.CreateEventHubClient(eventHubName);
 
-                    try
-                    {
+		            try
+		            {
 
-                        List<Task> tasks = new List<Task>();
-                        // Send messages to Event Hub
-                        Console.WriteLine("Sending messages to Event Hub {0}", client.Path);
-                        Random random = new Random();
-                        //for (int i = 0; i < numberOfMessages; ++i)
-                        while(!Console.KeyAvailable)
-                        {
-                            // One event per device
-                            for(int devices = 0; devices < numberOfDevices; devices++)
-                            {
-                                // Create the device/temperature metric
-                                Event info = new Event() { 
-                                    TimeStamp = DateTime.UtcNow,
-                                    DeviceId = random.Next(numberOfDevices),
-                                    Temperature = random.Next(100)
-                                };
-                                // Serialize to JSON
-                                var serializedString = JsonConvert.SerializeObject(info);
-                                Console.WriteLine(serializedString);
-                                EventData data = new EventData(Encoding.UTF8.GetBytes(serializedString))
-                                {
-                                    PartitionKey = info.DeviceId.ToString()
-                                };
+		                List<Task> tasks = new List<Task>();
+		                // Send messages to Event Hub
+		                Console.WriteLine("Sending messages to Event Hub {0}", client.Path);
+		                Random random = new Random();
+		                //for (int i = 0; i < numberOfMessages; ++i)
+		                while(!Console.KeyAvailable)
+		                {
+		                    // One event per device
+		                    for(int devices = 0; devices < numberOfDevices; devices++)
+		                    {
+		                        // Create the device/temperature metric
+		                        Event info = new Event() {
+		                            TimeStamp = DateTime.UtcNow,
+		                            DeviceId = random.Next(numberOfDevices),
+		                            Temperature = random.Next(100)
+		                        };
+		                        // Serialize to JSON
+		                        var serializedString = JsonConvert.SerializeObject(info);
+		                        Console.WriteLine(serializedString);
+		                        EventData data = new EventData(Encoding.UTF8.GetBytes(serializedString))
+		                        {
+		                            PartitionKey = info.DeviceId.ToString()
+		                        };
 
-                                // Send the metric to Event Hub
-                                tasks.Add(client.SendAsync(data));
-                            }
-                            // Sleep a second
-                            Thread.Sleep(1000);
-                        };
+		                        // Send the metric to Event Hub
+		                        tasks.Add(client.SendAsync(data));
+		                    }
+		                    // Sleep a second
+		                    Thread.Sleep(1000);
+		                };
 
-                        Task.WaitAll(tasks.ToArray());
-                    }
-                    catch (Exception exp)
-                    {
-                        Console.WriteLine("Error on send: " + exp.Message);
-                    }
+		                Task.WaitAll(tasks.ToArray());
+		            }
+		            catch (Exception exp)
+		            {
+		                Console.WriteLine("Error on send: " + exp.Message);
+		            }
 
-                }
-            }
-        }
+		        }
+		    }
+		}
 
-    目前，參考到 Event 類別的程式行會出現警告。請暫時忽略這些警告。
+	目前，參考到 Event 類別的程式行會出現警告。請暫時忽略這些警告。
 
-5.  在 **Program.cs** 檔案中，在檔案開頭將下列變數的值設為從 Azure 管理入口網站中的事件中心擷取的對應值。
+4. 在 **Program.cs** 檔案中，在檔案開頭將下列變數的值設為從 Azure 管理入口網站中的事件中心擷取的對應值。
 
-    | 此變數...              | 設為此值...                                  |
-    |------------------------|----------------------------------------------|
-    | eventHubName           | 事件中心的名稱。例如 **temperature**。       |
-    | eventHubNamespace      | 事件中心的命名空間。例如 **sensors-ns**。    |
-    | sharedAccessPolicyName | 您以傳送存取權建立的原則。例如 **devices**。 |
-    | sharedAccessPolicyKey  | 具有傳送存取權之原則的金鑰。                 |
+	<table>
+	<tr><th>此變數...</th><th>設為此值...</th></tr>
+	<tr><td>eventHubName</td><td>事件中心的名稱。例如， <strong>temperature</strong>.</td></tr>
+	<tr><td>eventHubNamespace</td><td>事件中心的命名空間。例如， <strong>sensors-ns</strong>.</td></tr>
+	<tr><td>sharedAccessPolicyName</td><td>您以傳送存取權建立的原則。例如， <strong>devices</strong>.</td></tr>
+	<tr><td>sharedAccessPolicyKey</td><td>具有傳送存取權之原則的金鑰。</td></tr>
+	</table>
 
-6.  在 [方案總管] 中，以滑鼠右鍵按一下 [SendEvents]，選取 [加入 | 類別]。將新類別命名為 **Event.cs**。這將會描述傳送至事件中心的訊息。
+4. 在 [**方案總管**] 中，以滑鼠右鍵按一下 [**SendEvents**] 和 [**加入 | 類別**]。將新類別命名為 **Event.cs**。這將會描述傳送至事件中心的訊息。
 
-7.  使用下列程式碼取代 **Event.cs** 的內容。
+5. 使用下列程式碼取代 **Event.cs** 的內容。
 
-        using System;
-        using System.Collections.Generic;
-        using System.Linq;
-        using System.Runtime.Serialization;
-        using System.Text;
-        using System.Threading.Tasks;
+		using System;
+		using System.Collections.Generic;
+		using System.Linq;
+		using System.Runtime.Serialization;
+		using System.Text;
+		using System.Threading.Tasks;
 
-        namespace SendEvents
-        {
-            [DataContract]
-            public class Event
-            {
-                [DataMember]
-                public DateTime TimeStamp { get; set; }
-                [DataMember]
-                public int DeviceId { get; set; }
-                [DataMember]
-                public int Temperature { get; set; }
-            }
-        }
+		namespace SendEvents
+		{
+		    [DataContract]
+		    public class Event
+		    {
+		    	[DataMember]
+		    	public DateTime TimeStamp { get; set; }
+		        [DataMember]
+		        public int DeviceId { get; set; }
+		        [DataMember]
+		        public int Temperature { get; set; }
+		    }
+		}
 
-    此類別描述我們傳送的資料 - TimeStamp、DeviceID 和 Temperature 值。
+	此類別描述我們傳送的資料 - TimeStamp、DeviceID 和 Temperature 值。
 
-8.  [全部儲存]，然後執行應用程式，將訊息填入事件中心。
+6. [**全部儲存**]，然後執行應用程式，將訊息填入事件中心。
 
-## 建立 Azure 虛擬網路
+##建立 Azure 虛擬網路
 
 為了讓 Storm 叢集上執行的拓撲直接與 HBase 通訊，您必須將兩個伺服器都佈建到 Azure 虛擬網路。
 
-1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
+1. 登入 [Azure 管理入口網站][azure-portal].
 
-2.  依序按一下頁面底部的 [+新增]、[網路服務]、[虛擬網路] 及 [快速建立]。
+2. 依序按一下頁面底部的 [**+新增**]、[**網路服務**]、[**虛擬網路**] 及 [**快速建立**]。
 
-3.  輸入或選取下列值：
+3. 輸入或選取下列值：
 
-    -   **名稱**：虛擬網路的名稱。
-    -   **位址空間**：為虛擬網路選擇位址空間，空間要夠大，這樣才能為叢集中的所有節點提供位址。否則，佈建將會失敗。
-    -   **VM 計數上限**：選擇其中一個 VM 計數上限。
-    -   **位置**：此位置必須與您將建立 HBase 叢集的位置相同。
-    -   **DNS 伺服器**：本文使用的是 Azure 提供的內部 DNS 伺服器，因此您可以選擇 [無]。同時還支援更多自訂 DNS 伺服器的進階網路設定。如需詳細指引，請參閱 <http://msdn.microsoft.com/library/azure/jj156088.aspx>。
+	- **名稱**：虛擬網路的名稱。
+	- **位址空間**：為虛擬網路選擇位址空間，空間要夠大，這樣才能為叢集中的所有節點提供位址。否則，佈建將會失敗。
+	- **VM 計數上限**：選擇其中一個 VM 計數上限。
+	- **位置**：此位置必須與您將建立 HBase 叢集的位置相同。
+	- **DNS 伺服器**：本文使用的是 Azure 提供的內部 DNS 伺服器，因此您可以選擇 [**無**]。同時還支援更多自訂 DNS 伺服器的進階網路設定。如需詳細指引，請參閱 [http://msdn.microsoft.com/library/azure/jj156088.aspx](http://msdn.microsoft.com/library/azure/jj156088.aspx)。
 
-4.  按一下 [建立虛擬網路]。新的虛擬網路名稱隨即會出現在清單中。稍待片刻，直到 [狀態] 欄顯示 [已建立]。
+4. 按一下 [**建立虛擬網路**]。新的虛擬網路名稱隨即會出現在清單中。稍待片刻，直到 [狀態] 欄顯示 [**已建立**]。
 
-5.  在主要窗格上，按一下您剛建立的虛擬網路。
+5. 在主要窗格上，按一下您剛建立的虛擬網路。
 
-6.  按一下頁面頂端的 [儀表板]。
+6. 按一下頁面頂端的 [**儀表板**]。
 
-7.  將 [quick glance] 下方的 [VIRTUAL NETWORK ID] 記起來。佈建 Storm 和 HBase 叢集時需要用到它。
+7. 將 [**quick glance**] 下方的 [**VIRTUAL NETWORK ID**] 記起來。佈建 Storm 和 HBase 叢集時需要用到它。
 
-8.  按一下頁面頂端的 [設定]。
+8. 按一下頁面頂端的 [**設定**]。
 
-9.  在頁面底部，可看到預設的子網路名稱為 [Subnet-1]。使用 [加入子網路] 按鈕來加入 **Subnet-2**。這些子網路中將存放 Storm 和 HBase 叢集。
+9. 在頁面底部，可看到預設的子網路名稱為 **Subnet-1**。使用 [**加入子網路**] 按鈕來加入 **Subnet-2**。這些子網路中將存放 Storm 和 HBase 叢集。
 
-    > [WACOM.NOTE] 在本文中，我們使用只有一個節點的叢集。如果您建立多節點的叢集，則必須驗證叢集使用之子網路的 [CIDR (位址計數)]。位址計數必須大於背景工作節點數量加上 7 的數目 (閘道：2、前端節點：2、Zookeeper：3)。例如，如果您需要 10 個節點的 HBase 叢集，那麼子網路的位址計數必須大於 17 (10 + 7)。否則，部署將會失敗。
-    >
-    > 強烈建議您一個叢集只指定一個子網路。
+	> [WACOM.NOTE] 在本文中，我們使用只有一個節點的叢集。如果您建立多節點的叢集，則必須驗證叢集使用之子網路的 [**CIDR (位址計數)**]。位址計數必須大於背景工作節點數量加上 7 的數目 (閘道：2、前端節點：2、Zookeeper：3).例如，如果您需要 10 個節點的 HBase 叢集，那麼子網路的位址計數必須大於 17 (10 + 7)。否則，部署將會失敗。
+	>
+	> 強烈建議您一個叢集只指定一個子網路。
 
-10. 按一下頁面底部的 [儲存]。
+11. 按一下頁面底部的 [**儲存**]。
 
-## 建立 HDInsight Storm 叢集
+##建立 HDInsight Storm 叢集
 
-1.  登入 [Azure 管理入口網站][azureportal]
+1. 登入 [Azure 管理入口網站][azureportal]
 
-2.  按一下左邊的 [HDInsight]，然後按一下頁面左下角的 [+新增]。
+2. 按一下左邊的 [**HDInsight**]，然後按一下頁面左下角的 [**+新增**]。
 
-3.  按一下第二欄的 HDInsight 圖示，然後選取 [自訂]。
+3. 按一下第二欄的 HDInsight 圖示，然後選取 [**自訂**]。
 
-4.  在 [叢集詳細資料] 頁面上，輸入新叢集的名稱，然後在 [叢集類型] 中選取 [Storm]。選取箭頭以繼續。
+4. 在 [**叢集詳細資料**] 頁面上，輸入新叢集的名稱，然後在 [**叢集類型**] 中選取 [**Storm**]。選取箭頭以繼續。
 
-5.  輸入 1 做為要用於此叢集的 [資料節點] 數目。在 [區域/虛擬網路] 中，選取稍早建立的 Azure 虛擬網路。在 [虛擬網路子網路] 中，選取 [Subnet-2]。
+5. 輸入 1 做為要用於此叢集的 [**資料節點**] 數目。在 [**區域/虛擬網路**] 中，選取稍早建立的 Azure 虛擬網路。在 [**虛擬網路子網路**] 中，選取 [**Subnet-2**]。
 
-    > [WACOM.NOTE] 為了將本文使用的叢集成本降到最低，請將 [叢集大小] 降到 1，並於使用完畢之後刪除叢集。
+	> [WACOM.NOTE] 為了將本文使用的叢集成本降到最低，請將 [**叢集大小**] 降到 1，並於使用完畢之後刪除叢集。
 
-6.  輸入系統管理員的 [使用者名稱] 和 [密碼]，然後選取箭頭以繼續。
+6. 輸入系統管理員的 [**使用者名稱**] 和 [**密碼**]，然後選取箭頭以繼續。
 
-7.  在 [儲存體帳戶] 中，選取 [建立新的儲存體] 或選取現有的儲存體帳戶。選取或輸入 [帳戶名稱] 和要使用的 [預設容器]。按一下左下角的勾號圖示以建立 Storm 叢集。
+4. 在 [**儲存體帳戶**] 中，選取 [**建立新的儲存體**] 或選取現有的儲存體帳戶。選取或輸入 [**帳戶名稱**] 和要使用的 [**預設容器**]。按一下左下角的勾號圖示以建立 Storm 叢集。
 
-## 建立 HDInsight HBase 叢集
+##建立 HDInsight HBase 叢集
 
-1.  登入 [Azure 管理入口網站][azureportal]
+1. 登入 [Azure 管理入口網站][azureportal]
 
-2.  按一下左邊的 [HDInsight]，然後按一下頁面左下角的 [+新增]。
+2. 按一下左邊的 [**HDInsight**]，然後按一下頁面左下角的 [**+新增**]。
 
-3.  按一下第二欄的 HDInsight 圖示，然後選取 [自訂]。
+3. 按一下第二欄的 HDInsight 圖示，然後選取 [**自訂**]。
 
-4.  在 [叢集詳細資料] 頁面上，輸入新叢集的名稱，然後在 [叢集類型] 中選取 [HBase]。選取箭頭以繼續。
+4. 在 [**叢集詳細資料**] 頁面上，輸入新叢集的名稱，然後在 [**叢集類型**] 中選取 [**HBase**]。選取箭頭以繼續。
 
-5.  輸入 1 做為要用於此叢集的 [資料節點] 數目。在 [區域/虛擬網路] 中，選取稍早建立的 Azure 虛擬網路。在 [虛擬網路子網路] 中，選取 [Subnet-1]。
+5. 輸入 1 做為要用於此叢集的 [**資料節點**] 數目。在 [**區域/虛擬網路**] 中，選取稍早建立的 Azure 虛擬網路。在 [**虛擬網路子網路**] 中，選取 [**Subnet-1**]。
 
-    > [WACOM.NOTE] 為了將本文使用的叢集成本降到最低，請將 [叢集大小] 降到 1，並於使用完畢之後刪除叢集。
+	> [WACOM.NOTE] 為了將本文使用的叢集成本降到最低，請將 [**叢集大小**] 降到 1，並於使用完畢之後刪除叢集。
 
-6.  輸入系統管理員的 [使用者名稱] 和 [密碼]，然後選取箭頭以繼續。
+6. 輸入系統管理員的 [**使用者名稱**] 和 [**密碼**]，然後選取箭頭以繼續。
 
-7.  在 [儲存體帳戶] 中，選取 [建立新的儲存體] 或選取現有的儲存體帳戶。選取或輸入 [帳戶名稱] 和要使用的 [預設容器]。按一下左下角的勾號圖示以建立 Storm 叢集。
+4. 在 [**儲存體帳戶**] 中，選取 [**建立新的儲存體**] 或選取現有的儲存體帳戶。選取或輸入 [**帳戶名稱**] 和要使用的 [**預設容器**]。按一下左下角的勾號圖示以建立 Storm 叢集。
 
-    > [WACOM.NOTE] 您使用的容器應該與 Storm 叢集使用的容器不同。
+	> [WACOM.NOTE] 您使用的容器應該與 Storm 叢集使用的容器不同。
 
-### 啟用遠端桌面
+###啟用遠端桌面
 
 針對本教學課程，我們必須使用遠端桌面來存取 Storm 和 HBase 叢集。請使用下列步驟在這兩者上啟用遠端桌面。
 
-1.  登入 [Azure 管理入口網站][azureportal]。
+1. 登入 [Azure 管理入口網站][azureportal].
 
-2.  在左邊，選取 [HDInsight]，然後從清單中選取 Storm 叢集。最後，按一下頁面頂端的 [設定]。
+2. 在左邊，選取 [**HDInsight**]，然後從清單中選取 Storm 叢集。最後，按一下頁面頂端的 [**設定**]。
 
-3.  按一下頁面底部的 [啟用遠端]。出現提示時，輸入使用者名稱、密碼和遠端桌面存取的到期日期。按一下勾選記號來啟用遠端桌面。
+3. 按一下頁面底部的 [**啟用遠端**]。出現提示時，輸入使用者名稱、密碼和遠端桌面存取的到期日期。按一下勾選記號來啟用遠端桌面。
 
-遠端桌面啟用之後，您就可以選取頁面底部的 [連接]。請依照提示來連接到叢集。
+遠端桌面啟用之後，您就可以選取頁面底部的 [**連接**]。請依照提示來連接到叢集。
 
-### 探索 HBase DNS 尾碼
+###探索 HBase DNS 尾碼
 
 為了從 Storm 叢集寫入到 HBase，HBase 叢集必須使用完整網域名稱 (FQDN)。請使用下列步驟來探索此資訊。
 
-1.  使用遠端桌面連接 HBase 叢集。
+1. 使用遠端桌面連接 HBase 叢集。
 
-2.  連接到叢集之後，開啟 Hadoop 命令列，執行 **ipconfig** 命令來取得 DNS 尾碼。[連線特定 DNS 尾碼] 將包含尾碼值。例如，**mycluster.b4.internal.cloudapp.net**。請儲存此資訊。
+2. 連接到叢集之後，開啟 Hadoop 命令列，執行 **ipconfig** 命令來取得 DNS 尾碼。[**連線特定 DNS 尾碼**] 將包含尾碼值。例如，**mycluster.b4.internal.cloudapp.net**。請儲存此資訊。
 
-## 開發 Storm 拓撲
+##開發 Storm 拓撲
 
 > [WACOM.NOTE] 本節的步驟應該在本機開發環境中執行。
 
-### 下載和建置外部相依性
+###下載和建置外部相依性
 
 本專案中使用的數個相依性必須下載並個別建置，然後安裝到開發環境上的本機 Maven 儲存機制中。您將在本節中將下載並安裝。
 
--   從事件中心讀取訊息的事件中心 spout。
+* 從事件中心讀取訊息的事件中心 spout。
 
--   SignalR Java 用戶端 SDK
+* SignalR Java 用戶端 SDK
 
-#### 下載和建置事件中心 spout
+####下載和建置事件中心 spout
 
 為了從事件中心接收資料，我們使用 **eventhubs-storm-spout**。
 
-1.  使用遠端桌面連接到 Storm 叢集，然後將 **%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 檔案複製到本機開發環境。這包含 **events-storm-spout**。
+1. 使用遠端桌面連接到 Storm 叢集，然後將 **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 檔案複製到本機開發環境。這包含 **events-storm-spout**。
 
-2.  使用下列命令將封裝安裝到本機 Maven 存放區。這樣可讓我們的稍後的步驟中，輕鬆地將它加入 Storm 專案中做為參考。
+6. 使用下列命令將封裝安裝到本機 Maven 存放區。這樣可讓我們的稍後的步驟中，輕鬆地將它加入 Storm 專案中做為參考。
 
-        mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
+		mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
-#### 下載和建置 SignalR 用戶端
+####下載和建置 SignalR 用戶端
 
-若要將訊息傳送至 ASP.NET 儀表板，請使用 [SignalR client SDK for Java][SignalR client SDK for Java]。
+若要將訊息傳送給 ASP.NET 儀表板，請使用 [SignalR client SDK for Java](https://github.com/SignalR/java-client)。
 
-1.  開啟命令提示字元。
+1. 開啟命令提示字元。
 
-2.  切換到您要下載和儲存 SignalR 用戶端 SDK 專案的目錄。
+2. 切換到您要下載和儲存 SignalR 用戶端 SDK 專案的目錄。
 
-3.  使用下列命令從 GitHub 下載專案。
+3. 使用下列命令從 GitHub 下載專案。
 
-    git clone https://github.com/SignalR/java-client
+	git clone https://github.com/SignalR/java-client
 
-4.  使用下列命令，切換到 **java-client\\signalr-client-sdk** 目錄並將專案編譯成 JAR 檔案。
+4. 使用下列命令，切換到 **java-client\signalr-client-sdk** 目錄並將專案編譯成 JAR 檔案。
 
-        cd java-client\signalr-client-sdk
-        mvn package
+		cd java-client\signalr-client-sdk
+		mvn package
 
-    > [WACOM.NOTE] 如果發生無法下載 **gson** 相依性的錯誤，請從 **java-client\\signalr-client-sdk\\pom.xml** 檔案中移除下列幾行。
-    >
-    > ``` <repositories>
-    > <repository>
-    > <id>central</id>
-    > <name>Central</name>
-    > <url>http://maven.eclipse.org/build</url>
-    > </repository>
-    > </repositories>
-    > ```
-    >
-    > 移除這幾行會使 Maven 從中央儲存機制提取檔案 (預設行為)。若要強制 Maven 重試儲存機制，請使用 `-U` 命令。例如，`mvn package -U`
+	> [WACOM.NOTE] 如果發生無法下載 **gson** 相依性的錯誤，請從 **java-client\signalr-client-sdk\pom.xml** 檔案中移除下列幾行。
+	> ```<repositories>
+<repository>
+<id>central</id>
+<name>Central</name>
+<url>http://maven.eclipse.org/build</url>
+</repository>
+</repositories>
+```
+	> 移除這幾行會使 Maven 從中央儲存機制提取檔案 (預設行為)。若要強制 Maven 重試儲存機制，請使用 `-U` 命令。例如，`mvn package -U`
 
-5.  使用下列命令將封裝安裝到本機 Maven 存放區。這樣可讓我們的稍後的步驟中，輕鬆地將它加入 Storm 專案中做為參考。
+6. 使用下列命令將封裝安裝到本機 Maven 存放區。這樣可讓我們的稍後的步驟中，輕鬆地將它加入 Storm 專案中做為參考。
 
-        mvn install:install-file -Dfile=target\signalr-client-sdk-1.0.jar -DgroupId=microsoft.aspnet.signalr -DartifactId=signalr-client-sdk -Dversion=1.0 -Dpackaging=jar
+		mvn install:install-file -Dfile=target\signalr-client-sdk-1.0.jar -DgroupId=microsoft.aspnet.signalr -DartifactId=signalr-client-sdk -Dversion=1.0 -Dpackaging=jar
 
-### 建立 Storm 拓撲專案的樣板
+###建立 Storm 拓撲專案的樣板
 
 現在我們已將事件中心 spout 和 SignalR 用戶端安裝到本機儲存機制，接下來使用 Maven 來建立 Storm 拓撲專案的樣板。
 
-1.  開啟命令提示字元、Bash 工作階段、終端機工作階段，或您在系統上用來輸入命令的任何工具。
+1. 開啟命令提示字元、Bash 工作階段、終端機工作階段，或您在系統上用來輸入命令的任何工具。
 
-2.  切換到您想要建立此專案的目錄。例如，假設您有一個目錄可儲存所有程式碼專案。
+2. 切換到您想要建立此專案的目錄。例如，假設您有一個目錄可儲存所有程式碼專案。
 
-3.  使用下列 Maven 命令來建立應用程式的基本樣板。
+3. 使用下列 Maven 命令來建立應用程式的基本樣板。
 
-        mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.examples -DartifactId=TemperatureMonitor -DinteractiveMode=false
+		mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.examples -DartifactId=TemperatureMonitor -DinteractiveMode=false
 
-    此命令會...
+	此命令會...
 
-    -   使用指定的 *artifactId* 建立新目錄。在此案例中為 **Temperature**。
-    -   建立 **pom.xml** 檔案，其中包含此專案的 Maven 資訊。
-    -   建立 **src** 目錄結構，其中包含一些基本的程式碼和測試。
+	* 使用指定的 *artifactId* 建立新目錄。在此案例中為 **Temperature**。
+	* 建立 **pom.xml** 檔案，其中包含此專案的 Maven 資訊。
+	* 建立 **src** 目錄結構，其中包含一些基本的程式碼和測試。
 
-### 加入相依性和外掛程式
+###加入相依性和外掛程式
 
 接下來，修改 **pom.xml** 來參考此專案的相依性，以及建置和封裝時使用的 Maven 外掛程式。
 
-1.  使用文字編輯器，開啟 **pom.xml** 檔案，將下列程式碼加入至 **\<dependencies\>** 區段。您可以在區段尾端加入它們，加在 junit 的相依性後面。
+1. 使用文字編輯器，開啟 **pom.xml** 檔案，將下列程式碼加入至 **&lt;dependencies>** 區段。您可以在區段尾端加入它們，加在 junit 的相依性後面。
 
-        <dependency>
-          <groupId>org.apache.storm</groupId>
-          <artifactId>storm-core</artifactId>
-          <version>0.9.2-incubating</version>
-          <!-- keep storm out of the jar-with-dependencies -->
-          <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>microsoft.aspnet.signalr</groupId>
-          <artifactId>signalr-client-sdk</artifactId>
-          <version>1.0</version>
-        </dependency>
-        <dependency>
-          <groupId>com.microsoft.eventhubs</groupId>
-          <artifactId>eventhubs-storm-spout</artifactId>
-          <version>0.9</version>
-        </dependency>
-        <dependency>
-          <groupId>com.google.code.gson</groupId>
-          <artifactId>gson</artifactId>
-          <version>2.2.2</version>
-        </dependency>
-        <dependency>
-          <groupId>com.github.ptgoetz</groupId>
-          <artifactId>storm-hbase</artifactId>
-          <version>0.1.2</version>
-        </dependency>
-        <dependency>
-          <groupId>com.netflix.curator</groupId>
-          <artifactId>curator-framework</artifactId>
-          <version>1.3.3</version>
-          <exclusions>
-            <exclusion>
-              <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-              </exclusion>
-            <exclusion>
-              <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-log4j12</artifactId>
-            </exclusion>
-          </exclusions>
-          <scope>provided</scope>
-        </dependency>
+		<dependency>
+	      <groupId>org.apache.storm</groupId>
+	      <artifactId>storm-core</artifactId>
+	      <version>0.9.2-incubating</version>
+	      <!-- keep storm out of the jar-with-dependencies -->
+	      <scope>provided</scope>
+	    </dependency>
+	    <dependency>
+	      <groupId>microsoft.aspnet.signalr</groupId>
+	      <artifactId>signalr-client-sdk</artifactId>
+	      <version>1.0</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>com.microsoft.eventhubs</groupId>
+	      <artifactId>eventhubs-storm-spout</artifactId>
+	      <version>0.9</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>com.google.code.gson</groupId>
+	      <artifactId>gson</artifactId>
+	      <version>2.2.2</version>
+	    </dependency>
+		<dependency>
+      	  <groupId>com.github.ptgoetz</groupId>
+      	  <artifactId>storm-hbase</artifactId>
+      	  <version>0.1.2</version>
+    	</dependency>
+	    <dependency>
+	      <groupId>com.netflix.curator</groupId>
+	      <artifactId>curator-framework</artifactId>
+	      <version>1.3.3</version>
+	      <exclusions>
+	        <exclusion>
+	          <groupId>log4j</groupId>
+	            <artifactId>log4j</artifactId>
+	          </exclusion>
+	        <exclusion>
+	          <groupId>org.slf4j</groupId>
+	            <artifactId>slf4j-log4j12</artifactId>
+	        </exclusion>
+	      </exclusions>
+	      <scope>provided</scope>
+	    </dependency>
 
-    這會加入下列相依性...
+	這會加入下列相依性...
 
-    -   eventhubs-storm-spout - 事件中心 spout
-    -   signalr-client-sdk - SignalR 用戶端
-    -   gson - 這是 SignalR 用戶端的相依性，在寫入至 SignalR 時也用來建立 JSON
-    -   storm-core - 提供 Storm 應用程式的核心功能
-    -   slf4j - 提供記錄功能，並由 eventhubs-storm-spout 使用
-    -   curator-framework - 供 eventhubs-storm-spout 使用
-    -   storm-core - Storm 的核心類別
-    -   storm-hbase - 允許寫入至 HBase 的類別
+	* eventhubs-storm-spout - 事件中心 spout
+	* signalr-client-sdk - SignalR 用戶端
+	* gson - 這是 SignalR 用戶端的相依性，在寫入至 SignalR 時也用來建立 JSON
+	* storm-core - 提供 Storm 應用程式的核心功能
+	* slf4j - 提供記錄功能，並由 eventhubs-storm-spout 使用
+	* curator-framework - 供 eventhubs-storm-spout 使用
+	* storm-core - Storm 的核心類別
+	* storm-hbase - 允許寫入至 HBase 的類別
 
-    > [WACOM.NOTE] 請注意，部分相依性標示為 **provided** 範圍，表示這些相依性應該從 Maven 儲存機制下載，並在本機用來建置和測試應用程式，但它們也可在執行階段環境中使用，並不需要編譯和併入此專所建立的 JAR 中。
+	> [WACOM.NOTE] 請注意，部分相依性標示為 **provided** 範圍，表示這些相依性應該從 Maven 儲存機制下載，並在本機用來建置和測試應用程式，但它們也可在執行階段環境中使用，並不需要編譯和併入此專案所建立的 JAR 中。
 
-2.  在 **pom.xml** 檔案的尾端，緊接在 **\</project\>** 項目之前，加入下列程式碼。
+2. 在 **pom.xml** 檔案的尾端，緊接在 **&lt;/project>** 項目之前，加入下列程式碼。
 
-          <build>
-            <plugins>
-              <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration>
-                  <source>1.7</source>
-                  <target>1.7</target>
-                </configuration>
-              </plugin>
-              <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                  <transformers>
-                    <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
-                    </transformer>
-                  </transformers>
-                </configuration>
-                <executions>
-                  <execution>
-                    <phase>package</phase>
-                    <goals>
-                      <goal>shade</goal>
-                    </goals>
-                  </execution>
-                </executions>
-              </plugin>
-              <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
-                <executions>
-                  <execution>
-                  <goals>
-                    <goal>exec</goal>
-                  </goals>
-                  </execution>
-                </executions>
-                <configuration>
-                  <executable>java</executable>
-                  <includeProjectDependencies>true</includeProjectDependencies>
-                  <includePluginDependencies>false</includePluginDependencies>
-                  <classpathScope>compile</classpathScope>
-                  <mainClass>${storm.topology}</mainClass>
-                </configuration>
-              </plugin>
-            </plugins>
-            <resources>
-              <resource>
-                <directory>${basedir}/conf</directory>
-                <filtering>false</filtering>
-                <includes>
-                  <include>Config.properties</include>
-                  <include>hbase-site.xml</include>
-                </includes>
-              </resource>
-            </resources>
-          </build>
+		  <build>
+		    <plugins>
+		      <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-compiler-plugin</artifactId>
+		        <version>2.3.2</version>
+		        <configuration>
+		          <source>1.7</source>
+		          <target>1.7</target>
+		        </configuration>
+		      </plugin>
+		      <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-shade-plugin</artifactId>
+		        <version>2.3</version>
+		        <configuration>
+		          <transformers>
+		            <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
+		            </transformer>
+		          </transformers>
+		        </configuration>
+		        <executions>
+		          <execution>
+		            <phase>package</phase>
+		            <goals>
+		              <goal>shade</goal>
+		            </goals>
+		          </execution>
+		        </executions>
+		      </plugin>
+		      <plugin>
+		        <groupId>org.codehaus.mojo</groupId>
+		        <artifactId>exec-maven-plugin</artifactId>
+		        <version>1.2.1</version>
+		        <executions>
+		          <execution>
+		          <goals>
+		            <goal>exec</goal>
+		          </goals>
+		          </execution>
+		        </executions>
+		        <configuration>
+		          <executable>java</executable>
+		          <includeProjectDependencies>true</includeProjectDependencies>
+		          <includePluginDependencies>false</includePluginDependencies>
+		          <classpathScope>compile</classpathScope>
+		          <mainClass>${storm.topology}</mainClass>
+		        </configuration>
+		      </plugin>
+		    </plugins>
+		    <resources>
+		      <resource>
+		        <directory>${basedir}/conf</directory>
+		        <filtering>false</filtering>
+		        <includes>
+		          <include>Config.properties</include>
+				  <include>hbase-site.xml</include>
+		        </includes>
+		      </resource>
+		    </resources>
+		  </build>
 
-    在建置專案時，這會指示 Maven 執行下列動作：
+	在建置專案時，這會指示 Maven 執行下列動作：
 
-    -   併入 **/conf/Config.properties** 資源檔案。此檔案稍後建立，將包含連接到 Azure 事件中心時所需的組態資訊。
-    -   併入 **/conf/hbase-site.xml** 資源檔案。此檔案稍後建立，將包含連接到 HBase 所需的資訊
-    -   使用 **maven-compiler-plugin** 來編譯應用程式。
-    -   使用 **maven-shade-plugin** 來建置 uberjar 或 fat jar，其中包含此專案及任何必要的相依性。
-    -   使用 **exec-maven-plugin**，可讓您在本機執行應用程式而不需要 Hadoop 叢集。
+	* 併入 **/conf/Config.properties** 資源檔案。此檔案稍後建立，將包含連接到 Azure 事件中心時所需的組態資訊。
+	* 併入 **/conf/hbase-site.xml** 資源檔案。此檔案稍後建立，將包含連接到 HBase 所需的資訊
+	* 使用 **maven-compiler-plugin** 來編譯應用程式。
+	* 使用 **maven-shade-plugin** 來建置 uberjar 或 fat jar，其中包含此專案及任何必要的相依性。
+	* 使用 **exec-maven-plugin**，可讓您在本機執行應用程式而不需要 Hadoop 叢集。
 
-### 加入組態檔
+###加入組態檔
 
 **eventhubs-storm-spout** 會讀取 **Config.properties** 檔案中的組態資訊。這可指示要連接到哪一個事件中心。雖然可在叢集上啟動拓撲時指定組態檔，但在專案中加入組態檔可以獲得已知的預設組態。
 
-1.  在 **Temperature** 目錄中，建立新目錄 **conf**。
+1. 在 **Temperature** 目錄中，建立名為 **conf** 的新目錄。
 
-2.  在 **conf** 目錄中，建立兩個新檔案：
+2. 在 **conf** 目錄中，建立兩個新檔案：
 
-    -   **Config.properties** - 包含事件中心的設定
-    -   **hbase-site.xml** - 包含連接到 hbase 所需的設定
+	* **Config.properties** - 包含事件中心的設定
+	* **hbase-site.xml** - 包含連接到 hbase 所需的設定
 
-3.  使用下列程式碼做為 **Config.properties** 檔案的內容。
+3. 使用下列程式碼做為 **Config.properties** 檔案的內容。
 
-        eventhubspout.username = storm
+		eventhubspout.username = storm
 
-        eventhubspout.password = <the key of the 'storm' policy>
+		eventhubspout.password = <the key of the 'storm' policy>
 
-        eventhubspout.namespace = <the event hub namespace>
+		eventhubspout.namespace = <the event hub namespace>
+		# The name of the event hub
+		eventhubspout.entitypath = temperature
 
-        eventhubspout.entitypath = temperature
+		eventhubspout.partitions.count = <the number of partitions for the event hub>
 
-        eventhubspout.partitions.count = <the number of partitions for the event hub>
+		# if not provided, will use storm's zookeeper settings
+		# zookeeper.connectionstring=localhost:2181
 
-        # if not provided, will use storm's zookeeper settings
-        # zookeeper.connectionstring=localhost:2181
+		eventhubspout.checkpoint.interval = 10
 
-        eventhubspout.checkpoint.interval = 10
+		eventhub.receiver.credits = 1024
 
-        eventhub.receiver.credits = 1024
+	使用稍早在事件中心為 **storm** 原則建立的金鑰取代 **password**。使用事件中心的命名空間取代 **namespace**。
 
-    使用稍早在事件中心為 **storm** 原則建立的金鑰取代 **password**。使用事件中心的命名空間取代 **namespace**。
+3. 使用下列程式碼做為 **hbase-site.xml** 檔案的內容。
 
-4.  使用下列程式碼做為 **hbase-site.xml** 檔案的內容。
+		<?xml version="1.0"?>
+		<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+		<!--
+		/**
+		 * Copyright 2010 The Apache Software Foundation
+		 *
+		 * Licensed to the Apache Software Foundation (ASF) under one
+		 * or more contributor license agreements.  See the NOTICE file
+		 * distributed with this work for additional information
+		 * regarding copyright ownership.  The ASF licenses this file
+		 * to you under the Apache License, Version 2.0 (the
+		 * "License"); you may not use this file except in compliance
+		 * with the License.  You may obtain a copy of the License at
+		 *
+		 *     http://www.apache.org/licenses/LICENSE-2.0
+		 *
+		 * Unless required by applicable law or agreed to in writing, software
+		 * distributed under the License is distributed on an "AS IS" BASIS,
+		 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+		 * See the License for the specific language governing permissions and
+		 * limitations under the License.
+		 */
+		-->
+		<configuration>
+		  <property>
+		    <name>hbase.cluster.distributed</name>
+		    <value>true</value>
+		  </property>
+		  <property>
+		    <name>hbase.zookeeper.quorum</name>
+		    <value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
+		  </property>
+		  <property>
+		    <name>hbase.zookeeper.property.clientPort</name>
+		    <value>2181</value>
+		  </property>
+		</configuration>
 
-        <?xml version="1.0"?>
-        <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
-        <!--
-        /**
-         * Copyright 2010 The Apache Software Foundation
-         *
-         * Licensed to the Apache Software Foundation (ASF) under one
-         * or more contributor license agreements.  See the NOTICE file
-         * distributed with this work for additional information
-         * regarding copyright ownership.  The ASF licenses this file
-         * to you under the Apache License, Version 2.0 (the
-         * "License"); you may not use this file except in compliance
-         * with the License.  You may obtain a copy of the License at
-         *
-         *     http://www.apache.org/licenses/LICENSE-2.0
-         *
-         * Unless required by applicable law or agreed to in writing, software
-         * distributed under the License is distributed on an "AS IS" BASIS,
-         * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-         * See the License for the specific language governing permissions and
-         * limitations under the License.
-         */
-        -->
-        <configuration>
-          <property>
-            <name>hbase.cluster.distributed</name>
-            <value>true</value>
-          </property>
-          <property>
-            <name>hbase.zookeeper.quorum</name>
-            <value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
-          </property>
-          <property>
-            <name>hbase.zookeeper.property.clientPort</name>
-            <value>2181</value>
-          </property>
-        </configuration>
+3. 在 **hbase-site.xml** 檔案，使用 zookeeper 項目和稍早為 HBase 擷取的 DNS 尾碼，取代 **suffix** 值。例如，**zookeeper0.mycluster.b4.internal.cloudapp.net、zookeeper1.mycluster.b4.internal.cloudapp.net、zookeeper2.mycluster.b4.internal.cloudapp.net**。
 
-5.  在 **hbase-site.xml** 檔案，使用 zookeeper 項目和稍早為 HBase 擷取的 DNS 尾碼，取代 **suffix** 值。例如，**zookeeper0.mycluster.b4.internal.cloudapp.net, zookeeper1.mycluster.b4.internal.cloudapp.net, zookeeper2.mycluster.b4.internal.cloudapp.net**。
+3. 儲存檔案。
 
-6.  儲存檔案。
-
-### 加入協助程式
+###加入協助程式
 
 為了支援往返於 JSON 的序列化，我們需要一些協助程式類別來定義物件結構。
 
-1.  在 **\\temperaturemonitor\\src\\main\\java\\com\\microsoft\\examples** 目錄中，建立新目錄 **helpers**。
+1. 在 **\temperaturemonitor\src\main\java\com\microsoft\examples** 目錄中，建立新目錄 **helpers**。
 
-2.  在 **helpers** 目錄中，建立兩個新檔案：
+2. 在 **helpers** 目錄中，建立兩個新檔案：
 
-    -   **EventHubMessage.java** - 定義事件中心訊息格式
+	* **EventHubMessage.java** - 定義事件中心訊息格式
 
-    -   **SignalRMessage.java** - 定義傳送至 SignalR 的訊息格式
+	* **SignalRMessage.java** - 定義傳送至 SignalR 的訊息格式
 
-3.  使用下列程式碼做為 **EventHubMessage.java** 檔案的內容。
+3. 使用下列程式碼做為 **EventHubMessage.java** 檔案的內容。
 
-        package com.microsoft.examples;
+		package com.microsoft.examples;
 
-        public class EventHubMessage {
-          String TimeStamp;
-          int DeviceId;
-          int Temperature;
-        }
+		public class EventHubMessage {
+		  String TimeStamp;
+		  int DeviceId;
+		  int Temperature;
+		}
 
-4.  使用下列程式碼做為 **SignalRMessage.java** 檔案的內容。
+4. 使用下列程式碼做為 **SignalRMessage.java** 檔案的內容。
 
-        package com.microsoft.examples;
+		package com.microsoft.examples;
 
-        public class SignalRMessage {
-          int device;
-          int temperature;
-        }
+		public class SignalRMessage {
+		  int device;
+		  int temperature;
+		}
 
-5.  儲存並關閉這些檔案。
+5. 儲存並關閉這些檔案。
 
-### 加入 bolt
+###加入 bolt
 
 Bolt 在拓撲中負責主要的處理工作。在此拓撲中，有三個 bolt，其中一個是 hbase-bolt，建置專案時會自動下載。
 
-1.  在 **\\temperaturemonitor\\src\\main\\java\\com\\microsoft\\examples** 目錄中，建立新目錄 **bolts**。
+1. 在 **\temperaturemonitor\src\main\java\com\microsoft\examples** 目錄中，建立新目錄 **bolts**。
 
-2.  在 **bolts** 目錄中，建立兩個新檔案：
+2. 在 **bolts** 目錄中，建立兩個新檔案：
 
-    -   **ParserBolt.java** - 將事件中心傳入的訊息剖析成個別欄位，然後發出兩個串流。
-    -   **DashboardBolt.java** - 透過 SignalR 將資訊記錄到 Web 儀表板
+	* **ParserBolt.java** - 將事件中心傳入的訊息剖析成個別欄位，然後發出兩個串流
+	* **DashboardBolt.java** - 透過 SignalR 將資訊記錄到 Web 儀表板
 
-3.  使用下列程式碼做為 **ParserBolt.java** 檔案的內容。
+2. 使用下列程式碼做為 **ParserBolt.java** 檔案的內容。
 
-        package com.microsoft.examples;
+		package com.microsoft.examples;
 
-        import backtype.storm.topology.base.BaseBasicBolt;
-        import backtype.storm.topology.BasicOutputCollector;
-        import backtype.storm.topology.OutputFieldsDeclarer;
-        import backtype.storm.tuple.Tuple;
-        import backtype.storm.tuple.Fields;
-        import backtype.storm.tuple.Values;
+		import backtype.storm.topology.base.BaseBasicBolt;
+		import backtype.storm.topology.BasicOutputCollector;
+		import backtype.storm.topology.OutputFieldsDeclarer;
+		import backtype.storm.tuple.Tuple;
+		import backtype.storm.tuple.Fields;
+		import backtype.storm.tuple.Values;
 
-        import com.google.gson.Gson;
-        import com.google.gson.GsonBuilder;
+		import com.google.gson.Gson;
+		import com.google.gson.GsonBuilder;
 
-        public class ParserBolt extends BaseBasicBolt {
+		public class ParserBolt extends BaseBasicBolt {
 
-          //Declare output fields & streams
-          //hbasestream is all fields, and goes to hbase
-          //dashstream is just the device and temperature, and goes to the dashboard
-          @Override
-          public void declareOutputFields(OutputFieldsDeclarer declarer) {
-            declarer.declareStream("hbasestream", new Fields("timestamp", "deviceid", "temperature"));
-            declarer.declareStream("dashstream", new Fields("deviceid", "temperature"));
-          }
+		  //Declare output fields & streams
+		  //hbasestream is all fields, and goes to hbase
+		  //dashstream is just the device and temperature, and goes to the dashboard
+		  @Override
+		  public void declareOutputFields(OutputFieldsDeclarer declarer) {
+		    declarer.declareStream("hbasestream", new Fields("timestamp", "deviceid", "temperature"));
+		    declarer.declareStream("dashstream", new Fields("deviceid", "temperature"));
+		  }
 
-          //Process tuples
-          @Override
-          public void execute(Tuple tuple, BasicOutputCollector collector) {
-            Gson gson = new Gson();
-            //Should only be one tuple, which is the JSON message from the spout
-            String value = tuple.getString(0);
+		  //Process tuples
+		  @Override
+		  public void execute(Tuple tuple, BasicOutputCollector collector) {
+		    Gson gson = new Gson();
+		    //Should only be one tuple, which is the JSON message from the spout
+		    String value = tuple.getString(0);
 
-            //Convert it from JSON to an object
-            EventHubMessage evMessage = gson.fromJson(value, EventHubMessage.class);
+			//Deal with cases where we get multiple
+			//EventHub messages in one tuple
+			String[] arr = value.split("}");
+			for (String ehm : arr)
+			{
 
-            //Pull out the values and emit as a stream
-            String timestamp = evMessage.TimeStamp;
-            int deviceid = evMessage.DeviceId;
-            int temperature = evMessage.Temperature;
-            collector.emit("hbasestream", new Values(timestamp, deviceid, temperature));
-            collector.emit("dashstream", new Values(deviceid, temperature));
-          }
-        }
+			    //Convert it from JSON to an object
+				EventHubMessage msg = new Gson().fromJson(ehm.concat("}"),EventHubMessage.class);
 
-4.  使用下列程式碼做為 **DashboardBolt.java** 檔案的內容。
+			    //Pull out the values and emit as a stream
+			    String timestamp = msg.TimeStamp;
+			    int deviceid = msg.DeviceId;
+			    int temperature = msg.Temperature;
+			    collector.emit("hbasestream", new Values(timestamp, deviceid, temperature));
+			    collector.emit("dashstream", new Values(deviceid, temperature));
+			}
+		  }
+		}
 
-        package com.microsoft.examples;
+3. 使用下列程式碼做為 **DashboardBolt.java** 檔案的內容。
 
-        import backtype.storm.topology.BasicOutputCollector;
-        import backtype.storm.topology.OutputFieldsDeclarer;
-        import backtype.storm.topology.base.BaseBasicBolt;
-        import backtype.storm.tuple.Tuple;
-        import backtype.storm.task.TopologyContext;
-        import backtype.storm.Config;
-        import backtype.storm.Constants;
+		package com.microsoft.examples;
 
-        import microsoft.aspnet.signalr.client.Action;
-        import microsoft.aspnet.signalr.client.ErrorCallback;
-        import microsoft.aspnet.signalr.client.LogLevel;
-        import microsoft.aspnet.signalr.client.Logger;
-        import microsoft.aspnet.signalr.client.MessageReceivedHandler;
-        import microsoft.aspnet.signalr.client.hubs.HubConnection;
-        import microsoft.aspnet.signalr.client.hubs.HubProxy;
+		import backtype.storm.topology.BasicOutputCollector;
+		import backtype.storm.topology.OutputFieldsDeclarer;
+		import backtype.storm.topology.base.BaseBasicBolt;
+		import backtype.storm.tuple.Tuple;
+		import backtype.storm.task.TopologyContext;
+		import backtype.storm.Config;
+		import backtype.storm.Constants;
 
-        import com.google.gson.Gson;
-        import com.google.gson.GsonBuilder;
+		import microsoft.aspnet.signalr.client.Action;
+		import microsoft.aspnet.signalr.client.ErrorCallback;
+		import microsoft.aspnet.signalr.client.LogLevel;
+		import microsoft.aspnet.signalr.client.Logger;
+		import microsoft.aspnet.signalr.client.MessageReceivedHandler;
+		import microsoft.aspnet.signalr.client.hubs.HubConnection;
+		import microsoft.aspnet.signalr.client.hubs.HubProxy;
 
-        import java.util.Map;
+		import com.google.gson.Gson;
+		import com.google.gson.GsonBuilder;
 
-        public class DashboardBolt extends BaseBasicBolt {
-          //Connection and proxy for SignalR hub
-          private HubConnection conn;
-          private HubProxy proxy;
+		import java.util.Map;
 
-          //Declare output fields
-          @Override
-          public void declareOutputFields(OutputFieldsDeclarer declarer) {
-            //no stream output - we talk directly to SignalR
-          }
+		public class DashboardBolt extends BaseBasicBolt {
+		  //Connection and proxy for SignalR hub
+		  private HubConnection conn;
+		  private HubProxy proxy;
 
-          @Override
-          public void prepare(Map config, TopologyContext context) {
+		  //Declare output fields
+		  @Override
+		  public void declareOutputFields(OutputFieldsDeclarer declarer) {
+		    //no stream output - we talk directly to SignalR
+		  }
 
-            // Connect to the DashHub SignalR server
-            conn = new HubConnection("http://dashboard.azurewebsites.net/");
-            // Create the hub proxy
-            proxy = conn.createHubProxy("DashHub");
-            // Subscribe to the error event
-            conn.error(new ErrorCallback() {
-              @Override
-              public void onError(Throwable error) {
-                error.printStackTrace();
-              }
-            });
-            // Subscribe to the connected event
-            conn.connected(new Runnable() {
-              @Override
-              public void run() {
-                System.out.println("CONNECTED");
-              }
-            });
-            // Subscribe to the closed event
-            conn.closed(new Runnable() {
-              @Override
-              public void run() {
-                System.out.println("DISCONNECTED");
-              }
-            });
-            // Start the connection
-            conn.start()
-              .done(new Action<Void>() {
-                @Override
-                public void run(Void obj) throws Exception {
-                  System.out.println("Done Connecting!");
-                }
-            });
-          }
+		  @Override
+		  public void prepare(Map config, TopologyContext context) {
 
-          //Process tuples
-          @Override
-          public void execute(Tuple tuple, BasicOutputCollector collector) {
-            Gson gson = new Gson();
-            try {
-              //Get the deviceid and temperature by field name
-              int deviceid = tuple.getIntegerByField("deviceid");
-              int temperature = tuple.getIntegerByField("temperature");
-              //Construct the SignalR message
-              SignalRMessage srMessage = new SignalRMessage();
-              srMessage.device = deviceid;
-              srMessage.temperature = temperature;
-              // send it as JSON
-              proxy.invoke("send", gson.toJson(srMessage));
-            } catch (Exception e) {
-               // LOG.error("Bolt execute error: {}", e);
-               collector.reportError(e);
-            }
-          }
-        }
+		    // Connect to the DashHub SignalR server
+		    conn = new HubConnection("http://dashboard.azurewebsites.net/");
+		    // Create the hub proxy
+		    proxy = conn.createHubProxy("DashHub");
+		    // Subscribe to the error event
+		    conn.error(new ErrorCallback() {
+		      @Override
+		      public void onError(Throwable error) {
+		        error.printStackTrace();
+		      }
+		    });
+		    // Subscribe to the connected event
+		    conn.connected(new Runnable() {
+		      @Override
+		      public void run() {
+		        System.out.println("CONNECTED");
+		      }
+		    });
+		    // Subscribe to the closed event
+		    conn.closed(new Runnable() {
+		      @Override
+		      public void run() {
+		        System.out.println("DISCONNECTED");
+		      }
+		    });
+		    // Start the connection
+		    conn.start()
+		      .done(new Action<Void>() {
+		        @Override
+		        public void run(Void obj) throws Exception {
+		          System.out.println("Done Connecting!");
+		        }
+		    });
+		  }
 
-    使用稍早將儀表板發佈到的 Azure 網站位址取代 `http://yourwebsiteaddress`。例如，http://mydashboard.azurewebsites.net。
+		  //Process tuples
+		  @Override
+		  public void execute(Tuple tuple, BasicOutputCollector collector) {
+		    Gson gson = new Gson();
+		    try {
+		      //Get the deviceid and temperature by field name
+		      int deviceid = tuple.getIntegerByField("deviceid");
+		      int temperature = tuple.getIntegerByField("temperature");
+		      //Construct the SignalR message
+		      SignalRMessage srMessage = new SignalRMessage();
+		      srMessage.device = deviceid;
+		      srMessage.temperature = temperature;
+		      // send it as JSON
+		      proxy.invoke("send", gson.toJson(srMessage));
+		    } catch (Exception e) {
+		       // LOG.error("Bolt execute error: {}", e);
+		       collector.reportError(e);
+		    }
+		  }
+		}
 
-5.  儲存並關閉檔案。
+	使用稍早發佈儀表板的目標 Azure 網站位址取代 `http://yourwebsiteaddress`。例如，http://mydashboard.azurewebsites.net。
 
-### 定義拓撲
+2. 儲存並關閉檔案。
+
+###定義拓撲
 
 拓撲描述資料在拓撲中的 spout 與 bolt 之間如何流動，以及拓撲和其中元件的平行化程度。
 
-1.  在 **\\temperaturemonitor\\src\\main\\java\\com\\microsoft\\examples** 目錄中，建立新目錄 **Temperature.java**。
+1. 在 **\temperaturemonitor\src\main\java\com\microsoft\examples** 目錄中，建立新檔案 **Temperature.java**。
 
-2.  開啟 **Temperature.java** 檔案，並使用下列程式碼做為內容。
+2. 開啟 **Temperature.java** 檔案，並使用下列程式碼做為內容。
 
-        package com.microsoft.examples;
+		package com.microsoft.examples;
 
-        import backtype.storm.Config;
-        import backtype.storm.LocalCluster;
-        import backtype.storm.StormSubmitter;
-        import backtype.storm.generated.StormTopology;
-        import backtype.storm.topology.TopologyBuilder;
-        import backtype.storm.tuple.Fields;
-        import com.microsoft.eventhubs.spout.EventHubSpout;
-        import com.microsoft.eventhubs.spout.EventHubSpoutConfig;
+		import backtype.storm.Config;
+		import backtype.storm.LocalCluster;
+		import backtype.storm.StormSubmitter;
+		import backtype.storm.generated.StormTopology;
+		import backtype.storm.topology.TopologyBuilder;
+		import backtype.storm.tuple.Fields;
+		import com.microsoft.eventhubs.spout.EventHubSpout;
+		import com.microsoft.eventhubs.spout.EventHubSpoutConfig;
 
-        import java.io.FileReader;
-        import java.util.Properties;
+		import java.io.FileReader;
+		import java.util.Properties;
 
-        //hbase
-        import org.apache.storm.hbase.bolt.mapper.SimpleHBaseMapper;
-        import org.apache.storm.hbase.bolt.HBaseBolt;
-        import java.util.Map;
-        import java.util.HashMap;
-        import backtype.storm.tuple.Fields;
+		//hbase
+		import org.apache.storm.hbase.bolt.mapper.SimpleHBaseMapper;
+		import org.apache.storm.hbase.bolt.HBaseBolt;
+		import java.util.Map;
+		import java.util.HashMap;
+		import backtype.storm.tuple.Fields;
 
-        public class Temperature
-        {
-          protected EventHubSpoutConfig spoutConfig;
-          protected int numWorkers;
+		public class Temperature
+		{
+		  protected EventHubSpoutConfig spoutConfig;
+		  protected int numWorkers;
 
-          // Reads the configuration information for the Event Hub spout
-          protected void readEHConfig(String[] args) throws Exception {
-            Properties properties = new Properties();
-            if(args.length > 1) {
-              properties.load(new FileReader(args[1]));
-            }
-            else {
-              properties.load(Temperature.class.getClassLoader().getResourceAsStream(
-                "Config.properties"));
-            }
+		  // Reads the configuration information for the Event Hub spout
+		  protected void readEHConfig(String[] args) throws Exception {
+		    Properties properties = new Properties();
+		    if(args.length > 1) {
+		      properties.load(new FileReader(args[1]));
+		    }
+		    else {
+		      properties.load(Temperature.class.getClassLoader().getResourceAsStream(
+		        "Config.properties"));
+		    }
 
-            String username = properties.getProperty("eventhubspout.username");
-            String password = properties.getProperty("eventhubspout.password");
-            String namespaceName = properties.getProperty("eventhubspout.namespace");
-            String entityPath = properties.getProperty("eventhubspout.entitypath");
-            String zkEndpointAddress = properties.getProperty("zookeeper.connectionstring");
-            int partitionCount = Integer.parseInt(properties.getProperty("eventhubspout.partitions.count"));
-            int checkpointIntervalInSeconds = Integer.parseInt(properties.getProperty("eventhubspout.checkpoint.interval"));
-            int receiverCredits = Integer.parseInt(properties.getProperty("eventhub.receiver.credits"));
-            System.out.println("Eventhub spout config: ");
-            System.out.println("  partition count: " + partitionCount);
-            System.out.println("  checkpoint interval: " + checkpointIntervalInSeconds);
-            System.out.println("  receiver credits: " + receiverCredits);
-            spoutConfig = new EventHubSpoutConfig(username, password,
-              namespaceName, entityPath, partitionCount, zkEndpointAddress,
-              checkpointIntervalInSeconds, receiverCredits);
+		    String username = properties.getProperty("eventhubspout.username");
+		    String password = properties.getProperty("eventhubspout.password");
+		    String namespaceName = properties.getProperty("eventhubspout.namespace");
+		    String entityPath = properties.getProperty("eventhubspout.entitypath");
+		    String zkEndpointAddress = properties.getProperty("zookeeper.connectionstring");
+		    int partitionCount = Integer.parseInt(properties.getProperty("eventhubspout.partitions.count"));
+		    int checkpointIntervalInSeconds = Integer.parseInt(properties.getProperty("eventhubspout.checkpoint.interval"));
+		    int receiverCredits = Integer.parseInt(properties.getProperty("eventhub.receiver.credits"));
+		    System.out.println("Eventhub spout config: ");
+		    System.out.println("  partition count: " + partitionCount);
+		    System.out.println("  checkpoint interval: " + checkpointIntervalInSeconds);
+		    System.out.println("  receiver credits: " + receiverCredits);
+		    spoutConfig = new EventHubSpoutConfig(username, password,
+		      namespaceName, entityPath, partitionCount, zkEndpointAddress,
+		      checkpointIntervalInSeconds, receiverCredits);
 
-            //set the number of workers to be the same as partition number.
-            //the idea is to have a spout and a partial count bolt co-exist in one
-            //worker to avoid shuffling messages across workers in storm cluster.
-            numWorkers = spoutConfig.getPartitionCount();
+		    //set the number of workers to be the same as partition number.
+		    //the idea is to have a spout and a partial count bolt co-exist in one
+		    //worker to avoid shuffling messages across workers in storm cluster.
+		    numWorkers = spoutConfig.getPartitionCount();
 
-            if(args.length > 0) {
-              //set topology name so that sample Trident topology can use it as stream name.
-              spoutConfig.setTopologyName(args[0]);
-            }
-          }
+		    if(args.length > 0) {
+		      //set topology name so that sample Trident topology can use it as stream name.
+		      spoutConfig.setTopologyName(args[0]);
+		    }
+		  }
 
-          // Create the spout using the configuration
-          protected EventHubSpout createEventHubSpout() {
-            EventHubSpout eventHubSpout = new EventHubSpout(spoutConfig);
-            return eventHubSpout;
-          }
+		  // Create the spout using the configuration
+		  protected EventHubSpout createEventHubSpout() {
+		    EventHubSpout eventHubSpout = new EventHubSpout(spoutConfig);
+		    return eventHubSpout;
+		  }
 
-          // Build the topology
-          protected StormTopology buildTopology(EventHubSpout eventHubSpout, SimpleHBaseMapper mapper) {
-            TopologyBuilder topologyBuilder = new TopologyBuilder();
-            // Name the spout 'EventHubsSpout', and set it to create
-            // as many as we have partition counts in the config file
-            topologyBuilder.setSpout("EventHub", eventHubSpout, spoutConfig.getPartitionCount())
-              .setNumTasks(spoutConfig.getPartitionCount());
-            // Create the parser bolt, which subscribes to the stream from EventHub
-            topologyBuilder.setBolt("Parser", new ParserBolt(), spoutConfig.getPartitionCount())
-              .localOrShuffleGrouping("EventHub").setNumTasks(spoutConfig.getPartitionCount());
-            // Create the dashboard bolt, which subscribes to the stream from Parser
-            topologyBuilder.setBolt("Dashboard", new DashboardBolt(), spoutConfig.getPartitionCount())
-              .fieldsGrouping("Parser", "dashstream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
-            // Create the HBase bolt, which subscribes to the stream from Parser
-            // WARNING - uncomment the following two lines when deploying
-            // leave commented when testing locally
-            // topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
-            //  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
-            return topologyBuilder.createTopology();
-          }
+		  // Build the topology
+		  protected StormTopology buildTopology(EventHubSpout eventHubSpout, SimpleHBaseMapper mapper) {
+		    TopologyBuilder topologyBuilder = new TopologyBuilder();
+		    // Name the spout 'EventHubsSpout', and set it to create
+		    // as many as we have partition counts in the config file
+		    topologyBuilder.setSpout("EventHub", eventHubSpout, spoutConfig.getPartitionCount())
+		      .setNumTasks(spoutConfig.getPartitionCount());
+		    // Create the parser bolt, which subscribes to the stream from EventHub
+		    topologyBuilder.setBolt("Parser", new ParserBolt(), spoutConfig.getPartitionCount())
+		      .localOrShuffleGrouping("EventHub").setNumTasks(spoutConfig.getPartitionCount());
+		    // Create the dashboard bolt, which subscribes to the stream from Parser
+		    topologyBuilder.setBolt("Dashboard", new DashboardBolt(), spoutConfig.getPartitionCount())
+		      .fieldsGrouping("Parser", "dashstream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
+		    // Create the HBase bolt, which subscribes to the stream from Parser
+		    // WARNING - uncomment the following two lines when deploying
+			// leave commented when testing locally
+			// topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
+		    //  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
+		    return topologyBuilder.createTopology();
+		  }
 
-          protected void submitTopology(String[] args, StormTopology topology, Config config) throws Exception {
-            // Config config = new Config();
-            config.setDebug(false);
+		  protected void submitTopology(String[] args, StormTopology topology, Config config) throws Exception {
+		    // Config config = new Config();
+		    config.setDebug(false);
 
-            //Enable metrics
-            config.registerMetricsConsumer(backtype.storm.metric.LoggingMetricsConsumer.class, 1);
+		    //Enable metrics
+		    config.registerMetricsConsumer(backtype.storm.metric.LoggingMetricsConsumer.class, 1);
 
-            // Is this running locally, or on an HDInsight cluster?
-            if (args != null && args.length > 0) {
-              config.setNumWorkers(numWorkers);
-              StormSubmitter.submitTopology(args[0], config, topology);
-            } else {
-              config.setMaxTaskParallelism(2);
+		    // Is this running locally, or on an HDInsight cluster?
+		    if (args != null && args.length > 0) {
+		      config.setNumWorkers(numWorkers);
+		      StormSubmitter.submitTopology(args[0], config, topology);
+		    } else {
+		      config.setMaxTaskParallelism(2);
 
-              LocalCluster localCluster = new LocalCluster();
-              localCluster.submitTopology("test", config, topology);
+		      LocalCluster localCluster = new LocalCluster();
+		      localCluster.submitTopology("test", config, topology);
 
-              Thread.sleep(5000000);
+		      Thread.sleep(5000000);
 
-              localCluster.shutdown();
-            }
-          }
+		      localCluster.shutdown();
+		    }
+		  }
 
-          // Loads the configuration, creates the spout, builds the topology,
-          // and then submits it
-          protected void runScenario(String[] args) throws Exception{
-            readEHConfig(args);
-            Config config = new Config();
+		  // Loads the configuration, creates the spout, builds the topology,
+		  // and then submits it
+		  protected void runScenario(String[] args) throws Exception{
+		    readEHConfig(args);
+		    Config config = new Config();
 
-            //hbase configuration
-            Map<String, Object> hbConf = new HashMap<String, Object>();
-            if(args.length > 0) {
-              hbConf.put("hbase.rootdir", args[0]);
-            }
-            config.put("hbase.conf", hbConf);
-            SimpleHBaseMapper mapper = new SimpleHBaseMapper()
-                  .withRowKeyField("deviceid")
-                  .withColumnFields(new Fields("timestamp", "temperature"))
-                  .withColumnFamily("cf");
+		    //hbase configuration
+		    Map<String, Object> hbConf = new HashMap<String, Object>();
+		    if(args.length > 0) {
+		      hbConf.put("hbase.rootdir", args[0]);
+		    }
+		    config.put("hbase.conf", hbConf);
+		    SimpleHBaseMapper mapper = new SimpleHBaseMapper()
+		          .withRowKeyField("deviceid")
+		          .withColumnFields(new Fields("timestamp", "temperature"))
+		          .withColumnFamily("cf");
 
-            EventHubSpout eventHubSpout = createEventHubSpout();
-            StormTopology topology = buildTopology(eventHubSpout, mapper);
-            submitTopology(args, topology, config);
-          }
+		    EventHubSpout eventHubSpout = createEventHubSpout();
+		    StormTopology topology = buildTopology(eventHubSpout, mapper);
+		    submitTopology(args, topology, config);
+		  }
 
-          public static void main(String[] args) throws Exception {
-            Temperature scenario = new Temperature();
-            scenario.runScenario(args);
-          }
-        }
+		  public static void main(String[] args) throws Exception {
+		    Temperature scenario = new Temperature();
+		    scenario.runScenario(args);
+		  }
+		}
 
-    > [AZURE.NOTE] 請注意，**HBaseBolt** 的那幾行已變成註解。這是因為下一步是要在本機執行拓撲。因為 HBaseBolt 直接與 HBase 溝通，如果啟用的話，則會傳回錯誤。除非您已設定虛擬網路和 DNS 伺服器，也已將本機電腦加入虛擬網路。
+	> [AZURE.NOTE] 請注意，**HBaseBolt** 的那幾行已變成註解。這是因為下一步是要在本機執行拓撲。因為 HBaseBolt 直接與 HBase 溝通，如果啟用的話，則會傳回錯誤。除非您已設定虛擬網路和 DNS 伺服器，也已將本機電腦加入虛擬網路。
 
-### 在本機測試拓撲
+###在本機測試拓撲
 
 若要在開發機器上編譯和測試檔案，請使用下列步驟。
 
-1.  啟動 **SendEvent** .NET 應用程式來開始傳送事件，以便事件中心有資料供我們讀取。
+1. 啟動 **SendEvent** .NET 應用程式來開始傳送事件，以便事件中心有資料供讀取。
 
-2.  開啟網頁瀏覽器，移至您稍早部署到 Azure 網站的 Web 儀表板。這樣可讓您看到圖形將流進拓撲的值繪製出來
+2. 開啟網頁瀏覽器，移至您稍早部署到 Azure 網站的 Web 儀表板。這樣可讓您看到圖形將流進拓撲的值繪製出來
 
-3.  使用下列命令在本機啟動拓撲
+2. 使用下列命令在本機啟動拓撲
 
-    mvn compile exec:java -Dstorm.topology=com.microsoft.examples.Temperature
+	mvn compile exec:java -Dstorm.topology=com.microsoft.examples.Temperature
 
-    這樣會啟動拓撲，從事件中心讀取檔案，然後將檔案傳送至 Azure 網站中執行的儀表板。您應該會看到 Web 儀表板中出現線條。
+	這樣會啟動拓撲，從事件中心讀取檔案，然後將檔案傳送至 Azure 網站中執行的儀表板。您應該會看到 Web 儀表板中出現線條。
 
-4.  確認正常運作後，按 Ctrl-C 停止拓撲。若要停止 SendEvent 應用程式，請選取視窗並按下任何鍵。
+3. 確認正常運作後，按 Ctrl-C 停止拓撲。若要停止 SendEvent 應用程式，請選取視窗並按下任何鍵。
 
-### 啟用 HBaseBolt 和準備 HBase
+###啟用 HBaseBolt 和準備 HBase
 
-1.  開啟 **Temperature.java** 檔案，移除下列幾行的註解 (//)：
+1. 開啟 **Temperature.java** 檔案並移除下列幾行的註解 (//) ：
 
-        //topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
-        //  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
+		//topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
+    	//  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
 
-    這樣會啟用 HBase bolt。
+	This enables the HBase bolt.
 
-2.  儲存 **Temperature.java**。
+2. 儲存 **Temperature.java**。
 
-3.  使用遠端桌面連接到 HBase 叢集。
+3. 使用遠端桌面連接到 HBase 叢集。
 
-4.  從桌面上啟動 HDInsight 命令列，輸入下列命令。
+4. 從桌面上啟動 HDInsight 命令列，輸入下列命令。
 
-        cd %hbase_home%
-        bin\hbase shell
+		cd %hbase_home%
+		bin\hbase shell
 
-5.  從 HBase Shell 中，輸入下列命令來建立將儲存感應器資料的資料表。
+5. 從 HBase Shell 中，輸入下列命令來建立將儲存感應器資料的資料表。
 
-        create 'SensorData', 'cf'
+		create 'SensorData', 'cf'
 
-6.  輸入下列命令來確認資料表不含任何資料。
+6. 輸入下列命令來確認資料表不含任何資料。
 
-        scan 'SensorData'
+		scan 'SensorData'
 
 暫時讓此提示在 HBase Shell 中保持開啟。
 
-## 封裝拓撲並部署到 HDInsight
+##封裝拓撲並部署到 HDInsight
 
 在開發環境中，使用下列步驟在 HDInsight Storm 叢集上執行 Temperature 拓撲。
 
-1.  使用下列命令從專案建立 JAR 封裝。
+1. 使用下列命令從專案建立 JAR 封裝。
 
-        mvn package
+		mvn package
 
-    這樣會在專案的 **target** 目錄中建立名為 **TemperatureMonitor-1.0-SNAPSHOT.jar** 的檔案。
+	這樣會在專案的 **target** 目錄中建立名為 **TemperatureMonitor-1.0-SNAPSHOT.jar** 的檔案。
 
-2.  在本機開發機器上，啟動 **SendEvents** .NET 應用程式，以便有一些事件供我們讀取。
+2. 在本機開發機器上，啟動 **SendEvents** .NET 應用程式，以便有可供讀取的一些事件。
 
-3.  使用遠端桌面連接到 HDInsight Storm 叢集，並將 **TemperatureMonitor-1.0-SNAPSHOT.jar** 檔案複製到 **c:\\apps\\dist\\storm\<version number\>** 目錄。
+1. 使用遠端桌面連接到 HDInsight Storm 叢集，並將 **TemperatureMonitor-1.0-SNAPSHOT.jar** 檔案複製到 **c:\apps\dist\storm&lt;version number>** 目錄。
 
-4.  使用叢集桌面上的 [HDInsight 命令列]圖示來開啟新的命令提示字元，並使用下列命令來執行拓撲。
+2. 使用叢集桌面上的 [**HDInsight 命令列**] 圖示來開啟新的命令提示字元，並使用下列命令來執行拓撲。
 
-        cd %storm_home%
-        bin\storm jar TemperatureMonitor-1.0-SNAPSHOT.jar com.microsoft.examples.Temperature Temperature
+		cd %storm_home%
+		bin\storm jar TemperatureMonitor-1.0-SNAPSHOT.jar com.microsoft.examples.Temperature Temperature
 
-5.  拓撲啟動之後，經過幾秒鐘，Web 儀表板上就會開始出現項目。
+3. 拓撲啟動之後，經過幾秒鐘，Web 儀表板上就會開始出現項目。
 
-6.  當儀表板上出現項目之後，在 HBase 叢集上切換到遠端桌面工作階段。
+3. 當儀表板上出現項目之後，在 HBase 叢集上切換到遠端桌面工作階段。
 
-7.  從 HBase Shell 中，輸入下列命令。
+4. 從 HBase Shell 中，輸入下列命令。
 
-        scan 'SensorData'
+		scan 'SensorData'
 
-    請注意，現在會傳回 Storm 拓撲已寫入的幾列資料。
+	請注意，現在會傳回 Storm 拓撲已寫入的幾列資料。
 
-8.  若要停止拓撲，請移至 Storm 拓撲的遠端桌面工作階段，並於 HDInsight 命令列中輸入下列命令。
+5. 若要停止拓撲，請移至 Storm 拓撲的遠端桌面工作階段，並於 HDInsight 命令列中輸入下列命令。
 
-        bin\storm kill Temperature
+		bin\storm kill Temperature
 
-    經過幾秒鐘，拓撲就會停止。
+	經過幾秒鐘，拓撲就會停止。
 
-## 摘要
+##摘要
 
 您現在已了解如何使用 Storm 來讀取事件中心的資料、將資料儲存在 HBase 中，以及在外部儀表板上使用 SignalR 和 D3.js 顯示來自 Storm 的資訊。
 
--   如需 Apache Storm 的詳細資訊，請參閱 <https://storm.incubator.apache.org/>
+* 如需 Apache Storm 的詳細資訊，請參閱 [https://storm.incubator.apache.org/](https://storm.incubator.apache.org/)
 
--   如需 HDInsight 上的 HBase 的詳細資訊，請參閱＜[HDInsight 上的 HBase 概觀][HDInsight 上的 HBase 概觀]＞(英文)
+* 如需 HDInsight 上的 HBase 的詳細資訊，請參閱 [HDInsight 上的 HBase 概觀] (英文)(http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hbase-overview/)
 
--   如需 SignalR 的詳細資訊，請參閱 [ASP.NET SignalR][ASP.NET SignalR]
+* 如需 SignalR 的詳細資訊，請參閱 [ASP.NET SignalR](http://signalr.net/)
 
--   如需 D3.js 的詳細資訊，請參閱＜[D3.js - 資料驅動型文件][D3.js - 資料驅動型文件]\>(英文)
+* 如需 D3.js 的詳細資訊，請參閱 [D3.js - 資料驅動型文件] (英文)(http://d3js.org/)
 
--   如需在 .NET 中建立拓撲的相關資訊，請參閱＜[在 HDInsight 中的 Storm 上使用 SCP.NET 和 C# 開發串流資料處理應用程式][在 HDInsight 中的 Storm 上使用 SCP.NET 和 C# 開發串流資料處理應用程式]＞
+* 如需在 .NET 中建立拓撲的相關資訊，請參閱[在 HDInsight 中的 Storm 上使用 SCP.NET 和 C# 開發串流資料處理應用程式](/zh-tw/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/)
 
-  [Microsoft Azure SDK for .NET]: http://azure.microsoft.com/zh-tw/downloads/archive-net-downloads/
-  [Java 和 JDK]: http://www.oracle.com/technetwork/java/javase/downloads/index.html
-  [Maven]: http://maven.apache.org/what-is-maven.html
-  [Git]: http://git-scm.com/
-  [Chocolatey NuGet]: http://chocolatey.org/
-  [SignalR]: http://www.asp.net/signalr/overview/getting-started/introduction-to-signalr
-  [Storm 推文情緒 D3 視覺化]: https://github.com/P7h/StormTweetsSentimentD3Viz
-  [Azure 入口網站]: https://manage.windowsazure.com
-  [Azure 管理入口網站]: https://manage.windowsazure.com/
-  [SignalR client SDK for Java]: https://github.com/SignalR/java-client
-  [HDInsight 上的 HBase 概觀]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hbase-overview/
-  [ASP.NET SignalR]: http://signalr.net/
-  [D3.js - 資料驅動型文件]: http://d3js.org/
-  [在 HDInsight 中的 Storm 上使用 SCP.NET 和 C# 開發串流資料處理應用程式]: /zh-tw/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+[azure-portal]: https://manage.windowsazure.com/
+
+<!--HONumber=35_1-->

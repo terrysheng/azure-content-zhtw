@@ -7,10 +7,10 @@
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-push-legacy](../includes/mobile-services-selector-get-started-push-legacy.md)]
 
-本主題說明如何使用 Azure 行動服務傳送推播通知至通用 Windows 應用程式。 
-在本教學課程中，您會啟用透過 Azure 通知中樞將推播通知傳送至快速入門專案的功能。完成後，您的行動服務就會在每次插入記錄時使用通知中心傳送推播通知。您所建立的通知中心可透過行動服務免費使用、可在行動服務以外個別管理，並且可供其他應用程式和服務使用。
+本主題說明如何使用 Azure 行動服務，將推播通知傳送至通用 Windows 應用程式。 
+在本教學課程中，您會啟用透過 Azure 通知中心將推播通知傳送至快速入門專案的功能。完成後，您的行動服務就會在每次插入記錄時使用通知中心傳送推播通知。您所建立的通知中心可透過行動服務免費使用、可在行動服務以外個別管理，並且可供其他應用程式和服務使用。
 
->[WACOM.NOTE]本主題說明如何使用 Windows 市集專案中的行動服務，手動設定推播通知。您可以利用 Visual Studio 2013，將相同的推播通知新增至 Windows 市集應用程式專案。如需詳細資訊，請參閱本教學課程的[通用 Windows 應用程式版本](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data)。 
+>[WACOM.NOTE]本主題說明如何使用 Windows 市集專案中的行動服務，手動設定推播通知。您可以利用 Visual Studio 2013，將相同的推播通知新增至 Windows 市集應用程式專案。如需詳細資訊，請參閱本教學課程的[通用 Windows 應用程式版本](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push/) 。 
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 
@@ -21,13 +21,13 @@
 
 本教學課程會以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務]或[開始使用資料]，將您的專案連接到行動服務。若未連接行動服務，[新增推播通知] 精靈會為您建立此連線。 
 
->[WACOM.NOTE]此教學課程支援 Windows Phone 市集 8.1 應用程式。若要將推播通知新增至 Windows Phone 8 或 Windows Phone Silverlight 8.1 應用程式，請檢視此版本的[開始在行動服務中使用推播通知](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push)。
+>[WACOM.NOTE]此主題支援 Windows Phone 市集 8.1 應用程式。若要將推播通知新增至 Windows Phone 8 或 Windows Phone Silverlight 8.1 應用程式，請檢視此版本的[開始在行動服務中使用推播通知](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push)。
 
 ##<a id="register"></a> 向 WNS 註冊您的應用程式，並設定行動服務
 
 [WACOM.INCLUDE [mobile-services-notification-hubs-register-windows-store-app](../includes/mobile-services-notification-hubs-register-windows-store-app.md)]
 
-您的行動服務和應用程式現在都已完成設定，可與 WNS 和通知中樞搭配使用。接下來，您將更新通用 Windows 市集應用程式來註冊通知。
+您的行動服務和應用程式現在都已完成設定，而可與 WNS 和通知中心搭配使用。接下來，您將更新通用 Windows 市集應用程式來註冊通知。
 
 ##<a id="update-app"></a> 更新應用程式以註冊通知
 
@@ -38,7 +38,7 @@
         using Windows.Networking.PushNotifications;
 		using Windows.UI.Popups;
 
-2. Add the following method to **App** class: 
+2. 將下列方法新增至 **App** 類別： 
 	
         private async void InitNotificationsAsync()
         {
@@ -53,7 +53,7 @@
 
     此程式碼會從 WNS 中擷取應用程式的 ChannelURI，然後為推播通知註冊該 ChannelURI。
     
-4. 在 App.xaml.cs 中的 **OnLaunched** 事件處理常式頂端，將下列呼叫新增至新的 **InitNotificationsAsync** 方法：
+4. 在 App.xaml.cs 中的 **OnLaunched** 事件處理常式頂端，將下列呼叫新增至新 **InitNotificationsAsync** 方法：
 
         InitNotificationsAsync();
 
@@ -61,11 +61,11 @@
 
 5. 按 **F5** 鍵以執行應用程式。包含註冊金鑰的快顯對話方塊隨即顯示。
   
-6. (選用) 如果您不是使用管理入口網站產生的快速入門專案，請開啟 Package.appxmanifest 檔案，並在 [**應用程式 UI**] 索引標籤中，確定 [**支援快顯通知**] 設為 [**是**]。
+6. (選用) 如果您不要使用管理入口網站產生的快速入門專案，請開啟 Package.appxmanifest 檔案，並在 [**應用程式 UI**] 索引標籤中確認 [**支援快顯通知**] 設為 [**是**]。
 
    	![][2]
 
-   	如此可確定您的應用程式可以提出快顯通知。下載的快速入門專案中已啟用這些通知。
+   	如此可確定您的應用程式可以提出快顯通知。These notifications are already enabled in the downloaded quickstart project.
 
 ##<a id="update-scripts"></a> 更新伺服器指令碼以傳送推播通知
 
@@ -80,10 +80,10 @@
 本教學課程示範如何啟用 Windows 市集應用程式以便使用行動服務與通知中心來傳送推播通知的基礎。接著，請考慮完成下列其中一個教學課程：
 
 + [傳送推播通知給已驗證的使用者]
-	<br/>了解如何使用標記從行動服務將推播通知只傳送給已驗證的使用者。
+	<br/>了解如何利用標籤，從行動服務將推播通知只傳送給驗證的使用者。
 
 + [將廣播通知傳送給訂閱者]
-	<br/>了解使用者如何註冊及接收他們所需類別的推播通知。
+	<br/>了解使用者如何註冊及接收其所需類別的推播通知。
 
 + [將範本型通知傳送給訂閱者]
 	<br/>了解如何使用範本從行動服務傳送推播通知，但不必在您的後端製作平台特定裝載。
@@ -91,22 +91,22 @@
 在下列主題中深入了解行動服務和通知中心：
 
 * [開始使用資料]
-  <br/>進一步了解使用行動服務來儲存和查詢資料。
+  <br/>深入了解如何使用行動服務儲存和查詢資料。
 
 * [開始使用驗證]
-  <br/>了解如何使用行動服務以不同帳戶類型驗證應用程式的使用者。
+  <br/>了解如何使用行動服務驗證使用不同帳戶類型的應用程式使用者。
 
 * [什麼是通知中心？]
-  <br/>深入了解通知中樞如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
+  <br/>深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
 
-* [偵錯通知中樞應用程式](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>取得通知中樞解決方案的疑難排解和偵錯指引。 
+* [偵錯通知中心應用程式](http://go.microsoft.com/fwlink/p/?linkid=386630)
+  </br>取得指引疑難排解和偵錯通知中心解決方案。 
 
 * [行動服務 .NET 作法概念性參考]
   <br/>深入了解如何搭配使用行動服務與 .NET。
 
 * [行動服務伺服器指令碼參考]
-  <br/>進一步了解如何在您的行動服務中實作商務邏輯。
+  <br/>深入了解如何在您的行動服務中實作商務邏輯。
 
 <!-- Anchors. -->
 
@@ -119,7 +119,7 @@
 <!-- URLs. -->
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows (英文)]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-store-get-started
 [開始使用資料]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
 [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
@@ -133,3 +133,5 @@
 [什麼是通知中心？]: /zh-tw/documentation/articles/notification-hubs-overview/
 [將廣播通知傳送給訂閱者]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
 [將範本型通知傳送給訂閱者]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+
+<!--HONumber=35_1-->

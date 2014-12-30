@@ -1,6 +1,6 @@
-﻿<properties pageTitle="開始使用驗證 (Appcelerator) | 行動開發人員中心 " metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="開始使用驗證 (Appcelerator) | 行動開發人員中心" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="Appcelerator team;mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
 # 在行動服務中開始使用驗證
 
@@ -12,9 +12,9 @@
 
 1.  [註冊應用程式進行驗證，並設定行動服務]
 2.  [對通過驗證的使用者限制資料表權限]
-3.  [將驗證新增至應用程式]
+3.  [將驗證新增到應用程式]
 
-本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務]。
+本教學課程會以行動服務快速入門為基礎。您還必須先完成[開始使用行動服務]教學課程。
 
 若要完成本教學課程，您需要 Appcelerator Titanium Studio 3.2.1 或更新版本，及 iOS 7.0 和/或更新版本和 Android 4.3 或更新版本。
 
@@ -22,11 +22,11 @@
 
 [WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-##<a name="permissions"></a> 限制只有通過驗證的使用者具有權限
+##<a name="permissions"></a> 限制只有經驗證的使用者具有權限
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-3.	在 Appcelerator Titanium Studio 中，開啟您完成 [開始使用行動服務] 教學課程時所建立的專案。
+3.	在 Appcelerator Titanium Studio 中，開啟您完成[開始使用行動服務]教學課程時所建立的專案。
 
 4.	按 [執行] 按鈕，以在 iPhone 模擬器中建置專案並啟動應用程式。確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。
     
@@ -91,9 +91,11 @@
 
 [註冊應用程式進行驗證，並設定行動服務]: #register
 [對通過驗證的使用者限制資料表權限]: #permissions
-[將驗證新增至應用程式]: #add-authentication
+[將驗證新增到應用程式]: #add-authentication
 
 <!-- Images. -->
 
 <!-- URLs. -->
 [開始使用行動服務]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+
+<!--HONumber=35_1-->

@@ -1,15 +1,15 @@
-﻿<properties urlDisplayName="custom dns storage" pageTitle="針對 Azure 儲存體帳戶中的 Blob 資料設定網域名稱 | Microsoft Azure" metaKeywords="" description="Learn how to configure a custom domain for accessing blob data in an Azure storage account." metaCanonical="" services="storage" documentationCenter="" title="Configure a custom domain name for blob data in a storage account" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+﻿<properties urlDisplayName="custom dns storage" pageTitle="針對 Azure 儲存體帳戶中的 Blob 資料設定網域名稱 | Microsoft Azure" metaKeywords="" description="Learn how to configure a custom domain for accessing blob data in an Azure storage account." metaCanonical="" services="storage" documentationCenter="" title="Configure a custom domain name for blob data in a storage account" solutions="" authors="tamram" manager="adinah" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="tamram" />
 
 
 # 針對 Azure 儲存體帳戶中的 Blob 資料設定自訂網域名稱
-您可以設定自訂網域名稱，以供存取 Azure 儲存體帳戶中的 Blob 資料。Blob 服務的預設端點是 https://<*mystorageaccount*>.blob.core.windows.net。如果您將自訂網域和子網域 (如 **www.contoso.com**) 對應至儲存體帳戶的 Blob 端點，則使用者也能使用該網域存取您儲存體帳戶中的 Blob 資料。 
+您可以設定自訂網域名稱，以供存取 Azure 儲存體帳戶中的 Blob 資料。Blob 服務的預設端點是 https://<*mystorageaccount*>.blob.core.windows.net。如果您將自訂網域和子網域 (如 **www.contoso.com**) 對應至儲存體帳戶的 Blob 端點，使用者也能使用該網域存取儲存體帳戶中的 Blob 資料。 
 
-<div class="dev-callout"> 
-<b>注意</b> 
-	<p>此工作的程序適用於 Azure 儲存體帳戶。對於雲端服務，請參閱<a href = "/zh-tw/develop/net/common-tasks/custom-dns/">設定 Azure 雲端服務的自訂網域名稱</a>；對於網站，請參閱<a href="/zh-tw/develop/net/common-tasks/custom-dns-web-site/">設定 Azure 網站的自訂網域名稱</a>。</p> 
-</div>
+
+> [WACOM.NOTE]	此工作的程序適用於 Azure 儲存體帳戶。有關雲端服務，請參閱 <a href = "/zh-tw/develop/net/common-tasks/custom-dns/">設定 Azure 雲端服務的自訂網域名稱</a>；有關網站，請參閱 <a href="/zh-tw/develop/net/common-tasks/custom-dns-web-site/">設定 Azure 網站的自訂網域名稱</a>。 
+
+> [WACOM.NOTE]	Premium 儲存體帳戶無法對應到自訂網域名稱。請參閱 [Premium 儲存體：Azure 虛擬機器工作負載的高效能儲存體](http://go.microsoft.com/fwlink/?LinkId=521898) ，了解 Premium 儲存體帳戶的資訊。
 
 將自訂網域指向儲存體帳戶之 Blob 端點的方法有兩種。最簡單的方法是建立 CNAME 記錄，以將自訂網域和子網域對應至 Blob 端點。CNAME 記錄是將來源網域對應至目的地網域的 DNS 功能。在這種情況下，來源網域是您的自訂網域和子網域 (請注意，子網域一律是必要的項目)。目的地網域是 Blob 服務端點。
 
@@ -57,12 +57,11 @@
 
 如果您不需要顧及使用者會短暫地無法存取網域的問題，抑或是自訂網域目前未主控應用程式，您可以使用此程序來註冊自訂網域。 
 
-如果自訂網域目前需支援不允許發生任何停機時間的應用程式，請使用<a href="#register-asverify">使用中繼的 asverify 子網域針對儲存體帳戶註冊自訂網域</a>簡述的程序。
+如果自訂網域目前支援不得發生停機時間的應用程式，可使用 <a href="#register-asverify">使用中繼的 asverify 子網域針對儲存體帳戶註冊自訂網域</a>中所述的程序。
 
 若要設定自訂網域名稱，您必須向網域註冊機構建立新的 CNAME 記錄。CNAME 記錄能指定網域名稱的別名。在這種情況下，它能將自訂網域的位址對應至儲存體帳戶的 Blob 服務端點。
 
-各註冊機構指定 CNAME 記錄的方法都很類似，只是稍微不同，但概念
-都一樣。請注意，許多基本網域註冊套件並未提供 DNS 組態，因此您可能需要先升級網域註冊套件，然後再建立 CNAME 記錄。 
+各註冊機構指定 CNAME 記錄的方法都很類似，只是稍微不同，但概念都一樣。請注意，許多基本網域註冊套件並未提供 DNS 組態，因此您可能需要先升級網域註冊套件，然後再建立 CNAME 記錄。 
 
 1.  在 Azure 管理入口網站中，瀏覽至 [**儲存體**] 索引標籤。
 
@@ -72,18 +71,13 @@
 
 4.  按一下畫面底部的 [**管理網域**] 以顯示 [**Manage Custom Domain**] 對話方塊。在對話方塊頂端的文字中，你可以看見有關如何建立 CNAME 記錄的資訊。對於此程序，請忽略參照 **asverify** 子網域的文字。
 
-5.  登入 DNS 註冊機構的網站，然後移至 
-    DNS 管理頁面。您可以在下列區段中找到此頁面，例如**網域
-    名稱**、**DNS** 或 **名稱伺服器管理**。
+5.  登入 DNS 註冊機構的網站，然後移至 DNS 管理頁面。您可能會在 [**網域名稱**]、[**DNS**] 或 [**Name Server Management**] 等區段中找到此頁面。
 
-6.  尋找管理 CNAME 的區段。您可能需要移至
-    進階設定頁面，並尋找 **CNAME**、**Alias**、
-    或 **Subdomains** 之類的單字。
+6.  尋找管理 CNAME 的區段。您可能需要移至進階設定頁面，並尋找 **CNAME**、**Alias** 或 **Subdomains** 之類的單字。
 
-7.  建立新的 CNAME 記錄並提供子網域別名，如 **www** 或 **photos**。接著，
-    以 **mystorageaccount.blob.core.windows.net** 格式 (其中 **mystorageaccount** 代表儲存體帳戶的名稱) 提供主機名稱 (即 Blob 服務端點)。要使用的主機名稱已提供於 [**Manage Custom Domain**] 對話方塊的文字中。
+7.  建立新的 CNAME 記錄並提供子網域別名，如 **www** 或 **photos**。接著，以 **mystorageaccount.blob.core.windows.net** 格式 (其中 **mystorageaccount** 代表儲存體帳戶的名稱) 提供主機名稱 (即 Blob 服務端點)。要使用的主機名稱已提供於 [**Manage Custom Domain**] 對話方塊的文字中。
 
-8.  建立 CNAME 記錄後，請返回 [**Manage Custom Domain**] 對話方塊並在 [**自訂網域名稱**] 欄位中輸入自訂網域的名稱 (包括子網域)。例如，如果您的網域為 **contoso.com** 且子網域為 **www**，請輸入 **www.contoso.com**；如果子網域為 **photos**，請輸入 **photos.contoso.com**。請注意，子網域是必要項目。
+8.  建立 CNAME 記錄後，請返回 [**Manage Custom Domain**] 對話方塊並在 [**自訂網域名稱**] 欄位中輸入自訂網域的名稱 (包括子網域)。例如，如果您的網域是 **contoso.com** 而且您的子網域是 **www**，請輸入 **www.contoso.com**；如果您的子網域是 **photos**，請輸入 **photos.contoso.com**。請注意，子網域是必要項目。
 
 9. 按一下 [**註冊**] 按鈕以註冊自訂網域。 
 
@@ -91,7 +85,7 @@
 
 <h2><a name="register-asverify"></a>使用中繼的 asverify 子網域針對儲存體帳戶註冊自訂網域</h2>
 
-如果自訂網域目前需支援不得發生停機時間之 SLA 的應用程式，您可以使用此程序來註冊自訂網域。藉由建立從 asverify.<subdomain>.<customdomain> 指向 asverify.<storageaccount>.blob.core.windows.net 的 CNAME，您可以向 Azure 預先註冊網域。接著，您可以建立從 <subdomain>.<customdomain> 指向 <storageaccount>.blob.core.windows.net 的第二個 CNAME，將前往自訂網域的流量引導至 Blob 端點。
+如果自訂網域目前需支援不得發生停機時間之 SLA 的應用程式，您可以使用此程序來註冊自訂網域。藉由建立從 asverify.&lt;subdomain&gt;.&lt;customdomain&gt; 指向 asverify.&lt;storageaccount&gt;.blob.core.windows.net 的 CNAME，您可以向 Azure 預先註冊網域。接著，您可以建立從 &lt;subdomain&gt;.&lt;customdomain&gt; 指向 &lt;storageaccount&gt;.blob.core.windows.net 的第二個 CNAME，將前往自訂網域的流量引導至 Blob 端點。
 
 asverify 子網域是 Azure 認可的特殊子網域。在自己的子網域前加上 **asverify**，代表您允許 Azure 在不修改網域之 DNS 記錄的情況下認可自訂網域。一旦修改網域的 DNS 記錄，它將能在沒有停機時間的情況下對應至 Blob 端點。
 
@@ -103,20 +97,15 @@ asverify 子網域是 Azure 認可的特殊子網域。在自己的子網域前�
 
 4.  按一下畫面底部的 [**管理網域**] 以顯示 [**Manage Custom Domain**] 對話方塊。在對話方塊頂端的文字中，你可以看見有關如何使用 **asverify** 子網域建立 CNAME 記錄的資訊。
 
-5.  登入 DNS 註冊機構的網站，然後移至 
-    DNS 管理頁面。您可以在下列區段中找到此頁面，例如**網域
-    名稱**、**DNS** 或 **名稱伺服器管理**。
+5.  登入 DNS 註冊機構的網站，然後移至 DNS 管理頁面。您可能會在 [**網域名稱**]、[**DNS**] 或 [**Name Server Management**] 等區段中找到此頁面。
 
-6.  尋找管理 CNAME 的區段。您可能需要移至
-    進階設定頁面，並尋找 **CNAME**、**Alias**、
-    或 **Subdomains** 之類的單字。
+6.  尋找管理 CNAME 的區段。您可能需要移至進階設定頁面，並尋找 **CNAME**、**Alias** 或 **Subdomains** 之類的單字。
 
-7.  建立新的 CNAME 記錄並提供包含 asverify 子網域的子網域別名。例如，您指定的子網域將會是 **asverify.www** 或 **asverify.photos** 格式。接著，
-    以 **asverify.mystorageaccount.blob.core.windows.net** 格式 (其中 **mystorageaccount** 代表儲存體帳戶的名稱) 提供主機名稱 (即 Blob 服務端點)。要使用的主機名稱已提供於 [**Manage Custom Domain**] 對話方塊的文字中。
+7.  建立新的 CNAME 記錄並提供包含 asverify 子網域的子網域別名。例如，您指定的子網域將會是 **asverify.www** 或 **asverify.photos** 格式。接著，以 **asverify.mystorageaccount.blob.core.windows.net** 格式 (其中 **mystorageaccount** 代表儲存體帳戶的名稱) 提供主機名稱 (即 Blob 服務端點)。要使用的主機名稱已提供於 [**Manage Custom Domain**] 對話方塊的文字中。
 
-8.  建立 CNAME 記錄後，請返回 [**Manage Custom Domain**] 對話方塊並在 [**自訂網域名稱**] 欄位中輸入自訂網域的名稱。例如，如果您的網域為 **contoso.com** 且子網域為 **www**，請輸入 **www.contoso.com**；如果子網域為 **photos**，請輸入 **photos.contoso.com**。請注意，子網域是必要項目。
+8.  建立 CNAME 記錄後，請返回 [**Manage Custom Domain**] 對話方塊並在 [**自訂網域名稱**] 欄位中輸入自訂網域的名稱。例如，如果您的網域是 **contoso.com** 而且您的子網域是 **www**，請輸入 **www.contoso.com**；如果您的子網域是 **photos**，請輸入 **photos.contoso.com**。請注意，子網域是必要項目。
 
-9.	按一下指出 [**Advanced: Use the 'asverify' subdomain to preregister my custom domain**] 的核取方塊。 
+9.	按一下指出 [**Advanced:Use the 'asverify' subdomain to preregister my custom domain**] 的核取方塊。 
 
 10. 按一下 [**註冊**] 按鈕以預先註冊自訂網域。 
 
@@ -136,12 +125,14 @@ asverify 子網域是 Azure 認可的特殊子網域。在自己的子網域前�
 
 -   http://<*subdomain.customdomain*>/<*mycontainer*>/<*myblob*>
 
-例如，以下 URI 可讓您透過 
-**photos.contoso.com** 自訂子網域 (其與 
-**myforms** 容器之 Blob 對應) 來存取 Web 表單：
+例如，您可以使用下列 URI 透過
+**photos.contoso.com** 自訂子網域對應於
+**myforms** 容器中的 Blob 來存取 Web 表單：
 
 -   http://photos.contoso.com/myforms/applicationform.htm
 
 ## 其他資源
 
 -   <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/gg680307.aspx">如何將 CDN 對應至自訂網域</a>
+
+<!--HONumber=35_1-->

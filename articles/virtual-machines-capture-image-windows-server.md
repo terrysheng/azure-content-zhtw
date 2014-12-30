@@ -1,68 +1,77 @@
-<properties urlDisplayName="Capture an image" pageTitle="對執行 Windows Server 的虛擬機器擷取映像" metaKeywords="Azure capture image vm, capturing vm" description="了解如何對執行 Windows Server 2008 R2 的 Azure 虛擬機器 (VM) 擷取映像。" metaCanonical="" services="virtual-machines" documentationCenter="" title="如何對執行 Windows Server 的虛擬機器擷取映像" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties urlDisplayName="Capture an image" pageTitle="對執行 Windows Server 的虛擬機器擷取映像" metaKeywords="Azure capture image vm, capturing vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server 2008 R2. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="kathydav" />
 
-# 如何擷取 Windows 虛擬機器以做為範本
+#如何擷取 Windows 虛擬機器以做為範本#
 
-本文說明如何擷取 Windows 虛擬機器，以便用它做為範本建立其他虛擬機器。這個虛擬機器範本包括 OS 磁碟和任何連接虛擬機器的資料磁碟。它不包含網路組態，因此您將需要在建立使用該範本的其他虛擬機器時加以設定。
+本文說明如何擷取執行 Windows 的 Azure 虛擬機器，以便用它做為範本建立其他虛擬機器。此範本包括 OS 磁碟和任何連接虛擬機器的資料磁碟。它不包含網路組態，因此您將需要在建立使用該範本的其他虛擬機器時加以設定。
 
-擷取虛擬機器之後，它會出現在您建立虛擬機器時的 [My Images] 下。映像檔會在您的儲存體帳戶中儲存為 VHD。如需映像的詳細資訊，請參閱[管理磁碟和映像][管理磁碟和映像] (英文)。
+Azure 會將此範本視為映像，並將其儲存在 [**我的映像**] 下。這也是您已上傳的任何映像儲存所在之處。如需映像的詳細資訊，請參閱[關於 Azure 中的虛擬機器映像][]。
 
-## 開始之前
+##開始之前##
 
 這些步驟假設您已建立 Azure 虛擬機器且設定好作業系統，包括連接任何資料磁碟。如果您還沒這麼做，請參閱下列指示：
 
--   [如何建立自訂虛擬機器 (英文)][如何建立自訂虛擬機器 (英文)]
--   [如何將資料磁碟附加至虛擬機器][如何將資料磁碟附加至虛擬機器]
+- [如何建立自訂虛擬機器] []
+- [如何將資料磁碟附加至虛擬機器] []
 
-## 擷取虛擬機器
+##擷取虛擬機器##
 
-1.  按一下命令列上的 [連線]，連線到虛擬機器。如需詳細資訊，請參閱[如何登入執行 Windows Server 的虛擬機器][如何登入執行 Windows Server 的虛擬機器]。
+1. 按一下命令列上的 [**連接**]，連接到虛擬機器。如需詳細資訊，請參閱[如何登入執行 Windows Server 的虛擬機器][]。
 
-2.  以系統管理員身分開啟 [命令提示字元] 視窗。
+2.	以系統管理員身分開啟 [命令提示字元] 視窗。
 
-3.  切換至 `%windir%\system32\sysprep` 目錄，然後執行 sysprep.exe。
 
-4.  [系統準備工具] 對話方塊隨即出現。執行下列動作：
+3.	切換至 `%windir%\system32\sysprep` 目錄，然後執行 sysprep.exe。
 
-    -   在 [系統清理動作] 中選取 [Enter System Out-of-Box Experience (OOBE)]，並確認 [一般化] 已勾選。如需使用 Sysprep 的詳細資訊，請參閱[如何使用 Sysprep：簡介][如何使用 Sysprep：簡介] (英文)。
 
-    -   在 [關機選項]中選取 [關機]。
+4. 	[**系統準備工具**] 對話方塊隨即出現。執行下列動作：
 
-    -   按一下 [確定]。
 
-    ![執行 Sysprep][執行 Sysprep]
+	- 在 [**系統清理動作**] 中選取 [**Enter System Out-of-Box Experience (OOBE)**]，並確認已勾選 [**一般化**]。如需使用 Sysprep 的詳細資訊，請參閱[如何使用 Sysprep：簡介][]。
 
-5.  Sysprep 會將虛擬機器關機，這會在[管理入口網站][管理入口網站] 中，將機器的狀態變更為 [已停止]。
+	- 在 [**關閉選項**] 中，選取 [**關閉**]。
 
-6.  按一下 [虛擬機器]，然後選取要擷取的虛擬機器。
+	- 按一下 [**確定**]。
 
-7.  按一下命令列上的 [擷取]。
+	![Run Sysprep](./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png)
 
-    ![擷取虛擬機器][擷取虛擬機器]
+7.	Sysprep 會將虛擬機器關機，這會在[管理入口網站]中，將機器的狀態變更為(http://manage.windowsazure.com) [**已停止**]。
 
-    [擷取虛擬機器] 對話方塊隨即出現。
 
-8.  在 [映像名稱] 中輸入新映像的名稱。
+8.	按一下 [**虛擬機器**]，然後選取要擷取的虛擬機器。
 
-9.  將 Windows Server 映像新增到自訂映像組合之前，必須先如前述步驗所指示，執行 Sysprep 將它一般化。按一下 [I have run Sysprep on the virtual machine]，表示您已這麼做。
+9.	按一下命令列上的 [**擷取**]。
 
-10. 按一下打勾記號以擷取映像。當您擷取一般化虛擬機器的映像時，會刪除該機器。
+	![Capture virtual machine](./media/virtual-machines-capture-image-windows-server/CaptureVM.png)
 
-    新映像現在會出現在 [映像] 下。
+	[**擷取虛擬機器**] 對話方塊隨即出現。
 
-    ![Image capture successful][Image capture successful]
+10.	在 [**映像名稱**] 中輸入新映像的名稱。
 
-## 後續步驟
+11.	將 Windows Server 映像新增到自訂映像組合之前，必須先如前述步驗所指示，執行 Sysprep 將它一般化。按一下 [**I have run Sysprep on the virtual machine**]，表示您已這麼做。
 
-映像已可用來做為範本，建立虛擬機器。若要這麼做，您將需要使用 [從組件庫] 方法並選取您剛建立的映像，建立自訂的虛擬機器。如需指示，請參閱[如何建立自訂虛擬機器][如何建立自訂虛擬機器 (英文)]。
+12.	按一下打勾記號以擷取映像。當您擷取一般化虛擬機器的映像時，會刪除該機器。
 
-  [管理磁碟和映像]: http://go.microsoft.com/fwlink/p/?LinkId=397536
-  [如何建立自訂虛擬機器 (英文)]: ../virtual-machines-create-custom/
-  [如何將資料磁碟附加至虛擬機器]: ../storage-windows-attach-disk/
-  [如何登入執行 Windows Server 的虛擬機器]: http://www.windowsazure.com/zh-tw/manage/windows/how-to-guides/log-on-a-windows-vm/
-  [如何使用 Sysprep：簡介]: http://technet.microsoft.com/zh-tw/library/bb457073.aspx
-  [執行 Sysprep]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
-  [管理入口網站]: http://manage.windowsazure.com
-  [擷取虛擬機器]: ./media/virtual-machines-capture-image-windows-server/CaptureVM.png
-  [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png
+	新映像現在會出現在 [**映像**] 下。
+
+	![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
+
+##後續步驟##
+映像已可用來做為範本，建立虛擬機器。若要這麼做，您將需要使用 [**從組件庫**] 方法並選取您剛建立的映像，建立自訂的虛擬機器。如需指示，請參閱[如何建立自訂虛擬機器][]。
+
+	
+[關於 Azure 中的虛擬機器映像]: http://msdn.microsoft.com/zh-tw/library/azure/dn790290.aspx
+[如何建立自訂虛擬機器]: ../virtual-machines-create-custom/
+[如何將資料磁碟附加至虛擬機器]: ../storage-windows-attach-disk/
+[如何登入執行 Windows Server 的虛擬機器]：http://www.windowsazure.com/zh-tw/manage/windows/how-to-guides/log-on-a-windows-vm/
+[如何使用 Sysprep：簡介]：http://technet.microsoft.com/zh-tw/library/bb457073.aspx
+[執行 Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
+[輸入 Sysprep.exe 選項]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
+[虛擬機器已停止]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
+[擷取虛擬機器的映像]: ./media/virtual-machines-capture-image-windows-server/CaptureVM.png
+[輸入映像名稱]: ./media/virtual-machines-capture-image-windows-server/Capture.png
+[映像擷取成功]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
+[使用擷取的映像]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
+
+<!--HONumber=35_1-->

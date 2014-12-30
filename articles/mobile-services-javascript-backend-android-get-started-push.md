@@ -6,7 +6,7 @@
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-本主題說明如何使用 Azure 行動服務，透過 Google 雲端通訊 (GCM) 將推播通知傳送至 Android 應用程式。在本教學課程中，您會啟用透過 Azure 通知中心將推播通知傳送至快速入門專案的功能。完成後，行動服務就會在每次插入記錄時傳送推播通知。
+本主題說明如何搭配使用 Azure 行動服務和 Google 雲端通訊 (GCM)，將推播通知傳送至 Android 應用程式。在本教學課程中，您會啟用透過 Azure 通知中心將推播通知傳送至快速入門專案的功能。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 
@@ -16,10 +16,12 @@
 4. [更新指令碼來傳送推播通知](#update-scripts)
 5. [插入資料以接收通知](#test)
 
-本教學課程會以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務]或[開始使用資料]，將您的專案連接到行動服務。  
 
->[AZURE.NOTE] 如果您想要查看已完成的應用程式的原始程式碼，請到<a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithPush/Android" target="_blank">這裡</a>。
+>[AZURE.NOTE] 若要查看已完成應用程式的原始程式碼，請移至 <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithPush/Android" target="_blank">這裡</a>。
 
+##必要條件
+
+[WACOM.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
 ##<a id="register"></a>啟用 Google 雲端通訊
 
@@ -35,9 +37,9 @@
 
    	![](./media/mobile-services-android-get-started-push/mobile-services-selection.png)
 
-2. 按一下 [**推播**] 索引標籤，輸入在先前程序中從 GCM 取得的 **API 金鑰**值，然後按一下 [**儲存**]。
+2. 按一下 [**推播**] 索引標籤，輸入前一個程序中從 GCM 取得的 [**API 金鑰**] 值，然後按一下 [**儲存**]。
 
-	>[WACOM.NOTE]當您使用舊版行動服務完成這個教學課程時，可能會在 [**推播**] 索引標籤底部看見名為 [**啟用進階推送**] 的連結。立即按一下這個連結，即可升級您的行動服務來與通知中樞整合。這個變更無法回復。如需如何在生產行動服務中啟用進階推播通知的詳細資料，請參閱<a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">此指引</a>。
+	>[WACOM.NOTE]當您使用舊版行動服務完成這個教學課程時，可能會在 [**推播**] 索引標籤底部看見名為 [**啟用進階推送**] 的連結。立即按一下這個連結，即可升級您的行動服務來與通知中心整合。這個變更無法回復。如需如何在生產行動服務中啟用進階推播通知的詳細資料，請參閱 <a href="http://go.microsoft.com/fwlink/p/?LinkId=391951">此指引</a>。
 
    	![](./media/mobile-services-android-get-started-push/mobile-push-tab-android.png)
 
@@ -48,11 +50,11 @@
 
 您的行動服務和應用程式現在都已完成設定，而可與 GCM 和通知中心搭配使用。
 
-##<a id="add-push"></a>將推播通知新增至應用程式
+##<a id="add-push"></a>新增推播通知至應用程式
 
 ###驗證 Android SDK 版本
 
-[WACOM.INCLUDE [確認 SDK](../includes/mobile-services-verify-android-sdk-version.md)]
+[WACOM.INCLUDE [驗證 SDK](../includes/mobile-services-verify-android-sdk-version.md)]
 
 下一個步驟是安裝 Google Play 服務。Google 雲端通訊在開發和測試方面有一些 API 層級的最低需求，這些是資訊清單中的 **minSdkVersion** 屬性所必須遵守。 
 
@@ -69,11 +71,11 @@
 
 ##<a id="update-scripts"></a>在管理入口網站中更新已註冊的插入指令碼
 
-1. 在管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItem**] 資料表。 
+1. 在管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItem**] 表格。 
 
    	![](./media/mobile-services-android-get-started-push/mobile-portal-data-tables.png)
 
-2. 在 [**todoitem**] 中，按一下 [**指令碼**] 索引標籤，然後選取 [**Insert**]。
+2. 在 [**todoitem**] 中，按一下 [**指令碼**] 索引標籤，然後選取 [**插入**]。
    
   	![](./media/mobile-services-android-get-started-push/mobile-insert-script-push2.png)
 
@@ -119,13 +121,13 @@
 
 當您在模擬器中執行此應用程式時，請務必使用支援 Google API 的 Android 虛擬裝置 (AVD)。
 
-1. 重新啟動 Eclipse，然後在 [封裝總管] 中，以滑鼠右鍵按一下專案，按一下 [**屬性**]，按一下 [**Android**]，核取 [**Google API**]，然後按一下 [**確定**]。
+1. 重新啟動 Eclipse，然後在 Package Explorer 中，以滑鼠右鍵按一下專案，再依序按一下 [**屬性**] 及 [**Android**]，核取 [**Google API**]，再按一下 [**確定**]。
 
 	![](./media/mobile-services-android-get-started-push/mobile-services-import-android-properties.png)
 
   	如此會使專案的目標變成 Google API。
 
-2. 從 [**視窗**] 中，選取 [**Android Virtual Device Manager**]，選取您的裝置，按一下 [**編輯**]。
+2. 從 [**Window**] 選取 [**Android Virtual Device Manager**]，選取您的裝置，按一下 [**編輯**]。
 
 	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager.png)
 
@@ -137,9 +139,9 @@
 
 ###執行測試
 
-1. 在 Eclipse 中，從 [**執行**] 功能表中，按一下 [**執行**] 來啟動應用程式。
+1. 在 Eclipse 的 [**執行**] 功能表中按一下 [**執行**]，以啟動應用程式。
 
-2. 在應用程式中，輸入有意義的文字，例如 _A new Mobile Services task_，然後按一下 [**加入**] 按鈕。
+2. 在應用程式中，輸入有意義的文字，如 _A new Mobile Services task_，然後按一下 [**新增**] 按鈕。
 
   	![](./media/mobile-services-android-get-started-push/mobile-quickstart-push1-android.png)
 
@@ -154,34 +156,34 @@
 <!---This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
 + [Send push notifications to authenticated users]
-	<br/>了解如何使用標記從行動服務將推播通知只傳送給已驗證的使用者。
+	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
-+ [將廣播通知傳送給訂閱者]
-	<br/>了解使用者如何註冊及接收他們所需類別的推播通知。
++ [Send broadcast notifications to subscribers]
+	<br/>Learn how users can register and receive push notifications for categories they're interested in.
 
-+ [將範本型通知傳送給訂閱者]
-	<br/>了解如何使用範本從行動服務傳送推播通知，但不必在您的後端製作平台特定裝載。
++ [Send template-based notifications to subscribers]
+	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
 -->
 
 在下列主題中深入了解行動服務和通知中心：
 
 * [開始使用資料]
-  <br/>進一步了解使用行動服務來儲存和查詢資料。
+  <br/>深入了解如何使用行動服務儲存和查詢資料。
 
 * [開始使用驗證]
-  <br/>了解如何使用行動服務以不同帳戶類型驗證應用程式的使用者。
+  <br/>了解如何使用行動服務驗證使用不同帳戶類型的應用程式使用者。
 
 * [什麼是通知中心？]
-  <br/>深入了解通知中樞如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
+  <br/>深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
 
-* [偵錯通知中樞應用程式](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>取得通知中樞解決方案的疑難排解和偵錯指引。 
+* [偵測通知中心應用程式](http://go.microsoft.com/fwlink/p/?linkid=386630)
+  </br>取得指引疑難排解和偵測通知中心解決方案。 
 
 * [如何使用行動服務的 Android 用戶端程式庫]
   <br/>深入了解如何搭配使用行動服務與 Android。
 
-* [行動服務伺服器指令碼參考]
-  <br/>進一步了解如何在您的行動服務中實作商務邏輯。
+* [Mobile Services server script reference]
+  <br/>深入了解如何在您的行動服務中實作商務邏輯。
 
 
 <!-- Anchors. -->
@@ -198,13 +200,13 @@
 <!-- URLs. -->
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows (英文)]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-android-get-started/
 [開始使用資料]: /zh-tw/documentation/articles/mobile-services-android-get-started-data/
 [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-android-get-started-users
 [開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-js
-[推播通知給應用程式使用者]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-js
-[使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-js
+[傳送推播通知給應用程式使用者]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-js
+[使用指令碼來授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript 和 HTML]: /zh-tw/develop/mobile/tutorials/get-started-with-push-js
 [設定 Google Play 服務 SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
 [Azure 管理入口網站]: https://manage.windowsazure.com/
@@ -219,3 +221,5 @@
 [什麼是通知中心？]: /zh-tw/documentation/articles/notification-hubs-overview/
 [將廣播通知傳送給訂閱者]: /zh-tw/documentation/articles/notification-hubs-android-send-breaking-news/
 [將範本型通知傳送給訂閱者]: /zh-tw/documentation/articles/notification-hubs-android-send-localized-breaking-news/
+
+<!--HONumber=35_1-->

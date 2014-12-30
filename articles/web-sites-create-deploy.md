@@ -1,77 +1,55 @@
-<properties linkid="manage-services-how-to-create-websites" urlDisplayName="How to create" pageTitle="How to create websites - Azure service management" metaKeywords="Azure creating website, Azure deleting website" description="Learn how to create a website using the Azure Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create and Deploy a Website" authors="cephalin" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="How to create" pageTitle="如何建立網站 - Azure 服務管理" metaKeywords="Azure creating website, Azure deleting website" description="Learn how to create a website using the Azure Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create and Deploy a Website" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
-# 如何建立網站
+#如何建立網站
 
 本主題說明如何從組件庫或使用管理入口網站來建立網站。
 
-如需關於如何將內容部署到已建立之 Azure 網站的詳細資訊，請參閱 [Azure 網站][Azure 網站]中的＜**部署**＞一節。
+如需關於如何將內容部署到已建立之 Azure 網站的詳細資訊，請參閱 
 
-## 目錄
+## Table of Contents ##
 
--   [作法：使用管理入口網站來建立網站][作法：使用管理入口網站來建立網站]
--   [作法：從藝廊建立網站][作法：從藝廊建立網站]
--   [作法：刪除網站][作法：刪除網站]
--   [後續步驟][後續步驟]
+- [How to: Create a Web Site Using the Management Portal](#createawebsiteportal)
+- [How to: Create a Web Site from the Gallery](#howtocreatefromgallery)
+- [How to: Delete a Web Site](#deleteawebsite)
+- [Next Steps](#nextsteps)
 
-## <a name="createawebsiteportal"></a>作法：使用管理入口網站來建立網站
+##<a name="createawebsiteportal"></a>How to: Create a Website Using the Management Portal
 
-執行下列步驟在 Azure 中建立網站。
+Follow these steps to create a website in Azure.
+	
+1. Login to the [Azure Management Portal](http://manage.windowsazure.com/).
 
-1.  登入 [Azure 管理入口網站][Azure 管理入口網站]。
+2. Click the **Create New** icon on the bottom left of the Management Portal.
 
-2.  按一下 [管理入口網站] 左下角的 [新建] 圖示。
+3. Click the **Website** icon, click the **Quick Create** icon, enter a value for URL and then click the check mark next to **Create Website** on the bottom right corner of the page.
 
-3.  依序按一下 [網站] 圖示和 [快速建立] 圖示，輸入 URL 的值，然後按一下頁面右下角的 [建立網站] 旁的打勾記號。
+4. When the website has been created, you will see the text **Creating website <*website name*> succeeded**. You can browse to the website by clicking **Browse** at the bottom of the portal page.
 
-4.  建立網站後，您會看到「建立網站 \<*網站名稱*\> 成功」的字樣。按一下入口網站頁面底部的 [瀏覽] 即可瀏覽到該網站。
+5. In the portal, click the name of the website displayed in the list of websites to open the website's **Quick Start** management page.
 
-5.  在入口網站中，按一下網站清單中顯示的網站名稱，以開啟網站的 [快速啟動] 管理頁面。
+6. On the **Quick Start** page, you are provided with options to get website development tools, set up publishing for your website, or set up deployment from a source control provider like TFS or Git. FTP publishing is set up by default for websites and the FTP Host name is displayed in the **Quick Glance** section of the **Dashboard** page under **FTP Host Name**. Before publishing with FTP or Git, choose the option to **Reset deployment credentials** on the **Dashboard** page so that you can authenticate against the FTP Host or the Git Repository when deploying content to your website.
 
-6.  [快速啟動] 頁面上提供各種選項，讓您取得網站開發工具、設定網站的發行，或從 TFS 或 Git 之類的原始檔控制提供者設定部署。預設已為網站設定 FTP 發行，並在 [儀表板] 頁面 [快速概覽] 區段的 [FTP 主機名稱] 下顯示 FTP 主機名稱。使用 FTP 或 Git 進行發行前，請選擇 [儀表板] 頁面的 [重設部署認證] 選項，以便能在將內容部署到網站時，根據 FTP 主機或 Git 儲存機制進行驗證。
+7. The **Configure** management page exposes settings for your website, such as:
 
-7.  [設定] 管理頁面會以下列類別顯示網站的設定：
+	- The version of .NET framework or PHP for your web application
+	- SSL bindings
+	- custom domain names
+	- logging options
+	- app settings for the Azure environment (overriding <appSettings> in your development environment's Web.config, for example)
+	- connection strings (overriding <connectionStrings> in your development environment's Web.config, for example)
+	- script processors for specific file extensions like *.php
 
--   **一般**：設定 Web 應用程式所需的 .NET Framework 或 PHP 版本。若是處於標準模式的網站，[平台] 選項可讓您選擇 32 位元或 64 位元環境。
-
--   **憑證**：在標準模式中，您可以上傳自訂網域的 SSL 憑證。
-
--   **網域名稱**：在 [共用] 模式和 [標準] 模式中，您可以檢視及管理網站的自訂網域名稱。
-
--   **SSL 繫結**：在標準模式中，您可以使用 IP 型或 SNI 型 SSL，將 SSL 憑證指派給您的自訂網域名稱。
-
--   **部署**：從原始檔控制來設定部署時，可在此處設定部署。
-
--   **應用程式診斷**：您可以設定選項，以便從使用追蹤檢測的 Web 應用程式中收集診斷追蹤。
-
--   **網站診斷**：設定用於收集網站診斷資訊的記錄選項。選項包括 [Web 伺服器記錄]、[詳細的錯誤訊息] 或 [失敗要求的追蹤]。
-
--   **監控**：若是處於 [標準] 模式的網站，您可以使用此功能來測試 HTTP 或 HTTPS 端點的可用性。
-
--   **應用程式設定**：指定 Web 應用程式啟動時載入的名稱/值組。如果是 .NET 網站，這些設定會在執行階段插入 .NET 組態的 **AppSettings** 中，並請覆蓋現有的設定。如果是 PHP 和 Node 網站，您可以在執行階段將這些設定視為環境變數使用。
-
--   **連接字串**：檢視和編輯連接字串。如果是 .NET 網站，這些連接字串會在執行階段插入 .NET 組態的 **connectionStrings** 設定中，並覆蓋索引鍵等於所連結資料庫名稱的現有項目。如果是 PHP 和 Node 網站，您可以在執行階段將這些設定視為環境變數使用。
-
--   **預設文件**：網站的預設文件就是在使用者瀏覽至網站時預設顯示的頁面。如果 Web 應用程式的預設文件未在此清單中，可將其加入清單中。網站的預設文件必須位於清單頂端。
-
--   **處理常式對應**：指定負責為特定副檔名 (如 \*.php) 處理要求的指令碼處理器。
-
-## <a name="howtocreatefromgallery"></a>作法：從組件庫建立網站
+##<a name="howtocreatefromgallery"></a>How to: Create a Website from the Gallery
 
 [WACOM.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 
-## <a name="deleteawebsite"></a>作法：刪除網站
+##<a name="deleteawebsite"></a>How to: Delete a Website
+Websites are deleted using the **Delete** icon in the Azure Management Portal. The **Delete** icon is available in the Azure Portal when you click **Websites** to list all of your websites and at the bottom of each of the website management pages.
 
-您可以使用 Azure 管理入口網站中的 [刪除] 圖示來刪除網站。在 Azure 入口網站中，當您按一下 [網站] 來列出所有網站時就會看見 [刪除] 圖示，但此圖示也會顯示在每個網站管理頁面的底部。
+##<a name="nextsteps"></a>Next Steps
 
-## <a name="nextsteps"></a>後續步驟
+For more information, see [Azure Web Sites](/zh-tw/documentation/services/web-sites/).
 
-如需詳細資訊，請參閱 [Azure 網站][Azure 網站]。
-
-  [Azure 網站]: /zh-TW/documentation/services/web-sites/
-  [作法：使用管理入口網站來建立網站]: #createawebsiteportal
-  [作法：從藝廊建立網站]: #howtocreatefromgallery
-  [作法：刪除網站]: #deleteawebsite
-  [後續步驟]: #nextsteps
-  [Azure 管理入口網站]: http://manage.windowsazure.com/
+<!--HONumber=35_1-->

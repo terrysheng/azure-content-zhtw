@@ -1,50 +1,180 @@
-﻿<properties urlDisplayName="How to create" pageTitle="如何建立儲存體帳戶 | Azure" metaKeywords="" description="Learn how to create a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+﻿<properties urlDisplayName="How to create" pageTitle="如何建立、管理或刪除儲存體帳戶 | Azure" metaKeywords="" description="Learn how to create, manage, or delete a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="adinah" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
 
 
-<h1><a id="createstorageaccount"></a>如何建立儲存體帳戶</h1>
+# 關於 Azure 儲存體帳戶
 
-若要在 Azure 的 Blob、資料表、佇列和檔案服務中儲存檔案和資料，您必須在想要儲存資料的地理區域中建立儲存體帳戶。本主題說明如何在 Azure 管理入口網站中建立儲存體帳戶。
+Azure 儲存體帳戶是指可讓您存取 Azure 儲存體服務的安全帳戶。您的儲存
 
-如需儲存體帳戶容量和輸送量的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/zh-tw/library/dn249410.aspx) (英文)。
+There are two types of storage accounts:
 
-> [WACOM.NOTE] 對於 Azure 虛擬機器，如果您在部署位置中沒有儲存體帳戶，則會在該位置自動建立儲存體帳戶。儲存體帳戶名稱將以虛擬機器名稱為基礎。
+- A standard storage account includes Blob, Table, and Queue storage. File storage is available by request via the [Azure Preview page](/zh-tw/services/preview/).
+- A premium storage account currently supports Azure Virtual Machine disks only. Azure Premium Storage is available by request via the [Azure Preview page](/zh-tw/services/preview/). See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://go.microsoft.com/fwlink/?LinkId=521898) for an in-depth overview of Premium Storage.
 
-##目錄##
+You are billed for Azure Storage usage based on your storage account. Storage costs are based on four factors: storage capacity, replication scheme, storage transactions, and data egress. 
 
-* [作法：建立儲存體帳戶](#create)
-* [後續步驟](#next)
+- Storage capacity refers to how much of your storage account allotment you are using to store data. The cost of simply storing your data is determined by how much data you are storing, and how it is replicated. 
+- Replication determines how many copies of your data are maintained at once, and in what locations. 
+- Transactions refer to all read and write operations to Azure Storage. 
+- Data egress refers to data transferred out of an Azure region. When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress. (For Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate data egress charges.)  
 
-<h2><a id="create"></a>作法：建立儲存體帳戶</h2>
+The [Storage Pricing Details](http://www.windowsazure.com/zh-tw/pricing/details/#storage) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](http://www.windowsazure.com/zh-tw/pricing/details/data-transfers/) provides detailed pricing information for data egress.
 
-1. 登入[管理入口網站](https://manage.windowsazure.com)。
+For details about storage account capacity and performance targets, see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx).
 
-2. 依序按一下 [**建立新的**]、[**儲存體**] 和 [**快速建立**]。
+> [WACOM.NOTE] When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](/zh-tw/documentation/services/virtual-machines/) for more details. <br />
+
+## Table of Contents ##
+
+This article describes how to create a standard storage account, and some decisions to consider as you create it. It also describes how to manage your storage account access keys, and how to delete a storage account.
+
+
+- [How to: Create a storage account](#create)
+- [How to: View, copy, and regenerate storage access keys](#regeneratestoragekeys)
+- [How to: Delete a storage account](#deletestorageaccount)
+* [Next steps](#next)
+
+## <a id="create"></a>How to: Create a storage account ##
+
+1. Sign in to the [Management Portal](https://manage.windowsazure.com).
+
+2. Click **Create New**, click **Storage**, and then click **Quick Create**.
 
 	![NewStorageAccount](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
-3. 在 [**URL**] 中，輸入要用於儲存體帳戶 URL 的子網域名稱。若要存取儲存體中的物件，請將物件的位置附加至端點。例如，可供存取 BLOB 的 URL 可能是 http://*myaccount*.blob.core.windows.net/*mycontainer*/*myblob*。
+3. In **URL**, enter a name for your storage account. See [Storage account endpoints](#account-endpoints) below for details about how this name will be used to address objects that you store in Azure Storage.
 
-4. 在 [**區域/同質群組**] 中，選取儲存體的區域或同質群組。如果您希望儲存體服務位於與您目前使用的其他 Azure 服務相同的資料中心，請選取同質群組而非區域。這麼做可改善效能，而且出口流量不會產生任何費用。
+4. In **Location/Affinity Group**, select a location for your storage account that is close to you or to your customers. If data in your storage account will be accessed from another Azure service, such as an Azure virtual machine or cloud service, you may want to select an affinity group from the list to group your storage account in the same data center with other Azure services that you are using to improve performance and lower costs. 
 
-	> [WACOM.NOTE]  若要建立同質群組，請開啟管理入口網站的 [<b>設定</b>] 區域、按一下 [<b>同質群組</b>]，然後按一下 [<b>加入同質群組</b>] 或 [<b>新增</b>] 按鈕。您也可以使用 Azure 服務管理 API 建立和管理同質群組。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460798.aspx">同質群組的相關作業</a>。
+	> [WACOM.NOTE] Note that you must select an affinity group when your storage account is created; you cannot move an existing account to an affinity group.
 
-5. 如果您有一個以上的 Azure 訂用帳戶，則會顯示 [**訂用帳戶**] 欄位。在 [**訂用帳戶**] 中，輸入您要使用儲存體帳戶的 Azure 訂用帳戶。您可以針對一項訂用帳戶建立多達 5 個儲存體帳戶。
+	For details about affinity groups, see [Service co-location with an affinity group](#affinity-group) below.
 
-6.  在 [**複寫**] 中，選取您的儲存體帳戶所需的複寫層級。
+	
+5. If you have more than one Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Azure subscription that you want to use the storage account with. You can create up to five storage accounts for a subscription.
 
-	[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
+6. In **Replication**, select the desired level of replication for your storage account. The recommended replication option is Geo-Redundant replication, which provides maximum durability for your data. For more details on Azure Storage replication options, see [Storage account replication options](#replication-options) below.
 
-6. 按一下 [**建立儲存體帳戶**]。
+6. Click **Create Storage Account**.
 
-	建立儲存體帳戶可能需要花費數分鐘的時間。若要檢查狀態，可以監控位於入口網站底部的通知。建立儲存體帳戶之後，新的儲存體帳戶會處於 [**線上**] 狀態並可提供使用。 
+	It may take a few minutes to create your storage account. To check the status, you can monitor the notifications at the bottom of the portal. After the storage account has been created, your new storage account has **Online** status and is ready for use. 
 
-	![StoragePage](./media/storage-create-storage-account/Storage_StoragePage.png)
+![StoragePage](./media/storage-create-storage-account/Storage_StoragePage.png)
 
-<h2><a id="next"></a>後續步驟</h2>
 
-- 若要深入了解 Azure 儲存體，請參閱 [azure.com](http://azure.microsoft.com/zh-tw/documentation/services/storage/) (英文) 和 [MSDN](http://msdn.microsoft.com/zh-tw/library/gg433040.aspx) (英文) 上的 Azure 儲存體文件。 
+### <a id="account-endpoints"></a>Storage account endpoints 
 
-- 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
+Every object that you store in Azure Storage has a unique URL address; the storage account name forms the subdomain of that address. The subdomain together with the domain name, which is specific to each service, form an *endpoint* for your storage account. 
 
+For example, if your storage account is named *mystorageaccount*, then the default endpoints for your storage account are: 
+
+- Blob service: http://*mystorageaccount*.blob.core.windows.net
+
+- Table service: http://*mystorageaccount*.table.core.windows.net
+
+- Queue service: http://*mystorageaccount*.queue.core.windows.net
+
+- File service: http://*mystorageaccount*.file.core.windows.net
+
+You can see the endpoints for your storage account on the storage Dashboard in the Azure Management Portal once the account has been created.
+
+The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
+
+You can also configure a custom domain name to use with your storage account. See [Configure a custom domain name for blob data in a storage account](../storage-custom-domain-name/) for details.
+
+### <a id="affinity-group"></a>Service co-location with an affinity group 
+
+An *affinity group* is a geographic grouping of your Azure services and VMs with your Azure storage account. An affinity group can improve service performance by locating computer workloads in the same data center or near the target user audience. Also, no billing charges are incurred for egress when data in a storage account is accessed from another service that is part of the same affinity group.
+
+> [WACOM.NOTE]  To create an affinity group, open the <b>Settings</b> area of the Management Portal, click <b>Affinity Groups</b>, and then click either <b>Add an affinity group</b> or the <b>Add</b> button. You can also create and manage affinity groups using the Azure Service Management API. See <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460798.aspx">Operations on Affinity Groups</a> for more information.
+
+
+### <a id="replication-options"></a>Storage account replication options
+
+[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
+
+
+## <a id="regeneratestoragekeys"></a>How to: View, copy, and regenerate storage access keys
+
+When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
+
+> [WACOM.NOTE] We recommend that you avoid sharing your storage account access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See the [shared access signature tutorial](../storage-dotnet-shared-access-signature-part-1/) for more information.
+
+In the [Management Portal](http://manage.windowsazure.com), use **Manage Keys** on the dashboard or the **Storage** page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services. 
+
+### Copy a storage access key ###
+
+You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Azure storage services, see [Configuring Connection Strings](http://msdn.microsoft.com/zh-tw/library/ee758697.aspx).
+
+1. In the [Management Portal](http://manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
+
+2. Click **Manage Keys**.
+
+ 	**Manage Access Keys** opens.
+
+	![Managekeys](./media/storage-create-storage-account/Storage_ManageKeys.png)
+
+ 
+3. To copy a storage access key, select the key text. Then right-click, and click **Copy**.
+
+### Regenerate storage access keys ###
+You should change the access keys to your storage account periodically to help keep your storage connections more secure. Two access keys are assigned to enable you to maintain connections to the storage account using one access key while you regenerate the other access key. 
+
+<div class="dev-callout"> 
+    <b>Warning</b> 
+    <p>Regenerating your access keys affects virtual machines, media services, and any applications that are dependent on the storage account. All clients that use the access key to access the storage account must be updated to use the new key.
+    </p> 
+    </div>
+
+**Virtual machines** - If your storage account contains any virtual machines that are running, you will have to redeploy all virtual machines after you regenerate the access keys. To avoid redeployment, shut down the virtual machines before you regenerate the access keys.
+ 
+**Media services** - If you have media services dependent on your storage account, you must re-sync the access keys with your media service after you regenerate the keys.
+ 
+**Applications** - If you have web applications or cloud services using the storage account, you will lose the connections if you regenerate keys, unless you roll your keys. Here is the process:
+
+1. Update the connection strings in your application code to reference the secondary access key of the storage account. 
+
+2. Regenerate the primary access key for your storage account. In the [Management Portal](http://manage.windowsazure.com), from the dashboard or the **Configure** page, click **Manage Keys**. Click **Regenerate** under the primary access key, and then click **Yes** to confirm you want to generate a new key.
+
+3. Update the connection strings in your code to reference the new primary access key.
+
+4. Regenerate the secondary access key.
+
+## <a id="deletestorageaccount"></a>How to: Delete a storage account
+
+To remove a storage account that you are no longer using, use **Delete** on the dashboard or the **Configure** page. **Delete** deletes the entire storage account, including all of the blobs, tables, and queues in the account. 
+
+<div class="dev-callout">
+	<b>Warning</b>
+	<p>There's no way to restore the content from a deleted storage account. Make 
+	sure you back up anything you want to save before you delete the account.
+	</p>
+	<p>
+	If your storage account contains any VHD files or disks for an Azure 
+	virtual machine, then you must delete any images and disks that are using those VHD files 
+	before you can delete the storage account. First, stop the virtual machine if it is running, and then delete it. To delete disks, navigate to the Disks tab and delete any disks contained in the storage account. To delete images, navigate to the Images tab and delete any images stored in the account.
+	</p>
+</div>
+
+
+1. In the [Management Portal](http://manage.windowsazure.com), click **Storage**.
+
+2. Click anywhere in the storage account entry except the name, and then click **Delete**.
+
+	 -Or-
+
+	Click the name of the storage account to open the dashboard, and then click **Delete**.
+
+3. Click **Yes** to confirm you want to delete the storage account.
+
+## <a id="next"></a>Next steps
+
+- To learn more about Azure Storage, see the Azure Storage documentation on [azure.com](http://azure.microsoft.com/zh-tw/documentation/services/storage/) and on [MSDN](http://msdn.microsoft.com/zh-tw/library/gg433040.aspx). 
+
+- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
+
+
+ 
+
+<!--HONumber=35_1-->

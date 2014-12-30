@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="如何使用服務匯流排主題 (Ruby) - Azure" metaKeywords="開始使用 Azure 服務匯流排主題, 開始使用服務匯流排主題, Azure 發行訂閱訊息, Azure 訊息主題和訂閱, 服務匯流排主題 Ruby" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Topics/Subscriptions" authors="guayan" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Service Bus Topics" pageTitle="如何使用服務匯流排 (Ruby) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic ruby" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Topics/Subscriptions" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/25/2014" ms.author="tomfitz" />
 
 
 
@@ -8,7 +8,7 @@
 
 # 如何使用服務匯流排主題/訂閱
 
-本指南將說明如何從 Ruby 應用程式使用服務匯流排主題和訂閱。所涵蓋的案例包括**建立主題和訂閱、建立訂閱篩選器、傳送訊息**至主題、**接收訂閱的訊息**，及**刪除主題和訂閱**。如需主題和訂閱的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
+本指南將說明如何從 Ruby 應用程式使用服務匯流排主題和訂閱。涵蓋的案例包括**「建立主題和訂閱」、「建立訂閱篩選器」、「傳送**訊息至主題」、「**接收訂閱的訊息**」，以及「**刪除主題和訂閱」**。如需主題和訂閱的詳細資訊，請參閱[後續步驟](#NextSteps) 一節。
 
 ## 目錄
 * [什麼是服務匯流排主題和訂閱](#what-are-service-bus-topics)
@@ -25,11 +25,54 @@
 * [如何刪除主題和訂閱](#how-to-delete-topics-and-subscriptions)
 * [後續步驟](#NextSteps)
 
-[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
+## <a name="what-are-service-bus-topics"></a>什麼是服務匯流排主題和訂閱
+
+服務匯流排主題和訂閱支援**發佈/訂閱訊息通訊** 模型。使用主題和訂閱時，分散式應用程式的元件彼此不直接通訊，而是透過扮演中繼角色的主題來交換訊息。
+
+![TopicConcepts](./media/service-bus-ruby-how-to-use-topics-subscriptions/sb-topics-01.png)
+
+相較於服務匯流排佇列，服務匯流排佇列的每個訊息只會由單一取用者處理，主題和訂閱採用發佈/訂閱模式，提供**一對多**的通訊形式。一個主題可以登錄多個訂閱。當訊息傳送至主題時，每個訂閱都可取得訊息來個別處理。
+
+主題訂閱類似於虛擬佇列，同樣可接收已傳送到主題的訊息複本。您可以選擇為個別訂閱來登錄主題的篩選規則，以篩選/限制主題的哪些訊息由哪些主題訂閱接收。
+
+服務匯流排主題和訂閱可讓您擴大處理非常多使用者和應用程式上非常大量的訊息。
+
+## <a id="create-a-service-namespace"</a>Create a Service Namespace
+
+To begin using Service Bus queues in Azure, you must first create a service namespace. A service namespace provides a scoping container for addressing Service Bus resources within 
+your application. You must create the namespace through the command-line interface because the Portal does not create the service bus with an ACS connection.
+
+To create a namespace:
+
+1. Open an Azure Powershell console.
+
+2. Type the command to create an Azure service bus namespace as shown below. Provide your own namespace value and specify the same region as your application. 
+
+      New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -CreateACSNamespace $true
+
+      ![Create Namespace](./media/service-bus-ruby-how-to-use-topics-subscriptions/showcmdcreate.png)
+
+## <a id="obtain-default-credentials"></a>取得命名空間的預設管理認證
+
+若要在新的命名空間上執行管理作業，例如建立佇列，您必須取得命名空間的管理認證。
+
+1. 登入 [Azure 管理入口網站](http://manage.windowsazure.com/)。
+
+2. 選取建立的服務匯流排命名空間。
+
+     ![Select namespace](./media/service-bus-ruby-how-to-use-topics-subscriptions/selectns.png)
+
+3. 在底部選取 [**連線資訊**]。
+
+      ![Select connection](./media/service-bus-ruby-how-to-use-topics-subscriptions/selectconnection.png)
+
+4. 複製預設金鑰。您將在程式碼中使用此值。
+
+       ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
 ## <a id="create-a-ruby-application"></a>建立 Ruby 應用程式
 
-建立 Ruby 應用程式。如需指示，請參閱[在 Azure 上建立 Ruby 應用程式](/zh-tw/develop/ruby/tutorials/web-app-with-linux-vm/) (英文)。
+建立 Ruby 應用程式。如需指示，請參閱[在 Azure 上建立 Ruby 應用程式] (英文)(/zh-tw/develop/ruby/tutorials/web-app-with-linux-vm/)。
 
 ## <a id="configure-your-application-to-use-service-bus"></a>設定應用程式使用服務匯流排
 
@@ -49,11 +92,13 @@
 
 ## <a id="setup-a-windows-azure-service-bus-connection"></a>設定 Azure 服務匯流排連接
 
-Azure 模組將讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_SERVICEBUS\_ACCESS\_KEY** 
-以取得連接至 Azure 服務匯流排命名空間所需的資訊。若未設定這些環境變數，您必須使用下列程式碼，在使用 **Azure::ServiceBusService** 之前指定命名空間資訊：
+azure 模組將讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_SERVICEBUS\_ACCESS\_KEY** 
+，以取得連線至 Azure 服務匯流排命名空間的必要資訊。若未設定這些環境變數，您必須使用下列程式碼，在使用 **Azure::ServiceBusService** 之前指定命名空間資訊：
 
     Azure.config.sb_namespace = "<your azure service bus namespace>"
     Azure.config.sb_access_key = "<your azure service bus access key>"
+
+將服務匯流排命名空間值設為您建立的值而非整個 URL。例如，使用 **"yourexamplenamespace"** 而非 "yourexamplenamespace.servicebus.windows.net"。 
 
 ## <a id="how-to-create-a-topic"></a>如何建立主題
 
@@ -83,7 +128,7 @@ Azure 模組將讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 ### 使用預設 (MatchAll) 篩選器建立訂閱
 
-**MatchAll** 篩選器是預設篩選器，如果在建立新訂閱時沒有指定篩選器，便會使用此篩選器。使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會被置於訂閱的虛擬佇列中。下列範例將建立名為 "all-messages" 的訂閱，並使用預設的 **MatchAll** 篩選器。
+**MatchAll** 篩選器是預設篩選器，如果在建立新訂閱時沒有指定篩選器，便會使用此篩選器。使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會放置於訂閱的虛擬佇列中。下列範例將建立名為 "all-messages" 的訂閱，並使用預設的 **MatchAll** 篩選器。
 
 	subscription = azure_service_bus_service.create_subscription("test-topic", 
 	  "all-messages")
@@ -92,9 +137,9 @@ Azure 模組將讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 您也可以設定篩選器，讓您界定傳送至主題的哪些訊息應出現在特定主題訂閱中。
 
-在訂閱支援的篩選器中，**Azure::ServiceBus::SqlFilter** 是最具彈性的類型，可用來實作 SQL92 的子集。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用的運算式詳細資料，請檢閱 [SqlFilter.SqlExpression](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx) 語法。
+在訂閱支援的篩選器中，**Azure::ServiceBus::SqlFilter** 是最具彈性的類型，可用來實作 SQL92 的子集。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用之運算式的詳細資訊，請檢閱 [SqlFilter.SqlExpression](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx) 語法。
 
-您可以使用 **Azure::ServiceBusService** 物件的 **create\_rule()** 方法將篩選器新增至訂閱。此方法可讓您將篩選器新增至現有的訂閱中。
+您可以使用 **Azure::ServiceBusService** 物件的 **create\_rule()** 方法，將篩選器新增至訂閱。此方法可讓您將篩選器新增至現有的訂閱中。
 
 **注意**
 由於預設篩選器會自動套用至所有新訂閱，因此您必須先移除預設篩選器，否則 **MatchAll** 會覆寫您指定的其他任何篩選器。您可以使用 **Azure::ServiceBusService** 物件的 **delete\_rule()** 方法移除預設規則。
@@ -113,7 +158,7 @@ Azure 模組將讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 	  :sql_expression => "message_number > 3" })
 	rule = azure_service_bus_service.create_rule(rule)
 
-Similarly, the following example creates a subscription named "low-messages" with a **Azure::ServiceBus::SqlFilter** that only selects messages that have a **message_number** property less than or equal to 3:
+同樣地，下列範例將建立名為 "low-messages"、且其 **Azure::ServiceBus::SqlFilter** 只選取 **message_number** 屬性小於或等於 3 之訊息的訂閱：
 
 	subscription = azure_service_bus_service.create_subscription("test-topic", 
 	  "low-messages")
@@ -147,11 +192,11 @@ Similarly, the following example creates a subscription named "low-messages" wit
 
 您可以使用 **Azure::ServiceBusService** 物件的 **receive\_subscription\_message()** 方法接收來自訂閱的訊息。根據預設，在讀取 (查看) 及鎖定訊息後並不會將其從訂閱中刪除。您可以將 **peek\_lock** 選項設為 **false**，而在讀取訊息後將其從訂閱中刪除。
 
-預設行為會使讀取和刪除變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可呼叫 **delete\_subscription\_message()** 方法，並將要刪除的訊息提供做為參數，以完成接收程序的第二個階段。**delete\_subscription\_message()** 方法會將訊息標示為已取用，並將其自訂閱移除。
+預設行為會使讀取和刪除變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可呼叫 **delete\_subscription\_message()** 方法，並將要刪除的訊息提供做為參數，以完成接收程序的第二個階段。**delete\_subscription\_message()** 方法會將訊息標示為已取用，並將其從訂閱中移除。
 
 如果 **:peek\_lock** 參數設為 **false**，讀取和刪除訊息將會變成最簡單的模型，且最適用於應用程式容許在發生失敗時不處理訊息的案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
-下列範例將示範如何使用 **receive\_subscription\_message()** 來接收與處理訊息。此範例會先使用設為 **false** 的 **:peek\_lock** 接收及刪除來自 "low-messages" 訂閱的訊息，然後接收另一個來自 "high-messages" 的訊息，接著使用 **delete\_subscription\_message()** 刪除該訊息：
+以下範例將示範如何使用 **receive\_subscription\_message()** 來接收與處理訊息。此範例會先使用設為 **false** 的 **:peek\_lock** 接收及刪除來自「low-messages」訂閱的訊息，然後接收另一個來自「high-messages」的訊息，接著使用 **delete\_subscription\_message()** 刪除該訊息：
 
     message = azure_service_bus_service.receive_subscription_message(
 	  "test-topic", "low-messages", { :peek_lock => false })
@@ -161,15 +206,15 @@ Similarly, the following example creates a subscription named "low-messages" wit
 
 ## <a id="how-to-handle-application-crashes-and-unreadable-messages"></a>如何處理應用程式當機與無法讀取的訊息
 
-服務匯流排提供一種功能，協助您從應用程式的錯誤或處理訊息的問題中順利復原。如果接收者應用程式因故無法處理訊息，它可以呼叫 **Azure::ServiceBusService** 物件的 **unlock\_subscription\_message()** 方法。這將導致服務匯流排將訂閱中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
+服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。如果接收者應用程式因故無法處理訊息，它可以呼叫 **Azure::ServiceBusService** 物件的 **unlock\_subscription\_message()** 方法。這將使服務匯流排將訂閱中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
 
 與在訂閱內鎖定之訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
 
-如果應用程式在處理訊息之後，但在尚未呼叫 **delete\_subscription\_message()** 方法之前當機，則會在應用程式重新啟動時，將訊息重新傳遞給該應用程式。這通常稱為**至少處理一次**，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可使用訊息的 **message\_id** 屬性來達到此目的，該屬性將在各個傳遞嘗試中會保持不變。
+如果應用程式在處理訊息之後，但在尚未呼叫 **delete\_subscription\_message()** 方法之前當機，則會在應用程式重新啟動時，將訊息重新傳遞給該應用程式。這通常稱為**至少處理一次**，也就是說，每個訊息至少會處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可以使用訊息的 **message\_id** 屬性來達到此目的，該屬性將在各個傳遞嘗試中保持不變。
 
 ## <a id="how-to-delete-topics-and-subscriptions"></a>如何刪除主題和訂閱
 
-主題和訂閱是持續性的，您必須透過 [Azure 管理入口網站](https://manage.windowsazure.com)或程式設計方法明確地加以刪除。下列範例說明如何刪除名為 "test-topic" 的主題：
+主題和訂閱是持續性的，您必須透過 [Azure 管理入口網站](https://manage.windowsazure.com) 或程式設計方法明確地加以刪除。下列範例說明如何刪除名為 "test-topic" 的主題：
 
 	azure_service_bus_service.delete_topic("test-topic")
 
@@ -182,5 +227,7 @@ Similarly, the following example creates a subscription named "low-messages" wit
 了解基本的服務匯流排主題之後，請參考下列連結以取得更多資訊。
 
 -   請參閱 MSDN 參考：[佇列、主題和訂閱](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367516.aspx)
--   [SqlFilter](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx) 的 API 參考資料
--	造訪 GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) (英文) 儲存機制
+-   [
+-	Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+
+<!--HONumber=35_1-->

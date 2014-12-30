@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="如何使用服務匯流排佇列 (.NET) - Azure" metaKeywords ="Azure 服務匯流排佇列, Azure 佇列, Azure 訊息, Azure 佇列 C#, Azure 佇列 .NET" description="Learn how to use Service Bus queues in Azure. Code samples written in C# using the .NET API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties urlDisplayName="Service Bus Queues" pageTitle="如何使用服務匯流排佇列 (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Learn how to use Service Bus queues in Azure. Code samples written in C# using the .NET API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -8,37 +8,37 @@
 
 # 如何使用服務匯流排佇列
 
-<span>本指南將示範如何使用服務匯流排佇列。這些範例均以 C\# 撰寫並使用 .NET API。所涵蓋的案例包括**建立佇列、傳送並接收訊息**，以及**刪除佇列**。如需佇列的詳細資訊，請參閱[後續步驟]一節。 </span>
+<span>本指南將說明如何使用服務匯流排佇列。這些範例均以 C\# 撰寫並使用 .NET API。本文說明的案例包括**建立佇列、傳送並接收訊息**及**刪除佇列**。如需佇列的詳細資訊，請參閱[後續步驟]一節。 </span>
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 [WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-<h2>設定應用程式以使用服務匯流排</h2>
+##設定應用程式以使用服務匯流排
 
-當您建立使用服務匯流排的應用程式時，您必須新增服務匯流排組件的參照，並包含對應的命名空間。
+建立使用服務匯流排的應用程式時，必須
+將參考新增至服務匯流排組件並加入
+對應的命名空間。
 
-<h2>取得服務匯流排 NuGet 封裝</h2>
+##取得服務匯流排 NuGet 封裝
 
 要取得服務匯流排 API，並對應用程式進行設定，以使用所有服務匯流排相依性的最簡單方法，便是使用服務匯流排 **NuGet** 封裝。NuGet Visual Studio 擴充功能可讓您更輕鬆地在 Visual Studio 和 Visual Studio Express 2012 for Web 中安裝並更新程式庫與工具。
 
 若要在應用程式中安裝 NuGet 封裝，請執行下列動作：
 
-1.  在 [方案總管] 中以滑鼠右鍵按一下 [**參考**]，然後按一下 [
-    **Manage NuGet Packages**]。
-2.  搜尋 WindowsAzure" 並選取 **Azure
-    服務匯流排**項目。按一下 [**安裝**] 完成安裝，
-    然後關閉此對話方塊。
+1.  在 [方案總管] 中，以滑鼠右鍵按一下 [**參考**]，然後按一下 [**管理 NuGet 封裝**]。
+2.  搜尋 "WindowsAzure" 並選取 [**Azure 服務匯流排**] 項目。按一下 [**安裝**] 完成安裝作業，然後關閉此對話方塊。
 
     ![][7]
 
 您現在可以開始對服務匯流排撰寫程式碼。
 
-<h2>如何設定服務匯流排連接字串</h2>
+
+##如何設定服務匯流排連接字串
 
 服務匯流排使用連接字串來儲存端點和認證。您可以將連接字串置於設定檔中，而非硬式編碼至程式碼中：
 
-- 使用 Azure 雲端服務時，建議您使用 Azure 服務設定系統 (`*.csdef` and `*.cscfg` 檔案) 來儲存連接字串。
+- 使用 Azure 雲端服務時，建議您使用 Azure 服務設定系統 (`*.csdef` 和 `*.cscfg` 檔案) 來儲存連接字串。
 - 使用 Azure 網站或 Azure 虛擬機器時，建議您使用 .NET 設定系統 (例如 `web.config` 檔案) 來儲存連接字串。
 
 在這兩種情況下，您都可以使用 `CloudConfigurationManager.GetSetting` 方法擷取連接字串，如本指南稍後所示範。
@@ -57,7 +57,7 @@
 	...
 	</ServiceDefinition>
 
-You then specify values in the service configuration (`*.cscfg`) file:
+接著您可以在服務組態 (`*.cscfg`) 檔案中指定值：
 
 	<ServiceConfiguration serviceName="WindowsAzure1">
 	...
@@ -85,7 +85,7 @@ You then specify values in the service configuration (`*.cscfg`) file:
 
 使用從管理入口網站擷取的發行者和金鑰值，如上一節所述。
 
-<h2>如何建立佇列</h2>
+##如何建立佇列
 
 您可以透過 **NamespaceManager** 類別，來執行服務匯流排佇列的管理作業。**NamespaceManager** 類別提供建立、列舉及刪除佇列的方法。 
 
@@ -93,7 +93,7 @@ You then specify values in the service configuration (`*.cscfg`) file:
 
 	Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=[issuerName];SharedSecretValue=[yourDefaultKey]
 
-For example, given the configuration settings in the previous section:
+例如，基於上一節中的組態設定：
 
 	// Create the queue if it does not exist already
 	string connectionString = 
@@ -107,7 +107,7 @@ For example, given the configuration settings in the previous section:
         namespaceManager.CreateQueue("TestQueue");
     }
 
-**CreateQueue** 方法的超載可讓您調整佇列的屬性 (例如，針對要在傳送至佇列的訊息所套用的 [存留時間] 設定預設值)。您可以使用 **QueueDescription** 類別來套用這些設定。下列範例將示範如何使用大小上限為 5 GB 和預設訊息存留時間為 1 分鐘的設定，來建立名為 "TestQueue" 的佇列：
+**CreateQueue** 方法的多載可讓您調整佇列的屬性 (例如，針對要在傳送至佇列的訊息所套用的 [存留時間] 設定預設值)。您可以使用 **QueueDescription** 類別來套用這些設定。下列範例將示範如何使用大小上限為 5 GB 和預設訊息存留時間為 1 分鐘的設定，來建立名為 "TestQueue" 的佇列：
 
 	// Configure Queue Settings
     QueueDescription qd = new QueueDescription("TestQueue");
@@ -126,13 +126,14 @@ For example, given the configuration settings in the previous section:
         namespaceManager.CreateQueue(qd);
     }
 
-**注意：**您可以在 **NamespaceManager** 物件上使用 **QueueExists** 方法，來檢查 服務命名空間內是否已有指定名稱的佇列存在。
+**注意：**您可以在 **NamespaceManager** 物件上使用 **QueueExists** 方法，來檢查服務命名空間內是否已有指定名稱的佇列存在。
 
-<h2>如何傳送訊息至佇列</h2>
+##如何傳送訊息至佇列
 
 若要傳送訊息至服務匯流排佇列，應用程式會使用連接字串來建立 **QueueClient** 物件。
 
-以下的程式碼將示範如何使用 **CreateFromConnectionString** API 呼叫，來為上面所建立的 "TestQueue" 佇列建立 **QueueClient** 物件：
+下列程式碼示範如何為上述建立的 "TestQueue" 佇列建立 **QueueClient** 物件
+ (使用 **CreateFromConnectionString** API 呼叫)：
 
 	string connectionString = 
 	    CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
@@ -142,9 +143,7 @@ For example, given the configuration settings in the previous section:
 
 	Client.Send(new BrokeredMessage());
 
-傳送至 (和接收自) 服務匯流排佇列的訊息是 **BrokeredMessage** 類別的執行個體。**BrokeredMessage** 物件具有一組標準屬性 (例如 **Label** 和 **TimeToLive**)、一個用來保存自訂應用程式特定屬性的目錄，以及一堆任意的應用程式資料。應用程式可設定訊息內文，方法是將任何可序列化物件傳遞到 **BrokeredMessage** 的建構函式，接著系統便會使用適當的 **DataContractSerializer** 來序列化物件。也可以提供 **System.IO.Stream**。
-
-下列範例將示範如何傳送五則測試訊息至上述程式碼片段中所取得的 "TestQueue" **QueueClient**：
+傳送至 (和擷取自) 服務匯流排佇列的訊息是 **BrokeredMessage** 類別的執行個體。**BrokeredMessage** 物件具有一組標準屬性 (例如 **Label** 和 **TimeToLive**)、一個用來保存自訂應用程式特定屬性的字典，以及一個任意應用程式資料的內文。應用程式可設定訊息內文，方法是將任何可序列化物件傳遞到 **BrokeredMessage** 的建構函式，接著系統便會使用適當的 **DataContractSerializer** 來序列化物件。也可以提供 **System.IO.Stream**。下列範例將示範如何傳送五則測試訊息至上述程式碼片段中所取得的 "TestQueue" **QueueClient**：
 
      for (int i=0; i<5; i++)
      {
@@ -159,17 +158,17 @@ For example, given the configuration settings in the previous section:
        Client.Send(message);
      }
 
-服務匯流排佇列最多可支援 256 KB 的訊息大小 (包含標準和自訂應用程式屬性的標頭可以容納 64 KB 的大小上限)。佇列中所保存的訊息數目沒有限制，但佇列所保存的訊息大小總計會有最高限制。此佇列大小會在建立時定義，上限是 5 GB。
+服務匯流排佇列支援 256 Kb 的訊息大小上限 (包含標準和自訂應用程式屬性的標頭可以容納 64 Kb 的大小上限)。佇列中所保存的訊息數目沒有限制，但佇列所保存的訊息大小總計會有最高限制。此佇列大小會在建立時定義，上限是 5 GB。
 
-<h2>如何從佇列接收訊息</h2>
+##如何從佇列接收訊息
 
 自佇列接收訊息的最簡單方式是使用 **QueueClient** 物件。這些物件可以在兩種不同模式下運作：**ReceiveAndDelete** 和 **PeekLock**。
 
-使用 **ReceiveAndDelete** 模式時，接收是一次性作業；也就是說，當服務匯流排收到佇列中訊息的讀取要求時，它會將此訊息標示為已取用，並將它傳回應用程式。**ReceiveAndDelete** 模式是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
+使用 **ReceiveAndDelete** 模式時，接收是一次性作業；也就是說，當服務匯流排收到佇列中訊息的讀取要求時，它會將此訊息標示為已取用，並將它傳回應用程式。**ReceiveAndDelete** 模式是最簡單的模型，且最適合在發生失敗時容許不處理訊息的應用程式案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
 在 **PeekLock** 模式 (此為預設模式) 中，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可透過呼叫所接收訊息上的 **Complete**，來完成接收程序的第二個階段。當服務匯流排看到 **Complete** 呼叫時，它會將訊息標示為已取用，並將它從佇列中移除。
 
-以下範例將示範如何使用預設的 **PeekLock** 模式來接收與處理訊息。若要指定其他 **ReceiveMode** 值，您可以使用 **CreateFromConnectionString** 的另一個超載。此範例會建立一個無限迴圈，並在訊息抵達 "TestQueue" 時處理訊息：
+以下範例將示範如何使用預設的 **PeekLock** 模式來接收與處理訊息。若要指定其他 **ReceiveMode** 值，您可以使用 **CreateFromConnectionString** 的另一個多載。此範例會建立一個無限迴圈，並在訊息抵達 "TestQueue" 時處理訊息：
 
     Client.Receive();
      
@@ -198,29 +197,30 @@ For example, given the configuration settings in the previous section:
        }
     } 
 
-<h2>如何處理應用程式當機與無法讀取的訊息</h2>
-服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。如果接收者應用程式因為某些原因無法處理訊息，它可以呼叫所接收訊息上的 **Abandon** 方法 (而不是 **Complete** 方法)。這將導致服務匯流排將佇列中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
+##如何處理應用程式當機與無法讀取的訊息
+
+服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。如果接收端應用程式因為某些原因無法處理訊息，它可以呼叫所接收訊息上的 **Abandon** 方法 (而不是 **Complete** 方法)。這將導致服務匯流排將佇列中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
 
 與在佇列內鎖定訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
 
-如果應用程式在處理訊息之後，尚未發出 **Complete** 要求時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。這通常稱為**至少處理一次**，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可使用訊息的 **MessageId** 屬性來達到此目的，該屬性將在各個傳遞嘗試中會保持不變。
+如果應用程式在處理訊息之後，尚未發出 **Complete** 要求時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。這通常稱為**至少處理一次**，也就是說，每個訊息至少會處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可以使用訊息的 **MessageId** 屬性來達到此目的，該屬性將在各個傳遞嘗試中保持不變。
 
-<h2>後續步驟</h2>
+##後續步驟
 
-現在，您已了解服務匯流排佇列的基本概念，請遵循下列
-連結以了解更多資訊。
+了解基本的服務匯流排佇列之後，請參考下列
+連結以取得更多資訊。
 
 -   請參閱 MSDN 參考：[佇列、主題和訂閱。][]
--   建置從從服務匯流排佇列傳送和接收訊息的
-工作應用程式：[服務匯流排代理訊息 .NET
-教學課程]。
+-   建立一個可行的應用程式，往返傳送或接收
+    服務匯流排佇列的訊息：。[服務匯流排代理訊息 .NET
+    教學課程]。
 
   [後續步驟]: #next-steps
-  [什麼是服務匯流排佇列？]: #what-queues
+  [什麼是服務匯流排佇列]: #what-queues
   [建立服務命名空間]: #create-namespace
   [取得命名空間的預設管理認證]: #obtain-creds
   [設定應用程式使用服務匯流排]: #configure-app
-  [作法：設定服務匯流排連線字串]: #set-up-connstring
+  [作法：設定服務匯流排連接字串]: #set-up-connstring
   [作法：設定連接字串]: #config-connstring
   [作法：建立佇列]: #create-queue
   [作法：傳送訊息至佇列]: #send-messages
@@ -237,3 +237,5 @@ For example, given the configuration settings in the previous section:
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [佇列、主題和訂閱。]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367516.aspx
   [服務匯流排代理訊息 .NET 教學課程]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367512.aspx
+
+<!--HONumber=35_1-->

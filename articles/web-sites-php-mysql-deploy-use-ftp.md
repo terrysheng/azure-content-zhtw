@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Web w/ MySQL + FTP" pageTitle="採用 MySQL 和 FTP 的 PHP 網站 - Azure 教學課程" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use FTP deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure Website and Deploy Using FTP" authors="cephalin" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Web w/ MySQL + FTP" pageTitle="採用 MySQL 和 FTP 的 PHP 網站 - Azure 教學課程" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use FTP deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure Website and Deploy Using FTP" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
 
 
 #建立 PHP-MySQL Azure 網站並使用 FTP 部署
@@ -23,7 +23,7 @@
 請依照下列步驟來建立 Azure 網站和 MySQL 資料庫：
 
 1. 登入 [Azure 管理入口網站][management-portal]。
-2. 按一下入口網站左下方的 [**+ 新增**]。
+2. 按一下入口網站左下方的 [**+ 新增**] 圖示。
 
 	![Create New Azure Web Site][new-website]
 
@@ -31,22 +31,22 @@
 
 	![Custom Create a new Web Site][custom-create]
 	
-	輸入 **URL** 的值，然後從 [**資料庫**] 下拉式清單中選取 [**建立新的 MySQL 資料庫**]，接著在 [**區域**] 下拉式清單中為您的網站選取資料中心。按一下對話方塊底部的箭頭。
+	輸入 **URL** 的值，然後從 [**資料庫**] 下拉式清單中選取 [**建立新的 MySQL 資料庫**]，接著在 [**區域**] ] 下拉式清單中為您的網站選取資料中心。按一下對話方塊底部的箭頭。
 
 	![Fill in Web Site details][website-details]
 
-4. 輸入資料庫的 [**名稱**] 值，然後在 [**區域**] 下拉式清單中選取資料庫的資料中心，接著核取代表您同意法律條款的方塊。按一下對話方塊底部的核取記號。
+4. 為您的資料庫輸入 [**名稱**] 值，然後在 [**區域**] 下拉式清單中為您的資料庫選取資料中心，接著核取代表您同意法律條款的方塊。按一下對話方塊底部的核取記號。
 
 	![Create new MySQL database][new-mysql-db]
 
-	建立網站後，您會看到「**建立網站 '[SITENAME]' 成功**」的字樣。現在，您可以啟用 FTP 發行功能。
+	建立網站後，您會看到「**建立網站 '[SITENAME]' 成功」**的字樣。現在，您可以啟用 FTP 發行功能。
 
 5. 按一下網站清單中顯示的網站名稱，以開啟該網站的 [**快速入門**] 儀表板。
 
 	![Open web site dashboard][go-to-dashboard]
 
 
-6. 在 [**QuickStart**] 下方，按一下 [**Reset deployment credentials**]。 
+6. 在 [**QUICKSTART**] 頁面下方，按一下 [**Reset deployment credentials**]。 
 
 	![Reset deployment credentials][reset-deployment-credentials]
 
@@ -58,18 +58,18 @@
 
 註冊應用程式是一項簡單的 PHP 應用程式，您只需提供名稱與電子郵件地址就能註冊活動。先前的註冊者相關資訊會顯示在資料表中。註冊資訊會存放在 MySQL 資料庫。該應用程式包含兩個檔案：
 
-* **index.php**：顯示註冊表單，以及內含註冊者資訊的資料表。
-* **createtable.php**：為應用程式建立 MySQL 資料表。只會使用一次此檔案。
+* **index.php**:顯示註冊表單，以及內含註冊者資訊的資料表。
+* **createtable.php**:為應用程式建立 MySQL 資料表。只會使用一次此檔案。
 
-若要在本機建置與執行應用程式，請遵循下列步驟。請注意，這些步驟假定您已在本機電腦上安裝 PHP、MySQL 以及 Web 伺服器，而且您已經啟用了[適用 MySQL 的 PDO 延伸功能][pdo-mysql]。
+若要在本機建置與執行應用程式，請遵循下列步驟。請注意，這些步驟假定您已在本機電腦上安裝 PHP、MySQL 以及 Web 伺服器，而且您已經啟用了[MySQL 的 PDO 延伸功能][pdo-mysql]。
 
-1.  建立名為 `registration` 的 MySQL 資料庫。您可以使用以下命令，從 MySQL 命令提示字元中完成此工作：
+1. 建立名為 'registration' 的 MySQL 資料庫。您可以使用以下命令，從 MySQL 命令提示字元中完成此工作：
 
 		mysql> create database registration;
 
 2. 在 Web 伺服器的根目錄中，建立名為 'registration' 的資料夾，並於其中建立兩個檔案，一個名為 'createtable.php'，另一個名為 'index.php'。
 
-3. 在文字編輯器或 IDE 中開啟 `createtable.php` 檔案，加入下列程式碼。此程式碼將會在 'registration' 資料庫中建立 'registration_tbl'。
+3. 在文字編輯器或 IDE 中開啟 'createtable.php' 檔案，加入下列程式碼。此程式碼將會在 'registration' 資料庫中建立 'registration_tbl'。
 
 		<?php
 		// DB connection info
@@ -77,7 +77,7 @@
 		$user = "user name";
 		$pwd = "password";
 		$db = "registration";
-		try {
+		try{
 			$conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
 			$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 			$sql = "CREATE TABLE registration_tbl(
@@ -97,7 +97,7 @@
 	> [WACOM.NOTE] 
 	> 您需要將 <code>$user</code> 和 <code>$pwd</code> 的值，更新為您的本機 MySQL 使用者名稱和密碼。
 
-4. 開啟網頁瀏覽器並瀏覽至 [http://localhost/registration/createtable.php][localhost-createtable]。這會在資料庫中建立 `registration_tbl`。
+4. 開啟網頁瀏覽器並瀏覽至 [http://localhost/registration/createtable.php][localhost-createtable]。這會在資料庫中建立 'registration_tbl' 資料表。
 
 5. 在文字編輯器或 IDE 中開啟 **index.php** 檔案，加入頁面的基本 HTML 和 CSS 程式碼 (稍後的步驟中將加入 PHP 程式碼)。
 
@@ -107,15 +107,15 @@
 		<style type="text/css">
 			body { background-color: #fff; border-top: solid 10px #000;
 			    color: #333; font-size: .85em; margin: 20; padding: 20;
-			    font-family:"Segoe UI", Verdana, Helvetica, Sans-Serif;
+			    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
 			}
 			h1, h2, h3,{ color: #000; margin-bottom: 0; padding-bottom: 0; }
-			h1 { font-size:2em; }
-			h2 { font-size:1.75em; }
-			h3 { font-size:1.2em; }
-			table { margin-top:0.75em; }
-			th { font-size:1.2em; text-align:left; border:none; padding-left: 0; }
-			td { padding:0.25em 2em 0.25em 0em; border:0 none; }
+			h1 { font-size: 2em; }
+			h2 { font-size: 1.75em; }
+			h3 { font-size: 1.2em; }
+			table { margin-top: 0.75em; }
+			th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
+			td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
 		</style>
 		</head>
 		<body>
@@ -132,7 +132,7 @@
 		</body>
 		</html>
 
-6. 在 PHP 標籤內，加入用來連線至資料庫的 PHP 程式碼。
+6. 在 PHP 標記內， add PHP code for connecting to the database.
 
 		// DB connection info
 		$host = "localhost";
@@ -149,7 +149,7 @@
 		}
 
 	> [WACOM.NOTE]
-	> 您再度需要將 <code>$user</code> 和 <code>$pwd</code> 的值，更新為您的本機 MySQL 使用者名稱和密碼。
+	> 同樣地，您需要將 <code>$user</code> 和 <code>$pwd</code> 的值，更新為您的本機 MySQL 使用者名稱和密碼。
 
 7. 在資料庫連接程式碼後面，加入可將登錄資訊插入至資料庫的程式碼。
 
@@ -167,7 +167,7 @@
 			$stmt->bindValue(3, $date);
 			$stmt->execute();
 		}
-		catch(Exception $e){
+		catch(Exception $e) {
 			die(var_dump($e));
 		}
 		echo "<h3>Your're registered!</h3>";
@@ -189,12 +189,12 @@
 				echo "<td>".$registrant['email']."</td>";
 				echo "<td>".$registrant['date']."</td></tr>";
 		    }
-			echo "</table>";
+		 	echo "</table>";
 		} else {
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-您現在可以瀏覽至 [http://localhost/registration/index.php][localhost-index] 並測試應用程式。
+您現在可以瀏覽至 [http://localhost/registration/index.php][localhost-index] 測試應用程式。
 
 ##取得 MySQL 與 FTP 連線資訊
 
@@ -204,25 +204,25 @@
 
 	![Get database connection information][connection-string-info]
 	
-2. 請記下 `Database`、`Data Source`、`User Id` 和 `Password` 的值。
+2. 記下 'Database'、'Data Source'、'User Id' 與 'Password' 的值。
 
-3. 從網站的儀表板上，按一下頁面右下方的 **Download publish profile** 連結：
+3. 從網站的儀表板上，按一下頁面右下方的 [**下載發行設定檔**] 連結：
 
 	![Download publish profile][download-publish-profile]
 
-4. 在 XML 編輯器中開啟 `.publishsettings` 檔案。 
+4. 在 XML 編輯器中開啟 '.publishsettings' 檔案。 
 
-3. 尋找包含 `publishMethod="FTP"` 的 `<publishProfile >` 元素，如下所示：
+3. 找到帶有類似以下內容之 `publishMethod="FTP"` 程式碼的 `<publishProfile >` 元素：
 
 		<publishProfile publishMethod="FTP" publishUrl="ftp://[mysite].azurewebsites.net/site/wwwroot" ftpPassiveMode="True" userName="[username]" userPWD="[password]" destinationAppUrl="http://[name].antdf0.antares-test.windows-int.net" 
 			...
 		</publishProfile>
 	
-請記下 'publishUrl'、'userName' 和 'userPWD' 屬性。
+記下 `publishUrl`、`userName` 與 `userPWD` 屬性。
 
 ##發行您的應用程式
 
-當您在本機完成應用程式測試之後，可以使用 FTP 將其發行至 Azure 網站。不過，您必須先更新應用程式中的資料庫連接資訊。使用您稍早取得的資料庫連接資訊 (在＜**取得 MySQL 和 FTP 連線資訊**＞一節中），**同時**將 `createdatabase.php` 和 `index.php` 檔案中的下列資訊都更新為適當的值：
+當您在本機完成應用程式測試之後，可以使用 FTP 將其發行至 Azure 網站。不過，您必須先更新應用程式中的資料庫連接資訊。使用您先前取得的資料庫連線資訊 (在 [**取得 MySQL 與 FTP 連線資訊** 區段)，使用適當的值**同時**更新 `createdatabase.php` 和 `index.php` 檔案中的下列資訊：
 
 	// DB connection info
 	$host = "value of Data Source";
@@ -234,9 +234,9 @@
 
 1. 開啟您選擇的 FTP 用戶端。
 
-2. 將您在以上步驟中從 `publishUrl` 屬性記下的*主機名稱部分* 輸入到您的 FTP 用戶端。
+2. 將您在以上步驟中從 `publishUrl` 屬性記下的*主機名稱* 部分輸入到您的 FTP 用戶端。
 
-3. 將您在以上步驟中記下的 `userName` 和 `userPWD` 屬性，原封不動地輸入到您的 FTP 用戶端。
+3. 將您在以上步驟中記下的 `userName` 與 `userPWD` 屬性，原封不動地輸入到您的 FTP 用戶端。
 
 4. 建立連線。
 
@@ -263,3 +263,5 @@
 [connection-string-info]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/connection_string_info.png
 [management-portal]: https://manage.windowsazure.com
 [download-publish-profile]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/download_publish_profile_2.png
+
+<!--HONumber=35_1-->

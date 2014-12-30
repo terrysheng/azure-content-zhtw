@@ -1,8 +1,8 @@
-﻿<properties pageTitle="使用通知中心傳送即時新聞 (Windows Universal) "metaKeywords ="" description="Use  Azure Notification Hubs with tags in the registration to send breaking news to a universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="使用通知中心傳送即時新聞 (Windows Universal)" metaKeywords="" description="Use  Azure Notification Hubs with tags in the registration to send breaking news to a universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<properties pageTitle="使用通知中心傳送即時新聞 (Windows Phone) "metaKeywords ="" description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="使用通知中心傳送即時新聞 (Windows Phone)" metaKeywords="" description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal" />
 
 # 使用通知中心傳送即時新聞
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -10,9 +10,9 @@
 		<a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
 </div>
 
-本主題將說明如何使用 Azure 通知中心，將即時新聞通知廣播至 Windows Store 或 Windows Phone 8.1 (非 Silverlight) 應用程式。如果您的目標是 Windows Phone 8.1 Silverlight，請參閱 [Windows Phone](/zh-tw/documentation/articles/notification-hubs-ios-send-breaking-news) 版本。完成時，您便能夠註冊您所感興趣的即時新聞類別，並僅接收這些類別的推播通知。此情況是許多應用程式的共同模式，這些應用程式必須將通知傳送給先前宣告對通知有興趣的使用者群組，例如，RSS 閱讀程式、供樂迷使用的應用程式等等。
+本主題將說明如何使用 Azure 通知中心，將即時新聞通知廣播至 Windows 市集或 Windows Phone 8.1 (非 Silverlight) 應用程式。如果您的目標是 Windows Phone 8.1 Silverlight，請參閱 [Windows Phone](/zh-tw/documentation/articles/notification-hubs-ios-send-breaking-news) 版本。完成時，您便能夠註冊您所感興趣的即時新聞類別，並僅接收這些類別的推播通知。此情況是許多應用程式的共同模式，這些應用程式必須將通知傳送給先前宣告對通知有興趣的使用者群組，例如，RSS 閱讀程式、供樂迷使用的應用程式等等。 
 
-在通知中心內建立註冊時，您可以透過包含一或多個 _tags_ 來啟用廣播案例。當標籤收到通知時，所有已註冊此標籤的裝置都會收到通知。由於標籤只是簡單的字串而已，您無需預先佈建標籤。如需標籤的詳細資訊，請參閱[通知中心指引]。 
+在通知中心內建立註冊時，您可以透過包含一或多個 _標籤_ 來啟用廣播案例。當標籤收到通知時，所有已註冊此標籤的裝置都會收到通知。由於標籤只是簡單的字串而已，您無需預先佈建標籤。如需標籤的詳細資訊，請參閱 [通知中心指引]。 
 
 本教學課程會逐步引導您完成啟用此案例的基本步驟：
 
@@ -21,11 +21,11 @@
 3. [從後端傳送通知]
 4. [執行應用程式並產生通知]
 
-本主題會以您在 [開始使用通知中心][get-started] 中所建立的應用程式為基礎。開始本教學課程之前，您必須已完成 [開始使用通知中心][get-started]。
+本主題會以您在[開始使用通知中心][get-started]中所建立的應用程式為基礎。開始本教學課程之前，您必須已完成[開始使用通知中心][get-started]。
 
 ##<a name="adding-categories"></a>在應用程式中新增類別選項
 
-第一個步驟是在您的現有主頁面上新增 UI 元素，以便使用者選取要註冊的類別。使用者所選取的類別會儲存在裝置上。啟動應用程式時，您的通知中心內會建立以所選取類別作為標籤的裝置註冊。 
+第一個步驟是在您的現有主頁面上新增 UI 元素，以便使用者選取要註冊的類別。使用者所選取的類別會儲存在裝置上。啟動應用程式時，您的通知中心內會建立以所選取類別做為標籤的裝置註冊。 
 
 1. 開啟 MainPage.xaml 專案檔案，然後在 **Grid** 元素中複製下列程式碼：
 			
@@ -80,7 +80,7 @@
 
     本類別會使用本機儲存體來儲存此裝置必須接收的新聞類別。它也包含註冊這些類別的方法。
 
-4. 在上述程式碼中，請使用您的通知中心名稱及先前取得的 *DefaultListenSharedAccessSignature* 連線字串，來取代 `<hub name>` 和 `<connection string with listen access>` 預留位置。
+4. 在上述程式碼中，請使用您的通知中心名稱及先前取得的 *DefaultListenSharedAccessSignature* 連接字串，來取代 `<hub name>` 和 `<connection string with listen access>` 預留位置。
 
 	<div class="dev-callout"><strong>注意</strong> 
 		<p>因為隨用戶端應用程式散佈的憑證通常不安全，您應只將接聽存取權的金鑰隨用戶端應用程式散佈。您的應用程式可透過接聽存取權來註冊通知，但無法修改現有的註冊或無法傳送通知。在安全的後端服務中，會使用完整存取金鑰來傳送通知和變更現有的註冊。</p>
@@ -143,7 +143,7 @@
 
 		await notifications.SubscribeToCategories(notifications.RetrieveCategories());
 
-	這會確保應用程式每次啟動時都會從本機儲存體擷取類別，並要求這些類別的註冊。[開始使用通知中心] 教學課程的一部分是建立 **InitNotificationsAsync** 方法，但本主題中將不會用到。
+	這會確保應用程式每次啟動時都會從本機儲存體擷取類別，並要求這些類別的註冊。**開始使用通知中心**教學課程的一部分是建立 [InitNotificationsAsync] 方法，但本主題中將不會用到。
 
 3. 在 MainPage.xaml.cs 專案檔案中，在 *OnNavigatedTo* 方法中新增下列程式碼：
 
@@ -180,9 +180,9 @@
 
 4. 若要從後端傳送新通知，您可以使用下列其中一種方式：
 
-	+ **主控台應用程式：** 啟動主控台應用程式。
+	+ **主控台應用程式：**啟動主控台應用程式。
 
-	+ **Java/PHP：** 執行您的應用程式/指令碼。
+	+ **Java/PHP：**執行您的應用程式/指令碼。
 
 	選取的類別通知會以快顯通知方式出現。
 
@@ -225,7 +225,7 @@
 [Windows 市集的通知中心作法]: http://msdn.microsoft.com/zh-tw/library/jj927172.aspx
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows (英文)]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [wns 物件]: http://go.microsoft.com/fwlink/p/?LinkId=260591
@@ -234,3 +234,5 @@
 
 
 
+
+<!--HONumber=35_1-->

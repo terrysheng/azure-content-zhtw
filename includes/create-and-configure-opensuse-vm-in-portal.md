@@ -1,79 +1,63 @@
-<properties writer="kathydav" editor="tysonn" manager="jeffreyg" />
+﻿<properties writer="kathydav" editor="tysonn" manager="timlt" /> 
 
-**重要事項**：如果您想要讓虛擬機器使用虛擬網路，請務必在建立虛擬機器時指定虛擬網路。只有在建立虛擬機器時，才能將虛擬機器設定為加入虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀][Azure 虛擬網路概觀]。
+**重要事項**：如果您想要讓虛擬機器使用虛擬網路，請務必在建立虛擬機器時指定虛擬網路。只有在建立虛擬機器時，才能將虛擬機器設定為加入虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](http://go.microsoft.com/fwlink/p/?LinkID=294063)。
 
-1.  使用 Azure 帳戶，登入 [Azure 管理入口網站][Azure 管理入口網站]。
 
-2.  在管理入口網站中，依序按一下網頁左下角的 [+新增]、[虛擬機器] 和 [從藝廊]。
+1. 使用 Azure 帳戶，登入 [Azure 管理入口網站][AzurePreviewPortal]。
 
-    ![建立新的虛擬機器][建立新的虛擬機器]
+2. 在管理入口網站中，依序按一下網頁左下角的 [**+新增**]、[**虛擬機器**] 和 [**從組件庫**]。
 
-3.  從 [平台映像] 中選取 OpenSUSE 虛擬機器映像，然後按一下頁面右下角的 [下一步] 箭頭。
+	![Create a New Virtual Machine][Image1]
 
-4.  在 [虛擬機器組態] 頁面，提供下列資訊：
+3. 在 **SUSE** 群組之下，選取 OpenSUSE 虛擬機器映像，然後按一下頁面底部的向前箭號。
 
-    -   提供 [虛擬機器名稱] (如 "testlinuxvm")。
-    -   指定 [新使用者名稱] (如 "newuser")，此名稱將新增至 Sudoers 清單檔案。
-    -   在 [新密碼] 方塊中，輸入[強式密碼][強式密碼]。
-    -   在 [確認密碼] 方塊中，重新輸入密碼。
-    -   從 [大小] 下拉式清單中選取適當的大小。
 
-    按 [下一步] 箭頭以繼續。
+4. 在第一個 [**虛擬機器組態**] 頁面上，填入或驗證設定：
 
-5.  在 [虛擬機器模式] 頁面，提供下列資訊：
+	- 輸入 [**虛擬機器名稱**]，如 "testlinuxvm"。
+	- 驗證 [**階層**] 並挑選 [**大小**]。階層可決定您可以選擇的大小。
+	- 輸入 [**新使用者名稱**] (如 "newuser")，此名稱將新增至 Sudoers 清單檔案。
+	- 決定要使用的 [**驗證**] 類型。如需一般密碼指導方針，請參閱[字串密碼](http://msdn.microsoft.com/zh-tw/library/ms161962.aspx)。
 
-    -   選取 [獨立虛擬機器]。
-    -   在 [DNS 名稱] 方塊中，輸入有效的 DNS 位址。例如，"testlinuxvm"。
-    -   在 [區域/同質群組/虛擬網路] 方塊中，選取這個虛擬映像將託管於的區域。
 
-按 [下一步] 箭頭以繼續。
+5. 在下一個 [**虛擬機器組態**] 頁面上，填入或驗證設定：
+	- 使用預設 [**建立新的雲端服務**]。
+	- 在 [**DNS 名稱**] 方塊中，輸入有效的 DNS 名稱以作為位址的一部分，例如 "testlinuxvm"。
+	- 在 [**區域/同質群組/虛擬網路**] 方塊中，選取這個虛擬映像將託管於的區域。
 
-1.  在 [虛擬機器選項] 頁面的 [可用性設定組] 方塊中，選取 [(無)]。按一下打勾記號繼續。
+6.	按下一個箭頭完成，然後等待 Azure 準備您的虛擬機器而後予以啟動。
 
-2.  等待 Azure 準備好您的虛擬機器。
+##連線至虛擬機器
+視您的電腦執行的作業系統而定，您將使用 SSH 或 PuTTY 連線至虛擬機器：
 
-## 設定端點
+- 如果您使用 Linux 連線至 VM，則使用 SSH。在命令提示字元下，執行： 
 
-建立虛擬機器之後，您必須設定端點以便進行遠端連線。
+	`$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
+	
+	Type the user's password.
 
-1.  在 [管理入口網站] 中，按一下 [虛擬機器]，接著按一下新虛擬機器的名稱，再按一下 [端點]。
+- 如果您使用 Windows 連線至 VM，則使用 PuTTY。您可以從 [PuTTY 下載頁面][PuTTYDownLoad]下載 PuTTY。 
 
-2.  按一下頁面底部的 [編輯端點]，並編輯 SSH 端點，使其 [公用連接埠] 為 22。
+	下載 **putty.exe** 並將其儲存至您電腦上的目錄。開啟命令提示字元，瀏覽至該資料夾，然後執行 **putty.exe**。
 
-## 連線至虛擬機器
+	輸入主機名稱，例如 "testlinuxvm.cloudapp.net"，然後針對 [**連接埠**] 輸入 "22"。
 
-在佈建好虛擬機器並設定好端點之後，您可以使用 SSH 或 PuTTY 連線到該虛擬機器。
+	![PuTTY Screen][Image6]  
 
-### 使用 SSH 進行連線
+##更新虛擬機器 (選用)
+1. 連線至虛擬機器之後，您可以選擇性地安裝系統更新和修補程式。若要執行更新，請輸入：
 
-如果您是使用 linux 電腦，請使用 SSH 連線至 VM。在命令提示字元下，執行：
+	`$ sudo zypper update`
 
-    $ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180
+2. 選取 [**軟體**]，然後選取 [**線上更新**] 以列出可用的更新。選取 [**接受**] 即可開始安裝並套用所有可用的新修補程式 (選用修補程式除外)。 
 
-輸入使用者的密碼。
+3. 安裝完成之後，選取 [**完成**]。您的系統現在已是最新版本。
 
-### 使用 PuTTY 進行連線
+[PuTTYDownload]: http://www.puttyssh.org/download.html
+[AzurePreviewPortal]: http://manage.windowsazure.com
 
-如果您是使用 Windows 電腦，請使用 PuTTY 連線至 VM。PuTTY 可自 [PuTTY 下載頁面][PuTTY 下載頁面]下載取得。
+[Image1]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
 
-1.  下載 **putty.exe** 並將其儲存至您電腦上的目錄中。開啟命令提示字元，瀏覽至該資料夾，然後執行 **putty.exe**。
+[Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-2.  在 [Host Name] 中輸入 "testlinuxvm.cloudapp.net"，並在 [Port] 中輸入 "22"。
-    ![PuTTY Screen][PuTTY Screen]
-
-## 更新虛擬機器 (選用)
-
-1.  連線至虛擬機器之後，您可以選擇性地安裝系統更新和修補程式。請執行：
-
-    `$ sudo zypper update`
-
-2.  選取 [軟體]，然後選取 [線上更新]。更新清單隨即顯示。選取 [接受] 開始安裝，並套用您系統目前可用的所有新修補程式 (但選用的修補程式除外)。
-
-3.  安裝完成之後，選取 [完成]。您的系統現在已是最新版本。
-
-  [Azure 虛擬網路概觀]: http://go.microsoft.com/fwlink/p/?LinkID=294063
-  [Azure 管理入口網站]: http://manage.windowsazure.com
-  [建立新的虛擬機器]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
-  [強式密碼]: http://msdn.microsoft.com/zh-tw/library/ms161962.aspx
-  [PuTTY 下載頁面]: http://www.puttyssh.org/download.html
-  [PuTTY Screen]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
+<!--HONumber=35_1-->

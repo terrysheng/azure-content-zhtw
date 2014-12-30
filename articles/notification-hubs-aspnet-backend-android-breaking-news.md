@@ -1,6 +1,7 @@
-﻿<properties urlDisplayName="Breaking News" pageTitle="通知中心重大消息教學課程 - iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="elioda" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Breaking News" pageTitle="通知中心即時新聞教學課程 - Android" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to Android devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="11/22/2014" ms.author="ricksal" />
+
 
 # 使用通知中心傳送即時新聞
 <div class="dev-center-tutorial-selector sublanding">     	
@@ -8,7 +9,7 @@
 	<a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android" class="current">Android</a>
 </div>
 
-本主題將說明如何使用 Azure 通知中心，將即時新聞通知廣播至 Android 應用程式。完成時，您便能夠註冊您所感興趣的即時新聞類別，並僅接收這些類別的推播通知。此情況是許多應用程式的共同模式，這些應用程式必須將通知傳送給先前宣告對通知有興趣的使用者群組，例如，RSS 閱讀程式、供樂迷使用的應用程式等等。
+本主題將說明如何使用 Azure 通知中心，將即時新聞通知廣播至 Android 應用程式。完成時，您便能夠註冊您所感興趣的即時新聞類別，並僅接收這些類別的推播通知。此情況是許多應用程式的共同模式，這些應用程式必須將通知傳送給先前宣告對通知有興趣的使用者群組，例如，RSS 閱讀程式、供樂迷使用的應用程式等等。 
 
 在通知中心內建立註冊時，您可以透過包含一或多個 _tags_ 來啟用廣播案例。當標籤收到通知時，所有已註冊此標籤的裝置都會收到通知。由於標籤只是簡單的字串而已，您無需預先佈建標籤。如需標籤的詳細資訊，請參閱[通知中心指引]。 
 
@@ -19,11 +20,11 @@
 3. [從後端傳送通知]
 4. [執行應用程式並產生通知]
 
-本主題會以您在 [開始使用通知中心][get-started] 中所建立的應用程式為基礎。開始本教學課程之前，您必須已完成 [開始使用通知中心][get-started]。
+本主題會以您在[開始使用通知中心][get-started]中所建立的應用程式為基礎。開始本教學課程之前，您必須已完成[開始使用通知中心][get-started]。
 
 ##<a name="adding-categories"></a>在應用程式中新增類別選項
 
-第一個步驟是在您現有的主要活動上新增 UI 元素，以便使用者選取要註冊的類別。使用者所選取的類別會儲存在裝置上。啟動應用程式時，您的通知中心內會建立以所選取類別作為標籤的裝置註冊。 
+第一個步驟是在您現有的主要活動上新增 UI 元素，以便使用者選取要註冊的類別。使用者所選取的類別會儲存在裝置上。啟動應用程式時，您的通知中心內會建立以所選取類別做為標籤的裝置註冊。 
 
 1. 開啟您的 res/layout/activity_main.xml 檔案，並將內容取代為下列項目：
 			
@@ -89,7 +90,7 @@
 
 	![][A1]
 
-3. 現在，在與 **MainActivity** 類別相同的套件中，建立 **Notifications** 類別。
+3. 現在，在與 **MainActivity** 類別相同的套件中建立 **Notifications** 類別。
 
 		import java.util.HashSet;
 		import java.util.Set;
@@ -158,13 +159,13 @@
 		<p>因為隨用戶端應用程式散佈的憑證通常不安全，您應只將接聽存取權的金鑰隨用戶端應用程式散佈。您的應用程式可透過接聽存取權來註冊通知，但無法修改現有的註冊或無法傳送通知。在安全的後端服務中，會使用完整存取金鑰來傳送通知和變更現有的註冊。</p>
 	</div> 
 
-4. 在您的 **MainActivity** 類別中，移除 **NotificationHub** 和 **GoogleCloudMessaging** 的私用欄位，並新增 **Notifications** 欄位：
+4. 在您的 **MainActivity** 類別中，將 **NotificationHub** 和 **GoogleCloudMessaging** 的私用欄位移除，並新增 **Notifications** 的欄位：
 
 		// private GoogleCloudMessaging gcm;
 		// private NotificationHub hub;
 		private Notifications notifications;
  
-5. 然後，在 **onCreate** 方法中，移除 **hub** 欄位和 **registerWithNotificationHubs** 方法的初始化。接著，新增以下幾行以初始化 **Notifications** 類別的執行個體。此方法應包含以下幾行：
+5. 然後，在 [**onCreate**] 方法中移除 [**中心**] 欄位和 [**registerWithNotificationHubs**] 方法的初始化。然後加入下列可初始化 **Notifications** 類別執行個體的程式碼行。此方法應包含以下幾行：
 
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
@@ -225,13 +226,13 @@
 
 	這會傳回類別中所定義的類別。
 
-2. 接下來，在 **MainActivity** 類別的 **onCreate** 方法結尾處新增此程式碼：
+2. 現在，在 [**MainActivity**] 類別中的 [**onCreate**] 方法結尾處新增下列程式碼：
 
 		notifications.subscribeToCategories(notifications.retrieveCategories());
 
-	這會確保應用程式每次啟動時都會從本機儲存體擷取類別，並要求這些類別的註冊。[開始使用通知中心] 教學課程的一部分是建立 **InitNotificationsAsync** 方法，但本主題中將不會用到。
+	這會確保應用程式每次啟動時都會從本機儲存體擷取類別，並要求這些類別的註冊。[**開始使用通知中心**] 教學課程的一部分是建立 [InitNotificationsAsync] 方法，但本主題中將不會用到。
 
-3. 接著，將下列方法新增至 **MainActivity**：
+3. 接著，將下列方法新增至 [**MainActivity**]：
 
 		@Override
 		protected void onStart() {
@@ -273,9 +274,9 @@
 
 4. 若要從後端傳送新通知，您可以使用下列其中一種方式：
 
-	+ **.NET 主控台應用程式：** 啟動主控台應用程式。
+	+ **.NET 主控台應用程式：**啟動主控台應用程式。
 
-	+ **Java/PHP：** 執行您的應用程式/指令碼。
+	+ **Java/PHP：**執行您的應用程式/指令碼。
 
 	選取的類別通知會以快顯通知方式出現。
 
@@ -311,7 +312,9 @@
 [Windows 市集的通知中心作法]: http://msdn.microsoft.com/zh-tw/library/jj927172.aspx
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows (英文)]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [wns 物件]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+
+<!--HONumber=35_1-->

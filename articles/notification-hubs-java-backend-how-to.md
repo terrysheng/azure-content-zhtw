@@ -1,23 +1,23 @@
-﻿<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="如何將通知中心與 Java 搭配使用 " metaKeywords="" description="Learn how to use Azure Notification Hubs from a Java back-end." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="elioda" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="如何搭配使用通知中心與 Java" metaKeywords="" description="Learn how to use Azure Notification Hubs from a Java back-end." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="elioda" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="java" ms.topic="article" ms.date="11/14/2014" ms.author="piyushjo" />
 
 # 如何使用 Java/PHP 的通知中心
 <div class="dev-center-tutorial-selector sublanding"> 
     	<a href="/zh-tw/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/zh-tw/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a>
 </div>
 
-您可以使用通知中心 REST 介面，存取 Java/PHP/Ruby 後端的所有通知中心功能，如 MSDN 主題 [通知中心 REST API](http://msdn.microsoft.com/zh-tw/library/dn223264.aspx) 中所述。
+您可以使用通知中心 REST 介面，存取 Java/PHP/Ruby 後端的所有通知中心功能，如 MSDN 主題[通知中心 REST API] 中所述(http://msdn.microsoft.com/zh-tw/library/dn223264.aspx)。
 
 在本主題中，我們將說明如何：
 
 * 在 Java 中建置通知中心功能的 REST 用戶端；
-* 依照 [開始使用教學課程](http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-ios-get-started/)，針對您所選的行動平台，在 Java 中實作後端部分。
+* 依照[開始使用教學課程]，(http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-ios-get-started/) 針對您所選的行動平台，在 Java 中實作後端部分。
 
 ##<a name="client-interface"></a>用戶端介面
-主要用戶端介面可提供與 [.NET 通知中心 SDK](http://msdn.microsoft.com/zh-tw/library/jj933431.aspx) 提供的相同方法，這可讓您直接轉譯本網站上目前所提供以及網際網路上社群所貢獻的所有教學課程和範例。
+主要用戶端介面可提供 [.NET 通知中心 SDK] 中使用的相同方法，(http://msdn.microsoft.com/zh-tw/library/jj933431.aspx)可讓您直接翻譯此網站目前可用的所有教學課程和範例，並由網際網路上的社群執行。
 
-您可在 [Java REST 包裝函式範例] 中找到所有可用的程式碼。
+您可在 [Java REST 包裝函式範例]中找到所有可用的程式碼。
 
 例如，若要建立用戶端：
 
@@ -37,10 +37,10 @@
 	hub.sendNotification(n);
 
 ##<a name="implementation"></a>實作
-如果您尚未執行此作業，請遵循 [開始使用教學課程] 的指示，進行到您必須實作後端的最後一節。
-另外，若有需要，您可以使用 [Java REST 包裝函式範例] 的程式碼，並直接移至 [完成教學課程](#complete-tutorial) 一節。
+如果您還沒有這麼做，請遵循我們的[開始使用教學課程]，一直到您必須實作後端的最後一節。
+此外，您也可以從 [Java REST 包裝函式範例]使用程式碼，並直接移至[完成教學課程](#complete-tutorial) 一節。
 
-您可以在 [MSDN](http://msdn.microsoft.com/zh-tw/library/dn530746.aspx) 上找到所有實作完整 REST 包裝函式的詳細資料。在本節中，我們將針對存取通知中心 REST 端點所需主要步驟的 Java 實作進行說明：
+您可以在 [MSDN] 上找到所有實作完整 REST 包裝函式的詳細資料。(http://msdn.microsoft.com/zh-tw/library/dn530746.aspx)。在本節中，我們將針對存取通知中心 REST 端點所需主要步驟的 Java 實作進行說明：
 
 1. 解析連接字串
 2. 產生授權權杖
@@ -90,8 +90,8 @@
 
 
 ### 建立安全性權杖
-您可以在[此處](http://msdn.microsoft.com/zh-tw/library/dn495627.aspx)找到建立安全性權杖的詳細資料。
-已將下列方法新增至 **NotificationHub** 類別，以根據目前要求的 URI 和從連接字串中擷取的認證來建立權杖。
+您可以在[這裡]找到建立安全性權杖的詳細資料(http://msdn.microsoft.com/zh-tw/library/dn495627.aspx)。
+您必須將下列方法加入 **NotificationHub** 類別，才能根據目前要求的 URI 及擷取自連接字串的認證來建立權杖。
 
 	private String generateSasToken(URI uri) {
 		String targetUri;
@@ -237,7 +237,7 @@
 
 此類別是原生通知主體的容器，或是一組範本通知案例的屬性，及一組包含格式 (原生平台或範本) 的標頭，以及平台特定屬性 (如 Apple 到期屬性和 WNS 標頭)。我們也會定義一些便利建構函式，以產生常用的通知類型。
 
-請參閱 [通知中心 REST API 文件](http://msdn.microsoft.com/zh-tw/library/dn495827.aspx) 及特定通知平台的格式，以取得所有可用選項。
+請參閱[通知中心 REST API 文件](http://msdn.microsoft.com/zh-tw/library/dn495827.aspx) ，及所有可用選項的特定通知平台的格式。
 
 有了此類別之後，我們現在可以在 **NotificationHub** 類別內寫入傳送通知方法。
 
@@ -301,14 +301,14 @@
 ##<a name="complete-tutorial"></a>完成教學課程
 現在您可以透過從 Java 後端傳送通知，來完成開始使用教學課程。
 
-初始化您的通知中心用戶端 (請依 [開始使用教學課程] 中的指示替換連接字串和中心名稱)：
+初始化您的通知中心用戶端 (請依[開始使用教學課程]中的指示替換連接字串和中心名稱)：
 	NotificationHub hub = new NotificationHub("{connection string}", "{hubname}");
 
 然後根據您的目標行動平台新增傳送程式碼。
 
 ### Windows 市集和 Windows Phone 8.1 (非 Silverlight)
 
-	String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
+
 	Notification n = Notification.createWindowsNotification(toast);
 	hub.sendNotification(n);
 
@@ -346,11 +346,13 @@
 在本主題中，我們會說明如何為通知中心建立簡單的 Java REST 用戶端。您可以在這裡執行下列動作：
 
 * 下載完整的 [Java REST 包裝函式範例]，其中包含上述所有程式碼，以及註冊管理。
-* 繼續了解 [即時新聞教學課程] 中的通知中心標記功能
-* 了解 [通知使用者教學課程] 中如何推播通知給個人使用者
+* 繼續了解[即時新聞教學課程]中的通知中心標記功能
+* 了解[通知使用者教學課程]中的推播通知給個人使用者
 
 
 
 
 [Java REST 包裝函式範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
 [開始使用教學課程]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-ios-get-started/
+
+<!--HONumber=35_1-->

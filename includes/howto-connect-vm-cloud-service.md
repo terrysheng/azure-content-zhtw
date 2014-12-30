@@ -1,52 +1,30 @@
-<properties authors="kathydav" editor="tysonn" manager="donaldg" />
+﻿<properties authors="kathydav" editor="tysonn" manager="timlt" /> 
 
-# 如何連接至雲端服務中的虛擬機器
 
-當您建立虛擬機器時，系統會自動建立雲端服務，包含此虛擬機器。您可以在相同的雲端服務下建立多個虛擬機器，使虛擬機器彼此相互通訊，讓虛擬機器之間達到負載平衡，並維持機器的高可用性。
+#如何連接至雲端服務中的虛擬機器
 
-如需關於虛擬機器負載平衡的詳細資訊，請參閱[虛擬機器負載平衡][虛擬機器負載平衡]。如需關於管理應用程式可用性的詳細資訊，請參閱[管理虛擬機器的可用性][管理虛擬機器的可用性]。
+當您建立虛擬機器時，系統會自動建立雲端服務，包含此虛擬機器。您可以在相同雲端服務內建立多部虛擬機器，以便虛擬機器彼此通訊。 
 
-首先，您需要建立虛擬機器和新的雲端服務，然後就可以將其他虛擬機器連接至相同雲端服務下的第一個虛擬機器。
+> [WACOM.NOTE] 當 VM 位於相同雲端服務時，您也可以平衡其負載並管理其可用性，但兩者都需要執行其他步驟。如需詳細資料，請參閱[虛擬機器負載平衡](../../articles/load-balance-virtual-machines/) 和[管理虛擬機器的可用性](../../articles/manage-availability-virtual-machines/)。 
 
-1.  使用[如何建立自訂虛擬機器][如何建立自訂虛擬機器]中的步驟來建立虛擬機器。
+首先，您需要使用新的雲端服務建立虛擬機器。接著在相同的雲端服務中建立其他虛擬機器。這麼做可「連接」這些虛擬機器。 
 
-2.  建立第一個自訂虛擬機器之後，請在[管理入口網站][管理入口網站]命令列按一下 [新增]。
+1. 使用[如何建立自訂虛擬機器]中的步驟來建立第一部虛擬機器(../../articles/virtual-machines-create-custom/)。
 
-    ![建立新的虛擬機器][建立新的虛擬機器]
+2. 遵循相同的基本程序來建立其他虛擬機器，但您將其加入至雲端服務，而非建立雲端服務時例外。例如，如果您建立了名為 *EndpointTest* 的雲端服務，請選擇該服務。下圖顯示：
 
-3.  按一下 [虛擬機器]，然後按一下 [從組件庫]。
+	![Add a virtual machine to an existing cloud service](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
-    ![建立自訂虛擬機器][建立自訂虛擬機器]
+14. 完成此頁面上的其餘欄位，然後按一下核取記號以建立已連線的虛擬機器。
 
-    [選取虛擬機器作業系統] 對話方塊隨即出現。
+#資源
 
-4.  從 [選擇映像] 頁面中選取映像，然後按一下箭號繼續進行。
+建立虛擬機器後，最好要新增資料磁碟，您的服務和工作負載才有地方可存放資料。執行下列其中一項：
 
-    第一個 [虛擬機器組態] 頁面隨即出現。
+[如何將資料磁碟連接至 Linux 虛擬機器](http://azure.microsoft.com/zh-tw/documentation/articles/virtual-machines-linux-how-to-attach-disk/)
 
-5.  在 [虛擬機器名稱] 中，輸入您要用於虛擬機器的名稱。
+[如何將資料磁碟附加至 Windows 虛擬機器](http://azure.microsoft.com/zh-tw/documentation/articles/storage-windows-attach-disk/)
 
-6.  在 [大小] 中，選取您要用於虛擬機器的大小。您選取的大小取決於您的應用程式所需的核心數目。
 
-7.  在 [新增使用者名稱] 中，輸入您要用於管理伺服器的系統管理帳戶名稱。
 
-8.  在 [新增密碼] 中，輸入系統管理帳戶的強式密碼。在 [確認密碼] 中，重新輸入密碼。
-
-9.  對於執行 Linux 作業系統的虛擬機器，您可以選擇利用 SSH 金鑰保護機器的安全。
-
-10. 在 [雲端服務] 中，選取將包含新虛擬機器的雲端服務。
-
-11. 在 [儲存體帳戶] 中，選取儲存體帳戶來儲存 .vhd 檔案，或保留欄位的預設值以自動建立儲存體帳戶。只會自動建立一個儲存體帳戶。您利用此設定建立的所有其他虛擬機器均位於此儲存體帳戶。您的儲存體帳戶限制為 20 個。
-
-12. 若要使用可用性設定組，請選取您建立第一個虛擬機器時所建立的可用性設定組。
-
-13. 檢閱預設端點組態，並視需要修改。
-
-14. 按一下核取記號以建立所連接的虛擬機器。
-
-  [虛擬機器負載平衡]: ../../articles/load-balance-virtual-machines/
-  [管理虛擬機器的可用性]: ../../articles/manage-availability-virtual-machines/
-  [如何建立自訂虛擬機器]: ../../articles/virtual-machines-create-custom/
-  [管理入口網站]: http://manage.windowsazure.com
-  [建立新的虛擬機器]: ./media/howto-connect-vm-cloud-service/Create.png
-  [建立自訂虛擬機器]: ./media/howto-connect-vm-cloud-service/CreateNew.png
+<!--HONumber=35_1-->

@@ -1,15 +1,15 @@
-﻿<properties urlDisplayName="REST service using Web API" pageTitle="使用 Web API 的 .NET REST 服務 - Azure 教學課程 " metaKeywords="Azure 教學課程網站, ASP.NET API 網站, Azure VS" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure website by using Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="REST service using Web API" pageTitle="使用 Web API 的 .NET REST 服務 - Azure 教學課程" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure website by using Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="06/06/2014" ms.author="riande" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/06/2014" ms.author="riande" />
 
 
 
 
 # 使用 ASP.NET Web API 和 SQL Database 的 REST 服務 
 
-***作者：[Rick Anderson](https://twitter.com/RickAndMSFT) 和 Tom Dykstra。2014 年 3 月更新。***
+***作者 [Rick Anderson](https://twitter.com/RickAndMSFT) 和 Tom Dykstra。***
 
-本教學課程示範如何使用 Visual Studio 2013 中或 Visual Studio 2013 for Web Express 中的 [Publish Web] 精靈，以將 ASP.NET Web 應用程式部署至 Azure 網站。(如果您想要使用 Visual Studio 2012，請參閱 [本教學課程的前一版本](/zh-tw/develop/net/tutorials/get-started-vs2012/)。)
+本教學課程示範如何使用 Visual Studio 2013 中或 Visual Studio 2013 for Web Express 中的 [Publish Web] 精靈，以將 ASP.NET Web 應用程式部署至 Azure 網站。 
 
 您可以免費申請 Azure 帳戶，而且如果您還沒有 Visual Studio 2013，SDK 會自動安裝 Visual Studio 2013 for Web Express。如此您就能開始免費進行 Azure 相關開發。
 
@@ -34,9 +34,9 @@
 * [將應用程式部署至 Azure][deployapp1]
 * [新增資料庫至應用程式][adddb]
 * [新增控制器和資料檢視][addcontroller]
-* [新增符合 REST 限制的 Web API 介面][addwebapi]
+* [新增符合 Web API REST 限制的介面][addwebapi]
 * [新增 XSRF 保護][]
-* [將應用程式更新發佈到 Azure 和 SQL Database][deploy2]
+* [將應用程式更新發行至 Azure 和 SQL Database][deploy2]
 
 <a name="bkmk_setupdevenv"></a>
 <!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-get-started/ -->
@@ -54,15 +54,15 @@
 
 SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯式資料庫服務。工具和應用程式如果使用 SQL Server，同樣也可以使用 SQL Database。
 
-1. 在 [[Azure 管理入口網站](https://manage.windowsazure.com)] 中，按一下左側索引標籤中的 [**網站**]，然後按一下 [**新增**]。
+1. 在 [Azure 管理入口網站](https://manage.windowsazure.com)中，按一下左邊索引標籤中的 [**網站**]，然後按遺下 [**新增**]。
 
 2. 按一下 [**自訂建立**]。
 
 	![Create with Database link in Management Portal](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr6.PNG)
 
-[**新網站 - 自訂建立**] 精靈隨即開啟。 
+	[**新增網站 - 自訂建立**] 精靈隨即開啟。 
 
-3. 在精靈的 [**建立網站**] 步驟中，於 [**URL**] 方塊中輸入字串，做為您應用程式的唯一 URL。完整的 URL 將包含您在此處輸入的字串，加上您在文字方塊下方看到的尾碼。下圖顯示 "contactmgr11"，不過該 URL 可能已被佔用，因此您必須選擇不同的 URL。
+3. 在精靈的 [**新增網站**] 步驟中，於 [**URL**] 方塊中輸入字串，做為您應用程式的唯一 URL。完整的 URL 將包含您在此處輸入的字串，加上您在文字方塊下方看到的尾碼。下圖顯示 "contactmgr11"，不過該 URL 可能已被佔用，因此您必須選擇不同的 URL。
 
 1. 在 [**區域**] 下拉式清單中，選擇最接近您的區域。
 
@@ -72,15 +72,15 @@ SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯式資�
 
 6. 按一下指向方塊右下角的箭號。
 
-精靈隨即前進至 [**資料庫設定**] 步驟。
+	精靈隨即前進至 [**資料庫設定**] 步驟。
 
-7. 在 [**名稱**] 方塊中輸入 *ContactDB*。
+7. 在 [**名稱**] 方塊中，輸入 *ContactDB*。
 
 8. 在 [**伺服器**] 方塊中，選取 [**New SQL Database server**]。或者，如果您已建立 SQL Server 資料庫，可從下拉式清單控制項選取該 SQL Server。
 
 9. 按一下指向方塊右下角的箭號。
 
-10. 輸入系統管理員**登入名稱**和**密碼**。如果選取 [**New SQL Database server**]，則不要在此處輸入現有的名稱和密碼，而是輸入新的名稱和密碼；您現在定義的名稱和密碼將供未來存取資料庫時使用。如果選取先前建立的 SQL Server，系統會提示您提供先前建立之 SQL Server 帳戶名稱的密碼。在本教學課程中，我們不會勾選 [**進階**] 方塊。[**進階**] 方塊可讓您設定資料庫大小 (預設值為 1 GB，不過您可以增加到 150 GB) 和定序。
+10. 輸入系統管理員的 [**登入名稱**] 和 [**密碼**]。如果選取 [**New SQL Database server**]，則不要在此處輸入現有的名稱和密碼，而是輸入新的名稱和密碼；您現在定義的名稱和密碼將供未來存取資料庫時使用。如果選取先前建立的 SQL Server，系統會提示您提供先前建立之 SQL Server 帳戶名稱的密碼。在本教學課程中，我們不會核取 [**進階**] 方塊。[**進階**] 方塊可讓您設定資料庫大小 (預設值為 1 GB，不過您可以增加到 150 GB) 和定序。
 
 11. 按一下方塊底部的核取方塊來表示完成。
 
@@ -90,38 +90,38 @@ SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯式資�
 	
 	![Database Settings step of New Website - Create with Database wizard][rxPrevDB]
 
-[管理入口網站] 會隨即返回 [網站] 頁面，且 [**狀態**] 欄會顯示正在建立網站。稍待片刻 (通常不到一分鐘)，[**狀態**] 欄就會顯示建立網站成功。在左側的導覽列中，[**網站**] 圖示旁會出現您的帳戶中已有的網站數；[**SQL Database**] 圖示旁則會出現資料庫數目。
+	[管理入口網站] 隨即返回 [網站] 頁面，且 [**狀態**] 欄會顯示正在建立網站。稍待片刻 (通常不到一分鐘)，[**狀態**] 欄就會顯示建立網站成功。在左側的導覽列中，[**網站**] 圖示旁會出現您的帳戶中已有的網站數；[**SQL Databases**] 圖示旁則出現資料庫數目。
 
 <!-- [Websites page of Management Portal, website created][setup009] -->
 
 <h2><a name="bkmk_createmvc4app"></a>建立 ASP.NET MVC 5 應用程式</h2>
 
-您已建立 Azure 網站，但網站中還沒有內容。接下來的步驟是建立要發佈到 Azure 的 Visual Studio Web 應用程式。
+您已建立 Azure 網站，但網站中還沒有內容。接下來的步驟是建立要發行至 Azure 的 Visual Studio Web 應用程式。
 
 ### 建立專案
 
 1. 啟動 Visual Studio 2013。
-1. 從 [**檔案**] 功能表中，按一下 [**新增專案**]。
-3. 在 [**新增專案**] 對話方塊中，展開 [**Visual C#**] 並選取 [**Web**]，然後選取 [**ASP.NET MVC 5 Web 應用程式**]。保留預設值 [**.NET Framework 4.5**]。將應用程式命名為 **ContactManager**，然後按一下 [**確定**]。
+1. 從 [**檔案**] 功能表，按一下 [**新增專案**]。
+3. 在 [**新增專案**] 對話方塊中，展開 [**Visual C#**]，然後依序選取 [**Web**] 和 [**ASP.NET MVC 5 Web 應用程式**]。保留預設值 [**.NET Framework 4.5**]。將應用程式命名為 **ContactManager**，再按一下 [**確定**]。
 	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
-1. 在 [**New ASP.NET Project**] 對話方塊中，選取 [**MVC**] 範本，並勾選 [**Web API**]，然後按一下 [**變更驗證**]。
+1. 在 [**新增 ASP.NET 專案**] 對話方塊中，選取 [**MVC**] 範本，核取 [**Web API**]，然後按一下 [**變更驗證**]。
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
-1. 在 [**變更驗證**] 對話方塊中，按一下 [**不需要驗證**]，然後按一下 [**確定**]。
+1. 在 [**變更驗證**] 對話方塊中，按一下 [**不需要驗證**，然後按一下 [**確定**]。
 
 	![No Authentication](./media/web-sites-dotnet-get-started-vs2013/GS13noauth.png)
 
-您要建立的範例應用程式將不會有需要使用者登入的功能。如需關於如何實作驗證與授權功能的詳細資訊，請參閱本教學課程最後的 [後續步驟](#nextsteps) 一節。 
+	您要建立的範例應用程式將不會有需要使用者登入的功能。如需關於如何實作驗證與授權功能的詳細資訊，請參閱本教學課程最後的[後續步驟](#nextsteps) 小節。 
 
-1. 在 [**New ASP.NET Project**] 對話方塊中，按一下 [**確定**]。
+1. 在 [**新增 ASP.NET 專案** 對話方塊中，按一下 [**確定**]。
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
 
 ### 設定頁首及頁尾
 
 
-1. 在 [**方案總管**] 中，展開 *Views\Shared* 資料夾並開啟 *_Layout.cshtml* 檔案。
+1. 在 [**方案總管**] 中，展開 *Views\Shared* 資料夾，然後開啟 *_Layout.cshtml* 檔案。
 
 	![_Layout.cshtml in Solution Explorer][newapp004]
 
@@ -147,7 +147,7 @@ SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯式資�
 		        </div>
 		    </header>
 		    <div id="body">
-		        @RenderSection("featured", required:false)
+		        @RenderSection("featured", required: false)
 		        <section class="content-wrapper main-content clear-fix">
 		            @RenderBody()
 		        </section>
@@ -160,11 +160,11 @@ SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯式資�
 		        </div>
 		    </footer>
 		    @Scripts.Render("~/bundles/jquery")
-		    @RenderSection("scripts", required:false)
+		    @RenderSection("scripts", required: false)
 		</body>
 		</html>
 			
-以上的標記會將應用程式名稱從 "My ASP.NET App" 變更為 "Contact Manager"，同時也移除 [**首頁**]、[**關於**] 和 [**連絡人**] 的連結。
+以上的標記會將應用程式名稱從 "My ASP.NET App" 變更為 "Contact Manager"，同時也移除 **Home**、**About** 及 **Contact**的連結。
 
 ### 在本機執行應用程式
 
@@ -176,23 +176,23 @@ SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯式資�
 
 <h2><a name="bkmk_deploytowindowsazure1"></a>將應用程式部署至 Azure</h2>
 
-1. 在 Visual Studio 的 [**方案總管**] 中以滑鼠右鍵按一下專案，再選取內容功能表中的 [**發佈**]。
+1. 在 Visual Studio 的 [**方案總管**] 中以滑鼠右鍵按一下專案，再選取內容功能表中的 [**發行**]。
 
 	![Publish in project context menu][PublishVSSolution]
 
-[**發佈 Web**] 精靈隨即開啟。
+	此時會開啟 [**發行 Web**] 精靈。
 
-2. 在 [**發佈 Web**] 精靈的 [**設定檔**] 索引標籤上，按一下 [**匯入**]。
+2. 在 [**發行 Web**] 精靈的 [**設定檔**] 索引標籤中，按一下 [**匯入**]。
 
 	![Import publish settings][ImportPublishSettings]
 
-[**匯入發佈設定檔**] 對話方塊隨即出現。
+	[**匯入發行設定檔**] 對話方塊隨即出現。
 
- 3.	選取 [從 Azure 網站匯入]。如果您尚未登入，請務必先登入。按一下 [**登入**]。輸入與訂用帳戶相關的使用者並遵循登入步驟。
+ 3.	選取 [從 Azure 網站匯入]。如果您尚未登入，請務必先登入。按一下 [**登入**]。輸入與訂閱相關的使用者並遵循登入步驟。
 
 	![sign in](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr7.png)
 
-從下拉式清單中選取網站，然後按一下 [**確定**]。
+	從下拉式清單選取網站，然後按一下 [**確定**]。
 
 	![Import Publish Profile](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr8.png)
 
@@ -208,17 +208,17 @@ SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯式資�
 
 	![Settings tab](./media/web-sites-dotnet-get-started-vs2013/GS13SettingsTab.png)
 
-您可以接受此索引標籤上的預設設定。您是要部署「發行」建置組態，且不需要刪除目的地伺服器上的檔案、預先編譯應用程式，或排除 App_Data folder 中的檔案。如果您想要在即時的 Azure 網站上進行偵錯，便需要部署偵錯組態 (非發行)。請參閱本教學課程結尾處的 [後續步驟](#nextsteps)一節。
+	您可以接受此索引標籤上的預設設定。您是要部署「發行」建置組態，且不需要刪除目的地伺服器上的檔案、預先編譯應用程式，或排除 App_Data folder 中的檔案。如果您想要在即時的 Azure 網站上進行偵錯，便需要部署偵錯組態 (非發行)。請參閱本教學課程最後的[後續步驟](#nextsteps) 小節。
 
 12. 在 [**預覽**] 索引標籤中，按一下 [**開始預覽**]。
 
-此索引標籤會列出要複製至伺服器的檔案。顯示預覽並非要發行應用程式時的必要動作，但是是可以知道的有用功能。在此情況中，您不需要對顯示的檔案清單進行任何處理。當您下次發佈時，唯有變更過的檔案會出現在預覽清單中。
+	此索引標籤會列出要複製至伺服器的檔案。顯示預覽並非要發行應用程式時的必要動作，但是是可以知道的有用功能。在此情況中，您不需要對顯示的檔案清單進行任何處理。當您下次發行時，唯有變更過的檔案會出現在預覽清單中。
 
 	![StartPreview button in the Preview tab][firsdeploy009]
 
-12. 按一下 [**發佈**]。
+12. 按一下 [**發行**]。
 
-Visual Studio 隨即開始進行將檔案複製至 Azure 伺服器的程序。[**輸出**] 視窗會顯示已採取的部署動作，並報告部署作業已順利完成。
+	Visual Studio 隨即開始進行將檔案複製至 Azure 伺服器的程序。[**輸出**] 視窗會顯示已採取的部署動作，並報告部署作業已順利完成。
 
 14. 預設瀏覽器會自動開啟已部署之網站的 URL。
 
@@ -234,7 +234,7 @@ Visual Studio 隨即開始進行將檔案複製至 Azure 伺服器的程序。[*
 
 首先，您會在程式碼中建立簡單的資料模型。
 
-1. 在 [**方案總管**] 中，以滑鼠右鍵按一下 Models 資料夾，按一下 [**新增**]，然後按一下 [**類別**]。
+1. 在 [**方案總管**] 的 Models 資料夾上按一下滑鼠右鍵，按一下 [**新增**] ，再按一下 [**類別**]。
 
 	![Add Class in Models folder context menu][adddb001]
 
@@ -266,7 +266,7 @@ Visual Studio 隨即開始進行將檔案複製至 Azure 伺服器的程序。[*
     		}
 		}
 
-**Contacts** 類別會定義您將為每個連絡人儲存的資料，加上資料庫需要的主要索引鍵 (ContactID)。您可以在本教學課程結尾處的 [後續步驟](#nextsteps) 一節取得資料模型的詳細資訊。
+**Contacts** 類別定義您將為每個連絡人儲存的資料，加上資料庫需要的主要索引鍵 ContactID。您可以在本教學課程最後的小節中取得更多有關資料模型的資訊：[後續步驟](#nextsteps) 小節。
 
 ### 建立可讓應用程式使用者使用連絡人的網頁
 
@@ -286,19 +286,19 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
  ![Add controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.PNG)
 
-6. 將控制器名稱設為 **HomeController**。選取 [**Contact**] 模型類別。按一下 [**新資料內容**] 按鈕，並接受 [**新資料內容類型**] 的預設值 "ContactManager.Models.ContactManagerContext"。按一下 [**新增**]。
+6. 將控制器名稱設定為 **HomeController**。選取 [**Contact**] 模型類別。按一下 [**新資料內容**] 按鈕，並接受 [**新資料內容類型**] 的預設值 "ContactManager.Models.ContactManagerContext"。按一下 [**新增**]。
 
 	![Add Controller dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.PNG)
 
-對話方塊會提示您：「名為 HomeController 的檔案已存在。您要取代該檔案嗎？」按一下 [**是**]。我們會覆寫隨著新專案一同建立的首頁控制器。我們會將新的首頁控制器用於連絡人清單。
+	對話方塊會提示您：「名為 HomeController 的檔案已存在。您要取代該檔案嗎？」按一下 [**是**]。我們會覆寫隨著新專案一同建立的首頁控制器。我們會將新的首頁控制器用於連絡人清單。
 
-Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立控制器方法與檢視。
+	Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立控制器方法與檢視。
 
 ## 啟用移轉、建立資料庫、新增範例資料和資料初始設定式 ##
 
-下一個工作是啟用 [Code First 移轉](http://curah.microsoft.com/55220)功能，以便根據建立的資料模型建立資料庫。
+下一項工作是啟用 [[Code First Migrations]](http://curah.microsoft.com/55220) 功能，以便根據您建立的資料模型建立資料庫。
 
-1. 在 [**工具**] 功能表中，依序選取 [**Library Package Manager**] 和 [**Package Manager Console**]。
+1. 在 [**工具**] 功能表中，依序選取 [**Library Package Manager**] 及 [**Package Manager Console**]。
 
 	![Package Manager Console in Tools menu][addcode008]
 
@@ -306,15 +306,15 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 
 		enable-migrations 
   
-**enable-migrations** 命令會建立 *Migrations* 資料夾，並在該資料夾置入 *Configuration.cs* 檔案，您可以編輯該檔案並設定 [移轉]。 
+	**enable-migrations** 命令會建立 *Migrations* 資料夾，並在該資料夾置入 *Configuration.cs* 檔案，您可以編輯該檔案來設定 [移轉]。 
 
 2. 在 [**Package Manager Console**] 視窗中，輸入下列命令：
 
 		add-migration Initial
 
-**add-migration Initial** 命令會產生可建立資料庫且名為 **&lt;date_stamp&gt;Initial** 的類別。第一個參數 (*Initial*) 是任意的，可用來建立檔案的名稱。您可以在 [**方案總管**] 中看到新的類別檔案。
+	**add-migration Initial** 命令會產生可建立資料庫、名為 **&lt;date_stamp&gt;Initial** 的類別。第一個參數 ( *Initial* ) 是任意的，用於建立檔案的名稱。您可以在 [**方案總管**] 中看到新的類別檔案。
 
-在 **Initial** 類別中，**Up** 方法會建立 Contacts 資料表，**Down** 方法 (當您希望返回前個狀態時使用) 則會捨棄該資料表。
+	在 **Initial** 類別中，**Up** 方法會建立 Contacts 資料表，**Down** 方法 (當您希望返回前個狀態時使用) 則會捨棄該資料表。
 
 3. 開啟 *Migrations\Configuration.cs* 檔案。 
 
@@ -380,16 +380,16 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
                 );
         }
 
-以上的這個程式碼會以連絡人資訊初始化資料庫。如需植入資料庫的詳細資訊，請參閱 [植入及偵錯 Entity Framework (EF) DB](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx) (英文)。
+	以上的這個程式碼會以連絡人資訊初始化資料庫。如需植入資料庫的詳細資訊，請參閱[偵錯 Entity Framework (EF) DB] (英文)(http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)。
 
 
-1. 在 [**Package Manager Console**] 中輸入下列命令：
+1. 在 [**Package Manager Console**] 中輸入命令：
 
 		update-database
 
 	![Package Manager Console commands][addcode009]
 
-**update-database** 會執行第一次移轉，使資料庫建立。根據預設，資料庫會以 SQL Server Express LocalDB 資料庫的形式建立。
+	**update-database** 會執行第一次移轉，使資料庫建立。根據預設，資料庫會以 SQL Server Express LocalDB 資料庫的形式建立。
 
 1. 按 CTRL+F5 執行應用程式。 
 
@@ -399,7 +399,7 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 
 <h2><a name="bkmk_addview"></a>編輯檢視</h2>
 
-1. 開啟 *Views\Home\Index.cshtml* 檔案。在下一個步驟中，我們會將產生的標記取代為使用 [jQuery](http://jquery.com/) 和 [Knockout.js](http://knockoutjs.com/) 的程式碼。這個新的程式碼會使用 Web API 和 JSON 來擷取連絡人清單，然後再使用 knockout.js 使連絡人資料與 UI 繫結。如需詳細資訊，請參閱本教學課程最後的＜[後續步驟](#nextsteps)＞一節。 
+1. 開啟 *Views\Home\Index.cshtml* 檔案。在下一個步驟中，我們會將產生的標記取代為使用 [jQuery](http://jquery.com/) 和 [Knockout.js] 的程式碼(http://knockoutjs.com/)。這個新的程式碼會使用 Web API 和 JSON 來擷取連絡人清單，然後再使用 knockout.js 使連絡人資料與 UI 繫結。如需詳細資訊，請參閱本教學課程最後的[後續步驟](#nextsteps) 小節。 
 
 
 2. 以下列程式碼取代檔案的內容。
@@ -424,9 +424,9 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 		            }
 		            self.removeContact = function (contact) {
 		                $.ajax({
-		                    type:"DELETE",
-		                    url:contact.Self,
-	success:function () {
+		                    type: "DELETE",
+		                    url: contact.Self,
+		                    success: function () {
 		                        self.contacts.remove(contact);
 		                    }
 		                });
@@ -439,9 +439,9 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 		        ko.applyBindings(new ContactsViewModel());	
 		</script>
 		}
-		<ul id="contacts" data-bind="foreach:contacts">
+		<ul id="contacts" data-bind="foreach: contacts">
 		    <li class="ui-widget-content ui-corner-all">
-		        <h1 data-bind="text:Name" class="ui-widget-header"></h1>
+		        <h1 data-bind="text: Name" class="ui-widget-header"></h1>
 		        <div><span data-bind="text: $data.Address || 'Address?'"></span></div>
 		        <div>
 		            <span data-bind="text: $data.City || 'City?'"></span>,
@@ -455,7 +455,7 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 		        <p><a data-bind="attr: { href: Self }, click: $root.removeContact" class="removeContact ui-state-default ui-corner-all">Remove</a></p>
 		    </li>
 		</ul>
-		<form id="addContact" data-bind="submit:addContact">
+		<form id="addContact" data-bind="submit: addContact">
 		    <fieldset>
 		        <legend>Add New Contact</legend>
 		        <ol>
@@ -492,67 +492,67 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 		    </fieldset>
 		</form>
 
-3. 在 Content 資料夾上按一下滑鼠右鍵，按一下 [**新增**]，再按一下 [**新增項目**]。
+3. 在 Content 資料夾上按一下滑鼠右鍵，按一下 [**新增**]，再按一下 [**新增項目...**]。
 
 	![Add style sheet in Content folder context menu][addcode005]
 
-4. 在 [**加入新項目**] 對話方塊中，於右上角的搜尋方塊中輸入 **Style**，然後選取 [**樣式表**]。
+4. 在 [**Add New Item**] 對話方塊中，於右上角的搜尋方塊中輸入 **Style**，然後選取 [**樣式表**]。
 	![Add New Item dialog box][rxStyle]
 
 5. 將檔案命名為 *Contacts.css*，然後按一下 [**新增**]。以下列程式碼取代檔案的內容。
     
         .column {
-            float:left;
+            float: left;
             width: 50%;
             padding: 0;
-            margin:5px 0;
+            margin: 5px 0;
         }
         form ol {
-            list-style-type:none;
+            list-style-type: none;
             padding: 0;
             margin: 0;
         }
         form li {
-            padding:1px;
-            margin:3px;
+            padding: 1px;
+            margin: 3px;
         }
         form input[type="text"] {
             width: 100%;
         }
         #addContact {
-            width:300px;
-            float:left;
+            width: 300px;
+            float: left;
             width:30%;
         }
         #contacts {
-            list-style-type:none;
+            list-style-type: none;
             margin: 0;
             padding: 0;
             float:left;
             width: 70%;
         }
         #contacts li {
-            margin:3px 3px 3px 0;
-            padding:1px;
-            float:left;
-            width:300px;
-            text-align:center;
-            background-image:none;
+            margin: 3px 3px 3px 0;
+            padding: 1px;
+            float: left;
+            width: 300px;
+            text-align: center;
+            background-image: none;
             background-color: #F5F5F5;
         }
         #contacts li h1
         {
             padding: 0;
             margin: 0;
-            background-image:none;
-            background-color:Orange;
-            color:White;
-            font-family:Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+            background-image: none;
+            background-color: Orange;
+            color: White;
+            font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
         }
         .removeContact, .viewImage
         {
-            padding:3px;
-            text-decoration:none;
+            padding: 3px;
+            text-decoration: none;
         }
 
 	我們會將此樣式表用於 Contact Manager 應用程式所用的版面配置、色彩及樣式。
@@ -571,7 +571,7 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
                  bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
                    "~/Content/site.css"));
-變更為：
+To:
 
         bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
@@ -582,15 +582,15 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 
 	Install-Package knockoutjs
 
-<h2><a name="bkmk_addwebapi"></a>為符合 REST 限制的 Web API 介面新增控制器</h2>
+<h2><a name="bkmk_addwebapi"></a>為符合 Web API REST 限制的介面新增控制器</h2>
 
-1. 在 [**方案總管**] 中，於 Controllers 上按一下滑鼠右鍵，並按一下 [**新增**]，再按一下[**控制器....**] 
+1. 在 [**方案總管**]，於 Controllers 上按一下滑鼠右鍵，按一下 [**新增**]，再按一下 [**控制器...**]。 
 
-1. 在 [**Add Scaffold**] 對話方塊中，輸入 **Web API 2 Controller with actions, using Entity Framework**，然後按一下 [**新增**]。
+1. 在 [**Add Scaffold**] 對話方塊中，選取 [**Web API 2 Controller with actions, using Entity Framework**]，再按一下 [**新增**]。
 
 	![Add API controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.PNG)
 
-4. 在 [**加入控制器**] 對話方塊中，輸入 "ContactsController" 作為控制器名稱。在 [**模型類型**] 中選取 "Contact (ContactManager.Models)"。保留 [**資料內容類別**] 的預設值。 
+4. 在 [**加入控制器**] 對話方塊中，輸入 "ContactsController" 作為控制器名稱。選取 "Contact (ContactManager.Models)" 做為 [**模型類別**]。保留 [**資料內容類別**] 的預設值。 
 
 6. 按一下 [**新增**]。
 
@@ -606,7 +606,7 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 
 3. 在瀏覽器中，於 URL 後方加上 **/api/contacts**。
 
-產生的 URL 將類似 http://localhost:1234/api/contacts。您新增之符合 REST 限制的 Web API 會傳回儲存的連絡人。Firefox 和 Chrome 會顯示 XML 格式的資料。
+	產生的 URL 將類似 http://localhost:1234/api/contacts。您新增之符合 REST 限制的 Web API 會傳回儲存的連絡人。Firefox 和 Chrome 會顯示 XML 格式的資料。
 
 	![Index page with to-do list items][rxFFchrome]
 	
@@ -622,7 +622,7 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 
 	![Web API save dialog][addwebapi007]
 
-	**安全性警告**：此時您的應用程式並未受到保護，且容易遭受 CSRF 攻擊。在本教學課程稍後的內容中，我們將移除這項弱點。如需詳細資訊，請參閱 [避免跨網站偽造要求 (CSRF) 攻擊][prevent-csrf-attacks] (英文)。
+	**安全性警告**：此時您的應用程式並未受到保護，且容易遭受 CSRF 攻擊。在本教學課程稍後的內容中，我們將移除這項弱點。如需詳細資訊，請參閱[避免跨網站偽造要求 (CSRF) 攻擊][prevent-csrf-attacks] (英文)。
 
 <h2><a name="xsrf"></a>新增 XSRF 保護</h2>
 
@@ -630,9 +630,9 @@ Visual Studio 隨即針對 **Contact** 物件的 CRUD 資料庫操作，建立�
 
 XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互動。對於網路釣魚攻擊，惡意網站會偽裝成目標網站，致使受害者因受騙而將機密資訊提供給攻擊者。XSRF 攻擊則通常不需要與受害者互動。反之，攻擊者需仰賴瀏覽器將所有相關的 Cookie 自動傳送給目的地網站。
 
-如需詳細資訊，請參閱 [Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF) (英文)。
+如需詳細資訊，請參閱 [Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))。
 
-1. 在 [**方案總管**] 中，以滑鼠右鍵按一下 **ContactManager** 專案，並按一下 [**新增**]，然後按一下[**類別**]。
+1. 在 [**方案總管**]，在 **ContactManager** 專案上按一下滑鼠右鍵，然後依序按一下 [**新增**] 和 [**類別**]。
 
 2. 將檔案命名為 *ValidateHttpAntiForgeryTokenAttribute.cs*，然後新增以下程式碼：
 
@@ -647,7 +647,7 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
         using System.Web.Mvc;
         namespace ContactManager.Filters
         {
-            public class ValidateHttpAntiForgeryTokenAttribute :AuthorizationFilterAttribute
+            public class ValidateHttpAntiForgeryTokenAttribute : AuthorizationFilterAttribute
             {
                 public override void OnAuthorization(HttpActionContext actionContext)
                 {
@@ -704,17 +704,17 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
             }
         }
 
-1. 將下列 *using* 陳述式新增至連絡人控制器，使您得以存取 **[ValidateHttpAntiForgeryToken]** 屬性。
+1. 將以下 *using* 陳述式新增至連絡人控制器，使您得以存取 **[ValidateHttpAntiForgeryToken]** 屬性。
 
 	using ContactManager.Filters;
 
-1. 將 **[ValidateHttpAntiForgeryToken]** 屬性新增至 **ContactsController** 的 Post 方法，使其免於遭受 XSRF 威脅的攻擊。您需要將其新增至 PutContact"、"PostContact" 及 **DeleteContact** 動作方法。
+1. 將 **[ValidateHttpAntiForgeryToken]** 屬性新增至 **ContactsController** 的 Post 方法，使其免於遭受 XSRF 威脅的攻擊。您需要將其新增至 "PutContact"、"PostContact" 及 **DeleteContact** 動作方法。
 
 	[ValidateHttpAntiForgeryToken]
         public IHttpActionResult PutContact(int id, Contact contact)
         {
 
-1. 更新 *Views\Home\Index.cshtml* 檔案的 *Scripts* 區段，使其包含取得 XSRF 權杖的程式碼。
+1. Update the *Scripts* section of the *Views\Home\Index.cshtml* file to include code to get the XSRF tokens.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -724,7 +724,7 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
                    {
                       string cookieToken, formToken;
                       AntiForgery.GetTokens(null, out cookieToken, out formToken);
-                      return cookieToken + ":"+ formToken;                
+                      return cookieToken + ":" + formToken;                
                    }
                 }
 
@@ -734,28 +734,28 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
                   self.addContact = function () {
 
                      $.ajax({
-                        type:"post",
-                        url:"api/contacts",
- data:$("#addContact").serialize(),
-                        dataType:"json",
- 	    success:function (value) {
+                        type: "post",
+                        url: "api/contacts",
+                        data: $("#addContact").serialize(),
+                        dataType: "json",
+                        success: function (value) {
                            self.contacts.push(value);
                         },
                         headers: {
-                           'RequestVerificationToken':'@TokenHeaderValue()'
+                           'RequestVerificationToken': '@TokenHeaderValue()'
                         }
                      });
 
                   }
                   self.removeContact = function (contact) {
                      $.ajax({
-                        type:"DELETE",
-                        url:contact.Self,
- 	    success:function () {
+                        type: "DELETE",
+                        url: contact.Self,
+                        success: function () {
                            self.contacts.remove(contact);
                         },
                         headers: {
-                           'RequestVerificationToken':'@TokenHeaderValue()'
+                           'RequestVerificationToken': '@TokenHeaderValue()'
                         }
 
                      });
@@ -773,29 +773,29 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 
 若要發行應用程式，您需要重複先前遵循過的程序。
 
-1. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案，然後選取 [**發佈**]。
+1. 在 [**Solution Explorer**] 中以滑鼠右鍵按一下專案，再選取 [**發行**]。
 
 	![Publish][rxP]
 
 5. 按一下 [**設定**] 索引標籤。
 	
 
-1. 在 **ContactsManagerContext(ContactsManagerContext)** 下方按一下 [**v**] 圖示，將 [*遠端連接字串*] 變更為連絡人資料庫的連接字串。按一下 [**ContactDB**]。
+1. 在 **ContactsManagerContext(ContactsManagerContext)** 下方按一下 **v** 圖示，將 *Remote connection string* 變更為連絡人資料庫的連接字串。按一下 [**ContactDB**]。
 
 	![Settings](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt5.png)
 
 7. 勾選 [**Execute Code First Migrations (runs on application start)**] 的方塊。
 
-1. 按 [**下一步**]，然後按一下 [**預覽**]。Visual Studio 會顯示即將新增或更新的檔案清單。
+1. 依序按 [**下一步**] 和 [**預覽**]。Visual Studio 會顯示即將新增或更新的檔案清單。
 
-8. 按一下 [**發佈**]。
+8. 按一下 [**發行**]。
 部署完成後，瀏覽器會開啟應用程式的首頁。
 
 	![Index page with no contacts][intro001]
 
-Visual Studio 發佈程序會自動設定已部署之 *Web.config* 檔案中的連接字串，使其指向 SQL 資料庫。它也設定了 Code First 移轉，使其在應用程式於部署完成後首次存取資料庫時，將資料庫自動升級為最新版本。
+	Visual Studio 發行程序會自動設定已部署之 *Web.config* 檔案中的連接字串，使其指向 SQL 資料庫。它也設定了 Code First 移轉，使其在應用程式於部署完成後首次存取資料庫時，將資料庫自動升級為最新版本。
 
-由於這項組態的關係，Code First 會執行您稍早於 **Initial** 類別中建立的程式碼，進而建立資料庫。它會在應用程式於部署完成後首次嘗試存取資料庫時執行這項作業。
+	由於這項組態的關係，Code First 會執行您稍早於 **Initial** 類別中建立的程式碼，進而建立資料庫。它會在應用程式於部署完成後首次嘗試存取資料庫時執行這項作業。
 
 9. 與在本機執行應用程式時一樣的方式輸入連絡人，以驗證資料庫部署是否成功。
 
@@ -807,7 +807,7 @@ Visual Studio 發佈程序會自動設定已部署之 *Web.config* 檔案中的�
 
 <h2><a name="nextsteps"></a>後續步驟</h2>
 
-真實的應用程式會要求驗證和授權，而您需要使用成員資格資料庫來達成目的。[部署含有 OAuth、成員資格及 SQL Database 的安全 ASP.NET MVC 應用程式](http://www.windowsazure.com/zh-tw/develop/net/tutorials/web-site-with-sql-database/) 教學課程是以本教學課程為基礎，其展示如何部署含有成員資格資料庫的 Web 應用程式。
+真實的應用程式會要求驗證和授權，而您需要使用成員資格資料庫來達成目的。[佈署使用 OAuth、成員資格和 SQL Database 的安全 ASP.NET MVC] 教學課程(http://www.windowsazure.com/zh-tw/develop/net/tutorials/web-site-with-sql-database/) 是以本教學課程為基礎，示範如何佈署使用成員資格資料庫的 Web 應用程式。
 
 另一個儲存 Azure 應用程式資料的方法是使用 Azure 儲存體，它能以 Blob 和資料表的形式提供非關聯式的資料儲存。以下連結提供 Web API、ASP.NET MVC 及 Window Azure 的詳細資訊。
  
@@ -815,9 +815,9 @@ Visual Studio 發佈程序會自動設定已部署之 *Web.config* 檔案中的�
 * [使用 MVC 的 Entity Framework 入門][EFCodeFirstMVCTutorial]
 * [ASP.NET MVC 5 入門](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [您的第一個 ASP.NET Web API](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
-* [在 Visual Studio 中疑難排解 Azure 網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+* [偵錯 WAWS](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
-本教學課程和範例應用程式是由 [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT))在 Tom Dykstra 和 Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)) 的協助下所撰寫。 
+本教學課程和範例應用程式是由 [Rick Anderson] 撰寫(http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT))，並由 Tom Dykstra 和 Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)) 提供協助。 
 
 如果您發現喜歡的地方或希望我們改善的地方 (不論是針對本教學課程或其示範的產品)，歡迎留下意見反應。您的意見反應將協助我們訂出優先改善要務。我們非常希望能了解您對於將設定和部署成員資格資料庫之程序更進一步自動化的期待為何。 
 
@@ -879,12 +879,14 @@ Visual Studio 發佈程序會自動設定已部署之 *Web.config* 檔案中的�
 [addwebapi004]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-added-contact.png
 [addwebapi006]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-save-returned-contacts.png
 [addwebapi007]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-contacts-in-notepad.png
-[新增 XSRF 保護]: #xsrf
+[Add XSRF Protection]: #xsrf
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
-[新增 XSRF 保護]: #xsrf
+[Add XSRF Protection]: #xsrf
 [ImportPublishSettings]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishSettings.png
 [ImportPublishProfile]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishProfile.png
 [PublishVSSolution]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/PublishVSSolution.png
 [ValidateConnection]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ValidateConnection.png
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
+
+<!--HONumber=35_1-->

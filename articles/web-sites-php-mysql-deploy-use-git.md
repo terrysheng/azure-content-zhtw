@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Web w/ MySQL + Git" pageTitle="採用 MySQL 和 Git 的 PHP 網站 - Azure 教學課程" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use Git deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties urlDisplayName="Web w/ MySQL + Git" pageTitle="採用 MySQL 和 Git 的 PHP 網站 - Azure 教學課程" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use Git deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
 
 #建立 PHP-MySQL Azure 網站並使用 Git 部署
 
-本教學課程說明如何建立 PHP-MySQL Azure 網站，以及如何使用 Git 部署該網站。您會使用 [PHP][install-php]、MySQL 命令列工具 ([MySQL][install-mysql] 裡的一項工具)、Web 伺服器，以及安裝在您的電腦上的 [Git][install-git]。本教學課程裡的說明可運用在包括 Windows、Mac 與 Linux 的任何作業系統上。完成本指南的步驟後，您將擁有在 Azure 上運作的 PHP/MySQL 網站。
+本教學課程說明如何建立 PHP-MySQL Azure 網站，以及如何使用 Git 部署該網站。您會使用 [PHP][install-php]、MySQL 命令列工具 ([MySQL][install-mysql] 的一部分)、Web 伺服器，以及安裝在您的電腦上的 [Git][install-git]。本教學課程裡的說明可運用在包括 Windows、Mac 與 Linux 的任何作業系統上。完成本指南的步驟後，您將擁有在 Azure 上運作的 PHP/MySQL 網站。
  
 您將了解：
 
@@ -15,92 +15,95 @@
 
 ![Azure PHP web site][running-app]
 
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要已啟用 Azure 網站功能的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱<a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Azure Free Trial</a>.</p> </div>
+> [WACOM.NOTE]
+> 若要完成此教學課程，您需要已啟用 Azure 網站功能的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Azure 免費試用</a>。
+> 
+> 如果您要在註冊帳戶前開始使用 Azure 網站，請移至 <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>，您可以在 Azure 網站中立即建立短期的免費 ASP.NET 簡易版網站。不需要信用卡，沒有承諾。
 
-##Set up the development environment
+##設定開發環境
 
-This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), a web server, and [Git][install-git] installed on your computer.
+本教學課程假設您已經具備 [PHP][install-php]、MySQL 命令列工具 ([MySQL][install-mysql] 的一部分)、Web 伺服器，以及安裝在您的電腦上的 [Git][install-git]。
 
 > [WACOM.NOTE]
-> If you are performing this tutorial on Windows, you can set up your machine for PHP and automatically configure IIS (the built-in web server in Windows) by installing the <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Azure SDK for PHP</a>.
+> 如果您是在 Windows 電腦上執行本教學課程，則您可以設定電腦使用 PHP 並自動設定 IIS (Windows 內建的 Web 伺服器)，而其方法是安裝 <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Azure SDK for PHP</a>。
 
-##<a id="create-web-site-and-set-up-git"></a>Create an Azure website and set up Git publishing
+##<a id="create-web-site-and-set-up-git"></a>建立 Azure 網站並設定 Git 發行
 
-Follow these steps to create an Azure website and a MySQL database:
+依照以下步驟建立 Azure 網站與 MySQL 資料庫：
 
-1. Login to the [Azure Management Portal][management-portal].
-2. Click the **New** icon on the bottom left of the portal.
+1. 登入 [Azure 管理入口網站][management-portal]。
+2. 按一下入口網站左下方的 [**新增**] 圖示。
 
 	![Create New Azure web site][new-website]
 
-3. Click **WebSite**, then **Custom Create**.
+3. 依序按一下 [**網站**] 及 [**自訂建立**]。
 
 	![Custom Create a new web site][custom-create]
 	
-	Enter a value for **URL**, select **Create a New MySQL Database** from the **Database** dropdown,  and select the data center for your website in the **Region** dropdown. Click the arrow at the bottom of the dialog.
+	輸入 **URL**的值，然後從 [**資料庫**] 下拉式清單中選取 [**建立新的 MySQL 資料庫**]，接著在 [**區域**] 下拉式清單中為您的網站選取資料中心。按一下對話方塊底部的箭頭。
 
 	![Fill in web site details][website-details]
 
-4. Enter a value for the **Name** of your database, select the data center for your database in the **Region** dropdown, and check the box that indicates you agree with the legal terms. Click the checkmark at the bottom of the dialog.
+4. 輸入資料庫的 [**名稱**] 值，然後在 [**區域**] 下拉式清單中選取資料庫的資料中心，接著核取代表您同意法律條款的方塊。按一下對話方塊底部的核取記號。
 
 	![Create new MySQL database][new-mysql-db]
 
-	When the website has been created you will see the text **Creation of Website "[SITENAME]" completed successfully**. Now, you can enable Git publishing.
+	建立網站後，您會看到「**建立網站 "[SITENAME]" 成功」**的字樣。現在，您可以啟用 Git 發佈。
 
-6. Click the name of the website displayed in the list of websites to open the website's **QuickStart** dashboard.
+6. 按一下網站清單中顯示的網站名稱，以開啟該網站的 [**快速入門**] 儀表板。
 
 	![Open web site dashboard][go-to-dashboard]
 
 
-7. At the bottom of the **QuickStart** page, click **Set up Git publishing**. 
+7. 在 [**快速啟動**] 頁面下方，按一下 [**設定 Git 發行**]。 
 
 	![Set up Git publishing][setup-git-publishing]
 
-8. To enable Git publishing, you must provide a user name and password. Make a note of the user name and password you create. (If you have set up a Git repository before, this step will be skipped.)
+8. 若要啟用 Git 發佈，您必須提供使用者名稱和密碼。記下您所建立的使用者名稱和密碼。(如果您之前設定過 Git 儲存機制，系統將會略過此步驟。)
 
 	![Create publishing credentials][credentials]
 
-	It will take a few seconds to set up your repository.
+	設定儲存機制需要幾秒鐘的時間。
 
-9. When your repository is ready, you will see instructions for pushing your application files to the repository. Make note of these instructions - they will be needed later.
+9. 當您的儲存機制準備就緒時，您會看到將應用程式檔案發佈至該儲存機制的指示。請記下這些指示，以供稍後使用。
 
 	![Git instructions][git-instructions]
 
-##Get remote MySQL connection information
+##取得遠端 MySQL 連線資訊
 
-To connect to the MySQL database that is running in Azure Websites, your will need the connection information. To get MySQL connection information, follow these steps:
+若要連線至在 Azure 網站中執行的 MySQL 資料庫，您需要連線資訊。若要取得 MySQL 連線資訊，請依照以下步驟執行：
 
-1. From your website's dashboard, click the **View connection strings** link on the right side of the page:
+1. 從網站的儀表板上，按一下頁面右側的 [**檢視連接字串**] 連結：
 
 	![Get database connection information][connection-string-info]
 	
-2. Make note of the values for `Database`, `Data Source`, `User Id`, and `Password`.
+2. 記下 'Database'、'Data Source'、'User Id' 與 'Password' 的值。
 
-##Build and test your application locally
+##在本機建置與測試您的應用程式
 
-Now that you have created an Azure Website, you can develop your application locally, then deploy it after testing. 
+建立好 Azure 網站後，您可以在本機開發自己的應用程式，並在測試後進行部署。 
 
-The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a MySQL database. The application consists of one file (copy/paste code available below):
+註冊應用程式是一項簡單的 PHP 應用程式，您只需提供名稱與電子郵件地址就能註冊活動。先前的註冊者相關資訊會顯示在資料表中。註冊資訊會存放在 MySQL 資料庫。該應用程式包含一個檔案 (複製/貼上以下提供的程式碼)：
 
-* **index.php**: Displays a form for registration and a table containing registrant information.
+* **index.php**:顯示註冊表單，以及內含註冊者資訊的資料表。
 
-To build and run the application locally, follow the steps below. Note that these steps assume you have PHP, the MySQL Command-Line Tool (part of MySQL), and a web server set up on your local machine, and that you have enabled the [PDO extension for MySQL][pdo-mysql].
+若要在本機建置與執行應用程式，請遵循下列步驟。請注意，這些步驟假設您具有 PHP、MySQL 命令列工具 (MySQL 的一部分)，以及一部在本機電腦上設定的 Web 伺服器，而且您已經啟用了 [MySQL 的 PDO 延伸功能][pdo-mysql]。
 
-1. Connect to the remote MySQL server, using the value for `Data Source`, `User Id`, `Password`, and `Database` that you retrieved earlier:
+1. 使用您先前擷取的 `Data Source`、`User Id`、`Password` 與 `Database` 值連線到遠端 MySQL 伺服器：
 
 		mysql -h{Data Source] -u[User Id] -p[Password] -D[Database]
 
-2. The MySQL command prompt will appear:
+2. MySQL 命令提示字元會顯示：
 
 		mysql>
 
-3. Paste in the following `CREATE TABLE` command to create the `registration_tbl` table in your database:
+3. 貼上下列 `CREATE TABLE` 命令，以在您的資料庫中建立 `registration_tbl` 資料表：
 
 		mysql> CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
 
-4. In your web server's root directory, create a folder called `registration` and create a file in it called `index.php`.
+4. 在 Web 伺服器的根目錄中，建立名為 `registration` 的資料夾，然後在其中建立一個名為 `index.php` 的檔案。
 
-5. Open the **index.php** file in a text editor or IDE and add the following code, and complete the necessary changes marked with `//TODO:` comments.
+5. 在文字編輯器或 IDE 中開啟 **index.php** 檔案並新增下列程式碼，然後完成加上 `//TODO:` 之註解中的必要變更。
 
 
 		<html>
@@ -130,8 +133,8 @@ To build and run the application locally, follow the steps below. Note that thes
 		</form>
 		<?php
 			// DB connection info
-			//TODO:更新 $host、$user、$pwd 和 $db 的值
-			//使用您稍早從入口網站擷取的值。
+			//TODO: Update the values for $host, $user, $pwd, and $db
+			//using the values you retrieved earlier from the portal.
 			$host = "value of Data Source";
 			$user = "value of User Id";
 			$pwd = "value of Password";
@@ -144,11 +147,11 @@ To build and run the application locally, follow the steps below. Note that thes
 			catch(Exception $e){
 				die(var_dump($e));
 			}
-			// 插入註冊資訊
+			// Insert registration info
 			if(!empty($_POST)) {
 			try {
-			$name = $_POST['name'];
-			$email = $_POST['email'];
+				$name = $_POST['name'];
+				$email = $_POST['email'];
 				$date = date("Y-m-d");
 				// Insert data
 				$sql_insert = "INSERT INTO registration_tbl (name, email, date) 
@@ -159,38 +162,38 @@ To build and run the application locally, follow the steps below. Note that thes
 				$stmt->bindValue(3, $date);
 				$stmt->execute();
 			}
-			catch(Exception $e){
+			catch(Exception $e) {
 				die(var_dump($e));
 			}
-		echo "<h3>Your're registered!</h3>";
+			echo "<h3>Your're registered!</h3>";
 			}
-			// 擷取資料
+			// Retrieve data
 			$sql_select = "SELECT * FROM registration_tbl";
 			$stmt = $conn->query($sql_select);
 			$registrants = $stmt->fetchAll(); 
 			if(count($registrants) > 0) {
-			echo "<h2>People who are registered:</h2>";
-			echo "<table>";
-			echo "<tr><th>Name</th>";
-			echo "<th>Email</th>";
-			echo "<th>Date</th></tr>";
+				echo "<h2>People who are registered:</h2>";
+				echo "<table>";
+				echo "<tr><th>Name</th>";
+				echo "<th>Email</th>";
+				echo "<th>Date</th></tr>";
 				foreach($registrants as $registrant) {
-				echo "<tr><td>".$registrant['name']."</td>";
-				echo "<td>".$registrant['email']."</td>";
-				echo "<td>".$registrant['date']."</td></tr>";
+					echo "<tr><td>".$registrant['name']."</td>";
+					echo "<td>".$registrant['email']."</td>";
+					echo "<td>".$registrant['date']."</td></tr>";
 		    	}
-			echo "</table>";
+		 		echo "</table>";
 			} else {
-			echo "<h3>No one is currently registered.</h3>";
+				echo "<h3>No one is currently registered.</h3>";
 			}
 		?>
 		</body>
 		</html>
 
-您現在可以瀏覽至 **http://localhost/registration/index.php** 並測試應用程式。
+您現在可以瀏覽至 **http://localhost/registration/index.php** 測試應用程式。
 
 
-##發行您的應用程式
+##發行應用程式
 
 當您在本機完成應用程式測試之後，可以使用 Git 將其發行至 Azure 網站。您將初始化本機 Git 儲存機制並發行該應用程式。
 
@@ -234,7 +237,7 @@ To build and run the application locally, follow the steps below. Note that thes
 
 	![Pushing site changes to Azure via Git][git-change-push]
 
-3. 瀏覽至 **http://[site name].azurewebsites.net/index.php**，以查看您的應用程式以及您所做的任何變更：
+3. 瀏覽至 **http://[site name].azurewebsites.net/index.php** 以查看您的應用程式以及您所做的任何變更：
 
 	![Azure PHP web site][running-app]
 
@@ -265,3 +268,5 @@ To build and run the application locally, follow the steps below. Note that thes
 [connection-string-info]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
 [management-portal]: https://manage.windowsazure.com
 [sql-database-editions]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee621788.aspx
+
+<!--HONumber=35_1-->

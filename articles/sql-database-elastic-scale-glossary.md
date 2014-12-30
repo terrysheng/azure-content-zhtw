@@ -1,60 +1,69 @@
-﻿<properties title="Azure Elastic Scale Glossary" pageTitle="Azure Elastic Scale 名詞解釋" description="Explanation of terms used for Elastic Scale feature of Azure SQL Database" metaKeywords="sharding,elastic scale, Azure SQL DB sharding" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Azure Elastic Scale Glossary" pageTitle="Azure Elastic Scale 詞彙" description="Azure SQL Database 的 Elastic Scale 功能所用詞彙的說明" metaKeywords="sharding,elastic scale, Azure SQL DB sharding" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
-#Elastic Scale 名詞解釋
-以下是針對 Azure SQL Database 的 Elastic Scale 功能所定義的詞彙。
+#Elastic Scale 詞彙
+以下是針對 Azure SQL Database 的 Elastic Scale 功能定義的詞彙。
 
 ![Elastic Scale terms][1]
 
 **資料庫**：Azure SQL Database。 
 
-**資料相依路由**：可讓應用程式根據特定的分區化索引鍵連接到分區的功能。請對照**多分區查詢**。
+**資料相依路由**：讓應用程式使用特定分區化金鑰連線到分區的功能。比較**多分區查詢**。
 
-**全域分區對應**：在**分區集**之內，分區化索引鍵及其個別分區之間的對應組。GSM 儲存在**分區對應管理員**中。請對照**本機分區對應**。
+**全域分區對應**：分區化金鑰與**分區組中的個別分區之間的對應組**。GSM 儲存在 [**分區對應管理員**] 中。比較**本機分區對應**。
 
-**清單分區對應**：逐一對應分區化索引鍵的分區對應。請對照**範圍分區對應**。   
+**清單分區對應**：個別對應分區化金鑰的分區對應。比較**範圍分區對應**。   
 
-**本機分區對應**：本機分區對應儲存在分區上，且包含位於分區上之 Shardlet 的對應。
+**本機分區對應**：儲存在分區的本機分區對應包含分區內小分區的對應。
 
-**多分區查詢**：能夠對多個分區發出查詢，使用 UNION ALL 語意傳回結果集 (也稱為「展開傳送查詢」)。請對照**資料相依路由**。
 
-**範圍分區對應**：根據多個連續值範圍來制訂分區分佈策略的分區對應。 
+**多分區查詢**：對於多個分區進行查詢的能力；使用 UNION ALL 語意 (也稱為「展開傳送查詢」) 傳回結果集。比較**資料相依路由**。
 
-**參考資料表**：不分區化而是跨分區複寫的資料表。 
+**範圍分區對應**：分區散發策略以連續值的多個範圍為基礎的分區對應。 
 
-**分區**：儲存來自分區化資料集之資料的 Azure SQL 資料庫。 
 
-**分區彈性** (SE)：能夠執行**水平縮放**與**垂直縮放**。
+**參考資料表**：並未分區而在分區之間複寫的資料表。 
 
-**分區化資料表**：分區化的資料表，亦即，資料根據其分區化索引鍵值而分佈至分區。 
+**分區**：儲存分區化資料集資料的 Azure SQL 資料庫。 
 
-**分區化索引鍵**：決定資料如何分佈至分區的資料行值。值型別可以是下列其中一種：int、bigint、varbinary 或 uniqueidentifier。 
+**分區彈性** (SE)：執行**水平調整**和**垂直調整**的能力。
 
-**分區集**：在分區對應管理員中屬於相同分區對應的分區集合。  
+**分區化資料表**：分區化 (也就是按照分區化金鑰值在分區之間散發資料) 的資料表。 
 
-**Shardlet**：與分區上之分區化索引鍵的單一值相關聯的所有資料。在重新分佈分區化資料表時，Shardlet 是可能的資料移動最小單位。 
+**分區化金鑰**：決定如何在分區之間散發資料的欄值。值類型可以是下列其中一個：int、bigint、varbinary 或 uniqueidentifier。 
 
-**分區對應**：分區化索引鍵和其個別分區之間的對應集合。
+**分區集**：散發到分區對應管理員之中同一個分區對應的分區集合。  
 
-**分區對應管理員**：管理物件和資料存放區，其中包含分區對應、分區位置，以及一或多個分區集的對應。
+**小分區**：與分區的分區化金鑰單一值相關聯的所有資料。小分區是散發分區化資料表時可能資料移動的最小單位。 
+
+**分區對應**：分區化金鑰與個別分區之間的對應組。
+
+**分區對應管理員**：包含分區對應、分區位置和一個或多個分區集之對應的管理物件及資料存放區。
+
+![Mappings][2]
 
 
 ##動詞
 
-**水平縮放**：藉由在分區對應中新增或移除分區而相應放大 (或縮小) 分區集合的動作。
+**水平調整**：對於分區對應新增或移除分區的分區集合擴充 (或縮小) 動作。
 
-**合併**：將兩個分區的 Shardlet 移至一個分區並相應地更新分區對應的動作。
+**合併**：將兩個分區的小分區移到一個分區並隨之更新分區對應的動作。
 
-**Shardlet 移動**：將單一 Shardlet 移至不同分區的動作。 
+**小分區移動**：將一個小分區移到不同分區的動作。 
 
-**分區**：根據分區化索引鍵將結構完全相同的資料水平分割至多個資料庫的動作。
+**分區**：按照分區化金鑰在多個資料庫之間水平分割相同結構資料的動作。
 
-**分割**：將一個分區的數個 Shardlet 移至另一個 (通常是新的) 分區的動作。使用者會提供分區化索引鍵作為分割點。
+**分割**：將一個分區的多個小分區移到另一個 (通常是新的) 分區的動作。使用者提供分區化金鑰做為分割點。
 
-**垂直縮放**：相應增加 (或減少) 個別分區之效能層級的動作。例如，將分區從 Standard 變更為 Premium (基於效能理由而需要)。 
+**垂直調整**：向上 (或向下) 調整個別分區效能等級的動作。例如，將標準的分區變更為 Premium (基於效能考量)。 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]  
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png
+[2]: ./media/sql-database-elastic-scale-glossary/mappings.png
+
+
+
+<!--HONumber=35_1-->

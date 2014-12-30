@@ -1,10 +1,14 @@
-<properties urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="如何傳遞 Apple HTTP 即時資料流 (HLS) - Azure" metaKeywords="" description="了解如何為媒體服務原始伺服器上的 Apple HTTP 即時資料流 (HLS) 內容建立定位器。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" metaCanonical="" services="media-services" documentationCenter="" title="作法：傳遞 Apple HLS 串流內容" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="如何傳遞 Apple HTTP 即時資料流 (HLS) - Azure" metaKeywords="" description="Learn how to create a locator to Apple HTTP Live Stream (HLS) content on Media Services origin server. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
-# 作法：傳遞 Apple HLS 串流內容
 
-本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是＜[作法：傳遞串流內容][作法：傳遞串流內容]。
+
+
+
+<h1>作法：傳遞 Apple HLS 串流內容</h1>
+
+本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是＜[作法：傳遞串流內容](../media-services-deliver-streaming-content/)。
 
 本主題說明如何為媒體服務原始伺服器上的 Apple HTTP 即時資料流 (HLS) 內容建立定位器。透過此方式，您可以建置 Apple HLS 內容的 URL，並將它提供給 Apple iOS 裝置進行播放。建置定位器 URL 的基本方式相同。為原始伺服器上的 Apple HLS 串流資產路徑建置定位器，然後建置可連結至串流內容之資訊清單的完整 URL。
 
@@ -12,76 +16,75 @@
 
 建置 Apple HLS 串流內容的定位器：
 
-1.  取得資產中的資訊清單檔的參考
-2.  定義存取原則
-3.  呼叫 CreateLocator 來建立原始定位器
-4.  建立資訊清單檔的 URL
+   1. 取得資產中的資訊清單檔的參考
+   2. 定義存取原則
+   3. 呼叫 CreateLocator 來建立原始定位器
+   4. 建立資訊清單檔的 URL
 
 下列程式碼說明如何實作這些步驟：
 
-    static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
-    {
-        // Get a reference to the asset you want to stream.
-        IAsset assetToStream = GetAsset(targetAssetID);
+<pre><code>
+static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
+{
+    // Get a reference to the asset you want to stream.
+    IAsset assetToStream = GetAsset(targetAssetID);
 
-        // Get a reference to the HLS streaming manifest file from the  
-        // collection of files in the asset. 
-        var theManifest =
-                            from f in assetToStream.AssetFiles
-                            where f.Name.EndsWith(".ism")
-                            select f;
+    // Get a reference to the HLS streaming manifest file from the  
+    // collection of files in the asset. 
+    var theManifest =
+                        from f in assetToStream.AssetFiles
+                        where f.Name.EndsWith(".ism")
+                        select f;
 
-        // Cast the reference to a true IAssetFile type. 
-        IAssetFile manifestFile = theManifest.First();
-        IAccessPolicy policy = null;
-        ILocator originLocator = null;
+    // Cast the reference to a true IAssetFile type. 
+    IAssetFile manifestFile = theManifest.First();
+    IAccessPolicy policy = null;
+    ILocator originLocator = null;
 
-        // Create a 30-day readonly access policy. 
-        policy = _context.AccessPolicies.Create("Streaming HLS Policy",
-            TimeSpan.FromDays(30),
-            AccessPermissions.Read);
+    // Create a 30-day readonly access policy. 
+    policy = _context.AccessPolicies.Create("Streaming HLS Policy",
+        TimeSpan.FromDays(30),
+        AccessPermissions.Read);
 
-        originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, assetToStream,
-                    policy,
-                    DateTime.UtcNow.AddMinutes(-5));
+    originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, assetToStream,
+                policy,
+                DateTime.UtcNow.AddMinutes(-5));
 
-        // Create a URL to the HLS streaming manifest file. Use this for playback
-        // in Apple iOS streaming clients.
-        string urlForClientStreaming = originLocator.Path
-            + manifestFile.Name + "/manifest(format=m3u8-aapl)";
-        Console.WriteLine("URL to manifest for client streaming: ");
-        Console.WriteLine(urlForClientStreaming);
-        Console.WriteLine();
+    // Create a URL to the HLS streaming manifest file. Use this for playback
+    // in Apple iOS streaming clients.
+    string urlForClientStreaming = originLocator.Path
+        + manifestFile.Name + "/manifest(format=m3u8-aapl)";
+    Console.WriteLine("URL to manifest for client streaming: ");
+    Console.WriteLine(urlForClientStreaming);
+    Console.WriteLine();
 
-        // Return the locator. 
-        return originLocator;
-    }
+    // Return the locator. 
+    return originLocator;
+}
+</code></pre>
 
-如需有關傳遞資產的詳細資訊，請參閱：
+Weitere Informationen zur Auslieferung von Medienobjekten finden Sie unter:
+<ul>
+<li><a href="http://msdn.microsoft.com/zh-tw/library/jj129575.aspx">使用 Media Services for .NET 傳遞資產</a></li>
+<li><a href="http://msdn.microsoft.com/zh-tw/library/jj129578.aspx">使用 Media Services REST API 傳遞資產</a></li>
+</ul>
 
--   [使用 Media Services for .NET 傳遞資產][使用 Media Services for .NET 傳遞資產]
--   [使用 Media Services REST API 傳遞資產][使用 Media Services REST API 傳遞資產]
-
-</p>
-## 後續步驟
+<h2>後續步驟</h2>
 
 本主題為最後一個「使用 Azure 媒體服務」主題。我們已涵蓋設定電腦來進行媒體服務開發，以及執行一般程式設計工作。如需關於對媒體服務進行程式設計的詳細資訊，請參閱下列資源：
 
--   [Azure 媒體服務文件][Azure 媒體服務文件]
--   [開始使用 Media Services SDK for .NET][開始使用 Media Services SDK for .NET]
--   [使用 Media Services SDK for .NET 建立應用程式][使用 Media Services SDK for .NET 建立應用程式]
--   [使用 Azure Media Services REST API 建立應用程式][使用 Azure Media Services REST API 建立應用程式]
--   [媒體服務論壇][媒體服務論壇]
--   [如何監視媒體服務帳戶][如何監視媒體服務帳戶]
--   [如何管理媒體服務中的內容][如何管理媒體服務中的內容]
+-   [Azure 媒體服務文件][]
+-   [開始使用 Media Services SDK for .NET][]
+-   [使用 Media Services SDK for .NET 建立應用程式][]
+-   [使用 Azure Media Services REST API 建立應用程式][]
+-   [媒體服務論壇][]
+-	[如何監視媒體服務帳戶](../media-services-monitor-services-account/)
+-	[如何管理媒體服務中的內容](../media-services-manage-content/)
 
-  [作法：傳遞串流內容]: ../media-services-deliver-streaming-content/
-  [使用 Media Services for .NET 傳遞資產]: http://msdn.microsoft.com/zh-tw/library/jj129575.aspx
-  [使用 Media Services REST API 傳遞資產]: http://msdn.microsoft.com/zh-tw/library/jj129578.aspx
-  [Azure 媒體服務文件]: http://go.microsoft.com/fwlink/?linkid=245437
-  [開始使用 Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=252966
-  [使用 Media Services SDK for .NET 建立應用程式]: http://go.microsoft.com/fwlink/?linkid=247821
-  [使用 Azure Media Services REST API 建立應用程式]: http://go.microsoft.com/fwlink/?linkid=252967
-  [媒體服務論壇]: http://social.msdn.microsoft.com/Forums/zh-tw/MediaServices/threads
-  [如何監視媒體服務帳戶]: ../media-services-monitor-services-account/
-  [如何管理媒體服務中的內容]: ../media-services-manage-content/
+[Azure 媒體服務文件]: http://go.microsoft.com/fwlink/?linkid=245437
+[開始使用 Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=252966
+[使用 Azure Media Services REST API 建立應用程式]: http://go.microsoft.com/fwlink/?linkid=252967
+[使用 Media Services SDK for .NET 建立應用程式]: http://go.microsoft.com/fwlink/?linkid=247821
+[媒體服務論壇]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+
+<!--HONumber=35_1-->

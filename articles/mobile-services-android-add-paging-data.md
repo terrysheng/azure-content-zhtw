@@ -4,7 +4,7 @@
 
 # 使用分頁縮小行動服務查詢範圍
 
-€
+[WACOM.INCLUDE [mobile-services-selector-add-paging-data](../includes/mobile-services-selector-add-paging-data.md)]
 
 此主題將說明如何使用分頁，管理從 Azure 行動服務傳回至 Android 應用程式的資料量。在此教學課程中，您將在用戶端上使用 **top** 和 **skip** 查詢方法要求特定的資料「頁面」。
 

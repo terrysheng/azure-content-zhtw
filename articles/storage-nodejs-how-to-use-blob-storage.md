@@ -131,28 +131,28 @@ result 將包含操作的相關資訊，包括容器的目前 **ETag**。
 
 在此回呼中，以及處理 returnObject (來自對伺服器之要求的回應) 之後，回呼需要叫用 next (如果存在) 以繼續處理其他篩選，或是直接叫用 finalCallback 結束服務叫用。
 
-Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**ExponentialRetryPolicyFilter** 和 **LinearRetryPolicyFilter**。以下會建立使用 **ExponentialRetryPolicyFilter** 的 
+Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**ExponentialRetryPolicyFilter** 和 **LinearRetryPolicyFilter**。以下會建立使用 **ExponentialRetryPolicyFilter** 的 **BlobService** 物件：
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var blobSvc = azure.createBlobService().withFilter(retryOperations);
 
-## <a name="upload-blob"> </a>How to: Upload a Blob into a Container
+## <a name="upload-blob"> </a>作法：將 Blob 上傳至容器
 
-A blob can be either block, or page based. Block blobs allow you to more efficiently upload large data, while page blobs are optimized for read/write operations. For more information, see [Understanding block blobs and page blobs](http://msdn.microsoft.com/zh-tw/library/azure/ee691964.aspx).
+Blob 可以是區塊，或以分頁為基礎。Block 區塊可讓您更有效率地上傳大型資料，而分頁 Blob 最適合讀寫操作。如需詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob](http://msdn.microsoft.com/zh-tw/library/azure/ee691964.aspx)。
 
-###Block blobs
+###區塊 Blob
 
-To upload data to a block blob, use the following:
+若要將資料上傳至區塊 Blob，請使用下列方法：
 
-* **createBlockBlobFromLocalFile** - creates a new block blob and uploads the contents of a file.
+* **createBlockBlobFromLocalFile** - 建立新的區塊 Blob 並上傳檔案的內容。
 
-* **createBlockBlobFromStream** - creates a new block blob and uploads the contents of a stream.
+* **createBlockBlobFromStream** - 建立新的區塊 Blob 並上傳串流的內容。
 
-* **createBlockBlobFromText** - creates a new block blob and uploads the contents of a string.
+* **createBlockBlobFromText** - 建立新的區塊 Blob 並上傳字串的內容。
 
-* **createWriteStreamToBlockBlob** - provides a write stream to a block blob.
+* **createWriteStreamToBlockBlob** - 提供對區塊 Blob 的寫入串流。
 
-The following example uploads the contents of the **test.txt** file into **myblob**.
+下列範例會將 **test.txt** 檔案的內容上傳至 **myblob**。
 
 	blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', function(error, result, response){
 	  if(!error){
@@ -160,23 +160,23 @@ The following example uploads the contents of the **test.txt** file into **myblo
 	  }
 	});
 
-The `result` returned by these methods will contain information on the operation, such as the **ETag** of the blob.
+由這些方法傳回的 `result` 將包含操作的相關資訊，例如 Blob 的 **ETag**。
 
-###Page blobs
+###分頁 Blob
 
-To upload data to a page blob, use the following:
+若要將資料上傳至分頁 Blob，請使用下列方法：
 
-* **createPageBlob** - creates a new page blob of a specific length.
+* **createPageBlob** - 建立特定長度的新分頁 Blob。
 
-* **createPageBlobFromLocalFile** - creates a new page blob and uploads the contents of a file.
+* **createPageBlobFromLocalFile** - 建立新的分頁 Blob 並上傳檔案的內容。
 
-* **createPageBlobFromStream** - creates a new page blob and uploads the contents of a stream.
+* **createPageBlobFromStream** - 建立新的分頁 Blob 並上傳串流的內容。
 
-* **createWriteStreamToExistingPageBlob** - provides a write stream to an existing page blob.
+* **createWriteStreamToExistingPageBlob** - 提供對現有分頁 Blob 的寫入串流。
 
-* **createWriteStreamToNewPageBlob** - creates a new blob and then provides a stream to write to it.
+* **createWriteStreamToNewPageBlob** - 建立新的 Blob，然後提供串流來寫入它。
 
-The following example uploads the contents of the **test.txt** file into **mypageblob**.
+下列範例會將 **test.txt** 檔案的內容上傳至 **mypageblob**。
 
 	blobSvc.createPageBlobFromLocalFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
 	  if(!error){
@@ -184,11 +184,11 @@ The following example uploads the contents of the **test.txt** file into **mypag
 	  }
 	});
 
-> [WACOM.NOTE] Page blobs consist of 512-byte 'pages'. You may receive an error when uploading data with a size that is not a multiple of 512.
+> [WACOM.NOTE] 分頁 Blob 由 512 位元組的「分頁」組成。如果上傳的資料大小不是 512 的倍數，可能會發生錯誤。
 
-## <a name="list-blob"> </a>How to: List the Blobs in a Container
+## <a name="list-blob"> </a>作法：列出容器中的 Blob
 
-To list the blobs in a container, use the **listBlobsSegmented** method. If you would like to return blobs with a specific prefix, use **listBlobsSegmentedWithPrefix**.
+若要列出容器中的 Blob，請使用 **listBlobsSegmented** 方法。若要傳回具有特定首碼的 Blob，請使用**listBlobsSegmentedWithPrefix**。
 
     blobSvc.listBlobsSegmented('mycontainer', null, function(error, result, response){
       if(!error){
@@ -196,21 +196,21 @@ To list the blobs in a container, use the **listBlobsSegmented** method. If you 
 	  }
 	});
 
-The `result` will contain an `entries` collection, which is an array of objects describing each blob. If all blobs cannot be returned, the `result` will also provide a `continuationToken`, which may be used as the second parameter to retrieve additional entries.
+`result` 會包含 `entries` 集合，這是說明每個 Blob 的物件陣列。若無法傳回所有 Blob，`result` 也會提供 `continuationToken`，可作為第二個參數來擷取更多項目。
 
-## <a name="download-blob"> </a>How to: Download Blobs
+## <a name="download-blob"> </a>作法：下載 Blob
 
-To download data from a blob, use the following:
+若要從 Blob 下載資料，請使用下列方法：
 
-* **getBlobToFile** - writes the blob contents to file
+* **getBlobToFile** - 將 Blob 內容寫入檔案
 
-* **getBlobToStream** - writes the blob contents to a stream.
+* **getBlobToStream** - 將 Blob 內容寫入串流。
 
-* **getBlobToText** - writes the blob contents to a string. 
+* **getBlobToText** - 將 Blob 內容寫入字串。 
 
-* **createReadStream** - provides a stream to read from the blob
+* **createReadStream** - 提供串流來讀取 Blob
 
-The following example demonstrates using **getBlobToStream** to download the contents of the **myblob** blob and store it to the **output.txt** file using a stream:
+下列範例示範如何使用 **getBlobToStream** 下載 **myblob** 的內容，並使用串流存放到 **output.txt** 檔案：
 
     var fs=require('fs');
 	blobSvc.getBlobToStream('mycontainer', 'myblob', fs.createWriteStream('output.txt'), function(error, result, response){
@@ -219,11 +219,11 @@ The following example demonstrates using **getBlobToStream** to download the con
 	  }
 	});
 
-The `result` will contain information about the blob, including **ETag** information.
+`result` 會包含 Blob 的相關資訊，包括 **ETag** 資訊。
 
-## <a name="delete-blob"> </a>How to: Delete a Blob
+## <a name="delete-blob"> </a>作法：刪除 Blob
 
-Finally, to delete a blob, call **deleteBlob**. The following example deletes the blob named **myblob**.
+最後，呼叫 **deleteBlob** 以刪除 Blob。下列範例會刪除名為 **myblob** 的 Blob。
 
     blobSvc.deleteBlob(containerName, 'myblob', function(error, response){
 	  if(!error){
@@ -231,19 +231,19 @@ Finally, to delete a blob, call **deleteBlob**. The following example deletes th
 	  }
 	});
 
-##<a name="concurrent-access"></a>How to: Concurrent access
+##<a name="concurrent-access"></a>作法：並行存取
 
-To support concurrent access to a blob from multiple clients or multiple process instances, you can use **ETags** or **leases**.
+若要支援從多個用戶端或多個程序執行個體並行存取 Blob，您可以使用 **ETags** 或**租用**。
 
-* **Etag** - provides a way to detect that the blob or container has been modified by another process.
+* **Etag** - 提供方法來偵測 Blob 或容器已被另一個程序修改過。
 
-* **Lease** - provides a way to obtain exclusive, renewable, write or delete access to a blob for a period of time.
+* **租用** - 提供方法來取得在一段時間內對 Blob 的獨佔、可更新、寫入或刪除存取權。
 
 ###ETag
 
-ETags should be used if you need to allow multiple clients or instances to write to the blob simultaneously. The ETag allows you to determine if the container or blob has been modified since you initially read or created it, which allows you to avoid overwriting changes committed by another client or process.
+若您需要允許多個用戶端或執行個體同時寫入 Blob，則應該使用 ETag。ETag 可讓您判斷容器或 Blob 自從您最初讀取或建立它之後是否已修改，這樣可讓您避免覆寫另一個用戶端或程序已認可的變更。
 
-ETag conditions can be set using the optional `options.accessConditions` parameter. The following example will only upload the **test.txt** file if the blob already exists and has the ETag value contained by `etagToMatch`.
+若要設定 ETag 條件，可使用選擇性的 `options.accessConditions` 參數。只有在 Blob 已存在，且 `etagToMatch` 中包含 ETag 值時，以下範例才會上傳 **test.txt** 檔案。
 
 	blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', { accessConditions: { 'if-match': etagToMatch} }, function(error, result, response){
       if(!error){
@@ -251,17 +251,17 @@ ETag conditions can be set using the optional `options.accessConditions` paramet
 	  }
 	});
 
-The general pattern when using ETags is:
+使用 ETag 時的一般模式為：
 
-1. Obtain the ETag as the result of a create, list, or get operation.
+1. 取得執行建立、列出或取得操作之後的 ETag。
 
-2. Perform an action, checking that the ETag value has not been modified.
+2. 執行動作，檢查 ETag 值未被修改。
 
-If the value has been modified, this indicates that another client or instance has modified the blob or container since you obtained the ETag value.
+若值已被修改，這表示另一個用戶端或執行個體自從您取得 ETag 值之後已修改 Blob 或容器。
 
-###Lease
+###租用
 
-A new lease can be acquired using the **acquireLease** method, specifying the blob or container that you wish to obtain a lease on. For example, the following acquires a lease on **myblob**.
+若要取得新的租用，可使用 **acquireLease** 方法，並指定您要取得租用的 Blob 或容器。例如，以下會取得 **myblob** 的租用。
 
 	blobSvc.acquireLease('mycontainer', 'myblob', function(error, result, response){
 	  if(!error) {
@@ -269,21 +269,21 @@ A new lease can be acquired using the **acquireLease** method, specifying the bl
 	  }
 	});
 
-Subsequent operations on **myblob** must provide `options.leaseId` parameter. The lease ID is returned as `result.id` from **acquireLease**.
+**myblob** 的後續操作必須提供 `options.leaseId` 參數。租用識別碼會從 **acquireLease** 傳回為 `result.id`。
 
-> [WACOM.NOTE] By default, the lease duration is infinite. You can specify a non-infinite duration (between 15 and 60 seconds,) by providing the `options.leaseDuration` parameter.
+> [WACOM.NOTE] 依預設，租用期間無限制。若要指定有限期間 (15 到 60 秒)，您可以提供 `options.leaseDuration` 參數。
 
-To remove a lease, use **releaseLease**. To break a lease, but prevent others from obtaining a new lease until the original duration has expired, use **breakLease**.
+若要移除租用，請使用 **releaseLease**。若要中止租用，但在原始期間到期之前不讓其他人取得新的租用，請使用 **breakLease**。
 
-## <a name="sas"></a>How to: Work with Shared Access Signatures
+## <a name="sas"></a>作法：使用共用存取簽章
 
-Shared Access Signatures (SAS) are a secure way to provide granular access to blobs and containers without providing your storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to access blobs.
+共用存取簽章 (SAS) 可安全地提供對 Blob 和容器的精確存取，而不必提供您的儲存體帳戶名稱或金鑰。SAS 通常用來提供對資料的有限存取，例如允許行動應用程式存取 Blob。
 
-> [WACOM.NOTE] While you can also allow anonymous access to blobs, SAS allows you to provide more controlled access, as you must generate the SAS.
+> [WACOM.NOTE] 雖然您也可以用匿名方式存取 Blob，但 SAS 可讓您提供更受控制的存取，因為您必須產生 SAS。
 
-A trusted application such as a cloud-based service generates a SAS using the **generateSharedAccessSignature** of the **BlobService**, and provides it to an untrusted or semi-trusted application. For example, a mobile app. The SAS is generated using a policy, which describes the start and end dates during which the SAS is valid, as well as the access level granted to the SAS holder.
+信任的應用程式 (例如雲端型服務) 會使用**BlobService** 的 **generateSharedAccessSignature** 來產生 SAS，並提供它給不信任或不完全信任的應用程式。例如行動應用程式。SAS 是使用原則來產生，該原則描述 SAS 有效期間的開始和結束日期，以及授與 SAS 持有者的存取等級。
 
-The following example generates a new shared access policy that will allow the SAS holder to perform read operations on the **myblob** blob, and expires 100 minutes after the time it is created.
+下列範例會產生新的共用存取原則，讓 SAS 持有者對 **myblob** Blob 執行讀取操作，並於建立它之後的 100 分鐘過期。
 
 	var startDate = new Date();
 	var expiryDate = new Date(startDate);
@@ -301,9 +301,9 @@ The following example generates a new shared access policy that will allow the S
 	var blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', 'myblob', sharedAccessPolicy);
 	var host = blobSvc.host;
 
-Note that the host information must be provided also, as it is required when the SAS holder attempts to access the container.
+請注意，也必須提供主機資訊，因為 SAS 持有者嘗試存取容器時需要此資訊。
 
-The client application then uses the SAS with **BlobServiceWithSAS** to perform operations against the blob. The following gets information about **myblob**.
+用戶端應用程式接著會以 **BlobServiceWithSAS** 使用 SAS，對 Blob 執行操作。以下會取得 **myblob** 的相關資訊。
 
 	var sharedBlobSvc = azure.createBlobServiceWithSas(host, blobSAS);
 	sharedBlobSvc.getBlobProperties('mycontainer', 'myblob', function (error, result, response) {
@@ -312,13 +312,13 @@ The client application then uses the SAS with **BlobServiceWithSAS** to perform 
 	  }
 	});
 
-Since the SAS was generated with only read access, if an attempt were made to modify the blob, an error would be returned.
+因為產生的 SAS 只有讀取權限，若嘗試修改 Blob，則會傳回錯誤。
 
-###Access control lists
+###存取控制清單
 
-You can also use an Access Control List (ACL) to set the access policy for a SAS. This is useful if you wish to allow multiple clients to access a container, but provide different access policies for each client.
+您也可以使用存取控制清單 (ACL) 來設定 SAS 的存取原則。若您要允許用戶端存取容器，但對每個用戶端提供不同的存取原則，則這會很有用。
 
-An ACL is implemented using an array of access policies, with an ID associated with each policy. The  following example defines two policies; one for 'user1' and one for 'user2':
+ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼。下列範例定義兩個原則，其中一個用於 'user1'，另一個用於 'user2'：
 
 	var sharedAccessPolicy = [
 	  {
@@ -339,7 +339,7 @@ An ACL is implemented using an array of access policies, with an ID associated w
 	  }
 	];
 
-The following example gets the current ACL for **mycontainer**, then adds the new policies using **setBlobAcl**. This approach allows:
+下列範例會取得 **mycontainer** 的目前 ACL，然後使用 **setBlobAcl** 新增原則。此方法允許：
 
 	blobSvc.getBlobAcl('mycontainer', function(error, result, response) {
       if(!error){
@@ -353,42 +353,42 @@ The following example gets the current ACL for **mycontainer**, then adds the ne
 	  }
 	});
 
-Once the ACL has been set, you can then create a SAS based on the ID for a policy. The following example creates a new SAS for 'user2':
+設定 ACL 之後，您可以根據原則的識別碼來建立 SAS。下列範例會建立 'user2' 的新 SAS：
 
 	blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 
-## <a name="next-steps"> </a>Next Steps
+## <a name="next-steps"> </a>後續步驟
 
-Now that you've learned the basics of blob storage, follow these links
-to learn how to do more complex storage tasks.
+了解檔案儲存體的基礎概念之後，請參考下列連結
+以了解如何執行更複雜的儲存體工作。
 
--   See the MSDN Reference: [Storing and Accessing Data in Azure][].
--   Visit the [Azure Storage Team Blog][].
--   Visit the [Azure Storage SDK for Node][] repository on GitHub.
+-   請參閱 MSDN 參考：[在 Azure 中儲存及存取資料][]。
+-   造訪 [Azure 儲存體團隊部落格][]。
+-   造訪 GitHub 上的 [Azure Storage SDK for Node][] 儲存機制。
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-  [Next Steps]: #next-steps
-  [What is the Blob Service?]: #what-is
-  [Concepts]: #concepts
-  [Create an Azure Storage Account]: #create-account
-  [Create a Node.js Application]: #create-app
-  [Configure your Application to Access Storage]: #configure-access
-  [Setup an Azure Storage Connection String]: #setup-connection-string
-  [How To: Create a Container]: #create-container
-  [How To: Upload a Blob into a Container]: #upload-blob
-  [How To: List the Blobs in a Container]: #list-blob
-  [How To: Download Blobs]: #download-blobs
-  [How To: Delete a Blob]: #delete-blobs
-  [How To: Concurrent access]: #concurrent-access
-  [How To: Work with Shared Access Signatures]: #sas
-[Create and deploy a Node.js application to an Azure Web Site]: /zh-tw/develop/nodejs/tutorials/create-a-website-(mac)/
-  [Node.js Cloud Service with Storage]: /zh-tw/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
-  [Node.js Web Application with Storage]: /zh-tw/documentation/articles/storage-nodejs-use-table-storage-web-site/
- [Web Site with WebMatrix]: /zh-tw/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [using the REST API]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh264518.aspx
-  [Azure Management Portal]: http://manage.windowsazure.com
-  [Node.js Cloud Service]: /zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
-  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [後續步驟]: #next-steps
+  [什麼是 Blob 服務？]: #what-is
+  [概念]: #concepts
+  [建立 Azure 儲存體帳戶]: #create-account
+  [建立 Node.js 應用程式]: #create-app
+  [設定您的應用程式以存取儲存體]: #configure-access
+  [設定 Azure 儲存體連接字串]: #setup-connection-string
+  [作法：建立容器]: #create-container
+  [作法：將 Blob 上傳至容器]: #upload-blob
+  [作法：列出容器中的 Blob]: #list-blob
+  [作法：下載 Blob]: #download-blobs
+  [作法：刪除 Blob]: #delete-blobs
+  [作法：並行存取]: #concurrent-access
+  [作法：使用共用存取簽章]: #sas
+[建立 Node.js 應用程式並部署到 Azure 網站]: /zh-tw/develop/nodejs/tutorials/create-a-website-(mac)/
+  [使用儲存體的 Node.js 雲端服務]: /zh-tw/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
+  [使用儲存體的 Node.js Web 應用程式]: /zh-tw/documentation/articles/storage-nodejs-use-table-storage-web-site/
+ [使用 WebMatrix 的網站]: /zh-tw/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [使用 REST API]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh264518.aspx
+  [Azure 管理入口網站]: http://manage.windowsazure.com
+  [Node.js 雲端服務]: /zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
+  [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 
 <!--HONumber=35_1-->

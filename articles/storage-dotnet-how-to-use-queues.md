@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Queue Service" pageTitle="如何使用 .NET 的佇列儲存體 | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Queue Storage" authors="tamram" manager="adinah" />
+<properties urlDisplayName="Queue Service" pageTitle="如何使用 .NET 的佇列儲存體 | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Queue Storage" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 
@@ -180,7 +180,7 @@ to use. You can create the queue if it doesn't exist.
 
 <h2><a name="advanced-get"></a>作法：運用清除佇列訊息的其他選項</h2>
 
-自訂從佇列中擷取訊息的方法有兩種。首先，您可以取得一批訊息 (最多 32 個)。其次，您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完全處理每個訊息。下列程式碼範例將使用 **GetMessages** 方法，在一次呼叫中取得 20 個訊息。接著它會使用 **foreach**
+自訂從佇列中擷取訊息的方法有兩種。首先，您可以取得一批訊息 (最多 32 個)。其次，您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完全處理每個訊息。下列程式碼範例將使用 **GetMessages** 方法，在一次呼叫中取得 20 個訊息。接著它會使用**foreach**迴圈處理每個訊息。它也會將可見度逾時設定為每個訊息五分鐘。請注意，系統會針對所有訊息同時開始計時 5 分鐘，所以從呼叫 **GetMessages** 開始的 5 分鐘後，任何尚未刪除的訊息都會重新出現。
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -198,9 +198,9 @@ to use. You can create the queue if it doesn't exist.
         queue.DeleteMessage(message);
     }
 
-<h2><a name="get-queue-length"></a>How to: Get the queue length</h2>
+<h2><a name="get-queue-length"></a>作法：取得佇列長度</h2>
 
-You can get an estimate of the number of messages in a queue. The **FetchAttributes** method asks the Queue service to retrieve the queue attributes, including the message count. The **ApproximateMethodCount** property returns the last value retrieved by the **FetchAttributes** method, without calling the Queue service.
+您可以取得佇列中的估計訊息數目。**FetchAttributes** 方法會要求佇列服務擷取佇列屬性，其中包含訊息計數。**ApproximateMethodCount** 屬性會傳回 **FetchAttributes** 方法所擷取的最後一個值，而無需呼叫佇列服務。
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -221,9 +221,9 @@ You can get an estimate of the number of messages in a queue. The **FetchAttribu
 	// Display number of messages.
 	Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
-<h2><a name="delete-queue"></a>How to: Delete a queue</h2>
+<h2><a name="delete-queue"></a>作法：刪除佇列</h2>
 
-To delete a queue and all the messages contained in it, call the **Delete** method on the queue object.
+若要刪除佇列及其內含的所有訊息，請在佇列物件上呼叫 **Delete** 方法。
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -238,55 +238,56 @@ To delete a queue and all the messages contained in it, call the **Delete** meth
     // Delete the queue.
     queue.Delete();
 
-<h2><a name="next-steps"></a>Next steps</h2>
+<h2><a name="next-steps"></a>後續步驟</h2>
 
-Now that you've learned the basics of Queue storage, follow these links
-to learn how to do more complex storage tasks.
+了解佇列儲存體的基礎概念之後，請參考下列連結
+以了解詳細資訊。
 
 <ul>
-<li>View the Queue service reference documentation for complete details about available APIs:
+<li>如需可用 API 的完整詳細資訊，請檢視佇列服務參考文件：
   <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET reference</a>
+    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET 參考資料</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179355">REST API reference</a></li>
+    <li><a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179355">REST API 參考資料</a></li>
   </ul>
 </li>
-<li>Learn about more advanced tasks you can perform with Azure Storage at <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Azure</a>.</li>
-<li>Learn how to work with Azure Storage in backend processes for Azure Websites at <a href="/zh-tw/documentation/articles/websites-dotnet-webjobs-sdk-get-started/">Get Started with the Azure WebJobs SDK</a>.</li>
-<li>View more feature guides to learn about additional options for storing data in Azure.
+<li>若要深入了解可使用 Azure 儲存體執行的更多進階工作，請參閱 <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx">在 Azure 中儲存和存取資料</a>。</li>
+<li>若要了解如何在 Azure 網站的後端程序中使用 Azure 儲存體，請參閱 <a href="/zh-tw/documentation/articles/websites-dotnet-webjobs-sdk-get-started/">開始使用 Azure WebJobs SDK</a>。</li>
+<li>如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
   <ul>
-    <li>Use <a href="/zh-tw/documentation/articles/storage-dotnet-how-to-use-tables/">Table Storage</a> to store structured data.</li>
-    <li>Use <a href="/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob Storage</a> to store unstructured data.</li>
-    <li>Use <a href="/zh-tw/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> to store relational data.</li>
+    <li>使用 <a href="/zh-tw/documentation/articles/storage-dotnet-how-to-use-tables/">資料表儲存體</a> 儲存結構化資料。</li>
+    <li>使用 <a href="/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob 儲存體</a> 儲存非結構化資料。</li>
+    <li>使用 <a href="/zh-tw/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> 儲存關聯式資料。</li>
   </ul>
 </li>
 </ul>
 
 
 
-  [Next Steps]: #next-steps
-  [What is Queue Storage]: #what-is
-  [Concepts]: #concepts
-  [Create an Azure Storage Account]: #create-account
-  [Setup an Azure Storage Connection String]: #setup-connection-string
-  [How to: Programmatically access Queue storage]: #configure-access
-  [How To: Create a Queue]: #create-queue
-  [How To: Insert a Message into a Queue]: #insert-message
-  [How To: Peek at the Next Message]: #peek-message
-  [How To: Change the Contents of a Queued Message]: #change-contents
-  [How To: Dequeue the Next Message]: #get-message
-  [How To: Leverage Additional Options for Dequeuing Messages]: #advanced-get
-  [How To: Get the Queue Length]: #get-queue-length
-  [How To: Delete a Queue]: #delete-queue
-  [Download and install the Azure SDK for .NET]: /zh-tw/develop/net/
-  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405487.aspx 
+  [後續步驟]: #next-steps
+  [什麼是佇列儲存體]: #what-is
+  [概念]: #concepts
+  [建立 Azure 儲存體帳戶]: #create-account
+  [設定 Azure 儲存體連接字串]: #setup-connection-string
+  [作法：以程式設計方式存取佇列儲存體]: #configure-access
+  [作法：建立佇列]: #create-queue
+  [作法：將訊息插入佇列]: #insert-message
+  [作法：查看下一個訊息]: #peek-message
+  [作法：變更佇列訊息的內容]: #change-contents
+  [作法：清除下一個佇列訊息]: #get-message
+  [作法：運用清除佇列訊息的其他選項]: #advanced-get
+  [作法：取得佇列長度]: #get-queue-length
+  [作法：刪除佇列]: #delete-queue
+  [下載並安裝 Azure SDK for .NET]: /zh-tw/develop/net/
+  [.NET 用戶端程式庫參考]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+  [在 Visual Studio 中建立 Azure 專案]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405487.aspx 
   [CloudStorageAccount]: http://msdn.microsoft.com/zh-tw/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
-  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Configuring Connection Strings]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758697.aspx
+  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
+  [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
+  [設定連接字串]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
+
 
 <!--HONumber=35_1-->

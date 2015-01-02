@@ -1,4 +1,4 @@
-﻿<properties title="Develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight" pageTitle="在 Storm 上使用 SCP.NET 開發串流資料處理應用程式 | Azure" description="Learn how to develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight." services="hdinsight" solutions="" documentationCenter="" authors="Qianlin Xia" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+<properties title="Develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight" pageTitle="在 Storm 上使用 SCP.NET 開發串流資料處理應用程式 | Azure" description="Learn how to develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight." services="hdinsight" solutions="" documentationCenter="" authors="Qianlin Xia" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/15/2014" ms.author="qixia" />
 
@@ -933,27 +933,27 @@ Strom 中內建的欄位群組功能在 SCP.NET 中無法正常運作。將資�
       })
 
 * **HelloWorld.dll** - 包含 Spout 和 Bolt 的組件
-* **Scp.App.HelloWorld.Generator** - **
-* **Get** - The method to invoke to get an instance of the spout
+* **Scp.App.HelloWorld.Generator** - **HelloWorld.dll** 中包含的 Spout 的類別名稱
+* **Get** - 叫用以取得 Spout 的執行個體之方法
 
 
-##SCP programming examples
+##SCP 程式設計範例
 
-The following example applications written with SCP can be found on your HDInsight Storm cluster at **%storm_home%\examples**.
+以下以 SCP 編寫的範例應用程式可在您的 HDInsight Storm 叢集上找到，位於 **%storm_home%\examples**。
 
-* **HelloWorld** - HelloWorld is a very simple example of SCP.Net, and is similar to the word count example used earlier in this article. It uses a non-transactional topology, with a spout named **generator**, and two bolts named **splitter** and **counter**. The spout **generator** will randomly generate some sentences, and emit these sentences to **splitter**. The bolt **splitter** will split the sentences into words and emit these words to the **counter** bolt. The bolt **counter** uses a dictionary to record the occurrence number of each word.
+* **HelloWorld** - HelloWorld 是 SCP.Net 非常簡易的範例，並且與本文中稍早使用的字數統計範例類似。它使用非交易拓撲，具有一個名為 **generator** 的 Spout，以及兩個名為 **splitter** 和 **counter** 的 Bolt。Spout **generator** 會隨機產生一些句子，並發出這些句子給 **splitter**。Bolt **splitter** 會將句子分割成單字，再發出這些單字給 **counter** Bolt。Bolt **counter** 使用字典來記錄每個單字出現的次數。
 
-    There are two spec files, **HelloWorld.spec** and **HelloWorld_EnableAck.spec** for this example. When using **HelloWorld_EnableAck.spec**, the sample will ack tuples that pass through the bolts, however **splitter** is designed to randomly fail some bolts to demonstrate failure handling in non-transactional topologies.
+    此範例有兩個規格檔：**HelloWorld.spec** 和 **HelloWorld_EnableAck.spec**。使用 **HelloWorld_EnableAck.spec** 時，範例將認可傳遞經過 Bolt 的 Tuple，不過 **splitter** 的設計則會隨機使某些 Bolt 失敗，以示範非交易拓撲中的失敗處理。
 
-* **HelloWorldTx** - A sample of how to implement a transactional topology. It has a transactional spout named **generator**, a batch bolt named **partial-count**, and a commit bolt named **count-sum**. There are also three pre-created txt files for use with this topology: **DataSource0.txt**, **DataSource1.txt** and **DataSource2.txt**.
+* **HelloWorldTx** - 如何實作交易拓撲的範例。它具有一個名為 **generator** 的 Spout，一個名為 **partial-count** 的批次 Bolt，以及一個名為 **count-sum** 的認可 Bolt。還有三個預先建立的 txt 檔案可與此拓撲搭配使用：**DataSource0.txt**、**DataSource1.txt** 和 **DataSource2.txt**。
 
-    In each transaction, the spout will randomly choose two files and emit the two file names to the **partial-count** bolt. The bolt will get the file name from the received tuple, then open the file and count the number of words in this file. Finally, it will emit the words and numbers to the **count-sum** bolt. The **count-sum** bolt will summarize the total count.  
+    在每個交易中，Spout 會隨機選擇兩個檔案，然後發出這兩個檔名給 **partial-count** Bolt。Bolt 會先從收到的 Tuple 中取得檔名，然後開啟檔案並計算此檔案中的字數。最後再發出字數給 **count-sum** Bolt。 **count-sum** bolt 將計算總數。  
 
-    To achieve "exactly once" semantics, the **count-sum** bolt need to determine whether it is processing a replayed transaction. In this example, it has a static member variable:  
+    為了符合「剛好一次」語意，**count-sum** Bolt 需要判斷是否在處理重播的交易。在此範例中，它有一個靜態成員變數：  
 
         public static long lastCommittedTxId = -1;  
 
-    When an instance of the bolt is created, it will get the transaction attempt (`txAttempt`,) from input parameters:  
+    建立 Bolt 的執行個體時，它會從輸入參數中取得交易嘗試 (`txAttempt`)：  
 
         public static CountSum Get(Context ctx, Dictionary<string, Object> parms)
         {
@@ -969,7 +969,7 @@ The following example applications written with SCP can be found on your HDInsig
             }
         }  
 
-    When `FinishBatch()` is called, the `lastCommittedTxId` will be updated if it is not a replayed transaction.  
+    呼叫 `FinishBatch()` 時，將會更新 `lastCommittedTxId` (如果不是重播的交易)。  
 
         public void FinishBatch(Dictionary<string, Object> parms)
         {
@@ -985,9 +985,10 @@ The following example applications written with SCP can be found on your HDInsig
             ... ...
         }  
 
-* **HybridTopology** - This topology contains a Java Spout and a C# Bolt. It uses the default serialization and deserialization implementation provided by SCP. Please see the **%storm_home%examples\HybridTopology\HybridTopology.spec** for details, and **SubmitTopology.bat** for how to specify the Java classpath when submitting the topology.  
+* **HybridTopology** - 此拓撲包含 Java Spout 和 C# Bolt。它採用 SCP 提供的預設序列化和還原序列化實作。請參閱 **%storm_home%examples\HybridTopology\HybridTopology.spec** 以取得詳細資料，以及 **SubmitTopology.bat** 以取得在提交拓撲時如何指定 Java 類別路徑的詳細資訊。  
 
 
 [1]: ./media/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application-01.png
+
 
 <!--HONumber=35_1-->

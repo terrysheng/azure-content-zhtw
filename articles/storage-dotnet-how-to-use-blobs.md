@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Blob Service" pageTitle="如何使用 .NET 的 Blob 儲存體 | Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use Microsoft Azure Blob storage to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Blob storage in .NET" authors="tamram" manager="adinah" />
+<properties urlDisplayName="Blob Service" pageTitle="如何使用 .NET 的 Blob 儲存體 | Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use Microsoft Azure Blob storage to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Blob storage in .NET" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 
@@ -191,7 +191,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-此外，您可以選擇將 **
+此外，您可以選擇將 **ListBlobs** 方法的 **UseFlatBlobListing** 參數設定為 **true**。如此會導致不論目錄為何，都將每個 Blob 各當成一個 **CloudBlockBlob** 來傳回。以下是 **ListBlobs** 的呼叫：
 
     // Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -199,7 +199,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 	   ...
 	}
 
-and here would be the results:
+以下則是結果：
 
 	Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
 	Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg
@@ -210,13 +210,13 @@ and here would be the results:
 	Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
-For more information, see [CloudBlobContainer.ListBlobs][].
+如需詳細資訊，請參閱 [CloudBlobContainer.ListBlobs][]。
 
-## <a name="download-blobs"> </a>How to: Download blobs
+## <a name="download-blobs"> </a>作法：下載 Blob
 
-To download blobs, first retrieve a blob reference and then call the **DownloadToStream** method. The following
-example uses the **DownloadToStream** method to transfer the blob
-contents to a stream object that you can then persist to a local file.
+若要下載 Blob，請先擷取 Blob 參考，然後呼叫 **DownloadToStream** 方法。下列
+範例使用 **DownloadToStream** 方法將 Blob
+內容移轉到您可以永久儲存到本機檔案的串流物件。
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -237,7 +237,7 @@ contents to a stream object that you can then persist to a local file.
         blockBlob.DownloadToStream(fileStream);
     } 
 
-You can also use the **DownloadToStream** method to download the contents of a blob as a text string.
+您也可以使用 **DownloadToStream** 方法，將 Blob 的內容當成文字字串下載。
 
 	// Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -259,10 +259,10 @@ You can also use the **DownloadToStream** method to download the contents of a b
 		text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
 	}
 
-##<a name="delete-blobs"> </a>How to: Delete blobs
+##<a name="delete-blobs"> </a>作法：刪除 Blob
 
-To delete a blob, first get a blob reference and then call the
-**Delete** method on it.
+若要刪除 Blob，請先取得 Blob 參考，然後在該參數上呼叫
+**Delete** 方法。
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -281,13 +281,13 @@ To delete a blob, first get a blob reference and then call the
     blockBlob.Delete(); 
 
 
-##<a name="list-blobs-async"> </a>How to: List blobs in pages asynchronously
+##<a name="list-blobs-async"> </a>作法：以非同步方式分頁列出 Blob
 
-If you are listing a large number of blobs, or you want to control the number of results you return in one listing operation, you can list blobs in pages of results. This example shows how to return results in pages asynchronously, so that execution is not blocked while waiting to return a large set of results.
+如果您要列出大量的 Blob，或是要控制在單一列出作業中傳回的結果數，您可以在結果頁面中列出 Blob。此範例說明如何以非同步方式分頁傳回結果，使執行不會因為等待大型結果集傳回而中斷。
 
-This example shows a flat blob listing, but you can also perform a hierarchical listing, by setting the `useFlatBlobListing` parameter of the **ListBlobsSegmentedAsync** method to `false`.
+此範例說明一般 Blob 列出方式，但您也可以執行階層式列出，方法是將 **ListBlobsSegmentedAsync** 方法的 `useFlatBlobListing` 參數設為 `false`。
 
-Because the sample method calls an asynchronous method, it must be prefaced with the `async` keyword, and it must return a **Task** object. The await keyword specified for the **ListBlobsSegmentedAsync** method suspends execution of the sample method until the listing task completes.
+範例方法會呼叫非同步方法，因此前面必須加上 `async` 關鍵字，且必須傳回 **Task** 物件。為 **ListBlobsSegmentedAsync** 方法指定的 await 關鍵字會擱置範例方法的執行，直到列出工作完成為止。
 
     async public static Task ListBlobsSegmentedInFlatListing()
     {
@@ -341,53 +341,54 @@ Because the sample method calls an asynchronous method, it must be prefaced with
         }
     }
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>後續步驟
 
-Now that you've learned the basics of blob storage, follow these links to learn how to do more complex storage tasks.
+了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 <ul>
-<li>View the Blob service reference documentation for complete details about available APIs:
+<li>如需可用 API 的完整詳細資訊，請檢視 Blob 服務參考文件：
   <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET reference</a>
+    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET 參考資料</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179355">REST API reference</a></li>
+    <li><a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179355">REST API 參考資料</a></li>
   </ul>
 </li>
-<li>Learn about more advanced tasks you can perform with Azure Storage at <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Azure</a>.</li>
-<li>Learn how to work with Azure Storage in backend processes for Azure Websites at <a href="/zh-tw/documentation/articles/websites-dotnet-webjobs-sdk-get-started/">Get Started with the Azure WebJobs SDK</a>.</li>
-<li>View more feature guides to learn about additional options for storing data in Azure.
+<li>若要深入了解可使用 Azure 儲存體執行的更多進階工作，請參閱 <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx">在 Azure 中儲存和存取資料</a>。</li>
+<li>若要了解如何在 Azure 網站的後端程序中使用 Azure 儲存體，請參閱 <a href="/zh-tw/documentation/articles/websites-dotnet-webjobs-sdk-get-started/">開始使用 Azure WebJobs SDK</a>。</li>
+<li>如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
   <ul>
-    <li>Use <a href="/zh-tw/documentation/articles/storage-dotnet-how-to-use-tables/">Table Storage</a> to store structured data.</li>
-    <li>Use <a href="/zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/">Queue Storage</a> to store unstructured data.</li>
-    <li>Use <a href="/zh-tw/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> to store relational data.</li>
+    <li>使用 <a href="/zh-tw/documentation/articles/storage-dotnet-how-to-use-tables/">資料表儲存體</a> 儲存結構化資料。</li>
+    <li>使用 <a href="/zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/">佇列儲存體</a> 儲存非結構化資料。</li>
+    <li>使用 <a href="/zh-tw/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> 儲存關聯式資料。</li>
   </ul>
 </li>
 </ul>
 
-  [Next Steps]: #next-steps
-  [What is Blob Storage]: #what-is
-  [Concepts]: #concepts
-  [Create an Azure Storage Account]: #create-account
-  [Setup a storage Connection String]: #setup-connection-string
-  [How To: Programmatically access Blob Storage]: #configure-access
-  [How To: Create a Container]: #create-container
-  [How To: Upload a Blob into a Container]: #upload-blob
-  [How To: List the Blobs in a Container]: #list-blob
-  [How To: Download Blobs]: #download-blobs
-  [How To: Delete blobs]: #delete-blobs
-  [How to: List blobs in pages asynchronously]: #list-blobs-async
+  [後續步驟]: #next-steps
+  [什麼是 Blob 儲存體]: #what-is
+  [概念]: #concepts
+  [建立 Azure 儲存體帳戶]: #create-account
+  [設定儲存體連接字串]: #setup-connection-string
+  [作法：以程式設計方式存取 Blob 儲存體]: #configure-access
+  [作法：建立容器]: #create-container
+  [作法：將 Blob 上傳至容器]: #upload-blob
+  [作法：列出容器中的 Blob]: #list-blob
+  [作法：下載 Blob]: #download-blobs
+  [作法：刪除 Blob]: #delete-blobs
+  [作法：以非同步方式分頁列出 Blob]: #list-blobs-async
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
   [Blob7]: ./media/storage-dotnet-how-to-use-blobs/blob7.png
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
   
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
-  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Configuring Connection Strings]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758697.aspx
-  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [REST API reference]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179355
+  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
+  [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
+  [設定連接字串]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758697.aspx
+  [.NET 用戶端程式庫參考]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+  [REST API 參考]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179355
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
+
 
 <!--HONumber=35_1-->

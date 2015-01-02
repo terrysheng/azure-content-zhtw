@@ -1,4 +1,4 @@
-﻿<properties title="Managing Concurrency in Microsoft Azure Storage" pageTitle="required" description="如何管理 Blob、佇列、資料表和檔案服務的並行存取" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="tamram" manager="adinah" videoId="Optional" scriptId="Optional" />
+<properties title="Managing Concurrency in Microsoft Azure Storage" pageTitle="required" description="How to manage concurrency for the Blob, Queue, Table, and File services" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="tamram" manager="adinah" videoId="Optional" scriptId="Optional" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/08/2014" ms.author="tamram" />
 
@@ -209,62 +209,61 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 	        throw; 
 	}  
 
-若要明確停用並行存取檢查，您應在執行取代作業之前，將 **
+若要明確停用並行存取檢查，您應在執行取代作業之前，將 **employee** 物件的 **ETag** 屬性設為"*"。  
 
 customer.ETag = "*";  
 
-The following table summarizes how the table entity operations use ETag values:  
+下表彙總了資料表實體作業使用 ETag 值的情形：  
 
-Operation	|Returns ETag value	|Requires If-Match request header|
+作業	|傳回 ETag 值	|需要 If-Match 要求標頭|
 ------------|-------------------|--------------------------------|
-Query Entities|	Yes|	No|
-Insert Entity|	Yes|	No|
-Update Entity|	Yes|	Yes|
-Merge Entity|	Yes|	Yes|
-Delete Entity|	No|	Yes|
-Insert or Replace Entity|	Yes|	No|
-Insert or Merge Entity|	Yes|	No 
+查詢實體|	是|	否|
+插入實體|	是|	否|
+更新實體|	是|	是|
+合併實體|	是|	是|
+刪除實體|	否|	是|
+插入或取代實體|	是|	否|
+插入或合併實體|	是|	否| 
 
-Note that the **Insert or Replace Entity** and **Insert or Merge Entity** operations do *not* perform any concurrency checks because they do not send an ETag value to the table service.  
+請注意，**插入或取代實體**和**插入或合併實體**作業並不會執行任何並行存取檢查，因為這些作業不會將 ETag 值傳送至資料表服務。  
 
-In general developers using tables should rely on optimistic concurrency when developing scalable applications. If pessimistic locking is needed, one approach developers can take when accessing Tables is to assign a designated blob for each table and try to take a lease on the blob before operating on the table. This approach does require the application to ensure all data access paths obtain the lease prior to operating on the table. You should also note that the minimum lease time is 15 seconds which requires careful consideration for scalability.  
+一般而言，使用資料表的開發人員在開發可擴充的應用程式時，應該會採用開放式並行存取。如果需要封閉式鎖定，開發人員在存取資料表時可採用的方法之一，是為每個資料表指派一個指定 Blob，在且在操作資料表之前嘗試租用 Blob。要使用此方法，應用程式必須確定所有資料存取路徑都在操作資料表之前取得租用。您也應注意，最短租用時間為 15 秒，您應謹慎考量這一點以維持擴充性。  
 
-For more information see:  
+如需詳細資訊，請參閱：  
 
-- [Operations on Entities](http://msdn.microsoft.com/zh-tw/library/azure/dd179375.aspx)  
+- [實體的作業](http://msdn.microsoft.com/zh-tw/library/azure/dd179375.aspx)  
 
-#Managing Concurrency in the Queue Service
-One scenario in which concurrency is a concern in the queueing service is where multiple clients are retrieving messages from a queue. When a message is retrieved from the queue, the response includes the message and a pop receipt value, which is required to delete the message. The message is not automatically deleted from the queue, but after it has been retrieved, it is not visible to other clients for the time interval specified by the visibilitytimeout parameter. The client that retrieves the message is expected to delete the message after it has been processed, and before the time specified by the TimeNextVisible element of the response, which is calculated based on the value of the visibilitytimeout parameter. The value of visibilitytimeout is added to the time at which the message is retrieved to determine the value of TimeNextVisible.  
+#管理佇列服務中的並行存取
+在使用佇列服務時必須考量並行存取的案例之一，是有多個用戶端從一個佇列擷取訊息時。從佇列擷取訊息時，回應中會包含訊息，以及刪除訊息所需的 pop receipt 值。訊息並不會從佇列中自動刪除，但在擷取之後，其他用戶端在 visibilitytimeout 參數所指定的時間間隔內將看不到此訊息。擷取訊息的用戶端應會在訊息完成處理後、回應的 TimeNextVisible 元素所指定的時間之前刪除訊息；這段時間會根據 visibilitytimeout 參數值計算得出。visibilitytimeout 的值會加到擷取訊息的時間上，以決定 TimeNextVisible 的值。  
 
-The queue service does not have support for either optimistic or pessimistic concurrency and for this reason clients processing messages retrieved from a queue should ensure messages are processed in an idempotent manner. A last writer wins strategy is used for update operations such as SetQueueServiceProperties, SetQueueMetaData, SetQueueACL and UpdateMessage.  
+佇列服務並不支援開放式或封閉式並行存取，因此，用戶端在處理擷取自佇列的訊息時，應確定訊息是以冪等方式進行處理的。「最後寫入為準」策略可用於更新作業，例如 SetQueueServiceProperties、SetQueueMetaData、SetQueueACL 和 UpdateMessage。  
 
-For more information see:  
+如需詳細資訊，請參閱：  
 
-- [Queue Service REST API](http://msdn.microsoft.com/zh-tw/library/azure/dd179363.aspx)
-- [Get Messages](http://msdn.microsoft.com/zh-tw/library/azure/dd179474.aspx)  
+- [佇列服務 REST API](http://msdn.microsoft.com/zh-tw/library/azure/dd179363.aspx)
+- [取得訊息](http://msdn.microsoft.com/zh-tw/library/azure/dd179474.aspx)  
 
-#Managing Concurrency in the File Service
-The file service can be accessed using two different protocol endpoints - SMB and REST. The REST service does not have support for either optimistic locking or pessimistic locking and all updates will follow a last writer wins strategy. SMB clients that mount file shares can leverage file system locking mechanisms to manage access to shared files - including the ability to perform pessimistic locking. When an SMB client opens a file, it specifies both the file access and share mode. Setting a File Access option of "Write" or "Read/Write" along with a File Share mode of "None" will result in the file being locked by an SMB client until the file is closed. If REST operation is attempted on a file where an SMB client has the file locked the REST service will return status code 409 (Conflict) with error code SharingViolation.  
+#管理檔案服務中的並行存取
+檔案服務可使用兩種不同的通訊協定端點來存取 - SMB 和 REST。REST 服務不支援開放式鎖定或封閉式鎖定，且所有更新都將遵循「最後寫入為準」策略。裝載檔案共用的 SMB 用戶端可利用檔案系統鎖定機制，來管理對共用檔案的存取 - 包括執行封閉式鎖定的功能。SMB 用戶端在開啟檔案時，會同時指定檔案存取和共用模式。將 [檔案存取] 選項設為 [寫入] 或 [讀取/寫入]，並將 [檔案共用] 模式設為 [無]，會使檔案被 SMB 用戶端鎖定，直到檔案關閉為止。如果嘗試對已由 SMB 用戶端鎖定的檔案執行 REST 作業，REST 服務將會傳回狀態碼 409 (衝突) 和錯誤碼 SharingViolation。  
 
-When an SMB client opens a file for delete, it marks the file as pending delete until all other SMB client open handles on that file are closed. While a file is marked as pending delete, any REST operation on that file will return status code 409 (Conflict) with error code SMBDeletePending. Status code 404 (Not Found) is not returned since it is possible for the SMB client to remove the pending deletion flag prior to closing the file. In other words, status code 404 (Not Found) is only expected when the file has been removed. Note that while a file is in a SMB pending delete state, it will not be included in the List Files results.Also note that the REST Delete File and REST Delete Directory operations are committed atomically and do not result in pending delete state.  
+SMB 用戶端在開啟檔案以進行刪除時，會將檔案標示為「擱置刪除」，直到所有對該檔案的其他 SMB 用戶端開啟控制代碼關閉為止。在檔案標示為「擱置刪除」時，任何對該檔案的 REST 作業都將傳回狀態碼 409 (衝突) 和錯誤碼 SMBDeletePending。此時並不會傳回狀態碼 404 (找不到)，因為 SMB 用戶端有可能在關閉檔案之前移除擱置刪除旗標。換句話說，狀態碼 404 (找不到) 只有可能在檔案已移除時出現。請注意，處於 SMB 擱置刪除狀態的檔案將不會包含在 [列出檔案] 結果中。同時請注意，「REST 刪除檔案」和「REST 刪除目錄」作業的認可是整體性的，而不會導致擱置刪除狀態。  
 
-For more information see:  
+如需詳細資訊，請參閱：  
 
-- [Managing File Locks](http://msdn.microsoft.com/zh-tw/library/azure/dn194265.aspx)  
+- [管理檔案鎖定](http://msdn.microsoft.com/zh-tw/library/azure/dn194265.aspx)  
 
-#Summary and Next Steps
-The Microsoft Azure Storage service has been designed to meet the needs of the most complex online applications without forcing developers to compromise or rethink key design assumptions such as concurrency and data consistency that they have come to take for granted.  
+#摘要和後續步驟
+Microsoft Azure 儲存體服務的設計已符合最複雜的線上應用程式的需求，而不會迫使開發人員犧牲或再三考量主要的設計假設，例如已被開發人員視為理所當然的並行存取和資料一致性。  
 
-For the complete sample application referenced in this blog:  
+如需此部落格中參考的完整範例應用程式：  
 
-- [Managing Concurrency using Azure Storage - Sample Application](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)  
+- [使用 Azure 儲存體管理並行存取 - 範例應用程式](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)  
 
-For more information on Azure Storage see:  
+如需 Azure 儲存體的詳細資訊，請參閱：  
 
-- [Microsoft Azure Storage Home Page](http://azure.microsoft.com/zh-tw/services/storage/)
-- [Introduction to Azure Storage](http://azure.microsoft.com/zh-tw/documentation/articles/storage-introduction/)
-- Storage Getting Started for [Blob](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/), [Table](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-tables/) and [Queues](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/)
-- Storage Architecture - [Windows Azure Storage : A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
+- [Microsoft Azure 儲存體首頁](http://azure.microsoft.com/zh-tw/services/storage/)
+- [Azure 儲存體簡介](http://azure.microsoft.com/zh-tw/documentation/articles/storage-introduction/)
+- 儲存體開始使用 [Blob](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/)，[資料表](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-tables/) 及[查詢](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/)
+- 儲存體架構 - [Windows Azure 儲存體：具有高可用性和增強式一致性的雲端儲存體服務](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
 <!--HONumber=35_1-->

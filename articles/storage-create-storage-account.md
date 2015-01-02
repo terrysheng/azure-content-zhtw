@@ -1,180 +1,180 @@
-﻿<properties urlDisplayName="How to create" pageTitle="如何建立、管理或刪除儲存體帳戶 | Azure" metaKeywords="" description="Learn how to create, manage, or delete a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="adinah" />
+<properties urlDisplayName="How to create" pageTitle="如何建立、管理或刪除儲存體帳戶 | Azure" metaKeywords="" description="Learn how to create, manage, or delete a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
 
 
 # 關於 Azure 儲存體帳戶
 
-Azure 儲存體帳戶是指可讓您存取 Azure 儲存體服務的安全帳戶。您的儲存
+Azure 儲存體帳戶是指可讓您存取 Azure 儲存體服務的安全帳戶。您的儲存體帳戶提供資料的唯一命名空間，而且預設只有您這位擁有者能使用。 
 
-There are two types of storage accounts:
+儲存體帳戶分為兩種：
 
-- A standard storage account includes Blob, Table, and Queue storage. File storage is available by request via the [Azure Preview page](/zh-tw/services/preview/).
-- A premium storage account currently supports Azure Virtual Machine disks only. Azure Premium Storage is available by request via the [Azure Preview page](/zh-tw/services/preview/). See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://go.microsoft.com/fwlink/?LinkId=521898) for an in-depth overview of Premium Storage.
+- 標準儲存體帳戶包含 Blob、資料表和佇列儲存體。透過 [Azure 預覽頁面]提出要求即可取得檔案儲存體(/zh-tw/services/preview/)。
+- Premium 儲存體帳戶目前僅支援 Azure 虛擬機器磁碟。透過 [Azure 預覽頁面]提出要求即可取得 Azure Premium 儲存體(/zh-tw/services/preview/)。請參閱 [Premium 儲存體：Azure 虛擬機器工作負載的高效能儲存體](http://go.microsoft.com/fwlink/?LinkId=521898) ，以了解 Premium 儲存體的深入概觀。
 
-You are billed for Azure Storage usage based on your storage account. Storage costs are based on four factors: storage capacity, replication scheme, storage transactions, and data egress. 
+您將按照儲存體帳戶的 Azure Storage 使用量付費。Storage 費用依據 4 項因素進行計算：儲存體容量、複寫配置、儲存體交易，以及出口流量。 
 
-- Storage capacity refers to how much of your storage account allotment you are using to store data. The cost of simply storing your data is determined by how much data you are storing, and how it is replicated. 
-- Replication determines how many copies of your data are maintained at once, and in what locations. 
-- Transactions refer to all read and write operations to Azure Storage. 
-- Data egress refers to data transferred out of an Azure region. When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress. (For Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate data egress charges.)  
+- 儲存體容量是指您用於儲存資料的儲存體帳戶配額。若只是儲存資料，則成本是由您所儲存的資料量和複寫資料的方式來決定。 
+- 複寫可決定在什麼位置一次維持多少份資料。 
+- 交易是指對 Azure 儲存體進行的所有讀取和寫入作業。 
+- 出口流量是指傳出 Azure 地區的資料。當您儲存體帳戶中的資料受不同地區中執行的應用程式存取時，不論該應用程式是雲端服務還是其他某類應用程式，您都要負擔出口流量的費用。(若為 Azure 服務，您可以採取步驟，將資料和服務群組在相同的資料中心，以減少或消除出口流量費用。)  
 
-The [Storage Pricing Details](http://www.windowsazure.com/zh-tw/pricing/details/#storage) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](http://www.windowsazure.com/zh-tw/pricing/details/data-transfers/) provides detailed pricing information for data egress.
+[儲存體定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/#storage) 頁面提供儲存體容量、複寫和交易的詳細定價資料。[資料傳輸定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/data-transfers/) 頁面提供出口流量的詳細定價資料。
 
-For details about storage account capacity and performance targets, see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx).
+如需儲存體帳戶容量和效能目標的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標] (英文)(http://msdn.microsoft.com/library/windowsazure/dn249410.aspx)。
 
-> [WACOM.NOTE] When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](/zh-tw/documentation/services/virtual-machines/) for more details. <br />
+> [WACOM.NOTE] 您建立 Azure 虛擬機器時，如果您在部署位置中沒有儲存體帳戶，則會在該位置自動建立儲存體帳戶。因此，不需要按照下列步驟建立您虛擬機器磁碟的儲存體帳戶。儲存體帳戶名稱將以虛擬機器名稱為基礎。請參閱 [Azure 虛擬機器文件](/zh-tw/documentation/services/virtual-machines/) 了解詳細資訊。<br />
 
-## Table of Contents ##
+## 目錄 ##
 
-This article describes how to create a standard storage account, and some decisions to consider as you create it. It also describes how to manage your storage account access keys, and how to delete a storage account.
+本文說明如何建立標準儲存體帳戶，以及建立時考量的一些決定。其中也說明如何管理儲存體帳戶存取金鑰，以及如何刪除儲存體帳戶。
 
 
-- [How to: Create a storage account](#create)
-- [How to: View, copy, and regenerate storage access keys](#regeneratestoragekeys)
-- [How to: Delete a storage account](#deletestorageaccount)
-* [Next steps](#next)
+- [作法：建立儲存體帳戶](#create)
+- [作法：檢視、複製和重新產生儲存體存取金鑰](#regeneratestoragekeys)
+- [作法：刪除儲存體帳戶](#deletestorageaccount)
+* [後續步驟](#next)
 
-## <a id="create"></a>How to: Create a storage account ##
+## <a id="create"></a>作法：建立儲存體帳戶 ##
 
-1. Sign in to the [Management Portal](https://manage.windowsazure.com).
+1. 登入[管理入口網站](https://manage.windowsazure.com)。
 
-2. Click **Create New**, click **Storage**, and then click **Quick Create**.
+2. 依序按一下 [**建立新的**]、[**儲存體**] 和 [**快速建立**]。
 
 	![NewStorageAccount](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
-3. In **URL**, enter a name for your storage account. See [Storage account endpoints](#account-endpoints) below for details about how this name will be used to address objects that you store in Azure Storage.
+3. 在 [**URL**] 中，輸入儲存體帳戶的名稱。請參閱以下的[儲存體帳戶端點](#account-endpoints) 深入了解如何使用此名稱指明您在 Azure 儲存體中儲存的物件。
 
-4. In **Location/Affinity Group**, select a location for your storage account that is close to you or to your customers. If data in your storage account will be accessed from another Azure service, such as an Azure virtual machine or cloud service, you may want to select an affinity group from the list to group your storage account in the same data center with other Azure services that you are using to improve performance and lower costs. 
+4. 在 [**地點/同質群組**] 中，選取靠近您或客戶的儲存體帳戶位置。如果將從其他 Azure 服務 (例如 Azure 虛擬機器或雲端服務) 存取儲存體中的資料，您可能會想要從清單中選取同質群組，將其他 Azure 服務所在的同一個資料中心之內的儲存體帳戶劃分為同一個群組，用以提升效能和降低成本。 
 
-	> [WACOM.NOTE] Note that you must select an affinity group when your storage account is created; you cannot move an existing account to an affinity group.
+	> [WACOM.NOTE] 請注意，您必須在建立儲存體帳戶時選取同質群組；您無法將既有的帳戶移到同質群組。
 
-	For details about affinity groups, see [Service co-location with an affinity group](#affinity-group) below.
+	如需同質群組的詳細資訊，請參閱以下的[對於同質群組提供共同位置](#affinity-group) 。
 
 	
-5. If you have more than one Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Azure subscription that you want to use the storage account with. You can create up to five storage accounts for a subscription.
+5. 如果您有一個以上的 Azure 訂用帳戶，則會顯示 [**訂用帳戶**] 欄位。在 [**訂用帳戶**] 中，輸入您要使用儲存體帳戶的 Azure 訂用帳戶。您可以針對一項訂用帳戶建立多達 5 個儲存體帳戶。
 
-6. In **Replication**, select the desired level of replication for your storage account. The recommended replication option is Geo-Redundant replication, which provides maximum durability for your data. For more details on Azure Storage replication options, see [Storage account replication options](#replication-options) below.
+6. 在 [**複寫**] 中，選取儲存體帳戶的所需複寫層級。建議的複寫選項是地理區域備援複寫，這可提供資料的最大持久性。如需 Azure 儲存體複寫選項的詳細資訊，請參閱以下的[儲存體帳戶複寫選項](#replication-options) 。
 
-6. Click **Create Storage Account**.
+6. 按一下 [**建立儲存體帳戶**]。
 
-	It may take a few minutes to create your storage account. To check the status, you can monitor the notifications at the bottom of the portal. After the storage account has been created, your new storage account has **Online** status and is ready for use. 
+	建立儲存體帳戶可能需要花費數分鐘的時間。若要檢查狀態，可以監控位於入口網站底部的通知。建立儲存體帳戶之後，新的儲存體帳戶會處於 [**線上**] 狀態並可提供使用。 
 
 ![StoragePage](./media/storage-create-storage-account/Storage_StoragePage.png)
 
 
-### <a id="account-endpoints"></a>Storage account endpoints 
+### <a id="account-endpoints"></a>儲存體帳戶端點 
 
-Every object that you store in Azure Storage has a unique URL address; the storage account name forms the subdomain of that address. The subdomain together with the domain name, which is specific to each service, form an *endpoint* for your storage account. 
+您儲存在 Azure 儲存體中的每個物件都有唯一的 URL 位址；儲存體帳戶名稱會形成該位址的子網域。各個服務特定的子網域與網域名稱會形成儲存體帳戶的*端點*。 
 
-For example, if your storage account is named *mystorageaccount*, then the default endpoints for your storage account are: 
+例如，如果您儲存體帳戶的名稱為 *mystorageaccount*，則您儲存體帳戶的預設端點是： 
 
-- Blob service: http://*mystorageaccount*.blob.core.windows.net
+- Blob 服務: http://*mystorageaccount*.blob.core.windows.net
 
-- Table service: http://*mystorageaccount*.table.core.windows.net
+- 資料表服務: http://*mystorageaccount*.table.core.windows.net
 
-- Queue service: http://*mystorageaccount*.queue.core.windows.net
+- 佇列服務: http://*mystorageaccount*.queue.core.windows.net
 
-- File service: http://*mystorageaccount*.file.core.windows.net
+- 檔案服務: http://*mystorageaccount*.file.core.windows.net
 
-You can see the endpoints for your storage account on the storage Dashboard in the Azure Management Portal once the account has been created.
+建立帳戶後，您可以在 Azure 管理入口網站的儲存體儀表板看見您儲存體帳戶的端點。
 
-The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
+用以存取儲存體帳戶中某物件的 URL，可藉由在端點後附加該物件在儲存體帳戶中的位置來建置。例如，Blob 位址的格式可能如下: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-You can also configure a custom domain name to use with your storage account. See [Configure a custom domain name for blob data in a storage account](../storage-custom-domain-name/) for details.
+您也可以設定用於您儲存體帳戶的自訂網域名稱。請參閱[針對儲存體帳戶中的 Blob 資料設定自訂網域名稱]，(../storage-custom-domain-name/) 以了解詳細資訊。
 
-### <a id="affinity-group"></a>Service co-location with an affinity group 
+### <a id="affinity-group"></a>對於同質群組提供共同位置 
 
-An *affinity group* is a geographic grouping of your Azure services and VMs with your Azure storage account. An affinity group can improve service performance by locating computer workloads in the same data center or near the target user audience. Also, no billing charges are incurred for egress when data in a storage account is accessed from another service that is part of the same affinity group.
+*同質群組*是將您的 Azure 服務和 VM 與 Azure 儲存體帳戶依地理位置而形成的群組。同質群組會將電腦工作負載置於相同的資料中心內或目標使用者對象附近，因而能改善服務效能。此外，當您儲存體帳戶中的資料是由同一同質群組中的服務存取時，出口流量並不會產生任何費用。
 
-> [WACOM.NOTE]  To create an affinity group, open the <b>Settings</b> area of the Management Portal, click <b>Affinity Groups</b>, and then click either <b>Add an affinity group</b> or the <b>Add</b> button. You can also create and manage affinity groups using the Azure Service Management API. See <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460798.aspx">Operations on Affinity Groups</a> for more information.
+> [WACOM.NOTE]  若要建立同質群組，請開啟管理入口網站的 <b>Settings</b> 區域，並按一下 <b>[同質群組]</b>，然後按一下 <b>[加入同質群組]</b> 或 <b>[新增]</b> 按鈕。您也可以使用 Azure 服務管理 API 建立和管理同質群組。請參閱 <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460798.aspx">同質群組的相關作業</a> 了解詳細資訊。
 
 
-### <a id="replication-options"></a>Storage account replication options
+### <a id="replication-options"></a>儲存體帳戶複寫選項
 
 [WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 
-## <a id="regeneratestoragekeys"></a>How to: View, copy, and regenerate storage access keys
+## <a id="regeneratestoragekeys"></a>作法：檢視、複製和重新產生儲存體存取金鑰
 
-When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
+當您建立儲存體帳戶時，Azure 會產生兩個 512 位元的儲存體存取金鑰，做為存取儲存體帳戶時的驗證憑藉。透過提供這兩個儲存體存取金鑰，Azure 讓您可重新產生金鑰，同時又不需中斷儲存體服務或對該服務的存取。
 
-> [WACOM.NOTE] We recommend that you avoid sharing your storage account access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See the [shared access signature tutorial](../storage-dotnet-shared-access-signature-part-1/) for more information.
+> [WACOM.NOTE] 建議您避免將儲存體帳戶存取金鑰透露給其他任何人。若要允許存取儲存體資源但不要公開您的存取金鑰，您可以使用*共用存取簽章*。共用存取簽章可在您定義的間隔期間內，使用您所指定的權限，來存取帳戶中的資源。請參閱[共用存取簽章教學課程](../storage-dotnet-shared-access-signature-part-1/) 了解詳細資訊。
 
-In the [Management Portal](http://manage.windowsazure.com), use **Manage Keys** on the dashboard or the **Storage** page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services. 
+在[管理入口網站]中(http://manage.windowsazure.com)，於儀表板或 [**儲存體**] 頁面上使用 [**管理金鑰**] 來檢視、複製和重新產生用於存取 Blob、資料表與佇列服務的儲存體存取金鑰。 
 
-### Copy a storage access key ###
+### 複製儲存體存取金鑰 ###
 
-You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Azure storage services, see [Configuring Connection Strings](http://msdn.microsoft.com/zh-tw/library/ee758697.aspx).
+您可以使用 [**管理金鑰**] 來複製要在連接字串使用中的儲存體存取金鑰。連接字串需有要在驗證中使用的儲存體帳戶名稱和金鑰。如需關於設定連接字串以存取 Azure 儲存體服務的詳細資訊，請參閱[設定連接字串](http://msdn.microsoft.com/zh-tw/library/ee758697.aspx)。
 
-1. In the [Management Portal](http://manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
+1. 在[管理入口網站]中(http://manage.windowsazure.com)，按一下 [**儲存體**]，然後按一下儲存體帳戶名稱即可開啟儀表板。
 
-2. Click **Manage Keys**.
+2. 按一下 [**管理金鑰**]。
 
- 	**Manage Access Keys** opens.
+ 	[**管理存取金鑰**] 隨即開啟。
 
 	![Managekeys](./media/storage-create-storage-account/Storage_ManageKeys.png)
 
  
-3. To copy a storage access key, select the key text. Then right-click, and click **Copy**.
+3. 若要複製儲存體存取金鑰，請選取金鑰文字。然後按一下滑鼠右鍵並按一下 [**複製**]。
 
-### Regenerate storage access keys ###
-You should change the access keys to your storage account periodically to help keep your storage connections more secure. Two access keys are assigned to enable you to maintain connections to the storage account using one access key while you regenerate the other access key. 
+### 重新產生儲存體存取金鑰 ###
+您應定期變更儲存體帳戶的存取金鑰，讓儲存體連線更加安全。指派的兩個存取金鑰可讓您在重新產生一個存取金鑰的同時，使用另一個存取金鑰維持儲存體帳戶連線。 
 
 <div class="dev-callout"> 
-    <b>Warning</b> 
-    <p>Regenerating your access keys affects virtual machines, media services, and any applications that are dependent on the storage account. All clients that use the access key to access the storage account must be updated to use the new key.
+    <b>警告</b> 
+    <p>重新產生存取金鑰會影響虛擬機器、媒體服務，以及任何相依於儲存體帳戶的應用程式。所有使用存取金鑰來存取儲存體帳戶的用戶端，都必須更新為使用新的金鑰。
     </p> 
     </div>
 
-**Virtual machines** - If your storage account contains any virtual machines that are running, you will have to redeploy all virtual machines after you regenerate the access keys. To avoid redeployment, shut down the virtual machines before you regenerate the access keys.
+**虛擬機器** - 如果您的儲存體帳戶中有任何虛擬機器在執行中，您必須在重新產生存取金鑰之後，重新部署所有的虛擬機器。若要避免重新部署，請在重新產生存取金鑰之前關閉虛擬機器。
  
-**Media services** - If you have media services dependent on your storage account, you must re-sync the access keys with your media service after you regenerate the keys.
+**媒體服務** - 如果您有媒體服務相依於儲存體帳戶，您必須在重新產生金鑰之後，將存取金鑰與媒體服務重新同步。
  
-**Applications** - If you have web applications or cloud services using the storage account, you will lose the connections if you regenerate keys, unless you roll your keys. Here is the process:
+**應用程式** - 如果您有 Web 應用程式或雲端服務正在使用儲存體帳戶，除非您變換金鑰，否則會在重新產生金鑰後失去連線。程序如下：
 
-1. Update the connection strings in your application code to reference the secondary access key of the storage account. 
+1. 更新應用程式程式碼中的連接字串，以參考儲存體帳戶的次要存取金鑰。 
 
-2. Regenerate the primary access key for your storage account. In the [Management Portal](http://manage.windowsazure.com), from the dashboard or the **Configure** page, click **Manage Keys**. Click **Regenerate** under the primary access key, and then click **Yes** to confirm you want to generate a new key.
+2. 重新產生儲存體帳戶的主要存取金鑰。在[管理入口網站]中(http://manage.windowsazure.com)，從儀表板或 [**設定**] 頁面，按一下 [**管理金鑰**]。按一下主要存取金鑰下的 [**重新產生**]，然後按一下 [**是**] 確認要產生新的金鑰。
 
-3. Update the connection strings in your code to reference the new primary access key.
+3. 更新程式碼中的連接字串，以參考新的主要存取金鑰。
 
-4. Regenerate the secondary access key.
+4. 重新產生次要存取金鑰。
 
-## <a id="deletestorageaccount"></a>How to: Delete a storage account
+## <a id="deletestorageaccount"></a>作法：刪除儲存體帳戶
 
-To remove a storage account that you are no longer using, use **Delete** on the dashboard or the **Configure** page. **Delete** deletes the entire storage account, including all of the blobs, tables, and queues in the account. 
+若要移除不再使用的儲存體帳戶，請在儀表板或 [**設定**] 頁面上使用 [**刪除**]。[**刪除**] 會刪除整個儲存體帳戶，包括帳戶中的所有 Blob、資料表和佇列。 
 
 <div class="dev-callout">
-	<b>Warning</b>
-	<p>There's no way to restore the content from a deleted storage account. Make 
-	sure you back up anything you want to save before you delete the account.
+	<b>警告</b>
+	<p>您將無法還原已刪除之儲存體帳戶中的內容。請確定 
+	已確份您想要儲存的任何資料，再刪除帳戶。
 	</p>
 	<p>
-	If your storage account contains any VHD files or disks for an Azure 
-	virtual machine, then you must delete any images and disks that are using those VHD files 
-	before you can delete the storage account. First, stop the virtual machine if it is running, and then delete it. To delete disks, navigate to the Disks tab and delete any disks contained in the storage account. To delete images, navigate to the Images tab and delete any images stored in the account.
+	如果儲存體帳戶包含 Azure 虛擬機器的任何 VHD 檔案或磁碟， 
+	則必須先刪除任何使用這些 VHD 檔案的映像和磁碟， 
+	才能刪除儲存體帳戶。首先，停止執行中的虛擬機器，然後予以刪除。若要刪除磁碟，請瀏覽至 [磁碟] 索引標籤並刪除儲存體帳戶中包含的所有磁碟。若要刪除映像，請瀏覽至 [映像] 索引標籤並刪除帳戶中儲存的所有映像。
 	</p>
 </div>
 
 
-1. In the [Management Portal](http://manage.windowsazure.com), click **Storage**.
+1. 在[管理入口網站]中(http://manage.windowsazure.com)，按一下 [**儲存體**]。
 
-2. Click anywhere in the storage account entry except the name, and then click **Delete**.
+2. 在儲存體帳戶項目中名稱以外的任何位置，然後按一下 [**刪除**]。
 
-	 -Or-
+	 -或-
 
-	Click the name of the storage account to open the dashboard, and then click **Delete**.
+	按一下儲存體帳戶名稱以開啟儀表板，然後按一下 [**刪除**]。
 
-3. Click **Yes** to confirm you want to delete the storage account.
+3. 按一下 [**是**] 確認要刪除儲存體帳戶。
 
-## <a id="next"></a>Next steps
+## <a id="next"></a>後續步驟
 
-- To learn more about Azure Storage, see the Azure Storage documentation on [azure.com](http://azure.microsoft.com/zh-tw/documentation/services/storage/) and on [MSDN](http://msdn.microsoft.com/zh-tw/library/gg433040.aspx). 
+- 若要深入了解 Azure 儲存體，請參閱 Azure 儲存體文件 (位於 [azure.com](http://azure.microsoft.com/zh-tw/documentation/services/storage/) 及 [MSDN])(http://msdn.microsoft.com/zh-tw/library/gg433040.aspx)。 
 
-- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
+- 請造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)。
 
 
- 
+
 
 <!--HONumber=35_1-->

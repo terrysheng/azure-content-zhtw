@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Management" pageTitle="如何使用 Azure 服務管理 API (PHP)" metaKeywords="" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties urlDisplayName="Service Management" pageTitle="Create a storage service如何使用 Azure 服務管理 API (PHP)" metaKeywords="" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/17/2014" ms.author="tomfitz" />
 
@@ -352,7 +352,7 @@ Azure 提供兩個部署環境：預備和生產。一般而言，將服務部�
 
 ##<a id="DeleteDeployment"></a>作法：刪除部署
 
-若要刪除部署，請使用 **deleteDeployment** 方法。下列範例顯示如何在 **GetDeploymentOptions** 物件上使用 [setSlot] 方法，然後將它傳遞給 **deleteDeployment**，以刪除預備環境中的部署。您可以在 [GetDepolymentOptions 類別上使用 ****
+若要刪除部署，請使用 **deleteDeployment** 方法。下列範例顯示如何在 **GetDeploymentOptions** 物件上使用 [setSlot] 方法，然後將它傳遞給 **deleteDeployment**，以刪除預備環境中的部署。您可以在 **GetDepolymentOptions**類別上使用 [setName] 方法，以依部署名稱來指定部署，而不是依位置來指定部署。
 
 	require_once 'vendor\autoload.php';
 
@@ -379,9 +379,9 @@ Azure 提供兩個部署環境：預備和生產。一般而言，將服務部�
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="CreateStorageService"></a>How to: Create a storage service
+##<a id="CreateStorageService"></a>作法：建立儲存服務
 
-A [storage service] gives you access to Azure [Blobs][azure-blobs], [Tables][azure-tables], and [Queues][azure-queues]. To create a storage service, you need a name for the service (between 3 and 24 lowercase characters and unique within Azure), a label (a base-64 encoded name for the service, up to 100 characters), and either a location or an affinity group. Providing a description for the service is optional. The location, affinity group, and description are set in a [CreateServiceOptions] object, which is passed to the **createStorageService** method. The following example shows how to create a storage service by specifying a location. If you want to use an affinity group, you have to create an affinity group first (see [How to: Create an affinity group](#CreateAffinityGroup)) and set it with the **CreateServiceOptions->setAffinityGroup** method.
+[儲存體服務]可讓您存取 Azure [Blob][azure-blobs]、[資料表][azure-tables]和[佇列][azure-queues]。若要建立儲存體服務，您需要服務的名稱 (3 到 24 個小寫字元，而且在 Azure 內是唯一的)、標籤 (服務的 Base 64 編碼名稱，最多 100 個字元)，以及位置或同質群組。提供服務的說明是選用作業。位置、同質群組和說明設定於 [CreateServiceOptions] 物件中，這會傳遞給 **createStorageService** 方法。下列範例說明如何藉由指定位置來建立儲存服務。如果您要使用親和性群組，您必須先建立親和性群組 (請參閱[作法：建立親和性群組](#CreateAffinityGroup))，並使用 **CreateServiceOptions->setAffinityGroup** 方法加以設定。
 
 	require_once 'vendor\autoload.php';
 	 
@@ -414,9 +414,9 @@ A [storage service] gives you access to Azure [Blobs][azure-blobs], [Tables][azu
 		echo $code.": ".$error_message."<br />";
 	}
 
-Note in the example above that the status of the **createStorageService** operation can be retrieved by passing the result returned by **createStorageService** to the **getOperationStatus** method.  
+請注意，在上面的範例中，將 **createStorageService** 所傳回的結果傳遞給 **getOperationStatus** 方法，以擷取 **createStorageService** 作業的狀態。  
 
-You can list your storage accounts and their properties with the **listStorageServices** method:
+您可以使用 **listStorageServices** 方法列出儲存體帳戶和其屬性：
 
 	// Create REST proxy.
 	$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
@@ -431,9 +431,9 @@ You can list your storage accounts and their properties with the **listStorageSe
 		echo "------<br />";
 	}
 
-##<a id="DeleteStorageService"></a>How to: Delete a storage service
+##<a id="DeleteStorageService"></a>作法：刪除儲存服務
 
-You can delete a storage service by passing the storage service name to the **deleteStorageService** method. Deleting a storage service will delete all data stored in the service (blobs, tables and queues).
+您可以將儲存體服務名稱傳遞給 **deleteStorageService** 方法，以刪除儲存體服務。刪除儲存服務時，將同時刪除該服務中儲存的所有資料 (Blob、資料表和佇列)。
 
 	require_once 'vendor\autoload.php';
 	
@@ -455,11 +455,11 @@ You can delete a storage service by passing the storage service name to the **de
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="CreateAffinityGroup"></a>How to: Create an affinity group
+##<a id="CreateAffinityGroup"></a>作法：建立親和性群組
 
-An affinity group is a logical grouping of Azure services that tells Azure to locate the services for optimized performance. For example, you might create an affinity group in the "West US" location, then create a [cloud Service](#CreateCloudService) in that affinity group. If you then create a storage service in the same affinity group, Azure knows to put it in the "West US" location and optimize within the data center for the best performance with the cloud services in the same affinity group.
+親和性群組是 Azure 服務的邏輯群組功能，可指示 Azure 正確定位服務以達最佳化效能。例如，您可以在「美國西部」位置中建立同質群組，然後在此同質群組中建立[雲端服務](#CreateCloudService) 。如果您後續又在同一個同質群組中建立儲存體服務，Azure 就知道要將其放在「美國西部」位置中，並在資料中心內進行最佳化，使同一個同質群組中的雲端服務能夠達到最佳效能。
 
-To create an affinity group, you need a name, label (the base 64-encoded name), and location. You can optionally provide a description:
+若要建立同質群組，您需要名稱、標籤 (Base 64 編碼名稱) 和位置。您可以選擇性地提供描述：
 
 	require_once 'vendor\autoload.php';
 	
@@ -489,9 +489,9 @@ To create an affinity group, you need a name, label (the base 64-encoded name), 
 		echo $code.": ".$error_message."<br />";
 	}
 
-After you have created an affinity group, you can specify the group (instead of a location) when [creating a storage service](#CreateStorageService).
+建立親和性群組後，您在[建立儲存服務]時將可指定群組 (而非位置)(#CreateStorageService)。
 
-You can list affinity groups and inspect their properties by calling the  **listAffinityGroups** method, then calling the appropriate methods on the [AffinityGroup] class:
+呼叫 **listAffinityGroups** 方法，然後在 [AffinityGroup] 類別上呼叫適當的方法，就可以列出同質群組並檢查其屬性：
 
 	$result = $serviceManagementRestProxy->listAffinityGroups();
 	
@@ -504,9 +504,9 @@ You can list affinity groups and inspect their properties by calling the  **list
 		echo "------<br />";
 	}
 
-##<a id="DeleteAffinityGroup"></a>How to: Delete an affinity group
+##<a id="DeleteAffinityGroup"></a>作法：刪除親和性群組
 	
-You can delete an affinity group by passing the group name to the **deleteAffinityGroup** method. Note that before you can delete an affinity group, the affinity group must be disassociated from any services (or services that use the affintiy group must be deleted).
+您可以將群組名稱傳遞給 **deleteAffinityGroup** 方法，以刪除同質群組。請注意，必須先中斷同質群組與任何服務的關聯 (或必須刪除使用同質群組的服務)，再刪除同質群組。
 
 	require_once 'vendor\autoload.php';
 	
@@ -541,24 +541,25 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 [Composer]: http://getcomposer.org/
 [ServiceManagementSettings]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementSettings.php
 
-[cloud service]: ../cloud-services-what-is/
+[雲端服務]: ../cloud-services-what-is/
 [CreateServiceOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/CreateServiceOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/ListHostedServicesResult.php
 
-[service package]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433093
-[Azure PowerShell cmdlets]: ../install-configure-powershell/
-[cspack commandline tool]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg432988.aspx
+[服務封裝]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433093
+[Azure PowerShell Cmdlet]: ../install-configure-powershell/
+[cspack 命令列工具]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg432988.aspx
 [GetDeploymentOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 
-[Overview of Managing Deployments in Azure]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh386336.aspx
-[storage service]: ../storage-whatis-account/
+[在 Azure 中管理部署的概觀]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh386336.aspx
+[儲存體服務]: ../storage-whatis-account/
 [azure-blobs]: ../storage-php-how-to-use-blobs/
 [azure-tables]: ../storage-php-how-to-use-table-storage/
 [azure-queues]: ../storage-php-how-to-use-queues/
 [AffinityGroup]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/AffinityGroup.php
 
 
-[Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758710.aspx
+[Azure 服務組態結構描述 (.cscfg)]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758710.aspx
+
 
 <!--HONumber=35_1-->

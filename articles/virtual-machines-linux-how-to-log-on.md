@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Log on to a VM" pageTitle="登入在 Azure 中執行 Linux 的虛擬機器" metaKeywords="Azure Linux vm, Linux SSH" description="Learn how to log on to an Azure virtual machine running Linux by using a Secure Shell (SSH) client." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Log on to a VM" pageTitle="f登入在 Azure 中執行 Linux 的虛擬機器" metaKeywords="Azure Linux vm, Linux SSH" description="Learn how to log on to an Azure virtual machine running Linux by using a Secure Shell (SSH) client." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="kathydav" />
 
@@ -18,25 +18,26 @@
 
 此程序說明如何使用 PuTTY 程式來存取虛擬機器。
 
-1. 從
+1. 從**管理入口網站** 尋找 [**主機名稱**] 和 [[連接埠資訊]](http://manage.windowsazure.com)。您可以從虛擬機器的儀表板中找到您需要的資訊。請按一下虛擬機器名稱，然後在儀表板的 [**快速概覽**] 區段中尋找 [**SSH 詳細資料**]。
 
 	![Obtain SSH details](./media/virtual-machines-linux-how-to-log-on/sshdetails.png)
 
-2. Open the PuTTY program.
+2. 開啟 PuTTY 程式。
 
-3. Enter the Host Name and the Port information that you collected from the dashboard, and then click **Open**.
+3. 輸入您從儀表板收集的主機名稱和連接埠資訊，然後按一下 [**開啟**]。
 
 	![Open PuTTY](./media/virtual-machines-linux-how-to-log-on/putty.png)
 
-4. Log on to the virtual machine using the account that you specified when the machine was created. The user name is azureuser by default.
+4. 使用您在建立機器時指定的帳戶登入虛擬機器。使用者名稱預設為 azureuser。
 
 	![Log on to the virtual machine](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
->[WACOM.NOTE] The VMAccess extension can help you reset the SSH key or password if you've forgotten it. If you've forgotten the user name, you can use the extension to create a new one with sudo authority. For instructions, see the [How to Reset a Password or SSH for Linux Virtual Machines]. 
+>[WACOM.NOTE] VMAccess 擴充功能可以在您忘記 SSH 金鑰或密碼時幫助您重設。如果忘記使用者名稱，您可以使用擴充功能，以 sudo 權限建立新的使用者名稱。如需指示，請參閱[如何為 Linux 虛擬機器重設密碼或 SSH]。 
 	
-You can now work with the virtual machine just as you would with any other server.
+您現在可以開始使用虛擬機器，就如同操作任何其他伺服器一樣。
 
 <!-- LINKS -->
-[How to Reset a Password or SSH for Linux Virtual Machines]: http://go.microsoft.com/fwlink/p/?LinkId=512138
+[如何為 Linux 虛擬機器重設密碼或 SSH]: http://go.microsoft.com/fwlink/p/?LinkId=512138
+
 
 <!--HONumber=35_1-->

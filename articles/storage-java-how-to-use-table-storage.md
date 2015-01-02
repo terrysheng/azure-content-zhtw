@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="如何使用資料表儲存體 (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Learn how to use the table storage service in Azure. Code samples are written in Java code." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="robmcm" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="如何使用資料表儲存體 (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Learn how to use the table storage service in Azure. Code samples are written in Java code." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="robmcm" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 
@@ -184,7 +184,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## <a name="InsertBatch"> </a>作法：插入實體批次
 
-您可以在單一寫入操作中，插入實體批次至資料表服務。下列程式碼會建立一個 **TableBatchOperation** 物件，然後在其中新增三個插入操作。加入每個插入操作的方式都是建立新的實體物件、設定其值，然後呼叫 **TableBatchOperation** 物件上的 **insert** 方法以將實體與新的插入操作建立關聯。然後，程式碼會呼叫 **
+您可以在單一寫入操作中，插入實體批次至資料表服務。下列程式碼會建立一個 **TableBatchOperation** 物件，然後在其中新增三個插入操作。加入每個插入操作的方式都是建立新的實體物件、設定其值，然後呼叫 **TableBatchOperation** 物件上的 **insert** 方法以將實體與新的插入操作建立關聯。然後，程式碼會呼叫 **CloudTable** 物件上的 **execute**，其中指定 "people" 資料表和 **TableBatchOperation** 物件，而後者就會以單一要求將整批資料表操作傳送給儲存體服務。
 
     try
     {
@@ -228,16 +228,16 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         e.printStackTrace();
     }
 
-Some things to note on batch operations:
+以下是批次操作的一些注意事項：
 
-- You can perform up to 100 insert, delete, merge, replace, insert or merge, and insert or replace operations in any combination in a single batch.
-- A batch operation can have a retrieve operation, if it is the only operation in the batch.
-- All entities in a single batch operation must have the same partition key.
-- A batch operation is limited to a 4MB data payload.
+- 您可以在單一批次中最多執行 100 個插入、刪除、合併、取代、插入或合併，以及插入或取代操作的任意組合。
+- 當擷取操作是批次中的唯一操作時，批次操作可以包含擷取操作。
+- 單一批次操作中的所有實體必須具有相同的資料分割索引鍵。
+- 一個批次操作的資料裝載限制為 4MB。
 
-## <a name="RetrieveEntities"> </a>How to: Retrieve all entities in a partition
+## <a name="RetrieveEntities"> </a>作法：擷取資料分割中的所有實體
 
-To query a table for entities in a partition, you can use a **TableQuery**. Call **TableQuery.from** to create a query on a particular table that returns a specified result type. The following code specifies a filter for entities where 'Smith' is the partition key. **TableQuery.generateFilterCondition** is a helper method to create filters for queries. Call **where** on the reference returned by the **TableQuery.from** method to apply the filter to the query. When the query is executed with a call to **execute** on the **CloudTable** object, it returns an **Iterator** with the **CustomerEntity** result type specified. You can then use the **Iterator** returned in a for each loop to consume the results. This code prints the fields of each entity in the query results to the console.
+若要查詢資料表以取得某個資料分割中的實體，可以使用 **TableQuery**。呼叫 **TableQuery.from** 可在特定資料表上建立傳回指定結果類型的查詢。下列程式碼會指定篩選器來篩選出資料分割索引鍵為 'Smith' 的實體。**TableQuery.generateFilterCondition** 是一個用來建立查詢篩選器的 Helper 方法。在 **TableQuery.from** 方法傳回的參考上呼叫 **where**，可將篩選器套用至查詢。當呼叫 **CloudTable** 物件上的 **execute** 來執行查詢時，會傳回一個指定了 **CustomerEntity**  結果類型的 **CustomerEntity**Iterator。然後，您便可以將傳回的 **Iterator** 用於 for each 迴圈中以取用結果。此程式碼會將查詢結果中每個實體的欄位列印至主控台。
 
     try
     {
@@ -281,9 +281,9 @@ To query a table for entities in a partition, you can use a **TableQuery**. Call
         e.printStackTrace();
     }
 
-## <a name="RetrieveRange"> </a>How to: Retrieve a range of entities in a partition
+## <a name="RetrieveRange"> </a>作法：擷取資料分割中某個範圍的實體
 
-If you don't want to query all the entities in a partition, you can specify a range by using comparison operators in a filter. The following code combines two filters to get all entities in partition "Smith" where the row key (first name) starts with a letter up to 'E' in the alphabet. Then it prints the query results. If you use the entities added to the table in the batch insert section of this guide, only two entities are returned this time (Ben and Denise Smith); Jeff Smith is not included.
+如果您不想要查詢資料分割中的所有實體，可以在篩選器中使用比較運算子來指定範圍。下列程式碼會結合兩個篩選器，以取得 "Smith" 資料分割中資料列索引鍵 (名字) 開頭為字母 A 到 E 的所有實體。然後列印查詢結果。如果您使用在本指南批次插入小節中新增至資料表的實體，則這時只會傳回兩個實例 (Ben Smith 及 Denise Smith)；Jeff Smith 不在其中。
 
     try
     {
@@ -338,9 +338,9 @@ If you don't want to query all the entities in a partition, you can specify a ra
         e.printStackTrace();
     }
 
-## <a name="RetriveSingle"> </a>How to: Retrieve a single entity
+## <a name="RetriveSingle"> </a>作法：擷取單一實體
 
-You can write a query to retrieve a single, specific entity. The following code calls **TableOperation.retrieve** with partition key and row key parameters to specify the customer "Jeff Smith", instead of creating a **TableQuery** and using filters to do the same thing. When executed, the retrieve operation returns just one entity, rather than a collection. The **getResultAsType** method casts the result to the type of the assignment target, a **CustomerEntity** object. If this type is not compatible with the type specified for the query, an exception will be thrown. A null value is returned if no entity has an exact partition and row key match. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.
+您可以撰寫查詢來擷取單一特定實體。下列程式碼會呼叫含資料分割索引鍵和資料列索引鍵參數 (以指定客戶 "Jeff Smith") 的 **TableOperation.retrieve**，而不是建立 **TableQuery** 並使用篩選器來達到同樣的目的。執行時，擷取操作只會傳回一個實體，而不是傳回一個集合。**getResultAsType** 方法會將結果轉換成指派目標 **(CustomerEntity 物件)** 的類型。如果此類型與指定給查詢的類型不相容，將會擲回例外狀況。如果沒有實體具有完全相符的資料分割和資料列索引鍵，則會傳回 Null 值。若要從資料表服務中擷取單一實體，最快的方法是在查詢中同時指定資料分割索引鍵和資料列索引鍵。
 
     try
     {
@@ -377,9 +377,9 @@ You can write a query to retrieve a single, specific entity. The following code 
         e.printStackTrace();
     }
 
-## <a name="ModifyEntity"> </a>How to: Modify an entity
+## <a name="ModifyEntity"> </a>作法：修改實體
 
-To modify an entity, retrieve it from the table service, make changes to the entity object, and save the changes back to the table service with a replace or merge operation. The following code changes an existing customer's phone number. Instead of calling **TableOperation.insert** like we did to insert, this code calls **TableOperation.replace**. The **CloudTable.execute** method calls the table service, and the entity is replaced, unless another application changed it in the time since this application retrieved it. When that happens, an exception is thrown, and the entity must be retrieved, modified, and saved again. This optimistic concurrency retry pattern is common in a distributed storage system.
+若要修改實體，請從資料表服務擷取它，對實體物件進行變更，然後以取代或合併操作將變更儲存回資料表服務。下列程式碼會變更現有客戶的電話號碼。不像我們之前為了執行插入而呼叫 **TableOperation.insert**，這個程式碼會呼叫 **TableOperation.replace**。**CloudTable.execute** 方法會呼叫資料表服務，然後實體就會被取代，除非有另一個應用程式在此應用程式擷取它後的這段時間變更了這個實體。發生此情況時，系統會擲回例外狀況，且必須重新擷取、修改及儲存實體。這種開放式並行存取重試模式在分散式儲存體系統中相當常見。
 
     try
     {
@@ -416,9 +416,9 @@ To modify an entity, retrieve it from the table service, make changes to the ent
         e.printStackTrace();
     }
 
-## <a name="QueryProperties"> </a>How to: Query a subset of entity properties
+## <a name="QueryProperties"> </a>作法：查詢實體屬性的子集
 
-A query to a table can retrieve just a few properties from an entity. This technique, called projection, reduces bandwidth and can improve query performance, especially for large entities. The query in the following code uses the **select** method to return only the email addresses of entities in the table. The results are projected into a collection of **String** with the help of an **EntityResolver**, which does the type conversion on the entities returned from the server. You can learn more about projection in this [blog post][]. Note that projection is not supported on the local storage emulator, so this code runs only when using an account on the table service.
+一項資料表查詢可以只擷取實體的少數屬性。這項稱為「投射」的技術可減少頻寬並提高查詢效能 (尤其是對大型實體而言)。下列程式碼中的查詢會使用 **select** 方法，只傳回資料表中之實體的電子郵件地址。結果會在 **EntityResolver** (負責對從伺服器傳回的實體執行類型轉換) 的幫助下投影至 **String** 的集合中。您可以閱讀這篇[部落格文章][] (英文) 深入了解投射。請注意，投射並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。
 
     try
     {
@@ -457,9 +457,9 @@ A query to a table can retrieve just a few properties from an entity. This techn
         e.printStackTrace();
     }
 
-## <a name="InsertOrReplace"> </a>How to: Insert or Replace an entity
+## <a name="InsertOrReplace"> </a>作法：插入或取代實體
 
-Often you want to add an entity to a table without knowing if it already exists in the table. An insert-or-replace operation allows you to make a single request which will insert the entity if it does not exist or replace the existing one if it does. Building on prior examples, the following code inserts or replaces the entity for "Walter Harp". After creating a new entity, this code calls the **TableOperation.insertOrReplace** method. This code then calls **execute** on the **CloudTable** object with the table and the insert or replace table operation as the parameters. To update only part of an entity, the **TableOperation.insertOrMerge** method can be used instead. Note that insert-or-replace is not supported on the local storage emulator, so this code runs only when using an account on the table service. You can learn more about insert-or-replace and insert-or-merge in this [blog post][].
+您經常會想要新增實體至資料表，但不知道它是否已在資料表中。插入或取代實體允許您透過單一要求，如果實體不存在便插入它，若是存在則取代現有實體。以先前的範例為基礎，下列程式碼會插入或取代 "Walter Harp" 的實體。建立新實體之後，此程式碼會呼叫 **TableOperation.insertOrReplace** 方法。此程式碼接著會以資料表以及插入或取代資料表操作當作參數，在 **CloudTable** 物件上呼叫 **execute**。若只要更新實體的某一部分，可以改用 **TableOperation.insertOrMerge** 方法。請注意，插入或取代並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。您可以閱讀這篇[部落格文章][] (英文) 深入了解插入或取代，以及插入或合併。
 
     try
     {
@@ -490,9 +490,9 @@ Often you want to add an entity to a table without knowing if it already exists 
         e.printStackTrace();
     }
 
-## <a name="DeleteEntity"> </a>How to: Delete an entity
+## <a name="DeleteEntity"> </a>作法：刪除實體
 
-You can easily delete an entity after you have retrieved it. Once the entity is retrieved, call **TableOperation.delete** with the entity to delete. Then call **execute** on the **CloudTable** object. The following code retrieves and deletes a customer entity.
+擷取實體之後，可以輕鬆地將它刪除。擷取實體之後，請以要刪除的實體呼叫 **TableOperation.delete**。然後在 **CloudTable** 物件上呼叫 **execute**。下列程式碼會擷取並刪除客戶實體。
 
     try
     {
@@ -525,9 +525,9 @@ You can easily delete an entity after you have retrieved it. Once the entity is 
         e.printStackTrace();
     }
 
-## <a name="DeleteTable"> </a>How to: Delete a table
+## <a name="DeleteTable"> </a>作法：刪除資料表
 
-Finally, the following code deletes a table from a storage account. A table which has been deleted will be unavailable to be recreated for a period of time following the deletion, usually less than forty seconds.
+最後，下列程式碼會從儲存體帳戶刪除資料表。刪除資料表後，將有一段時間無法重新建立該資料表，通常是 40 秒內。
 
     try
     {
@@ -548,21 +548,22 @@ Finally, the following code deletes a table from a storage account. A table whic
         e.printStackTrace();
     }
 
-## <a name="NextSteps"> </a>Next steps
+## <a name="NextSteps"> </a>後續步驟
 
-Now that you've learned the basics of table storage, follow these links to learn how to do more complex storage tasks.
+了解資料表儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
 - [Azure Storage SDK for Java]
-- [Azure Storage Client SDK Reference]
-- [Azure Storage REST API]
-- [Azure Storage Team Blog]
+- [Azure 儲存體用戶端 SDK 參考]
+- [Azure 儲存體 REST API]
+- [Azure 儲存體團隊部落格]
 
 [Azure SDK for Java]: http://www.windowsazure.com/zh-tw/develop/java/
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
-[Azure Storage REST API]: http://msdn.microsoft.com/zh-tw/library/azure/gg433040.aspx
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+[Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
+[Azure 儲存體 REST API]: http://msdn.microsoft.com/zh-tw/library/azure/gg433040.aspx
+[Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
+[部落格文章]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+
 
 <!--HONumber=35_1-->

@@ -14,25 +14,25 @@
 2. [更新用戶端以支援驗證]
 
 
-本教學課程會以先前的教學課程[開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料]。  
+本教學課程會以上一個教學課程[開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料]。  
 
 ## <a name="string-length-validation"></a>新增驗證
 
-驗證使用者提交的資料長度一向是最佳做法。首先，註冊可驗證傳送至行動服務之字串資料長度的指令碼，並拒絕太長的字串，在此案例中為不得超過 10 個字元
+驗證使用者提交的資料長度一向是最佳做法。首先，註冊可驗證傳送至行動服務之字串資料長度的指令碼，並拒絕太長的字串，在此案例中為不得超過 10 個字元。
 
-1. 登入 [Azure 管理入口網站][Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
+1. 登入 [Azure 管理入口網站]，按一下 [**行動服務**]。
 
    	![][0]
 
-2. 按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
+2. 按一下 [**資料**] 索引標籤，然後按一下 [**TodoItem**] 資料表。
 
    	![][1]
 
-3. 按一下 [指令碼]，然後選取 [插入] 作業。
+3. 按一下 [**指令碼**]，然後選取 [**插入**] 作業。
 
    	![][2]
 
-4. 以下列函數取代現有的指令碼，然後按一下 [儲存]。
+4. 以下列函數取代現有的指令碼，然後按一下 [**儲存**]。
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -42,27 +42,27 @@
             }
         }
 
-    本指令碼會檢查 **text** 屬性的長度，並在長度超過 10 個字元時傳送錯誤回應。否則，系統會呼叫 **execute** 方法以完成插入。
+    本指令碼會檢查 [**text**] 屬性的長度，並在長度超過 10 個字元時傳送錯誤回應。否則，系統會呼叫 **execute** 方法以完成插入。
 
     <div class="dev-callout">
-	<b>注意</b> 
-    <p>您可以將位於 [指令碼] 索引標籤上的已註冊的指令碼移除，方法是依序按一下 [清除]、[儲存]。.</p></div>
+	<b>注意</b>
+	<p>在 [<strong>指令碼</strong>] 索引標籤上按一下 [<strong>清除</strong>]，然後按一下 [<strong>儲存</strong>]，即可移除註冊的指令碼。</p></div>
 
 ## <a name="update-client-validation"></a>更新用戶端
 
-現在，行動服務正在驗證資料並傳送錯誤回應，您必須更新您的應用程式以便處理驗證的錯誤回應
+現在，行動服務正在驗證資料並傳送錯誤回應，您必須更新您的應用程式以便處理驗證的錯誤回應。
 
-1. 在 Xcode 中，開啟您完成教學課程[開始使用資料][開始使用資料]時所修改的專案
+1. 在 Xcode 中，開啟您完成教學課程 [開始使用資料] 時所修改的專案。
 
-2. 按 [執行] 按鈕 (Command + R) 以建置專案並啟動應用程式，在文字方塊中輸入超過 10 個字元的文字，然後按一下加號 (**+**) 圖示。
+2. 按 [**執行**] 按鈕 (Command + R) 以建置專案並啟動應用程式，在文字方塊中輸入超過 10 個字元的文字，然後按一下加號 (**+**) 圖示。
 
-   	請留意到，由於行動服務傳回了 400 回應 (不正確的要求)，因此應用程式發出未處理的錯誤。
+   	請注意應用程式會指出一個由行動服務所傳回的未處理錯誤，顯示為 400 response (Bad Request)。
 
 3. 在 QSTodoService.m 檔案中，找出位於 **addItem** 方法中的下列程式碼行：
 
         [self logErrorIfNotNil:error];
 
-   	在這行程式碼之後，以下列程式碼更新 completion 區塊的剩餘部分：
+   	在此行程式碼之後，將完成區塊的提醒以下列程式碼取代：
 
         BOOL goodRequest = !((error) && (error.code == MSErrorMessageErrorCode));
 
@@ -93,19 +93,19 @@
             }
         }
 
-   	這會將錯誤記錄至輸出視窗，並且對使用者顯示。
+   	這樣會在輸入視窗中記錄錯誤，並顯示給使用者參考。
 
 4. 重新建置並啟動應用程式。
 
    	![][4]
 
-  	請留意到，此時會處理錯誤，並對使用者顯示錯誤訊息。
+  	請留意，此時會處理錯誤，並對使用者顯示錯誤訊息。
 
-<!--## <a name="add-timestamp"></a>Add a timestamp
+## <a name="add-timestamp"></a>新增時間戳記
 
-The previous tasks validated an insert and either accepted or rejected it. Now, you will update inserted data by using a server script that adds a timestamp property to the object before it gets inserted.
+上一個工作驗證了插入操作，並已接受或拒絕此操作。現在，您將更新插入資料，方法是在插入物件之前，使用可將時間戳記屬性新增至物件的伺服器指令碼。
 
-1. In the **Scripts** tab in the [Management Portal], replace the current **Insert** script with the following function, and then click **Save**.
+1. 在 [管理入口網站] 的 [**指令碼**] 索引標籤中，使用下列函數來取代目前的 **Insert** 指令碼，然後按一下 [**儲存**]。
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -116,27 +116,27 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
             }
         }
 
-    This function augments the previous insert script by adding a new **createdAt** timestamp property to the object before it gets inserted by the call to **request**.**execute**.
+    此函數可強化上一個 insert 指令碼，方法是先將新的 **createdAt** 時間戳記屬性新增至物件，再呼叫 **request**.**execute**。
 
-    <div class="dev-callout"><b>Note</b>
-	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>createdAt</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.</p>
+    <div class="dev-callout"><b>注意</b>
+	<p>首次執行插入指令碼時，必須啟用動態結構描述。在啟用動態結構描述的情況下，行動服務會在首次執行時自動將 <strong>createdAt</strong> 資料行新增至 <strong>TodoItem</strong> 資料表。依預設會啟用新行動服務的動態結構描述，您應先加以停用，再發佈應用程式。</p>
     </div>
 
-2. In Visual Studio, press the **F5** key to run the app, then type text (shorter than 10 characters) in **Insert a TodoItem** and click **Save**.
+2. 在 Visual Studio 中，按 **F5** 鍵以執行應用程式，然後在 [**Insert a TodoItem**] 中鍵入文字 (少於 10 個字元)，並按一下 [**Save**]。
 
-   	Notice that the new timestamp does not appear in the app UI.
+   	請注意新的時間戳記不會出現在應用程式 UI 中。
 
-3. Back in the Management Portal, click the **Browse** tab in the **todoitem** table.
+3. 回到 [管理入口網站] 中，按一下 [**todoitem**] 資料表中的 [**Browse**] 索引標籤。
 
-   	Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.
+   	請注意現在會有一個 **createdAt** 資料欄，且新插入的項目也具有時間戳記值。
 
-Next, you need to update the iOS app to display this new column.
+接下來，您必須更新 iOS 應用程式以顯示此新資料欄。
 
-## <a name="update-client-timestamp"></a>Update the client again
+## <a name="update-client-timestamp"></a>重新更新用戶端
 
-The Mobile Service client will ignore any data in a response that it cannot serialize into properties on the defined type. The final step is to update the client to display this new data.
+針對無法序列化成已定義類型屬性的回應，行動服務用戶端將忽略該回應中的任何資料。最後步驟是更新用戶端以顯示此新資料。
 
-1. In Visual Studio, open the file MainPage.xaml.cs, then replace the existing **TodoItem** class with the following definition:
+1. 在 Visual Studio 中開啟檔案 MainPage.xaml.cs，然後使用下列定義來取代現有的 **TodoItem** 類別：
 
 	    public class TodoItem
 	    {
@@ -152,23 +152,23 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 	        public DateTime? CreatedAt { get; set; }
 	    }
 
-    This new class definition includes the new timestamp property, as a nullable DateTime type.
+    此新類別定義將包括如可為 Null 之 DateTime 類型的新時間戳記屬性。
 
-    <div class="dev-callout"><b>Note</b>
-	<p>The <strong>DataMemberAttribute</strong> tells the client to map the new <strong>CreatedAt</strong> property in the app to the <strong>createdAt</strong> column defined in the TodoItem table, which has a different casing. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database. Without this attribute, an error would occur because of the casing differences.</p>
+    <div class="dev-callout"><b>注意</b>
+	<p><strong>DataMemberAttribute</strong> 會告訴用戶端，將應用程式中的新 <strong>CreatedAt</strong> 屬性對應到 TodoItem 資料表中所定義、且使用不同大小寫的 <strong>createdAt</strong> 資料欄。使用此屬性，您的應用程式便可擁有物件上的屬性名稱，且該名稱會與 SQL Database 中的資料欄名稱不同。若是沒有這個屬性，則會因大小寫差異而發生錯誤。</p>
     </div>
 
-5. Add the following XAML element just below the **CheckBoxComplete** element in the MainPage.xaml file:
+2. 在 MainPage.xaml 檔案中的 **CheckBoxComplete** 元素正下方新增下列 XAML 元素：
 
         <TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>
 
-   	如此會在文字方塊中顯示新的 **CreatedAt** 屬性。
+   	如此會在文字方快中顯示近的 **CreatedAt** 屬性。
 
-6. 按 **F5** 鍵以執行應用程式。
+3. 按 **F5** 鍵以執行應用程式。
 
    請留意到，只有在您更新 insert 指令碼後插入的項目，才會顯示時間戳記。
 
-7. 使用下列程式碼取代現有的 **RefreshTodoItems** 方法：
+4. 以下列程式碼取代 **RefreshTodoItems** 方法：
 
         private void RefreshTodoItems()
         {
@@ -182,13 +182,13 @@ The Mobile Service client will ignore any data in a response that it cannot seri
             ListItems.ItemsSource = items;
         }
 
-   	This method updates the query to also filter out items that do not have a timestamp value.
+   	此方法會更新查詢，篩選出沒有時間戳記的項目。
 
-8. 按 **F5** 鍵以執行應用程式。
+5. 按 **F5** 鍵以執行應用程式。
 
    	請留意到，所有已建立但不含時間戳記值的項目，都會從 UI 中消失。
 
-您已完成此使用資料教學課程。-->
+您已完成此使用資料教學課程。
 
 ## <a name="next-steps"> </a>後續步驟
 

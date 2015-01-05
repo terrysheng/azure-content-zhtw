@@ -159,4 +159,4 @@
 	請參閱散發套件的文件，以取得如何正確編輯核心參數的相關資訊。例如，在許多散發套件 (CentOS、Oracle Linux、SLES 11) 中，這些參數可能會以手動方式新增至 "`/boot/grub/menu.lst`" 檔案。在 Ubuntu 上，可將此參數新增至 "/etc/default/grub" 上的 `GRUB_CMDLINE_LINUX_DEFAULT` 變數。
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

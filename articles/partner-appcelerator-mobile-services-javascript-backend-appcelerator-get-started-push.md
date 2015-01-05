@@ -469,4 +469,4 @@
 [行動服務推播物件]： http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
 [安裝 Java 開發工具]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

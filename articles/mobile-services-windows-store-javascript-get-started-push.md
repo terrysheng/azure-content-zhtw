@@ -141,4 +141,4 @@
 [將通知傳送給使用者]: /zh-tw/manage/services/notification-hubs/notify-users/
 [傳送跨平台通知給使用者]: /zh-tw/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -829,4 +829,4 @@ AzCopy 會在分割資料檔案名稱中使用「磁碟區索引」，以區分�
 - [AzCopy：上傳/下載 Windows Azure Blob 的檔案](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

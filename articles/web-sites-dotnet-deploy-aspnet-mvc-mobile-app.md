@@ -632,4 +632,4 @@ Bootstrap [linked list group][] 樣式讓每個連結的整個方塊都可以點
 [SessionByCode3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-3-644.png
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

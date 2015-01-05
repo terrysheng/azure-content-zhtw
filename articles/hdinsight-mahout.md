@@ -407,4 +407,4 @@ Mahout 工作不會清除在處理期間所建立的暫存檔。此外，工作�
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [工具]: https://github.com/Blackmist/hdinsight-tools
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

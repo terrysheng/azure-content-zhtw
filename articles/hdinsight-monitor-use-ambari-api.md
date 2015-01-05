@@ -174,4 +174,4 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

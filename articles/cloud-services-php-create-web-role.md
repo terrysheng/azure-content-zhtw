@@ -219,4 +219,4 @@ Azure 計算和儲存模擬器所提供的本機環境，可讓您在 Azure 應�
 [作法：匯入發行設定]: /zh-tw/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [作法：將雲端服務部署至 Azure]: /zh-tw/develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -566,4 +566,4 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 [部落格文章]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

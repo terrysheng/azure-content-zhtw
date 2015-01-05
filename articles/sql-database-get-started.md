@@ -680,4 +680,4 @@ SQL Server 驗證登入資訊可用於伺服器連線。存取 SQL Database 伺�
 [Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

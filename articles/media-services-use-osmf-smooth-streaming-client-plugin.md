@@ -390,4 +390,4 @@ Smooth Streaming for OSMF 動態外掛程式與 [Strobe Media Playback (SMP)] �
 
 如需一般 OSMF 開發的詳細資訊，請參閱官方 [OSMF 開發頁面](http://osmf.org/resources.html)。
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

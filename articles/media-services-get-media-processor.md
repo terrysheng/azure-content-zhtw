@@ -73,4 +73,4 @@ private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcess
 [Azure Media Encoder 的工作預設字串]: http://msdn.microsoft.com/zh-tw/library/jj129582.aspx
 [作法：以程式設計方式連接到媒體服務]: ../media-services-set-up-computer/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

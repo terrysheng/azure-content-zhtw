@@ -204,4 +204,4 @@ Azure 儲存體可透過 [REST API](http://msdn.microsoft.com/library/windowsazu
 - [如何使用 Python 的資料表儲存體](../storage-python-how-to-use-table-storage/)
 - [如何使用 Python 的佇列儲存體](../storage-python-how-to-use-queue-storage/)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

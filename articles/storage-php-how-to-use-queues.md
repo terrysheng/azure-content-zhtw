@@ -387,4 +387,4 @@
 [Azure 管理入口網站]: http://manage.windowsazure.com/
 [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

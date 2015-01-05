@@ -280,4 +280,4 @@ HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

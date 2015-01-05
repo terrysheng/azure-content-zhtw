@@ -51,4 +51,4 @@
 [在原始檔控制中儲存伺服器指令碼]: /zh-tw/documentation/articles/mobile-services-store-scripts-source-control
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

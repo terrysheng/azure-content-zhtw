@@ -87,4 +87,4 @@ Weitere Informationen zur Auslieferung von Medienobjekten finden Sie unter:
 [使用 Media Services SDK for .NET 建立應用程式]: http://go.microsoft.com/fwlink/?linkid=247821
 [媒體服務論壇]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

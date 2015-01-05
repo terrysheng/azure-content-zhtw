@@ -51,4 +51,4 @@ Azure 媒體服務儀表板會顯示可用來管理媒體服務帳戶的使用�
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

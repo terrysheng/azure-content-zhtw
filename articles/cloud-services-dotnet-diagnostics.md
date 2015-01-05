@@ -767,4 +767,4 @@ Azure 診斷可收集下列類型的遙測資料：
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/zh-tw/library/dn495145.aspx
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/zh-tw/library/dn495168.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

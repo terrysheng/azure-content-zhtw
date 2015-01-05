@@ -188,4 +188,4 @@
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

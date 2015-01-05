@@ -70,4 +70,4 @@
 [如何建立媒體服務帳戶]: ../media-services-create-account/
 [如何建立加密資產並上傳至儲存體]: ../media-services-create-encrypted-asset-upload-storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

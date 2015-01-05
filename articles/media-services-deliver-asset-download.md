@@ -73,4 +73,4 @@ Weitere Informationen zur Auslieferung von Medienobjekten finden Sie unter:
 <h2>後續步驟</h2>
 此主題說明了從 Azure 儲存體下載資產的方式。如需其他資產傳遞方式的相關資訊，請移至[如何傳遞串流內容](../media-services-deliver-streaming-content/) 主題。
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

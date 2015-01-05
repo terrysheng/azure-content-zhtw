@@ -134,4 +134,4 @@ Azure 可將現有虛擬機器的狀態擷取到映像中，供以後用來部�
  - 另請參閱：[在 Linux 上設定軟體 RAID](../virtual-machines-linux-configure-raid/)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

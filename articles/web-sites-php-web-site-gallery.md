@@ -16,4 +16,4 @@
 - [其他 PHP 教學課程](/zh-tw/develop/php/tutorials/) 使用 PHP 和 Azure 建立其他類型的應用程式
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -82,4 +82,4 @@ Weitere Informationen zur Verwaltung von Medienobjekten finden Sie unter:
 <h2>後續步驟</h2>
 現在您知道如何管理資產，請移至[如何透過下載來傳遞資產](../media-services-deliver-asset-download/) 主題。
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

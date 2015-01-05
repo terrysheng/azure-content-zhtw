@@ -562,4 +562,4 @@ Azure 提供兩個部署環境：預備和生產。一般而言，將服務部�
 [Azure 服務組態結構描述 (.cscfg)]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758710.aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

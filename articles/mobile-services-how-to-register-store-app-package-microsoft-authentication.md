@@ -24,4 +24,4 @@ Azure 行動服務對於用戶端導向和伺服器導向的驗證方法均可�
 [開始使用使用者 C#]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet/
 [開始使用使用者 JavaScript]: /zh-tw/develop/mobile/tutorials/get-started-with-users-js/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

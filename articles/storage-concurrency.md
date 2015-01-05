@@ -266,4 +266,4 @@ Microsoft Azure 儲存體服務的設計已符合最複雜的線上應用程式�
 - 儲存體開始使用 [Blob](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/)，[資料表](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-tables/) 及[查詢](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/)
 - 儲存體架構 - [Windows Azure 儲存體：具有高可用性和增強式一致性的雲端儲存體服務](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

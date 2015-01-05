@@ -205,4 +205,4 @@ SDK 包含一個 SamplePlayer 應用程式，以展示如何將 iOS 應用程式
 如上一段程式碼範例所示，如果將 **deleteAfterPlay** 設定為 **YES**，這個廣告將只播放一次。如果將 **deleteAfterPlay** 設定為 **NO**，這個廣告將持續播放，亦即我們所謂的「連續廣告」。
 ### 請參閱 [Azure 媒體播放器架構 Wiki] (英文)(https://github.com/WindowsAzure/azure-media-player-framework/wiki) 的詳細資訊。
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

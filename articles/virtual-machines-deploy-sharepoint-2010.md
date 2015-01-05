@@ -523,4 +523,4 @@ Azure 虛擬機器可用來執行完整而連續的 SharePoint 部署。Azure �
 </ul>
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

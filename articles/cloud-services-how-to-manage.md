@@ -147,4 +147,4 @@
 > 如果對雲端服務設定了詳細資訊監視，則當您刪除該雲端服務時，Azure 並不會從您的儲存體帳戶中刪除監視資料。您將需要手動刪除資料。如需何處可找到這些度量表的相關資訊，請參閱＜作法：從管理入口網站外部存取詳細資訊監視資料＞，位於 <a href="http://azure.microsoft.com/zh-tw/documentation/articles/cloud-services-how-to-monitor/">如何監視雲端服務</a>。
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

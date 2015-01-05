@@ -90,4 +90,4 @@ private static string JobIdAsFileName(string jobID)
 <h2>後續步驟</h2>
 現在您已了解如何建立工作並追蹤其進度，下一個步驟是要保護資產。如需詳細資訊，請參閱[如何使用 Azure 媒體服務保護資產] (英文)。(http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409)。
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

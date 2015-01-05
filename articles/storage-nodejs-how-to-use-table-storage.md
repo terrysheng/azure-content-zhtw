@@ -436,4 +436,4 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [使用儲存體的 Node.js Web 應用程式]: /zh-tw/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [建立 Node.js 應用程式並部署到 Azure 網站]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

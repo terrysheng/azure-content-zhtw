@@ -357,4 +357,4 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。ASP.
   [sqldatabase]: http://www.windowsazure.com/zh-tw/documentation/services/sql-database/
   [儲存體]: http://www.windowsazure.com/zh-tw/documentation/services/storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

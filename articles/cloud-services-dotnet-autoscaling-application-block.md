@@ -401,4 +401,4 @@ Now that you've learned the basics of using the Autoscaling Application Block, f
   [Reducing TechNet and MSDN hosting costs and environmental impact with autoscaling on Azure]: http://msdn.microsoft.com/zh-tw/library/jj838718(PandP.50).aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

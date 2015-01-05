@@ -201,4 +201,4 @@ PTVS 可讓您輕鬆地將 Web 應用程式發行至 Azure 網站。
 [Django 文件]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

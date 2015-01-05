@@ -28,4 +28,4 @@
 
 **下載：** <a href="http://go.microsoft.com/fwlink/p/?LinkId=330292" target="_blank">「了解 Microsoft Azure 上的 NoSQL」PDF 檔案</a>
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

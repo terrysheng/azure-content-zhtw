@@ -167,4 +167,4 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
   [認識 Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
   [ms-open-tech]: http://msopentech.com
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

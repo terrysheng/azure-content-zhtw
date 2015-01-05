@@ -9,4 +9,4 @@
 
 如需將行動服務新增至現有 Windows 市集應用程式的指示，請參閱[新增行動服務至現有應用程式](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/)。
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

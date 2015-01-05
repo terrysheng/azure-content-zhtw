@@ -110,4 +110,4 @@ PHP 5.5 也可供使用，不過並未預設啟用。若要將它啟用，請依
 [在 Azure 中設定、監視和調整網站]: http://www.windowsazure.com/zh-tw/manage/services/web-sites/
 [下載 Azure SDK for PHP]: http://www.windowsazure.com/zh-tw/develop/php/common-tasks/download-php-sdk/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

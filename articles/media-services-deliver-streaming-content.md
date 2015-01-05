@@ -78,4 +78,4 @@ Weitere Informationen zur Auslieferung von Medienobjekten finden Sie unter:
 <h2>後續步驟</h2>
 目前為止，我們已說明從 Azure 儲存體和使用 Smooth Streaming 來傳遞資產。下一個主題[如何傳遞 HLS 內容](../media-services-deliver-http-live-streaming-content/) 討論如何使用 Apple HTTP 即時資料流 (HLS) 傳遞串流內容。
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

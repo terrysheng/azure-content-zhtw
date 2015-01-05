@@ -678,4 +678,4 @@
 
 [建立 Node.js 應用程式並部署到 Azure 網站]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

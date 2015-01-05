@@ -215,4 +215,4 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "List and show clusters"
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

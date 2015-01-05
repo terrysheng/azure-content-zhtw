@@ -57,4 +57,4 @@ Microsoft Azure 保證計劃性維護事件不會造成兩個不同 UD 的虛擬
 [虛擬機器管理可用性]: ../virtual-machines-windows-tutorial/
 [了解規劃與未規劃的維護]: ../virtual-machines-manage-availability/#Understand-planned-versus-unplanned-maintenance/ 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

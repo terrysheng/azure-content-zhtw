@@ -148,4 +148,4 @@
 [定期通知]: http://msdn.microsoft.com/zh-tw/library/windows/apps/jj150587.aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

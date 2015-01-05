@@ -48,4 +48,4 @@
 [關於磁碟和映像]：http://go.microsoft.com/fwlink/p/?LinkId=263439
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

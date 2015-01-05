@@ -221,4 +221,4 @@ PTVS 可讓您輕鬆地將 Web 應用程式發行至 Azure 網站。
 [Web 專案]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [雲端服務專案]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -213,4 +213,4 @@ WordCount 指令碼的輸出應會在 cmd 視窗中顯示如下：
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

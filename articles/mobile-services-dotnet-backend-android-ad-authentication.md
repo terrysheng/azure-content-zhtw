@@ -16,4 +16,4 @@
 <!-- URLs. -->
 [存取受到 iOS 和 Android 的 Azure Active Directory 保護的資源]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

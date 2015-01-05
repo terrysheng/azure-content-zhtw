@@ -204,4 +204,4 @@ Giraph 工作會在執行階段建立指定的輸出目錄。如果目錄已存�
 [pig]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-use-pig/
 [hive]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-use-hive/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

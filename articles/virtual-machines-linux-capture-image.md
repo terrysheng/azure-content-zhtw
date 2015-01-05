@@ -56,4 +56,4 @@ Azure 會將此範本視為映像，並將其儲存在 [**我的映像**] 下。
 [如何將資料磁碟附加至虛擬機器]: ../storage-windows-attach-disk/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

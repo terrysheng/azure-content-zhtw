@@ -155,4 +155,4 @@
 [行動服務 HTML/JavaScript 作法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client
 [跨原始來源資源分享]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn155871.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

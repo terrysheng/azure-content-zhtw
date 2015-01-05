@@ -99,4 +99,4 @@
 [範本]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Windows 市集的通知中心作法]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj927172.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

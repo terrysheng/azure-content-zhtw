@@ -1337,4 +1337,4 @@ Bolt 在拓撲中負責主要的處理工作。在此拓撲中，有三個 bolt�
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

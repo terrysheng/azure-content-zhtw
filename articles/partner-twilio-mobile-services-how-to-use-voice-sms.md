@@ -218,4 +218,4 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
 [azure_twilio_howto_python]: /zh-tw/develop/python/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_php]: /zh-tw/develop/php/how-to-guides/twilio-voice-and-sms-service/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -397,4 +397,4 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
   [Node.js Web 應用程式]: http://www.windowsazure.com/zh-tw/develop/nodejs/tutorials/getting-started/
  
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

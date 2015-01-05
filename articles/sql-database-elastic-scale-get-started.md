@@ -100,4 +100,4 @@ Elastic Scale 程式庫和服務範本是免費的。Elastic Scale 不會在您�
 [3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

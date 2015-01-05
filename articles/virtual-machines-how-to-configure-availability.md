@@ -108,4 +108,4 @@
 [關於 Azure VM 組態設定]: http://msdn.microsoft.com/zh-tw/library/azure/dn763935.aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

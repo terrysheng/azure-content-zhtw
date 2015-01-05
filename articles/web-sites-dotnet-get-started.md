@@ -303,4 +303,4 @@
 
 	在 Azure 中，您可以在「網站」中執行 Web 應用程式 (如本教學課程所說明)，或在「雲端服務」或「虛擬機器」中執行。如需詳細資訊，請參閱 [Azure 執行模型](/zh-tw/develop/net/fundamentals/compute/) 和[網站、雲端服務和 VM：使用時機](/zh-tw/manage/services/web-sites/choose-web-app-service/)。
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -584,4 +584,4 @@ School 範例資料庫非常簡便，其所有物件都與 SQL Database 相容�
 [開始使用 SQL Database 管理]: /zh-tw/manage/services/sql-databases/getting-started-w-sql-databases/  
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

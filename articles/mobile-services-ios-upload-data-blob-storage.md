@@ -9,4 +9,4 @@
 
 [iOS 與行動服務和 Windows Azure 儲存體]: http://chrisrisner.com/iOS-and-Mobile-Services-and-Windows-Azure-Storage
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -74,4 +74,4 @@ Azure 會將此範本視為映像，並將其儲存在 [**我的映像**] 下。
 [映像擷取成功]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [使用擷取的映像]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

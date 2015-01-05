@@ -320,4 +320,4 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

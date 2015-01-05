@@ -270,4 +270,4 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 [storesendgrid]: http://azure.microsoft.com/zh-tw/gallery/store/sendgrid/sendgrid-azure/
 [cdn]: http://azure.microsoft.com/zh-tw/documentation/articles/cdn-how-to-use/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

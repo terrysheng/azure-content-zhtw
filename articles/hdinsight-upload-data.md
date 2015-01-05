@@ -295,4 +295,4 @@ Sqoop 是一種專門在 Hadoop 和關聯式資料庫之間傳送資料的工具
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

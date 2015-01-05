@@ -640,4 +640,4 @@ WASB 語法如下：
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

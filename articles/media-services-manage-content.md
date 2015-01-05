@@ -102,4 +102,4 @@ Azure 媒體服務內容檢視可讓您管理自己媒體服務帳戶的媒體�
 [編碼器]: ./media/media-services-manage-content/EncoderDialog2.png
 [商標]: ./media/branding-reporting.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

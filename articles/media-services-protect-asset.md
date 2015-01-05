@@ -116,4 +116,4 @@ Weitere Informationen zum PlayReady-Schutz finden Sie unter:
 <h2>後續步驟</h2>
 您已了解如何使用媒體服務來保護資產，現在可移至[如何管理資產](../media-services-manage-assets/) 主題。
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

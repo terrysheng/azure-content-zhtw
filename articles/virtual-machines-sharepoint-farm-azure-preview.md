@@ -68,4 +68,4 @@
 SharePoint Server 伺服器陣列會使用 Azure 資源管理員和指令碼，自動建立這些 SharePoint 伺服器陣列的基礎結構和伺服器組態。如需詳細資訊，請參閱[搭配使用 Windows PowerShell 與資源管理員](http://azure.microsoft.com/zh-tw/documentation/articles/powershell-azure-resource-manager/)。
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

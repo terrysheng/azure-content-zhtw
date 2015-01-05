@@ -135,4 +135,4 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][ex
 [Python 2.7 32 位元]: http://go.microsoft.com/fwlink/?LinkId=517190 
 [Python 3.4 32 位元]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

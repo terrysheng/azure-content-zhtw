@@ -238,4 +238,4 @@
   [佇列、主題和訂閱。]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367516.aspx
   [服務匯流排代理訊息 .NET 教學課程]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367512.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

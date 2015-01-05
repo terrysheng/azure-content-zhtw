@@ -40,4 +40,4 @@
 [如何為 Linux 虛擬機器重設密碼或 SSH]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

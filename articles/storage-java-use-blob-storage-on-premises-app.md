@@ -371,4 +371,4 @@ Azure 儲存體中的 Blob。
   [如何管理儲存體帳戶]: http://www.windowsazure.com/zh-tw/manage/services/storage/how-to-manage-a-storage-account/
   [如何從 Python 使用 Blob 儲存體服務]: http://www.windowsazure.com/zh-tw/develop/java/how-to-guides/blob-storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

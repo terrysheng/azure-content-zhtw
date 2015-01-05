@@ -50,4 +50,4 @@
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

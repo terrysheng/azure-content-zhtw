@@ -222,4 +222,4 @@
 [將廣播通知傳送給訂閱者]: /zh-tw/documentation/articles/notification-hubs-android-send-breaking-news/
 [將範本型通知傳送給訂閱者]: /zh-tw/documentation/articles/notification-hubs-android-send-localized-breaking-news/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

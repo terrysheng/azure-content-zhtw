@@ -288,4 +288,4 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

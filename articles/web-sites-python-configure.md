@@ -130,4 +130,4 @@ Git 發行設定完畢後，會建立一個 Git 儲存機制並與您的網站�
 ![](./media/web-sites-python-configure/configure-python-result.png)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

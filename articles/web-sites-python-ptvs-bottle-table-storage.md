@@ -209,4 +209,4 @@ PTVS 可讓您輕鬆地將 Web 應用程式發行至 Azure 網站。
 [Azure 儲存體]: http://azure.microsoft.com/zh-tw/documentation/services/storage/
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -157,4 +157,4 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [行動服務 .NET 作法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

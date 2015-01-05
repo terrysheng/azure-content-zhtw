@@ -87,4 +87,4 @@
 [Capptain]: http://www.capptain.com
 [行動服務標準層]: /zh-tw/pricing/details/mobile-services/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -75,4 +75,4 @@ HDInsight 附有下列範例。
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

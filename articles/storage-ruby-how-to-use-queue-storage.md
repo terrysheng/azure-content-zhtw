@@ -161,4 +161,4 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORA
 
 若要比較本文討論的 Azure 佇列服務與[如何使用服務匯流排佇列](/zh-tw/develop/ruby/how-to-guides/service-bus-queues/) 文章中討論的 Azure 服務匯流排佇列，請參閱[Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh767287.aspx)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -106,4 +106,4 @@ SharePoint Server 伺服器陣列是 Microsoft Azure 預覽入口網站的一項
 	-	SharePoint 伺服器陣列複雜密碼：在初始組態過程中指定。
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

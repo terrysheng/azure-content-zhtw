@@ -139,4 +139,4 @@
 
 現在，您可以前往 DjangoApplication 目錄，再依照平常的用法使用 manage.py 來開始將新應用程式加入 Django 專案。  
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

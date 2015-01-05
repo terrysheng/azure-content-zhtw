@@ -77,4 +77,4 @@ Excel適用的 Power Query 增益集可協助您將 HDInsight 叢集中的資料
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

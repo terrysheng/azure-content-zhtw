@@ -81,4 +81,4 @@
 [JavaScript 和 HTML]: /zh-tw/develop/mobile/tutorials/get-started-with-users-js/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

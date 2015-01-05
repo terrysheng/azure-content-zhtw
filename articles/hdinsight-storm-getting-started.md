@@ -175,4 +175,4 @@ WordCountTopology 範例不會將輸出寫入目錄中，但我們可以使用 S
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

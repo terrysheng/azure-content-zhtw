@@ -166,4 +166,4 @@ Weitere Informationen zur Verarbeitung von Medienobjekten finden Sie unter:
 [如何檢查工作進度]：http://go.microsoft.com/fwlink/?LinkId=301737
 [Azure Media Packager 的工作預設] (英文)：http://msdn.microsoft.com/zh-tw/library/windowsazure/hh973635.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

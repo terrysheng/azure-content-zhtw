@@ -159,4 +159,4 @@
 [其他 azure.microsoft.com 文件主題的連結 3]: ../storage-whatis-account/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -269,4 +269,4 @@
 [management-portal]: https://manage.windowsazure.com
 [sql-database-editions]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee621788.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

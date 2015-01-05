@@ -991,4 +991,4 @@ Strom 中內建的欄位群組功能在 SCP.NET 中無法正常運作。將資�
 [1]: ./media/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application-01.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -63,7 +63,7 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 }
 </code></pre>
 
-Weitere Informationen zur Auslieferung von Medienobjekten finden Sie unter:
+如需有關傳遞資產的詳細資訊，請參閱：
 <ul>
 <li><a href="http://msdn.microsoft.com/zh-tw/library/jj129575.aspx">使用 Media Services for .NET 傳遞資產</a></li>
 <li><a href="http://msdn.microsoft.com/zh-tw/library/jj129578.aspx">使用 Media Services REST API 傳遞資產</a></li>

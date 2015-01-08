@@ -16,7 +16,7 @@ Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言�
  
 **您將了解：**	
 	
-* Ausführen eines C#-Streamingprogramms zur Analyse von Daten in einer Datei in HDInsight mithilfe von Azure PowerShell.		
+* 如何在 HDInsight 上使用 Azure PowerShell 執行 C# 串流程式來分析檔案中包含的資料。		
 * 如何撰寫使用 Hadoop 串流介面的 C# 程式碼。
 
 

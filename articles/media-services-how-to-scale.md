@@ -34,9 +34,9 @@
 	任何新的隨選串流單元大約需要 20 分鐘才能配置完成。 
 
 	 
-	>[Azure.Note] Aktuell kann das bedarfsgesteuerte Streaming für bis zu einer Stunde deaktiviert werden, wenn Sie einen positiven Wert für die Einheiten für das bedarfsgesteuerte Streaming zurück auf null setzen.
+	>[Azure.Note] 目前，從隨選串流單元的任何正值回到無，可能會使隨選串流停用長達一小時。
 
-	>[Azure.Note] Die höchste für den 24-Stunden-Zeitraum angegebene Anzahl an Einheiten wird zum Berechnen der Kosten verwendet.如需定價詳細資料的相關資訊，請參閱[媒體服務定價詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)。
+	>[Azure.Note] 計算成本時會使用 24 小時內指定的最大單元數。如需定價詳細資料的相關資訊，請參閱[媒體服務定價詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)。
 
 <h2>編碼保留單元</h2>
 
@@ -62,7 +62,7 @@
 
 	新的編碼保留單元會在您按 [儲存] 後立即配置。
 
-	>[Azure.Note] Die höchste für den 24-Stunden-Zeitraum angegebene Anzahl an Einheiten wird zum Berechnen der Kosten verwendet.
+	>[Azure.Note] 計算成本時會使用 24 小時內指定的最大單元數。
 
 <h2>建立支援票證</h2>
 

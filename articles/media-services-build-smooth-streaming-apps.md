@@ -478,7 +478,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。若要啟用 Smo
 		}
 		#endregion sliderMediaPlayer
 
-	**注意：**Mit CoreDispatcher werden Änderungen am UI-Thread aus dem Nicht-UI-Thread übernommen.如果發送器執行緒發生瓶頸，開發人員可以選擇使用自己想要更新之 UI-element 所提供的發送器。例如：
+	**注意：**CoreDispatcher 用來從非 UI 執行緒對 UI 執行緒進行變更。 如果發送器執行緒發生瓶頸，開發人員可以選擇使用自己想要更新之 UI-element 所提供的發送器。例如：
 	
 		await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 		  timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 

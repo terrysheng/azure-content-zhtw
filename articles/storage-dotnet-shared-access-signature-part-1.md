@@ -35,10 +35,10 @@
 
 共用存取簽章包含下列定義共用存取簽章的限制，每項限制都會以 URI 上的參數表示：
 
-- **儲存體資源。**Sie können den Zugriff auf Speicherressourcen wie z. B. Container, Blobs, Warteschlangen, Tabellen und Bereiche von Tabellenentitäten setzen.
-- **開始時間。**Dies ist der Zeitpunkt, ab dem die SAS gültig ist.共用存取簽章的開始時間是選擇性選項，如果略過，則 SAS 會立即生效。 
-- **到期時間。**Dies ist der Zeitpunkt, ab dem die SAS nicht mehr gültig ist.最佳做法建議您為 SAS 指定過期時間，或將它與預存存取原則建立關聯 (請參閱以下詳細資訊)。
-- **權限。**Die in der SAS angegebenen Berechtigungen geben an, welche Operationen der Client mit der SAS auf der Speicherressource ausführen kann. 
+- **儲存體資源。**您可以為儲存體資源委派存取權，包括容器、Blob、佇列、資料表和各種資料表實體等。
+- **開始時間。**這是指 SAS 生效的時間。共用存取簽章的開始時間是選擇性選項，如果略過，則 SAS 會立即生效。 
+- **到期時間。**這是指 SAS 何時失效的時間。最佳做法建議您為 SAS 指定過期時間，或將它與預存存取原則建立關聯 (請參閱以下詳細資訊)。
+- **權限。**在 SAS 上指定的權限表示用戶端可以使用 SAS 來對儲存體資源執行哪些作業。 
 
 以下是提供讀取和寫入 Blob 權限的 SAS URI 範例。此資料表會細分 URI 的每一部分，以了解它會如何影響 SAS：
 
@@ -173,10 +173,10 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&s
 
 共用存取簽章可以接受以下兩種格式其中之一：
 
-- **臨機操作 SAS：**Bei der Erstellung von Ad-Hoc-SAS werden Startzeit, Ablaufzeit und Berechtigungen für die SAS allesamt in der SAS-URI angegeben (bzw. implizit angegeben, falls die Startzeit ausgelassen wird).您可以在容器、Blob、資料表或佇列上建立此類型的 SAS。
-- **包含預存存取原則的 SAS：**Gespeicherte Zugriffsrichtlinien werden für Ressourcencontainer - Blob-Container, Tabellen oder Warteschlangen - definiert und dienen zur Verwaltung von Einschränkungen für eine oder mehrere Shared Access Signatures.當您將 SAS 與預存存取原則建立關聯時，SAS 會繼承為該預存存取原則所定義的限制 (開始時間、過期時間和權限)。
+- **臨機操作 SAS：**建立臨機操作 SAS 時，SAS 的開始時間、過期時間和權限都會在 SAS URI 上進行指定 (或暗示，在此情況下則會略過開始時間)。您可以在容器、Blob、資料表或佇列上建立此類型的 SAS。
+- **包含預存存取原則的 SAS：**預存存取原則會在資源容器 (Blob 容器、資料表或佇列) 中定義，且可用來管理一或多個共用存取簽章的限制。當您將 SAS 與預存存取原則建立關聯時，SAS 會繼承為該預存存取原則所定義的限制 (開始時間、過期時間和權限)。
 
-Der Unterschied zwischen den beiden Formen ist wichtig für ein Szenario: Widerruf.SAS 是一種 URL，因此取得 SAS 的任何人都可以使用它，無論起先要求的人是誰。如果是公開發佈 SAS，則全世界的人都可以使用此 SAS。散佈的 SAS 在發生以下四個情況其中之一之前都會持續有效：
+這兩種格式間的差異對於以下這一個重要案例而言相當重要：撤銷。SAS 是一種 URL，因此取得 SAS 的任何人都可以使用它，無論起先要求的人是誰。如果是公開發佈 SAS，則全世界的人都可以使用此 SAS。散佈的 SAS 在發生以下四個情況其中之一之前都會持續有效：
 
 1.	已到達 SAS 上指定的過期時間。
 2.	已到達在 SAS 所參考之預存存取原則上所指定的過期時間 (如果參考的是預存存取原則，而且如果此預存存取原則指定了過期時間)。發生的原因有可能是因為已經超過指定的間隔時間，或因為您已修改預存存取原則，將過期時間設定為過去的日期，這是撤銷 SAS 的一種方法。
@@ -193,15 +193,15 @@ Der Unterschied zwischen den beiden Formen ist wichtig für ein Szenario: Widerr
 下列關於使用共用存取簽章的建議將協助您平衡這些風險：
 
 1. **一律使用 HTTPS** 來建立 SAS 或散佈 SAS。如果透過 HTTP 來傳遞 SAS 並被攔截，執行攔截式攻擊的攻擊者將能夠讀取並使用 SAS (就如同預期使用者執行般)，這有可能會洩露敏感資料或允許惡意使用者損毀資料。
-2. **可能的話，參考預存存取原則。**Mit gespeicherten Zugriffsrichtlinien können Sie Berechtigungen widerrufen, ohne die Schlüssel für das Speicherkonto neu generieren zu müssen.將到期日設在很久之後 (或無限) 的日期，並確定定期更新到期日以將到期日再往未來移動。
-3. **在臨機操作 SAS 上使用短期的到期時間。**Auf diese Weise sind SAS nur für kurze Zeit gültig, selbst wenn ihre Sicherheit auf unbekannte Weise gefährdet ist.如果您無法參考預存存取原則，此做法格外重要。此做法也可協助限制可寫入 Blob 的資料量，方法是限制可對其上傳的可用時間。
-4. **讓用戶端視需要自動更新 SAS。**Clients müssen die SAS rechtzeitig vor der erwarteten Ablaufzeit erneuern, um Zeit für Wiederholungsversuche zu haben, falls der entsprechende Dienst nicht verfügbar ist.如果您打算將 SAS 用於少量的即時短期操作 (預計可在指定的到期時間內完成的操作)，則此建議可能沒有必要，因為沒有更新 SAS 的打算。不過，如果您有定期透過 SAS 做出要求的用戶端，則到期的可能性便有可能發生。主要考量是要平衡下列兩個需求：短期的 SAS (如上所述)，與確保用戶端提早要求更新以避免成功更新之前因 SAS 過期而中斷。
+2. **可能的話，參考預存存取原則。**預存存取原則提供了撤銷權限且無需重新產生儲存體帳戶金鑰的選項。將到期日設在很久之後 (或無限) 的日期，並確定定期更新到期日以將到期日再往未來移動。
+3. **在臨機操作 SAS 上使用短期的到期時間。**如此一來，即使 SAS 在不知不覺中被洩露，它也只會在短時間內可用。如果您無法參考預存存取原則，此做法格外重要。此做法也可協助限制可寫入 Blob 的資料量，方法是限制可對其上傳的可用時間。
+4. **讓用戶端視需要自動更新 SAS。**用戶端應在預期的到期日之前就更新 SAS，以便如果提供 SAS 的服務無法使用的話，還有時間可以進行重試。如果您打算將 SAS 用於少量的即時短期操作 (預計可在指定的到期時間內完成的操作)，則此建議可能沒有必要，因為沒有更新 SAS 的打算。不過，如果您有定期透過 SAS 做出要求的用戶端，則到期的可能性便有可能發生。主要考量是要平衡下列兩個需求：短期的 SAS (如上所述)，與確保用戶端提早要求更新以避免成功更新之前因 SAS 過期而中斷。
 5. **請小心使用 SAS 開始時間。**如果您將 SAS 的開始時間設為 [**現在**]，則由於時鐘誤差 (根據不同機器會有不同的目前時間)，前幾分鐘可能偶爾會被視為失敗。一般而言，請將開始時間設為至少 15 分鐘之前或根本不要進行設定，這麼做會讓 SAS 在所有情況下立即有效。同樣的道理通常也可套用到過期時間，請記住，您可以在任何要求上保留前後多達 15 分鐘的時鐘誤差。請注意，若是用戶端使用 2012-02-12 之前的 REST 版本，則不參考預存存取原則之 SAS 的最大持續期限是 1 個小時，且任何指定比 1 個小時還要長的原則都會失敗。
-6.	**請具體指出要存取的資源。**Normalerweise sollten Sie Benutzern immer ein Minimum an benötigten Privilegien erteilen.如果使用者只需要單一實體的讀取存取權，則授與他們該單一實體的讀取存取權，而非授與他們所有實體的讀取/寫入/刪除存取權。這有助於減輕洩露 SAS 的威脅，因為 SAS 落入攻擊者的手中時，就無法發揮固有的功能。
-7.	**了解您的帳戶將會被收取任何使用方式的費用，包括完成 SAS 的方式。**Wenn Sie einem Benutzer Schreibzugriff auf einen Blob gewähren, kann dieser Benutzer Blobs mit bis zu 200 GB hochladen.如果您也同時提供使用者讀取存取權，則他們可能會選擇下載10 次，您便會產生 2TB 的出口成本。再次強調，提供有限的權限有助於減少潛在的惡意使用者。使用短期 SAS 以降低此威脅 (但請注意結束時間的時鐘誤差)。
-8.	**使用 SAS 驗證寫入資料。**Wenn Clientanwendungen Daten in Ihr Speicherkonto schreiben, müssen Sie stets beachten, dass diese Daten problembehaftet sein können.如果您的應用程式要求在開始使用資料之前先驗證或授權資料，則您應在寫入資料之後但應用程式尚未開始使用資料之前執行此驗證。此做法也可防止正確取得 SAS 的使用者或是利用洩漏 SAS 的使用者，損毀資料或將惡意資料寫入您的帳戶。
-9. **請勿一直使用 SAS。**Manchmal überwiegen die Risiken für eine bestimmte Operation auf Ihrem Speicherkonto den Nutzen von SAS.針對此類作業，請建立一個中介層服務，在執行商務規則驗證、驗證及稽核之後才寫入您的儲存體帳戶。另外，有時候以其他方式管理存取權可能比較簡單。例如，如果您要讓容器中的所有 Blob 都可公開讀取，則您可以將此容器設定為 [公用]，而不是將 SAS 提供給每個用戶端進行存取。
-10.	**使用儲存體分析來監視您的應用程式。**Sie können Protokolle und Metriken verwenden, um Häufungen von Authentifizierungsfehlern zu erkennen, wenn z. B. Ihr SAS-Anbieterdienst ausfällt oder eine gespeicherte Zugriffsrichtlinie versehentlich entfernt wird.請參閱 [Azure 儲存體團隊部落格] (英文)(http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) 了解詳細資訊。
+6.	**請具體指出要存取的資源。**典型的安全性最佳做法是提供使用者最低需求權限。如果使用者只需要單一實體的讀取存取權，則授與他們該單一實體的讀取存取權，而非授與他們所有實體的讀取/寫入/刪除存取權。這有助於減輕洩露 SAS 的威脅，因為 SAS 落入攻擊者的手中時，就無法發揮固有的功能。
+7.	**了解您的帳戶將會被收取任何使用方式的費用，包括完成 SAS 的方式。**如果您提供 Blob 的寫入存取權，則使用者可能會選擇上傳 200GB 的 Blob。如果您也同時提供使用者讀取存取權，則他們可能會選擇下載10 次，您便會產生 2TB 的出口成本。再次強調，提供有限的權限有助於減少潛在的惡意使用者。使用短期 SAS 以降低此威脅 (但請注意結束時間的時鐘誤差)。
+8.	**使用 SAS 驗證寫入資料。**當用戶端應用程式將資料寫入您的儲存體帳戶時，請留意該資料可能會造成問題。如果您的應用程式要求在開始使用資料之前先驗證或授權資料，則您應在寫入資料之後但應用程式尚未開始使用資料之前執行此驗證。此做法也可防止正確取得 SAS 的使用者或是利用洩漏 SAS 的使用者，損毀資料或將惡意資料寫入您的帳戶。
+9. **請勿一直使用 SAS。**有時候，在儲存體帳戶中執行特定作業的相關風險可能大過 SAS 的好處。針對此類作業，請建立一個中介層服務，在執行商務規則驗證、驗證及稽核之後才寫入您的儲存體帳戶。另外，有時候以其他方式管理存取權可能比較簡單。例如，如果您要讓容器中的所有 Blob 都可公開讀取，則您可以將此容器設定為 [公用]，而不是將 SAS 提供給每個用戶端進行存取。
+10.	**使用儲存體分析來監視您的應用程式。**您可以使用記錄和度量來觀察由於 SAS 提供者服務中斷或不小心移除預存存取原則，而造成的任何驗證失敗急劇增加。請參閱 [Azure 儲存體團隊部落格] (英文)(http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) 了解詳細資訊。
 
 ## 結論 ##
 

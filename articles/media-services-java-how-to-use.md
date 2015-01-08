@@ -36,7 +36,7 @@ Azure 媒體服務形成一個可延伸媒體平台，可整合 Microsoft Media 
 - **Stream**。串流內容，表示將內容立即或隨選傳送至用戶端，或者您也可以從雲端擷取或下載特定媒體檔案。媒體服務提供跨格式的解決方案來串流內容。媒體服務提供 Smooth Streaming、Apple HTTP 即時資料流和 MP4 格式的串流來源支援。未來將再支援其他格式。您也可以使用 Azure CDN 或協力廠商 CDN，啟用調整為數百萬位使用者的選項，以順暢地傳遞串流內容。   
 
 ###媒體服務開發案例
-Media Services unterstützt zahlreiche gängige Szenarien für die Medienentwicklung, wie in der folgenden Tabelle beschrieben. 
+媒體服務支援數個常見媒體開發案例，如下表所述。 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
   <thead>
     <tr>

@@ -96,7 +96,7 @@ Hadoop MapReduce 是一種可撰寫應用程式來處理大量資料的軟體架
 		# Get the blob content
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	Auch die Eigenschaften *example/data/WordCountOutput* 資料夾是您執行 MapReduce 工作時指定的輸出資料夾。 *part-r-00000* 是 MapReduce 工作輸出的預設檔案名稱。檔案會以相同資料夾結構下載至本機資料夾。例如，在下列螢幕擷取畫面中，目前資料夾是 C 根資料夾。檔案會下載至 *C:\example\data\WordCountOutput\* 資料夾。
+	*example/data/WordCountOutput* 資料夾是您執行 MapReduce 工作時指定的輸出資料夾。 *part-r-00000* 是 MapReduce 工作輸出的預設檔案名稱。檔案會以相同資料夾結構下載至本機資料夾。例如，在下列螢幕擷取畫面中，目前資料夾是 C 根資料夾。檔案會下載至 *C:\example\data\WordCountOutput\* 資料夾。
 
 5. 執行下列命令來列印 MapReduce 工作輸出檔案：
 
@@ -616,7 +616,7 @@ HDInsight 叢集隨附一個範例 Hive 資料表，稱為 *hivesampletable*。�
 	
 	以上就是程式需要設定的所有變數。您可以向系統管理員查詢 Azure 訂用帳戶識別碼。 
 
-	如需憑證的詳細資訊，請參閱[建立和上傳 Azure 的管理憑證][azure-certificate]。設定憑證的一種簡單方法就是執行 *Get-AzurePublishSettingsFile* und *Import-AzurePublishSettingsFile* PowerShell Cmdlet。它們會自動建立和上傳管理憑證。執行 PowerShell Cmdlet 之後，您可以從工作站開啟 *certmgr.msc*，並展開 *[個人/憑證]*來尋找憑證。PowerShell Cmdlet 所建立的憑證在 *[發給]* 和 *[簽發者]* 欄位中都是 *[Azure Tools]。* 欄位。
+	如需憑證的詳細資訊，請參閱[建立和上傳 Azure 的管理憑證][azure-certificate]。設定憑證的一種簡單方法就是執行 *Get-AzurePublishSettingsFile* 和 *Import-AzurePublishSettingsFile* PowerShell Cmdlet。它們會自動建立和上傳管理憑證。執行 PowerShell Cmdlet 之後，您可以從工作站開啟 *certmgr.msc*，並展開 *[個人/憑證]*來尋找憑證。PowerShell Cmdlet 所建立的憑證在 *[發給]* 和 *[簽發者]* 欄位中都是 *[Azure Tools]。* 欄位。
 	
 11. 在 Main() 函數中，附加下列程式碼來定義 Hive 工作：
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="如何從媒體服務傳遞串流內容 â€" Azure" metaKeywords="" description="Learn how to deliver streaming content from Media Services using a direct URL. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to: Deliver streaming content" authors="juliako" manager="dwrede" />
+﻿<properties urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="如何從媒體服務傳遞串流內容 – Azure" metaKeywords="" description="Learn how to deliver streaming content from Media Services using a direct URL. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to: Deliver streaming content" authors="juliako" manager="dwrede" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
@@ -69,7 +69,7 @@ private static ILocator GetStreamingOriginLocator( string targetAssetID)
 }
 </code></pre>
 
-Weitere Informationen zur Auslieferung von Medienobjekten finden Sie unter:
+如需有關傳遞資產的詳細資訊，請參閱：
 <ul>
 <li><a href="http://msdn.microsoft.com/zh-tw/library/jj129575.aspx">使用 Media Services for .NET 傳遞資產</a></li>
 <li><a href="http://msdn.microsoft.com/zh-tw/library/jj129578.aspx">使用 Media Services REST API 傳遞資產</a></li>

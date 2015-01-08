@@ -11,7 +11,7 @@
 
 在建立媒體資產並上傳至媒體服務之後，您就可以在伺服器上存取和管理這些資產。您也可以在伺服器上管理其他屬於媒體服務的物件，包括工作、作業、存取原則、定位器等等。
 
-Das folgende Beispiel zeigt, wie Sie ein Medienobjekt nach dessen ID abfragen können. 
+下列範例說明如何依 assetId 來查詢資產。
 <pre><code>
 static IAsset GetAsset(string assetId)
 {
@@ -27,7 +27,7 @@ static IAsset GetAsset(string assetId)
 }
 </code></pre> 
 
-Mit der folgenden Methode können Sie die Sammlung der Medienobjekte durchlaufen, alle auf dem Server verfügbaren Medienobjekte auflisten und Details der einzelnen Medienobjekte anzeigen.
+若要列出伺服器上可用的所有資產，您可以利用下列方法來逐一查看資產集合，並顯示每一個資產的詳細資料。
 <pre><code> 
 static void ListAssets()
 {
@@ -73,7 +73,7 @@ foreach (IAsset asset in _context.Assets)
 }
 </code></pre>
 
-Weitere Informationen zur Verwaltung von Medienobjekten finden Sie unter:
+如需有關管理資產的詳細資訊，請參閱：
 <ul>
 <li><a href="http://msdn.microsoft.com/zh-tw/library/jj129589.aspx">使用 Media Services SDK for .NET 管理資產</a></li>
 <li><a href="http://msdn.microsoft.com/zh-tw/library/jj129583.aspx">使用 Media Services REST API 管理資產</a></li></ul>

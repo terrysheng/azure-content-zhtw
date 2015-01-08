@@ -48,7 +48,7 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][ex
 
 <div class="dev-callout"> 
 <b>注意</b> 
-<p>Auch die Eigenschaften <code>roleName</code> 是選用參數。若省略此參數，將會自動產生角色名稱。建立的第一個 Web 角色會是 <code>WebRole1</code>，第二個是 <code>WebRole2</code>，依此類推。建立的第一個背景工作角色會是 <code>WorkerRole1</code>，第二個是 <code>WorkerRole2</code>，依此類推。</p> 
+<p><code>roleName</code> 是選用參數。若省略此參數，將會自動產生角色名稱。建立的第一個 Web 角色會是 <code>WebRole1</code>，第二個是 <code>WebRole2</code>，依此類推。建立的第一個背景工作角色會是 <code>WorkerRole1</code>，第二個是 <code>WorkerRole2</code>，依此類推。</p> 
 </div>
 
 ##<a name="SpecifyPHPVersion"></a>作法：指定內建 PHP 版本
@@ -133,7 +133,7 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][ex
 
 <div class="dev-callout"> 
 <b>注意</b> 
-<p>Auch die Eigenschaften <code>download.ps1</code> 指令碼 (位於 Web 角色根目錄的 <code>bin</code> ) 可在使用您自己的 PHP 執行階段執行前述步驟之後加以刪除。</p> 
+<p>此<code>download.ps1</code> 指令碼 (位於 Web 角色根目錄的 <code>bin</code> ) 可在使用您自己的 PHP 執行階段執行前述步驟之後加以刪除。</p> 
 </div>
 
 <h3><a name="OwnPHPWorkerRole"></a>設定背景工作角色以使用您自己的 PHP 執行階段</h3>

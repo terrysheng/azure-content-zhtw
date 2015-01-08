@@ -33,7 +33,7 @@ Hadoop MapReduce 是一種可撰寫應用程式來處理大量資料的軟體架
 
 MapReduce 工作的輸出是一組機碼值組。機碼是指定一個單字的字串，值是指定文字中該單字出現總次數的整數。此作業有兩個階段： 
 
-* 對應程式從輸入的文字中取得每一行當作一個輸入，然後將其打散成單字。Er gibt ein Schlüssel-Wert-Paar für jedes Wort aus, das aus dem Wort und dem Wert 1 besteht.將在傳送至 Reducer 前排序輸出。 
+* 對應程式從輸入的文字中取得每一行當作一個輸入，然後將其打散成單字。每當單字後面接 1 的工作發生時，該程式就會發出機碼值組。將在傳送至 Reducer 前排序輸出。 
 
 * 然後 Reducer 會將每個單字的這些個別計數總和，並發出單一機碼值組，其中包含該單字，後面接出現次數的總和。
 

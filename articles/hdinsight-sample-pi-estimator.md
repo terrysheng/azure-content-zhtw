@@ -6,7 +6,7 @@
  
 本主題說明如何使用 Azure Powershell 在 HDinsight 上執行 Hadoop MapReduce 程式，以估計數學常數 Pi 的值。它還提供在用來估計 Pi 值的 MapReduce 程式中所用的 Java 程式碼。
 
-此程式使用統計 (擬蒙特卡羅法) 方法來估計 Pi 的值。Zufällige Punkte innerhalb eines Einheitsquadrats liegen mit einer Wahrscheinlichkeit gleich der Kreisfläche (Pi/4) ebenfalls innerhalb eines Kreises, der sich innerhalb des Quadrats befindet.Der Wert von Pi kann über den Wert von 4R angenähert werden, wobei R das Verhältnis zwischen der Anzahl der Punkte innerhalb des Kreises und der Gesamtzahl der Punkte innerhalb des Quadrats ist.使用的樣本點越多，估計越準確。
+此程式使用統計 (擬蒙特卡羅法) 方法來估計 Pi 的值。單位正方形內隨機散佈的點，也會落在該正方形的內切圓之內，且機率等於圓面積 Pi/4。Pi 的值可從 4R 的值來估計，其中 R 是圓內點數佔正方形內總點數的比例。使用的樣本點越多，估計越準確。
 
 以下提供包含對應器和歸納器函數的 PiEstimator Java 程式碼供您檢視。對應器程式會產生單位正方形內隨機散佈的一定點數，然後計算落在圓內的點數。歸納器程式會累計對應器所計算的點數，然後從公式 4R 估計 Pi 的值，其中 R 是圓內計算的點數佔正方形內總點數的比例。
 

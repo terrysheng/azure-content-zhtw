@@ -107,7 +107,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 }
 
 </code></pre>
-Weitere Informationen zum PlayReady-Schutz finden Sie unter:
+如需 PlayReady 保護的詳細資訊，請參閱：
 <ul>
 <li><a href="http://msdn.microsoft.com/zh-tw/library/dn189154.aspx">以 Microsoft PlayReady 保護資產</a></li>
 <li><a href="http://www.microsoft.com/PlayReady/">Microsoft PlayReady (英文)</a></li>

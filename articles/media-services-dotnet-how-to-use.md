@@ -1,4 +1,4 @@
-﻿<properties pageTitle="如何使用媒體服務" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use Media Services" authors="" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="如何使用媒體服務" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use Media Services" authors="" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
@@ -27,13 +27,13 @@ Azure 媒體服務形成一個可延伸媒體平台，可整合 Microsoft Media 
 - **Encode**。Encode 作業包括編碼、變形和轉換媒體資產。您可以使用 Azure Media Encoder 在雲端中執行編碼工作。編碼選項如下：
    - 使用 Azure Media Encoder 並採用一系列的標準轉碼器和格式 (包括領先業界的 IIS Smooth Streaming、MP4 以及轉換為 Apple HTTP 即時資料流)。
    - 在對輸入和輸出有完整控制的情況下，轉換整個程式庫或個別檔案。
-   - 支援眾多檔案類型、格式和轉碼器 (請參閱 [Azure Media Encoder 支援的轉碼器與檔案類型][])。
+   - 支援眾多檔案類型、格式和轉碼器 (請參閱 [Azure Media Encoder 支援的轉碼器與檔案類型](http://msdn.microsoft.com/zh-tw/library/dn535852.aspx))。
    - 支援的格式轉換。媒體服務可讓您將 ISO MP4 (.mp4) 轉換為 Smooth Streaming 檔案格式 (PIFF 1.3) (.ismv；.isma)。您也可以將 Smooth Streaming 檔案格式 (PIFF) 轉換為 Apple HTTP 即時資料流 (.msu8、.ts)。
 - **Protect**。保護內容，表示將即時串流或隨選內容加密，以進行安全的傳輸、儲存和傳遞。媒體服務提供跨 DRM 技術的解決方案來保護內容。目前支援的 DRM 技術有 Microsoft PlayReady 和 MPEG Common Encryption。未來將再支援其他 DRM 技術。 
 - **Stream**。串流內容，表示將內容立即或隨選傳送至用戶端，或者您也可以從雲端下載特定媒體檔案。媒體服務提供跨格式的解決方案來串流內容。媒體服務提供 Smooth Streaming、Apple HTTP 即時資料流和 MP4 格式的串流出處支援。未來將再支援其他格式。您也可以使用協力廠商 CDN，啟用調整為數百萬位使用者的選項，以順暢地傳遞串流內容。   
 
 ###媒體服務開發案例
-Media Services unterstützt zahlreiche gängige Szenarien für die Medienentwicklung, wie in der folgenden Tabelle beschrieben. 
+媒體服務支援數個常見媒體開發案例，如下表所述。 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
   <thead>
     <tr>
@@ -65,16 +65,16 @@ Media Services unterstützt zahlreiche gängige Szenarien für die Medienentwick
 ####Mac 和 PC 用戶端支援  
 針對 PC 和 Mac，您可以將目標設為使用 Microsoft Silverlight 或 Adobe Open Source Media Framework 的串流體驗。
 
--	[Smooth Streaming Client for Silverlight] (英文)(http://www.microsoft.com/zh-tw/download/details.aspx?id=29940)
--	[Microsoft Media Platform：Player Framework (Silverlight 版)] (英文)(http://smf.codeplex.com/documentation)
--	[Smooth Streaming Plugin for OSMF 2.0] (英文)(http://go.microsoft.com/fwlink/?LinkId=275022)。如需有關如何使用此外掛程式的詳細資訊，請參閱[如何使用 Smooth Streaming Plugin for Adobe Open Source Media Framework](../media-services-use-osmf-smooth-streaming-client-plugin/)。
+-	[Smooth Streaming Client for Silverlight](http://www.microsoft.com/zh-tw/download/details.aspx?id=29940) (英文)
+-	[Microsoft Media Platform：Player Framework (Silverlight 版)](http://smf.codeplex.com/documentation) (英文)
+-	[Smooth Streaming Plugin for OSMF 2.0](http://go.microsoft.com/fwlink/?LinkId=275022) (英文)。如需有關如何使用此外掛程式的詳細資訊，請參閱[如何使用 Smooth Streaming Plugin for Adobe Open Source Media Framework](../media-services-use-osmf-smooth-streaming-client-plugin/)。
 
 ####Windows 8 應用程式
 針對 Windows 8，您可以使用任何支援的開發語言和建構 (例如 HTML、Javascript、XAML、C# 和 C+) 來建置 Windows 市集應用程式。
 
--	[Smooth Streaming Client SDK for Windows 8] (英文)(http://go.microsoft.com/fwlink/?LinkID=246146)。如需有關如何使用此 SDK 建立 Windows 市集應用程式的詳細資訊，請參閱[如何建置 Smooth Streaming Windows 市集應用程式](http://go.microsoft.com/fwlink/?LinkId=271647)。如需有關如何使用 HTML5 建立 Smooth Streaming 播放程式的詳細資訊，請參閱[逐步介紹：建置您的第一個 HTML5 Smooth Streaming 播放程式] (英文)(http://msdn.microsoft.com/zh-tw/library/jj573656(v=vs.90).aspx)。
+-	[Smooth Streaming Client SDK for Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146) (英文)。如需有關如何使用此 SDK 建立 Windows 市集應用程式的詳細資訊，請參閱[如何建置 Smooth Streaming Windows 市集應用程式](http://go.microsoft.com/fwlink/?LinkId=271647)。如需有關如何使用 HTML5 建立 Smooth Streaming 播放程式的詳細資訊，請參閱[逐步介紹：建置您的第一個 HTML5 Smooth Streaming 播放程式](http://msdn.microsoft.com/zh-tw/library/jj573656(v=vs.90).aspx) (英文)。
 
--	[Microsoft Media Platform：Player Framework (Windows 8 Windows 市集應用程式版)] (英文)(http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
+-	[Microsoft Media Platform：Player Framework (Windows 8 Windows 市集應用程式版)](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home) (英文)
 
 ####Xbox
 Xbox 支援可取用 Smooth Streaming 內容的 Xbox LIVE 應用程式。Xbox LIVE Application Development Kit (ADK) 包含：
@@ -85,17 +85,17 @@ Xbox 支援可取用 Smooth Streaming 內容的 Xbox LIVE 應用程式。Xbox LI
 ####內嵌或專用裝置
 如連接的電視、機上盒、藍光播放機、OTT 電視盒以及具有自訂應用程式開發架構和自訂媒體管道的行動裝置等裝置。Microsoft 提供下列可授權、並讓合作夥伴能夠針對此平台來移植 Smooth Streaming 播放的移植套件。
 
--	[Smooth Streaming Client Porting Kit] (英文)(http://www.microsoft.com/zh-tw/mediaplatform/sspk.aspx)
--	[Microsoft PlayReady Device Porting Kit] (英文)(http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx)
+-	[Smooth Streaming Client Porting Kit](http://www.microsoft.com/zh-tw/mediaplatform/sspk.aspx) (英文)
+-	[Microsoft PlayReady Device Porting Kit](http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx) (英文)
 
 ####Windows Phone
 Microsoft 提供可用來建置 Windows Phone 版優質視訊應用程式的 SDK。 
 
--	[Smooth Streaming Client for Silverlight] (英文)(http://www.microsoft.com/zh-tw/download/details.aspx?id=29940)
--	[Microsoft Media Platform：Player Framework (Silverlight 版)] (英文)(http://smf.codeplex.com/documentation)
+-	[Smooth Streaming Client for Silverlight](http://www.microsoft.com/zh-tw/download/details.aspx?id=29940) (英文)
+-	[Microsoft Media Platform：Player Framework (Silverlight 版)](http://smf.codeplex.com/documentation) (英文)
 
 ####iOS 裝置
-針對 iOS 裝置 (包括 iPhone、iPod 和 iPad)，Microsoft 隨附 SDK，供您用來建置這些平台的應用程式，以提供優質視訊內容，這個 SDK 就是：Smooth Streaming SDK for iOS Devices with PlayReady。只有被授權人才能取得 SDK，因此，如需詳細資訊，請[傳送電子郵件給 Microsoft] (mailto:askdrm@microsoft.com)。如需 iOS 開發的詳細資訊，請參閱 [iOS 開發人員中心] (英文)(https://developer.apple.com/devcenter/ios/index.action)。
+針對 iOS 裝置 (包括 iPhone、iPod 和 iPad)，Microsoft 隨附 SDK，供您用來建置這些平台的應用程式，以提供優質視訊內容，這個 SDK 就是：Smooth Streaming SDK for iOS Devices with PlayReady。只有被授權人才能取得 SDK，因此，如需詳細資訊，請[傳送電子郵件給 Microsoft] (mailto:askdrm@microsoft.com)。如需 iOS 開發的詳細資訊，請參閱 [iOS 開發人員中心](https://developer.apple.com/devcenter/ios/index.action) (英文)。
 
 ####Android 裝置
 有幾家 Microsoft 合作夥伴都提供 Android 平台的 SDK，可新增在 Android 裝置上播放 Smooth Streaming 的功能。如需這些合作夥伴的詳細資料，請參閱[傳送電子郵件給 Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices)。
@@ -115,7 +115,7 @@ Microsoft 提供可用來建置 Windows Phone 版優質視訊應用程式的 SDK
   [作法：為資產編碼]: #encode-asset
   [作法：使用 PlayReady 保護來保護資產]: #playready
   [作法：管理儲存體中的資產]: #manage-asset
-  [作法：透過下載來傳遞資產]＞ (英文): #download-asset
+  [作法：透過下載來傳遞資產]: #download-asset
   [作法：傳遞串流內容]: #stream-asset
   [作法：傳遞 Apple HLS 串流內容]: #stream-HLS
   [作法：啟用 Azure CDN]: #enable-cdn

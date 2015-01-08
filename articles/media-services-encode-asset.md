@@ -12,7 +12,7 @@
 建議您將 mezzanine 檔案編碼為 MP4 調適性位元速率集，然後使用動態封裝來傳遞內容。如需詳細資訊，請參閱[使用 Media Services SDK for .NET 建立編碼工作](http://msdn.microsoft.com/zh-tw/library/azure/dn282273.aspx)、[動態封裝](http://msdn.microsoft.com/zh-tw/library/azure/jj889436.aspx)和[傳遞內容](http://msdn.microsoft.com/zh-tw/library/azure/hh973618.aspx)。
 
 ##編碼為 MP4
-Die folgende Methode lädt ein einzelnes Medienobjekt hoch und erstellt einen Auftrag zur Codierung des Medienobjekts mit MP4 unter Verwendung der Voreinstellung "H264 Broadband 720p". Das Ergebnis ist eine einzige MP4-Datei mit H264-Codierung und einer Auflösung von 720p:
+下列方法會上傳單一資產，並建立會使用 "H264 Broadband 720p" 預設將資產編碼為 MP4 的工作，而建立使用 H264 編碼、解析度為 720p 的單一 MP4：
 <pre><code>
 	static IJob CreateEncodingJob(string inputMediaFilePath, string outputFolder)
 	{
@@ -110,7 +110,7 @@ Die folgende Methode lädt ein einzelnes Medienobjekt hoch und erstellt einen Au
 
 若要直接編碼為 Smooth Streaming，請使用前述程式碼，但應使用其中一個 Smooth Streaming 編碼器預設。如需編碼器預設的完整清單，請參閱 [Azure 媒體編碼器的工作預設字串](http://msdn.microsoft.com/zh-tw/library/jj129582.aspx)。 
 
-若要將 MP4 轉換為 Smooth Streaming，請使用 Azure Media Packager。Azure Media Packager 不支援字串預設，因此您必須以 XML 指定組態選項。將 MP4 轉換為 Smooth Streaming 時所需的 XML，可在 [Azure Media Packager 的工作預設][] (英文) 中找到。複製此 XML，並將其貼到您的專案中名為 MediaPackager_MP4ToSmooth.xml 的檔案上。下列程式碼說明如何將 MP4 資產轉換為 Smooth Streaming。Die folgende Methode konvertiert ein vorhandenes Medienobjekt nach 
+若要將 MP4 轉換為 Smooth Streaming，請使用 Azure Media Packager。Azure Media Packager 不支援字串預設，因此您必須以 XML 指定組態選項。將 MP4 轉換為 Smooth Streaming 時所需的 XML，可在 [Azure Media Packager 的工作預設][] (英文) 中找到。複製此 XML，並將其貼到您的專案中名為 MediaPackager_MP4ToSmooth.xml 的檔案上。下列程式碼說明如何將 MP4 資產轉換為 Smooth Streaming。下列方法會取用現有資產並加以轉換。 
 <pre><code>
 private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFilePath)
  {
@@ -149,7 +149,7 @@ private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFileP
 }
 </code></pre>
 
-Weitere Informationen zur Verarbeitung von Medienobjekten finden Sie unter:
+如需處理資產的詳細資訊，請參閱：
 <ul>
 <li><a href="http://msdn.microsoft.com/zh-tw/library/jj129580.aspx">使用 Media Services SDK for .NET 處理資產</a></li>
 <li><a href="http://msdn.microsoft.com/zh-tw/library/jj129574.aspx">使用媒體服務 REST API 處理資產</a></li>

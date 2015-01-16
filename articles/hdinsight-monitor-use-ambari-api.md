@@ -1,4 +1,4 @@
-<properties urlDisplayName="Monitor Hadoop clusters  in HDInsight using the Ambari API" pageTitle="使用 Ambari API 監視 HDInsight 上的 Hadoop 叢集 | Azure" metaKeywords="" description="Use the Apache Ambari APIs for provisioning, managing, and monitoring Hadoop clusters. Ambari's intuitive operator tools and APIs hide the complexity of Hadoop." services="hdinsight" documentationCenter="" title="Monitor Hadoop clusters in HDInsight using the Ambari API" umbracoNaviHide="0" disqusComments="1" authors="jgao" editor="cgronlun" manager="paulettm" />
+<properties urlDisplayName="Monitor Hadoop clusters  in HDInsight using the Ambari API" pageTitle="使用 Ambari API 監視 HDInsight 上的 Hadoop 叢集 | Azure" metaKeywords="" description="使用 Apache Ambari API 來佈建、管理和監視 Hadoop 叢集。Ambari 的直覺式操作工具和 API 可消除 Hadoop 的複雜性。" services="hdinsight" documentationCenter="" title="Monitor Hadoop clusters in HDInsight using the Ambari API" umbracoNaviHide="0" disqusComments="1" authors="jgao" editor="cgronlun" manager="paulettm" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="從 Hadoop 相容的 Blob 儲存體查詢巨量資料 | Azure" metaKeywords="" description="HDInsight uses Hadoop-compatible Blob storage as the big data store for HDFS. Learn how to query from Blob storage, and store results of your analysis." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Query big data from Hadoop-compatible Blob storage for analysis in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
+﻿<properties urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="從 Hadoop 相容的 Blob 儲存體查詢巨量資料 | Azure" metaKeywords="" description="HDInsight 使用 Hadoop 相容 Blob 存放區作為 HDFS 的大量資料存放區。了解如何從 Blob 存放區查詢並儲存分析的結果。" metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Query big data from Hadoop-compatible Blob storage for analysis in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
 

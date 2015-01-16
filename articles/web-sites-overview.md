@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="什麼是網站" metaKeywords="Azure 網站, Azure 部署, Azure 組態變更, Azure 部署更新, Azure .NET 部署, Azure .NET 部署" description="Learn how to configure Websites in Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." urlDisplayName="How to Configure Websites" title="What are Websites" authors="cephalin" manager="wpickett" />
+﻿<properties umbracoNaviHide="0" pageTitle="什麼是網站" metaKeywords="Azure 網站, Azure 部署, Azure 組態變更, Azure 部署更新, Azure .NET 部署, Azure .NET 部署" description="了解如何在 Azure 中設定網站使用 SQL 或 MySQL 資料庫，並了解如何設定診斷和下載記錄。" urlDisplayName="How to Configure Websites" title="What are Websites" authors="cephalin" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/11/2014" ms.author="cephalin" />
 

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="使用 JavaScript 後端行動服務" metaKeywords="server scripts, mobile devices, Azure, scheduler" description="Provides examples on how to define, register, and use server scripts in Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="使用 JavaScript 後端行動服務" metaKeywords="server scripts, mobile devices, Azure, scheduler" description="提供如何在 Azure 行動服務中定義、註冊和使用伺服器指令碼的範例。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 

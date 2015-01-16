@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="如何使用服務匯流排佇列 (Python) - Azure" metaKeywords ="Azure 服務匯流排佇列, Azure 佇列, Azure 訊息, Azure 佇列 Python" description="Learn how to use Service Bus queues in Azure. Code samples written in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="huvalo" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Service Bus Queues" pageTitle="如何使用服務匯流排佇列 (Python) - Azure" metaKeywords ="Azure 服務匯流排佇列, Azure 佇列, Azure 訊息, Azure 佇列 Python" description="了解如何在 Azure 使用服務匯流排佇列。程式碼範例以 Python 撰寫。" metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Authentication (Xamarin.iOS)" pageTitle="開始使用驗證 (Xamarin.iOS) - 行動服務" metaKeywords="Azure 註冊應用程式, Azure 驗證, 應用程式驗證, 驗證行動服務, 行動服務 Xamarin.iOS" description="Learn how to use authentication in your Azure Mobile Services app for Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile"  services="mobile-services" title="Get started with authentication in Mobile Services" manager="dwrede" authors="donnam" />
+﻿<properties urlDisplayName="Get Started with Authentication (Xamarin.iOS)" pageTitle="開始使用驗證 (Xamarin.iOS) - 行動服務" metaKeywords="Azure 註冊應用程式, Azure 驗證, 應用程式驗證, 驗證行動服務, 行動服務 Xamarin.iOS" description="了解如何在 Xamarin.iOS 的 Azure 行動服務應用程式中使用驗證。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile"  services="mobile-services" title="Get started with authentication in Mobile Services" manager="dwrede" authors="donnam" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam" />
 

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="開始使用驗證 (Windows 市集) | 行動開發人員中心" metaKeywords="驗證, Facebook, Google, Twitter, Microsoft 帳戶, 登入" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="開始使用驗證 (Windows 市集) | 行動開發人員中心" metaKeywords="驗證, Facebook, Google, Twitter, Microsoft 帳戶, 登入" description="了解如何使用行動服務透過眾多識別提供者驗證 Windows 市集應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="Glenn Gailey" />
 

@@ -1,4 +1,4 @@
-<properties urlDisplayName="Get Started with Data" pageTitle="開始使用資料 (Xamarin.iOS) - Azure 行動服務 " metaKeywords="Azure Xamarin.iOS 資料, Azure 行動服務資料, " description="Learn how to store and access data from your Azure Mobile Services Xamarin.iOS app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="donnam" manager="dwrede" services="mobile-services"/>
+<properties urlDisplayName="Get Started with Data" pageTitle="開始使用資料 (Xamarin.iOS) - Azure 行動服務 " metaKeywords="Azure Xamarin.iOS 資料, Azure 行動服務資料, " description="了解如何儲存和存取 Azure 行動服務 Xamarin.iOS 應用程式的資料。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="donnam" manager="dwrede" services="mobile-services"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam" />
 

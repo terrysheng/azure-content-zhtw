@@ -1,4 +1,4 @@
-﻿<properties title="How to Use Twilio for Voice and SMS (PHP) - Azure" pageTitle="如何透過 Twilio 使用語音和 SMS (PHP) - Azure " metaKeywords="Azure PHP Twilio, Azure 通話, Azure 通話, Azure twilio, Azure SMS, Azure SMS, Azure 語音通話, azure 語音通話, Azure 簡訊, Azure 簡訊" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in PHP." documentationCenter="PHP" services="" authors="MicrosoftHelp@twilio.com; robmcm" manager="twilio" editor="mollybos" videoId="" scriptId="" />
+﻿<properties title="How to Use Twilio for Voice and SMS (PHP) - Azure" pageTitle="如何透過 Twilio 使用語音和 SMS (PHP) - Azure " metaKeywords="Azure PHP Twilio, Azure 通話, Azure 通話, Azure twilio, Azure SMS, Azure SMS, Azure 語音通話, azure 語音通話, Azure 簡訊, Azure 簡訊" description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。程式碼範例以 PHP 撰寫。" documentationCenter="PHP" services="" authors="MicrosoftHelp@twilio.com; robmcm" manager="twilio" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm" />
 

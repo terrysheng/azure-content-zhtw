@@ -1,4 +1,4 @@
-﻿<properties title="Machine Learning example apps in the Azure Marketplace" pageTitle="Azure Marketplace 中的機器學習範例應用程式 | Azure" description="Azure Machine Learning app examples show how you can publish your machine learning services to the Azure Marketplace for paying subscribers to use in their apps." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Machine Learning example apps in the Azure Marketplace" pageTitle="Azure Marketplace 中的機器學習範例應用程式 | Azure" description="Azure 機器學習應用程式範例示範如何將機器學習服務發布到 Azure Marketplace 對於在自己的應用程式中使用的訂閱者進行支付。" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/16/2014" ms.author="jaymathe" /> 
 

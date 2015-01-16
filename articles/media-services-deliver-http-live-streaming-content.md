@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="如何傳遞 Apple HTTP 即時資料流 (HLS) - Azure" metaKeywords="" description="Learn how to create a locator to Apple HTTP Live Stream (HLS) content on Media Services origin server. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="如何傳遞 Apple HTTP 即時資料流 (HLS) - Azure" metaKeywords="" description="了解如何為媒體服務原始伺服器上的 Apple HTTP 即時資料流 (HLS) 內容建立定位器。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors="juliako" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 

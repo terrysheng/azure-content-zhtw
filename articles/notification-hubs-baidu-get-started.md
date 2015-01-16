@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started" pageTitle="開始使用 Azure 通知中心 " metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Get Started" pageTitle="開始使用 Azure 通知中心 " metaKeywords="" description="了解如何使用 Azure 通知中心推播通知。" metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="10/03/2014" ms.author="piyushjo" />
 

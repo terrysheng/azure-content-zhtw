@@ -1,4 +1,4 @@
-﻿<properties pageTitle="使用行動服務將影像上傳至 Blob 儲存體 (Windows 市集) | 行動服務 " metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage and access the images from your Windows Store app." metaCanonical="" services="mobile-services,storage" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+﻿<properties pageTitle="使用行動服務將影像上傳至 Blob 儲存體 (Windows 市集) | 行動服務 " metaKeywords="" description="了解如何使用行動服務將影像上傳至 Azure Blob 儲存體並從 Windows 市集應用程式存取該影像。" metaCanonical="" services="mobile-services,storage" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="使用行動服務將資料上傳至 Blob 儲存體 (iOS) | 行動服務" metaKeywords="" description="Learn how to use Mobile Services to upload data to Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload data to Azure Storage by using Mobile Services" authors="yuaxu" writer="yuaxu" manager="dwrede" services="mobile-services,storage"/>
+﻿<properties pageTitle="使用行動服務將資料上傳至 Blob 儲存體 (iOS) | 行動服務" metaKeywords="" description="了解如何使用行動服務將資料上傳至 Azure Blob 儲存體。" metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload data to Azure Storage by using Mobile Services" authors="yuaxu" writer="yuaxu" manager="dwrede" services="mobile-services,storage"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.topic="article" ms.date="09/23/2014" ms.author="yuaxu"/>
 

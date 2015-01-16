@@ -1,4 +1,4 @@
-﻿<properties title="Step 5: Publish the Azure Machine Learning web service" pageTitle="步驟 5：發行 Azure 機器學習 Web 服務 | Azure" description="Step 5: Publish a scoring experiment in Azure Machine Learning Studio as an ML API web service" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Step 5: Publish the Azure Machine Learning web service" pageTitle="步驟 5：發行 Azure 機器學習 Web 服務 | Azure" description="步驟 5：在 Azure Machine Learning Studio 中發布評分實驗作為 ML API Web 服務" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="HDInsight 中的 Pi 估算器 Hadoop 範例 | Azure" metaKeywords="hdinsight, hdinsight sample,  hadoop, mapreduce" description="Learn how to run an Hadoop MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The Pi estimator Hadoop sample in HDInsight" authors="bradsev" />
+﻿<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="HDInsight 中的 Pi 估算器 Hadoop 範例 | Azure" metaKeywords="hdinsight, hdinsight sample,  hadoop, mapreduce" description="了解如何在 HDInsight 上執行 Hadoop MapReduce 範例。" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The Pi estimator Hadoop sample in HDInsight" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
 

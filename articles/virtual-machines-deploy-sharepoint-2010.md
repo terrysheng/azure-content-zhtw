@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SharePoint on Azure" pageTitle="在 Azure 虛擬機器上部署 SharePoint 2010" metaKeywords="" description="Understand the supported scenarios for using SharePoint 2010 on Azure virtual machines." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint 2010 Deployment on Azure Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="SharePoint on Azure" pageTitle="在 Azure 虛擬機器上部署 SharePoint 2010" metaKeywords="" description="了解在 Azure 虛擬機器上使用 SharePoint 2010 的支援案例。" metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint 2010 Deployment on Azure Virtual Machines" authors="josephd" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/16/2014" ms.author="josephd" />
 
@@ -101,7 +101,7 @@ Azure 虛擬機器可讓開發人員有彈性地選擇其所需的語言或執�
 
 <h2>佈建程序</h2>
 
-本小節將討論 Azure 的基本架構。Auch die Eigenschaften <strong>Azure 中的映像庫</strong> 會提供預先配置的可用 VM 清單。使用者可將 SharePoint Server、SQL Server、Windows Server 和其他 ISO/VHD 發佈至映像庫。為簡化 VM 的建立作業，系統會建立基礎映像，並將其發佈至映像庫。授權使用者可使用這些映像產生所需的 VM。如需詳細資訊，請至 <a href="/zh-tw/manage/windows/tutorials/virtual-machine-from-gallery/">Azure 網站上的「建立執行 Windows Server 2008 R2 的虛擬機器」</a> 。圖 2 顯示使用 Azure 管理入口網站建立 VM 的基本步驟：
+本小節將討論 Azure 的基本架構。 <strong>Azure 中的映像庫</strong> 會提供預先配置的可用 VM 清單。使用者可將 SharePoint Server、SQL Server、Windows Server 和其他 ISO/VHD 發佈至映像庫。為簡化 VM 的建立作業，系統會建立基礎映像，並將其發佈至映像庫。授權使用者可使用這些映像產生所需的 VM。如需詳細資訊，請至 <a href="/zh-tw/manage/windows/tutorials/virtual-machine-from-gallery/">Azure 網站上的「建立執行 Windows Server 2008 R2 的虛擬機器」</a> 。圖 2 顯示使用 Azure 管理入口網站建立 VM 的基本步驟：
 
 <p class="caption">圖 2：VM 建立步驟概觀</p>
 ![azure-sharepoint-wp-2](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png)
@@ -125,9 +125,9 @@ Azure 虛擬機器可讓開發人員有彈性地選擇其所需的語言或執�
 
 <li>若要使用基礎作業系統建立 VM，請在 Azure 管理入口網站上按一下 <strong>[新增]</strong>，然後按一下 <strong>[運算]</strong>，然後按一下 <strong>[虛擬機器]</strong>，然後按一下 <strong>[從組件庫]</strong>。</li>
 
-<li>Auch die Eigenschaften <strong>Choose an image</strong> 對話方塊隨即出現。按一下 <strong>Windows Server 2008 R2 SP1</strong> 平台映像，然後按一下向右箭號。</li>
+<li> <strong>Choose an image</strong> 對話方塊隨即出現。按一下 <strong>Windows Server 2008 R2 SP1</strong> 平台映像，然後按一下向右箭號。</li>
 
-<li>Auch die Eigenschaften <strong><em>虛擬機器組態 </em></strong>對話方塊隨即出現。請提供下列資訊：
+<li> <strong><em>虛擬機器組態 </em></strong>對話方塊隨即出現。請提供下列資訊：
 
 <ul>
 <li>輸入 <strong>[虛擬機器名稱]</strong>。

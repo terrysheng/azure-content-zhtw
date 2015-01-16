@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="推播通知給使用者 (Android) | 行動開發人員中心" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your Android app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="" pageTitle="推播通知給使用者 (Android) | 行動開發人員中心" metaKeywords="" description="了解如何使用行動服務將通知推播到您的 Android 應用程式。" metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/07/2014" ms.author="ricksal" />
 

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="串流記錄和主控台" description="Streaming logs and console overview" title="Streaming logs and console" authors="adamab" manager="wpickett" />
+﻿<properties pageTitle="串流記錄和主控台" description="串流記錄和主控台概觀" title="Streaming logs and console" authors="adamab" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
 

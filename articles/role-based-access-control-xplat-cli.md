@@ -1,4 +1,4 @@
-﻿<properties pageTitle="使用 Azure 跨平台命令列介面管理角色存取控制" metaKeywords="ResourceManager, Azure 跨平台命令列介面, Azure 命令列, azure 命令列, azure cli, RBAC" description="Managing role-based access control with cross-platform command-line interface" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
+<properties pageTitle="使用 Azure 跨平台命令列介面管理角色存取控制" metaKeywords="ResourceManager, Azure 跨平台命令列介面, Azure 命令列, azure 命令列, azure cli, RBAC" description="使用跨平台命令列介面管理角色存取控制" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan" />
 
@@ -10,7 +10,7 @@ Azure Preview 入口網站以及 Azure 資源管理員 API 裡的角色存取控
 
 在本教學課程中，您將學習如何使用 Azure 跨平台命令列介面 (xplat-cli) 來管理角色存取控制。本課程將帶您逐一了解建立與檢查角色指派的程序。
 
-**預估完成時間：**  15 Minuten
+**預估完成時間：**  15 分鐘
 
 ## 必要條件 ##
 

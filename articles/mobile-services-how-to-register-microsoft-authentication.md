@@ -1,4 +1,4 @@
-﻿<properties pageTitle="註冊 Microsoft 驗證 - 行動服務" metaKeywords="Azure registering application, Azure Microsoft authentication, application authenticate, authenticate mobile services" description="Learn how to register for Microsoft authentication in your Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" title="Register your apps to use a Microsoft Account login" authors="glenga" services="mobile-services" documentationCenter="Mobile" manager="dwrede" />
+﻿<properties pageTitle="註冊 Microsoft 驗證 - 行動服務" metaKeywords="Azure registering application, Azure Microsoft authentication, application authenticate, authenticate mobile services" description="了解如何在 Azure Mobile Services 應用程式中註冊 Microsoft 驗證。" metaCanonical="" disqusComments="0" umbracoNaviHide="1" title="Register your apps to use a Microsoft Account login" authors="glenga" services="mobile-services" documentationCenter="Mobile" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Command-Line Tools" pageTitle="適用於 Mac 和 Linux 的 Azure 命令列工具" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Learn about using the command-line tool for Mac and Linux in Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="carolz" solutions="" manager="need to identify contact" editor="" />
+﻿<properties urlDisplayName="Command-Line Tools" pageTitle="適用於 Mac 和 Linux 的 Azure 命令列工具" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="了解如何在 Azure 中使用適用於 Mac 及 Linux 的命令列工具。" metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="carolz" solutions="" manager="need to identify contact" editor="" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
 

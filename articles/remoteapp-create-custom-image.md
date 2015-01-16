@@ -1,4 +1,4 @@
-﻿<properties title="How to create a custom template image for RemoteApp" pageTitle="如何為 RemoteApp 建立自訂範本映像" description="Learn how to create a custom template image for RemoteApp. You can use this template with either a hybrid or cloud deployment." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+﻿<properties title="How to create a custom template image for RemoteApp" pageTitle="如何為 RemoteApp 建立自訂範本映像" description="了解如何為 RemoteApp 建立自訂範本映像。您可以對於混合式或雲端部署使用此範本。" metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
 
 <tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/22/2014" ms.author="elizapo" ms.manager="kathyw" />
 

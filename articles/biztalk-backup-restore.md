@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="BizTalk 服務：備份與還原 | Azure" metaKeywords="" description="BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the BizTalk Services configuration is taken." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
+﻿<properties urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="BizTalk 服務：備份與還原 | Azure" metaKeywords="" description="BizTalk 服務包含備份與還原功能。建立備份時會產生 BizTalk 服務組態的快照。" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
 
 <tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="mandia" />
 

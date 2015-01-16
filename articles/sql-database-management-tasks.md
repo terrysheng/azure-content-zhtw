@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="如何管理 SQL Database" metaKeywords ="Azure SQL 資料庫, SQL 資料庫, 管理 sql 資料庫, 新增登入, 連接到 sql 資料庫" description="Learn how to manage Azure SQL database." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
+﻿<properties umbracoNaviHide="0" pageTitle="如何管理 SQL Database" metaKeywords ="Azure SQL 資料庫, SQL 資料庫, 管理 sql 資料庫, 新增登入, 連接到 sql 資料庫" description="了解如何管理 Azure SQL 資料庫。" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
 

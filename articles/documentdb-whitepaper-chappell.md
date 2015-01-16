@@ -1,4 +1,4 @@
-﻿<properties title="DocumentDB whitepaper by David Chappell" pageTitle="David Chappell 所撰寫的 DocumentDB 白皮書 | Azure" description="Download a whitepaper by David Chappell description DocumentDB, a managed NoSQL database on Azure." metaKeywords="" services="documentdb" solutions="" documentationCenter="" authors="adlevin" videoId="" scriptId="" manager="jhubbard" />
+﻿<properties title="DocumentDB whitepaper by David Chappell" pageTitle="David Chappell 所撰寫的 DocumentDB 白皮書 | Azure" description="下載 David Chappell 說明 DocumentDB (Azure 上的受管理 NoSQL 資料庫) 的白皮書。" metaKeywords="" services="documentdb" solutions="" documentationCenter="" authors="adlevin" videoId="" scriptId="" manager="jhubbard" />
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="adlevin" />
 

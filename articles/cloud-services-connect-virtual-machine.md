@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Connect to a virtual machine" pageTitle="在 Azure 雲端服務中連接虛擬機器" metaKeywords="Azure connecting vm to cloud" description="Learn to connect a virtual machine to an Azure cloud service." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="" />
+﻿<properties urlDisplayName="Connect to a virtual machine" pageTitle="在 Azure 雲端服務中連接虛擬機器" metaKeywords="Azure connecting vm to cloud" description="了解如何將虛擬機器連線至 Azure 雲端服務。" metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="kathydav" />
 

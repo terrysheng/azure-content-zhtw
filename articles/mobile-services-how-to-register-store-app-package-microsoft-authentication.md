@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Shared Access Signature Part 1" pageTitle="註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證" metaKeywords="" description="Learn how to register your Windows Store app for Microsoft authentication in your Azure Mobile Services application" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store app package for Microsoft authentication" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Shared Access Signature Part 1" pageTitle="註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證" metaKeywords="" description="了解如何在 Azure Mobile Services 應用程式中註冊 Windows 市集應用程式進行 Microsoft 驗證。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store app package for Microsoft authentication" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 

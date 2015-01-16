@@ -1,4 +1,4 @@
-﻿<properties title="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with DomainDiscover - TierraNet" pageTitle="使用流量管理員設定 Azure 網站的 DomainDiscover 網域名稱 "metaKeywords ="Windows Azure, Windows Azure 網站, DomainDiscover, TierraNet, 流量管理員" description="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with DomainDiscover - TierraNet" services="web-sites" documentationCenter="" authors="larryfr,jroth" manager="wpickett" />
+﻿<properties title="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with DomainDiscover - TierraNet" pageTitle="使用流量管理員設定 Azure 網站的 DomainDiscover 網域名稱 "metaKeywords ="Windows Azure, Windows Azure 網站, DomainDiscover, TierraNet, 流量管理員" description="了解如何設定使用 Traffic Manager 的 Azure 網站使用向 DomainDiscover - TierraNet 註冊的網域名稱" services="web-sites" documentationCenter="" authors="larryfr,jroth" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth" />
 

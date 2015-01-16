@@ -1,4 +1,4 @@
-﻿<properties pageTitle="使用 Windows PowerShell 管理角色存取控制" metaKeywords="ResourceManager, PowerShell, Azure PowerShell, RBAC" description="Managing role-based access control with Windows PowerShell" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Windows PowerShell" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
+<properties pageTitle="使用 Windows PowerShell 管理角色存取控制" metaKeywords="ResourceManager, PowerShell, Azure PowerShell, RBAC" description="使用 Windows PowerShell 管理角色存取控制" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Windows PowerShell" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan" />
 
@@ -10,7 +10,7 @@
 
 在本教學課程裡，您將學習如何使用 Windows PowerShell 來管理 RBAC。本課程將帶您逐一了解建立與檢查角色指派的程序。
 
-**預估完成時間：**  15 Minuten
+**預估完成時間：**  15 分鐘
 
 ## 必要條件 ##
 

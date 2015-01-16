@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Blob Service" pageTitle="如何使用 Blob 儲存體 (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Blob Service" pageTitle="如何使用 Blob 儲存體 (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="了解如何使用 Azure Blob 服務來上傳、下載、列出及刪除 Blob 內容。範例以 Node.js 撰寫。" metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
 
@@ -73,7 +73,7 @@ Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 和 AZURE\_STORAGE\_AC
 
 ## <a name="create-container"> </a>作法：建立容器
 
-**BlobService** 物件可讓您使用容器及 Blob。Auch die Eigenschaften
+**BlobService** 物件可讓您使用容器及 Blob。
 下列程式碼會建立 **BlobService** 物件。將下列內容新增至
 **server.js** 頂端附近：
 

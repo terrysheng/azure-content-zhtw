@@ -1,4 +1,4 @@
-﻿<properties pageTitle="在資料中加入分頁 (Windows Phone) | 行動開發人員中心" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Windows Phone app from Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="在資料中加入分頁 (Windows Phone) | 行動開發人員中心" metaKeywords="" description="了解如何使用分頁來管理行動服務傳回您 Windows Phone 應用程式的資料量。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="glenga" />
 

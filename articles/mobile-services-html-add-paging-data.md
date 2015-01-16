@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Add paging to data (HTML5)" pageTitle="在資料中加入分頁 (HTML 5) | 行動開發人員中心" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your HTML app from Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Add paging to data (HTML5)" pageTitle="在資料中加入分頁 (HTML 5) | 行動開發人員中心" metaKeywords="" description="了解如何使用分頁來管理行動服務傳回您 HTML 應用程式的資料量。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 

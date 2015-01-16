@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SendGrid Email Service" pageTitle="如何使用 SendGrid 電子郵件服務 (Java) - Azure" metaKeywords="Azure SendGrid, Azure 電子郵件服務, Azure SendGrid Java, Azure 電子郵件 Java" description="Learn how send email with the SendGrid email service on Azure. Code samples written in Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties urlDisplayName="SendGrid Email Service" pageTitle="如何使用 SendGrid 電子郵件服務 (Java) - Azure" metaKeywords="Azure SendGrid, Azure 電子郵件服務, Azure SendGrid Java, Azure 電子郵件 Java" description="了解如何在 Azure 使用 SendGrid 電子郵件服務傳送電子郵件。程式碼範例以 Java 撰寫。" metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 

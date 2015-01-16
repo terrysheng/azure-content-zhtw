@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Encrypt Assets in Media Services" pageTitle="如何為媒體服務中的資產加密 - Azure" metaKeywords="" description="Learn how to use Microsoft PlayReady Protection to encrypt an asset in Media Services. Code samples are written in C# and use the Media Services SDK for .NET. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Encrypt Assets in Media Services" pageTitle="如何為媒體服務中的資產加密 - Azure" metaKeywords="" description="了解如何使用 Microsoft PlayReady 保護為媒體服務中的資產加密。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="juliako" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 

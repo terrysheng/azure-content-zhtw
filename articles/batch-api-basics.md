@@ -1,5 +1,5 @@
 ﻿
-<properties title="API basics for Azure Batch" pageTitle="Azure 批次的 API 基本概念" description="Concepts to introduce developers to the Azure Batch APIs and Batch service" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
+<properties title="API basics for Azure Batch" pageTitle="Azure 批次的 API 基本概念" description="向開發人員介紹 Azure Batch API 及 Batch 服務的概念" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
 
 <tags ms.service="batch" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="10/27/2014" ms.author="yidingz, karran.batta" />
 

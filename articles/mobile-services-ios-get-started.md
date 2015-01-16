@@ -1,4 +1,4 @@
-﻿<properties pageTitle="在 iOS 應用程式中開始使用 Azure 行動服務" metaKeywords="Azure iOS application, mobile service iOS, getting started Azure iOS" description="Follow this tutorial to get started using Azure Mobile Services for iOS development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="在 iOS 應用程式中開始使用 Azure 行動服務" metaKeywords="Azure iOS application, mobile service iOS, getting started Azure iOS" description="遵循此教學課程，可開始使用 Azure 行動服務進行 iOS 開發。 " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="hero-article" ms.date="10/10/2014" ms.author="krisragh" />
 

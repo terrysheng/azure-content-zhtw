@@ -1,5 +1,5 @@
 ﻿
-<properties urlDisplayName="Notify iOS app users by using Web API" pageTitle="使用 Web API 註冊目前使用者以取得推播通知 - 通知中心 " metaKeywords=" Azure 註冊應用程式, 通知中心, Azure 推播通知, 推播通知 iOS 應用程式" description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by ASP.NET Web API." metaCanonical="" services="notification-hubs" documentationCenter="" title="Register the current user for push notifications by using ASP.NET" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Notify iOS app users by using Web API" pageTitle="使用 Web API 註冊目前使用者以取得推播通知 - 通知中心 " metaKeywords=" Azure 註冊應用程式, 通知中心, Azure 推播通知, 推播通知 iOS 應用程式" description="了解如何在 ASP.NET Web API 執行註冊時，在 iOS 應用程式中向 Azure 通知中心要求推播通知註冊。" metaCanonical="" services="notification-hubs" documentationCenter="" title="Register the current user for push notifications by using ASP.NET" authors="yuaxu" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
 # 使用 ASP.NET 來註冊目前使用者以取得推播通知

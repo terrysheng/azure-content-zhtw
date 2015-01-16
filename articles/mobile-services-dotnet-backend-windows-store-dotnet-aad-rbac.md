@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Role Based Access Control with Azure Active Directory" pageTitle="行動服務和 Azure Active Directory 中的角色型存取控制 (Windows 市集) | 行動開發人員中心" metaKeywords="" description="Learn how to control access based on Azure Active Directory roles in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Role Based Access Control in Mobile Services and Azure Active Directory" authors="wesmc" manager="dwrede" />
+﻿<properties urlDisplayName="Role Based Access Control with Azure Active Directory" pageTitle="行動服務和 Azure Active Directory 中的角色型存取控制 (Windows 市集) | 行動開發人員中心" metaKeywords="" description="了解如何在 Windows Store 應用程式中控制以 Azure Active Directory 角色為基礎的存取權。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Role Based Access Control in Mobile Services and Azure Active Directory" authors="wesmc" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc" />
 

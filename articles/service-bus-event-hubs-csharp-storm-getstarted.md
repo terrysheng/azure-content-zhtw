@@ -1,4 +1,4 @@
-﻿<properties pageTitle="開始使用事件中心" metaKeywords="Azure 服務匯流排, 事件中心, 開始使用事件中心" description="Follow this tutorial to get started using Azure Event Hubs sending events with C# and receiving them in an Apache Storm cluster" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="開始使用事件中心" metaKeywords="Azure 服務匯流排, 事件中心, 開始使用事件中心" description="遵循此教學課程，開始使用 Azure Event Hubs 以 C# 傳送事件並且在 Apache Storm 叢集中接收這些事件。" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 

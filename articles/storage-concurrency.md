@@ -1,4 +1,4 @@
-<properties title="Managing Concurrency in Microsoft Azure Storage" pageTitle="required" description="How to manage concurrency for the Blob, Queue, Table, and File services" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="tamram" manager="adinah" videoId="Optional" scriptId="Optional" />
+<properties title="Managing Concurrency in Microsoft Azure Storage" pageTitle="required" description="如何管理 Blob、佇列、資料表和檔案服務的並行存取" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="tamram" manager="adinah" videoId="Optional" scriptId="Optional" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/08/2014" ms.author="tamram" />
 

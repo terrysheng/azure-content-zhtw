@@ -1,4 +1,4 @@
-﻿<properties title="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with Dotster" pageTitle="設定使用流量管理員之的 Azure 網站的 Dotster 網域名稱" metaKeywords="Windows Azure, Windows Azure 網站, Dotster, 流量管理員" description="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with Dotster" services="web-sites" documentationCenter="" authors="larryfr,jroth" manager="wpickett" />
+﻿<properties title="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with Dotster" pageTitle="設定使用流量管理員之的 Azure 網站的 Dotster 網域名稱" metaKeywords="Windows Azure, Windows Azure 網站, Dotster, 流量管理員" description="了解如何設定使用 Traffic Manager 的 Azure 網站使用向 Dotster 註冊的網域名稱" services="web-sites" documentationCenter="" authors="larryfr,jroth" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth" />
 

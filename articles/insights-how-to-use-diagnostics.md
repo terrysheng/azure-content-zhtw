@@ -1,4 +1,4 @@
-﻿<properties title="How to use diagnostics" pageTitle="如何使用診斷" description="Learn how to set up diagnostics for your resources in Azure." authors="stepsic" manager="kamrani" />
+﻿<properties title="How to use diagnostics" pageTitle="如何使用診斷" description="了解如何在 Azure 設定資源的診斷。" authors="stepsic" manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
 

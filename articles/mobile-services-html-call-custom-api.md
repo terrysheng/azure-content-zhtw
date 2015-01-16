@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Call a custom API from the client" pageTitle="從 HTML 用戶端呼叫自訂 API - 行動服務" metaKeywords="" description="Learn how to define a custom API and then call it from an HTML app that uses Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="jparrel" manager="dwrede" editor=""  />
+﻿<properties urlDisplayName="Call a custom API from the client" pageTitle="從 HTML 用戶端呼叫自訂 API - 行動服務" metaKeywords="" description="了解如何定義自訂 API 然後從使用 Windows Azure 行動服務的 HTML 應用程式呼叫它。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga"  solutions="" writer="jparrel" manager="dwrede" editor=""  />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Continuous Delivery" pageTitle="在 Azure 中使用 TFS 來連續傳遞雲端服務" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="kempb" solutions="" manager="douge" editor="" />
+<properties urlDisplayName="Continuous Delivery" pageTitle="在 Azure 中使用 TFS 來連續傳遞雲端服務" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="了解如何設定 Azure 雲端應用程式的連續傳遞。MSBuild 命令列陳述式和 PowerShell 指令碼的程式碼範例。" metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="kempb" solutions="" manager="douge" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/3/2014" ms.author="kempb" />
 
@@ -6,17 +6,17 @@
 
 本文所述的程序顯示如何為 Azure 雲端應用程式設定連續傳遞。此程序可讓您自動建立套件，並在每次進行程式碼簽入之後，將套件部署至 Azure。本文所述的套件建置程序等同於 Visual Studio 中的 [封裝] 命令，而發佈步驟等同於 Visual Studio 中的 [發行] 命令。文中會說明使用 MSBuild 命令列陳述式與指令碼來建置伺服器的方法，同時也會示範如何選擇性設定 Visual Studio Team Foundation Server - Team Build 定義來使用 MSBuild 命令及 PowerShell 指令碼。您可根據自己的組建環境及 Azure 目標環境自訂此程序。
 
-此動作也可以用 Visual Studio Online (託管於 Azure 中的 TFS 版本) 來執行，這樣會變得更容易。如需詳細資訊，請參閱[使用 Visual Studio Online 連續傳遞至 Azure][]。
+此動作也可以用 Visual Studio Online (託管於 Azure 中的 TFS 版本) 來執行，這樣會變得更容易。如需詳細資訊，請參閱[使用 Visual Studio Online 連續傳遞至 Azure](../cloud-services-continuous-delivery-use-vso/)。
 
 開始之前，您應該先從 Visual Studio 發佈應用程式。如此可確保當您嘗試將發佈程序自動化時，所有資源皆可用並已初始化。
 
 此工作包含下列步驟：
 
--   [步驟 1：設定組建伺服器][]
--   [步驟 2：使用 MSBuild 命令來建置套件][]
--   [步驟 3：使用 TFS Team Build 來建置套件 (選用)][]
--   [步驟 4：使用 PowerShell 指令碼來發佈套件][]
--   [步驟 5：使用 TFS Team Build 來發佈套件 (選用)][]
+-   [步驟 1：設定組建伺服器](#step1)
+-   [步驟 2：使用 MSBuild 命令來建置套件](#step2)
+-   [步驟 3：使用 TFS Team Build 來建置套件 (選用)](#step3)
+-   [步驟 4：使用 PowerShell 指令碼來發佈套件](#step4)
+-   [步驟 5：使用 TFS Team Build 來發佈套件 (選用)](#step5)
 
 <h2> <a name="step1"> </a>步驟 1：設定組建伺服器</h2>
 
@@ -75,7 +75,7 @@
 
 1.  在開發電腦上的 Visual Studio 中，於 [檢視] 功能表上，選取 [**Team Explorer**] 或選取 Ctrl+\\、Ctrl+M。在 Team Explorer 視窗中，展開 [**組建**] 節點或選擇 [**組建**] 頁面，然後選擇 [**新增組建定義**]。
 
-    ![][0]
+    ![](./media/cloud-services-dotnet-continuous-delivery/tfs-01.png)
 
 2.  按一下 [**觸發程序**] 索引標籤，然後指定所需的條件來代表套件的組建時機。例如，指定 [**連續整合**]，會在每次發生原始檔控制簽入時建置套件。
 
@@ -88,7 +88,7 @@
 6.  選擇 [**MSBuild 引數**]，然後依上面步驟 2 所述，設定適當的 MSBuild 命令列引數。例如，輸入 **/t:Publish /p:PublishDir=\\\\myserver\\drops\\** 以建置套件，並將套件檔複製至位置
     \\\\myserver\\drops\\：
 
-    ![][2]
+    ![](./media/cloud-services-dotnet-continuous-delivery/tfs-02.png)
 
     **注意：**將檔案複製到公用共用，將可更輕鬆地手動從開發電腦部署套件。
 
@@ -116,7 +116,7 @@
 
     如此會顯示訂閱的相關資訊。確認一切正確無誤。
 
-4.  將[本文結尾][]提供的指令碼範本儲存至您的指令碼資料夾，如 c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**。
+4.  將[本文結尾](#script)提供的指令碼範本儲存至您的指令碼資料夾，如 c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**。
 
 5.  檢閱指令碼的參數區段。新增或修改任何預設值。您永遠可以傳遞明確參數來覆寫這些值。
 
@@ -560,12 +560,6 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 若要在使用連續傳遞時啟用遠端偵錯，請參閱[這些指示](http://go.microsoft.com/fwlink/p/?LinkID=402354)。 
 
-  [使用 Visual Studio Online 連續傳遞至 Azure]：../cloud-services-continuous-delivery-use-vso/
-  [步驟 1：設定組建伺服器]：#step1
-  [步驟 2：使用 MSBuild 命令來建置套件]：#step2
-  [步驟 3：使用 TFS Team Build 來建置套件 (選用)]：#step3
-  [步驟 4：使用 PowerShell 指令碼來發佈套件]：#step4
-  [步驟 5：使用 TFS Team Build 來發佈套件 (選用)]：#step5
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
@@ -577,12 +571,8 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [了解 Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
   [設定組建機器]: http://go.microsoft.com/fwlink/?LinkId=238799
-  [0]：./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
-  [2]：./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
   [Azure PowerShell Cmdlet]: http://go.microsoft.com/fwlink/?LinkId=256262
   [.publishsettings 檔案]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
-  [本文結尾]：#script
-  
   [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png
   [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="開始使用資料 (Windows 市集) | 行動開發人員中心" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="開始使用資料 (Windows 市集) | 行動開發人員中心" metaKeywords="" description="了解如何開始使用行動服務，在您的 Windows Store 應用程式中使用資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -32,7 +32,7 @@ This tutorial walks you through these basic steps:
 * 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F)。
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>。您可以使用免費試用版。
 
-##<a name="download-app"></a>下載 GetStartedWithData 專案
+## <a name="download-app"></a>下載 GetStartedWithData 專案
 
 本教學課程以 [GetStartedWithMobileServices 應用程式][Developer Code Samples site]為基礎，此應用程式是 Visual Studio 2013 中的 Windows 市集應用程式專案。除了會將新增項目儲存在本機記憶體中之外，此應用程式的 UI 與行動服務快速入門所產生的應用程式 UI 是類似的。 
 
@@ -52,11 +52,11 @@ This tutorial walks you through these basic steps:
 
    	請注意，儲存的文字會顯示在 [**查詢和更新資料**] 下方的第二個資料行中。
 
-##<a name="create-service"></a>建立新的行動服務
+## <a name="create-service"></a>建立新的行動服務
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
-##<a name="download-the-service-locally"></a>下載行動服務專案並將其新增至方案
+## <a name="download-the-service-locally"></a>下載行動服務專案並將其新增至方案
 
 1. 在 [Azure 管理入口網站]中，按一下新的行動服務或是其雲端圖示索引標籤，以移至概觀頁面。
 
@@ -101,7 +101,7 @@ This tutorial walks you through these basic steps:
 
     ![][23]
 
-#<a name="update-app"></a>更新 Windows 市集應用程式以使用行動服務
+# <a name="update-app"></a>更新 Windows 市集應用程式以使用行動服務
 
 在本節中，您將會更新 Windows 市集應用程式，以使用行動服務作為應用程式的後端服務。
 
@@ -178,15 +178,15 @@ This tutorial walks you through these basic steps:
         }
 
 
-##<a name="test-locally-hosted"></a>對本機代管的服務測試 Windows 市集應用程式
+## <a name="test-locally-hosted"></a>對本機代管的服務測試 Windows 市集應用程式
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-data](../includes/mobile-services-dotnet-backend-test-local-service-data.md)]
 
-##<a name="publish-mobile-service"></a>將行動服務發佈至 Azure
+## <a name="publish-mobile-service"></a>將行動服務發佈至 Azure
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-##<a name="test-azure-hosted"></a>測試發佈至 Azure 的行動服務
+## <a name="test-azure-hosted"></a>測試發佈至 Azure 的行動服務
 
 1. 在 Visual Studio 中，開啟 App.xaml.cs。將建立 `MobileServiceClient` 以連接到本機代管之行動服務的程式碼註解化。將建立 `MobileServiceClient` 以連接到 Azure 中之服務的程式碼取消註解。儲存檔案的變更。
 
@@ -212,7 +212,7 @@ This tutorial walks you through these basic steps:
 
     您可以重新啟動應用程式，以確認變更持續存留至 Azure 中的資料庫。 
 
-##<a name="view-stored-data"></a>檢視儲存在 SQL Database 裡的資料
+## <a name="view-stored-data"></a>檢視儲存在 SQL Database 裡的資料
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-view-sql-data](../includes/mobile-services-dotnet-backend-view-sql-data.md)]
 

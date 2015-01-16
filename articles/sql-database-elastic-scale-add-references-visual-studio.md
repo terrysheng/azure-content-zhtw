@@ -1,4 +1,4 @@
-﻿<properties title="Add Azure SQL DB Elastic Scale References to a Visual Studio Project" pageTitle="將 Azure SQL DB Elastic Scale 參考加入至 Visual Studio 專案" description="How to add .NET references for Elastic Scale APIs to Visual Studio projects using Nuget." metaKeywords="Azure SQL Database, elastic scale, Nuget references" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Add Azure SQL DB Elastic Scale References to a Visual Studio Project" pageTitle="將 Azure SQL DB Elastic Scale 參考加入至 Visual Studio 專案" description="如何使用 Nuget 將 Elastic Scale API 的 .NET 參照新增到 Visual Studio 專案。" metaKeywords="Azure SQL Database, elastic scale, Nuget references" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName=".NET Client Library" pageTitle="使用 Azure 行動服務 .NET 後端建立排行榜應用程式" metaKeywords="Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to build a Windows Store app using Azure Mobile Services with a .NET backend." documentationCenter="Mobile" title="Creating a Leaderboard App with Azure Mobile Services .NET Backend" authors="mwasson" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName=".NET Client Library" pageTitle="使用 Azure 行動服務 .NET 後端建立排行榜應用程式" metaKeywords="Azure Mobile Services, Mobile Service .NET client, .NET client" description="了解如何使用具有 .NET 後端的 Azure 行動服務建置 Windows 市集應用程式。" documentationCenter="Mobile" title="Creating a Leaderboard App with Azure Mobile Services .NET Backend" authors="mwasson" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="mwasson" />
 

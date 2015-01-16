@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="使用 Microsoft Avro Library 將資料序列化 | Azure" metaKeywords="" description="Learn how Azure HDInsight uses Avro to serialize big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Serialize data with the Microsoft Avro Library " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="使用 Microsoft Avro Library 將資料序列化 | Azure" metaKeywords="" description="了解 Azure HDInsight 如何使用 Avro 將巨量資料序列化。" metaCanonical="" services="hdinsight" documentationCenter="" title="Serialize data with the Microsoft Avro Library " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
 

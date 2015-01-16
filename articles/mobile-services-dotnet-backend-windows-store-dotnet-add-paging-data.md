@@ -1,4 +1,4 @@
-﻿<properties pageTitle="使用分頁縮小行動服務查詢範圍 (Windows 市集) | 行動開發人員中心" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Windows Store app from Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="使用分頁縮小行動服務查詢範圍 (Windows 市集) | 行動開發人員中心" metaKeywords="" description="了解如何使用分頁來管理行動服務傳回您 Windows 市集應用程式的資料量。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="glenga" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to stage sites on Microsoft Azure" pageTitle="Microsoft Azure 網站上的預備部署" metaKeywords="Microsoft Azure 網站, 預備部署, 網站位置" description="Learn how to use staged publishing on Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Deployment on Microsoft Azure Websites" authors="cephalin"  solutions="" writer="cephalin" manager="wpickett" editor="mollybos"  />
+﻿<properties urlDisplayName="How to stage sites on Microsoft Azure" pageTitle="Microsoft Azure 網站上的預備部署" metaKeywords="Microsoft Azure 網站, 預備部署, 網站位置" description="了解如何在 Microsoft Azure 網站使用分段發布。" metaCanonical="" services="web-sites" documentationCenter="" title="Staged Deployment on Microsoft Azure Websites" authors="cephalin"  solutions="" writer="cephalin" manager="wpickett" editor="mollybos"  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/9/2014" ms.author="cephalin" />
 

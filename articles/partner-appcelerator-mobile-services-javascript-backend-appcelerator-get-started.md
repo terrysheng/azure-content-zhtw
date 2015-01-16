@@ -1,4 +1,4 @@
-﻿<properties pageTitle="開始為 Appcelerator Titanium 使用 Azure 行動服務" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="開始為 Appcelerator Titanium 使用 Azure 行動服務" metaKeywords="" description="遵循此教學課程，可開始使用 Azure 行動服務進行 Appcelerator 開發。 " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 

@@ -1,4 +1,4 @@
-﻿<properties title="Use the sample datasets in Azure Machine Learning Studio" pageTitle="在 Machine Learning Studio 中使用範例資料集 | Azure" description="Use the sample datasets in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Use the sample datasets in Azure Machine Learning Studio" pageTitle="在 Machine Learning Studio 中使用範例資料集 | Azure" description="在 Azure Machine Learning Studio 中使用範例資料集" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 

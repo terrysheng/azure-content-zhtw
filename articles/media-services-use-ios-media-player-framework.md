@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="iOS Media Player Framework" pageTitle="使用 Azure 媒體服務的 iOS 媒體播放器架構" metaKeywords="" description="Learn how to use the Media Services iOS Media Player Framework library to create rich, dynamic apps.," metaCanonical="" services="media-services" documentationCenter="" title="How to use the Azure Media Services iOS Media Player Framework" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="iOS Media Player Framework" pageTitle="使用 Azure 媒體服務的 iOS 媒體播放器架構" metaKeywords="" description="了解如何使用媒體服務 iOS 媒體播放器架構程式庫來建立豐富而動態的應用程式。" metaCanonical="" services="media-services" documentationCenter="" title="How to use the Azure Media Services iOS Media Player Framework" authors="juliako" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 

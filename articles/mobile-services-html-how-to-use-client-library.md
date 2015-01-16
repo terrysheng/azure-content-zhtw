@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="HTML Client" pageTitle="如何使用 HTML 用戶端 - Azure 行動服務" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="Learn how to use an HTML client for Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="HTML Client" pageTitle="如何使用 HTML 用戶端 - Azure 行動服務" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="了解如何使用適用於 Azure 行動服務的 HTML 用戶端。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 

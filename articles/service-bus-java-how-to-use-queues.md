@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="如何使用服務匯流排佇列 (Java) - Azure" metaKeywords ="Azure 服務匯流排佇列, Azure 佇列, Azure 訊息, Azure 佇列 Java" description="Learn how to use Service Bus queues in Azure. Code samples written in Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Queues" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties urlDisplayName="Service Bus Queues" pageTitle="如何使用服務匯流排佇列 (Java) - Azure" metaKeywords ="Azure 服務匯流排佇列, Azure 佇列, Azure 訊息, Azure 佇列 Java" description="了解如何在 Azure 使用服務匯流排佇列。程式碼範例以 Java 撰寫。" metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Queues" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

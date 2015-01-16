@@ -1,4 +1,4 @@
-﻿<properties pageTitle="伺服器端授權 (Windows Phone) | 行動開發人員中心" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="伺服器端授權 (Windows Phone) | 行動開發人員中心" metaKeywords="" description="了解如何在 Azure 行動服務的 JavaScript 後端為使用者授權。" metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 

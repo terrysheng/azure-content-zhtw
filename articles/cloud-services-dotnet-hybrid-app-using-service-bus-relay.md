@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Hybrid Application" pageTitle="混合式內部部署/雲端應用程式 (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties urlDisplayName="Hybrid Application" pageTitle="混合式內部部署/雲端應用程式 (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="了解如何使用 Azure Service Bus Relay 建立 .NET 內部部署/雲端混合式應用程式。" metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
 

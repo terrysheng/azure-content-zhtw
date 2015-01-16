@@ -1,4 +1,4 @@
-﻿<properties title="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website" pageTitle="混合式連線逐步說明：從 Azure 網站連接至內部部署 SQL Server" description="Create a a website on Microsoft Azure and connect it to an on-premises SQL Server database" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties title="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website" pageTitle="混合式連線逐步說明：從 Azure 網站連接至內部部署 SQL Server" description="在 Microsoft Azure 上建立網站，並將它連接到內部部署 SQL Server 資料庫" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Mobile Services Overview" pageTitle="行動服務概觀 | 行動開發人員中心" metaKeywords="" description="Learn about Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Mobile Services Overview" authors="mahender"  manager="dwrede" services="mobile-services"/>
+﻿<properties urlDisplayName="Mobile Services Overview" pageTitle="行動服務概觀 | 行動開發人員中心" metaKeywords="" description="了解行動服務。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Mobile Services Overview" authors="mahender"  manager="dwrede" services="mobile-services"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender" />
 

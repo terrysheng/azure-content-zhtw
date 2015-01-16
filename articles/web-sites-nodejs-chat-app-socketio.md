@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website Using Socket.IO" pageTitle="使用 Socket.io 的 Node.js 網站 - Azure 教學課程" metaKeywords="Azure Node.js socket.io 教學課程, Azure Node.js socket.io, Azure Node.js 教學課程" description="A tutorial that demonstrates using socket.io in a node.js website hosted on Azure." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build a Node.js Chat Application with Socket.IO on an Azure Website" authors="larryfr" solutions="" videoId="" scriptId="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Website Using Socket.IO" pageTitle="使用 Socket.io 的 Node.js 網站 - Azure 教學課程" metaKeywords="Azure Node.js socket.io 教學課程, Azure Node.js socket.io, Azure Node.js 教學課程" description="示範在裝載於 Azure 的 node.js 網站中使用 socket.io 的教學課程。" metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build a Node.js Chat Application with Socket.IO on an Azure Website" authors="larryfr" solutions="" videoId="" scriptId="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 

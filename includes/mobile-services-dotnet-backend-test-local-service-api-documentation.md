@@ -1,3 +1,4 @@
+
 1.  在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下服務專案，然後按一下 [偵錯] 內容功能表之下的 [開始新執行個體]。
 
     ![start mobile service project locally][start mobile service project locally]
@@ -14,7 +15,7 @@
 
     如此能顯示 API 文件頁面，您可以使用它來測試行動服務。
 
-    > [WACOM.NOTE] 在本機執行時，您不需要通過驗證即可存取此頁面。在 Azure 中執行時，您必須提供應用程式金鑰以做為存取此頁面的密碼 (不需要使用者名稱)。
+    >[WACOM.NOTE] 在本機執行時，您不需要通過驗證即可存取此頁面。在 Azure 中執行時，您必須提供應用程式金鑰以做為存取此頁面的密碼 (不需要使用者名稱)。
 
 4.  按一下 [GET tables/TodoItem] 連結。
 
@@ -29,6 +30,8 @@
     如此能傳送 GET 要求給本機行動服務，以傳回 TodoItem 資料表中的所有資料列。由於初始設定式已植入資料表，因此系統會在回應訊息的本文中傳回兩個 TodoItem 物件。如需初始設定式的詳細資訊，請參閱[如何對 .NET 後端行動服務進行資料模型變更][如何對 .NET 後端行動服務進行資料模型變更]。
 
     ![][2]
+
+<!-- Images. -->
 
   [start mobile service project locally]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/vs-start-debug-service-project.png
   [verify the mobile service in the taskbar]: ./media/mobile-services-dotnet-backend-test-local-service-api-documentation/iis-express-tray.png

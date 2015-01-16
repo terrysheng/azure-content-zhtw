@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Capture an image" pageTitle="對執行 Windows Server 的虛擬機器擷取映像" metaKeywords="Azure capture image vm, capturing vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server 2008 R2. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties urlDisplayName="Capture an image" pageTitle="對執行 Windows Server 的虛擬機器擷取映像" metaKeywords="Azure capture image vm, capturing vm" description="了解如何對執行 Windows Server 2008 R2 的 Azure 虛擬機器 (VM) 擷取映像。 " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="kathydav" />
 

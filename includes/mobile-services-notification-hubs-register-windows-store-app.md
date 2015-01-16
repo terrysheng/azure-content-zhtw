@@ -1,4 +1,4 @@
-﻿
+
 
 1. 如果您尚未註冊您的應用程式，請瀏覽至 Windows 市集應用程式之開發人員中心的[提交應用程式頁面]，使用您的 Microsoft 帳戶登入，然後按一下 [**應用程式名稱**]。
 
@@ -16,7 +16,7 @@
 
   	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-store-association.png)
 
-   	   	這將會顯示 [**將您的應用程式與 Windows 市集建立關聯**] 精靈。
+   	這將會顯示 [**將您的應用程式與 Windows 市集建立關聯**] 精靈。
 
 5. 在此精靈中，按一下 [**登入**]，然後使用您的 Microsoft 帳戶登入。
 
@@ -24,7 +24,7 @@
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png)
 
-   	   	這麼做會將必要的 Windows 市集資訊新增到應用程式資訊清單。    
+   	這麼做會將必要的 Windows 市集資訊新增到應用程式資訊清單。    
 
 7. (選用) 重複執行步驟 4-6，也會註冊通用 Windows 應用程式的 Windows Phone 市集專案。
 
@@ -57,6 +57,6 @@
 	>[WACOM.NOTE]當您在入口網站的 [**推播**] 索引標籤中設定進階推播通知的 WNS 認證時，這些認證將會與通知中樞共用，以設定您應用程式適用的通知中樞。
 
 <!-- URLs. -->
-[開始使用行動服務]w
+[開始使用行動服務]:  /zh-tw/documentation/articles/mobile-services-windows-store-get-started/
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Azure 管理入口網站]: https://manage.windowsazure.com/

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website from Gallery" pageTitle="組件庫中的 WordPress 網站 - Azure 教學課程" metaKeywords="Azure create website WordPress, Azure WordPress, WordPress blog Azure" description="A tutorial that teaches you how to create a new Azure website for a WordPress blog, and then deploy it through the Management Portal." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a WordPress website from the gallery in Azure" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Website from Gallery" pageTitle="組件庫中的 WordPress 網站 - Azure 教學課程" metaKeywords="Azure create website WordPress, Azure WordPress, WordPress blog Azure" description="指導如何對於 WordPress 部落格建立新的 Azure 網站並透過 Management Portal 部署它的教學課程。" metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a WordPress website from the gallery in Azure" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
 

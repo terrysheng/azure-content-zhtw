@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Using Offline Data" pageTitle="在行動服務中使用離線資料同步 (iOS) | 行動開發人員中心" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using Offline data sync in Mobile Services" authors="krisragh" manager="dwrede" />
+﻿<properties urlDisplayName="Using Offline Data" pageTitle="在行動服務中使用離線資料同步 (iOS) | 行動開發人員中心" metaKeywords="" description="了解如何使用 Azure 行動服務快處和徒步 iOS 應用程式中的離線資料" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using Offline data sync in Mobile Services" authors="krisragh" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 

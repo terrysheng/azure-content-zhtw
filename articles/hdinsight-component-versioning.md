@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="HDInsight Hadoop Version" pageTitle="HDInsight 的 Hadoop 叢集版本的新功能| Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
+﻿<properties urlDisplayName="HDInsight Hadoop Version" pageTitle="HDInsight 的 Hadoop 叢集版本的新功能| Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。請參閱支援的 Hadoop 和 HortonWorks Data Platform (HDP) 配送版本。" services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="bradsev" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="驗證與修改資料 (Windows 市集) 的使用者伺服器指令碼 | 行動開發人員中心 " metaKeywords="" description="Learn how to use server scripts to validate, modify, and augment data for your Windows Store app with Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="驗證與修改資料 (Windows 市集) 的使用者伺服器指令碼 | 行動開發人員中心 " metaKeywords="" description="了解如何運用伺服器指令碼，使用 Azure 行動服務驗證、修改和增加 Windows 市集應用程式的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 

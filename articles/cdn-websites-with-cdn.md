@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Integrate an Azure Website with Azure CDN" pageTitle="整合 Azure 網站與 Azure CDN" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, websites" description="A tutorial that teaches you how to deploy a website that serves content from an integrated Azure CDN endpoint" metaCanonical="" services="cdn,web-sites" documentationCenter=".NET" title="Integrate an Azure Website with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties urlDisplayName="Integrate an Azure Website with Azure CDN" pageTitle="整合 Azure 網站與 Azure CDN" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, websites" description="指導如何部署網站來提供整合式 Azure CDN 端點內容的教學課程" metaCanonical="" services="cdn,web-sites" documentationCenter=".NET" title="Integrate an Azure Website with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="jimbe" />
 
 <tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web w/ WebMatrix" pageTitle="採用 MySQL 和 WebMatrix 的 PHP 網站 - Azure 教學課程" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in MySQL." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create and deploy a PHP-MySQL Azure Website using WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Web w/ WebMatrix" pageTitle="採用 MySQL 和 WebMatrix 的 PHP 網站 - Azure 教學課程" metaKeywords="" description="示範如何使用免費的 WebMatrix IDE 建立和部署 PHP 網站將資料儲存在 MySQL 中的教學課程。" metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create and deploy a PHP-MySQL Azure Website using WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
 

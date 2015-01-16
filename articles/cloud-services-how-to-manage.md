@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to manage" pageTitle="如何管理雲端服務 - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Learn how to manage cloud services in the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
+﻿<properties urlDisplayName="How to manage" pageTitle="如何管理雲端服務 - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="了解如何在 Azure 管理入口網站中管理雲端服務。" metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
 

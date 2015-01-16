@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Configure RAID on Linux" pageTitle="在 Azure 中執行 Linux 的虛擬機器上設定軟體 RAID" metaKeywords="raid in Azure, mdadm Azure, stripe disks in Azure" description="Learn how to use mdadm to configure RAID on Linux in Azure." metaCanonical="http://www.windowsazure.com/zh-tw/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="szark" manager="timlt" editor=""  />
+﻿<properties urlDisplayName="Configure RAID on Linux" pageTitle="在 Azure 中執行 Linux 的虛擬機器上設定軟體 RAID" metaKeywords="raid in Azure, mdadm Azure, stripe disks in Azure" description="了解如何使用 mdadm，在 Azure 的 Linux 上設定 RAID。" metaCanonical="http://www.windowsazure.com/zh-tw/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="szark" manager="timlt" editor=""  />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="szark" />
 

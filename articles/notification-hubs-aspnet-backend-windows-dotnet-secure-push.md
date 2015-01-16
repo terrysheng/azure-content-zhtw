@@ -1,4 +1,4 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Azure 通知中心安全推播 " metaKeywords=" Azure 推播通知, Azure 通知中心, Azure 訊息, 安全推播" description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="dwrede" />
+﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Azure 通知中心安全推播 " metaKeywords=" Azure 推播通知, Azure 通知中心, Azure 訊息, 安全推播" description="了解如何在 Azure 中傳送安全的推播通知。程式碼範例是以 C# 撰寫並使用 .NET API。" documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="dwrede" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 

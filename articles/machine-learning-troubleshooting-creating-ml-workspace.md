@@ -1,4 +1,4 @@
-﻿<properties title="Troubleshooting Guide: Creating and connecting to an Azure Machine Learning workspace" pageTitle="疑難排解指南：建立 Azure 機器學習工作區並進行連線 | Azure" description="Solutions for common issues in creating and connecting to an Azure Machine Learning workspace " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties title="Troubleshooting Guide: Creating and connecting to an Azure Machine Learning workspace" pageTitle="疑難排解指南：建立 Azure 機器學習工作區並進行連線 | Azure" description="對於建立和連線到 Azure Machine Learning 工作區的一般問題提供的解決方案 " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/25/2014" ms.author="garye" />
 

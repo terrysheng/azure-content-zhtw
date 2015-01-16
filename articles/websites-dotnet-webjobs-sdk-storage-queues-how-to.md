@@ -1,4 +1,4 @@
-﻿<properties linkid="" pageTitle="如何透過 WebJobs SDK 使用 Azure 佇列儲存體" metaKeywords="WebJobs SDK Azure 佇列儲存體 .NET C#" description="Learn how to work with Azure queue storage in the WebJobs SDK. Create and delete queues; insert, peek, get, and delete queue messages, and more." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="web-sites,storage" documentationCenter=".NET" title="How to work with Azure queue storage using the WebJobs SDK" authors="tdykstra" manager="wpickett" editor="jimbe" />
+﻿<properties linkid="" pageTitle="如何透過 WebJobs SDK 使用 Azure 佇列儲存體" metaKeywords="WebJobs SDK Azure 佇列儲存體 .NET C#" description="了解如何在 WebJobs SDK 使用 Azure 佇列儲存體建立和刪除查詢、插入、查看、取得和刪除佇列訊息等。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="web-sites,storage" documentationCenter=".NET" title="How to work with Azure queue storage using the WebJobs SDK" authors="tdykstra" manager="wpickett" editor="jimbe" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/13/2014" ms.author="tdykstra" />
 

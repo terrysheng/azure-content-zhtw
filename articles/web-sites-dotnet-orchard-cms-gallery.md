@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website from Gallery" pageTitle="從 Azure 的組件庫中建立 Orchard CMS 網站 " metaKeywords="Azure 建置網站, 管理網站 Azure" description="A tutorial that teaches you how to create a new website in Azure. Also learn how to launch and manage your site using the Management Portal." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create an Orchard CMS website from the gallery in Azure" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Website from Gallery" pageTitle="從 Azure 的組件庫中建立 Orchard CMS 網站 " metaKeywords="Azure 建置網站, 管理網站 Azure" description="指導如何在 Azure 上建立新網站的教學課程。另外也了解如何使用管理入口網站啟動和管理您的網站。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create an Orchard CMS website from the gallery in Azure" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus AMQP" pageTitle="如何搭配使用 AMQP 1.0 與 Java 服務匯流排 API - Azure" metaKeywords="ava 訊息 AMQP, 服務匯流排 AMQP, 下載 AMQP JMS 程式庫" description="Learn how to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0" authors="sethm"  solutions="" writer="sethm" manager="timlt" editor="mattshel"  />
+﻿<properties urlDisplayName="Service Bus AMQP" pageTitle="如何搭配使用 AMQP 1.0 與 Java 服務匯流排 API - Azure" metaKeywords="ava 訊息 AMQP, 服務匯流排 AMQP, 下載 AMQP JMS 程式庫" description="了解如何搭配 Azure 服務匯流排和 Advanced Message Queuing Protodol (AMQP) 1.0 使用 Java Message Service (JMS)。" metaCanonical="" services="service-bus" documentationCenter="Java" title="How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0" authors="sethm"  solutions="" writer="sethm" manager="timlt" editor="mattshel"  />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 

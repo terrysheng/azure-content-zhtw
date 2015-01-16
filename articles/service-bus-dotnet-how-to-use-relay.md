@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Relay" pageTitle="如何使用服務匯流排轉送 (.NET) - Azure" metaKeywords="開始使用 azure 服務匯流排轉送 C# " description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties urlDisplayName="Service Bus Relay" pageTitle="如何使用服務匯流排轉送 (.NET) - Azure" metaKeywords="開始使用 azure 服務匯流排轉送 C# " description="了解如何使用 Azure Service Bus relay 服務連接在不同地點主控的兩個應用程式。" metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 

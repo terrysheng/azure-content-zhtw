@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Azure 網站、雲端服務與虛擬機器之比較" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Azure Websites, Cloud Services, and Virtual Machines for hosting web applications." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="Azure Websites, Cloud Services, and Virtual Machines comparison" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties pageTitle="Azure 網站、雲端服務與虛擬機器之比較" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="了解何時使用 Azure 網站、雲端服務和虛擬機器來裝載 Web 應用程式。" metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="Azure Websites, Cloud Services, and Virtual Machines comparison" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
 

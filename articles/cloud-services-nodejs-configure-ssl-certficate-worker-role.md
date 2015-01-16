@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-enablesslworker" urlDisplayName="Enable SSL worker role" pageTitle="Configure SSL for a cloud service (Node.js) worker role" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Worker Role" authors="larryfr" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-enablesslworker" urlDisplayName="Enable SSL worker role" pageTitle="設定雲端服務 (Node.js) 的 SSL" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Worker Role" authors="larryfr" solutions="" manager="" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -6,10 +6,10 @@
 
 安全通訊端層 (SSL) 加密是最常用來保護在網際網路上傳送之資料的方法。這個常見工作會討論如何針對背景工作角色中裝載為 Azure 雲端服務的 Node.js 應用程式指定 HTTPS 端點。
 
-    <div class="dev-callout">
-    <b>注意</b>
-    <p>本文中的步驟僅適用於背景工作角色中裝載成 Azure 雲端服務的節點應用程式。</p>
-	</div>
+<div class="dev-callout">
+<b>注意</b>
+<p>本文中的步驟僅適用於背景工作角色中裝載成 Azure 雲端服務的節點應用程式。</p>
+</div>
 
 此工作包含下列步驟：
 

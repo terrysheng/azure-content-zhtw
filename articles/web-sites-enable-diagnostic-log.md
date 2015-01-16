@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Enable diagnostic logging" pageTitle="啟用診斷記錄-- Azure 網站" metaKeywords="Azure 診斷網站, Azure 管理入口網站診斷, Azure 診斷, 網站診斷, 網站偵錯" description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Enable diagnostic logging" pageTitle="啟用診斷記錄-- Azure 網站" metaKeywords="Azure 診斷網站, Azure 管理入口網站診斷, Azure 診斷, 網站診斷, 網站偵錯" description="了解如何啟用診斷記錄，並在您的應用程式中加入診斷工具，以及如何存取 Azure 所記錄的資訊。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 

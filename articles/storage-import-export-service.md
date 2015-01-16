@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Azure Import/Export Service" pageTitle="使用匯入/匯出將資料移轉至 Blob 儲存體 | Microsoft Azure" metaKeywords="" description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
+﻿<properties urlDisplayName="Azure Import/Export Service" pageTitle="使用匯入/匯出將資料移轉至 Blob 儲存體 | Microsoft Azure" metaKeywords="" description="了解如何在 Azure 管理入口網站中建立匯入和匯出工作，以將資料移轉至 Blob 儲存體。" metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="tamram" />
 

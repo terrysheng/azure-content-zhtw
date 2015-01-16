@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Authentication (HTML5)" pageTitle="開始使用驗證 (HTML 5) | 行動開發人員中心" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your HTML app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Get Started with Authentication (HTML5)" pageTitle="開始使用驗證 (HTML 5) | 行動開發人員中心" metaKeywords="" description="了解如何使用行動服務透過眾多識別提供者驗證 HTML 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="如何使用服務匯流排主題 (Java) - Azure" metaKeywords="開始使用 Azure 服務匯流排主題, 開始使用服務匯流排主題, Azure 發行訂閱訊息, Azure 訊息主題和訂閱, 服務匯流排主題 Java" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Topics/Subscriptions" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties urlDisplayName="Service Bus Topics" pageTitle="如何使用服務匯流排主題 (Java) - Azure" metaKeywords="開始使用 Azure 服務匯流排主題, 開始使用服務匯流排主題, Azure 發行訂閱訊息, Azure 訊息主題和訂閱, 服務匯流排主題 Java" description="了解如何在 Azure 使用服務匯流排主題及訂閱。程式碼範例專為 Java 應用程式撰寫。" metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Topics/Subscriptions" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Endorsed distributions" pageTitle="在 Azure 中 Linux 的背書散發套件" metaKeywords="" description="Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE." metaCanonical="" services="virtual-machines" documentationCenter="" title="Linux on Azure-Endorsed Distributions" authors="szark" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties urlDisplayName="Endorsed distributions" pageTitle="在 Azure 中 Linux 的背書散發套件" metaKeywords="" description="了解在 Azure 背書散發套件上的 Linux，包括 Ubuntu、OpenLogic 和 SUSE 的準則。" metaCanonical="" services="virtual-machines" documentationCenter="" title="Linux on Azure-Endorsed Distributions" authors="szark" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="szark" />
 

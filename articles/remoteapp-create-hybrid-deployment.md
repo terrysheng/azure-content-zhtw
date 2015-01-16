@@ -1,4 +1,4 @@
-﻿<properties title="How to create a hybrid deployment of RemoteApp" pageTitle="如何建立 RemoteApp 的混合式部署" description="Learn how to create a deployment of RemoteApp that connects to your internal network." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+﻿<properties title="How to create a hybrid deployment of RemoteApp" pageTitle="如何建立 RemoteApp 的混合式部署" description="了解如何建立連線到內部網路的 RemoteApp 部署。" metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
 
 <tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/12/2014" ms.author="elizapo" ms.manager="kathyw" />
 

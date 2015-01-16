@@ -1,4 +1,4 @@
-﻿<properties pageTitle="使用 .NET 後端行動服務開始使用推播通知" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+<properties pageTitle="使用 .NET 後端行動服務開始使用推播通知" metaKeywords="" description="了解如何使用 Azure 行動服務及通知中心傳送推播通知至通用 Windows 應用程式。" metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="glenga" />
 
@@ -23,28 +23,28 @@
 * 有效的 [Microsoft 市集帳戶](http://go.microsoft.com/fwlink/p/?LinkId=280045)。
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Professional 2013</a> (Update 3 或更新版本)。<br/>您可以使用免費試用版。 
 
-##<a id="register"></a>針對推播通知註冊應用程式
+## <a id="register"></a>針對推播通知註冊應用程式
 
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 <ol start="6">
-<li><p>瀏覽至 <code>\services\mobileServices\scripts</code> 專案資料夾，將產生的 <<em>your_service_name</em>>.push.register.js 指令碼檔案複製到共用 <code>\js</code> 資料夾，然後同時從個別 Windows 與 WindowsPhone 應用程式專案裡刪除這個檔案。</p></li> 
+<li><p>瀏覽至 <code>\services\mobileServices\scripts</code> 專案資料夾，將產生的 &lt;<em>your_service_name</em>&gt;.push.register.js 指令碼檔案複製到共用 <code>\js</code> 資料夾，然後同時從個別 Windows 與 WindowsPhone 應用程式專案裡刪除這個檔案。</p></li> 
 <li><p>開啟共用 <code>\js</code> 專案資料夾裡的這個指令碼檔案，並在 <em>activated</em> 事件接聽程式裡找出負責將裝置通道 URL 向通知中樞註冊的程式碼，然後刪除 <strong>done</strong> promise 函數。</p>
 <p>本教學課程會在插入新項目時 (而非呼叫自訂 API 時) 傳送通知。</p></li>
-<li><p>在 Windows 應用程式專案中，開啟 default.html 檔案並將指令碼檔案參考的路徑變更為共用 <code>\js</code> 專案資要夾，以便其如下列所示：</p><pre><code><script src="/js/your_service_name.push.register.js"></script></code></pre></li>
+<li><p>在 Windows 應用程式專案中，開啟 default.html 檔案並將指令碼檔案參考的路徑變更為共用 <code>\js</code> 專案資要夾，以便其如下列所示：</p><pre><code>&lt;script src="/js/your_service_name.push.register.js"&gt;&lt;/script&gt;</code></pre></li>
 <li><p>為 WindowsPhone 應用程式專案重複此步驟。</p>
 <p>現在，兩個專案同時都會使用推播註冊指令碼的共用版本。</p></li>
 </ol>
 
 現在應用程式已經啟用了推播通知，您必須更新行動服務以傳送推播通知。 
 
-##<a id="update-service"></a>更新服務以傳送推播通知
+## <a id="update-service"></a>更新服務以傳送推播通知
 
 以下步驟會更新現有的 TodoItemController 類別，以便在插入新的項目時將推播通知傳送給所有註冊的裝置。您可以在任何自訂的 [ApiController]、[TableController] 或是後端服務裡的任何一處，實作類似的程式碼。 
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-update-server-push](../includes/mobile-services-dotnet-backend-update-server-push.md)]
 
-##<a id="local-testing"></a> 啟用推播通知以進行本機測試
+## <a id="local-testing"></a> 啟用推播通知以進行本機測試
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push-vs2013](../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md)]
 
@@ -53,7 +53,7 @@
 >[WACOM.NOTE]切勿使用生產環境的行動服務來進行測試與開發作業。請一律將您的行動服務專案發佈至個別的預備服務以利測試。
 
 <ol start="5">
-<li><p>瀏覽至 <code>\services\mobileServices\settings</code> 專案資料夾，將產生的 <<em>your_service_name</em>>.js 指令碼檔案複製到共用 <code>\js</code> 專案資料夾，然後同時從個別 Windows 與 WindowsPhone 應用程式專案裡刪除這個檔案。請同時在每個應用程式專案裡，刪除 <code>\services\mobileServices\scripts</code> 資料夾裡面的這個檔案 (如果同時存在的話)。</p></li> 
+<li><p>瀏覽至 <code>\services\mobileServices\settings</code> 專案資料夾，將產生的 &lt;<em>your_service_name</em>&gt;.js 指令碼檔案複製到共用 <code>\js</code> 專案資料夾，然後同時從個別 Windows 與 WindowsPhone 應用程式專案裡刪除這個檔案。請同時在每個應用程式專案裡，刪除 <code>\services\mobileServices\scripts</code> 資料夾裡面的這個檔案 (如果同時存在的話)。</p></li> 
 <li><p>開啟共用 <code>\js</code> 專案資料夾裡的這個指令碼檔案，然後將用來定義 <a href="http://msdn.microsoft.com/zh-tw/library/azure/jj554219.aspx">MobileServiceClient 物件</a>以便存取 Azure 中執行之行動服務的現有程式碼予以註解化。</p></li>
 <li><p>使用相同名稱新增一個 <strong>MobileServiceClient</strong> 物件定義 (但在建構函式裡使用本機主機 URL)，類似如下範例：</p>
 <pre><code>// This MobileServiceClient has been configured to communicate with your local
@@ -63,7 +63,7 @@ var todolistClient = new WindowsAzure.MobileServiceClient(
 </code></pre><p>透過這個 <strong>MobileServiceClient</strong> 物件，應用程式將連接到本機服務，而非 Azure 上代管的版本。當您想要改為在 Azure 中代管的行動服務上執行應用程式時，請換為原來的 <strong>MobileServiceClient</strong> 物件定義。</p></li>
 </ol>
 
-##<a id="test"></a> 在應用程式中測試推播通知
+## <a id="test"></a> 在應用程式中測試推播通知
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-windows-universal-test-push](../includes/mobile-services-dotnet-backend-windows-universal-test-push.md)]
 
@@ -102,6 +102,6 @@ var todolistClient = new WindowsAzure.MobileServiceClient(
 
 [將推播通知傳送給驗證的使用者]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users/
 
-[什麼是通知中樞？]: /zh-tw/documentation/articles/notification-hubs-overview/
+[什麼是通知中心？]: /zh-tw/documentation/articles/notification-hubs-overview/
 
 [如何使用 Azure 行動服務的 HTML/JavaScript 用戶端]: /zh-tw/documentation/articles/mobile-services-html-how-to-use-client-library

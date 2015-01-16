@@ -1,4 +1,4 @@
-﻿<properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="如何使用 Blob 儲存體 (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="tomfitz" manager="wpickett" editor="mollybos" />
+﻿<properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="如何使用 Blob 儲存體 (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="了解如何使用 Azure Blob 服務來上傳、列出、下載及刪除 Blob。程式碼範例以 PHP 撰寫。" documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="tomfitz" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
 

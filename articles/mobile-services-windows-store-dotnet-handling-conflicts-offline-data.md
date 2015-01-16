@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Handle Conflicts with Offline Data" pageTitle="處理行動服務 (Windows 市集) 中的離線資料衝突 | 行動開發人員中心 " metaKeywords="" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows Store application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" manager="dwrede" />
+﻿<properties urlDisplayName="Handle Conflicts with Offline Data" pageTitle="處理行動服務 (Windows 市集) 中的離線資料衝突 | 行動開發人員中心 " metaKeywords="" description="了解您在 Windows 市集應用程式中同步離線資料時應如何使用 Azure 行動服務處理衝突" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="wesmc" />
 

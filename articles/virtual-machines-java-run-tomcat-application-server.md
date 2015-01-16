@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Tomcat on Virtual Machine" pageTitle="虛擬機器上的 Tomcat - Azure 教學課程" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties urlDisplayName="Tomcat on Virtual Machine" pageTitle="虛擬機器上的 Tomcat - Azure 教學課程" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="了解如何建立執行 Windows 的虛擬機器，並設定此機器執行 Apache Tomcat 應用程式伺服器。" metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="如何監視儲存體帳戶 | Microsoft Azure" metaKeywords="Azure monitor storage accounts, storage account management portal, storage account dashboard, storage metrics table, storage metrics chart" description="Learn how to monitor a storage account in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Monitor a Storage Account" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
+﻿<properties urlDisplayName="How to monitor" pageTitle="如何監視儲存體帳戶 | Microsoft Azure" metaKeywords="Azure monitor storage accounts, storage account management portal, storage account dashboard, storage metrics table, storage metrics chart" description="了解如何使用管理入口網站來監視 Azure 中的儲存體帳戶。" metaCanonical="" services="storage" documentationCenter="" title="How To Monitor a Storage Account" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
 

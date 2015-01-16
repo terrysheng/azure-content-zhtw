@@ -1,4 +1,4 @@
-﻿<properties pageTitle="在資料中加入分頁 (JavaScript) - Azure 行動服務 " metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Windows Store JavaScript app from Mobile Services." metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/add-paging-to-data-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="在資料中加入分頁 (JavaScript) - Azure 行動服務 " metaKeywords="" description="了解如何使用分頁來管理行動服務傳回您 Windows 市集 JavaScript 應用程式的資料量。" metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/add-paging-to-data-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 

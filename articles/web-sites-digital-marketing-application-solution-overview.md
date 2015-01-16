@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Resources" pageTitle="在 Azure 網站建立數位行銷活動" metaKeywords="" description="This guide provides a technical overview of how to use Azure Websites to create digital marketing campaigns. This includes deployment, social media integration, scaling strategies, and monitoring." metaCanonical="" services="" documentationCenter="" title="Create a Digital Marketing Campaign on Azure Websites" authors="jroth" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Resources" pageTitle="在 Azure 網站建立數位行銷活動" metaKeywords="" description="本指南提供如何使用 Azure 網站來建立數位行銷活動的技術概觀。這包括部署、社交媒體整合、調整策略和監視。" metaCanonical="" services="" documentationCenter="" title="Create a Digital Marketing Campaign on Azure Websites" authors="jroth" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/01/2014" ms.author="jroth" />
 

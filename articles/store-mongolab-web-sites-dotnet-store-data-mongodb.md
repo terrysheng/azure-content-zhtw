@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website with MongoDB on MongoLab" pageTitle="建立在 MongoLab (.NET) 使用 MongoDB 的網站" metaKeywords="" description="Learn how to create an Azure website that stores data in MongoDB hosted by MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com, eric@mongolab.com" solutions="" manager="mongolab" editor="mollybos" />
+﻿<properties urlDisplayName="Website with MongoDB on MongoLab" pageTitle="建立在 MongoLab (.NET) 使用 MongoDB 的網站" metaKeywords="" description="了解如何建立在 MongoLab 主控的 MongoDB 中儲存資料的 Azure 網站。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com, eric@mongolab.com" solutions="" manager="mongolab" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/17/2014" ms.author="chris@mongolab.com" />
 

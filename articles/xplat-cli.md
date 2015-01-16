@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="Azure 跨平台命令列介面" title="Azure 跨平台命令列介面" metaKeywords="Azure 跨平台命令列介面, Azure 命令列, azure 命令列, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/zh-tw/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="need to identify contact" documentationCenter="" solutions="" authors="carolz" services="" />
+﻿<properties urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="Azure 跨平台命令列介面" title="Azure 跨平台命令列介面" metaKeywords="Azure 跨平台命令列介面, Azure 命令列, azure 命令列, azure cli" description="安裝和設定 Azure 跨平台命令列介面管理 Azure 服務" metaCanonical="http://www.windowsazure.com/zh-tw/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="need to identify contact" documentationCenter="" solutions="" authors="carolz" services="" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
 

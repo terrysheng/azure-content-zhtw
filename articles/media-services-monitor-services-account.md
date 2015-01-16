@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="監視媒體服務帳戶 - Azure" metaKeywords="" description="Describes how to configure monitoring for your Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Monitor a Media Services Account" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="How to monitor" pageTitle="監視媒體服務帳戶 - Azure" metaKeywords="" description="說明如何為 Azure 中的媒體服務帳戶設定監視功能。" metaCanonical="" services="media-services" documentationCenter="" title="How to Monitor a Media Services Account" authors="juliako" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
@@ -47,7 +47,7 @@ Azure 媒體服務儀表板會顯示可用來管理媒體服務帳戶的使用�
 
 
 <!-- Images -->
-[儀表板]: ./media/media-services-monitor-services-account/media-services-dashboard.png
+[dashboard]: ./media/media-services-monitor-services-account/media-services-dashboard.png
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
 

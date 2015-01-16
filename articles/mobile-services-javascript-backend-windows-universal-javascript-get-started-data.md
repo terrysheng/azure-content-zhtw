@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="開始使用資料 (Windows 市集 JavaScript) | 行動開發人員中心" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store JavaScript app." metaCanonical="https://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="開始使用資料 (Windows 市集 JavaScript) | 行動開發人員中心" metaKeywords="" description="了解如何開始使用行動服務，在您的 Windows 市集 JavaScript 應用程式中使用資料。" metaCanonical="https://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 
@@ -25,11 +25,11 @@
 * 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-universal-javascript-get-started-data%2F)。
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Express 2013 for Windows</a> (Update 2 或更新版本)。 
 
-##<a name="download-app"></a>下載 GetStartedWithData 專案
+## <a name="download-app"></a>下載 GetStartedWithData 專案
 
 [WACOM.INCLUDE [mobile-services-windows-universal-javascript-download-project](../includes/mobile-services-windows-universal-dotnet-download-project.md)]
 
-##<a name="create-service"></a>從 Visual Studio 建立新的行動服務
+## <a name="create-service"></a>從 Visual Studio 建立新的行動服務
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
@@ -43,23 +43,23 @@
 	<p>本程式碼透過使用全域變數，提供對應用程式中新行動服務的存取權。用戶端是利用提供新行動服務的 URI 和應用程式金鑰來建立。由於此指令碼的參考已新增到 default.html 檔案，因此此變數可供所有也從此頁面受參考的指令碼檔案使用。</p>
 </li>
 <li><p>開啟 default.html 專案檔案，並找到新的 service.js 指令碼檔案參考，然後確定參考路徑如下列所示：</p>
-<pre><code><script src="/services/mobileServices/scripts/todolist.js"></script></code></pre>
+<pre><code>&lt;script src="/services/mobileServices/scripts/todolist.js"&gt;</script></code></pre>
 <p>Visual Studio 目前存在一個會在路徑中產生錯誤資料夾名稱的錯誤。</p></li>
 <li><p>以滑鼠右鍵按一下 Windows Phone 應用程式專案，然後依據按一下 [<strong>新增</strong>]、[<strong>已連接服務</strong>]，並選取您剛建立的行動服務，然後按一下 [<strong>確定</strong>]。 </p>
 <p>相同的新程式碼檔案會新增至 Windows Phone 市集應用程式專案。務必一併修正新增至 default.html 檔案的參考路徑。</p></li>
 </ol>
 
-##<a name="add-table"></a>將新資料表新增至行動服務
+## <a name="add-table"></a>將新資料表新增至行動服務
 
 [WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
 >[WACOM.NOTE]新的資料表是使用 Id、__createdAt、__updatedAt 和 __version 等資料行建立而成。啟用動態結構描述時，行動服務會根據插入或更新要求中的 JSON 物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193175.aspx)。
 
-#<a name="update-app"></a>更新應用程式以使用行動服務
+# <a name="update-app"></a>更新應用程式以使用行動服務
 
 [WACOM.INCLUDE [mobile-services-windows-javascript-update-data-app](../includes/mobile-services-windows-javascript-update-data-app.md)]
 
-##<a name="test-azure-hosted"></a>測試 Azure 代管的行動服務
+## <a name="test-azure-hosted"></a>測試 Azure 代管的行動服務
 
 現在我們可以將兩個通用的 Windows 應用程式同時與 Azure 代管的行動服務一起測試。
 

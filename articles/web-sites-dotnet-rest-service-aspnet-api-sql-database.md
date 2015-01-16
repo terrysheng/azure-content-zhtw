@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="REST service using Web API" pageTitle="使用 Web API 的 .NET REST 服務 - Azure 教學課程" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure website by using Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="REST service using Web API" pageTitle="使用 Web API 的 .NET REST 服務 - Azure 教學課程" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="指導如何使用 Visual Studio 將使用 ASP.NET Web API 的應用程式部署至 Azure 網站的教學課程。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/06/2014" ms.author="riande" />
 

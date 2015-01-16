@@ -1,4 +1,4 @@
-﻿<properties linkid="web-sites-python-ptvs-django-sql" title="Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Azure 上採用 Python Tools 2.1 for Visual Studio 的 Django 和 SQL Database" description="了解如何使用 Python Tools for Visual Studio 建立 Django 應用程式，以在 SQL 資料庫儲存個體中儲存資料並佈署到網站。." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+﻿<properties linkid="web-sites-python-ptvs-django-sql" title="Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Azure 上採用 Python Tools 2.1 for Visual Studio 的 Django 和 SQL Database" description="了解如何使用 Python Tools for Visual Studio 建立 Django 應用程式，以在 SQL 資料庫儲存個體中儲存資料並佈署到網站。" metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
 

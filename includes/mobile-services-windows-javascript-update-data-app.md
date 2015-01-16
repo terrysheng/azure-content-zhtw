@@ -1,3 +1,5 @@
+
+
 1.  在 default.js 指令碼檔案中，於定義 todoItems 清單的程式碼文字行下方新增以下函數定義：
 
         // Add a filter that adds a header to prevent caching. This makes sure that the 
@@ -9,7 +11,7 @@
             next(request, callback);
         };
 
-    如此能定義藉由新增 `If-Modified-Since` 標頭來避免用戶端快取的篩選函數。
+	如此能定義藉由新增 `If-Modified-Since` 標頭來避免用戶端快取的篩選函數。
 
 2.  接著，取消註解或新增以下程式碼文字行，然後將 `<yourClient>` 取代為連接專案與行動服務時新增至 service.js 檔案中的變數：
 
@@ -52,7 +54,7 @@
             todoItems.splice(todoItems.indexOf(todoItem), 1);
         };
 
-    This sends an item update to the mobile service.
+    這會將項目更新傳送至行動服務。
 
 應用程式現已更新為使用行動服務進行後端儲存，我們可以開始在行動服務中測試應用程式。
 

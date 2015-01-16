@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="如何使用資料表儲存體 (Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Learn how to use the Table service from Python to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="如何使用資料表儲存體 (Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="了解如何使用 Python 的資料表服務來建立和刪除資料表，以及插入、刪除和查詢資料表。" metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 
@@ -52,7 +52,7 @@
 識別碼，並且是查詢速度遠優於其他屬性的值
 。系統會使用 **PartitionKey** 
 自動將資料表實體分散在許多儲存體節點上。
-具有相同 **PartitionKey** 的實體會儲存在相同節點上。Auch die Eigenschaften
+具有相同 **PartitionKey** 的實體會儲存在相同節點上。
 **RowKey** 是實體在其所屬資料分割內的唯一識別碼
 。
 

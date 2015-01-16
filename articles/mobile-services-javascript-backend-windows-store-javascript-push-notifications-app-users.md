@@ -1,4 +1,4 @@
-﻿<properties pageTitle="傳送推播通知給已驗證的使用者" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
+﻿<properties pageTitle="傳送推播通知給已驗證的使用者" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="了解如何將推播通知傳送給特定 " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 

@@ -1,4 +1,4 @@
-﻿<properties title="Build a web application with Python and Flask (MVC) using DocumentDB" pageTitle="使用 DocumentDB 建置具有 Python 和 Flask 的 Web 應用程式 |Azure" description="Learn how to use DocumentDB to store and access data from an Python and Flask (MVC) web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Build a web application with Python and Flask (MVC) using DocumentDB" pageTitle="使用 DocumentDB 建置具有 Python 和 Flask 的 Web 應用程式 |Azure" description="了解如何使用 DocumentDB 儲存和存取 Python 以及 Azure 上主控的 Flask (MVC) Web 應用程式所提供的資料。"  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
 
 <tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />

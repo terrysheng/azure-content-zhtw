@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Blitline Image Processing Service" pageTitle="如何使用 Blitline 進行影像處理 - Azure 功能指南 " metaKeywords="" description="Learn how to use the Blitline service to process images within an Azure application." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Azure and Azure Storage" authors="need to identify contact" solutions="" manager="need to identify contact" editor="" />
+﻿<properties urlDisplayName="Blitline Image Processing Service" pageTitle="如何使用 Blitline 進行影像處理 - Azure 功能指南 " metaKeywords="" description="了解如何使用 Blitline 服務處理 Azure 應用程式內的影像。" metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Azure and Azure Storage" authors="need to identify contact" solutions="" manager="need to identify contact" editor="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pennij" />
 

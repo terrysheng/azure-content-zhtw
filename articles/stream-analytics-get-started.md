@@ -1,4 +1,4 @@
-﻿<properties linkid="manage-services-Stream-Analytics-get-started" urlDisplayName="Get Started" pageTitle="開始使用 Azure 資料流分析 | Azure" metaKeywords="" description="Get started using Azure Stream Analytics to process and transform events in Azure Service Bus Event Hub and store the results to Azure SQL Database." metaCanonical="" services="stream analytics" documentationCenter="" title="Get started with Azure Stream Analytics" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+﻿<properties linkid="manage-services-Stream-Analytics-get-started" urlDisplayName="Get Started" pageTitle="開始使用 Azure 資料流分析 | Azure" metaKeywords="" description="開始使用 Azure Stream Analytics 處理和轉換 Azure Service Bus Event Hub 中的事件，並且將結果儲存至 Azure SQL Database。" metaCanonical="" services="stream analytics" documentationCenter="" title="Get started with Azure Stream Analytics" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="stream analytics" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/28/2014" ms.author="jgao" />
 

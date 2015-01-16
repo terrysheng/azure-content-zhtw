@@ -1,4 +1,4 @@
-﻿	<properties urlDisplayName="Add paging to data" pageTitle="在資料中加入分頁 (Android) | 行動開發人員中心" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Android app from Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="ricksal" solutions="" manager="dwrede" editor="" />
+﻿	<properties urlDisplayName="Add paging to data" pageTitle="在資料中加入分頁 (Android) | 行動開發人員中心" metaKeywords="" description="了解如何使用分頁來管理行動服務傳回您 Android 應用程式的資料量。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="ricksal" />
 

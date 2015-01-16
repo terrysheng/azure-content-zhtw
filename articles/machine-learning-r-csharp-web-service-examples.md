@@ -1,4 +1,4 @@
-﻿<properties title="Sample Web Services Built with R on Azure ML and Published to Marketplace" pageTitle="以 R 程式碼在 Azure ML 上建置並發行至 Marketplace 的範例 Web 服務 |Azure" description="Sample Web Services Built with R on Azure ML and Published to Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Sample Web Services Built with R on Azure ML and Published to Marketplace" pageTitle="以 R 程式碼在 Azure ML 上建置並發行至 Marketplace 的範例 Web 服務 |Azure" description="以 R 程式碼在 Azure ML 上建置並發行至 Marketplace 的範例 Web 服務" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe" /> 
 

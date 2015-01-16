@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="如何使用服務匯流排主題 (PHP) - Azure" metaKeywords="" description="Learn how to use Service Bus topics with PHP in Azure." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="" />
+﻿<properties urlDisplayName="Service Bus Topics" pageTitle="如何使用服務匯流排主題 (PHP) - Azure" metaKeywords="" description="了解如何在 Azure 對於 PHP 使用服務匯流排主題。" metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/13/2014" ms.author="sethm" />
 

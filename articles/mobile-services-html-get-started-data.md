@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data (HTML5)" pageTitle="開始使用資料 (HTML 5) | 行動開發人員中心" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your HTML app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Get Started with Data (HTML5)" pageTitle="開始使用資料 (HTML 5) | 行動開發人員中心" metaKeywords="" description="了解如何開始使用行動服務，在您的 HTML 應用程式中使用資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 

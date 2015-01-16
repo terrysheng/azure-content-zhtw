@@ -1,4 +1,4 @@
-﻿<properties title="Diagnose performance issues on a running website" pageTitle="在執行中的網站上診斷效能問題" description="Monitor a website's performance without re-deploying it." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+﻿<properties title="Diagnose performance issues on a running website" pageTitle="在執行中的網站上診斷效能問題" description="監視網站的效能而不重新部署網站。" metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
  

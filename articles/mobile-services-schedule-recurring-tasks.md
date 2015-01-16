@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Schedule Backend Tasks" pageTitle="使用排程器來排程後端工作 - 行動服務" metaKeywords="" description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Schedule Backend Tasks" pageTitle="使用排程器來排程後端工作 - 行動服務" metaKeywords="" description="使用 Azure 行動服務排程工具排程行動應用程式的工作。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 

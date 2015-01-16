@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Add paging to data" pageTitle="在資料中加入分頁 (Xamarin Android) | 行動開發人員中心 " metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Xamarin Android app from Mobile Services."  services="mobile-services" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="donnam" manager="dwrede" />
+﻿<properties urlDisplayName="Add paging to data" pageTitle="在資料中加入分頁 (Xamarin Android) | 行動開發人員中心 " metaKeywords="" description="了解如何使用分頁來管理行動服務傳回您 Xamarin Android 應用程式的資料量。"  services="mobile-services" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="donnam" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="donnam" />
 

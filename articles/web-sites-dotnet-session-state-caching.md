@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="index" pageTitle="將 ASP.NET 工作階段狀態與 Azure 網站搭配使用" metaKeywords="azure cache service session state" description="Learn how to use the Azure Cache Service to support ASP.NET session state caching." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use ASP.NET Session State with Azure Websites" authors="riande"  solutions="" manager="wpickett" editor="mollybos"  />
+﻿<properties urlDisplayName="index" pageTitle="將 ASP.NET 工作階段狀態與 Azure 網站搭配使用" metaKeywords="azure cache service session state" description="了解如何使用 Azure 快取服務來支援 ASP.NET 工作階段狀態快取。" metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use ASP.NET Session State with Azure Websites" authors="riande"  solutions="" manager="wpickett" editor="mollybos"  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/13/2014" ms.author="riande" />
 

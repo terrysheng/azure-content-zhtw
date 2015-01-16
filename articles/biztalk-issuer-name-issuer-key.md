@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Issuer name and issuer key" pageTitle="BizTalk 服務中的簽發者名稱和簽發者金鑰 | Azure" metaKeywords="BizTalk Services, BizTalk, issuer name, issuer key, Azure" description="Learn how to retrieve Issuer Name and Issuer Key for either Service Bus or Access Control (ACS) in BizTalk Services." metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Issuer Name and Issuer Key" authors="mandia" solutions="" manager="dwrede" editor="susanjo" />
+﻿<properties urlDisplayName="Issuer name and issuer key" pageTitle="BizTalk 服務中的簽發者名稱和簽發者金鑰 | Azure" metaKeywords="BizTalk Services, BizTalk, issuer name, issuer key, Azure" description="理解如何在 BizTalk Services 中擷取服務匯流排或 Access Control (ACS) 的簽發者名稱和簽發者金鑰。" metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Issuer Name and Issuer Key" authors="mandia" solutions="" manager="dwrede" editor="susanjo" />
 
 <tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 

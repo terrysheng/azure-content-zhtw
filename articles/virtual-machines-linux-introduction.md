@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Intro to Linux" pageTitle="Azure 上的 Linux 簡介 - Azure 教學課程" metaKeywords="Azure Linux vm, Linux vm" description="Learn about using Linux virtual machines on Azure." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Introduction to Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
+﻿<properties urlDisplayName="Intro to Linux" pageTitle="Azure 上的 Linux 簡介 - Azure 教學課程" metaKeywords="Azure Linux vm, Linux vm" description="了解如何使用 Azure 上的 Linux 虛擬機器" metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Introduction to Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/13/2014" ms.author="szark" />
 

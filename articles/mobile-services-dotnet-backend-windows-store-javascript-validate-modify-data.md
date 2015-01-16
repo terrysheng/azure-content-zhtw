@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="使用 .Net 後端驗證與修改資料 (Windows 市集) | 行動開發人員中心" metaKeywords="" description="Learn how to validate, modify, and augment data for your Javascript Windows Store app with .Net backend Windows Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="使用 .Net 後端驗證與修改資料 (Windows 市集) | 行動開發人員中心" metaKeywords="" description="了解如何使用 .Net 後端 Windows Azure 行動服務驗證、修改和增加 Javascript Windows 市集應用程式的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="wesmc" />
 

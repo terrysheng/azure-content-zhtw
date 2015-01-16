@@ -1,4 +1,4 @@
-﻿<properties pageTitle="如何部署 Azure 網站" metaKeywords="Azure 部署發行網站" description="Learn what methods are available for deploying content to an Azure Website." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy an Azure Website" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties pageTitle="如何部署 Azure 網站" metaKeywords="Azure 部署發行網站" description="了解可用來將內容部署到 Azure 網站的方法。" metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy an Azure Website" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/02/2014" ms.author="tdykstra" />
 

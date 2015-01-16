@@ -1,4 +1,4 @@
-﻿<properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Azure 網站 Web 主控方案深入概觀 - Microsoft Azure 功能指南" description="Learn how Web Hosting Plans for Azure Websites work, and how they benefit your management experience." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" manager="wpickett" />
+﻿<properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Azure 網站 Web 主控方案深入概觀 - Microsoft Azure 功能指南" description="了解 Web Hosting Plans for Azure Websites 的運作方式，以及對於管理所發揮的效益。" metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Byron Tardif and Yochay Kiryaty" />
 </br>

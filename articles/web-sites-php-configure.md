@@ -1,4 +1,4 @@
-﻿<properties title="How to Configure PHP in Azure Websites" pageTitle="如何在 Azure 網站中設定 PHP" metaKeywords="Azure, Azure Web Sites, configuration, PHP" description="Learn how to configure the default PHP installation or add a custom PHP installation in Azure Websites." services="Web Sites" documentationCenter="PHP" authors="tomfitz" manager="wpickett" />
+<properties title="How to Configure PHP in Azure Websites" pageTitle="如何在 Azure 網站中設定 PHP" metaKeywords="Azure, Azure Web Sites, configuration, PHP" description="了解如何設定預設 PHP 安裝或在 Azure 網站中新增自訂 PHP 安裝。" services="Web Sites" documentationCenter="PHP" authors="tomfitz" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/18/2014" ms.author="tomfitz" />
 
@@ -101,7 +101,7 @@ PHP 5.5 也可供使用，不過並未預設啟用。若要將它啟用，請依
 [php.ini 指示詞的清單]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
 [ini_set()]: http://www.php.net/manual/en/function.ini-set.php
-[設定]: ./media/web-sites-php-configure/configure.png
+[configure]: ./media/web-sites-php-configure/configure.png
 [app-settings]: ./media/web-sites-php-configure/app-settings.png
 [save-button]: ./media/web-sites-php-configure/save-button.png
 [http://windows.php.net/download/]: http://windows.php.net/download/

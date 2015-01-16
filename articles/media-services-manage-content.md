@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to manage media content" pageTitle="如何管理媒體內容 - Azure 媒體服務" metaKeywords="" description="Learn how to manage your media content in Azure Media Services." metaCanonical="" services="media-services" documentationCenter="" title="How to Manage Content in Media Services" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="How to manage media content" pageTitle="如何管理媒體內容 - Azure 媒體服務" metaKeywords="" description="了解如何在 Azure 媒體服務中管理您的媒體內容。" metaCanonical="" services="media-services" documentationCenter="" title="How to Manage Content in Media Services" authors="juliako" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
@@ -53,30 +53,26 @@ Azure 媒體服務內容檢視可讓您管理自己媒體服務帳戶的媒體�
 	+ **在 iOS 裝置和 PC/Mac 上播放**。此預設格式會產生特性與 Smooth Streaming 資產 (如上所述) 相同、但是其格式可以用來將 Apple HLS 資料流傳遞至 iOS 裝置的資產。 
 	+ **使用 PlayReady 內容保護進行編碼**。此預設格式會產生以 PlayReady 內容保護編碼的資產。若要讓此預設格式運作，您必須啟用 PlayReady 授權傳遞服務。若要這麼做，請移至 [**內容保護**] 索引標籤，然後在 [Branding Reporting] 資料表中新增一個資料列。媒體服務 PlayReady 授權服務會在您按 [儲存] 後的幾分鐘內啟用。   
 	
+   依預設會使用媒體服務 PlayReady 授權服務。若要指定其他可讓用戶端從中取得授權以播放 PlayReady 加密內容的服務，請使用 REST 或媒體服務 .NET SDK API。如需詳細資訊，請參閱[使用靜態加密保護您的內容]，並在媒體編碼程式預設中設定 **licenseAcquisitionUrl** 屬性。或者，您可以使用動態加密，並依照**使用 PlayReady 動態加密和授權傳遞服務**來設定 [PlayReadyLicenseAcquisitionUrl] 屬性(http://go.microsoft.com/fwlink/?LinkId=507720 )。 
+
+   請注意，只有在您註冊 PlayReady 內容保護預覽功能後，才會顯示此選項。若要註冊預覽功能，您必須完成下列頁面上說明的程序：[Microsoft Azure 預覽功能](http://azure.microsoft.com/zh-tw/services/preview/)。  
 	
-		依預設會使用媒體服務 PlayReady 授權服務。若要指定其他可讓用戶端從中取得授權以播放 PlayReady 加密內容的服務，請使用 REST 或媒體服務 .NET SDK API。如需詳細資訊，請參閱[使用靜態加密保護您的內容]，並在媒體編碼程式預設中設定 **licenseAcquisitionUrl** 屬性。或者，您可以使用動態加密，並依照**使用 PlayReady 動態加密和授權傳遞服務**來設定 [PlayReadyLicenseAcquisitionUrl] 屬性(http://go.microsoft.com/fwlink/?LinkId=507720 )。 
-		
-		請注意，只有在您註冊 PlayReady 內容保護預覽功能後，才會顯示此選項。若要註冊預覽功能，您必須完成下列頁面上說明的程序：[Microsoft Azure 預覽功能](http://azure.microsoft.com/zh-tw/services/preview/)。  
-	
-		
-	**進階預設格式**
+   **進階預設格式**
 	
 	+ [Azure Media Encoder 的工作預設字串](http://go.microsoft.com/fwlink/?LinkId=270865) 主題說明「進階預設格式」清單中每個預設值的意思。 
 
+   ![EncoderDialog][encoder]
 
-	![EncoderDialog][encoder]
-
-	入口網站目前不支援 Media Encoder 所支援的所有編碼格式。也不支援媒體資產加密\解密。您可以透過程式設計方式執行這些工作，如需詳細資訊，請參閱[使用 Media Services SDK for .NET 建立應用程式](http://go.microsoft.com/fwlink/?LinkId=270866) 和 [Azure Media Encoder 的工作預設字串](http://go.microsoft.com/fwlink/?LinkId=270865)。
+   入口網站目前不支援 Media Encoder 所支援的所有編碼格式。也不支援媒體資產加密\解密。您可以透過程式設計方式執行這些工作，如需詳細資訊，請參閱[使用 Media Services SDK for .NET 建立應用程式](http://go.microsoft.com/fwlink/?LinkId=270866) 和 [Azure Media Encoder 的工作預設字串](http://go.microsoft.com/fwlink/?LinkId=270865)。
 
 
 5. 在 Azure Media Encoder 對話方塊中，輸入想要的好記輸出內容名稱，或是接受預設值。然後，按一下核取按鈕以啟動編碼作業，而您可以在入口網站底部追蹤進度。
 
-	編碼完成之後，您的檢視應該會與下面的螢幕擷取畫面類似。 
+   編碼完成之後，您的檢視應該會與下面的螢幕擷取畫面類似。 
 
-	![PortalViewUploadCompleted][portaloverview]
+   ![PortalViewUploadCompleted][portaloverview]
 
-
-	如果編碼完成之後檔案大小值未更新，請按 [**Sync Metadata**] 按鈕。這樣會以儲存體中的實際檔案大小同步處理輸出資產檔案大小，並重新整理 [內容] 頁面上的值。	
+   如果編碼完成之後檔案大小值未更新，請按 [**Sync Metadata**] 按鈕。這樣會以儲存體中的實際檔案大小同步處理輸出資產檔案大小，並重新整理 [內容] 頁面上的值。	
 
 ## 作法：發佈內容
 
@@ -98,8 +94,8 @@ Azure 媒體服務內容檢視可讓您管理自己媒體服務帳戶的媒體�
 [portaloverview]: ./media/media-services-manage-content/media-services-content-page.png
 [publishedcontent]: ./media/media-services-manage-content/media-services-upload-content-published.png
 [uploadcontent]: ./media/media-services-manage-content/UploadContent.png
-[狀態]: ./media/media-services-manage-content/Status.png
-[編碼器]: ./media/media-services-manage-content/EncoderDialog2.png
+[status]: ./media/media-services-manage-content/Status.png
+[encoder]: ./media/media-services-manage-content/EncoderDialog2.png
 [商標]: ./media/branding-reporting.png
 
 <!--HONumber=35.1-->

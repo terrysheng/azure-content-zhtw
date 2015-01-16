@@ -1,4 +1,4 @@
-﻿<properties title="Enable your pipelines to work with on-premises data" pageTitle="啟用管線以使用內部部署資料 | Azure Data Factory" description="Learn how to register an on-premises data source with an Azure data factory and copy data to/from the data source." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Enable your pipelines to work with on-premises data" pageTitle="啟用管線以使用內部部署資料 | Azure Data Factory" description="了解如何使用 Azure Data Factory 註冊內部部署資料來源，並將資料複製到資料來源/複製資料來源中的資料。" metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 

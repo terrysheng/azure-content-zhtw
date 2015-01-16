@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Blob Service" pageTitle="如何使用 Blob 儲存體 (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="robmcm" solutions="" manager="adinah" editor="" />
+﻿<properties urlDisplayName="Blob Service" pageTitle="如何使用 Blob 儲存體 (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="了解如何使用 Azure Blob 服務來上傳、下載、列出及刪除 Blob 內容。範例以 Java 撰寫。" metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="robmcm" solutions="" manager="adinah" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

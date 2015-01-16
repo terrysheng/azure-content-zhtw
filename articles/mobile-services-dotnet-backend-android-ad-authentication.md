@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-mobile-tutorials-sso-android" urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="使用 Active Directory (Android) 登入及存取資源 | 行動開發人員中心" metaKeywords="" description="Learn how to add authentication to an app using Active Directory" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory" authors="wesmc,mahender" />
+﻿<properties linkid="develop-mobile-tutorials-sso-android" urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="使用 Active Directory (Android) 登入及存取資源 | 行動開發人員中心" metaKeywords="" description="了解如何使用 Active Directory 將驗證新增至應用程式" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory" authors="wesmc,mahender" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.topic="article" ms.date="11/21/2014" ms.author="mahender" />
 

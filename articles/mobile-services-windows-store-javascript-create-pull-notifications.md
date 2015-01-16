@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="定義支援推播通知的自訂 API - Azure 行動服務" metaKeywords="" description="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="定義支援推播通知的自訂 API - Azure 行動服務" metaKeywords="" description="了解如何定義自訂 API 在使用 Azure 行動服務的 Windows 市集應用程式中支援定期通知。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 # 定義支援定期通知的自訂 API

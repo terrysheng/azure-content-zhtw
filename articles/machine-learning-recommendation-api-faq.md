@@ -1,4 +1,4 @@
-﻿<properties title="FAQ for setting up and using the Machine Learning Recommendations API" pageTitle="設定和使用 Machine Learning Recommendations API 的常見問題集 |Azure" description="Microsoft RECOMMENDATIONS API built with Azure Machine Learning FAQ" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="FAQ for setting up and using the Machine Learning Recommendations API" pageTitle="設定和使用 Machine Learning Recommendations API 的常見問題集 |Azure" description="使用 Azure 機器學習 FAQ 建立的 Microsoft 建議 API" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe" /> 
 

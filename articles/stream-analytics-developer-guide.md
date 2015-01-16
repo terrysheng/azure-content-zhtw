@@ -1,4 +1,4 @@
-﻿<properties title="Azure Stream Analytics developer guide" pageTitle="資料流分析開發人員指南 |Azure" description="Learn how to develop Azure Stream Analytics applications" metaKeywords="" services="stream analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties title="Azure Stream Analytics developer guide" pageTitle="資料流分析開發人員指南 |Azure" description="了解如何開發 Azure Stream Analytics 應用程式" metaKeywords="" services="stream analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
 
 <tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
 

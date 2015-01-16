@@ -1,4 +1,4 @@
-﻿<properties title="Create a simple experiment in Azure Machine Learning Studio" pageTitle="在 Machine Learning Studio 中建立簡易實驗 | Azure" description="How to create an experiment to train and test a simple model in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties title="Create a simple experiment in Azure Machine Learning Studio" pageTitle="在 Machine Learning Studio 中建立簡易實驗 | Azure" description="如何建立實驗，在 Azure Machine Learning Studio 中訓練和測試簡單模型" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
 

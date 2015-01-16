@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to manage" pageTitle="如何管理儲存體帳戶 | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Learn how to manage storage accounts in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
+﻿<properties urlDisplayName="How to manage" pageTitle="如何管理儲存體帳戶 | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="了解如何使用管理入口網站來管理 Azure 中的儲存體帳戶。" metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="tamram" />
 

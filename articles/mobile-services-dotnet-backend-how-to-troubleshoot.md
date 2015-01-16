@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Troubleshoot the Mobile Services .NET Backend" pageTitle="行動服務 .NET 後端的疑難排解 - Azure 行動服務" metaKeywords="" description="Learn how to diagnose and fix issues with your mobile services using the .NET backend" metaCanonical="" services="" documentationCenter="Mobile" title="Troubleshoot the Mobile Services .NET Backend" authors="mahender" solutions="" manager="dwrede" editor="mollybos" />
+﻿<properties urlDisplayName="Troubleshoot the Mobile Services .NET Backend" pageTitle="行動服務 .NET 後端的疑難排解 - Azure 行動服務" metaKeywords="" description="了解如何使用 .NET 後端診斷和修正行動服務的問題" metaCanonical="" services="" documentationCenter="Mobile" title="Troubleshoot the Mobile Services .NET Backend" authors="mahender" solutions="" manager="dwrede" editor="mollybos" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="mahender" />
 # 行動服務 .NET 後端的疑難排解

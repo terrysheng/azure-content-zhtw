@@ -1,6 +1,6 @@
-﻿<properties pageTitle="使用通知中心傳送即時新聞 (Windows Universal)" metaKeywords="" description="Use  Azure Notification Hubs with tags in the registration to send breaking news to a universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="使用通知中心傳送即時新聞 (Windows Universal)" metaKeywords="" description="使用 Azure 通知中心搭配註冊中的標籤，將重大新聞傳送至通用 Windows 應用程式。" metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<properties pageTitle="使用通知中心傳送即時新聞 (Windows Phone)" metaKeywords="" description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="使用通知中心傳送即時新聞 (Windows Phone)" metaKeywords="" description="使用 Azure 通知中心在註冊中使用標籤，將重大新聞傳送至通用 Windows Phone 應用程式。" metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal" />
 

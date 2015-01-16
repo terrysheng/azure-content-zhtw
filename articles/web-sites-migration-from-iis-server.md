@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Migrate from IIS to Azure Websites with Migration Assistant" pageTitle="使用移轉小幫手將 IIS 網站移轉至 Azure 網站" metaKeywords="Azure 網站,移轉,移轉,IIS" description="Shows how to use Azure Websites Migration Assistant to quickly migrate existing IIS websites to Azure Websites" metaCanonical="" services="web-sites" documentationCenter="" title="Migrate your IIS Websites to Azure Websites using the Migration Assistant" authors="cephalin,anwestg"  solutions="" writer="cephalin" manager="wpickett" editor=""  />
+﻿<properties urlDisplayName="Migrate from IIS to Azure Websites with Migration Assistant" pageTitle="使用移轉小幫手將 IIS 網站移轉至 Azure 網站" metaKeywords="Azure 網站,移轉,移轉,IIS" description="顯示如何使用 Azure Websites Migration Assistant 將現有 IIS 網站快速移轉到 Azure 網站" metaCanonical="" services="web-sites" documentationCenter="" title="Migrate your IIS Websites to Azure Websites using the Migration Assistant" authors="cephalin,anwestg"  solutions="" writer="cephalin" manager="wpickett" editor=""  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="cephalin" />
 

@@ -1,4 +1,4 @@
-<properties urlDisplayName="Blob Service" pageTitle="如何使用 .NET 的 Blob 儲存體 | Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="Learn how to use Microsoft Azure Blob storage to upload,  download, list, and delete blob content. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Blob storage in .NET" authors="tamram" manager="adinah" />
+<properties urlDisplayName="Blob Service" pageTitle="如何使用 .NET 的 Blob 儲存體 | Azure" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#" description="了解如何使用 Microsoft Azure Blob 儲存體來上傳、下載、列出及刪除 Blob 內容。範例是以 C# 撰寫的。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Blob storage in .NET" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 
@@ -73,7 +73,7 @@ Microsoft.WindowsAzure.CloudConfigurationManager 參照，
 		ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
 
 **CloudBlobClient** 類型可讓您擷取代表
-Blob 儲存體服務內所儲存之容器和 Blob 的物件。Auch die Eigenschaften
+Blob 儲存體服務內所儲存之容器和 Blob 的物件。
 下列程式碼將建立 **CloudBlobClient** 物件，方法是使用
 以上擷取的儲存體帳戶物件：
 

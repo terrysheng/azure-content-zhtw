@@ -1,4 +1,4 @@
-﻿<properties title="SharePoint Server Farm Configuration Details" pageTitle="SharePoint Server 伺服器陣列組態詳細資料" description="Describes the default configuration of SharePoint farms" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+﻿<properties title="SharePoint Server Farm Configuration Details" pageTitle="SharePoint Server 伺服器陣列組態詳細資料" description="說明 SharePoint 伺服器陣列的預設組態" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
 

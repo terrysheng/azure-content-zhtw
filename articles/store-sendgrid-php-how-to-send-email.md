@@ -1,4 +1,4 @@
-﻿<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="如何使用 SendGrid 電子郵件服務 (PHP) - Azure" metaKeywords="Azure SendGrid, Azure 電子郵件服務, Azure SendGrid PHP, Azure 電子郵件 PHP" description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
+﻿<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="如何使用 SendGrid 電子郵件服務 (PHP) - Azure" metaKeywords="Azure SendGrid, Azure 電子郵件服務, Azure SendGrid PHP, Azure 電子郵件 PHP" description="了解如何在 Azure 使用 SendGrid 電子郵件服務傳送電子郵件。程式碼範例以 PHP 撰寫。" documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Browse and Edit Your Source Code" pageTitle="瀏覽和編輯您的原始程式碼 | Azure" metaKeywords="Visual Studio Online, VSO, git, tfvc, 編輯, 程式碼, 認可" description="Learn how to edit your source code." metaCanonical="" services="visual-studio-online" documentationCenter="" title="Browse and Edit Your Source Code" authors="ehollow" solutions="" manager="kamrani" editor="" />
+﻿<properties urlDisplayName="Browse and Edit Your Source Code" pageTitle="瀏覽和編輯您的原始程式碼 | Azure" metaKeywords="Visual Studio Online, VSO, git, tfvc, 編輯, 程式碼, 認可" description="了解如何編輯原始碼。" metaCanonical="" services="visual-studio-online" documentationCenter="" title="Browse and Edit Your Source Code" authors="ehollow" solutions="" manager="kamrani" editor="" />
 
 <tags ms.service="visual-studio-online" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ehollow" />
 

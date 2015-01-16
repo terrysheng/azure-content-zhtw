@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Push Notifications" pageTitle="開始使用推播通知 (Xamarin.iOS) - 行動服務" metaKeywords="" description="Learn how to use push notifications in Xamarin.iOS apps with Azure Mobile Services." metaCanonical="" disqusComments="0" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="yuaxu" manager="dwrede" services="mobile-services"/>
+<properties urlDisplayName="Get Started with Push Notifications" pageTitle="開始使用推播通知 (Xamarin.iOS) - 行動服務" metaKeywords="" description="了解如何在 Xamarin.iOS 應用程式中以 Azure 行動服務使用推播通知。" metaCanonical="" disqusComments="0" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="yuaxu" manager="dwrede" services="mobile-services"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="yuaxu" />
 
@@ -261,7 +261,18 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
 8. 在 **TodoListViewController** 中，修改 **OnAdd** 動作以取得儲存於 **AppDelegeate** 中的裝置權杖，然後將權杖儲存在即將新增的 **TodoItem** 中。
 
-€ 管理入口網站
+string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;
+
+        var newItem = new TodoItem() 
+        {
+            Text = itemText.Text, 
+            Complete = false,
+            DeviceToken = deviceToken
+        };
+
+您的應用程式現在已更新為支援推播通知。
+
+## <a name="update-scripts"></a>在管理入口網站中更新已註冊的插入指令碼
 
 1. 在管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItem**] 資料表。 
 

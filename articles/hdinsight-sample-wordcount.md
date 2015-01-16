@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="在 HDInsight 中執行 Hadoop MapReduce 字數統計範例 | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Run a MapReduce word count example on an Hadoop cluster in HDInsight. The program, written in Java, counts word occurrences in a text file." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The WordCount Hadoop sample in HDInsight" authors="bradsev" />
+<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="在 HDInsight 中執行 Hadoop MapReduce 字數統計範例 | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="在 HDInsight 的 Hadoop 叢集上執行 MapReduce 字數統計範例。以 Java 撰寫的程式將計算文字在文字檔中出現的次數。" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The WordCount Hadoop sample in HDInsight" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
 
@@ -83,14 +83,14 @@
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
-	Auch die Eigenschaften *Select-AzureSubscription* 設定目前的訂用帳戶。 
+	 *Select-AzureSubscription* 設定目前的訂用帳戶。 
 
 4. 執行下列命令將 Blob 容器的 MapReduce 工作輸出下載至工作站：
 
 		# Download the job output to the workstation
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	Auch die Eigenschaften */example/data/WordCountOutput* 資料夾是您執行 MapReduce 工作時指定的輸出資料夾。*part-r-00000* 是 MapReduce 工作輸出的預設檔案名稱。檔案會以相同資料夾結構下載至本機資料夾。例如，在下列螢幕擷取畫面中，目前的資料夾是 C 根資料夾。檔案會下載至 *C:\example\data\WordCountOutput* 資料夾。 
+	 */example/data/WordCountOutput* 資料夾是您執行 MapReduce 工作時指定的輸出資料夾。*part-r-00000* 是 MapReduce 工作輸出的預設檔案名稱。檔案會以相同資料夾結構下載至本機資料夾。例如，在下列螢幕擷取畫面中，目前的資料夾是 C 根資料夾。檔案會下載至 *C:\example\data\WordCountOutput* 資料夾。 
 
 5. 執行下列命令來列印 MapReduce 工作輸出檔案：
 
@@ -190,7 +190,10 @@ WordCount 指令碼的輸出應會在 cmd 視窗中顯示如下：
 * [Azure HDInsight 使用者入門][hdinsight-get-started]
 * [範例：10GB GraySort][hdinsight-sample-10gb-graysort]
 * [範例：Pi 估算器][hdinsight-sample-pi-estimator]
-* [範例：C# 串流][hdinsight-sample-cs-streaming]
+* [範例：C# 串流][hdinsight-sample-cs-strea
+* 
+* 
+* ming]
 * [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
 * [搭配 HDInsight 使用 Hive][hdinsight-use-hive]
 * [Azure HDInsight SDK 文件][hdinsight-sdk-documentation]

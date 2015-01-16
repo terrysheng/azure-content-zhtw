@@ -1,4 +1,4 @@
-﻿<properties title="Role Based Access Control in Azure Preview Portal" pageTitle="Azure Preview 入口網站中的角色存取控制" description="Describes how role based access control works and how to set it up" metaKeywords="" services="multiple" solutions="" documentationCenter="" authors="justinha" videoId="" scriptId="" manager="terrylan" />
+﻿<properties title="Role Based Access Control in Azure Preview Portal" pageTitle="Azure Preview 入口網站中的角色存取控制" description="說明角色型存取控制的運作和設定方式" metaKeywords="" services="multiple" solutions="" documentationCenter="" authors="justinha" videoId="" scriptId="" manager="terrylan" />
 
 <tags ms.service="multiple" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="Ibiza" ms.workload="infrastructure-services" ms.date="09/12/2014" ms.author="justinha;Justinha@microsoft.com" />
 

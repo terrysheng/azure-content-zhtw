@@ -1,4 +1,4 @@
-﻿<properties pageTitle="開始使用事件中心" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Follow this tutorial to get started using Azure Event Hubs with C# using EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="開始使用事件中心" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="遵循此教學課程，可開始藉由 C# 利用 EventProcessorHost 來使用 Azure Event Hubs。" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 

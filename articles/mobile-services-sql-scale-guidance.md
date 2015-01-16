@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Scale mobile services backed by Azure SQL Database" pageTitle="調整由 Azure SQL Database 支援的行動服務 - Azure 行動服務" metaKeywords="" description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database" metaCanonical="" services="" documentationCenter="Mobile" title="Scale mobile services backed by Azure SQL Database" authors="donnam" solutions="" manager="dwrede" editor="mollybos" />
+﻿<properties urlDisplayName="Scale mobile services backed by Azure SQL Database" pageTitle="調整由 Azure SQL Database 支援的行動服務 - Azure 行動服務" metaKeywords="" description="了解如何診斷和修正 SQL Database 支援的行動服務中出現的延展性問題" metaCanonical="" services="" documentationCenter="Mobile" title="Scale mobile services backed by Azure SQL Database" authors="donnam" solutions="" manager="dwrede" editor="mollybos" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
 # 調整由 Azure SQL Database 支援的行動服務

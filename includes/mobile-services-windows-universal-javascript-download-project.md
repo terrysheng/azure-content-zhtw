@@ -1,3 +1,4 @@
+
 本教學課程是採用 [GetStartedWithMobileServices 應用程式][GetStartedWithMobileServices 應用程式]所建立，此應用程式是 Visual Studio 2013 中的通用 Windows 應用程式專案。除了會將新增項目儲存在本機記憶體中之外，此應用程式的 UI 與行動服務快速入門所產生的應用程式完全相同。
 
 1.  從 [開發人員程式碼範例網站] 中下載 JavaScript 版本的 GetStartedWithMobileServices 範例應用程式。

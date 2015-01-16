@@ -4,7 +4,7 @@
 
 2.  在 Visual Studio 2013 中，開啟下載的專案並檢查 GetStartedWithData.Shared 專案資料夾內的 MainPage.xaml.cs 檔案。
 
-    請注意，新增的 **TodoItem** 物件儲存在記憶體內部 **ObservableCollection\<TodoItem\>** 中。
+   	請注意，新增的 **TodoItem** 物件儲存在記憶體內部 **ObservableCollection&lt;TodoItem&gt;** 中。
 
 3.  按 **F5** 鍵，以重建專案並啟動應用程式。
 

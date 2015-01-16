@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Set up endpoints" pageTitle="在 Azure 中的虛擬機器上設定端點" metaKeywords="Azure config setup, configuring vm connection" description="Learn how to setup communication with a virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="timlt" solutions="" manager="timlt" editor="" />
+﻿<properties urlDisplayName="Set up endpoints" pageTitle="在 Azure 中的虛擬機器上設定端點" metaKeywords="Azure config setup, configuring vm connection" description="了解如何與 Azure 中的虛擬機器設定通訊。" metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="timlt" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2014" ms.author="kathydav" />
 

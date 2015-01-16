@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Migrating Drupal to Azure Websites" pageTitle="將 Drupal 移轉至 Azure 網站" metaKeywords="Drupal, PHP, 網站" description="Migrate a Drupal PHP site to Azure Websites." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Migrating Drupal to Azure Websites" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Migrating Drupal to Azure Websites" pageTitle="將 Drupal 移轉至 Azure 網站" metaKeywords="Drupal, PHP, 網站" description="將 Drupal PHP 網站移轉到 Azure 網站。" metaCanonical="" services="web-sites" documentationCenter="PHP" title="Migrating Drupal to Azure Websites" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/11/2014" ms.author="tomfitz" />
 

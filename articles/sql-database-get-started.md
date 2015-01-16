@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create and provision" pageTitle="開始使用 SQL Database - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+﻿<properties urlDisplayName="How to create and provision" pageTitle="開始使用 SQL Database - Azure" metaKeywords="" description="開始在 Azure 中建立及管理 SQL Database。" metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jeffreyg" />
 
@@ -654,7 +654,7 @@ SQL Server 驗證登入資訊可用於伺服器連線。存取 SQL Database 伺�
 
 * [將資料庫移轉至 SQL Database](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee730904.aspx)
 * [在 SQL Database 中複製資料庫](http://msdn.microsoft.com/zh-tw/library/windowsazure/ff951624.aspx)
-* [將 SQL Server 資料庫部署至 Azure 虛擬機器](http://msdn.microsoft.com/zh-tw/library/dn195938(v=sql.120).aspx)
+* [將 SQL Server 資料庫部署至 Azure 虛擬機器](http://msdn.microsoft.com/zh-tw/library/dn195938.aspx)
 
 
 

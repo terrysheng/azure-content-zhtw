@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Install LAMP stack" pageTitle="在 Linux 虛擬機器上安裝 LAMP 堆疊" metaKeywords="" description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="szark" solutions="" manager="timlt" editor="" />
+﻿<properties urlDisplayName="Install LAMP stack" pageTitle="在 Linux 虛擬機器上安裝 LAMP 堆疊" metaKeywords="" description="了解如何在 Azure 中的 Linux 虛擬機器 (VM) 上安裝 LAMP 堆疊。您可以在 Ubuntu 或 CentOS 上進行安裝。" metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="szark" />
 

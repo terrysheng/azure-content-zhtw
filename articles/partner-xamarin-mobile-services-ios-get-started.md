@@ -1,4 +1,4 @@
-﻿<properties pageTitle="開始為 Xamarin iOS 應用程式使用行動服務" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="craigd" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="開始為 Xamarin iOS 應用程式使用行動服務" metaKeywords="" description="遵循此教學課程，可開始使用 Azure 行動服務進行 Xamarin iOS 開發。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="craigd" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/22/2014" ms.author="craig.dunn@xamarin.com" />
 

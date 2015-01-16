@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Use time-based Hadoop Oozie Coordinator in HDInsight" pageTitle="在 HDInsight 上使用以時間為基礎的 Hadoop Oozie 協調器 | Azure" metaKeywords="" description="Use time-based Hadoop Oozie Coordinator in HDInsight, a big data solution. Learn how to define Oozie workflows and coordinators, and submit coordinator jobs." metaCanonical="" services="hdinsight" documentationCenter="" title="Use time-based Hadoop Oozie Coordinator in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+﻿<properties urlDisplayName="Use time-based Hadoop Oozie Coordinator in HDInsight" pageTitle="在 HDInsight 上使用以時間為基礎的 Hadoop Oozie 協調器 | Azure" metaKeywords="" description="在 HDInsight 上使用以時間為基礎的 Hadoop Oozie 協調器：一個巨量資料解決方案。了解如何定義 Oozie 工作流程和協調器，以及提交協調器工作。" metaCanonical="" services="hdinsight" documentationCenter="" title="Use time-based Hadoop Oozie Coordinator in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
 

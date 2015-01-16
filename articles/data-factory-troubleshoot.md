@@ -1,4 +1,4 @@
-﻿<properties title="Troubleshoot Azure Data Factory issues" pageTitle="Azure 資料處理站的疑難排解" description="Learn how to troubleshoot issues with using Azure Data Factory." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Troubleshoot Azure Data Factory issues" pageTitle="Azure 資料處理站的疑難排解" description="了解如何使用 Azure Data Factory 進行問題的疑難排解。" metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 

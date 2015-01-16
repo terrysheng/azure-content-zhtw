@@ -1,4 +1,4 @@
-﻿<properties title="Monitor your app's health and usage with Application Insights" pageTitle="使用 Application Insights 來監視應用程式的健康情況和流量" description="Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+﻿<properties title="Monitor your app's health and usage with Application Insights" pageTitle="使用 Application Insights 來監視應用程式的健康情況和流量" description="開始使用 Application Insights。分析內部部署或 Microsoft Azure 應用程式的使用情況、可用性和效能。" metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
  

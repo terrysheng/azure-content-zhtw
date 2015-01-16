@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Authentication" pageTitle="開始使用驗證 (JavaScript) | 行動開發人員中心 " metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your Windows Store JavaScript app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Get Started with Authentication" pageTitle="開始使用驗證 (JavaScript) | 行動開發人員中心 " metaKeywords="" description="了解如何使用行動服務透過眾多識別提供者驗證 Windows 市集 JavaScript 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga" />
 

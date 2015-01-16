@@ -1,4 +1,4 @@
-﻿<properties title="SharePoint Server Farm" pageTitle="SharePoint Server 伺服器陣列" description="Describes the new SharePoint Server Farm feature available in the Azure Preview Portal" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+﻿<properties title="SharePoint Server Farm" pageTitle="SharePoint Server 伺服器陣列" description="說明預覽入口網站中所提供的新 SharePoint Server 伺服器陣列功能" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
 

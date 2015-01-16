@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Understand NoSQL technologies" pageTitle="了解 Azure 上的 NoSQL 技術 | Azure" metaKeywords="" description="Learn how NoSQL technologies on HDInsight can help you manage data not suited to relational databases, such as big data sets and JSON documents or graphs." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="dchappell" />
+﻿<properties urlDisplayName="Understand NoSQL technologies" pageTitle="了解 Azure 上的 NoSQL 技術 | Azure" metaKeywords="" description="了解 HDInsight 上的 NoSQL 技術如何協助您管理不適用於關聯式資料庫的資料，例如巨量資料集和 JSON 文件或圖形。" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="dchappell" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/01/2014" ms.author="dchappell" />
 

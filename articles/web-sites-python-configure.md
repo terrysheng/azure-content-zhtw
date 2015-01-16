@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Configuring Python with Azure Websites" pageTitle="在 Azure 網站上設定 Python" metaKeywords="" description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Azure Websites." metaCanonical="" services="web-sites" documentationCenter="Python" title="Configuring Python with Azure Websites" authors="huvalo" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Configuring Python with Azure Websites" pageTitle="在 Azure 網站上設定 Python" metaKeywords="" description="本教學課程描述在 Azure 網站上編寫與設定基本的 Web 伺服器閘道介面 (WSGI) 相容之 Python 應用程式的選項。" metaCanonical="" services="web-sites" documentationCenter="Python" title="Configuring Python with Azure Websites" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="08/01/2014" ms.author="huvalo" />
 

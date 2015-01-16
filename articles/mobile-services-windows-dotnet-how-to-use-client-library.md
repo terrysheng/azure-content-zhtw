@@ -1,5 +1,5 @@
 ﻿
-<properties urlDisplayName=".NET Client Library" pageTitle="使用行動服務 .NET 用戶端程式庫" metaKeywords="Azure 行動服務、行動服務 .NET 用戶端、.NET 用戶端" description="Learn how to use an .NET client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName=".NET Client Library" pageTitle="使用行動服務 .NET 用戶端程式庫" metaKeywords="Azure 行動服務、行動服務 .NET 用戶端、.NET 用戶端" description="了解如何使用適用於 Azure 行動服務的 .NET 用戶端。" metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/10/2014" ms.author="glenga" />
 

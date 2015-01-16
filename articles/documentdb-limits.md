@@ -1,4 +1,4 @@
-﻿<properties title="DocumentDB limits for the preview release" pageTitle="預覽版本的 DocumentDB 限制 | Azure" description="Learn about the limits and quota enforcements of DocumentDB for the preview release." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties title="DocumentDB limits for the preview release" pageTitle="預覽版本的 DocumentDB 限制 | Azure" description="了解預覽版本期間 DocumentDB 的限制和配額強制執行。" metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 

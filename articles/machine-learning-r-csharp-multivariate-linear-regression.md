@@ -1,4 +1,4 @@
-﻿<properties title="Multivariate Linear Regression" pageTitle="多變量線性迴歸 | Azure" description="Multivariate Linear Regression" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Multivariate Linear Regression" pageTitle="多變量線性迴歸 | Azure" description="多變量線性迴歸" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
 

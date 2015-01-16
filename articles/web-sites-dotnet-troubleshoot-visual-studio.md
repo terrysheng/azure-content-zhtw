@@ -1,4 +1,4 @@
-﻿<properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="疑難排解 Visual Studio 中的 Azure 網站 " metaKeywords="疑難排解偵錯 azure 網站追蹤記錄" description="Learn how to troubleshoot an Azure Website by using remote debugging, tracing, and logging tools that are built in to Visual Studio 2013." metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
+﻿<properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="疑難排解 Visual Studio 中的 Azure 網站 " metaKeywords="疑難排解偵錯 azure 網站追蹤記錄" description="了解如何使用 Visual Studio 2013 內建的遠端偵錯、追蹤和記錄工具進行 Azure 網站的疑難排解。" metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/13/2014" ms.author="tdykstra" />
 

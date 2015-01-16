@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Install SQL Server" pageTitle="在 Azure 中佈建 SQL Server 虛擬機器 " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Provisioning a SQL Server Virtual Machine on Azure" authors="selcint" solutions="" manager="jhubbard" editor="tyson" />
+﻿<properties urlDisplayName="Install SQL Server" pageTitle="在 Azure 中佈建 SQL Server 虛擬機器 " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="本教學課程會教您如何在 Azure 上建立及設定 SQL Server 虛擬機器。" metaCanonical="" services="virtual-machines" documentationCenter="" title="Provisioning a SQL Server Virtual Machine on Azure" authors="selcint" solutions="" manager="jhubbard" editor="tyson" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="" />
 

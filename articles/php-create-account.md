@@ -1,4 +1,4 @@
-﻿<properties title="Create an Azure account" pageTitle="建立 Azure 帳戶" description="Create an account" authors="robmcm" manager="wpickett" editor="mollybos"  videoId="" scriptId="" />
+﻿<properties title="Create an Azure account" pageTitle="建立 Azure 帳戶" description="建立帳戶" authors="robmcm" manager="wpickett" editor="mollybos"  videoId="" scriptId="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

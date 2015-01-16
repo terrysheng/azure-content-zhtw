@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Azure Websites Enterprise Offerings" pageTitle="使用移轉小幫手將您的 IIS 網站移轉至 Azure 網站" metaKeywords="Azure Websites,solution" description="Shows how to use Azure Websites create enterprise website solutions for your business" metaCanonical="" services="web-sites" documentationCenter="" title="Azure Websites Offerings for Enterprise Whitepaper" authors="cephalin,Apurva.Joshi"  solutions="" writer="cephalin" manager="wpickett" editor=""  />
+﻿<properties urlDisplayName="Azure Websites Enterprise Offerings" pageTitle="使用移轉小幫手將您的 IIS 網站移轉至 Azure 網站" metaKeywords="Azure Websites,solution" description="顯示如何使用 Azure 網站為貴公司建立企業網站解決方案" metaCanonical="" services="web-sites" documentationCenter="" title="Azure Websites Offerings for Enterprise Whitepaper" authors="cephalin,Apurva.Joshi"  solutions="" writer="cephalin" manager="wpickett" editor=""  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="cephalin" />
 

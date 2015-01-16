@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Blob Service" pageTitle="如何使用 Blob 儲存體 (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" />
+<properties urlDisplayName="Blob Service" pageTitle="如何使用 Blob 儲存體 (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="了解如何使用 Azure Blob 服務來上傳、列出、下載及刪除 Blob。" metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 
@@ -64,7 +64,7 @@
 ## <a name="list-blob"> </a>作法：列出容器中的 Blob
 
 若要列出容器中的 Blob，請使用 **list\_blobs** 方法和
-**for** 迴圈，以顯示容器中每個 Blob 的名稱。Auch die Eigenschaften
+**for** 迴圈，以顯示容器中每個 Blob 的名稱。
 下列程式碼會將容器中每個 Blob 的 **name** 和 **url** 輸出至主控台。
 
 	blobs = blob_service.list_blobs('mycontainer')

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="如何以單一行動服務後端使用多個用戶端 | Azure 行動" metaKeywords="mobile services single backend" description="Learn how to use a single mobile service back-end from multiple client apps that target different mobile platforms, including Windows Store and Windows Phone." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Considerations for supporting multiple clients from a single mobile service" authors="glenga" solutions="" manager="dwrede" editor="mollybos" />
+﻿<properties pageTitle="如何以單一行動服務後端使用多個用戶端 | Azure 行動" metaKeywords="mobile services single backend" description="了解如何從鎖定不同行動平台的多個用戶端應用程式使用單一行動服務後端，包括 Windows 市集和 Windows Phone。" metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Considerations for supporting multiple clients from a single mobile service" authors="glenga" solutions="" manager="dwrede" editor="mollybos" />
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/15/2014" ms.author="glenga" />
 
 # 從單一行動服務支援多重裝置平台

@@ -1,4 +1,4 @@
-﻿<properties title="Get started with scoring profiles in Azure Search" pageTitle="開始使用 Azure Search 中的評分設定檔" description="Get started with scoring profiles in Azure Search" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties title="Get started with scoring profiles in Azure Search" pageTitle="開始使用 Azure Search 中的評分設定檔" description="開始使用 Azure Search 中的評分設定檔" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
 
 <tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="10/16/2014" ms.author="heidist" />
 

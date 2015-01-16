@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Analyze flight delay data with Hadoop in HDInsight" pageTitle="在 HDInsight 上使用 Hadoop 分析航班延誤資料 | Azure" metaKeywords="" description="Learn how to  use one PowerShell script to provision HDInsight cluster, run Hive job, run Sqool job, and delete the cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze flight delay data using Hadoop in HDInsight " authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties urlDisplayName="Analyze flight delay data with Hadoop in HDInsight" pageTitle="在 HDInsight 上使用 Hadoop 分析航班延誤資料 | Azure" metaKeywords="" description="了解如何使用一個 PowerShell 指令碼部署 HDInsight 叢集、執行 Hive 工作、執行 Sqool 工作和刪除叢集。" metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze flight delay data using Hadoop in HDInsight " authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jgao" />
 

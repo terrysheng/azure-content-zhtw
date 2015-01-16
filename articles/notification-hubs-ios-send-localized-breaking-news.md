@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Localized Breaking News" pageTitle="iOS 通知中心已當地語系化的即時新聞教學課程 " metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news to iOS devices" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Localized Breaking News" pageTitle="iOS 通知中心已當地語系化的即時新聞教學課程 " metaKeywords="" description="了解如何使用 Azure 服務匯流排通知中心傳送本地化重大新聞通知 (iOS)。" metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news to iOS devices" authors="yuaxu" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
 # 使用通知中心將當地語系化的即時新聞傳送至 iOS 裝置

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="在原始檔控制中儲存伺服器程式碼 - Azure 行動服務" metaKeywords="" description="Learn how to use the New Relic add-on to monitor your mobile service." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="carolz" />
+﻿<properties urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="在原始檔控制中儲存伺服器程式碼 - Azure 行動服務" metaKeywords="" description="了解如何使用新的 Relic 附加元件監視行動服務。" metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="carolz" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic" />
 

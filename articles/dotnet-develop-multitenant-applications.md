@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="多租用戶 Web 應用程式模式 - Azure 架構" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="多租用戶 Web 應用程式模式 - Azure 架構" metaKeywords="" description="找出說明如何在 Azure 實作多租用戶 Web 應用程式的結構概觀和設計模式。" metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 

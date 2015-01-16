@@ -1,4 +1,4 @@
-﻿<properties pageTitle="通知中心重大消息教學課程 - iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="通知中心重大消息教學課程 - iOS" metaKeywords="" description="了解如何使用 Azure 服務匯流排通知中心將本地化重大新聞通知傳送至 iOS 裝置。" metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="yuaxu" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
 

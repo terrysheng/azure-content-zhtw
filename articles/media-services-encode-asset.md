@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to Encode an Asset" pageTitle="如何為媒體服務的資產編碼 - Azure" metaKeywords="" description="Learn how to use the Azure Media Encoder to encode media content on Media Services. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Encode an Asset" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="How to Encode an Asset" pageTitle="如何為媒體服務的資產編碼 - Azure" metaKeywords="" description="了解如何使用 Azure Media Encoder 為媒體服務上的媒體內容編碼。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" metaCanonical="" services="media-services" documentationCenter="" title="How to: Encode an Asset" authors="juliako" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 

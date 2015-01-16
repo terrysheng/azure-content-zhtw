@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Upload a CentOS-based VHD" pageTitle="在 Azure 中建立及上傳 CentOS 型 Linux VHD" metaKeywords="Azure VHD, uploading Linux VHD, CentOS" description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a CentOS-based Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties urlDisplayName="Upload a CentOS-based VHD" pageTitle="在 Azure 中建立及上傳 CentOS 型 Linux VHD" metaKeywords="Azure VHD, uploading Linux VHD, CentOS" description="了解如何建立及上傳包含 CentOS 型 Linux 作業系統的 Azure 虛擬硬碟 (VHD)。" metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a CentOS-based Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
 

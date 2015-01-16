@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate Data" pageTitle="使用伺服器指令碼驗證與修改資料 (Xamarin Android) | 行動開發人員中心 " metaKeywords="存取並變更資料, Azure 行動服務, 行動裝置, Azure, 行動, Xamarin.Android" description="Learn how to validate and modify data sent using server scripts from your Xamarin.Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" services="mobile-services"  title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" manager="dwrede" />
+﻿<properties urlDisplayName="Validate Data" pageTitle="使用伺服器指令碼驗證與修改資料 (Xamarin Android) | 行動開發人員中心 " metaKeywords="存取並變更資料, Azure 行動服務, 行動裝置, Azure, 行動, Xamarin.Android" description="了解如何驗證和修改從 Xamarin.Android 應用程式使用伺服器指令碼傳送的資料。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" services="mobile-services"  title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="donnam" />
 

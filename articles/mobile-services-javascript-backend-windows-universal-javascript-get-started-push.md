@@ -1,4 +1,4 @@
-﻿<properties pageTitle="使用 JavaScript 後端行動服務開始使用推播通知" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile-services,notification-hubs" manager="dwrede" editor="" />
+<properties pageTitle="使用 JavaScript 後端行動服務開始使用推播通知" metaKeywords="" description="了解如何使用 Azure 行動服務及通知中心傳送推播通知至通用 Windows 應用程式。" metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile-services,notification-hubs" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/15/2014" ms.author="glenga" />
 
@@ -22,28 +22,28 @@
 * 有效的 [Microsoft 市集帳戶](http://go.microsoft.com/fwlink/p/?LinkId=280045)。
 * [Visual Studio 2013 Express for Windows](http://go.microsoft.com/fwlink/?LinkId=257546) (Update 3 或更新版本) 
 
-##<a id="register"></a>針對推播通知註冊應用程式
+## <a id="register"></a>針對推播通知註冊應用程式
 
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 <ol start="6">
-<li><p>瀏覽至 <code>\services\mobileServices\scripts</code> 專案資料夾，將產生的 <<em>your_service_name</em>>.push.register.js 指令碼檔案複製到共用 <code>\js</code> 資料夾，然後同時從個別 Windows 與 WindowsPhone 應用程式專案裡刪除這個檔案。</p></li> 
+<li><p>瀏覽至 <code>\services\mobileServices\scripts</code> 專案資料夾，將產生的 &lt;<em>your_service_name</em>&gt;.push.register.js 指令碼檔案複製到共用 <code>\js</code> 資料夾，然後同時從個別 Windows 與 WindowsPhone 應用程式專案裡刪除這個檔案。</p></li> 
 <li><p>開啟共用 <code>\js</code> 專案資料夾裡的這個指令碼檔案，並在 <em>activated</em> 事件接聽程式裡找出負責將裝置通道 URL 向通知中樞註冊的程式碼，然後刪除 <strong>done</strong> promise 函數。</p>
 <p>本教學課程會在插入新項目時 (而非呼叫自訂 API 時) 傳送通知。</p></li>
-<li><p>在 Windows 應用程式專案中，開啟 default.html 檔案並將指令碼檔案參考的路徑變更為共用 <code>\js</code> 專案資要夾，以便其如下列所示：</p><pre><code><script src="/js/your_service_name.push.register.js"></script></code></pre></li>
+<li><p>在 Windows 應用程式專案中，開啟 default.html 檔案並將指令碼檔案參考的路徑變更為共用 <code>\js</code> 專案資要夾，以便其如下列所示：</p><pre><code>&lt;script src="/js/your_service_name.push.register.js"&gt;&lt;/script&gt;</code></pre></li>
 <li><p>為 WindowsPhone 應用程式專案重複此步驟。</p>
 <p>現在，兩個專案同時都會使用推播註冊指令碼的共用版本。</p></li>
 </ol>
 
 現在應用程式已經啟用了推播通知，您必須更新行動服務以傳送推播通知。 
 
-##<a id="update-service"></a>更新服務以傳送推播通知
+## <a id="update-service"></a>更新服務以傳送推播通知
 
 下列步驟會更新 TodoItem 資料表裡註冊的插入指令碼。您可以在任何伺服器指令碼或是後端服務的任何一處實作類似的程式碼。 
 
 [WACOM.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../includes/mobile-services-javascript-update-script-notification-hubs.md)]
 
-##<a id="test"></a> 在應用程式中測試推播通知
+## <a id="test"></a> 在應用程式中測試推播通知
 
 [WACOM.INCLUDE [mobile-services-javascript-backend-windows-universal-test-push](../includes/mobile-services-javascript-backend-windows-universal-test-push.md)]
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Optimistic concurrency" pageTitle="使用開放式並行存取處理資料庫寫入衝突 (Windows 市集) | 行動開發人員中心" metaKeywords="" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conlicts" authors="wesmc" manager="dwrede" />
+﻿<properties urlDisplayName="Optimistic concurrency" pageTitle="使用開放式並行存取處理資料庫寫入衝突 (Windows 市集) | 行動開發人員中心" metaKeywords="" description="了解如何處理伺服器與 Windows 市集應用程式之間的資料庫寫入衝突。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conlicts" authors="wesmc" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 

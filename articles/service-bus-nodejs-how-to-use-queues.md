@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="如何使用服務匯流排佇列 (Node.js) - Azure" metaKeywords ="Azure 服務匯流排佇列, Azure 佇列, Azure 訊息, Azure 佇列 Node.js" description="Learn how to use Service Bus queues in Azure. Code samples written in Node.js." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Service Bus Queues" authors="larryfr" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Service Bus Queues" pageTitle="如何使用服務匯流排佇列 (Node.js) - Azure" metaKeywords ="Azure 服務匯流排佇列, Azure 佇列, Azure 訊息, Azure 佇列 Node.js" description="了解如何在 Azure 使用服務匯流排佇列。程式碼範例以 Node.js 撰寫。" metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Service Bus Queues" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 

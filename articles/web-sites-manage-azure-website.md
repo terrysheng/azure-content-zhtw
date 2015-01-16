@@ -1,4 +1,4 @@
-﻿<properties title="Manage an Azure website" pageTitle="管理 Azure 網站" description="Links to resources for managing a Microsoft Azure website." services="web-sites" solutions="web" documentationCenter="" authors="mwasson" videoId="" scriptId="" manager="wpickett" />
+﻿<properties title="Manage an Azure website" pageTitle="管理 Azure 網站" description="管理 Microsoft Azure 網站的資源連結。" services="web-sites" solutions="web" documentationCenter="" authors="mwasson" videoId="" scriptId="" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson" />
 

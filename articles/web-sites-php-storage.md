@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web w/ Storage" pageTitle="採用資料表儲存體的 PHP 網站 - Azure 教學課程" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="This tutorial shows you how to create a PHP website and use the Azure Tables storage service in the back-end." metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Web w/ Storage" pageTitle="採用資料表儲存體的 PHP 網站 - Azure 教學課程" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="本教學課程示範如何建立 PHP 網站，以及在後端使用 Azure 資料表儲存體服務。" metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz" />
 

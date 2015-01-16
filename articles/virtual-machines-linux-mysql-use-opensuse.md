@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Install MySQL" pageTitle="在 Azure 中執行 OpenSUSE Linux 的虛擬機器上安裝 MySQL" metaKeywords="Azure, MySQL" description="Learn to install MySQL on a virtual machine in Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Azure" authors="kathydav" solutions="" manager="timlt" editor="" />
+﻿<properties urlDisplayName="Install MySQL" pageTitle="在 Azure 中執行 OpenSUSE Linux 的虛擬機器上安裝 MySQL" metaKeywords="Azure, MySQL" description="了解如何在 Azure 的虛擬機器上安裝 MySQL。" metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Azure" authors="kathydav" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="kathydav" />
 

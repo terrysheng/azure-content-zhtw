@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="共用存取簽章：了解 SAS 模型 | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="adinah" />
+﻿<properties urlDisplayName="" pageTitle="共用存取簽章：了解 SAS 模型 | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="了解如何使用共用存取簽章來委派對 Blob、佇列和資料表資源的存取" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 

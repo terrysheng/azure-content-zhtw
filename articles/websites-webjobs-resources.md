@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Azure WebJobs 建議資源 " metaKeywords="Azure WebJobs, Azure WebJobs SDK, Azure 儲存體, Azure 佇列, Azure 資料表, Azure 服務匯流排" description="Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK." metaCanonical="" services="web-sites,storage" documentationCenter=".NET" title="Azure WebJobs Recommended Resources" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties pageTitle="Azure WebJobs 建議資源 " metaKeywords="Azure WebJobs, Azure WebJobs SDK, Azure 儲存體, Azure 佇列, Azure 資料表, Azure 服務匯流排" description="了解如何使用 Azure WebJobs 和 Azure WebJobs SDK 的建議資源。" metaCanonical="" services="web-sites,storage" documentationCenter=".NET" title="Azure WebJobs Recommended Resources" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="tdykstra" />
 

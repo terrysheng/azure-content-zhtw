@@ -1,4 +1,4 @@
-﻿<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="開始在 HDInsight 中使用 Hadoop 搭配 Hive | Azure" metaKeywords="" description="Get started using Hadoop in HDInsight, a big data solution in the cloud. Learn how to provision clusters, query data with Hive, and output to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop with Hive in HDInsight to analyze mobile handset use" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="開始在 HDInsight 中使用 Hadoop 搭配 Hive | Azure" metaKeywords="" description="開始使用 HDInsight 中的 Hadoop，這是雲端的巨量資料解決方案。了解如何佈建叢集、使用 Hive 查詢資料，以及輸出至 Excel 進行分析。" metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Hadoop with Hive in HDInsight to analyze mobile handset use" authors="nitinme" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="nitinme" />
 
@@ -42,7 +42,7 @@
 - Azure 訂閱。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][azure-purchase-options]、[成員優惠][azure-member-offers]或[免費試用][azure-free-trial]。
 - 安裝 Office 2013 Professional Plus、Office 365 Pro Plus、Excel 2013 Standalone 或 Office 2010 Professional Plus 的電腦。
 
-**預估完成時間：**30 Minuten
+**預估完成時間：**30 分鐘
 
 ##本教學課程內容
 

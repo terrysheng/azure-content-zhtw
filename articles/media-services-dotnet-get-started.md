@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Media Services" pageTitle="開始使用媒體服務 - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Media Services" pageTitle="開始使用媒體服務 - Azure" metaKeywords="Azure media services" description="透過 Azure 使用媒體服務的簡介。" metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="juliako" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
@@ -58,7 +58,7 @@
 	</configuration>
 	</code></pre>
 
-5. 在本機電腦上建立新資料夾，並命名為 supportFiles (在此範例中，supportFiles 位於 MediaServicesGettingStarted 專案目錄下)。Auch die Eigenschaften <a href="http://go.microsoft.com/fwlink/?linkid=253275">隨附此逐步解說的專案</a> 包含 supportFiles 目錄。您可以將此目錄的內容複製到 supportFiles 資料夾。
+5. 在本機電腦上建立新資料夾，並命名為 supportFiles (在此範例中，supportFiles 位於 MediaServicesGettingStarted 專案目錄下)。 <a href="http://go.microsoft.com/fwlink/?linkid=253275">隨附此逐步解說的專案</a> 包含 supportFiles 目錄。您可以將此目錄的內容複製到 supportFiles 資料夾。
 
 6. 在 Program.cs 檔案的開頭，使用下列程式碼來覆寫現有的 using 陳述式。
 
@@ -319,7 +319,7 @@ CreateEncodingJob(asset, _singleInputFilePath, _outputFilesFolder);
 將下列協助程式方法加入至類別。需要有這些方法來支援 <strong>CreateEncodingJob</strong> 方法的定義。以下是協助程式方法的摘要。
 <ul>
 <li>
-Auch die Eigenschaften <strong>GetLatestMediaProcessorByName</strong> 方法傳回適當的媒體處理器來處理編碼、加密或其他相關的處理工作。您可以使用想要建立的處理器的適當字串名稱，建立媒體處理器。在此方法的 mediaProcessor 參數中可傳入的字串包括： <strong>Azure Media Encoder</strong>、 <strong>Windows Azure Media Packager</strong>、 <strong>Windows Azure Media Encryptor</strong>、 <strong>Storage Decryption</strong>。
+ <strong>GetLatestMediaProcessorByName</strong> 方法傳回適當的媒體處理器來處理編碼、加密或其他相關的處理工作。您可以使用想要建立的處理器的適當字串名稱，建立媒體處理器。在此方法的 mediaProcessor 參數中可傳入的字串包括： <strong>Azure Media Encoder</strong>、 <strong>Windows Azure Media Packager</strong>、 <strong>Windows Azure Media Encryptor</strong>、 <strong>Storage Decryption</strong>。
 <pre><code>
 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 {
@@ -504,7 +504,7 @@ static string BuildFileSasUrl(IAssetFile file, ILocator locator)
 </code></pre>
 </li>
 <li>
-Auch die Eigenschaften <strong>DownloadAssetToLocal</strong> 方法將資產中的每個檔案下載至本機資料夾。在此範例中，由於資產是以一個輸入媒體檔案建立，因此輸出資產檔案集合包含兩個檔案：加密的媒體檔案 (.mp4 檔案)，和包含資產相關中繼資料的 .xml 檔案。此方法會下載這兩個檔案。
+ <strong>DownloadAssetToLocal</strong> 方法將資產中的每個檔案下載至本機資料夾。在此範例中，由於資產是以一個輸入媒體檔案建立，因此輸出資產檔案集合包含兩個檔案：加密的媒體檔案 (.mp4 檔案)，和包含資產相關中繼資料的 .xml 檔案。此方法會下載這兩個檔案。
 <pre><code>
 static IAsset DownloadAssetToLocal(string jobId, string outputFolder)
 {

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Use the Mobile Services .NET Backend" pageTitle="使用行動服務 .NET 後端 - Azure 行動服務" metaKeywords="" description="Learn the details of the .NET Backend programming model for Azure Mobile Services, including how to work with table data, APIs, authentication, and scheduled jobs" metaCanonical="" services="" documentationCenter="Mobile" title="Use the Mobile Services .NET Backend" authors="mahender" solutions="" manager="dwrede" editor="mollybos" />
+﻿<properties urlDisplayName="Use the Mobile Services .NET Backend" pageTitle="使用行動服務 .NET 後端 - Azure 行動服務" metaKeywords="" description="了解 Azure 行動服務的 .NET 後端程式設計模型，包括如何使用資料表資料、API、驗證和排程的工作" metaCanonical="" services="" documentationCenter="Mobile" title="Use the Mobile Services .NET Backend" authors="mahender" solutions="" manager="dwrede" editor="mollybos" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="mahender" />
 # 使用行動服務 .NET 後端

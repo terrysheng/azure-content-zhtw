@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Debug Websites (Node)" pageTitle="如何在 Node.js 中偵錯 Azure 網站" metaKeywords="偵錯 azure 網站, 偵測 azure, 疑難排解 azure 網站, 疑難排解 azure 網站節點" description="Learn how to debug an Azure website in Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Debug Websites (Node)" pageTitle="如何在 Node.js 中偵錯 Azure 網站" metaKeywords="偵錯 azure 網站, 偵測 azure, 疑難排解 azure 網站, 疑難排解 azure 網站節點" description="了解如何使用 Node.js 進行 Azure 網站的偵錯。" metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 

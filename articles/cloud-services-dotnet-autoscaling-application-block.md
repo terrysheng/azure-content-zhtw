@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Autoscaling" pageTitle="使用自動調整應用程式區塊 (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="How to Use the Autoscaling Application Block" authors="rasquill" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Autoscaling" pageTitle="使用自動調整應用程式區塊 (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="了解如何使用 Azure 的自動調整應用程式。 程式碼範例是以 C# 撰寫並使用 .NET API。" metaCanonical="" services="cloud-services" documentationCenter=".NET" title="How to Use the Autoscaling Application Block" authors="rasquill" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/14/2014" ms.author="rasquill" />
 
@@ -10,11 +10,11 @@
 
 # 如何使用自動調整應用程式區塊
 
-本指南將示範如何從 [Microsoft Enterprise Library 5.0 Integration Pack for Azure][] 使用自動調整應用程式區塊執行一般案例。這些範例均以 C\# 撰寫並使用 .NET API。涵蓋的案例包括**主控區塊**、**使用限制規則**和**使用重新啟動規則**。如需自動調整應用程式區塊的詳細資訊，請參閱[後續步驟][]一節。
+本指南將示範如何從 [Microsoft Enterprise Library 5.0 Integration Pack for Azure](http://go.microsoft.com/fwlink/?LinkID=235134) 使用自動調整應用程式區塊執行一般案例。這些範例均以 C\# 撰寫並使用 .NET API。涵蓋的案例包括**主控區塊**、**使用限制規則**和**使用重新啟動規則**。如需自動調整應用程式區塊的詳細資訊，請參閱[後續步驟][]一節。
 
 ## 目錄
 
-[何謂自動調整應用程式區塊？][]   
+ [何謂自動調整應用程式區塊？][]   
  [概念][]   
  [從目標 Azure 應用程式收集效能計數器資料][]   
  [設定自動調整應用程式區塊的主機應用程式][]   
@@ -28,7 +28,7 @@
 自動調整應用程式區塊可以根據您特別針對應用程式所定義的規則，自動調整 Windows Azure 應用程式。您可以使用這些規則，來協助 Azure 應用程式維護其輸送量，以回應其工作負載中變更，同時控制與主控 Azure 中的應用程式相關聯的成本。除了增加或減少應用程式中的角色執行個體數目來進行調整外，區塊還可讓您使用其他調整動作，例如節流應用程式內的特定功能，或使用自定的動作。
 
 您可以選擇主控 Azure 角色或內部部署應用程式中的區塊。 
-自動調整應用程式區塊是 [Microsoft Enterprise Library 5.0 Integration Pack for Azure][] 的一部分。
+自動調整應用程式區塊是 [Microsoft Enterprise Library 5.0 Integration Pack for Azure](http://go.microsoft.com/fwlink/?LinkID=235134) 的一部分。
 
 ## <a id="Concepts"> </a>概念
 
@@ -258,56 +258,56 @@ file:
       </operands>
     </rules>
 
-In this example there are three autoscaling rules (one **constraint rule** and two **reactive rules**) that operate on a target named **AutoscalingApplicationRole** that is the alias of a role defined in the **service model**:
+在此範例中，有三個自動調整規則 (一個**限制規則**和兩個**重新啟動規則**)，在名稱為 **AutoscalingApplicationRole** (其為**服務模型**中定義的角色別名) 上操作：
 
--   The constraint rule is always active and sets the minimum number of     role instances to two and the maximum number of role instances to     six.
+-   限制規則永遠作用中，並將角色執行個體的數目下限設為二，而將角色執行個體的數目上限設為六。
 
--   Both reactive rules use an **operand** named     **WebRoleA\_CPU\_Avg\_5m** that calculates the average CPU usage     over the last five minutes for an Azure role named     **AutoscalingApplicationRole.** This role is defined in the     **service model**.
+-   這兩個重新啟動規則會使用名稱為 **WebRoleA\_CPU\_Avg\_5m** 的**運算元**，計算名稱為 **AutoscalingApplicationRole.** 的 Azure 角色最後五分鐘的平均 CPU 使用率。此角色定義在**服務模型**中。
 
--   The reactive rule named **ScaleUpOnHighUtilization** increments the     instance count of the target role by one if the average CPU     utilization over the last five minutes has been greater than or     equal to 60%.
+-   如果過去五分鐘的平均 CPU 使用率大於或等於 60%，則名稱為 **ScaleUpOnHighUtilization** 的重新啟動規則會增加目標角色的執行個體計數。
 
--   The reactive rule named **ScaleDownOnLowUtilization** decrements the     instance count of the target role by one if the average CPU     utilization over the last five minutes has been less than 60%.
+-   如果過去五分鐘的平均 CPU 使用率小於 60%，則名稱為 **ScaleDownOnLowUtilization** 的重新啟動規則會減少目標角色的執行個體計數。
 
-## <a id="Configure"> </a>How To: Configure the Autoscaling Application Block
+## <a id="Configure"> </a>作法：設定自動調整應用程式區塊
 
-After you have defined your service model and autoscaling rules, you must configure the Autoscaling Application Block to use them. This operational configuration information is stored in the application configuration file.
+在定義了服務模型和自動調整規則後，您必須將自動調整應用程式區塊設定成使用它們。此作業組態資訊儲存在應用程式組態檔中。
 
-By default, the Autoscaling Application Block expects the autoscaling rules and service model to be stored in Azure blobs. In this example, you will configure the block to load them from the local file system.
+依預設，自動調整應用程式區塊預期自動調整規則和服務模型儲存在 Azure Blob 中。在此範例中，您將區塊設定成從本機檔案系統中載入它們。
 
-### Configure the Autoscaling Application Block in the host application
+### 在主機應用程式中設定自動調整應用程式區塊
 
-1.  Right-click on the **App.config** file in Solution Explorer and then     click **Edit Configuration File**.
+1.  在 [方案總管] 的 **App.config** 檔案上按一下滑鼠右鍵，然後按一下 [**Edit Configuration File**]。
 
-2.  In the **Blocks** menu, click **Add Autoscaling Settings**:  
+2.  在 [**區塊**] 功能表中，按一下 [**Add Autoscaling Settings**]：  
 	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
   
-3.  Expand the **Autoscaling Settings** and then click the ellipsis (...)     next to the **Data Points Store Storage Account**, add the **Account     name** and **Account key** of the Azure storage account     where the block will store the data points that it collects (see     [How To: Define your Service Model][] if you are unsure about where     to find these values), and then click **OK**:  
+3.  展開 [**Autoscaling Settings**]，然後按一下省略符號 (...)     (在 **Data Points Store Storage Account** 旁)，新增 Azure 儲存體的**帳戶名稱**和**帳戶金鑰**，區塊將在此儲存其收集的資料點 (請參閱[作法：定義您的服務模型][]，如果您不確定可在何處找到這些值)，然後按一下 [**確定**]：  
 
 	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png)
 
-4.  Expand the **Autoscaling Settings** section to reveal the **Rules     Store** and **Service Information Store** sections. By default, they     are configured to use Azure blob storage:  
+4.  展開 [**Autoscaling Settings**] 區段，以顯示 [**Rules Store**] 和 [**Service Information Store**] 區段。依預設，它們會設定成使用 Azure Blob 儲存體：  
 	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
 
 
-5.  Click the plus sign (+) next to **Rules Store**, point to **Set     Rules Store**, then click **Use Local File Rules Store**, and then     click **Yes**.
+5.  按一下 [**Rules Store**] 方的加號 (+)，指向 [**Set Rules Store**]，然後按一下 [**Use Local File Rules Store**]，再按一下 [**是**]。
 
-6.  In the **File Name** box, type **rules.xml**. This is the name of     the file that contains your autoscaling rules:  
+6.  在 [**檔案名稱**] 方塊中，輸入 **rules.xml**。這是包含自動調整規則的檔案名稱：  
 	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
 
 
-7.  Click the plus sign (+) next to **Service Information Store**, point     to **Set Service Information Store**, then click **Use Local File     Service Information Store**, and then click **Yes**.
+7.  按一下 [**Service Information Store**] 方的加號 (+)，指向 [**Set Service Information Store**]，然後按一下 [**Use Local File Rules Store**]，再按一下 [**是**]。
 
-8.  In the **File Name** box, type **services.xml**. This is the name of     the file that contains your autoscaling rules:  
+8.  在 [**檔案名稱**] 方塊中，輸入 **services.xml**。這是包含自動調整規則的檔案名稱：  
 	![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
 
 
-9.  In the Enterprise Library Configuration window, on the **File**     menu, click **Save** to save your configuration changes. Then in the     Enterprise Library Configuration window, on the **File** menu, click     **Exit**.
+9.  在 Enterprise Library Configuration 視窗的 [**檔案**] 功能表上，按一下 [**儲存**] 以儲存您的組態變更。然後，在 [Enterprise Library Configuration] 視窗的 [**檔案**] 功能表上，按一下 [**結束**]。
 
-To get detailed information about the actions that the Autoscaling Application Block is performing you need to capture the log messages that it writes. For example, if you are hosting the block in a console application, you can view the log messages in the Output window in Visual Studio. The following section shows you how to configure this behavior.
+若要取得自動調整應用程式區塊正在執行之動作的詳細資訊，您需要擷取其寫入的記錄訊息。例如，如果您是在主控台應用程式中主控區塊，則可在 Visual Studio 的 [輸出] 視窗中檢視記錄訊息。下節顯示如何設定此行為。
 
-### Configure logging in the Autoscaling Application Block host application
+### 設定如何記錄在自動調整應用程式區塊主機應用程式中
 
-1.  In Visual Studio, double-click on the **App.config** file in     Solution Explorer to open it in the editor. Then add the     **system.diagnostics** section as shown in the following sample:
+1.  在 Visual Studio 中，按兩下 [方案總管] 中的 **App.config** 檔案，以在編輯器中開啟它。然後，新增 **system.diagnostics** 區段，如下列範例所示：
 
         <?xml version="1.0" encoding="utf-8" ?>
         <configuration>
@@ -323,9 +323,9 @@ To get detailed information about the actions that the Autoscaling Application B
           </system.diagnostics>
         </configuration>
 
-2.  Save your changes.
+2.  儲存您的變更。
 
-You can now run your Autoscaling Application Block host console application and observe how the autoscaling rules work with your target Azure application. When you run the host console application, you should see messages similar to the following in the Output window in Visual Studio. These log messages help you to understand the behavior of the block. For example, they indicate which rules are being matched by the block and what actions the block is taking.
+您現在可以執行自動調整應用程式區塊主機主控台應用程式，並觀察自動調整規則如何使用您的目標 Azure 應用程式。當執行主機主控台應用程式時，您應該在 Visual Studio 的 [輸出] 視窗中看到如下的訊息。這些記錄訊息可協助您了解區塊的行為。例如，它們指出區塊符合哪些規則，以及區塊正在採取哪些動作。
 
     Autoscaling General Verbose: 1002 : Rule match.
     [BEGIN DATA]{"EvaluationId":"6b27dfa0-b671-44a3-adf1-bb1e0b7c3726",
@@ -357,48 +357,50 @@ You can now run your Autoscaling Application Block host console application and 
     "InstanceChanges":{"AutoscalingApplicationRole":{"CurrentValue":1,"DesiredValue":2}},
     "SettingChanges":{},"RequestID":"f8ca3ada07c24559b1cb075534f02d44"}
 
-## <a id="NextSteps"> </a>Next Steps
+## <a id="NextSteps"> </a>後續步驟
 
-Now that you've learned the basics of using the Autoscaling Application Block, follow these links to learn how to implement more complex autoscaling scenarios:
+既然已了解使用自動調整應用程式區塊的基礎概念，請遵循下列連結，以了解如何實作更複雜的自動調整案例：
 
--   [Hosting the Autoscaling Application Block in a Worker Role][]
--   [Implementing Throttling Behavior][]
--   [Understanding Rule Ranks and Reconciliation][]
--   [Extending and Modifying the Autoscaling Application Block][]
--   [Using the Optimizing Stabilizer to prevent high frequency oscillation and to optimize costs][]
--   [Using Notifications and Manual Scaling][]
--   [Defining Scale Groups][]
--   [Using the WASABiCmdlets for manipulating the block via Windows PowerShell][]
--   [Developer's Guide to the Enterprise Library 5.0 Integration Pack for Azure][]
--   [How Sage Reduces Azure Hosting Costs Using Autoscaling][]
--   [Reducing TechNet and MSDN hosting costs and environmental impact with autoscaling on Azure][]
+-   [在背景工作角色中主控自動調整應用程式區塊][]
+-   [實作節流行為][]
+-   [了解規則等級和重新調整][]
+-   [延伸並修改自動調整應用程式區塊][]
+-   [使用最佳化穩定器來避免高頻率振盪和最佳化成本][]
+-   [使用通知和手動調整][]
+-   [定義調整群組][]
+-   [使用 WASABiCmdlets 透過 Windows PowerShell 操作區塊][]
+-   [Enterprise Library 5.0 Integration Pack for Azure 開發人員指南][]
+-   [Sage 如何使用自動調整減少 Azure 主控成本][]
+-   [利用 Azure 上的自動調整減少 TechNet 和 MSDN 主控成本和環境影響][]
 
-  [Microsoft Enterprise Library 5.0 Integration Pack for Azure]:
-    http://go.microsoft.com/fwlink/?LinkID=235134
-  [Next Steps]: #NextSteps
-  [What is the Autoscaling Application Block?]: #WhatIs
-  [Concepts]: #Concepts
-  [Collect Performance Counter Data from your Target Azure Application]: #PerfCounter
-  [Set up a Host Application for the Autoscaling Application Block]: #CreateHost
-  [How to: Instantiate and Run the Autoscaler]: #Instantiate
-  [How To: Define your Service Model]: #DefineServiceModel
-  [How To: Define your Autoscaling Rules]: #DefineAutoscalingRules
-  [How To: Configure the Autoscaling Application Block]: #Configure
+
+
+  [後續步驟]: #NextSteps
+  [何謂自動調整應用程式區塊？]: #WhatIs
+  [概念]: #Concepts
+  [從目標 Azure 應用程式收集效能計數器資料]: #PerfCounter
+  [設定自動調整應用程式區塊的主機應用程式]: #CreateHost
+  [作法：具現化和執行自動調整器]: #Instantiate
+  [作法：定義您的服務模型]: #DefineServiceModel
+  [作法：定義您的自動調整規則]: #DefineAutoscalingRules
+  [作法：設定自動調整應用程式區塊]: #Configure
   [Using performance counters in Azure]: http://www.windowsazure.com/zh-tw/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [Azure Management Portal]: http://manage.windowsazure.com
-  [Storing Your Service Information Data]: http://msdn.microsoft.com/zh-tw/library/hh680878(PandP.50).aspx		
-  [Hosting the Autoscaling Application Block in a Worker Role]: http://msdn.microsoft.com/zh-tw/library/hh680914(PandP.50).aspx
-  [Implementing Throttling Behavior]: http://msdn.microsoft.com/zh-tw/library/hh680896(PandP.50).aspx
-  [Understanding Rule Ranks and Reconciliation]: http://msdn.microsoft.com/zh-tw/library/hh680923(PandP.50).aspx
-  [Extending and Modifying the Autoscaling Application Block]: http://msdn.microsoft.com/zh-tw/library/hh680889(PandP.50).aspx
-  [Using the Optimizing Stabilizer to prevent high frequency oscillation and to optimize costs]: http://msdn.microsoft.com/zh-tw/library/hh680951(PandP.50).aspx
-  [Using Notifications and Manual Scaling]: http://msdn.microsoft.com/zh-tw/library/hh680885(PandP.50).aspx
-  [Defining Scale Groups]: http://msdn.microsoft.com/zh-tw/library/hh680902(PandP.50).aspx
-  [Using the WASABiCmdlets for manipulating the block via Windows PowerShell]: http://msdn.microsoft.com/zh-tw/library/hh680938(PandP.50).aspx
-  [Developer's Guide to the Enterprise Library 5.0 Integration Pack for Azure]: http://msdn.microsoft.com/zh-tw/library/hh680949(PandP.50).aspx
-  [How Sage Reduces Azure Hosting Costs Using Autoscaling]: http://msdn.microsoft.com/zh-tw/library/jj838716(PandP.50).aspx
-  [Reducing TechNet and MSDN hosting costs and environmental impact with autoscaling on Azure]: http://msdn.microsoft.com/zh-tw/library/jj838718(PandP.50).aspx
+  [Storing Your Service Information Data]: http://msdn.microsoft.com/zh-tw/library/hh680878(PandP.50).aspx	
+  
+
+  [在背景工作角色中主控自動調整應用程式區塊]: http://msdn.microsoft.com/zh-tw/library/hh680914(PandP.50).aspx
+  [實作節流行為]: http://msdn.microsoft.com/zh-tw/library/hh680896(PandP.50).aspx
+  [了解規則等級和重新調整]: http://msdn.microsoft.com/zh-tw/library/hh680923(PandP.50).aspx
+  [延伸並修改自動調整應用程式區塊]: http://msdn.microsoft.com/zh-tw/library/hh680889(PandP.50).aspx
+  [使用最佳化穩定器來避免高頻率振盪和最佳化成本]: http://msdn.microsoft.com/zh-tw/library/hh680951(PandP.50).aspx
+  [使用通知和手動調整]: http://msdn.microsoft.com/zh-tw/library/hh680885(PandP.50).aspx
+  [定義調整群組]: http://msdn.microsoft.com/zh-tw/library/hh680902(PandP.50).aspx
+  [使用 WASABiCmdlets 透過 Windows PowerShell 操作區塊]: http://msdn.microsoft.com/zh-tw/library/hh680938(PandP.50).aspx
+  [Enterprise Library 5.0 Integration Pack for Azure 開發人員指南]: http://msdn.microsoft.com/zh-tw/library/hh680949(PandP.50).aspx
+  [Sage 如何使用自動調整減少 Azure 主控成本]: http://msdn.microsoft.com/zh-tw/library/jj838716(PandP.50).aspx
+  [利用 Azure 上的自動調整減少 TechNet 和 MSDN 主控成本和環境影響]: http://msdn.microsoft.com/zh-tw/library/jj838718(PandP.50).aspx
 
 
 <!--HONumber=35.1-->

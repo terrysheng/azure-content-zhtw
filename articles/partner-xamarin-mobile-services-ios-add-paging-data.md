@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="在資料中加入分頁 (Xamarin iOS) | 行動開發人員中心" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Xamarin iOS app from Mobile Services." metaCanonical="" services="mobile-services" authors="donnam" solutions="" manager="dwrede" editor="" title="Refine Mobile Services queries with paging" documentationCenter="Mobile" />
+﻿<properties urlDisplayName="" pageTitle="在資料中加入分頁 (Xamarin iOS) | 行動開發人員中心" metaKeywords="" description="了解如何使用分頁來管理行動服務傳回您 Xamarin iOS 應用程式的資料量。" metaCanonical="" services="mobile-services" authors="donnam" solutions="" manager="dwrede" editor="" title="Refine Mobile Services queries with paging" documentationCenter="Mobile" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam" />
 

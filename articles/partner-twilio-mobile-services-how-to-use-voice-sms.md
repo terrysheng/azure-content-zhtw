@@ -1,4 +1,4 @@
-﻿<properties pageTitle="透過 Twilio 使用語音和簡訊功能 | 行動開發人員中心" metaKeywords="" description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+﻿<properties pageTitle="透過 Twilio 使用語音和簡訊功能 | 行動開發人員中心" metaKeywords="" description="了解如何使用 Twilio API 和 Azure 行動服務執行一般工作。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com" />
 

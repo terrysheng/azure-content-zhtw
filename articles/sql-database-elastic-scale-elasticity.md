@@ -1,4 +1,4 @@
-﻿<properties title="Data Dependent Routing" pageTitle="分區彈性" description="Explains concepts and gives examples behind shard elasticity, the ability to scale out Azure SQL databases easily." metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, elasticity" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Data Dependent Routing" pageTitle="分區彈性" description="說明概念並提供分區彈性的範例，此功能可用來輕鬆擴充 Azure SQL 資料庫。" metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, elasticity" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 

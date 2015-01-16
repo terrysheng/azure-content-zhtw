@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="在 Azure 中使用 Visual Studio Online 來連續傳遞" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="douge" editor="" />
+﻿<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="在 Azure 中使用 Visual Studio Online 來連續傳遞" metaKeywords="" description="了解如何將 Visual Studio Online 小組專案設定為自動建立和部署至 Azure 網站或雲端服務。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="douge" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 

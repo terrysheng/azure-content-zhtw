@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web w/ SQL + Git" pageTitle="採用 SQL Database 和 Git 的 PHP 網站 - Azure 教學課程" metaKeywords="" description="A tutorial that demonstrates how to create a PHP website that stores data in SQL Database and use Git deployment to Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter="PHP" title="Create a PHP website with a SQL Database and deploy using Git" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties urlDisplayName="Web w/ SQL + Git" pageTitle="採用 SQL Database 和 Git 的 PHP 網站 - Azure 教學課程" metaKeywords="" description="示範如何建立 PHP 網站將資料儲存於 SQL Database 並對於 Azure 使用 Git 部署的教學課程。" metaCanonical="" services="web-sites,sql-database" documentationCenter="PHP" title="Create a PHP website with a SQL Database and deploy using Git" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/18/2014" ms.author="tomfitz" />
 

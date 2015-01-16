@@ -154,50 +154,50 @@ Autoscaler，然後呼叫 **Autoscaler.Start** 方法來執行
 
 登入管理入口網站。
 
--   **[subscriptionname]：**選擇易記名稱以參照 Azure 訂閱，而此訂閱包含您要在其中使用自動調整的應用程式。
+-   **[subscriptionname]:** 選擇易記名稱以參照 Azure 訂閱，而此訂閱包含您要在其中使用自動調整的應用程式。
 
--   **[subscriptionid]：**Azure 訂閱的唯一 ID，而此訂閱包含您要在其中使用自動調整的應用程式。
+-   **[subscriptionid]:** Azure 訂閱的唯一 ID，而此訂閱包含您要在其中使用自動調整的應用程式。
 
-    1.在 Azure 管理入口網站中，按一下
+    1.  在 Azure 管理入口網站中，按一下
         **雲端服務**。
 
-    2.在雲端服務清單中，按一下主控您要在其中使用自動調整之應用程式的服務。右邊的 [快速瀏覽] 窗格將顯示 [**訂閱識別碼**]。
+    2.  在雲端服務清單中，按一下主控您要在其中使用自動調整之應用程式的服務。右邊的 [快速瀏覽] 窗格將顯示 [**訂閱識別碼**]。
 
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling05.png)
 
   
-	-   **[hostedservicednsprefix]：** 您要在其中使用自動調整之代管服務的 DNS 前置詞。
+	-   **[hostedservicednsprefix]:** 您要在其中使用自動調整之代管服務的 DNS 前置詞。
 
-    1.在 Azure 管理入口網站中，按一下 [**雲端服務**]。 
-    2.在雲端服務清單中，找出主控您要在其中使用自動調整之應用程式的服務。雲端服務的名稱為 **DNS Prefix**。
+    1.  在 Azure 管理入口網站中，按一下 [**雲端服務**]。 
+    2.  在雲端服務清單中，找出主控您要在其中使用自動調整之應用程式的服務。雲端服務的名稱為 **DNS Prefix**。
 
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling06.png)
  
-	-   **[targetrolename]：**作為自動調整規則目標的角色名稱。
+	-   **[targetrolename]:** 作為自動調整規則目標的角色名稱。
 
-    1.在 Azure 管理入口網站中，按一下**雲端服務**。
+    1.  在 Azure 管理入口網站中，按一下**雲端服務**。
 
-    2.在雲端服務清單中，按一下主控您要在其中使用自動調整之應用程式的服務，然後按一下 [**執行個體**]。 **角色* 資料欄顯示目標角色的名稱。
+    2.  在雲端服務清單中，按一下主控您要在其中使用自動調整之應用程式的服務，然後按一下 [**執行個體**]。 **角色* 資料欄顯示目標角色的名稱。
 
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling07.png)
 
 
-	-   **[storageaccountname]** 和 **[storageaccountkey]：**您用於目標 Azure 應用程式的 Azure 儲存體帳戶名稱。
+	-   **[storageaccountname]** 和 **[storageaccountkey]： **您用於目標 Azure 應用程式的 Azure 儲存體帳戶名稱。
 
-    1.在 Azure 管理入口網站中，按一下 [**儲存體**]。
+    1.  在 Azure 管理入口網站中，按一下 [**儲存體**]。
 
-    2.在儲存體帳戶的清單中，選取您要使用的儲存體帳戶。[**名稱**] 資料行將顯示 [**名稱**]。
+    2.  在儲存體帳戶的清單中，選取您要使用的儲存體帳戶。[**名稱**] 資料行將顯示 [**名稱**]。
 
-    3.按一下畫面底端的 [**管理金鑰**] 按鈕，以取得主要存取金鑰。
+    3.  按一下畫面底端的 [**管理金鑰**] 按鈕，以取得主要存取金鑰。
 
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling08.png)
   
  
-	-   **[managementcertificatethumbprint]：**管理憑證的 [**指紋**]，區塊將使用此管理憑證，來保護目標應用程式的調整要求的安全。
+	-   **[managementcertificatethumbprint]:** 管理憑證的 [**指紋**]，區塊將使用此管理憑證，來保護目標應用程式的調整要求的安全。
 
-    1.在 Azure 管理入口網站中，按一下 [**設定**]。
+    1.  在 Azure 管理入口網站中，按一下 [**設定**]。
 
-    2.[**指紋**] 資料行將顯示 [**指紋**]。
+    2.  [**指紋**] 資料行將顯示 [**指紋**]。
 
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling09.png)
  
@@ -216,7 +216,7 @@ Autoscaler，然後呼叫 **Autoscaler.Start** 方法來執行
 
 2.  在 [內容] 窗格內，將 [**複製到輸出目錄**] 值設為 [**永遠複製**]。
 
-下列程式碼範例顯示 **
+下列程式碼範例顯示 **rules.xml**
 file:
 
     <?xml version="1.0" encoding="utf-8" ?>
@@ -373,8 +373,8 @@ file:
 -   [Sage 如何使用自動調整減少 Azure 主控成本][]
 -   [利用 Azure 上的自動調整減少 TechNet 和 MSDN 主控成本和環境影響][]
 
-
-
+  [Microsoft Enterprise Library 5.0 Integration Pack for Azure]:
+    http://go.microsoft.com/fwlink/?LinkID=235134
   [後續步驟]: #NextSteps
   [何謂自動調整應用程式區塊？]: #WhatIs
   [概念]: #Concepts
@@ -388,8 +388,6 @@ file:
   [NuGet]: http://nuget.org/
   [Azure Management Portal]: http://manage.windowsazure.com
   [Storing Your Service Information Data]: http://msdn.microsoft.com/zh-tw/library/hh680878(PandP.50).aspx	
-  
-
   [在背景工作角色中主控自動調整應用程式區塊]: http://msdn.microsoft.com/zh-tw/library/hh680914(PandP.50).aspx
   [實作節流行為]: http://msdn.microsoft.com/zh-tw/library/hh680896(PandP.50).aspx
   [了解規則等級和重新調整]: http://msdn.microsoft.com/zh-tw/library/hh680923(PandP.50).aspx

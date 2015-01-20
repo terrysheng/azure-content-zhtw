@@ -1,9 +1,9 @@
-﻿<properties title="How to Use Twilio for Voice and SMS (PHP) - Azure" pageTitle="如何透過 Twilio 使用語音和 SMS (PHP) - Azure " metaKeywords="Azure PHP Twilio, Azure 通話, Azure 通話, Azure twilio, Azure SMS, Azure SMS, Azure 語音通話, azure 語音通話, Azure 簡訊, Azure 簡訊" description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。程式碼範例以 PHP 撰寫。" documentationCenter="PHP" services="" authors="MicrosoftHelp@twilio.com; robmcm" manager="twilio" editor="mollybos" videoId="" scriptId="" />
+﻿<properties title="How to Use Twilio for Voice and SMS (PHP) - Azure" pageTitle="如何使用 Twilio 進行語音和 SMS (PHP) - Azure" metaKeywords="Azure PHP Twilio, Azure 通話, Azure 通話, Azure Twilio, Azure SMS, Azure SMS, Azure 語音通話, azure 語音通話, Azure 文字訊息, Azure 文字訊息" description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。以 PHP 撰寫的程式碼範例。" documentationCenter="PHP" services="" authors="MicrosoftHelp@twilio.com; robmcm" manager="twilio" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com; robmcm" />
 
 # 如何在 PHP 中透過 Twilio 使用語音和簡訊功能
-本指南示範如何在 Azure 上透過 Twilio API 服務執行常見的程式設計工作。涵蓋的案例包括打電話和傳送簡訊 (SMS)。如需有關如何在應用程式中使用 Twilio 語音和 SMS 的詳細資訊，請參閱 [後續步驟](#NextSteps) 一節。
+本指南示範如何在 Azure 上透過 Twilio API 服務執行常見的程式設計工作。涵蓋的案例包括打電話和傳送簡訊 (SMS)。如需有關如何在應用程式中使用 Twilio 語音和 SMS 的詳細資訊，請參閱[後續步驟](#NextSteps) 一節。
 
 ## 目錄
 * [什麼是 Twilio？](#WhatIs)
@@ -13,9 +13,9 @@
 * [驗證電話號碼](#VerifyPhoneNumbers)
 * [建立 PHP 應用程式](#create_app)
 * [設定應用程式以使用 Twilio 程式庫](#configure_app)
-* [作法：撥出電話](#howto_make_call)
-* [作法：傳送簡訊](#howto_send_sms)
-* [作法：從您自己的網站提供 TwiML 回應](#howto_provide_twiml_responses)
+* [做法：撥出電話](#howto_make_call)
+* [做法：傳送簡訊](#howto_send_sms)
+* [做法：從您自己的網站提供 TwiML 回應](#howto_provide_twiml_responses)
 
 <h2><a id="WhatIs"></a>什麼是 Twilio？</h2>
 Twilio 正在形塑商業環境的未來，可讓開發人員將語音、VoIP 和訊息傳送內嵌到應用程式中。它們將雲端、全球化環境中所需的整個基礎結構虛擬化，透過 Twilio 通訊 API 平台來揭露基礎結構。輕鬆就可建立和擴充應用程式。享受隨收隨付定價的彈性和雲端可靠性的好處。
@@ -24,66 +24,62 @@ Twilio 正在形塑商業環境的未來，可讓開發人員將語音、VoIP �
 
 <h2><a id="Pricing"></a>Twilio 定價和特別優惠</h2>
 
-Azure 客戶享有 [特別優惠][http://www.twilio.com/azure]：升級 Twilio 帳戶即贈送價值 $10 的 Twilio 點數。此 Twilio 點數可用來折抵任何 Twilio 使用量 ($10 點數相當於最多傳送 1,000 則簡訊，或最多接收 1000 分鐘的撥入語音，視電話號碼所在地點或通話目的地而定)。請至下列位置兌換此 Twilio 點數，並開始使用：[http://ahoy.twilio.com/azure](http://ahoy.twilio.com/azure)。
+Azure 客戶享有[特別優惠][http://www.twilio.com/azure]：升級 Twilio 帳戶時，可獲贈價值 $10 的 Twilio 點數。此 Twilio 點數可用來折抵任何 Twilio 使用量 ($10 點數相當於最多傳送 1,000 則簡訊，或最多接收 1000 分鐘的撥入語音，視電話號碼所在地點或通話目的地而定)。請至下列位置兌換此 Twilio 點數，並開始使用：[http://ahoy.twilio.com/azure](http://ahoy.twilio.com/azure)。
 
-Twilio 是隨收隨付的服務。不需要設定費，隨時都可結清帳戶。如需詳細資訊，請參閱 [Twilio 定價][twilio_pricing] (英文)。
+Twilio 是隨收隨付的服務。不需要設定費，隨時都可結清帳戶。如需詳細資訊，請參閱 [Twilio 定價][twilio_pricing]。
 
 <h2><a id="Concepts"></a>概念</h2>
-Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。用戶端程式庫有多種語言版本，相關清單請參閱 [Twilio API 程式庫][twilio_libraries] (英文)。
+Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。用戶端程式庫有多種語言版本，相關清單請參閱 [Twilio API 程式庫][twilio_libraries]。
 
 Twilio API 的兩大重點是 Twilio 動詞和 Twilio 標記語言 (TwiML)。
 
 <h3><a id="Verbs"></a>Twilio 動詞</h3>
-API 採用 Twilio 動詞。例如，**<Say>** 動詞指示 Twilio 在通話中用語音傳遞訊息。
+API 採用 Twilio 動詞; 例如，**&lt;Say&gt;** 動詞指示 Twilio 在通話中用語音傳遞訊息。
 
-以下是 Twilio 動詞清單。如需了解其他動詞和功能，請參閱 [Twilio 標記語言文件][http://www.twilio.com/docs/api/twiml] (英文)。
+以下是 Twilio 動詞清單。如需了解其他動詞和功能，請參閱 [Twilio 標記語言文件][http://www.twilio.com/docs/api/twiml]。
 
-* **<Dial>**：使撥號者接通另一支電話。
-* **<Gather>**：收集電話按鍵上輸入的號碼。
-* **<Hangup>**：結束通話。
-* **<Play>**：播放音訊檔案。
-* **<Pause>**：靜候一段指定的秒數。
-* **<Record>**：錄製來電者的語音，並傳回含有錄音的檔案 URL。
-* **<Redirect>**：將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
-* **<Reject>**：拒絕 Twilio 號碼的來電而不計費
-* **<Say>**：將來電的文字轉換成語音。
-* **<Sms>**：傳送簡訊。
+* **&lt;Dial&gt;**：使撥號者接通另一支電話。
+* **&lt;Gather&gt;**：收集電話按鍵上輸入的號碼。
+* **&lt;Hangup&gt;**：結束通話。
+* **&lt;Play&gt;**：播放音訊檔案。
+* **&lt;Pause&gt;**：靜候一段指定的秒數。
+* **&lt;Record&gt;**：錄製來電者的語音並傳回含有錄音的檔案 URL。
+* **&lt;Redirect&gt;**：將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
+* **&lt;Reject&gt;**：拒絕 Twilio 號碼的來電而不計費
+* **&lt;Say&gt;**：將來電的文字轉換成語音。
+* **&lt;Sms&gt;**：傳送簡訊。
 
 <h3><a id="TwiML"></a>TwiML</h3>
 TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如何處理來電或簡訊。
 
-例如，下列 TwiML 會將 **Hello World** 文字轉換成語音。
+例如，下列 TwiML 範例可將文字 **Hello World** 轉換為語音。
 
     <?xml version="1.0" encoding="UTF-8" ?>
     <Response>
        <Say>Hello World</Say>
     </Response>
 
-當應用程式呼叫 Twilio API 時，其中一個 API 參數是傳回 TwiML 回應的 URL。在開發用途上，您可以使用 Twilio 提供的 URL 來提供應用程式所使用的 TwiML 回應。您也可以裝載您自己的 URL 來產生 TwiML 回應，另一種選擇是使用 **TwiMLResponse** 物件。
+當應用程式呼叫 Twilio API 時，其中一個 API 參數是傳回 TwiML 回應的 URL。在開發用途上，您可以使用 Twilio 提供的 URL 來提供應用程式所使用的 TwiML 回應。您也可以裝載您自己的 URL 來產生 TwiML 回應，而另一種選擇是使用 **TwiMLResponse** 物件。
 
 如需 Twilio 動詞、屬性和 TwiML 的詳細資訊，請參閱 [TwiML][twiml]。如需 Twilio API 的詳細資訊，請參閱 [Twilio API][twilio_api]。
 
 <h2><a id="CreateAccount"></a>建立 Twilio 帳戶</h2>
-準備取得 Twilio 帳戶時，請至 [試用 Twilio][try_twilio] 註冊。您可以先使用免費帳戶，稍後再升級帳戶。
+準備取得 Twilio 帳戶時，請至[試用 Twilio][try_twilio] 註冊。您可以先使用免費帳戶，稍後再升級帳戶。
 
-註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面][twilio_account] (英文) 的 **ACCOUNT SID** 和 **AUTH TOKEN** 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
+註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面 ][twilio_account]的 [ACCOUNT SID]**** 和 [AUTH TOKEN]**** 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
 
-<h2><a id="VerifyPhoneNumbers"></a>驗證電話號碼</h2>
-各種電話號碼都必須經過您在 Twilio 的帳戶來驗證。例如，如果想要使用來電者 ID 現有的電話號碼向外撥打電話，則必須向 Twilio 驗證此電話號碼。同樣地，在您升級之前，如果想要傳送簡訊給某個電話號碼，也必須向 Twilio 驗證此號碼。在升級之後，您無須驗證電話號碼即可傳送簡訊給任何號碼。如需如何驗證電話號碼的詳細資訊，請參閱[管理電話號碼][verify_phone]。以下某些程式碼依賴需要向 Twilio 驗證的電話號碼。
-
-除了在應用程式中使用現有的電話號碼，您也可以購買 Twilio 電話號碼。如需有關購買 Twilio 電話號碼的詳細資訊，請參閱 [Twilio 電話號碼說明](https://www.twilio.com/help/faq/phone-numbers) (英文)。
 
 <h2><a id="create_app"></a>建立 PHP 應用程式</h2>
-使用 Twilio 服務且執行於 Azure 的 PHP 應用程式，與其他使用 Twilio 服務的 PHP 應用程式並無不同。雖然 Twilio 服務是以 REST 為基礎，並且可透過數種方式從 PHP 撥打，但本文的重點是要說明如何搭配使用 Twilio 服務與 [適用於 PHP 的 Twiliofor 程式庫 (由 Github 提供)][twilio_php]。若想進一步了解如何使用適用於 PHP 的 Twilio 程式庫，請參閱 [http://readthedocs.org/docs/twilio-php/en/latest/index.html][twilio_lib_docs]。
+使用 Twilio 服務且執行於 Azure 的 PHP 應用程式，與其他使用 Twilio 服務的 PHP 應用程式並無不同。雖然 Twilio 服務是以 REST 為基礎，並且可透過數種方式從 PHP 撥打，但本文的重點是要說明如何搭配使用 Twilio 服務與[適用於 PHP 的 Twilio 程式庫 (由 Github 提供)][twilio_php]。如需使用 PHP 的 Twilio 程式庫相關詳細資訊，請參閱 [http://readthedocs.org/docs/twilio-php/en/latest/index.html][twilio_lib_docs]。
 
-如需建置 Twilio/PHP 應用程式以及將其部署至 Azure 的詳細指示，請參閱 [如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話][howto_phonecall_php]。
+如需建置 Twilio/PHP 應用程式以及將其部署至 Azure 的詳細指示，請參閱[如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話][howto_phonecall_php]。
 
 <h2><a id="configure_app"></a>設定應用程式以使用 Twilio 程式庫</h2>
 您可以透過兩種方式設定應用程式，以使用適用於 PHP 的 Twilio 程式庫：
 
 1. 從 Github 下載適用於 PHP 的 Twilio 程式庫 ([https://github.com/twilio/twilio-php][twilio_php])，然後將 **Services** 目錄新增至您的應用程式。
 
-	-或-
+	-OR-
 
 2. 以 PEAR 封裝的形式，安裝適用於 PHP 的 Twilio 程式庫。您可以使用下列命令進行此安裝：
 
@@ -97,7 +93,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 如需詳細資訊，請參閱 [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme]。
 
 <h2><a id="howto_make_call"></a>作法：撥出電話</h2>
-以下顯示如何使用 **Services_Twilio** 類別撥出電話。此程式碼也使用 Twilio 提供的網站來傳回 Twilio 標記語言 (TwiML) 回應。請將 **From** 和 **To** 電話號碼換成您的值，在執行程式碼之前，請記得先驗證 Twilio 帳戶的 **From** 電話號碼。
+以下示範如何使用 **Services_Twilio** 類別來撥出電話。此程式碼也使用 Twilio 提供的網站來傳回 Twilio 標記語言 (TwiML) 回應。使用您的值取代 **From** 與 **To** 電話號碼，並確定您已先驗證 Twilio 帳戶的 **From** 電話號碼，再執行程式碼。
 
 	// Include the Twilio PHP library.
 	require_once 'Services/Twilio.php';
@@ -110,7 +106,6 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 	$token = "your_twilio_authentication_token";
 
 	// The number of the phone initiating the the call.
-	// (Must be previously validated with Twilio.)
 	$from_number = "NNNNNNNNNNN";
 
 	// The number of the phone receiving call.
@@ -139,14 +134,14 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 		echo 'Error: ' . $e->getMessage();
 	}
 
-如前所述，此程式碼使用 Twilio 提供的網站來傳回 TwiML 回應。您可以改用自己的網站來提供 TwiML 回應；如需詳細資訊，請參閱 [如何從您自己的網站提供 TwiML 回應](#howto_provide_twiml_responses)。
+如前所述，此程式碼使用 Twilio 提供的網站來傳回 TwiML 回應。您可以改用自己的網站來提供 TwiML 回應；如需詳細資訊，請參閱[如何從您自己的網站提供 TwiML 回應](#howto_provide_twiml_responses)。
 
 
-- **注意**：若要對 SSL 憑證驗證錯誤進行疑難排解，請參閱 [http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation]。
+- **注意**：若要對 SSL 憑證驗證錯誤進行疑難排解，請參閱 [http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
 
 
 <h2><a id="howto_send_sms"></a>作法：傳送簡訊</h2>
-以下顯示如何使用 **Services_Twilio** 類別傳送 SMS 訊息。**From** 號碼由 Twilio 提供給試用帳戶來傳送簡訊。執行程式碼之前，必須驗證您 Twilio 帳戶的 **To** 號碼。
+以下示範如何使用 **Services_Twilio** 類別來傳送簡訊。**From** 號碼由 Twilio 提供給試用帳戶來傳送簡訊。執行程式碼之前，必須驗證您 Twilio 帳戶的 **To** 號碼。
 
 	// Include the Twilio PHP library.
 	require_once 'Services/Twilio.php';
@@ -169,7 +164,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 	// Send the SMS message.
 	try
 	{
-		$client->account->sms_messages->create($from_number, $to_number, $message);
+		$client->$client->account->messages->sendMessage($from_number, $to_number, $message);
 	}
 	catch (Exception $e) 
 	{
@@ -177,11 +172,11 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 	}
 
 <h2><a id="howto_provide_twiml_responses"></a>作法：從您自己的網站提供 TwiML 回應</h2>
-當您的應用程式開始呼叫 Twilio API 時，Twilio 會將要求傳送至 URL，然後應該會傳回 TwiML 回應。前述範例使用 Twilio 提供的 URL [http://twimlets.com/message][twimlet_message_url]。(雖然 TwiML 是設計給 Twilio 使用的，但您也可以在瀏覽器中檢視 TwiML。例如，按一下 [http://twimlets.com/message][twimlet_message_url] 可查看空白 `<Response>` 元素，又例如，按一下 [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] 可查看包含 `<Say>` 元素的 `<Response>` 元素。)
+當您的應用程式開始呼叫 Twilio API 時，Twilio 會將要求傳送至 URL，然後應該會傳回 TwiML 回應。前述範例使用 Twilio 提供的 URL [http://twimlets.com/message][twimlet_message_url]。(雖然 TwiML 是設計給 Twilio 使用的，但您也可以在瀏覽器中檢視 TwiML。例如，按一下 [http://twimlets.com/message][twimlet_message_url] 以查看空白 `<Response>` 元素；另一個範例，按一下 [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] 以查看包含 `<Say>` 元素的 `<Response>` 元素。)
 
 除了使用 Twilio 提供的 URL 以外，您也可以建立自己的網站來傳回 HTTP 回應。您可以使用任何語言建立會傳回 XML 回應的網站；本主題假設您將使用 PHP 建立 TwiML。
 
-下列 PHP 頁面將引起 TwiML 在通話中說出 **Hello World** 作為回應。
+以下的 PHP 頁面會產生一個在來電中顯示 **Hello World** 的 TwiML 回應。
 
     <?php    
 		header("content-type: text/xml");    
@@ -229,7 +224,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 		echo 'Error: ' . $e->getMessage();
 	}
 
-如需關於透過 Java 在 Azure 中使用 Twilio 的詳細資訊，請參閱 [如何從 Azure 中的 Java 應用程式使用 Twilio 撥打電話][howto_phonecall_php]。
+如需關於在 Azure 中利用 PHP 使用 Twilio 的其他資訊，請參閱[如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話][howto_phonecall_php]。
 
 <h2><a id="AdditionalServices"></a>作法：使用其他 Twilio 服務</h2>
 除了此處所示的範例以外，Twilio 還提供網頁式 API，方便您從 Azure 應用程式中充份利用其他 Twilio 功能。如需完整詳細資料，請參閱 [Twilio API 文件][twilio_api_documentation]。
@@ -238,8 +233,8 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 了解基本的 Twilio 服務之後，請參考下列連結以取得更多資訊：
 
 * [Twilio 安全性方針][twilio_security_guidelines]
-* [Twilio 作法與範例程式碼][twilio_howtos]
-* [Twilio 快速入門教學課程][twilio_quickstarts] 
+* [Twilio 做法與範例程式碼][twilio_howtos]
+* [Twilio 快速入門教學課程][twilio_quickstarts]
 * [GitHub 上的 Twilio][twilio_on_github]
 * [洽詢 Twilio 支援][twilio_support]
 
@@ -269,3 +264,5 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 [twilio_on_github]: https://github.com/twilio
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
+
+<!--HONumber=35.2-->

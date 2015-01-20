@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Debug Websites (Node)" pageTitle="如何在 Node.js 中偵錯 Azure 網站" metaKeywords="偵錯 azure 網站, 偵測 azure, 疑難排解 azure 網站, 疑難排解 azure 網站節點" description="了解如何使用 Node.js 進行 Azure 網站的偵錯。" metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Debug Websites (Node)" pageTitle="如何使用 Node.js 為 Azure 網站偵錯 " metaKeywords="debug website azure, debugging azure, troubleshooting azure web site, troubleshoot azure website node" description="了解如何使用 Node.js 偵錯 Azure 網站。" metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -10,11 +10,11 @@
 
 Azure 提供內建的診斷功能，可協助您針對 Azure 網站所託管的 Node.js 應用程式進行偵錯。本文中，您將了解如何啟用 stdout 和 stderr 記錄、在瀏覽器中顯示錯誤資訊，以及如何下載和檢視記錄檔。
 
-對於 Azure 上代管的 Node.js 應用程式，診斷程式由 [IISNode] 提供。本文只討論最常用來收集診斷資訊的設定，不提供 IISNode 的完整使用參考。如需有關使用 IISNode 的詳細資訊，請參閱 GitHub 的 [IISNode Readme]。
+對於 Azure 上裝載的 Node.js 應用程式，診斷程式由 [IISNode] 提供。本文只討論最常用來收集診斷資訊的設定，不提供 IISNode 的完整使用參考。如需有關使用 IISNode 的詳細資訊，請參閱 GitHub 上的 [IISNode Readme]。
 
 ##<a id="enablelogging"></a>啟用記錄
 
-依預設，Azure 網站只擷取關於部署的診斷資訊，例如使用 Git 來部署網站時。如果您在部署時發生問題，此資訊很有用，例如安裝 **package.json** 中參考的模組失敗時，或使用自訂部署指令碼時。
+依預設，Azure 網站只擷取關於部署的診斷資訊，例如使用 Git 來部署網站時。如果您在部署時發生問題 (例如安裝 **package.json** 中參考的模組失敗時)，或如果您正在使用自訂部署指令碼，此資訊很有用。
 
 若要啟用 stdout 和 stderr 資料流記錄，您必須在 Node.js 應用程式的根目錄中建立 **IISNode.yml** 檔案，並加入下列指令：
 
@@ -22,7 +22,7 @@ Azure 提供內建的診斷功能，可協助您針對 Azure 網站所託管的 
 
 這會啟用記錄來自 Node.js 應用程式的 stderr 和 stdout。
 
-**IISNode.yml** 檔案也可用來控制當失敗發生時，將易懂的錯誤還是開發人員錯誤傳回至瀏覽器。若要傳回開發人員錯誤，請將下一行加入至 **IISNode.yml** 檔案：
+**IISNode.yml** 檔案也可用來控制是否要在發生失敗時，將易懂的錯誤或開發人員錯誤傳回至瀏覽器。若要傳回開發人員錯誤，請將下面這一行新增至 **IISNode.yml** 檔案：
 
 	devErrorsEnabled: true
 
@@ -37,10 +37,10 @@ Azure 提供內建的診斷功能，可協助您針對 Azure 網站所託管的 
 
 <div class="dev-callout">
 <strong>注意</strong>
-<p>如果網站是以 Azure 命令列工具或 Azure PowerShell Cmdlet 建立，則會自動建立預設的 <strong>IISNode.yml</strong> 檔案。</p>
+<p>如果您是使用 Azure 命令列工具或 Azure PowerShell Cmdlet 建立網站，就會自動建立預設的 <strong>IISNode.yml</strong> 檔案。</p>
 </div>
 
-您可以從 [Azure 管理入口網站]選取網站，然後選取 [**重新啟動**] 按鈕，即可重新啟動網站：
+您可以從 [Azure 管理入口網站]選取網站，然後選取 [重新啟動]**** 按鈕，即可重新啟動網站：
 
 ![restart button][restart-button]
 
@@ -59,20 +59,20 @@ Azure 提供內建的診斷功能，可協助您針對 Azure 網站所託管的 
 
 	npm install azure-cli -g
 
-安裝之後，可使用 'azure' 命令來存取工具。必須先設定命令列工具來使用您的 Azure 訂閱。如需有關如何完成此工作的詳細資訊，請參閱＜[如何使用 Azure 命令列工具]＞一文的＜**如何下載和匯入發行設定**＞一節。
+安裝之後，可使用 'azure' 命令來存取工具。必須先設定命令列工具來使用您的 Azure 訂閱。如需有關如何完成此工作的詳細資訊，請參閱[如何使用 Azure 命令列工具]文章的＜如何下載及匯入發佈設定＞****一節。
 
 ###FTP
 
-若要透過 FTP 來存取診斷資訊，請造訪 [Azure 入口網站]，選取您的網站，然後選取 [**儀表板**]。在**快速連結**區段中，[**FTP DIAGNOSTIC LOGS**] 和 [**FTPS DIAGNOSTIC LOGS**] 連結可讓您使用 FTP 通訊協定來存取記錄檔。
+若要透過 FTP 來存取診斷資訊，請造訪 [Azure 入口網站]，選取您的網站，然後選取 [儀表板]****。在 [快速連結]**** 區段中，[FTP 診斷記錄]**** 和 [FTPS 診斷記錄]**** 連結可讓您使用 FTP 通訊協定來存取記錄檔。
 
 <div class="dev-callout">
 <strong>注意</strong>
-<p>如果您先前沒有為 FTP 或部署設定使用者名稱和密碼，您可以從 [<strong>快速入門</strong>] 管理頁面中選取 [<strong>設定部署認證</strong>] 來設定。</p>
+<p>如果您先前沒有為 FTP 或部署設定使用者名稱和密碼，您可以從 <strong>快速入門</strong> 管理頁面中選取 <strong>[設定部署認證] 來設定</strong>。</p>
 </div>
 
 儀表板中傳回的 FTP URL 是 **LogFiles** 目錄，內含下列子目錄：
 
-* [部署方法] - 如果您使用 Git 之類的部署方法，則會建立相同名稱的目錄，其中含有與部署相關的資訊。
+* [部署方法] - 如果您使用 Git 之類的部署方法，將會建立相同名稱的目錄，其中含有與部署相關的資訊。
 
 * nodejs - 從應用程式的所有執行個體擷取的 stdout 和 stderr 資訊 (當 loggingEnabled 為 true 時)。
 
@@ -82,13 +82,13 @@ Azure 提供內建的診斷功能，可協助您針對 Azure 網站所託管的 
 
 	azure site log download [sitename]
 
-這會將 **diagnostics.zip** 下載到目前目錄。此封存檔包含下列目錄結構：
+這會將 **diagnostics.zip** 下載到目前的目錄。此封存檔包含下列目錄結構：
 
 * deployments - 關於應用程式部署的資訊記錄
 
 * LogFiles
 
-	* [部署方法] - 如果您使用 Git 之類的部署方法，則會建立相同名稱的目錄，其中含有與部署相關的資訊。
+	* [部署方法] - 如果您使用 Git 之類的部署方法，將會建立相同名稱的目錄，其中含有與部署相關的資訊。
 
 	* nodejs - 從應用程式的所有執行個體擷取的 stdout 和 stderr 資訊 (當 loggingEnabled 為 true 時)。
 
@@ -104,15 +104,17 @@ Azure 提供內建的診斷功能，可協助您針對 Azure 網站所託管的 
 
 本文中，您學到如何啟用和存取 Azure 的診斷資訊。此資訊有助於了解應用程式發生的問題，但也可能指出您使用的模組有問題，或 Azure 網站使用的 Node.js 版本和部署環境中使用的版本不同。
 
-如需有關在 Azure 上使用模組的詳細資訊，請參閱[在 Azure 應用程式中使用 Node.js 模組](英文)。
+如需有關在 Azure 上使用模組的詳細資訊，請參閱[在 Azure 應用程式中使用 Node.js 模組]。
 
-如需有關為應用程式指定 Node.js 版本的詳細資訊，請參閱[在 Azure 應用程式中指定 Node.js 版本](英文)。
+如需有關為應用程式指定 Node.js 版本的詳細資訊，請參閱[在 Azure 應用程式中指定 Node.js 版本]。
 
 [IISNode]: https://github.com/tjanczuk/iisnode
-[IISNode 讀我檔案]: https://github.com/tjanczuk/iisnode#readme
+[IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
 [如何使用 Azure 命令列工具]: /zh-tw/documentation/articles/xplat-cli/
-[搭配使用 Node.js 模組與 Azure 應用程式]: /zh-tw/documentation/articles/nodejs-use-node-modules-azure-apps/
+[使用 Node.js 模組與 Azure 應用程式搭配]: /zh-tw/documentation/articles/nodejs-use-node-modules-azure-apps/
 [在 Azure 應用程式中指定 Node.js 版本]: /zh-tw/documentation/articles/nodejs-specify-node-version-azure-apps/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
+
+<!--HONumber=35.2-->

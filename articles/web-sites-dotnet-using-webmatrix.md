@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website with WebMatrix" pageTitle="使用 WebMatrix 的 .NET 網站 - Azure 教學課程 " metaKeywords="WebMatrix Azure, WebMatrix Azure, Azure 網站 WebMatrix, Azure 網站 WebMatrix, Web Matrix Azure, WebMatrix Azure" description="了解如何使用 WebMatrix 開發和部署 Azure 網站。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a website with Microsoft WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Website with WebMatrix" pageTitle="使用 WebMatrix 的 .NET 網站 - Azure 教學課程" metaKeywords="WebMatrix Azure, WebMatrix Azure, Azure 網站 WebMatrix, Azure 網站 WebMatrix, Web Matrix Azure, WebMatrix Azure" description="了解如何使用 WebMatrix 來開發及部署 Azure 網站。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a website with Microsoft WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/27/2014" ms.author="tomfitz" />
 
@@ -15,13 +15,14 @@
 * 如何使用 WebMatrix 內建的範本來建立網站 
 * 如何將自訂的網站直接從 WebMatrix 部署至 Azure。
 
-
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+> [WACOM.NOTE]
+> 若要完成此教學課程，您需要 Azure 帳戶。您可以 <a href="http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/">啟用您的 MSDN 訂閱者權益</a> 或 <a href="http://azure.microsoft.com/zh-tw/pricing/free-trial/">註冊免費試用</a>。
+> 若要在註冊帳戶之前先開始使用 Azure 網站，請移至 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>，您可以免費立即在上述網址中於「Azure 網站」中建立暫時性 ASP.NET 起始網站。不需要信用卡，不提供任何承諾。
 
 ## Sign into Azure
 
 1. 啟動 WebMatrix。
-2. 如果這是您第一次使用 WebMatrix 3，則會提示您登入 Azure。否則，您可以按一下 [**登入**] 按鈕，然後選擇 [**新增帳戶**]。選擇使用您的 Microsoft 帳戶來 [**登入**]。
+2. 如果這是您第一次使用 WebMatrix 3，則會提示您登入 Azure。否則，您可以按一下 [登入]**** 按鈕，然後選擇 [新增帳戶]****。選擇使用您的 Microsoft 帳戶來登入****。
 
 	![Add Account][addaccount]
 
@@ -32,11 +33,11 @@
 
 ## 使用 Azure 內建的範本建立網站
 
-1. 在開始畫面上，按一下 [**新增**] 按鈕，然後選擇 [**範本庫**]，從範本庫建立新的網站：
+1. 在開始畫面上，按一下 [新增]**** 按鈕，然後選擇 [範本庫]****，從範本庫建立新的網站：
 
 	![New site from Template Gallery][sitefromtemplate]
 
-2. 範本庫會顯示可在本機或 Azure 上執行的可用範本清單。從範本的清單中選取 [**Bakery**]，並在 [**網站名稱**] 中輸入 **bakerysample**，然後按 [**下一步**]。
+2. 範本庫會顯示可在本機或 Azure 上執行的可用範本清單。從範本清單中選取 [麵包店]****，在 [站台名稱]**** 中輸入 **bakerysample**，然後按 [下一步]****。
 
 	![Create Site from Template][sitefromtemplatedetails]
 
@@ -50,32 +51,32 @@
 
 ## 設定電子郵件
 
-這個糕點範例包括模擬的訂購表單，此訂購表單會傳送一則包含訂購項目的電子郵件訊息。您可以在 Azure 上使用 SendGrid 電子郵件服務，來從您的網站傳送電子郵件。
+麵包店範例包含模擬的訂購表單，可透過電子郵件傳送訂購項目。您將使用 Azure 上的 SendGrid 電子郵件服務，從您的網站傳送電子郵件。
 
-1. 遵循 [如何使用 Azure 上的 SendGrid 傳送電子郵件][sendgridexample] 教學課程中的步驟，來設定 SendGrid 帳戶並擷取連線資訊。您不需要執行整個教學課程，僅執行到取得連接資訊的步驟即可。
+1. 依照[如何透過 Azure 使用 SendGrid 傳送電子郵件][sendgridexample]教學課程中的步驟設定 SendGrid 帳戶，並抓取連線資訊。您不需要完成整個教學課程，只要完成取得連線資訊部分的課程即可。
 
-2. 將 SendGrid NuGet 封裝新增至 WebMatrix 專案。首先，按一下 [NuGet] 按鈕。
+2. 新增 SendGrid NuGet 封裝到您的 WebMatrix 專案。首先，按一下 [NuGet] 按鈕。
 
     ![Add SendGrid][addsendgrid]
 
-    搜尋並安裝 SendGrid。
+    搜尋 SendGrid 並安裝它。
 
     ![Install SendGrid][installsendgrid]
 
-    在封裝完成安裝之後，請注意 SendGrid 組件已新增至 bin。
+    封裝安裝完成之後，請注意 SendGrid 組件已經加入 bin。
 
     ![SendGrid added][binsendgrid]
 
-3. 連按兩下檔案名稱來開啟 *Order.cshtml* 頁面。
+3. 按兩下檔案名稱以開啟 *Order.cshtml* 頁面。
 
 	![][modify2]
 
-4. 在檔案頂端新增下列程式碼：
+4. 在檔案的最上方，新增下列程式碼：
 
         @using SendGrid;
         @using System.Net.Mail;
 
-4. 尋找 //SMTP Configuration for Hotmail 註解，並刪除或取消註解有關使用 WebMail 的所有程式碼。
+4. 尋找內容說明 //Hotmail 的 SMTP 設定的註解，然後刪除所有程式碼或將所有程式碼家加上註解以使用 WebMail。
 
         /*
         //SMTP Configuration for Hotmail
@@ -101,7 +102,7 @@
         }*/
 
 
-5. 新增使用 SendGrid (而不是使用 WebMail) 來傳送電子郵件的程式碼。新增下列程式碼以取代您在上一個步驟中所刪除的程式碼。
+5. 新增程式碼以使用 SendGrid (而不是 WebMail) 傳送電子郵件。加入下列程式碼，以取代您在上一個步驟中刪除的程式碼。
 
 		 if (email.IsEmpty()) {
             Response.Redirect("~/OrderSuccess?NoEmail=1");
@@ -130,22 +131,22 @@
         }
 
 
-6. 在 WebMatrix 功能區上，按一下 [**執行**] 來測試網站。
+6. 在 WebMatrix 功能區中，按一下 [執行]**** 來測試網站。
 
 	![][modify4]
 
-7. 在其中一個產品上，按一下 [**立即訂購**]，將訂單傳送給您自己。
+7. 在其中一個產品上，按一下 [立即訂購]****，以傳送一份訂單給您自己。
 
-8. 檢查電子郵件，確定您收到訂單確認。如果您無法傳送電子郵件，請參閱《ASP.NET 網頁 (Razor) 疑難排解指南》中的 [傳送電子郵件時的問題][sendmailissues] (英文)。
+8. 檢查電子郵件，確定您收到訂單確認。如果您無法傳送電子郵件，請參閱 ASP.NET 網頁 (Razor) 疑難排解指南中的[傳送電子郵件時的問題][sendmailissues]。
  
 
 ## 將自訂的網站從 WebMatrix 部署至 Azure
 
-1. 在 WebMatrix 中，按一下 [**首頁**] 功能區中的 [**發佈**]，以顯示網站的 [**發佈預覽**] 對話方塊。
+1. 在 WebMatrix 中，從 [首頁]**** 功能區按一下 [發行]****，以顯示網站的 [發行預覽]**** 對話方塊。
 
 	![WebMatrix Publish Preview][howtopublishpreview]
 
-2. 按一下以選取 bakery.sdf 旁邊的核取方塊，然後按一下 [**繼續**]。發行完成時，已更新的網站在 Azure 上的 URL 會顯示在 WebMatrix IDE 底部。  
+2. 按一下以選取 bakery.sdf 旁邊的核取方塊，然後按一下 [繼續]****。發行完成時，已更新的網站在 Azure 上的 URL 會顯示在 WebMatrix IDE 底部。  
 
 	![Publishing Complete][publishcomplete]
 
@@ -153,15 +154,15 @@
 
 	![Bakery Sample Site][bakerysample]
 
-您也可以在 Azure 入口網站中按一下 [**網站**] 來顯示訂用帳戶的所有網站，一樣可以找到此網站的 URL。每一個網站的 URL 會顯示在網站頁面的 URL 欄。
+	在 Azure 入口網站中按一下 [網站]**** 來顯示您訂閱的所有網站，一樣可以找到網站的 URL。每一個網站的 URL 會顯示在網站頁面的 URL 欄。
 
 ## 修改網站並重新發行至 Azure 網站
 
-您可以使用 WebMatrix 來修改網站，然後重新發佈到 Azure 網站。在下列程序中，您將新增核取方塊來指出訂單為禮物。
+您可以使用 WebMatrix 來修改網站，然後重新發行至您的 Azure 網站。在下列程序中，您將加入核取方塊來指出訂單為禮物。
 
 1. 開啟 *Order.cshtml* 頁面。
 
-2. 找出 "shiping" 類別表單定義。在 <li> 區塊後面插入下列程式碼。
+2. 找出 "shiping" 類別表單定義。在 &lt;li&gt; 區塊後面插入下列程式碼。
 		
 		<li class="gift">
 		    <div class="fieldcontainer" data-role="fieldcontain">
@@ -172,7 +173,7 @@
 
 	![][modify5]
 
-3. 在檔案中找到 "var shipping = Request["orderShipping"];"，在此行後面直接插入下列程式碼行。
+3. 在檔案中找出 "var shipping = Request["orderShipping"]];"，然後在此行下方直接插入下列這一行程式碼。
 
 		var gift = Request["isGift"];
 
@@ -182,7 +183,7 @@
 			body += "This is a gift." + "<br/>";
 		}
 
-	*order.cshtml* 檔案的內容應該如下圖所示。
+	*order.cshtml* 檔案看起來應該像下面的影像。
 
 	![][modify6]
 
@@ -190,17 +191,17 @@
 
 	![][modify7]
 
-6. 按一下 [**首頁**] 功能區上的 [**發佈**] 來重新發行網站。
+6. 在 [首頁]**** 功能區按一下 [發行]****，以重新發行網站。
 
-7. 在 [**發佈預覽**] 對話方塊上，確定已勾選 Order.cshtml，然後按一下 [繼續]。
+7. 在 [發行預覽]**** 對話方塊中，確定已勾選 Order.cshtml，然後按一下 [繼續]。
 
 8. 按一下連結，在瀏覽器中開啟網站，然後在您的 Azure 網站上測試更新結果。
 
 # 後續步驟
 
-您已了解如何建立網站並從 WebMatrix 部署至 Azure。若要深入了解 WebMatrix，請參考下列資源：
+您已經學到如何建立網站並將網站從 WebMatrix 部署至 Azure。若要深入了解 WebMatrix，請參考下列資源：
 
-* [WebMatrix for Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
+* [適用於 Azure 的 WebMatrix](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
 * [WebMatrix 網站](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
@@ -234,3 +235,5 @@
 
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/zh-tw/documentation/articles/sendgrid-dotnet-how-to-send-email/
+
+<!--HONumber=35.2-->

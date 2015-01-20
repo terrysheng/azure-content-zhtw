@@ -1,4 +1,4 @@
-﻿<properties pageTitle="傳送推播通知給已驗證的使用者" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="了解如何將推播通知傳送給特定 " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
+<properties pageTitle="傳送推播通知給已驗證的使用者" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="了解如何將推播通知傳送給特定 " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 
@@ -32,7 +32,7 @@
 
 ##<a name="update-app"></a>更新應用程式以在註冊前先登入
 
-[WACOM.INCLUDE [mobile-services-windows-phone-push-notifications-app- md)] users](../includes/mobile-services-windows-phone-push-notifications-app-users.
+[WACOM.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](../includes/mobile-services-windows-phone-push-notifications-app-users.md)]
 
 
 ##<a name="test"></a>測試應用程式
@@ -56,3 +56,5 @@
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [行動服務 .NET 作法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
+
+<!--HONumber=35.2-->

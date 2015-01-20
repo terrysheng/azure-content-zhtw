@@ -1,4 +1,4 @@
-﻿<properties pageTitle="使用行動服務將影像上傳至 Blob 儲存體 (Windows 市集) | 行動服務 " metaKeywords="" description="了解如何使用行動服務將影像上傳至 Azure Blob 儲存體並從 Windows 市集應用程式存取該影像。" metaCanonical="" services="mobile-services,storage" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+﻿<properties pageTitle="使用行動服務將影像上傳至 Blob 儲存體 (Windows 市集) | 行動服務" metaKeywords="" description="了解如何使用行動服務將映像上傳至 Azure Blob 儲存體，然後從您的 Windows 市集應用程式存取映像。" metaCanonical="" services="mobile-services,storage" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 
@@ -17,7 +17,7 @@
 3. [更新用戶端應用程式以擷取影像]
 4. [上傳影像以測試應用程式]
 
-本教學課程需要下列各項：
+本教學課程需要下列項目：
 
 + Microsoft Visual Studio 2012 Express for Windows 8 或更新版本
 + [Azure 儲存體帳戶][How To Create a Storage Account]
@@ -29,9 +29,9 @@
 
 若要使用 SAS 將影像上傳至 Blob 儲存體，您必須先新增 NuGet 封裝，以安裝適用於 Windows 市集應用程式的儲存體用戶端程式庫。
 
-1. 在 Visual Studio 的 [**方案總管**] 中以滑鼠右鍵按一下專案名稱，然後選取 [**管理 NuGet 封裝**]。
+1. 在 Visual Studio 的 [方案總管]**** 中，以滑鼠右鍵按一下專案名稱，然後選取 [管理 NuGet 封裝]****。
 
-2. 在左側窗格中選取 [**線上**] 類別，搜尋 `WindowsAzure.Storage`，按一下 [**Azure 儲存體**] 封裝上的 [**安裝**]，然後接受授權協定。 
+2. 在左側窗格中選取 [線上] ****類別、搜尋 `WindowsAzure.Storage`、按一下 [Azure 儲存體] ****封裝上的 [安裝]****，然後接受授權協定。 
 
   	![][2]
 
@@ -51,7 +51,7 @@
 
 + [使用 SendGrid 從行動服務傳送電子郵件]
  
-  了解如何使用 SendGrid 電子郵件服務將電子郵件功能新增到行動服務本主題示範如何新增伺服器端指令碼，以使用 SendGrid 傳送電子郵件。
+  了解如何使用 SendGrid 電子郵件服務將電子郵件功能新增到行動服務。本主題示範如何新增伺服器端指令碼，以使用 SendGrid 傳送電子郵件。
 
 + [在行動服務中排程後端工作]
 
@@ -61,7 +61,7 @@
 
   參考使用伺服器指令碼來執行伺服器端工作以及與其他 Azure 元件和外部資源整合的主題。
  
-+ [行動服務 .NET 作法概念性參考]
++ [行動服務 .NET 做法概念性參考]
 
   深入了解如何搭配使用行動服務與 .NET
   
@@ -81,12 +81,14 @@
 <!-- URLs. -->
 [使用 SendGrid 從行動服務傳送電子郵件]: /zh-tw/develop/mobile/tutorials/send-email-with-sendgrid/
 [在行動服務中排程後端工作]: /zh-tw/documentation/articles/mobile-services-schedule-recurring-tasks
-[使用 .NET 後端的服務匯流排，將推播通知傳送至 Windows 市集應用程式]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
+[從 .NET 後端使用服務匯流排將推播通知傳送至 Windows 市集應用程式]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
 [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-store-get-started
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [如何建立儲存體帳戶]: /zh-tw/manage/services/storage/how-to-create-a-storage-account
-[適用於市集應用程式的 Azure 儲存體用戶端程式庫]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
-[行動服務 .NET 作法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
+[市集應用程式的 Azure 儲存體用戶端程式庫]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
+[行動服務 .NET 做法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
 [應用程式設定]: http://msdn.microsoft.com/zh-tw/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+
+<!--HONumber=35.2-->

@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Twilio Voice and SMS Service" pageTitle="在 Azure 中透過 Twilio 使用語音、VoIP 和簡訊功能 " metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title=" VoIP" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+﻿<properties urlDisplayName="Twilio Voice and SMS Service" pageTitle="在 Azure 中透過 Twilio 使用語音、VoIP 和簡訊功能" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title=" VoIP" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com" />
 
 
 # 在 Azure 中透過 Twilio 使用語音、VoIP 和簡訊功能
@@ -24,7 +24,7 @@ Twilio 是一個 API 平台，可協助開發人員撥接電話、收發簡訊�
 
 ### 接收來電和簡訊
 
-Twilio 可讓開發人員 [購買可程式化的電話號碼][purchase_phone]，用以收發電話和簡訊。當 Twilio 號碼接收到內送的電話或簡訊時，Twilio 會對您的 Web 應用程式傳送 HTTP POST 或 GET 要求，向您請示如何處理來電或簡訊。您的伺服器會以 [TwiML][twiml] 回應 Twilio 的 HTTP 要求；這是一組簡單的 XML 標籤，其中包含如何處理來電或簡訊的指示。稍後我們會檢視 TwiML 的範例。
+Twilio 可讓開發人員[購買可程式化的電話號碼][purchase_phone]，用以收發電話和簡訊。當 Twilio 號碼接收到內送的電話或簡訊時，Twilio 會對您的 Web 應用程式傳送 HTTP POST 或 GET 要求，向您請示如何處理來電或簡訊。您的伺服器會以 [TwiML][twiml] 回應 Twilio 的 HTTP 要求；這是一組簡單的 XML 標籤，其中包含如何處理來電或簡訊的指示。稍後我們會檢視 TwiML 的範例。
 
 ### 撥打電話和傳送簡訊
 
@@ -37,7 +37,7 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 <a id="signup"/>
 ## 註冊 Twilio (Microsoft 折扣)
 
-在使用 Twilio 服務之前，您必須先 [註冊帳戶][signup]。Microsoft Azure 客戶享有特別折扣 - [請務必在此註冊][signup]！
+在使用 Twilio 服務之前，您必須先[註冊帳戶][signup]。Microsoft Azure 客戶享有特別折扣 - [請務必在此註冊][signup]！
 
 <a id="azuresite"/>
 ## 建立及部署 node.js Azure 網站
@@ -83,24 +83,24 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
     }
   }
 
-這會將 twilio 模組宣告為相依性，以及常用的 [Express Web 架構][express] 和 EJS 範本引擎。一切都已就緒，可以開始撰寫程式碼了！
+這會將 twilio 模組宣告為相依性，以及常用的 [Express Web 架構][express]和 EJS 範本引擎。一切都已就緒，可以開始撰寫程式碼了。
 
 <a id="makecall"/>
 ## 向外撥打電話
 
 我們可以建立簡易表單，以撥打我們選擇的號碼。請開啟 server.js，然後輸入下列程式碼。請留意顯示 "CHANGE_ME" 的部分 - 請在該處放入您 Azure 網站的名稱：
 
-  // Module dependencies
-  var express = require('express'), 
+    // Module dependencies
+    var express = require('express'), 
       path = require('path'), 
       http = require('http'), 
       twilio = require('twilio');
 
-  // Create Express web application
-  var app = express();
+    // Create Express web application
+    var app = express();
 
-  // Express configuration
-  app.configure(function(){
+    // Express configuration
+    app.configure(function(){
       app.set('port', process.env.PORT || 3000);
       app.set('views', __dirname + '/views');
       app.set('view engine', 'ejs');
@@ -110,18 +110,18 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
       app.use(express.methodOverride());
       app.use(app.router);
       app.use(express.static(path.join(__dirname, 'public')));
-  });
-  app.configure('development', function(){
+    });
+    app.configure('development', function(){
       app.use(express.errorHandler());
-  });
+    });
 
-  // Render an HTML user interface for the application's home page
-  app.get('/', function(request, response) {
+    // Render an HTML user interface for the application's home page
+    app.get('/', function(request, response) {
       response.render('index');
-  });
+    });
 
-  // Handle the form POST to place a call
-  app.post('/call', function(request, response) {
+    // Handle the form POST to place a call
+    app.post('/call', function(request, response) {
       var client = twilio();
       client.makeCall({
           // make a call to this number
@@ -138,10 +138,10 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
           // Go back to the home page
           response.redirect('/');
       });
-  });
+    });
 
-  // Generate TwiML to handle an outbound call
-  app.post('/outbound_call', function(request, response) {
+    // Generate TwiML to handle an outbound call
+    app.post('/outbound_call', function(request, response) {
       var twiml = new twilio.TwimlResponse();
 
       // Say a message to the call's receiver 
@@ -151,32 +151,32 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 
       response.set('Content-Type', 'text/xml');
       response.send(twiml.toString());
-  });
+    });
 
-  // Start server
-  http.createServer(app).listen(app.get('port'), function(){
-    console.log("Express server listening on port " + app.get('port'));
-  });
+    // Start server
+    http.createServer(app).listen(app.get('port'), function(){
+      console.log("Express server listening on port " + app.get('port'));
+    });
 
 接著，請建立名為 "views" 的目錄 - 在此目錄中，請以下列內容建立名為 "index.ejs" 的檔案：
 
-  <!DOCTYPE html>
-  <html>
-  <head>
+    <!DOCTYPE html>
+    <html>
+    <head>
       <title>Twilio Test</title>
       <style>
-      input { height:20px; width:300px; font-size:18px; margin:5px; padding:5px; }
+        input { height:20px; width:300px; font-size:18px; margin:5px; padding:5px; }
       </style>
-  </head>
-  <body>
+    </head>
+    <body>
       <h1>Twilio Test</h1>
       <form action="/call" method="POST">
           <input placeholder="Enter a phone number" name="number"/>
           <br/>
           <input type="submit" value="Call the number above"/>
       </form>
-  </body>
-  </html>
+    </body>
+    </html>
 
 現在，將您的網站部署至 Azure，然後開啟您的首頁。您應可在文字欄位中輸入電話號碼，並接聽您 Twilio 號碼的來電。
 
@@ -185,7 +185,7 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 
 現在，我們要設定用以傳送簡訊的使用者介面和表單處理邏輯。請開啟 "server.js"，並在 "app.post" 的最後一個通話之後新增下列程式碼：
 
-  app.post('/sms', function(request, response) {
+    app.post('/sms', function(request, response) {
       var client = twilio();
       client.sendSms({
           // send a text to this number
@@ -202,17 +202,17 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
           // Go back to the home page
           response.redirect('/');
       });
-  });
+    });
 
 In "views/index.ejs", add another form under the first one to submit a number and a text message:
 
-  <form action="/sms" method="POST">
+    <form action="/sms" method="POST">
       <input placeholder="Enter a phone number" name="number"/>
       <br/>
       <input placeholder="Enter a message to send" name="message"/>
       <br/>
       <input type="submit" value="Send text to the number above"/>
-  </form>
+    </form>
 
 將您的應用程式重新部署至 Azure，此時您應可提交該表單，並且將簡訊傳送給自己 (或是您所有的好友)。
 
@@ -228,18 +228,20 @@ In "views/index.ejs", add another form under the first one to submit a number an
 
 祝您在 Azure 上使用 node.js 和 Twilio 時能夠得心應手！
 
-[purchase_phone]: https://www.twilio.com/user/account/phone-numbers/available/local
-[twiml]: https://www.twilio.com/docs/api/twiml
-[signup]: http://ahoy.twilio.com/azure
-[azure_new_site]: http://www.windowsazure.com/zh-tw/develop/nodejs/tutorials/create-a-website-(mac)/
-[twilio_dashboard]: https://www.twilio.com/user/account
-[npm]: http://npmjs.org
-[express]: http://expressjs.com
-[voipnode]: http://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
-[docs]: http://twilio.github.io/twilio-node/
-[votr]: http://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html
-[pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
-[azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
+[purchase_phone]： https://www.twilio.com/user/account/phone-numbers/available/local
+[twiml]： https://www.twilio.com/docs/api/twiml
+[signup]： http://ahoy.twilio.com/azure
+[azure_new_site]： http://www.windowsazure.com/zh-tw/develop/nodejs/tutorials/create-a-website-(mac)/
+[twilio_dashboard]： https://www.twilio.com/user/account
+[npm]： http://npmjs.org
+[express]： http://expressjs.com
+[voipnode]： http://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
+[docs]： http://twilio.github.io/twilio-node/
+[votr]： http://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html
+[pair]： http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
+[azure-admin-console]： ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
 
 
 
+
+<!--HONumber=35.2-->

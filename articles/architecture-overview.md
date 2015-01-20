@@ -1,63 +1,45 @@
-<properties linkid="develop-net-architecture sublanding" urlDisplayName="" pageTitle="Architecture" metaKeywords="" description="Architecture overview that covers common design patterns" metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Architecture Overview" authors="robb" solutions="" manager="johndaw" editor="mattshel" />
+﻿<properties urlDisplayName="" pageTitle="架構" metaKeywords="" description="涵蓋常見設計模式的結構性概觀。" metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Architecture Overview" authors="robb" solutions="" manager="johndaw" editor="mattshel" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
 
-# 架構
+#架構
+可用於建置使用 Microsoft Azure 應用程式的資源。
 
-了解如何在 Azure 實作一般設計模式。
+##Microsoft 架構藍圖
 
-### Azure 符號/圖示集
+Microsoft 現在發佈一組高階架構藍圖，示範如何使用 Microsoft Azure 服務來建置特定類型的系統。每個藍圖皆包含一個可供您下載並修改的 2D Visio 型檔案、一個更生動的 3D PDF 藍圖介紹檔案，以及一段 3D PDF 的逐步解說影片。請參閱 
+[Microsoft 架構藍圖](http://msdn.microsoft.com/dn630664)。
 
-[下載 Azure 符號/圖示集][下載 Azure 符號/圖示集] (英文) 以建立說明 (或使用) Azure 的技術資料，如架構圖、訓練資料、簡報、資料工作表、資訊圖及技術白皮書等等。您可以下載 PPT、Visio 或 PNG 格式的符號。我們想要知道您的想法，因此下載中有些關於如何提供意見反應的指示。
+![Microsoft Architecture Blueprint 3D diagram][BluePrint]
 
-![Azure 符號/圖示集][Azure 符號/圖示集]
+##Azure 符號/圖示集
 
-## 設計模式
+請[下載 Azure 符號/圖示集](http://www.microsoft.com/zh-tw/download/details.aspx?id=41937)來建立說明 (或使用) Azure 的技術資料，例如架構圖、訓練資料、簡報、資料工作表、資訊圖及技術白皮書。您可以下載 PPT、Visio 或 PNG 格式的符號。我們想要知道您的想法，因此下載中有些關於如何提供意見反應的指示。
 
-### [競爭取用者 (英文)][競爭取用者 (英文)]
+[Microsoft 架構藍圖](http://msdn.microsoft.com/dn630664)中的 2D 圖表使用這些符號。 
 
-![競爭取用者 (英文)][1]
+此符號集正在擴充，將在下一版中納入「雲端」和「企業」符號。新 Azure 服務通常在下載更新之前就會先釋出。如果您想要預覽新 Azure 服務的新集合或符號，請傳送電子郵件給 [AzureSymbols@microsoft.com](mailto:AzureSymbols@microsoft.com)。  
 
-可讓多個並行取用者處理相同傳訊通道上收到的訊息。此模式可讓系統同時處理多個訊息，以達到最佳輸送量、增進延展性及可用性，以及平衡工作負載。
+如果您已經使用符號，請務必填寫 5 個簡短的問題[調查](http://aka.ms/azuresymbolssurveyv1)，讓我們知道這些符號是否有用，以及您如何使用它們。   
 
-### [命令與查詢責任分隔 (英文)][命令與查詢責任分隔 (英文)]
+![Azure Symbol/Icon set][azure_symbols]
 
-![命令與查詢責任分隔 (英文)][2]
+##設計模式
+Microsoft Patterns and Practices 已出版[雲端設計模式](http://msdn.microsoft.com/zh-tw/library/dn568099.aspx)一書，在 MSDN 同時可供瀏覽及下載 PDF。另外，也有列出所有模式的大型海報。 
 
-使用個別介面，將讀取資料的作業與更新資料的作業彼此分隔。此模式可帶來最大效能、延展性與安全性，支援透過更高彈性讓系統隨時間演進，並防止更新命令在網域層級造成合併衝突。
+![Patterns and Practices Cloud Patterns Poster][PnPPoster]
 
-### [選出領導者 (英文)][選出領導者 (英文)]
+##架構資訊圖
+Microsoft 出版了數個與架構相關的海報/資訊圖。其中包括[建置真實世界的雲端應用程式](http://azure.microsoft.com/zh-tw/documentation/infographics/building-real-world-cloud-apps/)和[使用雲端服務調整應用程式](http://azure.microsoft.com/zh-tw/documentation/infographics/cloud-services/)。 
 
-![選出領導者 (英文)][3]
 
-協調分散式應用程式中一組互相合作的執行個體所執行的動作，方法為選出一個執行個體做為領導者來負責管理其餘執行個體。此模式可協助避免工作執行個體發生衝突、爭用共用資源，或不當干擾其他工作執行個體正在執行的工作。
+![Azure Architecture Infographics][AzureInfographic]
 
-### [管道與篩選器 (英文)][管道與篩選器 (英文)]
 
-![管道與篩選器 (英文)][4]
 
-將一個會執行複雜處理的工作分解為一系列可重複使用的個別元素。此模式可允許個別部署及調整執行處理的工作元素，進而增進效能、延展性及使用性。
+[BluePrint]: ./media/architecture-overview/BluePrintThumb.png
+[azure_symbols]: ./media/architecture-overview/AzureSymbols.png
+[PnPPoster]: ./media/architecture-overview/PnPPatternPosterThumb.png
+[AzureInfographic]: ./media/architecture-overview/AzureArchInfographicThumb.png
 
-### [貼身金鑰 (英文)][貼身金鑰 (英文)]
-
-![貼身金鑰 (英文)][5]
-
-使用一個可讓用戶端有限度直接存取特定資源或服務的權杖或金鑰，以便從應用程式碼身上卸下資料傳輸作業的重擔。此模式在使用雲端裝載型儲存系統或佇列的應用程式中特別有用，可降低成本、提高延展性與效能。
-
-### 其他指引
-
-如需 Azure 中更多常見設計模式的詳細資訊，請參閱[雲端設計模式][雲端設計模式] (英文)。
-
-  [下載 Azure 符號/圖示集]: http://www.microsoft.com/zh-tw/download/details.aspx?id=41937
-  [Azure 符號/圖示集]: ./media/architecture-overview/AzureSymbols.png
-  [競爭取用者 (英文)]: http://msdn.microsoft.com/zh-tw/library/dn568101.aspx
-  [1]: ./media/architecture-overview/CompetingConsumers.png
-  [命令與查詢責任分隔 (英文)]: http://msdn.microsoft.com/zh-tw/library/dn568103.aspx
-  [2]: ./media/architecture-overview/CQRS.png
-  [選出領導者 (英文)]: http://msdn.microsoft.com/zh-tw/library/dn568104.aspx
-  [3]: ./media/architecture-overview/LeaderElection.png
-  [管道與篩選器 (英文)]: http://msdn.microsoft.com/zh-tw/library/dn568100.aspx
-  [4]: ./media/architecture-overview/PipesAndFilters.png
-  [貼身金鑰 (英文)]: http://msdn.microsoft.com/zh-tw/library/dn568102.aspx
-  [5]: ./media/architecture-overview/ValetKey.png
-  [雲端設計模式]: http://msdn.microsoft.com/zh-tw/library/dn568099.aspx
+<!--HONumber=35.2-->

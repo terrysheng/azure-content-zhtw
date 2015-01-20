@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website" pageTitle="在 Mac 上建立 Node.js 網站 - Azure 教學課程" metaKeywords ="Azure 建立網站 Node, Azure 部署網站 Node, Node 網站" description="了解如何在 Azure 中建立和部署 Node.js 網站。程式碼範例以 Java 撰寫。" metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Website" pageTitle="在 Mac 上建立 Node.js 網站 - Azure 教學課程 " metaKeywords="Azure 建立網站 Node, Azure 部署網站 Node, 網站 Node.js, Node 網站" description="了解如何在 Azure 中建置及部署 Node.js 網站。範例程式碼是以 Java 撰寫。" metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -11,7 +11,8 @@
 
 本教學課程說明如何建立 [Node] [nodejs.org] 應用程式，並使用 [Git] 將其部署至 Azure 網站。本教學課程中的指示可運用在任何足以執行 Node 應用程式的作業系統上。
 
-如果您偏好觀看影片，右側的短片會執行與本教學課程相同的步驟。
+如果您偏好觀賞教學課程影片，以下影片片段會說明類似步驟：
+[AZURE.VIDEO create-a-nodejs-site-deploy-from-github]
  
 完成之應用程式的螢幕擷取畫面如下：
 
@@ -21,46 +22,47 @@
 
 請遵循以下步驟來建立 Azure 網站，然後為該網站啟用 Git 發行功能。
 
-<div class="dev-callout"><strong>注意</strong>
-<p> 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 免費試用</a>。</p>
-</div>
+> [WACOM.NOTE]
+> 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 免費試用</a>。
+> 
+> 若要在註冊帳戶之前先開始使用 Azure 網站，請移至 <a href="https://trywebsites.azurewebsites.net/?language=nodejs">https://trywebsites.azurewebsites.net</a>，您可以免費立即在上述網址中於「Azure 網站」中建立暫時性 ASP.NET 起始網站。不需要信用卡，不提供任何承諾。
 
 1. 登入 [Azure 管理入口網站]。
 
-2. 按一下入口網站左下方的 [**+新增**]
+2. 按一下入口網站左下方的 [+ 新增]**** 圖示。
 
     ![The Azure Portal with the +NEW link highlighted.][portal-new-website]
 
-3. 按一下 [**網站**]，然後按一下 [**快速建立**]。輸入 **URL** 值，然後在 [**區域**] 下拉式清單中為您的網站選取資料中心。按一下對話方塊底部的核取記號。
+3. 依序按一下 [網站]**** 及 [快速建立]****。輸入 **URL** 值，然後在 [區域]**** 下拉式清單中為您的網站選取資料中心。按一下對話方塊底部的打勾記號。
 
     ![The Quick Create dialog][portal-quick-create]
 
-4. 一旦網站狀態變更為 [**執行中**]，按一下網站名稱可存取 [**儀表板**]
+4. 在網站狀態變更為 [執行中]**** 之後，按一下網站名稱即可存取 [儀表板]****
 
 	![Open web site dashboard][go-to-dashboard]
 
-6. 在 [快速啟動] 頁面右下方，選取 [**Set up a deployment from source control**]。
+6. 在快速入門頁面右下方，選取 [從來源控制設定部署]****。
 
 	![Set up Git publishing][setup-git-publishing]
 
-6. 當系統詢問您「您的來源程式碼在哪裡？」時，選取 [**Local Git repository**]，然後按一下該箭頭。
+6. 當系統詢問「您的原始程式碼在哪裡？」時，請選取 [本機 Git 儲存機制]****，然後按一下箭號。
 
 	![where is your source code][where-is-code]
 
-7. 若要啟用 Git 發佈，您必須提供使用者名稱和密碼。如果您先前已經為 Azure 網站啟用了發行功能，則系統不會提示您輸入使用者名稱或密碼。而是會使用您先前指定的使用者名稱與密碼來建立 Git 儲存機制。請記下使用者名稱與密碼，因為您將為您所建立的所有 Azure 網站使用該資訊進行 Git 發行。
+7. 若要啟用 Git 發佈，您必須提供使用者名稱與密碼。如果您先前已經為 Azure 網站啟用了發行功能，則系統不會提示您輸入使用者名稱或密碼。而是會使用您先前指定的使用者名稱與密碼來建立 Git 儲存機制。請記下使用者名稱與密碼，因為您將為您所建立的所有 Azure 網站使用該資訊進行 Git 發行。
 
 	![The dialog prompting for user name and password.][portal-git-username-password]
 
-8. 一旦 Git 儲存機制就緒，系統會顯示 Git 命令的使用指示，以便設定本機儲存機制並將檔案發送至 Azure。
+8. 一旦 Git 儲存機制就緒，系統就會顯示 Git 命令的使用指示，以便設定本機儲存機制並將檔案發送至 Azure。
 
 	![Git deployment instructions returned after creating a repository for the website.][git-instructions]
 
-##在本機建置與測試您的應用程式
+##在本機建立及測試您的應用程式
 
-在本節中，您將建立 **server.js** 檔案，其中內含來自 [nodejs.org] (英文) 的 'hello world' 範例。此範例已自原始範例加以修改，將 process.env.PORT 加入為於 Azure 網站執行時要接聽的連接埠。
+在本節中，您將會建立一個 **server.js** 檔案，該檔案包含來自 [nodejs.org] 的 'hello world' 範例。此範例已自原始範例加以修改，將 process.env.PORT 加入為於 Azure 網站執行時要接聽的連接埠。
 
-1. 使用文字編輯器，在 **helloworld** 目錄中建立名為 **server.js** 的新檔案。如果 **helloworld** 目錄不存在，請建立一個。
-2. 新增下列作為 **server.js** 檔案的內容，然後加以儲存：
+1. 使用文字編輯器在 **helloworld** 目錄中建立一個名為 **server.js** 的新檔案。如果 **helloworld** 目錄不存在，請建立該目錄。
+2. 新增下列內容做為 **server.js** 檔案的內容，然後儲存檔案：
 
         var http = require('http')
         var port = process.env.PORT || 1337;
@@ -73,18 +75,18 @@
 
         node server.js
 
-4. 開啟您的網頁瀏覽器並瀏覽至 http://localhost:1337。將顯示內含「Hello World」字樣的網頁，如以下螢幕擷取畫面所示：
+4. 開啟您的網頁瀏覽器並瀏覽至 http://localhost:1337。如以下螢幕擷取畫面所示，隨即會出現顯示 "Hello World" 的網頁瀏覽器：
 
     ![A browser displaying the 'Hello World' message.][helloworld-localhost]
 
-##發行您的應用程式
+##發佈您的應用程式。
 
 1. 從命令列中，將目錄變更至 **helloworld** 目錄，然後輸入以下命令以初始化本機 Git 儲存機制。 
 
 		git init
 
 	<div class="dev-callout"><strong>Git 命令無法使用？</strong>
-	<p><a href="http://git-scm.com/" target="_blank">Git</a> 是一個您可用來部署 Azure 網站的分散式版本控制系統。如需您的平台適用的安裝指示，請參閱 <a href="http://git-scm.com/download" target="_blank">Git 下載頁面</a>。</p>
+	<p><a href="http://git-scm.com/" target="_blank">Git</a> 是您可以用來部署 Azure 網站的分散式版本控制系統。如需您的平台的安裝指示，請參閱 <a href="http://git-scm.com/download" target="_blank">Git 下載頁面</a>。</p>
 	</div>
 
 2. 使用下列命令將檔案新增至儲存機制：
@@ -123,9 +125,9 @@
 
 	![Git deployment status on the portal][git-deployments-first] 
 
-5. 在管理入口網站內，使用 Azure 網站頁面上的 [**瀏覽**] 按鈕瀏覽至您的網站。
+5. 在管理入口網站內，使用 Azure 網站頁面上的 [瀏覽]**** 按鈕瀏覽至您的網站。
 
-##將變更發行至您的應用程式
+##將變更發佈至您的應用程式
 
 1. 在文字編輯器中開啟 **server.js** 檔案，然後將 'Hello World\n' 變更為 'Hello Azure\n'。儲存檔案。
 2. 從命令列中，將目錄位置變更至 **helloworld** 目錄，然後執行下列命令：
@@ -134,25 +136,25 @@
 		git commit -m "changing to hello azure"
 		git push azure master
 
-	系統會提示您輸入先前建立的密碼。如果您瀏覽至管理入口網站內的 Azure 網站部署索引標籤，會看到更新的部署歷程記錄：
+	系統將會提示您輸入先前建立的密碼。如果您瀏覽至管理入口網站內的 Azure 網站部署索引標籤，會看到更新的部署歷程記錄：
 	
 	![Git deployment status updated on the portal][git-deployments-second]
 
-3. 使用 [**瀏覽**] 按鈕瀏覽至您的網站，並注意更新已經套用。
+3. 使用 [瀏覽]**** 按鈕瀏覽至您的網站，並注意已經套用更新。
 
 	![A web page displaying 'Hello Azure'][helloworld-completed]
 
-4. 您可以在管理入口網站內，選取 Azure 網站的 [部署] 索引標籤，然後使用 [**重新部署**] 按鈕回復至先前的部署狀態。
+4. 您可以回復至上一個部署，方法是在您管理入口網站內之 Azure 網站的 [部署] 索引標籤中選取之前的部署，然後使用 [重新部署]**** 按鈕。
 
 ##後續步驟
 
 雖然本文內的步驟使用 Azure 入口網站來建立網站，但是您也可以使用[適用於 Mac 與 Linux 的 Azure 命令列工具]來執行相同的操作。
 
-Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。若要了解 Azure 網站如何與模組搭配使用，請參閱[使用 Node.js 模組與 Azure 應用程式搭配](/zh-tw/documentation/articles/nodejs-use-node-modules-azure-apps/)。
+Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。若要了解 Azure 網站如何與模組搭配使用，請參閱[搭配使用 Node.js 模組與 Azure 應用程式](/zh-tw/documentation/articles/nodejs-use-node-modules-azure-apps/)。
 
-若要深入了解 Azure 隨附的 Node.js 版本，以及如何指定要與您的應用程式搭配使用的版本，請參閱[在 Azure 應用程式中指定 Node.js 版本](/zh-tw/documentation/articles/nodejs-specify-node-version-azure-apps/)。
+若要深入了解 Azure 隨附之 Node.js 的版本相關資訊，以及如何指定要與您的應用程式搭配使用的版本，請參閱[在 Azure 應用程式中指定 Node.js 版本](/zh-tw/documentation/articles/nodejs-specify-node-version-azure-apps/)。
 
-如果您在將應用程式部署到 Azure 後遇到問題，請參閱[如何在 Azure 網站中對 Node.js 應用程式進行偵錯](/zh-tw/documentation/articles/web-sites-nodejs-debug/) (英文) 以獲得診斷問題的詳細資訊。
+如果您的應用程式在已經部署到 Azure 之後發生問題，請參閱[如何在 Azure 網站中偵錯 Node.js 應用程式]，(/zh-tw/documentation/articles/web-sites-nodejs-debug/) 以了解診斷問題的相關資訊。
 
 
 ##其他資源
@@ -182,3 +184,5 @@ Node.js 提供您豐富的模組生態系統，可供您的應用程式使用。
 [setup-git-publishing]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png
 [go-to-dashboard]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
 [where-is-code]: ./media/web-sites-nodejs-develop-deploy-mac/where_is_code.png
+
+<!--HONumber=35.2-->

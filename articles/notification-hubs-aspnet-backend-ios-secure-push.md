@@ -1,11 +1,11 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Azure 通知中心安全推播 " metaKeywords=" Azure 推播通知, Azure 通知中心, 安全推播" description="了解如何從 Azure 將安全的推播通知傳送至 iOS 應用程式。程式碼範例是以 Objective-C 及 C# 撰寫。" documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
+﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Azure 通知中樞安全推播" metaKeywords="Azure 推播通知, Azure 通知中樞, 安全推播" description="了解如何從 Azure 傳送安全推播通知給 iOS 應用程式。使用 Objective-C 和 C# 撰寫的程式碼範例。" documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
 
 #Azure 通知中心安全推播
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/zh-tw/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
+    	<a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
 		<a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
 </div>
 
@@ -22,11 +22,11 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 	- 裝置會連絡後端並要求安全裝載。
 	- 應用程式會以通知的形式在裝置上顯示裝載。
 
-請特別注意，在上一個流程 (及本教學課程) 中，我們假設裝置會在使用者登入後，將驗證權杖儲存在本機儲存體中。因為裝置可以使用此權杖來擷取通知的安全裝載，如此一來保證能提供完全順暢的經驗。如果您的應用程式沒有將驗證權杖儲存在裝置上，或如果這些權杖可能會過期，裝置應用程式應在收到通知時顯示一般通知，以提示使用者啟動應用程式。應用程式會接著驗證使用者，並顯示通知內容。
+請特別注意，在上一個流程 (及本教學課程) 中，我們假設裝置會在使用者登入後，將驗證權杖儲存在本機儲存體中。因為裝置可以使用此權杖來擷取通知的安全裝載，如此一來保證能提供完全順暢的經驗。如果您的應用程式沒有將驗證權杖儲存在裝置上，或如果這些權杖可能會過期，裝置應用程式應在收到通知時顯示一般通知，以提示使用者啟動應用程式。應用程式會接著驗證使用者，並顯示通知裝載。
 
-本安全推播教學課程說明如何以安全的方式傳送推播通知。本教學課程會以 [**通知使用者**] 教學課程為基礎，因此您應先完成該教學課程中的步驟。
+本安全推播教學課程說明如何以安全的方式傳送推播通知。本教學課程會以**通知使用者**教學課程為基礎，因此您應先完成該教學課程中的步驟。
 
-> [AZURE.NOTE] 本教學課程假設您已建立並設定通知中心，如 [開始使用通知中心 (iOS)](http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-ios-get-started/) 中所述。
+> [AZURE.NOTE] 本教學課程假設您已建立並設定通知中樞，如[開始使用通知中樞 (iOS)](http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-ios-get-started/) 中所述。
 
 [WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
@@ -36,17 +36,17 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 若要達到此目標，我們必須撰寫可從應用程式後端擷取安全內容的邏輯。
 
-1. 在 **AppDelegate.m** 中，請確定應用程式已註冊無訊息通知，以便處理從後端傳送出來的通知識別碼。將**UIRemoteNotificationTypeNewsstandContentAvailability** 選項加入 didFinishLaunchingWithOptions:
+1. 在 **AppDelegate.m** 中，確定應用程式已註冊無訊息通知，以處理從後端傳送的通知識別碼。在 didFinishLaunchingWithOptions 中新增 **UIRemoteNotificationTypeNewsstandContentAvailability** 選項：
 
 		[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
 
-2. 在 **AppDelegate.m**中，使用下列宣告在開頭處新增實作區段：
+2. 在 **AppDelegate.m** 的開頭處，新增包含下列宣告的實作區段：
 
 		@interface AppDelegate ()
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
 		@end
 
-3. 然後在實作區段中加入下列程式碼，並將預留位置 `{back-end endpoint}` 替換成先前取得的後端端點：
+3. 然後在實作區段中加入下列程式碼，並將預留位置 `{back-end endpoint}` 替換成先前取得的後端：
 
 		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
@@ -95,14 +95,14 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 	此方法會呼叫應用程式後端，使用儲存在共用喜好設定中的認證來擷取通知內容。
 
-4. 現在，我們必須處理內送通知，並使用上述方法擷取要顯示的內容。首先，我們必須啟用您的 iOS 應用程式，可在接收推播通知時於背景中執行。在 **XCode** 中，在左側面板中選取您的應用程式專案，然後在中央窗格的 [**目標**] 區段中按一下您的主要應用程式目標。
+4. 現在，我們必須處理內送通知，並使用上述方法擷取要顯示的內容。首先，我們必須啟用您的 iOS 應用程式，可在接收推播通知時於背景中執行。在 **XCode** 中，在左側面板中選取您的應用程式專案，然後在中央窗格的 [目標]**** 區段中，按一下您的主要應用程式目標。
 
-5. 接著按一下中央窗格頂端的 [**功能**] 索引標籤，並勾選 [**遠端通知**] 核取方塊。
+5. 接著按一下中央窗格頂端的 [功能]**** 索引標籤，並勾選 [遠端通知]**** 核取方塊。
 
 	![][IOS1]
 
 
-6. 在 **AppDelegate.m**中，新增下列可處理推播通知的方法：
+6. 在 **AppDelegate.m** 中，新增下列可處理推播通知的方法：
 
 		-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 		{
@@ -135,6 +135,8 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 2. 在 iOS 應用程式 UI 中，輸入使用者名稱和密碼。這些可以是任何字串，但必須是相同值。
 
-3. 在 iOS 應用程式 UI 中，按一下 [**登入**]。然後按一下 [**傳送推播**]。您應該會在您的通知中心內看見安全通知。
+3. 在 iOS 應用程式 UI 中，按一下 [登入]****。然後按一下 [傳送推播]****。您應該會在您的通知中心內看見安全通知。
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
+
+<!--HONumber=35.2-->

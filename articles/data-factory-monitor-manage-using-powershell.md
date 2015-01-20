@@ -1,11 +1,11 @@
-﻿<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="使用 Azure PowerShell 監視和管理 Azure Data Factory" description="了解如何使用 Azure PowerShell 監控和管理您建立的 Azure 資料處理站。" metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="使用 Azure PowerShell 監視和管理 Azure Data Factory" description="了解如何使用 Azure PowerShell 來監視及管理您已經建立的 Azure 資料處理站。" metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # 使用 Azure PowerShell 監視和管理 Azure Data Factory
 下表列出您可以用來使用 Azure PowerShell 監視和管理 Azure Data Factory 的 Cmdlet。 
 
-> [WACOM.NOTE] 如需 Data Factory Cmdlet 的完整描述，請參閱 [Data Factory Cmdlet 參考][cmdlet-reference]。 
+> [WACOM.NOTE] 如需有關 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考][cmdlet-reference]。 
 
 
 - [Get-AzureDataFactory](#get-azuredatafactory)
@@ -47,7 +47,7 @@ Get-AzureDataFactoryLinkedService Cmdlet 會取得 Azure Data Factory 中特定�
 這個命令會傳回 Azure Data Factory ADFTutorialDataFactory 中所有連結服務的相關資訊。
 
 
-您可以使用-DataFactory 參數，而不使用 DataFactoryName 和 ResourceGroupName 參數。這可協助您只需輸入一次資源群組和 Factory 名稱，並使用 Data Factory 物件做為同時採用 ResourceGroupName 和 DataFactoryName 做為參數之所有 Cmdlet 的參數。
+您可以使用-DataFactory 參數，而不使用 DataFactoryName 和 ResourceGroupName 參數。這可讓您只需輸入一次資源群組和 Factory 名稱，然後針對同時採用 ResourceGroupName 和 DataFactoryName 做為參數的所有 Cmdlet，使用 Data Factory 物件做為這些 Cmdlet 的參數即可。
 
     $df = Get-AzureDataFactory -ResourceGroup ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
 	
@@ -107,7 +107,7 @@ Get-AzureDataFactoryPipeline Cmdlet 會取得 Azure Data Factory 中特定管線
 取得 Azure Data Factory ADFTutorialDataFactory 中管線 ADFTutorialPipeline 的相關資訊。
 
 ## <a name="get-azuredatafactoryslice"> </a> Get-AzureDataFactorySlice
-Get-AzureDataFactorySlice Cmdlet 會取得 Azure Data Factory 中所有在 StartDateTime 之後以及在 EndDateTime 之前產生的資料表配量。狀態為 Ready 的資料配量可供相依配量使用。
+Get-AzureDataFactorySlice Cmdlet 會取得 Azure Data Factory 中所有在 StartDateTime 之後以及在 EndDateTime 之前產生的資料表配量。狀態為 Ready 的資料配量表示已可供相依配量取用。
 
 下表列出配量的所有狀態及其描述。
 
@@ -189,7 +189,7 @@ Get-AzureDataFactorySlice Cmdlet 會取得 Azure Data Factory 中所有在 Start
 
 ## <a name="get-azuredatafactoryrun"></a> Get-AzureDataFactoryRun
 
-Get-AzureDataFactoryRun Cmdlet 會取得 Azure Data Factory 中資料表的資料配量的所有執行。  Azure Data Factory 中的資料表是由時間軸上方的配量組成。配量的寬度取決於排程 - 每小時/每日。執行是配量的處理單位。如果您重新嘗試，或是在失敗時重新執行配量，可能執行一次或多次配量。配量是由其開始時間識別。因此，若為 Get-AzureDataFactoryRun Cmdlet，您需要從 Get-AzureDataFactorySlice Cmdlet 的結果傳入配量的開始時間。
+Get-AzureDataFactoryRun Cmdlet 會取得 Azure Data Factory 中資料表之資料配量的所有執行。Azure Data Factory 中的資料表由時間軸上的配量所組成。配量的寬度取決於排程 - 每小時/每日。執行是配量的處理單位。如果您重新嘗試，或是在失敗時重新執行配量，可能執行一次或多次配量。配量是由其開始時間識別。因此，針對 Get-AzureDataFactoryRun Cmdlet，您需要從 Get-AzureDataFactorySlice Cmdlet 的結果傳入配量的開始時間。
 
 例如，若要執行下列配量，請使用 2015-04-02T20:00:00。 
 
@@ -211,13 +211,13 @@ Get-AzureDataFactoryRun Cmdlet 會取得 Azure Data Factory 中資料表的資�
 這個命令會取得 Azure Data Factory ADFTutorialDataFactory 中資料表 EmpSQLTable 的所有配量執行，從 05/21/2014 的 4 PM GMT 開始。
 
 ## <a name="save-azuredatafactorylog"></a> Save-AzureDataFactoryLog
-Save-AzureDataFactoryLog Cmdlet 會將與處理 Pig 或 Hive 專案的 Azure HDInsight 相關聯的記錄檔或自訂活動的記錄檔下載至本機硬碟。首先執行 Get-AzureDataFactoryRun Cmdlet，以取得資料配量的活動執行識別碼，然後使用該識別碼從與 HDInsight 叢集相關聯的二進位大型物件 (BLOB) 儲存體擷取記錄檔。 
+Save-AzureDataFactoryLog Cmdlet 會將與處理 Pig 或 Hive 專案的 Azure HDInsight 相關聯的記錄檔或自訂活動的記錄檔下載至本機硬碟。您將先執行 Get-AzureDataFactoryRun Cmdlet 以取得資料配量的活動執行識別碼，然後使用該識別碼從與 HDInsight 叢集關聯的二進位大型物件 (BLOB) 儲存體抓取記錄檔。 
 
-如果您未指定 **-DownloadLogs** 參數，則 Cmdlet 只會傳回記錄檔的位置。 
+如果您未指定 **-DownloadLogs** 參數，Cmdlet 便只會傳回記錄檔的位置。 
 
-如果您指定 **-DownloadLogs** 參數，而未指定輸出目錄 (**-Output **參數)，則記錄檔會下載至預設 **Documents** 資料夾。 
+如果您指定 **-DownloadLogs** 參數但未指定輸出目錄 (**-Output** 參數)，記錄檔就會下載至預設的 [文件]**** 資料夾。 
 
-如果您指定 **-DownloadLogs** 參數以及輸出目錄 (**-Output **參數)，則記錄檔會下載至指定的資料夾。 
+如果您指定 **-DownloadLogs** 參數連同輸出資料夾 (**-Output**)，則記錄檔會下載至指定的資料夾。 
 
 
 ### 範例 1
@@ -234,7 +234,7 @@ Save-AzureDataFactoryLog Cmdlet 會將與處理 Pig 或 Hive 專案的 Azure HDI
  
 
 ### 範例 3
-這個命令會傳回記錄檔的位置。請注意，並未指定 - DownloadLogs 參數。 
+這個命令會傳回記錄檔的位置。請注意，並未指定 -DownloadLogs 參數。 
   
 	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39"
  
@@ -242,7 +242,7 @@ Save-AzureDataFactoryLog Cmdlet 會將與處理 Pig 或 Hive 專案的 Azure HDI
 
 
 ## <a name="get-azuredatafactorygateway"></a> Get-AzureDataFactoryGateway
-The Get-AzureDataFactoryGateway Cmdlet 會取得 Azure Data Factory 中特定閘道或所有閘道的相關資訊。您必須在內部部署電腦上安裝閘道，才能將內部部署 SQL Server 新增至 Data Factory 做為連結服務。
+Get-AzureDataFactoryGateway Cmdlet 會取得 Azure Data Factory 中特定閘道或所有閘道的相關資訊。您必須在內部部署電腦上安裝閘道，才能將內部部署 SQL Server 新增至 Data Factory 做為連結服務。
 
 ### 範例 1
     Get-AzureDataFactoryGateway -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
@@ -257,7 +257,7 @@ The Get-AzureDataFactoryGateway Cmdlet 會取得 Azure Data Factory 中特定閘
 ## <a name="set-azuredatafactorypipelineactiveperiod"></a> Set-AzureDataFactoryPipelineActivePeriod
 這個 cmdlet 會設定由管線處理之資料配量的作用中期間。如果您使用 Set-AzureDataFactorySliceStatus，請確定配量開始日期和結束日期是在管線的作用中期間內。
 
-一旦建立線後，您就可以指定將發生資料處理的持續時間。藉由指定管線的作用期間，依據對每個 ADF 資料表所定義之可用性屬性，您會定義將處理資料配量的持續時間。
+管線建立之後，您可以指定將進行資料處理的期間。藉由指定管線的作用中期間，您將依據為每個 ADF 資料表定義的「可用性」屬性，定義將處理資料配量的持續時間。
 
 ### 範例
 
@@ -269,10 +269,10 @@ The Get-AzureDataFactoryGateway Cmdlet 會取得 Azure Data Factory 中特定閘
 設資料表配量的狀態。配量開始日期和結束日期必須在管線的作用中期間內。
 
 ### 支援的狀態值
-資料表的每個資料配量會經過不同階段。根據是否指定驗證原則，這些階段會稍有不同。
+資料表的每個資料配量會經過不同階段。這些階段會依據是否指定驗證原則而稍有不同。
 
 
-- 如果未指定驗證原則：  PendingExecution -> InProgress -> Ready
+- 如果未指定驗證原則：PendingExecution -> InProgress -> Ready
 - 如果已指定驗證原則：PendingExecution -> Pending Validation -> InProgress -> Ready
 
 下表提供配量可能狀態的描述，並告訴您是否可以使用 Set-AzureDataFactorySliceStatus 設定狀態。
@@ -370,7 +370,7 @@ The Get-AzureDataFactoryGateway Cmdlet 會取得 Azure Data Factory 中特定閘
 
 </table>
 ## <a name="suspend-azuredatafactorypipeline"></a> Suspend-AzureDataFactoryPipeline
-Suspend-AzureDataFactoryPipeline Cmdlet 會暫停 Azure Data Factory 中指定的管線。稍後，您可以使用 Resume-AzureDataFactoryPipeline Cmdlet 來繼續使用管線。
+Suspend-AzureDataFactoryPipeline Cmdlet 會暫停 Azure Data Factory 中指定的管線。您可以稍後使用 Resume-AzureDataFactoryPipeline Cmdlet 來繼續執行管線。
 
 ### 範例
 
@@ -391,14 +391,14 @@ Resume-AzureDataFactoryPipeline Cmdlet 會繼續使用 Azure Data Factory 中目
 
 文章 | 描述
 ------ | ---------------
-[使用 Azure 預覽入口網站監視和管理 Azure Data Factory][monitor-manage-using-portal] | 本文描述如何使用 Azure 預覽入口網站監視和管理 Azure Data Factory。
-[啟用您的管線以使用內部部署資料][use-onpremises-datasources] | 本文逐步解說如何將資料從內部部署 SQL Server Database複製到 Azure blob。
-[搭配 Data Factory 使用 Pig 和 Hive][use-pig-and-hive-with-data-factory] | 本文逐步解說如何使用 HDInsight 活動以執行 hive/pig 指令碼處理輸入資料並產生輸出資料。 
-[教學課程：使用 Data Factory 來移動並處理記錄檔][adf-tutorial] | 本文提供端對端逐步解說，展示如何使用 Azure Data Factory 實作近乎真實世界的案例，將記錄檔中的資料轉換為見解。
-[在 Data Factory 中使用自訂活動][use-custom-activities] | 本文章提供的逐步解說具有建立自訂活動並將它用於管線中的逐步指示。 
-[對 Data Factory 問題進行疑難排解][troubleshoot] | 本文描述如何對 Azure Data Factory 問題進行疑難排解。
-[Azure Data Factory 開發人員參考][developer-reference] | 「開發人員參考」具有 Cmdlet、JSON 指令碼、函數等等的完整參考內容。 
-[Azure Data Factory Cmdlet 參考][cmdlet-reference] | 本參考內容詳述所有 **Data Factory Cmdlet**。
+[使用 Azure Preview 入口網站來監視和管理 Azure Data Factory][monitor-manage-using-portal] | 本文描述如何使用「Azure Preview 入口網站」來監視和管理 Azure Data Factory。
+[讓您的管線能夠與內部部署資料搭配使用][use-onpremises-datasources] | 本文提供逐步解說，示範如何將資料從內部部署 SQL Server 資料庫複製到 Azure Blob。
+[使用 Pig 和 Hive 搭配 Data Factory][use-pig-and-hive-with-data-factory] | 本文提供逐步解說，示範如何使用「HDInsight 活動」來執行 hive/pig 指令碼，以處理輸入資料來產生輸出資料。
+[教學課程：使用 Data Factory 移動及處理記錄檔][adf-tutorial] | 本文提供端對端逐步解說，展示如何使用 Azure Data Factory 實作近乎真實世界的案例，將記錄檔中的資料轉換為見解。
+[在 Data Factory 中使用自訂活動][use-custom-activities] | 本文提供逐步解說，內含建立自訂活動並在管線中使用此活動的逐步指示。
+[Data Factory 問題疑難排解][troubleshoot] | 本文說明如何對 Azure Data Factory 問題進行疑難排解。
+[Azure Data Factory 開發人員參考][developer-reference] |＜開發人員參考＞提供 Cmdlet、JSON 指令碼、函式等等的完整參考內容。 
+[Azure Data Factory Cmdlet 參考][cmdlet-reference] | 本參考內容提供所有 **Data Factory Cmdlet** 的相關詳細資料。
 
 [use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
 [use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
@@ -409,3 +409,5 @@ Resume-AzureDataFactoryPipeline Cmdlet 會繼續使用 Azure Data Factory 中目
 [troubleshoot]: ../data-factory-troubleshoot
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+
+<!--HONumber=35.2-->

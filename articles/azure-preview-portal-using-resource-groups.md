@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="" pageTitle="使用資源群組管理您的 Azure 資源" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="terrylan" editor=""  />
+﻿<properties urlDisplayName="" pageTitle="使用資源群組管理您的 Azure 資源" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="timlt" editor=""  />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa Bhojawala" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="12/02/2014" ms.author="davidmu" />
 
 
 # 使用資源群組管理您的 Azure 資源
@@ -22,7 +22,7 @@
 ![](http://i.imgur.com/USKkQdW.png)
 
 <br><br />
-當您建立由數項搭配運作的資源 (例如網站 + 資料庫) 所組成的應用程式時，應用程式一律會建立在其本身的資源群組中，因此您可以使用資源群組來管理所有相關資產的生命週期。您可以隨著應用程式的變化，在資源群組中新增或移除資源。 
+當您建立由幾個一起運作的資源 (例如網站 + 資料庫) 所組成的應用程式時，該應用程式一律會建立在其本身的資源群組中，以便您可以使用資源群組來管理所有相關資產的生命週期。您可以隨著應用程式的變化，在資源群組中新增或移除資源。 
 
 ![](http://i.imgur.com/Me0jbio.png)
 
@@ -70,3 +70,5 @@
 由於資源群組可讓您管理所有內含資源的生命週期，因此若刪除資源群組，將一併刪除群組內包含的所有資源。您也可以刪除資源群組內的個別資源。在刪除資源群組時應多加留意，因為可能會有其他資源連結至該群組。您可以檢視資源對應中的連結資源，並執行必要的步驟，以避免在刪除資源群組時出現非預期的結果。 
 
 ![](http://i.imgur.com/ZTXoISb.png)
+
+<!--HONumber=35.2-->

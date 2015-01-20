@@ -1,314 +1,181 @@
-﻿<properties urlDisplayName="Replica domain controller" pageTitle="在 Azure 中安裝複本網域控制站" metaKeywords="" description="指導如何從 Azure 虛擬機器上的 Corp Active Directory 樹系安裝網域控制站。" metaCanonical="" services="virtual-network" documentationCenter="" title="Install a Replica Active Directory Domain Controller in Azure Virtual Networks" authors="Justinha" solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft" />
+﻿<properties urlDisplayName="Replica domain controller" pageTitle="在 Azure 中安裝複本網域控制站" metaKeywords="" description="說明如何從 Azure 虛擬機器上的內部部署 Active Directory 樹系安裝網域控制器的教學課程。" metaCanonical="" services="virtual-network" documentationCenter="" title="Install a Replica Active Directory Domain Controller on an Azure Virtual Network" authors="Justinha" solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="Justinha" />
-
-
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="Justinha" />
 
 
 #在 Azure 虛擬網路中安裝複本 Active Directory 網域控制站
 
-本教學課程將逐步引導您完成在[Azure 虛擬網路](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx)上，從虛擬機器 (VM) 之企業 Active Directory 樹系安裝額外網域控制站的步驟。在本教學課程中，VM 的虛擬網路已連接公司網路。如需在 Azure 虛擬網路上安裝 Active Directory 網域服務 (AD DS) 的概念指引，請參閱[在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090.aspx)。
+此主題說明如何在 Azure 虛擬網路中的 Azure 虛擬機器 (VM) 上為內部部署 Active Directory 網域安裝其他網域控制站 (亦稱為複本網域控制站) 。 
+
+您也可能對以下相關主題有興趣：
+
+- 您可以在 Azure 虛擬網路上選擇性安裝新的 Active Directory 樹系。如需相關步驟，請參閱[在 Azure 虛擬網路上安裝新的 Active Directory 樹系](http://azure.microsoft.com/documentation/articles/active-directory-new-forest-virtual-machine/)。
+-  如需在 Azure 虛擬網路上安裝 Active Directory 網域服務 (AD DS) 的概念指引，請參閱[在 Azure 虛擬機器上部署 Windows Server Active Directory 的指南](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx)。
+-  如需在含 AD DS 的 Azure 上建立測試實驗室環境的逐步指引，請參閱[測試實驗室指南：在 Azure 中的基底組態](http://www.microsoft.com/zh-tw/download/details.aspx?id=41684)。
+
 
 ##目錄##
 
-* [必要條件](#Prerequisites)
-* [步驟 1：驗證 YourPrimaryDC 的靜態 IP 位址](#verifystaticip)
-* [步驟 2：安裝企業樹系](#installforest)
-* [步驟 3：建立子網路和站台](#subnets)
-* [步驟 4：在 CloudSite 中安裝額外的網域控制站](#cloudsite)
-* [步驟 5：驗證安裝](#validate)
-* [步驟 6：佈建在開機時便已加入網域的虛擬機器](#provisionvm)
-* [步驟 7：備份網域控制站](#backup)
-* [步驟 8：測試驗證和授權](#test)
+* [案例圖表](#diagram)
+* [步驟 1：建立 Azure 虛擬網路的 Active Directory 站台](#createadsite)
+* [步驟 2：建立 Azure 虛擬網路](#createvnet)
+* [步驟 3：建立 DC 角色的 Azure VM](#createdcvms)
+* [步驟 4：在 Azure VM 上安裝 AD DS](#installadds)
+* [步驟 5：建立應用程式伺服器的 VM](#createappvms)
+* [其他資源](#resources)
+
+<h2><a id="diagram"></a>案例圖表</h2>
+
+在此案例中，外部使用者需要存取在加入網域的伺服器上執行的應用程式。執行應用程式伺服器和複本 DC 的 VM 安裝在 Azure 虛擬網路中。虛擬網路可透過[站台對站台 VPN](http://msdn.microsoft.com/library/azure/dn133795.aspx) 連線方式，連線到內部部署網路，如下圖所示，或者您可以使用 [ExpressRoute](http://azure.microsoft.com/services/expressroute/) 進行更快速的連線。 
+
+應用程式伺服器和網域控制站會部署在個別[雲端服務](http://azure.microsoft.com/documentation/articles/cloud-services-what-is/)內分散運算處理，以及在[可用性設定組](http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability/)內改良容錯功能。 
+網域控制站會使用 Active Directory 複寫功能，在彼此之間以及與內部部署網域控制站互相複寫。不需要任何同步處理工具。
+
+![][1]
+
+<h2><a id="createadsite"></a>步驟 1：建立 Azure 虛擬網路的 Active Directory 站台</h2>
+
+在 Active Directory 中建立一個站台來代表對應虛擬網路的網路區域是個不錯的主意。這樣有助於最佳化驗證、複寫及其他 DC 位置的作業。下列步驟說明如何建立站台，如需詳細背景，請參閱[加入新的站台](http://technet.microsoft.com/library/cc781496.aspx)。
+
+1. 開啟 Active Directory 站台及服務：**[伺服器管理員]** > [工具]**** > [Active Directory 站台及服務]****。
+2. 建立站台來代表您建立 Azure 虛擬網路的區域：按一下 [站台]**** > [動作]**** > [新增站台]**** > 輸入新站台的名稱，例如「Azure 美國西部」> 選取站台連結 > [確定]****。
+3. 建立子網路，並與新站台關聯：按兩下 [站台]**** > 以滑鼠右鍵按一下 [子網路]**** > [新增子網路]**** > 輸入虛擬網路的 IP 位址範圍 (例如案例圖表中的 10.1.0.0/16) > 選取新的 Azure 站台 > [確定]****。
+
+<h2><a id="createvnet"></a>步驟 2：建立 Azure 虛擬網路</h2>
+
+<ol><li><p>In the Azure Management Portal, click <b>New</b> > <b>Network Services</b> > <b>Virtual Network</b> > <b>Custom Create</b> and use the following values to complete the wizard.</p>
+
+<table style="width:100%">
+<tr>
+<td>在此精靈頁面上</td>
+<td>指定這些值</td>
+</tr>
+<tr>
+<td><b>虛擬網路詳細資料</b></td>
+<td><ul><li>Name:輸入虛擬網路的名稱，例如 WestUSVNet。</li><li>Region:這是要放置虛擬網路的 Azure 位置，例如美國西部。建立虛擬網路之後，就無法變更此位置。</li></ul>
+</td>
+</tr>
+<tr>
+<td><b>DNS 伺服器和 VPN 連線能力</b></td>
+<td><ul><li>DNS 伺服器：指定一或多個內部部署 DNS 伺服器的名稱與 IP 位址。</li><li>連線能力：選取 <b>[設定站台對站台 VPN]</b>。</li><li>區域網路：指定新的區域網路。</li></ul>如果您使用 ExpressRoute 而不是 VPN，請參閱 <a href="http://msdn.microsoft.com/library/azure/dn606306.aspx">透過 Exchange 提供者設定 ExpressRoute 連線</a>。</td>
+</tr>
+<tr>
+<td><b>站台對站台連線能力</b></td>
+<td><ul><li>Name:輸入內部部署網路的名稱。</li><li>VPN 裝置 IP 位址：指定將連線到虛擬網路的裝置公用 IP 位址。VPN 裝置不能位於 NAT 後方。</li><li>位址：指定內部部署網路的位址範圍 (例如案例圖表中的 192.168.0.0/16)。</li></ul></td>
+</tr>
+<tr>
+<td><b>虛擬網路位址空間</b></td>
+<td><ul><li>位址空間：指定您想要在 Azure 虛擬網路中執行的 VM IP 位址範圍 (例如案例圖表中的 10.1.0.0/16)。此位址範圍不得與內部部署網路的位址範圍重疊。</li><li>子網路：指定應用程式伺服器的子網路名稱和位址 (例如前端 10.1.1.0/24) 以及網域控制站的子網路名稱和位址 (例如後端 10.1.2.0/24)。</li><li>按一下 <b>[加入閘道子網路]</b>。</li></ul></td>
+</tr>
+</table>
+</li>
+<li><p>接著，您要設定虛擬網路閘道來建立安全的站台對站台 VPN 連線。請參閱 <a href = "http://msdn.microsoft.com/library/azure/jj156210.aspx">設定管理入口網站中的虛擬網路閘道</a> 取得指示。</p>
+</li>
+<li><p>在新的虛擬網路與內部部署 VPN 裝置之間建立站台對站台 VPN 連線。請參閱 <a href = "http://msdn.microsoft.com/library/azure/jj156210.aspx">設定管理入口網站中的虛擬網路閘道</a> 取得指示。</p>
+</li>
+</ol>
+
+<h2><a id="createdcvms"></a>步驟 3：建立 DC 角色的 Azure VM</h2>
+
+<p>重複下列步驟，視需要建立裝載 DC 角色的 VM。您應該至少部署兩部虛擬網域控制站以提供容錯和冗餘。 </p>
+
+
+<ol><li><p>In the Azure Management portal, click <b>New</b> > <b>Compute</b> > <b>Virtual Machine</b> > <b>From Gallery</b>. Use the following values to complete the wizard. Accept the default value for a setting unless another value is suggested or required.</p>
+<table style="width:100%">
+<tr>
+<td><b>在此精靈頁面上</b></td>
+<td><b>指定這些值</b></td>
+</tr>
+<tr>
+<td><b>選擇映像</b></td>
+<td>Windows Server 2012 R2 Datacenter</td>
+</tr>
+<tr>
+<td><b>虛擬機器設定</b></td>
+<td><ul><li>虛擬機器名稱：輸入單一標籤名稱 (例如 AzureDC2)。</li><li>新的使用者名稱：輸入使用者名稱。此使用者將會是 VM 上本機 Administrators 群組的成員。第一次登入 VM 時，您將需要此名稱。內建的系統管理員帳戶會無法運作。</li><li>新密碼/確認：輸入密碼</li></ul></td>
+</tr>
+<tr>
+<td><b>虛擬機器組態</b></td>
+<td><ul><li>雲端服務：第一個 VM 選擇 <b>建立新的雲端服務</b> ，然後在您建立更多裝載 DC 角色的 VM 時，選取該相同的雲端服務名稱。</li><li>雲端服務 DNS 名稱：指定全域唯一名稱</li><li>區域/同質群組/虛擬網路：指定虛擬網路名稱 (例如 WestUSVNet)。</li><li>儲存體帳戶：第一個 VM 選擇 <b>使用自動產生的儲存體帳戶</b> ，然後在您建立更多裝載 DC 角色的 VM 時，選取該相同的儲存體帳戶名稱。</li><li>可用性設定組：選擇 <b>[建立可用性設定組]</b>。</li><li>可用性設定組名稱：請在您建立第一個 VM 時輸入可用性設定組的名稱，然後在您建立更多 VM 時選擇該相同名稱。</li></ul></td>
+</tr>
+<tr>
+<td><b>虛擬機器組態</b></td>
+<td>選取 <b>[安裝 VM 代理程式]</b> 以及您需要的任何其他延伸模組。</td>
+</tr>
+</table>
+</li>
+<li><p>將磁碟連接至將執行 DC 伺服器角色的每個 VM。需要額外的磁碟來儲存 AD 資料庫、記錄檔和 SYSVOL。指定磁碟的大小 (例如 10 GB) 並且讓 <b>[主機快取偏好設定]</b> 設定為 <b>None</b>。您第一次登入 VM 之後，開啟 <b>伺服器管理員</b> > <b>[檔案和存放服務]</b> 使用 NTFS 在此磁碟上建立磁碟區。</p></li>
+<li><p>為將執行 DC 角色的 VM 保留靜態 IP 位址。若要保留靜態 IP 位址，請下載 Microsoft Web Platform Installer，然後 <a href = "http://azure.microsoft.com/documentation/articles/install-configure-powershell/">安裝 Azure PowerShell</a> 並執行 <a href = "http://msdn.microsoft.com/library/azure/dn630228.aspx">Set-AzureStaticVNetIP</a> Cmdlet。</p></li>
+<li><p>在 Azure 管理入口網站中，按一下虛擬網路的名稱，然後按一下 <b>設定</b> 索引標籤 <a href = "http://msdn.microsoft.com/library/azure/dn275925.aspx">重新設定虛擬網路的 DNS 伺服器 IP 位址</a> 來使用指派給複本網域控制站的靜態 IP 位址而不是內部部署 DNS 伺服器的 IP 位址。 </p>
+</li>
+<li><p>若要確保虛擬網路上的所有複本網域控制站 VM 都已設定使用虛擬網路上的 DNS 伺服器，請按一下 <b>虛擬機器</b>，按一下每個 VM 的狀態欄，然後按一下 <b>重新啟動</b>。請等到 VM 顯示 <b>執行中</b> 狀態，再嘗試登入。 
+</p>
+</li>
+</ol>
+
+<h2><a id="installadds"></a>步驟 4：在 Azure VM 上安裝 AD DS</h2>
+
+登入 VM，並確認您具備整個站台對站台 VPN 的連線能力，或是對內部部署網路上的資源具備 ExpressRoute 連線功能。然後在 Azure VM 上安裝 AD DS。您可以使用您用來在內部部署網路上安裝其他網域控制站的相同程序 (UI、Windows PowerShell 或回應檔案)。當您安裝 AD DS 時，請務必指定新磁碟區的 AD 資料庫、記錄檔和 SYSVOL 的位置。如果您需要 AD DS 安裝上的重新整理程式，請參閱[安裝 Active Directory 網域服務 (等級 100)](http://technet.microsoft.com/library/hh472162.aspx) 或[在現有網域中安裝複本 Windows Server 2012 網域控制站 (等級 200)](http://technet.microsoft.com/library/jj574134.aspx)。
+
+<h2><a id="x=createappvms"></a>步驟 5：建立應用程式伺服器的 VM</h2>
 
+<ol><li><p>Repeat the following steps to create VMs to run as application servers. Accept the default value for a setting unless another value is suggested or required.</p>
 
-<h2><a id="Prerequisites"></a>必要條件</h2>
+<table style="width:100%">
+<tr>
+<td><b>在此精靈頁面上</b></td>
+<td><b>指定這些值</b></td>
+</tr>
+<tr>
+<td><b>選擇映像</b></td>
+<td>Windows Server 2012 R2 Datacenter</td>
+</tr>
+<tr>
+<td><b>虛擬機器設定</b></td>
+<td><ul><li>虛擬機器名稱：輸入單一標籤名稱 (例如 TreyAppServer1)。</li><li>新的使用者名稱：輸入使用者名稱。此使用者將會是 VM 上本機 Administrators 群組的成員。第一次登入 VM 時，您將需要此名稱。內建的系統管理員帳戶會無法運作。</li><li>新密碼/確認：輸入密碼</li></ul></td>
+</tr>
+<tr>
+<td><b>虛擬機器組態</b></td>
+<td><ul><li>雲端服務：第一個 VM 選擇 [建立新的雲端服務]，然後在您建立更多裝載 DC 角色的 VM 時，選取該相同的雲端服務名稱。</li><li>雲端服務 DNS 名稱：指定全域唯一名稱</li><li>區域/同質群組/虛擬網路：指定虛擬網路名稱 (例如 WestUSVNet)。</li><li>儲存體帳戶：第一個 VM 選擇 <b>使用自動產生的儲存體帳戶</b> ，然後在您建立更多裝載 DC 角色的 VM 時，選取該相同的儲存體帳戶名稱。</li><li>可用性設定組：選擇 <b>[建立可用性設定組]</b>。</li><li>可用性設定組名稱：請在您建立第一個 VM 時輸入可用性設定組的名稱，然後在您建立更多 VM 時選擇該相同名稱。</li></ul></td>
+</tr>
+<tr>
+<td><b>虛擬機器組態</b></td>
+<td>選取 <b>[安裝 VM 代理程式]</b> 以及您需要的任何其他延伸模組。</td>
+</tr>
+</table>
 
-在 Azure 虛擬網路與公司網路之間設定的-	[管理入口網站中設定站對站 VPN](http://msdn.microsoft.com/zh-tw/library/dn133795.aspx)。
--	在虛擬網路中建立雲端服務。
--	在屬於虛擬網路的雲端服務中部署兩部 VM (指定要放置 VM 的子網路)。如需詳細資訊，請參閱[將虛擬機器新增至虛擬網路](http://azure.microsoft.com/zh-tw/documentation/articles/virtual-networks-add-virtual-machine/)。其中一部 VM 的大小必須為 L 或更大，以便連接兩個資料磁碟。需要資料磁碟用來儲存：
-	- Active Directory 資料庫和記錄。
-	- 系統狀態備份。
--	具備兩部 VM (YourPrimaryDC 和 FileServer) 的企業網路。
--	如果您需要讓外部使用者解析 Active Directory 中帳戶的名稱，則必須部署網域名稱系統 (DNS) 基礎結構。在此情況下，將 DNS 伺服器安裝在網域控制站上之前，您應該先建立 DNS 區域委派，或允許 Active Directory 網域服務安裝精靈建立委派。如需建立 DNS 區域委派的詳細資訊，請參閱[建立區域委派](http://technet.microsoft.com/library/cc753500.aspx)。
--	在安裝於 Azure VM 的 DC 上，設定 DNS 用戶端解析程式設定，如下所示：
-	- 慣用 DNS 伺服器：內部部署 DNS 伺服器
-	- 其他 DNS 伺服器：迴路位址或 (如果可能的話) 執行於相同虛擬網路之 DC 上的其他 DNS 伺服器。
 
-<div class="dev-callout"> 
-<b>注意</b>
-<p>您需要提供自己的 DNS 基礎結構，才能支援 Azure 虛擬網路中的 AD DS。Azure 提供的此版本 DNS 基礎結構不支援某些 AD DS 要求的功能，如動態 SRV 資源記錄登錄。 </p>
-</div>
+</li>
+<li><p>佈建每個 VM 之後，登入並將 VM 加入網域。在 <b>伺服器管理員</b>按一下 <b>[本機伺服器]</b> > <b>[工作群組]</b> > <b>[變更...]</b> 然後選取 <b>[網域]</b> 並輸入您的內部部署網域名稱。提供網域使用者的認證，然後重新啟動 VM 以完成網域加入。
+</p>
+</li>
+</ol>
+<p>
+除了使用管理入口網站來佈建 VM，您也可以使用 Microsoft Azure 的 Windows PowerShell。使用 <a href = "http://msdn.microsoft.com/library/azure/dn495159.aspx">New-AzureVMConfig</a> und <a href = "http://msdn.microsoft.com/library/azure/dn495299.aspx">Add-AzureProvisioningConfig</a> 在 VM 第一次開機時將 VM 佈建為加入網域的機器，並使用 <a href = "http://msdn.microsoft.com/library/azure/dn495254.aspx">New-AzureVM</a> 建立 VM 本身。 
+</p>
 
-<div class="dev-callout"> 
-<b>注意</b>
-<p>如果您已經完成<a href="/zh-tw/manage/services/networking/active-directory-forest/">在 Azure 中安裝新的 Active Directory 樹系</a>中的步驟，可能需要先移除 Azure 虛擬網路之網域控制器上的 AD DS，才能開始進行本教學課程。如需移除 AD DS 之方式的詳細資訊，請參閱<a href="http://technet.microsoft.com/zh-tw/library/cc771844(v=WS.10).aspx">從網域移除網域控制站</a>。</p>
-</div>
+如需有關使用 Windows PowerShell 的詳細資訊，請參閱[開始使用 Azure PowerShell](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156055.aspx) 和 [Azure 管理 Cmdlet](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj152841)。
 
 
-<h2><a id="verifystaticip"></a>步驟 1：驗證 YourPrimaryDC 的靜態 IP 位址</h2>
+<h2><a id="resources"></a>其他資源</h2>
 
-1. 登入企業網路上的 YourPrimaryDC。
+-  [在 Azure 虛擬機器上部署 Windows Server Active Directory 的指導方針](http://msdn.microsoft.com/library/azure/jj156090.aspx)
 
-2. 在伺服器管理員中按一下 [檢視網路連線]。
+-  [如何使用 Azure PowerShell 將現有的內部部署 Hyper-V 網域控制站上傳到 Azure](http://support.microsoft.com/kb/2904015)
 
-3. 以滑鼠右鍵按一下本機區域網路連線，然後按一下 [內容]。
+-  [在 Azure 虛擬網路上安裝新的 Active Directory 樹系](http://azure.microsoft.com/documentation/articles/active-directory-new-forest-virtual-machine/)
 
-4. 按一下 [網際網路通訊協定第 4 版 (TCP/IPv4)]，然後按一下 [內容]。
+-  [Azure 虛擬網路](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
-5. 確認伺服器是否具有已指派的靜態 IP 位址。 
+-  [Windows Azure IT 專業人員 IaaS：(01) 虛擬機器基礎](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 
-	![VerifystaticIPaddressyourPrimaryDC1](./media/virtual-networks-install-replica-active-directory-domain-controller/VerifystaticIP.png)
+-  [Windows Azure IT 專業人員 IaaS：(05) 建立虛擬網路和跨單位連線](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 
+-  [Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj156055.aspx)
 
-<h2><a id="installforest"></a>步驟 2：安裝企業樹系</h2>
+-  [Azure 管理 Cmdlet](http://msdn.microsoft.com/library/windowsazure/jj152841)
 
-1. 在 VM 的 RDP 工作階段中，按一下 [**開始**] 並輸入 **dcpromo**，然後按 ENTER 鍵。
+<!--Image references-->
+[1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-	![InstallCorpForest1](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest1.png)
-
-
-2. 在 [歡迎使用] 頁面中按 [**下一步**]。
-
-	![InstallCorpForest2](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest2.png)
-
-
-
-3. 在 [作業系統相容性] 頁面中按 [**下一步**]。
-
-	![InstallCorpForest3](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest3.png)
-
-4. 在 [選擇部署組態] 頁面中按一下 [**在新樹系內建立新網域**]，然後按 [**下一步**]。 
-
-	![InstallCorpForest4](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest4.png)
-
-
-5. 在 [命名樹系根網域] 頁面中輸入樹系根網域的完整網域名稱 (FQDN) **corp.contoso.com**，然後按 [**下一步**]。 
-
-	![InstallCorpForest5](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest5.png)
-
-
-6. 在 [設定樹系功能等級] 頁面中按一下 [**Windows Server 2008 R2**]，然後按 [**下一步**]。
-
-	![InstallCorpForest6](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest6.png)
-
-7. 在 [其他網域控制站選項] 頁面中按一下 [**DNS 伺服器**]，然後按 [**下一步**]。
-
-	![InstallCorpForest7](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest7.png)
-
-8. 當以下 DNS 委派警告出現時，按一下 [**是**]。
-
-	![InstallCorpForest8](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest8.png)
-
-
-9. 在 [Location for Active Directory database, log files and SYSVOL] 頁面中輸入或選取檔案的位置，然後按 [**下一步**]。
-
-	![InstallCorpForest9](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest9.png)
-
-
-10. 在 [Directory Services Restore Administrator] 頁面中輸入並確認 DSRM 密碼，然後按 [**下一步**]。
-
-	![InstallCorpForest10](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest10.png)
-
-
-11. 在 [摘要] 頁面中確認選取項目，然後按 [**下一步**]。 
-
-	![InstallCorpForest11](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest11.png)
-
-12. 在 Active Directory 安裝精靈完成後，依序按一下 [**完成**] 和 [**立即重新啟動**] 以完成安裝。 
-
-	![InstallCorpForest12](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest12.png)
-
-
-
-<h2><a id="subnets"></a>步驟 3：建立子網路和站台</h2>
-
-1. 在 YourPrimaryDC 上依序按一下 [開始]、[系統管理工具] 及 [Active Directory 站台及服務]。
-2. 按一下 [**網站**]、以滑鼠右鍵按一下 [**子網路**]，然後按一下 [**新增子網路**]。
-
-	![CreateSubnetsandSites1](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites1.png)
-
-3. 在 [**Prefix::**] 中輸入 **10.1.0.0/24**、選取 **Default-First-Site-Name** 網站物件，然後按一下 [**確定**]。
-
-	![CreateSubnetsandSites2](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites2.png)
-
-4. 以滑鼠右鍵按一下 [**網站**]，然後按一下 [**新增網站**]。
-
-	![CreateSubnetsandSites3](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites3.png)
-
-
-5. 在 [名稱] 中輸入 **CloudSite**、選取 **DEFAULTIPSITELINK**，然後按一下 [**確定**]。 
-
-	![CreateSubnetsandSites4](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites4.png)
-
-
-6. 按一下 [**確定**] 以確認網站是否建立。 
-
-	![CreateSubnetsandSites5](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites5.png)
-
-7. 以滑鼠右鍵按一下 [**子網路**]，然後按一下 [**新增子網路**]。
-
-	![CreateSubnetsandSites6](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites6.png)
-
-8. 在 [**Prefix::**] 中輸入 **10.4.2.0/24**、選取 **CloudSite** 網站物件，然後按一下 [**確定**]。
-
-	![CreateSubnetsandSites7](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites7.png)
-
-
-<h2><a id="cloudsite"></a>步驟 4：在 CloudSite 中安裝額外的網域控制站</h2>
-
-1. 登入 YourVMachine，按一下 [**開始**] 並輸入 **dcpromo**，然後按 ENTER 鍵。
-
-	![AddDC1](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC1.png)
-
-2. 在 [歡迎使用] 頁面中按 [**下一步**]。
-
-	![AddDC2](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC2.png)
-
-
-3. 在 [作業系統相容性] 頁面中按 [**下一步**]。
-
-	![AddDC3](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC3.png)
-
-4. 在 [選擇部署組態] 頁面中依序按一下 [**現有樹系**]、[**新增現有網域的網域控制站**] 和 [**下一步**]。
-
-	![AddDC4](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC4.png)
-
-
-5. 在 [網路認證] 頁面中，確認您是否在 **corp.contoso.com** 網域中安裝網域控制站，然後輸入 Domain Admins 群組成員的認證 (或使用 corp\administrator 認證)。 
-
-	![AddDC5](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC5.png)
-
-
-6. 在 [選取網域] 頁面中按 [**下一步**]。 
-
-	![AddDC6](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC6.png)
-
-
-7. 在 [選取站台] 頁面中確認已選取 CloudSite，然後按 [**下一步**]。
-
-	![AddDC7](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC7.png)
-
-8. 在 [其他網域控制站選項] 頁面中按 [**下一步**]。 
-
-	![AddDC8](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC8.png)
-
-
-9. 在 [靜態 IP 指定] 警告中，按一下 [**是，電腦將使用 DHCP 伺服器自動指派的 IP 位址 (不建議)**]。
-
-	**重要事項** 
-
-	儘管 Azure 虛擬網路中的 IP 位址為動態，不過其租用會延續到 VM 的持續時間結束為止。因此，您不需要在安裝於虛擬網路之網域控制站上設定靜態 IP 位址。在 VM 中設定靜態 IP 位址會導致通訊失敗。
-
-
-	![AddDC9](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC9.png)
-
-10. 當 DNS 委派警告出現時，按一下 [**是**]。
-
-	![AddDC10](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC10.png)
-
-
-11. 在 [Location for Active Directory database, log files and SYSVOL] 頁面中按一下 [瀏覽]，接著輸入或選取資料磁碟上的位置以容納 Active Directory 檔案，然後按 [**下一步**]。 
-
-	![AddDC11](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC11.png)
-
-12. 在 [Directory Services Restore Administrator] 頁面中輸入並確認 DSRM 密碼，然後按 [**下一步**]。
-
-	![AddDC12](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC12.png)
-
-13. 在 [摘要] 頁面中按 [**下一步**]。
-
-	![AddDC13](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC13.png)
-
-14. 在 Active Directory 安裝精靈完成後，依序按一下 [**完成**] 和 [**立即重新啟動**] 以完成安裝。 
-
-	![AddDC14](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC14.png)
-
-
-<h2><a id="validate"></a>步驟 5：驗證安裝</h2>
-
-1. 重新連接 VM。
-
-2. 按一下 [**開始**]、以滑鼠右鍵按一下 [**命令提示字元**]，然後按一下 [**以系統管理員身分執行**]。 
-
-3. 輸入以下命令，然後按 ENTER 鍵：'Dcdiag /c /v'
-
-4. 確認測試是否成功執行。 
-
-在設定 DC 之後，執行以下 Windows PowerShell Cmdlet 以佈建額外的虛擬機器，並讓它們在佈建時自動加入網域。在佈建 VM 時，您必須設定 VM 的 DNS 用戶端解析程式設定。請替換為正確的網域名稱、VM 名稱等。 
-
-如需使用 Windows PowerShell 的詳細資訊，請參閱[開始使用 Azure PowerShell](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156055.aspx) 和 [Azure 管理 Cmdlet](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj152841)。
-
-
-<h2><a id="provisionvm"></a>步驟 6：佈建在開機時便已加入網域的虛擬機器</h2>
-
-1. 若要建立在首次開機時便已加入網域的額外虛擬機器，請開啟 Azure PowerShell ISE、貼入以下指令碼、將預留位置取代為您自己的值，然後再執行。 
-
-	若要判斷網域控制站的內部 IP 位址，請按一下網域控制站執行所在的虛擬網路名稱。 
-
-	在以下範例中，網域控制站的內部 IP 位址是 10.4.3.1。Add-AzureProvisioningConfig 亦採用 -MachineObjectOU 參數 (若有指定，需要在 Active Directory 有完整的辨別名稱)，能讓您設定該容器中所有虛擬機器上的群組原則。
-
-	在虛擬機器佈建完成後，請藉由指定使用「使用者主體名稱 (UPN)」格式 (如 administrator@corp.contoso.com) 的網域帳戶來登入虛擬機器。 
-
-		#Deploy a new VM and join it to the domain
-		#-------------------------------------------
-		#Specify my DC's DNS IP (10.4.3.1)
-		$myDNS = New-AzureDNS -Name 'ContosoDC13' -IPAddress '10.4.3.1'
-		
-		# OS Image to Use
-		$image = 'MSFT__Sql-Server-11EVAL-11.0.2215.0-08022012-zh-tw-30GB.vhd'
-		$service = 'myazuresvcindomainM1'
-		$AG = 'YourAffinityGroup'
-		$vnet = 'YourVirtualNetwork'
-		$pwd = 'p@$$w0rd'
-		$size = 'Small'
-		
-		#VM Configuration
-		$vmname = 'MyTestVM1'
-		$MyVM1 = New-AzureVMConfig -name $vmname -InstanceSize $size -ImageName $image |
-		    Add-AzureProvisioningConfig -WindowsDomain -Password $pwd -Domain 'corp' -DomainPassword 'p@$$w0rd' -DomainUserName 'Administrator' -JoinDomain 'corp.contoso.com'|
-		    Set-AzureSubnet -SubnetNames 'BackEnd'
-		
-		New-AzureVM -ServiceName $service -AffinityGroup $AG -VMs $MyVM1 -DnsSettings $myDNS -VNetName $vnet
-		
-
-<h2><a id="backup"></a>步驟 7：備份網域控制站</h2>
-
-
-1. 連接至 YourVMachine。
-
-2. 依序按一下 [**開始**]、[**伺服器管理員**]、[**新增功能**]，然後選取 [**Windows Server Backup 功能**]。遵循指示安裝 Windows Server Backup。
-
-3. 依序按一下 [**開始**]、[**Windows Server Backup**] 和 [**備份一次**]。
- 
-4. 按一下 [**不同選項**]，然後按 [**下一步**]。
-
-5. 按一下 [**完整伺服器**]，然後按 [**下一步**]。
-
-6. 按一下 [**本機磁碟機**]，然後按 [**下一步**]。
-
-7. 選取未裝載作業系統檔案的目的地磁碟機或 Active Directory 資料庫，然後按 [下一步]。
-
-	![BackupDC](./media/virtual-networks-install-replica-active-directory-domain-controller/BackupDC.png)
-
-
-8. 確認您選取的備份設定，然後按一下 [**備份**]。
-
-<h2><a id="test"></a>步驟 8：測試驗證和授權</h2>
-
-1. 為了測試驗證和授權，請在 Active Directory 中建立網域使用者帳戶。 
-登入每個站台的用戶端 VM，並在 VM 上建立共用資料夾
-
-2. 使用不同的帳戶、群組及權限來測試共用資料夾的存取。 
-
-## 另請參閱
-
--  [Azure 虛擬網路](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx)
-
--  [Windows Azure IT 專業人員 IaaS：(01) 虛擬機器基本概念](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01) (英文)
-
--  [Windows Azure IT 專業人員 IaaS：(05) 建立虛擬網路和跨單位連線](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05) (英文)
-
--  [Azure PowerShell](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156055.aspx)
-
--  [Azure 管理 Cmdlet](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj152841)
+<!--HONumber=35.2-->

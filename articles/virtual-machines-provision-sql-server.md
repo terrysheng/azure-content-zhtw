@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Install SQL Server" pageTitle="在 Azure 中佈建 SQL Server 虛擬機器 " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="本教學課程會教您如何在 Azure 上建立及設定 SQL Server 虛擬機器。" metaCanonical="" services="virtual-machines" documentationCenter="" title="Provisioning a SQL Server Virtual Machine on Azure" authors="selcint" solutions="" manager="jhubbard" editor="tyson" />
+<properties urlDisplayName="Install SQL Server" pageTitle="在 Azure 中佈建 SQL Server 虛擬機器 " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="本教學課程會教您如何在 Azure 上建立及設定 SQL Server 虛擬機器。" metaCanonical="" services="virtual-machines" documentationCenter="" title="Provisioning a SQL Server Virtual Machine on Azure" authors="selcint" solutions="" manager="jhubbard" editor="tyson" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="" />
 
@@ -21,15 +21,15 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 1. 使用您的帳戶登入 [Azure 管理入口網站](http://manage.windowsazure.com) 。如果您沒有 Azure 帳戶，請造訪 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/)。
 
-2. 在 Azure 管理入口網站中，依序按一下網頁左下角的 [**+NEW**]、[**運算**]、[**虛擬機器**] 和 [**從組件庫**]。
+2. 在 Azure 管理入口網站中，依序按一下網頁左下角的 [**+新增**]、[**運算**]、[**虛擬機器**] 和 [**從組件庫**]。
 
 3. 在 [**建立虛擬機器**] 頁面中選取含有 SQL Server 的虛擬機器映像，然後按一下頁面右下角的 [下一步] 箭頭。若想了解在 Azure 上受支援之 SQL Server 映像的最新資訊，請參閱[開始在 Azure 虛擬機器中使用 SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=294720) 主題 (位於 [Azure 虛擬機器中的 SQL Server 效能指引](http://go.microsoft.com/fwlink/p/?LinkId=294719) 文件集內)。 
 
     >[WACOM.NOTE] 如果您擁有以 SQL Server Evaluation Edition 平台映像建立的虛擬機器，該虛擬機器無法升級為組件庫內以分鐘計費之版本的映像。您可以在以下兩個選項中選擇其中一項：
     
-    > - 您可以使用組件庫內以分鐘計費的 SQL Server 版本來建立新虛擬機器，然後再遵循[如何使用資料磁碟在 Azure 虛擬機器之間移轉 SQL Server 資料庫檔案和結構描述]中的步驟，將資料庫檔案移轉到這部新虛擬機器(http://go.microsoft.com/fwlink/p/?LinkId=294738)。**或者**，
+    > - 您可以使用組件庫內以分鐘計費的 SQL Server 版本來建立新虛擬機器，然後再遵循[如何使用資料磁碟在 Azure 虛擬機器之間移轉 SQL Server 資料庫檔案和結構描述](http://go.microsoft.com/fwlink/p/?LinkId=294738)中的步驟，將資料庫檔案移轉到這部新虛擬機器。**或者**，
 
-    > - 您可以在 [License Mobility through Software Assurance on Azure] 合約下將 SQL Server Evaluation Edition 的現有執行個體升級至不同的 SQL Server 版本，(http://www.windowsazure.com/zh-tw/pricing/license-mobility/) (請遵循[升級至不同的 SQL Server 2014 版本]中的步驟)(http://go.microsoft.com/fwlink/?LinkId=396915)。如需如何購買授權版本之 SQL Server 的詳細資訊，請參閱[如何購買 SQL Server](http://www.microsoft.com/zh-tw/sqlserver/get-sql-server/how-to-buy.aspx)。
+    > - 您可以在 [Azure 上透過軟體保證的授權流動性](http://www.windowsazure.com/zh-tw/pricing/license-mobility/) 合約下將 SQL Server Evaluation Edition 的現有執行個體升級至不同的 SQL Server 版本， (請遵循[升級至不同的 SQL Server 2014 版本](http://go.microsoft.com/fwlink/?LinkId=396915)中的步驟)。如需如何購買授權版本之 SQL Server 的詳細資訊，請參閱[如何購買 SQL Server](http://www.microsoft.com/zh-tw/sqlserver/get-sql-server/how-to-buy.aspx)。
    
 
 4. 在第一個 [**虛擬機器組態**] 頁面上，提供下列資訊：
@@ -55,7 +55,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 5. 在第二個 [**虛擬機器組態**] 頁面上，請設定網路、儲存體和可用性的資源：
 	- 在 [**雲端服務**] 方塊中，選擇 [**建立新的雲端服務**]。
 	- 在 [**雲端服務 DNS 名稱**] 方塊中，提供選擇之 DNS 名稱的第一個部分，使其形成 **TESTNAME.cloudapp.net** 格式的名稱 
-	- 在 [**REGION/AFFINITY GROUP/VIRTUAL NETWORK**] 方塊中，選取主控這個虛擬映像的所在區域。
+	- 在 [**區域/同質群組/虛擬網路**] 方塊中，選取主控這個虛擬映像的所在區域。
 	- 在 [**儲存體帳戶**] 中，選取現有的儲存體帳戶或選取自動產生的儲存體帳戶。
 	- 在 [**可用性設定組**] 方塊中，選取 [**(無)**]。
 	- 閱讀及接受法律條款。
@@ -119,10 +119,10 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 3. 選取頁面頂端附近的 [**端點**] 頁面，然後按一下頁面底部的 [**新增**]。
 	
 
-4. 在 [**Add an Endpoint to a Virtual Machine**] 頁面中按一下 [**Add a Stand-alone Endpoint**]，然後按 [下一步] 箭頭以繼續操作。
+4. 在 [**將端點新增到虛擬機器**] 頁面中按一下 [**新增單一端點**]，然後按 [下一步] 箭頭以繼續操作。
 
 	
-5. 在 [**Specify the details of the endpoint**] 頁面中，提供下列資訊。
+5. 在 [**指定端點詳細資料**] 頁面中，提供下列資訊。
 
 	- 在 [**名稱**] 方塊中，提供端點的名稱。
 	- 在 [**通訊協定**] 方塊中，選取 [**TCP**]。您可以在 [**公用連接埠**] 方塊中輸入 **57500**。同樣地，您可以在 [**私人連接埠**] 方塊中輸入 SQL Server 的預設接聽連接埠 **1433**。請注意，有許多組織會藉由選取不同連接埠號碼來避免惡意的安全性攻擊。 
@@ -175,7 +175,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 2. 在 SQL Server 組態管理員的主控台窗格中，展開 [**SQL Server 網路組態**]。
 
-3. 在主控台窗格中，按一下 [**Protocols for _instance name_**]。(預設執行個體是 **Protocols for MSSQLSERVER**。)
+3. 在主控台窗格中，按一下 [**執行個體名稱通訊協定**]。(預設執行個體是 **Protocols for MSSQLSERVER**。)
 
 4. 在詳細資料窗格中以滑鼠右鍵按一下 [TCP]。依預設，組件庫映像的 TCP 應該是 [已啟用]。針對您的自訂映像，按一下 [**啟用**] (如果它的狀態是 [已停用])。
 

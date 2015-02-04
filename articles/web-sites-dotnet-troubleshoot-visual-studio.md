@@ -1,4 +1,4 @@
-﻿<properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="在 Visual Studio 中疑難排解 Azure 網站" metaKeywords="疑難排解, 偵錯, Azure 網站, 追蹤記錄" description="了解如何使用 Visual Studio 2013 內建的遠端偵錯、追蹤及記錄工具來疑難排解 Azure 網站。" metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
+<properties title="Troubleshooting Azure Websites in Visual Studio" pageTitle="在 Visual Studio 中疑難排解 Azure 網站" metaKeywords="疑難排解, 偵錯, Azure 網站, 追蹤記錄" description="了解如何使用 Visual Studio 2013 內建的遠端偵錯、追蹤及記錄工具來疑難排解 Azure 網站。" metaCanonical="" services="web-sites" documentationCenter=".NET" authors="tdykstra" manager="wpickett" solutions="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/13/2014" ms.author="tdykstra" />
 
@@ -49,22 +49,22 @@
 
 Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與組態設定功能的子集。本節將說明可用的項目。
 
-1. 如果您尚未在 Visual Studio 中登入 Azure，按一下 [伺服器總管]**** 中的 [連線到 Azure]**** 按鈕。
+1. 如果您尚未在 Visual Studio 中登入 Azure，按一下 **[伺服器總管]** 中的 **[連線到 Azure]** 按鈕。
 
-	替代方式為安裝可讓您存取帳戶的管理憑證。管理憑證讓 [伺服器總管]**** 得以存取其他的 Azure 服務 (SQL 資料庫與行動服務)。如果您選擇安裝憑證，請以滑鼠右鍵按一下 [伺服器總管]**** 中的 [Azure]**** 節點，然後按一下內容功能表中的 [管理訂閱]****。在 [管理 Azure 訂用帳戶]**** 對話方塊中，按一下 [憑證]**** 索引標籤，然後按一下 [匯入]****。請依照指示下載，然後匯入您 Azure 帳戶的訂用帳戶檔案 (亦稱為 *.publishsettings* 檔案)。
+	替代方式為安裝可讓您存取帳戶的管理憑證。管理憑證讓 **[伺服器總管]** 得以存取其他的 Azure 服務 (SQL 資料庫與行動服務)。如果您選擇安裝憑證，請以滑鼠右鍵按一下 **[伺服器總管]** 中的 **[Azure]** 節點，然後按一下內容功能表中的 **[管理訂閱]**。在 **[管理 Azure 訂用帳戶]** 對話方塊中，按一下 **[憑證]** 索引標籤，然後按一下 **[匯入]**。請依照指示下載，然後匯入您 Azure 帳戶的訂用帳戶檔案 (亦稱為 *.publishsettings* 檔案)。
 
 	> [WACOM.NOTE]
 	> 如果您下載了訂閱檔案，請將其儲存到原始程式碼目錄以外的資料夾 (例如在 Downloads 資料夾)，然後在匯入完成後刪除該檔案。惡意使用者一旦能夠存取此訂用帳戶檔案，就能夠編輯、建立和刪除您的 Azure 服務。
 
 	如需從 Visual Studio 連線至 Azure 資源的詳細資訊，請參閱[管理帳戶、訂閱和系統管理角色](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)。
 
-2. 在 [伺服器總管]**** 中，展開 [Azure]****，然後展開 [網站]****。
+2. 在 **[伺服器總管]** 中，展開 **[Azure]**，然後展開 **[網站]**。
 
 3. 以滑鼠右鍵按一下您在[開始使用 Azure 和 ASP.NET][GetStarted] 中建立的網站節點，然後按一下 [檢視設定]****。
 
 	![View Settings in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
-	[Azure 網站]**** 索引標籤會隨即顯示，您會看到 Visual Studio 中所提供的網站管理與組態工作。
+	**[Azure 網站]** 索引標籤會隨即顯示，您會看到 Visual Studio 中所提供的網站管理與組態工作。
 
 	![Azure Website window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
 
@@ -92,13 +92,13 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 要找到錯誤原因最簡單的方式，往往就是啟用詳細的錯誤訊息，而以上第一個螢幕擷取畫面說明的是其做法。該做法需要在部署的 Web.config 檔案中進行變更。您可以編輯專案中的 *Web.config* 檔案並重新部署專案，或建立 [Web.config 轉換](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)並部署偵錯組建，但還有更快的方法：在 [方案總管]**** 中使用「遠端檢視」功能，直接檢視及編輯遠端網站上的檔案。
 
-1. 在 [伺服器總管]**** 中，依序展開 [Azure]****、[網站]****，然後展開您要部署的網站節點。
+1. 在 **[伺服器總管]** 中，依序展開 **[Azure]**、**[網站]**，然後展開您要部署的網站節點。
 
 	您會看到可供您存取網站內容檔案與記錄檔的節點。
 
 	![File and log files](./media/web-sites-dotnet-troubleshoot-visual-studio/fileandlogfiles.png)
 
-2. 展開 [檔案]**** 節點，然後按兩下 *Web.config* 檔案。
+2. 展開 **[檔案]** 節點，然後按兩下 *Web.config* 檔案。
 
 	![Open Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
 
@@ -143,17 +143,17 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 2. 在 `ViewBag.Message` 字行中[設定中斷點](http://www.visualstudio.com/zh-tw/get-started/debug-your-app-vs.aspx)。
 
-1. 在 [方案總管]**** 中，於專案上按一下滑鼠右鍵，再按一下 [發行]****。
+1. 在 **[方案總管]** 中，於專案上按一下滑鼠右鍵，再按一下 **[發行]**。
 
-2. 在 [設定檔]**** 下拉式清單中，選取您在[開始使用 Azure 和 ASP.NET][GetStarted] 中使用的相同設定檔。
+2. 在 **[設定檔]** 下拉式清單中，選取您在[開始使用 Azure 和 ASP.NET][GetStarted] 中使用的相同設定檔。
 
-3. 按一下 [設定]**** 索引標籤，將 [組態]**** 變更為 [偵錯]****，然後按一下 [發行]****。
+3. 按一下 **[設定]** 索引標籤，將 **[組態]** 變更為 **[偵錯]**，然後按一下 **[發行]**。
 
 	![Publish in debug mode](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
 4. 部署完成後，您的瀏覽器會開啟至網站的 Azure URL，這時請關閉瀏覽器。
 
-5. 針對 Visual Studio 2013：在 [伺服器總管]**** 中，依序展開 [Azure]****、[網站]****，然後以滑鼠右鍵按一下您的網站，接著按一下 [連結偵錯工具]****。 
+5. 針對 Visual Studio 2013：在 **[伺服器總管]** 中，依序展開 **[Azure]**、**[網站]**，然後以滑鼠右鍵按一下您的網站，接著按一下 **[連結偵錯工具]**。 
 
 	![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
@@ -167,21 +167,21 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 	![Set remote debugging in management portal](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debuginportal.png)
    
-	* 在 Visual Studio 的 [偵錯]**** 功能表中，按一下 [附加至處理序]****。
+	* 在 Visual Studio 的 **[偵錯]** 功能表中，按一下 **[附加至處理序]**。
 
-	* 在 [限定詞]**** 方塊中，輸入您的網站 URL (不含 `http://` 前置詞)。 
+	* 在 **[限定詞]** 方塊中，輸入您的網站 URL (不含 `http://` 前置詞)。 
 
-	* 選取 [顯示所有使用者的處理序]****。
+	* 選取 **[顯示所有使用者的處理序]**。
 
 	* 當系統提示您輸入認證時，請輸入具有發行網站權限的使用者名稱與密碼。若要取得這些認證，請前往管理入口網站中您的網站的 [儀表板] 索引標籤，然後按一下 [下載發行設定檔]****。在文字編輯器中開啟檔案，這時您會在第一個出現的 **userName=** 與 **userPWD=** 的後面看到使用者名稱與密碼。 
 
-	* 當 [可使用的處理序]**** 資料表中顯示處理序時，選取 **w3wp.exe**，然後按一下 [附加]****。
+	* 當 **[可使用的處理序]** 資料表中顯示處理序時，選取 **w3wp.exe**，然後按一下 **[附加]**。
 
 	* 開啟瀏覽器以瀏覽至您的網站 URL。
 
 	您可能需要等候 20 秒左右的時間，讓 Azure 設定要偵錯的伺服器。通常只有當您第一次在網站上執行偵錯模式時，才會出現這個延遲現象。後續 48 小時內再次啟動的偵錯程序將不會再出現任何延遲。
 
-6. 按一下功能表中的 [關於]****。
+6. 按一下功能表中的 **[關於]**。
 
 	Visual Studio 會在中斷點處停止，而程式碼是在 Azure 中執行，而不是在您的本機電腦上執行。
 
@@ -211,17 +211,17 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 	![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
-1. 在 [方案總管]**** 中，以滑鼠右鍵按一下 Web 專案 (而非 WebJob 專案)，然後按一下 [發行]****。
+1. 在 **[方案總管]** 中，以滑鼠右鍵按一下 Web 專案 (而非 WebJob 專案)，然後按一下 [發行]****。
 
-2. 在 [設定檔]**** 下拉式清單中，選取您在[開始使用 Azure WebJobs SDK] 中使用的相同設定檔(../websites-dotnet-webjobs-sdk)。
+2. 在 **[設定檔]** 下拉式清單中，選取您在[開始使用 Azure WebJobs SDK] 中使用的相同設定檔(../websites-dotnet-webjobs-sdk)。
 
-3. 按一下 [設定]**** 索引標籤，將 [組態]**** 變更為 [偵錯]****，然後按一下 [發行]****。
+3. 按一下 **[設定]** 索引標籤，將 **[組態]** 變更為 **[偵錯]**，然後按一下 **[發行]**。
 
 	Visual Studio 會部署 Ｗeb 和 WebJob 專案，且在瀏覽器中開啟您網站的 Azure URL。
 
-5. 在 [伺服器總管]**** 中展開 [Azure]**** > [網站]**** > 您的網站 > [WebJobs]**** > [連續]****，然後以滑鼠右鍵按一下 [ContosoAdsWebJob]****。
+5. 在 **[伺服器總管]** 中展開 **[Azure]** > **[網站]** > 您的網站 > **[WebJobs]** > **[連續]**，然後以滑鼠右鍵按一下 **[ContosoAdsWebJob]**。
 
-7. 按一下 [連結偵錯工具]****。 
+7. 按一下 **[連結偵錯工具]**。 
 
 	![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png)
 
@@ -243,7 +243,7 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 6. 在 Visual Studio 中，按 SHIFT+F5 停止偵錯。
 
-7. 在 [伺服器總管]**** 中，於 ContosoAdsWebJob 節點按一下滑鼠右鍵，然後按一下 [檢視儀表板]****。
+7. 在 **[伺服器總管]** 中，於 ContosoAdsWebJob 節點按一下滑鼠右鍵，然後按一下 **[檢視儀表板]**。
 
 8. 使用您的 Azure 認證登入，然後按一下 WebJob 名稱以移至您的 WebJob 頁面。 
 
@@ -257,7 +257,7 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 	![Function details](./media/web-sites-dotnet-troubleshoot-visual-studio/funcdetails.png)
 
-如果您的函數會[寫入記錄](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#logs)，您可以按一下 [ToggleOutput]**** 查看它們。
+如果您的函數會[寫入記錄](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#logs)，您可以按一下 **[ToggleOutput]** 查看它們。
 
 ### 遠端偵錯注意事項
 
@@ -388,11 +388,11 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 4. 在瀏覽器視窗的網址列中，將 *trace.axd* 新增至 URL，然後按 Enter 鍵 (URL 類似於 http://localhost:53370/trace.axd)。
 
-5. 在 [應用程式追蹤]**** 頁面上，按一下第一行 (不是 BrowserLink 行) 上的 [檢視詳細資料]****。
+5. 在 **[應用程式追蹤]** 頁面上，按一下第一行 (不是 BrowserLink 行) 上的 **[檢視詳細資料]**。
 
 	![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
-	[要求詳細資料]**** 頁面隨即顯示，而且在 [追蹤資訊]**** 區段中，您會看到先前加入 `Index` 方法的追蹤陳述式輸出。
+	**[要求詳細資料]** 頁面隨即顯示，而且在 **[追蹤資訊]** 區段中，您會看到先前加入 `Index` 方法的追蹤陳述式輸出。
 
 	![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
 
@@ -404,23 +404,23 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 ### 在 Azure 中檢視追蹤輸出
 
-1. 在 [方案總管]**** 中，於 Web 專案上按一下滑鼠右鍵，再按一下 [發行]****。
+1. 在 **[方案總管]** 中，於 Web 專案上按一下滑鼠右鍵，再按一下 **[發行]**。
 
-2. 在 [發行 Web]**** 對話方塊中，按一下 [發行]****。
+2. 在 **[發行 Web]** 對話方塊中，按一下 **[發行]**。
 
-	當 Visual Studio 成功發行您的更新後，將會開啟瀏覽器視窗至您的首頁 (假設您並未清除 [連線]**** 索引標籤上的 [目的地 URL]****)。
+	當 Visual Studio 成功發行您的更新後，將會開啟瀏覽器視窗至您的首頁 (假設您並未清除 **[連線]** 索引標籤上的 **[目的地 URL]**)。
 
-3. 在 [伺服器總管]**** 中，以滑鼠右鍵按一下您的網站，並選取 [檢視串流記錄]****。 
+3. 在 **[伺服器總管]** 中，以滑鼠右鍵按一下您的網站，並選取 [檢視串流記錄]****。 
 
 	![View Streaming Logs in context menu](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png)
 
-	[輸出]**** 視窗會顯示您已連線至記錄串流服務，並每一分鐘新增一行通知文字 (若沒有要顯示的記錄) 。
+	**[輸出]** 視窗會顯示您已連線至記錄串流服務，並每一分鐘新增一行通知文字 (若沒有要顯示的記錄) 。
 
 	![View Streaming Logs in context menu](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png)
 
-4. 在顯示您應用程式首頁的瀏覽器視窗中，按一下 [連絡人]****。
+4. 在顯示您應用程式首頁的瀏覽器視窗中，按一下 **[連絡人]**。
 
-	幾秒鐘後，您新增至 `Contact` 方法的錯誤層級追蹤輸出便會顯示在 [輸出]**** 視窗。
+	幾秒鐘後，您新增至 `Contact` 方法的錯誤層級追蹤輸出便會顯示在 **[輸出]** 視窗。
 
 	![Error trace in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
 
@@ -429,17 +429,17 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 	![Application Logging off](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
 
 
-	不過，當您選取 [檢視串流記錄]****，Visual Studio 會自動將 [應用程式記錄 (檔案系統)]**** 變更為 [錯誤]****，表示已經提出錯誤層級記錄的報告。為了查看所有的追蹤記錄，您可以將此設定變更為 [詳細資訊]****。當您選取低於錯誤的嚴重性層級時，將一併回報較高嚴重性層級的所有記錄。因此當您選取詳細資訊時，您會同時看到資訊、警告與錯誤記錄。  
+	不過，當您選取 **[檢視串流記錄]**，Visual Studio 會自動將 **[應用程式記錄 (檔案系統)]** 變更為 **[錯誤]**，表示已經提出錯誤層級記錄的報告。為了查看所有的追蹤記錄，您可以將此設定變更為 **[詳細資訊]**。當您選取低於錯誤的嚴重性層級時，將一併回報較高嚴重性層級的所有記錄。因此當您選取詳細資訊時，您會同時看到資訊、警告與錯誤記錄。  
 
-4. 在 [伺服器總管]**** 中，以滑鼠右鍵按一下網站，然後按一下 [檢視設定]**** (如同稍早所做的動作)。
+4. 在 **[伺服器總管]** 中，以滑鼠右鍵按一下網站，然後按一下 [檢視設定]**** (如同稍早所做的動作)。
 
-5. 將 [應用程式記錄 (檔案系統)]**** 變更為 [詳細資訊]****，然後按一下 [儲存]****。
+5. 將 **[應用程式記錄 (檔案系統)]** 變更為 **[詳細資訊]**，然後按一下 **[儲存]**。
  
 	![Setting trace level to Verbose](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-applogverbose.png)
 
-6. 在顯示您的 [連絡人]**** 頁面的瀏覽器視窗中，依序按一下 [首頁]****、[關於]****、[連絡人]****。
+6. 在顯示您的 **[連絡人]** 頁面的瀏覽器視窗中，依序按一下 **[首頁]**、**[關於]**、**[連絡人]**。
 
-	在幾秒鐘內，[輸出]**** 視窗就會顯示您的所有追蹤輸出。
+	在幾秒鐘內，**[輸出]** 視窗就會顯示您的所有追蹤輸出。
 
 	![Verbose trace output](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-verbosetraces.png)
 
@@ -447,39 +447,39 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 ### 輸出視窗功能
 
-[輸出]**** 視窗的 [Azure 記錄]**** 索引標籤具有多個按鈕與一個文字方塊：
+**[輸出]** 視窗的 **[Azure 記錄]** 索引標籤具有多個按鈕與一個文字方塊：
 
 ![Logs tab buttons](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png)
 
 這些物件可執行下列功能：
 
-* 清除 [輸出]**** 視窗。
+* 清除 **[輸出]** 視窗。
 * 啟用或停用自動換行。
 * 啟動或停止監視記錄。
 * 指定要監視的記錄。
 * 下載記錄。
 * 依據搜尋字串或規則運算式篩選記錄。
-* 關閉 [輸出]**** 視窗。
+* 關閉 **[輸出]** 視窗。
 
 如果您輸入搜尋字串或是規則運算式，則 Visual Studio 會篩選用戶端的記錄資訊。亦即，您可以等到 [輸出]**** 視窗顯示記錄後輸入條件，這樣您不需重新產生記錄便能直接變更篩選條件。
 
 <h2><a name="webserverlogs"></a>檢視 Web 伺服器記錄</h2>
 
-Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 [輸出]**** 視窗中檢視記錄，您必須在網站上啟用記錄，然後告訴 Visual Studio 您想要監視記錄。 
+Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 **[輸出]** 視窗中檢視記錄，您必須在網站上啟用記錄，然後告訴 Visual Studio 您想要監視記錄。 
 
-1. 在您從 [伺服器總管]**** 開啟的 [Azure 網站組態]**** 索引標籤中，將 Web 伺服器記錄功能變更為 [開啟]****，然後按一下 [儲存]****。
+1. 在您從 **[伺服器總管]** 開啟的 **[Azure 網站組態]** 索引標籤中，將 Web 伺服器記錄功能變更為 **[開啟]**，然後按一下 **[儲存]**。
 
 	![Enable web server logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-webserverloggingon.png)
 
-2. 在 [輸出]**** 視窗中，按一下 [指定要監視的 Azure 記錄]**** 按鈕。
+2. 在 **[輸出]** 視窗中，按一下 [指定要監視的 Azure 記錄]**** 按鈕。
 	
 	![Specify which Azure logs to monitor](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-specifylogs.png)
 
-3. 在 [Azure 記錄選項]**** 對話方塊中，選取 [Web 伺服器記錄]****，然後按一下 [確定]****。
+3. 在 **[Azure 記錄選項]** 對話方塊中，選取 **[Web 伺服器記錄]**，然後按一下 **[確定]**。
 
 	![Monitor web server logs](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorwslogson.png)
 
-4. 在顯示該網站的瀏覽器視窗中，依序按一下 [首頁]****、[關於]****、[連絡人]****。
+4. 在顯示該網站的瀏覽器視窗中，依序按一下 **[首頁]**、**[關於]**、**[連絡人]**。
 
 	通常會先產生應用程式記錄，然後才是 Web 伺服器記錄。您可能需要等候一小段時間，記錄才會顯示。 
 
@@ -498,9 +498,9 @@ Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 [輸出]*
 
 	![啟用詳細的錯誤訊息](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailedlogson.png)
 
-2. 在 [輸出]**** 視窗中，按一下 [指定要監視的 Azure 記錄]**** 按鈕。
+2. 在 **[輸出]** 視窗中，按一下 **[指定要監視的 Azure 記錄]** 按鈕。
 
-3. 在 [Azure 記錄選項]**** 對話方塊中，按一下 [所有記錄]****，然後按一下 [確定]****。
+3. 在 **[Azure 記錄選項]** 對話方塊中，按一下 **[所有記錄]**，然後按一下 **[確定]**。
 
 	![Monitor all logs](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorall.png)
 
@@ -516,9 +516,9 @@ Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 [輸出]*
 
 <h2><a name="downloadlogs"></a>下載檔案系統記錄</h2>
 
-任何您可在 [輸出]**** 視窗中監視的記錄，也能下載為 *.zip* 檔案。 
+任何您可在 **[輸出]** 視窗中監視的記錄，也能下載為 *.zip* 檔案。 
 
-1. 在 [輸出]**** 視窗中，按一下 [下載串流記錄]****。
+1. 在 **[輸出]** 視窗中，按一下 **[下載串流記錄]**。
 
 	![Logs tab buttons](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png)
 
@@ -538,7 +538,7 @@ Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 [輸出]*
 
 <h2><a name="storagelogs"></a>檢視儲存體記錄</h2>
 
-應用程式追蹤記錄也可以傳送至 Azure 儲存體帳戶，以便您在 Visual Studio 中加以檢視。若要這麼做，請建立儲存體帳戶，並在管理入口網站中啟用儲存體記錄，然後就可透過 [Azure 網站]**** 視窗的 [記錄]**** 索引標籤加以檢視。
+應用程式追蹤記錄也可以傳送至 Azure 儲存體帳戶，以便您在 Visual Studio 中加以檢視。若要這麼做，請建立儲存體帳戶，並在管理入口網站中啟用儲存體記錄，然後就可透過 **[Azure 網站]** 視窗的 **[記錄]** 索引標籤加以檢視。
 
 您可以將記錄傳送至以下任意或所有目的地 (共三個)：
 
@@ -548,45 +548,45 @@ Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 [輸出]*
 
 您可以為每個目的地指定不同的嚴重性層級。 
 
-資料表可讓您輕鬆地在線上檢視記錄的詳細資料，而且資料表還支援串流；您可以查詢資料表中的記錄，並即時看到正在建立的新記錄。Blob 則可讓您輕鬆地將記錄下載到檔案，並運用 HDInsight 加以分析，因為 HDInsight 知道如何處理 Blob 儲存體。如需詳細資訊，請參閱 [資料儲存體選項 (運用 Azure 建構真實的雲端應用程式)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options) 中的「Hadoop 與 MapReduce」****。
+資料表可讓您輕鬆地在線上檢視記錄的詳細資料，而且資料表還支援串流；您可以查詢資料表中的記錄，並即時看到正在建立的新記錄。Blob 則可讓您輕鬆地將記錄下載到檔案，並運用 HDInsight 加以分析，因為 HDInsight 知道如何處理 Blob 儲存體。如需詳細資訊，請參閱 [資料儲存體選項 (運用 Azure 建構真實的雲端應用程式)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options) 中的**「Hadoop 與 MapReduce」。
 
 您目前已將檔案系統記錄設為詳細資訊層級；以下步驟將帶您逐步設定資訊層級記錄，以便傳送至儲存體帳戶資料表。資訊層級代表所有藉由呼叫 `Trace.TraceInformation`、`Trace.TraceWarning` 與 `Trace.TraceError` 所建立的的記錄都會顯示出來，但不會顯示藉由呼叫 `Trace.WriteLine` 所建立的記錄。
 
 與檔案系統相較之下，儲存體帳戶可提供更多的儲存體與較長的記錄保留時間。將應用程式追蹤記錄傳送至儲存體的另一項好處，就是您可以從每個記錄中獲得更多的額外資訊，而檔案系統記錄則無法提供。
 
-5. 以滑鼠右鍵按一下 Azure 節點下的 [儲存體]****，然後按一下 [建立儲存體帳戶]****。
+5. 以滑鼠右鍵按一下 Azure 節點下的 **[儲存體]**，然後按一下 **[建立儲存體帳戶]**。
 
 ![Create Storage Account](./media/web-sites-dotnet-troubleshoot-visual-studio/createstor.png)
 
-3. 在 [建立儲存體帳戶]**** 對話方塊中，輸入儲存體帳戶的名稱。 
+3. 在 **[建立儲存體帳戶]** 對話方塊中，輸入儲存體帳戶的名稱。 
 
 	名稱必須絕對是唯一的 (其他 Azure 儲存體帳戶都不能有相同名稱)。如果您輸入的名稱已在使用中，您將有機會更改它。
 
 	用來存取您儲存體帳戶的 URL 將會是 *{name}*.core.windows.net。 
 
-5. 將 [區域或同質群組]**** 下拉式清單設定為離您最近的區域。
+5. 將 **[區域或同質群組]** 下拉式清單設定為離您最近的區域。
 
 	此設定會指定哪個 Azure 資料中心將會主控您的儲存體帳戶。在本教學課程中，您的決定並不會造成明顯的差異，但在生產網站中，您的 Web 伺服器和儲存體帳戶應要在相同區域內，以將延遲和出口流量費用降到最低。網站 (將於稍後建立) 應儘可能地靠近存取您網站的瀏覽器，以將延遲降到最低。
 
-6. 將 [複寫]**** 下拉式清單設為 [本地備援]****。 
+6. 將 **[複寫]** 下拉式清單設為 **[本地備援]**。 
 
 	對儲存體帳戶啟用地理區域複寫時，儲存內容會複寫至次要資料中心，以便能在主要位置發生嚴重災難時容錯移轉至該位置。地理區域複寫會引發額外成本。對於測試和開發帳戶，您通常不會想要付費使用地理區域複寫功能。如需詳細資訊，請參閱[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/#replication-options)。
 
-5. 按一下 [建立]****。 
+5. 按一下 **[建立]**。 
 
 	![New storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)	
 
-1. 在 Visual Studio [Azure 網站]**** 視窗中，按一下 [記錄]**** 索引標籤，然後按一下 [設定管理入口網站中的記錄]****。
+1. 在 Visual Studio **[Azure 網站]** 視窗中，按一下 **[記錄]** 索引標籤，然後按一下 **[設定管理入口網站中的記錄]**。
 
 	![Configure logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
-	這麼做會在管理入口網站中開啟您網站的 [設定]**** 索引標籤。要到達此頁面的另一個方法，就是依序按一下 [網站]**** 索引標籤和您的網站，然後按一下 [設定]**** 索引標籤。
+	這麼做會在管理入口網站中開啟您網站的 **[設定]** 索引標籤。要到達此頁面的另一個方法，就是依序按一下 [網站]**** 索引標籤和您的網站，然後按一下 **[設定]** 索引標籤。
 
-2. 在管理入口網站的 [設定]**** 索引標籤中，向下捲動至應用程式診斷區段，然後將 [應用程式記錄 (資料表儲存體)]**** 變更為 [開啟]****。
+2. 在管理入口網站的 **[設定]** 索引標籤中，向下捲動至應用程式診斷區段，然後將 **[應用程式記錄 (資料表儲存體)]** 變更為 **[開啟]**。
 
-3. 將 [記錄層級]**** 變更為 [資訊]****。
+3. 將 **[記錄層級]** 變更為 **[資訊]**。
 
-4. 按一下 [管理資料表儲存體]****。
+4. 按一下 **[管理資料表儲存體]**。
 
 	![Click Manage TableStorage](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-stgsettingsmgmtportal.png)
 
@@ -594,31 +594,31 @@ Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 [輸出]*
 
 	![Manage table storage](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-choosestorageacct.png)
 
-6. 在 [管理應用程式診斷的資料表儲存體]**** 方塊中，按一下核取方塊以關閉該方塊。
+6. 在 **[管理應用程式診斷的資料表儲存體]** 方塊中，按一下核取方塊以關閉該方塊。
 
-6. 在管理入口網站的 [設定]**** 索引標籤中，按一下 [儲存]****。
+6. 在管理入口網站的 **[設定]** 索引標籤中，按一下 **[儲存]**。
 
-7. 在顯示該應用程式網站的瀏覽器視窗中，依序按一下 [首頁]****、[關於]****、[連絡人]****。
+7. 在顯示該應用程式網站的瀏覽器視窗中，依序按一下 **[首頁]**、**[關於]**、**[連絡人]**。
 
 	瀏覽這些網頁所產生的記錄資訊將會寫入儲存體帳戶。
 
-8. 在 Visual Studio 的 [Azure 網站]**** 視窗的 [記錄]**** 索引標籤中，按一下 [診斷摘要]**** 下方的 [重新整理]****。
+8. 在 Visual Studio 的 **[Azure 網站]** 視窗的 **[記錄]** 索引標籤中，按一下 **[診斷摘要]** 下方的 **[重新整理]**。
 
 	![Click Refresh](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
 
-	[診斷摘要]**** 區段預設會顯示最後 15 分鐘的記錄。您可以變更期間以檢視更多記錄。 
+	**[診斷摘要]** 區段預設會顯示最後 15 分鐘的記錄。您可以變更期間以檢視更多記錄。 
 
 	(如果出現「找不到資料表」錯誤，請確認您所瀏覽的頁面在您啟用了 [應用程式記錄 (儲存體)]**** 與按一下 [儲存]****之後，能夠進行追蹤作業)。
 
 	![Storage logs](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storagelogs.png)
 
-	請注意，在此檢視中您會看到每個記錄的 [處理序識別碼]**** 與 [執行緒識別碼]****，而這是檔案系統記錄所無法提供。您可以直接檢視 Azure 儲存體資料表來查看其他欄位。
+	請注意，在此檢視中您會看到每個記錄的 **[處理序識別碼]** 與 **[執行緒識別碼]**，而這是檔案系統記錄所無法提供。您可以直接檢視 Azure 儲存體資料表來查看其他欄位。
 
-8. 按一下 [檢視所有應用程式記錄檔]****。
+8. 按一下 **[檢視所有應用程式記錄檔]**。
 
 	追蹤記錄資料表會顯示在 Azure 儲存體資料表檢視器中。
    
-	(如果出現「序列未包含項目」錯誤，請開啟 [伺服器總管]**** 並展開 [Azure]**** 節點下方的儲存體帳戶節點，然後以滑鼠右鍵按一下 [資料表]**** 並按一下 [重新整理]****)。
+	(如果出現「序列未包含項目」錯誤，請開啟 **[伺服器總管]** 並展開 **[Azure]** 節點下方的儲存體帳戶節點，然後以滑鼠右鍵按一下 **[資料表]** 並按一下 **[重新整理]**)。
 
 	![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetableinse.png)
 
@@ -640,7 +640,7 @@ Azure 網站會使用 IIS 7.0 及更新版本所提供的相同失敗要求追�
 
 您可以直接在瀏覽器中透過 FTP，或是在本機使用 FTP 工具將記錄下載到本機電腦中之後檢視失敗要求追蹤記錄。在本節中，您將在瀏覽器中直接檢視。
 
-1. 在您從 [伺服器總管]**** 開啟的 [Azure 網站]**** 視窗之 [組態]**** 索引標籤中，將 [失敗要求追蹤]**** 變更為 [開啟]****，然後按一下 [儲存]****。
+1. 在您從 **[伺服器總管]** 開啟的 **[Azure 網站]** 視窗之 **[組態]** 索引標籤中，將 **[失敗要求追蹤]** 變更為 **[開啟]**，然後按一下 **[儲存]**。
 
 	![Enable failed request tracing](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequeston.png)
 
@@ -648,9 +648,9 @@ Azure 網站會使用 IIS 7.0 及更新版本所提供的相同失敗要求追�
 
 	這麼做會讓系統建立失敗要求追蹤記錄，以下步驟將說明如何檢視或下載記錄。
 
-2. 在 Visual Studio 中，按一下 [Azure 網站]**** 視窗之 [組態]**** 索引標籤中的 [在管理入口網站中開啟]****。
+2. 在 Visual Studio 中，按一下 **[Azure 網站]** 視窗之 **[組態]** 索引標籤中的 **[在管理入口網站中開啟]**。
 
-3. 在管理入口網站中，按一下 [儀表板]****，然後按一下 [快速概覽]**** 區段中的 [重設您的部署認證]****。
+3. 在管理入口網站中，按一下 **[儀表板]**，然後按一下 **[快速概覽]** 區段中的 **[重設您的部署認證]**。
 
 	![Reset FTP credentials link in Dashboard](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-resetftpcredentials.png)
 
@@ -658,9 +658,9 @@ Azure 網站會使用 IIS 7.0 及更新版本所提供的相同失敗要求追�
 
 	![New FTP user name and password](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-5. 在管理入口網站的 [儀表板]**** 索引標籤中，按 F5 以重新整理頁面，然後向下捲動至顯示 [部署 / FTP 使用者]**** 的地方。請注意，該使用者名稱前面有加上網站名稱前置詞。**當您登入時，必須使用此完整的使用者名稱，加上此處所示的網站名稱前置詞。**
+5. 在管理入口網站的 **[儀表板]** 索引標籤中，按 F5 以重新整理頁面，然後向下捲動至顯示 **[部署 / FTP 使用者]** 的地方。請注意，該使用者名稱前面有加上網站名稱前置詞。**當您登入時，必須使用此完整的使用者名稱，加上此處所示的網站名稱前置詞。**
 
-5. 在新瀏覽器視窗中，前往位於您的網站之管理入口網站頁面 [儀表板]**** 索引標籤中的 [FTP 主機名稱]**** 下方的 URL。[FTP 主機名稱]**** 位於 [快速概覽]**** 區段中的 [部署 / FTP 使用者]**** 附近。
+5. 在新瀏覽器視窗中，前往位於您的網站之管理入口網站頁面 **[儀表板]** 索引標籤中的 **[FTP 主機名稱]** 下方的 URL。**[FTP 主機名稱]** 位於 **[快速概覽]** 區段中的 **[部署 / FTP 使用者]** 附近。
 
 6. 使用您先前建立的 FTP 認證登入 (包括該使用者名稱的網站名稱前置詞)。
 

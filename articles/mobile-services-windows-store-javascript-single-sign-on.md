@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Authenticate with single sign-on" pageTitle="使用 Live Connect (JavaScript) 驗證應用程式" metaKeywords="Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso, Azure JavaScript SSO" description="了解如何從 Windows 市集應用程式在 Azure 行動服務中使用 Live Connect 單一登入。" metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Store app with Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Authenticate with single sign-on" pageTitle="使用 Live Connect (JavaScript) 驗證應用程式" metaKeywords="Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso, Azure JavaScript SSO" description="了解如何從 Windows 市集應用程式在 Azure 行動服務中使用 Live Connect 單一登入。" metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Store app with Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 
@@ -24,13 +24,13 @@
 + Microsoft Visual Studio 2012 Express for Windows 8 RC 或更新版本
 + 您還必須先完成[新增行動服務至現有應用程式]教學課程。
 
-##<a name="register"></a>向 Windows 市集註冊應用程式
+## <a name="register"></a>向 Windows 市集註冊應用程式
 
 若要能夠驗證使用者，您必須將應用程式提交到 Windows 市集。接著您必須註冊用戶端密碼，以將 Live Connect 與行動服務進行整合。
 
 [WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
-##<a name="permissions"></a>限制只有經驗證的使用者具有權限
+## <a name="permissions"></a>限制只有經驗證的使用者具有權限
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
@@ -43,7 +43,7 @@
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
-##<a name="add-authentication"></a>將驗證新增至應用程式
+## <a name="add-authentication"></a>將驗證新增至應用程式
 
 1. 下載並安裝 [Live SDK for Windows] (英文)。
 
@@ -169,7 +169,7 @@
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [新增行動服務至現有應用程式]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
 [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-users
-[使用指令碼來授權使用者]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts/
+[使用指令碼授權使用者]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts/
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 

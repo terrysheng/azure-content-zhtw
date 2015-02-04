@@ -1,8 +1,8 @@
-﻿<properties title="Learn how to configure an Azure website to use a domain name registered with GoDaddy" pageTitle="設定 Azure 網站的 GoDaddy 網域名稱 " metaKeywords="Azure, Azure 網站, 網域名稱" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" manager="wpickett" />
+<properties title="Learn how to configure an Azure website to use a domain name registered with GoDaddy" pageTitle="設定 Azure 網站的 GoDaddy 網域名稱 " metaKeywords="Azure, Azure 網站, 網域名稱" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth" />
 
-#設定 Azure 網站的自訂網域名稱 (GoDaddy)
+# 設定 Azure 網站的自訂網域名稱 (GoDaddy)
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/web-sites-custom-domain-name" title="Custom Domain">自訂網域</a><a href="/zh-tw/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy" class="current">GoDaddy</a><a href="/zh-tw/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Network Solutions</a><a href="/zh-tw/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/zh-tw/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/zh-tw/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/zh-tw/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/zh-tw/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/zh-tw/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
 <div class="dev-center-tutorial-subselector"><a href="/zh-tw/documentation/articles/web-sites-godaddy-custom-domain-name/" title="Websites" class="current">網站</a> | <a href="/zh-tw/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/" title="Website using Traffic Manager">使用流量管理員的網站</a></div>
@@ -38,9 +38,9 @@
 
 	![DNS Zone File tab](./media/web-sites-custom-domain-name/godaddy-zonetab.png)
 
-選取 [**新增記錄**] 以新增現有記錄。
+	選取 [**新增記錄**] 以新增現有記錄。
 
-若要 [**編輯**] 現有記錄，請選取該記錄旁的 [紙筆] 圖示。
+	若要 [**編輯**] 現有記錄，請選取該記錄旁的 [紙筆] 圖示。
 
 	> [WACOM.NOTE] 新增記錄之前，請注意，GoDaddy 已為熱門子網域 (在編輯器中稱為「**主機**」) 建立 DNS 記錄，例如**電子郵件**、**檔案**、**郵件**及其他。如果您要使用的名稱已存在，請修改現有記錄，而非建立新記錄。
 
@@ -48,7 +48,7 @@
 
 	![select record type](./media/web-sites-custom-domain-name/godaddy-selectrecordtype.png)
 
-接下來，您必須提供 [**主機** (自訂網域或子網域) 及其 [**指向**] 位置。
+	接下來，您必須提供 [**主機** (自訂網域或子網域) 及其 [**指向**] 位置。
 
 	![add zone record](./media/web-sites-custom-domain-name/godaddy-addzonerecord.png)
 

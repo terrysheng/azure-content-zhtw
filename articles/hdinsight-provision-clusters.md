@@ -1,8 +1,8 @@
-﻿<properties urlDisplayName="HDInsight Administration" pageTitle="在 HDInsight 中佈建 Hadoop 叢集 | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="了解如何使用管理入口網站、PowerShell 或命令列來佈建 Azure HDInsight 的叢集。" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision Hadoop clusters in HDInsight" authors="jgao" />
+<properties urlDisplayName="HDInsight Administration" pageTitle="在 HDInsight 中佈建 Hadoop 叢集 | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="了解如何使用管理入口網站、PowerShell 或命令列來佈建 Azure HDInsight 的叢集。" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision Hadoop clusters in HDInsight" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="jgao" />
 
-#使用自訂選項在 HDInsight 上佈建 Hadoop 叢集
+# 使用自訂選項在 HDInsight 上佈建 Hadoop 叢集
 
 在本文中，您將了解在 Azure HDInsight 上自訂佈建 Hadoop 叢集的不同方式 - 使用 Azure 管理入口網站、PowerShell、命令列工具或 HDInsight .NET SDK。本文將針對佈建 Hadoop 叢集進行討論。如需如何佈建 HBase 叢集的指示，請參閱[在 HDInsight 上佈建 HBase 叢集][hdinsight-hbase-custom-provision]。請參閱 <a href="http://go.microsoft.com/fwlink/?LinkId=510237">Hadoop 和 HBase 之間有何不同？</a> 以了解為何您必須在兩者中擇一。
 
@@ -22,7 +22,7 @@ HDInsight 叢集摘要了 Hadoop 實作詳細資料，因此您無需擔心如�
 
 - Azure 訂閱。Azure 是訂用帳戶型平台。HDInsight PowerShell Cmdlet 會為您的訂用帳戶執行相關工作。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][azure-purchase-options]、[成員優惠][azure-member-offers]或[免費試用][azure-free-trial]。
 
-##本文內容
+## 本文內容
 
 * [組態選項](#configuration)
 * [使用 Azure 管理入口網站](#portal)
@@ -31,15 +31,15 @@ HDInsight 叢集摘要了 Hadoop 實作詳細資料，因此您無需擔心如�
 * [使用 HDInsight .NET SDK](#sdk)
 * [後續步驟](#nextsteps)
 
-##<a id="configuration"></a>組態選項
+## <a id="configuration"></a>組態選項
 
-###其他儲存體
+### 其他儲存體
 
 在設定期間，您必須指定 Azure Blob 儲存體帳戶和預設容器。叢集以此做為預設儲存位置。您可以選擇性地指定也將與叢集相關聯的其他 Blob。
 
 如需有關使用次要 Blob 存放區的詳細資訊，請參閱[使用 Azure Blob 儲存體搭配 HDInsight](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-use-blob-storage/)。
 
-###Metastore
+### Metastore
 
 Metastore 包含 Hive 資料表、資料分析、結構描述、資料行等的相關資訊。Hive 使用此資訊來找出資料在 HDFS (或 HDInsight 中的 WASB) 上的儲存位置。依預設，Hive 會使用內嵌資料庫來儲存此資訊。
 
@@ -50,7 +50,7 @@ Metastore 包含 Hive 資料表、資料分析、結構描述、資料行等的�
 在建立 HDInsight 叢集的同時，您可以安裝額外的元件或自訂叢集組態。透過編寫在叢集建立期間執行的指令碼，即可自訂叢集。這類指令碼是使用**指令碼動作**叫用，其為可透過 HDInsight PowerShell Cmdlet 或 HDInsight .NET SDK 使用的組態選項。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-customize-cluster]。
 
 
-###虛擬網路
+### 虛擬網路
 
 [Azure 虛擬網路](http://azure.microsoft.com/zh-tw/documentation/services/virtual-network/) 可讓您建立安全、持續的網路，上面有您的解決方案所需的資源。虛擬網路可讓您：
 
@@ -76,7 +76,7 @@ Metastore 包含 Hive 資料表、資料分析、結構描述、資料行等的�
 >
 > 強烈建議您一個叢集只指定一個子網路。
 
-##<a id="portal"></a> 使用 Azure 管理入口網站
+## <a id="portal"></a> 使用 Azure 管理入口網站
 
 HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相同的資料中心上必須要有 Azure 儲存體帳戶，您才能建立 HDInsight 叢集。如需詳細資訊，請參閱[使用 Azure Blob 儲存體搭配 HDInsight][hdinsight-storage]。如需建立 Azure 儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶][azure-create-storageaccount]。
 
@@ -182,7 +182,7 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 	> [WACOM.NOTE] 在您為 HDInsight 叢集選擇 Azure 儲存體帳戶後，您將無法刪除帳戶，也無法將帳戶變更為不同的帳戶。
 
-##<a id="powershell"></a> 使用 Azure PowerShell
+## <a id="powershell"></a> 使用 Azure PowerShell
 Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。本節提供如何佈建 HDInsight 叢集的指示，如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。如需有關在 HDInsight 上使用 PowerShell 的詳細資訊，請參閱[使用 PowerShell 來管理 HDInsight][hdinsight-admin-powershell]。如需 HDInsight PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考文件][hdinsight-powershell-reference]。
 
 > [WACOM.NOTE] 本節的指令碼可用來設定 Azure 虛擬網路上的 HDInsight 叢集，但不會建立 Azure 虛擬網路。如需有關建立 Azure 虛擬網路的相關資訊，請參閱[虛擬網路組態工作](http://msdn.microsoft.com/zh-tw/library/azure/jj156206.aspx)。
@@ -314,7 +314,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 		Get-AzureHDInsightCluster -Name <ClusterName>
 
 
-##<a id="cli"></a> 使用跨平台命令列
+## <a id="cli"></a> 使用跨平台命令列
 
 > [WACOM.NOTE] 從 2014/8/29 開始，無法使用跨平台命令列介面將叢集與 Azure 虛擬網路建立關聯。
 
@@ -333,7 +333,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 1.	瀏覽至 **www.nodejs.org**。
 2.	按一下 [**安裝**]，並依照指示使用預設設定操作。
-3.	從您的工作站開啟 [**命令提示字元**] (或是 *Azure 命令提示字元或 *VS2012 開發人員命令提示字元*)。
+3.	從您的工作站開啟 \[**命令提示字元**\] (或是 *Azure 命令提示字元或 *VS2012 開發人員命令提示字元*)。
 4.	在命令提示字元視窗中執行下列命令。
 
 		npm install -g azure-cli
@@ -471,7 +471,7 @@ HDInsight 叢集還要求儲存體帳戶內要有容器。如果您所提供的�
 
 
 
-##<a id="sdk"></a> 使用 HDInsight .NET SDK
+## <a id="sdk"></a> 使用 HDInsight .NET SDK
 HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應用程式使用 HDInsight。
 
 以下是使用 SDK 佈建 HDInsight 叢集時必須執行的程序：
@@ -589,7 +589,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
 
 
 
-##<a id="nextsteps"></a> 後續步驟
+## <a id="nextsteps"></a> 後續步驟
 在本文中，您學到幾種佈建 HDInsight 叢集的方法。若要深入了解，請參閱下列文章：
 
 * [開始使用 Azure HDInsight][hdinsight-get-started] - 了解如何開始使用 HDInsight 叢集

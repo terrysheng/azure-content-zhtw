@@ -5,7 +5,7 @@
 # 如何使用 .NET 的佇列儲存體
  本指南將示範如何使用 Azure 佇列儲存服務執行一般案例。這些範例均以 C# 程式碼撰寫，並使用 Azure Storage Client for .NET。涵蓋的案例包括**插入**、**查看**、**取得**和**刪除**佇列訊息，以及**建立和刪除佇列**。如需佇列的詳細資訊，請參閱[後續步驟][]一節。
 
-> [WACOM.NOTE] 本指南以 Azure .NET Storage Client Library 2.x 和更新版本為對象。建議的版本是透過 [NuGet] 提供(https://www.nuget.org/packages/WindowsAzure.Storage/) 或隨 [Azure SDK for .NET] 一起安裝的 Storage Client Library 4.x(/zh-tw/downloads/)。請參閱[作法：以程式設計方式存取佇列儲存體][]，以詳細了解如何取得儲存體用戶端程式庫。
+> [WACOM.NOTE] 本指南以 Azure .NET Storage Client Library 2.x 和更新版本為對象。建議的版本是透過 [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) 提供 或隨 [Azure SDK for .NET](/zh-tw/downloads/) 一起安裝的 Storage Client Library 4.x。請參閱[作法：以程式設計方式存取佇列儲存體][]，以詳細了解如何取得儲存體用戶端程式庫。
 
 <h2>目錄</h2>
 
@@ -81,8 +81,7 @@ Storage Client Library for .NET 中的 ODataLib 相依性現已透過 ODataLib (
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-Use the **queueClient** object to get a reference to the queue you want
-to use. You can create the queue if it doesn't exist.
+使用 **queueClient** 物件來取得想要使用佇列的參照。 如果佇列不存在，您可以建立佇列。
 
     // Retrieve a reference to a queue
     CloudQueue queue = queueClient.GetQueueReference("myqueue");

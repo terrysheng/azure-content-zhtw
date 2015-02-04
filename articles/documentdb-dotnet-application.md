@@ -1,31 +1,31 @@
-﻿<properties title="Build a web application with ASP.NET MVC using DocumentDB" pageTitle="使用 DocumentDB 建置具有 ASP.NET MVC 的 Web 應用程式 | Azure" description="了解如何使用 DocumentDB 建立待辦事項清單 Web 應用程式。您將從 Azure 主控的 ASP.NET MVC Web 應用程式儲存和存取資料。"  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="ryancraw" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Build a web application with ASP.NET MVC using DocumentDB" pageTitle="使用 DocumentDB 建置具有 ASP.NET MVC 的 Web 應用程式 | Azure" description="了解如何使用 DocumentDB 建立待辦事項清單 Web 應用程式。您將從 Azure 主控的 ASP.NET MVC Web 應用程式儲存和存取資料."  metaKeywords="NoSQL, DocumentDB, database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="ryancraw" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
 
 <tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="ryancraw" />
 
-<a name="_Toc395809351">Build a web application with ASP.NET MVC using DocumentDB</a>
+<a name="_Toc395809351">使用 DocumentDB 建置具有 ASP.NET MVC 的 Web 應用程式</a>
 =======================================================================================================
-<a name="_Toc395637758"></a> <a name="_Toc389865467"></a> <a name="_Toc389828008">Overview</a>
+<a name="_Toc395637758"></a> <a name="_Toc389865467"></a> <a name="_Toc389828008">概觀</a>
 ==============================================================================================
 
-<a name="_Toc395637759">Scenario</a>
+<a name="_Toc395637759">案例</a>
 ------------------------------------
 
-To highlight how customers can efficiently leverage Azure DocumentDB to store and query JSON documents, this document provides an end-to-end walk-through of building a ToDo List web application using Azure Document DB.
+為了特別說明客戶要如何有效率地利用 Azure DocumentDB 來儲存和查詢 JSON 文件，本文件提供如何使用 Azure DocumentDB 建置待辦事項清單 Web 應用程式的完整逐步解說。
 
-This walk-through shows you how to use DocumentDB service provided by Azure to store and access data from an ASP.NET MVC web application hosted on Azure and presumes that you have some prior experience using ASP.NET MVC and Azure Websites.
+本逐步解說說明如何使用 Azure 所提供的 DocumentDB 服務，來儲存和存取 Azure 上所託管 ASP.NET MVC Web 應用程式的資料，並假設您先前已有使用 ASP.NET MVC 和 Azure 網站的經驗。
 
-You will learn:
+您將了解：
 
-1\. Creating and provisioning a DocumentDB Account
+1\. 建立和佈建 DocumentDB 帳戶
 
-2\. Creating a ASP.NET MVC Application
+2\. 建立 ASP.NET MVC 應用程式
 
-3\. Connecting to and using Azure DocumentDB from your web application
+3\. 從 Web 應用程式連線到 Azure DocumentDB 和使用 Azure DocumentDB
 
-4\. Deploying the Web Application to Azure Websites
+4\. 將 Web 應用程式部署至 Azure 網站
 
-By following this walk-through, you will build a simple web-based task-management application that allows creating, retrieving and completing of tasks. The tasks will be stored as JSON documents in Azure DocumentDB.
+按照本逐步解說進行後，您將建置簡單的網頁型工作管理應用程式，以便建立、擷取和完成工作。在 Azure DocumentDB 中，這些工作將會儲存為 JSON 文件。
 
 ![Alt text](./media/documentdb-dotnet-application/image1.png)
 
@@ -33,123 +33,122 @@ By following this walk-through, you will build a simple web-based task-managemen
 <a name="_Toc395637760">Prerequisites</a>
 ================================================================
 
-Before following the instructions in this article, you should ensure that you have the following installed:
+在依照本文中的指示進行之前，您應確定已安裝下列項目：
 
 Git for Windows <http://www.git-scm.com/downloads>
 
-Visual Studio 2013 (or [Visual Studio Express][] which is the free version)
+Visual Studio 2013 (或免費版本的 [Visual Studio Express][] 英文))
 
-Azure SDK for .NET version 2.3 or higher, available through [Microsoft Web Platform Installer][]
+Azure SDK for .NET 2.3 版或更高版本，可透過 [Microsoft Web Platform Installer (英文) 取得][]
 
-All the screen shots in this document have been taken using Visual Studio 2013 with Update 3 applied and Azure SDK for .NET version 2.4. If your system is configured with different versions it is possible that your screens and options won't match entirely, but if you meet the above prerequisites this solution should work.
+本文件中的所有螢幕擷取畫面都是使用已套用 Update 3 的 Visual Studio 2013 以及 Azure SDK for .NET 2.4 版所取得。如果您的系統是設定使用不同的版本，則您的畫面和選項可能不會完全相符，但只要您符合上述必要條件，本方案應該還是有效。
 
-<a name="_Toc395637761">Create a DocumentDB database account</a>
+<a name="_Toc395637761">建立 DocumentDB 資料庫帳戶</a>
 ================================================================
 
-To provision a DocumentDB database account in Azure, open the Azure Management Portal and either Click the Azure Gallery tile on the homepage or click "+" in the lower left hand corner of the screen.
+若要在 Azure 中佈建 DocumentDB 資料庫帳戶，請開啟 Azure 管理入口網站，並按一下首頁上的 [Azure Gallery] 磚，或按一下畫面左下角的 "+"。
 
 ![Alt text](./media/documentdb-dotnet-application/image2.png)
 
 
-This will open the Azure Gallery, where you can select from the many available Azure services. In the Gallery, select "Data, storage and backup" from the list of categories.
+這會開啟 [Azure Gallery]，您可以在其中從多個可用 Azure 服務進行選取。在 Gallery 中，從類別清單中選取 [資料、儲存體及備份]。
 
 ![Alt text](./media/documentdb-dotnet-application/image3.png)
 
-From here, select the option for Azure DocumentDB
+從這裡，選取 Azure DocumentDB 的選項
 
 ![Alt text](./media/documentdb-dotnet-application/image4.png)
 
 
-Then select "Create" from the bottom of the screen
+然後選取畫面底部的 [建立]
 
 ![Alt text](./media/documentdb-dotnet-application/image5.png)
 
-This will open up the "New DocumentDB" blade where you can specify the name, region, scale, resource group and other settings for your new account.
+這會開啟 [New DocumentDB] 刀鋒，您可以在其中指定新帳戶的名稱、區域、規模、資源群組和其他設定。
 
 ![Alt text](./media/documentdb-dotnet-application/image6.png)
 
 
-Once you're done supplying the values for your account, click "Create" and the provisioning process will begin creating your database account.
-When the provisioning process is complete, you should see a notification appear in the notifications area of the portal and the tile on your start screen (if you selected to create one) will change to show the completed action.
+一旦您提供了帳戶值，請按一下 [建立]，就會開始佈建程序並開始建立您的資料庫帳戶。
+佈建程序完成時，您應該會看到入口網站通知區域中顯示的通知；如果您選擇建立磚，您的 [開始] 畫面中顯示的磚也會變更為顯示完整動作。
 
 ![Alt text](./media/documentdb-dotnet-application/image7.png)
 
 
-Once provisioning is complete, clicking the DocumentDB tile from the start screen will bring up the main blade for this newly created DocumentDB account.
+佈建完成之後，按一下開始畫面中的 [DocumentDB] 磚，這個新建立 DocumentDB 帳戶的主要刀鋒就會出現。
 
 ![Alt text](./media/documentdb-dotnet-application/image8.png) 
 ![Alt text](./media/documentdb-dotnet-application/image9.png)
 
 
-Using the "Keys" button, access your endpoint URL and the Primary Key, copy these to your clipboard and keep them handy as we will use these values in the web application we will use these values in the web application we will create next.
+使用 [金鑰] 按鈕，存取端點 URL 和主要金鑰，將這些項目複製到剪貼簿並將它們保存在隨手可得的地方，因為我們將在接下來要建立的 Web 應用程式中使用這些值。
 
-We will now walk through how to create a new ASP.NET MVC application from the ground-up. For your reference the complete solution can be downloaded [here].
+我們現在將從頭開始逐步解說如何建立新的 ASP.NET MVC 應用程式。您可以在 [[這裡]] 下載完整方案，供您參考。
 
-<a name="_Toc395637762">Create a new ASP.NET MVC application</a>
+<a name="_Toc395637762">建立新的 ASP.NET MVC 應用程式</a>
 ================================================================
 
-In Visual Studio, click File - New Project and select the option to create a new ASP.NET MVC Web Application.
+在 Visual Studio 中，按一下 [檔案] - [新增專案]，然後選取可供建立新 ASP.NET MVC Web 應用程式的選項。
 
 ![Alt text](./media/documentdb-dotnet-application/image10.png)
 
 
-Select where you would like to create the project, what you want the project to be called (I'm using "todo") and click Ok.
+選取您要建立專案的位置，以及專案名稱 (我會使用「待辦」)，再按一下 [確定]。
 
 ![Alt text](./media/documentdb-dotnet-application/image11.png)
 
 
-If you plan on hosting your application in Azure then select the box on the lower right to "Host in the cloud". We've selected to host in the cloud, and run the application hosted in an Azure Website. Selecting this option will pre-provision an Azure Website for you and make life a lot easier when it comes times to deploy the final working application. If you want to host this elsewhere or don't want to configure Azure upfront, then just un-check the "Host in the Cloud" option.
+如果您打算在 Azure 中託管應用程式，則請選取 [Host in the cloud] 右下角的方塊。我們已選擇託管於雲端，並執行 Azure 網站中所託管的應用程式。選取此選項將會預先佈建 Azure 網站，讓您在需要部署最終的運作應用程式時更為容易。如果您希望在各處都能托管，或不想預先設定，請取消勾選 [在雲端托管] 選項。
 
-Select OK and let Visual Studio do its thing around scaffolding the empty ASP.NET MVC template. If you chose to host this in the Cloud you will see at least one additional screen asking you to login to your Azure account and provide some values for your new Website. Proceed to supply all these Azure values and continue. 
+選取 [確定]，並讓 Visual Studio 執行有關 Scaffolding 空的 ASP.NET MVC 範本的作業。如果您選擇在雲端托管，則至少會有一個其他畫面出現，要求您登入 Azure 帳戶並提供新網站的部分值。請繼續提供所有這些 Azure 值，然後繼續進行。 
 
-I haven't chosen a "Database server" here because we're not using an Azure SQL Database Server here, we're going to be creating a new Azure DocumentDB Account later on in the management portal. 
+在這裡我並沒有選擇 [資料庫伺服器]，因為我們並未使用 Azure SQL Database Server，稍後我們會在管理入口網站中建立新的 Azure DocumentDB 帳戶。 
 
 ![Alt text](./media/documentdb-dotnet-application/image11_1.png)
 
-Once Visual Studio has finished creating the boilerplate MVC application you have an empty ASP.NET application that you can run locally.
+Visual Studio 建立好未定案 MVC 應用程式之後，您便擁有可以在本機執行的空白 ASP.NET 應用程式。
 
-We'll skip running locally because I'm sure we've all seen the ASP.NET "Hello World" application. Let's go straight to adding DocumentDB to this project and building our application.
+我們會跳過在本機執行的步驟，因為我確定我們都已看過 ASP.NET "Hello World" 應用程式。讓我們直接跳到將 DocumentDB 新增至此專案並建置應用程式的步驟。
 
 </h1>
-<a name="_Toc395637767">Adding DocumentDB to your project</a>
+<a name="_Toc395637767">將 DocumentDB 新增至專案</a>
 =============================================================
 
-That takes care of most of the ASP.NET MVC plumbing that we need for
-this solution. Now let's get to the real purpose of this tutorial, adding Azure DocumentDB to our web application.
+前面的步驟可處理此方案所需的大部分 ASP.NET MVC 配管作業。現在，讓我們進入本教學課程的真正目的：將 Azure DocumentDB 新增至 Web 應用程式。
 
 ### 
 
-### <a name="_Toc395637764">Installing the NuGet package</a>
+### <a name="_Toc395637764">安裝 NuGet 封裝</a>
 
-The DocumentDB .NET SDK is packaged and distributed as a NuGet package. Using the NuGet package manager in Visual Studio (which you can get to by Right-Clicking on the Project and choosing "Manage NuGet Packages"
+DocumentDB .NET SDK 會隨 NuGet 封裝而分散。在 Visual Studio 中使用 NuGet 封裝管理員 (您可以在專案上按右鍵並選擇 [管理 NuGet 封裝] 以取得)。
 
 ![Alt text](./media/documentdb-dotnet-application/image21.png)
 
-Search for Online for "Azure DocumentDB" and install the package. This will download and install the DocumentDB package as well as all dependencies, like Newtonsoft.Json.
+搜尋 Online 中的 "Azure DocumentDB"，並安裝該封裝。這會下載和安裝 DocumentDB 封裝，以及所有依存項目 (例如 Newtonsoft.Json)。
 
-**NOTE:** While the service is still in preview, the NuGet package is marked as "Prerelease" so you need to include the option to "Include Prerelease", else you will not find the package. 
+**注意：**服務在預覽狀態時，NuGet 封裝會標記為「預先發行」，因此您需要包含 [包括預先發行] 選項，否則您會找不到封裝。
 
-Alternatively you could use the Package Command Console to install the package by typing;
+或者，您也可以使用「封裝命令主控台] 輸入以下資料以安裝封裝：
 
     Install-Package Microsoft.Azure.Documents.Client -Pre
 
-Once installed your Visual Studio solution should resemble the following with two new references added;
+安裝之後，您的 Visual Studio 方案應該類似下列已新增兩個新參考的方案；
 
 ![Alt text](./media/documentdb-dotnet-application/image22.png)
 
 
-<a name="_Toc395637763">Setting up the ASP.NET MVC application</a>
+<a name="_Toc395637763">設定 ASP.NET MVC 應用程式</a>
 ==================================================================
 
 ### 
 
-### <a name="_Toc395637764">Add a Model</a>
+### <a name="_Toc395637764">新增模型</a>
 
-Let's begin by creating the **M** in MVC, the model. In Solution Explorer, right-click the *Models* folder and then click **Add**, then **Class**
+首先，讓我們在 MVC 中建立 **M** (模型)。在 [方案總管] 中， *Models* 資料夾上按一下滑鼠右鍵，然後依序按一下 [**新增**] 和 [**類別**]
 
 ![Alt text](./media/documentdb-dotnet-application/image12.png)
 
-Name your new Class, **Item** and then add the following code in to this new Class
+將新的類別命名為 **Item**，然後將下列程式碼新增至這個新的類別
 
     public class Item
     {
@@ -166,81 +165,81 @@ Name your new Class, **Item** and then add the following code in to this new Cla
         public bool Completed { get; set; }    
     }
 
-All data in DocumentDB is passed over the wire, and stored, as JSON. To control the way your objects are serialized/deserialized by JSON.NET you can use the JsonProperty attribute as demonstrated in the Item class we just created. You don't **have** to do this but i wanted to ensure that my properties followed the JSON camelCase naming conventions. 
+DocumentDB 中的所有資料都會透過線路傳遞，並儲存為 JSON。如需透過 JSON.NET 控管物件序列化/取消序列化，您可以使用剛才在「項目類別」中建立的示簵 JsonProperty 屬性。您**無需**這樣做，但我想確定所有屬性都依 JSON camelCase 命名慣例命名。 
 
-Not only can you control the format of the property name when it goes in to JSON, but you can entirely rename your .NET properties like I did with the Description property. 
+使用 JSON 時，您不但可以控管屬性名稱格式，也可以跟我命名 Description 屬性一樣重新命名您的 .NET 屬性。 
 
-You can, if you like, use JsonConverter objects here as well to completely control how serialization is handled.  
+如果希望，您在這裡也可以使用 JsonConverter 物件以便完整控管序列化方式。  
 
-In order to get Visual Studio to resolve the "JsonProperty" attribute used here you need to add the following using statement to the using section of your class file;
+為了取得 Visual Studio 以解決這裡使用的 "JsonProperty" 屬性，您需要在類別檔案區段中使用以下陳述式：
 
     using Newtonsoft.Json;
 
-### <a name="_Toc395637765">Add a Controller</a>
+### <a name="_Toc395637765">新增控制器</a>
 
-That takes care of the M, now let's create the **C** in MVC, a controller class.
-In **Solution Explorer**, right-click the *Controllers* folder and then click **Add**, then **Controller**.
+之前都是談論 M，現在讓我們在 MVC 中建立 **C** (控制器類別)。
+在 [**方案總管**] 中， *Controllers* 資料夾上按一下滑鼠右鍵，然後依序按一下 [**新增**] 和 [**控制器**]。
 
 ![Alt text](./media/documentdb-dotnet-application/image13.png)
 
 ![Alt text](./media/documentdb-dotnet-application/image14.png)
 
 
-In the **Add Scaffold** dialog box, click **MVC 5 Controller - Empty.** Click **Add.**
+在 [**新增 Scaffold**] 對話方塊中，按一下 [**MVC 5 Controller - Empty**]。按一下 [**新增**]。
 
 ![Alt text](./media/documentdb-dotnet-application/image15.png)
 
-Name your new Controller, **ItemController.**
+將新的控制器命名為 **ItemController。**
 
-Visual Studio will now add the ItemController your Solution Explorer should look like similar to below.
+Visual Studio 現在會新增 ItemController，您的 [方案總管] 應該會如下所示。
 
 ![Alt text](./media/documentdb-dotnet-application/image16.png)
 
-### <a name="_Toc395637766">Add Views</a>
+### <a name="_Toc395637766">新增檢視</a>
 
-And finally, let's create the **V** in MVC, a view.
+最後，讓我們在 MVC 中建立 **V** (檢視)。
 
 
-#### Add Item Index View
+#### 新增項目索引檢視
 
-Expand the ***Views***  folder in Solution Explorer and location the (empty) Item folder which Visual Studio would've created for you when you added the *ItemController* earlier. Right click on ***Item*** and choose to Add a new View.
+在 [方案總管] 中展開 [***Views***]  資料夾，以及先前新增  *ItemController* 時，Visual Studio 為您建立之 (空白) [Item] 資料夾的位置。在 ***Item*** 上按一下滑鼠右鍵，然後選擇 [新增] 新的檢視。
 
 ![Alt text](./media/documentdb-dotnet-application/image17.png)
 
-In the "Add View" dialog. Call your view "***Index***", use the ***List*** Template, select the ***Item (todo.Models)*** which we created earlier as the class and finally use the ***~Views/Shared/_Layout.cshtml*** in the Solution as the Layout page.
+在 [新增檢視] 對話方塊中。呼叫您的檢視 "***Index***"、使用 ***List*** 範本、選取先前建立的 ***Item (Todo.Models)*** 做為類別，最後在 [方案] 中使用 ***~Views/Shared/_Layout.cshtml*** 做為 [配置] 頁面。
 
 ![Alt text](./media/documentdb-dotnet-application/image18.png)
 
 
-Once all these values are set, click Add and let Visual Studio create your view for you. Visual Studio will create a template view. Once it is done, it will open the cshtml file created. We can close this document in Visual Studio as we will come back to it later.
+設定所有這些值之後，按一下 [新增]，並讓 Visual Studio 為您建立檢視。Visual Studio 將會建立範本檢視。完成之後，將會開啟建立的 cshtml 檔案。我們之後才會回頭使用此文件，因此可以先在 Visual Studio 中將其關閉。
 
-#### Add New Item View
+#### 新增項目檢視
 
-In a similar fashion to above, create a new View for creating new Items as per the example shown below;
+使用與上面類似的方式，根據下面所示的範例，建立用於建立新 Item 的新檢視；
 
 ![Alt text](./media/documentdb-dotnet-application/image19.png)
 
-#### Add Edit Item View
+#### 新增編輯項目檢視
 
 <a name="_Toc395888515"></a>
 ============================
 
-And finally, add one last View for editing an Item in the same way as before;
+最後，使用與之前相同的方式新增最後一個檢視來編輯項目；
 
 ![Alt text](./media/documentdb-dotnet-application/image20.png)
 
 
-Once this is done, close the cshtml documents in Visual Studio as we will return to these Views later.
+完成這項作業之後，先將 Visual Studio 中的 cshtml 文件關閉，因為我們稍後才會回頭使用這些檢視。
 
 </h1>
-<a name="_Toc395637769">Wiring up DocumentDB</a>
+<a name="_Toc395637769">組建 DocumentDB</a>
 ------------------------------------------------
 
-### <a name="_Toc395637770">Listing Incomplete Items</a>
+### <a name="_Toc395637770">列出未完成項目</a>
 
-Open the **ItemController** and remove all the code within the class (but leave the class) that Visual Studio added. We'll rebuild it piece by piece using DocumentDB.
+開啟 **ItemController**，並移除 Visual Studio 所新增類別內的所有程式碼 (但保留該類別)。我們將使用 DocumentDB 重新拼湊各個部分。
 
-Add the following code snippet within the now empty ItemController class;
+在目前已是空白的 ItemController 類別內，新增下列程式碼片段；
 
     public ActionResult Index()
     {
@@ -248,11 +247,11 @@ Add the following code snippet within the now empty ItemController class;
         return View(items);
     }
 
-This code also uses a "pseudo repository" class called DocumentDBRepository which we have yet to create. This is actually just a Helper class that contains all the DocumentDB specific code. For the purposes of this walk-through we aren't going to implement a full data access layer with dependency injection, and factories and repository patterns, as you would probably be doing if you were building a real world application. 
-For the purposes of this walk-through we're just going to put all the data access logic directly in to one project to keep things simple and focus on the DocumentDB specific bits.
+此程式碼也會使用名為 DocumentDBRepository 的 "pseudo 保存庫" 類別，我們尚未建立這個類別。實際上這只是一個 Helper 類別，包含所有 DocumentDB 指定程式碼。在本逐步解說中，我們不會像您在建置實際應用程式時的可能作法一樣，使用儲存機制模式來實作有插入依存項目、factory 及保存庫模式的完整資料存取層。 
+在本逐步解說中，我們只會將所有資料存取邏輯直接放入一個專案，簡化所有程序並著重在 DocumentDB 指定項目。
 
-Add a new Class to your project and call it **DocumentDBRepository.**
-Replace the code in the class file with the following;
+在專案中新增類別，並命名為 **DocumentDBRepository。**
+使用下列程式碼取代類別檔案中的程式碼：
 
     public static class DocumentDBRepository
     {
@@ -332,10 +331,10 @@ Replace the code in the class file with the following;
 
 #### 
 
-Spend some time resolving all the namespaces in Visual Studio. All namespaces will be easy to resolve in Visual Studio as long as the NuGet package was installed successfully. The references to the ReadOrCreateDatabase and ReadOrCreateCollection methods will remain unresolved until we have added them, which comes next. 
+花一點時間解析 Visual Studio 中所有的命名空間。只要已順利安裝 NuGet 封裝，就能輕鬆地在 Visual Studio 中解析所有命名空間。ReadOrCreateDatabase 和 ReadOrCreateCollection 方法的參照仍處於未解析狀態，待新增之後才會解析，我們稍後會進行到這部分。 
 
-There are two method calls used here for reading or creating DocumentDB Databases and Document Collections.
-So add the following two methods to this class;
+曾經在這裡使用兩種方法呼叫，以讀取或建立 DocumentDB 資料庫及文件集合。
+因此，請將下列兩種方法加入至類別：
 
     private static DocumentCollection ReadOrCreateCollection(string databaseLink)
     {
@@ -371,10 +370,10 @@ So add the following two methods to this class;
 
 #### 
 
-This takes care setting up the Database, a DocumentCollection, and creating some code to connect to DocumentDB through the DocumentClient. 
+如此可以設定資料庫、DocumentCollection，並建立相同的程式碼以透過 DocumentClient 連線到 DocumentDB。 
 
-We're reading some values from configuration, so open the **web.config** and add the following lines under the
-<AppSettings\> section;
+我們正在從設定中讀取部分值，因此請開啟 **web.config** 並在 
+<AppSettings\> 區段下新增以下程式碼行：
 
     <add key="endpoint" value="enter you endpoint url from the Azure Management Portal"/>
     <add key="authKey" value="enter one of the keys from the Azure Management Portal"/>
@@ -395,7 +394,7 @@ We're reading some values from configuration, so open the **web.config** and add
                 .ToList<Item>();
     }
     
-在您需要手動新增下列 using 指示詞之後，會解析 *CreateDocumentQuery* 的參考；
+在您需要手動新增下列 using 指示詞之後，會解析  *CreateDocumentQuery* 的參考：
 
     using Microsoft.Azure.Documents.Linq;
 
@@ -403,14 +402,14 @@ We're reading some values from configuration, so open the **web.config** and add
 
 如果您現在執行應用程式，將會前往首頁控制器及該控制器的 [索引] 檢視。這是我們在一開始時所選擇的 MVC 範本專案預設行為，但是我們不想要這樣的行為！讓我們變更此 MVC 應用程式上的路由以改變此行為。
 
-開啟 ***App\_Start\RouteConfig.cs*** 並找到以 "defaults:" 開頭的那一行，變更它使其與下列類似；
+開啟 ***App\_Start\RouteConfig.cs*** 並尋找以 "defaults:" 開頭的程式碼行並加以變更如下：
 
-    defaults:new { controller = "Item", action = "Index", id = UrlParameter.Optional }
+    defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
 如果您未在 URL 中指定控制路由行為的值，這會讓 ASP.NET MVC 知道改用 "Item" (而非 "Home") 作為控制器，並使用使用者索引作為檢視。
-現在如果您執行應用程式，它會呼叫至您的 **ItemController**，並將 **GetIncompleteItems** 方法的結果傳回 Views\Item\Index 檢視。 
+現在如果您執行應用程式，它會呼叫至您的 **ItemController** ，並將 **GetIncompleteItems** 方法的結果傳回 Views\Item\Index 檢視。 
 
-如果您建置並立即執行此專案，您現在應該會看到如下的外觀 ；    
+如果您建置並立即執行此專案，您現在應該會看到如下的外觀：    
 
 ![Alt text](./media/documentdb-dotnet-application/image23.png)
 
@@ -420,7 +419,7 @@ We're reading some values from configuration, so open the **web.config** and add
 
 我們已經有用於建立的檢視，並且在索引檢視上有將使用者帶到建立檢視的按鈕。讓我們將一些程式碼新增至控制器和儲存機制，以在 DocumentDB 中保留記錄。
 
-開啟 ***ItemController.cs***，並新增下列程式碼片段，讓 ASP.NET MVC 知道如何處理「建立」動作，在這個案例中，只會呈現先前建立的相關聯 Create.cshtml 檢視。
+開啟 **ItemController.cs***，並新增下列程式碼片段，讓 ASP.NET MVC 知道如何處理「建立」動作，在這個案例中，只會呈現先前建立的相關聯 Create.cshtml 檢視。
 
     public ActionResult Create()
     { 
@@ -443,11 +442,11 @@ We're reading some values from configuration, so open the **web.config** and add
     	return View(item);   
     }
 
-**安全性注意事項**：此處所使用的 [ValidateAntiForgeryToken] 屬性可協助應用程式防止跨網站偽造要求攻擊。這不光只是新增此屬性，您的檢視也必須使用這個防偽權杖。如需此主題的詳細資訊以及如何正確實作此作業的範例，請參閱 [防止跨網站偽造要求][]。本文結尾處下載連結中的原始程式碼已經有完整的實作。
+**安全性注意事項**：此處所使用的 [ValidateAntiForgeryToken] 屬性可協助應用程式防止跨網站偽造要求攻擊。這不光只是新增此屬性，您的檢視也必須使用這個防偽權杖。如需此主題的詳細資訊以及如何正確實作此作業的範例，請參閱[防止跨網站偽造要求][]。本文結尾處下載連結中的原始程式碼已經有完整的實作。
 
-**安全性注意事項**：我們也會在方法參數上使用 [Bind] 屬性，以協助防範 overposting 攻擊。如需詳細資訊，請參閱 [ASP.NET MVC 中的基本 CRUD 作業][]
+**安全性注意事項**：我們也會在方法參數上使用[Bind] 屬性，以協助防範 overposting 攻擊。如需詳細資訊，請參閱 [ASP.NET MVC 中的基本 CRUD 作業][]
 
-現在，一切皆已就緒，項目控制器將  (安全地) 將項目從表單傳遞到儲存機制類別的 CreateDocument 方法，因此請將下列方法新增至 DocumentDBRepository 類別。
+現在，一切皆已就緒，項目控制器將項目安全地從表單傳遞到儲存機制類別的 CreateDocument 方法，因此請將下列方法新增至 DocumentDBRepository 類別。
 
     public static async Task<Document> CreateItemAsync(Item item)
     {
@@ -562,7 +561,7 @@ We're reading some values from configuration, so open the **web.config** and add
 
 ![Alt text](./media/documentdb-dotnet-application/image28.png)
 
-系統應該已根據您的認證設定好所有項目；實際上，系統已在 Azure 中顯示的 [目的地 URL] 上建立網站，您只需要按一下 [**發佈**] 即可。
+系統應該已根據您的認證設定好所有項目；實際上，系統已在 Azure 中建立位於所顯示 [目的地 URL] 的網站，您只需要按一下 [**發佈**] 即可。
 
 ![Alt text](./media/documentdb-dotnet-application/image29.png)
 
@@ -577,12 +576,14 @@ We're reading some values from configuration, so open the **web.config** and add
 
 ### 
 
-恭喜！您剛剛已經使用 Azure DocumentDB 建置您的第一個 ASP.NET MVC 應用程式，並將它發佈至 Azure 網站。您可以在 [這裡][] 下載完整應用程式 (包括我們在此略過的詳細資料和刪除功能) 的原始程式碼。
+恭喜！您剛剛已經使用 Azure DocumentDB 建置您的第一個 ASP.NET MVC 應用程式，並將它發佈至 Azure 網站。您可以在 [[這裡][]] 下載完整應用程式 (包括我們在此略過的詳細資料和刪除功能) 的原始程式碼。
 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
-[Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+[Visual Studio Express]: http://www.visualstudio.com/zh-tw/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[開始]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
+[這裡]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
 [防止跨網站偽造要求]: http://go.microsoft.com/fwlink/?LinkID=517254
 [ASP.NET MVC 中的基本 CRUD 作業]: http://go.microsoft.com/fwlink/?LinkId=317598
+
+<!--HONumber=27-->

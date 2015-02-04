@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="如何建立及設定 Azure SQL Database - Azure 教學課程" metaKeywords="建立 Azure SQL Database, 設定 Azure SQL Database" description="如何建立及設定 Azure SQL Database。" metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
+<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="如何建立及設定 Azure SQL Database - Azure 教學課程" metaKeywords="建立 Azure SQL Database, 設定 Azure SQL Database" description="如何建立及設定 Azure SQL Database。" metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sidneyh" />
 
@@ -6,7 +6,7 @@
 
 本主題中，您會使用 Azure 管理入口網站建立及設定 Azure SQL database。在本工作流程中，您會先建立伺服器。如果您想要上傳現有的 SQL Server 資料庫，可能會偏好這個方法。
 
-##目錄##
+## 目錄##
 * [作法：建立邏輯伺服器](#createLogical)
 * [作法：設定邏輯伺服器的防火牆](#configFWLogical)
 
@@ -40,13 +40,13 @@
 
 9. 完成時，請按一下頁面底部的核取記號。
 
-###自動產生的伺服器名稱
+### 自動產生的伺服器名稱
 
 請注意，您未指定伺服器名稱。SQL Database 會自動產生伺服器名稱，以確保沒有重複的 DNS 項目。伺服器名稱是十個字元的英數字元字串。您無法變更 SQL Database 伺服器的名稱。
 
 在下一個步驟中，您將設定防火牆，以允許在網路上執行之應用程式的連線存取。
 
-##作法：設定邏輯伺服器的防火牆
+## 作法：設定邏輯伺服器的防火牆
 
 1. 在 [[管理入口網站](http://manage.windowsazure.com)] 中，按一下 [**SQL Database**]，然後按一下 [**伺服器**]
 

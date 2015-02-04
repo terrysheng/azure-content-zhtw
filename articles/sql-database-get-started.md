@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create and provision" pageTitle="開始使用 SQL Database - Azure" metaKeywords="" description="開始在 Azure 中建立及管理 SQL Database。" metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+<properties urlDisplayName="How to create and provision" pageTitle="開始使用 SQL Database - Azure" metaKeywords="" description="開始在 Azure 中建立及管理 SQL Database。" metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jeffreyg" />
 
@@ -42,7 +42,7 @@
 
 2. 按一下頁面底部的 [**新增**]。按一下 [**新增**] 時，畫面上會出現顯示可建立項目的清單。
 
-3. 按一下 [**SQL Database**]，再按一下 [**Custom Create**]。 
+3. 按一下 [**SQL Database**]，再按一下 [**自訂建立**]。 
 
 	![Navigation pane][Image2]
 
@@ -58,7 +58,7 @@
 
 * 對版本、大小上限和定序使用預設值。 
 
-* 選擇 [**New SQL Database Server**]。選取新增伺服器即會新增第二個頁面，我們可使用該頁面來設定系統管理員帳戶和區域。 
+* 選擇 [**新增 SQL Database 伺服器**]。選取新增伺服器即會新增第二個頁面，我們可使用該頁面來設定系統管理員帳戶和區域。 
 
 * 完成時，按一下箭號前往下一頁。
 
@@ -73,7 +73,7 @@
 
 * 選擇區域。區域可決定伺服器的地理位置。您無法輕易地切換區域，所以請選擇一個適合此伺服器的區域。選擇一個最靠近您的位置。將 Azure 應用程式和資料庫放在相同區域，可節省對外頻寬的成本並縮短資料延遲。
 
-* 請務必將 [**Allow Azure Services to access this server**] 核取方塊保持勾選，以方便您使用 SQL Database 適用的管理入口網站、Office 365 中的 Excel 或 Azure SQL Reporting 連線到此資料庫。
+* 請務必將 [允許 Azure 服務存取此伺服器] 核取方塊保持勾選，以方便您使用 SQL Database 適用的管理入口網站、Office 365 中的 Excel 或 Azure SQL Reporting 連線到此資料庫。
 
 * 完成時，請按一下頁面底部的核取記號。
 

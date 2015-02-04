@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Azure Import/Export Service" pageTitle="使用匯入/匯出將資料移轉至 Blob 儲存體 | Microsoft Azure" metaKeywords="" description="了解如何在 Azure 管理入口網站中建立匯入和匯出工作，以將資料移轉至 Blob 儲存體。" metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
+<properties urlDisplayName="Azure Import/Export Service" pageTitle="使用匯入/匯出將資料移轉至 Blob 儲存體 | Microsoft Azure" metaKeywords="" description="了解如何在 Azure 管理入口網站中建立匯入和匯出工作，以將資料移轉至 Blob 儲存體。" metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="tamram" />
 
@@ -36,7 +36,7 @@
 
 <h3>需求和範圍</h3>
 
-1.	**訂用帳戶和儲存體帳戶：**您必須有現有的 Azure 訂用帳戶以及一或多個儲存體帳戶，才能使用匯入/匯出服務。每項工作都只能從僅只一個儲存體帳戶收送資料。換句話說，一項工作不能跨越多個儲存體帳戶。如需建立新儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶] (英文)(../storage-create-storage-account/)。
+1.	**訂用帳戶和儲存體帳戶：**您必須有現有的 Azure 訂用帳戶以及一或多個儲存體帳戶，才能使用匯入/匯出服務。每項工作都只能從僅只一個儲存體帳戶收送資料。換句話說，一項工作不能跨越多個儲存體帳戶。如需建立新儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](../storage-create-storage-account/) (英文)。
 2.	**硬碟：**只有 3.5 英吋的 SATA II/III 硬碟能夠用於匯入/匯出服務。不支援大於 4TB 的硬碟。若為匯入工作，將只會處理磁碟機上的第一個資料磁碟區。此資料磁碟區必須以 NTFS 格式化。您可以將 SATA II/III 磁碟附加至大多數使用 SATA II/III USB 介面卡的外部電腦。
 3.	**BitLocker 加密：**必須使用 BitLocker 和以數值密碼保護的加密金鑰來加密硬碟上儲存的所有資料。
 4.	**Blob 儲存體目標：**從區塊 Blob 和頁面 Blob 可以上傳或下載資料。 
@@ -265,7 +265,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 	<div class="dev-callout">
 	<strong>Important</strong>
-	<p>You must provide your tracking number to the Azure Import/Export service; otherwise your job cannot be processed.</p>
+	<p>您必須將追蹤號碼提供給 Azure 匯入/匯出服務；否則無法處理您的工作。</p>
 	</div>
 
 **退件是否有任何相關的成本？**
@@ -293,7 +293,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 	<p>請注意，您寄送的實體媒體可能需要跨國界。您必須確定實體媒體和資料的匯入和/或匯出符合相關管轄法律。在寄出實體媒體之前，請洽詢顧問來確認您的媒體和資料可以合法地寄到所識別的資料中心。這有助於確保及時送達 Microsoft。</p>
 	</div>
 
-- 在寄送包裹時，您必須遵守 [Microsoft Azure 服務條款]中的條款(http://azure.microsoft.com/zh-tw/support/legal/services-terms/)。 
+- 在寄送包裹時，您必須遵守 [Microsoft Azure 服務條款](http://azure.microsoft.com/zh-tw/support/legal/services-terms/)中的條款。 
 
 **我可以為了匯入/匯出工作向 Microsoft 購買磁碟機嗎？**
 

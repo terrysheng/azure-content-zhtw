@@ -1,4 +1,4 @@
-﻿
+
 1. 如果您尚未註冊您的應用程式，請瀏覽至 Windows 市集應用程式之開發人員中心的[提交應用程式頁面]，使用您的 Microsoft 帳戶登入，然後按一下 [**應用程式名稱**]。
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png)
@@ -15,7 +15,7 @@
 
   	![](./media/mobile-services-register-windows-store-app/mobile-services-store-association.png)
 
-   	   	這將會顯示 [**將您的應用程式與 Windows 市集建立關聯**] 精靈。
+   	這將會顯示 [**將您的應用程式與 Windows 市集建立關聯**] 精靈。
 
 5. 在此精靈中，按一下 [**登入**]，然後使用您的 Microsoft 帳戶登入。
 
@@ -65,6 +65,6 @@
  
 
 <!-- URLs. -->
-[開始使用行動服務]：/zh-tw/develop/mobile/tutorials/get-started/#create-new-service
+[開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started/#create-new-service
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Azure 管理入口網站]: https://manage.windowsazure.com/

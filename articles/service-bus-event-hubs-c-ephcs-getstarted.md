@@ -1,4 +1,4 @@
-﻿<properties pageTitle="開始使用事件中心" metaKeywords="Azure 服務匯流排, 事件中心, 開始使用事件中心" description="遵循此教學課程，可開始使用 Azure Event Hubs 透過 C 傳送事件並透過利用 EventProcessorHost 以 C# 接收。" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties pageTitle="開始使用事件中心" metaKeywords="Azure 服務匯流排, 事件中心, 開始使用事件中心" description="遵循此教學課程，可開始使用 Azure Event Hubs 透過 C 傳送事件並透過利用 EventProcessorHost 以 C# 接收。" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="c" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
@@ -28,11 +28,11 @@
 
    	![][1]
 
-3. 為您的事件中心輸入名稱、選取所需的區域，然後按一下 [**Create a new Event Hub**]。
+3. 為您的事件中心輸入名稱、選取所需的區域，然後按一下 [**建立新事件中心**]。
 
    	![][2]
 
-4. 按一下您剛才建立的命名空間 (通常是 ***event hub name*-ns**)。
+4. 按一下您剛才建立的命名空間 (通常是 ***事件中心名稱*-ns**)。
 
    	![][3]
 

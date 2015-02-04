@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Linux Agent guide" pageTitle="適用於 Azure 的 Linux 代理程式使用者指南" metaKeywords="" description="了解如何安裝和設定 Linux 代理程式 (waagent)，來管理虛擬機器與 Azure 網狀架構控制器之間的互動。" metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Linux Agent guide" pageTitle="適用於 Azure 的 Linux 代理程式使用者指南" metaKeywords="" description="了解如何安裝和設定 Linux 代理程式 (waagent)，來管理虛擬機器與 Azure 網狀架構控制器之間的互動。" metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos" />
 
@@ -99,15 +99,15 @@ Waagent 需要一些系統封裝才能正確運作：
 - install：手動安裝代理程式
  * 檢查系統的必要相依性
 
- * 將 SysV init 指令碼 (/etc/init.d/waagent)(logrotate 組態檔) 建立至 (/etc/logrotate.d/waagent and configures the image to run the init script on boot
+ * 建立 SysV init 指令碼 (/etc/init.d/waagent)、logrotate 組態檔 (/etc/logrotate.d/waagent) 及設定映像檔在開機時執行 init 指令碼
 
- * Writes sample configuration file to /etc/waagent.conf
+ * 將範例組態檔寫入 /etc/waagent.conf
 
- * Any existing configuration file is moved to /etc/waagent.conf.old
+ * 任何現有的組態檔會移至 /etc/waagent.conf.old
 
- * Detects kernel version and applies the VNUMA workaround if necessary
+ * 偵測核心版本，必要的話套用 VNUMA 解決方案
 
- * Moves udev rules that may interfere with networking (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) /var/lib/waagent/  
+ * 將可能干擾網路的 udev 規則 (/lib/udev/rules.d/75-persistent-net-generator.rules、/etc/udev/rules.d/70-persistent-net.rules) 移至 /var/lib/waagent/  
 
 - uninstall：移除 waagent 和相關聯的檔案
  * 從系統中取消註冊 init 指令碼並刪除它

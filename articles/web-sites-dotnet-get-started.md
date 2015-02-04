@@ -1,4 +1,4 @@
-﻿<properties pageTitle="開始使用 ASP.NET 的 Azure 網站" metaKeywords="" description="本教學課程說明如何在 Visual Studio 2013 中建立 ASP.NET Web 專案，並將它部署到 Azure 網站。在 15 分鐘內，您便會有在雲端中已啟動並執行的應用程式。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
+<properties pageTitle="開始使用 ASP.NET 的 Azure 網站" metaKeywords="" description="本教學課程說明如何在 Visual Studio 2013 中建立 ASP.NET Web 專案，並將它部署到 Azure 網站。在 15 分鐘內，您便會有在雲端中已啟動並執行的應用程式。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/12/2014" ms.author="tdykstra" />
 
@@ -270,11 +270,11 @@
 
 	在此教學課程中，您看到在一項作業中建立網站並部署網站的最快速方式。如需其他部署方法的概觀，例如：使用 Visual Studio 或[自動部署](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) (從[來源控制系統](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control))，請參閱[如何部署 Azure 網站](/zh-tw/documentation/articles/web-sites-deploy/"). 
 
-	Visual Studio can also generate Windows PowerShell scripts that enable you to automate deployment. For more information, see [Automate Everything (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
+	Visual Studio 也可產生能夠讓您將部署自動化的 Windows PowerShell 指令碼。 如需詳細資訊，請參閱 [Automate Everything (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
 * How to manage a website in Visual Studio
 
-	For information about site management functions that you can do in **Server Explorer**, see [Troubleshooting Azure Websites in Visual Studio](/zh-tw/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)。
+	如需可在 [伺服器總管] 中執行之網站管理功能的相關資訊，請參 [Troubleshooting Azure Websites in Visual Studio](/zh-tw/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)。
 
 * 如何進行網站的疑難排解
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website with MongoDB on MongoLab" pageTitle="建立在 MongoLab (.NET) 使用 MongoDB 的網站" metaKeywords="" description="了解如何建立在 MongoLab 主控的 MongoDB 中儲存資料的 Azure 網站。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com, eric@mongolab.com" solutions="" manager="mongolab" editor="mollybos" />
+<properties urlDisplayName="Website with MongoDB on MongoLab" pageTitle="建立在 MongoLab (.NET) 使用 MongoDB 的網站" metaKeywords="" description="了解如何建立在 MongoLab 主控的 MongoDB 中儲存資料的 Azure 網站。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="chris@mongolab.com, eric@mongolab.com" solutions="" manager="mongolab" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/17/2014" ms.author="chris@mongolab.com" />
 
@@ -230,7 +230,8 @@ MongoDB C# 驅動程式隨即整合到專案中，而且下列一行將自動新
         mongoServer = client.GetServer();
         MongoDatabase database = mongoServer.GetDatabase(dbName);
         MongoCollection<Note> noteCollection = database.GetCollection<Note>(collectionName);
-  There's nothing to change here; Just be aware that this is how you get a MongoCollection object for performing inserts, updates, and queries, such as the following in **GetAllNotes()**:  
+
+  這不需要任何變更；只要了解這只是呈現如何以 MongoCollection 物件執行插入、更新和查詢，如 **GetAllNotes()**中的以下程式碼所示：  
 
         collection.FindAll().ToList<Note>();
 

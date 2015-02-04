@@ -1,3 +1,4 @@
+
 1.  在檔案 MainPage.xaml.cs 中，使用陳述式新增或取消註解下列項目：
 
         using Microsoft.WindowsAzure.MobileServices;
@@ -17,7 +18,7 @@
 
     **JsonPropertyAttribute** 可用來定義用戶端類型中屬性名稱與基礎資料表中資料行名稱之間的對應。
 
-    > [WACOM.NOTE] 在通用 Windows 應用程式專案中，TodoItem 類別的定義位於共用之 DataModel 資料夾內的個別程式碼檔案中。
+    >[WACOM.NOTE] 在通用 Windows 應用程式專案中，TodoItem 類別的定義位於共用之 DataModel 資料夾內的個別程式碼檔案中。
 
 3.  在 MainPage.xaml.cs 中，將定義現有項目集合的資料行註解化或予以刪除，然後取消註解或新增下列資料行，並使用將專案連線到行動服務時新增到 App.xaml.cs 檔案的 `MobileServiceClient` 欄位來取代 *\<yourClient\>*：
 

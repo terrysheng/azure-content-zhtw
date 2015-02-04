@@ -1,8 +1,8 @@
-﻿<properties title="How to install and configure Trend on an Azure VM" pageTitle="如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service" description="說明如何在 Azure 中的 VM 上安裝及設定 Trend Micro Security" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties title="How to install and configure Trend on an Azure VM" pageTitle="如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service" description="說明如何在 Azure 中的 VM 上安裝及設定 Trend Micro Security" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="kathydav" />
 
-#如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service
+#如何在 Azure VM 上安裝和設定 Trend Micro Deep Security 為服務
 
 <p> 本文說明如何在執行 Windows Server 的新或現有虛擬機器 (VM) 上，安裝和設定 Trend Micro Deep Security as a Service。Deep Security as a Service 提供的防護包括反惡意程式碼防護、防火牆、入侵防禦系統及完整監視。 
 

@@ -1,3 +1,4 @@
+
 本教學課程的最後階段是建立並執行新的應用程式。
 
 1.  瀏覽至儲存壓縮專案檔案的位置，在電腦上將檔案解壓縮，然後在 Visual Studio 中開啟方案檔。
@@ -6,7 +7,7 @@
 
 3.  在應用程式的 [Insert a TodoItem] 中輸入有意義的文字，例如*完成教學課程*，然後按一下 [儲存]。
 
-    </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">如此會傳送</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> POST </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">要求到</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> Azure </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">中代管的新行動服務。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"></cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">要求中的資料會插入</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> TodoItem </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">資料表中。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">行動服務會傳回資料表中儲存的項目，並且在應用程式的第二個資料欄中顯示資料。
+   	</cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">如此會傳送</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> POST </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">要求到</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> Azure </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">中代管的新行動服務。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"></cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">要求中的資料會插入</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000"> TodoItem </cf><cf font="MS Gothic" complexscriptsfont="MS Gothic" asiantextfont="MS Gothic" fontcolor="000000">資料表中。</cf><cf complexscriptsfont="Times New Roman" fontcolor="000000">行動服務會傳回資料表中儲存的項目，並且在應用程式的第二個資料欄中顯示資料。
 
 4.  (選用) 在通用 Windows 解決方案中，將預設的開始專案變更為其他應用程式，並再次執行應用程式。
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web w/ MySQL + FTP" pageTitle="採用 MySQL 和 FTP 的 PHP 網站 - Azure 教學課程" metaKeywords="" description="示範如何建立 PHP 網站將資料儲存於 MySQL 並對於 Azure 使用 FTP 部署的教學課程。" metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure Website and Deploy Using FTP" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Web w/ MySQL + FTP" pageTitle="採用 MySQL 和 FTP 的 PHP 網站 - Azure 教學課程" metaKeywords="" description="示範如何建立 PHP 網站將資料儲存於 MySQL 並對於 Azure 使用 FTP 部署的教學課程。" metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure Website and Deploy Using FTP" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
 
@@ -132,7 +132,7 @@
 		</body>
 		</html>
 
-6. 在 PHP 標記內， add PHP code for connecting to the database.
+6. 在 PHP 標籤內，加入用來連線至資料庫的 PHP 程式碼。
 
 		// DB connection info
 		$host = "localhost";

@@ -1,10 +1,11 @@
-﻿<properties urlDisplayName="Queue Service" pageTitle="如何使用佇列服務 (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。範例以 Python 撰寫。" metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="如何使用佇列服務 (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。範例以 Python 撰寫。" metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 
 
 
-# 「如何從 Python 使用佇列儲存體服務」。本指南說明如何使用 Windows Azure 佇列儲存體服務執行一般案例。相關範例是以 Python API 撰寫。涵蓋的案例包括**插入**、**查看**、**取得**和**刪除**佇列訊息，以及**建立和刪除佇列**。如需佇列的詳細資訊，請參閱[後續步驟][]一節。
+# 「如何從 Python 使用佇列儲存體服務」
+本指南說明如何使用 Windows Azure 佇列儲存體服務執行一般案例。相關範例是以 Python API 撰寫。涵蓋的案例包括**插入**、**查看**、**取得**和**刪除**佇列訊息，以及**建立和刪除佇列**。如需佇列的詳細資訊，請參閱[後續步驟][]一節。
 
 ## 目錄
 

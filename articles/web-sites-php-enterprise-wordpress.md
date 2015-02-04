@@ -1,4 +1,4 @@
-﻿<properties title="Enterprise class WordPress on Azure Websites" pageTitle="Azure 網站上的企業級 WordPress" description="了解如何在 Azure 網站上裝載企業級 WordPress 網站" metaKeywords="wordpress azure, wordpress website, wordpress azure website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" videoId="" scriptId="" />
+<properties title="Enterprise class WordPress on Azure Websites" pageTitle="Azure 網站上的企業級 WordPress" description="了解如何在 Azure 網站上裝載企業級 WordPress 網站" metaKeywords="wordpress azure, wordpress website, wordpress azure website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" videoId="" scriptId="" />
 
 <tags ms.service="web-sites" ms.devlang="php" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="11/11/2014" ms.author="tomfitz" />
 
@@ -47,7 +47,7 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 
 ###包含媒體儲存體和快取的多重區域部署
 
-如果網站接受上傳或主機媒體檔案，請使用 Azure Blob 儲存體。如果您需要快取，請考慮 [Redis 快取][rediscache]、[Memcache 雲端](http://azure.microsoft.com/zh-tw/gallery/store/garantiadata/memcached/)、[MemCachier](http://azure.microsoft.com/zh-tw/gallery/store/memcachier/memcachier/) 或 [Azure 市集]中的其他快取提供項目(http://azure.microsoft.com/zh-tw/gallery/store/)。
+如果網站接受上傳或主機媒體檔案，請使用 Azure Blob 儲存體。如果您需要快取，請考慮 [Redis 快取][rediscache]、[Memcache 雲端](http://azure.microsoft.com/zh-tw/gallery/store/garantiadata/memcached/)、[MemCachier](http://azure.microsoft.com/zh-tw/gallery/store/memcachier/memcachier/) 或 [Azure 市集](http://azure.microsoft.com/zh-tw/gallery/store/)中的其他快取提供項目。
 
 ![an Azure Website, hosted in multiple regions, using CDBR High Availability router for MySQL, with Managed Cache, Blob storage, and CDN][performance-diagram]
 
@@ -81,7 +81,7 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 作法...| 目的...
 ------------------------|-----------
 **了解網站執行個體功能** |  [定價詳細資料，包括網站大小和模式的功能][websitepricing]
-**快取資源** | [Redis 快取][rediscache]、[Memcache 雲端](http://azure.microsoft.com/zh-tw/gallery/store/garantiadata/memcached/)、[MemCachier](http://azure.microsoft.com/zh-tw/gallery/store/memcachier/memcachier/) 或 [Azure 市集]中的其他快取提供項目(http://azure.microsoft.com/zh-tw/gallery/store/)
+**快取資源** | [Redis 快取][rediscache]、[Memcache 雲端](http://azure.microsoft.com/zh-tw/gallery/store/garantiadata/memcached/)、[MemCachier](http://azure.microsoft.com/zh-tw/gallery/store/memcachier/memcachier/) 或 [Azure 市集](http://azure.microsoft.com/zh-tw/gallery/store/)中的其他快取提供項目
 **調整應用程式** | [調整 Azure 網站][websitescale]和 [ClearDB 高可用性路由][cleardbscale]。如果您選擇主控與管理自己的 MySQL 安裝，您應考量可橫向擴充的 [MySQL 叢集 CGE][cge]
 
 ####移轉
@@ -118,7 +118,7 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 
 1. 使用 [WordPress 匯出][export]來匯出您的現有網站。
 
-2. 使用[建立新的 WordPress 網站]一節中的步驟建立新網站(#create) 。
+2. 使用[建立新的 WordPress 網站](#create)一節中的步驟建立新網站 。
 
 3. 登入您在 Azure 網站上的 WordPress 網站，然後依序按一下 [**外掛程式**] -> [**新增**]。搜尋與安裝 [**WordPress Importer**] 外掛程式。
 
@@ -178,7 +178,7 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 作法...| 目的...
 ------------- | -----------
 **設定網站模式、大小並啟用調整功能** | [如何調整網站][websitescale]
-**啟用持續資料庫連線** <p>依預設，WordPress 不會使用持續資料庫連線，因為在多個連線後，此選項會造成資料庫連線進入流速控制狀態。</p>  | <ol><li><p>Edit the <strong>wp-includes/wp-db.php</strong> file.</p></li><li><p>Find the following line.</p><code>$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );</code></li><li><p>Replace the previous line with the following.</p><code>$this->dbh = mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); <br/>if ( false !== $error_reporting ) { /br/>&nbsp;&nbsp;error_reporting( $error_reporting ); <br/>} </code></li><li><p>Find the following line.</p><code>$this->dbh = @mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags ); </code></li><li><p>Replace the above line with the following.</p><code>$this->dbh = @mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); </code></li><li><p>Save the file <strong>wp-includes/wp-db.php</strong> file and redeploy the site.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><h5><a name="note"></a>注意：</h5><p>更新 WordPress 時有可能會覆寫這些變更。</p><p>WordPress 預設會自動更新，您可透過編輯 <strong>wp-config.php</strong> 檔案，並新增下列程式碼來停用自動更新：  <code>define ( 'WP_AUTO_UPDATE_CORE', false );</code></p><p>另一種處理更新的方法會是使用 WebJob，以在每次檔案更新時監視 <strong>wp-db.php</strong> 檔案和執行上述修改。請參閱 <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">WebJobs 簡介</a> 以獲得詳細資訊。</p></div>
+**啟用持續資料庫連線** <p>依預設，WordPress 不會使用持續資料庫連線，因為在多個連線後，此選項會造成資料庫連線進入流速控制狀態。</p>  | <ol><li><p>編輯 <strong>wp-includes/wp-db.php</strong> 檔案。</p></li><li><p>尋找下列程式碼行。</p><code>$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );</code></li><li><p>使用下列程式碼來取代先前的程式碼行。</p><code>$this->dbh = mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); <br/>if ( false !== $error_reporting ) { /br/>&nbsp;&nbsp;error_reporting( $error_reporting ); <br/>} </code></li><li><p>尋找下列程式碼行。</p><code>$this->dbh = @mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags ); </code></li><li><p>使用下列程式碼來取代上面的程式碼行。</p><code>$this->dbh = @mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); </code></li><li><p>儲存 <strong>wp-includes/wp-db.php</strong>檔案，然後重新部署網站。</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><h5><a name="note"></a>注意：</h5><p>更新 WordPress 時有可能會覆寫這些變更。</p><p>WordPress 預設會自動更新，您可透過編輯 <strong>wp-config.php</strong> 檔案，並新增下列程式碼來停用自動更新：  <code>define ( 'WP_AUTO_UPDATE_CORE', false );</code></p><p>另一種處理更新的方法會是使用 WebJob，以在每次檔案更新時監視 <strong>wp-db.php</strong> 檔案和執行上述修改。請參閱 <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">WebJobs 簡介</a> 以獲得詳細資訊。</p></div>
 **提升效能** | <ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">停用 ARR cookie</a> 在多個網站執行個體上執行 WordPress 時可提升效能。</p></li><li><p>啟用快取。 <a href="http://msdn.microsoft.com/zh-tw/library/azure/dn690470.aspx">Redis 快取</a> (預覽) 可搭配 <a href="https://wordpress.org/plugins/redis-object-cache/">Redis 快取物件 WordPress 外掛程式使用</a>，或使用來自下列的其他快取項目： <a href="http://azure.microsoft.com/zh-tw/gallery/store/">Azure 市集</a></p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">如果利用 Wincache 讓 WordPress 變得更快</a> - 網站預設已啟用 Wincache</p></li><li><p><a href="http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-scale/">調整 Azure 網站</a> 並使用 <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB 高可用性路由</a> 或 <a href="http://www.mysql.com/products/cluster/">MySQL 叢集 CGE</a></p></li></ul>
 **使用儲存體的 Blob** | <ol><li><p><a href="http://azure.microsoft.com/zh-tw/documentation/articles/storage-create-storage-account/">建立 Azure 儲存體帳戶</a></p></li><li><p>了解如何 <a href="http://azure.microsoft.com/zh-tw/documentation/articles/cdn-how-to-use/">使用內容發佈網路 (CDN)</a> 在異地發佈 Blob 中儲存的資料。</p></li><li><p>安裝及設定 <a href="https://wordpress.org/plugins/windows-azure-storage/">Azure Storage for WordPress 外掛程式</a>。</p><p>如需此外掛程式的詳細安裝和設定資訊，請參閱 <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">使用者指南</a>。</p> </li></ol>
 **啟用電子郵件** | <ol><li><p><a href="http://azure.microsoft.com/zh-tw/gallery/store/sendgrid/sendgrid-azure/">使用 Azure 市集啟用 SendGrid</a></p></li><li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">安裝 WordPress 的 SendGrid 外掛程式</a></p></li></ol>

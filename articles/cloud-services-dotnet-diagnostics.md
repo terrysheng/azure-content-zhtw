@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Diagnostics" pageTitle="如何使用診斷 (.NET) - Azure 功能指南" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="了解如何在 Azure 中使用診斷資料進行偵錯、測量效能、監視、流量分析等。" metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="raynew" solutions="" manager="johndaw" editor="" />
+<properties urlDisplayName="Diagnostics" pageTitle="如何使用診斷 (.NET) - Azure 功能指南" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="了解如何在 Azure 中使用診斷資料進行偵錯、測量效能、監視、流量分析等。" metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="raynew" solutions="" manager="johndaw" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/23/2014" ms.author="raynew" />
 
@@ -187,7 +187,7 @@ Azure 診斷可收集下列類型的遙測資料：
 
 <h3>步驟 4：建立您的診斷組態檔並安裝擴充功能</h3>
 1.	執行下列 PowerShell 命令，以下載公用組態檔結構描述定義：
-2.	
+
 		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
 2.	將 XML 檔案新增至您的 **WorkerRole1** 專案，方法是以滑鼠右鍵按一下 **WorkerRole1** 專案並選取 [**新增**] -> [**新增項目...**] -> [**Visual C# 項目**] -> [**資料**] -> [**XML 檔案**]。將檔案命名為 "WadExample.xml"。
@@ -760,8 +760,8 @@ Azure 診斷可收集下列類型的遙測資料：
 [偵錯 Azure 應用程式]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405479.aspx   
 [使用 Windows Azure 診斷收集記錄資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433048.aspx
 [開發 Azure 應用程式的疑難排解最佳作法]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh771389.aspx
-[免費試用]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
-[裝及設定 Azure PowerShell 0.8.7 版或更新版本]: http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/
+[免費試用版]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
+[安裝及設定 Azure PowerShell 0.8.7 版或更新版本]: http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/
 [Azure Diagnostics 1.2 組態結構描述]: http://msdn.microsoft.com/zh-tw/library/azure/dn782207.aspx
 [Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/zh-tw/library/dn495270.aspx
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/zh-tw/library/dn495145.aspx

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web w/ Storage" pageTitle="採用資料表儲存體的 PHP 網站 - Azure 教學課程" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="本教學課程示範如何建立 PHP 網站，以及在後端使用 Azure 資料表儲存體服務。" metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Web w/ Storage" pageTitle="採用資料表儲存體的 PHP 網站 - Azure 教學課程" metaKeywords="Azure table storage PHP, Azure PHP website, Azure PHP web site, Azure PHP tutorial, Azure PHP example" description="本教學課程示範如何建立 PHP 網站，以及在後端使用 Azure 資料表儲存體服務。" metaCanonical="" services="web-sites,storage" documentationCenter="PHP" title="Create a PHP Website using Azure Storage" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/21/2014" ms.author="tomfitz" />
 
@@ -83,7 +83,7 @@
 
 		$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 	
-	`$tableRestProxy` contains a method for every REST call available on Azure Tables.
+	`$tableRestProxy` 針對 Azure 資料表上可用的每一次 REST 呼叫包含一種方法。
 
 
 ## 建立資料表
@@ -189,7 +189,7 @@ Tasklist 應用程式首頁會列出所有現有工作，並允許插入新的�
 			echo "<h3>No items on list.</h3>";
 		?>
 
-* Last, you must insert the form that feeds data into the task insertion script and complete the HTML:
+* 最後，您必須插入表單以饋送資料至工作插入指令碼並完成 HTML：
 
 			<hr/>
 			<form action="additem.php" method="post">

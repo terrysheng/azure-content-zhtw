@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="AzCopy" pageTitle="如何搭配使用 AzCopy 與 Microsoft Azure 儲存體" metaKeywords="Get started Azure AzCopy   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure file   Azure file storage   Azure file share   AzCopy" description="了解如何使用 AzCopy 公用程式來上傳、下載和複製 Blob 與檔案內容。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use AzCopy with Microsoft Azure Storage" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties urlDisplayName="AzCopy" pageTitle="如何搭配使用 AzCopy 與 Microsoft Azure 儲存體" metaKeywords="Get started Azure AzCopy   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure file   Azure file storage   Azure file share   AzCopy" description="了解如何使用 AzCopy 公用程式來上傳、下載和複製 Blob 與檔案內容。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="How to use AzCopy with Microsoft Azure Storage" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="tamram" />
 
@@ -10,7 +10,7 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
 > 本指南也說明如何使用 AzCopy 4.0.0，這是 AzCopy 的預覽版本。在本指南中，僅在預覽版本提供的功能皆稱為「預覽」。<br />
 > 請注意，AzCopy 4.x 未來版本中的命令列選項及其功能有可能會有更動。
 
-##目錄
+## 目錄
 
 - [下載並安裝 AzCopy](#install)
 - [了解 AzCopy 命令列語法](#syntax)
@@ -21,13 +21,13 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
 - [AzCopy 版本](#versions)
 - [後續步驟](#next-steps)
 
-##<a id="install"></a> 下載並安裝 AzCopy
+## <a id="install"></a> 下載並安裝 AzCopy
 
 1. 下載[最新版本的 AzCopy](http://aka.ms/downloadazcopy)，或[最新預覽版本](http://aka.ms/downloadazcopypr)。
 2. 執行安裝。根據預設，AzCopy 安裝會在 `%ProgramFiles(x86)%\Microsoft SDKs\Azure\` (在執行 64 位元 Windows 的電腦上) 下，或 `%ProgramFiles%\Microsoft SDKs\Azure\` (在執行 32 位元 Windows 的電腦上) 下，建立名為 `AzCopy` 的資料夾。不過，您可以在安裝精靈中變更安裝路徑。
 3. 若有需要，您可以在您的系統路徑中加入 AzCopy 安裝位置。
 
-##<a id="syntax"></a> 了解 AzCopy 命令列語法
+## <a id="syntax"></a> 了解 AzCopy 命令列語法
 
 接下來，開啟命令視窗，並瀏覽至電腦上的 AzCopy 安裝目錄，也就是 `AzCopy.exe` 可執行檔的位置。AzCopy 命令的基本語法是：
 
@@ -373,13 +373,13 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
 
 <br/>
 
-##<a id="limit-writes"></a> 限制複製資料時的並行寫入
+## <a id="limit-writes"></a> 限制複製資料時的並行寫入
 
 使用 AzCopy 複製 Blob 或檔案時，請留意當您在複製資料時，另一個應用程式可能正在修改該資料。請儘可能地確定在複製作業過程中，您正要複製的資料並不在修改中。例如，當複製與 Azure 虛擬機器相關聯的 VHD 時，請確定目前沒有其他應用程式正在寫入此 VHD。此外，您可以首先建立 VHD 的快照，然後複製此快照。
 
 如果您無法在複製時防止其他應用程式寫入 Blob 或檔案，請記住，工作完成時，複製的資源可能不再與來源資源完全相同。
 
-##<a id="copy-blobs"></a> 使用 AzCopy 複製 Azure Blob
+## <a id="copy-blobs"></a> 使用 AzCopy 複製 Azure Blob
 
 下列範例說明使用 AzCopy 複製 Blob 的各種案例。
 
@@ -705,7 +705,7 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 	AzCopy /Source:https://127.0.0.1:10004/myaccount/myfileshare/ /Dest:C:\myfolder /SourceKey:key /SourceType:Blob /S
 
 
-##<a id="copy-files"></a> 使用 AzCopy 複製 Azure 檔案儲存體中的檔案 (僅限預覽版本)
+## <a id="copy-files"></a> 使用 AzCopy 複製 Azure 檔案儲存體中的檔案 (僅限預覽版本)
 
 下列範例說明使用 AzCopy 複製 Azure 檔案的各種案例。
 
@@ -733,7 +733,7 @@ AzCopy 處理此命令，就好像您在命令列上包含所有個別參數一�
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:ab* /S
 
-##<a id="copy-entities"></a> 使用 AzCopy 複製 Azure 資料表中的實體 (僅限預覽版本)
+## <a id="copy-entities"></a> 使用 AzCopy 複製 Azure 資料表中的實體 (僅限預覽版本)
 
 下列範例說明使用 AzCopy 複製 Azure 資料表實體的各種案例。
 
@@ -791,7 +791,7 @@ AzCopy 會在分割資料檔案名稱中使用「磁碟區索引」，以區分�
 請注意，您無法在匯入案例中指定選項 `/PKRS`。不同於必須指定選項 `/PKRS` 以啟動並行作業的匯出案例，AzCopy 依預設會在您匯入實體時啟動並行作業。依預設啟動的並行作業數目會等於核心處理器的數目；但您可以使用選項 `/NC` 指定不同的並行數目。如需詳細資訊，請在命令列上輸入 `AzCopy /?:NC`。
 
 
-##<a id="versions"></a> AzCopy 版本
+## <a id="versions"></a> AzCopy 版本
 
 | Version | What's New                                                                                      				|
 |---------|-----------------------------------------------------------------------------------------------------------------|
@@ -808,7 +808,7 @@ AzCopy 會在分割資料檔案名稱中使用「磁碟區索引」，以區分�
 | V2.1    | 提供超過 20 個選項，以有效的方式支援 Blob 上傳、下載及複製作業。		|
 
 
-##<a id="next-steps"></a> 後續步驟
+## <a id="next-steps"></a> 後續步驟
 
 如需關於 Azure 儲存體和 AzCopy 的詳細資訊，請參閱下列資源。
 

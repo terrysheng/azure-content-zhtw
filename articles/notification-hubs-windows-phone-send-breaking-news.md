@@ -1,4 +1,4 @@
-﻿<properties pageTitle="使用通知中樞傳送即時新聞 (Windows Phone)" metaKeywords="" description="使用 Azure 通知中樞來使用註冊中的標記，將即時新聞傳送至 Windows Phone 應用程式。" metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="使用通知中樞傳送即時新聞 (Windows Phone)" metaKeywords="" description="使用 Azure 通知中樞來使用註冊中的標記，將即時新聞傳送至 Windows Phone 應用程式。" metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="12/03/2014" ms.author="glenga" />
 
@@ -20,7 +20,7 @@
 
 本主題會以您在[開始使用通知中樞]中所建立的應用程式為基礎。開始本教學課程之前，您必須已完成[開始使用通知中樞]。
 
-##<a name="adding-categories"></a>在應用程式中新增類別選項
+## <a name="adding-categories"></a>在應用程式中新增類別選項
 
 第一個步驟是在您的現有主頁面上新增 UI 元素，以便使用者選取要註冊的類別。使用者所選取的類別會儲存在裝置上。啟動應用程式時，您的通知中心內會建立以所選取類別作為標籤的裝置註冊。 
 
@@ -101,8 +101,8 @@
 
 4. 在上述程式碼中，請使用您的通知中樞名稱及先前取得的 *DefaultListenSharedAccessSignature* 連線字串，來取代 `<hub name>` 和 `<connection string with listen access>` 預留位置。
 
-	<div class="dev-callout"><strong>Note</strong> 
-		<p>Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.</p>
+	<div class="dev-callout"><strong>注意：</strong> 
+		<p>因為隨用戶端應用程式散佈的憑證通常不安全，您應只將接聽存取權的金鑰隨用戶端應用程式散佈。 您的應用程式可透過接聽存取權來註冊通知，但無法修改現有的註冊或無法傳送通知。 在安全的後端服務中，會使用完整存取金鑰來傳送通知和變更現有的註冊。</p>
 	</div> 
 
 4. 在 App.xaml.cs 專案檔案中，新增下列屬性至 **App** 類別：
@@ -136,12 +136,12 @@
 
 您的應用程式現在可以在裝置上的本機儲存體中儲存一組類別，並在使用者每次變更類別選項時在通知中心註冊。 
 
-##<a name="register"></a>註冊通知
+## <a name="register"></a>註冊通知
 
 這些步驟會在啟動時，使用已儲存在本機儲存體中的類別在通知中心註冊。 
 
-<div class="dev-callout"><strong>Note</strong> 
-	<p>Because the channel URI assigned by the Microsoft Push Notification Service (MPNS) can chance at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.</p>
+<div class="dev-callout"><strong>注意：</strong> 
+	<p>由於 Microsoft 推播通知服務 (WPNS) 所指派的通道 URI 可能隨時會變更，因此您應經常註冊通知以避免通知失敗。 此範例會在應用程式每次啟動時註冊通知。 若是經常執行 (一天多次) 的應用程式，如果距離上次註冊的時間不到一天，則您可能可以略過註冊以保留頻寬。</p>
 </div>  
 
 1. 在 **Notifications** 類別中新增下列程式碼：
@@ -184,7 +184,7 @@
 
 [WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-##<a name="test-app"></a>執行應用程式並產生通知
+## <a name="test-app"></a>執行應用程式並產生通知
 
 1. 在 Visual Studio 中，按 F5 以編譯並啟動應用程式。
 
@@ -223,12 +223,21 @@
 	了解如何推播通知給特定的經驗證使用者。在僅傳送通知給特定使用者的情況下，這是很好的解決方案。
 -->
 
-<!-- 錨點。-->
-[在應用程式中新增類別選項]： #adding-categories
-[註冊通知]： #register
-[從後端傳送通知]： #send
-[執行應用程式並產生通知]： #test-app
-[後續步驟]： #next-steps
+
+
+
+
+
+
+
+
+<!-- Anchors. -->
+[在應用程式中新增類別選項]: #adding-categories
+[註冊通知]: #register
+[從後端傳送通知]: #send
+[執行應用程式並產生通知]: #test-app
+[後續步驟]: #next-steps
+
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
@@ -237,18 +246,14 @@
 
 
 
+
 <!-- URLs.-->
-[開始使用 Azure 通知中樞]： /zh-tw/manage/services/notification-hubs/get-started-notification-hubs-wp8/
-[使用通知中樞廣播已當地語系化的即時新聞]： ./breakingnews-localized-wp8.md 
-[使用通知中樞來通知使用者]： /zh-tw/manage/services/notification-hubs/notify-users/
-[行動服務]： /zh-tw/develop/mobile/tutorials/get-started
-[通知中樞指引]： http://msdn.microsoft.com/zh-tw/library/jj927170.aspx
-[Windows Phone 的通知中樞做法]： ??
+[開始使用 Azure 通知中樞]: /zh-tw/manage/services/notification-hubs/get-started-notification-hubs-wp8/
+[使用通知中樞廣播已當地語系化的即時新聞]: ./breakingnews-localized-wp8.md 
+[使用通知中樞來通知使用者]: /zh-tw/manage/services/notification-hubs/notify-users/
+[行動服務]: /zh-tw/develop/mobile/tutorials/get-started
+[通知中樞指引]: http://msdn.microsoft.com/zh-tw/library/jj927170.aspx
+[Windows Phone 的通知中樞做法]: ??
 
-[Azure 管理入口網站]： https://manage.windowsazure.com/
-
-
-
-
-
+[Azure 管理入口網站]: https://manage.windowsazure.com/
 <!--HONumber=35.2-->

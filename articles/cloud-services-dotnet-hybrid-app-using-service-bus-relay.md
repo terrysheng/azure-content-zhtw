@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Hybrid Application" pageTitle="混合式內部部署/雲端應用程式 (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="了解如何使用 Azure Service Bus Relay 建立 .NET 內部部署/雲端混合式應用程式。" metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Hybrid Application" pageTitle="混合式內部部署/雲端應用程式 (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="了解如何使用 Azure Service Bus Relay 建立 .NET 內部部署/雲端混合式應用程式。" metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
 
@@ -152,15 +152,12 @@ Azure 資料中心內執行的 Web 角色實際上如何呼叫
 1.  在主視窗中，按一下服務命名空間的名稱。   
 
 	![][39]
-  
 
 2.  按一下 [**連接資訊**]。   
 
 	![][40]
 
-
 3.  在 [**Access connection information**] 窗格中，找出 [**預設簽發者**] 和 [**預設金鑰**] 項目。   
-    
 
 4.  記下金鑰，或將它複製到剪貼簿。
 
@@ -413,8 +410,8 @@ Azure 資料中心內執行的 Web 角色實際上如何呼叫
             }
         }
 
-2.  In the HomeController.cs file in Visual Studio, replace the existing
-    namespace definition with the following code:
+2.  在 Visual Studio 的 HomeController.cs 檔案中，
+    將現有的命名空間定義取代為下列程式碼：
 
         namespace ProductsWeb.Controllers
         {

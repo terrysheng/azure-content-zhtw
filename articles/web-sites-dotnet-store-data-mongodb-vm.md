@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website with MongoDB VM" pageTitle="虛擬機器上使用 MongoDB 的 .NET 網站 - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="指導您如何使用 Git 對虛擬機器上的 MongoDB 連線的 Azure 網站部署 ASP.NET 應用程式的教學課程。" metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Website with MongoDB VM" pageTitle="虛擬機器上使用 MongoDB 的 .NET 網站 - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="指導您如何使用 Git 對虛擬機器上的 MongoDB 連線的 Azure 網站部署 ASP.NET 應用程式的教學課程。" metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
@@ -359,7 +359,7 @@ MongoDB C# 驅動程式現已安裝。**MongoDB.Driver.dll** 和 **MongoDB.Bson.
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-To add the ability to create a new task, right-click the *Views\Home\\* folder and **Add** a **View**.  Name the view *Create*. Replace the code with the following:
+若要新增建立新工作的功能，請在 Views\Home\ 資料夾上按一下滑鼠右鍵，然後 [新增] 一個 [檢視]。  將檢視命名為 *Create*. 使用下列程式碼來取代此程式碼：
 
 	@model MyTaskListApp.Models.MyTask
 	

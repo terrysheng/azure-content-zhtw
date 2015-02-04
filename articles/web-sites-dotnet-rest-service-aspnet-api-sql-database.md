@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="REST service using Web API" pageTitle="使用 Web API 的 .NET REST 服務 - Azure 教學課程" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="指導如何使用 Visual Studio 將使用 ASP.NET Web API 的應用程式部署至 Azure 網站的教學課程。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="REST service using Web API" pageTitle="使用 Web API 的 .NET REST 服務 - Azure 教學課程" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="指導如何使用 Visual Studio 將使用 ASP.NET Web API 的應用程式部署至 Azure 網站的教學課程。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/06/2014" ms.author="riande" />
 
@@ -35,7 +35,7 @@
 * [新增資料庫至應用程式][adddb]
 * [新增控制器和資料檢視][addcontroller]
 * [新增符合 Web API REST 限制的介面][addwebapi]
-* [新增 XSRF 保護][]
+* [新增 XSRF 保護]()
 * [將應用程式更新發行至 Azure 和 SQL Database][deploy2]
 
 <a name="bkmk_setupdevenv"></a>
@@ -710,11 +710,11 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 
 1. 將 **[ValidateHttpAntiForgeryToken]** 屬性新增至 **ContactsController** 的 Post 方法，使其免於遭受 XSRF 威脅的攻擊。您需要將其新增至 "PutContact"、"PostContact" 及 **DeleteContact** 動作方法。
 
-	[ValidateHttpAntiForgeryToken]
+		[ValidateHttpAntiForgeryToken]
         public IHttpActionResult PutContact(int id, Contact contact)
         {
 
-1. Update the *Scripts* section of the *Views\Home\Index.cshtml* file to include code to get the XSRF tokens.
+1. 更新 *Views\Home\Index.cshtml* 檔案的 *Scripts* 區段，使其包含取得 XSRF 權杖的程式碼。
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -807,7 +807,7 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 
 <h2><a name="nextsteps"></a>後續步驟</h2>
 
-真實的應用程式會要求驗證和授權，而您需要使用成員資格資料庫來達成目的。[佈署使用 OAuth、成員資格和 SQL Database 的安全 ASP.NET MVC] 教學課程(http://www.windowsazure.com/zh-tw/develop/net/tutorials/web-site-with-sql-database/) 是以本教學課程為基礎，示範如何佈署使用成員資格資料庫的 Web 應用程式。
+真實的應用程式會要求驗證和授權，而您需要使用成員資格資料庫來達成目的。[佈署使用 OAuth、成員資格和 SQL Database 的安全 ASP.NET MVC](http://www.windowsazure.com/zh-tw/develop/net/tutorials/web-site-with-sql-database/) 教學課程 是以本教學課程為基礎，示範如何佈署使用成員資格資料庫的 Web 應用程式。
 
 另一個儲存 Azure 應用程式資料的方法是使用 Azure 儲存體，它能以 Blob 和資料表的形式提供非關聯式的資料儲存。以下連結提供 Web API、ASP.NET MVC 及 Window Azure 的詳細資訊。
  
@@ -817,7 +817,7 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 * [您的第一個 ASP.NET Web API](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
 * [偵錯 WAWS](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
-本教學課程和範例應用程式是由 [Rick Anderson] 撰寫(http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT))，並由 Tom Dykstra 和 Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)) 提供協助。 
+本教學課程和範例應用程式是由 [Rick Anderson](http://blogs.msdn.com/b/rickandy/) 撰寫 (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT))，並由 Tom Dykstra 和 Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)) 提供協助。 
 
 如果您發現喜歡的地方或希望我們改善的地方 (不論是針對本教學課程或其示範的產品)，歡迎留下意見反應。您的意見反應將協助我們訂出優先改善要務。我們非常希望能了解您對於將設定和部署成員資格資料庫之程序更進一步自動化的期待為何。 
 

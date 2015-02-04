@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="如何使用服務匯流排 (Ruby) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic ruby" description="了解如何在 Azure 使用服務匯流排主題及訂閱。程式碼範例專為 Ruby 應用程式撰寫。" metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Topics/Subscriptions" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Service Bus Topics" pageTitle="如何使用服務匯流排 (Ruby) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic ruby" description="了解如何在 Azure 使用服務匯流排主題及訂閱。程式碼範例專為 Ruby 應用程式撰寫。" metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Topics/Subscriptions" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/25/2014" ms.author="tomfitz" />
 
@@ -37,16 +37,15 @@
 
 服務匯流排主題和訂閱可讓您擴大處理非常多使用者和應用程式上非常大量的訊息。
 
-## <a id="create-a-service-namespace"</a>Create a Service Namespace
+## <a id="create-a-service-namespace"</a>建立服務命名空間
 
-To begin using Service Bus queues in Azure, you must first create a service namespace. A service namespace provides a scoping container for addressing Service Bus resources within 
-your application. You must create the namespace through the command-line interface because the Portal does not create the service bus with an ACS connection.
+若要開始在 Azure 中使用服務匯流排佇列，首先必須建立服務命名空間 服務命名空間提供範圍容器，可在應用程式內定址服務匯流排資源。 您必須透過命令列介面建立命名空間，因為入口網站並未使用 ACS 連線建立服務匯流排。
 
-To create a namespace:
+若要建立命名空間：
 
-1. Open an Azure Powershell console.
+1. 開啟 Azure Powershell 主控台。
 
-2. Type the command to create an Azure service bus namespace as shown below. Provide your own namespace value and specify the same region as your application. 
+2. 輸入命令以建立如下所示的 Azure 服務匯流排命名空間。 提供您自己的命名空間值，並指定相同的區域做為您的申請。
 
       New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -CreateACSNamespace $true
 
@@ -227,7 +226,7 @@ azure 模組將讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 了解基本的服務匯流排主題之後，請參考下列連結以取得更多資訊。
 
 -   請參閱 MSDN 參考：[佇列、主題和訂閱](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367516.aspx)
--   [
--	Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+-   [SqlFilter](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx) 的 API 參考資料。
+-	請造訪 GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 儲存機制 (英文)。
 
 <!--HONumber=35.1-->

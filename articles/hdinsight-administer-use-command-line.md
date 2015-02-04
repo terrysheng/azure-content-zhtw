@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="HDInsight Administration" pageTitle="使用跨平台命令列管理 Hadoop 叢集 | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="了解在任何支援 Node.js 的平台上，包括 Windows、Mac 和 Linux，如何使用跨平台命令列介面來管理 HDInsight 中的 Hadoop 叢集。" services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer Hadoop clusters using the Cross-platform Command-line Interface" authors="jgao" />
+<properties urlDisplayName="HDInsight Administration" pageTitle="使用跨平台命令列管理 Hadoop 叢集 | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="了解在任何支援 Node.js 的平台上，包括 Windows、Mac 和 Linux，如何使用跨平台命令列介面來管理 HDInsight 中的 Hadoop 叢集。" services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer Hadoop clusters using the Cross-platform Command-line Interface" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao" />
 
@@ -17,7 +17,7 @@
 
 - **Azure 訂用帳戶**。Azure 是訂用帳戶型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][azure-purchase-options]、[成員優惠][azure-member-offers]或[免費試用][azure-free-trial]。
 
-##本文內容
+## 本文內容
 
 * [安裝](#installation)
 * [下載和匯入 Azure 帳戶 publishsettings](#importsettings)
@@ -27,14 +27,14 @@
 * [刪除叢集](#delete)
 * [後續步驟](#nextsteps)
 
-##<a id="installation"></a> 安裝
+## <a id="installation"></a> 安裝
 此命令列介面可使用 *Node.js 封裝管理員 (NPM)* 或 Windows Installer 進行安裝。
 
 **使用 NPM 安裝命令列介面**
 
 1.	瀏覽至 **www.nodejs.org**。
 2.	按一下 [**安裝**]，並依照指示使用預設設定操作。
-3.	從您的工作站開啟 [**命令提示字元**] (或是 *Azure 命令提示字元或 *VS2012 開發人員命令提示字元*)。
+3.	從您的工作站開啟 \[**命令提示字元**\] (或是 *Azure 命令提示字元或 *VS2012 開發人員命令提示字元*)。
 4.	在命令提示字元視窗中執行下列命令。
 
 		npm install -g azure-cli
@@ -58,7 +58,7 @@
 1.	瀏覽至 **http://azure.microsoft.com/zh-tw/downloads/**。
 2.	向下捲動至 [**命令列工具**] 區段，然後按一下 [**跨平台命令列介面**] 並依照 Web Platform Installer 精靈操作。
 
-##<a id="importsettings"></a> 下載和匯入 Azure 帳戶 publishsettings
+## <a id="importsettings"></a> 下載和匯入 Azure 帳戶 publishsettings
 
 使用命令列介面之前，您必須先設定工作站與 Azure 之間的連線。命令列介面會使用您的 Azure 訂用帳戶資訊連接到您的帳戶。這項資訊可從 Azure 的 publishsettings 檔案取得。接著，publishsettings 檔案可匯入為持續性的本機組態設定，供命令列介面用於後續的作業。您的 publishsettings 只需匯入一次即可。
 
@@ -85,7 +85,7 @@
 	在上一個螢幕擷取畫面中，publishsettings 檔案已儲存至工作站的 C:\HDInsight 資料夾。
 
 
-##<a id="provision"></a> 佈建 HDInsight 叢集
+## <a id="provision"></a> 佈建 HDInsight 叢集
 
 [WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
@@ -148,7 +148,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 
 
-##<a id="provisionconfigfile"></a> 使用組態檔佈建 HDInsight 叢集
+## <a id="provisionconfigfile"></a> 使用組態檔佈建 HDInsight 叢集
 一般而言，您會佈建 HDInsight 叢集、在叢集上執行工作，然後就刪除叢集，以降低成本。此命令列介面可讓您選擇將組態儲存至檔案，以便您在每次佈建叢集時皆可加以重複使用。  
  
 	azure hdinsight cluster config create <file>
@@ -171,7 +171,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 ![HDI.CLIClusterCreationConfig][image-cli-clustercreation-config]
 
 
-##<a id="listshow"></a> 列出和顯示叢集詳細資料
+## <a id="listshow"></a> 列出和顯示叢集詳細資料
 使用下列命令，以列出並顯示叢集詳細資料：
 	
 	azure hdinsight cluster list
@@ -180,7 +180,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 ![HDI.CLIListCluster][image-cli-clusterlisting]
 
 
-##<a id="delete"></a> 刪除叢集
+## <a id="delete"></a> 刪除叢集
 使用下列命令刪除叢集：
 
 	azure hdinsight cluster delete <ClusterName>
@@ -188,7 +188,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 
 
-##<a id="nextsteps"></a> 後續步驟
+## <a id="nextsteps"></a> 後續步驟
 本文中，您學到如何執行不同的 HDInsight 叢集管理工作。若要深入了解，請參閱下列文章：
 
 * [使用管理入口網站管理 HDInsight][hdinsight-admin-portal]

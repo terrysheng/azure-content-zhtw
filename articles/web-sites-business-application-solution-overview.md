@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Create a Line-of-Business Application on Azure Websites" pageTitle="在 Azure 網站建立企業營運系統應用程式" metaKeywords="Web Sites" description="本指南提供如何使用 Azure 網站來建立內部網路、企業營運系統應用程式的技術概觀。這包括驗證策略、Service Bus Relay 和監視。" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="wpickett" title="Create a Line-of-Business Application on Azure Websites" authors="jroth" />
+<properties urlDisplayName="Create a Line-of-Business Application on Azure Websites" pageTitle="在 Azure 網站建立企業營運系統應用程式" metaKeywords="Web Sites" description="本指南提供如何使用 Azure 網站來建立內部網路、企業營運系統應用程式的技術概觀。這包括驗證策略、Service Bus Relay 和監視。" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="wpickett" title="Create a Line-of-Business Application on Azure Websites" authors="jroth" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/01/2014" ms.author="jroth" />
 
@@ -72,7 +72,7 @@
 
 ![BusinessApplicationsVSIdentityAndAccess][BusinessApplicationsVSIdentityAndAccess]
 
-最後必須進行的組態變更是在 [**身分識別和存取**] 對話方塊的 [**組態**] 索引標籤中執行。您必須選取 [**Enable web farm cookies**] 核取方塊。如需這些步驟的詳細逐步解說，請參閱[使用 Azure AD 為 Web 應用程式新增登入][adsso]。
+最後必須進行的組態變更是在 [**身分識別和存取**] 對話方塊的 [**組態**] 索引標籤中執行。您必須選取 [**啟用 Web 伺服器陣列 Cookies**] 核取方塊。如需這些步驟的詳細逐步解說，請參閱[使用 Azure AD 為 Web 應用程式新增登入][adsso]。
 
 ####<a name="registerwaadapp"></a>在 Azure Active Directory 中登錄應用程式：
 為了填寫 [**提供者**] 索引標籤，您必須向 Azure Active Directory 登錄您的應用程式。在 Azure 管理入口網站的 [**Active Directory**] 區段選取您的目錄，然後移至 [**應用程式**] 索引標籤。這可讓您選擇依 URL 新增 Azure 網站。請注意，逐步進行這些步驟時，您一開始會將 URL 設定為針對在 Visual Studio 進行本機偵錯而提供的 localhost 位址。之後在部署時，您會將這項設定變更為您網站的實際 URL。
@@ -88,9 +88,9 @@
 
 ![BusinessApplicationsVSEnableAuth][BusinessApplicationsVSEnableAuth]
 
-如果您是 Active Directory 網域的系統管理員，請選取 [**Provision this application in the Azure AD**] 核取方塊。這會執行向 Active Directory 登錄應用程式的工作。如果您不是系統管理員，則取消核取該方塊，並將顯示的資訊提供給系統管理員。該系統管理員可以使用管理入口網站，使用先前在「身分識別與存取」工具上的步驟建立一個整合的應用程式。如果有關如何使用適用於 Azure Active Directory 之 ASP.NET 工具的詳細步驟，請參閱 [Azure 驗證][azureauthtutorial]。
+如果您是 Active Directory 網域的系統管理員，請選取 [**在 Azure AD 中佈建此應用程式**] 核取方塊。這會執行向 Active Directory 登錄應用程式的工作。如果您不是系統管理員，則取消核取該方塊，並將顯示的資訊提供給系統管理員。該系統管理員可以使用管理入口網站，使用先前在「身分識別與存取」工具上的步驟建立一個整合的應用程式。如果有關如何使用適用於 Azure Active Directory 之 ASP.NET 工具的詳細步驟，請參閱 [Azure 驗證][azureauthtutorial]。
 
-管理您的企業營運系統應用程式時，您可以使用任何支援的原始程式碼控制系統來進行部署。不過，由於本案例中的 Visual Studio 整合較為高階，因此您選擇的原始檔控制系統比較可能是 Team Foundation Service (TFS)。如果是這樣，您應該注意到 Azure 網站有提供與 TFS 整合的功能。在管理入口網站中，移至您網站的 [**儀表板**] 索引標籤。然後選取 [**Set up deployment from source control**]。請依照指示來使用 TFS。 
+管理您的企業營運系統應用程式時，您可以使用任何支援的原始程式碼控制系統來進行部署。不過，由於本案例中的 Visual Studio 整合較為高階，因此您選擇的原始檔控制系統比較可能是 Team Foundation Service (TFS)。如果是這樣，您應該注意到 Azure 網站有提供與 TFS 整合的功能。在管理入口網站中，移至您網站的 [**儀表板**] 索引標籤。然後選取 [**設定從原始檔控制進行部署**]。請依照指示來使用 TFS。 
 
 ![BusinessApplicationsDeploy][BusinessApplicationsDeploy]
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="在 Azure 中使用 Visual Studio Online 來連續傳遞" metaKeywords="" description="了解如何將 Visual Studio Online 小組專案設定為自動建立和部署至 Azure 網站或雲端服務。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="douge" editor="" />
+<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="在 Azure 中使用 Visual Studio Online 來連續傳遞" metaKeywords="" description="了解如何將 Visual Studio Online 小組專案設定為自動建立和部署至 Azure 網站或雲端服務。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="douge" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
@@ -68,7 +68,7 @@
 1. 現在，您在 Visual Studio Online 中有一個 Git 儲存機制，裡面還有一些原始程式碼，您可以準備將 Git 儲存機制連接至 Azure。在 [Azure 入口網站](http://manage.windowsazure.com)中，選取您的雲端服務或網站，或選取左下方的 + 圖示，選擇 [**雲端服務**] 或 [**網站**]，然後選取 [**快速建立**]，以建立新的雲端服務或網站。<br.>
 ![][9]
 
-3. 若是雲端服務，請擇 [**Set up publishing with Visual Studio Online**] 連結。若是網站，請選擇 [**設定從原始檔控制進行部署**] 連結。<br/>
+3. 若是雲端服務，請擇 [**使用 Visual Studio Online 設定發行**] 連結。若是網站，請選擇 [**設定從原始檔控制進行部署**] 連結。<br/>
 ![][10]
 
 2. 在精靈中，在文字方塊中輸入 Visual Studio Online 帳戶的名稱，然後選擇 [**立即授權**] 連結。可能會要求您登入。<br/>
@@ -181,7 +181,7 @@ Team Explorer 會顯示簽入已觸發的組建。<br/>
 
 6. 依預設，只有主要分支的變更才會觸發連續組建。若要設定工作分支的連續組建，請在 Team Explorer 中選擇 [組建] 頁面，然後選擇 [**編輯組建定義**]。
 
-7. 開啟 [**來源設定**] 索引標籤。在 [**Monitored branches for continuous integration and build**] 下，選擇 [**按一下這裡加入新的列**]。<br/>
+7. 開啟 [**來源設定**] 索引標籤。在 [**供持續整合及建置的監控中分支**] 下，選擇 [**按一下這裡加入新的列**]。<br/>
 ![][47]
 
 8. 指定您建立的分支，例如 refs/heads/working。

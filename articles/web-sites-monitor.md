@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="如何監視網站 - Azure 服務管理" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="了解如何使用 Management Portal 中的監視器頁面監視 Azure 網站。" metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="How to monitor" pageTitle="如何監視網站 - Azure 服務管理" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="了解如何使用 Management Portal 中的監視器頁面監視 Azure 網站。" metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
@@ -85,10 +85,10 @@
 如需 Azure 儲存體帳戶的詳細資訊，請參閱[如何管理儲存體帳戶](https://www.windowsazure.com/zh-tw/manage/services/storage/how-to-manage-a-storage-account/)。
 
 <div class="dev-callout"on> 
-<b>Note</b> 
-<p>Application logging to table or blob storage is only supported for .NET applications.</p> </div>
+<b>注意/b> 
+<p>只有 .NET 應用程式才支援資料表或 Blob 儲存體的應用程式記錄功能。</p> </div>
 
-Since application logging to storage requires using a storage client to view the log data, it is most useful when you plan on using a service or application that understands how to read and process the data directly from Azure Table or Blob Storage. Logging to the file system produces files that can be downloaded to your local computer using FTP or other utilities as described later in this section.
+由於儲存體的應用程式記錄功能須使用儲存體用戶端來檢視記錄資料，因此當您計劃使用了解如何直接讀取及處理 Azure 資料表或 Blob 儲存體之資料的服務或應用程式時，這項功能最為實用。 檔案系統的記錄功能會產生可透過 FTP 或其他公用程式下載到本機電腦的檔案，如本節後續內容所述。
 
 <div class="dev-callout"> 
 	<b>注意</b> 
@@ -278,9 +278,9 @@ Since application logging to storage requires using a storage client to view the
 
 如需網站端點監視的詳細資訊，請觀看以下影片：
 
-- [Scott Guthrie 介紹 Azure 網站及設定端點監視] (英文)(http://www.windowsazure.com/zh-tw/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+- [Scott Guthrie 介紹 Azure 網站及設定端點監視](http://www.windowsazure.com/zh-tw/documentation/videos/websites-and-endpoint-monitoring-scottgu/) (英文)
 
-- [讓 Azure 網站保持運作以及端點監視 - 對談來賓 Stefan Schackow] (英文)(http://www.windowsazure.com/zh-tw/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+- [讓 Azure 網站保持運作以及端點監視 - 對談來賓 Stefan Schackow](http://www.windowsazure.com/zh-tw/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/) (英文)
 
 
 

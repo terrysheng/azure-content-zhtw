@@ -1,4 +1,4 @@
-﻿<properties pageTitle="開始為 Appcelerator Titanium 使用 Azure 行動服務" metaKeywords="" description="遵循此教學課程，可開始使用 Azure 行動服務進行 Appcelerator 開發。 " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="開始為 Appcelerator Titanium 使用 Azure 行動服務" metaKeywords="" description="遵循此教學課程，可開始使用 Azure 行動服務進行 Appcelerator 開發。 " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
@@ -26,7 +26,7 @@
 
 2. 按一下 [**加入資料表**]，並建立名為 **TodoItem** 的新資料表。
 
-3. 下載新的 Appcelerator [Todolist 應用程式]，然後解壓縮專案。
+3. 下載新的 Appcelerator [待辦清單應用程式]，然後解壓縮專案。
 
 4. 下載並安裝 [Appcelerator Titanium Studio][Appcelerator Titanium] 和 SDK v3.2.1 或更新版本 (若您尚未這麼做)。您還需要 Xcode (v 5.0 +) 和/或 Android SDK (v 4.3+) 才能執行專案。
 

@@ -1,8 +1,8 @@
-﻿<properties title="SharePoint Server Farm" pageTitle="SharePoint Server 伺服器陣列" description="說明預覽入口網站中所提供的新 SharePoint Server 伺服器陣列功能" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+<properties title="SharePoint Server Farm" pageTitle="SharePoint Server 伺服器陣列" description="說明預覽入口網站中所提供的新 SharePoint Server 伺服器陣列功能" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
 
-#SharePoint Server 伺服器陣列#
+# SharePoint Server 伺服器陣列#
 
 使用 SharePoint Server 伺服器陣列時，Microsoft Azure 預覽入口網站會自動為您建立預先設定的 SharePoint Server 2013 伺服器陣列。當您在開發和測試環境中需要基本或高可用性 SharePoint 伺服器陣列時，或是您要評估將 SharePoint Server 2013 做為組織的共同作業方案時，這將可為您省下許多時間。
 
@@ -47,11 +47,11 @@
 - Azure 預覽入口網站會在僅限雲端、具有網際網路對向網站空間的虛擬網路中，同時建立這兩種伺服器陣列。並沒有站對站 VPN 連線會連回您的組織網路。 
 - 您可以透過遠桌面連線來管理這些伺服器。
 
-##逐步設定##
+## 逐步設定##
 
 若要使用 SharePoint 伺服器陣列建立您的 SharePoint 伺服器陣列，請執行下列動作：
 
-1. 在 [Microsoft Azure 預覽入口網站]中，(https://portal.azure.com/)按一下 [**虛擬機器**] > [**SharePoint 伺服器陣列**]。
+1. 在 [Microsoft Azure 預覽入口網站](https://portal.azure.com/)中，按一下 [**虛擬機器**] > [**SharePoint 伺服器陣列**]。
 2. 在 [**建立 SharePoint 伺服器陣列**] 窗格中，輸入資源群組的名稱。
 3. 為您伺服器陣列中每個虛擬機器的本機系統管理員帳戶，輸入使用者名稱和密碼。選擇難以猜測的名稱和密碼。
 4. 如果您需要高可用性伺服器陣列，請按一下 [**啟用高可用性**]。
@@ -63,7 +63,7 @@
 10. 若要指定位置 (區域)，請按一下箭頭。
 11. 完成之後，請按一下 [**建立**]。
 
-##Azure 資源管理員##
+## Azure 資源管理員##
 
 SharePoint Server 伺服器陣列會使用 Azure 資源管理員和指令碼，自動建立這些 SharePoint 伺服器陣列的基礎結構和伺服器組態。如需詳細資訊，請參閱[搭配使用 Windows PowerShell 與資源管理員](http://azure.microsoft.com/zh-tw/documentation/articles/powershell-azure-resource-manager/)。
 

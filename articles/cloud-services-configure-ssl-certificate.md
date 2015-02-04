@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Enable SSL" pageTitle="設定雲端服務的 SSL - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="了解如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。" metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="adegeo" solutions="" manager="timlt" editor="mollybos" />
+<properties urlDisplayName="Enable SSL" pageTitle="設定雲端服務的 SSL - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="了解如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。" metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="adegeo" solutions="" manager="timlt" editor="mollybos" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="adegeo" />
 
@@ -57,7 +57,8 @@
 
     **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。我們已選擇將憑證儲存在 CA (憑證授權單位) 存放區中，但是您也可以選擇其他選項。如需詳細資訊，請參閱[如何使憑證與服務產生關聯][]。
 
-2.  在服務定義檔中，於 **Endpoints** 區段內加入 **InputEndpoint** 元素，以啟用 HTTPS： 
+2.  在服務定義檔中，於 **Endpoints** 區段內加入 **InputEndpoint** 元素，以啟用 HTTPS：
+ 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
             <Endpoints>
@@ -107,8 +108,8 @@
 
 1. 登入 [Azure 管理入口網站][]。 
 2. 按一下 [**新增**]、按一下 [**雲端服務**]，然後按一下 [**自訂建立**]。
-3. 在 [**建立雲端服務**] 對話方塊中，輸入 URL、區域/同質群組及訂閱的值。確定已核取 [**Deploy a cloud service package now**]，然後按 [**下一步**] 按鈕。
-3. 在 [**Publish your cloud service** 對話方塊中，輸入雲端服務的必要資訊、為環境選取 [**生產**]，並確定核取 [**Add certificates now**]。(如果您的任一個角色包含單一執行個體，請確定核取 [**Deploy even if one or more roles contain a single instance**]。) 
+3. 在 [**發行雲端服務**] 對話方塊中，輸入雲端服務的必要資訊、為環境選取 [**生產**]，並確定核取 [**立即新增憑證**]。 (如果您的任一個角色包含單一執行個體，請確定核取 [**即使一或多個角色包含單一執行個體也請部署**]。
+3. 在 [**發行雲端服務** 對話方塊中，輸入雲端服務的必要資訊、為環境選取 [**生產**]，並確定核取 [**立即新增憑證**]。(如果您的任一個角色包含單一執行個體，請確定核取 [**即使一或多個角色包含單一執行個體也請部署**]。) 
 
     ![Publish your cloud service][0]
 
@@ -117,7 +118,7 @@
 
     ![Add certificate][1]
 
-6.  確定您的憑證列在 [**Attached Certificates**] 區段內。
+6.  確定您的憑證列在 [**附加憑證**] 區段內。
 
     ![Attached certificates][4]
 
@@ -158,6 +159,6 @@
   [2]: ./media/cloud-services-dotnet-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-dotnet-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificateComplete.png  
-  [How to configure an SSL certificate on an HTTPS endpoint]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff795779.aspx
+  [如何在 HTTPS 端點上設定 SSL 憑證]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff795779.aspx
 
 <!--HONumber=35.1-->

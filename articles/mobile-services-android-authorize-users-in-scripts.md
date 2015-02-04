@@ -1,4 +1,4 @@
-﻿<properties pageTitle="伺服器端授權 (Android) | 行動開發人員中心" metaKeywords="" description="了解如何在 Azure 行動服務的 JavaScript 後端為使用者授權。" metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="伺服器端授權 (Android) | 行動開發人員中心" metaKeywords="" description="了解如何在 Azure 行動服務的 JavaScript 後端為使用者授權。" metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 
@@ -60,7 +60,7 @@
 
 3. 在應用程式的 [**Insert a TodoItem**] 中輸入文字，然後按一下 [**儲存**]。
 
-   	如此會在行動服務中的 TodoItem 資料表中插入文字及 userId。Because the new item has the correct userId value, it is returned by the mobile service and displayed in the second column.
+   	如此會在行動服務中的 TodoItem 資料表中插入文字及 userId。因為新項目有正確的 userId 值，它會由行動服務傳回並顯示在第二個資料行中。.
 
 5. 返回 **todoitem** 資料表 (位於[管理入口網站][Azure Management Portal])，按一下 [**瀏覽**] 並驗證每個新增項目現在是否具有關聯的 userId 值。
 

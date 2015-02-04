@@ -1,4 +1,4 @@
-﻿<properties pageTitle="開始為 Xamarin iOS 應用程式使用行動服務" metaKeywords="" description="遵循此教學課程，可開始使用 Azure 行動服務進行 Xamarin iOS 開發。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="craigd" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="開始為 Xamarin iOS 應用程式使用行動服務" metaKeywords="" description="遵循此教學課程，可開始使用 Azure 行動服務進行 Xamarin iOS 開發。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="craigd" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/22/2014" ms.author="craig.dunn@xamarin.com" />
 
@@ -89,7 +89,7 @@
 * [開始使用資料]
   <br/>深入了解使用行動服務來儲存與查詢資料。
 
-* [開始使用離線資料同步] (英文)
+* [開始使用離線資料同步(英文)] 
   <br/>了解如何使用離線資料同步，讓您的應用程式迅速回應並且更健全。
 
 * [開始使用驗證]
@@ -118,7 +118,7 @@
 
 <!-- URLs. -->
 [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[開始使用離線資料同步] (英文): /zh-tw/develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
+[開始使用離線資料同步(英文)]: /zh-tw/develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
 [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-ios
 [開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-ios
 

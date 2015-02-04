@@ -264,13 +264,13 @@ Azure 虛擬機器可讓開發人員有彈性地選擇其所需的語言或執�
 若要在 Azure 上實作 SharePoint 開發與測試環境，請執行下列步驟：
 
 <ol>
-<li><em>Provision</em>: First, provision a VPN connection between on-premises and Azure using Azure Virtual Network. (Because Active Directory is not being used here, a VPN tunnel is needed.) For more information, go to <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx">Azure 虛擬網路 (設計考量和安全連線案例)</a>。接著，請在管理入口網站上使用映像庫中儲存的映像佈建新的 VM。
+<li><em>佈建</em>: 首先，請使用 Azure 虛擬網路佈建內部部署與 Azure 之間的 VPN 連線。 (由於此處不會使用 Active Directory，因此需要有 VPN 通道。) 如需詳細資訊，請移至 <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx">Azure 虛擬網路 (設計考量和安全連線案例)</a>。接著，請在管理入口網站上使用映像庫中儲存的映像佈建新的 VM。
 <ul>
 <li>您可以將內部部署的 SharePoint 開發與測試 VM 上傳至您的 Azure 儲存體帳戶，並透過映像庫參照這些 VM，以建置必要的環境。</li>
 <li>您可以使用 SQL Server 2012 映像，而不使用 Windows Server 2008 R2 SP1 映像。如需詳細資訊，請至 <a href="/zh-tw/manage/windows/common-tasks/install-sql-server/">在 Azure 上佈建 SQL Server 虛擬機器</a>。</li>
 </ul>
 </li>
-<li><em>Install</em>：使用遠端桌面連線，在 VM 上安裝 SharePoint Server、Visual Studio 和 SQL Server。
+<li><em>安裝</em>：使用遠端桌面連線，在 VM 上安裝 SharePoint Server、Visual Studio 和 SQL Server。
 <ul>
 <li>選擇 SharePoint Server 的安裝選項：
 <ul>
@@ -333,7 +333,7 @@ Azure 基礎結構中的 VM 經驗證可有效與其他 Microsoft 產品搭配�
 若要在 Azure 上實作公用端 SharePoint 伺服器陣列，請執行下列步驟：
 
 <ol>
-<li><em>Deploy Active Directory</em>: The fundamental requirements for deploying Active Directory on Azure Virtual Machines are similar"but not identical"to deploying it on VMs (and, to some extent, physical machines) on-premises. For more information about the differences, as well as guidelines and other considerations, go to <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090">在 Azure 虛擬機器上部署 Active Directory 的方針</a>。若要在 Azure 中部署 Active Directory：
+<li><em>部署 Active Directory</em>: 在 Azure 虛擬機器上部署 Active Directory 的基本需求，類似於 (但不等同於) 在內部部署 VM (和某些實體機器) 上的部署。 如需其差異的詳細資訊，以及相關指引和其他注意事項，請移至, go to <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090">在 Azure 虛擬機器上部署 Active Directory 的方針</a>。若要在 Azure 中部署 Active Directory：
 <ul>
 <li>定義及建立可讓 VM 指派至特定子網路的虛擬網路。如需詳細資訊，請至 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">設定虛擬網路</a>。</li>
 <li>使用管理入口網站，在 Azure 中的新 VM 上建立及部署網域控制站。如需詳細資訊，請至 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">部署及建立網域控制站</a>。
@@ -388,9 +388,9 @@ Azure 基礎結構中的 VM 經驗證可有效與其他 Microsoft 產品搭配�
 若要在 Azure 上擴充 BI 環境，請執行下列步驟：
 
 <ol>
-<li><em>Provision</em>:
+<li><em>佈建</em>:
 <ul>
-<li>Provision a VPN connection between on premises and Azure using Azure Virtual Network. For more information, go to <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx">Azure 虛擬網路 (設計考量和安全連線案例)</a>。</li>
+<li>使用 Azure 虛擬網路，佈建內部部署與 Azure 之間的 VPN 連線。 如需詳細資訊，請移至 <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx">Azure 虛擬網路 (設計考量和安全連線案例)</a>。</li>
 <li>使用管理入口網站，從映像庫中儲存的映像佈建新的 VM。
 <ul>
 <li>您可以將 SharePoint Server 或 SQL Server BI 工作負載映像上傳至映像庫，且任何授權使用者皆可選用這些 BI 元件 VM 來建置擴充的環境。</li>
@@ -398,7 +398,7 @@ Azure 基礎結構中的 VM 經驗證可有效與其他 Microsoft 產品搭配�
 </li>
 </ul>
 </li>
-<li><em>Install</em>：如果您的組織沒有預先建置的 SharePoint Server 或 SQL Server BI 元件映像，請使用遠端桌面連線在 VM 上安裝 SharePoint Server 和 SQL Server。
+<li><em>安裝</em>：如果您的組織沒有預先建置的 SharePoint Server 或 SQL Server BI 元件映像，請使用遠端桌面連線在 VM 上安裝 SharePoint Server 和 SQL Server。
 <ul>
 <li>如需安裝 SharePoint 詳細資訊，請移至 <a href="http://technet.microsoft.com/zh-tw/library/cc262839.aspx">「使用 Windows PowerShell 安裝 SharePoint Server 2010」</a> 或 <a href="http://autospinstaller.codeplex.com/">CodePlex：AutoSPInstaller</a>。</li>
 <li>如需安裝 SQL Server 的詳細資訊，請移至 <a href="http://msdn.microsoft.com/zh-tw/library/ee210664.aspx">「使用 SysPrep 安裝 SQL Server」</a>。</li>
@@ -443,7 +443,7 @@ Azure 基礎結構中的 VM 經驗證可有效與其他 Microsoft 產品搭配�
 下列步驟說明，如何從映像庫中預先建置的可用映像建立自訂的 SharePoint 伺服器陣列環境。但請注意，您也可以將 SharePoint 伺服器陣列 VM 上傳至映像庫，而授權使用者則可以選用這些 VM，在 Azure 上建置必要的 SharePoint 伺服器陣列。
 
 <ol>
-<li>Deploy Active Directory<em>: The fundamental requirements for deploying Active Directory on Azure Virtual Machines are similar"but not identical"to deploying it on VMs (and, to some extent, physical machines) on premises. For more information about the differences, as well as guidelines and other considerations, go to <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090">在 Azure 虛擬機器上部署 Active Directory 的方針</a>。若要在 Azure 中部署 Active Directory：</em>
+<li>部署 Active Directory<em>: 在 Azure 虛擬機器上部署 Active Directory 的基本需求，類似於 (但不等同於) 在內部部署 VM (和某些實體機器) 上的部署。 如需其差異的詳細資訊，以及相關指引和其他注意事項，請移至 <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090">在 Azure 虛擬機器上部署 Active Directory 的方針</a>。若要在 Azure 中部署 Active Directory：</em>
 <ul>
 <li>定義及建立可讓 VM 指派至特定子網路的虛擬網路。如需詳細資訊，請至 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">設定虛擬網路</a>。</li>
 <li>使用管理入口網站，在 Azure 中的新 VM 上建立及部署網域控制站。如需詳細資訊，請至 <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">部署及建立網域控制站</a>。

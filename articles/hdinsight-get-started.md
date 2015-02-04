@@ -44,7 +44,7 @@
 
 **預估完成時間：**30 分鐘
 
-##本教學課程內容
+## 本教學課程內容
 
 * [建立 Azure 儲存體帳戶](#storage)
 * [佈建 HDInsight 叢集](#provision)
@@ -52,7 +52,7 @@
 * [執行 HIVE 工作](#hivequery)
 * [後續步驟](#nextsteps)
 
-##<a name="storage"></a>建立 Azure 儲存體帳戶
+## <a name="storage"></a>建立 Azure 儲存體帳戶
 
 HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB* 或 *Azure 儲存體 - Blob*。WASB 是 Microsoft 在 Azure Blob 儲存體上的 HDFS 實作。如需詳細資訊，請參閱[使用 Azure Blob 儲存體搭配 HDInsight][hdinsight-storage]。
 
@@ -75,13 +75,13 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
 
 4. 等候新儲存體帳戶的 [**狀態**] 變更為 [**線上**]。
 5. 從清單中選取新儲存體帳戶，並按一下頁面底部的 [**MANAGE ACCESS KEYS**]。
-7. 請記下 [**儲存體帳戶名稱**] 和 [**主要存取金鑰**] (或 [**次要存取金鑰**]。其中任何一個金鑰皆可)。稍後在教學課程中需要這些資訊。
+7. 請記下 [**儲存體帳戶名稱**] 和 \[**主要存取金鑰**\] (或 [**次要存取金鑰**]。其中任何一個金鑰皆可)。稍後在教學課程中需要這些資訊。
 
 
 如需詳細資訊，請參閱
 [如何建立儲存體帳戶][azure-create-storageaccount]和[使用 Azure Blob 儲存體搭配 HDInsight][hdinsight-storage]。
 	
-##<a name="provision"></a>佈建 HDInsight 叢集
+## <a name="provision"></a>佈建 HDInsight 叢集
 
 佈建 HDInsight 叢集時，您可以佈建包含 Hadoop 及相關應用程式的 Azure 運算資源。在本節中，您將佈建採用 Hadoop 2.4 版的 HDInsight 叢集 3.1 版。您也可以使用 Azure 入口網站、HDInsight PowerShell Cmdlet 或 HDInsight .NET SDK 來建立其他版本的 Hadoop 叢集。如需相關指示，請參閱[使用自訂選項佈建 HDInsight 叢集][hdinsight-provision]。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱 [HDInsight 元件版本設定](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-component-versioning/) 頁面。
 
@@ -123,7 +123,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
 	>[WACOM.NOTE] 以上程序會採用 HDInsight 叢集 3.1 版建立叢集。若要建立其他叢集版本，您可以在管理入口網站中使用自訂建立方法，或使用 Azure PowerShell。如需每個叢集版本之間的差異相關資訊，請參閱 [HDInsight 所提供叢集版本的新功能][hdinsight-versions]如需使用 [**自訂建立**] 選項的相關資訊，請參閱[使用自訂選項佈建 HDInsight 叢集][hdinsight-provision]。
 
 
-##<a name="sample"></a>從入口網站執行範例
+## <a name="sample"></a>從入口網站執行範例
 
 佈建成功的 HDInsight 叢集會提供查詢主控台，可從入口網站直接執行範例。您可以利用範例來逐步完成一些基本案例，以了解如何使用 HDInsight。這些範例隨附所有必要的元件，例如要分析的資料及在資料上執行的查詢。 
 
@@ -135,7 +135,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
 [Website log analysis][hdinsight-weblogs-sample] | 了解如何使用 HDInsight 來分析網站記錄檔，以深入了解一天之中來自外部網站的造訪次數，以及使用者遭遇網站錯誤的摘要。
 
 
-##<a name="hivequery"></a>從入口網站執行 HIVE 查詢
+## <a name="hivequery"></a>從入口網站執行 HIVE 查詢
 現在您已佈建一個 HDInsight 叢集，下一個步驟是執行 Hive 工作，以查詢 HDInsight 叢集隨附的範例 Hive 資料表 *hivesampletable*。此資料表會包含行動裝置製造商、平台及模型等資料。查詢這個資料表，以擷取特定製造商的行動裝置資料。
 
 > [WACOM.NOTE] HDInsight Tools for Visual Studio 隨附於 Azure SDK for .NET 2.5 版或更新版本。使用 Visual Studio 提供的工具，您可以連線至 HDInsight 叢集、建立 Hive 資料表，並執行 Hive 查詢。如需詳細資訊，請參閱[開始使用 HDInsight Hadoop Tools for Visual Studio][1]。
@@ -189,7 +189,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
    	![The output file GUID listed in the File Browser tab.][img-hdi-dashboard-query-browse-output]
 
 
-###<a name="powerquery"></a>連接到 Microsoft 商業智慧工具 
+### <a name="powerquery"></a>連接到 Microsoft 商業智慧工具 
 
 您可以使用適用於 Microsoft Excel 的 Power Query 增益集，將工作輸出從 HDInsight 匯入 Excel，然後使用 Excel 的 Microsoft 商業智慧 (BI) 工具來進一步分析結果。 
 
@@ -217,7 +217,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 *WASB*
 9. 按一下左上角的 [**Close & Load**] 以將 Hive 工作輸出匯入 Excel。
 
 
-##<a name="nextsteps"></a>後續步驟
+## <a name="nextsteps"></a>後續步驟
 在本教學課程中，您已經了解如何使用 HDInsight 佈建叢集、在其中執行 MapReduce 工作，並且將結果匯入 Excel，以便使用 BI 工具進行後續處理並以圖形顯示。若要深入了解，請參閱下列文章：
 
 - [開始使用 HDInsight Hadoop Tools for Visual Studio][1]

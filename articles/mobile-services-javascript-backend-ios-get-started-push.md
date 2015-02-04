@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="開始使用推播通知 (iOS) | 行動開發人員中心" metaKeywords="" description="了解如何使用 Azure 行動服務傳送推播通知至 iOS 應用程式。" metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="開始使用推播通知 (iOS) | 行動開發人員中心" metaKeywords="" description="了解如何使用 Azure 行動服務傳送推播通知至 iOS 應用程式。" metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
@@ -6,7 +6,7 @@
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-本主題說明如何透過 Apple 推播通知服務 (APNS)，使用 Azure 行動服務將推播通知傳送至 iOS 應用程式。在本教學課程中，您會啟用透過 Azure 通知中心將推播通知傳送至[快速入門專案]的功能(http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started/)。完成後，行動服務就會在每次插入記錄時傳送推播通知。
+本主題說明如何透過 Apple 推播通知服務 (APNS)，使用 Azure 行動服務將推播通知傳送至 iOS 應用程式。在本教學課程中，您會啟用透過 Azure 通知中心將推播通知傳送至[快速入門專案](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started/)的功能。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 
@@ -21,7 +21,7 @@
 本教學課程需要下列各項：
 
 + [行動服務 iOS SDK]
-+ [XCode 4.5][Install Xcode]
++ [XCode 4.5][安裝 Xcode]
 + iOS 6.0 (或以上版本) 功能裝置
 + iOS Developer Program 成員資格
 
@@ -156,8 +156,8 @@
 + [將廣播通知傳送給訂閱者]
 	<br/>了解使用者如何註冊及接收其所需類別的推播通知。
 <!---
-+ [Send template-based notifications to subscribers]
-	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
++ [將範本型通知傳送給訂閱者]
+	<br/>了解如何使用範本從行動服務傳送推播通知，但不必在您的後端製作平台特定裝載。
 -->
 在下列主題中深入了解行動服務和通知中心：
 

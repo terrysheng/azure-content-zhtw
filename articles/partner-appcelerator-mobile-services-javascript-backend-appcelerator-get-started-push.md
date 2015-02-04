@@ -1,4 +1,4 @@
-﻿<properties pageTitle="開始使用推播通知 (Appcelerator) | 行動開發人員中心" metaKeywords="" description="了解如何使用 Azure 行動服務傳送推播通知至 Appcelerator 應用程式。" metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="開始使用推播通知 (Appcelerator) | 行動開發人員中心" metaKeywords="" description="了解如何使用 Azure 行動服務傳送推播通知至 Appcelerator 應用程式。" metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
@@ -10,7 +10,7 @@
 	<a href="/zh-tw/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
 	<a href="/zh-tw/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
 <!--    <a href="/zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
-    <a href="/zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
+    <a href="/zh-tw/documentation/articles/partne產生憑證簽署要求r-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
 	<a href="/zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator" class="current">Appcelerator</a>
 </div>
 
@@ -55,7 +55,7 @@
 
 如果您打算建立 Android 模組，您將需要在 Appcelerator Titanium Studio 內安裝 Java 支援。請參閱 Appcelerator 的[安裝 Java 開發工具]，以取得簡短步驟 (如果您尚未這樣做)。
 
-您將需要安裝 Android NDK。從 [http://developer.android.com/sdk/ndk/index.html] 下載適當的 .zip 檔案，(http://developer.android.com/sdk/ndk/index.html) 並將檔案解壓縮到磁碟的某些位置。記位此位置。 
+您將需要安裝 Android NDK。從 [http://developer.android.com/sdk/ndk/index.html](http://developer.android.com/sdk/ndk/index.html) 下載適當的 .zip 檔案， 並將檔案解壓縮到磁碟的某些位置。記位此位置。 
 
 ### 建立新模組
 
@@ -358,11 +358,11 @@
 
 5.	若是 Android，請使用下列程式碼來取代上述程式碼：
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'handle' : Alloy.Globals.tempRegId
-    }; 
+           var request = {
+    	    'text' : alertTextField.getValue(),
+    	    'complete' : false,
+    	    'handle' : Alloy.Globals.tempRegId
+           }; 
     
     
 
@@ -377,11 +377,11 @@
 
 7.	若是 iOS，請使用下列程式碼來取代上述程式碼：
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'deviceToken' : Alloy.Globals.tempRegId
-    };
+           var request = {
+    	    'text' : alertTextField.getValue(),
+    	    'complete' : false,
+    	    'deviceToken' : Alloy.Globals.tempRegId
+           };
     
  
 您在 iOS 和 Android 平台的應用程式現已更新為支援推播通知。
@@ -451,22 +451,27 @@
 [5]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image064.png
 [6]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image066.png
 
+
+
+
+
 <!-- Anchors. -->
-[產生憑證簽署要求]： #certificates
-[註冊您的應用程式並啟用推播通知]： #register
-[建立應用程式的佈建設定檔]： #profile
-[啟用 Google 雲端通訊]： #register-gcm
-[建立 Titanium 的 GCM 模組]： #gcm-module
-[設定行動服務]： #configure
-[新增推播通知至應用程式]： #add-push
+[產生憑證簽署要求]: #certificates
+[註冊您的應用程式並啟用推播通知]: #register
+[建立應用程式的佈建設定檔]: #profile
+[啟用 Google 雲端通訊]: #register-gcm
+[建立 Titanium 的 GCM 模組]: #gcm-module
+[設定行動服務]: #configure
+[新增推播通知至應用程式]: #add-push
 [更新指令碼來傳送推播通知]: #update-scripts
-[插入資料以接收通知]： #test
+[插入資料以接收通知]: #test
+
 
 <!-- URLs. -->
 [開始使用行動服務]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
-[使用 Titanium 模組]： http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
-[Windows Azure 管理入口網站]： https://manage.windowsazure.com/
-[行動服務推播物件]： http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
+[使用 Titanium 模組]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
+[Windows Azure 管理入口網站]: https://manage.windowsazure.com/
+[行動服務推播物件]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
 [安裝 Java 開發工具]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
 
 <!--HONumber=35.1-->

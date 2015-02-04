@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="如何使用服務匯流排佇列 (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="了解如何在 Azure 使用服務匯流排佇列。程式碼範例是以 C# 撰寫並使用 .NET API。" metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Service Bus Queues" pageTitle="如何使用服務匯流排佇列 (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="了解如何在 Azure 使用服務匯流排佇列。程式碼範例是以 C# 撰寫並使用 .NET API。" metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -14,13 +14,13 @@
 
 [WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-##設定應用程式以使用服務匯流排
+## 設定應用程式以使用服務匯流排
 
 建立使用服務匯流排的應用程式時，必須
 將參考新增至服務匯流排組件並加入
 對應的命名空間。
 
-##取得服務匯流排 NuGet 封裝
+## 取得服務匯流排 NuGet 封裝
 
 要取得服務匯流排 API，並對應用程式進行設定，以使用所有服務匯流排相依性的最簡單方法，便是使用服務匯流排 **NuGet** 封裝。NuGet Visual Studio 擴充功能可讓您更輕鬆地在 Visual Studio 和 Visual Studio Express 2012 for Web 中安裝並更新程式庫與工具。
 
@@ -34,7 +34,7 @@
 您現在可以開始對服務匯流排撰寫程式碼。
 
 
-##如何設定服務匯流排連接字串
+## 如何設定服務匯流排連接字串
 
 服務匯流排使用連接字串來儲存端點和認證。您可以將連接字串置於設定檔中，而非硬式編碼至程式碼中：
 
@@ -85,7 +85,7 @@
 
 使用從管理入口網站擷取的發行者和金鑰值，如上一節所述。
 
-##如何建立佇列
+## 如何建立佇列
 
 您可以透過 **NamespaceManager** 類別，來執行服務匯流排佇列的管理作業。**NamespaceManager** 類別提供建立、列舉及刪除佇列的方法。 
 
@@ -128,7 +128,7 @@
 
 **注意：**您可以在 **NamespaceManager** 物件上使用 **QueueExists** 方法，來檢查服務命名空間內是否已有指定名稱的佇列存在。
 
-##如何傳送訊息至佇列
+## 如何傳送訊息至佇列
 
 若要傳送訊息至服務匯流排佇列，應用程式會使用連接字串來建立 **QueueClient** 物件。
 
@@ -160,7 +160,7 @@
 
 服務匯流排佇列支援 256 Kb 的訊息大小上限 (包含標準和自訂應用程式屬性的標頭可以容納 64 Kb 的大小上限)。佇列中所保存的訊息數目沒有限制，但佇列所保存的訊息大小總計會有最高限制。此佇列大小會在建立時定義，上限是 5 GB。
 
-##如何從佇列接收訊息
+## 如何從佇列接收訊息
 
 自佇列接收訊息的最簡單方式是使用 **QueueClient** 物件。這些物件可以在兩種不同模式下運作：**ReceiveAndDelete** 和 **PeekLock**。
 
@@ -197,7 +197,7 @@
        }
     } 
 
-##如何處理應用程式當機與無法讀取的訊息
+## 如何處理應用程式當機與無法讀取的訊息
 
 服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。如果接收端應用程式因為某些原因無法處理訊息，它可以呼叫所接收訊息上的 **Abandon** 方法 (而不是 **Complete** 方法)。這將導致服務匯流排將佇列中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
 
@@ -205,7 +205,7 @@
 
 如果應用程式在處理訊息之後，尚未發出 **Complete** 要求時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。這通常稱為**至少處理一次**，也就是說，每個訊息至少會處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可以使用訊息的 **MessageId** 屬性來達到此目的，該屬性將在各個傳遞嘗試中保持不變。
 
-##後續步驟
+## 後續步驟
 
 了解基本的服務匯流排佇列之後，請參考下列
 連結以取得更多資訊。

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="開始使用資料 (Windows 市集) | 行動開發人員中心 " metaKeywords="" description="了解如何開始使用行動服務來運用您 Windows 市集應用程式中的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="開始使用資料 (Windows 市集) | 行動開發人員中心 " metaKeywords="" description="了解如何開始使用行動服務來運用您 Windows 市集應用程式中的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga" />
 
@@ -30,7 +30,7 @@
 * 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-dotnet-get-started-data%2F)。
 * Visual Studio 2013 可讓您更輕鬆地將 Windows 市集應用程式連線至行動服務。 
 
-##<a name="download-app"></a>下載 GetStartedWithData 專案
+## <a name="download-app"></a>下載 GetStartedWithData 專案
 
 本教學課程以 [GetStartedWithMobileServices 應用程式][Developer Code Samples site]　(這是 Visual Studio 2013 中的 Windows 市集應用程式專案) 做為建置基礎。除了會將新增項目儲存在本機記憶體中之外，由此應用程式與行動服務快速入門所產生的應用程式兩者的 UI 完全相同。 
 
@@ -42,13 +42,13 @@
 
 3. 按 **F5** 鍵，以重建專案並啟動應用程式。
 
-4. 在應用程式中，於 [插入 TodoItem]**** 中輸入部分文字，然後按一下 [儲存]****。
+4. 在應用程式中，於 **[插入 TodoItem]** 中輸入部分文字，然後按一下 **[儲存]**。
 
    	![][0]  
 
-   	請注意，儲存的文字會顯示在 [查詢和更新資料]**** 下方的第二個資料欄中。
+   	請注意，儲存的文字會顯示在 **[查詢和更新資料]** 下方的第二個資料欄中。
 
-##<a name="create-service"></a>從 Visual Studio 建立新的行動服務
+## <a name="create-service"></a>從 Visual Studio 建立新的行動服務
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
@@ -64,33 +64,33 @@
 </li>
 </ol>
 
-##<a name="add-table"></a>新增用於儲存資料的資料表
+## <a name="add-table"></a>新增用於儲存資料的資料表
 
 [WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
 >[WACOM.NOTE]新的資料表是使用 Id、__createdAt、__updatedAt 和 __version 等資料行建立而成。啟用動態結構描述時，行動服務會根據插入或更新要求中的 JSON 物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193175.aspx)。
 
-#<a name="update-app"></a>更新應用程式以使用行動服務
+# <a name="update-app"></a>更新應用程式以使用行動服務
 
 [WACOM.INCLUDE [mobile-services-windows-dotnet-update-data-app](../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
-##<a name="test-app"></a>對新的行動服務進行應用程式測試
+## <a name="test-app"></a>對新的行動服務進行應用程式測試
 
 1. 在 Visual Studio 中，按 F5 鍵以執行此應用程式。
 
-2. 和之前相同，在 [插入 TodoItem]**** 中輸入文字，然後按一下 [儲存]****。
+2. 和之前相同，在 **[插入 TodoItem]** 中輸入文字，然後按一下 **[儲存]**。
 
    	這會傳送新項目以插入至行動服務。
 
-3. 在[管理入口網站]中，按一下 [行動服務]****，然後按一下您的行動服務。
+3. 在[管理入口網站]中，按一下 **[行動服務]**，然後按一下您的行動服務。
 
-4. 按一下 [資料]**** 索引標籤，然後按一下 [瀏覽]****。
+4. 按一下 **[資料]** 索引標籤，然後按一下 **[瀏覽]**。
 
    	![][9]
   
    	請注意，**TodoItem** 表格現在包含資料，其中識別碼值由行動服務產生，且資料欄已自動新增到表格以符合應用程式中的 TodoItem 類別。
 
-5. 在應用程式中檢查清單中的其中一個項目，然後返回入口網站中的 [瀏覽] 索引標籤，並按一下 [重新整理]****。 
+5. 在應用程式中檢查清單中的其中一個項目，然後返回入口網站中的 [瀏覽] 索引標籤，並按一下 **[重新整理]**。 
 
   	請注意，完成值已從 **false** 變更為 **true**。
 
@@ -106,7 +106,7 @@
             ListItems.ItemsSource = items;            
         }
 
-7. 在應用程式中，檢查清單中的其中一個項目，然後按一下 [重新整理]**** 按鈕。
+7. 在應用程式中，檢查清單中的其中一個項目，然後按一下 **[重新整理]** 按鈕。
 
    	請注意，所有已核取的項目都會從清單中消失。Each refresh results in a round-trip to the mobile service, which now returns filtered data.
 
@@ -135,6 +135,7 @@
   
 <!-- Anchors. -->
 
+[Get the Windows Store app]: #download-app
 [取得 Windows 市集應用程式]: #download-app
 [從 Visual Studio 建立行動服務]: #create-service
 [新增用於儲存的資料表]: #add-table
@@ -162,7 +163,7 @@
 [管理入口網站]: https://manage.windowsazure.com/
 [行動服務 SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [開發人員程式碼範例網站]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-
+[Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
 [MobileServiceClient 類別]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
 <!--HONumber=35.2-->

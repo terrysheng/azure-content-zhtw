@@ -18,17 +18,17 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，
 
 ![Queue1][Queue1]
 
--   **URL 格式：** 可利用下列 URL 格式來定址佇列：
+- **URL 格式：** 可利用下列 URL 格式來定址佇列：   
     http://`<storage account>`.queue.core.windows.net/`<queue>`
 
-下列 URL 可定址圖中的其中一個佇列：
-http://myaccount.queue.core.windows.net/imagesToDownload
+下列 URL 可定址圖中的其中一個佇列：  
+	http://myaccount.queue.core.windows.net/imagesToDownload
 
 -**儲存體帳戶：**一律透過儲存體帳戶來存取 Azure 儲存體。如需關於儲存體帳戶容量的詳細資訊，請參閱＜[Azure 儲存體延展性和效能目標][Azure 儲存體延展性和效能目標]＞(英文)。
 
--   **佇列：**佇列包含一組訊息。所有訊息都必須放在佇列中。
+- **佇列：**佇列包含一組訊息。所有訊息都必須放在佇列中。  
 
--   **訊息：**訊息 (任何格式) 的大小上限為 64KB。
+- **訊息：**訊息 (任何格式) 的大小上限為 64KB。
 
   [Azure 儲存體延展性和效能目標]: http://msdn.microsoft.com/zh-tw/library/dn249410.aspx
   [Queue1]: ./media/howto-queue-storage/queue1.png

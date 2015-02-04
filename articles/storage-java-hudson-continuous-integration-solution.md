@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Hudson Continuous Integration" pageTitle="如何使用 Hudson 與 Azure Blob 服務 | Microsoft Azure" metaKeywords="Hudson, Azure storage, Azure Blob service, Azure storage, Azure hudson" description="說明如何使用 Hudson 與 Azure Blob 儲存體作為組建成品的存放庫。" metaCanonical="" services="storage" documentationCenter="Java" title="Using Azure Storage with a Hudson Continuous Integration solution" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Hudson Continuous Integration" pageTitle="如何使用 Hudson 與 Azure Blob 服務 | Microsoft Azure" metaKeywords="Hudson, Azure storage, Azure Blob service, Azure storage, Azure hudson" description="說明如何使用 Hudson 與 Azure Blob 儲存體作為組建成品的存放庫。" metaCanonical="" services="storage" documentationCenter="Java" title="Using Azure Storage with a Hudson Continuous Integration solution" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 
@@ -69,34 +69,34 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 
 ## <a id="howtoinstall"></a>如何安裝 Azure 儲存體外掛程式 ##
 
-1. 在 Hudson 儀表板中，按一下 [**Manage Hudson**]。
-2. 在 [**Manage Hudson**] 頁面中，按一下 [**管理外掛程式**]。
-3. 按一下 [**Available**] 索引標籤。
+1. 在 Hudson 儀表板中，按一下 [**管理 Hudson**]。
+2. 在 [**管理 Hudson**] 頁面中，按一下 [**管理外掛程式**]。
+3. 按一下 [**可用**] 索引標籤。
 4. 按一下 [**其他**]。
-5. 在 [**Artifact Uploaders**] 區段中，核取 [**Microsoft Azure Storage plugin**]。
-6. 按一下 [**Install**]。
+5. 在 [**成品上載器**] 區段中，核取 [**Azure 儲存體外掛程式**]。
+6. 按一下 [*安裝**]。
 7. 在安裝完成後，請重新啟動 Hudson。
 
 ## <a id="howtoconfigure"></a>如何設定 Azure 儲存體外掛程式來使用您的儲存體帳戶 ##
 
-1. 在 Hudson 儀表板中，按一下 [**Manage Hudson**]。
-2. 在 [**Manage Hudson**] 頁面中，按一下 [**設定系統**]。
-3. 在 [**Microsoft Azure Storage Account Configuration**] 區段中：
+1. 在 Hudson 儀表板中，按一下 [**管理 Hudson**]。
+2. 在 [**管理 Hudson**] 頁面中，按一下 [**設定系統**]。
+3. 在 [**Microsoft Azure 儲存體帳戶設定**] 區段中：
     1. 輸入您的儲存體帳戶名稱，您可從 Azure 入口網站 <https://manage.windowsazure.com> 取得此名稱。
     2. 輸入您的儲存體帳戶金鑰，這項資訊也可以從 Azure 入口網站取得。
-    3. 如果您使用的是公用 Azure 雲端，請在 [**Blob Service Endpoint URL**] 使用預設值。如果您使用的是不同的 Azure 雲端，請使用 Azure 管理入口網站中為您儲存體帳戶指定的端點。 
-    4. 按一下 [**Validate storage credentials**] 以驗證您的儲存體帳戶。 
-    5. [選用] 如果您有其他可提供 Hudson CI 使用的儲存體帳戶，請按一下 [**Add more storage accounts**]。
-    6. 按一下 [**Save**] 儲存您的設定。
+    3. 如果您使用的是公用 Azure 雲端，請在 [**Blob 服務端點 URL**] 使用預設值。如果您使用的是不同的 Azure 雲端，請使用 Azure 管理入口網站中為您儲存體帳戶指定的端點。 
+    4. 按一下 [**驗證儲存體認證**] 以驗證您的儲存體帳戶。 
+    5. [選用] 如果您有其他可提供 Hudson CI 使用的儲存體帳戶，請按一下 [**新增更多儲存體帳戶**]。
+    6. 按一下 [**儲存**] 儲存您的設定。
 
 ## <a id="howtocreatepostbuild"></a>如何建立會將您的組建成品上傳至您儲存體帳戶的建置後動作 ##
 
 為了方便說明，首先，我們需要建立一個會建立數個檔案的工作，然後新增一個會將這些檔案上傳至您儲存體帳戶的建置後動作。
 
 1. 在 Hudson 儀表板中，按一下 [**新增工作**]。
-2. 將此工作命名為 **MyJob**，按一下 [**Build a free-style software job**]，然後按一下 [**確定**]。
-3. 在工作組態的 [**Build**] 區段中，按一下 [**Add build step**] 並選擇 [**Execute Windows batch command**]。
-4. 在 [**Command**] 中，使用下列命令：
+2. 將此工作命名為 **MyJob**，按一下 [**建置免費軟體工作**]，然後按一下 [**確定**]。
+3. 在工作組態的 [**建置**] 區段中，按一下 [**新增建置步驟**] 並選擇 [**執行 Windows 批次命令**]。
+4. 在 [**命令**] 中，使用下列命令：
 
         md text
         cd text
@@ -104,20 +104,20 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
         date /t > date.txt
         time /t >> date.txt
  
-5. 在工作組態的 [**Post-build Actions**] 區段中，按一下 [**Upload artifacts to Microsoft Azure Blob storage**]。
+5. 在工作組態的 [**建置後動作**] 區段中，按一下 [**將成品上傳到 Microsoft Azure Blob 儲存體**]。
 6. 在 [**儲存體帳戶名稱**] 中，選取要使用的儲存體帳戶。
 7. 在 [**容器名稱**] 中，指定容器名稱。(如果上傳組建成品時該容器尚未存在，將會建立該容器。)您可以使用環境變數，就這個範例而言，請輸入 **${JOB_NAME}** 做為容器名稱。
 
     **秘訣**
     
-    在您為 [**Execute Windows batch command**] 輸入指令碼的 [**命令**] 區段下方是個連結，可連結到 Hudson 認可的環境變數。按一下該連結即可了解各環境變數名稱和描述。請注意，含有特殊字元的環境變數 (例如 **BUILD_URL** 環境變數) 不能當做容器名稱或共同虛擬路徑。
+    在您為 [**執行 Windows 批次命令**] 輸入指令碼的 [**命令**] 區段下方是個連結，可連結到 Hudson 認可的環境變數。按一下該連結即可了解各環境變數名稱和描述。請注意，含有特殊字元的環境變數 (例如 **BUILD_URL** 環境變數) 不能當做容器名稱或共同虛擬路徑。
 
-8. 在此範例中，請按一下 [**Make new container public by default**]。(如果您想要使用私用容器，則需要建立共用存取簽章來允許存取。這已超出本主題的範圍。若要深入了解共用存取簽章，請參閱[建立共用存取簽章](http://go.microsoft.com/fwlink/?LinkId=279889)。)
-9. [選用] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [**Clean container before uploading**] (若不想清除容器的內容，請維持不核取)。
-10. 在 [**List of Artifacts to upload**] 中，輸入 **text/*.txt**。
-11. 在 [**Common virtual path for uploaded artifacts**] 中，輸入 **${BUILD\_ID}/${BUILD\_NUMBER}**。
-12. 按一下 [**Save**] 儲存您的設定。
-13. 在 Hudson 儀表板中，按一下 [**Build Now**] 以執行 **MyJob**。檢查主控台輸出中的狀態。當建置後動作開始上傳組建成品時，主控台輸出中將會包含 Azure 儲存體的狀態訊息。
+8. 在此範例中，請按一下 [**公開容器**]。(如果您想要使用私用容器，則需要建立共用存取簽章來允許存取。這已超出本主題的範圍。若要深入了解共用存取簽章，請參閱[建立共用存取簽章](http://go.microsoft.com/fwlink/?LinkId=279889)。)
+9. [選用] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [**上傳前先清除容器**] (若不想清除容器的內容，請維持不核取)。
+10. 在 [**上載成品清單**] 中，輸入 **text/*.txt**。
+11. 在 [**已上傳成品的一般虛擬路徑**] 中，輸入 **${BUILD\_ID}/${BUILD\_NUMBER}**。
+12. 按一下 [**儲存**] 儲存您的設定。
+13. 在 Hudson 儀表板中，按一下 [**立即建置**] 以執行 **MyJob**。檢查主控台輸出中的狀態。當建置後動作開始上傳組建成品時，主控台輸出中將會包含 Azure 儲存體的狀態訊息。
 14. 順利完成作業時，您就可以開啟公用 Blob 來檢查組建成品。
     1. 登入 Azure 管理入口網站 <https://manage.windowsazure.com>。
     2. 按一下 [**儲存體**]。
@@ -125,13 +125,13 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
     4. 按一下 [**容器**]。
     5. 按一下名為 **myjob** 的容器，這是您在建立 Hudson 工作時所指定工作名稱的小寫版本。在 Azure 儲存體中，容器名稱和 Blob 名稱皆為小寫 (並且區分大小寫)。在名為 **myjob** 之容器的 Blob 清單中，您應該會看到 **hello.txt** 和 **date.txt**。請複製這些項目中任何一項的 URL，然後在瀏覽器中開啟它。您會看到文字檔已上傳做為組建成品。
 
-每一工作只能建立一個將成品上傳至 Azure Blob 儲存體的建置後動作。請注意，將成品上傳至 Azure Blob 儲存體的單一建置後動作可以在 [**List of Artifacts to upload**] 內，使用分號做為分隔符號來指定不同的檔案 (包含萬用字元) 和檔案路徑。例如，若 Hudson 組建在您工作區的 **build** 資料夾中產生 JAR 檔和 TXT 檔，且您想將兩者都上傳至 Azure Blob 儲存體，請在 [**List of Artifacts to upload**] 中使用下列值：**build/\*.jar;build/\*.txt**。您也可以使用雙冒號語法來指定要在 Blob 名稱內使用的路徑。例如，若您想要在 Blob 路徑中使用 **binaries** 上傳 JAR，並在 Blob 路徑中使用 **notices** 上傳 TXT，請在 [**List of Artifacts to upload**] 中使用下列值：**build/\*.jar::binaries;build/\*.txt::notices**。
+每一工作只能建立一個將成品上傳至 Azure Blob 儲存體的建置後動作。請注意，將成品上傳至 Azure Blob 儲存體的單一建置後動作可以在 [**上載成品清單**] 內，使用分號做為分隔符號來指定不同的檔案 (包含萬用字元) 和檔案路徑。例如，若 Hudson 組建在您工作區的 **build** 資料夾中產生 JAR 檔和 TXT 檔，且您想將兩者都上傳至 Azure Blob 儲存體，請在 [**上載成品清單**] 中使用下列值：**build/\*.jar;build/\*.txt**。您也可以使用雙冒號語法來指定要在 Blob 名稱內使用的路徑。例如，若您想要在 Blob 路徑中使用 **binaries** 上傳 JAR，並在 Blob 路徑中使用 **notices** 上傳 TXT，請在 [**上載成品清單**] 中使用下列值：**build/\*.jar::binaries;build/\*.txt::notices**。
 
 ## <a name="howtocreatebuildstep"></a>如何建立從 Azure Blob 儲存體下載的組建步驟 ##
 
 下列步驟示範如何設定從 Azure Blob 儲存體下載項目的組建步驟。如果您要在組建中加入項目，例如您存放在 Azure Blob 儲存體中的 JAR，則這會很有用。
 
-1. 在工作組態的 [**Build**] 區段中，按一下 [**Add build step**]，並選擇 [**Download from Azure Blob storage**]。
+1. 在工作組態的 [**建置**] 區段中，按一下 [**新增建置步驟**]，並選擇 [**Download from Azure Blob storage**]。
 2. 在 [**儲存體帳戶名稱**] 中，選取要使用的儲存體帳戶。
 3. 在 [**容器名稱**] 中，指定您要下載的 Blob 所在之容器的名稱。您可以使用環境變數。
 4. 在 [**Blob 名稱**] 中，指定 Blob 名稱。您可以使用環境變數。另外，您也可以在指定 Blob 名稱的開頭字母之後，使用星號做為萬用字元。例如，**project\*** 指定名稱開頭為 **project** 的所有 Blob。

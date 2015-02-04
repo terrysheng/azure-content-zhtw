@@ -1,4 +1,4 @@
-﻿<properties pageTitle="使用 Microsoft HPC Pack 設定混合式運算叢集" metaKeywords="" description="了解如何使用 Microsoft HPC Pack 和 Azure 設定一個小型的混合式高效能運算 (HPC) 叢集" metaCanonical="" services="" documentationCenter="" title="Set up a Hybrid Cluster with Microsoft HPC Pack" authors="danlep" solutions="" manager="timlt" editor="mattshel" />
+<properties pageTitle="使用 Microsoft HPC Pack 設定混合式運算叢集" metaKeywords="" description="了解如何使用 Microsoft HPC Pack 和 Azure 設定一個小型的混合式高效能運算 (HPC) 叢集" metaCanonical="" services="" documentationCenter="" title="Set up a Hybrid Cluster with Microsoft HPC Pack" authors="danlep" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="cloud-services" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="danlep" />
 
@@ -56,13 +56,13 @@
 
 2. 執行 HPC Pack 安裝檔中的 Setup.exe 來啟動 HPC Pack 安裝精靈。
 
-3. 在 [**HPC Pack 2012 R2 Setup**] 畫面上，按一下 [**New installation or add new features to an existing installation**]。
+3. 在 [**HPC Pack 2012 R2 安裝程式**] 畫面上，按一下 [**新安裝或在現有安裝中新增功能**]。
 
 	![HPC Pack 2012 Setup][install_hpc1]
 
-4. 在 [**Microsoft Software User Agreement page**] 頁面上，按 [**下一步**]。
+4. 在 [**Microsoft 軟體使用者授權合約**] 頁面上，按 [**下一步**]。
 
-5. 在 [**選取安裝類型**] 頁面上，按一下 [**Create a new HPC cluster by creating a head node**]，然後按 [**下一步**]。
+5. 在 [**選取安裝類型**] 頁面上，按一下 [**建立前端節點以建立新的 HPC 叢集**]，然後按 [**下一步**]。
 
 	![Select Installation Type][install_hpc2]
 
@@ -70,7 +70,7 @@
 
 	![Installation Rules][install_hpc3]
 
-7. 在 [**HPC DB Configuration**] 頁面上，確定已為所有 HPC 資料庫選取 [**前端節點**]，然後按 [**下一步**]。
+7. 在 [**HPC DB 設定**] 頁面上，確定已為所有 HPC 資料庫選取 [**前端節點**]，然後按 [**下一步**]。
 
 	![DB Configuration][install_hpc4]
 
@@ -78,7 +78,7 @@
 
 	![Install][install_hpc6]
 
-9. 安裝完成之後，請取消核取 [**Start HPC Cluster Manager**]，然後按一下 [**完成**]。(您將在稍後的步驟中啟動 HPC 叢集管理員，以完成前端節點的設定。)
+9. 安裝完成之後，請取消核取 [**Start HPC 叢集管理員**]，然後按一下 [**完成**]。(您將在稍後的步驟中啟動 HPC 叢集管理員，以完成前端節點的設定。)
 
 	![Finish][install_hpc7]
 
@@ -108,7 +108,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 	![Upload Certificate][install_hpc10]
 
-您將在管理憑證清單中看到 **Default HPC Azure Management**。
+您將在管理憑證清單中看到 **預訂 HPC Azure 管理**。
 
 <h3>建立 Azure 雲端服務</h3> 
 
@@ -136,13 +136,13 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 若要使用 HPC 叢集管理員來部署 Azure 節點及提交工作，請先執行一些必要的叢集設定步驟。 
 
-1. 在前端節點上，啟動 HPC 叢集管理員。如果顯示 [**Select Head Node**] 對話方塊，請按一下 [**本機電腦**]。[**Deployment To-do List**] 隨即出現。
+1. 在前端節點上，啟動 HPC 叢集管理員。如果顯示 [**選取前端節點**] 對話方塊，請按一下 [**本機電腦**]。[**部署待辦清單**] 隨即出現。
 
-2. 在 [**Required deployment tasks**] 底下，按一下 [**Configure your network**]。
+2. 在 [**必要部署工作**] 底下，按一下 [**設定網路**]。
 
 	![Configure Network][config_hpc2]
 
-3. 在 [網路設定精靈] 中，選取 [**All nodes only on an enterprise network**] (拓撲 5)。
+3. 在 [網路設定精靈] 中，選取 [**僅企業網路中的所有節點**] (拓撲 5)。
 
 	![Topology 5][config_hpc3] 
 
@@ -150,37 +150,37 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 	 
 4. 按 [**下一步**] 以接受精靈剩餘頁面上的預設值。然後，在 [**檢閱**] 索引標籤上，按一下 [**設定**] 以完成網路設定。
 
-5. 在 [**Deployment To-do List**] 中，按一下 [**Provide installation credentials**]。 
+5. 在 [**部署待辦清單**] 中，按一下 [**提供安裝認證**]。 
 
-6. 在 [**Installation Credentials**] 對話方塊中，輸入您用來安裝 HPC Pack 之網域帳戶的認證。然後按一下 [**確定**]。
+6. 在 [**提供安裝認證**] 對話方塊中，輸入您用來安裝 HPC Pack 之網域帳戶的認證。然後按一下 [**確定**]。
 
 	![Installation Credentials][config_hpc6]
 
 	>[WACOM.NOTE]HPC Pack 服務只會將安裝認證用於部署內部部署運算節點。
 	
-7. 在 [**Deployment To-do List**] 中，按一下 [**Configure the naming of new nodes**]。 
+7. 在 [**部署待辦清單**] 中，按一下 [**設定新節點命名**]。 
 
-8. 在 [**Specify Node Naming Series**] 對話方塊中，接受預設的命名序列，然後按一下 [**確定**]。
+8. 在 [**指定節點命名系列**] 對話方塊中，接受預設的命名序列，然後按一下 [**確定**]。
 
 	![Node Naming][config_hpc8]
 
 	>[WACOM.NOTE]命名序列只會為加入網域的運算節點產生名稱。Azure 節點的名稱是自動產生的。
 	  
-9. 在 [**Deployment To-do List**] 中，按一下 [**Create a node template**]。您將使用節點範本將 Azure 節點新增至叢集。
+9. 在 [**部署待辦清單**] 中，按一下 [**建立節點範本**]。您將使用節點範本將 Azure 節點新增至叢集。
 
-10. 在 [Create Node Template Wizard] 中，執行下列動作：
+10. 在 [**建立節點範本精靈**] 中，執行下列動作：
 
-	a. 在 [**Choose Node Template Type**] 頁面上，按一下 [**Azure node template**]，然後按 [**下一步**]。
+	a. 在 [**選擇節節點範本類型**] 頁面上，按一下 [**Azure 節點範本**]，然後按 [**下一步**]。
 
 	![Node Template][config_hpc10]
 
 	b. 按 [**下一步**] 以接受預設範本名稱。
 
-	c. 在 **提供訂閱資訊** 頁面上，輸入您的 Azure 訂閱識別碼 (可從您的 Azure <a href="[https://account.windowsazure.com/Subscriptions">帳戶資訊中找到</a>)。然後，在 [**管理憑證**] 中，按一下 [**瀏覽**] 並選取 [**Default HPC Azure Management**]。然後按 [**下一步**]。
+	c. 在 **提供訂閱資訊** 頁面上，輸入您的 Azure 訂閱識別碼 (可從您的 Azure <a href="[https://account.windowsazure.com/Subscriptions">帳戶資訊中找到</a>)。然後，在 [**管理憑證**] 中，按一下 [**瀏覽**] 並選取 [**預訂 HPC Azure 管理**]。然後按 [**下一步**]。
 
 	![Node Template][config_hpc12]
 
-	d. 在 [**Provide Service Information**] 頁面上，選取您在先前步驟中建立的雲端服務和儲存體帳戶。然後按 [**下一步**]。
+	d. 在 [**提供服務資訊**] 頁面上，選取您在先前步驟中建立的雲端服務和儲存體帳戶。然後按 [**下一步**]。
 
 	![Node Template][config_hpc13]
 
@@ -194,21 +194,21 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 在本教學課程中，您將需要新增兩個小型節點。
 
-1. 在 HPC 叢集管理員中，於 [**Node Management**] 的 [**動作**] 窗格中，按一下 [**新增節點**]。 
+1. 在 HPC 叢集管理員中，於 [**節點管理**] 的 [**動作**] 窗格中，按一下 [**新增節點**]。 
 
 	![Add Node][add_node1]
 
-2. 在 [新增節點精靈] 中，於 [**選取部署方法**] 頁面上，按一下 [**Add Azure nodes**]，然後按 [**下一步**]。
+2. 在 [新增節點精靈] 中，於 [**選取部署方法**] 頁面上，按一下 [**新增 Azure 節點**]，然後按 [**下一步**]。
 
 	![Add Azure Node][add_node1_1]
 
-3. 在 [**Specify New Nodes**] 頁面上，選取您先前建立的 Azure 節點範本 (預設稱為 **Default AzureNode Template**)。接著，指定 [**2**] 個大小為 [**小型**] 的節點，然後按 [**下一步**]。
+3. 在 [**指定新節點**] 頁面上，選取您先前建立的 Azure 節點範本 (預設稱為 [**預設 AzureNode 範本**])。接著，指定 [**2**] 個大小為 [**小型**] 的節點，然後按 [**下一步**]。
 
 	![Specify Nodes][add_node2]
 
 	如需可用虛擬機器大小的詳細資料，請參閱 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx)。
 
-4. 在 [**Completing the Add Node Wizard**] 頁面上，按一下 [**完成**]。 
+4. 在 [**完成新增節點精靈**] 頁面上，按一下 [**完成**]。 
 
 	 HPC 叢集管理員中現在會出現兩個 Azure 節點，名為  **AzureCN-0001** 和 **AzureCN-0002**。兩者皆處於**未部署**狀態。
 
@@ -217,11 +217,11 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 <h2 id="BKMK_Start">啟動 Azure 節點</h2>
 當您想要使用 Azure 中的叢集資源時，請使用 HPC 叢集管理員來啟動 (佈建) Azure 節點並讓節點上線。
 
-1.	在 HPC 叢集管理員中，於 [**Node Management**] 中按一或兩個節點，然後在 [**動作**] 窗格中，按一下 [**啟動**]。 
+1.	在 HPC 叢集管理員中，於 [**節點管理**] 中按一或兩個節點，然後在 [**動作**] 窗格中，按一下 [**啟動**]。 
 
 	![Start Nodes][add_node4]
 
-2. 在 [**Start Azure Nodes**] 對話方塊中，按一下 [**啟動**]。
+2. 在 [**開始 Azure 節點**] 對話方塊中，按一下 [**啟動**]。
 
 	![Start Nodes][add_node5]
  
@@ -260,21 +260,21 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 您可以提交一個在混合式叢集上執行的測試工作。這個範例是一個簡單的「參數式掃蕩」工作 (一種本質上平行的運算)，此工作會使用 **set /a** 命令來執行將自己加上整數的子工作。叢集中的所有節點皆參與完成從 1 到 100 之整數的子工作。 
 
-1. 在 HPC 叢集管理員中，於 [**工作管理**] 的 [**動作**] 窗格中，按一下 [**New Parametric Sweep Job**]。
+1. 在 HPC 叢集管理員中，於 [**工作管理**] 的 [**動作**] 窗格中，按一下 [**新參數變形整理工作**]。
 
 	![New Job][test_job1]
 
-2. 在 [**New Parametric Sweep Job**] 對話方塊中，於 [**命令列**] 中輸入 `set /a *+*` (覆寫出現的預設命令行)。保留其餘設定的預設值，然後按一下 [**提交**] 提交工作。
+2. 在 [**新參數變形整理工作**] 對話方塊中，於 [**命令列**] 中輸入 `set /a *+*` (覆寫出現的預設命令行)。保留其餘設定的預設值，然後按一下 [**提交**] 提交工作。
 
 	![Parametric Sweep][param_sweep1]
 
-3. 當工作完成時，按兩下 [**My Sweep Task**] 工作。
+3. 當工作完成時，按兩下 [**我的整理工作**] 工作。
 
 4. 按一下 [**檢視工作**]，然後按一下子工作以檢視該子工作的計算結果輸出。
 
 	![Task Results][view_job361]
 
-5. 若要查看是哪個節點執行該子工作的計算，請按一下 [**Allocated Nodes**]。(您的叢集可能會顯示不同的節點名稱。)
+5. 若要查看是哪個節點執行該子工作的計算，請按一下 [**已分配的節點**]。(您的叢集可能會顯示不同的節點名稱。)
 
 	![Task Results][view_job362]
 
@@ -282,11 +282,11 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 試驗完叢集之後，您可以使用 HPC 叢集管理員來停止 Azure 節點，以避免給您的帳戶產生不必要的費用。這樣會停止雲端服務並移除 Azure 角色執行個體。 
 
-1. 在 HPC 叢集管理員中，於 [**Node Management**] 中選取兩個 Azure 節點。然後，在 [**動作**] 窗格中，按一下 [**停止**]。 
+1. 在 HPC 叢集管理員中，於 [**節點管理**] 中選取兩個 Azure 節點。然後，在 [**動作**] 窗格中，按一下 [**停止**]。 
 
 	![Stop Nodes][stop_node1]
 
-2. 在 [**Stop Azure Nodes**] 對話方塊中，按一下 [**停止**]。
+2. 在 [**停止 Azure 節點**] 對話方塊中，按一下 [**停止**]。
 
 	![Stop Nodes][stop_node2]
 
@@ -302,8 +302,8 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 <h2 id="">相關資源</h2>
 
-* [HPC Pack 2012 R2 和 HPC Pack 2012] (英文)(http://go.microsoft.com/fwlink/p/?LinkID=263697)
-* [使用 Microsoft HPC Pack 將量擴大到 Azure] (英文)(http://go.microsoft.com/fwlink/p/?LinkID=200493)
+* [HPC Pack 2012 R2 和 HPC Pack 2012 (英文)](http://go.microsoft.com/fwlink/p/?LinkID=263697)
+* [使用 Microsoft HPC Pack 將量擴大到 Azure (英文)](http://go.microsoft.com/fwlink/p/?LinkID=200493)
 * [Azure VM 中的 Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?linkid=330375)
 * [Azure 大運算：HPC 及批次](http://azure.microsoft.com/zh-tw/solutions/big-compute/)
 

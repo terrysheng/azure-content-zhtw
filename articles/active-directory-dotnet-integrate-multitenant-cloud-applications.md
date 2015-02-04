@@ -57,7 +57,7 @@ Azure Active Directory (Azure AD) 是以 REST 為基礎的新式服務，可為�
 
 **應用程式網站**：應用程式的主機名稱，例如 "contoso.com"。此屬性不可包含任何連接埠號碼。在開發期間，此屬性應該設為 "localhost"。
 
-**應用程式重新導向 URL**：在使用者登入之後及組織授權您的應用程式之後，供 Azure AD 傳送回應的重新導向 URL，例如："<https://contoso.com/>"。開發期間，此屬性應該設為 "<https://localhost>:\<連接埠號碼\>"
+**應用程式重新導向 URL**：在使用者登入之後及組織授權您的應用程式之後，供 Azure AD 傳送回應的重新導向 URL，例如："https://contoso.com/"。開發期間，此屬性應該設為 "https://localhost:&#60;連接埠號碼&#62;"
 
 ### 步驟 3：設定應用程式來使用用戶端識別碼和用戶端密碼
 

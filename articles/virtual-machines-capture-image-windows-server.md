@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Capture an image" pageTitle="對執行 Windows Server 的虛擬機器擷取映像" metaKeywords="Azure capture image vm, capturing vm" description="了解如何對執行 Windows Server 2008 R2 的 Azure 虛擬機器 (VM) 擷取映像。 " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Capture an image" pageTitle="對執行 Windows Server 的虛擬機器擷取映像" metaKeywords="Azure capture image vm, capturing vm" description="了解如何對執行 Windows Server 2008 R2 的 Azure 虛擬機器 (VM) 擷取映像。 " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="kathydav" />
 
@@ -49,7 +49,7 @@ Azure 會將此範本視為映像，並將其儲存在 [**我的映像**] 下。
 
 10.	在 [**映像名稱**] 中輸入新映像的名稱。
 
-11.	將 Windows Server 映像新增到自訂映像組合之前，必須先如前述步驗所指示，執行 Sysprep 將它一般化。按一下 [**I have run Sysprep on the virtual machine**]，表示您已這麼做。
+11.	將 Windows Server 映像新增到自訂映像組合之前，必須先如前述步驗所指示，執行 Sysprep 將它一般化。按一下 [**我已經在虛擬機器上執行 Sysprep**]，表示您已這麼做。
 
 12.	按一下打勾記號以擷取映像。當您擷取一般化虛擬機器的映像時，會刪除該機器。
 

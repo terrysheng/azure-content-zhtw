@@ -1,9 +1,9 @@
-﻿<properties title="SharePoint Server Farm Configuration Details" pageTitle="SharePoint Server 伺服器陣列組態詳細資料" description="說明 SharePoint 伺服器陣列的預設組態" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+<properties title="SharePoint Server Farm Configuration Details" pageTitle="SharePoint Server 伺服器陣列組態詳細資料" description="說明 SharePoint 伺服器陣列的預設組態" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
 
 
-#SharePoint Server 伺服器陣列組態詳細資料#
+# SharePoint Server 伺服器陣列組態詳細資料#
 
 SharePoint Server 伺服器陣列是 Microsoft Azure 預覽入口網站的一項功能，可自動為您建立預先設定的 SharePoint Server 2013 伺服器陣列。伺服器陣列組態有兩種：
 
@@ -14,7 +14,7 @@ SharePoint Server 伺服器陣列是 Microsoft Azure 預覽入口網站的一項
 
 如需詳細資訊，請參閱 [SharePoint 伺服器陣列](../virtual-machines-sharepoint-farm-azure-preview/)。
 
-##基本 SharePoint 伺服器陣列##
+## 基本 SharePoint 伺服器陣列##
 
 基本 SharePoint 伺服器陣列由下列組態中的三個虛擬機器組成：
 
@@ -57,7 +57,7 @@ SharePoint Server 伺服器陣列是 Microsoft Azure 預覽入口網站的一項
 	-	SharePoint 伺服器陣列複雜密碼：在初始組態過程中指定。
 
 
-##高可用性##
+## 高可用性##
 
 高可用性 SharePoint 伺服器陣列由下列組態中的九個虛擬機器組成：
 

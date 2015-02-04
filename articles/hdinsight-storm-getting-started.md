@@ -1,12 +1,12 @@
-﻿<properties title="Getting started using Storm with Hadoop in HDInsight" pageTitle="開始搭配使用 Apache Storm 與 Microsoft Azure HDInsight (Hadoop)" description="學習如何搭配使用 Apache Storm 與 HDInsight (Hadoop) 來即時處理資料" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Getting started using Storm with Hadoop in HDInsight" pageTitle="開始搭配使用 Apache Storm 與 Microsoft Azure HDInsight (Hadoop)" description="學習如何搭配使用 Apache Storm 與 HDInsight (Hadoop) 來即時處理資料" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
 
-#在 HDInsight (Hadoop) 上開始使用 Storm
+# 在 HDInsight (Hadoop) 上開始使用 Storm
 
 Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運算系統。在 Azure HDInsight 中，您可以建立雲端式 Hadoop 叢集，以利用 Storm 來執行即時的資料分析。
 
-##在本教學課程中，您將了解...
+## 在本教學課程中，您將了解...
 
 * [如何佈建 HDInsight Storm 叢集](#provision)
 
@@ -20,7 +20,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
 * [後續步驟](#next)
 
-##開始之前
+## 開始之前
 
 您必須具有下列先決條件，才能順利完成本教學課程。
 
@@ -30,7 +30,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
 * 如果不熟悉 Apache Storm，請先閱讀 [HDInsight Storm 概觀](/zh-tw/documentation/articles/hdinsight-storm-overview) 一文。
 
-##<a id="provision"></a>在 Azure 入口網站上佈建 Storm 叢集
+## <a id="provision"></a>在 Azure 入口網站上佈建 Storm 叢集
 
 [WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
@@ -58,11 +58,11 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
 	![storage account](./media/hdinsight-storm-getting-started/wizard4.png)
 
-##使用 HDInsight Storm
+## 使用 HDInsight Storm
 
 在 HDInsight Storm 預覽版中，您必須使用遠端桌面連接到叢集，才能使用 Storm。請使用下列步驟連接到 HDInsight 叢集，並使用 Storm 命令。
 
-###<a id="connect"></a>連接到叢集
+### <a id="connect"></a>連接到叢集
 
 1. 使用 [Azure 管理入口網站][management]，對 HDInsight 叢集啟用遠端桌面連線。在入口網站中，選取 HDInsight 叢集，然後在 [設定] 頁面底部選取 [啟用遠端]。
 
@@ -90,7 +90,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
 HDInsight 叢集隨附數個 Storm 拓撲範例。下列步驟中使用 **WordcountTopology** 範例。如需 HDInsight Storm 隨附之範例的詳細資訊，請參閱[後續步驟](#next)。
 
-###<a id="run"></a>執行 Storm 拓撲
+### <a id="run"></a>執行 Storm 拓撲
 
 若要執行 **WordCountTopology**，請使用下列命令。
 
@@ -102,7 +102,7 @@ HDInsight 叢集隨附數個 Storm 拓撲範例。下列步驟中使用 **Wordco
 
 請注意，輸入命令時不會傳回任何資料。**Storm 拓撲啟動之後會一直執行到您將它停止為止。**WordCountTopology 會產生隨機的句子，並持續計算每個單字出現的次數，直到您將它停止為止。
 
-###<a id="monitor"></a>監視 Storm 拓撲的狀態
+### <a id="monitor"></a>監視 Storm 拓撲的狀態
 
 WordCountTopology 範例不會將輸出寫入目錄中，但我們可以使用 Storm UI 網頁來檢視拓撲的狀態及輸出。
 
@@ -143,7 +143,7 @@ WordCountTopology 範例不會將輸出寫入目錄中，但我們可以使用 S
 
 	在此片段中，您可以看到 spout 發出 'snow white and the seven dwarfs'，此子句已分割成個別單字。此外，也持續計算自從拓撲啟動之後每個單字已處理多少次。例如，在檢視上述輸出時，'dwarfs' 這個字已由 spout 發出 8360 次。
 
-###<a id="stop"></a>停止 Storm 拓撲
+### <a id="stop"></a>停止 Storm 拓撲
 
 **WordCountTopology** 會持續執行到您將它停止為止。若要停止，請使用下列命令。
 
@@ -151,7 +151,7 @@ WordCountTopology 範例不會將輸出寫入目錄中，但我們可以使用 S
 
 如果您在此命令之後立即檢視 Storm UI 網頁，您會發現 [**Topology summary**] 中的 [**wordcount**] 已變成 KILLED 狀態。經過幾秒鐘，拓撲就不再列於 [**Topology summary**] 區段中。
 
-##<a id="next"></a>後續步驟
+## <a id="next"></a>後續步驟
 
 * **範例檔案** - HDInsight Storm 叢集在 **%storm_home%\contrib** 目錄中提供數個範例。每一個範例應該會包含下列項目。
 

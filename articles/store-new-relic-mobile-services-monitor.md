@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="在原始檔控制中儲存伺服器程式碼 - Azure 行動服務" metaKeywords="" description="了解如何使用新的 Relic 附加元件監視行動服務。" metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="carolz" />
+<properties urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="在原始檔控制中儲存伺服器程式碼 - Azure 行動服務" metaKeywords="" description="了解如何使用新的 Relic 附加元件監視行動服務。" metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="carolz" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic" />
 
@@ -15,7 +15,7 @@
 
 若要完成本教學課程，您必須已經建立行動服務，方法是完成[開始使用行動服務]或[開始使用資料]教學課程。
 
-##<a name="sign-up"></a>使用 Azure 市集註冊 New Relic
+## <a name="sign-up"></a>使用 Azure 市集註冊 New Relic
 
 第一個步驟是購買 New Relic 服務。本教學課程說明如何從 Azure 市集購買此服務。行動服務支援不是購買自 Azure 市集的 New Relic 訂閱。
 
@@ -39,7 +39,7 @@
 
 11. 按一下 [**購買**] 之後，New Relic 帳戶的建立程序就會開始。您可以在 Azure 管理入口網站中監視狀態。
 
-##<a name="install-module"></a>安裝 New Relic 模組
+## <a name="install-module"></a>安裝 New Relic 模組
 
 在註冊 New Relic 服務之後，您必須在行動服務中安裝 New Relic Node.js 模組。您必須啟用行動服務的原始檔控制，才能上傳此模組。
 
@@ -57,11 +57,11 @@
 		$ git commit -m "added newrelic module"
 		$ git push origin master
 		
-	這會將新的 'newrelic' 模組上傳至您的行動服務。 
+	這會將新的 `newrelic` 模組上傳至您的行動服務。 
 
 接著，您將在[管理入口網站][Azure Management Portal]中啟用 New Relic 監視行動服務。 
 
-##<a name="enable-service"></a>啟用行動服務的 New Relic 開發人員分析
+## <a name="enable-service"></a>啟用行動服務的 New Relic 開發人員分析
 
 1. 在[管理入口網站][Azure Management Portal]中，選取您的行動服務，然後按一下 [**設定**] 索引標籤。
 
@@ -87,7 +87,7 @@
 
 	![][3] 
 
-##<a name="monitor"></a>在 New Relic 儀表板中監視行動服務
+## <a name="monitor"></a>在 New Relic 儀表板中監視行動服務
 
 1. 執行您的用戶端應用程式，以對行動服務產生讀取、建立、更新和刪除要求。
 
@@ -103,7 +103,7 @@
 
 	![][5]
 
-##<a name="next-steps"> </a>後續步驟
+## <a name="next-steps"> </a>後續步驟
 
 + 若要最佳化您的 **iOS**/**Android** 行動應用程式效能，請參閱 [New Relic Mobile]。
 + 如需定價資訊，請參閱 [Azure 市集的 New Relic 頁面]。
@@ -127,11 +127,12 @@
 <!-- URLs. -->
 [原始檔控制]: http://msdn.microsoft.com/zh-tw/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [在行動服務中使用伺服器指令碼]: /zh-tw/develop/mobile/how-to-guides/work-with-server-scripts.md
-
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [Node.js API 文件：模組]: http://nodejs.org/api/modules.html
 [在原始檔控制中儲存伺服器指令碼]: /zh-tw/develop/mobile/tutorials/store-scripts-in-source-control/
 [newrelic]: https://npmjs.org/package/newrelic
+[Azure 市集的 New Relic 頁面]: /zh-tw/gallery/store/new-relic/new-relic/
 [Azure 市集中的 New Relic 頁面]: /zh-tw/gallery/store/new-relic/new-relic/
 [應用程式概觀]: https://docs.newrelic.com/docs/applications-dashboards/applications-overview
 [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started/

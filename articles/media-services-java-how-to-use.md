@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Media Services" pageTitle="如何使用媒體服務 (Java) | Azure 功能指南" metaKeywords="Azure Media Services, Azure media, Azure streaming, azure media, azure streaming, azure encoding" description="說明如何使用 Azure 媒體服務執行一般工作，包括資源的編碼、加密和串流。" metaCanonical="" services="media-services" documentationCenter="Java" title="How to Use Media Services" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Media Services" pageTitle="如何使用媒體服務 (Java) | Azure 功能指南" metaKeywords="Azure Media Services, Azure media, Azure streaming, azure media, azure streaming, azure encoding" description="說明如何使用 Azure 媒體服務執行一般工作，包括資源的編碼、加密和串流。" metaCanonical="" services="media-services" documentationCenter="Java" title="How to Use Media Services" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="robmcm" />
 
@@ -68,16 +68,16 @@ Azure 媒體服務形成一個可延伸媒體平台，可整合 Microsoft Media 
 ####Mac 和 PC 用戶端支援  
 針對 PC 和 Mac，您可以將目標設為使用 Microsoft Silverlight 或 Adobe Open Source Media Framework 的串流體驗。
 
--	[Smooth Streaming Client for Silverlight] (英文)(http://www.iis.net/download/smoothclient)
--	[Microsoft Media Platform：Player Framework (Silverlight 版)] (英文)(http://smf.codeplex.com/documentation)
--	[Smooth Streaming Plugin for OSMF 2.0] (英文)(http://go.microsoft.com/fwlink/?LinkId=275022)。如需關於如何使用此外掛程式的詳細資訊，請參閱[如何使用 Smooth Streaming Plugin for Adobe Open Source Media Framework](http://go.microsoft.com/fwlink/?LinkId=275034)。
+-	[Smooth Streaming Client for Silverlight](http://www.iis.net/download/smoothclient)(英文)
+-	[Microsoft Media Platform：Player Framework (Silverlight 版)](http://smf.codeplex.com/documentation) (英文)
+-	[Smooth Streaming Plugin for OSMF 2.0](http://go.microsoft.com/fwlink/?LinkId=275022) (英文)。如需關於如何使用此外掛程式的詳細資訊，請參閱[如何使用 Smooth Streaming Plugin for Adobe Open Source Media Framework](http://go.microsoft.com/fwlink/?LinkId=275034)。
 
 ####Windows 8 應用程式
 針對 Windows 8，您可以使用任何支援的開發語言和建構 (例如 HTML、Javascript、XAML、C# 和 C+) 來建置 Windows 市集應用程式。
 
--	[Smooth Streaming Client SDK for Windows 8] (英文)(http://go.microsoft.com/fwlink/?LinkID=246146)。如需關於如何使用此 SDK 建立 Windows 市集應用程式的詳細資訊，請參閱[如何建置 Smooth Streaming Windows 市集應用程式](http://go.microsoft.com/fwlink/?LinkId=271647)。如需關於如何使用 HTML5 建立 Smooth Streaming 播放程式的詳細資訊，請參閱[逐步介紹：建置您的第一個 HTML5 Smooth Streaming 播放程式] (英文)(http://msdn.microsoft.com/zh-tw/library/jj573656.aspx)。
+-	[Smooth Streaming Client SDK for Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146) (英文)。如需關於如何使用此 SDK 建立 Windows 市集應用程式的詳細資訊，請參閱[如何建置 Smooth Streaming Windows 市集應用程式](http://go.microsoft.com/fwlink/?LinkId=271647)。如需關於如何使用 HTML5 建立 Smooth Streaming 播放程式的詳細資訊，請參閱[逐步介紹：建置您的第一個 HTML5 Smooth Streaming 播放程式](http://msdn.microsoft.com/zh-tw/library/jj573656.aspx) (英文)。
 
--	[Microsoft Media Platform：Player Framework (Windows 8 Windows 市集應用程式版)] (英文)(http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
+-	[Microsoft Media Platform：Player Framework (Windows 8 Windows 市集應用程式版)](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home) (英文)
 
 ####Xbox
 Xbox 支援可取用 Smooth Streaming 內容的 Xbox LIVE 應用程式。Xbox LIVE Application Development Kit (ADK) 包含：
@@ -88,17 +88,17 @@ Xbox 支援可取用 Smooth Streaming 內容的 Xbox LIVE 應用程式。Xbox LI
 ####內嵌或專用裝置
 如連接的電視、機上盒、藍光播放機、OTT 電視盒以及具有自訂應用程式開發架構和自訂媒體管道的行動裝置等裝置。Microsoft 提供下列可授權、並讓合作夥伴能夠針對此平台來移植 Smooth Streaming 播放的移植套件。
 
--	[Smooth Streaming Client Porting Kit] (英文)(http://www.microsoft.com/zh-tw/mediaplatform/sspk.aspx)
--	[Microsoft PlayReady Device Porting Kit] (英文)(http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx)
+-	[Smooth Streaming Client Porting Kit](http://www.microsoft.com/zh-tw/mediaplatform/sspk.aspx) (英文)
+-	[Microsoft PlayReady Device Porting Kit](http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx) (英文)
 
 ####Windows Phone
 Microsoft 提供可用來建置 Windows Phone 版優質視訊應用程式的 SDK。 
 
--	[Smooth Streaming Client for Silverlight] (英文)(http://www.iis.net/download/smoothclient)
--	[Microsoft Media Platform：Player Framework (Silverlight 版)] (英文)(http://smf.codeplex.com/documentation)
+-	[Smooth Streaming Client for Silverlight](http://www.iis.net/download/smoothclient) (英文)
+-	[Microsoft Media Platform：Player Framework (Silverlight 版)](http://smf.codeplex.com/documentation) (英文)
 
 ####iOS 裝置
-針對 iOS 裝置 (包括 iPhone、iPod 和 iPad)，Microsoft 隨附 SDK，供您用來建置這些平台的應用程式，以提供優質視訊內容，這個 SDK 就是：Smooth Streaming SDK for iOS Devices with PlayReady。只有被授權人才能取得 SDK，因此，如需詳細資訊，請[傳送電子郵件給 Microsoft](mailto:askdrm@microsoft.com)。如需 iOS 開發的詳細資訊，請參閱 [iOS 開發人員中心] (英文)(https://developer.apple.com/devcenter/ios/index.action)。
+針對 iOS 裝置 (包括 iPhone、iPod 和 iPad)，Microsoft 隨附 SDK，供您用來建置這些平台的應用程式，以提供優質視訊內容，這個 SDK 就是：Smooth Streaming SDK for iOS Devices with PlayReady。只有被授權人才能取得 SDK，因此，如需詳細資訊，請[傳送電子郵件給 Microsoft](mailto:askdrm@microsoft.com)。如需 iOS 開發的詳細資訊，請參閱 [iOS 開發人員中心](https://developer.apple.com/devcenter/ios/index.action) (英文)。
 
 ####Android 裝置
 有幾家 Microsoft 合作夥伴都提供 Android 平台的 SDK，可新增在 Android 裝置上播放 Smooth Streaming 的功能。如需這些合作夥伴的詳細資料，請參閱[傳送電子郵件給 Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices) 。
@@ -121,7 +121,7 @@ Microsoft 提供可用來建置 Windows Phone 版優質視訊應用程式的 SDK
 
 下列程式碼將示範如何建立資產、上傳媒體檔案到資產、使用工作 (task) 執行工作 (job) 來轉換此資產，以及下載轉換資產的輸出檔案。
 
-使用此程式碼前，您必須先設定媒體服務帳戶。如需設定帳戶的相關資訊，請參閱[如何建立媒體服務帳戶] (英文)(http://www.windowsazure.com/zh-tw/manage/services/media-services/how-to-create-a-media-services-account/)。
+使用此程式碼前，您必須先設定媒體服務帳戶。如需設定帳戶的相關資訊，請參閱[如何建立媒體服務帳戶](http://www.windowsazure.com/zh-tw/manage/services/media-services/how-to-create-a-media-services-account/) (英文)。
 
 替換您的 `clientId` 和 `clientSecret` 變數的值。此程式碼還需要用到儲存在本機的檔案，`c:/media/MPEG4-H264.mp4`。您必須提供您自己的檔案以供使用。此程式碼也需要輸出資料夾 (`c:/output`)，以供存放下載的輸出檔案。
 
@@ -443,8 +443,8 @@ Microsoft 提供可用來建置 Windows Phone 版優質視訊應用程式的 SDK
 <!-- URLs. -->
 
   [如何建立媒體服務帳戶]: http://go.microsoft.com/fwlink/?linkid=256662
-  [Azure Java 開發人員中心] (英文): http://www.windowsazure.com/zh-tw/develop/java/
-  [Azure Libraries for Java 文件] (英文): http://dl.windowsazure.com/javadoc/
+  [Azure Java 開發人員中心]: http://www.windowsazure.com/zh-tw/develop/java/
+  [Azure Libraries for Java 文件]: http://dl.windowsazure.com/javadoc/
   [媒體服務用戶端開發]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn223283.aspx
 
 

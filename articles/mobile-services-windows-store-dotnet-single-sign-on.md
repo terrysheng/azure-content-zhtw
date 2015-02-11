@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Authenticate with single sign-on" pageTitle="使用 Live Connect 驗證 Windows 市集應用程式" metaKeywords="Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso" description="了解如何從 Windows 市集應用程式在 Azure 行動服務中使用 Live Connect 單一登入。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Store app with Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Authenticate with single sign-on" pageTitle="使用 Live Connect 驗證 Windows 市集應用程式" metaKeywords="Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso" description="了解如何從 Windows 市集應用程式在 Azure 行動服務中使用 Live Connect 單一登入。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Store app with Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 
@@ -152,9 +152,9 @@
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [新增行動服務至現有應用程式]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
 [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
-[使用指令碼來授權使用者]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts/
+[使用指令碼授權使用者]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts/
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[行動服務 .NET 作法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
+[行動服務 .NET 作法概念參考資料]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
 
 <!--HONumber=35.1-->

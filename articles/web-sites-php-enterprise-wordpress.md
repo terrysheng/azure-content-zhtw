@@ -2,11 +2,11 @@
 
 <tags ms.service="web-sites" ms.devlang="php" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="web" ms.date="11/11/2014" ms.author="tomfitz" />
 
-#Azure 網站上的企業級 WordPress
+# Azure 網站上的企業級 WordPress
 
 Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可擴充、安全又容易使用的環境。Microsoft 本身執行企業級網站，例如 [Office][officeblog] 和 [Bing][bingblog] 部落格。本文件說明如何使用 Azure 網站，來建立與維護可應付大量訪客的企業級雲端架構 WordPress 網站。
 
-##本文內容 
+## 本文內容 
 
 * [架構與規劃](#planning) - 請了解架構、需求和效能考量之後，再建立網站
 
@@ -14,7 +14,7 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 
 * [其他資源](#resources) - 額外資源和資訊
 
-##<a id="plan"></a>架構與規劃
+## <a id="plan"></a>架構與規劃
 
 基本 WordPress 安裝僅有兩項需求。
 
@@ -26,7 +26,7 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 
 	> [WACOM.NOTE] 建議您務必在最新版的 PHP 上執行，以確保您擁有最新的安全性問題修正。
 
-###基本部署
+### 基本部署
 
 只需使用基本需求，您便可在 Azure 區域內建立基本的解決方案。
 
@@ -35,7 +35,7 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 這可讓您透過建立網站的多個執行個體來橫向擴充應用程式，並同時在特定地理區域的資料中心內託管所有項目。此區域以外的訪客可能會在使用此網站時察覺到緩慢的回應時間，而且如果此區域內的資料中心發生故障，您的應用程式也就無法運作。
 
 
-###多重區域部署
+### 多重區域部署
 
 使用 Azure [流量管理員][trafficmanager]，您可以在多個地理區域中調整 WordPress 網站，但只提供一個 URL 給訪客。所有透過流量管理員進入的訪客，會根據負載平衡組態接著被路由傳送至某個區域。
 
@@ -45,7 +45,7 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 
 您可以使用 ClearDB 的 [CDBR 高可用性路由器][cleardbscale] (如左側所示) 或 [MySQL 叢集 CGE][cge]，進行複寫和路由傳送至多個 MySQL 資料庫。 
 
-###包含媒體儲存體和快取的多重區域部署
+### 包含媒體儲存體和快取的多重區域部署
 
 如果網站接受上傳或主機媒體檔案，請使用 Azure Blob 儲存體。如果您需要快取，請考慮 [Redis 快取][rediscache]、[Memcache 雲端](http://azure.microsoft.com/zh-tw/gallery/store/garantiadata/memcached/)、[MemCachier](http://azure.microsoft.com/zh-tw/gallery/store/memcachier/memcachier/) 或 [Azure 市集](http://azure.microsoft.com/zh-tw/gallery/store/)中的其他快取提供項目。
 
@@ -53,9 +53,9 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 
 依預設，Blob 儲存體會在不同區域中異地發佈，因此您無需擔心在所有網站中複寫檔案。您也可以為 Blob 儲存體啟用 Azure [內容發佈網路 (Content Distribution Network，CDN)][cdn]，這會將檔案發佈至靠近訪客的端點。
 
-###規劃
+### 規劃
 
-####其他需求
+#### 其他需求
 
 作法...| 目的...
 ------------------------|-----------
@@ -67,14 +67,14 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 **監視和疑難排解** | [Azure 網站的診斷紀錄][log]和[監視 Azure 網站][monitor]
 **佈署網站** | [佈署 Azure 網站][deploy]
 
-####可用性和災難復原
+#### 可用性和災難復原
 
 作法...| 目的...
 ------------------------|-----------
 **對網站進行平衡負載**或**對網站進行異地發佈** | [使用 Azure 流量管理員路由傳送流量][trafficmanager]
 **備份和還原** | [備份 Azure 網站][backup]和[還原 Azure 網站][restore]
 
-####效能
+#### 效能
 
 雲端中的效能主要會透過快取和橫向擴充實現；然而也應將記憶體、頻寬和網站主控的其他屬性納入考量。
 
@@ -84,7 +84,7 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 **快取資源** | [Redis 快取][rediscache]、[Memcache 雲端](http://azure.microsoft.com/zh-tw/gallery/store/garantiadata/memcached/)、[MemCachier](http://azure.microsoft.com/zh-tw/gallery/store/memcachier/memcachier/) 或 [Azure 市集](http://azure.microsoft.com/zh-tw/gallery/store/)中的其他快取提供項目
 **調整應用程式** | [調整 Azure 網站][websitescale]和 [ClearDB 高可用性路由][cleardbscale]。如果您選擇主控與管理自己的 MySQL 安裝，您應考量可橫向擴充的 [MySQL 叢集 CGE][cge]
 
-####移轉
+#### 移轉
 
 將現有的 WordPress 網站移轉成 Azure 網站的方法有兩種。
 
@@ -94,9 +94,9 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 
 * **手動移轉** - [備份您的網站][wordpressbackup]和[資料庫][wordpressdbbackup]，然後手動將它還原成 Azure 網站和相關聯 MySQL 資料庫，以移轉高度自訂的網站並避免冗長的手動外掛程式、主題或其他自訂安裝。
 
-##作法
+## 作法
 
-###<a id="create"></a>建立新的 WordPress 網站
+### <a id="create"></a>建立新的 WordPress 網站
 
 1. 使用 [Azure 市集][cdbnstore]，在您將裝載的區域中建立 MySQL 資料庫，其大小為您在[架構與規劃](#planning) 一節指定的大小。
 
@@ -104,7 +104,7 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 
 如果您打算移轉現有的 WordPress 網站，在建立新網站後，請參閱[移轉現有的 WordPress 網站](#migrate) 。
 
-###<a id="migrate"></a>將現有的 WordPress 網站移轉至 Azure
+### <a id="migrate"></a>將現有的 WordPress 網站移轉至 Azure
 
 如[架構與規劃](#planning) 一節所提，移轉 WordPress 網站的方法有兩種。
 
@@ -114,7 +114,7 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 
 使用下列其中一個區段來移轉網站。
 
-####匯出與匯入方法
+#### 匯出與匯入方法
 
 1. 使用 [WordPress 匯出][export]來匯出您的現有網站。
 
@@ -139,7 +139,7 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 **主題** | 移至 [**外觀**] -> [**主題**]，然後視需要更新網站主題
 **功能表** | 如果您的主題支援功能表，前往首頁的連結可能仍然內嵌舊的子目錄。移至 [**外觀**] -> [**功能表**]，然後進行更新
 
-####備份與還原方法
+#### 備份與還原方法
 
 1. 使用 [WordPress 備份][wordpressbackup]上的資訊，來備份現有的 WordPress 網站。
 
@@ -171,7 +171,7 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 
 5. 在部署 WordPress 網站後，您應能夠使用網站的 *.azurewebsite.net URL 來存取新網站。
 
-###設定網站
+### 設定網站
 
 在建立或移轉 WordPress 網站後，請使用下列資訊以提升效能或啟用其他功能。
 
@@ -188,7 +188,7 @@ Azure 網站針對關鍵的大規模 [WordPress][wordpress] 網站，提供可�
 **啟用自動化網站備份** | [備份 Azure 網站][backup]
 **啟用診斷記錄** | [對網站啟用診斷記錄][log]
 
-##<a href="resources"></a>其他資源
+## <a href="resources"></a>其他資源
 
 * [WordPress 最佳化](http://codex.wordpress.org/WordPress_Optimization)
 

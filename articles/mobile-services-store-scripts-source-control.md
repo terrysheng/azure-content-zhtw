@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Store JavaScript project code in source control" pageTitle="在原始檔控制中儲存專案程式碼 - Azure 行動服務" metaKeywords="" description="了解如何在您電腦的本機 Git 存放庫中儲存伺服器指令碼檔案和模組。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Store project code in source control" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Store JavaScript project code in source control" pageTitle="在原始檔控制中儲存專案程式碼 - Azure 行動服務" metaKeywords="" description="了解如何在您電腦的本機 Git 存放庫中儲存伺服器指令碼檔案和模組。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Store project code in source control" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -47,7 +47,7 @@
 		remote: Total 8 (delta 1), reused 0 (delta 0)
 		Unpacking objects: 100% (8/8), done.
 
-6. 瀏覽至您執行 'git clone' 命命的目錄，並注意下列目錄結構：
+6. 瀏覽至您執行 `git clone` 命命的目錄，並注意下列目錄結構：
 
 	![4][4]
 
@@ -165,7 +165,7 @@
 [在行動服務中使用伺服器指令碼]: /zh-tw/documentation/articles/mobile-services-how-to-use-server-scripts/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [從用戶端呼叫自訂 API]: /zh-tw/documentation/articles/mobile-services-ios-call-custom-api/
-[Node.js API 文件：模組]: http://nodejs.org/api/modules.html
+[Node.js API Documentation: Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
 <!--HONumber=35.1-->

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to use Notification Hubs with PHP" pageTitle="如何搭配使用通知中心與 PHP" metaKeywords="" description="了解如何從 PHP 後端使用 Azure 通知中心。" metaCanonical="" services="mobile-services,notification-hubs,push,php" documentationCenter="" title="How to use Notification Hubs with PHP" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="How to use Notification Hubs with PHP" pageTitle="如何搭配使用通知中心與 PHP" metaKeywords="" description="了解如何從 PHP 後端使用 Azure 通知中心。" metaCanonical="" services="mobile-services,notification-hubs,push,php" documentationCenter="" title="How to use Notification Hubs with PHP" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="php" ms.topic="article" ms.date="11/14/2014" ms.author="piyushjo" />
 
@@ -7,7 +7,7 @@
     	<a href="/zh-tw/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/zh-tw/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP" class="current">PHP</a><a href="/zh-tw/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a>
 </div>
 
-您可以使用通知中心 REST 介面，存取 Java/PHP/Ruby 後端的所有通知中心功能，如 MSDN 主題[通知中心 REST API] 中所述(http://msdn.microsoft.com/zh-tw/library/dn223264.aspx)。
+您可以使用通知中心 REST 介面，存取 Java/PHP/Ruby 後端的所有通知中心功能，如 MSDN 主題[通知中心 REST API](http://msdn.microsoft.com/zh-tw/library/dn223264.aspx) 中所述。
 
 在本主題中，我們將說明如何：
 
@@ -15,7 +15,7 @@
 * 遵循 [入門教學課程](http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-ios-get-started/) 針對您所選的行動平台，在 PHP 中實作後端部分。
 
 ## 用戶端介面
-主要用戶端介面可提供 [.NET 通知中心 SDK] 中使用的相同方法，(http://msdn.microsoft.com/zh-tw/library/jj933431.aspx)這可讓您直接翻譯此網站目前可用的所有教學課程和範例，並由網際網路上的社群提供。
+主要用戶端介面可提供 [.NET 通知中心 SDK](http://msdn.microsoft.com/zh-tw/library/jj933431.aspx) 中使用的相同方法，這可讓您直接翻譯此網站目前可用的所有教學課程和範例，並由網際網路上的社群提供。
 
 您可在 [PHP REST 包裝函式範例]中找到所有可用的程式碼。
 
@@ -32,7 +32,7 @@
 如果您還沒有這麼做，請遵循我們的[開始使用教學課程]，一直到您必須實作後端的最後一節。
 此外，您也可以從 [PHP REST 包裝函式範例]使用程式碼，並直接移至[完成教學課程](#complete-tutorial) 一節。
 
-您可以在 [MSDN] 上找到所有實作完整 REST 包裝函式的詳細資料。(http://msdn.microsoft.com/zh-tw/library/dn530746.aspx)。在本節中，我們將針對存取通知中心 REST 端點所需主要步驟的 PHP 實作進行說明：
+您可以在 [MSDN](http://msdn.microsoft.com/zh-tw/library/dn530746.aspx) 上找到所有實作完整 REST 包裝函式的詳細資料。。在本節中，我們將針對存取通知中心 REST 端點所需主要步驟的 PHP 實作進行說明：
 
 1. 解析連接字串
 2. 產生授權權杖
@@ -76,7 +76,7 @@
 
 
 ### 建立安全性權杖
-您可以在[這裡]找到建立安全性權杖的詳細資料(http://msdn.microsoft.com/zh-tw/library/dn495627.aspx)。
+您可以在[這裡](http://msdn.microsoft.com/zh-tw/library/dn495627.aspx)找到建立安全性權杖的詳細資料。
 您必須將下列方法加入 **NotificationHub** 類別，才能根據目前要求的 URI 及擷取自連接字串的認證來建立權杖。
 
 	private function generateSasToken($uri) {
@@ -186,7 +186,7 @@
 
 上述方法會傳送 HTTP POST 要求至通知中心的 /messages 端點，並使用正確的主體和標頭傳送通知。
 
-##<a name="complete-tutorial"></a>完成教學課程
+## <a name="complete-tutorial"></a>完成教學課程
 現在您可以透過從 PHP 後端傳送通知，來完成開始使用教學課程。
 
 初始化您的通知中心用戶端 (請依[開始使用教學課程]中的指示替換連接字串和中心名稱)：
@@ -196,7 +196,7 @@
 
 ### Windows 市集和 Windows Phone 8.1 (非 Silverlight)
 
-
+	$toast = '<toast><visual><binding template="ToastText01"><text id="1">Hello from PHP!</text></binding></visual></toast>';
 	$notification = new Notification("windows", $toast);
 	$notification->headers[] = 'X-WNS-Type: wns/toast';
 	$hub->sendNotification($notification);

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Mobile Analytics" pageTitle="開始使用行動分析 | 行動開發人員中心" metaKeywords="" description="開始使用行動分析。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get Started with Mobile Analytics" authors="mahender" manager="dwrede"/>
+<properties urlDisplayName="Get Started with Mobile Analytics" pageTitle="開始使用行動分析 | 行動開發人員中心" metaKeywords="" description="開始使用行動分析。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get Started with Mobile Analytics" authors="mahender" manager="dwrede"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender" />
 
@@ -76,7 +76,7 @@
     您的應用程式現在已設定成將分析資料傳送至 Capptain。
 
 ## 後續步驟
-在 [http://www.capptain.com] 上了解 Capptain 還可為您的應用程式執行哪些工作(http://www.capptain.com)
+在上了解 Capptain 還可為您的應用程式執行哪些工作(http://www.capptain.com)
 
 <!-- Anchors. -->
 [初始化 Capptain SDK]: #initialize

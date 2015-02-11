@@ -28,11 +28,11 @@
 2.  安裝 [Azure 製作工具][] (英文) (尋找 MicrosoftAzureAuthoringTools-x86.msi 或 MicrosoftAzureAuthoringTools-x64.msi，視組建伺服器的處理器而定)。舊版檔案的檔案名稱中可能有 WindowsAzure。
 3. 安裝 [Azure 程式庫][] (尋找 MicrosoftAzureLibsForNet-x86.msi 或 MicrosoftAzureLibsForNet-x64.msi)。
 4.  將 Microsoft.WebApplication.targets 檔案從 Visual Studio 安裝複製至組建伺服器。在已安裝 Visual Studio 的電腦上，此檔案位於目錄 C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications (v12.0 for Visual Studio 2013)。您應該將它複製至組建伺服器上的相同目錄。
-5.  安裝 [[Azure Tools for Visual Studio][]]。尋找 MicrosoftAzureTools.VS110.exe 來建置 Visual Studio 2012 專案，尋找 MicrosoftAzureTools.VS120.exe 來建置 Visual Studio 2013 專案，以及尋找 MicrosoftAzureTools.VS140.exe 來建置 Visual Studio 2015 預覽專案。
+5.  安裝 [Azure Tools for Visual Studio][]。尋找 MicrosoftAzureTools.VS110.exe 來建置 Visual Studio 2012 專案，尋找 MicrosoftAzureTools.VS120.exe 來建置 Visual Studio 2013 專案，以及尋找 MicrosoftAzureTools.VS140.exe 來建置 Visual Studio 2015 預覽專案。
 
 <h2><a name="step2"> </a>步驟 2：使用 MSBuild 命令來建置套件</h2>
 
-本節說明如何建構 MSBuild 命令來建置 Azure 套件。請在組建伺服器上執行此步驟，以確認一切已正確設定，且 MSBuild 命令會執行您要它執行的動作。您可以將此命令列新增至組建伺服器上的現有組建指令碼，也可以在 TFS 組建定義中使用此命令列 (說明於下節)。如需命令列參數及 MSBuild 的詳細資訊，請參閱 [MSBuild 命令列參考][]]。
+本節說明如何建構 MSBuild 命令來建置 Azure 套件。請在組建伺服器上執行此步驟，以確認一切已正確設定，且 MSBuild 命令會執行您要它執行的動作。您可以將此命令列新增至組建伺服器上的現有組建指令碼，也可以在 TFS 組建定義中使用此命令列 (說明於下節)。如需命令列參數及 MSBuild 的詳細資訊，請參閱 [MSBuild 命令列參考][]。
 
 1.  如果組建伺服器上已安裝 Visual Studio，請按一下 [**開始**]，按一下 [**所有程式**]，然後在 **Visual Studio Tools** 資料夾中找出並按一下 **Visual Studio 命令提示字元**。
 
@@ -98,7 +98,7 @@
 
 本節說明如何建構 Windows PowerShell 指令碼，以使用選用參數將雲端應用程式套件發佈至 Azure。呼叫此指令碼的時機可以是執行自訂組建自動化中的組建步驟之後。也可以從 Visual Studio TFS Team Build 中的「流程範本」工作流程活動中呼叫。
 
-1.  安裝 [[Azure PowerShell Cmdlet][]] (0.6.1 版或更高版本)。     在 Cmdlet 設定階段期間，請選擇安裝為嵌入式管理單元。請注意，此正式支援的版本會取代透過 CodePlex 提供的更舊版本 (這些舊版本的編號為 2.x.x)。
+1.  安裝 [Azure PowerShell Cmdlet][] (0.6.1 版或更高版本)。     在 Cmdlet 設定階段期間，請選擇安裝為嵌入式管理單元。請注意，此正式支援的版本會取代透過 CodePlex 提供的更舊版本 (這些舊版本的編號為 2.x.x)。
 
 2.  使用 [開始] 功能表或 [開始] 頁面啟動 Azure PowerShell。如果以此方式啟動，則會載入 Azure PowerShell Cmdlet。
 
@@ -122,7 +122,8 @@
 
 6.  確定訂閱中建立了可作為發佈指令碼之目標的有效雲端服務與儲存體帳戶。儲存體帳戶 (Blob 儲存) 將用來在建立部署期間上傳並暫時儲存部署套件與組態檔。
 
-    -   若要建立新的雲端服務，您可以呼叫此指令碼或使用 Azure 管理入口網站。雲端服務名稱將作為完整網域名稱中的首碼，因此必須是唯一的。 
+    -   若要建立新的雲端服務，您可以呼叫此指令碼或使用 Azure 管理入口網站。雲端服務名稱將作為完整網域名稱中的首碼，因此必須是唯一的。
+
             New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
     -   若要建立新的儲存體帳戶，您可以呼叫此指令碼或使用 Azure 管理入口網站。儲存體帳戶名稱將作為完整網域名稱中的首碼，因此必須是唯一的。您可以嘗試使用與雲端服務相同的名稱。
@@ -237,13 +238,14 @@
 
 6.  在 [在代理程式上執行] 結尾新增一個順序：
 
-    1.先新增 If Statement 活動，以檢查是否有有效指令碼檔案。將條件設為此值：
+    1.  先新增 If Statement 活動，以檢查是否有有效指令碼檔案。將條件設為此值：
 
             Not String.IsNullOrEmpty(PublishScriptLocation)
 
-    2.在 If 陳述式的 Then 案例中，新增 Sequence 活動。將顯示名稱設為 'Start publish'
+    2.  在 If 陳述式的 Then 案例中，新增 Sequence
+        活動。將顯示名稱設為 'Start publish'
 
-    3.在仍選取著 Start publish 順序時，在工作流程設計工具的變數索引標籤中分行新增下列清單中的新變數。所有變數都應該具有 Variable type =String 及 Scope=Start publish。這些會用來將組建定義中的參數傳到工作流程中，然後用來呼叫發佈指令碼。
+    3.  在仍選取著 Start publish 順序時，在工作流程設計工具的變數索引標籤中分行新增下列清單中的新變數。所有變數都應該具有 Variable type =String 及 Scope=Start publish。這些會用來將組建定義中的參數傳到工作流程中，然後用來呼叫發佈指令碼。
 
         - SubscriptionDataFilePath，型別為 String
 
@@ -251,31 +253,38 @@
 
             ![][4]
 
-    4.如果您使用 TFS 2012 或更早版本，請在新序列的開頭新增 ConvertWorkspaceItem 活動。如果您使用 TFS 2013 或更新版本，請在新序列的開頭新增 GetLocalPath 活動。針對 ConvertWorkspaceItem，請依以下方式設定內容：Direction=ServerToLocal, DisplayName='Convert publish         script filename', Input=' PublishScriptLocation',         Result='PublishScriptFilePath', Workspace='Workspace'。針對 GetLocalPath 活動，請將內容 IncomingPath 設定為 'PublishScriptLocation'，以及將 Result 設定為 'PublishScriptFilePath'。此活動會將發佈指令碼的路徑從 TFS 伺服器位置 (如果適用的話) 轉換為標準本機磁碟路徑。
+    4.  如果您使用 TFS 2012 或更早版本，請在新序列的開頭新增 ConvertWorkspaceItem 活動。如果您使用 TFS 2013 或更新版本，請在新序列的開頭新增 GetLocalPath 活動。針對 ConvertWorkspaceItem，請依以下方式設定內容：Direction=ServerToLocal, DisplayName='Convert publish         script filename', Input=' PublishScriptLocation',         Result='PublishScriptFilePath', Workspace='Workspace'。針對 GetLocalPath 活動，請將內容 IncomingPath 設定為 'PublishScriptLocation'，以及將 Result 設定為 'PublishScriptFilePath'。此活動會將發佈指令碼的路徑從 TFS 伺服器位置 (如果適用的話) 轉換為標準本機磁碟路徑。
 
-    5.如果您使用 TFS 2012 或更早版本，請在新序列的結尾新增另一個 ConvertWorkspaceItem 活動。Direction=ServerToLocal, DisplayName='Convert         subscription filename', Input=' SubscriptionDataFileLocation',         Result= 'SubscriptionDataFilePath', Workspace='Workspace'。如果您使用 TFS 2013 或更新版本，請新增另一個 GetLocalPath。IncomingPath='SubscriptionDataFileLocation'，以及 Result='SubscriptionDataFilePath'。
+    5.  如果您使用 TFS 2012 或更早版本，請在新序列的結尾新增另一個 ConvertWorkspaceItem 活動。Direction=ServerToLocal, DisplayName='Convert         subscription filename', Input=' SubscriptionDataFileLocation',         Result= 'SubscriptionDataFilePath', Workspace='Workspace'。如果您使用 TFS 2013 或更新版本，請新增另一個 GetLocalPath。IncomingPath='SubscriptionDataFileLocation'，以及 Result='SubscriptionDataFilePath'。
 
-    6.在新順序的結尾新增 InvokeProcess 活動。         此活動會利用組建定義傳入的引數呼叫 PowerShell.exe。
+    6.  在新順序的結尾新增 InvokeProcess 活動。
+        此活動會利用組建定義傳入的引數呼叫 PowerShell.exe。
 
-        1.Arguments = String.Format(" -File ""{0}"" -serviceName {1}             -storageAccountName {2} -packageLocation ""{3}""             -cloudConfigLocation ""{4}"" -subscriptionDataFile ""{5}""             -selectedSubscription {6} -environment ""{7}""",             PublishScriptFilePath, ServiceName, StorageAccountName,             PackageLocation, CloudConfigLocation,             SubscriptionDataFilePath, SubscriptionName, Environment)
+        1.  Arguments = String.Format(" -File ""{0}"" -serviceName {1}
+            -storageAccountName {2} -packageLocation ""{3}""
+            -cloudConfigLocation ""{4}"" -subscriptionDataFile ""{5}""
+            -selectedSubscription {6} -environment ""{7}""",
+            PublishScriptFilePath, ServiceName, StorageAccountName,
+            PackageLocation, CloudConfigLocation,
+            SubscriptionDataFilePath, SubscriptionName, Environment)
 
-        2.DisplayName = Execute publish script
+        2.  DisplayName = Execute publish script
 
-        3.FileName = "PowerShell" (包括引號)
+        3.  FileName = "PowerShell" (包括引號)
 
-        4.OutputEncoding=
+        4.  OutputEncoding=
             System.Text.Encoding.GetEncoding(System.Globalization.CultureInfo.InstalledUICulture.TextInfo.OEMCodePage)
 
-    7.在 InvokeProcess 的 [**處理標準輸出**] 區段文字方塊中，將文字方塊值設為 'data'。這是要用來儲存標準輸出資料的變數。
+    7.  在 InvokeProcess 的 [**處理標準輸出**] 區段文字方塊中，將文字方塊值設為 'data'。這是要用來儲存標準輸出資料的變數。
 
-    8.緊接在**處理標準輸出**區段下新增 WriteBuildMessage 活動。設定 Importance =
+    8.  緊接在**處理標準輸出**區段下新增 WriteBuildMessage 活動。設定 Importance =
         'Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High' 和 Message='data'。如此可確保指令碼的標準輸出會寫入至組建輸出。
 
-    9.在 InvokeProcess 的 [**處理錯誤輸出**] 區段文字方塊中，將文字方塊值設為 'data'。這是要用來儲存標準錯誤資料的變數。
+    9.  在 InvokeProcess 的 [**處理錯誤輸出**] 區段文字方塊中，將文字方塊值設為 'data'。這是要用來儲存標準錯誤資料的變數。
 
-    10.緊接在**處理錯誤輸出**區段下新增 WriteBuildError 活動。設定 Message='data'。如此可確保指令碼的標準錯誤會寫入至組建錯誤輸出。
+    10.  緊接在**處理錯誤輸出**區段下新增 WriteBuildError 活動。設定 Message='data'。如此可確保指令碼的標準錯誤會寫入至組建錯誤輸出。
 
-	11.更正由藍色驚嘆號指出的任何錯誤。以滑鼠暫留在
+	11.  更正由藍色驚嘆號指出的任何錯誤。以滑鼠暫留在
 		驚嘆號上以取得錯誤的相關提示。儲存工作流程以 
 		清除錯誤。
 
@@ -324,27 +333,27 @@
 
 9.  在 Misc 區段中設定如下參數屬性值：
 
-    1.CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg'   
+    1.  CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg'   
         *該值衍生自：
         ($PublishDir)ServiceConfiguration.Cloud.cscfg*
 
-    2.PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg'   
+    2.  PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg'   
         *該值衍生自：($PublishDir)($ProjectName).cspkg*
 
-    3.PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
+    3.  PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
 
-    4.ServiceName = 'mycloudservicename'   
+    4.  ServiceName = 'mycloudservicename'   
         *在這裡使用適當的雲端服務名稱*
 
-    5.Environment = 'Staging'
+    5.  Environment = 'Staging'
 
-    6.StorageAccountName = 'mystorageaccountname'   
+    6.  StorageAccountName = 'mystorageaccountname'   
         *在這裡使用適當的儲存體帳戶名稱*
 
-    7.SubscriptionDataFileLocation =
+    7.  SubscriptionDataFileLocation =
         'c:\\scripts\\WindowsAzure\\Subscription.xml'
 
-    8.SubscriptionName = 'default'
+    8.  SubscriptionName = 'default'
 
     ![][6]
 

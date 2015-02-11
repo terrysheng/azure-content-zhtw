@@ -2,20 +2,20 @@
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="kathydav" />
 
-#如何擷取 Windows 虛擬機器以做為範本#
+# 如何擷取 Windows 虛擬機器以做為範本#
 
 本文說明如何擷取執行 Windows 的 Azure 虛擬機器，以便用它做為範本建立其他虛擬機器。此範本包括 OS 磁碟和任何連接虛擬機器的資料磁碟。它不包含網路組態，因此您將需要在建立使用該範本的其他虛擬機器時加以設定。
 
 Azure 會將此範本視為映像，並將其儲存在 [**我的映像**] 下。這也是您已上傳的任何映像儲存所在之處。如需映像的詳細資訊，請參閱[關於 Azure 中的虛擬機器映像][]。
 
-##開始之前##
+## 開始之前##
 
 這些步驟假設您已建立 Azure 虛擬機器且設定好作業系統，包括連接任何資料磁碟。如果您還沒這麼做，請參閱下列指示：
 
 - [如何建立自訂虛擬機器] []
 - [如何將資料磁碟附加至虛擬機器] []
 
-##擷取虛擬機器##
+## 擷取虛擬機器##
 
 1. 按一下命令列上的 [**連接**]，連接到虛擬機器。如需詳細資訊，請參閱[如何登入執行 Windows Server 的虛擬機器][]。
 
@@ -36,7 +36,7 @@ Azure 會將此範本視為映像，並將其儲存在 [**我的映像**] 下。
 
 	![Run Sysprep](./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png)
 
-7.	Sysprep 會將虛擬機器關機，這會在[管理入口網站]中，將機器的狀態變更為(http://manage.windowsazure.com) [**已停止**]。
+7.	Sysprep 會將虛擬機器關機，這會在[管理入口網站](http://manage.windowsazure.com)中，將機器的狀態變更為 [**已停止**]。
 
 
 8.	按一下 [**虛擬機器**]，然後選取要擷取的虛擬機器。
@@ -57,15 +57,15 @@ Azure 會將此範本視為映像，並將其儲存在 [**我的映像**] 下。
 
 	![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
-##後續步驟##
+## 後續步驟##
 映像已可用來做為範本，建立虛擬機器。若要這麼做，您將需要使用 [**從組件庫**] 方法並選取您剛建立的映像，建立自訂的虛擬機器。如需指示，請參閱[如何建立自訂虛擬機器][]。
 
 	
 [關於 Azure 中的虛擬機器映像]: http://msdn.microsoft.com/zh-tw/library/azure/dn790290.aspx
+[如何登入執行 Windows Server 的虛擬機器]:http://www.windowsazure.com/zh-tw/manage/windows/how-to-guides/log-on-a-windows-vm/
+[如何使用 Sysprep：簡介]:http://technet.microsoft.com/zh-tw/library/bb457073.aspx
 [如何建立自訂虛擬機器]: ../virtual-machines-create-custom/
 [如何將資料磁碟附加至虛擬機器]: ../storage-windows-attach-disk/
-[如何登入執行 Windows Server 的虛擬機器]：http://www.windowsazure.com/zh-tw/manage/windows/how-to-guides/log-on-a-windows-vm/
-[如何使用 Sysprep：簡介]：http://technet.microsoft.com/zh-tw/library/bb457073.aspx
 [執行 Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
 [輸入 Sysprep.exe 選項]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
 [虛擬機器已停止]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png

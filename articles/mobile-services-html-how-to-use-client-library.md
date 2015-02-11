@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="HTML Client" pageTitle="如何使用 HTML 用戶端 - Azure 行動服務" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="了解如何使用適用於 Azure 行動服務的 HTML 用戶端。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="HTML Client" pageTitle="如何使用 HTML 用戶端 - Azure 行動服務" metaKeywords="Azure Mobile Services, Mobile Service HTML client, HTML client" description="了解如何使用適用於 Azure 行動服務的 HTML 用戶端。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -618,8 +618,8 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-html
 [行動服務 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [開始使用資料]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-html/
-[開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-html
-[開始使用驗證 Windows 市集]: /zh-tw/develop/mobile/tutorials/get-started-with-users-js
+[Get started with authentication]: /zh-tw/develop/mobile/tutorials/get-started-with-users-html
+[Get started with authentication Windows Store]: /zh-tw/develop/mobile/tutorials/get-started-with-users-js
 [then]: http://msdn.microsoft.com/zh-tw/library/windows/apps/br229728.aspx
 [done]: http://msdn.microsoft.com/zh-tw/library/windows/apps/hh701079.aspx
 [深入了解 then 與 done 之間的差異]: http://msdn.microsoft.com/zh-tw/library/windows/apps/hh700334.aspx

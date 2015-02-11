@@ -1,8 +1,8 @@
-﻿<properties urlDisplayName="Install MongoDB" pageTitle="在執行 Windows Server 的虛擬機器上安裝 MongoDB" metaKeywords="Azure vm, Azure MongoDB, Azure remote desktop" description="了解如何在執行 Windows Server 的 Azure VM 上安裝 MongoDB。" metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MongoDB on a virtual machine running Windows Server in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Install MongoDB" pageTitle="在執行 Windows Server 的虛擬機器上安裝 MongoDB" metaKeywords="Azure vm, Azure MongoDB, Azure remote desktop" description="了解如何在執行 Windows Server 的 Azure VM 上安裝 MongoDB。" metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MongoDB on a virtual machine running Windows Server in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="kathydav" />
 
-#在執行 Windows Server 的虛擬機器上安裝 MongoDB
+# 在執行 Windows Server 的虛擬機器上安裝 MongoDB
 
 [MongoDB][MongoDB] 是受歡迎的高效能開放原始碼 NoSQL 資料庫。您可以使用 [Azure 管理入口網站][AzureManagementPortal]，從映像庫建立一個執行 Windows Server 的虛擬機器。然後在虛擬機器上安裝及設定 MongoDB 資料庫。
 
@@ -28,13 +28,13 @@
 
 [WACOM.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
-如需初始化磁碟的指示，請參閱「作法：在 Windows Server 中初始化新的資料磁碟」(位於[如何將資料磁碟連接到 Windows 虛擬機器]中)(http://azure.microsoft.com/zh-tw/documentation/articles/storage-windows-attach-disk/)。
+如需初始化磁碟的指示，請參閱「作法：在 Windows Server 中初始化新的資料磁碟」(位於[如何將資料磁碟連接到 Windows 虛擬機器](http://azure.microsoft.com/zh-tw/documentation/articles/storage-windows-attach-disk/)中)。
 
 ## 在虛擬機器上安裝及執行 MongoDB 
 
 [WACOM.INCLUDE [install-and-run-mongo-on-win2k8-vm](../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
-##摘要
+## 摘要
 在本教學課程中，您已了解如何建立執行 Windows Server 的虛擬機器、從遠端連線至此虛擬機器，以及連接資料磁碟。同時也已了解如何在 Windows 虛擬機器上安裝及設定 MongoDB。如需有關 MongoDB 的詳細資訊，請參閱 [MongoDB 文件][MongoDocs]。
 
 [MongoDocs]: http://www.mongodb.org/display/DOCS/Home

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Register for Twitter Authentication" pageTitle="註冊 Twitter 驗證 - 行動服務" metaKeywords="Azure registering application, Azure Twitter authentication, application authenticate, authenticate mobile services, Mobile Services Twitter" description="了解如何對於˙ Azure Mobile Services 應用程式使用 Twitter 驗證。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Twitter login with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Register for Twitter Authentication" pageTitle="註冊 Twitter 驗證 - 行動服務" metaKeywords="Azure registering application, Azure Twitter authentication, application authenticate, authenticate mobile services, Mobile Services Twitter" description="了解如何對於˙ Azure Mobile Services 應用程式使用 Twitter 驗證。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Twitter login with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -6,7 +6,7 @@
 
 本主題說明如何在 Azure 行動服務中註冊您的應用程式，使其能夠採用 Twitter 驗證。
 
->[WACOM.NOTE] 本教學課程與 [Azure 行動服務]有關，(http://azure.microsoft.com/zh-tw/services/mobile-services/)它是一個可協助您針對任何平台建置可擴充行動應用程式的解決方案。行動服務讓同步處理資料、驗證使用者及推播通知等作業變得簡單。此頁面支援 <a href="http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started-users/">開始使用驗證</a> 教學課程，說明如何將使用者登入您的應用程式。如果這是您第一次使用行動服務，請完成 <a href="http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started/">開始使用行動服務教學課程</a>。
+>[WACOM.NOTE] 本教學課程與 [Azure 行動服務](http://azure.microsoft.com/zh-tw/services/mobile-services/)有關，它是一個可協助您針對任何平台建置可擴充行動應用程式的解決方案。行動服務讓同步處理資料、驗證使用者及推播通知等作業變得簡單。此頁面支援 <a href="http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started-users/">開始使用驗證</a> 教學課程，說明如何將使用者登入您的應用程式。如果這是您第一次使用行動服務，請完成 <a href="http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started/">開始使用行動服務教學課程</a>。
 
 若要完成本主題的程序，您必須具有已通過電子郵件地址驗證的 Twitter 帳戶。若要建立新的 Twitter 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>。
 

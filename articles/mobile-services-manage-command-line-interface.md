@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Command Line Administration" pageTitle="在命令列上管理行動服務 - Azure 教學課程" metaKeywords="" description="了解如何使用命令列工具建立、部署和管理 Azure 行動服務。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Automate mobile services with command-line tools" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Command Line Administration" pageTitle="在命令列上管理行動服務 - Azure 教學課程" metaKeywords="" description="了解如何使用命令列工具建立、部署和管理 Azure 行動服務。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Automate mobile services with command-line tools" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -8,7 +8,7 @@
 
 -	[建立新的行動服務] 
 -	[建立新資料表]
--   [將指令碼註冊到資料表作業][Register a new table script]
+-   [將指令碼註冊到資料表作業][註冊新資料表指令碼]
 -   [列出資料表]
 - 	[刪除現有資料表]
 -	[列出行動服務]

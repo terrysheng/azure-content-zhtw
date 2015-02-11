@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Push (JS)" pageTitle="開始使用推播通知 (Android JavaScript) | 行動開發人員中心" metaKeywords="" description="了解如何使用 Azure 行動服務傳送推播通知至 Android JavaScript 應用程式。" metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services " authors="ricksal"  solutions="" writer="ricksal" manager="dwrede" editor=""   />
+<properties urlDisplayName="Get Started with Push (JS)" pageTitle="開始使用推播通知 (Android JavaScript) | 行動開發人員中心" metaKeywords="" description="了解如何使用 Azure 行動服務傳送推播通知至 Android JavaScript 應用程式。" metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services " authors="ricksal"  solutions="" writer="ricksal" manager="dwrede" editor=""   />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal" />
 
@@ -182,7 +182,7 @@
 * [如何使用行動服務的 Android 用戶端程式庫]
   <br/>深入了解如何搭配使用行動服務與 Android。
 
-* [Mobile Services server script reference]
+* [行動服務伺服器指令碼參考]
   <br/>深入了解如何在您的行動服務中實作商務邏輯。
 
 

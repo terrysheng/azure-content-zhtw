@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate Data - HTML5" pageTitle="使用伺服器指令碼驗證與修改資料 (HTML 5) | 行動開發人員中心" metaKeywords="" description="了解如何驗證和修改從 HTML 應用程式使用伺服器指令碼傳送的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate Data - HTML5" pageTitle="使用伺服器指令碼驗證與修改資料 (HTML 5) | 行動開發人員中心" metaKeywords="" description="了解如何驗證和修改從 HTML 應用程式使用伺服器指令碼傳送的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 
@@ -174,7 +174,7 @@
                 return (this.complete === false && this.createdAt !== null);
             });
 
-   	This function updates the query to also filter out items that do not have a timestamp value.
+   	此函數會更新查詢，篩選出沒有時間戳記的項目。
 	
 8. 重新載入頁面。
 

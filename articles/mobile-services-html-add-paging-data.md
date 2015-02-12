@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Add paging to data (HTML5)" pageTitle="在資料中加入分頁 (HTML 5) | 行動開發人員中心" metaKeywords="" description="了解如何使用分頁來管理行動服務傳回您 HTML 應用程式的資料量。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Add paging to data (HTML5)" pageTitle="在資料中加入分頁 (HTML 5) | 行動開發人員中心" metaKeywords="" description="了解如何使用分頁來管理行動服務傳回您 HTML 應用程式的資料量。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
@@ -32,10 +32,9 @@
 
 2. 在 app.js 檔案中，將 **refreshTodoItems** 方法中的 `query` 變數定義取代為下列程式碼行：
 
-       
         var query = todoItemTable.where({ complete: false }).take(3);
 
-  	This query, when executed, returns the top three items that are not marked as completed.
+    在資料繫結期間執行此查詢時，會傳回未標示為完成的前三個項目。	
 
 3. 回到網頁瀏覽器，並重新載入頁面。
 

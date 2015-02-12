@@ -1,4 +1,4 @@
-﻿1. 開啟專案檔案 mainpage.xaml.cs，然後將下列程式碼片段新增至 MainPage 類別：
+1. 開啟專案檔案 mainpage.xaml.cs，然後將下列程式碼片段新增至 MainPage 類別：
 	
         private MobileServiceUser user;
         private async System.Threading.Tasks.Task Authenticate()
@@ -24,7 +24,7 @@
 
     如此會建立一個成員變數來存放目前使用者，並建立一個方法來處理驗證程序。使用者透過 Facebook 登入來驗證。
 
-    >[WACOM.NOTE]如果您打算使用除了 Facebook 以外的識別提供者，請將上方的 <strong>MobileServiceAuthenticationProvider</strong> above to the value for your provider</p> 值變更成您提供者。
+    >[WACOM.NOTE]如果您打算使用除了 Facebook 以外的識別提供者，請將上方的 <strong>MobileServiceAuthenticationProvider</strong> 值變更成您提供者。</p> 
     </div>
 
 2. 刪除或註解化現有的 **OnNavigatedTo** 方法，這將會以下列處理頁面上 **Loaded** 事件的方法覆寫和取代該現有方法。 
@@ -46,7 +46,7 @@
             this.Loaded += MainPage_Loaded;
         }
 
-   	This constructor also registers the handler for the Loaded event.
+ 	此建構函式也會為 Loaded 事件註冊處理常式。
 		
 4. 按 F5 鍵執行應用程式，並以您選擇的身分識別提供者登入應用程式。 
 

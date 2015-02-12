@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="使用 .Net 後端驗證與修改資料 (Windows 市集) | 行動開發人員中心" metaKeywords="" description="了解如何使用 .Net 後端 Windows Azure 行動服務驗證、修改和增加 Windows 市集應用程式的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate and Modify Data" pageTitle="使用 .Net 後端驗證與修改資料 (Windows 市集) | 行動開發人員中心" metaKeywords="" description="了解如何使用 .Net 後端 Windows Azure 行動服務驗證、修改和增加 Windows 市集應用程式的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -18,12 +18,12 @@
 
 本教學課程會以先前的教學課程[開始使用]或[開始使用資料]中的步驟和範例程式碼為基礎。在開始本教學課程之前，您必須先完成[開始使用]或[開始使用資料]教學課程。  
 
-## <a name="string-length-validation"></a>Add validation
+## <a name="string-length-validation"></a>新增驗證
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 
-## <a name="update-client-validation"></a>Update the client
+## <a name="update-client-validation"></a>更新用戶端
 
 現在，行動服務已經過設定而會驗證資料，並針對無效的文字長度傳送錯誤回應，您必須更新應用程式以便處理驗證的錯誤回應。用戶端應用程式呼叫 `IMobileServiceTable<TodoItem].InsertAsync()` 時所產生的錯誤會顯示為 `MobileServiceInvalidOperationException`。
 
@@ -60,7 +60,7 @@
             }
         }
 
-	This version of the method includes error handling for the **MobileServiceInvalidOperationException** that displays the deserialized error message from the response content in a message dialog.
+	此版本的方法包含會在 MessageBox 中顯示錯誤回應的 **MobileServiceInvalidOperationException** 誤處理。
 
 ## <a name="test-length-validation"></a>測試長度驗證
 
@@ -74,14 +74,14 @@
 
     ![][2]
 
-## <a name="add-timestamp"></a>Add a timestamp field for CompleteDate
+## <a name="add-timestamp"></a>新增 CompleteDate 的時間戳記欄位
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
 
 
 
-## <a name="update-client-timestamp"></a>Update the client to display the CompleteDate
+## <a name="update-client-timestamp"></a>更新用戶端以顯示 CompleteDate
 
 最後步驟是更新用戶端以顯示此新的 **CompleteDate** 資料。 
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="使用伺服器指令碼來驗證與修改資料 (Xamarin iOS) |行動開發人員中心" metaKeywords="" description="了解如何驗證和修改從 Xamarin iOS 應用程式使用伺服器指令碼傳送的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="" pageTitle="使用伺服器指令碼來驗證與修改資料 (Xamarin iOS) |行動開發人員中心" metaKeywords="" description="了解如何驗證和修改從 Xamarin iOS 應用程式使用伺服器指令碼傳送的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="donnam" />
 
@@ -10,7 +10,7 @@
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1. [新增字串長度驗證]
+1. [新增字串長度驗證]	
 2. [更新用戶端以支援驗證]
 3. [插入時新增時間戳記]
 4. [更新用戶端以顯示時間戳記]
@@ -57,7 +57,7 @@
 
 2. 按 [**執行**] 按鈕以建置專案並啟動應用程式，在文字方塊中輸入超過 10 個字元的文字，然後按一下加號 (**+**) 圖示。
 
-Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.	
+   請留意到，由於行動服務傳回了 400 回應 (不正確的要求)，因此應用程式發出未處理的錯誤。
 
 3. 在 TodoService.cs 檔案的 **InsertTodoItemAsync** 方法中，找出目前的 <code>try/catch</code> 例外狀況處理，並將 <code>catch</code> 取代為：
     

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Twilio Voice/SMS Service" pageTitle="如何透過 Twilio 來使用語音和簡訊功能 (Java) - Azure" metaKeywords="Twilio, Twilio API, phone calls, SMS message, TwiML responses, Azure Twilio Java" description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。以 Java 撰寫的程式碼範例。" metaCanonical="" services="" videoId="" scriptId="" documentationCenter="Java" title="How to Use Twilio for Voice and SMS Capabilities in Java" authors="MicrosoftHelp@twilio.com; robmcm" solutions="" manager="twilio" editor="mollybos" />
+<properties urlDisplayName="Twilio Voice/SMS Service" pageTitle="如何透過 Twilio 來使用語音和簡訊功能 (Java) - Azure" metaKeywords="Twilio, Twilio API, phone calls, SMS message, TwiML responses, Azure Twilio Java" description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。以 Java 撰寫的程式碼範例。" metaCanonical="" services="" videoId="" scriptId="" documentationCenter="Java" title="How to Use Twilio for Voice and SMS Capabilities in Java" authors="MicrosoftHelp@twilio.com; robmcm" solutions="" manager="twilio" editor="mollybos" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com; robmcm" />
 
@@ -66,7 +66,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 <h2><a id="CreateAccount"></a>建立 Twilio 帳戶</h2>
 準備取得 Twilio 帳戶時，請在[試用 Twilio] [try_twilio] 註冊。您可以先使用免費帳戶，稍後再升級帳戶。
 
-註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面] [twilio_account] (英文) 的 [ACCOUNT SID]**** 和 [AUTH TOKEN]**** 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
+註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面] [twilio_account] (英文) 的 [ACCOUNT SID] 和 [AUTH TOKEN] 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
 
 <h2><a id="create_app"></a>建立 Java 應用程式</h2>
 1. 取得 Twilio JAR 並將它加到您的 Java 組建路徑和 WAR 部署組件。在 [https://github.com/twilio/twilio-java][twilio_java] 中，您可以下載 GitHub 來源及建立自己的 JAR，或下載預先建置的 JAR (可能有相依性)。

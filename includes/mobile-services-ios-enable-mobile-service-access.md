@@ -1,4 +1,4 @@
-﻿
+
 您的行動服務已準備就緒，現在可以更新應用程式以便在行動服務 (而非本機收集) 中儲存項目。
 
 1. 如果您尚未安裝 [Mobile Services iOS SDK](https://go.microsoft.com/fwLink/p/?LinkID=266533)，請立即安裝。安裝之後，複製 WindowsAzureMobileServices.framework 目錄，並覆寫已下載的專案中包含的 WindowsAzureMobileServices.framework 目錄。如此一來，您會使用最新的 Azure Mobile Services SDK。
@@ -17,11 +17,11 @@
 
         // TODO - create an MSTable property for your items
 
-   	After this comment, add the following line of code inside the @interface declaration:
+   	在這個註解之後, 在 @interface 宣告內加入以下程式碼行:
 
         @property (nonatomic, strong)   MSTable *table;
 
-   	這將建立行動服務資料表的代表屬性。
+  	這將建立行動服務資料表的代表屬性。
 
 4. 在管理入口網站中，按一下 [**行動服務**]，然後按一下您剛剛建立的行動服務。
 
@@ -61,7 +61,7 @@
 
         NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
-    This creates a query to return all tasks that have not yet been completed.
+    這會建立查詢以傳回所有尚未完成的工作。
 
 10. 尋找下列已加上註解的程式碼行：
 

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="註冊單一登入 - Azure 行動服務" metaKeywords="" description="了解如何在 Azure Mobile Services 應用程式中註冊單一登入驗證。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store apps to use Windows Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="註冊單一登入 - Azure 行動服務" metaKeywords="" description="了解如何在 Azure Mobile Services 應用程式中註冊單一登入驗證。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store apps to use Windows Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -18,7 +18,7 @@
 
    	![][1]
 
-   	This creates a new Windows Store registration for your app.
+   這會為您的應用程式建立新的 Windows 市集註冊。
 
 3. 在 Visual Studio 2012 Express for Windows 8 中，開啟您在完成[開始使用行動服務]教學課程時所建立的專案。
 

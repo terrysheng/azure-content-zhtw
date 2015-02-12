@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to Make a Phone Call from Twilio in Java" pageTitle="如何使用 Twilio 撥打電話 (Java) - Azure" metaKeywords="Azure Twilio 電話, Twilio 電話網站, Azure Twilio Java" description="了解如何在 Azure 上的 Java 應用程式中從使用 Twilio 的網頁撥打電話。" metaCanonical="" services="" documentationCenter="Java" title="How to Make a Phone Call Using Twilio in a Java Application on Azure" authors="MicrosoftHelp@twilio.com; robmcm" videoId="" scriptId="" solutions="" manager="twilio" editor="mollybos" />
+<properties urlDisplayName="How to Make a Phone Call from Twilio in Java" pageTitle="如何使用 Twilio 撥打電話 (Java) - Azure" metaKeywords="Azure Twilio 電話, Twilio 電話網站, Azure Twilio Java" description="了解如何在 Azure 上的 Java 應用程式中從使用 Twilio 的網頁撥打電話。" metaCanonical="" services="" documentationCenter="Java" title="How to Make a Phone Call Using Twilio in a Java Application on Azure" authors="MicrosoftHelp@twilio.com; robmcm" videoId="" scriptId="" solutions="" manager="twilio" editor="mollybos" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com; robmcm" />
 
@@ -157,7 +157,7 @@
 3. 針對計算模擬器編譯您的應用程式。
 4. 在計算模擬器中開始進行部署。
 5. 開啟瀏覽器，然後執行 **http://localhost:8080/TwilioCloud/callform.jsp**。
-6. 輸入表單中的值，按一下 [Make this call]****，然後在 makecall.jsp 中檢視結果。
+6. 輸入表單中的值，按一下 [Make this call]，然後在 makecall.jsp 中檢視結果。
 
 當您做好部署至 Azure 的準備後，可以針對雲端環境重新編譯部署、部署至 Azure，以及在瀏覽器中執行 http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp (請使用您的值來取代 *your_hosted_name*)。
 

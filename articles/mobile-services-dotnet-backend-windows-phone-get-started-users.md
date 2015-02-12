@@ -1,6 +1,6 @@
-<properties pageTitle="開始使用驗證 (Windows Phone) | 行動開發人員中心" metaKeywords="authentication, Facebook, GOogle, Twitter, Microsoft Account, login" description="了解如何使用行動服務透過眾多識別提供者驗證 Windows Phone 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey" manager="dwrede" editor="" />
+﻿<properties pageTitle="開始使用驗證 (Windows Phone) | 行動開發人員中心" metaKeywords="authentication, Facebook, GOogle, Twitter, Microsoft Account, login" description="了解如何使用行動服務透過眾多識別提供者驗證 Windows Phone 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Glenn Gailey" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="Glenn="" Gailey" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="Glenn Gailey" />
 
 # 在您的行動服務應用程式中新增驗證
 
@@ -20,7 +20,7 @@
 本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務]。 
 
 
-## <a name="register"></a> 註冊應用程式進行驗證，並設定行動服務
+##<a name="register"></a> 註冊應用程式進行驗證，並設定行動服務
 
 [WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
@@ -39,11 +39,11 @@
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
-## <a name="add-authentication"></a>將驗證新增至應用程式
+##<a name="add-authentication"></a>將驗證新增至應用程式
 
 [WACOM.INCLUDE [mobile-services-windows-phone-authenticate-app](../includes/mobile-services-windows-phone-authenticate-app.md)]
 
-## <a name="tokens"></a>將授權權杖儲存在用戶端上
+##<a name="tokens"></a>將授權權杖儲存在用戶端上
 
 [WACOM.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../includes/mobile-services-windows-phone-authenticate-app-with-token.md)] 
 
@@ -72,5 +72,5 @@
 [JavaScript 和 HTML]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[行動服務 .NET 作法概念參考資料]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
+[行動服務 .NET 作法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
 [註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證]: /zh-tw/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Twilio Voice/SMS Service" pageTitle="如何使用 Twilio 進行語音和 SMS (PHP) - Azure" metaKeywords="Azure PHP Twilio, Azure 通話, Azure 通話, Azure Twilio, Azure SMS, Azure SMS, Azure 語音通話, azure 語音通話, Azure 文字訊息, Azure 文字訊息" description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。以 PHP 撰寫的程式碼範例。" metaCanonical="" services="" documentationCenter="" title="How to Use Twilio for Voice and SMS Capabilities in PHP" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+<properties urlDisplayName="Twilio Voice/SMS Service" pageTitle="如何使用 Twilio 進行語音和 SMS (PHP) - Azure" metaKeywords="Azure PHP Twilio, Azure 通話, Azure 通話, Azure Twilio, Azure SMS, Azure SMS, Azure 語音通話, azure 語音通話, Azure 文字訊息, Azure 文字訊息" description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。以 PHP 撰寫的程式碼範例。" metaCanonical="" services="" documentationCenter="" title="How to Use Twilio for Voice and SMS Capabilities in PHP" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com" />
 
@@ -70,7 +70,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 <h2><a id="CreateAccount"></a>建立 Twilio 帳戶</h2>
 準備取得 Twilio 帳戶時，請在[試用 Twilio] [try_twilio] 註冊。您可以先使用免費帳戶，稍後再升級帳戶。
 
-註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面] [twilio_account] (英文) 的 [ACCOUNT SID]**** 和 [AUTH TOKEN]**** 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
+註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面] [twilio_account] (英文) 的 [ACCOUNT SID] 和 [AUTH TOKEN] 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
 
 <h2><a id="create_app"></a>建立 PHP 應用程式</h2>
 使用 Twilio 服務且執行於 Azure 的 PHP 應用程式，與其他使用 Twilio 服務的 PHP 應用程式並無不同。雖然 Twilio 服務是以 REST 為基礎，並且可透過數種方式從 PHP 撥打，但本文的重點是要說明如何搭配使用 Twilio 服務與[適用於 PHP 的 Twilio 程式庫 (由 Github 提供)][twilio_php]。如需使用 PHP 的 Twilio 程式庫相關詳細資訊，請參閱 [http://readthedocs.org/docs/twilio-php/en/latest/index.html][twilio_lib_docs]。

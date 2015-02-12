@@ -1,4 +1,4 @@
-﻿
+
 <properties urlDisplayName="Get Started with Data" pageTitle="開始使用資料 (iOS) | 行動開發人員中心" metaKeywords="Azure iOS data, Azure mobile services data, " description="了解如何開始使用行動服務，在您的 iOS 應用程式中使用資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
@@ -76,7 +76,7 @@
 
 2. 和之前一樣，在文字方塊中鍵入文字，然後按一下 **+** 按鈕。
 
-   	This sends a new item as an insert to the mobile service.每個新的 todoItem 都在您先前於 Azure 管理入口網站中為行動服務設定的 SQL Database 中儲存和更新。
+   	這會傳送新項目以插入至行動服務。每個新的 todoItem 都在您先前於 Azure 管理入口網站中為行動服務設定的 SQL Database 中儲存和更新。
 
 3. 停止並重新啟動應用程式，以確認變更持續存留至 Azure 中的資料庫。
 

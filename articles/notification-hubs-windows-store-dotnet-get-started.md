@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get started with notification hubs" pageTitle="開始使用 Azure 通知中心 " metaKeywords="" description="了解如何使用 Azure 通知中心推播通知。" metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Getting Started with Notification Hubs" authors="glenga" solutions="" manager="dwrede" editor="dwrede" />
+<properties urlDisplayName="Get started with notification hubs" pageTitle="開始使用 Azure 通知中心 " metaKeywords="" description="了解如何使用 Azure 通知中心推播通知。" metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Getting Started with Notification Hubs" authors="glenga" solutions="" manager="dwrede" editor="dwrede" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
@@ -38,7 +38,7 @@
 
    	![][1]
 
-   	This creates a new Windows Store registration for your app.
+   	這會為您的應用程式建立新的 Windows 市集註冊。
 
 3. 在 Visual Studio 中，使用 [**空白應用程式**] 範本來建立新的 Visual C# 市集應用程式專案。
 

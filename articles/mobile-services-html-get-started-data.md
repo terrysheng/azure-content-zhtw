@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data (HTML5)" pageTitle="開始使用資料 (HTML 5) | 行動開發人員中心" metaKeywords="" description="了解如何開始使用行動服務來運用 HTML 應用程式中的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data (HTML5)" pageTitle="開始使用資料 (HTML 5) | 行動開發人員中心" metaKeywords="" description="了解如何開始使用行動服務來運用 HTML 應用程式中的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
@@ -42,7 +42,7 @@
 
 2. 在 HTML 編輯器中，開啟下載的專案並檢查 app.js 檔案。
 
-   	請注意，新增的項目會儲存在記憶體內部的 **Array** 物件 (**staticItems**) 中。Refresh the page, and the data disappears.此資料不會保留下來。
+   	請注意，新增的項目會儲存在記憶體內部的 **Array** 物件 (**staticItems**) 中。在幾秒後重新整理頁面，縮圖便會隨即出現。.此資料不會保留下來。
 
 3. 從 **server** 子資料夾中啟動下列其中一個命令檔案。
 
@@ -88,7 +88,7 @@
 
     <div class="dev-callout"> 
 	<b>注意</b> 
-	<p>行動服務快速入門中使用相同的資料表名稱。However, each table is created in a schema that is specific to a given mobile service.目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。</p> 
+	<p>行動服務快速入門中使用相同的資料表名稱。不過，會在指定行動服務特定的結構描述中建立每個資料表。目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。</p> 
 	</div>
 
 4. 按一下新的 **TodoItem** 資料表，並驗證其中不含資料列。
@@ -269,7 +269,7 @@
 
 7. 再次載入此頁面，並勾選清單中的另一個項目。
 
-   	請注意，所有已核取的項目都會從清單中消失。Each update results in a round-trip to the mobile service, which now returns filtered data.
+   	請注意，所有已核取的項目都會從清單中消失。每次更新都會往返行動服務一次，而現在會傳回篩選的資料。.
 
 這將結束**開始使用資料**教學課程。
 

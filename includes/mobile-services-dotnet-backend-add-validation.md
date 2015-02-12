@@ -1,4 +1,4 @@
-﻿
+
 驗證使用者提交的資料長度一向是最佳做法。在本節中，您會將程式碼新增到行動服務，此服務會驗證傳送至行動服務之字串資料長度，並拒絕太長的字串，在此案例中為超過 10 個字元。
 
 1. 使用 [**以系統管理員身分執行**] 項啟動 Visual Studio，然後開啟解決方案，該解決方案包含您在[開始使用]或[開始使用資料](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)教學課程中使用的行動服務專案。
@@ -40,4 +40,4 @@
 
 
 <!-- URLs. -->
-[開始使用]：/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[開始使用]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/

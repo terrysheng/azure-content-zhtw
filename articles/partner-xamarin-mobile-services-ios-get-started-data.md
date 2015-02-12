@@ -66,7 +66,7 @@
 
     <div class="dev-callout"> 
 	<b>注意</b> 
-	<p>行動服務快速入門中使用相同的資料表名稱。However, each table is created in a schema that is specific to a given mobile service.目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。</p> 
+	<p>行動服務快速入門中使用相同的資料表名稱。不過，會在指定行動服務特定的結構描述中建立每個資料表。目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。</p> 
 	</div>
 
 4. 按一下新的 **TodoItem** 資料表，並驗證其中不含資料列。
@@ -140,7 +140,7 @@
 			return null;
 		}
         
-    This creates a query to return all tasks that have not yet been completed.
+    這會建立查詢以傳回所有尚未完成的工作。
 
 11. 找出 **InsertTodoItemAsync** 方法，並取消註解下列一行：
 

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="透過 Twilio 使用語音和簡訊功能 | 行動開發人員中心" metaKeywords="" description="了解如何使用 Twilio API 和 Azure 行動服務執行一般工作。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+<properties pageTitle="透過 Twilio 使用語音和簡訊功能 | 行動開發人員中心" metaKeywords="" description="了解如何使用 Twilio API 和 Azure 行動服務執行一般工作。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com" />
 
@@ -25,7 +25,7 @@ Twilio API 的兩大重點是 Twilio 動詞和 Twilio 標記語言 (TwiML)。
 <h3><a id="Verbs"></a>Twilio 動詞</h3>
 API 採用 Twilio 動詞。例如，**&lt;Say&gt;** 動詞指示 Twilio 在通話中用語音傳遞訊息。 
 
-以下是 Twilio 動詞清單。如需了解其他動詞和功能，請參閱 [Twilio 標記語言文件] (英文)(http://www.twilio.com/docs/api/twiml)。
+以下是 Twilio 動詞清單。如需了解其他動詞和功能，請參閱 [Twilio 標記語言文件](http://www.twilio.com/docs/api/twiml) (英文)。
 
 * **&lt;Dial&gt;**：使撥號者接通另一支電話。
 * **&lt;Gather&gt;**：收集電話按鍵上輸入的號碼。

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate Data" pageTitle="使用伺服器指令碼驗證與修改資料 (Xamarin Android) | 行動開發人員中心 " metaKeywords="存取並變更資料, Azure 行動服務, 行動裝置, Azure, 行動, Xamarin.Android" description="了解如何驗證和修改從 Xamarin.Android 應用程式使用伺服器指令碼傳送的資料。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" services="mobile-services"  title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" manager="dwrede" />
+<properties urlDisplayName="Validate Data" pageTitle="使用伺服器指令碼驗證與修改資料 (Xamarin Android) | 行動開發人員中心 " metaKeywords="存取並變更資料, Azure 行動服務, 行動裝置, Azure, 行動, Xamarin.Android" description="了解如何驗證和修改從 Xamarin.Android 應用程式使用伺服器指令碼傳送的資料。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" services="mobile-services"  title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="donnam" />
 
@@ -135,7 +135,7 @@
 										 item.CreatedAt != null)
 								  .ToListAsync();
 
-	This method updates the query to also filter out items that do not have a timestamp value.
+	此方法會更新查詢，篩選出沒有時間戳記的項目。
 	
 6. 在 [**執行**] 功能表中，按一下 [**執行**] 以啟動應用程式。
 

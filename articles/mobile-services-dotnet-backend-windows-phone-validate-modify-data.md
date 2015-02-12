@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="使用 .Net 後端驗證與修改資料 (Windows Phone 8) | 行動開發人員中心" metaKeywords="" description="了解如何使用 .Net 後端 Windows Azure 行動服務驗證、修改和增加 Windows Phone 應用程式的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate and Modify Data" pageTitle="使用 .Net 後端驗證與修改資料 (Windows Phone 8) | 行動開發人員中心" metaKeywords="" description="了解如何使用 .Net 後端 Windows Azure 行動服務驗證、修改和增加 Windows Phone 應用程式的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -18,12 +18,12 @@
 
 本教學課程以先前的教學課程[將行動服務新增至現有的應用程式](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須先完成此教學課程。  
 
-## <a name="string-length-validation"></a>Add validation
+## <a name="string-length-validation"></a>新增驗證
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 
-## <a name="update-client-validation"></a>Update the client
+## <a name="update-client-validation"></a>更新用戶端
 
 現在，行動服務已經過設定而會驗證資料，並針對無效的文字長度傳送錯誤回應，您必須更新應用程式以便處理驗證的錯誤回應。用戶端應用程式呼叫 `IMobileServiceTable<TodoItem].InsertAsync()` 時所產生的錯誤會顯示為 `MobileServiceInvalidOperationException`。
 
@@ -59,7 +59,7 @@
 
 	此版本的方法包含會在訊息方塊中顯示錯誤回應的 **MobileServiceInvalidOperationException**。
 
-## <a name="test-length-validation"></a>Test Length Validation
+## <a name="test-length-validation"></a>測試長度驗證
 
 1. 在 Visual Studio 中，設定所需的 Windows Phone 部署目標。接著，在 [方案總管] 視窗中，以滑鼠右鍵按一下用戶端應用程式專案，然後按一下 [**偵錯**]、[**開始新執行個體**]。
 
@@ -71,7 +71,7 @@
 
     ![][2]
 
-## <a name="add-timestamp"></a>Add a timestamp field for CompleteDate
+## <a name="add-timestamp"></a>新增 CompleteDate 的時間戳記欄位
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 

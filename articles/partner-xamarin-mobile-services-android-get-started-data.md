@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="開始使用資料 (Xamarin.Android) - Azure 行動服務 " metaKeywords="Azure Xamarin.Android 資料, Azure 行動服務資料" description="了解如何儲存和存取 Azure 行動服務 Xamarin.Android 應用程式的資料。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services" documentationCenter="Mobile" authors="donnam" manager="dwrede" services="mobile-services" />
+<properties urlDisplayName="Get Started with Data" pageTitle="開始使用資料 (Xamarin.Android) - Azure 行動服務 " metaKeywords="Azure Xamarin.Android 資料, Azure 行動服務資料" description="了解如何儲存和存取 Azure 行動服務 Xamarin.Android 應用程式的資料。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services" documentationCenter="Mobile" authors="donnam" manager="dwrede" services="mobile-services" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="donnam" />
 
@@ -74,7 +74,7 @@
 
     <div class="dev-callout"> 
 	<b>注意</b> 
-	<p>行動服務快速入門中使用相同的資料表名稱。However, each table is created in a schema that is specific to a given mobile service.目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。</p> 
+	<p>行動服務快速入門中使用相同的資料表名稱。不過，會在指定行動服務特定的結構描述中建立每個資料表。目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。</p> 
 	</div>
 
 4. 按一下新的 **TodoItem** 資料表，並驗證其中不含資料列。

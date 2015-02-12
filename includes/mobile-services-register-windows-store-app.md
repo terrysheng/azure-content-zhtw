@@ -7,7 +7,7 @@
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-name.png)
 
-   	This creates a new Windows Store registration for your app.
+  	這會為您的應用程式建立新的 Windows 市集註冊。
 
 3. 在 Visual Studio 中，開啟您完成[開始使用行動服務]教學課程時所建立的專案。
 

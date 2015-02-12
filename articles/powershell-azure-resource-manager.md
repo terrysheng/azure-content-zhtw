@@ -1,4 +1,4 @@
-<properties pageTitle="透過資源管理員使用 Windows PowerShell" metaKeywords="ResourceManager, PowerShell, Azure PowerShell" description="使用 Windows PowerShell 以建立資源群組" metaCanonical="" services="" documentationCenter="" title="Using Windows PowerShell with Resource Manager" authors="stevenka; juneb" solutions="" manager="stevenka" editor="mollybos" />
+<properties pageTitle="Using Windows PowerShell with Resource Manager" metaKeywords="ResourceManager, PowerShell, Azure PowerShell" description="Use Windows PowerShell to create a resource group" metaCanonical="" services="" documentationCenter="" title="Using Windows PowerShell with Resource Manager" authors="stevenka; juneb" solutions="" manager="stevenka" editor="mollybos" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka; juneb" />
 
@@ -88,11 +88,11 @@ Azure 和 Azure 資源管理員模組並非設計用於相同的 Windows PowerSh
     Stop-AzureResourceGroupDeployment      Cancels a resource group deployment
     Test-AzureResourceGroupTemplate        Detects errors in a resource group template or template parameters
 
-To get full help for a cmdlet, type a command with the format:
+若要取得完整的 cmdlet，請輸入以下格式的命令：
 
     Get-Help <cmdlet-name> -Full
 
-Beispiel:
+例如，如需取得 Add-AzureAccount Cmdlet 的說明，請輸入：
 
     Get-Help Get-AzureLocation -Full
 
@@ -326,7 +326,7 @@ Windows PowerShell 會完成參數名稱。若要循環顯示參數名稱，請�
     (Type !? for Help.)
     administratorLoginPassword: **********
 
-**New-AzureResourcGroup** returns the resource group that it created and deployed.Here is the output of the command, including the verbose output.
+**New-AzureResourcGroup** 會傳回建立和部署的資源群組命令。.以下是命令輸出，包括詳細資訊輸出。
 
     VERBOSE: 3:47:30 PM - Create resource group 'TestRG' in location 'East Asia'
     VERBOSE: 3:47:30 PM - Template is valid.

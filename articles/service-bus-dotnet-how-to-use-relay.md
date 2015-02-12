@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Relay" pageTitle="如何使用服務匯流排轉送 (.NET) - Azure" metaKeywords="開始使用 Azure 服務匯流排轉送 C# " description="了解如何使用 Azure 服務匯流排轉送服務來連線裝載在不同位置的兩個應用程式。" metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Service Bus Relay" pageTitle="如何使用服務匯流排轉送 (.NET) - Azure" metaKeywords="開始使用 Azure 服務匯流排轉送 C# " description="了解如何使用 Azure 服務匯流排轉送服務來連線裝載在不同位置的兩個應用程式。" metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -16,7 +16,7 @@
 
 <h2>什麼是服務匯流排轉送</h2>
 
-服務匯流排「轉送」****服務可讓您建立一個可在 Azure 資料中心和您自己的內部部署企業環境中執行的「混合式應用程式」**。服務匯流排轉送可幫助達成此目標，方法是讓您以安全的方式，向公用雲端公開位於企業網路內部的 Windows Communication Foundation (WCF) 服務，而無需開啟防火牆連線或要求對企業網路基礎結構的進行侵入式變更。
+服務匯流排「轉送」服務可讓您建立一個可在 Azure 資料中心和您自己的內部部署企業環境中執行的「混合式應用程式」。服務匯流排轉送可幫助達成此目標，方法是讓您以安全的方式，向公用雲端公開位於企業網路內部的 Windows Communication Foundation (WCF) 服務，而無需開啟防火牆連線或要求對企業網路基礎結構的進行侵入式變更。
 
 ![Relay Concepts](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
@@ -33,13 +33,13 @@
 1.  登入 [Azure 管理入口網站][]。
 
 2.  在管理入口網站的左側瀏覽窗格中，按一下 [
-    [服務匯流排]****。
+    [服務匯流排]。
 
-3.  在管理入口網站的下方窗格中，按一下 [建立]****。   
+3.  在管理入口網站的下方窗格中，按一下 [建立]。   
 
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
-4.  在 [新增命名空間] ****對話方塊中，輸入命名空間名稱。
+4.  在 [新增命名空間] 對話方塊中，輸入命名空間名稱。
     系統會立即檢查此名稱是否可用。   
 
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
@@ -47,19 +47,19 @@
 
 5.  確定命名空間名稱可用之後，請選擇要代管命名空間的國家或區域 (必須使用您要部署運算資源的相同國家/區域)。
 
-	重要事項：請挑選您想要選擇來部署應用程式的「相同區域」****。這樣可以獲得最佳效能。
+	重要事項：請挑選您想要選擇來部署應用程式的「相同區域」。這樣可以獲得最佳效能。
 
 6.	按一下打勾記號。此時系統會建立並啟用服務命名空間。系統為帳戶提供資源時，您可能需要等幾分鐘。
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
 
-	您建立的命名空間就會出現在管理入口網站中，稍待片刻就會生效。等到狀態變成 [作用中] ****之後再繼續。
+	您建立的命名空間就會出現在管理入口網站中，稍待片刻就會生效。等到狀態變成 [作用中] 之後再繼續。
 
 ##取得命名空間的預設管理認證
 
 若要在新的命名空間上執行管理作業 (例如建立轉送連線)，您必須為命名空間設定共用存取簽章 (SAS) 授權規則。如需 SAS 的詳細資訊，請參閱[使用服務匯流排的共用存取簽章驗證][]。
 
-1.  在左側瀏覽窗格中，按一下 [服務匯流排] ****節點，以顯示可用的命名空間清單：   
+1.  在左側瀏覽窗格中，按一下 [服務匯流排] 節點，以顯示可用的命名空間清單：   
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
 
@@ -67,7 +67,7 @@
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
 
 
-3.  按一下頁面頂端的 [設定] ****索引標籤。   
+3.  按一下頁面頂端的 [設定] 索引標籤。   
  
 4.  佈建完服務匯流排命名空間後，預設會建立一個 **KeyName** 設為 **RootManageSharedAccessKey** 的 **SharedAccessAuthorizationRule**。此頁面會顯示該金鑰以及預設規則的主要和次要金鑰。 
 
@@ -77,8 +77,8 @@
 
 若要在應用程式中安裝 NuGet 封裝，請執行下列動作：
 
-1.  在 [方案總管] 中，以滑鼠右鍵按一下 [參照]****，然後按一下 [管理 NuGet 封裝]****。
-2.  搜尋 "WindowsAzure" 並選取 [Azure 服務匯流排]**** 項目。按一下 [安裝] ****完成安裝作業，然後關閉此對話方塊。
+1.  在 [方案總管] 中，以滑鼠右鍵按一下 [參照]，然後按一下 [管理 NuGet 封裝]。
+2.  搜尋 "WindowsAzure" 並選取 [Azure 服務匯流排] 項目。按一下 [安裝] 完成安裝作業，然後關閉此對話方塊。
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
   
@@ -92,7 +92,7 @@
 開始下面的步驟之前，請完成下列設定環境的程序：
 
 1.  在 Visual Studio 中，建立解決方案中包含兩個專案 ("Client" 和 "Service") 的主控台應用程式。
-2.  對兩個專案新增 [Azure 服務匯流排 NuGet] ****封裝。     這會將所有必要組件參照新增至您的專案。
+2.  對兩個專案新增 [Azure 服務匯流排 NuGet] 封裝。     這會將所有必要組件參照新增至您的專案。
 
 ### 如何建立服務
 
@@ -248,7 +248,7 @@ With the contract in place, the implementation is trivial:
 
 #後續步驟
 
-了解服務匯流排「轉送」****服務的基本概念後，請參考
+了解服務匯流排「轉送」服務的基本概念後，請參考
 下列連結以取得更多資訊。
 
 -   建立服務：[建立服務匯流排的服務][]。

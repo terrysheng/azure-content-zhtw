@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate Data - Android" pageTitle="使用伺服器指令碼驗證與修改資料 (Android) | 行動開發人員中心" metaKeywords="" description="了解如何驗證和修改從 Android 應用程式使用伺服器指令碼傳送的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate Data - Android" pageTitle="使用伺服器指令碼驗證與修改資料 (Android) | 行動開發人員中心" metaKeywords="" description="了解如何驗證和修改從 Android 應用程式使用伺服器指令碼傳送的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="ricksal" />
 
@@ -151,7 +151,7 @@
 			createdAtText = formatter.format(currentItem.getCreatedAt());
 		}
 
-   	This generates a formatted date string when a timestamp value exists. 
+  	如此一來，若有時間戳記，則會產生格式化的日期字串。 
 
 7. 找出程式碼 `checkBox.setText(currentItem.getText());`，並將此程式碼行取代為下列內容：
 

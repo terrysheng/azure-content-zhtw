@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Add paging to data" pageTitle="在資料中加入分頁 (iOS) | 行動開發人員中心" metaKeywords="" description="了解如何使用分頁來管理行動服務傳回您 iOS 應用程式的資料量。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="krisragh" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Add paging to data" pageTitle="在資料中加入分頁 (iOS) | 行動開發人員中心" metaKeywords="" description="了解如何使用分頁來管理行動服務傳回您 iOS 應用程式的資料量。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
@@ -24,7 +24,7 @@ W
 
         - (void)refreshDataOnSuccess:(QSCompletionBlock)completion
 
-   	Replace the body of the entire method with the following code.
+   	以下列程式碼取代整個方法的主體。
 
         // Create a predicate that finds active items in which complete is false
         NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
@@ -54,7 +54,7 @@ W
             completion();
         }];
 
-   	This query returns the top three items that are not marked as completed.
+   此查詢會傳回前三個未標示為已完成的項目。
 
 5. 重新建置並啟動應用程式。
 

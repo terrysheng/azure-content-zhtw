@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="開始使用資料 (WP8) - Azure 行動服務" metaKeywords="" description="了解如何開始使用來自您的 Azure 行動服務 Windows Phone 8 應用程式的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="開始使用資料 (WP8) - Azure 行動服務" metaKeywords="" description="了解如何開始使用來自您的 Azure 行動服務 Windows Phone 8 應用程式的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga" />
 
@@ -130,7 +130,7 @@
 
          await todoTable.UpdateAsync(item);
 
-   	This sends an item update to the mobile service.
+   	這會將項目更新傳送至行動服務。
 
 應用程式現已更新為使用行動服務進行後端儲存，我們可以開始在行動服務中測試應用程式。
 

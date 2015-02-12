@@ -65,7 +65,7 @@ Azure 網站還原功能可讓您隨需將網站還原至先前的狀態，或�
 
     如果您選取 [新的網站執行個體]，將會在與您所指定名稱相同的地區中建立新的網站。(依預設，新名稱為 **restored-**<i>oldWebSiteName</i>。)
 
-    The site that you restore will contain the same content and configuration that were made in the portal for the original site.It will also include any databases that you choose to include in the next step.
+    您還原的網站將會包含和原始網站的入口網站中相同的內容和設定。同時也包含任何您選擇要在下一個步驟中納入的資料庫。
 
 2.  如果您要連同網站一起還原資料庫，請在 [包含的資料庫] 下，使用 [還原為] 下的下拉式清單選取資料庫所要還原到的資料庫伺服器名稱。您也可以選擇建立新的資料庫伺服器作為還原目的地，或選擇 [Don't Restore] 而不還原資料庫 (此為預設值)。
 

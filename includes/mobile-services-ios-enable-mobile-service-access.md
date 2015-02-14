@@ -1,5 +1,5 @@
 
-您的行動服務已準備就緒，現在可以更新應用程式以便在行動服務 (而非本機收集) 中儲存項目。
+您的行動服務已準備就緒，現在可以更新應用程式以便在行動服務 (而非本機集合) 中儲存項目。
 
 1. 如果您尚未安裝 [Mobile Services iOS SDK](https://go.microsoft.com/fwLink/p/?LinkID=266533)，請立即安裝。安裝之後，複製 WindowsAzureMobileServices.framework 目錄，並覆寫已下載的專案中包含的 WindowsAzureMobileServices.framework 目錄。如此一來，您會使用最新的 Azure Mobile Services SDK。
 
@@ -17,15 +17,15 @@
 
         // TODO - create an MSTable property for your items
 
-   	在這個註解之後, 在 @interface 宣告內加入以下程式碼行:
+   	在此註解之後，新增 @interface 宣告內的下列程式碼行：
 
         @property (nonatomic, strong)   MSTable *table;
 
-  	這將建立行動服務資料表的代表屬性。
+   	這將建立行動服務資料表的代表屬性。
 
-4. 在管理入口網站中，按一下 [**行動服務**]，然後按一下您剛剛建立的行動服務。
+4. 在「管理入口網站」中，按一下 **[行動服務]**，然後按一下您剛剛建立的行動服務。
 
-5. 按一下 [**儀表板**] 索引標籤並記下 [**網站 URL**]，然後按一下 [**管理金鑰**] 並記下 [**應用程式索引金鑰**]。
+5. 按一下 **[儀表板]** 索引標籤並記下 **[網站 URL]**，然後按一下 ***[管理金鑰]** 並記下 **[應用程式金鑰]**。
 
    	![](./media/mobile-services-ios-enable-mobile-service-access/mobile-dashboard-tab.png)
 
@@ -61,7 +61,7 @@
 
         NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
-    這會建立查詢以傳回所有尚未完成的工作。
+    這會建立傳回尚未完成之所有工作的查詢。
 
 10. 尋找下列已加上註解的程式碼行：
 
@@ -88,7 +88,7 @@
 
     此程式碼會傳送插入要求給行動服務。
 
-12. 尋找 **completeItem** 方法，並找出下列加上註解的程式碼行：
+12. 尋找 **completeItem** 方法，並找出下列已加上註解的程式碼行：
 
         // Update the item in the TodoItem table and remove from the items array on completion
 
@@ -131,3 +131,4 @@
 
 
 應用程式現已更新為使用行動服務進行後端儲存，我們可以開始在行動服務中測試應用程式。
+<!--HONumber=42-->

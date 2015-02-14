@@ -1,12 +1,26 @@
-<properties urlDisplayName="Table Service" pageTitle="如何使用資料表儲存體 (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="如何在 Azure 中使用資料表儲存體服務。程式碼範例以 Java 程式碼撰寫。" metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="robmcm" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="如何使用資料表儲存體 (Java) | Microsoft Azure" 
+	description="如何在 Azure 中使用資料表儲存體服務。程式碼範例以 Java 程式碼撰寫。" 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # 如何使用 Java 的資料表儲存體
 
-本指南將示範如何使用 Azure 資料表儲存體服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][]。涵蓋的案例包括**建立**、**列出**和**刪除**資料表，以及**插入**、**查詢**、**修改**和**刪除**資料表中的項目。如需資料表的詳細資訊，請參閱[後續步驟](#NextSteps) 一節。
+本指南將示範如何使用 Azure 資料表儲存體服務執行一般案例。這些範例是以 Java 撰寫，並使用[適用於 Java 的 Azure 儲存體 SDK][]。涵蓋的案例包括「建立」、「列出」和「刪除」資料表，以及「插入」、「查詢」、「修改」和「刪除」資料表中的實體。如需有關資料表的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
 
-注意：有一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。如需詳細資訊，請參閱 [Azure Storage SDK for Android][]。 
+注意：有一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。如需詳細資訊，請參閱[適用於 Android 的 Azure 儲存體 SDK][]。 
 
 ## <a name="Contents"> </a>目錄
 
@@ -16,31 +30,31 @@
 * [建立 Java 應用程式](#CreateApplication)
 * [設定您的應用程式來存取資料表儲存體](#ConfigureStorage)
 * [設定 Azure 儲存體連接字串](#ConnectionString)
-* [作法：建立資料表](#CreateTable)
-* [作法：列出資料表](#ListTables)
-* [作法：將實體加入至資料表](#AddEntity)
-* [作法：插入實體批次](#InsertBatch)
-* [作法：擷取資料分割中的所有實體](#RetrieveEntities)
-* [作法：擷取資料分割中某個範圍的實體](#RetrieveRange)
-* [作法：擷取單一實體](#RetriveSingle)
-* [作法：修改實體](#ModifyEntity)
-* [作法：查詢實體屬性的子集](#QueryProperties)
-* [作法：插入或取代實體](#InsertOrReplace)
-* [作法：刪除實體](#DeleteEntity)
-* [作法：刪除資料表](#DeleteTable)
+* [做法：建立資料表](#CreateTable)
+* [做法：列出資料表](#ListTables)
+* [做法：將實體加入至資料表](#AddEntity)
+* [做法：插入實體批次](#InsertBatch)
+* [做法：擷取資料分割中的所有實體](#RetrieveEntities)
+* [做法：擷取資料分割中某個範圍的實體](#RetrieveRange)
+* [做法：擷取單一實體](#RetriveSingle)
+* [做法：修改實體](#ModifyEntity)
+* [做法：查詢實體屬性的子集](#QueryProperties)
+* [做法：插入或取代實體](#InsertOrReplace)
+* [做法：刪除實體](#DeleteEntity)
+* [做法：刪除資料表](#DeleteTable)
 * [後續步驟](#NextSteps)
 
-[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
+[AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ##<a name="CreateAccount"></a>建立 Azure 儲存體帳戶
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"></a>建立 Java 應用程式
 
 在本指南中，您將使用儲存體功能，這些功能可執行於本機的 Java 應用程式內，也可執行於在 Azure 中之 Web 角色或背景工作角色內執行的程式碼中。
 
-若要這樣做，您需要安裝 Java Development Kit (JDK)，並在 Azure 訂用帳戶中建立 Azure 儲存體帳戶。完成此動作之後，您需要驗證開發系統符合 GitHub 上的 [Azure Storage SDK for Java][] 儲存機制中所列出的最低需求和相依性。如果系統符合這些需求，則您可以依照指示，從該儲存機制中下載 Azure Storage Libraries for Java 並安裝在系統上。完成這些工作之後，您就能夠利用本文中的範例來建立 Java 應用程式。
+若要這樣做，您需要安裝 Java Development Kit (JDK)，並在 Azure 訂用帳戶中建立 Azure 儲存體帳戶。完成此動作之後，您將需要驗證開發系統是否符合 GitHub 上[適用於 Java 的 Azure 儲存體 SDK][]儲存機制中所列出的最低需求和相依性。如果系統符合這些需求，則您可以依照指示，從該儲存機制中下載 Azure Storage Libraries for Java 並安裝在系統上。完成這些工作之後，您就能夠利用本文中的範例來建立 Java 應用程式。
 
 ## <a name="ConfigureStorage"> </a>設定您的應用程式來存取資料表儲存體
 
@@ -53,7 +67,7 @@
 
 ## <a name="ConnectionString"> </a>設定 Azure 儲存體連接字串
 
-Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。在用戶端應用程式中執行時，您必須以下列格式提供儲存體連接字串 (其中的 *AccountName* 和 *AccountKey* 值要使用您儲存體帳戶的名稱，以及在管理入口網站中針對該儲存體帳戶而列出的主要存取金鑰)。本範例將示範如何宣告靜態欄位來存放連接字串：
+Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。在用戶端應用程式中執行時，您必須以下列格式提供儲存體連接字串，其中使用您儲存體帳戶的名稱及「管理入口網站」中列出的該儲存體帳戶主要存取金鑰，做為  *AccountName* 和  *AccountKey* 的值。本範例將示範如何宣告靜態欄位來存放連接字串：
 
     // Define the connection-string with your values.
     public static final String storageConnectionString = 
@@ -61,7 +75,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         "AccountName=your_storage_account;" + 
         "AccountKey=your_storage_account_key";
 
-在 Microsoft Azure 的角色內執行的應用程式中，此字串可以儲存在服務組態檔 ServiceConfiguration.cscfg 裡，且可以藉由呼叫 **RoleEnvironment.getConfigurationSettings** 方法來存取。以下是從服務組態檔中名為 StorageConnectionString 的 **Setting** 元素取得連接字串的範例：
+在於 Microsoft Azure 的角色內執行的應用程式中，此字串可以儲存在 *ServiceConfiguration.cscfg* 服務組態檔裡，並且只要呼叫 **RoleEnvironment.getConfigurationSettings** 方法即可存取此字串。以下是從服務組態檔中名為  *StorageConnectionString* 的 **Setting** 元素取得連接字串的範例：
 
     // Retrieve storage account from connection-string.
     String storageConnectionString = 
@@ -69,9 +83,11 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 下列範例假設您已經使用這兩個方法之一來取得儲存體連接字串。
 
-## <a name="CreateTable"> </a>作法：建立資料表
+## <a name="CreateTable"> </a>做法：建立資料表
 
-**CloudTableClient** 物件可讓您取得資料表和實體的參照物件。下列程式碼會建立 **CloudTableClient** 物件，並使用此物件建立新的 **CloudTable** 物件，以代表一個名為 "people" 的資料表。(注意：還有其他方法可建立 **CloudStorageAccount** 物件。如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考] (英文) 中的 **CloudStorageAccount**)。
+**CloudTableClient** 物件可讓您取得資料表和實體的參考物件
+。下列程式碼會建立 **CloudTableClient** 物件，
+並使用此物件來建立新的 **CloudTable** 物件，以代表一個名為 "people" 的資料表。(注意：還有其他方法可建立 **CloudStorageAccount** 物件；如需詳細資訊，請參閱 [Azure 儲存體用戶端 SDK 參考]中的 **CloudStorageAccount**。)
 
     try
     {
@@ -93,7 +109,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         e.printStackTrace();
     }
 
-## <a name="ListTables"></a>作法：列出資料表
+## <a name="ListTables"></a>做法：列出資料表
 
 若要取得資料表清單，請呼叫 **CloudTableClient.listTables()** 方法來擷取可逐一查看的資料表名稱清單。
 
@@ -119,9 +135,9 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         e.printStackTrace();
     }
 
-## <a name="AddEntity"> </a>作法：將實體加入至資料表
+## <a name="AddEntity"> </a>做法：將實體加入至資料表
 
-將實體對應至 Java 物件，是透過一個實作 **TableEntity** 的自訂類別進行。為了方便起見，**TableServiceEntity** 類別會實作 **TableEntity**，並使用反映將屬性對應至為屬性指定的 Getter 和 Setter 方法。若要將實體新增至資料表，請先建立一個類別來定義實體的屬性。下列程式碼會定義一個使用客戶名字做為資料列索引鍵、並使用姓氏做為資料分割索引鍵的實體類別。實體的資料分割索引鍵和資料列索引鍵共同唯一識別資料表中的實體。相較於查詢具有不同資料分割索引鍵的實體，查詢具有相同資料分割索引鍵的實體速度會較快。
+實體會使用實作 **TableEntity** 的自訂類別來對應至 Java 物件。為了方便起見，**TableServiceEntity** 類別會實作 **TableEntity**，並使用反映將屬性對應至為屬性指定的 Getter 和 Setter 方法。若要將實體新增至資料表，請先建立一個類別來定義實體的屬性。下列程式碼會定義一個使用客戶名字做為資料列索引鍵、並使用姓氏做為資料分割索引鍵的實體類別。實體的資料分割索引鍵和資料列索引鍵共同唯一識別資料表中的實體。相較於查詢具有不同資料分割索引鍵的實體，查詢具有相同資料分割索引鍵的實體速度會較快。
 
     public class CustomerEntity extends TableServiceEntity {
         public CustomerEntity(String lastName, String firstName) {
@@ -151,7 +167,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         }
     }
 
-涉及實體的資料表操作需要 **TableOperation** 物件。此物件定義了要在實體上執行的操作，而該操作可由 **CloudTable** 物件執行。下列程式碼會建立 **CustomerEntity** 類別的新執行個體，其中含有一些要儲存的客戶資料。程式碼接著會呼叫 **TableOperation.insertOrReplace** 來建立將實體插入資料表中的 **TableOperation** 物件，然後將新的 **CustomerEntity** 與該物件建立關聯。最後，程式碼會呼叫 **CloudTable** 物件上的 **execute** 方法，其中指定 "people" 資料表和新的 **TableOperation**，而後者就會傳送要求給儲存體服務，以將新的客戶實體插入 "people" 資料表中。
+涉及實體的資料表操作需要 **TableOperation** 物件。此物件定義了要在實體上執行的操作，而該操作可藉由 **CloudTable** 物件來執行。下列程式碼會建立 **CustomerEntity** 類別的新執行個體，其中含有一些要儲存的客戶資料。此程式碼接著會呼叫 **TableOperation.insertOrReplace** 來建立將實體插入資料表中的 **TableOperation** 物件，然後將新的 **CustomerEntity** 與其建立關聯。最後，此程式碼會呼叫 **CloudTable** 物件上的 **execute** 方法，其中指定 "people" 資料表和新的 **TableOperation**，而後者就會傳送要求給儲存體服務，以將新的客戶實體插入 "people" 資料表中，如果實體已經存在，則會取代它。
 
     try
     {
@@ -182,9 +198,9 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         e.printStackTrace();
     }
 
-## <a name="InsertBatch"> </a>作法：插入實體批次
+## <a name="InsertBatch"> </a>做法：插入實體批次
 
-您可以在單一寫入操作中，插入實體批次至資料表服務。下列程式碼會建立一個 **TableBatchOperation** 物件，然後在其中新增三個插入操作。加入每個插入操作的方式都是建立新的實體物件、設定其值，然後呼叫 **TableBatchOperation** 物件上的 **insert** 方法以將實體與新的插入操作建立關聯。然後，程式碼會呼叫 **CloudTable** 物件上的 **execute**，其中指定 "people" 資料表和 **TableBatchOperation** 物件，而後者就會以單一要求將整批資料表操作傳送給儲存體服務。
+您可以在單一寫入操作中，插入實體批次至資料表服務。下列程式碼會建立一個 **TableBatchOperation** 物件，然後在其中新增三個插入操作。新增每個插入操作時都是透過下列方式：建立新實體物件、設定其值，然後呼叫 **TableBatchOperation** 物件上的 **insert** 方法以將實體與新的插入操作建立關聯。然後，程式碼會呼叫 **CloudTable** 物件上的 **execute**，其中指定 "people" 資料表和 **TableBatchOperation** 物件，而後者就會以單一要求將整批資料表操作傳送給儲存體服務。
 
     try
     {
@@ -235,9 +251,9 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 - 單一批次操作中的所有實體必須具有相同的資料分割索引鍵。
 - 一個批次操作的資料裝載限制為 4MB。
 
-## <a name="RetrieveEntities"> </a>作法：擷取資料分割中的所有實體
+## <a name="RetrieveEntities"> </a>做法：擷取資料分割中的所有實體
 
-若要查詢資料表以取得某個資料分割中的實體，可以使用 **TableQuery**。呼叫 **TableQuery.from** 可在特定資料表上建立傳回指定結果類型的查詢。下列程式碼會指定篩選器來篩選出資料分割索引鍵為 'Smith' 的實體。**TableQuery.generateFilterCondition** 是一個用來建立查詢篩選器的 Helper 方法。在 **TableQuery.from** 方法傳回的參考上呼叫 **where**，可將篩選器套用至查詢。當呼叫 **CloudTable** 物件上的 **execute** 來執行查詢時，會傳回一個指定了 **CustomerEntity**  結果類型的 **CustomerEntity**Iterator。然後，您便可以將傳回的 **Iterator** 用於 for each 迴圈中以取用結果。此程式碼會將查詢結果中每個實體的欄位列印至主控台。
+若要查詢資料表以取得某個資料分割中的實體，可以使用 **TableQuery**。呼叫 **TableQuery.from** 可在特定資料表上建立傳回指定結果類型的查詢。下列程式碼會指定篩選器來篩選出資料分割索引鍵為 'Smith' 的實體。**TableQuery.generateFilterCondition** 是一個用來建立查詢篩選器的 Helper 方法。在 **TableQuery.from** 方法傳回的參考上呼叫 **where**，即可將篩選器套用至查詢。當呼叫 **CloudTable** 物件上的 **execute** 來執行查詢時，會傳回一個指定了 **CustomerEntity** 結果類型的 **Iterator**。然後，您便可以將傳回的 **Iterator** 用於 for each 迴圈中以取用結果。此程式碼會將查詢結果中每個實體的欄位列印至主控台。
 
     try
     {
@@ -281,7 +297,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         e.printStackTrace();
     }
 
-## <a name="RetrieveRange"> </a>作法：擷取資料分割中某個範圍的實體
+## <a name="RetrieveRange"> </a>做法：擷取資料分割中某個範圍的實體
 
 如果您不想要查詢資料分割中的所有實體，可以在篩選器中使用比較運算子來指定範圍。下列程式碼會結合兩個篩選器，以取得 "Smith" 資料分割中資料列索引鍵 (名字) 開頭為字母 A 到 E 的所有實體。然後列印查詢結果。如果您使用在本指南批次插入小節中新增至資料表的實體，則這時只會傳回兩個實例 (Ben Smith 及 Denise Smith)；Jeff Smith 不在其中。
 
@@ -338,9 +354,9 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         e.printStackTrace();
     }
 
-## <a name="RetriveSingle"> </a>作法：擷取單一實體
+## <a name="RetriveSingle"> </a>做法：擷取單一實體
 
-您可以撰寫查詢來擷取單一特定實體。下列程式碼會呼叫含資料分割索引鍵和資料列索引鍵參數 (以指定客戶 "Jeff Smith") 的 **TableOperation.retrieve**，而不是建立 **TableQuery** 並使用篩選器來達到同樣的目的。執行時，擷取操作只會傳回一個實體，而不是傳回一個集合。**getResultAsType** 方法會將結果轉換成指派目標 **(CustomerEntity 物件)** 的類型。如果此類型與指定給查詢的類型不相容，將會擲回例外狀況。如果沒有實體具有完全相符的資料分割和資料列索引鍵，則會傳回 Null 值。若要從資料表服務中擷取單一實體，最快的方法是在查詢中同時指定資料分割索引鍵和資料列索引鍵。
+您可以撰寫查詢來擷取單一特定實體。下列程式碼會以資料分割索引鍵和資料列索引鍵參數指定客戶 "Jeff Smith" 來呼叫 **TableOperation.retrieve**，而不是建立 **TableQuery** 並使用篩選器來執行同樣的操作。執行時，擷取操作只會傳回一個實體，而不是傳回一個集合。**getResultAsType** 方法會將結果轉換成指派目標 (**CustomerEntity** 物件) 的類型。如果此類型與指定給查詢的類型不相容，將會擲回例外狀況。如果沒有實體具有完全相符的資料分割和資料列索引鍵，則會傳回 Null 值。若要從資料表服務中擷取單一實體，最快的方法是在查詢中同時指定資料分割索引鍵和資料列索引鍵。
 
     try
     {
@@ -377,7 +393,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         e.printStackTrace();
     }
 
-## <a name="ModifyEntity"> </a>作法：修改實體
+## <a name="ModifyEntity"> </a>做法：修改實體
 
 若要修改實體，請從資料表服務擷取它，對實體物件進行變更，然後以取代或合併操作將變更儲存回資料表服務。下列程式碼會變更現有客戶的電話號碼。不像我們之前為了執行插入而呼叫 **TableOperation.insert**，這個程式碼會呼叫 **TableOperation.replace**。**CloudTable.execute** 方法會呼叫資料表服務，然後實體就會被取代，除非有另一個應用程式在此應用程式擷取它後的這段時間變更了這個實體。發生此情況時，系統會擲回例外狀況，且必須重新擷取、修改及儲存實體。這種開放式並行存取重試模式在分散式儲存體系統中相當常見。
 
@@ -416,9 +432,9 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         e.printStackTrace();
     }
 
-## <a name="QueryProperties"> </a>作法：查詢實體屬性的子集
+## <a name="QueryProperties"> </a>做法：查詢實體屬性的子集
 
-一項資料表查詢可以只擷取實體的少數屬性。這項稱為「投射」的技術可減少頻寬並提高查詢效能 (尤其是對大型實體而言)。下列程式碼中的查詢會使用 **select** 方法，只傳回資料表中之實體的電子郵件地址。結果會在 **EntityResolver** (負責對從伺服器傳回的實體執行類型轉換) 的幫助下投影至 **String** 的集合中。您可以閱讀這篇[部落格文章][] (英文) 深入了解投射。請注意，投射並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。
+一項資料表查詢可以只擷取實體的少數屬性。這項稱為「投射」的技術可減少頻寬並提高查詢效能 (尤其是對大型實體而言)。下列程式碼中的查詢會使用 **select** 方法，而只傳回資料表中實體的電子郵件地址。結果會在 **EntityResolver** (負責對從伺服器傳回的實體執行類型轉換) 的幫助下投射至 **String** 的集合中。若要深入了解投射，請閱讀這篇[部落格文章][]。請注意，投射並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。
 
     try
     {
@@ -457,9 +473,9 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         e.printStackTrace();
     }
 
-## <a name="InsertOrReplace"> </a>作法：插入或取代實體
+## <a name="InsertOrReplace"> </a>做法：插入或取代實體
 
-您經常會想要新增實體至資料表，但不知道它是否已在資料表中。插入或取代實體允許您透過單一要求，如果實體不存在便插入它，若是存在則取代現有實體。以先前的範例為基礎，下列程式碼會插入或取代 "Walter Harp" 的實體。建立新實體之後，此程式碼會呼叫 **TableOperation.insertOrReplace** 方法。此程式碼接著會以資料表以及插入或取代資料表操作當作參數，在 **CloudTable** 物件上呼叫 **execute**。若只要更新實體的某一部分，可以改用 **TableOperation.insertOrMerge** 方法。請注意，插入或取代並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。您可以閱讀這篇[部落格文章][] (英文) 深入了解插入或取代，以及插入或合併。
+您經常會想要新增實體至資料表，但不知道它是否已在資料表中。插入或取代實體允許您透過單一要求，如果實體不存在便插入它，若是存在則取代現有實體。以先前的範例為基礎，下列程式碼會插入或取代 "Walter Harp" 的實體。建立新實體之後，此程式碼會呼叫 **TableOperation.insertOrReplace** 方法。此程式碼接著會以資料表及插入或取代資料表操作做為參數，呼叫 **CloudTable** 物件上的 **execute**。若只要更新實體的某一部分，可以改用 **TableOperation.insertOrMerge** 方法。請注意，插入或取代並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。若要深入了解插入或取代，以及插入或合併，請閱讀這篇[部落格文章][]。
 
     try
     {
@@ -490,9 +506,9 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         e.printStackTrace();
     }
 
-## <a name="DeleteEntity"> </a>作法：刪除實體
+## <a name="DeleteEntity"> </a>做法：刪除實體
 
-擷取實體之後，可以輕鬆地將它刪除。擷取實體之後，請以要刪除的實體呼叫 **TableOperation.delete**。然後在 **CloudTable** 物件上呼叫 **execute**。下列程式碼會擷取並刪除客戶實體。
+擷取實體之後，可以輕鬆地將它刪除。擷取實體之後，請以要刪除的實體呼叫 **TableOperation.delete**。然後呼叫 **CloudTable** 物件上的 **execute**。下列程式碼會擷取並刪除客戶實體。
 
     try
     {
@@ -525,7 +541,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
         e.printStackTrace();
     }
 
-## <a name="DeleteTable"> </a>作法：刪除資料表
+## <a name="DeleteTable"> </a>做法：刪除資料表
 
 最後，下列程式碼會從儲存體帳戶刪除資料表。刪除資料表後，將有一段時間無法重新建立該資料表，通常是 40 秒內。
 
@@ -552,18 +568,16 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 了解資料表儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
-- [Azure Storage SDK for Java]
+- [適用於 Java 的 Azure 儲存體 SDK]
 - [Azure 儲存體用戶端 SDK 參考]
 - [Azure 儲存體 REST API]
 - [Azure 儲存體團隊部落格]
 
 [Azure SDK for Java]: http://www.windowsazure.com/zh-tw/develop/java/
-[Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
-[Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
+[適用於 Java 的 Azure 儲存體 SDK]: https://github.com/azure/azure-storage-java
+[適用於 Android 的 Azure 儲存體 SDK]: https://github.com/azure/azure-storage-android
 [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
 [Azure 儲存體 REST API]: http://msdn.microsoft.com/zh-tw/library/azure/gg433040.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 [部落格文章]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

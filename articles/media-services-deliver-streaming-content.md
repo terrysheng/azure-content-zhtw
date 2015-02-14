@@ -1,11 +1,25 @@
-﻿<properties urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="如何從媒體服務傳遞串流內容 – Azure" metaKeywords="" description="了解如何使用直接 URL 從媒體服務傳遞串流內容。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to: Deliver streaming content" authors="juliako" manager="dwrede" />
+﻿<properties 
+	pageTitle="如何從媒體服務傳遞串流內容 - Azure" 
+	description="了解如何使用直接 URL 從媒體服務傳遞串流內容。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor="" 
+	services="media-services" 
+	documentationCenter=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
-#作法：傳遞串流內容
+# 作法：傳遞串流內容
 
-本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是[作法：透過下載來傳遞資產] (英文)(../media-services-deliver-asset-download/)。
+本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是＜[作法：透過下載來傳遞資產](../media-services-deliver-asset-download/)。
 
 除了從媒體服務下載媒體內容，您還可以使用調適性位元速率串流來傳遞內容。例如，您可以對媒體服務原始伺服器上的串流內容建立導向 URL，稱為定位器。用戶端應用程式 (例如 Microsoft Silverlight) 可以直接從定位器播放串流內容。
 
@@ -13,10 +27,10 @@
 
 建立串流內容的原始定位器：
 
-   1.取得資產中的串流資訊清單檔 (.ism) 的參考 
-   2.定義存取原則
-   3.呼叫 CreateLocator 方法來建立原始定位器 
-   4.建立資訊清單檔的 URL 
+   1. 取得資產中的串流資訊清單檔 (.ism) 的參考 
+   2. 定義存取原則
+   3. 呼叫 CreateLocator 方法來建立原始定位器 
+   4. 建立資訊清單檔的 URL 
 
 下列程式碼說明如何實作這些步驟：
 <pre><code>
@@ -76,6 +90,5 @@ private static ILocator GetStreamingOriginLocator( string targetAssetID)
 </ul>
 
 <h2>後續步驟</h2>
-目前為止，我們已說明從 Azure 儲存體和使用 Smooth Streaming 來傳遞資產。下一個主題[如何傳遞 HLS 內容](../media-services-deliver-http-live-streaming-content/) 討論如何使用 Apple HTTP 即時資料流 (HLS) 傳遞串流內容。
-
-<!--HONumber=35.1-->
+目前為止，我們已說明從 Azure 儲存體和使用 Smooth Streaming 來傳遞資產。下一個主題[如何傳遞 HLS 內容](../media-services-deliver-http-live-streaming-content/)將討論使用 Apple HTTP 即時資料流 (HLS) 來傳遞串流內容。
+<!--HONumber=42-->

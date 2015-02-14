@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="建立加密資產並上傳至儲存體 Azure" metaKeywords="" description="了解如何建立並上傳加密資產，以將媒體內容移至媒體服務中。" metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="建立加密資產並上傳至儲存體 Azure" 
+	description="了解如何建立並上傳加密資產，以將媒體內容移至媒體服務中。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
 <h1><a name="create-asset"> </a><span class="short header">作法：建立加密資產並上傳至儲存體</span></h1>
 
-本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是[進行電腦的媒體服務設定] (英文)(http://go.microsoft.com/fwlink/?LinkID=301751&clcid=0x409)。
+本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是[進行電腦的媒體服務設定](http://go.microsoft.com/fwlink/?LinkID=301751&clcid=0x409)。
 
 若要將媒體內容導入媒體服務中，請先建立資產並為其新增檔案，然後上傳資產。我們將此程序稱為嵌入內容。  
 
@@ -16,7 +30,7 @@
 - **AssetCreationOptions.CommonEncryptionProtected**：適用於 Common Encryption Protected (CENC) 檔案。例如，已使用 PlayReady 加密的一組檔案。 
 - **AssetCreationOptions.StorageEncrypted**：儲存加密。將尚未上傳至 Azure 儲存體的純文字輸入檔加密。
 
-> WACOM.NOTE
+> AZURE.NOTE
 > 媒體服務可為您的資產提供磁碟上的儲存體加密，而不是在線上加密，例如數位版權管理員 (DRM)。
 
 下方的範例程式碼會執行下列動作： 
@@ -85,7 +99,7 @@ static public IAsset CreateAssetAndUploadMultipleFiles( AssetCreationOptions ass
         throw new FileNotFoundException(String.Format("No files in directory, check folderPath: {0}", folderPath));
     }
 
-    var uploadTasks = new List<Task>();
+    var uploadTasks = new List&lt;Task&gt;();
     foreach (var filePath in filePaths)
     {
         var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
@@ -118,8 +132,7 @@ static void  blobTransferClient_TransferProgressChanged(object sender, BlobTrans
 </code></pre>
 
 <h2>後續步驟</h2>
-您已將資產上傳至媒體服務，現在請移至[如何取得媒體處理器][] (英文) 主題。
+您已將資產上傳至媒體服務，現在請移至[如何取得媒體處理器][]主題。
 
 [如何取得媒體處理器]: ../media-services-get-media-processor/
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

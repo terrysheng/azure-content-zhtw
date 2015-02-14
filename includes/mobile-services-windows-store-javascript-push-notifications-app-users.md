@@ -5,11 +5,11 @@
 
 在這個方法中，精靈會在專案中產生新的 push.register.js 和 service.js 檔案。
 
->[WACOM.NOTE][加入推播通知精靈] 目前僅支援 .NET 後端行動服務。
+>[AZURE.NOTE][加入推播通知精靈] 目前僅支援 .NET 後端行動服務。
 
-1. 在 Visual Studio 的 [方案總管] 中，開啟 push.register.js 專案檔，然後將 **addEventListener** 的呼叫標記為註解或加以刪除。 
+1. 在 Visual Studio 的 [方案總管] 中，開啟 push.register.js 專案檔，然後將對 **addEventListener** 的呼叫標記為註解或加以刪除。 
 
-2. 在 default.js 專案檔中，使用下列程式碼來取代現有的 **login** 函數：
+2. 在 default.js 專案檔中，使用下列程式碼來取代現有的 **login** 函式：
  
 		// Request authentication from Mobile Services using a Facebook login.
 		var login = function () {
@@ -41,7 +41,7 @@
 
 在這個方法中，您已將從教學課程取得的註冊程式碼直接新增到 default.js 專案檔。
 
-1. 在 Visual Studio 的 [方案總管] 中，開啟 default.js 專案檔，然後在 **onActivated** 事件處理常式中，找到呼叫 **createPushNotificationChannelForApplicationAsync** 函數的程式碼行，其看起來如下：
+1. 在 Visual Studio 的 [方案總管] 中，開啟 default.js 專案檔，然後在 **onActivated** 事件處理常式中，找到呼叫 **createPushNotificationChannelForApplicationAsync** 函式的程式碼行，其看起來如下：
 
 		// Request a push notification channel.
 		Windows.Networking.PushNotifications
@@ -52,7 +52,7 @@
 		        client.push.registerNative(channel.uri);
 		    }); 
  
-2. 將這行程式碼移至 **login** 函數，就在 **refreshTodoItems** 呼叫的正前方，如此一來，**login** 函數就會看起來如下所示：
+2. 將這行程式碼移至 **login** 函式，就在對 **refreshTodoItems** 之呼叫的正前方，讓 **login** 函式會看起來向下面這樣：
  
 		// Request authentication from Mobile Services using a Facebook login.
 		var login = function () {
@@ -79,3 +79,4 @@
 		        });
 		    });
 		}  
+<!--HONumber=42-->

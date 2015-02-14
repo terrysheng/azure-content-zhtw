@@ -1,6 +1,20 @@
-<properties urlDisplayName="Monitor Hadoop clusters  in HDInsight using the Ambari API" pageTitle="使用 Ambari API 監視 HDInsight 上的 Hadoop 叢集 | Azure" metaKeywords="" description="使用 Apache Ambari API 來佈建、管理和監視 Hadoop 叢集。Ambari 的直覺式操作工具和 API 可消除 Hadoop 的複雜性。" services="hdinsight" documentationCenter="" title="Monitor Hadoop clusters in HDInsight using the Ambari API" umbracoNaviHide="0" disqusComments="1" authors="jgao" editor="cgronlun" manager="paulettm" />
+<properties 
+	pageTitle="使用 Ambari API 監視 HDInsight 上的 Hadoop 叢集 | Azure" 
+	description="使用 Apache Ambari API 來佈建、管理和監視 Hadoop 叢集。Ambari 的直覺式操作工具和 API 可消除 Hadoop 的複雜性。" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	editor="cgronlun" 
+	manager="paulettm"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="jgao"/>
 
 # 使用 Ambari API 監視 HDInsight 上的 Hadoop 叢集
  
@@ -27,13 +41,13 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **已安裝並設定 Azure PowerShell 的**工作站。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install]。若要執行 PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[執行 Windows PowerShell 指令碼][powershell-script]。
+- 已安裝並設定 Azure PowerShell 的**工作站**。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install]。若要執行 PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[執行 Windows PowerShell 指令碼][powershell-script]。
 
 	[Curl][curl] 是選用項目。您可以從[這裡][curl-download]加以安裝。
 
-	>[WACOM.NOTE] 在 Windows 上使用 curl 命令時，對選項值請使用雙引號，而不要使用單引號。
+	>[AZURE.NOTE] 在 Windows 上使用 curl 命令時，對選項值請使用雙引號，而不要使用單引號。
 
-- **Azure HDInsight 叢集**。如需叢集佈建的指示，請參閱[開始使用 HDInsight][hdinsight-get-started]或[佈建 HDInsight 叢集][hdinsight-provision]。進行教學課程時，您將需要下列資料：
+- **Azure HDInsight 叢集**。如需叢集佈建的指示，請參閱[開始使用 HDInsight][hdinsight-get-started] 或[佈建 HDInsight 叢集][hdinsight-provision]。進行教學課程時，您將需要下列資料：
 
 	<table border="1">
 	<tr><th>叢集屬性</th><th>PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
@@ -42,7 +56,7 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 	<tr><td>叢集密碼</td><td>$clusterPassword</td><td></td><td>叢集使用者密碼。</td></tr>
 	</table>
 
-	> [WACOM.NOTE] 將值填入資料表中。這將有助於本教學課程的執行。
+	> [AZURE.NOTE] 將值填入資料表中。  這將有助於本教學課程的執行。
 
 
 
@@ -52,7 +66,7 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 
 **使用 Azure PowerShell**
 
-以下是在 *3.1 叢集*上用來取得 MapReduce Jobtracker 資訊的 PowerShell 指令碼。此處的主要差別在於我們現在要從 YARN 服務 (而非 Map Reduce) 提取這些詳細資料。
+以下是用來取得 MapReduce Jobtracker 資訊的 PowerShell 指令碼 *on a 3.1 cluster.*  此處的主要差別在於我們現在要從 YARN 服務 (而非 Map Reduce) 提取這些詳細資料。
 
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"
@@ -68,7 +82,7 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 	
 	$response.metrics.'yarn.queueMetrics'
 
-以下是在 *2.1 叢集*上用來取得 MapReduce Jobtracker 資訊的 PowerShell 指令碼：
+以下是用來取得 MapReduce Jobtracker 資訊的 PowerShell 指令碼 *on a 2.1 cluster*：
 
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"
@@ -112,7 +126,7 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 	             "host_name":"headnode0.{ClusterDNS}.azurehdinsight.net"}}]}
 
 10/8/2014 版本的相關資訊：
-使用 Ambari 端點 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}" 時，*host_name* 欄位現在會傳回節點的完整網域名稱 (FQDN)，而不是主機名稱。在 2014/10/8 版本之前，此範例只會傳回 "**headnode0**"。在 2014/10/8 之後，您會取得 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**"，如以上範例所示。需要此變更，才能在一個虛擬網路 (VNET) 中部署多種叢集類型，例如 HBase 和 Hadoop。例如，使用 HBase 做為 Hadoop 的後端平台時就是這種情形。
+使用 Ambari 端點 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}" 時， *host_name* 欄位現在會傳回節點的完整網域名稱 (FQDN)，而不是主機名稱。在 2014/10/8 版本之前，此範例只會傳回 "**headnode0**"。在 2014/10/8 之後，您會取得 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**"，如以上範例所示。需要此變更，才能在一個虛擬網路 (VNET) 中部署多種叢集類型，例如 HBase 和 Hadoop。例如，使用 HBase 做為 Hadoop 的後端平台時就是這種情形。
 
 ##<a id="monitor"></a>Ambari 監視 API
 
@@ -160,8 +174,8 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
-[Powershell-install]: ../install-configure-powershell/
-[Powershell-script]: http://technet.microsoft.com/zh-tw/library/ee176949.aspx 
+[powershell-install]: ../install-configure-powershell/
+[powershell-script]: http://technet.microsoft.com/zh-tw/library/ee176949.aspx 
 
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
@@ -172,6 +186,4 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

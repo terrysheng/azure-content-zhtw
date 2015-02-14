@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="如何傳遞 Apple HTTP 即時資料流 (HLS) - Azure" metaKeywords="" description="了解如何為媒體服務原始伺服器上的 Apple HTTP 即時資料流 (HLS) 內容建立定位器。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="如何傳遞 Apple HTTP 即時資料流 (HLS) - Azure" 
+	description="了解如何為媒體服務原始伺服器上的 Apple HTTP 即時資料流 (HLS) 內容建立定位器。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -85,6 +99,5 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 [開始使用 Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=252966
 [使用 Azure Media Services REST API 建立應用程式]: http://go.microsoft.com/fwlink/?linkid=252967
 [使用 Media Services SDK for .NET 建立應用程式]: http://go.microsoft.com/fwlink/?linkid=247821
-[媒體服務論壇]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
-
-<!--HONumber=35.1-->
+[媒體服務論壇]: http://social.msdn.microsoft.com/Forums/zh-tw/MediaServices/threads
+<!--HONumber=42-->

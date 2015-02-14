@@ -1,6 +1,20 @@
-<properties urlDisplayName="Azure Import/Export Service" pageTitle="使用匯入/匯出將資料移轉至 Blob 儲存體 | Microsoft Azure" metaKeywords="" description="了解如何在 Azure 管理入口網站中建立匯入和匯出工作，以將資料移轉至 Blob 儲存體。" metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
+<properties 
+	pageTitle="使用匯入/匯出將資料移轉至 Blob 儲存體 | Microsoft Azure" 
+	description="了解如何在 Azure 管理入口網站中建立匯入和匯出工作，以將資料移轉至 Blob 儲存體。" 
+	authors="tamram" 
+	manager="adinah" 
+	editor="" 
+	services="storage" 
+	documentationCenter=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="tamram"/>
 
 
 # 使用 Microsoft Azure 匯入/匯出服務將資料移轉至 Blob 儲存體
@@ -14,42 +28,39 @@
 - 使用 Azure 管理入口網站。
 - 使用服務的 REST 介面。
 
-本文提供匯入/匯出服務的概觀，並說明如何透過管理入口網站使用匯入/匯出服務。如需 REST API 的相關資訊，請參閱 [Azure 匯入/匯出服務 REST API 參考](http://go.microsoft.com/fwlink/?LinkID=329099)。
+本文提供匯入/匯出服務的概觀，並說明如何透過管理入口網站使用匯入/匯出服務。如需有關 REST API 的資訊，請參閱 [Azure 匯入/匯出服務 REST API 參考](http://go.microsoft.com/fwlink/?LinkID=329099)。
 
 ## 匯入/匯出服務的概觀 ##
 
-若要開始進行 Blob 儲存體的匯入或匯出程序，請先建立*工作*。此工作可以是*匯入工作*或*匯出工作*：
+若要開始進行 Blob 儲存體的匯入或匯出程序，請先建立 *job*。此工作可以是 *import job*或 *export job*：
 
 - 當您要將內部部署的資料移轉至 Azure 儲存體帳戶中的 Blob 時，請建立匯入工作。
 - 當您要將目前儲存為儲存體帳戶中 Blob 的資料移轉至要運送給您的硬碟時，請建立匯出工作。
 
-當您建立工作時，您會通知匯入/匯出服務您將運送一或多個硬碟至 Azure 資料中心。若為匯入工作，您將運送含有檔案資料的硬碟。若為匯出工作，您將運送空的硬碟。
+當您建立工作時，您會通知匯入/匯出服務您將運送一或多個硬碟至 Azure 資料中心。如果是用於匯入工作，您將運送含有檔案資料的硬碟。如果是用於匯出工作，您將運送空的硬碟。
 
-為了準備要針對匯入工作運送的硬碟，您將會執行 [**Microsoft Azure 匯入/匯出工具**] 工具，該工具能將您的資料複製到磁碟機、利用 BitLocker 加密磁碟機上的資料，以及產生下面討論的磁碟機日誌檔案。
+若要準備為匯入工作運送的硬碟，您將需要執行「Microsoft Azure 匯入/匯出工具」工具，此工具可協助將您的資料複製到磁碟機、利用 BitLocker 加密磁碟機上的資料，以及產生磁碟機日誌檔案 (將在下面討論)。
 
-<div class="dev-callout">
-<strong>注意</strong>
-<p>必須使用「BitLocker 磁碟機加密」將磁碟機上的資料加密。此功能可保護傳輸中的資料。若為匯出工作，匯入/匯出服務會在將磁碟機送回給您之前，加密您的資料。</p>
-</div>
+> [AZURE.NOTE] 必須使用「BitLocker 磁碟機加密」將磁碟機上的資料加密。此功能可保護傳輸中的資料。若為匯出工作，匯入/匯出服務會在將磁碟機送回給您之前，加密您的資料。
 
-當您建立匯入或匯出工作時，您還需要*磁碟機 ID*，這是磁碟機製造商指派給特定硬碟的序號。磁碟機 ID 會顯示在磁碟機的外部。 
+當您建立匯入工作或匯出工作時，您也需要 *drive ID*，這是磁碟機製造商指派給特定硬碟的序號。磁碟機 ID 會顯示在磁碟機的外部。 
 
 <h3>需求和範圍</h3>
 
-1.	**訂用帳戶和儲存體帳戶：**您必須有現有的 Azure 訂用帳戶以及一或多個儲存體帳戶，才能使用匯入/匯出服務。每項工作都只能從僅只一個儲存體帳戶收送資料。換句話說，一項工作不能跨越多個儲存體帳戶。如需建立新儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](../storage-create-storage-account/) (英文)。
-2.	**硬碟：**只有 3.5 英吋的 SATA II/III 硬碟能夠用於匯入/匯出服務。不支援大於 4TB 的硬碟。若為匯入工作，將只會處理磁碟機上的第一個資料磁碟區。此資料磁碟區必須以 NTFS 格式化。您可以將 SATA II/III 磁碟附加至大多數使用 SATA II/III USB 介面卡的外部電腦。
-3.	**BitLocker 加密：**必須使用 BitLocker 和以數值密碼保護的加密金鑰來加密硬碟上儲存的所有資料。
-4.	**Blob 儲存體目標：**從區塊 Blob 和頁面 Blob 可以上傳或下載資料。 
-5.	**工作數目：**一個客戶對於每一儲存體帳戶可以有多達 20 項作用中工作。
-6.	**工作的大小上限：**工作的大小是由使用的硬碟容量以及儲存體帳戶可儲存的資料數量上限所決定。每項工作可包含的硬碟不超過 10 個。
+1.	**訂用帳戶和儲存體帳戶：**您必須擁有現有的 Azure 訂用帳戶及一或多個儲存體帳戶，才能使用「匯入/匯出」服務。每個工作只能用來傳輸資料給一個儲存體帳戶，或從一個儲存體帳戶傳輸資料。換句話說，工作不能跨多個儲存體帳戶執行。如需有關建立新儲存體帳戶的資訊，請參閱[如何建立儲存體帳戶](../storage-create-storage-account/)。
+2.	**硬碟：**「匯入/匯出」服務只支援使用 3.5 英吋 SATA II/III 硬碟。不支援使用超過 4TB 的硬碟。就匯入工作而言，將只會處理磁碟機上的第一個資料磁碟區。資料磁碟區必須以 NTFS 格式化。您可以將 SATA II/III 磁碟外接到大多數使用 SATA II/III USB 介面卡的電腦。
+3.	**BitLocker 加密：**必須使用 BitLocker 搭配以數值密碼保護的加密金鑰來加密硬碟上儲存的所有資料。
+4.	**Blob 儲存體目標：**可以將資料上傳至區塊 Blob 和分頁 Blob，或從該處下載資料。
+5.	**工作數目：**一個客戶在每一儲存體帳戶最多可以有 20 個作用中的工作。
+6.	**工作的大小上限：**工作的大小取決所用硬碟的容量，以及可儲存在儲存體帳戶中的資料數量上限。每個工作最多可包含 10 個硬碟。
 
-## 在管理入口網站中建立匯入工作##
+## 在管理入口網站中建立匯入工作 ##
 
 建立匯入工作以通知匯入/匯出服務，您會將含有資料的一或多個磁碟機運送至資料中心，以便將資料匯入您的儲存體帳戶中。
 
 <h3>準備磁碟機</h3>
 
-建立匯入工作之前，請透過 Microsoft Azure 匯入/匯出工具備妥磁碟機。如需有關使用 Microsoft Azure 匯入/匯出工具的詳細資訊，請參閱 [Microsoft Azure 匯入/匯出工具參考](http://go.microsoft.com/fwlink/?LinkId=329032)。您可以下載 [Microsoft Azure 匯入/匯出工具](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) 成為獨立套件。
+建立匯入工作之前，請透過 Microsoft Azure 匯入/匯出工具備妥磁碟機。如需有關使用「Microsoft Azure 匯入/匯出工具」的詳細資訊，請參閱 [Microsoft Azure 匯入/匯出工具參考](http://go.microsoft.com/fwlink/?LinkId=329032)。您可以下載獨立封裝形式的 [Microsoft Azure 匯入/匯出工具](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409)。
   
 若要準備磁碟機，請遵循以下三個步驟： 
 
@@ -57,21 +68,21 @@
 2.	在 Azure Blob 服務中識別資料的目的地 Blob。
 3.	使用 Microsoft Azure 匯入/匯出工具將資料複製到一或多個硬碟。
 
-Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個*磁碟機日誌*檔案。磁碟機日誌檔案會儲存在本機電腦上，而非磁碟機本身。您會在建立匯入工作時上傳該日誌檔案。磁碟機日誌檔案包含磁碟機 ID 和 BitLocker 金鑰，以及有關磁碟機的其他資訊。  
+「Microsoft Azure 匯入/匯出工具」會針對每個備妥的磁碟機產生一個 *drive journal*檔案。磁碟機日誌檔案會儲存在本機電腦上，而非磁碟機本身。您會在建立匯入工作時上傳該日誌檔案。磁碟機日誌檔案包含磁碟機 ID 和 BitLocker 金鑰，以及有關磁碟機的其他資訊。  
 
 <h3>建立匯入工作</h3>
 
-1.	備妥磁碟機後，請在管理入口網站中瀏覽至您的儲存體帳戶，然後檢視 [儀表板]。在 <strong>快速概覽</strong>下，按一下 <strong>建立匯入工作</strong>。 
+1.	備妥磁碟機之後，在「管理入口網站」中瀏覽至您的儲存體帳戶，然後檢視 [儀表板]。在 [快速概覽]<strong></strong> 下，按一下 [建立匯入工作]<strong></strong>。 
  
 2.	在精靈的步驟 1，指出您已備妥磁碟機並有可用的磁碟機日誌。
  
-3.	在步驟 2，提供負責處理此匯入工作的人員連絡資訊。如果您要儲存匯入工作的詳細資訊記錄檔資料，請勾選該選項 <strong>將詳細資訊記錄儲存於我的 'waimportexport' Blob 容器中</strong>。
+3.	在步驟 2，提供負責處理此匯入工作的人員連絡資訊。如果您想要儲存匯入工作的詳細資訊記錄資料，請核取 [將詳細資訊記錄檔儲存在我的 'waimportexport' Blob 容器]<strong></strong> 選項。
 
 4.	在步驟 3，上傳在磁碟機準備步驟中取得的磁碟機日誌檔案。您需要針對已備妥的每個磁碟機上傳一個檔案。
 
 	![Create import job - Step 3][import-job-03]
 
-5.	在步驟 4，輸入匯入工作的描述性名稱。請注意，您輸入的名稱只能包含小寫字母、數字、連字號和底線，必須以字母開頭，且不得包含空格。 	當工作正在進行中和一旦完成後，您將使用您所選的名稱來進行追蹤。
+5.	在步驟 4，輸入匯入工作的描述性名稱。請注意，您輸入的名稱只能包含小寫字母、數字、連字號和底線，必須以字母開頭，且不得包含空格。	當工作正在進行中和一旦完成後，您將使用您所選的名稱來進行追蹤。
 
 	接著，從清單中選取資料中心區域。資料中心區域將會指出您的包裹必須送達的資料中心和地址。如需詳細資訊，請參閱底下的常見問題集。
 
@@ -79,26 +90,26 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 	若您有追蹤號碼，請從清單中選取您的貨運公司，並輸入追蹤號碼。 
 
-	如果沒有追蹤號碼，請選擇 [**I will provide my shipping information for this import job once I have shipped my package**]，然後完成匯入程序。
+	如果還沒有追蹤號碼，請選擇 [寄送包裹之後，我會提供這個匯出工作的送貨資訊]，然後完成匯入程序。
 
-7. 若要在寄出包裹之後輸入追蹤號碼，請在管理入口網站中回到您的儲存體帳戶的 [**匯入/匯出**] 頁面，從清單中選取工作，然後選擇 [**Shipping Info**]。逐步執行精靈，在步驟 2 中輸入追蹤號碼。
+7. 若要在寄出包裹之後輸入追蹤號碼，請在「管理入口網站」中回到您儲存體帳戶的 [匯入/匯出] 頁面，從清單中選取工作，然後選擇 [出貨資訊]。逐步執行精靈，在步驟 2 中輸入追蹤號碼。
 
 	若工作處於「建立中」、「傳送中」或「傳輸中」狀態，則您也可以在精靈的步驟 2 中更新貨運公司客戶編號。一旦工作進入「包裝中」狀態，您就無法更新該工作的貨運公司客戶編號。 
 
-## 在管理入口網站中建立匯出工作##
+## 在管理入口網站中建立匯出工作 ##
 
 建立匯出工作以通知匯入/匯出服務，您會將一或多個空磁碟機送到資料中心，以便將資料從儲存體帳戶匯出至磁碟機，然後再將這些磁碟機運送給您。
 
-1. 	若要建立匯出工作，請在管理入口網站中瀏覽至儲存體帳戶，然後檢視 [儀表板]。 	在 <strong>快速概覽</strong>下，按一下 <strong>建立匯出工作</strong>，並繼續操作精靈。
+1. 	若要建立匯出工作，請在管理入口網站中瀏覽至儲存體帳戶，然後檢視 [儀表板]。	在 [快速概覽]<strong></strong> 下，按一下 [建立匯出工作]<strong></strong>，然後繼續完成精靈步驟。
 
-2. 	在步驟 2，提供負責處理此匯出工作的人員連絡資訊。如果您要儲存匯出工作的詳細資訊記錄檔資料，請勾選該選項 <strong>將詳細資訊記錄儲存於我的 'waimportexport' Blob 容器中</strong>。
+2. 	在步驟 2，提供負責處理此匯出工作的人員連絡資訊。如果您想要儲存匯出工作的詳細資訊記錄資料，請核取 [將詳細資訊記錄檔儲存在我的  'waimportexport' Blob 容器]<strong></strong> 選項。
 
-3.	在步驟 3，指定您要從儲存體帳戶匯出至一個或多個空白磁碟機的 Blob。您可以選擇匯出儲存體帳戶中所有的 Blob 資料，也可以指定要匯出哪幾個或哪幾組 Blob。
+3.	在步驟 3，指定要從您儲存體帳戶匯出至一或多個空白磁碟機的 Blob 資料。您可以選擇匯出儲存體帳戶中所有的 Blob 資料，也可以指定要匯出哪幾個或哪幾組 Blob。
 
 	![Create export job - Step 3][export-job-03]
 
-	- 若要指定要匯出的 Blob，請使用 [**等於**] 選取器，指定 Blob 的相對路徑 (以容器名稱開頭)。使用 *$root* 指定根容器。
-	- 若要指定以某個首碼開頭的所有 Blob，請使用 [**開頭為**] 選取器，指定首碼 (以正斜線 '/' 開頭)。此首碼可以是容器名稱的首碼、完整容器名稱，或是後面接著 Blob 名稱首碼的完整容器名稱。
+	- 若要指定要匯出的 Blob，請使用 [等於] 選取器，然後指定 Blob 的相對路徑 (以容器名稱開頭)。使用 *$root* 指定根容器。
+	- 若要指定以某個首碼開頭的所有 Blob，請使用 [開頭為] 選取器，然後指定首碼 (以正斜線 '/' 開頭)。此首碼可以是容器名稱的首碼、完整容器名稱，或是後面接著 Blob 名稱首碼的完整容器名稱。
 
 	下表顯示有效 Blob 路徑範例：
 
@@ -107,7 +118,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 			<tr>
 				<td><strong>選取器</strong></td>
 				<td><strong>Blob 路徑</strong></td>
-				<td><strong>說明</strong></td>
+				<td><strong>描述</strong></td>
 			</tr>
 			<tr>
 				<td>開頭為</td>
@@ -122,33 +133,33 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 			<tr>
 				<td>開頭為</td>
 				<td>/book</td>
-				<td>匯出任何容器中以首碼 <strong>book 開頭的所有 Blob</strong></td>
+				<td>匯出任何容器中以 <strong>book</strong> 首碼開頭的所有 Blob</td>
 			</tr>
 			<tr>
 				<td>開頭為</td>
 				<td>/music/</td>
-				<td>匯出容器 <strong>music 中的所有 Blob</strong></td>
+				<td>匯出 <strong>music</strong> 容器中的所有 Blob</td>
 			</tr>
 			<tr>
 				<td>開頭為</td>
 				<td>/music/love</td>
-				<td>匯出容器 <strong>music</strong> 中以首碼 <strong>love 開頭的所有 Blob</strong></td>
+				<td>匯出 <strong>music</strong> 容器中以 <strong>love</strong> 首碼開頭的所有 Blob</td>
 			</tr>
 			<tr>
 				<td>等於</td>
 				<td>$root/logo.bmp</td>
-				<td>匯出 Blob <strong>logo.bmp</strong> (在根容器中)</td>
+				<td>匯出根容器中的 <strong>logo.bmp</strong> Blob</td>
 			</tr>
 			<tr>
 				<td>等於</td>
 				<td>videos/story.mp4</td>
-				<td>匯出 Blob <strong>story.mp4</strong> (在容器中) <strong>視訊</strong></td>
+				<td>匯出 <strong>videos</strong> 容器中的 <strong>story.mp4</strong> Blob</td>
 			</tr>
 		</tbody>
 	</table>
 
 
-4.	在步驟 4，輸入匯出工作的描述性名稱。您輸入的名稱只能包含小寫字母、數字、連字號和底線，必須以字母開頭，且不得包含空格。
+4.	在步驟 4，輸入匯出工作的描述性名稱。您輸入的名稱只能包含小寫字母、數字、連字號及底線，必須以字母開頭，且不得包含空格。
 
 	資料中心區域將會指出您的包裹必須送達的資料中心。如需詳細資訊，請參閱底下的常見問題集。
 
@@ -156,16 +167,16 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 	若您有追蹤號碼，請從清單中選取您的貨運公司，並輸入追蹤號碼。 
 
-	如果沒有追蹤號碼，請選擇 <strong>I will provide my shipping information for this export job once I have shipped my package</strong>，然後完成匯入程序。
+	如果還沒有追蹤號碼，請選擇 [寄送包裹之後，我會提供這個匯出工作的送貨資訊]<strong></strong>，然後完成匯出程序。
 
-6. 若要在寄出包裹之後輸入追蹤號碼，請在管理入口網站中回到您的儲存體帳戶的 [**匯入/匯出**] 頁面，從清單中選取工作，然後選擇 [**Shipping Info**]。逐步執行精靈，在步驟 2 中輸入追蹤號碼。
+6. 若要在寄出包裹之後輸入追蹤號碼，請在「管理入口網站」中回到您儲存體帳戶的 [匯入/匯出] 頁面，從清單中選取工作，然後選擇 [出貨資訊]。逐步執行精靈，在步驟 2 中輸入追蹤號碼。
 
 	若工作處於「建立中」、「傳送中」或「傳輸中」狀態，則您也可以在精靈的步驟 2 中更新貨運公司客戶編號。一旦工作進入「包裝中」狀態，您就無法更新該工作的貨運公司客戶編號。 
 
 
-## 在管理入口網站中追蹤工作狀態##
+## 在管理入口網站中追蹤工作狀態 ##
 
-您可以在管理入口網站中追蹤匯入或匯出工作的狀態。在管理入口網站中瀏覽至您的儲存體帳戶，然後按一下 [**匯入/匯出**] 索引標籤。頁面上將會顯示您的工作清單。您可以依照工作狀態、工作名稱、工作類型或追蹤號碼篩選此清單。
+您可以在管理入口網站中追蹤匯入或匯出工作的狀態。在「管理入口網站」中瀏覽至您的儲存體帳戶，然後按一下 [匯入/匯出] 索引標籤。頁面上將會顯示您的工作清單。您可以依照工作狀態、工作名稱、工作類型或追蹤號碼篩選此清單。
 
 下表說明每項工作狀態的意義：
 
@@ -173,7 +184,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 	<tbody>
 		<tr>
 			<td><strong>工作狀態</strong></td>
-			<td><strong>說明</strong></td>
+			<td><strong>描述</strong></td>
 		</tr>
 		<tr>
 			<td>建立中</td>
@@ -200,7 +211,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 ## 檢視匯出工作的 BitLocker 金鑰 ##
 
-若為匯出工作，您可以檢視和複製服務為磁碟機產生的 BitLocker 金鑰，以便在您從 Azure 資料中心收到磁碟機時，將匯出的資料解密。在管理入口網站中瀏覽至您的儲存體帳戶，然後按一下 [**匯入/匯出**] 索引標籤。從清單中選取您的匯出工作，然後按一下 [**檢視金鑰**] 按鈕。BitLocker 金鑰如下所示：
+若為匯出工作，您可以檢視和複製服務為磁碟機產生的 BitLocker 金鑰，以便在您從 Azure 資料中心收到磁碟機時，將匯出的資料解密。在「管理入口網站」中瀏覽至您的儲存體帳戶，然後按一下 [匯入/匯出] 索引標籤。從清單中選取您的匯出工作，然後按一下 [檢視金鑰] 按鈕。BitLocker 金鑰如下所示：
 
 ![View BitLocker keys for export job][export-job-bitlocker-keys]
 
@@ -210,7 +221,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 **匯入/匯出服務的定價為何？**
 
-- 請參閱[定價頁面](http://go.microsoft.com/fwlink/?LinkId=329033) 了解定價資訊。
+- 如需定價資訊，請參閱[定價頁面](http://go.microsoft.com/fwlink/?LinkId=329033)。
 
 **匯入或匯出資料需要多久時間？**
 
@@ -223,19 +234,19 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 	- Anker 68UPSHHDS-BU
 	- Startech SATADOCK22UE 
 
-> [WACOM.NOTE] 若您有以上未列出的轉換器，您可以嘗試使用您的轉換器執行 [Microsoft Azure 匯入/匯出工具] 來準備磁碟機，看看是否有用，再決定購買支援的轉換器。
+> [AZURE.NOTE] 若您有以上未列出的轉換器，您可以嘗試使用您的轉換器執行 [Microsoft Azure 匯入/匯出工具] 來準備磁碟機，看看是否有用，再決定購買支援的轉換器。
 
 **如果我想匯入或匯出的磁碟機超過 10 個，我該怎麼做？**
 
 - 在匯入/匯出服務中，一項匯入或匯出工作只能參考單一工作中的 10 個磁碟機。如果想要運送的磁碟機超過 10 個，可以建立多項工作。
 
-**如果我不小心傳送不符支援需求的 HDD，則會發生什麼情況？**
+**如果我不小心傳送不符支援需求的 HDD，會發生什麼情況？**
 
 - Azure 資料中心會將不符支援需求的磁碟機退回給您。如果包裹中只有部分磁碟機符合支援需求，將會處理這些磁碟機，而不符需求的磁碟機則會退回給您。
 
 <h3>匯入/匯出工作管理</h3>
 
-**如果我刪除 Azure 儲存體帳戶，則匯入和匯出工作會發生什麼情況？**
+**如果我刪除 Azure 儲存體帳戶，匯入和匯出工作會發生什麼情況？**
 
 - 當您刪除儲存體帳戶時，所有 Azure 匯入/匯出工作都會隨著帳戶一起刪除。  
 
@@ -243,7 +254,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 - 您可以在工作狀態為 [建立中] 或 [運送中] 時取消工作。
 
-**我可以在管理入口網站中檢視已完成工作的狀態多久？**
+**我可以在管理入口網站中檢視已完成工作的狀態達多久？**
 
 - 您可以檢視已完成工作的狀態長達 90 天。所有已完成的工作都會在 90 天後刪除。
 
@@ -259,20 +270,17 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 **支援的快遞服務有哪些？**
 
-- 在美國和歐洲地區僅支援 [聯邦快遞](http://www.fedex.com/us/oadr/) (FedEx)。所有包裹都會透過 FedEx Ground 或 FedEx International Economy 寄回。
+- 在美國和歐洲地區僅支援[聯邦快遞](http://www.fedex.com/us/oadr/) (FedEx)。所有包裹都會透過 FedEx Ground 或 FedEx International Economy 寄回。
 
-- 在亞洲地區僅支援 [DHL](http://www.dhl-welcome.com/Tutorial/) 。所有包裹都會透過 DHL Express Worldwide 寄回。
+- 在亞洲地區僅支援 [DHL](http://www.dhl-welcome.com/Tutorial/)。所有包裹都會透過 DHL Express Worldwide 寄回。
 
-	<div class="dev-callout">
-	<strong>Important</strong>
-	<p>您必須將追蹤號碼提供給 Azure 匯入/匯出服務；否則無法處理您的工作。</p>
-	</div>
+	> [AZURE.IMPORTANT] 您必須將追蹤號碼提供給 Azure 匯入/匯出服務；否則無法處理您的工作。
 
-**退件是否有任何相關的成本？**
+**退件是否有任何相關的費用？**
 
-- Microsoft 會使您在建立工作時提供的貨運公司客戶編號，將磁碟機從資料中心寄到您的寄回地址。請務必提供資料中心區域所支援之貨運公司的貨運公司客戶編號。您可以建立 [FedEx](http://www.fedex.com/us/oadr/) (對於美國和歐洲) 或 [DHL](http://www.dhl-welcome.com/Tutorial/) (亞洲) 貨運公司客戶 (如果尚未建立)。
+- Microsoft 會使您在建立工作時提供的貨運公司客戶編號，將磁碟機從資料中心寄到您的寄回地址。請務必提供資料中心區域所支援之貨運公司的貨運公司客戶編號。您可以建立一個 [FedEx](http://www.fedex.com/us/oadr/) (適用於美國和歐洲) 或 [DHL](http://www.dhl-welcome.com/Tutorial/) (亞洲) 貨運公司客戶帳戶 (若沒有的話)。
 
-- 寄回費用由您的運貨公司客戶收取，由運貨公司決定。
+- 寄回費用會向您的貨運公司客戶帳戶收取，並由運貨公司決定。
 
 **我可以從哪裡收送資料？**
 
@@ -288,16 +296,13 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 - 將會提供您的儲存體帳戶所在區域中的寄送地址給您。例如，假設您住在美國，而儲存體帳戶位於西歐資料中心，則會提供歐洲的寄送地址讓您寄出磁碟機。
 
-	<div class="dev-callout">
-	<strong>重要事項</strong>
-	<p>請注意，您寄送的實體媒體可能需要跨國界。您必須確定實體媒體和資料的匯入和/或匯出符合相關管轄法律。在寄出實體媒體之前，請洽詢顧問來確認您的媒體和資料可以合法地寄到所識別的資料中心。這有助於確保及時送達 Microsoft。</p>
-	</div>
+	> [AZURE.IMPORTANT] 請注意，您寄送的實體媒體可能需要跨國界。您必須確定實體媒體和資料的匯入和/或匯出符合相關管轄法律。在寄出實體媒體之前，請洽詢顧問來確認您的媒體和資料可以合法地寄到所識別的資料中心。這有助於確保及時送達 Microsoft。
 
-- 在寄送包裹時，您必須遵守 [Microsoft Azure 服務條款](http://azure.microsoft.com/zh-tw/support/legal/services-terms/)中的條款。 
+- 寄送包裹時，您必須遵守 [Microsoft Azure 服務條款](http://azure.microsoft.com/zh-tw/support/legal/services-terms/)中的條款。 
 
-**我可以為了匯入/匯出工作向 Microsoft 購買磁碟機嗎？**
+**我可以向 Microsoft 購買用於匯入/匯出工作的磁碟機嗎？**
 
-- 	不可以。您必須針對匯入和匯出工作運送自己的磁碟機。
+- 	不可以。您必須運送自己的匯入和匯出工作磁碟機。
 
 **我的包裹中應該包含什麼物品？**
 
@@ -308,5 +313,4 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 [import-job-03]: ./media/storage-import-export-service/import-job-03.png
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

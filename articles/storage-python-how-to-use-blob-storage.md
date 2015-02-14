@@ -1,39 +1,52 @@
-<properties urlDisplayName="Blob Service" pageTitle="如何使用 Blob 儲存體 (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="了解如何使用 Azure Blob 服務來上傳、列出、下載及刪除 Blob。" metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="如何使用 Blob 儲存體 (Python) | Microsoft Azure" 
+	description="了解如何使用 Azure Blob 服務來上傳、列出、下載及刪除 Blob。" 
+	services="storage" 
+	documentationCenter="python" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="09/19/2014" 
+	ms.author="robmcm"/>
 
 # 如何從 Python 使用 Blob 儲存體服務
-本指南將示範如何使用 Azure Blob 儲存服務執行一般案例。相關範例是以 Python API 撰寫。涵蓋的案例包括**上傳**、**列出**、**下載**及**刪除** Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][]一節。
+本指南將示範如何使用 Azure Blob 儲存服務執行一般案例。相關範例是以 Python API 撰寫。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」 Blob。如需 Blob 的詳細資訊，請參閱[後續步驟][]一節。
 
 ## 目錄
 
-[什麼是 Blob 儲存體？][]   
+[什麼是 Blob 儲存體][]
  [概念][]   
  [建立 Azure 儲存體帳戶][]   
- [作法：建立容器][]   
- [作法：將 Blob 上傳至容器][]   
- [作法：列出容器中的 Blob][]   
- [作法：下載 Blob][]   
- [作法：刪除 Blob][]   
- [作法：上傳及下載大型 Blob][]   
+ [做法：建立容器][]   
+ [做法：將 Blob 上傳至容器][]   
+ [做法：列出容器中的 Blob][]   
+ [做法：下載 Blob][]   
+ [做法：刪除 Blob][]   
  [後續步驟][]
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <a name="create-account"> </a>建立 Azure 儲存體帳戶
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-## <a name="create-container"> </a>作法：建立容器
+## <a name="create-container"> </a>做法：建立容器
 
-**附註：**如果您需要安裝 Python 或用戶端程式庫，請參閱 [Python 安裝指南](../python-how-to-install/)。
+**注意：**如果您需要安裝 Python 或用戶端程式庫，請參閱 [Python 安裝指南](../python-how-to-install/)。
 
 
-**BlobService** 物件可讓您使用容器及 Blob。下列程式碼會建立 **BlobService** 物件。將下列內容新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 Python 檔案內的頂端附近：
+**BlobService** 物件讓您能使用容器及 Blob。下列程式碼會建立 **BlobService** 物件。將下列內容新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 Python 檔案內的頂端附近：
 
 	from azure.storage import BlobService
 
-下列程式碼會使用儲存體帳戶名稱和帳戶金鑰來建立 **BlobService** 物件。將 'myaccount' 和 'mykey' 取代為真實的帳戶和金鑰。
+下列程式碼會使用儲存體帳戶名稱和帳戶金鑰來建立 **BlobService** 物件：將  'myaccount' 和  'mykey' 取代為真實的帳戶和金鑰。
 
 	blob_service = BlobService(account_name='myaccount', account_key='mykey')
 
@@ -51,36 +64,34 @@
 
 做此變更之後，網際網路上的任何人都可以看到公用容器中的 Blob，但只有您能修改或刪除它們。
 
-## <a name="upload-blob"> </a>作法：將 Blob 上傳至容器
+## <a name="upload-blob"> </a>做法：將 Blob 上傳至容器
 
 若要將資料上傳至 Blob，請使用 **put\_block\_blob\_from\_path**、**put\_block\_blob\_from\_file**、**put\_block\_blob\_from\_bytes** 或 **put\_block\_blob\_from\_text** 方法。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
 
-**put\_block\_blob\_from\_path** 會從指定的路徑上傳檔案的內容，**put\_block\_blob\_from\_file** 會從已開啟的檔案/串流上傳內容。**put\_block\_blob\_from\_bytes** 會上傳位元組陣列、**put\_block\_blob\_from\_text** 會使用指定的編碼 (預設為 UTF-8) 上傳指定的文字值。
+**put\_block\_blob\_from\_path** 會從指定路徑上傳檔案的內容，**put\_block\_blob\_from\_file** 則會從已經開啟的檔案/資料流上傳內容。**put\_block\_blob\_from\_bytes** 會上傳位元組陣列，**put\_block\_blob\_from\_text** 則會使用指定編碼 (預設為 UTF-8) 上傳指定的文字值。
 
-下列範例會將 **task1.txt** 檔案的內容上傳至 **myblob** Blob。
+下列範例會將 **task1.txt** 檔案的內容上傳到 **myblob** Blob 中。
 
 	blob_service.put_block_blob_from_path('mycontainer', 'myblob', 'task1.txt')
 
-## <a name="list-blob"> </a>作法：列出容器中的 Blob
+## <a name="list-blob"> </a>做法：列出容器中的 Blob
 
-若要列出容器中的 Blob，請使用 **list\_blobs** 方法和
-**for** 迴圈，以顯示容器中每個 Blob 的名稱。
-下列程式碼會將容器中每個 Blob 的 **name** 和 **url** 輸出至主控台。
+若要列出容器中的 Blob，請搭配使用 **list\_blobs** 方法與 **for** 迴圈，以顯示容器中每個 Blob 的名稱。下列程式碼會將容器每個 Blob 的 **name** 和 **url** 輸出到主控台。
 
 	blobs = blob_service.list_blobs('mycontainer')
 	for blob in blobs:
 		print(blob.name)
 		print(blob.url)
 
-## <a name="download-blobs"> </a>作法：下載 Blob
+## <a name="download-blobs"> </a>做法：下載 Blob
 
-若要從 Blob 下載資料，請使用 **get\_blob\_to\_path**、**get\_blob\_to\_file**、**get\_blob\_to\_bytes** 或 **get\_blob\_to\_text**。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
+若要從 Blob 下載資料，請使用**get\_blob\_to\_path**、**get\_blob\_to\_file**、**get\_blob\_to\_bytes** 或 **get\_blob\_to\_text**。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
 
-下列範例示範如何使用 **get\_blob\_to\_path** 下載 **myblob** Blob 的內容，並將其儲存至 **out-task1.txt** 檔案：
+下列範例示範使用 **get\_blob\_to\_path** 來下載 **myblob** Blob 的內容，並儲存到 **out-task1.txt** 檔案：
 
 	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-task1.txt')
 
-## <a name="delete-blobs"> </a>作法：刪除 Blob
+## <a name="delete-blobs"> </a>做法：刪除 Blob
 
 最後，若要刪除 Blob，請呼叫 **delete_blob**。
 
@@ -88,23 +99,21 @@
 
 ## <a name="next-steps"> </a>後續步驟
 
-了解檔案儲存體的基礎概念之後，請參考下列連結
-以了解如何執行更複雜的儲存體工作。
+了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
 -   請參閱 MSDN 參考：[在 Azure 中儲存及存取資料][]
--   造訪 [Azure 儲存體團隊部落格][]
+-   請造訪 [Azure 儲存體團隊部落格][]
 
   [後續步驟]: #next-steps
   [什麼是 Blob 儲存體？]: #what-is
   [概念]: #concepts
   [建立 Azure 儲存體帳戶]: #create-account
-  [作法：建立容器]: #create-container
-  [作法：將 Blob 上傳至容器]: #upload-blob
-  [作法：列出容器中的 Blob]: #list-blob
-  [作法：下載 Blob]: #download-blobs
-  [作法：刪除 Blob]: #delete-blobs
-  [作法：上傳及下載大型 Blob]: #large-blobs
+  [做法：建立容器]: #create-container
+  [做法：將 Blob 上傳至容器]: #upload-blob
+  [做法：列出容器中的 Blob]: #list-blob
+  [做法：下載 Blob]: #download-blobs
+  [做法：刪除 Blob]: #delete-blobs
+  [做法：上傳及下載大型 Blob]: #large-blobs
   [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

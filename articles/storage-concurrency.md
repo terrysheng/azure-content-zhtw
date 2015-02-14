@@ -1,6 +1,20 @@
-<properties title="Managing Concurrency in Microsoft Azure Storage" pageTitle="required" description="如何管理 Blob、佇列、資料表和檔案服務的並行存取" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="tamram" manager="adinah" videoId="Optional" scriptId="Optional" />
+<properties 
+	pageTitle="必要" 
+	description="如何管理 Blob、佇列、資料表和檔案服務的並行存取" 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/08/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/08/2014" 
+	ms.author="tamram"/>
 
 #管理 Microsoft Azure 儲存體中的並行存取
 現代以網際網路為基礎的應用程式通常會有多個使用者同時檢視及更新資料。這使得應用程式開發人員不得不認真思考如何為其使用者提供可預測的使用經驗，尤其是有多個使用者可更新相同資料的案例。開發人員通常會考量三個主要的資料並行存取策略：  
@@ -27,12 +41,12 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 此程序大致如下：  
 
 1.	從儲存體服務中擷取 Blob，回應中會包含 HTTP ETag 標頭值，用來識別儲存體服務中目前的物件版本。
-2.	當您更新 Blob 時，請將您在步驟 1 中接收到的 ETag 值納入您傳送至服務之要求的 **If-Match** 條件式標頭中。
+2.	當您更新 Blob 時，請將您在步驟 1 中收到的 ETag 值納入您傳送給服務之要求的 **If-Match** 條件式標頭中。
 3.	服務會比較要求中的 ETag 值與 Blob 目前的 ETag 值。
-4.	如果 Blob 目前的 ETag 值與要求中的 **If-Match** 條件式標頭內的 ETag 不是相同版本，服務會將 412 錯誤傳回至用戶端。這會向用戶端指出在用戶端擷取 Blob 後，有另一個程序更新過該 Blob。
-5.	如果 Blob 目前的 ETag 值與要求中的 **If-Match** 條件式標頭內的 ETag 是相同版本，服務將會執行要求的作業，並更新 Blob 目前的 ETag 值，以顯示它已建立新版本。  
+4.	如果 Blob 目前的 ETag 值與要求內 **If-Match** 條件式標頭中的 ETag 版本不同，服務就會對用戶端傳回 412 錯誤。這會向用戶端指出在用戶端擷取 Blob 後，有另一個程序更新過該 Blob。
+5.	如果 Blob 目前的 ETag 值與要求內 **If-Match** 條件式標頭中的 ETag 版本相同，服務就會執行要求的作業，並更新 Blob 目前的 ETag 值，以顯示它已建立新版本。  
 
-下列 C# 程式碼片段 (使用用戶端儲存體程式庫 4.2.0) 所顯示的簡易範例，說明如何根據從先前擷取或插入之 Blob 的屬性中存取的 ETag 值，來建構 **If-Match AccessCondition**。它接著會在更新 Blob 時使用 **AccessCondition** 物件：**AccessCondition** 物件會將 **If-Match** 標頭新增到要求。如果有其他程序更新了 Blob，Blob 服務將會傳回 HTTP 412 (預先指定的條件失敗) 狀態訊息。完整範例可從[這裡]下載(http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)。  
+下列 C# 程式碼片段 (使用「用戶端儲存體程式庫 4.2.0」) 顯示一個簡單的範例，說明如何根據從先前擷取或插入之 Blob 的屬性中存取的 ETag 值，來建構 **If-Match AccessCondition**。接著，它會在更新 Blob 時使用 **AccessCondition** 物件：**AccessCondition** 物件會將 **If-Match** 標頭新增到要求中。如果有其他程序更新了 Blob，Blob 服務將會傳回 HTTP 412 (預先指定的條件失敗) 狀態訊息。您可以從[這裡](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)下載完整的範例。  
 
 	// Retrieve the ETag from the newly created blob
 	// Etag is already populated as UploadText should cause a PUT Blob call 
@@ -65,7 +79,7 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 	        throw;
 	}  
 
-儲存體服務也包含對其他條件式標頭的支援，例如 **If-Modified-Since**、**If-Unmodified-Since** 和 **If-None-Match** 及其組合。如需詳細資訊，請參閱[為 Blob 服務作業指定條件式標頭](http://msdn.microsoft.com/zh-tw/library/dd179371.aspx) (在 MSDN 上)。  
+「儲存體服務」也包含對其他條件式標頭的支援，例如 **If-Modified-Since**、**If-Unmodified-Since** 和 **If-None-Match** 以及這些標頭的組合。如需詳細資訊，請參閱 MSDN 上的[指定 Blob 服務作業的條件式標頭](http://msdn.microsoft.com/zh-tw/library/dd179371.aspx)。  
 
 下表彙總了在要求中接受條件式標頭 (例如 **If-Match**) 以及在回應中傳回 ETag 值的容器作業。  
 
@@ -76,14 +90,14 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 取得容器中繼資料|	是|	否|
 設定容器中繼資料|	是|	是|
 取得容器 ACL|	是|	否|
-設定容器 ACL|	是|	是|
+設定容器 ACL|	是|	是 (*)|
 刪除容器|	否|	是|
 租用容器|	是|	是|
 列出 Blob|	否|	否  
 
 (*) 系統會快取由 SetContainerACL 定義的權限，而這些權限的更新約需 30 秒來完成填入，在此期間，更新並不一定會一致。  
 
-下表彙總了在要求中接受條件式標頭 (例如 **If-Match**) 以及在回應中傳回 ETag 值的 Blob 作業。  
+下表彙總了在要求中接受條件式標頭 (例如 **If-Match**) 以及在回應中傳回 ETag 值的容器作業。  
 
 作業	|傳回 ETag 值	|接受條件式標頭|
 -----------|-------------------|----------------------------|
@@ -95,23 +109,23 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 設定 Blob 中繼資料|	是|	是|
 租用 Blob (*)|	是|	是|
 快照 Blob|	是|	是|
-複製 Blob|	是|	是 (對於來源及目的地 Blob)|
+複製 Blob|	是|	是 (針對來源及目的地 Blob)|
 中止複製 Blob|	否|	否|
 刪除 Blob|	否|	是|
 放置區塊|	否|	否|
 放置區塊清單|	是|	是|
 取得區塊清單|	是|	否|
 放置頁面|	是|	是|
-取得頁面範圍|	是|	是|
+取得頁面範圍|	是|	是
 
 (*) 租用 Blob 並不會變更 Blob 上的 ETag。  
 
 ##Blob 的封閉式並行存取
-若要鎖定 Blob 以進行獨佔使用，您可以取得其[租用](http://msdn.microsoft.com/zh-tw/library/azure/ee691972.aspx) 。您取得租用時，可指定需要租用的時間長度：這可以是 15 至 60 秒，也可以是無限期 (等於獨佔鎖定)。您可以更新有限租用而加以延伸，而且您可以在用完任何租用後加以釋放。Blob 服務會在有限租用到期時自動加以釋放。  
+若要鎖定 Blob 以進行獨佔使用，您可以取得其[租用](http://msdn.microsoft.com/zh-tw/library/azure/ee691972.aspx)。您取得租用時，可指定需要租用的時間長度：這可以是 15 至 60 秒，也可以是無限期 (等於獨佔鎖定)。您可以更新有限租用而加以延伸，而且您可以在用完任何租用後加以釋放。Blob 服務會在有限租用到期時自動加以釋放。  
 
 租用可讓不同的同步處理策略獲得支援，包括獨佔寫入/共用讀取、獨佔寫入/獨佔讀取和共用寫入/獨佔讀取。只要有租用存在，儲存體服務就會強制執行獨佔寫入 (放置、設定和刪除作業)，但要確保讀取作業的獨佔性，開發人員必須確定所有的用戶端應用程式都使用同一個租用識別碼，並確定同一時間只有一個用戶端具有有效的租用識別碼。未包含租用識別碼的讀取作業將會導致共用讀取。  
 
-下列 C# 程式碼片段說明對某個 Blob 取得獨佔租用 30 秒、更新該 Blob 的內容，然後釋放租用的範例。如果當您嘗試取得新租用時已有對 Blob 的有效租用存在，Blob 服務將會傳回「HTTP (409) 衝突」狀態結果。下列程式碼片段在要求更新儲存體服務中的 Blob 時，使用 **AccessCondition** 物件封裝租用資訊。完整範例可從[這裡]下載(http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)。  
+下列 C# 程式碼片段說明對某個 Blob 取得獨佔租用 30 秒、更新該 Blob 的內容，然後釋放租用的範例。如果當您嘗試取得新租用時已有對 Blob 的有效租用存在，Blob 服務將會傳回「HTTP (409) 衝突」狀態結果。下列程式碼片段會在要求更新儲存體服務中的 Blob 時，使用 **AccessCondition** 物件來封裝租用資訊。您可以從[這裡](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)下載完整的範例。  
 
 	// Acquire lease for 15 seconds
 	string lease = blockBlob.AcquireLease(TimeSpan.FromSeconds(15), null);
@@ -138,7 +152,7 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 	        throw;
 	}  
 
-如果您直接嘗試對已租用的 Blob 執行寫入作業，而未傳送租用識別碼，要求將會失敗，並出現 412 錯誤。請注意，如果在呼叫 **UploadText** 方法之前租用已過期，但您仍傳送租用識別碼，要求也會失敗，並出現 **412** 錯誤。如需管理租用到期時間和租用識別碼的詳細資訊，請參閱[租用 Blob](http://msdn.microsoft.com/zh-tw/library/azure/ee691972.aspx) REST 文件。  
+如果您直接嘗試對已租用的 Blob 執行寫入作業，而未傳送租用識別碼，要求將會失敗，並出現 412 錯誤。請注意，如果在呼叫 **UploadText** 方法之前租用已到期，但您仍然傳送租用 ID，該要求也會失敗，並出現 **412** 錯誤。如需有關管理租用到期時間和租用 ID 的詳細資訊，請參閱[租用 Blob](http://msdn.microsoft.com/zh-tw/library/azure/ee691972.aspx) REST 文件。  
 
 下列 Blob 作業可使用租用來管理封閉式並行存取：  
 
@@ -155,9 +169,9 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 -	取得區塊清單
 -	放置頁面
 -	取得頁面範圍
--	快照 Blob - 若有租用存在，租用識別碼則是選用的
+-	快照 Blob - 如果租用存在，可選擇是否指定租用 ID
 -	複製 Blob - 若有租用存在於目的地 Blob 上，則必須要有租用識別碼
--	中止複製 Blob - 若有無限制租用存在於目的地 Blob 上，則必須要有租用識別碼
+-	中止複製 Blob - 如果目的地 Blob 上有無限期租用，則必須指定租用 ID
 -	租用 Blob  
 
 ##容器的封閉式並行存取
@@ -175,7 +189,7 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 
 如需詳細資訊，請參閱：  
 
-- [為 Blob 服務作業指定條件式標頭](http://msdn.microsoft.com/zh-tw/library/azure/dd179371.aspx)
+- [指定 Blob 服務作業的條件式標頭](http://msdn.microsoft.com/zh-tw/library/azure/dd179371.aspx)
 - [租用容器](http://msdn.microsoft.com/zh-tw/library/azure/jj159103.aspx)
 - [租用 Blob](http://msdn.microsoft.com/zh-tw/library/azure/ee691972.aspx) 
 
@@ -185,14 +199,14 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 若要使用開放式並行存取，並檢查在您從資料表儲存體服務中擷取實體後是否有其他程序修改了該實體，您可以使用您在資料表服務傳回實體時所接收的 ETag 值。此程序大致如下：  
 
 1.	從資料表儲存體服務中擷取實體，回應中會包含 ETag 值，用來識別與儲存體服務中的該實體相關聯的現行識別碼。
-2.	當您更新實體時，請將您在步驟 1 中接收到的 ETag 值納入您傳送至服務之要求的必要 **If-Match** 標頭中。
+2.	當您更新實體時，請將您在步驟 1 中收到的 ETag 值納入您傳送給服務之要求的必要 **If-Match** 標頭中。
 3.	服務會比較要求中的 ETag 值與實體目前的 ETag 值。
-4.	如果實體目前的 ETag 值與要求中的必要 **If-Match** 標頭內的 ETag 不同，服務會將 412 錯誤傳回至用戶端。這會向用戶端指出在用戶端擷取實體後，有另一個程序更新過該實體。
-5.	如果實體目前的 ETag 值與要求中的必要 **If-Match** 標頭內的 ETag 相同，或是 **If-Match** 標頭包含萬用字元 (*)，服務將會執行要求的作業，並更新實體目前的 ETag 值，以顯示它已更新。  
+4.	如果實體目前的 ETag 值與要求內必要 **If-Match** 標頭中的 ETag 不同，服務就會對用戶端傳回 412 錯誤。這會向用戶端指出在用戶端擷取實體後，有另一個程序更新過該實體。
+5.	如果實體目前的 ETag 值與要求內必要 **If-Match** 標頭中的 ETag 相同，或是 **If-Match** 標頭包含萬用字元 (*)，服務就會執行要求的作業，並更新實體目前的 ETag 值，以顯示它已更新。  
 
-請注意，不同於 Blob 服務，在使用資料表服務時，用戶端必須在更新要求中納入 **If-Match** 標頭。但如果用戶端將要求中的 **If-Match** 標頭設為萬用字元 (*)，則有可能強制執行非條件式更新 (「最後寫入為準」策略)，並略過並行存取檢查。  
+請注意，與 Blob 服務不同，使用資料表服務時，用戶端必須在更新要求中納入 **If-Match** 標頭。不過，如果用戶端將要求中的 **If-Match** 標頭設定為萬用字元 (*)，則有可能強制執行非條件式更新 (「最後寫入為準」策略)，並略過並行存取檢查。  
 
-下列 C# 程式碼片段說明先前建立或擷取的客戶實體更新了其電子郵件地址。初始插入或擷取作業將 ETag 值儲存在客戶物件中，且因為範例在執行取代作業時使用了相同的物件執行個體，因此自動將 ETag 值傳回至資料表服務，使服務能夠檢查是否有並行存取違規。如果有其他程序更新了資料表儲存體中的實體，服務將會傳回 HTTP 412 (預先指定的條件失敗) 狀態訊息。完整範例可從[這裡]下載(http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)。  
+下列 C# 程式碼片段說明先前建立或擷取的客戶實體更新了其電子郵件地址。初始插入或擷取作業將 ETag 值儲存在客戶物件中，且因為範例在執行取代作業時使用了相同的物件執行個體，因此自動將 ETag 值傳回至資料表服務，使服務能夠檢查是否有並行存取違規。如果有其他程序更新了資料表儲存體中的實體，服務將會傳回 HTTP 412 (預先指定的條件失敗) 狀態訊息。您可以從[這裡](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114)下載完整的範例。
 
 	try
 	{
@@ -209,7 +223,7 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 	        throw; 
 	}  
 
-若要明確停用並行存取檢查，您應在執行取代作業之前，將 **employee** 物件的 **ETag** 屬性設為"*"。  
+若要明確停用並行存取檢查，您應在執行取代作業之前，先將 **employee** 物件的 **ETag** 屬性設定為 "*"。  
 
 customer.ETag = "*";  
 
@@ -223,15 +237,15 @@ customer.ETag = "*";
 合併實體|	是|	是|
 刪除實體|	否|	是|
 插入或取代實體|	是|	否|
-插入或合併實體|	是|	否| 
+插入或合併實體|	是|	否 
 
-請注意，**插入或取代實體**和**插入或合併實體**作業並不會執行任何並行存取檢查，因為這些作業不會將 ETag 值傳送至資料表服務。  
+請注意，「插入或取代實體」****和「插入或合併實體」****作業並「不會」**執行任何並行存取檢查，因為這些作業不會將 ETag 值傳送給資料表服務。  
 
 一般而言，使用資料表的開發人員在開發可擴充的應用程式時，應該會採用開放式並行存取。如果需要封閉式鎖定，開發人員在存取資料表時可採用的方法之一，是為每個資料表指派一個指定 Blob，在且在操作資料表之前嘗試租用 Blob。要使用此方法，應用程式必須確定所有資料存取路徑都在操作資料表之前取得租用。您也應注意，最短租用時間為 15 秒，您應謹慎考量這一點以維持擴充性。  
 
 如需詳細資訊，請參閱：  
 
-- [實體的作業](http://msdn.microsoft.com/zh-tw/library/azure/dd179375.aspx)  
+- [實體上的作業](http://msdn.microsoft.com/zh-tw/library/azure/dd179375.aspx)  
 
 #管理佇列服務中的並行存取
 在使用佇列服務時必須考量並行存取的案例之一，是有多個用戶端從一個佇列擷取訊息時。從佇列擷取訊息時，回應中會包含訊息，以及刪除訊息所需的 pop receipt 值。訊息並不會從佇列中自動刪除，但在擷取之後，其他用戶端在 visibilitytimeout 參數所指定的時間間隔內將看不到此訊息。擷取訊息的用戶端應會在訊息完成處理後、回應的 TimeNextVisible 元素所指定的時間之前刪除訊息；這段時間會根據 visibilitytimeout 參數值計算得出。visibilitytimeout 的值會加到擷取訊息的時間上，以決定 TimeNextVisible 的值。  
@@ -263,7 +277,7 @@ Microsoft Azure 儲存體服務的設計已符合最複雜的線上應用程式�
 
 - [Microsoft Azure 儲存體首頁](http://azure.microsoft.com/zh-tw/services/storage/)
 - [Azure 儲存體簡介](http://azure.microsoft.com/zh-tw/documentation/articles/storage-introduction/)
-- 儲存體開始使用 [Blob](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/)，[資料表](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-tables/) 及[查詢](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/)
+- [Blob](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/)、[資料表](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-tables/)及[佇列](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/)的儲存體入門
 - 儲存體架構 - [Windows Azure 儲存體：具有高可用性和增強式一致性的雲端儲存體服務](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

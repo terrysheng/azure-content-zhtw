@@ -1,10 +1,24 @@
-<properties title="Develop streaming data processing applications with SCP.NET and C# on Storm in HDInsight" pageTitle="在 Storm 上使用 SCP.NET 開發串流資料處理應用程式 | Azure" description="了解如何在 HDInsight 中的 Storm 上使用 SCP.NET 和 C# 開發串流資料處理應用程式。" services="hdinsight" solutions="" documentationCenter="" authors="Qianlin Xia" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="在 Storm 上使用 SCP.NET 開發串流資料處理應用程式 | Azure" 
+	description="了解如何在 HDInsight 中的 Storm 上使用 SCP.NET 和 C# 開發串流資料處理應用程式。" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="weedqian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/15/2014" ms.author="qixia" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/15/2014" 
+	ms.author="qixia"/>
 
 #在 HDInsight 中使用 C# 搭配 Stream Computing Platform 和 Storm 開發串流資料處理應用程式
 
-Stream Computing Platform (SCP) 是一個平台，可使用 .NET 建置即時、可靠、分散式和高效能的資料處理應用程式。它的建置基礎為 [Apache Storm](http://storm.incubator.apache.org/) -- 一種隨 HDInsight 提供的開放原始碼、即時串流處理系統。
+Stream Computing Platform (SCP) 是一個平台，可使用 .NET 建置即時、可靠、分散式和高效能的資料處理應用程式。它內建於 [Apache Storm](http://storm.incubator.apache.org/) 上，為 HDInsight 提供的開放原始碼、即時資料流處理系統。
 
 在本文中，您將了解：
 
@@ -14,13 +28,13 @@ Stream Computing Platform (SCP) 是一個平台，可使用 .NET 建置即時、
 
 * 如何測試 SCP 方案
 
-* 如何部署 SCP 方案至 HDInsight Storm 叢集
+* 如何將 SCP 方案部署到 HDInsight 上的 Storm 叢集
 
 ##必要條件
 
 * Azure 訂用帳戶
 
-* HDInsight Storm 叢集
+* HDInsight 上的 Storm 叢集
 
 * Visual Studio 2010 或 2013
 
@@ -32,9 +46,9 @@ Stream Computing Platform (SCP) 是一個平台，可使用 .NET 建置即時、
 
 Apache Storm 是分散式運算系統，在 Hadoop 叢集上執行，並可讓您執行即時資料處理。雖然 Storm 是在 Java Virtual Machine (JVM) 中執行，其設計是要讓方案 (即**拓撲**) 可在各種程式設計語言中實作。您甚至可以建立混合了以多個語言編寫之元件的拓撲。
 
-SCP 提供的程式庫可讓您輕鬆使用 .NET 建立 Storm 方案。Azure HDInsight Storm 叢集包括執行您建立的 SCP 方案所需的必要伺服器端元件。
+SCP 提供的程式庫可讓您輕鬆使用 .NET 建立 Storm 方案。HDInsight 上的 Storm 叢集包含執行您所建立的 SCP 方案所需的伺服器端元件。
 
-如需 HDInsight Storm 的詳細資訊，請參閱 [HDInsight Storm 概觀](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-storm-overview/)。
+如需 HDInsight 上的 Storm 的詳細資訊，請參閱 [HDInsight Storm 概觀](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-storm-overview/)。
 
 ###設計 SCP 方案
 
@@ -55,7 +69,7 @@ SCP 提供的介面可讓您建立下列 Storm 元件：
 
 ##安裝 SCP SDK
 
-SCP SDK 是在 HDInsight Storm 叢集上提供。[建立 HDInsight Storm 叢集]之後(http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-storm-getting-started/)，使用下列步驟，將 SDK 下載至您的本機開發環境。
+SCP SDK 是在 HDInsight 的 Storm 叢集上提供。在 [HDInsight 上建立 Storm 叢集](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-storm-getting-started/)之後，使用下列步驟，將 SDK 下載至您的本機開發環境。
 
 1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com)。
 
@@ -83,11 +97,11 @@ SCP SDK 是在 HDInsight Storm 叢集上提供。[建立 HDInsight Storm 叢集]
 
 2. 在 [**方案總管**] 中，於 [**參考**] 上按一下滑鼠右鍵，然後按一下 [**加入參考**]。
 
-3. 選取 [**參考管理員**] 頁面底端的 [**瀏覽**] 按鈕，然後瀏覽至您稍早下載的 SDK 資料夾。選取 **Microsoft.SCP.dll** 和 **Microsoft.SCPLogger.dll**，然後按一下 [**加入**]。按一下 [**確定**] 以關閉參考管理員視窗。
+3. 選取 [**參考管理員**] 頁面底端的 [**瀏覽**] 按鈕，然後瀏覽至您稍早下載的 SDK 資料夾。選取 **Microsoft.SCPNet.dll** 和 **Microsoft.SCPLogger.dll**，然後按一下 [**加入**]。按一下 [**確定**] 以關閉參考管理員視窗。
 
 ###建立 Spout
 
-1. 在 [**方案總管**] 中，於 [**WordCount**] 上按一下滑鼠右鍵，然後按一下 [**加入 | 新增項目**]。選取 [**類別**] 並輸入 **WordSpout.cs** 做為名稱。最後按一下 [**確定**]。
+1. 在 [**方案總管**] 中，於 [**WordCount**] 上按一下滑鼠右鍵，然後按一下 [**加入 | 新增項目**]。選取 [**類別**] 並輸入 **WordSpout.cs** 做為名稱。最後，按一下 [**加入**]。
 
 2. 開啟 **WordSpout.cs** 檔案，以下列內容取代現有的程式碼。務必閱讀註解來了解程式碼的作用。
 
@@ -171,7 +185,7 @@ SCP SDK 是在 HDInsight Storm 叢集上提供。[建立 HDInsight Storm 叢集]
 
 ###建立測試
 
-1. 在 [**方案總管**] 中，於 [**WordCount**] 上按一下滑鼠右鍵，然後按一下 [**加入 | 新增項目**]。選取 [**類別**] 並輸入 **LocalTest.cs** 做為名稱。最後按一下 [**確定**]。
+1. 在 [**方案總管**] 中，於 [**WordCount**] 上按一下滑鼠右鍵，然後按一下 [**加入 | 新增項目**]。選取 [**類別**] 並輸入 **LocalTest.cs** 做為名稱。最後，按一下 [**加入**]。
 
 2. 開啟 **LocalTest.cs** 檔案，以下列內容取代現有的程式碼。用來測試 Spout 的程式碼與用來測試 Bolt 的程式碼非常類似。
 
@@ -253,11 +267,11 @@ SCP SDK 是在 HDInsight Storm 叢集上提供。[建立 HDInsight Storm 叢集]
         {"__isset":{"streamId":true,"tupleId":true,"evt":true,"data":true},"StreamId":"default","TupleId":"","Evt":1000,"Data":[[97,110,32,97,112,112,108,101,32,97,32,100,97,121,32,107,101,101,112,115,32,116,104,101,32,100,111,99,116,111,114,32,97,119,97,121]]}
         {"__isset":{"streamId":true,"tupleId":true,"evt":true,"data":true},"StreamId":"default","TupleId":"","Evt":1000,"Data":[[116,104,101,32,99,111,119,32,106,117,109,112,101,100,32,111,118,101,114,32,116,104,101,32,109,111,111,110]]}
 
-    > [AZURE.NOTE] 在以上資料行中，"Data" 是 Spout 發出的字串，但是以位元組陣列形式儲存。例如，`[[97,110,32,97,112,112,108,101,32,97,32,100,97,121,32,107,101,101,112,115,32,116,104,101,32,100,111,99,116,111,114,32,97,119,97,121]]` 是 "an apple a day keeps the doctor away"。
+    > [AZURE.NOTE] 在以上資料行中，"Data" 是 Spout 發出的字串，但是以位元組陣列形式儲存。例如，`[[97,110,32,97,112,112,108,101,32,97,32,100,97,121,32,107,101,101,112,115,32,116,104,101,32,100,111,99,116,111,114,32,97,119,97,121]]` 是「一日一蘋果，醫生遠離我」。
 
 ###建立 Bolt
 
-1. 在 [**方案總管**] 中，於 [**WordCount**] 上按一下滑鼠右鍵，然後按一下 [**加入 | 新增項目**]。選取 [**類別**] 並輸入 **SplitterBolt.cs** 做為名稱。最後按一下 [**確定**]。重複此步驟來加入名為 **CounterBolt.cs** 的類別。
+1. 在 [**方案總管**] 中，於 [**WordCount**] 上按一下滑鼠右鍵，然後按一下 [**加入 | 新增項目**]。選取 [**類別**] 並輸入 **SplitterBolt.cs** 做為名稱。最後，按一下 [**加入**]。重複此步驟來加入名為 **CounterBolt.cs** 的類別。
 
 2. 開啟 **SplitterBolt.cs** 檔案，以下列內容取代現有的程式碼。
 
@@ -424,7 +438,7 @@ SCP SDK 是在 HDInsight Storm 叢集上提供。[建立 HDInsight Storm 叢集]
 
 ###加入程式碼以在叢集上執行
 
-1. 開啟 **Program.cs** 並將 `//Code to run on HDInsight cluster will go here` 行以下列取代，然後重新建置專案
+1. 開啟 **Program.cs** 並以下列程式碼取代 `//Code to run on HDInsight cluster will go here`行，然後重新建置專案
 
         //The component to run
         string compName = args[0];
@@ -517,11 +531,11 @@ SCP SDK 是在 HDInsight Storm 叢集上提供。[建立 HDInsight Storm 叢集]
             }
         }
 
-4. 使用遠端桌面連接到 HDInsight Storm 叢集，並將您的本機 WordCount 專案 **bin\debug** 資料夾複製到 HDInsight Storm 叢集。例如，將它複製到 **%storm_home%\examples** 資料夾，並重新命名為 **WordCount**。
+4. 使用遠端桌面連接到 Storm 叢集，並將您的本機 WordCount 專案 **bin\debug** 資料夾複製到 Storm 叢集。例如，將它複製到 **%storm_home%\examples** 資料夾，並重新命名為 **WordCount**。
 
 3. 也將 **WordCount.spec** 複製到 HDInsight 伺服器。將它放置在 **%storm_home%\examples** 目錄。
 
-4. 在 HDInsight Storm 叢集上，使用桌面上的 [**Storm 命令列**] 圖示來開啟命令列，然後使用下列命令來啟動 WordCount 拓撲。
+4. 在 Storm 叢集上，使用桌面上的 [**Storm 命令列**] 圖示來開啟命令列，然後使用下列命令來啟動 WordCount 拓撲。
 
         bin\runspec examples\WordCount.spec temp examples\WordCount
 
@@ -567,15 +581,15 @@ ISCPSpout 為非交易式 spout 的介面。
 
 呼叫 `NextTuple()` 時，程式碼可能發出一或多個 Tuple。如果沒有資料可發出，此方法應該返回而不發出任何資料。
 
-只有在規格檔案中啟用 Ack 時，才會呼叫 `Ack()` 和 `Fail()`。`seqId` 用來識別已認可或失敗的 Tuple。如果非交易式拓撲中啟用認可，則 spout 中應該使用下列 emit 函數：  
+只有在規格檔案中啟用 Ack 時，才會呼叫 `Ack()` 和 `Fail()`。 `seqId` 用來識別已認可或失敗的 Tuple。如果非交易式拓撲中啟用認可，則 spout 中應該使用下列 emit 函數：  
 
     public abstract void Emit(string streamId, List<object> values, long seqId);  
 
-如果非交易式拓撲中不支援認可，則 `Ack()` 和 `Fail()` 可保持為空白函數。  
+如果非交易式拓撲中不支援認可，則  `Ack()` 和 `Fail()` 可保持為空白函數。  
 
 這些函數的 `parms` 參數為空白的 Dictionary 物件，並且保留供未來使用。  
 
-> [AZURE.NOTE] `NextTuple()`、`Ack()` 和 `Fail()` 都是在單一執行緒上的緊密迴圈中呼叫。如果沒要發出的 Tuple，對短時間 (例如 10 毫秒) 請考慮使用 `sleep`，以節省 CPU 週期。
+> [AZURE.NOTE] `NextTuple()`、 `Ack()` 和 `Fail()` 是在單一執行緒呼叫緊湊的迴圈。如果沒要發出的 Tuple，對短時間 (例如 10 毫秒) 請考慮使用 `sleep`，以節省 CPU 週期。
 
 ####ISCPTxSpout
 
@@ -588,13 +602,13 @@ ISCPTxSpout 為交易式 spout 的介面。
         void Fail(long seqId, Dictionary<string, Object> parms);
     }  
 
-呼叫 `NextTx()` 以啟動新的交易。使用 `seqId` 來識別交易，也用於 `Ack()` 和 `Fail()`。從 `NextTx()` 發出的資料將儲存在 ZooKeeper 以支援重播。因為 ZooKeeper 的儲存體容量極為有限，您在交易式 spout 中應該只發出中繼資料，而非大量資料。  
+呼叫 `NextTx()` 以啟動新的交易。 `seqId` 用來識別交易，也用於 `Ack()` 和 `Fail()`。從 `NextTx()` 發出的資料將儲存在 ZooKeeper 以支援重播。因為 ZooKeeper 的儲存體容量極為有限，您在交易式 spout 中應該只發出中繼資料，而非大量資料。  
 
 Storm 會自動重播交易 (若失敗)，所以正常情況下應該不會呼叫 Fail()。但是，如果 SCP 可以檢查交易式 spout 所發出的中繼資料，若中繼資料無效則可以呼叫 Fail()。
 
 這些函數的 `parms` 參數為空白的 Dictionary 物件，並且保留供未來使用。
 
-> [AZURE.NOTE] `NextTx()`、`Ack()` 和 `Fail()` 都是在單一執行緒上的緊密迴圈中呼叫。如果沒要發出的 Tuple，對短時間 (例如 10 毫秒) 請考慮使用 `sleep`，以節省 CPU 週期。
+> [AZURE.NOTE] `NextTx()`、 `Ack()` 和 `Fail()` 是在單一執行緒呼叫緊湊的迴圈。如果沒要發出的 Tuple，對短時間 (例如 10 毫秒) 請考慮使用 `sleep`，以節省 CPU 週期。
 
 ####ISCPBolt
 
@@ -605,7 +619,7 @@ ISCPBolt 為非交易式 bolt 的介面。
         void Execute(SCPTuple tuple);
     }
 
-有新的 Tuple 可用時，將會呼叫 `Execute()` 函數來處理它。
+有新的 Tuple 可用時，將會呼叫 `Execute()`函數來處理它。
 
 ####ISCPBatchBolt
 
@@ -617,11 +631,11 @@ ISCPBatchBolt 為交易式 bolt 的介面。
         void FinishBatch(Dictionary<string, Object> parms);
     }  
 
-有新的 Tuple 可用時，將會呼叫 `Execute()` 函數來處理它。此交易結束時，將呼叫 `FinishBatch()`。
+有新的 Tuple 可用時，將會呼叫 `Execute()`函數來處理它。此交易結束時將呼叫 `FinishBatch()`。
 
 這些函數的 `parms` 參數為空白的 Dictionary 物件，並且保留供未來使用。
 
-> [AZURE.NOTE] 實作 `ISCPBatchBolt` 的 Bolt 可從 `parms` 取得 `StormTxAttempt`。`StormTxAttempt` 可用來判斷 Tuple 是原始或重播的嘗試。這通常是在認可 bolt 上完成，**HelloWorldTx** 範例中會示範。  
+> [AZURE.NOTE] 實作 `ISCPBatchBolt` 的Bolt，可以從  `parms` 取得  `StormTxAttempt`。 `StormTxAttempt` 可以用來判斷是否 Tuple 為原始或重新執行嘗試。這通常是在認可 bolt 上完成，**HelloWorldTx** 範例中會示範。  
 
 ###物件模型
 
@@ -639,14 +653,14 @@ SCP.NET 也提供一組簡單的關鍵物件供開發人員在程式設計中使
 
 每個 ISCPPlugin 執行個體 (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) 都有一個對應的 Context 執行個體。Context 提供的功能分成兩部分
 
-* **Static** -  在整個 C# 處理序中可用
+* **Static** - 在整個 C# 處理序中可用
 * **Dynamic** - 對特定執行個體可用  
 
 **靜態內容**
 
-* `public static ILogger Logger = null;` - 針對記錄用途提供  
+* `public static ILogger Logger = null;` - 提供記錄用途  
 
-* `public static SCPPluginType pluginType;` - 取得 C# 處理序的外掛程式類型。如果 C# 程序在本機測試模式 (無 Java) 中執行，則外掛程式類型為 "SCP_NET_LOCAL"
+* `public static SCPPluginType pluginType;` - 取得 C# 程序的外掛程式類型。如果 C# 程序在本機測試模式 (無 Java) 中執行，則外掛程式類型為 "SCP_NET_LOCAL"
 
         public enum SCPPluginType
         {
@@ -657,13 +671,13 @@ SCP.NET 也提供一組簡單的關鍵物件供開發人員在程式設計中使
             SCP_NET_BATCH_BOLT = 4
         }  
 
-* `public static Config Config { get; set; }` - 從 JVM 取得組態參數。初始化外掛程式時，會從 JVM 傳遞參數。`Config` 包含兩個字典
+* `public static Config Config { get; set; }` - 從 JVM 取得組態參數。初始化外掛程式時，會從 JVM 傳遞參數。 `Config` 包含兩個字典
 
     * `public Dictionary<string, Object> stormConf { get; set; }` - 包含 Storm 定義的參數
 
     * `public Dictionary<string, Object> pluginConf { get; set; }` - 包含 SCP 定義的參數
 
-* `public static TopologyContext TopologyContext { get; set; } ` - 取得拓撲內容。對於具有多個平行處理原則的元件最實用。以下示範如何存取拓撲內容
+* `public static TopologyContext TopologyContext { get; set; } `  - 取得拓撲內容。對於具有多個平行處理原則的元件最實用。以下示範如何存取拓撲內容
 
         if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)
         {
@@ -680,7 +694,7 @@ SCP.NET 也提供一組簡單的關鍵物件供開發人員在程式設計中使
 
 **動態內容**
 
-* `public void DeclareComponentSchema(ComponentStreamSchema schema);` - 宣告串流的輸出和輸入結構描述。以下範例宣告的輸入結構描述包含單一字串 Tuple，而輸出結構描述則包含字串 Tuple 和整數 Tuple
+* `public void DeclareComponentSchema(ComponentStreamSchema schema);` - 宣告串流的輸出和輸入的結構描述。以下範例宣告的輸入結構描述包含單一字串 Tuple，而輸出結構描述則包含字串 Tuple 和整數 Tuple
 
         this.ctx = context;
         Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
@@ -688,21 +702,21 @@ SCP.NET 也提供一組簡單的關鍵物件供開發人員在程式設計中使
         outputSchema.Add("default", new List<Type>() { typeof(string), typeof(int) });
         this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, outputSchema));
 
-* `public abstract void Emit(List<object> values);` - 發出一或多個 Tuple 至預設串流。以下範例會發出兩個 Tuple 至預設串流
+* `public abstract void Emit(List<object> values);` - 發出至預設串流的一或多個 Tuple。以下範例會發出兩個 Tuple 至預設串流
 
         this.ctx.Emit(new Values(word, count));
 
-* `public abstract void Emit(string streamId, List<object> values);` - 發出一或多個 Tuple 至指定串流。以下範例會發出兩個 Tuple 至名為 'mystream' 的串流
+* `public abstract void Emit(string streamId, List<object> values);` - 發出至指定串流的一或多個 Tuple。以下範例會發出兩個 Tuple 至名為  'mystream' 的串流
 
         this.ctx.Emit("mystream", new Values(word, count));
 
 使用已啟用 Ack 的非交易 Spout 和 Bolt 時，請使用下列。
 
-* `public abstract void Emit(string streamId, List<object> values, long seqId);` - **從 spout** 發出一或多個 Tuple 和一個序列識別碼至指定串流。以下範例會發出一個 Tuple 和一個序列識別碼至預設串流
+* `public abstract void Emit(string streamId, List<object> values, long seqId);` - 發出一個或多個 Tuple 和序列識別碼 **from a spout** 到指定的串流。以下範例會發出一個 Tuple 和一個序列識別碼至預設串流
 
         this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(word), lastSeqId);
 
-* `public abstract void Emit(string streamId, IEnumerable<SCPTuple> anchors, List<object> values);` - **從 Bolt** 發出一或多個 Tuple 和序列識別碼至指定串流。發出的 Tuple 會錨定到指定為 `anchors` 的傳入 Tuple。這可讓認可流程遵循傳入/傳出 Tuple 鏈結備份管線。以下範例會發出一個 Tuple 和一個序列識別碼至預設串流，並對 `tuple` 中包含的傳入 Tuple 錨定發出的 Tuple
+* `public abstract void Emit(string streamId, IEnumerable<SCPTuple> anchors, List<object> values);` - 發出一個或多個 Tuple 和序列識別碼 **from a bolt** 到指定的串流。發出的 Tuple 會錨定到指定為 `anchors` 的傳入 Tuple。這可讓認可流程遵循傳入/傳出 Tuple 鏈結備份管線。以下範例會發出一個 Tuple 和一個序列識別碼至預設串流，並對 `tuple` 中包含的傳入 Tuple 錨定發出的 Tuple
 
         this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new List<SCPTuple> { tuple }, new Values(word));
 
@@ -714,44 +728,44 @@ SCP.NET 也提供一組簡單的關鍵物件供開發人員在程式設計中使
 
 SCP 應用程式可使用 `State` 物件將資訊保存在 ZooKeeper 中，特別是針對交易式拓撲。這可讓交易式 Spout 接收來自 ZooKeeper 的狀態，並在發生當機時重新啟動管線。  
 
-`StateStore` 物件提供下列方法。
+ `StateStore` 物件提供下列方法。
 
-* `public static StateStore Get(string storePath, string connStr);` - 取得指定路徑和連接字串的 `StateStore`
+* `public static StateStore Get(string storePath, string connStr);` - 取得指定路徑和連接字串的  `StateStore`
 
-* `public State Create();` - 在此狀態存放區執行個體中建立新的 `State` 物件
+* `public State Create();` - 在這個狀態存放區執行個體中建立新 `State` 物件
 
-* `public IEnumerable<State> GetUnCommitted();` - 取得未認的所有 `State` 物件，排除中止的狀態
+* `public IEnumerable<State> GetUnCommitted();` - 取得未認可並排除已中止狀態的所有 `State` 物件
 
-* `public IEnumerable<State> States();` - 取得 `StateStore` 中的所有 'State' 物件
+* `public IEnumerable<State> States();` - 取得 `StateStore`中的所有  'State' 物件
 
 
 * `public T Get<T>(string info = null);` - 取得 `State` 或 `Registry` 物件
 
-    * `info` - 要取得的 `Registry` 名稱。僅在擷取 `Registry` 物件時使用
+    * `info` - 要取得的 `Registry` 名稱。僅在擷取  `Registry` 物件時使用
 
-    * `T` - `State` 或 `Registry` 的類型
+    * `T` - 類型 `State` 或 `Registry`
 
-* `public IEnumerable<Registry> Commited();` - 取得包含認可的 `State` 的 `Registry` 物件
+* `public IEnumerable<Registry> Commited();` - 取得包含已認可 `State` 的 `Registry` 物件
 
-* `public IEnumerable<Registry> Aborted();` - 取得包含中止的 `State` 的 `Registry` 物件。
+* `public IEnumerable<Registry> Aborted();` - 取得包含已中止 `State` 的 `Registry` 物件
 
-* `public State GetState(long stateId)` - 取得指定的狀態識別碼的 `State` 物件
+* `public State GetState(long stateId)` - 取得指定狀態識別碼的 `State` 物件
 
- **State** 提供下列方法。
+**State** 提供下列方法。
 
-* `public void Commit(bool simpleMode = true);` - 設定要認可的 `State` 物件的狀態
+* `public void Commit(bool simpleMode = true);` - 設定 `State` 物件的狀態為認可
 
     > [AZURE.NOTE] 當 `simpleMode` 設為 true，它只會刪除 ZooKeeper 中對應的 ZNode。否則會刪除目前的 ZNode，並在 `COMMITTED_PATH` 中加入新的節點。
 
-* `public void Abort();` - 將 `State` 物件的狀態設為中止
+* `public void Abort();` - 設定 `State` 物件的狀態為中止
 
-* `public void PutAttribute<T>(string key, T attribute);` - 設定指定機碼的屬性值
+* `public void PutAttribute<T>(string key, T attribute);` - 設定指定索引鍵的屬性值
 
     * `key` - 設定屬性的機碼
 
     * `attribute` - 屬性值
 
-* `public T GetAttribute<T>(string key);` - 取得指定機碼的屬性值
+* `public T GetAttribute<T>(string key);` - 取得指定索引鍵的屬性值
 
 ####SCPRuntime
 
@@ -775,23 +789,23 @@ SCPRuntime 提供下列方法。
 
 ###<a id="spec"></a>拓撲規格語言
 
-SCP 拓撲規格是特定領域的語言，用來描述和設定 SCP 拓撲。它的基於 Storm 的 [Clojure DSL](http://storm.incubator.apache.org/documentation/Clojure-DSL.html)。  
+SCP 拓撲規格是特定領域的語言，用來描述和設定 SCP 拓撲。它是基於 Storm 的 [Clojure DSL](http://storm.incubator.apache.org/documentation/Clojure-DSL.html)。  
 
 使用下列項目來定義拓撲。
 
-|新函數|	參數|	描述
+|新函數|	參數|	說明
 |-------------|-----------|-----------
 |**tx-topolopy**|	topology-name<br> spout-map<br> bolt-map|	 以拓撲名稱、spout 定義對應和 bolt 定義對應來定義交易式拓撲
-|**scp-tx-spout**|	exec-name<br> args<br> fields|	定義交易式 spout。它會使用 ***args*** 搭配 ***exec-name*** 來執行應用程式。<br><br> ***fields*** 是 spout 的輸出欄位
+|**scp-tx-spout**|	exec-name<br> args<br> fields|	定義交易式 spout。它會使用 ***args*** 搭配 ***exec-name*** 來執行應用程式。<br><br>***fields*** 是 spout 的輸出欄位
 |**scp-tx-batch-bolt**|	exec-name<br> args<br> fields| 	定義交易式批次 Bolt。它會使用 ***args*** 搭配 ***exec-name*** 來執行應用程式。<br><br>fields 是 bolt 的輸出欄位。
-|**scp-tx-commit-bolt**|	exec-name<br>args<br>fields|	定義交易式認可者 Bolt。它會使用 args 搭配 ***exec-name*** 來執行應用程式。<br><br> ***fields*** 是 bolt 的輸出欄位
-|**nontx-topolopy**|	topology-name<br> spout-map<br>bolt-map|	以拓撲名稱、spout 定義對應和 bolt 定義對應來定義非交易式拓撲
-|**scp-spout**|	exec-name<br>args<br>fields<br>parameters|	定義非交易式 spout。它會使用 ***args*** 搭配 ***exec-name*** 來執行應用程式。<br><br> ***fields*** 是 spout 的輸出欄位<br><br> ***parameters*** 為選用，使用它來指定一些參數，例如 "nontransactional.ack.enabled"。
-|**scp-bolt**|	exec-name<br>args<br>fields<br>parameters|	定義非交易式 Bolt。它會使用 ***args*** 搭配 ***exec-name*** 來執行應用程式。<br><br> ***fields*** 是 bolt 的輸出欄位<br><br> ***parameters*** 為選用，使用它來指定一些參數，例如 "nontransactional.ack.enabled"。
+|**scp-tx-commit-bolt**|	exec-name<br>args<br>fields|	定義交易式認可者 Bolt。它會使用 args 搭配 ***exec-name*** 來執行應用程式。<br><br>***fields*** 是 bolt 的輸出欄位。
+|**nontx-topolopy**|	topology-name<br> spout-map<br>bolt-map|	定義非交易式拓樸，具有拓樸名稱、  spout 定義圖和 bolt 定義圖
+|**scp-spout**|	exec-name<br>args<br>fields<br>參數|	定義非交易式 spout。它會使用 ***args*** 搭配 ***exec-name*** 來執行應用程式。<br><br>***fields*** 是 spout 的輸出欄位<br><br>***parameters*** 為選用，使用它來指定一些參數，例如 "nontransactional.ack.enabled"。
+|**scp-bolt**|	exec-name<br>args<br>fields<br>參數|	定義非交易式 Bolt。它會使用 ***args*** 搭配 ***exec-name*** 來執行應用程式。<br><br>***fields*** 是 bolt 的輸出欄位。<br><br>***parameters*** 為選用，使用它來指定一些參數，例如 "nontransactional.ack.enabled"。
 
 下列是定義拓撲時可使用的關鍵字
 
-|關鍵字|	描述
+|關鍵字|	說明
 |---------|------------
 |**:name**|	定義拓撲名稱
 |**:topology**|	使用上述函數和內建函數來定義拓撲。
@@ -801,7 +815,7 @@ SCP 拓撲規格是特定領域的語言，用來描述和設定 SCP 拓撲。�
 
 常用參數
 
-|參數|	描述
+|參數|	說明
 |---------|------------
 |**"plugin.name"**|	C# 外掛程式的 exe 檔名
 |**"plugin.args"**|	外掛程式引數
@@ -813,9 +827,9 @@ SCP 拓撲規格是特定領域的語言，用來描述和設定 SCP 拓撲。�
     usage: runSpec [spec-file target-dir [resource-dir] [-cp classpath]]
      ex: runSpec examples\HelloWorld\HelloWorld.spec target examples\HelloWorld\Target
 
-> [AZURE.NOTE]  ***resource-dir*** 參數為選用，當您要執行 C# 應用程式時需要加以指定，此目錄將包含應用程式、依存性和組態。  
+> [AZURE.NOTE] ***resource-dir*** 參數為選用，當您要執行 C# 應用程式時需要加以指定，此目錄將包含應用程式、依存性和組態。  
 
- ***classpath*** 參數也是選用。用來指定 Java 類別路徑 (如果規格檔包含 Java Spout 或 Bolt)。  
+***classpath*** 參數也是選擇性。用來指定 Java 類別路徑 (如果規格檔包含 Java Spout 或 Bolt)。  
 
 ###其他功能
 
@@ -823,7 +837,7 @@ SCP 拓撲規格是特定領域的語言，用來描述和設定 SCP 拓撲。�
 
 呼叫 `Emit()` 時，平台會將 Tuple 序列化為位元組陣列，並將它傳送至 JVM。Storm 會接著將此 Tuple 傳送至目標。Bolt 會接著收到 Tuple。針對 C# Bbolt，會從 JVM 收到 Tuple，並轉換回原始類型。
 
-為了支援此序列化和還原序列化，您必須宣告輸入和輸出的結構描述。這些是定義為 `Dictionary<string, List<Type>` 物件，其中機碼為串流識別碼，而值為將發出的 Tuple 的 `Types`。元件可宣告多個串流。
+為了支援此序列化和還原序列化，您必須宣告輸入和輸出的結構描述。這些是定義為  `Dictionary<string, List<Type>` 物件，其中機碼為串流識別碼，而值為將發出的 Tuple 的  `Types`。元件可宣告多個串流。
 
     public class ComponentStreamSchema
     {
@@ -836,7 +850,7 @@ SCP 拓撲規格是特定領域的語言，用來描述和設定 SCP 拓撲。�
         }
     }
 
-`Context` 物件會提供 `DeclareComponentSchema`，可用來宣告序列化/還原序列化的結構描述。
+ `Context` 物件會提供  `DeclareComponentSchema`，可用來宣告序列化/還原序列化的結構描述。
 
      public void DeclareComponentSchema(ComponentStreamSchema schema)
 
@@ -844,15 +858,15 @@ SCP 拓撲規格是特定領域的語言，用來描述和設定 SCP 拓撲。�
 
 ####多重串流支援
 
-您可以發出至多個串流，方法是進行對 `Emit()` 的多個呼叫，指定要寫入的每個串流的 `streamId` 參數。
+您可以發出至多個串流，方法是進行對  `Emit()` 的多個呼叫，指定要寫入的每個串流的  `streamId` 參數。
 
 > [AZURE.NOTE] 發出給不存在的串流會造成執行階段例外狀況。
 
 ####欄位分組
 
-Strom 中內建的欄位群組功能在 SCP.NET 中無法正常運作。將資料處理至 JVM 時，所有欄位資料類型實際上為 `byte[]`，而欄位群組會使用 `byte[]` 物件雜湊碼來執行群組。`byte[]` 物件雜湊碼為此物件在記憶體中的位址，因此具有相同內容但不同位址的兩個 `byte[]` 物件的群組會出現錯誤。
+Strom 中內建的欄位群組功能在 SCP.NET 中無法正常運作。將資料處理至 JVM 時，所有欄位資料類型實際上為 `byte[]`，而欄位群組會使用  `byte[]` 物件雜湊碼來執行群組。`byte[]` 物件雜湊碼為此物件在記憶體中的位址，因此具有相同內容但不同位址的兩個 `byte[]` 物件的群組會出現錯誤。
 
-若要解決此問題，請在規格中使用 `scp-field-group`。這將使用位元組的內容[]來執行群組。以下是在規格中使用此動作的範例。  
+若要解決此問題，請在規格中使用 `scp-field-group`。這將使用位元組的內容 `byte[]` 來執行群組。以下是在規格中使用此動作的範例。  
 
     (bolt-spec
         {
@@ -871,7 +885,7 @@ Strom 中內建的欄位群組功能在 SCP.NET 中無法正常運作。將資�
 
 最原生的 Storm Spout、Bolt 和拓撲是在 Java 中實作。為了支援在使用 C# 元件的方案中重複使用這些元件，SCP 可讓您在規格中建立/定義混合式拓撲。
 
-* **Java Spout 或 Bolt** - 在規格檔案中，`scp-spout` 和 `scp-bolt` 也可用來指定 Java Spout 和 Bolt。下列範例示範指定類別名稱為 `microsoft.scp.example.HybridTopology.Generator` 的 Java Spout
+* **Java Spout 或 Bolt** - 在規格檔案中， `scp-spout` 和 `scp-bolt` 也可用來指定 Java Spout 和 Bolt。下列範例示範指定類別名稱為 `microsoft.scp.example.HybridTopology.Generator` 的 Java Spout
 
         (spout-spec
           (microsoft.scp.example.HybridTopology.Generator.)
@@ -884,7 +898,7 @@ Strom 中內建的欄位群組功能在 SCP.NET 中無法正常運作。將資�
 
 * **Java 和 C# 之間的序列化和還原序列化** - 若要序列化 Java 和 C# 之間的物件，請使用 `CustomizedInteropJSONSerializer`
 
-    > [WACOM.NOTE] 目前的 `CustomizedInteropJSONSerializer` 僅支援 **Java Spout** 和 **C# Bolt**。
+    > [AZURE.NOTE] 目前 `CustomizedInteropJSONSerializer` 僅支援 **Java Spout** 和 **C# Bolt**。
 
     * 在規格檔案中指定 Java 元件的序列化程式
 
@@ -903,7 +917,7 @@ Strom 中內建的欄位群組功能在 SCP.NET 中無法正常運作。將資�
             this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, null));
             this.ctx.DeclareCustomizedDeserializer(new CustomizedInteropJSONDeserializer());  
 
-    只要資料類型不要太複雜，預設實作應該能夠因應大多數的情況。如果資料類型太複雜，或因為預設實作的效能不符合您的需求，您可以使用下列介面來建立自訂實作，以滿足您的需求
+    只要資料類型不要太複雜，預設實作應該能夠因應大多數的情況。  如果資料類型太複雜，或因為預設實作的效能不符合您的需求，您可以使用下列介面來建立自訂實作，以滿足您的需求
 
     **Java 中的序列化介面**  
 
@@ -939,7 +953,7 @@ Strom 中內建的欄位群組功能在 SCP.NET 中無法正常運作。將資�
 
 ##SCP 程式設計範例
 
-以下以 SCP 編寫的範例應用程式可在您的 HDInsight Storm 叢集上找到，位於 **%storm_home%\examples**。
+以下以 SCP 編寫的範例應用程式可在您的 HDInsight 的 Storm 叢集上找到，位於 **%storm_home%\examples**。
 
 * **HelloWorld** - HelloWorld 是 SCP.Net 非常簡易的範例，並且與本文中稍早使用的字數統計範例類似。它使用非交易拓撲，具有一個名為 **generator** 的 Spout，以及兩個名為 **splitter** 和 **counter** 的 Bolt。Spout **generator** 會隨機產生一些句子，並發出這些句子給 **splitter**。Bolt **splitter** 會將句子分割成單字，再發出這些單字給 **counter** Bolt。Bolt **counter** 使用字典來記錄每個單字出現的次數。
 
@@ -947,7 +961,7 @@ Strom 中內建的欄位群組功能在 SCP.NET 中無法正常運作。將資�
 
 * **HelloWorldTx** - 如何實作交易拓撲的範例。它具有一個名為 **generator** 的 Spout，一個名為 **partial-count** 的批次 Bolt，以及一個名為 **count-sum** 的認可 Bolt。還有三個預先建立的 txt 檔案可與此拓撲搭配使用：**DataSource0.txt**、**DataSource1.txt** 和 **DataSource2.txt**。
 
-    在每個交易中，Spout 會隨機選擇兩個檔案，然後發出這兩個檔名給 **partial-count** Bolt。Bolt 會先從收到的 Tuple 中取得檔名，然後開啟檔案並計算此檔案中的字數。最後再發出字數給 **count-sum** Bolt。 **count-sum** bolt 將計算總數。  
+    在每個交易中，Spout 會隨機選擇兩個檔案，然後發出這兩個檔名給 **partial-count** Bolt。Bolt 會先從收到的 Tuple 中取得檔名，然後開啟檔案並計算此檔案中的字數。最後再發出字數給 **count-sum** Bolt。**count-sum** Bolt 將計算總數。  
 
     為了符合「剛好一次」語意，**count-sum** Bolt 需要判斷是否在處理重播的交易。在此範例中，它有一個靜態成員變數：  
 
@@ -989,6 +1003,4 @@ Strom 中內建的欄位群組功能在 SCP.NET 中無法正常運作。將資�
 
 
 [1]: ./media/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application-01.png
-
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

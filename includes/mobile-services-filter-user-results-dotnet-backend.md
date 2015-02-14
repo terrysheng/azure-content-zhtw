@@ -1,10 +1,10 @@
-﻿
+
 
 既然需要驗證才能存取 TodoItem 資料表的資料，您可以使用行動服務指派的 userID 值來篩選傳回的資料。
 
->[WACOM.NOTE]下列方法應在**使用者**的 **Authorizationlevel** 套用 **AuthorizeLevel** 屬性。這會限制只有經過驗證的使用者才可以存取資料表。
+>[AZURE.NOTE]下列方法應在 **[使用者]** 的 **Authorizationlevel** 套用 **AuthorizeLevel** 屬性。這會限制只有經過驗證的使用者才可以存取資料表。
 
-1. 在 Visual Studio 2013，開啟行動服務專案，展開 DataObjects 資料夾，然後開啟 TodoItem.cs project 檔案。
+1. 在 Visual Studio 2013，開啟行動服務專案，展開 DataObjects 資料夾，然後開啟 TodoItem.cs 專案檔案。
 
 	TodoItem 類別可定義資料物件，而且您需要新增 UserId 屬性才能使用於篩選。
 
@@ -12,7 +12,7 @@
 
 		public string UserId { get; set; }
 
-	>[WACOM.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。無法針對 Azure 中的 SQL Database 使用預設的初始設定式。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型](/zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations)。
+	>[AZURE.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。無法針對 Azure 中的 SQL Database 使用預設的初始設定式。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型](/zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations)。
 
 3. 在 [方案總管] 中，展開 Controllers 資料夾，開啟 TodoItemController.cs 專案檔案，再加入下列 **using** 陳述式：
 
@@ -41,5 +41,4 @@
    	此查詢會篩選傳回的 TodoItem 物件，讓每個使用者只接收他們所插入的項目。 
 
 6. 將行動服務專案重新發佈至 Azure。
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,17 +1,17 @@
-﻿## 將訊息傳送至事件中心
+## 將訊息傳送至事件中心
 在本節中，我們會撰寫一個 Java 主控台應用程式，以將事件傳送至事件中心。我們將利用 [Apache Qpid 專案](http://qpid.apache.org/)中的 JMS AMQP 提供者。這與搭配使用 Service Bus Queues and Topics 與透過 Java 的 AMQP 類似 (如[這裡](http://azure.microsoft.com/zh-tw/documentation/articles/service-bus-java-how-to-use-jms-api-amqp/)所示)。如需詳細資訊，請參閱 [Qpid JMS 文件](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html)和 [Java 訊息服務](http://www.oracle.com/technetwork/java/jms/index.html)。
 
 1. 在 Eclipse 中，建立名為 **Sender** 的新 Java 專案。
 
 2. 從[這裡](http://qpid.apache.org/components/qpid-jms/index.html)下載最新版的 **Qpid JMS AMQP 1.0** 程式庫。
 
-3. 從封存中解壓縮檔案，並將下列 jars 從封存 'qpid-amqp-1-0-client-jms\<version>\lib' 目錄複製到 Eclipse**Sender** 專案。
+3. 從封存中解壓縮檔案，並將下列 jars 從封存  `qpid-amqp-1-0-client-jms\<version>\lib` 目錄複製到 Eclipse**Sender** 專案。
 
-4. 在 Eclipse 封裝總管中，以滑鼠右鍵按一下 **Sender** 專案，然後選取 [屬性]****。在對話方塊的左窗格中，按一下 [Java Build Path]****，然後依序按一下 [程式庫]**** 索引標籤和 [Add JARs]**** 按鈕。選取所有先前複製的 jar，然後按一下 [確定]****。
+4. 在 Eclipse 封裝總管中，以滑鼠右鍵按一下 **Sender** 專案，然後選取 [**屬性**]。在對話方塊的左窗格中，按一下 [**Java Build Path**]，然後按一下 [**程式庫**] 索引標籤，然後按 [**新增 Jar**] 按鈕。選取所有先前複製的 jar，然後按一下 [**確定**]。
 
 	![][8]
 
-5. 在 **Sender** 專案的根目錄中，使用下列內容建立名為 **servicebus.properties** 的檔案。請務必替代您事件中心名稱和命名空間名稱的值 (後者通常是 '{event hub name}-ns')。您也必須替代先前針對 **SendRule** 建立之金鑰的 URL 編碼版本。您可以在[這裡](http://www.w3schools.com/tags/ref_urlencode.asp)對其進行 URL 編碼。
+5. 在 **Sender** 專案的根目錄中，使用下列內容建立名為 **servicebus.properties** 的檔案。請務必替代您事件中心名稱和命名空間名稱的值 (後者通常是  `{event hub name}-ns`)。您也必須替代先前針對 **SendRule** 建立之金鑰的 URL 編碼版本。您可以在[這裡](http://www.w3schools.com/tags/ref_urlencode.asp)對其進行 URL 編碼。
 
 		# servicebus.properties - sample JNDI configuration
 
@@ -24,7 +24,7 @@
 		# topic.[jndi_name] = [physical_name]
 		queue.EventHub = {event hub name}
 
-5. 建立名為 **Sender** 的新類別。新增下列 'import' 陳述式：
+5. 建立名為 **Sender** 的新類別。新增下列  `import` 陳述式：
 
 		import java.io.BufferedReader;
 		import java.io.IOException;
@@ -92,4 +92,4 @@
 
 
 <!-- Images -->
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png<!--HONumber=42-->

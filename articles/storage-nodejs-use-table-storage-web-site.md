@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Website with Storage" pageTitle="使用資料表儲存體的 Node.js 網站 | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="本教學課程說明如何使用 Azure 資料表服務，從託管於 Azure 網站上的節點應用程式儲存資料。" metaCanonical="" services="web-sites,storage" documentationCenter="nodejs" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="使用資料表儲存體的 Node.js 網站 | Microsoft Azure" 
+	description="本教學課程說明如何使用 Azure 資料表服務，從託管於 Azure 網站上的節點應用程式儲存資料。" 
+	services="web-sites, storage" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="mwasson"/>
 
 
 
@@ -8,7 +22,7 @@
 
 # 使用 Azure 資料表服務的 Node.js Web 應用程式
 
-本教學課程說明如何使用 Azure 資料管理所提供的資料表服務，從 Azure 上主控的 [node] 應用程式儲存及存取資料。本教學課程假設您先前有過一些使用節點及 [Git] 的經驗。
+本教學課程說明如何使用 Azure 資料管理所提供的資料表服務，從 Azure 上代管的 [node] 應用程式儲存及存取資料。本教學課程假設您先前有過一些使用節點及 [Git] 的經驗。
 
 您將了解：
 
@@ -19,14 +33,14 @@
 * 如何使用適用於 Mac 和 Linux 的 Azure 命令列工具建立 Azure 網站
 
 依照本教學課程的指示，您將建置一個簡單的網頁型工作管理應用程式，用於建立、擷取、完成工作。工作存放於資料表服務中。
- 
-本教學課程的專案檔案將存放於 **tasklist** 目錄中，完成的應用程式應類似這樣：
+
+本教學課程的專案檔案將存放在名為 **tasklist** 的目錄中，完成的應用程式看起來將會像下面這樣：
 
 ![A web page displaying an empty tasklist][node-table-finished]
 
-> [WACOM.NOTE] 本教學課程參考 **tasklist** 資料夾。在此忽略此資料夾的完整路徑，是因為不同作業系統有不同的路徑語義。您應該在本機檔案系統中易於存取的位置建立此資料夾，例如 **~/node/tasklist** 或 **c:\node\tasklist**。
+> [AZURE.NOTE] 本教學課程參考 **tasklist** 資料夾。在此忽略此資料夾的完整路徑，是因為不同作業系統有不同的路徑語義。您應該在本機檔案系統中易於存取的位置建立此資料夾，例如 **~/node/tasklist** 或 **c:\node\tasklist**。
 
-> [WACOM.NOTE] 以下的許多步驟皆提到要使用命令列。在這些步驟中，請使用適用於您作業系統的命令列，例如 **cmd.exe** (Windows) 或 **Bash** (Unix Shell)。在 OS X 系統上，您可以透過 [終端機] 應用程式存取命令列。
+> [AZURE.NOTE] 以下的許多步驟皆提到要使用命令列。在這些步驟中，請使用適用於您作業系統的命令列，例如 **cmd.exe** (Windows) 或 **Bash** (Unix Shell)。在 OS X 系統上，您可以透過 [終端機] 應用程式存取命令列。
 
 ##必要條件
 
@@ -40,7 +54,7 @@
 
 * 網頁瀏覽器
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##建立儲存體帳戶
 
@@ -48,19 +62,19 @@
 
 1. 開啟網頁瀏覽器並移至 [Azure 入口網站]。若出現提示，請用您的 Azure 訂用帳戶資訊登入。
 
-2. 在入口網站底部，按一下 [**+ NEW**]，然後選取 [**儲存體帳戶**]。
+2. 在入口網站底部，按一下 [+ NEW] 然後選取 [儲存體帳戶]。
 
 	![+new][portal-new]
 
 	![storage account][portal-storage-account]
 
-3. 選取 [**快速建立**]，然後輸入此儲存體帳戶的 URL 和區域/同質群組。由於這是教學課程，且不需要複寫到全域，請取消核取 [**啟用地理區域複寫**]。最後，按一下 [建立儲存體帳戶]。
+3. 選取 [快速建立]，然後輸入此儲存體帳戶的 URL 和區域/同質群組。由於這是教學課程，且不需要複寫到全域，請取消核取 [啟用異地複寫 ]。最後，按一下 [建立儲存體帳戶]。
 
 	![quick create][portal-quick-create-storage]
 
 	記下您輸入的 URL，因為這將在後面的步驟中參考為帳戶名稱。
 
-4. 建立儲存體帳戶之後，按一下頁面底部的 [**管理金鑰**]。如此會顯示此儲存體帳戶的主要和次要存取金鑰。複製並儲存主要存取金鑰，然後按一下核取記號。
+4. 建立儲存體帳戶之後，按一下頁面底部的 [管理金鑰]。如此會顯示此儲存體帳戶的主要和次要存取金鑰。複製並儲存主要存取金鑰，然後按一下核取記號。
 
 	![access keys][portal-storage-access-keys]
 
@@ -70,13 +84,13 @@
 
 ###安裝 Express 及產生樣板
 
-1. 使用命令列將目錄切換至 **tasklist** 目錄。如果 **tasklist** 目錄不存在，請加以建立。
+1. 從命令列將目錄變更到 **tasklist** 目錄。如果 **tasklist** 目錄不存在，請建立該目錄。
 
 2. 輸入以下命令以安裝 express 命令。
 
 		npm install express-generator@4.2.0 -g
 
-    > [WACOM.NOTE] 在某些作業系統上使用 '-g' 參數，您可能會收到錯誤 **Error:EPERM, chmod '/usr/local/bin/express'**，並要求您以管理員執行該帳戶。若發生這個情況，使用 **sudo** 命令以更高的權限層級執行 npm。
+    > [AZURE.NOTE] 在某些作業系統上使用 '-g' 參數，您可能會收到錯誤 **Error:EPERM, chmod '/usr/local/bin/express'**，並要求您以管理員執行該帳戶。若發生這個情況，使用 **sudo** 命令以更高的權限層級執行 npm。
 
     此命令的輸出應類似這樣：
 
@@ -84,9 +98,9 @@
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-	> [WACOM.NOTE] 安裝 Express 模組時若使用 '-g' 參數，會全域安裝模組。這麼做我們就可以存取 **express** 命令來產生網站樣板，而不需額外輸入路徑資訊。**
+	> [AZURE.NOTE] 安裝 Express 模組時若使用 '-g' 參數，會全域安裝模組。這麼做我們就可以存取 **express** 命令來產生網站樣板，而不需額外輸入路徑資訊。**
 
-4. 若要建立用於此應用程式的樣板，使用 **express** 命令：
+4. 若要建立用於此應用程式的 Scaffolding，請使用 **express** 命令：
 
         express
 
@@ -201,15 +215,15 @@
 
 ##在節點應用程式中使用資料表服務
 
-在本節中，您將藉著新增 task.js 檔案的方式，擴充由 **express** 命令建立的基本應用程式 (**task.js** 檔案包含您的工作的模型)。您也將修改現有 **app.js** 及建立新的 **tasklist.js** 檔案，以使用模型。
+在本節中，您將透過加入包含您工作的模型的 **task.js** 檔案，來擴充 **express** 命令所建立的基本應用程式。您也將修改現有的 **app.js** 及建立使用模型的新 **tasklist.js** 檔案。
 
 ### 建立模型
 
-1. 在 **tasklist** 目錄中，建立新目錄 **models**。
+1. 在 **tasklist** 目錄中，建立名稱為 **models** 的新目錄。
 
-2. 在 **models** 目錄中，建立新檔案 **task.js**。此檔案將包含您的應用程式建立之工作的模型。
+2. 在 **models** 目錄中，建立名稱為 **task.js** 的新檔案。此檔案將包含您的應用程式建立之工作的模型。
 
-3. 在 **task.js** 檔案的開頭新增以下程式碼，以參考所需的程式庫：
+3. 在 **task.js** 檔案的開頭加入以下程式碼以參照所需的程式庫：
 
         var azure = require('azure-storage');
   		var uuid = require('node-uuid');
@@ -285,9 +299,9 @@
 
 ###建立控制器
 
-1. 在 **tasklist/routes** 目錄中建立新檔案 **tasklist.js**，然後在文字編輯器中開啟檔案。
+1. 在 **tasklist/routes** 目錄中，建立名稱為 **tasklist.js** 的新檔案，並在文字編輯器中開啟。
 
-2. 在 **tasklist.js** 中新增以下程式碼。這會載入 azure 和 async 模組，它們是由 **tasklist.js** 所使用。這也會定義 **TaskList** 函數，系統會傳遞我們稍早定義的 **Task** 物件執行個體給它：
+2. 在 **tasklist.js** 中加入以下程式碼。這會載入 azure 和 async 模組，它們是由 **tasklist.js** 所使用。這也會定義 **TaskList** 函數，系統會傳遞我們稍早定義的 **Task** 物件執行個體給它：
 
 		var azure = require('azure-storage');
 		var async = require('async');
@@ -298,7 +312,7 @@
 		  this.task = task;
 		}
 
-2. 繼續新增用於 **showTasks**、**addTask** 和 **completeTasks** 的方法，以新增至 **tasklist.js** 檔案：
+2. 繼續在 **tasklist.js** 檔案中加入 **showTasks** (顯示工作)、**addTask** (新增工作)、**completeTasks** (完成工作) 方法：
 
 		TaskList.prototype = {
 		  showTasks: function(req, res) {
@@ -346,7 +360,7 @@
 
 ### 修改 app.js
 
-1. 在 **tasklist** 目錄中，在文字編輯器中開啟 **app.js** 檔案。此檔案是稍早執行 **express** 命令所建立。
+1. 在 **tasklist** 目錄中，在文字編輯器中開啟 **app.js** 檔案。此檔案是稍早執行 **express** 命令所建立的。
 
 2. 在檔案開頭，加入下列內容以載入 azure 模組、設定資料表名稱、partitionKey，以及設定此範例所使用的儲存體認證：
 
@@ -359,14 +373,14 @@
 		var accountName = nconf.get("STORAGE_NAME");
 		var accountKey = nconf.get("STORAGE_KEY");
 
-	> [WACOM.NOTE] nconf 會從環境變數或 **config.json** 檔 (我們稍後會建立) 載入組態值。
+	> [AZURE.NOTE] nconf 會從環境變數或 **config.json** 檔 (我們稍後會建立) 載入組態值。
 
 3. 在 app.js 檔中，向下捲動到看見此行處：
 
 		app.use('/', routes);
 		app.use('/users', users);
 
-	將以上幾行取代為以下顯示的程式碼。這會使用儲存體帳戶的連線初始化 <strong>工作</strong> 的執行個體。此項目會傳至 <strong>TaskList</strong>，供其用來與資料表服務通訊：
+	將以上幾行取代為以下顯示的程式碼。這會初始化 <strong>Task</strong> 的執行個體，並連接到您的儲存體帳戶。這會傳遞給 <strong>TaskList</strong>，它將用來與表格服務通訊：
 
 		var TaskList = require('./routes/tasklist');
 		var Task = require('./models/task');
@@ -381,7 +395,7 @@
 
 ###修改索引檢視
 
-1. 將目錄切換至 **views** 目錄，然後在文字編輯器中開啟 **index.jade** 檔案。
+1. 將目錄變更為 **views** 目錄，並在文字編輯器中開啟 **index.jade** 檔案。
 
 2. 以下列程式碼取代 **index.jade** 檔案的內容。這會定義用於顯示現有工作的檢視，以及用於加入新工作及將現有工作標示為完成的表單。
 
@@ -426,9 +440,9 @@
 
 ###修改全域版面配置
 
-**views** 目錄中的 **layout.jade** 檔案可用來作為其他 **.jade** 檔案的全域範本。在此步驟中您會加以修改，以使用 [Twitter Bootstrap]，(https://github.com/twbs/bootstrap)此工具組可讓您輕鬆設計美觀的網站。
+**views** 目錄中的 **layout.jade** 檔是用來作為其他 **.jade** 檔案的全域範本。在此步驟中，您將修改它以使用 [Twitter Bootstrap](https://github.com/twbs/bootstrap)，這個工具組能夠方便設計美觀的網站。
 
-1. 下載並解壓縮 [Twitter Bootstrap] 的檔案(http://getbootstrap.com/)。將 **bootstrap.min.css** 檔案從 **bootstrap\\dist\\css** 資料夾複製到您 tasklist 應用程式的 **public\\stylesheets** 目錄。
+1. 下載並解壓縮 [Twitter Bootstrap](http://getbootstrap.com/) 的檔案。將 **bootstrap.min.css** 檔案從 **bootstrap\\dist\\css** 資料夾複製到您 tasklist 應用程式的 **public\\stylesheets** 目錄。
 
 2. 從 **views** 資料夾，以文字編輯器開啟 **layout.jade**，並將內容取代為：
 
@@ -469,39 +483,39 @@
 
 若要在本機電腦測試應用程式，請執行下列步驟：
 
-1. 使用命令列將目錄切換至 **tasklist** 目錄。
+1. 從命令列將目錄變更到 **tasklist** 目錄。
 
 2. 使用下列命令在本機啟動應用程式：
 
         npm start
 
-3. 開啟瀏覽器，導覽至 http://127.0.0.1:3000。這應該會顯示如下所示的網頁：
+3. 開啟 Web 瀏覽器並瀏覽至 http://127.0.0.1:3000。 這應該會顯示如下所示的網頁：
 
     ![A webpage displaying an empty tasklist][node-table-finished]
 
-4. 使用提供的 [**項目名稱**] 和 [**項目類別**] 欄位來輸入資訊，然後按一下 [**新增項目**]。
+4. 使用所提供的 [項目名稱] 和 [項目類別] 欄位來輸入資訊，然後按一下 [新增項目]。
 
 5. 頁面應該會更新，將項目顯示在待辦事項資料表中。
 
     ![An image of the new item in the list of tasks][node-table-list-items]
 
-6. 若要完成工作，您只需勾選 [已完成] 資料行中的核取方塊，然後按一下 [**更新工作**]。
+6. 若要完成工作，您只需勾選 [已完成] 資料行中的核取方塊，然後按一下 [更新工作]。
 
-7. 若要停止節點程序，請移至命令列並按下 **CTRL** 和 **C** 鍵。
+7. 若要停止 node 處理程序，請移至命令列並按下 **CTRL** 和 **C** 鍵。
 
 ##將應用程式部署至 Azure
 
 本節的步驟使用 Azure 命令列工具建立新的 Azure 網站，然後使用 Git 部署您的應用程式。若要執行這些步驟，必須有 Azure 訂用帳戶。
 
-> [WACOM.NOTE] 也可以使用 Azure 入口網站執行這些步驟。如需使用 Azure 入口網站部署 Node.js 應用程式的步驟，請參閱[建立並部署 Node.js 應用程式至 Azure 網站]。
+> [AZURE.NOTE] 也可以使用 Azure 入口網站執行這些步驟。如需使用 Azure 入口網站部署 Node.js 應用程式的步驟，請參閱[建立並部署 Node.js 應用程式至 Azure 網站]。
 
-> [WACOM.NOTE] 如果這是您建立的第一個 Azure 網站，您必須使用 Azure 入口網站部署此應用程式。
+> [AZURE.NOTE] 如果這是您建立的第一個 Azure 網站，您必須使用 Azure 入口網站部署此應用程式。
 
 ###建立 Azure 訂用帳戶
 
 如果您還沒有 Azure 訂用帳戶，可以[免費]註冊。登入之後，依照這些步驟繼續執行此教學課程。
 
-[WACOM.INCLUDE [antares-iaas-signup](../includes/antares-iaas-signup.md)]
+[AZURE.INCLUDE [antares-iaas-signup](../includes/antares-iaas-signup.md)]
 
 ###安裝適用於 Mac 和 Linux 的 Azure 命令列工具
 
@@ -509,15 +523,15 @@
 	
 	npm install azure-cli -g
 
-> [WACOM.NOTE] 如需詳細資訊，請參閱[安裝及設定 Azure 跨平台命令列介面](/zh-tw/documentation/articles/xplat-cli/)；
+> [AZURE.NOTE] 如需詳細資訊，請參閱[安裝及設定 Azure 跨平台命令列介面](/zh-tw/documentation/articles/xplat-cli/);
 
-> [WACOM.NOTE] 雖然命令列工具主要是為了 Mac 和 Linux 使用者而建立，不過它們是以 Node.js 為基礎，且應該可在任何能執行 Node 的系統上使用。
+> [AZURE.NOTE] 雖然命令列工具主要是為了 Mac 和 Linux 使用者而建立，不過它們是以 Node.js 為基礎，且應該可在任何能執行 Node 的系統上使用。
 
 ###匯入發佈設定
 
 在 Azure 使用命令列工具前，必須先下載包含訂用帳戶資訊的檔案。請執行以下步驟來下載及匯入此檔案。
 
-1. 使用命令列將目錄切換至 **tasklist** 目錄。
+1. 從命令列將目錄變更到 **tasklist** 目錄。
 
 2. 輸入下列命令以啟動瀏覽器，並瀏覽至下載頁面。若出現提示，請用與訂用帳戶相關聯的帳戶登入。
 
@@ -534,10 +548,10 @@
 	指定前一個步驟下載之發佈設定檔案的路徑和檔案名稱。一旦命令完成，您應該會看到類似這樣的輸出：
 	
 		info:   Executing command account import
-		info:   將服務端點設為：management.core.windows.net
-		info:   Setting service port to:443
-		info:   Found subscription:YourSubscription
-		info:   Setting default subscription to:YourSubscription
+		info:   Setting service endpoint to: management.core.windows.net
+		info:   Setting service port to: 443
+		info:   Found subscription: YourSubscription
+		info:   Setting default subscription to: YourSubscription
 		warn:   The 'C:\users\username\downloads\YourSubscription-6-7-2012-credentials.publishsettings' file contains sensitive information.
 		warn:   Remember to delete it now that it has been imported.
 		info:   Account publish settings imported successfully
@@ -547,7 +561,7 @@
 
 ###建立 Azure 網站
 
-1. 使用命令列將目錄切換至 **tasklist** 目錄。
+1. 從命令列將目錄變更到 **tasklist** 目錄。
 
 2. 使用以下命令建立新的 Azure 網站
 
@@ -555,17 +569,17 @@
 		
 	系統將提示您輸入網站名稱，及它將位於哪個資料中心。請提供唯一的名稱，並選取地理位置與您接近的資料中心。
 	
-	`--git` 參數將在 Azure 上建立此網站的 Git 儲存機制。它也會在目前目錄中初始化 Git 儲存機制 (如果還沒有儲存機制的話)。它也會建立名為 'azure' 的 [Git 遠端]，用於將應用程式發行至 Azure。最後，它將建立 **web.config** 檔，其中包含 Azure 主控節點應用程式所使用的設定。
+	`--git` 參數將在 Azure 上建立此網站的 Git 儲存機制。它也會在目前目錄中初始化 Git 儲存機制 (如果還沒有儲存機制的話)。它也會建立名為  'azure' 的 [Git 遠端]，以用來將應用程式發行至 Azure。最後，它將建立 **web.config** 檔，其中包含 Azure 代管節點應用程式所使用的設定。
 	
-	> [WACOM.NOTE] 若從已有 Git 儲存機制的目錄執行此命令，則無法將目錄重新初始化。
+	> [AZURE.NOTE] 若從已有 Git 儲存機制的目錄執行此命令，則無法將目錄重新初始化。
 	
-	> [WACOM.NOTE] 若省略 '--git' 參數，但目錄中有 Git 儲存機制，則仍會建立 'azure' 遠端。
+	> [AZURE.NOTE] 若省略 `--git` 參數，但目錄中有 Git 儲存機制，則仍會建立 'azure' 遠端。
 	
 	一旦此命令完成，您將會看到類似以下的輸出。請注意，**Website created at** 開頭的這一行包含網站的 URL。
 	
 		info:   Executing command site create
 		help:   Need a site name
-		Name:TableTasklist
+		Name:   TableTasklist
 		info:   Using location southcentraluswebspace
 		info:   Executing `git init`
 		info:   Creating default .gitignore file
@@ -576,11 +590,11 @@
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
 		info:   site create command OK
 
-	> [WACOM.NOTE] 如果這是您的訂用帳戶的第一個 Azure 網站，系統將指示您使用入口網站來建立網站。如需詳細資訊，請參閱[建立並部署 Node.js 應用程式至 Azure 網站]。
+	> [AZURE.NOTE] 如果這是您的訂用帳戶的第一個 Azure 網站，系統將指示您使用入口網站來建立網站。如需詳細資訊，請參閱[建立並部署 Node.js 應用程式至 Azure 網站]。
 
 ###發行應用程式
 
-1. 若您尚未進入 **tasklist** 目錄，使用 [終端機] 視窗切換目錄至此。
+1. 若您尚未進入 **tasklist** 目錄，請在 [終端機] 視窗中將目錄變更到此目錄。
 
 2. 使用以下命令加入並認可加入本機 Git 儲存機制的檔案：
 
@@ -596,21 +610,21 @@
 		To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
  		 * [new branch]      master -> master
 
-4. 完成推播作業後，瀏覽至先前由 `azure create site` 命令傳回的網站 URL 以檢視您的應用程式。
+4. 完成推播作業後，瀏覽至先前由  `azure create site` 命令傳回的網站 URL 以檢視您的應用程式。
 
 ###切換至環境變數
 
 我們稍早實作程式碼來尋找環境變數或從 **config.json** 檔案中載入值。在下列步驟中，您將在網站組態中，建立應用程式透過環境變數真正存取的機碼值組。
 
-1. 從管理入口網站，按一下 [**網站**]，然後選取您的網站。
+1. 從管理入口網站，按一下 [網站]，然後選取您的網站。
 
 	![Open website dashboard][go-to-dashboard]
 
-2. 按一下 [**設定**]，然後尋找頁面中的 [**應用程式設定**] 區段。 
+2. 按一下 [設定]，然後尋找頁面的 [應用程式設定] 區段。 
 
 	![configure link][web-configure]
 
-3. 在 [**應用程式設定**] 區段的 [**機碼**] 欄位中輸入 **STORAGE_NAME**，然後在 [**值**] 欄位中輸入儲存體帳戶的名稱。按一下核取記號移到下個欄位。針對下列機碼和值重複此程序：
+3. 在 [應用程式設定] 區段的 [機碼] 欄位中輸入 **STORAGE_NAME**，然後在 [值] 欄位中輸入儲存體帳戶的名稱。按一下核取記號移到下個欄位。針對下列機碼和值重複此程序：
 
 	* **STORAGE_KEY** - 儲存體帳戶的存取金鑰
 	
@@ -620,7 +634,7 @@
 
 	![app settings][app-settings]
 
-4. 最後，按一下頁面底部的 [**儲存**] 圖示，以對執行階段環境認可此變更。
+4. 最後，按一下頁面底部的 [儲存] 圖示，對執行階段環境認可此變更。
 
 	![app settings save][app-settings-save]
 
@@ -633,34 +647,34 @@
 
 		git push azure master
 
-在將變更部署到 Azure 之後，您的 Web 應用程式應會繼續運作，因為它現在會從 [**應用程式設定**] 項目中讀取連接字串。若要驗證這一點，請將 [**應用程式設定**] 中的 **STORAGE_KEY** 項目變更為無效的值。儲存此值之後，網站應該會失敗，因為儲存體存取金鑰設定無效。
+在將變更部署到 Azure 之後，您的 Web 應用程式應會繼續運作，因為它現在會從 [應用程式設定] 項目中讀取連接字串。若要驗證這一點，請將 [應用程式設定] 中的 **STORAGE_KEY** 項目值變更為無效的值。儲存此值之後，網站應該會失敗，因為儲存體存取金鑰設定無效。
 
 ##後續步驟
 
-雖然本文的步驟說明如何使用資料表服務來存放資訊，您也可以使用 MongoDB。如需詳細資訊，請參閱[使用 MongoDB 的 Node.js Web 應用程式]。
+雖然本文的步驟說明如何使用資料表服務來存放資訊，您也可以使用 MongoDB。如需詳細資訊，請參閱使用 [MongoDB 的 Node.js Web 應用程式]。
 
 ##其他資源
 
-[適用於 Mac 和 Linux 的 Azure 命令列工具]    
-[建立 Node.js 應用程式並部署到 Azure 網站]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-[使用 Git 發佈至 Azure 網站]: /zh-tw/documentation/articles/web-sites-publish-source-control/
-[Azure 開發人員中心]: /zh-tw/develop/nodejs/
+[適用於 Mac 和 Linux 的 Azure 命令列工具]
+[Create and deploy a Node.js application to Azure Web Sites]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[Publishing to Azure Web Sites with Git]: /zh-tw/documentation/articles/web-sites-publish-source-control/
+[Azure Developer Center]: /zh-tw/develop/nodejs/
 
 
-[節點]: http://nodejs.org
+[node]: http://nodejs.org
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
-[免費]: http://windowsazure.com
-[Git 遠端]: http://git-scm.com/docs/git-remote
+[for free]: http://windowsazure.com
+[Git remote]: http://git-scm.com/docs/git-remote
 
-[使用 MongoDB 的 Node.js Web 應用程式]: /zh-tw/documentation/articles/web-sites-nodejs-store-data-mongodb/
+[MongoDB 的 Node.js Web 應用程式]: /zh-tw/documentation/articles/web-sites-nodejs-store-data-mongodb/
 [適用於 Mac 和 Linux 的 Azure 命令列工具]: /zh-tw/documentation/articles/xplat-cli/
 
-[使用 Git 發佈至 Azure 網站]: /zh-tw/documentation/articles/web-sites-publish-source-control/
+[Publishing to Azure Web Sites with Git]: /zh-tw/documentation/articles/web-sites-publish-source-control/
 [azure]: https://github.com/Azure/azure-sdk-for-node
 
 
-[Azure 入口網站]: http://windowsazure.com
+[Azure Portal]: http://windowsazure.com
 
 
 [node-table-finished]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
@@ -676,6 +690,5 @@
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-[建立 Node.js 應用程式並部署到 Azure 網站]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-
-<!--HONumber=35.1-->
+[Create and deploy a Node.js application to an Azure Web Site]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+<!--HONumber=42-->

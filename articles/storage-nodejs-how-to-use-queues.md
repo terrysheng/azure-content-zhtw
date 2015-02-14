@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Queue Service" pageTitle="如何使用佇列服務 (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。範例以 Node.js 撰寫。" metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Queue Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="如何使用佇列服務 (Node.js) | Microsoft Azure" 
+	description="了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。範例以 Node.js 撰寫。" 
+	services="storage" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="mwasson"/>
 
 
 
@@ -8,7 +22,11 @@
 
 # 如何從 Node.js 使用佇列服務
 
-本指南將示範如何使用 Windows Azure 佇列服務執行一般案例。這些範例使用 Node.js API 撰寫。涵蓋的案例包括**插入**、**查看**、**取得**和**刪除**佇列訊息，以及**建立和刪除佇列**。如需佇列的詳細資訊，請參閱[後續步驟][]一節。
+本指南將示範如何使用 Windows Azure 佇列服務執行一般案例
+。範例使用 Node.js
+API 撰寫。所涵蓋的案例包括**插入**、**查看**、
+**取得**及**刪除**佇列訊息，以及**建立和
+刪除佇列**。如需有關佇列的詳細資訊，請參閱[後續步驟][]一節。
 
 ## 目錄
 
@@ -18,36 +36,38 @@
 * [建立 Node.js 應用程式][]   
 * [設定您的應用程式以存取儲存體][]   
 * [設定 Azure 儲存體連接字串][]   
-* [作法：建立佇列][]   
-* [作法：將訊息插入佇列][]   
-* [作法：查看下一個訊息][]   
-* [作法：清除下一個佇列訊息][]   
-* [作法：變更佇列訊息的內容][]   
-* [作法：清除佇列訊息的其他選項][]   
-* [作法：取得佇列長度][]   
-* [作法：刪除佇列][]   
-* [作法：使用共用存取簽章][]
+* [做法：建立佇列][]   
+* [做法：將訊息插入佇列][]   
+* [做法：查看下一個訊息][]   
+* [做法：清除下一個佇列訊息][]   
+* [做法：變更佇列訊息的內容][]   
+* [做法：清除佇列訊息的其他選項][]   
+* [做法：取得佇列長度][]   
+* [做法：刪除佇列][]   
+* [做法：使用共用存取簽章][]
 * [後續步驟][]
 
-[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
+[AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 <h2><a name="create-account"></a>建立 Azure 儲存體帳戶</h2>
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a>建立 Node.js 應用程式
 
-建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站]、[Node.js 雲端服務][Node.js Cloud Service] (使用 Windows PowerShell) 或 [使用 WebMatrix 的網站]。
+建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站]、[Node.js 雲端服務][Node.js 雲端服務] (使用 Windows PowerShell) 或 [使用 WebMatrix 的網站]。
 
 ## <a name="configure-access"> </a>設定您的應用程式以存取儲存體
 
-若要使用 Azure 儲存體，您需要 Azure Storage SDK for Node.js，這包含一組便利程式庫，能與儲存體 REST 服務通訊。
+若要使用 Azure 儲存體，您需要 Azure Storage SDK for Node.js，這包含一組便利程式庫，
+能與儲存體 REST 服務通訊。
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用命令列介面，例如 **PowerShell** (Windows)、**Terminal** (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
+1.  使用命令列介面，例如 **PowerShell** (Windows)、**終端機** (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
 
-2.  在命令視窗中輸入 **npm install azure-storage**，該命令應可產生以下輸出：
+2.  在命令視窗中輸入 **npm install azure-storage**，這應該會
+    產生下列輸出：
 
         azure-storage@0.1.0 node_modules\azure-storage
 		├── extend@1.2.1
@@ -59,27 +79,34 @@
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  您可以手動執行 **ls** 命令，確認已建立 **node\_modules** 資料夾。在該資料夾內，您會找到 **azure-storage** 封裝，其中包含您存取儲存體所需的程式庫。
+3.  您可以手動執行 **ls** 命令，以確認
+    已建立 **node\_modules** 資料夾。在該資料夾內，您將會
+    發現 **azure-storage** 封裝，其中包含存取儲存體
+    所需的程式庫。
 
 ### 匯入封裝
 
-使用記事本或其他文字編輯器，將以下內容新增至您要使用儲存體之應用程式的 **server.js** 檔案頂端：
+使用 [記事本] 或其他文字編輯器，將以下內容新增至您要使用儲存體之應用程式的
+**server.js** 檔案頂端：
 
     var azure = require('azure-storage');
 
 ## <a name="setup-connection-string"> </a>設定 Azure 儲存體連接
 
-Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 和 AZURE\_STORAGE\_ACCESS\_KEY 或 AZURE\_STORAGE\_CONNECTION\_STRING，以取得連接到 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則在呼叫 **createQueueService** 時必須指定帳戶資訊。
+Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 與 AZURE\_STORAGE\_ACCESS\_KEY 或 AZURE\_STORAGE\_CONNECTION\_STRING，以取得連接到 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則在呼叫 **createQueueService** 時必須指定帳戶資訊。
 
-如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]
+如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]。
 
-## <a name="create-queue"> </a>作法：建立佇列
+## <a name="create-queue"> </a>做法：建立佇列
 
-下列程式碼會建立一個 **QueueService** 物件，讓您能夠使用佇列。
+下列程式碼會建立 **QueueService** 物件，讓您能夠
+使用佇列。
 
     var queueSvc = azure.createQueueService();
 
-使用 **createQueueIfNotExists** 方法，此方法會傳回指定的佇列 (如果佇列已經存在)，或以指定的名稱建立新佇列 (如果佇列不存在)。
+使用 **createQueueIfNotExists** 方法，此方法會傳回指定的
+佇列 (如果佇列已經存在)，或以指定的名稱
+建立新佇列 (如果佇列不存在)。
 
 	queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
       if(!error){
@@ -87,7 +114,7 @@ Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 和 AZURE\_STORAGE\_AC
 	  }
 	});
 
-如果建立佇列，則 `result` 為 true。如果佇列存在，則 `result` 為 false。
+如果建立佇列，則  `result` 為 True。如果佇列存在，則  `result` 為 False。
 
 ###篩選器
 
@@ -101,14 +128,15 @@ Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 和 AZURE\_STORAGE\_AC
 
 在此回呼中，以及處理 returnObject (來自對伺服器之要求的回應) 之後，回呼需要叫用 next (如果存在) 以繼續處理其他篩選，或是就改為叫用 finalCallback 結束服務叫用。
 
-Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**ExponentialRetryPolicyFilter** 和 **LinearRetryPolicyFilter**。以下會建立使用 **ExponentialRetryPolicyFilter** 的 **QueueService** 物件：
+Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**ExponentialRetryPolicyFilter** 與 **LinearRetryPolicyFilter**。以下會建立使用 **ExponentialRetryPolicyFilter** 的 **QueueService** 物件：
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var queueSvc = azure.createQueueService().withFilter(retryOperations);
 
-## <a name="insert-message"> </a>作法：將訊息插入佇列
+## <a name="insert-message"> </a>做法：將訊息插入佇列
 
-若要將訊息插入佇列，請使用 **createMessage** 方法建立新訊息，然後將該訊息新增至佇列中。
+若要將訊息插入佇列，請使用 **createMessage** 方法
+建立新訊息，並將它新增至佇列。
 
 	queueSvc.createMessage('myqueue', "Hello world!", function(error, result, response){
 	  if(!error){
@@ -116,9 +144,11 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	  }
 	});
 
-## <a name="peek-message"> </a>作法：查看下一個訊息
+## <a name="peek-message"> </a>做法：查看下一個訊息
 
-透過呼叫 **peekMessages** 方法，您可以在佇列前面查看訊息，而無需將它從佇列中移除。**peekMessages** 依預設會查看單一訊息。
+您可以在佇列前面查看訊息，而無需
+將它從佇列中移除 (透過呼叫 **peekMessages** 方法)。根據預設值，
+**peekMessages** 會查看單一訊息。
 
 	queueSvc.peekMessages('myqueue', function(error, result, response){
 	  if(!error){
@@ -126,11 +156,11 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	  }
 	});
 
-`result` 包含訊息。
+ `result` 包含訊息。
 
-> [WACOM.NOTE] 當佇列中沒有任何訊息時，使用 **peekMessages** 並不會傳回錯誤，不過，也不會傳回任何訊息。
+> [AZURE.NOTE] 當佇列中沒有任何訊息時，使用 **peekMessages** 並不會傳回錯誤，不過，也不會傳回任何訊息。
 
-## <a name="get-message"> </a>作法：清除下一個佇列訊息
+## <a name="get-message"> </a>做法：清除下一個佇列訊息
 
 處理訊息是兩階段的過程：
 
@@ -152,12 +182,12 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	  }
 	});
 
-> [WACOM.NOTE] 依預設，訊息只會隱藏 30 秒，之後又會被其他用戶端看見。您可以使用具有 **getMessages** 的 `options.visibilityTimeout` 指定不同的值。
+> [AZURE.NOTE] 依預設，訊息只會隱藏 30 秒，之後又會被其他用戶端看見。您可以使用  `options.visibilityTimeout` 搭配 **getMessages** 指定不同的值。
 
-> [WACOM.NOTE]
-> 使用 <b>getMessages</b> 時，若當佇列中沒有任何訊息，則不會傳回錯誤，不過，也不會傳回任何訊息。
+> [AZURE.NOTE]
+> 當佇列中沒有任何訊息時，使用 <b>getMessages</b> 並不會傳回錯誤，不過，也不會傳回任何訊息。
 
-## <a name="change-contents"> </a>作法：變更佇列訊息的內容
+## <a name="change-contents"> </a>做法：變更佇列訊息的內容
 
 您可以使用 **updateMessage** 在佇列中就地變更訊息內容。下列範例會更新訊息的文字：
 
@@ -173,15 +203,15 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	  }
 	});
 
-## <a name="advanced-get"> </a>作法：清除佇列訊息的其他選項
+## <a name="advanced-get"> </a>做法：清除佇列訊息的其他選項
 
 自訂從佇列中擷取訊息的方法有兩種：
 
-* `options.numOfMessages` - - 擷取一批訊息 (最多 32 個)。
-* `options.visibilityTimeout` - - 設定較長或較短的隱藏逾時。
+* `options.numOfMessages` - 擷取一批訊息 (最多 32 個)。
+* `options.visibilityTimeout` - 設定較長或較短的隱藏逾時。
 
 下列範例使用 **getMessages** 方法，在一次呼叫中取得 15 個訊息。接著，它會
-使用 for 迴圈處理每個訊息。另外，對此方法傳回的所有訊息，將隱藏逾時設為五分鐘。
+使用 for 迴圈處理每個訊息。此外，它也會為此方法傳回的所有訊息，將隱藏逾時設為五分鐘。
 
     queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
 	  if(!error){
@@ -198,7 +228,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	  }
 	});
 
-## <a name="get-queue-length"> </a>作法：取得佇列長度
+## <a name="get-queue-length"> </a>做法：取得佇列長度
 
 **getQueueMetadata** 會傳回佇列的中繼資料，包括在佇列中等待的大約訊息數目。
 
@@ -208,7 +238,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	  }
 	});
 
-## <a name="list-queue"> </a>作法：列出佇列
+## <a name="list-queue"> </a>做法：列出佇列
 
 若要擷取佇列清單，請使用 **listQueuesSegmented**。若要擷取依特定首碼篩選的清單，請使用 **listQueuesSegmentedWithPrefix**。
 
@@ -218,9 +248,9 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	  }
 	});
 
-如果無法傳回所有佇列，`result.continuationToken` 可作為 **listQueuesSegmented** 的第一個參數或 **listQueuesSegmentedWithPrefix** 的第二個參數，以擷取更多結果。
+如果無法傳回所有佇列，可以使用  `result.continuationToken` 做為 **listQueuesSegmented** 的第一個參數或 **listQueuesSegmentedWithPrefix** 的第二個參數，以擷取更多結果。
 
-## <a name="delete-queue"> </a>作法：刪除佇列
+## <a name="delete-queue"> </a>做法：刪除佇列
 
 若要刪除佇列及其內含的所有訊息，請在佇列物件上呼叫
 **deleteQueue** 方法。
@@ -233,11 +263,11 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 若要從佇列中清除所有訊息但不要刪除，請使用 **clearMessages**。
 
-## <a name="sas"></a>作法：使用共用存取簽章
+## <a name="sas"></a>做法：使用共用存取簽章
 
-共用存取簽章 (SAS) 可安全地提供對佇列的精確存取，而不必提供您的儲存體帳戶名稱或金鑰。SAS 通常用來提供對佇列的有限存取，例如允許行動應用程式提交訊息。
+共用存取簽章 (SAS) 可安全地提供對佇列的精確存取，而不必提供您的儲存體帳戶名稱或金鑰。SAS 通常用來提供對佇列的有限存取，例如允許行動裝置應用程式提交訊息。
 
-信任的應用程式 (例如雲端型服務) 會使用 **QueueService** 的 **generateSharedAccessSignature** 來產生 SAS，並提供它給不信任或不完全信任的應用程式。例如行動應用程式。SAS 是使用原則來產生，該原則描述 SAS 有效期間的開始和結束日期，以及授與 SAS 持有者的存取等級。
+信任的應用程式 (例如雲端式服務) 會使用 **QueueService** 的 **generateSharedAccessSignature** 來產生 SAS，並將它提供給不信任或不完全信任的應用程式。例如行動裝置應用程式。SAS 是使用原則來產生，該原則描述 SAS 有效期間的開始和結束日期，以及授與 SAS 持有者的存取等級。
 
 下列範例會產生新的共用存取原則，讓 SAS 持有者將訊息新增至佇列，並於建立它之後的 100 分鐘過期。
 
@@ -259,7 +289,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 請注意，也必須提供主機資訊，因為 SAS 持有者嘗試存取佇列時需要此資訊。
 
-用戶端應用程式接著會以 **QueueServiceWithSAS** 使用 SAS，對佇列執行操作。下列範例會連線到佇列並建立訊息。
+用戶端應用程式接著會使用 SAS 搭配 **QueueServiceWithSAS**，對佇列執行操作。下列範例會連線到佇列並建立訊息。
 
 	var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
 	sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(error, result, response){
@@ -318,9 +348,9 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
 了解佇列儲存體的基礎概念之後，請參考下列連結
 以了解如何執行更複雜的儲存體工作。
 
--   請參閱 MSDN 參考：[在 Azure 中儲存及存取資料][]。
--   造訪 [Azure 儲存體團隊部落格][]。
--   造訪 GitHub 上的 [Azure Storage SDK for Node][] 儲存機制。
+-   請參閱 MSDN 參考：[在 Azure 中儲存及存取資料]()。
+-   瀏覽 [Azure 儲存體團隊部落格]()。
+-   瀏覽 GitHub 上的 [Azure Storage SDK for Node][] 存放庫。
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [後續步驟]: #next-steps
@@ -330,20 +360,20 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [建立 Node.js 應用程式]: #create-app
   [設定您的應用程式以存取儲存體]: #configure-access
   [設定 Azure 儲存體連接字串]: #setup-connection-string
-  [作法：建立佇列]: #create-queue
-  [作法：將訊息插入佇列]: #insert-message
-  [作法：查看下一個訊息]: #peek-message
-  [作法：清除下一個佇列訊息]: #get-message
-  [作法：變更佇列訊息的內容]: #change-contents
-  [作法：清除佇列訊息的其他選項]: #advanced-get
-  [作法：取得佇列長度]: #get-queue-length
-  [作法：刪除佇列]: #delete-queue
-  [作法：使用共用存取簽章]: #sas
-  [使用 REST API]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh264518.aspx
-  [Azure 管理入口網站]: http://manage.windowsazure.com
-  [建立 Node.js 應用程式並部署到 Azure 網站]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [使用儲存體的 Node.js 雲端服務]: /zh-tw/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
-  [使用儲存體的 Node.js Web 應用程式]: /zh-tw/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [做法：建立佇列]: #create-queue
+  [做法：將訊息插入佇列]: #insert-message
+  [做法：查看下一個訊息]: #peek-message
+  [做法：清除下一個佇列訊息]: #get-message
+  [做法：變更佇列訊息的內容]: #change-contents
+  [做法：清除佇列訊息的其他選項]: #advanced-get
+  [做法：取得佇列長度]: #get-queue-length
+  [做法：刪除佇列]: #delete-queue
+  [做法：使用共用存取簽章]: #sas
+  [using the REST API]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh264518.aspx
+  [Azure Management Portal]: http://manage.windowsazure.com
+  [Create and deploy a Node.js application to an Azure Web Site]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Node.js Cloud Service with Storage]: /zh-tw/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
+  [Node.js Web Application with Storage]: /zh-tw/documentation/articles/storage-nodejs-use-table-storage-web-site/
 
   
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -352,9 +382,8 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   
   
   
-  [Node.js 雲端服務]: /zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
-  [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
- [使用 WebMatrix 的網站]: /zh-tw/documentation/articles/web-sites-nodejs-use-webmatrix/
-
-<!--HONumber=35.1-->
+  [Node.js Cloud Service]: /zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
+  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+ [Web Site with WebMatrix]: /zh-tw/documentation/articles/web-sites-nodejs-use-webmatrix/
+<!--HONumber=42-->

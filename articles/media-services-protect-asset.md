@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Encrypt Assets in Media Services" pageTitle="如何為媒體服務中的資產加密 - Azure" metaKeywords="" description="了解如何使用 Microsoft PlayReady 保護為媒體服務中的資產加密。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="如何為媒體服務中的資產加密 - Azure" 
+	description="了解如何使用 Microsoft PlayReady 保護為媒體服務中的資產加密。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -14,7 +28,7 @@
 
 下列範例示範如何建立一個簡單的工作來提供 PlayReady 保護。
 
-   1. 擷取組態資料。您可以從 [Azure 媒體編碼程式的工作預設設定](http://msdn.microsoft.com/zh-tw/library/hh973610.aspx) 主題取得範例組態檔。
+   1. 擷取組態資料。您可以從 [Azure 媒體編碼程式的工作預設設定](http://msdn.microsoft.com/zh-tw/library/hh973610.aspx)主題取得範例組態檔。
    2. 上傳 MP4 輸入檔
    3. 將 MP4 檔案轉換成 Smooth Streaming 資產
    4. 使用 PlayReady 將資產加密
@@ -78,7 +92,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 
     // Use the following event handler to check job progress. 
     job.StateChanged += new
-            EventHandler<JobStateChangedEventArgs>(StateChanged);
+            EventHandler&lt;JobStateChangedEventArgs&gt;(StateChanged);
 
     // Launch the job.
     job.Submit();
@@ -114,6 +128,5 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 </ul>
 
 <h2>後續步驟</h2>
-您已了解如何使用媒體服務來保護資產，現在可移至[如何管理資產](../media-services-manage-assets/) 主題。
-
-<!--HONumber=35.1-->
+您已了解如何使用媒體服務來保護資產，現在可移至[如何管理資產](../media-services-manage-assets/)主題。
+<!--HONumber=42-->

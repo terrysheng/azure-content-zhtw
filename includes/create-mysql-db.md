@@ -1,22 +1,19 @@
-﻿#如何在 Azure 中建立 MySQL 資料庫
+#如何在 Azure 中建立 MySQL 資料庫
 
-本指南將示範如何從 [Azure 市集]使用 [ClearDB] 建立 MySQL 資料庫，以及如何在建立 [Azure 網站][waws] 時建立 MySQL 資料庫作為連結的資源。[ClearDB] 是一項可容錯的「資料庫即服務」提供者，可讓您在 Azure 資料中心內執行和管理 MySQL 資料庫，以及從任何應用程式連線至這些資料庫。  
+本指南示範如何從 [Azure 市集][ClearDB]使用  建立 MySQL 資料庫，以及如何在建立 [Azure 網站][waws] 時建立 MySQL 資料庫作為連結的資源。[ClearDB] 是一項可容錯的「資料庫即服務」提供者，可讓您在 Azure 資料中心內執行和管理 MySQL 資料庫，以及從任何應用程式連線至這些資料庫。  
 
 ##目錄
-* [作法：從 Azure 市集建立 MySQL 資料庫](#CreateFromStore)
-* [作法：為 Azure 網站建立 MySQL 資料庫作為連結的資源](#CreateForWebSite)
+* [做法：從 Azure 市集建立 MySQL 資料庫](#CreateFromStore)
+* [做法：為 Azure 網站建立 MySQL 資料庫作為連結的資源](#CreateForWebSite)
 
-<div class="dev-callout"> 
-<b>注意</b> 
-<p>在網站建立過程中建立 MySQL 資料庫時，您只能建立免費資料庫。從 Azure 市集建立 MySQL 資料庫時，則可以建立免費資料庫或選擇付費選項。</p> 
-</div>
+> [AZURE.NOTE] 在網站建立過程中建立 MySQL 資料庫時，您只能建立免費資料庫。從 Azure 市集建立 MySQL 資料庫時，則可以建立免費資料庫或選擇付費選項。
 
-<h2><a id="CreateFromStore"></a>作法：從 Azure 市集建立 MySQL 資料庫</h2>
+<h2><a id="CreateFromStore"></a>做法：從 Azure 市集建立 MySQL 資料庫</h2>
 
 若要從 [Azure 市集]建立 MySQL 資料庫，請執行下列動作：
 
 1. 登入 [Azure 管理入口網站][portal]。
-2. 按一下頁面底部的 [**+新增**]，然後選取 [**存放區**]。
+2. 按一下頁面底部的 [**+新增**]，然後選取 [**市集**]。
 
 	![Select add-on from store](./media/create-mysql-db/select-store.png)
 
@@ -41,16 +38,16 @@
 	![MySql connection information](./media/create-mysql-db/mysql-conn-info.png) 
 
 
-<h2><a id="CreateForWebSite"></a>作法：為 Azure 網站建立 MySQL 資料庫作為連結的資源</h2>
+<h2><a id="CreateForWebSite"></a>做法：為 Azure 網站建立 MySQL 資料庫作為連結的資源</h2>
 
 若要在建立 [Azure 網站][waws]時建立 MySQL 資料庫作為連結的資源，請執行下列動作：
 
 1. 登入 [Azure 管理入口網站][portal]。
-2. 按一下頁面底部的 [**+新增**]，然後依序選取 [**計算**]、[**網站**] 和 [**CREATE WITH DATABASE**]。
+2. 按一下頁面底部的 [**+新增**]，然後依序選取 [**運算**]、[**網站**] 和 [**和資料庫一起建立**]。
 
 	![Create website with database](./media/create-mysql-db/custom_create.png)
 
-3. 提供網站的 **URL**，選取網站的 [**區域**]，然後從 [**資料庫**] 下拉式清單中選擇 [**建立新的 MySQL 資料庫**]。(選用) 您可以取代連接字串的預設名稱。按一下頁面底部的箭頭。
+3. 提供網站的 [**URL**]，選取網站的 [**區域**]，然後從 [**資料庫**] 下拉式清單中選擇 [**建立新的 MySQL 資料庫**]。(選用) 您可以取代連接字串的預設名稱。按一下頁面底部的箭頭。
 
 	![Provide website details](./media/create-mysql-db/provide-website-details.png) 
 
@@ -74,10 +71,11 @@
 
 	![Shown connection string](./media/create-mysql-db/shown-conn-string.png)
 
-> [WACOM.NOTE]您的網站應用程式可以根據連接字串名稱來存取連接字串。在 .NET 應用程式中，連接字串位於 **connectionStrings** 物件中。在其他程式設計語言中，連接字串則可以環境變數的形式受到存取。如需詳細資訊，請參閱[如何設定網站][configure]。
+> [AZURE.NOTE] 您的網站應用程式可以根據連接字串名稱來存取連接字串。在 .NET 應用程式中，連接字串位於 **connectionStrings** 物件中。在其他程式設計語言中，連接字串則可以環境變數的形式受到存取。如需詳細資訊，請參閱[如何設定網站][configure]。
 
 [ClearDB]: http://www.cleardb.com/
 [waws]: /zh-tw/documentation/services/web-sites/
 [Azure 市集]: /zh-tw/gallery/store/
-[入口網站]: http://manage.windowsazure.com
-[設定]: ../web-sites-configure/
+[portal]: http://manage.windowsazure.com
+[configure]: ../web-sites-configure/
+<!--HONumber=42-->

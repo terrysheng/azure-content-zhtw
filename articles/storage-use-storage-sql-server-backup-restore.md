@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="Storage for SQL Server backups" pageTitle="如何使用 Azure 儲存體進行 SQL Server 備份與還原 | Azure" metaKeywords="" description="" metaCanonical="" services="storage" documentationCenter="" title="How to Use Azure Storage for SQL Server Backup and Restore" authors="jeffreyg" solutions="" manager="jeffreyg" editor="tysonn" />
+<properties 
+	pageTitle="如何使用 Azure 儲存體進行 SQL Server 備份與還原 | Azure" 
+	description="" 
+	services="storage" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor="tysonn"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="jeffreyg; jeffreyg" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/30/2014" 
+	ms.author="jeffreyg"/>
 
 
 
-<h1 id="SQLServerBackupandRestoretostorage"> 如何使用 Azure 儲存體進行 SQL Server 備份與還原</h1>
+<h1 id="SQLServerBackupandRestoretostorage">  如何使用 Azure 儲存體進行 SQL Server 備份與還原</h1>
 
 在 SQL Server 2012 SP1 CU2 中發表了能夠將 SQL Server 備份寫入 Azure Blob 儲存體服務的功能。您可以使用此功能，從內部部署 SQL Server 資料庫或 Azure 虛擬機器中的 SQL Server 資料庫，備份及還原 Azure Blob 服務。備份至雲端提供的好處包括可用性、無限制的地理區域備援異地儲存體，以及輕鬆地與雲端之間來回移轉資料。   在此版本中，您可以使用 T-SQL 或 SMO 發出 BACKUP 或 RESTORE 陳述式。您無法使用 SQL Server Management Studio 備份或還原精靈與 Azure Blob 儲存體服務之間進行備份或還原。
 
@@ -17,7 +31,7 @@
 * 沒有硬體管理的額外負荷：Azure 服務沒有硬體管理的額外負荷。Azure 服務會管理硬體，並提供地埋區域備援複寫，以提供備援及硬體故障的防護。
 * 目前對於在 Azure 虛擬機器中執行的 SQL Server 執行個體，可以藉由建立連接的磁碟來備份至 Azure Blob 儲存體服務。不過，您可以連接到 Azure 虛擬機器的磁碟數有限制。超大型執行個體的限制為 16 個磁碟，較小的執行個體則更少。藉由啟用對 Azure Blob 儲存體的直接備份，您可以略過 16 個磁碟的限制。
 * 此外，現在存放在 Azure Blob 儲存體服務的備份檔，可以讓內部部署 SQL Server 或在 Azure 虛擬機器中執行的另一個 SQL Server 直接使用，而不需要資料庫連接/卸離或下載並連接 VHD。
-* 成本效益：只需為使用的服務付費。可以作為具成本效益的異地及備份封存選項。請參閱 [Azure 定價計算機](http://go.microsoft.com/fwlink/?LinkId=277060 "Pricing Calculator")和 [Azure 定價表]，(http://go.microsoft.com/fwlink/?LinkId=277059 "Pricing article") 以取得詳細資訊。
+* 成本效益：只需為使用的服務付費。可以作為具成本效益的異地及備份封存選項。如需詳細資訊，請參閱 [Azure 定價計算機](http://go.microsoft.com/fwlink/?LinkId=277060 "Pricing Calculator")和 [Azure 定價文章](http://go.microsoft.com/fwlink/?LinkId=277059 "Pricing article")。
 
 如需詳細資訊，請參閱 [SQL Server 備份及還原與 Azure Blob 儲存體服務](http://go.microsoft.com/fwlink/?LinkId=271617)。
 
@@ -30,20 +44,20 @@
 ## Azure Blob 儲存體服務元件 
 
 * 儲存體帳戶：儲存體帳戶是所有儲存體服務的起點。若要存取 Azure Blob 儲存體服務，請先建立 Azure 儲存體帳戶。必須要有儲存體帳戶名稱及其存取金鑰屬性才能向 Azure Blob 儲存體服務及其元件進行驗證。 
-如需 Azure Blob 儲存體服務的詳細資訊，請參閱[如何使用 Azure Blob 儲存體服務](http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/blob-storage/)
+如需 Azure Blob 儲存體服務的詳細資訊，請參閱[如何使用 Azure Blob 儲存體服務 (英文)](http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/blob-storage/)
 
 * 容器：容器提供一組 Blob 的分組，且可以存放無限數目的 Blob。若要將 SQL Server 備份寫入 Azure Blob 服務，您必須至少建立根容器。 
 
-* Blob：任何類型和大小的檔案。Azure Blob 儲存體服務中可以儲存兩種 Blob：區塊和分頁 Blob。SQL Server 備份使用分頁 Blob 作為 Blob 類型。可利用下列 URL 格式來定址 Blob：`https://<storage account>.blob.core.windows.net/<container>/<blob>`
+* Blob：任何類型和大小的檔案。Azure Blob 儲存體服務中可以儲存兩種 Blob：區塊和分頁 Blob。SQL Server 備份使用分頁 Blob 作為 Blob 類型。可利用下列 URL 格式來定址 Blob： `https://<storage account>.blob.core.windows.net/<container>/<blob>`
 如需分頁 Blob 的詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee691964.aspx)
 
 ## SQL Server 元件
 
 * URL：URL 指定唯一備份檔的統一資源識別元 (URI)。URL 用來提供 SQL Server 備份檔的位置和名稱。在此實作中，唯一有效的 URL 是指向 Azure 儲存體帳戶中分頁 Blob 的 URL。URL 必須指向實際的 Blob，而不只是指向容器。如果 Blob 不存在，便會建立它。如果指定現有的 Blob，則 BACKUP 會失敗，除非指定了 > WITH FORMAT 選項。 
 以下是您會在 BACKUP 命令中指定的 URL 範例： 
-**`http[s]://ACCOUNTNAME.Blob.core.windows.net/<CONTAINER>/<FILENAME.bak>`
+`http[s]://ACCOUNTNAME.Blob.core.windows.net/<CONTAINER>/<FILENAME.bak>`
 
-<b>注意：</b> HTTPS 不是必要的，但建議使用。
+<b>注意：</b>HTTPS 不是必要，但建議使用。
 <b>重要事項</b>
 如果您選擇複製及上傳備份檔到 Azure Blob 儲存體服務，則必須使用分頁 Blob 類型作為儲存體選項 (如果您計劃使用此檔案進行還原作業的話)。從區塊 Blob 類型進行 RESTORE 會失敗並發生錯誤。 
 
@@ -56,7 +70,7 @@
 
 [SQL Server 備份及還原與 Azure Blob 儲存體服務](http://go.microsoft.com/fwlink/?LinkId=271617)
 
-**開始使用教學課程：**
+開**始使用教學課程：**
 
 [SQL Server 備份及還原至 Azure Blob 儲存體服務使用者入門](http://go.microsoft.com/fwlink/?LinkID=271615 "Tutorial")
 
@@ -72,5 +86,4 @@
 
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

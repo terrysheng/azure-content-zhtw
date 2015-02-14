@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="HDInsight Administration" pageTitle="使用 Azure PowerShell 管理 HDInsight 中的 Hadoop 叢集 | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, Hadoop, administration, administer" description="了解如何使用 Azure PowerShell 對 HDInsight 中的 Hadoop 叢集執行管理工作。" services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Manage Hadoop clusters in HDInsight using Azure PowerShell" authors="jgao" />
+<properties 
+	pageTitle="使用 Azure PowerShell 管理 HDInsight 中的 Hadoop 叢集 | Azure" 
+	description="了解如何使用 Azure PowerShell 對 HDInsight 中的 Hadoop 叢集執行管理工作。" 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="mumian" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="jgao"/>
 
 # 使用 Azure PowerShell 管理 HDInsight 上的 Hadoop 叢集
 
@@ -10,7 +24,7 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
-- Azure 訂閱。Azure 是訂用帳戶型平台。HDInsight PowerShell Cmdlet 會為您的訂用帳戶執行相關工作。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][azure-purchase-options]、[成員優惠][azure-member-offers]或[免費試用][azure-free-trial]。
+- Azure 訂閱。Azure 是訂用帳戶型平台。HDInsight PowerShell Cmdlet 會為您的訂用帳戶執行相關工作。如需有關如何取得訂閱的詳細資訊，請參閱[購買選項][azure-purchase-options]、[會員優惠][azure-member-offers]，或[免費試用版][azure-free-trial]。
 
 - 具有 Azure PowerShell 的工作站。如需指示，請參閱[安裝並設定 Azure PowerShell][Powershell-install-configure]。
 
@@ -32,7 +46,7 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 ##<a id="provision"></a> 佈建 HDInsight 叢集
 HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要有 Azure 儲存體帳戶和儲存容器，您才能建立 HDInsight 叢集。 
 
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+[AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 **建立 Azure 儲存體帳戶**
 
@@ -44,7 +58,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 	New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
 
-> [WACOM.NOTE] 儲存體帳戶必須與 HDInsight 叢集位於相同的資料中心。目前，您只能在下列資料中心佈建 HDInsight 叢集：
+> [AZURE.NOTE] 儲存體帳戶必須與 HDInsight 叢集位於相同的資料中心。目前，您只能在下列資料中心佈建 HDInsight 叢集：
 
 ><ul>
 <li>東南亞</li>
@@ -140,7 +154,7 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 在範例中 <i>hdiv2</i> 是 HDInsight 叢集名稱。
 
->[WACOM.NOTE] 透過授與/撤銷存取權，您將重設叢集使用者的使用者名稱和密碼。
+>[AZURE.NOTE] 透過授與/撤銷存取權，您將重設叢集使用者的使用者名稱和密碼。
 
 這也可以使用 Windows Azure 管理入口網站來完成。請參閱[使用管理入口網站來管理 HDInsight][hdinsight-admin-portal]。
 
@@ -159,7 +173,7 @@ HDInsight 叢集配送提供一些 MapReduce 範例。其中一個範例是計�
 	# Run the job and show the standard error 
 	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
 	
-> [WACOM.NOTE] *hadoop-examples.jar* 隨附於 2.1 版 HDInsight 叢集。在 3.0 版 HDInsight 叢集上，該檔案已重新命名為 *hadoop-mapreduce.jar*。
+> [AZURE.NOTE] *hadoop-examples.jar* 隨附 2.1 版 HDInsight 叢集。在 3.0 版 HDInsight 叢集上，該檔案已重新命名為 *hadoop-mapreduce.jar*。
 
 如需 WASB 首碼的詳細資訊，請參閱[對於 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
 
@@ -180,7 +194,7 @@ HDInsight 叢集配送提供一些 MapReduce 範例。其中一個範例是計�
 	# Display the output
 	cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
 
-如需開發和執行 MapReduce 工作的詳細資訊，請參閱[使用 MapReduce 搭配 HDInsight][hdinsight-use-mapreduce]。
+如需開發和執行 MapReduce 工作的詳細資訊，請參閱[將 MapReduce 與 HDInsight 搭配使用][hdinsight-use-mapreduce]。
 
 
 
@@ -220,7 +234,7 @@ HDInsight 叢集配送提供一些 MapReduce 範例。其中一個範例是計�
 
 
 ##<a id="hive"></a> 提交 Hive 工作
-HDInsight 叢集配送提供稱為 *hivesampletable* 的範例 Hive 資料表。您可以使用 HiveQL "show tables;"，列出叢集上的 Hive 資料表。
+HDInsight 叢集配送提供稱為  *hivesampletable* 的範例 Hive 資料表。您可以使用 HiveQL "show tables;"，列出叢集上的 Hive 資料表。
 
 **提交 Hive 工作**
 
@@ -241,7 +255,7 @@ HDInsight 叢集配送提供稱為 *hivesampletable* 的範例 Hive 資料表。
 
 Hive 工作會先顯示叢集上所建立的 Hive 資料表，以及從 hivesampletable 傳回的資料。
 
-如需使用 Hive 的詳細資訊，請參閱[使用 Hive 搭配 HDInsight][hdinsight-use-hive]。
+如需使用 Hive 的詳細資訊，請參閱[將 Hive 與 HDInsight 搭配使用][hdinsight-use-hive]。
 
 
 ##<a id="upload"></a>將資料上傳至 Blob 儲存體
@@ -255,7 +269,7 @@ Hive 工作會先顯示叢集上所建立的 Hive 資料表，以及從 hivesamp
 * [使用管理入口網站管理 HDInsight][hdinsight-admin-portal]
 * [使用命令列介面管理 HDInsight][hdinsight-admin-cli]
 * [佈建 HDInsight 叢集][hdinsight-provision]
-* [將資料上傳到 HDInsight][hdinsight-upload-data]
+* [將資料上傳至 HDInsight][hdinsight-upload-data]
 * [以程式設計方式提交 Hadoop 工作][hdinsight-submit-jobs]
 * [開始使用 Azure HDInsight][hdinsight-get-started]
 
@@ -283,5 +297,4 @@ Hive 工作會先顯示叢集上所建立的 Hive 資料表，以及從 hivesamp
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

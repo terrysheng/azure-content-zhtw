@@ -11,7 +11,7 @@
 
 		import com.microsoft.windowsazure.mobileservices.MobileServiceException;
  
-2. 在 `ToDoActivity` 類別中新增下列成員。 
+2. 在  `ToDoActivity` 類別中新增下列成員： 
 
     	public boolean bAuthenticating = false;
 	    public final Object mAuthenticationLock = new Object();
@@ -74,7 +74,7 @@
     	}
 
 
-5. 在 ToDoActivity.java 檔案中，更新 ToDoActivity 類別的 `authenticate` 方法，讓其可接受布林參數，以允許強制重新整理權杖和權杖快取。當驗證完成後，我們也必須通知所有遭阻擋的執行緒，使其可以取得新的權杖。
+5. 在 ToDoActivity.java 檔案中，更新 ToDoActivity 類別的  `authenticate` 方法，讓其可接受布林參數，以允許強制重新整理權杖和權杖快取。當驗證完成後，我們也必須通知所有遭阻擋的執行緒，使其可以取得新的權杖。
 
 	    /**
     	 * Authenticates with the desired login provider. Also caches the token. 
@@ -127,7 +127,7 @@
 
 
 
-6. 在 ToDoActivity.java 檔案中，針對 ToDoActivity 類別內的 `RefreshTokenCacheFilter` 類別加入此程式碼：
+6. 在 ToDoActivity.java 檔案中，針對 ToDoActivity 類別內的新  `RefreshTokenCacheFilter` 類別加入此程式碼：
 
 		/**
 		* The RefreshTokenCacheFilter class filters responses for HTTP status code 401. 
@@ -206,7 +206,7 @@
 
     此服務篩選器將會檢查每個 HTTP 狀態碼 401「未經驗證」的回應。如果出現 401，UI 執行緒上將會設定新的登入要求以取得新權杖。其他呼叫都會被封鎖，直到登入完成，或已嘗試失敗 5 次為止。如果取得新權杖，觸發 401 的要求將會以新權杖重新執行，而所有遭阻擋的呼叫也會使用新的權杖重新執行。 
 
-7. 在 ToDoActivity.java 檔案中，將 `onCreate` 方法更新如下：
+7. 在 ToDoActivity.java 檔案中，將  `onCreate` 方法更新如下：
 
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -237,6 +237,7 @@
 	    }
 
 
-       在此程式碼中，除了使用 `RefreshTokenCacheFilter` 以外，還要使用 `ProgressFilter`。同時在 `onCreate` 期間，我們也想要載入權杖快取。因此將 `false` 傳送至 `authenticate` 方法。
+       在此程式碼中，除了使用  `ProgressFilter` 之外會另外使用  `RefreshTokenCacheFilter`。同時在  `onCreate` 期間，我們也想要載入權杖快取。因此將  `false` 傳送至  `authenticate` 方法。
 
 
+<!--HONumber=42-->

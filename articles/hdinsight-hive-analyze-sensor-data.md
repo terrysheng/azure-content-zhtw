@@ -1,6 +1,20 @@
-﻿<properties title="Analyzing sensor data using Hive with HDInsight" pageTitle="使用 Hive 和 Microsoft Azure HDInsight (Hadoop) 分析感應器資料" description="了解如何使用 Hive 和 Excel 透過 HDInsight (Hadoop) 分析和視覺化感應器資料" metaKeywords="Azure hdinsight hive, Azure hdinsight hive sensor, azure hadoop hive, azure hadoop sensor, azure hadoop excel, azure hdinsight excel" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="使用 Hive 和 Microsoft Azure HDInsight (Hadoop) 分析感應器資料" 
+	description="了解如何在 HDInsight (Hadoop) 上使用 Hive 和 Excel 來分析和視覺化感應器資料" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2014" 
+	ms.author="larryfr"/>
 
 #使用 Hive 搭配 HDInsight 來分析感應器資料
 
@@ -17,11 +31,11 @@
 
 ##必要條件：
 
-* HDInsight (Hadoop) 叢集 - 請參閱[在 HDInsight 中佈建 Hadoop 叢集](/zh-tw/documentation/articles/hdinsight-provision-clusters/) 以取得建立叢集的相關資訊
+* HDInsight (Hadoop) 叢集 - 如需有關建立叢集的相關資訊，請參閱[在 HDInsight 中佈建 Hadoop 叢集](/zh-tw/documentation/articles/hdinsight-provision-clusters/)
 
 * Microsoft Excel 2013
 
-	> [WACOM.NOTE] Microsoft Excel 是用於 [Power View](https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US)的資料視覺效果，目前僅在 Windows 上提供。
+	> [AZURE.NOTE] Microsoft Excel 可透過 [Power View](https://support.office.com/zh-tw/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=zh-tw&rs=zh-tw&ad=US) (目前只有 Windows 版) 將資料視覺化。
 
 * [Microsoft Hive ODBC 驅動程式](http://www.microsoft.com/zh-tw/download/details.aspx?id=40886)
 
@@ -36,5 +50,4 @@
 2. 從開啟的網頁中，按一下 [**Getting Started Gallery**] 索引標籤，然後在 [**範例**] 類別下，按一下 [**Website Log Analysis**] 範例。
 
 3. 依照網頁上提供的指示完成範例。
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

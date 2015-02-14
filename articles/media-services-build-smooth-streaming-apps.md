@@ -1,110 +1,124 @@
-﻿<properties urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Aplicativo Smooth Streaming da Windows Store - Tutoriais do Azure .NET" metaKeywords="" description="Saiba como usar os Serviços de Mídia do Azure para criar um aplicativo C# da Windows Store com um controle XML MediaElement para reprodução de conteúdo de Smooth Streaming." metaCanonical="" services="media-services" documentationCenter="" title="How to Build a Smooth Streaming Windows Store Application" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Smooth Streaming Windows 市集應用程式 - Azure .NET 教學課程" 
+	description="了解如何使用 Azure 媒體服務建立可用 XML MediaElement 控制項來播放 Smooth Streaming 內容的 C# Windows 市集應用程式。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
-#Como compilar um aplicativo Smooth Streaming da Windows Store
+# 如何建置 Smooth Streaming Windows 市集應用程式
 
-O SDK do Smooth Streaming Client para Windows 8 permite que os desenvolvedores criem aplicativos da Windows Store que podem reproduzir conteúdo de Smooth Streaming sob demanda e ao vivo. Além da reprodução básica de conteúdo do Smooth Streaming, o SDK também fornece recursos avançados, como proteção do Microsoft PlayReady, restrição de nível de qualidade, Live DVR, alternância de fluxo de áudio, escuta de atualizações de status (como alterações no nível da qualidade), eventos de erros e assim por diante. Para obter mais informações sobre os recursos com suporte, consulte as [notas da versão](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes).
+Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放隨選與即時 Smooth Streaming 內容的 Windows 市集應用程式。除了將 Smooth Streaming 內容進行基本播放，SDK 也提供 Microsoft PlayReady 保護、品質等級限制、Live DVR、音訊資料流切換、接聽狀態更新 (例如品質等級變更) 和錯誤事件等這類豐富的功能。如需所支援功能的詳細資訊，請參閱[版本資訊](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes)。
 
-Este tutorial aborda as APIs. Para o desenvolvimento do player, a Microsoft recomenda usar o [Player Framework para Windows 8](http://playerframework.codeplex.com/). O Player Framework facilita a criação de aplicativos e fornece muitos recursos adicionais. 
+本教學課程涵蓋 API。對於播放程式開發，Microsoft 強烈建議使用 [Player Framework for Windows 8](http://playerframework.codeplex.com/)。播放程式架構可讓應用程式建置起來更容易，並可提供許多其他功能。 
 
-Este tutorial contém quatro lições:
+本教學課程包含四個課程：
 
-1. Criar um aplicativo de armazenamento básico Smooth Streaming
-2. Adicionar um barra deslizante para controlar o andamento da mídia
-3. Selecionar fluxos do Smooth Streaming
-4. Selecionar faixas do Smooth Streaming
+1. 建立基本的 Smooth Streaming 市集應用程式
+2. 新增滑動軸以控制媒體進度
+3. 選取 Smooth Streaming 資料流
+4. 選取 Smooth Streaming 曲目
 
-#Pré-requisitos
-- Windows 8 32 bits ou 64 bits. Você pode obter o [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/pt-br/evalcenter/jj554510.aspx) do MSDN.
-- Visual Studio Express 2012 ou Visual Studio Express 2012 para Windows 8 instalado no Windows 8. Você pode obter a versão de avaliação do [aqui](http://www.microsoft.com/visualstudio/11/pt-br/downloads).
-- [SDK do Microsoft Smooth Streaming Client para Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
+#必要條件
+- Windows 8 32 位元或 64 位元。您可以從 MSDN 取得 [Windows 8 Enterprise 評估版](http://msdn.microsoft.com/zh-tw/evalcenter/jj554510.aspx)。
+- 在 Windows 8 上安裝 Visual Studio 2012 或 Visual Studio Express 2012 for Windows 8。您可以在[這裡](http://www.microsoft.com/visualstudio/11/zh-tw/downloads)取得試用版
+- [Microsoft Smooth Streaming Client SDK for Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)
 
-A solução completa para cada lição pode ser baixada das Amostras de Código de Desenvolvedor do MSDN (Galeria de Códigos): [Lição 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "A Simple Windows 8 Smooth Streaming Media Player"), [Lição 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "A Simple Windows 8 Smooth Streaming Media Player with a Slider Bar Control"), [Lição 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "A Windows 8 Smooth Streaming Media Player with Stream Selection"), e [Lição 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "A Windows 8 Smooth Streaming Media Player with Track Selection").
+您可以從 MSDN 開發人員程式碼範例 (Code Gallery) 下載每個課程的已完成解答：[第 1 課](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "A Simple Windows 8 Smooth Streaming Media Player")、[第 2 課](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "A Simple Windows 8 Smooth Streaming Media Player with a Slider Bar Control")、[第 3 課](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "A Windows 8 Smooth Streaming Media Player with Stream Selection")和[第 4 課](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "A Windows 8 Smooth Streaming Media Player with Track Selection")。
 
-#Lição 1: Criar um aplicativo de armazenamento básico Smooth Streaming
-Nesta lição, você criará um aplicativo da Windows Store com um controle MediaElement para reproduzir conteúdo de Smooth Streaming.  O aplicativo em execução é semelhante a:
+# 課程 1：建立基本的 Smooth Streaming 市集應用程式
+在本課程中，您將建立 Windows 市集應用程式，並使其具有 MediaElement 控制項來播放 Smooth Stream 內容。  執行中的應用程式看起來如下：
 
 ![Smooth Streaming Windows Store application example][PlayerApplication]
  
-Para obter mais informações sobre como desenvolver aplicativos da Windows Store, consulte[Desenvolver ótimos aplicativos para o Windows 8](http://msdn.microsoft.com/pt-br/windows/apps/br229512.aspx). 
-Esta lição contém os seguintes procedimentos:
+如需關於開發 Windows 市集應用程式的詳細資訊，請參閱[開發 Windows 8 適用的好用應用程式](http://msdn.microsoft.com/zh-tw/windows/apps/br229512.aspx)。 
+本課程包含下列程序：
 
-1.	Criar um novo projeto da Windows Store
-2.	Criar a interface do usuário (XAML)
-3.	Modificar o arquivo code-behind
-4.	Compilar e testar o aplicativo
+1.	建立 Windows 市集專案
+2.	設計使用者介面 (XAML)
+3.	修改程式碼後置檔案
+4.	
 
-**Para criar um novo projeto da Windows Store**
+**建立 Windows 市集專案**
 
-1.	Execute o Visual Studio 2012 ou posterior.
-2.	No menu **Arquivo**, clique em **Novo** e em **Projeto**.
-3.	Na caixa de diálogo Novo Projeto, digite ou selecione os seguintes valores:
+1.	執行 Visual Studio 2012 或更新版本。
+2.	從 [檔案]**** 功能表中，按一下 [新增]****，然後按一下 [專案]****。
+3.	從 [新增專案] 對話方塊中，輸入或選取  下列值：
 
 	<table border="1">
 	<tr>
-		<th>Nome</th>
-		<th>Valor</th>
+		<th>名稱</th>
+		<th>值</th>
 	</tr>
 	<tr>
-		<td>Grupo de modelos</td>
-		<td>Instalado/Modelos/Visual C#/Windows Store</td>
+		<td>範本群組</td>
+		<td>已安裝/範本/Visual C#/Windows 市集</td>
 	</tr>
 	<tr>
-		<td>Modelo</td>
-		<td>Aplicativo em branco (XAML)</td>
+		<td>範本</td>
+		<td>空白應用程式 (XAML)</td>
 	</tr>
 	<tr>
-		<td>Nome</td>
+		<td>名稱</td>
 		<td>SSPlayer</td>
 	</tr>
 	<tr>
-		<td>Local</td>
+		<td>位置</td>
 		<td>C:\SSTutorials</td>
 	</tr>
 	<tr>
-		<td>Nome da solução</td>
+		<td>方案名稱</td>
 		<td>SSPlayer</td>
 	</tr>
 	<tr>
-		<td>Criar diretório para a solução</td>
-		<td>(selecionado)</td>
+		<td>建立方案的目錄</td>
+		<td>(已選取)</td>
 	</tr>
 	</table>
 
-4.	Clique em **OK**.
+4.	按一下 [確定]****。
 
-**Para adicionar uma referência ao SDK do Smooth Streaming Client**
+**新增 Smooth Streaming Client SDK 的參考**
 
-1.	No Gerenciador de Soluções, clique com o botão direito do mouse em **SSPlayer**, e, em seguida, clique em **Adicionar Referência**.
-2.	Digite ou selecione os valores a seguir:
+1.	從 [方案總管] 中，在 [**SSPlayer**] 上按一下滑鼠右鍵，然後按一下 [**加入參考**]。
+2.	輸入或選取下列值：
 
 	<table border="1">
 	<tr>
-		<th>Nome</th>
-		<th>Valor</th>
+		<th>名稱</th>
+		<th>值</th>
 	</tr>
 	<tr>
-		<td>Grupo de referências</td>
-		<td>Windows/Extensões</td>
+		<td>參考群組</td>
+		<td>Windows/延伸</td>
 	</tr>
 	<tr>
-		<td>Referência</td>
-		<td>Selecione SDK do Microsoft Smooth Streaming Client para Windows 8 e Pacote do Tempo de Execução do Microsoft Visual C++ 
+		<td>參考</td>
+		<td>選取 Microsoft Smooth Streaming Client SDK for Windows 8 和 Microsoft Visual C++ Runtime Package 
 		</td>
 	</tr>
 	</table>
 	
-3.	Clique em **OK**. 
+3.	按一下 [確定]****。 
 
-Depois de adicionar as referências, você deve selecionar a plataforma de destino (x64 ou x86). A adição de referências não funcionará para a configuração Qualquer plataforma de CPU.  No Gerenciador de Soluções, você verá a marca de aviso amarela para essas referências adicionadas.
+加入參考之後，您必須選取目標平台 (x64 或 x86)，而加入參考在「任何 CPU 平台」組態中將沒有作用。  在方案總管中，您會看到這些加入的參考具有黃色警告標記。
 
-**Para criar a interface do usuário do player**
+**設計播放程式使用者介面**
 
-1.	No Gerenciador de Soluções, clique duas vezes em **MainPage.xaml** para abri-lo no modo de exibição de Design.
-2.	Localize as marcas **<Grid>** e **</Grid>** no arquivo XAML e cole o seguinte código entre as duas marcas:
+1.	從 [方案總管] 中，按兩下 [**MainPage.xaml**]，以設計檢視來開啟它。
+2.	找出 XML 檔案的 **&lt;Grid&gt;** 和 **&lt;/Grid&gt;**  標籤，然後在這兩個標籤之間貼上下列程式碼：
 
 		<Grid.RowDefinitions>
 		    <RowDefinition Height="20"/>    <!-- spacer -->
@@ -148,31 +162,31 @@ Depois de adicionar as referências, você deve selecionar a plataforma de desti
 		    <TextBox x:Name="txtStatus" FontSize="10" Width="700" VerticalAlignment="Center"/>
 		</StackPanel>
 
-	O controle MediaElement é usado para a reprodução de mídia. O controle deslizante denominado sliderProgress será usado na próxima lição para controlar o andamento da mídia.
+	MediaElement 控制項會用來播放媒體。下一個課程將使用名稱為 sliderProgress 的滑動軸控制項來控制媒體進度。
 
-3.	Pressione **CTRL+S** para salvar o arquivo.
+3.	按 **CTRL+S** 儲存檔案。
 
-O controle MediaElement não dá suporte a conteúdo de Smooth Streaming pronto para uso. Para habilitar o suporte do Smooth Streaming, você deve registrar o manipulador de fluxo de bytes do Smooth Streaming por extensão de nome de arquivo e tipo MIME.  Para se registrar, você deve usar o método MediaExtensionManager.RegisterByteStremHandler do namespace Windows.Media.
+MediaElement 控制項預設不支援 Smooth Streaming 內容。若要啟用 Smooth Streaming 支援，您必須依副檔名和 MIME 類型來註冊 Smooth Streaming 位元組資料流處理常式。  若要註冊，請使用 Windows.Media 命名空間的 MediaExtensionManager.RegisterByteStremHandler 方法。
 
-Nesse arquivo XAML, alguns manipuladores de eventos são associados aos controles.  Você deve definir esses manipuladores de eventos.
+在此 XAML 檔案中，有些事件處理常式會與控制項相關聯。  您必須定義那些事件處理常式。
 
-**Para modificar o arquivo code-behind**
+**修改程式碼後置檔案**
 
-1.	No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e, em seguida, clique em **Exibir Código**.
-2.	Na parte superior do arquivo, adicione a seguinte instrução using:
+1.	從 [方案總管] 中，在 [**MainPage.xaml**] 上按一下滑鼠右鍵，然後按一下 [**檢視程式碼**]。
+2.	在檔案的頂端，新增下列 using 陳述式：
 
 		using Windows.Media;
 
-3.	No início da classe **MainPage**, adicione o membro de dados a seguir:
+3.	在 **MainPage** 類別的開頭，新增下列資料成員：
 
 		private MediaExtensionManager extensions = new MediaExtensionManager();
 
-4.	No final do construtor **MainPage**, adicione as duas linhas a seguir:
+4.	在 **MainPage** 建構函式的結尾，新增下列兩行：
 
 		extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
 		extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
 		
-5.	No final da classe **MainPage**, cole o código a seguir:
+5.	在 **MainPage** 類別的結尾，貼上下列程式碼：
 
 		#region UI Button Click Events
 		private void btnPlay_Click(object sender, RoutedEventArgs e)
@@ -215,54 +229,54 @@ Nesse arquivo XAML, alguns manipuladores de eventos são associados aos controle
 		}
 		#endregion
 
-	O manipulador de eventos sliderProgress_PointerPressed é definido aqui.  Para fazer isso funcionar há mais trabalhos a fazer que serão abordados na próxima lição deste tutorial.
-6.	Pressione **CTRL+S** para salvar o arquivo.
+	這裡在定義 sliderProgress_PointerPressed 事件處理常式。  還需要進行其他工作，才能讓它運作，在本教學課程的下一個課程中，將會涵蓋這項資訊。
+6.	按 **CTRL+S** 儲存檔案。
 
-O arquivo code-behind concluído deve ser semelhante ao seguinte:
+完成的程式碼後置檔案看起來像這樣：
 
 ![Codeview in Visual Studio of Smooth Streaming Windows Store application][CodeViewPic]
 
-**Para compilar e testar o aplicativo**
+****
 
-1.	No menu **COMPILAR**, clique em **Gerenciador de Configurações**.
-2.	Altere **Plataforma da solução ativa** para que corresponda à sua plataforma de desenvolvimento.
-3.	Pressione **F6** para compilar o projeto. 
-4.	Pressione **F5** para executar o aplicativo.
-5.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL. 
-6.	Clique em **Definir Origem**.   Como, por padrão, **Executar Automaticamente** está habilitado, a mídia deverá ser reproduzida automaticamente.   Você pode controlar a mídia usando os botões **Reproduzir**, **Pausar** e**Parar**.É possível controlar o volume da mídia usando o controle deslizante vertical.No entanto, a barra deslizante horizontal para controle do progresso da mídia ainda não está totalmente implementado. 
+1.	從 [**建置**] 功能表中，按一下 [**組態管理員**]。
+2.	變更 [**使用中的方案平台**]，以符合您的開發平台。
+3.	按 **F6** 鍵編譯專案。 
+4.	按 **F5** 執行應用程式。
+5.	在應用程式頂端，您可以使用預設 Smooth Streaming URL，或輸入不同的 Smooth Streaming URL。 
+6.	按一下 [**設定來源**]。因為預設會啟用 [**自動播放**]，所以應該會自動播放媒體。  您可以使用 [**播放**]、[**暫停**] 和 [**停止**] 按鈕來控制媒體。  您可以使用垂直滑動軸來控制媒體音量。  不過，尚未完整實作用於控制媒體進度的水平滑動軸。 
 
-Você concluiu a Lição 1.  Nesta lição, você usa um controle MediaElement para reproduzir conteúdo de Smooth Streaming.  Na próxima lição, você adicionará um controle deslizante para controlar o andamento do conteúdo de Smooth Streaming.
+您已完成課程 1。  在本課程中，您使用 MediaElement 控制項來播放 Smooth Streaming 內容。  在下一個課程中，您將新增滑動軸來控制 Smooth Streaming 內容的進度。
 
 
-#Lição 2: Adicionar um barra deslizante para controlar o andamento da mídia
-Na Lição 1, você criou um aplicativo da Windows Store com um controle XAML MediaElement para reproduzir conteúdo de mídia de Smooth Streaming.  Ele vem com algumas funções básicas de mídia, como iniciar, parar e pausar.  Nesta lição, você adicionará um controle de barra deslizante ao aplicativo.
+# 課程 2：新增滑動軸以控制媒體進度
+在課程 1 中，您已建立 Windows 市集應用程式，並使其具有 MediaElement XAML 控制項來播放 Smooth Streaming 媒體內容。  它包含一些基本媒體功能 (例如啟動、停止和暫停)。  在本課程中，您將在應用程式中新增滑動軸控制項。
 
-Neste tutorial, usaremos um timer para atualizar a posição do controle deslizante com base na posição atual do controle MediaElement.  A hora de início e de término do controle deslizante também precisam ser atualizadas no caso de conteúdo ao vivo.  Isso pode ser manipulado melhor no evento de atualização de origem adaptável.
+在本教學課程中，我們將使用計時器，以根據 MediaElement 控制項的目前位置來更新滑動軸位置。  如果是即時內容，則還需要更新滑動軸開始和結束時間。  這可以透過調適性來源更新事件獲得更恰當的處理。
 
-As origens de mídia são objetos que geram dados de mídia.  O resolvedor de origem utiliza um fluxo de bytes ou uma URL e cria a origem de mídia adequada para esse conteúdo.  O resolvedor de origem é o modo padrão para os aplicativos criarem origens de mídia. 
+媒體來源是一種產生媒體資料的物件。  來源解析程式會接受 URL 或位元組資料流，然後為該內容建立適當的媒體來源。  來源解析程式是應用程式建立媒體來源的標準方式。 
 
-Esta lição contém os seguintes procedimentos:
+本課程包含下列程序：
 
-1.	Registrar o manipulador do Smooth Streaming 
-2.	Adicionar manipuladores de eventos no nível do gerenciador de origem adaptável
-3.	Adicionar os manipuladores de eventos de origem adaptável
-4.	Adicionar manipuladores de eventos de MediaElement
-5.	Adicionar o código relacionado à barra de controle deslizante
-6.	Compilar e testar o aplicativo
+1.	註冊 Smooth Streaming 處理常式 
+2.	新增調適性來源管理員層級事件處理常式
+3.	新增調適性來源層級事件處理常式
+4.	新增 MediaElement 事件處理常式
+5.	新增滑動軸相關程式碼
+6.	
 
-**Para registrar o manipulador de fluxo de bytes de Smooth Streaming e aprovar o propertyset**
+**註冊 Smooth Streaming 位元組資料流處理常式並傳遞屬性集**
 
-1.	No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e, em seguida, clique em **Exibir Código**.
-2.	No início do arquivo, adicione a seguinte instrução using:
+1.	從 [方案總管] 中，在 [**MainPage.xaml**] 上按一下滑鼠右鍵，然後按一下 [**檢視程式碼**]。
+2.	在檔案的開頭，新增下列 using 陳述式：
 
 		using Microsoft.Media.AdaptiveStreaming;
 
-3.	No início da classe MainPage adicione os membros de dados a seguir:
+3.	在 MainPage 類別的開頭，新增下列資料成員：
 
 		private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
 		private IAdaptiveSourceManager adaptiveSourceManager;
 	
-4.	Dentro do construtor **MainPage**, adicione o seguinte código após a linha **this.Initialize Components();** e as linhas de código do registro escritas na lição anterior:
+4.	在 **MainPage** 建構函式內，於 **this.Initialize Components();** 行以及上一個課程中所寫的註冊程式碼行的後面新增下列程式碼：
 	
 		// Gets the default instance of AdaptiveSourceManager which manages Smooth 
 		//Streaming media sources.
@@ -271,7 +285,7 @@ Esta lição contém os seguintes procedimentos:
 		// {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
 		propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
 	
-5.	Dentro do construtor **MainPage**, modifique os dois métodos RegisterByteStreamHandler para adicionar os seguintes parâmetros:
+5.	在 **MainPage** 建構函式內，修改兩個 RegisterByteStreamHandler 方法以新增 forth 參數：
 
 		// Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
 		// "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
@@ -287,16 +301,16 @@ Esta lição contém os seguintes procedimentos:
 		    "application/vnd.ms-sstr+xml", 
 		propertySet);
 
-6.	Pressione **CTRL+S** para salvar o arquivo.
+6.	按 **CTRL+S** 儲存檔案。
 
-**Para adicionar o manipulador de eventos no nível do gerenciador de origens adaptáveis**
+**新增調適性來源管理員層級事件處理常式**
 
-1.	No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e, em seguida, clique em **Exibir Código**.
-2.	Dentro da classe **MainPage**, adicione o seguinte membro de dados:
+1.	從 [方案總管] 中，在 [**MainPage.xaml**] 上按一下滑鼠右鍵，然後按一下 [**檢視程式碼**]。
+2.	在 [**MainPage**] 類別內，新增下列資料成員：
 
 		private AdaptiveSource adaptiveSource = null;
 
-3.	No final da classe **MainPage**, adicione o manipulador de eventos a seguir:
+3.	在 **MainPage** 類別的結尾，新增下列事件處理常式：
 	
 		#region Adaptive Source Manager Level Events
 		private void mediaElement_AdaptiveSourceOpened(AdaptiveSource sender, AdaptiveSourceOpenedEventArgs args)
@@ -305,22 +319,22 @@ Esta lição contém os seguintes procedimentos:
 		}
 		#endregion Adaptive Source Manager Level Events
 
-4.	No final do construtor **MainPage**, adicione a seguinte linha para inscrever-se para o evento de fonte aberta adaptável:
+4.	在 **MainPage** 建構函式的結尾，新增下行以訂閱調適性來源開放事件：
 	
 	adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
 	    new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
 
-5.	Pressione **CTRL+S** para salvar o arquivo.
+5.	按 **CTRL+S** 儲存檔案。
 
-**Para adicionar os manipuladores de eventos de origens adaptáveis**
+**新增調適性來源層級事件處理常式**
 
-1.	No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e, em seguida, clique em **Exibir Código**.
-2.	Dentro da classe **MainPage**, adicione o seguinte membro de dados:
+1.	從 [方案總管] 中，在 [**MainPage.xaml**] 上按一下滑鼠右鍵，然後按一下 [**檢視程式碼**]。
+2.	在 [**MainPage**] 類別內，新增下列資料成員：
 	
 		private AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate; 
 		private Manifest manifestObject;
 	
-3.	No final da classe **MainPage**, adicione os manipuladores de eventos a seguir:
+3.	在 **MainPage** 類別的結尾，新增下列事件處理常式：
 
 		#region Adaptive Source Level Events
 		private void mediaElement_ManifestReady(AdaptiveSource sender, ManifestReadyEventArgs args)
@@ -340,7 +354,7 @@ Esta lição contém os seguintes procedimentos:
 		}
 		#endregion Adaptive Source Level Events
 
-4.	No final do método <strong>mediaElement AdaptiveSourceOpened</strong> adicione o seguinte código para assinar os eventos:
+4.	在 <strong>mediaElement AdaptiveSourceOpened</strong> 方法的尾端，新增下列程式碼以訂閱事件：
 	
 		adaptiveSource.ManifestReadyEvent +=
 	                mediaElement_ManifestReady;
@@ -349,14 +363,14 @@ Esta lição contém os seguintes procedimentos:
 		adaptiveSource.AdaptiveSourceFailedEvent += 
 		    mediaElement_AdaptiveSourceFailed;
 	
-5.	Pressione **CTRL+S** para salvar o arquivo.
+5.	按 **CTRL+S** 儲存檔案。
 
-Os mesmos eventos também estão disponíveis no nível do gerenciador de origens adaptáveis, que pode ser usado para manipular a funcionalidade comum a todos os elementos de mídia do aplicativo. Cada AdaptiveSource inclui seus próprios eventos e todos os eventos de AdaptiveSource serão colocados em cascata no AdaptiveSourceManager.
+在調適性來源管理員層級也有相同的事件，可用於處理應用程式中所有媒體元素通用的功能。每個 AdaptiveSource 都包含自己專屬的事件，而且所有 AdaptiveSource 事件都會在 AdaptiveSourceManager 下階層式列出。
 
-**Para adicionar manipuladores de eventos de elementos de mídia**
+**新增媒體元素事件處理常式**
 
-1.	No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e, em seguida, clique em **Exibir Código**.
-2.	No final da classe **MainPage**, adicione os manipuladores de eventos a seguir:
+1.	從 [方案總管] 中，在 [**MainPage.xaml**] 上按一下滑鼠右鍵，然後按一下 [**檢視程式碼**]。
+2.	在 **MainPage** 類別的結尾，新增下列事件處理常式：
 	
 		#region Media Element Event Handlers 
 		private void MediaOpened(object sender, RoutedEventArgs e)
@@ -375,33 +389,33 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
 		}
 		#endregion Media Element Event Handlers
 
-3.	No final do construtor **MainPage**, adicione o seguinte código para assinar os eventos:
+3.	在 **MainPage** 建構函式的結尾，新增下列程式碼以訂閱事件：
 	
 		mediaElement.MediaOpened += MediaOpened;
 		mediaElement.MediaEnded += MediaEnded;
 		mediaElement.MediaFailed += MediaFailed;
 
-4.	Pressione **CTRL+S** para salvar o arquivo.
+4.	按 **CTRL+S** 儲存檔案。
 
-**Para adicionar o código relacionado à barra de controle deslizante**
+**新增滑動軸相關程式碼**
 
-1.	No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e, em seguida, clique em **Exibir Código**.
-2.	No início do arquivo, adicione a seguinte instrução using:
+1.	從 [方案總管] 中，在 [**MainPage.xaml**] 上按一下滑鼠右鍵，然後按一下 [**檢視程式碼**]。
+2.	在檔案的開頭，新增下列 using 陳述式：
 	
 		using Windows.UI.Core;
 
-3.	Dentro da classe **MainPage**, adicione os seguintes membros de dados:
+3.	在 **MainPage** 類別內，新增下列資料成員：
 	
 		public static CoreDispatcher _dispatcher;
 		private DispatcherTimer sliderPositionUpdateDispatcher;
 	
-4.	No final do construtor **MainPage**, adicione o código a seguir:
+4.	在 **MainPage** 建構函式的結尾，新增下列程式碼：
 
 		_dispatcher = Window.Current.Dispatcher;
 		PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);
 		sliderProgress.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);    
 	
-5.	No final da classe **MainPage**, adicione o código a seguir:
+5.	在 **MainPage** 類別的結尾，新增下列程式碼：
 	
 		#region sliderMediaPlayer
 		private double SliderFrequency(TimeSpan timevalue)
@@ -478,7 +492,7 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
 		}
 		#endregion sliderMediaPlayer
 
-	**Observação:** O CoreDispatcher é usado para fazer alterações no thread da interface do usuário por meio do thread que não é da interface do usuário.  No caso de afunilamento no dispatcher de threads, o desenvolvedor pode optar por usar o dispatcher fornecido pelo elemento da interface do usuário que pretende atualizar.Por exemplo:
+	**注意：**CoreDispatcher 可用來從非 UI 執行緒變更 UI 執行緒。如果發送器執行緒出現瓶頸，開發人員可以選擇本身想要更新的 UI 元素所提供的發送器。  例如：
 	
 		await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 		  timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 
@@ -486,41 +500,41 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
 		  sliderProgress.Maximum = absvalue; }); 
 		
 
-6.	No final do método **mediaElement_AdaptiveSourceStatusUpdated**, adicione o seguinte código:
+6.	At the end of the **mediaElement_AdaptiveSourceStatusUpdated** method, add the following code:
 	
 		setSliderStartTime(args.StartTime);
 		setSliderEndTime(args.EndTime);
 
-7.	No final do método **MediaOpened**, adicione o código a seguir:
+7.	在 **MediaOpened** 方法的結尾，新增下列程式碼：
 	
 	sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
 	sliderProgress.Width = mediaElement.Width;
 	setupTimer();
 
-8.	Pressione **CTRL+S** para salvar o arquivo.
+8.	按 **CTRL+S** 儲存檔案。
 
-**Para compilar e testar o aplicativo**
+****
 
-1. Pressione **F6** para compilar o projeto. 
-2.	Pressione **F5** para executar o aplicativo.
-3.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL. 
-4.	Clique em **Definir Origem**. 
-5.	Teste a barra de controle deslizante.
+1. 按 **F6** 鍵編譯專案。 
+2.	按 **F5** 執行應用程式。
+3.	在應用程式頂端，您可以使用預設 Smooth Streaming URL，或輸入不同的 Smooth Streaming URL。 
+4.	按一下 [**設定來源**]。 
+5.	測試滑動軸。
 
-Você concluiu a lição 2.  Nesta lição, você adicionou um controle deslizante ao aplicativo. 
+您已完成課程 2。  在本課程中，您將在應用程式中新增滑動軸。 
 
-#Lição 3: Selecionar fluxos do Smooth Streaming
-O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vários idiomas que podem ser selecionadas pelos visualizadores.  Nesta lição, você habilitará a seleção dos fluxos pelos visualizadores. Esta lição contém os seguintes procedimentos:
+# 課程 3：選取 Smooth Streaming 資料流
+Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。  在本課程中，您將讓檢視器選取資料流。本課程包含下列程序：
 
-1. Modificar o arquivo XAML
-2. Modificar o arquivo code-behind
-3. Compilar e testar o aplicativo
+1. 修改 XAML 檔案
+2. 修改程式碼後置檔案
+3. 
 
 
-**Para modificar o arquivo XAML**
+**修改 XAML 檔案**
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e, em seguida, clique em **Criador de Modos de Exibição**.
-2. Localize <Grid.RowDefinitions> e modifique as RowDefinitions para que sejam semelhantes a:
+1. 從 [方案總管] 中，在 [**MainPage.xaml**] 上按一下滑鼠右鍵，然後按一下 [**檢視設計工具**]。
+2. 找到 &lt;Grid.RowDefinitions&gt;，並修改 RowDefinitions，讓它們看起來如下：
 
 		<Grid.RowDefinitions>            
 			<RowDefinition Height="20"/>
@@ -530,7 +544,7 @@ O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vár
 		    <RowDefinition Height="50"/>
 		</Grid.RowDefinitions>
 
-3. Dentro das marcas <Grid></Grid>, adicione o seguinte código para definir um controle de caixa de listagem, para que os usuários possam ver a lista de fluxos disponíveis e selecioná-los:
+3. 在 &lt;Grid&gt;&lt;/Grid&gt; 標籤內，新增下列程式碼以定義 listbox 控制項，讓使用者可以看到可用資料流清單並選取資料流：
 
 		<Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
 			<Grid.RowDefinitions>
@@ -556,13 +570,13 @@ O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vár
 			</StackPanel>
 		</Grid>
 
-4. Pressione **CTRL+S** para salvar as alterações.
+4. 按 **CTRL+S** 儲存變更。
 
 
-**Para modificar o arquivo code-behind**
+**修改程式碼後置檔案**
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e, em seguida, clique em **Exibir Código**.
-2. Dentro do namespace SSPlayer, adicione uma nova classe:
+1. 從 [方案總管] 中，在 [**MainPage.xaml**] 上按一下滑鼠右鍵，然後按一下 [**檢視程式碼**]。
+2. 在 SSPlayer 命名空間內，新增類別：
 		#region class Stream
 	
 	    public class Stream
@@ -608,14 +622,14 @@ O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vár
 	    }
 	    #endregion class Stream
 
-3. No início da classe MainPage, adicione as seguintes definições de variáveis:
+3. 在 MainPage 類別的開頭，新增下列變數定義：
 
 		private List<Stream> availableStreams;
 		private List<Stream> availableAudioStreams;
 		private List<Stream> availableTextStreams;
 		private List<Stream> availableVideoStreams;
 
-4. Dentro da classe MainPage, adicione a seguinte região:
+4. 在 MainPage 類別內，新增下列區域：
 
 		#region stream selection
 		///<summary>
@@ -753,14 +767,14 @@ O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vár
 		}
 		#endregion stream selection
 
-5. Localize o método mediaElement_ManifestReady e acrescente o seguinte código no final da função:
+5. 找到 mediaElement_ManifestReady 方法，並在函數的結尾附加下列程式碼：
 	
 		getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
 
-	Quando o manifesto MediaElement estiver pronto, o código obterá uma lista dos fluxos disponíveis e preencherá a caixa de listagem da interface do usuário com a lista.
+	因此，當 MediaElement 資訊清單就緒時，程式碼會取得可用資料流清單，並將這份清單填入 UI 清單方塊。
 
-6. Na classe MainPage, localize a região de eventos de cliques de botões da interface do usuário e adicione a seguinte definição de função:
+6. Inside the MainPage class, locate the UI buttons click events region, and then add the following function definition:
 
 		private void btnChangeStream_Click(object sender, RoutedEventArgs e)
         {
@@ -773,27 +787,27 @@ O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vár
             changeStreams(selectedStreams);
         }
 
-**Para compilar e testar o aplicativo**
+****
 
-1. Pressione **F6** para compilar o projeto. 
-2.	Pressione **F5** para executar o aplicativo.
-3.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL. 
-4.	Clique em **Definir Origem**. 
-5.	O idioma padrão é audio_eng. Tente alternar entre audio_eng e audio_es. Toda vez que selecionar um novo fluxo, você deverá clicar no botão Enviar.
+1. 按 **F6** 鍵編譯專案。 
+2.	按 **F5** 執行應用程式。
+3.	在應用程式頂端，您可以使用預設 Smooth Streaming URL，或輸入不同的 Smooth Streaming URL。 
+4.	按一下 [**設定來源**]。 
+5.	預設語言為 audio_eng。嘗試在 audio_eng 與 audio_es 之間切換。每次您選取新的資料流時，都必須按一下 [提交] 按鈕。
 
-Você concluiu a lição 3.  Nesta lição, você adicionará a funcionalidade de escolher fluxos.
+您已完成課程 3。  在本課程中，您新增了選擇資料流的功能。
 
-#Lição 4: Selecionar faixas do Smooth Streaming
-Um apresentação de Smooth Streaming pode conter vários arquivos de vídeo codificados com diferentes níveis de qualidade (taxas de bits) e resoluções. Nesta lição, você habilitará a seleção de faixas pelos usuários. Esta lição contém os seguintes procedimentos:
+# 課程 4：選取 Smooth Streaming 曲目
+Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) 和解析度編碼的視訊檔案。在本課程中，您將讓使用者選取曲目。本課程包含下列程序：
 
-1. Modificar o arquivo XAML
-2. Modificar o arquivo code-behind
-3. Compilar e testar o aplicativo
+1. 修改 XAML 檔案
+2. 修改程式碼後置檔案
+3. 
 
-**Para modificar o arquivo XAML**
+**修改 XAML 檔案**
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml**e, em seguida, clique em **Criador de Modos de Exibição**.
-2. Localize a marca <Grid> com o nome **gridStreamAndBitrateSelection** e adicione o código a seguir no final da marca:
+1. 從 [方案總管] 中，在 [**MainPage.xaml**] 上按一下滑鼠右鍵，然後按一下 [**檢視設計工具**]。
+2. 找到名稱為 **gridStreamAndBitrateSelection** 的 &lt;Grid&gt; 標籤，並在標籤的結尾附加下列程式碼：
 
 		<StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
 		 <StackPanel Orientation="Horizontal">
@@ -810,13 +824,13 @@ Um apresentação de Smooth Streaming pode conter vários arquivos de vídeo cod
 		 </ListBox>
 		</StackPanel>
 
-3. Pressione **CTRL+S** para salvar as alterações
+3. 按 **CTRL+S** 儲存變更。
 
 
-**Para modificar o arquivo code-behind**
+**修改程式碼後置檔案**
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e, em seguida, clique em **Exibir Código**.
-2. Dentro do namespace SSPlayer, adicione uma nova classe:
+1. 從 [方案總管] 中，在 [**MainPage.xaml**] 上按一下滑鼠右鍵，然後按一下 [**檢視程式碼**]。
+2. 在 SSPlayer 命名空間內，新增類別：
 	
 		#region class Track
 	    public class Track
@@ -855,11 +869,11 @@ Um apresentação de Smooth Streaming pode conter vários arquivos de vídeo cod
 	    }
 	    #endregion class Track
 
-3. No início da classe MainPage, adicione as seguintes definições de variáveis:
+3. 在 MainPage 類別的開頭，新增下列變數定義：
 	
 		private List<Track> availableTracks;
 
-4. Dentro da classe MainPage, adicione a seguinte região:
+4. 在 MainPage 類別內，新增下列區域：
 	
 		#region track selection
         /// <summary>
@@ -958,12 +972,12 @@ Um apresentação de Smooth Streaming pode conter vários arquivos de vídeo cod
         }
         #endregion track selection
 
-5. Localize o método mediaElement_ManifestReady e acrescente o seguinte código no final da função:
+5. 找到 mediaElement_ManifestReady 方法，並在函數的結尾附加下列程式碼：
 
 		getTracks(manifestObject);
 		refreshAvailableTracksListBoxItemSource();
 
-6. Na classe MainPage, localize a região de eventos de cliques de botões da interface do usuário e adicione a seguinte definição de função:
+6. Inside the MainPage class, locate the UI buttons click events region, and then add the following function definition:
 
 		private void btnChangeStream_Click(object sender, RoutedEventArgs e)
         {
@@ -976,22 +990,21 @@ Um apresentação de Smooth Streaming pode conter vários arquivos de vídeo cod
             changeStreams(selectedStreams);
         }
 
-**Para compilar e testar o aplicativo**
+****
 
-1. Pressione **F6** para compilar o projeto. 
-2.	Pressione **F5** para executar o aplicativo.
-3.	Na parte superior do aplicativo, use a URL do Smooth Streaming padrão ou digite outra URL. 
-4.	Clique em **Definir Origem**. 
-5.	Por padrão, todas as faixas do fluxo de vídeo são selecionadas. Para testar as alterações de taxa de bits, é possível selecionar a taxa de bits mais baixa disponível e, em seguida, selecionar a taxa de bits mais alta disponível. Você deve clicar em Enviar após cada alteração.  Você pode ver as alterações na qualidade do vídeo.
+1. 按 **F6** 鍵編譯專案。 
+2.	按 **F5** 執行應用程式。
+3.	在應用程式頂端，您可以使用預設 Smooth Streaming URL，或輸入不同的 Smooth Streaming URL。 
+4.	按一下 [**設定來源**]。 
+5.	預設會選取視訊資料流的所有曲目。若要試驗位元速率變更，您可以選取可用的最低位元速率，然後選取可用的最高位元速率。您必須在每次變更之後按一下 [提交]。  您可以看到視訊品質變更。
 
-Você concluiu a lição 4.  Nesta lição, você adicionará a funcionalidade de escolher faixas.
+您已完成課程 4。  在本課程中，您新增了選擇追蹤的功能。
 
 
-#Outros recursos:
-- [Como criar um aplicativo JavaScript de Smooth Streaming do Windows 8 com recursos avançados](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
-- [Visão geral técnica de Smooth Streaming](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
+#其他資源：
+- [如何建置具有進階功能的 Smooth Streaming Windows 8 JavaScript 應用程式](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
+- [Smooth Streaming 技術概觀](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

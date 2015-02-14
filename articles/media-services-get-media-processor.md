@@ -1,13 +1,27 @@
-﻿<properties urlDisplayName="Create a Media Processor" pageTitle="如何建立媒體處理器 - Azure" metaKeywords="" description="了解如何建立媒體處理器元件，為 Azure 媒體服務的媒體內容進行編碼、格式轉換、加密或解密。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" metaCanonical="" services="media-services" documentationCenter="" title="How to: Get a Media Processor Instance" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="如何建立媒體處理器 - Azure" 
+	description="了解如何建立媒體處理器元件，為 Azure 媒體服務的媒體內容進行編碼、格式轉換、加密或解密。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
 
 
 <h1>作法：取得媒體處理器執行個體</h1>
-本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是[作法：建立加密資產並上傳至儲存體](../media-services-create-encrypted-asset-upload-storage/)。
+本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是＜[作法：建立加密資產並上傳至儲存體](../media-services-create-encrypted-asset-upload-storage/)。
 
 在媒體服務中，媒體處理器是可處理特定處理工作的元件，例如編碼、格式轉換、加密或解密媒體內容。您通常會在建立媒體內容的編碼、加密或格式轉換工作時建立媒體處理器。
 
@@ -51,7 +65,7 @@
 
 <br />
 
-下列方法將說明如何取得媒體處理器執行個體。此程式碼範例假設會使用名為 **_context** 的模組層級變數來參考伺服器內容，如[作法：以程式設計方式連接到媒體服務]。
+下列方法將說明如何取得媒體處理器執行個體。此程式碼範例假設會使用名為 **_context** 的模組層級變數來參考伺服器內容，如[作法：以程式設計方式連接到媒體服務]一節所說明。
 
 <pre><code>
 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
@@ -71,6 +85,4 @@ private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcess
 
 [如何為資產編碼]: ../media-services-encode-asset/
 [Azure Media Encoder 的工作預設字串]: http://msdn.microsoft.com/zh-tw/library/jj129582.aspx
-[作法：以程式設計方式連接到媒體服務]: ../media-services-set-up-computer/
-
-<!--HONumber=35.1-->
+[做法：以程式設計方式連接到媒體服務]: ../media-services-set-up-computer/<!--HONumber=42-->

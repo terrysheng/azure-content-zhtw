@@ -7,7 +7,7 @@
 #使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 Hadoop
 
 
-Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智慧 (BI) 元件與 Azure HDInsight 所部署的 Apache Hadoop 叢集相整合。舉例來說，此整合可讓您使用 Microsoft Hive 開放式資料庫連接 (ODBC) 驅動程式，將 Excel 連接到 HDInsight 上 Hadoop 叢集的 Hive 資料倉儲。 
+Microsoft 巨量資料方案將 Microsoft 商業智慧 (BI) 元件與 Azure HDInsight 所部署的 Apache Hadoop 叢集相整合。舉例來說，此整合可讓您使用 Microsoft Hive 開放式資料庫連接 (ODBC) 驅動程式，將 Excel 連接到 HDInsight 上 Hadoop 叢集的 Hive 資料倉儲。 
 
 您也可以從 Excel 使用 Microsoft Power Query for Excel，連接與 HDInsight 叢集和其他資料來源 (包括其他 (非 HDInsight) Hadoop 叢集) 相關聯的資料。如需安裝和使用 Power Query 的相關資訊，請參閱[使用 Power Query 將 Excel 連接到 HDInsight][hdinsight-power-query]。
 
@@ -15,7 +15,7 @@ Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智�
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
-- HDInsight 叢集。若要設定此叢集，請參閱[開始使用 Azure HDInsight][hdinsight-get-started]。
+- HDInsight 叢集。若要設定此叢集，請參閱 [開始使用 Azure HDInsight][hdinsight-get-started]。
 - 執行 Windows 8、Windows 7、Windows Server 2012 或 Windows Server 2008 R2 的電腦。
 - Office 2013 Professional Plus、Office 365 Pro Plus、Excel 2013 Standalone 或 Office 2010 Professional Plus。
 
@@ -59,7 +59,7 @@ Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智�
 	<tr><td>密碼</td><td>輸入 HDInsight 叢集使用者的密碼。</td></tr>
 	</table>
 
-	當您按一下 [**進階選項**] 時，您必須留意某些重要參數：
+	當您按一下 [**進階選項**] 時，您必須留意某些重要參數。
 
 	<table border="1">
 	<tr><td>使用原生查詢</td><td>選取此選項時，ODBC 驅動程式不會嘗試將 TSQL 轉換為 HiveQL。只有在百分之百確定您所提交的是純 HiveQL 陳述式時，才應使用此選項。連接到 SQL Server 或 Azure SQL Database 時，您應將其保留為未勾選。</td></tr>
@@ -71,7 +71,7 @@ Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智�
 
 	![Advanced options][img-HiveOdbc-DataSource-AdvancedOptions]
 
-6. 按一下 [**測試**] 以測試資料來源。資料來源正確設定時，會顯示*測試順利完成！*。
+6. 按一下 [**測試**] 以測試資料來源。如果資料來源設定正確，它會顯示  *TESTS COMPLETED SUCCESSFULLY!*。
 7. 按一下 [**確定**] 以關閉 [測試] 對話方塊。新的資料來源此時應會列示在 [**ODBC 資料來源管理員**] 中。 
 8. 按一下 [**確定**] 以結束精靈。
 	
@@ -80,19 +80,19 @@ Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智�
 下列步驟將說明，如何使用您在前述步驟中建立的 ODBC 資料來源，將資料從 Hive 資料表匯入 Excel 活頁簿中。
 
 1. 在 Excel 中開啟新的或現有的活頁簿。
-2. 從 [**資料**] 索引標籤，按一下 [**取得外部資料**] 磚，按一下 [**從其他資料來源**]，然後按一下 [**從資料連線精靈**] 以啟動 [**資料連線精靈**]。
+2. 從 [**資料**] 索引標籤上，按一下 [**取得外部資料**] 並排顯示上，按一下 [**從其他資料來源**]，然後按一下 [**從資料連接精靈**] 啟動 [**資料連線精靈**]。
 
 	![Open data connection wizard][img-hdi-simbahiveodbc.excel.dataconnection]
 
 3. 選取 **ODBC DSN** 作為資料來源，然後按 [**下一步**]。
-4. 從 ODBC 資料來源中，選取您在上一個步驟中建立的資料來源名稱，然後按 [**下一步**]。
-5. 在精靈中重新輸入叢集的密碼，然後按一下 [**測試**] 以驗證組態
+4. 從 ODBC 資料來源中，選取您在上一個步驟中建立的資料來源名稱，然後按 [下一步]。  按一下 [**下一步**]。
+5. 在精靈中重新輸入叢集的密碼，然後按一下 [**測試**] 以驗證組態。
 6. 按一下 [**確定**] 以關閉 [測試] 對話方塊。
-7. 按一下 [**確定**]。等待 [**選取資料庫及資料表**] 對話方塊開啟。這可能需要幾秒鐘的時間。
-8. 選取您要匯入的資料表，然後按 [**下一步**]。*hivesampletable* 是 HDInsight 叢集隨附的範例 Hive 資料表。您可以選擇此資料表 (如果尚未建立)。如需執行 Hive 查詢及建立 Hive 資料表的詳細資訊，請參閱[使用 Hive 搭配 HDInsight][hdinsight-use-hive]。
+7. 按一下 [確定]****。等待 [**選取資料庫及資料表**] 對話方塊開啟。這可能需要幾秒鐘的時間。
+8. 選取您要匯入的資料表，然後按 [**下一步**]。 *hivesampletable* 是 HDInsight 叢集隨附的範例 Hive 資料表。  您可以選擇此資料表 (如果尚未建立)。如需執行 Hive 查詢及建立 Hive 資料表的詳細資訊，請參閱[使用 Hive 搭配 HDInsight][hdinsight-use-hive]。
 8. 按一下 [**完成**]。
 9. 在 [**匯入資料**] 對話方塊中，您可以變更或指定查詢。若要執行此動作，請按一下 [**屬性**]。這可能需要幾秒鐘的時間。
-10. 按一下 [**定義**] 索引標籤，然後將 [**LIMIT 200**] 附加至 [**命令文字**] 文字方塊中的 Hive Select 陳述式。此修改會將傳回的記錄數限定為 200 個。
+10. 按一下 [**定義**] 索引標籤，  然後附加 **LIMIT 200** 到 [**命令文字**] 文字方塊中的 Hive select 陳述式。此修改會將傳回的記錄數限定為 200 個。
 
 	![Connection Properties][img-hdi-simbahiveodbc-excel-connectionproperties]
 
@@ -105,7 +105,7 @@ Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智�
 在本文中，您已了解到如何使用 Microsoft Hive ODBC 驅動程式將 HDInsight 服務中的資料擷取至 Excel。同樣地，您也可以將 HDInsight 服務中的資料擷取至 SQL Database。此外也可以將資料上傳至 HDInsight 服務。若要深入了解，請參閱：
 
 - [使用 HDInsight 分析航班延誤資料][hdinsight-analyze-flight-data]
-- [將資料上傳到 HDInsight][hdinsight-upload-data]
+- [將資料上傳至 HDInsight][hdinsight-upload-data]
 - [使用 Sqoop 搭配 HDInsight][hdinsight-use-sqoop]
 
 
@@ -122,5 +122,4 @@ Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智�
 [img-HiveOdbc-DataSource-AdvancedOptions]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png 
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png 
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

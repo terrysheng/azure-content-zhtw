@@ -1,4 +1,4 @@
-﻿> [AZURE.SELECTOR-LIST (平台 | 後端 )]
+> [AZURE.SELECTOR-LIST (平台 | 後端)]
 - [(iOS | .NET)](/zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started/)
 - [(iOS | JavaScript)](/zh-tw/documentation/articles/mobile-services-ios-get-started/)
 - [(Windows 通用 C# | .NET)](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/)
@@ -15,5 +15,4 @@
 - [(PhoneGap | Javascript)](/zh-tw/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/)
 - [(Sencha | Javascript)](/zh-tw/documentation/articles/partner-sencha-mobile-services-get-started/)
 - [(Appcelerator | Javascript)](/zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/)
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

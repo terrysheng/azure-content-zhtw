@@ -1,11 +1,25 @@
-﻿<properties urlDisplayName="" pageTitle="透過 Blob 服務來建立與使用 SAS | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="探討如何透過 Blob 服務來產生及使用共用存取簽章" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+﻿<properties 
+	pageTitle="透過 Blob 服務來建立與使用 SAS | Microsoft Azure" 
+	description="探討如何透過 Blob 服務來產生及使用共用存取簽章" 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor="cgronlun"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="tamram"/>
 
 
 # 共用存取簽章，第 2 部分：透過 Blob 服務來建立與使用 SAS
 
-本教學課程的[第 1 部分](../storage-dotnet-shared-access-signature-part-1/) 探討共用存取簽章 (SAS)，並說明使用它們的最佳作法。第 2 部分顯示如何產生然後使用共用存取簽章以搭配 Azure Blob 服務。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。所涵蓋的案例包括使用共用存取簽章的以下層面：
+本教學課程的[第 1 部分](../storage-dotnet-shared-access-signature-part-1/)探討了共用存取簽章 (SAS)，並說明使用它們的最佳作法。第 2 部分顯示如何產生然後使用共用存取簽章以搭配 Azure Blob 服務。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。所涵蓋的案例包括使用共用存取簽章的以下層面：
 
 - 在容器上產生共用存取簽章
 - 在 blob 上產生共用存取簽章
@@ -17,11 +31,11 @@
 
 # 第 1 部分：建立主控台應用程式以產生共用存取簽章 #
 
-首先，請確定您已安裝 Azure Storage Client Library for .NET。您可以安裝包含最新用戶端程式庫組件的 [NuGet 封裝](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") ，這是確定您具有最新修正程式的建議方法。您也可以在最新版 [Azure SDK for .NET] 中一起下載用戶端程式庫(http://www.windowsazure.com/zh-tw/downloads/)。
+首先，請確定您已安裝 Azure Storage Client Library for .NET。您可以安裝包含最新用戶端程式庫組件的 [NuGet 封裝](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package")，這是確定您具有最新修正程式的建議方法。您也可以在最新版 [Azure SDK for .NET] 中一起下載用戶端程式庫(http://www.windowsazure.com/zh-tw/downloads/)。
 
-在 Visual Studio 中，建立新的 Windows 主控台應用程式，並將它命名為 **GenerateSharedAccessSignatures**。使用下列任一種方法，新增對 **Microsoft.WindowsAzure.Configuration.dll** 及 **Microsoft.WindowsAzure.Storage.dll** 的參照：
+在 Visual Studio 中，建立新的 Windows 主控台應用程式，並將它命名為 **GenerateSharedAccessSignatures**。使用下列任一種方法，新增對 **Microsoft.WindowsAzure.Configuration.dll** 與 **Microsoft.WindowsAzure.Storage.dll** 的參照：
 
-- 	如果要安裝 NuGet 封裝，請先安裝 [NuGet Package Manager Extension for Visual Studio](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)。在 Visual Studio 中，選取 [**Project | Manage NuGet Packages**]、在線上搜尋 [**Azure 儲存體**]，並遵循安裝指示。
+- 	如果要安裝 NuGet 封裝，請先安裝 [NuGet Package Manager Extension for Visual Studio](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)。在 Visual Studio 中，選取 [專案] | [Manage NuGet Packages]、在線上搜尋「Azure 儲存體」，並依照指示安裝。
 - 	或者，在您的 Azure SDK 安裝中找到組件，並新增對它們的參照。
  
 在 Program.cs 檔的頂端，新增下列 **using** 陳述式：
@@ -193,7 +207,7 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
 	    return container.Uri + sasContainerToken;
     }
     
-在 **Main()** 方法的底部，對 **Console.ReadLine()** 的呼叫之前，新增下列幾行，以呼叫 **GetContainerSasUriWithPolicy()** 方法：
+在 **Main()** 方法的底部，對 **Console.ReadLine()** 的呼叫之前，新增下列幾行，以呼叫 **GetContainerSasUriWithPolicy** 方法：
 
     //Generate a SAS URI for the container, using a stored access policy to set constraints on the SAS.
     Console.WriteLine("Container SAS URI using stored access policy: " + GetContainerSasUriWithPolicy(container, sharedAccessPolicyName));
@@ -282,7 +296,7 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
 
 請注意，如果您完成教學課程第 1 部分之後已過了超過四小時，則您產生的簽章如果到期時間設為四小時，便將不再有效。同樣地，與預存存取原則相關的簽章也會在 10 小時之後到期。如果這些間隔之一已過，或是兩者都已過，則應該執行第一個主控台應用程式中的程式碼，產生新的共用存取簽章，以便用於教學課程的第 2 部分。
 
-在 Visual Studio 中，建立新的 Windows 主控台應用程式，並將它命名為 **ConsumeSharedAccessSignatures**。如您前面作法一樣，新增對 **Microsoft.WindowsAzure.Configuration.dll** 及 **Microsoft.WindowsAzure.Storage.dll** 的參照。
+在 Visual Studio 中，建立新的 Windows 主控台應用程式，並將它命名為 **ConsumeSharedAccessSignatures**。如您前面作法一樣，新增對 **Microsoft.WindowsAzure.Configuration.dll** 與 **Microsoft.WindowsAzure.Storage.dll** 的參照。
 
 在 Program.cs 檔的頂端，新增下列 **using** 陳述式：
 
@@ -525,10 +539,9 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
 
 [使用共用存取簽章 (REST API) 來委派存取權](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee395415.aspx)
 
-[資料表與佇列 SAS 簡介] (英文)(http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+[資料表與佇列 SAS 簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

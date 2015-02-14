@@ -1,10 +1,10 @@
 ﻿
-先前範例所示範的標準登入，在每次應用程式啟動時，皆需要用戶端連絡身分識別提供者和行動服務。這個方法不只效率不彰，而且如果同時有許多用戶試圖啟用您的應用程式時，還可能遇到使用量相關的問題。更好的方法就是快取行動服務傳回的驗證權杖，然後嘗試在使用提供者形式登入前先使用此方法。
+先前範例所示範的標準登入，在每次應用程式啟動時，皆需要用戶端連絡身分識別提供者和行動服務。這個方法不只效率不彰，而且如果同時有許多用戶試圖啟用您的應用程式時，還可能遇到使用量相關的問題。更好的方法就是快取行動服務傳回的驗證權杖，然後嘗試在使用提供者形式登入前先使用此方法。 
 
 
->[WACOM.NOTE] 無論您使用用戶端管理或服務管理驗證，皆可以快取行動服務發行的權杖。本教學課程使用服務管理驗證。
+>[AZURE.NOTE] 無論您使用用戶端管理或服務管理驗證，皆可以快取行動服務發行的權杖。本教學課程使用服務管理驗證。
 
-1. 建議在 iOS 用戶端上用來加密和儲存驗證權杖的方法是使用 Keychain。若要這樣做，請建立類別 KeychainWrapper，從 [LensRocket 範例](https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.m)複製 [KeychainWrapper.m](https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.h) 和 [KeychainWrapper.h](https://github.com/WindowsAzure-Samples/iOS-LensRocket)。我們使用這個 KeychainWrapper 作為 Apple 文件中定義的 KeychainWrapper，並不會說明自動參考計數 (ARC)。
+1. 建議在 iOS 用戶端上用來加密和儲存驗證權杖的方法是使用 Keychain。若要這樣做，請建立類別 KeychainWrapper，從 [LensRocket 範例](https://github.com/WindowsAzure-Samples/iOS-LensRocket)複製 [KeychainWrapper.m](https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.m) 和 [KeychainWrapper.h](https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.h)。我們使用這個 KeychainWrapper 作為 Apple 文件中定義的 KeychainWrapper，並不會說明自動參考計數 (ARC)。
 
 
 2. 開啟專案檔 **QSTodoListViewController.m**，然後新增下列程式碼：
@@ -82,5 +82,6 @@
 		    [self refresh];
 		}
 
-5. 如果應用程式向您應通過的行動服務提出要求 (因為使用者已通過驗證)，但您收到 401 回應 (未經授權的錯誤)，則表示您所忽略的使用者權杖已經到期。在適用於可用來與行動服務互動的每個方法的完成處理常式中，我們應該檢查 401 回應，或者可在某一個位置處理一些事項：MSFilter 的 handleRequest 方法。如需查看處理這個案例的方式，請參閱[這個部落格文章](http://www.thejoyofcode.com/Handling_expired_tokens_in_your_application_Day_11_.aspx)
+5. 如果應用程式向您應通過的行動服務提出要求 (因為使用者已通過驗證)，但您收到 401 回應 (未經授權的錯誤)，則表示您所忽略的使用者權杖已經到期在適用於可用來與行動服務互動的每個方法的完成處理常式中，我們應該檢查 401 回應，或者可在 MSFilter 的 handleRequest 方法這個位置處理一些事項。如需查看處理這個案例的方式，請參閱[這個部落格文章](http://www.thejoyofcode.com/Handling_expired_tokens_in_your_application_Day_11_.aspx)
 
+<!--HONumber=42-->

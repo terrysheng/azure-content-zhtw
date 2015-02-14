@@ -1,6 +1,20 @@
-<properties urlDisplayName="How to monitor" pageTitle="監視媒體服務帳戶 - Azure" metaKeywords="" description="說明如何為 Azure 中的媒體服務帳戶設定監視功能。" metaCanonical="" services="media-services" documentationCenter="" title="How to Monitor a Media Services Account" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="監視媒體服務帳戶 - Azure" 
+	description="說明如何為 Azure 中的媒體服務帳戶設定監視功能。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -11,11 +25,11 @@ Azure 媒體服務儀表板會顯示可用來管理媒體服務帳戶的使用�
 
 您可以監視排入佇列的編碼工作、失敗的編碼工作、作用中編碼工作的數目 (以編碼器的輸入和輸出資料來表示)，以及使用量度量和帳戶資訊 Blob 儲存體使用量。此外，如果將內容串流傳輸給客戶，則您也可以擷取各種串流度量。您可以選擇監視過去 6 小時、24 小時或 7 天的資料。
  
->[WACOM.NOTE] 其他成本與 Azure 管理入口網站中監視儲存體資料有關。如需詳細資訊，請參閱[儲存體分析及計費](http://go.microsoft.com/fwlink/?LinkId=256667)。
+>[AZURE.NOTE] 其他成本與 Azure 管理入口網站中監視儲存體資料有關。如需詳細資訊，請參閱[儲存體分析及計費](http://go.microsoft.com/fwlink/?LinkId=256667)。
 
 <h2><a id="configuremonitoring"></a>作法：監視媒體服務帳戶</h2>
 
-1. 在[管理入口網站](http://go.microsoft.com/fwlink/?LinkID=256666)中，按一下 [**媒體服務**]，然後按一下 [媒體服務帳戶名稱] 來開啟儀表板。 
+1. 在[管理入口網站](http://go.microsoft.com/fwlink/?LinkID=256666)中，按一下 [**媒體服務**]，然後按一下媒體服務帳戶名稱來開啟儀表板。 
 
 	![MediaServices_Dashboard][dashboard]
 
@@ -25,11 +39,11 @@ Azure 媒體服務儀表板會顯示可用來管理媒體服務帳戶的使用�
 1. 按一下 [**快速概覽**] 區段下的 [**儲存體帳戶**] 名稱。
 2. 在儲存體帳戶頁面上，按一下 [**設定頁面**] 連結，然後向下捲動至 Blob、資料表及佇列服務的 [**監視**] 設定，如下所示。
 
-	>[WACOM.NOTE] Blob 是媒體服務中唯一支援的儲存體類型。
+	>[AZURE.NOTE] Blob 是媒體服務中唯一支援的儲存體類型。
 
 	![StorageOptions][storage_options_scoped]
 
-3. 在 [**監視**] 中，設定 Blob 的監視等級和資料保留原則：
+3. 在 [**監視**] 中，設定 Blob 的監視層級和資料保留期限：
 
 -  若要設定監視等級，請選取下列其中一項：
 
@@ -50,5 +64,4 @@ Azure 媒體服務儀表板會顯示可用來管理媒體服務帳戶的使用�
 [dashboard]: ./media/media-services-monitor-services-account/media-services-dashboard.png
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

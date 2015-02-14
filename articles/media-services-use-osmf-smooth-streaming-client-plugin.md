@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="Smooth Streaming Plugin" pageTitle="Open Source Media Framework 的 Smooth Streaming 外掛程式" metaKeywords="" description="了解如何使用 Adobe Open Source Media Framework 的 Azure 媒體服務 Smooth Streaming 外掛程式。" metaCanonical="" services="media-services" documentationCenter="" title="How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Open Source Media Framework 的 Smooth Streaming 外掛程式" 
+	description="了解如何使用 Adobe Open Source Media Framework 的 Azure 媒體服務 Smooth Streaming 外掛程式。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
 # 如何使用 Adobe Open Source Media Framework 的 Microsoft Smooth Streaming 外掛程式 #
 
-##概觀 ##
+## 概觀 ##
 Open Source Media Framework 2.0 的 Microsoft Smooth Streaming 外掛程式 (SS for OSMF) 可擴充 OSMF 的預設功能，並可為新的和現有的 OSMF 播放程式新增 Microsoft Smooth Streaming 內容播放功能。此外掛程式也可為 Strobe Media Playback (SMP) 新增 Smooth Streaming 播放功能。
 
 SS for OSMF 包含兩個外掛程式版本：
@@ -15,9 +29,9 @@ SS for OSMF 包含兩個外掛程式版本：
 
 - OSMF 的動態 Smooth Streaming 外掛程式 (.swf)
 
-本文假設讀者具備使用 OSMF 和 OSMF 外掛程式的一般知識。如需 OSMF 的詳細資訊，請參閱 [OSMF 官方網站]上的文件(http://osmf.org/)。
+本文假設讀者具備使用 OSMF 和 OSMF 外掛程式的一般知識。如需 OSMF 的詳細資訊，請參閱 [OSMF 官方網站上的文件](http://osmf.org/)。
 
-###OSMF 2.0 的 Smooth Streaming 外掛程式
+### OSMF 2.0 的 Smooth Streaming 外掛程式
 
 此外掛程式支援以下列功能載入及播放隨選的 Smooth Streaming 內容：
 
@@ -41,7 +55,7 @@ SS for OSMF 包含兩個外掛程式版本：
 
 以下是已知問題清單：
 
-- 使用 48KHz 音軌播放 Smooth Streaming 內容時會發生問題。Flash 執行階段的 48KHz 音訊內容轉譯有已知問題。由於此問題，以 48Khz 設定編碼的 Smooth Streaming 內容可能無法如預期運作。請參閱：[使用 Flash Player](http://forums.adobe.com/message/4483498#4483498) 和 [Adobe Flash Player 11.3  -  錯誤 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964) 的詳細資訊。
+- 使用 48KHz 音軌播放 Smooth Streaming 內容時會發生問題。Flash 執行階段的 48KHz 音訊內容轉譯有已知問題。由於此問題，以 48Khz 設定編碼的 Smooth Streaming 內容可能無法如預期運作。請參閱：[使用 Flash Player](http://forums.adobe.com/message/4483498#4483498) 和 [Adobe Flash Player 11.3  -  錯誤 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964)，以取得詳細資訊。
 - 單一頁面上的多重 Smooth Streaming 內容播放可能會產生問題。這是 OSMF 的已知問題。
 - Stage Video 的播放可能會產生問題，且有些機器上無法播放視訊。若要解決此問題，您可以停用硬體加速或 Stage Video。
 
@@ -52,9 +66,9 @@ OSMF 外掛程式可以靜態方式 (在編譯時) 或動態方式 (在執行階
 
 - 動態載入：若要以動態方式載入，必須要有預先編譯的 (SWF) 檔案。動態外掛程式會在執行階段載入，而不會包含在專案輸出中。(編譯的輸出) 動態外掛程式可使用 HTTP 和 FILE 通訊協定來載入。
 
-如需靜態和動態載入的詳細資訊，請參閱官方 [OSMF 外掛程式頁面](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf)。
+如需靜態和動態載入的詳細資訊，請參閱[官方 OSMF 外掛程式頁面](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf)。
 
-###SS for OSMF 靜態載入
+### SS for OSMF 靜態載入
 下方的程式碼片段將說明如何以靜態方式載入 OSMF 的 SS 外掛程式，並使用 OSMF MediaFactory 類別播放基本視訊。在加入 SS for OSMF 程式碼之前，請確定專案參考包含 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" 靜態外掛程式。
 
 <pre><code>
@@ -190,7 +204,7 @@ package
 </code></pre>
 
 
-###SS for OSMF 動態載入
+### SS for OSMF 動態載入
 
 下方的程式碼片段將說明如何以動態方式載入 OSMF 的 SS 外掛程式，並使用 OSMF MediaFactory 類別播放基本視訊。在加入 SS for OSMF 程式碼之前，請將 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" 動態外掛程式複製到專案資料夾 (如果您要使用 FILE 通訊協定進行載入)，或是在 Web 伺服器下複製 (以進行 HTTP 載入)。您不需要在專案參考中加入 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc"。
 
@@ -328,8 +342,8 @@ package
 }
 </code></pre>
 
-##Strobe Media Playback 與 SS ODMF 動態外掛程式
-Smooth Streaming for OSMF 動態外掛程式與 [Strobe Media Playback (SMP)] 是相容的(http://osmf.org/strobe_mediaplayback.html)。您可以使用 SS for OSMF 外掛程式，將 Smooth Streaming 內容播放新增至 SMP。若要這麼做，請使用下列步驟，在 Web 伺服器下複製 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf"，以進行 HTTP 載入：
+## Strobe Media  Playback 與 SS ODMF 動態外掛程式
+Smooth Streaming for OSMF 動態外掛程式與 [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html) 是相容的。您可以使用 SS for OSMF 外掛程式，將 Smooth Streaming 內容播放新增至 SMP。若要這麼做，請使用下列步驟，在 Web 伺服器下複製 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf"，以進行 HTTP 載入：
 
 1.	瀏覽 [Strobe Media Playback 設定頁面](http://osmf.org/dev/2.0gm/setup.html)。 
 2.	將 src 設為 Smooth Streaming 來源 (例如 http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
@@ -388,6 +402,5 @@ Smooth Streaming for OSMF 動態外掛程式與 [Strobe Media Playback (SMP)] �
 6. 	儲存您的 HTML 頁面，並發佈至 Web 伺服器。使用您慣用且具有 Flash&reg; Player 功能的網際網路瀏覽器 (Internet Explorer、Chrome、Firefox 等)，瀏覽至已發佈的網頁。
 7. 	在 Adobe&reg; Flash&reg; Player 內欣賞 Smooth Streaming 內容。
 
-如需一般 OSMF 開發的詳細資訊，請參閱官方 [OSMF 開發頁面](http://osmf.org/resources.html)。
-
-<!--HONumber=35.1-->
+如需一般 OSMF 開發的詳細資訊，請參閱[官方 OSMF 開發頁面](http://osmf.org/resources.html)。
+<!--HONumber=42-->

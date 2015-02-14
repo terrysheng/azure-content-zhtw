@@ -1,4 +1,4 @@
-﻿
+
 1. 在 Eclipse 的 [套件瀏覽器] 中，開啟 ToDoActivity.java 檔案，並加入下列 import 陳述式。
 
 		import java.util.concurrent.ExecutionException;
@@ -36,11 +36,9 @@
 
 	這會建立新的方法來處理驗證程序。使用者透過 Google 登入來驗證。將出現對話方塊來顯示已驗證的使用者的識別碼。必須通過驗證才能繼續。
 
-    <div class="dev-callout"><b>注意</b>
-	<p>如果您使用 Google 以外的身分識別提供者，請將上述傳至 <strong>login</strong> 方法的值變更為下列其中一項：<em>MicrosoftAccount</em>、<em>Facebook</em>、<em>Twitter</em> 或 <em>windowsazureactivedirectory</em>。</p>
-    </div>
+    > [AZURE.NOTE] 如果您使用 Google 以外的識別提供者，請將上述傳至 **login** 方法的值變更為下列其中一項：_MicrosoftAccount_、_Facebook_、_Twitter_ 或 _windowsazureactivedirectory_。
 
-3. 在 **onCreate** 方法中，在具現化 `MobileServiceClient` 物件的程式碼後面加入下列這一行程式碼。
+3. 在 **onCreate** 方法中，在具現化  `MobileServiceClient` 物件的程式碼後面加入下列這一行程式碼。
 
 		authenticate();
 
@@ -64,6 +62,6 @@
 			refreshItemsFromTable();
 		}
 
-9. 從 [**執行**] 功能表，按一下 [**執行**] 來啟動應用程式，並以您選擇的身分識別提供者登入。 
+9. 從 **[執行]** 功能表，按一下 **[執行]** 來啟動應用程式，並以您選擇的識別提供者登入。 
 
-   	成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
+   	成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。<!--HONumber=42-->

@@ -1,47 +1,61 @@
-﻿<properties urlDisplayName="Use Hadoop Pig in HDInsight" pageTitle="在 HDInsight 中使用 Hadoop Pig | Azure" metaKeywords="" description="了解如何搭配 HDInsight 使用 Pig。撰寫 Pig Latin 陳述式以分析應用程式記錄檔，並對資料執行查詢以產生分析所需的輸出。" metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop Pig in HDInsight" authors="jgao" solutions="big data" manager="paulettm" editor="cgronlun" />
+<properties 
+	pageTitle="在 HDInsight 中使用 Hadoop Pig | Azure" 
+	description="了解如何搭配 HDInsight 使用 Pig。撰寫 Pig  陳述式以分析應用程式記錄檔，並對資料執行查詢以產生分析所需的輸出。" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/25/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="jgao"/>
 
 
 
-# 在 HDInsight 中使用 Pig 搭配 Hadoop
+# 在 HDInsight 上將 Pig 與 Hadoop 搭配使用
 
-在本教學課程中，您將了解如何在 HDInsight 中執行 [Apache Pig][apachepig-home] 工作，以分析大型資料檔案。Pig 提供可執行 *MapReduce* 工作的指令碼語言，可做為撰寫 Java 程式碼時的另一種選擇。Pig 的指令碼語言稱為 *Pig Latin*。
+在本教學課程中，您將了解如何在 HDInsight 中執行 [Apache Pig][apachepig-home] 工作，以分析大型資料檔案。Pig 所提供的指令碼語言可執行  *MapReduce* 工作，讓您在撰寫 Java 程式碼以外多了一項選擇。Pig 的指令碼語言稱為  *Pig *。
 
 **必要條件**
 
-* 您必須已佈建 Azure HDInsight 叢集。如需指示，請參閱 [開始使用 Azure HDInsight][hdinsight-get-started] 或[佈建 HDInsight 叢集][hdinsight-provision]。進行教學課程時，您將需要叢集的名稱。
+* 您必須已佈建 Azure HDInsight 叢集。如需指示，請參閱[開始使用 Azure HDInsight][hdinsight-get-started] 或[佈建 HDInsight 叢集][hdinsight-provision]。進行教學課程時，您將需要叢集的名稱。
 
-* 您的工作站必須已安裝並設定 Azure PowerShell。如需指示，請參閱[安裝和設定 Azure PowerShell][powershell-install-configure]。 
+* 您的工作站必須已安裝並設定 Azure PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。 
 
 **預估完成時間：** 30 分鐘
 
-##本文內容
+## 本文內容
 
 * [為何要使用 Pig？](#usage)
 * [在本教學課程中將執行哪些作業？](#what)
 * [識別要分析的資料](#data)
-* [了解 Pig Latin](#understand)
+* [了解 Pig ](#understand)
 * [使用 PowerShell 提交 Pig 工作](#powershell)
 * [使用 HDInsight .NET SDK 提交 Pig 工作](#sdk)
 * [後續步驟](#nextsteps)
  
-##<a id="usage"></a>為何要使用 Pig？
-使用關聯式資料庫和統計資料/虛擬化封裝來處理巨量資料，是很困難的。由於資料本身和資料運算的數量都很龐大，要在時限內計算巨量資料，常須在數十、數百甚或數千部伺服器上平行執行軟體，才有辦法。Hadoop 提供 *MapReduce* 架構來撰寫應用程式，這些應用程式能夠以非常可靠且可容錯的方式，平行處理各個大型機器叢集的大量結構化和非結構化資料。
+## <a id="usage"></a>為何要使用 Pig？
+使用關聯式資料庫和統計資料/虛擬化封裝來處理巨量資料，是很困難的。由於資料本身和資料運算的數量都很龐大，要在時限內計算巨量資料，常須在數十、數百甚或數千部伺服器上平行執行軟體，才有辦法。Hadoop 所提供的  *MapReduce* 架構可用來撰寫應用程式，讓您以非常可靠且可容錯的方式，平行處理大型機器叢集之間的大量結構化和非結構化資料。
 
 ![HDI.Pig.Architecture][image-hdi-pig-architecture]
 
-[Apache *Pig*][apachepig-home] 會在 Java 型 MapReduce 架構上提供抽象層，讓使用者無需具備 Java 或 MapReduce 知識即可分析資料。Pig 是一個平台，可藉由稱為 *Pig Latin* 的容易使用語言 (一種資料流程語言) 分析大型資料集。Pig 可縮短撰寫對應程式和節流程式所需的時間。無需任何 Java 知識即可使用此平台。同時，您也擁有結合 Java 程式碼與 Pig 的彈性。許多複雜的演算法，都可用不到五行且易讀的 Pig 程式碼撰寫出來。 
+[Apache *Pig*][apachepig-home] 會在 Java 型 MapReduce 架構上提供抽象層，讓使用者無需具備 Java 或 MapReduce 知識即可分析資料。Pig 是一個平台，可讓您透過易用的語言 (名為  *Pig *，是一種資料流程語言) 分析大型資料集。Pig 可縮短撰寫對應程式和節流程式所需的時間。無需任何 Java 知識即可使用此平台。同時，您也擁有結合 Java 程式碼與 Pig 的彈性。許多複雜的演算法，都可用不到五行且易讀的 Pig 程式碼撰寫出來。 
 
-Pig Latin 陳述式的一般執行流程如下：   
+Pig  陳述式的一般執行流程如下：   
 
 - **載入**：從檔案系統讀取要處理的資料
 - **轉換**：處理資料 
 - **傾印或儲存**：將資料輸出至畫面，或儲存以供處理
 
-如需有關 Pig Latin 的詳細資訊，請參閱 [Pig Latin 參考手冊 1][piglatin-manual-1] 和 [Pig Latin 參考手冊 2][piglatin-manual-2]。
+如需有關 Pig  的詳細資訊，請參閱 [Pig  參考手冊 1][pig-manual-1] 和 [Pig  參考手冊 2][pig-manual-2]。
 
-##<a id="what"></a>在本教學課程中將執行哪些作業？
+## <a id="what"></a>在本教學課程中將執行哪些作業？
 在本教學課程中，您將分析 Apache 記錄檔 (*sample.log*)，以判斷不同記錄層級的數量，例如 INFO、DEBUG、TRACE 等。下面兩個圖顯示您將在本文中完成的工作。第一個圖顯示 sample.log 檔案的程式碼片段。
 
 ![Whole File Sample][image-hdi-log4j-sample]
@@ -52,7 +66,7 @@ Pig Latin 陳述式的一般執行流程如下：
 
 您在本教學課程中建立的 Pig 工作會依循相同的流程。
 
-##<a id="data"></a>識別要分析的資料
+## <a id="data"></a>識別要分析的資料
 
 HDInsight 使用 Azure Blob 儲存容器作為 Hadoop 叢集的預設檔案系統。有些範例資料檔案會新增至 Blob 儲存體，作為叢集佈建的一部分。您可以使用這些範例資料檔案，對叢集執行 Hive 查詢。如果需要，您也可以將自己的資料檔案上傳至與叢集相關聯的 Blob 儲存體帳戶。如需指示，請參閱[將資料上傳至 HDInsight][hdinsight-upload-data]。如需有關如何使用 Azure Blob 儲存體搭配 HDInsight 的詳細資訊，請參閱[使用 Azure Blob 儲存體搭配 HDInsight][hdinsight-storage]。
 
@@ -60,9 +74,9 @@ Blob 儲存體中的檔案的存取語法如下：
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [WACOM.NOTE] 在 HDInsight 叢集 3.0 版中只支援 *wasb://* 語法。在 HDInsight 2.1 和 1.6 中支援舊的 *asv://* 語法，但在 HDInsight 3.0 叢集中已不支援，並且在未來的版本中也不會支援。
+> [AZURE.NOTE] HDInsight 叢集 3.0 版僅支援  *wasb://* 語法。HDInsight 2.1 和 1.6 支援舊的  *asv://* 語法，但在 HDInsight 3.0 叢集中已不支援，未來的版本中也不再支援。
 
-儲存在預設檔案系統容器中的檔案，也可使用下列任一 URI (範例中使用 sample.log。此檔案是本教學課程中使用的資料檔案) 從 HDInsight 存取：
+儲存在預設檔案系統容器中的檔案，也可使用下列任一 URI (範例中使用 sample.log。  此檔案是本教學課程中使用的資料檔案) 從 HDInsight 存取：
 
 	wasb://mycontainer@mystorageaccount.blob.core.windows.net/example/data/sample.log
 	wasb:///example/data/sample.log
@@ -72,22 +86,22 @@ Blob 儲存體中的檔案的存取語法如下：
 
 	example/data/sample.log
 
-本文使用 HDInsight 叢集隨附的範例檔 *log4j*，此檔案儲存在 *\example\data\sample.log* 中。如需有關上傳您自己資料檔案的詳細資訊，請參閱[將資料上傳至 HDInsight][hdinsight-upload-data]。
+本文使用 HDInsight 叢集隨附的範例檔  *log4j*，此檔案儲存在 *\example\data\sample.log* 中。如需有關上傳您自己資料檔案的詳細資訊，請參閱[將資料上傳至 HDInsight][hdinsight-upload-data]。
 
 
 
 
-##<a id="understand"></a> 了解 Pig Latin
+## <a id="understand"></a> 了解 Pig 
 
-在本節中，您將會個別檢閱幾個 Pig Latin 陳述式，以及執行這些陳述式之後的結果。在下一節中，您會使用 PowerShell 同時執行這些 Pig 陳述式，以分析範例記錄檔。個別的 Pig Latin 陳述式必須直接在 HDInsight 叢集上執行。
+在本節中，您將會個別檢閱幾個 Pig  陳述式，以及執行這些陳述式之後的結果。在下一節中，您會使用 PowerShell 同時執行這些 Pig 陳述式，以分析範例記錄檔。個別的 Pig  陳述式必須直接在 HDInsight 叢集上執行。
 
-1. 依照[使用 RDP 連線到 HDInsight 叢集](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-administer-use-management-portal/#rdp)中的指示，為 HDInsight 叢集啟用「遠端桌面」。登入叢集節點，然後在桌面上按一下 [Hadoop 命令列]****。
+1. 遵循[使用 RDP 連接到 HDInsight 叢集](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-administer-use-management-portal/#rdp)上的指示，啟用適用於 HDInsight 叢集的遠端桌面。登入叢集節點，然後在桌面上按一下 [Hadoop 命令列]****。
 
 2. 在命令列中，瀏覽至 **Pig** 的安裝目錄。輸入：
 
 		C:\apps\dist\hadoop-<version>> cd %pig_home%\bin
 
-3. 在命令提示字元中輸入 *pig*，然後按 ENTER 鍵，以進入 *grunt* 殼層。
+3. 在命令提示字元中，輸入  *pig*，然後按 ENTER 鍵以進入  *grunt* 殼層。
 
 		C:\apps\dist\pig-<version>\bin>pig
 		...
@@ -98,7 +112,7 @@ Blob 儲存體中的檔案的存取語法如下：
 		grunt> LOGS = LOAD 'wasb:///example/data/sample.log';
 		grunt> DUMP LOGS;
 	
-	The output is similar to the following:
+	輸出大致如下：	
 	
 		(2012-02-05 19:23:50 SampleClass5 [TRACE] verbose detail for id 313393809)
 		(2012-02-05 19:23:50 SampleClass6 [DEBUG] detail for id 536603383)
@@ -185,12 +199,12 @@ Blob 儲存體中的檔案的存取語法如下：
 	 	(ERROR,6)
 		(FATAL,2)
 
-##<a id="powershell"></a>使用 PowerShell 提交 Pig 工作
+## <a id="powershell"></a>使用 PowerShell 提交 Pig 工作
 
-本節提供 PowerShell Cmdlet 的使用指示。在進行本節之前，您必須先設定本機環境，並設定對 Azure 的連接。如需詳細資訊，請參閱 [開始使用 Azure HDInsight][hdinsight-get-started] 和 [使用 PowerShell 管理 HDInsight][hdinsight-admin-powershell]。
+本節提供 PowerShell Cmdlet 的使用指示。在進行本節之前，您必須先設定本機環境，並設定對 Azure 的連接。如需詳細資訊，請參閱[開始使用 Azure HDInsight][hdinsight-get-started] 和[使用 PowerShell 管理 HDInsight][hdinsight-admin-powershell]。
 
 
-**使用 PowerShell 執行 Pig Latin**
+**使用 PowerShell 執行 Pig **
 
 1. 開啟 Windows PowerShell ISE。在 Windows 8 的 [開始] 畫面上輸入 **PowerShell_ISE**，然後按一下 [Windows PowerShell ISE]****。如需詳細資訊，請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][powershell-start]。
 
@@ -200,7 +214,7 @@ Blob 儲存體中的檔案的存取語法如下：
 
 	系統會提示您輸入 Azure 帳號認證。這種新增訂用帳戶連線的方法會逾時，且在 12 小時後，您將必須重新執行 Cmdlet。 
 
-	> [WACOM.NOTE] 如果您有多個 Azure 訂用帳戶，而預設的訂用帳戶不是您想要使用的帳戶，請使用 <strong>Select-AzureSubscription</strong> Cmdlet 來選取目前的訂用帳戶。
+	> [AZURE.NOTE] 如果您有多個 Azure 訂用帳戶，且預設訂用帳戶並非您要使用的訂用帳戶，請使用 <strong>Select-AzureSubscription</strong> Cmdlet 選取目前的訂用帳戶。
 2. 在指令碼窗格中，複製並貼上下列程式碼行：
 
 		$clusterName = "<HDInsightClusterName>" 	#Specify the cluster name
@@ -208,7 +222,7 @@ Blob 儲存體中的檔案的存取語法如下：
 
 	如果您指定的狀態資料夾尚不存在，指令碼會加以建立。 
 
-3. 將下列程式碼行附加至指令碼窗格中。這些程式碼行會定義 Pig Latin 查詢字串，並建立 Pig 工作定義：
+3. 將下列程式碼行附加至指令碼窗格中。這些程式碼行會定義 Pig  查詢字串，並建立 Pig 工作定義：
 
 		# Create the Pig job definition
 		$0 = '$0';
@@ -242,7 +256,7 @@ Blob 儲存體中的檔案的存取語法如下：
 		Write-Host "Display the standard output ..." -ForegroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $pigJob.JobId -StandardOutput
 
-	> [WACOM.NOTE] 其中一個 Get-AzureHDInsightJobOut Cmdlet 已加上註解，以縮短下方螢幕擷取畫面中的輸出。   
+	> [AZURE.NOTE] 其中一個 Get-AzureHDInsightJobOut Cmdlet 已加上註解，以縮短下方螢幕擷取畫面中的輸出。   
 
 7. 按 **F5** 以執行指令碼：
 
@@ -251,7 +265,7 @@ Blob 儲存體中的檔案的存取語法如下：
 	Pig 工作會計算不同記錄類型的頻率。
 
 
-##<a id="sdk"></a>使用 HDInsight .NET SDK 提交 Pig 工作
+## <a id="sdk"></a>使用 HDInsight .NET SDK 提交 Pig 工作
 
 遵循下列步驟，可使用 C# 應用程式提交 Pig 工作。   如需建立 C# 應用程式以提交 Hadoop 工作的指示，請參閱[以程式設計方式提交 Hadoop 工作][hdinsight-submit-jobs]。
 
@@ -354,7 +368,7 @@ Blob 儲存體中的檔案的存取語法如下：
 		    }
 		}
 
-##<a id="nextsteps"></a>後續步驟
+## <a id="nextsteps"></a>後續步驟
 
 除了可讓您執行資料分析的 Pig 以外，HDInsight 隨附的其他語言也可能對您有所幫助。Hive 提供類似於 SQL 的查詢語言，可讓您輕鬆地對儲存於 HDInsight 中的資料進行查詢，而以 Java 撰寫的 MapReduce 工作則可讓您執行複雜的資料分析。如需詳細資訊，請參閱下列主題：
 
@@ -362,12 +376,12 @@ Blob 儲存體中的檔案的存取語法如下：
 * [開始使用 Azure HDInsight][hdinsight-get-started]
 * [將資料上傳至 HDInsight][hdinsight-upload-data]
 * [以程式設計方式提交 Hadoop 工作][hdinsight-submit-jobs]
-* [使用 Hive 搭配 HDInsight][hdinsight-use-hive]
+* [搭配 HDInsight 使用 Hive][hdinsight-use-hive]
 
 
 
-[piglatin-manual-1]: http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html
-[piglatin-manual-2]: http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html
+[pig-manual-1]: http://pig.apache.org/docs/r0.7.0/pig_ref1.html
+[pig-manual-2]: http://pig.apache.org/docs/r0.7.0/pig_ref2.html
 [apachepig-home]: http://pig.apache.org/
 
 
@@ -381,7 +395,7 @@ Blob 儲存體中的檔案的存取語法如下：
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/#mapreduce-sdk
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: ../install-configure-powershell/
 
 [powershell-start]: http://technet.microsoft.com/zh-tw/library/hh847889.aspx
 
@@ -390,4 +404,4 @@ Blob 儲存體中的檔案的存取語法如下：
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!--HONumber=35.2-->
+<!--HONumber=42-->

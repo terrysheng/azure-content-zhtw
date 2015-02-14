@@ -1,6 +1,20 @@
-﻿<properties title="Getting Started with Azure Storage" pageTitle="開始使用 Azure 儲存體" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="開始使用 Azure 儲存體" 
+	description="" 
+	services="storage" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="storage" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [開始使用](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
@@ -32,18 +46,18 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
                 .AddJsonFile("config.json")
                 .AddEnvironmentVariables();
 
-#####取得儲存體連接字串
+##### 取得儲存體連接字串
 您必須先取得將存放 Blob 的儲存體帳戶的連接字串，才能使用 Blob。您可以使用 **CloudStorageAccount** 類型來代表儲存體帳戶資訊。如果您使用 ASP.NET 5 專案，您可以呼叫 Configuration 物件的 get 方法，從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊，如下列程式碼所示。
 
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
-#####建立容器
+##### 建立容器
 就像檔案在資料夾中一樣，儲存體 Blob 位於容器中。您可以使用 **CloudBlobClient** 物件來參考現有的容器，或呼叫 CreateCloudBlobClient() 方法來建立新容器。
 
 下列程式碼顯示如何建立新的 Blob 儲存體容器。此程式碼會先建立 **BlobClient** 物件，讓您存取物件的功能，例如建立儲存體容器。接著，程式碼嘗試參考一個稱為 "mycontainer" 的儲存體容器。如果找不到該名稱的容器，則會建立此容器。
 
-**注意：**對外向 ASP.NET 5 中的 Azure 儲存體進行呼叫的 API 是非同步的。如需詳細資訊，請參閱[使用 Async 和 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。以下程式碼假設使用非同步程式設計方法。
+**注意：**在 ASP.NET 5 中對 Azure 儲存體執行呼叫的 API 未同步。如需詳細資訊，請參閱[使用 Async 和 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。下列程式碼假設使用的是非同步程式設計方法。
 
 	// Create a blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -54,16 +68,16 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
     // If "mycontainer" doesn't exist, create it.
     await container.CreateIfNotExistsAsync();    
 
-根據預設，新容器屬私人性質，您必須指定儲存體存取金鑰才能從此容器下載 Blob。若要讓所有人都能使用容器中的檔案，您可以使用下列程式碼將容器設定為公用容器。
+根據預設，新容器屬私人性質，您必須指定儲存體存取金鑰才能從此容器下載 Blob。若要讓所有人都能使用容器中的檔案，您可以使用下列程式碼將容器設定為公用容器：
 
 	await container.SetPermissionsAsync(new BlobContainerPermissions
     {
         PublicAccess = BlobContainerPublicAccessType.Blob
     });
 
-**注意：** 請在下列區段的程式碼開頭使用此程式碼。
+**注意：**請在下列區段的程式碼開頭使用此程式碼。
 
-#####將 Blob 上傳至容器
+##### 將 Blob 上傳至容器
 若要將 Blob 檔案上傳至容器，請取得容器參考，並使用該參考來取得 Blob 參考。擁有 Blob 參照後，即可藉由呼叫 **UploadFromStreamAsync()** 方法，將任何資料流上傳至其中。如果 Blob 不存在，此操作會建立 Blob，若已存在，則予以覆寫。下列範例顯示如何將 Blob 上傳到容器，並假設已建立該容器。
 
 	// Get a reference to a blob named "myblob".
@@ -76,8 +90,8 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
         await blockBlob.UploadFromStreamAsync(fileStream);
     }
 
-#####列出容器中的 Blob
-若要列出容器中的 Blob，請先取得容器參照。然後您即可使用容器的 **ListBlobsSegmentedAsync()** 方法來擷取其中的 Blob 和/或目錄。若要針對傳回的 **IListBlobItem** 存取一組豐富的屬性與方法，您必須先將它轉換至 **CloudBlockBlob**、**CloudPageBlob** 或 **CloudBlobDirectory** 物件。如果不知道 Blob 類型，可使用類型檢查來決定要將其轉換成何種類型。下列程式碼示範如何擷取和輸出容器中每個項目的 URI。
+##### 列出容器中的 Blob
+若要列出容器中的 Blob，請先取得容器參照。然後，您就可使用容器的 **ListBlobsSegmentedAsync()** 方法來擷取其中的 Blob 及/或目錄。若要針對傳回的 **IListBlobItem** 存取一組豐富的屬性與方法，您必須先將它轉換至 **CloudBlockBlob**、**CloudPageBlob** 或 **CloudBlobDirectory** 物件。如果不知道 Blob 類型，可使用類型檢查來決定要將其轉換成何種類型。下列程式碼示範如何擷取和輸出容器中每個項目的 URI。
 
 	BlobContinuationToken token = null;
         do
@@ -109,9 +123,9 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
             }
         } while (token != null);
 
-還有其他方法可列出 Blob 容器的內容。如需詳細資訊，請參閱[如何使用 .NET 的 Blob 儲存體](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob)。
+還有其他方法可列出 Blob 容器的內容。如需詳細資訊，請參閱[如何從 .NET 使用 Blob 儲存體](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob)。
 
-#####下載 Blob
+##### 下載 Blob
 若要下載 Blob，請先取得 Blob 的參考，再呼叫 **DownloadToStreamAsync()** 方法。下列範例使用 **DownloadToStreamAsync()** 方法將 Blob 內容傳送給資料流物件，您接著可將該物件儲存為本機檔案。
 
 	// Get a reference to a blob named "photo1.jpg".
@@ -123,9 +137,9 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
     	await blockBlob.DownloadToStreamAsync(fileStream);
 	}
 
-還有其他方法可將 Blob 儲存為檔案。如需詳細資訊，請參閱[如何使用 .NET 的 Blob 儲存體](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs)。
+還有其他方法可將 Blob 儲存為檔案。如需詳細資訊，請參閱[如何從 .NET 使用 Blob 儲存體](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs)。
 
-#####刪除 Blob
+##### 刪除 Blob
 若要刪除 Blob，請先取得 Blob 的參考，再呼叫它的 **DeleteAsync()** 方法。
 
 	// Get a reference to a blob named "myblob.txt".
@@ -135,4 +149,4 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
 	await blockBlob.DeleteAsync();
 
 [深入了解 Azure 儲存體](http://azure.microsoft.com/documentation/services/storage/)
-另請參閱[使用伺服器總管瀏覽和管理儲存體資源](http://msdn.microsoft.com/zh-tw/library/azure/ff683677.aspx)和 [ASP.NET 5](http://www.asp.net/vnext)。
+另請參閱[使用伺服器總管瀏覽和管理儲存體資源](http://msdn.microsoft.com/zh-tw/library/azure/ff683677.aspx)和 [ASP.NET 5](http://www.asp.net/vnext)。<!--HONumber=42-->

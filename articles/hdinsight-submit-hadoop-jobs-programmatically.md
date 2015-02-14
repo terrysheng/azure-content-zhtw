@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="HDInsight Administration" pageTitle="在 HDInsight 上提交 Hadoop 工作 | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" description="了解如何將 Hadoop 工作提交至 Azure HDInsight Hadoop。" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Submit  Hadoop jobs in HDInsight" authors="jgao" />
+<properties 
+	pageTitle="在 HDInsight 上提交 Hadoop 工作 | Azure" 
+	description="了解如何將 Hadoop 工作提交至 Azure HDInsight Hadoop。" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="jgao"/>
 
 # 在 HDInsight 上提交 Hadoop 工作
 
@@ -10,11 +24,11 @@
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
-* Azure HDInsight 叢集。如需指示，請參閱 [HDInsight 使用者入門][hdinsight-get-started]或[佈建 HDInsight 叢集][hdinsight-provision]。
+* Azure HDInsight 叢集。如需相關指示，請參閱[開始使用 HDInsight][hdinsight-get-started]或[佈建 HDInsight 叢集][hdinsight-provision]。
 * 安裝並設定 Azure PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。
 
 
-##本文內容
+## 本文內容
 
 * [使用 PowerShell 提交 MapReduce 工作](#mapreduce-powershell)
 * [使用 PowerShell 提交 Hive 工作](#hive-powershell)
@@ -24,14 +38,14 @@
 * [使用 HDInsight .NET SDK 提交 Hive 工作](#hive-sdk)
 * [後續步驟](#nextsteps)
 
-##<a id="mapreduce-powershell"></a> 使用 PowerShell 提交 MapReduce 工作
+## <a id="mapreduce-powershell"></a> 使用 PowerShell 提交 MapReduce 工作
 Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。如需有關在 HDInsight 上使用 PowerShell 的詳細資訊，請參閱[使用 PowerShell 來管理 HDInsight][hdinsight-admin-powershell]。
 
-Hadoop MapReduce 是一種可撰寫應用程式來處理大量資料的軟體架構。HDInsight 叢集隨附一個 jar 檔案，位於 *\example\jars\hadoop-examples.jar*，內有數個 MapReduce 範例。HDInsight 3.0 版叢集已將此檔案重新命名為 hadoop-mapreduce-examples.jar。其中一個範例是計算來源檔案中的文字出現率。在這堂課，您將了解如何從工作站使用 PowerShell 來執行字數統計範例。如需有關開發和執行 MapReduce 工作的詳細資訊，請參閱[將 HDInsight 與 MapReduce 搭配使用][hdinsight-use-mapreduce]。
+Hadoop MapReduce 是一種可撰寫應用程式來處理大量資料的軟體架構。HDInsight 叢集隨附一個 jar 檔案，位於 *\example\jars\hadoop-examples.jar*，內有數個 MapReduce 範例。HDInsight 3.0 版叢集已將此檔案重新命名為 hadoop-mapreduce-examples.jar。其中一個範例是計算來源檔案中的文字出現率。在這堂課，您將了解如何從工作站使用 PowerShell 來執行字數統計範例。如需有關開發和執行 MapReduce 工作的詳細資訊，請參閱[使用 MapReduce 搭配 HDInsight][hdinsight-use-mapreduce]。
 
 **使用 PowerShell 來執行字數統計 MapReduce 程式**
 
-1.	開啟 **Azure PowerShell**。如需有關開啟 Azure PowerShell 主控台視窗的指示，請參閱[安裝和設定 Azure PowerShell][powershell-install-configure]。
+1.	開啟 **Azure PowerShell**。如需有關開啟 Azure PowerShell 主控台視窗的指示，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。
 
 3. 執行下列 PowerShell 命令來設定這兩個變數：
 		
@@ -45,7 +59,7 @@ Hadoop MapReduce 是一種可撰寫應用程式來處理大量資料的軟體架
 		# Define the word count MapReduce job
 		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
-	有兩個引數。第一個是來源檔案名稱，第二個是輸出檔案路徑。如需 wasb 首碼的詳細資訊，請參閱[在 HDInsight 上使用 Azure Blob 儲存體][hdinsight-storage]。
+	有兩個引數。第一個是來源檔案名稱，第二個是輸出檔案路徑。如需 wasb 首碼的詳細資訊，請參閱[使用 Azure Blob 儲存體搭配 HDInsight][hdinsight-storage]。
 
 6. 執行下列命令來執行 MapReduce 工作：
 
@@ -80,7 +94,7 @@ Hadoop MapReduce 是一種可撰寫應用程式來處理大量資料的軟體架
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"			
 
-	Azure 儲存體帳戶是您在 HDInsight 叢集佈建期間指定的帳戶。儲存體帳戶用來代管當做預設 HDInsight 叢集檔案系統的 Blob 容器。Blob 儲存容器名稱通常與 HDInsight 叢集同名，除非您在佈建叢集時指定不同的名稱。
+	Azure 儲存體帳戶是您在 HDInsight 叢集佈建期間指定的帳戶。儲存體帳戶用來代管當做預設 HDInsight 叢集檔案系統的 Blob 容器。  Blob 儲存容器名稱通常與 HDInsight 叢集同名，除非您在佈建叢集時指定不同的名稱。
 
 3. 執行下列命令來建立 Azure 儲存體內容物件：
 
@@ -96,7 +110,7 @@ Hadoop MapReduce 是一種可撰寫應用程式來處理大量資料的軟體架
 		# Get the blob content
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	*example/data/WordCountOutput* 資料夾是您執行 MapReduce 工作時指定的輸出資料夾。 *part-r-00000* 是 MapReduce 工作輸出的預設檔案名稱。檔案會以相同資料夾結構下載至本機資料夾。例如，在下列螢幕擷取畫面中，目前資料夾是 C 根資料夾。檔案會下載至 *C:\example\data\WordCountOutput\* 資料夾。
+	 *example/data/WordCountOutput* 資料夾是您執行 MapReduce 工作時指定的輸出資料夾。 *part-r-00000* 是 MapReduce 工作輸出的預設檔案名稱。  檔案會以相同資料夾結構下載至本機資料夾。例如，在下列螢幕擷取畫面中，目前資料夾是 C 根資料夾。  檔案會下載至 *C:\example\data\WordCountOutput\* 資料夾。
 
 5. 執行下列命令來列印 MapReduce 工作輸出檔案：
 
@@ -104,10 +118,10 @@ Hadoop MapReduce 是一種可撰寫應用程式來處理大量資料的軟體架
 
 	![HDI.GettingStarted.MRJobOutput][image-hdi-gettingstarted-mrjoboutput]
 
-	MapReduce 工作會產生一個名為 *part-r-00000* 的檔案，內有文字和字數。指令碼使用 findstr 命令列出包含 "there" 的所有文字。
+	MapReduce 工作會產生一個名為 *part-r-00000* 的檔案，內有文字和字數。  指令碼使用 findstr 命令列出包含 "there" 的所有文字。
 
 
-> [WACOM.NOTE] 如果您在記事本中開啟 ./example/data/WordCountOutput/part-r-00000 (MapReduce 工作的多行輸出)，您會發現換行不正確。這是預期行為。
+> [AZURE.NOTE] 如果您在記事本中開啟 ./example/data/WordCountOutput/part-r-00000 (MapReduce 工作的多行輸出)，您會發現換行不正確。這是預期行為。
 
 
 
@@ -245,10 +259,10 @@ Hadoop MapReduce 是一種可撰寫應用程式來處理大量資料的軟體架
 
 
 
-##<a id="hive-powershell"></a> 使用 PowerShell 提交 Hive 工作
-Apache [hdinsight-use-hive][apache-hive] 提供一種透過 SQL 式指令碼語言執行 MapReduce 工作的工具，稱為 *HiveQL*，可用來總結、查詢和分析大量資料。 
+## <a id="hive-powershell"></a> 使用 PowerShell 提交 Hive 工作
+Apache [hdinsight-use-hive][apache-hive] 提供一種透過 SQL 式指令碼語言執行 MapReduce 工作的工具，稱為  *HiveQL*，可用來總結、查詢和分析大量資料。 
 
-HDInsight 叢集隨附一個範例 Hive 資料表，稱為 *hivesampletable*。在這堂課，您將使用 PowerShell 執行 Hive 工作，從 Hive 資料表中列出一些資料。 
+HDInsight 叢集隨附一個範例 Hive 資料表，稱為  *hivesampletable*。在這堂課，您將使用 PowerShell 執行 Hive 工作，從 Hive 資料表中列出一些資料。 
 
 **使用 PowerShell 執行 Hive 工作**
 
@@ -273,14 +287,14 @@ HDInsight 叢集隨附一個範例 Hive 資料表，稱為 *hivesampletable*。�
 
 	您可以使用 -File 參數來指定 HDFS 上的 HiveQL 指令碼檔案。
 
-如需 Hive 的詳細資訊，請參閱[在 HDInsight 上使用 Hive][hdinsight-use-hive]。
+如需有關 Hive 的詳細資訊，請參閱[使用 Hive 搭配 HDInsight][hdinsight-use-hive]。
 
-##<a id="sqoop-powershell"></a>使用 PowerShell 提交 Sqoop 工作
+## <a id="sqoop-powershell"></a>使用 PowerShell 提交 Sqoop 工作
 
-請參閱[在 HDInsight 上使用 Sqoop][hdinsight-use-sqoop]。
+請參閱[使用 Sqoop 搭配 HDInsight][hdinsight-use-sqoop]。
 
-##<a id="mapreduce-sdk"></a> 使用 HDInsight .NET SDK 提交 MapReduce 工作
-HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使用 HDInsight 叢集。HDInsight 叢集隨附一個 jar 檔案，位於 *\example\jars\hadoop-examples.jar*，內有數個 MapReduce 範例。其中一個範例是計算來源檔案中的文字出現率。在這堂課，您將了解如何建立 .NET 應用程式來執行字數統計範例。如需有關開發和執行 MapReduce 工作的詳細資訊，請參閱[將 HDInsight 與 MapReduce 搭配使用][hdinsight-use-mapreduce]。
+## <a id="mapreduce-sdk"></a> 使用 HDInsight .NET SDK 提交 MapReduce 工作
+HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使用 HDInsight 叢集。HDInsight 叢集隨附一個 jar 檔案，位於 *\example\jars\hadoop-examples.jar*，內有數個 MapReduce 範例。其中一個範例是計算來源檔案中的文字出現率。在這堂課，您將了解如何建立 .NET 應用程式來執行字數統計範例。如需有關開發和執行 MapReduce 工作的詳細資訊，請參閱[使用 MapReduce 搭配 HDInsight][hdinsight-use-mapreduce]。
 
 
 使用 SDK 佈建 HDInsight 叢集需要執行下列程序：
@@ -291,13 +305,13 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 
 **安裝 HDInsight .NET SDK**
-您可以從 [NuGet] 安裝最新發佈的 SDK 組建(http://nuget.codeplex.com/wikipage?title=Getting%20Started)。下一個程序會顯示相關指示。
+您可以從 [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) 安裝最新發佈的 SDK 組建。下一個程序會顯示相關指示。
 
 **建立 Visual Studio 主控台應用程式**
 
 1. 開啟 Visual Studio 2012。
 
-2. 在 [檔案] 功能表中按一下 [**新增**]，然後按一下 [**專案**]。
+2. 在 [檔案] 功能表中按一下 [新增]，然後按一下 [專案]。
 
 3. 在 [新增專案] 中，輸入或選取下列值：
 
@@ -316,10 +330,10 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">SubmitMapReduceJob</td></tr>
 	</table>
 
-4. 按一下 [**確定**] 以建立專案。
+4. 按一下 [確定] 以建立專案。
 
 
-5. 在 [**工具**] 功能表中按一下 [**Library Package Manager**]，再按一下 [**Package Manager Console**]。
+5. 在 [**工具**] 功能表中按一下 [**程式庫封裝管理員**]，然後按一下 [**封裝管理員主控台**]。
 
 6. 在主控台中執行下列命令，以安裝封裝。
 
@@ -369,7 +383,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 	
 	以上就是程式需要設定的所有變數。您可以從 [Azure 管理入口網站][azure-management-portal]取得 Azure 訂用帳戶名稱。 
 
-	如需憑證的詳細資訊，請參閱[建立和上傳 Azure 的管理憑證][azure-certificate]。設定憑證的一種簡單方法就是執行 *Get-AzurePublishSettingsFile* 和 *Import-AzurePublishSettingsFile* PowerShell Cmdlet。它們會自動建立和上傳管理憑證。執行 PowerShell Cmdlet 之後，您可以從工作站開啟 *certmgr.msc*，並展開 [*個人/憑證*] 來尋找憑證。PowerShell Cmdlet 所建立的憑證在 [*發給*] 和 [*簽發者*] 欄位中都是 [*Azure Tools*]。
+	如需憑證的詳細資訊，請參閱[建立和上傳 Azure 的管理憑證][azure-certificate]。設定憑證的一種簡單方法就是執行  *Get-AzurePublishSettingsFile* 和 *Import-AzurePublishSettingsFile* PowerShell Cmdlet。它們會自動建立和上傳管理憑證。執行 PowerShell Cmdlet 之後，您可以從工作站開啟 *certmgr.msc*，並展開 *Personal/Certificates*。PowerShell Cmdlet 所建立的憑證 *Issued To* 和 *Issued By* 欄位具有 *Azure Tools*。
 
 	Azure 儲存體帳戶名稱是您佈建 HDInsight 叢集時指定的帳戶。預設容器名稱與 HDInsight 叢集名稱相同。
 	
@@ -386,7 +400,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
         mrJobDefinition.Arguments.Add("wasb:///example/data/gutenberg/davinci.txt");
         mrJobDefinition.Arguments.Add("wasb:///example/data/WordCountOutput");
 
-	有兩個引數。第一個是來源檔案名稱，第二個是輸出檔案路徑。如需 wasb 首碼的詳細資訊，請參閱[在 HDInsight 上使用 Azure Blob 儲存體][hdinsight-storage]。
+	有兩個引數。第一個是來源檔案名稱，第二個是輸出檔案路徑。如需 wasb 首碼的詳細資訊，請參閱[使用 Azure Blob 儲存體搭配 HDInsight][hdinsight-storage]。
 		
 12. 在 Main() 函數中，附加下列程式碼來建立 JobSubmissionCertificateCredential 物件：
 
@@ -432,8 +446,8 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 在 Visual Studio 中開啟應用程式後，按 **F5** 以執行應用程式。主控台視窗會開啟並顯示應用程式的狀態及應用程式輸出。 
 
-##<a id="streaming-sdk"></a> 使用 HDInsight .NET SDK 提交 Hadoop 串流工作
-HDInsight 叢集隨附一個以 C# 開發的字數統計 Hadoop 串流程式。對應器程式為 */example/apps/cat.exe*，而歸納器程式為 */example/apps/wc.exe*。在這堂課，您將了解如何建立 .NET 應用程式來執行字數統計範例。 
+## <a id="streaming-sdk"></a> 使用 HDInsight .NET SDK 提交 Hadoop 串流工作
+HDInsight 叢集隨附一個以 C# 開發的字數統計 Hadoop 串流程式。mapper 程式為 */example/apps/cat.exe*，而 reduce 程式為 */example/apps/wc.exe*。在這堂課，您將了解如何建立 .NET 應用程式來執行字數統計範例。 
 
 如需建立 .Net 應用程式以提交 MapReduce 工作的詳細資料，請參閱[使用 HDInsight .NET SDK 提交 MapReduce 工作](#mapreduce-sdk)。
 
@@ -535,8 +549,8 @@ HDInsight 叢集隨附一個以 C# 開發的字數統計 Hadoop 串流程式。�
 
 
 
-##<a id="hive-sdk"></a> 使用 HDInsight .NET SDK 提交 Hive 工作 
-HDInsight 叢集隨附一個範例 Hive 資料表，稱為 *hivesampletable*。在這堂課，您將建立 .NET 應用程式來執行 Hive 工作，以列出 HDInsight 叢集上建立的 Hive 資料表。如需使用 Hive 的詳細資訊，請參閱[在 HDInsight 上使用 Hive][hdinsight-use-hive]。
+## <a id="hive-sdk"></a> 使用 HDInsight .NET SDK 提交 Hive 工作 
+HDInsight 叢集隨附一個範例 Hive 資料表，稱為  *hivesampletable*。在這堂課，您將建立 .NET 應用程式來執行 Hive 工作，以列出 HDInsight 叢集上建立的 Hive 資料表。如需有關使用 Hive 的詳細資訊，請參閱[使用 Hive 搭配 HDInsight][hdinsight-use-hive]。
 
 使用 SDK 佈建 HDInsight 叢集需要執行下列程序：
 
@@ -546,35 +560,35 @@ HDInsight 叢集隨附一個範例 Hive 資料表，稱為 *hivesampletable*。�
 
 
 **安裝 HDInsight .NET SDK**
-您可以從 [NuGet] 安裝最新發佈的 SDK 組建(http://nuget.codeplex.com/wikipage?title=Getting%20Started)。下一個程序會顯示相關指示。
+您可以從 [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) 安裝最新發佈的 SDK 組建。下一個程序會顯示相關指示。
 
 **建立 Visual Studio 主控台應用程式**
 
 1. 開啟 Visual Studio 2012。
 
-2. 在 [檔案] 功能表中按一下 [**新增**]，然後按一下 [**專案**]。
+2. 在 [檔案] 功能表中按一下 [新增]，然後按一下 [專案]。
 
 3. 在 [新增專案] 中，輸入或選取下列值：
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
 	<tr>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Property</th>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Value</th></tr>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">屬性</th>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">值</th></tr>
 	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Category</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">類別</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">範本/Visual C#/Windows</td></tr>
 	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Template</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Console Application</td></tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">範本</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">主控台應用程式</td></tr>
 	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">名稱</td>
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">SubmitHiveJob</td></tr>
 	</table>
 
-4. 按一下 [**確定**] 以建立專案。
+4. 按一下 [確定] 以建立專案。
 
 
-5. 在 [**工具**] 功能表中按一下 [**Library Package Manager**]，再按一下 [**Package Manager Console**]。
+5. 在 [**工具**] 功能表中按一下 [**程式庫封裝管理員**]，然後按一下 [**封裝管理員主控台**]。
 
 6. 在主控台中執行下列命令，以安裝封裝。
 
@@ -616,7 +630,7 @@ HDInsight 叢集隨附一個範例 Hive 資料表，稱為 *hivesampletable*。�
 	
 	以上就是程式需要設定的所有變數。您可以向系統管理員查詢 Azure 訂用帳戶識別碼。 
 
-	如需憑證的詳細資訊，請參閱[建立和上傳 Azure 的管理憑證][azure-certificate]。設定憑證的一種簡單方法就是執行 *Get-AzurePublishSettingsFile* 和 *Import-AzurePublishSettingsFile* PowerShell Cmdlet。它們會自動建立和上傳管理憑證。執行 PowerShell Cmdlet 之後，您可以從工作站開啟 *certmgr.msc*，並展開 *[個人/憑證]*來尋找憑證。PowerShell Cmdlet 所建立的憑證在 *[發給]* 和 *[簽發者]* 欄位中都是 *[Azure Tools]。* 欄位。
+	如需憑證的詳細資訊，請參閱[建立和上傳 Azure 的管理憑證][azure-certificate]。設定憑證的一種簡單方法就是執行  *Get-AzurePublishSettingsFile* 和 *Import-AzurePublishSettingsFile* PowerShell Cmdlet。它們會自動建立和上傳管理憑證。執行 PowerShell Cmdlet 之後，您可以從工作站開啟 *certmgr.msc*，並展開 *Personal/Certificates*。PowerShell Cmdlet 所建立的憑證 *Issued To* 和 *Issued By* 欄位具有 *Azure Tools*。
 	
 11. 在 Main() 函數中，附加下列程式碼來定義 Hive 工作：
 
@@ -676,15 +690,15 @@ HDInsight 叢集隨附一個範例 Hive 資料表，稱為 *hivesampletable*。�
 
 
 
-##<a id="nextsteps"></a> 後續步驟
+## <a id="nextsteps"></a> 後續步驟
 在本文中，您學到幾種佈建 HDInsight 叢集的方法。若要深入了解，請參閱下列文章：
 
-* [Azure HDInsight 使用者入門][hdinsight-get-started]
+* [開始使用 Azure HDInsight][hdinsight-get-started]
 * [佈建 HDInsight 叢集][hdinsight-provision]
 * [使用 PowerShell 管理 HDInsight][hdinsight-admin-powershell]
 * [HDInsight Cmdlet 參考文件][hdinsight-powershell-reference]
-* [搭配 HDInsight 使用 Hive][hdinsight-use-hive]
-* [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
+* [使用 Hive 搭配 HDInsight][hdinsight-use-hive]
+* [使用 Pig 搭配 HDInsight][hdinsight-use-pig]
 
 
 [azure-certificate]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg551722.aspx
@@ -702,11 +716,10 @@ HDInsight 叢集隨附一個範例 Hive 資料表，稱為 *hivesampletable*。�
 
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn479228.aspx
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: ../install-configure-powershell/
 
 [image-hdi-gettingstarted-runmrjob]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.RunMRJob.png 
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

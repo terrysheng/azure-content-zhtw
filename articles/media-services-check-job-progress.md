@@ -1,13 +1,27 @@
-﻿<properties urlDisplayName="Check Job Progress" pageTitle="如何檢查媒體服務中的工作進度 - Azure" metaKeywords="" description="了解如何使用事件處理常式程式碼來追蹤工作進度及傳送狀態更新。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" metaCanonical="" services="media-services" documentationCenter="" title="How to: Check Job Progress" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="如何檢查媒體服務中的工作進度 - Azure" 
+	description="了解如何使用事件處理常式程式碼來追蹤工作進度及傳送狀態更新。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
 
 
 <h1>作法：檢查工作進度</h1>
-本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是[作法：為資產編碼](http://go.microsoft.com/fwlink/?LinkID=301753&clcid=0x409)。
+本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是＜[作法：為資產編碼](http://go.microsoft.com/fwlink/?LinkID=301753&clcid=0x409)。
 
 執行作業時，您通常需要設法追蹤作業進度。下列程式碼定義 StateChanged 事件處理常式。此事件處理常式可追蹤作業進度，並根據狀態來提供更新的狀態。程式碼也定義 LogJobStop 方法。此協助程式方法會記錄錯誤詳細資料。
 
@@ -88,6 +102,5 @@ private static string JobIdAsFileName(string jobID)
 }
 </code></pre>
 <h2>後續步驟</h2>
-現在您已了解如何建立工作並追蹤其進度，下一個步驟是要保護資產。如需詳細資訊，請參閱[如何使用 Azure 媒體服務保護資產] (英文)。(http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409)。
-
-<!--HONumber=35.1-->
+現在您已了解如何建立工作並追蹤其進度，下一個步驟是要保護資產。如需詳細資訊，請參閱[如何使用 Azure 媒體服務保護資產](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409)。
+<!--HONumber=42-->

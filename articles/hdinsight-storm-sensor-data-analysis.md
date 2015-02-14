@@ -1,14 +1,28 @@
-﻿<properties title="Analyzing sensor data with Storm and HDInsight" pageTitle="分析感應器資料，方法是使用 Apache Storm 和 Microsoft Azure HDInsight (Hadoop)" description="學習如何搭配使用 Apache Storm 和 HDInsight (Hadoop) 來即時處理感應器資料" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties 
+	pageTitle="使用 Apache Storm 和 Microsoft Azure HDInsight (Hadoop) 分析感應器資料" 
+	description="了解如何使用  Apache Storm 即時使用 HDInsight (Hadoop) 來處理感應器資料" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2014" 
+	ms.author="larryfr"/>
 
-#在 HDInsight (Hadoop) 中使用 Storm 和 HBase 分析感應器資料
+# 在 HDInsight (Hadoop) 中使用 Storm 和 HBase 分析感應器資料
 
-了解如何建置解決方案，以使用 HDInsight Storm 叢集處理來自 Azure 事件中心的感應器資料。在處理期間，Storm 拓撲會將傳入的資料儲存到 HBase 叢集。拓撲也會使用 SignalR，透過 Azure 網站裝載的 Web 型儀表板來提供近乎即時的資訊。
+了解如何建置解決方案，以在 HDInsight 上使用 Storm 叢集處理來自 Azure 事件中心的感應器資料。在處理期間，Storm 拓撲會將傳入的資料儲存到 HBase 叢集。拓撲也會使用 SignalR，透過 Azure 網站裝載的 Web 型儀表板來提供近乎即時的資訊。
 
-> [AZURE.NOTE] [https://github.com/Blackmist/hdinsight-eventhub-example] 上提供此專案的完整版本(https://github.com/Blackmist/hdinsight-eventhub-example)。
+> [AZURE.NOTE] [https://github.com/Blackmist/hdinsight-eventhub-example](https://github.com/Blackmist/hdinsight-eventhub-example) 上提供此專案的完整版本。
 
-##必要條件
+## 必要條件
 
 * Azure 訂用帳戶
 
@@ -20,33 +34,33 @@
 
 * [Git](http://git-scm.com/)
 
-> [AZURE.NOTE] 您也可以透過 [Chocolatey NuGet] 封裝管理員取得 Java、JDK、Maven 和 Git(http://chocolatey.org/) 。
+> [AZURE.NOTE] 您也可以透過 [Chocolatey NuGet](http://chocolatey.org/) 封裝管理員取得 Java、JDK、Maven 和 Git。
 
-##建立儀表板
+## 建立儀表板
 
-儀表板用來顯示近乎即時的感應器資訊。在此案例中，儀表板是 Azure 網站中裝載的一個 ASP.NET 應用程式。此應用程式的主要目的是做為 [SignalR](http://www.asp.net/signalr/overview/getting-started/introduction-to-signalr) 集線器，以便在處理訊息時從 Storm 拓撲接收資訊。
+儀表板用來顯示近乎即時的感應器資訊。在此案例中，儀表板是 Azure 網站中裝載的一個 ASP.NET 應用程式。此應用程式的主要用途是做為 [SignalR](http://www.asp.net/signalr/overview/getting-started/introduction-to-signalr) 中心，在處理訊息時可接收來自 Storm 拓撲的資訊。
 
 網站也包含 index.html 靜態檔案，此檔案也連接到 SignalR，並使用 D3.js 來繪製 Storm 拓撲所傳送的資料。
 
-> [WACOM.NOTE] 雖然也可以使用原始的 WebSocket 來代替 SignalR，但如果您需要擴充網站，WebSocket 並未提供內建的調整機制。您可以使用 Azure 服務匯流排來調整 SignalR ([http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus](http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus))。
+> [AZURE.NOTE] 雖然也可以使用原始的 WebSocket 來代替 SignalR，但如果您需要擴充網站，WebSocket 並未提供內建的調整機制。您可以使用 Azure 服務匯流排來調整 SignalR ([http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus](http://www.asp.net/signalr/overview/performance/scaleout-with-windows-azure-service-bus))。
 >
-> 有關使用 Storm 拓撲並透過原始 WebSocket 來與 Python 網站通訊的範例，請參閱 [Storm 推文情緒 D3 視覺化] (英文)(https://github.com/P7h/StormTweetsSentimentD3Viz) 專案。
+> 有關使用 Storm 拓撲並透過原始 WebSocket 來與 Python 網站通訊的範例，請參閱 [Storm 推文情緒 D3 視覺化](https://github.com/P7h/StormTweetsSentimentD3Viz) (英文) 專案。
 
-1. 在 Visual Studio 中，使用 [**ASP.NET Web 應用程式**] 專案範本建立新的 C# 應用程式。將新應用程式命名為 **Dashboard**。
+1. 在 Visual Studio 中，使用 **ASP.NET Web 應用程式**專案範本建立新的 C# 應用程式。將新應用程式命名為 **Dashboard**。
 
 2. 在 [**新增 ASP.NET 專案**] 視窗中，選取 [**空白**] 應用程式範本。在 [**Windows Azure**] 區段中，選取 [**雲端中的主機**] 和 [**網站**]。最後按一下 [**確定**]。
 
 	> [AZURE.NOTE] 如果出現提示，請登入 Azure 訂用帳戶。
 
-3. 在 [**設定 Windows Azure 網站**] 對話方塊中，輸入網站的 [**網站名稱**] 和 [**地區**]，然後按一下 [**確定**]。將會建立裝載儀表板的 Azure 網站。
+3. 在 [**設定Windows Azure 網路**] 對話方塊中，輸入網站的 [**網站名稱**] 和 [**區域**]，然後按一下 [**確定**]。將會建立裝載儀表板的 Azure 網站。
 
-3. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案，然後選取 [**加入 | SignalR Hub Class (v2)**]。將類別命名為 [**DashHub.cs**] 並加入至專案。此類別將包含可在 HDInsight 與儀表板網頁之間轉送資料的 SignalR 中心。
+4. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案，然後選取 [**加入 | SignalR Hub Class (v2)**]。將類別命名為 **DashHub.cs** 並加入至專案。此類別將包含可在 HDInsight 與儀表板網頁之間轉送資料的 SignalR 中心。
 
-	> [AZURE.NOTE] 如果您使用 Visual Studio 2012，則沒有 [**SignalR Hub Class (v2)**] 範本可用。您可以加入一個稱為 DashHub 的一般**類別**做為代替。您也需要手動安裝 SignalR 封裝，請開啟 [**工具 | 程式庫封裝管理員 | Package Manager Console**]，並執行下列命令：
+	> [AZURE.NOTE] 如果您使用 Visual Studio 2012，則沒有 [**SignalR Hub Class (v2)**] 範本可用。您可以加入一個稱為 DashHub 的一般**類別**做為代替。您也需要手動安裝 SignalR 封裝，請開啟 [**工具 | 程式庫套件管理員 | 套件管理器主控台**]，並執行下列命令：
 	>
 	> `install-package Microsoft.AspNet.SignalR`
 
-4. 使用下列程式碼取代 **DashHub.cs** 中的程式碼。
+5. 使用下列程式碼取代 **DashHub.cs** 中的程式碼。
 
 		using System;
 		using System.Collections.Generic;
@@ -66,11 +80,11 @@
 		    }
 		}
 
-5. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案，然後選取 [**加入 | OWIN 啟動類別**]。將新類別命名為 **Startup.cs**。
+6. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案，然後選取 [**加入 | OWIN 啟動類別**]。將新類別命名為 **Startup.cs**。
 
-	> [AZURE.NOTE] 如果您使用 Visual Studio 2012，則沒有 [**OWIN 啟動類別**] 範本可用。您可以建立一個稱為 Startup 的**類別**做為代替。
+	> [AZURE.NOTE] 如果您使用 Visual Studio 2012，則沒有 **OWIN 啟動類別**範本可用。您可以建立一個稱為 Startup 的**類別**做為代替。
 
-6. 使用下列程式碼取代 **Startup.cs** 的內容。
+7. 使用下列程式碼取代 **Startup.cs** 的內容。
 
 		using System;
 		using System.Threading.Tasks;
@@ -91,9 +105,9 @@
 		    }
 		}
 
-7. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案，然後按一下 [**加入 | HTML 網頁**]。將新頁面命名為 **index.html**。此頁面將包含此專案的即時儀表板。它會接收來自 DashHub 的資訊，並使用 D3.js 來顯示圖形。
+8. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案，然後按一下 [**加入 | HTML 網頁**]。將新頁面命名為 **index.html**。此頁面將包含此專案的即時儀表板。它會接收來自 DashHub 的資訊，並使用 D3.js 來顯示圖形。
 
-8. 在 [**方案總管**] 中，以滑鼠右鍵按一下 [**index.html**]，然後選取 [**設為起始頁**]。
+9. 在 [**方案總管**] 中，以滑鼠右鍵按一下 **index.html**，然後選取 [**設為起始頁**]。
 
 10. 使用下列程式碼取代 **index.html** 檔案中的程式碼。
 
@@ -292,7 +306,7 @@
 
 11. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案，然後按一下 [**加入 | HTML 網頁**]。將新頁面命名為 **test.html**。此頁面可傳送和接收訊息，以測試 DashHub 和儀表板。
 
-11. 使用下列程式碼取代 **test.html** 檔案中的程式碼。
+12. 使用下列程式碼取代 **test.html** 檔案中的程式碼。
 
 		<!DOCTYPE html>
 		<html>
@@ -349,43 +363,43 @@
 		</body>
 		</html>
 
-11. 將專案 [**全部儲存**]。
+13. 將專案 [**儲存全部**]。
 
-12. 在 [**方案總管**] 中，以滑鼠右鍵按一下 [**Dashboard**] 專案，然後選取 [**發行**]。選取您為此專案建立的網站，然後按一下 [**發行**]。
+14. 在 [**方案總管**] 中，以滑鼠右鍵按一下 [**儀表板**] 專案，然後選取 [**發行**]。選取您為此專案建立的網站，然後按一下 [**發行**]。
 
-13. 網站發行之後，應該會開啟網頁顯示移動時間軸。
+15. 網站發行之後，應該會開啟網頁顯示移動時間軸。
 
-###測試儀表板
+### 測試儀表板
 
-14. 若要確認 SignalR 正在運作，而且儀表板會將傳送至 SignalR 的資料顯示為圖形線條，請開啟新的瀏覽器視窗並移至此網站的 **test.html** 頁面。例如， **http://mydashboard.azurewebsites.net/test.html**。
+1. 若要確認 SignalR 正在運作，而且儀表板會將傳送至 SignalR 的資料顯示為圖形線條，請開啟新的瀏覽器視窗並移至此網站的 **test.html** 頁面。例如，**http://mydashboard.azurewebsites.net/test.html**。
 
-15. 儀表板需要值為 **device id** 和 **temperature** 的 JSON 格式資料。例如 **{"device":0, "temperature":80}**。在 **test.html** 頁面上，使用裝置 ID 0 到 9 輸入一些測試值，而儀表板在另一個頁面中開啟。請注意，每個裝置 ID 的線條會以不同顏色繪製。
+2. 儀表板需要值為 **device id** 和 **temperature** 的 JSON 格式資料。例如 **{"device":0, "temperature":80}**。在 **test.html** 頁面上，使用裝置 ID 0 到 9 輸入一些測試值，而儀表板在另一個頁面中開啟。請注意，每個裝置 ID 的線條會以不同顏色繪製。
 
-##設定事件中心
+## 設定事件中心
 
 事件中心用來接收感應器的訊息 (事件)。請使用下列步驟建立新的事件中心。
 
-1. 從 [Azure 入口網站](https://manage.windowsazure.com)中，選取 **新增 | 服務匯流排 | 事件中心 | 自訂建立**。
+1. 從 [Azure 入口網站](https://manage.windowsazure.com)，選取 [**新增 | 服務匯流排 | 事件中心 | 自訂建立**]。
 
-2. 在 [**Add a new Event Hub**] 對話方塊中，輸入 [**Event Hub Name**]，選取要建立中心的 [**地區**]，然後建立新的命名空間或選取現有的命名空間。最後，按一下**箭頭**。
+2. 在 [**加入新的事件中心**] 對話方塊中，輸入 [**事件中心名稱**]，選取要建立中心的 [**區域**]，然後建立新的命名空間或選取現有的命名空間。最後，按一下**箭頭**。
 
-2. 在 [**設定事件中心**] 對話方塊上，輸入 [**資料分割計數**] 和 [ **訊息保留**] 值。在此範例中，資料分割計數使用 10，訊息保留使用 1。
+3. 在 [**設定事件中心**] 對話方塊中，輸入 [**資料分割計數**] 和 [**訊息保留**] 值。在此範例中，資料分割計數使用 10，訊息保留使用 1。
 
-3. 建立事件中心之後，選取命名空間，然後選取 [**事件中心**]。最後，選取您稍早建立的事件中心。
+4. 建立事件中心之後，選取命名空間，然後選取 [**事件中心**]。最後，選取您稍早建立的事件中心。
 
-4. 選取 [**設定**]，然後使用下列資訊建立兩個新的存取原則。
+5. 選取 [**設定**]，然後使用下列資訊建立兩個新的存取原則。
 
 	<table>
-	<tr><th>Name</th><th>Permissions</th></tr>
-	<tr><td>devices</td><td>Send</td></tr>
-	<tr><td>storm</td><td>Listen</td></tr>
+	<tr><th>名稱</th><th>權限</th></tr>
+	<tr><td>devices</td><td>傳送</td></tr>
+	<tr><td>storm</td><td>接聽</td></tr>
 	</table>
 
 	建立權限之後，在頁面底部選取 [**儲存**] 圖示。這樣會建立共用存取原則，用以傳送訊息至此中心和讀取此中心的訊息。
 
-5. 儲存原則之後，使用頁面底部的 [**Shared access key generator**]，擷取 **devices** 和 **storm** 原則的金鑰。儲存這些金鑰，稍後會用到。
+6. 儲存原則之後，使用頁面底部的 [**共用存取金鑰產生器**]，擷取 **devices** 和 **storm** 原則的金鑰。儲存這些金鑰，稍後會用到。
 
-###將訊息傳送至事件中心
+### 將訊息傳送至事件中心
 
 因為並非每個人都有一組簡單、標準的感應器可用，所以使用一個 .NET 應用程式來產生隨機數字。使用下列步驟建立的 .NET 應用程式每秒會產生 10 個裝置的事件，直到您按下某個鍵來停止應用程式為止。
 
@@ -482,19 +496,19 @@
 
 	目前，參考到 Event 類別的程式行會出現警告。請暫時忽略這些警告。
 
-4. 在 **Program.cs** 檔案中，在檔案開頭將下列變數的值設為從 Azure 管理入口網站中的事件中心擷取的對應值。
+5. 在 **Program.cs** 檔案中，在檔案開頭將下列變數的值設為從 Azure 管理入口網站中的事件中心擷取的對應值。
 
 	<table>
 	<tr><th>此變數...</th><th>設為此值...</th></tr>
-	<tr><td>eventHubName</td><td>事件中心的名稱。例如， <strong>temperature</strong>.</td></tr>
-	<tr><td>eventHubNamespace</td><td>事件中心的命名空間。例如， <strong>sensors-ns</strong>.</td></tr>
-	<tr><td>sharedAccessPolicyName</td><td>您以傳送存取權建立的原則。例如， <strong>devices</strong>.</td></tr>
+	<tr><td>eventHubName</td><td>事件中心的名稱。例如， <strong>temperature</strong>。</td></tr>
+	<tr><td>eventHubNamespace</td><td>事件中心的命名空間。例如， <strong>sensors-ns</strong>。</td></tr>
+	<tr><td>sharedAccessPolicyName</td><td>您以傳送存取權建立的原則。例如， <strong>devices</strong>。</td></tr>
 	<tr><td>sharedAccessPolicyKey</td><td>具有傳送存取權之原則的金鑰。</td></tr>
 	</table>
 
-4. 在 [**方案總管**] 中，以滑鼠右鍵按一下 [**SendEvents**] 和 [**加入 | 類別**]。將新類別命名為 **Event.cs**。這將會描述傳送至事件中心的訊息。
+6. 在 [**方案總管**] 中，以滑鼠右鍵按一下 [**SendEvents**] 和 [**加入 | 類別**]。將新類別命名為 **Event.cs**。這將會描述傳送至事件中心的訊息。
 
-5. 使用下列程式碼取代 **Event.cs** 的內容。
+7. 使用下列程式碼取代 **Event.cs** 的內容。
 
 		using System;
 		using System.Collections.Generic;
@@ -511,6 +525,8 @@
 		    	[DataMember]
 		    	public DateTime TimeStamp { get; set; }
 		        [DataMember]
+		        public DateTime TimeStamp { get; set; }
+		        [DataMember]
 		        public int DeviceId { get; set; }
 		        [DataMember]
 		        public int Temperature { get; set; }
@@ -519,13 +535,13 @@
 
 	此類別描述我們傳送的資料 - TimeStamp、DeviceID 和 Temperature 值。
 
-6. [**全部儲存**]，然後執行應用程式，將訊息填入事件中心。
+8. [**全部儲存**]，然後執行應用程式，將訊息填入事件中心。
 
-##建立 Azure 虛擬網路
+## 建立 Azure 虛擬網路
 
 為了讓 Storm 叢集上執行的拓撲直接與 HBase 通訊，您必須將兩個伺服器都佈建到 Azure 虛擬網路。
 
-1. 登入 [Azure 管理入口網站][azure-portal].
+1. 登入 [Azure 管理入口網站][azure-portal]。
 
 2. 依序按一下頁面底部的 [**+新增**]、[**網路服務**]、[**虛擬網路**] 及 [**快速建立**]。
 
@@ -543,21 +559,21 @@
 
 6. 按一下頁面頂端的 [**儀表板**]。
 
-7. 將 [**quick glance**] 下方的 [**VIRTUAL NETWORK ID**] 記起來。佈建 Storm 和 HBase 叢集時需要用到它。
+7. 將 [**快速瀏覽**] 下方的 [**虛擬網路識別碼**] 記起來。佈建 Storm 和 HBase 叢集時需要用到它。
 
 8. 按一下頁面頂端的 [**設定**]。
 
-9. 在頁面底部，可看到預設的子網路名稱為 **Subnet-1**。使用 [**加入子網路**] 按鈕來加入 **Subnet-2**。這些子網路中將存放 Storm 和 HBase 叢集。
+9. 在頁面底部，可看到預設的子網路名稱為 [**Subnet-1**]。使用 [**加入子網路**] 按鈕來加入 **Subnet-2**。這些子網路中將存放 Storm 和 HBase 叢集。
 
-	> [WACOM.NOTE] 在本文中，我們使用只有一個節點的叢集。如果您建立多節點的叢集，則必須驗證叢集使用之子網路的 [**CIDR (位址計數)**]。位址計數必須大於背景工作節點數量加上 7 的數目 (閘道：2、前端節點：2、Zookeeper：3).例如，如果您需要 10 個節點的 HBase 叢集，那麼子網路的位址計數必須大於 17 (10 + 7)。否則，部署將會失敗。
+	> [AZURE.NOTE] 在本文中，我們使用只有一個節點的叢集。如果您建立多節點的叢集，則必須驗證叢集使用之子網路的 [**CIDR (位址計數)**]。位址計數必須大於背景工作節點數量加上 7 的數目 (閘道：2、前端節點：2、Zookeeper：3).例如，如果您需要 10 個節點的 HBase 叢集，那麼子網路的位址計數必須大於 17 (10 + 7)。否則，部署將會失敗。
 	>
 	> 強烈建議您一個叢集只指定一個子網路。
 
 11. 按一下頁面底部的 [**儲存**]。
 
-##建立 HDInsight Storm 叢集
+## 在 HDInsight 上建立 Storm 叢集
 
-1. 登入 [Azure 管理入口網站][azureportal]
+1. 登入 [Azure 管理入口網站][azure-portal]
 
 2. 按一下左邊的 [**HDInsight**]，然後按一下頁面左下角的 [**+新增**]。
 
@@ -567,15 +583,15 @@
 
 5. 輸入 1 做為要用於此叢集的 [**資料節點**] 數目。在 [**區域/虛擬網路**] 中，選取稍早建立的 Azure 虛擬網路。在 [**虛擬網路子網路**] 中，選取 [**Subnet-2**]。
 
-	> [WACOM.NOTE] 為了將本文使用的叢集成本降到最低，請將 [**叢集大小**] 降到 1，並於使用完畢之後刪除叢集。
+	> [AZURE.NOTE] 為了將本文使用的叢集成本降到最低，請將 [**叢集大小**] 降到 1，並於使用完畢之後刪除叢集。
 
 6. 輸入系統管理員的 [**使用者名稱**] 和 [**密碼**]，然後選取箭頭以繼續。
 
-4. 在 [**儲存體帳戶**] 中，選取 [**建立新的儲存體**] 或選取現有的儲存體帳戶。選取或輸入 [**帳戶名稱**] 和要使用的 [**預設容器**]。按一下左下角的勾號圖示以建立 Storm 叢集。
+7. 在 [**儲存體帳戶**] 中，選取 [**建立新的儲存體**] 或選取現有的儲存體帳戶。選取或輸入 [**帳戶名稱**] 和要使用的 [**預設容器**]。按一下左下角的勾號圖示以建立 Storm 叢集。
 
-##建立 HDInsight HBase 叢集
+## 建立 HDInsight HBase 叢集
 
-1. 登入 [Azure 管理入口網站][azureportal]
+1. 登入 [Azure 管理入口網站][azure-portal]
 
 2. 按一下左邊的 [**HDInsight**]，然後按一下頁面左下角的 [**+新增**]。
 
@@ -585,19 +601,19 @@
 
 5. 輸入 1 做為要用於此叢集的 [**資料節點**] 數目。在 [**區域/虛擬網路**] 中，選取稍早建立的 Azure 虛擬網路。在 [**虛擬網路子網路**] 中，選取 [**Subnet-1**]。
 
-	> [WACOM.NOTE] 為了將本文使用的叢集成本降到最低，請將 [**叢集大小**] 降到 1，並於使用完畢之後刪除叢集。
+	> [AZURE.NOTE] 為了將本文使用的叢集成本降到最低，請將 [**叢集大小**] 降到 1，並於使用完畢之後刪除叢集。
 
 6. 輸入系統管理員的 [**使用者名稱**] 和 [**密碼**]，然後選取箭頭以繼續。
 
-4. 在 [**儲存體帳戶**] 中，選取 [**建立新的儲存體**] 或選取現有的儲存體帳戶。選取或輸入 [**帳戶名稱**] 和要使用的 [**預設容器**]。按一下左下角的勾號圖示以建立 Storm 叢集。
+7. 在 [**儲存體帳戶**] 中，選取 [**建立新的儲存體**] 或選取現有的儲存體帳戶。選取或輸入 [**帳戶名稱**] 和要使用的 [**預設容器**]。按一下左下角的勾號圖示以建立 Storm 叢集。
 
-	> [WACOM.NOTE] 您使用的容器應該與 Storm 叢集使用的容器不同。
+	> [AZURE.NOTE] 您使用的容器應該與 Storm 叢集使用的容器不同。
 
-###啟用遠端桌面
+### 啟用遠端桌面
 
 針對本教學課程，我們必須使用遠端桌面來存取 Storm 和 HBase 叢集。請使用下列步驟在這兩者上啟用遠端桌面。
 
-1. 登入 [Azure 管理入口網站][azureportal].
+1. 登入 [Azure 管理入口網站][azure-portal]。
 
 2. 在左邊，選取 [**HDInsight**]，然後從清單中選取 Storm 叢集。最後，按一下頁面頂端的 [**設定**]。
 
@@ -605,19 +621,19 @@
 
 遠端桌面啟用之後，您就可以選取頁面底部的 [**連接**]。請依照提示來連接到叢集。
 
-###探索 HBase DNS 尾碼
+### 探索 HBase DNS 尾碼
 
 為了從 Storm 叢集寫入到 HBase，HBase 叢集必須使用完整網域名稱 (FQDN)。請使用下列步驟來探索此資訊。
 
 1. 使用遠端桌面連接 HBase 叢集。
 
-2. 連接到叢集之後，開啟 Hadoop 命令列，執行 **ipconfig** 命令來取得 DNS 尾碼。[**連線特定 DNS 尾碼**] 將包含尾碼值。例如，**mycluster.b4.internal.cloudapp.net**。請儲存此資訊。
+2. 連接到叢集之後，開啟 Hadoop 命令列，執行 **ipconfig** 命令來取得 DNS 尾碼。**連線特定 DNS 尾碼** 將包含尾碼值。例如，**mycluster.b4.internal.cloudapp.net**。請儲存此資訊。
 
-##開發 Storm 拓撲
+## 開發 Storm 拓撲
 
-> [WACOM.NOTE] 本節的步驟應該在本機開發環境中執行。
+> [AZURE.NOTE] 本節的步驟應該在本機開發環境中執行。
 
-###下載和建置外部相依性
+### 下載和建置外部相依性
 
 本專案中使用的數個相依性必須下載並個別建置，然後安裝到開發環境上的本機 Maven 儲存機制中。您將在本節中將下載並安裝。
 
@@ -625,19 +641,19 @@
 
 * SignalR Java 用戶端 SDK
 
-####下載和建置事件中心 spout
+#### 下載和建置事件中心 spout
 
 為了從事件中心接收資料，我們使用 **eventhubs-storm-spout**。
 
 1. 使用遠端桌面連接到 Storm 叢集，然後將 **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 檔案複製到本機開發環境。這包含 **events-storm-spout**。
 
-6. 使用下列命令將封裝安裝到本機 Maven 存放區。這樣可讓我們的稍後的步驟中，輕鬆地將它加入 Storm 專案中做為參考。
+2. 使用下列命令將封裝安裝到本機 Maven 存放區。這樣可讓我們的稍後的步驟中，輕鬆地將它加入 Storm 專案中做為參考。
 
-		mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
+		mvn install:install-file -Dfile=target/eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
-####下載和建置 SignalR 用戶端
+#### 下載和建置 SignalR 用戶端
 
-若要將訊息傳送給 ASP.NET 儀表板，請使用 [SignalR client SDK for Java](https://github.com/SignalR/java-client)。
+若要將訊息傳送至 ASP.NET 儀表板，請使用 [SignalR client SDK for Java](https://github.com/SignalR/java-client)。
 
 1. 開啟命令提示字元。
 
@@ -652,22 +668,22 @@
 		cd java-client\signalr-client-sdk
 		mvn package
 
-	> [WACOM.NOTE] 如果發生無法下載 **gson** 相依性的錯誤，請從 **java-client\signalr-client-sdk\pom.xml** 檔案中移除下列幾行。
-	> ```<repositories>
+	> [AZURE.NOTE] 如果發生無法下載 **gson** 相依性的錯誤，請從 **java-client\signalr-client-sdk\pom.xml** 檔案中移除下列幾行。
+	> 
 <repository>
 <id>central</id>
 <name>Central</name>
 <url>http://maven.eclipse.org/build</url>
 </repository>
 </repositories>
-```
-	> 移除這幾行會使 Maven 從中央儲存機制提取檔案 (預設行為)。若要強制 Maven 重試儲存機制，請使用 `-U` 命令。例如，`mvn package -U`
 
-6. 使用下列命令將封裝安裝到本機 Maven 存放區。這樣可讓我們的稍後的步驟中，輕鬆地將它加入 Storm 專案中做為參考。
+	> 移除這幾行會使 Maven 從中央儲存機制提取檔案 (預設行為)。若要強制 Maven 重試儲存機制，請使用 `-U` 命令。例如， `mvn package -U`
 
-		mvn install:install-file -Dfile=target\signalr-client-sdk-1.0.jar -DgroupId=microsoft.aspnet.signalr -DartifactId=signalr-client-sdk -Dversion=1.0 -Dpackaging=jar
+5. 使用下列命令將封裝安裝到本機 Maven 存放區。這樣可讓我們的稍後的步驟中，輕鬆地將它加入 Storm 專案中做為參考。
 
-###建立 Storm 拓撲專案的樣板
+		mvn install:install-file -Dfile=target/signalr-client-sdk-1.0.jar -DgroupId=microsoft.aspnet.signalr -DartifactId=signalr-client-sdk -Dversion=1.0 -Dpackaging=jar
+
+### 建立 Storm 拓撲專案的樣板
 
 現在我們已將事件中心 spout 和 SignalR 用戶端安裝到本機儲存機制，接下來使用 Maven 來建立 Storm 拓撲專案的樣板。
 
@@ -685,7 +701,7 @@
 	* 建立 **pom.xml** 檔案，其中包含此專案的 Maven 資訊。
 	* 建立 **src** 目錄結構，其中包含一些基本的程式碼和測試。
 
-###加入相依性和外掛程式
+### 加入相依性和外掛程式
 
 接下來，修改 **pom.xml** 來參考此專案的相依性，以及建置和封裝時使用的 Maven 外掛程式。
 
@@ -746,7 +762,7 @@
 	* storm-core - Storm 的核心類別
 	* storm-hbase - 允許寫入至 HBase 的類別
 
-	> [WACOM.NOTE] 請注意，部分相依性標示為 **provided** 範圍，表示這些相依性應該從 Maven 儲存機制下載，並在本機用來建置和測試應用程式，但它們也可在執行階段環境中使用，並不需要編譯和併入此專案所建立的 JAR 中。
+	> [AZURE.NOTE] 請注意，部分相依性標示為 **provided** 範圍，表示這些相依性應該從 Maven 儲存機制下載，並在本機用來建置和測試應用程式，但它們也可在執行階段環境中使用，並不需要編譯和併入此專案所建立的 JAR 中。
 
 2. 在 **pom.xml** 檔案的尾端，緊接在 **&lt;/project>** 項目之前，加入下列程式碼。
 
@@ -820,11 +836,11 @@
 	* 使用 **maven-shade-plugin** 來建置 uberjar 或 fat jar，其中包含此專案及任何必要的相依性。
 	* 使用 **exec-maven-plugin**，可讓您在本機執行應用程式而不需要 Hadoop 叢集。
 
-###加入組態檔
+### 加入組態檔
 
 **eventhubs-storm-spout** 會讀取 **Config.properties** 檔案中的組態資訊。這可指示要連接到哪一個事件中心。雖然可在叢集上啟動拓撲時指定組態檔，但在專案中加入組態檔可以獲得已知的預設組態。
 
-1. 在 **Temperature** 目錄中，建立名為 **conf** 的新目錄。
+1. 在 **TemperatureMonitor** 目錄中，建立新目錄 **conf**。
 
 2. 在 **conf** 目錄中，建立兩個新檔案：
 
@@ -838,8 +854,8 @@
 		eventhubspout.password = <the key of the 'storm' policy>
 
 		eventhubspout.namespace = <the event hub namespace>
-		# The name of the event hub
-		eventhubspout.entitypath = temperature
+
+		eventhubspout.entitypath = <the event hub name>
 
 		eventhubspout.partitions.count = <the number of partitions for the event hub>
 
@@ -850,9 +866,13 @@
 
 		eventhub.receiver.credits = 1024
 
-	使用稍早在事件中心為 **storm** 原則建立的金鑰取代 **password**。使用事件中心的命名空間取代 **namespace**。
+	使用稍早在事件中心為 **storm** 原則建立的金鑰取代 **password**。
+	
+	使用事件中心的命名空間取代 **namespace**。
+	
+	將 **entitpath** 以事件中心的名稱取代。
 
-3. 使用下列程式碼做為 **hbase-site.xml** 檔案的內容。
+4. 使用下列程式碼做為 **hbase-site.xml** 檔案的內容。
 
 		<?xml version="1.0"?>
 		<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
@@ -892,11 +912,11 @@
 		  </property>
 		</configuration>
 
-3. 在 **hbase-site.xml** 檔案，使用 zookeeper 項目和稍早為 HBase 擷取的 DNS 尾碼，取代 **suffix** 值。例如，**zookeeper0.mycluster.b4.internal.cloudapp.net、zookeeper1.mycluster.b4.internal.cloudapp.net、zookeeper2.mycluster.b4.internal.cloudapp.net**。
+5. 在 **hbase-site.xml** 檔案，使用 zookeeper 項目和稍早為 HBase 擷取的 DNS 尾碼，取代 **suffix** 值。例如，**zookeeper0.mycluster.b4.internal.cloudapp.net、zookeeper1.mycluster.b4.internal.cloudapp.net、zookeeper2.mycluster.b4.internal.cloudapp.net**。
 
-3. 儲存檔案。
+6. 儲存檔案。
 
-###加入協助程式
+### 加入協助程式
 
 為了支援往返於 JSON 的序列化，我們需要一些協助程式類別來定義物件結構。
 
@@ -929,7 +949,7 @@
 
 5. 儲存並關閉這些檔案。
 
-###加入 bolt
+### 加入 bolt
 
 Bolt 在拓撲中負責主要的處理工作。在此拓撲中，有三個 bolt，其中一個是 hbase-bolt，建置專案時會自動下載。
 
@@ -937,10 +957,10 @@ Bolt 在拓撲中負責主要的處理工作。在此拓撲中，有三個 bolt�
 
 2. 在 **bolts** 目錄中，建立兩個新檔案：
 
-	* **ParserBolt.java** - 將事件中心傳入的訊息剖析成個別欄位，然後發出兩個串流
+	* **ParserBolt.java** - 將事件中心傳入的訊息剖析成個別欄位，然後發出兩個串流。
 	* **DashboardBolt.java** - 透過 SignalR 將資訊記錄到 Web 儀表板
 
-2. 使用下列程式碼做為 **ParserBolt.java** 檔案的內容。
+3. 使用下列程式碼做為 **ParserBolt.java** 檔案的內容。
 
 		package com.microsoft.examples;
 
@@ -991,7 +1011,7 @@ Bolt 在拓撲中負責主要的處理工作。在此拓撲中，有三個 bolt�
 		  }
 		}
 
-3. 使用下列程式碼做為 **DashboardBolt.java** 檔案的內容。
+4. 使用下列程式碼做為 **DashboardBolt.java** 檔案的內容。
 
 		package com.microsoft.examples;
 
@@ -1086,15 +1106,15 @@ Bolt 在拓撲中負責主要的處理工作。在此拓撲中，有三個 bolt�
 		  }
 		}
 
-	使用稍早發佈儀表板的目標 Azure 網站位址取代 `http://yourwebsiteaddress`。例如，http://mydashboard.azurewebsites.net。
+	使用稍早將儀表板發佈到的 Azure 網站位址取代 `http://dashboard.azurewebsites.net/`。例如，http://mydashboard.azurewebsites.net。
 
-2. 儲存並關閉檔案。
+5. 儲存並關閉檔案。
 
-###定義拓撲
+### 定義拓撲
 
 拓撲描述資料在拓撲中的 spout 與 bolt 之間如何流動，以及拓撲和其中元件的平行化程度。
 
-1. 在 **\temperaturemonitor\src\main\java\com\microsoft\examples** 目錄中，建立新檔案 **Temperature.java**。
+1. 在 **\temperaturemonitor\src\main\java\com\microsoft\examples** 目錄中，建立新目錄 **Temperature.java**。
 
 2. 開啟 **Temperature.java** 檔案，並使用下列程式碼做為內容。
 
@@ -1242,30 +1262,30 @@ Bolt 在拓撲中負責主要的處理工作。在此拓撲中，有三個 bolt�
 
 	> [AZURE.NOTE] 請注意，**HBaseBolt** 的那幾行已變成註解。這是因為下一步是要在本機執行拓撲。因為 HBaseBolt 直接與 HBase 溝通，如果啟用的話，則會傳回錯誤。除非您已設定虛擬網路和 DNS 伺服器，也已將本機電腦加入虛擬網路。
 
-###在本機測試拓撲
+### 在本機測試拓撲
 
 若要在開發機器上編譯和測試檔案，請使用下列步驟。
 
-1. 啟動 **SendEvent** .NET 應用程式來開始傳送事件，以便事件中心有資料供讀取。
+1. 啟動 **SendEvent** .NET 應用程式來開始傳送事件，以便事件中心有資料供我們讀取。
 
 2. 開啟網頁瀏覽器，移至您稍早部署到 Azure 網站的 Web 儀表板。這樣可讓您看到圖形將流進拓撲的值繪製出來
 
-2. 使用下列命令在本機啟動拓撲
+3. 使用下列命令在本機啟動拓撲
 
 	mvn compile exec:java -Dstorm.topology=com.microsoft.examples.Temperature
 
 	這樣會啟動拓撲，從事件中心讀取檔案，然後將檔案傳送至 Azure 網站中執行的儀表板。您應該會看到 Web 儀表板中出現線條。
 
-3. 確認正常運作後，按 Ctrl-C 停止拓撲。若要停止 SendEvent 應用程式，請選取視窗並按下任何鍵。
+4. 確認正常運作後，按 Ctrl-C 停止拓撲。若要停止 SendEvent 應用程式，請選取視窗並按下任何鍵。
 
-###啟用 HBaseBolt 和準備 HBase
+### 啟用 HBaseBolt 和準備 HBase
 
-1. 開啟 **Temperature.java** 檔案並移除下列幾行的註解 (//) ：
+1. 開啟 **Temperature.java** 檔案，移除下列幾行的註解 (//)：
 
 		//topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	//  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
 
-	This enables the HBase bolt.
+	這樣會啟用 HBase bolt。
 
 2. 儲存 **Temperature.java**。
 
@@ -1286,9 +1306,9 @@ Bolt 在拓撲中負責主要的處理工作。在此拓撲中，有三個 bolt�
 
 暫時讓此提示在 HBase Shell 中保持開啟。
 
-##封裝拓撲並部署到 HDInsight
+## 封裝拓撲並部署到 HDInsight
 
-在開發環境中，使用下列步驟在 HDInsight Storm 叢集上執行 Temperature 拓撲。
+在開發環境中，使用下列步驟執行 Temperature 拓撲於  Storm 叢集。
 
 1. 使用下列命令從專案建立 JAR 封裝。
 
@@ -1296,45 +1316,44 @@ Bolt 在拓撲中負責主要的處理工作。在此拓撲中，有三個 bolt�
 
 	這樣會在專案的 **target** 目錄中建立名為 **TemperatureMonitor-1.0-SNAPSHOT.jar** 的檔案。
 
-2. 在本機開發機器上，啟動 **SendEvents** .NET 應用程式，以便有可供讀取的一些事件。
+2. 在本機開發機器上，啟動 **SendEvents** .NET 應用程式，以便有一些事件供我們讀取。
 
-1. 使用遠端桌面連接到 HDInsight Storm 叢集，並將 **TemperatureMonitor-1.0-SNAPSHOT.jar** 檔案複製到 **c:\apps\dist\storm&lt;version number>** 目錄。
+3. 使用遠端桌面連接到 HDInsight Storm 叢集，並將 **TemperatureMonitor-1.0-SNAPSHOT.jar** 檔案複製到 **c:\apps\dist\storm&lt;version number>** 目錄。
 
-2. 使用叢集桌面上的 [**HDInsight 命令列**] 圖示來開啟新的命令提示字元，並使用下列命令來執行拓撲。
+4. 使用叢集桌面上的 [**HDInsight 命令列**] 圖示來開啟新的命令提示字元，並使用下列命令來執行拓撲。
 
 		cd %storm_home%
 		bin\storm jar TemperatureMonitor-1.0-SNAPSHOT.jar com.microsoft.examples.Temperature Temperature
 
-3. 拓撲啟動之後，經過幾秒鐘，Web 儀表板上就會開始出現項目。
+5. 拓撲啟動之後，經過幾秒鐘，Web 儀表板上就會開始出現項目。
 
-3. 當儀表板上出現項目之後，在 HBase 叢集上切換到遠端桌面工作階段。
+6. 當儀表板上出現項目之後，在 HBase 叢集上切換到遠端桌面工作階段。
 
-4. 從 HBase Shell 中，輸入下列命令。
+7. 從 HBase Shell 中，輸入下列命令。
 
 		scan 'SensorData'
 
 	請注意，現在會傳回 Storm 拓撲已寫入的幾列資料。
 
-5. 若要停止拓撲，請移至 Storm 拓撲的遠端桌面工作階段，並於 HDInsight 命令列中輸入下列命令。
+8. 若要停止拓撲，請移至 Storm 拓撲的遠端桌面工作階段，並於 HDInsight 命令列中輸入下列命令。
 
 		bin\storm kill Temperature
 
 	經過幾秒鐘，拓撲就會停止。
 
-##摘要
+## 摘要
 
 您現在已了解如何使用 Storm 來讀取事件中心的資料、將資料儲存在 HBase 中，以及在外部儀表板上使用 SignalR 和 D3.js 顯示來自 Storm 的資訊。
 
 * 如需 Apache Storm 的詳細資訊，請參閱 [https://storm.incubator.apache.org/](https://storm.incubator.apache.org/)
 
-* 如需 HDInsight 上的 HBase 的詳細資訊，請參閱 [HDInsight 上的 HBase 概觀] (英文)(http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hbase-overview/)
+* 如需 HDInsight 上的 HBase 的詳細資訊，請參閱 [HDInsight HBase 概觀](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hbase-overview/)
 
 * 如需 SignalR 的詳細資訊，請參閱 [ASP.NET SignalR](http://signalr.net/)
 
-* 如需 D3.js 的詳細資訊，請參閱 [D3.js - 資料驅動型文件] (英文)(http://d3js.org/)
+* 如需 D3.js 的詳細資訊，請參閱 [D3.js - 資料驅動型文件](http://d3js.org/)
 
 * 如需在 .NET 中建立拓撲的相關資訊，請參閱[在 HDInsight 中的 Storm 上使用 SCP.NET 和 C# 開發串流資料處理應用程式](/zh-tw/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/)
 
 [azure-portal]: https://manage.windowsazure.com/
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

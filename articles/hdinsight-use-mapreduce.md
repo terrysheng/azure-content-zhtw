@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="MapReduce with Hadoop in HDInsight" pageTitle="在 HDInsight 上使用 Hadoop MapReduce | Azure" metaKeywords="" description="了解如何使用 HDInsight 執行簡易 Hadoop MapReduce 工作。" metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadoop MapReduce in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties 
+	pageTitle="在 HDInsight 上使用 Hadoop MapReduce | Azure" 
+	description="了解如何使用 HDInsight 執行簡易 Hadoop MapReduce 工作。" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="jgao"/>
 
 
 
@@ -17,13 +31,13 @@ Hadoop MapReduce 是一種可撰寫應用程式來處理大量資料的軟體架
 
 - 已安裝並設定 Azure PowerShell 的工作站。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。
 
-##本教學課程內容
+## 本教學課程內容
 1. [了解案例](#scenario)
 2. [使用 Azure PowerShell 執行範例](#run-sample)	
 3. [用來統計字數的 MapReduce 程式的 Java 程式碼](#java-code)
 4. [後續步驟](#next-steps)	
 
-##<a id="scenario"></a>了解案例
+## <a id="scenario"></a>了解案例
 
 下圖說明 MapReduce 如何處理字數統計案例：
 
@@ -39,14 +53,14 @@ MapReduce 工作的輸出是一組機碼值組。機碼是指定一個單字的�
 
 執行 MapReduce 工作需要下列元素：
 
-* MapReduce 程式。在本教學課程中，您將使用 HDInsight 叢集所提供的字數統計範例，因此您不需要自行撰寫。它位在 */example/jars/hadoop-examples.jar*。在 3.0 版 HDInsight 叢集上，該檔案名稱為 *hadoop-mapreduce-examples.jar*。如需自行撰寫 MapReduce 工作的指示，請參閱[開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-MapReduce-jobs]。
+* MapReduce 程式。在本教學課程中，您將使用 HDInsight 叢集所提供的字數統計範例，因此您不需要自行撰寫。它位於 */example/jars/hadoop-examples.jar*。在 3.0 版 HDInsight 叢集上，該檔案名稱為 *hadoop-mapreduce-examples.jar*。如需自行撰寫 MapReduce 工作的指示，請參閱[開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-MapReduce-jobs]。
 * 輸入檔。您將使用 */example/data/gutenberg/davinci.txt* 做為輸入檔。如需上傳檔案的詳細資訊，請參閱[將資料上傳到 HDInsight][hdinsight-upload-data]。
-* 輸出檔資料夾。您將使用 */example/data/WordCountOutput* 做為輸出檔資料夾。如果該資料夾不存在，系統將建立該資料夾。如果資料夾存在，MapReduce 工作將會失敗。如果您要第二次執行 MapReduce 工作，請務必刪除輸出資料夾，或指定其他輸出資料夾。
+* 輸出檔資料夾。您將使用 */example/data/WordCountOutput* 做為輸出檔資料夾。如果該資料夾不存在，系統將建立該資料夾。如果資料夾存在，MapReduce 工作將會失敗。  如果您要第二次執行 MapReduce 工作，請務必刪除輸出資料夾，或指定其他輸出資料夾。
 
 	
-##<a id="run-sample"></a>使用 Azure PowerShell 執行範例
+## <a id="run-sample"></a>使用 Azure PowerShell 執行範例
 
-1.	開啟 **Azure PowerShell**。如需有關開啟 Azure PowerShell 主控台視窗的指示，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。
+1.	開啟 **Azure PowerShell**。如需有關開啟 Azure PowerShell 主控台視窗的指示，請參閱[安裝和設定 Azure PowerShell][powershell-install-configure]。
 
 3. 在下列命令中設定 2 個變數，然後執行這些命令：
 		
@@ -61,7 +75,7 @@ MapReduce 工作的輸出是一組機碼值組。機碼是指定一個單字的�
 		# Define the MapReduce job
 		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput" 
 
-	> [WACOM.NOTE] *hadoop-examples.jar* 隨附於 2.1 版 HDInsight 叢集。在 3.0 版 HDInsight 叢集上，該檔案已重新命名為 *hadoop-mapreduce.jar*。
+	> [AZURE.NOTE] *hadoop-examples.jar* 隨附 2.1 版 HDInsight 叢集。在 3.0 版 HDInsight 叢集上，該檔案已重新命名為 *hadoop-mapreduce.jar*。
 	
 	HDInsight 叢集發佈提供 hadoop-examples.jar 檔案。MapReduce 工作有兩個引數。第一個是來源檔案名稱，第二個是輸出檔案路徑。HDInsight 叢集發佈提供來源檔案，輸出檔案路徑則是在執行階段時建立。
 
@@ -71,7 +85,7 @@ MapReduce 工作的輸出是一組機碼值組。機碼是指定一個單字的�
 		Select-AzureSubscription $subscriptionName
 		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $wordCountJobDefinition | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600  
 
-	除了 MapReduce 工作定義，您也提供想要用來執行 MapReduce 工作的 HDInsight 叢集名稱，以及認證。Start-AzureHDInsightJob 是非同步呼叫。若要檢查工作是否完成，請使用 *Wait-AzureHDInsightJob* Cmdlet。
+	除了 MapReduce 工作定義，您也提供想要用來執行 MapReduce 工作的 HDInsight 叢集名稱，以及認證。Start-AzureHDInsightJob 是非同步呼叫。若要檢查工作是否完成，請使用  *Wait-AzureHDInsightJob* Cmdlet。
 
 7. 執行下列命令來檢查 MapReduce 工作是否完成：
 
@@ -98,7 +112,7 @@ MapReduce 工作的輸出是一組機碼值組。機碼是指定一個單字的�
 		$storageAccountName = "<StorageAccountName>"   # Azure storage account name
 		$containerName = "<ContainerName>"			   # Blob storage container name
 
-		Azure 儲存體帳戶是您在教學課程稍早建立的帳戶。儲存體帳戶用來代管當做預設 HDInsight 叢集檔案系統的 Blob 容器。Blob 儲存容器名稱通常與 HDInsight 叢集同名，除非您在佈建叢集時指定不同的名稱。
+		The Azure Storage account is the one you created earlier in the tutorial. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
 
 3. 執行下列命令來建立 Azure 儲存體內容物件：
 		
@@ -116,19 +130,19 @@ MapReduce 工作的輸出是一組機碼值組。機碼是指定一個單字的�
 		# Download the job output to the workstation
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	此 */example/data/WordCountOutput* 資料夾是您執行 MapReduce 工作時指定的輸出資料夾。 *part-r-00000* 是 MapReduce 工作輸出的預設檔案名稱。檔案會以相同資料夾結構下載至本機資料夾。例如，在下列螢幕擷取畫面中，目前的資料夾是 C 根資料夾。檔案會下載至 *C:\example\data\WordCountOutput\* 資料夾。 
+	*/example/data/WordCountOutput* 資料夾是您執行 MapReduce 工作時指定的輸出資料夾。 *part-r-00000* 是 MapReduce 工作輸出的預設檔案名稱。  檔案會以相同資料夾結構下載至本機資料夾。例如，在下列螢幕擷取畫面中，目前的資料夾是 C 根資料夾。  檔案會下載至 *C:\example\data\WordCountOutput\* 資料夾。 
 
 5. 執行下列命令來列印 MapReduce 工作輸出檔案：
 
 		cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
 
 
-	MapReduce 工作會產生一個名為 *part-r-00000* 的檔案，內有文字和字數。指令碼使用 findstr 命令列出包含 *"there"* 的所有文字。
+	MapReduce 工作會產生一個名為 *part-r-00000* 的檔案，內有文字和字數。  指令碼使用 findstr 命令列出包含 *"there"* 的所有文字。
 
 
 請注意，MapReduce 工作的輸出檔是固定不變的。因此，如果您重新執行此範例，將需要變更輸出檔的名稱。
 
-##<a id="java-code"></a>用來統計字數的 MapReduce 程式的 Java 程式碼
+## <a id="java-code"></a>用來統計字數的 MapReduce 程式的 Java 程式碼
 
 以下是用來統計字數之 MapReduce 程式的原始程式碼：
  
@@ -204,10 +218,10 @@ MapReduce 工作的輸出是一組機碼值組。機碼是指定一個單字的�
  
 
 
-##<a id="nextsteps"></a>後續步驟
+## <a id="nextsteps"></a>後續步驟
 雖然 MapReduce 提供強大的診斷功能，對 Master 而言還是頗具挑戰性。其他語言 (例如 Pig 和 Hive) 提供較簡單的方法來處理儲存在 HDInsight 中的資料。若要深入了解，請參閱下列文章：
 
-* [Azure HDInsight 使用者入門][hdinsight-get-started]
+* [開始使用 Azure HDInsight][hdinsight-get-started]
 * [開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-MapReduce-jobs]
 * [開發 HDInsight 的 C# Hadoop 串流 MapReduce 程式][hdinsight-develop-streaming]
 * [搭配 HDInsight 使用 Hive][hdinsight-use-hive]
@@ -217,7 +231,7 @@ MapReduce 工作的輸出是一組機碼值組。機碼是指定一個單字的�
 
 [hdinsight-upload-data]: ../hdinsight-upload-data/
 [hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-develop-mapreduce-jobs]: ../hdinsight-develop-deploy-java-mapreduce/
+[hdinsight-develop-MapReduce-jobs]: ../hdinsight-develop-deploy-java-mapreduce/
 [hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-use-hive]: ../hdinsight-use-hive/
 [hdinsight-use-pig]: ../hdinsight-use-pig/
@@ -232,5 +246,4 @@ MapReduce 工作的輸出是一組機碼值組。機碼是指定一個單字的�
 
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties title="Getting Started with Azure Storage" pageTitle="開始使用 Azure 儲存體" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="開始使用 Azure 儲存體" 
+	description="" 
+	services="storage" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="storage" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [開始使用](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
@@ -13,7 +27,7 @@
 > - [佇列](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 > - [資料表](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
 
-Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。如需詳細資訊，請參閱[如何使用 .NET 的佇列儲存體](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/ "How to use Queue Storage from .NET")。
+Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。如需詳細資訊，請參閱[如何從 .NET 使用佇列儲存體](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/ "How to use Queue Storage from .NET")。
 
 若要以程式設計方式存取 ASP.NET 5 專案中的佇列，您需要加入下列項目 (如果尚不存在)。
 
@@ -30,18 +44,18 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
                 .AddJsonFile("config.json")
                 .AddEnvironmentVariables();
 
-#####取得儲存體連接字串
+##### 取得儲存體連接字串
 您必須先取得將存放佇列的儲存體帳戶的連接字串，才能使用佇列。您可以使用 **CloudStorageAccount** 類型來代表儲存體帳戶資訊。如果您使用 ASP.NET 5 專案，您可以呼叫 Configuration 物件的 get 方法，從 Azure 服務組態中取得儲存體連接字串和儲存體帳戶資訊，如下列程式碼所示。
 
-**注意：**對外向 ASP.NET 5 中的 Azure 儲存體進行呼叫的 API 是非同步的。如需詳細資訊，請參閱[使用 Async 和 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。以下程式碼假設使用非同步程式設計方法。
+**注意：**在 ASP.NET 5 中對 Azure 儲存體執行呼叫的 API 未同步。如需詳細資訊，請參閱[使用 Async 和 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。下列程式碼假設使用的是非同步程式設計方法。
 
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
-#####建立佇列
+##### 建立佇列
 **CloudQueueClient** 物件可讓您取得佇列的參照物件。下列程式碼將建立 **CloudQueueClient** 物件。本主題的所有程式碼都使用 Azure 應用程式服務設定中所儲存的儲存體連接字串。還有其他方式可以建立 **CloudStorageAccount** 物件。請參閱 [CloudStorageAccount](http://msdn.microsoft.com/zh-tw/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount") 文件以取得詳細資料。
 
-**注意：**對外向 ASP.NET 5 中的 Azure 儲存體進行呼叫的 API 是非同步的。如需詳細資訊，請參閱[使用 Async 和 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。以下程式碼假設使用非同步程式設計方法。
+**注意：**在 ASP.NET 5 中對 Azure 儲存體執行呼叫的 API 未同步。如需詳細資訊，請參閱[使用 Async 和 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。下列程式碼假設使用的是非同步程式設計方法。
 
 	// Create the queue client.
 	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -54,16 +68,16 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 	// If the queue isn't already there, then create it.
 	await queue.CreateIfNotExistsAsync();
 
-**注意：** 請在下列區段的程式碼開頭使用此程式碼。
+**注意：**請在下列區段的程式碼開頭使用此程式碼。
 
-#####將訊息插入佇列
-若要將訊息插入現有佇列，請先建立新的 **CloudQueueMessage** 物件。接著，呼叫 AddMessageAsync() 方法。您可以從字串 (採用 UTF-8 格式) 或位元組陣列建立 **CloudQueueMessage** 物件。以下是建立佇列 (如果佇列不存在) 並插入訊息 'Hello, World' 的程式碼。
+##### 將訊息插入佇列
+若要將訊息插入現有佇列，請先建立新的 **CloudQueueMessage** 物件。接著，呼叫 AddMessageAsync() 方法。您可以從字串 (採用 UTF-8 格式) 或位元組陣列建立 **CloudQueueMessage** 物件。以下是建立佇列 (如果佇列不存在) 並插入訊息  'Hello, World' 的程式碼。
 
 	// Create a message and add it to the queue.
 	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
 	await queue.AddMessageAsync(message);
 
-#####查看下一個訊息
+##### 查看下一個訊息
 透過呼叫 PeekMessageAsync() 方法，您可以在佇列前面查看訊息，而無需將它從佇列中移除。
 
 	// Peek at the next message in the queue.
@@ -72,7 +86,7 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 	// Display the message.
 	CloudQueueMessage peekedMessage = await queue.PeekMessageAsync();
 
-#####移除下一個訊息
+##### 移除下一個訊息
 您的程式碼可以使用兩個步驟將訊息從佇列中移除 (清除佇列)。 
 
 
@@ -89,3 +103,4 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 [深入了解 Azure 儲存體](http://azure.microsoft.com/documentation/services/storage/)
 另請參閱[使用伺服器總管瀏覽和管理儲存體資源](http://msdn.microsoft.com/zh-tw/library/azure/ff683677.aspx)和 [ASP.NET 5](http://www.asp.net/vnext)。
+<!--HONumber=42-->

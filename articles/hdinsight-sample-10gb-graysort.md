@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="10GB GraySort 範例 | Azure" metaKeywords="hdinsight, hadoop, hdinsight administration, hdinsight administration azure" description="了解如何使用 Azure PowerShell 在 HDInsight 的 Hadoop 上執行一般用途的 GraySort。" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The 10GB GraySort sample" authors="bradsev" />
+<properties 
+	pageTitle="10GB GraySort 範例 | Azure" 
+	description="了解如何使用 Azure PowerShell hdinsight Hadoop 上執行一般用途的 GraySort 非常大量的資料，通常至少為 100 TB。" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 # HDInsight 中的 10GB GraySort Hadoop 範例
  
@@ -11,7 +25,7 @@
 本範例使用三組 MapReduce 程式：	
  
 1. **TeraGen** 是可用來產生排序資料列的 MapReduce 程式。
-2. **TeraSort** 可取樣輸入資料並利用 MapReduce 將資料依全序排列。TeraSort 是 MapReduce 函數的標準排序，但自訂分割器除外，它使用 N-1 個樣本索引鍵的排序清單來定義每次歸納的索引鍵範圍。特別的是，由於 sample[i-1] <= 索引鍵 < sample[i]，所有索引鍵都會傳送至 reduce i。這可保證 reduce i 的輸出全部都小於 reduce i+1 的輸出。
+2. **TeraSort** 可取樣輸入資料並利用 MapReduce 將資料依全序排列。TeraSort 是 MapReduce 函數的標準排序，但自訂分割器除外，它使用 N-1 個樣本索引鍵的排序清單來定義每次歸納的索引鍵範圍。特別的是，由於 sample[i-1] <= key < sample[i]，所有索引鍵都會傳送至 reduce i。這可保證 reduce i 的輸出全部都小於 reduce i+1 的輸出。
 3. **TeraValidate** 是一個可驗證全域排序輸出的 MapReduce 程式。它會在輸出目錄中為每一個檔案建立一個對應，而每個對應可確保每一個索引鍵一定小於或等於前一個對應。對應函數也會產生每個檔案的第一個和最後一個索引鍵的記錄，歸納函數可確保檔案 i 的第一個索引鍵大於檔案 i-1 的最後一個索引鍵。如果索引鍵的順序不對，則歸納輸出時會回報任何問題。
 
 這三個應用程式使用的輸入和輸出格式會以正確格式讀取和寫入文字檔。歸納的輸出將複寫設為 1，而不是預設值 3，因為效能評比競賽不需要將輸出資料複寫至多個節點。
@@ -22,15 +36,15 @@
 * 以 Java 撰寫的 MapReduce 程式呈現何種面貌。
 
 
-**必要條件**：	
+**必要條件**	
 
-- 您必須具有 Azure 帳號。如需帳號註冊方式的相關資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/zh-tw/pricing/free-trial/) 頁面。
+- 您必須具有 Azure 帳戶。如需帳戶註冊方式的相關資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/zh-tw/pricing/free-trial/)頁面。
 
 - 您必須已佈建 HDInsight 叢集。如需各種建立此類叢集方式的相關指示，請參閱[佈建 HDInsight 叢集](../hdinsight-provision-clusters/)
 
-- 您必須已安裝 Azure PowerShell 並加以設定，使其可用於您的帳號。如需執行此項作業之指示，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。
+- 您必須已安裝 Azure PowerShell 並加以設定，使其可用於您的帳戶。如需執行此項作業之指示，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。
 
-##本文內容
+## 本文內容
 本主題說明如何執行構成範例的一組 MapReduce 程式、呈現 MapReduce 程式的 Java 程式碼、總結所學知識及概述一些後續步驟。其中包含下列幾節。
 	
 1. [使用 Azure PowerShell 執行範例](#run-sample)	
@@ -56,16 +70,16 @@
 		$subscriptionName = "myAzureSubscriptionName"   
 		$clusterName = "myClusterName"
                  
-4. 執行下列命令來建立 MapReduce 工作定義：
+3. 執行下列命令來建立 MapReduce 工作定義：
 
 		# Create a MapReduce job definition for the TeraGen MapReduce program
 		$teragen = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-examples.jar" -ClassName "teragen" -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input" 
 
-	> [WACOM.NOTE] *hadoop-examples.jar* 隨附於 2.1 版 HDInsight 叢集。在 3.0 版 HDInsight 叢集上，該檔案已重新命名為 *hadoop-mapreduce.jar*。
+	> [AZURE.NOTE] *hadoop-examples.jar* 隨附 2.1 版 HDInsight 叢集。在 3.0 版 HDInsight 叢集上，該檔案已重新命名為 *hadoop-mapreduce.jar*。
 	
-	*"-Dmapred.map.tasks=50"* 引數指定要建立來執行工作的 50 個對應。*100000000* 引數指定要產生的資料量。最後一個引數 */example/data/10GB-sort-input* 指定要儲存結果的輸出目錄 (包含下列排序階段的輸入)。
+	*"-Dmapred.map.tasks=50"* 引數指定要建立來執行工作的 50 個對應。*100000000* 引數指定要產生的資料量。最後一個引數，  */example/data/10GB-sort-input* 指定要儲存結果的輸出目錄 (包含下列排序階段的輸入)。
 
-5. 執行下列命令來提交工作、等待工作完成，然後印出標準錯誤：
+4. 執行下列命令來提交工作、等待工作完成，然後印出標準錯誤：
 
 		# Run the TeraGen MapReduce job.
 		# Wait for the job to complete.
@@ -404,18 +418,18 @@
 
 關於執行其他範例的教學課程，以及如何以 Azure PowerShell 在 Azure HDInsight 上使用 Pig、Hive 和 MapReduce 工作的指示，請參閱下列主題：
 
-* [Azure HDInsight 使用者入門][hdinsight-get-started]
+* [開始使用 Azure HDInsight][hdinsight-get-started]
 * [範例：Pi 估算器][hdinsight-sample-pi-estimator]
-* [範例：字數統計][hdinsight-sample-wordcount]
+* [範例：Wordcount][hdinsight-sample-wordcount]
 * [範例：C# 串流][hdinsight-sample-csharp-streaming]
-* [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
-* [搭配 HDInsight 使用 Hive][hdinsight-use-hive]
+* [使用 Pig 搭配 HDInsight][hdinsight-use-pig]
+* [使用 Hive 搭配 HDInsight][hdinsight-use-hive]
 * [Azure HDInsight SDK 文件][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/zh-tw/library/dn479185.aspx
 
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: ../install-configure-powershell/
 
 [hdinsight-get-started]: ../hdinsight-get-started/
 
@@ -429,5 +443,4 @@
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

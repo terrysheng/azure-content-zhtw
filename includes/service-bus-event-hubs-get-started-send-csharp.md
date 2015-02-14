@@ -5,26 +5,26 @@
 
    	![][7]
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後按一下 [Manage NuGet Packages for Solution]****。 
+2. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後按一下 [**Manage NuGet Packages for Solution...**]。 
 
 	此時會顯示 [管理 NuGet 封裝] 對話方塊。
 
-3. 搜尋 'Microsoft Azure Service Bus'，並按一下 [安裝]**** 然後接受使用規定。 
+3. 搜尋  `Microsoft Azure Service Bus`，然後按一下 [**安裝**] 並接受使用條款。 
 
 	![][8]
 
 	這會下載、安裝並新增 <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">Azure Service Bus 程式庫 NuGet 封裝</a>的參考。
 
-4. 在 **Program.cs** 檔案開頭處新增下列 'using' 陳述式：
+4. 在 **Program.cs** 檔案開頭處新增下列  `using` 陳述式：
 
 		using Microsoft.ServiceBus.Messaging;
 
-5. 將下列 'static' 欄位加入至 **Program** 類別，並將值替代為您在上一節中所建立的事件中心名稱，以及將連接字串替代為 **send** 權限：
+5. 將下列  `static` 欄位新增至 **Program** 類別，並將值替代為您在上一節中所建立的事件中心名稱，以及將連接字串替代為 **send** 權限：
 
 		static string eventHubName = "{event hub name}";
         static string connectionString = "{send connection string}";
 
-6. 將下列方法加入至 **Program** 類別：
+6. 將下列方法新增至 **Program** 類別：
 
 		static async Task SendingRandomMessages()
         {
@@ -50,7 +50,7 @@
 
 	這個方法會以 200 毫秒的延遲時間持續將事件傳送至事件中心。
 
-7. 最後，將下列幾行加入至 **Main** 方法：
+7. 最後，將下列幾行新增至 **Main** 方法：
 
 		Console.WriteLine("Press Ctrl-C to stop the sender process");
         Console.WriteLine("Press Enter to start now");
@@ -60,4 +60,4 @@
 
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png<!--HONumber=42-->

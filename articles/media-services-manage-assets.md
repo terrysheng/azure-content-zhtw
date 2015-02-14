@@ -1,17 +1,31 @@
-﻿<properties urlDisplayName="Manage Assets in Media Services" pageTitle="如何管理媒體服務中的資產 - Azure" metaKeywords="" description="了解如何管理媒體服務上的資產。您也可以管理工作、存取原則、定位器等項目。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" metaCanonical="" services="media-services" documentationCenter="" title="How to: Manage Assets in storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="如何管理媒體服務中的資產 - Azure" 
+	description="了解如何管理媒體服務上的資產。您也可以管理工作、存取原則、定位器等項目。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
 
 <h1>作法：管理儲存體中的資產</h1>
 
-本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是[作法：保護資產](../media-services-protect-asset/)。
+本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是＜[作法：保護資產](../media-services-protect-asset/)。
 
 在建立媒體資產並上傳至媒體服務之後，您就可以在伺服器上存取和管理這些資產。您也可以在伺服器上管理其他屬於媒體服務的物件，包括工作、作業、存取原則、定位器等等。
 
-下列範例說明如何依 assetId 來查詢資產。
+下列範例說明如何依 assetId 來查詢資產。 
 <pre><code>
 static IAsset GetAsset(string assetId)
 {
@@ -80,6 +94,5 @@ foreach (IAsset asset in _context.Assets)
 
 
 <h2>後續步驟</h2>
-現在您知道如何管理資產，請移至[如何透過下載來傳遞資產](../media-services-deliver-asset-download/) 主題。
-
-<!--HONumber=35.1-->
+現在您知道如何管理資產，請移至[如何透過下載來傳遞資產](../media-services-deliver-asset-download/)主題。
+<!--HONumber=42-->

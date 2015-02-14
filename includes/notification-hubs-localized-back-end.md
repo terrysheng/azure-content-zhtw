@@ -22,7 +22,7 @@
 
 ## 使用 C# 主控台應用程式 ## 傳送通知
 
-我們將透過傳送單一範本通知，來簡單修改您的 *SendNotificationAsync* 方法。
+我們將透過傳送單一範本通知，來簡單修改您的  *SendNotificationAsync* 方法。
 
 	var hub = NotificationHubClient.CreateClientFromConnectionString("<connection string>", "<hub name>");
     var notification = new Dictionary<string, string>() {
@@ -51,3 +51,4 @@
 	});
 	
 請注意，此案例不需要針對不同地區設定和平台傳送多次通知。
+<!--HONumber=42-->

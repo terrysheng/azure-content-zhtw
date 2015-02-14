@@ -1,7 +1,7 @@
 ﻿
 接下來，您需要變更註冊推播通知的方式，以便在嘗試註冊之前，能夠確定使用者已通過驗證。 
 
-1. 在 **QSAppDelegate.m**中，一併移除 **didFinishLaunchingWithOptions** 的實作：
+1. 在 **QSAppDelegate.m** 中，一併移除 **didFinishLaunchingWithOptions** 的實作：
 
 		
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
@@ -32,3 +32,4 @@
 		    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
 		    UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 		}
+<!--HONumber=42-->

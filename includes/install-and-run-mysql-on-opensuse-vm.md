@@ -41,7 +41,7 @@
 
 	請注意，行尾的分號 (;) 對結束命令而言十分重要。
 
-8. 若要建立資料庫並授與其 `mysqluser` 使用者權限，請發出下列命令：
+8. 若要建立資料庫並授與其  `mysqluser` 使用者權限，請發出下列命令：
 
 		mysql> CREATE DATABASE testdatabase;
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
@@ -52,7 +52,7 @@
 
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
 
-	其中 `ip-address` 是您從中連線到 MySQL 的電腦 IP 位址。
+	其中， `ip-address` 是您從中連線到 MySQL 的電腦 IP 位址。
 	
 10. 若要結束 MySQL 資料庫管理公用程式，請發出下列命令：
 
@@ -82,5 +82,4 @@
 [AzurePreviewPortal]: http://manage.windowsazure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

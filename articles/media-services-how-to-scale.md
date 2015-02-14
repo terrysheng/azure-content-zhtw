@@ -1,14 +1,28 @@
-﻿<properties urlDisplayName="How to scale" pageTitle="如何調整媒體服務 | Azure 文件" metaKeywords="" description="了解如何指定要佈建給帳戶的隨選串流保留單元和編碼保留單元，以調整媒體服務。" metaCanonical="" services="media-services" documentationCenter="" title="How to Scale a Media Service" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="如何調整媒體服務 | Azure 文件" 
+	description="了解如何指定要佈建給帳戶的隨選串流保留單元和編碼保留單元，以調整媒體服務。" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
 
 
-#如何調整媒體服務  
+# 如何調整媒體服務  
 
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
+[AZURE.INCLUDE [免責聲明](../includes/disclaimer.md)]
 
 
 您可以指定要佈建給帳戶的**隨選串流保留單元**和**編碼保留單元**來調整媒體服務。 
@@ -16,7 +30,7 @@
 
 <h2>隨選串流保留單元</h2>
 
-隨選串流保留單元為您提供專用的流出容量 (以 200 Mbps 為增量來購買) 和其他功能 (目前包括[動態封裝功能])(http://go.microsoft.com/fwlink/?LinkId=276874)。依預設，隨選串流是以共用執行個體模型來設定，可與其他所有使用者共用伺服器資源 (例如，運算、流出容量等)。若要改進隨選串流輸送量，建議購買隨選串流保留單元。 
+隨選串流保留單元為您提供專用的流出容量 (以 200 Mbps 為增量來購買)  和其他功能 (目前包括[動態封裝功能](http://go.microsoft.com/fwlink/?LinkId=276874))。依預設，隨選串流是以共用執行個體模型來設定，可與其他所有使用者共用伺服器資源 (例如，運算、流出容量等)。若要改進隨選串流輸送量，建議購買隨選串流保留單元。 
 
 若要變更隨選串流保留單元的數目，請執行下列動作：
 
@@ -48,13 +62,13 @@
 
 2. 選取 [編碼] 頁面。 
 	
-	[編碼] 頁面可讓您從三種不同的編碼保留單元中選取：Basic、Standard 和 Premium (如下所示)。
+	[編碼] 頁面可讓您從三種不同的編碼保留單元中選取：  Basic、Standard 和 Premium (如下所示)。
 
 	![Processors page](./media/media-services-how-to-scale/media-services-encoding-scale.png)
 
 	您可以使用 [編碼] 滑動軸，為選取的 [保留單元類型] 變更保留單元數。  
 	
-	不同保留單元類型之間的主要差異為速度。例如，在執行相同編碼工作的前提下，使用 Standard 保留單元類型的速度會比 Basic 類型快。如需詳細資訊，請參閱 [Milan Gada] 撰寫的部落格「編碼保留單元類型」(http://azure.microsoft.com/blog/author/milanga/)。
+	不同保留單元類型之間的主要差異為速度。例如，在執行相同編碼工作的前提下，使用 Standard 保留單元類型的速度會比 Basic 類型快。如需詳細資訊，請參閱 [Milan Gada](http://azure.microsoft.com/blog/author/milanga/) 撰寫的部落格「編碼保留單元類型」。
 
 	>[Azure.Note] 下列資料中心並未提供 Premium 保留單元類型：新加坡、香港特別行政區、大阪、北京、上海。
 
@@ -71,7 +85,7 @@
 
 若要建立支援票證，請執行下列動作： 
 
-1. 在[管理入口網站]登入您的 Azure 帳戶(http://manage.windowsazure.com)。
+1. 在[管理入口網站](http://manage.windowsazure.com)登入您的 Azure 帳戶。
 2. 移至[支援](http://www.windowsazure.com/zh-tw/support/contact/)。
 3. 按一下 [取得支援]。
 4. 選取您的訂用帳戶。
@@ -92,5 +106,4 @@
 
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

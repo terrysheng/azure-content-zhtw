@@ -5,9 +5,9 @@
 
 在這個方法中，精靈會在專案中產生新的 push.register.cs 檔案。
 
->[WACOM.NOTE][加入推播通知精靈] 目前僅支援 .NET 後端行動服務。
+>[AZURE.NOTE][加入推播通知精靈] 目前僅支援 .NET 後端行動服務。
 
-1. 在 Visual Studio 的 [方案總管] 中，開啟 app.xaml.cs 專案檔，然後在 **OnLaunched** 事件處理常式中，將 **UploadChannel** 方法的呼叫標記為註解或加以刪除。 
+1. 在 Visual Studio 的 [方案總管] 中開啟 app.xaml.cs 專案檔案，並在 **OnLaunched** 事件處理常式中註解化或刪除對 **UploadChannel** 方法的呼叫。 
 
 2. 開啟 push.register.cs 專案檔，並使用下列程式碼來取代 **UploadChannel** 方法：
 
@@ -40,15 +40,15 @@
             RefreshTodoItems();
         }
 
-	在這個程式碼中，您必須使用精靈產生的類別名稱來取代所產生的推播類別名稱 (`todolistPush`)，通常會使用 <code><em>mobile_service</em>Push</code> 格式。
+	在這個程式碼中，您必須使用精靈產生的類別名稱來取代所產生的推播類別名稱 (`todolistPush`)，通常會使用下列格式：<code><em>mobile_service</em>Push</code>。
 
 ###手動啟用推播通知		
 
 在這個方法中，您已將從教學課程取得的註冊程式碼直接新增到 app.xaml.cs 專案檔。
 
-1. 在 Visual Studio 的 [方案總管] 中，開啟 app.xaml.cs 專案檔，然後在 **OnLaunched** 事件處理常式中，將 **InitNotificationsAsync** 的呼叫標記為註解或加以刪除。 
+1. 在 Visual Studio 的 [方案總管] 中，開啟 app.xaml.cs 專案檔，然後在 **OnLaunched** 事件處理常式中，將對 **InitNotificationsAsync** 的呼叫標記為註解或加以刪除。 
  
-2. 將 **InitNotificationsAsync** 方法的可存取性從 `private` 變更為 `public` 並新增 `static` 修飾詞。 
+2. 將 **InitNotificationsAsync** 方法的存取設定性由  `private` 變更為  `public`，然後新增  `static` 修飾詞。 
 
 3. 開啟 MainPage.xaml.cs 專案檔，並使用下列程式碼來取代 **OnNavigatedTo** 方法覆寫：
 
@@ -57,4 +57,4 @@
             await AuthenticateAsync();            
             App.InitNotificationsAsync();
             RefreshTodoItems();
-        }
+        }<!--HONumber=42-->

@@ -340,7 +340,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
     <li><a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179355">REST API 參考</a></li>
   </ul>
 </li>
-<li>參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx">在 Azure 中儲存和存取資料</a>，以深入了解可使用「Azure 儲存體」來執行的更多進階工作。</li>
+<li>參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx">在 Azure 中儲存和存取資料，以深入了解可使用「Azure 儲存體」來執行的更多進階工作</a>。</li>
 <li>了解如何使用下列工具來簡化您所撰寫要與「Azure 儲存體」搭配使用的程式碼：<a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK。</li>
 <li>如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
   <ul>

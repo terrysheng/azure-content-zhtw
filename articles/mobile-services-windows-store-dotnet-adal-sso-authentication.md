@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (Windows 市集) | 行動開發人員中心" metaKeywords="" description="了解如何在 Windows 市集應用程式中驗證使用者的單一登入。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc" manager="dwrede" />
+﻿<properties 
+	pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (Windows 市集) | 行動開發人員中心" 
+	description="了解如何在 Windows 市集應用程式中驗證使用者的單一登入。" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede"
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="wesmc" />
 
 # 使用 Active Directory Authentication Library 單一登入驗證您的應用程式
 

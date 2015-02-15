@@ -1,6 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Authentication" pageTitle="開始使用驗證 (Windows Phone) | 行動開發人員中心" metaKeywords="" description="了解如何使用行動服務透過眾多識別提供者驗證 Windows Phone 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
-
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="glenga" />
+﻿<properties pageTitle="開始使用驗證 (Windows Phone) | 行動開發人員中心"	 description="了解如何使用行動服務透過眾多識別提供者驗證 Windows Phone 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。"  services="mobile-services" 	documentationCenter="Mobile" 	authors="ggailey777" 	manager="dwrede" 	editor="" /> <tags	ms.service="mobile-services"	ms.workload="mobile"	ms.tgt_pltfrm=""	ms.devlang="dotnet"	ms.topic="article"	ms.date="09/23/2014"	ms.author="glenga" />
 
 # 在您的行動服務應用程式中新增驗證
 

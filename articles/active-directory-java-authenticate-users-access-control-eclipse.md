@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Access Control" pageTitle="如何使用存取控制 (Java) - Azure 功能指南" metaKeywords="" description="了解如何在 Azure 中使用 Java 開發和使用存取控制。" metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Azure Access Control Service Using Eclipse" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Access Control" pageTitle="如何使用存取控制 (Java) - Azure 功能指南" metaKeywords="" description="了解如何在 Azure 中使用 Java 開發和使用存取控制。" metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Azure Access Control Service Using Eclipse" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 
@@ -173,8 +173,10 @@ Windows Live 作為 IP，但是您可以使用 ACS
         App**。
     2.  在 [**模式**] 中，選取 [**Enter settings manually**]。
     3.  在 [**領域**] 中輸入 URI，供 ACS 所簽發的安全性權杖套用至此 URI。對於此工作，輸入 **http://localhost:8080/**。
+
         ![Relying party realm for use in compute emulator][relying_party_realm_emulator]
     4.  在 [**傳回 URL**] 中輸入 URL，供 ACS 將安全性權杖傳回到此 URL。對於此工作，輸入 **http://localhost:8080/MyACSHelloWorld/index.jsp**
+
         ![Relying party return URL for use in compute emulator][relying_party_return_url_emulator]
     5.  在其餘的欄位中接受預設值。
 
@@ -204,7 +206,7 @@ IP 傳遞至 RP 的宣告方法。基於本指南的目的，我們只會將 ACS
 1.  在 ACS 管理入口網站主頁面上，按一下 [**憑證與金鑰**]。
 2.  在 [**憑證與金鑰**] 頁面上，按一下 [**權杖簽署**] 上方的 [**新增**]。
 3.  在 [**Add Token-Signing Certificate or Key**] 頁面上：
-    1. 在 [**Used for**] 區段中，按一下 [**信賴憑證者應用程式**]，選取 [**Azure Web App**] (先前設為信賴憑證者應用程式的名稱)。
+    1. 在 [**Used for**] 區段中，按一下 [**信賴憑證者應用程式**]，選取 [**Azure Web App**] \(先前設為信賴憑證者應用程式的名稱\)。
     2. 在 [**類型**] 區段中，選取 [**X.509 憑證**]。
     3. 在 [**憑證**] 區段中，按一下瀏覽按鈕，並導覽至您要使用的 X.509 憑證檔案。這將為 .PFX 檔案。選取檔案，按一下 [**開啟**]，  ，然後在 [**密碼**] 文字方塊中輸入憑證密碼。請注意，基於測試目的，您可能使用自我簽署憑證。若要建立自我簽署憑證，請使用 [**ACS Filter Library**] 對話方塊 (稍後將有描述) 中的 [**新增**] 按鈕，或使用 Azure Starter Kit for Java (由 Microsoft Open Technologies 提供) 的[專案網站][]上的 **encutil.exe** 公用程式。
     4. 確定已核取 [**Make Primary**]。您的 [**Add Token-Signing Certificate or Key**] 頁面應該看起來如下。
@@ -348,10 +350,12 @@ IP 傳遞至 RP 的宣告方法。基於本指南的目的，我們只會將 ACS
 [必要條件]: #pre
 [建立 Java Web 應用程式]: #create-java-app
 [建立 ACS 命名空間]: #create-namespace
+[建立命名空間]: #create-namespace
 [新增身分識別提供者]: #add-IP
 [新增信賴憑證者應用程式]: #add-RP
 [建立規則]: #create-rules
 [將憑證上傳至您的 ACS 命名空間]: #upload-certificate
+[將憑證上傳至 ACS 命名空間]: #upload-certificate
 [檢閱應用程式整合頁面]: #review-app-int
 [設定 ACS 與 ASP.NET Web 應用程式之間的信任]: #config-trust
 [將 ACS 篩選器程式庫新增至您的應用程式]: #add_acs_filter_library

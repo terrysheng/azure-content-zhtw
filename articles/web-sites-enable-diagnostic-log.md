@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Enable diagnostic logging" pageTitle="啟用診斷記錄-- Azure 網站" metaKeywords="Azure 診斷網站, Azure 管理入口網站診斷, Azure 診斷, 網站診斷, 網站偵錯" description="了解如何啟用診斷記錄，並在您的應用程式中加入診斷工具，以及如何存取 Azure 所記錄的資訊。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Enable diagnostic logging" pageTitle="啟用診斷記錄-- Azure 網站" metaKeywords="Azure 診斷網站, Azure 管理入口網站診斷, Azure 診斷, 網站診斷, 網站偵錯" description="了解如何啟用診斷記錄，並在您的應用程式中加入診斷工具，以及如何存取 Azure 所記錄的資訊。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -192,7 +192,7 @@ __資料表儲存體__
 </thead>
 <tr>
 <td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">RowKey</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">A GUID value that uniquely identifies this entity</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">可唯一識別此實體的 GUID 值</td>
 </tr>
 <tr>
 <td style="border:1px solid black;vertical-align:top">Timestamp</td>
@@ -200,7 +200,7 @@ __資料表儲存體__
 </tr>
 <tr>
 <td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">The date and time that the event occurred, in Tick format (greater precision)</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">事件發生的日期與時間 (刻度格式，精準度更高)</td>
 </tr>
 <tr>
 <td style="border:1px solid black;vertical-align:top">ApplicationName</td>
@@ -208,7 +208,7 @@ __資料表儲存體__
 </tr>
 <tr>
 <td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Event level (e.g. error, warning, information)</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">事件層級 (例如，錯誤、警告、資訊)</td>
 </tr>
 <tr>
 <td style="border:1px solid black;vertical-align:top">EventId</td>
@@ -216,7 +216,7 @@ __資料表儲存體__
 </tr>
 <tr>
 <td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Instance of the website that the even occurred on</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">發生事件的網站執行個體</td>
 </tr>
 <tr>
 <td style="border:1px solid black;vertical-align:top">Pid</td>
@@ -273,7 +273,7 @@ __Blob 儲存體__
 </tr>
 <tr>
 <td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">The thread ID of the thread that produced the event</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">產生事件的執行緒之執行緒識別碼</td>
 </tr>
 <tr>
 <td style="border:1px solid black;vertical-align:top">訊息</td>

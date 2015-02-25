@@ -1,10 +1,10 @@
-﻿<properties pageTitle="如何使用 Azure Redis 快取" metaKeywords="" description="了解如何在 Azure Redis Cache 中建立及使用快取" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="如何使用 Azure Redis 快取" metaKeywords="" description="了解如何在 Azure Redis Cache 中建立及使用快取" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
 # 如何使用 Azure Redis 快取
 
-本指南示範如何開始使用 **Azure Redis 快取**。這些範例均以 C\# 程式碼撰寫，並使用 .NET API。涵蓋的案例包括「建立和設定快取」****、「設定快取用戶端」****、「從快取加入和移除物件」****，以及「將 ASP.NET 工作階段狀態儲存在快取中」****。如需
+本指南示範如何開始使用 **Azure Redis 快取**。這些範例均以 C\# 程式碼撰寫，並使用 .NET API。涵蓋的案例包括「建立和設定快取」、「設定快取用戶端」、「從快取加入和移除物件」，以及「將 ASP.NET 工作階段狀態儲存在快取中」。如需
 有關使用「Azure Redis 快取」的詳細資訊，請參閱[後續步驟][]一節。
 
 ## 目錄
@@ -27,8 +27,8 @@ Microsoft Azure Redis 快取是基於受歡迎的開放原始碼 Redis 快取。
 
 Microsoft Azure Redis 快取有兩個階層：
 
--	「基本」**** - 單一節點。多種大小，最高為 53 GB。
--	「標準」****- 兩個節點 (主要/從屬)。多種大小，最高為 53 GB。99.9% SLA。
+-	**「基本」** - 單一節點。多種大小，最高為 53 GB。
+-	**「標準」**- 兩個節點 (主要/從屬)。多種大小，最高為 53 GB。99.9% SLA。
 
 每一個層次都有不同的功能和定價。本指南稍後將探討這些功能，如需定價的詳細資訊，請參閱[快取定價詳細資料][]。
 
@@ -46,40 +46,40 @@ Microsoft Azure Redis 快取有兩個階層：
 <a name="create-cache"></a>
 ## 建立快取
 
-若要建立快取，請先登入 Azure 管理預覽入口網站，然後按一下 [新增]****、[Redis]****。
+若要建立快取，請先登入 Azure 管理預覽入口網站，然後按一下 **[新增]**、**[Redis\]**。
 
 ![New cache][NewCacheMenu]
 
-在 [新增 Redis 快取]**** 刀鋒視窗中，指定所需的快取組態。
+在 [新增 Redis 快取] 刀鋒視窗中，指定所需的快取組態。
 
 ![Create cache][CacheCreate]
 
-在 [DNS 名稱]**** 中，輸入要用於快取端點的子網域名稱。端點必須是介於 6 到 20 個字元之間的字串、僅包含小寫數字和字母，而且必須以字母開頭。
+在 **[DNS 名稱]** 中，輸入要用於快取端點的子網域名稱。端點必須是介於 6 到 20 個字元之間的字串、僅包含小寫數字和字母，而且必須以字母開頭。
 
-使用 [定價層]**** 來選取所需的快取大小和功能。Redis 快取在以下兩個階層中提供。
+使用 **[定價層]** 來選取所需的快取大小和功能。Redis 快取在以下兩個階層中提供。
 
--	「基本」**** - 單一節點、多種大小 (上限為 53 GB)。
--	「標準」**** - 兩個節點 (主要/從屬)、99.9% SLA、多種大小 (上限為 53 GB)。
+-	**「基本」** - 單一節點、多種大小 (上限為 53 GB)。
+-	**「標準」** - 兩個節點 (主要/從屬)、99.9% SLA、多種大小 (上限為 53 GB)。
 
-針對 [訂用帳戶]****，選取要用於快取的 Azure 訂用帳戶。
+針對 **[訂用帳戶]**，選取要用於快取的 Azure 訂用帳戶。
 
 >[AZURE.NOTE] 如果您的帳戶僅有一個訂閱，則會自動加以選取，而且不會顯示 [訂閱] 下拉式清單。
 
-在 [資源群組]**** 中，選取或建立快取的資源群組。
+在 **[資源群組]** 中，選取或建立快取的資源群組。
 
 >[AZURE.NOTE] 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源][]。 
 
-使用 [地理位置]**** 來指定裝載快取的地理位置。為獲得最佳效能，Microsoft 強烈建議您在與快取用戶端應用程式相同的區域中建立快取。
+使用 **[地理位置]** 來指定裝載快取的地理位置。為獲得最佳效能，Microsoft 強烈建議您在與快取用戶端應用程式相同的區域中建立快取。
 
-設定新的快取選項之後，請按一下 [建立]****。建立快取可能需要數分鐘的時間。若要檢查狀態，您可以監視開始面板上的進度。在建立快取之後，新快取的狀態會是「正在執行」****，並具備預設設定而已可供使用。
+設定新的快取選項之後，請按一下 **[建立]**。建立快取可能需要數分鐘的時間。若要檢查狀態，您可以監視開始面板上的進度。在建立快取之後，新快取的狀態會是**「正在執行」**，並具備預設設定而已可供使用。
 
 ![Cache created][CacheCreated]
 
-建立快取之後，您便可以從 [瀏覽]**** 刀鋒視窗存取它。
+建立快取之後，您便可以從 **[瀏覽]** 刀鋒視窗存取它。
 
 ![Browse blade][BrowseCaches]
 
-按一下 [快取]**** 以檢視您的快取。
+按一下 **[快取]** 以檢視您的快取。
 
 ![Caches][Caches]
 
@@ -90,11 +90,11 @@ Microsoft Azure Redis 快取有兩個階層：
 
 >[AZURE.NOTE] 如需詳細資訊，請參閱 [StackExchange.Redis][] GitHub 頁面和 [StackExchange.Redis 快取用戶端文件][]。
 
-若要在 Visual Studio 中使用 StackExchange.Redis NuGet 封裝來設定用戶端應用程式，請在 [方案總管]**** 中的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]****。 
+若要在 Visual Studio 中使用 StackExchange.Redis NuGet 封裝來設定用戶端應用程式，請在 **[方案總管]** 中的專案上按一下滑鼠右鍵，然後選擇 **[管理 NuGet 封裝]**。 
 
 ![Manage NuGet packages][NuGetMenu]
 
-在 [線上搜尋]**** 文字方塊中輸入 **StackExchange.Redis** 或 **StackExchange.Redis.StrongName**，從結果中選取所需的版本，然後按一下 [安裝]****。
+在 [線上搜尋]** 文字方塊中輸入 **StackExchange.Redis** 或 **StackExchange.Redis.StrongName**，從結果中選取所需的版本，然後按一下 **[安裝]**。
 
 >[AZURE.NOTE] 如果您偏好使用強式名稱版本的 **StackExchange.Redis** 用戶端程式庫，請選擇 **StackExchange.Redis.StrongName**；否則請選擇 **StackExchange.Redis**。
 
@@ -208,17 +208,17 @@ NuGet 封裝會為您的用戶端應用程式下載並加入必要的組件參�
 Azure Redis 快取提供工作階段狀態提供者，可讓您用來將工作階段狀態儲存在快取中，而不是記憶體內或 SQL Server 資料庫中。若要使用快取工作階段
 狀態提供者，請先設定快取，再使用「Redis 快取工作階段狀態 NuGet 封裝」設定 ASP.NET 應用程式的快取。
 
-若要在 Visual Studio 中使用「Redis 快取工作階段狀態 NuGet 封裝」來設定用戶端應用程式，請在 [方案總管]**** 中的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]****。 
+若要在 Visual Studio 中使用「Redis 快取工作階段狀態 NuGet 封裝」來設定用戶端應用程式，請在 [方案總管] 中的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。 
 
 ![Manage NuGet packages][NuGetMenu]
 
-在 [線上搜尋]**** 文字方塊中輸入 **RedisSessionStateProvider**、從結果中選取它，然後按一下 [安裝]****。
+在 [線上搜尋] 文字方塊中輸入 **RedisSessionStateProvider**、從結果中選取它，然後按一下 [安裝]。
 
 ![Redis Cache Session State NuGet Package][SessionStateNuGet]
 
 NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入至您的 web.config 檔案，該檔案包含 ASP.NET 應用程式使用 Redis 快取工作階段狀態提供者所需的組態。
 
-  <sessionState mode="Custom" customProvider="MySessionStateStore">
+  	<sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
         <!--
           <add name="MySessionStateStore" 
@@ -348,7 +348,7 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 
 [StackExchange.Redis 組態模型]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
-[使用快取中的 .NET 物件]: http://msdn.microsoft.com/zh-tw/library/dn690521.aspx#Objects
+[在快取中使用 .NET 物件]: http://msdn.microsoft.com/zh-tw/library/dn690521.aspx#Objects
 
 
 [NuGet 封裝管理員安裝]: http://go.microsoft.com/fwlink/?LinkId=240311

@@ -1,4 +1,4 @@
-﻿<properties  pageTitle="使用排程器來排程後端工作 - 行動服務" metaKeywords="" description="使用 Windows Azure 行動服務排程工具排程行動應用程式的工作。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="dwrede" editor=""  />
+<properties  pageTitle="使用排程器來排程後端工作 - 行動服務" metaKeywords="" description="使用 Windows Azure 行動服務排程工具排程行動應用程式的工作。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="dwrede" editor=""  />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 
@@ -8,22 +8,22 @@
 	<a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend" class="current">.NET 後端</a> | <a href="/zh-tw/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" >JavaScript backend</a>
 </div>
  
-This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:
+本主題將示範如何在管理入口網站中使用工作排程器功能，以根據您所定義的排程來，從而定義要執行的伺服器指令碼。 在此情況下，指令碼會定期向遠端服務 (在此案例中為 Twitter) 查詢，並將結果儲存在新資料表中。 可排定的其他一些定期工作包括：
 
-+ Archiving old or duplicate data records.
-+ Requesting and storing external data, such as tweets, RSS entries, and location information.
-+ Processing or resizing stored images.
++ 封存老舊或重複的資料記錄。
++ 要求或儲存外部資料，例如推文、RSS 項目和位置資訊。
++ 處理或調整儲存影像的大小。
 
-This tutorial walks you through the following steps of how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table:
+本教學課程將逐步引導您完成下列步驟，以瞭解如何使用工作排程器，來建立向 Twitter 要求推文資料並在新的 Updates 資料表中儲存推文的排定工作：
 
-+ [Register for Twitter access and store credentials]
-+ [Download and install the LINQ to Twitter library]
-+ [Create the new Updates table]
-+ [Create a new scheduled job]
-+ [Test the scheduled job locally]
-+ [Publish the service and register the job]
++ [註冊以取得 Twitter 存取權與儲存認證]
++ [下載並安裝 LINQ to Twitter 程式庫]
++ [建立新的 Updates 資料表]
++ [建立新的排定工作]
++ [在本機測試排定工作]
++ [發佈服務及註冊新工作]
 
->[WACOM.NOTE]This tutorial uses the third-party LINQ to Twitter library to simplify OAuth 2.0 access to Twitter v1.1. APIs. You must download and install the LINQ to Twitter NuGet package to complete this tutorial. For more information, see the [LINQ to Twitter CodePlex project].
+>[WACOM.NOTE]本教學課程採用第三方 LINQ to Twitter 程式庫，以簡化對 Twitter v1.1. API 的 OAuth 2.0 存取。 您必須下載並安裝 LINQ to Twitter NuGet 封裝，才能完成本教學課程。 如需詳細資訊，請參閱 [LINQ to Twitter CodePlex 專案]。
 
 ##<a name="get-oauth-credentials"></a>註冊以取得 Twitter v1.1 API 的存取權與儲存認證
 
@@ -279,7 +279,7 @@ This tutorial walks you through the following steps of how to use the job schedu
 [建立新的 Updates 資料表]: #create-table
 [建立新的排定工作]: #add-job
 [在本機測試排定工作]: #run-job-locally
-[發佈服務及註冊工作]: #register-job
+[發佈服務及註冊新工作]: #register-job
 [後續步驟]: #next-steps
 
 <!-- Images. -->

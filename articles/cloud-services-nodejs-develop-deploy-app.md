@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Cloud Service" pageTitle="Node.js 入門指南 - Azure 教學課程" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="協助您開發簡單 Node.js Web 應用程式並部署至 Azure 的端對端教學課程。" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Cloud Service" pageTitle="Node.js 入門指南 - Azure 教學課程" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="協助您開發簡單 Node.js Web 應用程式並部署至 Azure 的端對端教學課程。" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
@@ -24,7 +24,7 @@
 
 完成之應用程式的螢幕擷取畫面如下：
 
-<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="顯示 Hello World 頁面的瀏覽器視窗。URL 指出此頁面是裝載在 Azure 上。">
+<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="顯示 Hello World 頁面的瀏覽器視窗。URL 指出此頁面是裝載在 Azure 上。">
 </p>
 
 
@@ -33,7 +33,7 @@
 
 執行下列工作，建立新的 Azure 雲端服務專案以及基本的 Node.js 樣板：
 
-1. 從 [開始] 功能表****或 [開始] 畫面****，搜尋 **Azure PowerShell**。最後，在 [Azure PowerShell]**** 上按一下滑鼠右鍵，然後選取 [以系統管理員身分執行]****。
+1. 從 [開始] 功能表或 [開始] 畫面，搜尋 **Azure PowerShell**。最後，在 [Azure PowerShell] 上按一下滑鼠右鍵，然後選取 [以系統管理員身分執行]。
 
 	![Azure PowerShell icon][powershell-menu]
 
@@ -57,15 +57,15 @@
 	**New-AzureServiceProject** Cmdlet 所建立的檔案是：
 
 	-   **ServiceConfiguration.Cloud.cscfg**,
-        **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef** are
-        Azure-specific files necessary for publishing your
-        application.
+        **ServiceConfiguration.Local.cscfg** 和 **ServiceDefinition.csdef** 是發佈您的應
+        用程式所需的 Azure 
+        特定檔案。
 		
-	For more information about these files, see
-        [Overview of Creating a Hosted Service for Azure][].
+	如需這些檔案的詳細資訊，請參閱
+        [為 Azure 建立託管服務概觀][].
 
-	-   **deploymentSettings.json** stores local settings that are used by
-        the Azure PowerShell deployment cmdlets.
+	-   **deploymentSettings.json** 儲存 Azure PowerShell 部署 
+        Cmdlet 使用的本機設定。
 
 4.  使用 **Add-AzureNodeWebRole cmdlet** 輸入下列命令來新增 Web 角色：
 
@@ -160,9 +160,9 @@ Azure SDK 安裝的其中一個工具是 Azure 計算模擬器，可以讓您在
 
 1.  建立將部署到 Azure 的封裝。該封裝包含 node.js 應用程式資料夾中所有的檔案。
 
-2.  建立新的「儲存體帳戶」****(如果不存在)。Azure 儲存體帳戶將用來在部署期間儲存應用程式封裝。部署完成後，即可安全刪除儲存體帳戶。
+2.  建立新的「儲存體帳戶」(如果不存在)。Azure 儲存體帳戶將用來在部署期間儲存應用程式封裝。部署完成後，即可安全刪除儲存體帳戶。
 
-3.  建立新的「雲端服務」****(如果不存在)。「雲端服務」****是應用程式部署到 Azure 時，裝載應用程式的容器。如需詳細資訊，請參閱[為 Azure 建立託管服務概觀][]。
+3.  建立新的「雲端服務」(如果不存在)。「雲端服務」是應用程式部署到 Azure 時，裝載應用程式的容器。如需詳細資訊，請參閱[為 Azure 建立託管服務概觀][]。
 
 4.  將部署封裝發佈到 Azure。
 
@@ -207,16 +207,16 @@ Azure SDK 安裝的其中一個工具是 Azure 計算模擬器，可以讓您在
 </div>
 
 
-[已展開 Azure SDK Node.js 項目的 Windows [開始] 功能表]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
+[已展開 Azure SDK Node.js 項目的 Windows 功能表]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
 [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
 [nodejs.org]: http://nodejs.org/
-[[helloworld] 資料夾的目錄清單。]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-7.png
+[helloworld 資料夾的目錄清單。]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-7.png
 [為 Azure 建立託管服務概觀]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj155995.aspx
-[[WebRole1] 資料夾的目錄清單。]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-8.png
+[WebRole1 資料夾的目錄清單。]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-8.png
 [從工作列在 Azure 模擬器上按一下滑鼠右鍵時顯示的功能表。]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-11.png
-[顯示 http://www.windowsazure.com/ 並醒目提示 [免費試用] 連結的瀏覽器視窗]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-12.png
+[顯示 http://www.windowsazure.com/ 並醒目提示 免費試用 連結的瀏覽器視窗]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-12.png
 [顯示 LiveID 登入頁面的瀏覽器視窗]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-13.png
-[顯示 publishSettings 檔案之 [另存新檔] 對話方塊的 Internet Explorer。]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-14.png
+[顯示 publishSettings 檔案之 另存新檔 對話方塊的 Internet Explorer。]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-14.png
 
 [Publish-AzureService 命令的完整狀態]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
 [如何從 Azure 訂用帳戶刪除儲存體帳戶]: https://www.windowsazure.com/zh-tw/manage/services/storage/how-to-manage-a-storage-account/

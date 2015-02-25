@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="如何使用服務匯流排主題 (PHP) - Azure" metaKeywords="" description="了解如何在 Azure 對於 PHP 使用服務匯流排主題。" metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Service Bus Topics" pageTitle="如何使用服務匯流排主題 (PHP) - Azure" metaKeywords="" description="了解如何在 Azure 對於 PHP 使用服務匯流排主題。" metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/13/2014" ms.author="sethm" />
 
@@ -164,9 +164,9 @@
    	$ruleInfo->withSqlFilter("MessageNumber > 3");
    	$ruleResult = $serviceBusRestProxy->createRule("mytopic", "HighMessages", $ruleInfo);
 
-Note that the code above requires the use of an additional namespace: `WindowsAzure\ServiceBus\Models\SubscriptionInfo`.
+請注意，在前述程式碼中必須使用額外的命名空間： `WindowsAzure\ServiceBus\Models\SubscriptionInfo`.
 
-Similarly, the following example creates a subscription named "LowMessages" with a SqlFilter that only selects messages that have a MessageNumber property less than or equal to 3:
+同樣地，下列範例將建立名為 "LowMessages" 並帶有只選取 MessageNumber 屬性小於或等於 3 的訊息之 SqlFilter 的訂閱：
 
 	$subscriptionInfo = new SubscriptionInfo("LowMessages");
    	$serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);

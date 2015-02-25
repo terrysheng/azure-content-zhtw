@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="iOS Client Library" pageTitle="如何使用 iOS 用戶端程式庫 - Azure 行動服務" metaKeywords="Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="了解如何使用適用於 Azure 行動服務的 iOS 用戶端程式庫。" metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="iOS Client Library" pageTitle="如何使用 iOS 用戶端程式庫 - Azure 行動服務" metaKeywords="Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="了解如何使用適用於 Azure 行動服務的 iOS 用戶端程式庫。" metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
@@ -360,7 +360,7 @@ MSQuery 物件可讓您控制下列查詢行為：
 			[alert show];
 	}];
 
-This code assumes that you have previously created a 控制器中名為 `liveClient` 的 **LiveConnectClient** 執行個體，且使用者已登入。
+此程式碼假設您先前已在控制站中建立名為 `liveClient` 的 **LiveConnectClient** 執行個體，且使用者已登入。
 
 ###<a name="caching-tokens"></a>作法：快取驗證權杖
 

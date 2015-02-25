@@ -1,20 +1,6 @@
-﻿<properties 
-	pageTitle="使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集 | Azure" 
-	description="了解如何管理 HDInsight 服務。建立 HDInsight 叢集、開啟互動式 JavaScript 主控台，以及開啟 Hadoop 命令主控台." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+<properties pageTitle="使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集 | Azure" description="了解如何管理 HDInsight 服務。建立 HDInsight 叢集、開啟互動式 JavaScript 主控台，以及開啟 Hadoop 命令主控台." services="hdinsight" documentationCenter="" authors="mumian" manager="paulettm" editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/21/2014" 
-	ms.author="jgao"/>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jgao"/>
 
 
 
@@ -97,7 +83,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。如需已驗證和所支�
 不支援使用遠端桌面連線在叢集上安裝自訂軟體。您應該避免在前端節點的磁碟機上儲存任何檔案，因為這些檔案會在您需要重新建立叢集時遺失。建議您將檔案儲存至 Azure Blob 儲存體。Blob 儲存體是持續性的。
 
 ##<a id="password"></a> 變更 HDInsight 叢集使用者名稱和密碼
-HDInsight 叢集可以有兩個使用者帳戶。HDInsight 叢集使用者帳戶是在佈建程序期間所建立。您也可以建立 RDP 使用者帳戶，以透過 RDP 來存取叢集。請參閱[啟用遠端桌面]。(#enablerdp)。
+HDInsight 叢集可以有兩個使用者帳戶。HDInsight 叢集使用者帳戶是在佈建程序期間所建立。您也可以建立 RDP 使用者帳戶，以透過 RDP 來存取叢集。請參閱[啟用遠端桌面](#enablerdp)。
 
 **變更 HDInsight 叢集使用者名稱和密碼**
 
@@ -250,4 +236,6 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 [image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Hadoop command line"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
+
+
 <!--HONumber=42-->

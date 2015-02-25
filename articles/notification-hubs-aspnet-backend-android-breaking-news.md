@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Breaking News" pageTitle="通知中心即時新聞教學課程 - Android" metaKeywords="" description="了解如何使用 Azure 服務匯流排通知中心將本地化重大新聞通知傳送至 Android 裝置。" metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Breaking News" pageTitle="通知中心即時新聞教學課程 - Android" metaKeywords="" description="了解如何使用 Azure 服務匯流排通知中心將本地化重大新聞通知傳送至 Android 裝置。" metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="11/22/2014" ms.author="ricksal" />
 
@@ -22,7 +22,7 @@
 
 本主題會以您在[開始使用通知中心][get-started]中所建立的應用程式為基礎。開始本教學課程之前，您必須已完成[開始使用通知中心][get-started]。
 
-##<a name="adding-categories"></a>在應用程式中新增類別選項
+## <a name="adding-categories"></a>在應用程式中新增類別選項
 
 第一個步驟是在您現有的主要活動上新增 UI 元素，以便使用者選取要註冊的類別。使用者所選取的類別會儲存在裝置上。啟動應用程式時，您的通知中心內會建立以所選取類別做為標籤的裝置註冊。 
 
@@ -209,7 +209,7 @@
 
 您的應用程式現在可以在裝置上的本機儲存體中儲存一組類別，並在使用者每次變更類別選項時在通知中心註冊。 
 
-##<a name="register"></a>註冊通知
+## <a name="register"></a>註冊通知
 
 這些步驟會在啟動時，使用已儲存在本機儲存體中的類別在通知中心註冊。 
 
@@ -262,7 +262,7 @@
 
 [WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-##<a name="test-app"></a>執行應用程式並產生通知
+## <a name="test-app"></a>執行應用程式並產生通知
 
 1. 在 Eclipse 中建置應用程式，並在裝置或模擬器上加以啟動。
 	

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started" pageTitle="開始使用 Azure 通知中心 " metaKeywords="" description="了解如何使用 Azure 通知中心傳送推播通知。" metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started" pageTitle="開始使用 Azure 通知中心 " metaKeywords="" description="了解如何使用 Azure 通知中心傳送推播通知。" metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-kindle" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -14,7 +14,7 @@
 + Android SDK (假設您將使用 Eclipse)，您可以從<a href="http://go.microsoft.com/fwlink/?LinkId=389797">此處</a>下載。
 + 請依照<a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">這裡</a>提供的步驟，針對 Kindle 設定您的開發環境。
 
-##將新的應用程式新增至開發人員入口網站
+## 將新的應用程式新增至開發人員入口網站
 
 1. 首先，請在 [開發人員入口網站] 中建立應用程式。
 
@@ -57,14 +57,14 @@
 
 ## 設定您的應用程式
 
-<div class="dev-callout"><b>注意</b>
+   <div class="dev-callout"><b>注意</b>
     <p>建立應用程式時，至少應使用 API 層級 17。</p>
     </div>
 
 將 ADM 程式庫新增至您的 Eclipse 專案。
 
 1. 若要取得 ADM 程式庫，請 [下載 SDK]。將 SDK zip 檔案解壓縮。
-2. 在 Eclipse 中，以滑鼠右鍵按一下您的專案，然後按一下 [**屬性**]。選取左側的 [**Java 組建路徑**]，然後選取頂端的 [**程式庫 **] 索引標籤。按一下 [**新增外部 Jar**]，然後從您解壓縮 Amazon SDK 的目錄中選取檔案 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar`。
+2. 在 Eclipse 中，以滑鼠右鍵按一下您的專案，然後按一下 [**屬性**]。選取左側的 [**Java 組建路徑**]，然後選取頂端的 [**程式庫**] 索引標籤。按一下 \[**新增外部 Jar**\]，然後從您解壓縮 Amazon SDK 的目錄中選取檔案 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar`。
 3. 下載 NotificationHubs Android SDK (連結)。
 4. 將封裝解壓縮，然後將檔案 `notification-hubs-sdk.jar` 拖曳到 Eclipse 的 `libs ` 資料夾中。
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="多租用戶 Web 應用程式模式 - Azure 架構" metaKeywords="" description="找出說明如何在 Azure 實作多租用戶 Web 應用程式的結構概觀和設計模式。" metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="多租用戶 Web 應用程式模式 - Azure 架構" metaKeywords="" description="找出說明如何在 Azure 實作多租用戶 Web 應用程式的結構概觀和設計模式。" metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
@@ -104,11 +104,14 @@ Azure 提供許多可為應用程式佈建新租用戶的方式。就擁有許�
 	- 	從主要參考資料庫複製 
 	- 	使用資料庫匯入和匯出功能，從檔案佈建新資料庫。 
 
-][].
 
 <!--links-->
 
 [在 Azure 上主控多租用戶應用程式]: http://msdn.microsoft.com/zh-tw/library/hh534480.aspx
 [在 Azure 上設計多租用戶應用程式]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh689716
+[在 Azure 上代管多租用戶應用程式]: http://msdn.microsoft.com/zh-tw/library/hh534480.aspx
+
+
+
 
 

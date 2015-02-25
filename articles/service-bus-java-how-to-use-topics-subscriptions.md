@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="如何使用服務匯流排主題 (Java) - Azure" metaKeywords="開始使用 Azure 服務匯流排主題, 開始使用服務匯流排主題, Azure 發行訂閱訊息, Azure 訊息主題和訂閱, 服務匯流排主題 Java" description="了解如何在 Azure 使用服務匯流排主題及訂閱。程式碼範例專為 Java 應用程式撰寫。" metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Topics/Subscriptions" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Service Bus Topics" pageTitle="如何使用服務匯流排主題 (Java) - Azure" metaKeywords="開始使用 Azure 服務匯流排主題, 開始使用服務匯流排主題, Azure 發行訂閱訊息, Azure 訊息主題和訂閱, 服務匯流排主題 Java" description="了解如何在 Azure 使用服務匯流排主題及訂閱。程式碼範例專為 Java 應用程式撰寫。" metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Topics/Subscriptions" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 
@@ -345,4 +345,4 @@
   [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
   [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [服務匯流排佇列、主題和訂閱]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+  [服務匯流佇列、主題和訂閱]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx

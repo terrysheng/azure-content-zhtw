@@ -28,6 +28,7 @@
 自動調整應用程式區塊可以根據您特別針對應用程式所定義的規則，自動調整 Windows Azure 應用程式。您可以使用這些規則，來協助 Azure 應用程式維護其輸送量，以回應其工作負載中變更，同時控制與主控 Azure 中的應用程式相關聯的成本。除了增加或減少應用程式中的角色執行個體數目來進行調整外，區塊還可讓您使用其他調整動作，例如節流應用程式內的特定功能，或使用自定的動作。
 
 您可以選擇主控 Azure 角色或內部部署應用程式中的區塊。 
+
 自動調整應用程式區塊是 [Microsoft Enterprise Library 5.0 Integration Pack for Azure](http://go.microsoft.com/fwlink/?LinkID=235134) 的一部分。
 
 ## <a id="Concepts"> </a>概念

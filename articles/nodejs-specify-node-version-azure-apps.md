@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Specifying a Node.js Version" pageTitle="指定 Node.js 版本 "metaKeywords ="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Specifying a Node.js Version" pageTitle="指定 Node.js 版本 "metaKeywords ="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -10,7 +10,7 @@
 
 裝載 Node.js 應用程式時，您可能會想要確定應用程式是使用特定版本的 Node.js。有數種方式可以為 Azure 上裝載的應用程式完成這項動作。
 
-##預設版本
+## 預設版本
 
 Azure 目前提供 Node.js 0.6.17、0.6.20 和 0.8.4 版。除非另有指定，否則 0.6.20 將是使用的預設版本。
 
@@ -20,7 +20,7 @@ Azure 目前提供 Node.js 0.6.17、0.6.20 和 0.8.4 版。除非另有指定，
 </div>
 
 
-##以 package.json 進行版本設定
+## 以 package.json 進行版本設定
 
 您可以在 **package.json** 檔案中新增下列內容，以指定要使用的 Node.js 版本：
 
@@ -32,7 +32,7 @@ Azure 目前提供 Node.js 0.6.17、0.6.20 和 0.8.4 版。除非另有指定，
 
 由於 0.6.22 不是主控環境中已提供的版本，因此將改用 0.8 系列可用的最高版本，也就是 0.8.4 版。
 
-##以 PowerShell 進行雲端服務版本設定
+## 以 PowerShell 進行雲端服務版本設定
 
 如果您要將應用程式裝載在雲端服務中，而且要使用 Azure PowerShell 來部署應用程式，您可以使用 **Set-AzureServiceProjectRole** PowerShell Cmdlet 覆寫預設 Node.js 版本。例如：
 
@@ -40,7 +40,7 @@ Azure 目前提供 Node.js 0.6.17、0.6.20 和 0.8.4 版。除非另有指定，
 
 您也可以使用 **Get-AzureServiceProjectRoleRuntime**，擷取以雲端服務形式裝載之應用程式的可用 Node.js 版本清單。
 
-##對 Azure 網站使用自訂版本
+## 對 Azure 網站使用自訂版本
 
 雖然 Azure 提供數個預設 Node.js 版本，不過您可能會想要使用預設未提供的版本。如果您的應用程式是以 Azure 網站形式裝載，您可以使用 **iisnode.yml** 檔案達到該目的。下列步驟將逐步引導您對 Azure 網站使用自訂版本的 Node.Js：
 
@@ -80,7 +80,7 @@ Azure 目前提供 Node.js 0.6.17、0.6.20 和 0.8.4 版。除非另有指定，
 
 	發行應用程式後，請使用瀏覽器開啟網站。您應該會看見 "Hello from Azure running node version:v0.8.1" 的訊息。
 
-##後續步驟
+## 後續步驟
 
 現在您已了解如何指定應用程式使用的 Node.js 版本，接下來請了解如何 [使用模組]、[建置並部署 Node.js 網站] 和 [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]。
 

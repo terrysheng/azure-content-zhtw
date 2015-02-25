@@ -1,4 +1,4 @@
-﻿<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="如何使用 SendGrid 電子郵件服務 (PHP) - Azure" metaKeywords="Azure SendGrid, Azure 電子郵件服務, Azure SendGrid PHP, Azure 電子郵件 PHP" description="了解如何在 Azure 上使用 SendGrid 電子郵件服務傳送電子郵件。以 PHP 撰寫的程式碼範例。" documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
+<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="如何使用 SendGrid 電子郵件服務 (PHP) - Azure" metaKeywords="Azure SendGrid, Azure 電子郵件服務, Azure SendGrid PHP, Azure 電子郵件 PHP" description="了解如何在 Azure 上使用 SendGrid 電子郵件服務傳送電子郵件。以 PHP 撰寫的程式碼範例。" documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
 
@@ -397,10 +397,10 @@ SendGrid 提供了運用 'filters' 的其他電子郵件功能。這些設定可
   [什麼是 SendGrid 電子郵件服務]: #bkmk_WhatIsSendGrid
   [建立 SendGrid 帳戶]: #bkmk_CreateSendGrid
   [透過 PHP 應用程式使用 SendGrid]: #bkmk_UsingSendGridfromPHP
-  [作法：傳送電子郵件]: #bkmk_HowToSendEmail
-  [作法：新增附件]: #bkmk_HowToAddAttachment
-  [作法：使用篩選器來啟用頁尾、追蹤和分析]: #bkmk_HowToUseFilters
-  [作法：使用其他 SendGrid 服務]: #bkmk_HowToUseAdditionalSvcs
+  [做法：傳送電子郵件]: #bkmk_HowToSendEmail
+  [做法：新增附件]: #bkmk_HowToAddAttachment
+  [做法：使用篩選器來啟用頁尾、追蹤和分析]: #bkmk_HowToUseFilters
+  [做法：使用其他 SendGrid 服務]: #bkmk_HowToUseAdditionalSvcs
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [特殊優惠]: https://www.sendgrid.com/windowsazure.html

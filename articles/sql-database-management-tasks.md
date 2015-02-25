@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="如何管理 SQL Database" metaKeywords ="Azure SQL 資料庫, SQL 資料庫, 管理 sql 資料庫, 新增登入, 連接到 sql 資料庫" description="了解如何管理 Azure SQL 資料庫。" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
+<properties umbracoNaviHide="0" pageTitle="如何管理 SQL Database" metaKeywords ="Azure SQL 資料庫, SQL 資料庫, 管理 sql 資料庫, 新增登入, 連接到 sql 資料庫" description="了解如何管理 Azure SQL 資料庫。" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
 
@@ -7,7 +7,7 @@
 
 本文將說明如何在 Azure SQL Database 中執行簡單的管理工作。 
 
-##目錄##
+## 目錄##
 
 * [作法：使用 Management Studio 連接到 Azure 中的 SQL Database](#connect)
 * [作法：將登入和使用者新增至 Azure 中的 SQL Database](#addlogins)
@@ -23,7 +23,7 @@ Management Studio 具有目前無法在管理入口網站中使用的功能，�
 
 在某些情況下，您必須先建立防火牆例外狀況，使本機系統的連接埠 1433 允許輸出要求，您才能進行連接。依預設受到保護的電腦通常不會開放連接埠 1433。 
 
-##設定內部部署伺服器的防火牆
+## 設定內部部署伺服器的防火牆
 
 1. 在具備進階安全性的 Windows 防火牆中，建立新的輸出規則。
 
@@ -32,7 +32,7 @@ Management Studio 具有目前無法在管理入口網站中使用的功能，�
 3. 提供有意義的名稱，例如 *WindowsAzureSQLDatabase (tcp-out) port 1433*。 
 
 
-##連接到邏輯伺服器
+## 連接到邏輯伺服器
 
 1. 在 Management Studio 的 [連接到伺服器] 中，確定已選取 Database Engine，然後輸入下列格式的邏輯伺服器名稱：*servername*.database.widnows.net
 
@@ -45,7 +45,7 @@ Management Studio 具有目前無法在管理入口網站中使用的功能，�
 4. 在 [連接到資料庫] 中，指定 [**master**]。
 
 
-##連接到內部部署伺服器
+## 連接到內部部署伺服器
 
 1. 在 Management Studio 的 [連接到伺服器] 中，確定已選取 Database Engine，然後以下列格式輸入邏輯執行個體的名稱：*servername*\\*instancename*.如果伺服器是本機的預設執行個體，請輸入 *localhost*。
 
@@ -62,7 +62,7 @@ Management Studio 具有目前無法在管理入口網站中使用的功能，�
 
 第二個指令碼會指派資料庫使用者權限。執行此指令碼時，您會連接到已在 Azure 上載入的資料庫。
 
-##建立登入
+## 建立登入
 
 1. 在 Management Studio 中連接到 Azure 上的邏輯伺服器、展開 [資料庫] 資料夾、以滑鼠右鍵按一下 [**master**]，然後選取 [**新增查詢**]。
 
@@ -82,7 +82,7 @@ Management Studio 具有目前無法在管理入口網站中使用的功能，�
 </pre></div>
 
 
-##建立資料庫使用者
+## 建立資料庫使用者
 
 1. 展開 [資料庫] 資料夾、以滑鼠右鍵按一下 [**school**]，然後選取 [**新增查詢**]。
 
@@ -104,7 +104,7 @@ Management Studio 具有目前無法在管理入口網站中使用的功能，�
     GRANT VIEW DATABASE STATE to 'sqlops';
 </pre></div>
 
-##檢視並測試登入
+## 檢視並測試登入
 
 1. 在新的查詢視窗中連接到 **master**，然後執行下列陳述式： 
 
@@ -126,8 +126,8 @@ Management Studio 具有目前無法在管理入口網站中使用的功能，�
 現在，您已建立並測試數個登入。如需詳細資訊，請參閱[管理 SQL Database 中的資料庫和登入][]和[使用動態管理檢視監視 SQL Database][]。
 
 [管理 SQL Database 中的資料庫和登入]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336235.aspx
-[使用動態管理檢視監視 Windows Azure SQL Database]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff394114.aspx
-[使用 Management Studio 管理 SQL Database]: http://www.windowsazure.com/zh-tw/develop/net/common-tasks/sql-azure-management/
+[使用動態管理檢視監視 SQL Database]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff394114.aspx
+[使用 Management Studio 管理 SQL 資料庫]: http://www.windowsazure.com/zh-tw/develop/net/common-tasks/sql-azure-management/
 
 
 

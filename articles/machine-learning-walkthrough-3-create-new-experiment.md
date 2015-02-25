@@ -1,11 +1,11 @@
-﻿<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="步驟 3：建立新的 Machine Learning 實驗 | Azure" description="步驟 3：在 Azure Machine Learning Studio 中建立新的訓練實驗" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="步驟 3：建立新的 Machine Learning 實驗 | Azure" description="步驟 3：在 Azure Machine Learning Studio 中建立新的訓練實驗" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
 
 
 這是[使用 Azure ML 開發預測方案][develop]逐步解說的第三個步驟：
 
-[開發]: ../machine-learning-walkthrough-develop-predictive-solution/
+[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
 
 
 1.	[建立 ML 工作區][create-workspace]
@@ -33,7 +33,7 @@
 3.	在實驗畫布左側的模組調色盤中，展開 [**儲存的資料集**]。
 4.	找出您已建立的資料集，並將其拖曳到畫布上。您也可以在調色盤上方的 [**搜尋**] 方塊中輸入名稱，以尋找資料集。  
 
-##準備資料
+## 準備資料
 您可以在資料集的輸出埠上按一下滑鼠右鍵，然後選取 [**視覺化**]。請注意，ML Studio 已識別每個資料行的資料類型。它也會為資料行指定一般標題，因為資料檔案並未隨附資料行標題。  
 
 資料行標題並非必要，但這些標題可讓您更容易使用模型中的資料。此外，當我們最終在 Web 服務中發行此模型時，標題將有助於服務的使用者識別資料行。  
@@ -59,7 +59,7 @@
 
 ![Adding Metadata Editor][2]
  
-##建立訓練和測試資料集
+## 建立訓練和測試資料集
 實驗的下一個步驟，是產生將用來訓練及測試模型的個別資料集。為此，我們將使用 [**分割**] 模組。  
 
 1.	找出 [**分割**] 模組、將其拖曳到畫布上，然後連接到最後一個 [**中繼資料編輯器**] 模組。

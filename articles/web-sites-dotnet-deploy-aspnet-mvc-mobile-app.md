@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 行動網站 - Azure 教學課程" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="指導您如何使用 ASP.NET MVC 5 Web 應用程式的行動功能將 Web 應用程式部署到 Azure 網站的教學課程。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle=".NET ASP.NET MVC 5 行動網站 - Azure 教學課程" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="指導您如何使用 ASP.NET MVC 5 Web 應用程式的行動功能將 Web 應用程式部署到 Azure 網站的教學課程。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande" />
 
@@ -136,8 +136,9 @@ MVC 5 範本中的新功能是內建的 Bootstrap 支援。您已經看到它是
               //"~/Content/bootstrap.css",
               "~/Content/site.css"));
 
-按 'CTRL+F5' 以執行應用程式。
- 您會發現可摺疊的導覽列現在只是一般的未排序清單。再按一下 [**依標籤瀏覽**]，然後按一下 [**ASP.NET**]。您現在可以在行動模擬器檢視中看到檢視已不再縮放至適合螢幕的大小，且您必須橫向捲動才能看到右邊的表格。
+按 `CTRL+F5` 以執行應用程式。
+
+您會發現可摺疊的導覽列現在只是一般的未排序清單。再按一下 [**依標籤瀏覽**]，然後按一下 [**ASP.NET**]。您現在可以在行動模擬器檢視中看到檢視已不再縮放至適合螢幕的大小，且您必須橫向捲動才能看到右邊的表格。
 
 ![][SessionsByTagASP.NETNoBootstrap]
 
@@ -556,7 +557,7 @@ Bootstrap [linked list group][] 樣式讓每個連結的整個方塊都可以點
 另請參閱
 --------
 
--   [回應性 Web 設計的 9 個基本原則][http://blog.froont.com/9-basic-principles-of-responsive-web-design/]
+-   [回應性 Web 設計的 9 個基本原則](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
 -   [Bootstrap][BootstrapSite] 網站
 -   [官方 Bootstrap 部落格][]
 -   [Tutorial Republic 的 Twitter Bootstrap 教學課程][]

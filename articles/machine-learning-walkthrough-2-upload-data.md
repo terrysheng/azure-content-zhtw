@@ -1,10 +1,10 @@
-﻿<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="步驟 2：將資料上傳至 Azure Machine Learning 實驗中 | Azure" description="步驟 2：將現有公用資料上傳至 Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="步驟 2：將資料上傳至 Azure Machine Learning 實驗中 | Azure" description="步驟 2：將現有公用資料上傳至 Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
 
 這是[使用 Azure ML 開發預測方案][develop]逐步解說的第二個步驟：
 
-[開發]: ../machine-learning-walkthrough-develop-predictive-solution/
+[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
 
 
 1.	[建立 ML 工作區][create-workspace]
@@ -23,7 +23,7 @@
 
 ----------
 
-#步驟 2：將現有資料上傳至 Azure Machine Learning 實驗中  
+# 步驟 2：將現有資料上傳至 Azure Machine Learning 實驗中  
 
 為了開發信用風險的預測模型，我們將使用 UCI 機器學習儲存機制中的「UCI Statlog (德國信用資料) 資料集」。您可以在此找到它：  
 <a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
@@ -38,7 +38,7 @@ UCI 網站提供了功能向量的屬性說明，這些屬性包括財務資訊�
 
 以下提供一個有趣的論點。資料集的說明指出，對金融機構而言，將某個實際上屬於高信用風險的人誤判為低信用風險者，會比將低信用風險者誤判為高風險者多耗費 5 倍的成本。要在我們的實驗中將此點納入考量，將代表高信用風險者的項目加倍 ( 5 次)，會是一個簡單的方式。如此，若模型將高信用風險誤判為低風險，模型將會誤判 5 次，每次加倍各一次。這會在訓練結果中增加此誤差的成本。  
 
-##轉換資料集格式
+## 轉換資料集格式
 原始資料集使用以空格分隔的格式。ML Studio 在使用逗號分隔 (CSV) 檔案時更能適當運作，因此我們將以逗號取代空格，進行資料集轉換。  
 
 我們可以使用下列 Windows PowerShell 命令執行此動作：   
@@ -49,7 +49,7 @@ UCI 網站提供了功能向量的屬性說明，這些屬性包括財務資訊�
 
 	sed 's/ /,/g' german.data > german.csv  
 
-##將資料集上傳至 ML Studio
+## 將資料集上傳至 ML Studio
 
 在資料轉換為 CSV 格式後，我們必須將其上傳至 ML Studio 中。  
 

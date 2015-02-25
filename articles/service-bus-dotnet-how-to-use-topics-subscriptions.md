@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="如何使用服務匯流排主題 (.NET) - Azure" metaKeywords="開始使用 Azure 服務匯流排主題, Azure 發行訂閱訊息, Azure 訊息主題和訂閱 C# " description="了解如何在 Azure 使用服務匯流排主題及訂閱。程式碼範例專為 .NET 應用程式撰寫。 " metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Service Bus Topics" pageTitle="如何使用服務匯流排主題 (.NET) - Azure" metaKeywords="開始使用 Azure 服務匯流排主題, Azure 發行訂閱訊息, Azure 訊息主題和訂閱 C# " description="了解如何在 Azure 使用服務匯流排主題及訂閱。程式碼範例專為 .NET 應用程式撰寫。 " metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -56,7 +56,7 @@
 	...
 	</ServiceDefinition>
 
-You then specify values in the service configuration (`*.cscfg`) file:
+接著您可以在服務組態 (`*.cscfg`) 檔案中指定值：
 
 	<ServiceConfiguration serviceName="WindowsAzure1">
 	...
@@ -162,9 +162,9 @@ You then specify values in the service configuration (`*.cscfg`) file:
 		"HighMessages", 
 		highMessagesFilter);
 
-Similarly, the following example creates a subscription named
-"LowMessages" with a **SqlFilter** that only selects messages that have
-a **MessageNumber** property less than or equal to 3:
+同樣地，下列範例將建立名為 "LowMessages"
+並帶有只選取 **MessageNumber** 屬性小於或等於 3 的訊息之 **SqlFilter**
+的訂閱：
 
      // Create a "LowMessages" filtered subscription
      SqlFilter lowMessagesFilter = 

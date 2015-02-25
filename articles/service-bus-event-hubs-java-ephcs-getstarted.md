@@ -1,4 +1,4 @@
-﻿<properties pageTitle="開始使用事件中心" metaKeywords="Azure 服務匯流排, 事件中心, 開始使用事件中心" description="遵循此教學課程，可開始使用 Azure Event Hubs 透過 Java 傳送事件並透過利用 EventProcessorHost 以 C# 接收。" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties pageTitle="開始使用事件中心" metaKeywords="Azure 服務匯流排, 事件中心, 開始使用事件中心" description="遵循此教學課程，可開始使用 Azure Event Hubs 透過 Java 傳送事件並透過利用 EventProcessorHost 以 C# 接收。" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
@@ -8,7 +8,7 @@
 
 事件中心是可高度擴充的擷取系統，每秒可以吸收數以百萬計的事件，讓應用程式能處理和分析已連線裝置和應用程式所產生的大量資料。一旦收集到事件中心，您即可使用任何即時分析提供者或儲存體叢集來轉換和儲存資料。
 
-	如需詳細資訊，請參閱[事件中心概觀].
+如需詳細資訊，請參閱[事件中心概觀].
 
 在本教學課程中，您將學習如何使用以 Java 撰寫的主控台應用程式將訊息擷取到事件中心，以及使用 C# [事件處理器主機]程式庫平行擷取它們。
 

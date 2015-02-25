@@ -1,9 +1,9 @@
-﻿<properties urlDisplayName="Azure Notification Hubs" pageTitle="Azure 通知中心 " metaKeywords="Azure 推播通知, Azure 通知中心, Azure 訊息" description="了解如何在 Azure 中使用推播通知。程式碼範例是以 C# 撰寫並使用 .NET API。" metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" manager="dwrede" />
+<properties urlDisplayName="Azure Notification Hubs" pageTitle="Azure 通知中心 " metaKeywords="Azure 推播通知, Azure 通知中心, Azure 訊息" description="了解如何在 Azure 中使用推播通知。程式碼範例是以 C# 撰寫並使用 .NET API。" metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" manager="dwrede" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 
-#Azure 通知中心
+# Azure 通知中心
 
 
 Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，而大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。
@@ -77,7 +77,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
   [0]: ./media/notification-hubs-overview/SBPushNotifications1.gif
   [1]: ./media/notification-hubs-overview/SBPushNotifications2.gif
   [客戶如何使用通知中樞]: http://azure.microsoft.com/zh-tw/services/notification-hubs
-  [通知中樞教學課程和指南]: http://azure.microsoft.com/zh-tw/documentation/services/notification-hubs
+  [通知中心教學課程和指南]: http://azure.microsoft.com/zh-tw/documentation/services/notification-hubs
   [iOS]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-ios-get-started
   [Android]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-android-get-started
   [Windows Universal]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started

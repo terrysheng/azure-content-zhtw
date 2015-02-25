@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get started with custom authentication" pageTitle="開始使用自訂驗證 | 行動開發人員中心" metaKeywords="" description="了解如何藉由使用者名稱及密碼驗證使用者。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with custom authentication" authors="mahender" manager="dwrede" />
+<properties urlDisplayName="Get started with custom authentication" pageTitle="開始使用自訂驗證 | 行動開發人員中心" metaKeywords="" description="了解如何藉由使用者名稱及密碼驗證使用者。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with custom authentication" authors="mahender" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
 
@@ -156,7 +156,7 @@
 
         }
 
-       `LoginProvider` has three other abstract methods which you will implement later.
+       `LoginProvider` 有其他三種抽象方法，您將在稍後加以實作。
 
 2. 建立名為 `CustomLoginProviderCredentials` 的新類別。這代表使用者的相關資訊，將透過 `ServiceUser.getIdentitiesAsync()` 在後端上供您使用。如果您要新增自訂宣告，請確定這些宣告可從這個物件中擷取。
 

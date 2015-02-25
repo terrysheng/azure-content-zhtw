@@ -1,4 +1,4 @@
-﻿<properties title="Publishing Azure ML Web Services to the Azure Marketplace" pageTitle="將 Azure ML Web 服務發佈至 Azure Marketplace | Azure" description="將 Azure ML Web 服務發行至 Azure Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Publishing Azure ML Web Services to the Azure Marketplace" pageTitle="將 Azure ML Web 服務發佈至 Azure Marketplace | Azure" description="將 Azure ML Web 服務發行至 Azure Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/03/2014" ms.author="garye" />
 
@@ -13,8 +13,8 @@
 
 <!--Anchors-->
 [簡介]: #introduction
-[發佈程序概觀]: #overview-of-the-publishing-process
-[發佈至 Azure Marketplace 的指引]: #guidelines-for-publishing-to-azure-marketplace
+[發行程序概觀]: #overview-of-the-publishing-process
+[發行至 Azure Marketplace 的指引]: #guidelines-for-publishing-to-azure-marketplace
 [機器學習專用選項]: #machine-learning-specific-options 
 
 ## 簡介

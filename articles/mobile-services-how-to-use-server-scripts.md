@@ -1,4 +1,4 @@
-﻿<properties pageTitle="使用 JavaScript 後端行動服務" metaKeywords="server scripts, mobile devices, Azure, scheduler" description="提供如何在 Azure 行動服務中定義、註冊和使用伺服器指令碼的範例。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="使用 JavaScript 後端行動服務" metaKeywords="server scripts, mobile devices, Azure, scheduler" description="提供如何在 Azure 行動服務中定義、註冊和使用伺服器指令碼的範例。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
@@ -494,7 +494,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 			// return a value to the callback function.
 		};
  
-You can then use a function like this in a table operation script:
+然後在資料表作業指令碼中使用如下的函數：
 
 		function insert(item, user, request) {
 		    var helper = require('../shared/helper');

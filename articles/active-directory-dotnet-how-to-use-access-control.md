@@ -283,7 +283,7 @@ Azure 即會建立並啟動命名空間。
 
 ![][15]
 
-如需關於在應用程式中使用宣告的詳細資訊，請參閱 [Windows Identity Foundation 文件庫 (機器翻譯)][Windows Identity Foundation 文件庫 (機器翻譯)]。
+如需關於在應用程式中使用宣告的詳細資訊，請參閱 [Windows Identity Foundation 文件庫 (機器翻譯)](http://msdn.microsoft.com/zh-tw/library/hh377151.aspx)。
 
 ## <a name="bkmk_VP"></a>在 ACS 管理入口網站中檢視應用程式
 
@@ -325,7 +325,7 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
 
 讓我們使用 ACS 管理入口網站來變更 MvcACS 應用程式的驗證。在此範例中，我們將新增 Google 做為 MvcACS 的身分識別提供者。
 
-1.  按一下 [識別提供者] (在導覽功能表中)，然後按一下 [新增]。
+1.  按一下 [識別提供者] \(在導覽功能表中\)，然後按一下 [新增]。
 
     ![][20]
 

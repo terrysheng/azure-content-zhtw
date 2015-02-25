@@ -1,11 +1,11 @@
-﻿<properties urlDisplayName="Upload a CentOS-based VHD" pageTitle="在 Azure 中建立及上傳 CentOS 型 Linux VHD" metaKeywords="Azure VHD, uploading Linux VHD, CentOS" description="了解如何建立及上傳包含 CentOS 型 Linux 作業系統的 Azure 虛擬硬碟 (VHD)。" metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a CentOS-based Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="在 Azure 中建立及上傳 CentOS 型 Linux VHD" description="了解如何建立及上傳包含 CentOS 型 Linux 作業系統的 Azure 虛擬硬碟 (VHD)。" services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
 
-# 準備執行 Azure 的 CentOS 型虛擬機器
+# 準備 CentOS 型的 Azure 虛擬機器
 
-- [準備執行 Azure 的 CentOS 6.x 虛擬機器](#centos6)
-- [準備執行 Azure 的 CentOS 7.0+ 虛擬機器](#centos7)
+- [準備執行 CentOS 6.x 的 Azure 虛擬機器](#centos6)
+- [準備執行 CentOS 7.0+ 的 Azure 虛擬機器](#centos7)
 
 ##必要條件##
 
@@ -16,7 +16,7 @@
 
 - Azure 不支援較新的 VHDX 格式。您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。
 
-- 安裝 Linux 系統時，建議您使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。這可避免 LVM 與複製之虛擬機器的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至其他虛擬機器時。如果願意，您可以在資料磁碟上使用 LVM 或 [RAID](../virtual-machines-linux-configure-raid) 。
+- 安裝 Linux 系統時，建議您使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。這可避免 LVM 與複製之虛擬機器的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至其他虛擬機器時。如果需要，您可以在資料磁碟上使用 LVM 或 [RAID](../virtual-machines-linux-configure-raid)。
 
 - 由於 2.6.37 以下的 Linux 核心版本有錯誤，因此較大的 VM 不支援 NUMA。這個問題主要會影響使用上游 Red Hat 2.6.32 kernel 的散發套件。手動安裝 Azure Linux 代理程式 (waagent) 將會自動停用 Linux Kernel GRUB 組態中的 NUMA。您可以在以下步驟中找到與此有關的詳細資訊。
 
@@ -29,20 +29,20 @@
 
 1. 在 Hyper-V 管理員中，選取虛擬機器。
 
-2. 按一下 [**連接**] 以開啟虛擬機器的主控台視窗。
+2. 按一下 [連接]，以開啟虛擬機器的主控台視窗。
 
 3. 執行下列命令以解除安裝 NetworkManager：
 
 		# sudo rpm -e --nodeps NetworkManager
 
-	**附註：**如果尚未安裝封裝，此命令將會失敗，並出現錯誤訊息。這是預期行為。
+	**注意：**如果尚未安裝封裝，此命令將會失敗並出現錯誤訊息。這是預期行為。
 
-4.	在 `/etc/sysconfig/` 目錄中，建立名為 **network**、且包含下列文字的檔案：
+4.	在 `/etc/sysconfig/` 目錄中建立名為 **network** 且包含下列文字的檔案：
 
 		NETWORKING=yes
 		HOSTNAME=localhost.localdomain
 
-5.	在 `/etc/sysconfig/network-scripts/` 目錄中，建立名為 **ifcfg-eth0**、且包含下列文字的檔案：
+5.	在 `/etc/sysconfig/network-scripts/` 目錄中建立名為 **ifcfg-eth0** 且包含下列文字的檔案：
 
 		DEVICE=eth0
 		ONBOOT=yes
@@ -55,8 +55,9 @@
 6.	移動 (或移除) udev 角色可防止產生乙太網路介面的靜態規則。在 Microsoft Azure 或 Hyper-V 中複製虛擬機器時，這些規則會造成問題：
 
 		# sudo mkdir -m 0700 /var/lib/waagent
-		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/ 2>/dev/null
-		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/ 2>/dev/null
+		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
+		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
+
 
 7. 要確保開機時會啟動網路服務，可執行以下命令：
 
@@ -67,23 +68,23 @@
 
 	**重要事項：此步驟僅適用於 CentOS 6.3 和較舊的版本。**在 CentOS 6.4+ 中，Linux Integration Services「已是核心中的可用項目」。
 
-	a) 從 [Microsoft 下載中心]取得包含 Linux Integration Services 驅動程式的 .iso 檔案(http://www.microsoft.com/zh-tw/download/details.aspx?id=41554)。
+	a) 從 [Microsoft 下載中心](http://www.microsoft.com/zh-tw/download/details.aspx?id=41554)取得包含 Linux Integration Services 驅動程式的 .iso 檔案。
 
-	b) 在 Hyper-V 管理員的 [**動作**] 窗格中，按一下 [**設定**]。
+	b) 在 Hyper-V 管理員的 [動作] 窗格中，按一下 [設定]。
 
 	![Open Hyper-V settings](./media/virtual-machines-linux-create-upload-vhd/settings.png)
 
-	c) 在 [**硬體**] 窗格中，按一下 [**IDE 控制器 1**]。
+	c) 在 [硬體] 窗格中，按一 下 [IDE 控制器 1]。
 
 	![Add DVD drive with install media](./media/virtual-machines-linux-create-upload-vhd/installiso.png)
 
-	d) 在 [**IDE 控制器**] 方塊中，按一下 [**DVD 光碟機**]，然後按一下 [**新增**]。
+	d) 在 [IDE 控制器] 方塊中，按一下 [DVD 光碟機]，再按一下 [新增]。
 
-	e) 選取 [**映像檔**]，瀏覽至 **Linux IC v3.2.iso**，然後按一下 [**開啟**]。
+	e) 選取 [映像檔]，瀏覽至 **Linux IC v3.2.iso**，然後按一下 [開啟]。
 
-	f) 在 [**設定**] 頁面中，按一下 [**確定**]。
+	f) 在 [設定] 頁面，按一下 [確定]。
 
-	g) 按一下 [**連接**]，以開啟虛擬機器的視窗。
+	g) 按一下 [連接]，以開啟虛擬機器的視窗。
 
 	h) 在 [命令提示字元] 視窗中，輸入下列命令：
 
@@ -139,18 +140,18 @@
 		enabled=0
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-	**附註：** 本指南的其他部分將假設您至少會使用 [openlogic] 儲存機制，該儲存機制稍後將可用來安裝 Azure Linux 代理程式。
+	**注意：** 本指南的其他部分將假設您至少會使用 [openlogic] 儲存機制，該儲存機制稍後將可用來安裝 Azure Linux 代理程式。
 
 
 11.	在 /etc/yum.conf 中加入這一行：
 
 		http_caching=packages
 
-	**僅限 CentOS 6.3**，新增以下一行：
+	並加入下列這一行 (僅限 CentOS 6.3)：
 
 		exclude=kernel*
 
-12. 編輯檔案 "/etc/yum/pluginconf.d/fastestmirror.conf" 以停用 "fastestmirror" 模組，然後在 `[main]` 下方輸入下列內容
+12. 編輯檔案 "/etc/yum/pluginconf.d/fastestmirror.conf" 以停用 YUM 模組 "fastestmirror"，然後在 `[main]` 中輸入下列命令
 
 		set enabled=0
 
@@ -158,7 +159,7 @@
 
 		# yum clean all
 
-14. **僅限 CentOS 6.3**，使用下列命令更新核心：
+14. 使用下列命令更新核心 (僅限 CentOS 6.3)：
 
 		# sudo yum --disableexcludes=all install kernel
 
@@ -168,7 +169,7 @@
 
 	這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。因為 CentOS 6 所使用核心版本的一個錯誤，這將會停用 NUMA。
 
-	除了上述以外，我們還建議您移除下列參數：
+	除了上述以外，我們還建議您「移除」下列參數：
 
 		rhgb quiet crashkernel=auto
 
@@ -201,7 +202,7 @@
 		# export HISTSIZE=0
 		# logout
 
-20. 在 Hyper-V 管理員中，依序按一下 [**動作] -> [關閉**]。您現在可以將 Linux VHD 上傳至 Azure。
+20. 在 [Hyper-V 管理員] 中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
 
 ----------
@@ -218,18 +219,18 @@
  - XFS 現為預設的檔案系統。如有需要，您仍可使用 ext4 檔案系統。
 
 
-**組態步驟**
+**設定步驟**
 
 1. 在 Hyper-V 管理員中，選取虛擬機器。
 
-2. 按一下 [**連接**] 以開啟虛擬機器的主控台視窗。
+2. 按一下 [連接]，以開啟虛擬機器的主控台視窗。
 
-3.	在 `/etc/sysconfig/` 目錄中，建立名為 **network**、且包含下列文字的檔案：
+3.	在 `/etc/sysconfig/` 目錄中建立名為 **network** 且包含下列文字的檔案：
 
 		NETWORKING=yes
 		HOSTNAME=localhost.localdomain
 
-4.	在 `/etc/sysconfig/network-scripts/` 目錄中，建立名為 **ifcfg-eth0**、且包含下列文字的檔案：
+4.	在 `/etc/sysconfig/network-scripts/` 目錄中建立名為 **ifcfg-eth0** 且包含下列文字的檔案：
 
 		DEVICE=eth0
 		ONBOOT=yes
@@ -296,20 +297,21 @@
 		gpgcheck=1
 		enabled=0
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+		
 
 
-	**附註：** 本指南的其他部分將假設您至少會使用 [openlogic] 儲存機制，該儲存機制稍後將可用來安裝 Azure Linux 代理程式。
+	**注意：** 本指南的其他部分將假設您至少會使用 [openlogic] 儲存機制，該儲存機制稍後將可用來安裝 Azure Linux 代理程式。
 
 9.	執行下列命令，以清除目前的 yum 中繼資料並安裝任何更新：
 
 		# sudo yum clean all
 		# sudo yum -y update
 
-10.	修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 "/etc/default/grub" 並編輯 `GRUB_CMDLINE_LINUX` 參數，例如：
+10.	修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 "/etc/default/grub" 並編輯  `GRUB_CMDLINE_LINUX` 參數，例如：
 
 		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
-	這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。除了上述以外，我們還建議您移除下列參數：
+	這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。除了上述以外，我們還建議您「移除」下列參數：
 
 		rhgb quiet crashkernel=auto
 
@@ -343,8 +345,7 @@
 		# export HISTSIZE=0
 		# logout
 
-16. 在 Hyper-V 管理員中，依序按一下 [**動作] -> [關閉**]。您現在可以將 Linux VHD 上傳至 Azure。
+16. 在 [Hyper-V 管理員] 中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

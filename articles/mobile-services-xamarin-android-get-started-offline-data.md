@@ -1,178 +1,148 @@
-﻿<properties urlDisplayName="Using Offline Data" pageTitle="使用行動服務 (Xamarin Android) 中的離線資料 | 行動開發人員中心 " metaKeywords="v" description="了解如何使用 Azure 行動服務在您的 Xamarin Android 應用程式中快取及同步處理離線資料" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data in Mobile Services" authors="donnam" editor="wesmc" manager="dwrede"/>
+﻿<properties pageTitle="使用行動服務 (Xamarin Android) 中的離線資料 | 行動開發人員中心" description="了解如何使用 Azure 行動服務快處和徒步 Xamarin Android 應用程式中的離線資料" documentationCenter="xamarin" authors="lindydonna" editor="wesmc" manager="dwrede" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="donnam"/>
 
-# 使用行動服務中的離線資料同步
+# 使用行動服務中的離線資料
 
-[WACOM.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
 
-本主題將示範如何使用 Azure 行動服務的離線功能。這些功能可讓您在行動服務處於離線狀態時，仍可與本機資料庫互動。離線功能可讓您在重新上線時同步處理本機變更與行動服務。 
+本主題逐步解說 todo 清單快速入門應用程式中的 Azure 行動服務離線同步處理功能。離線同步處理可讓您輕鬆建立連沒有網路存取的一般使用者都能使用的應用程式。
 
-在本教學課程中，您將會更新「開始使用行動服務」[]或「開始使用資料」[]教學課程中的應用程式，以支援 Azure 行動服務的離線功能。接著，您會在中斷連線的離線狀態下新增資料、將這些項目同步處理至線上資料庫，然後登入 Azure 管理入口網站，以檢視執行應用程式時對資料所做的變更。
+離線同步具有幾種潛在用途：
 
->[WACOM.NOTE] 本教學課程旨在協助您深入了解如何透過行動服務，來使用 Azure 儲存並擷取 Windows 市集應用程式中的資料。因此，本主題將逐步說明已在行動服務快速入門中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮先完成教學課程[開始使用行動服務]。
+* 在裝置上本機快取伺服器資料，以改善應用程式回應性
+* 讓應用程式能夠在網路連線中斷後恢復
+* 讓使用者即使在沒有網路存取的情況下仍能建立及修改資料，而支援連線微弱或無連線的情況
+* 同步多個裝置之間的資料，並在兩個裝置修改相同的記錄時偵測衝突
+
+>[AZURE.NOTE] 若要完成本教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。 
 >
-> 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。 
-
-[此處](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/Xamarin.Android)可以取得此教學課程中已完成的專案。
+> 如果這是您第一次接觸行動服務，您應先完成[開始使用行動服務]。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1. [更新應用程式以支援離線功能]
-2. [測試連接到行動服務的應用程式]
+1. [檢閱行動服務同步處理程式碼]
+2. [更新應用程式的同步處理行為]
+3. [更新應用程式以重新連接您的行動服務]
 
-本教學課程需要下列項目：
+本教學課程需要下列各項：
 
 * 附有 [Xamarin 延伸]「或」**** [Xamarin Studio] 的 Visual Studio 
-* 完成[開始使用行動服務]或[開始使用資料]教學課程
-* [Azure 行動服務 SDK 1.3.0 版][Mobile Services SDK Nuget]
-* [Azure 行動服務 SQLite Store 1.0.0 版][SQLite store nuget]
+* 完成[開始使用行動服務]教學課程
 
->[WACOM.NOTE] 下列指示假設您使用附有 Xamarin 延伸的 Visual Studio 2012 或更新版本。如果您是使用 Xamarin Studio
-，請使用內建的 NuGet 封裝管理員支援。
+## <a name="review-offline"></a>檢閱行動服務同步處理程式碼
 
-## <a name="enable-offline-app"></a>更新應用程式以支援離線功能
+Azure 行動服務離線同步讓使用者在無法使用網路時，能與本機資料庫互動。若要在您的應用程式中使用這些功能，您必須將  `MobileServiceClient.SyncContext` 初始化至本機存放區。接著，請透過  `IMobileServiceSyncTable` 介面參考您的資料表。 
+本節將逐步解說  `ToDoActivity.cs` 中的離線同步處理相關程式碼。
 
-Azure 行動服務離線同步讓使用者在無法使用網路時，能與本機資料庫互動。若要在您的應用程式中使用這些功能，您必須將 `MobileServiceClient.SyncContext` 初始化至本機存放區。接著，請透過 `IMobileServiceSyncTable` 介面參考您的資料表。
+1. 在 Visual Studio 或 Xamarin Studio 中，開啟您在[開始使用行動服務]教學課程中完成的專案。開啟  `ToDoActivity.cs` 檔案。
 
-1. 在 Visual Studio 中，開啟您在「開始使用行動服務」[]或「開始使用資料」[]教學課程中完成的專案。在 [方案總管] 中，移除 [元件]**** 中 **Azure Mobile Services SDK** 的參考。
+2. 請注意， `toDoTable` 成員的類型為  `IMobileServiceSyncTable`。離線同步處理會使用此同步處理資料表介面，而不是  `IMobileServiceTable`。使用同步處理資料表時，所有作業都會移至本機存放區，且只有在執行明確的發送和提取作業時才會與遠端服務同步處理。
 
-2. 在 [Package Manager 主控台] 中使用下列指令碼，安裝行動服務 SQLiteStore 的搶鮮版封裝： 
-    
-        install-package WindowsAzure.MobileServices.SQLiteStore -Pre
+    要取得同步處理資料表的參考時，應使用  `GetSyncTable()` 方法。若要移除離線同步處理功能，您應改用  `GetTable()`。
 
-    這也會安裝所有必要的相依性。
-    
-3. 在參考節點中，移除 `System.IO`、`System.Runtime` 與 `System.Threading.Tasks` 的參考。
+3. 必須先初始化本機存放區，才能執行資料表作業。此動作可用  `InitLocalStoreAsync` 方法來完成：
 
-### 編輯 ToDoActivity.cs
+        private async Task InitLocalStoreAsync()
+        {
+            // new code to initialize the SQLite store
+            string path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), localDbFilename);
 
-1. 新增宣告
+            if (!File.Exists(path))
+            {
+                File.Create(path).Dispose();
+            }
 
-		using Microsoft.WindowsAzure.MobileServices.Sync;
-		using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
-		using System.IO;
+            var store = new MobileServiceSQLiteStore(path);
+            store.DefineTable<ToDoItem>();
 
-2. 將成員 `ToDoActivity.toDoTable` 類型由 `IMobileServiceTable<>` 變更為 `IMobileServiceSyncTable<>`
+            // Uses the default conflict handler, which fails on conflict
+            await client.SyncContext.InitializeAsync(store);
+        }
 
-3. 在 `OnCreate(Bundle)` 方法中，於初始化成員 `client` 的程式行後面新增下列程式碼：
+    這會使用  `MobileServiceSQLiteStore` 類別 (在行動服務 SDK 中提供) 建立本機存放區。您也可以實作  `IMobileServiceLocalStore`，以提供不同的本機存放區實作。
 
-	    // existing initializer
-	    client = new MobileServiceClient (applicationURL, applicationKey, progressHandler);
-	
-		// new code to initialize the SQLite store
-	    string path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "test1.db");
-	
-	    if (!File.Exists(path))
-	    {
-	        File.Create(path).Dispose();
-	    }
+     `DefineTable` 方法會在本機存放區中建立與給定類型中的欄位相符的資料表，在此案例中為  `ToDoItem`。此類型不一定要包含遠端資料庫中的所有資料行 -- 可以只儲存資料行的子集。
 
-	    var store = new MobileServiceSQLiteStore(path);
-	    store.DefineTable<ToDoItem>();
-	
-	    await client.SyncContext.InitializeAsync(store, new TodoSyncHandler(this));
+    此  `InitializeAsync` 多載會使用預設衝突處理常式 (每當發生衝突時，就會失敗)。若要提供自訂的衝突處理常式，請參閱[處理行動服務的離線支援衝突]教學課程。
 
-4. 在同一方法中，將初始化 `toDoTable` 的程式行變更為使用 `GetSyncTable<>` 方法，以取代 `GetTable<>`：
+4.  `SyncAsync` 方法會觸發實際的同步處理作業：
 
-		toDoTable = client.GetSyncTable <ToDoItem> ();
+        private async Task SyncAsync()
+        {
+            await client.SyncContext.PushAsync();
+            await toDoTable.PullAsync("allTodoItems", toDoTable.CreateQuery()); // query ID is used for incremental sync
+        }
 
-5. 修改 `OnRefreshItemsSelected` 方法以新增呼叫至 `PushAsync` 與 `PullAsync`：
+    首先會呼叫  `IMobileServiceSyncContext.PushAsync()`。此方法是  `IMobileServicesSyncContext` 的成員之一 (而不是同步資料表)，因為它會在所有資料表之間推送變更：只有以某種方式在本機上修改過的記錄 (透過 CUD 作業)，才會傳送至伺服器。
 
-		async void OnRefreshItemsSelected ()
-		{
-		    await client.SyncContext.PushAsync();
-			await this.todoTable.PullAsync("todoItems", todoTable.CreateQuery());
-		    await RefreshItemsFromTableAsync();
-		}
+    接下來，此方法會呼叫  `IMobileServiceSyncTable.PullAsync()`，以將資料從伺服器上的資料表提取至應用程式。請注意，如果同步處理內容中有任何擱置的變更，提取一律會先發出推送動作。這是為了確保本機存放區中的所有資料表與關係都能維持一致。在此情況下，我們明確呼叫了推送動作。
 
-### 編輯 ToDoItem.cs 
+    在此範例中，我們擷取遠端  `TodoItem` 資料表中的所有記錄，但也可以藉由傳遞查詢來篩選記錄。 `PullAsync()` 的第一個參數是用於增量同步處理的查詢識別碼，會使用  `UpdatedAt` 時間戳記取得自從上次同步後修改過的記錄。查詢識別碼是一個描述性字串，且對於應用程式中的每個邏輯查詢應具有唯一性。若不選擇增量同步處理，請傳遞  `null` 做為查詢識別碼。這會擷取每個提取作業的所有記錄，而可能降低效能。
 
-1. 新增 using 陳述式： 
+    >[AZURE.NOTE] 當記錄已在行動服務資料庫中刪除後，若要從裝置本機存放區中移除記錄，您應啟用 [[虛刪除]]。否則，您的應用程式應該定期呼叫  `IMobileServiceSyncTable.PurgeAsync()` 以清除本機存放區。
 
-        using Microsoft.WindowsAzure.MobileServices; 
+    請注意，推送和提取作業可能會發生  `MobileServicePushFailedException`。在下一個教學課程中，[處理行動服務的離線支援衝突]會示範如何處理這些同步處理相關的例外狀況。
 
+5. 在  `ToDoActivity` 類別中，會在修改資料、 `AddItem()` 和  `CheckItem()` 的作業之後呼叫  `SyncAsync()` 方法。此外也會從  `OnRefreshItemsSelected()` 呼叫此方法，讓使用者在每次按 [**重新整理**] 按鈕後都能取得最新的資料。應用程式也會在啟動時執行同步處理，因為  `ToDoActivity.OnCreate()` 會呼叫  `OnRefreshItemsSelected()`。
 
-2. 將下列成員新增至類別 `ToDoItem`：
- 
-		[Version]
-		public string Version { get; set; }
-		
-		
-		public override string ToString()
-		{
-		    return "Text: " + Text + "\nComplete: " + Complete + "\n";
-		}
+    由於在每次修改資料時都會呼叫  `SyncAsync()`，因此這個應用程式會假設使用者在編輯資料時皆處於線上狀態。在下一節中我們將更新應用程式，讓使用者即使在離線時也可以編輯。
 
-## <a name="test-online-app"></a>測試應用程式 
+## <a name="update-sync"></a>更新應用程式的同步處理行為
 
-在本節中，您將測試同步處理本機存放區與行動服務資料庫的 `SyncAsync` 方法。
+在本節中，您將修改應用程式，使應用程式不會在啟動或執行插入和更新作業時同步處理，而只有在按重新整理按鈕時才會同步處理。然後，您將中斷行動服務的應用程式連線，以模擬離線狀態。當您新增資料項目時，這些項目會存放在本機存放區中，但不會立即同步處理至行動服務。
 
-1. 在 Visual Studio 中，按 [執行]**** 按鈕以建立專案，並在 iPhone 模擬器中啟動應用程式 (此專案的預設選項)。
+1. 在  `ToDoActivity` 類別中編輯  `AddItem()` 和  `CheckItem()` 方法，以註解化  `SyncAsync()` 的呼叫。.
 
-2. 請注意，應用程式中的項目清單是空的。由於上一節中的程式碼變更，應用程式已不會再從行動服務中讀取項目，而會從本機存放區讀取。 
+2. 在  `ToDoActivity` 中，註解化  `applicationURL` 和  `applicationKey` 成員的定義。新增以下幾行，參考無效的行動服務 URL：
 
-3. 在 [待辦事項] 清單中新增項目。
+        const string applicationURL = @"https://your-mobile-service.azure-mobile.xxx/";
+        const string applicationKey = @"AppKey";
 
-    ![][1]
+3. 在  `ToDoActivity.OnCreate()` 中，移除  `OnRefreshItemsSelected()` 的呼叫並取代為：
 
+        // Load the items from the Mobile Service
+        // OnRefreshItemsSelected (); // don't sync on app launch
+        await RefreshItemsFromTableAsync(); // load UI only
 
-4. 登入 Microsoft Azure 管理入口網站，並檢視您的行動服務的資料庫。若您的服務針對行動服務使用 JavaScript 後端，則您可以從行動服務的 [資料]**** 索引標籤瀏覽資料。若您為您的行動服務使用 .NET 後端，您可以在「SQL Azure 擴充功能」中按一下您資料庫的 [管理]**** 按鈕，以對您的資料表執行查詢。
+4. 建置並執行應用程式。新增一些新的 todo 項目。這些新的項目在可推送至行動服務之前，都只會存留在本機存放區中。用戶端應用程式的行為，會如同它已連接到支援所有建立、讀取、更新、刪除 (CRUD) 作業的行動服務。
 
-    請注意，資料並未與資料庫和本機存放區進行同步處理。
+5. 關閉應用程式並重新加以開啟，以驗證您所建立的新項目持續存留於本機存放區中。
 
-5. 在應用程式中，按 [重新整理]**** 按鈕。這會使應用程式呼叫 `MobileServiceClient.SyncContext.PushAsync` 和 `IMobileServiceSyncTable.PullAsync()`，然後呼叫 `RefreshTodoItems` 以使用本機存放區中的項目來重新整理應用程式。 
+## <a name="update-online-app"></a>更新應用程式以重新連接您的行動服務
 
-    此推送作業會使行動服務資料庫接收來自該存放區的資料。它會從 `MobileServiceClient.SyncContext` 執行，而非 `IMobileServicesSyncTable`，並推送該同步內容所有相關資料表的變更。這是為了解說資料表之間有所關聯的情況。
-    
-    相對地，提取作業只會從指定的資料表中擷取記錄。如果同步內容中此資料表有擱置中的作業，行動服務 SDK 將隱含呼叫 `PushAsync` 作業。
-        
-    ![][3] 
+在本節中，您會將應用程式重新連接至行動服務。您將藉此模擬應用程式在行動服務中從離線狀態恢復為線上狀態的情境。當您推送 [**重新整理**] 按鈕時，資料會同步處理至您的行動服務。
 
+1. 開啟  `ToDoActivity.cs`。移除無效的行動服務 URL，並重新新增正確的 URL 和應用程式金鑰。
 
+2. 重新建置並執行應用程式。請注意，雖然應用程式此時已連接到行動服務，但資料看起來仍會與離線狀態下相同。這是因為此應用程式一律會使用指向本機存放區的  `IMobileServiceSyncTable`。
 
-    ![][2]
+3. 登入 Microsoft Azure 管理入口網站，並檢視您的行動服務的資料庫。若您的服務使用 JavaScript 後端，您將可從行動服務的 [**資料**] 索引標籤瀏覽資料。 
 
+    如果您將 .NET 後端用於行動服務，請在 Visual Studio 中移至 [**伺服器總管**] -> [**Azure**] -> [**SQL 資料庫**]。在資料庫上按一下滑鼠右鍵，並選取 [**在 SQL Server 物件總管中開啟**]。
 
-  
+    請注意，資料並未 ( *not*) 與資料庫和本機存放區進行同步處理。
+
+4. 在應用程式中，按 [重新整理] 按鈕。這會呼叫  `OnRefreshItemsSelected()`，接著呼叫  `SyncAsync()`。這將執行推送和提取作業，先將本機存放區項目傳送至行動服務中，再從服務中擷取新的資料。
+
+5. 請在資料庫中檢查您的行動服務，以確認變更已同步處理。
 
 ##摘要
 
-為了支援行動服務的離線功能，我們使用了 `IMobileServiceSyncTable` 介面，並對本機存放區初始化 `MobileServiceClient.SyncContext`。在此案例中，本機存放區做是 SQLite 資料庫。
-
-正常情況下，在行動服務的 CRUD 作業執行時，應用程式會如同仍處於連線狀態，但所有的作業都會對本機存放區執行。
-
-當我們要將本機存放區與伺服器同步時，我們使用了 `IMobileServiceSyncTable.PullAsync` 與 `MobileServiceClient.SyncContext.PushAsync` 方法。
-
-*  為了將變更推送至伺服器，我們呼叫了 `IMobileServiceSyncContext.PushAsync()`。此方法是 `IMobileServicesSyncContext` 的成員之一 (而不是同步資料表)，因為它會在所有資料表之間推送變更：
-
-    只有以某種方式在本機上修改過的記錄 (透過 CUD 作業)，才會傳送至伺服器。
-   
-* 為了將資料從伺服器上的資料表提取至應用程式，我們呼叫了 `IMobileServiceSyncTable.PullAsync`。
-
-    提取一律會先發出推送動作。  
-
-    **PullAsync()** 方法需要查詢識別碼和查詢。查詢識別碼適用於增量同步處理，而且您應該針對您應用程式中的每個唯一查詢使用不同的查詢識別碼。行動服務 SDK 會在每個成功提取作業後追蹤上次更新的時間戳記。下次提取時，只會抓取較新的記錄。如果指定 Null 做為查詢識別碼，同步資料表將會執行完整同步。
-
+[AZURE.INCLUDE [mobile-services-offline-summary-csharp](../includes/mobile-services-offline-summary-csharp.md)]
 
 ## 後續步驟
 
-您可以在我們的 [GitHub 範例存放庫](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/Xamarin.Android)中下載此教學課程的完整版本。
+* [處理行動服務的離線支援衝突]
 
-<!--* [Handling conflicts with offline support for Mobile Services]
--->
 * [如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端]
 
 <!-- Anchors. -->
-[更新應用程式以支援離線功能]: #enable-offline-app
-[測試連接到行動服務的應用程式]: #test-online-app
-[後續步驟]:#next-steps
+[檢閱行動服務同步處理程式碼]: #review-offline
+[更新應用程式的同步處理行為]: #update-sync
+[更新應用程式以重新連接您的行動服務]: #update-online-app
 
 <!-- Images -->
-[1]: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-quickstart-startup-android.png
-[2]: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-data-browse.png
-[3]: ./media/mobile-services-xamarin-android-get-started-offline-data/mobile-quickstart-completed-android.png
-
 
 
 <!-- URLs. -->
@@ -180,6 +150,7 @@ Azure 行動服務離線同步讓使用者在無法使用網路時，能與本�
 [開始使用資料]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/
 [開始使用行動服務]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started/
 [如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
+[虛刪除]: /zh-tw/documentation/articles/mobile-services-using-soft-delete/
 
 [行動服務 SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite 存放區 nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
@@ -187,4 +158,5 @@ Azure 行動服務離線同步讓使用者在無法使用網路時，能與本�
 [Xamarin 延伸]: http://xamarin.com/visual-studio
 [Xamarin 的 NuGet 增益集]: https://github.com/mrward/monodevelop-nuget-addin
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

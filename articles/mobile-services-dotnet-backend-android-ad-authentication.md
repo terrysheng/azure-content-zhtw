@@ -1,6 +1,6 @@
-﻿<properties linkid="develop-mobile-tutorials-sso-android" urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="使用 Active Directory (Android) 登入及存取資源 | 行動開發人員中心" metaKeywords="" description="了解如何使用 Active Directory 將驗證新增至應用程式" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory" authors="wesmc,mahender" />
+﻿<properties pageTitle="使用 Active Directory (Android) 登入及存取資源 | 行動開發人員中心" description="了解如何使用 Active Directory 將驗證新增至應用程式" documentationCenter="android" authors="mattchenderson" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.topic="article" ms.date="11/21/2014" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
 
 # 使用 Active Directory 驗證您的應用程式
 
@@ -16,4 +16,4 @@
 <!-- URLs. -->
 [存取受到 iOS 和 Android 的 Azure Active Directory 保護的資源]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

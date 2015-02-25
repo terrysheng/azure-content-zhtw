@@ -1,12 +1,26 @@
-<properties title="Using Mobile Services with Cordova Projects" pageTitle="" metaKeywords="Azure, Cordova, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen" />
+<properties 
+	pageTitle="" 
+	description="Using mobile services in Cordova projects" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="patshea" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/11/2014" ms.author="ghogen" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/11/2014" 
+	ms.author="patshea"/>
 
-### 在 Visual Studio 2015 預覽版中搭配使用行動服務與 Cordova 專案
+### 在 Visual Studio 2015 Preview 中搭配使用行動服務與 Cordova 專案
 
-若要在 Visual Studio 2015 預覽版的 Cordova 專案中使用 Azure 行動服務，您需要套用下列因應措施。
+若要在 Visual Studio 2015 Preview 的 Cordova 專案中使用 Azure 行動服務，您需要套用下列因應措施。
 
-1. 在 Visual Studio 2015 預覽版 Cordova 專案中，開啟 Config.xml，並在 [**外掛程式**] 索引標籤下，啟用 [**Windows Azure 行動服務**] 外掛程式。<br/>
+1. 在 Visual Studio 2015 Preview Cordova 專案中，開啟 Config.xml，並在 **[外掛程式]** 索引標籤下，啟用 **[Windows Azure 行動服務]** 外掛程式。<br/>
 ![][1]
 
 2. 在 index.html 中，刪除參考 **MobileServices.Web-1.2.2.min.js** 的行。<br/>
@@ -48,3 +62,5 @@
 		});
 
 [1]: ./media/vs-mobile-services-cordova-vs2015/AzureMobileServicesPlugIn.png 
+
+<!--HONumber=42-->

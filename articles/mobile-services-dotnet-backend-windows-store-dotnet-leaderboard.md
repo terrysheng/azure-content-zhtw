@@ -1,12 +1,12 @@
-﻿<properties urlDisplayName=".NET Client Library" pageTitle="使用 Azure 行動服務 .NET 後端建立排行榜應用程式" metaKeywords="Azure Mobile Services, Mobile Service .NET client, .NET client" description="了解如何使用具有 .NET 後端的 Azure 行動服務建置 Windows 市集應用程式。" documentationCenter="Mobile" title="Creating a Leaderboard App with Azure Mobile Services .NET Backend" authors="mwasson" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="使用 Azure 行動服務 .NET 後端建立排行榜應用程式" description="了解如何使用具有 .NET 後端的 Azure 行動服務建置 Windows 市集應用程式。" documentationCenter="windows" authors="MikeWasson" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="mwasson" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="mwasson"/>
 
 # 使用 Azure 行動服務 .NET 後端建立排行榜應用程式
 
 本教學課程將說明如何使用具有 .NET 後端的 Azure 行動服務建置 Windows 市集應用程式。Azure 行動服務提供可擴充而安全的後端，具有內建的驗證、監控、推播通知和其他功能，以及用來建置行動應用程式的跨平台用戶端程式庫。行動服務的 .NET 後端以 [ASP.NET Web API](http://asp.net/web-api) 為基礎，可為 .NET 開發人員提供建立 REST API 的絕佳途徑。   
 
-+ [概觀] 
++ [概觀]
 + [關於範例應用程式] 
 + [新增資料模型]
 + [新增 Web API 控制器]
@@ -22,14 +22,14 @@
 
 ## 概觀
 
-Web API 是一個開放原始碼架構，可為 .NET 開發人員提供建立 REST API 的絕佳途徑。您可以在 Azure 網站或使用 .NET 後端的 Azure 行動服務上主控 Web API 方案，甚或以自訂程序自我主控。行動服務是特別針對行動應用程式設計的主控環境。當您在行動服務上主控 Web API 服務時，除了資料儲存以外，您還可獲得下列好處：
+Web API 是一個開放原始碼架構，可為 .NET 開發人員提供建立 REST API 的絕佳途徑。您可以在 Azure 網站或使用 .NET 後端的 Azure 行動服務上主控 Web API 方案，甚或以自訂程序自我主控。行動服務是特別針對行動應用程式設計的主控環境。當您在行動服務上主控 Web API 服務時，除了資料儲存以外，您還可獲得下列好處:
 
 - 使用社交提供者和 Azure Active Directory (AAD) 的內建驗證。 
 - 使用裝置特定通知服務推播通知至應用程式。
 - 一組可讓您從任何應用程式輕鬆存取服務的完整用戶端程式庫。 
 - 內建的記錄和診斷。
 
-在本教學課程中，您將：
+在本教學課程中，您將:
 
 - 使用 Azure 行動服務建立 REST API。
 - 將服務發行至 Azure。
@@ -42,11 +42,11 @@ Web API 是一個開放原始碼架構，可為 .NET 開發人員提供建立 RE
 
 ## 關於範例應用程式
 
-*排行榜*會顯示遊戲的玩家清單，以及每個玩家的分數和排名。排行榜可作為較大遊戲的一部分，或作為單獨的應用程式。排行榜是實際的應用程式，但簡單易懂而可用於教學課程。以下是此應用程式的螢幕擷取畫面：
+*排行榜*會顯示遊戲的玩家清單，以及每個玩家的分數和排名。排行榜可作為較大遊戲的一部分，或作為單獨的應用程式。排行榜是實際的應用程式，但簡單易懂而可用於教學課程。以下是此應用程式的螢幕擷取畫面:
 
 ![][1]
 
-為了方便說明此應用程式，其中不含任何實際的遊戲。您可以新增玩家，以及提交每個玩家的分數。當您提交分數時，行動服務會計算新排名。在後端上，行動服務會建立具有兩個資料表的資料庫：
+為了方便說明此應用程式，其中不含任何實際的遊戲。您可以新增玩家，以及提交每個玩家的分數。當您提交分數時，行動服務會計算新排名。在後端上，行動服務會建立具有兩個資料表的資料庫:
 
 - Player。包含玩家識別碼和名稱。
 - PlayerRank。包含玩家的分數和排名。
@@ -80,7 +80,7 @@ PlayerRank 具有 Player 的外部索引鍵。每個玩家各有零或一個 Pla
 
 ## 新增資料模型
 
-您將使用 [EF Code First](http://msdn.microsoft.com/en-US/data/ee712907#codefirst) 來定義資料庫資料表。在 DataObjects 資料夾下，新增名為 `Player` 的類別。
+您將使用 [EF Code First](http://msdn.microsoft.com/zh-tw/data/ee712907#codefirst) 來定義資料庫資料表。在 DataObjects 資料夾下，新增名為 `Player` 的類別。
 
 	using Microsoft.WindowsAzure.Mobile.Service;
 	
@@ -121,16 +121,16 @@ PlayerRank 具有 Player 的外部索引鍵。每個玩家各有零或一個 Pla
 
 ![][6] 
 
-在 [**新增 Scaffold**] 對話方塊中，展開位於左側的 [**一般**]，然後選取 [**Windows Azure 行動服務**]。接著，選取 [**Windows Azure 行動服務資料表控制器**]。按一下 [**新增**]。
+在 [**新增 Scaffolded**] 對話方塊中，展開位於左側的 [**一般**]，然後選取 [**Windows Azure 行動服務**]。接著，選取 [**Windows Azure 行動服務資料表控制器**]。按一下 [新增]。
 
 ![][7] 
  
-在 [**加入控制器**] 對話方塊中：
+在 [**新增控制器**] 對話方塊中：
 
 1.	在 [**模型類別**] 下，選取 [Player]。 
 2.	在 [**資料內容類別**] 下，選取 [MobileServiceContext]。
 3.	將控制器命名為 "PlayerController"。
-4.	按一下 [**加入**]。
+4.	按一下 [新增]。
 
 
 此步驟會將名為 PlayerController.cs 的檔案新增至專案中。
@@ -139,14 +139,14 @@ PlayerRank 具有 Player 的外部索引鍵。每個玩家各有零或一個 Pla
 
 控制器會衍生自 **TableController<T>**。此類別會繼承 **ApiController**，但這是適用於 Azure 行動服務的特殊類別。
  
-- 路由：**TableController** 的預設路徑為 `/tables/{table_name}/{id}`，其中，*table_name* 符合實體名稱。因此，「玩家」控制器的路徑為 */tables/player/{id}*。此路徑慣例會使 **TableController** 與行動服務 [REST API](http://msdn.microsoft.com/zh-tw/library/azure/jj710104.aspx) 一致。
+- 路由：**TableController** 的預設路徑為 `/tables/{table_name}/{id}`，其中，*table_name* 會符合實體名稱。因此，「玩家」控制器的路徑為 */tables/player/{id}*。此路徑慣例會使 **TableController**與行動服務 [REST API](http://msdn.microsoft.com/zh-tw/library/azure/jj710104.aspx) 一致。
 - 資料存取：在資料庫作業中，**TableController** 類別會使用 **IDomainManager** 介面，而此介面會定義資料存取的抽象。scaffolding 會使用 **EntityDomainManager**，這是包裝 EF 內容之 **IDomainManager** 的固定實作。 
 
 現在，請為 PlayerRank 實體新增第二個控制器。請遵循相同的步驟，但選擇 PlayerRank 作為模型類別。請使用相同的資料內容類別，不要建立新的。將控制器命名為 "PlayerRankController"。
 
 ## 使用 DTO 傳回相關實體
 
-還記得 `PlayerRank` 有相關的 `Player` 實體： 
+`PlayerRank` 具有相關的 `Player` 實體: 
 
     public class PlayerRank : EntityData
     {
@@ -157,7 +157,7 @@ PlayerRank 具有 Player 的外部索引鍵。每個玩家各有零或一個 Pla
         public virtual Player Player { get; set; }
     }
 
-行動服務用戶端程式庫不支援導覽屬性，且將不會序列化。例如，以下是 GET `/tables/PlayerRank` 的原始 HTTP 回應：
+行動服務用戶端程式庫不支援導覽屬性，且將不會序列化。例如，以下是 GET `/tables/PlayerRank`: 的原始 HTTP 回應：
 
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
@@ -172,7 +172,7 @@ PlayerRank 具有 Player 的外部索引鍵。每個玩家各有零或一個 Pla
 
 請注意，`Player` 並未包含在物件圖形中。若要納入玩家，您可以定義*資料傳輸物件* (DTO)，將物件圖形平面化。 
 
-DTO 是定義資料如何透過網路傳送的物件。如果您想讓電傳格式看起來與資料庫模型不同，即可使用 DTO。若要為 `PlayerRank` 建立 DTO，請在 DataObjects 資料夾中新增名為 `PlayerRankDto` 的新類別。
+DTO 是定義資料如何透過網路傳送的物件。如果您想讓電傳格式看起來與資料庫模型不同，即可使用 DTO。若要為 `PlayerRank` 建立 DTO，請在 DataObjects 資料夾中新增名為  `PlayerRankDto` 的新類別。
 
 	namespace Leaderboard.DataObjects
 	{
@@ -185,7 +185,7 @@ DTO 是定義資料如何透過網路傳送的物件。如果您想讓電傳格�
 	    }
 	}
 
-在 `PlayerRankController` 類別中，我們將使用 LINQ **Select** 方法，將 `PlayerRank` 執行個體轉換成 `PlayerRankDto` 執行個體。依照下列方式更新 `GetAllPlayerRank` 和 `GetPlayerRank` 控制器方法：
+在 `PlayerRankController` 類別中，我們將使用 LINQ **Select**方法，將  `PlayerRank` 執行個體轉換為 `PlayerRankDto` 執行個體。依照下列方式更新 `GetAllPlayerRank` 和 `GetPlayerRank` 控制器方法：
 
 	// GET tables/PlayerRank
 	public IQueryable<PlayerRankDto> GetAllPlayerRank()
@@ -213,7 +213,7 @@ DTO 是定義資料如何透過網路傳送的物件。如果您想讓電傳格�
 	    return SingleResult<PlayerRankDto>.Create(result);
 	}
 
-經過這些變更後，這兩個 GET 方法會將 `PlayerRankDto` 物件傳回至用戶端。`PlayerRankDto.PlayerName` 屬性設為玩家名稱。以下是執行此變更後的範例回應：
+經過這些變更後，這兩個 GET 方法會將 `PlayerRankDto` 物件傳回至用戶端。`PlayerRankDto.PlayerName` 屬性會設為玩家名稱。以下是執行此變更後的範例回應：
 
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
@@ -228,7 +228,7 @@ DTO 是定義資料如何透過網路傳送的物件。如果您想讓電傳格�
 
 請注意，JSON 裝載此時會包含玩家名稱。
 
-除了使用 LINQ Select 陳述式以外，另一個選項是使用 AutoMapper。此選項需使用其他設定程式碼，但可啟用從網域實體到 DTO 的自動對應。如需詳細資訊，請參閱[使用 AutoMapper 在 .NET 後端中對應資料庫類型與用戶端類型](http://blogs.msdn.com/b/azuremobile/archive/2014/05/19/mapping-between-database-types-and-client-type-in-the-net-backend-using-automapper.aspx) (英文)。
+除了使用 LINQ Select 陳述式以外，另一個選項是使用 AutoMapper。此選項需使用其他設定程式碼，但可啟用從網域實體到 DTO 的自動對應。如需詳細資訊，請參閱[在使用 AutoMapper 的 .NET 後端中對應資料庫類型與用戶端類型](http://blogs.msdn.com/b/azuremobile/archive/2014/05/19/mapping-between-database-types-and-client-type-in-the-net-backend-using-automapper.aspx)。
 
 ## 定義用來提交分數的自訂 API
 
@@ -308,7 +308,7 @@ DTO 是定義資料如何透過網路傳送的物件。如果您想讓電傳格�
         return Ok();
     }
 
-`PostPlayerScore` 方法接受 `PlayerScore` 執行個體做為輸入。(用戶端會在 HTTP POST 要求中傳送 `PlayerScore`。)此方法會執行下列動作：
+`PostPlayerScore` 方法會以 `PlayerScore` 執行個體作為輸入。(用戶端會在 HTTP POST 要求中傳送 `PlayerScore`。)此方法會執行下列動作：
 
 1.	如果資料庫中尚無玩家的 `PlayerRank`，則會新增一個。
 2.	更新玩家的分數。
@@ -319,7 +319,7 @@ DTO 是定義資料如何透過網路傳送的物件。如果您想讓電傳格�
 	[Route("api/score")]
 
 您也可以將方法放入個別的控制器中。沒有哪種方法特別好，端視您想要如何組織程式碼而定。
-若要深入了解 **[Route]** 屬性，請參閱[ Web API 中的屬性路由](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)。
+若要深入了解 **[Route]** 屬性，請參閱 [Web API 中的屬性路由](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)。
 
 ## 建立 Windows 市集應用程式
 
@@ -329,7 +329,7 @@ DTO 是定義資料如何透過網路傳送的物件。如果您想讓電傳格�
 
 ![][10]
  
-使用 NuGet 封裝管理員新增行動服務用戶端程式庫。在 Visual Studio 中，從 [**工具**] 功能表中選取 [**NuGet 封裝管理員**]。接著，選取 [**Package Manager Console**]。在 [Package Manager Console] 視窗中，輸入下列命令。
+使用 NuGet 封裝管理員新增行動服務用戶端程式庫。在 Visual Studio 中，從 [**工具**] 功能表中選取 [**NuGet 封裝管理員**]。接著，選取 [**封裝管理員主控台**]。在 [Package Manager 主控台] 視窗中，輸入下列命令。
 
 	Install-Package WindowsAzure.MobileServices -Project LeaderboardApp
 
@@ -608,7 +608,7 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
 	    }
 	}
 
-當您在本機上進行偵錯時，行動服務會在 IIS Express 上執行。Visual Studio 會指派隨機連接埠號碼，因此本機 URL 為 http://localhost:*port*，其中，*port* 是連接埠號碼。若要取得連接埠號碼，請按 F5 在 Visual Studio 中啟動服務，以進行偵錯。Visual Studio 會啟動瀏覽器，並導覽至服務 URL。您也可以在專案屬性中的 [**Web**] 下尋找本機 URL。
+當您在本機上進行偵錯時，行動服務會在 IIS Express 上執行。Visual Studio 會指派隨機連接埠號碼，因此本機 URL 為 http://localhost:*port*，其中 *port* 是連接埠號碼。若要取得連接埠號碼，請按 F5 在 Visual Studio 中啟動服務，以進行偵錯。Visual Studio 會啟動瀏覽器，並導覽至服務 URL。您也可以在專案屬性中的 [**Web**] 下尋找本機 URL。
 
 ## 建立主頁面
 
@@ -631,12 +631,12 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
 
 如前所述，我不會說明應用程式的所有 XAML。MVVM 模式的優點之一是能夠區隔顯示和應用程式邏輯，因此，如果您不喜歡範例應用程式，您可以輕易變更 UI。
 
-玩家清單會顯示在 **ListBox** 中：
+玩家清單會顯示在 [**ListBox**] 中：
 
 	<ListBox Width="200" Height="400" x:Name="PlayerListBox" 
 	    ItemsSource="{Binding Players}" DisplayMemberPath="Name"/>
 
-排名會顯示在 **ListView** 中：
+排名會顯示在 [**ListView**] 中：
 
 	<ListView x:Name="RankingsListView" ItemsSource="{Binding Ranks}" SelectionMode="None">
 	    <!-- Header and styles not shown -->
@@ -666,7 +666,7 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
  
 ![][12]
 
-在 [**發行**] 對話方塊中，按一下 [**Microsoft Azure 行動服務**]。
+在 [**發行**] 對話方塊中，按一下 [**Windows Azure 行動服務**]。
 
 ![][13]
  
@@ -760,3 +760,6 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
 [處理資料庫寫入衝突]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
 [新增推播通知]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet
+
+
+<!--HONumber=42-->

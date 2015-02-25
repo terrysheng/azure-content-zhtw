@@ -1,18 +1,16 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="開始使用資料 (Android) | 行動開發人員中心" metaKeywords="" description="了解如何開始使用行動服務，在您的 Android 應用程式中使用資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="開始使用資料 (Android) | 行動開發人員中心" description="了解如何開始使用行動服務，在您的 Android 應用程式中使用資料。" services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="ricksal" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="ricksal"/>
 
-# 將行動服務新增至現有的應用程式
+# 將行動服務新增至現有應用程式
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 本主題將說明如何以 Azure 行動服務做為 Android 應用程式的後端資料來源。在本教學課程中，您將建立新的行動服務、下載 Eclipse Android 專案以取得在記憶體中儲存資料的應用程式、整合行動服務與該應用程式，然後檢視執行應用程式時所做的資料變更。
 
 您將在本教學課程中建立的行動服務，將可在行動服務中支援 .NET 執行階段。如此，您即可在行動服務中使用 .NET 語言和 Visual Studio 來撰寫伺服器端商務邏輯。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 後端版本]。
 
-<div class="dev-callout"><b>注意</b>
-<p>本教學課程需要 Visual Studio 2013。</p>
-</div>
+> [AZURE.IMPORTANT]本教學課程需要 Visual Studio 2013。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
@@ -26,72 +24,72 @@
 5. [對已發佈的行動服務進行應用程式測試]
 
 
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 免費試用</a>。</p></div> 
+> [AZURE.IMPORTANT] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F"%20target="_blank)。 
 
 
 <h2><a name="create-service"></a>建立新的行動服務</h2>
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 
 <h2><a name="download-the-service"></a>將服務下載至您的本機電腦</h2>
 
-[WACOM.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
+[AZURE.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
 
 <h2><a name="test-the-service"></a>測試行動服務</h2>
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 <h2><a name="publish-the-service"></a>將行動服務發佈至 Azure</h2>
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 <h2><a name="download-app"></a>下載 GetStartedWithData 專案</h2>
 
-###取得範例程式碼
+### 取得範例程式碼
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/download-android-sample-code.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/download-android-sample-code.md)]
 
-###驗證 Android SDK 版本
+### 驗證 Android SDK 版本
 
-[WACOM.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version.md)]
+[AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version.md)]
 
 
-###檢查和執行範例程式碼
+### 檢查和執行範例程式碼
 
-[WACOM.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code.md)]
+[AZURE.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code.md)]
 
 <h2><a name="update-app"></a>更新應用程式以使用行動服務進行資料存取</h2>
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-data](../includes/mobile-services-android-getting-started-with-data.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../includes/mobile-services-android-getting-started-with-data.md)]
 
 <h2><a name="test-app"></a>對已發佈的行動服務進行應用程式測試</h2>
 
 
 現在，應用程式已更新為使用行動服務做為後端儲存，您可以使用 Android 模擬器或 Android 手機，在行動服務上測試應用程式。
 
-1. 從 [**執行**] 功能表中，按一下 [**執行**] 來啟動專案。
+1. 從 [執行] 功能表按一下 [執行] 來啟動專案。
 
 	這樣會執行您的應用程式 (以 Android SDK 建立)，該應用程式利用用戶端程式庫傳送查詢，然後從您的行動服務傳回項目。
 
-5. 和之前一樣，輸入有意義的文字，然後按一下 [**加入**]。
+5. 同樣地，輸入有意義的文字，然後按一下 [加入]。
 
    	這會傳送新項目以插入至行動服務。
 
-    您可以重新啟動應用程式，以確認變更持續存留至 Azure 中的資料庫。您也可以使用 Azure 管理入口網站來檢查資料庫：  後續的兩個步驟將執行此動作以檢視您資料庫中的變更。
+    您可以重新啟動應用程式，以確認變更持續存留至 Azure 中的資料庫。您也可以使用 Azure 管理入口網站來檢查資料庫：後續的兩個步驟將執行此動作以檢視您資料庫中的變更。
 
 
 4. 在 Azure 管理入口網站中，對您行動服務的相關資料庫按一下 [管理]。
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/manage-sql-azure-database.png)
 
-5. 在管理入口網站中執行查詢，以檢視 Windows 市集應用程式所做的變更。您的查詢會與下列查詢相類似，但將使用您的資料庫名稱，而非 `todolist`。
+5. 在管理入口網站中執行查詢，以檢視 Windows 市集應用程式所做的變更。您的查詢會與下列查詢相類似，但將使用您的資料庫名稱，而非  `todolist`。
 
-        SELECT * FROM [todolist].[todoitems]
+        SELECT * FROM [todolist].[todoitems]	
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/sql-azure-query.png)
 
-**開始使用資料**教學課程 (Android) 到此結束。
+Android 的「開始使用資料」教學課程到此結束。
 
 
 
@@ -99,13 +97,13 @@
 
 本教學課程示範讓 Android 應用程式在行動服務中使用資料的基礎。 
 
-<!--Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
+<!--接下來，考慮完成本教學課程中採用 GetStartedWithData 應用程式所建立的下列其中一個教學課程：
 
-* [Validate and modify data with scripts]
-  <br/>進一步了解在行動服務中使用伺服器指令碼驗證並變更從您的應用程式傳送的資料。
+* [使用指令碼驗證及修改資料]
+  <br/>深入了解在行動服務中使用伺服器指令碼，來驗證及變更從應用程式傳送出來的資料。
 
 * [使用分頁縮小查詢範圍]
-  <br/>了解如何在查詢中使用分頁，來控制單一要求中的處理資料量。
+  <br/>了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
 完成資料系列後，請嘗試
 -->
@@ -116,10 +114,10 @@
   <br/>了解如何驗證應用程式的使用者。
 
 * [開始使用推播通知] 
-  <br/>了解如何將非常基本的推播通知傳送至您的應用程式。
+  <br/>了解如何將極為基本的推播通知傳送到應用程式。
 
-* [行動服務 .NET 作法概念性參考]
-  <br/>深入了解如何搭配使用行動服務與 .NET。
+* [行動服務 .NET 做法概念性參考]
+  <br/>深入了解如何搭配使用行動服務與 .NET
   
 <!-- Anchors. -->
 
@@ -164,7 +162,7 @@
 
 
 <!-- URLs. -->
-[使用指令碼驗證和修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[使用指令碼驗證及修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-dotnet
 [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
 [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-android
@@ -176,6 +174,10 @@
 [管理入口網站]: https://manage.windowsazure.com/
 [行動服務 SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [開發人員程式碼範例網站]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[行動服務 .NET 作法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
+[行動服務 .NET 做法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
 [MobileServiceClient 類別]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-[行動服務 .NET 作法概念性參考]: /zh-tw/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
+[行動服務 .NET 做法概念性參考]: /zh-tw/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+
+
+
+<!--HONumber=42-->

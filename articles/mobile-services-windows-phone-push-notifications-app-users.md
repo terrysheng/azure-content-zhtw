@@ -1,10 +1,12 @@
-﻿<properties urlDisplayName="Push Notifications to Users (WP8)" pageTitle="推播通知給使用者 (Windows Phone) | 行動開發人員中心" metaKeywords="deprecated" description="了解如何使用行動服務將通知推播到您的 Windows Phone 應用程式。" metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Push notifications to users by using Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="推播通知給使用者 (Windows Phone) | 行動開發人員中心" description="了解如何使用行動服務將通知推播到您的 Windows Phone 應用程式。" services="mobile-services, notification-hubs" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/07/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/07/2014" ms.author="glenga"/>
 
 # 使用行動服務推播通知給使用者
 
 本主題已被取代。請遵循這些教學課程中的更新指導方針：
 
-+ [將推播通知新增至行動服務應用程式](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)<br/>更新 TodoList 行動服務來使用 Azure 通知中樞，將通知傳送給 TodoList 範例應用程式的使用者。
-+ [將推播通知傳送給驗證的使用者](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users/)<br/>擴充先前的教學課程，只允許登入的使用者註冊通知。
++ [將推播通知新增至您的行動服務應用程式](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)<br/>更新 TodoList 行動服務來使用 Azure 通知中心，將通知傳送給 TodoList 範例應用程式的使用者。
++ [將推播通知傳送給驗證的使用者](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users/)<br/>延伸先前的教學課程，而僅允許已登入的使用者註冊通知。
+
+<!--HONumber=42-->

@@ -1,12 +1,12 @@
-<properties urlDisplayName="Command Line Administration" pageTitle="在命令列上管理行動服務 - Azure 教學課程" metaKeywords="" description="了解如何使用命令列工具建立、部署和管理 Azure 行動服務。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Automate mobile services with command-line tools" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="在命令列上管理行動服務 - Azure 教學課程" description="了解如何使用命令列工具建立、部署和管理 Azure 行動服務。" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
 
 # 使用命令列工具將行動服務自動化 
 
 本主題將示範如何使用 Azure 命令列工具將 Azure 行動服務的建立和管理自動化。本主題將示範如何安裝並開始使用命令列工具來執行下列行動服務工作：
 
--	[建立新的行動服務] 
+-	[建立新的行動服務]
 -	[建立新資料表]
 -   [將指令碼註冊到資料表作業][註冊新資料表指令碼]
 -   [列出資料表]
@@ -18,15 +18,15 @@
 
 若要使用 Azure 命令列工具管理行動服務，您需要已啟用 Azure 行動服務功能的 Azure 帳戶。
 
-+ 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/" target="_blank">「Azure 免費試用」</a>。
++ 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/" target="_blank">Azure 免費試用</a>。
 
-+ 如果您現已有帳戶，但需要啟用 Azure 行動服務預覽版，則請參閱 <a href="http://azure.microsoft.com/zh-tw/documentation/articles/php-create-account/#enable" target="_blank">啟用 Azure 預覽功能</a>。
++ 如果您現已有帳戶，但需要啟用 Azure 行動服務預覽版，請參閱<a href="http://azure.microsoft.com/zh-tw/documentation/articles/php-create-account/#enable" target="_blank">啟用 Azure 預覽功能</a>。
 
 本主題涵蓋 Azure 命令列工具支援的一些常用管理工作。如需詳細資訊，請參閱 [Azure 命令列工具文件][reference-docs]。
 
-<!--+  You must download and install the Azure command-line tools to your local machine. To do this, follow the instructions in the first section of this topic. 
+<!--+  您必須將 Azure 命令列工具下載並安裝至本機電腦。若要這樣做，請遵循本主題第一節中的指示。 
 
-+ (Optional) To be able to execute HTTP requests directly from the command-line, you must use cURL or an equivalent tool. cURL runs on a variety of platforms. Locate and install cURL for your specific platform from the <a href=http://go.microsoft.com/fwlink/p/?LinkId=275676 target="_blank">cURL download  page</a>.-->
++ (選用) 若要能夠直接從命令列執行 HTTP 要求，您必須使用 cURL 或對等的工具。cURL 可在各種平台上執行。從 <a href=http://go.microsoft.com/fwlink/p/?LinkId=275676 target="_blank">cURL 下載頁面</a>找出並安裝您的平台適用的 cURL。-->
 
 <h2><a name="install"></a>安裝 Azure 命令列工具</h2>
 
@@ -40,38 +40,38 @@
 
 		npm install azure-cli -g
 
-若要測試安裝，請在命令提示字元中輸入 `azure`。安裝成功時，您會看到所有可用的 `azure` 命令的清單。
+若要測試安裝，請在命令提示字元中輸入  `azure`。安裝成功時，您會看到所有可用  `azure` 命令的清單。
 <h2><a name="import-account"></a>如何下載和匯入發行設定</h2>
 
-若要開始進行，您必須先下載並匯入發行設定。接著您可以使用工具來建立和管理 Azure 服務。若要下載發行設定，請使用 `account download` 命令：
+若要開始進行，您必須先下載並匯入發行設定。接著您可以使用工具來建立和管理 Azure 服務。若要下載發行設定，請使用  `account download` 命令：
 
 		azure account download
 
-這樣會開啟預設瀏覽器，並提示您登入管理入口網站。登入之後，就會下載您的 `.publishsettings` 檔案。請記下此儲存的檔案位置。
+這樣會開啟預設瀏覽器，並提示您登入管理入口網站。登入之後，就會下載您的  `.publishsettings` 檔案。請記下此儲存的檔案位置。
 
-接下來，執行下列命令，並將 `<path-to-settings-file>` 改為 `.publishsettings` 檔案的路徑，以匯入 `.publishsettings` 檔案：
+接下來，執行下列命令，並將 `<path-to-settings-file>` 取代為  `.publishsettings` 檔案的路徑，以匯入  `.publishsettings` 檔案：
 
 		azure account import <path-to-settings-file>
 
-若要移除所有透過 <code>import</code> 命令儲存的資訊，請使用 <code>account clear</code> 命令：
+您可以使用 <code>account clear</code> 命令移除 <code>import</code> 命令，以儲存的所有資訊：
 
 		azure account clear
 
-若要查看 `account` 命令的選項清單，請使用 `-help` 選項：
+若要查看  `account` 命令的選項清單，請使用 `-help` 選項：
 
 		azure account -help
 
-匯入發行設定之後，基於安全的考量，請刪除 `.publishsettings` 檔案。如需詳細資訊，請參閱[如何安裝適用於 Mac 和 Linux 的 Azure 命令列工具] (英文)。您現在即可開始從命令列或批次檔建立和管理 Azure 行動服務。  
+匯入發行設定之後，基於安全的考量，請刪除  `.publishsettings` 檔案。如需詳細資訊，請參閱[如何安裝適用於 Mac 和 Linux 的 Azure 命令列工具]。您現在即可開始從命令列或批次檔建立和管理 Azure 行動服務。  
 
 <h2><a name="create-service"></a>如何建立行動服務</h2>
 
 您可以使用命令列工具建立新的行動服務執行個體。建立行動服務時，您也可以在新的伺服器中建立 SQL Database 執行個體。 
 
-下列命令將在您的訂閱中建立新的行動服務執行個體，其中 `<service-name>` 是新行動服務的名稱，`<server-admin>` 是新伺服器的登入名稱，`<server-password>` 是新登入的密碼：
+下列命令會在您的訂閱中建立新的行動服務執行個體，其中 `<service-name>` 是新行動服務的名稱，`<server-admin>` 是新伺服器的登入名稱，而 `<server-password>` 是新登入的密碼：
 
 		azure mobile create <service-name> <server-admin> <server-password>
 
-當存在指定的行動服務時，`mobile create` 命令將失敗。在您的自動化指令碼中，您應該嘗試先刪除再重新建立行動服務。
+當指定的行動服務存在時， `mobile create` 命令將會失敗。在您的自動化指令碼中，您應該嘗試先刪除再重新建立行動服務。
 
 <h2><a name="list-services"></a>如何列出訂閱中現有的行動服務</h2>
 
@@ -89,9 +89,7 @@
 
 這個命令也可以加上 `-a` 和 `-q` 參數，以直接刪除行動服務使用的 SQL Database 和 SQL Server，而不顯示提示。
 
-<div class="dev-callout"><strong>注意</strong> 
-   <p>如果未指定 <code>-q</code> 參數以及 <code>-a</code> 或 <code>-d</code>，則會暫停執行，系統也會提示您為 SQL Database 選取刪除選項。如果沒有其他服務使用資料庫或伺服器，請只使用 <code>-a</code> 參數；否則使用 <code>-d</code> 參數，只刪除屬於正在刪除的行動服務的資料。</p>
-</div>
+> [AZURE.NOTE] 如果不指定 <code>-q</code> 參數和 <code>-a</code> 或 <code>-d</code>，執行將暫停，而且系統會提示您對 SQL Database 選取刪除選項。請只在沒有其他服務使用該資料庫或伺服器的情況下使用 <code>-a</code> 參數；否則請使用 <code>-d</code> 參數僅刪除屬於所要刪除之行動服務的資料。
 
 <h2><a name="create-table"></a>如何在行動服務中建立資料表</h2>
 
@@ -99,9 +97,9 @@
 
 		azure mobile table create <service-name> <table-name>
 
-這會建立含預設權限的新資料表 `application` 來允許下列資料表作業：`insert`、`read`、`update` 和 `delete`。 
+這會建立具有預設權限的新資料表  `application`，以進行資料表作業： `insert`、 `read`、 `update` 和  `delete`。 
 
-下列命令將建立新資料表，並使該資料表具有公用 `read` 權限和僅授予管理員的 `delete` 權限：
+下列命令會建立新資料表，該資料表具有公用  `read` 權限，但  `delete` 權限僅會授予管理員：
 
 		azure mobile table create <service-name> <table-name> -p read=public,delete=admin
 
@@ -109,11 +107,11 @@
 
 <table border="1" width="100%"><tr><th>指令碼值</th><th>管理入口網站值</th></tr>
 <tr><td><code>public</code></td><td>所有人</td></tr>
-<tr><td><code>應用程式</code> (預設值)</td><td>具有應用程式金鑰的任何人</td></tr>
+<tr><td><code>application</code> (預設值)</td><td>具有應用程式金鑰的任何人</td></tr>
 <tr><td><code>user</code></td><td>僅限通過驗證的使用者</td></tr>
 <tr><td><code>admin	</code></td><td>僅限指令碼和管理員</td></tr></table>
 
-當指定的資料表已經存在時，`mobile table create` 命令將失敗。在您的自動化指令碼中，您應該嘗試先刪除再重新建立資料表。
+如果指定的資料表已存在， `mobile table create` 命令將會失敗。在您的自動化指令碼中，您應該嘗試先刪除再重新建立資料表。
 
 <h2><a name="list-tables"></a>如何列出行動服務中現有的資料表</h2>
 
@@ -133,32 +131,32 @@
 
 <h2><a name="register-script"></a>如何將指令碼註冊到資料表作業</h2>
 
-下列命令會針對資料表上的作業上傳和註冊函數，其中 `<service-name>` 是行動服務的名稱，`<table-name>` 是資料表的名稱，`<operation>` 則是資料表作業，可為 `read`、`insert`、`update` 或 `delete`：
+下列命令會針對資料表上的作業上傳和註冊函數，其中 `<service-name>` 是行動服務的名稱，`<table-name>` 是資料表的名稱，`<operation>` 則是資料表作業，可以是  `read`、 `insert`、 `update` 或  `delete`：
 
 		azure mobile script upload <service-name> table/<table-name>.<operation>.js
 
-請注意，此作業將從本機電腦上傳 JavaScript (.js) 檔案。檔案的名稱必須由資料表和作業名稱組成，而且必須位在與執行命令的位置相對的 `table` 子資料夾中。例如，下列作業將上傳並註冊屬於 `TodoItems` 資料表的新 `insert` 指令碼。
+請注意，此作業將從本機電腦上傳 JavaScript (.js) 檔案。檔案的名稱必須由資料表和作業名稱組成，而且必須位在相對於執行命令所在位置的  `table` 子資料夾中。例如，下列作業會上傳並註冊屬於  `TodoItems` 資料表的新  `insert` 指令碼：
 
 		azure mobile script upload todolist table/todoitems.insert.js
 
-指令碼檔案中的函數宣告也必須符合註冊的資料表作業。這表示，對於 `insert` 指令碼而言，上傳的指令碼要包含具有下列簽章的函數：
+指令碼檔案中的函數宣告也必須符合註冊的資料表作業。這表示，對  `insert` 指令碼而言，上傳的指令碼包含具有下列簽章的函數：
 
 		function insert(item, user, request) {
 		    ...
 		} 
 
-如需有關註冊指令碼的詳細資訊，請參閱[行動服務伺服器指令碼參考]。
+如需關於註冊指令碼的詳細資訊，請參閱[行動服務伺服器指令碼參考]。
 
-<!--<h2><a name="test-service"></a>Test the new mobile service</h2>
+<!--<h2><a name="test-service"></a>測試新的行動服務</h2>
 
-When you are automating the creation of your mobile service, you can optionally use cURL or another command-line request generator to 
+當您將建立行動服務的作業自動化時，您可以選擇性地使用 cURL 或至其他命令列要求產生器來 
 
-## <a name="nextsteps"> </a>Next Steps
-Next steps here....
+## <a name="nextsteps"> </a>後續步驟
+後續步驟....
 -->
 <!-- Anchors. -->
 [下載和安裝命令列工具]: #install
-[下載和匯入發佈設定]: #import
+[下載和匯入發行設定]: #import
 [建立新的行動服務]: #create-service
 [取得主要金鑰]: #get-master-key
 [建立新資料表]: #create-table
@@ -195,4 +193,5 @@ Next steps here....
 [如何安裝適用於 Mac 和 Linux 的 Azure 命令列工具]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

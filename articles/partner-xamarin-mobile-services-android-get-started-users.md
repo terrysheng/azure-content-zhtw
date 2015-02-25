@@ -1,48 +1,62 @@
-﻿<properties urlDisplayName="Get Started with Authentication (Xamarin.Android)" pageTitle="開始使用驗證 (Xamarin.Android) - 行動服務 " metaKeywords="Azure 註冊應用程式, Azure 驗證, 應用程式驗證, 驗證行動服務, 行動服務 Xamarin.Android" description="了解如何在 Xamarin.Android 的 Azure 行動服務應用程式中使用驗證。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with authentication in Mobile Services" services="mobile-services" documentationCenter="Mobile" manager="dwrede" authors="donnam"/>
+﻿<properties 
+	pageTitle="開始使用驗證 (Xamarin.Android) - 行動服務" 
+	description="了解如何在 Xamarin.Android 的 Azure 行動服務應用程式中使用驗證。" 
+	services="mobile-services" 
+	documentationCenter="xamarin" 
+	manager="dwrede" 
+	authors="lindydonna" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="donnam"/>
 
-# 在您的行動服務應用程式中新增驗證
+# 將驗證新增到您的行動服務應用程式
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
 <p>本主題顯示如何在 Azure 行動服務中從 Xamarin.Android 應用程式驗證使用者。在本教學課程中，您將使用行動服務支援的身分識別提供者，將驗證加入至快速入門專案。由行動服務成功驗證並授權之後，就會顯示使用者識別碼值。</p>
 
 本教學課程帶領您執行下列基本步驟，在您的應用程式中啟用驗證：
 
 1. [註冊應用程式進行驗證，並設定行動服務]
-2. [對通過驗證的使用者限制資料表權限]
-3. [將驗證新增至應用程式]
+2. [限制只有經驗證的使用者具有資料表的權限]
+3. [將驗證新增到應用程式]
 
-本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務]。 
+本教學課程以行動服務快速入門為基礎。您也必須先完成教學課程[開始使用行動服務]。 
 
 完成本教學課程需要有 Xamarin.Android 和 Android SDK 4.2 或更新版本。 
 
 <h2><a name="register"></a>註冊應用程式進行驗證，並設定行動服務</h2>
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-<h2><a name="permissions"></a>限制只有通過驗證的使用者具有權限</h2>
-
-
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+<h2><a name="permissions"></a>限制只有經驗證的使用者具有權限</h2>
 
 
-3. 在 Eclipse 中，開啟您完成 [開始使用行動服務] 教學課程時建立的專案。 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
-4. 在 [**執行**] 功能表中，按一下 [**執行**] 來啟動應用程式。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。 
+
+3. 在 Eclipse 中，開啟您完成教學課程[開始使用行動服務]時建立的專案。 
+
+4. 從 [執行]**** 功能表，按一下 [執行]**** 來啟動應用程式。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。 
 
 	 這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 _TodoItem_ 資料表現在需要驗證。
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
-<h2><a name="add-authentication"></a>將驗證新增至應用程式</h2>
+<h2><a name="add-authentication"></a>將驗證新增到應用程式</h2>
 
-1. 在 **TodoActivity** 類別中新增下列屬性：
+1. 將下列屬性新增至 **TodoActivity** 類別：
 
 			private MobileServiceUser user;
 
-2. 在 **TodoActivity** 類別中新增下列方法： 
+2. 將下列方法加入 **TodoActivity** 類別： 
 
 	        private async Task Authenticate()
 	        {
@@ -59,11 +73,9 @@
 
     這會建立新的方法來處理驗證程序。使用者透過 Microsoft 帳戶登入來驗證。將出現對話方塊來顯示已驗證的使用者的識別碼。必須通過驗證才能繼續。
 
-    <div class="dev-callout"><b>注意</b>
-	<p>如果您使用的身分識別提供者不是 Microsoft，請將傳給上述 <strong>login</strong> 方法的值變更為下列其中一個：<i>Facebook</i>、<i>Google</i>、<i>Twitter</i> 或 <i>WindowsAzureActiveDirectory</i>。</p>
-    </div>
+    > [AZURE.NOTE] 如果您使用的身分識別提供者不是 Microsoft，請將傳遞給上述 **login** 方法的值變更為下列其中一個：_Facebook_、_Google_、_Twitter_ 或 _WindowsAzureActiveDirectory_。
 
-3. 在 **OnCreate** 方法中，在具現化 `MobileServiceClient` 物件的程式碼後面加入下列這一行程式碼。
+3. 在 **OnCreate** 方法中，在具現化  `MobileServiceClient` 物件的程式碼後面加入下列這一行程式碼。
 
 		await Authenticate();
 
@@ -87,26 +99,26 @@
 	            await RefreshItemsFromTableAsync();
 	        }
 
-5. 接著，在步驟 2 中所新增的 **Authenticate** 呼叫之後，呼叫 **OnCreate** 中的新 **CreateTable** 方法：
+5. 接著，在 **OnCreate** 中，就在步驟 2 新增的 **Authenticate** 呼叫後，呼叫新的 **CreateTable** 方法：
 
 		await CreateTable();
 
 
-6. 在 [**執行**] 功能表中，按一下 [**執行**] 來啟動應用程式，並以您選擇的身分識別提供者登入。 
+6. 從 [執行]**** 功能表，按一下 [執行]**** 來啟動應用程式，並以您選擇的身分識別提供者登入。 
 
    	成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
 
 ## 取得完成的範例
-下載 [完成的範例專案]。務必以您自己的 Azure 設定更新 **applicationURL** 和 **applicationKey** 變數。
+下載[完成的範例專案]。務必以您自己的 Azure 設定更新 **applicationURL** 和 **applicationKey** 變數。
 
 ## <a name="next-steps"></a>後續步驟
 
-在下一個教學課程[使用指令碼授權使用者]中，您將使用行動服務根據通過驗證使用者所提供的使用者 ID 值，並用它來篩選行動服務所傳回的資料。 
+在下一堂教學課程[使用指令碼授權使用者]中，您將使用行動服務根據通過驗證使用者所提供的使用者 ID 值，並用它來篩選行動服務所傳回的資料。 
 
 <!-- Anchors. -->
 [註冊應用程式進行驗證，並設定行動服務]: #register
-[對通過驗證的使用者限制資料表權限]: #permissions
-[將驗證新增至應用程式]: #add-authentication
+[限制只有經驗證的使用者具有資料表的權限]: #permissions
+[將驗證新增到應用程式]: #add-authentication
 [後續步驟]:#next-steps
 
 <!-- Images. -->
@@ -121,7 +133,7 @@
 
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows (英文)]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-xamarin-android
 [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-android
 [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-android
@@ -131,3 +143,6 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
 [完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+
+
+<!--HONumber=42-->

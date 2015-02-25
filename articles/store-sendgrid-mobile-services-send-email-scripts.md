@@ -1,13 +1,27 @@
-﻿<properties urlDisplayName="Send Email Using SendGrid" pageTitle="使用 SendGrid 傳送電子郵件 - Azure 行動服務" metaKeywords="Azure SendGrid, SendGrid 服務, Azure 電子郵件傳遞, 行動服務電子郵件" description="了解如何使用 SendGrid 服務，從 Azure 行動服務應用程式傳送電子郵件。" metaCanonical="" services="" documentationCenter="Mobile" title="Send email from Mobile Services with SendGrid" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="使用 SendGrid 傳送電子郵件 - Azure 行動服務" 
+	description="了解如何使用 SendGrid 服務，從 Azure 行動服務應用程式傳送電子郵件。" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="thinkingserious" 
+	manager="sendgrid" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/27/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 
 # 使用 SendGrid 從行動服務傳送電子郵件
 
 本主題說明如何將電子郵件功能新增至您的行動服務。在本教學課程中，您將新增伺服器端程式碼以使用 SendGrid 傳送電子郵件。完成後，行動服務就會在每次插入記錄時傳送電子郵件。
 
-SendGrid 是[雲端架構電子郵件服務]，能提供可靠的[交易式電子郵件傳遞]、擴充性和即時分析，以及有彈性的 API 來輕鬆進行自訂整合。如需詳細資訊，請參閱 <http://sendgrid.com>。
+SendGrid 是[雲端式電子郵件服務]，能提供可靠的[交易式電子郵件傳遞]、延展性和即時分析，以及有彈性的 API 來輕鬆進行自訂整合。如需詳細資訊，請參閱<http://sendgrid.com>。
 
 本教學課程將逐步引導您完成下列啟用電子郵件功能的基本步驟：
 
@@ -19,21 +33,21 @@ SendGrid 是[雲端架構電子郵件服務]，能提供可靠的[交易式電�
 
 <h2><a name="sign-up"></a>建立新的 SendGrid 帳戶</h2>
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 <h2><a name="add-script"></a>註冊傳送電子郵件的新指令碼</h2>
 
-1. 登入 [Azure 管理入口網站]，按一下 [**行動服務**]，然後按一下您的行動服務。
+1. 登入 [Azure 管理入口網站]，按一下 **[行動服務]**，然後按一下您的行動服務。
 
-2. 在管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItem**] 資料表。 
+2. 在「管理入口網站」中，按一下 **[資料]** 索引標籤，然後按一下 **[TodoItem]** 資料表。 
 
 	![][1]
 
-3. 在 **todoitem** 中按一下 [**指令碼**] 索引標籤，然後選取 [**插入**]。
+3. 在 **[TodoItem]** 中，按一下 **[指令碼]** 索引標籤，然後選取 **[插入]**。
    
 	![][2]
 
-	這會顯示 [**TodoItem**] 資料表中發生插入時所叫用的函數。
+	這會顯示 [TodoItem]**** 資料表中發生插入時所叫用的函數。
 
 4. 使用下列程式碼來取代插入函數：
 
@@ -74,11 +88,9 @@ SendGrid 是[雲端架構電子郵件服務]，能提供可靠的[交易式電�
 
 	- **_from-address_**：電子郵件的來源地址。請考慮使用屬於貴組織的已登錄網域位址。 
 
-     <div class="dev-callout"><b>注意</b>
-     <p>如果您沒有已登錄的網域，則可以改用您行動服務的網域，格式為 <strong>notifications@<i>your-mobile-service</i>.azure-mobile.net</strong>。不過，傳送至您行動服務網域的訊息將會被忽略。</p>
-    </div> 
+     > [AZURE.NOTE] 如果您沒有已登錄的網域，則可以改用您行動服務的網域，格式為  *notifications@_your-mobile-service_.azure-mobile.net*。不過，傳送至您行動服務網域的訊息將會被忽略。
 
-6. 按一下 [**儲存**] 按鈕。您現在已經設定好指令碼，使其在每次將記錄插入 **TodoItem** 資料表時傳送電子郵件。
+6. 按一下 **[儲存]** 按鈕。您現在已經設定好指令碼，使其在每次將記錄插入 **TodoItem** 資料表時傳送電子郵件。
 
 <h2><a name="insert-data"></a>插入測試資料以接收電子郵件</h2>
 
@@ -86,7 +98,7 @@ SendGrid 是[雲端架構電子郵件服務]，能提供可靠的[交易式電�
 
 	本主題示範的是 Windows 市集版本的快速入門。
 
-2. 在應用程式的 [**插入 TodoItem**] 中輸入文字，然後按一下 [**儲存**]。
+2. 在應用程式的 **[Insert a TodoItem]** 中輸入文字，然後按一下 **[儲存]**。
 
 	![][3]
 
@@ -98,7 +110,8 @@ SendGrid 是[雲端架構電子郵件服務]，能提供可靠的[交易式電�
 
 ## <a name="nextsteps"> </a>後續步驟
 
-現在您已經了解將 SendGrid 電子郵件服務與行動服務搭配使用有多麼簡單，接下來請參考下列連結來深入了解 SendGrid。
+現在您已經了解將 SendGrid 電子郵件服務與行動服務搭配使用有多麼簡單，
+接下來請參考下列連結來深入了解 SendGrid。
 
 -   SendGrid API 文件：
     <https://sendgrid.com/docs>
@@ -119,8 +132,11 @@ SendGrid 是[雲端架構電子郵件服務]，能提供可靠的[交易式電�
 <!-- URLs. -->
 [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started
 [註冊頁面]: https://sendgrid.com/windowsazure.html
-[多個使用者認證頁面]: https://sendgrid.com/credentials
+[[多個使用者認證 頁面]: https://sendgrid.com/credentials
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[雲端架構電子郵件服務]: https://sendgrid.com/email-solutions
+[雲端式電子郵件服務]: https://sendgrid.com/email-solutions
 [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
 
+
+
+<!--HONumber=42-->

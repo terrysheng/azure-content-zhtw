@@ -1,6 +1,20 @@
-﻿<properties title="Integrate your Azure Website with an Azure Virtual Network" pageTitle="整合 Azure 網站與 Azure VNet" description="顯示如何將 Azure 網站連線到新的或現有的 Azure 虛擬網路" metaKeywords="" services="web-sites,virtual-network" solutions="web,integration,infrastructure" documentationCenter="" authors="cephalin" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="整合 Azure 網站與 Azure VNet" 
+	description="顯示如何將 Azure 網站連線到新的或現有的 Azure 虛擬網路" 
+	services="web-sites, virtual-network" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="cephalin"/>
 
 # 整合 Azure 網站與 Azure 虛擬網路 #
 本文件說明虛擬網路整合預覽功能，以及示範如何以 Azure 網站加以設定。如果您不熟悉 Azure 虛擬網路，這是讓您利用 Azure 和內部部署資源建置混合式解決方案的功能。  
@@ -12,7 +26,7 @@
 ## 開始使用 ##
 在連接網站和虛擬網路之前，請留意以下事項。
 
-1.	唯有以「標準」價格層之 Web 主控方案為基礎運作的網站才能連線到虛擬網路。免費、共用和基本網站無法連線到虛擬網路。
+1.	唯有以「標準」價格層之 Web 主控方案為基礎運作的網站能連接虛擬網路。免費、共用和基本網站無法連接虛擬網路。
 2.	如果目標虛擬網路已存在，您必須先以動態路由閘道啟用其點對站台連線，才能使該虛擬網路與網站連線。如果您以靜態路由設定閘道，便無法啟用點對站台 VPN。
 3.	Web 主控方案最多僅供您設定 5 個網路。一個網站一次只能連接一個網路。這 5 個網路可供同一個 Web 主控方案中任意數量的網站使用。  
 
@@ -84,3 +98,6 @@ Azure 網站另外提供一項稱為「混合式連線」的功能。這項功�
 另一個差異在於，您需要安裝轉接代理程式，混合式連線才能正常運作。此代理程式需要在 Windows Server 執行個體上執行。在虛擬網路功能的協助下，您不需要安裝任何項目，且該功能可讓您忽略主控作業系統的限制存取遠端資源。  
 
 現階段，這兩項功能的價格層也不盡相同。就價格最低廉的階層來看，這是因為混合式連線功能格外適合用於開發/測試案例，並且只提供存取權限給少量的端點。虛擬網路功能則可讓您存取 VNET 中的所有項目，或與 VNET 連接的所有項目。  
+
+
+<!--HONumber=42-->

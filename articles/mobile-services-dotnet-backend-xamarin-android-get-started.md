@@ -1,14 +1,14 @@
-﻿<properties urlDisplayName="Get Started with Mobile Services for Xamarin Android apps" pageTitle="在 Xamarin Android 應用程式中開始使用行動服務 - Azure 行動服務" metaKeywords="" description="遵循此教學課程，可開始使用 Azure 行動服務進行 Xamarin Android 開發。" metaCanonical="" services="" documentationCenter="Mobile" title="Get Started with Mobile Services for Xamarin Android apps" authors="donnam" solutions="" manager="dwrede" editor="mollybos" />
+<properties pageTitle="在 Xamarin Android 應用程式中開始使用行動服務 - Azure 行動服務" description="遵循此教學課程，可開始使用 Azure 行動服務進行 Xamarin Android 開發。" services="" documentationCenter="xamarin" authors="lindydonna" manager="dwrede" editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam"/>
 
 # <a name="getting-started"> </a>開始使用行動服務
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到 Xamarin Android 應用程式。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單「_待辦事項清單_」應用程式。您所將建立的行動服務，會使用 Visual Studio 與支援的 .NET 語言撰寫伺服器端商務邏輯，並管理行動服務。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 後端版本]。
+本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到 Xamarin Android 應用程式。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單 _To do list_ 應用程式。您所將建立的行動服務，會使用 Visual Studio 與支援的 .NET 語言撰寫伺服器端商務邏輯，並管理行動服務。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 後端版本]。
 
->[WACOM.NOTE]本主題將說明如何使用 Azure 管理入口網站建立新的行動服務專案。使用 Visual Studio 2013 Update 2，可讓您將新的行動服務專案新增至現有的 Visual Studio 方案。如需詳細資訊，請參閱 Windows 開發人員中心的[快速入門：新增行動服務 (.NET 後端)](http://msdn.microsoft.com/zh-tw/library/windows/apps/dn629482.aspx)
+>[AZURE.NOTE]本主題將說明如何使用 Azure 管理入口網站建立新的行動服務專案。使用 Visual Studio 2013 Update 2，可讓您將新的行動服務專案新增至現有的 Visual Studio 方案。如需詳細資訊，請參閱 Windows 開發人員中心的[快速入門：新增行動服務 (.NET 後端)](http://msdn.microsoft.com/zh-tw/library/windows/apps/dn629482.aspx)
 
 以下是完成應用程式的螢幕擷取畫面：
 
@@ -16,21 +16,21 @@
 
 完成本教學課程是 Xamarin Android 應用程式所有其他行動服務教學課程的先決條件。 
 
->[WACOM.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started" target="_blank">Azure 免費試用</a>。<br />本教學課程需要 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>。您可以使用免費試用版。
+>[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started" target="_blank">Azure 免費試用</a>。<br />本教學課程需要 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>。您可以使用免費試用版。
 
 ## 建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## 建立新的 Xamarin Android 應用程式
 
-在建立您的行動服務之後，您可以依照 [管理入口網站] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。 
+在建立您的行動服務之後，您可以依照 \[管理入口網站\] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。 
 
 在本節中，您將為行動服務下載新的 Xamarin Android 應用程式和服務專案。
 
-1. 在管理入口網站中，按一下 [**行動服務**]，然後按一下您剛剛建立的行動服務。
+1. 在管理入口網站中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
    
-2. 在 [快速入門] 索引標籤中，按一下 [**選擇平台**] 下的 [**Xamarin**]，然後展開 [**Create a new Xamarin app**]。
+2. 在快速入門索引標籤中，按一下 [**選擇平台**] 下的 [**Xamarin**]，並展開 [**建立新的 Xamarin 應用程式**]。
 
    	![][6]
 
@@ -42,19 +42,19 @@
 
 4. 下載並安裝 [Xamarin Studio] 或 Xamarin for Visual Studio (若您尚未這麼做)。
 
-5. 在 [**Download and publish your service to the cloud**] 下，選取 [**Android**]，然後按一下 [**下載**]。 
+5. 在 [**下載服務並發佈到雲端**] 下選取 [**Android**]，然後按 [**下載**]。 
 
-  	這會下載一個方案，其中包含行動服務的專案，以及與行動服務連接的範例「_待辦事項清單_」應用程式的專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
+  	這會下載一個方案，其中包含行動服務的專案，以及與行動服務連接的範例 _To do list_ 應用程式的專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 
 6. 下載您的發行設定檔、將下載的檔案儲存至本機電腦，並記下儲存位置。
 
 ## 測試行動服務
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ## 發佈行動服務
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## 執行 Xamarin Android 應用程式
 
@@ -68,9 +68,7 @@
 
 2. 按 [**執行**] 按鈕，以建置專案並啟動應用程式。系統將要求您選取模擬器或連接的 USB 裝置。 
 
-	<div class="dev-callout">
-	<strong>注意</strong>
-	<p>若要能夠在 Android 模擬器中執行此專案，您必須至少定義一個 Android 虛擬裝置 (AVD)。使用 AVD Manager 來建立與管理這些裝置。</p></div>
+	> [AZURE.NOTE] 若要能夠在 Android 模擬器中執行此專案，您必須至少定義一個 Android 虛擬裝置 (AVD)。使用 AVD Manager 來建立與管理這些裝置。
 
 3. 在應用程式中輸入有意義的文字，例如 _Complete the tutorial_，然後按一下加號 (**+**) 圖示。
 
@@ -78,20 +76,20 @@
 
 	如此會傳送 POST 要求到 Azure 中代管的新行動服務。要求中的資料會插入 TodoItem 資料表中。行動服務會傳回資料表中儲存的項目，而該資料會顯示在清單中。
 
-	> [WACOM.NOTE] 
-   	> 您可以檢閱存取行動服務以查詢與插入資料的程式碼，您可在 ToDoActivity.cs C# 檔案中找到此程式碼。
+	> [AZURE.NOTE] 
+   	> 您可以檢閱存取行動服務來查詢和插入資料的程式碼，這可以在 ToDoActivity.cs C# 檔案中找到。
     
 ## 後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作： 
 
 * [開始使用離線資料同步]
-  <br/>了解如何使用離線資料同步處理，建立可快速回應和功能強大的應用程式。
+  <br/>了解快速入門如何使用離線資料同步處理，讓應用程式迅速回應而且穩固。
 
 * [開始使用驗證]
-  <br/>了解如何透過身分識別提供者來驗證您的應用程式使用者。
+  <br/>了解如何向身分識別提供者驗證應用程式的使用者。
 
 * [開始使用推播通知] 
-  <br/>了解如何將非常基本的推播通知傳送至您的應用程式。
+  <br/>了解如何將極為基本的推播通知傳送到應用程式。
 
 * [行動服務 .NET 後端的疑難排解]
   <br/> 了解如何診斷和修正行動服務 .NET 後端可能發生的問題。 
@@ -127,3 +125,6 @@
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
+
+
+<!--HONumber=42-->

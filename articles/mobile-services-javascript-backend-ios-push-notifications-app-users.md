@@ -1,14 +1,13 @@
-﻿
-<properties pageTitle="傳送推播通知給已驗證的使用者" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="了解如何將推播通知傳送給特定 " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="krisragh" solutions="Mobile" manager="dwrede" editor="" />
+﻿<properties pageTitle="傳送推播通知給已驗證的使用者" description="了解如何將推播通知傳送給特定" services="mobile-services, notification-hubs" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
 
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
 # 傳送推播通知給已驗證的使用者
 
-[WACOM.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
 
-本主題說明如何將推播通知傳送給任何已註冊之 iOS 裝置上的驗證使用者。不同於先前的[推播通知][開始使用推播通知]教學課程，本教學課程會變更您的行動服務，而要求使用者必須先完成驗證，iOS 用戶端才能向通知中樞註冊推播通知。註冊也修改為根據指派的使用者識別碼來新增一個標籤。最後，更新伺服器指令碼，將通知只傳送給已驗證的使用者，而非所有註冊。
+本主題說明如何將推播通知傳送給任何已註冊之 iOS 裝置上的驗證使用者。不同於先前的[推播通知][開始使用推播通知]教學課程，本教學課程會變更您的行動服務，而要求使用者必須先完成驗證，iOS 用戶端才能向通知中心註冊推播通知。此外也會修改註冊，以根據指派的使用者識別碼新增標記。最後會更新伺服器指令碼，而僅將通知傳送給已驗證的使用者，而不是所有的註冊。
 
 本教學課程將逐步引導您完成下列程序：
 
@@ -22,13 +21,13 @@
 
 + [開始使用驗證]<br/>將登入需求新增至 TodoList 範例應用程式。
 
-+ [開始使用推播通知]<br/>使用通知中樞，設定推播通知的 TodoList 範例應用程式。
++ [開始使用推播通知]<br/>使用通知中心，設定推播通知的 TodoList 範例應用程式。
 
 在您完成這兩個教學課程後，您即可防止未經授權的使用者從您的行動服務註冊推播通知。
 
-##<a name="register"></a>更新服務以要求註冊所需的驗證
+##<a name="register"></a>更新服務以要求註冊的驗證
 
-[WACOM.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
+[AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
 <ol start="5"><li><p>使用下列程式碼來取代 insert 函數，然後按一下 [<strong>儲存</strong>]：</p>
 <pre><code>function insert(item, user, request) {
@@ -52,11 +51,11 @@
 
 ##<a name="update-app"></a>更新應用程式以在註冊前先登入
 
-[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-login](../includes/mobile-services-ios-push-notifications-app-users-login.md)]
+[AZURE.INCLUDE [mobile-services-ios-push-notifications-app-users-login](../includes/mobile-services-ios-push-notifications-app-users-login.md)]
 
 ##<a name="test"></a>測試應用程式
 
-[WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
+[AZURE.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
 
 
 
@@ -72,9 +71,12 @@
 [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[行動服務 .NET 作法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
+[行動服務 .NET 做法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
 
 [23]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
 [24]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
 [25]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
 [26]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
+
+
+<!--HONumber=42-->

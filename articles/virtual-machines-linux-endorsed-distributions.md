@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Endorsed distributions" pageTitle="在 Azure 中 Linux 的背書散發套件" metaKeywords="" description="了解在 Azure 背書散發套件上的 Linux，包括 Ubuntu、OpenLogic 和 SUSE 的準則。" metaCanonical="" services="virtual-machines" documentationCenter="" title="Linux on Azure-Endorsed Distributions" authors="szark" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="在 Azure 中 Linux 的背書散發套件" description="了解在 Azure 背書散發套件上的 Linux，包括 Ubuntu、OpenLogic 和 SUSE 的準則。" services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="szark" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="szark"/>
 
 
 
@@ -8,7 +8,7 @@
 
 #經 Azure 背書之配送映像上的 Linux
 
-Azure 映像庫上的配送映像是由下列合作夥伴提供，而我們仍繼續與不同的 Linux 社群合作來提供更多經過背書的配送映像。同時，針對映像庫中未提供的散發套件，您可以隨時依照[本頁]上的方針，帶自己的 Linux 來上班(../virtual-machines-linux-create-upload-vhd/)。
+Azure 映像庫上的配送映像是由下列合作夥伴提供，而我們仍繼續與不同的 Linux 社群合作來提供更多經過背書的配送映像。同時，針對映像庫中未提供的散發套件，您可以隨時依照[本頁](../virtual-machines-linux-create-upload-vhd/)上的方針，來使用您自己的 Linux。
 
 ## Canonical ##
  
@@ -37,9 +37,9 @@ Azure 上的 SUSE Linux Enterprise Server 是一個經證實可為雲端運算�
 
 ## 支援的版本 ##
 
-下表顯示不同的配送版本、Linux Integration Services (LIS) 驅動程式，以及經測試過可在 Azure 上運作的 Azure Linux 代理程式版本。依預設，LIS 驅動程式會內建於散發套件的核心，或您可以自[此處]取得(http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)。Linux 代理程式版本可從散發套件的封裝儲存機制或在 [Github] 上取得(https://github.com/azure/walinuxagent)。
+下表顯示不同的配送版本、Linux Integration Services (LIS) 驅動程式，以及經測試過可在 Azure 上運作的 Azure Linux 代理程式版本。依預設，LIS 驅動程式會內建於散發套件的核心，或您可以自[此處](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)取得。Linux 代理程式版本可從散發套件的封裝儲存機制或在 [Github](https://github.com/azure/walinuxagent) 上取得。
 
-表格中也包含某些散發套件/核心版本在 Azure 中順暢運作所需的 [Linux 核心相容性修補程式]的連結(http://go.microsoft.com/fwlink/?LinkID=403027&clcid=0x409) 。
+有些散發套件/核心版本需要有 [Linux 核心相容性修補程式](http://go.microsoft.com/fwlink/?LinkID=403027&clcid=0x409)才能在 Azure 中適當運作，在此情況下，表中也包含這類修補程式的連結。
 
 <table border="1" width="600">
   <tr bgcolor="#E9E7E7">
@@ -53,25 +53,26 @@ Azure 上的 SUSE Linux Enterprise Server 是一個經證實可為雲端運算�
 		<th>  Canonical Ubuntu </th>
 		<td> Ubuntu 12.04.1+、14.04 和 14.10 </td>
 		<td>在核心中</td>
-		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&clcid=0x409">只有 12.04 或 12.04.01 才需要</a></td>
-		<td>套件：在 walinuxagent 下的封裝儲存機制中 <br />
-			來源: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
+		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&amp;clcid=0x409">只有 12.04 或 12.04.01 才需要</a></td>
+		<td>套件：在 walinuxagent 下的封裝儲存機制中  <br />
+			來源:<a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 			</tr>
 	<tr>
 		<th> OpenLogic 的 CentOS </th>
 		<td> CentOS 6.3+</td>
-	    <td>CentOS 6.3： <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 驅動程式</a>; CentOS 6.4+ 驅動程式：在核心中</td>
-		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&clcid=0x409">只有 6.3 才需要</a></td>
-		<td>Package:In <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">開啟邏輯封裝儲存機制 </a> 在 walinuxagent 下<br />
-			來源: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
+	    <td>CentOS 6.3：<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 驅動程式</a>; CentOS 6.4+ 驅動程式：在核心中</td>
+		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">只有 6.3 才需要</a></td>
+		<td>套件：在 walinuxagent 下的 <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">Open Logic 封裝儲存機制 </a><br />
+			來源:<a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
  		
+
 	</tr>
 	<tr>
 		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
 		<td> 494.4.0+ </td>
         <td> 在核心中 </td>
 		<td> N/A </td>
-		<td> 來源: <a href="https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent">GitHub</a></td>
+		<td> 來源:<a href="https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent">GitHub</a></td>
 		
 	</tr>
 	<tr>
@@ -80,7 +81,7 @@ Azure 上的 SUSE Linux Enterprise Server 是一個經證實可為雲端運算�
         <td>在核心中</td>
 		<td>N/A</td>
 		<td>套件：在存放庫中，名稱：WALinuxAgent<br />
-			來源: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
+			來源:<a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
 	<tr>
@@ -88,8 +89,8 @@ Azure 上的 SUSE Linux Enterprise Server 是一個經證實可為雲端運算�
 		<td> SLES 11 SP3+</td>
         <td>在核心中</td>
 		<td>N/A</td>
-		<td>套件：在 <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> repo, name: WALinuxAgent<br />
-			Source Code: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
+		<td>套件：在 <a href="https://build.opensuse.org/project/show/Cloud:Tools" >雲端：工具</a> 儲存機制，名稱：WALinuxAgent<br />
+			原始程式碼： <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
 	<tr>
@@ -97,11 +98,12 @@ Azure 上的 SUSE Linux Enterprise Server 是一個經證實可為雲端運算�
 		<td> openSUSE 13.1+</td>
 		<td>在核心中</td>
 		<td>N/A</td>
-		<td>套件：在 <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> repo, name: WALinuxAgent<br />
-			Source Code: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
+		<td>套件：在 <a href="https://build.opensuse.org/project/show/Cloud:Tools" >雲端：工具</a> 儲存機制，名稱：WALinuxAgent<br />
+			原始程式碼：<a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
 </table>
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

@@ -1,14 +1,12 @@
-﻿<properties urlDisplayName="Using Offline Data" pageTitle="在行動服務中使用離線資料同步 (iOS) | 行動開發人員中心" metaKeywords="" description="了解如何使用 Azure 行動服務快處和徒步 iOS 應用程式中的離線資料" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using Offline data sync in Mobile Services" authors="krisragh" manager="dwrede" />
+﻿<properties pageTitle="在行動服務中使用離線資料同步 (iOS) | 行動開發人員中心" description="了解如何使用 Azure 行動服務快處和徒步 iOS 應用程式中的離線資料" documentationCenter="ios" authors="krisragh" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/16/2015" ms.author="krisragh,donnam"/>
 
 # 開始在行動服務中使用離線資料同步
 
+[AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
 
-[WACOM.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
-
-
-本教學課程將說明 iOS 上的行動服務的離線同步功能，此功能可讓開發人員撰寫即使在使用者沒有網路存取的情況下仍可使用的應用程式。
+本教學課程涵蓋 iOS 上行動服務的離線同步處理功能。離線同步處理可讓使用者與行動應用程式進行互動--檢視、新增或修改資料--即使沒有網路連線進也可行。變更會儲存在本機資料庫中︰裝置上線後，這些變更就會與遠端服務進行同步處理。
 
 離線同步具有幾種潛在用途：
 
@@ -17,401 +15,237 @@
 * 讓使用者即使在沒有網路存取的情況下仍能建立及修改資料，而支援連線微弱或無連線的情況
 * 同步多個裝置之間的資料，並在兩個裝置修改相同的記錄時偵測衝突
 
-本教學課程將在[開始使用行動服務]教學課程中說明如何更新應用程式，以支援 Azure 行動服務的離線功能。接著，您會在中斷連線的離線狀態下新增資料、將這些項目同步處理至線上資料庫，然後登入 Azure 管理入口網站，以檢視執行應用程式時對資料所做的變更。
+>[AZURE.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。
 
->[WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。
-
-本教學課程旨在協助您深入了解如何透過行動服務，以使用 Azure 儲存並擷取 Windows 市集應用程式中的資料。因此，本主題將逐步說明已在行動服務快速入門中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮首先完成教學課程[開始使用行動服務]。
-
->[WACOM.NOTE] 您可以略過這幾節，直接下載一個已具有離線支援和本主題所述一切功能的使用者入門專案。  若要下載具有離線支援的專案，請參閱[開始使用離線 iOS 範例]。
-
+如果這是您第一次接觸行動服務，請考慮先完成教學課程[開始使用行動服務]。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1. [取得範例快速入門應用程式]
-2. [下載預覽 SDK 和更新架構]
-3. [設定 Core Data]
-4. [定義 Core Data 模型]
-5. [初始化及使用同步資料表和同步內容]
-6. [測試應用程式]
+1. [取得範例應用程式]
+2. [檢閱行動服務同步處理程式碼]
+3. [檢閱核心資料模型]
+4. [變更應用程式的同步處理行為]
+5. [測試應用程式]
 
-## <a name="get-app"></a>取得範例快速入門應用程式
+## <a name="get-app"></a>取得離線 ToDo 應用程式範例
 
-依照[開始使用行動服務]的指示，下載快速入門專案。
+在 [GitHub 上的行動服務範例儲存機制]中，複製此儲存機制並開啟 Xcode 中的[離線 iOS 範例]專案。
 
-## <a name="update-app"></a>下載預覽 SDK 和更新架構
+### Beta SDK
+若要在現有的應用程式中加入離線支援，請取得最新的 [Beta iOS SDK](http://aka.ms/gc6fex)。
 
-1. 為了將離線支援加入至我們的應用程式，讓我們取得一個支援離線同步的行動服務 iOS SDK 版本。因為我們是以預覽功能來啟動它，它尚未納入正式可下載的 SDK 中。[請在這裡下載預覽 SDK]。
+## <a name="review-sync"></a>檢閱行動服務同步處理程式碼
 
-2. 然後，在 Xcode 中，從專案移除現有的 **WindowsAzureMobileServices.framework** 參考，請選取它，按一下 [**編輯**] 功能表，然後選取 [移至垃圾筒]，以確實刪除檔案。
+Azure 行動服務離線同步處理可讓使用者在無法存取網路時，仍可與本機資料庫互動。若要在您的應用程式中使用這些功能，您可初始化  `MSClient` 的同步處理內容以及參考本機存放區。接著，請透過  `MSSyncTable` 介面參考您的資料表。
 
-      ![][update-framework-1]
+本節逐步解說範例中的離線同步處理相關程式碼。
 
-3. 將新的預覽 SDK 的內容解壓縮，並拖放至新的 **WindowsAzureMobileServices.framework** SDK 上取代舊的 SDK。請確定已選取 [Copy items into destination group's folder (if needed)]。
+1. 在 **QSTodoService.m** 中，請注意成員  `syncTable` 的類型是  `MSSyncTable`。離線同步處理會使用此同步處理資料表介面，而不是  `MSTable`。使用同步處理資料表時，所有作業都會移至本機存放區，而且只與具有明確推送和提取作業的遠端服務同步處理。
 
-      ![][update-framework-2]
+    若要取得同步處理資料表的參考，請使用  `syncTableWithName` 方法。若要移除離線同步處理功能，請改用  `tableWithName`。
 
+3. 必須先初始化本機存放區，才可以執行資料表作業。這是  `QSTodoService.init` 方法中的相關程式碼：
 
-## <a name="setup-core-data"></a>設定 Core Data
+        MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
+        
+        self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
 
-1. iOS 行動服務 SDK 可讓您使用任何符合 **MSSyncContextDataSource** 通訊協定的持續性存放區。SDK 中包含一個根據 [Core Data] 實作此通訊協定的資料來源。
+    這會建立一個本機存放區，其採用行動服務 SDK 中提供的  `MSCoreDataStore` 介面。您可以實作  `MSSyncContextDataSource` 通訊協定，改為提供不同的本機存放區。
 
-2. 由於應用程式使用 Core Data，請瀏覽至 [**目標**] --> [**Build Phases**]，在 [**Link Binary with Libraries**] 下方，加入 [**CoreData.framework**]。
+     `initWithDelegate` 的第一個參數用來指定衝突處理常式。由於我們已傳遞   `nil`，所以我們會取得預設衝突處理常式，但該處理常式在任何衝突時都會失敗。如需如何實作自訂衝突處理常式的詳細資訊，請參閱[處理行動服務的離線支援衝突]教學課程。
 
-      ![][core-data-1]
+4.  `pullData` 和  `syncData` 方法會執行實際同步處理作業︰ `syncData` 會先推送新的變更，然後呼叫  `pullData` 以從遠端服務取得資料。
 
-      ![][core-data-2]
-
-3. 我們要將 Core Data 加入至 Xcode 中尚未支援 Core Data 的現有專案。因此，我們需要將額外的未定案程式碼加入至專案的各個部分。首先，在 **QSAppDelegate.h** 中加入下列程式碼：
-
-        #import <UIKit/UIKit.h>  
-        #import <CoreData/CoreData.h>  
-
-        @interface QSAppDelegate : UIResponder <UIApplicationDelegate>  
-
-        @property (strong, nonatomic) UIWindow *window;  
-
-        @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;  
-        @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;  
-        @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;  
-
-        - (void)saveContext;  
-        - (NSURL *)applicationDocumentsDirectory;  
-
-        @end
-
-4. 接下來，使用下列程式碼取代 **QSAppDelegate.m** 的內容。當您在 Xcode 中建立新的應用程式，並選取 [Use Core Data] 核取方塊時，所產生的程式碼與此幾乎相同，差別在於初始化 **_managedObjectContext** 時改以使用私用佇列並行類型。透過這項變更，您幾乎可立即使用 Core Data，只是還沒有開始使用它。
-
-        #import "QSAppDelegate.h"
-
-        @implementation QSAppDelegate
-
-        @synthesize managedObjectContext = _managedObjectContext;
-        @synthesize managedObjectModel = _managedObjectModel;
-        @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+        -(void)syncData:(QSCompletionBlock)completion
         {
-            return YES;
+            // push all changes in the sync context, then pull new data
+            [self.client.syncContext pushWithCompletion:^(NSError *error) {
+                [self logErrorIfNotNil:error];
+                [self pullData:completion];
+            }];
         }
 
-        - (void)saveContext
+    然而，`pullData` 會取得符合查詢的新資料︰
+
+        -(void)pullData:(QSCompletionBlock)completion
         {
-            NSError *error = nil;
-            NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-            if (managedObjectContext != nil) {
-                if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-                    // Replace this implementation with code to handle the error appropriately.
-                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-                    abort();
+            MSQuery *query = [self.syncTable query];
+            
+            // Pulls data from the remote server into the local table.
+            // We're pulling all items and filtering in the view
+            // query ID is used for incremental sync
+            [self.syncTable pullWithQuery:query queryId:@"allTodoItems" completion:^(NSError *error) {
+                [self logErrorIfNotNil:error];
+                
+                // Let the caller know that we have finished
+                if (completion != nil) {
+                    dispatch_async(dispatch_get_main_queue(), completion);
                 }
-            }
-        }
+            }];
+        }   
 
-        #pragma mark - Core Data stack
+    在 `syncData` 中，我們會先在同步處理內容上先呼叫 `pushWithCompletion`。此方法是 `MSSyncContext` 的成員  (而非同步處理資料表本身)，因為它會將變更推送至所有資料表。只有以某種方式在本機上修改過的記錄 (透過 CUD 作業)，才會傳送至伺服器。接著會呼叫 `pullData` 協助程式，該程式會呼叫 'MSSyncTable.pullWithQuery' 來擷取遠端資料並存放在本機資料庫中。 
 
-        // Returns the managed object context for the application.
-        // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-        - (NSManagedObjectContext *)managedObjectContext
-        {
-            if (_managedObjectContext != nil) {
-                return _managedObjectContext;
-            }
+    請注意，在此範例中，推送作業並非絕對必要。如果同步處理內容中正在進行推送作業的資料表有任何變更擱置，則提取一律會先發出推送。不過，如果您有一個以上的同步處理資料表，最好能明確呼叫推送，以確保所有的相關資料表都能一致。
 
-            NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-            if (coordinator != nil) {
-                _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-                [_managedObjectContext setPersistentStoreCoordinator:coordinator];
-            }
-            return _managedObjectContext;
-        }
+    `pullWithQuery` 方法可讓您指定查詢，以篩選您想要擷取的記錄。在此範例中，查詢只會擷取遠端 `TodoItem` 資料表中的所有記錄。
 
-        // Returns the managed object model for the application.
-        // If the model doesn't already exist, it is created from the application's model.
-        - (NSManagedObjectModel *)managedObjectModel
-        {
-            if (_managedObjectModel != nil) {
-                return _managedObjectModel;
-            }
-            NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"QSTodoDataModel" withExtension:@"momd"];
-            _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-            return _managedObjectModel;
-        }
+    `pullWithQuery` 的第二個參數是用於*增量同步處理* 的查詢識別碼。增量同步處理會使用記錄的 `UpdatedAt` 時間戳記 (在本機存放區中稱為  `ms_updatedAt`)，僅擷取自上次同步處理後修改的記錄。對您應用程式中的每個邏輯查詢而言，查詢識別碼應該是唯一的描述性字串。若選擇不要增量同步處理，請傳遞 `nil` 做為查詢識別碼。請注意這可能是潛在效率不佳，因為它會擷取每項提取作業的所有記錄。
 
-        // Returns the persistent store coordinator for the application.
-        // If the coordinator doesn't already exist, it is created and the application's store added to it.
-        - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
-        {
-            if (_persistentStoreCoordinator != nil) {
-                return _persistentStoreCoordinator;
-            }
+    >[AZURE.NOTE] 若要從裝置本機存放區中移除已在您行動服務資料庫中刪除的記錄，您應該啟用 [[虛刪除]]。否則，您的應用程式應定期呼叫  `MSSyncTable.purgeWithQuery` 才能清除本機存放區。
 
-            NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"qstodoitem.sqlite"];
+5. 在  `QSTodoService` 類別中， `syncData` 方法會在修改資料的作業 ( `addItem` 和  `completeItem`) 之後呼叫。此方法也會從  `QSTodoListViewController.refresh` 呼叫，以便使用者每次執行重新整理動作時都能取得最新的資料。應用程式也會在啟動時執行同步處理，因為  `QSTodoListViewController.init` 會呼叫  `refresh`。
 
-            NSError *error = nil;
-            _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-            if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-                /*
-                 Replace this implementation with code to handle the error appropriately.
+    因為每次修改資料時都會呼叫  `syncData`，所以此應用程式假設使用者每次在編輯資料時都處於線上狀態。在另一節中，我們將會更新應用程式，讓使用者即使是離線狀態也能進行編輯。
 
-                 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+## <a name="review-core-data"></a>檢閱核心資料模型
 
-                 Typical reasons for an error here include:
-                 * The persistent store is not accessible;
-                 * The schema for the persistent store is incompatible with current managed object model.
-                 Check the error message to determine what the actual problem was.
+在使用「核心資料離線」存放區時，您需要在資料模型中定義特定資料表和欄位。範例應用程式已經包含具有正確格式的資料模型。本這一節中，我們將逐步介紹這些資料表以及其使用方式。
 
-                 If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
+- 開啟 **QSDataModel.xcdatamodeld**。已定義四個資料表--其中三個由 SDK 使用，而一個適用於  todo 項目本身：
+      * MS_TableOperations︰用於追蹤需要與伺服器同步的項目
+      * MS_TableOperationErrors︰用於追蹤在離線同步處理期間發生的任何錯誤 
+      * MS_TableConfig︰用於追蹤所有提取作業的最後一次同步處理作業的上次更新時間
+      * TodoItem︰用於儲存 todo 項目。系統資料行 **ms_createdAt**、**ms_updatedAt** 和 **ms_version** 為選擇性系統屬性。 
 
-                 If you encounter schema incompatibility errors during development, you can reduce their frequency by:
-                 * Simply deleting the existing store:
-                 [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
+>[AZURE.NOTE] 行動服務 SDK 會保留以 "**'ms_'**" 開頭的資料行名稱。您不得在系統資料行以外的任何項目上使用此前置詞，否則會在使用遠端服務時修改您的資料行名稱。
 
-                 * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
-                 @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
+- 使用離線同步功能時，您必須先定義系統資料表，如下所示。
 
-                 Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-
-                 */
-
-                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-                abort();
-            }
-
-            return _persistentStoreCoordinator;
-        }
-
-        #pragma mark - Application's Documents directory
-
-        // Returns the URL to the application's Documents directory.
-        - (NSURL *)applicationDocumentsDirectory
-        {
-            return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        }
-
-        @end
-
-## <a name="defining-core-data"></a>定義 Core Data 模型
-
-1. 現在讓我們定義資料模型，繼續以 Core Data 來設定應用程式。我們還不會開始此資料模型。首先，讓我們先定義 Core Data 模型或結構描述。若要開始，請按一下 [**檔案**] -> [**新增檔案**]，在 [**Core Data**] 區段中選取 [**資料模型**]。當提示您輸入檔案名稱，請使用 **QSTodoDataModel.xcdatamodeld**。
-
-      ![][defining-core-data-main-screen]
-
-2. 接下來，定義我們需要的實際實體 (資料表)。我們將使用 Core Data 模型編輯器來建立三個資料表 (實體)。若要深入了解，請參閱 [Core Data 模型編輯器說明]。。
-
-  * TodoItem：用於儲存項目本身
-  * MS_TableOperations：追蹤需要與伺服器同步的項目 (為了讓離線功能運作)
-  * MS_TableOperationErrors：追蹤離線同步處理期間發生的任何錯誤 (為了讓離線功能運作)
-
-      ![][defining-core-data-model-editor]
-
-3. 定義三個實體，如下所示。儲存模型，並建置專案，以確定一切都沒問題。現在我們已設定好應用程式來使用 Core Data，但應用程式尚未使用它。
-
-      ![][defining-core-data-todoitem-entity]
-
-      ![][defining-core-data-tableoperations-entity]
-
-      ![][defining-core-data-tableoperationerrors-entity]
-
-
-    **TodoItem**
-
-    | 屬性  |  類型   |
-    |----------- |  ------ |
-    | id         | 字串  |
-    | complete   | 布林 |
-    | text       | 字串  |
-    | ms_version | 字串  |
+    ### 系統資料表
 
     **MS_TableOperations**
+
+    ![][defining-core-data-tableoperations-entity]
 
     | 屬性  |    類型     |
     |----------- |   ------    |
     | id         | 整數 64  |
-    | properties | 二進位資料 |
     | itemId     | 字串      |
+    | properties | 二進位資料 |
     | table      | 字串      |
+    | tableKind  | 整數 16  |
 
-    **MS_TableOperationErrors**
+    <br>**MS_TableOperationErrors**
+
+    ![][defining-core-data-tableoperationerrors-entity]
 
     | 屬性  |    類型     |
     |----------- |   ------    |
     | id         | 字串      |
+    | operationID | 整數 64 |
     | properties | 二進位資料 |
+    | tableKind  | 整數 16  |
 
-## <a name="setup-sync"></a> 初始化及使用同步資料表和同步內容
+    <br>**MS_TableConfig**
 
-1. 為了開始快取離線資料，讓我們將 **MSTable** 改成使用 **MSSyncTable** 來存取行動服務。不同於一般 **MSTable**，同步資料表是本機資料表，能夠將本機所做的變更推播至遠端資料表，並在本機提取這些變更。在 **QSTodoService.h** 中，移除 **table** 屬性的定義：
+    ![][defining-core-data-tableconfig-entity]
 
-        @property (nonatomic, strong)   MSTable *table;
+    | 屬性  |    類型     |
+    |----------- |   ------    |
+    | id         | 整數 64  |
+    | key        | 字串      |
+    | keyType    | 整數 64  |
+    | table      | 字串      |
+    | value      | 字串      |
 
-    Add a new line to define the **syncTable** property:
+    ### 資料表
 
-        @property (nonatomic, strong)   MSTable *syncTable;
+    ![][defining-core-data-todoitem-entity]
 
-2. Add the following import statement at the top of **QSTodoService.m**:
+    **TodoItem**
 
-        #import "QSAppDelegate.h"
+    | 屬性    |  類型   | 附註                                                       | 
+    |-----------   |  ------ | -----------------------------------------------------------|
+    | id           | 字串  | 遠端存放區中的主要索引鍵                                |
+    | complete     | 布林值 | todo 項目欄位                                            |
+    | text         | 字串  | todo 項目欄位                                            |
+    | ms_createdAt | 日期    | *(選用)* 對應至 `__createdAt` 系統屬性         |
+    | ms_updatedAt | 日期    | *(選用)* 對應至 `__updatedAt` 系統屬性         |
+    | ms_version   | 字串  | *(選用)* 用於偵測衝突，對應至 `__version` |
 
-3. 在 **QSTodoService.m** 中，從 **init** 中移除下列兩行：
 
-        // Create an MSTable instance to allow us to work with the TodoItem table
-        self.table = [_client tableWithName:@"TodoItem"];
+## <a name="setup-sync"></a>變更應用程式的同步處理行為
 
-    Instead, add these two new lines in its place:
+在本節中，您將修改應用程式，使其不會在應用程式啟動時，或插入及更新項目時同步處理，但只會在執行重新整理動作按鈕時同步處理。 
 
-        // Create an MSSyncTable instance to allow us to work with the TodoItem table
-        self.syncTable = [self.client syncTableWithName:@"TodoItem"];
+1. 在 **QSTodoListViewController.m** 中，變更 **viewDidLoad** 方法以移除在方法結尾的  '[self refresh]' 呼叫。現在，資料不會在應用程式啟動時與伺服器進行同步處理，但是成為本機存放區的內容。
 
-4. 接下來，同樣在 **QSTodoService.m** 中，讓我們以上述的 Core Data 型資料存放區實作來初始化 **MSClient** 中的同步處理內容。此內容負責追蹤哪些項目已在本機變更，並在推播作業開始時將這些變更推播至伺服器。為了初始化內容，我們需要資料來源 (**MSCoreDataStore** 的通訊協定實作) 和選用的 **MSSyncContextDelegate** 實作。將這幾行插入您剛插入的那兩行上方。
+2. 在 **QSTodoService.m** 中，修改  `addItem` 的定義，使其不會在插入項目後同步處理。移除  `self syncData` 區塊並以下列項目取代：
 
-        QSAppDelegate *delegate = (QSAppDelegate *)[[UIApplication sharedApplication] delegate];
-        NSManagedObjectContext *context = delegate.managedObjectContext;
-        MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
+            if (completion != nil) {
+                dispatch_async(dispatch_get_main_queue(), completion);
+            }
 
-        self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
+3. 如上所述修改  `completeItem` 的定義 ；移除  `self syncData` 的區塊並以下列項目取代：
 
-5. 接下來，讓我們更新 **QSTodoService.m** 中的作業來使用同步資料表，而不是一般資料表。首先，使用下列實作來取代 **refreshDataOnSuccess**。這樣會從服務擷取資料，讓我們將它更新為使用同步資料表，要求同步資料表只提取符合準則的項目，然後開始將本機同步資料表中的資料載入至服務的 **items** 屬性中。透過此程式碼，  **refreshDataOnSuccess** 會將遠端資料表中的資料提取到本機 (同步) 資料表。我們通常只會提取資料表的子集，所以不會將不必要的資料載入到用戶端。
-
-    在此作業和更往下的其餘作業中，我們將 completion 區塊的呼叫包裝在主執行緒的 **dispatch_async** 呼叫中。當我們初始化同步內容時，我們不傳遞回呼參數，以便架構建立預設的序列佇列，將所有 syncTable 作業的結果分派至背景執行緒。在修改 UI 元件時，我們需要將程式碼分派回到 UI 執行緒。
-
-          -(void) refreshDataOnSuccess:(QSCompletionBlock)completion
-          {
-              NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-              MSQuery *query = [self.syncTable queryWithPredicate:predicate];
-
-              [query orderByAscending:@"text"];
-              [query readWithCompletion:^(MSQueryResult *result, NSError *error) {
-                  [self logErrorIfNotNil:error];
-
-                  self.items = [result.items mutableCopy];
-
-                  // Let the caller know that we finished
-                  dispatch_async(dispatch_get_main_queue(), ^{
-                      completion();
-                  });
-              }];
-          }
-
-6. 接下來，取代 **QSTodoService.m** 中的 **addItem**，如下所示。透過這項變更，您可以將作業排入佇列中，以便將變更推播至遠端服務，並讓每個人都可以看到：
-
-        -(void)addItem:(NSDictionary *)item completion:(QSCompletionWithIndexBlock)completion
-        {
-            // Insert the item into the TodoItem table and add to the items array on completion
-            [self.syncTable insert:item completion:^(NSDictionary *result, NSError *error)
-             {
-                 [self logErrorIfNotNil:error];
-
-                 NSUInteger index = [items count];
-                 [(NSMutableArray *)items insertObject:result atIndex:index];
-
-                 // Let the caller know that we finished
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     completion(index);
-                 });
-             }];
-        }
-
-7. 更新 **QSTodoService.m** 中的 **completeItem**，如下所示。不同於在 **MSTable** 中，**MSSyncTable** 的 **update** 作業的 completion 區塊沒有更新的項目。使用 **MSTable** 時，伺服器會修改正在更新的項目，而所做的修改會反映在用戶端。使用 **MSSyncTable** 時，更新的項目不會修改，且 completion 區塊沒有參數。
-
-        -(void) completeItem:(NSDictionary *)item completion:(QSCompletionWithIndexBlock)completion
-        {
-            // Cast the public items property to the mutable type (it was created as mutable)
-            NSMutableArray *mutableItems = (NSMutableArray *) items;
-
-            // Set the item to be complete (we need a mutable copy)
-            NSMutableDictionary *mutable = [item mutableCopy];
-            [mutable setObject:@YES forKey:@"complete"];
-
-            // Replace the original in the items array
-            NSUInteger index = [items indexOfObjectIdenticalTo:item];
-            [mutableItems replaceObjectAtIndex:index withObject:item];
-
-            // Update the item in the TodoItem table and remove from the items array on completion
-            [self.syncTable update:mutable completion:^(NSError *error) {
-
-                [self logErrorIfNotNil:error];
-
-                NSUInteger index = [items indexOfObjectIdenticalTo:mutable];
-                if (index != NSNotFound)
-                {
-                    [mutableItems removeObjectAtIndex:index];
-                }
-
-                // Let the caller know that we have finished
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion(index);
-                });
-
-            }];
-        }
-
-8. 將下列的 **syncData** 作業宣告加入至 **QSTodoService.h**：
-
-        - (void)syncData:(QSCompletionBlock)completion;
-
-     Add the corresponding implementation of **syncData** to **QSTodoService.m**. We're adding this operation to update the sync table with remote changes.
-
-          -(void)syncData:(QSCompletionBlock)completion
-           {
-              // Create a predicate that finds items where complete is false
-              NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-
-              MSQuery *query = [self.syncTable queryWithPredicate:predicate];
-
-              // Pulls data from the remote server into the local table. We're only
-              // pulling the items which we want to display (complete == NO).
-              [self.syncTable pullWithQuery:query completion:^(NSError *error) {
-                  [self logErrorIfNotNil:error];
-                  [self refreshDataOnSuccess:completion];
-           }];
-          }
-
-9. Back in **QSTodoListViewController.m**, change the implementation of **refresh** to call **syncData** instead of **refreshDataOnSuccess**:
-
-        -(void) refresh
-        {
-            [self.refreshControl beginRefreshing];
-            [self.todoService syncData:^
-             {
-                  [self.refreshControl endRefreshing];
-                  [self.tableView reloadData];
-             }];
-        }
-
-10. 同樣在 **QSTodoListViewController.m** 中，使用下列程式碼取代 **viewDidLoad** 作業結尾的 **[self refresh]** 呼叫：
-
-        // load the local data, but don't pull from server
-        [self.todoService refreshDataOnSuccess:^
-         {
-             [self.refreshControl endRefreshing];
-             [self.tableView reloadData];
-         }];
-
-11. 現在，讓我們真正地離線測試應用程式。將一些項目加入至應用程式中，然後瀏覽 Azure 管理入口網站，查看您應用程式的 [**資料**] 索引標籤。您會看到尚未加入任何項目。
-
-12. 接下來，從頂端拖曳，對應用程式執行重新整理動作。然後再次瀏覽 Azure 管理入口網站，並查看 [**資料**] 索引標籤。您會看到現在儲存在雲端中的資料。您也可以在加入項目之後關閉應用程式 (或在編輯項目之後，如果應用程式已啟用編輯項目的功能)。當應用程式重新啟動時，它會與伺服器同步處理，並儲存變更。
-
-13. 當用戶端在本機對項目執行某些變更時，這些變更會儲存在要傳送到伺服器的同步內容中。*push* 作業將追蹤的變更傳送到遠端伺服器，但是在這裡，我們沒有對伺服器執行任何推播呼叫。不過，*在執行提取之前，任何暫止的作業通常會推播到伺服器*，因此仍會自動進行推播，以避免發生衝突。這就是為什麼此應用程式中沒有明確呼叫 *push* 的原因。
+            if (completion != nil) {
+                dispatch_async(dispatch_get_main_queue(), completion);
+            }
 
 ## <a name="test-app"></a>測試應用程式
 
-最後，我們來離線測試應用程式。在應用程式中加入一些項目。然後移至入口網站並瀏覽資料 (或使用 PostMan 或 Fiddler 等網路工具直接查詢資料表)。
+在本節中，您將會關閉模擬器的 Wi-Fi 以建立離線案例。當您新增資料項目時，這些項目會存放在本機核心資料存放區，但不會同步到行動服務。
 
-您會看到項目尚未加入至服務。現在，請從頂端拖曳，以在應用程式中執行重新整理動作。您會看到資料現在已儲存在雲端中。您甚至可以在加入一些項目之後關閉應用程式。當您再次啟動應用程式時，它會與伺服器同步處理，並儲存您所做的變更。
+1. 關閉 iOS 模擬器的 Wi-Fi。
+
+2. 新增 todo 項目或完成某些項目。結束模擬器 (或強制關閉應用程式)，然後重新啟動。確認您的變更已保存下來。
+
+3. 檢視遠端 TodoItem 資料表的內容：
+   - 若為 JavaScript 後端，移至管理入口網站，然後按一下 [資料] 索引標籤以檢視  `TodoItem` 資料表的內容。
+   - 若為 .NET 後端，使用 SQL 工具 (如 SQL Server Management Studio) 或 REST 用戶端 (如 Fiddler 或 Postman) 檢視資料表內容。
+
+    請確認新項目 *尚未* 同步處理到伺服器：
+
+4. 開啟 iOS 模擬器的 Wi-Fi，然後藉由下拉項目清單來執行重新整理動作。您會看到進度微調按鈕和「同步中...」文字。
+
+5. 再次檢視 TodoItem 資料。新的和變更的 TodoItems 現在應該會出現。
+
+## 摘要
+
+為了支援行動服務的離線功能，我們使用了  `MSSyncTable` 介面，並對本機存放區初始化  `MSClient.syncContext`。在此案例中，本機存放區是以核心資料為基礎的資料庫。 
+
+使用核心資料本機存放區時，您必須使用[正確的系統屬性][檢閱核心資料模型]定義數個資料表。
+
+正常情況下，在行動服務的 CRUD 作業執行時，應用程式會如同仍處於連接狀態，但所有的作業都會對本機存放區執行。
+
+當我們要同步處理本機存放區與伺服器時，我們使用了  `MSSyncTable.pullWithQuery` 和  `MSClient.syncContext.pushWithCompletion` 方法。
+
+*  若要將變更推送至伺服器，我們稱為`檢閱核心資料模型`。此方法是  `MSSyncContext` 的成員之一 (而不是同步資料表)，因為它會在所有資料表之間推送變更：
+
+    只有以某種方式在本機上修改過的記錄 (透過 CUD 作業)，才會傳送至伺服器。
+   
+* 為了將資料從伺服器上的資料表提取至應用程式，我們呼叫了  `MSSyncTable.pullWithQuery`。
+
+    提取一律會先發出推送動作。這是為了確保本機存放區中的所有資料表和關聯性都保持一致。
+
+    請注意， `pullWithQuery` 可藉由自訂  `query` 參數，用來篩選存放在用戶端上的資料。 
+
+* 若要啟用增量同步處理，請將查詢識別碼傳遞至  `pullWithQuery`。查詢識別碼用來儲存上次提取作業所產生的上次更新時間戳記。對您應用程式中的每個邏輯查詢而言，查詢識別碼應該是唯一的描述性字串。如果查詢有一個參數，則相同的參數值必須屬於查詢識別碼的一部分。
+
+    如果您想選擇不要增量同步處理，則傳遞  `nill` 做為查詢識別碼。在此情況下，每次呼叫  `pullWithQuery` 時都會擷取所有的記錄，這可能會沒有效率。
+
+* 若要從裝置本機存放區中移除已在您行動服務資料庫中刪除的記錄，您應該啟用 [[虛刪除]]。否則，您的應用程式應定期呼叫  `MSSyncTable.purgeWithQuery` 以從本機資料庫中移除記錄，以免在遠端服務中刪除。
+
 
 ## 後續步驟
 
 * [處理行動服務的離線支援衝突]
 
+* [在行動服務中使用虛刪除][虛刪除]
+
+## 其他資源
+
+* [雲端報導：Azure 行動服務中的離線同步處理]
+
+* [Azure Friday︰Azure 行動服務中的離線應用程式] \(附註︰示範適用於 Windows，但功能討論適用於所有平台\)
+
 <!-- URLs. -->
 
-[取得範例快速入門應用程式]: #get-app
-[下載預覽 SDK 和更新架構]: #update-app
-[設定 Core Data]: #setup-core-data
-[定義 Core Data 模型]: #defining-core-data
-[初始化及使用同步資料表和同步內容]: #setup-sync
+[取得範例應用程式]: #get-app
+[檢閱核心資料模型]: #review-core-data
+[檢閱行動服務同步處理程式碼]: #review-sync
+[變更應用程式的同步處理行為]: #setup-sync
 [測試應用程式]: #test-app
 
 [core-data-1]: ./media/mobile-services-ios-get-started-offline-data/core-data-1.png
@@ -421,25 +255,30 @@
 [defining-core-data-model-editor]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-model-editor.png
 [defining-core-data-tableoperationerrors-entity]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableoperationerrors-entity.png
 [defining-core-data-tableoperations-entity]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableoperations-entity.png
+[defining-core-data-tableconfig-entity]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 [update-framework-1]: ./media/mobile-services-ios-get-started-offline-data/update-framework-1.png
 [update-framework-2]: ./media/mobile-services-ios-get-started-offline-data/update-framework-2.png
 
+[核心資料模型編輯器說明]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
+[建立出口連線]: https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html
+[建立使用者介面]: https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html
+[在腳本中的場景之間新增 Segue]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1
+[將場景新增至腳本]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
 
-
-
-[Core Data 模型編輯器說明]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
-[建立輸出連線]: https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html
-[建置使用者介面]: https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html
-[在分鏡腳本的場景之間加入轉場]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1
-[將場景加入至分鏡腳本]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
-
-[Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
-[在這裡下載預覽 SDK]: http://aka.ms/Gc6fex
-[如何使用行動服務 iOS 用戶端程式庫]: /zh-tw/documentation/articles/mobile-services-ios-how-to-use-client-library/
-[開始使用離線 iOS 範例]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
-
+[核心資料]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
+[在此下載預覽 SDK]: http://aka.ms/Gc6fex
+[如何使用 iOS 的行動服務用戶端程式庫]: /zh-tw/documentation/articles/mobile-services-ios-how-to-use-client-library/
+[離線 iOS 範例]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
+[GitHub 上的行動服務範例儲存機制]: https://github.com/Azure/mobile-services-samples
 
 [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-ios-get-started/
 [開始使用資料]: /zh-tw/documentation/articles/mobile-services-ios-get-started-data/
 [處理行動服務的離線支援衝突]: /zh-tw/documentation/articles/mobile-services-ios-handling-conflicts-offline-data/
+[虛刪除]: /zh-tw/documentation/articles/mobile-services-using-soft-delete/
+
+[雲端報導：Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Azure Friday︰Azure 行動服務中的離線應用程式]: http://azure.microsoft.com/zh-tw/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+
+
+<!--HONumber=42-->

@@ -1,39 +1,53 @@
-<properties urlDisplayName="" pageTitle="使用伺服器指令碼來驗證與修改資料 (Xamarin iOS) |行動開發人員中心" metaKeywords="" description="了解如何驗證和修改從 Xamarin iOS 應用程式使用伺服器指令碼傳送的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="使用伺服器指令碼來驗證與修改資料 (Xamarin iOS) |行動開發人員中心" 
+	description="了解如何驗證和修改從 Xamarin iOS 應用程式使用伺服器指令碼傳送的資料。" 
+	services="mobile-services" 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="donnam"/>
 
 # 使用伺服器指令碼在行動服務中驗證與修改資料
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
 本主題將示範如何在 Azure 行動服務中運用伺服器指令碼。您可在行動服務中註冊伺服器指令碼，並使用該指令碼來針對插入和更新資料執行各種操作，包括驗證與資料修改。在本教學課程中，您將定義並註冊可驗證與修改資料的伺服器指令碼。由於伺服器端指令碼的行為常會影響用戶端，您也可以更新您的 iOS 應用程式，以充分利用這些新行為。完成的程式碼可從 [ValidateModifyData 應用程式][GitHub]範例中取得。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1. [新增字串長度驗證]	
+1. [新增字串長度驗證]
 2. [更新用戶端以支援驗證]
 3. [插入時新增時間戳記]
 4. [更新用戶端以顯示時間戳記]
 
-本教學課程會以上一個教學課程[開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料]。  
+本教學課程會以上一堂教學課程[開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料]。  
 
 ## <a name="string-length-validation"></a>新增驗證
 
 驗證使用者提交的資料長度一向是最佳做法。首先，註冊可驗證傳送至行動服務之字串資料長度的指令碼，並拒絕太長的字串，在此案例中為不得超過 10 個字元。
 
-1. 登入 [Azure 管理入口網站]，按一下 [**行動服務**]，然後按一下您的應用程式。 
+1. 登入「Azure 管理入口網站」[]，按一下 **[行動服務]**，然後按一下您的應用程式。 
 
 	![][0]
 
-2. 按一下 [**資料**] 索引標籤，然後按一下 **TodoItem** 資料表。
+2. 按一下 **[資料]** 索引標籤，然後按一下 **[TodoItem]** 資料表。
 
    	![][1]
 
-3. 按一下 [**指令碼**]，然後選取 [**Insert**] 作業。
+3. 按一下 **[指令碼]**，然後選取 **[插入]** 作業。
 
    	![][2]
 
-4. 以下列函數取代現有的指令碼，然後按一下 [**儲存**]。
+4. 使用下列函式取代現有的指令碼，然後按一下 **[儲存]**。
 
     function insert(item, user, request) {
         if (item.text.length > 10) {
@@ -43,11 +57,9 @@
             }
         }
 
-本指令碼會檢查 [**text**] 屬性的長度，並在長度超過 10 個字元時傳送錯誤回應。否則，系統會呼叫 **execute** 方法以完成插入。
+    此指令碼會檢查 **text** 屬性長度，並在長度超過 10 個字元時傳送錯誤回應。否則，系統會呼叫 **execute** 方法以完成插入。
 
-    <div class="dev-callout"> 
-	<b>注意</b> 
-	<p>在 [<strong>指令碼</strong>] 索引標籤上按一下 [<strong>清除</strong>]，然後按一下 [<strong>儲存</strong>]，即可移除註冊的指令碼。</p></div>
+    > [AZURE.NOTE] 您可以將位於 [指令碼]**** 索引標籤上的已註冊指令碼移除，方法是依序按一下 [清除]****、[儲存]****。
 
 ## <a name="update-client-validation"></a>更新用戶端
 
@@ -55,11 +67,11 @@
 
 1. 在 Xamarin Studio 中，開啟您完成[開始使用資料]教學課程時所修改的專案。
 
-2. 按 [**執行**] 按鈕以建置專案並啟動應用程式，在文字方塊中輸入超過 10 個字元的文字，然後按一下加號 (**+**) 圖示。
+2. 按 **[執行]** 按鈕以建置專案並啟動應用程式，在文字方塊中輸入超過 10 個字元的文字，然後按一下加號 (**+**) 圖示。
 
-   請留意到，由於行動服務傳回了 400 回應 (不正確的要求)，因此應用程式發出未處理的錯誤。
+	請注意應用程式會指出一個由行動服務所傳回的未處理錯誤，顯示為 400 response (Bad Request)。	
 
-3. 在 TodoService.cs 檔案的 **InsertTodoItemAsync** 方法中，找出目前的 <code>try/catch</code> 例外狀況處理，並將 <code>catch</code> 取代為：
+3. 在 TodoService.cs 檔案的 **InsertTodoItemAsync** 方法中，找出目前的 try/catch 例外狀況處理，並將 catch 取代為：
     
     catch (Exception ex) {
         var exDetail = (ex.InnerException.InnerException as MobileServiceInvalidOperationException);
@@ -103,10 +115,10 @@
   <br/>了解如何根據通過驗證的使用者識別碼篩選資料。
 
 * [開始使用推播通知] 
-  <br/>了解如何將非常基本的推播通知傳送至您的應用程式。
+  <br/>了解如何將極為基本的推播通知傳送到應用程式。
 
 * [行動服務伺服器指令碼參考]
-  <br/>進一步了解註冊和使用伺服器指令碼。
+  <br/>深入了解如何註冊和使用伺服器指令碼。
 
 <!-- Anchors. -->
 [新增字串長度驗證]: #string-length-validation
@@ -129,8 +141,11 @@
 [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-xamarin-ios
 [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-ios
 [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[開始使用推播通知 ]: /zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-ios
 
 [管理入口網站]: https://manage.windowsazure.com/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331330
+
+
+<!--HONumber=42-->

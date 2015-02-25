@@ -1,10 +1,11 @@
-﻿<properties urlDisplayName="Build a service using an existing SQL database with the Mobile Services .NET backend" pageTitle="使用現有的 SQL Database 和行動服務 .NET 後端建置服務 - Azure 行動服務" metaKeywords="" description="了解如何對於 .NET 型行動服務使用現有雲端或內部部署 SQL 資料庫。" metaCanonical="" services="mobile-services,biztalk-services" documentationCenter="Mobile" title="Build a service using an existing SQL database with the Mobile Services .NET backend" authors="mahender" solutions="" manager="dwrede" editor="mollybos" />
+<properties pageTitle="使用現有的 SQL Database 和行動服務 .NET 後端建置服務 - Azure 行動服務" description="了解如何對於 .NET 型行動服務使用現有雲端或內部部署 SQL 資料庫。" services="mobile-services, biztalk-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+
 
 # 使用現有的 SQL Database 和行動服務 .NET 後端建置服務
 
-行動服務 .NET 後端可方便您運用現有的資產來建置行動服務。在內部部署或雲端中使用現有 SQL Database (可能已有其他應用程式正在使用)，讓現有資料可供行動用戶端使用，是特別有趣的案例之一。在此情況下，資料庫模型 (或*結構描述*) 必須保持不變，現有的方案才能繼續運作。
+行動服務 .NET 後端可方便您運用現有的資產來建置行動服務。在內部部署或雲端中使用現有 SQL Database (可能已有其他應用程式正在使用)，讓現有資料可供行動用戶端使用，是特別有趣的案例之一。在此情況下，資料庫模型 (或 *schema*) 必須保持不變，現有的方案才能繼續運作。
 
 本教學課程包含以下幾節：
 
@@ -19,7 +20,7 @@
 
 在本教學課程中，我們將使用以您的行動服務建立的資料庫，但不會使用已建立的預設模型。我們將手動建立任意模型，以代表您可能會有的現有應用程式。如需如何改為連接到內部部署資料庫的完整相關資訊，請參閱[使用混合式連線從 Azure 行動服務連線至內部佈署 SQL Server](/zh-tw/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/)。
 
-1. 首先，請在 **Visual Studio 2013 Update 2** 中建立行動服務伺服器專案，或使用您可以在服務的 [行動服務] 索引標籤上 (在 [Azure 管理入口網站](http://manage.windowsazure.com)中) 下載的快速入門專案。基於本教學課程的用途，我們假設您的伺服器專案名稱是 **ShoppingService**。
+1. 首先，請在 **Visual Studio 2013 Update 2** 中建立行動服務伺服器專案，或使用您可以在服務的 [行動服務] 索引標籤上 (在 [Azure 管理入口網站中](http://manage.windowsazure.com)) 下載的快速入門專案。基於本教學課程的用途，我們假設您的伺服器專案名稱是 **ShoppingService**。
 
 2. 在 **Models** 資料夾中建立 **Customer.cs** 檔案，然後使用下列實作方式。您必須將 **System.ComponentModel.DataAnnotations** 的組件參考新增至您的專案。
 
@@ -40,7 +41,7 @@
             }
         }
 
-3. 在 **Models** 資料夾中建立 **Order.cs** 檔案，然後使用下列實作方式。
+3. 在 **Models** 資料夾中建立 **Order.cs** 檔案，然後使用下列實作方式：
     
         using System.ComponentModel.DataAnnotations;
 
@@ -64,7 +65,7 @@
             }
         }
 
-    您會發現這兩個類別具有*關係*：每個 **Order** 會分別與單一 **Customer** 相關聯，而一個 **Customer** 可與多個 **Order** 相關聯。互相有關係在現有的資料模型中是很常見的。
+    您會發現這兩個類別有 *relationship*： 每張 **Order** 會與單一 **Customer** 產生關聯，而一個 **Customer** 可與多張 **Orders** 產生關聯。互相有關係在現有的資料模型中是很常見的。
 
 4. 在 **Models** 資料夾中建立 **ExistingContext.cs** 檔案，並以下列方式實作：
 
@@ -105,7 +106,7 @@
             }
         }
 
-    請注意，此類別會與模型中的 **Customer** 類別相類似，差別在於 **Order** 的關係屬性已移除。一個物件要能夠正常使用行動服務離線同步，必須要有一組*系統屬性*來維護開放式並行性，因此您會發現 DTO 繼承自 [**EntityData**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx)，而其中包含這些屬性。原始模型中的 int 型 **CustomerId** 屬性會取代為 **EntityData** 中的字串型 **Id** 屬性，而這將是行動服務所使用的 [**識別碼**]。
+    請注意，此類別會與模型中的 **Customer** 類別相類似，差別在於 **Order** 的關係屬性已移除。一個物件要能夠正常使用行動服務離線同步，必須要有一組 *system properties*來維護開放式並行性，因此您會發現 DTO 繼承自 [**EntityData**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx)，而其中包含這些屬性。原始模型中的 int 型 **CustomerId** 屬性會取代為 **EntityData** 中的字串型 **Id** 屬性，而這將是行動服務所使用的 [**識別碼**]。
 
 2. 在您服務專案的 **DataObjects** 資料夾中建立 **MobileOrder.cs** 檔案。
 
@@ -134,7 +135,7 @@
             }
         }
 
-    **Customer** 關係屬性已取代為**客戶**名稱，以及可用來為用戶端上的關係手動建立模型的 **MobileCustomerId** 屬性。現在您可以忽略 **CustomerId** 屬性，後續才會使用此屬性。 
+    **Customer** 關係屬性已取代為**Customer**名稱，以及可用來為用戶端上的關係手動建立模型的 **MobileCustomerId** 屬性。現在您可以忽略 **CustomerId** 屬性，後續才會使用此屬性。 
 
 3. 您可能會發現，在 **EntityData** 基底類別上加上系統屬性後，我們的 DTO 此時的屬性數目比模型類型還多。顯然，我們需要一個位置來儲存這些屬性，因此我們將在原始資料庫中額外新增一些資料行。雖然這樣會變更資料庫，但並不會中斷現有的應用程式，因為這些變更只是附加的 (將新的資料行新增至結構描述)。若要這麼做，請將下列陳述式新增至 **Customer.cs** 和 **Order.cs** 的最上方：
     
@@ -172,10 +173,10 @@
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.Linq;
 
-    接著，在 **ExistingContext** 的本文中覆寫 [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx)：
+    接著，在 **ExistingContext** 的本文中覆寫 [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx)︰
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
+        {	
             modelBuilder.Conventions.Add(
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
@@ -268,7 +269,7 @@ AutoMapper 此時會將物件互相對應。所有具有對應名稱的屬性都
 
 下一個步驟是實作 [**MappedEntityDomainManager**](http://msdn.microsoft.com/library/dn643300.aspx)，這會作為我們對應的資料存放區與將會從我們的用戶端提供 HTTP 流量的控制器之間的抽象層。我們將可在下一個區段中完全以 DTO 的形式撰寫我們的控制器，而我們在此處新增的 **MappedEntityDomainManager**，將會處理與原始資料存放區之間的通訊，同時讓我們有地方可以實作其任何的特定邏輯。
 
-1. 將 **MobileCustomerDomainManager.cs** 加入至專案的 **Models** 資料夾。貼上下列實作方式：
+1. 將 **MobileCustomerDomainManager.cs** 新增至您專案的 **Models** 資料夾。貼上下列實作方式：
 
         using AutoMapper;
         using Microsoft.WindowsAzure.Mobile.Service;
@@ -357,9 +358,9 @@ AutoMapper 此時會將物件互相對應。所有具有對應名稱的屬性都
             }
         }
 
-    此類別的重要部分是 **GetKey** 方法，我們可在其中指出如何在原始資料模型中找出物件的 ID 屬性。 
+    此類別的重要部分是 **GetKey** 方法；我們可在其中指出如何在原始資料模型中找出物件的 ID 屬性。 
 
-2. 將 **MobileOrderDomainManager.cs** 加入至專案的 **Models** 資料夾：
+2. 將 **MobileOrderDomainManager.cs** 新增至您專案的 **Models** 資料夾：
 
         using AutoMapper;
         using Microsoft.WindowsAzure.Mobile.Service;
@@ -462,14 +463,14 @@ AutoMapper 此時會將物件互相對應。所有具有對應名稱的屬性都
             }
         }
 
-    在此情況下，**InsertAsync** 和 **UpdateAsync** 方法是很值得了解的；我們會在其中強制執行每個 **Order** 都必須有一個有效相關 **Customer** 的關係。在 **InsertAsync** 中，您會看見我們填入 **MobileOrder.CustomerId** 屬性，而此屬性對應至 **Order.CustomerId** 屬性。我們藉由基底查閱具有相符 **MobileOrder.MobileCustomerId** 的 **Customer**，來取得該值。這是因為，依預設用戶端只能辨識 **Customer** 的行動服務識別碼 (**MobileOrder.MobileCustomerId**)，而此識別碼與將外部索引鍵 (**MobileOrder.CustomerId**) 從 **Order** 設為 **Customer** 所需的實際主要索引鍵並不相同。此識別碼僅供服務內部使用，以加快插入作業的速度。
+    在此情況下，**InsertAsync** 和 **UpdateAsync**  方法是很值得了解的；我們會在其中強制執行每個 **Order** 都必須有一個有效相關 **Customer** 的關係。在 **InsertAsync** 中，您會看見我們填入 **MobileOrder.CustomerId** 屬性，而此屬性對應至 **Order.CustomerId** 屬性。我們藉由基底查閱具有相符 **MobileOrder.MobileCustomerId** 的 **Customer**，來取得該值。這是因為，依預設用戶端只能辨識 **Customer** 的行動服務識別碼 (**MobileOrder.MobileCustomerId**)，而此識別碼與將外部索引鍵 (**MobileOrder.CustomerId**) 從 **Order** 設為 **Customer** 所需的實際主要索引鍵並不相同。此識別碼僅供服務內部使用，以加快插入作業的速度。
 
 我們現在已可建立控制器，以將 DTO 公開至我們的用戶端。
 
 <a name="Controller"></a>
 ## 使用 DTO 實作 TableController
 
-1. 在 **Controllers** 資料夾中，新增檔案 **MobileCustomerController.cs**：
+1. 在 **Controllers** 資料夾中，新增檔案 **MobileCustomerController.cs**︰
 
         using Microsoft.WindowsAzure.Mobile.Service;
         using Microsoft.WindowsAzure.Mobile.Service.Security;
@@ -522,9 +523,9 @@ AutoMapper 此時會將物件互相對應。所有具有對應名稱的屬性都
             }
         }
 
-    您將必須記下 AuthorizeLevel 屬性用來對控制器上的插入/更新/刪除作業進行公用存取限定的使用情形。基於此案例的用途，Customer 的清單將是唯讀的，但我們將允許建立新 Order，並將其與現有客戶產生關聯。 
+    您將必須記下 AuthorizeLevel  屬性用來對控制器上的插入/更新/刪除作業進行公用存取限定的使用情形。基於此案例的用途，Customer 的清單將是唯讀的，但我們將允許建立新 Order，並將其與現有客戶產生關聯。 
 
-2. 在 **Controllers** 資料夾中，新增檔案 **MobileOrderController.cs**：
+2. 在 **Controllers** 資料夾中，新增檔案 **MobileOrderController.cs**︰
 
         using Microsoft.WindowsAzure.Mobile.Service;
         using ShoppingService.DataObjects;
@@ -578,7 +579,7 @@ AutoMapper 此時會將物件互相對應。所有具有對應名稱的屬性都
 
 3. 您現在已可執行您的服務。按 **F5** 鍵，然後使用內建於說明頁面中的測試用戶端來修改資料。
 
-請注意，這兩個控制器實作方式會互斥使用 DTO **MobileCustomer** 和 **MobileOrder**，且無從驗證基礎模型。這些 DTO 已序列化為 JSON，並可用來與所有平台上的行動服務用戶端 SDK 交換資料。例如，如果建置 Windows 市集應用程式，對應的用戶端類型將如下所示。此類型將與其他用戶端平台上的類型相似。 
+請注意，這兩個控制器實作方式會互斥使用 **MobileCustomer** 和 **MobileOrder**，且無從驗證基礎模型。這些 DTO 已序列化為 JSON，並可用來與所有平台上的行動服務用戶端 SDK 交換資料。例如，如果建置 Windows 市集應用程式，對應的用戶端類型將如下所示。此類型將與其他用戶端平台上的類型相似。 
 
     using Microsoft.WindowsAzure.MobileServices;
     using System;
@@ -607,3 +608,7 @@ AutoMapper 此時會將物件互相對應。所有具有對應名稱的屬性都
     }
 
 您可在此時建置用來存取服務的用戶端應用程式，以執行下一個步驟。
+
+
+
+<!--HONumber=42-->

@@ -1,26 +1,12 @@
-﻿<properties 
-	pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (Windows 市集) | 行動開發人員中心" 
-	description="了解如何在 Windows 市集應用程式中驗證使用者的單一登入。" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede"
-	editor="" 
-	services="mobile-services"/>
+<properties pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (Windows 市集) | 行動開發人員中心" description="了解如何在 Windows 市集應用程式中驗證使用者的單一登入。" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="10/14/2014" 
-	ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc"/>
 
 # 使用 Active Directory Authentication Library 單一登入驗證您的應用程式
 
-[WACOM.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
+[AZURE.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
-在本教學課程中，您使用 Active Directory Authentication Library 將驗證加入至快速入門專案，以支援使用 Azure Active Directory 的[用戶端主導登入作業](http://msdn.microsoft.com/zh-tw/library/azure/jj710106.aspx)。若要支援使用 Azure Active Directory 的[服務主導登入作業](http://msdn.microsoft.com/zh-tw/library/azure/dn283952.aspx)，請從[將驗證加入至行動服務應用程式](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/)教學課程開始。
+在本教學課程中，您使用 Active Directory Authentication Library 將驗證加入至快速入門專案，以支援使用 Azure Active Directory 的[用戶端主導登入作業](http://msdn.microsoft.com/zh-tw/library/azure/jj710106.aspx)。若要使用 Azure Active Directory 支援[服務主導登入作業](http://msdn.microsoft.com/zh-tw/library/azure/dn283952.aspx)，首先請進行[將驗證新增至行動服務應用程式](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/)教學課程。
 
 為了能夠驗證使用者，您必須向 Azure Active Directory (AAD) 註冊您的應用程式。此作業有兩個階段。第一，您必須註冊行動服務，並公開其權限。第二，您必須註冊 Windows 市集應用程式，並為其授與對這些權限的存取權
 
@@ -30,7 +16,7 @@
 本教學課程將逐步引導您完成下列基本步驟：
 
 1. [向 Azure Active Directory 註冊您的行動服務]
-2. [向 Azure Active Directory 註冊您的應用程式]。
+2. [向 Azure Active Directory 註冊您的應用程式]
 3. [將行動服務設定為需要驗證]
 4. [將驗證程式碼新增至用戶端應用程式]
 5. [使用驗證測試用戶端]
@@ -42,7 +28,7 @@
 * Microsoft Azure 行動服務 SDK NuGet 封裝
 * Active Directory Authentication Library NuGet 封裝 
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service](../includes/mobile-services-dotnet-adal-register-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-adal-register-service](../includes/mobile-services-dotnet-adal-register-service.md)]
 
 ## <a name="register-app-aad"></a>向 Azure Active Directory 註冊您的應用程式
 
@@ -51,7 +37,7 @@
 
 ### 將應用程式與新的市集應用程式名稱產生關聯
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下用戶端應用程式專案，然後按一下 [**市集**] 和 [**將應用程式與市集建立關聯**]
+1. 在 Visual Studio 中，以滑鼠右鍵按一下用戶端應用程式專案，然後依序按一下 [**市集**] 和 [**將應用程式與市集建立關聯**]。
 
     ![][1]
 
@@ -70,7 +56,7 @@
 
 現在，您必須擷取將使用原生應用程式設定進行設定的封裝 SID。
 
-1. 登入您的 [Windows 開發人員中心儀表板]，然後在應用程式上按一下 [**編輯**]。
+1. 登入您的 [[Windows 開發人員中心儀表板]]，然後在應用程式上按一下 [**編輯**]。
 
     ![][3]
 
@@ -88,17 +74,17 @@
 
 ### 建立原生應用程式註冊
 
-1. 導覽至 [Azure 管理入口網站]中的 **Active Directory**，然後按一下您的目錄。
+1. 導覽至 **Azure 管理入口網站**中的 [Active Directory]，然後按一下您的目錄。
 
     ![][7] 
 
-2. 按一下頂端的 [**應用程式**] 索引標籤，然後按一下以 [**加入**] 應用程式。 
+2. 按一下頂端的 [**應用程式**] 索引標籤，然後按一下以**新增**應用程式。 
 
     ![][8]
 
-3. 按一下 [**加入我的組織正在開發的應用程式**]。
+3. 按一下 [**Add an application my organization is developing**]。
 
-4. 在 [加入應用程式精靈] 中，輸入應用程式的 [**名稱**]，然後按一下 [**原生用戶端應用程式**] 類型。接著，按一下以繼續。
+4. 在 [新增應用程式精靈] 中，輸入應用程式的 [**名稱**]，然後按一下 [**原生用戶端應用程式**] 類型。接著，按一下以繼續。
 
     ![][9]
 
@@ -106,7 +92,7 @@
 
     ![][10]
 
-6. 按一下原生應用程式的 [**設定**] 索引標籤，然後複製 [**用戶端識別碼**]。稍後您將會需要此資訊。
+6. 按一下原生應用程式的 [**設定**] 索引標籤，並複製 [**用戶端識別碼**]。稍後您將會需要此資訊。
 
     ![][11]
 
@@ -120,13 +106,13 @@
 
 ## <a name="require-authentication"></a>將行動服務設定為需要驗證
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-code"></a>將驗證程式碼新增至用戶端應用程式
 
 1. 在 Visual Studio 中開啟您的 Windows 市集用戶端應用程式專案。
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
 4. 在 Visual Studio 的 [方案總管] 視窗中開啟 MainPage.xaml.cs 檔案，然後使用陳述式新增下列項目。
 
@@ -135,7 +121,7 @@
         using Newtonsoft.Json.Linq;
 
 
-5. 將下列程式碼新增至 MainPage 類別，以宣告 `AuthenticateAsync` 方法。
+5. 將下列程式碼新增至 MainPage 類別，以宣告  `AuthenticateAsync` 方法。
 
         private MobileServiceUser user; 
         private async Task AuthenticateAsync()
@@ -165,17 +151,17 @@
             } 
         }
 
-6. 在上述 `AuthenticateAsync` 方法的程式碼中，以您佈建應用程式的租用戶名稱來取代 **INSERT-AUTHORITY-HERE**，格式應該為 https://login.windows.net/tenant-name.onmicrosoft.com。您可以在 [Azure 管理入口網站]中，從 Azure Active Directory 的 [網域] 索引標籤中複製此值。
+6. 在  `AuthenticateAsync` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 取代為您佈建應用程式的租用戶名稱，其格式應為 https://login.windows.net/tenant-name.onmicrosoft.com。 此值可從 [Azure 管理入口網站]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
 
-7. 在上述 `AuthenticateAsync` 方法的程式碼中，將 **INSERT-RESOURCE-URI-HERE** 取代為您行動服務的 **應用程式識別碼 URI**。如果您依照[如何向 Azure Active Directory 註冊]主題的內容操作，您的應用程式識別碼 URI 應會類似於 https://todolist.azure-mobile.net/login/aad。
+7. 在  `AuthenticateAsync` 方法的程式碼中，將 **INSERT-RESOURCE-URI-HERE** 取代為您行動服務的**應用程式識別碼 URI**。如果您依照[如何向 Azure Active Directory 註冊]主題的內容操作，您的應用程式識別碼應會類似於 https://todolist.azure-mobile.net/login/aad。
 
-8. 在上述 `AuthenticateAsync` 方法的程式碼中，將 **INSERT-CLIENT-ID-HERE** 取代為您從原生用戶端應用程式中複製的用戶端識別碼。
+8. 在  `AuthenticateAsync` 方法的程式碼中，將 **INSERT-CLIENT-ID-HERE** 取代為您從原生用戶端應用程式中複製的用戶端識別碼。
 
-9. 在 Visual Studio 的 [方案總管] 視窗中，開啟用戶端專案中的 Package.appxmanifest 檔案。按一下 [**功能**] 索引標籤，然後啟用 [**企業應用程式**] 和 [**私人網路 (用戶端和伺服器)**。儲存檔案。
+9. 在 Visual Studio 的 [方案總管] 視窗中，開啟用戶端專案中的 Package.appxmanifest 檔案。按一下 [**功能**] 索引標籤，然後啟用 [**企業應用程式**] 和 [**私人網路 (用戶端和伺服器)**]。儲存檔案。
 
     ![][14]
 
-10. 在 MainPage.cs 檔案中更新 `OnNavigatedTo` 事件處理常式，以呼叫 `AuthenticateAsync` 方法，如下所示。
+10. 在 MainPage.cs 檔案中更新  `OnNavigatedTo` 事件處理常式，以呼叫  `AuthenticateAsync` 方法，如下所示。
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -226,3 +212,5 @@
 [開始使用資料]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
 [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
 [Windows 開發人員中心儀表板]: http://go.microsoft.com/fwlink/p/?LinkID=266734
+
+<!--HONumber=42-->

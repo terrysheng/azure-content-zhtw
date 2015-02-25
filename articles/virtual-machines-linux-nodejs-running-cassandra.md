@@ -1,23 +1,23 @@
-﻿<properties urlDisplayName="Cassandra with Linux" pageTitle="使用 Azure 上的 Linux 執行 Cassandra" metaKeywords="" description="說明如何在 Azure 的 Linux 虛擬機器上執行 Cassandra 叢集" metaCanonical="" services="virtual-machines" documentationCenter="nodejs" title="Running Cassandra with Linux on Azure and Accessing it from Node.js" authors="hanuk" solutions="" manager="timlt" editor="" />
+<properties pageTitle="使用 Azure 上的 Linux 執行 Cassandra" description="說明如何在 Azure 的 Linux 虛擬機器上執行 Cassandra 叢集。" services="virtual-machines" documentationCenter="nodejs" authors="hanuk" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/01/2014" ms.author="hanuk" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/01/2014" ms.author="hanuk"/>
 
 
 
 
 
 <h1><a id = ""></a>在 Azure 上執行 Cassandra 搭配 Linux 並透過 Node.js 進行存取 </h1>
-**作者：**Hanu Kommalapati
+**作者：** Hanu Kommalapati
 
 ## 目錄##
 
-- [概觀][]
-- [單一區域部署][]
-- [測試單一區域 Cassandra 叢集][]
-- [多重區域部署][]
-- [測試多重區域 Cassandra 叢集][]
-- [透過 Node.js 測試 Cassandra 叢集][]
-- [結論][]
+- [概觀][Overview]
+- [單一區域部署][Single Region Deployment]
+- [測試單一區域 Cassandra 叢集][Test Single Region Cassandra Cluster]
+- [多重區域部署][Multi-Region Deployment]
+- [測試多重區域 Cassandra 叢集][Test Multi-Region Cassandra Cluster]
+- [透過 Node.js 測試 Cassandra 叢集][Test Cassandra Cluster from Node.js]
+- [結論][Conclusion]
 
 ##<a id="overview"> </a>概觀 ##
 Microsoft Azure 是一個開放雲端平台，可執行 Microsoft 和非 Microsoft 軟體，包括作業系統、應用程式伺服器、傳訊中介軟體，以及來自商業和開放原始碼模型的 SQL 和 NoSQL 資料庫。如果要在包括 Azure 在內的公用雲端上建立具有恢復功能的服務，應用程式伺服器和儲存層都必須要有仔細的規劃和審慎的架構。Cassandra 的分散式儲存架構天生就有助於建置可針對叢集失敗容錯的高可用性系統。Cassandra 是一種雲端等級的 NoSQL 資料庫，由 Apache Software Foundation 維護 (網址 cassandra.apache.org)；Cassandra 以 Java 撰寫，因此可以在 Windows 與 Linux 平台上執行。 
@@ -54,7 +54,7 @@ Cassandra 可以部署到單一 Azure 區域或多個區域，視工作負載的
 
 **叢集種子：**務必選取可用性最高的節點做為種子，因為新的節點會與種子節點進行通訊以探索叢集的拓撲。將每個可用性設定組中的一個節點指定為種子節點可避免單一失敗點。
 
-**複寫因素和一致性層級：**Cassandra 內建的高可用性和資料耐久性的特點為「複寫因素」(RF - 每個資料列儲存在叢集上的複本數目) 和「一致性層級」(將結果傳回呼叫者之前，要讀取/寫入的複本數目)。複寫因素是在 KEYSPACE (類似關聯式資料庫) 建立期間指定，一致性層級則是在發出 CRUD 查詢時指定。複寫因素是在 KEYSPACE 建立期間指定，一致性層級則是在發出查詢時指定。請參閱 Cassandra 文件[設定一致性](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html)，了解一致性詳細資訊和仲裁計算的公式。
+**複寫因素和一致性層級：**Cassandra 內建的高可用性和資料耐久性的特點為「複寫因素」(RF - 每個資料列儲存在叢集上的複本數目) 和「一致性層級」(將結果傳回呼叫者之前，要讀取/寫入的複本數目)。複寫因素是在 KEYSPACE (類似關聯式資料庫) 建立期間指定，一致性層級則是在發出 CRUD 查詢時指定。複寫因素是在 KEYSPACE 建立期間指定，一致性層級則是在發出查詢時指定。請參閱 Cassandra 文件[設定一致性](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html)了解一致性詳細資訊和仲裁計算的公式。。
 
 Cassandra 支援兩種類型的資料完整性模型 - 一致性和最終一致性。「複寫因素」和「一致性層級」將一起判斷資料會在寫入作業完成時就達成一致，或者最終才達成一致。例如，指定「一致性層級」為 QUORUM，將永遠確保在任何一致性層級時的資料一致性，低於達到 QUORUM (例如 ONE) 所需寫入的複本數目，會造成資料在最終才達成一致。 
 
@@ -76,7 +76,7 @@ Cassandra 支援兩種類型的資料完整性模型 - 一致性和最終一致�
 
 **Cassandra 叢集的 Azure 考量：**Microsoft Azure 虛擬機器功能使用 Azure Blob 儲存體來達到磁碟持續性；Azure 儲存體則為每個磁碟儲存 3 個複本來達到高持久性。這表示插入 Cassandra 資料表的每個資料列已經儲存在 3 個複本中，因此即使複寫因素 (RF) 為 1，也已經能夠達到資料一致性。複寫因數為 1 的主要問題在於即使單一 Cassandra 節點失敗，應用程式還是會經歷停機時間。不過，如果節點是因為 Azure 網狀架構控制器可辨識的問題 (例如硬體、系統軟體失敗) 而停機，則 Azure 網狀架構控制器將會使用相同的存放磁碟機在原節點的位置佈建新的節點。佈建新節點取代舊節點，可能需要幾分鐘的時間。同樣地，對於像是客體 OS 變更、Cassandra 升級和應用程式變更的計劃性維護活動，Azure 網狀架構控制器會輪流升級叢集中的節點。輪流升級也可能需要一次讓幾個節點停機，因此叢集的少數幾個部份可能會經歷短暫的停機時間。不過，資料不會因為內建的 Azure 儲存體備援性而遺失。
 
-對於部署到 Azure 但不需要高可用性的系統 (例如大約 99.9，相當於每年 8.76 小時，請參閱[高可用性](http://en.wikipedia.org/wiki/High_availability)了解詳細資訊)，您可以採用 RF=1 和一致性層級=ONE 執行。對於具有高可用性需求的應用程式，RF=3 和一致性層級=QUORUM 將可容忍其中一個節點其中一個複本的停機時間。不能在傳統部署 (例如內部部署) 中使用 RF=1，因為像是磁碟損壞所產生的問題可能會導致資料遺失。   
+對於部署到 Azure 但不需要高可用性的系統 (例如大約 99.9，相當於每年 8.76 小時，如需詳細資訊，請參閱 [高可用性](http://en.wikipedia.org/wiki/High_availability))，您可以採用 RF=1 和一致性層級=ONE 執行。對於具有高可用性需求的應用程式，RF=3 和一致性層級=QUORUM 將可容忍其中一個節點其中一個複本的停機時間。不能在傳統部署 (例如內部部署) 中使用 RF=1，因為像是磁碟損壞所產生的問題可能會導致資料遺失。   
 
 ## 多重區域部署 ##
 Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助於立即進行多重區域部署，不需要使用任何外部工具。這與傳統的關聯式資料庫相當不同，後者在設定資料庫鏡像以進行多重主機寫入時相當複雜。Cassandra 的多重區域設定有助於包括下列的使用案例： 
@@ -85,7 +85,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 
 **高可用性：**備援性是達到軟體和硬體高可用性的重要因素。請參閱「在 Microsoft Azure 上建置可靠的雲端系統」了解詳細資訊。在 Microsoft Azure 上要達到真實的備援性，唯一可靠的方式就是部署多重區域叢集。您可以使用主動-主動模式或主動-被動模式部署應用程式，如果其中一個區域停機，Azure 流量管理員可以將流量重新導向至使用中的區域。使用單一區域部署時，如果可用性為 99.9，則兩個區域的部署可以達到 99.9999 的可用性，計算公式為：(1-(1-0.999) * (1-0.999))*100)。請參閱上述文件了解詳細資訊。
 
-**災害復原：**經過適當設計的多重區域 Cassandra 叢集，能夠承受嚴重的資料中心中斷。如果某個區域停機，部署到其他區域的應用程式可以開始服務使用者。如同任何其他業務持續性的實作，應用程式必須能夠容忍非同步管線的資料所造成的資料遺失。不過，Cassandra 比起傳統的資料庫復原程序所花費的時間，可以更快速地進行復原。圖 2 顯示每個區域具有 8 個節點的典型多重區域部署模型。這兩個區域是互為彼此相同對稱的鏡像映像。真實世界的設計是根據工作負載類型 (例如交易或分析)、RPO、RTO、資料一致性及可用性需求而定。
+**災害復原：**經過適當設計的多重區域 Cassandra 叢集，能夠承受嚴重的資料中心中斷。如果某個區域停機，部署到其他區域的應用程式可以開始服務使用者。如同任何其他業務持續性的實作，應用程式必須能夠容忍非同步管線的資料所造成的資料遺失。不過，Cassandra 比起傳統的資料庫復原程序所花費的時間，可以更快速地進行復原。圖 2 顯示每個區域具有 8 個節點的典型多重區域部署模型。這兩個區域是互為彼此相同對稱的鏡像映像。真實世界的設計是根據工作負載類型 (例如交易或分析)、RPO、RTO、資料一致性及可用性需求而定。 
 
 ![Multi region deployment](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux2.png)
 
@@ -106,11 +106,11 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 <tr><td>複寫因素 (RF)</td><td>	3 	</td><td>指定資料列的複本數目 </td></tr>
 <tr><td>一致性層級 (寫入)	</td><td>LOCAL_QUORUM [(sum(RF/2) +1) = 4] [公式結果無條件捨去]	</td><td>2 個節點會以同步方式寫入第一個資料中心；仲裁所需的其他 2 個節點會以非同步方式寫入第二個資料中心。 </td></tr>
 <tr><td>一致性層級 (讀取)</td><td>	LOCAL_QUORUM [((RF/2) +1) = 2] [公式結果無條件捨去]	</td><td>只會達到來自一個區域的讀取要求；在回應傳送回用戶端之前，會讀取 2 個節點。  </td></tr>
-<tr><td>複寫策略 </td><td>	NetworkTopologyStrategy [請參閱 Cassandra 文件中的[資料複寫](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html)了解詳細資訊] </td><td>	了解部署拓撲並將複本放在節點上，最後所有複本就不會都位於相同的機架上  </td></tr>
+<tr><td>複寫策略 </td><td>	NetworkTopologyStrategy [請參閱 Cassandra 文件中的[資料複寫](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) 了解詳細資訊] </td><td>	了解部署拓撲並將複本放在節點上，最後所有複本就不會都位於相同的機架上  </td></tr>
 <tr><td>Snitch</td><td> GossipingPropertyFileSnitch [請參閱 Cassandra 文件中的 [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) 了解詳細資訊] </td><td>NetworkTopologyStrategy 使用 Snitch 的概念來了解拓撲。GossipingPropertyFileSnitch 在將各個節點對應到資料中心與機架時提供較好的控制。叢集再使用 Gossip 來散佈這項資訊。相對於 PropertyFileSnitch，這在動態 IP 設定中簡單許多 </td></tr> 
 </table> 
 
-##軟體設定 ##
+##軟體設定##
 部署期間將使用下列軟體版本：
 
 <table>
@@ -118,7 +118,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 <tr><td>JRE	</td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA	</td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu	</td><td>[Mcrosoft Azure 入口網站](http://azure.microsoft.com) </td><td>14.04 LTS</td></tr>
+<tr><td>Ubuntu	</td><td>[Microsoft Azure 入口網站](http://azure.microsoft.com) </td><td>14.04 LTS</td></tr>
 </table>
 
 由於下載 JRE 時需要手動接受 Oracle 授權，為了簡化部署，請將所有必要的軟體下載到桌面，稍後上傳到我們要建立來做為叢集部署初期使用的 Ubuntu 範本映像。 
@@ -163,7 +163,7 @@ Cassandra 的資料中心感知複寫和上面所描述的一致性模型有助�
 按一下向右箭號，保留第 3 個畫面上的預設值，然後按一下 [確認] 按鈕以完成 VM 佈建程序。請稍候幾分鐘，名稱為 "ubuntu-template" 的 VM 應該會變成「執行中」狀態。 
 
 ###安裝必要軟體###
-####步驟 1：上傳 tarball ####
+####步驟 1：上傳 tar 封存 ####
 使用 scp 或 pscp，並使用下列命令格式將先前下載的軟體複製到 ~/downloads 目錄中： 
 
 #####pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz #####
@@ -282,7 +282,7 @@ sudo apt-get install libjna-java
 <tr><td>cluster_name </td><td>	"CustomerService"	</td><td> 使用能反映您部署的名稱</td></tr> 
 <tr><td>listen_address	</td><td>[保留為空白]	</td><td> 刪除 "localhost" </td></tr>
 <tr><td>rpc_addres   </td><td>[保留為空白]	</td><td> 刪除 "localhost" </td></tr>
-<tr><td>種子	</td><td>"10.1.2.4、10.1.2.6、10.1.2.8"	</td><td>指定為種子的所有 IP 位址清單。</td></tr>
+<tr><td>種子	</td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"	</td><td>指定為種子的所有 IP 位址清單。</td></tr>
 <tr><td>endpoint_snitch </td><td> org.apache.cassandra.locator.GossipingPropertyFileSnitch </td><td> 由 NetworkTopologyStrateg 使用來表示資料中心和 VM 的機架</td></tr>
 </table>
 
@@ -297,7 +297,7 @@ sudo apt-get install libjna-java
 確定已反白顯示虛擬機器，然後按一下底部命令列中的 [關機] 連結。
 
 #####3：擷取映像#####
-確定已反白顯示虛擬機器，然後按一下底部命令列中的 [擷取] 連結。在下一個畫面中，指定 [映像名稱] (例如 hk-cas-2-08-ub-14-04-2014071)、適當的 [映像描述]，然後按一下「確認」記號以完成擷取程序。
+確定已反白顯示虛擬機器，然後按一下底部命令列中的 [擷取] 連結。在下一個畫面中，指定 [映像名稱\] (例如 hk-cas-2-08-ub-14-04-2014071)、適當的 [映像描述]，然後按一下「確認」記號以完成擷取程序。
 
 這需要幾秒鐘的時間，然後您應該就可以在映像庫的 [我的映像] 區段中找到映像。成功擷取映像之後，來源 VM 就會自動刪除。 
 
@@ -309,8 +309,8 @@ sudo apt-get install libjna-java
 <tr><th>VM 屬性名稱</th><th>值</th><th>備註</th></tr>
 <tr><td>名稱</td><td>vnet-cass-west-us</td><td></td></tr>	
 <tr><td>區域</td><td>美國西部</td><td></td></tr>	
-<tr><td>DNS 伺服器	</td><td>None</td><td>請忽略此項，因為我們不使用 DNS 伺服器</td></tr>
-<tr><td>設定點對站 VPN</td><td>None</td><td> 略過此項</td></tr>
+<tr><td>DNS 伺服器	</td><td>無</td><td>請忽略此項，因為我們不使用 DNS 伺服器</td></tr>
+<tr><td>設定點對站 VPN</td><td>無</td><td> 略過此項</td></tr>
 <tr><td>設定站台對站台 VPN</td><td>無</td><td> 略過此項</td></tr>
 <tr><td>位址空間</td><td>10.1.0.0/16</td><td></td></tr>	
 <tr><td>起始 IP</td><td>10.1.0.0</td><td></td></tr>	
@@ -705,18 +705,17 @@ $CASS_HOME/bin/cassandra
 ##<a id="conclusion"> </a>結論##
 Microsoft Azure 是一個富彈性的平台，可以執行 Microsoft 與開放原始碼軟體，如本練習中所示。透過將叢集節點分散在多個容錯網域，可以將高度可用的 Cassandra 叢集部署在單一資料中心。您也可以跨越多個地理位置遙遠的 Azure 區域部署 Cassandra 叢集做為災害防禦系統。Azure 搭配 Cassandra 可建構現今的網際網路等級服務所需，且具有高擴充性、高可用性以及可進行災害復原的雲端服務。  
 
-[概觀]: #overview
-[單一區域部署]: #oneregion
-[測試單一區域 Cassandra 叢集]: #testone
-[多重區域部署]: #tworegion
-[測試多重區域 Cassandra 叢集]: #testtwo
-[透過 Node.js 測試 Cassandra 叢集]: #testnode
-[結論]: #conclusion
+[Overview]: #overview
+[Single Region Deployment]: #oneregion
+[Test Single Region Cassandra Cluster]: #testone
+[Multi-Region Deployment]: #tworegion
+[Test Multi-Region Cassandra Cluster]: #testtwo
+[Test Cassandra Cluster from Node.js]: #testnode
+[Conclusion]: #conclusion
 
-##參考資料##
+##參考##
 - [http://cassandra.apache.org](http://cassandra.apache.org)
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
-
-<!--HONumber=35.2-->
+<!--HONumber=42-->

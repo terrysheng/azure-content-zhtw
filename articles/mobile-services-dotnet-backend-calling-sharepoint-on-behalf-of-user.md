@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Access SharePoint on behalf of the user" pageTitle="代表使用者存取 SharePoint | 行動開發人員中心" metaKeywords="" description="了解如何代表使用者電洽 SharePoint" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Access SharePoint on behalf of the user" authors="mahender" manager="dwrede" />
+﻿<properties pageTitle="代表使用者存取 SharePoint | 行動開發人員中心" description="了解如何代表使用者電洽 SharePoint" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
 
 # 代表使用者存取 SharePoint
 
@@ -9,7 +9,7 @@
 <p>本主題說明如何代表目前登入的使用者存取 SharePoint API。</p>
 <p>如果想要看影片，右邊片段播放的步驟與本教學課程相同。在此影片中，Mat Velloso 會引導您更新 Windows 市集應用程式，以與 SharePoint Online 互動。</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">觀看教學課程</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">播放影片</span></a> <span class="time">12:51:00</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">觀看教學課程</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">播放影片</span></a> <span class="time">下午 12:51</span></div>
 </div>
 
 在本教學課程中，您會從「使用 Active Directory Authentication Library 單一登入驗證您的應用程式」教學課程更新應用程式，以在新增 TodoItem 時，在 SharePoint Online 中建立 Word 文件。
@@ -25,7 +25,7 @@
 本教學課程需要下列各項：
 
 * 執行於 Windows 8.1 的 Visual Studio 2013
-* 作用中的 [SharePoint Online] 訂閱
+* 作用中 [SharePoint Online] 訂閱
 * 完成[使用 Active Directory Authentication Library 單一登入驗證您的應用程式]教學課程。您應使用 SharePoint 訂閱所提供的租用戶。
 
 ## <a name="configure-permissions"></a>針對 SharePoint 的委派存取設定您的應用程式
@@ -69,7 +69,7 @@
 
 1. 在 Visual Studio 中，開啟您的行動服務後端專案。
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
 2. 在您的行動服務後端專案中，建立名為 SharePointUploadContext 的新類別。在其中新增下列項目：
 
@@ -93,7 +93,7 @@
         {
             //Call ADAL and request a token to SharePoint with the access token
             AuthenticationContext ac = new AuthenticationContext(authority);
-            AuthenticationResult ar = ac.AcquireToken(sharepointURL, new UserAssertion(userToken), new ClientCredential(clientId, clientSecret));
+            AuthenticationResult ar = ac.AcquireToken(sharepointURL, new ClientCredential(clientId, clientSecret), new UserAssertion(userToken));
             accessToken = ar.AccessToken;
             string upn = ar.UserInfo.UserId;
             mySiteApiPath = "/personal/" + upn.Replace('@','_').Replace('.','_') + "/_api/web"; 
@@ -203,3 +203,5 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/zh-tw/sharepoint/
 [使用 Active Directory Authentication Library 單一登入驗證您的應用程式]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+
+<!--HONumber=42-->

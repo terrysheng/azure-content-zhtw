@@ -1,256 +1,143 @@
-﻿<properties urlDisplayName="Create a Global Web Presence on Azure Websites" pageTitle="在 Azure 網站上建立全域網站空間" metaKeywords="" description="本指南針對如何在 Azure 網站上託管您的組織的 (.COM) 網站提供技術概觀。這包括部署、自訂網域、SSL 和監視。" metaCanonical="http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-global-web-presence-solution-overview/" services="" documentationCenter="" title="Create a Global Web Presence on Azure Websites" authors="jroth" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="在 Azure 網站上建立全域網站空間" 
+	description="本指南針對如何在 Azure 網站上託管您的組織的 (.COM) 網站提供技術概觀。這包括部署、自訂網域、SSL 和監視。" 
+	editor="jimbe" 
+	manager="wpickett" 
+	authors="cephalin" 
+	services="web-sites" 
+	documentationCenter=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/01/2014" ms.author="jroth" />
-
-
-
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2014" 
+	ms.author="cephalin"/>
 
 
 # 在 Azure 網站上建立全域網站空間
 
-本指南針對如何在 Azure 上託管您的組織的 (.COM) 網站提供技術概觀。本案例亦同時稱為全域網站空間。本指南著重在 [Azure 網站][websitesoverview]，因為「網站」是 Azure 上最快速且最容易建立、移轉、擴充與管理的 Web 應用程式。不過，為滿足部分應用程式需求，最好移轉到執行 IIS 的 [Azure 雲端服務][csoverview]或 [Azure 虛擬機器][vmoverview]。託管 Web 應用程式還有其他很好的選擇。如果您正處於初始規劃階段，請檢閱以下文件：[Azure 網站、雲端服務和 VM：使用時機][chooseservice]。如果使用雲端服務或虛擬機器的需求消失，我們建議您使用網站來託管您的全域網站空間。本文件其他部分將就如何在此案例中使用網站提供相關指導。 
+[Azure 網站]具有為 .COM 網站建立全域網站空間所需的所有功能。無論組織的規模大小，您都需要強固、 安全且可擴充的平台，以促進您的業務、 品牌認知以及客戶通訊。Azure 網站可透過 Microsoft 支援的業務持續性，協助維護公司的品牌與形象。
 
-本指南涵蓋下列領域：
+> [AZURE.NOTE] 如果您要在註冊帳戶前開始使用 Azure 網站，請移至 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>，您可以在 Azure 網站中立即建立短期的免費 ASP.NET 簡易版網站。無需使用信用卡，也不用簽約。
 
-- [建立 Azure 網站](#createwebsite)
-- [部署網站](#deploywebsite)
-- [新增自訂網域](#customdomain)
-- [用 SSL 保護網站安全](#ssl)
-- [監視網站](#monitor)
+以下是在 Azure 網站上執行的 .COM 網站範例。此範例示範只要撰寫 Azure 網站和其他服務、加上最少的技術投資便能完成的工作。**按一下拓樸中的項目以讀取詳細資訊。** 
+
+<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
 > [WACOM.NOTE]
-> 本指南呈現一些與公用端 .COM 網站開發整合的最常見領域和工作。不過，還有其他 Azure 網站功能可供您在特定的實作中使用。若要檢閱這些功能，另請參閱 <a href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/digital-marketing-campaign-solution-overview">數位行銷活動</a> 和 <a href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/business-application-solution-overview">商務應用程式</a>的其他指南。
-> 
-> 如果您要在註冊帳戶前開始使用 Azure 網站，請移至 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>，您可以在 Azure 網站中立即建立短期的免費 ASP.NET 簡易版網站。不需要信用卡，沒有承諾。
+> 本指南呈現一些與在 Azure 網站中執行的公用端 .COM 網站整合的最常見領域和工作。不過，還有其他您可在 Azure 網站中實作的常見解決方案。若要檢閱這些解決方案，請同時參閱<a href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/digital-marketing-campaign-solution-overview">數位行銷活動</a> (英文) 與<a href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/business-application-solution-overview">商務應用程式</a> (英文) 方面的其他指南。
 
-##<a name="createwebsite"></a>建立 Azure 網站
-透過 Azure 管理入口網站，您可以多種方式建立新的 Azure 網站。當您在入口網站下方按一下 [**新增**] 按鈕時，會顯示下列對話方塊：
+### 從頭開始建立或沿用現有資產
 
-![GlobalWebCreate][GlobalWebCreate]
+從組件庫中受歡迎的 CMS 快速建立新網站，或在 Azure 網站沿用現有各種不同語言與架構的 Web 資產。
 
-建立新的網站共有三個選項：**快速建立**、**自訂建立**和 **從組件庫**。不管您選取哪個選項，您都應該選取符合大多數使用群習慣的 Azure 區域。
+Azure 組件庫提供受歡迎網站內容管理系統 (CMS) 的範本，例如 [Orchard]、[Umbraco]、[Drupal] 以及 [WordPress]。您可以使用喜愛的 CMS 風格來建立網站。您可以根據自己的需求從各種不同的資料庫後端中選擇，包括 [Azure SQL Database] 與 [MySQL]。
 
-如果您是移轉現有網站，[**自訂建立**] 選項可讓您建立或關聯 SQL Database 或 MySQL 資料庫。此選項同時讓您得以指定用於部署的多項原始檔控制選項，例如 GitHub 或 Team Foundation Server (TFS)。如果您正使用原始檔控制機制來管理您的網站，此方法可讓您快速設定用於部署的 Azure 網站。
+不論是 .NET、PHP、Java、Node.js 或 Python，您現有的 Web 資產都能在 Azure 網站上執行。您可以使用熟悉的 [FTP] 工具或原始檔控制管理系統，將它們移至 Azure 網站。Azure 網站支援從 [Visual Studio]、[Visual Studio Online] 以及 [Git] (本機、GitHub、BitBucket、DropBox、Mercurial 等) 等受歡迎的原始檔控制選項直接發行。
 
-[**從組件庫**] 選項可讓您從多項架構中 (例如 Drupal 或 WordPress) 選取一項來設定新的網站。此方法有助您快速設定新的網站，以便您在選定的架構下接著進行自訂。
+### 可靠地發行
 
-就像 Azure 中大多數服務一樣，您必須為新網站選取 Azure 區域。Azure 在全球擁有多個區域。一旦您將網站部署到其中一個區域，就能透過網際網路在全球各地存取。不過，多個區域提供更大的彈性。最明顯的好處之一，就是可以將網站部署在最接近使用者的區域。 
+從現有的原始檔控制系統並即時測試內容，持續地直接發行，可靠地發行網站。 
 
-如需建立新網站的詳細步驟，請參閱[開始使用 Azure 網站和 ASP.NET][howtocreatewebsites]。
+在網站的計劃、原型設計及初期開發期間，您可以在網站上線之前，先[部署到預備位置]來查看網站的實際運作版本。透過整合原始檔控制與 Azure 網站，您可以[持續發行]到預備位置，並在您準備好時在沒有停機時間的情況下交換至生產環境。如果生產網站發生問題，您也可以立即換回舊版的網站。 
 
-##<a name="deploywebsite"></a>部署網站
-有多種方式可將您的網站部署到 Azure。如果您從組件庫中選取架構，則已經部署了一個入門網站。不過，為了有所進展，您還是需要設定一些編輯與部署步驟的類型。某些部署選項包含：
+此外，針對作用中的網站規劃變更時，您很容易就能使用在生產環境測試的功能，針對提議的更新[執行 A/B 測試]，並分析實際的使用者行為，幫助您做出明智的網站設計決策。
 
-- 使用 FTP 用戶端。
-- 從原始檔控制部署。
-- 從 Visual Studio 發行。
-- 從 [WebMatrix][webmatrix] 發行。
+### 品牌與安全
 
-這些選項各自擁有不同的優點。從 FTP 用戶端發行的解決方案簡單易用，可以直接將新的檔案推送到您的網站，而且任何仰賴 FTP 的現有發行工具或程序都能在 Azure 網站上繼續運作。原始檔控制可對網站內容版本提供最佳的控管機制，因為所有變更都能獲得追蹤、發行並在必要時回復到先前的版本。從 Visual Studio 或 Web Matrix 直接發行的選項可方便使用任何一項工具的開發人員。在專案或原型建立早期階段，是使用此功能的最好時機之一。無論是哪個情況，頻繁發行與測試可能比在開發環境中發行更為方便。 
+免費使用網站網域或對應至註冊的網域名稱，然後利用 CA 簽署的 SSL 憑證保護品牌安全。
 
-在此許多部署工作都必須使用到 Azure 管理入口網站內的資訊。移至您的網站並選取 [**儀表板**] 索引標籤，然後尋找 [**快速概覽**] 區段。以下螢幕擷取畫面顯示數個選項。
+當您在 Azure 網站執行網站時，可免費使用 **\*.azurewebsites.net** 網域。或者，您可以將網站對應至從任何 DNS 登錄取得 (例如 GoDaddy) 的[自訂網域] (例如 contoso.com)。
 
-![GlobalWebQuickGlance][GlobalWebQuickGlance]
+如果您收集任何使用者資訊、執行電子商務或管理任何其他機密資料，您可以使用 [HTTPS] 來保護品牌信譽與客戶。**\*.azurewebsites.net** 網域名稱已經隨附 SSL 憑證，而如果您使用自訂網域，可以在 Azure 網站使用該網域的 SSL 憑證。每個月都會收取與各個 SSL 憑證相關聯的費用 (每小時依比例)。如需詳細資訊，請參閱[網站定價詳細資料]。
 
-某些原始檔控制工具與 FTP 用戶端會要求具備使用者名稱/密碼存取權限。對新的網站而言，系統不會自動建立認證。不過，您可以按一下 [**重設您的部署認證**] 輕鬆完成這項工作。完成後，您可以使用這些認證加上同一個 [**儀表板**] 頁面上的 [**FTP 主機名稱**] 來部署您的網站。
+### 邁向全球
 
-![GlobalWebFTPSettings][GlobalWebFTPSettings]
+使用 Azure 流量管理員來為遍佈全球的地區網站提供服務，以及使用 Azure CDN 快如閃電地提供內容。
 
-請注意，部署/FTP 使用者名稱是網站名稱和您提供之使用者名稱的組合。因此如果您的網站是 "http://contoso.azurewebsite.net" 且您的使用者名稱是 "myuser"，則用於部署與 FTP 使用者名稱會是 "contoso\myuser"。
+若要向位於全球各地的客戶提供服務，請使用 [Azure 流量管理員]將網站訪客路由到可提供最佳效能的地區網站。或者，您可以將網站負載平均分配給多個地區的多個網站複本。
 
-您也可以選擇透過原始檔控制管理服務 (如 GitHub 或 TFS Online) 來進行部署。按一下 [**設定從原始檔控制進行部署**] 選項。接著遵循您所選的原始檔控制系統或服務指示進行。如需從本機 Git 儲存機制發行的逐步說明，請參閱[從原始檔控制發行至 Azure 網站][publishingwithgit]。
+[整合網站與 Azure CDN]，就能快如閃電地將靜態內容提供給全球的使用者。Azure CDN 會將靜態內容快取在最接近使用者的 [CDN 節點]，讓延遲的情況和與網站連線的需求降至最低。
 
-如果您打算使用 Visual Studio 來建立與管理網站，可以選擇直接從 Visual Studio 發行。方法之一就是按一下 [**下載發行設定檔**] 選項。此舉可讓您儲存 publishsettings 檔案，以便匯入 Visual Studio 供 Web 發行之用。 
+### 最佳化
 
-> [WACOM.NOTE]
-> 請務必確保 <i>publishsettings</i> 檔案安全且不受到原始檔控制影響，因為此檔案包含了部署與任何連結之資料庫連接字串所需的使用者名稱與密碼。
+透過使用自動調整功能自動地進行調整、使用 Azure Redis 快取功能進行快取、使用 WebJobs 執行背景工作，還有使用 Azure 流量管理員維持高可用性，最佳化 .COM 網站。
 
-您也可以直接將訂閱資訊匯入 Visual Studio。舉例來說，假設 Visual Studio 裡有一個本機 ASP.NET 專案。以滑鼠右鍵按一下該 Web 專案，然後選取 [**發行**]。[**發行 Web**] 對話方塊裡的 [**匯入**] 按鈕可讓您匯入內含 Azure 訂閱設定的檔案，或是您從網站儀表板中下載的 publishsettings 檔案。以下螢幕擷取畫面顯示這些選項。
+無論您的工作負載多寡，Azure 網站都能夠依 .COM 網站的需求[相應增加和放大]。透過 [Azure 管理入口網站]以手動方式、透過[服務管理 API] 或 [PowerShell 指令碼]以程式設計方式，或透過自動調整功能自動相應放大網站。採用「標準」****虛擬主機方案，自動調整功能可讓您根據 CPU 使用率自動相應放大網站。如需最佳做法，請參閱 [Troy Hunt] 的[我所學到關於使用 Azure 快速調整網站的 10 件事]。
 
-![GlobalWebVSPublish][GlobalWebVSPublish]
+使用 [Azure Redis 快取]加速您網站的回應速度。使用此功能，可從後端資料庫以及 [ASP.NET 工作階段狀態]與[輸出快取]等其他項目快取資料。
 
-如需從 Visual Studio 發行至 Azure 的詳細資訊，請參閱「將 ASP.NET Web 應用程式部署至 Azure 網站」。 
+使用 [Azure 流量管理員]維持網站的高可用性。使用「容錯移轉」****方法，如果主要網站發生問題，流量管理員會自動將流量路由至次要網站。
 
-開發與部署作業同時還有一個可用選項，那就是從 Azure 管理入口網站使用 WebMatrix。
+### 監視和分析
 
-![GlobalWebWebMatrix][GlobalWebWebMatrix]
+使用 Azure 或協力廠商工具掌握最新的網站效能。收到重大網站事件的警示。使用 Application Insight 或使用 HDInsight 中的 Web 記錄分析，輕鬆取得使用者觀點。 
 
-如需此選項的詳細資訊，請參閱[使用 Microsoft WebMatrix 開發與部署網站][aspnetgetstarted]。
+在 Azure 網站儀表板中，[快速概覽]網站目前的效能度量與資源配額。如需全面檢視應用程式的可用性、效能及使用率，請使用 [Azure Application Insights] 快速地提供精闢的疑難排解、診斷以及使用率觀點。或者，使用協力廠商工具 (例如 [New Relic]) 提供進階的網站監視資料。
 
-儘管這些步驟提供您部署 .COM 網站所需，您還是應該建立管理持續進行的內容發行週期的計畫。這些選項包括導入自訂解決方案、定期重新部署偶爾改變的網站，乃至於功能完整的內容管理系統 (CMS)。如果您是建立新的網站，請注意組件庫裡有些選項可供您使用現有的 CMS 架構，例如 [Drupal][drupal] 或 [Umbraco][umbraco]。
+採用「標準」**** 虛擬主機方案，可監視網站回應能力，還可在網站毫無回應時，收到電子郵件通知。如需詳細資訊，請參閱 [如何：在 Windows Azure 中接收警示通知及管理警示規則]。
 
-##<a name="customdomain"></a>新增自訂網域
-如果這是您的全域網站空間，則您會想要將註冊的網域名稱與網站進行關聯。目前許多第三方服務提供者都有提供網域註冊服務。這些提供者每個都支援建立不同類型的 DNS 記錄來管理您的網域。DNS 記錄可幫助您將使用者易用的 URL (如 "www.contoso.com") 對應至實際 URL 或是託管網站的 IP 位址。 
+### 使用多媒體並觸達所有裝置
 
-<div class="dev-callout">
-<strong>注意</strong>
-<p>在以下討論當中，我們將探討兩種 DNS 記錄。首先，CNAME 記錄可以從某個 URL 重新導向，例如從 "www.contoso.com" 重新導向至 "contoso.azurewebsites.net" 之類的其他 URL。再者，A 記錄可以將 URL (例如 "www.contoso.com") 對應至 172.16.48.1 之類的 IP 位址。</p>
-</div>
+透過多媒體提升 .COM 網站吸睛度，例如：
 
-對 Azure 網站而言，您必須先對 Azure 網站建立一筆 CNAME 記錄。您可以透過第三方註冊機構網站完成此設定。以下為 CNAME 記錄範例。
+-  使用 [Azure 媒體服務]在全球上傳和串流處理視訊
+-  使用 [Azure 市集中的 SendGrid 服務]將電子郵件傳送給使用者
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="top">類型</th>
-   <th align="left" valign="top">主機</th>
-   <th align="left" valign="top">Answer</th>
-   <th align="left" valign="top">TTL</th>
-</tr>
-<tr>
-   <td valign="top"><strong>CNAME</strong></td>
-   <td valign="top">www.contoso.com</td>
-   <td valign="top">contoso.azurewebsites.net</td>
-   <td valign="top">8000</td>
-</tr>
-</table>
+## 其他資源
 
-如果您的網域剛剛註冊，可能需要一天以上的時間來解析所有 DNS 伺服器，以便消化快取 DNS 項目內容。不過，如果您的網域已經存在，則只要一分鐘不到的時間就能完成 CNAME 變更。請注意，CNAME 記錄可將您的網域 (必須使用子網域別名，例如 "www" 才算是有效的網域) 對應至 Azure 網站 URL。CNAME 記錄不管哪一邊都不包含 "http://" 首碼。
+- [Azure 網站文件](/zh-tw/documentation/services/websites/)
+- [了解 Azure 網站的對應](/zh-tw/documentation/articles/websites-learning-map/)
+- [Azure Web 部落格](/blog/topics/web/)
 
-在 Azure 管理入口網站的 [**調整**] 索引標籤上，確認您目前執行 ****[**共用] 或 [標準**] 模式 (**免費**網站不支援自訂網域)。接著前往 [**設定**] 索引標籤，並按一下 [**管理網域**] 按鈕。此舉可讓您將網站與自訂網域名稱產生關聯。 
 
-![GlobalWebWebMatrix][GlobalWebWebMatrix]
 
-在您將自訂網域放入清單之前，首先必須移至 DNS 提供者處並為您的自訂網域 (www.contoso.com) 建立 CNAME 記錄以便指向您的 Azure 網站 URL (contoso.azurewebsites.net)。等到此記錄散佈之後，您就可在上一個螢幕擷取畫面所示的對話方塊中輸入自訂網域。當 www.contoso.com 存在指向此網站之 CNAME 記錄時，可確保您具有使用此網站之網域名稱的權限。此時，您可以在對話方塊下方建立內含 IP 位址的 A 記錄。
+[Azure 網站]：/zh-tw/services/websites/
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="top">類型</th>
-   <th align="left" valign="top">主機</th>
-   <th align="left" valign="top">Answer</th>
-   <th align="left" valign="top">TTL</th>
-</tr>
-<tr>
-   <td valign="top"><strong>A</strong></td>
-   <td valign="top">contoso.com</td>
-   <td valign="top">172.16.48.1</td>
-   <td valign="top">8000</td>
-</tr>
-</table>
+[Orchard]:/zh-tw/documentation/articles/web-sites-dotnet-orchard-cms-gallery/
+[Umbraco]:/zh-tw/documentation/articles/web-sites-gallery-umbraco/
+[Drupal]:/zh-tw/documentation/articles/web-sites-php-migrate-drupal/
+[WordPress]:/zh-tw/documentation/articles/web-sites-php-web-site-gallery/
+[MySQL]:/zh-tw/documentation/articles/web-sites-php-mysql-deploy-use-git/
+[Azure SQL Database]:/zh-tw/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
+[FTP]:/zh-tw/documentation/articles/web-sites-deploy/#ftp
+[Visual Studio]:/zh-tw/documentation/articles/web-sites-dotnet-get-started/
+[Visual Studio Online]:/zh-tw/documentation/articles/cloud-services-continuous-delivery-use-vso/
+[Git]:/zh-tw/documentation/articles/web-sites-publish-source-control/
 
-如需詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱][customdns]。
+[部署至預備位置]:/zh-tw/documentation/articles/web-sites-staged-publishing/ 
+[持續發行]:http://rickrainey.com/2014/01/21/continuous-deployment-github-with-azure-web-sites-and-staged-publishing/
+[執行 A/B 測試]:http://blogs.msdn.com/b/tomholl/archive/2014/11/10/a-b-testing-with-azure-websites.aspx
 
-##<a name="ssl"></a>用 SSL 保護網站安全
-如果您的網站包含唯讀資訊，就不需要為網站提供安全存取機制。不過，如果您要收集使用者資訊、執行電子商務或是管理任何機密資料，就應該確保網站安全。安全性是個很大的課題，本文無法全盤涵蓋所有最佳實務與技巧。不過，重要的是反白顯示您的網站啟用安全通訊端層 (SSL) 的程序。SSL 可讓使用者使用加密的 HTTPS 位址 (而非 HTTP) 連線到您的網站。在 Azure 網站上使用 SSL 有特定步驟。 
+[自訂網域]:/zh-tw/documentation/articles/web-sites-custom-domain-name/
+[HTTPS]:/zh-tw/documentation/articles/web-sites-configure-ssl-certificate/
+[網站定價詳細資料]:/zh-tw/pricing/details/web-sites/#service-ssl
 
-Azure 網站會針對實際網站 URL 自動提供安全連線。例如，當您的網站是 http://contoso.azurewebsites.net，則您只需將 "http" 變更為 "https" (如 **https**://contoso.azurewebsites.net 所示)，透過 SSL 輕鬆地連線。
+[Azure 流量管理員]:http://www.hanselman.com/blog/CloudPowerHowToScaleAzureWebsitesGloballyWithTrafficManager.aspx
+[整合網站與 Azure CDN]:/zh-tw/documentation/articles/cdn-websites-with-cdn/ 
+[CDN 節點]:https://msdn.microsoft.com/library/azure/gg680302.aspx
 
-不過，如果您是使用自訂網域名稱，則您必須採取步驟上傳憑證，並透過 Azure 管理入口網站，為您的網站啟用 SSL。以下步驟提供此程序摘要，不過您可以透過以下主題找到更詳細的說明：[設定 Azure 網站的 SSL 憑證][ssl]。
+[相應增加和放大]:/zh-tw/manage/services/web-sites/how-to-scale-websites/
+[Azure 管理入口網站]:http://manage.windowsazure.com/
+[服務管理 API]:http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460799.aspx
+[PowerShell 指令碼]:http://msdn.microsoft.com/zh-tw/library/windowsazure/jj152841.aspx
+[Troy 搜尋]:https://twitter.com/troyhunt
+[我了解使用 Azure 網站快速調整網站的十大事項]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
+[Azure Redis 快取]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
+[ASP.NET 工作階段狀態]:https://msdn.microsoft.com/zh-tw/library/azure/dn690522.aspx
+[輸出快取]:https://msdn.microsoft.com/zh-tw/library/azure/dn798898.aspx
 
-首先，從憑證授權單位取得 SSL 憑證。如果您打算使用多個子網域來確保網域安全 (例如，www.contoso.com 與 staging.contoso.com)，則您需要取得萬用字元憑證 (*.contoso.com)。這類方式可能會比較昂貴，因此您必須判斷為了獲得此類型憑證所提供的彈性是否物有所值。
+[快速概覽]:/zh-tw/manage/services/web-sites/how-to-monitor-websites/
+[Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
+[New Relic]:/zh-tw/develop/net/how-to-guides/new-relic/
+[作法：在 Azure 中接收警示通知及管理警示規則]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
-從憑證授權單位取得憑證後，您不能原封不動地直接上傳到 Azure。您必須使用 oenssl 命令，產生 .pfx 檔案。openssl 命令是 OpenSSL 專案的一部分。原始檔分佈在 [OpenSSL 網站][openssl]上，但一般而言，您也可以在網際網路找到此工具預先編譯的版本。在以下範例中，我們使用憑證 myserver.crt 與私有金鑰檔 myserver.key 來建立 .pfx 檔案。
+[Azure 媒體服務]:http://blogs.technet.com/b/cbernier/archive/2013/09/03/windows-azure-media-services-and-web-sites.aspx
+[Azure 市集中的 SendGrid 服務]:/zh-tw/documentation/articles/sendgrid-dotnet-how-to-send-email/
 
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
-若要將憑證上傳至 Azure，請先移至 [**調整**] 索引標籤，然後確認您正在 [**標準**] 模式下執行。[**免費**] 或 [**共用**] 模式皆不支援在自訂網域上使用 SSL。在 [**設定**] 索引標籤上，按一下 [**上傳憑證**] 按鈕。
 
-![GlobalWebUplodateCert][GlobalWebUplodateCert]
-
-接著在 [**SSL 繫結**] 區段中，將憑證對應至它要保護的網域名稱。您可使用兩個選項來進行此對應作業：SNI SSL 與 IP SSL。
-
-![GlobalWebSSLBindings][GlobalWebSSLBindings]
-
-[**IP SSL**] 選項是將公用的專屬 IP 位址對應至網域名稱的傳統方式。所有瀏覽器皆適用此方式。[**SNI SSL**] 選項可讓多個網域共用相同的 IP 位址，而且針對每個網域具有不同的相關聯 SSL 憑證。SNI SSL 無法在某些舊版的瀏覽器上運作 (如需相容性詳細資訊，請參閱 [Wikipedia 上的 SNI SSL 項目][sni])。每個 SSL 憑證都必須按月繳交使用費用 (按小時比例分配)，而定價則是依據您選擇的是 IP SSL 或是 SNI SSL 而定。如需定價資訊，請參閱[網站定價詳細資料][sslpricing]。如需此程序詳細資訊，請參閱[設定 Azure 網站的 SSL 憑證][ssl]。
-
-##<a name="monitor"></a>監視網站
-當您的網站開始主動處理使用者要求時，請務必使用監視功能。例如，您可能想要瞭解使用者負載是否引發大量的 CPU 使用時間，這時可能需要擴充網站。或者，應用程式效率不彰導致反應時間增加或是產生錯誤。本節涵蓋 Azure 管理入口網站上一些內建的監視功能。
-
-[**監視**] 索引標籤包含一些圖形化格式的網站重要指標。 
-
-![GlobalWebMonitor1][GlobalWebMonitor1]
-
-您可以使用 [Add Metrics] 按鈕自訂此圖表內的指標。
-
-![GlobalWebMonitor2][GlobalWebMonitor2]
-
-如果是執行 [**標準**] 模式的網站，您也可以啟用端點監視與警示功能。在 [**設定**] 索引標籤上，移至 [**監視**] 區段並設定端點。此端點會從您指定的一或多個位置執行，並定期嘗試存取您的網站。這時會一併收集時間與錯誤資訊。 
-
-在 [**監視**] 索引標籤上，此端點會顯示反應時間。如果您選取端點指標，則您可以按一下 [**新增規則**] 圖示來新增警示規則。
-
-![GlobalWebMonitor3][GlobalWebMonitor3]
-
-當反應時間超出指定的臨界值時，此規則會寄發電子郵件給管理員或其他相關人員。
-
-![GlobalWebMonitor4][GlobalWebMonitor4]
-
-如果您發現網站需要擴充，可以在 [**擴充**] 索引標籤中手動完成，或是透過 [自動擴充] 預覽方式完成。[擴充] 索引標籤提供您向上擴充 (容量更大的專屬機器) 或是向外擴充 (增加額外的共用執行個體或是相同大小的專屬執行個體)。不過，[自動擴充] 預覽功能僅支援向外擴充。如需此選項的詳細資訊，請參閱「如需網站監視的詳細資訊，請參閱[數位行銷活動][scenariodigitalmarketing]案例中的＜隨使用者需求進行調整＞一節」。另請參閱[如何監視網站][howtomonitor]。
-
-##<a name="summary"></a>摘要
-若要為您的組織建立 .COM 網站，標準作業包括選擇開發架構、建立網站、部署、自訂網域指派與監視。對於必須確保使用者資料安全的網站，高度建議採用 SSL。本文同時提供使用 Azure 網站執行這類工作的概觀。如需詳細資訊，請參閱本文所參照的下列技術文章。
-
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="top">領域</th>
-   <th align="left" valign="top">資源</th>
-</tr>
-<tr>
-   <td valign="middle"><strong>規劃</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/choose-web-app-service">Azure 網站、雲端服務和 VM：使用時機</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>建立</strong></td>
-   <td valign="top">- <a href="http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-dotnet-get-started/">開始使用 Azure 網站和 ASP.NET</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>部署</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/zh-tw/develop/net/common-tasks/publishing-with-git/">從原始檔控制發佈至 Azure 網站</a><br/>- <a href="http://www.windowsazure.com/zh-tw/develop/net/tutorials/get-started/">將 ASP.NET Web 應用程式部署至 Azure 網站</a><br/>- <a href="http://www.windowsazure.com/zh-tw/develop/net/tutorials/website-with-webmatrix/">使用 Microsoft WebMatrix 來開發和部署網站</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>自訂網域</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/zh-tw/develop/net/common-tasks/custom-dns-web-site/">設定 Azure 網站的自訂網域名稱</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>SSL</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/zh-tw/develop/net/common-tasks/enable-ssl-web-site/">設定 Azure 網站的 SSL 憑證</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>監視</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-monitor-websites/">如何監視網站</a></td>
-</tr>
-</table>
-
-  [websitesoverview]:/zh-tw/documentation/services/web-sites/
-  [csoverview]:/zh-tw/documentation/services/cloud-services/
-  [vmoverview]:/zh-tw/documentation/services/virtual-machines/
-  [chooseservice]:/zh-tw/manage/services/web-sites/choose-web-app-service
-  
-  
-  [scenariodigitalmarketing]:/zh-tw/manage/services/web-sites/digital-marketing-campaign-solution-overview
-  [howtocreatewebsites]:/zh-tw/documentation/articles/web-sites-dotnet-get-started
-  [webmatrix]:http://www.microsoft.com/web/webmatrix/
-  [publishingwithgit]:/zh-tw/develop/net/common-tasks/publishing-with-git/
-  [aspnetgetstarted]:/zh-tw/develop/net/tutorials/get-started/
-  [drupal]:https://drupal.org/
-  [umbraco]:http://umbraco.com/
-  [customdns]:/zh-tw/develop/net/common-tasks/custom-dns-web-site/
-  [ssl]:/zh-tw/develop/net/common-tasks/enable-ssl-web-site/
-  [openssl]:http://www.openssl.org/
-  [sni]:http://en.wikipedia.org/wiki/Server_Name_Indication
-  [sslpricing]:/zh-tw/pricing/details/web-sites/#service-ssl
-  [howtomonitor]:/zh-tw/manage/services/web-sites/how-to-monitor-websites/
-  
- [GlobalWebCreate]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Create.png
-  [GlobalWebQuickGlance]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_QuickGlance.png
-  [GlobalWebMonitor1]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor1.png
-  [GlobalWebMonitor2]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor2.png
-  [GlobalWebMonitor3]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor3.png
-  [GlobalWebMonitor4]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor4.png
-  [GlobalWebVSPublish]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_VS_Publish.png
-  [GlobalWebSSLBindings]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_SSL_Bindings.png
-  [GlobalWebUplodateCert]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Uplodate_Cert.png
-  [GlobalWebCustomDomain]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_CustomDomain.png
-  [GlobalWebWebMatrix]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_WebMatrix.png
-  [GlobalWebFTPSettings]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_FTPSettings.png
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

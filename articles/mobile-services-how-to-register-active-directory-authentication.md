@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Register for Azure Active Directory Authentication" pageTitle="註冊 Azure Active Directory 驗證 - 行動服務" metaKeywords="Azure registering application, Azure Active Directory authentication, application authenticate, authenticate mobile services" description="了解如何在 Mobile Services 應用程式中註冊 Azure Active Directory 驗證。" title="Register your account to use an Azure Active Directory account login" authors="wesmc" services="mobile-services" documentationCenter="Mobile" manager="dwrede" />
+﻿<properties pageTitle="註冊 Azure Active Directory 驗證 - 行動服務" description="了解如何在 Mobile Services 應用程式中註冊 Azure Active Directory 驗證。" authors="wesmc7777" services="mobile-services" documentationCenter="" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
 
 # 註冊應用程式以使用 Azure Active Directory 帳戶登入
 
@@ -18,32 +18,32 @@
 
     ![][2]
 
-3. 向下捲動至 [**Azure Active Directory**] 身分識別提供者區段，然後複製此處所列的 [**應用程式 URL**]。
+3. 向下捲動至 [**Azure Active 目錄**] 身分識別提供者區段，然後複製此處所列的 [**應用程式 URL**]。
 
     ![][3]
 
 4. 導覽至管理入口網站中的 **Active Directory**，然後按一下您的目錄。
 
-    ![][4] 
+    ![][4] 	
 
-5. 按一下頂端的 [**應用程式**] 索引標籤，然後按一下以 [**加入**] 應用程式。 
+5. 按一下頂端的 [**應用程式**] 索引標籤，然後按一下以 [**新增應用程式**] 。 
 
     ![][10]
 
 6. 按一下 [**加入我的組織正在開發的應用程式**]。
 
-7. 在 [加入應用程式精靈] 中，輸入應用程式的 [**名稱**]，然後按一下 [  **WEB 應用程式和/或 WEB API**] 類型。接著，按一下以繼續。
+7. 在 [新增應用程式精靈] 中，輸入應用程式的 [**名稱**]，然後按一下 [**Web 應用程式和/或 Web API**] 類型。接著，按一下以繼續。
 
     ![][5]
 
-8. 在 [**登入 URL**] 方塊中，貼上您從行動服務的 Active Directory 身分識別提供者設定中複製的應用程式識別碼。在 [**應用程式識別碼 URI**] 方塊中，輸入相同的唯一資源識別碼。接著，按一下以繼續。
+8. 在 [**登入 URL**] 方塊中，貼上您從行動服務的 Active Directory 身分識別提供者設定中複製的應用程式 ID。在 [**應用程式識別碼 URI**] 方塊中，輸入相同的唯一資源識別碼。接著，按一下以繼續。
  
     ![][6]
 
 
 9. 新增應用程式之後，按一下 [**設定**] 索引標籤。按一下以複製應用程式的 [**用戶端識別碼**]。
 
-    如果您建立行動服務是為了將 .Net 後端用於您的行動服務，請另外將 [**單一登入**] 底下的 [**回覆 URL**] 編輯為行動服務的 URL，後面加上路徑 _signin-aad_。例如，`https://todolist.azure-mobile.net/signin-aad`
+    如果您建立行動服務是為了將 .Net 後端用於您的行動服務，請另外將 [**單一登入**] 底下的 [**回覆 URL**] 編輯為行動服務的 URL，後面加上路徑 _signin-aad_。例如， `https://todolist.azure-mobile.net/signin-aad`
 
     ![][8]
 
@@ -84,3 +84,6 @@
 <!-- URLs. -->
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
+
+
+<!--HONumber=42-->

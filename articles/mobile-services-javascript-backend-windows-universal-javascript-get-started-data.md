@@ -1,20 +1,20 @@
-<properties urlDisplayName="Get Started with Data" pageTitle="開始使用資料 (Windows 市集 JavaScript) | 行動開發人員中心" metaKeywords="" description="了解如何開始使用行動服務，在您的 Windows 市集 JavaScript 應用程式中使用資料。" metaCanonical="https://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="開始使用資料 (Windows 市集 JavaScript) | 行動開發人員中心" description="了解如何開始使用行動服務，在您的 Windows 市集 JavaScript 應用程式中使用資料。 services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 
 # 將行動服務新增至現有的應用程式
-[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 本主題將示範如何使用 Azure 行動服務，充分運用通用 Windows 應用程式裡的資料。通用 Windows 應用程式解決方案包括 Windows 市集 8.1 和 Windows Phone 市集 8.1 應用程式的專案，以及一般共用專案。如需詳細資訊，請參閱[建置目標為 Windows 和 Windows Phone 的通用 Windows 應用程式](http://msdn.microsoft.com/zh-tw/library/windows/apps/xaml/dn609832.aspx)。
 
 在本教學課程中，您將下載 Visual Studio 2013 專案，以取得在記憶體中儲存資料的通用 Windows 應用程式、建立新的行動服務、整合行動服務與該應用程式，然後登入 Azure 管理入口網站來檢視執行應用程式時所做的資料變更。
 
->[WACOM.NOTE]本主題說明如何使用 Visual Studio Express 2013 for Windows with Update 3 的工具，將新的行動服務連接到通用 Windows 應用程式。要將行動服務連接到 Windows 市集或 Windows Phone 市集 8.1 應用程式時，也可使用相同的步驟進行。若要將行動服務連接至 Windows Phone 8.0 或 Windows Phone Silverlight 8.1 應用程式，請參閱[開始使用 Windows Phone 的資料](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)。
+>[AZURE.NOTE]本主題說明如何使用 Visual Studio Express 2013 for Windows with Update 3 的工具，將新的行動服務連接到通用 Windows 應用程式。要將行動服務連接到 Windows 市集或 Windows Phone 市集 8.1 應用程式時，也可使用相同的步驟進行。若要將行動服務連接至 Windows Phone 8.0 或 Windows Phone Silverlight 8.1 應用程式，請參閱[開始使用 Windows Phone 的資料](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1. [下載 Windows 市集應用程式專案][取得 Windows 市集應用程式] 
+1. [下載 Windows 市集應用程式專案][取得 Windows 市集應用程式]
 2. [建立行動服務]
 3. [新增用於儲存的資料表]
 4. [更新應用程式以使用行動服務]
@@ -22,16 +22,16 @@
 
 若要完成此教學課程，您需要下列項目：
 
-* 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-universal-javascript-get-started-data%2F)。
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Express 2013 for Windows</a> (Update 2 或更新版本)。 
+* 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-universal-javascript-get-started-data%2F)。
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Express 2013 for Windows</a> (Update 2 或更新版本)。
 
-## <a name="download-app"></a>下載 GetStartedWithData 專案
+##<a name="download-app"></a>下載 GetStartedWithData 專案
 
-[WACOM.INCLUDE [mobile-services-windows-universal-javascript-download-project](../includes/mobile-services-windows-universal-dotnet-download-project.md)]
+[AZURE.INCLUDE [mobile-services-windows-universal-javascript-download-project](../includes/mobile-services-windows-universal-dotnet-download-project.md)]
 
-## <a name="create-service"></a>從 Visual Studio 建立新的行動服務
+##<a name="create-service"></a>從 Visual Studio 建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
 <ol start="8">
 <li><p>在 [方案總管] 中瀏覽至 <strong>services\mobileService\scripts</strong> 子資料夾，然後開啟 service.js 指令碼檔案，並注意新的全域變數看起來會如下列範例所示：</p> 
@@ -45,45 +45,45 @@
 <li><p>開啟 default.html 專案檔案，並找到新的 service.js 指令碼檔案參考，然後確定參考路徑如下列所示：</p>
 <pre><code>&lt;script src="/services/mobileServices/scripts/todolist.js"&gt;</script></code></pre>
 <p>Visual Studio 目前存在一個會在路徑中產生錯誤資料夾名稱的錯誤。</p></li>
-<li><p>以滑鼠右鍵按一下 Windows Phone 應用程式專案，然後依據按一下 [<strong>新增</strong>]、[<strong>已連接服務</strong>]，並選取您剛建立的行動服務，然後按一下 [<strong>確定</strong>]。 </p>
+<li><p>以滑鼠右鍵按一下 [Windows Phone] 應用程式專案，然後依據按一下 [<strong>新增</strong>]、[<strong>已連接服務</strong>]，並選取您剛建立的行動服務，然後按一下 [<strong>確定</strong>]。 </p>
 <p>相同的新程式碼檔案會新增至 Windows Phone 市集應用程式專案。務必一併修正新增至 default.html 檔案的參考路徑。</p></li>
 </ol>
 
-## <a name="add-table"></a>將新資料表新增至行動服務
+##<a name="add-table"></a>將新資料表新增至行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
+[AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
->[WACOM.NOTE]新的資料表是使用 Id、__createdAt、__updatedAt 和 __version 等資料行建立而成。啟用動態結構描述時，行動服務會根據插入或更新要求中的 JSON 物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193175.aspx)。
+>[AZURE.NOTE]新的資料表是使用 Id、__createdAt、__updatedAt 和 __version 等資料行建立而成。啟用動態結構描述時，行動服務會根據插入或更新要求中的 JSON 物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193175.aspx)。
 
-# <a name="update-app"></a>更新應用程式以使用行動服務
+#<a name="update-app"></a>更新應用程式以使用行動服務
 
-[WACOM.INCLUDE [mobile-services-windows-javascript-update-data-app](../includes/mobile-services-windows-javascript-update-data-app.md)]
+[AZURE.INCLUDE [mobile-services-windows-javascript-update-data-app](../includes/mobile-services-windows-javascript-update-data-app.md)]
 
-## <a name="test-azure-hosted"></a>測試 Azure 代管的行動服務
+##<a name="test-azure-hosted"></a>測試 Azure 代管的行動服務
 
 現在我們可以將兩個通用的 Windows 應用程式同時與 Azure 代管的行動服務一起測試。
 
-[WACOM.INCLUDE [mobile-services-windows-universal-test-app](../includes/mobile-services-windows-universal-test-app.md)]
+[AZURE.INCLUDE [mobile-services-windows-universal-test-app](../includes/mobile-services-windows-universal-test-app.md)]
 
 <ol start="4">
-<li><p>在<a href="https://manage.windowsazure.com/" target="_blank">管理入口網站</a>中按一下 [<strong>行動服務</strong>]，然後按一下您的行動服務。<p></li>
-<li><p>按一下 [<strong>資料</strong>] 索引標籤，然後按一下 [<strong>瀏覽</strong>]。</p>
-<p>請注意，<strong>TodoItem</strong> 資料表現在包含資料和行動服務產生的 id 值，且資料行已自動加入至資料表，以符合應用程式中的 TodoItem 類別。</p></li>
+<li><p>在<a href="https://manage.windowsazure.com/" target="_blank">管理入口網站</a>中，按一下 [<strong>行動服務</strong>]，然後按一下您的行動服務。<p></li>
+<li><p>按一下 [資料]<strong></strong> 索引標籤，然後按一下 [瀏覽]<strong></strong>。</p>
+<p>請注意，<strong>TodoItem</strong> 表格現在包含資料，其中識別碼值由行動服務產生，且資料欄已自動新增到表格以符合應用程式中的 TodoItem 類別。</p></li>
 </ol>
 
 ![](./media/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data/mobile-todoitem-data-browse.png)
      	
-**開始使用資料**教學課程到此結束。
+這將結束**開始使用資料**教學課程。
 
 ## <a name="next-steps"> </a>後續步驟
 
 本教學課程示範讓通用 Windows 應用程式能夠在行動服務中處理資料的基本概念。接下來，考慮完成本教學課程中採用 GetStartedWithData 應用程式所建立的下列其中一個教學課程：
 
-* [使用指令碼驗證和修改資料]
-  <br/>進一步了解在行動服務中使用伺服器指令碼驗證並變更從您的應用程式傳送的資料。
+* [使用指令碼驗證及修改資料]
+  <br/>深入了解在行動服務中使用伺服器指令碼，來驗證及變更從應用程式傳送出來的資料。
 
 * [使用分頁縮小查詢範圍]
-  <br/>了解如何在查詢中使用分頁，來控制單一要求中的處理資料量。
+  <br/>了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
 完成資料序列之後，請嘗試下列其中一個其他教學課程：
 
@@ -91,10 +91,10 @@
   <br/>了解如何驗證應用程式的使用者。
 
 * [開始使用推播通知] 
-  <br/>了解如何將非常基本的推播通知傳送至您的應用程式。
+  <br/>了解如何傳送非常基本的推播通知到您的應用程式。
 
-* [行動服務 HTML/JavaScript 作法概念性參考]
-  <br/>進一步了解如何搭配使用行動服務與 HTML 和 JavaScript。
+* [行動服務 HTML/JavaScript 做法概念性參考]
+  <br/>深入了解如何搭配使用行動服務與 HTML 和 JavaScript
 
 <!-- Anchors. -->
 
@@ -113,7 +113,7 @@
 
 
 <!-- URLs. -->
-[使用指令碼驗證和修改資料]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
+[使用指令碼驗證及修改資料]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
 [使用分頁縮小查詢範圍]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
 [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started/
 [開始使用資料]: /zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
@@ -124,4 +124,7 @@
 [管理入口網站]: https://manage.windowsazure.com/
 [行動服務 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [開發人員程式碼範例網站]:  http://go.microsoft.com/fwlink/p/?LinkID=510826
-[行動服務 HTML/JavaScript 作法概念性參考]: /zh-tw/documentation/articles/mobile-services-html-how-to-use-client-library/
+[行動服務 HTML/JavaScript 做法概念性參考]: /zh-tw/documentation/articles/mobile-services-html-how-to-use-client-library/
+
+
+<!--HONumber=42-->

@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Schedule Backend Tasks" pageTitle="使用排程器來排程後端工作 - 行動服務" metaKeywords="" description="使用 Azure 行動服務排程工具排程行動應用程式的工作。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="使用排程器來排程後端工作 - 行動服務" description="使用 Azure 行動服務排程工具排程行動應用程式的工作。" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # 在行動服務中為週期性工作排程 
 
@@ -20,11 +20,11 @@
 + [建立新的 Updates 資料表]
 + [建立新的排定工作]
 
-## <a name="get-oauth-credentials"></a>註冊以取得 Twitter v1.1 API 的存取權與儲存認證
+##<a name="get-oauth-credentials"></a>註冊以取得 Twitter v1.1 API 的存取權與儲存認證
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
+[AZURE.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
-## <a name="create-table"></a>建立新的 Updates 資料表
+##<a name="create-table"></a>建立新的 Updates 資料表
 
 接下來，您必須建立要儲存推文的新資料表。
 
@@ -32,7 +32,7 @@
 
    	![][2]
 
-   	這樣會顯示 [**建立新資料表**] 對話方塊。
+   	這樣做會顯示 [**建立新資料表**] 對話方塊。
 
 3. 在 [**資料表名稱**] 中輸入 _Updates_，然後按一下核取按鈕。
 
@@ -40,7 +40,7 @@
 
   	這會建立新的儲存資料表 **Updates**。 
 
-## <a name="add-job"></a>建立新的排定工作  
+##<a name="add-job"></a>建立新的排定工作  
 
 現在，您可以建立可存取 Twitter 並將推文資料儲存於全新 Updates 資料表中的排定工作。
 
@@ -48,19 +48,19 @@
 
    	![][4]
 
-    >[WACOM.NOTE]當您在<em>免費</em> 層中執行行動服務時，您一次只能執行一個排定工作。在付費層中，您一次可以執行多達十個排定工作。
+    >[AZURE.NOTE]當您在<em>免費</em>層中執行行動服務時，您一次只能執行一個排定工作。在付費層中，您一次可以執行多達十個排定工作。
 
 3. 在排程器對話方塊的 [**工作名稱**] 中輸入 _getUpdates_，設定排程間隔和單位，然後按一下核取按鈕。 
    
    	![][5]
 
-   	這會建立名為  **getUpdates** 的新工作。 
+   	這會建立名為 **getUpdates** 的新工作。 
 
 4. 按一下您剛建立的新工作，然後按一下 [**指令碼**] 索引標籤。
 
    	![][6] 
 
-5. 使用下列程式碼取代 **getUpdates** 預留位置功能：
+5. 使用下列程式碼取代 **getUpdates** 預留位置函數：
 
 		var updatesTable = tables.getTable('Updates');
 		var request = require('request');
@@ -138,19 +138,19 @@
 
    	此指令碼會使用儲存的認證來呼叫 Twitter 查詢 API，以要求包含雜湊標記 `#mobileservices` 的最新推文。在重複的推文和回覆被儲存於資料表之前，系統會先將它們從結果中移除。
 
-    >[WACOM.NOTE]本範例會假設每次排定執行期間，資料表只會插入幾個資料列。倘若一個迴圈會在免費層上執行插入許多資料列，則您可能會沒有足夠的連線。在此情況下，您應該以批次方式執行插入。如需詳細資訊，請參閱 <a href="/zh-tw/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">如何：執行大量插入</a>。
+    >[AZURE.NOTE]本範例會假設每次排定執行期間，資料表只會插入幾個資料列。倘若一個迴圈會在免費層上執行插入許多資料列，則您可能會沒有足夠的連線。在此情況下，您應該以批次方式執行插入。如需詳細資訊，請參閱 <a href="/zh-tw/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">如何：執行大量插入</a>。
 
 6. 按一下 [**執行一次**] 以測試指令碼。 
 
   	![][7]
-       
+
    	當工作在排程器中維持停用狀態時，這麼做會儲存並執行工作。
 
-7. 按 [上一步] 按鈕，再依序按一下 [**資料**]、[**Updates**] 資料表和 [**瀏覽**]，並驗證 Twitter 資料是否已插入資料表中。
+7. 按 [上一步] 按鈕，再依序按一下 [**資料**]、[**Updates**] 資料表、[**瀏覽**]，並驗證 Twitter 資料是否已插入資料表中。
 
    	![][8]
 
-8. 按 [上一步] 按鈕，按一下 [**排程器**]，選取 [**getUpdates**]，然後按一下 [**啟用**]。
+8. 按 [上一步] 按鈕，再按一下 [**排程器**]、選取 [**getUpdates**]，然後按一下 [**啟用**]。
 
    	![][9]
 
@@ -161,7 +161,7 @@
 ## <a name="nextsteps"> </a>後續步驟
 
 * [行動服務伺服器指令碼參考]
-  <br/>進一步了解註冊和使用伺服器指令碼。
+  <br/>深入了解登錄及使用伺服器指令碼。
 
 <!-- Anchors. -->
 [註冊以取得 Twitter 存取權與儲存認證]: #get-oauth-credentials
@@ -190,3 +190,6 @@
 [在行動服務中註冊您的應用程式以進行 Twitter 登入]: /zh-tw/develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter 開發人員]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [應用程式設定]: http://msdn.microsoft.com/zh-tw/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+
+
+<!--HONumber=42-->

@@ -1,14 +1,14 @@
-<properties urlDisplayName="Validate and Modify Data" pageTitle="使用 .Net 後端驗證與修改資料 (Windows Phone 8) | 行動開發人員中心" metaKeywords="" description="了解如何使用 .Net 後端 Windows Azure 行動服務驗證、修改和增加 Windows Phone 應用程式的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="使用 .Net 後端驗證與修改資料 (Windows Phone 8) | 行動開發人員中心" description="了解如何使用 .Net 後端 Windows Azure 行動服務驗證、修改和增加 Windows Phone 應用程式的資料。" services="mobile-services" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
 
 # 使用 .NET 後端在行動服務中驗證與修改資料
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-本主題將說明如何在 .Net 後端 Azure 行動服務中使用程式碼，以驗證及修改資料。.NET 後端服務是使用 Web API 架構建置的 HTTP 服務。如果您熟悉以 Web API 架構定義的 `ApiController` 類別，您將會覺得行動服務所提供的 `TableController` 類別非常直接易懂。`TableController` 衍生自 `ApiController` 類別，可提供用來處理資料庫資料表的附加功能。它可用來對要插入和更新的資料執行作業，包括本教學課程中示範的驗證和資料修改。 
+本主題將說明如何在 .Net 後端 Azure 行動服務中使用程式碼，以驗證及修改資料。.NET 後端服務是使用 Web API 架構建置的 HTTP 服務。如果您熟悉以 Web API 架構定義的  `ApiController` 類別，您將會覺得行動服務所提供的  `TableController` 類別非常直接易懂。`TableController`衍生自 `ApiController` 類別，可提供用來處理資料庫資料表的附加功能。它可用來對要插入和更新的資料執行作業，包括本教學課程中示範的驗證和資料修改。 
 
-本教學課程將逐步引導您完成下列基本步驟：
+本教學課程將逐步引導您完成下列基本步驟:
 
 1. [新增字串長度驗證]
 2. [更新用戶端以支援驗證]
@@ -20,18 +20,18 @@
 
 ## <a name="string-length-validation"></a>新增驗證
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 
 ## <a name="update-client-validation"></a>更新用戶端
 
-現在，行動服務已經過設定而會驗證資料，並針對無效的文字長度傳送錯誤回應，您必須更新應用程式以便處理驗證的錯誤回應。用戶端應用程式呼叫 `IMobileServiceTable<TodoItem].InsertAsync()` 時所產生的錯誤會顯示為 `MobileServiceInvalidOperationException`。
+現在，行動服務已經過設定而會驗證資料，並針對無效的文字長度傳送錯誤回應，您必須更新應用程式以便處理驗證的錯誤回應。所收到的錯誤將會是用戶端應用程式呼叫 `IMobileServiceTable<TodoItem].InsertAsync()` 而產生的 `MobileServiceInvalidOperationException` 。
 
 1. 在 Visual Studio 的 [方案總管] 視窗中導覽至用戶端專案，然後開啟 MainPage.xaml.cs 檔案。將下列 using 陳述式新增至檔案。
 
         using Newtonsoft.Json.Linq;
 
-2. 在 MainPage.xaml.cs 中，以下列程式碼取代現有的 **InsertTodoItem** 方法：
+2. 在 MainPage.xaml.cs 中，以下列程式碼取代現有的 **InsertTodoItem** 方法:
 
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -57,7 +57,7 @@
             }
         }
 
-	此版本的方法包含會在訊息方塊中顯示錯誤回應的 **MobileServiceInvalidOperationException**。
+   	此版本的方法包含會在訊息方塊中顯示錯誤回應的 **MobileServiceInvalidOperationException**。
 
 ## <a name="test-length-validation"></a>測試長度驗證
 
@@ -73,7 +73,7 @@
 
 ## <a name="add-timestamp"></a>新增 CompleteDate 的時間戳記欄位
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
 
 ## <a name="update-client-timestamp"></a>更新用戶端以顯示 CompleteDate
@@ -92,7 +92,7 @@
         </StackPanel>
 
 
-2. 在 Visual Studio 的 [方案總管] 中，在 Todolist 用戶端專案中開啟 MainPage.xaml.cs 檔案，然後將 `CheckBoxComplete_Checked` 事件處理常式取代為 `CheckBoxComplete_Clicked` 事件處理常式，如下所示。這就是我們在項目完成後所看見的完成日期。
+2. 在 Visual Studio 的 [方案總管] 中，在 Todolist 用戶端專案中開啟 MainPage.xaml.cs 檔案，將  `CheckBoxComplete_Checked` 事件處理常式取代為  `CheckBoxComplete_Clicked` 事件處理常式，如下所示。這就是我們在項目完成後所看見的完成日期。
 
         private void CheckBoxComplete_Clicked(object sender, RoutedEventArgs e)
         {
@@ -102,7 +102,7 @@
         }
 
 
-3. 接著，在 MainPage.xaml.cs 檔案中，使用下列以新的 **CompleteDate** 屬性做為可為 Null 之類型的定義，取代現有的 **TodoItem** 類別。
+3. 接著，在 MainPage.xaml.cs 檔案中，將現有的 **TodoItem** 類別取代下列以新的 **CompleteDate** 屬性做為可為 Null 之類型的定義。
 
         public class TodoItem
         {
@@ -115,13 +115,13 @@
             public DateTime? CompleteDate { get; set; }
         }
 	
-    >[WACOM.NOTE] <code>DataMemberAttribute</code> 會指示用戶端，將應用程式中的新 <code>CompleteDate</code> 屬性對應至 TodoItem 資料表中定義的 <code>CompleteDate</code> 資料行。使用此屬性，您的應用程式便可擁有物件上的屬性名稱，且該名稱會與 SQL Database 中的資料欄名稱不同。
+    >[AZURE.NOTE]  <code>DataMemberAttribute</code> 會告知用戶端，將應用程式中新的 <code>CompleteDate</code> 屬性對應至 <code>CompleteDate</code> 資料欄 (定義於 TodoItem 資料表)。使用此屬性，您的應用程式便可擁有物件上的屬性名稱，且該名稱會與 SQL Database 中的資料欄名稱不同。
     
 
 	
 
 
-4. 在 MainPage.xaml.cs 中，移除或註解化 `.Where` 子句函數 (位於現有的 **RefreshTodoItems** 方法中)，使完成的 todoitem 納入結果中。
+4. 在 MainPage.xaml.cs 中，移除或註解化現有 **RefreshTodoItems** 方法中的 `.Where` 子句函數，使完成的 todoitem 納入結果中。
 
             // This query filters out completed TodoItems and 
             // items without a timestamp. 
@@ -148,14 +148,14 @@
 7. 按 **F5** 鍵，在本機執行用戶端應用程式和服務。新增某些項目，並加以點選將其標示為「完成」，以檢視更新的 **CompleteDate** 時間戳記。
 
 
-8. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下 Todolist 服務專案，然後按一下 [**發行**]。使用您從 Azure 入口網站下載的發佈設定檔案，將您的 .NET 後端服務發佈至 Microsoft Azure。
+8. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下 Todolist 服務專案，然後按一下 [**發佈**]。使用您從 Azure 入口網站下載的發佈設定檔案，將您的 .NET 後端服務發佈至 Microsoft Azure。
 
 9. 將行動服務位址的連線取消註解，以更新用戶端專案的 App.xaml.cs 檔案。對 Azure 帳戶中代管的 .NET 後端進行應用程式測試。
 
 
 ## <a name="next-steps"> </a>後續步驟
 
-現在，您已完成本教學課程，請考慮繼續進行資料數列中最後的教學課程：[使用分頁縮小查詢範圍]。
+現在，您已完成本教學課程，請考慮繼續進行資料數列中最後的教學課程: [使用分頁縮小查詢範圍]。
 
 您也可以在授權使用者及傳送推播通知時使用伺服器指令碼。如需詳細資訊，請參閱下列教學課程：
 
@@ -163,10 +163,10 @@
   <br/>了解如何根據通過驗證的使用者識別碼篩選資料。
 
 * [開始使用推播通知] 
-  <br/>了解如何將非常基本的推播通知傳送至您的應用程式。
+  <br/>了解如何將極為基本的推播通知傳送到應用程式。
 
-* [行動服務 .NET 作法概念性參考]
-  <br/>深入了解如何搭配使用行動服務與 .NET。
+* [行動服務 .NET 做法概念性參考]
+  <br/>深入了解如何搭配使用行動服務與 .NET
 
 <!-- Anchors. -->
 [新增字串長度驗證]: #string-length-validation
@@ -187,11 +187,14 @@
 [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started/#create-new-service
 [使用者的服務端授權]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/
 [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-dotnet
-[開始使用]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+[使用者入門]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
 [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
 [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
 [JavaScript 和 HTML]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-js
 
 [管理入口網站]: https://manage.windowsazure.com/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[行動服務 .NET 作法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
+[行動服務 .NET 做法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
+
+
+<!--HONumber=42-->

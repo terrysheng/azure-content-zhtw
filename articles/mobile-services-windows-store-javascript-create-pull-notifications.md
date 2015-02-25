@@ -1,6 +1,6 @@
-<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="定義支援推播通知的自訂 API - Azure 行動服務" metaKeywords="" description="了解如何定義自訂 API 在使用 Azure 行動服務的 Windows 市集應用程式中支援定期通知。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="定義支援推播通知的自訂 API - Azure 行動服務" description="了解如何定義自訂 API 在使用 Azure 行動服務的 Windows 市集應用程式中支援定期通知。" services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
 # 定義支援定期通知的自訂 API
 
 <div class="dev-center-tutorial-selector"> 
@@ -13,21 +13,21 @@
 
 1. [定義自訂 API]
 2. [更新應用程式以開啟定期通知]
-3. [測試應用程式] 
+3. [測試應用程式]
 
 本教學課程會以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務]或[新增行動服務至現有應用程式]。  
 
 ## <a name="define-custom-api"></a>定義自訂 API
 
-1. 登入 [Azure 管理入口網站]，按一下 [**行動服務**]，然後按一下您的應用程式。
+1. 登入[Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的應用程式。
 
    	![][0]
 
-2. 按一下 [**API**] 索引標籤，然後按一下 [**建立自訂 API**]。
+2. 按一下 [**API**] 索引標籤，然後按一下 [**Create a custom API**]。
 
    	![][1]
 
-   	這樣做會顯示 [**建立新的自訂 API**] 對話方塊。
+   	這樣做會顯示 [**Create a new custom API**] 對話方塊。
 
 3. 將 [**Get permission**] 變更為 [**Everyone**]，在 [**API 名稱**] 中輸入 _tiles_，然後按一下核取按鈕。
 
@@ -66,24 +66,22 @@
 		    }
 		};
 
-	此程式碼會從 TodoItem 資料表中傳回前 3 個未完成的項目，然後將其載入傳至  **wns**.**createTileSquareText01** 函數的 JSON 物件中。 此函數會傳回下列磚範本 XML：
+	此程式碼會從 TodoItem 資料表中傳回前 3 個未完成的項目，然後將其載入傳至 **wns**.**createTileSquareText01** 函數的 JSON 物件中。此函數會傳回下列磚範本 XML：
 
 		<tile>
 			<visual>
 				<binding template="TileSquareText01">
-
-
-
-
+					<text id="1">My todo list</text>
+					<text id="2">Task 1</text>
+					<text id="3">Task 2</text>
+					<text id="4">Task 3</text>
 				</binding>
 			</visual>
 		</tile>
 
 	由於用戶端將會傳送 GET 要求以存取磚範本，因此會使用 **exports.get** 函數。
 
-   	<div class="dev-callout"><b>注意</b>
-   		<p>此自訂 API 指令碼使用 Node.js <a href="http://go.microsoft.com/fwlink/p/?LinkId=306750">wns 模組</a>，其使用 <strong>必要</strong> 函數加以參考。此模組不同於 <a href="http://go.microsoft.com/fwlink/p/?LinkId=260591">推播物件</a> 傳回的 <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554217.aspx">wns 物件</a>，可用來從伺服器指令碼傳送推播通知。</p>
-   	</div>
+   	> [AZURE.NOTE] 此自訂 API 指令碼會使用 Node.js [wns 模組](http://go.microsoft.com/fwlink/p/?LinkId=306750)，而此模組可透過 **require** 函數來參考。此模組與可用來從伺服器指令碼傳送推播通知的 [push 物件](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554217.aspx)所傳回的 [wns 物件](http://go.microsoft.com/fwlink/p/?LinkId=260591)不同。
 
 接著，您將修改快速入門應用程式，以藉由要求新的自訂 API 啟動會更新動態磚的定期通知。
 
@@ -93,7 +91,7 @@
 
 2. 確定至少顯示了一個項目。如果沒有任何項目，請在 [**Insert a TodoItem**] 中輸入文字，然後按一下 [**儲存**]。
 
-3. 在 Visual Studio 中，展開 [方案總管] 中的 `\js` 資料夾，開啟 default.js 專案，然後在定義 **client** 變數的程式碼後面新增下列程式碼行：
+3. 在 Visual Studio 中，展開 [方案總管] 中的  `\js` 資料夾，開啟 default.js 專案，然後在定義 **client** 變數的程式碼後面新增下列程式碼行：
 
         var notifications = Windows.UI.Notifications;
         var recurrence = notifications.PeriodicUpdateRecurrence.hour;
@@ -101,7 +99,7 @@
 
         notifications.TileUpdateManager.createTileUpdaterForApplication().startPeriodicUpdate(url, recurrence);
 
-	此程式碼會開啟定期通知，以向新的**磚**自訂 API 要求磚範本資料。選取與您的資料更新頻率最相符的 [**PeriodicUpdateRecurrance**] 值。
+	此程式碼會開啟定期通知，以向新的**磚**自訂 API 要求磚範本資料。選取與您的資料更新頻率最相符的 **PeriodicUpdateRecurrance** 值。
 
 ## <a name="test-app"></a>測試應用程式
 
@@ -148,4 +146,5 @@
 [定期通知]: http://msdn.microsoft.com/zh-tw/library/windows/apps/jj150587.aspx
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

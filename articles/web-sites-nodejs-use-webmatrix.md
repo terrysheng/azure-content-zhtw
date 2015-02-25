@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Website with WebMatrix" pageTitle="使用 WebMatrix 的 Node.js 網站 - Azure 教學課程" metaKeywords="" description="指導如何使用 WebMatrix 開發 Node.js 應用程式並部署至 Azure 網站的教學課程。" metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure using WebMatrix" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="使用 WebMatrix 的 Node.js 網站 - Azure 教學課程" 
+	description="指導如何使用 WebMatrix 開發 Node.js 應用程式並部署至 Azure 網站的教學課程。" 
+	services="web-sites" 
+	documentationCenter="nodejs" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 # 使用 WebMatrix 來建立 Node.js 網站並部署至 Azure
@@ -13,20 +27,17 @@
 
 ![Azure node Web site][webmatrix-node-completed]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-## Sign into Azure
+## 登入 Azure
 
 遵循下列步驟以建立 Azure 網站。
 
-<div class="dev-callout"><strong>注意</strong>
-<p>若要完成此教學課程，您需要已啟用 Azure 網站功能的 Azure 帳戶。</p>
-<p>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 免費試用</a>。</p>
-</div>
+> [AZURE.NOTE] 若要完成此教學課程，您需要已啟用 Azure 網站功能的 Azure 帳戶。<br />如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A7171371E"%20target="_blank")。
 <br />
 
 1. 啟動 WebMatrix
-2. 如果這是您第一次使用 WebMatrix，則會提示您登入 Azure。否則，您可以按一下 [**登入**] 按鈕，然後選擇 [**新增帳戶**]。選擇使用您的 Microsoft 帳戶來 [**登入**]。
+2. 如果這是您第一次使用 WebMatrix，則會提示您登入 Azure。否則，您可以按一下 [登入]**** 按鈕，然後選擇 [新增帳戶]****。選擇使用您的 Microsoft 帳戶來 [登入]****。
 
 	![Add Account][addaccount]
 
@@ -37,11 +48,11 @@
 
 ## 使用 Azure 內建的範本建立網站
 
-1. 在開始畫面上，按一下 [**新增**] 按鈕，然後選擇 [**範本庫**]，從範本庫建立新的網站：
+1. 在開始畫面上，按一下 [新增]**** 按鈕，然後選擇 [範本庫]****，從範本庫建立新的網站：
 
 	![New site from Template Gallery][sitefromtemplate]
 
-2. 在 [**依據範本的站台**] 對話方塊中，選取 [**Node**]，再選取 [**Express 網站**]。最後，按 [**下一步**]。如果您遺漏 [**Express 網站**] 範本的任何必要元件，則會提示您安裝。
+2. 在 [依據範本的站台]**** 對話方塊中，選取 [節點]****，再選取 [Express 網站]****。最後，按一下 [下一步]****。如果您遺漏 [Express 網站]**** 範本的任何先決條件，則會提示您安裝。
 
 	![select express template][webmatrix-templates]
 
@@ -55,15 +66,15 @@
 
 ##將應用程式發行至 Azure
 
-1. 在 WebMatrix 中，按一下 [**首頁**] 功能區，以顯示網站的 [**發佈預覽**] 對話方塊的 [**發佈**]。
+1. 在 WebMatrix 中，從 [首頁]**** 功能區按一下 [發行]****，以顯示網站的 [發行預覽]**** 對話方塊。
 
 	![publish preview][webmatrix-node-publishpreview]
 
-2. 按一下 [**繼續**]。發佈完成時，網站在 Azure 上的 URL 會顯示在 WebMatrix IDE 底部
+2. 按一下 [繼續]****。發行完成時，網站在 Azure 上的 URL 會顯示在 WebMatrix IDE 底部
 
 	![publish complete][webmatrix-publish-complete]
 
-3. 按一下連結在瀏覽器中開啟網站。
+3. 按一下連結以在瀏覽器中開啟網站。
 
 	![Express web site][webmatrix-node-express-site]
 
@@ -71,7 +82,7 @@
 
 您可以輕鬆地修改和重新發行應用程式。以下，您將在 **index.jade** 檔案中簡單地變更標題，然後重新發行應用程式。
 
-1. 在 WebMatrix 中，選取 [**檔案**]，然後展開 **views** 資料夾。按兩下以開啟 **index.jade** 檔案。
+1. 在 WebMatrix 中，選取 [檔案]****，然後展開 [views]**** 資料夾。按兩下以開啟 **index.jade** 檔案。
 
 	![webmatrix viewing index.jade][webmatrix-modify-index]
 
@@ -79,19 +90,19 @@
 
 		p Welcome to #{title} with WebMatrix on Azure!
 
-3. 儲存您所做的變更，然後按一下發行圖示。最後，在 [**發佈預覽**] 對話方塊中按一下 [**繼續**]，等待發佈更新。
+3. 儲存您所做的變更，然後按一下發行圖示。最後，在 [發行預覽]**** 對話方塊中按一下 [繼續]****，等待發行更新。
 
 	![publish preview][webmatrix-republish]
 
-4. 發行完成時，使用發行程序完成時所傳回的連結，以查看已更新的網站。
+4. 發行完成時，使用發行程序完成時所傳回的連結，來查看更新後的網站。
 
 	![Azure node Web site][webmatrix-node-completed]
 
 ##後續步驟
 
-若要深入了解 Azure 隨附的 Node.js 版本，以及如何指定要與您的應用程式搭配使用的版本，請參閱[在 Azure 應用程式中指定 Node.js 版本](/zh-tw/documentation/articles/nodejs-specify-node-version-azure-apps/)。
+若要深入了解 Azure 隨附之 Node.js 的版本相關資訊，以及如何指定要與您的應用程式搭配使用的版本，請參閱[在 Azure 應用程式中指定 Node.js 版本](/zh-tw/documentation/articles/nodejs-specify-node-version-azure-apps/).
 
-如果您在將應用程式部署到 Azure 後遇到問題，請參閱[如何在 Azure 網站中對 Node.js 應用程式進行偵錯](http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/Debug-Website/) (英文) 以獲得診斷問題的詳細資訊。
+如果您在將應用程式部署到 Azure 後遇到問題，請參閱[如何在 Azure 網站中對 Node.js 應用程式進行偵錯](http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/Debug-Website/)以取得診斷問題的詳細資訊。
 
 
 [Azure 管理入口網站]: http://manage.windowsazure.com
@@ -125,3 +136,6 @@
 [signin]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-sign-in.png
 [sitefromtemplate]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-site-from-template.png
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
+
+
+<!--HONumber=42-->

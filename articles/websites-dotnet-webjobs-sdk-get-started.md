@@ -1,10 +1,24 @@
-﻿<properties pageTitle="開始使用 Azure WebJobs SDK " metaKeywords ="Azure 教學課程、 Azure WebJobs 教學課程、 Azure 多層式教學課程、 MVC 教學課程、 Azure Blob 教學課程中，Azure 佇列教學課程、 Azure 儲存體教學課程" description="了解如何使用 ASP.NET MVC 和 Azure 建立多層式應用程式。前端是在網站中執行，後端則是以 WebJob 方式執行。應用程式會使用 Entity Framework、SQL Database 及 Azure 儲存體來進行佇列與 Blob。" metaCanonical="" services="web-sites,storage" documentationCenter=".NET" title="Get Started with the Azure WebJobs SDK" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="開始使用 Azure WebJobs SDK" 
+	description="了解如何使用 ASP.NET MVC 和 Azure 建立多層式應用程式。前端在網站中執行，後端則以 WebJob 的形式執行。該應用程式使用 Entity Framework、SQL Database 及 Azure 儲存體佇列和 Blob。" 
+	services="web-sites, storage" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/12/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/12/2014" 
+	ms.author="tdykstra"/>
 
 # 開始使用 Azure WebJobs SDK
 
-本教學課程示範如何在 [Azure Website] 網站中搭配 [Azure 佇列](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)和 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)，使用 WebJobs SDK 建立多層式 ASP.NET MVC 應用程式(/zh-tw/documentation/services/websites/)。應用程式也會使用 [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279)。 
+本教學課程示範如何建立使用 WebJobs SDK 的多層式 ASP.NET MVC 應用程式，在 [Azure 網站](/zh-tw/documentation/services/websites/) 中使用 [Azure 佇列](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)和 [Azure Blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)。應用程式也會使用 [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279)。 
 
 此範例應用程式是廣告看板。使用者透過輸入文字和上傳影像來建立廣告。他們可以看到含有縮圖影像的廣告清單，也可以在選取廣告來查看詳細資料時查看完整大小的影像。以下為螢幕擷取畫面：
 
@@ -16,7 +30,7 @@
 
 ## 目錄
 
-- [必要條件](#prerequisites)
+- [先決條件](#prerequisites)
 - [您將學到什麼](#learn)
 - [應用程式架構](#contosoads)
 - [設定開發環境](#setupdevenv)
@@ -25,18 +39,19 @@
 - [檢閱應用程式程式碼](#code)
 - [後續步驟](#next-steps)
 
-## <a id="prerequisites"></a>必要條件
+## <a id="prerequisites"></a>先決條件
 
-本教學課程假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 或 [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) 專案。範例應用程式使用 MVC，但大多數的教學課程內容亦適用於 Web Form。 
+本教學課程假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 或 [Web Form](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) 專案。範例應用程式使用 MVC，但大多數的教學課程內容亦適用於 Web Form。 
 
 本教學課程指示適用於以下產品：
 
 * Visual Studio 2013
+* Visual Studio 2013 Community
 * Visual Studio 2013 Express for Web
 
 如果您尚未安裝任一產品，將在您安裝 Azure SDK 時自動安裝 Visual Studio 2013 Express for Web。
 
-[WACOM.INCLUDE [免費試用版附註](../includes/free-trial-note.md)]
+[AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
 ## <a id="learn"></a>您將學到什麼
 
@@ -51,7 +66,7 @@
 
 ## <a id="contosoads"></a>應用程式架構
 
-此範例應用程式會使用[以佇列為中心的工作模式](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)，將建立縮圖這個需要大量 CPU 的工作轉變為後端程序。 
+此範例應用程式會使用 [queue-centric work pattern](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)，將建立縮圖這個需要大量 CPU 的工作轉變為後端程序。 
 
 本應用程式會將廣告儲存在 SQL 資料庫中，使用 Entity Framework Code First 來建立表格和存取資料。針對每個廣告，資料庫會儲存兩個 URL，一個用於完整大小的影像，而另一個用於縮圖。
 
@@ -61,7 +76,7 @@
 
 ![Contoso Ads architecture](./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png)
 
-### 替代架構
+### Alternative architecture
 
 WebJobs 會在網站內容中執行，且無法單獨擴充。例如，如果您擁有一個標準網站執行個體，則您的背景程序只有一個執行中的執行個體，而且它會使用亦可提供給 Web 內容使用的部分伺服器資源 (CPU、記憶體等)。 
 
@@ -70,9 +85,9 @@ WebJobs 會在網站內容中執行，且無法單獨擴充。例如，如果您
 * 在只有這個目標的不同網站中，以 WebJob 的形式執行程式。接著您可以擴充後端網站，而不會影響到前端網站。
 * 在 Azure 雲端服務背景工作角色中執行程式。如果選擇此選項，則您將能夠在雲端服務 Web 角色或網站中執行前端。
 
-本教學課程說明如何在網站中執行前端，並在相同網站中以 WebJob 的形式執行後端。如需如何選擇最符合您的案例的最佳環境詳細資訊，請參閱 [Azure 網站、雲端服務與虛擬機器之比較](/zh-tw/documentation/articles/choose-web-site-cloud-service-vm/)。
+本教學課程說明如何在網站中執行前端，並在相同網站中以 WebJob 的形式執行後端。如需如何選擇最符合您的案例的最佳環境詳細資訊，請參閱 [Azure 網站、雲端服務與虛擬機器之比較](/zh-tw/documentation/articles/choose-web-site-cloud-service-vm/).
 
-[WACOM.INCLUDE [僅安裝 sdk-2013](../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 教學課程指示是使用 [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkID=510328) 的下一個預覽版本撰寫。Visual Studio 2013 Update 3 唯一不同之處在於建立 WebJob 專案的「從頭開始建立」小節，若使用 Update 4，專案中會自動包含 WebJobs SDK 封裝，在沒有使用 Update 4 的情況下，您必須手動安裝封裝。
 
@@ -98,7 +113,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	名稱必須絕對是唯一的 (其他 Azure 儲存體帳戶都不能有相同名稱)。如果您輸入的名稱已在使用中，您將有機會更改它。
 
-	用來存取您儲存體帳戶的 URL 將會是 *{name}*.core.windows.net。 
+	用來存取您儲存體帳戶的 URL 將是 *{name}*.core.windows.net。 
 
 5. 將 [區域或同質群組]**** 下拉式清單設定為離您最近的區域。
 
@@ -157,7 +172,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 8. 以您剛才複製的連接字串取代 *Web.config* 檔案中的儲存體連接字串。貼上連接字串之前，請確定您是選取引號內的所有字串，但不包含引號。
 
-4. 開啟 ContosoAdsWebJob 專案中的 *App.config* 檔案。
+4. 開啟 ContosoAdsWeb 專案中的應用程式 *App.config* 檔案。
 
 	此檔案有兩個儲存體連接字串，一個供應用程式使用，另一個供記錄使用。在本教學課程中，您將對兩者使用相同帳戶。連接字串具有儲存體帳戶金鑰的預留位置。
   	<pre class="prettyprint">&lt;configuration&gt;
@@ -171,7 +186,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
     &lt;/startup&gt;
 &lt;/configuration&gt;</pre>
 
-	依預設，WebJobs SDK 會尋找名為 AzureWebJobsStorage 和 AzureWebJobsDashboard 的連接字串。或者，您可以[依您想要的方式儲存連接字串，並明確地將它傳入 `JobHost` 物件](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#config)。
+	依預設，WebJobs SDK 會尋找名為 AzureWebJobsStorage 和 AzureWebJobsDashboard 的連接字串。另一種方式是，您可以[儲存任何所需的連接字串，並將它明確傳遞至 `JobHost` 物件](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#config).
 
 1. 使用您先前複製的連接字串取代這兩個儲存體連接字串。
 
@@ -191,7 +206,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	![Console application window showing that the backend is running](./media/websites-dotnet-webjobs-sdk-get-started/backendrunning.png)
 
-2. 在您的瀏覽器中按一下 [建立廣告]****。
+2. 在您的瀏覽器中，按一下 [建立廣告]****。
 
 2. 輸入一些測試資料並選取要上傳的影像，然後按一下 [建立]****。
 
@@ -286,7 +301,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	您可以忽略有關未發行任何資料庫的警告。Entity Framework Code First 將建立資料庫；因此無需發行資料庫。
 
-	預覽視窗會顯示將把二進位和組態檔從 WebJob 專案複製到網站的 *app_data\jobs\continuous* 資料夾。
+	預覽視窗會顯示將複製 WebJob 專案的二進位檔和組態檔至網站的 *app_data\jobs\continuous* 資料夾中。
 
 	![WebJobs files in preview window](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)	
 
@@ -308,7 +323,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	Azure 便會在您建立網站和相關資料庫時自動建立此連接字串，因此它已包含正確的連接字串值。您只是單純將名稱變更為程式碼要尋找的名稱。
 
-9. 新增兩個新的連接字串，將他們命名為 AzureWebJobsStorage 和 AzureWebJobsDashboard。將類型設為 [自訂]，並將連接字串值設為您稍早在 *Web.config* 和 *App.config* 檔案中所用的相同值。(請確定您包含整個連接字串，而不只是存取金鑰而已，並且不要包含引號。)
+9. 新增兩個新的連接字串，將他們命名為 AzureWebJobsStorage 和 AzureWebJobsDashboard。將類型設為 [自訂]，並將連接字串值設為您稍早在 *Web.config* 和 *App.config*檔案中所用的相同值。(請確定您包含整個連接字串，而不只是存取金鑰而已，並且不要包含引號。)
 
 	WebJobs SDK 會使用這些連接字串，一個供應用程式資料使用，一個供記錄使用。如稍早所看到的，供應用程式資料使用的連接字串也會提供給 Web 前端程式碼使用。
 	
@@ -355,7 +370,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 	此頁面上的 [重新執行函數]**** 按鈕會使 WebJobs SDK 架構再次呼叫此函數，這可提供您一個先變更先前傳送至函數之資料的機會。
 
->[WACOM.NOTE] 當您完成測試時，請刪除網站和 SQL Database 執行個體。網站可以免費提供，但 SQL Database 執行個體和儲存體帳戶會累算費用 (由於是小規模，將收取基本費用)。另外，如果您持續執行網站，找到您 URL 的任何人都可以建立和檢視廣告。在 Azure 管理入口網站中，移至您網站的 [儀表板]**** 索引標籤，然後按一下頁面底部的 [刪除]**** 按鈕。您可以接著勾選核取方塊，以同時刪除 SQL Database 執行個體。如果您只想要暫時避免其他人存取網站，請改為按一下 [停止]****。在此情況下，將會繼續累算 SQL Database 和儲存體帳戶的費用。當您不再需要 SQL 資料庫和儲存體帳戶時，可以遵循類似程序來加以刪除。
+>[AZURE.NOTE] 當您完成測試時，請刪除網站和 SQL Database 執行個體。網站可以免費提供，但 SQL Database 執行個體和儲存體帳戶會累算費用 (由於是小規模，將收取基本費用)。另外，如果您持續執行網站，找到您 URL 的任何人都可以建立和檢視廣告。在 Azure 管理入口網站中，移至您網站的 [儀表板]**** 索引標籤，然後按一下頁面底部的 [刪除]**** 按鈕。您可以接著勾選核取方塊，以同時刪除 SQL Database 執行個體。如果您只想要暫時避免其他人存取網站，請改為按一下 [停止]****。在此情況下，將會繼續累算 SQL Database 和儲存體帳戶的費用。當您不再需要 SQL 資料庫和儲存體帳戶時，可以遵循類似程序來加以刪除。
 
 ### 針對長時間執行的程序啟用 AlwaysOn
 
@@ -425,7 +440,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 	* 在 Web 專案的 Properties 資料夾中新增了 *webjobs-list.json* 檔案。
 	* 在 WebJob 專案中安裝了 Microsoft.Web.WebJobs.Publish NuGet 封裝。
 	 
-	如需這些變更的相關詳細資訊，請參閱[如何使用 Visual Studio 部署 WebJobs]。(/zh-tw/documentation/articles/websites-dotnet-deploy-webjobs/)。
+	如需這些變更的詳細資訊，請參閱[如何使用 Visual Studio 部署 WebJobs](/zh-tw/documentation/articles/websites-dotnet-deploy-webjobs/).
 
 ### 新增 NuGet 封裝
 
@@ -458,7 +473,7 @@ Web 和 WebJob 專案都將使用 SQL Database，因此兩者都會須要 Contos
 
 WebJob 專案需要參考，才能使用映像及存取連接字串。
 
-11. 在 ContosoAdsWebJob 專案中，設定對 `System.Drawing` 和 `System.Configuration` 的參照。
+11. 在 ContosoAdsWebJob 專案中，設定 `System.Drawing` 和 `System.Configuration` 的參考。
 
 ### 新增程式碼和組態檔
 
@@ -466,7 +481,7 @@ WebJob 專案需要參考，才能使用映像及存取連接字串。
 
 若要加入檔案到專案或資料夾，請以滑鼠右鍵按一下專案或資料夾，然後按一下 [加入]**** > [現有項目]****。選取您需要的檔案，然後按一下 [加入]****。如果詢問您是否要取代現有的檔案，請按一下 [是]****。
 
-3. 在 ContosoAdsCommon 專案中，刪除 *Class1.cs* 檔案，並在其位置加入下列來自所下載之專案的檔案。
+3. 在 ContosoAdsCommon 專案中，刪除 *Class1.cs* 檔案，並從所下載的專案中加入下列檔案來取代它的位置。
 
 	- *Ad.cs*
 	- *ContosoAdscontext.cs*
@@ -476,20 +491,20 @@ WebJob 專案需要參考，才能使用映像及存取連接字串。
 
 	- *Web.config*
 	- *Global.asax.cs*  
-	- 在 *Controllers* 資料夾中：*AdController.cs* 
-	- 在 *Views\Shared* 資料夾中： <em>_Layout.cshtml</em> 檔案。 
-	- 在 *Views\Home* 資料夾中：*Index.cshtml*。 
-	- 在 *Views\Ad* 資料夾中 (先建立資料夾): 五個 *.cshtml* 檔案。<br/><br/>
+	- In the *Controllers* folder: *AdController.cs* 
+	- In the *Views\Shared* folder: <em>_Layout.cshtml</em> file. 
+	- In the *Views\Home* folder: *Index.cshtml*. 
+	- In the *Views\Ad* folder (create the folder first): five *.cshtml* files.<br/><br/>
 
 3. 在 ContosoAdsWebJob 專案中，從所下載的專案加入下列檔案。
 
-	- *App.config* (將檔案類型篩選變更為 [所有檔案]****)
+	- *App.config* (change the file type filter to **All Files**)
 	- *Program.cs*
 	- *Functions.cs*
 
 您現在可以如本教學課程中稍早所指示般建置、執行及部署應用程式。不過，在您開始此作業之前，請先將仍然在您所部署的第一個網站中執行的 WebJob 停止。否則，WebJob 將處理在本機建立或由在新網站中執行之應用程式所建立的佇列訊息，因為他們都使用相同的儲存體帳戶。
 
-## <a id="code"></a>審查應用程式程式碼
+## <a id="code"></a>檢閱應用程式程式碼
 
 以下小節將說明 WebJobs SDK、Azure 儲存體 Blob 和佇列相關的程式碼。如需 WebJobs SDK 特定的程式碼，請參閱 [Program.cs 區段](#programcs)。
 
@@ -556,7 +571,7 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 
 ### ContosoAdsCommon - BlobInformation.cs
 
-`BlobInformation` 類別可用來在佇列訊息中儲存影像 Blob 的相關資訊。
+ `BlobInformation` 類別可用來在佇列訊息中儲存影像 Blob 的相關資訊。
 
 		public class BlobInformation
 		{
@@ -582,14 +597,14 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 
 ### ContosoAdsWeb - Global.asax.cs
 
-如果尚無 *images* Blob 容器和 *images* 佇列，從 `Application_Start` 方法呼叫的程式碼便會建立它們。這可確保每當使用新的儲存體帳戶啟動時，系統便會自動建立必要的 Blob 容器和佇列。
+自 `Application_Start` 方法呼叫的程式碼會建立 *images* Blob 容器和 *images* 佇列 (如果尚不存在)。這可確保每當使用新的儲存體帳戶啟動時，系統便會自動建立必要的 Blob 容器和佇列。
 
 此程式碼會使用 *Web.config* 檔案或 Azure 執行階段環境中的儲存體連接字串，來取得儲存體帳戶的存取權限。
 
 		var storageAccount = CloudStorageAccount.Parse
 		    (ConfigurationManager.ConnectionStrings["AzureWebJobsStorage"].ToString());
 
-之後會取得對 *images* Blob 容器的參照、建立容器 (如果尚不存在)，並設定新容器的存取權限。依預設，新的容器只能允許具有儲存體帳戶認證的用戶端存取 Blob。網站需要 Blob 處於公用狀態，網站才能使用指向影像 Blob 的 URL 來顯示影像。
+之後會取得 *images* Blob 容器的參照、建立容器 (如果尚不存在)，並設定新容器的存取權限。依預設，新的容器只能允許具有儲存體帳戶認證的用戶端存取 Blob。網站需要 Blob 處於公用狀態，網站才能使用指向影像 Blob 的 URL 來顯示影像。
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		var imagesBlobContainer = blobClient.GetContainerReference("images");
@@ -602,7 +617,7 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 		        });
 		}
 
-類似的程式碼可取得對 *blobnamerequest* 佇列的參照，並建立新佇列。在此情況下，即不需要變更權限。教學課程中較後面的 [ResolveBlobName](#resolveblobname) 區段，將說明為何只將 Web 應用程式所寫入的佇列用來取得 Blob 名稱，而不用來產生縮圖。
+類似的程式碼可取得 *blobnamerequest* 佇列的參考，並建立新佇列。在此情況下，即不需要變更權限。教學課程中較後面的 [ResolveBlobName](#resolveblobname) 區段，將說明為何只將 Web 應用程式所寫入的佇列用來取得 Blob 名稱，而不用來產生縮圖。
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 		var imagesQueue = queueClient.GetQueueReference("blobnamerequest");
@@ -610,11 +625,11 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 
 ### ContosoAdsWeb - _Layout.cshtml
 
-*_Layout.cshtml* 檔案可設定頁首與頁尾中的應用程式名稱，並建立 "Ads" 功能表項目。
+*_Layout.cshtml* 檔案會設定頁首與頁尾中的應用程式名稱，並建立 [廣告] 功能表項目。
 
 ### ContosoAdsWeb - Views\Home\Index.cshtml
 
-*Views\Home\Index.cshtml* 檔案會在首頁上顯示類別連結。這些連結會在查詢字串變數中，將 `Category` 列舉的整數值傳遞給「廣告索引」頁面。
+ *Views\Home\Index.cshtml* 檔案會在首頁上顯示類別連結。連結會將查詢字串變數中的 `Category` 列舉的整數值傳遞至 [廣告索引] 頁面。
 	
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -623,9 +638,9 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 
 ### ContosoAdsWeb - AdController.cs
 
-在 *AdController.cs* 檔案中，建構函式會呼叫 `InitializeStorage` 方法以建立 Azure 儲存體用戶端程式庫物件物件，提供用於處理 Blob 和佇列的 API。 
+在 *AdController.cs* 檔案中，建構函式會呼叫 `InitializeStorage` 方法，來建立 Azure 儲存體用戶端程式庫物件，提供用於處理 Blob 和佇列的 API。 
 
-然後程式碼會取得對 *images* Blob 容器的參照，就像您之前在 *Global.asax.cs* 中看到的一樣。在執行該動作時，它會設定適用 Web 應用程式的預設[重試原則](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)。預設指數輪詢重試原則，可能會因為對暫時性的錯誤進行反覆重試，使得 Web 應用程式停止回應超過一分鐘。此處指定的重試原則會在每次嘗試後等候 3 秒，最多嘗試 3 次。
+然後程式碼會取得 *images* Blob 容器的參照，就像您之前在 *Global.asax.cs* 中看到的一樣。在執行該動作時，它會設定適用 Web 應用程式的預設[重試原則](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)。預設指數輪詢重試原則，可能會因為對暫時性的錯誤進行反覆重試，使得 Web 應用程式停止回應超過一分鐘。此處指定的重試原則會在每次嘗試後等候 3 秒，最多嘗試 3 次。
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
@@ -637,7 +652,7 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("blobnamerequest");
 
-多數的控制器程式碼通常用於使用 DbContext 類別來處理 Entity Framework 資料模型。例外狀況為 HttpPost `Create` 方法，它會上傳檔案並將它儲存在 Blob 儲存體。模型繫結器會提供一個 [HttpPostedFileBase](http://msdn.microsoft.com/zh-tw/library/system.web.httppostedfilebase.aspx) 物件給方法。
+多數的控制器程式碼通常用於使用 DbContext 類別來處理 Entity Framework 資料模型。例外狀況為 HttpPost `Create` 方法，它會上傳檔案，並將檔案儲存在 Blob 儲存體中。模型繫結器會提供一個 [HttpPostedFileBase](http://msdn.microsoft.com/zh-tw/library/system.web.httppostedfilebase.aspx) 物件給方法。
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
@@ -653,7 +668,7 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 		    ad.ImageURL = blob.Uri.ToString();
 		}
 
-執行上傳的程式碼位於 `UploadAndSaveBlobAsync` 方法。它會為 Blob 建立 GUID 名稱、上傳並儲存檔案，然後傳回參考至儲存的 Blob。
+執行上傳的程式碼位於 `UploadAndSaveBlobAsync` 方法中。它會為 Blob 建立 GUID 名稱、上傳並儲存檔案，然後傳回參考至儲存的 Blob。
 
 		private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
 		{
@@ -666,13 +681,13 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 		    return imageBlob;
 		}
 
-在 HttpPost `Create` 方法建立 Blob 並更新資料庫之後，它會建立佇列訊息，以通知後端程序，有一個影像已備妥可供轉換成縮圖。
+在 HttpPost `Create` 方法上傳 Blob 並更新資料庫之後，它會建立佇列訊息，以通知後端程序，有一個影像已備妥可供轉換成縮圖。
 
 		BlobInformation blobInfo = new BlobInformation() { AdId = ad.AdId, BlobUri = new Uri(ad.ImageURL) };
 		var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
 		await thumbnailRequestQueue.AddMessageAsync(queueMessage);
 
-HttpPost `Edit` 方法的程式碼也是類似的，例外情況是如果使用者選取一個新影像檔案，則必須將此廣告的任何現有 Blob 刪除。
+HttpPost `Edit` 方法的程式碼也是類似的，例外情況是如果使用者選取一個新影像檔案，就必須刪除此廣告的任何現有 Blob。
  
 		if (imageFile != null && imageFile.ContentLength != 0)
 		{
@@ -703,29 +718,29 @@ HttpPost `Edit` 方法的程式碼也是類似的，例外情況是如果使用�
 		    await blobToDelete.DeleteAsync();
 		}
  
-### ContosoAdsWeb - Views\Ad\Index.cshtml 和 Details.cshtml
+### ContosoAdsWeb - Views\Ad\Index.cshtml and Details.cshtml
 
-*Index.cshtml* 檔案會顯示縮圖與其他廣告資料：
+ *Index.cshtml* 檔案會顯示縮圖與其他廣告資料：
 
 		<img  src="@Html.Raw(item.ThumbnailURL)" />
 
-*Details.cshtml* 檔案會顯示完整大小的影像：
+ *Details.cshtml* 檔案會顯示完整大小的影像：
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml 和 Edit.cshtml
+### ContosoAdsWeb - Views\Ad\Create.cshtml and Edit.cshtml
 
-*Create.cshtml* 和 *Edit.cshtml* 檔案可指定表單編碼，供控制器取得 `HttpPostedFileBase` 物件。
+ *Create.cshtml* 和 *Edit.cshtml* 檔案可指定表單編碼，讓控制器可取得 `HttpPostedFileBase` 物件。
 
 		@using (Html.BeginForm("Create", "Ad", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
-`<input>` 元素告知瀏覽器提供檔案選取對話方塊。
+`<input>` 項目會告知瀏覽器提供檔案選取對話方塊。
 
 		<input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 
 ### <a id="programcs"></a>ContosoAdsWebJob - Program.cs
 
-當 WebJob 啟動時，`Main` 方法便會呼叫 `Initialize`，以具現化 Entity Framework 資料庫內容。然後它會呼叫 WebJobs SDK  `JobHost.RunAndBlock` 方法，以在目前執行序上開始已觸發函數的單一執行緒執行。
+當 WebJob 啟動時， `Main` 方法便會呼叫 `Initialize`，以具現化 Entity Framework 資料庫內容。然後會呼叫 WebJobs SDK `JobHost.RunAndBlock` 方法，在目前執行緒上開始已觸發函數的單一執行緒執行。
 
 		static void Main(string[] args)
 		{
@@ -740,7 +755,7 @@ HttpPost `Edit` 方法的程式碼也是類似的，例外情況是如果使用�
 		    db = new ContosoAdsContext();
 		}
 
-### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - GenerateThumbnail 方法
+### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - GenerateThumbnail method
 
 WebJobs SDK 會在收到佇列訊息時呼叫此方法。此方法會建立縮圖，並將縮圖 URL 放入資料庫。
 
@@ -765,7 +780,7 @@ WebJobs SDK 會在收到佇列訊息時呼叫此方法。此方法會建立縮�
 		    Program.db.SaveChanges();
 		}
 
-* 當 thumbnailrequest 佇列收到新訊息時，`QueueTrigger` 屬性便會指示 WebJobs SDK 呼叫此方法。
+* 當 thumbnailrequest 佇列收到新訊息時， `QueueTrigger` 屬性便會指示 WebJobs SDK 呼叫此方法。
 
 		[QueueTrigger("thumbnailrequest")] BlobInformation blobInfo,
 
@@ -776,27 +791,35 @@ WebJobs SDK 會在收到佇列訊息時呼叫此方法。此方法會建立縮�
 		[Blob("images/{BlobName}", FileAccess.Read)] Stream input,
 		[Blob("images/{BlobNameWithoutExtension}_thumbnail.jpg")] CloudBlockBlob outputBlob)
 
-	Blob 名稱來自佇列訊息 (`BlobName` 和 `BlobNameWithoutExtension`) 中所收到之 `BlobInformation` 物件的屬性。若要取得儲存體用戶端程式庫的完整功能，您可以利用 `CloudBlockBlob` 類別來使用 Blob。如果您想要重複使用為與 `Stream` 物件搭配使用所撰寫的程式碼，您可以使用 `Stream` 類別。 
+	Blob 名稱取自佇列訊息 (`BlobName` 和 `BlobNameWithoutExtension`) 中所收到之 `BlobInformation` 物件的屬性。若要取得儲存體用戶端程式庫的完整功能，您可以利用 `CloudBlockBlob` 類別來使用 Blob。如果您想要重複使用為使用  `Stream` 物件所撰寫的程式碼，可以使用 `Stream` 類別。 
 
->[WACOM.NOTE] 
->* 如果您的網站是在多個 VM 上執行，此程式將會在每部機器上執行，且每部機器都將會等待觸發程序並嘗試執行函數。在某些案例中，這會導致部分函數處理相同的資料兩次，因此函數應是以等冪的方式 (寫入，因此使用相同輸入資料重複呼叫函數才不會產生重複的結果)。
->* 如需如何實作順利關機的相關詳細資訊，請參閱[順利關機](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful)。   
->為求簡化，`ConvertImageToThumbnailJPG` 方法 (未顯示) 中的程式碼會使用 `System.Drawing` 命名空間中的類別。不過，此命名空間中類別的設計原意是要與 Windows Form 搭配使用。不支援將它們用於 Windows 或 ASP.NET 服務。
+如需如何撰寫使用 WebJobs SDK 屬性的函數詳細資訊，請參閱下列資源：
+
+* [如何使用 WebJobs SDK 來使用 Azure 佇列儲存體](../websites-dotnet-webjobs-sdk-storage-queues-how-to)
+* [如何使用 WebJobs SDK 來使用 Azure Blob 儲存體](../websites-dotnet-webjobs-sdk-storage-blobs-how-to)
+* [如何使用 WebJobs SDK 來使用 Azure 資料表儲存體](../websites-dotnet-webjobs-sdk-storage-tables-how-to)
+* [如何使用 WebJobs SDK 來使用 Azure 服務匯流排](../websites-dotnet-webjobs-sdk-service-bus)
+
+>[AZURE.NOTE] 
+>* 如果您的網站在多個 VM 上執行，則此程式將在每部機器上執行，而且每部機器將會等待觸發程序並嘗試執行函數。在某些案例中，這會導致部分函數處理相同的資料兩次，因此函數應是以等冪的方式 (寫入，因此使用相同輸入資料重複呼叫函數才不會產生重複的結果)。
+>* 如需如何實作順利關機的相關資訊，請參閱[順利關機](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).   
+>* 為求簡化， `ConvertImageToThumbnailJPG` 方法 (未顯示) 中的程式碼會使用 `System.Drawing` 命名空間中的類別。不過，此命名空間中類別的設計原意是要與 Windows Form 搭配使用。不支援將它們用於 Windows 或 ASP.NET 服務。
 
 ### 比較 WebJobs SDK 與雲端服務背景工作角色 (在沒有 WebJobs SDK 的情況下)
 
-如果您比較此範例應用程式中 `GenerateThumbnails` 方法中的程式碼數量與[應用程式雲端版本]中背景工作角色的程式碼數量(/zh-tw/documentation/articles/cloud-services-dotnet-get-started/)，您就可以看出 WebJobs SDK 為您執行了多少工作。這個好處大於您所看到的，因為雲端服務範例應用程式程式碼無法執行您在生產應用程式中可執行的所有項目 (例如有害訊息處理)，而這些 WebJobs SDK 都可以為您做得到。
+如果您將本範例應用程式中 `GenerateThumbnails` 方法的程式碼數量，與[應用程式的雲端服務版本](/zh-tw/documentation/articles/cloud-services-dotnet-get-started/)中的背景工作角色程式碼做比較，就可以看出 WebJobs SDK 為您做了多少工作。這個好處大於您所看到的，因為雲端服務範例應用程式程式碼無法執行您在生產應用程式中可執行的所有項目 (例如有害訊息處理)，而這些 WebJobs SDK 都可以為您做得到。
 
-在應用程式的雲端服務版本中，佇列訊息中的唯一資訊是記錄識別碼，而背景處理會從資料庫中取得影像 URL。在應用程式的 WebJobs SDK 版本中，佇列訊息包括影像 URL，因此可將它提供給 `Blob` 屬性。如果佇列訊息沒有 Blob URL，您可以[在方法的主體 (而不是在方法簽章) 中使用 Blob 屬性](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#blobbody)。
+在應用程式的雲端服務版本中，佇列訊息中的唯一資訊是記錄識別碼，而背景處理會從資料庫中取得影像 URL。在應用程式的 WebJobs SDK 版本中，佇列訊息包括影像 URL，因此可提供給 `Blob` 屬性。如果佇列訊息沒有 Blob URL，您可以[在方法主體 (而不是在方法簽章) 中使用 Blob 屬性](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#blobbody).
 
 ### 在 WebJobs 外部使用 WebJobs SDK
 
-使用 WebJobs SDK 的程式無需在 Azure 的 WebJob 中執行。它可以在本機執行，也可以在其他環境中執行，例如雲端服務背景工作角色或 Windows 服務。不過，您僅可透過 Azure 網站來存取 WebJobs SDK 儀表板。若要使用儀表板，您必須將網站與正在使用的儲存體帳戶連線，方法是在管理入口網站的 [設定]**** 索引標籤上設定 AzureWebJobsDashboard 連接字串。然後您可以使用此 URL https://{websitename}.scm.azurewebsites.net/azurejobs/#/functions 進入儀表板。如需詳細資訊，請參閱[使用 WebJobs SDK 來取得本機開發的儀表板](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)，但請注意，它會顯示舊的連接字串名稱。 
+使用 WebJobs SDK 的程式無需在 Azure 的 WebJob 中執行。它可以在本機執行，也可以在其他環境中執行，例如雲端服務背景工作角色或 Windows 服務。不過，您僅可透過 Azure 網站來存取 WebJobs SDK 儀表板。若要使用儀表板，您必須將網站與正在使用的儲存體帳戶連線，方法是在管理入口網站的 [設定]**** 索引標籤上設定 AzureWebJobsDashboard 連接字串。然後您可以使用下列 URL 來進入儀表板： https://{websitename}.scm.azurewebsites.net/azurejobs/#/functions。如需詳細資訊，請參閱[使用 WebJobs SDK 來取得本機開發的儀表板](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)，但請注意，它會顯示舊的連接字串名稱。 
 
 ## 後續步驟
 
-在本教學課程中，您看到使用 WebJobs SDK 進行後端處理的簡單多層次應用程式。此應用程式已刻意保持簡潔，以供入門的教學課程使用。例如，它沒有實作[相依性插入](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection)或[工作模式的儲存機制和單位](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo)、沒有[使用介面來記錄](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log)、沒有使用[EF 程式碼優先移轉](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application)來管理資料模型變更，或沒有使用 [EF 連線復原](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)來管理暫時性網路錯誤等等。
+在本教學課程中，您看到使用 WebJobs SDK 進行後端處理的簡單多層次應用程式。此應用程式已刻意保持簡潔，以供入門的教學課程使用。例如，它沒有實作[相依性插入](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection)或[工作模式的儲存機制和單位](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo)、沒有[使用介面來記錄](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log)、沒有使用 [EF Code First 移轉](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application)來管理資料模型變更，或沒有使用 [EF 連線復原](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)來管理暫時性網路錯誤等等。
 
 如需詳細資訊，請參閱 [Azure Web 工作建議使用的資源](http://go.microsoft.com/fwlink/?LinkId=390226)。
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

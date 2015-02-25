@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Website with WebMatrix" pageTitle="使用 WebMatrix 的 .NET 網站 - Azure 教學課程" metaKeywords="WebMatrix Azure, WebMatrix Azure, Azure 網站 WebMatrix, Azure 網站 WebMatrix, Web Matrix Azure, WebMatrix Azure" description="了解如何使用 WebMatrix 來開發及部署 Azure 網站。" metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a website with Microsoft WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="使用 WebMatrix 的 .NET 網站 - Azure 教學課程" 
+	description="了解如何使用 WebMatrix 開發和部署 Azure 網站。" 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/27/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="tomfitz"/>
 
 
 
@@ -9,17 +23,17 @@
 #使用 Microsoft WebMatrix 來開發和部署網站
 本指南說明如何使用 Microsoft WebMatrix 來建立網站並部署至 Azure。您將使用 WebMatrix 網站範本提供的範例應用程式。
 
-您將了解：
+您將學到：
 
 * 如何從 WebMatrix 內登入 Azure
 * 如何使用 WebMatrix 內建的範本來建立網站 
 * 如何將自訂的網站直接從 WebMatrix 部署至 Azure。
 
-> [WACOM.NOTE]
-> 若要完成此教學課程，您需要 Azure 帳戶。您可以 <a href="http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/">啟用您的 MSDN 訂閱者權益</a> 或 <a href="http://azure.microsoft.com/zh-tw/pricing/free-trial/">註冊免費試用</a>。
-> 若要在註冊帳戶之前先開始使用 Azure 網站，請移至 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>，您可以免費立即在上述網址中於「Azure 網站」中建立暫時性 ASP.NET 起始網站。不需要信用卡，不提供任何承諾。
+> [AZURE.NOTE]
+> 若要完成此教學課程，您需要 Azure 帳戶。您可以<a href="http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/">啟用您的 MSDN 訂閱者權益</a>或是<a href="http://azure.microsoft.com/zh-tw/pricing/free-trial/">註冊免費試用</a>。
+> 如果您要在註冊帳戶前開始使用 Azure 網站，請移至 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>，您可以在 Azure 網站中立即建立短期的免費 ASP.NET 簡易版網站。無需使用信用卡，也不用簽約。
 
-## Sign into Azure
+## 登入 Azure
 
 1. 啟動 WebMatrix。
 2. 如果這是您第一次使用 WebMatrix 3，則會提示您登入 Azure。否則，您可以按一下 [登入]**** 按鈕，然後選擇 [新增帳戶]****。選擇使用您的 Microsoft 帳戶來登入****。
@@ -53,7 +67,7 @@
 
 麵包店範例包含模擬的訂購表單，可透過電子郵件傳送訂購項目。您將使用 Azure 上的 SendGrid 電子郵件服務，從您的網站傳送電子郵件。
 
-1. 依照[如何透過 Azure 使用 SendGrid 傳送電子郵件][sendgridexample]教學課程中的步驟設定 SendGrid 帳戶，並抓取連線資訊。您不需要完成整個教學課程，只要完成取得連線資訊部分的課程即可。
+1. 依照[如何透過 Azure 使用 SendGrid 傳送電子郵件][sendgridexample]教學課程中的步驟來設定 SendGrid 帳戶，並抓取連線資訊。您不需要完成整個教學課程，只要完成取得連線資訊部分的課程即可。
 
 2. 新增 SendGrid NuGet 封裝到您的 WebMatrix 專案。首先，按一下 [NuGet] 按鈕。
 
@@ -67,14 +81,14 @@
 
     ![SendGrid added][binsendgrid]
 
-3. 按兩下檔案名稱以開啟 *Order.cshtml* 頁面。
+3. 連按兩下檔案名稱來開啟 *Order.cshtml* 頁面。
 
 	![][modify2]
 
-4. 在檔案的最上方，新增下列程式碼：
+4. 在檔案頂端新增下列程式碼：
 
         @using SendGrid;
-        @using System.Net.Mail;
+        @using System.Net.Mail;	
 
 4. 尋找內容說明 //Hotmail 的 SMTP 設定的註解，然後刪除所有程式碼或將所有程式碼家加上註解以使用 WebMail。
 
@@ -137,7 +151,7 @@
 
 7. 在其中一個產品上，按一下 [立即訂購]****，以傳送一份訂單給您自己。
 
-8. 檢查電子郵件，確定您收到訂單確認。如果您無法傳送電子郵件，請參閱 ASP.NET 網頁 (Razor) 疑難排解指南中的[傳送電子郵件時的問題][sendmailissues]。
+8. 檢查電子郵件，確定您收到訂單確認。如果您無法傳送電子郵件，請參閱《ASP.NET 網頁 (Razor) 疑難排解指南》中的[傳送電子郵件時的問題][sendmailissues]。
  
 
 ## 將自訂的網站從 WebMatrix 部署至 Azure
@@ -162,7 +176,7 @@
 
 1. 開啟 *Order.cshtml* 頁面。
 
-2. 找出 "shiping" 類別表單定義。在 &lt;li&gt; 區塊後面插入下列程式碼。
+2. 找出 "shiping" 類別表單定義。在 &lt;li&gt; 區塊正後方插入下列程式碼。
 		
 		<li class="gift">
 		    <div class="fieldcontainer" data-role="fieldcontain">
@@ -173,7 +187,7 @@
 
 	![][modify5]
 
-3. 在檔案中找出 "var shipping = Request["orderShipping"]];"，然後在此行下方直接插入下列這一行程式碼。
+3. 在檔案中找出 "var shipping = Request["orderShipping"];" 行，然後在此行下方直接插入下列這一行程式碼。
 
 		var gift = Request["isGift"];
 
@@ -183,7 +197,7 @@
 			body += "This is a gift." + "<br/>";
 		}
 
-	*order.cshtml* 檔案看起來應該像下面的影像。
+	您的 *order.cshtml* 檔案應該如下圖所示。
 
 	![][modify6]
 
@@ -199,7 +213,7 @@
 
 # 後續步驟
 
-您已經學到如何建立網站並將網站從 WebMatrix 部署至 Azure。若要深入了解 WebMatrix，請參考下列資源：
+您已了解如何建立網站並從 WebMatrix 部署至 Azure。若要深入了解 WebMatrix，請參考下列資源：
 
 * [適用於 Azure 的 WebMatrix](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
@@ -236,4 +250,5 @@
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/zh-tw/documentation/articles/sendgrid-dotnet-how-to-send-email/
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

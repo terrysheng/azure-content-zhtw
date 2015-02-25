@@ -1,20 +1,20 @@
-<properties urlDisplayName="Accessing Azure Active Directory Graph Information" pageTitle="存取 Azure Active Directory Graph 資訊 (Windows 市集) | 行動開發人員中心" metaKeywords="" description="了解如何在 Windows 市集應用程式中使用 Graph API 存取 Azure Active Directory 資訊。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Accessing Azure Active Directory Graph Information" authors="wesmc" manager="dwrede" />
+<properties pageTitle="存取 Azure Active Directory Graph 資訊 (Windows 市集) | 行動開發人員中心" description="了解如何在 Windows 市集應用程式中使用 Graph API 存取 Azure Active Directory 資訊。" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc"/>
 
 # 存取 Azure Active Directory 圖形資訊
 
-[WACOM.INCLUDE [mobile-services-selector-aad-graph](../includes/mobile-services-selector-aad-graph.md)]
+[AZURE.INCLUDE [mobile-services-selector-aad-graph](../includes/mobile-services-selector-aad-graph.md)]
 
 
 
-如同其他隨行動服務提供的身分識別提供者，Azure Active Directory (AAD) 提供者也支援豐富的 [Graph 用戶端程式庫]，可用於透過程式設計來存取目錄。在本教學課程中，您會根據使用 [Graph 用戶端程式庫]從目錄中擷取的其他使用者資訊來更新 ToDoList 應用程式，以個人化已驗證的使用者應用程式體驗。
+如同其他隨行動服務提供的身分識別提供者，Azure Active Directory (AAD) 提供者也支援豐富的[圖形用戶端程式庫]，可用於對目錄的程式設計存取。在本教學課程中，您會根據使用[圖形用戶端程式庫]從目錄中擷取的其他使用者資訊來更新 ToDoList 應用程式，以個人化已驗證的使用者應用程式體驗。
 
 >[AZURE.NOTE] 本教學課程的目的是要擴充您使用 Azure Active Directory 進行驗證的知識。您應已使用 Azure Active Directory 驗證提供者完成[將驗證加入至您的應用程式]教學課程。本教學課程接著將更新[將驗證加入至您的應用程式]教學課程中使用的 TodoItem 應用程式。 
 
 
 
-本教學課程將逐步引導您完成下列步驟：
+本教學課程將逐步引導您完成下列步驟:
 
 
 1. [在 AAD 中產生應用程式註冊的存取金鑰] 
@@ -22,13 +22,13 @@
 3. [更新應用程式以使用自訂 API]
 4. [測試應用程式]
 
-##必要條件 
+## 必要條件 
 
-在開始本教學課程之前，您必須已完成下列行動服務教學課程：
+在開始本教學課程之前，您必須已完成下列行動服務教學課程:
 
 + [開始使用驗證]<br/>將登入需求新增至 TodoList 範例應用程式。
 
-+ [自訂 API 教學課程]<br/>說明如何呼叫自訂 API。 
++ [自訂 API 教學課程]<br/>示範如何呼叫自訂 API。 
 
 
 
@@ -37,20 +37,20 @@
 
 在進行[將驗證加入至您的應用程式]教學課程期間，您已在完成[註冊使用 Azure Active Directory 登入]步驟時，為整合的應用程式建立註冊。在本節中，您將產生在使用該整合的應用程式用戶端識別碼讀取目錄資訊時所將使用的金鑰。 
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
+[AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
 ## <a name="create-api"></a>建立 GetUserInfo 自訂 API
 
-在本節中，您將建立 GetUserInfo 自訂 API，以使用 [Graph 用戶端程式庫]從 AAD 擷取使用者的其他相關資訊。
+在本節中，您將建立 GetUserInfo 自訂 API，以使用[圖形用戶端程式庫]從 AAD 擷取使用者的其他相關資訊。
 
 如果您未曾搭配使用自訂 API 與行動服務，請先參閱[自訂 API 教學課程]，再開始執行本節步驟。
 
 1. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務.NET 後端專案，然後按一下 [**管理 NuGet 封裝**]。
-2. 在 [NuGet 封裝管理員] 對話方塊中，在搜尋條件中輸入 **ADAL**，以尋找並安裝您的行動服務的 [**Active Directory Authentication Library**]。
-3. 在 [NuGet 封裝管理員] 中，同時為您的行動服務安裝 [**Microsoft Azure Active Directory Graph 用戶端程式庫**]。
+2. 在 [NuGet Package Manager] 對話方塊中，在搜尋條件中輸入 **ADAL**，以尋找並安裝您的行動服務的 [**Active Directory 驗證程式庫**]。
+3. 在 [NuGet Package Manager] 中，同時為您的行動服務安裝 [**Microsoft Azure Active Directory 圖形用戶端程式庫**]。
 
-4. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務專案的 **Controllers** 資料夾，然後按一下 [**加入**]，加入新的 **Microsoft Azure 行動服務自訂控制器**，並命名為 `GetUserInfoController`。用戶端會呼叫此 API，從 Active Directory 中取得使用者資訊。
+4. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務專案的 [**控制器**] 資料夾，然後按一下 [**新增**]，以新增名為 `GetUserInfoController` 的 [**Microsoft Azure 行動服務自訂控制器**]。用戶端會呼叫此 API，從 Active Directory 中取得使用者資訊。
 
 5. 在新的 GetUserInfoController.cs 檔案中，新增下列 `using` 陳述式。
 
@@ -111,7 +111,7 @@
             var clientAadCredentials = idents.OfType<AzureActiveDirectoryCredentials>().FirstOrDefault();
             if (clientAadCredentials == null)
             {
-                Services.Log.Error("GetUserInfo API: Could not get AAD credentials for the logged in user.");
+                Services.Log.Error("GetUserInfo API: Could not get AAD credientials for the logged in user.");
                 return null;
             }
 
@@ -131,7 +131,7 @@
     此方法會取得授權使用者的 Active Directory 物件識別碼，然後使用圖形用戶端程式庫從 Active Diretory 中取得使用者的資訊。
 
 
-8. 在 GetUserInfoController.cs 中，以下列方法取代 `Get` 方法。此方法會傳回 Graph 用戶端程式庫的 `User` 物件，並要求授權使用者呼叫 API。
+8. 在 GetUserInfoController.cs 中，以下列方法取代 `Get` 方法。此方法會傳回圖形用戶端程式庫的 `User` 物件，並要求授權使用者呼叫 API。
 
         // GET api/GetUserInfo
         [AuthorizeLevel(AuthorizationLevel.User)]
@@ -147,21 +147,21 @@
 
 ## <a name="update-app"></a>更新應用程式以使用 GetUserInfo
 
-在本節中，您會更新您在[將驗證加入至您的應用程式]教學課程中實作的 `AuthenticateAsync` 方法，以呼叫自訂 API 並從 AAD 傳回使用者的其他相關資訊。 
+在本節中，您會更新您在[將驗證新增至您的應用程式] 教學課程中實作的 `AuthenticateAsync` 方法，以呼叫自訂 API 並從 AAD 傳回使用者的其他相關資訊。 
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
+[AZURE.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
   
 
 
 ## <a name="test-app"></a>測試應用程式
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
+[AZURE.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
 
 
 
 
 
-##<a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 
 在下一個教學課程[行動服務中使用 AAD 的角色型存取控制]中，您將會搭配使用角色型存取控制與 Azure Active Directory (AAD) 來檢查群組成員資格，然後允許存取。 
 
@@ -178,12 +178,16 @@
 
 
 <!-- URLs. -->
+[將驗證加入至您的應用程式]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
 [將驗證新增至您的應用程式]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
 [如何向 Azure Active Directory 註冊]: /zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [自訂 API 教學課程]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
 [儲存伺服器指令碼]: /zh-tw/documentation/articles/mobile-services-store-scripts-source-control/
-[註冊以使用 Azure Active Directory 登入]: /zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-[Graph 用戶端程式庫]: http://go.microsoft.com/fwlink/?LinkId=510536
+[註冊使用 Azure Active Directory 登入]: /zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[圖形用戶端程式庫]: http://go.microsoft.com/fwlink/?LinkId=510536
 [取得使用者]: http://msdn.microsoft.com/zh-tw/library/azure/dn151678.aspx
 [行動服務中使用 AAD 的角色型存取控制]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/
+
+
+<!--HONumber=42-->

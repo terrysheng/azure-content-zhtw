@@ -1,17 +1,17 @@
-﻿<properties urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (iOS) | 行動開發人員中心" metaKeywords="" description="了解如何在 iOS 應用程式中驗證使用者的單一登入。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc,mahender" manager="dwrede" />
+﻿<properties pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (iOS) | 行動開發人員中心" description="了解如何在 iOS 應用程式中驗證使用者的單一登入。" documentationCenter="ios" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="wesmc,mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="wesmc,mahender"/>
 
 # 使用 Active Directory Authentication Library 單一登入驗證您的應用程式
 
-[WACOM.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
+[AZURE.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
 在本教學課程中，您會使用 Active Directory Authentication Library 將驗證新增至快速入門專案。
 
 為了能夠驗證使用者，您必須向 Azure Active Directory (AAD) 註冊您的應用程式。此作業有兩個階段。第一，您必須註冊行動服務，並公開其權限。第二，您必須註冊 iOS 應用程式，並為其授與對這些權限的存取權
 
 
->[WACOM.NOTE] 本教學課程旨在協助您深入了解如何透過行動服務，為 iOS 應用程式執行單一登入 Azure Active Directory 驗證。如果這是您第一次接觸行動服務，請先完成教學課程[開始使用行動服務]。
+>[AZURE.NOTE] 本教學課程旨在協助您深入了解如何透過行動服務，為 iOS 應用程式執行單一登入 Azure Active Directory 驗證。如果這是您第一次接觸行動服務，請先完成教學課程[開始使用行動服務]。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
@@ -28,13 +28,11 @@
 * Microsoft Azure 行動服務 SDK
 * [Active Directory Authentication Library for iOS]
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service](../includes/mobile-services-dotnet-adal-register-service.md)]
-
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-client](../includes/mobile-services-dotnet-adal-register-client.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-adal-register-client](../includes/mobile-services-dotnet-adal-register-client.md)]
 
 ## <a name="require-authentication"></a>將行動服務設定為需要驗證
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-code"></a>將驗證程式碼新增至用戶端應用程式
 
@@ -80,16 +78,16 @@
         }
 
 
-6. 在上述 `loginAndGetData` 方法的程式碼中，以您佈建應用程式的租用戶名稱來取代 **INSERT-AUTHORITY-HERE**，格式應該為 https://login.windows.net/tenant-name.onmicrosoft.com。您可以在 [Azure 管理入口網站]中，從 Azure Active Directory 的 [網域] 索引標籤中複製此值。
+6. 在上述  `loginAndGetData` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 取代成您佈建應用程式的租用戶名稱，其格式應為 https://login.windows.net/tenant-name.onmicrosoft.com。此值可從 [Azure 管理入口網站]中 Azure Active Directory 的 [網域] 索引標籤複製。
 
-7. 在上述 `loginAndGetData` 方法的程式碼中，將 **INSERT-RESOURCE-URI-HERE** 取代為您行動服務的 **應用程式識別碼 URI**。如果您依照[如何向 Azure Active Directory 註冊]主題的內容操作，您的應用程式識別碼 URI 應會類似於 https://todolist.azure-mobile.net/login/aad。
+7. 在上述  `loginAndGetData` 方法的程式碼中，將 **INSERT-RESOURCE-URI-HERE** 取代為您行動服務的 [**應用程式識別碼 URI**]。如果您依照[如何向 Azure Active Directory 註冊]主題的內容操作，您的應用程式識別碼 URI 應類似於 https://todolist.azure-mobile.net/login/aad。
 
-8. 在上述 `loginAndGetData` 方法的程式碼中，將 **INSERT-CLIENT-ID-HERE** 取代為您從原生用戶端應用程式中複製的用戶端識別碼。
+8. 在上述  `loginAndGetData` 方法的程式碼中，將 **INSERT-CLIENT-ID-HERE** 取代為您從原生用戶端應用程式中複製的用戶端識別碼。
 
-9. 在上述 `loginAndGetData` 方法的程式碼中，將 **INSERT-REDIRECT-URI-HERE** 取代為您行動服務的 /login/done 端點。此項目應與 https://todolist.azure-mobile.net/login/done 類似。
+9. 在上述  `loginAndGetData` 方法的程式碼中，將 **INSERT-REDIRECT-URI-HERE** 取代為您行動服務的 /login/done 端點。此項目應與 https://todolist.azure-mobile.net/login/done. 類似。
 
 
-3. 在 QSTodoListViewController 中，修改 `ViewDidLoad`，使用下列程式碼取代 `[self refresh]`：
+3. 在 QSTodoListViewController 中， 使用下列程式碼取代 `[self refresh]` ，以修改  `ViewDidLoad`︰
 
         [self loginAndGetData];
 
@@ -114,3 +112,6 @@
 [如何向 Azure Active Directory 註冊]: /zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
+
+
+<!--HONumber=42-->

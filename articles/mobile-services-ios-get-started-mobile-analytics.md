@@ -1,6 +1,6 @@
-<properties urlDisplayName="Get Started with Mobile Analytics" pageTitle="開始使用行動分析 | 行動開發人員中心" metaKeywords="" description="開始使用行動分析。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get Started with Mobile Analytics" authors="mahender" manager="dwrede"/>
+﻿<properties pageTitle="開始使用行動分析 | 行動開發人員中心" description="開始使用行動分析。" documentationCenter="ios" authors="mattchenderson" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender"/>
 
 # 開始使用行動分析 (Capptain)
 
@@ -26,12 +26,12 @@
 
 ## <a name="initialize"></a>初始化 Capptain SDK
 
-1. 瀏覽至您在 Capptain 中註冊之應用程式的 [**應用程式詳細資料**] 頁面。選取 [SDK] 索引標籤，並下載套件。
+1. 導覽至您在 Capptain 中註冊之應用程式的 [**應用程式詳細資料**] 頁面。選取 [SDK] 索引標籤，並下載套件。
 
 2. 在 XCode 中，以滑鼠右鍵按一下您的專案並選取 [將檔案新增至...]，以將 Capptain SDK 新增至您的專案。選擇 CapptainSDK 資料夾。
 
-3. 選取您的專案。在 [**Build Phases**] 索引標籤下選取 [**Link Binary With Libraries**]，然後新增下列架構：
-    * AdSupport.framework - 將連結設為選用
+3. 選取您的專案。在 [**組建階段**] 索引標籤下選取 [**連結二進位檔與程式庫**]，然後新增下列架構：
+    * AdSupport.framework - set the link as Optional
     * SystemConfiguration.framework
     * CoreTelephony.framework
     * CFNetwork.framework
@@ -57,7 +57,7 @@
 
 ## <a name="instrument"></a>多載 UIViewController
 
-1. 在您的專案中找出 `UIViewController` 的每個子系，然後確定每個子系都改為繼承自 `CapptainViewController`。
+1. 在您的專案中找出  `UIViewController` 的每個子系，然後確定每個子系都改為繼承自  `CapptainViewController`。
 
         #import <UIKit/UIKit.h>
         #import "CapptainViewController.h"
@@ -71,12 +71,12 @@
         @property (nonatomic, retain) IBOutlet UITextField* myTextField1;
         @property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
-2. 在您的專案中找出 `UITableViewController` 的每個子系，然後確定每個子系都改為繼承自 `CapptainTableViewController`。
+2. 在您的專案中找出  `UITableViewController` 的每個子系，然後確定每個子系都改為繼承自  `CapptainTableViewController`。
 
     您的應用程式現在已設定成將分析資料傳送至 Capptain。
 
 ## 後續步驟
-在上了解 Capptain 還可為您的應用程式執行哪些工作(http://www.capptain.com)
+在 [http://www.capptain.com](http://www.capptain.com) 上了解 Capptain 還可為您的應用程式執行哪些工作
 
 <!-- Anchors. -->
 [初始化 Capptain SDK]: #initialize
@@ -87,4 +87,5 @@
 [Capptain]: http://www.capptain.com
 [行動服務標準層]: /zh-tw/pricing/details/mobile-services/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

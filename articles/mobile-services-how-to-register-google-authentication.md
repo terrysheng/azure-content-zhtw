@@ -1,45 +1,54 @@
-<properties linkid="develop-mobile-how-to-guides-register-for-google-authentication" urlDisplayName="Register for Google Authentication" pageTitle="Register for Google authentication - Mobile Services" metaKeywords="Azure registering application, Azure authentication, Google application authenticate, authenticate mobile services" description="Learn how to register your apps to use Google to authenticate with Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Google login with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+﻿<properties pageTitle="註冊 Google 驗證 - 行動服務" description="了解如何在 Azure 行動服務中註冊您的應用程式以使用 Google 進行驗證。" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
 
 # 在行動服務中註冊您的應用程式以進行 Google 登入
 
 本主題說明如何在 Azure 行動服務中註冊您的應用程式，使其能夠採用 Google 驗證。
 
-<div class="dev-callout"><b>注意</b>
-<p>若要完成本主題的程序，您必須具有已通過電子郵件地址驗證的 Google 帳戶。若要建立新的 Google 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>。</p>
-</div>
+>[AZURE.NOTE] 本教學課程有關 [Azure 行動服務](http://azure.microsoft.com/zh-tw/services/mobile-services/)，此方案可協助您建置適用於任何平台的可擴充行動應用程式。行動服務讓同步處理資料、驗證使用者及推播通知等作業變得簡單。此頁面支援<a href="http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started-users/">開始使用驗證</a>教學課程，顯示如何將使用者登入您的應用程式。如果這是您第一次使用行動服務，請完成<a href="http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started/">開始使用行動服務</a>教學課程。
 
-1.  瀏覽至 [Google apis][Google apis] (英文) 網站，以您的 Google 帳戶認證登入，按一下 [Create Project]，提供「專案名稱」，然後按一下 [Create]。
+若要完成本主題的程序，您必須具有已通過電子郵件地址驗證的 Google 帳戶。若要建立新的 Google 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>。
 
-    ![][0]
+1. 瀏覽至 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> 網站，以您的 Google 帳戶認證登入，按一下 [**建立專案**]，提供 [**專案名稱**]，然後按一下 [**建立**]。
 
-2.  依序按一下 [API & Auth]、[Credentials] 和 [Create new Client ID]。
+   	![][1]
 
-    ![][1]
+2. 按一下 [**同意**] 畫面，選取您的 [**電子郵件地址**]，輸入 [**產品名稱**]，然後按一下 [**儲存**]。 
 
-3.  選取 [Web application]，在 [Authorized JavaScript Origins] 中輸入您的行動服務 URL，將 [Authorized Redirect URI] 中所產生的 URL，取代為行動服務的 URL，後面附加路徑 */login/google*，然後按一下 [Create client ID]。
+3. 依序按一下 [**API & Auth**]、[**認證**] 和 [**建立新的用戶端識別碼**]。
 
-    > [WACOM.NOTE]如需使用 Visual Studio 將 .NET 後端行動服務發佈至 Azure，則重新導向 URL 是行動服務的 URL 後面附加路徑 *signin-google*，而您的行動服務為 .NET 服務，例如 <code>https://todolist.azure-mobile.net/signin-google</code>.
+   	![][2]
 
-    ![][2]
+4. 選取 [**Web 應用程式**]，在 [**已授權的 JavaScript 起源**] 中輸入您的行動服務 URL，將 [**已授權的重新導向 URI**] 中所產生的 URL，取代為行動服務的 URL，後面附加路徑 _/login/google_，然後按一下 [**建立用戶端識別碼**]。
 
-4.  在 [Client ID for web applications] 下，記下 [用戶端識別碼] 和 [用戶端密碼] 的值。
+	>[AZURE.NOTE] 如需使用 Visual Studio 將 .NET 後端行動服務發佈至 Azure，則重新導向 URL 是行動服務的 URL 後面附加路徑 _signin-google_，而您的行動服務為 .NET 服務，例如 <code>https://todolist.azure-mobile.net/signin-google</code>。 
 
-    ![][3]
+   	![][3]
 
-    <div class="dev-callout"><b>安全性注意事項</b>
-<p>用戶端密碼是重要的安全性認證。請勿將此密碼告訴任何人或隨應用程式一起散發。</p>
-</div>
+5. 在 [**Web 應用程式的用戶端識別碼**] 下，記下 [**用戶端識別碼**] 和 [**用戶端密碼**] 的值。 
+
+   	![][4]
+
+    > [AZURE.IMPORTANT] 用戶端密碼是重要的安全性認證。請勿將此密碼告訴任何人或隨應用程式一起散發。
 
 現在您已準備好提供用戶端識別碼和用戶端密碼值給行動服務，以在您的應用程式中採用 Google 登入驗證。
 
- 
- 
+<!-- Anchors. -->
+
+<!-- Images. -->
+[1]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-new-project.png
+[2]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client.png
+[3]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client2.png
+[4]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client3.png
+[5]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-app-details.png
+
+<!-- URLs. -->
+
+[Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
+[開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet/
+
+[Azure 管理入口網站]: https://manage.windowsazure.com/
 
 
-  [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
-  [0]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-new-project.png
-  [1]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client.png
-  [2]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client2.png
-  [3]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client3.png
+<!--HONumber=42-->

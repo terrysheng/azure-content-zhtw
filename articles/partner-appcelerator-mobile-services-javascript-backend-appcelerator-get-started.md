@@ -1,10 +1,24 @@
-<properties pageTitle="開始為 Appcelerator Titanium 使用 Azure 行動服務" metaKeywords="" description="遵循此教學課程，可開始使用 Azure 行動服務進行 Appcelerator 開發。 " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="開始為 Appcelerator Titanium 使用 Azure 行動服務" 
+	description="遵循此教學課程，可開始使用 Azure 行動服務進行 Appcelerator 開發。" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="mahender"/>
 
 # <a name="getting-started"> </a>開始使用行動服務
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 本教學課程說明如何將 Azure 行動服務運用在已建置 Appcelerator 的應用程式中。
 
@@ -18,31 +32,31 @@
 
 ## <a name="create-new-service"> </a>建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## 建立新的 Appcelerator 應用程式
 
-1. 在 [行動服務] 入口網站中，選取您行動服務的 [**資料**] 索引標籤。
+1. 在 [行動服務] 入口網站中，選取您行動服務的 [資料] ****索引標籤。
 
-2. 按一下 [**加入資料表**]，並建立名為 **TodoItem** 的新資料表。
+2. 按一下 **[加入新的資料表]**，並建立名為 **TodoItem** 的新資料表。
 
-3. 下載新的 Appcelerator [待辦清單應用程式]，然後解壓縮專案。
+3. 下載新的 Appcelerator [Todolist] 應用程式，然後解壓縮專案。
 
 4. 下載並安裝 [Appcelerator Titanium Studio][Appcelerator Titanium] 和 SDK v3.2.1 或更新版本 (若您尚未這麼做)。您還需要 Xcode (v 5.0 +) 和/或 Android SDK (v 4.3+) 才能執行專案。
 
-5. 回到 [行動服務] 入口網站，選取 [**儀表板**] 下的 [**管理金鑰**]，然後將 [**應用程式金鑰**] 複製出去。
+5. 回到 [行動服務] 入口網站，選取 **[儀表板]** 下的 **[管理金鑰]**，然後將 **[應用程式金鑰]** 複製出去。
 
-5. 在應用程式的 index.js 中，以行動服務的值取代 `<---App Name---->` 和 `<------------APP KEY------------>`。
+5. 在應用程式的 index.js 中，使用行動服務的值來取代 `<---App Name---->` 和 `<------------APP KEY------------>`。
 
 ## 執行新的 Appcelerator 應用程式 ##
 
 本教學課程的最後階段是建立並執行新的應用程式。
 
-1. 開啟 Titanium studio，並移至 [**檔案 -> 匯入**] 以匯入先前下載的專案。
+1. 開啟 Titanium studio，移至 **[檔案 -> 匯入]** 以匯入先前下載的專案。
 
     ![][0]
 
-2.	在下個畫面中，選取 [**將現有專案匯入工作區**]，然後按 [**下一步**]。
+2.	在下個畫面中，選取 **[將現有專案匯入工作區]**，然後按 **[下一步]**。
 
     ![][1]
 
@@ -50,7 +64,7 @@
 
     ![][2]
 
-4.	系統最後會顯示您在專案選取中所選取的專案。您可以選擇勾選 [Copy projects into workspace] 選項，該選項會將已下載的專案複製到您的工作區。最後，按一下 [完成] 將專案於 Titanium Studio 中開啟。
+4.	系統最後會顯示您在專案選取中所選取的專案。或者，您可以選擇勾選 [將專案複製到工作區]&quot;&quot; 選項，該選項會將已下載的專案複製到您的工作區。最後，按一下 [完成] 將專案於 Titanium Studio 中開啟。
 
     ![][3]
 
@@ -64,7 +78,7 @@
 
     ![][5]
 
-8.	在下個畫面中，按一下加號 (+) 圖示並輸入有意義的全文字 (例如「完成本教學課程」)，然後按一下 [儲存] 按鈕。<br />
+8.	在下個畫面中，按一下加號 (+) 圖示並輸入有意義的全文字 (例如 &quot;完成本教學課程&quot;)，然後按一下 [儲存] 按鈕。<br />
 
     ![][6]
 
@@ -75,9 +89,9 @@
 ![][8]
 
 
->[WACOM.NOTE] 您可以檢閱存取行動服務來查詢和插入資料的程式碼，這可以在 TodoService.m 檔案中找到。
+>[AZURE.NOTE] 您可以檢閱存取行動服務來查詢和插入資料的程式碼，這可以在 TodoService.m 檔案中找到。
 
-4. 回到管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItems**] 表格。
+4. 回到管理入口網站中，按一下 [資料] ****索引標籤，然後按一下 [TodoItems]**** 資料表。
 
    	![][9]
 
@@ -111,9 +125,10 @@
 [10]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/mobile-data-browse.png
 
 <!-- URLs. -->
-[待辦清單應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=506859
+[Todolist 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=506859
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
 [開始使用驗證]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
 [開始使用推播通知]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

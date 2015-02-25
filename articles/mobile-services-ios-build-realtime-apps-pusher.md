@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Build Realtime Apps with Pusher" pageTitle="使用 Pusher 建立即時應用程式 (iOS) - 行動服務" metaKeywords="" description="了解如何使用 Pusher 將通知傳送到 iOS 上的 Azure 媒體服務應用程式。" metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="donnam" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="使用 Pusher 建立即時應用程式 (iOS) - 行動服務" description="了解如何使用 Pusher 將通知傳送到 iOS 上的 Azure 媒體服務應用程式。" services="" documentationCenter="ios" authors="lindydonna" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="donnam"/>
 
 
 # 使用行動服務和 Pusher 建立即時應用程式
@@ -12,20 +12,20 @@
 
 [推播通知給使用者][]教學課程將示範如何使用推播通知來通知使用者 Todo 清單中有新項目。推播通知相當適合用於顯示非經常性變更。不過，應用程式有時候需要經常性即時通知。使用 Pusher API 即可將即時通知新增至行動服務。在本教學課程中，我們將行動服務搭配 Pusher 使用，以便在應用程式的任何執行中執行個體發生變更時，保持 Todo 清單同步。
 
-Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即時應用程式變得相當輕鬆容易。您可以使用 Pusher 快速建立即時民調、聊天室、多人遊戲和共同作業應用程式 (以廣播即時資料和內容)，不過優點不僅止於此！如需詳細資訊，請參閱 [http://pusher.com](http://pusher.com) (英文)。
+Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即時應用程式變得相當輕鬆容易。您可以使用 Pusher 快速建立即時民調、聊天室、多人遊戲和共同作業應用程式 (以廣播即時資料和內容)，不過優點不僅止於此！如需詳細資訊，請參閱 [http://pusher.com](http://pusher.com)。
 
 本教學課程將逐步引導您完成下列基本步驟，將即時共同作業新增至 Todo 清單應用程式：
 
 1. [建立 Pusher 帳戶][]
 2. [更新應用程式][]
-3. [安裝服務指令碼][]
+3. [安裝伺服器指令碼][]
 4. [測試應用程式][]
 
-本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][]。
+本教學課程以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務][]。
 
 ## <a name="sign-up"></a>建立新的 Pusher 帳戶
 
-[WACOM.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
+[AZURE.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
 
 ## <a name="update-app"></a>更新應用程式
 
@@ -35,34 +35,34 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 
 [libPusher][] 程式庫可以讓您從 iOS 存取 Pusher。
 
-1. [從這裡][libPusherDownload] (英文) 下載 libPusher 程式庫。
+1. 從[這裡][libPusherDownload]下載 libPusher 程式庫。
 
 2. 在您的專案中建立名稱為 _libPusher_ 的群組。
 
-3. 在尋找程式中，將下載的 zip 檔解壓縮，並選取 **libPusher-combined.a** 及 **/headers** 資料夾，然後將這些項目拖曳至您專案的 **libPusher** 群組中。
-
-4. 勾選 [**Copy items into destination group's folder**]，然後按一下 [**完成**]
+3. 在尋找程式中，將下載的 zip 檔解壓縮，並選取 **libPusher-combined.a** 和 **/headers** 資料夾，然後將這些項目拖曳至您專案的 **libPusher** 群組中。
+	
+4. 勾選 [**將項目複製到目的地群組的資料夾中**]，然後按一下 [**完成**]
 
 	![][add-files-to-group]
 
    這會將 libPusher 檔案複製到您的專案。
 
-5. 在專案總管的專案根目錄中，按一下 [**Build Phases**]，然後按一下 [**Add Build Phase**] 及 [**Add Copy Files**]。
+5. 在專案總管的專案根目錄中，按一下 [**組建階段**]，然後按一下 [**新增組建階段**] 及 [**新增副本檔案**]。
 
 6. 從專案總管將 **libPusher-combined.a** 檔案拖曳至新的組建階段。
 
-7. 將 [**Destination**] 變更為 [**Frameworks**]，然後按一下 [**Copy only when installing**]。
+7. 將 [**目的地**] 變更為 [**Frameworks**]，並按一下 [**僅在安裝時複製**]。
 
 	![][add-build-phase]
 
-8. 在 [**Link Binary With Libraries**] 區域內，新增下列程式庫：
+8. 在 [**連結二進位檔與程式庫**] 區域中，新增下列程式庫：
 
 	- libicucore.dylib
 	- CFNetwork.framework
 	- Security.framework
 	- SystemConfiguration.framework
 
-9. 最後，在 [**組建設定**] 內，找出目標組建設定 [**Other Linker Flags**]，並新增 **-all_load** 旗標。
+9. 最後，在 [**組建設定**] 中，找出目標組建設定 [**其他連結器旗標**]，並新增 **-all_load** 旗標。
 
 	![][add-linker-flag]
 
@@ -86,7 +86,7 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 2. 以下列內容取代現有的 **addItem** 和 **completeItem** 宣告：
 
 		- (void) addItem:(NSDictionary *) item;
-		- (void) completeItem:(NSDictionary *) item;
+		- (void) completeItem: (NSDictionary *) item;
 
 3. 在 **QSTodoService.m** 中，新增下列程式碼來實作新方法：
 
@@ -133,7 +133,7 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 
 	QSTodoService 現在可讓您依 **id** 尋找項目，而且在本機新增並完成項目，完全不需要向遠端服務傳送明確要求。
 
-4. 以下列程式碼取代現有的 **addItem** 和 **completeItem** 方法：
+4. 使用下列程式碼來取代現有的 **addItem** 和 **completeItem** 方法︰
 
 		-(void) addItem:(NSDictionary *)item
 		{
@@ -178,7 +178,7 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 		// Sets up the Pusher client
 		- (void) setupPusher;
 
-9. 在 **QSTodoListViewController.m** 中，將下列一行新增至其餘 **@synthesise** 行之下，以便實作新屬性：
+9. 在 **QSTodoListViewController.m** 中，將下列字行新增至其他  **@synthesise** 字行底下，以實作新的屬性：
 
 		@synthesize pusher = _pusher;
 
@@ -226,9 +226,9 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 		    }];
 		}
 
-11. 以稍早從 [連線資訊] 對話方塊複製的 app_key 值，取代 `**your_app_key**` 預留位置。
+11. 以稍早從 [連線資訊] 對話方塊複製的 app_key 值取代 `**your_app_key**`  預留位置。
 
-12. 使用下列程式碼取代 **onAdd** 方法：
+12. 以下列程式碼取代 **onAdd** 方法：
 
 		- (IBAction)onAdd:(id)sender
 		{
@@ -242,7 +242,7 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 		    itemText.text = @"";
 		}
 
-13. 在 **QSTodoListViewController.m** 檔案中，找出 (void)viewDidLoad 方法並新增 **setupPusher** 方法的呼叫，使前幾行變成：
+13. 在 **QSTodoListViewController.m** 檔案中，找出 (void)viewDidLoad  方法並新增 **setupPusher** 方法的呼叫，使前幾行變成：
 
 		- (void)viewDidLoad
 		{
@@ -258,7 +258,7 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 
 
 
-<h2><a name="install-scripts"></a>安裝服務指令碼</h2>
+<h2><a name="install-scripts"></a>安裝伺服器指令碼</h2>
 
 
 
@@ -269,20 +269,20 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 1. 登入 [Azure 管理入口網站]，按一下 [**行動服務**]，然後按一下您的行動服務。
 
 
-2. 在管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItem**] 資料表。
+2. 在管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 **TodoItem** 資料表。
 
 	![][1]
 
 
 
-3. 在 [**TodoItem**] 中，按一下 [**指令碼**] 索引標籤，然後選取 [**插入**]。
+3. 在 **TodoItem** 中，按一下 [**指令碼**] 索引標籤，然後選取 [**插入**]。
 
 
 	![][2]
 
 
 
-	這會顯示 [**TodoItem**] 資料表中發生插入時所叫用的函數。
+	這會顯示 **TodoItem** 資料表中發生插入時所叫用的函數。
 
 
 4. 使用下列程式碼來取代插入函數：
@@ -318,17 +318,17 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 
 
 
-5. 以先前從 [連線資訊] 對話方塊中複製的值取代上述指令碼中的預留位置。
+5. 以先前從 [連線資訊] 對話方塊中複製的值取代上述指令碼中的預留位置︰
 
-	- **`**your_app_id**`**：app&#95;id 值
-	- **`**your_app_key**`**：app&#95;key 值
-	- **`**your_app_key_secret**`**：app&#95;key&#95;secret
+	- **`**your_app_id**`**︰app&#95;id value
+	- **`**your_app_key**`**︰app&#95;key value
+	- **`**your_app_key_secret**`**︰app&#95;key&#95;secret
 
 
 6. 按一下 [**儲存**] 按鈕。您現在已設定指定碼，可在每次有新項目插入至 **TodoItem** 資料表時，就發佈事件至 Pusher。
 
 
-7. 從 [**作業**] 下拉式清單中選取 [**Update**]。
+7. 從 [**作業**] 下拉式功能表中，選取 [**更新**]。
 
 
 8. 以下列程式碼取代 update 函數：
@@ -377,7 +377,7 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 
 若要測試應用程式，您需要執行兩個執行個體。您可以在 iOS 裝置上執行一個執行個體，並在 iOS 模擬器上執行另一個執行個體。
 
-1. 連接 iOS 裝置，按 [**執行**] 按鈕 (或 Command+R 鍵)，在裝置上啟動應用程式，然後停止偵錯。
+1. 連接 iOS 裝置，按 [**執行**] 按鈕 (或 Command+R 鍵) 在裝置上啟動應用程式，然後停止偵錯。
 
 	您的應用程式現在已安裝到裝置上。
 
@@ -399,15 +399,15 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 
 您已看見對行動服務使用 Pusher 服務有多輕鬆，現在請參考下列連結深入了解 Pusher。
 
--   Pusher API 文件：<http://pusher.com/docs>
--   Pusher 教學課程：<http://pusher.com/tutorials>
+-   Pusher API 文件： <http://pusher.com/docs>
+-   Pusher 教學課程： <http://pusher.com/tutorials>
 
-若要深入了解註冊和使用服務指令碼，請參閱[行動服務伺服器指令碼參考]。
+若要深入了解註冊和使用服務指令碼，請參閱[行動服務伺服器指令碼參照]。
 
 <!-- Anchors. -->
 [建立 Pusher 帳戶]: #sign-up
 [更新應用程式]: #update-app
-[安裝服務指令碼]: #install-scripts
+[安裝伺服器指令碼]: #install-scripts
 [測試應用程式]: #test-app
 
 <!-- Images. -->
@@ -428,3 +428,6 @@ Pusher 是一種雲端型服務，和行動服務一樣，能夠使得建立即�
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
 [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+
+
+<!--HONumber=42-->

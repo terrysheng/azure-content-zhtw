@@ -1,14 +1,14 @@
-<properties urlDisplayName="Get Started with Data (HTML5)" pageTitle="開始使用資料 (HTML 5) | 行動開發人員中心" metaKeywords="" description="了解如何開始使用行動服務來運用 HTML 應用程式中的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="開始使用資料 (HTML 5) | 行動開發人員中心" description="了解如何開始使用行動服務，在您的 HTML 應用程式中使用資料。" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"/>
 
-# 新增行動服務到現有的應用程式
+# 將行動服務新增至現有的應用程式
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 本主題將示範如何使用 Azure 行動服務，以在 HTML 應用程式中運用資料。在本教學課程中，您將下載應用程式，並在記憶體中儲存資料、建立新的行動服務、將行動服務與該應用程式整合，然後登入 Azure 管理入口網站查看執行應用程式時所做的資料變更。
 
->[WACOM.NOTE]本教學課程旨在協助您深入了解行動服務可以如何讓您使用 Azure，以儲存與擷取 HTML 應用程式的資料。因此，本主題將逐步說明已在行動服務快速入門中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮先完成教學課程 <a href="/zh-tw/develop/mobile/tutorials/get-started-html">開始使用行動服務</a>。
+>[AZURE.NOTE]本教學課程旨在協助您深入了解行動服務可以如何讓您使用 Azure，以儲存與擷取 HTML 應用程式的資料。因此，本主題將逐步說明已在行動服務快速入門中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮先完成<a href="/zh-tw/develop/mobile/tutorials/get-started-html">開始使用行動服務</a>教學課程。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
@@ -18,7 +18,7 @@
 4. [更新應用程式以使用行動服務]
 5. [針對行動服務進行應用程式測試]
 
-<div class="dev-callout"><strong>注意</strong> <p>若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F" target="_blank">Azure 免費試用</a>。</p></div> 
+> [AZURE.IMPORTANT] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F"%20target="_blank)。
 
 ###其他需求
 
@@ -26,9 +26,9 @@
  
 + 若要使用 localhost，本教學課程需要您在本機電腦上執行下列其中一部網頁伺服器：
 
-	+  **在 Windows 上**：IIS Express。IIS Express 是透過 [Microsoft Web Platform Installer] 所安裝。   
-	+  **在 MacOS X 上**：Python (應該已安裝)。
-	+  **在 Linux 上**：Python。您必須安裝[最新版本的 Python]。 
+	+  **在 Windows 上**︰IIS Express。IIS Express 是透過 [Microsoft Web Platform Installer] 所安裝。   
+	+  **在 MacOS X 上**︰Python (應該已安裝)。
+	+  **在 Linux 上**︰Python。您必須安裝[最新版本的 Python]。 
 	
 	您可以使用任何網頁伺服器來裝載應用程式，但是這些是已下載指令碼所支援的網頁伺服器。  
 
@@ -36,13 +36,13 @@
 
 <h2><a name="download-app"></a>下載 GetStartedWithData 專案</h2>
 
-本教學課程是採用 [GetStartedWithData 應用程式] (HTML5 應用程式) 所建立。除了會將新增項目儲存在本機記憶體中之外，由此應用程式與行動服務快速入門所產生的應用程式兩者的 UI 完全相同。 
+本教學課程以 [GetStartedWithData 應用程式] (HTML5 應用程式) 為基礎。除了會將新增項目儲存在本機記憶體中之外，由此應用程式與行動服務快速入門所產生的應用程式兩者的 UI 完全相同。 
 
-1. [下載 HTML 應用程式專案檔案][GetStartedWithData app]。
+1. [下載 HTML 應用程式專案檔案][GetStartedWithData 應用程式]。
 
 2. 在 HTML 編輯器中，開啟下載的專案並檢查 app.js 檔案。
 
-   	請注意，新增的項目會儲存在記憶體內部的 **Array** 物件 (**staticItems**) 中。在幾秒後重新整理頁面，縮圖便會隨即出現。.此資料不會保留下來。
+   	請注意，新增的項目會儲存在記憶體內部的 **Array** 物件 (**staticItems**) 中。Refresh the page, and the data disappears.此資料不會保留下來。
 
 3. 從 **server** 子資料夾中啟動下列其中一個命令檔案。
 
@@ -50,15 +50,13 @@
 	+ **launch-mac.command** (Mac OS X 電腦)
 	+ **launch-linux.sh** (Linux 電腦)
 
-	<div class="dev-callout"><b>注意</b>
-		<p>在 Windows 電腦上，PowerShell 要求您確認想要執行指令碼時，請輸入 'R'。因為指令碼是從網際網路中下載，所以您的網頁瀏覽器可能會警告您不要執行指令碼。發生此情況時，您必須要求瀏覽器繼續載入指令碼。</p>
-	</div>
+	> [AZURE.NOTE] 在 Windows 電腦上，PowerShell 要求您確認想要執行指令碼時，請輸入 'R'。因為指令碼是從網際網路中下載，所以您的網頁瀏覽器可能會警告您不要執行指令碼。發生此情況時，您必須要求瀏覽器繼續載入指令碼。
 	
 	這樣會在本機電腦上啟動 Web 伺服器來裝載新的應用程式。
 
 4. 在網頁瀏覽器中開啟 URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> 來啟動應用程式。
 
-5. 在應用程式中，於 [Enter new task]**** 中輸入有意義的文字 (例如 _Complete the tutorial_)，然後按一下 [新增]****。
+5. 在應用程式中，於 [**輸入新工作**] 中輸入有意義的文字 (例如 _Complete the tutorial_)，然後按一下 [**新增**]。
 
    	![][0]  
 
@@ -66,7 +64,7 @@
 
 <h2><a name="create-service"></a>在管理入口網站中建立新的行動服務</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 <h2><a name="add-table"></a>將新資料表新增至行動服務</h2>
 
@@ -78,18 +76,15 @@
 
    	![][5]
 
-   	這樣做會顯示 [建立新資料表]**** 對話方塊。
+   	這樣做會顯示 [**建立新資料表**] 對話方塊。
 
-3. 在 [資料表名稱] ****中輸入 _TodoItem_，然後按一下打勾按鈕。
+3. 在 [**資料表名稱**] 中輸入 _TodoItem_，然後按一下核取按鈕。
 
   	![][6]
 
   	這會建立包含預設權限集的新儲存資料表 **TodoItem**。這表示擁有應用程式金鑰 (隨應用程式散佈) 的人都可以存取與變更資料表中的資料。
 
-    <div class="dev-callout"> 
-	<b>注意</b> 
-	<p>行動服務快速入門中使用相同的資料表名稱。不過，會在指定行動服務特定的結構描述中建立每個資料表。目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。</p> 
-	</div>
+    > [AZURE.NOTE] 行動服務快速入門中使用相同的資料表名稱。However, each table is created in a schema that is specific to a given mobile service.目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。
 
 4. 按一下新的 **TodoItem** 資料表，並驗證其中不含資料列。
 
@@ -103,39 +98,35 @@
  	</tr>
  	<tr>
  	<td>id</td>
- 	<td>字串</td>
- 	<td>已編製索引</td>
+ 	<td>string</td>
+ 	<td>Indexed</td>
  	</tr>
  	<tr>
  	<td>__createdAt</td>
- 	<td>日期</td>
- 	<td>已編製索引</td>
+ 	<td>date</td>
+ 	<td>Indexed</td>
  	</tr>
  	<tr>
  	<td>__updatedAt</td>
- 	<td>日期</td>
+ 	<td>date</td>
  	<td><font color="transparent">-</font></td>
  	</tr>
  	<tr>
  	<td>__version</td>
- 	<td>時間戳記 (MSSQL)</td>
+ 	<td>timestamp (MSSQL)</td>
  	<td><font color="transparent">-</font></td>
  	</tr> 	
  	</table> 
 
   	此為行動服務資料表的最低需求。 
 
-    <div class="dev-callout"><b>注意</b>
-	<p>若您的行動服務啟用動態結構描述，當行動服務透過插入或更新操作收到 JSON 物件時，便會自動建立新資料行。</p>
-    </div>
+    > [AZURE.NOTE] 若您的行動服務啟用動態結構描述，當行動服務透過插入或更新操作收到 JSON 物件時，便會自動建立新資料行。
 
-6. 在 [設定] ****索引標籤中，驗證 localhost 已列在 [跨原始資源共用 (CORS)]**** 的 [允許來自主機名稱的要求] ****清單中。否則，請在 [主機名稱]**** 欄位中輸入 `localhost`，然後按一下 [儲存]****。
+6. 在 [**設定**] 索引標籤中，驗證  `localhost` 已列在 [**跨原始資源共用 (CORS)**] 的 [**允許來自主機名稱的要求**] 清單中。否則，請在 [**主機名稱**] 欄位中輸入  `localhost`，然後按一下 [**儲存**]。
 
   	![][11]
 
-	<div class="dev-callout"><b>注意</b>
-		<p>如果您將快速入門應用程式部署至 localhost 以外的 Web 伺服器，您必須將該 Web 伺服器的主機名稱新增至 <strong>[允許來自主機名稱的要求]</strong> 清單。如需詳細資訊，請參閱 <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dn155871.aspx" target="_blank">跨原始資源共用</a>。</p>
-	</div>
+	> [AZURE.IMPORTANT] 如果您將快速入門應用程式部署至 localhost 以外的 Web 伺服器，您必須將該 Web 伺服器的主機名稱新增至 [**允許提出要求的主機名稱**] 清單。如需詳細資訊，請參閱[跨原始來源資源分享http://msdn.microsoft.com/zh-tw/library/windowsazure/dn155871.aspx"%20target="_blank)。
 
 現在您已準備好將新的行動服務作為應用程式的資料儲存區使用。
 
@@ -241,11 +232,9 @@
 
 <h2><a name="test-app"></a>對新的行動服務進行應用程式測試</h2>
 
-4. 在網頁瀏覽器中重新載入 URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> 以啟動應用程式。
+4. 在網頁瀏覽器中重新載入 URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>，以啟動應用程式。
 
-    <div class="dev-callout"><b>注意</b>
-	<p>如果您需要重新啟動網頁伺服器，請重複第一部分中的步驟。</p>
-    </div>
+    > [AZURE.NOTE] 如果您需要重新啟動網頁伺服器，請重複第一部分中的步驟。
 
 2. 和之前一樣，在 [Enter new task]**** 中輸入文字，然後按一下 [新增]****。 
 
@@ -257,19 +246,19 @@
 
    	![][9]
   
-   	請注意，**TodoItem** 表格現在包含資料，其中識別碼值由行動服務產生，且資料欄已自動新增到表格以符合應用程式中的 TodoItem 類別。
+   	請注意，**TodoItem** 資料表現在包含資料，其中識別碼值由行動服務產生，且資料欄已自動新增到資料表以符合應用程式中的 TodoItem 類別。
 
 5. 在應用程式中檢查清單中的其中一個項目，然後返回入口網站中的 [瀏覽] 索引標籤，並按一下 [重新整理]****。 
 
   	請注意，完成值已從 **false** 變更為 **true**。
 
-6. 在 app.js 專案檔案中，尋找 **RefreshTodoItems** 方法，並以下列程式碼取代定義 `query` 的程式碼字行：
+6. 在 app.js 專案檔案中，尋找 **RefreshTodoItems** 方法，並以下列程式碼取代定義  `query` 的程式碼字行：
 
    		var query = todoItemTable.where({ complete: false });
 
 7. 再次載入此頁面，並勾選清單中的另一個項目。
 
-   	請注意，所有已核取的項目都會從清單中消失。每次更新都會往返行動服務一次，而現在會傳回篩選的資料。.
+   	請注意，所有已核取的項目都會從清單中消失。Each update results in a round-trip to the mobile service, which now returns filtered data.
 
 這將結束**開始使用資料**教學課程。
 
@@ -322,4 +311,5 @@
 [跨原始資源共用]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn155871.aspx
 
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

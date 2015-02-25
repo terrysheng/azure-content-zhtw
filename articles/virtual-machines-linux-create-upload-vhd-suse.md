@@ -1,12 +1,12 @@
-﻿<properties urlDisplayName="Upload a SUSE Linux VHD" pageTitle="在 Azure 中建立及上傳 SUSE Linux VHD" metaKeywords="Azure VHD, uploading Linux VHD, SUSE, SLES, openSUSE" description="了解如何建立及上傳包含 SUSE Linux 作業系統的 Azure 虛擬硬碟 (VHD)。" metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a SUSE Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="在 Azure 中建立及上傳 SUSE Linux VHD" description="了解如何建立及上傳包含 SUSE Linux 作業系統的 Azure 虛擬硬碟 (VHD)。" services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
 
 
-# 準備執行 Azure 的 SLES 或 openSUSE 虛擬機器
+# 準備執行 SLES 或 openSUSE 的 Azure 虛擬機器
 
-- [準備執行 Azure 的 SLES 11 SP3 虛擬機器](#sles11)
-- [準備執行 Azure 的 openSUSE 13.1+ 虛擬機器](#osuse)
+- [準備執行 SLES 11 SP3 的 Azure 虛擬機器](#sles11)
+- [準備執行 openSUSE 13.1+ 的 Azure 虛擬機器](#osuse)
 
 ##必要條件##
 
@@ -17,57 +17,31 @@
 
  - [SUSE Studio](http://www.susestudio.com) 可讓您輕易地建立及管理 Azure 和 Hyper-V 的 SLES / openSUSE 映像。建議您使用此方法來自訂專屬的 SUSE 和 openSUSE 映像。您也可以將 SUSE Studio Gallery 中的下列正式映像下載或複製到您專屬的 SUSE Studio：
 
-  - [SUSE Studio Gallery 上的 SLES 11 SP3 for Azure](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
-  - [SUSE Studio Gallery 上的 openSUSE 13.1 for Azure](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
+  - [SUSE Studio Gallery 上適用於 Azure 的 SLES 11 SP3](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
+  - [SUSE Studio Gallery 上適用於 Azure 的 openSUSE 13.1](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
 
 - Azure 不支援較新的 VHDX 格式。您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。
 
-- 安裝 Linux 系統時，建議您使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。這可避免 LVM 與複製之虛擬機器的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至其他虛擬機器時。如果願意，您可以在資料磁碟上使用 LVM 或 [RAID](../virtual-machines-linux-configure-raid) 。
+- 安裝 Linux 系統時，建議您使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。這可避免 LVM 與複製之虛擬機器的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至其他虛擬機器時。如果需要，您可以在資料磁碟上使用 LVM 或 [RAID](../virtual-machines-linux-configure-raid)。
 
 - 請勿在作業系統磁碟上設定交換磁碟分割。您可以設定 Linux 代理程式在暫存資源磁碟上建立交換檔。您可以在以下步驟中找到與此有關的詳細資訊。
 
 - 所有 VHD 的大小都必須是 1 MB 的倍數。
 
 
-## <a id="sles11"> </a>準備執行 SUSE Linux Enterprise Server 11 SP3##
+## <a id="sles11"> </a>準備 SUSE Linux Enterprise Server 11 SP3 ##
 
 1. 在 Hyper-V 管理員的中央窗格中，選取虛擬機器。
 
-2. 按一下 [**連接**]，以開啟虛擬機器的視窗。
+2. 按一下 [連接]，以開啟虛擬機器的視窗。
 
-3. 新增包含最新核心和 Azure Linux 代理程式的儲存機制。執行命令 `zypper lr`。以 SLES 11 SP3 為例，輸出應會類似於下列內容：
+3. 註冊您的 SUSE Linux Enterprise 系統，以允許系統下載更新並安裝封裝。
 
-		# | Alias                        | Name               | Enabled | Refresh
-		--+------------------------------+--------------------+---------+--------
-		1 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool    | No      | Yes
-		2 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates | No      | Yes
-		3 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core    | No      | Yes
-		4 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates | No      | Yes
-		5 | susecloud:SLES11-SP3-Pool    | SLES11-SP3-Pool    | Yes     | Yes
-		6 | susecloud:SLES11-SP3-Updates | SLES11-SP3-Updates | Yes     | Yes
-
-	如果命令傳回如下的錯誤訊息：
-
-		"No repositories defined.Use the 'zypper addrepo' command to add one or more repositories."
-
-	則使用下列命令來新增這些儲存機制：
-
-		# sudo zypper ar -f http://azure-update.susecloud.net/repo/$RCE/SLES11-SP3-Pool/sle-11-x86_64 SLES11-SP3-Pool 
-		# sudo zypper ar -f http://azure-update.susecloud.net/repo/$RCE/SLES11-SP3-Updates/sle-11-x86_64 SLES11-SP3-Updates
-
-	如果有其中一個相關的更新儲存機制未啟用，請使用下列命令加以啟用：
-
-		# sudo zypper mr -e [REPOSITORY NUMBER]
-
-4. 將核心更新為最新的可用版本：
-
-		# sudo zypper up kernel-default
-
-	或使用所有最新的修補程式來更新系統：
+4. 使用最新的修補程式來更新系統：
 
 		# sudo zypper update
 
-5. 安裝 Azure Linux 代理程式：
+5. 從 SLES 儲存機制安裝 Azure Linux 代理程式：
 
 		# sudo zypper install WALinuxAgent
 
@@ -104,7 +78,7 @@
 		# export HISTSIZE=0
 		# logout
 
-12. 在 Hyper-V 管理員中，依序按一下 [**動作] -> [關閉**]。您現在可以將 Linux VHD 上傳至 Azure。
+12. 在 [Hyper-V 管理員] 中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
 
 ----------
@@ -113,9 +87,9 @@
 
 1. 在 Hyper-V 管理員的中央窗格中，選取虛擬機器。
 
-2. 按一下 [**連接**]，以開啟虛擬機器的視窗
+2. 按一下 [連接]，以開啟虛擬機器的視窗
 
-3. 在 Shell 上執行命令 'zypper lr'。若此命令傳回類似以下的輸出 (請注意，版本號碼可能會不同)：
+3. 在 Shell 上執行命令 `zypper lr`。若此命令傳回類似以下的輸出 (請注意，版本號碼可能會不同)：
 
 		# | Alias                 | Name                  | Enabled | Refresh
 		--+-----------------------+-----------------------+---------+--------
@@ -160,7 +134,7 @@
 
 		DHCLIENT_SET_HOSTNAME="no"
 
-8.	**重要事項：**在 "/etc/sudoers" 中，註解化或移除下列程式碼行 (如果存在的話)：
+8.	**重要：**在 "/etc/sudoers" 中，註解化或移除下列程式碼行 (如果存在的話)：
 
 		Defaults targetpw   # ask for the password of the target user i.e. root
 		ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
@@ -187,8 +161,9 @@
 
 		# sudo systemctl enable waagent.service
 
-13. 在 Hyper-V 管理員中，依序按一下 [**動作] -> [關閉**]。您現在可以將 Linux VHD 上傳至 Azure。
+13. 在 [Hyper-V 管理員] 中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="使用行動服務將資料上傳至 Blob 儲存體 (iOS) | 行動服務" metaKeywords="" description="了解如何使用行動服務將資料上傳至 Azure Blob 儲存體。" metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload data to Azure Storage by using Mobile Services" authors="yuaxu" writer="yuaxu" manager="dwrede" services="mobile-services,storage"/>
+﻿<properties pageTitle="使用行動服務將資料上傳至 Blob 儲存體 (iOS) | 行動服務" description="了解如何使用行動服務將資料上傳至 Azure Blob 儲存體。" documentationCenter="ios" authors="ysxu" writer="yuaxu" manager="dwrede" services="mobile-services, storage" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.topic="article" ms.date="09/23/2014" ms.author="yuaxu"/>
 
@@ -9,4 +9,4 @@
 
 [iOS 與行動服務和 Windows Azure 儲存體]: http://chrisrisner.com/iOS-and-Mobile-Services-and-Windows-Azure-Storage
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Intro to Linux" pageTitle="Azure 上的 Linux 簡介 - Azure 教學課程" metaKeywords="Azure Linux vm, Linux vm" description="了解如何使用 Azure 上的 Linux 虛擬機器" metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Introduction to Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Azure 上的 Linux 簡介 - Azure 教學課程" description="了解如何使用 Azure 上的 Linux 虛擬機器。" services="virtual-machines" documentationCenter="python" authors="szarkos" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/13/2014" ms.author="szark" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/13/2014" ms.author="szark"/>
 
 
 
@@ -41,19 +41,19 @@
 
 		chmod 600 myPrivateKey.key
 
-3. 將 'myCert.pem' 轉換成 'myCert.cer' (DER 編碼的 X509 憑證)
+3. 將 `myCert.pem` 轉換成 `myCert.cer` (DER 編碼的 X509 憑證)
 
 		openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
-4. 建立 Linux 虛擬機器時上傳 'myCert.cer'。佈建程序會針對虛擬機器中的指定使用者，自動將此憑證中的公開金鑰安裝至 `~/.ssh/authorized_keys` 檔案中。
+4. 建立 Linux 虛擬機器時上傳 `myCert.cer`。佈建程序會針對虛擬機器中的指定使用者，自動將此憑證中的公開金鑰安裝至 `~/.ssh/authorized_keys` 檔案中。
 
-5. 使用 ssh 來連線到 Linux 虛擬機器。
+5. 使用 SSH 來連線到 Linux 虛擬機器。
 
 		ssh -i  myPrivateKey.key -p port  username@servicename.cloudapp.net
 
 	第一次登入時，將提示您接受主機公開金鑰的指紋。
 
-6. 您可以選擇將 `myPrivateKey.key` 複製到 `~/.ssh/id_rsa`，讓 openssh 用戶端自動挑選此金鑰，而不需要使用 -i 選項。
+6. 您可以選擇性地將 `myPrivateKey.key` 複製到 `~/.ssh/id_rsa`，以便 openssh 用戶端能夠自動選擇該金鑰，而無需使用 -i 選項。
    或者，您可以修改 `~/.ssh/config` 以包含虛擬機器的區段：
 
         Host servicename.cloudapp.net
@@ -63,14 +63,14 @@
 ### 從現有 OpenSSH 相容金鑰產生金鑰
 上一個範例說明如何建立用於 Windows Azure 的新金鑰。在某些情況下，使用者可能已經有現有的 OpenSSH 相容公用與私密金鑰組，而希望對 Windows Azure 使用相同的金鑰。
 
-'openssl' 公用程式可以直接讀取 OpenSSH 私密金鑰。下列命令將使用現有的 SSH 私密金鑰 (在下例中為 id_rsa) 建立 Windows Azure 需要的 '.pem' 公開金鑰：
+ `openssl` 公用程式可以直接讀取 OpenSSH 私密金鑰。下列命令將使用現有的 SSH 私密金鑰 (在下例中為 id_rsa)，並建立 Windows Azure 所需的 `.pem` 公開金鑰：
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
-**myCert.pem** 檔案是之後可用來在 Windows Azure 上佈建 Linux 虛擬機器的公開金鑰。在佈建期間，'.pem' 檔案將轉譯為 'openssh' 相容的公開金鑰，並放在 `~/.ssh/authorized_keys` 中。
+**myCert.pem** 檔案是之後可用來在 Windows Azure 上佈建 Linux 虛擬機器的公開金鑰。在佈建期間， `.pem` 檔案將轉譯為  `openssh` 相容的公開金鑰，並放在 `~/.ssh/authorized_keys` 中。
 
 
-## <a id="superuserprivileges"></a>使用 'sudo' 取得超級使用者權限
+## <a id="superuserprivileges"></a>使用 `sudo` 取得超級使用者權限
 
 在 Azure 上部署虛擬機器執行個體時所指定的使用者帳戶是特殊權限帳戶。此帳戶由 Azure Linux 代理程式設定，可使用 `sudo` 公用程式將權限提升至 root (超級使用者帳戶)。使用此使用者帳戶登入之後，您將能夠以 root 的身分使用命令語法來執行命令。
 
@@ -112,26 +112,27 @@ Ubuntu 映像會利用可提供啟動載入虛擬機器其他功能的 cloud-ini
 
 Azure 可將現有虛擬機器的狀態擷取到映像中，供以後用來部署其他虛擬機器執行個體。Azure Linux 代理程式可用來回復佈建過程中執行的一些自訂。您可以依照下列步驟將虛擬機器擷取為映像：
 
-1. 執行 **waagent -deprovision** 來還原佈建自訂。或執行 **waagent -deprovision+user** ，選擇性地刪除佈建期間指定的使用者帳戶及所有相關資料。
+1. 執行 **waagent -deprovision** 來還原佈建自訂。或執行 **waagent -deprovision+user**，選擇性地刪除佈建期間指定的使用者帳戶及所有相關資料。
 
 2. 關閉虛擬機器。
 
-3. 按一下管理入口網站中的 [擷取]，或使用 Powershell 或 CLI 工具，將虛擬機器擷取為映像。
+3. 按一下管理入口網站中的 \[擷取\] ( *Capture*)，或使用 Powershell 或 CLI 工具，將虛擬機器擷取為映像。
 
  - 請參閱：[如何擷取 Linux 虛擬機器作為範本使用](../virtual-machines-linux-capture-image/)
 
 
 ## <a id="attachingdisks"></a>連接磁碟
 
-每個虛擬機器都會連接一個暫時性的本機資源磁碟。因為資源磁碟上的資料在重新開機之後就會消失，通常供虛擬機器中執行的應用程式和處理程序**暫時**儲存資料。也用來儲存作業系統的分頁檔或交換檔。
+每個虛擬機器都會連接一個暫時性的本機「資源磁碟」。因為資源磁碟上的資料在重新開機之後就會消失，通常供虛擬機器中執行的應用程式和處理程序「暫時」儲存資料。也用來儲存作業系統的分頁檔或交換檔。
 
-在 Linux 上，資源磁碟通常由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像上的 **/mnt**)。
+在 Linux 上，資源磁碟通常由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的**/mnt**)。
 
-	>[WACOM.NOTE] 請注意，資源磁碟是**暫存**磁碟，可能會在 VM 重新開機時遭到刪除及重新格式化。
+	>[AZURE.NOTE] 請注意，資源磁碟是「暫時」磁碟，可能會在 VM 重新開機時遭到刪除及重新格式化。
 
 在 Linux 上，核心有可能將資料磁碟命名為 `/dev/sdc`，且使用者必須分割、格式化及掛接該資源。本教學課程中將涵蓋這部分的逐步說明：[如何將資料磁碟附加至虛擬機器](../virtual-machines-linux-how-to-attach-disk/)。
 
  - 另請參閱：[在 Linux 上設定軟體 RAID](../virtual-machines-linux-configure-raid/)
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

@@ -1,6 +1,6 @@
-﻿<properties title="Using load-balanced sets to clusterize MySQL on Linux" pageTitle="在 Linux 上使用負載平衡集合將 MySQL 叢集化" description="本文說明在 Azure 上設定負載平衡、高可用性 Linux 叢集的模式，使用 MySQL作為範例" metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" manager="timlt" />
+<properties pageTitle="在 Linux 上使用負載平衡集合將 MySQL 叢集化" description="本文說明在 Azure 上設定負載平衡、高可用性 Linux 叢集的模式，使用 MySQL作為範例" services="virtual-machines" documentationCenter="" authors="bureado" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/23/2014" ms.author="jparrel" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/23/2014" ms.author="jparrel"/>
 
 # 在 Linux 上使用負載平衡集合將 MySQL 叢集化
 
@@ -15,13 +15,13 @@
 
 ## 簡介
 
-本文旨在瀏覽與說明要在 Microsoft Azure 上部署高度可用 Linux 架構服務的其他可用方法，首先從 MySQL Server 高可用性開始。您可以在[第 9 頻道] 上找到說明此方法的影片(http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL)。
+本文旨在瀏覽與說明要在 Microsoft Azure 上部署高度可用 Linux 架構服務的其他可用方法，首先從 MySQL Server 高可用性開始。您可在[第 9 頻道](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL)上找到說明此方法的影片。
 
 我們會依據 DRBD、Corosync 和 Pacemaker，說明無共用、兩個節點、單一主要的 MySQL 高可用性解決方案。一次只會有一個節點執行 MySQL。也限制一次只會有一個節點從 DRBD 資源讀取和寫入。
 
 因為我們會使用 Microsoft Azure 的負載平衡集合，來提供循環配置資源功能和 VIP 的端點偵測、移除及正常復原，所以不需要 VIP 解決方案 (如 LVS)。VIP 是一個可全域路由的 IPv4 位址，會在我們第一次建立雲端服務時由 Microsoft Azure 指定。
 
-還有其他可能架構可供 MySQL 使用，包括 NBD 叢集、Percona 和 Galera 以及數種中繼軟體解決方案 (包括至少有一個可作為 [VM Depot] 上的 VM)(http://vmdepot.msopentech.com)。只要這些解決方案可以在單點傳送與多點傳送上複寫或廣播，且不仰賴共用儲存體或多個網路介面，那麼應不難在 Microsoft Azure 上部署這些案例。
+還有其他可能架構可供 MySQL 使用，包括 NBD 叢集、Percona 和 Galera 以及數種中繼軟體解決方案 (包括至少有一個可作為 [VM Depot](http://vmdepot.msopentech.com) 上的 VM)。只要這些解決方案可以在單點傳送與多點傳送上複寫或廣播，且不仰賴共用儲存體或多個網路介面，那麼應不難在 Microsoft Azure 上部署這些案例。
 
 當然，您可以將這些叢集架構以類似的方式延伸到其他產品，如 PostgreSQL 和 OpenLDAP。例如，已透過多個主要 OpenLDAP 成功測試使用無共用的負載平衡程序，您可以在我們的第 9 頻道 (Channel 9) 部落格上觀看此測試。
 
@@ -48,7 +48,7 @@
 
 使用經過背書的 Ubuntu 映像庫映像建立第一個 Ubuntu 13.10 VM，並將它命名為 `hadb01`。在此程序中會建立一個名為 hadb 的新雲端服務。我們這麼稱呼它是因為當我們加入更多資源時，此名稱可說明服務將具備的共用、負載平衡性質。已使用入口網站順利完成建立 `hadb01`。系統會自動建立 SSH 的端點，並選取我們所建立的網路。我們也會選擇為 VM 建立新的可用性設定組。
 
-第一個 VM 建立後 (從技術角度來看，也就是建立雲端服務時)，我們會繼續建立第二個 VM `hadb02`。在第二個 VM 中，我們同樣會透過入口網站使用映像庫中的 Ubuntu 13.10 VM，但我們將選擇使用現有的雲端服務 `hadb.cloudapp.net`，而非建立新的雲端服務。系統應會自動選取網路和可用性設定組。並建立 SSH 端點。
+第一個 VM 建立後 (從技術角度來看，也就是建立雲端服務時)，我們會繼續建立第二個命名為 `hadb02` 的 VM。在第二個 VM 中，我們同樣會透過入口網站使用映像庫中的 Ubuntu 13.10 VM，但我們將選擇使用現有的雲端服務 (`hadb.cloudapp.net`)，而非建立新的雲端服務。系統應會自動選取網路和可用性設定組。並建立 SSH 端點。
 
 在建立這兩個 VM 後，請記下 `hadb01` 的 SSH 連接埠 (TCP 22) 及 `hadb02` (由 Azure 自動指派)
 
@@ -56,7 +56,7 @@
 
 我們將新磁碟連接至這兩個 VM，並在此程序中建立一個新的 5 GB 磁碟。這些磁碟將在 VHD 容器中託管，並供我們的主要作業系統磁碟使用。在建立及連接磁碟後，我們不需要重新啟動 Linux，因為核心將會看到新裝置 (通常位於 `/dev/sdc`，您可以查看輸出的 `dmesg`)。
 
-在每個 VM 上，我們將使用 `cfdisk` 繼續建立新的磁碟分割 (主要，Linux 磁碟分割)，並寫入新的磁碟分割資料表。**請勿在此磁碟分割上建立檔案系統**。
+在每個 VM 上，我們將使用 `cfdisk` 繼續建立新的磁碟分割 (主要，Linux 磁碟分割)，並寫入新的磁碟分割資料表。**請勿在此磁碟分割上建立檔案系統** 。
 
 ## 設定叢集
 
@@ -64,7 +64,7 @@
 
     sudo apt-get install corosync pacemaker drbd8-utils.
 
-**此時請勿安裝 MySQL**。Debian 和 Ubuntu 安裝指令碼將會初始化 `/var/lib/mysql` 上的 MySQL 資料目錄，但因為 DRBD 檔案系統會取代此目錄，我們必須稍後再執行此作業。
+**此時請勿安裝 MySQL**。Debian 和 Ubuntu 安裝指令碼將會初始化 `/var/lib/mysql`，我們必須使用 APT 來安裝 Corosync、Pacemaker 和 DRBD。
 
 此時，我們也應該驗證 (使用 `/sbin/ifconfig`) 這兩個 VM 是否使用 10.10.10.0/24 子網路中的位址，以及他們是否可以根據名稱互相 Ping 到對方。如有需要，您也可以使用 `ssh-keygen` 和 `ssh-copy-id`，來確定這兩個 VM 無需密碼即可透過 SSH 彼此通訊。
 
@@ -96,15 +96,15 @@
 
     sudo drbdadm primary --force r0
 
-如果您在兩個 VM 上檢查 /proc/drbd (`sudo cat /proc/drbd`) 的內容，您應會在 `hadb01` 上看見 `Primary/Secondary`，並在 `hadb02` 上看見 `Secondary/Primary`，與此時的方案一致。客戶可免費透過 10.10.10.0/24 網路同步處理這個 5 GB 磁碟。
+如果您在這兩個 VM 上檢查 /proc/drbd (`sudo cat /proc/drbd`) 的內容，您應該可以看到  `主要/次要` 於 `hadb01` and `次要/主要` 於 `hadb02`，直到這個階段都會與解決方案一致。客戶可免費透過 10.10.10.0/24 網路同步處理這個 5 GB 磁碟。
 
-在同步處理此磁碟後，您可以在 `hadb01` 上建立檔案系統。基於測試目的，我們會使用 ext2，但下列指示將可建立 ext3 檔案系統：
+在同步處理此磁碟後，您就可以在 `hadb01` 上建立檔案系統。基於測試目的，我們會使用 ext2，但下列指示將可建立 ext3 檔案系統：
 
     mkfs.ext3 /dev/drbd1
 
 ### 掛接 DRBD 資源
 
-在 `hadb01` 上，我們現在可以開始掛接 DRBD 資源。Debian 和衍生物件會以 `/var/lib/mysql` 做為 MySQL 的資料目錄。我們尚未安裝 MySQL，因此我們將建立此目錄並掛接 DRBD 資源。在 `hadb01` 上：
+在 `hadb01` 上，我們現在可以開始掛接 DRBD 資源。Debian 及其衍生版本會使用 `/var/lib/mysql` 作為 MySQL 的資料目錄。我們尚未安裝 MySQL，因此我們將建立此目錄並掛接 DRBD 資源。在 `hadb01` 上：
 
     sudo mkdir /var/lib/mysql
     sudo mount /dev/drbd1 /var/lib/mysql
@@ -115,13 +115,13 @@
 
     sudo apt-get install mysql-server
 
-對於 `hadb02`，您有兩個選項。您可以現在安裝 mysql-server，這將會建立 /var/lib/mysql，並在其中填入新的資料目錄，然後繼續移除內容。在 `hadb02` 上：
+在 `hadb02` 上，您有兩個選擇。您可以現在安裝 mysql-server，這將會建立 /var/lib/mysql，並在其中填入新的資料目錄，然後繼續移除內容。在 `hadb02` 上：
 
     sudo apt-get install mysql-server
     sudo service mysql stop
     sudo rm -rf /var/lib/mysql/*
 
-第二個選擇是容錯移轉至 `hadb02`，然後在那裡安裝 mysql-server (安裝指令碼會注意到現有安裝，且不會對它執行任何動作)。
+第二個選擇是容錯移轉至 `hadb02` ，然後在那裡安裝 mysql-server (安裝指令碼會注意到現有安裝，且不會對它執行任何動作)。
 
 在 `hadb01` 上：
 
@@ -142,11 +142,11 @@
 
 **警告**：最後一個陳述式會有效地停用此資料表中根使用者的驗證。這應由您的生產等級 GRANT 陳述式取代，這裡僅是為了說明的目的才包括此陳述式。
 
-如果您想要在 VM 外進行查詢，您還必須啟用 MySQL 的網路功能，這正是本指南的目的。在兩個 VM 上開啟 `/etc/mysql/my.cnf`，瀏覽至 `bind-address`，將其從 127.0.0.1 變更為 0.0.0.0。儲存檔案後，在您目前主要上發佈 `sudo service mysql restart`。
+如果您想要在 VM 外進行查詢，您還必須啟用 MySQL 的網路功能，這正是本指南的目的。在這兩個 VM 上，開啟 `/etc/mysql/my.cnf` 並瀏覽至 `bind-address`，將它從 127.0.0.1 變更為 0.0.0.0。儲存檔案後，在您目前的主要 VM 上發佈 `sudo service mysql restart`。
 
 ### 建立 MySQL 負載平衡集合
 
-回到 Azure 入口網站，並瀏覽至 `hadb01` VM，然後瀏覽至端點。我們將建立新端點，從下拉式清單中選擇 [MySQL (TCP 3306)]，然後核取 [Create new load balanced set] 方塊。將此負載平衡端點取名為 `lb-mysql`。除了將時間降低為 5 (秒數，最小值) 以外，我們將維持大部分的選項不變。
+回到 Azure 入口網站，並瀏覽至 `hadb01` VM，然後瀏覽至端點。我們將建立新端點，從下拉式清單中選擇 [MySQL (TCP 3306)]，然後核取 [建立新的負載平衡集] 。將此負載平衡端點取名為 `lb-mysql`。除了將時間降低為 5 (秒數，最小值) 以外，我們將維持大部分的選項不變。
 
 建立端點後，請移至 `hadb02`、[端點]，並建立新端點，我們將選擇 `lb-mysql`，然後從下拉式功能表中選取 [MySQL]。在此步驟中，您也可以使用 Azure CLI。
 
@@ -178,11 +178,11 @@ Corosync 是需要 Pacemaker 才能運作的基礎叢集基礎結構。若是 He
 
 Corosync 在 Azure 上的主要限制是，Corosync 偏好的通訊順序為多點傳送大於廣播大於單點傳送，但 Microsoft Azure 網路僅支援單點傳送。
 
-還好，Corosync 具備有效的單點傳送模式，唯一的真正限制是，因為所有節點彼此之間不會神奇地自動進行通訊，您必須在組態檔中定義節點，包括其 IP 位址。我們可以使用 Corosync 範例檔案進行單點傳送，只需變更繫結位址、節點清單和記錄目錄 (Ubuntu 會使用 `/var/log/corosync`，而範例檔案會使用 `/var/log/cluster`) 及啟用仲裁工具。 
+還好，Corosync 具備有效的單點傳送模式，唯一的真正限制是，因為所有節點彼此之間不會「神奇地自動」進行通訊，您必須在組態檔中定義節點，包括其 IP 位址。我們可以使用 Corosync 範例檔案進行單點傳送，只需變更繫結位址、節點清單和記錄目錄 (Ubuntu 會使用 `/var/log/corosync`，而範例檔案會使用 `/var/log/cluster`) 及啟用仲裁工具。 
 
 **請記下以下的 `transport: udpu` 指示詞和手動定義的節點 IP 位址**。
 
-在 `/etc/corosync/corosync.conf` 上，對於這兩個節點：
+在這兩個節點的 `/etc/corosync/corosync.conf` 上：
 
     totem {
       version: 2
@@ -292,7 +292,7 @@ Pacemaker 會使用叢集來監視資源，定義在主要故障時將這些資�
 
     sudo update-rc.d pacemaker defaults
 
-幾秒鐘後，使用 `sudo crm_mon -L`，驗證其中一個節點已成為叢集的主要，並已執行所有資源。您可以使用掛接和 PS 來檢查資源是否正在執行。
+幾秒鐘後，使用 `sudo crm_mon -L`，確認您的節點的其中一個已成為叢集的主機，而且正在執行的所有資源。您可以使用掛接和 PS 來檢查資源是否正在執行。
 
 下列快照說明 `crm_mon`，且其中一個節點已停止 (使用 Control-C 結束)
 
@@ -304,15 +304,15 @@ Pacemaker 會使用叢集來監視資源，定義在主要故障時將這些資�
 
 ## 測試
 
-我們已準備好開始自動容錯移轉模擬。作法有二：軟式和硬式。軟式方法是使用叢集的關機功能：``crm_standby -U `uname -n` -v on``。在主要 VM 上使用此選項，從屬 VM 便會取代主要 VM。請務必將此選項設回關閉 (否則 crm_mon 將通知您某個節點正在待命中)
+我們已準備好開始自動容錯移轉模擬。作法有二：軟式和硬式。軟式方法是使用叢集的關機功能：``crm_standby -U `uname -n` -v on``. 在主要 VM 上使用此選項，從屬 VM 便會取代主要 VM。請務必將此選項設回關閉 (否則 crm_mon 將通知您某個節點正在待命中)
 
 硬式方法是透過入口網站將主要 VM (hadb01) 關機，或變更 VM 上的執行層級 (例如，終止、關機)，然後發出主要 VM 出現故障的訊號來協助 Corosync 和 Pacemaker。我們可以測試這個方法 (在維護期間非常有用)，但我們也可以透過凍結 VM 來強制執行此案例。
 
 ## STONITH
 
-應該可以透過適用於 Linux 的 Azure 命令列工具發出 VM 關機命令，來代替可控制實體裝置的 STONITH 指令碼。您可以使用 `/usr/lib/stonith/plugins/external/ssh` 做為基礎，然後在叢集的組態中啟用 STONITH。系統應會全域安裝 Azure CLI，並載入叢集使用者的發佈設定/設定檔。
+應該可以透過適用於 Linux 的 Azure 命令列工具發出 VM 關機命令，來代替可控制實體裝置的 STONITH 指令碼。您可以使用  `/usr/lib/stonith/plugins/external/ssh` 作為基礎，並在叢集的組態中啟用 STONITH。系統應會全域安裝 Azure CLI，並載入叢集使用者的發佈設定/設定檔。
 
-您可以在 [GitHub] 上找到資源的範例程式碼(https://github.com/bureado/aztonith)。您必須變更叢集的組態，方法是將下列程式碼新增至 `sudo crm configure`：
+您可在 [GitHub](https://github.com/bureado/aztonith) 上找到資源的範例程式碼。您必須變更叢集的組態，方法是將下列程式碼加入 `sudo crm configure`：
 
     primitive st-azure stonith:external/azure \
       params hostlist="hadb01 hadb02" \
@@ -328,9 +328,10 @@ Pacemaker 會使用叢集來監視資源，定義在主要故障時將這些資�
 
 - 在 Pacemaker 中，將 DRBD 作為資源進行管理的 Linbit DRBD 資源指令碼會在節點關閉時使用 `drbdadm down`，即使節點只是進入待命中狀態而已。因為主要 VM 在開始遭到寫入時，從屬 VM 並不會同步處理 DRBD 資源，所以這不是理想的作法。如果主要 VM 不是順利關機，從屬 VM 會接收較舊的檔案系統狀態。可能解決此問題的方法有兩種：
   - 透過本機 (未叢集化) 監視程式在所有叢集節點中強制執行 `drbdadm up r0`，或者，
-  - 編輯 linbit DRBD 指令碼，確定在 `/usr/lib/ocf/resource.d/linbit/drbd` 中未呼叫 `down`。
+  - 在 `/usr/lib/ocf/resource.d/linbit/drbd` 中，編輯 linbit DRBD 指令碼以確保不會呼叫 `down`。
 - 負載平衡器至少需要 5 秒的時間進行回應，因此應用程式應為叢集感知且應可容許逾時；其他架構也可提供協助，例如應用程式內部佇列、查詢中繼軟體等。
 - 若要確保寫入作業會以正常的步調結束，且會儘可能頻繁地將快取清除到磁碟以減少記憶體損失，MySQL 調整是有必要的。
 - VM 互連中的寫入效能將會取決於虛擬開關，因為虛擬開關是 DRBD 用來複寫裝置的機制。
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

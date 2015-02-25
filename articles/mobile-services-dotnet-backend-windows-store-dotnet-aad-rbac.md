@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Role Based Access Control with Azure Active Directory" pageTitle="行動服務和 Azure Active Directory 中的角色型存取控制 (Windows 市集) | 行動開發人員中心" metaKeywords="" description="了解如何在 Windows Store 應用程式中控制以 Azure Active Directory 角色為基礎的存取權。" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Role Based Access Control in Mobile Services and Azure Active Directory" authors="wesmc" manager="dwrede" />
+<properties pageTitle="行動服務和 Azure Active Directory 中的角色型存取控制 (Windows 市集) | 行動開發人員中心" description="了解如何在 Windows Store 應用程式中控制以 Azure Active Directory 角色為基礎的存取權。" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc"/>
 
 # 行動服務和 Azure Active Directory 中的角色型存取控制
 
-[WACOM.INCLUDE [mobile-services-selector-rbac](../includes/mobile-services-selector-rbac.md)]
+[AZURE.INCLUDE [mobile-services-selector-rbac](../includes/mobile-services-selector-rbac.md)]
 
 角色型存取控制 (RBAC) 是對使用者可擔任的角色指派權限的做法，可明確定義特定類別的使用者能夠與無法做什麼的界線。本教學課程將引導您了解如何將基本 RBAC 加入至 Azure 行動服務。
 
@@ -13,7 +13,7 @@
 
 >[AZURE.NOTE] 本教學課程的目的是要擴充驗證知識以加入授權實務作法。您應先使用 Azure Active Directory 驗證提供者完成[將驗證加入至您的應用程式]教學課程。本教學課程接著將更新[將驗證加入至您的應用程式]教學課程中使用的 TodoItem 應用程式。
 
-本教學課程將逐步引導您完成下列步驟：
+本教學課程將逐步引導您完成下列步驟:
 
 1. [建立具有成員資格的銷售群組]
 2. [為整合的應用程式產生金鑰]
@@ -21,7 +21,7 @@
 4. [將角色型存取檢查新增至資料庫作業]
 5. [測試用戶端存取]
 
-本教學課程需要下列各項：
+本教學課程需要下列各項:
 
 * 執行於 Windows 8.1 的 Visual Studio 2013。
 * 使用 Azure Active Directory 驗證提供者完成[將驗證新增至您的應用程式]教學課程。
@@ -31,7 +31,7 @@
 
 ## <a name="create-group"></a>建立具有成員資格的銷售群組
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
+[AZURE.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 
 ## <a name="generate-key"></a>為整合的應用程式產生金鑰
@@ -39,7 +39,7 @@
 
 在進行[將驗證加入至您的應用程式]教學課程期間，您已在完成[註冊使用 Azure Active Directory 登入]步驟時，為整合的應用程式建立註冊。在本節中，您將產生在使用該整合的應用程式用戶端識別碼讀取目錄資訊時所將使用的金鑰。 
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
+[AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
 
@@ -49,12 +49,12 @@
 
 1. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務.NET 後端專案，然後按一下 [**管理 NuGet 封裝**]。
 
-2. 在 [NuGet 封裝管理員] 對話方塊中，在搜尋條件中輸入 **ADAL**，以尋找並安裝您的行動服務的 [**Active Directory Authentication Library**]。
+2. 在 [NuGet Package Manager] 對話方塊中，在搜尋條件中輸入 **ADAL**，以尋找並安裝您的行動服務的 [**Active Directory 驗證程式庫**]。
 
-3. 在 [NuGet 封裝管理員] 中，同時為您的行動服務安裝 [**Microsoft Azure Active Directory Graph 用戶端程式庫**]。
+3. 在 [NuGet Package Manager] 中，同時為您的行動服務安裝 [**Microsoft Azure Active Directory 圖形用戶端程式庫**]。
 
 
-4. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務專案，然後依序按一下 [**加入**] 和 [**新資料夾**]。將新資料夾命名為 **Utilities**。
+4. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務專案，然後依序按一下 [**新增**] 和 [**新資料夾**]。將新資料夾命名為 **Utilities**。
 
 5. 在 Visual Studio 中，以滑鼠右鍵按一下新的 **Utilities** 資料夾，然後新增名為 **AuthorizeAadRole.cs** 的類別檔案。
 
@@ -74,7 +74,7 @@
         using System.Globalization;
         using System.Linq.Expressions;
 
-7. 在 AuthorizeAadRole.cs 中，將下列列舉類型新增至 Utilities 命名空間。在此範例中，我們只會處理 [**銷售**] 角色。其他角色只是您可能使用之群組的範例。
+7. 在 AuthorizeAadRole.cs 中，將下列列舉類型新增至「公用程式」命名空間。在此範例中，我們只會處理 [**銷售**] 角色。其他角色只是您可能使用之群組的範例。
 
         public enum AadRoles
         {
@@ -83,7 +83,7 @@
             Development
         }
 
-8. 在 AuthorizeAadRole.cs 中，將下列 `AuthorizeAadRole` 類別定義新增至 Utilities 命名空間。
+8. 在 AuthorizeAadRole.cs 中，將下列 `AuthorizeAadRole` 類別定義新增至「公用程式」命名空間。
 
         [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
         public class AuthorizeAadRole : AuthorizationFilterAttribute
@@ -103,9 +103,9 @@
             }
         }
 
-9. 在 AuthorizeAadRole.cs 中，將下列 `GetAADToken` 方法新增至 `AuthorizeAadRole` 類別。
+9. 在 AuthorizeAadRole.cs 中，將下列 `GetAADToken` 方法新增至  `AuthorizeAadRole` 類別。
 
-    >[WACOM.NOTE] 您應快取權杖，而不要為每個存取檢查建立一個新權杖。接著，請在嘗試使用權杖依照[圖形用戶端程式庫]中的說明擲出 AccessTokenExpiredException 時，重新整理快取。為求單純性，下方的程式碼中並不會說明此作業，但這將可以減輕對您 Active Directory 的額外網路流量。  
+    >[AZURE.NOTE] 您應快取權杖，而不要為每個存取檢查建立一個新權杖。接著，請在嘗試使用權杖依照[圖形用戶端程式庫]中的說明擲出 AccessTokenExpiredException 時，重新整理快取。為求單純性，下方的程式碼中並不會說明此作業，但這將可以減輕對您 Active Directory 的額外網路流量。  
 
         private string GetAADToken(ApiServices services)
         {
@@ -140,9 +140,9 @@
             return token;
         }
 
-10. 在 AuthorizeAadRole.cs 中，以下列程式碼更新 `AuthorizeAadRole` 類別中的 `OnAuthorization` 方法。此程式碼會使用[圖形用戶端程式庫]查閱對應至角色的 Active Directory 群組。接著，它會檢查使用者在該群組中的成員資格，以授權給使用者。
+10. 在 AuthorizeAadRole.cs 中，以下列程式碼更新  `AuthorizeAadRole` 類別中的 `OnAuthorization` 方法。此程式碼會使用[圖形用戶端程式庫]查閱對應至角色的 Active Directory 群組。接著，它會檢查使用者在該群組中的成員資格，以授權給使用者。
 
-    >[WACOM.NOTE] 此程式碼會依名稱查閱 Active Directory 群組。在許多情況下，將群組識別碼儲存為行動服務應用程式設定，都會是較理想的作法。這是因為群組名稱可能會變更，但識別碼會保持相同。但是，當群組名稱變更時，角色的範圍內通常至少會有一項變更可能也需要更新行動服務程式碼。  
+    >[AZURE.NOTE] 此程式碼會依名稱查閱 Active Directory 群組。在許多情況下，將群組識別碼儲存為行動服務應用程式設定，都會是較理想的作法。這是因為群組名稱可能會變更，但識別碼會保持相同。但是，當群組名稱變更時，角色的領域中通常至少會有一項變更可能也需要行動服務程式碼的更新。  
 
         public override void OnAuthorization(HttpActionContext actionContext)
         {
@@ -235,7 +235,7 @@
 
 1. 在 Visual Studio 中，展開行動服務專案下的 **Controllers** 資料夾。開啟 TodoItemController.cs。
 
-2. 在 TodoItemController.cs 中，為您包含自訂授權屬性的 utilities 命名空間新增 `using` 陳述式。 
+2. 在 TodoItemController.cs 中，為您包含自訂授權屬性的公用程式命名空間新增 `using` 陳述式。 
 
         using todolistService.Utilities;
 
@@ -275,7 +275,7 @@
 
 ## <a name="test-client"></a>測試用戶端的存取
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
+[AZURE.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
 
 
@@ -294,11 +294,14 @@
 [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/add-authorize-aad-role-class.png
 
 <!-- URLs. -->
+[將驗證加入至您的應用程式]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
 [將驗證新增至您的應用程式]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
 [如何向 Azure Active Directory 註冊]: /zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [目錄同步案例]: http://msdn.microsoft.com/library/azure/jj573653.aspx
 [儲存伺服器指令碼]: /zh-tw/documentation/articles/mobile-services-store-scripts-source-control/
 [註冊以使用 Azure Active Directory 登入]: /zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-[Graph 用戶端程式庫]: http://go.microsoft.com/fwlink/?LinkId=510536
+[圖形用戶端程式庫]: http://go.microsoft.com/fwlink/?LinkId=510536
 [IsMemberOf]: http://msdn.microsoft.com/zh-tw/library/azure/dn151601.aspx
+
+<!--HONumber=42-->

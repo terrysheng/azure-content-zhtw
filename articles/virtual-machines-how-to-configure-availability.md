@@ -1,8 +1,9 @@
-﻿<properties title="How to Configure An Availability Set for Virtual Machines" pageTitle="如何設定虛擬機器的可用性設定組" description="提供可在 Azure 中設定 VM 可用性設定組的步驟" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties pageTitle="如何設定虛擬機器的可用性設定組" description="提供可在 Azure 中設定 VM 可用性設定組的步驟" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="kathydav"/>
 
 #如何設定虛擬機器的可用性設定組#
+
 
 可用性設定組可協助您的虛擬機器在停機期間 (例如維護期間) 仍然保持可用狀態。在可用性設定組中置入二或多個類似設定的虛擬機器，將可針對虛擬機器所執行的應用程式或服務，建立維護其可用性所需的備援。如需關於此功能如何運作的詳細資訊，請參閱[管理虛擬機器的可用性][]。 
 
@@ -14,7 +15,7 @@
 - [選項 2：將現有虛擬機器加入至可用性設定組][]。
 
 
->[WACOM.NOTE] 您要放入相同可用性設定組的虛擬機器必須隸屬於相同的雲端服務。   
+>[AZURE.NOTE] 您要放入相同可用性設定組的虛擬機器必須隸屬於相同的雲端服務。   
 
 ## <a id="createset"> </a>選項 1：同時建立虛擬機器和可用性設定組##
 
@@ -22,21 +23,21 @@
 
 若要使用管理入口網站：
 
-1. 如果您尚未登入 Azure [管理入口網站]，請先登入(http://manage.windowsazure.com)。
+1. 如果您尚未登入 Azure [管理入口網站](http://manage.windowsazure.com)，請先登入。
 
-2. 按一下命令列上的 [**新增**]。
+2. 在命令列上，按一下 [新增]。
 
-3. 按一下 [**虛擬機器**]，然後按一下 [**從組件庫**]。
+3. 按一下 [虛擬機器]，然後按一下 [從組件庫]。
 
-4. 使用前兩個畫面來挑選映像、使用者名稱和密碼等。如需詳細資訊，請參閱[建立執行 Windows Server 的虛擬機器][]。
+4. 使用前兩個畫面來挑選映像、使用者名稱和密碼等。如需詳細資訊，請參閱[建立執行 Windows Server 的虛擬機器][] (英文)。
  
 5. 第三個畫面可讓您設定網路、儲存體和可用性的資源。執行下列動作：
 	 
-	1. 挑選適用於雲端服務的適當選擇。保留 [**建立新的雲端服務**] 的設定 (除非您打算將此新虛擬機器加入現有的 VM 雲端服務)。然後，在 [**雲端服務 DNS 名稱**] 下輸入名稱。此 DNS 名稱便會成為 URI (用來連絡虛擬機器) 的一部分。雲端服務會以通訊和獨立群組的方式運作。相同雲端服務中的所有虛擬機器可以彼此相互通訊、可以設定使用負載平衡，以及放置在相同的可用性設定組中。 
+	1. 挑選適用於雲端服務的適當選擇。保留 [Create a new cloud service] 的設定 (除非您打算將此新虛擬機器加入現有的 VM 雲端服務)。然後，在 [Cloud Service DNS Name] 下輸入名稱。此 DNS 名稱便會成為 URI (用來連絡虛擬機器) 的一部分。雲端服務會以通訊和獨立群組的方式運作。相同雲端服務中的所有虛擬機器可以彼此相互通訊、可以設定使用負載平衡，以及放置在相同的可用性設定組中。 
 
-	2. 如果您打算使用虛擬網路，請在 [**區域/同質群組/虛擬網路**] 下指定一個虛擬網路。**重要事項**：如果您想要讓虛擬機器使用虛擬網路，就必須在建立虛擬機器時將 VM 加入虛擬網路。在建立 VM 後，您無法將虛擬機器加入虛擬網路。如需詳細資訊，請參閱 [Azure 虛擬網路概觀][]。 
+	2. 如果您打算使用虛擬網路，請在 [Region/Affinity Group/Virtual Network] 下指定一個虛擬網路。**重要事項**：如果您想要讓虛擬機器使用虛擬網路，就必須在建立虛擬機器時將 VM 加入虛擬網路。在建立 VM 後，您無法將虛擬機器加入虛擬網路。如需詳細資訊，請參閱 [Azure 虛擬網路概觀][]。 
 	
-	3. 建立可用性設定組。在 [**可用性設定組**] 下，保留 [**建立可用性設定組**] 的設定。接著，輸入此設定組的名稱。 
+	3. 建立可用性設定組。在 [可用性設定組] 下，保留 [建立可用性設定組] 的設定。接著，輸入此設定組的名稱。 
 	4. 建立預設端點，並視需要新增更多端點。您也可以稍後再新增端點。 
 
 	![Create an availabililty set for a new VM](./media/virtual-machines-how-to-configure-availability/VMavailabilityset.png) 
@@ -45,7 +46,7 @@
 
 7.	按一下箭號以建立虛擬機器和可用性設定組。
 
-	在新虛擬機器的儀表板中，您可以按一下 [**設定**]，並查看此虛擬機器是否隸屬於新的可用性設定組。
+	在新虛擬機器的儀表板中，您可以按一下 [設定] 並查看此虛擬機器是否隸屬於新的可用性設定組。
 
 若要使用 Azure Cmdlet：
 
@@ -55,7 +56,7 @@
 
 	`C:\PS> $image = (Get-AzureVMImage)[<index_number>].ImageName`
 
-	>[WACOM.NOTE] 在沒有參數的情況下執行 `Get-AzureVMImage`，以取得適用於您的訂閱的所有映像清單。這可能會傳回龐大的清單。若要縮短清單，請使用映像系列名稱之類的屬性。如需可為您說明如何執行此動作以找出特定映像的提示和範例，請參閱[使用 Windows PowerShell 管理映像](http://msdn.microsoft.com/zh-tw/library/azure/dn790330.aspx)。
+	>[AZURE.NOTE] 在沒有參數的情況下執行  `Get-AzureVMImage`，以取得適用於您的訂閱的所有映像清單。這可能會傳回龐大的清單。若要縮短清單，請使用映像系列名稱之類的屬性。如需可為您說明如何執行此動作以找出特定映像的提示和範例，請參閱[使用 Windows PowerShell 管理映像](http://msdn.microsoft.com/zh-tw/library/azure/dn790330.aspx)。
 
 3.	為新的虛擬機器指定組態，然後使用管線將組態物件傳遞至可建立 VM 的 Cmdlet。請確定在預留位置中替換成您自己的值，例如 &lt;VmName&gt; 和 &lt;VmSize&gt;。
 
@@ -67,29 +68,29 @@
 
 1. 如果您尚未登入，請登入 Azure [管理入口網站](http://manage.windowsazure.com)。
 
-2. 在瀏覽列中，按一下 [**虛擬機器**]。
+2. 在瀏覽列中，按一下 [虛擬機器]。
 
 3. 從虛擬機器的清單中，挑選您想要加入設定組的其中一個虛擬機器。請按一下虛擬機器列來開啟它的儀表板。
 
-4. 從虛擬機器名稱下方的索引標籤中，按一下 [**設定**]。 
+4. 從虛擬機器名稱下方的索引標籤中，按一下 [設定]。 
 
-5. 在 [設定] 區段中，尋找 [**可用性設定組**]。執行下列其中一項：
+5. 在 [設定] 區段中，尋找 [可用性設定組]。執行下列其中一項：
 
-	A. 挑選 [**建立可用性設定組**]，然後輸入設定組的名稱。
+	A. 挑選 [選取可用性設定組]，然後輸入設定組的名稱。
 
-	B. 挑選 [**選取可用性設定組**]，然後從清單中挑選一個設定組。
+	B. B. 挑選 [選取可用性設定組]，然後從清單中挑選一個設定組。
 
 	![Create an availabililty set for an existing VM](./media/virtual-machines-how-to-configure-availability/VMavailabilityExistingVM.png) 
 
-6. 按一下 [**儲存**]。
+6. 按一下 [儲存]。
 
 若要使用 Azure Cmdlet：
 
-開啟 Azure PowerShell 工作階段，並執行下列命令。請確定在預留位置中替換成您自己的值，例如 &lt;VmCloudServiceName&gt; 和 &lt;VmName&gt;.
+開啟 Azure PowerShell 工作階段，並執行下列命令。請確定在預留位置中替換成您自己的值，例如 &lt;VmCloudServiceName&gt; 和 &lt;VmName&gt;。
 
 	C:\PS> Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<MyAvSet>" | Update-AzureVM
 
->[WACOM.NOTE] 系統可能會重新啟動虛擬機器，以結束將它加入可用性設定組的作業。
+>[AZURE.NOTE] 系統可能會重新啟動虛擬機器，以結束將它加入可用性設定組的作業。
 
 
 ##其他資源
@@ -101,11 +102,12 @@
 <!-- LINKS -->
 [Azure 基礎結構服務的負載平衡]: ../virtual-machines-load-balance
 [管理虛擬機器的可用性]: ../virtual-machines-manage-availability
-[建立執行 Windows 的虛擬機器]: ../virtual-machines-windows-tutorial
+[建立執行 Windows Server 的虛擬機器]: ../virtual-machines-windows-tutorial
 [Azure 虛擬網路概觀]: http://go.microsoft.com/fwlink/p/?linkid=294063
 [關於虛擬網路的同質群組]: http://msdn.microsoft.com/library/windowsazure/jj156085.aspx
 [如何連接雲端服務中的虛擬機器]: ../virtual-machines-connect-cloud-service
 [關於 Azure VM 組態設定]: http://msdn.microsoft.com/zh-tw/library/azure/dn763935.aspx
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

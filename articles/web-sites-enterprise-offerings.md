@@ -1,10 +1,25 @@
-﻿<properties urlDisplayName="Azure Websites Enterprise Offerings" pageTitle="使用移轉小幫手將您的 IIS 網站移轉至 Azure 網站" metaKeywords="Azure Websites,solution" description="顯示如何使用 Azure 網站為貴公司建立企業網站解決方案" metaCanonical="" services="web-sites" documentationCenter="" title="Azure Websites Offerings for Enterprise Whitepaper" authors="cephalin,Apurva.Joshi"  solutions="" writer="cephalin" manager="wpickett" editor=""  />
+﻿<properties 
+	pageTitle="使用移轉小幫手將 IIS 網站移轉至 Azure 網站" 
+	description="顯示如何使用 Azure 網站為貴公司建立企業網站解決方案" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/20/2014" 
+	ms.author="cephalin"/>
 
 # 企業的 Azure 網站提供項目白皮書 #
 
-在快速發展的環境中，尋求降低成本以及更快速提供 IT 解決方案的需求為開發人員、IT 專業人員和經理帶來了新的挑戰。越來越多的使用者正在尋找回應靈敏且適用於任何裝置的企業營運 (LOB) Web 應用程式。同時，企業嘗試利用因與雲端和行動服務整合而不斷提升的生產力和效能，一個簡單的案例是使用 Active Directory 在不同的裝置中單一登入到 Office365 的共同作業，並使用從內部 LOB 應用程式 (依序從 Salesforce 的公司實作中提取資料) 提取的資料。[Microsoft Azure 網站](http://azure.microsoft.com/zh-tw/services/websites/) 是一個企業級的雲端服務，可用來開發、測試，以及執行 Web 和行動應用程式、Web API 及一般網站。在資料中心 (經過延展性和可用性最佳化) 的全球網路上，Azure 網站可用來執行企業網站、業務應用程式和數位行銷活動，並針對持續整合與現代 DevOps 做法提供支援。 
+在快速發展的環境中，尋求降低成本以及更快速提供 IT 解決方案的需求為開發人員、IT 專業人員和經理帶來了新的挑戰。越來越多的使用者正在尋找回應靈敏且適用於任何裝置的企業營運 (LOB) Web 應用程式。同時，企業嘗試利用因與雲端和行動服務整合而不斷提升的生產力和效能，一個簡單的案例是使用 Active Directory 在不同的裝置中單一登入到 Office365 的共同作業，並使用從內部 LOB 應用程式 (依序從 Salesforce 的公司實作中提取資料) 提取的資料。[Microsoft Azure 網站](http://azure.microsoft.com/zh-tw/services/websites/)是一個企業級的雲端服務，可用來開發、測試，以及執行 Web 和行動應用程式、Web API 及一般網站。在資料中心 (經過延展性和可用性最佳化) 的全球網路上，Azure 網站可用來執行企業網站、業務應用程式和數位行銷活動，並針對持續整合與現代 DevOps 做法提供支援。 
 
 本白皮書中的重點會放在 Microsoft Azure 網站服務的功能，尤其著重於如何執行 LOB Web 應用程式，其中包括平台上的現有 Web 應用程式移轉以及新 LOB Web 應用程式部署。 
 
@@ -33,8 +48,8 @@ Microsoft Azure 網站是裝載此類應用程式的一個最佳選項，提供�
 
 另一個方法是運用現有的就地投資。在本範例案例中 (員工費用報銷系統)，您會維護位於內部基礎結構中的資料存放區。這可能是為了與內部系統 (報告、薪資、帳單等) 整合或是為了滿足 IT 管理需求。Microsoft Azure 網站提供兩種可讓您連線到內部部署基礎結構的方法：
 
-- [混合式連線](http://aka.ms/hybridconnections) - 混合式連線是 Microsoft Azure BizTalk 服務的一個功能，可讓 Azure 網站安全連線到內部部署資源，例如 SQL Server、MySQL、Web API 和自訂 Web 服務。 
-- [虛擬網路整合](http://aka.ms/websitesvnet) - Azure 網站虛擬網路整合可讓您將網站連線到 Azure 虛擬網路，此虛擬網路會透過站台對站台 VPN 依序連線到您的內部部署基礎結構。 
+- [混合式連線](http://aka.ms/hybridconnections) - 混合式連線是 Microsoft Azure BizTalk 服務的一個功能，可讓 Azure 網站安全連線到內部部署資源，例如 SQL Server、MySQL、Web API 和自訂 Web 服務。
+- [虛擬網路整合](http://aka.ms/websitesvnet) - Azure 網站虛擬網路整合可讓您將網站連線到 Azure 虛擬網路，此虛擬網路會透過站台對站台 VPN 依序連線到您的內部部署基礎結構。
 
 下圖是內含內部部署資源連線選項的高階解決方案範例。
 
@@ -66,7 +81,7 @@ Azure 網站提供一個既穩定又可靠的平台，此平台已證實能夠�
 
 Microsoft Azure 平台允許角色型權限控管，針對 Azure 網站中的資源提供企業層級的控管。RBAC 可讓企業在 Azure 環境中實作所有資產的專屬存取管理原則，方法是將使用者指派給群組，並針對資產 (例如 Azure 網站) 依序將必要權限指派給這些群組。如需有關 Azure 中 RBAC 的詳細資訊，請參閱 [http://aka.ms/azurerbac](http://aka.ms/azurerbac)。透過使用 Azure 網站，您可以確定您的 Web 應用程式會在安全的環境中進行部署，而且您會擁有部署資產所在領域的完整控制權。 
 
-此外，透過提供連線回到內部資源 (例如您的資料倉儲或 SharePoint 環境) 的能力，Azure 網站還能充分運用您的內部部署投資。如 [高階解決方案](#highlevel) 中所述，您可以利用混合式連線和虛擬網路連線來建立內部部署基礎結構和服務之間的連線。
+此外，透過提供連線回到內部資源 (例如您的資料倉儲或 SharePoint 環境) 的能力，Azure 網站還能充分運用您的內部部署投資。如[高階解決方案]中所述，(#highlevel) 您可以利用混合式連線和虛擬網路連線來建立內部部署基礎結構和服務之間的連線。
 
 ### 全球規模 ###
 
@@ -78,7 +93,7 @@ Azure 網站是一個可擴充的全域平台，可讓 Web 應用程式依照不
 
 讓我們看看應用程式移轉的案例。下列將概述有關如何結合 Azure 網站功能以提供絕佳解決方案和商業價值的詳細資料。
  
-在這個企業營運應用程式範例中，我們將針對可讓員工提交補助費用的費用報銷報告應用程式進行討論。本應用程式會在執行 IIS6 的 Windows Server 2003 R2 上裝載，資料庫會是 SQL Server 2005 資料庫。我們選擇舊式伺服器的原因是為了配合即將結束服務的 Windows Server 2003 R2 和 SQL Server 2005，我們準備了 [工具](http://aka.ms/websitesmigration) 和 [指南](http://aka.ms/websitesmigrationresources)，可自動將工作負載移轉至 Azure。基於這個理由，在此範例中所使用的模式可在各種移轉案例中使用。 
+在這個企業營運應用程式範例中，我們將針對可讓員工提交補助費用的費用報銷報告應用程式進行討論。本應用程式會在執行 IIS6 的 Windows Server 2003 R2 上裝載，資料庫會是 SQL Server 2005 資料庫。我們選擇舊式伺服器的原因是為了配合即將結束服務的 Windows Server 2003 R2 和 SQL Server 2005，我們準備了[工具](http://aka.ms/websitesmigration)和[指南](http://aka.ms/websitesmigrationresources)，可自動將工作負載移轉至 Azure。基於這個理由，在此範例中所使用的模式可在各種移轉案例中使用。 
 
 ### 移轉現有的應用程式 ###
 
@@ -91,19 +106,19 @@ Azure 網站是一個可擴充的全域平台，可讓 Web 應用程式依照不
 從內部部署環境移轉應用程式時，您可能要思考幾個 Azure 網站限制。將 Web 應用程式移轉到 Azure 網站時，以下是一些要注意的重要主題 ([http://aka.ms/websitesmigrationresources](http://aka.ms/websitesmigrationresources))：
 
 -	連接埠繫結 - Azure 網站只支援連接埠 80 (適用於 HTTP) 和連接埠 443 (適用於 HTTPS 流量)，如果您的應用程式或網站使用任何其他連接埠，則移轉之後，應用程式或網站將針對 HTTP 使用連接埠 80 並針對 HTTPS 流量使用連接埠 443。這通常不是很大的問題，因為在內部部署部署中，為了克服使用的網域名稱問題而使用不同連接埠的情況十分常見，尤其是在開發和測試環境中。
--	驗證 - 依預設，Azure 網站支援由應用程式識別的匿名驗證和表單驗證。當應用程式或網站僅與 Azure Active Directory 和 ADFS 整合時，Azure 網站可以提供 Windows 驗證，此功能將在 [此處](http://aka.ms/azurebizapp) 有更詳細的討論。
+-	驗證 - 依預設，Azure 網站支援由應用程式識別的匿名驗證和表單驗證。當應用程式或網站僅與 Azure Active Directory 和 ADFS 整合時，Azure 網站可以提供 Windows 驗證，此功能將在[此處](http://aka.ms/azurebizapp)有更詳細的討論。 
 -	GAC 架構組件 - Azure 網站不允許將組件部署至全域組件快取 (GAC)，因此如果正在移轉的應用程式或網站在內部部署使用了這項功能，請考慮將組件移至應用程式或網站的 bin 資料夾。
 -	IIS5 相容性模式 - Azure 網站不支援 IIS5 相容性模式，因此，每個網站與父網站下的所有 Web 應用程式會在單一應用程式集區內的相同背景工作處理序中執行。
 -	使用 COM 程式庫 - Azure 網站不允許 COM 元件在平台上註冊，因此，如果網站或應用程式正在使用任何 COM 元件，您可能必須以 Managed 程式碼重新撰寫這些元件，並在網站或應用程式上進行部署。
--	ISAPI 篩選器 - Azure 網站支援 ISAPI 篩選器，ISAPI 篩選器必須作為網站的一部分進行部署，並在網站或 Web 應用程式 web.config 檔案中註冊。如需詳細資訊，請參閱 [http://aka.ms/azurewebsitesxdt](http://aka.ms/azurewebsitesxdt)。 
+-	ISAPI 篩選器 - Azure 網站支援 ISAPI 篩選器，ISAPI 篩選器必須作為網站的一部分進行部署，並在網站或 Web 應用程式 web.config 檔案中註冊。如需詳細資訊，請參閱[http://aka.ms/azurewebsitesxdt](http://aka.ms/azurewebsitesxdt)。 
 
 在思考了這些主題之後，您的 Web 應用程式應該可以開始在雲端中使用。別擔心，如果部分主題未達到要求，移轉工具仍會盡全力移轉。 
 
-移轉程序中的下一個步驟是建立 Azure 網站和 Azure SQL Database。Microsoft Azure 網站執行個體有多種大小，內含不同數目的 CPU 核心和 RAM 數量可供您根據 Web 應用程式需求進行選擇。如需詳細資訊與定價，請參閱 [http://aka.ms/azurewebsitesskus](http://aka.ms/azurewebsitesskus)。同樣地，Microsoft Azure SQL Database 能夠兼顧企業的所有需求，透過各種服務層級和效能層級來實現需求。您可以在 [http://aka.ms/azuresqldbskus](http://aka.ms/azuresqldbskus) 找到進一步資訊。建立網站/應用程式之後，您便可透過 FTP 或 WebDeploy 將它們上傳至 Azure 網站，然後移入資料庫。
+移轉程序中的下一個步驟是建立 Azure 網站和 Azure SQL Database。Microsoft Azure 網站執行個體有多種大小，內含不同數目的 CPU 核心和 RAM 數量可供您根據 Web 應用程式需求進行選擇。如需詳細資訊與定價，請參閱[http://aka.ms/azurewebsitesskus](http://aka.ms/azurewebsitesskus)。同樣地，Microsoft Azure SQL Database 能夠兼顧企業的所有需求，透過各種服務層級和效能層級來實現需求。您可以在 [http://aka.ms/azuresqldbskus](http://aka.ms/azuresqldbskus) 找到進一步資訊。建立網站/應用程式之後，您便可透過 FTP 或 WebDeploy 將它們上傳至 Azure 網站，然後移入資料庫。
 
 在此移轉中，解決方案會使用 Azure SQL Database，但這不是 Azure 唯一支援的資料庫。公司也可以透過附加元件 (可以在 [Azure Store](http://aka.ms/azurestore) 購買) 來使用 MySQL、MongoDB、Azure DocumentDB 等產品。 
 
-建立 Azure SQL Database 時，有幾個選項可用來從內部部署伺服器匯入現有資料庫，包括產生現有資料庫的指令碼，以及使用 [資料層應用程式匯出和匯入](http://aka.ms/dacpac)。 
+建立 Azure SQL Database 時，有幾個選項可用來從內部部署伺服器匯入現有資料庫，包括產生現有資料庫的指令碼，以及使用[資料層應用程式匯出和匯入](http://aka.ms/dacpac)。 
 
 建立費用報銷應用程式資料庫的方法是建立新的 Azure SQL Database，使用 SQL Server Management Studio 連線到資料庫，然後執行指令碼來建置資料庫結構描述，並填入來自內部部署資料庫的資料。
 
@@ -123,7 +138,7 @@ Azure 網站提供兩種可連線到內部部署資源 (例如資料庫) 的方�
 
 隨著企業的員工逐漸增加 (透過併購或自然成長)，太多的 Web 應用程式必須進行調整以滿足新的需求。今日，常可看到散佈各地的共置團隊和遠端員工，例如公司在美國、歐洲和亞洲都有辦公室，並在更多的領域中設有行動銷售部門。Azure 網站有能力以輕鬆自動擴充的方式處理彈性變更。
 
-Microsoft Azure 網站可讓您透過管理入口網站，將 Web 應用程式設定為根據兩個動因 (排定時間或依 CPU 使用量) 自動調整。Microsoft Azure 網站自動調整提供了一個符合成本效益且極具彈性的方式，以滿足所有企業應用程式使用方式的大量變更需求，包括 Web 應用程式 (例如費用報銷報告系統) 和行銷網站 (短暫促銷時間的高峰流量)。如需有關調整使用 Microsoft Azure 網站的 Web 應用程式詳細資訊和指引，請參閱 [如何調整網站](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-scale/)。
+Microsoft Azure 網站可讓您透過管理入口網站，將 Web 應用程式設定為根據兩個動因 (排定時間或依 CPU 使用量) 自動調整。Microsoft Azure 網站自動調整提供了一個符合成本效益且極具彈性的方式，以滿足所有企業應用程式使用方式的大量變更需求，包括 Web 應用程式 (例如費用報銷報告系統) 和行銷網站 (短暫促銷時間的高峰流量)。如需有關調整使用 Microsoft Azure 網站的 Web 應用程式詳細資訊和指引，請參閱[如何調整網站](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-scale/)。
 
 除了調整彈性 Microsoft Azure 網站以外，整體平台可透過 Web 應用程式及其資產的可能分配，在多個資料中心和地理區域中提供業務持續性和復原功能。
 
@@ -132,3 +147,6 @@ Microsoft Azure 網站針對快速發展環境中的企業動態需求，提供�
 
 ## 動作的呼叫 ##
 如需有關 Microsoft Azure 網站服務的詳細資訊，請造訪 [http://aka.ms/enterprisewebsites](http://aka.ms/enterprisewebsites)，您可在此找到更多資訊，現在立即註冊試用版，網址是 [http://aka.ms/azuretrial](http://aka.ms/azuretrial)，即可評估服務並找到企業優勢。
+
+
+<!--HONumber=42-->

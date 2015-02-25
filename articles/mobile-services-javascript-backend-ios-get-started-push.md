@@ -1,10 +1,10 @@
-<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="開始使用推播通知 (iOS) | 行動開發人員中心" metaKeywords="" description="了解如何使用 Azure 行動服務傳送推播通知至 iOS 應用程式。" metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+﻿<properties pageTitle="開始使用推播通知 (iOS) | 行動開發人員中心" description="了解如何使用 Azure 行動服務傳送推播通知至 iOS 應用程式。" services="mobile-services, notification-hubs" documentationCenter="ios" manager="dwrede" editor="" authors="krisragh"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="12/15/2014" ms.author="krisragh"/>
 
 # 將推播通知新增至行動服務應用程式
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
 本主題說明如何透過 Apple 推播通知服務 (APNS)，使用 Azure 行動服務將推播通知傳送至 iOS 應用程式。在本教學課程中，您會啟用透過 Azure 通知中心將推播通知傳送至[快速入門專案](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started/)的功能。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
@@ -15,7 +15,7 @@
 3. [建立應用程式的佈建設定檔](#profile)
 4. [設定行動服務](#configure)
 5. [新增推播通知至應用程式](#add-push)
-6. [更新指令碼來傳送推播通知](#update-scripts)
+6. [更新指令碼以傳送推播通知](#update-scripts)
 7. [插入資料以接收通知](#test)
 
 本教學課程需要下列各項：
@@ -25,17 +25,17 @@
 + iOS 6.0 (或以上版本) 功能裝置
 + iOS Developer Program 成員資格
 
-   > [WACOM.NOTE] 基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
+   > [AZURE.NOTE] 基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
 
-本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須先完成[開始使用行動服務]。
+本教學課程會以行動服務快速入門為基礎。在開始此教學課程之前，您必須先完成[開始使用行動服務]或[將行動服務新增至現有應用程式][開始使用資料]。
 
 
-[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 
 ## <a id="configure"></a>設定行動服務傳送推播要求
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
+[AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## <a id="update-scripts"></a>在管理入口網站中更新已註冊的插入指令碼
 
@@ -43,7 +43,7 @@
 
    	![][21]
 
-2. 在 [**todoitem**] 中，按一下 [**指令碼**] 索引標籤，然後選取 [**插入**]。
+2. 在 [**TodoItem**] 中，按一下 [**指令碼**] 索引標籤，然後選取 [**插入**]。
 
   	![][22]
 
@@ -68,7 +68,7 @@
    	這會註冊新的 insert 指令碼，它會使用 [apns 物件]將推播通知 (插入的文字) 傳送至插入要求中提供的裝置。
 
 
-   	> [WACOM.NOTE] 此指令碼會延遲通知的傳送，讓您有時間關閉應用程式來接收推播通知。
+   	> [AZURE.NOTE] 此指令碼會延遲通知的傳送，讓您有時間關閉應用程式來接收推播通知。
 
 ## <a id="add-push"></a>將推播通知新增至應用程式
 
@@ -126,13 +126,13 @@
 
 ## <a id="test"></a>在應用程式中測試推播通知
 
-1. 按 [**執行**] 按鈕以建置專案並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [**確定**] 以接受推播通知
+1. 按 [**執行**] 按鈕以建置專案，並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [**確定**] 以接受推播通知。
 
   	![][23]
 
-    > [WACOM.NOTE] 您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
+    > [AZURE.NOTE] 您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
 
-2. 在應用程式中，輸入有意義的文字，如 _A new Mobile Services task_，然後按一下加號 ([**+**]) 圖示。
+2. 在應用程式中，輸入有意義的文字，如 A new Mobile Services task，然後按一下加號 (**+**) 圖示。
 
   	![][24]
 
@@ -150,11 +150,11 @@
 
 本教學課程說明了啟用 iOS 應用程式，以使用行動服務和通知中心傳送推播通知的基本概念。接著，請考慮完成下列其中一個教學課程：
 
-+ [傳送推播通知給已驗證的使用者]
++ [將推播通知傳送給驗證的使用者]
 	<br/>了解如何利用標籤，從行動服務將推播通知只傳送給驗證的使用者。
 
 + [將廣播通知傳送給訂閱者]
-	<br/>了解使用者如何註冊及接收其所需類別的推播通知。
+	<br/>了解使用者如何註冊及接收他們所需類別的推播通知。
 <!---
 + [將範本型通知傳送給訂閱者]
 	<br/>了解如何使用範本從行動服務傳送推播通知，但不必在您的後端製作平台特定裝載。
@@ -170,8 +170,8 @@
 * [什麼是通知中心？]
   <br/>深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
 
-* [偵測通知中心應用程式](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>取得指引疑難排解和偵測通知中心解決方案。 
+* [偵錯通知中心應用程式](http://go.microsoft.com/fwlink/p/?linkid=386630)
+  </br>取得指引疑難排解和偵錯通知中心解決方案。 
 
 * [行動服務 Objective-C 作法概念性參考]
   <br/>深入了解如何搭配使用行動服務與 Objective-C 和 iOS。
@@ -232,7 +232,7 @@
 
 [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
 
-[傳送推播通知給已驗證的使用者]: /zh-tw/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/
+[將推播通知傳送給驗證的使用者]: /zh-tw/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/
 
 [什麼是通知中心？]: /zh-tw/documentation/articles/notification-hubs-overview/
 [將廣播通知傳送給訂閱者]: /zh-tw/documentation/articles/notification-hubs-ios-send-breaking-news/
@@ -240,4 +240,5 @@
 
 [行動服務 Objective-C 作法概念性參考]: /zh-tw/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

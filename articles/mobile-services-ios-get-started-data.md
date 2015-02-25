@@ -1,16 +1,14 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="開始使用資料 (iOS) | 行動開發人員中心" metaKeywords="Azure iOS 資料、Azure 行動服務資料、 " description="了解如何開始使用行動服務來運用 iOS 應用程式中的資料。" metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="開始使用資料 (iOS) | 行動開發人員中心" description="了解如何開始使用行動服務，在您的 iOS 應用程式中使用資料。" services="" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
-# 新增行動服務到現有的應用程式
+# 將行動服務新增至現有的應用程式
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 本主題將示範如何使用 Azure 行動服務，進而運用 iOS 應用程式中的資料。在本教學課程中，您將下載應用程式，並在記憶體中儲存資料、建立新的行動服務、將行動服務與該應用程式整合，然後登入 Azure 管理入口網站查看執行應用程式時所做的資料變更。
 
-<div class="dev-callout"><b>注意</b>
-<p>本教學課程旨在協助您深入了解如何透過行動服務，來使用 Azure 儲存並擷取 iOS 應用程式中的資料。因此，本主題將逐步說明已在行動服務快速入門中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮先完成教學課程 <a href="/zh-tw/develop/mobile/tutorials/get-started-ios">開始使用行動服務</a>。</p>
-</div>
+> [AZURE.NOTE] 本教學課程旨在協助您深入了解如何透過行動服務，來使用 Azure 儲存並擷取 iOS 應用程式中的資料。因此，本主題將逐步說明已在行動服務快速入門中完成的許多步驟。如果這是您第一次接觸行動服務，請考慮先完成[開始使用行動服務](/zh-tw/develop/mobile/tutorials/get-started-ios)教學課程。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
@@ -22,12 +20,12 @@
 
 本教學課程需要下列項目：
 
-+ [行動服務 iOS SDK] 和 [XCode 4.5][Install Xcode] 以及 iOS 5.0 或更新版本。
++ [行動服務 iOS SDK] 和 [XCode 4.5][安裝 Xcode] 和 iOS 5.0 或更新版本。
 + Microsoft Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Azure 免費試用</a>。</p></div>
 
 ##<a name="download-app"></a>下載 GetStartedWithData 專案
 
-本教學課程以 [GetStartedWithData 應用程式][GitHub] (iOS 應用程式) 為基礎而建立。除了會將新增項目儲存在本機記憶體中之外，由此應用程式與行動服務 iOS 快速入門所產生的應用程式兩者的 UI 完全相同。
+本教學課程以 [GetStartedWithData 應用程式][GitHub] (iOS 應用程式) 為基礎。除了會將新增項目儲存在本機記憶體中之外，由此應用程式與行動服務 iOS 快速入門所產生的應用程式兩者的 UI 完全相同。
 
 1. 下載 GetStartedWithData [範例應用程式][GitHub]。
 
@@ -45,15 +43,15 @@
 
 ##<a name="create-service"></a>在管理入口網站中建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
 ##<a name="add-table"></a>將新資料表新增至行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
 ##<a name="update-app"></a>更新應用程式以使用行動服務進行資料存取
 
-[WACOM.INCLUDE [mobile-services-ios-enable-mobile-service-access](../includes/mobile-services-ios-enable-mobile-service-access.md)]
+[AZURE.INCLUDE [mobile-services-ios-enable-mobile-service-access](../includes/mobile-services-ios-enable-mobile-service-access.md)]
 
 ##<a name="test-app"></a>對新的行動服務進行應用程式測試
 
@@ -93,7 +91,7 @@
 	<br/>了解如何驗證應用程式的使用者。
 
 * [開始使用推播通知]
-  <br/>了解如何使用「行動服務」傳送非常基本的推播通知到您的應用程式。
+  <br/>了解如何使用行動服務，將非常基本的推播通知傳送至您的應用程式。
 
 <!-- Anchors. -->
 [下載 iOS 應用程式專案]: #download-app
@@ -132,4 +130,5 @@
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkId=268622
 [GitHub 儲存機制]: http://go.microsoft.com/fwlink/p/?LinkId=268784
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

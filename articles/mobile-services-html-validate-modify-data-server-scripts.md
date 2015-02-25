@@ -1,10 +1,10 @@
-<properties urlDisplayName="Validate Data - HTML5" pageTitle="使用伺服器指令碼驗證與修改資料 (HTML 5) | 行動開發人員中心" metaKeywords="" description="了解如何驗證和修改從 HTML 應用程式使用伺服器指令碼傳送的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="使用伺服器指令碼驗證與修改資料 (HTML 5) | 行動開發人員中心" description="了解如何驗證和修改從 HTML 應用程式使用伺服器指令碼傳送的資料。" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # 使用伺服器指令碼在行動服務中驗證與修改資料 
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
 本主題將示範如何在 Azure 行動服務中運用伺服器指令碼。您可在行動服務中註冊伺服器指令碼，並使用該指令碼來針對插入和更新資料執行各種操作，包括驗證與資料修改。在本教學課程中，您將定義並註冊可驗證與修改資料的伺服器指令碼。由於伺服器端指令碼的行為常會影響用戶端，您也可以更新您的 HTML 應用程式，以充分利用這些新行為。
 
@@ -15,13 +15,13 @@
 3. [插入時新增時間戳記]
 4. [更新用戶端以顯示時間戳記]
 
-本教學課程會以先前的教學課程[開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料]。  
+本教學課程會以上一堂[開始使用資料]教學課程中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料]。  
 
 ## <a name="string-length-validation"></a>新增驗證
 
 驗證使用者提交的資料長度一向是最佳做法。首先，註冊可驗證傳送至行動服務之字串資料長度的指令碼，並拒絕太長的字串，在此案例中為不得超過 10 個字元。
 
-1. 登入 [Azure 管理入口網站]，按一下 [**行動服務**]，然後按一下您的應用程式。 
+1. 登入「Azure 管理入口網站」[]，按一下 [行動服務]****，然後按一下您的應用程式。 
 
    	![][0]
 
@@ -29,11 +29,11 @@
 
    	![][1]
 
-3. 按一下 [**指令碼**]，然後選取 [**Insert**] 作業。
+3. 按一下 [指令碼]****，然後選取 [插入]**** 作業。
 
    	![][2]
 
-4. 以下列函數取代現有的指令碼，然後按一下 [**儲存**]。
+4. 使用下列函式取代現有的指令碼，然後按一下 [**儲存**]。
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -47,9 +47,7 @@
 
     本指令碼會檢查 **TodoItem.text** 屬性的長度，並在長度超過 10 個字元時傳送錯誤回應。否則，系統會呼叫 **execute** 函數以完成插入。
 
-    <div class="dev-callout"> 
-	<b>注意</b> 
-	<p>您可以在 [<strong>指令碼</strong>] 索引標籤上按一下 [<strong>清除</strong>]，再按一下 [<strong>儲存</strong>]，即可移除已註冊的指令碼。</p></div>	
+    > [AZURE.TIP] 您可以將位於 [**指令碼**] 索引標籤上的已註冊指令碼移除，方法是依序按一下 [**清除**]、[**儲存**]。	
 
 ## <a name="update-client-validation"></a>更新用戶端
 
@@ -61,13 +59,11 @@
 	+ **launch-mac.command** (Mac OS X 電腦)
 	+ **launch-linux.sh** (Linux 電腦)
 
-	<div class="dev-callout"><b>注意</b>
-		<p>在 Windows 電腦上，PowerShell 要求您確認想要執行指令碼時，請輸入 `R`。因為指令碼是從網際網路中下載，所以您的網頁瀏覽器可能會警告您不要執行指令碼。發生此情況時，您必須要求瀏覽器繼續載入指令碼。</p>
-	</div>
+	> [AZURE.NOTE] 在 Windows 電腦上，PowerShell 要求您確認想要執行指令碼時，請輸入 `R`。因為指令碼是從網際網路中下載，所以您的網頁瀏覽器可能會警告您不要執行指令碼。發生此情況時，您必須要求瀏覽器繼續載入指令碼。
 
 	這會在本機電腦上啟動 Web 伺服器，以代管應用程式。
 
-1. 	開啟 app.js 檔案，然後以下列程式碼取代 **$('#add-item').submit()** 事件處理常式：
+1. 	開啟 app.js 檔案，然後以下列程式碼取代 **$('#add-item').submit()**  事件處理常式：
 
 		$('#add-item').submit(function(evt) {
 			var textbox = $('#new-item-text'),
@@ -90,11 +86,9 @@
 
 上一個工作驗證了插入操作，並已接受或拒絕此操作。現在，您將更新插入資料，方法是在插入物件之前，使用可將時間戳記屬性新增至物件的伺服器指令碼。
 
-<div class="dev-callout"><b>注意</b>
-<p>此處所示範的 <b>createdAt</b> 時間戳記屬性現為備援屬性。行動服務會自動建立每個資料表的 <b>__createdAt</b> 系統屬性。</p>
-</div>
+> [AZURE.NOTE] 此處所示範的 **createdAt** 時間戳記屬性現為備援屬性。行動服務會自動建立每個資料表的 **__createdAt** 系統屬性。
 
-1. 在 [[管理入口網站]] 的 [**指令碼**] 索引標籤中，使用下列函數取代目前的 **Insert** 指令碼，然後按一下 [**儲存**]。
+1. 在[管理入口網站]的 [**指令碼**] 索引標籤中，使用下列函數來取代目前的 **Insert** 指令碼，然後按一下 [**儲存**]。
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -107,19 +101,17 @@
             }
         }
 
-    此函數可強化上一個 insert 指令碼，方法是在呼叫 **request**.**execute** 來插入物件之前，先將新的 **createdAt** 時間戳記屬性新增至物件。 
+    此函數可強化上一個 insert 指令碼，方法是先將新的 **createdAt** 時間戳記屬性新增至物件，再呼叫 **request**.**execute**。 
 
-    <div class="dev-callout"><b>注意</b>
-	<p>首次執行插入指令碼時，必須啟用動態結構描述。在啟用動態結構描述的情況下，行動服務會在首次執行時自動將 <strong>createdAt</strong> 欄新增至 <strong>TodoItem</strong> 資料表。依預設會啟用新行動服務的動態結構描述，您應先加以停用，再發佈應用程式。</p>
-    </div>
+    > [AZURE.IMPORTANT] 首次執行插入指令碼時，必須啟用動態結構描述。在已啟用動態結構描述的情況下，行動服務會在首次執行時將 **createdAt** 資料欄自動新增至 **TodoItem** 資料表。依預設會啟用新行動服務的動態結構描述，您應先加以停用，再發佈應用程式。
 
-2. 在網頁瀏覽器中重新載入頁面，然後在 [**新增工作**] 中輸入少於 10 個字元的文字，再按一下 [**新增**]。
+2. 在網頁瀏覽器中重新載入頁面，然後在 [**新增工作**] 中輸入文字 (少於 10 個字元)，然後按一下 [**新增**]。
 
    	請注意新的時間戳記不會出現在應用程式 UI 中。
 
-3. 回到管理入口網站，按一下 **todoitem** 資料表中的 [**瀏覽**] 索引標籤。
+3. 回到 [管理入口網站] 中，按一下 **todoitem** 資料表中的 [**Browse**] 索引標籤。
    
-   	請注意，現在會有一個 **createdAt** 資料行，且新插入的項目會具有時間戳記值。
+   	請注意，現在會有一個 **createdAt** 資料欄，且新插入的項目也具有時間戳記值。
   
 接下來，您必須更新應用程式以顯示此新資料欄。
 
@@ -131,7 +123,7 @@
 
 		function refreshTodoItems() {
 			var query = todoItemTable.where(function () {
-                return (this.complete === false && this.createdAt !== null);
+                return (this.complete === false);
             });
 
 			query.read().then(function(todoItems) {
@@ -154,9 +146,9 @@
 			});
 		}
 
-   	這會顯示新的 **createdAt** 屬性的日期部分。 
+   	這會顯示新 **createdAt** 屬性的日期部分。 
 
-2. 在您的編輯器中開啟 style.css 檔案，然後以下列程式碼取代 `item-text` 類別的樣式：
+2. 在您的編輯器中開啟 style.css 檔案，然後以下列程式碼取代  `item-text` 類別的樣式：
 
 		.item-text { width: 70%; height: 26px; line-height: 24px; 
 			border: 1px solid transparent; background-color: transparent; }
@@ -174,7 +166,7 @@
                 return (this.complete === false && this.createdAt !== null);
             });
 
-   	此函數會更新查詢，篩選出沒有時間戳記的項目。
+   	This function updates the query to also filter out items that do not have a timestamp value.
 	
 8. 重新載入頁面。
 
@@ -186,7 +178,7 @@
 
 現在，您已完成本教學課程，請考慮繼續進行資料數列中最後的教學課程：[使用分頁縮小查詢範圍]。
 
-如需詳細資訊，請參閱[使用伺服器指令碼]和[行動服務 HTML/JavaScript 作法概念性參考]
+如需詳細資訊，請參閱[使用伺服器指令碼]和[行動服務 HTML/JavaScript 作法概念參考]
 
 
 <!-- Anchors. -->
@@ -212,4 +204,7 @@
 
 [管理入口網站]: https://manage.windowsazure.com/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[行動服務 HTML/JavaScript 作法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client
+[行動服務 HTML/JavaScript 做法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client
+
+
+<!--HONumber=42-->

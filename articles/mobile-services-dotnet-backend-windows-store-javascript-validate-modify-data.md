@@ -1,12 +1,12 @@
-<properties urlDisplayName="Validate and Modify Data" pageTitle="使用 .Net 後端驗證與修改資料 (Windows 市集) | 行動開發人員中心" metaKeywords="" description="了解如何使用 .Net 後端 Windows Azure 行動服務驗證、修改和增加 Javascript Windows 市集應用程式的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="使用 .Net 後端驗證與修改資料 (Windows 市集) | 行動開發人員中心" description="了解如何使用 .Net 後端 Windows Azure 行動服務驗證、修改和增加 Javascript Windows 市集應用程式的資料。" services="mobile-services" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="wesmc"/>
 
 # 使用 .NET 後端在行動服務中驗證與修改資料
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-本主題將說明如何在 .Net 後端 Azure 行動服務中使用程式碼，以驗證及修改資料。.NET 後端服務是使用 Web API 架構建置的 HTTP 服務。如果您熟悉以 Web API 架構定義的 `ApiController` 類別，則行動服務提供的 `TableController` 類別是非常直覺性的。`TableController` 衍生自 `ApiController` 類別，其提供額外的功能做為與資料庫資料表的介面。它可用來對要插入和更新的資料執行作業，包括本教學課程中示範的驗證和資料修改。 
+本主題將說明如何在 .Net 後端 Azure 行動服務中使用程式碼，以驗證及修改資料。.NET 後端服務是使用 Web API 架構建置的 HTTP 服務。如果您熟悉以 Web API 架構定義的  `ApiController` 類別，則行動服務提供的  `TableController` 類別是非常直覺性的。 `TableController` 衍生自  `ApiController` 類別，其提供額外的功能做為與資料庫資料表的介面。它可用來對要插入和更新的資料執行作業，包括本教學課程中示範的驗證和資料修改。 
 
 本教學課程將逐步引導您完成下列基本步驟：
 
@@ -20,12 +20,12 @@
 
 ## <a name="string-length-validation"></a>將驗證程式碼新增至行動服務
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 
 ## <a name="update-client-validation"></a>更新用戶端
 
-現在，行動服務已經過設定而會驗證資料，並針對無效的文字長度傳送錯誤回應，您必須更新應用程式以便處理驗證的錯誤回應。用戶端應用程式呼叫 `IMobileServiceTable<TodoItem].InsertAsync()` 時，將會收到錯誤。
+現在，行動服務已經過設定而會驗證資料，並針對無效的文字長度傳送錯誤回應，您必須更新應用程式以便處理驗證的錯誤回應。用戶端應用程式呼叫  `IMobileServiceTable<TodoItem].InsertAsync()` 時，將會收到錯誤。
 
 1. 在 Visual Studio 的 [方案總管] 視窗中導覽至 JavaScript 用戶端專案，然後展開 **js** 資料夾。開啟 default.js 檔案。
 
@@ -51,7 +51,7 @@
 
 ## <a name="test-length-validation"></a>測試長度驗證
 
-1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下 JavaScript 用戶端應用程式專案，然後按一下 [**偵錯**]、[**開始新執行個體**]。
+1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下 JavaScript 用戶端應用程式專案，然後按一下 [**偵錯]**、[**開始新執行個體**]。
 
 2. 為新的 todo 項目輸入長度超過 10 個字元的文字，然後按一下 [**儲存**]。
 
@@ -61,17 +61,17 @@
 
     ![][2]
 
-## <a name="add-timestamp"></a>新增 CompleteDate 的時間戳記欄位
+## <a name="add-timestamp"></a>新增 CompleteDate 的時間戳記欄位 
 
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
 ## <a name="update-client-timestamp"></a>更新用戶端以顯示 CompleteDate
 
-最後的步驟是更新用戶端以顯示新的 **completeDate** 資料。 
+最後步驟是更新用戶端以顯示此新的 **completeDate** 資料。 
 
 
-1. 在 Visual Studio 的 [方案總管] 中，在 JavaScript 用戶端專案中開啟 default.html 檔案。以下列定義來取代繫結範本 `div` 標籤元素。接著，請儲存檔案。這會新增 `div` 標籤，其中 innerText 屬性會繫結至 **completeDate**。
+1. 在 Visual Studio 的 [方案總管] 中，在 JavaScript 用戶端專案中開啟 default.html 檔案。以下列定義來取代繫結範本  `div` 標籤元素。接著，請儲存檔案。這會新增 `div` 標籤，其中 innerText 屬性會繫結至 **completeDate**。
 	      
         <div id="TemplateItem" data-win-control="WinJS.Binding.Template">
           <div style="display: -ms-grid; -ms-grid-columns: 3">
@@ -119,7 +119,7 @@
 
     ![][4]
 
-6. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下 Todolist 服務專案，然後按一下 [**發行**]。使用您從 Azure 入口網站下載的發佈設定檔案，將您的 .NET 後端服務發佈至 Microsoft Azure。
+6. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下 Todolist 服務專案，然後按一下 [**發佈**]。使用您從 Azure 入口網站下載的發佈設定檔案，將您的 .NET 後端服務發佈至 Microsoft Azure。
 
 7. 將行動服務位址的連線取消註解，以更新用戶端專案的 default.js 檔案。對 Azure 帳戶中代管的 .NET 後端進行應用程式測試。
 
@@ -136,10 +136,10 @@
   <br/>了解如何根據通過驗證的使用者識別碼篩選資料。
 
 * [開始使用推播通知] 
-  <br/>了解如何將非常基本的推播通知傳送至您的應用程式。
+  <br/>了解如何將極為基本的推播通知傳送到應用程式。
 
-* [行動服務 .NET 作法概念性參考]
-  <br/>深入了解如何搭配使用行動服務與 .NET。
+* [行動服務 .NET 做法概念性參考]
+  <br/>深入了解如何搭配使用行動服務與 .NET
 
 <!-- Anchors. -->
 [新增字串長度驗證]: #string-length-validation
@@ -168,4 +168,7 @@
 
 [管理入口網站]: https://manage.windowsazure.com/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[行動服務 .NET 作法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
+[行動服務 .NET 做法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
+
+
+<!--HONumber=42-->

@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Set up endpoints" pageTitle="在 Azure 中的虛擬機器上設定端點" metaKeywords="Azure config setup, configuring vm connection" description="了解如何與 Azure 中的虛擬機器設定通訊。" metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties pageTitle="在 Azure 中的虛擬機器上設定端點" description="了解如何與 Azure 中的虛擬機器設定通訊。" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2014" ms.author="kathydav"/>
 
-#如何設定虛擬機器的端點
+# 如何設定虛擬機器的端點
 
-**附註**：如果要依主機名稱來直接連線至虛擬機器，或設定跨單位連線，請參閱 [Azure 虛擬網路概觀](http://go.microsoft.com/fwlink/p/?LinkID=294063)。
+**注意**：如果要依主機名稱來直接連線至虛擬機器，或設定跨單位連線，請參閱 [Azure 虛擬網路概觀](http://go.microsoft.com/fwlink/p/?LinkID=294063)。
 
 您在 Azure 中建立的所有虛擬機器都可以自動使用私人網路通道，與相同雲端服務或虛擬網路中的其他虛擬機器進行通訊。不過，網際網路或其他虛擬網路上的其他資源需要端點，以處理傳入虛擬機器的網路流量。 
 
@@ -20,56 +20,57 @@
 
 **重要事項**：對於與遠端桌面和安全殼層 (SSH) 相關聯的連接埠，以及對於大部分情況下的 Windows PowerShell 遠端執行功能，系統會自動完成防火牆設定。至於其他所有端點的指定連接埠，客體作業系統中不會自動設定防火牆。建立端點時，您需要在防火牆中設定適當的連接埠，以允許您想要傳送的流量通過端點。
 
-###建立端點###
+### 建立端點 ###
 
 1. 如果您尚未登入，請登入 [Azure 管理入口網站](http://manage.windowsazure.com)。
 
-2. 按一下 [**虛擬機器**]，然後選取想要設定的虛擬機器。
+2. 按一下 [虛擬機器]，然後選取想要設定的虛擬機器。
 
-3. 按一下 [**端點**]。[端點] 頁面會列出虛擬機器的所有端點。
+3. 按一下 [端點]。[端點] 頁面會列出虛擬機器的所有端點。
 
 	![Endpoints](./media/virtual-machines-set-up-endpoints/endpointswindows.png)
 
-4.	按一下 [**新增**]。
+4.	按一下 [新增]。
 
-	[**新增端點**] 對話方塊隨即出現。選擇端點的類型。如果您要建立新的負載平衡集合，請選擇「獨立」，以建立集合中的第一個端點。
+	[新增端點] 對話方塊隨即出現。選擇端點的類型。如果您要建立新的負載平衡集合，請選擇「獨立」，以建立集合中的第一個端點。
 	
-5. 在 [**名稱**] 中輸入端點的名稱。
+5. 在 [名稱] 中輸入端點的名稱。
 
-6. 在 [通訊協定] 中指定 [**TCP**] 或 [**UDP**]。
+6. 在 [通訊協定] 中指定 [TCP] 或 [UDP]。
 
-7. 在 [**公用連接埠**] 和 [**私人連接埠**] 中，輸入要使用的連接埠號碼。這些連接埠號碼可以不同。公用連接埠是從 Azure 外部進行通訊的進入點，並且由 Azure 負載平衡器使用。您可以在虛擬機器上使用私人連接埠和防火牆規則，以適合應用程式的方式來重新導向流量。
+7. 在 [公用連接埠] 和 [私人連接埠] 中，輸入要使用的連接埠號碼。這些連接埠號碼可以不同。公用連接埠是從 Azure 外部進行通訊的進入點，並且由 Azure 負載平衡器使用。您可以在虛擬機器上使用私人連接埠和防火牆規則，以適合應用程式的方式來重新導向流量。
 
-8. 如果此端點是負載平衡集合的第一個端點，請按一下 [**建立負載平衡集合**]。然後，在 [**設定負載平衡集合**] 頁面上指定名稱、通訊協定和探查詳細資料。負載平衡集合需要探查，才能監控集合的健全狀況。如需詳細資訊，請參閱[虛擬機器負載平衡](http://www.windowsazure.com/zh-tw/manage/windows/common-tasks/how-to-load-balance-virtual-machines/)。  
+8. 如果此端點是負載平衡集合的第一個端點，請按一下 [建立負載平衡集合]。然後，在 [設定負載平衡集合] 頁面上指定名稱、通訊協定和探查詳細資料。負載平衡集合需要探查，才能監控集合的健全狀況。如需詳細資訊，請參閱[虛擬機器負載平衡](http://www.windowsazure.com/zh-tw/manage/windows/common-tasks/how-to-load-balance-virtual-machines/)。  
 
 9.	按一下核取記號以建立端點。
 
-	您現在會看到端點列在 [**端點**] 頁面上。
+	您現在會看到端點列在 [端點] 頁面上。
 
 	![Endpoint creation successful](./media/virtual-machines-set-up-endpoints/endpointwindowsnew.png)
 
-###在端點上管理 ACL###
+### 在端點上管理 ACL ###
 
-請依照這些步驟，在端點上新增、修改或移除 ACL。
+網路端點上的存取控制清單 (ACL) 可以根據來源 IP 限制流量，來保護您虛擬機器上建立的端點。請依照這些步驟，在端點上新增、修改或移除 ACL。
 
-**附註**：如果端點屬於負載平衡集合，則對端點上的 ACL 所做的任何變更，都將套用至此集合的所有端點。
+**注意**：如果端點屬於負載平衡集合，則對端點上的 ACL 所做的任何變更，都將套用至此集合的所有端點。
 
 1. 如果您尚未登入，請登入 [Azure 管理入口網站](http://manage.windowsazure.com)。
 
-2. 按一下 [**虛擬機器**]，然後選取想要設定的虛擬機器。
+2. 按一下 [虛擬機器]，然後選取想要設定的虛擬機器。
 
-3. 按一下 [**端點**]。[端點] 頁面會列出虛擬機器的所有端點。
+3. 按一下 [端點]。[端點] 頁面會列出虛擬機器的所有端點。
 
     ![ACL list](./media/virtual-machines-set-up-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
 
 4. 從清單中選取適當的端點。 
 
-5. 按一下 [**管理 ACL**]。
+5. 按一下 [管理 ACL]。
 
-    [**指定 ACL 詳細資料**] 對話方塊隨即出現。
+    [指定 ACL 詳細資料] 對話方塊隨即出現。
 
     ![Specify ACL details](./media/virtual-machines-set-up-endpoints/EndpointACLdetails.png)
 
 6. 使用清單中的各列來新增、刪除或編輯 ACL 的規則。[遠端子網路] 值會對應至您可依規則而允許或拒絕的 IP 位址範圍。規則的評估順序是從第一個規則開始，一直到最後一個規則為止。這表示規則應會以最寬鬆到最嚴格的順序來列出。如需範例和詳細資訊，請參閱[關於網路存取控制清單](http://go.microsoft.com/fwlink/p/?LinkId=303816)。
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

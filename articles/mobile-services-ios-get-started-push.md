@@ -1,8 +1,8 @@
-﻿<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="開始使用推播通知 (iOS) | 行動開發人員中心" metaKeywords="" description="了解如何使用 Azure 行動服務傳送推播通知至 iOS 應用程式 (舊版推播)。" metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" solutions="" manager="dwrede" editor="" authors="krisragh" />
+﻿<properties pageTitle="開始使用推播通知 (iOS) | 行動開發人員中心" description="了解如何使用 Azure 行動服務傳送推播通知至 iOS 應用程式 (舊版推播)。" services="mobile-services" documentationCenter="ios" manager="dwrede" editor="" authors="krisragh"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
-# 將推播通知新增至行動服務應用程式 (舊版推播)
+# 將推播通知新增至行動服務應用程式 (舊版為推播)
 
 <div class="dev-center-tutorial-selector sublanding">
     <a href="/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows 市集 C#</a>
@@ -18,7 +18,7 @@
 本主題說明如何使用 Azure 行動服務將推播通知傳送至 iOS 應用程式。在本教學課程中，您會使用 Apple 推播通知服務 (APNS) 將推播通知新增至快速入門專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
 
->[WACOM.NOTE]本主題支援<em>尚未升級</em>到使用通知中樞整合的<em>現有</em>行動服務。當您建立「<em>新的</em>」行動服務時，會自動啟用這項整合功能。關於新的行動服務，請參閱[開始使用推播通知](/zh-tw/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/)。
+>[AZURE.NOTE]本主題支援<em>尚未升級</em>到使用通知中心整合的<em>現有</em>行動服務。建立<em>新的</em>行動服務時，此整合式功能便會自動啟用。如需新的行動服務，請參閱[開始使用推播通知](/zh-tw/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/)。
 >
 >行動服務與 Azure 通知中樞整合，以支援其他推播通知功能，例如範本、多個平台和改善的規模。<em>您應該升級現有的行動服務，以盡可能使用通知中樞</em>。升級後，請參閱這一版的[開始使用推播通知](/zh-tw/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/)。
 
@@ -39,15 +39,15 @@
 + iOS 5.0 (或以上版本) 功能裝置
 + iOS Developer Program 成員資格
 
-   > [WACOM.NOTE] 基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
+   > [AZURE.NOTE] 基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
 
 本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務]。
 
-[WACOM.INCLUDE [啟用 Apple 推播通知](../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
 ## 設定行動服務傳送推播要求
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
+[AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## 將推播通知新增至應用程式
 
@@ -55,7 +55,7 @@
 
         @property (strong, nonatomic) NSString *deviceToken;
 
-    > [WACOM.NOTE] 當行動服務上已啟用動態結構描述，且插入的新項目含有此屬性時，**TodoItem** 資料表中就會自動新增 'deviceToken' 資料行。
+    > [AZURE.NOTE] 當行動服務上已啟用動態結構描述，且插入的新項目含有此屬性時，**TodoItem** 資料表中就會自動新增  'deviceToken' 欄。
 
 2. 在 QSAppDelegate.m 中，取代實作內的下列處理常式方法：
 
@@ -109,7 +109,7 @@
 
         NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @(NO) };
 
-   使用下列程式碼來取代此項：
+   Replace this with the following code:
 
         // Get a reference to the AppDelegate to easily retrieve the deviceToken
         QSAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
@@ -123,7 +123,7 @@
 
    	這將新增 **QSAppDelegate** 的參考來取得裝置權杖，然後修改要求裝載來包含該裝置權杖。
 
-   	> [WACOM.NOTE] 您必須在呼叫 <strong>addItem</strong> 方法之前加入此程式碼。
+   	> [AZURE.NOTE] 您必須在呼叫 <strong>addItem</strong> 方法之前加入此程式碼。
 
 您的應用程式現在已更新為支援推播通知。
 
@@ -133,7 +133,7 @@
 
    	![][21]
 
-2. 在 [**todoitem**] 中，按一下 [**指令碼**] 索引標籤，然後選取 [**Insert**]。
+2. 在 [**TodoItem**] 中，按一下 [**指令碼**] 索引標籤，然後選取 [**插入**]。
 
   	![][22]
 
@@ -155,20 +155,20 @@
             }, 2500);
         }
 
-   	如此即會註冊新的 insert 指令碼，該指令碼會使用 [apns 物件]將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。
+   	這會註冊新的 insert 指令碼，它會使用 [apns 物件]將推播通知 (插入的文字) 傳送至插入要求中提供的裝置。
 
 
-   	> [WACOM.NOTE] 此指令碼會延遲通知的傳送，讓您有時間關閉應用程式來接收快顯通知。
+   	> [AZURE.NOTE] 此指令碼會延遲通知的傳送，讓您有時間關閉應用程式來接收快顯通知。
 
 ## 在應用程式中測試推播通知
 
-1. 按 [**執行**] 按鈕以建置專案，並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [**確定**] 以接受推播通知
+1. 按 [**執行**] 按鈕以組建專案並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [**確定**] 以接受推播通知。
 
   	![][23]
 
-    > [WACOM.NOTE] 您必須明確接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
+    > [AZURE.NOTE] 您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
 
-2. 在應用程式中，輸入有意義的文字，例如 _A new Mobile Services task_，然後按一下加號 (**+**) 圖示。
+2. 在應用程式中，輸入有意義的文字，如 A new Mobile Services task，然後按一下加號 (**+**) 圖示。
 
   	![][24]
 
@@ -184,7 +184,7 @@
 
 ## 後續步驟
 
-在這個簡單範例中，使用者收到推播通知，其中含有剛插入的資料。用戶端會在要求中提供 APNS 所使用的裝置權杖給行動服務。在下一個教學課程[推播通知給應用程式使用者]中，您將另行建立 Devices 資料表來儲存裝置權杖，並在發生插入動作時傳送推播通知給已儲存的所有通道。
+在這個簡單範例中，使用者收到推播通知，其中含有剛插入的資料。用戶端會在要求中提供 APNS 所使用的裝置權杖給行動服務。在下一個[推播通知至應用程式使用者]教學課程中，您將另行建立 Devices 資料表來儲存裝置權杖，並在發生插入動作時傳送推播通知給已儲存的所有通道。
 
 <!-- Anchors. -->
 [產生憑證簽署要求]: #certificates
@@ -246,3 +246,6 @@
 [使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [apns 物件]: http://go.microsoft.com/fwlink/p/?LinkId=272333
+
+
+<!--HONumber=42-->

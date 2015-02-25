@@ -1,8 +1,8 @@
-﻿<properties pageTitle="開始搭配使用行動服務與 PhoneGap | 行動開發人員中心" metaKeywords="" description="遵循此教學課程，可開始使用 Azure 行動服務進行 iOS、Android 和 Windows Phone 的 PhoneGap 開發。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="開始搭配使用行動服務與 PhoneGap | 行動開發人員中心" description="遵循此教學課程，可開始使用 Azure 行動服務進行 iOS、Android 和 Windows Phone 的 PhoneGap 開發。" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 # <a name="getting-started"> </a>開始使用行動服務
 
@@ -19,13 +19,13 @@
 PhoneGap 支援多個平台的開發。除了 PhoneGap 工具本身以外，您還必須為所要使用的各個平台安裝下列工具：
 
 - Windows Phone：安裝 [Visual Studio 2012 Express for Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
-- iOS：安裝 [Xcode] (必須是 4.4 以上的版本)
+- iOS：安裝 [Xcode] (需要 v4.4 以上版本)
 - Android：安裝 [Android Developer Tools][Android SDK]
 	<br/>(Mobile Services SDK for Android 支援適用於 Android 2.2 或更新版本的應用程式。若要執行快速入門應用程式，則必須使用 Android 4.2 或更新版本。)
 
 ## <a name="create-new-service"> </a>建立新的行動服務
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 <h2>建立新的 PhoneGap 應用程式</h2>
 
@@ -33,7 +33,7 @@ PhoneGap 支援多個平台的開發。除了 PhoneGap 工具本身以外，您�
 
 在本節中，您將建立連接到行動服務的新 PhoneGap 應用程式。
 
-1.  在管理入口網站中，按一下 [**行動服務**]，然後按一下您剛剛建立的行動服務。
+1.  在管理入口網站中，按一下 [行動服務]****，然後按一下您剛剛建立的行動服務。
 
 2. 在 [快速入門] 索引標籤中，按一下 [**選擇平台**] 下的 [**PhoneGap**]，然後展開 [**Create a new PhoneGap app**]。
 
@@ -47,7 +47,7 @@ PhoneGap 支援多個平台的開發。除了 PhoneGap 工具本身以外，您�
 
 4. 按一下 [**Create TodoItems table**] 以建立儲存應用程式資料的資料表。
 
-5. 在 [**Download and run your app**] 下，按 [**下載**]。 
+5. 在 [**Download and run your app**] 下，按一下 [**下載**]。 
 
 	這會下載與您的行動服務連接的範例 _To do list_ 應用程式的專案，以及行動服務 JavaScript SDK。請將壓縮的專案檔案儲存至本機電腦，並記下儲存位置。
 
@@ -61,40 +61,40 @@ PhoneGap 支援多個平台的開發。除了 PhoneGap 工具本身以外，您�
 
 	+ **Windows Phone 8**
 
-	1. Windows Phone 8：在 Visual Studio 2012 Express for Windows Phone 中，開啟 **platforms\wp8** 資料夾中的 .sln 檔案。
+	1.Windows Phone 8：在 Visual Studio 2012 Express for Windows Phone 中，開啟 **platforms\wp82012 資料夾中的 .sln 檔案。
 	
-	2. 按 **F5** 鍵，以重建專案並啟動應用程式。
+	2.按 **F5** 鍵，以重建專案並啟動應用程式。
 	
 	  	![][2]
 
 	+ **iOS**
 
-	1. 在 Xcode 中，開啟 **platforms/ios** 資料夾中的專案。
+	1.在 Xcode 中，開啟 **platforms/ios** 資料夾中的專案。
 	
-	2. 按 [**執行**] 按鈕以建立專案，並在 iPhone 模擬器中啟動應用程式 (此專案的預設選項)。
+	2.按 [**執行**] 按鈕以建立專案，並在 iPhone 模擬器中啟動應用程式 (此專案的預設選項)。
 	
 	  	![][3]
 
 	+ **Android**
 
-		1. 在 Eclipse 中，依序按一下 [**檔案**] 和 [**匯入**]，展開 [**Android**]，按一下 [**Existing Android Code into Workspace**]，然後按 [**下一步**]。 
+		1.在 Eclipse 中，依序按一下 [**檔案**]、[**匯入**]、展開 [**Android**]，按一下 [**匯入現有的 Android 程式碼至工作區**]，然後按 [**下一步**]。 
 		
-		2. 按一下 [**瀏覽**] 瀏覽到展開的專案檔案位置，並且按一下 [**確定**] 確定已勾選 TodoActivity 專案，然後按一下 [**完成**]。 <p>這會將專案檔案匯入目前的工作區中。</p>
+		2.按一下 [**瀏覽**]，瀏覽至展開的專案檔案位置，按一下 [**確定**] 以確定已勾選 TodoActivity 專案，然後按一下 [**完成**]。 <p>這會將專案檔案匯入目前的工作區中。</p>
 		
-		3. 從 [**執行**] 功能表中，按一下 [**執行**] 在 Android 模擬器中啟動專案。
+		3.從 [**執行**] 功能表中按一下 [**執行**]，在 Android 模擬器中啟動專案。
 		
 			![][4]
 	
-		>[WACOM.NOTE]若要能夠在 Android 模擬器中執行此專案，您必須至少定義一個 Android 虛擬裝置 (AVD)。使用 AVD Manager 來建立與管理這些裝置。
+		>[AZURE.NOTE]若要能夠在 Android 模擬器中執行此專案，您必須至少定義一個 Android 虛擬裝置 (AVD)。使用 AVD Manager 來建立與管理這些裝置。
 			
 	
 3. 在前述其中一個行動模擬器中啟動應用程式後，在文字方塊中輸入文字，然後按一下 [**新增**]。
 
 	如此會傳送 POST 要求到 Azure 中代管的新行動服務。要求中的資料會插入 **TodoItem** 資料表中。行動服務會傳回資料表中儲存的項目，而該資料會顯示在清單中。
 
-	<div class="dev-callout"><strong>重要事項</strong> <p>如果使用 PhoneGap 工具重新建置主要專案，將會覆寫此平台專案的變更。因此，請依照下一節中的說明，在專案的根 www 目錄中進行變更。</p></div>
+	> [AZURE.IMPORTANT] 如果使用 PhoneGap 工具重新建置主要專案，將會覆寫此平台專案的變更。因此，請依照下一節中的說明，在專案的根 www 目錄中進行變更。
 
-4. 返回管理入口網站，按一下 <strong>[資料]</strong> 索引標籤，然後按一下 <strong>[TodoItems]</strong> 資料表。
+4. 回到管理入口網站中，按一下 [<strong>資料</strong>] 索引標籤，然後按一下 [<strong>TodoItems</strong>] 資料表。
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -132,13 +132,13 @@ PhoneGap 支援多個平台的開發。除了 PhoneGap 工具本身以外，您�
 
 4. 根據下一節中的說明，在適當的開發環境中開啟每個專案。
 
->[WACOM.NOTE]您可以檢閱存取行動服務來查詢和插入資料的程式碼，這可以在 js/index.js 檔案中找到。
+>[AZURE.NOTE]您可以檢閱存取行動服務來查詢和插入資料的程式碼，這可以在 js/index.js 檔案中找到。
 
 ## <a name="next-steps"> </a>後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作： 
 
 * [開始使用資料]
-  <br/>深入了解使用行動服務來儲存與查詢資料。
+  <br/>深入了解如何使用行動服務來儲存與查詢資料。
 
 * [開始使用驗證]
   <br/>了解如何向身分識別提供者驗證應用程式的使用者。
@@ -160,4 +160,5 @@ PhoneGap 支援多個平台的開發。除了 PhoneGap 工具本身以外，您�
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

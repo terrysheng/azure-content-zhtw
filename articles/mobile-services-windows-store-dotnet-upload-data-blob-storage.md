@@ -1,10 +1,10 @@
-﻿<properties pageTitle="使用行動服務將影像上傳至 Blob 儲存體 (Windows 市集) | 行動服務" metaKeywords="" description="了解如何使用行動服務將映像上傳至 Azure Blob 儲存體，然後從您的 Windows 市集應用程式存取映像。" metaCanonical="" services="mobile-services,storage" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+﻿<properties pageTitle="使用行動服務將影像上傳至 Blob 儲存體 (Windows 市集) | 行動服務" description="了解如何使用行動服務將影像上傳至 Azure Blob 儲存體並從 Windows 市集應用程式存取該影像。 services="mobile-services, storage" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # 使用行動服務將影像上傳到 Azure 儲存體
 
-[WACOM.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
 本主題說明如何使用 Azure 行動服務，讓您的應用程式能在 Azure 儲存體中上傳和存放使用者產生的影像。行動服務會使用 SQL Database 儲存資料。不過在 Azure Blob 儲存體服務中，二進位大型物件 (BLOB) 資料的儲存比較有效。 
 
@@ -20,7 +20,7 @@
 本教學課程需要下列項目：
 
 + Microsoft Visual Studio 2012 Express for Windows 8 或更新版本
-+ [Azure 儲存體帳戶][How To Create a Storage Account]
++ [Azure 儲存體帳戶][如何建立儲存體帳戶]
 + 連接到電腦的相機或其他影像擷取裝置。
 
 本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務]。 
@@ -29,9 +29,9 @@
 
 若要使用 SAS 將影像上傳至 Blob 儲存體，您必須先新增 NuGet 封裝，以安裝適用於 Windows 市集應用程式的儲存體用戶端程式庫。
 
-1. 在 Visual Studio 的 [方案總管]**** 中，以滑鼠右鍵按一下專案名稱，然後選取 [管理 NuGet 封裝]****。
+1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下專案名稱，然後選取 [管理 NuGet 封裝]。
 
-2. 在左側窗格中選取 [線上] ****類別、搜尋 `WindowsAzure.Storage`、按一下 [Azure 儲存體] ****封裝上的 [安裝]****，然後接受授權協定。 
+2. 在左側窗格中選取 [**線上**] 類別，搜尋  `WindowsAzure.Storage`，按一下 [**Azure 儲存體**] 封裝上的 [**安裝**]，然後接受授權協定。 
 
   	![][2]
 
@@ -41,9 +41,9 @@
 
 ##<a name="update-scripts"></a>在管理入口網站中更新已註冊的插入指令碼
 
-[WACOM.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
 
 ## <a name="next-steps"> </a>後續步驟
 
@@ -91,4 +91,5 @@
 [行動服務 .NET 做法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
 [應用程式設定]: http://msdn.microsoft.com/zh-tw/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

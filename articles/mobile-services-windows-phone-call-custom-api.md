@@ -1,16 +1,16 @@
-﻿<properties urlDisplayName="Call a custom API from the client" pageTitle="從 Windows Phone 用戶端呼叫自訂 API - 行動服務" metaKeywords="" description="了解如何定義自訂 API，然後從使用 Azure 行動服務的 Windows Phone 應用程式呼叫它。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="從 Windows Phone 用戶端呼叫自訂 API - 行動服務" description="了解如何定義自訂 API 然後從使用 Azure 行動服務的 Windows Phone 應用程式呼叫它。" services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/06/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/06/2014" ms.author="glenga"/>
 
 # 從用戶端呼叫自訂 API
 
-[WACOM.INCLUDE [mobile-services-selector-call-custom-api](../includes/mobile-services-selector-call-custom-api.md)]
+[AZURE.INCLUDE [mobile-services-selector-call-custom-api](../includes/mobile-services-selector-call-custom-api.md)]
 
 本主題將說明如何從 Windows Phone 應用程式呼叫自訂 API。自訂 API 可讓您定義自訂端點，並用來公開無法對應插入、更新、刪除或讀取等操作的伺服器功能。透過使用自訂 API，您可以進一步控制訊息，包括讀取與設定 HTTP 訊息標頭，並定義除了 JSON 以外的訊息內文格式。
 
-本主題中所建立的自訂 API 可提供您傳送單一 POST 要求，並將資料表中所有 todo 項目的已完成旗標設定為 `true`。若沒有此自訂 API，用戶端必須傳送個別要求，來為資料表中的每個 todo 項目更新旗標。
+本主題中所建立的自訂 API 可提供您傳送單一 POST 要求，並將資料表中所有 todo 項目的已完成旗標設定為  `true`。若沒有此自訂 API，用戶端必須傳送個別要求，來為資料表中的每個 todo 項目更新旗標。
 
-您會將此功能新增至當您完成[將行動服務新增至現有的應用程式](/zh-tw/documentation/articles/mobile-services-windows-phone-get-started-data/) 教學課程時所建立的應用程式。若要達到此目的，您將需要完成下列步驟：
+您會將此功能新增至您完成[將行動服務新增至現有的應用程式](/zh-tw/documentation/articles/mobile-services-windows-phone-get-started-data/) 教學課程時所建立的應用程式。若要達到此目的，您將需要完成下列步驟：
 
 1. [定義自訂 API]
 2. [更新應用程式以呼叫自訂 API]
@@ -20,9 +20,9 @@
 
 ## <a name="define-custom-api"></a>定義自訂 API
 
-[WACOM.INCLUDE [mobile-services-create-custom-api](../includes/mobile-services-create-custom-api.md)]
+[AZURE.INCLUDE [mobile-services-create-custom-api](../includes/mobile-services-create-custom-api.md)]
 
-[WACOM.INCLUDE [mobile-services-windows-phone-call-custom-api](../includes/mobile-services-windows-phone-call-custom-api.md)]
+[AZURE.INCLUDE [mobile-services-windows-phone-call-custom-api](../includes/mobile-services-windows-phone-call-custom-api.md)]
 
 ## 後續步驟
 
@@ -52,4 +52,5 @@
 
 [在原始程式碼控制中儲存伺服器指令碼]: /zh-tw/documentation/articles/mobile-services-store-scripts-source-control
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

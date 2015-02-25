@@ -1,16 +1,11 @@
-﻿<properties urlDisplayName="Handle Conflicts with Offline Data" pageTitle="處理行動服務中的離線資料衝突 (Windows Phone) | 行動開發人員中心" metaKeywords="" description="了解您在 Windows Phone 應用程式中同步離線資料時應如何使用 Azure 行動服務處理衝突" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" manager="dwrede" />
+<properties pageTitle="處理行動服務中的離線資料衝突 (Windows Phone) | 行動開發人員中心" description="了解您在 Windows Phone 應用程式中同步離線資料時應如何使用 Azure 行動服務處理衝突" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
 
 
 # 處理行動服務中的離線資料同步衝突
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="Windows Store C#">Windows 市集 C#</a>
-<a href="/zh-tw/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone" class="current">Windows Phone</a>
-<a href="/zh-tw/documentation/articles/mobile-services-ios-handling-conflicts-offline-data" title="iOS">iOS</a>
-</div>
-
+[WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
 
 <p>本主題將說明在使用 Azure 行動服務的離線功能時，應如何同步處理資料及處理衝突。在本教學課程中，您將下載同時支援離線和線上資料的應用程式、將行動服務與該應用程式整合，然後登入 Azure 管理入口網站，以檢視執行應用程式時所做的資料庫更新。
 </p>
@@ -20,10 +15,10 @@
 
 本教學課程將逐步引導您完成下列基本步驟：
 
-1. [下載 Windows Phone 專案] 
+1. [下載 Windows Phone 專案]
 2. [為資料庫新增到期日資料行]
-  * [更新 .NET 後端行動服務的資料庫]  
-  * [更新 JavaScript 行動服務的資料庫]  
+  * [更新 .NET 後端行動服務的資料庫]
+  * [更新 JavaScript 行動服務的資料庫]
 3. [對行動服務進行應用程式測試]
 4. [手動更新後端中的資料以產生衝突]
 
@@ -34,7 +29,7 @@
 
 
 
-本教學課程以[處理衝突程式碼範例] (這是 Visual Studio 2012 中的 Windows Phone 8 專案之一) 做為建置基礎。
+本教學課程以[處理衝突程式碼範例] (這是 Visual Studio 2012 中的 Windows Phone 8 專案之一) 做為建置基礎。  
 此應用程式的 UI 與[開始使用離線資料]教學課程中的應用程式相類似，差別在於前者的每個 TodoItem 都有新的日期資料行。
 
 ![][0]
@@ -42,9 +37,9 @@
 
 1. 下載 Windows Phone 版本的[處理衝突程式碼範例]。 
 
-2. 安裝 [SQLite for Windows Phone 8] (如果尚未安裝)。
+2. 安裝 [適用於 Windows Phone 8 的 SQLite] (如果尚未安裝)。
 
-3. 在 Visual Studio 2012 中，開啟下載的專案。在 [**Windows Phone**] > [**延伸**] 下，加入 [**SQLite for Windows Phone**] 的參考。
+3. 在 Visual Studio 2012 中，開啟下載的專案。在 [**Windows Phone**] > [**延伸**] 下，新增 [**SQLite for Windows Phone**] 的參考。
 
 4. 在 Visual Studio 2012 中按 **F5** 鍵，以在偵錯程式中建置並執行應用程式。
  
@@ -58,7 +53,7 @@
 
 在本節中，您將會更新行動服務的資料庫，以納入具有到期日資料行的 TodoItem 資料表。應用程式允許您在執行階段變更項目的到期日，因此您可以在本教學課程的後續小節中產生同步衝突。 
 
-`TodoItem` 類別定義於 MainPage.xaml.cs 中。請注意，此類別具有下列會將該資料表做為同步作業目標的屬性。
+範例中的  `TodoItem` 類別定義於 MainPage.xaml.cs 中。請注意，此類別具有下列會將該資料表做為同步作業目標的屬性。
 
         [DataTable("TodoWithDate")]
 
@@ -69,7 +64,7 @@
 如果您在行動服務中使用 .NET 後端，請依照下列步驟更新資料庫的結構描述。
 
 1. 在 Visual Studio 中，開啟您的 .NET 後端行動服務專案。
-2. 在 Visual Studio 的 [方案總管] 中，在您的服務專案中展開 **Models** 資料夾，並開啟 ToDoItem.cs。新增 `DueDate` 屬性，如下所示。
+2. 在 Visual Studio 的 [方案總管] 中，在您的服務專案中展開 **Models** 資料夾，並開啟 ToDoItem.cs。新增  `DueDate` 屬性，如下所示。
 
           public class TodoItem : EntityData
           {
@@ -81,9 +76,9 @@
 
 3. 在 Visual Studio 的 [方案總管] 中展開 **App_Start** 資料夾，然後開啟 WebApiConfig.cs 檔案。 
 
-    在 WebApiConfig.cs 檔案中，注意您的預設資料庫初始設定式類別是衍生自 `DropCreateDatabaseIfModelChanges` 類別。這意味對模型的任何變更都會導致資料表捨棄，並重新建立以容納新模型。因此資料表的資料將流失，並且將重新植入資料表。請修改資料庫初始設定式的 Seed 方法，使 `Seed()` 初始化函數如下所示，以初始化新的 DueDate 資料行。儲存 WebApiConfig.cs 檔案。
+    在 WebApiConfig.cs 檔案中，注意您的預設資料庫初始設定式類別是衍生自  `DropCreateDatabaseIfModelChanges` 類別。這意味對模型的任何變更都會導致資料表捨棄，並重新建立以容納新模型。因此資料表的資料將流失，並且將重新植入資料表。請修改資料庫初始設定式的 Seed 方法，使  `Seed()` 初始化函數如下所示，以初始化新的 DueDate 資料行。儲存 WebApiConfig.cs 檔案。
 
-    >[WACOM.NOTE]使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。如需詳細資訊，請參閱[如何使用 Code First 移轉更新資料模型](/zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations)。
+    >[AZURE.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型](/zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations)。
 
 
         new TodoItem { Id = "1", Text = "First item", Complete = false, DueDate = DateTime.Today },
@@ -91,7 +86,7 @@
 
           
 
-4. 在 Visual Studio 的 [方案總管] 中展開 **Controllers** 資料夾，然後開啟 ToDoItemController.cs。將 `TodoItemController` 類別重新命名為 `TodoWithDateController`。這將會變更資料表作業的 REST 端點。 
+4. 在 Visual Studio 的 [方案總管] 中展開 **Controllers** 資料夾，然後開啟 ToDoItemController.cs。將  `TodoItemController` 類別重新命名為  `TodoWithDateController`。這將會變更資料表作業的 REST 端點。 
 
         public class TodoWithDateController : TableController<TodoItem>
     
@@ -135,7 +130,7 @@
 
         ![][1]
 
-  *  如果您在行動服務中使用 .NET 後端，請按一下 [**設定**] 索引標籤，然後按一下您的 SQL Database。按一下畫面底部的 [**管理**]，然後登入 SQL Azure 管理入口網站，執行如下的 SQL 查詢以檢視您的資料庫。
+  *  如果您在行動服務中使用 .NET 後端，請按一下 [**設定**] 索引標籤，然後按一下您的 SQL 資料庫。按一下畫面底部的 [**管理**]，然後登入 SQL Azure 管理入口網站，執行如下的 SQL 查詢以檢視您的資料庫。
     
             SELECT * FROM todolist.todowithdate
 
@@ -149,16 +144,16 @@
 
    	![][3]
 
-9. 在下一節中將 **Emulator WVGA 512MB** 保持為啟動並執行中的狀態，屆時您將會在兩個模擬器中執行應用程式，以產生衝突。
+9. 在下一節中將 [**Emulator WVGA 512MB**] 保持為啟動並執行中的狀態，屆時您將會在兩個模擬器中執行應用程式，以產生衝突。
 
 ## <a name="handle-conflict"></a>更新後端中的資料以產生衝突
 
-在實際情況中，如果在一個應用程式推送資料庫中某個記錄的更新後，又有另一個應用程式使用該記錄的過期版本欄位嘗試推送相同記錄的變更，就會發生同步衝突。如果一個應用程式執行個體在未提取更新記錄的情況下嘗試更新相同記錄，就會發生衝突，並且在應用程式中產生 `MobileServicePreconditionFailedException`。  
+在實際情況中，如果在一個應用程式推送資料庫中某個記錄的更新後，又有另一個應用程式使用該記錄的過期版本欄位嘗試推送相同記錄的變更，就會發生同步衝突。如果一個應用程式執行個體在未提取更新記錄的情況下嘗試更新相同記錄，就會發生衝突，並且在應用程式中產生  `MobileServicePreconditionFailedException`。  
 
 在本節中，您將同時執行兩個應用程式執行個體，以產生衝突。 
 
 
-1. 如果 **Emulator WVGA 512MB** 尚未啟動並執行，請按 **Ctrl+F5** 加以重新啟動。
+1. 如果 [**Emulator WVGA 512MB**] 尚未啟動並執行，請按 **Ctrl+F5** 加以重新啟動。
 
 2. 在 Visual Studio 中，將輸出裝置變更為 [**Emulator WVGA**]，然後按 **F5** 在新的模擬器中執行第二個應用程式執行個體。
  
@@ -185,32 +180,32 @@
 
 ## 檢閱處理同步衝突的程式碼
 
-若要設定用以偵測衝突的離線功能，您必須同時在本機資料庫與資料傳輸物件中加入版本資料行。`TodoItem` 類別具有下列成員：
+若要設定用以偵測衝突的離線功能，您必須同時在本機資料庫與資料傳輸物件中加入版本資料行。類別  `TodoItem` 具有下列成員：
 
         [Version]
         public string Version { get; set; }
 
-資料行 `__version` 也會在設定於 `OnNavigatedTo()` 方法中的本機資料庫中指定。
+資料行 `__version` 也會在設定於  `OnNavigatedTo()` 方法中的本機資料庫中指定。
 
-若要使用程式碼處理離線同步衝突，您必須建立實作 `IMobileServiceSyncHandler` 的類別。請將此類型的物件傳至 `InitializeAsync` 的呼叫中：
+若要使用程式碼處理離線同步衝突，您必須建立類別以實作  `IMobileServiceSyncHandler`。請將此類型的物件傳至  `InitializeAsync` 的呼叫中：
 
      await App.MobileService.SyncContext.InitializeAsync(store, new SyncHandler(App.MobileService));
 
-**MainPage.xaml.cs** 中的 `SyncHandler` 類別會實作 `IMobileServiceSyncHandler`。每個推送作業傳送至伺服器時，都會呼叫 `ExecuteTableOperationAsync` 方法。如果擲出了 `MobileServicePreconditionFailedException` 類型的例外狀況，表示項目的本機與遠端版本之間具有衝突。
+**MainPage.xaml.cs** 中的  `SyncHandler` 類別會實作  `IMobileServiceSyncHandler`。每個推送作業傳送至伺服器時，都會呼叫  `ExecuteTableOperationAsync` 方法。如果擲出了  `MobileServicePreconditionFailedException` 類型的例外狀況，表示項目的本機與遠端版本之間具有衝突。
 
 若要以有利於本機項目的方式解決衝突，您應直接重試作業。衝突發生後，本機項目版本會進行更新以符合伺服器版本，因此重新執行作業時，將會以本機變更覆寫伺服器變更：
 
     await operation.ExecuteAsync(); 
 
-若要以有利於伺服器項目的方式解決衝突，請直接從 `ExecuteTableOperationAsync` 回復。物件的本機版本將會被捨棄，並取代為伺服器中的值。
+若要以有利於伺服器項目的方式解決衝突，請直接從  `ExecuteTableOperationAsync` 回復：物件的本機版本將會被捨棄，並取代為伺服器中的值。
 
-若要停止推送作業 (但保留佇列上的變更)，請使用 `AbortPush()` 方法：
+若要停止推送作業 (但保留佇列上的變更)，請使用方法  `AbortPush()`：
 
     operation.AbortPush();
 
-這將會停止目前的推送作業，但仍將持續執行所有擱置變更，包括目前的作業 (如果從 `ExecuteTableOperationAsync` 呼叫了 `AbortPush`)。下次呼叫 `PushAsync()` 時，這些變更將會傳送至伺服器。 
+如果從  `ExecuteTableOperationAsync` 呼叫了  `AbortPush`，將會停止目前的推送作業，但仍將持續執行所有擱置變更，包括目前的作業。下次呼叫  `PushAsync()` 時，這些變更將會傳送至伺服器。 
 
-在取消推送時，`PushAsync` 將會擲出 `MobileServicePushFailedException`，且例外狀況屬性 `PushResult.Status` 的值將會是 `MobileServicePushStatus.CancelledByOperation`。 
+取消推送時， `PushAsync` 會擲出  `MobileServicePushFailedException`，且例外狀況屬性  `PushResult.Status` 的值將是  `MobileServicePushStatus.CancelledByOperation`。 
 
 
 <!-- Anchors. -->
@@ -243,5 +238,7 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [處理資料庫衝突]: /zh-tw/documentation/articles/mobile-services-windows-phone-handle-database-conflicts/#test-app
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
-[SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
+[適用於 Windows Phone 8 的 SQLite]: http://go.microsoft.com/fwlink/?LinkId=397953
 [開始使用資料]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-data/
+
+<!--HONumber=42-->

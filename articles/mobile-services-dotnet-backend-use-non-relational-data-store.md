@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Build a Service Using a Non-Relational Data Store" pageTitle="使用非關聯式資料存放區來建置服務 - Azure 行動服務" metaKeywords="" description="了解如何對於 .NET 型行動服務使用非關聯式資料存放區，例如 MongoDB 或 Azure Table Storage。" metaCanonical="" services="" documentationCenter="Mobile" title="Build a Service Using a Non-Relational Data Store" authors="yavorg, mahender" solutions="" manager="dwrede" editor="mollybos" />
+<properties pageTitle="使用非關聯式資料存放區來建置服務 - Azure 行動服務" description="了解如何對於 .NET 型行動服務使用非關聯式資料存放區，例如 MongoDB 或 Azure Table Storage。" services="" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg, mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
 
 # 使用 .NET 後端以 MongoDB 作為資料存放區來建置服務
 
@@ -18,19 +18,19 @@
 
 1. 在 [Azure 管理入口網站]中，按一下 [**新增**]，然後選取 [**存放區**]。
 
-2. 選取 [**MongoLab**] 附加元件，然後導覽精靈以註冊帳戶。如需 MongoLab 的詳細資訊，請參閱 [MongoLab 附加元件頁面]。
+2. 選取 **MongoLab** 附加元件，然後導覽精靈以註冊帳戶。如需 MongoLab 的詳細資訊，請參閱 [MongoLab 附加元件頁面]。
 
     ![][0]
 
-2. 帳戶設定完成後，請選取 [**連線資訊**]，然後複製連接字串。
+2. 帳戶設定完成後，請選取 [**連線資訊**]，然後複製連線字串。
 
 3. 導覽至入口網站的 [行動服務] 區段，然後選取 [**設定**] 索引標籤。
 
-4. 在 [**應用程式設定**] 下，使用索引鍵 "MongoConnectionString" 輸入連接字串，然後按一下 [**儲存**]。
+4. 在 [**應用程式設定**] 下，使用金鑰 "MongoConnectionString" 輸入連線字串，然後按一下 [**儲存**]。
 
     ![][1]
 
-2. 將下列程式碼新增至 `TodoItemController`：
+2. 將下列內容新增至  `TodoItemController`︰
 
         static bool connectionStringInitialized = false;
 
@@ -48,7 +48,7 @@
             }
         }
     
-    此程式碼會載入應用程式設定，並指示行動服務將其視為可供 `TableController` 使用的連線。您後續將會在叫用 `TodoItemController` 時呼叫此方法。
+    此程式碼會載入應用程式設定，並指示行動服務將其視為可供  `TableController` 使用的連線。您後續將會在叫用  `TodoItemController` 時呼叫此方法。
 
 
 
@@ -56,7 +56,7 @@
 
 1. 安裝 **WindowsAzure.MobileServices.Backend.Mongo** NuGet 封裝。
 
-2. 將 `TodoItem` 修改為衍生自 `DocumentData`，而不是 `EntityData`。
+2. 將  `TodoItem` 修改成衍生自  `DocumentData`，而不是  `EntityData`。
 
         public class TodoItem : DocumentData
         {
@@ -65,7 +65,7 @@
             public bool Complete { get; set; }
         }
 
-3. 在 `TodoItemController` 中，使用下列程式碼取代 `Initialize` 方法：
+3. 在  `TodoItemController` 中，使用下列項目來取代  `Initialize` 方法：
 
         protected override async void Initialize(HttpControllerContext controllerContext)
         {
@@ -77,7 +77,7 @@
             DomainManager = new MongoDomainManager<TodoItem>(connectionStringName, databaseName, collectionName, Request, Services);
         }
 
-4. 在上述 `Initialize` 方法的程式碼中，使用您在佈建 MongoLab 附加元件時選擇的名稱來取代 **YOUR-DATABASE-NAME**。
+4. 在上述  `Initialize` 方法的程式碼中，將 **YOUR-DATABASE-NAME** 取代成在佈建 MongoLab 附加元件時所選擇的名稱。
 
 
 ## <a name="test-application"></a>測試應用程式
@@ -106,3 +106,5 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [什麼是資料表服務]: /zh-tw/documentation/articles/storage-dotnet-how-to-use-tables/#what-is
 [MongoLab 附加元件頁面]: /zh-tw/gallery/store/mongolab/mongolab
+
+<!--HONumber=42-->

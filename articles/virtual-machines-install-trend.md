@@ -1,6 +1,6 @@
-<properties title="How to install and configure Trend on an Azure VM" pageTitle="如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service" description="說明如何在 Azure 中的 VM 上安裝及設定 Trend Micro Security" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties pageTitle="如何在 Azure VM 上安裝和設定 Trend Micro Deep Security 為服務" description="說明如何在 Azure 的 VM 上安裝和設定 Trend Micro 安全性" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="kathydav"/>
 
 #如何在 Azure VM 上安裝和設定 Trend Micro Deep Security 為服務
 
@@ -12,13 +12,13 @@
 
 ## 在新的虛擬機器上安裝 Deep Security 代理程式
 
-[Azure 管理入口網站](http://manage.windowsazure.com) 可讓您在使用 [**從組件庫**] 選項建立虛擬機器時，安裝 VM 代理程式和 Trend 安全性延伸模組。如果您打算建立單一虛擬機器，使用此方法可輕易地新增 Trend 的防護。
+當您使用 [From Gallery] 選項來建立虛擬機器時，[Azure 管理入口網站](http://manage.windowsazure.com)可讓您安裝 VM 代理程式和 Trend 安全性延伸模組。如果您打算建立單一虛擬機器，使用此方法可輕易地新增 Trend 的防護。
 
-這個 [**從組件庫**] 選項會開啟可協助您設定虛擬機器的精靈。您可以使用精靈的最後一個頁面，來安裝 VM 代理程式和 Trend 安全性延伸模組。如需一般指示，請參閱[建立執行 Windows Server 的虛擬機器](http://go.microsoft.com/fwlink/p/?LinkId=403943)。當您進入精靈的最後一個頁面時，請執行下列動作：
+這個 [從組件庫] 選項會開啟可協助您設定虛擬機器的精靈。您可以使用精靈的最後一個頁面，來安裝 VM 代理程式和 Trend 安全性延伸模組。如需一般指示，請參閱[建立執行 Windows Server 的虛擬機器](http://go.microsoft.com/fwlink/p/?LinkId=403943)。當您進入精靈的最後一個頁面時，請執行下列動作：
 
-1.	在 [VM 代理程式] 下，勾選 [**安裝 VM 代理程式**]。
+1.	在 [VM 代理程式] 底下，勾選 [安裝 VM 代理程式]。
 
-2.	在 [Security Extensions] 下，勾選 [**Trend Micro Deep Security Agent**]。
+2.	在 [安全性延伸模組] 底下，勾選 [Trend Micro Deep Security Agent]。
 
 3.	按一下核取記號以建立虛擬機器。
 
@@ -39,12 +39,12 @@
 	<p>`$name = MyVmName`
 	<p>`$vm = Get-AzureVM -ServiceName $servicename -Name $name`
 
-	> [WACOM.NOTE] 如果您不知道雲端服務和 VM 名稱，請執行 Get-AzureVM 以顯示目前訂閱中所有 VM 的該項資訊。
+	> [AZURE.NOTE] 如果您不知道雲端服務和 VM 名稱，請執行 Get-AzureVM 以顯示目前訂閱中所有 VM 的該項資訊。
 
 2.	將 Deep Security 代理程式新增至虛擬機器：
 <p> `Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA -VM $vm.VM`
 
-	> [WACOM.NOTE] 如果您想要安裝特定版本，請執行下列命令以取得可用版本清單：`Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA`.然後，在執行 Set-AzureVMExtension 時加上 Version 參數。
+	> [AZURE.NOTE] 如果您想要安裝特定版本，請執行下列命令以取得可用版本清單： `Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA`。然後，在執行 Set-AzureVMExtension 時加上 Version 參數。
 
 3.	更新 VM，這會安裝 Deep Security 代理程式：
 <p> `Update-AzureVM -ServiceName $servicename -Name $name -VM $vm.VM`
@@ -54,22 +54,23 @@
 安裝代理程式之後，將需要幾分鐘的時間才能開始執行。之後，您必須在虛擬機器上啟用 Deep Security，才能由 Deep Security Manager 進行管理。請參閱下列內容：
 
 - 與此解決方案相關的 Trend 文章：[Microsoft Azure 的即時雲端安全性](http://go.microsoft.com/fwlink/?LinkId=404101)。
-- [範例 Windows PowerShell 指令碼]，(http://go.microsoft.com/fwlink/?LinkId=404100) 用以設定虛擬機器。
-- 範例的[指示](http://go.microsoft.com/fwlink/?LinkId=404099)  。
+- 設定虛擬機器的 [Windows PowerShell 指令碼範例](http://go.microsoft.com/fwlink/?LinkId=404100)。
+- 範例的[指示](http://go.microsoft.com/fwlink/?LinkId=404099)。
 
 
 
 
 ##其他資源
-[如何登入執行 Windows Server 的虛擬機器]
+[如何登入執行 Windows Server 的虛擬機器][How to Log on to a Virtual Machine Running Windows Server]
 
-[管理延伸模組]
+[管理延伸模組][Manage Extensions]
 
 
 <!--Link references-->
-[如何登入執行 Windows Server 的虛擬機器]: ../virtual-machines-log-on-windows-server/
-[管理延伸模組]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[How to Log on to a Virtual Machine Running Windows Server]: ../virtual-machines-log-on-windows-server/
+[Manage Extensions]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

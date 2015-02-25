@@ -1,11 +1,11 @@
-﻿<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="開始使用推播通知 (iOS) | 行動開發人員中心" metaKeywords="" description="了解如何使用 Azure 行動服務傳送推播通知至 iOS 應用程式。" metaCanonical="http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+<properties pageTitle="開始使用推播通知 (iOS) | 行動開發人員中心" description="了解如何使用 Azure 行動服務傳送推播通知至 iOS 應用程式。" services="mobile-services, notification-hubs" documentationCenter="ios" manager="dwrede" editor="" authors="krisragh"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="12/15/2014" ms.author="krisragh"/>
 
 
 # 將推播通知新增至行動服務應用程式
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
 本主題說明如何使用 Azure 行動服務將推播通知傳送至 iOS 應用程式。在本教學課程中，您會使用 Apple 推播通知服務 (APNS) 將推播通知新增至快速入門專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
@@ -15,14 +15,11 @@
 1. [產生憑證簽署要求]
 2. [註冊您的應用程式並啟用推播通知]
 3. [建立應用程式的佈建設定檔]
-4. [在本機下載服務]
-5. [測試行動服務]
-6. [更新伺服器以傳送推播通知](#update-server)
-7. [將行動服務發佈至 Azure]
-8. [新增推播通知至應用程式]
-9. [更新指令碼來傳送推播通知]
-10. [啟用推播通知以進行本機測試](#local-testing)
-11. [對已發佈的行動服務進行應用程式測試]
+4. [更新伺服器以傳送推播通知](#update-server)
+5. [將行動服務發佈至 Azure]
+6. [新增推播通知至應用程式]
+7. [啟用推播通知以進行本機測試](#local-testing)
+8. [對已發佈的行動服務進行應用程式測試]
 
 本教學課程需要下列各項：
 
@@ -31,35 +28,28 @@
 + iOS 6.0 (或以上版本) 功能裝置
 + iOS Developer Program 成員資格
 
-   > [WACOM.NOTE] 基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
+   > [AZURE.NOTE] 基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
 
-本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務]。
-
-
-[WACOM.INCLUDE [啟用 Apple 推播通知](../includes/enable-apple-push-notifications.md)]
+本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須先完成[開始使用行動服務]或[新增行動服務至應用程式][開始使用資料]。
 
 
-## 設定行動服務傳送推播要求
+[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
-<h2><a name="download-the-service"></a>將服務下載至您的本機電腦</h2>
+## 設定行動服務以傳送推播要求
 
-[WACOM.INCLUDE [mobile-services-ios-download-service-locally](../includes/mobile-services-ios-download-service-locally.md)]
+[AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
-<h2><a name="test-the-service"></a>測試行動服務</h2>
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
+## <a id="update-server"></a>更新伺服器以傳送推播通知
 
-##<a id="update-server"></a>更新伺服器以傳送推播通知
-
-1. 在 Visual Studio 的 [方案總管] 中，展開行動服務專案中的 **Controllers** 資料夾。開啟 TodoItemController.cs。在檔案的頂端，新增下列 `using` 陳述式：
+1. 在 Visual Studio 的 [方案總管] 中，展開行動服務專案中的 **Controllers** 資料夾。開啟 TodoItemController.cs。在檔案的最上方，新增下列 `using` 陳述式：
 
 
 		using System;
 		using System.Collections.Generic;
 
-2. 使用下列程式碼更新 `PostTodoItem` 方法定義：  
+2. 以下列程式碼更新  `PostTodoItem` 方法定義：  
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -84,11 +74,11 @@
 
 <h2><a name="publish-the-service"></a>將行動服務發佈至 Azure</h2>
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## 將推播通知新增至應用程式
 
-1. 在 qsappdelegate.m 中，插入下列程式碼片段來匯入行動服務 iOS SDK：
+1. 在 QSAppDelegate.m 中，插入下列程式碼片段來匯入行動服務 iOS SDK：
 
         #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
@@ -103,7 +93,7 @@
             return YES;
         }
 
-3. 在 QSAppDelegate.m 中，在實作內新增下列處理常式方法。請確定您複製行動服務 Url 和應用程式金鑰值，並將它們貼到預留位置：
+3. 在 QSAppDelegate.m 中，新增實作內的下列處理常式方法。請確定您複製行動服務 Url 和應用程式金鑰值，並將它們貼到預留位置：
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
         (NSData *)deviceToken {
@@ -139,23 +129,23 @@
             [alert show];
         }
 
-   > [WACOM.NOTE] 您必須在呼叫 <strong>addItem</strong> 方法之前加入此程式碼。
+   > [AZURE.NOTE] 您必須新增此程式碼，然後再呼叫 <strong>addItem</strong> 方法。
 
 您的應用程式現在已更新為支援推播通知。
 
-##<a id="local-testing"></a> 啟用推播通知以進行本機測試
+## <a id="local-testing"></a> 啟用推播通知以進行本機測試
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
 ## 在應用程式中測試推播通知
 
-1. 按 [**執行**] 按鈕以建置專案，並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [**確定**] 以接受推播通知
+1. 按 [**執行**] 按鈕以組建專案並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [**確定**] 以接受推播通知。
 
   	![][23]
 
-    > [WACOM.NOTE] 您必須明確接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
+    > [AZURE.NOTE] 您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
 
-2. 在應用程式中，輸入有意義的文字，例如 _A new Mobile Services task_，然後按一下加號 (**+**) 圖示。
+2. 在應用程式中，輸入有意義的文字，例如 _A new Mobile Services task_ ，然後按一下加號 (**+**) 圖示。
 
   	![][24]
 
@@ -171,13 +161,13 @@
 
 ## 後續步驟
 
-本教學課程說明了啟用 iOS 應用程式，以使用行動服務和通知中心傳送推播通知的基本概念。接下來，請考慮閱讀下個教學課程，[將推播通知傳送給驗證的使用者]，此課程說明如何使用標籤將行動服務中的推播通知指定傳送給驗證的使用者。
+本教學課程說明了啟用 iOS 應用程式，以使用行動服務和通知中心傳送推播通知的基本概念。接下來，請考慮閱讀下一個教學課程[將推播通知傳送給驗證的使用者]，此課程說明如何使用標籤將行動服務中的推播通知指定傳送給驗證的使用者。
 
-<!--+ [Send push notifications to authenticated users]
-	<br/>了解如何使用標記從行動服務將推播通知只傳送給已驗證的使用者。
+<!--+ [傳送推播通知給已驗證的使用者]
+	<br/>了解如何利用標籤，從行動服務將推播通知只傳送給驗證的使用者。
 
 + [將廣播通知傳送給訂閱者]
-	<br/>了解使用者如何註冊及接收他們所需類別的推播通知。
+	<br/>了解使用者如何註冊及接收其所需類別的推播通知。
 
 + [將範本型通知傳送給訂閱者]
 	<br/>了解如何使用範本從行動服務傳送推播通知，但不必在您的後端製作平台特定裝載。
@@ -185,16 +175,16 @@
 在下列主題中深入了解行動服務和通知中心：
 
 * [開始使用資料]
-  <br/>進一步了解使用行動服務來儲存和查詢資料。
+  <br/>深入了解如何使用行動服務儲存和查詢資料。
 
 * [開始使用驗證]
-  <br/>了解如何使用行動服務以不同帳戶類型驗證應用程式的使用者。
+  <br/>了解如何使用行動服務驗證使用不同帳戶類型的應用程式使用者。
 
-* [什麼是通知中心？]
-  <br/>深入了解通知中樞如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
+* [什麼是通知中樞？]
+  <br/>深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
 
 * [偵錯通知中樞應用程式](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>取得通知中樞解決方案的疑難排解和偵錯指引。 
+  </br>取得疑難排解和偵錯通知中樞解決方案的指引。 
 
 <!-- Anchors.  -->
 [產生憑證簽署要求]: #certificates
@@ -254,13 +244,16 @@
 [Apple 推播通知服務]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[apns 物件]: http://go.microsoft.com/fwlink/p/?LinkId=272333
+[apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 [開始使用資料]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
 [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
 
-[傳送推播通知給已驗證的使用者]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/
+[將推播通知傳送給驗證的使用者]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/
 
-[什麼是通知中心？]: /zh-tw/documentation/articles/notification-hubs-overview/
+[什麼是通知中樞？]: /zh-tw/documentation/articles/notification-hubs-overview/
 [將廣播通知傳送給訂閱者]: /zh-tw/documentation/articles/notification-hubs-ios-send-breaking-news/
 [將範本型通知傳送給訂閱者]: /zh-tw/documentation/articles/notification-hubs-ios-send-localized-breaking-news/
+
+
+<!--HONumber=42-->

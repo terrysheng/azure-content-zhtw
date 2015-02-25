@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Get Started with Authentication (iOS)" pageTitle="開始使用驗證 (iOS) | 行動開發人員中心" metaKeywords="Azure 登錄應用程式, Azure 驗證, 應用程式驗證, 驗證行動服務, 行動服務 iOS" description="了解如何使用行動服務透過各種不同的身分識別提供者 (包括 Google、Facebook、Twitter 及 Microsoft) 來驗證您 iOS 應用程式的使用者。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="開始使用驗證 (iOS) | 行動開發人員中心" description="了解如何使用行動服務透過眾多識別提供者驗證 iOS 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" services="mobile-services" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
-# 將驗證新增到您的行動服務應用程式
+# 在您的行動服務應用程式中新增驗證
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
 本主題說明如何從您的 iOS 應用程式在 Azure 行動服務中驗證使用者。在本教學課程中，您將使用行動服務支援的身分識別提供者，將驗證加入至快速入門專案。由行動服務成功驗證並授權之後，就會顯示使用者識別碼值。  
 
@@ -21,32 +21,32 @@
 
 ##<a name="register"></a>註冊應用程式進行驗證，並設定行動服務
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-##<a name="permissions"></a> 限制只有經驗證的使用者具有權限
+##<a name="permissions"></a> 限制只有通過驗證的使用者具有權限
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 <ol start="3">
-<li><p>在 Xcode 中，開啟您完成教學課程 <a href="/zh-tw/documentation/articles/mobile-services-ios-get-started">開始使用行動服務</a>時建立的專案。</p></li>
-<li><p>按下 <strong>[執行]</strong> 按鈕以建置專案並在 iPhone 模擬器中啟動應用程式。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。<p>
+<li><p>在 Xcode 中，開啟您完成教學課程<a href="/zh-tw/documentation/articles/mobile-services-ios-get-started">開始使用行動服務</a>時建立的專案。</p></li>
+<li><p>按下 [<strong>執行</strong>] 按鈕以建置專案並在 iPhone 模擬器中啟動應用程式。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。<p>
 
-   	<p>發生此例外的原因是因為應用程式嘗試以未經驗證的使用者身分存取行動服務，但是 <em>TodoItem</em> 資料表現在需要驗證。</p></li>
+   	<p>這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 <em>TodoItem</em> 資料表現在需要驗證。</p></li>
 </ol>
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
 ##<a name="add-authentication"></a>將驗證新增到應用程式
 
-[WACOM.INCLUDE [mobile-services-ios-authenticate-app](../includes/mobile-services-ios-authenticate-app.md)]
+[AZURE.INCLUDE [mobile-services-ios-authenticate-app](../includes/mobile-services-ios-authenticate-app.md)]
 
-##<a name="store-authentication"></a>將驗證語彙基元儲存至您的應用程式
+##<a name="store-authentication"></a>將驗證權杖儲存至您的應用程式
 
-[WACOM.INCLUDE [mobile-services-ios-authenticate-app-with-token](../includes/mobile-services-ios-authenticate-app-with-token.md)]
+[AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
-在下一個教學課程「行動服務使用者的伺服器端授權」[][Authorize users with scripts]中，您將使用由行動服務根據經驗證的使用者而提供的使用者識別碼值，來篩選行動服務傳回的資料。
+在下一個[行動服務使用者的伺服器端授權][以指令碼授權使用者]教學課程中，您將使用由行動服務根據經驗證的使用者而提供的使用者識別碼值，來篩選行動服務傳回的資料。
 
 <!-- Anchors. -->
 [註冊應用程式進行驗證，並設定行動服務]: #register
@@ -87,4 +87,5 @@
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

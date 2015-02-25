@@ -1,12 +1,12 @@
-<properties urlDisplayName="Validate Data" pageTitle="使用伺服器指令碼驗證與修改資料 (iOS) | 行動開發人員中心" metaKeywords="" description="了解如何驗證和修改從 iOS 應用程式使用伺服器指令碼傳送的資料。" metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="使用伺服器指令碼驗證與修改資料 (iOS) | 行動開發人員中心" description="了解如何驗證和修改從 iOS 應用程式使用伺服器指令碼傳送的資料。" services="mobile-services" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
 # 使用伺服器指令碼在行動服務中驗證與修改資料
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-本主題將示範如何在 Azure 行動服務中運用伺服器指令碼。您可在行動服務中註冊伺服器指令碼，並使用該指令碼來針對插入和更新資料執行各種操作，包括驗證與資料修改。在本教學課程中，您將定義並註冊可驗證與修改資料的伺服器指令碼。由於伺服器端指令碼的行為常會影響用戶端，您也可以更新您的 iOS 應用程式，以充分利用這些新行為。
+本主題將說明如何在 Azure 行動服務中運用伺服器指令碼。您可在行動服務中註冊伺服器指令碼，並使用該指令碼來針對插入和更新資料執行各種操作，包括驗證與資料修改。在本教學課程中，您將定義並註冊可驗證與修改資料的伺服器指令碼。由於伺服器端指令碼的行為常會影響用戶端，您也可以更新您的 iOS 應用程式，以充分利用這些新行為。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
@@ -14,17 +14,17 @@
 2. [更新用戶端以支援驗證]
 
 
-本教學課程會以上一個教學課程[開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料]。  
+本教學課程會以上一堂教學課程[開始使用資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須首先完成[開始使用資料]。  
 
 ## <a name="string-length-validation"></a>新增驗證
 
 驗證使用者提交的資料長度一向是最佳做法。首先，註冊可驗證傳送至行動服務之字串資料長度的指令碼，並拒絕太長的字串，在此案例中為不得超過 10 個字元。
 
-1. 登入 [Azure 管理入口網站]，按一下 [**行動服務**]。
+1. 登入「Azure 管理入口網站」[]，按一下 [行動服務]****，然後按一下您的應用程式。
 
    	![][0]
 
-2. 按一下 [**資料**] 索引標籤，然後按一下 [**TodoItem**] 資料表。
+2. 按一下 [資料]**** 索引標籤，然後按一下 [TodoItem]**** 資料表。
 
    	![][1]
 
@@ -32,7 +32,7 @@
 
    	![][2]
 
-4. 以下列函數取代現有的指令碼，然後按一下 [**儲存**]。
+4. 使用下列函式取代現有的指令碼，然後按一下 [**儲存**]。
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -42,27 +42,25 @@
             }
         }
 
-    本指令碼會檢查 [**text**] 屬性的長度，並在長度超過 10 個字元時傳送錯誤回應。否則，系統會呼叫 **execute** 方法以完成插入。
+    本指令碼會檢查 **text** 屬性的長度，並在長度超過 10 個字元時傳送錯誤回應。否則，系統會呼叫 **execute** 方法以完成插入。
 
-    <div class="dev-callout">
-	<b>注意</b>
-	<p>在 [<strong>指令碼</strong>] 索引標籤上按一下 [<strong>清除</strong>]，然後按一下 [<strong>儲存</strong>]，即可移除註冊的指令碼。</p></div>
+    > [AZURE.TIP] 您可以將位於 [**指令碼**] 索引標籤上的已註冊指令碼移除，方法是依序按一下 [**清除**]、[**儲存**]。
 
 ## <a name="update-client-validation"></a>更新用戶端
 
 現在，行動服務正在驗證資料並傳送錯誤回應，您必須更新您的應用程式以便處理驗證的錯誤回應。
 
-1. 在 Xcode 中，開啟您完成教學課程 [開始使用資料] 時所修改的專案。
+1. 在 Xcode 中，開啟您完成[開始使用資料]教學課程時所修改的專案。
 
 2. 按 [**執行**] 按鈕 (Command + R) 以建置專案並啟動應用程式，在文字方塊中輸入超過 10 個字元的文字，然後按一下加號 (**+**) 圖示。
 
-   	請注意應用程式會指出一個由行動服務所傳回的未處理錯誤，顯示為 400 response (Bad Request)。
+   	請留意到，由於行動服務傳回了 400 回應 (不正確的要求)，因此應用程式發出未處理的錯誤。
 
 3. 在 QSTodoService.m 檔案中，找出位於 **addItem** 方法中的下列程式碼行：
 
         [self logErrorIfNotNil:error];
 
-   	在此行程式碼之後，將完成區塊的提醒以下列程式碼取代：
+   	After this line of code, replace the remainder of the completion block with the following code:
 
         BOOL goodRequest = !((error) && (error.code == MSErrorMessageErrorCode));
 
@@ -93,19 +91,19 @@
             }
         }
 
-   	這樣會在輸入視窗中記錄錯誤，並顯示給使用者參考。
+   	這會將錯誤記錄至輸出視窗，並且對使用者顯示。
 
 4. 重新建置並啟動應用程式。
 
    	![][4]
 
-  	請留意，此時會處理錯誤，並對使用者顯示錯誤訊息。
+  	請留意到，此時會處理錯誤，並對使用者顯示錯誤訊息。
 
-## <a name="add-timestamp"></a>新增時間戳記
+<!--## <a name="add-timestamp"></a>新增時間戳記
 
 上一個工作驗證了插入操作，並已接受或拒絕此操作。現在，您將更新插入資料，方法是在插入物件之前，使用可將時間戳記屬性新增至物件的伺服器指令碼。
 
-1. 在 [管理入口網站] 的 [**指令碼**] 索引標籤中，使用下列函數來取代目前的 **Insert** 指令碼，然後按一下 [**儲存**]。
+1. 在[管理入口網站]的 [**指令碼**] 索引標籤中，使用下列函數來取代目前的 **Insert** 指令碼，然後按一下 [**儲存**]。
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -116,19 +114,17 @@
             }
         }
 
-    此函數可強化上一個 insert 指令碼，方法是先將新的 **createdAt** 時間戳記屬性新增至物件，再呼叫 **request**.**execute**。
+    此函數可強化上一個 insert 指令碼，方法是在呼叫 **request**.**execute** 來插入物件之前，先將新的 **createdAt** 時間戳記屬性新增至物件。
 
-    <div class="dev-callout"><b>注意</b>
-	<p>首次執行插入指令碼時，必須啟用動態結構描述。在啟用動態結構描述的情況下，行動服務會在首次執行時自動將 <strong>createdAt</strong> 資料行新增至 <strong>TodoItem</strong> 資料表。依預設會啟用新行動服務的動態結構描述，您應先加以停用，再發佈應用程式。</p>
-    </div>
+    > [AZURE.IMPORTANT] 首次執行插入指令碼時，必須啟用動態結構描述。在啟用動態結構描述的情況下，行動服務會在首次執行時自動將 **createdAt** 資料行新增至 **TodoItem** 資料表。依預設會啟用新行動服務的動態結構描述，您應先加以停用，再發佈應用程式。
 
-2. 在 Visual Studio 中，按 **F5** 鍵以執行應用程式，然後在 [**Insert a TodoItem**] 中鍵入文字 (少於 10 個字元)，並按一下 [**Save**]。
+2. 在 Visual Studio 中，按 **F5** 鍵以執行應用程式，然後在 [**Insert a TodoItem**] 中鍵入文字 (少於 10 個字元)，並按一下 [**儲存**]。
 
    	請注意新的時間戳記不會出現在應用程式 UI 中。
 
-3. 回到 [管理入口網站] 中，按一下 [**todoitem**] 資料表中的 [**Browse**] 索引標籤。
+3. 回到 [管理入口網站] 中，按一下 [**todoitem**] 資料表中的 [**瀏覽**] 索引標籤。
 
-   	請注意現在會有一個 **createdAt** 資料欄，且新插入的項目也具有時間戳記值。
+   	請注意，現在會有一個 **createdAt** 資料行，且新插入的項目也具有時間戳記值。
 
 接下來，您必須更新 iOS 應用程式以顯示此新資料欄。
 
@@ -154,21 +150,19 @@
 
     此新類別定義將包括如可為 Null 之 DateTime 類型的新時間戳記屬性。
 
-    <div class="dev-callout"><b>注意</b>
-	<p><strong>DataMemberAttribute</strong> 會告訴用戶端，將應用程式中的新 <strong>CreatedAt</strong> 屬性對應到 TodoItem 資料表中所定義、且使用不同大小寫的 <strong>createdAt</strong> 資料欄。使用此屬性，您的應用程式便可擁有物件上的屬性名稱，且該名稱會與 SQL Database 中的資料欄名稱不同。若是沒有這個屬性，則會因大小寫差異而發生錯誤。</p>
-    </div>
+    > [AZURE.NOTE] **DataMemberAttribute** 會告訴用戶端，將應用程式中的新 **CreatedAt** 屬性對應到 **TodoItem** 資料表中所定義、且使用不同大小寫的 createdAt 資料行。使用此屬性，您的應用程式便可擁有物件上的屬性名稱，且該名稱會與 SQL Database 中的資料欄名稱不同。若是沒有這個屬性，則會因大小寫差異而發生錯誤。
 
-2. 在 MainPage.xaml 檔案中的 **CheckBoxComplete** 元素正下方新增下列 XAML 元素：
+5. 在 MainPage.xaml 檔案中的 **CheckBoxComplete** 元素正下方，新增下列 XAML 元素：
 
         <TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>
 
-   	如此會在文字方快中顯示近的 **CreatedAt** 屬性。
+   	如此會在文字方快中顯示新的 **CreatedAt** 屬性。
 
-3. 按 **F5** 鍵以執行應用程式。
+6. 按 **F5** 鍵以執行應用程式。
 
    請留意到，只有在您更新 insert 指令碼後插入的項目，才會顯示時間戳記。
 
-4. 以下列程式碼取代 **RefreshTodoItems** 方法：
+7. 使用下列程式碼來取代現有的 **RefreshTodoItems** 方法：
 
         private void RefreshTodoItems()
         {
@@ -184,11 +178,11 @@
 
    	此方法會更新查詢，篩選出沒有時間戳記的項目。
 
-5. 按 **F5** 鍵以執行應用程式。
+8. 按 **F5** 鍵以執行應用程式。
 
    	請留意到，所有已建立但不含時間戳記值的項目，都會從 UI 中消失。
 
-您已完成此使用資料教學課程。
+您已完成此使用資料教學課程。-->
 
 ## <a name="next-steps"> </a>後續步驟
 
@@ -200,10 +194,10 @@
   <br/>了解如何根據通過驗證的使用者識別碼篩選資料。
 
 * [開始使用推播通知]
-  <br/>了解如何將非常基本的推播通知傳送至您的應用程式。
+  <br/>了解如何將極為基本的推播通知傳送到應用程式。
 
 * [行動服務伺服器指令碼參考]
-  <br/>進一步了解註冊和使用伺服器指令碼。
+  <br/>深入了解如何註冊和使用伺服器指令碼。
 
 <!-- Anchors. -->
 [新增字串長度驗證]: #string-length-validation
@@ -230,3 +224,6 @@
 
 [管理入口網站]: https://manage.windowsazure.com/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

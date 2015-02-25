@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Notify iOS app users by using Mobile Services" pageTitle="使用行動服務註冊目前使用者以取得推播通知 - 通知中心 " metaKeywords=" Azure 註冊應用程式, 通知中心, Azure 推播通知, 推播通知 iOS 應用程式" description="了解如何在 Azure 行動服務執行註冊時，在 iOS 應用程式中向 Azure 通知中心要求推播通知註冊。" metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Register the current user for push notifications by using a mobile service" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="使用行動服務註冊目前使用者以取得推播通知 - 通知中樞" description="了解如何在 Azure 行動服務執行註冊時，在 iOS 應用程式中向 Azure 通知中樞要求推播通知註冊。" services="mobile-services, notification-hubs" documentationCenter="" authors="ysxu" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu"/>
 
 # 使用行動服務註冊目前使用者以取得推播通知
 
@@ -8,9 +8,9 @@
     <a href="/zh-tw/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows Store C#">Windows 市集 C#</a><a href="/zh-tw/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
-本主題將說明以 Azure 行動服務執行註冊時，應如何向 Azure 通知中心要求推播通知註冊。這是[使用通知中心來通知使用者]教學課程的延伸主題。您必須已完成該教學課程中的必要步驟，才能建立已驗證的行動服務。如需通知使用者案例的詳細資訊，請參閱[使用通知中心來通知使用者]。  
+本主題將說明以 Azure 行動服務執行註冊時，應如何向 Azure 通知中樞要求推播通知註冊。這是[使用通知中樞來通知使用者]教學課程的延伸主題。您必須已完成該教學課程中的必要步驟，才能建立已驗證的行動服務。如需通知使用者案例的詳細資訊，請參閱[使用通知中樞來通知使用者]。  
 
-1. 在 Xcode 中，在您完成必要的教學課程 [開始使用驗證]時所建立的專案中開啟 QSTodoService.h 檔案，然後新增下列 **deviceToken** 屬性：
+1. 在 Xcode 中，在您完成必要的教學課程[開始使用驗證]時所建立的專案中開啟 QSTodoService.h 檔案，然後新增下列 **deviceToken** 屬性：
 
 		@property (nonatomic) NSData* deviceToken;
 
@@ -29,7 +29,7 @@
 
 	此方法會將裝置權杖轉換為十六進位字串值。
 
-3. 在 QSAppDelegate.m 檔案中，將下列程式碼行新增至 **didFinishLaunchingWithOptions** 方法中：
+3. 在 QSAppDelegate.m 檔案中，將下列程式碼新增至 **didFinishLaunchingWithOptions** 方法中：
 
 			[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
@@ -43,9 +43,7 @@
 
 	這會更新 **deviceToken** 屬性。
 
-	<div class="dev-callout"><b>注意</b>
-	<p>此時，此方法中不應有任何其他程式碼。如果您已呼叫您在完成 [<a href="/zh-tw/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">開始使用通知中心</a>] 教學課程時所新增的 **registerNativeWithDeviceToken** 方法，您必須註解化或移除該呼叫。</p>
-	</div>
+	> [AZURE.NOTE] 此時，此方法中不應有任何其他程式碼。如果您已呼叫您在完成[開始使用通知中樞](/zh-tw/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank") 教學課程時所新增的 **registerNativeWithDeviceToken** 方法，您必須註解化或移除該呼叫。
 
 5.  (選用) 在 QSAppDelegate.m 檔案中，新增下列處理常式方法：
 
@@ -75,7 +73,7 @@
 			    }];
 			}
 
-	此方法會建構包含裝置權杖的 json 裝載。接著，它會呼叫您行動服務中的自訂 API，以進行通知的註冊。此方法會建立推播通知的裝置權杖，並將其連同裝置類型傳送至會在通知中心建立註冊的自訂 API 方法。此自訂 API 已在 [使用通知中心來通知使用者] 中定義。
+	此方法會建構包含裝置權杖的 json 裝載。接著，它會呼叫您行動服務中的自訂 API，以進行通知的註冊。此方法會建立推播通知的裝置權杖，並將其連同裝置類型傳送至會在通知中樞建立註冊的自訂 API 方法。此自訂 API 定義於[使用通知中樞來通知使用者]中。
 
 7.	最後，在使用者成功驗證後，在 **viewDidAppear** 方法中將此 API 的呼叫新增至新的 **registerForNotificationsWithBackEnd** 方法中，如下列範例所示：
 
@@ -93,11 +91,9 @@
 			    }];
 			}
 
-	<div class="dev-callout"><b>注意</b>
-	<p>這會確使在每次載入頁面時都會要求註冊。在您的應用程式中，您可能只想定期進行此註冊，以確保註冊是最新的。</p>
-	</div>
-
-現在，用戶端應用程式已更新，請回到 [使用通知中心來通知使用者]，並更新行動服務，以使用通知中心傳送通知。
+	> [AZURE.NOTE] 這會確使在每次載入頁面時都會要求註冊。在您的應用程式中，您可能只想定期進行此註冊，以確保註冊是最新的。
+	
+現在，用戶端應用程式已更新，請回到[使用通知中樞]來通知使用者，並更新行動服務，以使用通知中樞傳送通知。
 
 <!-- Anchors. -->
 
@@ -105,8 +101,11 @@
 
 
 <!-- URLs. -->
-[使用通知中心來通知使用者]: /zh-tw/manage/services/notification-hubs/notify-users
+[使用通知中樞來通知使用者]: /zh-tw/manage/services/notification-hubs/notify-users
 [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-ios/
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[開始使用通知中心]: /zh-tw/manage/services/notification-hubs/get-started-notification-hubs-ios/
+[開始使用通知中樞]: /zh-tw/manage/services/notification-hubs/get-started-notification-hubs-ios/
+
+
+<!--HONumber=42-->

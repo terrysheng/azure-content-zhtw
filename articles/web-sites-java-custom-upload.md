@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="Upload custom Java website" pageTitle="將自訂 Java 網站上傳至 Azure" metaKeywords="" description="此教學課程說明如何將自訂 Java 網站上傳至 Azure。" metaCanonical="" services="web-sites" documentationCenter="Java" title="Upload a custom Java website to Azure" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="將自訂 Java 網站上傳至 Azure" 
+	description="此教學課程說明如何將自訂 Java 網站上傳至 Azure。" 
+	services="web-sites" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # 將自訂 Java 網站上傳至 Azure
 
 本主題說明如何將自訂 Java 網站上傳至 Azure。內容包括適用於任何 Java 網站的資訊，以及針對特定應用程式的一些範例。
 
-請注意，如同 [開始使用 Azure 網站和 Java 中的說明一樣，Azure 提供了使用 Azure 入口網站的組態 UI 和 Azure 應用程式組件庫來建立 Java 網站的方法。
+請注意，Azure 提供了使用 Azure 入口網站的組態 UI 和 Azure 應用程式組件庫來建立 Java 網站的方法，如同此文所說明：[開始使用 Azure 網站和 Java
 ](../web-sites-java-get-started)。本教學課程適用於您不打算使用 Azure 組態 UI 或 Azure 應用程式組件庫的案例。  
 
 # 組態方針
@@ -17,7 +31,7 @@
 - 您應停用所有的接聽連接埠 (單一 HTTP 接聽程式除外)。在 Tomcat 中，這包括了關機、HTTPS 和 AJP 連接埠。
 - 僅需針對 IPv4 流量設定容器。
 - 組態中必須設定應用程式的 **startup** 命令。
-- 要求目錄具備寫入權限的應用程式必須位於 Azure 網站的內容目錄，也就是 **D:\home**。
+- 要求目錄具備寫入權限的應用程式必須位於 Azure 網站的內容目錄，也就是 **D:\home**。環境變數 `HOME` 是指 D:\home。  
 
 您可以在 web.config 檔案中視需要設定環境變數。
 
@@ -29,11 +43,11 @@
 
 範例 (顯示內容包括 **processPath**)：
 
-    processPath="d:\home\site\wwwroot\bin\tomcat\bin\catalina.bat"
+    processPath="%HOME%\site\wwwroot\bin\tomcat\bin\catalina.bat"
     arguments="start"
     
     processPath="%JAVA_HOME\bin\java.exe"
-    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=&quot;d:\home\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;d:\home\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
 
 
 **processPath** - 將會啟動接聽 HTTP 要求程序的可執行檔或指令檔路徑。
@@ -44,13 +58,13 @@
 
     processPath="%JAVA_HOME%\bin\java.exe"
 
-    processPath="d:\home\site\wwwroot\bin\tomcat\bin\startup.bat"
+    processPath="%HOME%\site\wwwroot\bin\tomcat\bin\startup.bat"
 
-    processPath="d:\home\site\wwwroot\bin\tomcat\bin\catalina.bat"
+    processPath="%HOME%\site\wwwroot\bin\tomcat\bin\catalina.bat"
                                                                                        
 **rapidFailsPerMinute** (預設值=10)。**processPath** 中指定程序可容許的每分鐘當機次數。如果超過此限制，**HttpPlatformHandler** 便會停止在此分鐘剩餘時間內啟動程序。
                                     
-**requestTimeout** (預設值="00:02:00")。**HttpPlatformHandler** 會等待接聽 `%HTTP_PLATFORM_PORT%` 程序回應的持續時間。
+**requestTimeout** (預設值="00:02:00")。**HttpPlatformHandler** 會等待接聽 `%HTTP_PLATFORM_PORT%` 程序回應的持續時間
 
 **startupRetryCount** (預設值=10)。**HttpPlatformHandler** 會嘗試啟動 **processPath** 中指定程序的次數。如需詳細資訊，請參閱 **startupTimeLimit**。
 
@@ -60,7 +74,7 @@
                                     
 **stdoutLogFile** (預設值="d:\home\LogFiles\httpPlatformStdout.log")。**processPath** 中指定程序之 **stdout** 和 **stderr** 的絕對檔案路徑將會被記錄下來。
                                     
-> [WACOM.NOTE] `%HTTP_PLATFORM_PORT%` 是個特殊預留位置，它必須以 **arguments** 的一部分或 **httpPlatform** **environmentVariables** 清單的一部分進行指定。這將會被透過 **HttpPlatformHandler** 內部產生的連接埠取代，以便 **processPath** 所指定的程序可以接聽此連接埠。
+> [AZURE.NOTE] `%HTTP_PLATFORM_PORT%` 是個特殊預留位置，它必須以 **arguments** 的一部分或 **httpPlatform** **environmentVariables** 清單的一部分進行指定。這將會被透過 **HttpPlatformHandler** 內部產生的連接埠取代，以便 **processPath** 所指定的程序可以接聽此連接埠。
 
 # Deployment
 
@@ -79,12 +93,12 @@ Azure 網站隨附了兩個 Tomcat 變化，但很有可能您仍然可以上傳
 	    <handlers>
 	      <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
 	    </handlers>
-	    <httpPlatform processPath="d:\home\site\wwwroot\bin\tomcat\bin\startup.bat" 
+	    <httpPlatform processPath="%HOME%\site\wwwroot\bin\tomcat\bin\startup.bat" 
 	        arguments="">
 	      <environmentVariables>
 	        <environmentVariable name="CATALINA_OPTS" value="-Dport.http=%HTTP_PLATFORM_PORT%" />
-	        <environmentVariable name="CATALINA_HOME" value="d:\home\site\wwwroot\bin\tomcat" />
-	        <environmentVariable name="JRE_HOME" value="d:\home\site\wwwroot\bin\java" /> <!-- optional, if not specified, this will default to %programfiles%\Java -->
+	        <environmentVariable name="CATALINA_HOME" value="%HOME%\site\wwwroot\bin\tomcat" />
+	        <environmentVariable name="JRE_HOME" value="%HOME%\site\wwwroot\bin\java" /> <!-- optional, if not specified, this will default to %programfiles%\Java -->
 	        <environmentVariable name="JAVA_OPTS" value="-Djava.net.preferIPv4Stack=true" />
 	      </environmentVariables>
 	    </httpPlatform>
@@ -97,7 +111,7 @@ Azure 網站隨附了兩個 Tomcat 變化，但很有可能您仍然可以上傳
 -	HTTP 連接器連接埠 = {port.http}
 -	HTTP 連接器位址 = "127.0.0.1"
 -	註解化 HTTPS 和 AJP 連接器
--	您也可以在 catalina.properties 檔案中進行 IPv4 設定，在此檔案中，您可以新增 `java.net.preferIPv4Stack=true`
+-	您也可以在 catalina.properties 檔案中進行 IPv4 設定，在此檔案中，您可以新增  `java.net.preferIPv4Stack=true`
     
 Azure 網站不支援 Direct3d 呼叫。若要將其停用，請新增下列 Java 選項，您的應用程式即可進行下列呼叫：`-Dsun.java2d.d3d=false`
 
@@ -112,7 +126,7 @@ Azure 網站不支援 Direct3d 呼叫。若要將其停用，請新增下列 Jav
 	      <add name="httppPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
 	    </handlers>
 	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" 
-	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;d:\home\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;d:\home\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
 	        startupTimeLimit="20"
 		  startupRetryCount="10"
 		  stdoutLogEnabled="true">
@@ -128,7 +142,7 @@ Jetty 組態必須在 start.ini 中進行變更，進而設定 `java.net.preferI
 
 1. 在 Azure 網站的網站根目錄中 (例如 **d:\home\site\wwwroot**) 建立 **webapps** 目錄 (如果尚未存在)，並將 Hudson.war 放在 **d:\home\site\wwwroot\webapps** 中。
 2. 下載 apache maven 3.0.5 (與 Hudson 相容)，並將它放在 **d:\home\site\wwwroot** 中。
-3. 在 **d:\home\site\wwwroot** 中建立 web.config，並貼入下列內容：
+3. 在 **d:\home\site\wwwroot** 中建立 web.config，並將下列內容貼入 web.config：
 	
 		<?xml version="1.0" encoding="UTF-8"?>
 		<configuration>
@@ -142,21 +156,21 @@ Jetty 組態必須在 start.ini 中進行變更，進而設定 `java.net.preferI
 		startupRetryCount="10">
 		<environmentVariables>
 		  <environmentVariable name="HUDSON_HOME" 
-		value="d:\home\site\wwwroot\hudson_home" />
+		value="%HOME%\site\wwwroot\hudson_home" />
 		  <environmentVariable name="JAVA_OPTS" 
-		value="-Djava.net.preferIPv4Stack=true -Duser.home=d:/home/site/wwwroot/user_home -Dhudson.DNSMultiCast.disabled=true" />
+		value="-Djava.net.preferIPv4Stack=true -Duser.home=%HOME%/site/wwwroot/user_home -Dhudson.DNSMultiCast.disabled=true" />
 		</environmentVariables>            
 		    </httpPlatform>
 		  </system.webServer>
 		</configuration>
 
-此時，您可以重新啟動網站以接受變更。連線至 http://yoursite/hudson 以啟動 Hudson。
+    此時，您可以重新啟動網站以接受變更。   連線至 http://yoursite/hudson 以啟動 Hudson。
 
 4. 在 Hudson 自行設定之後，您應該可以看到下列畫面：
 
     ![Hudson](./media/web-sites-java-custom-upload/hudson1.png)
     
-5. 存取 Hudson 組態頁面：按一下 [**Manage Hudson**]，再按一下 [**設定系統**]。
+5. 存取 Hudson 組態頁面：按一下 [Manage Hudson]****，再按一下 [設定系統]****。
 6. 如下所示設定 JDK：
 
 	![Hudson configuration](./media/web-sites-java-custom-upload/hudson2.png)
@@ -171,7 +185,7 @@ Jetty 組態必須在 start.ini 中進行變更，進而設定 `java.net.preferI
 
 ## Liferay
 
-Azure 網站支援 Liferay。因為 Liferay 需要大量記憶體，網站必須在可提供足夠記憶體的中型或大型專用背景工作上執行。另外，Liferay 需要數分鐘的時間才能啟動。基於這個理由，建議您將網站設為 [**Always On**]。  
+Azure 網站支援 Liferay。因為 Liferay 需要大量記憶體，網站必須在可提供足夠記憶體的中型或大型專用背景工作上執行。另外，Liferay 需要數分鐘的時間才能啟動。基於這個理由，建議您將網站設為 [永遠開啟]****。	  
 
 使用隨附於 Tomcat 的 Liferay 6.1.2 Community Edition GA3 時，下列檔案在下載 Liferay 之後遭到編輯：
 
@@ -184,7 +198,7 @@ Azure 網站支援 Liferay。因為 Liferay 需要大量記憶體，網站必須
 
 在 **liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes** 資料夾中，建立名為 **portal-ext.properties** 的檔案。此檔案必須包含一行程式碼，如下所示：
 
-    liferay.home=d:/home/site/wwwroot/liferay
+    liferay.home=%HOME%/site/wwwroot/liferay
 
 在與 tomcat-7.0.40 資料夾相同的目錄層級中，根據下列內容建立名為 **web.config** 的檔案：
 
@@ -195,14 +209,14 @@ Azure 網站支援 Liferay。因為 Liferay 需要大量記憶體，網站必須
 	<add name="httpPlatformHandler" path="*" verb="*"
 	     modules="httpPlatformHandler" resourceType="Unspecified" />
 	    </handlers>
-	    <httpPlatform processPath="d:\home\site\wwwroot\tomcat-7.0.40\bin\catalina.bat" 
+	    <httpPlatform processPath="%HOME%\site\wwwroot\tomcat-7.0.40\bin\catalina.bat" 
 	                  arguments="run" 
 	                  startupTimeLimit="10" 
 	                  requestTimeout="00:10:00" 
 	                  stdoutLogEnabled="true">
 	      <environmentVariables>
 	  <environmentVariable name="CATALINA_OPTS" value="-Dport.http=%HTTP_PLATFORM_PORT%" />
-	  <environmentVariable name="CATALINA_HOME" value="d:\home\site\wwwroot\tomcat-7.0.40" />
+	  <environmentVariable name="CATALINA_HOME" value="%HOME%\site\wwwroot\tomcat-7.0.40" />
 	        <environmentVariable name="JRE_HOME" value="D:\Program Files\Java\jdk1.7.0_51" /> 
 	        <environmentVariable name="JAVA_OPTS" value="-Djava.net.preferIPv4Stack=true" />
 	      </environmentVariables>
@@ -223,3 +237,6 @@ Azure 網站支援 Liferay。因為 Liferay 需要大量記憶體，網站必須
 
 
 
+
+
+<!--HONumber=42-->

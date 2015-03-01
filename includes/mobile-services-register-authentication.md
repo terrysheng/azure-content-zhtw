@@ -1,4 +1,4 @@
-
+﻿
 
 您必須向身分識別提供者註冊應用程式，才能驗證使用者。然後，您必須向行動服務註冊由提供者產生的用戶端密碼。
 
@@ -32,4 +32,6 @@
 	現在，行動服務和應用程式已設定為使用您選擇的驗證提供者。
 
 <!-- URLs. -->
-[Azure 管理入口網站]: https://manage.windowsazure.com/<!--HONumber=42-->
+[Azure 管理入口網站]: https://manage.windowsazure.com/
+
+<!--HONumber=42-->

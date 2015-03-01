@@ -1,4 +1,4 @@
-## <a name="register-mobile-service-aad"></a>向 Azure Active Directory 註冊您的行動服務
+﻿## <a name="register-mobile-service-aad"></a>向 Azure Active Directory 註冊您的行動服務
 
 
 在本節中，您將向 Azure Active Directory 註冊您的行動服務，並設定權限以允許單一登入模擬。
@@ -37,4 +37,5 @@
 
 <!-- URLs. -->
 [如何向 Azure Active Directory 註冊]: /zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-[Azure 管理入口網站]: https://manage.windowsazure.com/<!--HONumber=42-->
+[Azure 管理入口網站]: https://manage.windowsazure.com/
+<!--HONumber=42-->

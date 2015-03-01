@@ -120,4 +120,5 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[事件中心開發人員指南]: http://msdn.microsoft.com/zh-tw/library/azure/dn789972.aspx<!--HONumber=42-->
+[事件中心開發人員指南]: http://msdn.microsoft.com/zh-tw/library/azure/dn789972.aspx
+<!--HONumber=42-->

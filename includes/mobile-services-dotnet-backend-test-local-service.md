@@ -8,4 +8,6 @@
 
 	![](./media/mobile-services-dotnet-backend-test-local-service/mobile-service-startup.png)
 
-	在行動服務成功啟動後，會顯示一個網頁。<!--HONumber=42-->
+	在行動服務成功啟動後，會顯示一個網頁。
+
+<!--HONumber=42-->

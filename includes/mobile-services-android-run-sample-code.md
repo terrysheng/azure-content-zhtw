@@ -1,4 +1,4 @@
-1.在 [套件瀏覽器] 中，依序展開 [GetStartedWithData]****、[src]**** 和 **.com.example.GetStartedWithData**，然後檢查 ToDoActivity.java 檔案。
+﻿1.在 [套件瀏覽器] 中，依序展開 [GetStartedWithData]****、[src]**** 和 **.com.example.GetStartedWithData**，然後檢查 ToDoActivity.java 檔案。
 
    	![](./media/download-android-sample-code/mobile-eclipse-project.png)
 
@@ -14,4 +14,6 @@
 
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
-   	注意已儲存的文字會存在記憶體內部收集中，並顯示在下表。<!--HONumber=42-->
+   	注意已儲存的文字會存在記憶體內部收集中，並顯示在下表。
+
+<!--HONumber=42-->

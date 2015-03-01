@@ -1,4 +1,4 @@
-由於持續進行開發，因此 Eclipse 中安裝的 Android SDK 版本可能不符合程式碼中的版本。此教學課程參照的 Android SDK 為 21 版，是撰寫本文時的最新版本。隨著新修訂版 SDK 發行，版本號碼可能會隨之增加，我們建議您使用最新的可用版本。
+﻿由於持續進行開發，因此 Eclipse 中安裝的 Android SDK 版本可能不符合程式碼中的版本。此教學課程參照的 Android SDK 為 21 版，是撰寫本文時的最新版本。隨著新修訂版 SDK 發行，版本號碼可能會隨之增加，我們建議您使用最新的可用版本。
 
 版本不符合的兩個徵兆為：
 
@@ -17,4 +17,5 @@
 	 	        android:minSdkVersion="8"
 	 	        android:targetSdkVersion="21" />
 	
-3. 在 Eclipse [封裝總管] 中，以滑鼠右鍵按一下專案節點，選擇 **[屬性]**，然後在左欄中選擇 **[Android]**。確定將 **[專案建置目標]** 設定為 **targetSdkVersion** 所具有的相同 SDK 版本。<!--HONumber=42-->
+3. 在 Eclipse [封裝總管] 中，以滑鼠右鍵按一下專案節點，選擇 **[屬性]**，然後在左欄中選擇 **[Android]**。確定將 **[專案建置目標]** 設定為 **targetSdkVersion** 所具有的相同 SDK 版本。
+<!--HONumber=42-->

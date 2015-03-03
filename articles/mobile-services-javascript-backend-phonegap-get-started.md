@@ -61,7 +61,7 @@ PhoneGap 支援多個平台的開發。除了 PhoneGap 工具本身以外，您�
 
 	+ **Windows Phone 8**
 
-	1.Windows Phone 8：在 Visual Studio 2012 Express for Windows Phone 中，開啟 **platforms\wp82012 資料夾中的 .sln 檔案。
+	1.Windows Phone 8：在 Visual Studio 2012 Express for Windows Phone 中，開啟 **platforms\wp8** 資料夾中的 .sln 檔案。
 	
 	2.按 **F5** 鍵，以重建專案並啟動應用程式。
 	

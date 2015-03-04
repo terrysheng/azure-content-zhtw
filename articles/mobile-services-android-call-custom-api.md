@@ -1,4 +1,4 @@
-<properties writer="ricksal" pageTitle="從 Android 用戶端呼叫自訂 API | 行動開發人員中心" description="了解如何定義自訂 API 然後從使用 Azure 行動服務的 Android 應用程式呼叫它。" services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+﻿<properties writer="ricksal" pageTitle="從 Android 用戶端呼叫自訂 API | 行動開發人員中心" description="了解如何定義自訂 API 然後從使用 Azure 行動服務的 Android 應用程式呼叫它。" services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal,glenga"/>
 
@@ -53,7 +53,7 @@
 [行動服務 Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
 [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
 [我的應用程式儀表板]: http://go.microsoft.com/fwlink/?LinkId=262039
-[開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-android-get-started/
+[開始使用行動服務]: /documentation/articles/mobile-services-android-get-started/
 [開始使用資料]: /zh-tw/documentation/articles/mobile-services-android-get-started-data/
 [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-android-get-started-users/
 [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-android-get-started-push/

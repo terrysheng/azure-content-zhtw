@@ -1,12 +1,26 @@
-<properties pageTitle="在 Azure 中建立執行 Linux 的虛擬機器" description="了解如何透過使用 Azure 的映像建立執行 Linux 的 Azure 虛擬機器 (VM)。" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
+﻿<properties 
+	pageTitle="在 Azure 中建立執行 Linux 的虛擬機器" 
+	description="了解如何透過使用 Azure 的映像建立執行 Linux 的 Azure 虛擬機器 (VM)。" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="1/19/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/19/2015" 
+	ms.author="kathydav"/>
 
 #建立執行 Linux 的虛擬機器 
 
 您可以使用 Azure 管理入口網站中的映像庫，輕鬆地建立執行 Linux 的虛擬機器。本指南說明如何執行此作業，並假設您沒有使用 Azure 的經驗。
 
-> [AZURE.NOTE] 即使您不需要使用 Azure VM 的任何經驗來完成此教學課程，但您的確需要 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資訊，請參閱[建立 Azure 帳戶](http://www.windowsazure.com/zh-tw/develop/php/tutorials/create-a-windows-azure-account/)。 
+> [AZURE.NOTE] 即使您不需要使用 Azure VM 的任何經驗來完成此教學課程，但您的確需要 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資訊，請參閱 [建立 Azure 帳戶](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/)。 
 
 本教學課程涵蓋下列項目：
 
@@ -27,27 +41,27 @@ Azure 中的虛擬機器是您在雲端中可以控制和管理的伺服器。�
 使用映像建立虛擬機器時有下列選項可用：
 
 - 使用 Azure 管理入口網站的映像庫中提供的映像來建立虛擬機器。
-- 建立含有映像的 .vhd 檔案並上傳至 Azure，然後利用此映像來建立虛擬機器。如需關於建立和上傳自訂映像的詳細資訊，請參閱[建立和上傳包含 Linux 作業系統的虛擬硬碟](/zh-tw/manage/linux/common-tasks/upload-a-vhd/)。
+- 建立含有映像的 .vhd 檔案並上傳至 Azure，然後利用此映像來建立虛擬機器。如需關於建立和上傳自訂映像的詳細資訊，請參閱 [建立和上傳包含 Linux 作業系統的虛擬硬碟](/zh-tw/manage/linux/common-tasks/upload-a-vhd/)。
 
-每一部虛擬機器都是位於雲端服務內，可能是單獨存在或與其他虛擬機器並存。您可以將虛擬機器放在相同的雲端服務內，使虛擬機器彼此相互通訊，讓虛擬機器之間的網路流量達到負載平衡，並維持機器的高可用性。如需關於雲端服務和虛擬機器的詳細資訊，請參閱＜[Azure 簡介](http://go.microsoft.com/fwlink/p/?LinkId=311926)＞中的＜執行模型＞一節。
+每一部虛擬機器都是位於雲端服務內，可能是單獨存在或與其他虛擬機器並存。您可以將虛擬機器放在相同的雲端服務內，使虛擬機器彼此相互通訊，讓虛擬機器之間的網路流量達到負載平衡，並維持機器的高可用性。如需關於雲端服務和虛擬機器的詳細資訊，請參閱 [Azure 簡介](http://go.microsoft.com/fwlink/p/?LinkId=311926) 中的「執行模型」一節。
 
 ## <a id="custommachine"> </a>如何建立虛擬機器 ##
 
-本教學課程使用 [從組件庫] 方法來建立虛擬機器，因為它提供比 [快速建立] 方法還要多的選項。您可以選擇連接的資源、DNS 名稱和網路連線 (若有需要)。
+本教學課程使用 [**從組件庫**] 方法來建立虛擬機器，因為它提供比 [**快速建立**] 方法還要多的選項。您可以選擇連接的資源、DNS 名稱和網路連線 (若有需要)。
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../includes/virtual-machines-create-LinuxVM.md)]
 
 [AZURE.INCLUDE [virtual-machines-Linux-tutorial-log-on-attach-disk](../includes/virtual-machines-Linux-tutorial-log-on-attach-disk.md)]
 
-> [AZURE.NOTE] 您也可以使用 SSH 金鑰做為識別，以連線到您的 Linux 虛擬機器。請參閱[如何搭配使用 SSH 和 Azure 上的 Linux](./virtual-machines-linux-use-ssh-key/)了解如何設定 SSH 金鑰並使用它連線。
+> [AZURE.NOTE] 您也可以使用 SSH 金鑰進行識別，連接到 Linux 虛擬機器。如需如何以 SSH 金鑰設定和連接的詳細資訊，請參閱 [如何搭配 Azure 上的 Linux 使用 SSH](./virtual-machines-linux-use-ssh-key/)。
 
 ##後續步驟 
 
 若要深入了解 Azure 上的 Linux，請參閱下列文章：
 
-- [Azure 上的 Linux 簡介](http://www.windowsazure.com/zh-tw/documentation/articles/introduction-linux/)
+- [Azure 上的 Linux 簡介](http://azure.microsoft.com/documentation/articles/introduction-linux/)
 
-- [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具](http://www.windowsazure.com/zh-tw/documentation/articles/xplat-cli/)
+- [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具](http://azure.microsoft.com/documentation/articles/xplat-cli/)
 
 - [關於 Azure VM 組態設定](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
@@ -60,5 +74,4 @@ Azure 中的虛擬機器是您在雲端中可以控制和管理的伺服器。�
 [如何在建立虛擬機器之後登入]: #logon
 [如何將資料磁碟連接至新的虛擬機器]: #attachdisk
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,11 +1,25 @@
-<properties pageTitle="SharePoint Server 伺服器陣列組態詳細資料" description="說明 SharePoint 伺服器陣列的預設組態" services="virtual-machines" documentationCenter="" authors="JoeDavies-MSFT" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="SharePoint Server 伺服器陣列組態詳細資料" 
+	description="說明 SharePoint 伺服器陣列的預設組態" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-sharepoint" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/26/2015" 
+	ms.author="josephd"/>
 
 
-# SharePoint Server 伺服器陣列組態詳細資料 #
+#SharePoint Server 伺服器陣列組態詳細資料#
 
-SharePoint Server 伺服器陣列是 Microsoft Azure Preview 入口網站的一項功能，可自動為您建立預先設定的 SharePoint Server 2013 伺服器陣列。伺服器陣列組態有兩種：
+SharePoint Server 伺服器陣列是 Microsoft Azure 預覽入口網站的一項功能，可自動為您建立預先設定的 SharePoint Server 2013 伺服器陣列。伺服器陣列組態有兩種：
 
 - 基本
 - 高可用性
@@ -14,9 +28,9 @@ SharePoint Server 伺服器陣列是 Microsoft Azure Preview 入口網站的一�
 
 如需詳細資訊，請參閱 [SharePoint Server 伺服器陣列](../virtual-machines-sharepoint-farm-azure-preview/)。
 
-## 基本 SharePoint 伺服器陣列 ##
+##基本 SharePoint 伺服器陣列##
 
-基本 SharePoint 伺服器陣列由下列組態中的三個虛擬機器組成：
+基本的 SharePoint 伺服器陣列是由這個組態中的三部虛擬機器所組成：
 
 ![sharepointfarm](./media/virtual-machines-sharepoint-farm-config-azure-preview/SPFarm_Basic.png) 
 
@@ -27,7 +41,7 @@ SharePoint Server 伺服器陣列是 Microsoft Azure Preview 入口網站的一�
 -	儲存體帳戶：在初始組態過程中指定。
 -	虛擬網路 	
 	-   輸入：僅限雲端	
-    -	位址空間： 192.168.16.0/26    
+    -	位址空間：192.168.16.0/26    
 
 - 虛擬機器
 	-	*HostNamePrefix*-DC (AD DS 網域控制站)
@@ -57,7 +71,7 @@ SharePoint Server 伺服器陣列是 Microsoft Azure Preview 入口網站的一�
 	-	SharePoint 伺服器陣列複雜密碼：在初始組態過程中指定。
 
 
-## 高可用性 SharePoint 伺服器陣列 ##
+##高可用性 SharePoint 伺服器陣列##
 
 高可用性 SharePoint 伺服器陣列由下列組態中的九個虛擬機器組成：
 
@@ -66,11 +80,11 @@ SharePoint Server 伺服器陣列是 Microsoft Azure Preview 入口網站的一�
 以下是組態詳細資料：
 
 -	Azure 訂閱：在初始組態過程中指定。
--	Azure 網域名稱 (亦稱為雲端服務)：根據上圖，會建立個別的網域名稱。
+-	Azure 網域名稱 (亦稱為雲端服務)：上圖顯示已建立個別的網域名稱。
 -	儲存體帳戶：在初始組態過程中指定。
 -	虛擬網路	
 	-	輸入：僅限雲端
-	-	位址空間： 192.168.16.0/26	
+	-	位址空間：192.168.16.0/26	
 
 -	虛擬機器
 	-	*HostNamePrefix*-DC1 (AD DS 網域控制站)
@@ -105,11 +119,10 @@ SharePoint Server 伺服器陣列是 Microsoft Azure Preview 入口網站的一�
 	-	SharePoint 伺服器陣列帳戶密碼：在初始組態過程中指定。		
 	-	SharePoint 伺服器陣列複雜密碼：在初始組態過程中指定。
 
-## 其他資源 ##
+##其他資源##
 
-[SharePoint Server 伺服器陣列](../virtual-machines-sharepoint-farm-azure-preview/)
+[SharePoint 伺服器陣列](../virtual-machines-sharepoint-farm-azure-preview/)
 
 [Azure 基礎結構服務上的 SharePoint](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

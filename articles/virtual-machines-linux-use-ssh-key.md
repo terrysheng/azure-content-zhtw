@@ -1,14 +1,28 @@
-﻿<properties pageTitle="使用 SSH 連接到 Azure 中的 Linux 虛擬機器" description="了解如何在 Azure 的 Linux 虛擬機器上產生並使用 SSH 金鑰。" services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="使用 SSH 連接到 Azure 中的 Linux 虛擬機器" 
+	description="了解如何在 Azure 的 Linux 虛擬機器上產生並使用 SSH 金鑰。" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/15/2014" ms.author="szarkos"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/15/2014" 
+	ms.author="szarkos"/>
 
 #如何對 Azure 上的 Linux 使用 SSH
 
-目前版本的 Azure 管理入口網站僅接受封裝於 X509 憑證中的 SSH 公開金鑰。請依照下列步驟，產生 SSH 金鑰並用於 Azure。
+目前版本的 Azure 管理入口網站僅接受封裝於 X509 憑證中的 SSH 公開金鑰。請遵循下列步驟，產生 SSH 金鑰並用於 Azure。
 
 ## 在 Linux 中產生 Windows Azure 的相容金鑰 ##
 
-1. 若有需要，請安裝  `openssl` 公用程式：
+1. 安裝必要的 `openssl` 公用程式：
 
 	**CentOS / Oracle Linux**
 
@@ -18,12 +32,12 @@
 
 		# sudo apt-get install openssl
 
-	**SLES & openSUSE**
+	**SLES 及 openSUSE**
 
 		# sudo zypper install openssl
 
 
-2. 使用  `openssl`，產生具有 2048 位元 RSA 金鑰組的 X509 憑證。請回答  `openssl` 提示的一些問題 (您也可以將這些問題留空)。平台並未使用這些欄位的內容：
+2. 使用 `openssl`，以 2048 位元 RSA 金鑰組來產生 X509 憑證。請回答 `openssl` 提示的一些問題 (您也可以將這些問題留空)。平台並未使用這些欄位的內容：
 
 		# openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
 
@@ -31,9 +45,9 @@
 
 		# chmod 600 myPrivateKey.key
 
-4.	建立 Linux 虛擬機器時上傳  `myCert.pem`。佈建程序會為虛擬機器中的指定使用者，自動將此憑證中的公開金鑰安裝至  `authorized_keys` 檔案中。
+4.	建立 Linux 虛擬機器時上傳 `myCert.pem`。佈建程序會為虛擬機器中的指定使用者，自動將此憑證中的公開金鑰安裝至 `authorized_keys` 檔案中。
 
-5.	如果您將直接使用 API，而不使用「管理入口網站」，請使用下列命令，將  `myCert.pem` 轉換為  `myCert.cer` (DER 編碼的 X509 憑證)：
+5.	如果您將直接使用 API，而不使用管理入口網站，請使用下列命令，將 `myCert.pem` 轉換為 `myCert.cer` (DER 編碼的 X509 憑證)：
 
 		# openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
@@ -41,29 +55,29 @@
 ## 從現有 OpenSSH 相容金鑰產生金鑰
 上一個範例說明如何建立用於 Windows Azure 的新金鑰。在某些情況下，您可能已經有現有的 OpenSSH 相容公用與私密金鑰組，並希望對 Windows Azure 使用相同的金鑰。
 
- `openssl` 公用程式可以直接讀取 OpenSSH 私密金鑰。下列命令將使用現有的 SSH 私密金鑰 (在下例中為 id_rsa)，並建立 Windows Azure 所需的  `.pem` 公開金鑰：
+`openssl` 公用程式可以直接讀取 OpenSSH 私密金鑰。下列命令將使用現有的 SSH 私密金鑰 (在下例中為 id_rsa)，並建立 Windows Azure 所需的 `.pem` 公開金鑰：
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
-**myCert.pem** 檔案是之後可用來在 Windows Azure 上佈建 Linux 虛擬機器的公開金鑰。在佈建期間， `.pem` 檔案將轉譯為  `openssh` 相容的公開金鑰，並放在 `~/.ssh/authorized_keys`. 中。
+**myCert.pem** 檔案是之後可用來在 Windows Azure 上佈建 Linux 虛擬機器的公開金鑰。在佈建期間，`.pem` 檔案將轉譯為 `openssh` 相容的公開金鑰，並放在 `~/.ssh/authorized_keys` 中。
 
 
 ## 從 Linux 連線到 Windows Azure 虛擬機器
 
-1. 在某些情況下，Linux 虛擬機器的 SSH 端點可能會針對預設連接埠 22 以外的連接埠而設定。在「管理入口網站」中，您可以在 VM 的 [儀表板] 上找到正確的連接埠號碼 (在 [SSH 詳細資料] 下)。
+1. 在某些情況下，Linux 虛擬機器的 SSH 端點可能會針對預設連接埠 22 以外的連接埠而設定。在管理入口網站中，您可以在 VM 的 [儀表板] 上找到正確的連接埠號碼 (在 [SSH 詳細資料] 下)。
 
-2.	使用  `ssh` 來連線到 Linux 虛擬機器。第一次登入時，將提示您接受主機公開金鑰的指紋。
+2.	使用 `ssh` 連線到 Linux 虛擬機器。第一次登入時，將提示您接受主機公開金鑰的指紋。
 
 		# ssh -i  myPrivateKey.key -p <port> username@servicename.cloudapp.net
 
-3.	(選用) 您可以將  `myPrivateKey.key` 複製到 `~/.ssh/id_rsa`，以便 OpenSSH 用戶端能夠自動選擇該金鑰，而不需要使用 `-i` 選項。
+3.	(選用) 您可以將 `myPrivateKey.key` 複製到 `~/.ssh/id_rsa`，以便 openssh 用戶端能夠自動選擇該金鑰，而不需要使用 `-i` 選項。
 
 ## 在 Windows 上取得 OpenSSL ##
 ### 使用 msysgit ###
 
 1.	從下列位置下載並安裝 msysgit：[http://msysgit.github.com/](http://msysgit.github.com/)
-2.	從安裝目錄 (例如 c:\msysgit\msys.exe) 執行  `msys`
-3.	透過輸入  `cd bin` 來變更至  `bin` 目錄
+2.	從安裝目錄執行 `msys` (例如 c:\msysgit\msys.exe)
+3.	輸入 `cd bin` 變更至 `bin` 目錄。
 
 ###使用 GitHub for Windows###
 
@@ -74,12 +88,12 @@
 
 1.	從下列位置下載並安裝 Cygwin：[http://cygwin.com/](http://cygwin.com/)
 2.	確定已安裝 OpenSSL 封裝及其所有的相依性。
-3.	執行  `cygwin`
+3.	執行 `cygwin`
 
 ## 在 Windows 上建立私密金鑰 ##
 
-1.	依照以上的其中一組指示，以便執行  `openssl.exe`
-2.	輸入下列命令：
+1.	遵循以上的其中一組指示，以便執行 `openssl.exe`
+2.	輸入以下命令：
 
 		# openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
 
@@ -88,8 +102,8 @@
 	![linuxwelcomegit](./media/virtual-machines-linux-use-ssh-key/linuxwelcomegit.png)
 
 4.	回答提出的問題。
-5.	它會建立兩個檔案： `myPrivateKey.key` 與  `myCert.pem`。
-6.	如果您將直接使用 API，而不使用「管理入口網站」，請使用下列命令，將  `myCert.pem` 轉換為  `myCert.cer` (DER 編碼的 X509 憑證)：
+5.	它會建立兩個檔案： `myPrivateKey.key` 及 `myCert.pem`。
+6.	如果您將直接使用 API，而不使用管理入口網站，請使用下列命令，將 `myCert.pem` 轉換為 `myCert.cer` (DER 編碼的 X509 憑證)：
 
 		# openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
 
@@ -104,19 +118,19 @@
 
 	上述命令應會產生一個名為 myPrivateKey_rsa 的新私密金鑰。
 
-3. 執行  `puttygen.exe`
+3. 執行 `puttygen.exe`
 
 4. 按一下功能表：[File] > [Load a Private Key]
 
-5. 找出您的私密金鑰，也就是上述命名為  `myPrivateKey_rsa` 的金鑰。您將需要變更檔案篩選，才能顯示 [所有檔案 (\*.\*)]
+5. 找出您的私密金鑰，也就是上述命名為 `myPrivateKey_rsa` 的金鑰。您將需要變更檔案篩選，才能顯示 [**所有檔案 (\*.\*)**]
 
-6. 按一下 [Open]。您將看見提示，看起來如下所示：
+6. 按一下 [開啟]****。您將看見提示，看起來如下所示：
 
 	![linuxgoodforeignkey](./media/virtual-machines-linux-use-ssh-key/linuxgoodforeignkey.png)
 
-7. 按一下 [確定]。
+7. 按一下 [**確定**]
 
-8. 按一下以下螢幕擷取畫面強調顯示的 [Save Private Key]：
+8. 按一下以下螢幕擷取畫面中強調顯示的 [**儲存私密金鑰**]：
 
 	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtygenprivatekey.png)
 
@@ -127,15 +141,14 @@
 
 1.	從下列位置下載並安裝 putty：[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2.	執行 putty.exe
-3.	使「用管理入口網站」的 IP 來填入主機名稱：
+3.	使用管理入口網站的 IP 來填入主機名稱：
 
 	![linuxputtyconfig](./media/virtual-machines-linux-use-ssh-key/linuxputtyconfig.png)
 
-4.	選取 [Open] 之前，請按一下 [Connection] > [SSH] > [Auth] 索引標籤來選擇您的金鑰。請參閱以下螢幕擷取畫面，以了解要填入的欄位：
+4.	選取 [**開啟**] 之前，請按一下 [連線] > [SSH] > [驗證] 索引標籤來選擇您的金鑰。請參閱以下螢幕擷取畫面，以了解要填入的欄位：
 
 	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtyprivatekey.png)
 
-5.	按一下 [Open] 以連線到虛擬機器。
+5.	按一下 [**開啟**] 連接到您的虛擬機器
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

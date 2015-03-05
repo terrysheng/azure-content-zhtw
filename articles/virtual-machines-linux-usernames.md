@@ -1,18 +1,32 @@
-﻿<properties pageTitle="在 Azure 上選取適用於 Linux 的使用者名稱" description="了解如何在 Azure 中選取適用於 Linux 虛擬機器的使用者名稱。" services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="在 Azure 上選取適用於 Linux 的使用者名稱" 
+	description="了解如何在 Azure 中選取適用於 Linux 虛擬機器的使用者名稱。" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="szark"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="szark"/>
 
 
 
 #在 Azure 上選取適用於 Linux 的使用者名稱#
 
-當您建立 Linux 虛擬機器時，您可以自行選擇使用者名稱，或接受預設值  *azureuser*。在大部分情況下，這個新使用者不會存在於基本映像中，而會在佈建程序中建立。若此使用者存在於基本 VM 映像，則 Azure Linux 代理程式只會在建立 VM 時，根據您在建立 VM 時所提供的資訊，為該使用者設定密碼 (和/或 SSH 金鑰)。
+您建立 Linux 虛擬機器時，可以自行選擇使用者名稱，也可以接受預設的 *azureuser*。在多數情況中，這位新使用者不會存在於基本映像中，而會在佈建程序中建立。若此使用者存在於基本 VM 映像，則 Azure Linux 代理程式只會在建立 VM 時，根據您在建立 VM 時所提供的資訊，為該使用者設定密碼 (及/或 SSH 金鑰)。
 
-**不過**，Linux 會定義一組不應使用的使用者名稱。如果您嘗試使用現有的系統使用者 (定義為具有 UID 0-99 的使用者) 佈建 Linux VM，佈建程序將會**失敗**。常見的範例是  `root` 使用者，其 UID 為 0。
+**不過**，Linux 會定義一組不應該使用的使用者名稱。如果您嘗試使用現有的系統使用者 (定義為具有 UID 0-99 的使用者) 佈建 Linux VM，佈建程序將**失敗**。常見的範例是 `root` 使用者，其 UID 為 0。
 
  - 另請參閱：[Linux 標準基礎 - 使用者 ID 範圍](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
-以下是您應避免在佈建 Linux 虛擬機器時使用的使用者名稱。建議您**不要使用這些使用者名稱**，因為佈建程序可能會失敗。
+以下是您應避免在佈建 Linux 虛擬機器時使用的使用者名稱。建議您**不要使用這些使用者名稱**，因為佈建可能會失敗。
 
 
 ## openSUSE
@@ -231,5 +245,4 @@
 - www-data
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

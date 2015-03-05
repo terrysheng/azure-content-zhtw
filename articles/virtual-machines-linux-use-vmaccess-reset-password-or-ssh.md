@@ -1,127 +1,145 @@
-﻿<properties pageTitle="如何針對 Linux 虛擬機器使用 VMAccess" description="如何針對 Linux 使用 VMAccess，以重設密碼、SSH 金鑰與 SSH 設定" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+<properties 
+	pageTitle="如何使用 Linux 虛擬機器 VMAccess" 
+	description="如何使用 Linux 的 VMAccess 延伸項目來重設密碼和 SSH 金鑰、重新傳送 SSH 組態，並刪除 Linux 使用者" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="kathydav"/>
 
-#如何針對 Linux 虛擬機器重設密碼或 SSH#
+# 如何為 Linux 虛擬機器重設密碼或 SSH #
 
-若因為忘記密碼/SSH 金鑰或 SSH 設定有問題而無法連線到 Linux VM，請使用 VMAccessforLinux 延伸模組來重設密碼、SSH 金鑰或 SSH 設定。 
+如果您由於忘記密碼、安全殼層 (SSH) 索引鍵不正確或 SSH 設定有問題而無法連線到 Linux 虛擬機器，請使用 VMAccessForLinux 延伸項目來重設密碼或 SSH 金鑰，或修復 SSH 組態。 
+
+## 需求
+
+- Microsoft Azure Linux Agent 2.0.5 版或更新版本。虛擬機器映像庫中的大多數 Linux 映像均包含 2.0.5 版。若要找出所安裝的版本，請執行 `waagent -version`。若要更新代理程式，請依照 [Azure Linux 代理程式使用者指南] 的指示進行。
+- Azure PowerShell。您將使用 **Set-AzureVMExtension** Cmdlet 中的命令，自動載入和設定 **VMAccessForLinux** 延伸模組。如需設定 Azure PowerShell 的詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell]。
+- 新的密碼或一組 SSH 金鑰 (如果要重設其中一項)。如果您想要重設 SSH 組態，則不需要這些。 
+
+## 不需安裝
+
+不需要先安裝 VMAccess 延伸項目即可使用。只要在虛擬機器安裝 Linux 代理程式，延伸項目便會在您執行使用 **Set-AzureVMExtension** Cmdlet 的 Azure PowerShell 命令時自動載入。 
+
+## 使用該延伸項目來重設密碼、SSH 金鑰或 SSH 組態，或刪除使用者
+
+您將使用 **Set-AzureVMExtension** Cmdlet 進行 VMAccess 讓您進行的任何變更。在所有情況下，都可以開始使用雲端服務名稱和虛擬機器名稱來取得虛擬機器物件，並將它儲存在變數中。 
+
+填入雲端服務和虛擬機器名稱，然後在系統管理員層級 Azure PowerShell 命令提示字元執行下列命令。取代括號中的所有內容，包括 < 和 > 字元。
+
+	$CSName = "<cloud service name>"
+	$VMName = "<virtual machine name>"
+	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
+
+如果您不知道雲端服務和虛擬機器名稱，請執行 **Get-AzureVM** 以顯示目前訂閱中所有 VM 的該項資訊。
 
 
-##需求
+> [AZURE.NOTE] 以 $ 開頭的命令列將設定之後在 PowerShell 命令中使用的 PowerShell 變數。
 
-- Microsoft Azure Linux 代理程式 2.0.5 版或更新版本。虛擬機器組件庫中的大部分 Linux 映像都包含 2.0.5 版。若要找出所安裝的版本，請執行  `waagent -version`。若要更新代理程式，請依照 [Azure Linux 代理程式使用者手冊]中的指示執行。
+如果您已經使用 Azure 管理入口網站建立虛擬機器，請執行下列額外的命令：
 
-- Azure PowerShell 模組。此模組包含 **Set-AzureVMExtension** Cmdlet，您會搭配此 Cmdlet 執行命令，以使用 **VMAccessForLinux** 延伸模組。如需有關設定模組的詳細資訊，請參閱[如何安裝及設定 Azure PowerShell]。
+	$vm.GetInstance().ProvisionGuestAgent = $true
 
-- 新的密碼或 SSH 金鑰，若您要重設其中之一。若要修正 SSH 設定，則不需要那些。 
+此命令將避免在下列各節執行 Set AzureVMExtension 命令時發生「式必須先在 VM 物件啟用佈建客體代理程，才能設定 IaaS VM 存取延伸項目」錯誤。 
 
-##不需要安裝
-
-VMAccess 不需安裝便可使用。只要安裝 Linux 代理程式與 Azure 模組，當您執行會呼叫 **Set-AzureVMExtension** Cmdlet 的命令時，就會自動載入該延伸模組。 
-
-##使用該延伸模組來重設密碼、SSH 金鑰或設定，或新增使用者
-
-您可以使用 **Set-AzureVMExtension** Cmdlet 來進行 VMAccess 所允許的變更。在所有案例中，先使用雲端服務名稱與虛擬機器名稱來取得虛擬機器物件並將它儲存在變數中。   
-
-開啟 Azure PowerShell，並在命令提示字元中輸入下列命令。請務必使用實際名稱取代 MyServiceName 與 MyVMName 預留位置：
-
-	PS C:\> $vm = Get-AzureVM -ServiceName 'MyServiceName' -Name 'MyVMName'
-
-接著，您可以執行下列工作：
+然後，您可以執行下列工作：
 
 + [重設密碼](#password)
 + [重設 SSH 金鑰](#SSHkey)
-+ [重設密碼與 SSH 金鑰](#both)
-+ [重設 SSH 設定](#config)
++ [重設密碼和 SSH 金鑰](#both)
++ [重設 SSH 組態](#config)
++ [刪除使用者](#delete)
 
 ### <a name="password"></a>重設密碼
-輸入使用者名稱與密碼並將它們儲存在變數中，接著建立單一變數儲存那些值，以便可以在後續的命令中使用。
 
-	PS C:\> $UserName = "CurrentName"
-	PS C:\> $Password = "NewPassword"
-	PS C:\> $PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '"}' 
+填入目前的 Linux 使用者名稱和新的密碼，然後執行這些命令。
 
-在變數中儲存名稱、發行者與版本號碼： 
+	$UserName = "<current Linux account name>"
+	$Password = "<new password>"
+	$PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '"}' 
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version =  "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-	PS C:\> ExtensionName = 'VMAccessForLinux'
-	PS C:\> $Publisher = 'Microsoft.OSTCExtensions'
-	PS C:\> $Version =  '1.0'
-
-將所有必要值儲存在變數中之後，執行下列命令：
-
-	PS C:\> Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
-
-> [AZURE.NOTE] 若要為現有的使用者帳戶重設密碼或 SSH 金鑰，請務必輸入正確的使用者名稱。若輸入不同的名稱，VMAccess 延伸模組會建立新的使用者帳戶，並指派密碼給該帳戶。
-
-### <a name="SSHkey"></a>重設 SSH 金鑰
-
-輸入新的公開 SSH 金鑰的使用者名稱與路徑，並將它們儲存在變數中：
-
-	PS C:\> $UserName = "CurrentName"
-	PS C:\> $cert = Get-Content "CertPath"
-	PS C:\> $PrivateConfig = '{"username":"' + $UserName + '", "ssh_key":"' + $cert + '"}'
-
-執行下列命令：
-
-	PS C:\> $ExtensionName = 'VMAccessForLinux'
-	PS C:\> $Publisher = 'Microsoft.OSTCExtensions'
-	PS C:\> $Version =  '1.0'
-	PS C:\> Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+> [AZURE.NOTE] 如果您要重設現有使用者帳戶的密碼或 SSH 金鑰，務必輸入確切的使用者名稱。如果輸入不同的名稱，VMAccess 延伸項目會建立新的使用者帳戶，並將密碼指派給該帳戶。
 
 
-### <a name="both"></a>重設密碼與 SSH 金鑰
+### <a name="SSHKey"></a>重設 SSH 金鑰
 
-針對目前的使用者，輸入新密碼與新憑證的路徑及 SSH 公開金鑰，然後將它們儲存在變數中： 
+填入目前 Linux 使用者名稱以及包含 SSH 金鑰的憑證路徑，然後執行這些命令。
 
-	PS C:\> $UserName = "CurrentName"	
-	PS C:\> $Password = "NewPassword"
-	PS C:\> $cert = Get-Content "CertPath"
-	PS C:\> $PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '", "ssh_key":"' + $cert + '"}' 
+	$UserName = "<current Linux user name>"
+	$Cert = Get-Content "<certificate path>"
+	$PrivateConfig = '{"username":"' + $UserName + '", "ssh_key":"' + $cert + '"}'
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version =  "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-執行下列命令：
+### <a name="both"></a>重設密碼和 SSH 金鑰
 
-	PS C:\> $ExtensionName = 'VMAccessForLinux'
-	PS C:\> $Publisher = 'Microsoft.OSTCExtensions'
-	PS C:\> $Version =  '1.0'
-	PS C:\> Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+填入目前 Linux 使用者名稱、新的密碼，以及包含 SSH 金鑰的憑證路徑，然後執行這些命令。
 
-###  <a name="config"></a>重設 SSH 設定
+	$UserName = "<current Linux user name>"
+	$Password = "<new password>"
+	$Cert = Get-Content "<certificate path>"
+	$PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '", "ssh_key":"' + $cert + '"}' 
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version =  "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-SSH 設定錯誤會導致您無法存取 VM。您可以透過將設定重設為其預設值，以修正此問題。這樣會移除設定中的所有新存取參數 (使用者名稱、密碼或 SSH 金鑰)。這樣不會變更使用者帳戶的密碼或 SSH 金鑰。延伸模組會重新啟動 SSH 伺服器、在您的 VM 上開啟 SSH 連接埠，並將 SSH 設定重設為預設值。  
+### <a name="config"></a>重設 SSH 組態
 
-設定指出您要重設設定的旗標，並將它儲存在變數中： 
-	
-	PS C:\> $PrivateConfig = '{"reset_ssh": "True"}' 
+SSH 組態中的錯誤可導致您無法存取虛擬機器。您可以將 SSH 組態重設為其預設狀態來修正此問題。這將移除組態中所有新的存取參數，例如使用者名稱、密碼和 SSH 金鑰，但是這不會變更使用者帳戶的密碼或 SSH 金鑰。延伸項目會重新啟動 SSH 伺服器，並開啟虛擬機器上的 SSH 連接埠，然後將 SSH 組態重設為預設值。 
 
-執行下列命令：
+執行這些命令。
 
-	PS C:\> $ExtensionName = 'VMAccessForLinux'
-	PS C:\> $Publisher = 'Microsoft.OSTCExtensions'
-	PS C:\> $Version =  '1.0'
-	PS C:\> Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+	$PrivateConfig = '{"reset_ssh": "True"}' 
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version = "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-> [AZURE.NOTE] SSH 設定檔位於 /etc/ssh/sshd_config。
+> [AZURE.NOTE] SSH 組態檔位於 /etc/ssh/sshd_config。
 
-## 疑難排解
+### <a name="delete"></a> 刪除使用者
 
-當您使用 **Set-AzureVMExtension** Cmdlet 時，您可能會遇到此錯誤：「設定 IaaS VM 存取延伸模組之前，必須先在 VM 物件上啟用佈建客體代理程式。」 
+填入要刪除的 Linux 使用者名稱，然後執行這些命令。
 
-若使用「管理入口網站」來建立 Linux VM，就會發生這個情況，因為客體代理程式的值可能不是設定為 "True"。若要修正此問題，請執行下列命令：
+	$UserName = "<Linux user name to delete>"
+	$PrivateConfig = "{"remove_user": "' + $UserName + '"}"
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version = "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-	PS C:\> $vm = Get-AzureVM -ServiceName 'MyServiceName' -Name 'MyVMName'
+## 其他資源
 
-	PS C:\> $vm.GetInstance().ProvisionGuestAgent = $true
+[Azure VM 延伸項目與功能][]
 
-#其他資源
-[Azure VM 延伸模組與功能] []
-
-[使用 RDP 或 SSH 連線到 Azure 虛擬機器] []
+[透過 RDP 或 SSH 連接到 Azure 虛擬機器][]
 
 
 <!--Link references-->
-[Azure Linux 代理程式使用者手冊]: ../virtual-machines-linux-agent-user-guide
-[如何安裝及設定 Azure PowerShell]: ../install-configure-powershell
-[Azure VM 延伸模組與功能]: http://msdn.microsoft.com/zh-tw/library/azure/dn606311.aspx
-[使用 RDP 或 SSH 連線到 Azure 虛擬機器]: http://msdn.microsoft.com/zh-tw/library/azure/dn535788.aspx
+[Azure Linux 代理程式使用者指南]: ../virtual-machines-linux-agent-user-guide
+[如何安裝和設定 Azure PowerShell]: ../install-configure-powershell
+[Azure VM 延伸項目與功能]: http://msdn.microsoft.com/library/azure/dn606311.aspx
+[透過 RDP 或 SSH 連接到 Azure 虛擬機器]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!--HONumber=42-->
+
+
+
+
+
+<!--HONumber=45--> 

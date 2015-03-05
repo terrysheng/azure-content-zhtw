@@ -1,6 +1,21 @@
-﻿<properties pageTitle="在 Azure 中執行 Linux 的虛擬機器上設定軟體 RAID" description="了解如何使用 mdadm，在 Azure 的 Linux 上設定 RAID。" services="virtual-machines" documentationCenter="" authors="szarkos" writer="szark" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="在 Azure 中執行 Linux 的虛擬機器上設定軟體 RAID" 
+	description="了解如何使用 mdadm，在 Azure 的 Linux 上設定 RAID。" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	writer="szark" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="szark"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/18/2014" 
+	ms.author="szark"/>
 
 
 
@@ -9,9 +24,9 @@
 
 
 ## 連接資料磁碟
-設定 RAID 裝置通常需要兩個以上的空白資料磁碟。本文將不會詳細說明如何將資料磁碟連接至 Linux 虛擬機器。請參閱 Windows Azure 文章[連接磁碟](http://www.windowsazure.com/zh-tw/documentation/articles/storage-windows-attach-disk/#attachempty)，以取得如何在 Azure 上將空白資料磁碟連接至 Linux 虛擬機器的詳細指示。
+設定 RAID 裝置通常需要兩個以上的空白資料磁碟。本文將不會詳細說明如何將資料磁碟連接至 Linux 虛擬機器。請參閱 Windows Azure 文章[連接磁碟](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/#attachempty)，以取得如何在 Azure 上將空白資料磁碟連接至 Linux 虛擬機器的詳細指示。
 
->[AZURE.NOTE] ExtraSmall VM 大小不支援將多個資料磁碟連接到虛擬機器。如需支援的 VM 大小與資料磁碟數目的詳細資訊，請參閱 [Windows Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn197896.aspx)。
+>[AZURE.NOTE] ExtraSmall VM 大小不支援將多個資料磁碟連接到虛擬機器。如需支援的 VM 大小與資料磁碟數目的詳細資訊，請參閱 [Windows Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx)。
 
 
 ## 安裝 mdadm 公用程式
@@ -41,11 +56,11 @@
 		Changes will remain in memory only, until you decide to write them.
 		After that, of course, the previous content won't be recoverable.
 
-		WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
+		WARNING:DOS-compatible mode is deprecated.It's strongly recommended to
 				 switch off the mode (command 'c') and change display units to
 				 sectors (command 'u').
 
-- 出現提示時請按 'n'，以建立**新**的磁碟分割：
+- 出現提示時請按 'n'，以建立**新的**磁碟分割：
 
 		Command (m for help): n
 
@@ -70,7 +85,7 @@
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
 
-- 接著，將磁碟分割的 ID 和類型 (**t**) 從預設的 ID '83' (Linux) 變更為 ID  'fd' (Linux raid auto)：
+- 接著，將磁碟分割的 ID 和**類型**從預設的 ID '83' (Linux) 變更為 ID 'fd' (Linux raid auto)：
 
 		Command (m for help): t
 		Selected partition 1
@@ -89,12 +104,12 @@
 		# sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
 		  /dev/sdc1 /dev/sdd1 /dev/sde1
 
-在本範例中，執行此命令後，便會建立一個名為 **/dev/md127** 的新 RAID 裝置。同時請注意，如果這些資料磁碟先前是另一個無用 RAID 陣列的一部分，則您可能需要在  `mdadm` 命令中加上 `--force` 參數。
+在此範例中，執行此命令後，將會建立一個名為 **/dev/md127** 的新 RAID 裝置。同時請注意，如果這些資料磁碟先前是另一個無用 RAID 陣列的一部分，則您可能需要在  `mdadm` 命令中新增 `--force` 參數。
 
 
 2. 在新的 RAID 裝置上建立檔案系統
 
-	**CentOS、Oracle Linux、openSUSE 及 Ubuntu**
+	**CentOS、Oracle Linux、openSUSE 和 Ubuntu**
 
 		# sudo mkfs -t ext4 /dev/md127
 
@@ -102,7 +117,7 @@
 
 		# sudo mkfs -t ext3 /dev/md127
 
-3. **SLES & openSUSE** - 啟用 boot.md 並建立 mdadm.conf
+3. **SLES 和 openSUSE** - 啟用 boot.md 並建立 mdadm.conf
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
@@ -112,7 +127,7 @@
 
 ## 將新的檔案系統新增至 /etc/fstab
 
-**警告：**不當編輯 /etc/fstab 檔案可能會導致系統無法開機。如果不確定，請參閱散發套件的文件，以取得有關如何正確編輯此檔案的資訊。也建議您在編輯 /etc/fstab 檔案之前先將該檔案備份。
+**注意:**不當編輯 / /etc/fstab 檔案可能會導致系統無法開機。如果不確定，請參閱散發套件的文件，以取得有關如何適當編輯此檔案的資訊。同時建議您在編輯之前建立 /etc/fstab 檔案的備份。
 
 1. 建立新檔案系統所需的掛接點，例如：
 
@@ -128,7 +143,7 @@
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
 
-	或者在 **SLES & openSUSE** 上：
+	或者在 **SLES 和 openSUSE** 上：
 
 		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 
@@ -148,7 +163,7 @@
 
 5. 選用參數
 
-	許多散發套件包含  `nobootwait` 或 `nofail` 掛接參數，它們可能會被新增至 /etc/fstab 檔案。這些參數容許發生掛接特定檔案系統失敗，並容許 Linux 系統繼續開機，即使它無法正確地掛接 RAID 檔案系統。請查閱散發套件的文件，以取得這些參數的相關資訊。
+	許多散發套件包含  `nobootwait` 或  `nofail` 掛接參數，它們可能會被新增至 /etc/fstab 檔案。這些參數容許發生掛接特定檔案系統失敗，並容許 Linux 系統繼續開機，即使它無法正確地掛接 RAID 檔案系統。請查閱散發套件的文件，以取得這些參數的相關資訊。
 
 	範例 (Ubuntu)：
 
@@ -156,8 +171,7 @@
 
 	除了上述參數之外，即使 RAID 看起來已損壞或效能不佳，核心參數 "`bootdegraded=true`" 仍可讓系統開機，例如，如果將資料磁碟機從虛擬機器中不當移除。依預設，這也會造成無法開機的系統。
 
-	請參閱散發套件的文件，以取得如何正確編輯核心參數的相關資訊。例如，在許多散發套件 (CentOS、Oracle Linux、SLES 11) 中，這些參數可能會以手動方式新增至 "`/boot/grub/menu.lst`"檔案。在 Ubuntu 上，可將此參數新增至 "/etc/default/grub" 上的  `GRUB_CMDLINE_LINUX_DEFAULT` 變數。
+	請參閱散發套件的文件，以取得如何正確編輯核心參數的相關資訊。例如，在許多散發套件 (CentOS、Oracle Linux、SLES 11) 中，這些參數可能會以手動方式新增至 "`/boot/grub/menu.lst`" 檔案。在 Ubuntu 上，可將此參數新增至 "/etc/default/grub" 上的  `GRUB_CMDLINE_LINUX_DEFAULT` 變數。
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

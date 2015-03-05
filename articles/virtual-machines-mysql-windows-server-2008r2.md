@@ -1,17 +1,34 @@
-<properties pageTitle="在 Azure 中建立執行 MySQL 的虛擬機器" description="建立執行 Windows Server 2008 R2 的 Azure 虛擬機器，然後在該虛擬機器上安裝及設定 MySQL 資料庫。" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
+﻿<properties 
+	pageTitle="在 Azure 中建立執行 MySQL 的虛擬機器" 
+	description="建立執行 Windows Server 2012 R2 的 Azure 虛擬機器，然後在該虛擬機器上安裝及設定 MySQL 資料庫。" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="kathydav"/>
 
 
-# 在 Azure 中執行 Windows Server 2008 R2 的虛擬機器上安裝 MySQL
+# 在 Azure 中執行 Windows Server 2012 R2 的虛擬機器上安裝 MySQL
 
-[MySQL](http://www.mysql.com) 是一種很受歡迎的開放原始碼 SQL 資料庫。在 [Azure 管理入口網站][AzurePreviewPortal]中，您可以從映像庫建立執行 Windows Server 2008 R2 的虛擬機器。接著，就可以在虛擬機器上安裝和設定 MySQL 資料庫。
+
+[MySQL](http://www.mysql.com) 是一種很受歡迎的開放原始碼 SQL 資料庫。在 [Azure 管理入口網站](http://manage.windowsazure.com) 中，您可以從映像庫建立執行 Windows Server 2012 R2 的虛擬機器。您可以接著安裝並將它設定為 MySQL 伺服器。
+
 
 本教學課程說明如何：
 
-- 使用管理入口網站來建立執行 Windows Server 2008 R2. 的虛擬機器
+- 使用管理入口網站來建立執行 Windows Server 2012 R2. 的虛擬機器
 
-- 在虛擬機器上安裝和執行 MySQL Community Server。
+- 在虛擬機器上安裝並執行 MySQL 5.6.23 社群版本作為 MySQL 伺服器。
+
 
 ## 建立執行 Windows Server 的虛擬機器
 
@@ -19,128 +36,89 @@
 
 ## 連接資料磁碟
 
-虛擬機器建立後，請連接資料磁碟。此磁碟可提供您在安裝 MySQL 時所將需要的資料儲存體。請參閱[如何將資料磁碟連接至 Windows 虛擬機器](http://azure.microsoft.com/zh-tw/documentation/articles/storage-windows-attach-disk/)，並遵循指示連接空磁碟。
+建立虛擬機器之後，您可以選擇連接其他資料磁碟。對於生產工作負載建議這個做，這可避免目前限制為 127 GB 且包括作業系統的作業系統磁碟機 (c:) 空間不足。
+
+請參閱 [如何將資料磁碟連接至 Windows 虛擬機器](../storage-windows-attach-disk/) 並遵循連接空磁碟的指示操作。將主機快取設定設為 [**無**] 或 [**唯讀**]。
 
 ## 登入虛擬機器
+
 接著，您將登入虛擬機器，以安裝 MySQL。
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
+ 
+##在虛擬機器上安裝和執行 MySQL Community Server
 
-## 在虛擬機器上安裝和執行 MySQL Community Server
-請依照下列步驟來安裝、設定和執行 MySQL Community Server：
+請依照下列步驟安裝、設定和執行 MySQL Server 社群版本：
 
-1. 使用遠端桌面連線到虛擬機器時，請從 [開始] 功能表中開啟 **Internet Explorer**。 
+> [AZURE.NOTE] 這些步驟適用於 MySQL 5.6.23.0 社群版本和 Windows Server 2012 R2。對於 MySQL 或 Windows Server 的不同版本，操作方式可能不同。
 
-2. 選取右上方的 [工具] 按鈕。在 [網際網路選項] 中，選取 [安全性] 索引標籤，接著選取 [受信任的網站] 圖示，最後按一下 [網站] 按鈕。將  *http://\*.mysql.com* 加入至受信任的網站清單。
+1.	使用遠端桌面連線到虛擬機器時，請從 [開始] 畫面中按一下 [**Internet Explorer**]。
+2.	選取右上角的 [**工具**] 按鈕 (齒輪圖示)，然後按一下 [**網際網路選項**]。按一下 [**安全性**] 索引標籤，並按一下 [**信任的網站**] 圖示，然後按一下 [**網站**] 按鈕。將 **http://*.mysql.com** 加入至信任的網站清單。按一下 [**關閉**]，然後按一下 [**確定**]。
+3.	在 Internet Explorer 的網址列中，輸入 **http://dev.mysql.com/downloads/mysql/**。
+4.	使用 MySQL 網站尋找並下載 Windows 版 MySQL 最新版安裝程式。選擇 MySQL 安裝程式時，下載的版本都有完整的檔案集 (例如，mysql-installer-community-5.6.23.0.msi 的檔案大小為 282.4 MB)，並且將安裝程式檔案儲存到 Windows 桌面。
+5.	從桌面上，按兩下安裝程式檔案即可開始安裝。
+6.	在 [**授權合約**] 頁面上，接受授權合約並且按 [**下一步**]。
+7.	在 [**選擇安裝類型**] 頁面上，按一下所需的安裝類型，然後按 [**下一步**]。下列步驟假設選取 [**僅限伺服器**] 安裝類型。
+8.	在 [**安裝**] 頁面上，按一下 [**執行**]。安裝完成時，按 [**下一步**]。
+9.	在 [**產品組態**] 頁面上，按 [**下一步**]。
+10.	在 [**類型和網路**] 頁面上，視需要指定所需的組態類型和連接選項，包括 TCP 連接埠。按一下 [**顯示進階選項**]，然後按 [**下一步**]。
 
-3. 移至[下載 MySQL Community Server] (英文)[MySQLDownloads]。
+	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_TypeNetworking.png)
+ 
+11.	在 [**帳戶及角色**] 頁面上，指定強式的 MySQL 根密碼。視需要新增其他 MySQL 使用者帳戶，然後按 [**下一步**]。
 
-4. Select 在 [平台] 下拉式功能表中選取 **Microsoft Windows**，然後按一下 [選取]。
+	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_AccountsRoles_Filled.png)
+ 
+12.	在 [**Windows 服務**] 頁面上，視需要對於執行 MySQL 伺服器作為 Windows 服務的預設設定指定變更，然後按 [**下一步**]。
 
-5. 尋找最新版的 [Windows (x86, 64-bit), MSI Installer]，然後按一下 [下載]。 
+	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_WindowsService.png)
+ 
+13.	在 [**進階選項**] 頁面上，視需要對於記錄選項指定變更，然後按 [**下一步**]。
 
-6. 選取 \[No thanks, just start my download!\] (或註冊帳戶)。如果出現提示，請選取鏡像網站來下載 MySQL 安裝程式，並將安裝程式儲存至桌面。
+	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_AdvOptions.png)
+ 
+14.	在 [**套用伺服器組態**] 頁面上，按一下 [**執行**]。組態步驟完成時，按一下 [**完成**]。
+15.	在 [**產品組態**] 頁面上，按 [**下一步**]。
+16.	如果您要以後再檢查，請在 [**安裝完成**] 頁面上，按一下 [**複製記錄到剪貼簿**]，然後按一下 [**完成**]。
+17.	從 [開始] 畫面中，輸入 **mysql**，然後按一下 [**MySQL 5.6 命令列用戶端**]。
+18.	輸入您在步驟 11 中指定的根密碼，隨即提示您發出命令來設定 MySQL。如需命令和語法的詳細資訊，請參閱 [MySQL 參考手冊](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)。
 
-7. 在桌面上按兩下安裝程式開始安裝。
+	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_CommandPrompt.png)
+ 
+19.	您也可以使用 **C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini** 檔案中的項目設定伺服器預設設定，例如基底與資料目錄和磁碟機。如需詳細資訊，請參閱 [5.1.2 伺服器組態預設值](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)。
 
-8. 按 [下一步]。
 
-9. 接受授權合約，然後按 [下一步]。
+如果您要 MySQL 伺服器服務可供網際網路上的 MySQL 用戶端電腦使用，必須設定 MySQL 伺服器服務接聽的 TCP 連接埠端點。除非您先前在 [類型和網路] 頁面 (先前程序的步驟 10) 指定不同的連接埠，否則這是 TCP 連接埠 3306。
 
-10. 按一下 [一般] 以安裝一般功能。
+若要設定 MySQL Server 服務的端點：
 
-11. 按一下 [安裝]。
+1.	在 Azure 管理入口網站中，按一下 [**虛擬機器**]，並按一下 MySQL 虛擬機器的名稱，然後按一下 [**端點**]。
+2.	在命令列中，按一下 [**新增**]。
+3.	在 [**將端點加入至虛擬機器**] 頁面上，按一下向右箭頭。
+4.	如果您使用預設 MySQL TCP 連接埠 3306，請按一下 [**名稱**] 中的 [**MySQL**]，然後按一下核取記號。
+5.	如果您使用不同的 TCP 連接埠，請在 [**名稱**] 中輸入唯一名稱。選取通訊協定中的 [**TCP**]，並且在 [**公用連接埠**] 和 [**私人連接埠**] 中輸入連接埠號碼，然後按一下核取記號。
 
-12. 啟動 MySQL Configuration Wizard，然後按 [下一步]。
 
-13. 選取 [詳細組態]，然後按 [下一步]。
+若要測試 Azure 虛擬機器上執行的 MySQL Server 服務遠端連線，您必須先決定與執行 MySQL 伺服器的虛擬機器包含在內的雲端服務相對應的 DNS 名稱。 
 
-14. 如果打算在伺服器上與其他應用程式一起執行 MySQL，請選取 **Server Machine**，否則請選取最符合您需要的選項。按 [下一步]。
+1.	在 Azure 管理入口網站中，按一下 [**虛擬機器**]，並按一下 MySQL 伺服器虛擬機器的名稱，然後按一下 [**儀表板**]。
+2.	從虛擬機器儀表板中，記下 [**快速概覽**] 區段下的 [**DNS 名稱**] 值。下列是一個範例： 
 
-15. 選取 **Multifunctional Database**，或選取最符合您需要的選項。按 [下一步]。
+	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_DNSName.png)
+ 
+3.	從執行 MySQL 或 MySQL 用戶端的本機電腦中執行此命令，以 MySQL 使用者身分登入：
 
-16. 選取您在上一節中連接的資料磁碟機。
-
-	![Configure MySQL][MySQLConfig5]
-
-17. 選取 **Decision Support (DSS)/OLAP**，或選取最符合您需要的選項。按 [下一步]。
-
-18. 選取 **Enable TCP/IP Networking** 和 **Add firewall exception for this port** (這樣會在 Windows 防火牆中建立名為 **MySQL Server** 的輸入規則)。
-
-	![Configure MySQL][MySQLConfig7]
-
-19. 如果您需要以多種不同語言儲存文字，請選取 **Best Support For Multilingualism**。否則，請從其他選項中擇一使用。按 [下一步]。
-
-	![Configure MySQL][MySQLConfig8]
-
-20. 選取 **Install As Windows Service** 和 **Launch the MySQL Server automatically**。另外也選取 **Include Bin Directory in Windows PATH**。按 [下一步]。
-
-	![Configure MySQL][MySQLConfig9]
-
-21. 輸入根密碼。不要勾選 **Enable root access from remote machines** 或 **Create An Anonymous Account**。按 [下一步]。
-
-	![Configure MySQL][MySQLConfig10]
-
-22. 按一下 \[執行\] (Execute)，等待設定完成。
-
-23. 按一下 \[完成\] (Finish)。
-
-24. 按一下 \[開始\] (Start)，然後選取 **MySQL 5.x Command Line Client**，以啟動命令列用戶端。
-
-25.  在提示字元中輸入根密碼 (您在前一個步驟中設定)，畫面上將會出現提示，以便您發出 SQL 陳述式來與資料庫互動。
-
-26. 若要建立新的 MySQL 使用者，請在 **mysql>** 提示字元中執行下列命令：
-
-		mysql> CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
-
-	行尾的分號 (;) 對結束命令而言十分重要。
-
-27. 若要建立資料庫並授與其  `mysqluser` 使用者權限，請執行下列命令：
-
-		mysql> CREATE DATABASE testdatabase;
-		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
-
-	請注意，只有連線到資料庫的指令碼會使用資料庫使用者名稱和密碼。資料庫使用者帳戶名稱不一定代表電腦上的實際使用者帳戶。
-
-28. 若要從其他電腦登入，請執行下列命令：
-
-		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
-
-	其中 `ip-address` 是您從中連線到 MySQL 的電腦 IP 位址。
+		mysql -u <yourMysqlUsername> -p -h <yourDNSname>
 	
-29. 若要結束 MySQL 命令列用戶端，請執行下列命令：
+	例如，對於 MySQL 使用者名稱 **dbadmin3** 和虛擬機器的 **testmysql.cloudapp.net** DNS 名稱，命令是：
 
-		quit
-
-30. 安裝 MySQL 後，請設定端點，以便從遠端存取 MySQL。登入 [Azure 管理入口網站][AzurePreviewPortal]。在 Azure 入口網站中，依序按一下 [虛擬機器]、新虛擬機器的名稱、[端點] 和 [加入端點]。
-
-31. 選取 [加入端點]，按一下箭頭繼續。
-	
-
-32. 新增一個名稱為 "MySQL" 的端點、採用通訊協定 **TCP**，且 [公用] 和 [私人] 連接埠均設定為 "3306"。按一下核取記號。這可讓您從遠端存取 MySQL。
-	
-
-33. 測試您對 MySQL 的遠端連線。從執行 MySQL 的本機電腦執行如下的命令，以 **mysqluser** 使用者的身分登入：
-
-		mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
-
-	For example, if you named the virtual machine "testwinvm", run this command:
-
-		mysql -u mysqluser -p -h testwinvm.cloudapp.net
-
-## 資源
-如需 MySQL 的相關資訊，請參閱 [MySQL 文件](http://dev.mysql.com/doc/)。
-
-[AzurePortal]: http://manage.windowsazure.com
-[MySQLDownloads]: http://www.mysql.com/downloads/mysql/
+		mysql -u dbadmin3 -p -h testmysql.cloudapp.net
 
 
-[MySQLConfig5]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig5.png
-[MySQLConfig7]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig7.png
-[MySQLConfig8]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig8.png
-[MySQLConfig9]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig9.png
-[MySQLConfig10]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig10.png
+##  資源
+
+如需 MySQL 的資訊，請參閱 [MySQL 文件](http://dev.mysql.com/doc/)。
 
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

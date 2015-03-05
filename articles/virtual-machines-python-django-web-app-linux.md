@@ -1,6 +1,20 @@
-<properties pageTitle="在 Mac 上搭配 Django 的 Python Web 應用程式 - Azure 教學課程" description="本教學課程說明如何使用 Linux 虛擬機器，在 Azure 上裝載 Django 型網站。" services="virtual-machines" documentationCenter="python" authors="huguesv" manager="wpickett" editor=""/>
+﻿<properties 
+	pageTitle="在 Mac 上搭配 Django 的 Python Web 應用程式 - Azure 教學課程" 
+	description="本教學課程說明如何使用 Linux 虛擬機器，在 Azure 上代管 Django 型網站。" 
+	services="virtual-machines" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="huvalo"/>
 
 
 
@@ -10,8 +24,8 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/develop/python/tutorials/web-app-with-django/" title="Windows">Windows</a><a href="/zh-tw/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac/Linux" class="current">Mac/Linux</a></div>
 
-本教學課程說明如何裝載 Windows 上的 Django 型網站 
-使用 Linux 虛擬機器的 Azure。本教學課程假設您先前沒有使用 Azure 的經驗。完成本指南之後，您將在雲端啟動並執行 Django 型應用程式。
+本教學課程說明如何使用 Linux 虛擬機器在 Windows 
+Azure 裝載 Django 型網站。本教學課程假設您先前沒有使用 Azure 的經驗。完成本指南之後，您將在雲端啟動並執行 Django 型應用程式。
 
 您將了解如何：
 
@@ -29,24 +43,24 @@
 
 ## 建立及設定 Azure 虛擬機器以裝載 Django
 
-1. 按照[此處][portal-vm] (英文) 所提供的指示，建立  *Ubuntu Server 14.04 LTS* 發佈的 Azure 虛擬機器。
+1. 按照 [此處][portal-vm] 提供的指示建立 *Ubuntu Server 14.04 LTS* 散發套件。
 
-  **注意：**您 *只*需要建立虛擬機器。請停在標題為＜如何在建立虛擬機器之後登入＞的小節。
+  **注意：**您 *only* 需要建立虛擬機器。在進行到標題為 *How to log on to the virtual machine after you create it* 的一節停止。
 
 1. 指示 Azure 將連接埠 **80** 的流量從 Web 導向虛擬機器上的連接埠 **80**：
-	* 在 Azure 入口網站中瀏覽至新建立的虛擬機器，並按一下 [端點] 索引標籤。
-	* 按一下畫面底部的 [加入] 按鈕。
+	* 在 Azure 入口網站中瀏覽至新建立的虛擬機器，並按一下 *ENDPOINTS* 索引標籤。
+	* 按一下畫面底部的 *ADD* 按鈕。
 	![add endpoint](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png)
-	* 開啟 [TCP] 通訊協定的 [公用連接埠 80] ，比照 [私人連接埠 80] 。
+	* 開啟 *TCP* 通訊協定的 *PUBLIC PORT 80* 作為 *PRIVATE PORT 80*。
 	![port80](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-port80.png)
 
 ## <a id="setup"> </a>設定開發環境
 
-**注意：**如果您需要安裝 Python 或想要使用用戶端程式庫，請參閱 [Python 安裝指南](../python-how-to-install/) (英文)。
+**注意：**如果您需要安裝 Python 或想要使用用戶端程式庫，請參閱 [Python 安裝指南](../python-how-to-install/)。
 
 Ubuntu Linux VM 已經預先安裝 Python 2.7，但是並未安裝 Apache 或 Django。請按照下列步驟連線至您的 VM 以安裝 Apache 和 Django。
 
-1.  啟動一個新的 [終端機] 視窗。
+1.  啟動新的 [**終端機**] 視窗。
     
 1.  輸入下列命令以連線至 Azure VM。
 
@@ -64,16 +78,16 @@ Ubuntu Linux VM 已經預先安裝 Python 2.7，但是並未安裝 Apache 或 Dj
 
 ## 建立新的 Django 應用程式
 
-1.  開啟您在上一節中使用的 [終端機] 視窗，透過 ssh 登入您的 VM。
+1.  開啟您在上一節中使用的 [**終端機**] 視窗，透過 ssh 登入您的 VM。
     
 1.  輸入下列命令以建立新的 Django 專案：
 
 		$ cd /var/www
 		$ sudo django-admin.py startproject helloworld
 
-    The **django-admin.py** 指令碼會為 Django 型網站產生一個基本結構：
+    **django-admin.py** 指令碼會為 Django 型網站產生基本結構：
     -   **helloworld/manage.py** 可協助您開始裝載及停止裝載 Django 型網站
-    -   **helloworld/helloworld/settings.py** 包含應用程式的 Django 設定。
+    -   **helloworld/helloworld/settings.py** 包含您的應用程式的 Django 設定。
     -   **helloworld/helloworld/urls.py** 包含每個 URL 與其檢視之間的對應碼。
 
 1.  在 **/var/www/helloworld/helloworld** 目錄中，建立名為 **views.py** 的新檔案。這將包含轉譯 "hello world" 頁面的檢視。啟動您的編輯器並輸入下列程式碼：
@@ -93,7 +107,7 @@ Ubuntu Linux VM 已經預先安裝 Python 2.7，但是並未安裝 Apache 或 Dj
 
 ## 設定 Apache
 
-1.  建立 Apache 虛擬主機組態檔 **/etc/apache2/sites-available/helloworld.conf**。設定為以下內容，並務必以您使用之機器的實際 URL (例如  *pyubuntu.cloudapp.net*) 取代  *yourVmUrl*。
+1.  建立 Apache 虛擬主機組態檔 **/etc/apache2/sites-available/helloworld.conf**.設定為以下內容，並務必以您使用的機器實際的 URL (例如 *pyubuntu.cloudapp.net*) 取代 *yourVmUrl*。
 
 		<VirtualHost *:80>
 		ServerName yourVmUrl
@@ -121,5 +135,4 @@ Ubuntu Linux VM 已經預先安裝 Python 2.7，但是並未安裝 Apache 或 Dj
 
 [portal-vm]: /zh-tw/manage/linux/tutorials/virtual-machine-from-gallery/
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

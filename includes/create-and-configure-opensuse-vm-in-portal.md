@@ -17,7 +17,7 @@
 	- 輸入 [**虛擬機器名稱**]，如 "testlinuxvm"。
 	- 驗證 [**階層**] 並挑選 [**大小**]。階層可決定您可以選擇的大小。
 	- 輸入 [**新使用者名稱**] (如 "newuser")，此名稱將新增至 Sudoers 清單檔案。
-	- 決定要使用的 [**驗證**] 類型。如需一般密碼指導方針，請參閱[字串密碼](http://msdn.microsoft.com/zh-tw/library/ms161962.aspx)。
+	- 決定要使用的 [**驗證**] 類型。如需一般密碼指導方針，請參閱[字串密碼](http://msdn.microsoft.com/library/ms161962.aspx)
 
 
 5. 在下一個 [**虛擬機器組態**] 頁面上，填入或驗證設定：
@@ -34,11 +34,11 @@
 
 	`$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
 	
-	Type the user's password.
+	輸入使用者的密碼。
 
-- 如果您使用 Windows 連線至 VM，則使用 PuTTY。您可以從 [PuTTY 下載頁面][PuTTYDownLoad]下載 PuTTY。 
+- 如果您使用 Windows 連線至 VM，則使用 PuTTY。您可以從 [PuTTY 下載頁面][PuTTYDownLoad] 下載 PuTTY。 
 
-	下載 **putty.exe** 並將其儲存至您電腦上的目錄。開啟命令提示字元，瀏覽至該資料夾，然後執行 **putty.exe**。
+	下載 **putty.exe** 並將其儲存至您電腦上的目錄中。開啟命令提示字元，瀏覽至該資料夾，然後執行 **putty.exe**。
 
 	輸入主機名稱，例如 "testlinuxvm.cloudapp.net"，然後針對 [**連接埠**] 輸入 "22"。
 
@@ -60,4 +60,4 @@
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

@@ -116,7 +116,7 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][ex
 [execution model-cloud services]: /zh-tw/documentation/articles/fundamentals-application-models/#CloudServices
 [Python 開發人員中心]: /zh-tw/develop/python/
 
-[Blob 服務]: /zh-tw/documentation/articles/storage-python-how-to-use-blob-storage/
+[Blob 服務]: /documentation/articles/storage-python-how-to-use-blob-storage/
 [佇列服務]: /zh-tw/documentation/articles/storage-python-how-to-use-queue-storage/
 [資料表服務]: /zh-tw/documentation/articles/storage-python-how-to-use-table-storage/
 [服務匯流排佇列]: /zh-tw/documentation/articles/service-bus-python-how-to-use-queues/

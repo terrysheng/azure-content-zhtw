@@ -53,7 +53,7 @@
 [行動服務 Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
 [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
 [我的應用程式儀表板]: http://go.microsoft.com/fwlink/?LinkId=262039
-[開始使用行動服務]: /documentation/articles/mobile-services-android-get-started/
+[開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-android-get-started/
 [開始使用資料]: /zh-tw/documentation/articles/mobile-services-android-get-started-data/
 [開始使用驗證]: /zh-tw/documentation/articles/mobile-services-android-get-started-users/
 [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-android-get-started-push/

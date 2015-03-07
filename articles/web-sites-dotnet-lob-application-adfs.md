@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="在 Azure 網站中使用 LOB 應用程式與 AD FS" 
-	description ="了解如何在使用內部部署 STS 驗證的 Azure 網站中建立 ASP.NET MVC LOB 應用程式。本教學課程將 AD FS 選為內部部署 STS。" 
+	description="了解如何在使用內部部署 STS 驗證的 Azure 網站中建立 ASP.NET MVC LOB 應用程式。本教學課程將 AD FS 選為內部部署 STS。" 
 	services="web-sites" 
 	documentationCenter=".net" 
 	authors="cephalin" 
@@ -20,7 +20,7 @@
 
 在本文中，您會學習如何將內部部署 [Active Directory Federation Services](http://technet.microsoft.com/ library/hh831502.aspx) 做為身分識別提供者，在 [Azure 網站](http://azure.microsoft.com/services/websites/)中建立 ASP.NET MVC 特定業務 (LOB) 應用程式。當您想要在 Azure 網站中建立的 LOB 應用程式，但您的組織需要在內部儲存所有資料時，可以利用這種情況。
 
-如需 Azure 網站的不同的企業驗證和授權選項的概觀，請參閱[在 Azure 網站的 LOB 應用程式中驗證及授權使用者](./web-sites-authentication-authorization)。
+如需 Azure 網站的不同的企業驗證和授權選項的概觀，請參閱[在 Azure 網站的 LOB 應用程式中驗證及授權使用者](./web-sites-authentication-authorization/)。
 
 <a name="bkmk_build"></a>
 ## 將建置的項目 ##
@@ -28,7 +28,7 @@
 您將在 Azure 網站中建置具備下列功能的基本 ASP.NET 應用程式：
 
 - 根據 AD FS 驗證使用者
-- 使用 [`[Authorize]`] 來授權使用者使用不同的動作
+- 使用 `[Authorize]` 來授權使用者使用不同的動作
 - 在 Visual Studio 中偵錯和發行至 Azure 網站的靜態設定 (設定一次，隨時偵錯和發行)  
 
 <a name="bkmk_need"></a>

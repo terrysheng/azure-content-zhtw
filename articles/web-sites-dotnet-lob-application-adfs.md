@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="在 Azure 網站中使用 LOB 應用程式與 AD FS" 
-	描述 ="了解如何在使用內部部署 STS 驗證的 Azure 網站中建立 ASP.NET MVC LOB 應用程式。本教學課程將 AD FS 選為內部部署 STS。" 
+	description ="了解如何在使用內部部署 STS 驗證的 Azure 網站中建立 ASP.NET MVC LOB 應用程式。本教學課程將 AD FS 選為內部部署 STS。" 
 	services="web-sites" 
 	documentationCenter=".net" 
 	authors="cephalin" 

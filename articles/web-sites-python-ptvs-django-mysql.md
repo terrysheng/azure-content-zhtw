@@ -43,7 +43,7 @@
  - [Python 2.7 32 位元][]
 
 > [AZURE.NOTE]
-> 若要完成此教學課程，您需要 Azure 帳戶。您可以<a href="http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/">啟用自己的 訂戶權益</a>或<a href="http://azure.microsoft.com/zh-tw/pricing/free-trial/">申請免費試用</a>。
+> 若要完成此教學課程，您需要 Azure 帳戶。您可以<a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">啟用自己的 訂戶權益</a>或<a href="http://azure.microsoft.com/pricing/free-trial/">申請免費試用</a>。
 > 
 > 如果您要在註冊帳戶前開始使用 Azure 網站，請移至 <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>，您可以在 Azure 網站中立即建立短期的免費 ASP.NET 簡易版網站。無需使用信用卡，也不用簽約。
 

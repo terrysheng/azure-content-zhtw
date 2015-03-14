@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Twilio Voice/SMS Service" pageTitle="如何透過 Twilio 使用語音和簡訊 (.NET) - Azure" metaKeywords="Azure Twilio, Azure 電話, Azure 電話, Azure twilio, Azure SMS, Azure SMS, Azure 語音通話, azure 語音通話, Azure 簡訊, Azure 簡訊" description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。程式碼範例以 .NET 撰寫。" metaCanonical="" services="" documentationCenter=".NET" title="How to use Twilio for voice and SMS capabilities from Azure" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+﻿<properties 
+	pageTitle="如何使用 Twilio 來進行語音交談和傳送簡訊 (.NET) - Azure" 
+	description="了解如何在 Azure 上使用 Twilio API 服務來撥打電話及傳送簡訊。程式碼範例以 .NET 撰寫。" 
+	services="" 
+	documentationCenter=".net" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="MicrosoftHelp@twilio.com"/>
 
 
 
@@ -304,7 +318,7 @@ Twilio 為 .NET 開發人員提供五套程式庫：
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
 
-[vs_project]:http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405487.aspx
+[vs_project]:http://msdn.microsoft.com/library/windowsazure/ee405487.aspx
 [nuget]:http://nuget.org/
 [twilio_github_repo]:https://github.com/twilio/twilio-csharp
 
@@ -316,3 +330,5 @@ Twilio 為 .NET 開發人員提供五套程式庫：
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_account]:  https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
+
+<!--HONumber=46--> 

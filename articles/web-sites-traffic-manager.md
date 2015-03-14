@@ -33,7 +33,7 @@ Azure 流量管理員使用三種不同的負載平衡方法。下列清單說�
 	
 * **效能**：「效能」方法可根據前往用戶端的最短來回時間來分散流量。「效能」方法可用於相同地區或不同地區內的網站。 
 
-如需 Azure 流量管理員中負載平衡的詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn339010.aspx)。
+如需 Azure 流量管理員中負載平衡的詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx)。
 
 ##Azure 網站和流量管理員設定檔 
 若要設定以控制網站流量，可以在使用上述三種負載平衡方法的其中一種之 Azure 流量管理員中建立設定檔，然後將要控制其流量的端點 (在此情況下為網站) 新增到設定檔。系統會定期與設定檔溝通您的網站狀態 (執行中、已停止或已刪除)，讓 Azure 流量管理員可相應地導向流量。
@@ -56,11 +56,11 @@ Azure 流量管理員使用三種不同的負載平衡方法。下列清單說�
 
 ## 後續步驟
 
-如需 Azure 流量管理員的概念與技術概觀，請參閱[流量管理員概觀](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh744833.aspx)。 
+如需 Azure 流量管理員的概念與技術概觀，請參閱[流量管理員概觀](http://msdn.microsoft.com/library/windowsazure/hh744833.aspx)。 
 
-如需如何設定 Azure 流量管理員的詳細資訊，包括適用於 Azure 網站用途，請參閱[流量管理員設定工作](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh744830.aspx)。
+如需如何設定 Azure 流量管理員的詳細資訊，包括適用於 Azure 網站用途，請參閱[流量管理員設定工作](http://msdn.microsoft.com/library/windowsazure/hh744830.aspx)。
 
-如需 Azure 流量管理員中負載平衡的詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn339010.aspx)。
+如需 Azure 流量管理員中負載平衡的詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx)。
 
 如需有關使用流量管理員搭配 Azure 網站的詳細資訊，請參閱部落格文章 
 [使用 Azure 流量管理員搭配 Azure 網站](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx)與 [Azure 流量管理員現在可以與Azure 網站整合](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/)。

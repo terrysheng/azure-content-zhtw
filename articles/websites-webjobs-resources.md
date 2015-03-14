@@ -90,7 +90,7 @@ Azure 管理入口網站中的 WebJobs 儀表板提供強大的管理功能，�
 * [WebJobs 的簡單網站備份保留原則](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
 * [第一個要求的 Windows Azure 網站和雲端服務緩慢](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/)。示範如何使用 WebJobs 來模擬僅適用於標準網站層的 AlwaysOn 功能。
 * [WebJobs 順利關機](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl)。對於 WebJobs SDK 順利關機，請參閱[順利關機](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful)。)
-* [利用 Azure 網站調整 Web 應用程式規模](http://msdn.microsoft.com/zh-tw/magazine/dn786914.aspx)
+* [利用 Azure 網站調整 Web 應用程式規模](http://msdn.microsoft.com/magazine/dn786914.aspx)
 * 影片
 	* [向外擴充 WebJobs](http://channel9.msdn.com/Shows/Azure-Friday/Azure-WebJobs-105-Scaling-out-Web-Jobs)
 	* [Magnus Mårtensson 的 Azure WebJobs 影片](https://www.youtube.com/playlist?list=PLqp1ZOYYUSd81yEzMYLTw8cz91wx_LU9r)

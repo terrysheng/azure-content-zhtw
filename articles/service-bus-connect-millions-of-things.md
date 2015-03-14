@@ -1,6 +1,20 @@
-<properties pageTitle="將數百萬個項目連接到雲端" metaKeywords="Service Bus, internet of things" description="了解如何使用 Microsoft Azure 將數百萬個項目連接到雲端。" services="service-bus" documentationCenter=".NET" title="將數百萬個項目連接到雲端" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="將數百萬個項目連接到雲端" 
+	description="了解如何使用 Microsoft Azure 將數百萬個項目連接到雲端。" 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 # 將數百萬個項目連線到雲端
 
@@ -28,13 +42,15 @@
 -   [Azure Active Directory][Azure Active Directory]
 -   [雲端服務][雲端服務]
 
-  [事件中心]: http://msdn.microsoft.com/zh-tw/library/dn789973.aspx
-  [共用模式]: http://msdn.microsoft.com/zh-tw/library/dn589797.aspx
-  [服務匯流排和 AMQP 1.0]: http://msdn.microsoft.com/zh-tw/library/azure/jj841071.aspx
-  [服務匯流排簡介]: http://azure.microsoft.com/zh-tw/documentation/services/service-bus/
-  [分割訊息實體]: http://msdn.microsoft.com/zh-tw/library/azure/dn520246.aspx
-  [服務匯流排主題]: http://azure.microsoft.com/zh-tw/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-  [在 Linux 和 Windows 上將 Apache Qpid Proton C 與 Azure 服務匯流排搭配使用]: http://msdn.microsoft.com/zh-tw/library/azure/dn235560.aspx
+  [事件中心]: http://msdn.microsoft.com/library/dn789973.aspx
+  [共用模式]: http://msdn.microsoft.com/library/dn589797.aspx
+  [服務匯流排和 AMQP 1.0]: http://msdn.microsoft.com/library/azure/jj841071.aspx
+  [服務匯流排簡介]: http://azure.microsoft.com/documentation/services/service-bus/
+  [分割訊息實體]: http://msdn.microsoft.com/library/azure/dn520246.aspx
+  [服務匯流排主題]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+  [在 Linux 和 Windows 上將 Apache Qpid Proton C 與 Azure 服務匯流排搭配使用]: http://msdn.microsoft.com/library/azure/dn235560.aspx
   [已連接服務的服務輔助通訊 (英文)]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx
-  [Azure Active Directory]: http://azure.microsoft.com/zh-tw/documentation/services/active-directory/
-  [雲端服務]: http://azure.microsoft.com/zh-tw/documentation/services/cloud-services/
+  [Azure Active Directory]: http://azure.microsoft.com/documentation/services/active-directory/
+  [雲端服務]: http://azure.microsoft.com/documentation/services/cloud-services/
+
+<!--HONumber=46--> 

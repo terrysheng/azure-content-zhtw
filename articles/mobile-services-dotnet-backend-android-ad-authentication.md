@@ -1,6 +1,20 @@
-﻿<properties pageTitle="使用 Active Directory (Android) 登入及存取資源 | 行動開發人員中心" description="了解如何使用 Active Directory 將驗證新增至應用程式" documentationCenter="android" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="使用 Active Directory (Android) 登入及存取資源 | 行動開發人員中心" 
+	description="了解如何使用 Active Directory 將驗證新增至應用程式" 
+	documentationCenter="android" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender" 
+	ms.devlang="java"/>
 
 # 使用 Active Directory 驗證您的應用程式
 
@@ -15,5 +29,4 @@
 
 <!-- URLs. -->
 [存取受到 iOS 和 Android 的 Azure Active Directory 保護的資源]: http://chrisrisner.com/Accessing-Resources-Secured-by-Azure-Active-Directory-with-iOS-and-Android
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

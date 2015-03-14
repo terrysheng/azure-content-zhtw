@@ -1,6 +1,21 @@
-﻿<properties pageTitle="使用行動服務將資料儲存在資料表儲存體中 | 行動服務" description="了解如何使用行動服務將資料儲存在資料表儲存體中。" documentationCenter="ios" authors="ysxu" writer="yuaxu" services="mobile-services, storage" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="使用行動服務將資料儲存在資料表儲存體中 | 行動服務" 
+	description="了解如何使用行動服務將資料儲存在資料表儲存體中。" 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	Writer="yuaxu" 
+	services="mobile-services, storage" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="yuaxu"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="yuaxu"/>
 
 # 使用行動服務將資料儲存在 Azure 資料表儲存體中
 

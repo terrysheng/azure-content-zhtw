@@ -292,7 +292,7 @@
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [AZURE.NOTE] 如需 Azure 虛擬網路中的名稱解析的詳細資訊，包括如何使用您自己的 DNS 伺服器，請參閱[名稱解析 (DNS)](http://msdn.microsoft.com/zh-tw/library/azure/jj156088.aspx)。
+> [AZURE.NOTE] 如需 Azure 虛擬網路中的名稱解析的詳細資訊，包括如何使用您自己的 DNS 伺服器，請參閱[名稱解析 (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx)。
 
 ##<a id="powershell"></a>使用 Azure PowerShell 佈建 HBase 叢集
 
@@ -344,9 +344,9 @@
 - [虛擬網路概觀][vnet-overview]。
 
 
-[1]: http://azure.microsoft.com/zh-tw/services/virtual-network/
-[2]: http://technet.microsoft.com/zh-tw/library/ee176961.aspx
-[3]: http://technet.microsoft.com/zh-tw/library/hh847889.aspx
+[1]: http://azure.microsoft.com/services/virtual-network/
+[2]: http://technet.microsoft.com/library/ee176961.aspx
+[3]: http://technet.microsoft.com/library/hh847889.aspx
 
 [hbase-get-started]: ../hdinsight-hbase-get-started/
 [hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment/
@@ -355,14 +355,14 @@
 
 [azure-portal]: https://manage.windowsazure.com
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
-[azure-purchase-options]: http://azure.microsoft.com/zh-tw/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/zh-tw/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/#rdp
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
@@ -385,4 +385,5 @@
 [img-dns-surffix]: ./media/hdinsight-hbase-provision-vnet/DNSSuffix.png
 [img-primary-dns-suffix]: ./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Provision details for the new HBase cluster"
-[img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Use Script Action to customize an HBase cluster"<!--HONumber=42-->
+[img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Use Script Action to customize an HBase cluster"
+\<!--HONumber=42-->

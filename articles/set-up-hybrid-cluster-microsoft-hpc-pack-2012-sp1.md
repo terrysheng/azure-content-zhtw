@@ -29,7 +29,7 @@
 
 <h2 id="BKMK_Prereq">必要條件</h2>
 
->[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱[建立 Azure 帳戶](http://www.windowsazure.com/zh-tw/develop/php/tutorials/create-a-windows-azure-account/)。
+>[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱[建立 Azure 帳戶](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/)。
 
 此外，針對本教學課程，您還需要下列項目。
 
@@ -306,7 +306,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 * [HPC Pack 2012 R2 和 HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)
 * [使用 Microsoft HPC Pack 將量擴大到 Azure](http://go.microsoft.com/fwlink/p/?LinkID=200493)
 * [Azure VM 中的 Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?linkid=330375)
-* [Azure 大運算：HPC 及批次](http://azure.microsoft.com/zh-tw/solutions/big-compute/)
+* [Azure 大運算：HPC 及批次](http://azure.microsoft.com/solutions/big-compute/)
 
 
 [Overview]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/hybrid_cluster_overview.png

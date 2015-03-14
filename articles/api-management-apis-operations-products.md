@@ -1,6 +1,20 @@
-<properties pageTitle="How to create APIs, operations, and products in Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and products in API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to create APIs, operations, and products in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="如何在 Azure API 管理中建立 API、作業和產品" 
+	description="了解如何在 API 管理中建立 API、作業和產品。" 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中建立 API、作業和產品
 
@@ -36,3 +50,5 @@ API 管理中的 API 代表可供用戶端應用程式叫用的一組作業。�
   [如何匯入具有作業之 API 的定義]: ../api-management-howto-import-api
   [如何加入和發行產品]: ../api-management-howto-add-products
   [如何建立和設定進階產品設定]: ../api-management-howto-product-with-rules
+
+<!--HONumber=46--> 

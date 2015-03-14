@@ -1,6 +1,23 @@
-﻿<properties title="Troubleshoot Azure Data Factory issues" pageTitle="Azure 資料處理站的疑難排解" description="了解如何使用 Azure Data Factory 進行問題的疑難排解。" metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	title="Troubleshoot Azure Data Factory issues" 
+	pageTitle="Azure 資料處理站的疑難排解" 
+	description="了解如何使用 Azure Data Factory 進行問題的疑難排解。" 
+	metaKeywords=""  
+	services="data-factory" 
+	solutions=""  
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/01/1900" 
+	ms.author="spelluru" />
 
 # 資料處理站的疑難排解
 您可以使用 Azure 入口網站 (或) Azure PowerShell Cmdlet 對 Azure 資料處理站進行疑難排解。本主題逐步解說如何使用 Azure 入口網站來對您使用資料處理站時遇到的錯誤進行快速疑難排解。 
@@ -250,3 +267,5 @@
 [image-data-factory-troubleshoot-walkthrough2-slice-activity-runs]: ./media/data-factory-troubleshoot/Walkthrough2DataSliceActivityRuns.png
 
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
+
+<!--HONumber=46--> 

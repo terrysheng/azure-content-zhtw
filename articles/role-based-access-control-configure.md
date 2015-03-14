@@ -1,6 +1,20 @@
-﻿<properties title="Role Based Access Control in Azure Preview Portal" pageTitle="Azure Preview 入口網站中的角色存取控制" description="說明角色型存取控制的運作和設定方式" metaKeywords="" services="multiple" solutions="" documentationCenter="" authors="justinha" videoId="" scriptId="" manager="terrylan" />
+﻿<properties 
+	pageTitle="Azure Preview 入口網站中的角色存取控制" 
+	description="說明角色存取控制的運作和設定方式" 
+	services="" 
+	documentationCenter="" 
+	authors="Justinha" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="Ibiza" ms.workload="infrastructure-services" ms.date="09/12/2014" ms.author="justinha;Justinha@microsoft.com" />
+<tags 
+	ms.service="multiple" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="Ibiza" 
+	ms.workload="infrastructure-services" 
+	ms.date="02/06/2015" 
+	ms.author="justinha"/>
 
 <!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
 
@@ -124,7 +138,7 @@ Brock | 建立和管理 Prod 資源群組中的所有資源 | 將 Brock 新增�
 
 	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
-如需使用 Windows PowerShell 來新增並移除存取權限的詳細資訊，請參閱[使用 Windows PowerShell 管理角色存取控制](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-powershell/) (英文)。 
+如需使用 Windows PowerShell 來新增並移除存取權限的詳細資訊，請參閱[使用 Windows PowerShell 管理角色存取控制](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/) (英文)。 
 
 <h3><a id="remove"></a>移除存取</h2>
 
@@ -165,7 +179,7 @@ Brock | 建立和管理 Prod 資源群組中的所有資源 | 將 Brock 新增�
  
 <h2><a id="knownissues"></a>使用角色存取控制的已知問題</h2>
 
-當您在預覽模式中使用角色存取控制功能而碰到問題時，請參閱[為角色存取控制進行疑難排解](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-troubleshooting/)，了解與該問題相關的任何已知問題。
+當您在預覽模式中使用角色存取控制功能而碰到問題時，請參閱[為角色存取控制進行疑難排解](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)，了解與該問題相關的任何已知問題。
 
 
 <h2><a id="feedback"></a>如何提供意見</h2>
@@ -177,12 +191,12 @@ Brock | 建立和管理 Prod 資源群組中的所有資源 | 將 Brock 新增�
 
 以下是可協助您使用角色存取控制的其他資源： 
 
-+ [使用 Windows PowerShell 管理角色存取控制](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-powershell/)
-+ [使用 XPLAT CLI 管理角色存取控制](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-xplat-cli/)
-+ [為角色存取控制進行疑難排解](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-troubleshooting/)
++ [使用 Windows PowerShell 管理角色存取控制](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/)
++ [使用 XPLAT CLI 管理角色存取控制](http://azure.microsoft.com/documentation/articles/role-based-access-control-xplat-cli/)
++ [為角色存取控制進行疑難排解](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
 + [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
-+ [Azure Active Directory Premium 與 Basic](http://msdn.microsoft.com/zh-tw/library/azure/dn532272.aspx)
-+ [Azure 訂閱如何與 Azure AD 產生關聯](http://msdn.microsoft.com/zh-tw/library/azure/dn629581.aspx)
++ [Azure Active Directory Premium 與 Basic](http://msdn.microsoft.com/library/azure/dn532272.aspx)
++ [Azure 訂閱如何與 Azure AD 產生關聯](http://msdn.microsoft.com/library/azure/dn629581.aspx)
 + 如需安全性群組的自我服務群組管理介紹，請參閱 [Active Directory 團隊部落格](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx) (英文)
 
 
@@ -200,3 +214,5 @@ Brock | 建立和管理 Prod 資源群組中的所有資源 | 將 Brock 新增�
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
 
+
+<!--HONumber=46--> 

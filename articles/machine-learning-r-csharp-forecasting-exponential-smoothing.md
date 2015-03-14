@@ -1,6 +1,20 @@
-﻿<properties title="Forecasting-Exponential Smoothing" pageTitle="預測 - 指數平滑法 | Azure" description="Web 服務：預測 - 指數平滑法" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="預測 - 指數平滑法 | Azure" 
+	description="Web 服務：預測 - 指數平滑法" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 
 #預測 - 指數平滑法 
@@ -72,7 +86,7 @@
 
 ##建立 Web 服務 
 
->此 web 服務是使用 Azure ML 建立的。如需免費試用版，以及有關建立實驗和[發佈 Web 服務](http://azure.microsoft.com/zh-tw/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/)的簡介影片，請參閱 [azure.com/ml](http://azure.com/ml)。以下是建立 Web 服務之實驗的螢幕擷取畫面，以及實驗內每個模組的範例程式碼。
+>此 web 服務是使用 Azure ML 建立的。如需免費試用版，以及有關建立實驗和[發佈 Web 服務](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/)的簡介影片，請參閱 [azure.com/ml](http://azure.com/ml)。以下是建立 Web 服務之實驗的螢幕擷取畫面，以及實驗內每個模組的範例程式碼。
 
 已在 Azure ML 中建立新的空白實驗。已使用預先定義的資料結構描述上傳範例輸入資料。連結至資料結構描述的是 [Execute R Script] 模組，此模組可使用 R 的 'ets' 和 'forecast' 函數來產生 ARIMA 預測模型。 
 
@@ -117,8 +131,10 @@
 這是一個非常簡單的 ETS 預測範例。從上面的範例程式碼可以看出，未實作錯誤攔截，且此服務會假設所有變數都是連續/正數值，而且頻率應該是大於 1 的整數。日期和值向量的長度應該相同。日期變數應遵守 'mm/dd/yyyy' 格式。
 
 ##常見問題集
-如需使用 Web 服務或發佈至 Marketplace 的常見問題集，請參閱[此處](http://azure.microsoft.com/zh-tw/documentation/articles/machine-learning-marketplace-faq)。
+如需使用 Web 服務或發佈至 Marketplace 的常見問題集，請參閱[此處](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq)。
 
 [1]: ./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img1.png
 [2]: ./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img2.png
 [3]: ./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img3.png
+
+<!--HONumber=46--> 

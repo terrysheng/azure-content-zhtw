@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Install Python" pageTitle="安裝 Python 和 SDK - Azure" metaKeywords="Azure Python SDK" description="了解如何安裝 Python 和 SDK 用於 Azure。" metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="安裝 Python 和 SDK - Azure" 
+	description="了解如何安裝 Python 和搭配 Azure 的 SDK。" 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="huvalo"/>
 
 
 
@@ -182,3 +196,5 @@ PTVS 可以和您現有的 Visual Studio 2010、2012 或 2013 安裝一同運作
 [透過 Azure 入口網站設定 Linux VM]: ../../../shared/chunks/create-and-configure-opensuse-vm-in-portal
 [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]: ../../shared/chunks/crossplat-cmd-tools
 
+
+<!--HONumber=46--> 

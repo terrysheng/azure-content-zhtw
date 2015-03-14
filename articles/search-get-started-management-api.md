@@ -1,6 +1,20 @@
-﻿<properties title="Get started with Azure Search Management REST API" pageTitle="開始使用 Azure 搜尋管理 REST API" description="開始使用 Azure 搜尋管理 REST API" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="開始使用 Azure Search 管理 REST API" 
+	description="開始使用 Azure Search 管理 REST API" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="10/10/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 # 開始使用 Azure 搜尋管理 REST API #
 
 Azure Search REST 管理 API 是在入口網站中執行管理工作的程式設計替代方式。服務管理作業包括建立或刪除服務、調整服務及管理金鑰。本教學課程隨附的範例用戶端應用程式用以展示服務管理 API。其中也包括在本機開發環境中執行範例所需的設定步驟。
@@ -24,11 +38,11 @@ Azure Search REST 管理 API 是在入口網站中執行管理工作的程式設
 
 <h2 id="config">設定應用程式</h2>
 
-在執行範例應用程式之前，您必須先啟用驗證，才能接受從用戶端應用程式傳送至資源管理員端點的要求。驗證需求源自 [Azure 資源管理員](http://msdn.microsoft.com/zh-tw/library/azure/dn790568.aspx)，這是透過 API 要求的所有入口網站相關作業的基礎，包括 Search 服務管理的相關要求。Azure Search 的服務管理 API 只是 Azure 資源管理員的延伸模組，因此會繼承其相依性。  
+在執行範例應用程式之前，您必須先啟用驗證，才能接受從用戶端應用程式傳送至資源管理員端點的要求。驗證需求源自 [Azure 資源管理員](http://msdn.microsoft.com/library/azure/dn790568.aspx)，這是透過 API 要求的所有入口網站相關作業的基礎，包括 Search 服務管理的相關要求。Azure Search 的服務管理 API 只是 Azure 資源管理員的延伸模組，因此會繼承其相依性。  
 
 Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別提供者。 
 
-為了取得存取權杖，讓要求到達資源管理員，用戶端應用程式包含了可呼叫 Active Directory 的程式碼片段。此程式碼區段以及使用程式碼片段的先決步驟出自這篇文章：[驗證 Azure Resource Manager 要求](http://msdn.microsoft.com/zh-tw/library/azure/dn790557.aspx)。
+為了取得存取權杖，讓要求到達資源管理員，用戶端應用程式包含了可呼叫 Active Directory 的程式碼片段。此程式碼區段以及使用程式碼片段的先決步驟出自這篇文章：[驗證 Azure Resource Manager 要求](http://msdn.microsoft.com/library/azure/dn790557.aspx)。
 
 您可以依照上面連結中的指示，或使用本文件中的步驟 (如果您想要逐步完成本教學課程的話)。
 
@@ -39,7 +53,7 @@ Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別�
 1. 註冊您所下載之範例用戶端應用程式的相關詳細資料，進而設定 AD 應用程式
 1. 載入範例用戶端應用程式以及它將用於取得其要求授權的值
 
-> [WACOM.NOTE]這些連結提供有關使用 Azure Active Directory 驗證對資源管理員之用戶端要求的背景：[Azure 資源管理員](http://msdn.microsoft.com/zh-tw/library/azure/dn790568.aspx)、[驗證 Azure 資源管理員要求](http://msdn.microsoft.com/zh-tw/library/azure/dn790557.aspx)和 [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)。
+> [WACOM.NOTE]這些連結提供有關使用 Azure Active Directory 驗證對資源管理員之用戶端要求的背景：[Azure 資源管理員](http://msdn.microsoft.com/library/azure/dn790568.aspx)、[驗證 Azure 資源管理員要求](http://msdn.microsoft.com/library/azure/dn790557.aspx)和 [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)。
 
 <h3>建立 Active Directory 服務</h3>
 
@@ -140,7 +154,7 @@ Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別�
 
 組件參考的問題可能會使解決方案無法建置。本節提供其中一些問題的因應措施。
 
-- 必須安裝 Microsoft.IdentityModel.Clients.ActiveDirectory (請參閱[驗證 Azure 資源管理員要求](http://msdn.microsoft.com/zh-tw/library/azure/dn790557.aspx)，以取得如何安裝 [Active Directory 驗證庫](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)的詳細資訊)。
+- 必須安裝 Microsoft.IdentityModel.Clients.ActiveDirectory (請參閱[驗證 Azure 資源管理員要求](http://msdn.microsoft.com/library/azure/dn790557.aspx)，以取得如何安裝 [Active Directory 驗證庫](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)的詳細資訊)。
 - 重新安裝組件也可以解決問題。移至 [**工具** | **NuGet Package Manager** | **Package Manager Console**]。在 PM> 提示字元下，輸入 *Update-package -reinstall Microsoft.IdentityModel.Clients.ActiveDirectory*。
 - 此解決方案也會參考 Newtonsoft.Json。如果這個組件發生錯誤，請從專案中刪除此組件，然後將它加回。以滑鼠右鍵按一下 [**參考** | **Manage NuGet Packages** | **Installed Packages**]。選取 **Json.Net** 並將它解除安裝。展開 [**線上**]，選取 [**Json.Net** | **安裝**]。
 
@@ -155,13 +169,13 @@ Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別�
  
 3. 請注意，**ExecuteArmRequest** 用來執行對 Azure 資源管理員端點 (指定之 `subscriptionID` 的 `https://management.azure.com/subscriptions`) 的要求。此方法在整個程式中使用，利用 Azure 資源管理員 API 或 Search 管理 API 來執行作業。
 
-3. 對 Azure 資源管理員的要求必須經過驗證和授權。使用出自[驗證 Azure 資源管理員要求](http://msdn.microsoft.com/zh-tw/library/azure/dn790557.aspx) 的 **GetAuthorizationHeader** 方法 (由 **ExecuteArmRequest** 方法呼叫)，即可達到此目的。請注意，**GetAuthorizationHeader** 會呼叫 `https://management.core.windows.net` 以取得存取權杖。
+3. 對 Azure 資源管理員的要求必須經過驗證和授權。使用出自[驗證 Azure 資源管理員要求](http://msdn.microsoft.com/library/azure/dn790557.aspx) 的 **GetAuthorizationHeader** 方法 (由 **ExecuteArmRequest** 方法呼叫)，即可達到此目的。請注意，**GetAuthorizationHeader** 會呼叫 `https://management.core.windows.net` 以取得存取權杖。
 
 4. 系統會提示您以適用於您訂閱的使用者名稱和密碼進行登入。
 
 5. 接著，會向 Azure 資源管理員提供者註冊新的 Azure Search 服務。再次使用 **ExecuteArmRequest** 方法，透過 `providers/Microsoft.Search/register` 在 Azure 上為您的訂閱建立 Search 服務。 
 
-6. 程式的其餘部分會使用 [Azure 搜尋管理 REST API](http://msdn.microsoft.com/zh-tw/library/dn832684.aspx)。請注意，此 API 的 `api-version` 與 Azure 資源管理員 api-version 有所不同。例如，`/listAdminKeys?api-version=2014-07-31-Preview` 顯示 Azure 服務管理 REST API 的 `api-version`。
+6. 程式的其餘部分會使用 [Azure 搜尋管理 REST API](http://msdn.microsoft.com/library/dn832684.aspx)。請注意，此 API 的 `api-version` 與 Azure 資源管理員 api-version 有所不同。例如，`/listAdminKeys?api-version=2014-07-31-Preview` 顯示 Azure 服務管理 REST API 的 `api-version`。
 
 	下一系列的作業會擷取您剛建立的服務定義，管理 api-key、重新產生及擷取金鑰、變更複本和分割，以及最後會刪除此服務。
 
@@ -173,8 +187,8 @@ Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別�
 
 完成本教學課程之後，您可能想要深入了解 Active Directory 服務的服務管理或驗證：
 
-- 深入了解整合用戶端應用程式與 Active Directory。請參閱[整合 Azure Active Directory 中的應用程式](http://msdn.microsoft.com/zh-tw/library/azure/dn151122.aspx)。
-- 深入了解 Azure 中的其他服務管理作業。請參閱[管理您的服務](http://msdn.microsoft.com/zh-tw/library/azure/dn578292.aspx)。
+- 深入了解整合用戶端應用程式與 Active Directory。請參閱[整合 Azure Active Directory 中的應用程式](http://msdn.microsoft.com/library/azure/dn151122.aspx)。
+- 深入了解 Azure 中的其他服務管理作業。請參閱[管理您的服務](http://msdn.microsoft.com/library/azure/dn578292.aspx)。
 
 <!--Anchors-->
 [下載範例應用程式]: #Download
@@ -197,3 +211,5 @@ Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別�
 [使用 Azure 搜尋建立地理空間搜尋應用程式]: ../search-create-geospatial/
 
 
+
+<!--HONumber=46--> 

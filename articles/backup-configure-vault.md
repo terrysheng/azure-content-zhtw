@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Configure a Backup Vault" pageTitle="設定 Azure 復原服務以輕鬆迅速地備份 Windows Server" metaKeywords="災害復原" description="本教學課程讓您了解如何使用 Microsoft Azure 雲端產品中的備份服務，將 Windows Server 備份至雲端。" metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="markgal" solutions="" manager="johndaw" editor="tysonn" />
+﻿<properties 
+	pageTitle="設定 Azure 復原服務以輕鬆迅速地備份 Windows Server" 
+	description="本教學課程讓您了解如何使用 Microsoft Azure 雲端產品中的備份服務，將 Windows Server 備份至雲端。" 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="markgalioto" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="markgal" />
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="markgal"/>
 
 
 
@@ -61,8 +75,8 @@
 
 3. 在 [快速啟動] 頁面上，選取您要下載的代理程式類型。您可以選擇下載 **Azure Backup Agent**、**Windows Server 和 System Center Data Protection Manager** 或 **Windows Server Essentials**。如需詳細資訊，請參閱：
 
-	* [安裝適用於 Windows Server 2012 和 System Center 2012 SP1 - Data Protection Manager 的 Azure Backup Agent](http://technet.microsoft.com/zh-tw/library/hh831761.aspx#BKMK_installagent)
-	* [安裝適用於 Windows Server 2012 Essentials 的 Azure Backup Agent](http://technet.microsoft.com/zh-tw/library/jj884318.aspx)
+	* [安裝適用於 Windows Server 2012 和 System Center 2012 SP1 - Data Protection Manager 的 Azure Backup Agent](http://technet.microsoft.com/library/hh831761.aspx#BKMK_installagent)
+	* [安裝適用於 Windows Server 2012 Essentials 的 Azure Backup Agent](http://technet.microsoft.com/library/jj884318.aspx)
 
 安裝好代理程式後，您就可以使用適當的本機管理介面 (例如 Microsoft Management Console 嵌入式管理單元、System Center Data Protection Manager 主控台，或 Windows Server Essentials 儀表板)，來設定伺服器的備份原則。
 	
@@ -98,6 +112,9 @@
 [manage-cert]: ./media/backup-configure-vault/RS_howtoupload1.png
 [install-agent]: ./media/backup-configure-vault/RS_howtodownload1.png
 [deleted-server]: ./media/backup-configure-vault/RS_deletedserver.png
-[protected-itmes]: ./media/backup-configure-vault/RS_protecteditems.png
+[protected-itmes]: ./media/backup-configure-vault/RS_protectedite
+	ms.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

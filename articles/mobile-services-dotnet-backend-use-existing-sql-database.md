@@ -1,6 +1,20 @@
-<properties pageTitle="使用現有的 SQL Database 和行動服務 .NET 後端建置服務 - Azure 行動服務" description="了解如何對於 .NET 型行動服務使用現有雲端或內部部署 SQL 資料庫。" services="mobile-services, biztalk-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
+<properties 
+	pageTitle="使用現有的 SQL Database 和行動服務 .NET 後端建置服務 - Azure 行動服務" 
+	description="了解如何對於 .NET 型行動服務使用現有雲端或內部部署 SQL 資料庫。" 
+	services="mobile-services, biztalk-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 
 # 使用現有的 SQL Database 和行動服務 .NET 後端建置服務

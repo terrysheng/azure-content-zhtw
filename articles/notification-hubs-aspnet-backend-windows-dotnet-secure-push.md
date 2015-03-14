@@ -1,8 +1,22 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Azure 通知中心安全推播 " metaKeywords=" Azure 推播通知, Azure 通知中心, Azure 訊息, 安全推播" description="了解如何在 Azure 中傳送安全的推播通知。程式碼範例是以 C# 撰寫並使用 .NET API。" documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="dwrede" />
+<properties 
+	pageTitle="Azure 通知中樞安全推播" 
+	description了解如何在 Azure 中傳送安全的推播通知。程式碼範例是以 C# 撰寫並使用 .NET API。" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="glenga"/>
 
-#Azure 通知中心安全推播
+# Azure 通知中心安全推播
 
 <div class="dev-center-tutorial-selector sublanding"> 
     	<a href="/zh-tw/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal" class="current">Windows Universal</a><a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
@@ -22,22 +36,22 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 	- 裝置會連絡後端並要求安全裝載。
 	- 應用程式會以通知的形式在裝置上顯示裝載。
 
-請特別注意，在上一個流程 (及本教學課程) 中，我們假設裝置會在使用者登入後，將驗證權杖儲存在本機儲存體中。因為裝置可以使用此權杖來擷取通知的安全裝載，如此一來保證能提供完全順暢的經驗。如果您的應用程式沒有將驗證權杖儲存在裝置上，或如果這些權杖可能會過期，裝置應用程式應在收到通知時顯示一般通知，以提示使用者啟動應用程式。應用程式會接著驗證使用者，並顯示通知內容。
+請特別注意，在上一個流程 (及本教學課程) 中，我們假設裝置會在使用者登入後，將驗證權杖儲存在本機儲存體中。因為裝置可以使用此權杖來擷取通知的安全裝載，如此一來保證能提供完全順暢的經驗。如果您的應用程式沒有將驗證權杖儲存在裝置上，或如果這些權杖可能會過期，裝置應用程式應在收到通知時顯示一般通知，以提示使用者啟動應用程式。應用程式會接著驗證使用者，並顯示通知裝載。
 
-本安全推播教學課程說明如何以安全的方式傳送推播通知。本教學課程會以 [**通知使用者**] 教學課程為基礎，因此您應先完成該教學課程中的步驟。
+本安全推播教學課程說明如何以安全的方式傳送推播通知。本教學課程會以**通知使用者**教學課程為基礎，因此您應先完成該教學課程中的步驟。
 
-> [AZURE.NOTE] 本教學課程假設您已建立並設定通知中心，如 [開始使用通知中心 (Windows Store)](http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/) 中所述。
+> [AZURE.NOTE] 本教學課程假設您已建立並設定通知中心，如[開始使用通知中心 (Windows 市集)](http://azure.microsoft.com/ documentation/articles/notification-hubs-windows-store-dotnet-get-started/) 中所述。
 另請注意，Windows Phone 8.1 需要 Windows (不是 Windows Phone) 認證，且無法在 Windows Phone 8.0 或 Silverlight 8.1 上使用背景工作。若是 Windows 市集應用程式，只有當應用程式已啟用鎖定畫面 (按一下 Appmanifest 中的核取方塊) 時，您才可以透過背景工作接收通知。
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## 修改 Windows Phone 專案
 
-1. 在 **NotifyUserWindowsPhone** 專案中，新增下列程式碼至 App.xaml.cs 以註冊推播背景工作。在 `OnLaunched()` 方法的結尾處新增下列程式碼行：
+1. 在 **NotifyUserWindowsPhone** 專案中，新增下列程式碼至 App.xaml.cs 以註冊推播背景工作。在  `OnLaunched()` 方法的結尾新增下列程式碼行：
 
 		RegisterBackgroundTask();
 
-2. 仍在 App.xaml.cs 中，將下列程式碼新增至 `OnLaunched()` 方法後面：
+2. 同樣地，在 App.xaml.cs 中，在  `OnLaunched()` 方法後面新增下列程式碼：
 
 		private async void RegisterBackgroundTask()
         {
@@ -53,7 +67,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
             }
         }
 
-3. 在 App.xaml.cs 檔案開頭處新增下列 `using` 陳述式：
+3. 在 App.xaml.cs 檔案開頭處新增下列  `using` 陳述式：
 
 		using Windows.Networking.PushNotifications;
 		using Windows.ApplicationModel.Background;
@@ -72,7 +86,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 3. 在 [方案總管] 中，以滑鼠右鍵按一下 **PushBackgroundComponent (Windows Phone 8.1)** 專案，再按一下 [**新增**]，然後按一下 [**類別**]。將新類別命名為 **PushBackgroundTask.cs**。按一下 [**新增**] 以產生類別。
 
-4. 使用下列程式碼來取代 **PushBackgroundComponent** 命名空間定義的整個內容，並將預留位置 `{back-end endpoint}` 替換成部署後端時所取得的後端端點：
+4. 使用下列程式碼來取代 **PushBackgroundComponent** 命名空間定義的整個內容，並將預留位置  `{back-end endpoint}` 替換成部署後端時所取得的後端端點：
 
 		public sealed class Notification
     		{
@@ -117,17 +131,17 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
     		    }
     		}
 
-5. 在 [方案總管] 中，以滑鼠右鍵按一下 **PushBackgroundComponent (Windows Phone 8.1)** 專案，然後按一下 [**管理 NuGet 封裝**]。
+5. 在 [方案總管] 中，以滑鼠右鍵按一下 **PushBackgroundComponent (Windows Phone 8.1)** 專案，然後按一下 [**Manage NuGet Packages**]。
 
-6. 按一下左側上的 [**線上**]。
+6. 在左側，按一下 [**線上**]。
 
 7. 在 [**搜尋**] 方塊中，輸入 **Http 用戶端**。
 
 8. 按一下結果清單中的 **Microsoft HTTP Client Libraries**，然後按一下 [**安裝**]。完成安裝。
 
-9. 回到 NuGet [**搜尋**] 方塊，輸入 **Json.net**。安裝 **Json.NET** 套件，然後關閉 [NuGet Package Manager] 視窗。
+9. 回到 NuGet [**搜尋**] 方塊，輸入 **Json.net**。安裝 **Json.NET** 封裝，然後關閉 [NuGet Package Manager] 視窗。
 
-10. 在 **PushBackgroundTask.cs** 檔案開頭處新增下列 `using` 陳述式：
+10. 在 **PushBackgroundTask.cs** 檔案開頭處新增下列  `using` 陳述式：
 
 		using Windows.ApplicationModel.Background;
 		using Windows.Networking.PushNotifications;
@@ -138,17 +152,17 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 		using Windows.UI.Notifications;
 		using Windows.Data.Xml.Dom;
 
-11. 在 [方案總管] 的 **NotifyUserWindowsPhone (Windows Phone 8.1)** 專案中，以滑鼠右鍵按一下 [**參考**]，然後按一下 [**加入參考**]。在 [參考管理員] 對話方塊中，勾選 **PushBackgroundComponent** 旁邊的方塊，然後按一下 [**確定**]。
+11. 在 [方案總管] 的 **NotifyUserWindowsPhone (Windows Phone 8.1)** 專案中，以滑鼠右鍵按一下 [**參考**]，然後按一下 [**新增參考**]。在 [參考管理員] 對話方塊中，勾選 **PushBackgroundComponent** 旁邊的方塊，然後按一下 [**確定**]。
 
 12. 在 [方案總管] 中，連按兩下 **NotifyUserWindowsPhone (Windows Phone 8.1)** 專案中的 **Package.appxmanifest**。在 [**通知**] 下，將 [**支援快顯通知**] 設定為 [**是**]。
 
 	![][3]
 
-13. 仍在 **Package.appxmanifest** 中，按一下頂端附近的 [**宣告**] 功能表。在 [**可用宣告**] 下拉式清單中，按一下 [**背景工作**]，然後按一下 [**新增**]。
+13. 同樣地，在 **Package.appxmanifest** 中，按一下頂端附近的 [**宣告**] 功能表。在 [**可用宣告**] 下拉式清單中，按一下 [**背景工作**]，然後按一下 [**新增**]。
  
-14. 在 **Package.appxmanifest** 的 [**屬性**] 下，勾選 [**推播通知**]。
+14. 在 **Package.appxmanifest** 中，勾選 [**屬性**] 下的 [**推播通知**]。
 
-15. 在 **Package.appxmanifest** 的 [**應用程式設定**] 下，在 [**輸入點**] 欄位中輸入 **PushBackgroundComponent.PushBackgroundTask**。
+15. 在 **Package.appxmanifest** 中，在 [**應用程式設定**] 下的 [**輸入點**] 欄位中輸入 **PushBackgroundComponent.PushBackgroundTask**。
 
 	![][13]
 
@@ -164,8 +178,10 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 3. 在 **NotifyUserWindowsPhone** 應用程式 UI 中，輸入使用者名稱和密碼。這些可以是任何字串，但必須是相同值。
 
-4. 在 **NotifyUserWindowsPhone** 應用程式 UI 中，按一下 [**Log in and register**]。然後按一下 [**傳送推播**]。
+4. 在 **NotifyUserWindowsPhone** 應用程式 UI 中，按一下 [**Log in and register**]。然後按一下 **[傳送推播]**。
 
 [3]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
+
+<!--HONumber=45--> 

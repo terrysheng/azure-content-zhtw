@@ -1,6 +1,20 @@
-﻿<properties title="How to create a cloud collection of RemoteApp" pageTitle="如何建立 RemoteApp 的雲端收藏" description="了解如何建立將資料儲存在 Azure 雲端中的 RemoteApp 部署。" metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+﻿<properties 
+	pageTitle="如何建立 RemoteApp 的雲端收藏" 
+	description="了解如何建立將資料儲存在 Azure 雲端中的 RemoteApp 部署。" 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/17/2015" 
+	ms.author="elizapo"/>
 
 #如何建立 RemoteApp 的雲端收藏
 
@@ -20,10 +34,10 @@ RemoteApp 收藏分成兩種：
 
 在建立收藏之前，您必須執行下列作業：
 
-- 註冊 RemoteApp。您可以在 [http://azure.microsoft.com/zh-tw/services/remoteapp/](http://azure.microsoft.com/zh-tw/services/remoteapp/) 執行此作業。
+- 註冊 RemoteApp。您可以在 [http://azure.microsoft.com/services/remoteapp/](http://azure.microsoft.com/services/remoteapp/) 執行此作業。
 - 收集您想授與存取權之使用者的相關資訊。這可以是使用者 Microsoft 帳戶資訊或 Active Directory 工作帳戶資訊。
 - 此程序假設您將使用您的訂閱隨附的範本映像之一，或是您已上傳所要使用的範本映像。如果您需要上傳不同的範本映像，您可以從 [範本映像] 頁面執行此作業。只要按一下 [上傳範本映像]****，然後遵循精靈中的步驟即可。 
-- 想提供自訂應用程式或 LOB 程式？請建立新的[自訂範本映像](http://azure.microsoft.com/zh-tw/documentation/articles/remoteapp-create-custom-image/)，並在您的雲端部署中加以使用。
+- 想提供自訂應用程式或 LOB 程式？請建立新的[自訂範本映像](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/)，並在您的雲端部署中加以使用。
 
 ## **步驟 1：建立 RemoteApp 收藏** ##
 
@@ -36,7 +50,7 @@ RemoteApp 收藏分成兩種：
 4. 選擇您要使用的方案 - 標準或基本。
 5. 選擇要用於此收藏的範本。 
 
-	**提示：**您的 RemoteApp 訂閱隨附[範本映像](http://azure.microsoft.com/zh-tw/documentation/articles/remoteapp-images/)，其中包含 Office 365 或 Office 2013 (試用版) 程式、一些已發佈 (例如 Word) 和其他待發佈的程式。您也可以建立新的[自訂範本映像](http://azure.microsoft.com/zh-tw/documentation/articles/remoteapp-create-custom-image/)，並使用在雲端收藏中。
+	**提示：**您的 RemoteApp 訂閱隨附[範本映像](http://azure.microsoft.com/documentation/articles/remoteapp-images/)，其中包含 Office 365 或 Office 2013 (試用版) 程式、一些已發佈 (例如 Word) 和其他待發佈的程式。您也可以建立新的[自訂範本映像](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/)，並使用在雲端收藏中。
 
 
 1. 按一下 [建立 RemoteApp 集合]****。
@@ -48,7 +62,7 @@ RemoteApp 收藏分成兩種：
 
 ## **步驟 2：設定 Active Directory 目錄同步作業 (選用)** ##
 
-如果您要使用 Active Directory，則必須在 Azure Active Directory 與您的內部部署 Active Directory 之間進行目錄同步處理，RemoteApp 才能將使用者、連絡人和密碼同步處理至您的 Azure Active Directory 租用戶。如需規劃資訊，請參閱[設定 Azure RemoteApp 的 Active Directory](http://azure.microsoft.com/zh-tw/documentation/articles/remoteapp-ad/)。
+如果您要使用 Active Directory，則必須在 Azure Active Directory 與您的內部部署 Active Directory 之間進行目錄同步處理，RemoteApp 才能將使用者、連絡人和密碼同步處理至您的 Azure Active Directory 租用戶。如需規劃資訊，請參閱[設定 Azure RemoteApp 的 Active Directory](http://azure.microsoft.com/documentation/articles/remoteapp-ad/)。
 
 ## **步驟 3：發佈 RemoteApp 應用程式** ##
 
@@ -80,3 +94,5 @@ RemoteApp 應用程式是您提供給使用者的應用程式或程式。此程�
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

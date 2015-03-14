@@ -137,6 +137,6 @@
   [做法：清除佇列訊息的其他選項]: #advanced-get
   [做法：取得佇列長度]: #get-queue-length
   [做法：刪除佇列]: #delete-queue
-  [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
+  [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 <!--HONumber=42-->

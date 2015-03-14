@@ -1,6 +1,20 @@
-﻿<properties title="Azure Stream Analytics limitations in the preview release" pageTitle=" 預覽版本中的資料流分析限制 | Azure" description="了解 Azure Stream Analytics 工作公用預覽版的限制。" metaKeywords="" services="stream analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="預覽版本之 Stream Analytics 的限制 | Azure" 
+	description="了解公開預覽版本之 Azure Stream Analytics 工作的限制。" 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/10/2015" 
+	ms.author="jgao"/>
 
 #Azure 資料流分析預覽版的限制與已知問題
 
@@ -131,8 +145,10 @@
 
 
 [microsoft.support]: http://support.microsoft.com/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/zh-tw/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [其他 azure.microsoft.com 文件主題的連結 1]: ../virtual-machines-windows-tutorial/
 [其他 azure.microsoft.com 文件主題的連結 2]: ../web-sites-custom-domain-name/
 [其他 azure.microsoft.com 文件主題的連結 3]: ../storage-whatis-account/
+
+<!--HONumber=46--> 

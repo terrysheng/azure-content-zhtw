@@ -1,6 +1,20 @@
-﻿<properties pageTitle="在行動服務中使用離線資料同步 (iOS) | 行動開發人員中心" description="了解如何使用 Azure 行動服務快處和徒步 iOS 應用程式中的離線資料" documentationCenter="ios" authors="krisragh" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="在行動服務中使用離線資料同步 (iOS) | 行動開發人員中心" 
+	description="了解如何使用 Azure 行動服務快處和徒步 iOS 應用程式中的離線資料" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/16/2015" ms.author="krisragh,donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="01/16/2015" 
+	ms.author="krisragh,donnam"/>
 
 # 開始在行動服務中使用離線資料同步
 
@@ -15,7 +29,7 @@
 * 讓使用者即使在沒有網路存取的情況下仍能建立及修改資料，而支援連線微弱或無連線的情況
 * 同步多個裝置之間的資料，並在兩個裝置修改相同的記錄時偵測衝突
 
->[AZURE.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。
+>[AZURE.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。
 
 如果這是您第一次接觸行動服務，請考慮先完成教學課程[開始使用行動服務]。
 
@@ -278,7 +292,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 [虛刪除]: /zh-tw/documentation/articles/mobile-services-using-soft-delete/
 
 [雲端報導：Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday︰Azure 行動服務中的離線應用程式]: http://azure.microsoft.com/zh-tw/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday︰Azure 行動服務中的離線應用程式]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
 
 <!--HONumber=42-->

@@ -61,7 +61,7 @@ Azure 網站針對關鍵的大規模 [WordPress 網站][wordpress]，提供可�
 
 ###包含媒體儲存體和快取的多重區域部署
 
-如果網站接受上傳或主機媒體檔案，請使用 Azure Blob 儲存體。如果您需要快取，請考慮 [Redis cache][rediscache]、[Memcache Cloud](http://azure.microsoft.com/zh-tw/gallery/store/garantiadata/memcached/)、[MemCachier](http://azure.microsoft.com/zh-tw/gallery/store/memcachier/memcachier/) 或 [Azure 市集](http://azure.microsoft.com/zh-tw/gallery/store/)中的其中一個快取產品。
+如果網站接受上傳或主機媒體檔案，請使用 Azure Blob 儲存體。如果您需要快取，請考慮 [Redis cache][rediscache]、[Memcache Cloud](http://azure.microsoft.com/gallery/store/garantiadata/memcached/)、[MemCachier](http://azure.microsoft.com/gallery/store/memcachier/memcachier/) 或 [Azure 市集](http://azure.microsoft.com/gallery/store/)中的其中一個快取產品。
 
 ![an Azure Website, hosted in multiple regions, using CDBR High Availability router for MySQL, with Managed Cache, Blob storage, and CDN][performance-diagram]
 
@@ -95,7 +95,7 @@ Azure 網站針對關鍵的大規模 [WordPress 網站][wordpress]，提供可�
 作法...| 目的...
 ------------------------|-----------
 **了解網站執行個體功能** |  [定價詳細資料，包括網站大小和模式功能][websitepricing]
-**快取資源** | [Redis cache][rediscache]、[Memcache Cloud](http://azure.microsoft.com/zh-tw/gallery/store/garantiadata/memcached/)、[MemCachier](http://azure.microsoft.com/zh-tw/gallery/store/memcachier/memcachier/) 或 [Azure 市集](http://azure.microsoft.com/zh-tw/gallery/store/)中的其中一個快取產品
+**快取資源** | [Redis cache][rediscache]、[Memcache Cloud](http://azure.microsoft.com/gallery/store/garantiadata/memcached/)、[MemCachier](http://azure.microsoft.com/gallery/store/memcachier/memcachier/) 或 [Azure 市集](http://azure.microsoft.com/gallery/store/)中的其中一個快取產品
 **調整應用程式規模** | [調整 Azure 網站規模][websitescale]和 [ClearDB 高可用性路由][cleardbscale]。如果您選擇主控與管理自己的 MySQL 安裝，您應考量可橫向擴充的 [MySQL 叢集 CGE][cge]
 
 ####移轉
@@ -193,9 +193,9 @@ Azure 網站針對關鍵的大規模 [WordPress 網站][wordpress]，提供可�
 ------------- | -----------
 **設定網站模式、大小並啟用規模調整功能** | [如何調整網站規模][websitescale]
 **啟用持續資料庫連線** <p>依預設，WordPress 不會使用持續資料庫連線，因為在多個連線後，此選項會造成資料庫連線進入流速控制狀態。</p>  | <ol><li><p>編輯 <strong>wp-includes/wp-db.php</strong> 檔案。</p></li><li><p>尋找下列程式碼行。</p><code>$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );</code></li><li><p>使用下列程式碼來取代先前的程式碼行。</p><code>$this->dbh = mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); <br/>if ( false !== $error_reporting ) { /br/>&nbsp;&nbsp;error_reporting( $error_reporting ); <br/>} </code></li><li><p>尋找下列程式碼行。</p><code>$this->dbh = @mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags ); </code></li><li><p>使用下列程式碼來取代上面的程式碼行。</p><code>$this->dbh = @mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword,  $client_flags ); </code></li><li><p>將檔案儲存 <strong>wp-includes/wp-db.php</strong>檔案，並重新部署網站。</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><h5><a name="note"></a>注意：</h5><p>更新 WordPress 時有可能會覆寫這些變更。</p><p>WordPress 預設會自動更新，您可透過編輯 <strong>wp-config.php</strong> 檔案，並新增下列內容來停用自動更新： <code>define ( 'WP_AUTO_UPDATE_CORE', false );</code></p><p>處理更新的另一個方法是使用 WebJob 來監視 <strong>wp-db.php</strong> 檔案，並在每次更新檔案時執行上述修改。如需詳細資訊，請參閱 <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">WebJobs 簡介</a>。</p></div>
-**提升效能** | <ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">停用 ARR Cookie</a> - 在多個網站執行個體上執行 WordPress 時可提升效能</p></li><li><p>啟用快取。<a href="http://msdn.microsoft.com/zh-tw/library/azure/dn690470.aspx">Redis cache</a> (預覽版) 可與 <a href="https://wordpress.org/plugins/redis-object-cache/">Redis 物件快取 WordPress 外掛程式</a>搭配使用，或使用 <a href="http://azure.microsoft.com/zh-tw/gallery/store/">Azure 市集</a>的其中一個快取產品</p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">如何透過 Wincache 來加快 WordPress 的速度</a> - 依預設，網站會啟用 Wincache</p></li><li><p><a href="http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-scale/">調整您的 Azure 網站規模</a>，並使用 <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB 高可用性路由</a>或 <a href="http://www.mysql.com/products/cluster/">MySQL 叢集 CGE</a></p></li></ul>
-**使用 Blob 進行儲存** | <ol><li><p><a href="http://azure.microsoft.com/zh-tw/documentation/articles/storage-create-storage-account/">建立 Azure 儲存體帳戶</a></p></li><li><p>了解如何<a href="http://azure.microsoft.com/zh-tw/documentation/articles/cdn-how-to-use/">使用內容發佈網路 (CDN)</a> 來異地發佈儲存在 Blob 中的資料。</p></li><li><p>安裝並設定 <a href="https://wordpress.org/plugins/windows-azure-storage/">WordPress 外掛程式的 Azure 儲存體</a>。</p><p>如需此外掛程式的詳細安裝和設定資訊，請參閱 <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">使用者手冊</a>。</p> </li></ol>
-**啟用電子郵件** | <ol><li><p><a href="http://azure.microsoft.com/zh-tw/gallery/store/sendgrid/sendgrid-azure/">使用 Azure 市集啟用 SendGrid</a></p></li><li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">安裝 WordPress 的 SendGrid 外掛程式</a></p></li></ol>
+**提升效能** | <ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">停用 ARR Cookie</a> - 在多個網站執行個體上執行 WordPress 時可提升效能</p></li><li><p>啟用快取。<a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Redis cache</a> (預覽版) 可與 <a href="https://wordpress.org/plugins/redis-object-cache/">Redis 物件快取 WordPress 外掛程式</a>搭配使用，或使用 <a href="http://azure.microsoft.com/gallery/store/">Azure 市集</a>的其中一個快取產品</p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">如何透過 Wincache 來加快 WordPress 的速度</a> - 依預設，網站會啟用 Wincache</p></li><li><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-scale/">調整您的 Azure 網站規模</a>，並使用 <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB 高可用性路由</a>或 <a href="http://www.mysql.com/products/cluster/">MySQL 叢集 CGE</a></p></li></ul>
+**使用 Blob 進行儲存** | <ol><li><p><a href="http://azure.microsoft.com/documentation/articles/storage-create-storage-account/">建立 Azure 儲存體帳戶</a></p></li><li><p>了解如何<a href="http://azure.microsoft.com/documentation/articles/cdn-how-to-use/">使用內容發佈網路 (CDN)</a> 來異地發佈儲存在 Blob 中的資料。</p></li><li><p>安裝並設定 <a href="https://wordpress.org/plugins/windows-azure-storage/">WordPress 外掛程式的 Azure 儲存體</a>。</p><p>如需此外掛程式的詳細安裝和設定資訊，請參閱 <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">使用者手冊</a>。</p> </li></ol>
+**啟用電子郵件** | <ol><li><p><a href="http://azure.microsoft.com/gallery/store/sendgrid/sendgrid-azure/">使用 Azure 市集啟用 SendGrid</a></p></li><li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">安裝 WordPress 的 SendGrid 外掛程式</a></p></li></ol>
 **設定自訂網域名稱** | [在 Azure 網站中使用自訂網域名稱][customdomain]
 **為自訂網域名稱啟用 HTTPS** | [在 Azure 網站中使用 HTTPS][httpscustomdomain]
 **對您的網站進行負載平衡或異地發佈** | [使用 Azure 流量管理員路由傳送流量][trafficmanager]。如果您打算使用自訂網域，請參閱[在 Azure 網站中使用自訂網域名稱][customdomain]，以取得搭配自訂網域名稱使用流量管理員的相關資訊
@@ -206,7 +206,7 @@ Azure 網站針對關鍵的大規模 [WordPress 網站][wordpress]，提供可�
 
 * [WordPress 最佳化](http://codex.wordpress.org/WordPress_Optimization)
 
-* [將 WordPress 網站轉換成多網站](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-php-convert-wordpress-multisite/)
+* [將 WordPress 網站轉換成多網站](http://azure.microsoft.com/documentation/articles/web-sites-php-convert-wordpress-multisite/)
 
 * [適用於 Azure 的 ClearDB 升級精靈](http://www.cleardb.com/store/azure/upgrade)
 
@@ -249,40 +249,40 @@ Azure 網站針對關鍵的大規模 [WordPress 網站][wordpress]，提供可�
 [cdbnstore]: http://www.cleardb.com/store/azure
 [storageplugin]: https://wordpress.org/plugins/windows-azure-storage/
 [sendgridplugin]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
-[phpwebsite]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-php-configure/
-[customdomain]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-custom-domain-name/
+[phpwebsite]: http://azure.microsoft.com/documentation/articles/web-sites-php-configure/
+[customdomain]: http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/
 [trafficmanager]: http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/
-[backup]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-backup/
-[restore]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-restore/
-[rediscache]: http://msdn.microsoft.com/zh-tw/library/azure/dn690470.aspx
-[managedcache]: http://msdn.microsoft.com/zh-tw/library/azure/dn386122.aspx
-[websitescale]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-scale/
-[managedcachescale]: http://msdn.microsoft.com/zh-tw/library/azure/dn386113.aspx
+[backup]: http://azure.microsoft.com/documentation/articles/web-sites-backup/
+[restore]: http://azure.microsoft.com/documentation/articles/web-sites-restore/
+[rediscache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
+[managedcache]: http://msdn.microsoft.com/library/azure/dn386122.aspx
+[websitescale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
+[managedcachescale]: http://msdn.microsoft.com/library/azure/dn386113.aspx
 [cleardbscale]: http://www.cleardb.com/developers/cdbr/introduction
-[staging]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-staged-publishing/
-[monitor]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-monitor/
-[log]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-enable-diagnostic-log/
-[httpscustomdomain]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-configure-ssl-certificate/
-[mysqlwindows]: http://azure.microsoft.com/zh-tw/documentation/articles/virtual-machines-mysql-windows-server-2008r2/
-[mysqllinux]: http://azure.microsoft.com/zh-tw/documentation/articles/virtual-machines-linux-mysql-use-opensuse/
+[staging]: http://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/
+[monitor]: http://azure.microsoft.com/documentation/articles/web-sites-monitor/
+[log]: http://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/
+[httpscustomdomain]: http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/
+[mysqlwindows]: http://azure.microsoft.com/documentation/articles/virtual-machines-mysql-windows-server-2008r2/
+[mysqllinux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-use-opensuse/
 [cge]: http://www.mysql.com/products/cluster/
 [websitepricing]: https://azure.microsoft.com/zh-tw/pricing/details/web-sites/
 [export]: http://en.support.wordpress.com/export/
 [import]: http://wordpress.org/plugins/wordpress-importer/
 [wordpressbackup]: http://wordpress.org/plugins/wordpress-importer/
 [wordpressdbbackup]: http://codex.wordpress.org/Backing_Up_Your_Database
-[createwordpress]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-php-web-site-gallery/
+[createwordpress]: http://azure.microsoft.com/documentation/articles/web-sites-php-web-site-gallery/
 [velvet]: https://wordpress.org/plugins/velvet-blues-update-urls/
 [mgmtportal]: https://manage.windowsazure.com/
 [wordpressbackup]: http://codex.wordpress.org/WordPress_Backups
 [wordpressdbbackup]: http://codex.wordpress.org/Backing_Up_Your_Database
 [workbench]: http://www.mysql.com/products/workbench/
 [searchandreplace]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
-[deploy]: http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-deploy/
-[posh]: http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/
-[xplat-cli]: http://azure.microsoft.com/zh-tw/documentation/articles/xplat-cli/
-[storesendgrid]: http://azure.microsoft.com/zh-tw/gallery/store/sendgrid/sendgrid-azure/
-[cdn]: http://azure.microsoft.com/zh-tw/documentation/articles/cdn-how-to-use/
+[deploy]: http://azure.microsoft.com/documentation/articles/web-sites-deploy/
+[posh]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[xplat-cli]: http://azure.microsoft.com/documentation/articles/xplat-cli/
+[storesendgrid]: http://azure.microsoft.com/gallery/store/sendgrid/sendgrid-azure/
+[cdn]: http://azure.microsoft.com/documentation/articles/cdn-how-to-use/
 
 
 <!--HONumber=42-->

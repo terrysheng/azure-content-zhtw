@@ -103,7 +103,7 @@ WebMatrix 可快速安裝，且易於了解，但 Visual Studio 可用來處理 
 * [開始使用 Azure 和 ASP.NET](../web-sites-dotnet-get-started/).說明如何使用 Visual Studio 和 Web Deploy 建立及部署簡易的 ASP.NET MVC Web 專案。
 * [如何將 Azure WebJob 部署至 Azure 網站](../websites-dotnet-deploy-webjobs/)。如何設定主控台應用程式專案，使其部署為 WebJob。  
 * [將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)。說明如何使用 Visual Studio、Web Deploy 和 Entity Framework Code First Migrations，建立及部署具有 SQL Database 的 ASP.NET MVC Web 專案。
-* [Visual Studio 和 ASP.NET 的 Web 部署概觀](http://msdn.microsoft.com/zh-tw/library/dd394698.aspx)。這是使用 Visual Studio 進行 Web 部署的基本簡介。這項資源已過時，但仍包含相關資訊，包括部署資料庫和 Web 應用程式的選項概觀，以及您可能必須執行或手動設定 Visual Studio 為您執行的額外部署工作。這是與一般部署有關的主題，而不是只討論對 Azure 網站的部署。
+* [Visual Studio 和 ASP.NET 的 Web 部署概觀](http://msdn.microsoft.com/library/dd394698.aspx)。這是使用 Visual Studio 進行 Web 部署的基本簡介。這項資源已過時，但仍包含相關資訊，包括部署資料庫和 Web 應用程式的選項概觀，以及您可能必須執行或手動設定 Visual Studio 為您執行的額外部署工作。這是與一般部署有關的主題，而不是只討論對 Azure 網站的部署。
 * [使用 Visual Studio 的 ASP.NET Web 部署](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction)。這是分成 12 個單元的教學課程系列，其中討論的部署工作比此處所列的其他資源更為詳盡。本教學課程撰寫後已新增某些 Azure 部署功能，但稍後的附註會說明遺漏的功能。 
 * [在 Visual Studio 2012 中直接從 Git 儲存機制將 ASP.NET 網站部署至 Azure](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881)。說明如何使用 Git 外掛程式將程式碼認可至 Git，以及將 Azure 連接到 Git 儲存機制，以在 Visual Studio 中部署 ASP.NET Web 專案。自 Visual Studio 2013 起，Git 支援已是內建的功能，不需安裝外掛程式。
 
@@ -111,9 +111,9 @@ WebMatrix 可快速安裝，且易於了解，但 Visual Studio 可用來處理 
 
 如需如何從 WebMatrix 部署至 Azure 網站的相關資訊，請參閱下列資源：
 
-* [使用 Microsoft WebMatrix 來開發和部署網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-using-webmatrix/)。說明如何使用 WebMatrix 範本建立簡易的 ASP.NET 網站，並使用 WebMatrix 和 Web Deploy 將其部署至 Azure 網站。
-* [使用 WebMatrix 來建立 Node.js 網站並部署至 Azure](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-nodejs-use-webmatrix/)。
-* [使用 WebMatrix 建立並部署 PHP-MySQL Azure 網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-php-mysql-use-webmatrix/)。
+* [使用 Microsoft WebMatrix 來開發和部署網站](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-using-webmatrix/)。說明如何使用 WebMatrix 範本建立簡易的 ASP.NET 網站，並使用 WebMatrix 和 Web Deploy 將其部署至 Azure 網站。
+* [使用 WebMatrix 來建立 Node.js 網站並部署至 Azure](http://azure.microsoft.com/documentation/articles/web-sites-nodejs-use-webmatrix/)。
+* [使用 WebMatrix 建立並部署 PHP-MySQL Azure 網站](http://azure.microsoft.com/documentation/articles/web-sites-php-mysql-use-webmatrix/)。
 * [WebMatrix 3：整合 Git 並部署至 Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD)。說明如何使用 WebMatrix 從 Git 原始檔控制儲存機制進行部署。
 
 ##<a name="ftp"></a>使用 FTP 公用程式進行部署
@@ -186,12 +186,12 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
 
 ###<a name="powershell"></a>Windows PowerShell
 
-您可以從 [Windows PowerShell](http://msdn.microsoft.com/zh-tw/library/dd835506.aspx) 執行 MSBuild 或 FTP 部署功能。如果您這麼做，則您也可以使用 Windows PowerShell Cmdlet 的集合，使 Azure REST 管理 API 更容易呼叫。
+您可以從 [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx) 執行 MSBuild 或 FTP 部署功能。如果您這麼做，則您也可以使用 Windows PowerShell Cmdlet 的集合，使 Azure REST 管理 API 更容易呼叫。
 
 如需詳細資訊，請參閱下列資源：
 
 * [使用 Azure 建置真實世界的雲端應用程式 - 自動化各個項目](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything)。這是電子書的其中一章，說明電子書中的範例應用程式如何使用 Windows PowerShell 指令碼建立 Azure 測試環境，並加以部署。如需其他 Azure PowerShell 文件的連結，請參閱[資源](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources)一節。
-* [使用 Windows PowerShell 指令碼來發行至開發和測試環境](http://msdn.microsoft.com/zh-tw/library/dn642480.aspx)。如何使用 Visual Studio 產生的 Windows PowerShell 部署指令碼。
+* [使用 Windows PowerShell 指令碼來發行至開發和測試環境](http://msdn.microsoft.com/library/dn642480.aspx)。如何使用 Visual Studio 產生的 Windows PowerShell 部署指令碼。
 
 ###<a name="api"></a>.NET 管理 API
 
@@ -216,7 +216,7 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
 如需詳細資訊，請參閱下列資源：
 
 * [簡單的 Azure 網站：部署](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/)。David Ebbo 所撰寫使 Web Deploy 更容易使用之工具的部落格。
-* [Web 部署工具](http://technet.microsoft.com/zh-tw/library/dd568996)。這是 Microsoft TechNet 網站上的正式文件。雖已過時，但仍適合入門使用。
+* [Web 部署工具](http://technet.microsoft.com/library/dd568996)。這是 Microsoft TechNet 網站上的正式文件。雖已過時，但仍適合入門使用。
 * [使用 Web Deploy](http://www.iis.net/learn/publish/using-web-deploy)。這是 Microsoft IIS.NET 網站上的正式文件。同樣也已過時，但仍適合入門使用。
 * [StackOverflow](http://www.stackoverflow.com)。如果您需要如何從命令列使用 Web Deploy 的最新相關資訊，這將是您的最佳選擇。
 * [使用 Visual Studio 的 ASP.NET Web 部署：命令列部署](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment)。MSBuild 是 Visual Studio 所使用的建置引擎，您也可以從命令列加以使用，以將 Web 應用程式部署至 Azure 網站。這是系列中的教學課程之一，主要與 Visual Studio 部署有關。

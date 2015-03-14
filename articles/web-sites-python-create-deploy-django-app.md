@@ -26,7 +26,7 @@
 您將建立使用 Django Web 架構的應用程式 (請參閱本教學課程適用於 [Flask](../web-sites-python-create-deploy-flask-app) 與 [Bottle] 的其他版本(../web-sites-python-create-deploy-bottle-app))。您會從 Azure 組件庫建立網站、設定 Git 部署，並於本機複製儲存機制。然後您會在本機執行應用程式、進行變更、認可和推送至 Azure。本教學課程示範如何從 Windows 或 Mac/Linux 執行這項操作。
 
 > [AZURE.NOTE]
-> 若要完成此教學課程，您需要 Azure 帳戶。您可以<a href="http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/">啟用自己的 MSDN 訂戶權益</a>或是<a href="http://azure.microsoft.com/zh-tw/pricing/free-trial/">申請免費試用</a>。
+> 若要完成此教學課程，您需要 Azure 帳戶。您可以<a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">啟用自己的 MSDN 訂戶權益</a>或是<a href="http://azure.microsoft.com/pricing/free-trial/">申請免費試用</a>。
 > 
 > 如果您要在註冊帳戶前開始使用 Azure 網站，請移至 <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>，您可以在 Azure 網站中立即建立短期的免費 ASP.NET 簡易版網站。無需使用信用卡，也不用簽約。
 

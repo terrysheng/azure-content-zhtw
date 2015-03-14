@@ -1,6 +1,23 @@
-﻿<properties title="Use custom activities in an Azure Data Factory pipeline" pageTitle="在 Azure 資料處理站管線中使用自訂活動" description="了解如何建立自訂活動，並在 Azure 資料處理站管線中使用這些活動。" metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	title="Use custom activities in an Azure Data Factory pipeline" 
+	pageTitle="在 Azure 資料處理站管線中使用自訂活動" 
+	description="了解如何建立自訂活動，並在 Azure 資料處理站管線中使用這些活動。" 
+	metaKeywords=""  
+	services="data-factory" 
+	solutions=""  
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/01/1900" 
+	ms.author="spelluru" />
 
 # 在 Azure 資料處理站管線中使用自訂活動
 Azure 資料處理站支援內建活動，例如**複製活動**和**HDInsight 活動**，用於在管線中進行移動和處理資料。您也可以使用您自己的轉換/處理邏輯建立自訂活動，並在管線中使用該活動。自訂活動在 HDInsight 叢集上以僅限對應的作業執行，因此您必須為您的管線中的自訂活動連結 HDInsight 叢集。
@@ -488,7 +505,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 
 [nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[azure-developer-center]: http://azure.microsoft.com/zh-tw/develop/net/
+[azure-developer-center]: http://azure.microsoft.com/develop/net/
 [adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 
@@ -502,3 +519,5 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 [image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
+
+<!--HONumber=46--> 

@@ -1,31 +1,31 @@
-﻿## 建立 WebAPI 專案
+## 建立 WebAPI 專案
 
-請遵循下列步驟來建立新的 ASP.NET WebAPI 後端來驗證用戶端並產生通知，或修改來自先前專案或[將推播通知傳送給驗證的使用者](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/)教學課程的現有後端。
+請遵循下列步驟來建立新的 ASP.NET WebAPI 後端來驗證用戶端並產生通知，或修改來自先前專案或[將推播通知傳送給驗證的使用者](http://azure.microsoft.com/ documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/)教學課程的現有後端。
 
 > [AZURE.NOTE] **重要事項**：開始本教學課程之前，請確定您已安裝最新版本的 NuGet Package Manager。若要檢查版本，請啟動 Visual Studio。在 [**工具**] 功能表中，按一下 [**擴充功能和更新**]。搜尋 **NuGet Package Manager for Visual Studio 2013**，然後確定您已安裝 2.8.50313.46 版或更新版本。否則的話，請解除安裝，然後重新安裝 NuGet Package Manager。
 > 
 > ![][4]
 
-> [AZURE.NOTE] 確定您已安裝 Visual Studio [Azure SDK](http://azure.microsoft.com/zh-tw/downloads/) 以供網站部署。
+> [AZURE.NOTE] 確定您已安裝 Visual Studio [Azure SDK](http://azure.microsoft.com/ downloads/) 以供網站部署。
 
 1. 啟動 Visual Studio 或 Visual Studio Express。
-2. 在 Visual Studio 中，按一下 [**檔案**]，然後依序按一下 [**新增**] 和 [**專案**]，依序展開 [**範本**] 和 [**Visual C#**]，然後按一下 [**Web**] 和 [**ASP.NET Web 應用程式**]，輸入名稱 **AppBackend**，然後按一下 [**確定**]。 
+2. 在 Visual Studio 中，依序按一下 [**檔案**]、[**新增**]、[**專案**]，展開 [**範本**]、[**Visual C#**]，再按一下 [**Web**] 和 [**ASP.NET Web 應用程式**]，輸入名稱 **AppBackend**，然後按一下 [**確定**]。 
 	
 	![][1]
 
-3. 在 [**New ASP.NET Project**] 對話方塊中，按一下 [**Web API**]，然後按一下 [**確定**]。
+3. 在 [**新增 ASP.NET 專案**] 對話方塊中，按一下 [**Web API**]，然後按一下 [**確定**]。
 
 	![][2]
 
-4. 在 [**Configure Azure Site**] 對話方塊中，選擇要用於此專案的訂閱、區域和資料庫。然後按一下 [**確定**] 以建立專案。
+4. 在 [**設定 Azure 網站**] 對話方塊中，選擇要用於此專案的訂閱、區域和資料庫。然後按一下 [**確定**] 以建立專案。
 
 	![][5]
 
-5. 在 [**方案總管**] 中，以滑鼠右鍵按一下 AppBackend 專案，然後按一下 [**Manage NuGet Packages**]。
+5. 在 [方案總管] 中，以滑鼠右鍵按一下 **AppBackend** 專案，然後按一下 [**管理 NuGet 封裝**]。
 
 6. 在左側按一下 [**線上**]，並在 [**搜尋**] 方塊中搜尋 **servicebus**。
 
-7. 按一下結果清單中的 [**Windows Azure Service Bus**]，然後按一下 [**安裝**]。請完成安裝，然後關閉 [NuGet Package Manager] 視窗。
+7. 按一下結果清單中的 **Windows Azure Service Bus**，然後按一下 [**安裝**]。請完成安裝，然後關閉 [NuGet Package Manager] 視窗。
 
 	![][14]
 
@@ -37,7 +37,7 @@
 
         using Microsoft.ServiceBus.Notifications;
 
-10. 然後以下列內容取代  `Notifications` 類別定義，並確定以通知中心的連接字串 (含完整存取權) 和中心名稱 (可在 [Azure 管理入口網站](http://manage.windowsazure.com) 取得) 取代兩個預留位置：
+10. 然後以下列內容取代  `Notifications` 類別定義，並確定以通知中心的連接字串 (含完整存取權) 和中心名稱 (可在 [Azure 管理入口網站](http://manage.windowsazure.com) 取代) 取代兩個預留位置：
 
 		public class Notifications
         {
@@ -112,17 +112,17 @@
 
 	> [AZURE.NOTE] **安全性注意事項**： `AuthenticationTestHandler` 類別不提供真正的驗證。它僅可用於模仿基本驗證而且並不安全。您必須在生產應用程式和服務中實作安全的驗證機制。				
 
-14. 在 **App_Start/WebApiConfig.cs** 類別中的  `Register` 方法新增下列程式碼：
+14. 在 **App_Start/WebApiConfig.cs** 類別中的  `Register` 方法的結果新增下列程式碼：
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
-15. 接下來，我們要建立新的控制器 **RegisterController**。在 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，然後按一下 [**新增**]，再按一下 [**控制器**]。按一下 [**Web API 2 Controller -- Empty**] 項目，然後按一下 [**新增**]。將新類別命名為 **RegisterController**，然後再次按一下 [**新增**] 以產生控制器。
+15. 接下來，我們要建立新的控制器 **RegisterController**。在 [方案總管] 中，以滑鼠右鍵按一下 [**控制器**] 資料夾，然後按一下 [**新增**]，再按一下 [**控制器**]。按一下 [**Web API 2 控制器 -- 空的**] 項目，然後按一下 [**新增**]。將新類別命名為 **RegisterController**，然後再次按一下 [**新增**] 以產生控制器。
 
 	![][7]
 
 	![][8]
 
-16. 在 RegiterController.cs 中，新增下列  `using` 陳述式：
+16. 在 RegiterController.cs 中，加入下列  `using` 陳述式：
 
         using Microsoft.ServiceBus.Notifications;
         using AppBackend.Models;
@@ -237,13 +237,13 @@
 
 18. 建立新的控制器 **NotificationsController**，請遵循我們建立 **RegisterController** 的方式。此元件會公開一種讓裝置安全地擷取通知的方式，並提供方法讓使用者觸發對裝置的安全推播。請注意，將通知傳送至通知中樞時，我們會傳送只包含通知 ID 的原始通知 (而非實際訊息)。
 
-19. 在 NotificationsController.cs 中，新增下列  `using` 陳述式：
+19. 在 NotificationsController.cs 中，加入下列  `using` 陳述式：
 
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
 
-20. 在 **NotificationsController** 類別定義中新增下列程式碼，請確定將您未使用之平台的程式碼片段註解化。
+20. 在 **NotificationsController** 類別定義中加入下列程式碼，請確定將您未使用之平台的程式碼片段註解化。
 
         public async Task<HttpResponseMessage> Post()
         {
@@ -281,7 +281,7 @@
 
     ![][B16]
 
-25. 記下 [**連線**] 索引標籤中的 [**目的地 URL**] 屬性。我們後續會在本教學課程中將此 URL 視為您的  *backend endpoint*。按一下 [發行]。
+25. 記下 [**連線**] 索引標籤中的 [**目的地 URL**] 屬性。我們後續會在本教學課程中將此 URL 視為您的  *backend endpoint*。按一下 **[發行]**。
 
     ![][B18]
 
@@ -298,4 +298,5 @@
 [B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

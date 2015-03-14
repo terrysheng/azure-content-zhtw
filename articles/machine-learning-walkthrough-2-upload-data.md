@@ -1,6 +1,20 @@
-<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="步驟 2：將資料上傳至 Azure Machine Learning 實驗中 | Azure" description="步驟 2：將現有公用資料上傳至 Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="步驟 2：將資料上傳至 Machine Learning 實驗 | Azure" 
+	description="方案逐步解說步驟 2：將現有公用資料上傳至 Azure Machine Learning Studio" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/06/2015" 
+	ms.author="garye"/>
 
 這是[使用 Azure ML 開發預測方案][develop]逐步解說的第二個步驟：
 
@@ -70,3 +84,5 @@ UCI 網站提供了功能向量的屬性說明，這些屬性包括財務資訊�
 **接著：[建立新實驗][create-new]**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
+
+<!--HONumber=46--> 

@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="" pageTitle="使用資源群組管理您的 Azure 資源" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="timlt" editor=""  />
+﻿<properties 
+	pageTitle="使用資源群組管理您的 Azure 資源" 
+	description="將多個資源分組為邏輯群組，使該邏輯群組成為所含之資源的生命週期界限。" 
+	services="multiple" 
+	documentationCenter="" 
+	authors="" 
+	writer="tomfitz" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="12/02/2014" ms.author="davidmu" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/09/2015" 
+	ms.author="tomfitz"/>
 
 
 # 使用資源群組管理您的 Azure 資源
@@ -72,3 +87,5 @@
 ![](http://i.imgur.com/ZTXoISb.png)
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

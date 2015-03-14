@@ -590,7 +590,7 @@ Azure 跨平台命令列介面 (xplat-cli) 可讓您執行 Azure 服務的管理
 [vmname]: ./media/web-sites-nodejs-store-data-mongodb/vmname.png
 [vmconfig]: ./media/web-sites-nodejs-store-data-mongodb/vmconfig.png
 [vmendpoint]: ./media/web-sites-nodejs-store-data-mongodb/endpoints.png
-[sshazure]: http://www.windowsazure.com/zh-tw/documentation/articles/linux-use-ssh-key/
+[sshazure]: http://azure.microsoft.com/documentation/articles/linux-use-ssh-key/
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/ 
 
 <!--HONumber=42-->

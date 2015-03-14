@@ -53,7 +53,7 @@
 
 ###從伺服器總管取得管理認證
 
-若要使用 Visual Studio 而非管理入口網站取得連線資訊，請遵循[這裡](http://http://msdn.microsoft.com/zh-tw/library/windowsazure/ff687127.aspx)所述的程序，請見標題為**從 Visual Studio 連線至 Azure** 的小節。在您登入 Azure 時，伺服器總管 [**Microsoft Azure**] 樹狀目錄下的 [**服務匯流排**] 節點，將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 [**屬性**]，查看在 Visual Studio [**屬性**] 窗格中所顯示，與此命名空間關聯的連線字串與其他中繼資料。 
+若要使用 Visual Studio 而非管理入口網站取得連線資訊，請遵循[這裡](http://http://msdn.microsoft.com/library/windowsazure/ff687127.aspx)所述的程序，請見標題為**從 Visual Studio 連線至 Azure** 的小節。在您登入 Azure 時，伺服器總管 [**Microsoft Azure**] 樹狀目錄下的 [**服務匯流排**] 節點，將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 [**屬性**]，查看在 Visual Studio [**屬性**] 窗格中所顯示，與此命名空間關聯的連線字串與其他中繼資料。 
 
 請記下 **SharedAccessKey** 值，或將它複製到剪貼簿：
 

@@ -43,9 +43,9 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 
 您可以從一個唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 R 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1)。本節提供有關如何在使用 Azure 管理入口網站佈建叢集時使用範例指令碼的指示。
 
-> [AZURE.NOTE] 範例指令碼只能與 HDInsight 叢集版本 3.1 搭配使用。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-component-versioning/)。
+> [AZURE.NOTE] 範例指令碼只能與 HDInsight 叢集版本 3.1 搭配使用。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/)。
 
-1. 依照[使用自訂選項佈建叢集](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-provision-clusters/#portal)中的說明，使用**自訂建立**選項開始佈建叢集。 
+1. 依照[使用自訂選項佈建叢集](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal)中的說明，使用**自訂建立**選項開始佈建叢集。 
 2. 在精靈的 [**指令碼動作**] 頁面上，按一下 [**加入指令碼動作**] 提供有關指令碼動作的詳細資料，如下所示：
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Use Script Action to customize a cluster")
@@ -69,7 +69,7 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 ## <a name="useR"></a>如何在 HDInsight 中執行 R 指令碼？
 本節說明如何使用 HDInsight 在 Hadoop 叢集上執行 R 指令碼。
 
-1. **建立與叢集的遠端桌面連線**：從「Azure 管理入口網站」，針對您所建立已安裝 R 的叢集啟用遠端桌面，然後從遠端連線至叢集。如需相關指示，請參閱 <a href="http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用遠端桌面連線到 HDInsight 叢集</a>。
+1. **建立與叢集的遠端桌面連線**：從「Azure 管理入口網站」，針對您所建立已安裝 R 的叢集啟用遠端桌面，然後從遠端連線至叢集。如需相關指示，請參閱 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用遠端桌面連線到 HDInsight 叢集</a>。
 
 2. **開啟 R 主控台**：R 安裝會在前端節點的桌面上放置 R 主控台的連結。按一下該連結以開啟 R 主控台。
 
@@ -94,7 +94,7 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 
 ## <a name="usingPS"></a>使用 PowerShell 在 HDInsight 上安裝 R
 
-在本節中，我們使用 **<a href = "http://msdn.microsoft.com/zh-tw/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** Cmdlet，以使用「指令碼動作」來叫用指令碼以自訂叢集。在繼續之前，請確定您已安裝並設定 PowerShell。如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。
+在本節中，我們使用 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** Cmdlet，以使用「指令碼動作」來叫用指令碼以自訂叢集。在繼續之前，請確定您已安裝並設定 PowerShell。如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。
 
 執行下列步驟：
 
@@ -259,7 +259,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
             Version = "3.1"
         };        
 
-10. 將下列程式碼附加至 Main() 函數中，以使用 [ScriptAction](http://msdn.microsoft.com/zh-tw/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) 類別來叫用自訂指令碼以安裝 R。
+10. 將下列程式碼附加至 Main() 函數中，以使用 [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) 類別來叫用自訂指令碼以安裝 R。
 
 		// ADD THE SCRIPT ACTION TO INSTALL R
 

@@ -19,7 +19,7 @@
 
 # 轉換和擴充網站
 
-使用 [XML 文件轉換](http://msdn.microsoft.com/zh-tw/library/dd465326.aspx) (XDT) 宣告，即可在您的 Windows Azure 網站中轉換 [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) 檔案。您也可以使用 XDT 宣告來新增私人網站擴充功能，以啟用自訂網站管理動作。本文包含一個 PHP Manager 網站擴充功能範例，該範例透過 Web 介面來啟用 PHP 設定的管理功能。
+使用 [XML 文件轉換](http://msdn.microsoft.com/library/dd465326.aspx) (XDT) 宣告，即可在您的 Windows Azure 網站中轉換 [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) 檔案。您也可以使用 XDT 宣告來新增私人網站擴充功能，以啟用自訂網站管理動作。本文包含一個 PHP Manager 網站擴充功能範例，該範例透過 Web 介面來啟用 PHP 設定的管理功能。
 
 
 <!-- MINI TOC -->

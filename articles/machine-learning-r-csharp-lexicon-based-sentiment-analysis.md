@@ -1,6 +1,20 @@
-﻿<properties title="Lexicon Based Sentiment Analysis" pageTitle="步驟 1：語彙型情感分析 | Azure" description="語彙型情感分析" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="步驟 1：語彙型情感分析 | Azure" 
+	description="語彙型情感分析" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 
 
@@ -61,7 +75,7 @@
 輸入是「今天是美好的一天。」，則輸出會是 "1"，表示與輸入句子相關聯的正面情感。 
 
 ##建立 Web 服務
->此 web 服務是使用 Azure ML 建立的。如需免費試用版，以及有關建立實驗和[發佈 Web 服務](http://azure.microsoft.com/zh-tw/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/)的簡介影片，請參閱 [azure.com/ml](http://azure.com/ml)。以下是建立 Web 服務之實驗的螢幕擷取畫面，以及實驗內每個模組的範例程式碼。
+>此 web 服務是使用 Azure ML 建立的。如需免費試用版，以及有關建立實驗和[發佈 Web 服務](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/)的簡介影片，請參閱 [azure.com/ml](http://azure.com/ml)。以下是建立 Web 服務之實驗的螢幕擷取畫面，以及實驗內每個模組的範例程式碼。
 
 
 已在 Azure ML 中建立新的空白實驗。下圖說明以詞典為基礎的情感分析實驗流程。sent_dict.csv 是 MPQA 主觀性詞典，並已設為 [Execute R Script] 的其中一個輸入。另一個輸入是來自 Amazon 評論測試資料集的取樣評論，我們在此資料集中執行選取範圍、修改資料行名稱、分割作業。我們使用雜湊封裝將主觀性詞典儲存在記憶體中，以加快評分計算程序的速度。"tm" 封裝會將整個文字語彙基元化，並與情感字典中的單字進行比較。最後，分數的計算方式是在文字中加上每個主觀字的加權。 
@@ -129,7 +143,7 @@
 從演算法的觀點來看，以詞典為基礎的情感分析是一般的情感分析工具，在某些領域中，此工具的執行效果可能沒有分類方法來得出色。否定問題不是很好處理。我們在程式中硬式編碼了幾個否定字，但使用否定字典並建置一些規則會是更好的方法。相較於又長又複雜的句子 (例如 Amazon 評論)，在簡短的句子 (例如推文，Facebook 文章) 上執行 Web 服務會有較佳的效果。 
 
 ##常見問題集
-如需使用 Web 服務或發佈至 Marketplace 的常見問題集，請參閱[此處](http://azure.microsoft.com/zh-tw/documentation/articles/machine-learning-marketplace-faq)。
+如需使用 Web 服務或發佈至 Marketplace 的常見問題集，請參閱[此處](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq)。
 
 [1]: ./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_1.png
 [2]: ./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_2.png
@@ -141,3 +155,5 @@
 
 
 
+
+<!--HONumber=46--> 

@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="Replica domain controller" pageTitle="在 Azure 中安裝複本網域控制站" metaKeywords="" description="說明如何從 Azure 虛擬機器上的內部部署 Active Directory 樹系安裝網域控制器的教學課程。" metaCanonical="" services="virtual-network" documentationCenter="" title="Install a Replica Active Directory Domain Controller on an Azure Virtual Network" authors="Justinha" solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft" />
+﻿<properties 
+	pageTitle="在 Azure 中安裝複本網域控制站" 
+	description="此教學課程說明如何從 Azure 的虛擬機器上的內部部署 Active Directory 樹系中安裝網域控制站。" 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="Justinha" 
+	writer="Justinha" 
+	manager="TerryLan" 
+	editor="LisaToft"/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="Justinha" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="Justinha"/>
 
 
 #在 Azure 虛擬網路中安裝複本 Active Directory 網域控制站
@@ -154,7 +169,7 @@
 除了使用管理入口網站來佈建 VM，您也可以使用 Microsoft Azure 的 Windows PowerShell。使用 <a href = "http://msdn.microsoft.com/library/azure/dn495159.aspx">New-AzureVMConfig</a> und <a href = "http://msdn.microsoft.com/library/azure/dn495299.aspx">Add-AzureProvisioningConfig</a> 在 VM 第一次開機時將 VM 佈建為加入網域的機器，並使用 <a href = "http://msdn.microsoft.com/library/azure/dn495254.aspx">New-AzureVM</a> 建立 VM 本身。 
 </p>
 
-如需有關使用 Windows PowerShell 的詳細資訊，請參閱[開始使用 Azure PowerShell](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156055.aspx) 和 [Azure 管理 Cmdlet](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj152841)。
+如需有關使用 Windows PowerShell 的詳細資訊，請參閱[開始使用 Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj156055.aspx) 和 [Azure 管理 Cmdlet](http://msdn.microsoft.com/library/windowsazure/jj152841)。
 
 
 <h2><a id="resources"></a>其他資源</h2>
@@ -179,3 +194,5 @@
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

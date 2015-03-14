@@ -1,6 +1,20 @@
-<properties linkid="develop-php-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Single sign-on with Azure Active Directory (PHP)" metaKeywords="Azure PHP web app, Azure single sign-on, Azure PHP Active Directory" description="Learn how to create a PHP web application that uses single sign-on with Azure Active Directory." metaCanonical="" services="active-directory" documentationCenter="PHP" title="Web Single Sign-On with PHP and Azure Active Directory" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="搭配使用單一登入與 Azure Active Directory (PHP)" 
+	description="了解如何建立使用單一登入搭配 Azure Active Directory 的 PHP Web 應用程式。" 
+	services="active-directory" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="tomfitz"/>
 
 # 利用 PHP 和 Azure Active Directory 進行單一登入
 
@@ -199,3 +213,5 @@
   [步驟 2：在公司的目錄租用戶中佈建應用程式]: #provisionapp
   [步驟 3：使用 WS-同盟進行員工登入來保護應用程式]: #protectapp
   [摘要]: #summary
+
+<!--HONumber=46--> 

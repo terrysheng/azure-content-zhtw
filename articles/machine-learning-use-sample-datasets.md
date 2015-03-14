@@ -1,6 +1,20 @@
-﻿<properties title="Use the sample datasets in Azure Machine Learning Studio" pageTitle="在 Machine Learning Studio 中使用範例資料集 | Azure" description="在 Azure Machine Learning Studio 中使用範例資料集" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="在 Machine Learning Studio 中使用範例資料集 | Azure" 
+	description="Azure Machine Learning Studio 所含之範例資料集的說明" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/16/2014" 
+	ms.author="garye"/>
 
 
 # 在 Azure Machine Learning Studio 中使用範例資料集
@@ -338,3 +352,5 @@ DotNetTable
 </td>
 </tr>
 </table>
+
+<!--HONumber=46--> 

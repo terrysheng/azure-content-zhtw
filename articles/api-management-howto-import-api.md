@@ -1,6 +1,20 @@
-<properties pageTitle="API Management key concepts" metaKeywords="" description="Learn about APIs, products, roles, groups, and other API Management key concepts." metaCanonical="" services="" documentationCenter="API Management" title="API Management key concepts" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="API 管理主要概念" 
+	description="了解 API、產品、角色、群組及其他 API 管理的主要概念。"
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中連同操作一起匯入 API 的定義
 
@@ -81,3 +95,5 @@
   [Export API format]: ./media/api-management-howto-import-api/api-management-export-api-format.png
   [如何設定 API 設定]: ../api-management-howto-create-apis/#configure-api-settings
   [如何建立和發行產品]: ../api-management-howto-add-products
+
+<!--HONumber=46--> 

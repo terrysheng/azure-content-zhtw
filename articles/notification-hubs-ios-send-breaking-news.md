@@ -1,6 +1,20 @@
-﻿<properties pageTitle="通知中心重大消息教學課程 - iOS" metaKeywords="" description="了解如何使用 Azure 服務匯流排通知中心將本地化重大新聞通知傳送至 iOS 裝置。" metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="通知中心重大消息教學課程 - iOS" 
+	description="了解如何使用 Azure 服務匯流排通知中心將本地化重大新聞通知傳送至 iOS 裝置。" 
+	services="notification-hubs" 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
 # 使用通知中心傳送即時新聞
 <div class="dev-center-tutorial-selector sublanding">
@@ -10,7 +24,7 @@
 
 本主題將說明如何使用 Azure 通知中心，將即時新聞通知廣播至 iOS 應用程式。完成時，您便能夠註冊您所感興趣的即時新聞類別，並僅接收這些類別的推播通知。此情況是許多應用程式的共同模式，這些應用程式必須將通知傳送給先前宣告對通知有興趣的使用者群組，例如，RSS 閱讀程式、供樂迷使用的應用程式等等。
 
-在通知中心內建立註冊時，您可以透過包含一或多個 _tags_ 來啟用廣播案例。當標籤收到通知時，所有已註冊此標籤的裝置都會收到通知。由於標籤只是簡單的字串而已，您無需預先佈建標籤。如需標籤的詳細資訊，請參閱 [通知中心指引]。
+在通知中心內建立註冊時，您可以透過包含一或多個 _標籤_ 來啟用廣播案例。當標籤收到通知時，所有已註冊此標籤的裝置都會收到通知。由於標籤只是簡單的字串而已，您無需預先佈建標籤。如需標籤的詳細資訊，請參閱[通知中心指引]。
 
 本教學課程會逐步引導您完成啟用此案例的基本步驟：
 
@@ -19,11 +33,11 @@
 3. [從後端傳送通知]
 4. [執行應用程式並產生通知]
 
-本主題會以您在 [開始使用通知中心][get-started] 中所建立的應用程式為基礎。開始本教學課程之前，您必須已完成 [開始使用通知中心][get-started]。
+本主題會以您在[開始使用通知中心][get-started]中所建立的應用程式為基礎。開始本教學課程之前，您必須已完成[開始使用通知中心][get-started]。
 
-##<a name="adding-categories"></a>在應用程式中新增類別選項
+## <a name="adding-categories"></a>在應用程式中新增類別選項
 
-第一個步驟是在您現有的腳本上新增 UI 元素，以便使用者選取要註冊的類別。使用者所選取的類別會儲存在裝置上。啟動應用程式時，您的通知中心內會建立以所選取類別作為標籤的裝置註冊。
+第一個步驟是在您現有的腳本上新增 UI 元素，以便使用者選取要註冊的類別。使用者所選取的類別會儲存在裝置上。啟動應用程式時，您的通知中心內會建立以所選取類別做為標籤的裝置註冊。
 
 2. 在您的 MainStoryboard_iPhone.storyboard 中，從物件程式庫新增下列元件：
 	+ 具有「即時新聞」文字的標籤，
@@ -50,7 +64,7 @@
 
 		- (IBAction)subscribe:(id)sender;
 
-5. 建立名為 `Notifications` 的新類別。在 Notifications.h 的介面區段中複製下列程式碼：
+5. 建立名為  `Notifications` 的新類別。在 Notifications.h 的介面區段中複製下列程式碼：
 
 		@property NSData* deviceToken;
 
@@ -78,11 +92,9 @@
 
 	此類別會使用本機儲存體來儲存此裝置必須接收的新聞類別。此外，它也包含註冊這些類別的方法。
 
-4. 在上述程式碼中，請使用您的通知中心名稱及先前取得的 *DefaultListenSharedAccessSignature* 連線字串，來取代 `<hub name>` 和 `<connection string with listen access>` 預留位置。
+4. 在上述程式碼中，請使用您的通知中心名稱及先前取得的  *DefaultListenSharedAccessSignature* 連接字串，來取代 `<hub name>` 和 `<connection string with listen access>` 預留位置。
 
-	<div class="dev-callout"><strong>注意</strong>
-		<p>因為隨用戶端應用程式散佈的憑證通常不安全，您應只將接聽存取權的金鑰隨用戶端應用程式散佈。您的應用程式可透過接聽存取權來註冊通知，但無法修改現有的註冊或無法傳送通知。在安全的後端服務中，會使用完整存取金鑰來傳送通知和變更現有的註冊。</p>
-	</div>
+	> [AZURE.NOTE] 因為隨用戶端應用程式散佈的憑證通常不安全，您應只將接聽存取權的金鑰隨用戶端應用程式散佈。您的應用程式可透過接聽存取權來註冊通知，但無法修改現有的註冊或無法傳送通知。在安全的後端服務中，會使用完整存取金鑰來傳送通知和變更現有的註冊。
 
 8. 在 BreakingNewsAppDelegate.h 檔案中，新增下列屬性：
 
@@ -112,7 +124,7 @@
 		    [alert show];
 	    }
 
-	方法會顯示簡易 **UIAlert**，以處理應用程式執行時接收到的通知。
+	此方法會顯示簡易 **UIAlert**，以處理應用程式執行時接收到的通知。
 
 9. 在 BreakingNewsViewController.m 中，將下列程式碼複製到 XCode 產生的 **subscribe** 方法中：
 
@@ -142,13 +154,11 @@
 
 您的應用程式現在可以在裝置上的本機儲存體中儲存一組類別，並在使用者每次變更類別選項時在通知中心註冊。
 
-##<a name="register"></a>註冊通知
+## <a name="register"></a>註冊通知
 
 這些步驟會在啟動時，使用已儲存在本機儲存體中的類別在通知中心註冊。
 
-<div class="dev-callout"><strong>注意</strong>
-	<p>由於 Apple 推播通知服務 (APNS) 所指派的裝置權杖可能隨時會變更，因此您應經常註冊通知以避免通知失敗。此範例會在應用程式每次啟動時註冊通知。若是經常執行 (一天多次) 的應用程式，如果距離上次註冊的時間不到一天，則您可能可以略過註冊以保留頻寬。</p>
-</div>  
+> [AZURE.NOTE] 由於 Apple 推播通知服務 (APNS) 所指派的裝置權杖可能隨時會變更，因此您應經常註冊通知以避免通知失敗。此範例會在應用程式每次啟動時註冊通知。若是經常執行 (一天多次) 的應用程式，如果距離上次註冊的時間不到一天，則您可能可以略過註冊以保留頻寬。
 
 1. 在 Notifications.h 的介面區段中新增下列方法：
 
@@ -167,7 +177,7 @@
 		    return [[NSSet alloc] initWithArray:categories];
 		}
 
-2. 在 **didRegisterForRemoteNotificationsWithDeviceToken** 方法中新增下列程式碼：
+2. Add the following code in the **didRegisterForRemoteNotificationsWithDeviceToken** method:
 
 		Notifications* notifications = [(BreakingNewsAppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
 
@@ -199,9 +209,9 @@
 
 <h2><a name="send"></a>從後端傳送通知</h2>
 
-[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-##<a name="test-app"></a>執行應用程式並產生通知
+## <a name="test-app"></a>執行應用程式並產生通知
 
 1. 按 [執行] 按鈕，以建置專案並啟動應用程式。
 
@@ -215,9 +225,9 @@
 
 4. 若要從後端傳送新通知，您可以使用下列其中一種方式：
 
-	+ **主控台應用程式：** 啟動主控台應用程式。
+	+ **主控台應用程式：**啟動主控台應用程式。
 
-	+ **Java/PHP：** 執行您的應用程式/指令碼。
+	+ **Java/PHP：**執行您的應用程式/指令碼。
 
 5. 選取的類別通知會以快顯通知方式出現。
 
@@ -252,12 +262,14 @@
 
 
 <!-- URLs. -->
-[作法：服務匯流排通知中心 (iOS 應用程式)]: http://msdn.microsoft.com/zh-tw/library/jj927168.aspx
+[做法：服務匯流排通知中心 (iOS 應用程式)]: http://msdn.microsoft.com/library/jj927168.aspx
 [使用通知中心廣播已當地語系化的即時新聞]: /zh-tw/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[行動服務]: /zh-tw/develop/mobile/tutorials/get-started
+
 [使用通知中心來通知使用者]: /zh-tw/manage/services/notification-hubs/notify-users/
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[通知中心指引]: http://msdn.microsoft.com/zh-tw/library/jj927170.aspx
-[iOS 的通知中心作法]: http://msdn.microsoft.com/zh-tw/library/jj927168.aspx
+[通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
+[iOS 的通知中心作法]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /zh-tw/manage/services/notification-hubs/get-started-notification-hubs-ios/
+
+<!--HONumber=45--> 

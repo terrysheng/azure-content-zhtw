@@ -1,6 +1,20 @@
-﻿<properties pageTitle="傳送推播通知給已驗證的使用者" description="了解如何將推播通知傳送給特定" services="mobile-services, notification-hubs" documentationCenter="android" authors="wesmc7777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="傳送推播通知給已驗證的使用者" 
+	description="了解如何將推播通知傳送給特定" 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="android" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="wesmc"/>
 
 # 傳送推播通知給已驗證的使用者
 

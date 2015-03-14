@@ -69,7 +69,7 @@
 
 **使用 Windows Installer 安裝命令列介面**
 
-1.	瀏覽至 **http://azure.microsoft.com/zh-tw/downloads/**。
+1.	瀏覽至 **http://azure.microsoft.com/downloads/**。
 2.	向下捲動至 [**命令列工具**] 區段，然後按一下 [**跨平台命令列介面**]，並依照 Web Platform Installer 精靈操作。
 
 ##<a id="importsettings"></a> 下載和匯入 Azure 帳戶 publishsettings
@@ -215,9 +215,9 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 [azure-command-line-tools]: ../xplat-cli/
 [azure-command-line-tool]: ../command-line-tools/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
-[azure-purchase-options]: http://azure.microsoft.com/zh-tw/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/zh-tw/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/

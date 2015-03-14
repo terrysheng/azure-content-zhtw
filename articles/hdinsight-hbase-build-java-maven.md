@@ -154,7 +154,7 @@
 
 	此檔案用來載入 HDInsight 叢集的 HBase 組態。
 
-	> [AZURE.NOTE] 這是一個極小的 hbase-site.xml 檔案，內含 HDInsight 叢集最低限度的設定。關於 HDInsight 使用的完整版 hbase-site.xml 組態檔，請參閱 [使用遠端桌面連線到 HDInsight 叢集](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-administer-use-management-portal/#rdp)，以及位於 C:\apps\dist\hbase-&lt;version number>-hadoop2\conf 目錄中的 hbase-site.xml 檔案。檔案路徑的版本號碼部分會隨著 HBase 在叢集上更新而變更。
+	> [AZURE.NOTE] 這是一個極小的 hbase-site.xml 檔案，內含 HDInsight 叢集最低限度的設定。關於 HDInsight 使用的完整版 hbase-site.xml 組態檔，請參閱 [使用遠端桌面連線到 HDInsight 叢集](http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp)，以及位於 C:\apps\dist\hbase-&lt;version number>-hadoop2\conf 目錄中的 hbase-site.xml 檔案。檔案路徑的版本號碼部分會隨著 HBase 在叢集上更新而變更。
 
 3. 儲存 __hbase-site.xml__ 檔案。
 
@@ -482,7 +482,7 @@
 		    # Is the Azure module installed?
 		    if (-not(Get-Module -ListAvailable Azure))
 		    {
-		        throw "Windows Azure PowerShell not found! For help, see http://www.windowsazure.com/zh-tw/documentation/articles/install-configure-powershell/"
+		        throw "Windows Azure PowerShell not found! For help, see http://azure.microsoft.com/documentation/articles/install-configure-powershell/"
 		    }
 		
 		    # Is there an active Azure subscription?

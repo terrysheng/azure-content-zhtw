@@ -51,7 +51,7 @@ HDInsight 叢集摘要了 Hadoop 實作詳細資料，因此您無需擔心如�
 
 在設定期間，您必須指定 Azure Blob 儲存體帳戶和預設容器。叢集以此做為預設儲存位置。您可以選擇性地指定也將與叢集相關聯的其他 Blob。
 
-如需有關使用次要 Blob 存放區的詳細資訊，請參閱[使用 Azure Blob 儲存體搭配 HDInsight](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-use-blob-storage/)。
+如需有關使用次要 Blob 存放區的詳細資訊，請參閱[使用 Azure Blob 儲存體搭配 HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-use-blob-storage/)。
 
 ###Metastore
 
@@ -66,7 +66,7 @@ Metastore 包含 Hive 資料表、資料分析、結構描述、資料行等的�
 
 ###虛擬網路
 
-[Azure 虛擬網路](http://azure.microsoft.com/zh-tw/documentation/services/virtual-network/)可讓您建立安全、持續的網路，上面有您的解決方案所需的資源。虛擬網路可讓您：
+[Azure 虛擬網路](http://azure.microsoft.com/documentation/services/virtual-network/)可讓您建立安全、持續的網路，上面有您的解決方案所需的資源。虛擬網路可讓您：
 
 * 在私人網路中將雲端資源結合在一起 (僅限雲端)
 
@@ -84,7 +84,7 @@ Metastore 包含 Hive 資料表、資料分析、結構描述、資料行等的�
 
 如需虛擬網路特性、優點和功能的詳細資訊，請參閱 [Azure 虛擬網路概觀](http://msdn.microsoft.com/library/azure/jj156007.aspx)。
 
-> [AZURE.NOTE] 您必須先建立 Azure 虛擬網路，再佈建 HDInsight 叢集。如需詳細資訊，請參閱[虛擬網路組態工作](http://msdn.microsoft.com/zh-tw/library/azure/jj156206.aspx)。
+> [AZURE.NOTE] 您必須先建立 Azure 虛擬網路，再佈建 HDInsight 叢集。如需詳細資訊，請參閱[虛擬網路組態工作](http://msdn.microsoft.com/library/azure/jj156206.aspx)。
 >
 > Azure HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。
 >
@@ -126,7 +126,7 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 	<table border="1">
 	<tr><th>名稱</th><th>值</th></tr>
 	<tr><td>資料節點</td><td>您要部署的資料節點數。請建立單一節點叢集，以供測試之用。 <br />叢集大小限制會隨著 Azure 訂用帳戶而不同。若要提高限制，請與 Azure 帳務支援人員連絡。</td></tr>
-	<tr><td>區域/虛擬網路</td><td><p>請選擇與您在前一個程序中建立的儲存體帳戶相同的區域。使用 HDInsight 時，儲存體帳戶必須位於相同的區域中。後續進行設定時，您只能選擇此處指定之相同區域中的儲存體帳戶。</p><p>可用的區域如下： <strong>東亞</strong>、 <strong>東南亞</strong>、 <strong>北歐</strong>、 <strong>西歐</strong>、 <strong>美國東部</strong>、 <strong>美國西部</strong>、 <strong>美國中北部</strong>、 <strong>美國中南部</strong><br/>如果您已建立 Azure 虛擬網路，您可以選取將設定 HDInsight 叢集使用的網路。</p><p>如需有關建立 Azure 虛擬網路的詳細資訊，請參閱 <a href="http://msdn.microsoft.com/zh-tw/library/azure/jj156206.aspx">虛擬網路組態工作</a>。</p></td></tr>
+	<tr><td>區域/虛擬網路</td><td><p>請選擇與您在前一個程序中建立的儲存體帳戶相同的區域。使用 HDInsight 時，儲存體帳戶必須位於相同的區域中。後續進行設定時，您只能選擇此處指定之相同區域中的儲存體帳戶。</p><p>可用的區域如下： <strong>東亞</strong>、 <strong>東南亞</strong>、 <strong>北歐</strong>、 <strong>西歐</strong>、 <strong>美國東部</strong>、 <strong>美國西部</strong>、 <strong>美國中北部</strong>、 <strong>美國中南部</strong><br/>如果您已建立 Azure 虛擬網路，您可以選取將設定 HDInsight 叢集使用的網路。</p><p>如需有關建立 Azure 虛擬網路的詳細資訊，請參閱 <a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">虛擬網路組態工作</a>。</p></td></tr>
 	</table>
 
 
@@ -216,7 +216,7 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 ##<a id="powershell"></a> 使用 Azure PowerShell
 Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。本節提供如何佈建 HDInsight 叢集的指示，如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。如需有關在 HDInsight 上使用 PowerShell 的詳細資訊，請參閱[使用 PowerShell 來管理 HDInsight][hdinsight-admin-powershell]。如需 HDInsight PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考文件][hdinsight-powershell-reference]。
 
-> [AZURE.NOTE] 本節的指令碼可用來設定 Azure 虛擬網路上的 HDInsight 叢集，但不會建立 Azure 虛擬網路。如需有關建立 Azure 虛擬網路的相關資訊，請參閱[虛擬網路組態工作](http://msdn.microsoft.com/zh-tw/library/azure/jj156206.aspx)。
+> [AZURE.NOTE] 本節的指令碼可用來設定 Azure 虛擬網路上的 HDInsight 叢集，但不會建立 Azure 虛擬網路。如需有關建立 Azure 虛擬網路的相關資訊，請參閱[虛擬網路組態工作](http://msdn.microsoft.com/library/azure/jj156206.aspx)。
 
 以下是使用 PowerShell 佈建 HDInsight 叢集時所需執行的程序：
 
@@ -384,7 +384,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 **使用 Windows Installer 安裝命令列介面**
 
-1.	瀏覽至 **http://azure.microsoft.com/zh-tw/downloads/**。
+1.	瀏覽至 **http://azure.microsoft.com/downloads/**。
 2.	向下捲動至 [**命令列工具**] 區段，然後按一下 [**跨平台命令列介面**]，並依照 Web Platform Installer 精靈操作。
 
 **下載及匯入發佈設定**
@@ -630,8 +630,8 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
 * [Azure HDInsight SDK 文件][hdinsight-sdk-documentation] - 探索 HDInsight SDK
 
 
-[hdinsight-sdk-documentation]: http://msdn.microsoft.com/zh-tw/library/dn479185.aspx
-[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hbase-get-started/
+[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
+[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
 
 [hdinsight-customize-cluster]: ../hdinsight-hadoop-customize-cluster/
 [hdinsight-get-started]: ../hdinsight-get-started/
@@ -639,7 +639,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hadoop-hdinsight-intro]: ../hdinsight-hadoop-introduction/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
 [azure-management-portal]: https://manage.windowsazure.com/
 
@@ -648,10 +648,10 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
-[azure-purchase-options]: http://azure.microsoft.com/zh-tw/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/zh-tw/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
-[hdi-remote]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-administer-use-management-portal/#rdp
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[hdi-remote]: http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp
 
 
 [powershell-install-configure]: ../install-configure-powershell/

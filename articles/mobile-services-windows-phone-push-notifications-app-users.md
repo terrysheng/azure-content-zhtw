@@ -1,6 +1,20 @@
-<properties pageTitle="推播通知給使用者 (Windows Phone) | 行動開發人員中心" description="了解如何使用行動服務將通知推播到您的 Windows Phone 應用程式。" services="mobile-services, notification-hubs" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="推播通知給使用者 (Windows Phone) | 行動開發人員中心" 
+	description="了解如何使用行動服務將通知推播到您的 Windows Phone 應用程式。" 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/07/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/07/2014" 
+	ms.author="glenga"/>
 
 # 使用行動服務推播通知給使用者
 

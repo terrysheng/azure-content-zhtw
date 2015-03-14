@@ -1,6 +1,20 @@
-﻿<properties pageTitle="開始使用資料 (HTML 5) | 行動開發人員中心" description="了解如何開始使用行動服務，在您的 HTML 應用程式中使用資料。" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="開始使用資料 (HTML 5) | 行動開發人員中心" 
+	description="了解如何開始使用行動服務，在您的 HTML 應用程式中使用資料。" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="glenga"/>
 
 # 將行動服務新增至現有的應用程式
 
@@ -18,7 +32,7 @@
 4. [更新應用程式以使用行動服務]
 5. [針對行動服務進行應用程式測試]
 
-> [AZURE.IMPORTANT] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F"%20target="_blank)。
+> [AZURE.IMPORTANT] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F"%20target="_blank)。
 
 ###其他需求
 
@@ -126,7 +140,7 @@
 
   	![][11]
 
-	> [AZURE.IMPORTANT] 如果您將快速入門應用程式部署至 localhost 以外的 Web 伺服器，您必須將該 Web 伺服器的主機名稱新增至 [**允許提出要求的主機名稱**] 清單。如需詳細資訊，請參閱[跨原始來源資源分享http://msdn.microsoft.com/zh-tw/library/windowsazure/dn155871.aspx"%20target="_blank)。
+	> [AZURE.IMPORTANT] 如果您將快速入門應用程式部署至 localhost 以外的 Web 伺服器，您必須將該 Web 伺服器的主機名稱新增至 [**允許提出要求的主機名稱**] 清單。如需詳細資訊，請參閱[跨原始來源資源分享http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank)。
 
 現在您已準備好將新的行動服務作為應用程式的資料儲存區使用。
 
@@ -197,8 +211,10 @@
 						.append($('<div>').append($('<input class="item-text">').val(item.text)));
 				});
 					   
-				$('#todo-items').empty().append(listItems).toggle(listItems.length > 0);
-				$('#summary').html('<strong>' + todoItems.length + '</strong> item(s)');
+				$('#todo-items').empty().append(listItems).toggle(listIte
+	ms.length > 0);
+				$('#summary').html('<strong>' + todoIte
+	ms.length + '</strong> item(s)');
 			});
 		}
 	   
@@ -308,7 +324,7 @@
 
 [行動服務 HTML/JavaScript 做法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client
 
-[跨原始資源共用]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn155871.aspx
+[跨原始資源共用]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
 
 

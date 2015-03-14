@@ -30,7 +30,7 @@
 * 如何將自訂的網站直接從 WebMatrix 部署至 Azure。
 
 > [AZURE.NOTE]
-> 若要完成此教學課程，您需要 Azure 帳戶。您可以<a href="http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/">啟用您的 MSDN 訂閱者權益</a>或是<a href="http://azure.microsoft.com/zh-tw/pricing/free-trial/">註冊免費試用</a>。
+> 若要完成此教學課程，您需要 Azure 帳戶。您可以<a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">啟用您的 MSDN 訂閱者權益</a>或是<a href="http://azure.microsoft.com/pricing/free-trial/">註冊免費試用</a>。
 > 如果您要在註冊帳戶前開始使用 Azure 網站，請移至 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>，您可以在 Azure 網站中立即建立短期的免費 ASP.NET 簡易版網站。無需使用信用卡，也不用簽約。
 
 ## 登入 Azure
@@ -248,7 +248,7 @@
 
 
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
-[sendgridexample]: http://azure.microsoft.com/zh-tw/documentation/articles/sendgrid-dotnet-how-to-send-email/
+[sendgridexample]: http://azure.microsoft.com/documentation/articles/sendgrid-dotnet-how-to-send-email/
 
 
 <!--HONumber=42-->

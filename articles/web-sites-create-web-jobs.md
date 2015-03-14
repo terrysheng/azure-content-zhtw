@@ -21,7 +21,7 @@
 
 Azure 網站可讓您利用以下三種方法，在網站中執行程式或指令碼：依需要、連續或根據排程。使用 Microsoft Azure WebJobs 不會產生額外的費用。
 
-本文說明如何使用 Azure 管理入口網站來部署 WebJobs。如需如何使用 Visual Studio 或連續傳遞程序進行部署的相關資訊，請參閱[如何將 Azure WebJobs 部署至 Azure 網站](http://azure.microsoft.com/zh-tw/documentation/articles/websites-dotnet-deploy-webjobs)。
+本文說明如何使用 Azure 管理入口網站來部署 WebJobs。如需如何使用 Visual Studio 或連續傳遞程序進行部署的相關資訊，請參閱[如何將 Azure WebJobs 部署至 Azure 網站](http://azure.microsoft.com/documentation/articles/websites-dotnet-deploy-webjobs)。
 
 Azure WebJobs SDK 能簡化許多 WebJobs 程式設計工作。如需詳細資訊，請參閱[什麼是 WebJobs SDK](../websites-dotnet-webjobs-sdk).。
 

@@ -18,7 +18,7 @@
 
 # 在 Azure 網站的企業營運應用程式中驗證和授權使用者 #
 
-[Azure 網站](http://azure.microsoft.com/zh-tw/services/websites/)支援使用者單一登入 (SSO) (無論使用者是從內部部署的環境或公用網際網路存取應用程式)，可應用於企業的企業營運應用程式案例。它可整合 [Azure Active Directory](http://azure.microsoft.com/zh-tw/services/active-directory/) (AAD) 或內部部署的 Secure Token Service (STS)，例如 Active Directory Federation Services (AD FS)，以驗證您的內部 Active Directory (AD) 使用者並適當地授權。
+[Azure 網站](http://azure.microsoft.com/services/websites/)支援使用者單一登入 (SSO) (無論使用者是從內部部署的環境或公用網際網路存取應用程式)，可應用於企業的企業營運應用程式案例。它可整合 [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) (AAD) 或內部部署的 Secure Token Service (STS)，例如 Active Directory Federation Services (AD FS)，以驗證您的內部 Active Directory (AD) 使用者並適當地授權。
 
 ## 零阻力的驗證與授權 ##
 
@@ -31,19 +31,19 @@
 在許多情況下，您會想要自訂應用程式的驗證和授權行為，例如登入和登出頁面、自訂授權邏輯及多重租用戶應用程式行為等。在這些情況下，以手動方式設定驗證和授權以更靈活地使用功能可能是較佳的選擇。以下是兩個主要選項：  
 
 -	[Azure AD](../web-sites-dotnet-lob-application-azure-ad/) - 您可以使用 Azure AD 為您的網站實作驗證和授權。使用 Azure AD 作為身分識別提供者具有下列特性：
-	-	支援普遍的驗證通訊協定，例如 [OAuth 2.0](http://oauth.net/2/)、[OpenID Connect](http://openid.net/connect/) 和 [SAML 2.0](http://en.wikipedia.org/wiki/SAML_2.0)。如需支援之通訊協定的完整清單，請參閱 [Azure Active Directory 驗證通訊協定](http://msdn.microsoft.com/zh-tw/library/azure/dn151124.aspx)。
+	-	支援普遍的驗證通訊協定，例如 [OAuth 2.0](http://oauth.net/2/)、[OpenID Connect](http://openid.net/connect/) 和 [SAML 2.0](http://en.wikipedia.org/wiki/SAML_2.0)。如需支援之通訊協定的完整清單，請參閱 [Azure Active Directory 驗證通訊協定](http://msdn.microsoft.com/library/azure/dn151124.aspx)。
 	-	可以使用僅 Azure 的識別提供者，不需要任何內部部署基礎結構。
 	-	也可以設定與內部部署的 AD (受管理的內部部署) 同步目錄。
 	-	當 AD 使用者透過內部網路和網際網路存取時，與內部部署的 AD 網域同步目錄的 Azure AD 可提供流暢的 SSO 體驗。經由內部網路時，AD 使用者可透過整合式驗證自動存取網站。經由網際網路時，AD 使用者可使用其 Windows 認證登入網站。
-	-	請為 [Azure AD 支援的所有應用程式](http://azure.microsoft.com/zh-tw/marketplace/active-directory/) (包括 Azure、Office 365、Dynamics CRM Online、Windows InTune 及數千種非 Microsoft 的雲端應用程式) 提供 SSO。 
+	-	請為 [Azure AD 支援的所有應用程式](http://azure.microsoft.com/marketplace/active-directory/) (包括 Azure、Office 365、Dynamics CRM Online、Windows InTune 及數千種非 Microsoft 的雲端應用程式) 提供 SSO。 
 	-	Azure AD 將[信賴憑證者](http://en.wikipedia.org/wiki/Relying_party)應用程式的管理工作委派給非系統管理員角色，但機密目錄資料的應用程式存取權仍必須由全域系統管理員設定。
-	-	傳送一組一般用途的宣告類型供所有信賴憑證者應用程式使用。如需宣告類型的清單，請參閱[支援的權杖和宣告類型](http://msdn.microsoft.com/zh-tw/library/azure/dn195587.aspx)。宣告無法自訂。
-	-	[Azure AD 圖形 API](http://msdn.microsoft.com/zh-tw/library/azure/hh974476.aspx) 可讓應用程式存取存取 Azure AD 中的目錄資料。 
+	-	傳送一組一般用途的宣告類型供所有信賴憑證者應用程式使用。如需宣告類型的清單，請參閱[支援的權杖和宣告類型](http://msdn.microsoft.com/library/azure/dn195587.aspx)。宣告無法自訂。
+	-	[Azure AD 圖形 API](http://msdn.microsoft.com/library/azure/hh974476.aspx) 可讓應用程式存取存取 Azure AD 中的目錄資料。 
 -	[內部部署的 Secure Token Service (STS)，例如 AD FS](../web-sites-dotnet-lob-application-adfs/) - 您可以為具有內部部署的 STS (如 AD FS) 的網站實作驗證和授權。使用內部部署的 AD FS 具有下列特性：
 	-	AD FS 拓撲必須在內部部署，需要成本和管理費用。
 	-	公司政策要求 AD 資料儲存在內部時最佳。
-	-	只有 AD FS 系統管理員可設定[信賴憑證者信任和宣告規則](http://technet.microsoft.com/zh-tw/library/dd807108.aspx)。
-	-	可依據每一應用程式基礎來管理[宣告](http://technet.microsoft.com/zh-tw/library/ee913571.aspx)。
+	-	只有 AD FS 系統管理員可設定[信賴憑證者信任和宣告規則](http://technet.microsoft.com/library/dd807108.aspx)。
+	-	可依據每一應用程式基礎來管理[宣告](http://technet.microsoft.com/library/ee913571.aspx)。
 	-	必須有透過公司防火牆存取內部部署之 AD 資料的獨立解決方案。
 
 

@@ -1,6 +1,19 @@
-<properties pageTitle="在行動服務中使用離線資料 (Windows Phone) | 行動開發人員中心" description="了解如何在 Windows Phone 應用程式中對於同步離線資料使用 Azure 行動服務。" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="在行動服務中使用離線資料 (Windows Phone) | 行動開發人員中心" 
+	description="了解如何在 Windows Phone 應用程式中對於同步離線資料使用 Azure 行動服務。" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="wesmc"/>
+<tags 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/10/2014" 
+	ms.author="wesmc"/>
 
 # 使用行動服務中的離線資料同步
 
@@ -30,7 +43,7 @@
 * [Azure Mobile Services SQLite Store 1.0.0 版 (或更新版本)][SQLite Store Nuget]
 * [適用於 Windows Phone 8 的 SQLite]
 
->[AZURE.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。 
+>[AZURE.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。 
 
 ## <a name="enable-offline-app"></a>更新應用程式以支援離線功能
 

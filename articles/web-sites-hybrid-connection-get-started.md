@@ -23,7 +23,7 @@
 > [AZURE.NOTE] 「混合式連線」功能的「網站」部分僅適用於 [Azure 預覽入口網站](https://portal.azure.com)。若要在 BizTalk 服務中建立連線，請參閱[混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)。  
 
 ##必要條件
-- Azure 訂閱。若要取得免費訂用帳戶，請參閱 [Azure 免費試用](http://azure.microsoft.com/zh-tw/pricing/free-trial/)。 
+- Azure 訂閱。若要取得免費訂用帳戶，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。 
 
 - 若要透過混合式連線使用內部部署 SQL Server 或 SQL Server Express 資料庫，必須在靜態連接埠上啟用 TCP/IP。建議在 SQL Server 上使用預設執行個體，因為其使用靜態連接埠 1433。如需安裝及設定 SQL Server Express 以搭配混合式連線使用的相關資訊，請參閱[使用混合式連線從 Azure 網站連線到內部部署 SQL Server](http://go.microsoft.com/fwlink/?LinkID=397979)
 
@@ -165,7 +165,7 @@
 
 - 如需建立使用混合式連線的 ASP.NET Web 應用程式相關資訊，請參閱[使用混合式連線從 Azure 網站連線到內部部署 SQL Server](http://go.microsoft.com/fwlink/?LinkID=397979)。
 
-- 如需將混合式連線與行動服務搭配使用的相關資訊，請參閱[使用混合式連線從 Azure 行動服務連線到內部部署 SQL Server](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/)。
+- 如需將混合式連線與行動服務搭配使用的相關資訊，請參閱[使用混合式連線從 Azure 行動服務連線到內部部署 SQL Server](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/)。
 
 ###其他資源
 
@@ -173,9 +173,9 @@
 
 [Josh Twist 介紹混合式連線 (第 9 頻道視訊)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[混合式連線網站](http://azure.microsoft.com/zh-tw/services/biztalk-services/)
+[混合式連線網站](http://azure.microsoft.com/services/biztalk-services/)
 
-[BizTalk 服務：儀表板、監視器、調整、設定和混合式連線索引標籤](http://azure.microsoft.com/zh-tw/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
+[BizTalk 服務：儀表板、監視器、調整、設定和混合式連線索引標籤](http://azure.microsoft.com/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
 [透過絕佳的應用程式可攜性建置真實的混合式雲端 (第 9 頻道視訊)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 

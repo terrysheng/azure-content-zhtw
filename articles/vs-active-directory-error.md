@@ -1,6 +1,20 @@
-<properties title="Error During Authentication Detection" pageTitle="驗證偵測期間發生錯誤" metaKeywords="" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="驗證偵測期間發生錯誤" 
+	description="Active directory 連線精靈偵測到不相容的驗證類型" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 ###驗證偵測期間發生錯誤 
 偵測先前的驗證程式碼時，精靈偵測到不相容的驗證類型。   
@@ -78,3 +92,5 @@
 若要變更驗證類型，請移除不相容的驗證類型，然後重新執行精靈。
 
 如需詳細資訊，請參閱 [Azure AD 的驗證案例](http://msdn.microsoft.com/library/azure/dn499820.aspx)。
+
+<!--HONumber=46--> 

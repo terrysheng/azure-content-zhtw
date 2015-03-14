@@ -1,6 +1,20 @@
-﻿<properties title="FAQ for publishing and using Machine Learning apps in the Azure Marketplace" pageTitle="發佈和使用 Azure Marketplace 中機器學習應用程式的常見問題集 | Azure" description="常見問題集" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="發佈和使用 Azure Marketplace 中機器學習應用程式的常見問題集 | Azure" 
+	description="常見問題集" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="luisca" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="luisca"/>
 
 #發佈和使用 Azure Marketplace 中機器學習應用程式的常見問題集
 
@@ -16,7 +30,7 @@
 
 ###問題 3：在 [探索此資料集] 中輸入 Web 服務的輸入後，我看到下列錯誤。為什麼我會收到這則錯誤訊息？
 處理您的要求時發生未預期的錯誤。請再試一次。
-答：在 Marketplace [探索此資料集] 頁面上使用 Web 服務時，該服務的一或多個輸入參數可能超過長度限制。使用 HTTP POST 方法可能可以呼叫較長輸入長度的服務。範例程式碼已公佈在此處所述的範例服務下：http://azure.microsoft.com/zh-tw/documentation/articles/machine-learning-r-csharp-web-service-examples/。
+答：在 Marketplace [探索此資料集] 頁面上使用 Web 服務時，該服務的一或多個輸入參數可能超過長度限制。使用 HTTP POST 方法可能可以呼叫較長輸入長度的服務。範例程式碼已公佈在此處所述的範例服務下：http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-web-service-examples/。
 
 ###
 
@@ -44,3 +58,5 @@
 
 
 
+
+<!--HONumber=46--> 

@@ -1,6 +1,13 @@
 ﻿<properties title="Machine Learning example apps in the Azure Marketplace" pageTitle="Azure Marketplace 中的機器學習範例應用程式 | Azure" description="Azure 機器學習應用程式範例示範如何將機器學習服務發布到 Azure Marketplace 對於在自己的應用程式中使用的訂閱者進行支付。" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/16/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/16/2014" 
+	ms.author="jaymathe" /> 
 
 # Azure Marketplace 中的機器學習範例應用程式
 
@@ -17,3 +24,5 @@ Azure Machine Learning 是個新管道，可讓資料科學家像智慧型手機
 * [異常偵測](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) - 是個 API，可在時間序列資料 (例如伺服器遙測、以感應器為基礎的資料) 中找到異常事件。
 
 這些 API 可讓您使用根據 Azure ML 建置的強大機器學習型服務，您不需要是資料科學家或花許多時間自我學習，您只需要提供自己的資料就可以開始使用這些服務。
+
+<!--HONumber=46--> 

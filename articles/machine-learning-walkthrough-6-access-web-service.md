@@ -1,6 +1,20 @@
-﻿<properties title="Step 6: Access the Azure Machine Learning web service" pageTitle="步驟 6：存取機器學習 Web 服務 | Azure" description="步驟 6：存取使用中的 Azure 機器學習 Web 服務" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="步驟 6：存取 Machine Learning Web 服務 | Azure" 
+	description="方案逐步解說步驟 6：存取使用中的 Azure Machine Learning Web 服務" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 
 這是逐步解說[使用 Azure ML 開發預測方案][develop]的最後一個步驟：
@@ -79,3 +93,5 @@ API 說明頁面包含 R、C# 和 Python 程式設計語言的範例。例如，
 	result = h$value()
 
 
+
+<!--HONumber=46--> 

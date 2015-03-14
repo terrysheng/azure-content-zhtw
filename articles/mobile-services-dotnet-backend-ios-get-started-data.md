@@ -1,6 +1,20 @@
-<properties pageTitle="開始使用資料 (iOS) | 行動開發人員中心" description="了解如何開始使用行動服務，在您的 iOS 應用程式中使用資料。" services="mobile-services" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="開始使用資料 (iOS) | 行動開發人員中心" 
+	description="了解如何開始使用行動服務，在您的 iOS 應用程式中使用資料。" 
+	services="mobile-services" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 # 將行動服務新增至現有的應用程式
 
@@ -27,7 +41,7 @@
 
 + [行動服務 iOS SDK] 和 [XCode 4.5][安裝 Xcode] 及 iOS 5.0 或更新版本。
 + Visual Studio 2013 (您可以免費取 [Visual Studio Express for Web](http://go.microsoft.com/p/?linkid=9832232) )。
-+ Microsoft Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Azure 免費試用</a>。
++ Microsoft Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Azure 免費試用</a>。
 
 ## <a name="download-app"></a>下載 GetStartedWithData 專案
 

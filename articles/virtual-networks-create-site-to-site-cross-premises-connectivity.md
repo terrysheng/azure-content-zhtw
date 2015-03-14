@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" pageTitle="教學課程：建立跨單位虛擬網路以提供站對站連線能力" metaKeywords="" description="了解如何在此教學課程中使用跨單位部署連線建立 Azure Virtual Network。" metaCanonical="" services="virtual-network" documentationCenter="" title="Create a Virtual Network for Site-to-Site Cross-Premises Connectivity" authors="cherylmc" solutions="" manager="adinah" editor="" />
+﻿<properties 
+	pageTitle="教學課程：建立站對站連線的跨單位虛擬網路" 
+	description="了解如何在此教學課程中使用跨單位連線建立 Azure 虛擬網路。" 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="cherylmc"/>
 
 
 
@@ -10,9 +24,9 @@
 
 本教學課程將逐步引導您建立具有站對站連線的跨單位虛擬網路範例。 
 
-如果您要建立純雲端虛擬網路，請參閱[教學課程：在 Azure 中建立純雲端虛擬網路](http://azure.microsoft.com/zh-tw/documentation/articles/create-virtual-network/)。如果您想要使用憑證和 VPN 用戶端來建立點對網站 VPN，請參閱[使用管理入口網站精靈設定點對站 VPN](http://go.microsoft.com/fwlink/?LinkId=296653)。
+如果您要建立純雲端虛擬網路，請參閱[教學課程：在 Azure 中建立純雲端虛擬網路](http://azure.microsoft.com/documentation/articles/create-virtual-network/)。如果您想要使用憑證和 VPN 用戶端來建立點對網站 VPN，請參閱[使用管理入口網站精靈設定點對站 VPN](http://go.microsoft.com/fwlink/?LinkId=296653)。
 
-本教學課程假設您先前沒有使用 Azure 的經驗。目的在於協助您熟悉建立範例跨單位虛擬網路所需的步驟。如果您在尋找有關虛擬網路的設計案例和進階資訊，請參閱 [Azure 虛擬網路概觀](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx)。
+本教學課程假設您先前沒有使用 Azure 的經驗。目的在於協助您熟悉建立範例跨單位虛擬網路所需的步驟。如果您在尋找有關虛擬網路的設計案例和進階資訊，請參閱 [Azure 虛擬網路概觀](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)。
 
 完成本教學課程之後，您將具有範例跨單位虛擬網路。下圖顯示以本教學課程中的範例設定為基礎的詳細資料。
 
@@ -28,7 +42,7 @@
 
 -  [在 Azure 虛擬網路中安裝複本 Active Directory 網域控制站](http://go.microsoft.com/fwlink/?LinkId=299877)
 
-如需在 Azure 虛擬機器上部署 AD DS 的指導方針，請參閱[在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090.aspx)。
+如需在 Azure 虛擬機器上部署 AD DS 的指導方針，請參閱[在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx)。
 
 如需其他虛擬網路組態程序和設定，請參閱 [Azure 虛擬網路組態工作](http://go.microsoft.com/fwlink/?LinkId=296652)。
 
@@ -42,7 +56,7 @@
 
 ##  必要條件
 
--  至少有一個有效且作用中 Azure 訂閱的 Windows 帳戶。如果您還沒有 Azure 訂閱，可以在 [Try Azure](http://www.windowsazure.com/pricing/free-trial/) 上註冊免費試用版。如果您擁有 MSDN 訂閱，請參閱 [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠](http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/)。
+-  至少有一個有效且作用中 Azure 訂閱的 Windows 帳戶。如果您還沒有 Azure 訂閱，可以在 [Try Azure](http://www.windowsazure.com/pricing/free-trial/) 上註冊免費試用版。如果您擁有 MSDN 訂閱，請參閱 [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
 若您要使用本教學課程，設定為組織自訂且能有效運作的跨單位虛擬網路，您需要下列項目：
 
@@ -103,7 +117,7 @@
 
 	-  **名稱：**若為本教學課程的範例，請輸入 **YourCorpHQ**。
 
-	-  **VPN 裝置 IP 位置：**若為本教學課程的範例，請輸入 **3.2.1.1**。否則，請輸入 VPN 裝置的公用 IP 位址。如果您缺少這項資訊，請先取得該資訊後再前往精靈的下一個步驟。請注意，您的 VPN 裝置不可位於 NAT 後方。如需 VPN 裝置的詳細資訊，請參閱[關於虛擬網路的 VPN 裝置](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156075.aspx)。
+	-  **VPN 裝置 IP 位置：**若為本教學課程的範例，請輸入 **3.2.1.1**。否則，請輸入 VPN 裝置的公用 IP 位址。如果您缺少這項資訊，請先取得該資訊後再前往精靈的下一個步驟。請注意，您的 VPN 裝置不可位於 NAT 後方。如需 VPN 裝置的詳細資訊，請參閱[關於虛擬網路的 VPN 裝置](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx)。
 
 	-  **位址空間：**若為本教學課程的範例，請輸入 **10.1.0.0/16**。
 	-  **新增位址空間：** 本教學課程不需要額外的位址空間。
@@ -244,15 +258,15 @@
 
 ## 另請參閱
 
--  [Azure 虛擬網路](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156007.aspx)
+-  [Azure 虛擬網路](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
 -  [虛擬網路常見問題集](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
--  [使用網路組態檔設定虛擬網路](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156097.aspx)
+-  [使用網路組態檔設定虛擬網路](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
--  [將虛擬機器新增至虛擬網路](http://www.windowsazure.com/zh-tw/manage/services/networking/add-a-vm-to-a-virtual-network/)
+-  [將虛擬機器新增至虛擬網路](http://azure.microsoft.com/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
--  [關於虛擬網路的 VPN 裝置](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156075.aspx)
+-  [關於虛擬網路的 VPN 裝置](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx)
 
 -  [名稱解析](http://go.microsoft.com/fwlink/?LinkId=248097)
 
@@ -260,3 +274,5 @@
 
 
 
+
+<!--HONumber=46--> 

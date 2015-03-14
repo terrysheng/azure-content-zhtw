@@ -1,12 +1,34 @@
-﻿<properties urldisplayname="Team Foundation Service" headerexpose="" pageTitle="在本機的計算模擬器中分析雲端服務" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler" authors="kempb" manager="douge" />
+﻿<properties 
+	urldisplayname="Team Foundation Service" 
+	headerexpose="" 
+	pageTitle="在本機的計算模擬器中分析雲端服務" 
+	metakeywords="" 
+	footerexpose="" 
+	description="了解如何使用 Visual Studio 分析工具，在本機的 Azure 計算模擬器中測試雲端服務的效能" 
+	umbraconavihide="0" 
+	disquscomments="1" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee" 
+	services="cloud-services" 
+	documentationCenter=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/3/2014" ms.author="kempb" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="kempb"/>
 
 # 使用 Visual Studio 分析工具，在 Azure 計算模擬器中本機測試雲端服務的效能
 
 各種工具和技術可用於測試雲端服務的效能。
-當您將雲端服務發佈至 Azure 時，可以讓 Visual Studio 收集分析資料，然後在本機分析它 (如[測試 Azure 應用程式的效能][1]中所述)。
-您也可以使用診斷追蹤各種效能計數器，如[在 Azure 中使用效能計數器][2]中所述。
+當您將雲端服務發行至 Azure 時，可以讓 Visual Studio 收集程式碼剖析
+資料然後在本機進行分析，如[對 Azure 應用程式進行程式碼剖析][1]所述。
+您也可以使用診斷來追蹤各種效能
+計數器，如[在 Azure 中使用效能計數器][2]所述。
 您也可能想要先在計算模擬器中本機分析應用程式，再將之部署至雲端。
 
 本文涵蓋進行分析的「CPU 取樣」方法，這可以在模擬器上本機完成。CPU 取樣不是非常侵入式的分析方法。分析工具會按指定的取樣間隔取得呼叫堆疊的快照集。會收集一段時間的資料，而且資料會顯示在報告中。此分析方法傾向指出在計算密集應用程式中的哪個位置完成大部分的 CPU 工作。這可讓您有機會聚焦在應用程式耗用最多時間的「最忙碌路徑」。
@@ -32,15 +54,15 @@
 
 ## <a name="step1"> </a> 步驟 1：設定 Visual Studio 進行分析
 
-首先，有些 Visual Studio 組態選項可能在進行分析時很實用。若要讓分析報告發揮作用，您需要應用程式的符號 (.pdb 檔案)，也需要系統庫的符號。您會希望確定參考可用的符號伺服器。若要執行此動作，請在 Visual Studio 的 [**工具**] 功能表上，選擇 [**選項**]，然後選擇 [**偵錯**]，然後選擇 [**符號**]。請確定 Microsoft Symbol Servers 列在 [**符號檔 (.pdb) 位置**] 下方。您也可以參考 http://referencesource.microsoft.com/symbols，其中可能有其他符號檔案。
+首先，有些 Visual Studio 組態選項可能在進行分析時很實用。若要讓分析報告發揮作用，您需要應用程式的符號 (.pdb 檔案)，也需要系統庫的符號。您會希望確定參考可用的符號伺服器。若要這樣做，請在 Visual Studio 的 [**工具**] 功能表中依序選擇 [**選項**]、[**偵錯**] 和 [**符號**]。確定 [**符號檔 (.pdb) 位置**] 底下有列出 Microsoft 符號伺服器。您也可以參考 http://referencesource.microsoft.com/symbols，其中可能有其他符號檔案。
 
 ![][4]
 
-如有需要，您可以設定 Just My Code 來簡化分析工具所產生的報告。啟用 Just My Code 之後，會簡化函數呼叫堆疊，因此報告中會隱藏整個是程式庫和 .NET Framework 的內部呼叫。在 [**工具**] 功能表上，選擇 [**選項**]。然後展開 [**效能工具**] 節點，並選擇 [**一般**]。選取 [**啟用 Just My Code 以進行分析工具報告**] 核取方塊。
+如有需要，您可以設定 Just My Code 來簡化分析工具所產生的報告。啟用 Just My Code 之後，會簡化函數呼叫堆疊，因此報告中會隱藏整個是程式庫和 .NET Framework 的內部呼叫。在 [**工具**] 功能表上，選擇 [**選項**]。然後展開 [**效能工具**] 節點，並選擇 [**一般**]。選取 [**啟用 Just My Code 以進行分析工具報告**] 的核取方塊。
 
 ![][17]
 
-您可以將這些指示與現有專案或新的專案搭配使用。如果您建立新的專案來嘗試上面所述的技術，請選擇 C# [**Azure 雲端服務**] 專案，然後選取 [**Web 角色**] 和 [**背景工作角色**]。
+您可以將這些指示與現有專案或新的專案搭配使用。如果您建立新的專案以嘗試以下所述的技巧，請選擇 C# **Azure 雲端服務**專案，然後選取 [**Web 角色**] 和 [**背景工作角色**]。
 
 ![][5]
 
@@ -90,7 +112,8 @@
 如果您的專案資料夾位於網路磁碟機上，則分析工具會要求您提供另一個位置來儲存分析報告。
 
  您也可以藉由連結至 WaIISHost.exe 來連結至 Web 角色。
- 如果您的應用程式中有多個背景工作角色程序，則需使用 processID 進行區別。您可以存取 Process 物件，以透過程式設計方式查詢 processID。例如，如果您將此程式碼新增至角色中 RoleEntryPoint 衍生類別的 Run 方法，則可以查看計算模擬器 UI 中的記錄，得知要連線的程序。
+ 如果您的應用程式中有多個背景工作角色程序，則需使用 processID 進行區別。您可以存取 Process 物件，以透過程式設計方式查詢 processID。例如，如果您將此程式碼加入角色中 RoleEntryPoint 衍生類別的 Run 方法，您可以查看
+計算模擬器 UI 中的記錄，以得知要連接到的程序。
 
 	var process = System.Diagnostics.Process.GetCurrentProcess();
 	var message = String.Format("Process ID: {0}", process.Id);
@@ -122,7 +145,8 @@
 
 如果您在「最忙碌路徑」中看到 String.wstrcpy，請按一下 Just My Code 變更檢視，只顯示使用者程式碼。如果您看到 String.Concat，請嘗試按 [顯示所有程式碼] 按鈕。
 
-您應該會看到 Concatenate 方法和 String.Concat 耗用大部分的執行時間。
+您應該會看到 Concatenate 方法和 String.Concat 耗用大部分的
+執行時間。
 
 ![][12]
 
@@ -145,7 +169,7 @@
 	    return builder.ToString();
 	}
 
-請進行另一個效能執行，然後比較效能。在 [效能總管] 中，如果這些執行都位於相同的工作階段中，則只能選取兩份報告，並開啟捷徑功能表，然後選擇 [**比較效能報告**]。如果您想要與另一個效能工作階段中的執行進行比較，請開啟 [**分析**] 功能表，然後選擇 [**比較效能報告**]。請在顯示的對話方塊中指定兩個檔案。
+請進行另一個效能執行，然後比較效能。在 [效能總管] 中，如果這些執行位於相同工作階段中，您可以直接選取這兩份報告，開啟捷徑功能表，然後選擇 [**比較效能報告**]。如果您想要與另一個效能工作階段中的執行進行比較，請開啟 [**分析**] 功能表，然後選擇 [**比較效能報告**]。請在顯示的對話方塊中指定兩個檔案。
 
 ![][15]
 
@@ -199,4 +223,4 @@
 [16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

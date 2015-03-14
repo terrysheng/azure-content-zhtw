@@ -401,8 +401,8 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
 
 	刪除服務可能需要幾分鐘的時間。刪除服務後，您將收到表示已刪除服務的訊息。
 
-  [Node.js Web Application using Express]: http://www.windowsazure.com/zh-tw/develop/nodejs/tutorials/web-app-with-express/
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
-  [Node.js Web Application]: http://www.windowsazure.com/zh-tw/develop/nodejs/tutorials/getting-started/
+  [Node.js Web Application using Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
+  [Node.js Web Application]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
  
 <!--HONumber=42-->

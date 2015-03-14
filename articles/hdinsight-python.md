@@ -149,7 +149,7 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 ##<a name="running"></a>執行範例
 
-這些步驟使用 Windows Azure PowerShell。如果尚未在開發機器上安裝和設定此元件，則使用下列步驟之前，請參閱[如何安裝並設定 Azure PowerShell](http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/)。
+這些步驟使用 Windows Azure PowerShell。如果尚未在開發機器上安裝和設定此元件，則使用下列步驟之前，請參閱[如何安裝並設定 Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)。
 
 
 1. 使用 Python 範例 [streaming.py](#streamingpy) 和 [jython.py](#jythonpy)建立您的開發電腦上檔案的本機副本。

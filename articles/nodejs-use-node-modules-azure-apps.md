@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="Working with Node.js Modules" pageTitle="使用 Node.js 模組 " metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Using Node.js Modules with Azure applications" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties 
+	pageTitle="使用 Node.js 模組 " 
+	description="" 
+	services="" 
+	documentationCenter="nodejs" 
+	title="Using Node.js Modules with Azure applications" 
+	authors="larryfr" 
+	manager="wpickett" 
+	editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="na" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr" />
 
 
 
@@ -83,3 +98,5 @@ Azure 網站不支援原生模組。某些模組 (例如 JSDOM 和 MongoDB) 擁�
 [建立 Node.js 應用程式並部署到 Azure 雲端服務]: /zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/
 
 
+
+<!--HONumber=46--> 

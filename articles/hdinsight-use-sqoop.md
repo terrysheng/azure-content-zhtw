@@ -74,7 +74,7 @@
 
 	> [AZURE.NOTE] > Azure HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。
 
-	* 若要**建立及設定虛擬網路**，請參閱[虛擬網路組態工作](http://msdn.microsoft.com/zh-tw/library/azure/jj156206.aspx)。
+	* 若要**建立及設定虛擬網路**，請參閱[虛擬網路組態工作](http://msdn.microsoft.com/library/azure/jj156206.aspx)。
 
 		* **在您的資料中心內**使用 SQL Server 時，您必須將虛擬網路設定為  *site-to-site* 或  *point-to-site*。
 
@@ -362,7 +362,7 @@ WASB 語法如下：
 
 > [AZURE.NOTE] 除了連接字串資訊以外，本節中的步驟應可運用在 Azure SQL Database 或 SQL Server 上。這些步驟已使用下列組態進行測試：
 > 
-> * **Azure 虛擬網路點對站組態** - 在私人資料中心裡將 HDInsight 叢集連接到 SQL Server 的虛擬網路。如需詳細資訊，請參閱[使用管理入口網站設定點對站 VPN](http://msdn.microsoft.com/zh-tw/library/azure/dn133792.aspx)。
+> * **Azure 虛擬網路點對站組態** - 在私人資料中心裡將 HDInsight 叢集連接到 SQL Server 的虛擬網路。如需詳細資訊，請參閱[使用管理入口網站設定點對站 VPN](http://msdn.microsoft.com/library/azure/dn133792.aspx)。
 > * **Azure HDInsight 3.1** - 如需在虛擬網路上建立叢集的相關資訊，請參閱[使用自訂選項在 HDInsight 中佈建 Hadoop 叢集](/zh-tw/documentation/articles/hdinsight-provision-clusters/)
 > * **SQL Server 2014** - 以設定成允許 SQL 驗證，以及執行 VPN 用戶端組態套件安全地連接到虛擬網路
 
@@ -648,9 +648,9 @@ WASB 語法如下：
 [sqldatabase-get-started]: ../sql-database-get-started/
 [sqldatabase-create-configue]: ../sql-database-create-configure/
 
-[powershell-start]: http://technet.microsoft.com/zh-tw/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: ../install-configure-powershell
-[powershell-script]: http://technet.microsoft.com/zh-tw/library/ee176949.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 

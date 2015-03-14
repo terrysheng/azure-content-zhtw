@@ -1,6 +1,20 @@
-﻿<properties title="How to customize monitoring" pageTitle="如何自訂監視" description="了解如何在 Azure 自訂監視圖表。" authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="如何自訂監視" 
+	description="了解如何在 Azure 自訂監視圖表。" 
+	authors="alancameronwills" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="awills"/>
 
 # 自訂監視
 
@@ -53,3 +67,5 @@ Web 主控方案較其他資源來得複雜些，因為他們代表執行**網�
 
 請注意，當您退出入口網站時，圖表的時間範圍和選擇的度量將會重設。
 
+
+<!--HONumber=46--> 

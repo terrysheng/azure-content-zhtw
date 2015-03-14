@@ -1,6 +1,20 @@
-﻿<properties pageTitle="代表使用者存取 SharePoint | 行動開發人員中心" description="了解如何代表使用者電洽 SharePoint" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="代表使用者存取 SharePoint | 行動開發人員中心" 
+	description="了解如何代表使用者電洽 SharePoint" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # 代表使用者存取 SharePoint
 
@@ -202,6 +216,6 @@
 <!-- URLs. -->
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/zh-tw/sharepoint/
-[使用 Active Directory Authentication Library 單一登入驗證您的應用程式]: http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+[使用 Active Directory Authentication Library 單一登入驗證您的應用程式]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
 
 <!--HONumber=42-->

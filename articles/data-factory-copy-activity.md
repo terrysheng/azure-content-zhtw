@@ -1,6 +1,20 @@
-﻿<properties title="Copy data with Azure Data Factory" pageTitle="使用 Azure Data Factory 複製資料" description="了解如何使用 Azure 資料處理站中的複製活動將資料從資料來源複製到另一個資料來源。" metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="使用 Azure Data Factory 複製資料" 
+	description="了解如何使用 Azure Data Factory 中的複製活動將資料來源的資料複製到其他資料來源。" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/08/2015" 
+	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 複製資料 (複製活動)
 您可以使用管線中的「複製活動」****，以批次方式將資料從來源複製到接收器 (目的地)。「複製活動」可以用於下列案例：
@@ -724,3 +738,5 @@ Depending on the type of Table, it is possible to specify a subset of the column
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

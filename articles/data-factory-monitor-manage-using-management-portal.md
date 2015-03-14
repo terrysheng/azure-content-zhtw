@@ -1,6 +1,23 @@
-﻿<properties title="Monitor and manage Azure Data Factory using Azure Preview Portal" pageTitle="使用 Azure 預覽入口網站監視和管理 Azure Data Factory" description="了解如何使用 Azure 管理入口網站來監視及管理您已經建立的 Azure 資料處理站。" metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	title="Monitor and manage Azure Data Factory using Azure Preview Portal" 
+	pageTitle="使用 Azure 預覽入口網站監視和管理 Azure Data Factory" 
+	description="了解如何使用 Azure 管理入口網站來監視及管理您已經建立的 Azure 資料處理站。" 
+	metaKeywords=""  
+	services="data-factory" 
+	solutions=""  
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/13/2014" 
+	ms.author="spelluru" />
 
 # 使用 Azure 預覽入口網站監視 Azure Data Factory
 
@@ -204,3 +221,5 @@ ValidationInProgress | 正在執行配量驗證 (根據資料表 JSON 中定義�
 [image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

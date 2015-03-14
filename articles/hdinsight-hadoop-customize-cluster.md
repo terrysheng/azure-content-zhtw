@@ -24,7 +24,7 @@
 
 
 
-> [AZURE.NOTE] 只有在 HDInsight 叢集版本 3.1 上才支援使用「指令碼動作」來自訂叢集。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-component-versioning/)。
+> [AZURE.NOTE] 只有在 HDInsight 叢集版本 3.1 上才支援使用「指令碼動作」來自訂叢集。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/)。
 
 
 
@@ -65,7 +65,7 @@
 
 **從管理入口網站**
 
-1. 依照[使用自訂選項佈建叢集](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-provision-clusters/#portal)中的說明，使用**自訂建立**選項開始佈建叢集。 
+1. 依照[使用自訂選項佈建叢集](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal)中的說明，使用**自訂建立**選項開始佈建叢集。 
 2. 在指令碼動作頁面的精靈中，按一下 [**加入指令碼動作**] 提供有關指令碼動作，詳細資料，如下所示：
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CustomProvision.Page6.png "Use Script Action to customize a cluster")
@@ -86,7 +86,7 @@
   
 **使用 PowerShell Cmdlet**
 
-使用 HDInsight PowerShell 命令來執行單一「指令碼動作」或多個「指令碼動作」。您可以使用 **<a href = "http://msdn.microsoft.com/zh-tw/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** Cmdlet 叫用自訂指令碼。若要使用這些 Cmdlet，您必須已安裝並設定 Azure PowerShell。如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。
+使用 HDInsight PowerShell 命令來執行單一「指令碼動作」或多個「指令碼動作」。您可以使用 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** Cmdlet 叫用自訂指令碼。若要使用這些 Cmdlet，您必須已安裝並設定 Azure PowerShell。如需設定工作站以執行 HDInsight Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。
 
 請使用下列 PowerShell 命令，以在部署 HDInsight 叢集時，執行單一「指令碼動作」：
 
@@ -106,13 +106,13 @@
 
 **使用 HDInsight .NET SDK**
 
-HDInsight .NET SDK 提供 <a href="http://msdn.microsoft.com/zh-tw/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx" target="_blank">ScriptAction</a> 類別用以叫用自訂指令碼。若要使用 HDInsight .NET SDK：
+HDInsight .NET SDK 提供 <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx" target="_blank">ScriptAction</a> 類別用以叫用自訂指令碼。若要使用 HDInsight .NET SDK：
 
 1. 建立 Visual Studio 應用程式，並從 Nuget 安裝 SDK。在 [工具] 功能表中按一下 [Nuget 封裝管理員]，然後按一下 [封裝管理員主控台]。在主控台中執行下列命令，以安裝封裝：
 
 		Install-Package Microsoft.WindowsAzure.Management.HDInsight
 
-2. 使用 SDK 建立叢集。如需相關指示，請參閱[使用 .NET SDK 佈建 HDInsight 叢集](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-provision-clusters/#sdk)。
+2. 使用 SDK 建立叢集。如需相關指示，請參閱[使用 .NET SDK 佈建 HDInsight 叢集](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#sdk)。
 
 3. 使用 **ScriptAction** 類別叫用自訂指令碼，如下所示：
 
@@ -145,11 +145,11 @@ HDInsight .NET SDK 提供 <a href="http://msdn.microsoft.com/zh-tw/library/micro
 - **安裝 Giraph**。[在 HDInsight 叢集上安裝和使用 Giraph](../hdinsight-hadoop-giraph-install)
 
 ## <a name="support"></a>支援 HDInsight 叢集上使用的開放原始碼軟體
-Microsoft Azure HDInsight 服務是彈性的平台，可讓您使用圍繞著 Hadoop 形成的開放原始碼技術生態系統，在雲端建置巨量資料應用程式。Microsoft Azure 會為開放原始碼技術提供一般層級的支援，如此處所述： <a href="http://azure.microsoft.com/zh-tw/support/faq/" target="_blank">Azure 支援常見問題集網站的支援範圍區段</a>。此外，HDInsight 服務為如下所述的某些元件提供額外的支援層級。
+Microsoft Azure HDInsight 服務是彈性的平台，可讓您使用圍繞著 Hadoop 形成的開放原始碼技術生態系統，在雲端建置巨量資料應用程式。Microsoft Azure 會為開放原始碼技術提供一般層級的支援，如此處所述： <a href="http://azure.microsoft.com/support/faq/" target="_blank">Azure 支援常見問題集網站的支援範圍區段</a>。此外，HDInsight 服務為如下所述的某些元件提供額外的支援層級。
 
 HDInsight 服務中有兩種類型的開放原始碼元件：
 
-- **內建元件**。這些元件預先安裝在 HDInsight 叢集上，並提供在叢集的核心功能。例如，Yarn 資源管理員、Hive 查詢語言及 Mahout 文件庫均屬於此類別。叢集元件的完整清單在 <a href="http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-component-versioning/" target="_blank">這裡</a>。
+- **內建元件**。這些元件預先安裝在 HDInsight 叢集上，並提供在叢集的核心功能。例如，Yarn 資源管理員、Hive 查詢語言及 Mahout 文件庫均屬於此類別。叢集元件的完整清單在 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/" target="_blank">這裡</a>。
 - **自訂元件**。身為叢集使用者的您，可以安裝或在您的工作負載中使用社群中或您所建立的任何元件。
 
 完全支援內建元件，而 Microsoft 支援服務將協助您找出並解決與這些元件相關的問題。

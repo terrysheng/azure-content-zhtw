@@ -33,7 +33,7 @@ Azure 儲存體帳戶是一個安全的帳戶，可讓您存取「Azure 儲存�
 - 交易是指對 Azure 儲存體進行的所有讀取和寫入作業。 
 - 資料外送流量是指傳出 Azure 地區的資料。當您儲存體帳戶中的資料受不同地區中執行的應用程式存取時，不論該應用程式是雲端服務還是其他某類應用程式，您都要負擔資料外送流量的費用。(若為 Azure 服務，您可以採取步驟，將資料和服務群組在相同的資料中心，以減少或消除資料外送流量費用。)  
 
-[儲存體定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/#storage)頁面提供儲存體容量、複寫和交易的詳細定價資訊。[資料傳輸定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/data-transfers/)則提供資料外送流量的詳細定價資訊。
+[儲存體定價詳細資料](http://azure.microsoft.com/pricing/details/#storage)頁面提供儲存體容量、複寫和交易的詳細定價資訊。[資料傳輸定價詳細資料](http://azure.microsoft.com/pricing/details/data-transfers/)則提供資料外送流量的詳細定價資訊。
 
 如需有關儲存體帳戶容量和效能目標的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx)。
 
@@ -101,7 +101,7 @@ Azure 儲存體帳戶是一個安全的帳戶，可讓您存取「Azure 儲存�
 
 「同質群組」**是將您的 Azure 服務和 VM 與 Azure 儲存體帳戶依地理位置形成的群組。同質群組會將電腦工作負載置於相同的資料中心內或目標使用者對象附近，因而能改善服務效能。此外，當您儲存體帳戶中的資料是由同一同質群組中的服務存取時，資料外送流量並不會產生任何費用。
 
-> [AZURE.NOTE]  若要建立同質群組，請開啟「管理入口網站」的 [設定]<b></b> 區域，按一下 [同質群組]<b></b>，然後按一下 [加入同質群組]<b></b> 或 [新增]<b></b> 按鈕。您也可以使用 Azure 服務管理 API 建立及管理同質群組。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460798.aspx">同質群組的相關作業</a>。
+> [AZURE.NOTE]  若要建立同質群組，請開啟「管理入口網站」的 [設定]<b></b> 區域，按一下 [同質群組]<b></b>，然後按一下 [加入同質群組]<b></b> 或 [新增]<b></b> 按鈕。您也可以使用 Azure 服務管理 API 建立及管理同質群組。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/windowsazure/ee460798.aspx">同質群組的相關作業</a>。
 
 
 ### <a id="replication-options"></a>儲存體帳戶複寫選項
@@ -119,7 +119,7 @@ Azure 儲存體帳戶是一個安全的帳戶，可讓您存取「Azure 儲存�
 
 ### 複製儲存體存取金鑰 ###
 
-您可以使用 [管理金鑰] 來複製要在連接字串中使用的儲存體存取金鑰。連接字串需有要在驗證中使用的儲存體帳戶名稱和金鑰。如需有關設定連接字串以存取 Azure 儲存體服務的資訊，請參閱[設定連接字串](http://msdn.microsoft.com/zh-tw/library/ee758697.aspx).
+您可以使用 [管理金鑰] 來複製要在連接字串中使用的儲存體存取金鑰。連接字串需有要在驗證中使用的儲存體帳戶名稱和金鑰。如需有關設定連接字串以存取 Azure 儲存體服務的資訊，請參閱[設定連接字串](http://msdn.microsoft.com/library/ee758697.aspx).
 
 1. 在[管理入口網站](http://manage.windowsazure.com)中，按一下 [儲存體]，然後按一下儲存體帳戶的名稱以開啟儀表板。
 
@@ -171,7 +171,7 @@ Azure 儲存體帳戶是一個安全的帳戶，可讓您存取「Azure 儲存�
 
 ## <a id="next"></a>後續步驟
 
-- 若要深入了解「Azure 儲存體」，請參閱 [azure.com](http://azure.microsoft.com/zh-tw/documentation/services/storage/) 和 [MSDN](http://msdn.microsoft.com/zh-tw/library/gg433040.aspx) 上的「Azure 儲存體」文件。 
+- 若要深入了解「Azure 儲存體」，請參閱 [azure.com](http://azure.microsoft.com/documentation/services/storage/) 和 [MSDN](http://msdn.microsoft.com/library/gg433040.aspx) 上的「Azure 儲存體」文件。 
 
 - 請造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)。
 

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="BizTalk 服務：備份與還原 | Azure" metaKeywords="" description="BizTalk 服務包含備份與還原功能。建立備份時會產生 BizTalk 服務組態的快照。" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
+﻿<properties 
+	pageTitle="BizTalk 服務：備份和還原 |Azure" 
+	description="BizTalk 服務包含備份與還原功能。了解如何建立和還原備份，以及判斷該備份什麼。MABS，WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 # BizTalk 服務：備份與還原 (英文)
@@ -16,7 +30,7 @@ Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Az
 
 ##<a name="beforebackup"></a>開始之前
 
-- 備份與還原可能不適用於部分版本。請參閱 [BizTalk 服務：版本圖表](http://azure.microsoft.com/zh-tw/documentation/articles/biztalk-editions-feature-chart/)。
+- 備份與還原可能不適用於部分版本。請參閱 [BizTalk 服務：版本圖表](http://azure.microsoft.com/documentation/articles/biztalk-editions-feature-chart/)。
 
 	**注意事項**：混合式連線無法備份，與版本無關。
 
@@ -227,3 +241,5 @@ BizTalk 服務永遠還原成**暫止**狀態。在此狀態下，您可以在�
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png
 [AutomaticBU]: ./media/biztalk-backup-restore/AutomaticBU.png
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
+
+<!--HONumber=46--> 

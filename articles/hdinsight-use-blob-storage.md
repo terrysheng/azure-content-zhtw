@@ -62,7 +62,7 @@ Hadoop 支援預設檔案系統的概念。預設檔案系統意味著預設配�
 - **儲存體帳戶中未連接到叢集的公用容器或公用 Blob：**您擁有容器中 Blob 的唯讀權限。
 
 	> [AZURE.NOTE]
-        > 公用容器可讓您取得該容器中所有可用的 Blob 清單，並取得容器中繼資料。公用 Blob 只在  您知道確切的 URL 時才可讓您存取 Blob。如需詳細資訊，請參閱 <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179354.aspx">限制容器和 Blob 的存取權</a>。
+        > 公用容器可讓您取得該容器中所有可用的 Blob 清單，並取得容器中繼資料。公用 Blob 只在  您知道確切的 URL 時才可讓您存取 Blob。如需詳細資訊，請參閱 <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">限制容器和 Blob 的存取權</a>。
 
 - **儲存體帳戶中未連接到叢集的私人容器：**除非您定義儲存體帳戶，否則當您提交 WebHCat 工作時將無法存取容器中的 Blob。本文稍後會加以說明。
 
@@ -297,7 +297,7 @@ URI 配置提供  *wasb:* 首碼的未加密存取，以及  *wasbs* 的 SSL 加
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 [powershell-install]: ../install-configure-powershell/
-[blob-storage-restAPI]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
 [azure-storage-create]: ../storage-create-storage-account/
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-use-blob-storage/HDI.PowerShell.BlobCommands.png 

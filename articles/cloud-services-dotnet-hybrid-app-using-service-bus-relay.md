@@ -1,6 +1,20 @@
-<properties urlDisplayName="Hybrid Application" pageTitle="混合式內部部署/雲端應用程式 (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="了解如何使用 Azure Service Bus Relay 建立 .NET 內部部署/雲端混合式應用程式。" metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="混合式內部部署/雲端應用程式 (.NET) - Azure" 
+	description="了解如何使用 Azure Service Bus Relay 建立 .NET 內部部署/雲端混合式應用程式。" 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -163,7 +177,7 @@ Azure 資料中心內執行的 Web 角色實際上如何呼叫
 
 ###使用 Visual Studio 伺服器總管來管理服務命名空間：
 
-若要使用 Visual Studio 而非管理入口網站來管理命名空間並取得連線資訊，請遵循[這裡](http://http://msdn.microsoft.com/zh-tw/library/windowsazure/ff687127.aspx)所述的程序 (**從 Visual Studio 連接到 Azure** 一節)。當您登入 Azure 時，在 [伺服器總管] 中，[**Microsoft Azure**] 樹狀結構下的 [**服務匯流排**] 節點中會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 [**屬性**]，即可在 Visual Studio [**屬性**] 窗格中，查看與此命名空間相關聯的連接字串及其他中繼資料。 
+若要使用 Visual Studio 而非管理入口網站來管理命名空間並取得連線資訊，請遵循[這裡](http://http://msdn.microsoft.com/library/windowsazure/ff687127.aspx)所述的程序 (**從 Visual Studio 連接到 Azure** 一節)。當您登入 Azure 時，在 [伺服器總管] 中，[**Microsoft Azure**] 樹狀結構下的 [**服務匯流排**] 節點中會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 [**屬性**]，即可在 Visual Studio [**屬性**] 窗格中，查看與此命名空間相關聯的連接字串及其他中繼資料。 
 
 ![][44]
 
@@ -502,7 +516,7 @@ Azure 資料中心內執行的 Web 角色實際上如何呼叫
 
     <h2>將應用程式準備好部署至 AZURE</h2>
 
-    您可以將您的應用程式部署到 Azure 雲端服務或 Azure 網站。若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型][executionmodels]。若要了解如何將應用程式部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](http://www.windowsazure.com/zh-tw/develop/net/tutorials/get-started/) (英文)。本節包含將應用程式部署至 Azure 雲端服務的詳細步驟。
+    您可以將您的應用程式部署到 Azure 雲端服務或 Azure 網站。若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型][executionmodels]。若要了解如何將應用程式部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](http://azure.microsoft.com/develop/net/tutorials/get-started/) (英文)。本節包含將應用程式部署至 Azure 雲端服務的詳細步驟。
 
     若要將應用程式部署至雲端服務，您需要新增雲端服務專案部署專案至方案。
     部署專案中包含
@@ -790,7 +804,9 @@ Azure 會依耗用的每小時伺服器時間對 Web 角色執行個體計費。
   [43]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [44]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
 
-  [sbmsdn]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee732537.aspx  
+  [sbmsdn]: http://msdn.microsoft.com/library/windowsazure/ee732537.aspx  
   [sbwacom]: /zh-tw/documentation/services/service-bus/  
   [sbwacomqhowto]: /zh-tw/develop/net/how-to-guides/service-bus-queues/
-  [executionmodels]: http://www.windowsazure.com/zh-tw/develop/net/fundamentals/compute/
+  [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
+
+<!--HONumber=46--> 

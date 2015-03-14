@@ -1,6 +1,20 @@
-﻿<properties pageTitle="使用行動服務 .NET 用戶端程式庫" description="了解如何使用適用於 Azure 行動服務的 .NET 用戶端。" services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="使用行動服務 .NET 用戶端程式庫" 
+	description="了解如何使用適用於 Azure 行動服務的 .NET 用戶端。" 
+	services="" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/10/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="glenga"/>
 
 
 
@@ -80,7 +94,7 @@
 
 <h2><a name="instantiating"></a>做法：建立資料表參考</h2>
 
-只要是可存取或修改行動服務資料表中之資料的所有程式碼，都會呼叫  `MobileServiceTable` 物件上的函數。您可透過呼叫  `MobileServiceClient` 執行個體上的 [GetTable](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554275.aspx) 函數，來取得資料表的參考。
+只要是可存取或修改行動服務資料表中之資料的所有程式碼，都會呼叫  `MobileServiceTable` 物件上的函數。您可透過呼叫  `MobileServiceClient` 執行個體上的 [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) 函數，來取得資料表的參考。
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
@@ -158,14 +172,16 @@
 
 依預設，伺服器僅會傳回前 50 筆資料列。您可以提高傳回的資料列數，方法是呼叫 [Take] 方法。使用  `Take` 搭配 [Skip] 方法來要求查詢傳回之總資料集的特定「頁面」。執行下列查詢時，會傳回資料表中的前三個項目。
 
-	// Define a filtered query that returns the top 3 items.
+	// Define a filtered query that returns the top 3 ite
+	ms.
 	MobileServiceTableQuery<TodoItem> query = todoTable
 					.Take(3);
 	List<TodoItem> items = await query.ToListAsync();
 
 下列已修訂查詢會略過前三個結果，並傳回接下來的後三個結果。實際上這就是第二「頁」資料，頁面大小為三個項目。
 
-	// Define a filtered query that skips the top 3 items and returns the next 3 items.
+	// Define a filtered query that skips the top 3 items and returns the next 3 ite
+	ms.
 	MobileServiceTableQuery<TodoItem> query = todoTable
 					.Skip(3)
 					.Take(3);
@@ -407,7 +423,8 @@
 
 本節說明如何使用 UI 元素來顯示傳回的資料物件。若要查詢  `todoTable` 中的未完成項目，並將它顯示在非常簡單的清單中，您可以執行下列範例程式碼來將清單來源與查詢繫結。使用  `MobileServiceCollection` 可建立行動服務感知繫結集合。
 
-	// This query filters out completed TodoItems.
+	// This query filters out completed TodoIte
+	ms.
 	MobileServiceCollection<TodoItem, TodoItem> items = await todoTable
 		.Where(todoItem => todoItem.Complete == false)
 		.ToCollectionAsync();
@@ -419,7 +436,7 @@
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoading](http://msdn.microsoft.com/zh-tw/library/windows/apps/Hh701916) 的介面。此介面允許控制項在使用者捲動時要求額外資料。Windows 市集應用程式可透過  `MobileServiceIncrementalLoadingCollection` 為此介面提供內建支援，以自動處理控制項的呼叫。若要在 Windows 市集應用程式中使用  `MobileServiceIncrementalLoadingCollection`，請執行下列程式碼：
+Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916) 的介面。此介面允許控制項在使用者捲動時要求額外資料。Windows 市集應用程式可透過  `MobileServiceIncrementalLoadingCollection` 為此介面提供內建支援，以自動處理控制項的呼叫。若要在 Windows 市集應用程式中使用  `MobileServiceIncrementalLoadingCollection`，請執行下列程式碼：
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -432,7 +449,8 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 若要在 Windows Phone 上使用新的集合，請在  `IMobileServiceTableQuery<T>` 和  `IMobileServiceTable<T>` 上使用  `ToCollection` 擴充功能方法。若要實際載入資料，請呼叫  `LoadMoreItemsAsync()`。
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
-	await items.LoadMoreItemsAsync();
+	await ite
+	ms.LoadMoreItemsAsync();
 
 當您使用藉由呼叫  `ToCollectionAsync` 或  `ToCollection` 來建立的集合時，您會取得可繫結至 UI 控制項的集合。此集合有分頁感知功能，例如，控制項可要求集合「載入更多項目」，集合便會為此控制項執行此動作。此時，控制項會在未涉及使用者程式碼的情況下啟動流程。不過，因為集合會從網路中載入資料，因此載入有時候可能會失敗。若要處理這類失敗，您可以覆寫  `MobileServiceIncrementalLoadingCollection` 上的  `OnException` 方法，以處理呼叫控制項執行的  `LoadMoreItemsAsync` 時，所造成的例外狀況。
 
@@ -583,7 +601,8 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 		try
 		{
 			await todoTable.InsertAsync(todoItem);
-			items.Add(todoItem);
+			ite
+	ms.Add(todoItem);
 		}
 		catch (MobileServiceInvalidOperationException e)
 		{
@@ -639,7 +658,7 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 
 ### <a name="serialization"></a>做法：自訂序列化
 
-[MobileServiceClient](http://msdn.microsoft.com/zh-tw/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 類別會公開 [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm) 類型的  `SerializerSettings` 屬性
+[MobileServiceClient](http://msdn.microsoft.com/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 類別會公開 [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm) 類型的  `SerializerSettings` 屬性
 
 透過此屬性，您可以設定許多 Json.NET 屬性，例如，包括一個可將所有屬性轉換為小寫的屬性：
 
@@ -704,33 +723,33 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 <!-- URLs. -->
 [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started
 [行動服務 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Windows 市集快速入門教學課程]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started/
-[Windows Phone 快速入門教學課程]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-wp8/
-[Windows 市集資料教學課程]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet/
-[Windows Phone 資料教學課程]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-wp8/
-[Windows 市集驗證]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Windows Phone 驗證]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-users-wp8/
-[PasswordVault]: http://msdn.microsoft.com/zh-tw/library/windows/apps/windows.security.credentials.passwordvault.aspx
+[Windows 市集快速入門教學課程]: http://azure.microsoft.com/develop/mobile/tutorials/get-started/
+[Windows Phone 快速入門教學課程]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-wp8/
+[Windows 市集資料教學課程]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-dotnet/
+[Windows Phone 資料教學課程]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-wp8/
+[Windows 市集驗證]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Windows Phone 驗證]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-users-wp8/
+[PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [行動服務 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[ProtectedData]: http://msdn.microsoft.com/zh-tw/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
+[ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [行動服務 SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
 [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-dotnet/
 [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet
 [使用指令碼驗證及修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-dotnet
 [使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[LoginAsync 方法]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
-[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
-[MobileServiceUser]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
-[UserID]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
-[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
+[LoginAsync 方法]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
+[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
+[MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
+[UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
+[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 [ASCII 控制碼 C0 和 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[管理行動服務資料表的命令]: http://www.windowsazure.com/zh-tw/manage/linux/other-resources/command-line-tools/#Mobile_Tables
-[開放式並行存取教學課程]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
+[管理行動服務資料表的命令]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[開放式並行存取教學課程]: http://azure.microsoft.com/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
 
-[IncludeTotalCount]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn250560.aspx
-[Skip]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn250573.aspx
-[Take]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn250574.aspx
+[IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
+[Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx
+[Take]: http://msdn.microsoft.com/library/windowsazure/dn250574.aspx
 [Fiddler]: http://www.telerik.com/fiddler
 APIAzure 行動服務用戶端 SDK 中的自訂 API[: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [從用戶端呼叫自訂 API] : /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/

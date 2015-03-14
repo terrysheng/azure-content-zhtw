@@ -49,7 +49,7 @@ Azure 儲存體帳戶是指可讓您存取 Azure 儲存體服務的安全帳戶�
 - 標準儲存體帳戶包含 Blob、資料表、佇列和檔案儲存體。
 - Premium 儲存體帳戶目前僅支援 Azure 虛擬機器磁碟。若要使用「Azure Premium 儲存體」，只需透過 [Azure Preview 頁面](/zh-tw/services/preview/)提出要求即可。
 
-在建立儲存體帳戶之前，您必須擁有 Azure 訂用帳戶，訂用帳戶是指可讓您存取各種 Azure 服務的方案。單一訂用帳戶可讓您建立最多 100 個唯一命名的儲存體帳戶。如需有關大量採購報價的資訊，請參閱[儲存體定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/storage/)。
+在建立儲存體帳戶之前，您必須擁有 Azure 訂用帳戶，訂用帳戶是指可讓您存取各種 Azure 服務的方案。單一訂用帳戶可讓您建立最多 100 個唯一命名的儲存體帳戶。如需有關大量採購報價的資訊，請參閱[儲存體定價詳細資料](http://azure.microsoft.com/pricing/details/storage/)。
 
 您可以利用[免費試用版](/zh-tw/pricing/free-trial/)來開始使用 Azure。一旦您決定購買方案，您將可選擇各式各樣的[購買選項](/zh-tw/pricing/purchase-options/).如果你是 [MSDN 訂戶](/zh-tw/pricing/member-offers/msdn-benefits-details/)，您將每月免費獲得可用於 Azure 服務 (包括 Azure 儲存體) 的信用額度。
 
@@ -164,7 +164,7 @@ Blob 儲存體提供兩種 Blob 類型：區塊 Blob 和頁面 Blob (磁碟)。�
 ### 下載
 
 - [Azure 儲存體 NuGet 封裝 - 適用於 .NET、Windows Phone 和 Windows 執行階段的用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Azure SDK 和工具](http://azure.microsoft.com/zh-tw/downloads/)
+- [Azure SDK 和工具](http://azure.microsoft.com/downloads/)
 - [Azure 儲存體模擬器](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
 
 ### 原始程式碼
@@ -174,15 +174,15 @@ Blob 儲存體提供兩種 Blob 類型：區塊 Blob 和頁面 Blob (磁碟)。�
 ### 文件
 
 - [Azure 儲存體文件](/zh-tw/documentation/services/storage/)
-- [Azure 儲存體服務 REST API 參考](http://msdn.microsoft.com/zh-tw/library/dd179355.aspx)
-- [AzCopy 命令列工具參考](http://azure.microsoft.com/zh-tw/documentation/articles/storage-use-azcopy/)
+- [Azure 儲存體服務 REST API 參考](http://msdn.microsoft.com/library/dd179355.aspx)
+- [AzCopy 命令列工具參考](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/)
 
 <h3>針對 PowerShell 使用者</h3>
-- [Azure 儲存體 Cmdlet](http://msdn.microsoft.com/zh-tw/library/azure/dn806401.aspx)
+- [Azure 儲存體 Cmdlet](http://msdn.microsoft.com/library/azure/dn806401.aspx)
 
 <h3>針對 .NET 開發人員</h3>
 
-- [.NET 用戶端程式庫參考](http://msdn.microsoft.com/zh-tw/library/wa_storage_30_reference_home.aspx)
+- [.NET 用戶端程式庫參考](http://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
 - [如何從 .NET 使用 Blob 儲存體](../storage-dotnet-how-to-use-blobs/)
 - [如何從 .NET 使用資料表儲存體](../storage-dotnet-how-to-use-tables/)
 - [如何從 .NET 使用佇列儲存體](../storage-dotnet-how-to-use-queues/)

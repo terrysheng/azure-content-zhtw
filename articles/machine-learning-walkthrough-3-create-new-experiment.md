@@ -1,6 +1,20 @@
-<properties title="Step 3: Create a new Azure Machine Learning experiment" pageTitle="步驟 3：建立新的 Machine Learning 實驗 | Azure" description="步驟 3：在 Azure Machine Learning Studio 中建立新的訓練實驗" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="步驟 3：建立新的 Machine Learning 實驗 | Azure" 
+	description="方案逐步解說步驟 3：在 Azure Machine Learning Studio 中建立新的訓練實驗" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 這是[使用 Azure ML 開發預測方案][develop]逐步解說的第三個步驟：
@@ -100,3 +114,5 @@
 [1]: ./media/machine-learning-walkthrough-3-create-new-experiment/create1.png
 [2]: ./media/machine-learning-walkthrough-3-create-new-experiment/create2.png
 [3]: ./media/machine-learning-walkthrough-3-create-new-experiment/create3.png
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="開始使用驗證 (iOS) | 行動開發人員中心" description="了解如何使用行動服務透過眾多識別提供者驗證 iOS 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" services="mobile-services" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="開始使用驗證 (iOS) | 行動開發人員中心" 
+	description="了解如何使用行動服務透過眾多識別提供者驗證 iOS 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" 
+	services="mobile-services" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 # 在您的行動服務應用程式中新增驗證
 
@@ -71,7 +85,8 @@
 
 [13]: ./media/mobile-services-ios-get-started-users/mobile-identity-tab.png
 [14]: ./media/mobile-services-ios-get-started-users/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-ios-get-started-users/mobile-portal-change-table-perms.png
+[15]: ./media/mobile-services-ios-get-started-users/mobile-portal-change-table-per
+	ms.png
 
 
 <!-- URLs. -->

@@ -1,12 +1,26 @@
-﻿<properties pageTitle="註冊 Facebook 驗證 - 行動服務" description="了解如何在 Azure 行動服務應用程式中使用 Facebook 驗證。" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="註冊 Facebook 驗證 - 行動服務" 
+	description="了解如何在 Azure 行動服務應用程式中使用 Facebook 驗證。" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # 在行動服務中註冊應用程式以採用 Facebook 驗證
 
 本主題說明如何在 Azure 行動服務中註冊您的應用程式，使其能夠採用 Facebook 驗證。 
 
-> [AZURE.NOTE] 本教學課程有關 [Azure 行動服務]，此方案可協助您建置適用於任何平台的可擴充行動應用程式。行動服務讓同步處理資料、驗證使用者及推播通知等作業變得簡單。此頁面支援<a href="http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started-users/">開始使用驗證</a>教學課程，顯示如何將使用者登入您的應用程式。如果這是您第一次使用行動服務，請完成<a href="http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started/">開始使用行動服務</a>教學課程。
+> [AZURE.NOTE] 本教學課程有關 [Azure 行動服務]，此方案可協助您建置適用於任何平台的可擴充行動應用程式。行動服務讓同步處理資料、驗證使用者及推播通知等作業變得簡單。此頁面支援<a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">開始使用驗證</a>教學課程，顯示如何將使用者登入您的應用程式。如果這是您第一次使用行動服務，請完成<a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">開始使用行動服務</a>教學課程。
 	
 若要完成本主題的程序，您必須具有已通過電子郵件地址與手機號碼驗證的 Facebook 帳戶。若要建立新的 Facebook 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>。
 
@@ -72,7 +86,7 @@
 [Facebook 開發人員]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[Azure 行動服務]: http://azure.microsoft.com/zh-tw/services/mobile-services/
+[Azure 行動服務]: http://azure.microsoft.com/services/mobile-services/
 
 
 <!--HONumber=42-->

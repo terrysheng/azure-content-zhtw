@@ -1,6 +1,18 @@
-﻿<properties title="How to create web test" pageTitle="如何建立 Web 測試" description="了解如何在 Azure 中建立 Web 測試。" authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="如何建立 Web 測試" 
+	description="了解如何在 Azure 中建立 Web 測試。" 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-29" ms.author="awills"  />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-17" 
+	ms.author="awills"/>
 
 # Microsoft Azure 網站的 Web 測試
 您的 Azure 網站是否仍可運作？它是否可正常回應，速度是否夠快？請設定 Web 測試，以定期測試您的網站。如果網站失效，或是回應速度緩慢或不正確，您將會收到電子郵件警示。此外，您也會收到顯示網站在一段時間內的可用性和回應性的圖形。  
@@ -47,3 +59,5 @@
 ![Open in VS](./media/insights-create-web-tests/Insights_OpenInVS.png)
 
 [availability]: ../app-insights-monitor-web-app-availability/
+
+<!--HONumber=46--> 

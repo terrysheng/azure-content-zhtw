@@ -1,6 +1,20 @@
-﻿<properties title="Manage an Azure Machine Learning workspace" pageTitle="管理 Machine Learning 工作區 | Azure" description="管理 Azure 機器學習工作區的存取權，並部署和管理 ML API Web 服務" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="建立 Machine Learning 工作區 | Azure" 
+	description="如何建立 Azure Machine Learning Studio 的工作區"
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 
 # 管理 Azure Machine Learning 工作區 
@@ -27,3 +41,5 @@
 
 <!--Image references-->
 [1]: ./media/machine-learning-manage-workspace/mw1.png
+
+<!--HONumber=46--> 

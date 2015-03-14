@@ -1,6 +1,25 @@
-﻿<properties title="How to Create a DocumentDB Account" pageTitle="建立資料庫帳戶 | Azure" description="了解如何在 Azure Preview 入口網站中建立 DocumentDB NoSQL 文件資料庫帳戶及選擇帳戶設定。"  metaKeywords="NoSQL, DocumentDB, database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="mimig" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	title="How to Create a DocumentDB Account" 
+	pageTitle="建立資料庫帳戶 | Azure" 
+	description="了解如何在 Azure Preview 入口網站中建立 DocumentDB NoSQL 文件資料庫帳戶及選擇帳戶設定。"  
+	metaKeywords="NoSQL, DocumentDB, database, document-orientated database, JSON, account" 
+	services="documentdb"  
+	solutions="data-management" 
+	documentationCenter=""  
+	authors="mimig" 
+	manager="jhubbard" 
+	editor="monicar" 
+	videoId="" 
+	scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/09/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/09/2014" 
+	ms.author="mimig" />
 
 #建立資料庫帳戶
 若要使用 Microsoft Azure DocumentDB，您必須建立 DocumentDB 帳戶。本主題說明如何在 Azure Preview 管理入口網站中建立 DocumentDB 帳戶。  
@@ -25,7 +44,7 @@
 
 	- [選擇性組態]**** 透鏡可用來指定配置給 DocumentDB 帳戶的初始容量。DocumentDB 利用容量單位讓您調整 DocumentDB 帳戶，每個容量單位包含保留的資料庫儲存體和輸送量。依預設會佈建 1 個容量單位。您可以隨時透過 [Preview 管理入口網站](https://portal.azure.com/#gallery/Microsoft.DocumentDB)來調整 DocumentDB 帳戶可用的容量單位數。如需有關 DocumentDB 帳戶容量和輸送量的詳細資料，請參閱[管理 DocumentDB 的容量和效能][documentdb-manage]一文。
 
-	- 在 [資源群組]**** 中，為 DocumentDB 帳戶選取或建立資源群組。依預設會建立新的資源群組。不過，您可以選擇現有的資源群組，以便在其中加入您的 DocumentDB 帳戶。如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](http://azure.microsoft.com/zh-tw/documentation/articles/azure-preview-portal-using-resource-groups/)。
+	- 在 [資源群組]**** 中，為 DocumentDB 帳戶選取或建立資源群組。依預設會建立新的資源群組。不過，您可以選擇現有的資源群組，以便在其中加入您的 DocumentDB 帳戶。如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/)。
 
 	- 針對 [訂用帳戶]****，選取要用於 DocumentDB 訂用帳戶的 Azure 訂用帳戶。如果您的帳戶只有一個訂用帳戶，將會自動選取該帳戶。*
  
@@ -73,3 +92,5 @@
 [8]: ./media/documentdb-create-account/ca8.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

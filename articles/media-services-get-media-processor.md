@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="如何建立媒體處理器 - Azure" 
 	description="了解如何建立媒體處理器元件，為 Azure 媒體服務的媒體內容進行編碼、格式轉換、加密或解密。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
 	services="media-services" 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="02/10/2015" 
 	ms.author="juliako"/>
 
 
+# 作法：取得媒體處理器執行個體
 
+這篇文章屬於[要求工作流程上的媒體服務視訊](../media-services-video-on-demand-workflow)系列。 
 
-
-<h1>作法：取得媒體處理器執行個體</h1>
-本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是＜[作法：建立加密資產並上傳至儲存體](../media-services-create-encrypted-asset-upload-storage/)。
+## 概觀
 
 在媒體服務中，媒體處理器是可處理特定處理工作的元件，例如編碼、格式轉換、加密或解密媒體內容。您通常會在建立媒體內容的編碼、加密或格式轉換工作時建立媒體處理器。
 
@@ -39,17 +39,17 @@
     <tr>
        <td>Azure Media Encoder</td>
        <td>可讓您使用 Media Encoder 執行編碼工作。</td>
-       <td><a href="http://msdn.microsoft.com/zh-tw/library/jj129582.aspx"> Azure Media Encoder 的工作預設字串</a></td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Azure Media Encoder 的工作預設字串</a></td>
     </tr>
     <tr>
         <td>Windows Azure Media Packager</td>
         <td>可讓您將媒體資產從 .mp4 轉換為 Smooth Streaming 格式。此外，也可讓您將媒體資產從 Smooth Streaming 轉換為 Apple HTTP Live Streaming (HLS) 格式。</td>
-		<td><a href="http://msdn.microsoft.com/zh-tw/library/hh973635.aspx">Azure Media Packager 的工作預設字串</a></td>
+		<td><a href="http://msdn.microsoft.com/library/hh973635.aspx">Azure Media Packager 的工作預設字串</a></td>
     </tr>
     <tr>
         <td>Windows Azure Media Encryptor</td>
         <td>可讓您使用 PlayReady Protection 為媒體資產加密。</td>
-        <td><a href="http://msdn.microsoft.com/zh-tw/library/hh973610.aspx">Azure Media Packager 的工作預設字串</a></td>
+        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Azure Media Packager 的工作預設字串</a></td>
     </tr>
     <tr>
         <td>Azure Media Indexer</td>
@@ -65,24 +65,25 @@
 
 <br />
 
-下列方法將說明如何取得媒體處理器執行個體。此程式碼範例假設會使用名為 **_context** 的模組層級變數來參考伺服器內容，如[作法：以程式設計方式連接到媒體服務]一節所說明。
+## 取得 MediaProcessor
 
-<pre><code>
-private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-{
-     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+下列方法將說明如何取得媒體處理器執行個體。此程式碼範例假設使用名為 **_context** 的模組層級變數，以參考伺服器內容 [做法：以程式設計方式連線到媒體服務]一節所說明。
 
-    if (processor == null)
-        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+	{
+	     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+	        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+	
+	    if (processor == null)
+	        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+	
+	    return processor;
+	}
 
-    return processor;
-}
-</code></pre>
-
-<h2>後續步驟</h2>
-現在您已了解如何取得媒體處理器執行個體，接著請移至[如何為資產編碼][]主題，以了解如何使用 Azure Media Encoder 為資產編碼。
+## 後續步驟
+現在，您已了解如何取得媒體處理器執行個體，請移至[如何為資產編碼][]主題，以了解如何使用 Azure Media Encoder 為資產編碼。
 
 [如何為資產編碼]: ../media-services-encode-asset/
-[Azure Media Encoder 的工作預設字串]: http://msdn.microsoft.com/zh-tw/library/jj129582.aspx
-[做法：以程式設計方式連接到媒體服務]: ../media-services-set-up-computer/<!--HONumber=42-->
+[Azure Media Encoder 的工作預設字串]: http://msdn.microsoft.com/library/jj129582.aspx
+[做法：以程式設計方式連線到媒體服務]: ../media-services-set-up-computer/
+<!--HONumber=45--> 

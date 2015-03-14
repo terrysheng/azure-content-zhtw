@@ -1,6 +1,20 @@
-﻿<properties pageTitle="如何啟用 Apple 推播通知" description="請遵循本教學課程，使用 Azure 行動服務建立新的服務。" services="mobile-services, notification-hubs" documentationCenter="ios" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="如何啟用 Apple 推播通知" 
+	description="請遵循本教學課程，使用 Azure 行動服務建立新的服務。" 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="ios" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # 如何啟用 Apple 推播通知
 

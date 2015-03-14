@@ -167,6 +167,6 @@
   [做法：查詢實體屬性的子集]: #query-entity-properties
   [做法：刪除實體]: #delete-entity
   [做法：刪除資料表]: #delete-table
-  [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
+  [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [請造訪 Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 <!--HONumber=42-->

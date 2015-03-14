@@ -21,7 +21,7 @@
 Azure 網站備份和還原功能可讓您以手動或自動方式輕鬆建立網站備份。您可以將網站還原至先前的狀態，或根據原始網站的其中一個備份建立新網站。 
 
 
-如需從備份還原 Azure 網站的相關資訊，請參閱[還原 Azure 網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-restore/)。
+如需從備份還原 Azure 網站的相關資訊，請參閱[還原 Azure 網站](http://azure.microsoft.com/documentation/articles/web-sites-restore/)。
 
 ##本文內容
 
@@ -57,7 +57,7 @@ Azure 網站會備份下列資訊：
 <a name="requirements"></a>
 ##需求和限制
 
-* 使用備份和還原功能時，網站必須位於標準層中。如需調整網站以使用標準層的詳細資訊，請參閱[如何調整網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-scale/)。 
+* 使用備份和還原功能時，網站必須位於標準層中。如需調整網站以使用標準層的詳細資訊，請參閱[如何調整網站](http://azure.microsoft.com/documentation/articles/web-sites-scale/)。 
 
 * 使用備份和還原功能時，Azure 儲存體帳戶必須與您所將備份的網站屬於相同的訂閱。如果您還沒有儲存體帳戶，您可以按一下 Azure 入口網站左側窗格中的 [儲存體]**** 按鈕 (格線圖示)，然後在底部的命令列中選擇 [新增]****，以建立此帳戶。如需 Azure 儲存體帳戶的詳細資訊，請參閱[連結](#moreaboutstorage) 。
 
@@ -134,9 +134,9 @@ Azure 網站會備份下列資訊：
 
 隨 zip 檔案儲存的 XML 檔案會在 *backupdescription* > *databases* > *databasebackupdescription* > *filename* 之下指出資料庫檔案名稱。
 
-資料庫備份檔案本身則儲存在 .zip 檔案的根目錄中。若是 SQL 資料庫，這會是 BACPAC 檔案 (無副檔名)，而且可以匯入。若要根據 BACPAC 匯出建立新的 SQL 資料庫，您可以遵循[匯入 BACPAC 檔案以建立新的使用者資料庫](http://technet.microsoft.com/zh-tw/library/hh710052.aspx)一文中的步驟。
+資料庫備份檔案本身則儲存在 .zip 檔案的根目錄中。若是 SQL 資料庫，這會是 BACPAC 檔案 (無副檔名)，而且可以匯入。若要根據 BACPAC 匯出建立新的 SQL 資料庫，您可以遵循[匯入 BACPAC 檔案以建立新的使用者資料庫](http://technet.microsoft.com/library/hh710052.aspx)一文中的步驟。
 
-如需使用 Azure 管理入口網站來還原 Azure 網站 (包括資料庫) 的相關資訊，請參閱[還原 Microsoft Azure 網站]( http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-restore/)。
+如需使用 Azure 管理入口網站來還原 Azure 網站 (包括資料庫) 的相關資訊，請參閱[還原 Microsoft Azure 網站]( http://azure.microsoft.com/documentation/articles/web-sites-restore/)。
 
 > [AZURE.NOTE] 對 **websitebackups** 容器中的檔案進行任何變更，都可能導致備份失效，進而無法還原。
 
@@ -150,19 +150,19 @@ Azure 網站會備份下列資訊：
 
 <a name="nextsteps"></a>
 ## 後續步驟
-如需從備份還原 Azure 網站的相關資訊，請參閱[還原 Azure 網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-restore/)。
+如需從備份還原 Azure 網站的相關資訊，請參閱[還原 Azure 網站](http://azure.microsoft.com/documentation/articles/web-sites-restore/)。
 
-若要開始使用 Azure，請參閱 [Microsoft Azure 免費試用](http://azure.microsoft.com/zh-tw/pricing/free-trial/)。
+若要開始使用 Azure，請參閱 [Microsoft Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
 
 <a name="moreaboutstorage"></a>
 ### 儲存體帳戶的相關資訊
 
-[什麼是儲存體帳戶？](http://www.windowsazure.com/zh-tw/documentation/articles/storage-whatis-account/)
+[什麼是儲存體帳戶？](http://azure.microsoft.com/documentation/articles/storage-whatis-account/)
 
-[作法：建立儲存體帳戶](http://www.windowsazure.com/zh-tw/documentation/articles/storage-create-storage-account/)
+[作法：建立儲存體帳戶](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/)
 
-[如何監視儲存體帳戶](http://www.windowsazure.com/zh-tw/documentation/articles/storage-monitor-storage-account/)
+[如何監視儲存體帳戶](http://azure.microsoft.com/documentation/articles/storage-monitor-storage-account/)
 
 [了解 Winidows Azure 儲存體計費](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 

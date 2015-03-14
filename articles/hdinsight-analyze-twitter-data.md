@@ -552,9 +552,9 @@ HiveQL 指令碼將執行下列作業：
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-[powershell-start]: http://technet.microsoft.com/zh-tw/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: ../install-configure-powershell
-[powershell-script]: http://technet.microsoft.com/zh-tw/library/ee176961.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176961.aspx
 
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/

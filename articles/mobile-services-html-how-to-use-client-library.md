@@ -1,6 +1,20 @@
-﻿<properties pageTitle="如何使用 HTML 用戶端 - Azure 行動服務" description="了解如何使用適用於 Azure 行動服務的 HTML 用戶端。" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="如何使用 HTML 用戶端 - Azure 行動服務" 
+	description="了解如何使用適用於 Azure 行動服務的 HTML 用戶端。" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 
 # 如何使用 Azure 行動服務的 HTML/JavaScript 用戶端
@@ -261,7 +275,8 @@
 	    todoItemTable.read("$filter=substringof('search_text',text)").then(function(items) {
 	        var itemElements = $.map(items, createUiForTodoItem);
 	        $("#todo-items").empty().append(itemElements);
-	        $("#no-items").toggle(items.length === 0);
+	        $("#no-items").toggle(ite
+	ms.length === 0);
 	    }, handleError);
 	}
 
@@ -380,12 +395,14 @@
 			query.read().then(function (todoItems) {
 			   // The space specified by 'placeToInsert' is an unordered list element <ul> ... </ul>
 			   var listOfItems = document.getElementById('placeToInsert');
-			   for (var i = 0; i < todoItems.length; i++) {
+			   for (var i = 0; i < todoIte
+	ms.length; i++) {
 			      var li = document.createElement('li');
 			      var div = document.createElement('div');
 			      div.innerText = todoItems[i].text;
 			      li.appendChild(div);
-			      listOfItems.appendChild(li);
+			      listOfIte
+	ms.appendChild(li);
 			   }
 			}).read().done(function (results) {
 			   alert(JSON.stringify(results));
@@ -616,32 +633,32 @@ Promise 有許多不同的使用方式。您可以在前一個  `then` 函數傳
 <!-- URLs. -->
 [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-html
 [行動服務 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[開始使用資料]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-html/
+[開始使用資料]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-html/
 [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-html
 [開始使用驗證 Windows 市集]: /zh-tw/develop/mobile/tutorials/get-started-with-users-js
-[then]: http://msdn.microsoft.com/zh-tw/library/windows/apps/br229728.aspx
-[done]: http://msdn.microsoft.com/zh-tw/library/windows/apps/hh701079.aspx
-[深入了解 then 與 done 之間的差異]: http://msdn.microsoft.com/zh-tw/library/windows/apps/hh700334.aspx
-[如何處理 promise 中的錯誤]: http://msdn.microsoft.com/zh-tw/library/windows/apps/hh700337.aspx
+[then]: http://msdn.microsoft.com/library/windows/apps/br229728.aspx
+[done]: http://msdn.microsoft.com/library/windows/apps/hh701079.aspx
+[深入了解 then 與 done 之間的差異]: http://msdn.microsoft.com/library/windows/apps/hh700334.aspx
+[如何處理 promise 中的錯誤]: http://msdn.microsoft.com/library/windows/apps/hh700337.aspx
 
-[sessionStorage]: http://msdn.microsoft.com/zh-tw/library/cc197062(v=vs.85).aspx
-[localStorage]: http://msdn.microsoft.com/zh-tw/library/cc197062(v=vs.85).aspx
+[sessionStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
+[localStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
 
-[ListView]: http://msdn.microsoft.com/zh-tw/library/windows/apps/br211837.aspx
-[資料繫結 (使用 JavaScript 和 HTML 的 Windows 市集應用程式)]: http://msdn.microsoft.com/zh-tw/library/windows/apps/hh758311.aspx
-[Windows 市集 JavaScript 快速入門]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started
-[HTML 快速入門]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-html
-[在 Windows 市集 JavaScript 中開始使用資料]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-js
-[在 HTML/JavaScript 中開始使用資料]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/get-started-with-data-html/
-[您可以在這裡查看如何設定此案例的完整範例]: http://www.windowsazure.com/zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-js/
+[ListView]: http://msdn.microsoft.com/library/windows/apps/br211837.aspx
+[資料繫結 (使用 JavaScript 和 HTML 的 Windows 市集應用程式)]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
+[Windows 市集 JavaScript 快速入門]: http://azure.microsoft.com/develop/mobile/tutorials/get-started
+[HTML 快速入門]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-html
+[在 Windows 市集 JavaScript 中開始使用資料]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-js
+[在 HTML/JavaScript 中開始使用資料]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-html/
+[您可以在這裡查看如何設定此案例的完整範例]: http://azure.microsoft.com/develop/mobile/tutorials/single-sign-on-windows-8-js/
 [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-html
 [使用指令碼驗證及修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-html
 [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-html
 [使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-html
-[login]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554236.aspx
+[login]: http://msdn.microsoft.com/library/windowsazure/jj554236.aspx
 [使用單一登入來驗證應用程式]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [ASCII 控制碼 C0 和 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[使用 CLI 管理行動服務資料表]: http://www.windowsazure.com/zh-tw/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[使用 CLI 管理行動服務資料表]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [OData 系統查詢選項參考]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
 

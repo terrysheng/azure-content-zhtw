@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Localized Breaking News" pageTitle="iOS 通知中心已當地語系化的即時新聞教學課程 " metaKeywords="" description="了解如何使用 Azure 服務匯流排通知中心傳送本地化重大新聞通知 (iOS)。" metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news to iOS devices" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="iOS 通知中心已當地語系化的即時新聞教學課程" 
+	description="了解如何使用 Azure 服務匯流排通知中心傳送本地化重大新聞通知 (iOS)。" 
+	services="notification-hubs" 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 # 使用通知中心將當地語系化的即時新聞傳送至 iOS 裝置
 
 <div class="dev-center-tutorial-selector sublanding">
@@ -26,9 +40,9 @@
 
 
 
-##必要條件 ##
+## 必要條件 ##
 
-您必須已完成 [使用通知中心傳送即時新聞] 教學課程，並具有可用的程式碼，因為此教學課程是直接根據該程式碼而建置的。
+您必須已完成[使用通知中心傳送即時新聞]教學課程，並具有可用的程式碼，因為此教學課程是直接根據該程式碼而建置的。
 
 您也需要 Visual Studio 2012。
 
@@ -36,7 +50,7 @@
 
 <h2><a name="concepts"></a>範本概念</h2>
 
-在 [使用通知中心傳送即時新聞] 中，您建置了使用**標籤**來訂閱不同即時新聞類別之通知的應用程式。
+在[使用通知中心傳送即時新聞]中，您建置了使用**標籤**來訂閱不同即時新聞類別之通知的應用程式。
 但有許多應用程式是以多個市場為目標的，因此需要當地語系化。這表示通知本身的內容必須進行當地語系化，並傳遞至正確的裝置集。
 在此主題中，我們將說明如何使用通知中心的**範本**功能，輕鬆地傳遞已當地語系化的即時新聞通知。
 
@@ -58,11 +72,11 @@
 		}
 	}
 
-範本的功能非常強大，您可以在 [通知中心指引] 一文中了解詳情。如需範本運算式語言的參考，請參閱我們的[作法：服務匯流排通知中心 (iOS 應用程式)]。
+範本的功能非常強大，您可以在[通知中心指引]一文中了解詳情。如需範本運算式語言的參考，請參閱我們的[作法：服務匯流排通知中心 (iOS 應用程式)]。
 
 <h2><a name="ui"></a>應用程式使用者介面</h2>
 
-現在，我們將修改您在 [使用通知中心傳送即時新聞] 主題中建立的即時新聞應用程式，以使用範本傳送當地語系化的即時新聞。
+現在，我們將修改您在[使用通知中心傳送即時新聞]主題中建立的即時新聞應用程式，以使用範本傳送當地語系化的即時新聞。
 
 
 在您的 MainStoryboard_iPhone.storyboard 中，以我們支援的三種語言新增「分段控制」：英文、法文和中文。
@@ -73,11 +87,11 @@
 
 ![][14]
 
-<h2><a name="building-client"></a><span class="building app">應用程式 UI</span>建置 iOS 應用程式</h2>
+<h2><a name="building-client"></a><span class="building app">App ui</span>建置 iOS 應用程式</h2>
 
-若要調整用戶端應用程式使其能夠接收當地語系化的訊息，您必須以範本註冊取代您的*原生*註冊 (也就是指定範本的註冊)。
+若要調整用戶端應用程式使其能夠接收當地語系化的訊息，您必須以範本註冊取代您的  *native* 註冊 (也就是指定範本的註冊)。
 
-1. 在您的 Notification.h 中新增 *retrieveLocale* 方法，然後修改儲存和訂閱方法，如下所示：
+1. 在您的 Notification.h 中新增  *retrieveLocale* 方法，然後修改儲存和訂閱方法，如下所示：
 
 		- (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
 
@@ -87,7 +101,7 @@
 
 		- (int) retrieveLocale;
 
-	在您的 Notification.m 中新增地區設定參數，並將其儲存在使用者預設值中，以修改 *storeCategoriesAndSubscribe* 方法：
+	在您的 Notification.m 中新增地區設定參數，並將其儲存在使用者預設值中，以修改  *storeCategoriesAndSubscribe* 方法：
 
 		- (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion {
 		    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -98,7 +112,7 @@
 		    [self subscribeWithLocale: locale categories:categories completion:completion];
 		}
 
-	然後修改 *subscribe* 方法，以加入地區設定：
+	然後修改  *subscribe* 方法，以加入地區設定：
 
 		- (void) subscribeWithLocale: (int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion{
 		    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:@"<connection string>" notificationHubPath:@"<hub name>"];
@@ -121,7 +135,7 @@
 		    [hub registerTemplateWithDeviceToken:self.deviceToken name:@"newsTemplate" jsonBodyTemplate:template expiryTemplate:@"0" tags:categories completion:completion];
 		}
 
-	請注意，我們現在使用的是 *registerTemplateWithDeviceToken* 方法，而非 *registerNativeWithDeviceToken*。我們在註冊範本時必須提供 json 範本，以及範本的名稱 (因為應用程式可能會註冊不同的範本)。請確實將您的類別註冊為標籤，因為我們要確保能夠收到這些新聞的通知。
+	請注意，我們現在使用的是  *registerTemplateWithDeviceToken* 方法，而非  *registerNativeWithDeviceToken*，並請留意其使用方式。我們在註冊範本時必須提供 json 範本，以及範本的名稱 (因為應用程式可能會註冊不同的範本)。請確實將您的類別註冊為標籤，因為我們要確保能夠收到這些新聞的通知。
 
 	最後，請新增從使用者預設設定中擷取地區設定的方法：
 
@@ -133,11 +147,11 @@
 		    return locale < 0?0:locale;
 		}
 
-3. 我們已修改 Notifications 類別，現在我們必須確保 ViewController 會使用新的 UISegmentControl。請在 *viewDidLoad* 方法中新增下列程式碼行，以確實顯示目前選取的地區設定：
+3. 我們已修改 Notifications 類別，現在我們必須確保 ViewController 會使用新的 UISegmentControl。請在  *viewDidLoad* 方法中新增下列程式碼行，以確實顯示目前選取的地區設定：
 
 		self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
 
-	接著請在 *subscribe* 方法中，將您對 *storeCategoriesAndSubscribe* 的呼叫變更為下列項目：
+	接著請在  *subscribe* 方法中，將您對  *storeCategoriesAndSubscribe* 的呼叫變更為下列項目：
 
 		[notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {
 	        if (!error) {
@@ -150,7 +164,7 @@
 	        }
 	    }];
 
-4. 最後，您必須在 AppDelegate.m 中更新 *didRegisterForRemoteNotificationsWithDeviceToken* 方法，以便能在應用程式啟動時正確重新整理您的註冊。請使用下列程式碼變更您對通知之 *subscribe* 方法的呼叫：
+4. 最後，您必須在 AppDelegate.m 中更新  *didRegisterForRemoteNotificationsWithDeviceToken* 方法，以便能在應用程式啟動時正確重新整理您的註冊。請使用下列程式碼變更您對通知之  *subscribe* 方法的呼叫：
 
 		NSSet* categories = [notifications retrieveCategories];
 	    int locale = [notifications retrieveLocale];
@@ -162,7 +176,7 @@
 
 <h2><a name="send"></a>從後端傳送已當地語系化的通知</h2>
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 
 ## 後續步驟
@@ -173,7 +187,7 @@
 - [使用通知中心來通知使用者：行動服務]
 - [通知中心指引]
 
-如需範本運算式語言的參考，請參 [iOS 的通知中心作法]。
+如需範本運算式語言的參考，請參閱 [iOS 的通知中心作法]。
 
 
 
@@ -204,14 +218,14 @@
 
 
 <!-- URLs. -->
-[作法：服務匯流排通知中心 (iOS 應用程式)]: http://msdn.microsoft.com/zh-tw/library/jj927168.aspx
+[作法：服務匯流排通知中心 (iOS 應用程式)]: http://msdn.microsoft.com/library/jj927168.aspx
 [使用通知中心傳送即時新聞]: /zh-tw/manage/services/notification-hubs/breaking-news-ios
 [行動服務]: /zh-tw/develop/mobile/tutorials/get-started
 [使用通知中心來通知使用者：ASP.NET]: /zh-tw/manage/services/notification-hubs/notify-users-aspnet
 [使用通知中心來通知使用者：行動服務]: /zh-tw/manage/services/notification-hubs/notify-users
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows (英文)]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started/#create-new-service
 [開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-ios
 [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-ios
@@ -223,5 +237,7 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [行動服務的 Windows 開發人員預覽註冊步驟]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [wns 物件]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[通知中心指引]: http://msdn.microsoft.com/zh-tw/library/jj927170.aspx
-[iOS 的通知中心作法]: http://msdn.microsoft.com/zh-tw/library/jj927168.aspx
+[通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
+[iOS 的通知中心作法]: http://msdn.microsoft.com/library/jj927168.aspx
+
+<!--HONumber=45--> 

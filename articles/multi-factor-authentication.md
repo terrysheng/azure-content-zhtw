@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="" pageTitle="什麼是 Azure Multi-Factor Authentication？" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="What is Azure Multi-Factor Authentication?" authors="billmath" solutions="" manager="terrylan" editor="lisatoft" />
+﻿<properties 
+	pageTitle="什麼是 Azure Multi-Factor Authentication？" 
+	description="" 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="terrylan" 
+	editor="lisatoft"/>
 
-<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="billmath" />
+<tags 
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="billmath"/>
 
 
 
@@ -21,26 +35,26 @@ Azure Multi-Factor Authentication 是一種多因素驗證服務，需要使用�
 
 <h3>保護雲端 Azure Active Directory 的安全</h3>
 
-啟用適用於 Azure AD 身分識別的 Multi-Factor Authentication，系統將於使用者下次登入時出現設定其他驗證的提示。使用 Multi-Factor Authentication 來保護 Azure、Microsoft Online Services (如 Office 365 和 Dynamics CRM Online)，以及無需額外設定即可整合 Azure AD 的協力廠商雲端服務的安全。您可以快速啟用大量全域使用者和應用程式的多因素驗證。[深入了解](http://msdn.microsoft.com/zh-tw/library/azure/dn249466.aspx)
+啟用適用於 Azure AD 身分識別的 Multi-Factor Authentication，系統將於使用者下次登入時出現設定其他驗證的提示。使用 Multi-Factor Authentication 來保護 Azure、Microsoft Online Services (如 Office 365 和 Dynamics CRM Online)，以及無需額外設定即可整合 Azure AD 的協力廠商雲端服務的安全。您可以快速啟用大量全域使用者和應用程式的多因素驗證。[深入了解](http://msdn.microsoft.com/library/azure/dn249466.aspx)
 
 <h3>保護內部部署資源和 Active Directory 的安全</h3>
 
-使用 Azure Multi-Factor Authentication Server 來啟用內部部署資源 (例如 IIS 和 Active Directory) 的 Multi-Factor Authentication。Azure Multi-Factor Authentication Server 可讓系統管理員整合與 IIS 驗證共同保護 Microsoft IIS Web 應用程式、RADIUS 驗證、LDAP 驗證和 Windows 驗證的安全。[深入了解](http://msdn.microsoft.com/zh-tw/library/azure/dn249467.aspx)
+使用 Azure Multi-Factor Authentication Server 來啟用內部部署資源 (例如 IIS 和 Active Directory) 的 Multi-Factor Authentication。Azure Multi-Factor Authentication Server 可讓系統管理員整合與 IIS 驗證共同保護 Microsoft IIS Web 應用程式、RADIUS 驗證、LDAP 驗證和 Windows 驗證的安全。[深入了解](http://msdn.microsoft.com/library/azure/dn249467.aspx)
 <h3>保護自訂應用程式的安全</h3>
 
-SDK 允許與雲端服務的直接整合。在應用程式的登入或交易程序中內建主動式驗證通話和簡訊驗證，並充分利用應用程式的現有使用者資料庫。[深入了解](http://msdn.microsoft.com/zh-tw/library/azure/dn249464.aspx)
+SDK 允許與雲端服務的直接整合。在應用程式的登入或交易程序中內建主動式驗證通話和簡訊驗證，並充分利用應用程式的現有使用者資料庫。[深入了解](http://msdn.microsoft.com/library/azure/dn249464.aspx)
 
 <h3>Multi-Factor Authentication for Office 365</h3>
 
-Azure Multi-Factor Authentication 技術支援的 Multi-Factor Authentication for Office 365，專用於 Office 365 應用程式並可透過 Office 365 入口網站進行管理。系統管理員現在可以使用多重要素驗證來保護其 Office 365 資源的安全。[深入了解](http://msdn.microsoft.com/zh-tw/library/azure/dn383636.aspx)
+Azure Multi-Factor Authentication 技術支援的 Multi-Factor Authentication for Office 365，專用於 Office 365 應用程式並可透過 Office 365 入口網站進行管理。系統管理員現在可以使用多重要素驗證來保護其 Office 365 資源的安全。[深入了解](http://msdn.microsoft.com/library/azure/dn383636.aspx)
 
 <h3>適用於 Azure 系統管理員的多重要素驗證</h3>
 
-適用於 Office 365 的 Multi-Factor Authentication 功能的相同子集將免費提供給所有 Azure 系統管理員。Azure 訂閱的每個管理帳戶現可透過啟用此多因素驗證核心功能，來取得額外的防護。因此想要存取 Azure 入口網站以建立 VM、網站、管理儲存體、行動服務或任何其他 Azure 服務的系統管理員，可在其系統管理員帳戶中新增多因素驗證。[深入了解](http://msdn.microsoft.com/zh-tw/library/azure/dn249471.aspx)
+適用於 Office 365 的 Multi-Factor Authentication 功能的相同子集將免費提供給所有 Azure 系統管理員。Azure 訂閱的每個管理帳戶現可透過啟用此多因素驗證核心功能，來取得額外的防護。因此想要存取 Azure 入口網站以建立 VM、網站、管理儲存體、行動服務或任何其他 Azure 服務的系統管理員，可在其系統管理員帳戶中新增多因素驗證。[深入了解](http://msdn.microsoft.com/library/azure/dn249471.aspx)
 
 <h3>多重要素驗證功能比較</h3>
 
-下列內容將說明可用的多因素驗證版本，以及所提供的功能簡短摘要。您可以使用此內容來判斷適合您的多因素驗證版本。[深入了解](http://msdn.microsoft.com/zh-tw/library/azure/dn249471.aspx)
+下列內容將說明可用的多因素驗證版本，以及所提供的功能簡短摘要。您可以使用此內容來判斷適合您的多因素驗證版本。[深入了解](http://msdn.microsoft.com/library/azure/dn249471.aspx)
 
 ![Azure Multi-Factor Authentication Feature Comparison](./media/multi-factor-authentication/mfacomparison2.png)
 
@@ -49,7 +63,9 @@ Azure Multi-Factor Authentication 技術支援的 Multi-Factor Authentication fo
 
 * [以組織身分註冊 Azure](/zh-tw/manage/services/identity/organizational-account/)
 * [Azure 身分識別](/zh-tw/manage/windows/fundamentals/identity/)
-* [Azure Multi-Factor Authentication 程式庫](http://technet.microsoft.com/zh-tw/library/dn249471.aspx)
+* [Azure Multi-Factor Authentication 程式庫](http://technet.microsoft.com/library/dn249471.aspx)
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

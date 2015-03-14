@@ -1,6 +1,21 @@
-<properties urlDisplayName="Specifying a Node.js Version" pageTitle="指定 Node.js 版本 "metaKeywords ="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties 
+	pageTitle="指定 Node.js 版本 "
+	description="" 
+	services="" 
+	documentationCenter="nodejs" 
+	title="Specifying a Node.js version in an Azure application" 
+	authors="larryfr" 
+	manager="wpickett" 
+	editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="na" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr" />
 
 
 
@@ -88,3 +103,5 @@ Azure 目前提供 Node.js 0.6.17、0.6.20 和 0.8.4 版。除非另有指定，
 [Azure 命令列工具]: /zh-tw/documentation/articles/xplat-cli/
 [使用模組]: /zh-tw/documentation/articles/nodejs-use-node-modules-azure-apps/
 [建置並部署 Node.js 網站]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+
+<!--HONumber=46--> 

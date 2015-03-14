@@ -1,17 +1,31 @@
-<properties pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (Windows 市集) | 行動開發人員中心" description="了解如何在 Windows 市集應用程式中驗證使用者的單一登入。" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (Windows 市集) | 行動開發人員中心" 
+	description="了解如何在 Windows 市集應用程式中驗證使用者的單一登入。" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="wesmc"/>
 
 # 使用 Active Directory Authentication Library 單一登入驗證您的應用程式
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
-在本教學課程中，您使用 Active Directory Authentication Library 將驗證加入至快速入門專案，以支援使用 Azure Active Directory 的[用戶端主導登入作業](http://msdn.microsoft.com/zh-tw/library/azure/jj710106.aspx)。若要使用 Azure Active Directory 支援[服務主導登入作業](http://msdn.microsoft.com/zh-tw/library/azure/dn283952.aspx)，首先請進行[將驗證新增至行動服務應用程式](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/)教學課程。
+在本教學課程中，您使用 Active Directory Authentication Library 將驗證加入至快速入門專案，以支援使用 Azure Active Directory 的[用戶端主導登入作業](http://msdn.microsoft.com/library/azure/jj710106.aspx)。若要使用 Azure Active Directory 支援[服務主導登入作業](http://msdn.microsoft.com/library/azure/dn283952.aspx)，首先請進行[將驗證新增至行動服務應用程式](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/)教學課程。
 
 為了能夠驗證使用者，您必須向 Azure Active Directory (AAD) 註冊您的應用程式。此作業有兩個階段。第一，您必須註冊行動服務，並公開其權限。第二，您必須註冊 Windows 市集應用程式，並為其授與對這些權限的存取權
 
 
->[AZURE.NOTE] 本教學課程旨在協助您深入了解如何透過行動服務，使用[用戶端主導登入作業](http://msdn.microsoft.com/zh-tw/library/azure/jj710106.aspx)對 Windows 市集應用程式執行單一登入 Azure Active Directory 驗證。如果這是您第一次接觸行動服務，請先完成教學課程[開始使用行動服務]。
+>[AZURE.NOTE] 本教學課程旨在協助您深入了解如何透過行動服務，使用[用戶端主導登入作業](http://msdn.microsoft.com/library/azure/jj710106.aspx)對 Windows 市集應用程式執行單一登入 Azure Active Directory 驗證。如果這是您第一次接觸行動服務，請先完成教學課程[開始使用行動服務]。
 
 本教學課程將逐步引導您完成下列基本步驟：
 

@@ -1,6 +1,20 @@
-﻿<properties title="How to make a phone call from Twilio (PHP) - Azure" pageTitle="如何使用 Twilio 撥打電話 (PHP) - Azure" metaKeywords="Azure PHP Twilio, Azure Twilio, Azure 通話, Azure twilio, Azure SMS, Azure SMS, Azure 語音通話, azure 語音通話, Azure 文字訊息, Azure 文字訊息, PHP twilio Azure" description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。PHP 應用程式的範例。" documentationCenter="PHP" services="" solutions="" videoId="" scriptId="" authors="MicrosoftHelp@twilio.com; robmcm" manager="twilio" editor="mollybos" />
+﻿<properties 
+	pageTitle="如何使用 Twilio 撥打電話 (PHP) - Azure" 
+	description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。範例適用於 PHP 應用程式。" 
+	documentationCenter="php" 
+	services="" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com; robmcm" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="microsofthelp@twilio.com"/>
 
 # 如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話 
 
@@ -80,7 +94,7 @@
 	</body>
 	</html>
 
-除了撥打電話以外，**makecall.php** 也會顯示某些通話中繼資料 (範例顯示於下方的螢幕擷取畫面中)。如需通話中繼資料的詳細資訊，請參閱 [https://www.twilio.com/docs/api/rest/call#instance-properties][twilio_call_properties]。
+除了撥打電話以外，**makecall.php** 也會顯示某些通話中繼資料 (範例顯示於下方的螢幕擷取畫面中)。如需通話中繼資料的詳細資訊，請參閱 [https://www.twilio.com/docs/api/rest/call#instance-propertiestwilio_call_properties]。
 
 ![Azure Call Response Using Twilio and PHP][twilio_php_response]
 
@@ -88,7 +102,7 @@
 下一個步驟是將您的應用程式部署至 Azure 網站。下列文章包含使用 Git、FTP 或 WebMatrix 來建立網站及部署程式碼的相關資訊 (並非每篇文章中的所有資訊都是相關的)：
 
 * [建立 PHP-MySQL Azure 網站並使用 Git 部署][website-git]
-* [建立 PHP-MySQL Azure 網站並使用 FTP 部署][website-ftp]
+* [建立 PHP-MySQL Azure 網站並使用 Git 部署][website-ftp]
 * [使用 WebMatrix 建立並部署 PHP-MySQL Azure 網站][website-webmatrix]
 
 ## 後續步驟
@@ -115,8 +129,8 @@
 [twilio_api_service]: http://api.twilio.com
 [build_php_azure_app]: http://azurephp.interoperabilitybridges.com/articles/build-and-deploy-a-windows-azure-php-application
 [howto_twilio_voice_sms_php]: ../partner-twilio-php-how-to-use-voice-sms
-[howto_blob_storage_php]: http://azure.microsoft.com/zh-tw/documentation/articles/storage-php-how-to-use-blobs/
-[howto_sql_azure_php]: http://azure.microsoft.com/zh-tw/documentation/articles/sql-database-php-how-to-use/
+[howto_blob_storage_php]: http://azure.microsoft.com/ documentation/articles/storage-php-how-to-use-blobs/
+[howto_sql_azure_php]: http://azure.microsoft.com/ documentation/articles/sql-database-php-how-to-use/
 [twilio_call_properties]: https://www.twilio.com/docs/api/rest/call#instance-properties
 [twilio_docs_security]: http://www.twilio.com/docs/security
 [twilio_docs]: http://www.twilio.com/docs
@@ -129,4 +143,4 @@
 [website-webmatrix]: https://www.windowsazure.com/zh-tw/develop/php/tutorials/website-w-mysql-and-webmatrix/
 [twilio_php_github]: https://github.com/twilio/twilio-php
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

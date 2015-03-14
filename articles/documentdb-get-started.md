@@ -1,6 +1,20 @@
-﻿<properties title="Get started with the DocumentDB .NET SDK" pageTitle="開始使用 DocumentDB .NET SDK | Azure" description="了解如何建立和設定 Azure DocumentDB 帳戶、建立資料庫、建立集合，以及在您的 NoSQL 文件資料庫帳戶內儲存 JSON 文件。" metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="mimig" manager="jhubbard" editor="monicar" scriptId="" />
+﻿<properties 
+	pageTitle="開始使用 DocumentDB .NET SDK | Azure" 
+	description="了解如何建立和設定 Azure DocumentDB 帳戶、建立資料庫、建立集合，以及在 NoSQL 文件資料庫帳戶內儲存 JSON 文件。" 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/12/2014" 
+	ms.author="mimig"/>
 
 #開始使用 DocumentDB .NET SDK  
 
@@ -169,7 +183,8 @@ DocumentDB 對每個集合中儲存的 JSON 文件，支援豐富的查詢。下
         "FROM Families f " +
         "JOIN c IN f.Children");
 
-    foreach (var item in items.ToList())
+    foreach (var item in ite
+	ms.ToList())
     {
         Console.WriteLine(item);
     }
@@ -183,7 +198,8 @@ DocumentDB 對每個集合中儲存的 JSON 文件，支援豐富的查詢。下
                 child = children.FirstName
             }));
 
-    foreach (var item in items.ToList())
+    foreach (var item in ite
+	ms.ToList())
     {
         Console.WriteLine(item);
     }
@@ -214,3 +230,5 @@ DocumentDB 對每個集合中儲存的 JSON 文件，支援豐富的查詢。下
 [1]: ./media/documentdb-get-started/gs1.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

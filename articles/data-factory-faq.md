@@ -1,6 +1,20 @@
-﻿<properties title="Azure Data Factory - Frequently Asked Questions" pageTitle="Azure 資料處理站-常見問題集" description="與 Azure 資料處理站有關的常見問題集。" metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="DocumentDB 常見問題集 | Azure" 
+	description="關於 Azure DocumentDB nosql 文件資料庫服務常見問題的解答。了解容量及要求單位，並了解如何按照應用程式的需求進行調整。" 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/22/2014" 
+	ms.author="mimig"/>
 
 # Azure 資料處理站-常見問題集
 
@@ -93,6 +107,8 @@ Azure 資料處理站藉由完全受管理之服務的控制和監視功能，�
 [azure-preview-portal]: http://portal.azure.com
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
-[hdinsight-supported-regions]: http://azure.microsoft.com/zh-tw/pricing/details/hdinsight/
+[hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

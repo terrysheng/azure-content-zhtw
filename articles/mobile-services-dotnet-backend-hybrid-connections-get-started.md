@@ -1,6 +1,20 @@
-<properties pageTitle="使用混合式連線從 Azure 行動服務連線至內部佈署 SQL Server - Azure 行動服務" description="了解如何使用混合式連線從 Azure 行動服務連線至內部佈署 SQL Server" services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
+<properties 
+	pageTitle="使用混合式連線從 Azure 行動服務連線至內部佈署 SQL Server - Azure 行動服務" 
+	description="了解如何使用混合式連線從 Azure 行動服務連線至內部佈署 SQL Server" 
+	services="" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
   
 # 使用混合式連線從 Azure 行動服務連線至內部佈署 SQL Server 
@@ -156,9 +170,9 @@
 
 ## 另請參閱 ##
  
-+ [混合式連線網站](http://azure.microsoft.com/zh-tw/services/biztalk-services/)
++ [混合式連線網站](http://azure.microsoft.com/services/biztalk-services/)
 + [混合式連線概觀](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-+ [BizTalk 服務：儀表板、監視器、調整、設定和混合式連線索引標籤](http://azure.microsoft.com/zh-tw/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
++ [BizTalk 服務：儀表板、監視器、調整、設定和混合式連線索引標籤](http://azure.microsoft.com/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
 <!-- IMAGES -->
  

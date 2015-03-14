@@ -58,7 +58,7 @@
 ![files-concepts][files-concepts]
 
 
--   **儲存體帳戶：**對「Azure 儲存體」進行的所有存取都是透過儲存體帳戶。如需有關儲存體帳戶容量的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/zh-tw/library/dn249410.aspx)。
+-   **儲存體帳戶：**對「Azure 儲存體」進行的所有存取都是透過儲存體帳戶。如需有關儲存體帳戶容量的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/library/dn249410.aspx)。
 
 -   **共用：**檔案儲存體共用是 Azure 中的 SMB 2.1 檔案共用。所有目錄和檔案都必須建立在父共用中。一個帳戶可以包含不限數目的共用，而一個共用可以存放不限數目的檔案，最高可達儲存體帳戶的容量上限。
 
@@ -72,7 +72,7 @@
 
 
 
-如需有關如何為共用、目錄及檔案命名的詳細資料，請參閱[命名和參考共用、目錄、檔案及中繼資料](http://msdn.microsoft.com/zh-tw/library/azure/dn167011.aspx)。
+如需有關如何為共用、目錄及檔案命名的詳細資料，請參閱[命名和參考共用、目錄、檔案及中繼資料](http://msdn.microsoft.com/library/azure/dn167011.aspx)。
 
 ##<a name="create-account"></a>建立 Azure 儲存體帳戶
 
@@ -155,7 +155,7 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 	   
 	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
 
-您現在可以從虛擬機器使用檔案儲存體共用，就好像操作任何其他磁碟機一樣。您可以從命令提示字元中發佈標準檔案命令，或從 [檔案總管] 中檢視掛接的共用及其內容。您也可以使用標準 Windows 檔案 I/O API (例如 .NET Framework 中 [System.IO 命名空間](http://msdn.microsoft.com/zh-tw/library/gg145019(v=vs.110).aspx) 所提供的 API)，在虛擬機器內執行存取檔案共用的程式碼。 
+您現在可以從虛擬機器使用檔案儲存體共用，就好像操作任何其他磁碟機一樣。您可以從命令提示字元中發佈標準檔案命令，或從 [檔案總管] 中檢視掛接的共用及其內容。您也可以使用標準 Windows 檔案 I/O API (例如 .NET Framework 中 [System.IO 命名空間](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) 所提供的 API)，在虛擬機器內執行存取檔案共用的程式碼。 
 
 您也可以從在 Azure 雲端服務上執行的角色來掛接檔案共用，方法是透過遠端進入此角色。
 
@@ -248,7 +248,7 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
   <ul>
     <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">適用於 .NET 的儲存體用戶端程式庫參考</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/zh-tw/library/azure/dn167006.aspx">檔案服務 REST API 參考</a></li>
+    <li><a href="http://msdn.microsoft.com/library/azure/dn167006.aspx">檔案服務 REST API 參考</a></li>
   </ul>
 </li>
 <li>檢視與檔案服務相關的 Azure 儲存體團隊部落格文章：

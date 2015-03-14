@@ -1,6 +1,24 @@
-﻿<properties title="Frequently asked questions about DocumentDB" pageTitle="DocumentDB 常見問題集 | Azure" description="關於 Azure DocumentDB nosql 文件資料庫服務常見問題的解答。了解容量及要求單位，並了解如何按照您應用程式的需求進行調整。" metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, faq"   services="documentdb" solutions="data-management"   authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	title="Frequently asked questions about DocumentDB" 
+	pageTitle="DocumentDB 常見問題集 | Azure"
+	description="關於 Azure DocumentDB nosql 文件資料庫服務常見問題的解答。了解容量及要求單位，並了解如何按照您應用程式的需求進行調整。"
+	metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, faq"  
+	services="documentdb" 
+	solutions="data-management"   
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar" 
+	videoId="" 
+	scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/20/2014" 
+	ms.author="spelluru" />
 
 
 #DocumentDB 常見問題集
@@ -32,7 +50,7 @@ DocumentDB 是 NoSQL 文件導向的資料庫，以 JSON 格式儲存資料。Do
 對於新的 Web 和行動應用程式，規模、效能和查詢無結構描述的資料都很重要，DocumentDB 是不錯的選擇。DocumentDB 有助於快速開發，且支援應用程式資料模型的持續反覆運算。管理使用者產生之內容和資料的應用程式，就是 DocumentDB 的常見使用案例。  
 
 ###規模和容量有何限制？
-每一個 Azure DocumentDB 帳戶都支援容量單位數上限，這可透過 Azure 入口網站來設定。如果您需要更多容量單位，請聯絡支援人員來增加帳戶配額。如需資源配額的詳細資訊，請參閱[預覽版本的 DocumentDB 限制](http://azure.microsoft.com/en-us/documentation/articles/documentdb-limits/) 。
+每一個 Azure DocumentDB 帳戶都支援容量單位數上限，這可透過 Azure 入口網站來設定。如果您需要更多容量單位，請聯絡支援人員來增加帳戶配額。如需資源配額的詳細資訊，請參閱[預覽版本的 DocumentDB 限制](http://azure.microsoft.com/documentation/articles/documentdb-limits/) 。
 
 
 ###Microsoft Azure DocumentDB 的費用是多少？
@@ -87,3 +105,5 @@ DocumentDB 的預存程序支援提供有效率的方式執行批次插入。您
 
 [preview-portal]: https://portal.azure.com
 [query]: ../documentdb-sql-query/
+
+<!--HONumber=46--> 

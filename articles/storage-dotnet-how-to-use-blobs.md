@@ -47,7 +47,7 @@
 
 ###取得組件 建議您使用 NuGet 來取得 `Microsoft.WindowsAzure.Storage.dll` 組件。請在 [方案總管]**** 中您的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]****。在線上搜尋 "WindowsAzure.Storage"，然後按一下 [安裝]**** 以安裝「Azure 儲存體」封裝與相依性。
 
-`Microsoft.WindowsAzure.Storage.dll` 也隨附於 Azure SDK for .NET (可自 <a href="http://www.windowsazure.com/zh-tw/develop/net/#">.NET 開發人員中心</a>下載)。此組件會安裝在 `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` 目錄。
+`Microsoft.WindowsAzure.Storage.dll` 也隨附於 Azure SDK for .NET (可自 <a href="http://azure.microsoft.com/develop/net/#">.NET 開發人員中心</a>下載)。此組件會安裝在 `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` 目錄。
 
 ###命名空間宣告 請將下列命名空間宣告，新增至您想要在其中以程式設計方式存取「Azure 儲存體」的所有 C\# 檔案內的頂端：
 
@@ -337,10 +337,10 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
   <ul>
     <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">適用於 .NET 的儲存體用戶端程式庫參考</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179355">REST API 參考</a></li>
+    <li><a href="http://msdn.microsoft.com/library/windowsazure/dd179355">REST API 參考</a></li>
   </ul>
 </li>
-<li>參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx">在 Azure 中儲存和存取資料，以深入了解可使用「Azure 儲存體」來執行的更多進階工作</a>。</li>
+<li>參閱<a href="http://msdn.microsoft.com/library/windowsazure/gg433040.aspx">在 Azure 中儲存和存取資料</a>，以深入了解可使用「Azure 儲存體」來執行的更多進階工作。</li>
 <li>了解如何使用下列工具來簡化您所撰寫要與「Azure 儲存體」搭配使用的程式碼：<a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK。</li>
 <li>如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
   <ul>
@@ -369,13 +369,12 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
   
-  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
+  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
-  [設定連接字串]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758697.aspx
+  [設定連接字串]: http://msdn.microsoft.com/library/windowsazure/ee758697.aspx
   [.NET 用戶端程式庫參考]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [REST API 參考]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179355
+  [REST API 參考]: http://msdn.microsoft.com/library/windowsazure/dd179355
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-
 <!--HONumber=42-->

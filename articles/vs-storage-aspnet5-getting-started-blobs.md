@@ -29,7 +29,7 @@
 
 Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非結構化資料的服務，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。單一 Blob 可以是任何大小。Blob 可以是影像、音訊和視訊檔、原始資料及文件檔案。
 
-若要開始，您需要建立 Azure 儲存體帳戶，然後在儲存體中建立一或多個容器。例如，您可以建立稱為 "Scrapbook" 的儲存體，然後在儲存體中建立稱為 "images" 的容器來儲存圖片，再建立另一個稱為 "audio" 的容器來儲存音訊檔。建立容器之後，就可以將個別的 Blob 檔案上傳至這些容器。如需以程式設計方式操作 Blob 的詳細資訊，請參閱[如何使用 .NET 的 Blob 儲存體](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/ "How to use Blob Storage from .NET")。
+若要開始，您需要建立 Azure 儲存體帳戶，然後在儲存體中建立一或多個容器。例如，您可以建立稱為 "Scrapbook" 的儲存體，然後在儲存體中建立稱為 "images" 的容器來儲存圖片，再建立另一個稱為 "audio" 的容器來儲存音訊檔。建立容器之後，就可以將個別的 Blob 檔案上傳至這些容器。如需以程式設計方式操作 Blob 的詳細資訊，請參閱[如何使用 .NET 的 Blob 儲存體](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/ "How to use Blob Storage from .NET")。
 
 若要以程式設計方式存取 ASP.NET 5 專案中的 Blob，您需要加入下列項目 (如果尚不存在)。
 
@@ -123,7 +123,7 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
             }
         } while (token != null);
 
-還有其他方法可列出 Blob 容器的內容。如需詳細資訊，請參閱[如何從 .NET 使用 Blob 儲存體](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob)。
+還有其他方法可列出 Blob 容器的內容。如需詳細資訊，請參閱[如何從 .NET 使用 Blob 儲存體](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob)。
 
 ##### 下載 Blob
 若要下載 Blob，請先取得 Blob 的參考，再呼叫 **DownloadToStreamAsync()** 方法。下列範例使用 **DownloadToStreamAsync()** 方法將 Blob 內容傳送給資料流物件，您接著可將該物件儲存為本機檔案。
@@ -137,7 +137,7 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
     	await blockBlob.DownloadToStreamAsync(fileStream);
 	}
 
-還有其他方法可將 Blob 儲存為檔案。如需詳細資訊，請參閱[如何從 .NET 使用 Blob 儲存體](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs)。
+還有其他方法可將 Blob 儲存為檔案。如需詳細資訊，請參閱[如何從 .NET 使用 Blob 儲存體](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs)。
 
 ##### 刪除 Blob
 若要刪除 Blob，請先取得 Blob 的參考，再呼叫它的 **DeleteAsync()** 方法。
@@ -149,4 +149,4 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
 	await blockBlob.DeleteAsync();
 
 [深入了解 Azure 儲存體](http://azure.microsoft.com/documentation/services/storage/)
-另請參閱[使用伺服器總管瀏覽和管理儲存體資源](http://msdn.microsoft.com/zh-tw/library/azure/ff683677.aspx)和 [ASP.NET 5](http://www.asp.net/vnext)。<!--HONumber=42-->
+另請參閱[使用伺服器總管瀏覽和管理儲存體資源](http://msdn.microsoft.com/library/azure/ff683677.aspx)和 [ASP.NET 5](http://www.asp.net/vnext)。<!--HONumber=42-->

@@ -274,9 +274,9 @@ Hive 工作會先顯示叢集上所建立的 Hive 資料表，以及從 hivesamp
 * [開始使用 Azure HDInsight][hdinsight-get-started]
 
 
-[azure-purchase-options]: http://azure.microsoft.com/zh-tw/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/zh-tw/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-get-started]: ../hdinsight-get-started/
 [hdinsight-provision]: ../hdinsight-provision-clusters/
@@ -290,7 +290,7 @@ Hive 工作會先顯示叢集上所建立的 Hive 資料表，以及從 hivesamp
 [hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
 [hdinsight-upload-data]: ../hdinsight-upload-data/
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
 [Powershell-install-configure]: ../install-configure-powershell/
 

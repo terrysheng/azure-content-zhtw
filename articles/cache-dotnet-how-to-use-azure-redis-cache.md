@@ -1,6 +1,20 @@
-<properties pageTitle="如何使用 Azure Redis 快取" metaKeywords="" description="了解如何在 Azure Redis Cache 中建立及使用快取" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="如何使用 Azure Redis 快取" 
+	description="了解如何在 Azure Redis 快取中使用快取" 
+	services="cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="1/20/2015" 
+	ms.author="sdanie"/>
 
 # 如何使用 Azure Redis 快取
 
@@ -332,27 +346,27 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 <!-- LINKS -->
 [Azure Redis 工作階段狀態提供者]: http://go.microsoft.com/fwlink/?LinkId=398249
 [Azure 管理入口網站]: http://windows.azure.com/
-[做法：以程式設計方式設定快取用戶端]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg618003.aspx
+[做法：以程式設計方式設定快取用戶端]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Azure 快取的工作階段狀態提供者]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Azure AppFabric 快取：快取工作階段狀態]: http://www.microsoft.com/zh-tw/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Azure 快取的輸出快取提供者]: http://go.microsoft.com/fwlink/?LinkId=320837
-[Azure 共用快取]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg278356.aspx
+[Azure 共用快取]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 [小組部落格]: http://blogs.msdn.com/b/windowsazure/
 [Azure 快取]: http://www.microsoft.com/zh-tw/showcase/Search.aspx?phrase=azure+caching
 [如何設定虛擬機器大小]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Azure 快取容量規劃考量]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure 快取]: http://go.microsoft.com/fwlink/?LinkId=252658
-[做法：以宣告方式設定 ASP.NET 網頁的快取性]: http://msdn.microsoft.com/zh-tw/library/zd1ysf1y.aspx
-[做法：以程式設計方式設定頁面的快取性]: http://msdn.microsoft.com/zh-tw/library/z852zf6b.aspx
-[在 Azure Redis 快取中設定快取]: http://msdn.microsoft.com/zh-tw/library/azure/dn793612.aspx
+[做法：以宣告方式設定 ASP.NET 網頁的快取性]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[做法：以程式設計方式設定頁面的快取性]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[在 Azure Redis 快取中設定快取]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
 [StackExchange.Redis 組態模型]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
-[在快取中使用 .NET 物件]: http://msdn.microsoft.com/zh-tw/library/dn690521.aspx#Objects
+[在快取中使用 .NET 物件]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
 
 
 [NuGet 封裝管理員安裝]: http://go.microsoft.com/fwlink/?LinkId=240311
-[快取定價詳細資料]: http://www.windowsazure.com/zh-tw/pricing/details/cache/
+[快取定價詳細資料]: http://azure.microsoft.com/pricing/details/cache/
 [管理入口網站]: https://manage.windowsazure.com/
 
 [Azure Redis 快取概觀]: http://go.microsoft.com/fwlink/?LinkId=320830
@@ -360,7 +374,7 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 
 [移轉至 Azure Redis 快取]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Azure Redis 快取範例]: http://go.microsoft.com/fwlink/?LinkId=320840
-[使用資源群組管理您的 Azure 資源]: http://azure.microsoft.com/zh-tw/documentation/articles/azure-preview-portal-using-resource-groups/
+[使用資源群組管理您的 Azure 資源]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [StackExchange.Redis 快取用戶端文件]: http://github.com/StackExchange/StackExchange.Redis#documentation
@@ -372,3 +386,5 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 [Windows Azure 網站：應用程式字串與連接字串的運作方式]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -19,7 +19,7 @@ Azure 資料表儲存體服務可儲存大量的結構化資料。此服務是�
     http://`<storage account>`.table.core.windows.net/`<table>`     
     您可以使用此位址搭配 OData 通訊協定來直接定址 Azure 資料表。如需詳細資訊，請參閱 [OData.org][]
 
--   **儲存體帳戶：**所有對 Azure 儲存體的存取都是透過儲存體帳戶進行。如需儲存體帳戶容量的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/zh-tw/library/dn249410.aspx)。
+-   **儲存體帳戶：**所有對 Azure 儲存體的存取都是透過儲存體帳戶進行。如需儲存體帳戶容量的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/library/dn249410.aspx)。
 
 -   **資料表**：資料表是一組實體。資料表不強制規定實體的結構描述，這表示單一資料表包含的實體可以有幾組不同的屬性。一個儲存體帳戶可包含的資料表數目， 
 	僅受限於儲存體帳戶容量限制。
@@ -32,4 +32,4 @@ Azure 資料表儲存體服務可儲存大量的結構化資料。此服務是�
   
   [Table1]: ./media/storage-java-how-to-use-table-storage/table1.png
   [OData.org]: http://www.odata.org/
-<!--HONumber=41-->
+<!--HONumber=42-->

@@ -56,7 +56,7 @@
 
 <strong>平台</strong>。選取應用程式是否在 32 位元或 64 位元環境中執行。64 位元環境需要 [基本] 或 [標準] 模式。[免費] 與 [共用] 模式一律於 32 位元環境中執行。
 
-<strong>Web 通訊端</strong>。設為 **[開啟]** 以啟用 WebSocket 通訊協定，例如倘若您的網站使用 [ASP.NET SignalR](http://www.asp.net/signalr) 或 [socket.io](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-nodejs-chat-app-socketio/)。
+<strong>Web 通訊端</strong>。設為 **[開啟]** 以啟用 WebSocket 通訊協定，例如倘若您的網站使用 [ASP.NET SignalR](http://www.asp.net/signalr) 或 [socket.io](http://azure.microsoft.com/documentation/articles/web-sites-nodejs-chat-app-socketio/)。
 
 <strong>永遠開啟</strong>。根據預設，網站如果閒置一段時間，就會卸載。此舉有助於系統保留資源。在 [基本] 或 [標準] 模式中，您可以啟用 [永遠開啟]<strong></strong>，以讓網站全天候載入。如果您的網站執行連續的網路工作，應啟用 **[永遠開啟]**，否則這些網路工作可能無法可靠地執行
 
@@ -67,17 +67,17 @@
 
 ### 憑證
 
-在 [基本] 或 [標準] 模式中，您可以上傳自訂網域的 SSL 憑證。如需詳細資訊，請參閱對 [Azure 網站啟用 HTTPS](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-configure-ssl-certificate/)。 
+在 [基本] 或 [標準] 模式中，您可以上傳自訂網域的 SSL 憑證。如需詳細資訊，請參閱對 [Azure 網站啟用 HTTPS](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)。 
 
 您上傳的憑證會列示在此。憑證上傳完畢後，可以將其指派給訂閱及區域中的任何一個網站。萬用字元憑證可用於接受此憑證之網域內的任何網站上。只有當該憑證不具有有效繫結關係時，才能刪除憑證。
 
 ### 網域名稱
 
-檢視或新增網站的其他網域名稱。如需詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-custom-domain-name/)。
+檢視或新增網站的其他網域名稱。如需詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱](http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/)。
 
 ### SSL 繫結
 
-如果您已上傳 SSL 憑證，則可以將該憑證繫結至自訂網域名稱。如需詳細資訊，請參閱對 [Azure 網站啟用 HTTPS](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-configure-ssl-certificate/)。
+如果您已上傳 SSL 憑證，則可以將該憑證繫結至自訂網域名稱。如需詳細資訊，請參閱對 [Azure 網站啟用 HTTPS](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)。
 
 ### 部署
 
@@ -93,7 +93,7 @@
 
 從支援記錄功能的 Web 應用程式寫入診斷記錄的選項： 
 
-- <strong>檔案系統</strong>。將記錄寫入網站的檔案系統。檔案系統記錄功能會持續運作 12 小時。您可以從 FTP 共用存取網站的記錄。(請參閱 [FTP 認證](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-manage#ftp-credentials))。
+- <strong>檔案系統</strong>。將記錄寫入網站的檔案系統。檔案系統記錄功能會持續運作 12 小時。您可以從 FTP 共用存取網站的記錄。(請參閱 [FTP 認證](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials))。
 - <strong>資料表儲存體</strong>。將記錄寫入 Azure 資料表儲存體。該儲存體中沒有時限，除非您停用記錄，否則記錄會一直啟用。 
 - <strong>Blob 儲存體</strong>。將記錄寫入 Azure Blob 儲存體。該儲存體中沒有時限，除非您停用記錄，否則記錄會一直啟用。
 
@@ -109,13 +109,13 @@
 
 <strong>Web 伺服器記錄</strong>。啟用 Web 伺服器記錄。記錄會儲存為 W3C 延伸的記錄檔格式。您可以將記錄儲存至 Azure 儲存體或網站的檔案系統。
  
-- 如果您選擇 [檔案系統]<strong></strong>，記錄都會儲存到 [儀表板] 頁面上的 [FTP 診斷記錄]"" 下方列示的 FTP 網站。(請參閱 [FTP 認證](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-manage#ftp-credentials))。 
+- 如果您選擇 [檔案系統]<strong></strong>，記錄都會儲存到 [儀表板] 頁面上的 [FTP 診斷記錄]"" 下方列示的 FTP 網站。(請參閱 [FTP 認證](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials))。 
 - 如果您選擇 **[檔案系統]**，請使用 [配額]<strong></strong> 方塊以為記錄檔設定最大的磁碟空間量。最小值為 25MB，而最大值則是 100MB。預設值為 35MB。到達配額時，最新的檔案會覆寫最舊的檔案。如果您需要保留的記錄超過 100MB，請使用 Azure 儲存體，其提供您大上很多的儲存容量。
 - 選擇性地按一下 [設定保留]<strong></strong> 可在一段時間之後自動刪除檔案。依預設，系統永遠不會刪除記錄。   
 
-<strong>詳細的錯誤訊息</strong>。一經啟用，詳細的錯誤訊息會另存為 .htm 檔案。若要檢視檔案，請移至 [儀表板] 頁面上的 [FTP 診斷記錄]"" 下方列示的 FTP 網站。檔案都會儲存在 FTP 網站中的 /LogFiles/DetailedErrors 之下。(請參閱 [FTP 認證](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-manage#ftp-credentials))。
+<strong>詳細的錯誤訊息</strong>。一經啟用，詳細的錯誤訊息會另存為 .htm 檔案。若要檢視檔案，請移至 [儀表板] 頁面上的 [FTP 診斷記錄]"" 下方列示的 FTP 網站。檔案都會儲存在 FTP 網站中的 /LogFiles/DetailedErrors 之下。(請參閱 [FTP 認證](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials))。
 
-<strong>失敗的要求追蹤</strong>。一經啟用，失敗要求就會記錄為 XML 檔案。若要檢視檔案，請移至 [儀表板] 頁面上的 [FTP 診斷記錄]"" 下方列示的 FTP 網站。(請參閱 [FTP 認證](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-manage#ftp-credentials))。檔案會儲存在 /LogFiles/W3SVC*xxx* 之下，其中 xxx 是唯一識別碼。此資料夾內含有一個 XSL 檔案和一或多個 XML 檔案。請務必下載 XSL 檔案，因為 XSL 檔案可提供格式化和篩選 XML 檔案內容的功能。
+<strong>失敗的要求追蹤</strong>。一經啟用，失敗要求就會記錄為 XML 檔案。若要檢視檔案，請移至 [儀表板] 頁面上的 [FTP 診斷記錄]"" 下方列示的 FTP 網站。(請參閱 [FTP 認證](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials))。檔案會儲存在 /LogFiles/W3SVC*xxx* 之下，其中 xxx 是唯一識別碼。此資料夾內含有一個 XSL 檔案和一或多個 XML 檔案。請務必下載 XSL 檔案，因為 XSL 檔案可提供格式化和篩選 XML 檔案內容的功能。
 
 <strong>遠端偵錯</strong>可啟用遠端偵錯。一經啟用，您就可以使用 Visual Studio 中的遠端偵錯工具直接連線至 Azure 網站。遠端偵錯將保持啟用達 48 小時。
 
@@ -132,7 +132,7 @@
 
 選擇 [附加元件]<strong></strong> 以從清單中選取分析附加元件，或是前往 Azure 市集選擇。選擇 [自訂]<strong></strong> 以從清單選取分析資料提供者，例如 New Relic。如果您使用自訂提供者，必須在 [提供者金鑰]<strong></strong> 方塊中輸入授權金鑰。 
 
-如需使用 New Relic 搭配 Azure 網站的詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/">Azure 網站上的 New Relic 應用程式效能管理</a>。
+如需使用 New Relic 搭配 Azure 網站的詳細資訊，請參閱 <a href="http://azure.microsoft.com/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/">Azure 網站上的 New Relic 應用程式效能管理</a>。
 
 ### 應用程式設定
 
@@ -210,17 +210,17 @@ Azure 會使用指定的參數建立 SQL 資料庫，然後將該資料庫連結
 
 ##<a name="howtodomain"></a>作法：設定自訂網域名稱
 
-如需設定網站以使用自訂網域名稱的相關資訊，請參閱[設定 Azure 網站的自訂網域名稱](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-custom-domain-name/)。
+如需設定網站以使用自訂網域名稱的相關資訊，請參閱[設定 Azure 網站的自訂網域名稱](http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/)。
 
 ##<a name="howtoconfigSSL"></a>作法：設定網站以使用 SSL##
 
-如需在 Azure 上設定自訂網域之 SSL 的詳細資訊，請參閱[對 Azure 網站啟用 HTTPS](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-configure-ssl-certificate/)。 
+如需在 Azure 上設定自訂網域之 SSL 的詳細資訊，請參閱[對 Azure 網站啟用 HTTPS](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)。 
 
 ##<a name="next"></a>後續步驟
 
-* [如何調整網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-scale/)
+* [如何調整網站](http://azure.microsoft.com/documentation/articles/web-sites-scale/)
 
-* [如何監視網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-monitor/)
+* [如何監視網站](http://azure.microsoft.com/documentation/articles/web-sites-monitor/)
 
 
 

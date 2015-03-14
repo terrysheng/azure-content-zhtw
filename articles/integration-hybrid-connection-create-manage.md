@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Create and Manage Hybrid Connections - BizTalk Services" pageTitle="建立和管理混合式連線 | Azure" metaKeywords="BizTalk Services, BizTalk, web sites, website, hybrid connections, Azure" description="了解如何建立混合式連線、管理連線和安裝 Hybrid Connection Manager。" metaCanonical="" services="integration-services" documentationCenter="" title="Create and Manage Hybrid Connections" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="建立和管理混合式連線 | Azure" 
+	description="了解如何建立混合式連線、管理連線和安裝 Hybrid Connection Manager。MABS，WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="mandia"/>
 
 
 #建立和管理混合式連線
@@ -78,7 +92,7 @@
 
 若要將 Azure 網站連結至現有的混合式連線，請在 [混合式連線] 分頁中選取 [**use an existing Hybrid Connection**]。請參閱 [將 Azure 網站連接到內部部署資源](http://go.microsoft.com/fwlink/p/?LinkId=397538) (英文)。
 
-若要將 Azure 行動服務連結至現有的混合式連線，請在變更或建立行動服務時選取 [**新增混合式連線**]。請參閱 [Azure 行動服務和混合式連線](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started) (英文)。
+若要將 Azure 行動服務連結至現有的混合式連線，請在變更或建立行動服務時選取 [**新增混合式連線**]。請參閱 [Azure 行動服務和混合式連線](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started) (英文)。
 
 
 ##<a name="InstallHCM"></a>在內部部署安裝混合式連線管理員
@@ -164,8 +178,8 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 - [將 Azure 網站連接到內部部署資源](http://go.microsoft.com/fwlink/p/?LinkId=397538)
 - [混合式連線逐步說明：從 Azure 網站連接至內部部署 SQL Server](http://go.microsoft.com/fwlink/?LinkID=397979)
-- [Azure 行動服務和混合式連線](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
-- [混合式連線概觀](http://azure.microsoft.com/zh-tw/documentation/articles/integration-hybrid-connection-overview)
+- [Azure 行動服務和混合式連線](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
+- [混合式連線概觀](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-overview)
 
 
 ## 另請參閱
@@ -179,3 +193,5 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
+
+<!--HONumber=46--> 

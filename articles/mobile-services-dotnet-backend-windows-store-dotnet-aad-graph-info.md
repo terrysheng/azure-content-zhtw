@@ -1,6 +1,20 @@
-<properties pageTitle="存取 Azure Active Directory Graph 資訊 (Windows 市集) | 行動開發人員中心" description="了解如何在 Windows 市集應用程式中使用 Graph API 存取 Azure Active Directory 資訊。" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="存取 Azure Active Directory Graph 資訊 (Windows 市集) | 行動開發人員中心" 
+	description="了解如何在 Windows 市集應用程式中使用 Graph API 存取 Azure Active Directory 資訊。" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="wesmc"/>
 
 # 存取 Azure Active Directory 圖形資訊
 
@@ -186,7 +200,7 @@
 [儲存伺服器指令碼]: /zh-tw/documentation/articles/mobile-services-store-scripts-source-control/
 [註冊使用 Azure Active Directory 登入]: /zh-tw/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [圖形用戶端程式庫]: http://go.microsoft.com/fwlink/?LinkId=510536
-[取得使用者]: http://msdn.microsoft.com/zh-tw/library/azure/dn151678.aspx
+[取得使用者]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [行動服務中使用 AAD 的角色型存取控制]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/
 
 

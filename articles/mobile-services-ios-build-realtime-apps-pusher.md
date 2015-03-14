@@ -1,6 +1,20 @@
-﻿<properties pageTitle="使用 Pusher 建立即時應用程式 (iOS) - 行動服務" description="了解如何使用 Pusher 將通知傳送到 iOS 上的 Azure 媒體服務應用程式。" services="" documentationCenter="ios" authors="lindydonna" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="使用 Pusher 建立即時應用程式 (iOS) - 行動服務" 
+	description="了解如何使用 Pusher 將通知傳送到 iOS 上的 Azure 媒體服務應用程式。" 
+	services="" 
+	documentationCenter="ios" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="donnam"/>
 
 
 # 使用行動服務和 Pusher 建立即時應用程式

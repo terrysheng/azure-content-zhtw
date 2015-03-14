@@ -96,7 +96,7 @@
 
 ## <a name="monitoring-your-storage-service"></a>監視您的儲存體服務
 
-如果您熟悉 Windows 效能監視，可以將儲存體度量當成相當於 Windows 效能監視器計數的 Azure 儲存體。「儲存體度量」中包含一組完整的度量 (即「Windows 效能監視器」詞彙中的計數器)，例如服務可用性、服務要求總數，或是成功完成的服務要求百分比 (如需完整的可用度量清單，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/zh-tw/library/azure/hh343264.aspx" target="_blank">儲存體分析度量資料表結構描述</a>)。您可以指定讓儲存體服務每小時或每分鐘收集並彙總度量一次。如需有關如何啟用度量及監視您儲存體帳戶的詳細資訊，請參閱 MSDN 上的<a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">啟用儲存體度量</a>。
+如果您熟悉 Windows 效能監視，可以將儲存體度量當成相當於 Windows 效能監視器計數的 Azure 儲存體。「儲存體度量」中包含一組完整的度量 (即「Windows 效能監視器」詞彙中的計數器)，例如服務可用性、服務要求總數，或是成功完成的服務要求百分比 (如需完整的可用度量清單，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">儲存體分析度量資料表結構描述</a>)。您可以指定讓儲存體服務每小時或每分鐘收集並彙總度量一次。如需有關如何啟用度量及監視您儲存體帳戶的詳細資訊，請參閱 MSDN 上的<a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">啟用儲存體度量</a>。
 
 您可以選擇要在 Azure 入口網站上顯示哪些每小時度量，並設定只要每小時度量超出特定臨界值便以電子郵件通知系統管理員的規則 (如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">做法：在 Windows Azure 中接收警示通知及管理警示規則</a>頁面說明)。儲存體服務會盡其所能收集各項度量，但是不一定會記錄每一次的儲存體操作。
 
@@ -130,7 +130,7 @@
 
 ### <a name="monitoring-capacity"></a>監視容量
 
-儲存體度量只會儲存 Blob 服務的容量度量，這是因為 Blob 通常佔已儲存的資料最大宗 (寫入期間無法使用儲存體度量來監視資料表與佇列的容量)。如果您已為 Blob 服務啟用監視功能，則可在 **$MetricsCapacityBlob** 資料表中找到這項資料。「儲存體度量」每天會記錄這項資料一次，而您可以使用 **RowKey** 的值來判斷資料列是否包含與使用者資料 (**data** 值) 或分析資料 (**analytics** 值) 相關的實體。每一個儲存的實體都含有使用的儲存體容量相關資訊 (以位元組為測量單位的 **Capacity**)，以及儲存體帳戶目前使用中的容器數目 (**ContainerCount**) 和 Blob 數目 (**ObjectCount**)。如需有關 **$MetricsCapacityBlob** 資料表中儲存之容量度量的資訊，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/zh-tw/library/azure/hh343264.aspx" target="_blank">儲存體分析度量資料表結構描述</a>。
+儲存體度量只會儲存 Blob 服務的容量度量，這是因為 Blob 通常佔已儲存的資料最大宗 (寫入期間無法使用儲存體度量來監視資料表與佇列的容量)。如果您已為 Blob 服務啟用監視功能，則可在 **$MetricsCapacityBlob** 資料表中找到這項資料。「儲存體度量」每天會記錄這項資料一次，而您可以使用 **RowKey** 的值來判斷資料列是否包含與使用者資料 (**data** 值) 或分析資料 (**analytics** 值) 相關的實體。每一個儲存的實體都含有使用的儲存體容量相關資訊 (以位元組為測量單位的 **Capacity**)，以及儲存體帳戶目前使用中的容器數目 (**ContainerCount**) 和 Blob 數目 (**ObjectCount**)。如需有關 **$MetricsCapacityBlob** 資料表中儲存之容量度量的資訊，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">儲存體分析度量資料表結構描述</a>。
 
 > [AZURE.NOTE] 您應該監視這些數值，以便在快要達到儲存體帳戶的容量限制時預先獲得警告。在 Azure 入口網站中，您可以在儲存體帳戶的 [監視] 頁面上新增警示規則，以便在彙總儲存體使用量超出或低於您指定的臨界值時收到通知。
 
@@ -140,7 +140,7 @@
 
 您應該監視下列每小時或分鐘度量資料表中 [可用性] 欄的值，以監視您儲存體帳戶中儲存體服務的可用性：**$MetricsHourPrimaryTransactionsBlob**、**$MetricsHourPrimaryTransactionsTable**、**$MetricsHourPrimaryTransactionsQueue**、**$MetricsMinutePrimaryTransactionsBlob**、**$MetricsMinutePrimaryTransactionsTable**、**$MetricsMinutePrimaryTransactionsQueue**、**$MetricsCapacityBlob**。[可用性] 欄包含百分比值，此值表示資料列所代表之服務或 API 作業的可用性 (**RowKey** 會顯示資料列是包含服務整體的度量，還是特定 API 作業的度量)。 
 
-如果值小於 100%，即表示某些儲存體要求失敗。您可以檢視度量資料中的其他資料欄，查看當中各種不同錯誤類型 (例如 **ServerTimeoutError**) 的要求數量，以了解這些要求失敗的原因。在某些情況下，您應該預期會看到 [可用性] 值暫時低於 100%，例如因服務移動資料分割以提供更佳的要求負載平衡而導致暫時性伺服器逾時的情況；用戶端應用程式中的重試邏輯應該會處理這類間歇性情況。此頁面 <a href="http://msdn.microsoft.com/zh-tw/library/azure/hh343260.aspx" target="_blank"></a> 會列出「儲存體度量」納入其 [可用性] 計算中的交易類型。
+如果值小於 100%，即表示某些儲存體要求失敗。您可以檢視度量資料中的其他資料欄，查看當中各種不同錯誤類型 (例如 **ServerTimeoutError**) 的要求數量，以了解這些要求失敗的原因。在某些情況下，您應該預期會看到 [可用性] 值暫時低於 100%，例如因服務移動資料分割以提供更佳的要求負載平衡而導致暫時性伺服器逾時的情況；用戶端應用程式中的重試邏輯應該會處理這類間歇性情況。此頁面 <a href="http://msdn.microsoft.com/library/azure/hh343260.aspx" target="_blank"></a> 會列出「儲存體度量」納入其 [可用性] 計算中的交易類型。
 
 在 Azure 入口網站中，您可以在儲存體帳戶的 [監視] 頁面上新增警示規則，以便在服務的 [可用性] 低於您指定的臨界值時收到通知。
 
@@ -199,10 +199,10 @@
 
 以下位於 MSDN 的資源有助您了解儲存體相關狀態與錯誤碼：
 
-- <a href="http://msdn.microsoft.com/zh-tw/library/azure/dd179357.aspx" target="_blank">常見的 REST API 錯誤碼</a>
-- <a href="http://msdn.microsoft.com/zh-tw/library/azure/dd179439.aspx" target="_blank">Blob 服務錯誤碼</a>
-- <a href="http://msdn.microsoft.com/zh-tw/library/azure/dd179446.aspx" target="_blank">佇列服務錯誤碼</a>
-- <a href="http://msdn.microsoft.com/zh-tw/library/azure/dd179438.aspx" target="_blank">資料表服務錯誤碼</a>
+- <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">常見的 REST API 錯誤碼</a>
+- <a href="http://msdn.microsoft.com/library/azure/dd179439.aspx" target="_blank">Blob 服務錯誤碼</a>
+- <a href="http://msdn.microsoft.com/library/azure/dd179446.aspx" target="_blank">佇列服務錯誤碼</a>
+- <a href="http://msdn.microsoft.com/library/azure/dd179438.aspx" target="_blank">資料表服務錯誤碼</a>
 
 ### <a name="storage-emulator-issues"></a>儲存體模擬器問題
 
@@ -375,7 +375,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
     ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
     queueServicePoint.UseNagleAlgorithm = false;
 
-您應該查看用戶端記錄，了解您的用戶端應用程式所提交的要求數量有多少，並查看用戶端是否出現一般 .NET 相關的效能瓶頸，例如 CPU、.NET 記憶體回收、網路使用率或記憶體等 (做為對 .NET 用戶端應用程式進行疑難排解的起點，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/zh-tw/library/7fe0dd2y(v=vs.110).aspx" target="_blank">偵錯、追蹤和程式碼剖析</a>)。
+您應該查看用戶端記錄，了解您的用戶端應用程式所提交的要求數量有多少，並查看用戶端是否出現一般 .NET 相關的效能瓶頸，例如 CPU、.NET 記憶體回收、網路使用率或記憶體等 (做為對 .NET 用戶端應用程式進行疑難排解的起點，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">偵錯、追蹤和程式碼剖析</a>)。
 
 #### 調查網路延遲問題
 
@@ -431,7 +431,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>PercentThrottlingError 出現暫時性增加
 
-如果您看到 **PercentThrottlingError** 的值出現暴增的期間與應用程式的活動高峰期間相同，您應該在用戶端實作指數型 (非線性) 後退重試策略：這將可降低資料分割上的立即負載，並協助應用程式消除流量尖峰。如需有關如何使用「儲存體用戶端程式庫」來實作重試原則的詳細資訊，請參閱 MSDN 上的 <a href="http://msdn.microsoft.com/zh-tw/library/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies 命名空間</a>。
+如果您看到 **PercentThrottlingError** 的值出現暴增的期間與應用程式的活動高峰期間相同，您應該在用戶端實作指數型 (非線性) 後退重試策略：這將可降低資料分割上的立即負載，並協助應用程式消除流量尖峰。如需有關如何使用「儲存體用戶端程式庫」來實作重試原則的詳細資訊，請參閱 MSDN 上的 <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies 命名空間</a>。
 
 > [AZURE.NOTE] 您可能也會看到 **PercentThrottlingError** 的值出現暴增的期間與應用程式的活動高峰期間不相同：最可能的原因就是儲存體服務正在移動資料分割來改善負載平衡。
 
@@ -611,7 +611,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 - SAS 金鑰中的版本參數 (例如 **sv=2012-02-12**) 是否與您所使用的「儲存體用戶端程式庫」版本相符。您應該一律使用最新版的儲存體用戶端程式庫。如需有關 SAS 權杖版本及用戶端程式庫版本相依性的詳細資訊，請參閱 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx" target="_blank"></a>。 
 - 如果您重新產生儲存體存取金鑰 (在 Azure 入口網站中儲存體帳戶的任何頁面上按一下 [管理存取金鑰])，則任何現有的 SAS 權杖都會變成無效。如果您產生的 SAS 權杖，內含很長的到期時間以便用戶端應用程式快取處理，則可能會出現問題。
 
-如果您是使用儲存體用戶端程式庫來產生 SAS 權杖，則您可以輕易地建立有效的權杖。不過，如果您要使用「儲存體 REST API」並手動建構 SAS 權杖，則應該仔細閱讀 MSDN 上的<a href="http://msdn.microsoft.com/zh-tw/library/azure/ee395415.aspx" target="_blank">以共用存取簽章委派存取</a>主題。
+如果您是使用儲存體用戶端程式庫來產生 SAS 權杖，則您可以輕易地建立有效的權杖。不過，如果您要使用「儲存體 REST API」並手動建構 SAS 權杖，則應該仔細閱讀 MSDN 上的<a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">以共用存取簽章委派存取</a>主題。
 
 ### <a name="the-client-is-receiving-404-messages"></a>用戶端收到 HTTP 404 (找不到) 訊息
 當用戶端應用程式接收來自伺服器的 HTTP 404 (找不到) 訊息時，表示用戶端嘗試使用的物件 (例如，實體、資料表、Blob、容器或佇列) 並不存在儲存體服務中。這種情況有數種可能的原因，例如：
@@ -893,7 +893,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 之所以發生這些錯誤，是因為網頁瀏覽器實作<a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">相同來源原則 (same-origin policy)</a> 安全性限制，此限制會防止網頁呼叫所屬網域與網頁來源網域不同的 API。 
 
-若要解決這個 JavaScript 問題，您可以針對用戶端存取的儲存體服務，設定跨原始來源資源分享 (CORS)。如需詳細資訊，請參閱 MSDN 上的 <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dn535601.aspx" target="_blank">Windows Azure 儲存體服務的跨來源資源共用 (CORS) 支援</a>。
+若要解決這個 JavaScript 問題，您可以針對用戶端存取的儲存體服務，設定跨原始來源資源分享 (CORS)。如需詳細資訊，請參閱 MSDN 上的 <a href="http://msdn.microsoft.com/library/windowsazure/dn535601.aspx" target="_blank">Windows Azure 儲存體服務的跨來源資源共用 (CORS) 支援</a>。
 
 下例程式碼範例顯示如何設定您的 Blob 服務，以讓 JavaScript 在 Contoso 網域中執行，進而存取位於您的 Blob 儲存體服務中的 Blob：
 
@@ -988,7 +988,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 - **ResouceAlreadyExists** (衝突 409)，例如來自資源已經存在的 **CreateIfNotExist** 作業。
 - **ConditionNotMet** (未修改 304)，例如來自條件式作業，像是用戶端傳送 **ETag** 值和 HTTP **If-None-Match** 標頭來要求某個影像，而又限制該影像必須是自上次作業之後已更新的情況。
 
-您可以在<a href="http://msdn.microsoft.com/zh-tw/library/azure/dd179357.aspx" target="_blank">常見的 REST API 錯誤碼</a>頁面上找到儲存體服務傳回的常見 REST API 錯誤碼清單。 
+您可以在<a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">常見的 REST API 錯誤碼</a>頁面上找到儲存體服務傳回的常見 REST API 錯誤碼清單。 
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>容量度量顯示非預期的儲存體容量使用增加
 
@@ -999,7 +999,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 當虛擬機器 (VM) 裡有大量的附加 VHD 位於同一個儲存體帳戶內，您可能會超出個別儲存體帳戶的延展性目標，導致 VM 作業失敗。您應該檢查儲存體帳戶的分鐘度量 (**TotalRequests**/**TotalIngress**/**TotalEgress**)，查看是否有超出儲存體帳戶延展性目標的暴增情況。如需有關如何判斷儲存體帳戶是否發生節流情況的協助，請參閱[度量顯示 PercentThrottlingError 增加]一節。 
 
-一般來說，在 VHD 上，來自虛擬機器的每個個別輸入或輸出作業都會在基礎分頁 Blob 上轉譯為 **Get Page** 或 **Put Page** 作業。因此，您可以在環境中使用預估的 IOPS，依據應用程式的特定行為調節單一儲存體帳戶中應該具備的 VHD 數量。我們不建議單一儲存體帳戶內具備超過 40 的磁碟。如需儲存體帳戶目前延展性目標的詳細資料 (尤其是您所使用之儲存體帳戶類型的總要求率和總頻寬)，請參閱 <a href="http://msdn.microsoft.com/zh-tw/library/azure/dn249410.aspx" target="_blank">Azure 儲存體延展性和效能目標</a>。 
+一般來說，在 VHD 上，來自虛擬機器的每個個別輸入或輸出作業都會在基礎分頁 Blob 上轉譯為 **Get Page** 或 **Put Page** 作業。因此，您可以在環境中使用預估的 IOPS，依據應用程式的特定行為調節單一儲存體帳戶中應該具備的 VHD 數量。我們不建議單一儲存體帳戶內具備超過 40 的磁碟。如需儲存體帳戶目前延展性目標的詳細資料 (尤其是您所使用之儲存體帳戶類型的總要求率和總頻寬)，請參閱 <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure 儲存體延展性和效能目標</a>。 
 如果您已超出儲存體帳戶的延展性目標，您應該將 VHD 放在多個不同的儲存體帳戶中，以減少每個個別帳戶中的活動。
 
 ### <a name="your-issue-arises-from-using-the-storage-emulator"></a>您的問題起因於使用儲存體模擬器進行開發或測試
@@ -1012,7 +1012,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 #### <a name="feature-X-is-not-working"></a>功能 "X" 在儲存體模擬器中沒有作用
 
-儲存體模擬器並未支援所有的 Azure 儲存體服務，例如檔案服務。如需詳細資訊，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/zh-tw/library/gg433135.aspx" target="_blank">儲存體模擬器和 Azure 儲存體服務之間的差異</a>。
+儲存體模擬器並未支援所有的 Azure 儲存體服務，例如檔案服務。如需詳細資訊，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/library/gg433135.aspx" target="_blank">儲存體模擬器和 Azure 儲存體服務之間的差異</a>。
 
 如需了解儲存體模擬器不支援哪些功能，請使用雲端裡的 Azure 儲存體服務。
 
@@ -1028,7 +1028,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 當您執行儲存體模擬器時，系統會提示您輸入系統管理員認證。這種情況只會在您首次初始化儲存體模擬器時才會發生。一旦儲存體模擬器初始化完畢後，您就不需要具備系統管理員權限才能再次執行。 
 
-如需詳細資訊，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/zh-tw/library/gg433132.aspx" target="_blank">使用命令列工具初始化儲存體模擬器</a> (您也可以在 Visual Studio 中初始化儲存體模擬器，這同樣需要系統管理權限)。
+如需詳細資訊，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/library/gg433132.aspx" target="_blank">使用命令列工具初始化儲存體模擬器</a> (您也可以在 Visual Studio 中初始化儲存體模擬器，這同樣需要系統管理權限)。
 
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>安裝 Windows Azure SDK for .NET 時發生問題
 
@@ -1122,7 +1122,7 @@ WireShark 會在 **packetlist** 視窗中醒目提示所有存在的錯誤。您
 
 當您準備好開始收集追蹤資料時，請按一下 [開始] 按鈕。
 
-如需有關 Microsoft Message Analyzer **Web Proxy** 追蹤功能的詳細資訊，請參閱 TechNet 上的 <a href="http://technet.microsoft.com/zh-tw/library/jj674814.aspx" target="_blank">PEF-WebProxy 提供者</a>。
+如需有關 Microsoft Message Analyzer **Web Proxy** 追蹤功能的詳細資訊，請參閱 TechNet 上的 <a href="http://technet.microsoft.com/library/jj674814.aspx" target="_blank">PEF-WebProxy 提供者</a>。
 
 Microsoft Message Analyzer 中內建的 **Web Proxy** 追蹤功能是根據 Fiddler；它可以擷取用戶端 HTTPS 流量，並顯示未加密的 HTTPS 訊息。**Web Proxy** 追蹤功能的運作方式是針對所有 HTTP 和 HTTPS 流量設定一個本機 Proxy，以便讓它能夠存取未加密的訊息。
 
@@ -1138,11 +1138,11 @@ Microsoft Message Analyzer 中內建的 **Web Proxy** 追蹤功能是根據 Fidd
 
 ![][10]
 
-如需有關 Microsoft Message Analyzer「本機連結層」追蹤功能的詳細資訊，請參閱 TechNet 上的 <a href="http://technet.microsoft.com/zh-tw/library/jj659264.aspx" target="_blank">PEF-NDIS-PacketCapture 提供者</a>。
+如需有關 Microsoft Message Analyzer「本機連結層」追蹤功能的詳細資訊，請參閱 TechNet 上的 <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">PEF-NDIS-PacketCapture 提供者</a>。
 
 ### <a name="appendix-4"></a>附錄 4：使用 Excel 來檢視度量與記錄資料
 
-許多工具都可讓您從 Azure 資料表儲存體中下載使用分隔格式的儲存體度量資料，方便您將資料載入 Excel 以供檢視及分析。來自 Azure Blob 儲存體的儲存體記錄資料已經使用分隔格式，方便您直接載入 Excel。不過，您將需要依據<a href="http://msdn.microsoft.com/zh-tw/library/hh343259.aspx" target="_blank">儲存體分析記錄格式</a>與<a href="http://msdn.microsoft.com/zh-tw/library/hh343264.aspx" target="_blank">儲存體分析度量資料表結構描述</a>中的資訊，新增適當的欄標題。
+許多工具都可讓您從 Azure 資料表儲存體中下載使用分隔格式的儲存體度量資料，方便您將資料載入 Excel 以供檢視及分析。來自 Azure Blob 儲存體的儲存體記錄資料已經使用分隔格式，方便您直接載入 Excel。不過，您將需要依據<a href="http://msdn.microsoft.com/library/hh343259.aspx" target="_blank">儲存體分析記錄格式</a>與<a href="http://msdn.microsoft.com/library/hh343264.aspx" target="_blank">儲存體分析度量資料表結構描述</a>中的資訊，新增適當的欄標題。
 
 若要將您從 Blob 儲存體下載的儲存體記錄資料匯入 Excel：
 
@@ -1159,7 +1159,7 @@ Microsoft Message Analyzer 中內建的 **Web Proxy** 追蹤功能是根據 Fidd
 - 確保您的 Web 服務可用且迅速回應。無論您的應用程式是網站或是使用 Web 服務的裝置應用程式，此工具都可以每幾分鐘從全球各地測試您的 URL，然後讓您知道是否有問題。 
 - 快速診斷 Web 服務中的任何效能問題或例外。了解 CPU 或其他資源是否過度使用，從例外中取得堆疊追蹤資料，並且輕鬆地搜尋記錄追蹤項目。當應用程式的效能低於可接受的範圍，我們可以傳送一封電子郵件給您。我們可以同時監視 .NET 與 Java Web 服務。
 
-本文撰寫期間，Application Insights 已經進入預覽階段。您可以在 MSDN 上的 <a href="http://msdn.microsoft.com/zh-tw/library/dn481095.aspx" target="_blank">Application Insights for Visual Studio Online</a> 找到更多資訊。
+本文撰寫期間，Application Insights 已經進入預覽階段。您可以在 MSDN 上的 <a href="http://msdn.microsoft.com/library/dn481095.aspx" target="_blank">Application Insights for Visual Studio Online</a> 找到更多資訊。
 
 
 <!--Anchors-->

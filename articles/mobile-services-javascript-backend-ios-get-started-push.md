@@ -1,12 +1,26 @@
-﻿<properties pageTitle="開始使用推播通知 (iOS) | 行動開發人員中心" description="了解如何使用 Azure 行動服務傳送推播通知至 iOS 應用程式。" services="mobile-services, notification-hubs" documentationCenter="ios" manager="dwrede" editor="" authors="krisragh"/>
+﻿<properties 
+	pageTitle="開始使用推播通知 (iOS) | 行動開發人員中心" 
+	description="了解如何使用 Azure 行動服務傳送推播通知至 iOS 應用程式。" 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="ios" 
+	manager="dwrede" 
+	editor="" 
+	authors="krisragh"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="12/15/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="12/15/2014" 
+	ms.author="krisragh"/>
 
 # 將推播通知新增至行動服務應用程式
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-本主題說明如何透過 Apple 推播通知服務 (APNS)，使用 Azure 行動服務將推播通知傳送至 iOS 應用程式。在本教學課程中，您會啟用透過 Azure 通知中心將推播通知傳送至[快速入門專案](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-get-started/)的功能。完成後，行動服務就會在每次插入記錄時傳送推播通知。
+本主題說明如何透過 Apple 推播通知服務 (APNS)，使用 Azure 行動服務將推播通知傳送至 iOS 應用程式。在本教學課程中，您會啟用透過 Azure 通知中心將推播通知傳送至[快速入門專案](http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/)的功能。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 

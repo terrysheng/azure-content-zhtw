@@ -1,6 +1,20 @@
-﻿<properties pageTitle="開始使用 Azure API 管理" metaKeywords="" description="了解如何建立 API、操作及開始使用 API 管理。" metaCanonical="" services="api-management" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="開始使用 Azure API 管理" 
+	description="了解如何建立 API、操作及開始使用 API 管理。" 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 
 # 開始使用 Azure API 管理
 
@@ -156,7 +170,7 @@ API 是透過您經由 Azure 管理入口網站存取的「API 管理」主控�
 -   自訂開發人員入口網站
 -   使用 API 偵測器來追蹤呼叫
 
-[Azure 免費試用]: http://www.windowsazure.com/zh-tw/pricing/free-trial/
+[Azure 免費試用]: http://azure.microsoft.com/pricing/free-trial/
 
 [建立 API 管理執行個體]: #create-service-instance
 [建立 API]: #create-api
@@ -203,3 +217,5 @@ API 是透過您經由 Azure 管理入口網站存取的「API 管理」主控�
 [api-management-invoke-get-response]: ./media/api-management-get-started-b/api-management-invoke-get-response.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

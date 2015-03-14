@@ -50,7 +50,7 @@
 <h3>取得組件</h3>
 您可以使用 NuGet 來取得  `Microsoft.WindowsAzure.Storage.dll` 組件。請在 [方案總管] 中您的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。在線上搜尋 "WindowsAzure.Storage"，然後按一下 [安裝] 以安裝「Azure 儲存體」封裝與相依性。
 
-`Microsoft.WindowsAzure.Storage.dll` 也隨附於 Azure SDK for .NET (可自 <a href="http://www.windowsazure.com/zh-tw/develop/net/#">.NET 開發人員中心</a>下載)。此組件會安裝在 `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` 目錄。
+`Microsoft.WindowsAzure.Storage.dll` 也隨附於 Azure SDK for .NET (可自 <a href="http://azure.microsoft.com/develop/net/#">.NET 開發人員中心</a>下載)。此組件會安裝在 `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` 目錄。
 
 <h3>命名空間宣告</h3>
 請將下列程式碼命名空間宣告，新增至您想要在其中以程式設計方式存取「Azure 儲存體」的所有 C\# 檔案內的頂端。
@@ -248,10 +248,10 @@ Storage Client Library for .NET 中的 ODataLib 相依性現已透過 ODataLib (
   <ul>
     <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">適用於 .NET 的儲存體用戶端程式庫參考</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dd179355">REST API 參考</a></li>
+    <li><a href="http://msdn.microsoft.com/library/windowsazure/dd179355">REST API 參考</a></li>
   </ul>
 </li>
-<li>參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx">在 Azure 中儲存和存取資料</a>，以深入了解可使用「Azure 儲存體」來執行的更多進階工作。</li>
+<li>參閱<a href="http://msdn.microsoft.com/library/windowsazure/gg433040.aspx">在 Azure 中儲存和存取資料</a>，以深入了解可使用「Azure 儲存體」來執行的更多進階工作。</li>
 <li>了解如何使用下列工具來簡化您所撰寫要與「Azure 儲存體」搭配使用的程式碼：<a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK。</li>
 <li>如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
   <ul>
@@ -280,11 +280,11 @@ Storage Client Library for .NET 中的 ODataLib 相依性現已透過 ODataLib (
   [做法：刪除佇列]: #delete-queue
   [下載並安裝 Azure SDK for .NET]: /zh-tw/develop/net/
   [.NET 用戶端程式庫參考]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [在 Visual Studio 中建立 Azure 專案]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405487.aspx 
-  [CloudStorageAccount]: http://msdn.microsoft.com/zh-tw/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
-  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
+  [在 Visual Studio 中建立 Azure 專案]: http://msdn.microsoft.com/library/windowsazure/ee405487.aspx 
+  [CloudStorageAccount]: http://msdn.microsoft.com/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
+  [在 Azure 中儲存和存取資料]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
-  [設定連接字串]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758697.aspx
+  [設定連接字串]: http://msdn.microsoft.com/library/windowsazure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2

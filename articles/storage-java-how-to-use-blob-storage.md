@@ -271,10 +271,10 @@ Blob 服務也具備容器中之目錄的概念。正因如此，您能夠以更
 - [Azure 儲存體 REST API]
 - [Azure 儲存體團隊部落格]
 
-[Azure SDK for Java]: http://www.windowsazure.com/zh-tw/develop/java/
+[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [適用於 Java 的 Azure 儲存體 SDK]: https://github.com/azure/azure-storage-java
 [適用於 Android 的 Azure 儲存體 SDK]: https://github.com/azure/azure-storage-android
 [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
-[Azure 儲存體 REST API]: http://msdn.microsoft.com/zh-tw/library/azure/gg433040.aspx
+[Azure 儲存體 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 <!--HONumber=42-->

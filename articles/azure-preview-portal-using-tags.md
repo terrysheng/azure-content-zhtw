@@ -1,13 +1,28 @@
-﻿<properties urlDisplayName="" pageTitle="使用標記來組織您的 Azure 資源" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using tags to organize your Azure resources" authors="Michael Flanakin" solutions="" writer="" manager="carolz" editor=""  />
+﻿<properties 
+	pageTitle="使用標記來組織您的 Azure 資源" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="flanakin" 
+	writer="" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="micflan" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2014" 
+	ms.author="micflan"/>
 
 
 # 使用標記來組織您的 Azure 資源
 
 Azure Preview 入口網站和基礎資源管理員是用來組織您的資源及量身打造專屬於您的體驗。 
 
-在完整 Azure 入口網站中，訂閱是分類及群組資源的唯一方式。在預覽入口網站中，[我們引進資源群組](http://azure.microsoft.com/zh-tw/documentation/articles/azure-preview-portal-using-resource-groups)，可讓您將相關的實體組合在一起。當[我們引進以角色為基礎的存取](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-configure)時，就彰顯出它的價值。現在，本著相同的觀念，您可以使用索引鍵/值配對，在資源群組之間及入口網站內的訂閱之間，進一步分類及檢視資源。
+在完整 Azure 入口網站中，訂閱是分類及群組資源的唯一方式。在預覽入口網站中，[我們引進資源群組](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups)，可讓您將相關的實體組合在一起。當[我們引進以角色為基礎的存取](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure)時，就彰顯出它的價值。現在，本著相同的觀念，您可以使用索引鍵/值配對，在資源群組之間及入口網站內的訂閱之間，進一步分類及檢視資源。
 
 依小組、專案、甚至是環境將資源分組，把重點放在您需要查看的確切項目上。 
 
@@ -27,9 +42,9 @@ Azure Preview 入口網站和基礎資源管理員是用來組織您的資源及
 
 ## 使用 PowerShell 來標記
 
-首要之務是取得最新的 [Azure PowerShell 模組](http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/)。如果這是您第一次使用 Azure PowerShell 模組，[請閱讀說明文件](http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell)，以快速上手。基於本文的目的，我們假設您已經加入帳戶，並選取含有您想要標記的資源的訂閱。
+首要之務是取得最新的 [Azure PowerShell 模組](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)。如果這是您第一次使用 Azure PowerShell 模組，[請閱讀說明文件](http://azure.microsoft.com/documentation/articles/install-configure-powershell)，以快速上手。基於本文的目的，我們假設您已經加入帳戶，並選取含有您想要標記的資源的訂閱。
 
-標記只適用於[資源管理員](http://msdn.microsoft.com/zh-tw/library/azure/dn790568.aspx)所提供的資源和資源群組，因此，接下來我們需要切換到使用資源管理員。如需詳細資訊，請參閱[將 Windows PowerShell 與資源管理員搭配使用](http://azure.microsoft.com/zh-tw/documentation/articles/powershell-azure-resource-manager/)。
+標記只適用於[資源管理員](http://msdn.microsoft.com/library/azure/dn790568.aspx)所提供的資源和資源群組，因此，接下來我們需要切換到使用資源管理員。如需詳細資訊，請參閱[將 Windows PowerShell 與資源管理員搭配使用](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/)。
 
   Switch-AzureMode AzureResourceManager
 
@@ -50,7 +65,7 @@ Azure Preview 入口網站和基礎資源管理員是用來組織您的資源及
 
 ## 使用資源管理員來標記
 
-預覽入口網站和 PowerShell 在幕後都使用[資源管理員 REST API](http://msdn.microsoft.com/zh-tw/library/azure/dn790568.aspx)。如果您需要將標記整合到另一個環境中，您可以在資源識別碼上利用 GET 來取得標記，並使用 PATCH 呼叫來更新一組標記。
+預覽入口網站和 PowerShell 在幕後都使用[資源管理員 REST API](http://msdn.microsoft.com/library/azure/dn790568.aspx)。如果您需要將標記整合到另一個環境中，您可以在資源識別碼上利用 GET 來取得標記，並使用 PATCH 呼叫來更新一組標記。
 
 
 ## 管理您的分類法
@@ -74,3 +89,5 @@ Azure Preview 入口網站和基礎資源管理員是用來組織您的資源及
 
 ![Pin tags to the Startboard](./media/azure-preview-portal-using-tags/pin-tags.png)
 
+
+<!--HONumber=46--> 

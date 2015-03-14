@@ -1,6 +1,20 @@
-﻿<properties pageTitle="開始使用資料 (Windows 市集) | 行動開發人員中心" description="了解如何開始使用行動服務，在您的 Windows Store 應用程式中使用資料。" services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="開始使用資料 (Windows 市集) | 行動開發人員中心" 
+	description="了解如何開始使用行動服務，在您的 Windows Store 應用程式中使用資料。" 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/19/2014" 
+	ms.author="glenga"/>
 
 # 開始使用行動服務中的資料
 
@@ -27,7 +41,7 @@
 
 若要完成此教學課程，您需要下列項目：
 
-* 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-dotnet-get-started-data%2F)。
+* 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-dotnet-get-started-data%2F)。
 * Visual Studio 2013 可讓您更輕鬆地將 Windows 市集應用程式連線至行動服務。 
 
 ##<a name="download-app"></a>下載 GetStartedWithData 專案
@@ -68,7 +82,7 @@
 
 [AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
->[AZURE.NOTE]新的資料表是使用 Id、__createdAt、__updatedAt 和 __version 等資料行建立而成。啟用動態結構描述時，行動服務會根據插入或更新要求中的 JSON 物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193175.aspx)。
+>[AZURE.NOTE]新的資料表是使用 Id、__createdAt、__updatedAt 和 __version 等資料行建立而成。啟用動態結構描述時，行動服務會根據插入或更新要求中的 JSON 物件自動產生新資料行。如需詳細資訊，請參閱[動態結構描述](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx)。
 
 #<a name="update-app"></a>更新應用程式以使用行動服務
 
@@ -98,12 +112,14 @@
 
         private async void RefreshTodoItems()
         {                       
-            // This query filters out completed TodoItems. 
+            // This query filters out completed TodoIte
+	ms. 
             items = await todoTable
                .Where(todoItem => todoItem.Complete == false)
                .ToCollectionAsync();
 
-            ListItems.ItemsSource = items;            
+            ListIte
+	ms.ItemsSource = items;            
         }
 
 7. 在應用程式中，檢查清單中的其中一個項目，然後按一下 [重新整理] 按鈕。

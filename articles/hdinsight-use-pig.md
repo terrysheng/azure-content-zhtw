@@ -95,7 +95,7 @@ Blob 儲存體中的檔案的存取語法如下：
 
 在本節中，您將會個別檢閱幾個 Pig  陳述式，以及執行這些陳述式之後的結果。在下一節中，您會使用 PowerShell 同時執行這些 Pig 陳述式，以分析範例記錄檔。個別的 Pig  陳述式必須直接在 HDInsight 叢集上執行。
 
-1. 遵循[使用 RDP 連接到 HDInsight 叢集](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-administer-use-management-portal/#rdp)上的指示，啟用適用於 HDInsight 叢集的遠端桌面。登入叢集節點，然後在桌面上按一下 [Hadoop 命令列]****。
+1. 遵循[使用 RDP 連接到 HDInsight 叢集](http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp)上的指示，啟用適用於 HDInsight 叢集的遠端桌面。登入叢集節點，然後在桌面上按一下 [Hadoop 命令列]****。
 
 2. 在命令列中，瀏覽至 **Pig** 的安裝目錄。輸入：
 
@@ -397,7 +397,7 @@ Blob 儲存體中的檔案的存取語法如下：
 
 [powershell-install-configure]: ../install-configure-powershell/
 
-[powershell-start]: http://technet.microsoft.com/zh-tw/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 
 [image-hdi-log4j-sample]: ./media/hdinsight-use-pig/HDI.wholesamplefile.png
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif

@@ -148,8 +148,8 @@ Apache Mahout 是 Apache Hadoop 機器學習庫。Mahout 包含可處理資料�
 </tr>
 
 <tr>
-<td><a href = "http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">叢集自訂 GA</a></td>
-<td><p>自訂可讓您自訂Azure HDInsight 叢集，以搭配使用 Apache Hadoop 生態系統的專案。使用這項新功能，您現在可以試驗並部署 Hadoop 專案到 Azure HDInsight。這是透過啟用<b>指令碼動作</b>功能啟用，該功能可以使用自訂指令碼，以任意方式修改 Hadoop 叢集。此自訂可在所有類型的 HDInsight 叢集上使用，包括 Hadoop、HBase 和 Storm。為了示範這項功能的強大功能，我們記錄了程序以安裝受歡迎的 <a href = "http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hadoop-spark-install/" target="_blank">Spark</a>、 <a href = "http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hadoop-r-scripts/" target="_blank">R</a>、 <a href = "http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hadoop-solr-install/" target="_blank">Solr</a>和 <a href = "http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hadoop-giraph-install/" target="_blank">Giraph</a> 模組。這個版本也加入讓客戶透過 Azure 管理入口網站指定其自訂指令碼動作的功能、提供如何使用 helper 方法建置自訂指令碼動作的指導方針最佳作法和最佳作法，並提供有關如何測試指令碼動作的指導方針。 </p></td>
+<td><a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">叢集自訂 GA</a></td>
+<td><p>自訂可讓您自訂Azure HDInsight 叢集，以搭配使用 Apache Hadoop 生態系統的專案。使用這項新功能，您現在可以試驗並部署 Hadoop 專案到 Azure HDInsight。這是透過啟用<b>指令碼動作</b>功能啟用，該功能可以使用自訂指令碼，以任意方式修改 Hadoop 叢集。此自訂可在所有類型的 HDInsight 叢集上使用，包括 Hadoop、HBase 和 Storm。為了示範這項功能的強大功能，我們記錄了程序以安裝受歡迎的 <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-spark-install/" target="_blank">Spark</a>、 <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-r-scripts/" target="_blank">R</a>、 <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-solr-install/" target="_blank">Solr</a>和 <a href = "http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-giraph-install/" target="_blank">Giraph</a> 模組。這個版本也加入讓客戶透過 Azure 管理入口網站指定其自訂指令碼動作的功能、提供如何使用 helper 方法建置自訂指令碼動作的指導方針最佳作法和最佳作法，並提供有關如何測試指令碼動作的指導方針。 </p></td>
 <td>功能 GA</td>
 <td>全部</td>
 <td>N/A</td>
@@ -402,7 +402,7 @@ HDInsight PowerShell/SDK 錯誤：「*叢集未設定 Http 服務存取*」：
 
 * 此錯誤稱為[相容性問題](https://social.msdn.microsoft.com/Forums/azure/zh-tw/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight)，起因於 SDK/PowerShell 版本和叢集版本的差異。在 8/15 或之後建立的叢集支援佈建到虛擬網路的這項新功能。但舊版的 SDK/PowerShell 無法正確解譯此功能。結果造成某些工作提交作業失敗。如果您使用 SDK API 或 PowerShell Cmdlet 來提交工作 (**Use-AzureHDInsightCluster**、**Invoke-Hive**)，這些作業可能失敗並傳回錯誤訊息「*叢集 <clustername> 未設定 Http 服務存取*」，或者，根據作業而定，傳回其他錯誤訊息，例如「*無法連接到叢集*」。
 
-* 最新版的 HDInsight SDK 和 Azure PowerShell 中已解決這些相容性問題。建議將 HDInsight SDK 更新到 1.3.1.6 版或更新版本，並將 Azure PowerShell Tools 更新到 0.8.8 版或更新版本。您可以從 [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) 取得最新的 HDInsight SDK，從[如何安裝並設定 Azure PowerShell](http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/)取得 Azure PowerShell Tools。
+* 最新版的 HDInsight SDK 和 Azure PowerShell 中已解決這些相容性問題。建議將 HDInsight SDK 更新到 1.3.1.6 版或更新版本，並將 Azure PowerShell Tools 更新到 0.8.8 版或更新版本。您可以從 [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) 取得最新的 HDInsight SDK，從[如何安裝並設定 Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)取得 Azure PowerShell Tools。
 
 * 只要叢集的版本維持相同，SDK 和 PowerShell 就能繼續搭配叢集的新更新來運作。例如，叢集 3.1 版一定與目前版本的 SDK/PowerShell 1.3.1.6 和 0.8.8 相容。
 
@@ -445,7 +445,7 @@ HDInsight PowerShell/SDK 錯誤：「*叢集未設定 Http 服務存取*」：
 	* 東亞、 
 	* 美國中北部及 
 	* 美國中南部。 
-* 在此版本中，HDInsight 1.6 版 (HDP1.1、Hadoop 1.0.3) 和 HDInsight 2.1 版 (HDP1.3、Hadoop 1.2) 正從 Azure 管理入口網站中移除。您可以繼續使用 HDInsight PowerShell Cmdlet ([New-AzureHDInsightCluster](http://msdn.microsoft.com/zh-tw/library/dn593744.aspx)) 或 [HDInsight SDK](http://msdn.microsoft.com/zh-tw/library/azure/dn469975.aspx) 來建立這些版本的 Hadoop 叢集。如需詳細資訊，請參閱 [HDInsight 元件版本設定](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-component-versioning/)頁面。
+* 在此版本中，HDInsight 1.6 版 (HDP1.1、Hadoop 1.0.3) 和 HDInsight 2.1 版 (HDP1.3、Hadoop 1.2) 正從 Azure 管理入口網站中移除。您可以繼續使用 HDInsight PowerShell Cmdlet ([New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx)) 或 [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx) 來建立這些版本的 Hadoop 叢集。如需詳細資訊，請參閱 [HDInsight 元件版本設定](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/)頁面。
 * 此版本中的 Hortonworks Data Platform (HDP) 變更： 
 
 <table border="1">

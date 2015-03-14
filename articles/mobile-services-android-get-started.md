@@ -1,6 +1,20 @@
-<properties pageTitle="開始為 Android 應用程式使用 Azure 行動服務" description="遵循此教學課程，可開始使用 Azure 行動服務進行 Android 開發。" services="" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="開始為 Android 應用程式使用 Azure 行動服務" 
+	description="遵循此教學課程，可開始使用 Azure 行動服務進行 Android 開發。" 
+	services="" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="hero-article" ms.date="10/16/2014" ms.author="ricksal,glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="hero-article" 
+	ms.date="10/16/2014" 
+	ms.author="ricksal,glenga"/>
 
 # <a name="getting-started"> </a>開始使用行動服務
 
@@ -20,7 +34,7 @@
 
 下載的快速入門專案包含 Mobile Services SDK for Android。雖然這個專案需要 Android 4.2 或以上的版本，不過行動服務 SDK 只需要 Android 2.2 或以上的版本。
 
-> [AZURE.IMPORTANT] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank)。
+> [AZURE.IMPORTANT] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank)。
 
 >[AZURE.NOTE] 如果您想查看已完成之應用程式的原始程式碼，請移至<a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStarted/Android" target="_blank">這裡</a>。
 
@@ -75,7 +89,7 @@
 	- 	在 **TodoActivity.java** 中尋找 **OnCreate** 方法，並找出可將行動服務用戶端具現化的程式碼。在前一個影像中可看到此程式碼。
 	- 	以您行動服務的實際 Url 取代 "MobileServiceUrl"。
 	- 	以您行動服務的金鑰取代 "AppKey"。
-	- 	如需詳細資訊，請參閱教學課程<a href="http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-android-get-started-data/">將行動服務新增至現有的應用程式</a>。 
+	- 	如需詳細資訊，請參閱教學課程<a href="http://azure.microsoft.com/documentation/articles/mobile-services-android-get-started-data/">將行動服務新增至現有的應用程式</a>。 
 
 
 

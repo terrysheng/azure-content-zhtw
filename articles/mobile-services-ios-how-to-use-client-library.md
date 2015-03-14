@@ -1,6 +1,20 @@
-﻿<properties pageTitle="如何使用 iOS 用戶端程式庫 - Azure 行動服務" description="了解如何使用適用於 Azure 行動服務的 iOS 用戶端程式庫。" services="" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="如何使用 iOS 用戶端程式庫 - Azure 行動服務" 
+	description="了解如何使用適用於 Azure 行動服務的 iOS 用戶端程式庫。" 
+	services="" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 
 
@@ -176,7 +190,8 @@ MSQuery 物件可讓您控制下列查詢行為：
 
 		query.includeTotalCount = YES;
 		query.fetchLimit = 20;
-		query.fetchOffset = self.loadedItems.count;
+		query.fetchOffset = self.loadedIte
+	ms.count;
 
 		[query readWithCompletion:^(NSArray *items, NSInteger totalCount, NSError *error) {
 			if(!error) {
@@ -184,7 +199,8 @@ MSQuery 物件可讓您控制下列查詢行為：
 				[self.loadedItems addObjectsFromArray:items];
 
 				// Set a flag to keep track if there are any additional records we need to load
-				self.moreResults = (self.loadedItems.count < totalCount);
+				self.moreResults = (self.loadedIte
+	ms.count < totalCount);
 			}
 		}];
 	}
@@ -504,14 +520,14 @@ _(選用) 本節說明如何使用屬性來自訂資料型別的序列化方式�
 
 [處理過期權杖]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[權限]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193161.aspx
+[權限]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [使用指令碼為使用者授權]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [動態結構描述]: http://go.microsoft.com/fwlink/p/?LinkId=296271
 [做法：存取自訂參數]: /zh-tw/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[建立資料表]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193162.aspx
+[建立資料表]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary 物件]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII 控制碼 C0 和 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[使用 CLI 管理行動服務資料表]: http://www.windowsazure.com/zh-tw/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[使用 CLI 管理行動服務資料表]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 
 
 <!--HONumber=42-->

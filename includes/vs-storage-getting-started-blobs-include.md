@@ -66,7 +66,7 @@
     	}
 	}
 
-還有其他方法可列出 Blob 容器的內容。如需詳細資訊，請參閱[如何從 .NET 使用 Blob 儲存體](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob)。
+還有其他方法可列出 Blob 容器的內容。如需詳細資訊，請參閱[如何從 .NET 使用 Blob 儲存體](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob)。
 
 #####下載 Blob
 若要下載 Blob，請先取得 Blob 的參考，再呼叫 DownloadToStream() 方法。下列範例使用 DownloadToStream() 方法將 Blob 內容傳送給資料流物件，您接著可將該物件儲存為本機檔案。
@@ -80,7 +80,7 @@
     	blockBlob.DownloadToStream(fileStream);
 	}
 
-還有其他方法可將 Blob 儲存為檔案。如需詳細資訊，請參閱[如何從 .NET 使用 Blob 儲存體](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs)。
+還有其他方法可將 Blob 儲存為檔案。如需詳細資訊，請參閱[如何從 .NET 使用 Blob 儲存體](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs)。
 
 #####刪除 Blob
 若要刪除 Blob，請先取得 Blob 的參考，再呼叫它的 Delete() 方法。
@@ -92,4 +92,4 @@
 	blockBlob.Delete();
 
 [深入了解 Azure 儲存體](http://azure.microsoft.com/documentation/services/storage/)
-另請參閱[使用伺服器總管瀏覽儲存體資源](http://msdn.microsoft.com/zh-tw/library/azure/ff683677.aspx)。<!--HONumber=42-->
+另請參閱[使用伺服器總管瀏覽儲存體資源](http://msdn.microsoft.com/library/azure/ff683677.aspx)。<!--HONumber=42-->

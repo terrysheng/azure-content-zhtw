@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="What is Azure AD?" pageTitle="什麼是 Azure Active Directory？" metaKeywords="" description="使用 Azure Active Directory 將您現有的內部部署身分識別擴大到雲端，以改善管理員和使用者操作方式，同時 Microsoft 使得在雲端執行的 Active Directory 具備高延展性、高可用性和整合式災害回復功能。或者，為貴公司或其他組織開發 AD 整合式應用程式。" metaCanonical="" services="active-directory" documentationCenter="" title="What is Azure Active Directory?" authors="justinha" solutions="" manager="terrylan" editor="" />
+﻿<properties 
+	pageTitle="什麼是 Azure Active Directory？" 
+	description="使用 Azure Active Directory 將現有的內部部署身分識別擴充到雲端，以期改善管理和使用者經驗，同時 Microsoft 利用高延展性、高可用性及整合式災害復原等能力維持 Active Directory 在雲端中運作。或者，為貴組織或其他組織開發 Azure AD 整合式應用程式。" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="Justinha" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="justinha" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="justinha"/>
 
 
 
@@ -28,3 +42,5 @@ Azure AD 可以用作貴組織的獨立式雲端目錄，但是您也可以將 A
 * [以組織方式註冊 Azure](/zh-tw/manage/services/identity/organizational-account/)
 * [Azure 身分識別](/zh-tw/manage/windows/fundamentals/identity/)
 * [MSDN 上的 Azure AD 程式庫](http://go.microsoft.com/fwlink/?LinkId=293425)
+
+<!--HONumber=46--> 

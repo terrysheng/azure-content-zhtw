@@ -1,6 +1,20 @@
-﻿<properties pageTitle="什麼是 Azure .NET SDK" metaKeywords="azure .net sdk" description="了解 Azure .NET SDK 包含的項目。" documentationCenter=".NET" title="What is the Azure SDK for .NET" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="什麼是 Azure .NET SDK" 
+	description="了解 Azure .NET SDK 包含的項目。" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="mollybos" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="tdykstra"/>
 
 # 什麼是 Azure SDK for .NET？
 
@@ -40,7 +54,7 @@ Azure SDK for .NET 將安裝下列產品：
 * [發行 Web 專案至 Azure 網站](../web-sites-dotnet-get-started/) (英文)。
 * [發行主控台應用程式專案至 Azure WebJobs](../websites-dotnet-deploy-webjobs/) (英文)。
 * [在建立新的 Web 專案或發佈 Web 專案時，建立 Azure 網站和 SQL Database 資源](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) (英文)。
-* [使用 Windows PowerShell 指令碼來發行至開發和測試環境](http://msdn.microsoft.com/zh-tw/library/dn642480.aspx)。
+* [使用 Windows PowerShell 指令碼來發行至開發和測試環境](http://msdn.microsoft.com/library/dn642480.aspx)。
 * [在伺服器總管中管理和疑難排解 Azure 網站](../web-sites-dotnet-troubleshoot-visual-studio/#sitemanagement) (英文)。
 * [針對網站和 WebJobs 以偵錯模式從遠端執行](../web-sites-dotnet-troubleshoot-visual-studio/#remotedebug) (英文)。 
 
@@ -51,28 +65,28 @@ Azure SDK for .NET 將安裝下列產品：
 這可讓您使用 Azure 雲端服務和虛擬機器：
 
 * [建立、開啟及發行雲端服務專案](../cloud-services-dotnet-get-started/) (英文)。
-* [使用 Azure Tools 發行雲端服務](http://msdn.microsoft.com/zh-tw/library/ff683672.aspx)。
+* [使用 Azure Tools 發行雲端服務](http://msdn.microsoft.com/library/ff683672.aspx)。
 * [在建立新的 Web 專案時，建立 Azure 虛擬機器](../virtual-machines-dotnet-create-visual-studio-powershell/) (英文)。
-* [使用 Windows PowerShell 指令碼來發行至開發和測試環境](http://msdn.microsoft.com/zh-tw/library/dn642480.aspx)。
-* [設定 Azure 專案](http://msdn.microsoft.com/zh-tw/library/ee405486.aspx)。
-* 在 [伺服器總管] 中，檢視和管理 [雲端服務](http://msdn.microsoft.com/zh-tw/library/ff683675.aspx)、[虛擬機器](http://msdn.microsoft.com/zh-tw/library/jj131259.aspx) 和 [服務匯流排](http://msdn.microsoft.com/zh-tw/library/jj149828.aspx)。 
-* [在 Visual Studio 中對雲端服務或虛擬機器進行偵錯](http://msdn.microsoft.com/zh-tw/library/ff683670.aspx)。
+* [使用 Windows PowerShell 指令碼來發行至開發和測試環境](http://msdn.microsoft.com/library/dn642480.aspx)。
+* [設定 Azure 專案](http://msdn.microsoft.com/library/ee405486.aspx)。
+* 在 [伺服器總管] 中，檢視和管理 [雲端服務](http://msdn.microsoft.com/library/ff683675.aspx)、[虛擬機器](http://msdn.microsoft.com/library/jj131259.aspx) 和 [服務匯流排](http://msdn.microsoft.com/library/jj149828.aspx)。 
+* [在 Visual Studio 中對雲端服務或虛擬機器進行偵錯](http://msdn.microsoft.com/library/ff683670.aspx)。
 
 ###<a id="auth"></a>Microsoft Azure 製作工具
 
 其包含下列工具：
 
-* [CSPack 命令列工具](http://msdn.microsoft.com/zh-tw/library/gg432988.aspx) 可用來建立部署封裝。
-* [CSEncrypt 命令列工具](http://msdn.microsoft.com/zh-tw/library/hh404001.aspx) 可用來加密密碼，若要透過遠端桌面連線存取雲端服務角色執行個體，便需要用到此密碼。
+* [CSPack 命令列工具](http://msdn.microsoft.com/library/gg432988.aspx) 可用來建立部署封裝。
+* [CSEncrypt 命令列工具](http://msdn.microsoft.com/library/hh404001.aspx) 可用來加密密碼，若要透過遠端桌面連線存取雲端服務角色執行個體，便需要用到此密碼。
 * 執行階段二進位檔，要有此二進位檔，雲端服務專案才能與專案執行階段環境進行通訊，也才能進行診斷。NuGet 封裝不提供這些二進位檔。
 
 ###<a id="emulator"></a>Microsoft Azure 模擬器
 
-[Azure 模擬器](http://msdn.microsoft.com/zh-tw/library/dn339018.aspx) 可模擬雲端服務環境，因此您可以在將雲端服務專案部署至 Azure 之前，先在您的電腦本機上進行測試。
+[Azure 模擬器](http://msdn.microsoft.com/library/dn339018.aspx) 可模擬雲端服務環境，因此您可以在將雲端服務專案部署至 Azure 之前，先在您的電腦本機上進行測試。
 
 ###<a id="stgemulator"></a>Microsoft Azure 儲存體模擬器
 
-[Azure 儲存體模擬器](http://msdn.microsoft.com/zh-tw/library/hh403989.aspx) 會使用 SQL Server 執行個體和本機檔案系統來模擬 Azure 儲存體 (佇列、資料表、Blob)，因此您可以在本機進行測試。 
+[Azure 儲存體模擬器](http://msdn.microsoft.com/library/hh403989.aspx) 會使用 SQL Server 執行個體和本機檔案系統來模擬 Azure 儲存體 (佇列、資料表、Blob)，因此您可以在本機進行測試。 
 
 ###<a id="stgtools"></a>Microsoft Azure 儲存體工具
 
@@ -83,11 +97,11 @@ Azure SDK for .NET 將安裝下列產品：
 其包含下列工具：
 
 * 用於 Azure 儲存體、服務匯流排及快取的 NuGet 封裝，NuGet 封裝皆儲存於您的電腦中，所以 Visual Studio 可在離線時建立新的雲端服務專案。
-* Visual Studio 外掛程式，可讓 [角色中快取](http://msdn.microsoft.com/zh-tw/library/dn386103.aspx) 專案在 Visual Studio 中以本機方式執行。 
+* Visual Studio 外掛程式，可讓 [角色中快取](http://msdn.microsoft.com/library/dn386103.aspx) 專案在 Visual Studio 中以本機方式執行。 
 
 ###<a id="ls"></a>LightSwitch Azure Publishing add-on for Visual Studio
 
-這可讓您 [將 LightSwitch 專案發行至 Azure 網站](http://msdn.microsoft.com/zh-tw/library/jj131261.aspx)。LightSwitch 附加元件包含在 Visual Studio 更新以及 Azure SDK for .NET 中。安裝此 SDK 可確保您擁有最新版本的附加元件。 
+這可讓您 [將 LightSwitch 專案發行至 Azure 網站](http://msdn.microsoft.com/library/jj131261.aspx)。LightSwitch 附加元件包含在 Visual Studio 更新以及 Azure SDK for .NET 中。安裝此 SDK 可確保您擁有最新版本的附加元件。 
 
 ##<a id="notincluded"></a>安裝 Azure SDK for .NET 時不包含的內容
 
@@ -139,7 +153,7 @@ Azure SDK for .NET 將安裝下列產品：
 
 ###<a id="guestos"></a>哪個版本的客體 OS 與 Azure SDK for .NET 相容？
 
-請參閱[Azure 客體 OS 版本與 SDK 相容性比較表](http://msdn.microsoft.com/zh-tw/library/ee924680.aspx)。
+請參閱[Azure 客體 OS 版本與 SDK 相容性比較表](http://msdn.microsoft.com/library/ee924680.aspx)。
 
 
 
@@ -150,3 +164,5 @@ Azure SDK for .NET 將安裝下列產品：
 如需 Azure SDK for .NET 原始程式碼 (包含用戶端程式庫)，請參閱 [GitHub.com/Azure](https://github.com/azure/) (英文)。
 
 如需 Azure 用戶端程式庫的參考文件，請參閱 [Azure .NET 參考](/zh-tw/develop/net/reference/) (英文)。 
+
+<!--HONumber=46--> 

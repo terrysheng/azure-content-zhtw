@@ -49,7 +49,7 @@
 
 - 使用 Azure 進行災害復原的組織可能會在雲端維護一小組作用中 VM (包括網域控制站)。然後即可視需要準備擴充此站台，以接管其他位置失敗的站台。
 
-此外，還有其他可能性。例如，您不需要將雲端的 Windows Server AD 連線到內部部署資料中心。如果您要執行為特定一組使用者 (例如，他們全都以雲端型身分識別單獨登入) 提供服務的 SharePoint 伺服器陣列，您可以在 Azure 上建立一個獨立樹系。您使用此技術的方式取決於您的目的。(如需使用 Windows Server AD 搭配 Azure 的詳細指引，[請參閱這裡](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090.aspx))。
+此外，還有其他可能性。例如，您不需要將雲端的 Windows Server AD 連線到內部部署資料中心。如果您要執行為特定一組使用者 (例如，他們全都以雲端型身分識別單獨登入) 提供服務的 SharePoint 伺服器陣列，您可以在 Azure 上建立一個獨立樹系。您使用此技術的方式取決於您的目的。(如需使用 Windows Server AD 搭配 Azure 的詳細指引，[請參閱這裡](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx))。
 
 ## <a name="ad"></a>使用 Azure Active Directory
 

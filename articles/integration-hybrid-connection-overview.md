@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Hybrid Connections Overview - BizTalk Services" pageTitle="混合式連線概觀 | Azure" metaKeywords="BizTalk Services, BizTalk, websites, web sites, hybrid connections, Azure" description="了解混合式連線，包括 Security。" metaCanonical="" services="integration-services" documentationCenter="" title="Hybrid Connections Overview" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="混合式連線概觀 | Azure" 
+	description="了解混合式連線，包括安全性、TCP 連接埠和支援的組態。MABS，WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="mandia"/>
 
 
 
@@ -62,7 +76,7 @@
 
 混合式連線能夠以連貫和安全的方式，將金鑰配送給應用程式和內部部署混合式連線管理員。 
 
-請參閱 [建立和管理混合式連線](http://azure.microsoft.com/zh-tw/documentation/articles/integration-hybrid-connection-create-manage) (英文)。 
+請參閱 [建立和管理混合式連線](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-create-manage) (英文)。 
 
 **應用程式授權與混合式連線分開**。任何適當的授權方法都可使用。授權方法視 Azure 雲端和內部部署元件之間支援的端對端授權方法而定。例如，您的 Azure 應用程式存取內部部署 SQL Server。在此情況下，SQL 授權可能是端對端支援的授權方法。
 
@@ -97,10 +111,10 @@
 
 ## 下一步
 
-- [建立和管理混合式連線](http://azure.microsoft.com/zh-tw/documentation/articles/integration-hybrid-connection-create-manage)
+- [建立和管理混合式連線](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-create-manage)
 - [將 Azure 網站連接到內部部署資源](http://go.microsoft.com/fwlink/p/?LinkId=397538)
 - [混合式連線逐步說明：從 Azure 網站連接至內部部署 SQL Server](http://go.microsoft.com/fwlink/?LinkID=397979)
-- [Azure 行動服務和混合式連線](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
+- [Azure 行動服務和混合式連線](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
 
 
 ## 另請參閱
@@ -114,3 +128,5 @@
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
+
+<!--HONumber=46--> 

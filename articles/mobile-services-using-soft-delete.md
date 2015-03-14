@@ -1,12 +1,26 @@
-﻿<properties pageTitle="使用行動服務 (Windows 市集) 中的虛刪除 | 行動開發人員中心" description="了解如何在您的應用程式中使用 Azure 行動服務的虛刪除功能" documentationCenter="" authors="wesmc7777" manager="dwrede" editor="" services="mobile-services"/>
+﻿<properties 
+	pageTitle="使用行動服務 (Windows 市集) 中的虛刪除 | 行動開發人員中心" 
+	description="了解如何在您的應用程式中使用 Azure 行動服務的虛刪除功能" 
+	documentationCenter="" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="wesmc"/>
 
 # 使用行動服務中的虛刪除
 
 以 JavaScript 或 .NET 後端建立的資料表，可以選擇性地啟用虛刪除功能。使用虛刪除時，將會在資料庫中新增屬於 [SQL 位元類型]的新資料行 *__deleted*。啟用虛刪除時，刪除作業將不會從資料庫中實際刪除資料列，而會將已刪除資料行的值設為 TRUE。
 
-在對已啟用虛刪除的資料表查詢記錄時，依預設將不會在查詢中傳回刪除的資料列。若要要求這些資料列，您必須在 [REST 查詢作業](http://msdn.microsoft.com/zh-tw/library/azure/jj677199.aspx)中傳入查詢參數 *__includeDeleted=true*。在 .NET 用戶端 SDK 中，您也可以使用協助程式方法  `IMobileServiceTable.IncludeDeleted()`。
+在對已啟用虛刪除的資料表查詢記錄時，依預設將不會在查詢中傳回刪除的資料列。若要要求這些資料列，您必須在 [REST 查詢作業](http://msdn.microsoft.com/library/azure/jj677199.aspx)中傳入查詢參數 *__includeDeleted=true*。在 .NET 用戶端 SDK 中，您也可以使用協助程式方法  `IMobileServiceTable.IncludeDeleted()`。
 
 .NET 後端的虛刪除支援最初是隨 Microsoft Azure 行動服務 .NET 後端的 1.0.402 版而發行的。最新的 NuGet 套件可從 [Microsoft Azure 行動服務 .NET 後端](http://go.microsoft.com/fwlink/?LinkId=513165)取得。
 
@@ -87,8 +101,10 @@
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
      
-            var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
-            context.TodoItems.RemoveRange(toDelete);
+            var toDelete = context.TodoIte
+	ms.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
+            context.TodoIte
+	ms.RemoveRange(toDelete);
             context.SaveChanges();
      
             return Task.FromResult(true);
@@ -153,7 +169,7 @@ To include deleted records in query result in a script, set the "includeDeleted"
 [2]: ./media/mobile-services-using-soft-delete/enable-soft-delete-new-table.png
 
 <!-- URLs. -->
-[SQL 位元類型]: http://msdn.microsoft.com/zh-tw/library/ms177603.aspx
+[SQL 位元類型]: http://msdn.microsoft.com/library/ms177603.aspx
 [行動服務的離線資料同步]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
 [管理入口網站]: https://manage.windowsazure.com/
 

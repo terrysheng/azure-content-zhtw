@@ -237,15 +237,15 @@
    <td valign="middle">文件庫文件的連結。</td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/zh-tw/library/azure/jj879332.aspx">Azure SQL Database 和 SQL Server -- 效能與延展性的比較與對照</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj879332.aspx">Azure SQL Database 和 SQL Server -- 效能與延展性的比較與對照</p></td>
    <td valign="middle">本文說明使用 Azure SQL Database 和在內部部署或 VM 中執行的 SQL Server 時的效能差異和疑難排解技術。 </td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/zh-tw/library/dn574746.aspx">Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/dn574746.aspx">Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略</p></td>
    <td valign="middle">本文將討論適用於 Azure VM 中的 SQL Server 的最常見應用程式模式，以及包括 Azure SQL Database 的混合式案例。 </td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/zh-tw/library/hh680934(v=PandP.50).aspx">Microsoft Enterprise 程式庫暫時性錯誤處理應用程式區塊</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/hh680934(v=PandP.50).aspx">Microsoft Enterprise 程式庫暫時性錯誤處理應用程式區塊</p></td>
    <td valign="middle">此程式庫可讓開發人員以更彈性的方式在 Azure SQL Database 上執行其應用程式，方法是新增強固的暫時性錯誤處理邏輯。暫時性錯誤是因為某個暫時情況 (如網路連線問題或服務無法使用) 而發生的錯誤。由於 Azure SQL Database 是多租用戶服務，因此處理此類錯誤以將任何應用程式停機時間降至最低十分重要。 </td>   
 </tr>
 </table>

@@ -1,6 +1,23 @@
-﻿<properties title="Use Pig and Hive with Azure Data Factory" pageTitle="使用 Pig 和 Hive 搭配 Azure Data Factory" description="了解如何在 Azure HDInsight 叢集上從 Azure 資料處理站執行 Pig 與 Hive 指令碼來處理資料。" metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	title="Use Pig and Hive with Azure Data Factory" 
+	pageTitle="使用 Pig 和 Hive 搭配 Azure Data Factory" 
+	description="了解如何在 Azure HDInsight 叢集上從 Azure 資料處理站執行 Pig 與 Hive 指令碼來處理資料。" 
+	metaKeywords="" 
+	services="data-factory" 
+	solutions="" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/13/2014" 
+	ms.author="spelluru" />
 
 # 使用 Pig 和 Hive 搭配 Data Factory
 Azure Data Factory 中的管線會使用連結的計算服務，處理連結的儲存體服務中的資料。它包含一系列活動，其中每個活動都會執行特定的處理作業。 
@@ -418,3 +435,5 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 [Azure 入口網站]: http://portal.azure.com
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

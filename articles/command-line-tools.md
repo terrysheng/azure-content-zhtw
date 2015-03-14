@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Command-Line Tools" pageTitle="適用於 Mac 和 Linux 的 Azure 命令列工具" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="了解如何在 Azure 中使用適用於 Mac 及 Linux 的命令列工具。" metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="carolz" solutions="" manager="need to identify contact" editor="" />
+﻿<properties 
+	pageTitle="適用於 Mac 和 Linux 的 Azure 命令列工具" 
+	description="了解如何在 Azure 中使用適用於 Mac 及 Linux 的命令列工具。" 
+	services="web-sites, virtual-machines, mobile-services, cloud-services" 
+	documentationCenter="" 
+	authors="squillace" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/13/2014" 
+	ms.author="rasquill"/>
 
 #適用於 Mac 和 Linux 的 Azure 命令列工具
 
@@ -659,7 +673,7 @@ Azure 雲端服務是 Web 角色與工作角色上裝載的應用程式和服務
 
 ##<a name="Commands_to_manage_your_Azure_certificates"></a>管理 Azure 憑證的命令
 
-Azure 服務憑證是與您 Azure 帳戶連線的 SSL 憑證。如需 Azure 憑證的詳細資訊，請參閱[管理憑證](http://msdn.microsoft.com/zh-tw/library/azure/gg981929.aspx)。
+Azure 服務憑證是與您 Azure 帳戶連線的 SSL 憑證。如需 Azure 憑證的詳細資訊，請參閱[管理憑證](http://msdn.microsoft.com/library/azure/gg981929.aspx)。
 
 **service cert list [options]**
 
@@ -1467,7 +1481,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 ###<a name="Mobile_Scripts"></a>管理指令碼的命令
 
-本節中的命令可用來管理屬於行動服務的伺服器指令碼。如需詳細資訊，請參閱[在行動服務中使用伺服器指令碼](http://www.windowsazure.com/zh-tw/develop/mobile/how-to-guides/work-with-server-scripts/)。
+本節中的命令可用來管理屬於行動服務的伺服器指令碼。如需詳細資訊，請參閱[在行動服務中使用伺服器指令碼](http://azure.microsoft.com/develop/mobile/how-to-guides/work-with-server-scripts/)。
 
 **mobile script list [options] [servicename]**
 
@@ -1526,7 +1540,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 ###<a name="Mobile_Jobs"></a>管理排程工作的命令
 
-本節中的命令可用來管理屬於行動服務的排程工作。如需詳細資訊，請參閱[排程作業](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj860528.aspx)。
+本節中的命令可用來管理屬於行動服務的排程工作。如需詳細資訊，請參閱[排程作業](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx)。
 
 **mobile job list [options] [servicename]**
 
@@ -1600,7 +1614,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 ###<a name="Mobile_Scale"></a>調整行動服務的命令
 
-本節中的命令可用來調整行動服務。如需詳細資訊，請參閱[調整行動服務](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj193178.aspx) (英文)。
+本節中的命令可用來調整行動服務。如需詳細資訊，請參閱[調整行動服務](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx) (英文)。
 
 **mobile scale show [options] [servicename]**
 
@@ -2377,3 +2391,5 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	Delete the DNS server entry dns-4 ( 77.88.99.11 ) %s ? (y/n) y
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
+
+<!--HONumber=46--> 

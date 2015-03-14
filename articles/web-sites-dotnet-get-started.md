@@ -304,11 +304,11 @@
 	如需如何使用 SSL 和您自己的網域 (例如 www.contoso.com，而非 contoso.azurewebsites.net) 的相關資訊，請參閱下列資源：
 
 	* [設定 Azure 網站的自訂網域名稱](/zh-tw/documentation/articles/web-sites-custom-domain-name/). 
-	* [對 Azure 網站啟用 HTTPS](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-configure-ssl-certificate/)
+	* [對 Azure 網站啟用 HTTPS](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)
 
 * 如何避免閒置逾時之後的喚醒等待時間 
 
-	根據預設，網站如果閒置一段時間，就會卸載。其後的第一個要求必須等待網站重新載入。若要避免這種等待時間，您可以啟用 AlwaysOn 功能。如需詳細資訊，請參閱[如何設定網站](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-configure/)中的組態選項。
+	根據預設，網站如果閒置一段時間，就會卸載。其後的第一個要求必須等待網站重新載入。若要避免這種等待時間，您可以啟用 AlwaysOn 功能。如需詳細資訊，請參閱[如何設定網站](http://azure.microsoft.com/documentation/articles/web-sites-configure/)中的組態選項。
 
 * 如何新增即時功能，例如交談
 

@@ -1,8 +1,22 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Azure 通知中樞安全推播" metaKeywords="Azure 推播通知, Azure 通知中樞, 安全推播" description="了解如何從 Azure 傳送安全推播通知給 Android 應用程式。使用 Java 和 C# 撰寫的程式碼範例。" documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="timlt" />
+<properties 
+	pageTitle="Azure 通知中樞安全推播" 
+	description="了解如何從 Azure 將安全的推播通知傳送至 Android 應用程式。程式碼範例是以 Java 及 C# 撰寫。" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="ricksal"/>
 
-#Azure 通知中心安全推播
+# Azure 通知中心安全推播
 
 <div class="dev-center-tutorial-selector sublanding"> 
     	<a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
@@ -26,23 +40,23 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 本安全推播教學課程說明如何以安全的方式傳送推播通知。本教學課程會以**通知使用者**教學課程為基礎，因此您應先完成該教學課程中的步驟。
 
-> [AZURE.NOTE] 本教學課程假設您已建立並設定通知中樞，如[開始使用通知中樞 (Android)](http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-android-get-started/) 中所述。
+> [AZURE.NOTE] 本教學課程假設您已建立並設定通知中樞，如[開始使用通知中樞 (Android)](http://azure.microsoft.com/ documentation/articles/notification-hubs-android-get-started/) 中所述。
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## 修改 Android 專案
 
-現在，您已修改應用程式後端將只傳送通知的 *id*，您必須變更 Android 應用程式來處理該通知，並回呼後端以擷取要顯示的安全訊息。
-為達成此目標，您必須確定您的 Android 應用程式知道如何在收到推播通知時以您的後端執行自我驗證。
+現在，您已修改應用程式後端將只傳送通知的  *id*，您必須變更 Android 應用程式來處理該通知，並回呼後端以擷取要顯示的安全訊息。
+為了達成此目標，您必須確定您的 Android 應用程式知道在收到推播通知時，如何使用後端自我驗證。
 
-為了將驗證標頭值儲存在您的應用程式共用喜好設定中，我們將修改「登入」流程。類別機制可用來儲存任何驗證權杖 (例如 OAuth tokens)，應用程式在不需要使用者認證的情況下必須使用這些驗證權杖。
+為了將驗證標頭值儲存在您的應用程式共用喜好設定中，我們將修改  *login* 流程。類別機制可用來儲存任何驗證權杖 (例如 OAuth tokens)，應用程式在不需要使用者認證的情況下必須使用這些驗證權杖。
 
 1. 在您的 Android 應用程式專案中，在 **MainActivity** 類別開頭處新增下列常數：
 
 		public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
 		public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
 
-2. 仍在 **MainActivity** 類別中，更新 `getAuthorizationHeader()` 方法以包含下列程式碼：
+2. 同樣地，**MainActivity** 類別中，更新  `getAuthorizationHeader()` 方法以包含下列程式碼：
 
 		private String getAuthorizationHeader() throws UnsupportedEncodingException {
 			EditText username = (EditText) findViewById(R.id.usernameText);
@@ -56,13 +70,13 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
     		return basicAuthHeader;
 		}
 
-3. 在 **MainActivity** 檔案開頭處新增下列 `import` 陳述式：
+3. 在 **MainActivity** 檔案開頭處新增下列  `import` 陳述式：
 
 		import android.content.SharedPreferences;
 
 現在我們將變更收到通知時所呼叫的處理常式。
 
-4. 在 **MyHandler** 類別中，請變更 `OnReceive()` 方法以包含下列程式碼：
+4. 在 **MyHandler** 類別中，請變更  `OnReceive()` 方法以包含下列程式碼：
 
 		public void onReceive(Context context, Bundle bundle) {
 	    	ctx = context;   
@@ -70,7 +84,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 	    	retrieveNotification(secureMessageId);
 		}
 
-5. 然後新增 `retrieveNotification()` 方法，以部署後端時所取得的後端端點取代預留位置 `{back-end endpoint}`：
+5. 然後新增  `retrieveNotification()` 方法，以部署後端時所取得的後端端點取代預留位置  `{back-end endpoint}`：
 
 		private void retrieveNotification(final String secureMessageId) {
 			SharedPreferences sp = ctx.getSharedPreferences(MainActivity.NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
@@ -114,6 +128,6 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 3. 在 Android 應用程式 UI 中，輸入使用者名稱和密碼。這些可以是任何字串，但必須是相同值。
 
-4. 在 Android 應用程式 UI 中，按一下 [登入]****。然後按一下 [傳送推播]****。
+4. 在 Android 應用程式 UI 中，按一下 **[登入]**。然後按一下 **[傳送推播]**。
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

@@ -44,12 +44,12 @@
 ## Azure Blob 儲存體服務元件 
 
 * 儲存體帳戶：儲存體帳戶是所有儲存體服務的起點。若要存取 Azure Blob 儲存體服務，請先建立 Azure 儲存體帳戶。必須要有儲存體帳戶名稱及其存取金鑰屬性才能向 Azure Blob 儲存體服務及其元件進行驗證。 
-如需 Azure Blob 儲存體服務的詳細資訊，請參閱[如何使用 Azure Blob 儲存體服務 (英文)](http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/blob-storage/)
+如需 Azure Blob 儲存體服務的詳細資訊，請參閱[如何使用 Azure Blob 儲存體服務 (英文)](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)
 
 * 容器：容器提供一組 Blob 的分組，且可以存放無限數目的 Blob。若要將 SQL Server 備份寫入 Azure Blob 服務，您必須至少建立根容器。 
 
 * Blob：任何類型和大小的檔案。Azure Blob 儲存體服務中可以儲存兩種 Blob：區塊和分頁 Blob。SQL Server 備份使用分頁 Blob 作為 Blob 類型。可利用下列 URL 格式來定址 Blob： `https://<storage account>.blob.core.windows.net/<container>/<blob>`
-如需分頁 Blob 的詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee691964.aspx)
+如需分頁 Blob 的詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob](http://msdn.microsoft.com/library/windowsazure/ee691964.aspx)
 
 ## SQL Server 元件
 
@@ -61,7 +61,7 @@
 <b>重要事項</b>
 如果您選擇複製及上傳備份檔到 Azure Blob 儲存體服務，則必須使用分頁 Blob 類型作為儲存體選項 (如果您計劃使用此檔案進行還原作業的話)。從區塊 Blob 類型進行 RESTORE 會失敗並發生錯誤。 
 
-* 認證：連接 Azure Blob 儲存體服務及向其進行驗證所需的資訊會存放為認證。為了讓 SQL Server 將備份寫入 Azure Blob 或從 Azure Blob 還原，必須建立 SQL Server 認證。認證會存放儲存體帳戶的名稱以及儲存體帳戶存取金鑰。建立認證之後，發出 BACKUP/RESTORE 陳述式時，它必須指定在 WITH CREDENTIAL 選項中。如需如何檢視、複製或重新產生儲存體帳戶存取金鑰的詳細資訊，請參閱[儲存體帳戶存取金鑰](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh531566.aspx)。
+* 認證：連接 Azure Blob 儲存體服務及向其進行驗證所需的資訊會存放為認證。為了讓 SQL Server 將備份寫入 Azure Blob 或從 Azure Blob 還原，必須建立 SQL Server 認證。認證會存放儲存體帳戶的名稱以及儲存體帳戶存取金鑰。建立認證之後，發出 BACKUP/RESTORE 陳述式時，它必須指定在 WITH CREDENTIAL 選項中。如需如何檢視、複製或重新產生儲存體帳戶存取金鑰的詳細資訊，請參閱[儲存體帳戶存取金鑰](http://msdn.microsoft.com/library/windowsazure/hh531566.aspx)。
 如需如何建立 SQL Server 認證的逐步指示，請參閱 [SQL Server 備份及還原至 Azure Blob 儲存體服務使用者入門](http://go.microsoft.com/fwlink/?LinkId=271615)。
 
 ## 使用 Azure Blob 進行 SQL Server 資料庫備份與還原 - 概念與工作：

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="開始使用自訂驗證 | 行動開發人員中心" description="了解如何藉由使用者名稱及密碼驗證使用者。" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="開始使用自訂驗證 | 行動開發人員中心" 
+	description="了解如何藉由使用者名稱及密碼驗證使用者。" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # 開始使用自訂驗證
 

@@ -1,6 +1,20 @@
-﻿<properties title="What Is Azure Machine Learning Studio?" pageTitle="什麼是 Machine Learning Studio？| Azure" description="Azure Machine Learning Studio 概觀" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="什麼是 Azure Machine Learning Studio？| Azure" 
+	description="Azure Machine Learning Studio 概觀和基本文件" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/11/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2014" 
+	ms.author="garye"/>
 
 # 什麼是 Azure Machine Learning Studio？
 
@@ -39,8 +53,8 @@ ML Studio 讓資料科學、預測分析、雲端資源和您的資料齊聚一�
 - 模組的所有輸入埠必須有資料流程的某些連線。 
 - 模組的所有必要參數都必須設定。 
 
-如需建立簡易實驗的範例，請參閱[在 Azure Machine Learning Studio 中建立簡易實驗](http://azure.microsoft.com/zh-tw/documentation/articles/machine-learning-create-experiment/)。 
-如需建立預測性分析方案的更完整逐步解說，請參閱[使用 Azure Machine Learning 開發預測方案](http://azure.microsoft.com/zh-tw/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)。
+如需建立簡易實驗的範例，請參閱[在 Azure Machine Learning Studio 中建立簡易實驗](http://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/)。 
+如需建立預測性分析方案的更完整逐步解說，請參閱[使用 Azure Machine Learning 開發預測方案](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)。
 
 ### 資料集
 
@@ -67,3 +81,5 @@ ML Studio 讓資料科學、預測分析、雲端資源和您的資料齊聚一�
 
 
 [ml-studio-overview]:./media/machine-learning-what-is-ml-studio/context.jpg
+
+<!--HONumber=46--> 

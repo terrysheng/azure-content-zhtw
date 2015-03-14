@@ -1,6 +1,20 @@
-<properties pageTitle="定義支援推播通知的自訂 API - Azure 行動服務" description="了解如何定義自訂 API 在使用 Azure 行動服務的 Windows 市集應用程式中支援定期通知。" services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="定義支援推播通知的自訂 API - Azure 行動服務" 
+	description="了解如何定義自訂 API 在使用 Azure 行動服務的 Windows 市集應用程式中支援定期通知。" 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 # 定義支援定期通知的自訂 API
 
@@ -45,7 +59,8 @@
 		exports.get = function(request, response) {
 		    var wns = require('wns');
 		    var todoItems = request.service.tables.getTable('TodoItem');
-		    todoItems.where({
+		    todoIte
+	ms.where({
 		        complete: false
 		    }).read({
 		        success: sendResponse
@@ -82,7 +97,7 @@
 
 	由於用戶端將會傳送 GET 要求以存取磚範本，因此會使用 **exports.get** 函數。
 
-   	> [AZURE.NOTE] 此自訂 API 指令碼會使用 Node.js [wns 模組](http://go.microsoft.com/fwlink/p/?LinkId=306750)，而此模組可透過 **require** 函數來參考。此模組與可用來從伺服器指令碼傳送推播通知的 [push 物件](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554217.aspx)所傳回的 [wns 物件](http://go.microsoft.com/fwlink/p/?LinkId=260591)不同。
+   	> [AZURE.NOTE] 此自訂 API 指令碼會使用 Node.js [wns 模組](http://go.microsoft.com/fwlink/p/?LinkId=306750)，而此模組可透過 **require** 函數來參考。此模組與可用來從伺服器指令碼傳送推播通知的 [push 物件](http://msdn.microsoft.com/library/windowsazure/jj554217.aspx)所傳回的 [wns 物件](http://go.microsoft.com/fwlink/p/?LinkId=260591)不同。
 
 接著，您將修改快速入門應用程式，以藉由要求新的自訂 API 啟動會更新動態磚的定期通知。
 
@@ -150,7 +165,7 @@
 [開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[定期通知]: http://msdn.microsoft.com/zh-tw/library/windows/apps/jj150587.aspx
+[定期通知]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
 [行動服務 .NET 做法概念性參考]: /zh-tw/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 

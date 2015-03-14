@@ -1,6 +1,20 @@
-﻿<properties pageTitle="使用 SignalR 和行動服務開始進行即時推播 | 動行開發人員中心" description="了解如何使用 SignalR 和行動服務開始進行即時推播。" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="使用 SignalR 和行動服務開始進行即時推播 | 動行開發人員中心" 
+	description="了解如何使用 SignalR 和行動服務開始進行即時推播。" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/19/2014" 
+	ms.author="mahender"/>
 
 # 使用 SignalR 和行動服務開始進行即時推播
 

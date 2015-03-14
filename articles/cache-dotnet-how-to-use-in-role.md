@@ -1,6 +1,20 @@
-<properties urlDisplayName="Caching" pageTitle="如何使用 In-Role Cache (.NET) - Azure 功能指南" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="了解如何使用 Azure In-Role Cache。這些範例均以 C# 程式碼撰寫，並使用 .NET API。" metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="如何使用 In-Role Cache (.NET) - Azure 功能指南" 
+	description="了解如何使用 Azure In-Role Cache。這些範例均以 C# 程式碼撰寫，並使用 .NET API。" 
+	services="cache" 
+	documentationCenter=".net" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="cache" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 
 
@@ -237,7 +251,8 @@ In-Role Cache 之檔案的頂端：
     DataCacheFactory cacheFactory = new DataCacheFactory();
     DataCache cache = cacheFactory.GetDefaultCache();
     // Or DataCache cache = cacheFactory.GetCache("MyCache");
-    // cache can now be used to add and retrieve items.	
+    // cache can now be used to add and retrieve ite
+	ms.	
 
 <a name="add-object"></a>
 ## 作法：從快取新增和擷取物件
@@ -395,28 +410,28 @@ In-Role Cache 之檔案的頂端：
   
 <!-- LINKS -->
 [如何設定虛擬機器大小]: http://go.microsoft.com/fwlink/?LinkId=164387
-[作法：以程式設計方式設定快取用戶端]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg618003.aspx
-[作法：以程式設計方式設定頁面的快取性]: http://msdn.microsoft.com/zh-tw/library/z852zf6b.aspx
-[作法：以宣告方式設定 ASP.NET 網頁的快取性]: http://msdn.microsoft.com/zh-tw/library/zd1ysf1y.aspx
+[作法：以程式設計方式設定快取用戶端]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[作法：以程式設計方式設定頁面的快取性]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[作法：以宣告方式設定 ASP.NET 網頁的快取性]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
 [In-Role Cache 容量規劃考量]: http://go.microsoft.com/fwlink/?LinkId=252651
 [In-Role 容量規劃考量]: http://go.microsoft.com/fwlink/?LinkId=252651
-[In-Role Cache 範例]: http://msdn.microsoft.com/zh-tw/library/jj189876.aspx
+[In-Role Cache 範例]: http://msdn.microsoft.com/library/jj189876.aspx
 [In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=252658
 [In-Role Cache]: http://www.microsoft.com/zh-tw/showcase/Search.aspx?phrase=azure+caching
 [最大效能：利用 Azure 快取加速您的雲端服務應用程式]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
-[移轉至 In-Role Cache]: http://msdn.microsoft.com/zh-tw/library/hh914163.aspx
+[移轉至 In-Role Cache]: http://msdn.microsoft.com/library/hh914163.aspx
 [NuGet 封裝管理員安裝]: http://go.microsoft.com/fwlink/?LinkId=240311
-[In-Role Cache 的輸出快取提供者]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg185662.aspx
+[In-Role Cache 的輸出快取提供者]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
 [OutputCache 指示詞]: http://go.microsoft.com/fwlink/?LinkId=251979
 [In-Role Cache 概觀]: http://go.microsoft.com/fwlink/?LinkId=254172
-[In-Role Cache 的工作階段狀態提供者]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg185668.aspx
+[In-Role Cache 的工作階段狀態提供者]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
 [小組部落格]: http://blogs.msdn.com/b/windowsazure/
-[In-Role Cache 疑難排解和診斷]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh914135.aspx
+[In-Role Cache 疑難排解和診斷]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Azure AppFabric 快取：快取工作階段狀態]: http://www.microsoft.com/zh-tw/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Azure 管理入口網站]: http://windows.azure.com/
-[Azure 共用快取]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg278356.aspx
+[Azure 共用快取]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[我適合使用哪個 Azure 快取服務？]: http://msdn.microsoft.com/zh-tw/library/azure/dn766201.aspx
+[我適合使用哪個 Azure 快取服務？]: http://msdn.microsoft.com/library/azure/dn766201.aspx
 
 [何謂 In-Role Cache？]: #what-is
 [開始使用 In-Role Cache]: #getting-started-cache-role-instance
@@ -431,3 +446,5 @@ In-Role Cache 之檔案的頂端：
 [後續步驟]: #next-steps
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

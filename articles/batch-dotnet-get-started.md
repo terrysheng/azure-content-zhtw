@@ -1,6 +1,20 @@
-﻿<properties title="Tutorial - Getting Started with the Azure Batch Library for .NET" pageTitle="教學課程 - 開始使用適用於 .NET 的 Azure 批次程式庫" description="必要" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
+﻿<properties 
+	pageTitle="教學課程 - 開始使用適用於 .NET 的 Azure 批次程式庫" 
+	description="了解 Azure 批次的基本概念，以及利用簡單的案例了解如何使用批次服務" 
+	services="batch" 
+	documentationCenter=".net" 
+	authors="yidingzhou" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="batch" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="12/03/2014" ms.author="yidingz, karran.batta" />
+<tags 
+	ms.service="batch" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="big-compute" 
+	ms.date="12/03/2014" 
+	ms.author="yidingz, kabatta"/>
 
 #開始使用適用於 .NET 的 Azure 批次程式庫  
 
@@ -10,14 +24,14 @@
 -	[教學課程 2：適用於 .NET 的 Azure 批次應用程式庫](#tutorial2)  
 
 
-如需「Azure 批次」的背景資訊及案例，請參閱 [Azure 批次技術概觀](http://azure.microsoft.com/zh-tw/documentation/articles/batch-technical-overview/)。
+如需「Azure 批次」的背景資訊及案例，請參閱 [Azure 批次技術概觀](http://azure.microsoft.com/documentation/articles/batch-technical-overview/)。
 
 ##<a name="tutorial1"></a>教學課程 1：適用於 .NET 的 Azure 批次程式庫
   	
 本教學課程將示範如何使用Azure 批次服務來建立主控台應用程式，以設定一組虛擬機器之間的分散式計算。本教學課程中建立的工作會從 Azure 儲存體中檔案評估文字，並傳回最常使用的單字。這些範例均以 C# 程式碼撰寫，並使用「適用於 .NET 的 Azure 批次程式庫」。
 
 
->[WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/)。 
+>[WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。 
 >
 >您需要使用 NuGet 來取得 **Microsoft.Azure.Batch.dll** 組件。在 Visual Studio 中建立專案之後，以滑鼠右鍵按一下 [方案總管]**** 中的專案，然後選擇 [管理 NuGet 封裝]****。在線上搜尋 **Azure.Batch**，然後按一下 [安裝] 以安裝「Azure 批次」封裝與相依性。
 >
@@ -42,7 +56,7 @@
 讓我們從最基本的用法開始。
 
 ###建立 Azure 批次帳戶
-您可以使用管理入口網站來建立批次帳戶。建立帳戶之後會提供金鑰給您。如需詳細資訊，請參閱 [Azure 批次技術概觀](http://azure.microsoft.com/zh-tw/documentation/articles/batch-technical-overview/)。  
+您可以使用管理入口網站來建立批次帳戶。建立帳戶之後會提供金鑰給您。如需詳細資訊，請參閱 [Azure 批次技術概觀](http://azure.microsoft.com/documentation/articles/batch-technical-overview/)。  
 
 ###作法：將集區加入至帳戶
 工作虛擬機器集區是您要執行工作時必須建立的第一組資源。  
@@ -406,7 +420,7 @@
 6.	(選用) 您可以啟用地理區域複寫。
 7.	按一下 [建立儲存體帳戶]****。  
 
-如需有關「Azure 儲存體」的詳細資訊，請參閱[如何使用 .NET 的 Azure Blob 儲存體服務](http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/blob-storage/)。  
+如需有關「Azure 儲存體」的詳細資訊，請參閱[如何使用 .NET 的 Azure Blob 儲存體服務](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)。  
 
 
 ##<a name="tutorial2"></a>教學課程 2：適用於 .NET 的 Azure 批次應用程式庫
@@ -416,7 +430,7 @@
 
 在批次應用程式案例中，您可以使用批次應用程式雲端 SDK 來撰寫程式碼，將作業分割成平行工作、描述這些工作之間的任何相依性，以及指定如何執行每個工作。此程式碼會部署到批次帳戶。接著，用戶端只需指定作業類型和 REST API 的輸入檔，即可執行作業。
 
->[WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/)。您可以使用 NuGet 來同時取得 <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">批次應用程式雲端 (Batch Apps Cloud)</a> 組件和 <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">批次應用程式用戶端 (Batch Apps Client)</a> 組件。在 Visual Studio 中建立專案之後，以滑鼠右鍵按一下 [方案總管]**** 中的專案，然後選擇 [管理 NuGet 封裝]****。您也可以下載「適用於批次應用程式的 Visual Studio 擴充功能」，當中包含可啟用應用程式雲端功能的專案範本和部署應用程式的功能，方法是從 <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">這裡</a> 下載，或在 Visual Studio 中透過 [擴充功能和更新] 功能表項目搜尋「批次應用程式」****。您也可以尋找 <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">MSDN 上的端對端範例。</a>
+>[WACOM.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。您可以使用 NuGet 來同時取得 <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">批次應用程式雲端 (Batch Apps Cloud)</a> 組件和 <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">批次應用程式用戶端 (Batch Apps Client)</a> 組件。在 Visual Studio 中建立專案之後，以滑鼠右鍵按一下 [方案總管]**** 中的專案，然後選擇 [管理 NuGet 封裝]****。您也可以下載「適用於批次應用程式的 Visual Studio 擴充功能」，當中包含可啟用應用程式雲端功能的專案範本和部署應用程式的功能，方法是從 <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">這裡</a> 下載，或在 Visual Studio 中透過 [擴充功能和更新] 功能表項目搜尋「批次應用程式」****。您也可以尋找 <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">MSDN 上的端對端範例。</a>
 >
 
 ###Azure 批次應用程式的基本概念 
@@ -597,3 +611,5 @@ RunExternalMergeProcess 的實作非常類似於 RunExternalTaskProcess，除了
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

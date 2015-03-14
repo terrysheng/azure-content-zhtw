@@ -1,6 +1,20 @@
-﻿<properties title="How to create a hybrid deployment of RemoteApp" pageTitle="如何建立 RemoteApp 的混合式部署" description="了解如何建立連線到內部網路的 RemoteApp 部署。" metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+﻿<properties 
+	pageTitle="如何建立 RemoteApp 的混合式收藏" 
+	description="了解如何建立連接內部網路的 RemoteApp 部署。" 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/12/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/17/2015" 
+	ms.author="elizapo"/>
 
 #如何建立 RemoteApp 的混合式部署
 
@@ -11,7 +25,7 @@ RemoteApp 部署分成兩種：
 
 本教學課程將逐步引導您完成建立混合式部署的程序。共有七個步驟： 
 
-1.	建立 [RemoteApp 的自訂範本映像](http://azure.microsoft.com/zh-tw/documentation/articles/remoteapp-create-custom-image/)。
+1.	建立 [RemoteApp 的自訂範本映像](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/)。
 2.	建立 RemoteApp 服務。
 2.	連結至虛擬網路。
 3.	連結範本映像。
@@ -23,12 +37,12 @@ RemoteApp 部署分成兩種：
 
 在建立服務之前，您必須執行下列作業：
 
-- 註冊 RemoteApp 預覽版。您可以在 [http://azure.microsoft.com/zh-tw/services/remoteapp/](http://azure.microsoft.com/zh-tw/services/remoteapp/) 執行此作業。
+- 註冊 RemoteApp 預覽版。您可以在 [http://azure.microsoft.com/services/remoteapp/](http://azure.microsoft.com/services/remoteapp/) 執行此作業。
 - 在 Active Directory 中建立使用者帳戶，以做為 RemoteApp 服務帳戶。限制此帳戶的權限，使其只能將機器加入網域中。
 - 收集內部部署網路的相關資訊：IP 位址資訊和 VPN 裝置詳細資料。
-- 安裝 [Azure PowerShell](http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/) 模組。
+- 安裝 [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) 模組。
 - 收集您要為其授與存取權之使用者和群組的相關資訊。這可以是使用者或群組的 Microsoft 帳戶資訊或 Active Directory 工作帳戶資訊。
-- 建立範本映像。RemoteApp 範本映像包含您要為使用者發行的應用程式與程式。請參閱[如何建立 RemoteApp 的自訂範本映像](http://azure.microsoft.com/zh-tw/documentation/articles/remoteapp-create-custom-image/)，以取得詳細步驟。 
+- 建立範本映像。RemoteApp 範本映像包含您要為使用者發行的應用程式與程式。請參閱[如何建立 RemoteApp 的自訂範本映像](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/)，以取得詳細步驟。 
 
 
 
@@ -74,7 +88,7 @@ RemoteApp 部署分成兩種：
 
 ## **步驟 3：連結至 RemoteApp 範本映像** ##
 
-RemoteApp 範本映像包含您要與使用者共用的程式。您可以上傳您建立的新範本映像 (從[如何建立 RemoteApp 的自訂範本映像](http://azure.microsoft.com/zh-tw/documentation/articles/remoteapp-create-custom-image/)中的指示) 或連結至現有的映像 (已上傳至 Azure 的映像)。
+RemoteApp 範本映像包含您要與使用者共用的程式。您可以上傳您建立的新範本映像 (從[如何建立 RemoteApp 的自訂範本映像](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/)中的指示) 或連結至現有的映像 (已上傳至 Azure 的映像)。
 
 如果您要上傳新映像，您必須輸入名稱，並選擇映像的位置。在精靈的下一頁，您會看見一組 PowerShell Cmdlet - 從提高權限的 Windows PowerShell 提示複製並執行這些 Cmdlet，可上傳指定的映像。
 
@@ -110,3 +124,5 @@ RemoteApp 程式是您提供給使用者的應用程式或程式。此程式位�
 至此，您已成功建立並部署 RemoteApp 混合式部署。下一個步驟是要讓使用者下載並安裝遠端桌面用戶端。您可以在 RemoteApp 的 [快速入門] 頁面上找到用戶端的 URL。接著，請讓使用者登入用戶端，並存取您所發佈的 RemoteApp 程式。
 
 
+
+<!--HONumber=46--> 

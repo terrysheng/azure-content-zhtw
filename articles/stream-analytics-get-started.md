@@ -1,6 +1,20 @@
-﻿<properties linkid="manage-services-Stream-Analytics-get-started" urlDisplayName="Get Started" pageTitle="開始使用 Azure 資料流分析 | Azure" metaKeywords="" description="開始使用 Azure Stream Analytics 處理和轉換 Azure Service Bus Event Hub 中的事件，並且將結果儲存至 Azure SQL Database。" metaCanonical="" services="stream analytics" documentationCenter="" title="Get started with Azure Stream Analytics" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="開始使用 Azure Stream Analytics | Azure" 
+	description="開始使用 Azure Stream Analytics 來處理和轉換 Azure 服務匯流排事件中樞內的事件，並且將結果儲存在 Azure SQL Database 中。" 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="stream analytics" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/17/2015" 
+	ms.author="jgao" />
 
 
 # 開始使用 Azure 資料流分析
@@ -73,7 +87,7 @@ Azure 資料流分析可以將資料輸出至 Azure SQL Database、Azure Blob �
 1.	在管理入口網站中，按一下 [**新增**]、[**資料服務**]、[**SQL 資料庫**]、[**快速建立**]。指定現有或新的 SQL Database 伺服器上的資料庫名稱。
 2.	選取新建的資料庫
 3.	按一下 [**儀表板**]、按一下位於頁面右窗格上的 [**顯示連線字串**]，然後複製 **ADO.NET** 連線字串。稍後在教學課程中將會用到這些資訊。  
-4.	確定伺服器層級防火牆設定可讓您連接到資料庫。您可以在伺服器的 [設定] 索引標籤下新增新的 IP 規則，以執行此動作。如需詳細資訊 (包括如何處理動態 IP)，請參閱 [http://msdn.microsoft.com/zh-tw/library/azure/ee621782.aspx](http://msdn.microsoft.com/zh-tw/library/azure/ee621782.aspx)。
+4.	確定伺服器層級防火牆設定可讓您連接到資料庫。您可以在伺服器的 [設定] 索引標籤下新增新的 IP 規則，以執行此動作。如需詳細資訊 (包括如何處理動態 IP)，請參閱 [http://msdn.microsoft.com/library/azure/ee621782.aspx](http://msdn.microsoft.com/library/azure/ee621782.aspx)。
 
 ###建立輸出資料表
 1.	開啟 Visual Studio 或 SQL Server Management Studio。
@@ -264,13 +278,13 @@ Azure 資料流分析可以將資料輸出至 Azure SQL Database、Azure Blob �
 [img.stream.analytics.operation.log.details]: ./media/stream-analytics-get-started/StreamAnalytics.operation.log.details.png
 
 
-[azure.sql.database.firewall]: http://msdn.microsoft.com/zh-tw/library/azure/ee621782.aspx
-[azure.event.hubs.documentation]: http://azure.microsoft.com/zh-tw/services/event-hubs/
-[azure.sql.database.documentation]: http://azure.microsoft.com/zh-tw/services/sql-database/
+[azure.sql.database.firewall]: http://msdn.microsoft.com/library/azure/ee621782.aspx
+[azure.event.hubs.documentation]: http://azure.microsoft.com/services/event-hubs/
+[azure.sql.database.documentation]: http://azure.microsoft.com/services/sql-database/
 
-[sql.database.introduction]: http://azure.microsoft.com/zh-tw/services/sql-database/
-[event.hubs.introduction]: http://azure.microsoft.com/zh-tw/services/event-hubs/
-[azure.blob.storage]: http://azure.microsoft.com/zh-tw/documentation/services/storage/
+[sql.database.introduction]: http://azure.microsoft.com/services/sql-database/
+[event.hubs.introduction]: http://azure.microsoft.com/services/event-hubs/
+[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
 [azure.sdk.net]: ../dotnet-sdk/
 
 [stream.analytics.introduction]: ../stream-analytics-introduction/
@@ -286,3 +300,5 @@ Azure 資料流分析可以將資料輸出至 Azure SQL Database、Azure Blob �
 
 [azure.management.portal]: https://manage.windowsazure.com
 
+
+<!--HONumber=46--> 

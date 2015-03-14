@@ -51,7 +51,7 @@
 		    await dialog.ShowAsync();
 		}
 
-	此方法會處理新按鈕的 **Click** 事件。[InvokeApiAsync](http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx) 方法是在用戶端上呼叫，可將 POST 要求傳送給新的自訂 API。如有任何錯誤，自訂 API 傳回的結果會顯示在訊息對話方塊中。
+	此方法會處理新按鈕的 **Click** 事件。[InvokeApiAsync](http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx) 方法是在用戶端上呼叫，可將 POST 要求傳送給新的自訂 API。如有任何錯誤，自訂 API 傳回的結果會顯示在訊息對話方塊中。
 
 ## <a name="test-app"></a>測試應用程式
 

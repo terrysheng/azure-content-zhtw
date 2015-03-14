@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Get Started with Azure Automation" pageTitle="開始使用 Azure 自動化" metaKeywords="" description="了解如何在 Azure 中匯入和執行自動化工作。" metaCanonical="" services="automation" documentationCenter="" title="Get Started with Azure Automation" authors="bwren" solutions="" manager="stevenka" editor="" />
+﻿<properties 
+	pageTitle="開始使用 Azure 自動化" 
+	description="了解如何在 Azure 中匯入和執行自動化工作。" 
+	services="automation" 
+	documentationCenter="" 
+	authors="bwren" 
+	manager="stevenka" 
+	editor=""/>
 
-<tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="bwren" />
+<tags 
+	ms.service="automation" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/13/2015" 
+	ms.author="bwren"/>
 
 
 # 開始使用 Azure 自動化
@@ -9,7 +23,7 @@ Microsoft Azure 自動化可讓開發人員將執行於雲端環境中的手動�
 
 本教學課程將引導您逐步執行將範例 "Hello World" Runbook 匯入 Azure 自動化中、執行 Runbook 並檢視其輸出的步驟。
 
->[WACOM.NOTE] 若要了解如何使用 [Azure PowerShell Cmdlet](http://msdn.microsoft.com/zh-tw/library/jj156055.aspx) 將 Azure 作業自動化，請參閱 <a href="http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/">Azure 自動化：使用 Azure Active Directory 向 Azure 進行驗證</a>。
+>[WACOM.NOTE] 若要了解如何使用 [Azure PowerShell Cmdlet](http://msdn.microsoft.com/library/jj156055.aspx) 將 Azure 作業自動化，請參閱 <a href="http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/">Azure 自動化：使用 Azure Active Directory 向 Azure 進行驗證</a>。
 
 ## 範例和工具 Runbook
 
@@ -105,7 +119,8 @@ Azure 自動化團隊建立了多種 Runbook 範例，以協助您著手使用�
  
 13.	在 [指定 Runbook 參數值]**** 頁面上，輸入將做為 Write-HelloWorld.ps1 指令碼之輸入參數的 [名稱]****，然後按一下打勾記號。
 
-	![Runbook Parameters](./media/automation/automation_11_RunbookParams.png)
+	![Runbook Parameters](./media/automation/automation_11_RunbookPara
+	ms.png)
   
 14.	按一下 [工作]**** 以查看您剛剛啟動之 Runbook 工作的狀態，然後按一下 [工作啟動]**** 欄中的時間戳記，以檢視工作摘要。
 
@@ -117,7 +132,7 @@ Azure 自動化團隊建立了多種 Runbook 範例，以協助您著手使用�
 
 
 # 從 Runbook 管理 Azure 服務 
-上述範例示範未管理 Azure 服務的範例 Runbook。[Azure Cmdlet](http://msdn.microsoft.com/zh-tw/library/jj156055.aspx) 需要向 Azure 進行驗證。您可以遵循 [Azure 自動化：使用 Azure Active Directory 向 Azure 進行驗證](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)中的指示，來設定透過「Azure 自動化」管理您的 Azure 訂用帳戶。
+上述範例示範未管理 Azure 服務的範例 Runbook。[Azure Cmdlet](http://msdn.microsoft.com/library/jj156055.aspx) 需要向 Azure 進行驗證。您可以遵循 [Azure 自動化：使用 Azure Active Directory 向 Azure 進行驗證](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)中的指示，來設定透過「Azure 自動化」管理您的 Azure 訂用帳戶。
 
 # 另請參閱
 
@@ -127,3 +142,5 @@ Azure 自動化團隊建立了多種 Runbook 範例，以協助您著手使用�
 - [Azure 自動化：使用 Azure Active Directory 向 Azure 進行驗證](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

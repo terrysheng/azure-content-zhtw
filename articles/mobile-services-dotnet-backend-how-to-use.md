@@ -1,6 +1,20 @@
-<properties pageTitle="使用行動服務 .NET 後端 - Azure 行動服務" description="了解 Azure 行動服務的 .NET 後端程式設計模型，包括如何使用資料表資料、API、驗證和排程的工作" services="" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="mollybos"/>
+<properties 
+	pageTitle="使用行動服務 .NET 後端 - Azure 行動服務" 
+	description="了解 Azure 行動服務的 .NET 後端程式設計模型，包括如何使用資料表資料、API、驗證和排程的工作" 
+	services="" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="mahender"/>
 # 使用行動服務 .NET 後端
 
 <div class="dev-center-tutorial-subselector"><a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend" class="current">.NET 後端</a> | <a href="/zh-tw/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend">JavaScript 後端</a></div>

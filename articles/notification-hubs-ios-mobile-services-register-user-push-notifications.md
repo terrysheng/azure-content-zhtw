@@ -1,6 +1,20 @@
-﻿<properties pageTitle="使用行動服務註冊目前使用者以取得推播通知 - 通知中樞" description="了解如何在 Azure 行動服務執行註冊時，在 iOS 應用程式中向 Azure 通知中樞要求推播通知註冊。" services="mobile-services, notification-hubs" documentationCenter="" authors="ysxu" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="使用行動服務註冊目前使用者以取得推播通知 - 通知中樞" 
+	description="了解如何在 Azure 行動服務執行註冊時，在 iOS 應用程式中向 Azure 通知中樞要求推播通知註冊。" 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
 # 使用行動服務註冊目前使用者以取得推播通知
 

@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="How to scale" pageTitle="如何調整雲端服務 - Azure" metaKeywords="Azure link resource, scaling cloud service" description="了解如何在 Azure 中調整雲端服務和連結的資源。" metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="timlt" editor="" />
+<properties 
+	pageTitle="如何調整雲端服務 - Azure" 
+	description="了解如何在 Azure 中調整雲端服務和連結的資源。" 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="adegeo"/>
 
 
 
 
 
-#如何調整應用程式
+# 如何調整應用程式
 
 
 在 Azure 管理入口網站的 [調整] 頁面上，您可以手動調整應用程式，也可以設定參數來自動調整應用程式。您可以調整執行 Web 角色、背景工作角色或虛擬機器的應用程式。若要調整執行 Web 角色或背景工作角色執行個體的應用程式，您可以新增或移除角色執行個體來容納工作負載。
@@ -15,10 +29,10 @@
 
 在設定應用程式的調整之前，您應該先考量下列資訊：
 
-- 您必須先將自己建立的虛擬機器新增到可用性設定組，才能調整使用這些虛擬機器的應用程式。您所新增的虛擬機器可以一開始處於開啟或關閉狀態，但是它們將在向上調整動作中開啟，並在向下調整動作中關閉。如需虛擬機器和可用性設定組的詳細資訊，請參閱[管理虛擬機器的可用性](http://azure.microsoft.com/zh-tw/documentation/articles/virtual-machines-manage-availability/)。
-- 調整受到核心使用量影響。較大型的角色執行個體或虛擬機器會使用較多的核心。您只能在訂閱的核心限制內調整應用程式。例如，如果您的訂閱設有 20 個核心的限制，而您使用兩個中型大小的虛擬機器來執行應用程式 (總計 4 個核心)，則您只能在訂閱中最多增加 16 個核心的其他雲端服務部署。可用性設定組中所有用於調整應用程式的虛擬機器都必須具有相同大小。如需核心使用量和電腦大小的詳細資訊，請參閱 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/zh-tw/library/dn197896.aspx)。
-- 您必須先建立佇列並且將它與角色或可用性設定組建立關聯，然後才能根據訊息閾值調整應用程式。如需詳細資訊，請參閱[如何使用佇列儲存體服務](http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/queue-service)。
-- 您可以調整與您雲端服務連結的資源。如需關於連結資源的詳細資訊，請參閱[作法：將資源連結到雲端服務](http://www.windowsazure.com/zh-tw/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources)。
+- 您必須先將自己建立的虛擬機器新增到可用性設定組，才能調整使用這些虛擬機器的應用程式。您所新增的虛擬機器可以一開始處於開啟或關閉狀態，但是它們將在向上調整動作中開啟，並在向下調整動作中關閉。如需虛擬機器和可用性設定組的詳細資訊，請參閱[管理虛擬機器的可用性](http://azure.microsoft.com/ documentation/articles/virtual-machines-manage-availability/) (英文)。
+- 調整受到核心使用量影響。較大型的角色執行個體或虛擬機器會使用較多的核心。您只能在訂閱的核心限制內調整應用程式。例如，如果您的訂閱設有 20 個核心的限制，而您使用兩個中型大小的虛擬機器來執行應用程式 (總計 4 個核心)，則您只能在訂閱中最多增加 16 個核心的其他雲端服務部署。可用性設定組中所有用於調整應用程式的虛擬機器都必須具有相同大小。如需核心使用量和電腦大小的詳細資訊，請參閱 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/dn197896.aspx)。
+- 您必須先建立佇列並且將它與角色或可用性設定組建立關聯，然後才能根據訊息閾值調整應用程式。如需詳細資訊，請參閱[如何使用佇列儲存體服務](http://azure.microsoft.com/develop/net/how-to-guides/queue-service) (英文)。
+- 您可以調整與您雲端服務連結的資源。如需關於連結資源的詳細資訊，請參閱[作法：將資源連結到雲端服務](http://azure.microsoft.com/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources) (英文)。
 - 若要對應用程式啟用高可用性，您應該確定應用程式是以兩個以上的角色執行個體或虛擬機器來部署。如需詳細資訊，請參閱[服務等級協定](https://www.windowsazure.com/zh-tw/support/legal/sla/)。
 
 您可以對雲端服務執行下列調整動作：
@@ -33,7 +47,7 @@
 
 在 [調整] 頁面上，您可以手動增加或減少雲端服務中執行的執行個體數目。
 
-1. 在 [[管理入口網站]] 中(https://manage.windowsazure.com/)，按一下 [**雲端服務**]，然後按一下雲端服務的名稱以開啟儀表板。
+1. 在 [[管理入口網站](https://manage.windowsazure.com/)]，按一下 [**雲端服務**]，然後按一下以開啟儀表板的雲端服務的名稱。
 
 2. 按一下 [**調整**]。所有角色預設都已停用自動調整，這表示您可以手動變更應用程式所使用的執行個體數目。
 
@@ -51,7 +65,7 @@
 	- 淺灰色代表可用於調整的核心
 	- 粉紅色代表尚未儲存的已進行變更
 
-4. 按一下 [**儲存**]。系統隨即根據您做的選取來新增或移除角色執行個體。
+4. 按一下 **[儲存]**。系統隨即根據您做的選取來新增或移除角色執行個體。
 
 <h2><a id="autoscale"></a>自動調整執行 Web 角色、背景工作角色或虛擬機器的應用程式</h2>
 
@@ -62,7 +76,7 @@
 
 <h3><a id="averagecpu"></a>平均 CPU 使用量</h3>
 
-1. 在 [[管理入口網站]] 中(https://manage.windowsazure.com/)，按一下 [**雲端服務**]，然後按一下雲端服務的名稱以開啟儀表板。
+1. 在 [[管理入口網站](https://manage.windowsazure.com/)]，按一下 [**雲端服務**]，然後按一下以開啟儀表板的雲端服務的名稱。
 2. 按一下 [**調整**]。
 3. 捲動到角色或可用性設定組的區段，然後按一下 [**CPU**]。如此即會自動根據應用程式所使用的平均 CPU 資源百分比來調整應用程式。
 
@@ -70,7 +84,7 @@
 
 4. 每個角色或可用性設定組都有個滑桿來變更可以使用的執行個體數目。若要設定可以使用的執行個體數目上限，請將右側條塊往右拖曳。若要設定可使用的執行個體數目下限，請將左側條塊往左拖曳。
 
-	**注意：**在 [調整] 頁面上，**執行個體**代表角色執行個體或虛擬機器執行個體。
+	**注意：**在 [調整] 頁面中，**執行個體**表示角色執行個體或虛擬機器的執行個體。
 
 	![Instance range][instance_range]
 
@@ -105,11 +119,11 @@
 
 	![Down time][scale_downtime]
 
-10. 按一下 [**儲存**]。調整動作最多可能需要 5 分鐘的時間才能完成。
+10. 按一下 **[儲存]**。調整動作最多可能需要 5 分鐘的時間才能完成。
 
 <h3><a id="queuemessages"></a>佇列訊息</h3>
 
-1. 在 [[管理入口網站]] 中(https://manage.windowsazure.com/)，按一下 [**雲端服務**]，然後按一下雲端服務的名稱以開啟儀表板。
+1. 在 [[管理入口網站](https://manage.windowsazure.com/)]，按一下 [**雲端服務**]，然後按一下以開啟儀表板的雲端服務的名稱。
 2. 按一下 [**調整**]。
 3. 捲動到角色或可用性設定組的區段，然後按一下 [**佇列**]。如此即會自動根據目標的佇列訊息數目來調整應用程式。
 
@@ -119,7 +133,7 @@
 
 	![Queue range][queue_range]
 
-	**注意：**在 [調整] 頁面上，**執行個體**代表角色執行個體或虛擬機器執行個體。
+	**注意：**在 [調整] 頁面中，**執行個體**表示角色執行個體或虛擬機器的執行個體。
 	
 	執行個體數目上限受限於訂閱中的可用核心數目。滑桿的色彩代表您的訂閱中已使用和可用的核心：
 	- 藍色代表角色可以使用的核心數目上限。
@@ -157,34 +171,34 @@
 
 	![Down time][scale_downtime]
 
-12. 按一下 [**儲存**]。調整動作最多可能需要 5 分鐘的時間才能完成。
+12. 按一下 **[儲存]**。調整動作最多可能需要 5 分鐘的時間才能完成。
 
 <h2><a id="scalelink"></a>調整連結的資源</h2>
 
 通常，當您調整角色時，連應用程式所使用的資料庫也一起調整會比較好。如果您將資料庫連結到雲端服務，則您是在 [調整] 頁面變更 SQL Database 版本及調整資料庫大小。
 
-1. 在 [[管理入口網站]] 中(https://manage.windowsazure.com/)，按一下 [**雲端服務**]，然後按一下雲端服務的名稱以開啟儀表板。
+1. 在 [[管理入口網站](https://manage.windowsazure.com/)]，按一下 [**雲端服務**]，然後按一下以開啟儀表板的雲端服務的名稱。
 2. 按一下 [**調整**]。
-3. 在 [Linked Resources] 區段中，選取用於資料庫的版本。
+3. 在 [連結的資源] 區段中，選取用於資料庫的版本。
 
 	![Linked resources][linked_resources]
 
 4. 選取資料庫的大小。
-5. 按一下 [**儲存**] 以更新連結的資源。
+5. 按一下 [**儲存**] 更新連結的資源。
 
 <h2><a id="schedule"></a>排定應用程式調整</h2>
 
 您可以設定不同時間的排程，來排定自動調整應用程式。您有下列選項可以進行自動調整：
 
-- **No schedule** - 這是預設選項，表示總是以相同方式來自動調整應用程式。
+- **沒有排程** - 這是預設選項，表示總是以相同方式來自動調整應用程式。
 
-- **Day and night** - 此選項可讓您指定在白天與晚上的特定時間進行的調整。
+- **白天與夜晚** - 此選項可讓您指定在白天與晚上的特定時間進行的調整。
 
 **注意：**排程目前不適用於使用虛擬機器的應用程式。
 
-1. 在 [[管理入口網站]] 中(https://manage.windowsazure.com/)，按一下 [**雲端服務**]，然後按一下雲端服務的名稱以開啟儀表板。
+1. 在 [[管理入口網站](https://manage.windowsazure.com/)]，按一下 [**雲端服務**]，然後按一下以開啟儀表板的雲端服務的名稱。
 2. 按一下 [**調整**]。
-3. 在 [調整] 頁面上，按一下 [**set up schedule times**]。
+3. 在 [調整] 頁面中，按一下 [**設定排程時間**]。
 
 	![Schedule scaling][scale_schedule]
 
@@ -194,7 +208,7 @@
 
 6. 按一下頁面底部的打勾記號來儲存排程。
 
-7. 儲存排程之後，排程就會出現在清單中。您可以選取想要使用的時間排程，然後修改您的調整設定。只有在您選取的排程期間，才會套用調整設定。您可以按一下 [**set up schedule times**] 來編輯排程。
+7. 儲存排程之後，排程就會出現在清單中。您可以選取想要使用的時間排程，然後修改您的調整設定。只有在您選取的排程期間，才會套用調整設定。您可以按一下 [**設定排程時間**] 來編輯排程。
 
 [manual_scale]: ./media/cloud-services-how-to-scale/CloudServices_ManualScaleRoles.png
 [slider_role]: ./media/cloud-services-how-to-scale/CloudServices_SliderRole.png
@@ -213,4 +227,4 @@
 [linked_resources]: ./media/cloud-services-how-to-scale/CloudServices_ScaleLinkedResources.png
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

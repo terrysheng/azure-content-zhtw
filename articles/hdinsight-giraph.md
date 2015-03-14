@@ -88,7 +88,7 @@ Giraph 並未隨附於 HDInsight 叢集，必須從原始檔建置。如需有�
 
 	指令完成時，JAR 檔案已上傳至 wasb:///example/jars/giraph.jar。
 
-	> [AZURE.NOTE] 如需可將檔案上傳至 HDInsight 的公用程式清單，請參閱[在 HDInsight 中將 Hadoop 工作的資料上傳](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-upload-data/)。
+	> [AZURE.NOTE] 如需可將檔案上傳至 HDInsight 的公用程式清單，請參閱[在 HDInsight 中將 Hadoop 工作的資料上傳](http://azure.microsoft.com/documentation/articles/hdinsight-upload-data/)。
 
 ##<a id="run"></a>執行範例
 
@@ -204,7 +204,7 @@ Giraph 工作會在執行階段建立指定的輸出目錄。如果目錄已存�
 
 ###舊版的 HDInsight
 
-如果您要搭配舊版的 HDInsight 來使用 Giraph，您必須針對該版本支援的特定 Hadoop 版本來編譯它。請參閱 [HDInsight 所提供叢集版本的新功能](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-component-versioning/)，以決定對應於您的 HDInsight 版本的 Hadoop 版本。
+如果您要搭配舊版的 HDInsight 來使用 Giraph，您必須針對該版本支援的特定 Hadoop 版本來編譯它。請參閱 [HDInsight 所提供叢集版本的新功能](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/)，以決定對應於您的 HDInsight 版本的 Hadoop 版本。
 
 此外，舊版的 HDInsight 可能會要求您從 Hadoop 命令列執行 Giraph 工作。如果您從 PowerShell 執行工作時發生錯誤，請嘗試從 [Hadoop 命令列]執行工作(#cmd)。
 
@@ -214,7 +214,7 @@ Giraph 工作會在執行階段建立指定的輸出目錄。如果目錄已存�
 
 [giraph]: http://giraph.apache.org
 [tools]: https://github.com/Blackmist/hdinsight-tools
-[aps]: http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/
-[Pig]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-use-pig/
-[Hive]: http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-use-hive/
+[aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[Pig]: http://azure.microsoft.com/documentation/articles/hdinsight-use-pig/
+[Hive]: http://azure.microsoft.com/documentation/articles/hdinsight-use-hive/
 <!--HONumber=42-->

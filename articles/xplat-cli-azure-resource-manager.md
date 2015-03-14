@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="搭配使用 Microsoft Azure 跨平台命令列介面與資源管理員" title="搭配使用 Microsoft Azure 跨平台命令列介面與資源管理員" metaKeywords="windows azure 跨平台命令列介面與資源管理員, windows azure 命令列資源管理員, azure 命令列資源管理員, azure cli 資源管理員" description="搭配使用 Microsoft Azure 跨平台命令列介面與資源管理員" metaCanonical="http://www.windowsazure.com/zh-tw/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="need to identify contact" documentationCenter="" solutions="" authors="larryfr" services="" />
+﻿<properties 
+	pageTitle="搭配使用 Microsoft Azure 跨平台命令列介面與資源管理員" 
+	description="搭配使用 Microsoft Azure 跨平台命令列介面與資源管理員" 
+	editor="tysonn" 
+	manager="timlt" 
+	documentationCenter="" 
+	authors="squillace" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/05/2015" 
+	ms.author="rasquill"/>
 
 #搭配使用 Azure 跨平台命令列介面與資源管理員
 
@@ -68,7 +82,8 @@
 
 5. 在文字編輯器中開啟範本檔案。請注意，[**參數**] 集合靠近頂端。這包含此範本預期的參數清單，目的是建立範本所說明的資源。部分參數 (如 **sku**) 有預設值，而其他參數只要指定值的類型 (如 **siteName**)。使用範本時，您可以將參數做為命令列參數的一部分提供，或藉由指定包含參數值的檔案提供。不論是哪一種方式，參數必須是 JSON 格式。
 
-	若要建立包含 Microsoft.WebSiteSQLDatabase.0.1.0-preview1 範本之參數的檔案，請使用下列資料及建立名為 **params.json** 的檔案。以您自己的值取代開頭為 **My** 的值，例如 **MyWebSite**。**siteLocation** 應指定您附近的 Azure 地區，例如 **North Europe** 或 **South Central US**。
+	若要建立包含 Microsoft.WebSiteSQLDatabase.0.1.0-preview1 範本之參數的檔案，請使用下列資料及建立名為 **para
+	ms.json** 的檔案。以您自己的值取代開頭為 **My** 的值，例如 **MyWebSite**。**siteLocation** 應指定您附近的 Azure 地區，例如 **North Europe** 或 **South Central US**。
 
 		{
 		  "siteName": {
@@ -97,9 +112,12 @@
 		  }
 		}
 
-1. 儲存 **params.json** 檔案後，請使用下列命令以根據範本建立新資源群組。`-e`參數指定前一個步驟所建立的 **params.json** 檔案。
+1. 儲存 **para
+	ms.json** 檔案後，請使用下列命令以根據範本建立新資源群組。`-e`參數指定前一個步驟所建立的 **para
+	ms.json** 檔案。
 
-		azure group create MyGroupName "MyDataCenter" -y Microsoft.WebSiteSQLDatabase.0.1.0-preview1 -d MyDeployment -e params.json
+		azure group create MyGroupName "MyDataCenter" -y Microsoft.WebSiteSQLDatabase.0.1.0-preview1 -d MyDeployment -e para
+	ms.json
 
 	以您要使用的群組名稱取代 **MyGroupName**，並以範本中指定的 **siteLocation** 值取代 **MyDataCenter**。
 
@@ -162,8 +180,10 @@
 * 如需使用 Azure 跨平台命令列介面的詳細資訊，請參閱[安裝及設定 Microsoft Azure 跨平台命令列介面][xplatsetup]。
 * 如需使用 Windows Azure PowerShell 來使用資源管理員的詳細資訊，請參閱[開始搭配使用 Windows PowerShell 與資源管理員][psrm]
 
-[signuporg]: http://www.windowsazure.com/zh-tw/documentation/articles/sign-up-organization/
-[adtenant]: http://technet.microsoft.com/zh-tw/library/jj573650#createAzureTenant
+[signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
+[adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
 [xplatsetup]: /zh-tw/documentation/articles/xplat-cli/
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
+
+<!--HONumber=46--> 

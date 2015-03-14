@@ -1,6 +1,23 @@
-﻿<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="使用 Azure PowerShell 監視和管理 Azure Data Factory" description="了解如何使用 Azure PowerShell 來監視及管理您已經建立的 Azure 資料處理站。" metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	title="Monitor and manage Azure Data Factory using Azure PowerShell" 
+	pageTitle="使用 Azure PowerShell 監視和管理 Azure Data Factory" 
+	description="了解如何使用 Azure PowerShell 來監視及管理您已經建立的 Azure 資料處理站。" 
+	metaKeywords=""  
+	services="data-factory" 
+	solutions=""  
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/13/2014" 
+	ms.author="spelluru" />
 
 # 使用 Azure PowerShell 監視和管理 Azure Data Factory
 下表列出您可以用來使用 Azure PowerShell 監視和管理 Azure Data Factory 的 Cmdlet。 
@@ -411,3 +428,5 @@ Resume-AzureDataFactoryPipeline Cmdlet 會繼續使用 Azure Data Factory 中目
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

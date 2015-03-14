@@ -1,16 +1,16 @@
-
-本節說明如何將從 .NET 主控台應用程式和任何其他位置傳送通知。
-如果您使用行動服務，請參閱[開始使用推播](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/) 教學課程。如果您想要使用 Java 或 PHP，請參考[如何從 Java/PHP 使用通知中心](/ zh-tw/documentation/articles/notification-hubs-java-backend-how-to/)。您可以使用[通知中心 REST 介面]，從任何後端傳送通知。
+﻿
+本節說明如何從 .NET 主控台應用程式和任何其他應用程式傳送通知。
+如果您使用行動服務，請參閱[開始使用推播](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/)教學課程。如果您想要使用 Java 或 PHP，請參閱[如何從 Java/PHP 使用通知中樞](/zh-tw/documentation/articles/notification-hubs-java-backend-how-to/)。您可以使用[通知中心 REST 介面]，從任何後端傳送通知。
 
 下列程式碼會傳送通知給 Windows 市集、Windows Phone、iOS 和 Android 裝置。 
 
-如果您在完成[開始使用通知中心][get-started].時建立了主控台應用程式，則請略過步驟 1-3。
+如果您在完成[開始使用通知中心][get-started]時建立了主控台應用程式，則請略過步驟 1-3。
 
 1. 在 Visual Studio 中建立新的 Visual C# 主控台應用程式： 
 
    	![][13]
 
-2. 在 Visual Studio 主功能表中，依序按一下 [**工具**]、[**Library Package Manager**] 和 [**Package Manager Console**]，然後在主控台視窗中輸入下列資訊並按 **Enter** 鍵：
+2. 在 Visual Studio 主功能表中，依序按一下 [**工具**]、[**程式庫封裝管理員**] 和 [**封裝管理員主控臺**]，然後在主控台視窗中輸入下列資訊並按 **Enter** 鍵：
 
         Install-Package WindowsAzure.ServiceBus
  	
@@ -75,7 +75,7 @@
 
 6. 在上述程式碼中，請使用您的通知中心名稱及先前取得的  *DefaultFullSharedAccessSignature* 連接字串，來取代 `<hub name>` 和 `<connection string with listen access>` 預留位置。
 
-7. 在 [**主要**] 方法中新增下列命令列：
+7. 在 [**主要**] 方法中新增下列命令列。
 
          SendNotificationAsync();
 		 Console.ReadLine();
@@ -93,11 +93,12 @@
 
 <!-- URLs. -->
 [get-started]: /zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[使用通知中心將通知推播給使用者]:../notificationhubs/tutorial-notify-users-mobileservices.md
+[使用通知中心將通知推播給使用者]: ../notificationhubs/tutorial-notify-users-mobileservices.md
 [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started/#create-new-service
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [wns 物件]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[通知中心指引]: http://msdn.microsoft.com/zh-tw/library/jj927170.aspx
-[Windows 市集的通知中心作法]: http://msdn.microsoft.com/zh-tw/library/jj927172.aspx
-[通知中心 REST 介面]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn223264.aspx
-<!--HONumber=42-->
+[通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx
+[Windows 市集的通知中心作法]: http://msdn.microsoft.com/library/jj927172.aspx
+[通知中心 REST 介面]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+
+<!--HONumber=45--> 

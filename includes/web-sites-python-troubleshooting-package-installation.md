@@ -64,7 +64,7 @@ Mac/Linux 使用者：如果您沒有 Windows 電腦的存取權，請參閱[建
 建議您刪除網站上現有的虛擬環境，以防止虛擬環境在受到自動管理時出現殘留檔案。
 
 
-[建立執行 Windows 的虛擬機器]: http://azure.microsoft.com/zh-tw/documentation/articles/virtual-machines-windows-tutorial/
+[建立執行 Windows 的虛擬機器]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
 [Microsoft Visual C++ Compiler for Python 2.7]: http:://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 <!--HONumber=42-->

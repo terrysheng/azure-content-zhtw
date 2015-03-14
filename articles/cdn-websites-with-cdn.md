@@ -1,15 +1,29 @@
-﻿<properties urlDisplayName="Integrate an Azure Website with Azure CDN" pageTitle="整合 Azure 網站與 Azure CDN" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, websites" description="指導如何部署網站來提供整合式 Azure CDN 端點內容的教學課程" metaCanonical="" services="cdn,web-sites" documentationCenter=".NET" title="Integrate an Azure Website with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties 
+	pageTitle="整合 Azure 網站與 Azure CDN" 
+	description="指導如何部署網站來提供整合式 Azure CDN 端點內容的教學課程" 
+	services="cdn, web-sites" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
+<tags 
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/02/2014" 
+	ms.author="cephalin"/>
 
 <a name="intro"></a>
 # 整合 Azure 網站與 Azure CDN #
 
-Azure 網站可以與 [Azure CDN](http://azure.microsoft.com/zh-tw/services/cdn/) 整合，將它加入至 Azure 網站中固有的全球調整功能，從全球靠近您客戶的伺服器節點來提供您的網站內容 (所有目前節點位置的最新清單可以在[這裡](http://msdn.microsoft.com/zh-tw/library/azure/gg680302.aspx)找到)。這項整合大幅增加您 Azure 網站的效能，同時大幅提升網站的全球使用者經驗。 
+Azure 網站可以與 [Azure CDN](http://azure.microsoft.com/services/cdn/) 整合，將它加入至 Azure 網站中固有的全球調整功能，從全球靠近您客戶的伺服器節點來提供您的網站內容 (所有目前節點位置的最新清單可以在[這裡](http://msdn.microsoft.com/library/azure/gg680302.aspx)找到)。這項整合大幅增加您 Azure 網站的效能，同時大幅提升網站的全球使用者經驗。 
 
 整合 Azure 網站與 Azure CDN 提供下列優點：
 
-- 將內部部署 (影像、指令碼和樣式表) 整合到 Azure 網站的[連續部署](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-publish-source-control/)程序中
+- 將內部部署 (影像、指令碼和樣式表) 整合到 Azure 網站的[連續部署](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control/)程序中
 - 輕鬆地升級 Azure 網站中的 NuGet 套件，例如 jQuery 或 Bootstrap 版本 
 - 從相同的 Visual Studio 介面來管理 Web 應用程式和 CDN 提供的內容
 - 整合 ASP.NET 統合和縮製與 Azure CDN
@@ -32,15 +46,15 @@ Azure 網站可以與 [Azure CDN](http://azure.microsoft.com/zh-tw/services/cdn/
 
 本教學課程有下列先決條件：
 
--	使用中的 [Microsoft Azure 帳戶](http://azure.microsoft.com/zh-tw/account/)
+-	使用中的 [Microsoft Azure 帳戶](http://azure.microsoft.com/account/)
 -	Visual Studio 2013 (含 [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409))
 
 <div class="wa-note">
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>要完成此教學課程，您必須要有 Azure 帳戶：</h5>
   <ul>
-    <li>您可以<a href="http://azure.microsoft.com/zh-tw/pricing/free-trial/?WT.mc_id=A261C142F">免費申請 Azure 帳戶</a> - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如「網站」。</li>
-    <li>您可以<a href="http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">啟用 MSDN 訂戶權益</a> - 您的 MSDN 訂閱每月會提供您額度，您可以用在 Azure 付費服務。</li>
+    <li>您可以<a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F">免費申請 Azure 帳戶</a> - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如「網站」。</li>
+    <li>您可以<a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">啟用 MSDN 訂戶權益</a> - 您的 MSDN 訂閱每月會提供您額度，您可以用在 Azure 付費服務。</li>
   <ul>
 </div>
 
@@ -244,7 +258,8 @@ Azure 網站可以與 [Azure CDN](http://azure.microsoft.com/zh-tw/services/cdn/
 	
 	            MemoryStream ms = new MemoryStream();
 	            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-	            return File(ms.ToArray(), &quot;image/png&quot;);
+	            return File(
+	ms.ToArray(), &quot;image/png&quot;);
 	        }
 	
 	        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
@@ -368,7 +383,7 @@ public ActionResult Show(string id)
 
 請遵循下列步驟來整合 ASP.NET 統合和縮製與 CDN 端點。
 
-1. 回到 *App_Start\BundleConfig.cs*，修改 `bundles.Add()` 方法來使用不同的 [Bundle 建構函式](http://msdn.microsoft.com/zh-tw/library/jj646464.aspx) (此建構函式指定 CDN 位址)。若要這樣做，請將 `RegisterBundles` 方法定義改成下列程式碼：  
+1. 回到 *App_Start\BundleConfig.cs*，修改 `bundles.Add()` 方法來使用不同的 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx) (此建構函式指定 CDN 位址)。若要這樣做，請將 `RegisterBundles` 方法定義改成下列程式碼：  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -462,9 +477,9 @@ public ActionResult Show(string id)
 
 當 Azure CDN 端點因故失敗時，您一定希望網頁能夠聰明地存取原始 Web 伺服器，當作後援選項來載入 JavaScript 或 Bootstrap。由於 CDN 無法使用而遺失網站的影像就已經夠嚴重，而遺失由指令碼和樣式表提供的重要頁面功能又更加嚴重。
 
-[Bundle](http://msdn.microsoft.com/zh-tw/library/system.web.optimization.bundle.aspx) 類別包含一個稱為 [CdnFallbackExpression](http://msdn.microsoft.com/zh-tw/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) 的屬性，可讓您設定 CDN 失敗時的後援機制。若要使用此屬性，請遵循下列步驟：
+[Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) 類別包含一個稱為 [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) 的屬性，可讓您設定 CDN 失敗時的後援機制。若要使用此屬性，請遵循下列步驟：
 
-1. 在 ASP.NET 專案中，開啟 *App_Start\BundleConfig.cs* (其中，您已在每一個 [Bundle 建構函式](http://msdn.microsoft.com/zh-tw/library/jj646464.aspx)中加入 CDN URL)，使用下列反白的變更將後援機制加入至預設套件組合：  
+1. 在 ASP.NET 專案中，開啟 *App_Start\BundleConfig.cs* (其中，您已在每一個 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx)中加入 CDN URL)，使用下列反白的變更將後援機制加入至預設套件組合：  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -576,7 +591,9 @@ public ActionResult Show(string id)
 
 # 相關資訊 #
 - [Azure 內容傳遞網路 (CDN) 概觀](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [在 Web 應用程式中從 Azure CDN 提供內容](http://azure.microsoft.com/zh-tw/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
-- [整合雲端服務與 Azure CDN](http://azure.microsoft.com/zh-tw/documentation/articles/cdn-cloud-service-with-cdn/)
+- [在 Web 應用程式中從 Azure CDN 提供內容](http://azure.microsoft.com/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
+- [整合雲端服務與 Azure CDN](http://azure.microsoft.com/documentation/articles/cdn-cloud-service-with-cdn/)
 - [ASP.NET 統合和縮製](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [使用 Azure 的 CDN](http://azure.microsoft.com/zh-tw/documentation/articles/cdn-how-to-use/)
+- [使用 Azure 的 CDN](http://azure.microsoft.com/documentation/articles/cdn-how-to-use/)
+
+<!--HONumber=46--> 

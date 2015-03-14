@@ -1,6 +1,20 @@
-﻿<properties title="Get started with Azure Search" pageTitle="開始使用 Azure Search" description="開始使用 Azure Search" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="開始使用 Azure Search" 
+	description="開始使用 Azure Search" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # 開始使用 Azure Search
 
@@ -292,7 +306,7 @@ Microsoft Azure Search (公用預覽) 是一項可讓您將搜尋功能內嵌到
  
    ![][19]
 
-下列範例查詢來自 MSDN 上的[搜尋索引作業 (Azure Searc API)](http://msdn.microsoft.com/zh-tw/library/dn798927.aspx)。此主題中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢： 
+下列範例查詢來自 MSDN 上的[搜尋索引作業 (Azure Searc API)](http://msdn.microsoft.com/library/dn798927.aspx)。此主題中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢： 
 
 **取代空格之前：**
 
@@ -357,9 +371,9 @@ Microsoft Azure Search (公用預覽) 是一項可讓您將搜尋功能內嵌到
 
 - [在 Microsoft Azure 中管理搜尋方案](../search-manage/) 
 
-- [Azure Search 技術概觀](http://msdn.microsoft.com/zh-tw/library/dn798933.aspx)
+- [Azure Search 技術概觀](http://msdn.microsoft.com/library/dn798933.aspx)
 
-- [Azure Search REST API](http://msdn.microsoft.com/zh-tw/library/dn798935.aspx)
+- [Azure Search REST API](http://msdn.microsoft.com/library/dn798935.aspx)
 
 - [第 9 頻道視訊：Azure Search 簡介](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
 
@@ -402,3 +416,5 @@ Microsoft Azure Search (公用預覽) 是一項可讓您將搜尋功能內嵌到
 [使用 Azure Search 建立地理空間搜尋應用程式]: ../search-create-geospatial/
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

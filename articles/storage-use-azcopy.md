@@ -425,7 +425,7 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-如需使用儲存體存取金鑰的相關詳細資訊，請參閱[檢視、複製及重新產生儲存體存取金鑰]( http://azure.microsoft.com/zh-tw/documentation/articles/storage-create-storage-account/#regeneratestoragekeys)。
+如需使用儲存體存取金鑰的相關詳細資訊，請參閱[檢視、複製及重新產生儲存體存取金鑰]( http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#regeneratestoragekeys)。
 
 ### 透過伺服器端複製來複製 Blob
 
@@ -885,9 +885,9 @@ AzCopy 會在分割資料檔案名稱中使用「磁碟區索引」 *，以區�
 
 ### Azure 儲存體文件：
 
-- [Azure 儲存體簡介](http://azure.microsoft.com/zh-tw/documentation/articles/storage-introduction/)
-- [在 Blob 儲存體中儲存檔案 (英文)](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/)
-- [使用檔案儲存體在 Azure 中建立 SMB 檔案共用](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-files/)
+- [Azure 儲存體簡介](http://azure.microsoft.com/documentation/articles/storage-introduction/)
+- [在 Blob 儲存體中儲存檔案 (英文)](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/)
+- [使用檔案儲存體在 Azure 中建立 SMB 檔案共用](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files/)
 
 ### Azure 儲存體部落格文章：
 - [AzCopy：介紹非同步複製與自訂內容類型](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)

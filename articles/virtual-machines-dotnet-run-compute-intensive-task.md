@@ -45,74 +45,70 @@
 <h2>建立虛擬機器</h2>
 
 1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com)。
-2. 按一下 [**新增**]。
-3. 按一下 [**虛擬機器**]。
-4. 按一下 [**快速建立**]。
-5. 在 [**Create a virtual machine**] 畫面中輸入 [**DNS 名稱**] 的值。
-6. 從 [**映像**] 下拉式清單中選取映像，例如 **Windows Server 2012**。
-7. 在 [**使用者名稱**] 欄位中輸入系統管理員的名稱。請記住即將輸入的名稱和密碼，因為當您從遠端登入此虛擬機器時將需要用到它們。
-8. 在 [**新密碼**] 欄位中輸入密碼，然後在 [**確認**] 欄位中再輸入一次。
-9. 從 [**位置**] 下拉式清單中選取您的虛擬機器的資料中心位置。
-10. 按一下 [**Create virtual machine**]。系統隨即會開始建立虛擬機器。您可以在管理入口網站的 [**虛擬機器**] 區段中監控狀態。當狀態顯示為 [**作用中**] 時，您即可登入該虛擬機器。
+2. 按一下 [新增]。
+3. 按一下 [虛擬機器]。
+4. 按一下 [快速建立]。
+5. 在 [Create a virtual machine] 畫面中輸入 [DNS 名稱] 的值。
+6. 從 [映像] 下拉式清單中選取映像，例如 **Windows Server 2012**。
+7. 在 [使用者名稱] 欄位中輸入系統管理員的名稱。請記住即將輸入的名稱和密碼，因為當您從遠端登入此虛擬機器時將需要用到它們。
+8. 在 [新密碼] 欄位中輸入密碼，然後在 [確認] 欄位中再輸入一次。
+9. 從 [位置] 下拉式清單中選取您的虛擬機器的資料中心位置。
+10. 按一下 [Create virtual machine]。系統隨即會開始建立虛擬機器。您可以在管理入口網站的 [虛擬機器] 區段中監控狀態。當狀態顯示為 [作用中] 時，您即可登入該虛擬機器。
 
 <h2>從遠端登入虛擬機器</h2>
 
 1. 登入[管理入口網站](https://manage.windowsazure.com)。
-2. 按一下 [**虛擬機器**]。
+2. 按一下 [虛擬機器]。
 3. 按一下要登入的虛擬機器名稱。
-4. 按一下 [**連接**]。
+4. 按一下 [連接]。
 5. 視需要回應提示以連接虛擬機器。當要求提供系統管理員名稱和密碼的提示出現時，請使用在建立虛擬機器時提供的值。
 
 <h2>如何建立服務匯流排命名空間</h2>
 
-若要開始在 Azure 中使用服務匯流排佇列，您必須先
-建立服務命名空間。服務命名空間會提供範圍
-容器，供您的應用程式內定址服務匯流排資源。
+若要開始在 Azure 中使用服務匯流排佇列，首先必須建立服務命名空間。服務命名空間提供範圍容器，可在應用程式內定址服務匯流排資源。
 
 建立服務命名空間：
 
 1.  登入 [Azure 管理入口網站](https://manage.windowsazure.com)。
-2.  在管理入口網站的左側瀏覽窗格中，按一下 [**服務匯流排**]。
-3.  在管理入口網站的下方窗格中，按一下。  [**建立**]。
+2.  在管理入口網站的左側瀏覽窗格中，按一下 [服務匯流排]。
+3.  在管理入口網站的下方窗格中，按一下 [建立]。
 
     ![Create new service bus][create_service_bus]
-4.  在 [**Create a namespace**] 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用，因為該名稱必須是唯一名稱。
+4.  在 [Create a namespace] 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用，因為該名稱必須是唯一名稱。
 
     ![Create a namespace dialog][create_namespace_dialog]
 5.  確定命名空間名稱可用之後，請選擇要代管命名空間的區域 (務必使用要代管虛擬機器的相同區域)。
 
-    > [AZURE.IMPORTANT] 挑選您使用或打算使用於虛擬機器的**相同區域**。這樣可以獲得最佳效能。
+    > [AZURE.IMPORTANT]挑選您使用或打算使用於虛擬機器的「相同區域」。這樣可以獲得最佳效能。
 
 6. 如果您用以登入的帳戶有一個以上的 Azure 訂閱，請選取要用於命名空間的訂閱(如果您用以登入的帳戶只有一個訂閱，您就不會看到含有訂閱的下拉式清單)。
 7. 按一下核取記號。此時系統會建立並啟用服務命名空間。系統為帳戶提供資源時，您可能需要等幾分鐘。
 
 	![Click create screenshot][click_create]
 
-然後，您建立的命名空間就會出現在管理入口網站中，稍待片刻就會生效。等到狀態變成 [**作用中**] 之後，再繼續進行下一步。
+然後，您建立的命名空間就會出現在管理入口網站中，稍待片刻就會生效。等到狀態變成 [作用中] 之後，再繼續進行下一步。
 
 <h2>取得命名空間的預設管理認證</h2>
 
-若要在新的命名空間上執行管理作業，例如建立佇列，
-您必須取得命名空間的管理認證
-。
+若要在新的命名空間上執行管理作業 (例如建立佇列)，您必須取得命名空間的管理認證。
 
-1.  在左側的導覽窗格中，按一下 [**服務匯流排**] 節點，以
+1.  在左側的導覽窗格中，按一下 [服務匯流排] 節點中，以
     顯示可用的命名空間清單：   
     ![Available namespaces screenshot][available_namespaces]
 2.  從顯示的清單中，選取您剛建立的命名空間：   
     ![Namespace list screenshot][namespace_list]
-3. 按一下 [**存取金鑰**]。   
+3. 按一下 [存取金鑰]。   
     ![Access key button][access_key_button]
-4.  在此對話方塊中，找出 [**Default Issuer**] 和 [**Default Key**] 項目。請記下這些值，接下來會利用此資訊對命名空間執行作業。 
+4.  在此對話方塊中，找出 [Default Issuer] 和 [Default Key] 項目。請記下這些值，接下來會利用此資訊對命名空間執行作業。 
 
 <h2>如何建立 .NET 應用程式以便執行需密集運算的工作</h2>
 
 1. 在您的部署機器 (不一定是您建立的虛擬機器) 上，下載 [Azure SDK for .NET](http://azure.microsoft.com/develop/net/)。
-2. 利用名為 **TSPSolver** 的專案建立 .NET 主控台應用程式。確定已針對 .**NET Framework 4** 或更新版本 (而非 **.NET Framework 4 用戶端設定檔**) 設定目標 Framework。執行下列動作，即可在您建立專案後設定此目標 Framework：在 Visual Studio 的功能表中，依序按一下 [**專案**]、[**屬性**]、[**應用程式**] 索引標籤，然後設定 [**目標 Framework**] 的值。
-3. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [**TSPSolver**]，然後依序按一下 [**新增參考**] 和 [**瀏覽**] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
-4. 加入 System Runtime Serialization 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [**TSPSolver**]，然後依序按一下 [**新增參考**] 和 [**.NET**] 索引標籤，再選取 **System.Runtime.Serialization** 做為參考。
+2. 利用名為 **TSPSolver** 的專案建立 .NET 主控台應用程式。確定已針對 .**NET Framework 4** 或更新版本 (而非 **.NET Framework 4 用戶端設定檔**) 設定目標 Framework。執行下列動作，即可在您建立專案後設定此目標 Framework：在 Visual Studio 的功能表中，依序按一下 [專案]、[屬性]、[應用程式] 索引標籤，然後設定 [目標 Framework] 的值。
+3. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPSolver]，然後依序按一下 [新增參考] 和 [瀏覽] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
+4. 加入 System Runtime Serialization 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPSolver]，然後依序按一下 [新增參考] 和 [.NET] 索引標籤，再選取 **System.Runtime.Serialization** 做為參考。
 5. 將這一節結尾的範例程式碼使用於 **Program.cs** 的內容。
-6. 修改 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 和 **your\_service\_bus\_key** 預留位置，以分別使用您的服務匯流排 [**命名空間**]、[**預設核發者**] 和 [**預設金鑰**] 值。
+6. 修改 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 和 **your\_service\_bus\_key** 預留位置，以分別使用您的服務匯流排 [命名空間]、[預設核發者] 和 [預設金鑰] 值。
 7. 編譯應用程式。這會在您專案的 **bin** 資料夾 (**bin\release** 或 **bin\debug**，視您的目標為版本或偵錯組建而定) 中建立 **TSPSolver.exe**。您稍後會將此可執行檔和 Microsoft.ServiceBus.dll 複製到您的虛擬機器。
 
 <p/>
@@ -340,11 +336,11 @@
 
 <h2>如何建立 .NET 應用程式以便監控需密集運算之工作的進度</h2>
 
-1. 在開發電腦上，以 **TSPClient** 作為專案名稱來建立 .NET 主控台應用程式。確定已針對 .**NET Framework 4** 或更新版本 (而非 **.NET Framework 4 用戶端設定檔**) 設定目標 Framework。執行下列動作，即可在您建立專案後設定此目標 Framework：在 Visual Studio 的功能表中，依序按一下 [**專案**]、[**屬性**]、[**應用程式**] 索引標籤，然後設定 [**目標 Framework**] 的值。
-2. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [**TSPSolver**]，然後依序按一下 [**新增參考**] 和 [**瀏覽**] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
-3. 加入 System Runtime Serialization 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [**TSPClient**]，然後依序按一下 [**新增參考**] 和 [**.NET**] 索引標籤，再選取 **System.Runtime.Serialization** 做為參考。
+1. 在開發電腦上，以 **TSPClient** 作為專案名稱來建立 .NET 主控台應用程式。確定已針對 .**NET Framework 4** 或更新版本 (而非 **.NET Framework 4 用戶端設定檔**) 設定目標 Framework。執行下列動作，即可在您建立專案後設定此目標 Framework：在 Visual Studio 的功能表中，依序按一下 [專案]、[屬性]、[應用程式] 索引標籤，然後設定 [目標 Framework] 的值。
+2. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPSolver]，然後依序按一下 [新增參考] 和 [瀏覽] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
+3. 加入 System Runtime Serialization 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPClient]，然後依序按一下 [新增參考] 和 [.NET] 索引標籤，再選取 **System.Runtime.Serialization** 做為參考。
 4. 將這一節結尾的範例程式碼使用於 **Program.cs** 的內容。
-5. 修改 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 和 **your\_service\_bus\_key** 預留位置，以分別使用您的服務匯流排 [**命名空間**]、[**預設核發者**] 和 [**預設金鑰**] 值。
+5. 修改 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 和 **your\_service\_bus\_key** 預留位置，以分別使用您的服務匯流排 [命名空間]、[預設核發者] 和 [預設金鑰] 值。
 5. 編譯應用程式。這會在您專案的 **bin** 資料夾 (**bin\release** 或 **bin\debug**，視您的目標為版本或偵錯組建而定) 中建立 **TSPClient.exe**。您可以從部署機器執行此程式碼，或將此可執行檔和 Microsoft.ServiceBus.dll 複製到將執行用戶端應用程式的機器 (不一定要在您的虛擬機器上)。
 
 <p/>
@@ -466,7 +462,7 @@
 1. 登入虛擬機器。
 2. 建立名為 **c:\TSP** 的資料夾。這就是您將執行應用程式的地方。
 3. 將 TSPSolver.exe 和 Microsoft.ServiceBus.dll (兩者均位於 TSPSolver 專案的 **bin** 資料夾中) 複製到 **c:\TSP**。
-4. 建立一個含有下列內容且名為 **c:\TSP\cities.txt** 的檔案：
+4. 建立名為 **c:\TSP\cities.txt** 且含有下列內容的檔案：
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -537,7 +533,7 @@
  
 <h3>如何執行監視用戶端應用程式</h3>
 1. 登入您將執行用戶端應用程式的電腦。這不一定要是執行 **TSPSolver** 應用程式的同一部電腦，但也可以是同一部電腦。
-2. 建立將執行您應用程式的資料夾。例如 **c:\TSP**。
+2. 建立將執行您應用程式的資料夾。例如，**c:\TSP**。
 3. 將 **TSPClient.exe** 和 Microsoft.ServiceBus.dll (兩者均位於 TSPClient 專案的 **bin** 資料夾中) 複製到 c:\TSP 資料夾。
 4. 在命令提示字元，將目錄切換至 c:\TSP。
 5. 執行以下命令：
@@ -548,13 +544,13 @@
 
 	    TSPClient 1
 
-    用戶端將會執行直到看見 [完成] 佇列訊息為止。請注意，如果您在未執行用戶端的情況下執行多個求解器，您可能需要執行用戶端多次，才能完全清空佇列。或者，您也可以刪除佇列，然後重新建立它。若要刪除佇列，請執行下列 **TSPSolver** (而非 **TSPClient**)  命令：
+    用戶端將會執行直到看見 [完成] 佇列訊息為止。請注意，如果您在未執行用戶端的情況下執行多個求解器，您可能需要執行用戶端多次，才能完全清空佇列。或者，您也可以刪除佇列，然後重新建立它。若要刪除佇列，請執行下列 **TSPSolver** (而非 **TSPClient**) 命令：
 
         TSPSolver deletequeue
 
 <h2>如何停止 .NET 應用程式</h2>
 
-不論是求解器或用戶端應用程式，只要您想在正常完成之前就予以結束，都可以按 [**Ctrl+C**] 來結束應用程式。
+不論是求解器或用戶端應用程式，只要您想在正常完成之前就予以結束，都可以按 [Ctrl+C] 來結束應用程式。
 
 <h2>使用 TSPSolver 建立和刪除佇列的替代方式</h2>
 除了使用 TSPSolver 建立或刪除佇列，您也可以使用 [Azure 管理入口網站](https://manage.windowsazure.com)來建立或刪除佇列。請造訪管理入口網站的服務匯流排區段，存取用於建立或刪除佇列的使用者介面，以及擷取連接字串、發行者和存取金鑰。您也可以檢視服務匯流排佇列的儀表板，進而檢視連入和連出訊息的度量。 
@@ -568,4 +564,5 @@
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

@@ -29,7 +29,7 @@
 
 **必要條件**：	
 
-- 您必須具有 Azure 帳戶。如需帳戶註冊方式的相關資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/zh-tw/pricing/free-trial/)頁面。
+- 您必須具有 Azure 帳戶。如需帳戶註冊方式的相關資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)頁面。
 
 - 您必須已佈建 HDInsight 叢集。如需此類叢集之各種建立方式的相關指示，請參閱[開始使用 Azure HDInsight][hdinsight-get-started] 或[佈建 HDInsight 叢集](../hdinsight-provision-clusters/)
 

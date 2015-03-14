@@ -32,7 +32,7 @@
 * [使用工作階段物件來儲存與擷取快取項目。](#usesessionobject)
 
 <h2><a id="createcache"></a>建立快取</h2>
-遵循[這些指示](http://azure.microsoft.com/zh-tw/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-cache)來建立快取。
+遵循[這些指示](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-cache)來建立快取。
 
 <h2><a id="configureproject"></a>將 RedisSessionStateProvider NuGet 封裝新增至 Web 應用程式</h2>
 安裝 NuGet `RedisSessionStateProvider` 封裝。從封裝管理員主控台 ([工具]**** > [NuGet 封裝管理員]**** > [Package Manager Console]****) 中使用下列命令來安裝：
@@ -41,14 +41,14 @@
   
 若要從 [工具]**** > [NuGet 封裝管理員]**** > [管理解決方案的 NugGet 封裝]**** 安裝，請搜尋 `RedisSessionStateProvider`，並務必指定 [包含搶鮮版]****。
 
-如需詳細資訊，請參閱 [NuGet RedisSessionStateProvider 頁面](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/ )和[設定快取用戶端](http://azure.microsoft.com/zh-tw/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#NuGet)。
+如需詳細資訊，請參閱 [NuGet RedisSessionStateProvider 頁面](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/ )和[設定快取用戶端](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#NuGet)。
 
 <h2><a id="configurewebconfig"></a>修改 Web.Config 檔案</h2>
 除了對快取進行組件參考之外，NuGet 封裝還能在 *web.config* 檔案中新增虛設常式項目。 
 
 1. 開啟 *web.config*，然後尋找 **sessionState** 項目。
 
-1. 輸入 `host`、 `accessKey`、 `port` (SSL 連接埠應為 6380) 的值，然後將 `SSL` 設為 `true`。這些值可自您快取執行個體的 Azure 管理預覽入口網站分頁取得。如需詳細資訊，請參閱[連接到快取](http://azure.microsoft.com/zh-tw/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache)。
+1. 輸入 `host`、 `accessKey`、 `port` (SSL 連接埠應為 6380) 的值，然後將 `SSL` 設為 `true`。這些值可自您快取執行個體的 Azure 管理預覽入口網站分頁取得。如需詳細資訊，請參閱[連接到快取](http://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache)。
 下列標記顯示 *web.config* 檔案的變更。
 
 
@@ -99,8 +99,8 @@
 
   *作者：[Rick Anderson](https://twitter.com/RickAndMSFT)*
   
-  [installed the latest]: http://www.windowsazure.com/zh-tw/downloads/?sdk=net  
-  [ASP.NET Session State Overview]: http://msdn.microsoft.com/zh-tw/library/ms178581.aspx
+  [installed the latest]: http://azure.microsoft.com/downloads/?sdk=net  
+  [ASP.NET Session State Overview]: http://msdn.microsoft.com/library/ms178581.aspx
 
   [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
   [NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png

@@ -1,6 +1,24 @@
-﻿<properties title="Consistency levels in DocumentDB" pageTitle="DocumentDB 中的一致性層級" description="DocumentDB 對於相關效能等級有 4 個一致性等級，可便於應用程式開發人員針對一致性、可用性和延遲三方面進行可預測的取捨評估。" metaKeywords="Optional" services="documentdb" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="Optional" scriptId="Optional" />
+﻿<properties 
+	title="Consistency levels in DocumentDB" 
+	pageTitle="DocumentDB 中的一致性層級" 
+	description="DocumentDB 對於相關效能等級有 4 個一致性等級，可便於應用程式開發人員針對一致性、可用性和延遲三方面進行可預測的取捨評估。" 
+	metaKeywords="Optional" 
+	services="documentdb" 
+	solutions="data-management" 
+	authors="bradsev" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	videoId="Optional" 
+	scriptId="Optional" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/20/2014" 
+	ms.author="spelluru" />
 
 #DocumentDB 中的一致性層級
 開發人員通常難以在「增強式」和「最終」這兩種極端的一致性層級之中做出抉擇。但事實上，在這兩種極端選項之間還有多個一致性層級可供選擇。在大部分的真實案例中，應用程式都因為能夠細膩取捨一致性、可用性與延遲而獲得不少好處。DocumentDB 提供四個定義完善的一致性層級與相關聯的效能層級。因此，應用程式開發人員得以在預測範圍內針對一致性、可用性和延遲做出適當取捨。  
@@ -49,3 +67,5 @@
 [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels。再論最終一致 (英文)。    
 [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+
+<!--HONumber=46--> 

@@ -11,5 +11,4 @@
 
     ![query SQL Database for stored items](./media/mobile-services-dotnet-backend-view-sql-data/sql-azure-query.png)
 
-	請注意，資料表含有 Id、__createdAt、__updatedAt 及 __version 等欄。這些欄支援離線資料同步，並可在 [EntityData](http://msdn.microsoft.com/zh-tw/library/microsoft.windowsazure.mobile.service.entitydata.aspx) (英文) 基底類別中實作。如需詳細資訊，請參閱[開始使用離線資料同步]。
-<!--HONumber=42-->
+	請注意，資料表含有 Id、__createdAt、__updatedAt 及 __version 等欄。這些欄支援離線資料同步，並可在 [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx) (英文) 基底類別中實作。如需詳細資訊，請參閱[開始使用離線資料同步]。<!--HONumber=42-->

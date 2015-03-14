@@ -1,6 +1,20 @@
-﻿<properties pageTitle="設定 IIS Express 以便進行行動服務的本機測試" description="了解如何設定 IIS Express 以允許連接到本機行動服務專案進行測試。" authors="ggailey777" manager="dwrede" services="mobile-services" documentationCenter="windows" editor=""/>
+﻿<properties 
+	pageTitle="設定 IIS Express 以便進行行動服務的本機測試" 
+	description="了解如何設定 IIS Express 以允許連接到本機行動服務專案進行測試。" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/20/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/20/2014" 
+	ms.author="glenga"/>
 
 # 設定本機 Web 伺服器以允許連接到本機行動服務 
 

@@ -37,7 +37,7 @@ Azure 總是不斷增加，因此很容易便會超載。本文章先前已列�
  
 <h2><a id="components"></a>Azure 元件</h2>
 
-Azure 在管理入口網站和各種視覺輔助上 (如[什麼是 Microsoft Azure 資訊圖表](http://azure.microsoft.com/zh-tw/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic"))，將服務劃分為不同類別。您可使用管理入口網站來管理 Azure 中的大部分 (但並非全部) 服務。 
+Azure 在管理入口網站和各種視覺輔助上 (如[什麼是 Microsoft Azure 資訊圖表](http://azure.microsoft.com/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic"))，將服務劃分為不同類別。您可使用管理入口網站來管理 Azure 中的大部分 (但並非全部) 服務。 
 
 本文將使用**不同的組織**來討論採用類似功能的服務，並叫出屬於大型服務一部分的重要子服務。  
 
@@ -121,7 +121,7 @@ Azure 網站允許建立這類的 Web 應用程式，但有所限制。例如，
 當您需要比 Azure 網站所提供還要高的平台控制能力，但無需控制基礎作業系統時，雲端服務是支援大型向外延展的理想選擇。 
 
 ####選擇運算模型###
-Azure 網站、雲端服務和虛擬機器之比較頁面 (http://azure.microsoft.com/zh-tw/documentation/articles/choose-web-site-cloud-service-vm/ ) 提供有關如何選擇運算模型的詳細資訊。
+Azure 網站、雲端服務和虛擬機器之比較頁面 (http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/ ) 提供有關如何選擇運算模型的詳細資訊。
 
 
 
@@ -246,7 +246,7 @@ Azure 目前已在全球許多資料中心內運作。當您執行應用程式�
 
 設定 ExpressRoute 連線需要更多的時間和規劃，因此您可能會想要從站台對站台 VPN 開始，然後移轉至 ExpressRoute 連線。
 
-如需 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 技術概觀](http://msdn.microsoft.com/zh-tw/library/azure/dn606309.aspx)。
+如需 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 技術概觀](http://msdn.microsoft.com/library/azure/dn606309.aspx)。
 
 ###流量管理員###
 
@@ -268,7 +268,7 @@ Azure 提供數種工具，可用來協助開發人員和 IT 專業人員建立�
 ###Azure SDK###
 回顧 2008 年，Azure 的第一個發行前版本僅支援 .NET 開發。不過，您現在可以用很多種語言建立 Azure 應用程式。Microsoft 目前提供 .NET、Java、PHP、Node.js、Ruby 和 Python 語言特有的 SDK。此外，還有一般 Azure SDK 可提供任何語言 (如 C++) 的基本支援。  
 
-這些 SDK 可協助您建置、部署及管理 Azure 應用程式。從 [www.microsoftazure.com](http://azure.microsoft.com/zh-tw/downloads/) 或 GitHub 即可取得 SDK，並可搭配 Visual Studio 和 Eclipse 使用。此外，Azure 還提供了開發人員可搭配任何編輯器或開發環境使用的命令列工具，包括可供從 Linux 和 Macintosh 系統將應用程式部署到 Azure 的工具。 
+這些 SDK 可協助您建置、部署及管理 Azure 應用程式。從 [www.microsoftazure.com](http://azure.microsoft.com/downloads/) 或 GitHub 即可取得 SDK，並可搭配 Visual Studio 和 Eclipse 使用。此外，Azure 還提供了開發人員可搭配任何編輯器或開發環境使用的命令列工具，包括可供從 Linux 和 Macintosh 系統將應用程式部署到 Azure 的工具。 
 
 除了協助您建置 Azure 應用程式，這些 SDK 還提供了用戶端程式庫，協助您建立使用 Azure 服務的軟體。例如，您可以建置一個可讀取和寫入 Azure Blob 的應用程式，或建立一個可透過 Azure 管理介面部署 Azure 應用程式的工具。 
 
@@ -418,7 +418,7 @@ Azure 備份會將資料從執行 Windows Server 的內部部署伺服器備份�
 
 **Azure 備份的案例**
 
-如果您已經在使用 Windows Server 或 System Center，Azure 備份會是備份您的伺服器檔案系統、虛擬機器和 SQL Server 資料庫的自然解決方案。它可與加密、疏鬆和壓縮檔案搭配使用。但它有一些限制，因此您應先查看 [Azure 備份必要條件](http://technet.microsoft.com/zh-tw/library/dn296608.aspx)。 
+如果您已經在使用 Windows Server 或 System Center，Azure 備份會是備份您的伺服器檔案系統、虛擬機器和 SQL Server 資料庫的自然解決方案。它可與加密、疏鬆和壓縮檔案搭配使用。但它有一些限制，因此您應先查看 [Azure 備份必要條件](http://technet.microsoft.com/library/dn296608.aspx)。 
 
 
 
@@ -619,6 +619,6 @@ SendGrid 是 Azure Store 中可讓您傳送電子郵件的應用程式。它提�
 
 
 
-[Azure 媒體服務海報]: http://azure.microsoft.com/zh-tw/documentation/infographics/media-services/
+[Azure 媒體服務海報]: http://azure.microsoft.com/documentation/infographics/media-services/
 
 <!--HONumber=42-->

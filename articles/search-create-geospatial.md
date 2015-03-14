@@ -1,6 +1,20 @@
-﻿<properties title="Create a geospatial search solution using Azure Search" pageTitle="使用 Azure 搜尋建立地理空間搜尋應用程式" description="使用 Bing 和 Azure 搜尋建立地理空間搜尋應用程式" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="使用 Azure Search 建立地理空間搜尋應用程式" 
+	description="使用 Bing 和 Azure Search 建立地理空間搜尋應用程式" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # 使用 Azure 搜尋建立地理空間搜尋應用程式
 
@@ -25,7 +39,7 @@
 
 <h2 id="sub-1">必要條件</h2>
 
-+	Visual Studio 2012 或更高版本，並安裝 ASP.NET MVC 4 與 SQL Server。如果您尚未安裝此軟體，可以下載免費的 Express 版：[Visual Studio 2013 Express](http://www.visualstudio.com/zh-tw/products/visual-studio-express-vs.aspx) 和 [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/zh-tw/evalcenter/dn434042.aspx)。
++	Visual Studio 2012 或更高版本，並安裝 ASP.NET MVC 4 與 SQL Server。如果您尚未安裝此軟體，可以下載免費的 Express 版：[Visual Studio 2013 Express](http://www.visualstudio.com/zh-tw/products/visual-studio-express-vs.aspx) 和 [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx)。
 +	Azure 搜尋服務。您需要搜尋服務名稱，以及系統管理金鑰。如需詳細資訊，請參閱[開始使用 Azure Search](../search-get-started/)。
 +	Bing 地圖服務與其存取金鑰。下一節會提供說明
 +	[CodePlex 上的 Azure 搜尋 GeoSearch 範例](https://azuresearchgeospatial.codeplex.com/)。在 [來源] 索引標籤上，按一下 [**下載**] 以取得解決方案的壓縮檔。 
@@ -158,3 +172,5 @@
 <!--Image references-->
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
+
+<!--HONumber=46--> 

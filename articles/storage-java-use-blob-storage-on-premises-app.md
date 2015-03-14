@@ -379,8 +379,8 @@ Azure 儲存體中的 Blob。
   [先決條件]: #bkmk_prerequisites
   [使用 Azure Blob 儲存體來上傳檔案]: #bkmk_uploadfile
   [刪除容器]: #bkmk_deletecontainer
-  [下載 Azure SDK for Java]: http://www.windowsazure.com/zh-tw/develop/java/
-  [如何建立儲存體帳戶]: http://www.windowsazure.com/zh-tw/manage/services/storage/how-to-create-a-storage-account/
-  [如何管理儲存體帳戶]: http://www.windowsazure.com/zh-tw/manage/services/storage/how-to-manage-a-storage-account/
-  [如何從 Java 使用 Blob 儲存體服務]: http://www.windowsazure.com/zh-tw/develop/java/how-to-guides/blob-storage/
+  [下載 Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+  [如何建立儲存體帳戶]: http://azure.microsoft.com/manage/services/storage/how-to-create-a-storage-account/
+  [如何管理儲存體帳戶]: http://azure.microsoft.com/manage/services/storage/how-to-manage-a-storage-account/
+  [如何從 Java 使用 Blob 儲存體服務]: http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/
 <!--HONumber=42-->

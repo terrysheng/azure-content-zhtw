@@ -17,9 +17,9 @@
 	ms.author="larryfr"/>
 
 
-#使用 Capistrano 將 Ruby on Rails Web 應用程式部署至 Azure VM
+# 使用 Capistrano 將 Ruby on Rails Web 應用程式部署至 Azure VM
 
-本教學課程說明如何使用 [Capistrano 3](https://github.com/capistrano/capistrano/) 將 Ruby on Rails 網站部署到 Azure 虛擬機器。部署之後，將使用 [Nginx](http://nginx.org/) 和 [Unicorn](https://github.com/blog/517-unicorn) 代管網站。[PostgreSQL](https://www.postgresql.org) 會儲存已部署之應用程式的應用程式資料。
+本教學課程說明如何使用 [Capistrano 3](https://github.com/capistrano/capistrano/) 將 Ruby on Rails 網站部署到 Azure 虛擬機器。部署之後，將使用 [Nginx](http://nginx.org/) 和 [Unicorn](https://github.com/blog/517-unicorn) 來主控網站。[PostgreSQL](https://www.postgresql.org) 會儲存已部署之應用程式的應用程式資料。
 
 本教學課程假設您未曾使用過 Azure，但熟悉 Ruby、Rails、Git 和 Linux。完成本教學課程後，您將在雲端啟動並執行 Ruby on Rails 型應用程式。
 
@@ -43,7 +43,7 @@
 > 
 > 本文列舉了使用 Windows 開發環境的特定步驟。不過，如果您在部署期間或之後遭遇到本文所未涵蓋的錯誤，您可以從 Linux 架構的開發環境重新嘗試本文的步驟。
 
-##本文內容
+## 本文內容
 
 * [設定開發環境](#setup)
 
@@ -51,7 +51,7 @@
 
 * [測試應用程式](#test)
 
-* [建立來源儲存機制](#repository)
+* [建立原始碼儲存機制](#repository)
 
 * [建立 Azure 虛擬機器](#createvm)
 
@@ -63,21 +63,21 @@
 
 * [後續步驟](#next)
 
-##<a id="setup"></a>設定開發環境
+## <a id="setup"></a>設定開發環境
 
 1. 在開發環境中安裝 Ruby。端視您的作業系統而定，步驟可能不同。
 
-	* **Apple OS X** - Ruby 有數個 OS X 版的散發套件。本教學課程已在 OS X 上利用 [Homebrew](http://brew.sh/) 安裝 **rbenv**、**ruby-build** 和 **Ruby 2.0.0-p451** 而完成驗證。在 [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/) 可找到安裝資訊。
+	* **Apple OS X** - 有多個適用於 OS X 的 Ruby 發佈。本教學課程已在 OS X 上使用 [Homebrew](http://brew.sh/) 通過驗證，以安裝 **rbenv**、**ruby-build** 和 **Ruby 2.0.0-p451**。在 [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/) 可找到安裝資訊。
 
-	* **Linux** -使用散發套件封裝管理系統。本教學課程已使用 **rbenv**、**ruby-build** 和 **Ruby 2.0.0-p451**，在 Ubuntu 12.10 上完成驗證。
+	* **Linux** - 使用您的發佈套件管理系統。本教學課程已使用 **rbenv**、**ruby-build** 和 **Ruby 2.0.0-p451**，在 Ubuntu 12.10 上完成驗證。
 
-	* **Windows** - Windows 有多個 Ruby 散發套件。本教學課程已使用 [RubyInstaller](http://RubyInstaller.org/) 安裝 **Ruby 2.0.0-p451** 而完成驗證。命令是使用 [Git for Windows](http://git-scm.com/download/win) 隨附的 **GitBash** 命令列而發出的。
+	* **Windows** - Windows 有多個 Ruby 發佈套件。本教學課程已使用 [RubyInstaller](http://RubyInstaller.org/) 通過驗證，以安裝 **Ruby 2.0.0-p451**。命令是使用 [Git for Windows](http://git-scm.com/download/win) 隨附的 **GitBash** 命令列而發出的。
 
 2. 開啟新的命令列或終端機工作階段，並輸入下列命令安裝 Ruby on Rails：
 
 		gem install rails --no-rdoc --no-ri
 
-	> [AZURE.NOTE] 這可能需要某些作業系統的管理員或根權限。如果您執行此命令時收到錯誤訊息，請嘗試使用 'sudo'，如下所示。
+	> [AZURE.NOTE] 在某些作業系統上，此命令可能需要系統管理員或根權限。如果執行此命令時接收到錯誤，請嘗試使用  'sudo'，如下所示。
 	> 
 	> `sudo gem install rails`
 
@@ -85,15 +85,15 @@
 
 3. 您也必須安裝 JavaScript 直譯器，以便 Rails 用來編譯 Rails 應用程式所用的 CoffeeScript 資產。[https://github.com/sstephenson/execjs#readme](https://github.com/sstephenson/execjs#readme) 提供支援的直譯器清單。
 	
-	> [AZURE.NOTE] 本教學課程使用 [Node.js](http://nodejs.org/)，它適用於 OS X、Linux 和 Windows 作業系統。
+	> [AZURE.NOTE] 本教學課程使用[Node.js](http://nodejs.org/)，它適用於 OS X、Linux 和 Windows 作業系統。
 
-##<a id="create"></a>建立 Rails 應用程式
+## <a id="create"></a>建立 Rails 應用程式
 
 1. 從命令列或終端機工作階段中，使用下列命令建立名稱為「blog_app」的新 Rails 應用程式：
 
 		rails new blog_app
 
-	這會建立名為 **blog_app** 的新目錄，並在此目錄中填入 Rails 應用程式所需的檔案和子目錄。
+	此命令會建立名稱為 **blog_app** 的新目錄，並且填入 Rails 應用程式所需的檔案和子目錄。
 
 	> [AZURE.NOTE] 此命令可能需要一分鐘以上的時間才能完成。它會以無訊息方式安裝預設應用程式所需的 gem，在此期間將沒有回應。
 
@@ -107,17 +107,17 @@
 
 		rake db:migrate
 
-	這會使用 Rails 的預設資料庫提供者 (也就是 [SQLite3 資料庫][sqlite3])，建立用以儲存貼文的資料庫結構描述。
+	這會使用 Rails 的預設資料庫提供者 (也就是 [SQLite3 資料庫])，建立用以儲存貼文的資料庫結構描述[sqlite3]。
 
-4. 若要將貼文的索引顯示為首頁，請修改 **config/routes.rb** 檔案，並在 `resources :posts` 資料行後新增以下項目。
+4. 若要將  貼文的索引顯示為首頁，請修改 **config/routes.rb** 檔案，並在  `resources :posts` 資料行後新增以下項目。
 
 		root 'posts#index'
 
 	這會在使用者瀏覽網站時顯示貼文清單。
 
-##<a id="test"></a>測試應用程式
+## <a id="test"></a>測試應用程式
 
-1. 切換至 **blog_app** 目錄 (若還不在此目錄中)，使用下列命令來啟動 Rails 伺服器。
+1. 切換至 **blog_app** 目錄 (若您還不在此目錄中)，使用下列命令來啟動 Rails 伺服器。
 
 		rails s
 
@@ -131,59 +131,59 @@
 		[2013-03-12 19:11:31] INFO  ruby 2.0.0 (2014-02-24) [x86_64-linux]
 		[2013-03-12 19:11:31] INFO  WEBrick::HTTPServer#start: pid=9789 port=3000
 
-2. 開啟瀏覽器，並瀏覽到 <http://localhost:3000/>。您應該會看到如下的頁面。
+2. 開啟瀏覽器，並瀏覽到 http://localhost:3000/。您應該會看到如下的頁面。
 
 	![a page listing posts][blog-rails]
 
 	若要停止伺服器程序，請在命令列中輸入 CTRL+C
 
-##<a id="repository"></a>建立原始碼儲存機制
+## <a id="repository"></a>建立原始碼儲存機制
 
 使用 Capistrano 部署應用程式時，會從儲存機制提取檔案。在本教學課程中，我們會使用 [Git](http://git-scm.com/) 進行版本控制，並使用 [GitHub](https://github.com/) 做為儲存機制。
 
 1.	在 [GitHub](https://github.com/) 上建立新的儲存機制。如果您沒有 GitHub 帳戶，您可以註冊免費帳戶。下列步驟假設儲存機制名稱為 **blog_app**。
 
-	> [AZURE.NOTE] 若要支援應用程式的自動部署，您應使用 SSH 金鑰向 GitHub 驗證。如需詳細資訊，請參閱 [產生 SSH 金鑰](https://help.github.com/articles/generating-ssh-keys) 上的 GitHub 文件。
+	> [AZURE.NOTE] 若要支援應用程式的自動部署，您應使用 SSH 金鑰向 GitHub 驗證。如需詳細資訊，請參閱[產生 SSH 金鑰](https://help.github.com/articles/generating-ssh-keys)上的 GitHub 文件。
 
 2.	從命令提示字元中，切換至 **blog_app** 目錄並執行下列命令，將應用程式上傳至您的 GitHub 儲存機制。以您的 GitHub 帳戶名稱取代 **YourGitHubName**。
 
-	<pre><code>git init
-	git add .
-	git commit -m "initial commit on azure"
-	git remote add origin git@github.com:YourGitHubName/blog-azure.git
-	git push -u origin master</code></pre>
+		git init
+		git add .
+		git commit -m "initial commit on azure"
+		git remote add origin git@github.com:YourGitHubName/blog-azure.git
+		git push -u origin master
 
 在下一節中，我們會建立此應用程式所將部署到的虛擬機器。
 
-##<a id="createvm"></a>建立 Azure 虛擬機器
+## <a id="createvm"></a>建立 Azure 虛擬機器
 
-按照 [此處][vm-instructions] 提供的指示建立代管 Linux 的 Azure 虛擬機器。
+按照[此處][vm-instructions]提供的指示建立代管 Linux 的 Azure 虛擬機器。
 
-1. 登入 Azure[管理入口網站][management-portal]。在命令列上選取 [**新增**]。
+1. 登入 Azure [管理入口網站][management-portal]。在命令列上選取 [新增]。
 
-2. 選取 [**虛擬機器**]，然後選取 [**從組件庫**]。
+2. 選取 [虛擬機器]，然後選取 [從組件庫]。
 
-3. 在 [**選擇映像**] 中選取 [**Ubuntu**]，然後選取版本 [**12.04 LTS**]。選取箭頭以繼續。
+3. 在 [選擇映像] 中選取 [Ubuntu]，然後選取版本 [12.04 LTS]。選取箭頭以繼續。
 
-	> [AZURE.NOTE] 本教學課程的步驟是在代管 Ubuntu 12.04 LTS 的 Azure 虛擬機器上執行的。如果您使用不同的 Linux 散發套件，可能需要不同的步驟才能完成相同的工作。
+	> [AZURE.NOTE] 本教學課程的步驟是在主控 Ubuntu 12.04 LTS 的 Azure 虛擬機器上執行的。如果您使用不同的 Linux 散發套件，可能需要不同的步驟才能完成相同的工作。
 
-4. 在 [**虛擬機器名稱**] 中，輸入您要使用的名稱。此名稱會用來建立這個虛擬機器的網域名稱。
+4. 在 [虛擬機器名稱] 中，輸入您要使用的名稱。此名稱會用來建立這個虛擬機器的網域名稱。
 
-5. 在 [**新使用者名稱**] 中，輸入此機器的系統管理員帳戶名稱。
+5. 在 [新使用者名稱] 中，輸入此機器的系統管理員帳戶名稱。
 
 	> [AZURE.NOTE] 在本教學課程中，系統管理員帳戶也將用來部署應用程式。如需為部署建立個別帳戶的相關資訊，請參閱 [Capistrano][capistrano] 文件。
 
-6. 在 [**驗證**] 下，勾選 [**上傳相容 SSH 金鑰進行驗證**]，然後瀏覽並選取包含憑證的 **.pem** 檔案。最後，選取箭頭以繼續。
+6. 在 [驗證] 下，勾選 [Upload compatible SSH key for authentication]，然後瀏覽並選取包含憑證的 **.pem** 檔案。最後，選取箭頭以繼續。
 
-	> [AZURE.NOTE] 如果您不清楚如何產生或使用 SSH 金鑰，請參閱 [如何在 Azure 上搭配使用 SSH 與 Linux][ssh-on-azure]，以取得建立 SSH 金鑰的指示。
+	> [AZURE.NOTE] 如果您不清楚如何產生或使用 SSH 金鑰，請參閱[如何在 Azure 上搭配使用 SSH 與 Linux][ssh-on-azure]，以取得建立 SSH 金鑰的指示。
 	> 
 	> 您也可以啟用密碼驗證，但必須同時提供 SSH 金鑰，因為將部署自動化時會用到此金鑰。
 
-7. 在 [**端點**] 下，使用 [**輸入或選取值**] 下拉式清單選取 [**HTTP**]。此頁面上的其他欄位可保留為預設值。請記下 [**雲端服務 DNS 名稱**]，因為後續步驟會用到此值。最後，選取箭頭以繼續。
+7. 在 [端點] 下，使用 [輸入或選取值] 下拉式清單選取 [HTTP]。此頁面上的其他欄位可保留為預設值。請記下 [雲端服務 DNS 名稱]，因為後續步驟會用到此值。最後，選取箭頭以繼續。
 
 8. 選取最後一頁上的核取記號，以建立虛擬機器。
 
-###安裝 Git、Ruby 和 Nginx
+### 安裝 Git、Ruby 和 Nginx
 
 虛擬機器建立後，請使用 SSH 加以連接，然後使用下列命令比較 Ruby 應用程式的主控環境。
 
@@ -225,9 +225,9 @@
 
 	ruby -v
 
-這應該會傳回 `ruby 2.0.0p451` 版本。
+這應該會傳回 `ruby 2.0.0p451` 做為版本。
 
-###安裝 PostgreSQL
+### 安裝 PostgreSQL
 
 Rails 用於開發的預設資料庫是 SQLite。您在實際執行環境中通常會使用其他資料庫。下列兩個步驟會在虛擬機器上安裝 PostgreSQL，然後建立使用者和資料庫。後續步驟會設定 Rails 應用程式，以在部署期間使用 PostgreSQL。
 
@@ -242,17 +242,17 @@ Rails 用於開發的預設資料庫是 SQLite。您在實際執行環境中通�
 
 	> [AZURE.NOTE] 請同時將使用者名稱用於資料庫名稱。此應用程式所使用的 capistrano-postgresql gem 有此需求。
 
-	出現提示時，請輸入使用者的密碼。出現允許使用者建立新角色的提示時，請選取 [**y**]，因為在部署期間將會使用這個使用者來建立您的 Rails 應用程式所將使用的資料庫和登入。
+	出現提示時，請輸入使用者的密碼。出現允許使用者建立新角色的提示時，請選取 [y]，因為在部署期間將會使用這個使用者來建立您的 Rails 應用程式所將使用的資料庫和登入。
 
 7. 若要驗證您可以使用該使用者帳戶連接到資料庫，請使用下列命令。請以先前使用的值取代 **my_username** 和 **my_database**。
 
 		psql -U my_username -W my_database
 
-	您應會看見 `database=>` 提示。若要結束 psql 公用程式，請在提示下輸入 `\q`。
+	您應會看見  `database=>` 提示。若要結束 psql 公用程式，請在提示下輸入  `\q`。
 
-###<a id="nginx"></a>測試 Nginx
+### <a id="nginx"></a>測試 Nginx
 
-在建立虛擬機器期加入的 HTTP 端點允許透過連接埠 80 接受 HTTP 要求。若要確認這一點，請使用下列步驟，確認您可以存取 Nginx 建立的預設網站。
+在虛擬機器的建立期間已加入之 HTTP 端點，可讓它接受連接埠 80 的 HTTP 要求。若要進行確認，請使用下列步驟，確認您可以存取由 Nginx 所建立的預設網站。
 
 2.	從連至 VM 的 SSH 工作階段中，啟動 Nginx 服務：
 
@@ -264,11 +264,11 @@ Rails 用於開發的預設資料庫是 SQLite。您在實際執行環境中通�
 
 	![nginx welcome page][nginx-welcome]
 
-	> [AZURE.NOTE] 本教學課程稍後使用的部署指令碼會將 blog_app 設為由 Nginx 維護的預設網站。
+	> [AZURE.NOTE] 本教學課程稍後執行的部署指令碼會將 blog_app 設為由 Nginx 維護的預設網站。
 
 此時，您已有 Azure 虛擬機器，具有 Ruby、Nginx 和 PostgreSQL，並已可供部署之用。在下一節中，您將修改 Rails 應用程式，以新增用來執行部署的指令碼和資訊。
 
-##<a id="capify"></a>準備部署
+## <a id="capify"></a>準備部署
 
 在您的開發環境中修改應用程式，以使用 Unicorn Web 伺服器和 PostgreSQL、啟用 Capistrano 以進行部署，以及建立用來部署和啟動應用程式的指令碼。
 
@@ -406,29 +406,29 @@ Rails 用於開發的預設資料庫是 SQLite。您在實際執行環境中通�
 
 8.	執行下列命令以認可您在先前的步驟中修改的檔案變更，然後將變更上傳至 GitHub。
 
-	<pre><code>git add .
-	git commit -m "adding config files"
-	git push</code></pre>
+		git add .
+		git commit -m "adding config files"
+		git push
 
 應用程式現在應已可供部署之用。
 
 > [AZURE.NOTE] 如果是較複雜的應用程式，或是不同的資料庫或應用程式伺服器，您可能需要其他組態或部署指令碼。
 
-##<a id="deploy"></a>部署
+## <a id="deploy"></a>部署
 
 2.	從本機開發機器中，使用下列命令將應用程式所使用的組態檔部署至 VM。
 
-	 	 bundle exec cap production setup
+		bundle exec cap production setup
 
 	Capistrano 會使用 SSH 連接到 VM，然後建立應用程式所將部署到的目錄 (~/apps)。如果這是第一次部署，則 capistrano-postgresql gem 也會在伺服器的 PostgreSQL 中建立角色和資料庫。此外也會建立 Rails 將用來連接到資料庫的 database.yml 組態檔。
 
-	> [AZURE.NOTE] 如果在部署時發生 **從驗證通訊端讀取回應長度時發生錯誤** 的錯誤，您可能必須使用 `ssh-agent` 命令。例如，將 `eval $(ssh-agent)` 新增至您的 ~/.bash\_profile 檔案。
+	> [AZURE.NOTE] 如果在部署時發生「從驗證通訊端讀取回應長度時發生錯誤」 的錯誤，您可能必須使用  `ssh-agent` 命令在您的開發環境啟動 SSH 代理程式。例如，將 `eval $(ssh-agent)` 加入到您的 ~/.bash\_profile 檔案。
 	> 
-	> 您還可能必須使用 `ssh-add` 命令將 SSH 金鑰新增到代理程式快取中。
+	> 您還可能必須使用  `ssh-add` 命令將 SSH 金鑰新增到代理程式快取中。
 
 4.	使用下列命令執行實際執行部署。這會將應用程式部署至虛擬機器、啟動 Unicorn 服務，然後把 Nginx 設定成將流量路由傳送至 Unicorn。
 
-		 bundle exec cap production deploy
+		bundle exec cap production deploy
 
 	此命令會將應用程式部署至 VM、安裝必要的 gem，然後啟動/重新啟動 Unicorn 和 Nginx。
 
@@ -436,25 +436,25 @@ Rails 用於開發的預設資料庫是 SQLite。您在實際執行環境中通�
 
 	> [AZURE.NOTE] 部署的某些部分可能會傳回「結束狀態 1 (失敗)」。一般而言，只要部署順利完成，就可以忽略前述情況。
 
-	> [AZURE.NOTE] 在某些系統上，對 GitHub 進行驗證時，可能會發生 SSH 代理程式無法將認證轉送至遠端 VM 的情況。如果發生此情況，您可以修改 **config/deploy.rb** 檔案以解決此錯誤，並變更 `set :repo_url` 程式碼行以便在存取Github 時使用 HTTPS。使用 HTTPS 時，您必須將 GitHub 使用者名稱和密碼 (或驗證權杖) 指定為 URL 的一部分。例如：
+	> [AZURE.NOTE] 在某些系統上，對 GitHub 進行驗證時，可能會發生 SSH 代理程式無法將認證轉送至遠端 VM 的情況。如果發生此情況，您可以修改 **config/deploy.rb** 檔案以解決此錯誤，並變更  `set :repo_url` 程式碼行以便在存取 Github 時使用 HTTPS。使用 HTTPS 時，您必須將 GitHub 使用者名稱和密碼 (或驗證權杖) 指定為 URL 的一部分。例如：
 	> 
-	> `set :repo_url, 'https://you:yourpassword@github.com/You/yourrepository.git`
+	> `set :repo_url, 'https://you:yourpassword@github.com/You/yourrepository.git'
 	> 
 	> 雖然這樣應該可讓您迴避錯誤並完成此教學課程，但這並不是實際執行部署的建議解決方案，因為這樣會將您的驗證認證以純文字的形式儲存在應用程式中。您應在作業系統的文件中，參閱有關於使用 SSH 代理程式進行轉送的部分。
 
-現在，Ruby on Rails 應用程式應該已在 Azure 虛擬機器上執行。若要驗證這一點，請在網頁瀏覽器中輸入虛擬機器的 DNS 名稱。例如，<http://railsvm.cloudapp.net>。應該會出現貼文索引，且您應該能夠建立、編輯和刪除貼文。
+現在，Ruby on Rails 應用程式應該已在 Azure 虛擬機器上執行。若要驗證這一點，請在網頁瀏覽器中輸入虛擬機器的 DNS 名稱。例如 http://railsvm.cloudapp.net。 應該會出現貼文索引，且您應該能夠建立、編輯和刪除貼文。
 
-##<a id="next"></a>後續步驟
+## <a id="next"></a>後續步驟
 
 在本文中，您學到如何使用 Capistrano 建立基本的 Rails 應用程式，並發佈至 Azure 虛擬機器。使用如同本文中的基本應用程式，只能稍微討論到在部署中使用 Capistrano 的功能而已。如需使用 Capistrano 的詳細資訊，請參閱：
 
 * [Capistranorb.com](http://capistranorb.com) - Capistrano 網站。
-* [Azure、Ruby on Rails、Capistrano 3 和 PostgreSQL](http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql) - 部署至 Azure 的替代方法，與自訂部署指令碼有關。
-* [Capistrano 3 教學課程](http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/) - 使用 Capistrano 3 的教學課程。
+* [Azure、Ruby on Rails、Capistrano 3，與 PostgreSQL](http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql) - 與自訂部署指令碼相關之 Azure 部署的另一個方法。
+* [Capistrano 3 教學課程](http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/) - 如何使用 Capistrano 3 的教學課程。
 
-如需有關建立 Rails 應用程式並只使用 SSH 來部署至 Azure VM 的另一個基本範例，請參閱 [使用 Linux 虛擬機器來裝載 Ruby on Rails Web 應用程式][ruby-vm]。
+如需有關建立 Rails 應用程式並只使用 SSH 來部署至 Azure VM 的另一個基本範例，請參閱[使用 Linux 虛擬機器來裝載 Ruby on Rails Web 應用程式][ruby-vm]。
 
-如果要深入了解 Ruby on Rails，請參閱 [Ruby on Rails 指南][rails-guides]。
+如果要深入了解 Ruby on Rails，請造訪 [Ruby on Rails 指南][rails-guides] (英文)。
 
 若要深入了解如何使用 Azure SDK for Ruby 從 Ruby 應用程式存取 Azure，請參閱：
 
@@ -487,4 +487,5 @@ Rails 用於開發的預設資料庫是 SQLite。您在實際執行環境中通�
 [ssh-on-azure]: http://azure.microsoft.com/documentation/articles/linux-use-ssh-key/
 [capistrano]: http://capistranorb.com
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

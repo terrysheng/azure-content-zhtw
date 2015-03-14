@@ -1,6 +1,20 @@
-<properties pageTitle="在原始檔控制中儲存專案程式碼 - Azure 行動服務" description="了解如何儲存您的 .NET 後端專案，並從您的電腦上的本機 Git 儲存機制發佈。" services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="在原始檔控制中儲存專案程式碼 - Azure 行動服務" 
+	description="了解如何儲存您的 .NET 後端專案，並從您的電腦上的本機 Git 儲存機制發佈。" 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/5/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/5/2014" 
+	ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
 	<a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend" class="current">.NET 後端</a> | <a href="/zh-tw/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend">JavaScript 後端</a>
@@ -99,7 +113,7 @@
 
 <!-- URLs. -->
 [Git 網站]: http://git-scm.com
-[原始檔控制]: http://msdn.microsoft.com/zh-tw/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[原始檔控制]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [安裝 Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
 [將行動服務新增至現有的應用程式]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/

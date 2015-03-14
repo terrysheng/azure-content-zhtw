@@ -61,7 +61,7 @@
 	-	[檔案系統儲存體]**** - 若達到此配額，檔案系統儲存體仍可進行讀取作業，但是會封鎖所有的寫入作業，包括正常網站活動所需的作業。當您降低檔案使用量或將網站移到配額較高的虛擬主機方案時，則會繼續進行寫入作業。
 	-	[已連結的資源]**** - 這裡也會顯示網站的任何連結資源 (如資料庫或儲存體) 的配額。
 
-	有些配額可以依據虛擬主機方案套用，但有些配額則可依據網站套用。如需各虛擬主機方案的使用量配額詳細資訊，請參閱[網站限制](http://azure.microsoft.com/zh-tw/documentation/articles/azure-subscription-service-limits/#websiteslimits)。
+	有些配額可以依據虛擬主機方案套用，但有些配額則可依據網站套用。如需各虛擬主機方案的使用量配額詳細資訊，請參閱[網站限制](http://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#websiteslimits)。
 
 
 ##<a name="resourceusage"></a>作法：避免超出配額
@@ -106,7 +106,7 @@
 
 > [AZURE.NOTE] 您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。
 > 
-> 如果您尚未安裝 Azure PowerShell，或尚未將它設定為使用 Azure 訂用帳戶，請參閱[如何使用 Azure PowerShell](http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/powershell-cmdlets/)。
+> 如果您尚未安裝 Azure PowerShell，或尚未將它設定為使用 Azure 訂用帳戶，請參閱[如何使用 Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/)。
 
 > [AZURE.NOTE] 應用程式記錄功能仰賴應用程式產生的記錄資訊。用來產生記錄資訊的方法和資訊的格式取決於應用程式的撰寫語言。如需使用應用程式記錄功能的語言特定資訊，請參閱以下文章：
 > 
@@ -173,7 +173,7 @@
 
 1. 從 [開始] **** 畫面或 [開始]**** 功能表搜尋 **Azure PowerShell**。在 [Azure PowerShell]**** 項目上按一下滑鼠右鍵，然後選取 [以系統管理員身份執行]****。
 
-	> [AZURE.NOTE] 如果您尚未安裝 **Azure PowerShell**，請參閱 [Azure PowerShell Cmdlet 使用者入門](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554332.aspx)以取得安裝和組態資訊。
+	> [AZURE.NOTE] 如果您尚未安裝 **Azure PowerShell**，請參閱 [Azure PowerShell Cmdlet 使用者入門](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)以取得安裝和組態資訊。
 
 2. 在 Azure PowerShell 提示字元中使用下列命令來下載記錄檔：
 
@@ -201,7 +201,7 @@
 
 如此可將記錄資訊顯示在執行命令的命令提示字元、PowerShell、Bash 或終端機工作階段中。
 
-> [AZURE.NOTE] 如果您尚未安裝 **azure** 命令，請參閱[如何使用 Azure 命令列工具](http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/command-line-tools/)以取得安裝和組態資訊。
+> [AZURE.NOTE] 如果您尚未安裝 **azure** 命令，請參閱[如何使用 Azure 命令列工具](http://azure.microsoft.com/develop/nodejs/how-to-guides/command-line-tools/)以取得安裝和組態資訊。
 
 ###讀取記錄檔###
 
@@ -276,9 +276,9 @@
 
 如需網站端點監視的詳細資訊，請觀看以下影片：
 
-- [Scott Guthrie 介紹 Azure 網站及設定端點監視](http://www.windowsazure.com/zh-tw/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+- [Scott Guthrie 介紹 Azure 網站及設定端點監視](http://azure.microsoft.com/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
-- [讓 Azure 網站保持運作以及端點監視 - 對談來賓 Stefan Schackow](http://www.windowsazure.com/zh-tw/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+- [讓 Azure 網站保持運作以及端點監視 - 對談來賓 Stefan Schackow](http://azure.microsoft.com/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 
 

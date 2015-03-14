@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Use Content from a CDN in Your Web Application" pageTitle="在 Web 應用程式中使用來自 CDN 的內容" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN" description="指導如何使用 CDN 的內容提升 Web 應用程式效能的教學課程。" metaCanonical="" services="cdn" documentationCenter=".NET" title="Use Content from a CDN in Your Web Application" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
+﻿<properties 
+	pageTitle="在 Web 應用程式中使用來自 CDN 的內容" 
+	description="指導如何使用 CDN 的內容提升 Web 應用程式效能的教學課程。" 
+	services="cdn" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="tysonn"/>
 
-<tags ms.service="cdn" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
+<tags 
+	ms.service="cdn" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/02/2014" 
+	ms.author="cephalin"/>
 
 # 在 Web 應用程式中從 Azure CDN 提供內容 #
 
@@ -25,7 +39,7 @@
 
 本教學課程有下列先決條件：
 
--	使用中的 [Microsoft Azure 帳戶](http://azure.microsoft.com/zh-tw/account/)。您可以註冊試用帳戶
+-	使用中的 [Microsoft Azure 帳戶](http://azure.microsoft.com/account/)。您可以註冊試用帳戶
 -	Visual Studio 2013 (含 Blob 管理 GUI 的 [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409))
 -	[Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (由[自動從 ASP.NET 應用程式中將內容上傳至 CDN 端點](#upload)使用)
 
@@ -33,8 +47,8 @@
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>要完成此教學課程，您必須要有 Azure 帳戶：</h5>
   <ul>
-    <li>您可以<a href="http://azure.microsoft.com/zh-tw/pricing/free-trial/?WT.mc_id=A261C142F">免費申請 Azure 帳戶</a> - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如「網站」。</li>
-    <li>您可以<a href="http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">啟用 MSDN 訂戶權益</a> - 您的 MSDN 訂閱每月會提供您額度，您可以用在 Azure 付費服務。</li>
+    <li>您可以<a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F">免費申請 Azure 帳戶</a> - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如「網站」。</li>
+    <li>您可以<a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">啟用 MSDN 訂戶權益</a> - 您的 MSDN 訂閱每月會提供您額度，您可以用在 Azure 付費服務。</li>
   <ul>
 </div>
 
@@ -76,7 +90,7 @@
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-4.PNG)
 
-	如需一份所有 CDN 節點位置的清單，請參閱 [Azure 內容傳遞網路 (CDN) 節點位置](http://msdn.microsoft.com/zh-tw/library/azure/gg680302.aspx)。
+	如需一份所有 CDN 節點位置的清單，請參閱 [Azure 內容傳遞網路 (CDN) 節點位置](http://msdn.microsoft.com/library/azure/gg680302.aspx)。
 
 3. 回到 Azure 入口網站，在 [**CDN**] 索引標籤中，按一下您剛建立的 CDN 端點的名稱。
 
@@ -140,7 +154,7 @@
 <a name="upload"></a>
 ## 自動從 ASP.NET 應用程式中將內容上傳至 CDN 端點 ##
 
-如果您想要輕鬆地將 ASP.NET Web 應用程式中的所有靜態內容上傳至 CDN 端點，或如果您使用連續傳遞來部署 Web 應用程式 (相關範例請參閱 [Azure 中雲端服務的連續傳遞](http://azure.microsoft.com/zh-tw/documentation/articles/cloud-services-dotnet-continuous-delivery/))，您可以使用 Azure PowerShell，在每次部署 Web 應用程式時，自動將最新內容檔案同步至 Azure Blob。例如，您可以執行[從 ASP.NET 應用程式中將內容檔案上傳至 Azure Blob](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) (英文) 中的指令碼，以上傳 ASP.NET 應用程式中的所有內容檔案。若要使用此指令碼：
+如果您想要輕鬆地將 ASP.NET Web 應用程式中的所有靜態內容上傳至 CDN 端點，或如果您使用連續傳遞來部署 Web 應用程式 (相關範例請參閱 [Azure 中雲端服務的連續傳遞](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-continuous-delivery/))，您可以使用 Azure PowerShell，在每次部署 Web 應用程式時，自動將最新內容檔案同步至 Azure Blob。例如，您可以執行[從 ASP.NET 應用程式中將內容檔案上傳至 Azure Blob](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) (英文) 中的指令碼，以上傳 ASP.NET 應用程式中的所有內容檔案。若要使用此指令碼：
 
 4. 從 [**開始**] 功能表中，執行 **Microsoft Azure PowerShell**。
 5. 在 Azure PowerShell 視窗中，執行 `Get-AzurePublishSettingsFile` 來下載 Azure 帳戶的發行設定檔案。
@@ -171,7 +185,7 @@
 
 	<img alt="Mugshot" src="http://az623979.vo.msecnd.net/MyMvcApp/Content/cephas_lin.png" />
 
-如需有關將 PowerShell 指令碼整合至連續傳遞設定的範例，請參閱 [Azure 中雲端服務的連續傳遞](http://azure.microsoft.com/zh-tw/documentation/articles/cloud-services-dotnet-continuous-delivery/)。 
+如需有關將 PowerShell 指令碼整合至連續傳遞設定的範例，請參閱 [Azure 中雲端服務的連續傳遞](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-continuous-delivery/)。 
 
 <a name="update"></a>
 ## 設定 CDN 快取來重新導向所需的內容更新 ##
@@ -242,17 +256,17 @@
 
 ## 關於 ASP.NET 中統合的指令碼和樣式表 ##
 
-在 [Azure 網站](http://azure.microsoft.com/zh-tw/services/websites/)與 [Azure 雲端服務](http://azure.microsoft.com/zh-tw/services/cloud-services/)的配合之下，Azure CDN 與 [ASP.NET 統合和縮製](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)可實現最完美的整合。 
+在 [Azure 網站](http://azure.microsoft.com/services/websites/)與 [Azure 雲端服務](http://azure.microsoft.com/services/cloud-services/)的配合之下，Azure CDN 與 [ASP.NET 統合和縮製](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)可實現最完美的整合。 
 
 整合 Azure 網站或 Azure 雲端服務與 Azure CDN 提供下列優點：
 
-- 將內部部署 (影像、指令碼和樣式表) 整合到 Azure 網站的[連續部署](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-publish-source-control/)程序中
+- 將內部部署 (影像、指令碼和樣式表) 整合到 Azure 網站的[連續部署](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control/)程序中
 - 輕鬆地升級 CDN 提供的 NuGet 套件，例如 jQuery 或 Bootstrap 版本 
 - 從相同的 Visual Studio 介面來管理 Web 應用程式和 CDN 提供的內容
 
 相關教學課程，請參閱：
-- [整合 Azure 網站與 Azure CDN](http://azure.microsoft.com/zh-tw/documentation/articles/cdn-websites-with-cdn/)
-- [整合雲端服務與 Azure CDN](http://azure.microsoft.com/zh-tw/Documentation/Articles/cdn-cloud-service-with-cdn/)
+- [整合 Azure 網站與 Azure CDN](http://azure.microsoft.com/documentation/articles/cdn-websites-with-cdn/)
+- [整合雲端服務與 Azure CDN](http://azure.microsoft.com/Documentation/Articles/cdn-cloud-service-with-cdn/)
 
 即使沒有與 Azure 網站或 Azure 雲端服務整合，還是可以對指令碼套件組合使用 Azure CDN，但要注意下列幾點：
 
@@ -263,7 +277,9 @@
 
 # 相關資訊 #
 - [Azure 內容傳遞網路 (CDN) 概觀](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [整合 Azure 網站與 Azure CDN](http://azure.microsoft.com/zh-tw/documentation/articles/cdn-websites-with-cdn/)
-- [整合雲端服務與 Azure CDN](http://azure.microsoft.com/zh-tw/Documentation/Articles/cdn-cloud-service-with-cdn/)
+- [整合 Azure 網站與 Azure CDN](http://azure.microsoft.com/documentation/articles/cdn-websites-with-cdn/)
+- [整合雲端服務與 Azure CDN](http://azure.microsoft.com/Documentation/Articles/cdn-cloud-service-with-cdn/)
 - [如何將內容傳遞網路 (CDN) 內容對應至自訂網域](http://msdn.microsoft.com/library/azure/gg680307.aspx)
-- [使用 Azure 的 CDN](http://azure.microsoft.com/zh-tw/documentation/articles/cdn-how-to-use/)
+- [使用 Azure 的 CDN](http://azure.microsoft.com/documentation/articles/cdn-how-to-use/)
+
+<!--HONumber=46--> 

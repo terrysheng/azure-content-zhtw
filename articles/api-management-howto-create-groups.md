@@ -1,6 +1,20 @@
-<properties pageTitle="How to create and use groups to manage developer accounts in Azure API Management" metaKeywords="" description="Learn how to manage developer accounts using groups in Azure API Management" metaCanonical="" services="" documentationCenter="API Management" title="How to create and use groups to manage developer accounts in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="如何在 Azure API 管理中建立和使用群組來管理開發人員帳戶" 
+	description="了解如何在 Azure API 管理中使用群組來管理管理開發人員帳戶。"
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中建立和使用群組來管理開發人員帳戶
 
@@ -90,3 +104,5 @@ API 管理具有以下內建群組。
   [Add developer to group]: ./media/api-management-howto-create-groups/api-management-add-group-to-developer.png
   [開發人員]: ./media/api-management-howto-create-groups/api-management-add-group-to-developer-saved.png
   [如何在 Azure API 管理中建立和發行產品]: ../api-management-howto-add-products
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-<properties linkid="dev-net-how-to-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (.NET) - Azure feature guide" metaKeywords="Azure Access Control Service authentication C#" description="Learn how to use Access Control Service (ACS) in your Azure application to authenticate users when they try to gain access to a web app." metaCanonical="" services="active-directory" documentationCenter=".NET" title="How to Authenticate Web Users with Azure Active Directory Access Control" authors="mbaldwin, juneb" solutions="" manager="mbaldwin" editor="" />
+﻿<properties 
+	pageTitle="如何使用存取控制 (.NET) - Azure 功能指南" 
+	description="了解如何使用 Azure 應用程式中的存取控制服務 (ACS)，以在使用者嘗試存取 Web 應用程式時予以驗證。" 
+	services="active-directory" 
+	documentationCenter=".net" 
+	authors="msmbaldwin" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin, juneb" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="mbaldwin"/>
 
 # 如何利用 Azure Active Directory 存取控制來驗證 Web 使用者
 
@@ -283,7 +297,7 @@ Azure 即會建立並啟動命名空間。
 
 ![][15]
 
-如需關於在應用程式中使用宣告的詳細資訊，請參閱 [Windows Identity Foundation 文件庫 (機器翻譯)](http://msdn.microsoft.com/zh-tw/library/hh377151.aspx)。
+如需關於在應用程式中使用宣告的詳細資訊，請參閱 [Windows Identity Foundation 文件庫 (機器翻譯)](http://msdn.microsoft.com/library/hh377151.aspx)。
 
 ## <a name="bkmk_VP"></a>在 ACS 管理入口網站中檢視應用程式
 
@@ -396,3 +410,5 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
   [22]: ./media/active-directory-dotnet-how-to-use-access-control/acsSave-Google.png
   [23]: ./media/active-directory-dotnet-how-to-use-access-control/acsIdAndA-after.png
   [24]: ./media/active-directory-dotnet-how-to-use-access-control/acsSignIn.png
+
+<!--HONumber=46--> 

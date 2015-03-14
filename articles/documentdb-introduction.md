@@ -1,6 +1,20 @@
-﻿<properties title="Introduction to Microsoft Azure DocumentDB" pageTitle="Microsoft Azure DocumentDB 簡介 | Azure" description="了解 Azure DocumentDB (一種 NoSQL 文件資料庫) 以及其對於雲端和行動應用程式的價值。了解它如何管理資料及如何用於應用程式開發。" metaKeywords="" services="documentdb" solutions="data-management"  authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Microsoft Azure DocumentDB 簡介 | Azure" 
+	description="了解 Azure DocumentDB (NoSQL 文件資料庫) 及其對於雲端和行動應用程式的價值。同時也了解它如何管理資料及如何用於應用程式開發。" 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="mimig"/>
 
 #Microsoft Azure DocumentDB 簡介
 
@@ -83,3 +97,5 @@ DocumentDB 可讓您將應用程式邏輯撰寫成完全以 JavaScript 撰寫的
 [1]: ./media/documentdb-introduction/intro.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

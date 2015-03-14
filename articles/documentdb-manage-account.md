@@ -1,6 +1,20 @@
-<properties title="Monitor a DocumentDB Account" pageTitle="Manage a DocumentDB account | Azure" description="Learn how to manage your DocumentDB account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, accounts" services="documentdb" solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="管理 DocumentDB 帳戶 | Azure" 
+	description="了解如何管理 DocumentDB 帳戶。" 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="stephbaron" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/03/2014" ms.author="hawong" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="stbaro"/>
 
 # 如何管理 DocumentDB 帳戶
 
@@ -151,3 +165,5 @@ Microsoft Azure DocumentDB 可讓您在應用程式的生命週期內，隨著�
   [一致性層級]: http://go.microsoft.com/fwlink/p/?LinkId=402365
   [開始使用 DocumentDB 帳戶]: http://go.microsoft.com/fwlink/p/?LinkId=402364
   [azure.com]: http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409
+
+<!--HONumber=46--> 

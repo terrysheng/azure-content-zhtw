@@ -28,7 +28,7 @@
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
 > [WACOM.NOTE]
-> 本指南呈現一些與在 Azure 網站中執行的公用端 .COM 網站整合的最常見領域和工作。不過，還有其他您可在 Azure 網站中實作的常見解決方案。若要檢閱這些解決方案，請同時參閱<a href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/digital-marketing-campaign-solution-overview">數位行銷活動</a> (英文) 與<a href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/business-application-solution-overview">商務應用程式</a> (英文) 方面的其他指南。
+> 本指南呈現一些與在 Azure 網站中執行的公用端 .COM 網站整合的最常見領域和工作。不過，還有其他您可在 Azure 網站中實作的常見解決方案。若要檢閱這些解決方案，請同時參閱<a href="http://azure.microsoft.com/manage/services/web-sites/digital-marketing-campaign-solution-overview">數位行銷活動</a> (英文) 與<a href="http://azure.microsoft.com/manage/services/web-sites/business-application-solution-overview">商務應用程式</a> (英文) 方面的其他指南。
 
 ### 從頭開始建立或沿用現有資產
 
@@ -122,8 +122,8 @@ Azure 組件庫提供受歡迎網站內容管理系統 (CMS) 的範本，例如 
 
 [相應增加和放大]:/zh-tw/manage/services/web-sites/how-to-scale-websites/
 [Azure 管理入口網站]:http://manage.windowsazure.com/
-[服務管理 API]:http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460799.aspx
-[PowerShell 指令碼]:http://msdn.microsoft.com/zh-tw/library/windowsazure/jj152841.aspx
+[服務管理 API]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[PowerShell 指令碼]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy 搜尋]:https://twitter.com/troyhunt
 [我了解使用 Azure 網站快速調整網站的十大事項]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Azure Redis 快取]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/

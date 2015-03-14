@@ -19,7 +19,7 @@ Blob 服務包含下列元件：
 ![Blob1][Blob1]
 
 -   **儲存體帳戶：**所有對 Azure 儲存體的存取都是
-    透過儲存體帳戶進行。請參閱[ Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/zh-tw/library/dn249410.aspx) ，了解儲存體帳戶容量和輸送量的詳細資訊。
+    透過儲存體帳戶進行。請參閱[ Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/library/dn249410.aspx) ，了解儲存體帳戶容量和輸送量的詳細資訊。
 
 -   **容器：**容器提供一組 Blob 的群組。
     所有 Blob 都必須放在容器中。帳戶可以包含
@@ -45,4 +45,4 @@ Blob 服務包含下列元件：
 
 [Blob1]: ./media/howto-blob-storage/blob1.jpg
 
-<!--HONumber=41-->
+<!--HONumber=42-->

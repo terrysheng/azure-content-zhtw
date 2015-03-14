@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Load Testing Pattern" pageTitle="負載測試應用程式模式 - Azure 架構模式" metaKeywords="" description="尋找描述如何在 Azure 上實作負載測試系統的結構性概觀與設計模式。" metaCanonical="" services="" documentationCenter=".NET" title="Load Testing in Azure" authors="robb" solutions="" manager="johndaw" editor="" />
+﻿<properties 
+	pageTitle="璽更代刚莱ノ祘Α家Α - Azure 琜篶家Α" 
+	description="尋找結構性概觀和描述如何在 Azure 上實作的負載測試系統的設計模式。" 
+	services="" 
+	documentationCenter=".net" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="robb"/>
 
 # Azure 中的負載測試
 
@@ -9,8 +23,8 @@
 <!--links-->
 
 [Azure 和 Visual Studio Ultimate]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-ultimate-2012#product-edition-ultimate-details
-[在混合式環境中執行負載測試]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh966776.aspx
-[在 Azure 角色中使用 Visual Studio 負載測試]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh674491.aspx
+[在混合式環境中執行負載測試]: http://msdn.microsoft.com/library/windowsazure/hh966776.aspx
+[在 Azure 角色中使用 Visual Studio 負載測試]: http://msdn.microsoft.com/library/windowsazure/hh674491.aspx
 
 <!--images-->
 
@@ -18,3 +32,5 @@
  
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

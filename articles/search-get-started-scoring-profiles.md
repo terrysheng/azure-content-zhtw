@@ -1,6 +1,20 @@
-﻿<properties title="Get started with scoring profiles in Azure Search" pageTitle="開始使用 Azure Search 中的評分設定檔" description="開始使用 Azure Search 中的評分設定檔" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="如何使用 Azure Search 中的評分設定檔" 
+	description="開始使用 Azure Search 中的評分設定檔" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="10/16/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="02/10/2015" 
+	ms.author="heidist"/>
 
 # 開始使用 Azure Search 中的評分設定檔
 
@@ -43,7 +57,7 @@
 
 您已經快要可以建置並執行應用程式，但在這麼做之前，請先查看用來建立及擴展索引的 JSON 檔案。
 
-**Schema.json** 會定義索引，包括此示範中強調的評分設定檔。請注意，結構描述會定義索引中使用的所有欄位，包括您可用於評分設定檔中不可搜尋的欄位，例如 `margin`。評分設定檔語法記載於[將評分設定檔新增至 Azure Search 索引](http://msdn.microsoft.com/zh-tw/library/azure/dn798928.aspx)中。
+**Schema.json** 會定義索引，包括此示範中強調的評分設定檔。請注意，結構描述會定義索引中使用的所有欄位，包括您可用於評分設定檔中不可搜尋的欄位，例如 `margin`。評分設定檔語法記載於[將評分設定檔新增至 Azure Search 索引](http://msdn.microsoft.com/library/azure/dn798928.aspx)中。
 
 **Data1-3.json** 會提供資料 (跨多種內容類型的 246 張專輯)。此資料是實際專輯和藝術工作者資訊的組合，其中包含用來說明搜尋作業的 `price` 和 `margin` 等虛構欄位。。資料檔案符合索引並且會上傳到 Azure Search 服務。資料上傳並編成索引之後，您即可對其發出查詢。
 
@@ -85,9 +99,9 @@
 
 <h2 id="next-steps">後續步驟</h2>
 
-進一步了解評分設定檔。如需詳細資訊，請參閱[將評分設定檔新增至 Azure Search 索](http://msdn.microsoft.com/zh-tw/library/azure/dn798928.aspx)。
+進一步了解評分設定檔。如需詳細資訊，請參閱[將評分設定檔新增至 Azure Search 索](http://msdn.microsoft.com/library/azure/dn798928.aspx)。
 
-深入了解搜尋語法和查詢參數。如需詳細資訊，請參閱[搜尋文件 (Azure Search REST API)](http://msdn.microsoft.com/zh-tw/library/azure/dn798927.aspx)。
+深入了解搜尋語法和查詢參數。如需詳細資訊，請參閱[搜尋文件 (Azure Search REST API)](http://msdn.microsoft.com/library/azure/dn798927.aspx)。
 
 需要回過頭來深入了解如何建立索引嗎？[觀看這段影片](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh)以了解基本概念。
 
@@ -104,3 +118,5 @@
 [11]: ./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
+
+<!--HONumber=46--> 

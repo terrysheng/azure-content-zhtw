@@ -308,11 +308,11 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
 * [Git 文件]
 * [專案 Kudu](https://github.com/projectkudu/kudu/wiki)
 
-[Azure 開發人員中心]: http://www.windowsazure.com/zh-tw/develop/overview/
+[Azure 開發人員中心]: http://azure.microsoft.com/develop/overview/
 [Azure 入口網站]: http://manage.windowsazure.com
 [Git 網站]: http://git-scm.com
 [安裝 Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[如何使用適用於 Azure 的 PowerShell]: http://www.windowsazure.com/zh-tw/develop/nodejs/how-to-guides/powershell-cmdlets/
+[如何使用適用於 Azure 的 PowerShell]: http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/
 [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]: /zh-tw/develop/nodejs/how-to-guides/command-line-tools/
 [Git 文件]: http://git-scm.com/documentation
 
@@ -333,5 +333,5 @@ Azure 網站支援以各種程式設計語言建立的應用程式。以此範�
 [建立儲存機制 (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [快速入門 - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [使用 Dropbox 分享 Git 儲存機制]: https://gist.github.com/trey/2722927
-[使用 Visual Studio Online 連續傳遞至 Azure]: http://www.windowsazure.com/zh-tw/develop/net/common-tasks/publishing-with-tfs/
+[使用 Visual Studio Online 連續傳遞至 Azure]: http://azure.microsoft.com/develop/net/common-tasks/publishing-with-tfs/
 <!--HONumber=42-->

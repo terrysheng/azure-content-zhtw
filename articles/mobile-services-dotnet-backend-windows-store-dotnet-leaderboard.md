@@ -1,6 +1,20 @@
-<properties pageTitle="使用 Azure 行動服務 .NET 後端建立排行榜應用程式" description="了解如何使用具有 .NET 後端的 Azure 行動服務建置 Windows 市集應用程式。" documentationCenter="windows" authors="MikeWasson" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="使用 Azure 行動服務 .NET 後端建立排行榜應用程式" 
+	description="了解如何使用具有 .NET 後端的 Azure 行動服務建置 Windows 市集應用程式。" 
+	documentationCenter="windows" 
+	authors="MikeWasson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="mwasson"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="mwasson"/>
 
 # 使用 Azure 行動服務 .NET 後端建立排行榜應用程式
 
@@ -80,7 +94,7 @@ PlayerRank 具有 Player 的外部索引鍵。每個玩家各有零或一個 Pla
 
 ## 新增資料模型
 
-您將使用 [EF Code First](http://msdn.microsoft.com/zh-tw/data/ee712907#codefirst) 來定義資料庫資料表。在 DataObjects 資料夾下，新增名為 `Player` 的類別。
+您將使用 [EF Code First](http://msdn.microsoft.com/data/ee712907#codefirst) 來定義資料庫資料表。在 DataObjects 資料夾下，新增名為 `Player` 的類別。
 
 	using Microsoft.WindowsAzure.Mobile.Service;
 	
@@ -109,9 +123,9 @@ PlayerRank 具有 Player 的外部索引鍵。每個玩家各有零或一個 Pla
 	    }
 	}
 
-請注意，這兩個類別皆衍生自 **EntityData** 類別。從 **EntityData** 衍生，可方便應用程式取用資料，而將跨平台用戶端程式庫用於 Azure 行動服務。**EntityData** 也可方便應用程式[處理資料庫寫入衝突](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/)。
+請注意，這兩個類別皆衍生自 **EntityData** 類別。從 **EntityData** 衍生，可方便應用程式取用資料，而將跨平台用戶端程式庫用於 Azure 行動服務。**EntityData** 也可方便應用程式[處理資料庫寫入衝突](http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/)。
 
-`PlayerRank` 類別具有指向相關 `Player` 實體的[導覽屬性](http://msdn.microsoft.com/zh-tw/data/jj713564.aspx)。**[ForeignKey]** 屬性 (attribute) 會向 EF 指出，`Player` 屬性 (property) 代表外部索引鍵。
+`PlayerRank` 類別具有指向相關 `Player` 實體的[導覽屬性](http://msdn.microsoft.com/data/jj713564.aspx)。**[ForeignKey]** 屬性 (attribute) 會向 EF 指出，`Player` 屬性 (property) 代表外部索引鍵。
 
 # 新增 Web API 控制器
 
@@ -139,7 +153,7 @@ PlayerRank 具有 Player 的外部索引鍵。每個玩家各有零或一個 Pla
 
 控制器會衍生自 **TableController<T>**。此類別會繼承 **ApiController**，但這是適用於 Azure 行動服務的特殊類別。
  
-- 路由：**TableController** 的預設路徑為 `/tables/{table_name}/{id}`，其中，*table_name* 會符合實體名稱。因此，「玩家」控制器的路徑為 */tables/player/{id}*。此路徑慣例會使 **TableController**與行動服務 [REST API](http://msdn.microsoft.com/zh-tw/library/azure/jj710104.aspx) 一致。
+- 路由：**TableController** 的預設路徑為 `/tables/{table_name}/{id}`，其中，*table_name* 會符合實體名稱。因此，「玩家」控制器的路徑為 */tables/player/{id}*。此路徑慣例會使 **TableController**與行動服務 [REST API](http://msdn.microsoft.com/library/azure/jj710104.aspx) 一致。
 - 資料存取：在資料庫作業中，**TableController** 類別會使用 **IDomainManager** 介面，而此介面會定義資料存取的抽象。scaffolding 會使用 **EntityDomainManager**，這是包裝 EF 內容之 **IDomainManager** 的固定實作。 
 
 現在，請為 PlayerRank 實體新增第二個控制器。請遵循相同的步驟，但選擇 PlayerRank 作為模型類別。請使用相同的資料內容類別，不要建立新的。將控制器命名為 "PlayerRankController"。

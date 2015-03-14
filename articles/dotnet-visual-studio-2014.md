@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Visual Studio 14 CTP" pageTitle="安裝適用於 Visual Studio 14 CTP2 的 Azure SDK 2.4" metaKeywords="Visual Studio, Azure SDK" description="安裝 Azure SDK 2.4 及 Visual Studio 14 CTP2" metaCanonical="" services="" documentationCenter="" title="Installing Azure SDK 2.4 for Visual Studio 14 CTP" authors="ghogen" solutions="" manager="douge" editor="" />
+﻿<properties 
+	pageTitle="安裝適用於 Visual Studio 14 CTP2 的 Azure SDK 2.4" 
+	description="安裝 Azure SDK 2.4 及 Visual Studio 14 CTP2" 
+	services="visual-studio-online" 
+	documentationCenter=".net" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
+<tags 
+	ms.service="visual-studio-online" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 # 安裝適用於 Visual Studio "14" CTP 的 Azure SDK 2.4
 
@@ -32,3 +46,5 @@
 ## 版本資訊
 
 請閱讀 Azure SDK 2.4 的 [版本資訊](http://go.microsoft.com/fwlink/?LinkId=507517)。
+
+<!--HONumber=46--> 

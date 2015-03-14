@@ -1,6 +1,20 @@
-<properties pageTitle="使用 Azure 跨平台命令列介面管理角色存取控制" metaKeywords="ResourceManager, Azure 跨平台命令列介面, Azure 命令列, azure 命令列, azure cli, RBAC" description="使用跨平台命令列介面管理角色存取控制" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
+﻿<properties 
+	pageTitle="使用 Azure 跨平台命令列介面管理角色存取控制" 
+	description="使用跨平台命令列介面管理角色存取控制" 
+	services="" 
+	documentationCenter="" 
+	authors="guangyang" 
+	manager="terrylan" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="command-line-interface" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/03/2014" 
+	ms.author="guayan"/>
 
 # 使用跨平台命令列介面管理角色存取控制 #
 
@@ -16,8 +30,8 @@ Azure Preview 入口網站以及 Azure 資源管理員 API 裡的角色存取控
 
 在使用 xplat-cli 來管理 RBAC 之前，您必須具備以下項目：
 
-- Azure 跨平台命令列介面 0.8.8 版或更新版本。若要安裝最新版本，並讓此版本與 Azure 訂閱建立關聯，請參閱[安裝與設定 Azure 跨平台命令列介面](http://azure.microsoft.com/zh-tw/documentation/articles/xplat-cli/)。
-- 另請閱讀以下教學課程，以熟悉如何在 Azure 跨平台命令列介面中設定和使用 Azure 資源管理員：[搭配使用 Azure 跨平台命令列介面與資源管理員](http://azure.microsoft.com/zh-tw/documentation/articles/xplat-cli-azure-resource-manager/)
+- Azure 跨平台命令列介面 0.8.8 版或更新版本。若要安裝最新版本，並讓此版本與 Azure 訂閱建立關聯，請參閱[安裝與設定 Azure 跨平台命令列介面](http://azure.microsoft.com/documentation/articles/xplat-cli/)。
+- 另請閱讀以下教學課程，以熟悉如何在 Azure 跨平台命令列介面中設定和使用 Azure 資源管理員：[搭配使用 Azure 跨平台命令列介面與資源管理員](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
 
 ## 本教學課程內容 ##
 
@@ -33,7 +47,7 @@ Azure Preview 入口網站以及 Azure 資源管理員 API 裡的角色存取控
 
     azure config mode arm
 
-如需詳細資訊，請參閱[搭配使用 Azure 跨平台命令列介面與資源管理員](http://azure.microsoft.com/zh-tw/documentation/articles/xplat-cli-azure-resource-manager/)
+如需詳細資訊，請參閱[搭配使用 Azure 跨平台命令列介面與資源管理員](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
 
 若要連線至您的 Azure 訂閱，請輸入：
 
@@ -48,7 +62,7 @@ Azure Preview 入口網站以及 Azure 資源管理員 API 裡的角色存取控
     # 使用訂閱名稱來選取您要處理的一個帳戶。
     azure 帳戶集 <訂閱名稱>
 
-如需詳細資訊，請參閱[安裝與設定 Azure 跨平台命令列介面](http://azure.microsoft.com/zh-tw/documentation/articles/xplat-cli/)。
+如需詳細資訊，請參閱[安裝與設定 Azure 跨平台命令列介面](http://azure.microsoft.com/documentation/articles/xplat-cli/)。
 
 ## <a id="check"></a>查看現有的角色指派 ##
 
@@ -125,10 +139,12 @@ Azure Preview 入口網站以及 Azure 資源管理員 API 裡的角色存取控
 
 若要深入了解使用 xplat-cli 管理角色存取控制的詳細資訊，請參閱下列相關主題：
 
-- [Windows Azure 中的角色存取控制](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-configure/)
-- [安裝與設定 Azure 跨平台命令列介面](http://azure.microsoft.com/zh-tw/documentation/articles/xplat-cli/)
-- [搭配使用 Azure 跨平台命令列介面與資源管理員](http://azure.microsoft.com/zh-tw/documentation/articles/xplat-cli-azure-resource-manager/)
-- [使用資源群組管理您的 Azure 資源](http://azure.microsoft.com/zh-tw/documentation/articles/azure-preview-portal-using-resource-groups)：了解如何在 Azure 管理入口網站中建立和管理資源群組。
+- [Windows Azure 中的角色存取控制](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)
+- [安裝與設定 Azure 跨平台命令列介面](http://azure.microsoft.com/documentation/articles/xplat-cli/)
+- [搭配使用 Azure 跨平台命令列介面與資源管理員](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
+- [使用資源群組管理您的 Azure 資源](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups)：了解如何在 Azure 管理入口網站中建立和管理資源群組。
 - [Azure 部落格](http://blogs.msdn.com/windowsazure)：深入了解 Azure 的新功能。
-- [使用 Windows PowerShell 來設定角色存取控制](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-powershell/)
-- [為角色存取控制進行疑難排解](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-troubleshooting/)
+- [使用 Windows PowerShell 來設定角色存取控制](http://azure.microsoft.com/documentation/articles/role-based-access-control-powershell/)
+- [為角色存取控制進行疑難排解](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
+
+<!--HONumber=46--> 

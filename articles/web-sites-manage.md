@@ -83,7 +83,7 @@
 [監視]**** 管理頁面以圖表顯示網站的使用情況資訊。依預設，此圖表會顯示和 [儀表板]**** 頁面上的圖表相同的度量，如前文的＜儀表板＞一節中所述。此圖表也可設定為顯示「HTTP 成功」、「HTTP 重新導向」、「HTTP 401 錯誤」、「HTTP 403 錯誤」、「HTTP 404 錯誤」和「HTTP 406 錯誤」等度量。如需這些度量的詳細資訊，請參閱[如何監視網站][監視器]。
 
 ##WebJobs##
-WebJobs 管理頁面可讓您為網站建立隨需、排程或持續執行的工作。如需詳細資訊，請參閱 [如何在 Microsoft Azure 網站中使用 WebJobs 功能](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-create-web-jobs/) (英文)。
+WebJobs 管理頁面可讓您為網站建立隨需、排程或持續執行的工作。如需詳細資訊，請參閱 [如何在 Microsoft Azure 網站中使用 WebJobs 功能](http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/) (英文)。
 
 ##設定##
 [設定]**** 管理頁面可用於設定應用程式專用的設定。
@@ -102,7 +102,7 @@ WebJobs 管理頁面可讓您為網站建立隨需、排程或持續執行的工
 [連結的資源]**** 管理頁面提供網站所使用的 Microsoft Azure 資源清單，包括 SQL 資料庫、MySQL 資料庫、Azure 儲存體帳戶。按一下資源的名稱可管理資源。
 
 ##備份##
-[備份]**** 管理頁面可讓您建立網站的自動或手動備份、還原網站至先前的狀態、依據其中一個備份建立新網站。如需詳細資訊，請參閱 [Microsoft Azure 網站備份](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-backup/) (英文) 和[還原 Microsoft Azure 網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-restore/) (英文)。
+[備份]**** 管理頁面可讓您建立網站的自動或手動備份、還原網站至先前的狀態、依據其中一個備份建立新網站。如需詳細資訊，請參閱 [Microsoft Azure 網站備份](http://azure.microsoft.com/documentation/articles/web-sites-backup/) (英文) 和[還原 Microsoft Azure 網站](http://azure.microsoft.com/documentation/articles/web-sites-restore/) (英文)。
 
 ##管理頁面圖示##
 在網站每一個管理頁面的底部皆會顯示圖示。其中數個圖示會出現在多個頁面上，少數幾個則只會出現在特定頁面上。[儀表板]**** 管理頁面的底部會顯示以下圖示：
@@ -210,11 +210,11 @@ WebJobs 管理頁面可讓您為網站建立隨需、排程或持續執行的工
 
 [azuresdk]:http://go.microsoft.com/fwlink/?LinkId=246928
 
-[設定]: http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-configure-websites
+[設定]: http://azure.microsoft.com/manage/services/web-sites/how-to-configure-websites
 
-[監視]: http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-monitor-websites/
+[監視]: http://azure.microsoft.com/manage/services/web-sites/how-to-monitor-websites/
 
-[調整]: http://www.windowsazure.com/zh-tw/manage/services/web-sites/how-to-scale-websites
+[調整]: http://azure.microsoft.com/manage/services/web-sites/how-to-scale-websites
 
 
 <!-- Anchors. -->

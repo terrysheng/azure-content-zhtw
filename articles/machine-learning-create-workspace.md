@@ -1,6 +1,13 @@
 ﻿<properties title="Create an Azure Machine Learning workspace" pageTitle="建立 Machine Learning 工作區 | Azure" description="建立 Azure Machine Learning Studio 的工作區" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye" />
 
 
 # 建立 Azure Machine Learning 工作區 
@@ -31,3 +38,5 @@ Microsoft Azure Machine Learning 工作區 (ML 工作區) 包含在管理及發�
 
 
 <!--Link references-->
+
+<!--HONumber=46--> 

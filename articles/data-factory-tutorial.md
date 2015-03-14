@@ -1,6 +1,23 @@
-﻿<properties title="Tutorial: Move and process log files using Azure Data Factory" pageTitle="使用 Azure Data Factory 移動和處理記錄檔" description="此進階教學課程說明接近現實情況的案例，並補充說明使用 Azure Data Factory 服務的案例。" metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	title="Tutorial: Move and process log files using Azure Data Factory" 
+	pageTitle="使用 Azure Data Factory 移動和處理記錄檔" 
+	description="此進階教學課程說明接近現實情況的案例，並補充說明使用 Azure Data Factory 服務的案例。" 
+	metaKeywords=""  
+	services="data-factory" 
+	solutions=""  
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/01/1900" 
+	ms.author="spelluru" />
 
 # 教學課程：使用 Data Factory 移動和處理記錄檔
 本文章提供的端對端逐步解說，是有關使用 Azure Data Factory，將記錄檔的資料轉換成見解的記錄檔處理程序標準案例。 
@@ -589,14 +606,14 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 [usepigandhive]: ../data-factory-pig-hive-activities
 
 [azure-preview-portal]: http://portal.azure.com
-[azure-purchase-options]: http://azure.microsoft.com/zh-tw/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/zh-tw/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [sqlcmd-install]: http://www.microsoft.com/zh-tw/download/details.aspx?id=35580
-[azure-sql-firewall]: http://msdn.microsoft.com/zh-tw/library/azure/jj553530.aspx
+[azure-sql-firewall]: http://msdn.microsoft.com/library/azure/jj553530.aspx
 
-[download-azure-powershell]: http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell
+[download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
@@ -675,3 +692,5 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
+
+<!--HONumber=46--> 

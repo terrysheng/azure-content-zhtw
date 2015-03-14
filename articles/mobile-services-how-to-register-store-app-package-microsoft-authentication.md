@@ -1,6 +1,20 @@
-﻿<properties pageTitle="註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證" description="了解如何在 Azure Mobile Services 應用程式中註冊 Windows 市集應用程式進行 Microsoft 驗證。" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證" 
+	description="了解如何在 Azure Mobile Services 應用程式中註冊 Windows 市集應用程式進行 Microsoft 驗證。" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # 註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證
 

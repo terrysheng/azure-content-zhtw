@@ -21,7 +21,7 @@ Azure Traffic Manager 使用三種不同的負載平衡方法來分配流量︰
 - **效能**：當您在不同地理位置擁有端點，且您為了最低的寫入延遲要求用戶端使用「最靠近」的端點時才使用此方法。
 - **循環配置資源：**在您想要分配位於相同資料中心的一組雲端服務，或位於不同資料中心的雲端服務或網站的負載時，才使用此方法。
 
-如需詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法](http://msdn.microsoft.com/zh-tw/library/azure/dn339010.aspx)。
+如需詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法](http://msdn.microsoft.com/library/azure/dn339010.aspx)。
 
 下圖顯示在不同雲端服務間使用循環配置資源負載平衡方法分配流量的範例。
 
@@ -34,7 +34,7 @@ Azure Traffic Manager 使用三種不同的負載平衡方法來分配流量︰
 3.	Traffic Manager 傳回循環配置資源清單中雲端服務的 DNS 名稱。網際網路用戶端的 DNS 伺服器將該名稱解析為 IP 位址，並傳送至網際網路用戶端。
 4.	網際網路用戶端連接至所選的雲端服務。
 
-如需詳細資訊，請參閱[流量管理員](http://msdn.microsoft.com/zh-tw/library/azure/hh745750.aspx)。
+如需詳細資訊，請參閱[流量管理員](http://msdn.microsoft.com/library/azure/hh745750.aspx)。
 
 ## 虛擬機器的 Azure 負載平衡 ##
 
@@ -46,7 +46,7 @@ Azure 負載平衡器會隨機分配稱為負載平衡集之組態中的多個�
 
 ![loadbalancing](./media/load-balancing-vms/LoadBalancing.png)
 
-如需詳細資訊，請參閱 [Azure 負載平衡器](http://msdn.microsoft.com/zh-tw/library/azure/dn655058.aspx)。如需建立負載平衡集的步驟，請參閱[設定負載平衡集](http://msdn.microsoft.com/zh-tw/library/azure/dn655055.aspx)。
+如需詳細資訊，請參閱 [Azure 負載平衡器](http://msdn.microsoft.com/library/azure/dn655058.aspx)。如需建立負載平衡集的步驟，請參閱[設定負載平衡集](http://msdn.microsoft.com/library/azure/dn655055.aspx)。
 
 Azure 也可在雲端服務或虛擬網路中進行負載平衡。這稱為內部負載平衡，可用於以下方式︰
 
@@ -60,7 +60,7 @@ Azure 也可在雲端服務或虛擬網路中進行負載平衡。這稱為內�
 
 ![loadbalancing](./media/load-balancing-vms/LOBServers.png)
 
-如需詳細資訊，請參閱[內部負載平衡](http://msdn.microsoft.com/zh-tw/library/azure/dn690121.aspx)。如需建立負載平衡集的步驟，請參閱[設定內部負載平衡集](http://msdn.microsoft.com/zh-tw/library/azure/dn690125.aspx)。
+如需詳細資訊，請參閱[內部負載平衡](http://msdn.microsoft.com/library/azure/dn690121.aspx)。如需建立負載平衡集的步驟，請參閱[設定內部負載平衡集](http://msdn.microsoft.com/library/azure/dn690125.aspx)。
 
 <!-- LINKS -->
 

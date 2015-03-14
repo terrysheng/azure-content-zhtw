@@ -1,11 +1,11 @@
-<properties 
+﻿<properties 
 	pageTitle="如何在 Azure 上使用 CoreOS" 
 	description="說明 CoreOS、如何在 Azure 上建立 CoreOS 虛擬機器，及其基本使用方法。" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="squillace" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,14 +13,19 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.workload="infrastructure-services" 
-	ms.date="01/02/2015" 
+	ms.date="10/27/2014" 
 	ms.author="rasquill"/>
 
+<!--這是一個基本的範例，為您示範如何使用 markdown 來建立包含目錄、具有次標題的小節、其他 azure.microsoft.com 主題的連結，其他站台的連結、粗體文字、斜體文字、編號與項目符號清單、程式碼片段，以及影像的主題。關於更花俏的 markdown，請尋找以發行的主題，然後複製您想要的 markdown 或 HTML。如需使用 markdown 的相關詳細資訊，請參閱 http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx。-->
+
+<!--內容區段 (如上述)：所有主題都需有內容區段。請填寫內容區段！請參閱 http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20properties%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20values.aspx 了解詳細資訊。 -->
+
+<!-- Tags section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20tags%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20for%20reporting.aspx for details. -->
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # 如何在 Azure 上使用 CoreOS
 
-本主題說明 [CoreOS]，及說明如何在 Azure 上建立三部 CoreOS 虛擬機器的叢集，作為了解 CoreOS 的快速入門。它會使用 CoreOS 部署的每個基本元素，和來自[在 Azure 上的 CoreOS]、[Tim Park 的 CoreOS 教學課程]和 [Patrick Chanezon 的 CoreOS 教學課程]的範例，來說明了解 CoreOS 部署之基本結構和順利執行三部虛擬機器之叢集兩者的絕對最低需求。 
+本主題說明 [CoreOS]，及說明如何在 Azure 上建立三部 CoreOS 虛擬機器的叢集，作為了解 CoreOS 的快速入門。它會使用 CoreOS 部署的每個基本元素，和來自[在 Azure 上的 CoreOS]、[Tim Park 的 CoreOS 教學課程] 和 [Patrick Chanezon 的 CoreOS 教學課程]的範例，來說明了解 CoreOS 部署之基本結構和順利執行三部虛擬機器之叢集兩者的絕對最低需求。 
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 本主題包含下列小節：
@@ -52,7 +57,7 @@ CoreOS 是 Linux 的輕量級版本，旨在支援快速建立可能的大型 VM
 
 ## <a id='usingcoreos'>如何在 Azure 上使用 CoreOS</a>
 
-本節說明如何使用 [Azure 跨平台介面 (xplat-cli)](../xplat-cli/)，建立內含三部 CoreOS 虛擬機器的 Azure 雲端服務。基本步驟如下
+本節說明如何使用 [Azure 跨平台介面 (xplat-cli)]，建立內含三部 CoreOS 虛擬機器的 Azure 雲端服務。基本步驟如下
 
 1. 建立 SSH 憑證和金鑰，來保護與 CoreOS 虛擬機器的通訊安全
 2. 取得叢集的 etcd 識別碼以便互相通訊
@@ -65,11 +70,11 @@ CoreOS 是 Linux 的輕量級版本，旨在支援快速建立可能的大型 VM
  
 使用[如何對 Azure 上的 Linux 使用 SSH](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/) 中的指示，建立 SSH 的公開和私密金鑰。(您可在下面的指示中找到基本步驟。)您打算使用這些金鑰來與叢集中的 VM 連線，以驗證他們是否可正常運作並可互相通訊。
 
-> [AZURE.NOTE] 本主題假設您沒有這些金鑰，為求清楚展示範例，將要求您建立 **`myPrivateKey.pem`** 和 **`myCert.pem`** 檔案。如果 **`~/.ssh/id_rsa`** 已有儲存的公開和私密金鑰組，您可以只輸入  `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` 來取得您必須上傳至 Azure 的 .pem 檔案。
+> [AZURE.NOTE] 本主題假設您沒有這些金鑰，為求清楚展示範例，將要求您建立 **`myPrivateKey.pem`** 和 **`myCert.pem`** 檔案。如果您已經將公開私密金鑰組儲存至 **`~/.ssh/id_rsa`**，您只要輸入  `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` 即可取得您需要上傳至 Azure 的 .pem 檔案。
 
-1. 在工作目錄中，請輸入  `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem` 以建立私密金鑰及其相關聯的 X.509 憑證。 
+1. 在工作目錄中，輸入  `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem` 以建立私密金鑰及其相關聯的 X.509 憑證。 
 
-2. 若要判斷提示私密金鑰的擁有者是否可以讀取或寫入檔案，請輸入  `chmod 600 myPrivateKey.key`。 
+2. 若要判斷私密金鑰的擁有者是否可以讀取或寫入檔案，請輸入  `chmod 600 myPrivateKey.key`。 
 
 您的工作目錄中現在應包含 **`myPrivateKey.key`** 和 **`myCert.pem`** 檔案。 
 
@@ -82,7 +87,7 @@ CoreOS 的 **etcd** 精靈會需要探索識別碼，以自動針對叢集中的
 curl https://discovery.etcd.io/new | grep ^http.* > etcdid
 ```
 
-### 建立雲端組態檔
+### Create a Create a cloud-config file
 
 在相同的工作目錄中，使用偏好的文字編輯器來建立包含下列文字的檔案，並將它另存新檔為 **`cloud-config.yaml`**。(您可以將它儲存為任何檔案名稱，但在下一個步驟中建立 VM 時，您需要在 **azure create vm** 命令的 **--custom-data** 選項中參考此檔案的名稱。)
 
@@ -108,28 +113,26 @@ coreos:
 (如需 Cloud-Config 檔案的詳細資訊，請參閱 CoreOS 文件中的[使用 Cloud-Config](https://coreos.com/docs/cluster-management/setup/cloudinit-cloud-config/)。)
 
 ### 使用 xplat-cli 建立新的 CoreOS VM
-<!--每個主題均應有後續步驟和下一組邏輯內容集的連結，供客戶隨時參考-->
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-1. 如果您未曾安裝 [Azure 跨平台介面 (xplat-cli)](../xplat-cli/)，請先進行安裝，並使用工作或學校識別碼登入，或下載 .publishsettings 檔案並將它匯入您的帳戶。
-2. 尋找您的 CoreOS 映像。輸入  `azure vm image list | grep CoreOS` 可隨時找出可用映像，您應會看見如下的結果清單：
-
-	`data:    2b171e93f07c4903bcad35bda10acf22__CoreOS-Stable-522.6.0              Public    Linux`
-
+1. 如果您未曾安裝 [Azure 跨平台介面 (xplat-cli)]，請先安裝，並使用工作或學校識別碼登入，或下載 .publishsettings 檔案並將它匯入您的帳戶。
+2. 尋找您的 CoreOS 映像。目前只有一個映像 -- **`2b171e93f07c4903bcad35bda10acf22__CoreOS-Alpha-475.1.0`** -- 但是若要找出隨時都可使用的映像，請輸入  `azure vm image list | grep .*CoreOS.*` and you should see one or more results similar to:
+`data:    2b171e93f07c4903bcad35bda10acf22__CoreOS-Alpha-475.1.0              Public    Linux`
 3. 輸入下列內容，為您的基本叢集建立雲端服務：
-`azure service create <cloud-service-name>`；其中，*<cloud-service-name>* 是您的 CoreOS 雲端服務的名稱。此範例使用 **`coreos-cluster`** 名稱；您必須重複使用您所選擇的名稱來建立雲端服務內的 CoreOS VM 執行個體。 
+`azure service create <cloud-service-name>` 其中  *cloud-service-name* 視您 CoreOS 雲端服務的名稱。此範例會使用 **`coreos-cluster`** 名稱；您必須重複使用您所選擇的名稱來建立雲端服務內的 CoreOS VM 執行個體。 
 
-一個注意事項：如果您到目前為止一直在[入口網站](https://portal.azure.com)中觀察您的工作，則您會在資源群組和網域中看到您的雲端服務名稱，如下圖所示：
+一個注意事項：如果您到目前為止一直在[新入口網站](https://portal.azure.com)中觀察您的工作，則您會在資源群組和網域中看到您的雲端服務名稱，如下圖所示：
 
 ![][CloudServiceInNewPortal]  
-4. 透過使用 **azure vm create** 命令，您可以連接到您的雲端服務，並在此雲端服務內建立新的 CoreOS VM。您將在 **--ssh-cert** 選項中傳遞 X.509 憑證的位置。輸入下列程式碼來建立您的第一個 VM 映像，請記得使用您所建立的雲端服務名稱來取代 **coreos-cluster**：
+4. 透過使用 **azure vm create** 命令，您可以連線至您的雲端服務，並在此雲端服務內建立新的 CoreOS VM。您將在 **--ssh-cert** 選項中傳遞 X.509 憑證的位置。輸入下列程式碼來建立您的第一個 VM 映像，請記得使用您所建立的雲端服務名稱來取代 **coreos-cluster**：
 
 ```
-azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem --no-ssh-password --vm-name=node-1 --connect=coreos-cluster --location='West US' 2b171e93f07c4903bcad35bda10acf22__CoreOS-Stable-522.6.0 core
+azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem --no-ssh-password --vm-name=node-1 --connect=coreos-cluster --location='West US' 2b171e93f07c4903bcad35bda10acf22__CoreOS-Alpha-475.1.0 core
 ```
 
-5. 重複步驟 4 中的命令來建立第二個節點，將 **--vm-name** 值取代為 **node-2**，並將 **--ssh** 連接埠值取代為 2022。 
+5. 重複步驟 4 中的命令來建立第二個節點，使用 **node-2** 來取代 **--vm-name** 值，並使用 2022 來取代 **--ssh** 連接埠值。 
  
-6. 重複步驟 4 中的命令來建立第三個節點，將 **--vm-name** 值取代為 **node-3**，並將 **--ssh** 連接埠值取代為 3022。 
+6. 重複步驟 4 中的命令來建立第三個節點，使用 **node-3** 來取代 **--vm-name** 值，並使用 3022 來取代 **--ssh** 連接埠值。 
  
 從下面的快照中，您可以看到 CoreOS 叢集如何出現在新入口網站中。
 
@@ -139,17 +142,17 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 若要測試您的叢集，請確定您目前位於工作目錄中，然後使用 **ssh** 連接到 **node-1**，並透過輸入下列程式碼來傳遞私密金鑰：
 
-	ssh core@coreos-cluster.cloudapp.net -p 22 -i ./myPrivateKey.key
+`ssh core@coreos-cluster.cloudapp.net -p 22 -i ./myPrivateKey.key`
 
 一旦連線後，請輸入  `sudo fleetctl list-machines` 以查看叢集是否已找到叢集中的所有 VM。您應該會收到如下所示的回應：
 
-
-	core@node-1 ~ $ sudo fleetctl list-machines
-	MACHINE		IP		METADATA
-	442e6cfb...	100.71.168.115	-
-	a05e2d7c...	100.71.168.87	-
-	f7de6717...	100.71.188.96	-
-
+```
+core@node-1 ~ $ sudo fleetctl list-machines
+MACHINE		IP		METADATA
+442e6cfb...	100.71.168.115	-
+a05e2d7c...	100.71.168.87	-
+f7de6717...	100.71.188.96	-
+```
 
 ### 在 localhost 中測試您的 CoreOS 叢集
 
@@ -165,15 +168,15 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 `./build`
 
-最後加上 **fleet** 方便使用 (視您的組態而定，您可能需要或不需要 **sudo**)：
+最後加上 **fleet** 以方便使用 (視您的組態而定，您可能需要或不需要 **sudo**)：
 
 `cp bin/fleetctl /usr/local/bin`
 
-確定 **fleet** 有權存取工作目錄下的  `myPrivateKey.key`，方法是輸入：
+確定 **fleet** 有權存取工作目錄中的  `myPrivateKey.key`，方法是輸入：
 
 `ssh-add ./myPrivateKey.key`
 
-> [AZURE.NOTE] 如果您目前已使用 **`~/.ssh/id_rsa`** 金鑰，那麼請使用  `ssh-add ~/.ssh/id_rsa` 進行新增。
+> [AZURE.NOTE] 如果您已經使用 **`~/.ssh/id_rsa`** 金鑰，請在其中加入  `ssh-add ~/.ssh/id_rsa`。
 
 現在，您可以使用和您在 **node-1** 中使用的相同 **fleetctl** 命令準備開始遠端測試，但傳遞部分遠端引數：
 
@@ -181,11 +184,12 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 應會有相同的結果：
 
-
-	MACHINE		IP		METADATA
-	442e6cfb...	100.71.168.115	-
-	a05e2d7c...	100.71.168.87	-
-	f7de6717...	100.71.188.96	-
+```
+MACHINE		IP		METADATA
+442e6cfb...	100.71.168.115	-
+a05e2d7c...	100.71.168.87	-
+f7de6717...	100.71.188.96	-
+```
 
 ## 後續步驟
 
@@ -195,7 +199,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 [CoreOS、叢集和 Linux 容器]: #intro
 [安全性考量]: #security
 [如何在 Azure 上使用 CoreOS]: #usingcoreos
-[子標題 3]: #subheading-3
+[次標題 3]: #subheading-3
 [後續步驟]: #next-steps
 
 <!--Image references-->
@@ -206,7 +210,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 
 <!--Link references-->
-[Azure 跨平台介面 (xplat-cli))]: ../xplat-cli/
+[Azure 跨平台介面 (xplat-cli)]: ../xplat-cli/
 
 [CoreOS]: https://coreos.com/
 [CoreOS 概觀]: https://coreos.com/using-coreos/
@@ -216,4 +220,5 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 [Docker]: http://docker.io
 [YAML]: http://yaml.org/
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

@@ -34,7 +34,7 @@
 
 ### 新功能 
  
-* 對應至 3.1 版服務[更新的 Hadoop 元件版本](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-component-versioning/)。其中包括 Hive 0.13 和 Tez 支援。
+* 對應至 3.1 版服務[更新的 Hadoop 元件版本](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/)。其中包括 Hive 0.13 和 Tez 支援。
 
 ## 1.0.0.0 版，發行日期為 2013 年 10 月 28 日
 
@@ -92,7 +92,7 @@
  
 * 連接到多個叢集，包括本機安裝，以及使用 Azure HDInsight 服務從遠端執行的叢集。 
  
-* 如需 HDInsight 服務的詳細資訊，請參閱 [http://azure.microsoft.com/zh-tw/documentation/services/hdinsight/](http://azure.microsoft.com/zh-tw/documentation/services/hdinsight/)。
+* 如需 HDInsight 服務的詳細資訊，請參閱 [http://azure.microsoft.com/documentation/services/hdinsight/](http://azure.microsoft.com/documentation/services/hdinsight/)。
 
 * 設定本機叢集上的 WASB
 

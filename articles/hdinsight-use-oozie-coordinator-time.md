@@ -537,7 +537,7 @@ Invoke-RestMethod PowerShell Cmdlet 來叫用 Oozie Web 服務。Oozie Web 服�
 		    $response = Invoke-RestMethod -Method Get -Uri $clusterUriStatus -Credential $creds -OutVariable $OozieServerStatus 
 		    
 		    $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
-		    $oozieServerSatus = $jsonResponse[0].("systemMode")
+		    $oozieServerSatus = $jsonResponse[0)]"systemMode")
 		    Write-Host "Oozie server status is $oozieServerSatus..."
 		
 		    if($oozieServerSatus -notmatch "NORMAL")
@@ -558,7 +558,7 @@ Invoke-RestMethod PowerShell Cmdlet 來叫用 Oozie Web 服務。Oozie Web 服�
 		    $response = Invoke-RestMethod -Method Post -Uri $clusterUriCreateJob -Credential $creds -Body $OoziePayload -ContentType "application/xml" -OutVariable $OozieJobName -debug -Verbose
 		
 		    $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
-		    $oozieJobId = $jsonResponse[0].("id")
+		    $oozieJobId = $jsonResponse[0)]"id")
 		    Write-Host "Oozie job id is $oozieJobId..."
 		
 		    return $oozieJobId
@@ -578,7 +578,7 @@ Invoke-RestMethod PowerShell Cmdlet 來叫用 Oozie Web 服務。Oozie Web 服�
 		    $clusterUriGetJobStatus = "https://$clusterName.azurehdinsight.net:443/oozie/v2/job/" + $oozieJobId + "?show=info"
 		    $response = Invoke-RestMethod -Method Get -Uri $clusterUriGetJobStatus -Credential $creds 
 		    $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
-		    $JobStatus = $jsonResponse[0].("status")
+		    $JobStatus = $jsonResponse[0)]"status")
 		
 		    while($JobStatus -notmatch "SUCCEEDED|KILLED")
 		    {
@@ -586,7 +586,7 @@ Invoke-RestMethod PowerShell Cmdlet 來叫用 Oozie Web 服務。Oozie Web 服�
 		        Start-Sleep -Seconds $waitTimeBetweenOozieJobStatusCheck
 		        $response = Invoke-RestMethod -Method Get -Uri $clusterUriGetJobStatus -Credential $creds 
 		        $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
-		        $JobStatus = $jsonResponse[0].("status")
+		        $JobStatus = $jsonResponse[0)]"status")
 		    }
 		
 		    Write-Host "$(Get-Date -format 'G'): $oozieJobId is in $JobStatus state!"
@@ -734,11 +734,11 @@ Invoke-RestMethod PowerShell Cmdlet 來叫用 Oozie Web 服務。Oozie Web 服�
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
 [apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
-[powershell-download]: http://azure.microsoft.com/zh-tw/downloads/
+[powershell-download]: http://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: ../install-and-configure-powershell/
-[powershell-start]: http://technet.microsoft.com/zh-tw/library/hh847889.aspx
-[powershell-script]: http://technet.microsoft.com/zh-tw/library/ee176949.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 

@@ -44,7 +44,7 @@ CNAME 記錄會將 *specific* DNS 名稱 (例如 **mail.contoso.com** 或 **www.
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-	> [AZURE.NOTE] 如果 [**管理網域**] 未啟用，這代表您使用的是免費網站。您無法在免費網站中使用自訂網域名稱，且必須升級到「共用」、「基本」或「標準」模式。如需網站模式的詳細資訊，包括如何變更網站的模式，請參閱[如何調整網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-scale/)。
+	> [AZURE.NOTE] 如果 [**管理網域**] 未啟用，這代表您使用的是免費網站。您無法在免費網站中使用自訂網域名稱，且必須升級到「共用」、「基本」或「標準」模式。如需網站模式的詳細資訊，包括如何變更網站的模式，請參閱[如何調整網站](http://azure.microsoft.com/documentation/articles/web-sites-scale/)。
 
 6. 在 [**管理自訂網域**] 對話方塊中，您會看到 **awverify** 資訊、目前指派的 **.azurewebsites.net** 網域名稱，以及虛擬 IP 位址。儲存此資訊，在建立 DNS 記錄時會用得到。
 

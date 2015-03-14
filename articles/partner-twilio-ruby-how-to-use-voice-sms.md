@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Twilio Voice/SMS Service" pageTitle="如何使用 Twilio 進行語音和 SMS (Ruby) - Azure" metaKeywords="Azure Ruby Twilio, Azure 通話, Azure 通話, Azure Twilio, Azure SMS, Azure SMS, Azure 語音通話, azure 語音通話, Azure 文字訊息, Azure 文字訊息" description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。以 Ruby 撰寫的程式碼範例。" metaCanonical="" services="" documentationCenter="Ruby" title="How to Use Twilio for Voice and SMS Capabilities in PHP" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+﻿<properties 
+	pageTitle="如何使用 Twilio 進行語音和 SMS (Ruby) - Azure" 
+	description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。程式碼範例以 Ruby 撰寫。" 
+	services="" 
+	documentationCenter="ruby" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ruby" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="MicrosoftHelp@twilio.com"/>
 
 
 
@@ -16,9 +30,9 @@
 * [建立 Twilio 帳戶](#CreateAccount)
 * [建立 Ruby Sinatra 應用程式](#create_app)
 * [設定應用程式以使用 Twilio 程式庫](#configure_app)
-* [作法：撥出電話](#howto_make_call)
-* [作法：接收簡訊](#howto_recieve_sms)
-* [作法：其他 Twilio 服務](#additional_services)
+* [做法：撥出電話](#howto_make_call)
+* [做法：接收簡訊](#howto_recieve_sms)
+* [做法：其他 Twilio 服務](#additional_services)
 * [後續步驟](#NextSteps)
 
 ## <a id="WhatIs"></a>什麼是 Twilio？
@@ -27,7 +41,7 @@ Twilio 是一種電話語音 Web 服務 API，能夠讓您使用現有的 Web �
 **Twilio 語音**可讓應用程式撥打和接聽電話。**Twilio SMS** 可以讓您的應用程式撰寫和接收 SMS 訊息。**Twilio 用戶端**可以讓您的應用程式在現有網際網路連線 (包括行動連線) 中啟用語音通訊。
 
 ## <a id="Pricing"></a>Twilio 定價和特別優惠
-Twilio 定價的相關資訊位於 [Twilio 定價] [twilio_pricing]。Azure 客戶享有[特殊優惠][special_offer]：免費1000 則文字簡訊或接聽1000 分鐘電話。若要註冊這項優惠或取得詳細資訊，請瀏覽 [http://ahoy.twilio.com/azure][special_offer]。  
+Twilio 定價的相關資訊位於 [Twilio 定價] [twilio_pricing]。Azure 客戶享有[特別優惠][special_offer]: 免費 1000 則文字簡訊或接聽 1000 分鐘電話。若要註冊這項優惠或取得詳細資訊，請瀏覽 [http://ahoy.twilio.com/azure][special_offer]。  
 
 ## <a id="Concepts"></a>概念
 Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。用戶端程式庫有多種語言版本，相關清單請參閱 [Twilio API 程式庫] [twilio_libraries]。
@@ -42,30 +56,30 @@ TwiML 是一組以 XML 為基礎的指令，可指示 Twilio 如何處理來電�
        <Say>Hello World</Say>
     </Response>
 
-所有 TwiML 文件皆會以 `<Response>` 做為其根元素。您可以由此處使用 Twilio 動詞定義應用程式的行為。
+所有 TwiML 文件皆會以 `<Response>` 作為其根元素。您可以由此處使用 Twilio 動詞定義應用程式的行為。
 
 ### <a id="Verbs"></a>TwiML 動詞
 Twilio 動詞是指示 Twilio 應「執行」****哪些動作的 XML 標籤。例如，**&lt;Say&gt;** 動詞會指示 Twilio 在通話中用語音傳遞訊息。 
 
 以下是 Twilio 動詞清單。
 
-* **&lt;Dial&gt;**：使撥號者接通另一支電話。
-* **&lt;Gather&gt;**：收集電話按鍵上輸入的號碼。
-* **&lt;Hangup&gt;**：結束通話。
-* **&lt;Play&gt;**：播放音訊檔案。
-* **&lt;Pause&gt;**：靜候一段指定的秒數。
-* **&lt;Record&gt;**：錄製來電者的語音並傳回含有錄音的檔案 URL。
-* **&lt;Redirect&gt;**：將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
-* **&lt;Reject&gt;**：拒絕 Twilio 號碼的來電而不計費
-* **&lt;Say&gt;**：將來電的文字轉換成語音。
-* **&lt;Sms&gt;**：傳送簡訊。
+* **&lt;Dial&gt;**:使撥號者接通另一支電話。
+* **&lt;Gather&gt;**:收集電話按鍵上輸入的號碼。
+* **&lt;Hangup&gt;**:結束通話。
+* **&lt;Play&gt;**:播放音訊檔案。
+* **&lt;Pause&gt;**:靜候一段指定的秒數。
+* **&lt;Record&gt;**:錄製來電者的語音並傳回含有錄音的檔案 URL。
+* **&lt;Redirect&gt;**:將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
+* **&lt;Reject&gt;**:拒絕 Twilio 號碼的來電而不計費
+* **&lt;Say&gt;**:將來電的文字轉換成語音。
+* **&lt;Sms&gt;**:傳送簡訊。
 
 如需 Twilio 動詞、屬性與 TwiML 的詳細資訊，請參閱 [TwiML] [twiml]。如需 Twilio API 的其他資訊，請參閱 [Twilio API] [twilio_api]。
 
 ## <a id="CreateAccount"></a>建立 Twilio 帳戶
 準備取得 Twilio 帳戶時，請在[試用 Twilio] [try_twilio] 註冊。您可以先使用免費帳戶，稍後再升級帳戶。
 
-註冊 Twilio 帳戶時，您會獲得可供應用程式使用的免費電話號碼。您也會獲得帳戶 SID 和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面][ twilio_accounttwilio_account] (英文) 的 [ACCOUNT SID]**** 和 [AUTH TOKEN]**** 欄位中，分別可檢視您的帳戶SID和驗證權杖。
+註冊 Twilio 帳戶時，您會獲得可供應用程式使用的免費電話號碼。您也會獲得帳戶 SID 和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面 ][twilio_account] 的 [**ACCOUNT SID**] 和 [**AUTH TOKEN**] 欄位中，分別可檢視您的帳戶SID和驗證權杖。
 
 ### <a id="VerifyPhoneNumbers"></a>驗證電話號碼
 除了 Twilio 提供給您的號碼以外，您也可以驗證您在應用程式中控管使用性的號碼 (也就是您的行動電話或家用電話號碼)。 
@@ -85,7 +99,7 @@ Twilio 動詞是指示 Twilio 應「執行」****哪些動作的 XML 標籤。�
     gem 'sinatra'
     gem 'thin'
 
-在命令列上執行 `bundle install`。這會安裝前述的相依性。接著，請建立名為 `web.rb` 的檔案。Web 應用程式的程式碼會存留於該處。請將下列程式碼貼到檔案中：
+在命令列上執行  `bundle install`。這會安裝前述的相依性。接著，建立名為  `web.rb` 的檔案。Web 應用程式的程式碼會存留於該處。請將下列程式碼貼到檔案中：
 
     require 'sinatra'
 
@@ -96,11 +110,11 @@ Twilio 動詞是指示 Twilio 應「執行」****哪些動作的 XML 標籤。�
 此時，您應可執行 `ruby web.rb -p 5000` 命令。這會在連接埠 5000 上啟動小型 Web 伺服器。您應可在瀏覽器中造訪您為 Azure VM 設定的 URL，而瀏覽至此應用程式。只要您可在瀏覽器中存取您的 Web 應用程式，您即可開始建置 Twilio 應用程式。
 
 ## <a id="configure_app"></a>設定應用程式以使用 Twilio
-您可以更新 `Gemfile` 以加入下列程式碼行，將 Web 應用程式設定成使用 Twilio 程式庫：
+您可以更新  `Gemfile` 以加入下一行程式碼，將 Web 應用程式設為使用 Twilio 程式庫：
 
     gem 'twilio-ruby'
 
-在命令列上執行 `bundle install`。接著，開啟 `web.rb`，並將此行加入至頂端：
+在命令列上執行  `bundle install`。接著，開啟  `web.rb`，並將此行加入至頂端：
 
     require 'twilio-ruby'
 
@@ -109,14 +123,14 @@ Twilio 動詞是指示 Twilio 應「執行」****哪些動作的 XML 標籤。�
 ## <a id="howto_make_call"></a>作法：撥出電話
 下列程式碼將說明如何向外撥打電話。主要的概念包括使用適用於 Ruby 的 Twilio 協助程式程式庫，來撥打 REST API 電話以及轉譯 TwiML。使用您的值取代 **From** 與 **To** 電話號碼，並確定您已先驗證 Twilio 帳戶的 **From** 電話號碼，再執行程式碼。
 
-將此函數新增至 `web.md`：
+將此函數新增至  `web.md`：
 
-    # 設定您的帳戶識別碼和驗證權杖。
+    # Set your account ID and authentication token.
 	sid = "your_twilio_account_sid";
 	token = "your_twilio_authentication_token";
 
-	# 初始化電話的電話號碼。
-    # 這應該是 Twilio 數字或您驗證過的數字。
+	# The number of the phone initiating the the call.
+    # This should either be a Twilio number or a number that you've verified
 	from = "NNNNNNNNNNN";
 
 	# The number of the phone receiving call.
@@ -139,16 +153,16 @@ Twilio 動詞是指示 Twilio 應「執行」****哪些動作的 XML 標籤。�
        </Response>"
     end
     
-您在瀏覽器中開啟 `http://yourdomain.cloudapp.net/make_call` 時，將會觸發對 Twilio API 的呼叫，以撥打電話。`client.account.calls.create` 中的前兩個參數很容易理解：「來電」號碼和「去電」號碼。 
+您在瀏覽器中開啟  `http://yourdomain.cloudapp.net/make_call` 時，將觸發對 Twilio API 的呼叫來撥打電話。 `client.account.calls.create` 中的前兩個參數很容易理解：來電 ( `from`) 號碼和去電 ( `to`) 號碼。 
 
 第三個參數 (`url`) 是 Twilio 要求取得相關指示以得知在電話接通時應執行何動作的 URL。在此案例中，我們所設定的 URL (`http://yourdomain.cloudapp.net`) 會傳回簡易 TwiML 文件，並使用 `<Say>` 動詞執行文字轉換成語音的動作，對接聽電話的人說出 "Hello Monkey"。
 
 ## <a id="howto_recieve_sms"></a>作法：接收簡訊
-在前述範例中，我們撥打了「外撥」****電話。現在，我們要使用 Twilio 在註冊期間提供給我們的電話號碼來處理「傳入的」****簡訊。
+在前述範例中，我們撥打了「外撥」****電話。現在，我們要使用 Twilio 在註冊期間提供給我們的電話號碼來處理「**傳入的**」簡訊。
 
 首先，請登入您的 [Twilio 儀表板][twilio_account]。在頂端的導覽區中按一下「號碼」，然後按一下 Twilio 提供給您的號碼。您會看見兩個可以設定的 URL。語音要求 URL 和簡訊要求 URL。這是在撥打電話或傳送簡訊至您的號碼時，Twilio 所將呼叫的 URL。這些 URL 也稱為 "Web hook"。
 
-我們要處理傳入的簡訊，因此，我們將 URL 更新為 `http://yourdomain.cloudapp.net/sms_url`。接著，按一下頁面底部的 [儲存變更]。現在，我們要在 `web.rb` 中程式化應用程式，以進行相關處理：
+我們想要處理傳入的 SMS 簡訊，因此，要將 URL 更新為  `http://yourdomain.cloudapp.net/sms_url`。接著，按一下頁面底部的 [儲存變更]。現在，要在  `web.rb` 中將應用程式程式化，以進行相關處理：
 
     post '/sms_url' do
       "<Response>
@@ -191,6 +205,6 @@ Twilio 動詞是指示 Twilio 應「執行」****哪些動作的 XML 標籤。�
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
-[azure_vm_setup]: http://www.windowsazure.com/zh-tw/develop/ruby/tutorials/web-app-with-linux-vm/
+[azure_vm_setup]: http://azure.microsoft.com/develop/ruby/tutorials/web-app-with-linux-vm/
 
-<!--HONumber=35.2-->
+<!--HONumber=45-->

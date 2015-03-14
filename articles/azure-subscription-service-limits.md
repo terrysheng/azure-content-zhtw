@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Azure Subscription and Service Limits, Quotas, and Constraints" pageTitle="Microsoft Azure 訂用帳戶和服務限制、配額與限制" metaKeywords="雲端服務, 虛擬機器, 網站, 虛擬網路, SQL Database, 訂用帳戶, 儲存體" description="提供一般 Azure 訂用帳戶和服務限制的清單及最大值。" metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="" authors="jroth" solutions="" manager="jeffreyg" editor="mollybos" />
+﻿<properties 
+	pageTitle="Microsoft Azure 訂用帳戶和服務限制、配額與限制" 
+	description="提供一般 Azure 訂用帳戶和服務限制的清單及最大值。" 
+	services="" 
+	documentationCenter="" 
+	authors="rothja" 
+	manager="jeffreyg" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jroth" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="jroth"/>
 
 # Azure 訂閱和服務限制、配額與限制
 
@@ -30,22 +44,22 @@
    <th align="left" valign="middle">上限</th>
 </tr>
 <tr>
-   <td valign="middle"><p>核心 (每一 <a href="http://msdn.microsoft.com/zh-tw/library/azure/hh531793.aspx">訂用帳戶)</a><sup>1</sup></p></td>
+   <td valign="middle"><p>核心 (每一 <a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">訂用帳戶)</a><sup>1</sup></p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>10,000</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/zh-tw/library/azure/gg456328.aspx">共同管理員</a> (每一訂用帳戶)</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/gg456328.aspx">共同管理員</a> (每一訂用帳戶)</p></td>
    <td valign="middle"><p>200</p></td>
    <td valign="middle"><p>200</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/zh-tw/documentation/articles/storage-whatis-account/">儲存體帳戶</a> (每一訂用帳戶)</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/storage-whatis-account/">儲存體帳戶</a> (每一訂用帳戶)</p></td>
    <td valign="middle"><p>100</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/zh-tw/documentation/articles/cloud-services-what-is/">雲端服務</a> (每一訂用帳戶)</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">雲端服務</a> (每一訂用帳戶)</p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>200</p></td>
 </tr>
@@ -55,7 +69,7 @@
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/zh-tw/library/jj157100.aspx">區域網路</a> (每一訂用帳戶)</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/jj157100.aspx">區域網路</a> (每一訂用帳戶)</p></td>
    <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
@@ -85,18 +99,18 @@
    <td valign="middle"><p>400</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/zh-tw/library/azure/jj156085.aspx">同質群組</a> (每一訂用帳戶)</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156085.aspx">同質群組</a> (每一訂用帳戶)</p></td>
    <td valign="middle"><p>256</p></td>
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/zh-tw/documentation/articles/azure-preview-portal-using-resource-groups/">資源群組</a> (每一訂用帳戶)</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/">資源群組</a> (每一訂用帳戶)</p></td>
    <td valign="middle"><p>300</p></td>
    <td valign="middle"><p>300</p></td>
 </tr>
 
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/zh-tw/services/batch/">批次預覽</a> 帳戶 (每一地區的每一訂用帳戶)</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">批次預覽</a> 帳戶 (每一地區的每一訂用帳戶)</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>   
 </tr>
@@ -115,22 +129,22 @@
    <th align="left" valign="middle">上限</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/zh-tw/documentation/articles/cloud-services-what-is/">Web/背景工作角色 (每一部署)<sup>1</sup></a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Web/背景工作角色 (每一部署)<sup>1</sup></a></p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/zh-tw/library/gg557552.aspx#InstanceInputEndpoint">執行個體輸入端點</a> (每一部署)</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint">執行個體輸入端點</a> (每一部署)</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/zh-tw/library/gg557552.aspx#InputEndpoint">輸入端點</a> (每一部署)</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint">輸入端點</a> (每一部署)</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/zh-tw/library/gg557552.aspx#InternalEndpoint">內部端點</a> (每一部署)</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint">內部端點</a> (每一部署)</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
@@ -147,7 +161,7 @@
    <th align="left" valign="middle">上限</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/zh-tw/documentation/services/virtual-machines/">虛擬機器</a> (每一雲端服務)<sup>1</sup></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/services/virtual-machines/">虛擬機器</a> (每一雲端服務)<sup>1</sup></p></td>
    <td valign="middle"><p>50</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
@@ -314,18 +328,20 @@
 
 [Azure 的虛擬機器和雲端服務大小][vmsizes]
 
-  [customersupportfaq]: http://azure.microsoft.com/zh-tw/support/faq/
+  [customersupportfaq]: http://azure.microsoft.com/support/faq/
   [azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-  [gateway]: http://msdn.microsoft.com/zh-tw/library/azure/jj156210.aspx 
+  [gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx 
   [storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
-  [sqldblimits]: http://msdn.microsoft.com/zh-tw/library/azure/dn338081.aspx
-  [sqltiers]: http://msdn.microsoft.com/zh-tw/library/azure/dn741340.aspx
-  [sqltiersperflevels]: http://msdn.microsoft.com/zh-tw/library/azure/dn741336.aspx
-  [sqlDTU]: http://msdn.microsoft.com/zh-tw/library/azure/ee336245.aspx#DTUs
-  [vmsizes]: http://msdn.microsoft.com/zh-tw/library/azure/dn197896.aspx
+  [sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
+  [sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx
+  [sqltiersperflevels]: http://msdn.microsoft.com/library/azure/dn741336.aspx
+  [sqlDTU]: http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs
+  [vmsizes]: http://msdn.microsoft.com/library/azure/dn197896.aspx
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [locallyredundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx
-  [adlimitsandrestrictions]: http://msdn.microsoft.com/zh-tw/library/azure/dn764971.aspx
+  [adlimitsandrestrictions]: http://msdn.microsoft.com/library/azure/dn764971.aspx
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

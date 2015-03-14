@@ -1,6 +1,20 @@
-<properties title="How to create a custom template image for RemoteApp" pageTitle="如何為 RemoteApp 建立自訂範本映像" description="了解如何為 RemoteApp 建立自訂範本映像。您可以使用此範本於混合式部署或雲端部署。" metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+﻿<properties 
+	pageTitle="如何為 RemoteApp 建立自訂範本映像" 
+	description="了解如何為 RemoteApp 建立自訂範本映像。您可以將此範本用於混合式或雲端部署。" 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="mbaldwin" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/17/2015" 
+	ms.author="elizapo"/>
 
 # 如何為 RemoteApp 建立自訂範本映像
 Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與使用者共用的所有程式。若要建立自訂 RemoteApp 範本映像，您可以從現有的映像建立，或是建立新映像。可上傳用於 Azure RemoteApp 的映像有下列需求：
@@ -23,10 +37,10 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 
 在建立服務之前，您必須執行下列作業：
 
-- 註冊 RemoteApp。您可以在 [http://azure.microsoft.com/zh-tw/services/remoteapp/](http://azure.microsoft.com/zh-tw/services/remoteapp/) 執行此作業。
-- 在 Active Directory 中建立使用者帳戶，以做為 RemoteApp 服務帳戶。限制此帳戶的權限，使其只能將機器加入網域中。如需詳細資訊，請參閱[設定 RemoteApp 的 Azure Active Directory](http://azure.microsoft.com/zh-tw/documentation/articles/remoteapp-ad/)。
+- 註冊 RemoteApp。您可以在 [http://azure.microsoft.com/services/remoteapp/](http://azure.microsoft.com/services/remoteapp/) 執行此作業。
+- 在 Active Directory 中建立使用者帳戶，以做為 RemoteApp 服務帳戶。限制此帳戶的權限，使其只能將機器加入網域中。如需詳細資訊，請參閱[設定 RemoteApp 的 Azure Active Directory](http://azure.microsoft.com/documentation/articles/remoteapp-ad/)。
 - 收集內部部署網路的相關資訊：IP 位址資訊和 VPN 裝置詳細資料。
-- 安裝 [Azure PowerShell](http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/) 模組。
+- 安裝 [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) 模組。
 - 收集您想授與存取權之使用者的相關資訊。這可以是使用者 Microsoft 帳戶資訊或 Active Directory 工作帳戶資訊。
 
 
@@ -115,8 +129,10 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 現在您的自訂範本映像已經就緒，您需要將該映像上傳至您的 RemoteApp 部署。使用下列文章中的資訊建立您的收藏：
 
 
-- [如何建立 RemoteApp 的混合式收藏](http://azure.microsoft.com/zh-tw/documentation/articles/remoteapp-create-hybrid-deployment/)
-- [如何建立 RemoteApp 的雲端收藏](http://azure.microsoft.com/zh-tw/documentation/articles/remoteapp-create-cloud-deployment/)
+- [如何建立 RemoteApp 的混合式收藏](http://azure.microsoft.com/documentation/articles/remoteapp-create-hybrid-deployment/)
+- [如何建立 RemoteApp 的雲端收藏](http://azure.microsoft.com/documentation/articles/remoteapp-create-cloud-deployment/)
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

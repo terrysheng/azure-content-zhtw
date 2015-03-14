@@ -1,6 +1,18 @@
-﻿<properties title="Diagnose performance issues on a running website" pageTitle="在執行中的網站上診斷效能問題" description="監視網站的效能而不重新部署網站。" metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="在執行中的網站上診斷效能問題" 
+	description="監視網站的效能而不重新部署網站。使用獨立或 Application Insights SDK" 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-23" 
+	ms.author="awills"/>
  
 
 # 立即監視即時網站的效能
@@ -98,3 +110,5 @@ Web 應用程式運作不正常嗎？快速診斷例外狀況和效能問題，�
 
 
 
+
+<!--HONumber=46--> 

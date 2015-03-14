@@ -1,6 +1,18 @@
-﻿<properties title="Search diagnostic logs with Application Insights" pageTitle="搜尋診斷記錄 (英文)" description="搜尋使用 Trace、NLog 或 Log4Net 產生的記錄檔。" metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="搜尋診斷記錄" 
+	description="搜尋使用 Trace、NLog 或 Log4Net 產生的記錄檔。" 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
  
 # Application Insights 中的診斷搜尋
 
@@ -306,3 +318,5 @@ NuGet 封裝會安裝必要的組件，並修改 web.config 或 app.config。
 
 
 
+
+<!--HONumber=46--> 

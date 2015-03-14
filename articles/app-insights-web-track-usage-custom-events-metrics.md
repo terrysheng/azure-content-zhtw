@@ -1,6 +1,18 @@
-﻿<properties title="Track custom usage events and metrics in your web app with Application Insights" pageTitle="使用 Application Insights 追蹤 Web 應用程式中的使用量事件和度量" description="插入幾行程式碼以了解使用者對於您的網站所進行的動作。" metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani"  />
+﻿<properties 
+	pageTitle="使用 Application Insights API 追蹤 Web 應用程式中的使用狀況和事件" 
+	description="插入幾行程式碼來追蹤使用狀況及診斷問題。" 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
  
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-01" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-02-06" 
+	ms.author="awills"/>
 
 # 追蹤 Web 應用程式中自訂使用量事件和度量
 
@@ -254,3 +266,5 @@ To see the filters, expand the parent event group, and select a particular event
 
 
 
+
+<!--HONumber=46--> 

@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="如何使用媒體服務" 
-	description="" 
+	pageTitle="如何使用 .NET 設定用於媒體服務開發的電腦" 
+	description="了解將 Media Services SDK for .NET 用於媒體服務的必要條件。同時了解如何建立 Visual Studio 應用程式。" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,147 +13,88 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="02/02/2015" 
 	ms.author="juliako"/>
 
+# 使用 .NET 進行媒體服務開發 
 
-# 如何使用媒體服務
+本主題討論如何使用 .NET 開始開發媒體服務應用程式。 
 
-本指南說明如何使用 Azure 媒體服務來開始程式設計。本指南包含一組文章，並且包含媒體服務的技術概觀、針對媒體服務來設定 Azure 帳戶的步驟、開發用設定指南，以及一些說明如何完成一般程式設計工作的主題。示範的案例包括：上傳資產、加密資產、編碼資產和傳遞資產。這些範例均以 C# 撰寫，並使用 Media Services SDK for .NET。如需 Azure 媒體服務的詳細資訊，請參閱[後續步驟][]主題。
+**Azure Media Services .NET SDK** 程式庫可讓您使用 .NET 對媒體服務進行程式設計。為了讓使用 .NET 進行開發更為簡單，會提供 **Azure Media Services .NET SDK 延伸模組**程式庫。此程式庫包含一組延伸方法和協助程式函數，以簡化 .NET 程式碼。這兩個程式庫都是透過 **NuGet** 和 **GitHub** 取得。
+ 
 
-您也可以使用 OData 型 REST API 對媒體服務進行程式設計。您可以使用 .NET 語言或其他程式設計語言，建置對媒體服務進行 REST API 呼叫的應用程式。如需關於使用 Media Services REST API 進行程式設計的完整文件系列，請參閱[使用 Azure Media Services REST API 建立應用程式](http://go.microsoft.com/fwlink/?linkid=252967)。 
+## 必要條件
 
-若要開始使用 Media Services REST API 或 Media Services SDK 進行程式設計，請先對您的 Azure 帳戶啟用媒體服務 (如[設定媒體服務的 Azure 帳戶][]一節所述)。
+-   新的或現有 Azure 訂用帳戶中的媒體服務帳戶。請參閱[如何建立媒體服務帳戶](../media-services-create-account/)主題。
+-   作業系統：Windows 7、Windows 2008 R2 或 Windows 8。
+-   .NET Framework 4.5。
+-   Visual Studio 2013、Visual Studio 2012 或 Visual Studio 2010 SP1 (Professional、Premium、Ultimate 或 Express)。 
+  
 
-最新 Media Services SDK 文件位於[這裡](http://msdn.microsoft.com/zh-tw/library/hh973613.aspx)。 
+## 建立和設定 Visual Studio 專案 
 
-## <a name="what-are"></a><span class="short header">什麼是媒體服務？</span>
-Azure 媒體服務形成一個可延伸媒體平台，可整合 Microsoft Media Platform 精華與 Azure 中的協力廠商媒體元件。媒體服務提供雲端中的一個媒體管道，讓業界合作夥伴能夠擴充或取代元件技術。ISV 和媒體提供者可以使用媒體服務來建置端對端媒體解決方案。此概觀說明媒體服務的一般架構和常見開發案例。
+本節說明如何在 Visual Studio 中建立專案並設定來進行媒體服務開發。在此案例中，專案是 C# Windows 主控台應用程式，但這裡顯示的設定步驟也適用於可以為媒體服務應用程式建立的其他專案類型 (例如，Windows Forms 應用程式或 ASP.NET Web 應用程式)。
 
-下圖說明基本的媒體服務架構。
+本節顯示如何使用 **NuGet** 新增 Media Services .NET SDK 和其他相依程式庫。 
 
-![Media Services Architecture](./media/media-services-dotnet-how-to-use/wams-01.png)
+或者，您可以從 GitHub 取得最新 Media Services .NET SDK 位元 ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) 和 [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions))、建置方案，並加入至用戶端專案的參考。請注意，會下載並自動解壓縮所有必要相依性。   
 
-### 媒體服務功能支援
-最新版本的媒體服務提供下列一組功能，以開發雲端中的媒體應用程式。
+1. 在 Visual Studio 2013、Visual Studio 2012 或 Visual Studio 2010 SP1 中，建立新的 C# 主控台應用程式。依序輸入 [**名稱**]、[**位置**] 和 [**方案名稱**]，然後按一下 [確定]。 
 
-- **擷取**。Ingest 作業會將資產帶入系統中，例如，在將資產放入 Azure 儲存體之前將資產上傳和加密。媒體服務能夠與合作夥伴元件整合，以提供快速 UDP (使用者資料包通訊協定) 上傳解決方案。
-- **編碼**。Encode 作業包括編碼、變形和轉換媒體資產。您可以使用 Azure Media Encoder 在雲端中執行編碼工作。編碼選項如下：
-   - 使用 Azure Media Encoder 並採用一系列的標準轉碼器和格式 (包括領先業界的 IIS Smooth Streaming、MP4 以及轉換為 Apple HTTP 即時資料流)。
-   - 在對輸入和輸出有完整控制的情況下，轉換整個程式庫或個別檔案。
-   - 支援眾多檔案類型、格式和轉碼器 (請參閱[媒體服務支援的檔案類型][])。
-   - 支援的格式轉換。媒體服務可讓您將 ISO MP4 (.mp4) 轉換為 Smooth Streaming 檔案格式 (PIFF 1.3) (.ismv；.isma)。您也可以將 Smooth Streaming 檔案格式 (PIFF) 轉換為 Apple HTTP 即時資料流 (.msu8、.ts)。
-- **保護**。保護內容，表示將即時串流或隨選內容加密，以進行安全的傳輸、儲存和傳遞。媒體服務提供跨 DRM 技術的解決方案來保護內容。  目前支援的 DRM 技術有 Microsoft PlayReady 和 MPEG Common Encryption。未來將再支援其他 DRM 技術。 
-- **串流**。串流內容，表示將內容立即或隨選傳送至用戶端，或者您也可以從雲端下載特定媒體檔案。媒體服務提供跨格式的解決方案來串流內容。  媒體服務提供 Smooth Streaming、Apple HTTP 即時資料流和 MP4 格式的串流出處支援。未來將再支援其他格式。您也可以使用協力廠商 CDN，啟用調整為數百萬位使用者的選項，  以順暢地傳遞串流內容。   
+2. 建置方案。
 
-### 媒體服務開發案例
-媒體服務支援數個常見媒體開發案例，如下表所述。 
-<table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
-  <thead>
-    <tr>
-       <th>案例</th>
-       <th>說明</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <td>建置端對端工作流程</td>
-        <td>完全在雲端中建置完整媒體工作流程。從上傳媒體到配送內容，媒體服務都提供一系列可合併使用的元件，以處理特定應用程式工作流程。目前功能包括上傳、儲存、編碼、格式轉換、內容保護和隨選串流傳遞。</td>
-    </tr>
-    <tr>
-        <td>建置混合式工作流程</td>
-        <td>您可以將媒體服務整合現有工具和程序。例如，編碼站台上的內容，然後將其上傳至媒體服務以轉碼為多種格式，並透過 Azure CDN 或協力廠商 CDN 進行傳遞。您可以透過標準 REST API 來個別呼叫媒體服務，以與外部應用程式和服務整合。</td>
-    </tr>
-    <tr>
-        <td>提供媒體播放程式的雲端支援</td>
-        <td>您可以跨多個裝置 (包括 iOS、Android 和 Windows 裝置) 和平台來建立、管理和傳遞媒體。</td>
-    </tr>
-  </tbody>
-</table>
+2. 使用 **NuGet** 來安裝和新增 **Azure Media Services .NET SDK 延伸模組**。安裝這個封裝，也會安裝 **Media Services .NET SDK**，並新增所有其他必要相依性。
+	1. 確定您已安裝 NuGet 的最新版本。如需詳細資訊和安裝指示，請參閱 [NuGet](http://nuget.codeplex.com/)。
+	
+	2. 在 [方案總管] 中，於專案名稱上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。
+	
+		The Manage NuGet Packages dialog box appears.
 
-<h3><a name="media-client"></a>媒體服務用戶端開發</h3>
-使用 SDK 和播放程式架構延伸媒體服務解決方案的範圍，以建置媒體用戶端應用程式。如果開發人員想要讓建置的媒體服務應用程式能夠跨一系列的裝置和平台提供吸引人的使用者體驗，就適合使用這些用戶端。視目標裝置而定，有 Microsoft 和協力廠商合作夥伴提供的 SDK 與播放程式架構可選。  
+	3. 在線上組件庫中，搜尋 [Azure MediaServices 延伸模組]，並選擇 [Azure Media Services .NET SDK 延伸模組]，然後按一下 [安裝] 按鈕。
+ 
+		會修改專案，並加入 Media Services .NET SDK 延伸模組、Media Services .NET SDK 和其他相依組件的參考。
 
-下列提供可用之用戶端 SDK 和播放程式架構的清單。  如需這些和其他計劃性 SDK 與播放程式架構以及其能支援之功能的詳細資訊，請參閱媒體服務論壇中的[媒體服務用戶端開發][]。 
+	4. 若要提升更乾淨的開發環境，請考慮啟用 [NuGet 封裝還原]。如需詳細資訊，請參閱 [NuGet 封裝還原"](http://docs.nuget.org/consume/package-restore)。
 
-#### Mac 和 PC 用戶端支援  
-針對 PC 和 Mac，您可以將目標設為使用 Microsoft Silverlight 或 Adobe Open Source Media Framework 的串流體驗。
+3. 加入 **System.Configuration** 組件的參考。此組件包含用來存取組態檔 (例如，App.config) 的 System.Configuration.**ConfigurationManager** 類別。 
 
--	[Smooth Streaming Client for Silverlight](http://www.microsoft.com/zh-tw/download/details.aspx?id=29940)
--	[Microsoft Media Platform：Player Framework (Silverlight 版)](http://smf.codeplex.com/documentation)
--	[OSMF 2.0 的 Smooth Streaming 外掛程式](http://go.microsoft.com/fwlink/?LinkId=275022).如需關於如何使用此外掛程式的詳細資訊，請參閱[如何使用 Smooth Streaming Plugin for Adobe Open Source Media Framework](../media-services-use-osmf-smooth-streaming-client-plugin/)。
+	若要使用 [管理參考] 對話方塊加入參考，請執行下列動作： 
 
-#### Windows 8 應用程式
-針對 Windows 8，您可以使用任何支援的開發語言和建構 (例如 HTML、Javascript、XAML、C# 和 C+) 來建置 Windows 市集應用程式。
+	1. 在 [方案總管] 中，於專案名稱上按一下滑鼠右鍵。然後，依序選取 [加入] 和 [參考]。
 
--	[Smooth Streaming Client SDK for Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146)。如需關於如何使用此 SDK 建立 Windows 市集應用程式的詳細資訊，請參閱[如何建置 Smooth Streaming Windows 市集應用程式](http://go.microsoft.com/fwlink/?LinkId=271647)。如需關於如何使用 HTML5 建立 Smooth Streaming 播放程式的詳細資訊，請參閱[逐步介紹：建置您的第一個 HTML5 Smooth Streaming 播放程式](http://msdn.microsoft.com/zh-tw/library/jj573656(v=vs.90).aspx)。
+		[管理參考] 對話方塊隨即出現。
 
--	[Microsoft Media Platform：Player Framework (Windows 8 Windows 市集應用程式版)](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
-
-#### Xbox
-Xbox 支援可取用 Smooth Streaming 內容的 Xbox LIVE 應用程式。Xbox LIVE Application Development Kit (ADK) 包含：
-
--	Xbox LIVE ADK 的 Smooth Streaming 用戶端
--	Microsoft Media Platform：Player Framework (Xbox LIVE ADK 版)
-
-#### 內嵌或專用裝置
-如連接的電視、機上盒、藍光播放機、OTT 電視盒以及具有自訂應用程式開發架構和自訂媒體管道的行動裝置等裝置。Microsoft 提供下列可授權、並讓合作夥伴能夠針對此平台來移植 Smooth Streaming 播放的移植套件。
-
--	[Smooth Streaming Client Porting Kit](http://www.microsoft.com/zh-tw/mediaplatform/sspk.aspx)
--	[Microsoft PlayReady Device Porting Kit](http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx)
-
-#### Windows Phone
-Microsoft 提供可用來建置 Windows Phone 版優質視訊應用程式的 SDK。 
-
--	[Smooth Streaming Client for Silverlight](http://www.microsoft.com/zh-tw/download/details.aspx?id=29940)
--	[Microsoft Media Platform：Player Framework (Silverlight 版)](http://smf.codeplex.com/documentation)
-
-#### iOS 裝置
-針對 iOS 裝置 (包括 iPhone、iPod 和 iPad)，Microsoft 隨附 SDK，供您用來建置這些平台的應用程式，以提供優質視訊內容，這個 SDK 就是：Smooth Streaming SDK for iOS Devices with PlayReady。  只有被授權人才能取得 SDK，因此，如需詳細資訊，請[傳送電子郵件給 Microsoft] (mailto:askdrm@microsoft.com)。如需 iOS 開發的詳細資訊，請參閱 [iOS 開發人員中心](https://developer.apple.com/devcenter/ios/index.action)。
-
-#### Android 裝置
-有幾家 Microsoft 合作夥伴都提供 Android 平台的 SDK，可新增在 Android 裝置上播放 Smooth Streaming 的功能。如需這些合作夥伴的詳細資料，請參閱[傳送電子郵件給 Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices)。
-
-## 後續步驟
-您已概略了解媒體服務，現在請移至[設定媒體服務的電腦主題](../media-services-set-up-computer/)。
+	2. 在 .NET Framework 組件下，尋找並選取 System.Configuration 組件。
+	3. 按 [確定]。
 
 
-  [什麼是媒體服務？]: #what-are
-  [媒體服務用戶端開發]: #media-client
-  [設定媒體服務的 Azure 帳戶]: #setup-account
-  [設定媒體服務開發]: #setup-dev
-  [做法：以程式設計方式連接到媒體服務]: #connect
-  [做法：建立加密資產並上傳至儲存體]: #create-asset
-  [做法：取得媒體處理器執行個體]: #get-mediaproc
-  [做法：檢查工作進度]: #check-job-progress
-  [做法：為資產編碼]: #encode-asset
-  [做法：使用 PlayReady 保護來保護資產]: #playready
-  [做法：管理儲存體中的資產]: #manage-asset
-  [做法：透過下載來傳遞資產]: #download-asset
-  [做法：傳遞串流內容]: #stream-asset
-  [做法：傳遞 Apple HLS 串流內容]: #stream-HLS
-  [做法：啟用 Azure CDN]: #enable-cdn
-  [後續步驟]: #next-steps
-
-  [使用 Azure Media Services REST API 建立應用程式]: http://go.microsoft.com/fwlink/?linkid=252967
-  [開放式資料通訊協定]: http://odata.org/
-  [WCF Data Services 5.0 for OData v3]: http://www.microsoft.com/download/en/details.aspx?id=29306
-  [Azure Marketplace]: https://datamarket.azure.com/
-  [媒體服務用戶端開發]: http://social.msdn.microsoft.com/Forums/zh-tw/MediaServices/thread/e9092ec6-2dfc-44cb-adce-1dc935309d2a
-  [媒體服務預覽：  支援的功能]: http://social.msdn.microsoft.com/Forums/zh-tw/MediaServices/thread/eb946433-16f2-4eac-834d-4057335233e0
-  [媒體服務即將發行的版本：  規劃的功能支援]: http://social.msdn.microsoft.com/Forums/zh-tw/MediaServices/thread/431ef036-0939-4784-a939-0ecb31151ded
-  [媒體服務預覽帳戶設定]: http://go.microsoft.com/fwlink/?linkid=247287
-  [Azure Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?LinkID=256500
-  [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-  [在 Windows 8 上安裝 Azure SDK]: http://www.windowsazure.com/zh-tw/develop/net/other-resources/windows-azure-on-windows-8/
-  [Azure 媒體服務文件]: http://go.microsoft.com/fwlink/?linkid=245437
-  [開始使用 Azure CDN]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ff919705.aspx
-  [媒體服務論壇]: http://social.msdn.microsoft.com/Forums/zh-tw/MediaServices/threads
-  [開始使用 Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=252966
-  [使用 Media Services SDK for .NET 建立應用程式]: http://go.microsoft.com/fwlink/?linkid=247821
-  [Azure 管理入口網站]: https://manage.windowsazure.com/
-  [如何建立媒體服務帳戶]: ../media-services-create-account/
-  [媒體服務支援的檔案類型]: http://msdn.microsoft.com/zh-tw/library/dn535852.aspx
+4. 開啟 App.config 檔案 (如果尚未新增，則預設會將檔案新增至您的專案)，並將 *appSettings* 區段新增至此檔案。設定 Azure 媒體服務帳戶名稱和帳戶金鑰的值 (如下列範例所示)。 
+	
+	若要取得**帳戶名稱**和**帳戶金鑰**資訊，請開啟 **Azure 管理入口網站**，並選取媒體服務帳戶，然後按一下 [**管理金鑰**] 按鈕。
 
 
-<!--HONumber=42-->
+	<pre><code>
+	&lt;configuration&gt;
+        &lt;appSettings&gt;
+    	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
+        	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
+  	    &lt;/appSettings&gt;
+	&lt;/configuration&gt;
+	</code></pre>
+
+
+5. 在 Program.cs 檔案的開頭，使用下列程式碼來覆寫現有的 using 陳述式。
+
+		using System;
+		using System.Collections.Generic;
+		using System.Linq;
+		using System.Text;
+		using System.Threading.Tasks;
+		using System.Configuration;
+		using System.Threading;
+		using System.IO;
+		using Microsoft.WindowsAzure.MediaServices.Client;
+
+現在，您可以開始開發媒體服務應用程式。    
+
+<!--HONumber=45--> 

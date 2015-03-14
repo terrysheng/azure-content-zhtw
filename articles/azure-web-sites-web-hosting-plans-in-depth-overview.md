@@ -1,6 +1,20 @@
-﻿<properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Azure 網站 Web 主控方案深入概觀 - Microsoft Azure 功能指南" description="了解 Azure 網站之虛擬主機方案的運作方式，以及它們對您的管理體驗有什麼好處。" metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Azure 網站 Web 主控方案深入概觀 - Microsoft Azure 功能指南" 
+	description="了解 Azure 網站之 Web 主控方案的運作方式，以及在管理經驗上帶來的效益。" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="btardif" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="Byron Tardif and Yochay Kiryaty" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="byvinyal, yochayk"/>
 </br>
 #Azure 網站虛擬主機方案深入概觀#
 </br>
@@ -189,3 +203,5 @@
 Web 主控方案代表可跨網站共用的一組特性和功能。「Web 主控方案」提供您將網站配置到特定資源集虛擬機器的彈性，並進一步將您的 Azure 資源配置與網站使用量最佳化。
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

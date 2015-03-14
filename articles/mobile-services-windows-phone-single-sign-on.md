@@ -1,6 +1,20 @@
-<properties pageTitle="使用 Live Connect (Windows Phone) | 行動開發人員中心驗證您的應用程式" description="了解如何從 Windows Phone 應用程式在 Azure 行動服務中使用 Live Connect 單一登入。" services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="使用 Live Connect (Windows Phone) | 行動開發人員中心驗證您的應用程式" 
+	description="了解如何從 Windows Phone 應用程式在 Azure 行動服務中使用 Live Connect 單一登入。" 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 # 使用 Live Connect 單一登入驗證 Windows Phone 8 應用程式
 
@@ -171,7 +185,8 @@
 
 [13]: ./media/mobile-services-windows-phone-single-sign-on/mobile-identity-tab-ma-only.png
 [14]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-perms.png
+[15]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-per
+	ms.png
 [16]: ./media/mobile-services-windows-phone-single-sign-on/mobile-add-reference-live-wp8.png
 
 <!-- URLs. -->

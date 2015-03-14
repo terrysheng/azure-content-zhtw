@@ -24,8 +24,8 @@
 
 模式的變更和設定可在管理入口網站的 [調整] 索引標籤中輕易完成。您可以視需要擴大或縮小。這些變更只需要幾秒鐘的時間便能完成套用，且影響範圍遍及虛擬主機方案內的所有網站。您不需要變更程式碼或重新部署應用程式。
 
-如需虛擬主機方案的相關資訊，請參閱[什麼是虛擬主機方案？](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-web-hosting-plan-overview/)與[Azure 網站虛擬主機方案深入概觀](http://www.azure.microsoft.com/zh-tw/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/)。
-如需個別虛擬主機方案之定價與功能的相關資訊，請參閱[網站定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/web-sites/)。  
+如需虛擬主機方案的相關資訊，請參閱[什麼是虛擬主機方案？](http://azure.microsoft.com/documentation/articles/web-sites-web-hosting-plan-overview/)與[Azure 網站虛擬主機方案深入概觀](http://www.azure.microsoft.com/zh-tw/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/)。
+如需個別虛擬主機方案之定價與功能的相關資訊，請參閱[網站定價詳細資料](http://azure.microsoft.com/pricing/details/web-sites/)。  
 
 > [AZURE.NOTE] 將網站從「免費」****虛擬主機方案模式切換到「基本」****或「標準」****虛擬主機方案模式之前，您必須先 Azure 網站訂用帳戶的支出上限。若要檢視或變更 Microsoft Azure 網站訂用帳戶的選項，請參閱 [Microsoft Azure 訂用帳戶][azuresubscriptions]。
 
@@ -143,7 +143,7 @@
 	
 14. 完成 [編輯排程的調整規模設定]**** 清單中的項目變更後，請按一下頁面底部之命令列中的 [儲存]**** 圖示來一次儲存所有排程設定 (您不需要分別儲存每個排程)。
 
-> [AZURE.NOTE] 在 [Azure Preview 入口網站](https://portal.azure.com/)中，您不僅可以調整 CPU 百分比，還能調整其他 [記憶體百分比]、[磁碟佇列長度]、[HTTP 佇列長度]、[資料輸入] 及 [資料輸出] 的度量。您也可以建立一或多個調升規模和調降規模規則，以便讓您可以調整更多自訂控制。如需詳細資訊，請參閱 Azure 預覽入口網站文件中的[如何調整網站規模](http://azure.microsoft.com/zh-tw/documentation/articles/insights-how-to-scale/)。
+> [AZURE.NOTE] 在 [Azure Preview 入口網站](https://portal.azure.com/)中，您不僅可以調整 CPU 百分比，還能調整其他 [記憶體百分比]、[磁碟佇列長度]、[HTTP 佇列長度]、[資料輸入] 及 [資料輸出] 的度量。您也可以建立一或多個調升規模和調降規模規則，以便讓您可以調整更多自訂控制。如需詳細資訊，請參閱 Azure 預覽入口網站文件中的[如何調整網站規模](http://azure.microsoft.com/documentation/articles/insights-how-to-scale/)。
 
 <a name="ScalingSQLServer"></a>
 ##調整與網站連接的 SQL Server Database	
@@ -180,40 +180,40 @@
 
 **Web 端點監視**
 
-- 基本和標準虛擬主機方案模式提供 Web 端點監視功能。如需 Web 端點監視的詳細資訊，請參閱[如何監視網站](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-monitor/)。
+- 基本和標準虛擬主機方案模式提供 Web 端點監視功能。如需 Web 端點監視的詳細資訊，請參閱[如何監視網站](http://azure.microsoft.com/documentation/articles/web-sites-monitor/)。
 
-- 如需虛擬主機方案其他所有功能的詳細資訊，包括所有使用者 (包括開發人員) 關心的定價和功能，請參閱[網站定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/web-sites/)。
+- 如需虛擬主機方案其他所有功能的詳細資訊，包括所有使用者 (包括開發人員) 關心的定價和功能，請參閱[網站定價詳細資料](http://azure.microsoft.com/pricing/details/web-sites/)。
 
 <a name="Next Steps"></a>	
 ## 後續步驟
 
-- 若要開始使用 Azure，請參閱 [Microsoft Azure 免費試用](http://azure.microsoft.com/zh-tw/pricing/free-trial/)。
+- 若要開始使用 Azure，請參閱 [Microsoft Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
 - 如需定價、支援及 SLA 的相關資訊，請參閱以下連結：
 	
-	[資料傳輸定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/data-transfers/)
+	[資料傳輸定價詳細資料](http://azure.microsoft.com/pricing/details/data-transfers/)
 	
-	[Microsoft Azure 支援方案](http://www.windowsazure.com/zh-tw/support/plans/)
+	[Microsoft Azure 支援方案](http://azure.microsoft.com/support/plans/)
 	
-	[服務等級協定](http://www.windowsazure.com/zh-tw/support/legal/sla/)
+	[服務等級協定](http://azure.microsoft.com/support/legal/sla/)
 	
-	[SQL Database 定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/sql-database/)
+	[SQL Database 定價詳細資料](http://azure.microsoft.com/pricing/details/sql-database/)
 	
 	[Microsoft Azure 的虛擬機器和雲端服務大小][vmsizes]
 	
-	[網站定價詳細資料](http://www.windowsazure.com/zh-tw/pricing/details/web-sites/)
+	[網站定價詳細資料](http://azure.microsoft.com/pricing/details/web-sites/)
 	
-	[網站定價詳細資料 - SSL 連線](http://www.windowsazure.com/zh-tw/pricing/details/web-sites/#ssl-connections)
+	[網站定價詳細資料 - SSL 連線](http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)
 
 - 如需 Azure 網站最佳做法 (包括建置可調整且具彈性的架構) 的相關資訊，請參閱[最佳做法：Windows Azure 網站 (WAWS)](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)。
 
 - 調整 Azure 網站規模的影片：
 	
-	[何時該調整 Azure 網站規模，與 Stefan Schackow](http://www.windowsazure.com/zh-tw/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+	[何時該調整 Azure 網站規模，與 Stefan Schackow](http://azure.microsoft.com/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
 	
-	[自動調整 Azure 網站規模、CPU 或排程，與 Stefan Schackow](http://www.windowsazure.com/zh-tw/documentation/videos/auto-scaling-azure-web-sites/)
+	[自動調整 Azure 網站規模、CPU 或排程，與 Stefan Schackow](http://azure.microsoft.com/documentation/videos/auto-scaling-azure-web-sites/)
 
-	[如何調整 Azure 網站規模，與 Stefan Schackow](http://www.windowsazure.com/zh-tw/documentation/videos/how-azure-web-sites-scale/)
+	[如何調整 Azure 網站規模，與 Stefan Schackow](http://azure.microsoft.com/documentation/videos/how-azure-web-sites-scale/)
 
 
 

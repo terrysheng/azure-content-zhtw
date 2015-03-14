@@ -1,6 +1,20 @@
-﻿<properties linkid="develop-python-cloud-services-with-ptvs" urlDisplayName="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" pageTitle="Python Web 和背景工作角色與 Python Tools 2.1 for Visual Studio" metaKeywords="Azure python, web role, worker role, PTVS, cloud service" description="使用 Python Tools for Visual Studio 建立 Azure 雲端服務的概觀，包括 Web 角色和背景工作角色。" metaCanonical="" services="" documentationCenter="Python" title="Python Web and Worker Roles with Python Tools 2.1 for Visual Studio" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Python Web 和背景工作角色與 Python Tools 2.1 for Visual Studio" 
+	description="使用 Python Tools for Visual Studio 建立 Azure 雲端服務的概觀，包括 Web 角色和背景工作角色。" 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="02/09/2015" 
+	ms.author="huvalo"/>
 
 
 
@@ -9,35 +23,27 @@
 
 本指南提供在 [Python Tools for Visual Studio][] 中使用 Python Web 和背景工作角色的概觀。
 
-+ [必要條件](#prerequisites)
-+ [什麼是 Python Web 和背景工作角色？](#what-are-python-web-and-worker-roles)
-+ [建立專案](#project-creation)
-+ [在本機執行](#run-locally)
-+ [發佈至 Azure](#publish-to-azure)
-+ [後續步驟](#next-steps)
-
-##<a name="prerequisites"></a>必要條件
+## 必要條件
 
  - Visual Studio 2012 或 2013
  - [Python Tools 2.1 for Visual Studio][]
  - [Azure SDK Tools for VS 2013][] 或 [Azure SDK Tools for VS 2012][]
- - [Python 2.7 32 位元][]或 [Python 3.4 32 位元][]
+ - [Python 2.7 (32 位元)][] 或 [Python 3.4 (32 位元)][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-##<a name="what-are-python-web-and-worker-roles"></a>什麼是 Python Web 和背景工作角色？
+## 什麼是 Python Web 和背景工作角色？
 
-Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][execution model-web sites]、[Azure 虛擬機器][execution model-vms]及 [Azure 雲端服務][execution model-cloud services]。這三種模型都支援 Python。雲端服務 (包含 Web 和背景工作角色) 可提供*平台即服務 (PaaS)*。在雲端服務中，Web 角色應用程式會提供專用的 Internet Information Services (IIS) Web 伺服器，用以代管前端 Web 應用程式，而背景工作角色則可執行獨立於使用者互動或輸入以外的非同步、長時間執行或持續性工作。
+Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][執行模型-網站]、[Azure 虛擬機器][執行模型-vms]和 [Azure 雲端服務][執行模型-雲端服務]。這三種模型都支援 Python。雲端服務包含 Web 角色和背景工作角色，可提供 *Platform as a Service (PaaS)*。在雲端服務中，Web 角色應用程式會提供專用的 Internet Information Services (IIS) Web 伺服器，用以代管前端 Web 應用程式，而背景工作角色則可執行獨立於使用者互動或輸入以外的非同步、長時間執行或持續性工作。
 
-如需詳細資訊，請參閱[什麼是雲端服務？](英文)。
+如需詳細資訊，請參閱[什麼是雲端服務？]。
 
-<div class="dev-callout"><strong>尋求建置簡單的網站？</strong>
-<p>如果您只需要簡單的網站前端，請考慮使用輕量型 Azure 網站。隨著網站擴大，以及需求改變，您可以很輕易地升級到雲端服務。請參閱 <a href="/zh-tw/develop/python/">Python 開發人員中心</a> 以取得與 Azure 網站的開發有關的文章。</p>
-</div>
+> [AZURE.NOTE] **想要建置簡單的網站？**
+如果您只需要簡單的網站前端，請考慮使用輕量型 Azure 網站。隨著網站擴大，以及需求改變，您可以很輕易地升級到雲端服務。請參閱 <a href="/zh-tw/develop/python/">Python 開發人員中心</a> 以取得與 Azure 網站的開發有關的文章。
 <br />
 
 
-##<a name="project-creation"></a>建立專案
+## 建立專案
 
 在 Visual Studio 中，您可以在 [**新增專案**] 對話方塊的 [**Python**] 下選取 [**Azure 雲端服務**]。 
 
@@ -57,7 +63,7 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][ex
 
 雲端服務可以包含以不同語言實作的角色。例如，您可以有使用 Django 實作的 Python Web 角色，以及 Python 和 C# 背景工作角色。您可以使用服務匯流排佇列或儲存體佇列，輕鬆地與角色進行通訊。
 
-##<a name="run-locally"></a>在本機執行
+## 在本機執行
 
 如果您將雲端服務專案設為啟始專案並按下 F5，雲端服務會在本機 Azure 模擬器中執行。
 
@@ -67,7 +73,7 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][ex
 
 ![Solution Startup Project Properties](./media/cloud-services-python-ptvs/startup.png)
 
-##<a name="publish-to-azure"></a>發佈至 Azure
+## 發佈至 Azure
 
 若要發行，請在方案中的雲端服務專案上按一下滑鼠右鍵，然後選取 [**發行**]。
 
@@ -93,7 +99,7 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][ex
 
 部署需要幾分鐘才會完成，然後，Web 及/或背景工作角色就會在 Azure 上運作！
 
-##<a name="next-steps"></a>後續步驟
+## 後續步驟
 
 如需在 Python Tools for Visual Studio 中使用 Web 和背景工作角色的詳細資訊，請參閱 PTVS 文件：
 
@@ -111,28 +117,28 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][ex
 <!--Link references-->
 
 [什麼是雲端服務？]: /zh-tw/manage/services/cloud-services/what-is-a-cloud-service/
-[execution model-web sites]: /zh-tw/documentation/articles/fundamentals-application-models/#WebSites
-[execution model-vms]: /zh-tw/documentation/articles/fundamentals-application-models/#VMachine
-[execution model-cloud services]: /zh-tw/documentation/articles/fundamentals-application-models/#CloudServices
+[執行模型-網站]: ../fundamentals-application-models/#WebSites
+[執行模型-vms]: ../fundamentals-application-models/#VMachine
+[執行模型-雲端服務]: ../fundamentals-application-models/#CloudServices
 [Python 開發人員中心]: /zh-tw/develop/python/
 
-[Blob 服務]: /zh-tw/documentation/articles/storage-python-how-to-use-blob-storage/
-[佇列服務]: /zh-tw/documentation/articles/storage-python-how-to-use-queue-storage/
-[資料表服務]: /zh-tw/documentation/articles/storage-python-how-to-use-table-storage/
-[服務匯流排佇列]: /zh-tw/documentation/articles/service-bus-python-how-to-use-queues/
-[服務匯流排主題]: /zh-tw/documentation/articles/service-bus-python-how-to-use-topics-subscriptions/
+[Blob 服務]: ../storage-python-how-to-use-blob-storage/
+[佇列服務]: ../storage-python-how-to-use-queue-storage/
+[資料表服務]: ../storage-python-how-to-use-table-storage/
+[服務匯流排佇列]: ../service-bus-python-how-to-use-queues/
+[服務匯流排主題]: ../service-bus-python-how-to-use-topics-subscriptions/
 
 
 <!--External Link references-->
 
-[Python Tools for Visual Studio]: http://pytools.codeplex.com
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools for Visual Studio 文件]: http://pytools.codeplex.com/documentation 
 [雲端服務專案]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
 [Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32 位元]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python 3.4 32 位元]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Python 2.7 (32 位元)]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3.4 (32 位元)]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

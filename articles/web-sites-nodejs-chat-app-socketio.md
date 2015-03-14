@@ -23,7 +23,7 @@
 
 Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時通訊。此外它還能支援遞補其他適用於舊版瀏覽器的傳輸 (例如長輪詢)。本教學課程將逐步引導您以 Azure 網站來託管 Socket.IO 架構的交談應用程式。如需 Socket.IO 的詳細資訊，請參閱 [http://socket.io/][socketio]。
 
-> [AZURE.NOTE] 此工作中的程序適用於 Azure 網站。對於使用雲端服務，請參閱<a href="http://www.windowsazure.com/zh-tw/develop/nodejs/tutorials/app-using-socketio/">在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 聊天應用程式</a>。
+> [AZURE.NOTE] 此工作中的程序適用於 Azure 網站。對於使用雲端服務，請參閱<a href="http://azure.microsoft.com/develop/nodejs/tutorials/app-using-socketio/">在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 聊天應用程式</a>。
 
 
 ## <a id="Download"></a>下載聊天範例
@@ -96,7 +96,7 @@ GitHub 儲存機制]中的聊天範例。執行下列步驟以下載範例
 
 請遵循以下步驟來建立 Azure 網站，接著為該網站啟用 Git 發佈功能，再啟用 WebSocket 支援。
 
-> [AZURE.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 免費試用</a>。
+> [AZURE.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 免費試用</a>。
 
 1. 從命令列中，切換至 **\\node\chat** 目錄，使用下列命令來建立新的 Azure 網站，並啟用網站和本機目錄的 Git 儲存機制。這也會建立名為 'azure' 的 Git 遠端。
 

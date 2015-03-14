@@ -176,7 +176,9 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORA
 
 了解資料表儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
-* 請參閱 MSDN 參考：[在 Azure 中儲存及存取資料](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx)
+* 請參閱 MSDN 參考：[在 Azure 中儲存及存取資料](http://msdn.microsoft.com/library/windowsazure/gg433040.aspx)
 * 請造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
 * 請造訪 GitHub 上的 [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) 儲存機制 (英文)。
+
+
 <!--HONumber=42-->

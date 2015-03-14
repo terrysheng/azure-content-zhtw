@@ -1,6 +1,20 @@
-﻿<properties title="Normal Distribution Web Service Suite" pageTitle="常態分佈 Web 服務套件 | Azure" description="常態分佈 Web 服務套件" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="常態分佈 Web 服務套件 | Azure" 
+	description="常態分佈 Web 服務套件" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 #常態分佈 Web 服務套件
 
@@ -87,7 +101,7 @@
 	}
 
 ##建立 Web 服務 
->此 web 服務是使用 Azure ML 建立的。如需免費試用版，以及有關建立實驗和 [發佈 Web 服務](http://azure.microsoft.com/zh-tw/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/) 的簡介影片，請參閱 [azure.com/ml](http://azure.com/ml)。 
+>此 web 服務是使用 Azure ML 建立的。如需免費試用版，以及有關建立實驗和 [發佈 Web 服務](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/) 的簡介影片，請參閱 [azure.com/ml](http://azure.com/ml)。 
 
 以下是建立 Web 服務之實驗的螢幕擷取畫面，以及實驗內每個模組的範例程式碼。
 
@@ -173,9 +187,11 @@
 這些是常態分佈的相關簡單範例。從上面的範例程式碼可以看出，已實作小小的錯誤攔截。
 
 ##常見問題集
-如需使用 Web 服務或發佈至 Marketplace 的常見問題集，請參閱[此處](http://azure.microsoft.com/zh-tw/documentation/articles/machine-learning-marketplace-faq)。
+如需使用 Web 服務或發佈至 Marketplace 的常見問題集，請參閱[此處](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq)。
 
 [1]: ./media/machine-learning-r-csharp-normal-distribution/normal-img1.png
 [2]: ./media/machine-learning-r-csharp-normal-distribution/normal-img2.png
 [3]: ./media/machine-learning-r-csharp-normal-distribution/normal-img3.png
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
+
+<!--HONumber=46--> 

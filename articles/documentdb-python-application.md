@@ -1,7 +1,27 @@
-﻿<properties title="Build a web application with Python and Flask (MVC) using DocumentDB" pageTitle="使用 DocumentDB 建置具有 Python 和 Flask 的 Web 應用程式 |Azure" description="了解如何使用 DocumentDB 儲存和存取 Python 以及 Azure 上主控的 Flask (MVC) Web 應用程式所提供的資料。"  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+    pageTitle="使用 DocumentDB 建置具有 Python 和 Flask 的 Web 應用程式 |Azure" 
+    description="了解如何使用 DocumentDB 來儲存和存取主控於 Azure 上之 Python 和 Flask (MVC) Web 應用程式的資料。" 
+    services="documentdb" 
+    documentationCenter="" 
+    authors="crwilcox" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
-
-<tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
+<tags 
+    
+	ms.service="documentdb" 
+    
+	ms.workload="data-management" 
+    
+	ms.tgt_pltfrm="na" 
+    
+	ms.devlang="na" 
+    
+	ms.topic="article" 
+    
+	ms.date="02/12/2015" 
+    
+	ms.author="crwilcox"/>
 
 <a name="_Toc395888515"></a><a name="_Toc395809324">使用 DocumentDB 建置具有 Python 和 Flask (MVC) 的 Web 應用程式</a>
 ===========================================================================================================================================
@@ -191,17 +211,21 @@ DocumentDB Python SDK 會託管於 PyPi 中，而且可以使用 pip 進行安�
 <a name="_Toc395888524"></a><a name="_Toc395809333">建立資料庫、集合和文件定義</a>
 ============================================================================================================
 
-新增下列 python 檔案 - **forms.py** 並將它新增至 [方案總管] 中
+新增下列 python 檔案 - **for
+	ms.py** 並將它新增至 [方案總管] 中
 名為 tutorial 的資料夾。將下列程式碼新增至
-forms.py。我們打算建立投票應用程式。這可透過
+for
+	ms.py。我們打算建立投票應用程式。這可透過
 建立三個可根據使用者輸入進行切換的布林欄位來完成。
 
 </h1>
 
-    #forms.py
+    #for
+	ms.py
     from flask.ext.wtf import Form
     from wtforms import TextField, BooleanField
-    from wtforms.validators import Required
+    from wtfor
+	ms.validators import Required
     import pydocumentdb.documents as documents
     import pydocumentdb.document_client as document_client
     import pydocumentdb.errors as errors
@@ -473,7 +497,9 @@ Flask 中的表單需要使用此組態。您也可能會用它來提供
   [按一下這裡]: http://go.microsoft.com/fwlink/?LinkID=509840&clcid=0x409
   [按一下這裡可存取 Flask 教學課程 (英文)]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 
-  [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+  [Visual Studio Express]: http://www.visualstudio.com/zh-tw/products/visual-studio-express-vs.aspx
   [開始]: https://pytools.codeplex.com/releases/view/123624
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+
+<!--HONumber=46--> 

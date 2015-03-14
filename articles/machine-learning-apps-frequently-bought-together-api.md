@@ -1,6 +1,20 @@
-﻿<properties title="Machine Learning example app: Frequently Bought Together" pageTitle="機器學習範例應用程式：人氣組合 | Azure" description="此機器學習 Web 服務會執行線上購物車分析，從使用者提供的歷史交易產生人氣組合項目的產品建議。" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="coromt" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="機器學習範例應用程式：人氣組合 | Azure" 
+	description="此機器學習 Web 服務會執行線上購物車分析，從使用者提供的歷史交易產生人氣組合項目的產品建議。" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="CoromT" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="coromt" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/17/2014" 
+	ms.author="coromt"/> 
 
 # 機器學習範例應用程式：人氣組合
  
@@ -13,3 +27,5 @@
 
 這項服務包含 API，可針對建立人氣組合模型、上傳歷史交易，以及擷取指定產品的最佳排行人氣產品組合進行管理。您可以在 [GitHub 上的 Azure-MachineLearning-DataScience 儲存機制](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether) 上找到說明如何使用這些 API 的範例。
 
+
+<!--HONumber=46--> 

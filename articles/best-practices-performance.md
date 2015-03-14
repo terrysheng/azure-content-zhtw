@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Performance" pageTitle="效能最佳做法 - Azure" metaKeywords="Azure 最佳化, Azure 最佳做法效能" description="了解在 Azure 中達到最佳效能的最佳做法。" metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
+﻿<properties 
+	pageTitle="效能最佳做法 - Azure" 
+	description="了解 Azure 中的效能最佳作法。" 
+	services="cloud-services, sql-database, storage, service-bus, virtual-network" 
+	documentationCenter=".net" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/1/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="9/1/2014" 
+	ms.author="robb"/>
 
 # 提高 Azure 應用程式效能的最佳做法  #
 
@@ -103,7 +117,7 @@ Blob (例如影襐或文件) 不應儲存在 SQL Database 中，而應儲存在 
 
 如需其他關於資料表儲存體的討論，請參閱： 
 
-* [Azure 資料表儲存體和 Azure SQL Database - 比較和對比](http://msdn.microsoft.com/zh-tw/library/jj553018.aspx)
+* [Azure 資料表儲存體和 Azure SQL Database - 比較和對比](http://msdn.microsoft.com/library/jj553018.aspx)
 * [Azure 資料表儲存體效能考量](http://go.microsoft.com/fwlink/?LinkId=252663) 
 * [SQL Database 和 Azure 資料表儲存體](http://go.microsoft.com/fwlink/?LinkId=252664) 
 * [透過批次執行 Azure 資料表儲存體插入作業來增進效能](http://go.microsoft.com/fwlink/?LinkID=252665)，本文中討論一些效能結果。
@@ -240,7 +254,8 @@ Azure 可直接支援 Hadoop，而且能夠使用其他技術。如需 Azure HDI
 下列連結提供關於 MySQL 的效能建議： 
 
 * 在 [http://mysql.com]( http://go.microsoft.com/fwlink/?LinkId=252775) 搜尋 *performance* 會出現許多資源。 
-* [http://forums.mysql.com/list.php?24]( http://go.microsoft.com/fwlink/?LinkId=252776) 中的論壇是其他可供諮詢的資源。 
+* [http://foru
+	ms.mysql.com/list.php?24]( http://go.microsoft.com/fwlink/?LinkId=252776) 中的論壇是其他可供諮詢的資源。 
 
 
 
@@ -343,3 +358,5 @@ Azure 可大幅減少容量計劃內所需執行的工作，因為許多舊有�
 * [Azure 規劃 - 在環境中整合 Azure 的決策後指南](http://go.microsoft.com/fwlink/?LinkId=252884) 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-<properties title="DocumentDB programming: Stored procedures, triggers, and UDFs" pageTitle="DocumentDB programming: Stored procedures, triggers, and UDFs | Azure" description="Find out how for Document DB you can write stored procedures, triggers, and user defined functions (UDFs) natively in JavaScript." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"  services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" scriptId="" />
+﻿<properties 
+	pageTitle="DocumentDB 程式設計：預存程序、觸發程序和 UDF | Azure" 
+	description="了解如何使用 Microsoft Azure DocumentDB 來撰寫 JavaScript 原生預存程序、觸發程序和使用者定義函數 (UDF)。" 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="mimig"/>
 
 # DocumentDB 程式設計：預存程序、觸發程序和 UDF
 
@@ -614,3 +628,5 @@ JavaScript 函數能使用的資源也受到限制。DocumentDB 會根據所佈�
   [3]: http://dl.acm.org/citation.cfm?id=276339
   [4]: http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE
   [5]: http://dl.acm.org/citation.cfm?id=1007669
+
+<!--HONumber=46--> 

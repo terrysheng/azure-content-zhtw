@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Twilio Voice and SMS Service" pageTitle="在 Azure 中透過 Twilio 使用語音、VoIP 和簡訊功能" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title=" VoIP" authors="MicrosoftHelp@twilio.com" solutions="" manager="twilio" editor="" />
+<properties 
+	pageTitle="在 Azure 中透過 Twilio 使用語音、VoIP 和簡訊功能" 
+	description="" 
+	services="" 
+	documentationCenter="nodejs" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="MicrosoftHelp@twilio.com"/>
 
 
 # 在 Azure 中透過 Twilio 使用語音、VoIP 和簡訊功能
@@ -32,12 +46,12 @@ Twilio 可讓開發人員[購買可程式化的電話號碼][purchase_phone]，�
 
 ### 在 UI 程式碼中內嵌 VoIP 功能 (JavaScript、iOS 或 Android)
 
-Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 Android 應用程式轉換為 VoIP 電話的用戶端 SDK。在本文中，我們僅討論如何在瀏覽器中使用 VoIP 通話。除了在瀏覽器中執行 Twilio JavaScript SDK 以外，同時也須使用伺服器端應用程式 (node.js 應用程式)，將「功能權杖」發出至 JavaScript 用戶端。如需透過 node.js 使用 VoIP 的詳細資訊，請參閱 [Twilio 開發人員部落格][voipnode]。
+Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 Android 應用程式轉換為 VoIP 電話的用戶端 SDK。在本文中，我們僅討論如何在瀏覽器中使用 VoIP 通話。除了在瀏覽器中執行 Twilio JavaScript SDK 以外，同時也須使用伺服器端應用程式 (node.js 應用程式)，將「功能權杖」發出至 JavaScript 用戶端。搭配使用 VoIP 與 node.js 的詳細資訊 [請參閱 Twilio 開發人員部落格][voipnode]。
 
 <a id="signup"/>
 ## 註冊 Twilio (Microsoft 折扣)
 
-在使用 Twilio 服務之前，您必須先[註冊帳戶][signup]。Microsoft Azure 客戶享有特別折扣 - [請務必在此註冊][signup]！
+在使用 Twilio 服務之前，您必須先[註冊帳戶][signup]。Microsoft Azure 客戶享有特別折扣-[務必這裡註冊][signup]！
 
 <a id="azuresite"/>
 ## 建立及部署 node.js Azure 網站
@@ -69,19 +83,19 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 
 接下來，我們必須建立一個 package.json，以透過 [npm] 管理節點模組相依性。在您於 Azure/node.js 教學課程中建立的 "server.js" 檔案所屬的相同層級上，建立名為 "package.json" 的檔案。在此檔案中放入下列項目：
 
-  {
-    "name": "application-name",
-    "version": "0.0.1",
-    "private": true,
-    "scripts": {
-      "start": "node server"
-    },
-    "dependencies": {
-      "express": "3.1.0",
-      "ejs": "*",
-      "twilio":"*"
-    }
-  }
+	  {
+	    "name": "application-name",
+	    "version": "0.0.1",
+	    "private": true,
+	    "scripts": {
+	      "start": "node server"
+	    },
+	    "dependencies": {
+	      "express": "3.1.0",
+	      "ejs": "*",
+	      "twilio":"*"
+	    }
+	  }
 
 這會將 twilio 模組宣告為相依性，以及常用的 [Express Web 架構][express]和 EJS 範本引擎。一切都已就緒，可以開始撰寫程式碼了。
 
@@ -228,20 +242,20 @@ In "views/index.ejs", add another form under the first one to submit a number an
 
 祝您在 Azure 上使用 node.js 和 Twilio 時能夠得心應手！
 
-[purchase_phone]： https://www.twilio.com/user/account/phone-numbers/available/local
-[twiml]： https://www.twilio.com/docs/api/twiml
-[signup]： http://ahoy.twilio.com/azure
-[azure_new_site]： http://www.windowsazure.com/zh-tw/develop/nodejs/tutorials/create-a-website-(mac)/
-[twilio_dashboard]： https://www.twilio.com/user/account
-[npm]： http://npmjs.org
-[express]： http://expressjs.com
-[voipnode]： http://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
-[docs]： http://twilio.github.io/twilio-node/
-[votr]： http://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html
-[pair]： http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
-[azure-admin-console]： ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
+[purchase_phone]: https://www.twilio.com/user/account/phone-numbers/available/local
+[twiml]: https://www.twilio.com/docs/api/twiml
+[signup]: http://ahoy.twilio.com/azure
+[azure_new_site]: http://azure.microsoft.com/develop/nodejs/tutorials/create-a-website-(mac)/
+[twilio_dashboard]: https://www.twilio.com/user/account
+[npm]: http://npmjs.org
+[express]: http://expressjs.com
+[voipnode]: http://www.twilio.com/blog/2013/04/introduction-to-twilio-client-with-node-js.html
+[docs]: http://twilio.github.io/twilio-node/
+[votr]: http://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html
+[pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
+[azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
 
 
 
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

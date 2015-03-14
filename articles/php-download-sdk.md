@@ -1,6 +1,20 @@
-﻿<properties title="Download the Azure SDK for PHP" pageTitle="下載 Azure SDK for PHP" metaKeywords="" description="了解如何下載和安裝 Azure SDK for PHP。" documentationCenter="PHP" services="" solutions="web" authors="tomfitz" manager="wpickett" />
+﻿<properties 
+	pageTitle="下載 Azure SDK for PHP" 
+	description="了解如何下載和安裝 Azure SDK for PHP。" 
+	documentationCenter="php" 
+	services="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="2/5/2015" 
+	ms.author="tomfitz"/>
 
 #下載 Azure SDK for PHP
 
@@ -121,3 +135,5 @@ Azure PowerShell 是一組 PowerShell Cmdlet，可用於部署和管理 Azure �
 [powershell-tools]: http://go.microsoft.com/fwlink/?LinkId=252718
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+
+<!--HONumber=46--> 

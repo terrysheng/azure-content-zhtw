@@ -28,7 +28,7 @@
 ##必要條件##
 若要完成本教學課程，您將需要下列產品。所有產品都有免費版本可使用，因此您可以免費進行 Azure 相關開發。
 
-- **Azure 訂用帳戶** - 如需免費訂用帳戶，請參閱 [Azure 免費試用](http://azure.microsoft.com/zh-tw/pricing/free-trial/)。
+- **Azure 訂用帳戶** - 如需免費訂用帳戶，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
 - **Visual Studio 2013** - 若要下載 Visual Studio 2013 的免費試用版，請參閱 [Visual Studio 下載](http://www.visualstudio.com/downloads/download-visual-studio-vs)。請先安裝此項目再繼續作業。
 
@@ -115,7 +115,7 @@
 6. 逐步完成精靈的其餘步驟，以完成安裝。
 
 ###啟用 TCP/IP###
-若要啟用 TCP/IP，您必須使用您在安裝 SQL Server Express 時所安裝的 SQL Server 組態管理員。請先執行[為 SQL Server 啟用 TCP/IP 網路通訊協定](http://technet.microsoft.com/zh-tw/library/hh231672%28v=sql.110%29.aspx)中的步驟，再繼續作業。
+若要啟用 TCP/IP，您必須使用您在安裝 SQL Server Express 時所安裝的 SQL Server 組態管理員。請先執行[為 SQL Server 啟用 TCP/IP 網路通訊協定](http://technet.microsoft.com/library/hh231672%28v=sql.110%29.aspx)中的步驟，再繼續作業。
 
 <a name="CreateSQLDB"></a>
 ###在內部部署中建立 SQL Server 資料庫###
@@ -384,13 +384,13 @@
 
 [Josh Twist 介紹混合式連線 (第 9 頻道視訊)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[混合式連線網站](http://azure.microsoft.com/zh-tw/services/biztalk-services/)
+[混合式連線網站](http://azure.microsoft.com/services/biztalk-services/)
 
-[BizTalk 服務：儀表板、監視器、調整、設定和混合式連線索引標籤](http://azure.microsoft.com/zh-tw/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
+[BizTalk 服務：儀表板、監視器、調整、設定和混合式連線索引標籤](http://azure.microsoft.com/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
 [透過絕佳的應用程式可攜性建置真實的混合式雲端 (第 9 頻道視訊)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[使用混合式連線從 Azure 行動服務連線至內部佈署 SQL Server](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/)
+[使用混合式連線從 Azure 行動服務連線至內部佈署 SQL Server](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/)
 
 [使用混合式連線從 Azure 行動服務連線到內部部署 SQL Server (第 9 頻道視訊)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 

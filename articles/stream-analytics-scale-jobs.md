@@ -1,6 +1,20 @@
-﻿<properties title="Scale Azure Stream Analytics jobs" pageTitle="調整資料流分析工作 | Azure" description="了解如何調整 Stream Analytics 工作" metaKeywords="" services="stream-analytics" solutions="" documentationCenter="" authors="jgao" videoId="" scriptId="" manager="paulettm" editor="cgronlun"/>
+﻿<properties 
+	pageTitle="調整 Stream Analytics 工作 | Azure" 
+	description="了解如何調整 Stream Analytics 工作" 
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="stream-analytics" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="data-services" ms.date="10/28/2014" ms.author="jgao" />
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="2/10/2015" 
+	ms.author="jgao"/>
 
 # 調整 Azure 資料流分析工作 
 
@@ -164,7 +178,7 @@ Azure 資料流分析工作定義包含輸入、查詢和輸出。輸入是工�
 
 [microsoft.support]: http://support.microsoft.com
 [azure.management.portal]: http://manage.windowsazure.com
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/zh-tw/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide/
 [stream.analytics.limitations]: ../stream-analytics-limitations/
@@ -174,3 +188,5 @@ Azure 資料流分析工作定義包含輸入、查詢和輸出。輸入是工�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
 
+
+<!--HONumber=46--> 

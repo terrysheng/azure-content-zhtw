@@ -1,6 +1,13 @@
 ﻿<properties title="Get started using Azure Data Factory" pageTitle="開始使用 Azure Data Factory" description="本教學課程會示範如何建立將資料從 Blob 複製到 Azure SQL Database 執行個體的範例資料管線。" metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/04/2014" 
+	ms.author="spelluru" />
 
 # 開始使用 Azure Data Factory
 本文可協助您開始使用 Azure Data Factory。本文中的教學課程將示範如何建立 Azure Data Factory，以及在 Data Factory 中建立管線，以將範例資料從 Azure Blob 儲存體複製到 Azure SQL Database。
@@ -441,12 +448,12 @@ Azure 預覽入口網站目前不支援建立資料集和管線，因此您將�
 
 
 <!--Link references-->
-[azure-purchase-options]: http://azure.microsoft.com/zh-tw/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/zh-tw/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/zh-tw/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [azure-preview-portal]: https://portal.azure.com/
-[download-azure-powershell]: http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell
+[download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 
 [monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
 [use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
@@ -536,3 +543,5 @@ Azure 預覽入口網站目前不支援建立資料集和管線，因此您將�
 [image-data-factory-name-not-available]: ./media/data-factory-get-started/getstarted-data-factory-not-available.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

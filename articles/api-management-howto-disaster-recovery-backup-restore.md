@@ -1,6 +1,20 @@
-<properties pageTitle="How to implement disaster recovery using service backup and restore in Azure API Management" metaKeywords="" description="Learn how to use backup and restore to perform disaster recovery in Azure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to implement disaster recovery using service backup and restore in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="如何在 Azure API 管理中使用服務備份和還原實作災害復原" 
+	description="了解如何在 Azure API 管理中使用備份和還原來執行災難復原。" 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用服務備份和還原實作災害復原
 
@@ -81,7 +95,9 @@
 -   用於還原之目標服務的**階層必須符合**即將還原之已備份服務的階層。
 -   在還原作業進行時針對服務組態 (如 API、原則、開發人員入口網站外觀) 所做的**變更可能會遭到覆寫**。
 
-  [驗證 Azure 資源管理員要求]: http://msdn.microsoft.com/zh-tw/library/dn790557.aspx
+  [驗證 Azure 資源管理員要求]: http://msdn.microsoft.com/library/dn790557.aspx
   [備份 API 管理服務]: #step1
   [還原 API 管理服務]: #step2
-  [Azure API 管理 REST API]: http://msdn.microsoft.com/zh-tw/library/azure/dn781421.aspx
+  [Azure API 管理 REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
+
+<!--HONumber=46--> 

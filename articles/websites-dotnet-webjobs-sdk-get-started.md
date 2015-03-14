@@ -147,7 +147,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
  
 	此檔案包含 SQL 連接字串和用來使用 Blob 和佇列的 Azure 儲存體連接字串。 
 
-	SQL 連接字串會指向 [SQL Server Express LocalDB](http://msdn.microsoft.com/zh-tw/library/hh510202.aspx) 資料庫。
+	SQL 連接字串會指向 [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) 資料庫。
  
 	該儲存體連接字串為範例，它是具有儲存體帳戶名稱和存取金鑰的預留位置。請使用包含您儲存體帳戶名稱和金鑰的連接字串取代此範例字串。  
 
@@ -652,7 +652,7 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("blobnamerequest");
 
-多數的控制器程式碼通常用於使用 DbContext 類別來處理 Entity Framework 資料模型。例外狀況為 HttpPost `Create` 方法，它會上傳檔案，並將檔案儲存在 Blob 儲存體中。模型繫結器會提供一個 [HttpPostedFileBase](http://msdn.microsoft.com/zh-tw/library/system.web.httppostedfilebase.aspx) 物件給方法。
+多數的控制器程式碼通常用於使用 DbContext 類別來處理 Entity Framework 資料模型。例外狀況為 HttpPost `Create` 方法，它會上傳檔案，並將檔案儲存在 Blob 儲存體中。模型繫結器會提供一個 [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) 物件給方法。
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]

@@ -1,11 +1,11 @@
-﻿<properties 
+<properties 
 	pageTitle="在 Azure 上使用 Linux 的 Docker VM 擴充程式" 
 	description="說明 Docker 和 Azure 虛擬機器擴充程式，並說明如何以程式設計的方式，使用 azure-cli 命令介面從命令列在 Azure 上建立 Docker 主機的虛擬機器。" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="squillace" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,13 +13,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.workload="infrastructure-services" 
-	ms.date="02/02/2015" 
+	ms.date="10/21/2014" 
 	ms.author="rasquill"/>
 # 透過 Azure 跨平台介面 (xplat-cli) 使用 Docker VM 擴充程式
-本主題說明如何透過 xplat-cli，在任何平台上建立使用 Docker VM 擴充程式的 VM。[Docker](https://www.docker.com/) 是最常用的虛擬化方式之一，它不使用虛擬機器，而是使用 [Linux 容器](http://en.wikipedia.org/wiki/LXC)作為在共用資源上獨立資料和執行計算的方法。您可以將 Docker VM 擴充程式應用在 [Azure Linux 代理程式](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/)上，如此可在 Azure 上建立 Docker VM 來託管任何數量的應用程式容器。若要查看容器及其優點的高層級討論，請參閱 [Docker 高層級白板](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)。
+本主題說明如何透過 xplat-cli，在任何平台上建立使用 Docker VM 擴充程式的 VM。[Docker](https://www.docker.com/) 是最常用的虛擬化方式之一，它不使用虛擬機器，而是使用[ Linux 容器](http://en.wikipedia.org/wiki/LXC)作為在共用資源上獨立資料和執行計算的方法。您可以將 Docker VM 擴充程式應用在 [Azure Linux 代理程式](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/)上，如此可在 Azure 上建立 Docker VM 來託管任何數量的應用程式容器。若要查看容器及其優點的高層級討論，請參閱 [Docker 高層級白板](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard) (英文)。
 
-+ [如何搭配 Azure 使用 Docker VM 延伸模組]
-+ [Linux 及 Windows 的虛擬機器延伸模組] 
++ [如何搭配使用 Docker VM 擴充程式與 Azure]
++ [Linux 及 Windows 的虛擬機器擴充程式] 
 + [Azure 容器及容器管理資源]
 + [後續步驟]
 
@@ -39,9 +39,9 @@
 > [AZURE.NOTE] 若要在 Azure 上建立 Docker 控管的 VM 來託管 Docker 容器，目前唯一的方式是使用 xplat-cli (命令列介面)。 
 
 ### 安裝跨平台命令列介面 (xplat-cli)
-若要安裝並設定跨平台命令列介面，請參閱[如何安裝 Azure 跨平台命令列介面](http://azure.microsoft.com/documentation/articles/xplat-cli/#install)。若要確認安裝狀況，請在命令提示字元中輸入  `azure`，您應該很快就能看到 xplat-cli ASCII 作品，其中會列出您可以使用的基礎命令。如果安裝正確執行，您應可以輸入  `azure help vm`，並且可看到列出的命令中有一個「docker」。
+若要安裝並設定跨平台命令列介面，請參閱[如何安裝 Azure 跨平台命令列介面](http://azure.microsoft.com/documentation/articles/xplat-cli/#install)。若要確認安裝狀況，請在命令提示字元中輸入  `azure`，您應該很快就能看到 xplat-cli ASCII 作品，其中會列出您可以使用的基礎命令。如果安裝正確執行，您應可以輸入  `azure help vm` 並且可看到列出的命令中有一個「docker」。
 
-> [AZURE.NOTE] 如果您使用 Ubuntu 14.04 LTS 安裝程式，此映像會有稍微不同的節點安裝，這可能需要一些額外的工作。您可以在**如何使用 PPA 進行安裝**一節中的[這裡](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server)，找到似乎可以順利執行工作的一個建議，內容說明如何直接安裝最新版本的 nodejs，並且似乎可以在 Ubuntu 14.04 LTS 散發套件上順利執行工作。 
+> [AZURE.NOTE] 如果您使用 Ubuntu 14.04 LTS 安裝程式，此映像會有稍微不同的節點安裝，這可能需要一些額外的工作。您可以在**如何使用 PPA 進行安裝**一節中的[這裡](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server)，找到似乎可以順利執行工作的一個建議，內容描述如何直接安裝最新版本的 nodejs，並且似乎可以在 Ubuntu 14.04 LTS 散發套件上順利執行工作。 
 
 ### 將 xplat-cli 連線至您的 Azure 帳戶
 在使用 xplat-cli 前，您必須為 Azure 帳戶認證與平台上的 xplat-cli 建立關聯。[如何連線至 Azure 訂閱](http://azure.microsoft.com/documentation/articles/xplat-cli/#configure)一節說明如何下載及匯入您的 **.publishsettings** 檔案，或為 xplat-cli 命令列與組織識別碼建立關聯。 
@@ -55,13 +55,13 @@
 
 + Azure 映像庫中的 Ubuntu 映像，或 
 
-+ 使用已安裝並設定的 Azure Linux VM 代理程式所建立的自訂 Linux 映像。如需如何使用 Azure VM 代理程式來建置自訂 Linux VM 的詳細資訊，請參閱 [Azure Linux VM 代理程式](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/)。
++ 使用已安裝並設定的 Azure Linux VM 代理程式所建立的自訂 Linux 映像。如需如何使用 [Azure VM 代理程式](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/)來建置自訂 Linux VM 的詳細資訊，請參閱 Azure Linux VM 代理程式。
 
 ### 使用 Azure 映像庫
 
 從 Bash 或終端機工作階段中，若要使用下列 xplat-cli 命令來尋找 VM 映像庫中最新的 Ubuntu 映像，請輸入
 
-`azure vm 映像清單 | grep Ubuntu-14_04`
+`azure vm image list | grep Ubuntu-14_04`
 
 並選取其中一個映像名稱 (例如  `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-zh-tw-30GB`)，然後使用下列命令來建立使用該映像的新 VM。 
 
@@ -73,11 +73,11 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 
 + *&lt;vm-cloudservice name&gt;* 是將成為 Azure 中 Docker 容器主機電腦的 VM 名稱。
 
-+  *&lt;username&gt;* 是VM 預設根目錄使用者的使用者名稱。
++  *&lt;username&gt;* 是VM 預設根目錄使用者的使用者名稱
 
-+ *&lt;password&gt;*是  *username* 帳戶的密碼，需符合 Azure 的複雜性標準。 
++ *&lt;password&gt;* 是  *username* 帳戶的密碼，需符合 Azure 的複雜性標準 
  
-> [AZURE.NOTE] 目前來說，密碼必須至少要有 8 個字元，包含一個小寫字母和一個大寫字母、數字以及如下的其中一個特殊字元：`!@#$%^&+=`. 不，上一個句子中的句號並不是一個特殊字元。 
+> [AZURE.NOTE] 目前來說，密碼必須至少要有 8 個字元，包含一個小寫字母和一個大寫字母、數字以及如下的其中一個特殊字元：`!@#$%^&+=`.不，上一個句子中的句號並不是一個特殊字元。 
 
 如果命令執行成功，根據您使用的精準引數和選項，您應該可以看到如下所示的畫面：
 
@@ -89,7 +89,7 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 
 `docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:4243 info`
 
-其中，*<vm-name-you-used>* 是虛擬機器的名稱，您會將其用在呼叫  `azure vm docker create`。您應該可看到如下所示的內容，這代表您的 Docker 主機 VM 已在 Azure 中啟用和執行，並且正等待您的命令。
+其中 *<vm-name-you-used>* 是虛擬機器的名稱，您會將其用在呼叫  `azure vm docker create`。您應該可看到如下所示的內容，這代表您的 Docker 主機 VM 已在 Azure 中啟用和執行，並且正等待您的命令。
 
 ![](./media/virtual-machines-docker/connectingtodockerhost.png)
 
@@ -112,16 +112,16 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
 
-您現在已可移至 [Docker 使用者指南]，並使用 Docker VM。若要建立新的入口網站啟用 Docker 的 VM，請參閱[如何從入口網站使用 Docker VM 延伸模組]。
+您已準備好開始移至 [Docker 使用者指南]，並使用 Docker VM。若要在新入口網站中建立具有 Docker 功能的 VM，請參閱[如何搭配使用 Docker VM 擴充程式與入口網站]。
 
 <!--Anchors-->
-[子標題 1]: #subheading-1
-[子標題 2]: #subheading-2
-[子標題 3]: #subheading-3
+[Subheading 1]: #subheading-1
+[Subheading 2]: #subheading-2
+[Subheading 3]: #subheading-3
 [後續步驟]: #next-steps
 
-[如何搭配 Azure 使用 Docker VM 延伸模組]: #How-to-use-the-Docker-VM-Extension-with-Azure
-[Linux 及 Windows 的虛擬機器延伸模組]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+[如何搭配使用 Docker VM 擴充程式與 Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
+[Linux 及 Windows 的虛擬機器擴充程式]: #Virtual-Machine-Extensions-For-Linux-and-Windows
 [Azure 容器及容器管理資源]: #Container-and-Container-Management-Resources-for-Azure
 
 <!--Image references-->
@@ -131,11 +131,12 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 
 
 <!--Link references-->
-[其他 azure.microsoft.com 文件主題的連結 1]: ../virtual-machines-windows-tutorial/
+[Link 1 to another azure.microsoft.com documentation topic]:../virtual-machines-windows-tutorial/
 [其他 azure.microsoft.com 文件主題的連結 2]: ../web-sites-custom-domain-name/
 [其他 azure.microsoft.com 文件主題的連結 3]: ../storage-whatis-account/
-[如何從入口網站使用 Docker VM 延伸模組]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
+[如何搭配使用 Docker VM 擴充程式與入口網站]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
 [Docker 使用者指南]: https://docs.docker.com/userguide/
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

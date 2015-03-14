@@ -1,6 +1,20 @@
-﻿<properties title="How to scale a website" pageTitle="如何調整網站" description="了解如何調整 Azure 的主控方案" authors="stepsic" manager="kamrani" />
+﻿<properties 
+	pageTitle="如何調整網站" 
+	description="了解如何調整 Azure 的主控方案" 
+	authors="stepsic-microsoft-com" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="stepsic"/>
 
 # 如何調整網站
 
@@ -70,3 +84,5 @@
 2. 如果 CPU 百分比高於 85%，則擴大 3 個執行個體
 
 透過這項附加規則，如果您的負載在調整動作之前超過 85%，您將會增加兩個執行個體，而不是一個。 
+
+<!--HONumber=46--> 

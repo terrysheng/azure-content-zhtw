@@ -1,6 +1,21 @@
-<properties pageTitle="如何對 .NET 後端行動服務進行資料模型變更" description="本主題說明資料模型的初始設定式，以及如何在 .NET 後端行動服務中進行資料模型變更。" services="mobile-services" documentationCenter="" authors="ggailey777" writer="glenga" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="如何對 .NET 後端行動服務進行資料模型變更" 
+	description="本主題說明資料模型的初始設定式，以及如何在 .NET 後端行動服務中進行資料模型變更。" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	Writer="glenga" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="09/27/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/27/2014" 
+	ms.author="glenga"/>
 
 # 如何對 .NET 後端行動服務進行資料模型變更
 
@@ -117,7 +132,8 @@
 
 下列程式碼只會植入 UserId 資料行：
  		    
-        context.TodoItems.AddOrUpdate(
+        context.TodoIte
+	ms.AddOrUpdate(
             t => t.UserId,
                 new TodoItem { UserId = 1 },
                 new TodoItem { UserId = 1 },
@@ -137,10 +153,10 @@
 [2]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/sql-database-drop-tables.png
 
 <!-- URLs -->
-[DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/zh-tw/library/gg679604(v=vs.113).aspx
-[Seed]: http://msdn.microsoft.com/zh-tw/library/hh829453(v=vs.113).aspx
+[DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/library/gg679604(v=vs.113).aspx
+[Seed]: http://msdn.microsoft.com/library/hh829453(v=vs.113).aspx
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[DbContext]: http://msdn.microsoft.com/zh-tw/library/system.data.entity.dbcontext(v=vs.113).aspx
-[AddOrUpdate]: http://msdn.microsoft.com/zh-tw/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+[DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
+[AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
 
 <!--HONumber=42-->

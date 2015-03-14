@@ -1,6 +1,18 @@
-﻿<properties title="Monitor your app's health and usage with Application Insights" pageTitle="使用 Application Insights 來監視應用程式的健康情況和流量" description="開始使用 Application Insights。分析您內部部署或 Microsoft Azure 應用程式的使用狀況、可用性及效能。" metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="使用 Application Insights 來監視應用程式的健康情況和流量" 
+	description="開始使用 Application Insights。分析內部部署或 Microsoft Azure 應用程式的使用情況、可用性和效能。" 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-12-11" 
+	ms.author="awills"/>
  
 # 監視 Web 應用程式的效能
 
@@ -152,3 +164,5 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

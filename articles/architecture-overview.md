@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="" pageTitle="架構" metaKeywords="" description="涵蓋常見設計模式的結構性概觀。" metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Architecture Overview" authors="robb" solutions="" manager="johndaw" editor="mattshel" />
+﻿<properties 
+	pageTitle="架構" 
+	description="涵蓋常見設計模式的架構概觀。"
+	services="" 
+	documentationCenter="" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor="mattshel"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="robb"/>
 
 #架構
 可用於建置使用 Microsoft Azure 應用程式的資源。
@@ -25,12 +39,12 @@ Microsoft 現在發佈一組高階架構藍圖，示範如何使用 Microsoft Az
 ![Azure Symbol/Icon set][azure_symbols]
 
 ##設計模式
-Microsoft Patterns and Practices 已出版[雲端設計模式](http://msdn.microsoft.com/zh-tw/library/dn568099.aspx)一書，在 MSDN 同時可供瀏覽及下載 PDF。另外，也有列出所有模式的大型海報。 
+Microsoft Patterns and Practices 已出版[雲端設計模式](http://msdn.microsoft.com/library/dn568099.aspx)一書，在 MSDN 同時可供瀏覽及下載 PDF。另外，也有列出所有模式的大型海報。 
 
 ![Patterns and Practices Cloud Patterns Poster][PnPPoster]
 
 ##架構資訊圖
-Microsoft 出版了數個與架構相關的海報/資訊圖。其中包括[建置真實世界的雲端應用程式](http://azure.microsoft.com/zh-tw/documentation/infographics/building-real-world-cloud-apps/)和[使用雲端服務調整應用程式](http://azure.microsoft.com/zh-tw/documentation/infographics/cloud-services/)。 
+Microsoft 出版了數個與架構相關的海報/資訊圖。其中包括[建置真實世界的雲端應用程式](http://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)和[使用雲端服務調整應用程式](http://azure.microsoft.com/documentation/infographics/cloud-services/)。 
 
 
 ![Azure Architecture Infographics][AzureInfographic]
@@ -43,3 +57,5 @@ Microsoft 出版了數個與架構相關的海報/資訊圖。其中包括[建�
 [AzureInfographic]: ./media/architecture-overview/AzureArchInfographicThumb.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

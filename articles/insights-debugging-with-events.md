@@ -1,6 +1,20 @@
-﻿<properties title="How to debug with events" pageTitle="如何使用事件偵錯" description="了解如何在 Azure 中查看事件。" authors="hanikn" manager="kamrani" />
+﻿<properties 
+	pageTitle="如何使用事件偵錯" 
+	description="了解如何在 Azure 中查看事件。" 
+	authors="HaniKN-MSFT" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanikn" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="hanikn"/>
 
 # 監視對您的 Azure 資源或資源群組造成影響的事件
 
@@ -18,3 +32,5 @@
     ![Resource groups](./media/insights-debugging-with-events/Insights_EventDetails.png)  
     此時會開啟新分頁，其中包含事件的多項詳細資料。對於 [**失敗**] 事件，此頁面通常會顯示 [**子狀態**] 和 [**屬性**] 區段，其中包含可用於偵錯的詳細資料。
 
+
+<!--HONumber=46--> 

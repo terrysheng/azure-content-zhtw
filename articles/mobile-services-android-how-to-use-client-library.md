@@ -1,6 +1,20 @@
-<properties pageTitle="使用行動服務 Android 用戶端程式庫" description="了解如何使用適用於 Azure 行動服務的 Android 用戶端。" services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="使用行動服務 Android 用戶端程式庫" 
+	description="了解如何使用適用於 Azure 行動服務的 Android 用戶端。" 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/20/2014" 
+	ms.author="ricksal"/>
 
 # 如何使用行動服務的 Android 用戶端程式庫
 
@@ -882,7 +896,7 @@
 [行動服務 SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
 [開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-android/
 [ASCII 控制碼 C0 和 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[使用 CLI 管理行動服務資料表]: http://www.windowsazure.com/zh-tw/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[使用 CLI 管理行動服務資料表]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 
 
 <!--HONumber=42-->

@@ -72,7 +72,7 @@
 
 	-	 
 
-其中沒有內容。您可以從不同的儲存機制分支，或從整個不同的儲存機制部署至位置。您也可以變更位置的組態。更新內容時，請使用與部署位置相關聯的發行設定檔或部署認證。例如，您可以[使用 Git 發行至此位置](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-publish-source-control/)。
+其中沒有內容。您可以從不同的儲存機制分支，或從整個不同的儲存機制部署至位置。您也可以變更位置的組態。更新內容時，請使用與部署位置相關聯的發行設定檔或部署認證。例如，您可以[使用 Git 發行至此位置](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control/)。
 
 <a name="AboutConfiguration"></a>
 ##關於部署位置組態##
@@ -147,7 +147,7 @@
 
 Azure PowerShell 模組提供透過 Windows PowerShell 來管理 Azure 的 Cmdlet，包括支援管理 Azure 網站部署位置。 
 
-- 如需安裝及設定 Azure PowerShell，以及使用您的 Windows Azure 訂用帳戶驗證 Azure PowerShell 的詳細資訊，請參閱[如何安裝及設定 Windows Azure PowerShell](http://www.windowsazure.com/zh-tw/documentation/articles/install-configure-powershell)。  
+- 如需安裝及設定 Azure PowerShell，以及使用您的 Windows Azure 訂用帳戶驗證 Azure PowerShell 的詳細資訊，請參閱[如何安裝及設定 Windows Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell)。  
 
 - 若要列出 PowerShell 中可供 Azure 網站使用的 Cmdlet，請呼叫 `help AzureWebsite`。 
 
@@ -202,7 +202,7 @@ Azure PowerShell 模組提供透過 Windows PowerShell 來管理 Azure 的 Cmdle
 
 Azure 跨平台命令列介面 (xplat-cli) 提供您處理 Azure 的跨平台命令，包括支援管理 Azure 網站上的部署位置。 
 
-- 如需安裝及設定 xplat-cli 的相關說明，包括如何將 xplat-cli 與您的 Azure 訂用帳戶連線的詳細資訊，請參閱[安裝與設定 Azure 跨平台命令列介面](http://www.windowsazure.com/zh-tw/documentation/articles/xplat-cli)。 
+- 如需安裝及設定 xplat-cli 的相關說明，包括如何將 xplat-cli 與您的 Azure 訂用帳戶連線的詳細資訊，請參閱[安裝與設定 Azure 跨平台命令列介面](http://azure.microsoft.com/documentation/articles/xplat-cli)。 
 
 -  若要列出 xplat-cli 中可供 Azure 網站使用的命令，請呼叫 `azure site -h`。 
 
@@ -238,7 +238,7 @@ Azure 跨平台命令列介面 (xplat-cli) 提供您處理 Azure 的跨平台命
 ## 後續步驟 ##
 [Azure 網站 - 封鎖對非生產部署位置的 Web 存取](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-[Microsoft Azure 免費試用](http://azure.microsoft.com/zh-tw/pricing/free-trial/)
+[Microsoft Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)
 
 
 <!-- IMAGES -->

@@ -1,6 +1,20 @@
-<properties pageTitle="開始使用推播通知 (舊版為推播) | 行動開發人員中心" description="了解如何使用 Azure 行動服務傳送推播通知至 Windows 市集 JavaScript 應用程式 (舊版推播)。" services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="開始使用推播通知 (舊版為推播) | 行動開發人員中心" 
+	description="了解如何使用 Azure 行動服務傳送推播通知至 Windows 市集 JavaScript 應用程式 (舊版推播)。" 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 # 將推播通知新增至行動服務應用程式 (舊版推播)
 

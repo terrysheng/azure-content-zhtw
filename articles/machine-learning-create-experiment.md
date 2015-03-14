@@ -1,6 +1,20 @@
-﻿<properties title="Create a simple experiment in Azure Machine Learning Studio" pageTitle="在 Machine Learning Studio 中建立簡易實驗 | Azure" description="如何建立實驗，在 Azure Machine Learning Studio 中訓練和測試簡單模型" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="在 Machine Learning Studio 中建立簡易實驗 | Azure" 
+	description="如何建立實驗以在 Azure Machine Learning Studio 中訓練和測試簡易模型" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/07/2015" 
+	ms.author="garye"/>
 
 #在 Azure Machine Learning Studio 中建立簡易實驗 
  
@@ -173,7 +187,7 @@ ML Studio 包含多項範例資料集，而您可以從許多不同的來源匯�
 
 如果您對模型感到滿意，您可以將其發佈為 Web 服務，用以透過新資料預測汽車價格。如需詳細資訊，請參閱 ML Studio 說明主題 [**發佈實驗**]。
 
-對於預測模型的建立、定型、評分和發佈如需更完整而詳細的逐步解說，請參閱 [逐步介紹：使用 Azure Machine Learning 開發預測方案](http://azure.microsoft.com/zh-tw/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/) (英文)。 
+對於預測模型的建立、定型、評分和發佈如需更完整而詳細的逐步解說，請參閱 [逐步介紹：使用 Azure Machine Learning 開發預測方案](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/) (英文)。 
 
 
 <!-- Images -->
@@ -191,3 +205,5 @@ ML Studio 包含多項範例資料集，而您可以從許多不同的來源匯�
 [screen8a]:./media/machine-learning-create-experiment/screen8a.png
 [screen9]:./media/machine-learning-create-experiment/screen9.png
 [screen10]:./media/machine-learning-create-experiment/screen10.png
+
+<!--HONumber=46--> 

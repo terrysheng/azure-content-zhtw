@@ -83,7 +83,7 @@
 
 <h2><a name="instantiating"></a>作法：建立資料表參考</h2>
 
-只要是可存取或修改行動服務資料表中之資料的所有程式碼，都會呼叫  `MobileServiceTable` 物件上的函數。您可透過呼叫  `MobileServiceClient` 執行個體上的 [GetTable](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554275.aspx) 函數，來取得資料表的參考。 
+只要是可存取或修改行動服務資料表中之資料的所有程式碼，都會呼叫  `MobileServiceTable` 物件上的函數。您可透過呼叫  `MobileServiceClient` 執行個體上的 [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) 函數，來取得資料表的參考。 
 
     IMobileServiceTable<TodoItem> todoTable = 
 		client.GetTable<TodoItem>();
@@ -177,7 +177,7 @@
 					.Take(3);                              
 	List<TodoItem> items = await query.ToListAsync();
 			
-您也可以使用 [IncludeTotalCount](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj730933.aspx) 方法，確保查詢會忽略指定的任何採取分頁/限制子句，而取得已傳回 <i>all</i> 記錄的總數：
+您也可以使用 [IncludeTotalCount](http://msdn.microsoft.com/library/windowsazure/jj730933.aspx) 方法，確保查詢會忽略指定的任何採取分頁/限制子句，而取得已傳回 <i>all</i> 記錄的總數：
 
 	query = query.IncludeTotalCount();
 
@@ -498,11 +498,11 @@ Xamarin 元件用戶端是專為強型別案例所設計的。不過，較弱型
 [使用分頁縮小查詢範圍 Android]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-xamarin-android
 [使用指令碼授權使用者 iOS]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [使用指令碼授權使用者 Android]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
-[LoginAsync 方法]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
-[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
-[MobileServiceUser]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
-[UserID]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
-[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/zh-tw/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
+[LoginAsync 方法]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
+[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
+[MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
+[UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
+[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 
 
 <!--HONumber=42-->

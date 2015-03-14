@@ -1,6 +1,20 @@
-<properties urlDisplayName="How to Make a Phone Call from Twilio in Java" pageTitle="如何使用 Twilio 撥打電話 (Java) - Azure" metaKeywords="Azure Twilio 電話, Twilio 電話網站, Azure Twilio Java" description="了解如何在 Azure 上的 Java 應用程式中從使用 Twilio 的網頁撥打電話。" metaCanonical="" services="" documentationCenter="Java" title="How to Make a Phone Call Using Twilio in a Java Application on Azure" authors="MicrosoftHelp@twilio.com; robmcm" videoId="" scriptId="" solutions="" manager="twilio" editor="mollybos" />
+﻿<properties 
+	pageTitle="如何使用 Twilio 撥打電話 (Java) - Azure" 
+	description="了解如何在 Azure 上的 Java 應用程式中使用 Twilio 從網頁撥打電話。" 
+	services="" 
+	documentationCenter="java" 
+	authors="devinrader" 
+	manager="twilio" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="11/25/2014" ms.author="MicrosoftHelp@twilio.com; robmcm" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="microsofthelp@twilio.com"/>
 
 # 如何在 Azure 上的 Java 應用程式中使用 Twilio 撥打電話 
 
@@ -15,7 +29,7 @@
 本主題中的程式碼是以預先建置的 TwilioJava-3.3.8-with-dependencies JAR 撰寫的。
 3. 將 JAR 新增至您的 Java 建置路徑。
 4. 如果您使用 Eclipse 建立此 Java 應用程式，請使用 Eclipse 的部署組件功能在應用程式部署檔案 (WAR) 中加入 Twilio JAR。如果您並非使用 Eclipse 建立此 Java 應用程式，請確定 Twilio JAR 與您的 Java 應用程式包含在相同的 Azure 角色內，且已新增至應用程式的類別路徑。
-5. 確定您的 cacerts 金鑰存放區包含 Equifax Secure Certificate Authority 憑證，且具有 MD5 指模 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (序號為 35:DE:F4:CF，SHA1 指模為 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A)。這是 [https://api.twilio.com][twilio_api_service] 服務的憑證授權單位 (CA) 憑證會在您使用 Twilio API 時受到呼叫。如需將此 CA 憑證新增至 JDK cacert 存放區的相關資訊，請參閱[新增憑證至 Java CA 憑證存放區][add_ca_cert]。
+5. 確定您的 cacerts 金鑰存放區包含 Equifax Secure Certificate Authority 憑證，且具有 MD5 指模 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (序號為 35:DE:F4:CF，SHA1 指模為 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A)。這是 [https://api.twilio.com][twilio_api_service] 服務的憑證授權單位 (CA) 憑證，它會在您使用 Twilio API 時受到呼叫。如需將此 CA 憑證新增至 JDK cacert 存放區的相關資訊，請參閱[新增憑證至 Java CA 憑證存放區][add_ca_cert]。
 
 此外，強烈建議您熟悉[使用 Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供) 建立 Hello World 應用程式][azure_java_eclipse_hello_world]上的資訊，或熟悉其他在 Azure 中代管 Java 應用程式的技術 (如果您未使用 Eclipse)。
 
@@ -157,16 +171,16 @@
 3. 針對計算模擬器編譯您的應用程式。
 4. 在計算模擬器中開始進行部署。
 5. 開啟瀏覽器，然後執行 **http://localhost:8080/TwilioCloud/callform.jsp**。
-6. 輸入表單中的值，按一下 [Make this call]，然後在 makecall.jsp 中檢視結果。
+6. 輸入表單中的值，按一下 [Make this call]****，然後在 makecall.jsp 中檢視結果。
 
-當您做好部署至 Azure 的準備後，可以針對雲端環境重新編譯部署、部署至 Azure，以及在瀏覽器中執行 http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp (請使用您的值來取代 *your_hosted_name*)。
+當您做好部署至 Azure 的準備後，您可以針對雲端環境重新編譯部署、部署至 Azure，以及在瀏覽器中執行 http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp (請將  *your_hosted_name* 取代為您的值)。
 
 ## 後續步驟
 此程式可說明在 Azure 上的 Java 中使用 Twilio 的基本功能。在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。例如：
 
 * 除了使用 Web 表單以外，您也可以使用 Azure 儲存體 Blob 或 SQL Database 來儲存電話號碼和通話文字。如需在 Java 中使用 Azure 儲存體 Blob 的相關資訊，請參閱[如何從 Java 使用 Blob 儲存體服務][howto_blob_storage_java]。如需在 Java 中使用 SQL Database 的相關資訊，請參閱[在 Java 中使用 SQL Database][howto_sql_azure_java]。
 * 您可以使用 **RoleEnvironment.getConfigurationSettings**，從部署的組態設定中擷取 Twilio 帳戶 ID 和驗證權杖，而不要在 makecall.jsp 中進行值的硬式編碼。如需 **RoleEnvironment** 類別的相關資訊，請參閱[在 JSP 中使用 Azure Service Runtime Library][azure_runtime_jsp]，以及 [http://dl.windowsazure.com/javadoc][azure_javadoc] 上的 Azure Service Runtime 封裝文件。
-* makecall.jsp 程式碼會將 Twilio 提供的 URL [http://twimlets.com/message][twimlet_message_url] 指派給 **Url** 變數。此 URL 會提供 Twilio 標記語言 (TwiML) 回應，告知 Twilio 應如何執行通話。例如，傳回的 TwiML 可能包含 **&lt;Say&gt;** 動詞，可產生要傳達給受話方的文字。除了使用 Twilio 提供的 URL 以外，您也可以建置自己的服務來回應 Twilio 的要求；如需詳細資訊，請參閱[如何在 Java 中透過 Twilio 使用語音和簡訊功能][howto_twilio_voice_sms_java]。如需 TwiML 的詳細資訊，請參閱 [http://www.twilio.com/docs/api/twiml][twiml]；如需 **&lt;Say&gt;** 和其他 Twilio 動詞的詳細資訊，請參閱 [http://www.twilio.com/docs/api/twiml/say][twilio_say]。
+* makecall.jsp 程式碼會將 Twilio 提供的 URL [http://twimlets.com/message][twimlet_message_url] 指派給 **Url** 變數。此 URL 會提供 Twilio 標記語言 (TwiML) 回應，告知 Twilio 應如何執行通話。例如，傳回的 TwiML 可能會包含 **&lt;Say&gt;** 動詞，而產生要傳達給受話方的文字。除了使用 Twilio 提供的 URL 以外，您也可以建置自己的服務來回應 Twilio 的要求；如需詳細資訊，請參閱[如何在 Java 中透過 Twilio 使用語音和簡訊功能][howto_twilio_voice_sms_java]。如需 TwiML 的詳細資訊，請參閱 [http://www.twilio.com/docs/api/twiml][twiml]；如需 **&lt;Say&gt;** 和其他 Twilio 動詞的詳細資訊，請參閱 [http://www.twilio.com/docs/api/twiml/say][twilio_say]。
 * 閱讀 [https://www.twilio.com/docs/security][twilio_docs_security] 上的 Twilio 安全性指引。
 
 如需關於 Twilio 的其他資訊，請參閱 [https://www.twilio.com/docs][twilio_docs]。
@@ -184,11 +198,11 @@
 [twiml]: http://www.twilio.com/docs/api/twiml
 [twilio_api_service]: http://api.twilio.com
 [add_ca_cert]: ../java-add-certificate-ca-store
-[azure_java_eclipse_hello_world]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh690944.aspx
+[azure_java_eclipse_hello_world]: http://msdn.microsoft.com/library/windowsazure/hh690944.aspx
 [howto_twilio_voice_sms_java]: ../partner-twilio-java-how-to-use-voice-sms
-[howto_blob_storage_java]: http://www.windowsazure.com/zh-tw/develop/java/how-to-guides/blob-storage/
-[howto_sql_azure_java]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh749029.aspx
-[azure_runtime_jsp]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh690948.aspx
+[howto_blob_storage_java]: http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/
+[howto_sql_azure_java]: http://msdn.microsoft.com/library/windowsazure/hh749029.aspx
+[azure_runtime_jsp]: http://msdn.microsoft.com/library/windowsazure/hh690948.aspx
 [azure_javadoc]: http://dl.windowsazure.com/javadoc
 [twilio_docs_security]: http://www.twilio.com/docs/security
 [twilio_docs]: http://www.twilio.com/docs
@@ -196,4 +210,4 @@
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-<properties pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (Xamarin.iOS) | 行動開發人員中心" description="了解如何在 Xamarin.iOS 應用程式中驗證使用者的單一登入。" documentationCenter="xamarin" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="使用 Active Directory Authentication Library 單一登入驗證您的應用程式 (Xamarin.iOS) | 行動開發人員中心" 
+	description="了解如何在 Xamarin.iOS 應用程式中驗證使用者的單一登入。" 
+	documentationCenter="xamarin" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc,mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="wesmc,mahender"/>
 
 # 使用 Active Directory Authentication Library 單一登入驗證您的應用程式
 

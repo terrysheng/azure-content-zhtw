@@ -1,6 +1,18 @@
-﻿<properties title="How to use end user analytics in Azure" pageTitle="如何使用使用者分析" description="Microsoft Azure 網站的使用者分析。" authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="如何使用使用者分析" 
+	description="Microsoft Azure 網站的使用者分析。" 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-02" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
 
 # Microsoft Azure 網站的分析
 
@@ -31,3 +43,5 @@
     ![Top Pages](./media/insights-usage-analytics/Insights_TopPages.png)
 - 上週速度最緩慢的頁面；您可以進行改善，以符合您的商業需求和目標。
 
+
+<!--HONumber=46--> 

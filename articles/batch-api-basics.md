@@ -1,7 +1,20 @@
-﻿
-<properties title="API basics for Azure Batch" pageTitle="Azure 批次的 API 基本概念" description="向開發人員介紹 Azure Batch API 及 Batch 服務的概念" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
+﻿<properties 
+	pageTitle="Azure 批次的 API 基本概念" 
+	description="向開發人員介紹 Azure 批次 API 及批次服務的概念" 
+	services="batch" 
+	documentationCenter=".net" 
+	authors="yidingzhou" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="batch" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="10/27/2014" ms.author="yidingz, karran.batta" />
+<tags 
+	ms.service="batch" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="big-compute" 
+	ms.date="02/02/2015" 
+	ms.author="yidingz, kabatta"/>
 
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
@@ -57,7 +70,7 @@ Azure 批次服務為可調整和分散式計算提供作業排程架構。批�
 
 ### <a name="taskvm"></a>工作虛擬機器
 
-工作虛擬機器 (TVM) 是專門為您的應用程式處理特定工作負載的 Azure VM。TVM 大小決定 CPU 核心數目、記憶體容量，以及配置給 TVM 的本機檔案系統大小。TVM 可以是小型、大型或超大型虛擬機器，如 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/zh-tw/library/dn197896.aspx)中所述。
+工作虛擬機器 (TVM) 是專門為您的應用程式處理特定工作負載的 Azure VM。TVM 大小決定 CPU 核心數目、記憶體容量，以及配置給 TVM 的本機檔案系統大小。TVM 可以是小型、大型或超大型虛擬機器，如 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/dn197896.aspx)中所述。
 
 TVM 可以執行的程式類型包括可執行檔 (.exe)、命令檔 (.cmd)、批次檔 (.bat) 和指令碼檔案。TVM 也有下列屬性：
 
@@ -340,3 +353,5 @@ TVM 可以執行的程式類型包括可執行檔 (.exe)、命令檔 (.cmd)、�
 您無法覆寫這些系統定義的變數。
 
 您可以使用「取得工作」作業來擷取環境設定的值。
+
+<!--HONumber=46--> 

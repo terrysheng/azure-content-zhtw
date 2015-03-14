@@ -48,7 +48,7 @@ Apache Storm 是分散式運算系統，在 Hadoop 叢集上執行，並可讓�
 
 SCP 提供的程式庫可讓您輕鬆使用 .NET 建立 Storm 方案。HDInsight 上的 Storm 叢集包含執行您所建立的 SCP 方案所需的伺服器端元件。
 
-如需 HDInsight 上的 Storm 的詳細資訊，請參閱 [HDInsight Storm 概觀](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-storm-overview/)。
+如需 HDInsight 上的 Storm 的詳細資訊，請參閱 [HDInsight Storm 概觀](http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/)。
 
 ###設計 SCP 方案
 
@@ -69,7 +69,7 @@ SCP 提供的介面可讓您建立下列 Storm 元件：
 
 ##安裝 SCP SDK
 
-SCP SDK 是在 HDInsight 的 Storm 叢集上提供。在 [HDInsight 上建立 Storm 叢集](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-storm-getting-started/)之後，使用下列步驟，將 SDK 下載至您的本機開發環境。
+SCP SDK 是在 HDInsight 的 Storm 叢集上提供。在 [HDInsight 上建立 Storm 叢集](http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/)之後，使用下列步驟，將 SDK 下載至您的本機開發環境。
 
 1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com)。
 

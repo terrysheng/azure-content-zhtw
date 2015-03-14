@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="configure-Azure-Site-Recovery" pageTitle="開始使用 Azure Site Recovery：使用 Hyper-V 複寫進行內部部署至內部部署 VMM 站台保護" metaKeywords="Azure Site Recovery, VMM, 雲端, 災害復原" description="Azure Site Recovery 可協調複寫、容錯移轉及復原內部部署 VMM 網站之間的 Hyper-V 虛擬機器。" metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Getting Started with Azure Site Recovery:  On-Premises to On-Premises VMM Site Protection with Hyper-V Replication" editor="jimbe" manager="johndaw" authors="raynew" />
+﻿<properties 
+	pageTitle="教學課程：設定內部部署 VMM 網站之間的保護" 
+	description="Azure 站台復原可協調內部部署 VMM 網站之間的 Hyper-V 虛擬機器複寫、容錯移轉及復原作業。" 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="raynew" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/19/2014" ms.author="raynew" />
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="raynew"/>
 
 
 # 開始使用 Azure Site Recovery：使用 Hyper-V 複寫進行內部部署至內部部署 VMM 站台保護
@@ -241,3 +255,5 @@
 </UL>
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

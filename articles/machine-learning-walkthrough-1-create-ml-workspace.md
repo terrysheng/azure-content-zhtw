@@ -1,6 +1,20 @@
-<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="步驟 1：建立 Azure Machine Learning 工作區 | Azure" description="步驟 1：建立新的 Azure Machine Learning Studio 工作區" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="步驟 1：建立 Machine Learning 工作區 | Azure" 
+	description="方案逐步解說步驟 1：建立新的 Azure Machine Learning Studio 工作區" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 這是[使用 Azure ML 開發預測方案][develop]逐步解說的第一個步驟：
@@ -47,3 +61,5 @@ ML 工作區建立後，您會看見它列示在 [**機器學習**] 頁面上。
 **接著：[上傳現有資料][upload-data]**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
+
+<!--HONumber=46--> 

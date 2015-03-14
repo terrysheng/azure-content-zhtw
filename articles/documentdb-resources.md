@@ -1,6 +1,20 @@
-﻿<properties title="DocumentDB resource model and concepts" pageTitle="DocumentDB 資源模型和概念 | Azure" description="以邏輯 URI 個別識別而且使用者可以使用 HTTP 動詞、要求/回應標頭和狀態碼進行操作的 DocumentDB nosql 文件資料庫管理資源。" metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="DocumentDB 資源模型和概念 | Azure" 
+	description="Microsoft Azure DocumentDB 是完全受到管理的 NoSQL 文件資料庫，其使用由資料庫帳戶、資料庫、集合、預存程序、觸發程序、UDF、文件、附件、媒體、使用者及權限所組成的階層式模型來管理資源。"  
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="mimig"/>
 
 #DocumentDB 資源模型和概念
 
@@ -460,3 +474,5 @@ DocumentDB 中的使用者代表用於分組權限的邏輯命名空間。Docume
 [2]: ./media/documentdb-resources/resources2.png
 [3]: ./media/documentdb-resources/resources3.png
 [4]: ./media/documentdb-resources/resources4.png
+
+<!--HONumber=46--> 

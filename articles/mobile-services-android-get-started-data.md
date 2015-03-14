@@ -1,6 +1,20 @@
-<properties pageTitle="開始使用資料 (Android) | 行動開發人員中心" description="了解如何開始使用行動服務，在您的 Android 應用程式中使用資料。" services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="開始使用資料 (Android) | 行動開發人員中心" 
+	description="了解如何開始使用行動服務，在您的 Android 應用程式中使用資料。" 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal,glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/16/2014" 
+	ms.author="ricksal,glenga"/>
 
 # 將行動服務新增至現有應用程式
 
@@ -28,7 +42,7 @@
 4. [更新應用程式以使用行動服務]
 5. [針對行動服務進行應用程式測試]
 
-> [AZURE.IMPORTANT] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=AED8DE357"%20target="_blank)。 
+> [AZURE.IMPORTANT] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357"%20target="_blank)。 
 
 本教學課程需要 [Mobile Services Android SDK] <a href="https://go.microsoft.com/fwLink/p/?LinkID=280125" target="_blank">Android SDK</a> (含 Eclipse 整合式開發環境 (IDE) 和 Android Developer Tools (ADT) 外掛程式)，以及 Android 4.2 或更新版本。 
 

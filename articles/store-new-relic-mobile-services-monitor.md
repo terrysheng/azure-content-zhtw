@@ -139,7 +139,7 @@
 [5]: ./media/store-new-relic-mobile-services-monitor/mobile-new-relic-dashboard-2.png
 
 <!-- URLs. -->
-[原始檔控制]: http://msdn.microsoft.com/zh-tw/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[原始檔控制]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [在行動服務中使用伺服器指令碼]: /zh-tw/develop/mobile/how-to-guides/work-with-server-scripts.md
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/

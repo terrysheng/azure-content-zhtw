@@ -1,6 +1,20 @@
-﻿<properties title="Manage your Search service on Microsoft Azure" pageTitle="在 Microsoft Azure 上管理搜尋服務" description="在 Microsoft Azure 上管理搜尋服務" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="在 Microsoft Azure 上管理搜尋服務" 
+	description="在 Microsoft Azure 上管理搜尋服務" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # 在 Microsoft Azure 上管理搜尋服務
 
@@ -11,7 +25,7 @@ Azure 搜尋是一種雲端架構服務和 HTTP 架構 API，可用來自訂搜�
 
 這篇文章說明如何管理新的 [Azure 預覽入口網站](https://portal.azure.com)搜尋服務。
 
-或者，您可以使用管理 REST API。如需詳細資訊，請參閱[開始使用 Azure 搜尋管理 REST API](http://azure.microsoft.com/zh-tw/documentation/articles/search-get-started-management-api/) 和 [Azure 搜尋管理 REST API 參考](http://msdn.microsoft.com/zh-tw/library/azure/dn832684.aspx)。
+或者，您可以使用管理 REST API。如需詳細資訊，請參閱[開始使用 Azure 搜尋管理 REST API](http://azure.microsoft.com/documentation/articles/search-get-started-management-api/) 和 [Azure 搜尋管理 REST API 參考](http://msdn.microsoft.com/library/azure/dn832684.aspx)。
 
 <!--TOC-->
 
@@ -34,7 +48,7 @@ Azure 搜尋是一種雲端架構服務和 HTTP 架構 API，可用來自訂搜�
 
 若要規劃功能和了解計費標準，可參考下列連結：
 
-+	[限制條件](http://msdn.microsoft.com/zh-tw/library/dn798934.aspx)
++	[限制條件](http://msdn.microsoft.com/library/dn798934.aspx)
 +	[價格詳細資料](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 當您準備要註冊時，請參閱[開始使用 Azure 搜尋](../search-get-started/)。
@@ -98,10 +112,10 @@ Azure 搜尋是一種雲端架構服務和 HTTP 架構 API，可用來自訂搜�
 
 在服務儀表板上的使用量區段中，您可以快速判斷資料分割資源層級是否適合您的應用程式。
 
-使用搜尋服務 API 可取得文件和索引的計數。根據價格層不同，會有些與這些計數相關聯的固定限制。如需詳細資訊，請參閱[限制條件](http://msdn.microsoft.com/zh-tw/library/dn798934.aspx)。 
+使用搜尋服務 API 可取得文件和索引的計數。根據價格層不同，會有些與這些計數相關聯的固定限制。如需詳細資訊，請參閱[限制條件](http://msdn.microsoft.com/library/dn798934.aspx)。 
 
-+	[取得索引統計資料](http://msdn.microsoft.com/zh-tw/library/dn798942.aspx)
-+	[文件計數](http://msdn.microsoft.com/zh-tw/library/dn798924.aspx)
++	[取得索引統計資料](http://msdn.microsoft.com/library/dn798942.aspx)
++	[文件計數](http://msdn.microsoft.com/library/dn798924.aspx)
 
 > [WACOM.NOTE] 快取行為可暫時放寬限制。例如，使用共用服務時，您可能會看到文件計數超過固定限制的 10,000 份文件。這種「超出限制」是暫時的，並且將會在下一次的限制強制檢核中偵測出來。 
 
@@ -141,7 +155,7 @@ Azure 搜尋是一種雲端架構服務和 HTTP 架構 API，可用來自訂搜�
 
 沒有任何偵測方法可告訴您哪個索引分區儲存在哪個特定資料分割中。每個資料分割提供大約 25 GB 的儲存體，因此您需要將儲存體減少至可讓您擁有的資料分割數量所能容納的大小。如果您想還原成一個資料分割，所有 12 個分區皆要能符合。
 
-若要協助進行未來規劃，您可能需要檢查儲存體 (使用[取得索引統計資料](http://msdn.microsoft.com/zh-tw/library/dn798942.aspx)) 以了解實際上您可以使用的空間大小。 
+若要協助進行未來規劃，您可能需要檢查儲存體 (使用[取得索引統計資料](http://msdn.microsoft.com/library/dn798942.aspx)) 以了解實際上您可以使用的空間大小。 
 
 
 <!---->
@@ -157,7 +171,7 @@ Azure 搜尋是一種雲端架構服務和 HTTP 架構 API，可用來自訂搜�
 <!---->
 <h2 id="sub-8">設定管理存取權的角色</h2>
 
-Azure 特別為透過 Preview 入口網站管理的所有服務，或在 Azure 資源管理員 API 中 (如果您使用自訂系統管理工具)，提供全域角色型授權模型。「擁有者」、「參與者」和「讀取者」角色可針對您指派給各角色的 Active Directory 使用者、群組和安全性主體，設定服務管理層級。請參閱[Azure Preview 入口網站中的角色存取控制](http://azure.microsoft.com/zh-tw/updates/role-based-access-control-in-azure-preview-portal/)，以取得角色成員資格的詳細資料。
+Azure 特別為透過 Preview 入口網站管理的所有服務，或在 Azure 資源管理員 API 中 (如果您使用自訂系統管理工具)，提供全域角色型授權模型。「擁有者」、「參與者」和「讀取者」角色可針對您指派給各角色的 Active Directory 使用者、群組和安全性主體，設定服務管理層級。請參閱[Azure Preview 入口網站中的角色存取控制](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/)，以取得角色成員資格的詳細資料。
 
 就 Azure Search 而言，角色存取控制可決定下列管理工作：
 
@@ -185,7 +199,7 @@ Azure 特別為透過 Preview 入口網站管理的所有服務，或在 Azure �
 </tr>
 </table>
 
-請注意，角色不會授與服務端點的存取權限。搜尋服務作業 (例如索引管理、索引母體擴展，以及搜尋資料查詢) 可透過 api-key 而非角色來控制。如需詳細資訊，請參閱 [Azure Preview 入口網站中的角色存取控制](http://azure.microsoft.com/zh-tw/updates/role-based-access-control-in-azure-preview-portal/)中的「管理授權與資料作業」。
+請注意，角色不會授與服務端點的存取權限。搜尋服務作業 (例如索引管理、索引母體擴展，以及搜尋資料查詢) 可透過 api-key 而非角色來控制。如需詳細資訊，請參閱 [Azure Preview 入口網站中的角色存取控制](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/)中的「管理授權與資料作業」。
 
 建立服務之後，角色會提供存取控制。只有訂閱管理員可以新增訂閱的搜尋服務。
 
@@ -213,3 +227,5 @@ Azure 特別為透過 Preview 入口網站管理的所有服務，或在 Azure �
 [Azure Search 開發工作流程]: ../search-workflow/
 [建立第一個 Azure 搜尋方案]: ../search-create-first-solution/
 
+
+<!--HONumber=46--> 

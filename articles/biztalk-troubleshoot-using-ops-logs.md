@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="BizTalk 服務：使用作業記錄檔進行疑難排解 | Azure" metaKeywords="" description="BizTalk 服務：使用作業記錄檔進行疑難排解" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors="mandia"  solutions="" writer="nitinme" manager="dwrede" editor="cgronlun"  />
+﻿<properties 
+	pageTitle="BizTalk 服務：使用作業記錄進行疑難排解 | Azure" 
+	description="使用作業記錄疑難排解 BizTalk 服務。MABS，WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 # BizTalk 服務：使用作業記錄檔進行疑難排解
@@ -8,7 +22,7 @@
 作業記錄檔是 Azure 管理入口網站中的可用管理服務功能之一，可讓您對執行於 Azure 服務的作業檢視歷程記錄檔，包括 BizTalk 服務在內。它可讓您檢視與 BizTalk 服務訂閱的管理作業有關的歷程資料，最多可回溯 180 天。
 
 <div class="dev-callout"><b>注意</b>
-<p>這項功能只會在服務啟動、備份等期間，針對 BizTalk 服務的管理作業擷取記錄檔。此類作業無論是從 Azure 管理入口網站還是透過 <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dn232347.aspx">BizTalk 服務 REST API</a> 來執行，都會受到追蹤。如需使用管理服務進行追蹤的完整作業清單，請參閱<a href="#bizops">使用 Azure 管理服務進行追蹤的作業</a>。</p>
+<p>這項功能只會在服務啟動、備份等期間，針對 BizTalk 服務的管理作業擷取記錄檔。此類作業無論是從 Azure 管理入口網站還是透過 <a href="http://msdn.microsoft.com/library/windowsazure/dn232347.aspx">BizTalk 服務 REST API</a> 來執行，都會受到追蹤。如需使用管理服務進行追蹤的完整作業清單，請參閱<a href="#bizops">使用 Azure 管理服務進行追蹤的作業</a>。</p>
 <p>此功能不會對 BizTalk 服務執行階段的相關活動 (例如橋接器等項目所處理的訊息) 擷取記錄檔。若要檢視這些記錄檔，您必須使用 BizTalk 服務入口網站中的 [追蹤] 檢視。如需詳細資訊，請參閱<a HREF="http://msdn.microsoft.com/library/windowsazure/hh949805.aspx">追蹤訊息</a>。</p>
 </div>
 
@@ -99,3 +113,5 @@
 - [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
+
+<!--HONumber=46--> 

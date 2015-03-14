@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Integrate a cloud service with Azure CDN" pageTitle="整合雲端服務與 Azure CDN" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, cloud service" description="教導您如何部署從整合式 Azure CDN 端點提供內容之雲端服務的教學課程" metaCanonical="" services="cdn,cloud-services" documentationCenter=".NET" title="Integrate a cloud service with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
+﻿<properties 
+	pageTitle="整合雲端服務與 Azure CDN" 
+	description="指導如何部署雲端服務來提供整合式 Azure CDN 端點內容的教學課程" 
+	services="cdn, cloud-services" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="tysonn"/>
 
-<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
+<tags 
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/02/2014" 
+	ms.author="cephalin"/>
 
 <a name="intro"></a>
 # 整合雲端服務與 Azure CDN #
@@ -31,15 +45,15 @@
 
 本教學課程有下列先決條件：
 
--	使用中的 [Microsoft Azure 帳戶](http://azure.microsoft.com/zh-tw/account/)
+-	使用中的 [Microsoft Azure 帳戶](http://azure.microsoft.com/account/)
 -	Visual Studio 2013 (含 [Azure SDK])(http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
 <div class="wa-note">
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>You need an Azure account to complete this tutorial:</h5>
   <ul>
-    <li>You can <a href="http://azure.microsoft.com/zh-tw/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.</li>
-    <li>You can <a href="http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activate MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
+    <li>You can <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F">open an Azure account for free</a> - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.</li>
+    <li>You can <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activate MSDN subscriber benefits</a> - Your MSDN subscription gives you credits every month that you can use for paid Azure services.</li>
   <ul>
 </div>
 
@@ -81,7 +95,7 @@
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[WACOM.NOTE] 雲端服務的發行程序會花費相當長的時間。[啟用所有 Web 角色的 Web Deploy] 選項可快速 (但暫時) 提供更新給 Web 角色，加速偵測您的雲端服務。如需有關此選項的詳細資訊，請參閱[使用 Azure Tools 發行雲端服務](http://msdn.microsoft.com/zh-tw/library/ff683672.aspx).
+	>[WACOM.NOTE] 雲端服務的發行程序會花費相當長的時間。[啟用所有 Web 角色的 Web Deploy] 選項可快速 (但暫時) 提供更新給 Web 角色，加速偵測您的雲端服務。如需有關此選項的詳細資訊，請參閱[使用 Azure Tools 發行雲端服務](http://msdn.microsoft.com/library/ff683672.aspx).
 
 	當 [Windows Azure 活動記錄] 顯示發行狀態為 [已完成] 時，您將建立與此雲端服務整合的 CDN 端點。 
 
@@ -289,7 +303,8 @@
 	
 	            MemoryStream ms = new MemoryStream();
 	            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-	            return File(ms.ToArray(), &quot;image/png&quot;);
+	            return File(
+	ms.ToArray(), &quot;image/png&quot;);
 	        }
 	
 	        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
@@ -413,7 +428,7 @@ public ActionResult Show(string id)
 
 請遵循下列步驟來整合 ASP.NET 統合和縮製與 CDN 端點。
 
-1. 回到 *App_Start\BundleConfig.cs*，將 `bundles.Add()` 方法修改成使用不同的 [Bundle 建構函式](http://msdn.microsoft.com/zh-tw/library/jj646464.aspx) (此建構函式指定 CDN 位址)。若要這樣做，請以下列程式碼取代 `RegisterBundles` 方法定義：  
+1. 回到 *App_Start\BundleConfig.cs*，將 `bundles.Add()` 方法修改成使用不同的 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx) (此建構函式指定 CDN 位址)。若要這樣做，請以下列程式碼取代 `RegisterBundles` 方法定義：  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -507,9 +522,9 @@ public ActionResult Show(string id)
 
 當 Azure CDN 端點因故失敗時，您一定希望網頁能夠聰明地存取原始 Web 伺服器，當作後援選項來載入 JavaScript 或 Bootstrap。因 CDN 無法使用而遺失網站的影像就已經夠嚴重，而遺失由指令碼和樣式表所提供的重要頁面功能又更加嚴重。
 
-[Bundle](http://msdn.microsoft.com/zh-tw/library/system.web.optimization.bundle.aspx) 類別包含一個稱為 [CdnFallbackExpression](http://msdn.microsoft.com/zh-tw/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) 的屬性，可讓您設定 CDN 失敗時的後援機制。若要使用此屬性，請遵循下列步驟：
+[Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) 類別包含一個稱為 [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) 的屬性，可讓您設定 CDN 失敗時的後援機制。若要使用此屬性，請遵循下列步驟：
 
-1. 在 Web 角色專案中，開啟 [App_Start\BundleConfig.cs] (您已在其中每一個 [Bundle 建構函式](http://msdn.microsoft.com/zh-tw/library/jj646464.aspx)中加入 CDN URL)，然後進行下面醒目提示的變更，以將後援機制加入至預設套件組合：  
+1. 在 Web 角色專案中，開啟 [App_Start\BundleConfig.cs] (您已在其中每一個 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx)中加入 CDN URL)，然後進行下面醒目提示的變更，以將後援機制加入至預設套件組合：  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -615,9 +630,11 @@ public ActionResult Show(string id)
 
 # 其他資訊 #
 - [Azure 內容傳遞網路 (CDN) 概觀](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [在 Web 應用程式中從 Azure CDN 提供內容](http://azure.microsoft.com/zh-tw/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
-- [整合 Azure 網站與 Azure CDN](http://azure.microsoft.com/zh-tw/documentation/articles/cdn-websites-with-cdn/)
+- [在 Web 應用程式中從 Azure CDN 提供內容](http://azure.microsoft.com/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
+- [整合 Azure 網站與 Azure CDN](http://azure.microsoft.com/documentation/articles/cdn-websites-with-cdn/)
 - [ASP.NET 統合和縮製](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [使用 Azure 的 CDN](http://azure.microsoft.com/zh-tw/documentation/articles/cdn-how-to-use/)
+- [使用 Azure 的 CDN](http://azure.microsoft.com/documentation/articles/cdn-how-to-use/)
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

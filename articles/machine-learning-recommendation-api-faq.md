@@ -1,6 +1,20 @@
-﻿<properties title="FAQ for setting up and using the Machine Learning Recommendations API" pageTitle="設定和使用 Machine Learning Recommendations API 的常見問題集 |Azure" description="使用 Azure 機器學習 FAQ 建立的 Microsoft 建議 API" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="設定和使用 Machine Learning Recommendations API 的常見問題集 |Azure" 
+	description="以 Azure Machine Learning 建置之 Microsoft RECOMMENDATIONS API 的常見問題集" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2014" 
+	ms.author="jaymathe"/> 
 
 # 設定和使用 Machine Learning Recommendations API 的常見問題集
 1.0 版
@@ -88,7 +102,7 @@ RECOMMENDATIONS 是一項以訂閱為基礎的服務。收費是根據每個月�
 
 重要事項：升級前，請先仔細閱讀對話方塊，因為其中有計費和使用暗示。
 
-如需有關了解訂閱的詳細資訊，請按一下[這裡](http://msdn.microsoft.com/zh-tw/library/gg312164.aspx)。
+如需有關了解訂閱的詳細資訊，請按一下[這裡](http://msdn.microsoft.com/library/gg312164.aspx)。
 
 ###我的 RECOMMENDATIONS 訂閱何時會結束？
 您的訂閱會在您取消時結束。如果您想要取消您的訂閱，請參閱下列指示。
@@ -143,3 +157,5 @@ API 文件在[這裡](https://onedrive.live.com/view.aspx?cid=8536718B52F71725&r
 (c) 2014 Microsoft.著作權所有，並保留一切權利。 
 
 
+
+<!--HONumber=46--> 

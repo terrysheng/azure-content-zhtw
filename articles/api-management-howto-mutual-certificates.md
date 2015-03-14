@@ -1,6 +1,20 @@
-<properties pageTitle="How to secure back-end services using mutual certificate authentication in Azure API Management" metaKeywords="" description="Learn how to secure back-end services using mutual certificate authentication in Azure API Management." metaCanonical="" services="api-management" documentationCenter="API Management" title="How to secure back-end services using mutual certificate authentication in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="如何在 Azure API 管理中使用相互憑證驗證來保護後端服務" 
+	description="了解如何在 Azure API 管理中使用相互憑證驗證來保護後端服務。" 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用相互憑證驗證來保護後端服務
 
@@ -107,3 +121,5 @@ API 管理提供以相互憑證保護 API 後端服務之存取的功能。本�
   [api-management-select-certificate]: ./media/api-management-howto-mutual-certificates/api-management-select-certificate.png
   [api-management-save-api]: ./media/api-management-howto-mutual-certificates/api-management-save-api.png
   [api-management-certificate-policy]: ./media/api-management-howto-mutual-certificates/api-management-certificate-policy.png
+
+<!--HONumber=46--> 

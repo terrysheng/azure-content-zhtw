@@ -27,7 +27,7 @@
 > - [佇列](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 > - [資料表](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
 
-Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。如需詳細資訊，請參閱[如何從 .NET 使用佇列儲存體](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/ "How to use Queue Storage from .NET")。
+Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。如需詳細資訊，請參閱[如何從 .NET 使用佇列儲存體](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/ "How to use Queue Storage from .NET")。
 
 若要以程式設計方式存取 ASP.NET 5 專案中的佇列，您需要加入下列項目 (如果尚不存在)。
 
@@ -53,7 +53,7 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
       config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
 ##### 建立佇列
-**CloudQueueClient** 物件可讓您取得佇列的參照物件。下列程式碼將建立 **CloudQueueClient** 物件。本主題的所有程式碼都使用 Azure 應用程式服務設定中所儲存的儲存體連接字串。還有其他方式可以建立 **CloudStorageAccount** 物件。請參閱 [CloudStorageAccount](http://msdn.microsoft.com/zh-tw/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount") 文件以取得詳細資料。
+**CloudQueueClient** 物件可讓您取得佇列的參照物件。下列程式碼將建立 **CloudQueueClient** 物件。本主題的所有程式碼都使用 Azure 應用程式服務設定中所儲存的儲存體連接字串。還有其他方式可以建立 **CloudStorageAccount** 物件。請參閱 [CloudStorageAccount](http://msdn.microsoft.com/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount") 文件以取得詳細資料。
 
 **注意：**在 ASP.NET 5 中對 Azure 儲存體執行呼叫的 API 未同步。如需詳細資訊，請參閱[使用 Async 和 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。下列程式碼假設使用的是非同步程式設計方法。
 
@@ -102,5 +102,5 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 	await queue.DeleteMessageAsync(retrievedMessage);
 
 [深入了解 Azure 儲存體](http://azure.microsoft.com/documentation/services/storage/)
-另請參閱[使用伺服器總管瀏覽和管理儲存體資源](http://msdn.microsoft.com/zh-tw/library/azure/ff683677.aspx)和 [ASP.NET 5](http://www.asp.net/vnext)。
+另請參閱[使用伺服器總管瀏覽和管理儲存體資源](http://msdn.microsoft.com/library/azure/ff683677.aspx)和 [ASP.NET 5](http://www.asp.net/vnext)。
 <!--HONumber=42-->

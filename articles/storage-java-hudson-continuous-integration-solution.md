@@ -161,7 +161,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 
 - **儲存體帳戶**：所有對 Azure 儲存體的存取都是透過儲存體帳戶進行。這是存取 blob 用的最高等級的命名空間。帳戶可以包含不限數目的容器，只要它們的大小總計低於 100TB 即可。
 - **容器**：容器提供一組 Blob 的群組。所有 Blob 都必須放在容器中。一個帳戶可以包含的容器不限數量。容器可以儲存無限制的 Blob。
-- **Blob**：任何類型和大小的檔案。「Azure 儲存體」中可以儲存兩種 Blob：區塊 Blob 和分頁 Blob。大部分檔案都是區塊 Blob。單一區塊 Blob 的大小上限為 200GB。本教學課程使用區塊 Blob。分頁 Blob (另一種 Blob 類型) 的大小上限為 1TB，當檔案中的位元組範圍經常修改時，分頁 Blob 的效率較高。如需有關 Blob 的詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee691964.aspx)。
+- **Blob**：任何類型和大小的檔案。「Azure 儲存體」中可以儲存兩種 Blob：區塊 Blob 和分頁 Blob。大部分檔案都是區塊 Blob。單一區塊 Blob 的大小上限為 200GB。本教學課程使用區塊 Blob。分頁 Blob (另一種 Blob 類型) 的大小上限為 1TB，當檔案中的位元組範圍經常修改時，分頁 Blob 的效率較高。如需有關 Blob 的詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob](http://msdn.microsoft.com/library/windowsazure/ee691964.aspx)。
 - **URL 格式**：可利用下列 URL 格式來定址 Blob：
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`

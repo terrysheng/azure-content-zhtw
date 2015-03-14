@@ -298,7 +298,7 @@
 
 	> [AZURE.IMPORTANT] 請注意，您寄送的實體媒體可能需要跨國界。您必須確定實體媒體和資料的匯入和/或匯出符合相關管轄法律。在寄出實體媒體之前，請洽詢顧問來確認您的媒體和資料可以合法地寄到所識別的資料中心。這有助於確保及時送達 Microsoft。
 
-- 寄送包裹時，您必須遵守 [Microsoft Azure 服務條款](http://azure.microsoft.com/zh-tw/support/legal/services-terms/)中的條款。 
+- 寄送包裹時，您必須遵守 [Microsoft Azure 服務條款](http://azure.microsoft.com/support/legal/services-terms/)中的條款。 
 
 **我可以向 Microsoft 購買用於匯入/匯出工作的磁碟機嗎？**
 

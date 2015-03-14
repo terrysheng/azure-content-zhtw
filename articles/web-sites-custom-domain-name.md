@@ -77,7 +77,7 @@
 
 1.	在瀏覽器中開啟 [Azure 管理入口網站](https://manage.windowsazure.com)。
 2.	在 **[網站]** 索引標籤中，按一下網站名稱，並選取 **[儀表板]**。
-3.	選取頁面底部的 **[管理網域]**。(若此選項為停用，請確認您使用的模式是否為共用、基本或標準模式。如需詳細資訊，請參閱[如何調整網](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-scale/)站。) 
+3.	選取頁面底部的 **[管理網域]**。(若此選項為停用，請確認您使用的模式是否為共用、基本或標準模式。如需詳細資訊，請參閱[如何調整網](http://azure.microsoft.com/documentation/articles/web-sites-scale/)站。) 
 
 	![](media/web-sites-custom-domain-name/dncmntask-cname-6.png)
 

@@ -123,7 +123,7 @@ Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱為 MRv2)，可將 
 * <a target="_blank" href="http://www.microsoft.com/zh-tw/download/details.aspx?id=39379">下載 Microsoft Power Query for Excel</a> 
 * <a target="_blank" href="http://www.microsoft.com/zh-tw/download/details.aspx?id=40886">下載 Microsoft Hive ODBC 驅動程式</a>
 * <a target="_blank" href="http://www.microsoft.com/zh-tw/server-cloud/solutions/business-intelligence/analysis.aspx">深入了解 SQL Server Analysis Services</a>
-* <a target="_blank" href="http://msdn.microsoft.com/zh-tw/library/ms159106.aspx">了解 SQL Server Reporting Services</a>
+* <a target="_blank" href="http://msdn.microsoft.com/library/ms159106.aspx">了解 SQL Server Reporting Services</a>
 
 ## <a name="advantage"></a>Hadoop 在雲端中的優點
 
@@ -166,9 +166,9 @@ Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱為 MRv2)，可將 
 
 ### Azure 上的 SQL Database	
 		
-* [Azure SQL Database](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336279.aspx)：SQL Database 的 MSDN 文件。
+* [Azure SQL Database](http://msdn.microsoft.com/library/windowsazure/ee336279.aspx)：SQL Database 的 MSDN 文件。
 	
-* [SQL Database 管理入口網站](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg442309.aspx)：在雲端管理 SQL Database 的輕量型使用簡便的資料庫管理工具。
+* [SQL Database 管理入口網站](http://msdn.microsoft.com/library/windowsazure/gg442309.aspx)：在雲端管理 SQL Database 的輕量型使用簡便的資料庫管理工具。
 
 * [SQL Database 的大膽嘗試](http://msftdbprodsamples.codeplex.com/releases/view/37304)：SQL Database 範例資料庫的下載頁面。	
 

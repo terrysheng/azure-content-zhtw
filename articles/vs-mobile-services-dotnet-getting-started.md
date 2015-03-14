@@ -45,7 +45,7 @@
 
 	IMobileServiceTable<TodoItem> todoTable = App.<yourClient>.GetTable<TodoItem>();
 
-資料表的權限必須設為**「具有應用程式金鑰的任何人」**，此程式碼才能運作。如果您變更權限來保護行動服務，則需要加入使用者驗證支援。請參閱[開始使用驗證](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/)。
+資料表的權限必須設為**「具有應用程式金鑰的任何人」**，此程式碼才能運作。如果您變更權限來保護行動服務，則需要加入使用者驗證支援。請參閱[開始使用驗證](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/)。
 
 #####加入項目 
 

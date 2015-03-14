@@ -1,358 +1,311 @@
-<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="如何搭配使用通知中心與 Java" metaKeywords="" description="了解如何從 Java 後端使用 Azure 通知中心。" metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+<properties 
+	pageTitle="如何搭配使用通知中心與 Java" 
+	description="了解如何從 Java 後端使用 Azure 通知中心。" 
+	services="notification-hubs" 
+	documentationCenter="" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="java" ms.topic="article" ms.date="11/14/2014" ms.author="piyushjo" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="01/12/2015" 
+	ms.author="piyushjo"/>
 
-# 如何使用 Java/PHP 的通知中心
+# 如何從 Java 使用通知中心
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/zh-tw/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/zh-tw/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a>
+    	<a href="/zh-tw/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/zh-tw/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/zh-tw/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a>
 </div>
 
-您可以使用通知中心 REST 介面，存取 Java/PHP/Ruby 後端的所有通知中心功能，如 MSDN 主題[通知中心 REST API](http://msdn.microsoft.com/zh-tw/library/dn223264.aspx) 中所述。
+本主題說明最新完整支援的官方 Azure 通知中心 Java SDK 有哪些主要功能。 
+這是開放原始碼專案，您可以在 [Java SDK] 檢視完整的 SDK 程式碼。 
 
-在本主題中，我們將說明如何：
+一般而言，您可以使用通知中心 REST 介面，存取 Java/PHP/Python/Ruby 後端的所有通知中心功能，如 MSDN 主題[通知中心 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 中所述。此 Java SDK 透過 Java 中的這些 REST 介面提供了精簡型包裝函式。 
 
-* 在 Java 中建置通知中心功能的 REST 用戶端；
-* 依照[開始使用教學課程](http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-ios-get-started/)，針對您所選的行動平台，在 Java 中實作後端部分。
+SDK 目前支援：
 
-## <a name="client-interface"></a>用戶端介面
-主要用戶端介面可提供 [.NET 通知中心 SDK](http://msdn.microsoft.com/zh-tw/library/jj933431.aspx) 中使用的相同方法，可讓您直接翻譯此網站目前可用的所有教學課程和範例，並由網際網路上的社群執行。
+- 通知中心的 CRUD 
+- 註冊的 CRUD
+- 安裝管理
+- 匯入/匯出註冊
+- 定期傳送
+- 排程的傳送
+- 透過 Java NIO 的非同步作業
+- 支援的平台：APNS (iOS)、GCM (Android)、WNS (Windows 市集應用程式)、MPNS (Windows Phone)、ADM (Amazon Kindle Fire)、Baidu (沒有 Google 服務的 Android) 
 
-您可在 [Java REST 包裝函式範例]中找到所有可用的程式碼。
+## SDK 的使用方式
 
-例如，若要建立用戶端：
+### 編譯和建置
 
-	new NotificationHub("connection string", "hubname");	
+使用 [Maven]
 
-若要建立 iOS 註冊 (與 Windows、Android、Windows Phone 和 Kindle Fire 類似)：
+若要建置：
 
-	String id = hub.createRegistrationId();
-	AppleRegistration reg = new AppleRegistration(id, DEVICETOKEN);
+	mvn package
+
+## 程式碼
+
+### 通知中心 CRUD
+
+**建立 NamespaceManager：**
+	
+	NamespaceManager namespaceManager = new NamespaceManager("connection string")
+
+**建立通知中心：**
+	
+	NotificationHubDescription hub = new NotificationHubDescription("hubname");
+	hub.setWindowsCredential(new WindowsCredential("sid","key"));
+	hub = namespaceManager.createNotificationHub(hub);
+	
+ 或
+
+	hub = new NotificationHub("connection string", "hubname");
+
+**取得通知中心：**
+	
+	hub = namespaceManager.getNotificationHub("hubname");
+
+**更新通知中心：**
+	
+	hub.setMpnsCredential(new MpnsCredential("mpnscert", "mpnskey"));
+	hub = namespaceManager.updateNotificationHub(hub);
+
+**刪除通知中心：**
+	
+	namespaceManager.deleteNotificationHub("hubname");
+
+### 註冊 CRUD
+**建立通知中心用戶端：**
+
+	hub = new NotificationHub("connection string", "hubname");
+
+**建立 Windows 註冊：**
+
+	WindowsRegistration reg = new WindowsRegistration(new URI(CHANNELURI));
+	reg.getTags().add("myTag");
+	reg.getTags().add("myOtherTag");    
+	hub.createRegistration(reg);
+
+**建立 iOS 註冊：**
+
+	AppleRegistration reg = new AppleRegistration(DEVICETOKEN);
 	reg.getTags().add("myTag");
 	reg.getTags().add("myOtherTag");
+	hub.createRegistration(reg);
+
+同樣地，您可以建立 Android (GCM)、Windows Phone (MPNS) 和 Kindle Fire (ADM) 的註冊。
+
+**建立範本註冊：**
+
+	WindowsTemplateRegistration reg = new WindowsTemplateRegistration(new URI(CHANNELURI), WNSBODYTEMPLATE);
+	reg.getHeaders().put("X-WNS-Type", "wns/toast");
+	hub.createRegistration(reg);
+
+**使用建立 registrationid + upsert 模式來建立註冊**
+
+如果將註冊識別碼儲存在裝置上，請在發生任何遺失回應時移除複本：
+
+	String id = hub.createRegistrationId();
+	WindowsRegistration reg = new WindowsRegistration(id, new URI(CHANNELURI));
 	hub.upsertRegistration(reg);
 
-若要傳送 iOS 原生通知：
+**更新註冊：**
 	
-	Notification n = Notification.createAppleNotifiation("APNS body");
-	hub.sendNotification(n);
+	hub.updateRegistration(reg);
 
-## <a name="implementation"></a>實作
-如果您還沒有這麼做，請遵循我們的[開始使用教學課程]，一直到您必須實作後端的最後一節。
-此外，您也可以從 [Java REST 包裝函式範例]使用程式碼，並直接移至[完成教學課程](#complete-tutorial) 一節。
-
-您可以在 [MSDN](http://msdn.microsoft.com/zh-tw/library/dn530746.aspx) 上找到所有實作完整 REST 包裝函式的詳細資料。。在本節中，我們將針對存取通知中心 REST 端點所需主要步驟的 Java 實作進行說明：
-
-1. 解析連接字串
-2. 產生授權權杖
-3. 執行 HTTP 呼叫
-
-在下列程式碼片段中，我們將使用下列元件：
-
-* [Apache HttpComponents](http://hc.apache.org/httpcomponents-client-ga/)
-* [Apache Commons-Codec](http://commons.apache.org/proper/commons-codec/)
-* [Apache Commons-Io](http://commons.apache.org/proper/commons-io/)
-
-### 解析連接字串
-
-以下是實作其建構函式可解析連接字串之用戶端的主要類別：
-
-	public class NotificationHub {
-
-		private static final String APIVERSION = "?api-version=2013-10";
-		private static final String CONTENT_LOCATION_HEADER = "Location";
-		private String endpoint;
-		private String hubPath;
-		private String SasKeyName;
-		private String SasKeyValue;
+**刪除註冊：**
 	
-		private HttpClient httpClient;
+	hub.deleteRegistration(regid);
+
+**查詢註冊：**
+
+* 	**取得單一註冊：**
 	
-		public NotificationHub(String connectionString, String hubPath) {
-			this.httpClient = HttpClients.createDefault();
-			this.hubPath = hubPath;
+		hub.getRegistration(regid);
 	
-			String[] parts = connectionString.split(";");
-			if (parts.length != 3)
-				throw new RuntimeException("Error parsing connection string: "
-						+ connectionString);
+* 	**取得中樞中的所有註冊：**
 	
-			for (int i = 0; i < parts.length; i++) {
-				if (parts[i].startsWith("Endpoint")) {
-					this.endpoint = "https" + parts[i].substring(11);
-				} else if (parts[i].startsWith("SharedAccessKeyName")) {
-					this.SasKeyName = parts[i].substring(20);
-				} else if (parts[i].startsWith("SharedAccessKey")) {
-					this.SasKeyValue = parts[i].substring(16);
-				}
-			}
-		}
-	}
+		hub.getRegistrations();
+	
+* 	**取得有標籤的註冊：**
+	
+		hub.getRegistrationsByTag("myTag");
+	
+* 	**依通道取得註冊：**
+	
+		hub.getRegistrationsByChannel("devicetoken");
+
+所有集合查詢都支援 $top 和接續權杖。
+
+### 安裝 API 的使用方式
+安裝 API 是註冊管理的替代機制。要維護多個註冊並非易事，並且可能容易出錯或效率低落，但現在您已可以使用單一安裝物件。 
+安裝包含所需的一切：推播通道 (裝置權杖)、標籤、範本、次要磚 (適用於 WNS 和 APNS)。現在您無須呼叫服務即可取得識別碼 - 只要產生 GUID 或任何其他識別碼、將它保存在裝置上，並透過推播通道傳送至您的後端 (裝置權杖) 即可。 
+在後端上，您應該只需執行單一呼叫：CreateOrUpdateInstallation，它是完全等冪的，因此您可以儘管在必要時重試。
+
+以 Amazon Kindle Fire 為例，將如下所示：
+
+	Installation installation = new Installation("installation-id", NotificationPlatform.Adm, "adm-push-channel");
+	hub.createOrUpdateInstallation(installation);
+
+如果您想要加以更新： 
+
+	installation.addTag("foo");
+	installation.addTemplate("template1", new InstallationTemplate("{\"data\":{\"key1\":\"$(value1)\"}}","tag-for-template1"));
+	installation.addTemplate("template2", new InstallationTemplate("{\"data\":{\"key2\":\"$(value2)\"}}","tag-for-template2"));
+	hub.createOrUpdateInstallation(installation);
+
+在進階案例中，我們提供了部分更新功能，僅允許使用者對安裝物件的特定屬性進行修改。基本上，部分更新是您可以對安裝物件執行的 JSON Patch 作業子集。
+
+	PartialUpdateOperation addChannel = new PartialUpdateOperation(UpdateOperationType.Add, "/pushChannel", "adm-push-channel2");
+	PartialUpdateOperation addTag = new PartialUpdateOperation(UpdateOperationType.Add, "/tags", "bar");
+	PartialUpdateOperation replaceTemplate = new PartialUpdateOperation(UpdateOperationType.Replace, "/templates/template1", new InstallationTemplate("{\"data\":{\"key3\":\"$(value3)\"}}","tag-for-template1")).toJson());
+	hub.patchInstallation("installation-id", addChannel, addTag, replaceTemplate);
+
+刪除安裝：
+
+	hub.deleteInstallation(installation.getInstallationId());
+
+CreateOrUpdate、Patch 和 Delete 最終都會與 Get 一致。您要求的作業只會在呼叫期間進入系統佇列，並會在背景中執行。請注意，Get 不是針對主要執行階段案例而設計的，而是專門用於偵錯和疑難排解的目的，因此受到服務嚴格的節流。
+
+安裝的傳送流量與註冊相同。我們僅介紹以特定安裝的通知為目標的選項 - 僅使用標籤 "InstallationId:{desired-id}"。就上述案例而言，將如下所示：
+
+	Notification n = Notification.createWindowsNotification("WNS body");
+	hub.sendNotification(n, "InstallationId:{installation-id}");
+
+數個範本之一：
+
+	Map<String, String> prop =  new HashMap<String, String>();
+	prop.put("value3", "some value");
+	Notification n = Notification.createTemplateNotification(prop);
+	hub.sendNotification(n, "InstallationId:{installation-id} && tag-for-template1");
+
+### 排程通知 (適用於 STANDARD 層)
+
+與定期傳送相同，但使用了一個額外參數 scheduledTime，指出何時應傳遞通知。服務可接受目前 + 5 分鐘與目前 + 7 天之間的任何時間點。
+
+**排程 Windows 原生通知：**
+
+	Calendar c = Calendar.getInstance();
+	c.add(Calendar.DATE, 1);    
+	Notification n = Notification.createWindowsNotification("WNS body");
+	hub.scheduleNotification(n, c.getTime());
+
+### 匯入/匯出 (適用於 STANDARD 層)
+有時候您需要對註冊執行大量作業。通常這是為了與另一個系統整合，或是要進行大規模修正，例如更新標籤。如果註冊數高達數千個，強烈建議您不要使用 Get/Update 流程。匯入/匯出功能可因應此案例。基本上，您會在儲存體帳戶提供對某個 Blob 容器的的存取權，做為內送資料的來源和輸出的位置。
+
+**提交匯出工作：**
+
+	NotificationHubJob job = new NotificationHubJob();
+	job.setJobType(NotificationHubJobType.ExportRegistrations);
+	job.setOutputContainerUri("container uri with SAS signature");
+	job = hub.submitNotificationHubJob(job);
 
 
-### 建立安全性權杖
-您可以在[這裡](http://msdn.microsoft.com/zh-tw/library/dn495627.aspx)找到建立安全性權杖的詳細資料。
-您必須將下列方法加入 **NotificationHub** 類別，才能根據目前要求的 URI 及擷取自連接字串的認證來建立權杖。
+**提交匯入工作：**
 
-	private String generateSasToken(URI uri) {
-		String targetUri;
-		try {
-			targetUri = URLEncoder
-					.encode(uri.toString().toLowerCase(), "UTF-8")
-					.toLowerCase();
+	NotificationHubJob job = new NotificationHubJob();
+	job.setJobType(NotificationHubJobType.ImportCreateRegistrations);
+	job.setImportFileUri("input file uri with SAS signature");
+	job.setOutputContainerUri("container uri with SAS signature");
+	job = hub.submitNotificationHubJob(job);
 
-			long expiresOnDate = System.currentTimeMillis();
-			int expiresInMins = 60; // 1 hour
-			expiresOnDate += expiresInMins * 60 * 1000;
-			long expires = expiresOnDate / 1000;
-			String toSign = targetUri + "\n" + expires;
+**等到工作完成：**
 
-			// Get an hmac_sha1 key from the raw key bytes
-			byte[] keyBytes = SasKeyValue.getBytes("UTF-8");
-			SecretKeySpec signingKey = new SecretKeySpec(keyBytes, "HmacSHA256");
+	while(true){
+	    Thread.sleep(1000);
+	    job = hub.getNotificationHubJob(job.getJobId());
+	    if(job.getJobStatus() == NotificationHubJobStatus.Completed)
+	        break;
+	}       
 
-			// Get an hmac_sha1 Mac instance and initialize with the signing key
-			Mac mac = Mac.getInstance("HmacSHA256");
-			mac.init(signingKey);
+**取得所有工作：**
 
-			// Compute the hmac on input data bytes
-			byte[] rawHmac = mac.doFinal(toSign.getBytes("UTF-8"));
+	List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-			// Convert raw bytes to Hex
-			String signature = URLEncoder.encode(
-					Base64.encodeBase64String(rawHmac), "UTF-8");
-
-			// construct authorization string
-			String token = "SharedAccessSignature sr=" + targetUri + "&sig="
-					+ signature + "&se=" + expires + "&skn=" + SasKeyName;
-			return token;
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
+**具有 SAS 簽章的 URI：**
+這是某個 Blob 檔案或 Blob 容器的 URL，加上參數集 (如權限和到期時間)，再加上所有使用帳戶 SAS 金鑰之項目的簽章。Azure Storage Java SDK 具有豐富的功能，包括建立此類的 URI。此外您可以參考 ImportExportE2E 測試類別 (從 github 位置) 的簡單替代方法，它可實作非常基本而精簡的簽署演算法。
 
 ### 傳送通知
-首先，讓我們先定義呈現通知的類別。
+通知物件是附有標頭的本文，某些公用程式方法有助於建立原生和範本通知物件。
 
-	import java.util.HashMap;
-	import java.util.Iterator;
-	import java.util.Map;
-	import org.apache.http.entity.ContentType;
+* **Windows 市集和 Windows Phone 8.1 (非 Silverlight)**
 
-	public class Notification {
-		private Map<String, String> headers = new HashMap<String, String>();
-		private String body;
-		private ContentType contentType;
-	
-		public static Notification createWindowsNotification(String body) {
-			Notification n = new Notification();
-			n.body = body;
-			n.headers.put("ServiceBusNotification-Format", "windows");
-	
-			if (body.contains("<toast>"))
-				n.headers.put("X-WNS-Type", "wns/toast");
-			if (body.contains("<tile>"))
-				n.headers.put("X-WNS-Type", "wns/tile");
-			if (body.contains("<badge>"))
-				n.headers.put("X-WNS-Type", "wns/badge");
-			if (body.startsWith("<")) {
-				n.contentType = ContentType.APPLICATION_XML;
-			}
-			return n;
-		}
-	
-		public static Notification createAppleNotifiation(String body) {
-			Notification n = new Notification();
-			n.body = body;
-			n.contentType = ContentType.APPLICATION_JSON;
-			n.headers.put("ServiceBusNotification-Format", "apple");
-			return n;
-		}
-	
-		public static Notification createGcmNotifiation(String body) {
-			Notification n = new Notification();
-			n.body = body;
-			n.contentType = ContentType.APPLICATION_JSON;
-			n.headers.put("ServiceBusNotification-Format", "gcm");
-			return n;
-		}
+		String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
+		Notification n = Notification.createWindowsNotification(toast);
+		hub.sendNotification(n);
 
-		public static Notification createAdmNotifiation(String body) {
-			Notification n = new Notification();
-			n.body = body;
-			n.contentType = ContentType.APPLICATION_JSON;
-			n.headers.put("ServiceBusNotification-Format", "adm");
-			return n;
-		}
+* **iOS**
 
-		public static Notification createMpnsNotifiation(String body) {
-			Notification n = new Notification();
-			n.body = body;
-			n.headers.put("ServiceBusNotification-Format", "windowsphone");
-	
-			if (body.contains("<wp:Toast>")) {
-				n.headers.put("X-WindowsPhone-Target", "toast");
-				n.headers.put("X-NotificationClass", "2");
-			}
-			if (body.contains("<wp:Tile>")) {
-				n.headers.put("X-WindowsPhone-Target", "tile");
-				n.headers.put("X-NotificationClass", "1");
-			}
-			if (body.startsWith("<")) {
-				n.contentType = ContentType.APPLICATION_XML;
-			}
-			return n;
-		}
-	
-		public static Notification createTemplateNotification(
-				Map<String, String> properties) {
-			Notification n = new Notification();
-			StringBuffer buf = new StringBuffer();
-			buf.append("{");
-			for (Iterator<String> iterator = properties.keySet().iterator(); iterator
-					.hasNext();) {
-				String key = iterator.next();
-				buf.append("\"" + key + "\":\"" + properties.get(key) + "\"");
-				if (iterator.hasNext())
-					buf.append(",");
-			}
-			buf.append("}");
-			n.body = buf.toString();
-			n.contentType = ContentType.APPLICATION_JSON;
-			n.headers.put("ServiceBusNotification-Format", "template");
-			return n;
-		}
-	
-		public Map<String, String> getHeaders() { return headers; }
-	
-		public void setHeaders(Map<String, String> headers) { this.headers = headers; }
-	
-		public String getBody() { return body; }
-	
-		public void setBody(String body) { this.body = body; }
-	
-		public ContentType getContentType() { return contentType; }
-	
-		public void setContentType(ContentType contentType) { this.contentType = contentType; }
-	}
+		String alert = "{\"aps\":{\"alert\":\"Hello from Java!\"}}";
+		Notification n = Notification.createAppleNotification(alert);
+		hub.sendNotification(n);
 
-此類別是原生通知主體的容器，或是一組範本通知案例的屬性，及一組包含格式 (原生平台或範本) 的標頭，以及平台特定屬性 (如 Apple 到期屬性和 WNS 標頭)。我們也會定義一些便利建構函式，以產生常用的通知類型。
+* **Android**
 
-請參閱[通知中心 REST API 文件](http://msdn.microsoft.com/zh-tw/library/dn495827.aspx) ，及所有可用選項的特定通知平台的格式。
+		String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
+		Notification n = Notification.createGcmNotification(message);
+		hub.sendNotification(n);
 
-有了此類別之後，我們現在可以在 **NotificationHub** 類別內寫入傳送通知方法。
+* **Windows Phone 8.0 和 8.1 Silverlight**
 
-	public void sendNotification(Notification notification) {
-		sendNotification(notification, "");
-	}
+		String toast = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+			        "<wp:Notification xmlns:wp=\"WPNotification\">" +
+			           "<wp:Toast>" +
+			                "<wp:Text1>Hello from Java!</wp:Text1>" +
+			           "</wp:Toast> " +
+			        "</wp:Notification>";
+		Notification n = Notification.createMpnsNotification(toast);
+		hub.sendNotification(n);
 
-	public void sendNotification(Notification notification, Set<String> tags) {
-		if (tags.isEmpty())
-			throw new IllegalArgumentException(
-					"tags has to contain at least an element");
+* **Kindle Fire**
 
-		StringBuffer exp = new StringBuffer();
-		for (Iterator<String> iterator = tags.iterator(); iterator.hasNext();) {
-			exp.append(iterator.next());
-			if (iterator.hasNext())
-				exp.append(" || ");
-		}
+		String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
+		Notification n = Notification.createAdmNotification(message);
+		hub.sendNotification(n);
 
-		sendNotification(notification, exp.toString());
-	}
+* **傳送至標籤**
 
-	public void sendNotification(Notification notification, String tagExpression) {
-		HttpPost post = null;
-		try {
-			URI uri = new URI(endpoint + hubPath + "/messages" + APIVERSION);
-			post = new HttpPost(uri);
-			post.setHeader("Authorization", generateSasToken(uri));
+		Set<String> tags = new HashSet<String>();
+		tags.add("boo");
+		tags.add("foo");
+		hub.sendNotification(n, tags);
 
-			if (tagExpression != null && !"".equals(tagExpression)) {
-				post.setHeader("ServiceBusNotification-Tags", tagExpression);
-			}
+* **傳送至標籤運算式**
 
-			for (String header : notification.getHeaders().keySet()) {
-				post.setHeader(header, notification.getHeaders().get(header));
-			}
+		hub.sendNotification(n, "foo && ! bar");
 
-			post.setEntity(new StringEntity(notification.getBody()));
-			HttpResponse response = httpClient.execute(post);
+* **傳送範本通知**
 
-			if (response.getStatusLine().getStatusCode() != 201) {
-				String msg = "";
-				if (response.getEntity() != null
-						&& response.getEntity().getContent() != null) {
-					msg = IOUtils.toString(response.getEntity().getContent());
-				}
-				throw new RuntimeException("Error: " + response.getStatusLine()
-						+ " body: " + msg);
-			}
-
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		} finally {
-			if (post != null)
-				post.releaseConnection();
-		}
-	}
-
-上述方法會傳送 HTTP POST 要求至通知中心的 /messages 端點，並使用正確的主體和標頭傳送通知。
-
-## <a name="complete-tutorial"></a>完成教學課程
-現在您可以透過從 Java 後端傳送通知，來完成開始使用教學課程。
-
-初始化您的通知中心用戶端 (請依[開始使用教學課程]中的指示替換連接字串和中心名稱)：
-	NotificationHub hub = new NotificationHub("{connection string}", "{hubname}");
-
-然後根據您的目標行動平台新增傳送程式碼。
-
-### Windows 市集和 Windows Phone 8.1 (非 Silverlight)
-
-	String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
-	Notification n = Notification.createWindowsNotification(toast);
-	hub.sendNotification(n);
-
-### iOS
-
-	String alert = "{\"aps\":{\"alert\":\"Hello from Java!\"}}";
-	Notification n = Notification.createAppleNotification(alert);
-	hub.sendNotification(n);
-
-### Android
-	String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
-	Notification n = Notification.createGcmNotification(message);
-	hub.sendNotification(n);
-
-### Windows Phone 8.0 和 8.1 Silverlight
-
-	String toast = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-		        "<wp:Notification xmlns:wp=\"WPNotification\">" +
-		           "<wp:Toast>" +
-		                "<wp:Text1>Hello from Java!</wp:Text1>" +
-		           "</wp:Toast> " +
-		        "</wp:Notification>";
-	Notification n = Notification.createMpnsNotification(toast);
-	hub.sendNotification(n);
-
-### Kindle Fire
-	String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
-	Notification n = Notification.createAdmNotification(message);
-	hub.sendNotification(n);
+		Map<String, String> prop =  new HashMap<String, String>();
+		prop.put("prop1", "v1");
+		prop.put("prop2", "v2");
+		Notification n = Notification.createTemplateNotification(prop);
+		hub.sendNotification(n);
 
 執行 Java 程式碼現在應會產生一則顯示於目標裝置的通知。
-
 
 ## <a name="next-steps"></a>後續步驟
 在本主題中，我們會說明如何為通知中心建立簡單的 Java REST 用戶端。您可以在這裡執行下列動作：
 
-* 下載完整的 [Java REST 包裝函式範例]，其中包含上述所有程式碼，以及註冊管理。
-* 繼續了解[即時新聞教學課程]中的通知中心標記功能
-* 了解[通知使用者教學課程]中的推播通知給個人使用者
+* 下載完整 [Java SDK]，其中包含完整的 SDK 程式碼。 
+* 試用範例：
+	- [開始使用通知中心]
+	- [傳送即時新聞]
+	- [傳送當地語系化的即時新聞]
+	- [傳送通知給已驗證的使用者]
+	- [傳送跨平台通知給已驗證的使用者]
 
+[Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
+[開始使用教學課程]: http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/
+[開始使用通知中心]: http://azure.microsoft.com/manage/services/notification-hubs/getting-started-windows-dotnet/
+[傳送即時新聞]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-dotnet/
+[傳送當地語系化的即時新聞]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
+[傳送通知給已驗證的使用者]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users/
+[傳送跨平台通知給已驗證的使用者]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Maven]: http://maven.apache.org/
 
-
-
-[Java REST 包裝函式範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
-[開始使用教學課程]: http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-ios-get-started/
-
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

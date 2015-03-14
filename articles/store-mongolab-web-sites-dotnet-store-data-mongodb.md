@@ -48,7 +48,7 @@
 1. 在 **[名稱]** 中輸入 MONGOLAB\_URI。
 1. 在 **[值]** 中貼上在上一節取得的連接字串。
 1. 在 [類型] 下拉式清單中選取 **[自訂]** (取代預設的 **[SQLAzure]**)。
-1. 在 Visual Studio 中，選取 **[工具] > [Library Package Manager] > [Package Manager Console]** 安裝 Mongo C# 驅動程式。在 PM 主控台上，輸入 **Install-Package mongocsharpdriver**，然後按 **Enter**。
+1. 在 Visual Studio 中，選取 **[工具] > [程式庫封裝管理員] > [封裝管理員主控台]** 安裝 Mongo C# 驅動程式。在 PM 主控台上，輸入 **Install-Package mongocsharpdriver**，然後按 **Enter**。
 1. 在程式碼中設置勾點，以便從環境變數取得 MongoLab 連線 URI：
 
         using MongoDB.Driver;  

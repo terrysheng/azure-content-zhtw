@@ -1,13 +1,27 @@
-﻿<properties pageTitle="註冊 Azure Active Directory 驗證 - 行動服務" description="了解如何在 Mobile Services 應用程式中註冊 Azure Active Directory 驗證。" authors="wesmc7777" services="mobile-services" documentationCenter="" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="註冊 Azure Active Directory 驗證 - 行動服務" 
+	description="了解如何在 Mobile Services 應用程式中註冊 Azure Active Directory 驗證。" 
+	authors="wesmc7777" 
+	services="mobile-services" 
+	documentationCenter="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="wesmc"/>
 
 # 註冊應用程式以使用 Azure Active Directory 帳戶登入
 
 本主題說明如何註冊應用程式以使用 Azure Active Directory 作為 Azure 行動服務的驗證提供者。 
 
 
->[AZURE.NOTE] 當您想要對應用程式使用[服務主導登入作業](http://msdn.microsoft.com/zh-tw/library/azure/dn283952.aspx)時，本主題中所述的步驟適用於[將驗證加入至行動服務應用程式](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/)教學課程。或者，如果您的應用程式具有 Azure Active Directory 及 .NET 後端行動服務的[用戶端主導登入作業](http://msdn.microsoft.com/zh-tw/library/azure/jj710106.aspx)需求，則您應該從[使用 Active Directory Authentication Library 單一登入驗證您的應用程式](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/)教學課程開始。
+>[AZURE.NOTE] 當您想要對應用程式使用[服務主導登入作業](http://msdn.microsoft.com/library/azure/dn283952.aspx)時，本主題中所述的步驟適用於[將驗證加入至行動服務應用程式](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/)教學課程。或者，如果您的應用程式具有 Azure Active Directory 及 .NET 後端行動服務的[用戶端主導登入作業](http://msdn.microsoft.com/library/azure/jj710106.aspx)需求，則您應該從[使用 Active Directory Authentication Library 單一登入驗證您的應用程式](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/)教學課程開始。
 
 
 1. 登入 [Azure 管理入口網站]，按一下 [**行動服務**]，然後按一下您的行動服務。

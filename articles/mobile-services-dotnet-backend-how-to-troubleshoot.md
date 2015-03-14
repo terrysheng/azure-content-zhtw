@@ -1,6 +1,20 @@
-﻿<properties pageTitle="行動服務 .NET 後端的疑難排解 - Azure 行動服務" description="了解如何使用 .NET 後端診斷和修正行動服務的問題" services="" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="行動服務 .NET 後端的疑難排解 - Azure 行動服務" 
+	description="了解如何使用 .NET 後端診斷和修正行動服務的問題" 
+	services="" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="wesmc"/>
 # 行動服務 .NET 後端的疑難排解
 
 使用行動服務進行開發通常是簡單輕鬆的工作，但即便如此，有時可能還是會出錯。本教學課程將提供相關技術，協助您排解行動服務 .NET 後端可能發生的常見問題。 
@@ -119,7 +133,7 @@
 <a name="EFMigrations"></a>
 ## 實體架構移轉的疑難排解
 
-使用附有 SQL Database 的行動服務 .NET 後端時，會以 Entity Framework (EF) 作為資料存取技術，讓您能夠查詢資料庫及保存物件。EF 代表開發人員處理的重要面向之一，是資料庫資料行 (也稱為 *schema*) 如何隨著程式碼中指定的模型類別而變更。此程序稱為 [Code First 移轉](http://msdn.microsoft.com/zh-tw/data/jj591621)。
+使用附有 SQL Database 的行動服務 .NET 後端時，會以 Entity Framework (EF) 作為資料存取技術，讓您能夠查詢資料庫及保存物件。EF 代表開發人員處理的重要面向之一，是資料庫資料行 (也稱為 *schema*) 如何隨著程式碼中指定的模型類別而變更。此程序稱為 [Code First 移轉](http://msdn.microsoft.com/data/jj591621)。
 
 移轉可能會很複雜，且資料庫狀態與 EF 模型必須保持同步，才能成功。如需如何處理行動服務的移轉和可能發生之錯誤的相關指示，請參閱[如何對 .NET 後端行動服務進行資料模型變更](/zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/).。
 

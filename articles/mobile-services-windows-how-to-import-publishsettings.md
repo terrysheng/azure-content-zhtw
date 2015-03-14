@@ -1,6 +1,20 @@
-﻿<properties pageTitle="在 Visual Studio 2013 中匯入您的發佈設定檔案 | 行動服務" description="了解如何在 Visual Studio 2013 中匯入 Azure Mobile Services 應用程式的訂閱發布設定檔。" documentationCenter="windows" services="mobile-services" manager="dwrede" editor="" authors="ggailey777"/>
+﻿<properties 
+	pageTitle="在 Visual Studio 2013 中匯入您的發佈設定檔案 | 行動服務" 
+	description="了解如何在 Visual Studio 2013 中匯入 Azure Mobile Services 應用程式的訂閱發布設定檔。" 
+	documentationCenter="windows" 
+	services="mobile-services" 
+	manager="dwrede" 
+	editor="" 
+	authors="ggailey777"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # 在 Visual Studio 2013 中匯入您的訂閱發佈設定檔案
 

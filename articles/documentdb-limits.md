@@ -1,6 +1,20 @@
-﻿<properties title="DocumentDB limits for the preview release" pageTitle="預覽版本的 DocumentDB 限制 | Azure" description="了解預覽版本期間 DocumentDB 的限制和配額強制執行。" metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="預覽版本的 DocumentDB 限制 | Azure" 
+	description="了解預覽版本之 DocumentDB 的限制和配額強制措施。" 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="mimig"/>
 
 
 #預覽版本的 DocumentDB 限制
@@ -37,3 +51,5 @@
 |每個查詢的 JOIN 數目上限    |2
 |每個查詢的 AND 子句數目上限      |5
 |每個查詢的 OR 子句數目上限       |5
+
+<!--HONumber=46--> 

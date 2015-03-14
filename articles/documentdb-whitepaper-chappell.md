@@ -1,6 +1,20 @@
-﻿<properties title="DocumentDB whitepaper by David Chappell" pageTitle="David Chappell 所撰寫的 DocumentDB 白皮書 | Azure" description="下載 David Chappell 說明 DocumentDB (Azure 上的受管理 NoSQL 資料庫) 的白皮書。" metaKeywords="" services="documentdb" solutions="" documentationCenter="" authors="adlevin" videoId="" scriptId="" manager="jhubbard" />
+﻿<properties 
+	pageTitle="David Chappell 所撰寫的 DocumentDB 白皮書 | Azure" 
+	description="下載 David Chappell 介紹 DocumentDB 的白皮書，其為 Azure 上的受管理 NoSQL 資料庫。" 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="adlevin" 
+	manager="jhubbard" 
+	editor=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="adlevin" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="adlevin"/>
 
 
 
@@ -23,3 +37,5 @@
 
 **下載：** [DocumentDB 簡介 - 適用於 Microsoft Azure 的 NoSQL 資料庫 (英文)](http://go.microsoft.com/fwlink/?LinkId=511318)
 
+
+<!--HONumber=46--> 

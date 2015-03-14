@@ -114,6 +114,6 @@
   [做法：下載 Blob]: #download-blobs
   [做法：刪除 Blob]: #delete-blobs
   [做法：上傳及下載大型 Blob]: #large-blobs
-  [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
+  [在 Azure 中儲存及存取資料]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 <!--HONumber=42-->

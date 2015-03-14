@@ -123,7 +123,7 @@ Microsoft 提供在 HDInsight 叢集上安裝元件的範例指令碼。範例�
 - [在 HDInsight 叢集上安裝和使用 Solr](../hdinsight-hadoop-solr-install)
 - [在 HDInsight 叢集上安裝和使用 Giraph](../hdinsight-hadoop-giraph-install)  
 
-> [AZURE.NOTE] 範例指令碼只能與 HDInsight 叢集版本 3.1 或以上版本搭配使用。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-component-versioning/)。
+> [AZURE.NOTE] 範例指令碼只能與 HDInsight 叢集版本 3.1 或以上版本搭配使用。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/)。
 
 ## <a name="testScript"></a>如何使用 HDInsight Emulator 測試自訂指令碼
 
@@ -131,7 +131,7 @@ Microsoft 提供在 HDInsight 叢集上安裝元件的範例指令碼。範例�
 
 本節將針對測試目的概述在本機使用 HDInsight Emulator 的程序，但使用 VM 的程序則很相似。
 
-**安裝 HDInsight Emulator**：若要在本機執行指令碼動作，您必須安裝 HDInsight Emulator。如需安裝的指示，請參閱[開始使用 HDInsight Emulator](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-get-started-emulator/)。
+**安裝 HDInsight Emulator**：若要在本機執行指令碼動作，您必須安裝 HDInsight Emulator。如需安裝的指示，請參閱[開始使用 HDInsight Emulator](http://azure.microsoft.com/documentation/articles/hdinsight-get-started-emulator/)。
 
 **設定 Azure PowerShell 的執行原則：**開啟 Microsoft Azure PowerShell 和 (以系統管理員身分) 執行下列命令，將執行原則設定為 *LocalMachine* 和 *Unrestricted*。
  
@@ -213,4 +213,5 @@ Microsoft 提供在 HDInsight 叢集上安裝元件的範例指令碼。範例�
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
-[powershell-install-configure]: ../install-configure-powershell/<!--HONumber=42-->
+[powershell-install-configure]: ../install-configure-powershell/
+\<!--HONumber=42-->

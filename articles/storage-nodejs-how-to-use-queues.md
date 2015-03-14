@@ -369,7 +369,7 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [做法：取得佇列長度]: #get-queue-length
   [做法：刪除佇列]: #delete-queue
   [做法：使用共用存取簽章]: #sas
-  [using the REST API]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh264518.aspx
+  [using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
   [Create and deploy a Node.js application to an Azure Web Site]: /zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [Node.js Cloud Service with Storage]: /zh-tw/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
@@ -383,7 +383,7 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   
   
   [Node.js Cloud Service]: /zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
  [Web Site with WebMatrix]: /zh-tw/documentation/articles/web-sites-nodejs-use-webmatrix/
 <!--HONumber=42-->

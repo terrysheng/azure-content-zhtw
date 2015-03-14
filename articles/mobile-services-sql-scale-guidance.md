@@ -1,6 +1,20 @@
-﻿<properties pageTitle="調整由 Azure SQL Database 支援的行動服務 - Azure 行動服務" description="了解如何診斷和修正 SQL Database 支援的行動服務中出現的延展性問題" services="mobile-services" documentationCenter="" authors="lindydonna" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="調整由 Azure SQL Database 支援的行動服務 - Azure 行動服務" 
+	description="了解如何診斷和修正 SQL Database 支援的行動服務中出現的延展性問題" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="donnam"/>
 # 調整由 Azure SQL Database 支援的行動服務
 
 Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控後端的應用程式，將資料儲存在 SQL 資料庫中。隨著應用程式的成長，您只需在入口網站中修改調整設定以增加更多計算和網路容量，即可調整您的服務執行個體。但是，要對支援服務的 SQL 資料庫進行調整，必須仰賴主動式規劃和監視，因為服務將會承受更多負載。本文將逐步引導您執行一組最佳作法，以確保 SQL 支援的行動服務能夠維持絕佳效能。
@@ -31,7 +45,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 - Web 和 Business Edition (已淘汰)
 - Basic、Standard 和 Premium Edition 
 
-雖然 Web 和 Business Edition 受到完整支援，但將在 2015 年 4 月 24 日落日，如 [Web 和 Business Edition 落日常見問題集](http://msdn.microsoft.com/zh-tw/library/azure/dn741330.aspx)所討論。我們建議新客戶開始使用 Basic、Standard 和 Premium Edition，為這項變更做好準備。這個新版本提供多種新層和監視功能，讓使用者更容易了解資料庫效能及進行疑難排解。所有新的行動服務都使用新的版本建立。
+雖然 Web 和 Business Edition 受到完整支援，但將在 2015 年 4 月 24 日落日，如 [Web 和 Business Edition 落日常見問題集](http://msdn.microsoft.com/library/azure/dn741330.aspx)所討論。我們建議新客戶開始使用 Basic、Standard 和 Premium Edition，為這項變更做好準備。這個新版本提供多種新層和監視功能，讓使用者更容易了解資料庫效能及進行疑難排解。所有新的行動服務都使用新的版本建立。
 
 若要將使用 Web 和 Business Edition 的行動服務轉換成 Basic、Standard 和 Premium Edition，請遵循下列步驟。
 
@@ -47,7 +61,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 - **Standard** - 適用於您預期會有多個並行資料庫查詢的生產服務
 - **Premium** - 適用於具有許多並行查詢、高度負載，且每個要求都需有低延遲的大規模生產服務。
 
-如需各層之適用時機的詳細資訊，請參閱[使用新服務層的原因](http://msdn.microsoft.com/zh-tw/library/azure/dn369873.aspx#Reasons)
+如需各層之適用時機的詳細資訊，請參閱[使用新服務層的原因](http://msdn.microsoft.com/library/azure/dn369873.aspx#Reasons)
 
 ### 分析資料庫度量
 
@@ -67,7 +81,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 
     ![Azure Management Portal - SQL Database Metrics][PortalSqlMetrics]
 
-如有任何度量長時間超過 80% 使用率，則可能表示效能有問題。如需關於了解資料庫使用率的詳細資訊，請參閱[了解資源使用情形](http://msdn.microsoft.com/zh-tw/library/azure/dn369873.aspx#Resource)。
+如有任何度量長時間超過 80% 使用率，則可能表示效能有問題。如需關於了解資料庫使用率的詳細資訊，請參閱[了解資源使用情形](http://msdn.microsoft.com/library/azure/dn369873.aspx#Resource)。
 
 如果度量指出您的資料庫造成高使用率，請考慮以 **scaling up the database to a higher service tier** 作為第一個因應步驟。若要立即解決問題，請考慮使用資料庫的 [**調整**] 索引標籤向上擴充您的資料庫。這樣會增加您的費用。
 ![Azure Management Portal - SQL Database Scale][PortalSqlScale]
@@ -173,10 +187,10 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 
 - **一律在資料庫中執行聯結作業。**您常會需要結合兩個或多個資料表，且要結合的記錄共用共同欄位 (也稱為 *join*)。這項作業若不正確地執行將可能效率不佳，因為其中可能涉及同時從兩個資料表提取所有實體，然後逐一加以查看的作業。這種作業最好留給資料庫本身執行，但有時候很容易不慎在用戶端上或在行動服務程式碼中執行。
     - 請勿在應用程式的程式碼中執行聯結
-    - 請勿在您的行動服務程式碼中執行聯結。使用 JavaScript 後端時請注意，[資料表物件](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554210.aspx)並不會處理聯結。請務必直接使用 [mssql 物件](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554212.aspx)，以確保聯結會在資料庫中執行。如需詳細資訊，請參閱[聯結關聯式資料表](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-how-to-use-server-scripts/#joins)。透過 LINQ 使用 .NET 後端和查詢時，Entity Framework 會自動在資料庫層級上處理節。
+    - 請勿在您的行動服務程式碼中執行聯結。使用 JavaScript 後端時請注意，[資料表物件](http://msdn.microsoft.com/library/windowsazure/jj554210.aspx)並不會處理聯結。請務必直接使用 [mssql 物件](http://msdn.microsoft.com/library/windowsazure/jj554212.aspx)，以確保聯結會在資料庫中執行。如需詳細資訊，請參閱[聯結關聯式資料表](http://azure.microsoft.com/documentation/articles/mobile-services-how-to-use-server-scripts/#joins)。透過 LINQ 使用 .NET 後端和查詢時，Entity Framework 會自動在資料庫層級上處理節。
 - **實作分頁。**查詢資料庫有時可能會導致大量記錄傳回至用戶端。若要將作業的大小和延遲降到最低，請考慮實作分頁。
-    - 根據預設，您的行動服務會將任何傳入查詢的頁面大小限定為 50，而您可以手動要求提高到 1,000 筆記錄。如需詳細資訊，請參閱 [Windows 市集](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/#paging)、[iOS](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-ios-how-to-use-client-library/#paging)、[Android](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-android-how-to-use-client-library/#paging)、[HTML/JavaScript](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-html-how-to-use-client-library/#paging) 和 [Xamarin](http://azure.microsoft.com/zh-tw/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/#paging) 的「以分頁方式傳回資料」。
-    - 從行動服務程式碼發出的查詢並沒有預設頁面大小。如果您的應用程式未實作分頁，或將其視為防護措施，請考慮將預設限制套用至您的查詢。在 JavaScript 後端中，請在[查詢物件](http://msdn.microsoft.com/zh-tw/library/azure/jj613353.aspx)上使用 **take** 運算子。如果您使用 .NET 後端，請考慮以 [Take 方法](http://msdn.microsoft.com/zh-tw/library/vstudio/bb503062(v=vs.110).aspx) 作為 LINQ 查詢的一部分。  
+    - 根據預設，您的行動服務會將任何傳入查詢的頁面大小限定為 50，而您可以手動要求提高到 1,000 筆記錄。如需詳細資訊，請參閱 [Windows 市集](http://azure.microsoft.com/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/#paging)、[iOS](http://azure.microsoft.com/documentation/articles/mobile-services-ios-how-to-use-client-library/#paging)、[Android](http://azure.microsoft.com/documentation/articles/mobile-services-android-how-to-use-client-library/#paging)、[HTML/JavaScript](http://azure.microsoft.com/documentation/articles/mobile-services-html-how-to-use-client-library/#paging) 和 [Xamarin](http://azure.microsoft.com/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/#paging) 的「以分頁方式傳回資料」。
+    - 從行動服務程式碼發出的查詢並沒有預設頁面大小。如果您的應用程式未實作分頁，或將其視為防護措施，請考慮將預設限制套用至您的查詢。在 JavaScript 後端中，請在[查詢物件](http://msdn.microsoft.com/library/azure/jj613353.aspx)上使用 **take** 運算子。如果您使用 .NET 後端，請考慮以 [Take 方法](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx) 作為 LINQ 查詢的一部分。  
 
 如需改善查詢設計的詳細資訊 (包括如何分析查詢計劃)，請參閱本文結尾處的[進階查詢設計](#AdvancedQuery) 。
 
@@ -185,9 +199,9 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 
 設想您將要傳送推播通知給您所有的客戶，以查看您應用程式中的某項新內容。當他們點選通知時，應用程式將會啟動，而可能觸發對您行動服務的呼叫，以及對您的 SQL 資料庫的查詢執行。由於在短短的幾分鐘內就可能有數百萬個客戶執行此動作，因此這將會產生 SQL 負載的暴衝，且比起應用程式的穩定狀態負載，可能會高出數倍。在暴衝期間將您的應用程式調整至較高的 SQL 層，然後再重新將其向下調整，即可解決此問題，但此解決方案將需要手動操作，且會導致成本提高。經常稍微查看您的行動服務架構，可有效地將用戶端產生的負載平衡到您的 SQL 資料庫，並且消除需求上有問題的暴衝。這些修改通常可輕易地在盡可能不影響客戶使用經驗的情況下實作。這裡有一些範例：
 
-- **將負載分散到不同時間。**您在控制特定事件 (例如廣播推播通知) 的發生時機時，若預期會產生激增的需求，且這些事件的時間性不是很重要，請考慮將它們分散道不同時間。在上述範例中，您的應用程式客戶或許可接受分散在一天的不同時間分批收到有關新應用程式內容的通知，而不是幾近即時。請考慮將客戶分成批次群組，以容許分批傳遞給每個批次。如果使用通知中心，套用其他標記以追蹤批次，然後將推播通知傳遞至該標記，將可簡化實作此策略的方式。如需標記的詳細資訊，請參閱[使用通知中心傳送即時新聞](http://azure.microsoft.com/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/)。
-- **適當時使用 Blob 和資料表儲存體。**客戶會在尖峰期間檢視的內容常是靜態的，且不需要儲存在 SQL 資料庫中，因為您不太可能需要對該內容使用關聯式查詢功能。在此情況下，請考慮將內容儲存在 Blob 或資料表儲存體中。您可以直接從裝置存取 Blob 儲存體中的公用 Blob。若要以安全的方式存取 Blob 或使用資料表儲存體，您必須使用行動服務自訂 API，以保護您的儲存體存取金鑰。如需詳細資訊，請參閱[使用行動服務將影像上傳到 Azure 儲存體](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/)。
-- **使用記憶體內部快取**。另一個替代方式，是將資料 (通常是在流量暴衝期間存取的) 儲存在記憶體內部快取 (例如 [Azure 快取](http://azure.microsoft.com/zh-tw/services/cache/)) 中。這表示傳入的要求將可從記憶體中提取其所需的資訊，而無須重複查詢資料庫。
+- **將負載分散到不同時間。**您在控制特定事件 (例如廣播推播通知) 的發生時機時，若預期會產生激增的需求，且這些事件的時間性不是很重要，請考慮將它們分散道不同時間。在上述範例中，您的應用程式客戶或許可接受分散在一天的不同時間分批收到有關新應用程式內容的通知，而不是幾近即時。請考慮將客戶分成批次群組，以容許分批傳遞給每個批次。如果使用通知中心，套用其他標記以追蹤批次，然後將推播通知傳遞至該標記，將可簡化實作此策略的方式。如需標記的詳細資訊，請參閱[使用通知中心傳送即時新聞](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/)。
+- **適當時使用 Blob 和資料表儲存體。**客戶會在尖峰期間檢視的內容常是靜態的，且不需要儲存在 SQL 資料庫中，因為您不太可能需要對該內容使用關聯式查詢功能。在此情況下，請考慮將內容儲存在 Blob 或資料表儲存體中。您可以直接從裝置存取 Blob 儲存體中的公用 Blob。若要以安全的方式存取 Blob 或使用資料表儲存體，您必須使用行動服務自訂 API，以保護您的儲存體存取金鑰。如需詳細資訊，請參閱[使用行動服務將影像上傳到 Azure 儲存體](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/)。
+- **使用記憶體內部快取**。另一個替代方式，是將資料 (通常是在流量暴衝期間存取的) 儲存在記憶體內部快取 (例如 [Azure 快取](http://azure.microsoft.com/services/cache/)) 中。這表示傳入的要求將可從記憶體中提取其所需的資訊，而無須重複查詢資料庫。
 
 <a name="Advanced"></a>
 ## 進階疑難排解
@@ -196,7 +210,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 ### 必要條件
 若要執行本節中的某些診斷工作，您必須存取 SQL 資料庫的管理工具 (例如 **SQL Server Management Studio**) 或 **Azure 管理入口網站**的內建管理功能。
 
-SQL Server Management Studio 是一項免費的 Windows 應用程式，可提供最進階的功能。如果您無法存取 Windows 機器 (例如，如果您使用 Mac)，請考慮依照[建立執行 Windows Server 的虛擬機器](http://azure.microsoft.com/zh-tw/documentation/articles/virtual-machines-windows-tutorial/)中的說明在 Azure 中佈建虛擬機器，然後從遠端加以連接。如果您使用 VM 的主要目的是要執行 SQL Server Management Studio，則一個**基本 A0** (先前稱為「超小型」) 執行個體即應夠用。 
+SQL Server Management Studio 是一項免費的 Windows 應用程式，可提供最進階的功能。如果您無法存取 Windows 機器 (例如，如果您使用 Mac)，請考慮依照[建立執行 Windows Server 的虛擬機器](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/)中的說明在 Azure 中佈建虛擬機器，然後從遠端加以連接。如果您使用 VM 的主要目的是要執行 SQL Server Management Studio，則一個**基本 A0** (先前稱為「超小型」) 執行個體即應夠用。 
 
 Azure 管理入口網站提供內建的管理功能，雖然功能有限，但不需本機安裝即可使用。
 
@@ -254,7 +268,7 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 
 #### 進階度量
 
-如果您使用 Basic、Standard 和 Premium 等層，則管理入口網站會使特定度量可供使用。但如果使用 Web 和 Business 層，則只有儲存體度量可透過入口網站使用。所幸無論您使用的層為何，都可以使用 **[sys.resource\_stats](http://msdn.microsoft.com/zh-tw/library/dn269979.aspx)** 管理檢視輕鬆取得這些度量和其他度量。請考量下列查詢：
+如果您使用 Basic、Standard 和 Premium 等層，則管理入口網站會使特定度量可供使用。但如果使用 Web 和 Business 層，則只有儲存體度量可透過入口網站使用。所幸無論您使用的層為何，都可以使用 **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)** 管理檢視輕鬆取得這些度量和其他度量。請考量下列查詢：
 
     SELECT TOP 10 * 
     FROM sys.resource_stats 
@@ -268,7 +282,7 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 
 #### SQL 連線事件
 
-**[sys.event\_log](http://msdn.microsoft.com/zh-tw/library/azure/jj819229.aspx)** 檢視包含連接相關事件的詳細資料。
+**[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** 檢視包含連接相關事件的詳細資料。
 
     select * from sys.event_log 
     where database_name = 'todoitem_db'
@@ -440,30 +454,30 @@ Azure 管理入口網站提供內建的管理功能，雖然功能有限，但�
 
 [Azure 管理入口網站]: http://manage.windowsazure.com
 
-[Azure SQL Database 文件]: http://azure.microsoft.com/zh-tw/documentation/services/sql-database/
+[Azure SQL Database 文件]: http://azure.microsoft.com/documentation/services/sql-database/
 [使用 SQL Server Management Studio 管理 SQL Database]: http://go.microsoft.com/fwlink/p/?linkid=309723&clcid=0x409
 [使用動態管理檢視監視 SQL Database] : http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
 [Azure SQL Database 效能和調整]: http://go.microsoft.com/fwlink/p/?linkid=397217&clcid=0x409
-[Azure SQL Database 的疑難排解]: http://msdn.microsoft.com/zh-tw/library/azure/ee730906.aspx
+[Azure SQL Database 的疑難排解]: http://msdn.microsoft.com/library/azure/ee730906.aspx
 
 <!-- MSDN -->
-[建立及修改主索引鍵條件約束]: http://technet.microsoft.com/zh-tw/library/ms181043(v=sql.105).aspx
-[建立叢集索引]: http://technet.microsoft.com/zh-tw/library/ms186342(v=sql.120).aspx
-[建立唯一索引]: http://technet.microsoft.com/zh-tw/library/ms187019.aspx
-[建立非叢集索引]: http://technet.microsoft.com/zh-tw/library/ms189280.aspx
+[建立及修改主索引鍵條件約束]: http://technet.microsoft.com/library/ms181043(v=sql.105).aspx
+[建立叢集索引]: http://technet.microsoft.com/library/ms186342(v=sql.120).aspx
+[建立唯一索引]: http://technet.microsoft.com/library/ms187019.aspx
+[建立非叢集索引]: http://technet.microsoft.com/library/ms189280.aspx
 
-[主索引鍵和外部索引鍵條件約束]: http://msdn.microsoft.com/zh-tw/library/ms179610(v=sql.120).aspx
-[索引基本概念]: http://technet.microsoft.com/zh-tw/library/ms190457(v=sql.105).aspx
-[一般索引設計指引]: http://technet.microsoft.com/zh-tw/library/ms191195(v=sql.105).aspx 
-[唯一索引設計指引]: http://technet.microsoft.com/zh-tw/library/ms187019(v=sql.105).aspx
-[叢集索引設計指引]: http://technet.microsoft.com/zh-tw/library/ms190639(v=sql.105).aspx
+[主索引鍵和外部索引鍵條件約束]: http://msdn.microsoft.com/library/ms179610(v=sql.120).aspx
+[索引基本概念]: http://technet.microsoft.com/library/ms190457(v=sql.105).aspx
+[一般索引設計指引]: http://technet.microsoft.com/library/ms191195(v=sql.105).aspx 
+[唯一索引設計指引]: http://technet.microsoft.com/library/ms187019(v=sql.105).aspx
+[叢集索引設計指引]: http://technet.microsoft.com/library/ms190639(v=sql.105).aspx
 
-[sys-missing-index-stats]: http://technet.microsoft.com/zh-tw/library/ms345421.aspx
+[sys-missing-index-stats]: http://technet.microsoft.com/library/ms345421.aspx
 
 <!-- EF -->
-[Entity Framework 5 的效能考量]: http://msdn.microsoft.com/zh-tw/data/hh949853
-[Code First 資料註解]: http://msdn.microsoft.com/zh-tw/data/jj591583.aspx
-[Entity Framework 中的索引註解]:http://msdn.microsoft.com/zh-tw/data/jj591583.aspx#Index
+[Entity Framework 5 的效能考量]: http://msdn.microsoft.com/data/hh949853
+[Code First 資料註解]: http://msdn.microsoft.com/data/jj591583.aspx
+[Entity Framework 中的索引註解]:http://msdn.microsoft.com/data/jj591583.aspx#Index
 
 <!-- BLOG LINKS -->
 [該索引鍵的成本為何？]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/

@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="開始使用 Azure API 管理" 
+	description="了解如何建立 API、操作及開始使用 API 管理。" 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 
 # 開始使用 Azure API 管理
 
@@ -244,7 +258,7 @@ API 區段有四個索引標籤。\[摘要] 索引標籤顯示基本度量和 AP
   [透過開發人員入口網站呼叫作業]: #call-operation
   [檢視分析]: #view-analytics
   [後續步驟]: #next-steps
-  [Azure 免費試用]: http://azure.microsoft.com/zh-tw/pricing/free-trial/?WT.mc_id=api_management_hero_a
+  [Azure 免費試用]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
   [管理入口網站]: https://manage.windowsazure.com/
   [API Management new instance]: ./media/api-management-get-started/api-management-create-instance-menu.png
   [New API Management service]: ./media/api-management-get-started/api-management-create-instance-step1.png
@@ -282,3 +296,5 @@ API 區段有四個索引標籤。\[摘要] 索引標籤顯示基本度量和 AP
   [摘要]: ./media/api-management-get-started/api-management-api-summary-metrics.png
   [概觀]: ./media/api-management-get-started/api-management-analytics-overview.png
   [開始使用進階 API 組態]: ../api-management-get-started-advanced
+
+<!--HONumber=46--> 

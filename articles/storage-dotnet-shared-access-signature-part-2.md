@@ -31,7 +31,7 @@
 
 # 第 1 部分：建立主控台應用程式以產生共用存取簽章 #
 
-首先，請確定您已安裝 Azure Storage Client Library for .NET。您可以安裝包含最新用戶端程式庫組件的 [NuGet 封裝](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package")，這是確定您具有最新修正程式的建議方法。您也可以在最新版 [Azure SDK for .NET] 中一起下載用戶端程式庫(http://www.windowsazure.com/zh-tw/downloads/)。
+首先，請確定您已安裝 Azure Storage Client Library for .NET。您可以安裝包含最新用戶端程式庫組件的 [NuGet 封裝](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package")，這是確定您具有最新修正程式的建議方法。您也可以在最新版 [Azure SDK for .NET] 中一起下載用戶端程式庫(http://azure.microsoft.com/downloads/)。
 
 在 Visual Studio 中，建立新的 Windows 主控台應用程式，並將它命名為 **GenerateSharedAccessSignatures**。使用下列任一種方法，新增對 **Microsoft.WindowsAzure.Configuration.dll** 與 **Microsoft.WindowsAzure.Storage.dll** 的參照：
 
@@ -535,9 +535,9 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
 
 [共用存取簽章，第 1 部分：了解 SAS 模型](../storage-dotnet-shared-access-signature-part-1/)
 
-[管理 Azure 儲存體資源的存取](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee393343.aspx)
+[管理 Azure 儲存體資源的存取](http://msdn.microsoft.com/library/windowsazure/ee393343.aspx)
 
-[使用共用存取簽章 (REST API) 來委派存取權](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee395415.aspx)
+[使用共用存取簽章 (REST API) 來委派存取權](http://msdn.microsoft.com/library/windowsazure/ee395415.aspx)
 
 [資料表與佇列 SAS 簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 

@@ -1,6 +1,20 @@
-﻿<properties title="Create your first search solution using Azure Search" pageTitle="使用 Azure 搜尋建立您的第一個搜尋解決方案" description="使用 Azure 搜尋建立您的第一個搜尋解決方案" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="使用 Azure Search 建立您的第一個搜尋解決方案" 
+	description="使用 Azure Search 建立您的第一個搜尋解決方案" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # 使用 Azure 搜尋建立您的第一個搜尋解決方案
 
@@ -29,7 +43,7 @@
 
 <h2 id="sub-1">必要條件</h2>
 
-+	Visual Studio 2012 或更高版本，並安裝 ASP.NET MVC 4 與 SQL Server。如果您尚未安裝軟體，可以下載免費的 Express 版：[Visual Studio 2013 Express](http://www.visualstudio.com/zh-tw/products/visual-studio-express-vs.aspx) 和 [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/zh-tw/evalcenter/dn434042.aspx)。
++	Visual Studio 2012 或更高版本，並安裝 ASP.NET MVC 4 與 SQL Server。如果您尚未安裝軟體，可以下載免費的 Express 版：[Visual Studio 2013 Express](http://www.visualstudio.com/zh-tw/products/visual-studio-express-vs.aspx) 和 [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx)。
 +	Azure 搜尋服務。您需要搜尋服務名稱，以及系統管理金鑰。如需詳細資訊，請參閱[開始使用 Azure Search](../search-get-started/) 。
 +	[CodePlex 上的 Adventure Works Azure Search 示範專案](http://go.microsoft.com/fwlink/p/?LinkID=510972)。在 [來源] 索引標籤上，按一下 [下載]**** 取得方案的壓縮檔。 
 
@@ -89,7 +103,7 @@
 
 4.	移至同一個檔案中的 'ApplyChanges'。請留意此函數如何刪除已存在的索引 (`DeleteCatalogIndex`)，然後建立名為 "catalog" 的新索引 (`CreateCatalogIndex`)。  
 
-5.	移至 `CreateCatalogIndex` 函數，然後觀察如何使用與 SQL Server 中的 Products 資料表資料行相符的結構描述建立索引。每個欄位都有一個類型 (即 `Edm.String` 或 `Edm.Double`)，以及定義這些欄位之用途的屬性。如需這些屬性的詳細資訊，請參閱 [Azure Search REST API 文件](http://msdn.microsoft.com/zh-tw/library/azure/dn798935.aspx)。
+5.	移至 `CreateCatalogIndex` 函數，然後觀察如何使用與 SQL Server 中的 Products 資料表資料行相符的結構描述建立索引。每個欄位都有一個類型 (即 `Edm.String` 或 `Edm.Double`)，以及定義這些欄位之用途的屬性。如需這些屬性的詳細資訊，請參閱 [Azure Search REST API 文件](http://msdn.microsoft.com/library/azure/dn798935.aspx)。
 
 6.	回到 'ApplyChanges' 函數。請留意此函數如何對列舉的變更 `ChangeSet` 中的所有資料進行迴圈。變更不會逐一套用，而會分成以 1000 個為單位的群組，再套用至搜尋服務。這會比逐一套用文件有效率得多。
 
@@ -147,7 +161,7 @@
 
 5.	如果應用程式仍在執行中，請加以停止，然後在 [檢視 | 首頁] 下開啟 **Index.cshtml** 檔案。在此檔案的結尾處，您會看見使用 `JQuery $(function ())` 的 JavaScript 函數。在頁面載入時，將會呼叫此函數。它會使用 JQuery 自動完成函數，並將此函數連結作為來自文字方塊的回呼 (識別為 "q")。每當有人在文字方塊中輸入時，就會呼叫這個自動建議函數，該函數會接著呼叫 /home/suggest (視輸入的值而定)。`/home/suggest` 是稱為 `Suggest` 之 **HomeController.cs** 中的函數參考。
 
-6.	開啟 **HomeController.cs**，然後移至 Suggest 函數。此程式碼與 Search 函數非常類似，會使用 `_catalogSearch` 物件呼叫 **CatalogSearch.cs** 中名為 `Suggest` 的函數。`Suggest` 函數並不會執行搜尋查詢，而是會呼叫[建議 API](http://msdn.microsoft.com/zh-tw/library/azure/dn798936.aspx)。此 API 會使用在文字方塊中輸入的詞彙，並建置可能建議的清單。值會傳回至 **Index.cshtml** 檔案，並自動列在 [搜尋] 方塊中作為預先輸入選項。
+6.	開啟 **HomeController.cs**，然後移至 Suggest 函數。此程式碼與 Search 函數非常類似，會使用 `_catalogSearch` 物件呼叫 **CatalogSearch.cs** 中名為 `Suggest` 的函數。`Suggest` 函數並不會執行搜尋查詢，而是會呼叫[建議 API](http://msdn.microsoft.com/library/azure/dn798936.aspx)。此 API 會使用在文字方塊中輸入的詞彙，並建置可能建議的清單。值會傳回至 **Index.cshtml** 檔案，並自動列在 [搜尋] 方塊中作為預先輸入選項。
 
 至此，您可能會好奇 Azure Search 如何得知應為哪些欄位建置建議。此問題的答案就在您先前建立索引的過程中。在 **CatalogIndexer** 專案之 Program.cs 檔案內的 `CreateCatalogIndex` 函數中，有一個名為 `Suggestions` 的屬性。只要此屬性設為 `True`，即表示 Azure Search 可使用此屬性作為擷取建議的欄位。
 
@@ -176,11 +190,11 @@
 
 如需其他自我學習，請考慮新增會在使用按一下其中一項搜尋結果時開啟的 [詳細資料] 頁面。您可以執行下列動作加以準備：
 
-+	研究[查閱 API](http://msdn.microsoft.com/zh-tw/library/azure/dn798929.aspx)，此 API 可讓您查詢 Azure Search，以傳回特定文件 (例如，您可以傳送 productID)。
++	研究[查閱 API](http://msdn.microsoft.com/library/azure/dn798929.aspx)，此 API 可讓您查詢 Azure Search，以傳回特定文件 (例如，您可以傳送 productID)。
 +	嘗試在 **HomeController.cs** 檔案中新增名為 Details 的新函數。新增對應的 **Details.cshtml** 檢視，以接收此查詢的結果並顯示結果。
 +	查看下列有關地理空間搜尋的附加程式碼範例和視訊：[第 9 頻道 - Azure Search 和地理空間資料](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)與 [CodePlex：Azure Search GeoSearch 範例](http://azuresearchgeospatial.codeplex.com)
 
-您也可以檢閱 MSDN 上的 [Azure Search REST API](http://msdn.microsoft.com/zh-tw/library/azure/dn798935.aspx)。
+您也可以檢閱 MSDN 上的 [Azure Search REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)。
 
 
 <!--Anchors-->
@@ -201,3 +215,5 @@
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

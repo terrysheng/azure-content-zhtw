@@ -121,8 +121,8 @@ PHP 5.5 也可供使用，不過並未預設啟用。若要將它啟用，請依
 [http://windows.php.net/download/]: http://windows.php.net/download/
 [http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[在 Azure 中設定、監視和調整網站規模]: http://www.windowsazure.com/zh-tw/manage/services/web-sites/
-[下載 Azure SDK for PHP]: http://www.windowsazure.com/zh-tw/develop/php/common-tasks/download-php-sdk/
+[在 Azure 中設定、監視和調整網站規模]: http://azure.microsoft.com/manage/services/web-sites/
+[下載 Azure SDK for PHP]: http://azure.microsoft.com/develop/php/common-tasks/download-php-sdk/
 
 
 <!--HONumber=42-->

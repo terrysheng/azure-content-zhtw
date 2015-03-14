@@ -1,6 +1,20 @@
-<properties pageTitle="推播通知給使用者 (Android) | 行動開發人員中心" description="了解如何使用行動服務將通知推播到您的 Android 應用程式。" services="mobile-services, notification-hubs" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="推播通知給使用者 (Android) | 行動開發人員中心" 
+	description="了解如何使用行動服務將通知推播到您的 Android 應用程式。" 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/07/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/07/2014" 
+	ms.author="ricksal"/>
 
 # 使用行動服務推播通知給使用者
 

@@ -31,7 +31,7 @@
  
 ##<a name="https"></a>保護通訊的安全
 
-如果使用為您的網站建立的 ***.azurewebsites.net** 網域名稱，您可以立即使用 HTTPS，因為 SSL 憑證是針對所有 ***.azurewebsites.net** 網域名稱而提供的。如果您的網站使用[自訂網域名稱](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-custom-domain-name/)，您可以上傳 SSL 憑證以針對自訂網域啟用 HTTPS。
+如果使用為您的網站建立的 ***.azurewebsites.net** 網域名稱，您可以立即使用 HTTPS，因為 SSL 憑證是針對所有 ***.azurewebsites.net** 網域名稱而提供的。如果您的網站使用[自訂網域名稱](http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/)，您可以上傳 SSL 憑證以針對自訂網域啟用 HTTPS。
 
 ##<a name="develop"></a>保護開發的安全 
 

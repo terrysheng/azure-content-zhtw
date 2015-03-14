@@ -1,12 +1,25 @@
-﻿<properties linkid="batch-technical-overview" urlDisplayName="" pageTitle="Azure 批次技術概觀" metaKeywords="" description="了解 Azure Batch 服務的概念、工作流程及案例" metaCanonical="" services="batch" documentationCenter="" title="Azure Batch technical overview" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties 
+	pageTitle="Azure 批次技術概觀" 
+	description="了解 Azure 批次服務的概念、工作流程及案例" 
+	services="batch" 
+	documentationCenter="" 
+	authors="dlepow" 
+	manager="timlt"/>
 
-<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="danlep" />
+<tags 
+	ms.service="batch" 
+	ms.workload="big-compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2015" 
+	ms.author="danlep"/>
 
 
 #Azure 批次技術概觀
 Azure 批次提供工作排程和自動調整計算資源做為平台服務，協助您在雲端中執行大規模平行和高效能運算 (HPC) 應用程式。藉由使用「批次 SDK」和「批次」服務，您便可以設定在受管理的虛擬機器集合上，依需求或依排程執行批次工作負載，而不需要擔心基礎平台中排程作業和管理資源的複雜性。
  
->[WACOM.NOTE]「批次」目前為「預覽版」。若要使用批次，您需要有 Azure 帳戶，也需要在您的訂用帳戶上啟用批次預覽。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱[建立 Azure 帳戶](http://www.windowsazure.com/zh-tw/develop/php/tutorials/create-a-windows-azure-account/)。 
+>[WACOM.NOTE]「批次」目前為「預覽版」。若要使用批次，您需要有 Azure 帳戶，也需要在您的訂用帳戶上啟用批次預覽。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱[建立 Azure 帳戶](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/)。 
 
 
 本文提供下列主題的概觀：
@@ -53,7 +66,7 @@ Azure 批次提供工作排程和自動調整計算資源做為平台服務，�
 
 <h2 id="BKMK_Entities">批次概念</h2>
 
-下列各節摘要說明使用批次服務和 API 的重要概念。如需詳細資訊，請參閱 [Azure 批次的 API 基本概念](http://azure.microsoft.com/zh-tw/documentation/articles/batch-api-basics)。 
+下列各節摘要說明使用批次服務和 API 的重要概念。如需詳細資訊，請參閱 [Azure 批次的 API 基本概念](http://azure.microsoft.com/documentation/articles/batch-api-basics)。 
 
 * [批次帳戶](#BKMK_Account)
 * [工作虛擬機器和集區](#BKMK_TVM)
@@ -173,8 +186,8 @@ Azure 批次提供工作排程和自動調整計算資源做為平台服務，�
 	
 <h2 id="BKMK_Resources">其他資源</h2>
 
-* [開始使用適用於 .NET 的 Azure 批次程式庫](http://azure.microsoft.com/zh-tw/documentation/articles/batch-dotnet-get-started/)
-* [Azure 批次開發程式庫和工具](http://azure.microsoft.com/zh-tw/documentation/articles/batch-development-libraries-tools/)
+* [開始使用適用於 .NET 的 Azure 批次程式庫](http://azure.microsoft.com/documentation/articles/batch-dotnet-get-started/)
+* [Azure 批次開發程式庫和工具](http://azure.microsoft.com/documentation/articles/batch-development-libraries-tools/)
 * [Azure 批次 REST API 參考](http://go.microsoft.com/fwlink/p/?LinkId=517803)
 * [Azure 批次應用程式 REST API 參考](http://go.microsoft.com/fwlink/p/?LinkId=517804)
 
@@ -186,3 +199,5 @@ Azure 批次提供工作排程和自動調整計算資源做為平台服務，�
 [app_pub_workflow]: ./media/batch-technical-overview/app_pub_workflow.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -50,7 +50,7 @@ HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個版本�
 
 **版本資訊**	
 
-請參閱 [HDInsight 版本資訊](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-release-notes/)，以取得 HDInsight 最新版本的其他版本資訊。
+請參閱 [HDInsight 版本資訊](http://azure.microsoft.com/documentation/articles/hdinsight-release-notes/)，以取得 HDInsight 最新版本的其他版本資訊。
 
 ### 佈建 HDInsight 叢集時選取版本
 
@@ -90,7 +90,7 @@ HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。每一個版本�
 下表列出目前可用的 HDInsight 版本、它們使用的相對應 Hortonworks Data Platform (HDP) 版本及其發行日期。另外也會提供其支援到期日和淘汰日期 (已知道的話)。請注意下列：
 
 * 依預設，系統會為 HDInsight 2.1、3.0 和 3.1 叢集部署搭配兩個前端節點的高可用性叢集。HDInsight 1.6 叢集並不適用。
-* 在特定版本的支援到期後，您可能無法透過 Azure 管理入口網站取得。下表指出可在 Azure 管理入口網站上取得的版本。您可透過 PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/zh-tw/library/dn593744.aspx) 命令中的  `Version` 參數和 .NET SDK 持續取得叢集版本，直到其淘汰日期為止。 
+* 在特定版本的支援到期後，您可能無法透過 Azure 管理入口網站取得。下表指出可在 Azure 管理入口網站上取得的版本。您可透過 PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) 命令中的  `Version` 參數和 .NET SDK 持續取得叢集版本，直到其淘汰日期為止。 
 
 <table border="1">
 <tr><th>HDInsight 版本</th><th>HDP 版本</a><th>高可用性</th></th><th>發行日期</th><th>可在 Azure 管理入口網站上取得</th><th>支援到期日</th><th>淘汰日期</th></tr>
@@ -113,7 +113,7 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 
 [**淘汰日期**] 是指在此日期之後便無法在 HDInsight 上建立叢集版本。
 
-> [AZURE.NOTE] HDInsight 2.1 和 3.0 叢集可在使用 Windows Server 2012 R2 64 位元版本並支援 .NET Framework 4.0、4.5 和 4.5.1 的 Azure 客體 OS [Family 4](http://msdn.microsoft.com/zh-tw/library/azure/ee924680.aspx#explanation) 上執行。 
+> [AZURE.NOTE] HDInsight 2.1 和 3.0 叢集可在使用 Windows Server 2012 R2 64 位元版本並支援 .NET Framework 4.0、4.5 和 4.5.1 的 Azure 客體 OS [Family 4](http://msdn.microsoft.com/library/azure/ee924680.aspx#explanation) 上執行。 
 
 ## 與 HDInsight 版本相關聯的 Hortonworks 版本資訊##
 
@@ -128,7 +128,7 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
-[wa-forums]: http://azure.microsoft.com/zh-tw/support/forums/
+[wa-forums]: http://azure.microsoft.com/support/forums/
 
 [connect-excel-with-hive-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
 

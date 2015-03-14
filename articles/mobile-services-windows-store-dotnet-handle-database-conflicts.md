@@ -1,6 +1,20 @@
-<properties pageTitle="處理與開放式並行存取的資料庫寫入衝突 (Windows 市集) | 行動開發人員中心" description="了解如何處理伺服器與 Windows 市集應用程式之間的資料庫寫入衝突。" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="處理與開放式並行存取的資料庫寫入衝突 (Windows 市集) | 行動開發人員中心" 
+	description="了解如何處理伺服器與 Windows 市集應用程式之間的資料庫寫入衝突。" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="wesmc"/>
 
 # 處理資料庫寫入衝突
 
@@ -371,7 +385,8 @@
 [14]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write3.png
 [15]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-write3.png
 [16]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-checkbox.png
-[17]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-2-items.png
+[17]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-2-ite
+	ms.png
 [18]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-already-complete.png
 [19]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
 [20]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
@@ -379,7 +394,7 @@
 <!-- URLs. -->
 [開放式並行存取控制項]: http://go.microsoft.com/fwlink/?LinkId=330935
 [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started/#create-new-service
-[Azure 帳戶]: http://www.windowsazure.com/zh-tw/pricing/free-trial/
+[Azure 帳戶]: http://azure.microsoft.com/pricing/free-trial/
 [使用指令碼驗證及修改資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [使用分頁縮小查詢範圍]: /zh-tw/develop/mobile/tutorials/add-paging-to-data-dotnet
 [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started

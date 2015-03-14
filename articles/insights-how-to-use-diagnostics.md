@@ -1,6 +1,20 @@
-﻿<properties title="How to use diagnostics" pageTitle="如何使用診斷" description="了解如何在 Azure 設定資源的診斷。" authors="stepsic" manager="kamrani" />
+﻿<properties 
+	pageTitle="如何使用診斷" 
+	description="了解如何在 Azure 設定資源的診斷。" 
+	authors="stepsic-microsoft-com" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="stepsic"/>
 
 # 設定診斷功能
 
@@ -66,3 +80,5 @@
 該圖形會顯示您的警示臨界值與前一天度量相比較的預覽。按一下 [**儲存**] 之後，幾分鐘內您將收到所選的度量是否超出臨界值的通知。 
 
 請注意，只在 [預覽入口網站] 上顯示的所有度量，無法在 [完整入口網站] 上提供警示通知。如此一來，來自預覽入口網站的特定警示規則，將無法顯示在完整入口網站上。
+
+<!--HONumber=46--> 

@@ -208,7 +208,7 @@ PTVS 可讓您輕鬆地將 Web 應用程式部署至 Azure 網站。
 
 <!--External Link references-->
 [Azure 管理入口網站]: https://manage.windowsazure.com
-[Azure SDK for .NET]: http://azure.microsoft.com/zh-tw/downloads/
+[Azure SDK for .NET]: http://azure.microsoft.com/downloads/
 [Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 for Visual Studio 範例 VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
@@ -220,7 +220,7 @@ PTVS 可讓您輕鬆地將 Web 應用程式部署至 Azure 網站。
 [在 Microsoft Azure 上進行遠端偵錯]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Web 專案]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [雲端服務專案]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-[Azure 儲存體]: http://azure.microsoft.com/zh-tw/documentation/services/storage/
+[Azure 儲存體]: http://azure.microsoft.com/documentation/services/storage/
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
 
 

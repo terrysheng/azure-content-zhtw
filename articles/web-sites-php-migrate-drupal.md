@@ -102,7 +102,7 @@
   [修改 Settings.php]: #modify-settingsphp
   [部署 Drupal 程式碼]: #deploy-drupalcode
   [相關資訊]: #related-information
-  [建立 PHP-MySQL Azure 網站並使用 Git 部署]: http://www.windowsazure.com/zh-tw/develop/php/tutorials/website-w-mysql-and-git/
+  [建立 PHP-MySQL Azure 網站並使用 Git 部署]: http://azure.microsoft.com/develop/php/tutorials/website-w-mysql-and-git/
   
   [Azure 網站：PHP 觀點]: http://blogs.msdn.com/b/silverlining/archive/2012/06/12/windows-azure-websites-a-php-perspective.aspx
   [Azure 網站、雲端服務和 VM：使用時機]: http://go.microsoft.com/fwlink/?LinkId=310123

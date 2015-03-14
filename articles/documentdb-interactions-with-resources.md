@@ -1,6 +1,20 @@
-﻿<properties title="Interact with DocumentDB resources" pageTitle="與 DocumentDB 資源互動 | Azure" description="DocumentDB 提供 .NET、Python、Node.js 和 JavaScript 的用戶端 SDK，而這些 SDK 全是透過基礎 REST API 的簡單包裝函式。" metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="與 DocumentDB 資源進行 RESTful 互動 | Azure" 
+	description="了解如何使用 HTTP 動詞命令來執行與 Microsoft Azure DocumentDB 資源之間的 RESTful 互動。" 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="mimig"/>
 
 #與 DocumentDB 資源互動 
 DocumentDB 提供透過 HTTP 的簡單且開放 RESTful 程式設計模型。在其預覽版本中，DocumentDB 提供 .NET、Python、Node.js 和 JavaScript 的用戶端 SDK，而這些 SDK 全是透過基礎 REST API 的簡單包裝函式。在未來的版本中，還會提供 C++ 和 Java SDK。我們已公開我們的 SDK，希望您也為自己特有的程式設計環境撰寫專屬 SDK，並將它分享給社群使用。 
@@ -334,3 +348,5 @@ DocumentDB 服務將做出下列回應：
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
 [2]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
+
+<!--HONumber=46--> 

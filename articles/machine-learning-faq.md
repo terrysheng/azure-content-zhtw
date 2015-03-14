@@ -1,6 +1,13 @@
-<properties title="Microsoft Azure Machine Learning 常見問題集 (FAQ)" pageTitle="Azure Machine Learning 常見問題集 | Azure" description="關於 Microsoft Azure Machine Learning 的常見問題" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Microsoft Azure Machine Learning 常見問題集 (FAQ)" pageTitle="Azure Machine Learning 常見問題集 | Azure" description="關於 Microsoft Azure Machine Learning 的常見問題" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="pamehta" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="pamehta" />
 
 # Microsoft Azure Machine Learning 常見問題集 (FAQ)
 
@@ -36,11 +43,11 @@ Azure ML Studio 服務會依作用中實驗的計算時數計費，不足一小�
 -   API 服務預測時數 - 此計量會包含在實際執行環境中執行的 Web 服務所產生的計算費用。
 -   API 服務預測 (以 1000 次為單位) - 此計量會包含對實際執行 Web 服務的呼叫所產生的費用。
 
-如需定價的詳細資訊，請瀏覽 [定價] 頁面：<http://azure.microsoft.com/zh-tw/pricing/details/machine-learning/>。
+如需定價的詳細資訊，請瀏覽 [定價] 頁面：<http://azure.microsoft.com/pricing/details/machine-learning/>。
 
 **6. Azure Machine Learning 是否有免費試用版？**
 
-Azure ML 包含在 Azure 免費試用版中。在註冊 Azure 免費試用版後，您可以試用任何 Azure 服務一個月。若要深入了解 Azure 免費試用版，請瀏覽 <http://azure.microsoft.com/zh-tw/pricing/free-trial-faq/>。
+Azure ML 包含在 Azure 免費試用版中。在註冊 Azure 免費試用版後，您可以試用任何 Azure 服務一個月。若要深入了解 Azure 免費試用版，請瀏覽 <http://azure.microsoft.com/pricing/free-trial-faq/>。
 
 ### MACHINE LEARNING STUDIO
 
@@ -108,12 +115,14 @@ ML Studio 目前支援 350 個以上的 R 封裝，且數量仍在持續增加�
 
 **18. 如何取得 Azure ML 的支援？**
 
-Azure ML 的支援含括在 Azure 支援項目中。若要取得 Azure ML 的技術支援，請選取「機器學習」做為服務，我們將為您提供您可以提交支援票證的主題類別。若要深入了解 Azure 支援項目，請瀏覽 <http://azure.microsoft.com/zh-tw/support/options/>
+Azure ML 的支援含括在 Azure 支援項目中。若要取得 Azure ML 的技術支援，請選取「機器學習」做為服務，我們將為您提供您可以提交支援票證的主題類別。若要深入了解 Azure 支援項目，請瀏覽 <http://azure.microsoft.com/support/options/>
 
 Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure ML 的相關問題。此論壇由 Azure ML 團隊控管。請瀏覽 [Azure 論壇][Azure 論壇]。
 
   [開始使用頁面]: http://go.microsoft.com/fwlink/?LinkId=404226
-  [Azure Machine Learning 中心]: http://azure.microsoft.com/zh-tw/documentation/services/machine-learning/
+  [Azure Machine Learning 中心]: http://azure.microsoft.com/documentation/services/machine-learning/
   [使用者意見反應論壇]: http://go.microsoft.com/fwlink/?LinkId=404231
   [1]: https://windowsazure.uservoice.com/forums/257792-machine-learning
   [Azure 論壇]: http://social.msdn.microsoft.com/Forums/windowsazure/zh-tw/home?forum=MachineLearning
+
+<!--HONumber=46--> 

@@ -1,7 +1,25 @@
-﻿<properties title="Build a web application with ASP.NET MVC using DocumentDB" pageTitle="使用 DocumentDB 建置具有 ASP.NET MVC 的 Web 應用程式 | Azure" description="了解如何使用 DocumentDB 建立待辦事項清單 Web 應用程式。您將從 Azure 主控的 ASP.NET MVC Web 應用程式儲存和存取資料."  metaKeywords="NoSQL, DocumentDB, database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="ryancraw" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	title="Build a web application with ASP.NET MVC using DocumentDB" 
+	pageTitle="使用 DocumentDB 建置具有 ASP.NET MVC 的 Web 應用程式 | Azure"
+	description="了解如何使用 DocumentDB 建立待辦事項清單 Web 應用程式。您將從 Azure 主控的 ASP.NET MVC Web 應用程式儲存和存取資料."  
+	metaKeywords="NoSQL, DocumentDB, database, document-orientated database, JSON, account" 
+	services="documentdb"  
+	solutions="data-management" 
+	documentationCenter=""  
+	authors="ryancraw" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	videoId="" scriptId="" />
 
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="ryancraw" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/19/2014" 
+	ms.author="ryancraw" />
 
 <a name="_Toc395809351">使用 DocumentDB 建置具有 ASP.NET MVC 的 Web 應用程式</a>
 =======================================================================================================
@@ -587,3 +605,5 @@ Visual Studio 現在會新增 ItemController，您的 [方案總管] 應該會�
 [ASP.NET MVC 中的基本 CRUD 作業]: http://go.microsoft.com/fwlink/?LinkId=317598
 
 <!--HONumber=27-->
+
+<!--HONumber=46--> 

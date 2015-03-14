@@ -1,6 +1,20 @@
-<properties pageTitle="註冊 Microsoft 驗證 - 行動服務" description="了解如何在 Azure Mobile Services 應用程式中註冊 Microsoft 驗證。" authors="ggailey777" services="mobile-services" documentationCenter="" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="註冊 Microsoft 驗證 - 行動服務" 
+	description="了解如何在 Azure Mobile Services 應用程式中註冊 Microsoft 驗證。" 
+	authors="ggailey777" 
+	services="mobile-services" 
+	documentationCenter="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # 註冊應用程式來使用 Microsoft 帳戶登入
 

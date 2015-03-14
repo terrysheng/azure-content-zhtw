@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Tutorial: Create a cloud-only virtual network" pageTitle="教學課程：建立純雲端虛擬網路" metaKeywords="" description="了解如何在此教學課程中建立僅限雲端的範例 Azure Virtual Network。" metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Tutorial: Create a Clound-only Virtual Network in Azure" authors="cherylmc" solutions="" manager="adinah" editor="" />
+﻿<properties 
+	pageTitle="教學課程：建立純雲端虛擬網路" 
+	description="了解如何在此教學課程中建立範例純雲端 Azure 虛擬網路。" 
+	services="virtual-machines, virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="cherylmc"/>
 
 <h1 id="vnettut1">教學課程：在 Azure 中建立純雲端虛擬網路</h1>
 
@@ -25,7 +39,7 @@
 
 ##  必要條件
 
-*  至少有一個有效且作用中 Azure 訂用的 Windows 帳戶。如果您還沒有 Azure 訂閱，可以在 [Try Azure](http://www.windowsazure.com/pricing/free-trial/) 上註冊免費試用版。如果您擁有 MSDN 訂閱，請參閱 [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠](http://azure.microsoft.com/zh-tw/pricing/member-offers/msdn-benefits-details/)。
+*  至少有一個有效且作用中 Azure 訂用的 Windows 帳戶。如果您還沒有 Azure 訂閱，可以在 [Try Azure](http://www.windowsazure.com/pricing/free-trial/) 上註冊免費試用版。如果您擁有 MSDN 訂閱，請參閱 [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
 ##  建立適用於本教學課程的虛擬網路
 
@@ -71,9 +85,9 @@
 
 您可以繼續透過下列內容來了解 Azure 基礎架構服務：
 
-- [如何建立自訂虛擬機器](http://www.windowsazure.com/zh-tw/manage/windows/how-to-guides/custom-create-a-vm/) - 使用本主題，在您的虛擬網路上安裝虛擬機器。如需虛擬機器和安裝選項的詳細資訊，請參閱 [Azure 虛擬機器](http://www.windowsazure.com/zh-tw/manage/windows/)。
+- [如何建立自訂虛擬機器](http://azure.microsoft.com/manage/windows/how-to-guides/custom-create-a-vm/) - 使用本主題，在您的虛擬網路上安裝虛擬機器。如需虛擬機器和安裝選項的詳細資訊，請參閱 [Azure 虛擬機器](http://azure.microsoft.com/manage/windows/)。
 
-- [在 Azure 虛擬網路上安裝新的 Active Directory 樹系](http://www.windowsazure.com/zh-tw/manage/services/networking/active-directory-forest/) - 使用本主題安裝新的 Windows Server Active Directory (AD) 樹系，而完全不連線到其他任何網路。教學課程將說明對於新的樹系安裝建立虛擬機器 (VM) 所需的特定步驟。如果您計劃使用這個教學課程，請勿使用管理入口網站建立任何 VM。如需詳細資訊，請參閱[在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156090.aspx)。
+- [在 Azure 虛擬網路上安裝新的 Active Directory 樹系](http://azure.microsoft.com/manage/services/networking/active-directory-forest/) - 使用本主題安裝新的 Windows Server Active Directory (AD) 樹系，而完全不連線到其他任何網路。教學課程將說明對於新的樹系安裝建立虛擬機器 (VM) 所需的特定步驟。如果您計劃使用這個教學課程，請勿使用管理入口網站建立任何 VM。如需詳細資訊，請參閱[在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx)。
 
 若要移除這個虛擬網路，可選取它、按一下 [**刪除**]，然後按一下 [**是**]。
 
@@ -90,7 +104,7 @@
 
 -  [Azure 虛擬網路組態工作](http://go.microsoft.com/fwlink/?LinkId=296652)
 
--  [使用網路組態檔設定虛擬網路](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj156097.aspx)
+-  [使用網路組態檔設定虛擬網路](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
 -  [名稱解析](http://go.microsoft.com/fwlink/?LinkId=248097)
 
@@ -103,3 +117,5 @@
 [Image7]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
 [Image8]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
 
+
+<!--HONumber=46--> 

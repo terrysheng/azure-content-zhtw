@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Azure 網站、雲端服務與虛擬機器之比較" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="了解何時使用 Azure 網站、雲端服務和虛擬機器來裝載 Web 應用程式。" metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="Azure Websites, Cloud Services, and Virtual Machines comparison" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties 
+	pageTitle="Azure 網站、雲端服務與虛擬機器之比較" 
+	description="了解何時使用 Azure 網站、雲端服務和虛擬機器來裝載 Web 應用程式。" 
+	services="web-sites, virtual-machines, cloud-services" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="tdykstra"/>
 
 # Azure 網站、雲端服務與虛擬機器之比較
 
@@ -346,15 +360,17 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。ASP.
   [虛擬機器]: http://go.microsoft.com/fwlink/?LinkID=306053
   [ClearDB]: http://www.cleardb.com/
   [WebJob]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [設定 Azure 網站的 SSL 憑證]: http://www.windowsazure.com/zh-tw/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://www.windowsazure.com/zh-tw/gallery/store/
-  [scripting]: http://www.windowsazure.com/zh-tw/documentation/scripts/?services=web-sites
-  [dotnet]: http://www.windowsazure.com/zh-tw/develop/net/
-  [nodejs]: http://www.windowsazure.com/zh-tw/develop/nodejs/
-  [PHP]: http://www.windowsazure.com/zh-tw/develop/php/
-  [Python]: http://www.windowsazure.com/zh-tw/develop/python/
-  [servicebus]: http://www.windowsazure.com/zh-tw/documentation/services/service-bus/
-  [sqldatabase]: http://www.windowsazure.com/zh-tw/documentation/services/sql-database/
-  [儲存體]: http://www.windowsazure.com/zh-tw/documentation/services/storage/
+  [設定 Azure 網站的 SSL 憑證]: http://azure.microsoft.com/develop/net/common-tasks/enable-ssl-web-site/
+  [azurestore]: http://azure.microsoft.com/gallery/store/
+  [scripting]: http://azure.microsoft.com/documentation/scripts/?services=web-sites
+  [dotnet]: http://azure.microsoft.com/develop/net/
+  [nodejs]: http://azure.microsoft.com/develop/nodejs/
+  [PHP]: http://azure.microsoft.com/develop/php/
+  [Python]: http://azure.microsoft.com/develop/python/
+  [servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
+  [sqldatabase]: http://azure.microsoft.com/documentation/services/sql-database/
+  [儲存體]: http://azure.microsoft.com/documentation/services/storage/
 
 <!--HONumber=35.1-->
+
+<!--HONumber=46--> 

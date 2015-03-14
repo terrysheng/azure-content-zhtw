@@ -1,6 +1,20 @@
-﻿<properties title="Guide to the Net# Neural Networks Specification Language for Azure ML" pageTitle="Azure ML 的 Net# 類神經規格語言指南 " description="Net# 類神經網路規格語言的語法，以及如何使用 Net# 在 Microsoft Azure ML 中建立自訂類神經網路模型的範例。 " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jeannt" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Azure ML 的 Net# 類神經規格語言指南" 
+	description="Net# 類神經網路規格語言的語法，以及如何使用 Net# 在 Microsoft Azure ML 中建立自訂類神經網路模型的範例。" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/08/2014" ms.author="jeannt" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2014" 
+	ms.author="jeannt"/>
 
 
 
@@ -377,3 +391,5 @@ Net# 可選擇性地支援以共用加權定義多個套組的作業。任何兩
 -	由於只有在 d == 0 時，**Sharing**[d] 才會是 false，因此核心數為 **MapCount** * **NodeCount**\[0] = 10 * 5 = 50。 
 
 [1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
+
+<!--HONumber=46--> 

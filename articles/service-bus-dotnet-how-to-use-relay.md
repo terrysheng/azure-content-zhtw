@@ -1,6 +1,20 @@
-<properties urlDisplayName="Service Bus Relay" pageTitle="如何使用服務匯流排轉送 (.NET) - Azure" metaKeywords="開始使用 Azure 服務匯流排轉送 C# " description="了解如何使用 Azure 服務匯流排轉送服務來連線裝載在不同位置的兩個應用程式。" metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="如何使用服務匯流排轉送 (.NET) - Azure" 
+	description="了解如何使用 Azure 服務匯流排轉送服務連接主控於相異位置的兩個應用程式。" 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -260,9 +274,11 @@ With the contract in place, the implementation is trivial:
   [取得服務匯流排 NuGet 封裝]: #get_nuget_package
   [作法：使用服務匯流排來公開及取用使用 TCP 的 SOAP Web 服務]: #how_soap
   [Azure 管理入口網站]: http://manage.windowsazure.com
-  [使用服務匯流排的共用存取簽章驗證]: http://msdn.microsoft.com/zh-tw/library/dn170477.aspx
-  [建立服務匯流排的服務]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee173564.aspx
-  [建立服務匯流排用戶端應用程式]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee173543.aspx
+  [使用服務匯流排的共用存取簽章驗證]: http://msdn.microsoft.com/library/dn170477.aspx
+  [建立服務匯流排的服務]: http://msdn.microsoft.com/library/windowsazure/ee173564.aspx
+  [建立服務匯流排用戶端應用程式]: http://msdn.microsoft.com/library/windowsazure/ee173543.aspx
   [Azure 範例]: http://code.msdn.microsoft.com/windowsazure
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

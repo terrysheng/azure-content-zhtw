@@ -1,6 +1,20 @@
-﻿<properties pageTitle="在命令列上管理行動服務 - Azure 教學課程" description="了解如何使用命令列工具建立、部署和管理 Azure 行動服務。" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="在命令列上管理行動服務 - Azure 教學課程" 
+	description="了解如何使用命令列工具建立、部署和管理 Azure 行動服務。" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # 使用命令列工具將行動服務自動化 
 
@@ -18,9 +32,9 @@
 
 若要使用 Azure 命令列工具管理行動服務，您需要已啟用 Azure 行動服務功能的 Azure 帳戶。
 
-+ 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/" target="_blank">Azure 免費試用</a>。
++ 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Azure 免費試用</a>。
 
-+ 如果您現已有帳戶，但需要啟用 Azure 行動服務預覽版，請參閱<a href="http://azure.microsoft.com/zh-tw/documentation/articles/php-create-account/#enable" target="_blank">啟用 Azure 預覽功能</a>。
++ 如果您現已有帳戶，但需要啟用 Azure 行動服務預覽版，請參閱<a href="http://azure.microsoft.com/documentation/articles/php-create-account/#enable" target="_blank">啟用 Azure 預覽功能</a>。
 
 本主題涵蓋 Azure 命令列工具支援的一些常用管理工作。如需詳細資訊，請參閱 [Azure 命令列工具文件][reference-docs]。
 
@@ -137,7 +151,8 @@
 
 請注意，此作業將從本機電腦上傳 JavaScript (.js) 檔案。檔案的名稱必須由資料表和作業名稱組成，而且必須位在相對於執行命令所在位置的  `table` 子資料夾中。例如，下列作業會上傳並註冊屬於  `TodoItems` 資料表的新  `insert` 指令碼：
 
-		azure mobile script upload todolist table/todoitems.insert.js
+		azure mobile script upload todolist table/todoite
+	ms.insert.js
 
 指令碼檔案中的函數宣告也必須符合註冊的資料表作業。這表示，對  `insert` 指令碼而言，上傳的指令碼包含具有下列簽章的函數：
 

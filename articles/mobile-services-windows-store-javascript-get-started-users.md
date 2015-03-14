@@ -1,6 +1,20 @@
-﻿<properties pageTitle="開始使用驗證 (JavaScript) | 行動開發人員中心" description="了解如何使用行動服務透過眾多識別提供者驗證 Windows 市集 JavaScript 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="開始使用驗證 (JavaScript) | 行動開發人員中心" 
+	description="了解如何使用行動服務透過眾多識別提供者驗證 Windows 市集 JavaScript 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="glenga"/>
 
 # 將驗證新增至行動服務應用程式
 

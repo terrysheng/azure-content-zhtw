@@ -1,6 +1,20 @@
-<properties pageTitle="開始使用推播通知 (iOS) | 行動開發人員中心" description="了解如何使用 Azure 行動服務傳送推播通知至 iOS 應用程式。" services="mobile-services, notification-hubs" documentationCenter="ios" manager="dwrede" editor="" authors="krisragh"/>
+<properties 
+	pageTitle="開始使用推播通知 (iOS) | 行動開發人員中心" 
+	description="了解如何使用 Azure 行動服務傳送推播通知至 iOS 應用程式。" 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="ios" 
+	manager="dwrede" 
+	editor="" 
+	authors="krisragh"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="12/15/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="12/15/2014" 
+	ms.author="krisragh"/>
 
 
 # 將推播通知新增至行動服務應用程式

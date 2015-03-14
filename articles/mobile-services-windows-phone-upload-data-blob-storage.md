@@ -1,6 +1,21 @@
-<properties pageTitle="使用行動服務將影像上傳至 Blob 儲存體 (Windows Phone) | 行動服務" description="了解如何使用行動服務將影像上傳至 Azure Blob 儲存體。" documentationCenter="windows" authors="wesmc7777" writer="wesmc" services="mobile-services, storage" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="使用行動服務將影像上傳至 Blob 儲存體 (Windows Phone) | 行動服務" 
+	description="了解如何使用行動服務將影像上傳至 Azure Blob 儲存體。" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	Writer="wesmc" 
+	services="mobile-services, storage" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/06/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/06/2014" 
+	ms.author="wesmc"/>
 
 # 使用行動服務將影像上傳到 Azure 儲存體
 

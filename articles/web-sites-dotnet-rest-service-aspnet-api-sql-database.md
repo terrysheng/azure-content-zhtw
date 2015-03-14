@@ -51,7 +51,7 @@
 * [將應用程式更新發行至 Azure 和 SQL Database][deploy2]
 
 <a name="bkmk_setupdevenv"></a>
-<!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-get-started/ -->
+<!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 <h2><a name="bkmk_setupwindowsazure"></a>設定 Azure 環境</h2>
@@ -819,7 +819,7 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 
 <h2><a name="nextsteps"></a>後續步驟</h2>
 
-真實的應用程式會要求驗證和授權，而您需要使用成員資格資料庫來達成目的。[部署含有 OAuth、成員資格及 SQL Database 的安全 ASP.NET MVC 應用程式](http://www.windowsazure.com/zh-tw/develop/net/tutorials/web-site-with-sql-database/)教學課程是以本教學課程為基礎，示範如何部署含有成員資格資料庫的 Web 應用程式。
+真實的應用程式會要求驗證和授權，而您需要使用成員資格資料庫來達成目的。[部署含有 OAuth、成員資格及 SQL Database 的安全 ASP.NET MVC 應用程式](http://azure.microsoft.com/develop/net/tutorials/web-site-with-sql-database/)教學課程是以本教學課程為基礎，示範如何部署含有成員資格資料庫的 Web 應用程式。
 
 另一個儲存 Azure 應用程式資料的方法是使用 Azure 儲存體，它能以 Blob 和資料表的形式提供非關聯式的資料儲存。以下連結提供 Web API、ASP.NET MVC 及 Window Azure 的詳細資訊。
  
@@ -827,7 +827,7 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 * [使用 MVC 的 Entity Framework 入門][EFCodeFirstMVCTutorial]
 * [ASP.NET MVC 5 入門](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [您的第一個 ASP.NET Web API](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
-* [偵錯 WAWS](http://www.windowsazure.com/zh-tw/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+* [偵錯 WAWS](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
 本教學課程和範例應用程式是由 [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) 在 Tom Dykstra 和 Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)) 的協助下所撰寫。 
 
@@ -849,7 +849,7 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 
 <!-- links -->
 [EFCodeFirstMVCTutorial]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
-[dbcontext-link]: http://msdn.microsoft.com/zh-tw/library/system.data.entity.dbcontext(v=VS.103).aspx
+[dbcontext-link]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx
 
 
 <!-- images-->

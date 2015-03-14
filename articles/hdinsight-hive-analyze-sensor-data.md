@@ -16,7 +16,7 @@
 	ms.date="09/30/2014" 
 	ms.author="larryfr"/>
 
-#使用 Hive 搭配 HDInsight 來分析感應器資料
+# 搭配使用 Hive 與 HDInsight 來分析感應器資料
 
 了解如何在 HDInsight (Hadoop) 上使用 Hive 來分析感應器資料，然後在 Microsoft Excel 中使用 Power View 將資料視覺化。
 
@@ -29,25 +29,26 @@
 
 ![A diagram of the solution architecture](./media/hdinsight-use-hive-sensor-data-analysis/hvac-architecture.png)
 
-##必要條件：
+## 必要條件：
 
-* HDInsight (Hadoop) 叢集 - 如需有關建立叢集的相關資訊，請參閱[在 HDInsight 中佈建 Hadoop 叢集](/zh-tw/documentation/articles/hdinsight-provision-clusters/)
+* HDInsight (Hadoop) 叢集 - 如需建立叢集的詳細資訊，請參閱[在 HDInsight 中佈建 Hadoop 叢集](/zh-tw/documentation/articles/hdinsight-provision-clusters/)
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE] Microsoft Excel 可透過 [Power View](https://support.office.com/zh-tw/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=zh-tw&rs=zh-tw&ad=US) (目前只有 Windows 版) 將資料視覺化。
+	> [AZURE.NOTE] Microsoft Excel 可透過 [Power View](https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US) (目前只有 Windows 版) 將資料視覺化。
 
 * [Microsoft Hive ODBC 驅動程式](http://www.microsoft.com/zh-tw/download/details.aspx?id=40886)
 
-##執行範例
+## 執行範例
 
-1. 從 Azure 管理入口網站，按一下您要執行範例的叢集，然後按一下底部的 [**Query Console**]。或者，您也可以使用下列 URL 直接開啟 Query Console
+1. 從 [Azure 管理入口網站] 中，按一下您要執行範例的叢集，然後按一下底部的 [**Query Console**]。或者，您也可以使用下列 URL 直接開啟 Query Console
 
 	 	https://<clustername>.azurehdinsight.net
 
 	出現提示時，使用您佈建此叢集時所用的系統管理員使用者名稱和密碼來驗證。
 
-2. 從開啟的網頁中，按一下 [**Getting Started Gallery**] 索引標籤，然後在 [**範例**] 類別下，按一下 [**Website Log Analysis**] 範例。
+2. 從開啟的網頁中，按一下 [**Getting Started Gallery**] 索引標籤，然後在 [**範例**] 類別下按一下 [**Website Log Analysis**] 範例。
 
 3. 依照網頁上提供的指示完成範例。
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

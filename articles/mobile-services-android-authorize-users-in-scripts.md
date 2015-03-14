@@ -1,6 +1,20 @@
-<properties pageTitle="伺服器端授權 (Android) | 行動開發人員中心" description="了解如何在 Azure 行動服務的 JavaScript 後端為使用者授權。" services="" documentationCenter="android" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="伺服器端授權 (Android) | 行動開發人員中心" 
+	description="了解如何在 Azure 行動服務的 JavaScript 後端為使用者授權。" 
+	services="" 
+	documentationCenter="android" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/29/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="glenga"/>
 
 # 行動服務使用者的伺服器端授權
 

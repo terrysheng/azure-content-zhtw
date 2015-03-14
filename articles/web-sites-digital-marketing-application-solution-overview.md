@@ -26,7 +26,7 @@
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/digital-marketing-notitle.svg" width="100%" height="100%"></object>
 
 > [WACOM.NOTE]
-> 本指南提供一些與在 Azure 網站中執行數位行銷活動整合的最常見領域和工作。不過，還有其他您可在 Azure 網站中實作的常見解決方案。若要檢閱這些解決方案，請參閱關於<a href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/global-web-presence-solution-overview/">全域網站空間</a>和<a href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/business-application-solution-overview">商務應用程式</a>上的其他指南。
+> 本指南提供一些與在 Azure 網站中執行數位行銷活動整合的最常見領域和工作。不過，還有其他您可在 Azure 網站中實作的常見解決方案。若要檢閱這些解決方案，請參閱關於<a href="http://azure.microsoft.com/manage/services/web-sites/global-web-presence-solution-overview/">全域網站空間</a>和<a href="http://azure.microsoft.com/manage/services/web-sites/business-application-solution-overview">商務應用程式</a>上的其他指南。
 
 ### 從頭開始建立或利用現有的資產
 
@@ -124,8 +124,8 @@ Azure 網站[向上延展和向外延展]的能力非常適合無法預期的工
 
 [向上延展和向外延展]:/zh-tw/manage/services/web-sites/how-to-scale-websites/
 [Azure 管理入口網站]:http://manage.windowsazure.com/
-[服務管理 API]:http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460799.aspx
-[PowerShell 指令碼處理]:http://msdn.microsoft.com/zh-tw/library/windowsazure/jj152841.aspx
+[服務管理 API]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[PowerShell 指令碼處理]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [我所學到關於使用 Azure 快速調整網站的 10 件事]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Azure Redis 快取]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/

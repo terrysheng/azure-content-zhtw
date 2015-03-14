@@ -18,9 +18,9 @@
 
 # <a id="createstorageaccount"></a>在 Azure 管理入口網站中監視儲存體帳戶
 
-您可以從 Azure 管理入口網站監視儲存體帳戶。當您設定儲存體帳戶以透過入口網站監視時，Azure 儲存體會使用[儲存體分析](http://msdn.microsoft.com/zh-tw/library/azure/hh343270.aspx)來追蹤帳戶的度量和記錄要求資料。 
+您可以從 Azure 管理入口網站監視儲存體帳戶。當您設定儲存體帳戶以透過入口網站監視時，Azure 儲存體會使用[儲存體分析](http://msdn.microsoft.com/library/azure/hh343270.aspx)來追蹤帳戶的度量和記錄要求資料。 
 
-> [AZURE.NOTE] 其他成本也與在管理入口網站中查看監視資料相關。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/hh360997.aspx">儲存體分析及計費</a>。 <br />
+> [AZURE.NOTE] 其他成本也與在管理入口網站中查看監視資料相關。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/windowsazure/hh360997.aspx">儲存體分析及計費</a>。 <br />
 
 > Azure 檔案服務目前不支援儲存體分析。
 
@@ -65,7 +65,7 @@
 
 設定監視等級與保留原則之後，您可以在管理入口網站選擇要監視哪些可用的度量，以及在度量圖表上繪製哪些度量。每個監視等級會顯示一組預設的度量。您可以使用 [加入度量] 從度量清單新增或移除度量。
 
-度量存放在儲存體帳戶中的四個資料表：$MetricsTransactionsBlob、$MetricsTransactionsTable、$MetricsTransactionsQueue 及 $MetricsCapacityBlob。如需詳細資訊，請參閱[關於儲存體分析度量](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh343258.aspx)。
+度量存放在儲存體帳戶中的四個資料表：$MetricsTransactionsBlob、$MetricsTransactionsTable、$MetricsTransactionsQueue 及 $MetricsCapacityBlob。如需詳細資訊，請參閱[關於儲存體分析度量](http://msdn.microsoft.com/library/windowsazure/hh343258.aspx)。
 
 
 <h2><a id="customizestoragemonitoring"></a>做法：自訂儀表板以進行監視</h2>
@@ -109,7 +109,7 @@
 
 	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
-	> [AZURE.NOTE] 選取度量時請考慮成本。重新整理監視顯示時有相關的交易和資料外送流量成本。如需詳細資訊，請參閱[儲存體分析及計費](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh360997.aspx)。
+	> [AZURE.NOTE] 選取度量時請考慮成本。重新整理監視顯示時有相關的交易和資料外送流量成本。如需詳細資訊，請參閱[儲存體分析及計費](http://msdn.microsoft.com/library/windowsazure/hh360997.aspx)。
 
 3. 按一下 [加入度量]。 
 
@@ -164,5 +164,5 @@
 
 4. 按一下 [儲存]。
 
-診斷記錄檔儲存在儲存體帳戶中的 $logs Blob 容器。如需存取 $logs 容器的詳細資訊，請參閱[關於儲存體分析記錄](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh343262.aspx)。
+診斷記錄檔儲存在儲存體帳戶中的 $logs Blob 容器。如需存取 $logs 容器的詳細資訊，請參閱[關於儲存體分析記錄](http://msdn.microsoft.com/library/windowsazure/hh343262.aspx)。
 <!--HONumber=42-->

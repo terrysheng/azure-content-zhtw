@@ -1,6 +1,20 @@
-﻿<properties pageTitle="開始使用進階 Azure API 管理組態" metaKeywords="" description="了解如何追蹤呼叫、設定速率限制和配額原則，以及自訂開發人員入口網站。" metaCanonical="" services="api-management" documentationCenter="API Management" title="Get started with advanced Azure API Management configuration" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="開始使用進階 Azure API 管理組態" 
+	description="了解如何追蹤呼叫、設定速率限制和配額原則，以及自訂開發人員入口網站。" 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # 開始使用進階 Azure API 管理組態
 
@@ -22,3 +36,5 @@
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

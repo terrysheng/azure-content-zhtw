@@ -40,7 +40,7 @@
 	此程式碼使用 [mssql 物件]直接存取 **todoitem** 資料表，以在所有項目上設定完成旗標。因為使用了 **exports.post** 函數，所以用戶端會傳送 POST 要求以執行此操作。系統會以整數值將變更的列數傳回給用戶端。
 
 > [AZURE.NOTE]
-> <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">Express.js 程式庫</a>會實作提供給自訂 API 函數的 <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554218.aspx" target="_blank">request</a> 和 <a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dn303373.aspx" target="_blank">response</a> 物件。如需相關資訊，請參閱<a href="http://msdn.microsoft.com/zh-tw/library/windowsazure/dn280974.aspx" target="_blank">自訂 API</a>。 
+> <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">Express.js 程式庫</a>會實作提供給自訂 API 函數的 <a href="http://msdn.microsoft.com/library/windowsazure/jj554218.aspx" target="_blank">request</a> 和 <a href="http://msdn.microsoft.com/library/windowsazure/dn303373.aspx" target="_blank">response</a> 物件。如需相關資訊，請參閱<a href="http://msdn.microsoft.com/library/windowsazure/dn280974.aspx" target="_blank">自訂 API</a>。 
 
 接著，您將會修改快速入門應用程式，以加入新按鈕和非同步呼叫新自訂 API 的程式碼。
 
@@ -50,5 +50,5 @@
 
 <!-- URLs. -->
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[mssql 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554212.aspx
+[mssql 物件]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 <!--HONumber=42-->

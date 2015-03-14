@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Dashboard, Monitor, Scale, Configure and Hybrid Connections tabs" pageTitle="BizTalk 服務中的儀表板、監視器和調整 | Azure" metaKeywords="BizTalk Services, Azure, dashboard, monitor, scale, wabs, mabs" description="了解 BizTalk Services 的 Management Portal 索引標籤控制項。儀表板、監視器和調整。" metaCanonical="" services="biztalk-services" documentationCenter="" title=" Monitor and Scale tabs" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="BizTalk 服務中的儀表板、監視器和調整 | Azure" 
+	description="了解控制項，以及在 BizTalk 服務中的 [管理入口網站] 索引標籤上監視效能：儀表板、監視器、調整、設定和混合式連線。MABS，WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 
@@ -47,7 +61,7 @@
 
 <tr>
         <td><strong>深入了解 BizTalk 服務</strong></td>
-        <td>前往<a HREF="http://azure.microsoft.com/zh-tw/documentation/services/biztalk-services/">學習中心</a>以深入了解 Azure BizTalk 服務。</td>
+        <td>前往<a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">學習中心</a>以深入了解 Azure BizTalk 服務。</td>
 </tr>
 </table>
 
@@ -341,7 +355,7 @@ Access Control 命名空間的<td><strong>連線資訊</strong></td>
 
 若要在 Azure 網站上建立混合式連線，請參閱[混合式連線：將 Azure 網站連線到內部部署資源](http://go.microsoft.com/fwlink/p/?LinkId=397538)。
 
-若要在 Azure 行動服務內使用混合式連線，請參閱 [Azure 行動服務與混合式連線](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)。
+若要在 Azure 行動服務內使用混合式連線，請參閱 [Azure 行動服務與混合式連線](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)。
 
 若要在 Azure BizTalk 服務內建立或管理混合式連線，請參閱[混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)。
 
@@ -365,3 +379,5 @@ Access Control 命名空間的<td><strong>連線資訊</strong></td>
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
+
+<!--HONumber=46--> 

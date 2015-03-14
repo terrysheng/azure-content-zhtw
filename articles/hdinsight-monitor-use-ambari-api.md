@@ -175,7 +175,7 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: ../install-configure-powershell/
-[powershell-script]: http://technet.microsoft.com/zh-tw/library/ee176949.aspx 
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx 
 
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/

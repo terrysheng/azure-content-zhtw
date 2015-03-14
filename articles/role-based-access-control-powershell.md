@@ -1,6 +1,20 @@
-﻿<properties pageTitle="使用 Windows PowerShell 管理角色型存取控制" metaKeywords="ResourceManager, PowerShell, Azure PowerShell, RBAC" description="使用 Windows PowerShell 管理角色存取控制" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Windows PowerShell" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
+﻿<properties 
+	pageTitle="使用 Windows PowerShell 管理角色存取控制" 
+	description="使用 Windows PowerShell 管理角色存取控制" 
+	services="" 
+	documentationCenter="" 
+	authors="guangyang" 
+	manager="terrylan" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="guayan" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="powershell" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/03/2014" 
+	ms.author="guayan"/>
 
 # 使用 Windows PowerShell 管理角色存取控制 #
 
@@ -18,9 +32,9 @@ Azure Preview 入口網站與 Azure 資源管理員 API 裡的角色型存取控
 
 - Windows PowerShell 3.0 或 4.0 版。如要查詢 Windows PowerShell 的版本，請輸入：`$PSVersionTable`，並確認 `PSVersion` 的值是否為 3.0 或 4.0。若要安裝相容版本，請參閱 [Windows Management Framework 3.0](http://www.microsoft.com/zh-tw/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](http://www.microsoft.com/zh-tw/download/details.aspx?id=40855)。
 
-- Azure PowerShell 0.8.8 或更新版本。若要安裝最新版本，並將它與 Azure 訂閱建立關聯，請參閱[如何安裝和設定 Windows Azure PowerShell](http://www.windowsazure.com/zh-tw/documentation/articles/install-configure-powershell/)。
+- Azure PowerShell 0.8.8 或更新版本。若要安裝最新版本，並將它與 Azure 訂閱建立關聯，請參閱[如何安裝和設定 Windows Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)。
 
-本教學課程是專為 Windows PowerShell 初學者所設計的，但它會假設您已了解基本概念，例如模組、Cmdlet 和工作階段。如需 Windows PowerShell 的詳細資訊，請參閱[開始使用 Windows PowerShell](http://technet.microsoft.com/zh-tw/library/hh857337.aspx)。
+本教學課程是專為 Windows PowerShell 初學者所設計的，但它會假設您已了解基本概念，例如模組、Cmdlet 和工作階段。如需 Windows PowerShell 的詳細資訊，請參閱[開始使用 Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx)。
 
 若要取得您在本教學課程中任何所見 Cmdlet 的詳細說明，請使用 Get-Help Cmdlet。 
 
@@ -32,8 +46,8 @@ Azure Preview 入口網站與 Azure 資源管理員 API 裡的角色型存取控
 
 請同時閱讀下列教學課程，熟悉在 Windows PowerShell 中設定與使用 Azure 資源管理員的程序：
 
-- [如何安裝和設定 Azure PowerShell](http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/)
-- [將 Windows PowerShell 與資源管理員搭配使用](http://azure.microsoft.com/zh-tw/documentation/articles/powershell-azure-resource-manager/)
+- [如何安裝和設定 Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)
+- [將 Windows PowerShell 與資源管理員搭配使用](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/)
 
 ## 本教學課程內容 ##
 
@@ -49,7 +63,7 @@ Azure Preview 入口網站與 Azure 資源管理員 API 裡的角色型存取控
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-如需詳細資訊，請參閱[將 Windows PowerShell 與資源管理員搭配使用](http://azure.microsoft.com/zh-tw/documentation/articles/powershell-azure-resource-manager/)。
+如需詳細資訊，請參閱[將 Windows PowerShell 與資源管理員搭配使用](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/)。
 
 若要連線到您的 Azure 訂閱，請輸入：
 
@@ -64,7 +78,7 @@ Azure Preview 入口網站與 Azure 資源管理員 API 裡的角色型存取控
     # 使用訂閱名稱選取要使用的訂閱。
     PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
 
-如需詳細資訊，請參閱[如何安裝及設定 Azure PowerShell](http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/)。
+如需詳細資訊，請參閱[如何安裝及設定 Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)。
 
 ## <a id="check"></a>查看現有的角色指派 ##
 
@@ -139,13 +153,15 @@ Azure Preview 入口網站與 Azure 資源管理員 API 裡的角色型存取控
 
 若要深入了解使用 Windows PowerShell 管理角色存取控制的詳細資訊，請參閱下列相關主題：
  
-- [Windows Azure 中的角色型存取控制](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-configure/)
+- [Windows Azure 中的角色型存取控制](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)
 - [Azure 資源管理員 Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409)：了解如何使用 AzureResourceManager 模組中的 Cmdlet。
-- [使用資源群組管理您的 Azure 資源](http://azure.microsoft.com/zh-tw/documentation/articles/azure-preview-portal-using-resource-groups)：了解如何在 Azure 管理入口網站中建立和管理資源群組。
+- [使用資源群組管理您的 Azure 資源](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups)：了解如何在 Azure 管理入口網站中建立和管理資源群組。
 - [Azure 部落格](http://blogs.msdn.com/windowsazure)：深入了解 Azure 的新功能。
 - [Windows PowerShell 部落格](http://blogs.msdn.com/powershell)：深入了解 Windows PowerShell 的新功能。
 - [「嗨，Scripting Guy！」部落格](http://blogs.technet.com/b/heyscriptingguy/)：從 Windows PowerShell 社群中取得實際的秘訣及訣竅。
-- [使用 XPLAT CLI 設定角色型存取控制](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-xplat-cli/)
-- [疑難排解角色型存取控制](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-troubleshooting/)
+- [使用 XPLAT CLI 設定角色型存取控制](http://azure.microsoft.com/documentation/articles/role-based-access-control-xplat-cli/)
+- [疑難排解角色型存取控制](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

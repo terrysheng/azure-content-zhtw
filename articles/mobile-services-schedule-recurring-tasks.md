@@ -1,6 +1,20 @@
-﻿<properties pageTitle="使用排程器來排程後端工作 - 行動服務" description="使用 Azure 行動服務排程工具排程行動應用程式的工作。" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="使用排程器來排程後端工作 - 行動服務" 
+	description="使用 Azure 行動服務排程工具排程行動應用程式的工作。" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # 在行動服務中為週期性工作排程 
 
@@ -185,11 +199,11 @@
 
 <!-- URLs. -->
 [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
-[WindowsAzure.com]: http://www.windowsazure.com/
+[WindowsAzure.com]: http://azure.microsoft.com/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [在行動服務中註冊您的應用程式以進行 Twitter 登入]: /zh-tw/develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter 開發人員]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[應用程式設定]: http://msdn.microsoft.com/zh-tw/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[應用程式設定]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
 
 <!--HONumber=42-->

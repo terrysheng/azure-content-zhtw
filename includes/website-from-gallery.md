@@ -11,7 +11,7 @@
 
 ![Wordpress blog][13]
 
-> [AZURE.IMPORTANT]若要完成此教學課程，您需要 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資訊，請參閱[建立 Azure 帳戶](http://www.windowsazure.com/zh-tw/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank")。
+> [AZURE.IMPORTANT]若要完成此教學課程，您需要 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資訊，請參閱[建立 Azure 帳戶](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank")。
 
 ## 在入口網站中建立網站
 

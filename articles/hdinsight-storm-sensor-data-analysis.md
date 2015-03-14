@@ -26,7 +26,7 @@
 
 * Azure 訂用帳戶
 
-* Visual Studio 與 [Microsoft Azure SDK for .NET](http://azure.microsoft.com/zh-tw/downloads/archive-net-downloads/)
+* Visual Studio 與 [Microsoft Azure SDK for .NET](http://azure.microsoft.com/downloads/archive-net-downloads/)
 
 * [Java 和 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
@@ -1347,7 +1347,7 @@ Bolt 在拓撲中負責主要的處理工作。在此拓撲中，有三個 bolt�
 
 * 如需 Apache Storm 的詳細資訊，請參閱 [https://storm.incubator.apache.org/](https://storm.incubator.apache.org/)
 
-* 如需 HDInsight 上的 HBase 的詳細資訊，請參閱 [HDInsight HBase 概觀](http://azure.microsoft.com/zh-tw/documentation/articles/hdinsight-hbase-overview/)
+* 如需 HDInsight 上的 HBase 的詳細資訊，請參閱 [HDInsight HBase 概觀](http://azure.microsoft.com/documentation/articles/hdinsight-hbase-overview/)
 
 * 如需 SignalR 的詳細資訊，請參閱 [ASP.NET SignalR](http://signalr.net/)
 

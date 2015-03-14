@@ -79,7 +79,7 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 	        throw;
 	}  
 
-「儲存體服務」也包含對其他條件式標頭的支援，例如 **If-Modified-Since**、**If-Unmodified-Since** 和 **If-None-Match** 以及這些標頭的組合。如需詳細資訊，請參閱 MSDN 上的[指定 Blob 服務作業的條件式標頭](http://msdn.microsoft.com/zh-tw/library/dd179371.aspx)。  
+「儲存體服務」也包含對其他條件式標頭的支援，例如 **If-Modified-Since**、**If-Unmodified-Since** 和 **If-None-Match** 以及這些標頭的組合。如需詳細資訊，請參閱 MSDN 上的[指定 Blob 服務作業的條件式標頭](http://msdn.microsoft.com/library/dd179371.aspx)。  
 
 下表彙總了在要求中接受條件式標頭 (例如 **If-Match**) 以及在回應中傳回 ETag 值的容器作業。  
 
@@ -121,7 +121,7 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 (*) 租用 Blob 並不會變更 Blob 上的 ETag。  
 
 ##Blob 的封閉式並行存取
-若要鎖定 Blob 以進行獨佔使用，您可以取得其[租用](http://msdn.microsoft.com/zh-tw/library/azure/ee691972.aspx)。您取得租用時，可指定需要租用的時間長度：這可以是 15 至 60 秒，也可以是無限期 (等於獨佔鎖定)。您可以更新有限租用而加以延伸，而且您可以在用完任何租用後加以釋放。Blob 服務會在有限租用到期時自動加以釋放。  
+若要鎖定 Blob 以進行獨佔使用，您可以取得其[租用](http://msdn.microsoft.com/library/azure/ee691972.aspx)。您取得租用時，可指定需要租用的時間長度：這可以是 15 至 60 秒，也可以是無限期 (等於獨佔鎖定)。您可以更新有限租用而加以延伸，而且您可以在用完任何租用後加以釋放。Blob 服務會在有限租用到期時自動加以釋放。  
 
 租用可讓不同的同步處理策略獲得支援，包括獨佔寫入/共用讀取、獨佔寫入/獨佔讀取和共用寫入/獨佔讀取。只要有租用存在，儲存體服務就會強制執行獨佔寫入 (放置、設定和刪除作業)，但要確保讀取作業的獨佔性，開發人員必須確定所有的用戶端應用程式都使用同一個租用識別碼，並確定同一時間只有一個用戶端具有有效的租用識別碼。未包含租用識別碼的讀取作業將會導致共用讀取。  
 
@@ -152,7 +152,7 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 	        throw;
 	}  
 
-如果您直接嘗試對已租用的 Blob 執行寫入作業，而未傳送租用識別碼，要求將會失敗，並出現 412 錯誤。請注意，如果在呼叫 **UploadText** 方法之前租用已到期，但您仍然傳送租用 ID，該要求也會失敗，並出現 **412** 錯誤。如需有關管理租用到期時間和租用 ID 的詳細資訊，請參閱[租用 Blob](http://msdn.microsoft.com/zh-tw/library/azure/ee691972.aspx) REST 文件。  
+如果您直接嘗試對已租用的 Blob 執行寫入作業，而未傳送租用識別碼，要求將會失敗，並出現 412 錯誤。請注意，如果在呼叫 **UploadText** 方法之前租用已到期，但您仍然傳送租用 ID，該要求也會失敗，並出現 **412** 錯誤。如需有關管理租用到期時間和租用 ID 的詳細資訊，請參閱[租用 Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx) REST 文件。  
 
 下列 Blob 作業可使用租用來管理封閉式並行存取：  
 
@@ -189,9 +189,9 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 
 如需詳細資訊，請參閱：  
 
-- [指定 Blob 服務作業的條件式標頭](http://msdn.microsoft.com/zh-tw/library/azure/dd179371.aspx)
-- [租用容器](http://msdn.microsoft.com/zh-tw/library/azure/jj159103.aspx)
-- [租用 Blob](http://msdn.microsoft.com/zh-tw/library/azure/ee691972.aspx) 
+- [指定 Blob 服務作業的條件式標頭](http://msdn.microsoft.com/library/azure/dd179371.aspx)
+- [租用容器](http://msdn.microsoft.com/library/azure/jj159103.aspx)
+- [租用 Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx) 
 
 #管理資料表服務中的並行存取
 當您使用實體時，資料表服務會使用開放式並行存取檢查做為預設行為，這一點不同於必須明確選擇執行開放式並行存取檢查的 Blob 服務。資料表服務與 Blob 服務的另一個差異是您只能管理實體的並行存取行為，而在使用 Blob 服務時，您可以同時管理容器和 Blob 的並行存取。  
@@ -245,7 +245,7 @@ customer.ETag = "*";
 
 如需詳細資訊，請參閱：  
 
-- [實體上的作業](http://msdn.microsoft.com/zh-tw/library/azure/dd179375.aspx)  
+- [實體上的作業](http://msdn.microsoft.com/library/azure/dd179375.aspx)  
 
 #管理佇列服務中的並行存取
 在使用佇列服務時必須考量並行存取的案例之一，是有多個用戶端從一個佇列擷取訊息時。從佇列擷取訊息時，回應中會包含訊息，以及刪除訊息所需的 pop receipt 值。訊息並不會從佇列中自動刪除，但在擷取之後，其他用戶端在 visibilitytimeout 參數所指定的時間間隔內將看不到此訊息。擷取訊息的用戶端應會在訊息完成處理後、回應的 TimeNextVisible 元素所指定的時間之前刪除訊息；這段時間會根據 visibilitytimeout 參數值計算得出。visibilitytimeout 的值會加到擷取訊息的時間上，以決定 TimeNextVisible 的值。  
@@ -254,8 +254,8 @@ customer.ETag = "*";
 
 如需詳細資訊，請參閱：  
 
-- [佇列服務 REST API](http://msdn.microsoft.com/zh-tw/library/azure/dd179363.aspx)
-- [取得訊息](http://msdn.microsoft.com/zh-tw/library/azure/dd179474.aspx)  
+- [佇列服務 REST API](http://msdn.microsoft.com/library/azure/dd179363.aspx)
+- [取得訊息](http://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
 #管理檔案服務中的並行存取
 檔案服務可使用兩種不同的通訊協定端點來存取 - SMB 和 REST。REST 服務不支援開放式鎖定或封閉式鎖定，且所有更新都將遵循「最後寫入為準」策略。裝載檔案共用的 SMB 用戶端可利用檔案系統鎖定機制，來管理對共用檔案的存取 - 包括執行封閉式鎖定的功能。SMB 用戶端在開啟檔案時，會同時指定檔案存取和共用模式。將 [檔案存取] 選項設為 [寫入] 或 [讀取/寫入]，並將 [檔案共用] 模式設為 [無]，會使檔案被 SMB 用戶端鎖定，直到檔案關閉為止。如果嘗試對已由 SMB 用戶端鎖定的檔案執行 REST 作業，REST 服務將會傳回狀態碼 409 (衝突) 和錯誤碼 SharingViolation。  
@@ -264,7 +264,7 @@ SMB 用戶端在開啟檔案以進行刪除時，會將檔案標示為「擱置�
 
 如需詳細資訊，請參閱：  
 
-- [管理檔案鎖定](http://msdn.microsoft.com/zh-tw/library/azure/dn194265.aspx)  
+- [管理檔案鎖定](http://msdn.microsoft.com/library/azure/dn194265.aspx)  
 
 #摘要和後續步驟
 Microsoft Azure 儲存體服務的設計已符合最複雜的線上應用程式的需求，而不會迫使開發人員犧牲或再三考量主要的設計假設，例如已被開發人員視為理所當然的並行存取和資料一致性。  
@@ -275,9 +275,9 @@ Microsoft Azure 儲存體服務的設計已符合最複雜的線上應用程式�
 
 如需 Azure 儲存體的詳細資訊，請參閱：  
 
-- [Microsoft Azure 儲存體首頁](http://azure.microsoft.com/zh-tw/services/storage/)
-- [Azure 儲存體簡介](http://azure.microsoft.com/zh-tw/documentation/articles/storage-introduction/)
-- [Blob](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/)、[資料表](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-tables/)及[佇列](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/)的儲存體入門
+- [Microsoft Azure 儲存體首頁](http://azure.microsoft.com/services/storage/)
+- [Azure 儲存體簡介](http://azure.microsoft.com/documentation/articles/storage-introduction/)
+- [Blob](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/)、[資料表](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/)及[佇列](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/)的儲存體入門
 - 儲存體架構 - [Windows Azure 儲存體：具有高可用性和增強式一致性的雲端儲存體服務](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
 <!--HONumber=42-->

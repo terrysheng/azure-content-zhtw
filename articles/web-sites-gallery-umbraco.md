@@ -1,6 +1,20 @@
-﻿<properties title="Create an Umbraco website from the gallery in Microsoft Azure" pageTitle="在 Microsoft Azure 中從映像庫建立 Umbraco 網站" description="必要" metaKeywords="Azure, gallery, Umbraco, web site, website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="在 Microsoft Azure 中從組件庫建立 Umbraco 網站" 
+	description="必要" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="tomfitz"/>
 
 #在 Microsoft Azure 中從映像庫建立 Umbraco 網站#
 
@@ -88,19 +102,20 @@ Umbraco CMS 是個功能齊全的開放原始碼內容管理系統，可用來�
 
 [Umbraco 影片教學課程](https://umbraco.com/help-and-support/video-tutorials.aspx)
 
-[Microsoft Azure 預覽入口網站概觀](http://azure.microsoft.com/zh-tw/overview/preview-portal/)
+[Microsoft Azure 預覽入口網站概觀](http://azure.microsoft.com/overview/preview-portal/)
 
-[Microsoft Azure 預覽入口網站文件](http://azure.microsoft.com/zh-tw/documentation/preview-portal/)
+[Microsoft Azure 預覽入口網站文件](http://azure.microsoft.com/documentation/preview-portal/)
 
 [Azure 預覽入口網站 (第 9 頻道)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal) 
 
-[Microsoft Azure 網站文件](http://azure.microsoft.com/zh-tw/documentation/services/web-sites/)
+[Microsoft Azure 網站文件](http://azure.microsoft.com/documentation/services/web-sites/)
 
 
 <!-- IMAGES -->
 [01Startboard]: ./media/web-sites-gallery-umbraco/01Startboard.PNG
 [02WebGallery]: ./media/web-sites-gallery-umbraco/02WebGallery.PNG
-[03UmbracoCMS]: ./media/web-sites-gallery-umbraco/03UmbracoCMS.PNG
+[03UmbracoCMS]: ./media/web-sites-gallery-umbraco/03UmbracoC
+	ms.PNG
 [04AppSettings]: ./media/web-sites-gallery-umbraco/04AppSettings.PNG
 [05NewServer]: ./media/web-sites-gallery-umbraco/05NewServer.PNG
 [06UmbracoCMSGroup]: ./media/web-sites-gallery-umbraco/06UmbracoCMSGroup.PNG
@@ -110,7 +125,10 @@ Umbraco CMS 是個功能齊全的開放原始碼內容管理系統，可用來�
 [10ConfigureYourDatabase]: ./media/web-sites-gallery-umbraco/10ConfigureYourDatabase.png
 [11InstallAStarterWebsite]: ./media/web-sites-gallery-umbraco/11InstallAStarterWebsite.png
 [12ConfigureYourDatabase]: ./media/web-sites-gallery-umbraco/12ConfigureYourDatabase.png
-[14FriendlyCMS]: ./media/web-sites-gallery-umbraco/14FriendlyCMS.PNG
+[14FriendlyCMS]: ./media/web-sites-gallery-umbraco/14FriendlyC
+	ms.PNG
 [15CreateItemUnderOverflow]: ./media/web-sites-gallery-umbraco/15CreateItemUnderOverflow.PNG
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
+
+<!--HONumber=46--> 

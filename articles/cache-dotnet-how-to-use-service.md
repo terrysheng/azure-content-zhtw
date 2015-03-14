@@ -1,6 +1,20 @@
-<properties urlDisplayName="" pageTitle="如何使用 Azure 受管理快取服務" metaKeywords="" description="" metaCanonical="" services="cache" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="如何使用 Azure 受管理快取服務" 
+	description="" 
+	services="cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="cache" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # 如何使用 Azure 受管理快取服務
 
@@ -296,7 +310,8 @@ NuGet 套件也會新增下列組件的參考：
     DataCacheFactory cacheFactory = new DataCacheFactory();
     DataCache cache = cacheFactory.GetDefaultCache();
     // Or DataCache cache = cacheFactory.GetCache("MyCache");
-    // cache can now be used to add and retrieve items.	
+    // cache can now be used to add and retrieve ite
+	ms.	
 
 <a name="add-object"></a>
 ## 作法：從快取新增和擷取物件
@@ -456,25 +471,25 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
    
 <!-- LINKS -->
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[作法：以程式設計方式設定快取用戶端]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg618003.aspx
+[作法：以程式設計方式設定快取用戶端]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Azure 快取的工作階段狀態提供者]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Azure AppFabric 快取：快取工作階段狀態]: http://www.microsoft.com/zh-tw/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Azure 快取的輸出快取提供者]: http://go.microsoft.com/fwlink/?LinkId=320837
-[Azure 共用快取]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg278356.aspx
+[Azure 共用快取]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 [小組部落格]: http://blogs.msdn.com/b/windowsazure/
 [Azure 快取]: http://www.microsoft.com/zh-tw/showcase/Search.aspx?phrase=azure+caching
 [如何設定虛擬機器大小]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Azure 快取容量規劃考量]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure 快取]: http://go.microsoft.com/fwlink/?LinkId=252658
-[作法：以宣告方式設定 ASP.NET 網頁的快取性]: http://msdn.microsoft.com/zh-tw/library/zd1ysf1y.aspx
-[作法：以程式設計方式設定頁面的快取性]: http://msdn.microsoft.com/zh-tw/library/z852zf6b.aspx
+[作法：以宣告方式設定 ASP.NET 網頁的快取性]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[作法：以程式設計方式設定頁面的快取性]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Azure 受管理的快取服務概觀]: http://go.microsoft.com/fwlink/?LinkId=320830
 [受管理的快取服務]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure 受管理快取服務概觀]: http://go.microsoft.com/fwlink/?LinkId=320830
 [OutputCache 指示詞]: http://go.microsoft.com/fwlink/?LinkId=251979
 [疑難排解和診斷]: http://go.microsoft.com/fwlink/?LinkId=320839
 [NuGet 封裝管理員安裝]: http://go.microsoft.com/fwlink/?LinkId=240311
-[快取定價詳細資料]: http://www.windowsazure.com/zh-tw/pricing/details/cache/
+[快取定價詳細資料]: http://azure.microsoft.com/pricing/details/cache/
 [管理入口網站]:https://manage.windowsazure.com/
 [快取提供項目]: http://go.microsoft.com/fwlink/?LinkId=317277
 [容量規劃]: http://go.microsoft.com/fwlink/?LinkId=320167
@@ -486,10 +501,12 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
 [New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
 [Azure 受管理的快取 Cmdlet]: http://go.microsoft.com/fwlink/?LinkID=398555
 [如何安裝和設定 Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
-[Add-AzureAccount]: http://msdn.microsoft.com/zh-tw/library/dn495128.aspx
-[Select-AzureSubscription]: http://msdn.microsoft.com/zh-tw/library/dn495203.aspx
+[Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
+[Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
 [作法：從快取新增和擷取物件]: #add-object
 
-[我適合使用哪個 Azure 快取服務？]: http://msdn.microsoft.com/zh-tw/library/azure/dn766201.aspx
+[我適合使用哪個 Azure 快取服務？]: http://msdn.microsoft.com/library/azure/dn766201.aspx
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

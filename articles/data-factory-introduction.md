@@ -1,6 +1,13 @@
 ﻿<properties title="Introduction to Azure Data Factory" pageTitle="Azure Data Factory 簡介" description="了解如何使用 Azure 資料處理站服務來撰寫資料處理、資料儲存及資料移動服務，以建立可產生可靠資訊的管線。" metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/13/2014" 
+	ms.author="spelluru" />
 
 # Azure Data Factory 服務簡介
 **Azure Data Factory** 服務是完全受管理的服務，可將資料儲存、處理及移動服務組合成有效率、可調整且可靠的資料生產管線。開發人員可以使用 Data Factory，將來自內部部署和雲端來源的半結構化、非結構化及結構化資料，轉換成受信任的資訊。開發人員可建置資料導向的工作流程 (管線)，以聯結、彙總和轉換來自於內部部署、雲端和網際網路服務的資料，以及透過簡單的 JSON 指令碼設定複雜的資料處理。Azure Data Factory 服務透過 Azure 預覽入口網站所提供的豐富視覺體驗，提供快速監視和管理這些管線的功能。管線所產生的資訊只要藉由 BI 和分析工具以及其他應用程式即可輕鬆取用，而可靠地做為主要商業見解和決策的基礎。
@@ -175,3 +182,5 @@ Microsoft 資料管理閘道是會將內部部署資料來源連接至雲端服�
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="如何委派使用者註冊和產品訂閱" metaKeywords="" description="了解如何在 Azure API Management 中將使用者註冊和產品訂閱委派給第三方。" metaCanonical="" services="api-management" documentationCenter="API Management" title="How to delegate user registration and product subscription in Azure API Management" authors="antonba" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="如何委派使用者註冊和產品訂閱" 
+	description="了解如何在 Azure API Management 中將使用者註冊和產品訂閱委派給第三方。" 
+	services="api-management" 
+	documentationCenter="" 
+	authors="antonba" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="antonba" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/14/2015" 
+	ms.author="antonba"/>
 
 # 如何委派使用者註冊和產品訂閱
 
@@ -150,3 +164,5 @@
 [以下提供範例程式碼]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
+
+<!--HONumber=46--> 

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="在 Azure 中建立及上傳 Ubuntu Linux VHD" 
 	description="了解如何建立及上傳包含 Ubuntu Linux 作業系統的 Azure 虛擬硬碟 (VHD)。" 
 	services="virtual-machines" 
@@ -19,7 +19,7 @@
 
 # 準備執行 Azure 的 Ubuntu 虛擬機器
 
-## 必要條件##
+##必要條件##
 
 本文假設您已將 Ubuntu Linux 作業系統安裝到虛擬硬碟。有多項工具可用來建立 .vhd 檔案，例如 Hyper-V 的虛擬化解決方案。如需相關指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。 
 
@@ -27,7 +27,7 @@
 
 - Azure 不支援較新的 VHDX 格式。您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。
 
-- 安裝 Linux 系統時，建議您使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。這可避免 LVM 與複製之虛擬機器的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至其他虛擬機器時。如果願意，您可以在資料磁碟上使用 LVM 或 [RAID](../virtual-machines-linux-configure-raid)。
+- 安裝 Linux 系統時，建議您使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。這可避免 LVM 與複製之虛擬機器的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至其他虛擬機器時。如果需要，您可以在資料磁碟上使用 LVM 或 [RAID](../virtual-machines-linux-configure-raid) 。
 
 - 請勿在作業系統磁碟上設定交換磁碟分割。您可以設定 Linux 代理程式在暫存資源磁碟上建立交換檔。您可以在以下步驟中找到與此有關的詳細資訊。
 
@@ -38,7 +38,7 @@
 
 1. 在 Hyper-V 管理員的中央窗格中，選取虛擬機器。
 
-2. 按一下 [**連接**]，以開啟虛擬機器的視窗。
+2. 按一下 [連接]，以開啟虛擬機器的視窗。
 
 3.	取代映像中的目前儲存機制，以使用 Ubuntu 的 Azure 儲存機制。此步驟會隨著 Ubuntu 版本而略有不同。
 
@@ -93,13 +93,13 @@
 
 	a) 開啟 /etc/grub.d/00_header 檔案。
 
-	b) 在函數 **make_timeout()** 中，搜尋 **if ["\${recordfail}" = 1 ]; then**
+	b) 在函式 **make_timeout()** 中搜尋 **if ["\${recordfail}" = 1 ]; then**
 
-	c) 將此行下的陳述式變更為 **set timeout=5**。
+	c) 將下列這一行陳述式變更為 **set timeout=5**。
 
-	d) 執行  'sudo update-grub'。
+	d) 執行 'sudo update-grub'。
 
-6. 修改 Grub 的核心開機程式行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 "/etc/default/grub"，找到名為  `GRUB_CMDLINE_LINUX_DEFAULT` 的變數 (或視需要自行加入)，然後加以編輯使其包含以下參數：
+6. 修改 Grub 的核心開機程式行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 "/etc/default/grub"，找到變數 `GRUB_CMDLINE_LINUX_DEFAULT` (或視需要自行加入)，加以編輯使其包含以下參數：
 
 		GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
@@ -112,7 +112,7 @@
 		# sudo apt-get update
 		# sudo apt-get install walinuxagent
 
-	請注意，若已安裝  `NetworkManager` 和  `NetworkManager-gnome` 套件，則在安裝  `walinuxagent` 套件時會將它們移除。
+	請注意，若已安裝 `NetworkManager` 和 `NetworkManager-gnome` 套件，則在安裝 `walinuxagent` 套件時會將它們移除。
 
 10.	執行下列命令，以取消佈建虛擬機器，並準備將其佈建於 Azure 上：
 
@@ -120,8 +120,7 @@
 		# export HISTSIZE=0
 		# logout
 
-11. 在 Hyper-V 管理員中，依序按一下 [**動作] -> [關閉**]。您現在可以將 Linux VHD 上傳至 Azure。
+11. 在 [Hyper-V 管理員] 中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
 
-
-<!--HONumber=45--> 
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties title="Step 5: Publish the Azure Machine Learning web service" pageTitle="步驟 5：發行 Azure 機器學習 Web 服務 | Azure" description="步驟 5：在 Azure Machine Learning Studio 中發布評分實驗作為 ML API Web 服務" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="步驟 5：發佈 Machine Learning Web 服務 | Azure" 
+	description="方案逐步解說步驟 5：在 Azure Machine Learning Studio 中發佈評分實驗，以做為 Azure Machine Learning Web 服務" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 這是逐步解說[使用 Azure ML 開發預測方案][develop]的第五個步驟：
@@ -144,3 +158,5 @@ Web 服務產生的結果會顯示在儀表板底部。我們如何設定服務�
 [1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
+
+<!--HONumber=46--> 

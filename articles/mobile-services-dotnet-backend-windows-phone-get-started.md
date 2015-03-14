@@ -1,6 +1,20 @@
-﻿<properties pageTitle="開始為 Windows Phone 應用程式使用 Azure 行動服務" description="遵循此教學課程，可開始使用 Azure 行動服務進行 Windows Phone 開發。" services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="開始為 Windows Phone 應用程式使用 Azure 行動服務" 
+	description="遵循此教學課程，可開始使用 Azure 行動服務進行 Windows Phone 開發。" 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="11/20/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/20/2014" 
+	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>開始使用行動服務
 

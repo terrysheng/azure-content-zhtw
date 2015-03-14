@@ -1,6 +1,20 @@
-<properties pageTitle="How to cache operation results in Azure API Management" metaKeywords="" description="Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls." metaCanonical="" services="" documentationCenter="API Management" title="How to cache operation results in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="如何在 Azure API 管理中快取操作結果" 
+	description="了解如何改善 API 管理服務呼叫的延遲、頻寬耗用量和 Web 服務負載。"
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中快取操作結果
 
@@ -138,3 +152,5 @@ API 管理 (預覽) 中的操作可設定為回應快取。對於不常變更的
   [開始使用進階 API 組態]: ../api-management-get-started-advanced
   [API 管理原則參考文件]: ../api-management-policy-reference
   [快取原則]: ../api-management-policy-reference/#caching-policies
+
+<!--HONumber=46--> 

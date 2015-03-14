@@ -1,6 +1,20 @@
-<properties pageTitle="處理行動服務中的離線資料衝突 (Windows Phone) | 行動開發人員中心" description="了解您在 Windows Phone 應用程式中同步離線資料時應如何使用 Azure 行動服務處理衝突" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="處理行動服務中的離線資料衝突 (Windows Phone) | 行動開發人員中心" 
+	description="了解您在 Windows Phone 應用程式中同步離線資料時應如何使用 Azure 行動服務處理衝突" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="wesmc"/>
 
 
 # 處理行動服務中的離線資料同步衝突

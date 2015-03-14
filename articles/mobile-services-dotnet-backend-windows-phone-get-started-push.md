@@ -1,6 +1,21 @@
-<properties pageTitle="使用.NET 執行階段行動服務開始使用推播通知中樞" description="了解如何使用 Windows Azure .Net Runtime 行動服務和通知中心將推播通知傳送至 Windows Phone 應用程式。" services="mobile-services, notification-hubs" documentationCenter="windows" authors="wesmc7777" writer="wesmc" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="使用.NET 執行階段行動服務開始使用推播通知中樞" 
+	description="了解如何使用 Windows Azure .Net Runtime 行動服務和通知中心將推播通知傳送至 Windows Phone 應用程式。" 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	Writer="wesmc" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="wesmc"/>
 
 # 將推播通知新增至行動服務應用程式
 
@@ -131,7 +146,7 @@
 
    	![][4]
 
-	>[AZURE.NOTE]本教學課程使用處於未通過驗證模式的 MPNS。在此模式中，MPNS 會限制可傳送至裝置通道的通知數。若要移除此限制，您必須按一下 [<strong>上傳</strong>] 並選取憑證，以產生憑證並加以上傳。如需產生憑證的詳細資訊，請參閱 <a href="http://msdn.microsoft.com/zh-tw/library/windowsphone/develop/ff941099(v=vs.105).aspx">設定已驗證的 Web 服務以傳送 Windows Phone 的推播通知</a>。
+	>[AZURE.NOTE]本教學課程使用處於未通過驗證模式的 MPNS。在此模式中，MPNS 會限制可傳送至裝置通道的通知數。若要移除此限制，您必須按一下 [<strong>上傳</strong>] 並選取憑證，以產生憑證並加以上傳。如需產生憑證的詳細資訊，請參閱 <a href="http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx">設定已驗證的 Web 服務以傳送 Windows Phone 的推播通知</a>。
 
 這會使行動服務以未經驗證的模式連接到 MPNS，以傳送推播通知。
 
@@ -210,7 +225,7 @@
 
 
 [行動服務 .NET 做法概念性參考]: /zh-tw/documentation/articles/mobile-services-html-how-to-use-client-library
-[Windows Phone Silverlight 8.1 應用程式]: http://msdn.microsoft.com/zh-tw/library/windowsphone/develop/dn642082(v=vs.105).aspx
+[Windows Phone Silverlight 8.1 應用程式]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
 

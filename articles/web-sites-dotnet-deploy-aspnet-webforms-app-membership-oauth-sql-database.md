@@ -23,7 +23,7 @@
 本教學課程說明如何建置包含 SQL Database 的安全 ASP.NET 4.5 Web Forms Web 應用程式，並將應用程式部署至 Azure。 
 
 >[AZURE.NOTE] 
-如需本教學課程的 MVC 版本，請參閱[將使用成員資格、OAuth 與 SQL 資料庫的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)。
+如需本教學課程的 MVC 版本，請參閱[將使用成員資格、OAuth 與 SQL 資料庫的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)。
 
 您可以免費申請 Azure 帳戶，而且如果您還沒有 Visual Studio 2013，SDK 會自動安裝 Visual Studio 2013 for Web Express。您可以開始免費進行 Azure 相關開發。
 
@@ -783,7 +783,7 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 3. 如果顯示 [新增防火牆規則]**** 對話方塊，請選取 [新增防火牆規則]****。  
 
 	>[AZURE.NOTE]  
-	若您無法展開 [SQL 資料庫]****，並且在 Visual Studio 中看不到 **ContactDB**，您可以依照指示開放一個防火牆連接埠或某個範圍的連接埠。若要這樣做，請在 [MVC 教學課程](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)快結束時，依照 [設定 Azure 防火牆規則]**** 下的指示執行。或者，您也可以透過在本機建置、執行及新增資料至應用程式，來檢閱本機資料庫的資料 (在 Visual Studio 中按 **CTRL+F5**)。  
+	若您無法展開 [SQL 資料庫]****，並且在 Visual Studio 中看不到 **ContactDB**，您可以依照指示開放一個防火牆連接埠或某個範圍的連接埠。若要這樣做，請在 [MVC 教學課程](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)快結束時，依照 [設定 Azure 防火牆規則]**** 下的指示執行。或者，您也可以透過在本機建置、執行及新增資料至應用程式，來檢閱本機資料庫的資料 (在 Visual Studio 中按 **CTRL+F5**)。  
 
 4. 如果顯示 [連線到伺服器]**** 對話方塊，請輸入您在本教學課程開始時建立的 [密碼]****，然後按 [連線]**** 按鈕。  
 
@@ -809,9 +809,9 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 我們正在開發一項工具，讓使用者和角色管理起來簡單得多。  
 
 ##後續步驟
-如需 ASP.NET Web Forms 的詳細資訊，請參閱 ASP.NET 網站上的[了解 ASP.NET Web Forms](http://www.asp.net/web-forms) 與 [Microsoft Azure 教學課程和指南](http://azure.microsoft.com/zh-tw/documentation/services/web-sites/#net)。
+如需 ASP.NET Web Forms 的詳細資訊，請參閱 ASP.NET 網站上的[了解 ASP.NET Web Forms](http://www.asp.net/web-forms) 與 [Microsoft Azure 教學課程和指南](http://azure.microsoft.com/documentation/services/web-sites/#net)。
 
-本教學課程以 Rick Anderson (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) 在 Tom Dykstra 和 Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)) 的協助下所撰寫的 MVC 教學課程[將使用成員資格、OAuth 及 SQL 資料庫的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站](http://azure.microsoft.com/zh-tw/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)為基礎。 
+本教學課程以 Rick Anderson (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) 在 Tom Dykstra 和 Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)) 的協助下所撰寫的 MVC 教學課程[將使用成員資格、OAuth 及 SQL 資料庫的安全 ASP.NET MVC 5 應用程式部署至 Azure 網站](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)為基礎。 
 
 如果您發現喜歡的地方和希望我們改善的地方 (不論是針對本教學課程或其示範的產品)，歡迎留下意見反應。您的意見反應將協助我們訂出優先改善要務。您也可以在[使用程式碼示範](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code)提出並對新主題進行投票。
 

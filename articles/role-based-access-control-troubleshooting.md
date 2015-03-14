@@ -1,19 +1,34 @@
-﻿<properties urlDisplayName="" pageTitle="角色存取控制疑難排解" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Role based access control troubleshooting" authors="Stephen Siciliano"  solutions="" writer="" manager="terrylan" editor=""  />
+﻿<properties 
+	pageTitle="角色存取控制疑難排解" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="stepsic-microsoft-com" 
+	writer="" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="Stephen Siciliano" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/03/2014" 
+	ms.author="stepsic"/>
 
 # 角色存取控制疑難排解
 
 ## 簡介
 
-[角色存取控制](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-configure/)是一項強大的功能，能讓您將精細的存取權限委派給 Azure 裡的資源。亦即您可以放心且精確地授予特定個人所需的權限。然而，Azure 資源的資源模型有時可能很複雜，且不容易完全了解您所授予的權限內容。
+[角色存取控制](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)是一項強大的功能，能讓您將精細的存取權限委派給 Azure 裡的資源。亦即您可以放心且精確地授予特定個人所需的權限。然而，Azure 資源的資源模型有時可能很複雜，且不容易完全了解您所授予的權限內容。
 
 本文說明在 Preview 入口網站中使用一些新的角色時，會有哪些情況。此版本共有三種預先建立的角色：
 * 擁有者
 * 參與者
 * 讀取者
 
-擁有者與參與者都可以完整存取管理經驗，差別在於參與者無法將存取權限授予其他使用者或群組。讀取者角色則是比較有趣，因此我們會在本文中多花點時間介紹。[請參閱這篇文章](http://azure.microsoft.com/zh-tw/documentation/articles/role-based-access-control-configure/)，了解如何授予存取權限的詳細資料。
+擁有者與參與者都可以完整存取管理經驗，差別在於參與者無法將存取權限授予其他使用者或群組。讀取者角色則是比較有趣，因此我們會在本文中多花點時間介紹。[請參閱這篇文章](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)，了解如何授予存取權限的詳細資料。
 
 ## 網站工作負載
 
@@ -74,3 +89,5 @@
     * 警示規則
     
 如果您無法存取上述任何一個部分，請洽詢您的系統管理員，取得資源群組的參與者存取權限。
+
+<!--HONumber=46--> 

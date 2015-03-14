@@ -75,7 +75,7 @@
 	_context = new CloudMediaContext(_cachedCredentials);
 
 
-通常最好定義 **CloudMediaContext** 類型的模組層級變數，以保存伺服器內容的參考。如需詳細資訊，請參閱[使用 Media Services SDK for .NET 連接到媒體服務](http://msdn.microsoft.com/zh-tw/library/azure/jj129571.aspx)。
+通常最好定義 **CloudMediaContext** 類型的模組層級變數，以保存伺服器內容的參考。如需詳細資訊，請參閱[使用 Media Services SDK for .NET 連接到媒體服務](http://msdn.microsoft.com/library/azure/jj129571.aspx)。
 
 本主題的其餘程式碼範例使用一個名為 **_context** 的變數來參考伺服器內容。 
 

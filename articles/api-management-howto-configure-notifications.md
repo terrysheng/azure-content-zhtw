@@ -1,6 +1,20 @@
-<properties pageTitle="How to configure notifications and email templates in Azure API Management" metaKeywords="" description="Learn how to configure notifications and email templates in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to configure notifications and email templates in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="如何在 Azure API 管理中設定通知和電子郵件範本" 
+	description="了解如何在 Azure API 管理中設定通知和電子郵件範本。"
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中設定通知和電子郵件範本
 
@@ -94,3 +108,5 @@ API 管理 (預覽) 可讓您設定特定事件的通知，以及設定用來與
   [Email templates]: ./media/api-management-howto-configure-notifications/api-management-email-templates.png
   [Email templates list]: ./media/api-management-howto-configure-notifications/api-management-email-templates-list.png
   [Email template editor]: ./media/api-management-howto-configure-notifications/api-management-email-template.png
+
+<!--HONumber=46--> 

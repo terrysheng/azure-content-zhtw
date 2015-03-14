@@ -1,6 +1,20 @@
-﻿<properties pageTitle="開始搭配使用行動服務與 PhoneGap | 行動開發人員中心" description="遵循此教學課程，可開始使用 Azure 行動服務進行 iOS、Android 和 Windows Phone 的 PhoneGap 開發。" services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="開始搭配使用行動服務與 PhoneGap | 行動開發人員中心" 
+	description="遵循此教學課程，可開始使用 Azure 行動服務進行 iOS、Android 和 Windows Phone 的 PhoneGap 開發。" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-phonegap" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
@@ -61,7 +75,7 @@ PhoneGap 支援多個平台的開發。除了 PhoneGap 工具本身以外，您�
 
 	+ **Windows Phone 8**
 
-	1.Windows Phone 8：在 Visual Studio 2012 Express for Windows Phone 中，開啟 **platforms\wp8** 資料夾中的 .sln 檔案。
+	1.Windows Phone 8：在 Visual Studio 2012 Express for Windows Phone 中，開啟 **platforms\wp82012 資料夾中的 .sln 檔案。
 	
 	2.按 **F5** 鍵，以重建專案並啟動應用程式。
 	

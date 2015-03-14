@@ -1,6 +1,20 @@
-<properties linkid="Install-Config-Windows-Azure-PowerShell" urlDisplayName="Azure PowerShell" pageTitle="How to install and configure Azure PowerShell" description="Learn how to install and configure Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="stevenka" documentationCenter="" services="" solutions="" authors="stevenka" title="How to install and configure Azure PowerShell" />
+﻿<properties 
+	pageTitle="如何安裝和設定 Azure PowerShell" 
+	description="了解如何安裝和設定 Azure PowerShell。" 
+	editor="tysonn" 
+	manager="stevenka" 
+	documentationCenter="" 
+	services="" 
+	authors="coreyp69"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka;juneb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="powershell" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/26/2014" 
+	ms.author="coreyp"/>
 
 # 如何安裝和設定 Azure PowerShell
 
@@ -269,13 +283,15 @@ Azure 模組包含可協助您下載和匯入憑證的 Cmdlet。
   [開始使用 Azure]: http://go.microsoft.com/fwlink/p/?LinkId=320795
   [管理帳戶、訂閱和系統管理角色]: http://go.microsoft.com/fwlink/?LinkId=324796
   [Azure 管理入口網站]: https://manage.windowsazure.com
-  [以組織身分註冊 Microsoft Azure]: http://azure.microsoft.com/zh-tw/documentation/articles/sign-up-organization/
+  [以組織身分註冊 Microsoft Azure]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
   [2]: http://manage.windowsazure.com
-  [加入及移除 Azure 訂用帳戶的共同管理員]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg456328.aspx
-  [Azure Cmdlet 參考]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554330.aspx
+  [加入及移除 Azure 訂用帳戶的共同管理員]: http://msdn.microsoft.com/library/windowsazure/gg456328.aspx
+  [Azure Cmdlet 參考]: http://msdn.microsoft.com/library/windowsazure/jj554330.aspx
   [MSDN 上的 Azure 論壇]: http://go.microsoft.com/fwlink/p/?LinkId=320212
   [Stackoverflow]: http://go.microsoft.com/fwlink/?LinkId=320213
   [TechNet 指令碼中心]: http://go.microsoft.com/fwlink/p/?LinkId=320211
   [使用 Windows PowerShell 撰寫指令碼]: http://go.microsoft.com/fwlink/p/?LinkId=320210
   [執行指令碼]: http://go.microsoft.com/fwlink/p/?LinkId=320627
   [使用 Windows PowerShell 管理 Azure AD]: http://go.microsoft.com/fwlink/p/?LinkId=320628
+
+<!--HONumber=46--> 

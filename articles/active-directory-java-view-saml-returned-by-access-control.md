@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="View ACS SAML" pageTitle="檢視存取控制服務 (Java) 所傳回的 SAML" metaKeywords="" description="了解如何在 Azure 主控的 Java 應用程式中檢視 Access Control Service 傳回的 SAML。" metaCanonical="" services="" documentationCenter="Java" title="How to view SAML returned by the Azure Access Control Service" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="搭配使用單一登入與 Azure Active Directory (PHP)" 
+	description="了解如何建立使用單一登入搭配 Azure Active Directory 的 PHP Web 應用程式。" 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # 如何檢視 Azure 存取控制服務傳回的 SAML
 
@@ -189,3 +203,5 @@
 [存取控制服務 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
+
+<!--HONumber=46--> 

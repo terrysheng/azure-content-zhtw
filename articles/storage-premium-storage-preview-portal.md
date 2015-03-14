@@ -214,7 +214,7 @@ Azure 會將磁碟大小對應 (無條件進位) 至表格中指定之最接近�
 ###<a id="howto3">Azure Preview 入口網站：建立 Premium 儲存體帳戶</a>
 本節說明如何使用 Azure Preview 入口網站來建立 Premium 儲存體帳戶。
 
-1.	登入 [Azure Preview 入口網站](https://portal.azure.com/)。如果您尚未訂閱，請查看[免費試用](http://www.windowsazure.com/pricing/free-trial/)優惠。 
+1.	登入 [Azure Preview 入口網站](https://portal.azure.com/)。如果您尚未訂閱，請查看[免費試用](http://azure.microsoft.com/pricing/free-trial/)優惠。 
 
 
     >[AZURE.NOTE] 如果您登入 Azure 管理入口網站時，請按一下您在入口網站右上角的使用者帳戶名稱。然後按一下 [切換至新的入口網站]。
@@ -236,7 +236,7 @@ Azure 會將磁碟大小對應 (無條件進位) 至表格中指定之最接近�
 ###<a id="howto2">Azure PowerShell：建立 Premium 儲存體帳戶並使用它執行基本 VM 作業</a>
 本節說明在建立虛擬並將資料磁碟連結至 VM 時，如何使用 Azure PowerShell 來建立 Premium 儲存體帳戶及如何使用它。
 
-1. 依照[如何安裝和設定 Azure PowerShell](http://azure.microsoft.com/zh-tw/documentation/articles/install-configure-powershell/)中提供的步驟設定您的 PowerShell 環境。
+1. 依照[如何安裝和設定 Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)中提供的步驟設定您的 PowerShell 環境。
 2. 啟動 PowerShell 主控台，連接至您的訂閱，並在主控台視窗中執行下列 PowerShell Cmdlet。如此 PowerShell 陳述式所示，當您建立 Premium 儲存體帳戶時，必須將 **Type** 參數指定為 **Premium_LRS**。
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"

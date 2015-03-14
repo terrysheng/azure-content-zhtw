@@ -34,7 +34,7 @@
 
 <div class="dev-callout">
 <strong>附註</strong>
-<p>本指南呈現一些與企業營運應用程式整合的最常見領域和工作。不過，還有其他 Azure 網站功能可供您在特定的實作中使用。若要檢閱這些功能，請一併參閱<a href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/global-web-presence-solution-overview/">全域網站空間</a>和<a href="http://www.windowsazure.com/zh-tw/manage/services/web-sites/digital-marketing-campaign-solution-overview">數位行銷活動</a>上的其他指南。</p>
+<p>本指南呈現一些與企業營運應用程式整合的最常見領域和工作。不過，還有其他 Azure 網站功能可供您在特定的實作中使用。若要檢閱這些功能，請一併參閱<a href="http://azure.microsoft.com/manage/services/web-sites/global-web-presence-solution-overview/">全域網站空間</a>和<a href="http://azure.microsoft.com/manage/services/web-sites/digital-marketing-campaign-solution-overview">數位行銷活動</a>上的其他指南。</p>
 </div>
 
 ### 使用現有的資產
@@ -108,8 +108,8 @@
 
 [向上延展和向外延展]:/zh-tw/manage/services/web-sites/how-to-scale-websites/
 [Azure 管理入口網站]:http://manage.windowsazure.com/
-[服務管理 API]:http://msdn.microsoft.com/zh-tw/library/windowsazure/ee460799.aspx
-[PowerShell 指令碼處理]:http://msdn.microsoft.com/zh-tw/library/windowsazure/jj152841.aspx
+[服務管理 API]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[PowerShell 指令碼處理]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [我所學到關於使用 Azure 快速調整網站的 10 件事]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Azure Redis 快取]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/

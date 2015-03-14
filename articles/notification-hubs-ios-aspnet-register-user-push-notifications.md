@@ -1,7 +1,20 @@
+<properties 
+	pageTitle="使用 Web API 註冊目前使用者以取得推播通知 - 通知中心" 
+	description="了解如何在 ASP.NET Web API 執行註冊時，在 iOS 應用程式中向 Azure 通知中心要求推播通知註冊。" 
+	services="notification-hubs" 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor=""/>
 
-<properties urlDisplayName="Notify iOS app users by using Web API" pageTitle="使用 Web API 註冊目前使用者以取得推播通知 - 通知中心 " metaKeywords=" Azure 註冊應用程式, 通知中心, Azure 推播通知, 推播通知 iOS 應用程式" description="了解如何在 ASP.NET Web API 執行註冊時，在 iOS 應用程式中向 Azure 通知中心要求推播通知註冊。" metaCanonical="" services="notification-hubs" documentationCenter="" title="Register the current user for push notifications by using ASP.NET" authors="yuaxu" solutions="" manager="dwrede" editor="" />
-
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 # 使用 ASP.NET 來註冊目前使用者以取得推播通知
 
 <div class="dev-center-tutorial-selector sublanding">
@@ -12,7 +25,7 @@
 
 1. 在您的 MainStoryboard_iPhone.storyboard 中，從物件程式庫新增下列元件：
 
-	+ **標籤**：「使用通知中樞推播給使用者」
+	+ **標籤**：「使用通知中心推播給使用者」
 	+ **標籤**：「安裝 ID」
 	+ **標籤**：「使用者」
 	+ **文字欄位**：「使用者」
@@ -24,11 +37,11 @@
 
    	![][0]
 
-2. 在輔助編輯器中，為所有切換的控制項建立出口，並加以呼叫、使用檢視控制器 (委派) 連接文字欄位，然後為 [**登入**] 按鈕建立 [**動作**]。
+2. 在輔助編輯器中，為所有切換的控制項建立出口並加以呼叫、使用檢視控制器 (委派) 連接文字欄位，然後為 [**登入**] 按鈕建立 [**動作**]。
 
    	![][1]
 
-   	你的檔案 BreakingNewsViewController.h 現在應該包含下列程式碼：
+   	您的 BreakingNewsViewController.h 應包含下列內容：
 
 		@property (weak, nonatomic) IBOutlet UILabel *installationId;
 		@property (weak, nonatomic) IBOutlet UITextField *User;
@@ -83,7 +96,7 @@
 
 		[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
-	第一行會初始化 **DeviceInfo** 單一子句。第二行會啟動推播通知的註冊；如果您已完成 [開始使用通知中心] 教學課程，則會有此註冊存在。
+	第一行會初始化 **DeviceInfo** 單一子句。第二行會啟動推播通知的註冊；如果您已完成[開始使用通知中心]教學課程，則會有此註冊存在。
 
 9. 在 PushToUserAppDelegate.m 中，在您的 AppDelegate 中實作 **didRegisterForRemoteNotificationsWithDeviceToken** 方法，並新增下列程式碼：
 
@@ -91,9 +104,7 @@
 
 	這會設定要求的裝置權杖。
 
-	<div class="dev-callout"><b>注意</b>
-	<p>此時，此方法中不應有任何其他程式碼。如果您已呼叫 **registerNativeWithDeviceToken** 方法 (您在完成<a href="/zh-tw/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">開始使用通知中心</a>教學課程時所新增)，您必須註解化或移除該呼叫。</p>
-	</div>
+	> [AZURE.NOTE] 此時，此方法中不應有任何其他程式碼。如果您已呼叫您在完成[開始使用通知中心](/zh-tw/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank") 教學課程時所新增的 **registerNativeWithDeviceToken** 方法，您必須註解化或移除該呼叫。
 
 10.	在 PushToUserAppDelegate.m 檔案中，新增下列處理常式方法：
 
@@ -204,9 +215,9 @@
 		        }
 		    }];
 
-	此方法會取得推播通知的安裝 ID 和通道，並與裝置類型一併傳送到通過驗證的 Web API 方法，該方法可在通知中心建立註冊。此 Web API 已在 [使用通知中心來通知使用者] 中定義。
+	此方法會取得推播通知的安裝 ID 和通道，並與裝置類型一併傳送到通過驗證的 Web API 方法，該方法可在通知中心建立註冊。
 
-現在，用戶端應用程式已更新，請回到 [使用通知中心來通知使用者]，並更新行動服務，以使用通知中心傳送通知。
+現在，用戶端應用程式已更新，請回到[使用通知中心來通知使用者]，並更新行動服務，以使用通知中心傳送通知。
 
 <!-- Anchors. -->
 
@@ -219,3 +230,5 @@
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [開始使用通知中心]: /zh-tw/manage/services/notification-hubs/get-started-notification-hubs-ios
+
+<!--HONumber=45--> 

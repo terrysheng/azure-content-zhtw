@@ -168,9 +168,9 @@ Azure 模組將會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_ST
 
 了解佇列儲存體的基礎概念之後，請參考下列連結以了解如何執行更複雜的儲存工作。
 
-- 請參閱 MSDN 參考：[在 Azure 中儲存及存取資料](http://msdn.microsoft.com/zh-tw/library/windowsazure/gg433040.aspx)
+- 請參閱 MSDN 參考：[在 Azure 中儲存及存取資料](http://msdn.microsoft.com/library/windowsazure/gg433040.aspx)
 - 請造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
 - 請造訪 GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 儲存機制 (英文)。
 
-關於本文中討論之 Azure 佇列服務和[如何使用服務匯流排佇列](/zh-tw/develop/ruby/how-to-guides/service-bus-queues/)文中討論之 Azure 服務匯流排佇列之間的比較，請參閱 [Azure 佇列與 Azure 服務匯流排 - 比較和對比](http://msdn.microsoft.com/zh-tw/library/windowsazure/hh767287.aspx)
+關於本文中討論之 Azure 佇列服務和[如何使用服務匯流排佇列](/zh-tw/develop/ruby/how-to-guides/service-bus-queues/)文中討論之 Azure 服務匯流排佇列之間的比較，請參閱 [Azure 佇列與 Azure 服務匯流排 - 比較和對比](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
 <!--HONumber=42-->

@@ -1,6 +1,20 @@
-<properties pageTitle="Azure API Management Policy Reference" metaKeywords="" description="Learn about the policies available to configure API Management." metaCanonical="" services="" documentationCenter="API Management" title="Azure API Management Policy Reference" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Azure API 管理原則參考文件" 
+	description="了解可用來設定 API 管理的原則。" 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 
 # Azure API 管理原則參考文件
 
@@ -545,3 +559,5 @@ CORS 可讓瀏覽器和伺服器互動，以決定是否允許特定的跨原始
   [允許跨網域呼叫]: #allow-cross-domain-calls
   [JSONP]: #jsonp
   [CORS]: #cors
+
+<!--HONumber=46--> 

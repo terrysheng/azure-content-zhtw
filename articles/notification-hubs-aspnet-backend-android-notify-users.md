@@ -1,26 +1,40 @@
-﻿<properties title="Azure Notification Hubs Notify Users" pageTitle="Azure 通知中心通知使用者" metaKeywords="Azure push notifications, Azure notification hubs" description="了解如何在 Azure 中傳送安全的推播通知。程式碼範例是以 C# 撰寫並使用 .NET API。" documentationCenter="" services="notification-hubs" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="glenga" manager="dwrede" />
+<properties 
+	pageTitle="Azure 通知中心通知使用者" 
+	description="了解如何在 Azure 中傳送安全的推播通知。程式碼範例是以 C# 撰寫並使用 .NET API。" 
+	documentationCenter="android" 
+	services="notification-hubs" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="ricksal"/>
 
-#Azure 通知中心通知使用者
+# Azure 通知中心通知使用者
 
 <div class="dev-center-tutorial-selector sublanding"> 
     	<a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
 		<a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android" class="current">Android</a>
 </div>
 
-Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，而大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。本教學課程將示範如何使用 Azure 通知中心，來將推播通知傳送到特定裝置上的特定應用程式使用者。ASP.NET WebAPI 後端可用來驗證用戶端並產生通知，如指引主題[從您的應用程式後端註冊]中所示(http://msdn.microsoft.com/zh-tw/library/dn743807.aspx)。本教學課程會以您在**開始使用通知中心**教學課程中所建立的通知中心為基礎。
+Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，而大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。本教學課程將示範如何使用 Azure 通知中心，來將推播通知傳送到特定裝置上的特定應用程式使用者。ASP.NET WebAPI 後端可用來驗證用戶端並產生通知，如指引主題[從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中所示。本教學課程會以您在**開始使用通知中心**教學課程中所建立的通知中心為基礎。
 
-> [AZURE.NOTE] 本教學課程假設您已建立並設定通知中心，如[開始使用通知中心 (Android)] 中所述(/zh-tw/documentation/articles/notification-hubs-android-get-started/)。 
-> 如果您正在將行動服務做為後端服務，請參閱本教學課程的[行動服務版本](/zh-tw/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/) 。
+> [AZURE.NOTE] 本教學課程假設您已建立並設定通知中樞，如[開始使用通知中心 (Android)](/zh-tw/documentation/articles/notification-hubs-android-get-started/) 中所述。 
+> 如果您使用行動服務作為後端服務，請參閱本教學課程的[行動服務版本](/zh-tw/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/)。
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## 建立 Android 專案
 
 下一個步驟說明如何建立 Android 應用程式。
 
-1. 請執行[開始使用通知中心 (Android)](/zh-tw/documentation/articles/notification-hubs-android-get-started/) 教學課程以建立和設定您的應用程式，從 GCM 接收推播通知。
+1. 依照[開始使用通知中心 (Android)](/zh-tw/documentation/articles/notification-hubs-android-get-started/) 教學課程來建立並設定您的應用程式，以接收來自 GCM 的推播通知。
 
 2. 開啟您的 res/layout/activity_main.xml 檔案，並將內容取代為下列項目：
 			
@@ -73,7 +87,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 	![][A1]
 
-3. 現在，在與 **MainActivity** 類別相同的套件中建立 **RegisterClient** 類別。請確定使用在上一節中所取得的後端端點來取代 `{backend endpoint}`。
+3. 現在，在與 **MainActivity** 類別相同的套件中建立 **RegisterClient** 類別。請確定使用在上一節中所取得的後端端點來取代  `{backend endpoint}`：
 
 		import java.io.IOException;
 		import java.io.UnsupportedEncodingException;
@@ -177,7 +191,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 			}
 		}
 
-	為註冊推播通知，此元件會實作連絡應用程式後端所需的 REST 呼叫。它也會在本機儲存通知中心所建立的 *registrationIds*，如[從您的應用程式後端註冊]中的詳細說明(http://msdn.microsoft.com/zh-tw/library/dn743807.aspx)。請注意，當您按一下 [**Log in and register**] 按鈕時，系統便會使用儲存在本機儲存體中的授權權杖。
+	為註冊推播通知，此元件會實作連絡應用程式後端所需的 REST 呼叫。它也會在本機儲存通知中心所建立的  *registrationIds*，如[從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中的詳細說明。請注意，當您按一下 [**Log in and register**] 按鈕時，系統便會使用儲存在本機儲存體中的授權權杖。
 
 4. 在您的 **MainActivity** 類別中，將 **NotificationHub** 的私用欄位移除，並新增 **RegisterClient** 欄位：
 
@@ -199,7 +213,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 	        setContentView(R.layout.activity_main);
 	    }
 
-6. 接著，新增下列方法，並確定使用在上一節中所取得的後端端點來取代 `{backend endpoint}`。
+6. 接著，新增下列方法，並確定使用在上一節中所取得的後端端點來取代  `{backend endpoint}`。
 
 	    @Override
 	    protected void onStart() {
@@ -263,7 +277,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 	    	return basicAuthHeader;
 		}
 
-	**Log in** 的回呼會根據輸入使用者名稱和密碼 (請注意，這代表驗證結構描述使用的任何權杖) 產生基本驗證權杖，然後使用 `RegisterClient` 呼叫後端。[**傳送推播**] 的回呼會呼叫後端，以觸發安全通知到這位使用者的所有裝置。 
+	**Log in** 的回呼會根據輸入使用者名稱和密碼 (請注意，這代表驗證結構描述使用的任何權杖) 產生基本驗證權杖，然後使用  `RegisterClient` 呼叫後端。[**傳送推播**] 的回呼會呼叫後端，以觸發安全通知到這位使用者的所有裝置。 
 
 ## 執行應用程式
 
@@ -273,9 +287,9 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 2. 在 Android 應用程式 UI 中，輸入使用者名稱和密碼。這些可以是任何字串，但必須是相同值。
 
-3. 在 Android 應用程式 UI 中，按一下 [**登入**]。再按一下 [**傳送推播**]。
+3. 在 Android 應用程式 UI 中，按一下 **[登入]**。然後按一下 **[傳送推播]**。
 
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

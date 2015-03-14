@@ -26,7 +26,7 @@
 
 Azure Linux 代理程式 (waagent) 可管理虛擬機器與 Azure 網狀架構控制器之間的互動。它具有下列功能：
 
-* **映像佈建**
+* **映像檔佈建**
   - 建立使用者帳戶
   - 設定 SSH 驗證類型
   - 部署 SSH 公開金鑰和金鑰組
@@ -121,9 +121,9 @@ Waagent 需要一些系統封裝才能正確運作：
 
  * 偵測核心版本，必要的話套用 VNUMA 解決方案
 
- * 將可能干擾網路的 udev 規則 (/lib/udev/rules.d/75-persistent-net-generator.rules、/etc/udev/rules.d/70-persistent-net.rules) 移至 /var/lib/waagent/  
+ * 將可能干擾網路 (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) 的 udev 規則移動至 /var/lib/waagent/  
 
-- uninstall：移除 waagent 和相關聯的檔案
+- 解除安裝：移除 waagent 和相關聯的檔案
  * 從系統中取消註冊 init 指令碼並刪除它
 
  * 在 /etc/waagent.conf 在刪除 logrotate 設定和 waagent 組態檔
@@ -199,14 +199,14 @@ Waagent 需要一些系統封裝才能正確運作：
 輸入：String  
 預設：None
 
-如果指定可執行程式的路徑，則當網狀架構指出虛擬機器有可用的組態檔時，就會叫用此程式。XML 組態檔的路徑當做引數提供給可執行檔。只要組態檔有變動，就會叫用程式，因此可能叫用多次。附錄中提供一個範例檔。此檔案的目前路徑為 /var/lib/waagent/HostingEnvironmentConfig.xml。
+如果指定可執行程式的路徑，則當網狀架構指出虛擬機器有可用的組態檔時，就會叫用此程式。XML 組態檔的路徑當做引數提供給可執行檔。只要組態檔有變動，就會叫用程式，因此可能叫用多次。附錄中提供一個範例檔。此檔案目前的路徑為 /var/lib/waagent/HostingEnvironmentConfig.xml。
 
 **Role.TopologyConsumer：**
 
 輸入：String  
 預設：None
 
-如果指定可執行程式的路徑，則當網狀架構指出有新的網路拓撲配置可用於虛擬機器時，就會叫用此程式。XML 組態檔的路徑當做引數提供給可執行檔。只要網路拓撲有變動 (例如由於維修)，就會叫用程式，因此可能叫用多次。附錄中提供一個範例檔。此檔案的目前位置為 /var/lib/waagent/SharedConfig.xml。
+如果指定可執行程式的路徑，則當網狀架構指出有新的網路拓撲配置可用於虛擬機器時，就會叫用此程式。XML 組態檔的路徑當做引數提供給可執行檔。只要網路拓撲有變動 (例如由於維修)，就會叫用程式，因此可能叫用多次。附錄中提供一個範例檔。此檔案目前的位置為 /var/lib/waagent/SharedConfig.xml。
 
 **Provisioning.Enabled：**
 
@@ -419,4 +419,5 @@ Waagent 需要一些系統封裝才能正確運作：
 	  </Instances>
 	</SharedConfig>
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

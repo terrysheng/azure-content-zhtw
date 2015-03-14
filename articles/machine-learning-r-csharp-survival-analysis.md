@@ -1,6 +1,20 @@
-﻿<properties title="Survival Analysis" pageTitle="存活分析 |Azure" description="存活分析" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="存活分析 |Azure" 
+	description="存活分析 - 事件發生機率" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 
 #存活分析 
@@ -70,7 +84,7 @@
 
 ##建立 Web 服務
 
->此 Web 服務是使用 Azure ML 建立的。如需免費試用版，以及有關建立實驗和[發佈 Web 服務](http://azure.microsoft.com/zh-tw/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/)的簡介影片，請參閱 [azure.com/ml](http://azure.com/ml)。以下是建立 Web 服務之實驗的螢幕擷取畫面，以及實驗內每個模組的範例程式碼。
+>此 Web 服務是使用 Azure ML 建立的。如需免費試用版，以及有關建立實驗和[發佈 Web 服務](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/)的簡介影片，請參閱 [azure.com/ml](http://azure.com/ml)。以下是建立 Web 服務之實驗的螢幕擷取畫面，以及實驗內每個模組的範例程式碼。
 
 在 AzureML 中，會建立新的空白實驗，並有兩個「執行 R 指令碼」提取到工作區。資料結構描述是以簡單「執行 R 指令碼」建立的，其定義 Web 服務的輸入資料結構描述。此模組會接著連結至執行主要工作的第二個「執行 R 指令碼」模組。此模組會進行資料前處理、模型建立和預測。在資料前處理步驟中，長字串所表示的輸入資料會轉換成資料框架。在模型建立步驟中，首次安裝外部 R 套件 "survival_2.37-7.zip" 以進行存活分析。然後會在序列資料處理工作之後執行 "coxph" 函數。在 R 文件中可以讀取存活分析的 "coxph" 函數詳細資料。在預測步驟中，會利用 "surfit" 函數在定型模型中提供測試執行個體，而且此測試執行個體的存活曲線會產生成為 "curve" 變數。最後會取得感興趣時間的機率。 
 
@@ -172,6 +186,8 @@
 此 Web 服務只能以數值做為功能變數 (資料行)。「事件」資料行只能接受 0 或 1 的值。「時間」資料行必須是正整數。
 
 ##常見問題集
-如需使用 Web 服務或發佈至 Marketplace 的常見問題集，請參閱[此處](http://azure.microsoft.com/zh-tw/documentation/articles/machine-learning-marketplace-faq)。
+如需使用 Web 服務或發佈至 Marketplace 的常見問題集，請參閱[此處](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq)。
 
 [1]: ./media/machine-learning-r-csharp-survival-analysis/survive_img2.png
+
+<!--HONumber=46--> 

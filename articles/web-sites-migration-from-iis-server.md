@@ -106,7 +106,7 @@ Azure 網站移轉小幫手會建立整備報表，以識別導致無法從內�
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[AZURE.NOTE] 自訂設定中的 [啟用 Azure Active Directory]**** 核取方塊可整合 Azure 網站與 [Azure Active Directory](http://azure.microsoft.com/zh-tw/documentation/articles/active-directory-whatis/) (預設目錄****)。如需有關同步處理 Azure Active Directory 與內部部署 Active Directory 的詳細資訊，請參閱[目錄整合](http://msdn.microsoft.com/library/jj573653)。
+	>[AZURE.NOTE] 自訂設定中的 [啟用 Azure Active Directory]**** 核取方塊可整合 Azure 網站與 [Azure Active Directory](http://azure.microsoft.com/documentation/articles/active-directory-whatis/) (預設目錄****)。如需有關同步處理 Azure Active Directory 與內部部署 Active Directory 的詳細資訊，請參閱[目錄整合](http://msdn.microsoft.com/library/jj573653)。
 
 16.	 進行所有必要的變更後，按一下 [建立]**** 以開始執行移轉程序。移轉工具會建立 Azure SQL Database 和 Azure 網站，然後發行網站內容和資料庫。移轉進度會清楚地顯示在移轉工具中，您最後會看到摘要畫面，詳述移轉的網站、移轉是否成功、新建立的 Azure 網站連結。 
 

@@ -36,7 +36,7 @@ New Relic 會追蹤 Web 交易的載入時間和輸送量，包括來自伺服�
 New Relic Standard 供 Azure 使用者免費使用。
 根據您所使用的網站模式及執行個體大小 (如果使用保留模式)，我們提供了多種 New Relic Pro 套件。
 
-如需定價資訊，請參閱 [Azure 市集的 New Relic 頁面](http://www.windowsazure.com/zh-tw/gallery/store/new-relic/new-relic/)。
+如需定價資訊，請參閱 [Azure 市集的 New Relic 頁面](http://azure.microsoft.com/gallery/store/new-relic/new-relic/)。
 
 > [AZURE.NOTE] 最多只列出 10 個運算執行個體的定價。若超過 10 個，請連絡 New Relic (sales@newrelic.com) 詢問批量價格。
 
@@ -238,8 +238,8 @@ New Relic UI,、設定使用者權限和設定檔，以及使用標準功能和�
  * [尋找說明](https://newrelic.com/docs/site/finding-help)：New Relic 線上說明中心提供的資源
 
 
-[webmatrixwebsite]: http://www.windowsazure.com/zh-tw/develop/net/tutorials/website-with-webmatrix/
-[vswebsite]: http://www.windowsazure.com/zh-tw/develop/net/tutorials/get-started/
+[webmatrixwebsite]: http://azure.microsoft.com/develop/net/tutorials/website-with-webmatrix/
+[vswebsite]: http://azure.microsoft.com/develop/net/tutorials/get-started/
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
 [wmnugetgallery]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetgallery.png

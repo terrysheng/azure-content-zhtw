@@ -1,6 +1,20 @@
-<properties urlDisplayName="Service Bus Queues" pageTitle="如何使用服務匯流排佇列 (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="了解如何在 Azure 使用服務匯流排佇列。程式碼範例是以 C# 撰寫並使用 .NET API。" metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="如何使用服務匯流排佇列 (.NET) - Azure" 
+	description="了解如何使用 Azure 中的服務匯流排佇列。程式碼範例是以 C# 撰寫並使用 .NET API。" 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -235,7 +249,9 @@
   
   
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [佇列、主題和訂閱。]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367516.aspx
-  [服務匯流排代理訊息 .NET 教學課程]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh367512.aspx
+  [佇列、主題和訂閱。]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+  [服務匯流排代理訊息 .NET 教學課程]: http://msdn.microsoft.com/library/windowsazure/hh367512.aspx
 
 <!--HONumber=35.1-->
+
+<!--HONumber=46--> 

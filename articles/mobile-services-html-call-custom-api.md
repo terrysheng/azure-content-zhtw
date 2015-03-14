@@ -1,6 +1,21 @@
-﻿<properties pageTitle="從 HTML 用戶端呼叫自訂 API - 行動服務" description="了解如何定義自訂 API 然後從使用 Windows Azure 行動服務的 HTML 應用程式呼叫它。" services="mobile-services" documentationCenter="" authors="ggailey777" writer="jparrel" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="從 HTML 用戶端呼叫自訂 API - 行動服務" 
+	description="了解如何定義自訂 API 然後從使用 Windows Azure 行動服務的 HTML 應用程式呼叫它。" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	Writer="jparrel" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # 從 HTML 應用程式呼叫自訂 API
 

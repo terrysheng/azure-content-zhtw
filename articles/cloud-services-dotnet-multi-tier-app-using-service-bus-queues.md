@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Multi-Tier Application" pageTitle=".NET 多層式應用程式 - Azure 教學課程" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" description="協助您在 Azure 中開發多層式應用程式使用服務匯流排佇列在各層之間進行通訊的教學課程。.NET 的範例。" metaCanonical="" services="cloud-services,service-bus" documentationCenter=".NET" title=".NET Multi-Tier Application Using Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle=".NET 多層式應用程式 - Azure 教學課程" 
+	description="協助您在 Azure 中開發多層式應用程式，以使用服務匯流排佇列在各層之間進行通訊的教學課程。.NET 的範例。" 
+	services="cloud-services, service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -179,7 +193,7 @@ web 層不會直接連接到中間層；而是會以訊息的形式
 
 ###使用 Visual Studio 伺服器總管來管理命名空間與傳訊實體
 
-若要使用 Visual Studio 而非管理入口網站來管理命名空間並取得連線資訊，請遵循[這裡](http://http://msdn.microsoft.com/zh-tw/library/windowsazure/ff687127.aspx)所述的程序 (**從 Visual Studio 連接到 Azure** 一節)。當您登入 Azure 時，在伺服器總管中的 [**Microsoft Azure**] 樹狀目錄下，[**服務匯流排**] 節點將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 [**屬性**]，即可在 Visual Studio [**屬性**] 窗格中，查看與此命名空間相關聯的連接字串及其他中繼資料。 
+若要使用 Visual Studio 而非管理入口網站來管理命名空間並取得連線資訊，請遵循[這裡](http://http://msdn.microsoft.com/library/windowsazure/ff687127.aspx)所述的程序 (**從 Visual Studio 連接到 Azure** 一節)。當您登入 Azure 時，在伺服器總管中的 [**Microsoft Azure**] 樹狀目錄下，[**服務匯流排**] 節點將會自動填入您已建立的任何命名空間。在任一個命名空間上按滑鼠右鍵，然後按一下 [**屬性**]，即可在 Visual Studio [**屬性**] 窗格中，查看與此命名空間相關聯的連接字串及其他中繼資料。 
 
 請記下 **SharedAccessKey** 值，或將它複製到剪貼簿：
 
@@ -629,12 +643,12 @@ Azure 支援一組受管理 API，其提供一致的方式，跨 Microsoft 雲�
 
 3. 您可以個別測試前端與後端，也可以同時在不同 Visual Studio 執行個體中執行這兩者。
 
-若要了解如何將前端部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](http://www.windowsazure.com/zh-tw/develop/net/tutorials/get-started/)。若要了解如何將後端部署至 Azure 雲端服務，請參閱[使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式][mutitierstorage]。
+若要了解如何將前端部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](http://azure.microsoft.com/develop/net/tutorials/get-started/)。若要了解如何將後端部署至 Azure 雲端服務，請參閱[使用儲存體資料表、佇列與 Blob 的 .NET 多層式應用程式][mutitierstorage]。
 
 
   [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
-  [sbqueuecomparison]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh767287.aspx
+  [sbqueuecomparison]: http://msdn.microsoft.com/library/windowsazure/hh767287.aspx
   [2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
   [取得工具和 SDK (英文)]: http://go.microsoft.com/fwlink/?LinkId=271920
   [3]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
@@ -671,8 +685,10 @@ Azure 支援一組受管理 API，其提供一致的方式，跨 Microsoft 雲�
   [32]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
   [33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
   [34]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/VSProperties.png
-  [sbmsdn]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee732537.aspx  
+  [sbmsdn]: http://msdn.microsoft.com/library/windowsazure/ee732537.aspx  
   [sbwacom]: /zh-tw/documentation/services/service-bus/  
   [sbwacomqhowto]: /zh-tw/develop/net/how-to-guides/service-bus-queues/  
   [mutitierstorage]: /zh-tw/develop/net/tutorials/multi-tier-web-site/1-overview/ 
-  [executionmodels]: http://www.windowsazure.com/zh-tw/develop/net/fundamentals/compute/
+  [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
+
+<!--HONumber=46--> 

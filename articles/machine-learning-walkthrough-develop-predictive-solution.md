@@ -1,6 +1,20 @@
-<properties title="使用 Azure Machine Learning 開發預測方案" pageTitle="使用機器學習開發預測方案 | Azure" description="逐步解說如何在 Azure Machine Learning Studio 中建立預測分析實驗" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="使用 Machine Learning 開發預測方案 | Azure" 
+	description="逐步解說如何在 Azure Machine Learning Studio 中建立預測分析實驗" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 # 使用 Azure Machine Learning 開發預測方案
 
@@ -29,3 +43,5 @@
   [發佈 Web 服務]: ../machine-learning-walkthrough-5-publish-web-service/
   [存取 Web 服務]: ../machine-learning-walkthrough-6-access-web-service/
   [信用風險預測範例實驗]: ../machine-learning-sample-credit-risk-prediction/
+
+<!--HONumber=46--> 

@@ -288,18 +288,18 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
           <httpRuntime targetFramework="4.5" />
         </system.web>
 
-* 如果您發現偵錯工具無法逐步執行您要偵錯的程式碼，可能需要變更「Just My Code」設定。如需詳細資訊，請參閱[將逐步執行限制於 Just My Code](http://msdn.microsoft.com/zh-tw/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code)。
+* 如果您發現偵錯工具無法逐步執行您要偵錯的程式碼，可能需要變更「Just My Code」設定。如需詳細資訊，請參閱[將逐步執行限制於 Just My Code](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code)。
 
 * 當您啟用遠端偵錯功能時，伺服器上會啟動計時器，並在 48 小時後自動關閉此功能。此 48 小時的限制是為了安全與效能起見而設計的功能。若需要，您可以輕鬆開啟這項功能，次數不限。當您不需要偵錯時，建議您將其保持為停用。
 
-* 您可以手動將偵錯工具附加至任何處理序，不僅止於網站處理序 (w3wp.exe)。如需如何在 Visual Studio 中使用偵錯模式的詳細資訊，請參閱[在 Visual Studio 中偵錯](http://msdn.microsoft.com/zh-tw/library/vstudio/sc65sadd.aspx)。
+* 您可以手動將偵錯工具附加至任何處理序，不僅止於網站處理序 (w3wp.exe)。如需如何在 Visual Studio 中使用偵錯模式的詳細資訊，請參閱[在 Visual Studio 中偵錯](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)。
 
 <h2><a name="logsoverview"></a>診斷記錄概觀</h2>
 
 在 Azure 網站中執行的 ASP.NET 應用程式，可建立下列各種記錄：
 
 * **應用程式追蹤記錄**<br/>
-  應用程式會呼叫 [System.Diagnostics.Trace](http://msdn.microsoft.com/zh-tw/library/system.diagnostics.trace.aspx) 類別的方法，來建立這些記錄檔。
+  應用程式會呼叫 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx) 類別的方法，來建立這些記錄檔。
 * **Web 伺服器記錄**<br/>
   Web 伺服器會為每個通往網站的 HTTP 要求建立記錄項目。
 * **詳細的錯誤訊息記錄**<br/>
@@ -394,7 +394,7 @@ Visual Studio 可讓您存取管理入口網站中可用的網站管理功能與
 
 	 `WebPageTraceListener` 可讓您藉由瀏覽至 `/trace.axd` 來檢視追蹤輸出。
 
-3. 在 Web.config 檔案的 `<system.web>` 下方新增 <a href="http://msdn.microsoft.com/zh-tw/library/vstudio/6915t83k(v=vs.100).aspx">trace 項目</a>，如以下範例所示：
+3. 在 Web.config 檔案的 `<system.web>` 下方新增 <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace 項目</a>，如以下範例所示：
 
 		<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 
@@ -638,7 +638,7 @@ Web 伺服器記錄會記下網站上的所有 HTTP 活動。為了在 [輸出]*
 
 	![Storage logs in table view](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
-	此檢視會顯示在其他任何檢視中都不會看到的額外欄位。此檢視還可讓您藉由特殊的查詢產生器 UI 來篩選記錄，以便建構查詢。如需詳細資訊，請參閱[使用伺服器總管瀏覽儲存體資源](http://msdn.microsoft.com/zh-tw/library/windowsazure/ff683677.aspx)中的＜使用表格資源 - 篩選實體＞。
+	此檢視會顯示在其他任何檢視中都不會看到的額外欄位。此檢視還可讓您藉由特殊的查詢產生器 UI 來篩選記錄，以便建構查詢。如需詳細資訊，請參閱[使用伺服器總管瀏覽儲存體資源](http://msdn.microsoft.com/library/windowsazure/ff683677.aspx)中的＜使用表格資源 - 篩選實體＞。
 
 7. 若要查看單一資料列的詳細資料，請按兩下其中一個資料列。
 
@@ -727,7 +727,7 @@ Azure 網站會使用 IIS 7.0 及更新版本所提供的相同失敗要求追�
 
 ### 在 Visual Studio 中偵錯 
 
-如需如何在 Visual Studio 中使用偵錯模式的詳細資訊，請參閱[在 Visual Studio 中偵錯](http://msdn.microsoft.com/zh-tw/library/vstudio/sc65sadd.aspx) MSDN 主題與 [Visual Studio 2010 的偵錯秘訣](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx)。
+如需如何在 Visual Studio 中使用偵錯模式的詳細資訊，請參閱[在 Visual Studio 中偵錯](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) MSDN 主題與 [Visual Studio 2010 的偵錯秘訣](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx)。
 
 ### 在 Azure 中遠端偵錯
 
@@ -746,14 +746,14 @@ Azure 網站會使用 IIS 7.0 及更新版本所提供的相同失敗要求追�
 
 * [監視與遙測 (運用 Azure 建構真實的雲端應用程式)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry)。<br> 
   針對追蹤 Azure 雲端應用程式所建議的電子書章節。
-* [ASP.NET 追蹤](http://msdn.microsoft.com/zh-tw/library/ms972204.aspx)<br/>
+* [ASP.NET 追蹤](http://msdn.microsoft.com/library/ms972204.aspx)<br/>
   雖然已過時，但仍是該主題的基本簡介的良好資源。
-* [追蹤接聽程式](http://msdn.microsoft.com/zh-tw/library/4y5y10s7.aspx)<br/>
-  追蹤接聽程式的相關資訊，但是沒有提到 [WebPageTraceListener](http://msdn.microsoft.com/zh-tw/library/system.web.webpagetracelistener.aspx)。
-* [逐步解說：System.Diagnostics 追蹤與整合 ASP.NET 追蹤](http://msdn.microsoft.com/zh-tw/library/b0ectfxd.aspx)<br/>
+* [追蹤接聽程式](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
+  追蹤接聽程式的相關資訊，但是沒有提到 [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx)。
+* [逐步解說：System.Diagnostics 追蹤與整合 ASP.NET 追蹤](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
   這也已過時，但包含一些簡介文章沒有提到的其他資訊。
 * [在 ASP.NET MVC Razor 檢視追蹤](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  除了在 Razor 檢視追蹤，該文也說明了如何建立錯誤篩選條件，以便記錄 MVC 應用程式所出現的所有未處理的例外項目。如需如何記錄 Web Forms 應用程式中所有未處理的例外項目的相關資訊，請參閱 MSDN 上[完整的錯誤處理常式範例](http://msdn.microsoft.com/zh-tw/library/bb397417.aspx)的 Global.asax 範例。無論是 MVC 還是 Web Form，如果您想要記錄特定例外，但是讓預設的架構處理功能生效，則您可以如以下範例所示捕捉並重新擲回這些例外：
+  除了在 Razor 檢視追蹤，該文也說明了如何建立錯誤篩選條件，以便記錄 MVC 應用程式所出現的所有未處理的例外項目。如需如何記錄 Web Forms 應用程式中所有未處理的例外項目的相關資訊，請參閱 MSDN 上[完整的錯誤處理常式範例](http://msdn.microsoft.com/library/bb397417.aspx)的 Global.asax 範例。無論是 MVC 還是 Web Form，如果您想要記錄特定例外，但是讓預設的架構處理功能生效，則您可以如以下範例所示捕捉並重新擲回這些例外：
 
         try
         {
@@ -767,7 +767,7 @@ Azure 網站會使用 IIS 7.0 及更新版本所提供的相同失敗要求追�
 
 * [從 Azure 命令列串流診斷追蹤記錄 (加上 Glimpse！)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   如何使用命令列來執行本教學課程在 Visual Studio 中所示範的步驟。[Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) 工具可供您偵錯 ASP.NET 應用程式。 
-* [使用 Azure 網站記錄和診斷功能 - 與 David Ebbo 一起](http://www.windowsazure.com/zh-tw/documentation/videos/azure-web-site-logging-and-diagnostics/)，和[串流記錄從 Azure 網站 - 與 David Ebbo 一起](http://www.windowsazure.com/zh-tw/documentation/videos/log-streaming-with-azure-web-sites/)<br>
+* [使用 Azure 網站記錄和診斷功能 - 與 David Ebbo 一起](http://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/)，和[串流記錄從 Azure 網站 - 與 David Ebbo 一起](http://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   影片由 Scott Hanselman 與 David Ebbo 製作。
 
 針對錯誤記錄，使用開放原始碼的記錄架構是撰寫自己的追蹤程式碼之替代方法，例如 [ELMAH](http://nuget.org/packages/elmah/)。如需詳細資訊，請參閱 [Scott Hanselman 關於 ELMAH 的部落格文章](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx)。
@@ -791,7 +791,7 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤](http://www.iis.net/lear
 
 ### 偵錯雲端服務
 
-如果您想對 Azure 雲端服務 (而非網站) 進行偵錯，請參閱[偵錯雲端服務](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405479.aspx)。
+如果您想對 Azure 雲端服務 (而非網站) 進行偵錯，請參閱[偵錯雲端服務](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx)。
 
 
 

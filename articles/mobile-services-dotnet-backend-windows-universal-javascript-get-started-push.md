@@ -1,6 +1,20 @@
-<properties pageTitle="使用 .NET 後端行動服務開始使用推播通知" description="了解如何使用 Azure 行動服務及通知中心傳送推播通知至通用 Windows 應用程式。" services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="使用 .NET 後端行動服務開始使用推播通知" 
+	description="了解如何使用 Azure 行動服務及通知中心傳送推播通知至通用 Windows 應用程式。" 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/27/2014" 
+	ms.author="glenga"/>
 
 
 # 將推播通知新增至行動服務應用程式
@@ -54,7 +68,7 @@
 
 <ol start="5">
 <li><p>瀏覽至 <code>\services\mobileServices\settings</code> 專案資料夾，將產生的 &lt;<em>your_service_name</em>&gt;.js 指令碼檔案複製到共用 <code>\js</code> 資料夾，接著同時從個別 Windows 與 WindowsPhone 應用程式專案裡刪除這個檔案。此外，還要從每個應用程式專案的 <code>\services\mobileServices\scripts</code> 資料夾中刪除這個檔案 (如果存在的話)。</p></li> 
-<li><p>開啟共用 <code>\js</code> 專案資料夾中的這個指令碼檔案，並將定義 <a href="http://msdn.microsoft.com/zh-tw/library/azure/jj554219.aspx">MobileServiceClient object</a> 的現有程式碼註解化，以便存取 Azure 上執行的行動服務。</p></li>
+<li><p>開啟共用 <code>\js</code> 專案資料夾中的這個指令碼檔案，並將定義 <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx">MobileServiceClient object</a> 的現有程式碼註解化，以便存取 Azure 上執行的行動服務。</p></li>
 <li><p>使用相同名稱新增一個 <strong>MobileServiceClient</strong> 物件定義 (但使用建構函式裡的本機主機 URL)，類似如下範例：</p>
 <pre><code>// This MobileServiceClient has been configured to communicate with your local
 // test project for debugging purposes.

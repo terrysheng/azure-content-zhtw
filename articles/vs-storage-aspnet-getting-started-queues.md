@@ -27,7 +27,7 @@
 > - [佇列](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
 > - [資料表](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
 
-Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。如需詳細資訊，請參閱[如何從 .NET 使用佇列儲存體](http://azure.microsoft.com/zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/)。
+Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。如需詳細資訊，請參閱[如何從 .NET 使用佇列儲存體](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/)。
 
 將下列程式碼命名空間宣告，新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 C# 檔案內的頂端。
 

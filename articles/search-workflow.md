@@ -1,6 +1,20 @@
-﻿<properties title="Search Service: workflow for developers" pageTitle="搜尋服務：適用於開發人員的工作流程" description="搜尋服務：開發人員的工作流程" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="搜尋服務：開發人員的工作流程" 
+	description="搜尋服務：開發人員的工作流程" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Azure 搜尋：開發工作流程
 
@@ -21,7 +35,7 @@
 
 查詢會以包含搜尋資料和屬性的搜尋索引為目標。此情況下，您佈建服務後的第一個步驟就是以 JSON 格式定義索引結構描述，並執行 HTTPS PUT 要求以在服務中建立索引。 
 
-應用程式程式碼會建構索引。沒有內建工具或編輯器可協助您在使用者介面中定義索引。示範各種建構索引方式的範例包括[使用 Azure Search 建立第一個搜尋解決方案](../search-create-first-solution/) (其中結構描述已在 Program.cs 檔案中指定) 及[開始使用 Azure Search 中的評分設定檔](../search-get-started-scoring-profiles) (在獨立 JSON 結構描述檔案中提供索引)。如需深入了解如何建立索引，請參閱 MSDN 上的[建立索引 (Azure Search API)](http://msdn.microsoft.com/zh-tw/library/dn798941.aspx)。
+應用程式程式碼會建構索引。沒有內建工具或編輯器可協助您在使用者介面中定義索引。示範各種建構索引方式的範例包括[使用 Azure Search 建立第一個搜尋解決方案](../search-create-first-solution/) (其中結構描述已在 Program.cs 檔案中指定) 及[開始使用 Azure Search 中的評分設定檔](../search-get-started-scoring-profiles) (在獨立 JSON 結構描述檔案中提供索引)。如需深入了解如何建立索引，請參閱 MSDN 上的[建立索引 (Azure Search API)](http://msdn.microsoft.com/library/dn798941.aspx)。
 
 <h2 id="sub-2">步驟 2：新增文件</h2>
 
@@ -40,8 +54,8 @@
 
 文件建立索引後，您即可執行搜尋查詢。您可以使用 OData 或簡單的查詢語法，一次查詢一個索引：
 
-+	[適用於 Azure Search 的 OData 運算式語法](http://msdn.microsoft.com/zh-tw/library/dn798921.aspx)
-+	[Azure Search 中的簡單查詢語法](http://msdn.microsoft.com/zh-tw/library/dn798920.aspx)
++	[適用於 Azure Search 的 OData 運算式語法](http://msdn.microsoft.com/library/dn798921.aspx)
++	[Azure Search 中的簡單查詢語法](http://msdn.microsoft.com/library/dn798920.aspx)
 
 <h2 id="sub-4">步驟 4：上傳或刪除索引及文件</h2>
 
@@ -55,7 +69,7 @@ Azure Search 會將內部儲存體使用於搜尋作業中所用的索引和文�
 
 文件中的欄位並非都是可搜尋的。例如，如果您的應用程式是音樂和影片的線上目錄，我們建議您將二進位檔儲存在 Azure BLOB 服務或一些其他儲存體格式中。二進位檔本身並不可搜尋，因此並不需要將其存在 Azure 搜尋儲存體中。雖然您應該將影像、視訊和音訊檔案存放在其他服務或位置，但您應該包含可參考檔案位置 URL 的欄位。如此一來，您即可傳回外部資料作為搜尋結果的一部分。 
 
-如需建立索引或文件的詳細資訊，請參閱 [Azure Search Rest API](http://msdn.microsoft.com/zh-tw/library/dn798935.aspx)。
+如需建立索引或文件的詳細資訊，請參閱 [Azure Search Rest API](http://msdn.microsoft.com/library/dn798935.aspx)。
 
 
 <!--Anchors-->
@@ -73,3 +87,5 @@ Azure Search 會將內部儲存體使用於搜尋作業中所用的索引和文�
 [在 Microsoft Azure 上管理搜尋服務]: ../search-manage/
 [使用 Azure 搜尋建立您的第一個搜尋解決方案]: ../search-create-first-solution/
 
+
+<!--HONumber=46--> 

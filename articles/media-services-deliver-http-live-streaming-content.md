@@ -22,11 +22,11 @@
 
 <h1>作法：傳遞 Apple HLS 串流內容</h1>
 
-本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是＜[作法：傳遞串流內容](../media-services-deliver-streaming-content/)。
+本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是＜[作法：傳遞串流內容](../media-services-deliver-streaming-content/).
 
 本主題說明如何為媒體服務原始伺服器上的 Apple HTTP 即時資料流 (HLS) 內容建立定位器。透過此方式，您可以建置 Apple HLS 內容的 URL，並將它提供給 Apple iOS 裝置進行播放。建置定位器 URL 的基本方式相同。為原始伺服器上的 Apple HLS 串流資產路徑建置定位器，然後建置可連結至串流內容之資訊清單的完整 URL。
 
-下列程式碼範例假設您已取得 HLS 串流資產的參考，且程式碼中參考了名為 **assetToStream** 的變數。在您執行此程式碼對資產產生原始定位器之後，您可以在 iOS 裝置 (例如 iPad 或 iPhone) 中使用產生的 URL 來播放串流內容。
+下列程式碼範例假設您已取得 HLS 串流資產的參考，且程式碼中參考名為 **assetToStream** 的變數。在您執行此程式碼對資產產生原始定位器之後，您可以在 iOS 裝置 (例如 iPad 或 iPhone) 中使用產生的 URL 來播放串流內容。
 
 建置 Apple HLS 串流內容的定位器：
 
@@ -79,8 +79,8 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 
 如需有關傳遞資產的詳細資訊，請參閱：
 <ul>
-<li><a href="http://msdn.microsoft.com/zh-tw/library/jj129575.aspx">使用 Media Services for .NET 傳遞資產</a></li>
-<li><a href="http://msdn.microsoft.com/zh-tw/library/jj129578.aspx">使用 Media Services REST API 傳遞資產</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129575.aspx">使用 Media Services for .NET 傳遞資產</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129578.aspx">使用媒體服務 REST API 傳遞資產</a></li>
 </ul>
 
 <h2>後續步驟</h2>
@@ -89,15 +89,16 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 
 -   [Azure 媒體服務文件][]
 -   [開始使用 Media Services SDK for .NET][]
--   [使用 Media Services SDK for .NET 建立應用程式][]
--   [使用 Azure Media Services REST API 建立應用程式][]
+-   [使用 Media Services SDK for .NET 建置應用程式][]
+-   [使用 Azure 媒體服務 REST API 建置應用程式][]
 -   [媒體服務論壇][]
 -	[如何監視媒體服務帳戶](../media-services-monitor-services-account/)
 -	[如何管理媒體服務中的內容](../media-services-manage-content/)
 
 [Azure 媒體服務文件]: http://go.microsoft.com/fwlink/?linkid=245437
 [開始使用 Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=252966
-[使用 Azure Media Services REST API 建立應用程式]: http://go.microsoft.com/fwlink/?linkid=252967
-[使用 Media Services SDK for .NET 建立應用程式]: http://go.microsoft.com/fwlink/?linkid=247821
-[媒體服務論壇]: http://social.msdn.microsoft.com/Forums/zh-tw/MediaServices/threads
-<!--HONumber=42-->
+[使用 Azure 媒體服務 REST API 建置應用程式]: http://go.microsoft.com/fwlink/?linkid=252967
+[使用 Media Services SDK for .NET 建置應用程式]: http://go.microsoft.com/fwlink/?linkid=247821
+[媒體服務論壇]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+
+<!--HONumber=45--> 

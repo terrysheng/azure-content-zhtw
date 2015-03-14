@@ -35,7 +35,7 @@ New Relic 會追蹤 Web 交易的載入時間和輸送量，包括來自伺服�
 New Relic Standard 供 Azure 使用者免費使用
 New Relic Pro 是依據 Azure 雲端服務的執行個體大小提供。
 
-如需定價資訊，請參閱 [Azure 市集的 New Relic 頁面](http://www.windowsazure.com/zh-tw/gallery/store/new-relic/new-relic/)。
+如需定價資訊，請參閱 [Azure 市集的 New Relic 頁面](http://azure.microsoft.com/gallery/store/new-relic/new-relic/)。
 
 > [AZURE.NOTE] 最多只列出 10 個運算執行個體的定價。若超過 10 個，請連絡 New Relic (sales@newrelic.com) 詢問批量價格。
 

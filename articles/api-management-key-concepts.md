@@ -1,6 +1,20 @@
-﻿<properties pageTitle="API 管理主要概念" metaKeywords="" description="了解 API、產品、角色、群組及其他 API 管理重要概念。" metaCanonical="" services="api-management" documentationCenter="API Management" title="API Management key concepts" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="API 管理主要概念" 
+	description="了解 API、產品、角色、群組及其他 API 管理的主要概念。" 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 #API 管理主要概念
 
@@ -90,3 +104,5 @@ API 是 API 管理服務執行個體的基礎。每個 API 都代表可供開發
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

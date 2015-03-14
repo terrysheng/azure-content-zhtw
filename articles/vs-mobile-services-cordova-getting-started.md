@@ -36,7 +36,7 @@
 
 	var todoTable = mobileServiceClient.getTable('TodoItem');
 
-資料表的權限必須設為**「具有應用程式金鑰的任何人」**，這些範例才能運作。稍後您可以設定驗證。請參閱[開始使用驗證](http://azure.microsoft.com/zh-tw/documentation/articles/mobile-services-html-get-started-users/)。
+資料表的權限必須設為**「具有應用程式金鑰的任何人」**，這些範例才能運作。稍後您可以設定驗證。請參閱[開始使用驗證](http://azure.microsoft.com/documentation/articles/mobile-services-html-get-started-users/)。
 
 #####加入項目 
 

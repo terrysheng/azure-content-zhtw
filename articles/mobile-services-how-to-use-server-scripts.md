@@ -1,6 +1,20 @@
-<properties pageTitle="使用 JavaScript 後端行動服務" description="提供如何在 Azure 行動服務中定義、註冊和使用伺服器指令碼的範例。" services="mobile-services" documentationCenter="" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="使用 JavaScript 後端行動服務" 
+	description="提供如何在 Azure 行動服務中定義、註冊和使用伺服器指令碼的範例。" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="ricksal"/>
 
 
 # 使用 JavaScript 後端行動服務
@@ -231,7 +245,8 @@
 		    }
 
 		    function insertItemIfNotComplete(existingItems) {
-		        if (existingItems.length > 0) {
+		        if (existingIte
+	ms.length > 0) {
 		            request.respond(statusCodes.CONFLICT, 
                         "Duplicate items are not allowed.");
 		        } else {
@@ -950,34 +965,34 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 [4]: ./media/mobile-services-how-to-use-server-scripts/4-mobile-source-local-cli.png
 
 <!-- URLs. -->
-[行動服務伺服器指令碼參考]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554226.aspx
+[行動服務伺服器指令碼參考]: http://msdn.microsoft.com/library/windowsazure/jj554226.aspx
 [在行動服務中排程後端工作]: /zh-tw/develop/mobile/tutorials/schedule-backend-tasks/
-[request 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554218.aspx
-[response 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn303373.aspx
-[User 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554220.aspx
-[push object]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554217.aspx
-[insert 函數]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554229.aspx
-[insert]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554229.aspx
-[update 函數]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554214.aspx
-[delete 函數]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554215.aspx
-[read 函數]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554224.aspx
-[update]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554214.aspx
-[delete]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554215.aspx
-[read]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554224.aspx
-[query 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj613353.aspx
-[apns 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj839711.aspx
-[mpns 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj871025.aspx
-[wns 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj860484.aspx
-[table 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554210.aspx
-[tables 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj614364.aspx
-[mssql 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554212.aspx
-[console 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj554209.aspx
-[讀取和寫入資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj631640.aspx
-[驗證資料]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj631638.aspx
-[修改要求]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj631635.aspx
-[修改回應]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj631631.aspx
+[request 物件]: http://msdn.microsoft.com/library/windowsazure/jj554218.aspx
+[response 物件]: http://msdn.microsoft.com/library/windowsazure/dn303373.aspx
+[User 物件]: http://msdn.microsoft.com/library/windowsazure/jj554220.aspx
+[push object]: http://msdn.microsoft.com/library/windowsazure/jj554217.aspx
+[insert 函數]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
+[insert]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
+[update 函數]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
+[delete 函數]: http://msdn.microsoft.com/library/windowsazure/jj554215.aspx
+[read 函數]: http://msdn.microsoft.com/library/windowsazure/jj554224.aspx
+[update]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
+[delete]: http://msdn.microsoft.com/library/windowsazure/jj554215.aspx
+[read]: http://msdn.microsoft.com/library/windowsazure/jj554224.aspx
+[query 物件]: http://msdn.microsoft.com/library/windowsazure/jj613353.aspx
+[apns 物件]: http://msdn.microsoft.com/library/windowsazure/jj839711.aspx
+[mpns 物件]: http://msdn.microsoft.com/library/windowsazure/jj871025.aspx
+[wns 物件]: http://msdn.microsoft.com/library/windowsazure/jj860484.aspx
+[table 物件]: http://msdn.microsoft.com/library/windowsazure/jj554210.aspx
+[tables 物件]: http://msdn.microsoft.com/library/windowsazure/jj614364.aspx
+[mssql 物件]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
+[console 物件]: http://msdn.microsoft.com/library/windowsazure/jj554209.aspx
+[讀取和寫入資料]: http://msdn.microsoft.com/library/windowsazure/jj631640.aspx
+[驗證資料]: http://msdn.microsoft.com/library/windowsazure/jj631638.aspx
+[修改要求]: http://msdn.microsoft.com/library/windowsazure/jj631635.aspx
+[修改回應]: http://msdn.microsoft.com/library/windowsazure/jj631631.aspx
 [管理入口網站]: https://manage.windowsazure.com/
-[排程作業]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj860528.aspx
+[排程作業]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
 [使用伺服器指令碼驗證及修改行動服務中的資料]: /zh-tw/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
 [用於管理 zure 行動服務的命令]: /zh-tw/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
 [Windows 市集推播]: /zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/
@@ -985,7 +1000,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 [iOS 推播]: /zh-tw/develop/mobile/tutorials/get-started-with-push-ios/
 [Android 推播]: /zh-tw/develop/mobile/tutorials/get-started-with-push-android/
 [Azure SDK for Node.js]: http://go.microsoft.com/fwlink/p/?LinkId=275539
-[傳送 HTTP 要求]: http://msdn.microsoft.com/zh-tw/library/windowsazure/jj631641.aspx
+[傳送 HTTP 要求]: http://msdn.microsoft.com/library/windowsazure/jj631641.aspx
 [使用 SendGrid 從行動服務傳送電子郵件]: /zh-tw/develop/mobile/tutorials/send-email-with-sendgrid/
 [開始使用驗證]: http://go.microsoft.com/fwlink/p/?LinkId=287177
 [crypto API]: http://go.microsoft.com/fwlink/p/?LinkId=288802
@@ -994,16 +1009,16 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 [url API]: http://go.microsoft.com/fwlink/p/?LinkId=288805
 [util API]: http://go.microsoft.com/fwlink/p/?LinkId=288806
 [zlib API]: http://go.microsoft.com/fwlink/p/?LinkId=288807
-[自訂 API]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn280974.aspx
+[自訂 API]: http://msdn.microsoft.com/library/windowsazure/dn280974.aspx
 [從用戶端呼叫自訂 API]: /zh-tw/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
 [express.js library]: http://go.microsoft.com/fwlink/p/?LinkId=309046
 [定義支援定期通知的自訂 API]: /zh-tw/develop/mobile/tutorials/create-pull-notifications-dotnet/
 [express.js 中的 express 物件]: http://expressjs.com/api.html#express
 [在原始程式碼控制中儲存伺服器指令碼]: /zh-tw/develop/mobile/tutorials/store-scripts-in-source-control/
 [在伺服器指令碼中運用共用程式碼和 Node.js 模組]: /zh-tw/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
-[service 物件]: http://msdn.microsoft.com/zh-tw/library/windowsazure/dn303371.aspx
-[應用程式設定]: http://msdn.microsoft.com/zh-tw/library/dn529070.aspx
-[config 模組]: http://msdn.microsoft.com/zh-tw/library/dn508125.aspx
+[service 物件]: http://msdn.microsoft.com/library/windowsazure/dn303371.aspx
+[應用程式設定]: http://msdn.microsoft.com/library/dn529070.aspx
+[config 模組]: http://msdn.microsoft.com/library/dn508125.aspx
 [Azure 行動服務對 package.json 的支援]: http://go.microsoft.com/fwlink/p/?LinkId=391036
 
 

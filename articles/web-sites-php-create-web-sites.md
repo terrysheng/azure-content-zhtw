@@ -107,7 +107,7 @@
 [configure-php]: /zh-tw/develop/php/common-tasks/configure-php-web-site/
 [website-mysql-git]: /zh-tw/develop/php/tutorials/website-w-mysql-and-git/
 [wordpress-gallery]: /zh-tw/develop/php/tutorials/website-from-gallery/
-[websites-pricing]: http://www.windowsazure.com/zh-tw/pricing/details/#header-1
+[websites-pricing]: http://azure.microsoft.com/pricing/details/#header-1
 [scale-websites]: /zh-tw/manage/services/web-sites/how-to-scale-websites/
 
 

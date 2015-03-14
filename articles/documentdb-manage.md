@@ -1,6 +1,20 @@
-﻿<properties title="Manage DocumentDB capacity and performance" pageTitle="管理 DocumentDB 的容量和效能 | Azure" description="了解如何彈性調整 DocumentDB，以符合應用程式的效能和儲存需求。" metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="管理 DocumentDB 的容量和效能 | Azure" 
+	description="了解如何彈性調整 DocumentDB，以符合應用程式的效能和儲存需求。" 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="mimig"/>
 
 #管理 DocumentDB 的容量和效能
 DocumentDB 是受到完整管理、可大幅擴充的文件導向 NoSQL 資料庫服務。  有了 DocumentDB，您就不需要租用虛擬機器、部署軟體、監視資料庫或擔心災害復原。Microsoft 工程師會負責操作並持續監視 DocumentDB，提供世界級的可用性、效能和資料保護能力。  
@@ -66,3 +80,5 @@ DocumentDB 是受到完整管理、可大幅擴充的文件導向 NoSQL 資料�
 
 依預設，DocumentDB 會自動將所有文件編製索引。不過，如果您想要微調索引額外負荷，您可以選擇排除一些文件，不要在插入或取代文件時對這些文件編製索引。您可以設定 DocumentDB 集合，排除對集合中的所有文件編製索引。您也可以設定 DocumentDB 集合選擇性地僅針對 JSON 文件中包含萬用字元的特定屬性或路徑編製索引。  排除屬性或文件也可提高寫入輸送量 - 這表示您會耗用較少的要求單位。   
  
+
+<!--HONumber=46--> 

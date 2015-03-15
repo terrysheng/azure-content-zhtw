@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用通知中心傳送即時新聞 (Windows Universal) 
+	pageTitle="使用通知中心傳送即時新聞 (Windows Universal)"
 	description="使用 Azure 通知中心搭配註冊中的標籤，將重大新聞傳送至通用 Windows 應用程式。" 
 	services="notification-hubs" 
 	documentationCenter="windows" 

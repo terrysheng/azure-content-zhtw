@@ -1,4 +1,4 @@
-## 將訊息傳送至事件中心
+﻿## 將訊息傳送至事件中心
 在本節中，我們會撰寫一個 Java 主控台應用程式，以將事件傳送至事件中心。我們將利用 [Apache Qpid 專案](http://qpid.apache.org/)中的 JMS AMQP 提供者。這與搭配使用 Service Bus Queues and Topics 與透過 Java 的 AMQP 類似 (如[這裡](http://azure.microsoft.com/documentation/articles/service-bus-java-how-to-use-jms-api-amqp/)所示)。如需詳細資訊，請參閱 [Qpid JMS 文件](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html)和 [Java 訊息服務](http://www.oracle.com/technetwork/java/jms/index.html)。
 
 1. 在 Eclipse 中，建立名為 **Sender** 的新 Java 專案。
@@ -92,4 +92,5 @@
 
 
 <!-- Images -->
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png<!--HONumber=42-->
+[8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
+<!--HONumber=42-->

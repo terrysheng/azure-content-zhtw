@@ -23,8 +23,8 @@
 
 6.  按一下 [建立儲存體帳戶]。
 
-[使用 REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
+[REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
 [Azure 管理入口網站]: http://manage.windowsazure.com
-[plus-new]: ./media/create-storage-account/plus-new.png
-[quick-create-storage]: ./media/create-storage-account/quick-storage-2.png
+[plus-new]: ./media/storage-create-account-include/plus-new.png
+[quick-create-storage]: ./media/storage-create-account-include/quick-storage-2.png
 <!--HONumber=42-->

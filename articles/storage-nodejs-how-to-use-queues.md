@@ -51,7 +51,7 @@ API 撰寫。所涵蓋的案例包括**插入**、**查看**、
 
 <h2><a name="create-account"></a>建立 Azure 儲存體帳戶</h2>
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a name="create-app"> </a>建立 Node.js 應用程式
 

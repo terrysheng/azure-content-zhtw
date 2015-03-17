@@ -1,4 +1,4 @@
-﻿組件庫提供由 Microsoft、協力廠商公司及開放原始碼軟體計劃所開發的各種熱門 Web 應用程式。除了用來連線到 Azure 管理入口網站的瀏覽器以外，從組件庫中建立的 Web 應用程式不需要安裝任何軟體。 
+組件庫提供由 Microsoft、協力廠商公司及開放原始碼軟體計劃所開發的各種熱門 Web 應用程式。除了用來連線到 Azure 管理入口網站的瀏覽器以外，從組件庫中建立的 Web 應用程式不需要安裝任何軟體。 
 
 在本教學課程中，您將了解：
 
@@ -53,11 +53,11 @@
 
 2. 在 [**儀表板**] 管理頁面上向下捲動，然後按一下 [**網站 URL**] 下方左側的連結，以開啟該網站的歡迎頁面。
 
-	![site URL][11] 
+
 
 3. 輸入 WordPress 所需的適當組態資訊，然後按一下 [**安裝 WordPress**]，以完成組態設定並開啟網站的登入頁面。
 
-	![login to WordPress][12]
+
 
 4. 輸入您在 [**歡迎**] 頁面上指定的使用者名稱和密碼，來登入新的 WordPress 網站。
 
@@ -76,7 +76,6 @@
 [8]: ./media/website-from-gallery/wordpressgallery-04.png
 [9]: ./media/website-from-gallery/wordpressgallery-05.png
 [10]: ./media/website-from-gallery/wordpressgallery-06.png
-
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
 
 

@@ -80,7 +80,7 @@ Azure 檔案儲存體目前為預覽版。若要要求預覽版的存取權，�
 
 > [AZURE.NOTE] 檔案儲存體目前僅適用於新的儲存體帳戶。在您的訂閱被賦予檔案儲存體的存取權之後，請建立新的儲存體帳戶以與本指南配合使用。
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ##<a name="use-cmdlets"></a>使用 PowerShell 來建立檔案共用
 

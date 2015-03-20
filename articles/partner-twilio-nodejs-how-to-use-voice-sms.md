@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="在 Azure 中透過 Twilio 使用語音、VoIP 和簡訊功能" 
-	description="" 
+	description="了解如何在 Azure 上使用 Twilio API 服務撥打電話及傳送簡訊。程式碼範例以 Node.js 撰寫。" 
 	services="" 
 	documentationCenter="nodejs" 
 	authors="devinrader" 
@@ -21,16 +21,6 @@
 
 本指南將說明如何建置可在 Azure 上與 Twilio 和 node.js 通訊的應用程式。
 
-## 目錄
-
-* [什麼是 Twilio？](#whatis)
-* [註冊 Twilio (Microsoft 折扣)](#signup)
-* [建立及部署 node.js Azure 網站](#azuresite)
-* [設定 Twilio 模組](#twiliomodule)
-* [向外撥打電話](#makecall)
-* [傳送簡訊](#sendmessage)
-* [後續步驟](#nextsteps)
-
 <a id="whatis"/>
 ## 什麼是 Twilio？
 
@@ -46,27 +36,24 @@ Twilio 可讓開發人員[購買可程式化的電話號碼][purchase_phone]，�
 
 ### 在 UI 程式碼中內嵌 VoIP 功能 (JavaScript、iOS 或 Android)
 
-Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 Android 應用程式轉換為 VoIP 電話的用戶端 SDK。在本文中，我們僅討論如何在瀏覽器中使用 VoIP 通話。除了在瀏覽器中執行 Twilio JavaScript SDK 以外，同時也須使用伺服器端應用程式 (node.js 應用程式)，將「功能權杖」發出至 JavaScript 用戶端。搭配使用 VoIP 與 node.js 的詳細資訊 [請參閱 Twilio 開發人員部落格][voipnode]。
+Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 Android 應用程式轉換為 VoIP 電話的用戶端 SDK。在本文中，我們僅討論如何在瀏覽器中使用 VoIP 通話。除了在瀏覽器中執行 Twilio JavaScript SDK 以外，同時也須使用伺服器端應用程式 (node.js 應用程式)，將「功能權杖」發出至 JavaScript 用戶端。如需透過 node.js 使用 VoIP 的詳細資訊，請參閱 [Twilio 開發人員部落格][voipnode]。
 
 <a id="signup"/>
 ## 註冊 Twilio (Microsoft 折扣)
-
-在使用 Twilio 服務之前，您必須先[註冊帳戶][signup]。Microsoft Azure 客戶享有特別折扣-[務必這裡註冊][signup]！
+在使用 Twilio 服務之前，您必須先 [註冊帳戶][signup]。Microsoft Azure 客戶享有特別折扣 -  [請務必在此註冊][signup]！
 
 <a id="azuresite"/>
 ## 建立及部署 node.js Azure 網站
-
 接著，您必須建立在 Azure 上執行的 node.js 網站。[此作業的正式指引文件位於此處][azure_new_site]。概括而言，您將執行下列作業：
 
 * 註冊 Azure 帳戶 (若您尚無此帳戶)
 * 使用 Azure 管理主控台建立新網站
 * 新增原始檔控制支援 (我們假設您使用 git)
-* 使用簡單的 node.js Web 應用程式建立 `server.js` 檔案
+* 使用簡單的 node.js Web 應用程式建立 `server.js`  檔案
 * 將這個簡單的應用程式部署至 Azure
 
 <a id="twiliomodule"/>
 ## 設定 Twilio 模組
-
 接著，我們將開始撰寫採用 Twilio API 的簡易 node.js 應用程式。開始之前，我們必須設定 Twilio 帳戶認證。  
 
 ### 在系統環境變數中設定 Twilio 認證
@@ -80,24 +67,23 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 這些變數設定完成後，請在 Azure 主控台中重新啟動您的應用程式。
 
 ### 在 package.json 中宣告 Twilio 模組
-
 接下來，我們必須建立一個 package.json，以透過 [npm] 管理節點模組相依性。在您於 Azure/node.js 教學課程中建立的 "server.js" 檔案所屬的相同層級上，建立名為 "package.json" 的檔案。在此檔案中放入下列項目：
 
-	  {
-	    "name": "application-name",
-	    "version": "0.0.1",
-	    "private": true,
-	    "scripts": {
-	      "start": "node server"
-	    },
-	    "dependencies": {
-	      "express": "3.1.0",
-	      "ejs": "*",
-	      "twilio":"*"
-	    }
-	  }
+  {
+    "name": "application-name",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+      "start": "node server"
+    },
+    "dependencies": {
+      "express": "3.1.0",
+      "ejs": "*",
+      "twilio":"*"
+    }
+  }
 
-這會將 twilio 模組宣告為相依性，以及常用的 [Express Web 架構][express]和 EJS 範本引擎。一切都已就緒，可以開始撰寫程式碼了。
+這會將 twilio 模組宣告為相依項目，以及常用的 [Express Web 架構][express] 和 EJS 範本引擎。一切都已就緒，可以開始撰寫程式碼了。
 
 <a id="makecall"/>
 ## 向外撥打電話
@@ -196,7 +182,6 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 
 <a id="sendmessage"/>
 ## 傳送簡訊
-
 現在，我們要設定用以傳送簡訊的使用者介面和表單處理邏輯。請開啟 "server.js"，並在 "app.post" 的最後一個通話之後新增下列程式碼：
 
     app.post('/sms', function(request, response) {
@@ -218,7 +203,7 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
       });
     });
 
-In "views/index.ejs", add another form under the first one to submit a number and a text message:
+在 "views/index.ejs" 中，於第一個表單底下新增另一個表單，用以提交數字和簡訊：
 
     <form action="/sms" method="POST">
       <input placeholder="Enter a phone number" name="number"/>
@@ -245,7 +230,7 @@ In "views/index.ejs", add another form under the first one to submit a number an
 [purchase_phone]: https://www.twilio.com/user/account/phone-numbers/available/local
 [twiml]: https://www.twilio.com/docs/api/twiml
 [signup]: http://ahoy.twilio.com/azure
-[azure_new_site]: http://azure.microsoft.com/develop/nodejs/tutorials/create-a-website-(mac)/
+[azure_new_site]: http://www.windowsazure.com/develop/nodejs/tutorials/create-a-website-(mac)/
 [twilio_dashboard]: https://www.twilio.com/user/account
 [npm]: http://npmjs.org
 [express]: http://expressjs.com
@@ -258,4 +243,4 @@ In "views/index.ejs", add another form under the first one to submit a number an
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

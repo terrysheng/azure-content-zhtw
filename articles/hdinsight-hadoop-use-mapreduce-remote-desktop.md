@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="搭配使用 MapReduce 與 HDInsight 中的 Hadoop | Azure"
+   pageTitle="MapReduce 與 HDInsight 中的 Hadoop | Azure"
    description="了解如何使用遠端桌面連線到 HDInsight 上的 Hadoop，並執行 MapReduce 工作。"
    services="hdinsight"
    documentationCenter=""
@@ -22,19 +22,19 @@
 
 在本文中，您將學習如何使用遠端桌面連線至 HDInsight 叢集上的 Hadoop，然後使用 Hadoop 命令執行 MapReduce 工作。
 
-## <a id="prereq"></a>必要條件
+##<a id="prereq"></a>必要條件
 
-若要完成這篇文章中的步驟，您需要下列項目。
+若要完成本文中的步驟，您需要下列項目。
 
 * Windows 型 HDInsight (HDInsight 上的 Hadoop) 叢集
 
 * Windows 7、8 或 10 用戶端
 
-## <a id="connect"></a>使用遠端桌面連線
+##<a id="connect"></a>使用遠端桌面連線
 
-啟用 HDInsight 叢集的遠端桌面，然後依照下列項目上的指示與其連線： <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>。
+依照<a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>中的指示，為 HDInsight 叢集啟用「遠端桌面」，然後進行連線。
 
-## <a id="hadoop"></a>使用 Hadoop 命令
+##<a id="hadoop"></a>使用 Hadoop 命令
 
 連線到 HDInsight 叢集的桌面之後，請使用下列步驟，利用 Hadoop 命令來執行 MapReduce 工作。
 
@@ -48,7 +48,7 @@
 
 	這樣會啟動 **wordcount** 類別 (內含於目前目錄的 **hadoop-mapreduce-examples.jar** 檔案中)。做為輸入，它會使用 **wasb://example/data/gutenberg/davinci.txt** 文件，而且輸出會儲存至 **wasb:///example/data/WordCountOutput**。
 
-	> [AZURE.NOTE] 如需此 MapReduce 工作和範例資料的詳細資訊，請參閱 <a href="../hdinsight-use-mapreduce/">在 HDInsight Hadoop 中使用 MapReduce</a>。
+	> [AZURE.NOTE] 如需有關此 MapReduce 工作和範例資料的詳細資訊，請參閱 [<a href="../hdinsight-use-mapreduce/">在 HDInsight Hadoop 上使用 MapReduce</a>]。
 
 2. 工作會在處理時發出詳細資料，最後在工作完成時傳回與下列類似的資訊。
 
@@ -79,11 +79,11 @@
 		wretched        6
 		wriggling       1
 
-## <a id="summary"></a>摘要
+##<a id="summary"></a>摘要
 
 如您所見，Hadoop 命令提供簡單的方法，在 HDInsight 叢集上執行 MapReduce 工作，然後檢視工作輸出。
 
-## <a id="nextsteps"></a>後續步驟
+##<a id="nextsteps"></a>後續步驟
 
 如需 HDInsight 中 MapReduce 工作的一般資訊。
 
@@ -94,4 +94,4 @@
 * [搭配使用 Hive 與 HDInsight 上的 Hadoop](../hdinsight-use-hive/)
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](../hdinsight-use-pig/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

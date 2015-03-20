@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="從 Windows 在以 Linux 為基礎的 HDInsight 上搭配使用 SSH 金鑰與 Hadoop | Aure"
    description="了解如何建立和使用 SSH 金鑰來驗證以 Linux 為基礎的 HDInsight 叢集。"
    services="hdinsight"
@@ -16,31 +16,31 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-## 從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop (預覽)
+##從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop (預覽)
 
 以 Linux 為基礎的 HDInsight 叢集提供使用密碼或 SSH 金鑰保護 SSH 存取的選項。本文提供從 Windows 用戶端使用 PuTTY SSH 用戶端連接到 HDInsight 的資訊。
 
-> [AZURE.NOTE] 本文中的步驟假設您是使用 Windows 用戶端。如果您使用 Linux、 Unix 或 OS X 用戶端，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](/zh-tw/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/)。
+> [AZURE.NOTE] 本文中的步驟假設您是使用 Windows 用戶端。如果您使用 Linux、 Unix 或 OS X 用戶端，請參閱 [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/)。
 
-## 必要條件
+##必要條件
 
-* 適用於 Windows 用戶端的 **PuTTY** 和 **PuTTYGen**。這些公用程式可從下列位置取得： <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>
+* 適用於 Windows 用戶端的 **PuTTY** 和 **PuTTYGen**。這些公用程式可從下列位置取得：<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>
 
 * 支援 HTML5 的新式網頁瀏覽器
 
-OR
+或
 
 * Azure PowerShell
 
-OR
+或
 
 * Azure 跨平台命令列工具
 
-## 什麼是 SSH？
+##什麼是 SSH？
 
 SSH 是用來登入遠端伺服器並在其中遠端執行命令的公用程式。SSH 會用以 Linux 為基礎的 HDInsight 來與叢集前端節點建立安全連線，並提供命令列供您輸入命令。然後直接在該伺服器上執行命令。
 
-## 建立 SSH 金鑰 (選擇性)
+##建立 SSH 金鑰 (選擇性)
 
 在建立以 Linux 為基礎的 HDInsight 叢集時，您可以選擇使用密碼或 SSH 金鑰來驗證伺服器。SSH 金鑰比較安全，因為它們依據的是憑證。如果您計劃搭配使用 SSH 金鑰與叢集，請使用下列資訊。
 
@@ -70,7 +70,7 @@ SSH 是用來登入遠端伺服器並在其中遠端執行命令的公用程式�
 
 	> [AZURE.NOTE] **PuTTYGen** 的頂端也會顯示此公開金鑰。您可以用滑鼠右鍵按一下此欄位，複製值並貼到表單中，例如 Azure 管理入口網站中的 HDInsight 精靈。
 
-## 建立以 Linux 為基礎的 HDInsight 叢集
+##建立以 Linux 為基礎的 HDInsight 叢集
 
 在建立以 Linux 為基礎的 HDInsight 叢集時，您必須提供先前建立的**公開金鑰**。從 Windows 用戶端，有兩種方式可以建立以 Linux 為基礎的 HDInsight 叢集：
 
@@ -78,9 +78,9 @@ SSH 是用來登入遠端伺服器並在其中遠端執行命令的公用程式�
 
 * **Azure 跨平台命令列介面 (xplat-cli)** - 使用命令列命令來建立叢集
 
-這兩種方法都需要**公開金鑰**。如需建立以 Linux 為基礎的 HDInsight 叢集的完整資訊，請參閱 <a href="./hdinsight-hadoop-provision-linux-clusters/" target="_blank">佈建以 Linux 為基礎的 HDInsight 叢集</a>。
+這兩種方法都需要**公開金鑰**。如需建立以 Linux 為基礎的 HDInsight 叢集的完整資訊，請參閱 [<a href="./hdinsight-hadoop-provision-linux-clusters/" target="_blank">佈建 Linux 架構的 HDInsight 叢集</a>]。
 
-### Azure 管理入口網站
+###Azure 管理入口網站
 
 使用入口網站來建立以 Linux 為基礎的 HDInsight 叢集時，您必須在下列表單中輸入使用者名稱和密碼或公開金鑰。
 
@@ -88,13 +88,13 @@ SSH 是用來登入遠端伺服器並在其中遠端執行命令的公用程式�
 
 這會建立指定使用者的登入資訊，並啟用密碼驗證或 SSH 金鑰驗證。
 
-### Azure 跨平台命令列介面
+###Azure 跨平台命令列介面
 
-您可以使用  <a href="../xplat-cli/" target="_brad">Azure 跨平台命令列介面</a>，透過  `azure hdinsight cluzter create` 命令建立新叢集。
+您可以使用 <a href="../xplat-cli/" target="_brad">Azure 跨平台命令列介面</a>，使用 `azure hdinsight cluzter create` 命令來建立新叢集。
 
-如需使用此命令的詳細資訊，請參閱 <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">使用自訂選項在 HDInsight 中佈建 Hadoop Linux 叢集</a>
+如需使用這個命令的詳細資訊，請參閱 [<a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">使用自訂選項在 HDInsight 中佈建 Hadoop Linux 叢集</a>]。
 
-## <a id="connect"></a>連線至以 Linux 為基礎的 HDInsight 叢集
+##<a id="connect"></a>連線至以 Linux 為基礎的 HDInsight 叢集
 
 1. 開啟 PuTTY。
 
@@ -106,7 +106,7 @@ SSH 是用來登入遠端伺服器並在其中遠端執行命令的公用程式�
 
 	![putty interface, select private key](./media/hdinsight-hadoop-linux-use-ssh-windows/puttykey.png)
 
-3. 在 [**類別**] 中，選取 [**工作階段**]。在 [**PuTTY 工作階段的基本選項**] 畫面上，將您的 HDInsight 伺服器的 SSH 位址輸入到 [**主機名稱 (或 IP 位址)**] 欄位。SSH 位址是叢集名稱加上 **-ssh.azurehdinsight.net**。例如，**mycluster-ssh.azurehdinsight.net**。
+3. 在 [**類別**] 中，選取 [**工作階段**]。在 [**PuTTY 工作階段的基本選項**] 畫面上，將您 HDInsight 伺服器的 SSH 位址輸入到 [**主機名稱 (或 IP 位址)**] 欄位。SSH 位址是叢集名稱加上 **-ssh.azurehdinsight.net**。例如，**mycluster-ssh.azurehdinsight.net**。
 
 	![putty interface with ssh address entered](./media/hdinsight-hadoop-linux-use-ssh-windows/puttyaddress.png)
 
@@ -118,7 +118,7 @@ SSH 是用來登入遠端伺服器並在其中遠端執行命令的公用程式�
 
 6. 出現提示時，輸入您建立叢集時所輸入的使用者。如果您對使用者提供**密碼**，系統會提示您一併輸入密碼。
 
-## 新增其他帳戶
+##新增其他帳戶
 
 2. 如先前所述為新的使用者帳戶產生新的**公開金鑰**和**私密金鑰**。
 
@@ -144,7 +144,7 @@ SSH 是用來登入遠端伺服器並在其中遠端執行命令的公用程式�
 
 5. 您現在應該就能使用新的使用者帳戶和**私密金鑰**驗證伺服器。
 
-## <a id="tunnel"></a>SSH 通道
+##<a id="tunnel"></a>SSH 通道
 
 SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDInsight 叢集。要求便會路由至要求的資源，彷彿要求是在 HDInsight 叢集前端節點上產生。
 
@@ -152,7 +152,7 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 
 使用下列步驟來建立 SSH 通道，並設定瀏覽器用此通道來連接到叢集。
 
-1. 開啟 PuTTY，並輸入 [[連線](#connect)] 區段中所記載的連線資訊 。
+1. 開啟 PuTTY，並輸入 [[連線]] 區段中所記載的連線資訊(#connect) 。
 
 2. 在對話方塊左側的 [**類別**] 區段中，依序展開 [**連線**] 和 [**SSH**]，最後選取 [**通道**]。
 
@@ -176,11 +176,11 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 
 	> [AZURE.NOTE] 選取 [**遠端 DNS**] 會使用 HDInsight 叢集解析 DNS 要求。若未選取，則會在本機解析 DNS。
 
-	您可以在 Firefox 中分別於啟用和停用 proxy 設定的狀況下，驗證流量是否有透過通道路由傳送，方法是造訪如下所示的網站： <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a> 。在啟用時，是使用 Microsoft Azure 資料中心內之機器的 IP 位址。
+	您可以驗證是否透過通道路由傳送流量，方法是在 Firefox 中啟用和停用 Proxy 設定的情況下造訪網站，例如 <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a>。在啟用時，是使用 Microsoft Azure 資料中心內之機器的 IP 位址。
 
-### 瀏覽器延伸模組
+###瀏覽器延伸模組
 
-當設定瀏覽器使用通道的功能在運作時，您通常不會想透過通道傳送所有流量。瀏覽器延伸模組 (例如 <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a>  ) 支援 URL 要求的模式比對 (僅限 FoxyProxy Standard 或 Plus)，以便只有特定 URL 的要求會透過通道傳送。
+當設定瀏覽器使用通道的功能在運作時，您通常不會想透過通道傳送所有流量。瀏覽器延伸模組 (例如 <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a>) 支援 URL 要求的模式比對 (僅限 FoxyProxy Standard 或 Plus)，以便只有特定 URL 的要求會透過通道傳送。
 
 如果您已安裝 **FoxyProxy Standard**，請使用下列步驟將它設定為只透過通道轉送 HDInsight 的流量。
 
@@ -220,7 +220,7 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 
 在執行這些步驟後，只有包含 **headnode** 字串之 URL 的要求會透過 SSL 通道路由傳送。
 
-## 後續步驟
+##後續步驟
 
 您已經了解如何使用 SSH 金鑰進行驗證，接著請了解如何在 HDInsight 上搭配使用 MapReduce 和 Hadoop。
 
@@ -230,4 +230,4 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 
 * [搭配 HDInsight 使用 MapReduce 工作](../hdinsight-use-mapreduce/)
  
-<!--HONumber=45--> 
+<!--HONumber=47-->

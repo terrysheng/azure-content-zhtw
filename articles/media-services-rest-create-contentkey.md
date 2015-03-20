@@ -17,15 +17,15 @@
 	ms.author="juliako"/>
 
 
-# 使用 REST 建立 ContentKey
+#使用 REST 建立 ContentKey
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow)和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow)系列的一部分。  
+這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow) 系列的一部分。  
 
 媒體服務可讓您建立新的資產及傳遞已加密的資產。**ContentKey** 提供**資產**的安全存取。 
 
-當您建立新的資產時 (例如，[將檔案上傳](../media-services-rest-upload-files/)之前)，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
+當您建立新資產 (例如，在[上傳檔案]之前(../media-services-rest-upload-files/))，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
 
-當您將資產傳遞至您的用戶端時，您可以使用下列兩個加密的其中一個[設定動態加密的資產](../media-services-rest-configure-asset-delivery-policy)：**DynamicEnvelopeEncryption** 或 **DynamicCommonEncryption**。
+當您將資產傳遞給用戶端時，您可以使用下列兩個加密的其中一個，[設定動態加密資產](../media-services-rest-configure-asset-delivery-policy) ：**DynamicEnvelopeEncryption** 或 **DynamicCommonEncryption**。
 
 加密的資產必須與 **ContentKey** 相關聯。本文說明如何建立內容金鑰。
 
@@ -34,10 +34,10 @@
 1. 隨機產生 16 位元組 AES 金鑰 (適用於一般加密以及信封加密) 或 32 位元組 AES 金鑰 (適用於儲存體加密)。 
 
 	這是您資產的內容金鑰，這表示與該資產相關聯的所有檔案都必須在解密期間使用相同的內容金鑰。 
-2.	呼叫 [GetProtectionKeyId](https://msdn.microsoft.com/zh-tw/library/azure/jj683097.aspx#getprotectionkeyid) 和 [GetProtectionKey](https://msdn.microsoft.com/zh-tw/library/azure/jj683097.aspx#getprotectionkey) 方法，以取得用來將內容金鑰加密時必須使用的正確 X.509 憑證。
+2.	呼叫 [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) 和 [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) 方法，以取得用來將內容金鑰加密時必須使用的正確 X.509 憑證。
 3.	使用 X.509 憑證的公開金鑰將您的內容金鑰加密。 
 
-	媒體服務 .NET SDK 會使用 RSA 和 OAEP 來執行加密作業。您可以在 [EncryptSymmetricKeyData 函式](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Encryption/EncryptionUtils.cs)中看到範例。
+	媒體服務 .NET SDK 會使用 RSA 和 OAEP 來執行加密作業。您可以在 [EncryptSymmetricKeyData 函式](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Encryption/EncryptionUtils.cs)中查看範例。
 4.	建立使用金鑰識別碼和內容金鑰計算的總和檢查碼值 (根據 PlayReady AES 金鑰總和檢查碼演算法)。如需詳細資訊，請參閱位於[這裡](http://www.microsoft.com/playready/documents/)的 PlayReady 標頭物件文件的＜PlayReady AES 金鑰總和檢查碼演算法＞一節。
 
 	下列 .NET 範例會使用金鑰識別碼和明文內容金鑰的 GUID 部分計算總和檢查碼。
@@ -69,9 +69,9 @@
 >
 >在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發的設定](../media-services-rest-how-to-use)。
 
->順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務](../media-services-rest-connect_programmatically/)中所述。 
+>順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務]中所述(../media-services-rest-connect_programmatically/)。 
 
-## 擷取 ProtectionKeyId 
+##擷取 ProtectionKeyId 
  
 
 下列範例示範如何為加密內容金鑰時您必須使用的憑證擷取 ProtectionKeyId (憑證指紋)。執行此步驟，以確定您的電腦上已經有適當的憑證。
@@ -107,7 +107,7 @@
 	
 	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 
-## 擷取 ProtectionKeyId 的 ProtectionKey
+##擷取 ProtectionKeyId 的 ProtectionKey
 
 下列範例顯示如何使用您在上一個步驟中收到的 ProtectionKeyId 擷取 X.509 憑證。
 
@@ -144,7 +144,7 @@
 	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String",
 	"value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 
-## 建立 ContentKey 
+##建立 ContentKey 
 
 在擷取 X.509 憑證並使用其公開金鑰將內容金鑰加密之後，建立**ContentKey**實體並設定其屬性據此值。
 
@@ -234,7 +234,7 @@
 	"ProtectionKeyType":0,
 	"Checksum":"calculated checksum"}
 
-## 將 ContentKey 與資產產生關聯
+##將 ContentKey 與資產產生關聯
 
 建立 ContentKey 之後, ，使用 $links 作業將其與資產產生關聯，如下列範例所示：
 	
@@ -256,4 +256,4 @@
 回應：
 
 	HTTP/1.1 204 No Content
-<!--HONumber=45--> 
+<!--HONumber=47-->

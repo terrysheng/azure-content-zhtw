@@ -16,7 +16,7 @@
    ms.date="02/18/2015"
    ms.author="bradsev"/>
 
-# HDInsight 中的叢集調整
+#HDInsight 中的叢集調整
 
 叢集調整功能可讓您變更在 HDInsight 中執行的叢集所用的資料節點數目，而不需要刪除然後再重新建立叢集。您可以使用 PowerShell、HDInsight SDK 或從 Azure 入口網站執行此作業。
 
@@ -59,14 +59,14 @@ HDInsight 叢集上有提供 Storm Web UI：
 
 	$ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
-## HBase
+##HBase
 HBase 類型的叢集目前不支援叢集調整作業。
 
 ## 必要條件：
 
 * 只支援使用 HDInsight 3.1.3 版或更高版本的叢集。如果您不確定您的叢集是什麼版本，您可以從 Azure 入口網站按一下 HDInsight 叢集名稱或從 Azure PowerShell 執行  `Get-AzureHDInsightCluster -name <clustername>` 命令，來檢查叢集的版本。
 
-* 必須是 Azure PowerShell 0.8.14 版或更高版本，才可從 PowerShell 執行此作業。您可以在 [Azure 下載](http://azure.microsoft.com/ downloads/)網站上，從命令列工具區段下載最新版的 PowerShell。您可以從 PowerShell 視窗使用下列命令，檢查所安裝的 Azure PowerShell 版本：`(get-module Azure).Version`
+* 必須是 Azure PowerShell 0.8.14 版或更高版本，才可從 PowerShell 執行此作業。您可以在 [Azure 下載](http://azure.microsoft.com/downloads/)網站上，從命令列工具區段下載最新版的 PowerShell。您可以從 PowerShell 視窗使用下列命令，檢查所安裝的 Azure PowerShell 版本： `(get-module Azure).Version`
 
 ## 如何使用叢集調整
 
@@ -140,5 +140,5 @@ HBase 類型的叢集目前不支援叢集調整作業。
 	}
 
 
-請參閱[使用自訂選項在 HDInsight 上佈建 Hadoop 叢集](http://azure.microsoft.com/ documentation/articles/hdinsight-provision-clusters/)主題，以取得如何使用 HDInsight .NET SDK 的詳細資訊。
-<!--HONumber=45--> 
+請參閱[使用自訂選項在 HDInsight 上佈建 Hadoop 叢集](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/)主題，以取得如何使用 HDInsight .NET SDK 的詳細資訊。
+<!--HONumber=47-->

@@ -16,23 +16,23 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# 使用 PowerShell 搭配執行 Hive 查詢與 HDInsight 上的 Hadoop
+#使用 PowerShell 搭配執行 Hive 查詢與 HDInsight 上的 Hadoop
 
 [AZURE.INCLUDE [mapreduce-selector](../includes/hdinsight-selector-use-mapreduce.md)]
 
 本文件提供使用 PowerShell 在 HDInsight 叢集的 Hadoop 上執行 MapReduce 工作的範例。
 
-## <a id="prereq"></a>必要條件
+##<a id="prereq"></a>必要條件
 
-若要完成這篇文章中的步驟，您需要下列項目。
+若要完成本文中的步驟，您需要下列項目。
 
 * Azure HDInsight (HDInsight 上的 Hadoop) 叢集 (Windows 或 Linux 型)
 
-* <a href="http://azure.microsoft.com/ documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
-## <a id="powershell"></a>使用 PowerShell 執行 MapReduce 工作
+##<a id="powershell"></a>使用 PowerShell 執行 MapReduce 工作
 
-Azure PowerShell 提供 *cmdlets*，可讓您從遠端執行 HDInsight 上的 MapReduce 工作。就內部而言，完成方式是使用 REST 呼叫在 HDInsight 叢集上執行的 <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (之前稱為 Templeton)。
+Azure PowerShell 提供 *cmdlets*，可讓您從遠端執行 HDInsight 上的 MapReduce 工作。在內部，您可以使用在 HDInsight 叢集上執行的 <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (先前稱為 Templeton) 的 REST 呼叫來達到此目的。
 
 在遠端 HDInsight 叢集上執行 MapReduce 工作時，會使用下列 Cmdlet。
 
@@ -102,7 +102,7 @@ Azure PowerShell 提供 *cmdlets*，可讓您從遠端執行 HDInsight 上的 Ma
 
 	這表示工作已順利完成。
 
-## <a id="results"></a>檢視工作輸出
+##<a id="results"></a>檢視工作輸出
 
 MapReduce 工作已將作業結果儲存至 Azure Blob 儲存體 (位於指定為工作之引數的 **wasb:///example/data/WordCountOutput** 路徑中)。Azure Blob 儲存體可以透過 Azure PowerShell 存取，但是您必須知道儲存體帳戶名稱、金鑰，以及 HDInsight 叢集用來直接存取檔案的容器。
 
@@ -141,13 +141,13 @@ MapReduce 工作已將作業結果儲存至 Azure Blob 儲存體 (位於指定�
 		#Use the -blob switch to filter only blobs contained in example/data/WordCountOutput
 		Get-AzureStorageBlob -Container $storageContainer -Blob example/data/WordCountOutput/* -Context $context | Get-AzureStorageBlobContent -Context $context
 
-> [AZURE.NOTE] 此範例會將下載的檔案儲存至  目錄中您執行指令碼的 **example/data/WordCountOutput** 資料夾。
+> [AZURE.NOTE] 此範例會將已下載的檔案儲存到您執行指令碼所在目錄的 **example/data/WordCountOutput** 資料夾中。
 
 MapReduce 工作的輸出會儲存在名稱為 *part-r-#####* 的檔案中。使用文字編輯器開啟 **example/data/WordCountOutput/part-r-00000** 檔案，以查看工作所產生的單字和計數。
 
 > [AZURE.NOTE] MapReduce 工作的輸出檔是固定不變的。因此，如果您重新執行此範例，將需要變更輸出檔的名稱。
 
-## <a id="troubleshooting"></a>疑難排解
+##<a id="troubleshooting"></a>疑難排解
 
 如果在工作完成時未傳回任何資訊，則可能是處理期間發生錯誤。若要檢視這項工作的錯誤資訊，請將下列內容新增至 **mapreducejob.ps1** 檔案的結尾，並儲存它，然後重新予以執行。
 
@@ -157,11 +157,11 @@ MapReduce 工作的輸出會儲存在名稱為 *part-r-#####* 的檔案中。使
 
 這會傳回執行工作時寫入至伺服器上之 STDERR 的資訊，而且可能有助於判斷工作的失敗原因。
 
-## <a id="summary"></a>摘要
+##<a id="summary"></a>摘要
 
 如您所見，Azure PowerShell 提供簡單的方法，在 HDInsight 叢集上執行 MapReduce 工作、監視工作狀態，以及擷取輸出。
 
-## <a id="nextsteps"></a>後續步驟
+##<a id="nextsteps"></a>後續步驟
 
 如需 HDInsight 中 MapReduce 工作的一般資訊。
 
@@ -172,4 +172,4 @@ MapReduce 工作的輸出會儲存在名稱為 *part-r-#####* 的檔案中。使
 * [搭配使用 Hive 與 HDInsight 上的 Hadoop](../hdinsight-use-hive/)
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](../hdinsight-use-pig/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

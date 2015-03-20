@@ -16,11 +16,11 @@
 	ms.date="02/10/2015" 
 	ms.author="juliako"/>
 
-# 作法：檢查工作進度
+#作法：檢查工作進度
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow)系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 系列的一部分。 
 
-## 使用入口網站來檢查工作狀態
+##使用入口網站來檢查工作狀態
 
 1. 在 [[管理入口網站](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409)]，按一下 [**媒體服務**]，然後按一下媒體服務帳戶名稱。
 2. 選取 [**工作**] 頁面。 
@@ -29,11 +29,11 @@
 
 	![CheckStatus][checkstatus]
 
-## 下一步
+##下一步
 
 發佈內容。如需詳細資訊，請參閱 [如何：為資產編碼](../media-services-manage-content#publish)。 
 
 
 [checkstatus]: ./media/media-services-monitor-job-progress/media-services-monitor-job-progress.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

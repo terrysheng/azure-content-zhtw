@@ -17,11 +17,11 @@
 	ms.author="juliako"/>
 
 
-# 作法：取得媒體處理器執行個體
+#作法：取得媒體處理器執行個體
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow)系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 系列的一部分。 
 
-## 概觀
+##概觀
 
 在媒體服務中，媒體處理器是可處理特定處理工作的元件，例如編碼、格式轉換、加密或解密媒體內容。您通常會在建立媒體內容的編碼、加密或格式轉換工作時建立媒體處理器。
 
@@ -39,7 +39,7 @@
     <tr>
        <td>Azure Media Encoder</td>
        <td>可讓您使用 Media Encoder 執行編碼工作。</td>
-       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Azure Media Encoder 的工作預設字串</a></td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx">Azure Media Encoder 的工作預設字串</td>
     </tr>
     <tr>
         <td>Windows Azure Media Packager</td>
@@ -65,13 +65,13 @@
 
 <br />
 
-## 取得 MediaProcessor
+##取得 MediaProcessor
 
 >[AZURE.NOTE] 使用媒體服務 REST API 時，適用下列考量事項：
 >
 >在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發的設定](../media-services-rest-how-to-use)。
 
->順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務](../media-services-rest-connect_programmatically/)中所述。 
+>順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務]中所述(../media-services-rest-connect_programmatically/)。 
 
 
 
@@ -109,10 +109,10 @@
 	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#MediaProcessors","value":[{"Id":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609","Description":"Azure Media Encoder","Name":"Azure Media Encoder","Sku":"","Vendor":"Microsoft","Version":"4.4"}]}
 
 
-## 後續步驟
+##後續步驟
 現在您知道如何取得媒體處理器執行個體，請移至[如何為資產編碼][]主題，以了解如何使用 Azure Media Encoder 為資產編碼。
 
 [如何為資產編碼]: ../media-services-rest-encode-asset/
 [Azure Media Encoder 的工作預設字串]: http://msdn.microsoft.com/library/jj129582.aspx
 [做法：以程式設計方式連接到媒體服務]: ../media-services-rest-connect_programmatically/
-<!--HONumber=45--> 
+<!--HONumber=47-->

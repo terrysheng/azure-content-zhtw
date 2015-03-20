@@ -17,21 +17,21 @@
 	ms.author="juliako"/>
 
 
-# 使用 .NET 建立 ContentKeys
+#使用 .NET 建立 ContentKeys
 
-這篇文章屬於[要求工作流程上的媒體服務視訊](../media-services-video-on-demand-workflow)和[媒體服務即時資料流工作流程](../media-services-live-streaming-workflow)系列。  
+這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow) 系列的一部分。  
 
-媒體服務可讓您建立新的已加密資產以及傳遞已加密的資產。**ContentKey** 提供**資產**的安全存取權。 
+媒體服務可讓您建立新的資產及傳遞已加密的資產。**ContentKey** 提供**資產**的安全存取。 
 
-建立新的資產時 (例如，[上傳檔案](../media-services-dotnet-upload-files/)之前)，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
+當您建立新資產 (例如，在[上傳檔案]之前(../media-services-dotnet-upload-files/))，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
 
-將資產傳遞至用戶端時，可以使用下列兩個加密的其中一個來[設定動態加密資產](../media-services-dotnet-configure-asset-delivery-policy)：**DynamicEnvelopeEncryption** 或 **DynamicCommonEncryption**。
+當您將資產傳遞給用戶端時，您可以使用下列兩個加密的其中一個，[設定動態加密資產](../media-services-dotnet-configure-asset-delivery-policy) ：**DynamicEnvelopeEncryption** 或 **DynamicCommonEncryption**。
 
-已加密的資產必須與 **ContentKey**s 相關聯。本文描述如何建立內容金鑰。
+加密的資產必須與 **ContentKey** 相關聯。本文說明如何建立內容金鑰。
 
 >[AZURE.NOTE] 使用 Media Services .NET SDK 建立新的 **StorageEncrypted** 資產時，會自動建立 **ContentKey**，並將其與資產連結。
 
-## ContentKeyType
+##ContentKeyType
 
 您在建立內容金鑰時必須設定的其中一個值就是內容金鑰類型。選擇下列其中一個值。 
 
@@ -67,7 +67,7 @@
         EnvelopeEncryption = 4
     }
 
-## <a id="envelope_contentkey"></a>建立信封類型 ContentKey
+##<a id="envelope_contentkey"></a>建立信封類型 ContentKey
 
 下列程式碼片段會建立信封加密類型的內容金鑰。然後建立金鑰與所指定資產的關聯。
 
@@ -105,7 +105,7 @@ call
 
 
 
-## <a id="common_contentkey"></a>建立一般類型 ContentKey    
+##<a id="common_contentkey"></a>建立一般類型 ContentKey    
 
 下列程式碼片段會建立一般加密類型的內容金鑰。然後建立金鑰與所指定資產的關聯。
 
@@ -142,4 +142,4 @@ call
 call
 
 	IContentKey key = CreateCommonTypeContentKey(encryptedsset);
-<!--HONumber=45--> 
+<!--HONumber=47-->

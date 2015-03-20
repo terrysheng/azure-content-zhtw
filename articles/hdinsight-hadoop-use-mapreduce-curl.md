@@ -16,7 +16,7 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# 使用 Curl 搭配執行 MapReduce 工作與 HDInsight 上的 Hadoop
+#使用 Curl 搭配執行 MapReduce 工作與 HDInsight 上的 Hadoop
 
 [AZURE.INCLUDE [mapreduce-selector](../includes/hdinsight-selector-use-mapreduce.md)]
 
@@ -24,11 +24,11 @@
 
 Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 MapReduce 工作。運作的方式是使用 HDInsight 叢集所提供的 WebHCat REST API (先前稱為 Templeton)。
 
-> [AZURE.NOTE] 如果您已熟悉使用 Linux 型 Hadoop 伺服器，但剛接觸 HDInsight，請參閱 <a href="../hdinsight-hadoop-linux-information/" target="_blank">HDInsight 上的 Linux 型 Hadoop 需知</a>。
+> [AZURE.NOTE] 如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱 [<a href="../hdinsight-hadoop-linux-information/" target="_blank">在以 Linux 為基礎的 HDInsight 上安裝 Hadoop 的須知事項</a>]。
 
-## <a id="prereq"></a>必要條件
+##<a id="prereq"></a>必要條件
 
-若要完成這篇文章中的步驟，您需要下列項目。
+若要完成本文中的步驟，您需要下列項目。
 
 * HDInsight 叢集上的 Hadoop (Linux 或 Windows 型)
 
@@ -36,19 +36,19 @@ Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 
 
 * <a href="http://stedolan.github.io/jq/" target="_blank">jq</a>
 
-## <a id="curl"></a>使用 Curl 執行 MapReduce 工作
+##<a id="curl"></a>使用 Curl 執行 MapReduce 工作
 
 > [AZURE.NOTE] 使用 Curl 或與 WebHCat 的任何其他 REST 通訊時，您必須提供 HDInsight 叢集管理員使用者名稱和密碼來驗證要求。您也必須使用叢集名稱，做為用來將要求傳送至伺服器的 URI 一部分。
 > 
 > 針對本節中的命令，將 **USERNAME** 取代為向叢集驗證的使用者，並將 **PASSWORD** 取代為使用者帳戶的密碼。將 **CLUSTERNAME** 取代為您叢集的名稱。
 > 
-> REST API 是使用下者進行保護： <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">基本驗證</a>。您應該一律使用 HTTPS 提出要求，確保認證安全地傳送至伺服器。
+> 使用<a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">基本驗證</a>來保護 REST API 的安全。您應一律使用 HTTPS 來提出要求，以確保認證能夠安全地傳送到伺服器。
 
 1. 從命令列中，使用下列命令來確認您可以連線到 HDInsight 叢集。 
 
         curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
 
-    您應該會收到與下列類似的回應。
+    您應該會收到類似下列的回應。
 
         {"status":"ok","version":"v1"}
 
@@ -57,7 +57,7 @@ Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 
     * **-u** - 用來驗證要求的使用者名稱和密碼
     * **-G** - 指出這是 GET 要求
 
-    所有要求的 URI 開頭 **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** 都會相同。 
+    所有要求的 URL 開頭 **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** 都會相同。 
 
 2. 若要提交 MapReduce 工作，請使用下列程式碼。
 
@@ -65,10 +65,10 @@ Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 
 
     URI 結尾 (/mapreduce/jar) 告訴 WebHCat，此要求會從 jar 檔案中的類別啟動 MapReduce 工作。此命令中使用的參數如下。
 
-	* **-d** - 未使用 `-G` 之後，會將要求預設為 POST 方法。`-d` 指定與要求一起傳送的資料值
+	* **-d** - 因為未使用 `-G`，要求會依預設使用 POST 方法。`-d` 可指定與要求一起傳送的資料值
 
         * **user.name** - 執行命令的使用者
-        * **jar** - 包含要執行之類別的 jar 檔案位置
+        * **jar** - 包含要執行類別的 jar 檔案位置
         * **class** - 包含 MapReduce 邏輯的類別
         * **arg** - 要傳遞給 MapReduce 工作的引數。在此情況下，是用於輸出的輸入文字檔和目錄
 
@@ -84,25 +84,25 @@ Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 
 
     > [AZURE.NOTE] 此 curl 要求會傳回含有工作資訊的 JSON 文件；jq 用來僅擷取狀態值。 
 
-4. 工作狀態變更為 [**成功**] 之後，即可從 Azure Blob 儲存體擷取工作結果。與查詢一起傳遞的 `statusdir` 參數包含輸出檔的位置；在此情況下，是 **wasb:///example/curl**。此位址會將工作輸出儲存至 HDInsight 叢集所使用之預設儲存體容器的 **example/curl** 目錄中。
+4. 工作狀態變更為 [**成功**] 之後，即可從 Azure Blob 儲存體擷取工作結果。隨查詢一起傳送的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 **wasb:///example/curl**。此位址會將工作輸出儲存至 HDInsight 叢集所使用之預設儲存體容器的 **example/curl** 目錄中。
 
-您可以使用下者列出並下載這些檔案： <a href="../xplat-cli/" target="_blank">Azure 跨平台命令列介面 (xplat-cli)</a>。例如，若要列出 **example/curl** 中的檔案，請使用下列命令。
+您可以使用 <a href="../xplat-cli/" target="_blank">Azure 跨平台命令列介面 (xplat-cli)</a> 來列出並下載這些檔案。例如，若要列出 **example/curl** 中的檔案，請使用下列命令。
 
 	azure storage blob list <container-name> example/curl
 
-若要下載檔案，請使用下列程式碼。
+若要下載檔案，請使用下列命令。
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE] 您必須使用 `-a` 和 `-k` 參數指定含有 blob 的儲存體帳戶名稱，或設定 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORAGE\_ACCESS\_KEY** 環境變數。請參閱<a href="../hdinsight-upload-data/" target="_blank" for more information.
+> [AZURE.NOTE] 您必須使用 `-a` 和 `-k` 參數指定包含 Blob 的儲存體帳戶名稱，或是設定 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORAGE\_ACCESS\_KEY** 環境變數。如需詳細資訊，請參閱 [<a href="../hdinsight-upload-data/" target="_blank" ]。
 
-## <a id="summary"></a>摘要
+##<a id="summary"></a>摘要
 
-如這份文件所示，您可以使用原始 HTTP 要求來執行、監視和檢視 HDInsight 叢集上的 Hive 工作結果。
+如本文件所示，您可以使用未經處理的 HTTP 要求來執行、監視和檢視 HDInsight 叢集上的 Hive 工作結果。
 
-如需這篇文章中所使用 REST 介面的詳細資訊，請參閱 [WebHCat 參照](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference)。
+如需本文中所使用 REST 介面的詳細資訊，請參閱 [[WebHCat 參照](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference)]。
 
-## <a id="nextsteps"></a>後續步驟
+##<a id="nextsteps"></a>後續步驟
 
 如需 HDInsight 中 MapReduce 工作的一般資訊。
 
@@ -113,4 +113,4 @@ Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 
 * [搭配使用 Hive 與 HDInsight 上的 Hadoop](../hdinsight-use-hive/)
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](../hdinsight-use-pig/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

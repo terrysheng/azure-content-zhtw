@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="如何從媒體服務傳遞串流內容" 
 	description="了解如何建立定位器，用來建置串流 URL。程式碼使用 REST API。" 
 	authors="juliako" 
@@ -17,22 +17,22 @@
 	ms.author="juliako"/>
 
 
-# 作法：傳遞串流內容
+#作法：傳遞串流內容
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow)和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow)系列的一部分。  
+這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow) 系列的一部分。  
 
-## 概觀
+##概觀
 
 
-您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。[將資產編碼](../media-services-rest-encode-asset)主題示範如何編碼成調適性位元速率 MP4 集。建立定位器之前，您應該如[這個](../media-services-rest-configure-asset-delivery-policy)主題中所述，設定資產傳遞原則。 
+您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。[將資產編碼](../media-services-rest-encode-asset) 主題說明如何編碼為調適性位元速率 MP4 集。建立定位器之前，您應該依[此]主題所述設定資產傳遞原則(../media-services-rest-configure-asset-delivery-policy) 。 
 
-您也可以使用隨選串流定位器，建立指向可以漸進式下載之 MP4 檔案的 URL。  
+您也可以使用隨選串流定位器來建置指向可漸進式下載之 MP4 檔案的 URL。  
 
 本主題說明如何建立隨選串流定位器以發佈資產及建置 Smooth、MPEG DASH 和 HLS 串流 URL。它也會示範如何建置漸進式下載 URL。
 
 [下列](#types) 一節顯示 REST 呼叫會使用其值的列舉類型。   
   
-## 建立隨選串流定位器
+##建立隨選串流定位器
 
 若要建立隨選串流定位器並取得 URL，您需要執行下列動作：
 
@@ -45,7 +45,7 @@
    4. 建置資訊清單檔或 MP4 檔案的 URL。 
 
 
-### 建立存取原則
+###建立存取原則
 
 要求：
 		
@@ -82,7 +82,7 @@
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#AccessPolicies/@Element","Id":"nb:pid:UUID:69c80d98-7830-407f-a9af-e25f4b0d3e5f","Created":"2015-02-18T06:52:09.8862191Z","LastModified":"2015-02-18T06:52:09.8862191Z","Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 
-### 建立隨選串流定位器
+###建立隨選串流定位器
 
 建立指定資產和資產原則的定位器。
 
@@ -121,7 +121,7 @@
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#Locators/@Element","Id":"nb:lid:UUID:be245661-2bbd-4fc6-b14f-9cf9a1492e5e","ExpirationDateTime":"2015-03-20T06:34:47.267872+00:00","Type":2,"Path":"http://amstest1.streaming.mediaservices.windows.net/be245661-2bbd-4fc6-b14f-9cf9a1492e5e/","BaseUri":"http://amstest1.streaming.mediaservices.windows.net","ContentAccessComponent":"be245661-2bbd-4fc6-b14f-9cf9a1492e5e","AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872+00:00","Name":null}
 
-### 建置串流 URL
+###建置串流 URL
 
 使用建立定位器之後傳回的 **Path** 值建置 Smooth、HLS 和 MPEG DASH URL。 
 
@@ -146,7 +146,7 @@ DASH：**Path** + 資訊清單檔案名稱 + "/manifest(format=mpd-time-csf)"
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-### 建置漸進式下載 URL
+###建置漸進式下載 URL
 
 使用建立定位器之後傳回的 **Path** 值建置漸進式下載 URL。   
 
@@ -156,7 +156,7 @@ URL：**Path** + 資產檔案 MP4 名稱
 
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-## <a id="types"></a>列舉類型
+##<a id="types"></a>列舉類型
 
     [Flags]
     public enum AccessPermissions
@@ -174,4 +174,4 @@ URL：**Path** + 資產檔案 MP4 名稱
         Sas = 1,
         OnDemandOrigin = 2,
     }
-<!--HONumber=45--> 
+<!--HONumber=47-->

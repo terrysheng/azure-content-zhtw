@@ -20,20 +20,6 @@
 
 本指南示範如何在 Azure 上透過 Twilio API 服務執行常見的程式設計工作。涵蓋的案例包括打電話和傳送簡訊 (SMS)。如需有關如何在應用程式中使用 Twilio 語音和 SMS 的詳細資訊，請參閱[後續步驟](#NextSteps) 一節。
 
-## 目錄
-* [什麼是 Twilio？](#WhatIs)
-* [Twilio 定價](#Pricing)
-* [概念](#Concepts)
-* [建立 Twilio 帳戶](#CreateAccount)
-* [驗證電話號碼](#VerifyPhoneNumbers)
-* [建立 Java 應用程式](#create_app)
-* [設定應用程式以使用 Twilio 程式庫](#configure_app)
-* [做法：撥出電話](#howto_make_call)
-* [做法：傳送簡訊](#howto_send_sms)
-* [做法：從您自己的網站提供 TwiML 回應](#howto_provide_twiml_responses)
-* [做法：使用其他 Twilio 服務](#AdditionalServices)
-* [後續步驟](#NextSteps)
-
 <h2><a id="WhatIs"></a>什麼是 Twilio？</h2>
 Twilio 是一種電話語音 Web 服務 API，能夠讓您使用現有的 Web 語言和技術建立語音和 SMS 應用程式。Twilio 算是協力廠商服務 (並非 Azure 功能，也並非 Microsoft 產品)。
 
@@ -52,21 +38,21 @@ API 採用 Twilio 動詞。例如，**&lt;Say&gt;** 動詞指示 Twilio 在通�
 
 以下是 Twilio 動詞清單。
 
-* **&lt;Dial&gt;**:使撥號者接通另一支電話。
+* **&lt;Dial&gt;**：使撥號者接通另一支電話。
 * **&lt;Gather&gt;**:收集電話按鍵上輸入的號碼。
-* **&lt;Hangup&gt;**:結束通話。
-* **&lt;Play&gt;**:播放音訊檔案。
-* **&lt;Pause&gt;**:靜候一段指定的秒數。
-* **&lt;Record&gt;**:錄製來電者的語音並傳回含有錄音的檔案 URL。
-* **&lt;Redirect&gt;**:將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
-* **&lt;Reject&gt;**:拒絕 Twilio 號碼的來電而不計費
-* **&lt;Say&gt;**:將來電的文字轉換成語音。
-* **&lt;Sms&gt;**:傳送簡訊。
+* **&lt;Hangup&gt;**：結束通話。
+* **&lt;Play&gt;**：播放音訊檔案。
+* **&lt;Pause&gt;**：靜候一段指定的秒數。
+* **&lt;Record&gt;**：錄製來電者的語音並傳回含有錄音的檔案 URL。
+* **&lt;Redirect&gt;**：將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
+* **&lt;Reject&gt;**：拒絕 Twilio 號碼的來電而不計費
+* **&lt;Say&gt;**：將來電的文字轉換成語音。
+* **&lt;Sms&gt;**：傳送簡訊。
 
 <h3><a id="TwiML"></a>TwiML</h3>
 TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如何處理來電或簡訊。
 
-例如，下列 TwiML 範例可將文字 **Hello World** 轉換為語音。
+例如，下列 TwiML 可將文字 **Hello World** 轉換為語音。
 
     <?xml version="1.0" encoding="UTF-8" ?>
     <Response>
@@ -106,7 +92,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
     import="com.twilio.sdk.resource.instance.*"
 端視要使用的 Twilio 封裝或類別而定，您的 **import** 陳述式可能不同。
 
-<h2><a id="howto_make_call"></a>作法：撥出電話</h2>
+<h2><a id="howto_make_call"></a>做法：撥出電話</h2>
 以下顯示如何使用 **CallFactory** 類別撥出電話。此程式碼也使用 Twilio 提供的網站來傳回 Twilio 標記語言 (TwiML) 回應。使用您的值取代 **From** 與 **To** 電話號碼，並確定您已先驗證 Twilio 帳戶的 **From** 電話號碼，再執行程式碼。
 
     // Use your account SID and authentication token instead
@@ -141,7 +127,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 
 如前所述，此程式碼使用 Twilio 提供的網站來傳回 TwiML 回應。您可以改用自己的網站提供 TwiML 回應；如需詳細資訊，請參閱[如何在 Azure 上的 Java 應用程式中提供 TwiML 回應](#howto_provide_twiml_responses)。
 
-<h2><a id="howto_send_sms"></a>作法：傳送簡訊</h2>
+<h2><a id="howto_send_sms"></a>做法：傳送簡訊</h2>
 以下顯示如何使用 **SmsFactory** 類別傳送 SMS 訊息。**From** 號碼 **4155992671** 是 Twilio 提供來傳送 SMS 訊息的試用帳戶。執行程式碼之前，必須驗證您 Twilio 帳戶的 **To** 號碼。
 
     // Use your account SID and authentication token instead
@@ -168,8 +154,8 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
         
 如需 **SmsFactory.create** 方法中傳遞之參數的詳細資訊，請參閱 [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms]。
 
-<h2><a id="howto_provide_twiml_responses"></a>作法：從您自己的網站提供 TwiML 回應</h2>
-當您的應用程式呼叫 Twilio API 時 (例如透過 **CallFactory.create** 方法)，Twilio 將傳送您的要求到應該傳送 TwiML 回應的 URL。前述範例使用 Twilio 提供的 URL [http://twimlets.com/message][twimlet_message_url]。(雖然 TwiML 是針對供 Web 服務使用而設計，但您可以在瀏覽器中檢視 TwiML。例如，按一下[http://twimlets.com/message][twimlet_message_url]可查看空白 **&lt;Response&gt;** 元素。另一個範例中，按一下[http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] 可查看包含 **&lt;Say&gt;** 元素的 **&lt;Response&gt;** 元素。)
+<h2><a id="howto_provide_twiml_responses"></a>做法：從您自己的網站提供 TwiML 回應</h2>
+當您的應用程式呼叫 Twilio API 時 (例如透過 **CallFactory.create** 方法)，Twilio 將傳送您的要求到應該傳送 TwiML 回應的 URL。前述範例使用 Twilio 提供的 URL [http://twimlets.com/message][twimlet_message_url]。(雖然 TwiML 是針對供 Web 服務使用而設計，但您可以在瀏覽器中檢視 TwiML。例如，按一下 [http://twimlets.com/message][twimlet_message_url] 可查看任何空白 **&lt;Response&gt;** 元素。另一個範例中，按一下 [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] 可查看包含 **&lt;Say&gt;** 元素的 **&lt;Response&gt;** 元素。)
 
 除了依賴 Twilio 提供的 URL，您也可以建立自己的 URL 網站來傳回 HTTP 回應。您可以使用任何語言建立會傳回 HTTP 回應的網站；本主題假設您將該 URL 裝載在 JSP 頁面中。
 
@@ -193,7 +179,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
         <Say>Good bye.</Say>
     </Response>
 
-**ApiVersion** 參數會出現在 Twilio 語音要求 (而非 SMS 要求) 中。若要查看 Twilio 語音和 SMS 要求的可用要求參數，請分別參閱 <https://www.twilio.com/docs/api/twiml/twilio_request> (英文) 及 <https://www.twilio.com/docs/api/twiml/sms/twilio_request> (英文)。**RoleName** 環境參數會隨附在 Azure 部署中。(如果您要新增自訂環境參數，以便可以從 **System.getenv** 選擇這些參數，請參閱[其他角色組態設定][misc_role_config_settings]的環境變數一節。)
+**ApiVersion** 參數會出現在 Twilio 語音要求 (而非 SMS 要求) 中。若要查看 Twilio 語音和 SMS 要求的可用要求參數，請分別參閱 <https://www.twilio.com/docs/api/twiml/twilio_request>  及 <https://www.twilio.com/docs/api/twiml/sms/twilio_request>。**RoleName** 環境參數會隨附在 Azure 部署中。(如果您要新增自訂環境參數，以便可以從 **System.getenv** 選擇這些參數，請參閱[其他角色組態設定][misc_role_config_settings]的環境變數一節。)
 
 設定 JSP 頁面來提供 TwiML 回應之後，請使用 JSP 頁面的 URL 作為傳遞到 **CallFactory.create** 方法的 URL。例如，如果將名稱為 MyTwiML 的 Web 應用程式部署到 Azure 代管的服務，而且 JSP 頁面的名稱是 mytwiml.jsp，則可以將 URL 傳遞到 **CallFactory.create**，如下所示：
 
@@ -210,7 +196,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 
 如需關於透過 Java 在 Azure 中使用 Twilio 的詳細資訊，請參閱[如何從 Azure 中的 Java 應用程式使用 Twilio 撥打電話][howto_phonecall_java]。
 
-<h2><a id="AdditionalServices"></a>作法：使用其他 Twilio 服務</h2>
+<h2><a id="AdditionalServices"></a>做法：使用其他 Twilio 服務</h2>
 除了此處所示的範例以外，Twilio 還提供網頁式 API，方便您從 Azure 應用程式中充份利用其他 Twilio 功能。如需完整詳細資料，請參閱 [Twilio API 文件] [twilio_api_documentation]。
 
 <h2><a id="NextSteps"></a>後續步驟</h2>
@@ -246,4 +232,4 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!--HONumber=45-->
+<!--HONumber=47-->

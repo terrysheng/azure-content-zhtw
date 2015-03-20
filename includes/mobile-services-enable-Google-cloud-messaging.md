@@ -1,11 +1,11 @@
 ﻿
-1. 瀏覽至 <a href="http://cloud.google.com/console" target="_blank">Google 雲端主控台</a> 網站、使用 Google 帳戶認證登入，然後按一下 [**建立專案**]。
+1. 瀏覽至 <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> 網站，使用 Google 帳戶認證登入，然後按一下 [建立專案]****。
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
 
-	>[AZURE.NOTE]如果您現已有專案，登入後會將您重新導向至 [<strong>專案</strong>] 頁面。若要從 [儀表板] 建立新的專案，請展開 [<strong>API 專案</strong>]，按一下 [<strong>其他專案</strong>] 下的 [<strong>建立...</strong> ]，然後輸入專案名稱，再按一下 [<strong>建立專案</strong>]。
+	>[AZURE.NOTE]如果您現已有專案，登入後會將您重新導向至 [專案]<strong></strong 頁面。若要從 [儀表板] 建立新的專案，請展開 [API 專案]<strong></strong>，並按一下 [其他專案]<strong></strong 下的 [建立...]<strong></strong，然後輸入專案名稱，並按一下 [建立專案]<strong></strong>。
 
-2. 輸入專案名稱，接受服務條款，然後按一下 [**建立**]。如果有要求，請執行簡訊驗證，再重新按一下 [**建立**]。
+2. 輸入專案名稱，接受服務條款，然後按一下 [建立]**。如果有要求，請執行簡訊驗證，再重新按一下 [**建立**]。
 
 3. 記下 [**專案**] 區段中的專案號碼。 
 
@@ -30,4 +30,4 @@
 	您將使用此 API 金鑰值，讓行動服務能夠使用 GCM 進行驗證，並代表您的應用程式傳送推播通知。
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -16,25 +16,25 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# 使用 Pig 命令執行 Pig 工作 (遠端桌面)
+#使用 Pig 命令執行 Pig 工作 (遠端桌面)
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
 本文件逐步解說如何使用 Pig 命令，以互動方式或批次工作形式在 HDInsight 叢集上的 Linux 型 Hadoop 上執行 Pig Latin 陳述式。Pig Latin 可讓您透過描述資料轉換來建立 MapReduce 應用程式，而不是建立對應和縮減函數。
 
-## <a id="prereq"></a>必要條件
+##<a id="prereq"></a>必要條件
 
-若要完成這篇文章中的步驟，您需要下列項目。
+若要完成本文中的步驟，您需要下列項目。
 
 * Windows 型 HDInsight (HDInsight 上的 Hadoop) 叢集
 
 * Windows 7、8 或 10 用戶端
 
-## <a id="connect"></a>使用遠端桌面連線
+##<a id="connect"></a>使用遠端桌面連線
 
-啟用 HDInsight 叢集的遠端桌面，然後依照下列項目上的指示與其連線： <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>。
+依照<a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>中的指示，為 HDInsight 叢集啟用「遠端桌面」，然後進行連線。
 
-## <a id="pig"></a>使用 Pig 命令
+##<a id="pig"></a>使用 Pig 命令
 
 2. 連線之後，請使用桌面上的圖示啟動 [**Hadoop 命令列**]。
 
@@ -56,7 +56,7 @@
 
 		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 
-	轉換之後，您可以使用 **DUMP** 來檢視資料。在此情況下，是 `DUMP LEVELS;`。
+	轉換之後，您可以使用 **DUMP** 來檢視資料。在此案例中為 `DUMP LEVELS;`。
 
 5. 使用下列陳述式，繼續套用轉換。使用 `DUMP` 檢視每個步驟後的轉換結果。
 
@@ -88,7 +88,7 @@
 
 		QUIT;
 
-### Pig Latin 批次檔
+###Pig Latin 批次檔
 
 您也可以使用 Pig 命令執行檔案中所含的 Pig Latin。
 
@@ -117,11 +117,11 @@
 		(ERROR,6)
 		(FATAL,2)
 
-## <a id="summary"></a>摘要
+##<a id="summary"></a>摘要
 
 如您所見，Pig 命令可讓您使用 Pig Latin 以互動方式執行 MapReduce 工作，以及執行批次檔中所儲存的陳述式。
 
-## <a id="nextsteps"></a>後續步驟
+##<a id="nextsteps"></a>後續步驟
 
 如需 HDInsight 中 Pig 的一般資訊。
 
@@ -132,4 +132,4 @@
 * [搭配使用 Hive 與 HDInsight 上的 Hadoop](../hdinsight-use-hive/)
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](../hdinsight-use-mapreduce/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

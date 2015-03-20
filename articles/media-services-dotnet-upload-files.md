@@ -18,10 +18,10 @@
 
 
 
-# 使用 .NET 將檔案上傳至媒體服務帳戶
+#使用 .NET 將檔案上傳至媒體服務帳戶
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-這篇文章屬於[要求工作流程上的媒體服務視訊](../media-services-video-on-demand-workflow)系列。 
+這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 系列的一部分。 
 
 在媒體服務中，您可以將數位檔案上傳 (或內嵌) 到資產。**Asset** 實體可以包含視訊、音訊、影像、縮圖集合、文字播放軌和隱藏式輔助字幕檔案 (和這些檔案的中繼資料。)上傳檔案之後，您的內容會安全地儲存在雲端，以進一步進行處理和串流處理。
 
@@ -29,8 +29,8 @@
 
 建立資產時，您可以指定下列加密選項。 
 
-- **None** - 不使用加密。這是預設值。請注意，使用此選項時，您的內容在傳輸或儲存體中靜止時不會受到保護。
-如果您想要使用漸進式下載來傳遞 MP4，請使用此選項。 
+- **None** - 不使用加密。這是預設值。請注意，使用這個選項時，您的內容在傳輸中或在儲存體中不受保護。
+如果您計劃使用漸進式下載傳遞 MP4，請使用此選項。 
 - **CommonEncryption** - 如果您上傳的內容已經受到一般加密或 PlayReady DRM (例如，受到 PlayReady DRM 保護的 Smooth Streaming) 的加密保護，請使用此選項。
 - **EnvelopeEncrypted** - 如果您上傳以 AED 加密的 HLS，請使用此選項。請注意，檔案必須由 Transform Manager 進行編碼和加密。
 - **StorageEncrypted** - 使用 AES-256 位元加密對您的內容進行本機加密，接著上傳到已靜止加密儲存的 Azure 儲存體。以儲存體加密保護的資產會自動解除加密並在編碼前放置在加密的檔案系統中，並且會在上傳為新輸出資產之前選擇性地重新編碼。儲存體加密的主要使用案例是讓您可以使用強式加密來保護磁碟中靜止的高品質輸入媒體檔。
@@ -41,7 +41,7 @@
 
 如果您指定使用 **StorageEncrypted** 選項來加密資產，則 Media Services SDK for .NET 會建立資產的 **StorateEncrypted** **ContentKey**。
 
->[AZURE.NOTE]建置串流內容的 URL (例如，http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters) 時，媒體服務會使用 IAssetFile.Name 屬性的值。基於這個理由，不允許 percent-encoding。**Name** 屬性的值不能有下列任何 [percent-encoding-reserved 字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。而且，副檔名只能有一個 '.'。
+>[AZURE.NOTE]媒體服務在建置串流內容的 URL 時使用 IAssetFile.Name 屬性的值 (例如，http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters)。基於這個理由，不允許 percent-encoding。**Name** 屬性的值不能有下列任何 [percent-encoding-reserved 字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。而且，副檔名只能有一個 '.'。
 
 本主題顯示如何使用 Media Services .NET SDK 以及 Media Services .NET SDK 延伸模組，以將檔案上傳到媒體服務資產。
 
@@ -92,7 +92,7 @@
             return inputAsset;
 		}
 
-### 上傳多個檔案
+###上傳多個檔案
 
 下列程式碼將說明如何建立資產並上傳多個檔案。
 
@@ -179,7 +179,7 @@
  
 - 將 ParallelTransferThreadCount 保持為預設值 10。
  
-### 大量內嵌資產 
+###大量內嵌資產 
 
 上傳大型資產檔案可能會在建立資產期間造成瓶頸。大量內嵌資產或「大量內嵌」包含透過上傳程序來解除結合資產建立。若要使用大量內嵌方式，請建立可描述資產及其相關檔案的資訊清單 (IngestManifest)。然後使用您選擇的上傳方法，將相關的檔案上傳至資訊清單的 Blob 容器。Microsoft Azure 媒體服務會監看與資訊清單相關聯的 Blob 容器。將檔案上傳至 Blob 容器之後，Microsoft Azure 媒體服務會根據資訊清單 (IngestManifestAsset) 中的資產組態來完成資產建立。
 
@@ -276,7 +276,7 @@ IngestManifestAsset 會建立資產與大量 IngestManifest 的關聯，以進�
 	
 
 
-## 使用 .NET SDK 延伸模組上傳檔案 
+##使用 .NET SDK 延伸模組上傳檔案 
 
 下列範例顯示如何使用 .NET SDK 延伸模組上傳單一檔案。在此情況下，會使用 **CreateFromFile** 方法，但也會提供非同步版本 (**CreateFromFileAsync**)。**CreateFromFile** 方法可讓您指定檔案名稱、加密選項和回呼，以報告檔案的上傳進度。
 
@@ -302,9 +302,9 @@ IngestManifestAsset 會建立資產與大量 IngestManifest 的關聯，以進�
 	var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
 
-## 後續步驟
-現在，您已將資產上傳至媒體服務，請移至[如何取得媒體處理器][]主題。
+##後續步驟
+現在您已將資產上傳至媒體服務，請移至[如何取得媒體處理器][]主題。
 
 [如何取得媒體處理器]: ../media-services-get-media-processor/
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

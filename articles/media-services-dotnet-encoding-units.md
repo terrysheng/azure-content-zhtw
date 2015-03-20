@@ -19,11 +19,11 @@
 
 
 
-# 如何使用 .NET SDK 新增編碼單元
+#如何使用 .NET SDK 調整編碼
 
-這篇文章屬於[要求工作流程上的媒體服務視訊](../media-services-video-on-demand-workflow)系列。
+這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 系列的一部分。
   
-## 概觀
+##概觀
 
 媒體服務帳戶是與可決定編碼工作處理速度的保留單元類型相關聯。您可以選擇下列保留單元類型：Basic、Standard 或 Premium。例如，在執行相同編碼工作的前提下，使用 Standard 保留單元類型的速度會比 Basic 類型快。如需詳細資訊，請參閱 [Milan Gada](http://azure.microsoft.com/blog/author/milanga/)　所寫的＜編碼保留單元類型＞部落格。
 
@@ -41,14 +41,14 @@
 	
 	Console.WriteLine("Number of reserved units: {0}", encodingBasicReservedUnit.CurrentReservedUnits);
 
-## 建立支援票證
+##建立支援票證
 
 依預設，每一個媒體服務帳戶可調整為最多 25 個編碼保留單元和 5 個隨選串流保留單元。您可以建立支援票證來要求更高的限制。
 
 若要建立支援票證，請執行下列動作： 
 
 1. 在[管理入口網站](http://manage.windowsazure.com)，登入 Azure 帳戶。
-2. 移至[支援](http://azure.microsoft.com/support/contact/)。
+2. 移至[支援](http://www.windowsazure.com/support/contact/)。
 3. 按一下 [取得支援]。
 4. 選取您的訂用帳戶。
 5. 在支援類型下，選取 [技術]。
@@ -60,4 +60,4 @@
 11. 按一下 [提交] 來建立票證。
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

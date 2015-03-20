@@ -16,27 +16,27 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# 開發 Apache Storm on HDInsight 的 Java 型拓撲
+#開發 Apache Storm on HDInsight 的 Java 型拓撲
 
 了解如何使用 Maven 建立 Apache Storm on HDInsight 之 Java 型拓撲的基本程序。您將逐步進行如何使用 Maven 和 Java 建立基本字數應用程式的程序。雖然提供 Eclipse 的使用指示，但是您還是可以使用所選擇的文字編輯器。
 
 完成這份文件中的步驟之後，就會有可部署到 Apache Storm on HDInsight 的基本拓撲。
 
-## 必要條件
+##必要條件
 
-* <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank">Java Developer Kit (JDK) 第 7 版</a>
+* <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank">Java Developer Kit (JDK) 7 版</a>
 
 * <a href="https://maven.apache.org/download.cgi" target="_blank">Maven</a> - Maven 是 Java 專案的專案建置系統
 
-* 文字編輯器，例如 <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>、 <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>、 <a href="https://atom.io/" target="_blank">Atom.io</a>、 <a href="http://brackets.io/" target="_blank">Brackets.io</a>或記事本。或者，整合式開發環境 (IDE)，例如 <a href="https://eclipse.org/" target="_blank">Eclipse</a> (Luna 版或更新版本)。
+* 文字編輯器，例如 <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>、<a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>、<a href="https://atom.io/" target="_blank">Atom.io</a>、<a href="http://brackets.io/" target="_blank">Brackets.io</a> 或 [記事本]。或整合式開發環境 (IDE)，例如 <a href="https://eclipse.org/" target="_blank">Eclipse</a> (Luna 版本或更新版本)。
 
 	> [AZURE.NOTE] 您的編輯器或 IDE 可能具有處理 Eclipse 的特定功能，但未記載在這份文件中。如需編輯環境功能的詳細資訊，請參閱所使用產品的文件。
 
-## 設定環境變數
+##設定環境變數
 
 安裝 Java 和 JDK 時即會設定下列環境變數；不過，您應該確認它們存在並且包含您系統的正確值
 
-* **JAVA_HOME** - 應該指向已安裝 Java 執行階段環境 (JRE) 的目錄。例如，在 Unix 或 Linux 散發套件上，它的值應該類似 `/usr/lib/jvm/java-7-oracle`。在 Windows 上，它的值類似 `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA_HOME** - 應該指向已安裝 Java 執行階段環境 (JRE) 的目錄。例如，在 Unix 或 Linux 散發套件上，它的值應該類似 `/usr/lib/jvm/java-7-oracle`。在 Windows 上，它的值會類似 `c:\Program Files (x86)\Java\jre1.7`
 
 * **PATH** - 應該包含下列路徑：
 
@@ -46,7 +46,7 @@
 
 	* 已安裝 Maven 的目錄
 
-## 建立新的 Maven 專案
+##建立新的 Maven 專案
 
 從命令列中，使用下列命令建立名為 **WordCount** 的新 Maven 專案。
 
@@ -62,7 +62,7 @@
 
 * **src\test\java\com\microsoft\example** - 包含您應用程式的測試。在此範例中，我們不會建立測試
 
-### 移除範例程式碼
+###移除範例程式碼
 
 因為我們要從頭建立應用程式，所以請刪除產生的測試和應用程式檔案：
 
@@ -70,9 +70,9 @@
 
 *  **src\main\java\com\microsoft\example\App.java**
 
-## 新增相依性
+##新增相依性
 
-因為這是 Storm 拓撲，所以您必須新增 Storm 元件的相依性。開啟 **pom.xml**，並在 **&lt;dependencies>** 區段中新增下列程式碼。
+因為這是 Storm 拓撲，所以您必須新增 Storm 元件的相依性。開啟 **pom.xml**，並在 **&lt;dependencies>** 區段中新增下列內容。
 
 	<dependency>
 	  <groupId>org.apache.storm</groupId>
@@ -84,11 +84,11 @@
 
 在編譯期間，Maven 會使用此資訊來查閱 Maven 儲存機制中的 **storm-core**。它會先查看本機電腦上的儲存機制。如果檔案不存在，則會從公用 Maven 儲存機制進行下載，並將它們儲存在本機儲存機制中。
 
-> [AZURE.NOTE] 請記下我們在區段中新增的 `<scope>provided</scope>` 行。這會告訴 Maven 從我們建立的任何 Jar 檔案中排除 storm-core，因為系統將會予以提供。這可讓您建立的封裝更小，並確保它們使用 Storm on HDInsight 叢集上所含的 storm-core 位元。
+> [AZURE.NOTE] 請注意我們在區段中新增的 `<scope>provided</scope>` 行。這會告訴 Maven 從我們建立的任何 Jar 檔案中排除 storm-core，因為系統將會予以提供。這可讓您建立的封裝更小，並確保它們使用 Storm on HDInsight 叢集上所含的 storm-core 位元。
 
-## 建置組態
+##建置組態
 
-Maven 外掛程式可讓您自訂專案的建置階段 (例如，如何編譯專案，或如何將它封裝到 jar 檔案)。開啟 **pom.xml**，並直接在 `</project>` 行上方新增下列內容。
+Maven 外掛程式可讓您自訂專案的建置階段 (例如，如何編譯專案，或如何將它封裝到 jar 檔案)。開啟 **pom.xml**，並直接在 `</project>` 行的正上方新增下列內容。
 
 	<build>
 	  <plugins>
@@ -97,9 +97,9 @@ Maven 外掛程式可讓您自訂專案的建置階段 (例如，如何編譯專
 
 此區段將用來新增外掛程式和其他建置組態選項。
 
-### 新增外掛程式
+###新增外掛程式
 
-針對 Storm 拓撲， <a href="http://mojo.codehaus.org/exec-maven-plugin/" target="_blank">Exec 外掛程式</a> 十分有用，因為它可讓您輕鬆地在開發環境上本機執行拓撲。將下列內容新增至 **pom.xml** 的 `<plugins>` 區段，以包括 Exec 外掛程式。
+在 Storm 拓撲中，<a href="http://mojo.codehaus.org/exec-maven-plugin/" target="_blank">Exec plugin</a> 十分有用，因為它可讓您輕鬆地在開發環境上本機執行拓撲。將下列內容新增至 **pom.xml** 的 `<plugins>` 區段，以包括 Exec 外掛程式。
 
 	<plugin>
       <groupId>org.codehaus.mojo</groupId>
@@ -120,9 +120,9 @@ Maven 外掛程式可讓您自訂專案的建置階段 (例如，如何編譯專
       </configuration>
     </plugin>
 
-另一個有用的外掛程式是 <a href="http://maven.apache.org/plugins/maven-compiler-plugin/" target="_blank">Compiler 外掛程式</a>，這用來變更編譯選項。我們需要此外掛程式的主要原因是要變更 Maven 用於您應用程式之來源和目標的 Java 版本 (需要的是 1.7)。
+另一個有用的外掛程式是<a href="http://maven.apache.org/plugins/maven-compiler-plugin/" target="_blank">編譯器外掛程式</a>，這可用來變更編譯選項。我們需要此外掛程式的主要原因是要變更 Maven 用於您應用程式之來源和目標的 Java 版本 (需要的是 1.7)。
 
-在 **pom.xml** 的 `<plugins>` 區段中新增下列內容，以包括 Compiler 外掛程式並將來源和目標版本設定為 1.7。
+在 **pom.xml** 的 `<plugins>` 區段中新增下列內容，以包括編譯器外掛程式，並將來源和目標版本設定為 1.7。
 
 	<plugin>
       <groupId>org.apache.maven.plugins</groupId>
@@ -133,7 +133,7 @@ Maven 外掛程式可讓您自訂專案的建置階段 (例如，如何編譯專
       </configuration>
     </plugin>
 
-## 建立拓撲
+##建立拓撲
 
 Java 型 Storm 拓撲包含您必須編寫或參照為相依性的三個元件。
 
@@ -143,13 +143,13 @@ Java 型 Storm 拓撲包含您必須編寫或參照為相依性的三個元件�
 
 * **拓撲** - 定義如何排列 Spout 和 Bolt，並提供拓撲的進入點。
 
-### 建立 Spout
+###建立 Spout
 
-若要減少設定外部資料來源的需求，下列 Spout 只會發出隨機的句子。它是 Storm-Starter 範例 (<a href="https://github.com/apache/storm/blob/master/examples/storm-starter/" target="_blank">https://github.com/apache/storm/blob/master/examples/storm-starter/</a>) 所提供 Spout 的修改過版本。
+若要減少設定外部資料來源的需求，下列 Spout 只會發出隨機的句子。它是與 Storm-Starter 範例一起提供的 spout  修正版 (<a href="https://github.com/apache/storm/blob/master/examples/storm-starter/" target="_blank">https://github.com/apache/storm/blob/master/examples/storm-starter/</a>)。
 
 > [AZURE.NOTE] 如需從外部資料來源讀取之 Spout 的範例，請參閱下列其中一個範例。
 >
-> * <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java" target="_blank">TwitterSampleSpout</a> - 從 Twitter 讀取的範例 Spout
+> * <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java" target="_blank">TwitterSampleSpout</a> - 從 Twitter 讀取的 Spout 範例 
 >
 > * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm Kafka</a> - 從 Kafka 讀取的 Spout
 
@@ -241,7 +241,7 @@ Java 型 Storm 拓撲包含您必須編寫或參照為相依性的三個元件�
 
 > [AZURE.NOTE] 雖然此拓撲只使用一個 Spout，但是其他拓撲可能會有將資料從不同來源送入拓撲的數個 Spout。
 
-### 建立 Bolt
+###建立 Bolt
 
 Bolt 會處理資料的處理。針對此拓撲，我們會有兩個：
 
@@ -344,7 +344,7 @@ Bolt 會處理資料的處理。針對此拓撲，我們會有兩個：
 
 請用一些時間閱讀程式碼註解，以了解每個 Bolt 的運作方式
 
-### 建立拓撲
+###建立拓撲
 
 拓撲會將 Spout 和 Bolt 一起繫結至圖形，其中定義元件之間的資料流動方式。它也會提供 Storm 在叢集內建立元件的執行個體時所使用的平行處理原則提示。
 
@@ -414,7 +414,7 @@ Bolt 會處理資料的處理。針對此拓撲，我們會有兩個：
 
 請用一些時間閱讀程式碼註解，以了解拓撲的定義方式，然後提交至叢集。
 
-## 在本機測試拓撲
+##在本機測試拓撲
 
 儲存檔案之後，請使用下列命令在本機測試拓撲。
 
@@ -422,17 +422,17 @@ Bolt 會處理資料的處理。針對此拓撲，我們會有兩個：
 
 執行時，拓撲會顯示啟動資訊，然後開始顯示與下面類似的行，因為句子是從 Spout 發出，然後由 Bolt 進行處理。
 
-    15398 [Thread-16-split] INFO  backtype.storm.daemon.executor - Processing received message source: spout:10, stream: default, id: {}, [an apple a day keeps thedoctor away]]
+    15398 [Thread-16-split] INFO  backtype.storm.daemon.executor - Processing received message source: spout:10, stream: default, id:{}, [an apple a day keeps thedoctor away]]
     15398 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [an]
-    15399 [Thread-10-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [an]
+    15399 [Thread-10-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id:{}, [an]
     15399 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [apple]
-    15400 [Thread-8-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [apple]
+    15400 [Thread-8-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id:{}, [apple]
     15400 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [a]
     15399 [Thread-10-count] INFO  backtype.storm.daemon.task - Emitting: count default [an, 53]
-    15400 [Thread-12-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [a]
+    15400 [Thread-12-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id:{}, [a]
     15400 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [day]
     15400 [Thread-8-count] INFO  backtype.storm.daemon.task - Emitting: count default [apple, 53]
-    15401 [Thread-10-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id: {}, [day]
+    15401 [Thread-10-count] INFO  backtype.storm.daemon.executor - Processing received message source: split:6, stream: default, id:{}, [day]
     15401 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [keeps]
     15401 [Thread-12-count] INFO  backtype.storm.daemon.task - Emitting: count default [a, 53]
 
@@ -446,17 +446,17 @@ Bolt 會處理資料的處理。針對此拓撲，我們會有兩個：
 
 查看 Count Bolt 所發出的資料， 'apple' 已發出 53 次。只要拓撲執行，計數就會持續增加，因為會隨機反覆發出相同的句子，而且永不會重設計數。
 
-## Trident
+##Trident
 
 Trident 是 Storm 所提供且支援可設定狀態處理的高階抽象。Trident 的主要優點是它可以保證進入拓撲的每個訊息只會處理一次 - 這在原始 Java 拓撲中很難達成，但保證訊息至少會處理一次。還有其他差異，例如可以使用的內建元件，而不是建立 Bolt。事實上，Bolt 會完整取代為較不一般的元件 (例如篩選、投影和函數)。
 
 您可以利用上面的相同基本步驟，但只有程式碼不同，並使用 Maven 專案來建立 Trident 應用程式。
 
-如需 Trident 的詳細資訊，請參閱 <a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">Trident API 概觀</a>。
+如需 Trident 的詳細資訊，請參閱 [<a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">Trident API 概觀</a>]。
 
-如需 Trident 應用程式的範例，請參閱[含 Apache Storm on HDInsight 的 Twitter 趨勢主題](../hdinsight-storm-twitter-trending/)
+如需 Trident 應用程式的範例，請參閱 [含 Apache Storm on HDInsight 的 Twitter 趨勢主題](../hdinsight-storm-twitter-trending/)
 
-## 後續步驟
+##後續步驟
 
 您已經了解如何使用 Java 建立 Storm 拓撲，現在要了解如何：
 
@@ -466,4 +466,4 @@ Trident 是 Storm 所提供且支援可設定狀態處理的高階抽象。Tride
 
 * [分析含 Apache Storm on HDInsight 的 Twitter 趨勢主題](../hdinsight-storm-twitter-trending)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

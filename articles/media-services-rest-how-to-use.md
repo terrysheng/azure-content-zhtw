@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="媒體服務 REST API 概觀 - Azure" 
-	description="媒體服務 REST API 概觀 " 
+	description="媒體服務 REST API 概觀" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -30,7 +30,7 @@ Microsoft Azure 媒體服務會接受以 OData 為基礎的 HTTP 要求，而且
 <table border="1">
 <tr><th>標頭</th><th>類型</th><th>值</th></tr>
 <tr><td>Authorization</td><td>Bearer</td><td>Bearer 是唯一接受的授權機制。此值也必須包含 ACS 所提供的存取權杖。</td></tr>
-<tr><td>x-ms-version</td><td>十進位</td><td>2.8</td></tr>
+<tr><td>x-ms-version</td><td>十進位</td><td>2.9</td></tr>
 <tr><td>DataServiceVersion</td><td>十進位</td><td>3.0</td></tr>
 <tr><td>MaxDataServiceVersion</td><td>十進位</td><td>3.0</td></tr>
 </table><br/>
@@ -88,7 +88,7 @@ Microsoft Azure 媒體服務會接受以 OData 為基礎的 HTTP 要求，而且
 
 ## 探索媒體服務模型
 
-若要讓使用者更容易找到媒體服務實體，可以使用 $metadata 作業。它可讓您擷取所有有效的實體類型、實體屬性、關聯、函式、動作等等。下列範例示範如何建構 URI: https://media.windows.net/API/$metadata.
+若要讓使用者更容易找到媒體服務實體，可以使用 $metadata 作業。它可讓您擷取所有有效的實體類型、實體屬性、關聯、函式、動作等等。下列範例示範如何建構 URI： https://media.windows.net/API/$metadata。
 
 如果您想要在瀏覽器檢視中繼資料，或是未在要求中包含 x-ms-version 標頭，您應該將 "?api-version=2.x" 附加到 URI 的結尾。
 
@@ -103,4 +103,4 @@ Microsoft Azure 媒體服務會接受以 OData 為基礎的 HTTP 要求，而且
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

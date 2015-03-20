@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="在 HDInsight 中使用 Hadoop Pig | Azure"
    description="了解如何使用 .NET SDK for Hadoop 將 Pig 工作提交至 HDInsight 上的 Hadoop。"
    services="hdinsight"
@@ -16,7 +16,7 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# 使用 .NET SDK for Hadoop 執行 Pig 工作
+#使用 .NET SDK for Hadoop 執行 Pig 工作
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
@@ -24,27 +24,27 @@
 
 HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使用 HDInsight 叢集。Pig 可讓您透過建立一系列資料轉換的模型，來建立 MapReduce 作業。您將學習如何使用基本 C# 應用程式將 Pig 工作提交至 HDInsight 叢集。
 
-## <a id="prereq"></a>必要條件
+##<a id="prereq"></a>必要條件
 
-若要完成這篇文章中的步驟，您需要下列項目。
+若要完成本文中的步驟，您需要下列項目。
 
 * Azure HDInsight (HDInsight 上的 Hadoop) 叢集 (Windows 或 Linux 型)
 
 * Visual Studio 2012 或 2013
 
-## <a id="certificate"></a>建立管理憑證
+##<a id="certificate"></a>建立管理憑證
 
 若要向 Azure HDInsight 驗證應用程式，您必須建立自我簽署憑證、將它安裝在您的開發工作站上，同時將它上傳至您的 Azure 訂閱。
 
-如需如何執行這項作業的指示，請參閱 <a href="http://go.microsoft.com/fwlink/?LinkId=511138" target="_blank">建立自我簽署憑證</a>。
+如需如何執行這項作業的相關指示，請參閱 [<a href="http://go.microsoft.com/fwlink/?LinkId=511138" target="_blank">建立自我簽署的憑證</a>]。
 
 > [AZURE.NOTE] 建立憑證時，請一定要記下您使用的易記名稱，供稍後使用。
 
-## <a id="subscriptionid"></a>尋找訂閱識別碼
+##<a id="subscriptionid"></a>尋找訂閱識別碼
 
 每個 Azure 訂閱都是透過 GUID 值 (稱為訂閱識別碼) 予以識別。請使用下列步驟來尋找此值。
 
-1. 瀏覽 <a href="https://manage.windowsazure.com/" target="_blank">Azure 管理主控台</a>。
+1. 請瀏覽 <a href="https://manage.windowsazure.com/" target="_blank">Azure 管理主控台</a>。
 
 2. 從入口網站左側的列中，選取 [**設定**]。
 
@@ -52,7 +52,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 儲存訂閱識別碼，供稍後使用。
 
-## <a id="create"></a>建立應用程式
+##<a id="create"></a>建立應用程式
 
 1. 開啟 Visual Studio 2012 或 2013
 
@@ -79,7 +79,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 	</tr>
 	</table>
 
-4. 按一下 **[確定]** 以建立專案。
+4. 按一下 [確定]**** 以建立專案。
 
 5. 從 [**工具**] 功能表中，選取 [**程式庫封裝管理員**] 或 [**Nuget 封裝管理員**]，然後選取 [**封裝管理員主控台**]。
 
@@ -195,7 +195,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 7. 儲存檔案。
 
-## <a id="run"></a>執行應用程式
+##<a id="run"></a>執行應用程式
 
 使用 **F5** 啟動應用程式。出現提示時，請輸入 [**訂閱識別碼**]、[**憑證易記名稱**] 和 [**HDInsight 叢集名稱**]。應用程式會在執行時產生數行資訊，而結尾則是與下列類似的內容。
 
@@ -213,11 +213,11 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 按 **ENTER** 結束應用程式。
 
-## <a id="summary"></a>摘要
+##<a id="summary"></a>摘要
 
 如您所見，.NET SDK for Hadoop 可讓您建立 .NET 應用程式，以將 Pig 工作提交至 HDInsight 叢集、監視工作狀態，以及擷取輸出。
 
-## <a id="nextsteps"></a>後續步驟
+##<a id="nextsteps"></a>後續步驟
 
 如需 HDInsight 中 Pig 的一般資訊。
 
@@ -229,4 +229,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](../hdinsight-use-mapreduce/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

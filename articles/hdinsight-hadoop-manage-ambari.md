@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="使用 Ambari 管理 HDInsight 叢集  | Azure"
+   pageTitle="使用 Ambari 管理 HDInsight 叢集 | Aure"
    description="了解如何使用 Ambari 來監視和管理以 Linux 為基礎的 HDInsight 叢集。"
    services="hdinsight"
    documentationCenter=""
@@ -16,31 +16,31 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# 使用 Ambari 管理 HDInsight 叢集 (預覽)
+#使用 Ambari 管理 HDInsight 叢集 (預覽)
 
 了解如何使用 Ambari 管理和監視以 Linux 為基礎的 HDInsight 叢集。
 
-> [AZURE.NOTE] 本文的多數資訊僅適用於以 Linux 為基礎的 HDInsight 叢集。若為以 Windows 為基礎的 HDInsight 叢集，則只能透過 Ambari REST API 進行監視。請參閱[在 HDInsight 使用 Ambari API 監視以 Windows 為基礎的 Hadoop](../hdinsight-monitor-use-ambari-api/)。
+> [AZURE.NOTE] 本文的多數資訊僅適用於以 Linux 為基礎的 HDInsight 叢集。若為以 Windows 為基礎的 HDInsight 叢集，則只能透過 Ambari REST API 進行監視。請參閱 [在 HDInsight 使用 Ambari API 監視以 Windows 為基礎的 Hadoop]。(../hdinsight-monitor-use-ambari-api/)。
 
-## <a id="whatis"></a>什麼是 Ambari？
+##<a id="whatis"></a>什麼是 Ambari？
 
-<a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> 透過提供簡單易用的 Web UI，以供用來佈建、管理及監視 Hadoop 叢集，讓 Hadoop 管理起來更為簡單。開發人員可以使用  <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST API</a>在其應用程式中整合這些功能。 
+<a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> 提供簡單易用的 Web UI，以供用來佈建、管理及監視 Hadoop 叢集，讓 Hadoop 管理起來更為簡單。開發人員可以使用 <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST API</a> 將這些功能整合到應用程式。 
 
 以 Linux 為基礎的 HDInsight 叢集預設會提供 Ambari。以 Windows 為基礎的 HDInsight 叢集則透過 Ambari REST API 提供監視功能。
 
-## SSH Proxy
+##SSH Proxy
 
 > [AZURE.NOTE] 雖然可以直接透過網際網路存取叢集的 Ambari，但要使用某些功能則要靠存取叢集所使用之內部網域名稱的節點來達成。由於這是內部網域名稱且並未公開，因此在嘗試透過網際網路存取某些功能時會收到找不到伺服器的錯誤。
 
 若要解決這個問題，請使用 SSH 通道以 Proxy 將 Web 流量傳送到叢集前端節點，以便能夠成功解析內部網域名稱。使用下列文章從本機電腦上的連接埠建立連往叢集的 SSH 通道。
 
-* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop</a> - 使用  `ssh` 命令來建立 SSH 通道的相關步驟
+* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop</a> - 使用 `ssh` 命令建立 SSH 通道的步驟。
 
-* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop</a> - 使用 PuTTY 來建立 SSH 通道的相關步驟
+* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop</a> - 使用 PuTTY 建立 SSH 通道的步驟。
 
-## Ambari Web UI
+##Ambari Web UI
 
-您可以在所建立的每一個以 Linux 為基礎的 HDInsight 叢集上，於 **https://&lt;clustername>.azurehdinsight.net** 取得 Ambari Web UI。您也可以透過 Azure 入口網站的叢集儀表板底部的 [**Ambari Web**] 按鈕來抵達此頁面。
+您可以在建立於 **https://&lt;clustername>.azurehdinsight.net** 的每一個以 Linux 為基礎的 HDInsight 叢集上找到 Ambari Web UI。您也可以透過 Azure 入口網站的叢集儀表板底部的 [**Ambari Web**] 按鈕來抵達此頁面。
 
 ![ambari web icon](./media/hdinsight-hadoop-manage-ambari/ambari-web.png)
 
@@ -74,9 +74,9 @@
 
 * **系統管理員按鈕** - Ambari 管理、使用者設定和登出
 
-### 監控
+###監控
 
-#### Alerts
+####Alerts
 
 Ambari 提供許多警示，其可能狀態如下：
 
@@ -102,7 +102,7 @@ Ambari 提供許多警示，其可能狀態如下：
 
 ![Create alert dialog](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
-#### 叢集
+####叢集
 
 [**儀表板**] 的 [**度量**] 索引標籤包含一系列的 Widget，可讓您一目了然地輕鬆監視叢集的狀態。[**CPU 使用量**] 等數個 Widget 可在點按後提供其他資訊。
 
@@ -116,7 +116,7 @@ Ambari 提供許多警示，其可能狀態如下：
 
 ![host details](./media/hdinsight-hadoop-manage-ambari/host-details.png)
 
-#### 服務
+####服務
 
 儀表板上的 [**服務**] 提要欄位可讓您快速了解叢集上執行之服務的狀態。其中使用各種圖示來指出狀態或應採取的動作，例如需要回收服務時便會出現黃色回收符號。
 
@@ -126,7 +126,7 @@ Ambari 提供許多警示，其可能狀態如下：
 
 ![service summary information](./media/hdinsight-hadoop-manage-ambari/service-details.png)
 
-##### 快速連結
+#####快速連結
 
 某些服務會在頁面頂端顯示 [**快速連結**] 連結。此連結可用來存取服務特定的 Web UI，例如：
 
@@ -144,17 +144,17 @@ Ambari 提供許多警示，其可能狀態如下：
 > 
 > 如需搭配 HDInsight 使用 SSL 通道的資訊，請參閱下列其中一項。
 > 
-> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop</a> - 使用  `ssh` 命令來建立 SSH 通道的相關步驟
+> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop</a> - 使用 `ssh` 命令建立 SSH 通道的步驟。
 >
->* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop</a> - 使用 Putty 來建立 SSH 通道的相關步驟
+>* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop</a> - 使用 Putty 建立 SSH 通道的步驟。
 
-### 管理
+###管理
 
-#### Ambari 使用者、群組和權限
+####Ambari 使用者、群組和權限
 
 在以 Linux 為基礎的 HDInsight 預覽期間，請勿使用管理使用者、群組和權限。
 
-#### 主機
+####主機
 
 [**主機**] 頁面會列出叢集中的所有主機。若要管理主機，請遵循下列步驟。
 
@@ -190,7 +190,7 @@ Ambari 提供許多警示，其可能狀態如下：
 
 		> [AZURE.NOTE] 請勿在 HDInsight 叢集上使用此動作
 
-#### <a id="service"></a>服務
+####<a id="service"></a>服務
 
 從 [**儀表板**] 或 [**服務**] 頁面使用服務清單底部的 [**動作**] 按鈕來 [**加入**] 新服務，或 [**停止**] 和 [**啟動**] 所有服務。
 
@@ -238,7 +238,7 @@ Ambari 提供許多警示，其可能狀態如下：
 
 3. 使用顯示的欄位修改組態，然後選取 [**儲存**]。或選取先前的組態，然後選取 [**設為現用**] 以回復到先前的設定。
 
-## REST API
+##REST API
 
 Ambari Web 依賴基礎 REST API，供您運用於建立自己的管理和監視工具。雖然 API 相對簡單易用，但仍有一些要注意的 Azure 特殊事項。
 
@@ -254,4 +254,4 @@ Ambari Web 依賴基礎 REST API，供您運用於建立自己的管理和監視
 如需 REST API 的完整參考，請參閱 [Ambari API 參考 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)。
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

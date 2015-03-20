@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="使用 Visual Studio 開發 Apache Storm on HDInsight 的 C# 拓撲 | Azure"
    description="了解如何使用 HDInsight Tools for Visual Studio 在 Visual Studio 中建立簡單的字數拓撲，以使用 C# 建立 Storm 拓撲。"
    services="hdinsight"
@@ -16,33 +16,33 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# 使用 Visual Studio 開發 Apache Storm on HDInsight 的 C# 拓撲
+#使用 Visual Studio 開發 Apache Storm on HDInsight 的 C# 拓撲
 
 了解如何使用 HDInsight Tools for Visual Studio 建立 C# Storm 拓撲。這份文件逐步解說如何在 Visual Studio 中建立新的 Storm 專案、如何在本機測試該專案，以及如何部署至 Apache Storm on HDInsight 叢集。
 
 您也將學習如何建立同時使用 C# 和 Java 元件的混合式拓撲。
 
-## 必要條件
+##必要條件
 
 * 下列其中一個 Visual Studio 版本
 
-	* Visual Studio 2012，含 <a href="http://www.microsoft.com/zh-tw/download/details.aspx?id=39305" target="_blank">Update 4</a>
+	* Visual Studio 2012 含<a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">更新 4</a>
 
-	* Visual Studio 2013，含 <a href="http://www.microsoft.com/zh-tw/download/details.aspx?id=44921" target="_blank">Update 4</a> 或 <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
+	* Visual Studio 2013 含<a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">更新 4</a> 或 <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
 
-	* <a href="http://visualstudio.com/zh-tw/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
+	* <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
 
 * Azure SDK 2.5.1 或更新版本
 
-* HDInsight Tools for Visual Studio - 請參閱 <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">開始使用 HDInsight Tools for Visual Studio</a> 安裝和設定 HDInsight Tools for Visual Studio。
+* HDInsight Tools for Visual Studio - 請參閱 [<a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">開始使用 HDInsight Tools for Visual Studio</a>] 以安裝及設定 HDInsight tools for Visual Studio。
 
-* Apache Storm on HDInsight 叢集 - 請參閱 <a href="../hdinsight-storm-getting-started/" target="_blank">開始使用 Apache Storm on HDInsight</a> 以取得叢集建立步驟
+* Apache Storm on HDInsight 叢集 - 請參閱 [<a href="../hdinsight-storm-getting-started/" target="_blank">開始使用 Apache Storm on HDInsight</a>] 以取得建立叢集的步驟
 
 	> [AZURE.NOTE] HDInsight Tools for Visual Studio 目前只支援 Storm on HDInsight 叢集 3.2 版。
 
-## 建立 C# 拓撲
+##建立 C# 拓撲
 
-1. 如果您尚未安裝最新版本的 HDInsight Tools for Visual Studio，請參閱 <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">開始使用 HDInsight Tools for Visual Studio</a>。
+1. 如果您尚未安裝最新版本的 HDInsight Tools for Visual Studio，請參閱 [<a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">開始使用 HDInsight Tools for Visual Studio</a>]。
 
 2. 開啟 Visual Studio，並依序選取 [**檔案**]、[**新增**] 和 [**專案**]。
 
@@ -58,11 +58,11 @@
 
 	* **Bolt.cs** - 保留 Spout 所發出數字之計數的範例 Bolt
 
-	建立專案時，將會從下列位置下載最新 <a href="https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/" target="_blank">SCP.NET 封裝</a> ：Nuget。
+	在專案建立過程中，從 Nuget 下載最新的 <a href="https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/" target="_blank">SCP.NET 套件</a>。
 
 在下列各節中，您會將此專案修改成基本 WordCount 應用程式。
 
-### 實作 Spout
+###實作 Spout
 
 5. 開啟 **Spout.cs** - Spout 是用來將外部來源中的資料讀入拓撲。Spout 的主要元件如下：
 
@@ -132,7 +132,7 @@
 
 	請用一些時間閱讀註解，以了解此程式碼的作用。
 
-### 實作 Bolt
+###實作 Bolt
 
 1. 刪除專案中的現有 **Bolt.cs**。
 
@@ -247,7 +247,7 @@
 
 	請用一些時間閱讀程式碼，以了解此程式碼的作用。
 
-### 定義拓撲
+###定義拓撲
 
 Spout 和 Bolt 是以圖形方式排列，用以定義資料在元件之間的流動方式。此拓撲的圖形如下。
 
@@ -257,7 +257,7 @@ Spout 和 Bolt 是以圖形方式排列，用以定義資料在元件之間的�
 
 因為字數會本機保留在 Counter 執行個體中，所以我們想要確保特定單字流向相同的 Counter Bolt 執行個體，因此只能有一個執行個體追蹤特定單字。但是，針對 Splitter Bolt，哪個 Bolt 收到哪個句子並不重要，因此，我們只想要將句子負載平衡至那些執行個體。
 
-開啟 **Program.cs**。此處的重要方法是 **ITopologyBuilder**，以用來定義提交至 Storm 的拓撲。  將 **ITopologyBuilder** 的內容取代為下列內容，以實作上面所述的拓撲。
+開啟 **Program.cs**。此處的重要方法是 **ITopologyBuilder**，以用來定義提交至 Storm 的拓撲。將 **ITopologyBuilder** 的內容取代為下列內容，以實作上面所述的拓撲。
 
 		// Create a new topology named 'WordCount'
         TopologyBuilder topologyBuilder = new TopologyBuilder("WordCount");
@@ -316,7 +316,7 @@ Spout 和 Bolt 是以圖形方式排列，用以定義資料在元件之間的�
 
 請用一些時間閱讀程式碼，以了解此程式碼的作用。
 
-## 提交拓撲
+##提交拓撲
 
 1. 在 [**方案總管**] 中，於專案上按一下滑鼠右鍵，然後選取 [**提交至 Storm on HDInsight**]。
 
@@ -334,7 +334,7 @@ Spout 和 Bolt 是以圖形方式排列，用以定義資料在元件之間的�
 
 	> [AZURE.NOTE] 除非遭到終止或刪除叢集，否則 Storm 拓撲會繼續執行。
 
-## 交易式拓撲
+##交易式拓撲
 
 先前的拓撲為非交易式 - 如果拓撲中某個元件的處理失敗，則拓撲內的元件不會實作任何功能來重新執行訊息。針對範例交易式拓撲，建立新的專案，然後選取 [**Storm 範例**] 做為專案類型。
 
@@ -342,9 +342,9 @@ Spout 和 Bolt 是以圖形方式排列，用以定義資料在元件之間的�
 
 * **中繼資料快取** - Spout 必須儲存所發出資料的中繼資料，這樣一來，失敗時，就可以重新擷取和發出資料。此範例所發出的資料太少，因此為了重新執行，每個 Tuple 的原始資料都會儲存在字典中
 
-* **Ack** - 拓撲中的每個 Bolt 都可以呼叫 `this.ctx.Ack(tuple)` 來認可它已順利處理 Tuple。所有 Bolt 都已認可 Tuple 之後，即會叫用 Spout 的 `Ack` 方法。這可讓 Spout 移除用於重新執行的快取資料，因為已完全處理資料。
+* **Ack** - 拓撲中的每個 Bolt 都可以呼叫 `this.ctx.Ack(tuple)` 來認可它已順利處理 Tuple。在所有 Bolt 都已認可 Tuple 之後，即會叫用 Spout 的 `Ack` 方法。這可讓 Spout 移除用於重新執行的快取資料，因為已完全處理資料。
 
-* **Fail** - 每個 Bolt 都可以呼叫 `this.ctx.Fail(tuple)`，指出 Tuple 的處理失敗。這項失敗會傳播至 Spout 的 `Fail` 方法，在其中，可以使用快取的中繼資料來重新執行 Tuple。
+* **Fail** - 每個 Bolt 都可以呼叫 `this.ctx.Fail(tuple)`，指出 Tuple 的處理失敗。這項失敗會傳播到 Spout 的 `Fail` 方法，在其中，可以使用快取的中繼資料來重新執行 Tuple。
 
 * **序列識別碼** - 發出 Tuple 時，可以指定序列識別碼。這應該是識別用於重新執行 (Ack 和 Fail) 處理之 Tuple 的值。例如，發出資料時，[**Storm 範例**] 專案中的 Spout 會使用下列項目：
 
@@ -354,7 +354,7 @@ Spout 和 Bolt 是以圖形方式排列，用以定義資料在元件之間的�
 
 如 [**Storm 範例**] 專案中所示，在執行階段，可以根據組態來設定元件是否為交易式。
 
-## 混合式拓撲
+##混合式拓撲
 
 HDInsight Tools for Visual Studio 也可以用來建立混合式拓撲，其中，有些元件是 C#，有些則是 Java。
 
@@ -382,9 +382,9 @@ HDInsight Tools for Visual Studio 也可以用來建立混合式拓撲，其中�
 
 * **提交**拓撲至伺服器時，您必須使用 [**其他組態**] 選項指定 [**Java 檔案路徑**]。指定的路徑應該是含有 jar 檔案的目錄，而 jar 檔案包含您的 Java 類別
 
-## 疑難排解
+##疑難排解
 
-### 在本機測試拓撲
+###在本機測試拓撲
 
 雖然很容易就可以將拓撲部署至叢集，但是，在某些情況下，您可能需要在本機測試拓撲。使用下列步驟，在開發環境上本機執行和測試本文中的範例拓撲。
 
@@ -500,25 +500,25 @@ HDInsight Tools for Visual Studio 也可以用來建立混合式拓撲，其中�
 
 3. 儲存變更，然後使用 **F5** 或 [**偵錯**]、[**開始偵錯**] 啟動專案。應該會出現主控台視窗，並記錄測試進行的狀態。出現 [**測試已完成**] 之後，請按任意鍵關閉視窗。
 
-4. 使用 [**總管**]，移至含有您專案的目錄。例如，**C:\Users\&lt;your user name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**。在此目錄中，依序開啟 **Bin** 和 [**偵錯**]。您應該會看到執行測試時所產生的文字檔：sentences.txt、counter.txt 和 splitter.txt。開啟每個文字檔，並檢查資料。
+4. 使用 [**總管**]，移至含有您專案的目錄。例如，**C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**。在此目錄中，依序開啟 **Bin** 和 [**偵錯**]。您應該會看到執行測試時所產生的文字檔：sentences.txt、counter.txt 和 splitter.txt。開啟每個文字檔，並檢查資料。
 
-	> [AZURE.NOTE] 字串資料會保存為這些檔案中的十進位值的陣列。例如，**splitter.txt** 檔案中的 [[97,103,111]] 是 'and'這個字。
+	> [AZURE.NOTE] 字串資料會保存為這些檔案中的十進位值的陣列。例如，**splitter.txt** 檔案中的 [[97,103,111]] 是 'and' 這個字。
 
 雖然在本機測試基本字數應用程式相當簡單，但是真正的價值在於與外部資料來源進行通訊或執行複雜資料分析的複雜拓撲。處理這類專案時，您可能需要在元件中設定中斷點並逐步執行程式碼，以找出問題。
 
 > [AZURE.NOTE] 請一定要先將 [**專案類型**] 設回 [**類別庫**]，再部署至 Storm on HDInsight 叢集。
 
-### 記錄資訊
+###記錄資訊
 
 您可以使用 `Context.Logger`，輕鬆地記錄拓撲元件中的資訊。例如，以下會建立一個參考性記錄項目。
 
 	Context.Logger.Info("Component started");
 
-您可以從 [**Hadoop 服務記錄**] \(位於 [**伺服器總管**] 中) 檢視記錄的資訊。展開 Storm on HDInsight 叢集的項目，然後展開 [**Hadoop 服務記錄**]。最後，選取要檢視的記錄檔。
+您可以從 [**Hadoop 服務記錄**] (位於 [**伺服器總管**] 中) 檢視記錄的資訊。展開 Storm on HDInsight 叢集的項目，然後展開 [**Hadoop 服務記錄**]。最後，選取要檢視的記錄檔。
 
 > [AZURE.NOTE] 記錄會儲存在您叢集所使用的 Azure 儲存體帳戶中。如果此訂閱與您用來登入 Visual Studio 的訂閱不同，則必須登入含有儲存體帳戶的訂閱，才能檢視這項資訊。
 
-### 檢視錯誤資訊
+###檢視錯誤資訊
 
 若要檢視執行中拓撲中所發生的錯誤，請使用下列步驟。
 
@@ -531,17 +531,25 @@ HDInsight Tools for Visual Studio 也可以用來建立混合式拓撲，其中�
 3. 若要取得詳細資訊，請從頁面的 [**執行程式**] 區段中選取 [**連接埠**]，以查看最後幾分鐘的 Storm 背景工作記錄。
 
 
-## 後續步驟
+##後續步驟
 
-現在，您已經了解如何使用 HDInsight Tools for Visual Studio 開發和部署 Storm 拓撲，並了解使用 HDInsight 的其他方式。
+現在，您已經了解如何使用 HDInsight Tools for Visual Studio 來開發和部署 Storm 拓撲，接著了解如何 [搭配使用 Azure 事件中心與 Storm on HDInsight 來處理事件](../hdinsight-storm-develop-csharp-event-hub-topology/)。
+
+若要探索建立 C# 拓撲的詳細資訊，請瀏覽 [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md)。
+
+如需更多使用 HDInsight 的方式，或更多 Storm on HDinsight 範例，請參閱下列內容。
 
 **Apache Storm on HDInsight**
 
 * [使用 Apache Storm on HDInsight 部署和監視拓撲](../hdinsight-storm-deploy-monitor-topology/)
 
+* [搭配使用 Azure 事件中心與 Storm on HDInsight 來處理事件](../hdinsight-storm-develop-csharp-event-hub-topology/)
+
 * [開發 Apache Storm on HDInsight 的 Java 型拓撲](../hdinsight-storm-develop-java-topology/)
 
 * [使用 Apache Storm on HDInsight 趨勢 Twitter 的雜湊標記](../hdinsight-storm-twitter-trending/)
+
+* [Storm on HDInsight 範例](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md)
 
 **Apache Hadoop on HDInsight**
 
@@ -555,4 +563,4 @@ HDInsight Tools for Visual Studio 也可以用來建立混合式拓撲，其中�
 
 * [開始使用 HBase on HDInsight](../hdinsight-hbase-get-started/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

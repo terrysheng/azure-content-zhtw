@@ -16,15 +16,15 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# 在 Linux 上使用 HDInsight (預覽)
+#在 Linux 上使用 HDInsight (預覽)
 
 以 Linux 為基礎的 HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端中執行的 Hadoop。其操作大多與 Linux 安裝上的任何其他 Hadoop 相同。本文件會指出其中應注意的特殊不同之處。
 
-## 網域名稱
+##網域名稱
 
 連接到叢集時所要使用的完整網域名稱 (FQDN) 是 **&lt;clustername>.azurehdinsight.net** 或 (僅適用於 SSH) **&lt;clustername>.aurehdinsight.net**。
 
-## 可遠端存取的服務
+##可遠端存取的服務
 
 * **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
@@ -36,9 +36,9 @@
 
 	若要解決這個問題，請使用 SSH 通道將 Web 流量以 Proxy 處理傳輸到叢集前端節點。使用下列文章從本機電腦上的連接埠建立連往叢集的 SSH 通道。
 
-	* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop</a> - 使用  `ssh` 命令建立 SSH 通道的相關步驟
+	* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop</a> - 使用 `ssh` 命令建立 SSH 通道的步驟
 
-	* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop</a> - 使用 Putty 來建立 SSH 通道的相關步驟
+	* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop</a> - 使用 Putty 建立 SSH 通道的步驟
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
@@ -56,13 +56,13 @@
 
 	> [AZURE.NOTE] 您只能從用戶端電腦透過 SSH 存取叢集前端節點。然後在連線後，再從前端節點使用 SSH 存取背景工作節點。
 
-## 檔案位置
+##檔案位置
 
-Hadoop 相關檔案可以在叢集節點的  `/usr/hdp/current` 上找到。
+Hadoop 相關檔案可以在叢集節點的 `/usr/hdp/current` 上找到。
 
-範例資料和 jar 可以在 HDFS (WASB) 的 '/example' 或  'wasb:///example' 上找到。
+範例資料和 jar 可以在 HDFS (WASB) 的 '/example' 或 'wasb:///example' 上找到。
 
-## HDFS、WASB 和儲存體的最佳作法
+##HDFS、WASB 和儲存體的最佳作法
 
 在大部分的 Hadoop 散發套件中，是以叢集機器上的本機儲存體支援 Hadoop 分散式檔案系統 (HDFS) 的運作。這樣的方式雖有效率，但在用於雲端解決方案時則需高昂成本，因為運算資源是以每小時為單位來計費。
 
@@ -82,13 +82,13 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 
 	hadoop fs -ls wasb://mycontainer@mystorage.blob.core.windows.net/example/data
 
-### 叢集所使用的 Blob 儲存體為何？
+###叢集所使用的 Blob 儲存體為何？
 
 叢集建立期間，您會選取使用現有儲存體帳戶和容器，或是建立新的。之後您可能就忘得一乾二淨。如果要尋找儲存體帳戶和容器，您可以使用下列方法。
 
 **Azure 入口網站**
 
-1. 在 <a href="https://manage.windowsazure.com/" target="_blank">Azure 管理入口網站</a>，選取您的 HDInsight 叢集。
+1. 在 <a href="https://manage.windowsazure.com/" target="_blank">Azure 管理入口網站</a>中，選取您的 HDInsight 叢集。
 
 2. 選取頁面頂端的 [**儀表板**]。
 
@@ -100,11 +100,11 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 
 *敬請期待！*
 
-### 如何存取 Blob 儲存體？
+###如何存取 Blob 儲存體？
 
 除了透過叢集的 Hadoop 命令，還有各種不同方式可用來存取 Blob：
 
-* <a href="http://azure.microsoft.com/ documentation/articles/xplat-cli/" target="_blank">Azure 跨平台命令列介面</a> - 安裝好後，請參閱  `azure storage` 以取得使用儲存體的說明，或是參閱  `azure blob` 以了解 Blob 特有命令。
+* <a href="http://azure.microsoft.com/documentation/articles/xplat-cli/" target="_blank">Azure 跨平台命令列介面</a> - 安裝好後，請參閱 `azure storage` 以取得使用儲存體的說明，或參閱 `azure blob` 以了解 Blob 特有命令。
 
 * 各種 SDK：
 
@@ -120,14 +120,14 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 
 	* <a href="https://github.com/Azure/azure-sdk-for-net" target="_blank">.NET</a>
 
-* <a href="https://msdn.microsoft.com/zh-tw/library/azure/dd135733.aspx" target="_blank">儲存體 REST API</a>
+* <a href="https://msdn.microsoft.com/library/azure/dd135733.aspx" target="_blank">儲存體 REST API</a>
 
 
-## 後續步驟
+##後續步驟
 
-* [搭配 HDInsight 使用 Hive](../hdinsight-use-hive/)
+* [使用 Hive 搭配 HDInsight](../hdinsight-use-hive/)
 * [搭配 HDInsight 使用 Pig](../hdinsight-use-pig/)
 * [搭配 HDInsight 使用 MapReduce 工作](../hdinsight-use-mapreduce)
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

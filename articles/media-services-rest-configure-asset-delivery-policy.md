@@ -16,12 +16,12 @@
 	ms.date="02/06/2015" 
 	ms.author="juliako"/>
 
-# 作法：設定資產傳遞原則
+#作法：設定資產傳遞原則
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow)和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow)系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow) 系列的一部分。 
 
-媒體服務內容傳遞工作流程中的其中一個步驟是為您想要進行串流處理的資產設定傳遞原則。資產傳遞原則會告訴媒體服務您想要如何傳遞資產：您的資產應該動態封裝成哪個串流通訊協定 (如 MPEG DASH、HLS、Smooth Streaming 或所有)，您是否想要動態加密您的資產及其方式 (信封或一般加密)。 
+媒體服務內容傳遞工作流程的其中一個步驟，是設定您要進行串流處理之資產的傳遞原則。資產傳遞原則會告訴媒體服務您想要如何傳遞資產：您的資產應該動態封裝成哪個串流通訊協定 (如 MPEG DASH、HLS、Smooth Streaming 或所有)，您是否想要動態加密您的資產及其方式 (信封或一般加密)。 
 
 本主題討論建立和設定資產傳遞原則的原因與方法。 
 
@@ -53,21 +53,21 @@ HDS
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
-如需有關如何發行資產，並建置串流 URL 的指示，請參閱[建置串流 URL](../media-services-deliver-streaming-content)。
+如需有關如何發佈資產，並建置串流 URL 的指示，請參閱[建置串流 URL](../media-services-deliver-streaming-content)。
 
 >[AZURE.NOTE] 使用媒體服務 REST API 時，適用下列考量事項：
 >
 >在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發的設定](../media-services-rest-how-to-use)。
 
->順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務](../media-services-rest-connect_programmatically/)中所述。 
+>順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務]中所述(../media-services-rest-connect_programmatically/)。 
 
 
-## 清除資產傳遞原則 
+##清除資產傳遞原則 
 
-### <a id="create_asset_delivery_policy"></a>建立資產傳遞原則
-下列 HTTP 要求會建立資產傳遞原則，指定不要套用動態加密且以下列任何通訊協定傳遞串流。MPEG DASH、HLS 和 Smooth Streaming 通訊協定。 
+###<a id="create_asset_delivery_policy"></a>建立資產傳遞原則
+下列 HTTP 要求會建立資產傳遞原則，指定不要套用動態加密且以下列任何通訊協定傳遞串流：MPEG DASH、HLS 和 Smooth Streaming 通訊協定。 
 
-如需建立 AssetDeliveryPolicy 時可以指定之值的相關資訊，請參閱[定義 AssetDeliveryPolicy 時使用的類型](#types) 一節。   
+如需建立 AssetDeliveryPolicy 時可以指定之值的相關資訊，請參閱[定義 AssetDeliveryPolicy 時使用的類型](#types) 小節。   
 
 
 要求：
@@ -114,7 +114,7 @@ HDS
 	"Created":"2015-02-08T06:21:27.6908329Z",
 	"LastModified":"2015-02-08T06:21:27.6908329Z"}
 	
-### <a id="link_asset_with_asset_delivery_policy"></a>連結資產與資產傳遞原則
+###<a id="link_asset_with_asset_delivery_policy"></a>連結資產與資產傳遞原則
 
 下列 HTTP 要求會將指定的資產連結至資產傳遞原則。
 
@@ -138,14 +138,14 @@ HDS
 	HTTP/1.1 204 No Content
 
 
-## DynamicEnvelopeEncryption 資產傳遞原則 
+##DynamicEnvelopeEncryption 資產傳遞原則 
 
-### 建立 EnvelopeEncryption 類型的內容金鑰，並將它連結到資產
+###建立 EnvelopeEncryption 類型的內容金鑰，並將它連結到資產
 
 當指定 DynamicEnvelopeEncryption 傳遞原則時，您必須將資產連結到 EnvelopeEncryption 類型的內容金鑰。如需詳細資訊，請參閱：[建立內容金鑰](../media-services-rest-create-contentkey))。
 
 
-### <a id="get_delivery_url"></a>取得傳遞 URL
+###<a id="get_delivery_url"></a>取得傳遞 URL
 
 針對前一個步驟中建立的內容金鑰的指定傳遞方法，取得傳遞 URL。用戶端會使用傳回的 URL 要求 AES 金鑰或 PlayReady 授權，以便播放受保護的內容。
 
@@ -184,12 +184,12 @@ HDS
 	{"odata.metadata":"media.windows.net/api/$metadata#Edm.String","value":"https://amsaccount1.keydelivery.mediaservices.windows.net/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"}
 
 
-### 建立資產傳遞原則
+###建立資產傳遞原則
 
 下列 HTTP 要求會建立 **AssetDeliveryPolicy**，它設定為套用動態信封加密 (**DynamicEnvelopeEncryption**) 到 **HLS** 通訊協定 (在此範例中，其他通訊協定將會被封鎖，無法串流)。 
 
 
-如需建立 AssetDeliveryPolicy 時可以指定之值的相關資訊，請參閱[定義 AssetDeliveryPolicy 時使用的類型](#types) 一節。   
+如需建立 AssetDeliveryPolicy 時可以指定之值的相關資訊，請參閱[定義 AssetDeliveryPolicy 時使用的類型](#types) 小節。   
 
 要求：
 
@@ -227,26 +227,26 @@ HDS
 	{"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
 
 
-### 連結資產與資產傳遞原則
+###連結資產與資產傳遞原則
 
 請參閱[連結資產與資產傳遞原則](#link_asset_with_asset_delivery_policy)
 
-## DynamicCommonEncryption 資產傳遞原則 
+##DynamicCommonEncryption 資產傳遞原則 
 
-### 建立 CommonEncryption 類型的內容金鑰，並將它連結到資產
+###建立 CommonEncryption 類型的內容金鑰，並將它連結到資產
 
 當指定 DynamicCommonEncryption 傳遞原則時，您必須將資產連結到 CommonEncryption 類型的內容金鑰。如需詳細資訊，請參閱：[建立內容金鑰](../media-services-rest-create-contentkey))。
 
 
-### 取得傳遞 URL
+###取得傳遞 URL
 
 針對前一個步驟中建立的內容金鑰的 PlayReady 傳遞方法，取得傳遞 URL。用戶端會使用傳回的 URL 要求 PlayReady 授權，以便播放受保護的內容。如需詳細資訊，請參閱[取得傳遞 URL](#get_delivery_url)。
 
-### 建立資產傳遞原則
+###建立資產傳遞原則
 
 下列 HTTP 要求會建立 **AssetDeliveryPolicy**，它設定為套用動態一般加密 (**DynamicCommonEncryption**) 到 **Smooth Streaming** 通訊協定 (在此範例中，其他通訊協定將會被封鎖，無法串流)。 
 
-如需建立 AssetDeliveryPolicy 時可以指定之值的相關資訊，請參閱[定義 AssetDeliveryPolicy 時使用的類型](#types) 一節。   
+如需建立 AssetDeliveryPolicy 時可以指定之值的相關資訊，請參閱[定義 AssetDeliveryPolicy 時使用的類型](#types) 小節。   
 
 
 要求：
@@ -266,14 +266,14 @@ HDS
 	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
-### 連結資產與資產傳遞原則
+###連結資產與資產傳遞原則
 
 請參閱[連結資產與資產傳遞原則](#link_asset_with_asset_delivery_policy)
 
 
-## <a id="types"></a>定義 AssetDeliveryPolicy 時使用的類型
+##<a id="types"></a>定義 AssetDeliveryPolicy 時使用的類型
 
-### <a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
+###AssetDeliveryProtocol 
 
     /// <summary>
     /// Delivery protocol for an asset delivery policy.
@@ -312,7 +312,7 @@ HDS
         All = 0xFFFF
     }
 
-### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
+###AssetDeliveryPolicyType
 
     /// <summary>
     /// Policy type for dynamic encryption of assets.
@@ -346,7 +346,7 @@ HDS
         DynamicCommonEncryption
     }
 
-### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+###ContentKeyDeliveryType
 
     /// <summary>
     /// Delivery method of the content key to the client.
@@ -369,7 +369,7 @@ HDS
         BaselineHttp
     }
 
-### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
+###AssetDeliveryPolicyConfigurationKey
 
     /// <summary>
     /// Keys used to get specific configuration for an asset delivery policy.
@@ -412,4 +412,4 @@ HDS
         EnvelopeEncryptionIV,
     }
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

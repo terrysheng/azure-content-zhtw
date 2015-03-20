@@ -22,21 +22,21 @@
 
 在本文中，您將學習如何使用遠端桌面連接到 HDInsight 叢集，然後使用 Hive 命令列介面 (CLI) 執行 Hive 查詢。
 
-> [AZURE.NOTE] 這份文件不提供範例中使用的 HiveQL 陳述式所執行的工作詳細的描述。如需此範例中使用的 HiveQL 的資訊，請參閱 <a href="../hdinsight-use-hive/" target="_blank">搭配使用 Hive 與 HDInsight 上的 Hadoop</a>。
+> [AZURE.NOTE] 這份文件不提供範例中使用 HiveQL 陳述式的執行工作詳細描述。如需此範例中使用的 HiveQL 相關資訊，請參閱 [<a href="../hdinsight-use-hive/" target="_blank">搭配使用 Hive 與 HDInsight 上的 Hadoop</a>]。
 
-## <a id="prereq"></a>必要條件
+##<a id="prereq"></a>必要條件
 
-若要完成這篇文章中的步驟，您需要下列項目。
+若要完成本文中的步驟，您需要下列項目。
 
 * Windows 型 HDInsight (HDInsight 上的 Hadoop) 叢集
 
 * Windows 7 或更新版本的用戶端作業系統
 
-## <a id="connect"></a>使用遠端桌面連線
+##<a id="connect"></a>使用遠端桌面連線
 
-啟用 HDInsight 叢集的遠端桌面，然後依照下列項目上的指示與其連線： <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>。
+依照<a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>中的指示，為 HDInsight 叢集啟用「遠端桌面」，然後進行連線。
 
-## <a id="hive"></a>使用 Hive 命令
+##<a id="hive"></a>使用 Hive 命令
 
 連線到 HDInsight 叢集的桌面之後，請使用下列步驟來使用 Hive。
 
@@ -46,7 +46,7 @@
 
         %hive_home%\bin\hive
 
-    啟動 CLI 之後，將會看到 Hive CLI 提示字元 - `hive>`。
+    啟動 CLI 之後，您將會看到 Hive CLI 提示字元 - `hive>`。
 
 3. 使用 CLI，輸入下列陳述式，以使用範例資料來建立名為 **log4jLogs** 的新資料表。
 
@@ -60,20 +60,20 @@
 
     * **DROP TABLE** - 刪除資料表和資料檔 (如果資料表已存在)
     
-    * **CREATE EXTERNAL TABLE** - 在 Hive 中建立新的 'external' 資料表。外部資料表只會在 Hive 中儲存資料表定義 - 資料會保留在原始的位置
+    * **CREATE EXTERNAL TABLE** - 在 Hive 中建立新的「 '外部'」資料表。外部資料表只會在 Hive 中儲存資料表定義 - 資料會保留在原始的位置
 
 		> [AZURE.NOTE] 當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。
     	>
-    	> 捨棄外部資料表並**不會** 刪除資料，只會刪除資料表定義。
+    	> 捨棄外部資料表並「**不會**」刪除資料，只會刪除資料表定義。
     
 	* **ROW FORMAT** - 告訴 Hive 如何格式化資料。在此情況下，會以一個空格區隔每個記錄中的欄位
 	
-    * **STORED AS TEXTFILE LOCATION** - 將資料的儲存位置告訴 Hive (example/data 目錄)，且資料儲存為文字
+    * **STORED AS TEXTFILE LOCATION** - 將資料的儲存位置告訴 Hive (example/data 目錄)，並將資料儲存為文字
     
-    * **SELECT** - 選取的資料欄 **t4** 其中包含值 **[ERROR]** 的所有資料列計數。這應該會傳回值 **3**，因為有 3 個資料列包含此值
+    * **SELECT** - 選擇其資料欄 **t4** 包含值 **[ERROR]** 的所有資料列計數。這應該會傳回值 **3**，因為有 3 個資料列包含此值
 
 
-4. 使用下列陳述式來建立名為 **errorLogs** 的新 'internal' 資料表。
+4. 使用下列陳述式建立名為 **errorLogs** 的新「 '內部'」資料表 。
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
@@ -88,17 +88,17 @@
     
     * **INSERT OVERWRITE ...SELECT** - 從 **log4jLogs** 資料表中選取含有 **[ERROR]** 的資料列，然後將資料插入至 **errorLogs** 資料表
 
-    若要確認只將資料欄 t4 中包含 **[ERROR]** 的資料列儲存至 **errorLogs** 資料表，請使用下列陳述式，傳回 **errorLogs** 中的所有資料列。
+    若要確認是否只有資料欄 t4 中包含 **[ERROR]** 的資料列會儲存至 **errorLogs** 資料表，請使用下列陳述式，從 **errorLogs** 傳回所有資料列。
 
         SELECT * from errorLogs;
 
     應該傳回三個資料列，且在資料欄 t4 中全部包含 **[ERROR]**。
 
-## <a id="summary"></a>摘要
+##<a id="summary"></a>摘要
 
 如您所見，Hive 命令提供簡單的方法，以互動方式在 HDInsight 叢集上執行 Hive 查詢、監視工作狀態，以及擷取輸出。
 
-## <a id="nextsteps"></a>後續步驟
+##<a id="nextsteps"></a>後續步驟
 
 如需 HDInsight 中 Hive 的一般資訊。
 
@@ -106,24 +106,24 @@
 
 如需您可以在 HDInsight 上使用 Hadoop 之其他方式的詳細資訊。
 
-* [搭配使用 Pig 與 HDInsight 上的 Hadoop ](../hdinsight-use-pig/)
+* [搭配使用 Pig 與 HDInsight 上的 Hadoop](../hdinsight-use-pig/)
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](../hdinsight-use-mapreduce/)
 
 
 [1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/zh-tw/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/ pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/ documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -145,4 +145,4 @@
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

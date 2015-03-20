@@ -16,23 +16,23 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# 使用 HDInsight Tools for Visual Studio 執行 Hive 查詢
+#使用 HDInsight Tools for Visual Studio 執行 Hive 查詢
 
 [AZURE.INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
 在本文中，您將學習如何使用 HDInsight Tools for Visual Studio，將 Hive 查詢從遠端提交至 HDInsight 叢集。
 
-> [AZURE.NOTE] 這份文件不提供範例中使用的 HiveQL 陳述式所執行的工作詳細的描述。如需此範例中使用的 HiveQL 的資訊，請參閱 <a href="../hdinsight-use-hive/" target="_blank">搭配使用 Hive 與 HDInsight 上的 Hadoop</a>。
+> [AZURE.NOTE] 這份文件不提供範例中使用 HiveQL 陳述式的執行工作詳細描述。如需此範例中使用的 HiveQL 相關資訊，請參閱 [<a href="../hdinsight-use-hive/" target="_blank">搭配使用 Hive 與 HDInsight 上的 Hadoop</a>]。
 
-## <a id="prereq"></a>必要條件
+##<a id="prereq"></a>必要條件
 
-若要完成這篇文章中的步驟，您需要下列項目。
+若要完成本文中的步驟，您需要下列項目。
 
 * Azure HDInsight (HDInsight 上的 Hadoop) 叢集 (Linux 或 Windows 型)
 
-* Visual Studio 2012 <a href="http://www.microsoft.com/zh-tw/download/details.aspx?id=39305" target="_blank">Update 4</a>、Visual Studio 2013 <a href="http://www.microsoft.com/zh-tw/download/details.aspx?id=43721" target="_blank">Update 3</a> 或 <a href="http://www.microsoft.com/zh-tw/download/details.aspx?id=43722" target="_blank">Visual Studio Express 2013</a>
+* Visual Studio 2012 <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">更新 4</a>、Visual Studio 2013 <a href="http://www.microsoft.com/download/details.aspx?id=43721" target="_blank">更新 3</a> 或 <a href="http://www.microsoft.com/download/details.aspx?id=43722" target="_blank">Visual Studio Express 2013</a>
 
-## <a id="run"></a> 使用 HDInsight Tools for Visual Studio 執行 Hive 查詢
+##<a id="run"></a>使用 HDInsight Tools for Visual Studio 執行 Hive 查詢
 
 1. 開啟 **Visual Studio**，然後選取 [**新增**]、[**專案**]、[**HDInsight**]，最後選取 [**Hive 應用程式**]。提供此專案的名稱。
 
@@ -47,15 +47,15 @@
     這些陳述式會執行下列動作
 
     * **DROP TABLE** - 刪除資料表和資料檔 (如果資料表已存在)
-    * **CREATE EXTERNAL TABLE** - 在 Hive 中建立新的 'external' 資料表。外部資料表只會在 Hive 中儲存資料表定義 - 資料會保留在原始的位置
+    * **CREATE EXTERNAL TABLE** - 在 Hive 中建立新的「 '外部'」資料表。外部資料表只會在 Hive 中儲存資料表定義 - 資料會保留在原始的位置
 
         > [AZURE.NOTE] 當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。
         >
-        > 捨棄外部資料表並**不會** 刪除資料，只會刪除資料表定義。
+        > 捨棄外部資料表並「**不會**」刪除資料，只會刪除資料表定義。
 
     * **ROW FORMAT** - 告訴 Hive 如何格式化資料。在此情況下，會以一個空格區隔每個記錄中的欄位
-    * **STORED AS TEXTFILE LOCATION** - 將資料的儲存位置告訴 Hive (example/data 目錄)，且資料儲存為文字
-    * **SELECT** - 選取的資料欄 **t4** 其中包含值 **[ERROR]** 的所有資料列計數。這應該會傳回值 **3**，因為有 3 個資料列包含此值
+    * **STORED AS TEXTFILE LOCATION** - 將資料的儲存位置告訴 Hive (example/data 目錄)，並將資料儲存為文字
+    * **SELECT** - 選擇其資料欄 **t4** 包含值 **[ERROR]** 的所有資料列計數。這應該會傳回值 **3**，因為有 3 個資料列包含此值
 
 3. 從工具列中，選取您要用於此查詢的 [**HDInsight 叢集**]，然後選取 [**提交**] 以 Hive 工作形式執行陳述式。[**Hive 工作摘要**] 將會出現並顯示執行中工作的相關資訊。在將 [**工作狀態**] 變更為 [**已完成**] 之前，使用 [**重新整理**] 連結重新整理工作資訊。
 
@@ -81,11 +81,11 @@
 
 8. 若要確認工作已完成並已建立新的資料表，請使用 [**伺服器總管**] 並依序展開 [**Azure**]、[**HDInsight**]、您的 HDInsight 叢集、[**Hive 資料庫**] 和 [**default**]。您應該會同時看到 **errorLogs** 和 **log4jLogs** 資料表。
 
-## <a id="summary"></a>摘要
+##<a id="summary"></a>摘要
 
 如您所見，HDInsight Tools for Visual Studio 提供簡單的方法，在 HDInsight 叢集上執行 Hive 查詢、監視工作狀態，以及擷取輸出。
 
-## <a id="nextsteps"></a>後續步驟
+##<a id="nextsteps"></a>後續步驟
 
 如需 HDInsight 中 Hive 的一般資訊。
 
@@ -99,20 +99,20 @@
 
 如需 HDInsight Tools for Visual Studio 的詳細資訊。
 
-* [開始使用 HDInsight Tools for Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started/)
+* [開始使用 HDInsight tools for Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started/)
 
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/zh-tw/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/ pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/ documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -134,4 +134,4 @@
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

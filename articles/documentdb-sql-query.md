@@ -13,23 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
+	ms.date="02/24/2015" 
 	ms.author="mimig"/>
 
 #查詢 DocumentDB
 Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構化查詢語言) 來查詢文件。DocumentDB 確實是無結構描述。由於它是直接在資料庫引擎內使用 JSON 資料模型，因此它提供不需明確的結構描述或建立次要索引，即可自動編製 JSON 文件索引的功能。 
 在為 DocumentDB 設計查詢語言時，我們有兩個謹記的目標：
 
--	<strong>利用 SQL</strong> - 我們並不想發明新的查詢語言，而是要利用 SQL 語言。SQL 是其中一個最熟悉且熱門的查詢語言。DocumentDB SQL 查詢語言提供一個正式的程式設計模型，可在 JSON 文件上進行豐富的查詢。
--	<strong>延伸 SQL</strong> - 為了做為能夠直接在資料庫引擎中執行 JavaScript 的 JSON 文件資料庫，我們想要使用 JavaScript 的程式設計模型做為 SQL 查詢語言的基礎。DocumentDB SQL 查詢語言是以 JavaScript 的類型系統、運算式評估和函式叫用為基礎。這除了其他功能之外，還進而提供自然程式設計模型來進行關聯式投射、跨 JSON 文件的階層式導覽、自我聯結，以及叫用完全以 JavaScript 撰寫的使用者定義函式 (UDF)。 
+-	<strong>包含 SQL</strong>：我們想要包含 SQL 語言，而不是發明新的查詢語言。SQL 是其中一個最熟悉且熱門的查詢語言。DocumentDB SQL 查詢語言提供一個正式的程式設計模型，可在 JSON 文件上進行豐富的查詢。
+-	<strong>延伸 SQL</strong>：由於 JSON 文件資料庫可以直接在資料庫引擎中執行 JavaScript，我們想要使用 JavaScript 的程式設計模型做為 SQL 查詢語言的基礎。DocumentDB SQL 查詢語言是以 JavaScript 的類型系統、運算式評估和函式叫用為基礎。這除了其他功能之外，還進而提供自然程式設計模型來進行關聯式投射、跨 JSON 文件的階層式導覽、自我聯結，以及叫用完全以 JavaScript 撰寫的使用者定義函式 (UDF)。 
 
 我們相信這些功能的重點是減少應用程式與資料庫之間的摩擦，而且對開發人員的生產力而言十分重要。
 
-在本教學課程中，將透過範例介紹 DocumentDB 查詢語言功能和文法。我們也會查看如何使用 REST API 和 SDK (含 LINQ) 來查詢 DocumentDB。
+若要深入了解 DocumentDB 查詢語言功能及文法，請觀看下列影片，或完成本文後面的教學課程。 
 
-#開始使用
+> [AZURE.VIDEO dataexposedqueryingdocumentdb]
+
+## 開始使用
 為了查看 DocumentDB SQL 如何運作，讓我們從一些簡單的 JSON 文件開始著手，然後對其逐步執行一些簡單查詢。請考慮有關兩個家族的這兩份 JSON 文件。請注意，使用 DocumentDB，我們不需要明確地建立任何結構描述或次要索引。我們只需要將 JSON 文件插入到 DocumentDB 集合中，再接著進行查詢即可。 
-這裡有 Andersen 一家的簡單 JSON 文件，包括這一家的父母、孩子 (以及寵物)、地址及註冊資訊。這個文件包含字串、數字、布林值、陣列和巢狀屬性。 
+這裡有 Andersen 一家的簡單 JSON 文件，包括這一家的父母、孩子 (以及寵物)、地址及註冊資訊。這份文件包含字串、數字、布林值、陣列和巢狀屬性。 
 
 **文件**  
 
@@ -51,7 +53,7 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 	}
 
 
-以下是略有差異的第二個文件 - 使用的是 `givenName` 和 `familyName`，而不是 `firstName` 和 `lastName`。
+以下是具有些微差異的第二份文件：使用  `givenName` 和  `familyName`，而不是使用  `firstName` 和  `lastName`。
 
 **文件**  
 
@@ -83,7 +85,7 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 
 
 
-現在，讓我們嘗試對此資料執行一些查詢，以了解 DocumentDB SQL 的一些重要部分。例如，下列查詢將會傳回 id 欄位符合 `AndersenFamily` 的文件。由於是 `SELECT *`，因此查詢輸出是完整的 JSON 文件：
+現在，讓我們嘗試對此資料執行一些查詢，以了解 DocumentDB SQL 的一些重要部分。例如，下列查詢將會傳回 id 欄位符合  `AndersenFamily` 的文件。因為它是 `SELECT *`，所以查詢輸出會是完整 JSON 文件：
 
 **查詢**
 
@@ -129,7 +131,7 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 	}]
 
 
-下一個查詢會傳回家族中 id 符合 `WakefieldFamily` 的所有小孩名字。
+下一個查詢會傳回家族中子女 id 符合  `WakefieldFamily` 的所有名字。
 
 **查詢**
 
@@ -148,12 +150,12 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 
 我們想要透過目前所看到的範例來指出 DocumentDB 查詢語言的一些重要部分：  
  
--	因為 DocumentDB SQL 處理 JSON 值，所以它處理樹狀形式的實體，而不是資料列和資料行。因此，此語言可讓您參照樹狀目錄中任意深度的節點 (例如 `Node1.Node2.Node3.....Nodem`)，這與參照 `<table>.<column>` 之兩個部分參考的關聯式 SQL 類似。   
+-	因為 DocumentDB SQL 處理 JSON 值，所以它處理樹狀形式的實體，而不是資料列和資料行。因此，此語言可讓您參照樹狀目錄中任意深度的節點 (例如 `Node1.Node2.Node3.....Nodem`)，這與關聯式 SQL 參照 `<table>.<column>` 的兩個部分參考類似。   
 -	語言處理無結構描述的資料。因此，需要動態繫結類型系統。相同的運算式可能會對不同的文件產生不同的類型。查詢的結果會是有效的 JSON 值，但不保證會是固定的結構描述。  
 -	DocumentDB 只支援嚴謹的 JSON 文件。這表示類型系統和運算式只能處理 JSON 類型。如需更多詳細資訊，請參閱 [JSON 規格](http://www.json.org/)。  
 -	DocumentDB 集合是 JSON 文件的無結構描述容器。集合中文件內及跨文件之資料實體中的關係，會由內含項目以隱含方式擷取，而不是由主索引鍵和外部索引鍵關係擷取。這是本文稍後討論之文件內聯結中值得指出的重要部分。
 
-#DocumentDB 索引
+##DocumentDB 索引
 
 在進入 DocumentDB SQL 語言之前，有必要探索一下 DocumentDB 的索引設計。 
 
@@ -174,27 +176,27 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 如需示範如何為集合設定索引原則的範例，請參閱 MSDN 上的 [DocumentDB 範例](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content)。現在，讓我們深入討論 DocumentDB SQL 語言。
 
 
-#DocumentDB 查詢基礎
-根據 ANSI-SQL 標準，每個查詢都會包含 SELECT 子句，FROM 和 WHERE 子句則為選擇性。針對每個查詢，通常都會列舉 FROM 子句中的來源。接著，會對來源套用 WHERE 子句中的篩選，以擷取 JSON 文件的子集。最後，使用 SELECT 子句來投射選取清單中所要求的 JSON 值。
+##DocumentDB 查詢基礎
+根據 ANSI-SQL 標準，每個查詢都會包含 SELECT 子句以及選擇性的 FROM 和 WHERE 子句。針對每個查詢，通常都會列舉 FROM 子句中的來源。接著，會對來源套用 WHERE 子句中的篩選，以擷取 JSON 文件的子集。最後，使用 SELECT 子句來投射選取清單中所要求的 JSON 值。
     
     SELECT <select_list> 
     [FROM <from_specification>] 
     [WHERE <filter_condition>]    
 
 
-#FROM 子句
-`FROM <from_specification>` 子句為選擇性，除非此來源稍後在查詢中被篩選或投射。此子句的目的是指定查詢必須操作的資料來源。整個集合通常是來源，但是您可以改為指定集合的子集。 
+##FROM 子句
+ `FROM <from_specification>` 子句為選擇性子句，除非稍後在查詢中篩選或投射來源。此子句的目的是指定查詢必須操作的資料來源。整個集合通常是來源，但是您可以改為指定集合的子集。 
 
 像 `SELECT * FROM Families` 這樣的查詢，即表示整個 Families 集合都是做為列舉依據的來源。可使用特殊識別碼 ROOT 來代表此集合，而不使用集合名稱。 
 下列清單包含會針對每個查詢強制執行的規則：
 
-- 集合可以加上別名，例如 `SELECT f.id FROM Families AS f`，或就只使用 `SELECT f.id FROM Families f`。此處的 `f` 即等於 `Families`。`AS` 是一個選擇性關鍵字，用來為識別碼加上別名。
+- 集合可以加上別名，例如 `SELECT f.id FROM Families AS f` 或只使用 `SELECT f.id FROM Families f`。這裡的 `f` 相當於 `Families`。而 `AS` 是對識別碼進行別名處理的選用關鍵字。
 
--	請注意，進行別名處理之後，無法繫結原始來源。例如，`SELECT Familes.id FROM Families f` 在語法上無效，因為已無法解析 "Families" 識別碼。
+-	請注意，進行別名處理之後，無法繫結原始來源。例如， `SELECT Familes.id FROM Families f` 在語法上無效，因為已無法解析 "Families" 識別碼。
 
--	所有需要參照的屬性都必須是完整的。如果未遵循嚴謹的結構描述，則會強制執行以避免任何模糊的繫結。因此，`SELECT id FROM Families f` 在語法上無效，因為並未繫結 `id` 屬性。
+-	所有需要參照的屬性都必須是完整的。如果未遵循嚴謹的結構描述，則會強制執行以避免任何模糊的繫結。因此， `SELECT id FROM Families f` 在語法上無效，因為並未繫結 `id` 屬性。
 	
-##子文件
+###子文件
 來源也可以減少為更小的子集。例如，若只要列舉每個文件中的樹狀子目錄，則子根目錄可能會變成來源 (如下列範例所示)。
 
 **查詢**
@@ -233,7 +235,7 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 	  ]
 	]
 
-雖然上面的範例使用陣列做為來源，但是也可以使用物件做為來源 (如下列範例所示)。任何可在來源中找到的有效 JSON 值 (非 undefined)，都會被考量納入查詢的結果中。如果某些家族沒有 `address.state` 值，查詢結果中將會把它們排除。
+雖然上面的範例使用陣列做為來源，但是也可以使用物件做為來源 (如下列範例所示)。任何可在來源中找到的有效 JSON 值 (非 undefined)，都會被考量納入查詢的結果中。如果有些家族沒有  `address.state` 值，則會在查詢結果中予以排除。
 
 **查詢**
 
@@ -248,10 +250,10 @@ Microsoft Azure DocumentDB 支援在階層式 JSON 文件上使用 SQL (結構�
 	]
 
 
-#WHERE 子句
-WHERE 子句 (**`WHERE <filter_condition>`**) 為選擇性。它會指定條件，而且來源所提供的 JSON 文件必須滿足這些條件才能併入為結果的一部分。任何 JSON 文件都必須將指定的條件評估為 "true"，才能視為結果。索引層使用 WHERE 子句，來判斷可為結果一部分的來源文件的絕對最小子集。 
+##WHERE 子句
+WHERE 子句 (**`WHERE <filter_condition>`**) 為選擇性子句。它會指定條件，而且來源所提供的 JSON 文件必須滿足這些條件才能併入為結果的一部分。任何 JSON 文件都必須將指定的條件評估為 "true"，才能視為結果。索引層使用 WHERE 子句，來判斷可為結果一部分的來源文件的絕對最小子集。 
 
-下列查詢會要求包含名稱屬性且其值為 `AndersenFamily` 的文件。任何其他沒有名稱屬性或其值不符合 `AndersenFamily` 的文件則會被排除。 
+下列查詢會要求包含名稱屬性且其值為 `AndersenFamily` 的文件。不包含名稱屬性或值不符合 `AndersenFamily` 的任何其他文件。 
 
 **查詢**
 
@@ -280,7 +282,7 @@ WHERE 子句 (**`WHERE <filter_condition>`**) 為選擇性。它會指定條件�
 </tr>
 <tr>
 <td>位元</td>	
-<td>|、&、^</td>
+<td>|、&、^、<<、>>、>>> (右移位並填滿零) </td>
 </tr>
 <tr>
 <td>邏輯</td>
@@ -323,9 +325,9 @@ WHERE 子句 (**`WHERE <filter_condition>`**) 為選擇性。它會指定條件�
 
 
 
-除了二元和一元運算子之外，還允許屬性參照。例如，`SELECT * FROM Families f WHERE f.isRegistered` 會傳回包含 `isRegistered` 屬性且屬性值等於 JSON `true` 值的 JSON 文件。任何其他值 (false、null、Undefined、`<number>`、`<string>`、`<object>`, `<array>` 等) 則會導致將來源文件自結果中排除。 
+除了二元和一元運算子之外，還允許屬性參照。例如， `SELECT * FROM Families f WHERE f.isRegistered` 會傳回包含 `isRegistered` 屬性且屬性值等於 JSON `true` 值的 JSON 文件。任何其他值 (false、null、Undefined、`<number>`、`<string>`、`<object>`、`<array>` 等) 則會導致從結果中排除來源文件。 
 
-##相等和比較運算子
+###相等和比較運算子
 下表顯示 DocumentDB SQL 中任何兩個 JSON 類型之間的相等比較結果。
 <table style = "width:300px">
    <tbody>
@@ -547,7 +549,26 @@ WHERE 子句 (**`WHERE <filter_condition>`**) 為選擇性。它會指定條件�
 
 如果篩選中純量運算式的結果是 Undefined，則不會將對應的文件併入結果中，因為 Undefined 邏輯上不會等於 "true"。
 
-##邏輯 (AND、OR 和 NOT) 運算子
+###BETWEEN 關鍵字
+您也可以使用 BETWEEN 關鍵字來表示像對 ANSI SQL 中的值範圍執行查詢。BETWEEN 可用於任何 JSON 基本類型 (數字、字串、布林值和 null)。 
+
+例如，此查詢會傳回其長子的成績介於 1-5 (兩者皆含) 之間的所有家族文件。 
+
+    SELECT *
+    FROM Families.children[0] c
+    WHERE c.grade BETWEEN 1 AND 5
+
+不同於 ANSI SQL，您也可以在 FROM 子句中使用 BETWEEN 子句，如下列範例所示 。
+
+    SELECT (c.grade BETWEEN 0 AND 10)
+    FROM Families.children[0] c
+
+如需更快速的查詢執行時間，請記得針對經過 BETWEEN 子句篩選的任何數值屬性/路徑，建立使用範圍索引類型的檢索原則。 
+
+在 DocumentDB 和 ANSI SQL 中使用 BETWEEN 的主要差異在於，您可以表示針對混合類型屬性的範圍查詢，比方說，在某些文件中 「 成績 」 可能是數字 (5) ，而在其他文件中可能會是字串 ("grade4")。在這些情況下 (像在 JavaScript 中)，這兩種不同類型之間的比較會產生 「 未定義 」，並略過文件。
+
+
+###邏輯 (AND、OR 和 NOT) 運算子
 邏輯運算子的運算對象是布林值。下表顯示這些運算子的邏輯真值表。
 
 <table style = "width:300px">
@@ -789,10 +810,36 @@ WHERE 子句 (**`WHERE <filter_condition>`**) 為選擇性。它會指定條件�
     </tbody>
 </table>
 
-#SELECT 子句
-SELECT 子句 (**`SELECT <select_list>`**) 是必要子句，指定要從查詢抓取的值 (就像在 ANSI-SQL 中一樣)。在來源文件上篩選出來的子集會傳遞給投射階段，而在此階段中，會擷取指定的 JSON 值並建構新的 JSON 物件 (針對每個傳遞給它的輸入)。 
+###三元 (?) 和聯合 (??) 運算子：
+三元和聯合運算子可用來建立條件運算式，與熱門程式設計語言 (如 C# 和 JavaScript) 類似。 
 
-下列範例示範一般的 SELECT 查詢： 
+快速建構新的 JSON 屬性時，三元 (?) 運算子可以說非常好用。比方說，您現在可以撰寫查詢將類別層級分類為一般人可判讀的格式 (例如初級/中級/進階)，如下所示。
+ 
+     SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel 
+     FROM Families.children[0] c
+
+您也可以巢狀運算子的呼叫，如下方查詢所示。
+ 
+    SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
+    FROM Families.children[0] c
+
+和其他查詢運算子一樣，如果任何文件中的條件運算式遺漏了參考屬性，或如果要比較的類型不同，則查詢結果會將這些文件排除在外。
+
+聯合 (??) 運算子可用來有效率地檢查文件中是否有屬性存在 (a.k.a. 已定義)。針對半結構化或混合類型的資料執行查詢時，這非常有用。例如，此查詢會傳回 "lastName" (如果存在) 或 "surname" (如果不存在)。
+
+    SELECT f.lastName ?? f.surname AS familyName
+    FROM Families f
+
+同樣地，您也可以查詢是否缺少屬性 ("undefined")，如下列範例所示。
+
+    SELECT *
+    FROM classes c
+    WHERE c.lastName ?? true
+
+##SELECT 子句
+SELECT 子句 (**`SELECT <select_list>`**) 是必要子句，並可指定要從查詢擷取的值 (就像在 ANSI-SQL 中一樣)。在來源文件上篩選出來的子集會傳遞給投射階段，而在此階段中，會擷取指定的 JSON 值並建構新的 JSON 物件 (針對每個傳遞給它的輸入)。 
+
+下列範例示範一般的 SELECT 查詢。 
 
 **查詢**
 
@@ -811,7 +858,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要子句，指定要從查詢�
 	}]
 
 
-##巢狀屬性
+###巢狀屬性
 在下列範例中，我們將投射兩個巢狀屬性 `f.address.state` 和 `f.address.city`。
 
 **查詢**
@@ -847,7 +894,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要子句，指定要從查詢�
 	}]
 
 
-讓我們看看這裡 `$1` 的角色。`SELECT` 子句需要建立 JSON 物件，而由於未提供任何索引鍵，因此我們使用以 `$1` 開頭的隱含引數變數名稱。例如，此查詢會傳回兩個隱含的引數變數，標示為 `$1` 和 `$2`。
+讓我們在這裡查看 `$1` 角色。 `SELECT` 子句需要建立 JSON 物件，而且，因為未提供任何索引鍵，所以我們將使用以 `$1` 開頭的隱含引數變數名稱。例如，此查詢會傳回兩個隱含引數變數，名稱為 `$1` 和 `$2`。
 
 **查詢**
 
@@ -869,8 +916,8 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要子句，指定要從查詢�
 	}]
 
 
-##別名
-現在，讓我們使用值的明確別名處理來擴充上面的範例。AS 是用來加上別名的關鍵字。請注意，如所示，將第二個值投射為 `NameInfo` 時，此關鍵字為選擇性。 
+###別名
+現在，讓我們使用值的明確別名處理來擴充上面的範例。AS 是用來加上別名的關鍵字。請注意，當將第二個值作為 `NameInfo` 投射時，此為選擇性項目 (如所示)。 
 
 如果查詢具有兩個同名的屬性，則必須使用別名處理來重新命名一或兩個屬性，使其在投射的結果中變得更為明確。
 
@@ -895,7 +942,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要子句，指定要從查詢�
 	}]
 
 
-##純量運算式
+###純量運算式
 除了屬性參照之外，SELECT 子句也支援純量運算式 (例如常數、算術運算式、邏輯運算式等)。例如，以下是簡單 "Hello World" 查詢。
 
 **查詢**
@@ -941,7 +988,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要子句，指定要從查詢�
 	]
 
 
-##物件和陣列建立
+###物件和陣列建立
 DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範例中，請注意，我們已建立新的 JSON 物件。同樣地，您也可以建構陣列 (如下列範例所示)。
 
 **查詢**
@@ -966,8 +1013,8 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 	  }
 	]
 
-##VALUE 關鍵字
-**VALUE** 關鍵字可提供傳回 JSON 值的方法。例如，下面顯示的查詢會傳回 `"Hello World"`，而不會傳回 `{$1:"Hello World"}`。
+###VALUE 關鍵字
+**VALUE** 關鍵字可提供傳回 JSON 值的方法。例如，下面顯示的查詢會傳回純量 `"Hello World"`，而不是 `{$1:"Hello World"}`。
 
 **查詢**
 
@@ -1017,8 +1064,8 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 	]
 
 
-##* 運算子
-支援使用特殊運算子 (*) 來依原樣投射文件。使用時，它必須是唯一投射的欄位。雖然像 `SELECT * FROM Families f` 這樣的查詢是有效的，但是 `SELECT VALUE * FROM Families f ` 和 `SELECT *, f.id FROM Families f ` 則無效。
+###* 運算子
+支援使用特殊運算子 (*) 來依原樣投射文件。使用時，它必須是唯一投射的欄位。類似 `SELECT * FROM Families f` 的查詢會是有效查詢，而 `SELECT VALUE * FROM Families f ` 和  `SELECT *, f.id FROM Families f ` 會是無效查詢。
 
 **查詢**
 
@@ -1045,8 +1092,8 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 	    "isRegistered": true
 	}]
 
-#進階概念
-##反覆運算
+##進階概念
+###反覆運算
 在 DocumentDB SQL 中已透過 **IN** 關鍵字加入新的建構，以支援反覆運算 JSON 陣列。FROM 來源支援反覆運算。讓我們從下列範例開始：
 
 **查詢**
@@ -1125,7 +1172,7 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 	  "givenName": "Lisa"
 	}]
 
-##聯結
+###聯結
 在關聯式資料庫中，跨資料表的聯結需求極為重要。就設計正規化結構描述而言，邏輯上需要它。與此相反的是，DocumentDB 會處理無結構描述文件的反正規化資料模型。這在邏輯上等同於「自我聯結」。
 
 此語言支援的語法是 <from_source1> JOIN <from_source2> JOIN ...JOIN <from_sourceN>。整體而言，這會傳回一組 **N**-Tuple (具有 **N** 值的 Tuple)。每個 Tuple 所擁有的值，都是將所有集合別名在其個別集合上反覆運算所產生。換句話說，這是參與聯結之集的完整交叉乘積。
@@ -1144,7 +1191,7 @@ DocumentDB SQL 的另一個重要功能是建立陣列/物件。在前一個範�
 	}]
 
 
-在下列範例中，聯結是介於文件根目錄與 `children` 子根目錄。它是兩個 JSON 物件之間的交叉乘積。子系是陣列的事實不會影響 JOIN，因為我們是處理為子陣列的單一根目錄。因此，結果只會包含兩個結果，因為每個含有陣列之文件的交叉乘積都只會產生一個文件。
+在下列範例中，聯結會介於文件根目錄和 `children` 子根目錄之間。它是兩個 JSON 物件之間的交叉乘積。子系是陣列的事實不會影響 JOIN，因為我們是處理為子陣列的單一根目錄。因此，結果只會包含兩個結果，因為每個含有陣列之文件的交叉乘積都只會產生一個文件。
 
 **查詢**
 
@@ -1247,9 +1294,9 @@ JOIN 的實際作用是透過圖形中很難投射的交叉乘積來形成 Tuple
 		}
 	}
 
-`AndersenFamily` 有一個擁有一隻寵物的小孩。因此，交叉乘積會從此家族產生 1 個資料列 (1*1*1)。WakefieldFamily 則是有兩個小孩，但只有一個小孩 "Jesse" 有寵物。而 Jesse 擁有 2 隻寵物。因此，交叉乘積會從此家族產生 1*1*2 = 2 個資料列。
+`AndersenFamily` 有一個養了一隻寵物的小孩。因此，交叉乘積會從此家族產生 1 個資料列 (1*1*1)。不過，WakefieldFamily 有兩個小孩，但只有一個小孩 "Jesse" 養了多隻寵物。而 Jesse 擁有 2 隻寵物。因此，交叉乘積會從此家族產生 1*1*2 = 2 個資料列。
 
-在下一個範例中，還有一個額外的篩選依據 `pet`。這會排除寵物名稱不是 "Shadow" 的所有 Tuple。請注意，我們可以從陣列建置 Tuple、根據 Tuple 的任何元素進行篩選，以及投射元素的任何組合。 
+在下一個範例中，對 `pet` 有一個額外篩選。這會排除寵物名稱不是 "Shadow" 的所有 Tuple。請注意，我們可以從陣列建置 Tuple、根據 Tuple 的任何元素進行篩選，以及投射元素的任何組合。 
 
 **查詢**
 
@@ -1274,13 +1321,13 @@ JOIN 的實際作用是透過圖形中很難投射的交叉乘積來形成 Tuple
 	]
 
 
-#JavaScript 整合
+##JavaScript 整合
 DocumentDB 提供一個程式設計模型，以根據預存程序和觸發程序，直接對集合執行 JavaScript 型應用程式邏輯。這允許：
 
 -	藉由直接在資料庫引擎內深入整合 JavaScript 執行階段，對集合中的文件執行高效能交易式 CRUD 操作和查詢。 
 -	將控制流程、變數範圍限制、指派以及例外狀況處理基本類型與資料庫交易的整合自然模型化。如需 JavaScript 整合之 DocumentDB 支援的詳細資料，請參閱 JavaScript 伺服器端程式設計文件。
 
-##使用者定義函數 (UDF)
+###使用者定義函數 (UDF)
 除了本文中已定義的類型之外，DocumentDB SQL 還支援使用者定義函式 (UDF)。特別的是，如果開發人員可以傳入零個或多個引數並傳回單一引數結果，則支援純量 UDF。系統會檢查所有這些引數是否為合法的 JSON 值。  
 
 DocumentDB SQL 文法已延伸，可支援使用這些使用者定義函數的自訂應用程式邏輯。您可以向 DocumentDB 註冊 UDF，然後在 SQL 查詢中參照它。實際上，UDF 是特別設計來透過查詢進行叫用。這項選擇的必然結果，就是 UDF 無法存取其他 JavaScript 類型 (預存程序和觸發程序) 擁有的內容物件。因為查詢是以唯讀形式執行，所以可以在主要或次要複本上執行。因此，與其他 JavaScript 類型不同，UDF 是設計成在次要複本上執行。
@@ -1299,14 +1346,14 @@ DocumentDB SQL 文法已延伸，可支援使用這些使用者定義函數的�
 	       collectionSelfLink/* link of the parent collection*/, 
 	       sqrtUdf).Result;  
                                                                              
-上述範例會建立名稱為 `SQRT` 的 UDF。它接受單一 JSON 值 `number`，並且使用 Math 程式庫來計算此數字的平方根。
+上述範例會建立名為  `SQRT` 的 UDF。它接受單一 JSON 值  `number`，並且使用 Math 程式庫來計算此數字的平方根。
 
 
 我們現在可以在投射的查詢中使用此 UDF。
 
 **查詢**
 
-	SELECT SQRT(c.grade)
+	SELECT udf.SQRT(c.grade)
 	FROM c IN Families.children
 
 **結果**
@@ -1329,7 +1376,7 @@ UDF 也可以用於篩選內 (如下面範例所示)：
 
 	SELECT c.grade
 	FROM c IN Familes.children
-	WHERE SQRT(c.grade) = 1
+	WHERE udf.SQRT(c.grade) = 1
 
 **結果**
 
@@ -1361,14 +1408,14 @@ UDF 也可以用於篩選內 (如下面範例所示)：
             UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(collection.SelfLink, seaLevelUdf);
 	
 	
-Below is an example that exercises the UDF.
+以下是執行 UDF 的範例。
 
-**Query**
+**查詢**
 
-	SELECT f.address.city, SEALEVEL(f.address.city) AS seaLevel
+	SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
 	FROM Families f	
 
-**Results**
+**結果**
 
 	 [
 	  {
@@ -1384,19 +1431,41 @@ Below is an example that exercises the UDF.
 
 如同上述範例所示，UDF 可將 JavaScript 語言的強大功能與 DocumentDB SQL 整合來提供可進行程式設計的豐富介面，以在內建 JavaScript 執行階段功能的協助下，執行複雜的程序性、條件式邏輯。
 
-在處理 UDF 的目前階段 (WHERE 子句或 SELECT 子句) 中，DocumentDB SQL 針對來源中的每個文件提供 UDF 的引數。結果會緊密整合至整體執行管線。如果 JSON 值中沒有 UDF 參數所參照的屬性，此參數就會被視為未定義，因而導致將 UDF 叫用整個略過。同樣地，如果 UDF 的結果為未定義，便不會被納入結果中。 
+在處理 UDF 的目前階段 (WHERE 子句或 SELECT 子句) 中，DocumentDB SQL 針對來源中的每個文件提供 UDF 的引數。結果會緊密整合至整體執行管線。如果 JSON 值中沒有 UDF 參數所參照的屬性，則會將參數視為 undefined，因此，而整個略過 UDF 叫用。同樣地，如果 UDF 的結果為未定義，便不會被納入結果中。 
 
 簡言之，UDF 是在進行查詢時執行複雜商務邏輯的不錯工具。
 
-##運算子評估
+###運算子評估
 DocumentDB 憑藉著為 JSON 資料庫，來描繪 JavaScript 運算子和其評估語意。雖然 DocumentDB 嘗試保留 JSON 支援方面的 JavaScript 語意，但是在部分執行個體中，作業評估還是會偏離。
 
 與傳統 SQL 不同，在 DocumentDB SQL 查詢語言中，在從資料庫實際抓取值之前，通常不知道值的類型。為了有效率地執行查詢，大部分的運算子都有嚴謹的類型需求。 
 
-與 JavaScript 不同，DocumentDB SQL 不會執行隱含轉換。例如，像 `SELECT * FROM Person p WHERE p.Age = 21` 這樣的查詢會比對出包含 Age 屬性且值為 21 的文件。任何其他 Age 屬性符合字串 "21" 或其他可能之無限制變化 (例如 "021"、"21.0"、"0021"、"00021" 等等) 的文件，則不會成為比對的結果。 
+與 JavaScript 不同，DocumentDB SQL 不會執行隱含轉換。例如，類似 `SELECT * FROM Person p WHERE p.Age = 21` 的查詢會針對包含 Age 屬性且值為 21 的文件進行比對。其中 Age 屬性符合字串 "21" 或
+符合其他可能無限變化 (如 "021"、"21.0"、"0021"、"00021" 等) 的任何其他文件都將不會進行比對。 
 這與 JavaScript 形成對比，在 JavaScript 中，會將字串值隱含地轉換成數字 (根據運算子，例如：==)。這項選擇對 DocumentDB SQL 中有效率的索引比對十分重要。 
 
-#LINQ 到 DocumentDB SQL
+##參數化 SQL
+DocumentDB 支援查詢使用以類似 @ 標記法表示的參數。參數化 SQL 提供使用者輸入的健全處理和逸出，防止透過 SQL 插入式意外洩露資料。 
+
+比方說，您可以撰寫查詢，將姓氏和地址 (州) 做為參數，然後根據使用者輸入，使用各種不同姓氏和地址 (州) 的值執行查詢。
+
+    SELECT * 
+    FROM Families f
+    WHERE f.lastName = @lastName AND f.address.state = @addressState
+
+您接著可以將這項要求傳送至 DocumentDB 做為參數化 JSON 查詢，如下所示。
+
+    {      
+        "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
+        "parameters": [          
+            {"name": "@lastName", "value": "Wakefield"},         
+            {"name": "@addressState", "value": "NY"},           
+        ] 
+    }
+
+參數值可以是任何有效的 JSON (字串、數字、布林值、null，甚至是陣列或巢狀 JSON)。而且因為 DocumentDB 屬於無結構描述，系統不會針對任何類型驗證參數。
+
+##LINQ 到 DocumentDB SQL
 LINQ 是一種 .NET 程式設計模型，此模型會將運算表示為對物件串流的查詢。DocumentDB 提供用戶端程式庫，以透過促進 JSON 與 .NET 物件之間的轉換，以及從小部分的 LINQ 查詢對應至 DocumentDB 查詢，來與 LINQ 互動。 
 
 下圖顯示使用 DocumentDB 支援 LINQ 查詢的架構。開發人員可以使用 DocumentDB 用戶端來建立 **IQueryable** 物件，此物件會直接查詢 DocumentDB 查詢提供者，而此查詢提供者會接著將 LINQ 查詢轉譯成 DocumentDB 查詢。然後，將查詢傳遞給 DocumentDB 伺服器，以擷取一組具有 JSON 格式的結果。傳回的結果會在用戶端進行還原序列化，變成 .NET 物件的串流。
@@ -1405,7 +1474,7 @@ LINQ 是一種 .NET 程式設計模型，此模型會將運算表示為對物件
  
 
 
-##.NET 和 JSON 對應
+###.NET 和 JSON 對應
 .NET 物件與 JSON 文件之間的對應是自然的，亦即每個資料成員欄位都會對應至 JSON 物件，其中欄位名稱對應至物件的「索引鍵」部分，而「值」部分則遞迴地對應至物件的值部分。請思考一下下列範例。建立的 Family 物件對應至 JSON 文件 (如下所示)。而反之亦然，JSON 文件會對應回 .NET 物件。
 
 **C# 類別**
@@ -1487,7 +1556,7 @@ LINQ 是一種 .NET 程式設計模型，此模型會將運算表示為對物件
 
 
 
-##LINQ 與 SQL 轉譯
+###LINQ 與 SQL 轉譯
 DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最佳對應。在下列描述中，我們假設讀者對 LINQ 有基本的認識。
 
 首先，針對類型系統，我們支援所有 JSON 基本類型：數值類型、布林值、字串及 null。只支援這些 JSON 類型。下列是支援的純量運算式。
@@ -1517,11 +1586,11 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
 
-##查詢運算子
+###查詢運算子
 以下一些範例說明如何將一些標準 LINQ 查詢運算子往下轉譯為 DocumentDB 查詢。
 
-###Select 運算子
-語法是 `input.Select(x => f(x))`，其中 `f` 是純量運算式。
+####Select 運算子
+語法為 `input.Select(x => f(x))`，其中 `f` 是純量運算式。
 
 **LINQ Lambda 運算式**
 
@@ -1563,8 +1632,8 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 
 
 
-###SelectMany 運算子
-語法是 `input.SelectMany(x => f(x))`，其中 `f` 是會傳回集合類型的純量運算式。
+####SelectMany 運算子
+語法為 `input.SelectMany(x => f(x))`，其中 `f` 是傳回集合類型的純量運算式。
 
 **LINQ Lambda 運算式**
 
@@ -1577,8 +1646,8 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 
 
 
-###Where 運算子
-語法是 `input.Where(x => f(x))`，其中 `f` 是會傳回布林值的純量運算式。
+####Where 運算子
+語法為 `input.Where(x => f(x))`，其中 `f` 是傳回布林值的純量運算式。
 
 **LINQ Lambda 運算式**
 
@@ -1606,12 +1675,12 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 	AND f.children[0].grade < 3
 
 
-##複合查詢
+###複合查詢
 您可以包含上述的運算子，以形成功能更強大的查詢。由於 DocumentDB 支援巢狀集合，因此這個組合可以是串連或巢狀形式。
 
-###串連 
+####串連 
 
-語法是 `input(.|.SelectMany())(.Select()|.Where())*`。串連的查詢可以採用選擇性的 `SelectMany` 查詢做為開頭，後面再接著多個 `Select` 或 `Where` 運算子。
+語法為 `input(.|.SelectMany())(.Select()|.Where())*`。串連查詢的開頭可以是 `SelectMany` 查詢，其後接著多個 `Select` 或 `Where` 運算子。
 
 
 **LINQ Lambda 運算式**
@@ -1666,9 +1735,9 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 
 
 
-###巢狀
+####巢狀
 
-語法是 `input.SelectMany(x=>x.Q())`，其中 Q 是 `Select`、`SelectMany` 或 `Where` 運算子。
+語法為 `input.SelectMany(x=>x.Q())`，其中 Q 是 `Select`、 `SelectMany` 或 `Where` 運算子。
 
 在巢狀查詢中，會將內部查詢套用至外部集合的每個項目。其中一個重要功能是內部查詢可以參照外部集合中項目的欄位 (例如自我聯結)。
 
@@ -1711,16 +1780,16 @@ DocumentDB 查詢提供者執行從 LINQ 查詢到 DocumentDB SQL 查詢的最�
 	WHERE c.familyName = f.parents[0].familyName
 
 
-#執行查詢
+##執行查詢
 DocumentDB 公開資源的方式是透過 REST API，此 API 可供任何能發出 HTTP/HTTPS 要求的語言呼叫。此外，DocumentDB 還為數種熱門語言 (例如 .NET、Node.js、JavaScript 和 Python) 提供程式設計程式庫。REST API 和各種程式庫都支援透過 SQL 進行查詢。.NET SDK 除了 SQL 之外，也支援 LINQ 查詢。
 
 下列範例顯示如何建立查詢，並針對 DocumentDB 資料庫帳戶提交它。
-##REST API
-DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用 Azure 訂用帳戶佈建資料庫帳戶。DocumentDB 資源模型包含某個資料庫帳戶下的一組資源，而每個資源都可透過邏輯和穩定 URI 進行定址。在本文件中，一組資源稱為摘要。資料庫帳戶包含一組資料庫，每個資料庫都包含多個集合，而每個集合再包含文件、UDF 和其他資源類型。
+###REST API
+DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用 Azure 訂用帳戶佈建資料庫帳戶。DocumentDB 資源模型包含某個資料庫帳戶下的一組資源，而每個資源都可透過邏輯和穩定 URI 進行定址。在本文件中，一組資源稱為摘要。資料庫帳戶包含一組資料庫，而每個資料庫都包含多個集合，且各集合因此會包含文件、UDF 和其他資源類型。
 
 與這些資源的基本互動模型是透過具有其標準解譯的 HTTP 動詞命令 GET、PUT、POST 和 DELETE。POST 動詞命令用於建立新的資源、執行預存程序或發出 DocumentDB 查詢。查詢一律是唯讀作業，而且沒有任何副作用。
 
-下列範例示範針對集合進行之 DocumentDB 查詢的 POST，此集合包含我們到目前為止檢閱過的兩個範例文件。查詢具有 JSON 名稱屬性的簡單篩選。請注意，這裡使用 `x-ms-documentdb-isquery` 和 Content-Type:`application/sql` 標頭來表示此操作是一項查詢。
+下列範例示範針對集合進行之 DocumentDB 查詢的 POST，此集合包含我們到目前為止檢閱過的兩個範例文件。查詢具有 JSON 名稱屬性的簡單篩選。請注意， `x-ms-documentdb-isquery`和內容類型： `application/query+json` 標頭可用來表示該作業是一項查詢。
 
 
 **要求**
@@ -1728,9 +1797,15 @@ DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用
 	POST https://<REST URI>/docs HTTP/1.1
 	...
 	x-ms-documentdb-isquery: True
-	Content-Type: application/sql
+	Content-Type: application/query+json
+
+    {      
+        "query": "SELECT * FROM Families f WHERE f.id = @familyId",     
+        "parameters": [          
+            {"name": "@familyId", "value": "AndersenFamily"}         
+        ] 
+    }
 	
-	SELECT * FROM Families f WHERE f.id = "AndersenFamily"
 
 **結果**
 
@@ -1790,16 +1865,20 @@ DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用
 	POST https://<REST URI>/docs HTTP/1.1
 	...
 	x-ms-documentdb-isquery: True
-	Content-Type: application/sql
+	Content-Type: application/query+json
 	
-	SELECT 
-	     f.id AS familyName, 
-	     c.givenName AS childGivenName, 
-	     c.firstName AS childFirstName, 
-	     p.givenName AS petName 
-	FROM Families f 
-	JOIN c IN f.children 
-	JOIN p in c.pets
+    {      
+        "query": "SELECT 
+				     f.id AS familyName, 
+				     c.givenName AS childGivenName, 
+				     c.firstName AS childFirstName, 
+				     p.givenName AS petName 
+				  FROM Families f 
+				  JOIN c IN f.children 
+				  JOIN p in c.pets",     
+        "parameters": [] 
+    }
+
 
 **結果**
 
@@ -1833,13 +1912,13 @@ DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用
 	}
 
 
-如果一頁結果頁面容納不下查詢的結果，則 REST API 會透過 `x-ms-continuation-token` 回應標頭傳回接續語彙基元。用戶端可以透過在後續結果中包括標頭，以將結果分頁。您也可以透過 `x-ms-max-item-count` 數字標頭控制每頁的結果數目。
+如果查詢的結果無法放入結果的單一頁面內，則 REST API 會透過  `x-ms-continuation-token` 回應標頭傳回接續 Token。用戶端可以透過在後續結果中包括標頭，以將結果分頁。每頁的結果數目也可以透過 `x-ms-max-item-count` 數字標頭控制。
 
-若要管理查詢的資料一致性原則，請像所有 REST API 要求一樣，使用 `x-ms-consistency-level` 標頭。為了工作階段一致性，還必須在查詢要求中回應最新的 `x-ms-session-token` Cookie 標頭。請注意，所查詢集合的索引原則也可能會影響查詢結果的一致性。運用預設索引原則設定，集合的索引一律會具有最新文件內容，而且查詢結果會符合針對資料所選擇的一致性。如果編索引原則放寬為 Lazy，則查詢可能會傳回過時的結果。如需詳細資訊，請參閱 [DocumentDB 一致性層級] [consistency-levels]。
+若要管理查詢的資料一致性原則，請使用 `x-ms-consistency-level` 標頭 (如所有 REST API 要求)。如需工作階段一致性，查詢要求中還必須回應最新的的 `x-ms-session-token` Cookie 標題。請注意，所查詢集合的索引原則也可能會影響查詢結果的一致性。運用預設索引原則設定，集合的索引一律會具有最新文件內容，而且查詢結果會符合針對資料所選擇的一致性。如果編索引原則放寬為 Lazy，則查詢可能會傳回過時的結果。如需詳細資訊，請參閱 [DocumentDB 一致性層級] [consistency-levels]。
 
-如果集合上所設定的索引原則無法支援指定的查詢，則 DocumentDB 伺服器會傳回 400「不正確的要求」。針對範圍查詢 (針對雜湊 (相等) 查閱所設定的路徑) 以及明確地排除不進行編製索引的路徑，會傳回此訊息。您可以指定 `x-ms-documentdb-query-enable-scan` 標頭，以允許查詢在無法使用索引時執行掃描。
+如果集合上所設定的索引原則無法支援指定的查詢，則 DocumentDB 伺服器會傳回 400「不正確的要求」。針對範圍查詢 (針對雜湊 (相等) 查閱所設定的路徑) 以及明確地排除不進行編製索引的路徑，會傳回此訊息。 `x-ms-documentdb-query-enable-scan` 標頭可以指定成允許查詢在無法使用索引時執行掃描。
 
-##C# (.NET) SDK
+###C# (.NET) SDK
 .NET SDK 支援 LINQ 和 SQL 查詢。下列範例顯示如何執行稍早在本文件中介紹的簡單篩選查詢。
 
 
@@ -1849,6 +1928,15 @@ DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用
 	    Console.WriteLine("\tRead {0} from SQL", family);
 	}
 	
+    SqlQuerySpec query = new SqlQuerySpec("SELECT * FROM Families f WHERE f.id = @familyId");
+    query.Parameters = new SqlParameterCollection();
+    query.Parameters.Add(new SqlParameter("@familyId", "AndersenFamily"));
+
+    foreach (var family in client.CreateDocumentQuery(collectionLink, query))
+    {
+        Console.WriteLine("\tRead {0} from parameterized SQL", family);
+    }
+
 	foreach (var family in (
 	    from f in client.CreateDocumentQuery(collectionLink)
 	    where f.Id == "AndersenFamily"
@@ -1918,13 +2006,13 @@ DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用
 
 
 
-.NET 用戶端會在 foreach 區塊中自動逐一查看查詢結果的所有頁面 (如上所示)。在 .NET SDK 中也能使用 REST API 小節所介紹的查詢選項，只要在 CreateDocumentQuery 方法中使用 `FeedOptions` 和 `FeedResponse` 類別即可。頁數可藉由使用 `MaxItemCount` 設定來控制。 
+.NET 用戶端會在 foreach 區塊中自動逐一查看查詢結果的所有頁面 (如上所示)。.NET SDK 中也提供 REST API 小節所介紹的查詢選項，方法是在 CreateDocumentQuery 方法中使用 `FeedOptions` 和 `FeedResponse` 類別。頁數可以使用 `MaxItemCount` 設定進行控制。 
 
-開發人員也可以明確地控制分頁，方法是使用 `IQueryable` 物件來建立 `IDocumentQueryable`，然後讀取 `ResponseContinuationToken` 值並在 `FeedOptions` 中以 `RequestContinuationToken` 將這些值傳回。若要在所設定的索引原則無法支援查詢時啟用掃描，可以設定 `EnableScanInQuery`。
+開發人員也可以明確地控制分頁，方法是在 `FeedOptions` 中，使用 `IQueryable` 物件建立 `IDocumentQueryable`，然後讀取 ` ResponseContinuationToken` 值，並將這些值作為 `RequestContinuationToken` 傳遞。當設定的檢索原則支援查詢時， `EnableScanInQuery` 可設定為啟用掃描。
 
 如需更多包含查詢的範例，請參閱 [DocumentDB .NET 範例](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content)。 
 
-##JavaScript 伺服器端 API 
+###JavaScript 伺服器端 API 
 DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序，直接對集合執行 JavaScript 型應用程式邏輯。在集合層級註冊的 JavaScript 邏輯接著可以對給定集合之文件的作業發出資料庫作業。這些作業會包裝在環境 ACID 交易中。
 
 下列範例示範如何在 JavaScript 伺服器 API 中使用 queryDocuments，從預存程序和觸發程序內發出查詢。
@@ -1961,7 +2049,7 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 	}
 
 
-#參考
+##參考
 1.	[Azure DocumentDB 簡介][introduction]
 2.	[DocumentDB SQL 語言規格](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3.	[DocumentDB .NET 範例](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content)
@@ -1970,7 +2058,7 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 6.	JSON [http://json.org/](http://json.org/)
 7.	Javascript 規格 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9.	Query evaluation techniques for large databases [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+9.	大型資料庫的查詢評估技術 [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10.	平行關聯式資料庫系統中的查詢處理 (IEEE Computer Society Press，1994 年)
 11.	Lu, Ooi, Tan, 平行關聯式資料庫系統中的查詢處理 (IEEE Computer Society Press，1994 年)。
 12.	Christopher Olston、Benjamin Reed、Utkarsh Srivastava、Ravi Kumar、Andrew Tomkins：Pig Latin：資料處理的 Not-So-Foreign 語言，SIGMOD 2008。
@@ -1981,6 +2069,4 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 [introduction]: ../documentdb-introduction
 [consistency-levels]: ../documentdb-consistency-levels
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

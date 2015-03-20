@@ -19,7 +19,7 @@
 
 # 使用媒體服務 REST API 連接到媒體服務帳戶
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow)和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow) 系列的一部分。 
 
 本主題描述如何在使用媒體服務 REST API 進行程式設計時，取得 Microsoft Azure 媒體服務的程式設計連線。
 
@@ -42,7 +42,7 @@
 
 	您應該將後續的 API 呼叫張貼到 https://wamsbayclus001rest-hs.cloudapp.net/api/。
 
-## 取得存取權杖
+##取得存取權杖
 
 若要直接透過 REST API 存取媒體服務，從 ACS 擷取存取權杖，並在每個您對服務提出的 HTTP 要求中使用它。這個權杖類似於 ACS 根據 HTTP 要求標頭中提供的存取宣告而提供的其他權杖，以及使用 OAuth v2 通訊協定。直接連接到媒體服務之前，您不需要其他任何必要條件。
 
@@ -99,9 +99,9 @@
 
 請務必監控存取權杖的 "expires_in" 值，並視需要以新權杖更新您的 REST API 呼叫。
 
-### 連接至媒體服務 URI
+###連接至媒體服務 URI
 
-根媒體服務 URI 為 https://media.windows.net/。您應該一開始會連接到此 URI，而且如果回應中出現 301 重新導向，您應該將後續呼叫送到新的 URI。此外，請勿在要求中使用任何自動重新導向/跟隨邏輯。HTTP 動詞與要求主體不會轉送到新的 URI。
+媒體服務的根 URI 為 https://media.windows.net/。您應該一開始會連接到此 URI，而且如果回應中出現 301 重新導向，您應該將後續呼叫送到新的 URI。此外，請勿在要求中使用任何自動重新導向/跟隨邏輯。HTTP 指令動詞與要求主體不會轉送到新的 URI。
 
 請注意，上傳與下載資產檔案的根 URI 是 https://yourstorageaccount.blob.core.windows.net/，其中儲存體帳戶名稱是您在媒體服務帳戶設定期間所用的相同名稱。
 
@@ -169,4 +169,4 @@
 
 <!-- URLs. -->
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

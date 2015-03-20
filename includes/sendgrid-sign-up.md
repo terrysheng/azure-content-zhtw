@@ -1,10 +1,10 @@
-Azure 客戶每月可以解除鎖定 25,000 封免費電子郵件。這些每月 25,000 封的免費電子郵件可讓您存取進階報告與分析及[所有 API][] (Web、SMTP、Event、Parse 等)。如需有關 SendGrid 所提供其他服務的資訊，請參閱 [SendGrid 功能][]頁面。
+﻿Azure 客戶每月可以解除鎖定 25,000 封免費電子郵件。這些每月 25,000 封的免費電子郵件，可讓您存取進階報告與分析及[所有 API][] (Web、SMTP、Event、Parse 及更多)。如需有關 SendGrid 所提供之其他服務的資訊，請參閱 [SendGrid 功能][]頁面。
 
 ### 註冊 SendGrid 帳戶
 
 1. 登入 [Azure 管理入口網站][]。
 
-2. 在管理入口網站的下方窗格中，按一下 [新增]。
+2. 在管理入口網站的下方窗格中，按一下 [新增]****。
 
 	![command-bar-new][command-bar-new]
 
@@ -12,19 +12,19 @@ Azure 客戶每月可以解除鎖定 25,000 封免費電子郵件。這些每月
 
 	![sendgrid-store][sendgrid-store]
 
-4. 在 [**選擇應用程式和服務**] 對話方塊中，選取 [**SendGrid**]，然後按一下向右箭號。
+4. 在 [**選擇應用程式和服務**] 對話方塊中，選取 [**SendGrid**] 並按一下向右鍵。
 
-5. 在 [**個人化的應用程式和服務**] 對話方塊中，選取您想要註冊的 **SendGrid** 方案。
+5. 在 [**個人化的應用程式和服務**] 對話方塊中，選取您想要註冊的 [**SendGrid**] 方案。
 
-6. 在您的 Azure 設定中輸入一個可識別 **SendGrid** 服務的名稱，或使用 **SendGridEmailDelivery.Simplified.SMTPWebAPI** 的預設值。名稱的長度必須介於 1 到 100 個字元之間，而且只能包含英數字元、連字號、句點和底線。此名稱在已訂用的 Azure 市集項目清單中必須是唯一的。
+6. 在 Azure 設定中，輸入名稱來識別您的 **SendGrid** 服務，或使用預設值 [**SendGridEmailDelivery.Simplified.SMTPWebAPI**]。名稱的長度必須介於 1 到 100 個字元之間，而且只能包含英數字元、連字號、句點和底線。此名稱在已訂用的 Azure 市集項目清單中必須是唯一的。
 
 	![store-screen-2][store-screen-2]
 
 7. 選擇地區值，例如美國西部。
 
-8. 按一下向右箭頭。
+8. 按一下向右鍵。
 
-9. 在 [**檢閱購買項目**] 索引標籤中，檢閱方案和價格資訊，並檢閱法律條款。如果您同意接受這些條款，請按一下核取記號。按一下核取記錄之後，您的 SendGrid 帳戶將會開始 [SendGrid 佈建程序]。
+9. 在 [**檢閱購買項目**] 索引標籤中，檢閱方案和價格資訊，並檢閱法律條款。如果您同意接受這些條款，請按一下核取記號。按一下核取記號之後，您的 SendGrid 帳戶將會開始 [SendGrid 佈建程序]。
 
 	![store-screen-3][store-screen-3]
 
@@ -46,15 +46,15 @@ Azure 客戶每月可以解除鎖定 25,000 封免費電子郵件。這些每月
 
 	![sendgrid-connection-info-button][sendgrid-connection-info-button]
 
-2. 在  *Connection info* 對話方塊中，複製 [**密碼**] 和 [使用者名稱]，以供稍後在本教學課程中使用。
+2. 在 [ *Connection info*] 對話方塊中，複製 [密碼]**** 和 [使用者名稱] 以供稍後在本教學課程中使用。
 
 	![sendgrid-connection-info][sendgrid-connection-info]
 
 	若要進行電子郵件傳遞能力設定，請按一下 [**管理**] 按鈕。此動作將會開啟 Sendgrid.com 網頁介面，您可在此登入並開啟您的 SendGrid 控制台。 
 
 	![sendgrid-control-panel][sendgrid-control-panel]
- 	
-	如需有關開始使用 SendGrid 的詳細資訊，請參閱 [SendGrid 開始使用][]。
+
+	如需有關開始使用 SendGrid 的詳細資訊，請參閱 [SendGrid 使用者入門][]。
 
 <!--images-->
 
@@ -72,8 +72,9 @@ Azure 客戶每月可以解除鎖定 25,000 封免費電子郵件。這些每月
 
 [SendGrid 功能]: http://sendgrid.com/features
 [Azure 管理入口網站]: https://manage.windowsazure.com
-[SendGrid 入門]: http://sendgrid.com/docs
-[SendGrid 開始使用]: https://support.sendgrid.com/hc/zh-tw/articles/200181628-Why-is-my-account-being-provisioned-
+[SendGrid 使用者入門]: http://sendgrid.com/docs
+[SendGrid 佈建程序]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [所有 API]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!--HONumber=42-->
+
+<!--HONumber=47-->

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="使用 .NET 連線到媒體服務帳戶" 
 	description="本主題示範如何使用 .NET 連線到媒體服務。" 
 	services="media-services" 
@@ -19,7 +19,7 @@
 
 # 使用 Media Services SDK for .NET 連線到媒體服務帳戶
 
-這篇文章屬於[要求工作流程上的媒體服務視訊](../media-services-video-on-demand-workflow) 和[媒體服務即時資料流工作流程](../media-services-live-streaming-workflow)系列。 
+這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow) 系列的一部分。 
 
 本主題描述使用 Media Services SDK for .NET 進行程式設計時，如何取得與 Microsoft Azure 媒體服務的程式設計連線。
 
@@ -61,9 +61,9 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 本節顯示如何使用採用 MediaServicesCredentials 做為參數的 CloudMediaContext 建構函式，來重複使用存取控制服務權杖。
 
 
-[Azure Active Directory 存取控制](https://msdn.microsoft.com/zh-tw/library/hh147631.aspx) (也稱為存取控制服務或 ACS) 是一種雲端型服務，可提供簡單的方式來驗證和授權使用者存取其 Web 應用程式。Microsoft Azure 媒體服務會透過需要 ACS 權杖的 OAuth 通訊協定來控制其服務的存取。媒體服務會收到來自授權伺服器的 ACS 權杖。
+[Azure Active Directory 存取控制](https://msdn.microsoft.com/library/hh147631.aspx) (也稱為存取控制服務或 ACS) 是一種雲端型服務，可提供簡單的方式來驗證和授權使用者存取其 Web 應用程式。Microsoft Azure 媒體服務會透過需要 ACS 權杖的 OAuth 通訊協定來控制其服務的存取。媒體服務會收到來自授權伺服器的 ACS 權杖。
 
-使用 Media Services SDK 進行開發時，您可以選擇不處理權杖，因為 SDK 程式碼會進行管理。不過，讓 SDK 全權管理 ACS 權杖會導致不必要的權杖要求。要求權杖十分耗時，並且會耗用用戶端和伺服器資源。此外，如果速率太高，則 ACS 伺服器會節流處理要求。限制是每秒 30 個要求，如需詳細資料，請參閱 [ACS 服務限制](https://msdn.microsoft.com/zh-tw/library/gg185909.aspx)。
+使用 Media Services SDK 進行開發時，您可以選擇不處理權杖，因為 SDK 程式碼會進行管理。不過，讓 SDK 全權管理 ACS 權杖會導致不必要的權杖要求。要求權杖十分耗時，並且會耗用用戶端和伺服器資源。此外，如果速率太高，則 ACS 伺服器會節流處理要求。限制是每秒 30 個要求，如需詳細資料，請參閱 [ACS 服務限制](https://msdn.microsoft.com/library/gg185909.aspx)。
 
 從 Media Services SDK 3.0.0.0 版開始，您可以重複使用 ACS 權杖。採用 **MediaServicesCredentials** 做為參數的 **CloudMediaContext** 建構函式會啟用多個內容之間的 ACS 權杖共用。MediaServicesCredentials 類別會封裝媒體服務認證。如果有 ACS 權杖可用，並且知道其到期時間，則可以使用權杖建立新的 MediaServicesCredentials 執行個體，並將它傳遞給 CloudMediaContext 的建構函式。請注意，Media Services SDK 會在權杖到期時自動重新整理權杖。如下列範例所示，有兩種方式可以重複使用 ACS 權杖。
 
@@ -99,7 +99,7 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 		// If it is not valid, call MediaServicesCredentials's RefreshToken before caching.
 		SaveTokenDataToExternalStorage(accessToken, tokenExpiration);
 		
-	使用儲存的權杖值建立 MediaServicesCredentials。
+	使用儲存的權杖值來建立 MediaServicesCredentials。
 
 
 		var accessToken = "";
@@ -117,7 +117,7 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 		
 		CloudMediaContext context2 = new CloudMediaContext(credentials);
 
-	為確保媒體服務SDK 更新權杖時存有備份，請更新權杖副本。 
+	更新權杖副本 (以免媒體服務 SDK 已更新權杖)。 
 	
 		if(tokenExpiration != context2.Credentials.TokenExpiration)
 		{
@@ -166,7 +166,7 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 
 ## 在組態中儲存連線值
 
-強烈建議使用這種作法將連線值儲存在組態中，尤其是敏感的值 (例如您的帳戶名稱與密碼)。另外，也建議將敏感的組態資料加密。您可以使用 Windows 加密檔案系統 (EFS) 將整個組態檔加密。若要在檔案上啟用 EFS，請在檔案上按一下滑鼠右鍵，並選取 [**內容**]，然後在 [**進階設定**] 索引標籤中啟用加密。或者，可以使用受保護的組態，建立將選擇之組態檔案內的部分加密的自訂解決方案。請參閱[使用受保護組態將組態資訊加密](https://msdn.microsoft.com/zh-tw/library/53tyfkaw.aspx)。
+強烈建議使用這種作法將連線值儲存在組態中，尤其是敏感的值 (例如您的帳戶名稱與密碼)。另外，也建議將敏感的組態資料加密。您可以使用 Windows 加密檔案系統 (EFS) 將整個組態檔加密。若要在檔案上啟用 EFS，請在檔案上按一下滑鼠右鍵，並選取 [**內容**]，然後在 [**進階設定**] 索引標籤中啟用加密。或者，可以使用受保護的組態，建立將選擇之組態檔案內的部分加密的自訂解決方案。請參閱[使用受保護組態將組態資訊加密](https://msdn.microsoft.com/library/53tyfkaw.aspx)。
 
 下列 App.config 檔案包含必要的連線值。<appSettings> 元素中的值是您在媒體服務帳戶設定程序中取得的必要值。
 
@@ -191,4 +191,4 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 
 <!-- URLs. -->
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

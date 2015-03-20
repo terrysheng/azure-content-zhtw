@@ -19,29 +19,38 @@
 
 # 使用 Azure Media Indexer 編製媒體檔案索引
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow)系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 系列的一部分。 
 
 Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。您可以處理一份媒體檔或是批次處理多個媒體檔案。您也可以指定資訊清單檔中的檔案 URL 來針對可在網際網路上公開取得的檔案編製索引。
 
 >[AZURE.NOTE] 在編製內容索引時，請務必使用語音非常清楚的媒體檔案 (不含背景音樂、噪音、效果或麥克風雜音)。適當內容的一些範例有：錄製的會議、演講或簡報。下列內容可能不適合用來編製索引：電影、電視節目、任何具有混合音訊與音效的內容、錄製效果不良有背景噪音 (雜音) 的內容。
->
-索引工作會產生 SAMI 和 TTML 輸出檔案 (還有其他檔案)。SAMI 和 TTML 都包含稱為 Recognizability 的標記，它會根據來源視訊中的語音可辨識度來為索引工作評分。您可以使用 Recognizability 值篩選輸出檔的實用性。較低的分數表示由於音訊品質所致的不良索引結果。
+
+
+編製索引工作會為每個要編製索引的檔案產生四個輸出：
+
+- SAMI 格式的隱藏式字幕檔案。
+- Timed Text Markup Language (TTML) 格式的隱藏式字幕檔案。
+
+	SAMI 和 TTML 都包含稱為 Recognizability 的標記，它會根據來源視訊中的語音可辨識度來為索引工作評分。您可以使用 Recognizability 值篩選輸出檔的實用性。較低的分數表示由於音訊品質所致的不良索引結果。
+- 關鍵字檔案 (XML)。
+- 與 SQL Server 搭配使用的音訊編製索引 blob 檔案 (AIB)。
+	
+	如需詳細資訊，請參閱[搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)。
+
 
 本主題說明如何建立索引作業來**編製資產索引**、**編製多個檔案的索引**，和**編製在網際網路上公開可用之檔案的索引**。
 
-如需支援的語言，請參閱**支援的語言**一節。
-
 如需最新的 Azure Media Indexer 更新，請參閱[媒體服務部落格](http://azure.microsoft.com/blog/topics/media-services/)。
 
-## 針對索引工作使用組態和資訊清單檔
+##針對索引工作使用組態和資訊清單檔
 
 您可以使用工作組態來為索引工作指定更多詳細資料。例如，您可以指定要用於媒體檔案的中繼資料。語言引擎會使用此中繼資料來擴充其詞彙，並大幅提升語音辨識準確度。
 
 您也可以使用資訊清單檔，一次處理多個媒體檔案。
 
-如需詳細資訊，請參閱 [Azure Media Indexer 的工作預設](https://msdn.microsoft.com/zh-tw/library/azure/dn783454.aspx)。
+如需詳細資訊，請參閱 [Azure Media Indexer 的工作預設](https://msdn.microsoft.com/library/azure/dn783454.aspx)。
 
-## 編製資產索引
+##編製資產索引
 
 下列方法會將媒體檔案上傳為資產，並建立工作來編製資產索引。
 
@@ -57,7 +66,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer",
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
@@ -134,7 +143,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 	    return processor;
 	} 
 	
-### <a id="output_files"></a>輸出檔案
+###<a id="output_files"></a>輸出檔案
 
 索引工作會產生下列輸出檔案。檔案會儲存在第一個輸出資產。
 
@@ -148,7 +157,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 <br/>
 它需要在執行 Microsoft SQL 2008 或更新版本的電腦上安裝 Indexer SQL 附加元件。使用 Microsoft SQL Server 全文檢索搜尋來搜尋 AIB 可以比搜尋 WAMI 產生之隱藏式字幕檔案提供更正確的搜尋結果。這是因為 AIB 包含發音類似的替代字，而隱藏式字幕檔案則包含音訊每一節的最高信賴字。如果搜尋說的話重要性最高，則建議一起使用 AIB 和 Microsoft SQL Server。
 <br/><br/>
-若要下載附加元件，請按一下 <a href="http://aka.ms/indexersql">[Azure Media Indexer SQL 附加元件]</a>。
+若要下載附加元件，請按一下 [<a href="http://aka.ms/indexersql">Azure Media Indexer SQL 附加元件</a>]。
 <br/><br/>
 也可以利用其他搜尋引擎，例如 Apache Lucene/Solr，只根據隱藏式字幕和關鍵字 XML 檔案編製視訊的索引，但這會導致搜尋結果較不正確。</td></tr>
 <tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
@@ -167,11 +176,11 @@ SAMI 和 TTML 都包含稱為 <b>Recognizability</b> 的標記，它會根據來
 
 如果不是所有輸入媒體檔案都成功編製索引，則索引工作將會失敗，錯誤碼為 4000。如需詳細資訊，請參閱[錯誤碼](#error_codes)。
 
-## 編製多個檔案的索引
+##編製多個檔案的索引
 
 下列方法會將多個媒體檔案上傳為資產，並建立工作來批次編製這些檔案的索引。
 
-會建立 .lst 副檔名的資訊清單檔，並上傳到資產。資訊清單檔案包含所有資產檔案的清單。如需詳細資訊，請參閱 [Azure Media Indexer 的工作預設](https://msdn.microsoft.com/zh-tw/library/azure/dn783454.aspx)。
+會建立 .lst 副檔名的資訊清單檔，並上傳到資產。資訊清單檔案包含所有資產檔案的清單。如需詳細資訊，請參閱 [Azure Media Indexer 的工作預設](https://msdn.microsoft.com/library/azure/dn783454.aspx)。
 	
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -189,7 +198,7 @@ SAMI 和 TTML 都包含稱為 <b>Recognizability</b> 的標記，它會根據來
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Batch Mode");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
@@ -247,7 +256,7 @@ SAMI 和 TTML 都包含稱為 <b>Recognizability</b> 的標記，它會根據來
 	}
 
 
-### 輸出檔案
+###輸出檔案
 
 當有多個輸入媒體檔案時，WAMI 會產生工作輸出的資訊清單檔，名為 'JobResult.txt'。針對每個輸入媒體檔案，產生的 AIB、SAMI、TTML 以及關鍵字檔案會循序編號，如下所示。
 
@@ -275,7 +284,7 @@ Alias：對應輸出檔案名稱。
 <br/><br/>
 MediaLength：輸入媒體檔案的長度 (秒)。如果此輸入發生錯誤，可能是 0。
 <br/><br/>
-Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，其他則代表失敗。請參閱  <a href="#error_codes">錯誤碼</a> 以瞭解具體的錯誤。
+Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，其他則代表失敗。如需具體的錯誤資訊，請參閱<a href="#error_codes">錯誤碼</a>。
 </td></tr>
 <tr><td>Media_1.aib </td>
 <td>檔案 #0 - 音訊索引 blob 檔案。</td></tr>
@@ -289,16 +298,16 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 
 如果不是所有輸入媒體檔案都成功編製索引，則索引工作將會失敗，錯誤碼為 4000。如需詳細資訊，請參閱[錯誤碼](#error_codes)。
 
-### 部分成功的工作
+###部分成功的工作
 
 如果不是所有輸入媒體檔案都成功編製索引，則索引工作將會失敗，錯誤碼為 4000。如需詳細資訊，請參閱[錯誤碼](#error_codes)。
 
 
 會產生 (與成功工作) 相同的輸出。您可以參閱輸出資訊清單檔，根據 Error 欄位值找出哪些輸入檔案失敗。針對失敗的輸入檔案，將不會產生結果的 AIB、SAMI、TTML 和關鍵字檔案。
 
-## 編製來自網際網路之檔案的索引
+##編製來自網際網路之檔案的索引
 
-針對網際網路上公開可用的媒體檔案，您也可以編製其索引而不必將它們複製到 Azure 儲存體。您可以使用資訊清單檔案指定媒體檔案的 URL。如需詳細資訊，請參閱 [Azure Media Indexer 的工作預設](https://msdn.microsoft.com/zh-tw/library/azure/dn783454.aspx)。
+針對網際網路上公開可用的媒體檔案，您也可以編製其索引而不必將它們複製到 Azure 儲存體。您可以使用資訊清單檔案指定媒體檔案的 URL。如需詳細資訊，請參閱 [Azure Media Indexer 的工作預設](https://msdn.microsoft.com/library/azure/dn783454.aspx)。
 
 請注意，支援 HTTP 和 HTTPS URL 通訊協定。
 
@@ -318,7 +327,7 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Public URL");
 	
-	    // Get a reference to the Windows Azure Media Indexer.
+	    // Get a reference to the Azure Media Indexer.
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
 	    // Read configuration.
@@ -361,16 +370,16 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 	    return true;
 	}
 
-### 輸出檔案
+###輸出檔案
 
 如需輸出檔案的描述，請參閱[輸出檔案](#output_files)。 
 
 
-## 處理受保護檔案
+##處理受保護檔案
 
 透過 http 或 https 下載網際網路檔案時，Indexer 支援使用者名稱和密碼的基本驗證。
 
-您可以在工作組態中指定 **username** 和 **password**，如 [Azure Media Indexer 的工作預設](https://msdn.microsoft.com/zh-tw/library/azure/dn783454.aspx)中所述。
+您可以在工作組態中指定 **username** 和 **password**，如 [Azure Media Indexer 的工作預設](https://msdn.microsoft.com/library/azure/dn783454.aspx)中所述。
 
 ### <a id="error_codes"></a>錯誤碼
 
@@ -390,14 +399,18 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 損毀的媒體檔案。
 <br/>或<br/>
 輸入媒體沒有音訊資料流。</td></tr>
-<tr><td>4000</td><td>批次編製索引已部分成功</td><td>某些輸入媒體檔案無法編製索引。如需詳細資訊，請參閱 <a href="output_files">輸出檔案</a>。</td></tr>
+<tr><td>4000</td><td>批次編製索引已部分成功</td><td>某些輸入媒體檔案無法編製索引。如需詳細資訊，請參閱<a href="output_files">輸出檔案</a>。</td></tr>
 <tr><td>其他</td><td>內部錯誤</td><td>請連絡技術支援小組。</td></tr>
 </table>
 
 
-## 支援的語言
+##<a id="supported_languages"></a>支援的語言
 
 目前只支援英文。
+
+##相關連結
+
+[搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 <!-- Anchors. -->
 
@@ -405,4 +418,4 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 
 <!-- URLs. -->
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

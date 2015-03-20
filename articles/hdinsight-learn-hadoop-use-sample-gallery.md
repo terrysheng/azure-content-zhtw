@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="使用 Sample Gallery 了解 HDInsight 中的 Hadoop" 
    description="使用 HDInsight Sample Gallery 了解 HDInsight 中的 Hadoop" 
    services="hdinsight" 
@@ -16,7 +16,7 @@
    ms.date="1/29/2015" 
    ms.author="jgao"/>
 
-# 使用 HDInsight Getting Started Gallery 了解 HDInsight 中的 Hadoop
+# 使用 HDInsight Getting Started Gallery 了解 Hadoop
 
 HDInsight Getting Started Gallery 提供簡單且快速的方式，以在 HDInsight 中執行 Hadoop 範例應用程式。有些範例具備範例資料。您可以提供其餘範例的專屬資料。目前有 6 個範例，之後會推出更多：
 
@@ -38,7 +38,7 @@ HDInsight Getting Started Gallery 提供簡單且快速的方式，以在 HDInsi
 
 **從 Getting Started Gallery 執行範例**
 
-1.	登入 [Azure 管理入口網站][azure.management.portal]。
+1.	登入 [[Azure 管理入口網站][azure.management.portal]]。
 2.	按一下左功能表中的 [**HDInsight**]。您會看到現有 HDInsight 叢集清單 (包括 Hadoop、Storm 和 HBase 叢集)。 
 3.	按一下您要執行範例的叢集。
 4.	按一下底部的 [**QUERY CONSOLE**]。
@@ -51,7 +51,7 @@ HDInsight Getting Started Gallery 提供簡單且快速的方式，以在 HDInsi
 ## 後續步驟
 其他了解 HDInsight 的方式包括：
 
-- [HDInsight 學習圖][hdinsight.learning.map]
+- [HDInsight 學習地圖][hdinsight.learning.map]
 - [HDInsight 資訊圖][hdinsight.infographic]
 
 <!--Image references-->
@@ -62,4 +62,4 @@ HDInsight Getting Started Gallery 提供簡單且快速的方式，以在 HDInsi
 [hdinsight.learning.map]: ../hdinsight-learning-map/
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

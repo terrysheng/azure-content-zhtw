@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="在原始檔控制中儲存專案程式碼 - Azure 行動服務" 
 	description="了解如何在您電腦的本機 Git 存放庫中儲存伺服器指令碼檔案和模組。" 
 	services="mobile-services" 
@@ -175,7 +175,7 @@
 [新增行動服務到現有的應用程式]: /zh-tw/documentation/articles/mobile-services-ios-get-started-data/
 [在行動服務中使用伺服器指令碼]: /zh-tw/documentation/articles/mobile-services-how-to-use-server-scripts/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[從用戶端呼叫自訂 API] : /zh-tw/documentation/articles/mobile-services-ios-call-custom-api/
+[從用戶端呼叫自訂 API]: /zh-tw/documentation/articles/mobile-services-ios-call-custom-api/
 [Node.js API 文件：模組]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 

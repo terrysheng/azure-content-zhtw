@@ -120,7 +120,7 @@
 
    	![][14]
 
-   	This ensures that your app can receive push notifications.
+   	這可確保您的應用程式可以接收推播通知.
 	
 7. 按 F5 鍵以執行應用程式。
 

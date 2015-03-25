@@ -81,8 +81,7 @@
 [2]: ./media/mobile-services-wp8-get-started-users/mobile-service-uri.png
 [3]: ./media/mobile-services-wp8-get-started-users/mobile-identity-tab.png
 [4]: ./media/mobile-services-wp8-get-started-users/mobile-portal-data-tables.png
-[5]: ./media/mobile-services-wp8-get-started-users/mobile-portal-change-table-per
-	ms.png
+[5]: ./media/mobile-services-wp8-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. -->
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582

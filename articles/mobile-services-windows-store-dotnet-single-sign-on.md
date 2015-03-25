@@ -155,8 +155,7 @@
 
 [13]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-identity-tab-ma-only.png
 [14]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-portal-change-table-per
-	ms.png
+[15]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-portal-change-table-perms.png
 [16]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-add-reference-live-dotnet.png
 
 <!-- URLs. -->

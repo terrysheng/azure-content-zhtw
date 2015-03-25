@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="開始使用資料 (HTML 5) | 行動開發人員中心" 
 	description="了解如何開始使用行動服務，在您的 HTML 應用程式中使用資料。" 
 	services="mobile-services" 
@@ -84,7 +84,7 @@
 
 若要能夠在新行動服務中儲存應用程式資料，您必須先在相關聯的 SQL Database 執行個體中建立新的資料表。
 
-1. 在管理入口網站中，按一下 [行動服務]****，然後按一下您剛剛建立的行動服務。
+1. 在管理入口網站中，**按一下 [行動服務]**，然後按一下您剛剛建立的行動服務。
 
 2. 按一下 [資料] ****索引標籤，然後按一下 [建立]****。
 
@@ -98,7 +98,7 @@
 
   	這會建立包含預設權限集的新儲存資料表 **TodoItem**。這表示擁有應用程式金鑰 (隨應用程式散佈) 的人都可以存取與變更資料表中的資料。
 
-    > [AZURE.NOTE] 行動服務快速入門中使用相同的資料表名稱。However, each table is created in a schema that is specific to a given mobile service.目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。
+    > [AZURE.NOTE] 行動服務快速入門中使用相同的資料表名稱。不過，會在指定行動服務特定的結構描述中建立每個資料表.目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。
 
 4. 按一下新的 **TodoItem** 資料表，並驗證其中不含資料列。
 
@@ -274,7 +274,7 @@
 
 7. 再次載入此頁面，並勾選清單中的另一個項目。
 
-   	請注意，所有已核取的項目都會從清單中消失。Each update results in a round-trip to the mobile service, which now returns filtered data.
+   	請注意，所有已核取的項目都會從清單中消失。每次更新都會往返行動服務一次，而現在會傳回篩選的資料。
 
 這將結束**開始使用資料**教學課程。
 
@@ -291,7 +291,7 @@
 完成資料數列之後，若要了解如何驗證應用程式的使用者，您可以完成[開始使用驗證]來嘗試另一個教學課程。
 
 <!-- Anchors. -->
-[下載 HTML 應用程式專案] : #download-app
+[下載 HTML 應用程式專案]: #download-app
 [建立行動服務]: #create-service
 [新增用於儲存的資料表]: #add-table
 [更新應用程式以使用行動服務]: #update-app

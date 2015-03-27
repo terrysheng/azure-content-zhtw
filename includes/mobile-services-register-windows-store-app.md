@@ -9,7 +9,7 @@
 
    	這樣會為您的應用程式建立新的 Windows 市集註冊。
 
-3. 在 Visual Studio 中，開啟您完成「開始使用行動服務」[]教學課程時所建立的專案。
+3. 在 Visual Studio 中，開啟您完成「[開始使用行動服務]」[]教學課程時所建立的專案。
 
 4. 在 [方案總管] 中，在專案上按一下滑鼠右鍵，按一下 **[市集]**，然後按一下 **[將應用程式與市集建立關聯]**。 
 
@@ -65,7 +65,8 @@
  
 
 <!-- URLs. -->
-[開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started/#create-new-service
+[開始使用行動服務]: /develop/mobile/tutorials/get-started/#create-new-service
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Azure 管理入口網站]: https://manage.windowsazure.com/
+
 <!--HONumber=42-->

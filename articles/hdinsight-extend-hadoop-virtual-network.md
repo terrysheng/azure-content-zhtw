@@ -62,7 +62,7 @@ Azure 虛擬網路可讓您延伸 Hadoop 解決方案以合併內部部署資源
 >
 > 強烈建議您每個叢集只指定一個子網路。
 
-如需如何在虛擬網路佈建 HDInsight 叢集的詳細資訊，請參閱[在 HDInsight 中佈建 Hadoop 叢集](/zh-tw/documentation/articles/hdinsight-provision-clusters/)。
+如需如何在虛擬網路佈建 HDInsight 叢集的詳細資訊，請參閱[在 HDInsight 中佈建 Hadoop 叢集](/documentation/articles/hdinsight-provision-clusters/)。
 
 ##<a id="tasks"></a>工作和資訊
 

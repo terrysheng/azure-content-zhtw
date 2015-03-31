@@ -1,6 +1,6 @@
-1.在您的應用程式專案中，開啟檔案  `AndroidManifest.xml`。在下兩個步驟的程式碼中，以專案的應用程式套件名稱 (即  `manifest` 標籤中的  `package` 屬性值) 取代 _`**my_app_package**`_。 
+1. 在您的 **app** 專案中，開啟檔案 `AndroidManifest.xml`。在下兩個步驟的程式碼中，以專案的應用程式套件名稱 (即 `manifest` 標籤的 `package` 屬性值) 取代  _`**my_app_package**`_。 
 
-2. 在現有  `uses-permission` 元素中新增下列新權限：
+2. 在現有 `uses-permission` 元素後新增下列權限：
 
         <permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
             android:protectionLevel="signature" />
@@ -9,7 +9,7 @@
         <uses-permission android:name="android.permission.GET_ACCOUNTS" />
         <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-3. 在  `application` 起始標籤後新增下列程式碼： 
+3. 在 `application` 起始標籤後新增下列程式碼： 
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             						 	android:permission="com.google.android.c2dm.permission.SEND">
@@ -20,34 +20,43 @@
         </receiver>
 
 
-4. 下載並解壓縮[行動服務 Android SDK]，開啟 **[通知]** 資料夾，將 **notifications-1.0.1.jar** 檔案複製到 Eclipse 專案的  *libs* 資料夾，然後重新整理  *libs* 資料夾。
+4. 在應用程式目錄中 **build.gradle** 檔案的 *dependencies* 底下新增下列程式碼行： 
 
-    > [AZURE.NOTE] 檔案名稱結尾的數字在後續 SDK 版本中可能會變更。
+	    compile 'com.google.guava:guava:18.0'
+	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0-beta'
+	    compile(group: 'com.microsoft.azure', name: 'azure-notifications-handler', version: '1.0.1', ext: 'jar')
+   		compile 'com.google.android.gms:play-services-base:6.5.87'
 
-5.  開啟  *ToDoItemActivity.java* 檔案，新增下列 import 陳述式：
+
+5. 開啟 *ToDoItemActivity.java* 檔案，並加入下列 import 陳述式：
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
 
-6. 新增下列私用變數至類別：以先前程序中由 Google 指派給您應用程式的專案編號取代 _`<PROJECT_NUMBER>`_：
+6. 將下列的私用變數加入至類別：以先前程序中由 Google 指派給應用程式的專案編號取代 _`<PROJECT_NUMBER>`_。
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-7. 將  *MobileServiceClient* 的定義從**私用**變更為**公用靜態**，如下所示：
+7. 將 *MobileServiceClient* 的定義從**私用**變更為**公用靜態**，如下所示：
 
 		public static MobileServiceClient mClient;
 
 
 
-9. 接下來我們需要加入新類別來處理通知。在 [套件瀏覽器] 中，以滑鼠右鍵按一下封裝 (在  `src` 節點下)，依序按一下 **[新增]** 和 **[類別]**。
+8. 接下來我們需要加入新類別來處理通知。在 [專案總管] 中，尋找 `src` 節點並將它開啟，然後以滑鼠右鍵按一下封裝名稱節點：按一下 [**新增**]，然後按一下 [**Java 類別**]。
 
-10. 在 **[名稱]** 中輸入  `MyHandler`，在 **[Superclass]** 中輸入  `com.microsoft.windowsazure.notifications.NotificationsHandler`，然後按一下 **[完成]**
+9. 在 [**名稱**] 中，輸入 `MyHandler`，然後按一下 [**確定**]。 
 
-	![](./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png)
 
-	如此即會建立新的 MyHandler 類別。
+	![](./media/mobile-services-android-get-started-push/android-studio-create-class.png)
 
-11. 為  `MyHandler` 類別新增下列匯入陳述式：
+
+10. 在 MyHandler 檔案中，將類別宣告取代為 
+
+		public class MyHandler extends NotificationsHandler {
+
+
+11. 在 `MyHandler` 類別中加入下列 import 陳述式：
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
@@ -58,7 +67,7 @@
 		import android.support.v4.app.NotificationCompat;
 
 	
-12. 接著為  `MyHandler` 類別新增下列成員：
+12. 接著在 `MyHandler` 類別中新增下列成員：
 
 		public static final int NOTIFICATION_ID = 1;
 		private NotificationManager mNotificationManager;
@@ -66,7 +75,7 @@
 		Context ctx;
 
 
-13. 在  `MyHandler` 類別中，加入下列程式碼，以覆寫 **onRegistered** 方法，以通知中心的行動服務註冊您的裝置。
+13. 在 `MyHandler` 類別中，加入下列程式碼以覆寫 **onRegistered** 方法，以便向行動服務通知中心註冊您的裝置。
 
 		@Override
 		public void onRegistered(Context context,  final String gcmRegistrationId) {
@@ -89,7 +98,7 @@
 
 
 
-14. 在  `MyHandler` 類別中，新增下列程式碼，以覆寫 **onReceive** 方法 (使用此方法的結果是在收到通知時隨即顯示)。
+14. 在 `MyHandler` 類別中，新增下列程式碼以覆寫 **onReceive** 方法 (如此一來系統在收到通知時便會隨即顯示)。
 
 		@Override
 		public void onReceive(Context context, Bundle bundle) {
@@ -119,7 +128,7 @@
 		}
 
 
-15. 回到 TodoActivity.java 檔案，更新  *ToDoActivity* 類別的 **onCreate** 方法，以註冊通知處理常式類別。請務必在  *MobileServiceClient* 具現化之後，加入此程式碼。
+15. 回到 TodoActivity.java 檔案，更新 *ToDoActivity* 類別的 **onCreate** 方法，以註冊通知處理常式類別。請務必在 *MobileServiceClient* 具現化之後加入此程式碼。
 
 
 		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
@@ -128,4 +137,5 @@
 
 <!-- URLs. -->
 [行動服務 Android SDK]: http://aka.ms/Iajk6q
-<!--HONumber=42-->
+
+<!--HONumber=47-->

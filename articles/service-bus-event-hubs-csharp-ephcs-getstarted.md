@@ -1,22 +1,38 @@
-﻿<properties pageTitle="開始使用事件中心" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="遵循此教學課程，可開始藉由 C# 利用 EventProcessorHost 來使用 Azure Event Hubs。" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+﻿<properties 
+	pageTitle="開始使用事件中心" 
+	description="遵循此教學課程，可開始藉由 C# 利用 EventProcessorHost 來使用 Azure Event Hubs。" 
+	services="service-bus" 
+	documentationCenter="" 
+	authors="fsautomata" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="core" 
+	ms.tgt_pltfrm="csharp" 
+	ms.devlang="csharp" 
+	ms.topic="hero-article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
-# <a name="getting-started"> </a>開始使用事件中心
+# 開始使用事件中心
 
-[WACOM.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
+[AZURE.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
+
+## 簡介
 
 事件中心是可高度擴充的內嵌系統，每秒可處理數百萬事件，可讓您的應用程式處理和分析連接的裝置和應用程式所產生的大量資料。收集到事件中心後，您可以使用任何即時分析提供者或儲存體叢集轉換和儲存資料。如需事件中心詳細資訊，請參閱[事件中心開發人員指南]。 
 
 如需詳細資訊，請參閱[事件中心概觀]。
 
-在本教學課程中，您會學習如何使用 C# 中的主控台應用程式，將訊息內嵌至事件中心，以及使用 C# [事件處理器主機]程式庫平行擷取它們。
+在本教學課程中，您將了解如何使用以 C# 撰寫的主控台應用程式將訊息擷取到事件中心，以及使用 C# [事件處理器主機]程式庫平行擷取它們。
 
-為了完成此教學課程，您需要下列項目：
+若要完成本教學課程，您需要下列項目：
 
 + Microsoft Visual Studio Express 2013 for Windows
 
-+ 使用中的 Azure 帳戶。 <br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/zh-tw/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">「Azure 免費試用」</a>。
++ 使用中的 Azure 帳戶。 <br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
 ## 建立事件中心
 
@@ -26,7 +42,7 @@
 
    	![][1]
 
-3. 為您的事件中心輸入名稱、選取所需的區域，然後按一下 [**Create a new Event Hub**]。
+3. 為您的事件中心輸入名稱、選取所需的區域，然後按一下 [**建立新事件中心**]。
 
    	![][2]
 
@@ -38,7 +54,7 @@
 
    	![][4]
 
-6. 按一下頂端的 [**設定**] 索引標籤，新增名為 **SendRule** 的規則 (具有 *傳送* 權限)，並新增名為 **ReceiveRule** 的規則 (具有 *管理、傳送、接聽* 權限)，然後按一下 [**儲存**]。
+6. 按一下頂端的 [**設定**] 索引標籤上，新增名為 **SendRule** 且具有 *Send* 權限的規則，再新增另一個名為 **ReceiveRule** 且具有 *Manage, Send, Listen* 權限的規則，然後按一下 [**儲存**]。
 
    	![][5]
 
@@ -48,10 +64,10 @@
 
 您的事件中心現在已建立，而且您有需要傳送和接收事件的連接字串。
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../includes/service-bus-event-hubs-get-started-send-csharp.md)]
+[AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../includes/service-bus-event-hubs-get-started-send-csharp.md)]
 
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
+[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
 ## 執行應用程式
 
@@ -79,6 +95,6 @@
 <!-- Links -->
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [事件處理器主機]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[事件中心概觀]: http://msdn.microsoft.com/zh-tw/library/azure/dn836025.aspx
+[事件中心概觀]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

@@ -1,27 +1,41 @@
-﻿<properties title="Scripting Elastic Scale with Scripts" pageTitle="使用指令碼編寫 Elastic Scale" description="使用 PowerShell 及 Azure Automation Service Runbook 記錄 Elastic Scale 工作的指令碼" metaKeywords="Azure SQL Database, elastic scale, powershell scripts" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties 
+	pageTitle="使用指令碼編寫 Elastic Scale" 
+	description="使用 PowerShell 及 Azure Automation Service Runbook 記錄 Elastic Scale 工作的指令碼" 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="Joseidz" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="Joseidz@microsoft.com"/>
 
 # 使用指令碼管理 Elastic Scale
 
 
 ## Azure 自動化服務 
 
-[Azure 自動化](http://azure.microsoft.com/zh-tw/documentation/services/automation/)為 Azure 平台提供一個功能強大、極有必要的 PowerShell 工作流程執行服務。現在，您可以將常見 Azure 入口網站體驗內難以執行的維護工作自動化。只要撰寫 PowerShell 工作流程 (在 Azure 自動化中稱為 **Runbook**)，將它上傳到雲端，然後排程您想要何時執行 Runbook。本文件針對一些分區彈性範例，提供 Azure 自動化的端對端設定。如需詳細資訊，請參閱[預覽公告](http://blogs.technet.com/b/in_the_cloud/archive/2014/04/15/announcing-the-microsoft-azure-automation-preview.aspx)。或註冊 Azure [訂用帳戶](https://account.windowsazure.com/PreviewFeatures?fid=automation)。
+[Azure 自動化](http://azure.microsoft.com/documentation/services/automation/)為 Azure 平台提供一個功能強大、極有必要的 PowerShell 工作流程執行服務。現在，您可以將常見 Azure 入口網站體驗內難以執行的維護工作自動化。只要撰寫 PowerShell 工作流程 (在 Azure 自動化中稱為 **Runbook**)，將它上傳到雲端，然後排程您想要何時執行 Runbook。本文件針對一些分區彈性範例，提供 Azure 自動化的端對端設定。如需詳細資訊，請參閱[預覽公告](http://blogs.technet.com/b/in_the_cloud/archive/2014/04/15/announcing-the-microsoft-azure-automation-preview.aspx)。或註冊 Azure [訂用帳戶](https://account.windowsazure.com/PreviewFeatures?fid=automation)。
 
-在此範例中，Azure 自動化做為排程和工作負載執行架構。將為 Azure 自動化視為[雲端中的 SQL 代理程式](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/)。 
+在此範例中，Azure 自動化做為排程和工作負載執行架構。將 Azure 自動化視為[雲端中的 SQL 代理程式](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/)。 
 
 除了這份文件，這裡有其他資源：
 
-* [開始使用 Azure 自動化](http://azure.microsoft.com/zh-tw/documentation/articles/automation-create-runbook-from-samples/)
-* [逐步說明：開始使用新的 Microsoft Azure 自動化預覽功能](http://blogs.technet.com/b/keithmayer/archive/2014/04/04/step-by-step-getting-started-with-windows-azure-automation.aspx) 
+* [開始使用 Azure 自動化](http://azure.microsoft.com/documentation/articles/automation-create-runbook-from-samples/)
+* [逐步︰開始使用新的 Microsoft Azure 自動化預覽功能](http://blogs.technet.com/b/keithmayer/archive/2014/04/04/step-by-step-getting-started-with-windows-azure-automation.aspx) 
 * [Microsoft Azure 自動化](http://blogs.technet.com/b/cbernier/archive/2014/04/08/microsoft-azure-automation.aspx) 
-* 在[自動化論壇](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)詢問 Azure 自動化的特定問題。  
+* 在[自動化論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)詢問 Azure 自動化的特定問題。  
 
 
 ## 必要條件
 
-[註冊](http://azure.microsoft.com/zh-tw/services/preview/)並[熟悉](http://azure.microsoft.com/zh-tw/documentation/articles/automation-create-runbook-from-samples/) Microsoft Azure 自動化預覽服務。 
+[註冊](http://azure.microsoft.com/services/preview/)並[熟悉](http://azure.microsoft.com/documentation/articles/automation-create-runbook-from-samples/) Microsoft Azure 自動化預覽服務。
 
 
 ## 分區彈性 PowerShell 檔案
@@ -30,9 +44,9 @@
 
 這些範例說明如何使用 PowerShell 範例模組來執行基本分區彈性工作。結合 Microsoft Azure 自動化服務和對應的 Azure 自動化 Runbook，您可以建立自動化和排程的工作，以佈建新的分區和 (或) 根據一組規則變更特定分區的效能層級。 
 
-**SetupShardedEnvironment.ps1**：此 PowerShell Runbook 會執行分區化環境的一次性設定，在環境中提供分區對應管理員和範圍分區對應。 
+**SetupShardedEnvironment.ps1**︰此 PowerShell Runbook 會執行分區化環境的一次性設定，在環境中提供分區對應管理員和範圍分區對應。 
 
-**ProvisionByDate.ps1**：在某日的工作負載之前預先佈建新的資料庫。將會建立資料庫且根據日期戳記 (YYYYMMDD) 命名，並在分區對應管理員中註冊為範圍 [YYYYMMDD, YYYYMMDD + 1D)。 
+**ProvisionByDate.ps1**︰在某日的工作負載之前預先佈建新的資料庫。將會建立資料庫且根據日期戳記 (YYYYMMDD) 命名，並在分區對應管理員中註冊為範圍 [YYYYMMDD, YYYYMMDD + 1D)。 
 
 **ProvisionBySize.ps1**：當目前資料庫的容量不足時，佈建新的資料庫。 
 
@@ -48,13 +62,13 @@
 
 ## 成本
 
-請注意，執行 PowerShell 範例指令碼將會導致建立資料庫，因而對訂閱擁有者引發實際成本。基礎的 Azure SQL DB 和其他 Azure SQL DB 資料庫採取相同的[費率](http://azure.microsoft.com/zh-tw/pricing/details/sql-database/)計費。從 11 月 1 日開始的成本是： 
+請注意，執行 PowerShell 範例指令碼將會導致建立資料庫，因而對訂閱擁有者引發實際成本。基礎的 Azure SQL DB 和其他 Azure SQL DB 資料庫採取相同的[費率](http://azure.microsoft.com/pricing/details/sql-database/)計費。從 11 月 1 日開始的成本是： 
 
 * SetupShardedEnvironment Runbook 會在 Basic 資料庫上建立分區對應管理員 ($0.0069/小時)，也會在 Basic 資料庫上佈建第一個分區 ($0.0069/小時)。 
 
 * ProvisionBySize 和 ProvisionByDate Runbook 都會佈建 Standard S0 資料庫 ($0.0208/小時)。為了抵銷這些成本，如果搭配 ReduceServiceTier Runbook 執行，則新佈建資料庫的服務層在經過一天之後，將會從 Standard S0 ($0.0208/小時) 降低到 Basic ($0.0069/小時)。 
 
-最後，在所提供範例的範圍內，使用 [Azure 自動化](http://azure.microsoft.com/zh-tw/pricing/details/automation/)目前不會對訂閱擁有者引發任何費用。如需詳細資訊，請參閱 [Azure 自動化定價頁面](http://azure.microsoft.com/zh-tw/pricing/details/automation/)。 
+最後，在所提供範例的範圍內，使用 [Azure 自動化](http://azure.microsoft.com/pricing/details/automation/)目前不會對訂閱擁有者引發任何費用。如需詳細資訊，請參閱 [Azure 自動化定價頁面](http://azure.microsoft.com/pricing/details/automation/)。 
 
 ## 載入 Runbook 
 
@@ -63,8 +77,8 @@
 3. 尋找 Elastic Scale 用戶端程式庫 (**Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll**)。
 4. 將 DLL 放入 ShardElasticityModule 資料夾，並壓縮資料夾。 
 3. 在 Azure 自動化帳戶中，上傳 ShardElasticityModule.zip 檔案作為**資產**。 
-4. 在 Azure 自動化中，建立一個稱為 *ElasticScaleCredential* 的**資產認證**，其中包含 Azure SQL Database 伺服器的使用者名稱和密碼。 
-5. 建立一個稱為 *SqlServerName* 的**資產變數**，作為完整的 Azure SQL Database 伺服器名稱。 
+4. 在 Azure 自動化中，建立一個稱為  *ElasticScaleCredential* 的**資產認證**，其中包含 Azure SQL Database 伺服器的使用者名稱和密碼。 
+5. 建立一個稱為  *SqlServerName* 的**資產變數**，作為完整的 Azure SQL Database 伺服器名稱。 
 5. 上傳 **SetupShardedEnvironment.ps1**、**ProvisionBySize.ps1**、**ProvisionByDate.ps1** 和 **ProvisionByDate.ps1** 作為 Runbook。 
 6. 以一次性作業測試 **SetupShardedEnvironment.ps1** Runbook，以設定分區化環境。 
 7. 發行剩餘的一或多個 Runbook，並將 Runbook 連結至排程。 
@@ -72,7 +86,7 @@
 
 如果「快速範例指示」未成功，請參閱下面的「詳細範例指示」。  
 
-##  使用 Runbook
+## 使用 Runbook
 
 1. 編寫與封裝 PowerShell 模組 
 2. 建立 Microsoft Azure 自動化帳戶 
@@ -99,7 +113,7 @@
 
 4. 壓縮 ShardElasticityModule 資料夾。 
 
-注意：Azure 自動化需要數個命名慣例：以模組名稱 ShardElasticityModule.psm1 為例，zip 檔案名稱必須完全符合 (ShardElasticityModule.zip)。Zip 檔案包含 ShardElasticityModule 資料夾 (名稱符合模組的名稱)，而此資料夾又包含 psm1 檔案。如果未遵循此結構，Azure 自動化將無法解除封裝模組。
+    注意：Azure 自動化需要數個名稱慣例：以模組名稱 ShardElasticityModule.psm1 為例，zip 檔案名稱必須完全符合 (ShardElasticityModule.zip)。Zip 檔案包含 ShardElasticityModule 資料夾 (名稱符合模組的名稱)，而此資料夾又包含 psm1 檔案。如果未遵循此結構，Azure 自動化將無法解除封裝模組。
 
 5.    在驗證壓縮資料夾的內容和結構符合需求之後，請繼續下一個步驟。它看起來應該如下：
 
@@ -108,7 +122,7 @@
 
 ## 註冊 Azure 自動化預覽
 
-1. 移至 [Azure 預覽功能](http://azure.microsoft.com/zh-tw/services/preview/)。
+1. 移致 [Azure 預覽功能](http://azure.microsoft.com/services/preview/)。
     
 2. 按一下 [**試試看**]。
 
@@ -148,10 +162,10 @@ Azure 自動化可以分別建立認證和變數資產，供許多 Runbook 參�
 4. 按一下 [**加入認證**]。 
 
     ![Add credential][9]
-4. 選取 [**Windows PowerShell 認證**] 作為 [**認證類型**]，輸入 [**ElasticScaleCredential**] 作為名稱。描述是選擇性的。  
+4. 選取 [**Windows PowerShell 認證**] 作為 [**認證類型**]，輸入 **ElasticScaleCredential** 作為名稱。描述是選擇性的。  
 5. 按一下方塊右下角的箭號。 
 
-注意：若要直接使用 Runbook 而不修改，請使用指示所提供的變數名稱，一字不差。Runbook 會參考變數名稱。 
+    注意：若要直接使用 Runbook 而不修改，請使用指示所提供的變數名稱，一字不差。Runbook 會參考變數名稱。 
 5. 針對您要執行分區彈性範例的 Azure SQL DB 伺服器，插入使用者名稱和密碼 (兩次)。 
  
 6. 若要建立變數資產，請按一下 [**加入設定**]，然後選取 [**加入變數**]。 
@@ -169,7 +183,7 @@ Azure 自動化可以分別建立認證和變數資產，供許多 Runbook 參�
 1. 若要上傳新的 Azure 自動化 Runbook，請按一下功能區中的 [**RUNBOOK**]。 
 2. 在畫面底部按一下 [**匯入**]。 
 3. 瀏覽至檔案所在的資料夾，選取 [**SetupShardedEnvironment.ps1**]，然後按一下核取記號。 
-4. 對剩餘三個 PowerShell Runbook (**ProvisionByDate.ps1**、**ProvisionBySize.ps1** 和 **ReduceServiceTier.ps1**)，重複步驟 2 和 3。 
+4. 對其餘三個 PowerShell Runbook (**ProvisionByDate.ps1**、**ProvisionBySize.ps1** 和 **ReduceServiceTier.ps1**)，重複步驟 2 和 3。 
 5. 請繼續進行下一個步驟。 
 
 ## 設定分區化環境 
@@ -191,7 +205,7 @@ Azure 自動化可以分別建立認證和變數資產，供許多 Runbook 參�
 4. 按一下 [**儲存**]，再按一下 [**測試**]。
 5. 對 **ReduceServiceTier** 重複上述步驟。 
 
-請注意，因為 **ProvisionBySize** 和 **ProvisionByDate** 都會佈建新的分區 (使用不同的演算法)，所以目前不需要執行 **ProvisionByDate**。 
+    請注意，因為 **ProvisionBySize** 和 **ProvisionByDate** 都會佈建新的分區 (使用不同的演算法)，所以目前不需要執行 **ProvisionByDate**。 
 
 ## 發行 Runbook 
 下一步是發佈 Runbook，使它可以排程為定期執行。 
@@ -205,7 +219,7 @@ Azure 自動化可以分別建立認證和變數資產，供許多 Runbook 參�
 最後一個步驟是建立排程並連結至以上發行的 Runbook。 
 
 1. 按一下頁面頂端的 [**排程**]。 
-2. 按一下 [**LINK TO A NEW SCHEDULE**]。
+2. 按一下 [**連結至新排程**]。
 3. 適當地為排程命名，然後按一下向右箭號按鈕。
 4. 設定排程。
 5. 當完成時，按一下方塊底部的勾號。
@@ -230,3 +244,5 @@ Azure 自動化可以分別建立認證和變數資產，供許多 Runbook 參�
 [8]: ./media/sql-database-elastic-scale-scripting/sign-up.png
 [9]: ./media/sql-database-elastic-scale-scripting/add-credential.png
 [10]: ./media/sql-database-elastic-scale-scripting/assets.png
+
+<!--HONumber=47-->

@@ -1,7 +1,7 @@
-<properties 
+﻿<properties 
 	pageTitle="開始使用推播通知 (舊版為推播) | 行動開發人員中心" 
 	description="了解如何使用 Azure 行動服務傳送推播通知至 Windows 市集 JavaScript 應用程式 (舊版推播)。" 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
 	ms.date="11/22/2014" 
@@ -19,23 +19,23 @@
 # 將推播通知新增至行動服務應用程式 (舊版推播)
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows 市集 C#</a>
-    <a href="/zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">Windows 市集 JavaScript</a>
-    <a href="/zh-tw/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
-    <a href="/zh-tw/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
-    <a href="/zh-tw/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
-<!--    <a href="/zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
-    <a href="/zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
-	<a href="/zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
+    <a href="/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows 市集 C#</a>
+    <a href="/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">Windows 市集 JavaScript</a>
+    <a href="/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+    <a href="/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
+    <a href="/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
+<!--    <a href="/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
+    <a href="/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
+	<a href="/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
 </div>
 
-<div class="dev-center-tutorial-subselector"><a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">.NET 後端</a> |  <a href="/zh-tw/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">JavaScript 後端</a></div>		
+<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">.NET 後端</a> |  <a href="/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">JavaScript 後端</a></div>		
 
 本主題說明 Visual Studio 2013 如何讓您使用 Azure 行動服務將推播通知傳送至 Windows 市集應用程式。在本教學課程中，您會使用 Windows 推播通知服務 (WNS)，將推播通知從 Visual Studio 新增至快速入門專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
->[AZURE.NOTE]本主題支援<em>尚未升級</em>到使用通知中心整合的<em>現有</em>行動服務。當您建立<em>新的</em>行動服務時，就會自動啟用這項整合功能。如需新的行動服務，請參閱[開始使用推播通知](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
+>[AZURE.NOTE]本主題支援<em>尚未升級</em>到使用通知中樞整合的<em>現有</em>行動服務。當您建立<em>新的</em>行動服務時，就會自動啟用這項整合功能。對於新的行動服務，請參閱[開始使用推播通知](/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/)。
 >
->行動服務與 Azure 通知中心整合，以支援其他推播通知功能，例如範本、多個平台和改善的規模。<em>您應該升級現有的行動服務，以盡可能使用通知中心</em>。升級之後，請參閱這一版的[開始使用推播通知](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/)。
+>行動服務與 Azure 通知中心整合，以支援其他推播通知功能，例如範本、多個平台和改善的規模。<em>您應該升級現有的行動服務，以盡可能使用通知中樞</em>。升級後，請參閱這一版的[開始使用推播通知](/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/)。
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 
@@ -78,7 +78,7 @@
 
    	![][13]
 
-   	請注意，插入完成之後，應用程式會收到來自 WNS 的推播通知。
+   	Note that after the insert completes, the app receives a push notification from WNS.
 
    	![][14]
 
@@ -87,7 +87,7 @@
 本教學課程將示範行動服務所提供的基本推播通知功能。如果您的應用程式需要更進階的功能，例如傳送跨平台通知、訂閱型路由或是極大的磁碟區，請考慮在您的行動服務中使用 Azure 通知中心。如需詳細資訊，請參閱下列通知中心主題：
 
 + [開始使用 Azure 通知中心]
-  <br/>了解如何在 Windows 市集應用程式中利用通知中心。
+  <br/>了解如何在 Windows 市集應用程式中利用通知中樞。
 
 + [將通知傳送給訂閱者]
 	<br/>了解使用者如何註冊及接收其所需類別的推播通知。
@@ -101,7 +101,7 @@
 考慮更深入了解下列行動服務主題：
 
 * [開始使用資料]
-  <br/>進一步了解使用行動服務來儲存和查詢資料。
+  <br/>深入了解如何使用行動服務儲存和查詢資料。
 
 * [開始使用驗證]
   <br/>了解如何使用 Windows 帳戶驗證您的應用程式的使用者。
@@ -136,22 +136,21 @@
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started/
-[開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-js/
-[開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-js
-[開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-js
-[推播通知給應用程式使用者]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-js
-[使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-js
-[JavaScript 和 HTML]: /zh-tw/develop/mobile/tutorials/get-started-with-push-js
+[開始使用行動服務]: /develop/mobile/tutorials/get-started/
+[開始使用資料]: /develop/mobile/tutorials/get-started-with-data-js/
+[開始使用驗證]: /develop/mobile/tutorials/get-started-with-users-js
+[開始使用推播通知]: /develop/mobile/tutorials/get-started-with-push-js
+[推播通知給應用程式使用者]: /develop/mobile/tutorials/push-notifications-to-users-js
+[使用指令碼授權使用者]: /develop/mobile/tutorials/authorize-users-in-scripts-js
+[JavaScript 和 HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[行動服務 HTML/JavaScript 做法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-html-js-client/
+[行動服務 HTML/JavaScript 做法概念性參考]: /develop/mobile/how-to-guides/work-with-html-js-client/
 [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
-[開始使用 Azure 通知中心]: /zh-tw/manage/services/notification-hubs/getting-started-windows-dotnet/
-[什麼是通知中心？]: /zh-tw/develop/net/how-to-guides/service-bus-notification-hubs/
-[將通知傳送給訂閱者]: /zh-tw/manage/services/notification-hubs/breaking-news-dotnet/
-[將通知傳送給使用者]: /zh-tw/manage/services/notification-hubs/notify-users/
-[傳送跨平台通知給使用者]: /zh-tw/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[開始使用 Azure 通知中心]: /manage/services/notification-hubs/getting-started-windows-dotnet/
+[什麼是通知中心？]: /develop/net/how-to-guides/service-bus-notification-hubs/
+[將通知傳送給訂閱者]: /manage/services/notification-hubs/breaking-news-dotnet/
+[將通知傳送給使用者]: /manage/services/notification-hubs/notify-users/
+[傳送跨平台通知給使用者]: /manage/services/notification-hubs/notify-users-xplat-mobile-services/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

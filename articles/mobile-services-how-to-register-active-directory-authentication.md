@@ -10,18 +10,21 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/20/2015" 
 	ms.author="wesmc"/>
 
 # 註冊應用程式以使用 Azure Active Directory 帳戶登入
+##概觀
+
 
 本主題說明如何註冊應用程式以使用 Azure Active Directory 作為 Azure 行動服務的驗證提供者。 
 
+##註冊您的應用程式
 
->[AZURE.NOTE] 當您想要對應用程式使用[服務主導登入作業](http://msdn.microsoft.com/library/azure/dn283952.aspx)時，本主題中所述的步驟適用於[將驗證加入至行動服務應用程式](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/)教學課程。或者，如果您的應用程式具有 Azure Active Directory 及 .NET 後端行動服務的[用戶端主導登入作業](http://msdn.microsoft.com/library/azure/jj710106.aspx)需求，則您應該從[使用 Active Directory Authentication Library 單一登入驗證您的應用程式](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/)教學課程開始。
+>[AZURE.NOTE] 當您想要對應用程式使用[服務主導登入作業](http://msdn.microsoft.com/library/azure/dn283952.aspx)時，本主題中所述的步驟適用於[將驗證加入至行動服務應用程式] (/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) 教學課程。或者，如果您的應用程式具有 Azure Active Directory 及 .NET 後端行動服務的[用戶端主導登入作業](http://msdn.microsoft.com/library/azure/jj710106.aspx)需求，則您應該從[使用 Active Directory Authentication Library 單一登入驗證您的應用程式](/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/)教學課程開始。
 
 
 1. 登入 [Azure 管理入口網站]，按一下 [**行動服務**]，然後按一下您的行動服務。
@@ -38,7 +41,7 @@
 
 4. 導覽至管理入口網站中的 **Active Directory**，然後按一下您的目錄。
 
-    ![][4] 	
+    ![][4] 
 
 5. 按一下頂端的 [**應用程式**] 索引標籤，然後按一下以 [**新增應用程式**] 。 
 
@@ -57,7 +60,7 @@
 
 9. 新增應用程式之後，按一下 [**設定**] 索引標籤。按一下以複製應用程式的 [**用戶端識別碼**]。
 
-    如果您建立行動服務是為了將 .Net 後端用於您的行動服務，請另外將 [**單一登入**] 底下的 [**回覆 URL**] 編輯為行動服務的 URL，後面加上路徑 _signin-aad_。例如， `https://todolist.azure-mobile.net/signin-aad`
+    如果您建立行動服務是為了將 .Net 後端用於您的行動服務，請另外將 [**單一登入**] 底下的 [**回覆 URL**] 編輯為行動服務的 URL，後面加上路徑 _signin-aad_。例如，`https://todolist.azure-mobile.net/signin-aad`
 
     ![][8]
 
@@ -99,5 +102,4 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

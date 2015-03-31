@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -20,11 +20,11 @@
 
 本主題說明如何在 Azure 行動服務中註冊您的應用程式，使其能夠採用 Facebook 驗證。 
 
-> [AZURE.NOTE] 本教學課程有關 [Azure 行動服務]，此方案可協助您建置適用於任何平台的可擴充行動應用程式。行動服務讓同步處理資料、驗證使用者及推播通知等作業變得簡單。此頁面支援<a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">開始使用驗證</a>教學課程，顯示如何將使用者登入您的應用程式。如果這是您第一次使用行動服務，請完成<a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">開始使用行動服務</a>教學課程。
+> [AZURE.NOTE] 本教學課程有關 [Azure 行動服務]，此方案可協助您建置適用於任何平台的可擴充行動應用程式。行動服務讓同步處理資料、驗證使用者及推播通知等作業變得簡單。此頁面支援 <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">開始使用驗證</a> 教學課程，說明如何將使用者登入您的應用程式。如果這是您第一次使用行動服務，請完成 <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">開始使用行動服務</a>。
 	
 若要完成本主題的程序，您必須具有已通過電子郵件地址與手機號碼驗證的 Facebook 帳戶。若要建立新的 Facebook 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>。
 
-1. 瀏覽至 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">Facebook 開發人員</a>網站，並以您的 Facebook 帳戶認證登入。
+1. 瀏覽至 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">Facebook 開發人員</a> 網站，並使用您的 Facebook 帳戶認證登入。
 
 2. (選用) 按一下 [**應用程式**]，然後按一下 [**以開發人員身分註冊**]，接受政策並遵循註冊步驟 (若您尚未註冊)。 
 
@@ -52,7 +52,7 @@
 
    	![][5]
 
-	> [AZUTE.NOTE] **安全性注意事項**
+	> [AZURE.NOTE] **安全性注意事項**
 	應用程式密鑰是重要的安全性認證。請勿將此密碼告訴任何人或隨應用程式一起散發。
 
 
@@ -84,9 +84,8 @@
 
 <!-- URLs. -->
 [Facebook 開發人員]: http://go.microsoft.com/fwlink/p/?LinkId=268286
-[開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet/
+[開始使用驗證]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [Azure 行動服務]: http://azure.microsoft.com/services/mobile-services/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 #在混合式雲端中設定 Office 365 Directory 同步處理 (DirSync) 進行測試
@@ -41,11 +41,11 @@
 2.	設定 Office 365 FastTrack 試用。
 3.	設定 DirSync 伺服器 (DS1)。
 
-如果您仍沒有 Azure 訂閱，可以在 [試用 Azure](http://www.windowsazure.com/pricing/free-trial/) 上註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
+如果您仍沒有 Azure 訂閱，可以在 [試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 上註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
 ##第 1 階段：設定混合式雲端環境
 
-使用 [設定用於測試的混合式雲端環境](../virtual-networks-setup-hybrid-cloud-environment-testing/) 主題中的指示。由於這個測試環境不需要公司網路子網路上的 APP1 伺服器，因此可以暫時將它關閉。
+使用 [設定用於測試的混合式雲端環境] (../virtual-networks-setup-hybrid-cloud-environment-testing/) 主題中的指示。由於這個測試環境不需要公司網路子網路上的 APP1 伺服器，因此可以暫時將它關閉。
 
 這是您目前的組態。
 
@@ -78,9 +78,9 @@
 
 首先，在本機電腦的 Azure PowerShell 命令提示字元下，使用下列命令建立 DS1 的 Azure 虛擬機器。在執行這些命令之前，先填入變數值並移除 < 和 > 字元。
 
-	$ServiceName="<The cloud service name for your TestVNET virtual network>"
+	$ServiceName="<The cloud service name for your TestVNET virtual network>"	
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DS1 -InstanceSize Medium -ImageName $image
@@ -128,7 +128,7 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 4.	出現 [**您想要啟動 Active Directory 同步處理？**] 的提示時，按一下 [**啟動**]。啟動後，步驟 3 將顯示 [**Active Directory 同步處理已啟動**]。
 5.	讓 CLIENT1 保持 [**設定和管理 Active Directory 同步處理**] 頁面開啟。
 
-接著，以 CORP\User1 帳戶登入 DC1，並開啟系統管理員層級 Windows PowerShell 命令提示字元。執行這些命令來建立稱為 contoso_users 的新組織單位以及 Marci Kaufman 和 Lynda Meyer 兩個新的使用者帳戶。
+接著，以 CORP\User1 帳戶登入 DC1，並開啟系統管理員層級 Windows PowerShell 命令提示字元。逐一執行這些命令，以建立名為 contoso_users 的新組織單位以及 Marci Kaufman 和 Lynda Meyer 兩個新的使用者帳戶。
 
 	New-ADOrganizationalUnit -Name contoso_users -Path "DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
@@ -142,7 +142,7 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 2.	在 [**開始**] 畫面上，輸入 **Directory 同步處理**]。
 3.	以滑鼠右鍵按一下 [**Directory 同步處理組態**]，然後按一下 [**以系統管理員身分執行**]。這將啟動組態精靈。
 4.	在 [歡迎使用] 頁面上，按 [**下一步**]。
-5.	在 [Windows Azure Active Directory 認證] 頁面中，對於您在階段 2 中設定 Office 365 FastTrack 試用時建立的初始帳戶輸入電子郵件地址和密碼。按 [下一步]。 
+5.	在 [Microsoft Azure Active Directory 認證] 頁面上，輸入您在階段 2 中設定 Office 365 FastTrack 試用時所建立之初始帳戶的電子郵件地址和密碼。按 [下一步]。 
 6.	在 [Active Directory 認證] 頁面中，於 [**使用者名稱**] 中輸入 **CORP\User1**，並且於 [**密碼**] 中輸入 User1 帳戶密碼。按 [**下一步**]。
 7.	在 [混合式部署] 頁面上，選取 [**啟用混合式部署**]，然後按 [**下一步**]。
 8.	在 [密碼同步處理] 頁面上，選取 [**啟用密碼同步處理**]，然後按 [**下一步**]。
@@ -182,9 +182,10 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 
 [設定用於測試的混合式雲端環境](../virtual-networks-setup-hybrid-cloud-environment-testing/)
 
-[在混合式雲端中設定用於測試的 SharePoint 內部網路伺服器陣列](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[設定 SharePoint 內部網路伺服器陣列中的測試混合式雲端](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
 [在混合式雲端中設定 Web 型 LOB 應用程式進行測試](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
+[設定用於測試的模擬混合式雲端環境](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -1,18 +1,32 @@
-﻿<properties title="Data Dependent Routing" pageTitle="分區彈性" description="說明概念並提供分區彈性的範例，此功能可用來輕鬆擴充 Azure SQL 資料庫。" metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, elasticity" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties 
+	pageTitle="分區彈性" 
+	description="說明概念並提供分區彈性的範例，此功能可用來輕鬆擴充 Azure SQL 資料庫。" 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="torsteng" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/01/2015" 
+	ms.author="torsteng"/>
 
 # 分區彈性 
 
-**分區彈性**可讓應用程式開發人員根據需求，動態地放大和縮小資料庫資源，以最佳化其應用程式的效能並降低成本。Elastic Scale for Azure SQL Database 結合 [Basic、Standard 和 Premium 服務層](http://msdn.microsoft.com/zh-tw/library/azure/dn741340.aspx)，提供令人信服的彈性案例。Elastic Scale 支援**水平縮放** - 一種設計模式，在**分區集**新增或移除資料庫 (在[Elastic Scale 術語] (sql-database-elastic-scale-glossary.md) 中稱為「分區」)，以放大或縮小容量。同樣地，SQL Database 服務層提供**垂直縮放**功能，單一資料庫的資源可以相應增加或減少，以適當地配合需求。單一分區的垂直縮放和許多分區的水平縮放結合起來，為應用程式開發人員提供非常有彈性的環境，可以調整以符合效能、容量和成本最佳化的需求。
+**分區彈性**可讓應用程式開發人員根據需求，動態地放大和縮小資料庫資源，以最佳化其應用程式的效能並降低成本。Elastic Scale for Azure SQL Database 結合 [Basic、Standard 和 Premium 服務層](http://msdn.microsoft.com/library/azure/dn741340.aspx)，提供令人信服的彈性案例。Elastic Scale 支援**水平縮放** - 一種設計模式，在**分區集**新增或移除資料庫 (在 [Elastic Scale 術語](sql-database-elastic-scale-glossary.md)) 中稱為「分區」)，以放大或縮小容量。同樣地，SQL Database 服務層提供**垂直縮放**功能，單一資料庫的資源可以相應增加或減少，以適當地配合需求。單一分區的垂直縮放和許多分區的水平縮放結合起來，為應用程式開發人員提供非常有彈性的環境，可以調整以符合效能、容量和成本最佳化的需求。
 
-### 水平縮放的範例：演唱會尖峰
+## 水平縮放的範例：演唱會尖峰
 
 處理音樂會門票交易的應用程式是水平縮放的典型案例。在正常的客戶數量下，應用程式使用最少的資料庫資源來處理購票交易。不過，在銷售熱門音樂會的門票時，單一資料庫無法處理大量湧現的客戶需求。 
 
 為了處理大幅增加的交易，應用程式進行水平縮放。應用程式現在可以將交易負載分散在許多分區。當不再需要額外的資源時，資料庫層就縮小回到正常使用量。在此，水平縮放可讓應用程式相應放大以符合客戶需求，並於不再需要資源時相應縮小。   
 
-### 垂直縮放的範例：遙測
+## 垂直縮放的範例：遙測
 
 使用**分區集**來儲存作業遙測的應用程式是垂直縮放的典型案例。在此案例中，最好是將一天內的所有遙測資料放在單一分區上。在這個應用程式中，當天的資料會擷取到一個分區中，並針對後續的日子佈建新的分區。然後，作業資料可存檔，供需要時查詢。 
 
@@ -32,14 +46,14 @@
 2. **規則**
 3. **動作**   
 
-## <a name="telemetry"> </a>遙測
+## 遙測
 
-**資料導向彈性**是彈性調整應用程式的核心。根據效能的需求，使用遙測來制訂資料導向決策，以決定垂直或水平縮放。  
+**資料導向彈性** 是彈性調整應用程式的核心。根據效能的需求，使用遙測來制訂資料導向決策，以決定垂直或水平縮放。  
 
 #### 遙測資料來源
 就 Azure SQL DB 來說，有很多重要來源都可以作為分區彈性的資料來源。 
 
-1. **效能遙測**在 **sys.resource_stats** 檢視表中以五分鐘的持續時間呈現
+1. **效能遙測**在 **sys.resource_stats** 檢視表中以五分鐘的持續時間呈現 
 2. 每小時**資料庫容量遙測**是透過 **sys.resource_usage** 檢視表來呈現。  
 
 您可以使用下列查詢來查詢 master DB，以分析效能資源使用狀況，其中 'Shard_20140623' 是目標資料庫的名稱。 
@@ -93,17 +107,17 @@
     WHERE 
         Size.[order] < 8 
 
-## <a name="rule"></a>規則  
+## 規則  
 
 規則是決策引擎，可決定是否採取動作。有些規則非常明確，而有些則較為複雜。如以下的程式碼片段所示，以容量為主的規則可設定為當分區達到其容量上限的 $SafetyMargin 時 (例如 80%)，就佈建新的分區。
 
-    # 判斷目前的 DB 大小加上每日最大差異大小是否大於臨界值 
+    # Determine if the current DB size plus the maximum daily delta size is greater than the threshold 
     if( ($CurrentDbSizeMb + $MaxDbDeltaMb) -gt ($MaxDbSizeMb * $SafetyMargin))  
     {#provision new shard} 
 
 根據上述的資料來源，可以制訂一些規則以完成許多分區彈性案例。 
 
-## <a name="action"></a>動作  
+## 動作  
 
 根據規則的結果，動作 (或無動作) 就是答案。兩個最常見的動作是：
 
@@ -122,13 +136,13 @@
 
 為了水平縮放，使用規則 (根據日期或資料庫大小) 來佈建新的分區，並將它註冊到分區對應，從而水平放大資料庫層。其次，為了垂直縮放，實作第二個規則，將任何超過一天的分區從 Premium Edition 降級到 Standard 或 Basic Edition。 
 
-請再次考量遙測案例：應用程式依日期分區。它會持續收集遙測資料，在載入時需要高效能版本，但隨著資料過時，只需要較低效能。當天的資料 [Tnow] 寫入至高效能資料庫 (Premium)。午夜過後，前一天的分區 (現在是 [T-1]) 就不再用於擷取。目前的資料由目前的 [Tnow] 擷取。在隔天之前，必須佈建新的分區並向分區對應註冊 ([T+1])。  
+請再次考量遙測案例： 依日期的應用程式分區。它會持續收集遙測資料，在載入時需要高效能版本，但隨著資料過時，只需要較低效能。當天的資料 [Tnow] 寫入至高效能資料庫 (Premium)。午夜過後，前一天的分區 (現在是 [T-1]) 就不再用於擷取。目前的資料由目前的 [Tnow] 擷取。在隔天之前，必須佈建新的分區並向分區對應註冊 ([T+1])。  
 
 在作法上，可以在每一天之前佈建新的分區，或在目前的分區 ([Tnow]) 接近容量上限時佈建新的分區。使用任一種方法都會保留特定一天寫入的所有遙測的資料位置。也可套用每小時分區化以達到更精細的程度。佈建新的分區之後，因為 [T-1] 用於查詢和報告，這時就可降低資料庫的效能層級來減少成本。隨著 DB 中的內容過時，可以進一步降低效能層，及/或將 DB 的內容保存到 Azure 儲存體或刪除，視應用程式而定。 
 
 ## 執行分區彈性案例  
 
-為了協助水平和垂直縮放案例的實際實作，有許多[分區彈性範例指令碼](http://go.microsoft.com/?linkid=9862617)已建立並張貼在指令碼中心。這些 PowerShell Runbook 是針對在 Azure 自動化服務中執行而撰寫，提供一些與 Elastic Scale 用戶端程式庫和 Azure SQL Database 進行互動的方法。在建置時，或從這些程式碼範例中擷取時，您可以編寫必要的指令碼，將應用程式的水平、垂直或兩者的縮放案例自動化。 
+為了協助水平和垂直縮放案例的實際實作，有許多 [分區彈性範例指令碼](http://go.microsoft.com/?linkid=9862617) 已建立並張貼在指令碼中心。這些 PowerShell Runbook 是針對在 Azure 自動化服務中執行而撰寫，提供一些與 Elastic Scale 用戶端程式庫和 Azure SQL Database 進行互動的方法。在建置時，或從這些程式碼範例中擷取時，您可以編寫必要的指令碼，將應用程式的水平、垂直或兩者的縮放案例自動化。 
 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
@@ -137,6 +151,8 @@
 [1]: ./media/sql-database-elastic-scale-elasticity/data-ingestion.png
 
 <!--anchors-->
-[Telemetry]:#telemetry
-[Rule]:#rule
-[Action]:#action
+[遙測]:#telemetry
+[規則]:#rule
+[動作]:#action
+
+<!--HONumber=47-->

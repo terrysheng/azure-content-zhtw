@@ -1,17 +1,17 @@
 ﻿我們的權杖快取應該只在簡單案例中使用，在權杖過期或被撤銷時會有什麼影響？當應用程式停止運作的時候，那麼權杖可能過期了。這表示權杖快取會失效。然而在應用程式直接發出呼叫或行動服務程式庫發出呼叫期間，實際執行應用程式，權杖也有可能過期。這將會導致出現 HTTP 狀態碼 401「未經授權」。 
 
-我們必須能夠偵測到過期的權杖，並加以重新整理。若要這麼做，我們可以使用 [Android 用戶端程式庫](http://dl.windowsazure.com/androiddocs/)的 [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html)。
+我們必須能夠偵測到過期的權杖，並加以重新整理。若要這麼做，我們可以使用  [Android 用戶端程式庫](http://dl.windowsazure.com/androiddocs/) 的 [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html)。
 
 在本節中，您將會對 ServiceFilter 進行定義，它會偵測 HTTP 狀態碼 401 並觸發權杖和權杖快取的更新。除此之外，ServiceFilter 會在進行驗證期間阻擋其他外來要求，如此一來這些要求即可使用更新後的權杖。
 
-1. 在 Eclipse 中，開啟 ToDoActivity.java 檔案然後加入下列 import 陳述式：
+1. 開啟 ToDoActivity.java 檔案，並加入下列 import 陳述式：
  
         import java.util.concurrent.atomic.AtomicBoolean;
 		import java.util.concurrent.ExecutionException;
 
 		import com.microsoft.windowsazure.mobileservices.MobileServiceException;
  
-2. 在  `ToDoActivity` 類別中新增下列成員： 
+2. 在 `ToDoActivity` 類別中新增下列成員。 
 
     	public boolean bAuthenticating = false;
 	    public final Object mAuthenticationLock = new Object();
@@ -74,7 +74,7 @@
     	}
 
 
-5. 在 ToDoActivity.java 檔案中，更新 ToDoActivity 類別的  `authenticate` 方法，讓其可接受布林參數，以允許強制重新整理權杖和權杖快取。當驗證完成後，我們也必須通知所有遭阻擋的執行緒，使其可以取得新的權杖。
+5. 在 ToDoActivity.java 檔案中，更新 ToDoActivity 類別的 `authenticate` 方法，讓其可接受布林參數，以允許強制重新整理權杖和權杖快取。當驗證完成後，我們也必須通知所有遭阻擋的執行緒，使其可以取得新的權杖。
 
 	    /**
     	 * Authenticates with the desired login provider. Also caches the token. 
@@ -127,7 +127,7 @@
 
 
 
-6. 在 ToDoActivity.java 檔案中，針對 ToDoActivity 類別內的新  `RefreshTokenCacheFilter` 類別加入此程式碼：
+6. 在 ToDoActivity.java 檔案中，針對 ToDoActivity 類別內的新 `RefreshTokenCacheFilter` 類別加入下列程式碼：
 
 		/**
 		* The RefreshTokenCacheFilter class filters responses for HTTP status code 401. 
@@ -186,8 +186,6 @@
 	                                    public void run() {
 	                                        // Force a token refresh during authentication.
 	                                        authenticate(true);
-				// ToDoActivity.mMainActivity.authenticate(true);
-	
 	                                    }
 	                                });
 	                            }
@@ -206,7 +204,7 @@
 
     此服務篩選器將會檢查每個 HTTP 狀態碼 401「未經驗證」的回應。如果出現 401，UI 執行緒上將會設定新的登入要求以取得新權杖。其他呼叫都會被封鎖，直到登入完成，或已嘗試失敗 5 次為止。如果取得新權杖，觸發 401 的要求將會以新權杖重新執行，而所有遭阻擋的呼叫也會使用新的權杖重新執行。 
 
-7. 在 ToDoActivity.java 檔案中，將  `onCreate` 方法更新如下：
+7. 在 ToDoActivity.java 檔案中，將 `onCreate` 方法更新如下：
 
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -237,7 +235,8 @@
 	    }
 
 
-       在此程式碼中，除了使用  `ProgressFilter` 之外會另外使用  `RefreshTokenCacheFilter`。同時在  `onCreate` 期間，我們也想要載入權杖快取。因此將  `false` 傳送至  `authenticate` 方法。
+       在此程式碼中，除了使用 `ProgressFilter` 以外，還要使用 `RefreshTokenCacheFilter`。同時在 `onCreate` 期間，我們也想要載入權杖快取。因此將 `false` 傳送至  `authenticate` 方法。
 
 
-<!--HONumber=42-->
+
+<!--HONumber=47-->

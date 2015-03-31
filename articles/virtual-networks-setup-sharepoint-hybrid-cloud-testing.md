@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 
@@ -41,7 +41,7 @@
 2.	設定 SQL 伺服器電腦 (SQL1)。
 3.	設定 SharePoint server (SP1)。
 
-如果您仍沒有 Azure 訂閱，可以在 [試用 Azure](http://www.windowsazure.com/pricing/free-trial/) 上註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
+如果您仍沒有 Azure 訂閱，可以在 [試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 上註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
 ##第 1 階段：設定混合式雲端環境
 
@@ -70,7 +70,7 @@
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
@@ -78,7 +78,7 @@
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles -LUN 0 -HostCaching None
 	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
-接著，連接到新的 SQL1 虛擬機器 *using the local administrator account*。
+接著，連接到新的 SQL1 虛擬機器*using the local administrator account*。
 
 1.	在 Azure 管理入口網站的左窗格中，按一下 [**虛擬機器**]，然後按一下 SQL1 [狀態] 欄中的 [**執行**]。
 2.	在工作列上，按一下 [**連接**]。 
@@ -149,7 +149,7 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 	$image= Get-AzureVMImage | where { $_.Label -eq "SharePoint Server 2013 Trial" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$vm1=New-AzureVMConfig -Name SP1 -InstanceSize Large -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
@@ -195,7 +195,7 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 
 [Azure 基礎結構服務上的 SharePoint](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[SharePoint 伺服器陣列](../virtual-machines-sharepoint-farm-azure-preview/)
+[SharePoint Server 伺服器陣列](../virtual-machines-sharepoint-farm-azure-preview/)
 
 [設定用於測試的混合式雲端環境](../virtual-networks-setup-hybrid-cloud-environment-testing/)
 
@@ -203,4 +203,5 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 
 [在混合式雲端中設定 Office 365 Directory 同步處理 (DirSync) 進行測試](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
 
-<!--HONumber=45--> 
+[設定用於測試的模擬混合式雲端環境](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+<!--HONumber=47-->

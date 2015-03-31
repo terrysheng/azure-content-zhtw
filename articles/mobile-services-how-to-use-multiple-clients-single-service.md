@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="如何以單一行動服務後端使用多個用戶端 | Azure 行動" 
 	description="了解如何從鎖定不同行動平台的多個用戶端應用程式使用單一行動服務後端，包括 Windows 市集和 Windows Phone。" 
 	services="mobile-services" 
@@ -9,23 +9,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/15/2014" 
+	ms.date="02/25/2015" 
 	ms.author="glenga"/>
 
 # 從單一行動服務支援多重裝置平台
  
-使用 Azure 行動服務來進行行動應用程式開發的最大好處之一，是能夠使用單一後端服務，在多重用戶端平台上支援您的應用程式。行動服務提供適用於所有主要裝置平台的原生用戶端程式庫，可讓您使用單一後端服務或跨平台開發人員工具來開發應用程式時，更加輕鬆。本主題討論使用單一行動服務後端時，讓您的應用程式在多重用戶端平台上執行所需的考量，如下所示：
+使用 Azure 行動服務來進行行動應用程式開發的最大好處之一，是能夠使用單一後端服務，在多重用戶端平台上支援您的應用程式。行動服務提供適用於所有主要裝置平台的原生用戶端程式庫，可讓您使用單一後端服務或跨平台開發人員工具來開發應用程式時，更加輕鬆。本主題討論使用單一行動服務後端時，讓您的應用程式在多重用戶端平台上執行所需的考量。如需行動服務的一般詳細資訊，請參閱[行動服務開發人員中心](/documentation/services/mobile-services/)。
 
-+ [跨平台推播通知](#push)
-+ [跨平台應用程式開發](#xplat-app-dev)
-+ [在 Visual Studio 專案中共用程式碼](#shared-vs)
-
-如需行動服務的一般詳細資訊，請參閱[行動服務開發人員中心](/zh-tw/documentation/services/mobile-services/)。
-
-##<a id="push"></a>跨平台推送通知
+##<a id="push"></a>跨平台推播通知
 
 行動服務會使用 Azure 通知中心，將推播通知傳送到所有主要裝置平台上的用戶端應用程式。通知中心提供一貫且統一基礎結構來建立和管理裝置註冊，以及傳送跨平台推播通知。通知中心支援使用下列平台特定通知服務來傳送推播通知：
 
@@ -50,9 +44,9 @@
 
 ###.NET 後端
 
-在 .NET 後端行動服務中，若要傳送通知，您要在從 [ApiServices.Push](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx) 屬性取得的 [PushClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) 物件上，呼叫 [SendAsync] 方法。所傳送的推播通知 (原生或範本)，取決於傳遞至 [SendAsync] 方法的特定 [IPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx) 衍生物件，如下表所示： 
+在 .NET 後端行動服務中，若要傳送通知，您要在從 [ApiServices.Push](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx) 屬性取得的 [PushClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) 物件上呼叫 [SendAsync] 方法。所傳送的推播通知 (原生或範本)，取決於傳遞至 [SendAsync] 方法的特定 [IPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx) 衍生物件，如下表所示： 
 
-|平台 |[APNS](/zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push)|[GCM](/zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-push) |[WNS](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) |[MPNS](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push)|
+|平台 |[APNS](/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push)|[GCM](/documentation/articles/mobile-services-dotnet-backend-android-get-started-push) |[WNS](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) |[MPNS](/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push)|
 |-----|-----|----|----|-----|
 |原生|[ApplePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.applepushmessage.aspx)   |[GooglePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.googlepushmessage.aspx)     |[WindowsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.windowspushmessage.aspx) | [MpnsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.mpnspushmessage.aspx) |
 
@@ -68,13 +62,13 @@
                          @"<text id=""1"">" + item.Text + @"</text>" +
                          @"</binding></visual></toast>";
     
-	// Send push notifications to all registered iOS and Windows Store devices.  
+	// Send push notifications to all registered iOS and Windows Store devices. 
     await Services.Push.SendAsync(apnsMessage);
 	await Services.Push.SendAsync(wnsMessage);
 
 如需如何將推播通知傳送至其他原生用戶端平台的範例，請按一下上表標頭中的平台連結。 
 
-當您使用範本用戶端註冊，而不是原生用戶端註冊時，若要傳送相同通知，只需要呼叫一次 [SendAsync] 並提供 [TemplatePushMessage] 物件，如下所示： 
+當您使用範本用戶端註冊，而不是原生用戶端註冊時，若要傳送相同通知，只需要透過單一呼叫至 [SendAsync]，提供 [TemplatePushMessage] 物件，如下所示： 
 
 	// Create a new template message and add the 'message' parameter.    
 	var templatePayload = new TemplatePushMessage();
@@ -87,9 +81,9 @@
 
 在 JavaScript 後端行動服務中，若要傳送通知，您要在從全域 [push 物件]取得的平台特定物件上，呼叫 **send** 方法，如下表所示： 
 
-|平台 |[APNS](/zh-tw/documentation/articles/mobile-services-javascript-backend-ios-get-started-push)|[GCM](/zh-tw/documentation/articles/mobile-services-javascript-backend-android-get-started-push) |[WNS](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) |[MPNS](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push)|
+|平台 |[APNS](/documentation/articles/mobile-services-javascript-backend-ios-get-started-push)|[GCM](/documentation/articles/mobile-services-javascript-backend-android-get-started-push) |[WNS](/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) |[MPNS](/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push)|
 |-----|-----|----|----|-----|
-|原生|[apns object](http://msdn.microsoft.com/library/azure/jj839711.aspx)   |[gcm object](http://msdn.microsoft.com/library/azure/dn126137.aspx)     |[wns object](http://msdn.microsoft.com/library/azure/jj860484.aspx) | [mpns object](http://msdn.microsoft.com/library/azure/jj871025.aspx) |
+|原生|[apns 物件](http://msdn.microsoft.com/library/azure/jj839711.aspx)   |[gcm 物件](http://msdn.microsoft.com/library/azure/dn126137.aspx)     |[wns 物件](http://msdn.microsoft.com/library/azure/jj860484.aspx) | [mpns 物件](http://msdn.microsoft.com/library/azure/jj871025.aspx) |
 
 下列程式碼會將推播通知傳送至所有 Android 和 Windows Phone 註冊： 
 
@@ -103,7 +97,7 @@
     '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text + 
     '</wp:Text2></wp:Toast></wp:Notification>';
 
-	// Send push notifications to all registered Android and Windows Phone 8.0 devices.
+	// Send push notifications to all registered Android and Windows Phone 8.0 devices. 
 	push.mpns.send(null, mpnsPayload, 'toast', 22, {
             success: function(pushResponse) {
                 // Push succeeds.
@@ -125,7 +119,7 @@
 
 當您使用範本用戶端註冊，而不是原生用戶端註冊時，若要傳送相同通知，只需要透過單一呼叫至全域 [push 物件]上的 **send** 函數，提供範本訊息裝載，如下所示： 
 
-	// Create a new template message with the 'message' parameter.     
+	// Create a new template message with the 'message' parameter.    
 	var templatePayload = { "message": item.text };
 
 	// Send a push notification to all template registrations.
@@ -160,7 +154,7 @@
 
 行動服務包含 .NET 用戶端程式庫，它是 .NET Framework 可攜式類別庫 (PCL)，可支援在所有 Windows 平台上進行開發。如需詳細資訊，請參閱[如何將 .NET 用戶端與行動服務搭配使用]。它可以讓您輕鬆地在多重 C# 專案中重複使用相同的行動服務程式碼，例如用於資料存取或驗證。
 
-若要在專案之間共用及重複使用您的 C# 程式碼，有一個常用的方法，那就是實作 Model-View-ViewModel (MVVM) 模式，並跨多重平台共用組件。您可以在 Visual Studio 的可攜式類別庫專案中實作模型及檢視模型類別，然後建立針對不同平台自訂的檢視。舉例來說，跨平台共用的模型程式碼可從行動服務之類的來源，以平台無從驗證的方式擷取資料。MSDN 文件庫提供了<a href="http://msdn.microsoft.com/library/gg597391(v=vs.110)">概觀和範例</a>、<a href="http://msdn.microsoft.com/library/gg597392(v=vs.110)">API 差異</a>的討論、<a href="http://msdn.microsoft.com/library/hh563947(v=vs.110)">使用可攜式類別庫實作 MVVM 模式</a>的範例、其他<a href="http://msdn.microsoft.com/library/windowsphone/develop/jj714086(v=vs.105).aspx">慣用指引</a>，以及在可攜式類別庫專案中<a href="http://msdn.microsoft.com/library/hh871422(v=vs.110)">管理資源</a>的相關資訊。
+若要在專案之間共用及重複使用您的 C# 程式碼，有一個常用的方法，那就是實作 Model-View-ViewModel (MVVM) 模式，並跨多重平台共用組件。您可以在 Visual Studio 的可攜式類別庫專案中實作模型及檢視模型類別，然後建立針對不同平台自訂的檢視。舉例來說，跨平台共用的模型程式碼可從行動服務之類的來源，以平台無從驗證的方式擷取資料。MSDN 類別庫提供 <a href="http://msdn.microsoft.com/library/gg597391(v=vs.110)">概觀和範例、</a>API 差異 <a href="http://msdn.microsoft.com/library/gg597392(v=vs.110)">的討論、</a>使用可攜式類別庫實作 MVVM 模式 <a href="http://msdn.microsoft.com/library/hh563947(v=vs.110)">的範例、</a>其他 <a href="http://msdn.microsoft.com/library/windowsphone/develop/jj714086(v=vs.105).aspx">規範指引，</a>以及管理 <a href="http://msdn.microsoft.com/library/hh871422(v=vs.110)">可攜式類別庫專案中資源的</a> 相關資訊。
 
 除了這個一般指導方針，Visual Studio 也有提供特定的機能，可讓您跨多重用戶端應用程式專案重複使用行動服務程式碼，以下各節將會加以討論。如需使用 Visual Studio 2013 來建置跨平台應用程式的一般詳細資訊，請參閱 [Visual Studio 中的跨平台開發](http://msdn.microsoft.com/library/dn771552.aspx)。  
 
@@ -168,7 +162,7 @@
 
 Visual Studio 2013 Update 2 新增對通用 Windows 應用程式專案的支援。通用應用程式解決方案包括 Windows 市集 8.1 和 Windows Phone 市集 8.1 應用程式專案，以及共用程式碼專案。在這種專案中，共用程式碼會被當作 Windows 市集和 Windows Phone 專案的一部分。如需詳細資訊，請參閱[建置適用於所有 Windows 裝置的通用 Windows 應用程式]。C#/XAML 和 JavaScript/HTML 都可以用來撰寫通用 Windows 應用程式。 
 
-依預設，[Azure 管理入口網站]中的 [行動服務] 快速入門索引標籤會產生通用 Windows 應用程式版的 TodoList 範例應用程式來協助您開始使用。您可以選擇下載 C#/XAML 或 JavaScript/HTML 版本的專案。如需詳細資訊，請參閱[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-windows-store-get-started/)。 
+依預設，[Azure 管理入口網站]中的 [行動服務] 快速入門索引標籤會產生通用 Windows 應用程式版的 TodoList 範例應用程式來協助您開始使用。您可以選擇下載 C#/XAML 或 JavaScript/HTML 版本的專案。如需詳細資訊，請參閱[開始使用行動服務](/documentation/articles/mobile-services-windows-store-get-started/)。 
 
 >[AZURE.NOTE]入口網站提供的 C# 版快速入門應用程式專案會共用 MainPage.xaml.cs 程式碼後置頁面，但不會使用檢視模型。如需將 TodoList 應用程式當作使用 MVVM 之 C# 版通用 Windows 應用程式專案的範例，請參閱[使用 MVVM 的 Azure 行動服務通用 Windows 應用程式]。 
 
@@ -176,7 +170,7 @@ Visual Studio 2013 Update 2 新增對通用 Windows 應用程式專案的支援�
 
 您可以運用您的 Visual Studio 和 C# 開發經驗，使用 Xamarin 以及 Visual Studio 或 Xamarin Studio 來開發適用於 iOS 和 Android 的應用程式。Xamarin 使用 .NET Framework 的跨平台實作，可讓您使用 C# 程式碼來開發 iOS 和 Android 應用程式。藉由使用 Xamarin，您可以運用 Windows 專案中，使用行動服務 .NET 用戶端程式庫來存取行動服務的現有程式碼。如需詳細資訊，請參閱 [Visual Studio 中的跨平台開發](http://msdn.microsoft.com/library/dn771552.aspx)。
 
-若要開始建置使用行動服務的 Xamarin 應用程式，請參閱 Xamarin 快速入門教學課程 ([iOS](/zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started) / [Android](/zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started))。
+若要開始建置使用行動服務的 Xamarin 應用程式，請參閱 Xamarin 快速入門教學課程 ([iOS](/documentation/articles/partner-xamarin-mobile-services-ios-get-started) / [Android](/documentation/articles/partner-xamarin-mobile-services-android-get-started)))。
 
 
 ### Windows 市集和 Windows Phone Silverlight 應用程式
@@ -185,32 +179,32 @@ Visual Studio 2013 Update 2 新增對通用 Windows 應用程式專案的支援�
 
 行動服務 .NET 用戶端程式庫支援 Windows Phone 市集 8.1 和 Windows Phone Silverlight 8.1 應用程式。由於無法從相同的專案同時建置 Windows Runtime 和 Windows Phone Silverlight 應用程式，所以您應考慮上述 PCL 和 MVVM 之類的程式碼重複使用策略。
 
->[AZURE.NOTE]如果在 Windows Runtime 和 Windows Phone Silverlight 應用程式中，都要使用 Microsoft 帳戶來進行單一登入用戶端驗證，您必須先在 Windows 市集儀表板上註冊 Windows Runtime 應用程式。這是因為在您建立 Windows Phone 的 Live Connect 註冊後，您即無法建立 Windows 市集的註冊。如需如何執行此作業的詳細資訊，請閱讀**使用 Live Connect 單一登入驗證 Windows 市集應用程式** ([Windows Store][SSO Windows Store]/[Windows Phone][SSO Windows Phone]) 主題。
+>[AZURE.NOTE]如果在 Windows Runtime 和 Windows Phone Silverlight 應用程式中，都要使用 Microsoft 帳戶來進行單一登入用戶端驗證，您必須先在 Windows 市集儀表板上註冊 Windows Runtime 應用程式。這是因為在您建立 Windows Phone 的 Live Connect 註冊後，您即無法建立 Windows 市集的註冊。如需如何執行此作業的詳細資訊，請閱讀**使用 Live Connect 單一登入驗證 Windows 市集應用程式** ([Windows 市集][SSO Windows 市集]/[Windows Phone][SSO Windows Phone]) 主題。
 
 
 <!-- URLs -->
 [Azure 管理入口網站]: https://manage.windowsazure.com
-[Azure 通知中心]: /zh-tw/develop/net/how-to-guides/service-bus-notification-hubs/
-[SSO Windows Store]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
-[SSO Windows Phone]: /zh-tw/develop/mobile/tutorials/single-sign-on-wp8/
-[教學課程和資源]: /zh-tw/develop/mobile/resources/
-[開始使用 Azure 通知中樞]: /zh-tw/manage/services/notification-hubs/getting-started-windows-dotnet/
-[傳送跨平台通知給使用者]: /zh-tw/manage/services/notification-hubs/notify-users-xplat-mobile-services/
-[開始使用推播 Windows dotnet]: /zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012/
-[開始使用推播 Windows js]: /zh-tw/develop/mobile/tutorials/get-started-with-push-js-vs2012/
-[開始使用推播 Windows Phone]: /zh-tw/develop/mobile/tutorials/get-started-with-push-wp8/
-[開始使用推播 iOS]: /zh-tw/develop/mobile/tutorials/get-started-with-push-ios/
-[開始使用推播 Android]: /zh-tw/develop/mobile/tutorials/get-started-with-push-android/
+[Azure 通知中心]: /develop/net/how-to-guides/service-bus-notification-hubs/
+[SSO Windows 市集]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
+[SSO Windows Phone]: /develop/mobile/tutorials/single-sign-on-wp8/
+[教學課程和資源]: /develop/mobile/resources/
+[開始使用 Azure 通知中樞]: /manage/services/notification-hubs/getting-started-windows-dotnet/
+[傳送跨平台通知給使用者]: /manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[開始使用推播 Windows dotnet]: /develop/mobile/tutorials/get-started-with-push-dotnet-vs2012/
+[開始使用推播 Windows js]: /develop/mobile/tutorials/get-started-with-push-js-vs2012/
+[開始使用推播 Windows Phone]: /develop/mobile/tutorials/get-started-with-push-wp8/
+[開始使用推播 iOS]: /develop/mobile/tutorials/get-started-with-push-ios/
+[開始使用推播 Android]: /develop/mobile/tutorials/get-started-with-push-android/
 [動態結構描述]: http://msdn.microsoft.com/library/windowsazure/jj193175.aspx
-[如何將 .NET 用戶端與行動服務搭配使用]: zh-tw/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+[如何使用適用於 Azure 行動服務的 .NET 用戶端]: documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
 [push 物件]: http://msdn.microsoft.com/library/windowsazure/jj554217.aspx
 [TemplatePushMessage]:http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.templatepushmessage.aspx
-[PhoneGap]: /zh-tw/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/
-[Sencha]: /zh-tw/documentation/articles/partner-sencha-mobile-services-get-started/
-[Appcelerator]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[PhoneGap]: /documentation/articles/mobile-services-javascript-backend-phonegap-get-started/
+[Sencha]: /documentation/articles/partner-sencha-mobile-services-get-started/
+[Appcelerator]: /documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
 [SendAsync]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
 [Windows Phone 8 開發人員的下一步]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [建置適用於所有 Windows 裝置的通用 Windows 應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=509905
-[使用 MVVM 的 Azure 行動服務通用 Windows 應用程式]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
+[使用 MVVM 的 Azure 行動服務的通用 Windows 應用程式]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!--HONumber=42-->
+<!--HONumber=47-->

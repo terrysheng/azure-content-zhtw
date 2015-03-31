@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="Service Bus AMQP" pageTitle="如何搭配使用 AMQP 1.0 與 Java 服務匯流排 API - Azure" metaKeywords="ava 訊息 AMQP, 服務匯流排 AMQP, 下載 AMQP JMS 程式庫" description="了解如何搭配 Azure 服務匯流排和 Advanced Message Queuing Protodol (AMQP) 1.0 使用 Java Message Service (JMS)。" metaCanonical="" services="service-bus" documentationCenter="Java" title="How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0" authors="sethm"  solutions="" writer="sethm" manager="timlt" editor="mattshel"  />
+﻿<properties 
+	pageTitle="如何搭配使用 AMQP 1.0 與 Java 服務匯流排 API - Azure" 
+	description="了解如何搭配 Azure 服務匯流排和 Advanced Message Queuing Protodol (AMQP) 1.0 使用 Java Message Service (JMS)。" 
+	services="service-bus" 
+	documentationCenter="java" 
+	authors="sethmanheim" 
+	writer="sethm" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -17,7 +32,9 @@
 
 ##開始使用服務匯流排
 
-本指南假設您已經有服務匯流排命名空間，其中包含名稱為「queue1」的佇列。如果沒有，您可以使用 [Azure 管理入口網站](http://manage.windowsazure.com)建立命名空間和佇列。如需建立服務匯流排命名空間和佇列的詳細資訊，請參閱標題為[如何使用服務匯流排佇列](https://www.windowsazure.com/zh-tw/develop/net/how-to-guides/service-bus-queues/) (英文) 的作法指南。
+本指南假設您已經有服務匯流排命名空間，其中包含名稱為「queue1」的佇列。如果沒有，您可以使用 [Azure 管理入口網站](http://manage.windowsazure.com)建立命名空間和佇列。如需如何建立服務匯流排命名空間和佇列的詳細資訊，請參閱標題為[如何使用服務匯流排佇列](https://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)的作法指南。
+
+**注意**：您在建立佇列時必須停用分割，因為分割佇列和主題尚不具備 AMQP 支援。如需詳細資訊，請參閱[分割訊息實體](http://msdn.microsoft.com/library/azure/dn520246.aspx)。
 
 ##下載 AMQP 1.0 JMS 用戶端程式庫
 
@@ -53,7 +70,7 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 
 	connectionfactory.[jndi_name] = [ConnectionURL]
 
-其中 [jndi_name] 和 [ConnectionURL] 具有下列意義：
+其中，[jndi_name] 和 [ConnectionURL] 具有下列意義：
 
 <table>
   <tr>
@@ -106,7 +123,7 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
   </tr>
 </table>
 
-接著，為了定義名為 "SBCF" 的 **ConnectionFactory**，即會出現組態字串，如下所示：
+接著，為了定義名為「SBCF」的 **ConnectionFactory**，將會出現組態字串，如下所示：
 
 	connectionfactory.SBCF = amqps://owner:j9VYv1q33Ea%2BcbahWsHFYnLkEzrF0yA5SAqcLNvU7KM%3D@foo.servicebus.windows.net
 
@@ -119,7 +136,7 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 
 	topic.[jndi_name] = [physical_name]
 
-其中 [jndi\_name] 和 [physical\_name] 具有下列意義：
+其中，[jndi\_name] 和 [physical\_name] 具有下列意義：
 
 <table>
   <tr>
@@ -132,7 +149,7 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
   </tr>
 </table>
 
-**注意**：從服務匯流排主題訂閱收到在 JNDI 中指定的實體名稱應該是主題的名稱。以 JMS 應用程式程式碼建立持續性訂閱時，將建立訂閱名稱。[Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj841071.aspx)提供處理 JMS 服務匯流排主題訂閱的詳細資料。
+**注意**：從服務匯流排主題訂閱收到在 JNDI 中指定的實體名稱應該是主題的名稱。以 JMS 應用程式程式碼建立持續性訂閱時，將建立訂閱名稱。[Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/library/jj841071.aspx)提供處理 JMS 服務匯流排主題訂閱的詳細資料。
 
 ### 撰寫 JMS 應用程式
 
@@ -140,7 +157,7 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 
 <p><strong>設定 JNDI InitialContext</strong></p>
 
-將組態資訊的雜湊表傳遞到 javax.naming.InitialContext 類別的建構函式，將設定 JNDI 環境。雜湊表中的兩個所需項目是 Initial Context Factory 和 Provider URL 的類別名稱。下列程式碼顯示如何使用名稱為 **servicebus.properties** 的內容檔案，設定 JNDI 環境使用 Qpid 內容檔案型 JNDI Provider。
+將組態資訊的雜湊表傳遞到 javax.naming.InitialContext 類別的建構函式，將設定 JNDI 環境。雜湊表中的兩個所需項目是 Initial Context Factory 和 Provider URL 的類別名稱。下列程式碼顯示如何使用名為 **servicebus.properties** 的內容檔案，設定 JNDI 環境使用 Qpid 內容檔案型 JNDI Provider。
 
 	Hashtable<String, String> env = new Hashtable<String, String>(); 
 	env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
@@ -269,15 +286,15 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 
 使用上述的範例 JMS 應用程式和取自隨附指南[如何透過服務匯流排 .NET API 使用 AMQP 1.0](http://aka.ms/lym3vk) 的類似 .NET 應用程式，即可交換 .NET 與 Java 之間的訊息。 
 
-如需使用服務匯流排與 AMQP 1.0 傳送跨平台訊息的詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj841071.aspx)。
+如需使用服務匯流排與 AMQP 1.0 傳送跨平台訊息的詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/library/jj841071.aspx)。
 
 ### JMS 到 .NET
 
 示範 JMS 到 .NET 的訊息：
 
 * 不使用任何命令列引數啟動 .NET 範例應用程式。
- * 使用「sendonly」命令列引數啟動 Java 範例應用程式。在此模式中，應用程式不會收到來自佇列的訊息，而只會傳送。
-* 在 Java 應用程式主控台中多次按 **Enter** 鍵，這將傳送訊息。
+* 使用「sendonly」命令列引數啟動 Java 範例應用程式。在此模式中，應用程式不會收到來自佇列的訊息，而只會傳送。
+* 在 Java 應用程式主控台多次按下 **Enter** 鍵，這將傳送訊息。
 * 這些訊息將由 .NET 應用程式所接收。
 
 <p><strong>JMS 應用程式的輸出</strong></p>
@@ -302,9 +319,9 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 
 示範 .NET 到 JMS 的訊息：
 
-* 啟動 .NET 範例應用程式並搭配 "sendonly" 命令列引數。在此模式中，應用程式不會收到來自佇列的訊息，而只會傳送。
+* 使用「sendonly」命令列引數啟動 .NET 範例應用程式。在此模式中，應用程式不會收到來自佇列的訊息，而只會傳送。
 * 不使用任何命令列引數啟動 Java 範例應用程式。
-* 在 .NET 應用程式主控台中多次按 **Enter** 鍵，這將傳送訊息。
+* 在 .NET 應用程式主控台多次按下 **Enter** 鍵，這將傳送訊息。
 * 這些訊息將由 Java 應用程式所接收。
 
 <p><strong>.NET 應用程式的輸出</strong></p>
@@ -330,22 +347,24 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 
 對於服務匯流排使用 JMS 而不使用 AMQP 1.0 會有下列限制：
 
-* 每一個**工作階段**僅允許一個 **MessageProducer** 或 **MessageConsumer**。如果您需要在應用程式中建立多個 **MessageProducers** 或 **MessageConsumers**，請分別建立專用的**工作階段**。
+* 對於各個**工作階段**僅允許一個 **MessageProducer** 或 **MessageConsumer**。如果您需要在應用程式中建立多個 **MessageProducers** 或 **MessageConsumers**，請分別建立專用的**工作階段**。
 * 目前不支援可變更的主題訂閱。
-目前不支援 * **MessageSelectors**。
-* 目前不支援 **TemporaryQueue** 和 **TemporaryTopic** 這些暫時目的地，也不支援使用這些的 **QueueRequestor** 和 **TopicRequestor** API。
+* 目前不支援 **MessageSelectors**。
+* 目前不支援 **TemporaryQueue** 和 **TemporaryTopic** 這些暫時目的地，也不支援使用這些的 **QueueRequestor** 和 **TopicRequestor API**。
 * 不支援交易式工作階段和分散式交易。
 
 ##摘要
 
 本作法指南說明如何以常用的 JMS API 和 AMQP 1.0 從 Java 使用服務匯流排代理訊息功能 (佇列和發佈/訂閱主題)。
 
-您也可以使用包括 .NET、C、Python 和 PHP 在內的其他語言所撰寫的 Service Bus AMQP 1.0。使用這些不同語言組建的元件可使用服務匯流排中的 AMQP 1.0 支援可靠而真實地交換訊息。如需詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj841071.aspx)。
+您也可以使用包括 .NET、C、Python 和 PHP 在內的其他語言所撰寫的 Service Bus AMQP 1.0。使用這些不同語言組建的元件可使用服務匯流排中的 AMQP 1.0 支援可靠而真實地交換訊息。如需詳細資訊，請參閱 [Service Bus AMQP 1.0 開發人員指南](http://msdn.microsoft.com/library/jj841071.aspx)。
 
 ##進一步資訊
 
 * [Azure 服務匯流排中的 AMQP 1.0 支援](http://aka.ms/pgr3dp)
 * [如何透過服務匯流排 .NET API 使用 AMQP 1.0](http://aka.ms/lym3vk)
-* [服務匯流排 AMQP 1.0 開發人員指南](http://msdn.microsoft.com/zh-tw/library/windowsazure/jj841071.aspx)
-* [如何使用服務匯流排佇列](http://www.windowsazure.com/zh-tw/develop/net/how-to-guides/service-bus-queues/)
+* [服務匯流排 AMQP 1.0 開發人員指南](http://msdn.microsoft.com/library/jj841071.aspx)
+* [如何使用服務匯流排佇列](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
+
+<!--HONumber=47-->

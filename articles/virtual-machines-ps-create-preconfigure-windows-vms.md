@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 #使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器
@@ -26,7 +26,7 @@
 
 ##步驟 1：安裝 Azure PowerShell
 
-如果您尚未這樣做，請使用 [如何安裝和設定 Azure PowerShell 在本機電腦安裝 Azure PowerShell](../install-configure-powershell/) 中的指示。然後，開啟系統管理員層級 Azure PowerShell 命令提示字元。
+如果您尚未這樣做，請使用 [如何安裝和設定 Azure PowerShell 在本機電腦安裝 Azure PowerShell](../install-configure-powershell/) 中的指示。然後，開啟 Azure PowerShell 命令提示字元。
 
 ##步驟 2：設定您的訂閱和儲存體帳戶
 
@@ -98,7 +98,7 @@
 	$localadminpassword="<local administrator account password>"
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $localadminusername -Password $localadminpassword
 
-(選擇性) 若要將 Windows 電腦加入現有的 Active Directory 網域，請指定本機系統管理員帳戶和密碼、網域，以及網域帳戶的帳戶認證。
+(選擇性) 若要將 Windows 電腦加入現有的 Active Directory 網域，請指定本機系統管理員帳戶和密碼、網域，以及網域帳戶的名稱和密碼。
 
 	$localadminusername="<local administrator account name>"
 	$localadminpassword="<local administrator account password>"
@@ -108,7 +108,7 @@
 	$domacctpassword="<password of the domain account that has permission to add the machine to the domain>"
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadminusername -Password $localadminpassword -WindowsDomain -Domain $domacctdomain -DomainUserName $domacctname -DomainPassword $domacctpassword -JoinDomain $domaindns
 
-請注意，這需要您指定 Active Directory 網域帳戶的帳戶名稱和密碼。如果您要將產生的命令集儲存為檔案，請確定您將檔案儲存於安全之處，以保護網域帳戶名稱和密碼。
+請注意，這兩個選項都需要您指定帳戶名稱和密碼。如果您要將產生的命令集儲存在檔案中，請將檔案儲存於安全之處加以保護。
 
 如需以 Windows 為基礎的虛擬機器其他的預先組態選項，請參閱 [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx) 中的 **Windows** 和 **WindowsDomain** 參數集語法。
 
@@ -269,4 +269,4 @@
 
 [使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器](../virtual-machines-ps-create-preconfigure-linux-vms/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

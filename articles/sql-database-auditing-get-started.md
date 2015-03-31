@@ -1,19 +1,33 @@
-﻿<properties title="Get started with SQL database auditing" pageTitle="開始使用 SQL 資料庫稽核 | Azure" description="開始使用 SQL 資料庫稽核" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId="" manager="jeffreyg" />
+﻿<properties 
+	pageTitle="開始使用 SQL Database 稽核 | Azure" 
+	description="開始使用 SQL Database 稽核" 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/23/2015" 
+	ms.author="jeffreyg"/>
  
 # 開始使用 SQL Database 稽核 
-<p> Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azure 儲存體帳戶中的稽核記錄。Basic、Standard 和 Premium 服務層的預覽版提供稽核功能。
+<p> Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azure 儲存體帳戶中的稽核記錄。Basic、Standard 和 Premium 服務層皆提供稽核功能。
 
 稽核可協助您保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。 
 
-稽核工具啟用及推動遵循法規標準，但不保證符合法規。如需有關支援標準法規的 Azure 程式詳細資訊，請參閱 <a href="http://azure.microsoft.com/zh-tw/support/trust-center/compliance/" target="_blank">Azure 信任中心</a>。
+稽核工具啟用及推動遵循法規標準，但不保證符合法規。如需有關支援標準法規的 Azure 程式詳細資訊，請參閱 <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure 信任中心</a>。
 
 + [Azure SQL Database 稽核基本概念] 
 + [設定資料庫的稽核]
 + [分析稽核記錄和報告]
 
-##<a id="subheading-1">Azure SQL Database 稽核基本概念</a>
+##<a id="subheading-1"></a>Azure SQL Database 稽核基本概念
 
 您可以在 Azure 預覽入口網站中設定稽核，這和您是使用 Azure 入口網站或 Azure 預覽入口網站建立資料庫無關。SQL Database 稽核可讓您：
 
@@ -36,7 +50,7 @@
 ###已啟用安全性的連接字串
 設定稽核時，Azure 會為您提供已啟用安全性的資料庫連接字串。只有使用此連接字串的用戶端應用程式會被記錄其活動和事件，因此您必須更新現有的用戶端應用程式才能使用此新字串格式。
 
-傳統的連接字串格式：<*server name*>.database.windows.net
+傳統的連接字串格式：<*伺服器名稱*>.database.windows.net
 
 已啟用安全性的連接字串：<*伺服器名稱*>.database.**secure**.windows.net
 
@@ -48,11 +62,11 @@
 
 	![][1]
 
-3. 在稽核組態分頁中，選取將儲存記錄的 Azure 儲存體帳戶。**秘訣：**在所有稽核的資料庫中使用相同的儲存體帳戶，以充分利用預先設定的報告範本。
+3. 在稽核組態分頁中，選取將儲存記錄的 Azure 儲存體帳戶。**提示：**在所有稽核的資料庫中使用相同的儲存體帳戶，以充分利用預先設定的報告範本。
 
 	![][2]
 
-4. 在 [**Auditing Options**] 下，按一下 [**全部**] 以記錄所有事件，或選擇個別事件類型。
+4. 在 [**稽核選項**] 下，按一下 [**全部**] 以記錄所有事件，或選擇個別事件類型。
 
 	![][3]
 
@@ -70,7 +84,7 @@
 
 稽核記錄會在安裝期間所選擇的 Azure 儲存體帳戶中、名為 **AuditLogs** 的單一 Azure 儲存體資料表內進行彙總。您可以使用工具來檢視記錄檔，例如 <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure 儲存體總管</a>。
 
-預先設定的儀表板報告範本為 <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">可下載的 Excel 試算表，</a> 能夠讓您快速分析記錄檔資料。若要在稽核記錄上使用範本，您需要 Excel 2013 (或更新版本) 和 Power Query (您可從 <a href="http://www.microsoft.com/zh-tw/download/details.aspx?id=39379">此處下載)</a>。 
+預先設定的儀表板報告範本為 <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">可下載的 Excel 試算表，</a> 能夠讓您快速分析記錄檔資料。若要在稽核記錄上使用範本，您需要 Excel 2013 (或更新版本) 和 Power Query (您可從 <a href="http://www.microsoft.com/download/details.aspx?id=39379">此處下載)</a>。 
 
 範本中包含虛構的範例資料，您可以設定 Power Query 直接從 Azure 儲存體帳戶匯入稽核記錄。 
 
@@ -93,16 +107,16 @@
 
 5. 選取 [**STORAGE ACCOUNT**]。
 6. 按一下 [**儲存**]。
-7. 按一下連線字串的 [**Show secured connection string**]。
+7. 針對連接字串按一下 [**Show secured connection string**]。
 
 
-##<a id="subheading-3">生產使用練習</a>
+##<a id="subheading-3">生產環境中的實務使用方式</a>
 本節的說明與以上的畫面截圖有關。無論是 <a href="https://portal.azure.com" target="_blank">Azure 預覽入口網站</a> 或 <a href= "https://manage.windowsazure.com/" target="_bank">傳統的 Azure 入口網站</a> 均可使用。
  
 
 ##<a id="subheading-4"></a>啟用安全性的存取
 
-在生產中，您可能需要稽核從所有應用程式和工具到資料庫的所有流量。對於這一點，請將 [**Security Enabled Access**] 的 *選擇性* 修改為 *必要*，並儲存該原則。設定為 *必要* 後，便無法選擇透過原始連線字串存取資料庫，只能透過啟用安全性的連線字串。
+在生產中，您可能需要稽核從所有應用程式和工具到資料庫的所有流量。為此，請將 [**啟用安全性的存取**] 從 *Optional* 修改為 *Required*，並儲存該原則。設定為 *Required* 後，便無法選擇透過原始連線字串存取資料庫，只能透過啟用安全性的連線字串。
 
 
 ![][9]
@@ -113,18 +127,22 @@
 在生產中，您可能會定期重新整理儲存體金鑰。稽核服務不會保留您的儲存體帳戶金鑰。儲存時，會對於稽核資料表產生僅寫入共用存取簽章 (SAS) 金鑰 (只有客戶能讀取稽核記錄)。因此，重新整理金鑰時，您需要重新儲存該原則。程序如下：
 
 
-1. 在稽核組態分頁中 (如以上的設定稽核小節所述)，將 [**Storage Access Key**] 的 *主要* 切換為 *次要*，並按下 [**儲存**]。
+1. 在稽核組態分頁中 (如以上的設定稽核小節所述)，將 [**儲存體存取金鑰**] 從 *Primary* 切換為 *Secondary*，並按 [**儲存**]。
 ![][10]
-2. 進入儲存體組態分頁，並 **重新產生** *主要存取金鑰*。
+2. 進入儲存體組態分頁，並**重新產生** *Primary Access Key*。
 
-3. 返回稽核組態分頁，並且將 [**Storage Access Key**] 的 *次要* 切換為 *主要*，然後按下 [**儲存**]。
+3. 返回稽核組態分頁，並且將 [**儲存體存取金鑰**] 從 *Secondary* 切換為 *Primary*，然後按 [**儲存**]。
 
-4. 返回儲存體 UI 並 **重新產生** *次要存取金鑰* (為了下一個金鑰重新整理週期做準備。
+4. 返回儲存體 UI，並**重新產生** *Secondary Access Key* (為了下一個金鑰重新整理週期做準備。
   
 ##<a id="subheading-4"></a>自動化
-針對 PowerShell，請參閱 <a href="https://github.com/Azure/azure-powershell" target="_blank">PowerShell SDK</a>。
+有數個 PowerShell 指令程式可用來設定 Azure SQL Database 中的稽核。若要存取稽核 Cmdlet，您必須在 [Azure 資源管理員] 模式中執行 PowerShell。
 
-針對 REST API，請參閱 <a href="http://download.microsoft.com/download/D/8/D/D8D90BA1-977F-466B-A839-7823FF37FD02/04-Azure SQL DB Auditing REST API.docx">Azure SQL Database REST API</a>
+> [AZURE.NOTE] AzureResourceManager 模組目前只能預覽。它可能沒有如 Azure 模組所提供的相同管理功能。
+
+ [Azure 資源管理員](https://msdn.microsoft.com/library/dn654592.aspx) 模式可透過執行 Switch-AzureMode Cmdlet (`Switch-AzureMode AzureResourceManager`) 進行存取。在 [Azure 資源管理員] 模式中，您可以執行 `Get-Command *AzureSql*` 來列出可用的 Cmdlet。
+
+
 
 
 
@@ -159,4 +177,4 @@
 [其他 azure.microsoft.com 文件主題的連結 3]: ../storage-whatis-account/
 
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

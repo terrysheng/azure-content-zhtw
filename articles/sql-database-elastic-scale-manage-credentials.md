@@ -1,13 +1,27 @@
-﻿<properties title="Managing Elastic Scale Credentials" pageTitle="管理 Elastic Scale 認證" description="如何設定 Elastic Scale 應用程式的正確認證層級 (管理員到唯讀)。" metaKeywords="Azure SQL Database, elastic scale, about user credentials in elastic scale" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties 
+	pageTitle="管理 Elastic Scale 認證" 
+	description="如何設定 Elastic Scale 應用程式的正確認證層級 (管理員到唯讀)。" 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="stuartozer" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="stuartozer@microsoft.com"/>
 
-#管理 Elastic Scale 認證  
+#管理 Elastic Scale 認證
 
 [Elastic Scale 用戶端 API](http://go.microsoft.com/?linkid=9862605) 使用認證來執行不同類型的作業 - 特別是建立或操作[分區對應管理員](http://go.microsoft.com/?linkid=9862595)、參考現有的分區對應管理員以取得分區的相關資訊，以及連接到分區。以下將討論這些作業類型的認證。 
 
 
-* **分區對應存取的管理認證**：對於操作分區對應的應用程式，具現化 **ShardMapManager** 物件時會使用管理認證。Elastic Scale API 的使用者必須建立必要的 SQL 使用者和 SQL 登入，也要確定將全域分區對應資料庫及所有分區資料庫的讀取/寫入權限授與它們。在分區對應上執行變更時，這些認證用來維護全域分區對應和本機分區對應。比方說，使用管理認證來具現化分區對應管理員物件，如下列程式碼所示： 
+* **分區對應存取的管理認證**︰對於操作分區對應的應用程式，具現化 **ShardMapManager** 物件時會使用管理認證。Elastic Scale API 的使用者必須建立必要的 SQL 使用者和 SQL 登入，也要確定將全域分區對應資料庫及所有分區資料庫的讀取/寫入權限授與它們。在分區對應上執行變更時，這些認證用來維護全域分區對應和本機分區對應。比方說，使用管理認證來具現化分區對應管理員物件，如下列程式碼所示： 
 
         // Obtain a shard map manager. 
         ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -16,11 +30,13 @@
         ); 
 
 
-     變數 **smmAdminConnectionString** 是包含管理認證的連接字串。使用者識別碼和密碼提供分區對應資料庫以及個別分區的讀取/寫入存取權。管理連接字串也包含伺服器名稱和資料庫名稱，以識別全域分區對應資料庫。以下是針對該用途的一般連接字串：
+     **smmAdminConnectionString** 變數是包含管理認證的連接字串。使用者識別碼和密碼提供分區對應資料庫以及個別分區的讀取/寫入存取權。管理連接字串也包含伺服器名稱和資料庫名稱，以識別全域分區對應資料庫。以下是針對該用途的一般連接字串：
 
         "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" 
 
-* **分區對應管理員存取的使用者認證**：在不管理分區對應的應用程式中具現化分區對應管理員時，請使用在全域分區對應上具有唯讀權限的認證。在這些認證下，從全域分區對應所擷取的資訊用於[資料相依路由](./sql-database-elastic-scale-data-dependent-routing.md)，以及填入用戶端的分區對應快取。認證是透過 **GetSqlShardMapManager** 的相同呼叫模式來提供，如上所示： 
+     請勿使用 "username@server" 格式的 [使用者識別碼] 值 -- 而只是使用 "username"。這是因為認證必須同時適用於入分區對應管理員資料庫和個別分區 (可能位於不同的伺服器上)。
+     
+* **分區對應管理員存取的使用者認證**︰在不管理分區對應的應用程式中具現化分區對應管理員時，請使用在全域分區對應上具有唯讀權限的認證。這些認證之下從全域分區對應擷取的資訊用於[資料相依路由](./sql-database-elastic-scale-data-dependent-routing.md) 以及填入用戶端上的分區對應快取。認證是透過 **GetSqlShardMapManager** 的相同呼叫模式來提供，如上所示： 
  
         // Obtain shard map manager. 
         ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -39,6 +55,8 @@
 
         "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;"  
 
-    請注意，連接字串不包含伺服器名稱和資料庫名稱。這是因為 **OpenConnectionForKey** 呼叫會根據索引鍵自動將連接導向至正確的分區。因此，不可提供資料庫名稱和伺服器名稱。 
+    在系統管理員認證中，請勿使用 "username@server" 格式的 [使用者識別碼] 值 -- 而只使用 "username"。另請注意，連接字串不包含伺服器名稱和資料庫名稱。這是因為 **OpenConnectionForKey** 呼叫會根據索引鍵自動將連接導向至正確的分區。因此，不可提供資料庫名稱和伺服器名稱。 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
+
+<!--HONumber=47-->

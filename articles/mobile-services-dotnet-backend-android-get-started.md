@@ -1,36 +1,42 @@
+﻿
 <properties 
 	pageTitle="開始為 Android 應用程式使用 Azure 行動服務" 
 	description="遵循此教學課程，可開始使用 Azure 行動服務進行 Android 開發。" 
 	services="mobile-services" 
 	documentationCenter="android" 
-	authors="ggailey777" 
+	authors="RickSaling" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="10/20/2014" 
-	ms.author="glenga"/>
+	ms.date="02/13/2015" 
+	ms.author="ricksal,glenga"/>
+
 
 # <a name="getting-started"> </a>開始使用行動服務
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到 Android 應用程式。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單 _To do list_ 應用程式。您所將建立的行動服務，會使用 Visual Studio 與支援的 .NET 語言撰寫伺服器端商務邏輯，並管理行動服務。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱這個主題的 [JavaScript 後端版本](/zh-tw/documentation/articles/mobile-services-android-get-started/)。
+本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到 Android 應用程式。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單 _To do list_ 應用程式。您所將建立的行動服務，會使用 Visual Studio 與支援的 .NET 語言撰寫伺服器端商務邏輯，並管理行動服務。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 後端版本](/documentation/articles/mobile-services-android-get-started/)。
 
 以下是完成應用程式的螢幕擷取畫面：
 
 ![][0]
 
-完成本教學課程需要 [Android Developer Tools][Android SDK]，其中包含 Eclipse 整合式開發環境 (IDE)、Android Developer Tools (ADT) 外掛程式，以及最新版 Android 平台。需要 Android 4.2 或以上的版本。 
+完成本教學課程需要 [Android Developer Tools][Android Studio]，其中包括 Android Studio 整合式開發環境，以及最新的 Android 平台。需要 Android 4.2 或以上的版本。  
 
-下載的快速入門專案包含 Mobile Services SDK for Android。雖然這個專案需要 Android 4.2 或以上的版本，不過行動服務 SDK 只需要 Android 2.2 或以上的版本。
+下載的快速入門專案包含 Mobile Services SDK for Android。 
 
-> [AZURE.IMPORTANT] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank)。
+> [AZURE.IMPORTANT] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務。如需詳細資訊，請參閱 [Azure 免費試用](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank)。
+
+<!-- -->
+
+> [AZURE.NOTE] 如果您想要查看本教學課程的 Eclipse 版本，請移至：[取得啟動 (Eclipse)]。
 
 ## <a name="create-new-service"> </a>建立新的行動服務
 
@@ -46,11 +52,13 @@
 
 2. 若您尚未這麼做，請下載並安裝 [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) 或更新版本。
 
-3. 按一下 [**下載您的服務並發佈至雲端**] 下的 [**下載**]。
+3. 在步驟 2 中，按一下 [**下載您的服務並發佈至雲端**] 下的 [**下載**]。
 
 	這會下載實作行動服務的 Visual Studio 專案。請將壓縮的專案檔案儲存至本機電腦，並記下儲存位置。
 
+<!--
 4. 此外，請下載您的發佈設定檔、將下載的檔案儲存至本機電腦，並記下儲存位置。
+-->
 
 ## 測試行動服務
 
@@ -66,7 +74,7 @@
 
 1. 在[管理入口網站]中，按一下 [**行動服務**]，然後按一下您剛剛建立的行動服務。
 
-2. 在快速入門索引標籤中，按一下 [**選擇平台**] 下的 [**Android**]，並展開 [**建立新的 Android 應用程式**]。 
+2. 在 [快速入門] 索引標籤中，按一下 [**選擇平台**] 下的 [**Android**]，並展開 [**建立新的 Android 應用程式**]。 
  
 	![][2]  
 
@@ -78,41 +86,13 @@
 
 ## 執行您的 Android 應用程式
 
-本教學課程的最後階段是建立並執行新的應用程式。
-
-1. 瀏覽至您儲存此壓縮專案檔案的位置，並在您的電腦上展開檔案。
-
-2. 在 Eclipse 中，依序按一下 [**檔案**] 和 [**匯入**]，展開 [**Android**]，按一下 [**現有的 Android 程式碼至工作區中**]，然後按 [**下一步**]。 
-
- 	![][14]
-
-3. 按一下 [**瀏覽**] 瀏覽到展開的專案檔案位置，並且按一下 [**確定**] 確定已勾選 TodoActivity 專案，然後按一下 [**完成**]。 
-
- 	![][15]
-
-	這會將專案檔案匯入目前的工作區中。
-
-   	![][8]
-
-4. 從 [**執行**] 功能表中，按一下 [**執行**] 以在 Android 模擬器中啟動專案。
-
-	> [AZURE.IMPORTANT] 若要能夠在 Android 模擬器中執行此專案，您必須至少定義一個 Android 虛擬裝置 (AVD)。使用 AVD Manager 來建立與管理這些裝置。
-
-5. 在應用程式中輸入有意義的文字 (例如「完成教學課程」)，然後按一下 [**新增**]。
-
-   	![][10]
-
-   	如此會傳送 POST 要求到 Azure 中代管的新行動服務。要求中的資料會插入 TodoItem 資料表中。行動服務會傳回資料表中儲存的項目，而該資料會顯示在清單中。
-
-	> [AZURE.NOTE] 您可以檢閱存取行動服務來查詢和插入資料的程式碼，這可以在 ToDoActivity.java 檔案中找到。
-
-<!--This shows how to run your new client app against the mobile service running in Azure. Before you can test the Android app with the mobile service running on a local computer, you must configure the Web server and firewall to allow access from your Android development computer. For more information, see [Configure the local web server to allow connections to a local mobile service](/zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).-->
+[WACOM.INCLUDE [mobile-services-run-your-app](../includes/mobile-services-android-get-started.md)]
 
 ## <a name="next-steps"> </a>後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作： 
 
 * [開始使用資料]
-  <br/>深入了解如何使用行動服務來儲存和查詢資料。
+  <br/>深入了解如何使用行動服務儲存和查詢資料。
 
 * [開始使用驗證]
   <br/>了解如何向身分識別提供者驗證應用程式的使用者。
@@ -131,8 +111,8 @@
 
 <!-- Images. -->
 [0]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
-[1]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-vs.png
-[2]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-android.png
+[1]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-vs-AS.png
+[2]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-android-AS.png
 
 
 [6]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-portal-quickstart-android.png
@@ -147,14 +127,15 @@
 [15]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[開始使用資料]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-[開始使用驗證]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
-[開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-android-get-started-push
+[開始使用 (Eclipse)]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-EC/
+[開始使用資料]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data
+[開始使用驗證]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users
+[開始使用推播通知]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Android Studio]: https://developer.android.com/sdk/index.html
 [行動服務 Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[行動服務 .NET 後端的疑難排解]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+[行動服務 .NET 後端的疑難排解]: /documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
 
 [管理入口網站]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

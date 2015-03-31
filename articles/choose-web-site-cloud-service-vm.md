@@ -22,7 +22,7 @@
 
 Azure 提供多種方式來裝載網站：[Azure 網站][]、[雲端服務][]和[虛擬機器][]。本文協助您了解這些選項，為您的 Web 應用程式做出正確的選擇。
 
-Azure 網站是大多數 Web 應用程式的最佳選擇。部署和管理都已整合到平台，網站可以迅速調整規模以因應過高的流量負載，而內建的負載平衡和流量管理員提供高可用性。您可以輕鬆將現有網站移至 Azure 網站，方法是使用[線上移轉工具](https://www.migratetoazure.net/)、使用 Web 應用程式庫提供的開放原始碼應用程式，或使用您所選的架構和工具來建立新網站。[WebJobs][] 功能可讓您輕鬆地將背景工作處理加入至應用程式中。 
+Azure 網站是大多數 Web 應用程式的最佳選擇。部署和管理都已整合到平台，網站可以迅速調整規模以因應過高的流量負載，而內建的負載平衡和流量管理員提供高可用性。您可以使用[線上移轉工具](https://www.migratetoazure.net/)輕鬆地將現有網站移至 Azure 網站、使用 Web 應用程式庫中的開放原始碼應用程式，或使用您選擇的架構和工具來建立新網站。[WebJobs][] 功能可讓您輕鬆地將背景工作處理加入至應用程式中。 
 
 如果您需要加強控制 Web 伺服器環境，例如想要從遠端登入伺服器或設定伺服器啟動工作，Azure 雲端服務通常是最佳選項。
 
@@ -31,12 +31,6 @@ Azure 網站是大多數 Web 應用程式的最佳選擇。部署和管理都已
 下圖針對 Azure 的每一個 Web 裝載選項，說明控制能力與簡易使用性之間的相對關係。 
 
 ![ChoicesDiagram][ChoicesDiagram]
-
-## 目錄
-
-- [案例和建議](#scenarios)
-- [功能比較](#features)
-- [後續步驟](#nextsteps)
 
 ##<a name="scenarios"></a>案例和建議
 
@@ -54,7 +48,7 @@ Azure 網站是大多數 Web 應用程式的最佳選擇。部署和管理都已
 - [我想要裝載 REST API 或 Web 服務供行動用戶端使用。](#mobile)
 
 
-### <a id="onprem"></a> 我需要一個具有背景處理和資料庫後端的 Web 前端，以執行與內部部署資源整合的商業應用程式。
+### <a id="onprem"></a>我需要一個具有背景處理和資料庫後端的 Web 前端，以執行與內部部署資源整合的商業應用程式。
 
 Azure 網站是複雜商業應用程式的絕佳解決方案。您開發的應用程式將能夠在負載平衡平台上自動調整、採用 Active Directory 來保護，以及連接到內部部署資源。它可讓您透過世界級的管理入口網站和 API 來輕鬆管理應用程式，並利用應用程式洞察工具來深入了解客戶如何使用應用程式。新的 [Webjob][] 功能可讓您在 Web 層執行背景工作處理和工作，而混合式連線能力和 [VNET 功能](../fundamentals-introduction-to-azure/#networking/) 則使您可輕鬆連線回內部部署資源。Azure 網站提供三個 9 的 SLA，可讓您：
 
@@ -64,7 +58,7 @@ Azure 網站是複雜商業應用程式的絕佳解決方案。您開發的應�
 * 符合 ISO、SOC2 和 PCI。
 * 與 Active Directory 整合
 
-### <a id="corp"></a> 我需要可靠的方法來裝載可靈活調整且可供全球存取的公司網站。 
+### <a id="corp"></a>我需要可靠的方法來裝載可靈活調整且可供全球存取的公司網站。
 
 Azure 網站是裝載公司網站的絕佳解決方案。它可讓網站快速調整，輕鬆符合全球資料中心網路的需求。它提供本機存取、容錯和智慧型流量管理。一切盡在一個提供世界級管理工具的平台上，可讓您快速又輕鬆地深入了解網站健康情況和網路流量。Azure 網站提供三個 9 的 SLA，可讓您：
 
@@ -75,9 +69,9 @@ Azure 網站是裝載公司網站的絕佳解決方案。它可讓網站快速�
 * 符合 ISO、SOC2 和 PCI。
 * 與 Active Directory 整合
 
-### <a id="iis6"></a> 我有一個在 Windows Server 2003 上執行的 IIS6 應用程式。
+### <a id="iis6"></a>我有一個在 Windows Server 2003 上執行的 IIS6 應用程式。
 
-Azure 網站可讓您輕鬆地省去移轉舊版 IIS6 應用程式時相關的基礎結構成本。Microsoft 已建立[易於使用的移轉工具和詳細移轉指引](https://www.movemetowebsites.net/) 可讓您檢查相容性，並識別需要進行的任何變更。與 Visual Studio、TFS 和一般 CMS 工具整合，讓您輕鬆地將 IIS6 應用程式直接部署到雲端。部署之後，Azure 管理入口網站提供健全的管理工具，可讓您依需要而縮小規模來管理成本，或擴大規模來符合需求。移轉工具可讓您：
+Azure 網站可讓您輕鬆地省去移轉舊版 IIS6 應用程式時相關的基礎結構成本。Microsoft 建立[簡單易用的移轉工具和詳細的移轉指引](https://www.movemetowebsites.net/)，可讓您檢查相容性和識別任何需要進行的變更。與 Visual Studio、TFS 和一般 CMS 工具整合，讓您輕鬆地將 IIS6 應用程式直接部署到雲端。部署之後，Azure 管理入口網站提供健全的管理工具，可讓您依需要而縮小規模來管理成本，或擴大規模來符合需求。移轉工具可讓您：
 
 * 快速又輕鬆地將舊式的 Windows Server 2003 Web 應用程式移轉至雲端。
 * 選擇將連接的 SQL 資料庫留在內部部署，以建立混合式應用程式。 
@@ -92,14 +86,14 @@ Azure 網站是此案例的絕佳解決方案，因為您可先免費使用它�
 - 視需要新增其他 Azure 服務與功能至您的應用程式。
 - 使用 HTTPS 來保護網站。
 
-### <a id="designer"></a> 我是網頁或平面設計師，想要幫客戶設計及建立網站
+### <a id="designer"></a>我是網頁或平面設計師，想要幫客戶設計及建立網站
 
 對於 Web 開發人員和設計人員，Azure 網站可輕鬆整合各種架構和工具、提供 Git 和 FTP 的部署支援，並與 Visual Studio 和 SQL Database 等工具和服務密切整合。使用網站，您可以：
 
 - 使用命令列工具執行[自動化工作][scripting]。
-- 處理常見語言，例如 [.Net][dotnet]、[PHP][]、[Node.js][nodejs] 和 [Python][]。
+- 使用熱門語言，例如 [.Net][dotnet]、[PHP][]、[Node.js][nodejs] 及 [Python][]。
 - 有三種不同的調整層級可選，以向上調整至非常高的容量。
-- 與其他 Azure 服務 (如 [SQL Database][sqldatabase]、[服務匯流排][servicebus]及[儲存體][]或 [Azure 市集][azurestore]上的合作夥伴供應項目 (如 MySQL 和 MongoDB) 整合。
+- 與其他 Azure 服務，例如整合[SQL Database][sqldatabase]，[服務匯流排][servicebus]和[儲存體][]，或合作夥伴產品或服務從[Azure 市集][azurestore]，例如 MySQL 和 MongoDB。
 - 與 Visual Studio、Git、WebMatrix、WebDeploy、TFS 和 FTP 等工具整合。
 
 ### <a id="multitier"></a>我想將含 Web 前端的多層式應用程式移轉至雲端
@@ -121,7 +115,7 @@ Azure 網站是此案例的絕佳解決方案，因為您可先免費使用它�
 
 如果網站上支援您的開放原始碼架構，則會自動設定您的應用程式所需的語言和架構。網站可讓您：
 
-- 使用許多常見開放式來源語言，例如 [.NET][dotnet]、[PHP][]、[Node.js][nodejs] 和 [Python][]。 
+- 使用許多熱門的開放原始碼語言，例如 [.NET][dotnet]、[PHP][]、[Node.js][nodejs] 和 [Python][]。 
 - 設定 WordPress、Drupal、Umbraco、DNN 及其他許多協力廠商 Web 應用程式。 
 - 移轉現有的應用程式，或從應用程式庫建立新的應用程式。 
 
@@ -129,7 +123,7 @@ Azure 網站是此案例的絕佳解決方案，因為您可先免費使用它�
 
 ### <a id="lob"></a>我有個主要商務應用程式需要連線至公司網路
 
-若要建立企業營運系統應用程式，您的網站可能需要直接存取公司網路上的服務或資料。在網站、雲端服務和虛擬機器上利用 [Azure 虛擬網路服務]即可達成(/zh-tw/services/virtual-network/)。在網站上，您可以使用新的 [VNET 整合功能](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)，其可讓您的 Azure 應用程式如同在公司網路般執行。
+若要建立企業營運系統應用程式，您的網站可能需要直接存取公司網路上的服務或資料。在網站、雲端服務和虛擬機器上利用 [Azure 虛擬網路服務](/services/virtual-network/)即可達成。在網站上，您可以使用新的 [VNET 整合功能](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)，讓您的 Azure 應用程式彷彿就像在公司網路上執行一樣。
 
 ### <a id="mobile"></a>我想要裝載 REST API 或 Web 服務供行動用戶端使用
 
@@ -142,7 +136,7 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。ASP.
 
 ##<a name="features"></a>功能比較
 
-下表比較「網站」、「雲端服務」與「虛擬機器」的功能，以協助您做出最佳選擇。如需每個選項目前的 SLA 資訊，請參閱 [Azure 服務等級協定](/zh-tw/support/legal/sla/)。
+下表比較「網站」、「雲端服務」與「虛擬Machines」的功能，以協助您做出最佳選擇。如需每個選項目前的 SLA 資訊，請參閱[Azure 服務等級協定](/support/legal/sla/)。
 
 <table cellspacing="0" border="1">
 <tr>
@@ -234,7 +228,7 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。ASP.
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
-   <td valign="middle">網站可輕鬆裝載 REST API 中介層，而網站的 <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> 功能可裝載背景處理工作。您可以在專用網站中執行 WebJobs，以實現此層的獨立擴充性。</td>
+   <td valign="middle">網站可以輕易裝載 REST API 中間層，而網站的 <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJob</a> 功能可以裝載背景處理工作。您可以在專用網站中執行 WebJobs，以實現此層的獨立擴充性。</td>
 </tr>
 <tr>
    <td valign="middle"><p>整合 MySQL 即服務的支援</p></td>
@@ -262,7 +256,7 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。ASP.
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
-   <td valign="middle">在網站中，只有基本和標準模式才支援自訂網域名稱的 SSL。如需對網站使用 SSL 的詳細資訊，請參閱 <a href="../web-sites-configure-ssl-certificate/">設定 Azure 網站的 SSL 憑證</a>。</td>
+   <td valign="middle">在網站中，只有基本和標準模式才支援自訂網域名稱的 SSL。如需網站使用 SSL 的相關資訊，請參閱<a href="../web-sites-configure-ssl-certificate/">設定 Azure 網站的 SSL 憑證</a>。</td>
 </tr>
 <tr>
    <td valign="middle"><p>整合 Visual Studio</p></td>
@@ -286,14 +280,14 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。ASP.
    <td valign="middle"></td>
 </tr>
 <tr>
-   <td valign="middle"><p>網路隔離，利用 <a href="/zh-tw/services/virtual-network/">Azure 虛擬網路</a></p></td>
+   <td valign="middle"><p>利用 <a href="/services/virtual-network/">Azure 虛擬網路</a>進行網路隔離</p></td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
-   <td valign="middle">另請參閱 <a href="/blog/2014/09/15/azure-websites-virtual-network-integration/">Azure 網站虛擬網路整合</a></td>
+   <td valign="middle">另請參閱<a href="/blog/2014/09/15/azure-websites-virtual-network-integration/">Azure 網站虛擬網路整合</a></td>
 </tr>
 <tr>
-   <td valign="middle"><p>支援 <a href="/zh-tw/services/traffic-manager/">Azure 流量管理員</a></p></td>
+   <td valign="middle"><p>支援 <a href="/services/traffic-manager/">Azure 流量管理員</a></p></td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
@@ -337,40 +331,38 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。ASP.
 </table>
 
 
-> [WACOM.NOTE]
-> 如果您想在註冊帳戶之前開始使用 Azure 網站，請前往 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>，您可以在這裡免費於 Azure 網站立即建立暫時性的 ASP.NET 入門網站。不需提供信用卡，無需承諾。
+> [AZURE.NOTE]
+> 如果您要在註冊帳戶前開始使用 Azure 網站，請移至 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>，您可以在 Azure 網站中立即建立短期的免費 ASP.NET 簡易版網站。不需要信用卡，無需承諾。
 
 
-## <a id="nextsteps"></a> 後續步驟
+## <a id="nextsteps"></a>後續步驟
 
 如需這三個 Web 裝載選項的詳細資訊，請參閱下列資源：
 
 * [Azure 簡介](../fundamentals-introduction-to-azure/)
-* [Azure 執行模型](../fundamentals-application-models/)
+* [計算 Azure 所提供的裝載選項](../fundamentals-application-models/)
 
 若要開始對應用程式使用您選擇的選項，請參閱下列資源：
 
-* [Azure 網站](/zh-tw/documentation/services/websites/)
-* [Azure 雲端服務](/zh-tw/documentation/services/cloud-services/)
-* [Azure 虛擬機器](/zh-tw/documentation/services/virtual-machines/)
+* [Azure 網站](/documentation/services/websites/)
+* [Azure 雲端服務](/documentation/services/cloud-services/)
+* [Azure 虛擬機器](/documentation/services/virtual-machines/)
 
   [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
   [Azure 網站]: http://go.microsoft.com/fwlink/?LinkId=306051
   [雲端服務]: http://go.microsoft.com/fwlink/?LinkId=306052
   [虛擬機器]: http://go.microsoft.com/fwlink/?LinkID=306053
   [ClearDB]: http://www.cleardb.com/
-  [WebJob]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [設定 Azure 網站的 SSL 憑證]: http://azure.microsoft.com/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://azure.microsoft.com/gallery/store/
-  [scripting]: http://azure.microsoft.com/documentation/scripts/?services=web-sites
-  [dotnet]: http://azure.microsoft.com/develop/net/
-  [nodejs]: http://azure.microsoft.com/develop/nodejs/
-  [PHP]: http://azure.microsoft.com/develop/php/
-  [Python]: http://azure.microsoft.com/develop/python/
-  [servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
-  [sqldatabase]: http://azure.microsoft.com/documentation/services/sql-database/
-  [儲存體]: http://azure.microsoft.com/documentation/services/storage/
+  [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
+  [設定 Azure 網站的 SSL 憑證]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
+  [azurestore]: http://www.windowsazure.com/gallery/store/
+  [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
+  [dotnet]: http://www.windowsazure.com/develop/net/
+  [nodejs]: http://www.windowsazure.com/develop/nodejs/
+  [PHP]: http://www.windowsazure.com/develop/php/
+  [Python]: http://www.windowsazure.com/develop/python/
+  [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
+  [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
+  [儲存體]: http://www.windowsazure.com/documentation/services/storage/
 
-<!--HONumber=35.1-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

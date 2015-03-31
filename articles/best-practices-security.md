@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="安全性最佳做法 (.NET) - Azure" 
+	pageTitle="安全性最佳作法 (.NET) - Azure" 
 	description="介紹 Azure 中的安全性。" 
 	services="web-sites, virtual-machines, sql-database, storage, service-bus, active-directory" 
 	documentationCenter=".net" 
@@ -22,8 +22,6 @@
 
 
 
-[WACOM.INCLUDE [SecurityRX](../includes/SecurityRX.md)]
+[AZURE.INCLUDE [SecurityRX](../includes/SecurityRX.md)]
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

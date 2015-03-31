@@ -16,36 +16,6 @@
 	ms.date="11/19/2014" 
 	ms.author="wpickett"/>
 
-
-<div>
-<div class="left-nav">
-<div class="static-nav">
-<ul>
-<li class="menu-nodejs-compute"><a href="/zh-tw/develop/net/compute/">運算</a></li>
-<li class="menu-nodejs-data"><a href="/zh-tw/develop/net/data/">資料服務</a></li>
-<li class="menu-nodejs-appservices"><a href="/zh-tw/develop/net/app-services/">應用程式服務</a></li>
-<li><a href="/zh-tw/develop/net/reference/">參考</a></li>
-<li><a href="/zh-tw/develop/net/guidance/">指引</a></li>
-<li><a href="/zh-tw/develop/net/architecture/">架構</a></li>
-<li><a href="/zh-tw/develop/net/samples/">範例</a></li>
-<li><a href="/zh-tw/develop/net/end-to-end-Apps/">以案例為基礎的教學課程</a></li>
-</ul>
-<ul class="links">
-<li class="forum"><a href="/zh-tw/support/forums/">論壇</a></li>
-</ul>
-</div>
-<div class="floating-nav jump-to"><br />
-<ul>
-<li>本節內容 (跳至)：</li>
-<li><a href="/zh-tw/develop/net/architecture/#overviews">應用程式架構概觀</a></li>
-<li><strong>應用程式模式：多租用戶應用程式</strong></li>
-<li><a href="/zh-tw/develop/net/architecture/load-testing-pattern/">應用程式模式：負載測試</a></li>
-<li><a href="/zh-tw/develop/net/architecture/#designpatterns">設計模式</a></li>
-</ul>
-</div>
-</div>
-</div>
-
 # Azure 中的多租用戶應用程式
 
 多租用戶應用程式是一種共用資源，可讓個別使用者 (或「租用戶」) 將應用程式視為其本身的應用程式。適用多租用戶應用程式的常見情況，是應用程式的所有使用者都想自訂個人的使用性，但另一方面又有相同的基本商業需求時。舉例來說，Office 365、Outlook.com 和 visualstudio.com 都屬於大型多租用戶應用程式。
@@ -68,11 +38,11 @@
  
 簡言之，要提供具有高度延展性的服務，的確需要考量許多事項，但也有不少目標和需求是許多多租用戶應用程式所共有的。有些可能與特定案例無關，且個別目標和需求的重要性也可能隨著案例而不同。如果您是多租用戶應用程式的提供者，您也會有目標和需求，例如：達到租用戶的目標和需求、利潤、收費、多重服務層級、佈建、可維護性監視和自動化等。 
 
-若想進一步了解多租用戶應用程式的其他設計注意事項，請參閱 [在 Azure 上代管多租用戶應用程式][] (英文)。
+若想進一步了解多租用戶應用程式的其他設計注意事項，請參閱[在 Azure 上代管多租用戶應用程式][]。
 
 Azure 有多項功能可讓您處理在設計多租用戶系統時遇到的重大問題。 
 
-**隔離** 
+**隔離**
 
 - 依主機標頭區隔具有 (或沒有) SSL 通訊的網站租用戶
 - 依查詢參數區隔網站租用戶
@@ -107,7 +77,7 @@ Azure 提供了幾項支援驗證、並且可讓受到代管的應用程式提�
 
 **佈建資源**
 
-Azure 提供許多可為應用程式佈建新租用戶的方式。就擁有許多租用戶的多租用戶應用程式而言，通常必須藉由啟用自助式佈建功能將此程序自動化。
+Azure 提供許多可為應用程式佈建新租用戶的方式。就租用戶為數眾多的多租用戶應用程式而言，通常必須藉由啟用自助式佈建功能將此程序自動化。
 
 - 背景工作角色可讓您佈建及取消佈建個別的租用戶資源 (例如在新租用戶註冊或取消時)、收集用於計量的度量，以及管理特定排程之後或超出關鍵效能指標臨界值時所做的因應調整。此角色也可用來將更新和升級推送至方案。 
 - Azure Blob 可用來為新租用戶佈建計算或預先初始化的儲存資源，同時提供容器層級存取原則，以保護計算服務封裝、VHD 映像和其他資源。
@@ -119,15 +89,12 @@ Azure 提供許多可為應用程式佈建新租用戶的方式。就擁有許�
 	- 	使用資料庫匯入和匯出功能，從檔案佈建新資料庫。 
 
 
+
 <!--links-->
 
 [在 Azure 上主控多租用戶應用程式]: http://msdn.microsoft.com/library/hh534480.aspx
 [在 Azure 上設計多租用戶應用程式]: http://msdn.microsoft.com/library/windowsazure/hh689716
-[在 Azure 上代管多租用戶應用程式]: http://msdn.microsoft.com/library/hh534480.aspx
 
 
 
-
-
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

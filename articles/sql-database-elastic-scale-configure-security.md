@@ -1,17 +1,29 @@
-﻿<properties title="Elastic Scale Security Configurations" pageTitle="Elastic Scale 安全性設定" description="使用 Elastic Scale for Azure SQL Database 的 Security for Split-Merge 服務" metaKeywords="Elastic Scale Security Configurations, Azure SQL Database sharding, elastic scale " services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties 
+	title="Elastic Scale Security Configurations" 
+	pageTitle="Elastic Scale 安全性設定" 
+	description="使用 Elastic Scale for Azure SQL Database 的 Security for Split-Merge 服務" 
+	metaKeywords="Elastic Scale Security Configurations, Azure SQL Database sharding, elastic scale " 
+	services="sql-database" documentationCenter="" 
+	manager="jhubbard" 
+	authors="sidneyh@microsoft.com"/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" ms.topic="article" ms.date="03/05/2015" 
+	ms.author="sidneyh" />
 
 # Elastic Scale 安全性設定  
 
 Microsoft Azure SQL Database Elastic Scal 包含自我裝載的服務。散發包含服務組態檔，其中包含必須設定的安全性相關設定。
 
-1. [設定憑證][] 
+1. [設定憑證][]
 2. [允許的 IP 位址][]
 3. [阻絕服務預防][]
 4. [其他安全性考量][]
 
-## <a name="configuring-certificates"></a>Configuring Certificates
+## <a name="configuring-certificates"></a>設定憑證
 
 憑證有兩種設定方式。 
 
@@ -20,24 +32,24 @@ Microsoft Azure SQL Database Elastic Scal 包含自我裝載的服務。散發�
 
 ## <a name="obtain-certificates"></a>取得憑證
 
-您可以從公用憑證授權單位 (CA) 或從 [Windows 憑證服務](http://msdn.microsoft.com/zh-tw/library/windows/desktop/aa376539.aspx) (英文) 取得憑證。這些是取得憑證的慣用方法。
+您可以從公用憑證授權單位 (CA) 或從 [Windows 憑證服務](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx) 取得憑證。這些是取得憑證的慣用方法。
 
 如果這些選項都無法使用，您可以產生**自我簽署憑證**。
  
 ## <a name="tools"></a>產生憑證的工具
 
-* [makecert.exe](http://msdn.microsoft.com/zh-tw/library/bfsktky3.aspx)
-* [pvk2pfx.exe](http://msdn.microsoft.com/zh-tw/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ###執行工具
 
-* 從 Visual Studio 的開發人員命令提示字元，請參閱 [Visual Studio 命令提示字元](http://msdn.microsoft.com/zh-tw/library/ms229859.aspx) (英文) 
+* 從 Visual Studio 的開發人員命令提示字元，請參閱 [Visual Studio 命令提示字元](http://msdn.microsoft.com/library/ms229859.aspx) 
 
-如果已安裝，請移至：
+    如果已安裝，請移至：
 
-%ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
+        %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 
-* 從 [Windows 8.1:下載套件與工具](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)取得 WDK
+* 從 [Windows 8.1︰下載套件與工具](http://msdn.microsoft.com/en-US/windows/hardware/gg454513#drivers)取得 WDK
 
 ##    <a name="to-configure-ssl-cert"></a>設定 SSL 憑證
 需要 SSL 憑證，才能將通訊加密和驗證伺服器。從以下三種案例中選擇最適用的案例，然後執行其所有步驟：
@@ -50,12 +62,12 @@ Microsoft Azure SQL Database Elastic Scal 包含自我裝載的服務。散發�
 4.    [在服務組態檔中更新 SSL 憑證][]
 5.    [匯入 SSL 憑證授權單位][]
 
-#### 從憑證存放區使用現有的憑證
+### 從憑證存放區使用現有的憑證
 1. [從憑證存放區匯出 SSL 憑證][]
 2. [將 SSL 憑證上傳至雲端服務][]
 3. [在服務組態檔中更新 SSL 憑證][]
 
-#### 使用 PFX 檔案中現有的憑證
+### 使用 PFX 檔案中現有的憑證
 
 1. [將 SSL 憑證上傳至雲端服務][]
 2. [在服務組態檔中更新 SSL 憑證][]
@@ -84,28 +96,50 @@ Microsoft Azure SQL Database Elastic Scal 包含自我裝載的服務。散發�
 5.    [在服務組態檔中設定允許的用戶端][]
 6.    [設定用戶端憑證撤銷檢查][]
 
-## <a name="allowed-ip-addresses"></a>Allowed IP Addresses
+## <a name="allowed-ip-addresses"></a>允許的 IP 位址
 
-Access to the service endpoints can be restricted to specific ranges of IP addresses.
- 
-## The Default Configuration
+您可將服務端點的存取限制為特定的 IP 位址範圍。
 
-The default configuration denies all access to the HTTP endpoint. This is the recommended setting, since the requests to these endpoints may carry sensitive information like database credentials.
-The default configuration allows all access to the HTTPS endpoint. This setting may be restricted further.
+## 設定存放區加密
 
-### Changing the Configuration
+需要憑證來加密儲存在中繼資料存放區中的認證。從以下三種案例中選擇最適用的案例，然後執行其所有步驟：
 
-The group of access control rules that apply to and endpoint are configured in the **<EndpointAcls>** section in the **service configuration file**.
+### 使用新的自我簽署憑證
+
+1.	 [建立自我簽署憑證][]
+2.	 [建立自我簽署加密憑證的 PFX 檔案][]
+3.	 [將加密憑證上傳至雲端服務][]
+4.	 [在服務組態檔中更新加密憑證][]
+
+### 從憑證存放區使用現有的憑證
+
+1.	 [從憑證存放區匯出加密憑證][]
+2.	 [將加密憑證上傳至雲端服務][]
+3.	 [在服務組態檔中更新加密憑證][]
+
+### 使用 PFX 檔案中現有的憑證
+
+1.	 [將加密憑證上傳至雲端服務][]
+2.	 [在服務組態檔中更新加密憑證][]
+
+## 預設組態
+
+預設組態會拒絕對 HTTP 端點的所有存取。這是建議設定，因為對這些端點的要求可能帶有機密資訊 (如資料庫認證)。
+預設組態會允許對 HTTPS 端點的所有存取。這項設定可能會進一步限制。
+
+### 變更組態
+
+套用至與端點的存取控制規則群組會設定於**服務組態檔**的 **<EndpointAcls>** 區段中。
 
     <EndpointAcls>
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
     </EndpointAcls>
 
-The rules in an access control group are configured in a <AccessControl name=""> section of the service configuration file. 
+存取控制群組中的規則會設定於服務組態檔的 <AccessControl name=""> 區段中。 
 
-The format is explained in Network Access Control Lists documentation.
-For example, to allow only IPs in the range 100.100.0.0 to 100.100.255.255 to access the HTTPS endpoint, the rules would look like this:
+網路存取控制清單文件會說明其格式。
+例如，若只要允許範圍 100.100.0.0 至 100.100.255.255 中的 IP 存取 HTTPS  端點，則規則看起來如下：
 
     <AccessControl name="Retricted">
       <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
@@ -133,7 +167,7 @@ For example, to allow only IPs in the range 100.100.0.0 to 100.100.255.255 to ac
     <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
     <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
 
-Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this protection.
+將 DynamicIpRestrictionDenyByConcurrentRequests 變更為 true，以啟用這項保護。
 
 ## 限制存取的速率
 
@@ -237,7 +271,7 @@ Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this prote
 
 自訂
 
-*    -e 與憑證到期日
+*    -e with the certification expiration date
 
 
 ## <a name="find-ca-public-key"></a>尋找 CA 公開金鑰
@@ -305,7 +339,7 @@ Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this prote
 
 自訂：
 
-    •    MyID.pvk 和 MyID.cer，使用用戶端憑證的檔名
+    MyID.pvk and MyID.cer with the filename for the client certificate
 
 輸入密碼，然後使用這些選項來匯出憑證：
 
@@ -321,7 +355,7 @@ Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this prote
 * 至少使用這個選項，將憑證匯入個人存放區：
     * 核取 [包含所有延伸內容]
 
-## <a name=copy-client-cert"> </a> 複製用戶端憑證指紋
+## <a name="copy-client-cert"> </a> 複製用戶端憑證指紋
 用戶端憑證已發給的每個人必須依照下列步驟，以取得將加入至服務組態檔的憑證指紋：
 * 執行 certmgr.exe
 * 選取 [個人] 索引標籤
@@ -345,10 +379,46 @@ Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this prote
 
     <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
 
+## <a name="create-pfx-files-encryption"></a>建立自我簽署加密憑證的 PFX 檔案
+
+如需加密憑證，請執行：
+
+    pvk2pfx -pvk MyID.pvk -spc MyID.cer
+
+自訂：
+
+    MyID.pvk and MyID.cer with the filename for the encryption certificate
+
+輸入密碼，然後使用這些選項來匯出憑證：
+*	是，匯出私密金鑰
+*	匯出所有延伸內容
+*	將憑證上傳至雲端服務時，您將需要密碼。
+
+## <a name="export-encryption-from-store"></a>從憑證存放區匯出加密憑證
+
+*	尋找憑證
+*	按一下 [動作] -> [所有工作] -> [匯出...]
+*	使用這些選項將憑證匯出至 .PFX 檔案： 
+  *	是，匯出私密金鑰
+  *	如果可能的話，包含憑證路徑中的所有憑證 
+*	匯出所有延伸內容
+
+## <a name="upload-encryption-cert"></a> 將加密憑證上傳至雲端服務
+
+將現有或產生的 .PFX 檔案及加密金鑰組連同憑證一起上傳：
+
+* 輸入密碼以保護私密金鑰資訊
+
+## <a name="update-encryption-in-csft"></a>在服務組態檔中更新加密憑證
+
+使用上傳至雲端服務的憑證指紋，在服務組態檔中更新下列設定的指紋值：
+
+    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+
 ## 常見的憑證作業
 
-•    設定 SSL 憑證
-•    設定用戶端憑證
+* 設定 SSL 憑證
+* 設定用戶端憑證
 
 ## 尋找憑證
 
@@ -394,7 +464,7 @@ Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this prote
 4. 如果匯入 .PFX 檔案：
     1.     輸入密碼以保護私密金鑰
     2.     選取匯入選項
-5.     選取 [Place certificates in the following store]
+5.     選取 [將憑證放在下列存放區]
 6.     按一下 [瀏覽]
 7.     選取所需的存放區
 8.     按一下 [完成]
@@ -403,7 +473,7 @@ Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this prote
 
 ## <a name="upload-certificate"></a>Upload Certificate
 
-在 [Azure 管理入口網站](http://manage.windowsazure.com/)中
+在 [Azure 管理入口網站](http://manage.windowsazure.com/)
 
 1. 選取 [雲端服務]
 2. 選取雲端服務
@@ -419,7 +489,7 @@ Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this prote
 
     <Setting name="ElasticScaleMetadata" value="Server=..." />
 
-這個資料庫中儲存的資料不加密。為了避免服務要求洩漏認證或其他機密資訊，請保護這個資料庫並隨時確保它的存取安全性。此外，請確定服務部署的 Web 和背景工作角色保持在最新狀態且安全，因為它們都能存取中繼資料資料庫。 
+這個資料庫中儲存的認證會被加密。此外，最佳作法是確定服務部署的 Web 和背景工作角色保持在最新狀態且安全，因為它們都能存取中繼資料資料庫和用來加密和解密已儲存的認證。 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
@@ -430,7 +500,7 @@ Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this prote
 [建立自我簽署 SSL 憑證的 PFX 檔案]:#create-pfx-for-self-signed-cert
 [將 SSL 憑證上傳至雲端服務]: #upload-ssl
 [在服務組態檔中更新 SSL 憑證]: #update-ssl-in-csfg
-[匯入 SSL 憑證授權單位]："import-ssl-ca"
+[匯入 SSL 憑證授權單位]: "import-ssl-ca"
 [從憑證存放區匯出 SSL 憑證]: #export-ssl-from-store
 [關閉用戶端憑證式驗證]: #turn-off-client-cert
 [建立自我簽署憑證授權單位]:#create-self-signed-ca
@@ -448,4 +518,10 @@ Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this prote
 [產生憑證的工具]:#tools
 [設定 SSL 憑證]:#to-configure-ssl-cert
 [其他安全性考量]:#other-security 
-[Upload Certificate]:#upload-certificate
+[上傳憑證]:#upload-certificate
+[建立自我簽署加密憑證的 PFX 檔案]:#create-pfx-files-encryption
+[將加密憑證上傳至雲端服務]:#upload-encryption-cert 
+[在服務組態檔中更新加密憑證]:#update-encryption-in-csft
+[從憑證存放區匯出加密憑證]:#export-encryption-from-store
+
+<!--HONumber=47-->

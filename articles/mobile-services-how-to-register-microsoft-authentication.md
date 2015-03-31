@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="註冊 Microsoft 驗證 - 行動服務" 
 	description="了解如何在 Azure Mobile Services 應用程式中註冊 Microsoft 驗證。" 
 	authors="ggailey777" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -20,9 +20,9 @@
 
 本主題說明如何註冊應用程式，以使用 Live Connect 做為 Azure 行動服務的驗證提供者。 
 
->[AZURE.NOTE]若要設定通用 Windows 應用程式的 Microsoft 帳戶驗證，或為 Windows 市集應用程式提供單一登入體驗，請參閱[註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證](/zh-tw/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication)。
+>[AZURE.NOTE]若要設定通用 Windows 應用程式的 Microsoft 帳戶驗證，或為 Windows 市集應用程式提供單一登入體驗，請參閱[註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證](/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication)。
 
-1. 瀏覽到 Live Connect 開發人員中心的 <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">我的應用程式</a>頁面，並視需要使用您的 Microsoft 帳戶登入。 
+1. 瀏覽至 <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">[我的應用程式]</a> 頁面，並視需要使用您的 Microsoft 帳戶登入。 
 
 2. 按一下 [**建立應用程式**]、然後輸入 [**應用程式名稱**]，並按一下 [**我接受**]。
 
@@ -30,7 +30,7 @@
 
    	這會向 Live Connect 註冊應用程式。
 
-3. 按一下 [**API 設定**]，在 [**重新導向 URL**] 中提供 `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` 值 ，然後按一下 [**儲存**]。
+3. 按一下 [**API 設定**]，在 [**重新導向 URL**] 中提供  `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` 值 ，然後按一下 [**儲存**]。
 
 	>[AZURE.NOTE]如需使用 Visual Studio 將 .NET 後端行動服務發佈至 Azure，則重新導向 URL 是行動服務的 URL 後面附加路徑 _signin-microsoft_，而您的行動服務為 .NET 服務，例如 <code>https://todolist.azure-mobile.net/signin-microsoft</code>。  
 
@@ -62,5 +62,4 @@
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

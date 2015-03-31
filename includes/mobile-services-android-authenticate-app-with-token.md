@@ -4,20 +4,20 @@
 >[AZURE.NOTE]無論您使用用戶端管理或服務管理驗證，皆可以快取行動服務發行的權杖。本教學課程使用服務管理驗證。
 
 
-1. 在 Eclipse 中，開啟 ToDoActivity.java 檔案然後加入下列 import 陳述式：
+1. 開啟 ToDoActivity.java 檔案，並加入下列 import 陳述式：
 
         import android.content.Context;
         import android.content.SharedPreferences;
         import android.content.SharedPreferences.Editor;
 
-2. 在  `ToDoActivity` 類別中新增下列成員。
+2. 在 `ToDoActivity` 類別中新增下列成員。
 
     	public static final String SHAREDPREFFILE = "temp";	
 	    public static final String USERIDPREF = "uid";	
     	public static final String TOKENPREF = "tkn";	
 
 
-3. 在 ToDoActivity.java 檔案中，加入下列  `cacheUserToken` 方法的定義。
+3. 在 ToDoActivity.java 檔案中，加入下列 `cacheUserToken` 方法的定義。
  
     	private void cacheUserToken(MobileServiceUser user)
 	    {
@@ -33,7 +33,7 @@
     >[AZURE.NOTE]如果使用權杖存取的資料十分敏感，而且有人可能可以取得裝置存取權，那麼您可以使用加密來進一步保護權杖。不過，完整的安全解決方案已超過本教學課程範圍，而且也須視您的安全性需求而定。
 
 
-4. 在 ToDoActivity.java 檔案中，加入下列  `loadUserTokenCache` 方法的定義。
+4. 在 ToDoActivity.java 檔案中，加入下列 `loadUserTokenCache` 方法的定義。
 
     	private boolean loadUserTokenCache(MobileServiceClient client)
 	    {
@@ -54,7 +54,7 @@
 
 
 
-5. 在  *ToDoActivity.java* 檔案中，將  `authenticate` 方法改為使用權杖快取的下列方法。如果您想使用 Microsoft 帳戶以外的帳戶，請變更登入提供者。
+5. 在 *ToDoActivity.java* 檔案中，將  `authenticate` 方法改為使用權杖快取的下列方法。如果您想使用 Microsoft 帳戶以外的帳戶，請變更登入提供者。
 
 		private void authenticate() {
 			// We first try to load a token cache if one exists.
@@ -89,4 +89,5 @@
 
 
 
-<!--HONumber=42-->
+
+<!--HONumber=47-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 #設定用於測試的混合式雲端環境
@@ -42,7 +42,7 @@
 4.	建立站對站 VPN 連線。
 5.	設定 DC2。 
 
-如果您仍沒有 Azure 訂閱，可以在 [試用 Azure](http://www.windowsazure.com/pricing/free-trial/) 上註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
+如果您仍沒有 Azure 訂閱，可以在 [試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 上註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
 >[AZURE.NOTE] Azure 中的虛擬機器和虛擬網路閘道會在執行時持續耗用成本。這項成本是按照您的免費試用版、MSDN 訂閱或付費訂閱進行計算。若要在您不使用時降低執行這個測試環境的成本，請參閱此主題中的 [將這個環境的持續成本降至最低]，(#costs) 以了解詳細資訊。
 
@@ -124,7 +124,7 @@ RRAS1 提供公司網路子網路上的電腦與 TestVNET 虛擬網路之間的�
 	- 按一下 [**新增閘道子網路**]。
 11.	按一下 [完成] 圖示。等候虛擬網路建立後再繼續。
 
-接下來，使用 [如何安裝和設定 Azure PowerShell 在本機電腦安裝 Azure PowerShell](../install-configure-powershell/) 中的指示。
+接下來，使用 [如何安裝和設定 Azure PowerShell](../install-configure-powershell/) 中的指示，在本機電腦上安裝 Azure PowerShell。 
 
 接著，建立 TestVNET 虛擬網路的新雲端服務。您必須選擇唯一的名稱。例如，您可以將它命名為 TestVNET-*UniqueSequence*，其中的 *UniqueSequence* 是貴公司的縮寫。例如，如果貴公司名稱為 Tailspin Toys，您可以將雲端服務命名為 TestVNET-Tailspin。
 
@@ -156,7 +156,7 @@ RRAS1 提供公司網路子網路上的電腦與 TestVNET 虛擬網路之間的�
 
 1.	在本機電腦上的 Azure 管理入口網站中，按一下左窗格中的 [**網路**]，然後確認 [TestVNET] 的 [**狀態**] 是設定為 [**已建立**]。
 2.	按一下 [**TestVNET**]。在 [儀表板] 頁面上，您應該會看到 [**未建立閘道**] 狀態。
-3.	在工作列中，按一下 [**建立閘道**]，然後按一下 [**動態路由**]。出現提示時，按一下 [**是**]。等候閘道完成且其狀態變更為 [**正在連線**]。這可能需要幾分鐘的時間。
+3.	在工作列中，按一下 [**建立閘道**]，然後按一下 [**動態路由**]。出現提示時，按一下 [**是**]。等候閘道完成且其狀態變更為 [正在連線]。這可能需要幾分鐘的時間。
 4.	從 [儀表板] 頁面中，記下 **閘道 IP 位址**。這是 TestVNET 虛擬網路的 Azure VPN 閘道公用 IP 位址。您需要這個 IP 位址才能設定 RRAS1。
 5.	在工作列上，按一下 [**管理金鑰**]，然後按一下金鑰旁邊的複製圖示將它複製到剪貼簿。將這個金鑰貼入文件並加以儲存。您需要這個金鑰值才能設定 RRAS1。 
 
@@ -219,10 +219,10 @@ RRAS1 提供公司網路子網路上的電腦與 TestVNET 虛擬網路之間的�
 
 	$ServiceName="<Your cloud service name from Phase 3>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW	
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles -LUN 0 -HostCaching None
@@ -287,15 +287,17 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。這�
 
 ##其他資源
 
-[設定 SharePoint 內部網路伺服器陣列中的測試混合式雲端](./virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[設定 SharePoint 內部網路伺服器陣列中的測試混合式雲端](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
 [在混合式雲端中設定 Web 型 LOB 應用程式進行測試](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
 [在混合式雲端中設定 Office 365 Directory 同步處理 (DirSync) 進行測試](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
 
+[設定用於測試的模擬混合式雲端環境](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+
 ##將此環境的持續成本降至最低
 
-若要將在此環境中執行虛擬機器的成本降至最低，請盡速執行所需的測試和示範，然後在不使用時予以刪除或關閉虛擬機器。例如，您可以使用 Azure 自動化和 Runbook 在每個營業日結束時自動關閉 Test_VNET 虛擬網路中的虛擬機器。如需詳細資訊，請參閱 [開始使用 Azure 自動化](../automation-create-runbook-from-samples/)。 
+若要將在此環境中執行虛擬機器的成本降至最低，請盡速執行所需的測試和示範，然後在不使用時予以刪除或關閉虛擬機器。例如，您可以使用 Azure 自動化和 Runbook 在每個營業日結束時自動關閉 Test_VNET 虛擬網路中的虛擬機器。如需詳細資訊，請參閱 [開始使用 Azure 自動化]。(../automation-create-runbook-from-samples/)。 
 
 Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機器。如需詳細資訊，請參閱 [價格 - 虛擬網路](http://azure.microsoft.com/pricing/details/virtual-network/)。若要將這個 VPN 閘道的成本降至最低，請使用這些步驟建立測試環境，並盡速執行所需的測試和示範或刪除閘道。 
 
@@ -305,7 +307,7 @@ Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機
 如果您刪除閘道，而且要還原測試環境，您必須先建立新的閘道。
 
 1.	從本機電腦上的 Azure 管理入口網站中，按一下左窗格中的 [**網路**]，然後按一下 [**TestVNET**]。在 [儀表板] 頁面上，您應該會看到 [**未建立閘道**] 狀態。
-2.	在工作列中，按一下 [**建立閘道**]，然後按一下 [**動態路由**]。出現提示時，按一下 [**是**]。等候閘道完成且其狀態變更為 [**正在連線**]。這可能需要幾分鐘的時間。
+2.	在工作列中，按一下 [**建立閘道**]，然後按一下 [**動態路由**]。出現提示時，按一下 [**是**]。等候閘道完成且其狀態變更為 [正在連線]。這可能需要幾分鐘的時間。
 3.	從 [儀表板] 頁面中，記下 **閘道 IP 位址**。這是 TestVNET 虛擬網路的 Azure VPN 閘道新公用 IP 位址。您需要這個 IP 位址才能重新設定 RRAS1。
 4.	在工作列上，按一下 [**管理金鑰**]，然後按一下金鑰旁邊的複製圖示將它複製到剪貼簿。將這個金鑰值貼入文件並加以儲存。您需要這個金鑰值才能重新設定 RRAS1。 
 
@@ -316,4 +318,4 @@ Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機
 
 接著，移至您本機電腦上的 Azure 管理入口網站，等候 TestVNET 虛擬網路顯示連線狀態。
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

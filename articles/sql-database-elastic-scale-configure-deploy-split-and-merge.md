@@ -1,6 +1,17 @@
-﻿<properties title="Split and Merge Service Tutorial" pageTitle="Azure SQL 分割及合併服務教學課程" description="使用 Elastic Scale 分割及合併" metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties 
+	title="Split and Merge Service Tutorial" 
+	pageTitle="Azure SQL 分割及合併服務教學課程" 
+	description="使用 Elastic Scale 分割及合併" 
+	metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" 
+	services="sql-database" documentationCenter=""  
+	manager="jhubbard" authors="torsteng"/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" ms.devlang="na" 
+	ms.topic="article" ms.date="03/05/2015" 
+	ms.author="torsteng" />
 
 #Elastic Scale 分割及合併服務教學課程
 
@@ -12,11 +23,11 @@
 
 上述步驟將分割合併檔案下載至目前的目錄。檔案會放在名為 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** 的目錄，其中 *x.x.xxx.x* 反映版本號碼。在 **content\splitmerge\service** 子目錄中找出分割合併服務檔案，在 **content\splitmerge\powershell** 子目錄中找出分割合併 PowerShell 指令碼 (和必要的用戶端 .dll 檔)。
 
-##必要條件 
+## 必要條件 
 
 1. 建立用來作為分割合併狀態資料庫的 Azure SQL DB 資料庫。移至 [Azure 管理入口網站](https://manage.windowsazure.com)。在左下方按一下 [**新增**]，然後依序按一下 [**資料服務**] -> [**SQL 資料庫**] -> [**自訂建立**]。填入資料庫名稱，並建立新的使用者名稱和密碼。請務必記錄名稱和密碼，以供稍後使用。
 
-2. 請確定您的 Azure SQL DB 伺服器允許 Windows Azure 服務連接它。移至 [Azure 管理入口網站](https://manage.windowsazure.com)，在左窗格中按一下 [**SQL 資料庫**]。然後按一下畫面頂端功能區中的 [**伺服器**]，選取您的伺服器。然後按一下頂端的 [**設定**]，並確定 [**Microsoft Azure 服務**] 設定已設為 [**是**]。
+2. 請確定您的 Azure SQL DB 伺服器允許 Windows Azure 服務連接它。移至 [Azure 管理入口網站](https://manage.windowsazure.com)，在左窗格中按一下 [**SQL 資料庫**]。然後按一下畫面頂端功能區中的 [**伺服器**]，選取您的伺服器。然後按一下頂端的 [**設定**]，並確定 [**Windows Azure 服務**] 設定已設為 [**是**]。
 
     ![Allowed services][1]
 
@@ -49,13 +60,13 @@
 6.    在儲存體連接字串中的預留位置，輸入儲存體帳戶和其中一個提供的存取金鑰。**Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString** 設定的 **SplitMergeWeb** 和 **SplitMergeWorker** 角色區段下會使用此連接字串。您可能對不同的角色使用不同的儲存體帳戶。 
 
 ### 設定安全性 
-如需有關設定服務安全性的詳細指示，請參閱[Elastic Scale 安全性設定](./sql-database-elastic-scale-configure-security.md)。
+如需有關設定服務安全性的詳細指示，請參閱 [Elastic Scale 安全性設定](./sql-database-elastic-scale-configure-security.md)。
 
-為了執行適當的簡單測試部署以完成本教學課程，將會執行一組最基本的設定步驟，讓服務啟動並執行。這些步驟只會啟用一個電腦/帳戶來與服務通訊。
+為了  執行適當的簡單測試部署以完成本教學課程，將會執行一組最基本的設定步驟，讓服務啟動並執行。這些步驟只會啟用一個電腦/帳戶來與服務通訊。
 
 ### 建立自我簽署憑證 
 
-使用 [Visual Studio 開發人員命令提示字元](http://msdn.microsoft.com/zh-tw/library/ms229859.aspx)視窗建立新的目錄，並從這個目錄中執行下列命令：
+使用 [[Visual Studio 開發人員命令提示字元](http://msdn.microsoft.com/library/ms229859.aspx)] 視窗建立新的目錄，並從這個目錄中執行下列命令：
 
     makecert ^
     -n "CN=*.cloudapp.net" ^
@@ -66,7 +77,7 @@
 
 將會要求您輸入密碼來保護私密金鑰。輸入增強式密碼並確認它。接著會再一次提示您輸入要使用的密碼。最後，按一下 [**是**]，將它匯入受信任的憑證授權單位根目錄存放區。
 
-###    建立 PFX 檔案 
+### 建立 PFX 檔案 
 
 從已執行 makecert 的相同視窗中，執行下列命令，並使用您用來建立憑證的相同密碼：
 
@@ -77,7 +88,7 @@
 2. 在 [**憑證匯入精靈**] 中，選取 [**目前使用者**]，然後按 [**下一步**]。
 3. 確認檔案路徑，然後按 [**下一步**]。
 4. 輸入密碼，保持核取 [**包含所有延伸內容**]，然後按 [**下一步**]。
-5. 保持核取 [**自動根據憑證類型來選取憑證存放區[]**]，然後按 [**下一步**]。
+5. 保持核取 [**自動選取憑證存放區[...]**]，然後按 [**下一步**]。
 6. 按一下 [**完成**] 和 [**確定**]。
 
 ### 將 PFX 檔案上傳至雲端服務
@@ -93,25 +104,34 @@
 
 ### 更新服務組態檔
 
-將上面複製的憑證指紋，貼到這些設定的憑證指紋/值屬性中：
+將上面複製的憑證指紋，貼到這些設定的憑證指紋/值屬性中。
+Web 角色：
+
+    <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" /> 
+    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+
+背景工作角色：
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
     <Setting name="AllowedClientCertificateThumbprints" value="" />
+    <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
-請注意，在實際執行部署中，CA、伺服器憑證和用戶端憑證應該使用個別憑證。如需詳細指示，請參閱[安全性設定](./sql-database-elastic-scale-configure-security.md)。
+
+請注意，在實際執行部署中，CA、加密、伺服器憑證和用戶端憑證應該使用個別憑證。如需詳細指示，請參閱[安全性設定](./sql-database-elastic-scale-configure-security.md)。
 
 ### 部署分割合併服務
 1. 移至 [Azure 管理入口網站](https://manage.windowsazure.com)。
 2. 按一下左邊的 [**雲端服務**] 索引標籤，選取您稍早建立的雲端服務。 
 3. 按一下 [**儀表板**]。 
-4. 選擇預備環境，然後按一下 [**Upload a new staging deployment**]。
+4. 選擇預備環境，然後按一下 [**上傳新的預備部署**]。
 
     ![Staging][3]
 
-5. 在對話方塊中，輸入部署的標籤。在 [封裝] 和 [設定] 中，按一下 [從本機]，選擇 **SplitMergeService.cspkg** 檔案和您稍早設定的 .cscfg 檔案。
-6. 確定已核取 [**Deploy even if one or more roles contain a single instance**] 核取方塊。
+5. 在對話方塊中，輸入部署的標籤。在  'Package' 和  'Configuration' 中，按一下  'From Local'，選擇 **SplitMergeService.cspkg** 檔案和您稍早設定的 .cscfg 檔案。
+6. 確定已核取 [**即使一或多個角色包含單一執行個體也請部署**] 核取方塊。
 7. 點按右下方的勾號按鈕，開始進行部署。預期會需要幾分鐘才能完成。
 
 ![Upload][4]
@@ -131,11 +151,9 @@
 * 請確定伺服器名稱並不是以 **https://** 開頭。
 * 請確定您的 Azure SQL DB 伺服器允許 Windows Azure 服務連接它。若要這樣做，請開啟 https://manage.windowsazure.com，按一下左邊的 [SQL 資料庫]，按一下頂端的 [伺服器]，然後選取您的伺服器。按一下頂端的 [**設定**]，並確定 [**Microsoft Azure 服務**] 設定已設為 [是]。(請參閱本文開頭的＜必要條件＞一節)。
 
-* 檢閱分割/合併服務執行個體的診斷記錄檔。開啟 Visual Studio 執行個體，在功能表列按一下 [**檢視**] 和 [**伺服器總管**]。按一下 [**Microsoft Azure**] 圖示，連接至您的 Azure 訂用帳戶。然後瀏覽至 [Microsoft Azure] -> [儲存體] -> <您的儲存體帳戶> -> [資料表] -> [WADLogsTable]。如需詳細資訊，請參閱[使用伺服器總管瀏覽和管理儲存體資源](http://msdn.microsoft.com/zh-tw/library/azure/ff683677.aspx) 
+* 檢閱分割/合併服務執行個體的診斷記錄檔。開啟 Visual Studio 執行個體，在功能表列按一下 [**檢視**] 和 [**伺服器總管**]。按一下 [**Microsoft Azure**] 圖示，連接至您的 Azure 訂用帳戶。然後瀏覽至 [Microsoft Azure] -> [儲存體] -> <您的儲存體帳戶> -> [資料表] -> [WADLogsTable]。如需詳細資訊，請參閱 [使用伺服器總管瀏覽和管理儲存體資源](http://msdn.microsoft.com/library/azure/ff683677.aspx) 
 
     ![][5]
-
-    ![][6]
 
 ## 測試您的分割合併服務部署
 ### 使用網頁瀏覽器連接
@@ -203,7 +221,7 @@
 1.    開啟新的 PowerShell 視窗，巡覽至您下載分割合併封裝的目錄，然後瀏覽到 "powershell" 目錄。
 2.    建立 Azure SQL Database 伺服器 (或選擇現有的伺服器)，其中將會建立分區對應管理員和分區。 
 
-注意：SetupSampleSplitMergeEnvironment.ps1 指令碼預設會在相同的伺服器上建立所有資料庫，以簡化指令碼。這不是分割合併服務本身的限制。
+    注意：SetupSampleSplitMergeEnvironment.ps1 指令碼預設會在相同的伺服器上建立所有資料庫，以簡化指令碼。這不是分割合併服務本身的限制。
 
     需要有具備 DB 讀取/寫入存取權的 SQL 驗證登入，分割合併服務才能移動資料和更新分區對應。因為分割合併服務是在雲端執行，目前不支援整合式驗證。
 
@@ -280,7 +298,7 @@
 
 ## 建立您自己的要求 
 
-您可以透過 Web UI，或匯入並使用 SplitMerge.psm1 PowerShell 模組，以使用此服務。
+您可以透過 Web UI，或匯入並使用將透過 Web 角色提交需求的 SplitMerge.psm1 PowerShell 模組，以使用此服務。
 
 分割合併服務可以移動分區化資料表和參考資料表中的資料。分區化資料表具有分區化索引鍵資料行，且在每個分區上都有不同的資料列資料。參考資料表不分區化，所以在每個分區上包含相同的資料列資料。參考資料表適用於不常變更的資料，且在查詢中用來「聯結」分區化資料表。
 
@@ -302,7 +320,7 @@
 
     Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
 
-此錯誤表示您的 SSL 憑證未正確設定。請遵循＜使用網頁瀏覽器連接＞一節的指示。
+此錯誤表示您的 SSL 憑證未正確設定。請遵循 'Connecting with a web browser'一節中的指示。
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
  
@@ -313,3 +331,5 @@
 [4]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/upload.png
 [5]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/storage.png
 [6]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/logs.png
+
+<!--HONumber=47-->

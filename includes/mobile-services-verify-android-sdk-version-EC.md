@@ -18,4 +18,4 @@
 	 	        android:targetSdkVersion="21" />
 	
 3. 在 Eclipse [封裝總管] 中，以滑鼠右鍵按一下專案節點，選擇 [**屬性**]，然後在左欄中選擇 [**Android**]。確定將 [**專案建置目標**] 設為 **targetSdkVersion** 所具有的相同 SDK 版本。
-<!--HONumber=45--> 
+<!--HONumber=47-->

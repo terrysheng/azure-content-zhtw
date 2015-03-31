@@ -1,20 +1,34 @@
-﻿<properties title="Federations Migration" pageTitle="同盟移轉" description="概述將使用同盟功能建立的現有應用程式移轉至 Elastic Scale 模型的步驟。" metaKeywords="sharding scaling, federations, Azure SQL DB sharding, Elastic Scale" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh"/>
+﻿<properties 
+	pageTitle="同盟移轉" 
+	description="概述將使用同盟功能建立的現有應用程式移轉至 Elastic Scale 模型的步驟。" 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="Joseidz" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="Joseidz@microsoft.com"/>
 
 #同盟移轉 
 
-Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘汰。屆時，採用同盟功能的應用程式將停止執行。若要確保成功移轉，強烈建議儘快進行移轉，以進行充分的規劃和執行。本文件提供同盟移轉公用程式的內容、範例和介紹，說明如何將目前的同盟應用程式成功移轉到 [Azure SQL DB Elastic Scale 預覽 API](http://go.microsoft.com/?linkid=9862592)。本文件的目的是引導您進行建議的步驟來移轉同盟應用程式，完全不需要任何資料移動。
+Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘汰。屆時，採用同盟功能的應用程式將停止執行。若要確保成功移轉，強烈建議儘快進行移轉，以進行充分的規劃和執行。本文件提供同盟移轉公用程式的內容、範例和簡介，以說明如何成功地將目前的同盟應用程式，順暢地移轉至 [Azure SQL DB Elastic Scale 預覽 API](http://go.microsoft.com/?linkid=9862592)。本文件的目的是引導您進行建議的步驟來移轉同盟應用程式，完全不需要任何資料移動。
 
 將現有同盟應用程式移轉到使用 Elastic Scale API 的過程分為三個主要步驟。
 
-1. [從同盟根資料庫建立分區對應管理員] 
+1. [從同盟根資料庫建立分區對應管理員 ] 
 2. [修改現有應用程式]
-3. [切換移出現有同盟成員]
+3. [切換移出現有的同盟成員]
     
 
 ### 移轉範例工具
-為了協助進行此程序，已建立 [同盟移轉公用程式](http://go.microsoft.com/?linkid=9862613) 。此公用程式將完成步驟 1 和 3。 
+為了協助完成此程序，已建立 [同盟移轉公用程式](http://go.microsoft.com/?linkid=9862613)。此公用程式將完成步驟 1 和 3。 
 
 ## <a name="create-shard-map-manager"></a>從同盟根資料庫建立分區對應管理員
 移轉同盟應用程式的第一個步驟是將同盟根資料庫的中繼資料移轉到分區對應管理員的建構。 
@@ -23,7 +37,7 @@ Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘�
  
 首先在測試環境中處理現有的同盟應用程式。
  
-使用 **同盟移轉公用程式** 將同盟根資料庫中繼資料複製到 Elastic Scale [分區對應管理員] 的建構(http://go.microsoft.com/?linkid=9862595)。和同盟根資料庫類似的分區對應管理員是獨立的資料庫，其中包含分區對應 (亦即同盟)、分區的參照 (亦即同盟成員) 和個別範圍對應。 
+使用 [**同盟移轉公用程式**]，將同盟根中繼資料複製到 Elastic Scale [分區對應管理員](http://go.microsoft.com/?linkid=9862595) 的建構。類似於同盟根，分區對應管理員資料庫是獨立的資料庫，其中包含分區對應 (亦即，同盟)、分區 (亦即，同盟成員) 的參考和個別的範圍對應。 
 
 將同盟根資料庫複製到分區對應管理員就是複製和轉譯中繼資料。在同盟根資料庫不會有任何中繼資料變更。請注意，使用同盟移轉公用程式複製同盟根資料庫是一種時間點作業，同盟根資料庫或分區對應的任何變更都不會在其他個別資料存放區中反映。如果同盟根資料庫在測試新 API 期間出現變更，同盟移轉公用程式可用來重新整理分區對應，以呈現最新狀態。 
 
@@ -51,7 +65,7 @@ Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘�
 
     USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF`
 
-使用 Elastic Scale API 後，將透過 [資料相依路由] 建立特定分區的連線(./sql-database-elastic-scale-data-dependent-routing.md) (藉由  **RangeShardMap** 類別的 **OpenConnectionForKey** 方法。 
+使用 Elastic Scale API 後，將透過[資料相依路由]建立特定分區的連線(./sql-database-elastic-scale-data-dependent-routing.md) (藉由 **RangeShardMap** 類別的 **OpenConnectionForKey** 方法)。 
 
     //Connect and issue queries on the shard with key=100 
     using (SqlConnection conn = rangeShardMap.OpenConnectionForKey(100, csb))  
@@ -68,13 +82,13 @@ Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘�
         } 
     }
 
-本小節的步驟是必要的步驟，不過可能無法解決所有發生的移轉情況。如需詳細資訊，請參閱 [Elastic Scale 的概念概觀](./sql-database-elastic-scale-introduction.md) 及 [API 參照](http://go.microsoft.com/?linkid=9862604)。
+本小節的步驟是必要的步驟，不過可能無法解決所有發生的移轉情況。如需詳細資訊，請參閱 [Elastic Scale 的概念概觀](./sql-database-elastic-scale-introduction.md) 及 [API 參考](http://go.microsoft.com/?linkid=9862604)。
 
 ## 切換移出現有同盟成員 
 
 ![Switch out the federation members for the shards][3]
 
-加入 Elastic Scale API 修改應用程式後，同盟應用程式移轉的最後一個步驟就是 **SWITCH OUT** 同盟成員 (如需詳細資訊，請參閱 [ALTER FEDERATION 的 MSDN 參照 (Azure SQL 資料庫](http://msdn.microsoft.com/library/dn269988(v=sql.120).aspx))。對於特定同盟成員發出 **SWITCH OUT** 陳述式的最終結果是移除呈現同盟成員成員一般 Azure SQL 資料庫的所有同盟建構和中繼資料，這和其他任何 Azure SQL 資料庫並無不同。  
+加入 Elastic Scale API 修改應用程式後，同盟應用程式移轉的最後一個步驟就是 **SWITCH OUT** 同盟成員 (如需詳細資訊，請參閱 [ALTER FEDERATION 的 MSDN 參考 (Azure SQL Database](http://msdn.microsoft.com/library/dn269988(v=sql.120).aspx))。對於特定同盟成員發出 **SWITCH OUT** 陳述式的最終結果是移除呈現同盟成員成員一般 Azure SQL 資料庫的所有同盟建構和中繼資料，這和其他任何 Azure SQL 資料庫並無不同。  
 
 請注意，對於同盟成員發出 **SWITCH OUT** 陳述式是單向作業，無法復原。執行後，最終的資料庫無法新增回同盟，而且 USE FEDERATION 命令將不再對於此資料庫有效。 
 
@@ -88,7 +102,7 @@ Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘�
 
 
 ##功能比較  
-雖然 Elastic Scale 提供其他許多功能 (例如，[多分區查詢](./sql-database-elastic-scale-multishard-querying.md)、[分割和合併分區](./sql-database-elastic-scale-overview-split-and-merge.md)、[分區彈性](./sql-database-elastic-scale-elasticity.md)、[用戶端快取](./sql-database-elastic-scale-shard-map-management.md)等等)，不過許多實用的同盟功能是 Elastic Scale 所不支援的。
+雖然 Elastic Scale 提供其他許多功能 (例如，[多分區查詢](./sql-database-elastic-scale-multishard-querying.md)、[分割和合併分區](./sql-database-elastic-scale-overview-split-and-merge.md)、[分區彈性](./sql-database-elastic-scale-elasticity.md)、[用戶端塊取](./sql-database-elastic-scale-shard-map-management.md)等等)，不過許多實用的同盟功能是 Elastic Scale 所不支援的。
   
 
 - 使用 **FILTERING=ON**。Elastic Scale 目前不支援資料列層級篩選。移轉能夠將篩選邏輯建立到按照分區發出的查詢，如下所示： 
@@ -103,7 +117,7 @@ Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘�
         USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF 
         SELECT * FROM customer WHERE CustomerId = 100 
 
-- Elastic Scale **分割** 功能並未完全上線。在分割作業期間，各個小分區都會在移動期間離線。
+- Elastic Scale **分割**功能並未完全上線。在分割作業期間，各個小分區都會在移動期間離線。
 - Elastic Scale 分割功能需要手動資料庫佈建和結構描述管理。
 
 ## 其他考量
@@ -115,9 +129,9 @@ Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘�
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
 <!--Anchors-->
-[從同盟根資料庫建立分區對應管理員]:#create-shard-map-manager
+[從同盟根資料庫建立分區對應管理員 ]:#create-shard-map-manager
 [修改現有應用程式]:#Modify-the-Existing-Application
-[切換移出現有同盟成員]:#Switch-Out-Existing-Federation-members
+[切換移出現有的同盟成員]:#Switch-Out-Existing-Federation-members
 
 
 <!--Image references-->
@@ -125,4 +139,4 @@ Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘�
 [2]: ./media/sql-database-elastic-scale-federation-migration/migrate-2.png
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

@@ -1,4 +1,4 @@
-﻿## 使用 Apache Storm 接收訊息
+## 使用 Apache Storm 接收訊息
 
 [**Apache Storm**](https://storm.incubator.apache.org) 是分散式即時運算系統，可簡化未繫結資料串流的可靠處理。本節顯示如何使用事件中心 Storm Spout 接收來自事件中心的事件。使用 Apache Storm，您可以將事件分割到多個裝載於不同節點的處理序。事件中心與 Storm 的整合透過使用 Storm 的 Zookeeper 安裝透明地設定檢查點以檢查其進度、管理持續檢查點以及來自事件中心的平行接收，以簡化事件的使用。
 
@@ -6,9 +6,9 @@
 
 本教學課程使用 [HDInsight Storm] 安裝，其包含在已可使用的事件中心 Spout 中。
 
-1. 請遵循 [HDInsight Storm - 入門](http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/)程序來建立新的 HDInsight 叢集，並透過遠端桌面與其連線。
+1. 請遵循 [HDInsight Storm - 入門](http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/) 程序來建立新的 HDInsight 叢集，並透過遠端桌面與其連線。
 
-2. 將  `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 檔案複製到您的本機開發環境。這包含 events-storm-spout。
+2. 將  `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 檔案複製到本機開發環境。這包含 events-storm-spout。
 
 3. 使用下列命令將封裝安裝到本機 Maven 存放區。這樣可讓您在稍後的步驟中將它加入 Storm 專案中做為參考。
 
@@ -24,7 +24,7 @@
 
 7. 插入 **GroupId** 和 **ArtifactId**，然後按一下 [**完成**]
 
-8. 在 **pom.xml** 中，於 '<dependency>' 節點中新增下列相依性。
+8. 在 **pom.xml**中，於 `<dependency>` 節點中新增下列相依性。
 		
 		<dependency>
 			<groupId>org.apache.storm</groupId>
@@ -54,7 +54,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-9. 在 **src** 資料夾中，建立名為 **Config.properties** 的檔案，並複製下列內容，以取代下列值：
+9. 在 **src** 資料夾中，建立一個稱為 **Config.properties** 的檔案，然後複製下列內容，並替代下列值：
 
 		eventhubspout.username = ReceiveRule
 		
@@ -73,9 +73,9 @@
 		
 		eventhub.receiver.credits = 10
 
-	**eventhub.receiver.credits** 的值可決定批次處理多少事件之後，才將它們釋放到 Storm 管線。為了簡單起見，此範例將此值設為 10。在生產環境中，它通常應設為較高的值；例如 1024。
+	**eventhub.receiver.credits** 的值可決定批次處理多少事件之後，才將它們釋放到 Storm 管線。為了簡單起見，此範例會將此值設定為 10。在生產環境中，它通常應設定為較高的值。例如，1024年。
 
-10. 使用下列程式碼，建立名為 **LoggerBolt** 的新類別：
+10. 使用下列程式碼，建立稱為 **LoggerBolt** 的新類別：
 
 		import java.util.Map;
 		import org.slf4j.Logger;
@@ -114,7 +114,7 @@
 
 	此 Storm Bolt 會記錄已接收事件的內容。這可以輕鬆地擴充以將 Tuple 儲存至儲存體服務。[HDInsight 感應器分析教學課程]使用這種相同的方式，將資料儲存至 HBase。
 
-11. 使用下列程式碼，建立名為 **LogTopology** 的類別：
+11. 使用下列程式碼，建立稱為 **LogTopology** 的類別：
 
 		import java.io.FileReader;
 		import java.util.Properties;
@@ -217,7 +217,7 @@
 		}
 
 
-	這個類別會建立新的事件中心 Spout，方法是使用組態檔中的屬性來進行具現化。請務必注意，此範例所建立的 Spouts 工作數目要與事件中心內的磁碟分割數目一樣多，才能使用該事件中心所允許的最大平行處理。
+	這個類別會建立新的事件中心 Spout，方法是使用組態檔中的屬性來進行具現化。請務必注意此範例所建立的 Spouts 工作數目要與事件中心內的磁碟分割數目一樣多，才能使用該事件中心所允許的最大平行處理。
 
 <!-- Links -->
 [事件中心概觀]: http://msdn.microsoft.com/library/azure/dn821413.aspx
@@ -229,4 +229,4 @@
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-<!--HONumber=42-->
+<!--HONumber=47-->

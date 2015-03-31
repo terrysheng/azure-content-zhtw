@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="cherylmc" 
 	manager="adinah" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="virtual-network" 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/20/2015" 
 	ms.author="cherylmc"/>
 
 
 
 
 
-<h1 id="vnettut1">教學課程：建立跨單位虛擬網路以提供站對站連線能力</h1>
+<h1 id="vnettut1">教學課程：建立站對站連線的跨單位虛擬網路</h1>
 
 本教學課程將逐步引導您建立具有站對站連線的跨單位虛擬網路範例。 
 
-如果您要建立純雲端虛擬網路，請參閱[教學課程：在 Azure 中建立純雲端虛擬網路](http://azure.microsoft.com/documentation/articles/create-virtual-network/)。如果您想要使用憑證和 VPN 用戶端來建立點對網站 VPN，請參閱[使用管理入口網站精靈設定點對站 VPN](http://go.microsoft.com/fwlink/?LinkId=296653)。
+如果您要建立純雲端虛擬網路，請參閱 [教學課程：在 Azure 中建立純雲端虛擬網路](http://azure.microsoft.com/documentation/articles/create-virtual-network/)。如果您想要使用憑證和 VPN 用戶端來建立點對網站 VPN，請參閱 [在管理入口網站中設定點對站 VPN](http://go.microsoft.com/fwlink/?LinkId=296653)。
 
 本教學課程假設您先前沒有使用 Azure 的經驗。目的在於協助您熟悉建立範例跨單位虛擬網路所需的步驟。如果您在尋找有關虛擬網路的設計案例和進階資訊，請參閱 [Azure 虛擬網路概觀](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)。
 
@@ -32,17 +32,17 @@
 
 ![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_12_TutorialCrossPremVNet.png)
 
-如需此圖和可用來描繪您自身跨單位虛擬網路的圖表複本，請參閱[教學課程主題中的範例跨單位虛擬網路圖](http://gallery.technet.microsoft.com/Example-cross-premises-e5ecb8bb)。
+如需此圖和可用來描繪您自身跨單位虛擬網路的圖表複本，請參閱 [教學課程主題中的跨單位虛擬網路圖範例](http://gallery.technet.microsoft.com/Example-cross-premises-e5ecb8bb)。
 
 請注意，本教學課程中使用的組態設定範例，並不是針對您組織的網路所自訂。若您使用本主題所述的組態設定範例，設定虛擬網路及站對站連線，會無法有效運作。若要設定有效的跨單位虛擬網路，您必須和 IT 部門及網路管理員合作，以取得正確的設定。如需詳細資訊，請參閱本主題的**必要條件**一節。
 
 如需新增虛擬機器，以及將內部部署 Active Directory 延伸到 Azure 虛擬網路的相關資訊，請參閱以下內容：
 
--  [如何建立自訂虛擬機器](http://go.microsoft.com/fwlink/?LinkID=294356)
+-  [如何自訂建立虛擬機器](http://go.microsoft.com/fwlink/?LinkID=294356)
 
 -  [在 Azure 虛擬網路中安裝複本 Active Directory 網域控制站](http://go.microsoft.com/fwlink/?LinkId=299877)
 
-如需在 Azure 虛擬機器上部署 AD DS 的指導方針，請參閱[在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx)。
+如需在 Azure 虛擬機器上部署 AD DS 的指導方針，請參閱 [在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx)。
 
 如需其他虛擬網路組態程序和設定，請參閱 [Azure 虛擬網路組態工作](http://go.microsoft.com/fwlink/?LinkId=296652)。
 
@@ -56,7 +56,7 @@
 
 ##  必要條件
 
--  至少有一個有效且作用中 Azure 訂閱的 Windows 帳戶。如果您還沒有 Azure 訂閱，可以在 [Try Azure](http://www.windowsazure.com/pricing/free-trial/) 上註冊免費試用版。如果您擁有 MSDN 訂閱，請參閱 [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
+-  至少有一個有效且作用中 Azure 訂閱的 Windows 帳戶。如果您仍沒有 Azure 訂閱，可以在 [試用 Azure](http://www.windowsazure.com/pricing/free-trial/) 上註冊免費試用版。如果您擁有 MSDN 訂閱，請參閱 [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
 若您要使用本教學課程，設定為組織自訂且能有效運作的跨單位虛擬網路，您需要下列項目：
 
@@ -64,14 +64,14 @@
 
 -  內部部署 DNS 伺服器的名稱及 IP 位址。
 
--  具有公用 IPv4 位址的 VPN 裝置。您需要 IP 位址才能完成精靈。VPN 裝置不能位於網路位址轉譯器 (NAT) 後方，且必須符合最低裝置標準。如需詳細資訊，請參閱[關於虛擬網路的 VPN 裝置](http://go.microsoft.com/fwlink/?LinkID=248098)。 
+-  具有公用 IPv4 位址的 VPN 裝置。您需要 IP 位址才能完成精靈。VPN 裝置不能位於網路位址轉譯器 (NAT) 後方，且必須符合最低裝置標準。如需詳細資訊，請參閱 [關於虛擬網路的 VPN 裝置](http://go.microsoft.com/fwlink/?LinkID=248098)。 
 
-注意：您可以使用 Windows Server 中的路由及遠端存取服務 (RRAS) 做為 VPN 方案的一部分。不過本教學課程不會逐步引導您進行 RRAS 的組態步驟。 
-	如需 RRAS 組態資訊，請參閱[路由及遠端存取服務範本](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx)。 
+	注意：您可以使用 Windows Server 中的路由及遠端存取服務 (RRAS) 做為 VPN 方案的一部分。不過本教學課程不會逐步引導您進行 RRAS 的組態步驟。 
+	如需 RRAS 組態資訊，請參閱 [路由及遠端存取服務範本](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx)。 
 
 -  具備針對 IPsec 通道模式連線設定路由器的經驗，或可協助您完成此步驟的助手。
 
--  位址空間集 (使用 CIDR 標記法)，其中概括了您內部部署網路 (又稱為本機網路) 中可連線的位置。
+-  位址空間集 (使用 CIDR 標記法)，其中概括了您內部部署網路 (又稱為區域網路) 中可連線的位置。
 
 
 ## 高階步驟
@@ -88,77 +88,74 @@
 
 1.	登入 [Azure 管理入口網站](http://manage.windowsazure.com/)。
 
-2.	按一下螢幕左下角的 [**新增**]。在導覽窗格中依序按一下 [**網路**] 和 [**虛擬網路**]。按一下 [**自訂建立**] 以開始執行組態精靈。 
+2.	按一下螢幕左下角的 [**新增**]。在導覽窗格中，依序按一下 [**網路**] 和 [**虛擬網路**]。按一下 [**自訂建立**] 開始組態精靈。 
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_01_OpenVirtualNetworkWizard.png)
 
-3.	在 [**虛擬網路詳細資料**] 頁面上，輸入下列資訊，然後按一下右下角的下一步箭頭。如需詳細資料頁面中之設定的詳細資訊，請參閱[關於在管理入口網站中設定虛擬網路](http://go.microsoft.com/fwlink/?LinkID=248092)的**虛擬網路詳細資料頁面**一節。
+3.	在 [**虛擬網路詳細資料**] 頁面上，輸入下列資訊，然後按一下右下角的 [下一步] 箭頭。如需 [詳細資料] 頁面上的設定詳細資訊，請參閱 [關於使用管理入口網站設定虛擬網路](http://go.microsoft.com/fwlink/?LinkID=248092) 的**虛擬網路詳細資料**一節。
 
-	-  **名稱：**為虛擬網路命名。若為本教學課程的範例，請輸入 **YourVirtualNetwork**。
+	-  **名稱：**為您的虛擬網路命名。在本教學課程範例中，請輸入 **YourVirtualNetwork**。
 
-	-  **區域：**在下拉式清單中選取需要的區域。將在指定區域中的 Azure 資料中心內建立虛擬網路。
+	-  **位置：**從下拉式清單中，選取所需的區域。您的虛擬網路將會在位在指定區域的 Azure 資料中心中建立。
 
 	
-4.	在 [**DNS Servers and VPN Connectivity**] 頁面中輸入以下資訊，然後按一下右下角的下一步箭頭。 
+4.	在 [**DNS 伺服器和 VPN 連線能力**] 頁面中輸入以下資訊，然後按一下右下角的 [向前] 箭頭。 
 
-	<div class="dev-callout"> 
-	<b>注意</b> 
-	<p>您目前可以在此頁面中選取 [<b>點對站</b>] 和 [<b>站對站</b>] 組態。就本教學課程的目的，我們只選擇設定 [<b>站對站</b>]。如需此頁面設定的詳細資訊，請參閱<a href="http://go.microsoft.com/fwlink/?LinkID=248092">關於管理入口網站中的虛擬網路設定</a>中的 <b>DNS 伺服器和 VPN 連線能力</b>頁面。</p> 
-	</div>
+> [AZURE.NOTE] 您可以在此頁面中同時選取 [**點對站**] 和 [**站對站**] 組態。就本教學課程的目的，我們只會選擇設定 [**站對站**]。如需本頁面上的設定詳細資訊，請參閱 [關於使用管理入口網站設定虛擬網路](http://go.microsoft.com/fwlink/?LinkID=248092) 中的 [**DNS 伺服器和 VPN 連線能力**] 頁面。
 
-	-  **DNS 伺服器：**輸入要用於名稱解析之 DNS 伺服器的名稱和 IP 位址。這一般是用於內部部署名稱解析的 DNS 伺服器。此設定不會建立 DNS 伺服器。若為本教學課程的範例，請輸入 **YourDNS** 做為名稱，以及輸入 **10.1.0.4** 做為 IP 位址。
-	-  **Configure Point-To-Site VPN：**將此欄位保留空白。 
-	-  **Configure Site-To-Site VPN：** 選取核取方塊。
-	-  **LOCAL NETWORK：**從下拉式清單中選取 [**指定新的區域網路**]。
+	-  **DNS 伺服器：**輸入您要用於名稱解析的 DNS 伺服器名稱和 IP 位址。通常這會是您在內部部署名稱解析中使用的 DNS 伺服器。此設定不會建立 DNS 伺服器。在本教學課程範例中，請在名稱中輸入 **YourDNS**，並在 IP 位址中輸入 **10.1.0.4**。
+	-  **設定點對站 VPN：**將此欄位留空。 
+	-  **設定站對站 VPN：**勾選核取方塊。
+	-  **區域網路：**從下拉式清單中選取 [**指定新的區域網路**]。
  
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_03_DNSServersandVPNConnectivity.png)
 
-5.	在 [**站對站連線**] 頁面中輸入以下資訊，然後按一下頁面右下角的核取記號。如需本頁面中之設定的詳細資訊，請參閱[關於在管理入口網站中設定虛擬網路](http://go.microsoft.com/fwlink/?LinkID=248092)的**站對站連線能力**頁面一節。 
+5.	在 [**站對站連線能力**] 頁面上輸入以下資訊，然後按一下頁面右下角的核取記號。如需本頁面上的設定詳細資訊，請參閱 [關於使用管理入口網站設定虛擬網路](http://go.microsoft.com/fwlink/?LinkID=248092) 的**站對站連線能力**頁面一節。 
 
-	-  **名稱：**若為本教學課程的範例，請輸入 **YourCorpHQ**。
+	-  **名稱：**在本教學課程範例中，輸入 **YourCorpHQ**。
 
-	-  **VPN 裝置 IP 位置：**若為本教學課程的範例，請輸入 **3.2.1.1**。否則，請輸入 VPN 裝置的公用 IP 位址。如果您缺少這項資訊，請先取得該資訊後再前往精靈的下一個步驟。請注意，您的 VPN 裝置不可位於 NAT 後方。如需 VPN 裝置的詳細資訊，請參閱[關於虛擬網路的 VPN 裝置](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx)。
+	-  **VPN 裝置 IP 位址：**在本教學課程範例中，輸入 **3.2.1.1**。否則，輸入您 VPN 裝置的公用 IP 位址。如果您沒有這項資訊，您必須先取得後才能前往精靈的下一個步驟。請注意，VPN 裝置不得位於 NAT 後面。如需有關 VPN 裝置的詳細資訊，請參閱 [關於虛擬網路的 VPN 裝置](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx)。
 
-	-  **位址空間：**若為本教學課程的範例，請輸入 **10.1.0.0/16**。
-	-  **新增位址空間：** 本教學課程不需要額外的位址空間。
+	-  **位址空間：**在本教學課程範例中，輸入 **10.1.0.0/16**。
+	-  **新增位址空間：**本教學課程不需要額外的位址空間。
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_04_SitetoSite.png)
 
 6.  在 [**虛擬網路位址空間**] 頁面中輸入以下資訊，然後按一下右下角的核取記號以設定網路。 
 
-	位址空間必須是以 CIDR 標記法指定的私人位址範圍 10.0.0.0/8、172.16.0.0/12 或 192.168.0.0/16 等位址空間 (如 RFC 1918 所指定)。如需此頁面中之設定的詳細資訊，請參閱[關於在管理入口網站中設定虛擬網路](http://go.microsoft.com/fwlink/?LinkID=248092)的**虛擬網路位址空間頁面**一節。
+	位址空間必須是以 CIDR 標記法指定的私人位址範圍 10.0.0.0/8、172.16.0.0/12 或 192.168.0.0/16 等位址空間 (如 RFC 1918 所指定)。如需此頁面上的設定詳細資訊，請參閱 [關於使用管理入口網站設定虛擬網路](http://go.microsoft.com/fwlink/?LinkID=248092) 中的**虛擬網路位址空間頁面**。
 
-	-  **位址空間：**若為本教學課程的範例，請按一下右上角的 [**CIDR**]，然後輸入以下資訊：
-		-  **起始 IP：** 10.4.0.0
-		-  **CIDR：** /16
-	-  **新增子網路：** 若為本教學課程的範例，請輸入以下資訊：
-將 **Subnet-1** 重新命名為 **FrontEndSubnet**，且起始 IP 為 **10.4.2.0/24**。
-		-  新增名為 **BackEndSubnet** 的子網路，並指派起始 IP **10.4.3.0/24**。
-		-  新增名為 **ADDNSSubnet** 的子網路，並指派起始 IP **10.4.4.0/24**。
+	-  **位址空間：**在本教學課程範例中，按一下右上角的 [**CIDR**]，然後輸入以下資訊：
+		-  **起始 IP：**10.4.0.0
+		-  **CIDR：**/16
+	-  **新增子網路：**在本教學課程範例中，請輸入下列資訊：
+		-  將 **Subnet-1** 重新命名為 **FrontEndSubnet**，且起始 IP 為 **10.4.2.0/24**。
+		-  新增名為 **BackEndSubnet**，且起始 IP 為 **10.4.3.0/24** 的子網路。
+		-  新增名為 **ADDNSSubnet**，且起始 IP 為 **10.4.4.0/24** 的子網路。
 		-  新增起始 IP 為 **10.4.1.0/24** 的閘道子網路。
 	-  若為本教學課程的範例，請確認您現在已建立三個子網路和一個閘道子網路，然後按一下右下角的核取記號以建立虛擬網路。
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_05_VirtualNetworkAddressSpaces.png)
 
-7.	按一下核取記號後，隨即會開始建立虛擬網路。建立虛擬網路時，您將在管理入口網站的網路頁面上看見 [**狀態**] 下列出 [**已建立**]。 
+7.	按一下核取記號後，隨即會開始建立虛擬網路。當虛擬網路建立完成時，您會在管理入口網站 [網路] 頁面的 [**狀態**] 下看到 [**已建立**]。 
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_06_VirtualNetworkCreatedStatus.png)
 
 ##  <a name="StartGateway">啟動閘道</a>
 
-在建立 Azure 虛擬網路後，請使用以下程序來設定虛擬網路閘道，以便建立站對站 VPN。此程序須有滿足最低需求的 VPN 裝置。如需有關 VPN 裝置和裝置組態的詳細資訊，請參閱[關於虛擬網路的 VPN 裝置](http://go.microsoft.com/fwlink/?LinkID=248098)。
+在建立 Azure 虛擬網路後，請使用以下程序來設定虛擬網路閘道，以便建立站對站 VPN。此程序須有滿足最低需求的 VPN 裝置。如需有關 VPN 裝置和裝置組態的詳細資訊，請參閱 [關於虛擬網路的 VPN 裝置](http://go.microsoft.com/fwlink/?LinkID=248098)。
 
 **若要啟動閘道：**
 
 1.	當虛擬網路建立完成時，[**網路**] 頁面會將您的虛擬網路狀態顯示為 [**已建立**]。
 
-	按一下 [**名稱**] 資料行中的 **YourVirtualNetwork** (若為本教學課程中建立的範例) 以開啟儀表板。
+	按一下 [**名稱**] 欄中的 [**YourVirtualNetwork**] (若為本教學課程中建立的範例) 以開啟儀表板。
  
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_07_ClickYourVirtualNetwork.png)
 
-2.	按一下頁面頂端的 [**儀表板**]。在 [儀表板] 頁面上，於頁面底部按一下 [**建立閘道**]。針對您要建立的閘道類型選取 [**動態路由**] 或 [**靜態路由**]。 
+2.	按一下頁面頂端的 [**儀表板**]。在 [儀表板] 頁面上，按一下頁面底部的 [**建立閘道**]。為您要建立的閘道類型選取 [**動態路由**] 或 [**靜態路由**]。 
 
-	請注意，除了「站台對站台連線」，如果您還想要將此虛擬網路用於「點對站台連線」，必須選取 [**動態路由**] 做為閘道類型。在建立閘道之前，請確認 VPN 裝置可支援您要建立的閘道類型。請參閱[關於虛擬網路的 VPN 裝置](http://go.microsoft.com/fwlink/?LinkID=248098)。當系統提示您確認是否要建立閘道時，請按一下 [**是**]。
+	請注意，除了「站對站連線」，如果您還想要將此虛擬網路用於「點對站連線」，則必須選取 [**動態路由**] 做為閘道類型。在建立閘道之前，請確認 VPN 裝置可支援您要建立的閘道類型。請參閱 [關於虛擬網路的 VPN 裝置](http://go.microsoft.com/fwlink/?LinkID=248098)。當系統提示您是否確定要建立閘道時，請按一下 [**是**]。
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_08_CreateGateway.png)
 
@@ -174,11 +171,11 @@
 
 	接下來的步驟將逐步引導您完成此程序。
 
-5.	找出閘道 IP 位址：閘道 IP 位址位於虛擬網路 [**儀表板**] 頁面。範例如下：
+5.	找出閘道 IP 位址：閘道 IP 位址會位於虛擬網路 [**儀表板**] 頁面。範例如下：
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_09_GatewayIP.png)
 
-6.	若要取得共用金鑰：共用金鑰位於虛擬網路 [**儀表板**] 頁面上。按一下畫面底部的 [**管理金鑰**]，然後複製對話方塊所顯示的金鑰。您需要此金鑰才能為公司的 VPN 裝置設定 IPsec 通道。
+6.	取得共用金鑰：共用金鑰會位於虛擬網路 [**儀表板**] 頁面。按一下畫面底部的 [**管理金鑰**]，然後複製對話方塊所顯示的金鑰。您需要此金鑰才能為公司的 VPN 裝置設定 IPsec 通道。
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_10_ManageSharedKey.png)
 
@@ -188,22 +185,22 @@
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_11_DownloadVPNDeviceScript.png)
 
-如果您在下拉式清單中找不到您的 VPN 裝置，請參閱 MSDN 文件庫中的[關於虛擬網路的 VPN 裝置](http://go.microsoft.com/fwlink/?LinkID=248098)，以取得其他指令碼範本。
+如果您在下拉式清單中找不到您的 VPN 裝置，請參閱 MSDN 文件庫中的 [關於虛擬網路的 VPN 裝置](http://go.microsoft.com/fwlink/?LinkID=248098)，以取得其他指令碼範本。
 
 
 ##  <a name="ConfigVPN">設定 VPN 裝置 (網路管理員)</a>
 
 由於 VPN 裝置不盡相同，因此本內容僅提供高階程序。此程序應交由網路管理員來執行。
 
-您可以從管理入口網站或[關於虛擬網路的 VPN 裝置](http://go.microsoft.com/fwlink/?LinkId=248098)取得 VPN 組態指令碼，該文章亦說明與您選擇使用之路由組態相容的路由類型和裝置。
+您可以從管理入口網站或 [關於虛擬網路的 VPN 裝置](http://go.microsoft.com/fwlink/?LinkId=248098) 取得 VPN 組態指令碼，該文章亦說明與您選擇使用之路由組態相容的路由類型和裝置。
 
-如需設定虛擬網路閘道的額外資訊，請參閱[在管理入口網站中設定虛擬網路閘道](http://go.microsoft.com/fwlink/?LinkId=299878)，並查閱 VPN 裝置文件。
+如需設定虛擬網路閘道的額外資訊，請參閱 [在管理入口網站中設定虛擬網路閘道](http://go.microsoft.com/fwlink/?LinkId=299878)，並查閱 VPN 裝置文件。
 
 此程序的假設如下：
 
 -  設定 VPN 裝置的人員熟悉選用裝置的設定作業。由於與虛擬網路相容的裝置繁多，且每個裝置系列均有專用的組態，下列步驟不會逐步引導您完成詳細的裝置組態。因此，設定裝置的人員務必熟悉裝置和裝置的組態設定。 
 
--  您選擇使用的裝置與虛擬網路相容。請查閱[此處](http://go.microsoft.com/fwlink/?LinkID=248098)以了解裝置相容性。
+-  您選擇使用的裝置與虛擬網路相容。請查閱 [此處](http://go.microsoft.com/fwlink/?LinkID=248098) 以了解裝置相容性。
 
 
 **若要設定 VPN 裝置：**
@@ -250,29 +247,30 @@
 ##  後續步驟
 若要將內部部署 Active Directory 延伸到剛建立的虛擬網路，請繼續進行以下教學課程中的內容：
 
--  [如何建立自訂虛擬機器](http://go.microsoft.com/fwlink/?LinkID=294356)
+-  [如何自訂建立虛擬機器](http://go.microsoft.com/fwlink/?LinkID=294356)
 
 -  [在 Azure 虛擬網路中安裝複本 Active Directory 網域控制站](http://go.microsoft.com/fwlink/?LinkId=299877)
 
-如果您想要將虛擬網路設定匯出到網路組態檔，以便備份組態或當做範本，請參閱[將虛擬網路設定匯出到網路組態檔](http://go.microsoft.com/fwlink/?LinkID=299880)。
+如果您想要將虛擬網路設定匯出到網路組態檔，以便備份組態或當做範本，請參閱 [將虛擬網路設定匯出到網路組態檔](http://go.microsoft.com/fwlink/?LinkID=299880)。
 
 ## 另請參閱
 
--  [Azure 虛擬網路](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
+-  [Azure 虛擬網路技術概觀](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
 -  [虛擬網路常見問題集](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
 -  [使用網路組態檔設定虛擬網路](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
--  [將虛擬機器新增至虛擬網路](http://azure.microsoft.com/manage/services/networking/add-a-vm-to-a-virtual-network/)
+-  [將虛擬機器新增至虛擬網路](http://www.windowsazure.com/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
--  [關於虛擬網路的 VPN 裝置](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx)
+-  [關於虛擬網路的 VPN 裝置](http://msdn.microsoft.com/library/windowsazure/jj15] 75.aspx)
 
--  [名稱解析](http://go.microsoft.com/fwlink/?LinkId=248097)
-
-
-
+-  [Azure 名稱解析概觀](http://go.microsoft.com/fwlink/?LinkId=248097)
+-  [設定用於測試的混合式雲端環境](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-hybrid-cloud-environment-testing/)
 
 
 
-<!--HONumber=46--> 
+
+
+
+<!--HONumber=47-->

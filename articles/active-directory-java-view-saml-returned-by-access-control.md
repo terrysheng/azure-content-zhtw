@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="搭配使用單一登入與 Azure Active Directory (PHP)" 
-	description="了解如何建立使用單一登入搭配 Azure Active Directory 的 PHP Web 應用程式。" 
+	pageTitle="檢視存取控制服務 (Java) 所傳回的 SAML" 
+	description="了解如何在裝載於 Azure 上的 Java 應用程式中，檢視存取控制服務所傳回的 SAML。" 
 	services="" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
@@ -18,13 +18,13 @@
 
 # 如何檢視 Azure 存取控制服務傳回的 SAML
 
-本指南說明如何檢視 Azure 存取控制服務 (ACS) 傳回給應用程式的基本安全性聲明標記語言 (SAML)。本指南以＜[如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者][]＞主題為基礎，提供程式碼來顯示 SAML 資訊。完成後的應用程式如下所示：
+本指南說明如何檢視 Azure 存取控制服務 (ACS) 傳回給應用程式的基本安全性聲明標記語言 (SAML)。本指南以[如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者][]主題為基礎，提供程式碼來顯示 SAML 資訊。完成後的應用程式如下所示：
 
 ![Example SAML output][saml_output]
 
-如需 ACS 的詳細資訊，請參閱[後續步驟](#next_steps)一節。
+如需 ACS 的詳細資訊，請參閱[後續步驟](#next_steps) 一節。
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Azure Access Services Control Filter (由 Microsoft Open Technologies 提供) 是社群技術預覽。作為發行前軟體，它尚未得到 Microsoft Open Technologies, Inc. 及 Microsoft 的正式支援。
 
 ## 目錄
@@ -38,7 +38,7 @@
 
 ## <a name="pre"></a>必要條件
 
-若要完成本指南中的工作，請完成＜[如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者][]＞中的範例，並將它當做本教學課程的起點。
+若要完成本指南中的工作，請完成[如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者][]中的範例，並將它當做本教學課程的起點。
 
 ## <a name="add_library"></a>將 JspWriter 程式庫加入至組建路徑和部署組件
 
@@ -48,9 +48,9 @@
 2. 在 [**選取 JAR**] 對話方塊中，瀏覽至所需的 JAR 並選取，然後按一下 [**開啟**]。
 3. 在 [**MyACSHelloWorld 的內容**] 對話方塊仍開啟的情況下，按一下 [**部署組件**]。
 4. 在 [**Web 部署組件**] 對話方塊中，按一下 [**新增**]。
-5. 在 [**New Assembly Directive**] 對話方塊中，按一下 [**Java Build Path Entries**]，然後按 [**下一步**]。
+5. 在 [**新增組件指示詞**] 對話方塊中，按一下 [**Java 組建路徑項目**]，然後按 [**下一步**]。
 6. 選取適當的程式庫，然後按一下 [**完成**]。
-7. 按一下 [**確定**] 關閉 [**MyACSHelloWorld 的屬性**] 對話方塊。
+7. 按一下 [**確定**] 以關閉 [**MyACSHelloWorld 的屬性**] 對話方塊。
 
 ## <a name="modify_jsp"></a>修改 JSP 檔案來顯示 SAML
 
@@ -188,12 +188,12 @@
 
 ## <a name="run_application"></a>執行應用程式
 
-1. 使用＜[如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者][]＞中說明的步驟，在電腦模擬器中執行應用程式，或部署至 Azure。
+1. 使用[如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者][]中說明的步驟，在電腦模擬器中執行應用程式，或部署至 Azure。
 2. 啟動瀏覽器並開啟您的 Web 應用程式。登入應用程式之後，您會看到 SAML 資訊，包括身分識別提供者所提供的安全性聲明。
 
 ## <a name="next_steps"></a>後續步驟
 
-若要進一步探索 ACS 的功能及試驗其他更複雜的案例，請參閱[存取控制服務 2.0][]。
+若要進一步探索 ACS 功能及試試其他更精緻的案例，請參閱[存取控制服務 2.0][] (英文)。
 
 [必要條件]: #pre
 [修改 JSP 檔案來顯示 SAML]: #modify_jsp
@@ -204,4 +204,4 @@
 [如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

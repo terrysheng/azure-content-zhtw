@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -20,15 +20,15 @@
 
 本主題說明如何在 Azure 行動服務中註冊您的應用程式，使其能夠採用 Twitter 驗證。
 
->[AZURE.NOTE] 本教學課程有關 [Azure 行動服務](http://azure.microsoft.com/services/mobile-services/)，此方案可協助您建置適用於任何平台的可擴充行動應用程式。行動服務讓同步處理資料、驗證使用者及推播通知等作業變得簡單。此頁面支援<a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">開始使用驗證</a>教學課程，顯示如何將使用者登入您的應用程式。如果這是您第一次使用行動服務，請完成<a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">開始使用行動服務</a>教學課程。
+>[AZURE.NOTE] 本教學課程有關 [Azure 行動服務](http://azure.microsoft.com/services/mobile-services/)，此方案可協助您建置適用於任何平台的可擴充行動應用程式。行動服務讓同步處理資料、驗證使用者及推播通知等作業變得簡單。此頁面支援 <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">開始使用驗證</a> 教學課程，說明如何將使用者登入您的應用程式。如果這是您第一次使用行動服務，請完成 <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">開始使用行動服務</a>。
 
 若要完成本主題的程序，您必須具有已通過電子郵件地址驗證的 Twitter 帳戶。若要建立新的 Twitter 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>。
 
-1. 瀏覽至 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">Twitter Developers</a> 網站，使用您的 Twitter 帳戶認證登入，然後按一下 [**建立新應用程式**]。
+1. 瀏覽至 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">Twitter 開發人員</a> 網站，使用您的 Twitter 帳戶認證登入，再按一下 [**建立新的應用程式**]。
 
    	![][1]
 
-2. 輸入您應用程式的 [**名稱**]、[**描述**] 和 [**網站**] 值，然後在 [**回呼 URL**] 中輸入行動服務的 URL，後面附加路徑 _/login/twitter_。
+2. 輸入您應用程式的 [**名稱**]、[**描述**] 和 [**網站**] 值，然後在 [**回呼 URL**] 中輸入行動服務的 URL**，後面附加路徑 _/login/twitter_。
 
 	>[AZURE.NOTE]如需使用 Visual Studio 將 .NET 後端行動服務發佈至 Azure，則重新導向 URL 是行動服務的 URL 後面附加路徑 _signin-twitter_，而您的行動服務為 .NET 服務，例如 <code>https://todolist.azure-mobile.net/signin-twitter</code>。
 
@@ -64,9 +64,8 @@
 <!-- URLs. -->
 
 [Twitter 開發人員]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet/
+[開始使用驗證]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

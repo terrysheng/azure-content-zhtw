@@ -5,7 +5,7 @@
    <th align="left" valign="middle">上限</th>
 </tr>
 <tr>
-   <td valign="middle"><p>每一 <a href="http://azure.microsoft.com/zh-tw/services/batch/">Batch</a> 帳戶的核心</p></td>
+   <td valign="middle"><p>每一 <a href="http://azure.microsoft.com/services/batch/">Batch</a> 帳戶的核心</p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>N/A<sup>1</sup></p></td>
 </tr>
@@ -22,4 +22,4 @@
 </table>
 <sup>1</sup> 已達到每一 Batch 帳戶的核心數目，但未指定最大數目。請聯絡客戶支援以討論增加選項。
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

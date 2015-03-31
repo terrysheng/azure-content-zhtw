@@ -6,9 +6,9 @@
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/download-service-project.png)
 
-3. 若您尚未這麼做，請下載並安裝 [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) 或更新版本。
+3. 若您尚未這麼做，請下載並安裝 [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)或更新版本。
 
-4. 按一下 [**下載您的服務並發佈至雲端**] 下的 [**下載**]。
+4. 按一下 [下載您的服務並發佈至雲端]**** 下的 [下載]****。
 
 	這會下載實作行動服務的 Visual Studio 專案。請將壓縮的專案檔案儲存至本機電腦，並記下儲存位置。
 
@@ -27,4 +27,4 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

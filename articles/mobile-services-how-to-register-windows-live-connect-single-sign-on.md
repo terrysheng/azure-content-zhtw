@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="註冊單一登入 - Azure 行動服務" 
 	description="了解如何在 Azure Mobile Services 應用程式中註冊單一登入驗證。" 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -20,7 +20,7 @@
 
 本主題說明如何向 Windows 市集註冊您的應用程式，使其能夠以 Live Connect 做為 Azure 行動服務的身分識別提供者進行單一登入。若要使用推播通知，也必須執行此步驟。
 
-> [AZURE.IMPORTANT] 您無須對 Windows 市集註冊您的應用程式，即可在發佈應用程式之前使用 Microsoft 帳戶進行驗證。當您的 Windows 市集應用程式不需要單一登入或推播通知時，您可以直接向 Live Connect 註冊應用程式以使用 Microsoft 帳戶登入。如需詳細資訊，請參閱[註冊 Windows 市集應用程式以使用 Microsoft 帳戶登入](/zh-tw/develop/mobile/how-to-guides/register-for-microsoft-authentication)。
+> [AZURE.IMPORTANT] 您無須對 Windows 市集註冊您的應用程式，即可在發佈應用程式之前使用 Microsoft 帳戶進行驗證。當您的 Windows 市集應用程式不需要單一登入或推播通知時，您可以直接向 Live Connect 註冊應用程式以使用 Microsoft 帳戶登入。如需詳細資訊，請參閱[註冊 Windows 市集應用程式以使用 Microsoft 帳戶登入](/develop/mobile/how-to-guides/register-for-microsoft-authentication)。
 
 1. 如果您尚未註冊您的應用程式，請瀏覽至 Windows 市集應用程式之開發人員中心的 [[提交應用程式]] 頁面，使用您的 Microsoft 帳戶登入，然後按一下 [**應用程式名稱**]。
 
@@ -81,15 +81,14 @@
 
 
 <!-- URLs. -->
-[使用 Live Connect 在 Windows 市集應用程式提供單一登入功能]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[提交應用程式]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[使用 Live Connect 在 Windows 市集應用程式提供單一登入功能]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started
-[開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-dotnet
-[開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-dotnet/
-[使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
-[JavaScript 和 HTML]: /zh-tw/develop/mobile/tutorials/get-started-with-users-js/
+[開始使用行動服務]: /develop/mobile/tutorials/get-started
+[開始使用驗證]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[開始使用推播通知]: /develop/mobile/tutorials/get-started-with-push-dotnet/
+[使用指令碼授權使用者]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
+[JavaScript 和 HTML]: /develop/mobile/tutorials/get-started-with-users-js/
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

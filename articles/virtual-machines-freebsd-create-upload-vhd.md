@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="建立並上傳 FreeBSD VHD 到 Azure" 
    description="了解如何建立及上傳包含 FreeBSD 作業系統的 Azure 虛擬硬碟 (VHD)。" 
    services="virtual-machines" 
@@ -27,9 +27,9 @@
 
 - **Azure PowerShell 工具** - 您已安裝 Microsoft Azure PowerShell 模組，並設定為使用您的訂閱。若要下載此模組，請參閱 [Azure 下載](http://azure.microsoft.com/downloads/)。這裡有安裝和設定模組的教學課程。您將使用 [Azure 下載](http://azure.microsoft.com/downloads/) Cmdlet 來上傳 VHD。
 
-- **以 .vhd 檔案安裝的 FreeBSD 作業系統**  - 您已將支援的 FreeBSD 作業系統安裝至虛擬硬碟。有多項工具可用來建立 .vhd 檔案，例如，您可以使用虛擬化解決方案 (例如 Hyper-V) 來建立 .vhd 檔案並安裝作業系統。如需指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。 
+- **安裝在 .vhd 檔案中的 FreeBSD 作業系統** - 您已將支援的 FreeBSD 作業系統安裝在虛擬硬碟中。有多項工具可用來建立 .vhd 檔案，例如，您可以使用虛擬化解決方案 (例如 Hyper-V) 來建立 .vhd 檔案並安裝作業系統。如需指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。 
 
-> [AZURE.NOTE] Azure 不支援較新的 VHDX 格式。您可以使用 Hyper-V 管理員或 [convert-vhd](https://technet.microsoft.com/zh-tw/library/hh848454.aspx) Cmdlet，將磁碟轉換為 VHD 格式。
+> [AZURE.NOTE] Azure 不支援較新的 VHDX 格式。您可以使用 Hyper-V 管理員或 [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx) Cmdlet，將磁碟轉換為 VHD 格式。
 
 這項工作包含下列五個步驟。
 
@@ -84,7 +84,7 @@
 		# chmod 755 /usr/sbin/waagent
 		# /usr/sbin/waagent -install
 
-    **重要事項**：安裝之後，請再次確認它正在執行。
+    **Important**: After installation, please double check it is running.
 
 		# service -e | grep waagent
 		/etc/rc.d/waagent
@@ -104,7 +104,7 @@
 
 1. 登入 Azure 管理入口網站。
 
-2. 在命令列上，按一下 **[新增]**。
+2. 在命令列上，按一下 [新增]****。
 
 3. 按一下 [**資料服務**] > [**儲存體**] > [**快速建立**]。
 
@@ -112,16 +112,16 @@
 
 4. 依照下列方式填入欄位：
 	
-	- 在 **[URL]** 下，為儲存體帳戶輸入要在 URL 中使用的子網域名稱。此項目可以包含 3 至 24 個小寫字母與數字。此名稱會成為 URL 內用來為訂閱的 Blob、「佇列」或「資料表」資源定址的主機名稱。
+	- 在 [URL]**** 下，為儲存體帳戶輸入要在 URL 中使用的子網域名稱。此項目可以包含 3 至 24 個小寫字母與數字。此名稱會成為 URL 內用來為訂閱的 Blob、「佇列」或「資料表」資源定址的主機名稱。
 			
-	- 選擇儲存體帳戶的位置或同質群組。同質群組可讓您將雲端服務和儲存體放在相同的資料中心。
+	- 選擇儲存體帳戶的 [位置或同質群組]****。同質群組可讓您將雲端服務和儲存體放在相同的資料中心。
 		 
 	- 決定是否要將**地理複寫**用於儲存體帳戶。依預設會開啟地理區域複寫。此選項可讓您免費將資料複寫至次要位置，使您在主要位置發生重大錯誤時，可將儲存體容錯移轉至該位置。次要位置會自動指派，且無法變更。如果您因為法律規定或組織原則而需要更充分掌控您以雲端為基礎的儲存體所在的位置，您可以關閉地理複寫。但請注意，如果您後續又開啟地理區域複寫，在您將現有的資料複寫至次要位置時，將會產生一次性的資料傳輸費用。不含地理區域複寫的儲存服務會有相對的折扣。管理儲存體帳戶地理區域複寫的詳細資訊提供於：[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/#replication-options)。
 
 	![Enter storage account details](./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png)
 
 
-5. 按一下 **[建立儲存體帳戶]**。帳戶現在會出現在 [**儲存體**] 下方。
+5. 按一下 [建立儲存體帳戶]****。帳戶現在會出現在 [**儲存體**] 下方。
 
 	![Storage account successfully created](./media/virtual-machines-create-upload-vhd-windows-server/Storagenewaccount.png)
 
@@ -129,7 +129,7 @@
 
 	![Storage account detail](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_detail.png)
 
-7. 按一下 **[建立容器]**。
+7. 按一下 [建立容器]****。
 
 	![Storage account detail](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_container.png)
 
@@ -161,7 +161,7 @@
 1. 開啟 Azure PowerShell 主控台。 
 
 2. 輸入： 
-	`Get-AzurePublishSettingsFile`.
+	`Get-AzurePublishSettingsFile`。
 
 3. 隨即開啟瀏覽器視窗，並提示您下載 .publishsettings 檔案。它包含您 Microsoft Azure 訂閱的資訊和憑證。
 
@@ -171,12 +171,12 @@
 
 4. 輸入： 
 	`Import-AzurePublishSettingsFile <PathToFile>`
-
+	
 	其中 `<PathToFile>` 是 .publishsettings 檔案的完整路徑。 
 
    如需詳細資訊，請參閱[開始使用 Microsoft Azure Cmdlet](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
 	
-   如需有關安裝和設定 PowerShell 的詳細資訊，請參閱[如何安裝和設定 Microsoft Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)。 
+   如需安裝和設定 PowerShell 的詳細資訊，請參閱[如何安裝和設定 Microsoft Azure PowerShell](http://www.windowsazure.com/documentation/articles/install-configure-powershell/)。 
 
 ## 步驟 4：上傳 .vhd 檔案 ##
 
@@ -208,4 +208,4 @@
 
 	![freebsd image in azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

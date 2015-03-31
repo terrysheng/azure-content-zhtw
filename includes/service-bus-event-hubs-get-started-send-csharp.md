@@ -5,7 +5,7 @@
 
    	![][7]
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後按一下 [**Manage NuGet Packages for Solution...**]。 
+2. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後按一下 [**管理方案的 NuGet 封裝...**]。 
 
 	此時會顯示 [管理 NuGet 封裝] 對話方塊。
 
@@ -19,12 +19,12 @@
 
 		using Microsoft.ServiceBus.Messaging;
 
-5. 將下列  `static` 欄位新增至 **Program** 類別，並將值替代為您在上一節中所建立的事件中心名稱，以及將連接字串替代為 **send** 權限：
+5. 將下列  `static` 欄位加入至 **Program** 類別，並將值替代為您在上一節中所建立的事件中心名稱，以及將連接字串替代為 **send** 權限：
 
 		static string eventHubName = "{event hub name}";
         static string connectionString = "{send connection string}";
 
-6. 將下列方法新增至 **Program** 類別：
+6. 將下列方法加入至 **Program** 類別：
 
 		static async Task SendingRandomMessages()
         {
@@ -50,7 +50,7 @@
 
 	這個方法會以 200 毫秒的延遲時間持續將事件傳送至事件中心。
 
-7. 最後，將下列幾行新增至 **Main** 方法：
+7. 最後，將下列幾行加入至 **Main** 方法：
 
 		Console.WriteLine("Press Ctrl-C to stop the sender process");
         Console.WriteLine("Press Enter to start now");
@@ -61,4 +61,4 @@
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
-<!--HONumber=42-->
+<!--HONumber=47-->

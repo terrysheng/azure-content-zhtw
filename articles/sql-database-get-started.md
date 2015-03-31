@@ -1,9 +1,24 @@
-<properties urlDisplayName="How to create and provision" pageTitle="開始使用 SQL Database - Azure" metaKeywords="" description="開始在 Azure 中建立及管理 SQL Database。" metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+﻿<properties 
+	pageTitle="開始使用 SQL Database - Azure" 
+	description="開始在 Azure 中建立及管理 SQL Database。" 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	writer="" 
+	manager="jeffreyg" 
+	editor="tysonn"/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jeffreyg" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/04/2014" 
+	ms.author="jeffreyg"/>
 
 
-#開始使用 Microsoft Azure SQL Database
+## 開始使用 Microsoft Azure SQL Database
 
 在本教學課程中，您將透過 Azure 管理入口網站了解 Microsoft Azure SQL Database 管理的基本概念。如果您不熟悉資料庫管理，您可以依照這些課程操作，在 30 分鐘內了解基本技能。 
 
@@ -12,20 +27,9 @@
 您將使用 Excel 在 Azure 平台上建立與佈建範例資料庫、查詢系統和使用者資料。
 
 
-##目錄##
-
-* [步驟 1：建立 Microsoft Azure 帳戶](#Subscribe)
-* [步驟 2：連線到 Azure 並建立資料庫](#Subscribe)
-* [步驟 3：設定防火牆](#ConfigFirewall)
-* [步驟 4：使用 Transact-SQL 指令碼新增資料和結構描述](#AddData)
-* [步驟 5：建立結構描述](#createschema)
-* [步驟 6：插入資料](#insertData)
-* [步驟 7：在 SQL Database 適用的管理入口網站中查詢範例和系統資料](#QueryDBSysData)
-* [步驟 8：建立資料庫登入和指派權限](#DBLogin)
-* [步驟 9：從應用程式連線](#ClientConnection)
 
 
-<h2 id="Subscribe">步驟 1：建立 Microsoft Azure 帳戶</h2>
+## 步驟 1：建立 Microsoft Azure 帳戶
 
 1. 開啟網頁瀏覽器，並瀏覽到 [http://azure.microsoft.com](http://azure.microsoft.com)。
 若要開始使用免費帳戶，請按一下右上角的 [免費試用]，並遵循步驟進行。
@@ -33,14 +37,14 @@
 2. 現在已建立您的帳戶。您可以隨時開始使用。
 
 
-<h2 id="Connect">步驟 2：連線到 Azure 並建立資料庫</h2>
+## 步驟 2：連線到 Azure 並建立資料庫
 
 
 1. 登入[管理入口網站](http://manage.windowsazure.com)。您應該會看到如下所示的導覽窗格。
 
 	![Navigation pane][Image1]
 
-2. 按一下頁面底部的 [**新增**]。按一下 [**新增**] 時，畫面上會出現顯示可建立項目的清單。
+2. 按一下頁面底部的 [新增]****。按一下 [**新增**] 時，畫面上會出現顯示可建立項目的清單。
 
 3. 按一下 [**SQL Database**]，再按一下 [**自訂建立**]。 
 
@@ -48,7 +52,7 @@
 
 若您選擇此選項，則可同時建立新的伺服器和 SQL Database，並以您為系統管理員。身為系統管理員，您可以執行更多工作，包括連線到 SQL Database 適用的管理入口網站 (您稍後將在本教學課程中執行此作業)。  
 
-4.  按一下 [**Custom Create**] 時，[資料庫設定] 頁面會隨即出現。請在此頁面提供可在伺服器上建立空白 SQL 資料庫的基本資訊。我們將在稍後的步驟中介紹新增資料表和資料。 
+4.  按一下 [**自訂建立**] 時，[資料庫設定] 頁面會隨即出現。請在此頁面提供可在伺服器上建立空白 SQL 資料庫的基本資訊。我們將在稍後的步驟中介紹新增資料表和資料。 
 
     填寫 [資料庫設定] 頁面，如下所示：
 
@@ -73,7 +77,7 @@
 
 * 選擇區域。區域可決定伺服器的地理位置。您無法輕易地切換區域，所以請選擇一個適合此伺服器的區域。選擇一個最靠近您的位置。將 Azure 應用程式和資料庫放在相同區域，可節省對外頻寬的成本並縮短資料延遲。
 
-* 請務必將 [允許 Azure 服務存取此伺服器] 核取方塊保持勾選，以方便您使用 SQL Database 適用的管理入口網站、Office 365 中的 Excel 或 Azure SQL Reporting 連線到此資料庫。
+* 請務必將 [**允許 Azure 服務存取這部伺服器**]  核取方塊保持勾選，以方便您使用 SQL Database 適用的管理入口網站、Office 365 中的 Excel 或 Azure SQL Reporting 連線到此資料庫。
 
 * 完成時，請按一下頁面底部的核取記號。
 
@@ -85,11 +89,11 @@
 
 
 
-<h2 id="ConfigFirewall">步驟 3：設定防火牆</h2>
+## 步驟 3：設定防火牆
 
 若要設定防火牆，以便允許連線通過，請在伺服器頁面上輸入資訊。
 
-**注意：**SQL Database 服務僅支援 TDS 通訊協定所使用的 TCP 連接埠 1433，因此請確認網路上的防火牆和本機電腦允許在連接埠 1433 的連出 TCP 通訊。如需詳細資訊，請參閱 [SQL Database 防火牆](http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-zh-tw.aspx)。
+**注意︰**SQL Database 服務僅支援 TDS 通訊協定所使用的 TCP 連接埠 1433，因此請確認網路上的防火牆和本機電腦允許在連接埠 1433 的連出 TCP 通訊。如需詳細資訊，請參閱 [SQL Database 防火牆](http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-zh-tw.aspx)。
 
 
 1. 在左側的瀏覽窗格中，按一下 [**SQL Database**]。
@@ -116,13 +120,13 @@
 
 
 
-<h2 id="AddData">步驟 4：使用 Transact-SQL 指令碼新增資料和結構描述</h2>
+## 步驟 4：使用 Transact-SQL 指令碼新增資料和結構描述
 
 在此步驟中，您將執行兩個指令碼。第一個指令碼會建立定義資料表、資料欄及關係的結構描述。第二個指令碼會新增資料。每個步驟都會在個別連線上獨立執行。如果您曾經在 SQL Server 中建立過資料庫，則您將注意到在 SQL Database 中的其中一個差異是，您必須在個別批次中執行 CREATE 和 INSERT 命令。SQL Database 施行此要求以便將轉換時對資料的攻擊降至最低。 
 
-**注意：**結構描述和資料值均取自這篇 [MSDN 文章]，(http://msdn.microsoft.com/zh-tw/library/windowsazure/ee621790.aspx "MSDN article") 而且在修改後用於 SQL Database。
+**注意︰**此結構描述和資料值取自 [MSDN 文章](http://msdn.microsoft.com/library/windowsazure/ee621790.aspx "MSDN article")，且已為和 SQL Database 搭配使用而進行修改。
 
-1. 前往首頁。在[管理入口網站]中(http://manage.windowsazure.com)，**School** 資料庫會顯示在首頁的項目清單中。
+1. 前往首頁。在 [管理入口網站](http://manage.windowsazure.com) 中，**School** 資料庫會顯示在首頁的項目清單中。
 
 	![Navigation pane][Image8]
 
@@ -134,9 +138,9 @@
 
 
 
-<h2 id="createschema">步驟 5：建立結構描述</h2>
+## 步驟 5：建立結構描述
 
-在此步驟中，您將使用下列指令碼來建立結構描述。指令碼首先會檢查是否有相同名稱的現有資料表，以確保不會產生名稱衝突，並使用 [CREATE TABLE](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336258.aspx) 陳述式建立資料表。此外，此指令碼使用 [ALTER TABLE](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336286.aspx) 陳述式指定主要金鑰與資料表關係。
+在此步驟中，您將使用下列指令碼來建立結構描述。指令碼首先會檢查是否有相同名稱的現有資料表，以確保不會產生名稱衝突，並使用 [CREATE TABLE](http://msdn.microsoft.com/library/windowsazure/ee336258.aspx) 陳述式建立資料表。此外，此指令碼會使用 [ALTER TABLE](http://msdn.microsoft.com/library/windowsazure/ee336286.aspx) 陳述式來指定主要索引鍵和資料表關係。
 
 複製指令碼並將它貼入查詢視窗。按一下視窗頂端的 [**執行**]，以執行此指令碼。
 
@@ -380,9 +384,9 @@
 
 
 
-<h2 id="insertData">步驟 6：插入資料</h2>
+## 步驟 6：插入資料
 
-開啟新的查詢視窗，然後貼上下列指令碼。執行指令碼以插入資料。此指令碼使用 [INSERT](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee336284.aspx) 陳述式將值新增至各個資料欄。
+開啟新的查詢視窗，然後貼上下列指令碼。執行指令碼以插入資料。此指令碼會使用 [INSERT](http://msdn.microsoft.com/library/windowsazure/ee336284.aspx) 陳述式將值新增至每個資料欄。
 
 <div style="width:auto; height:600px; overflow:auto"><pre>
 	-- Insert data into the Person table.
@@ -463,7 +467,7 @@
 </pre></div>
 
 
-<h2 id="QueryDBSysData">步驟 7：在 SQL Database 適用的管理入口網站中查詢範例和系統資料</h2>
+## 步驟 7：在 SQL Database 適用的管理入口網站中查詢範例和系統資料
 
 若要檢查您的工作，請執行可傳回您剛輸入資料的查詢。您也可以執行內建預存程序和資料管理檢視，以提供 SQL Database 伺服器上所執行的資料庫相關資訊。
 
@@ -499,7 +503,7 @@
 
 
 
-<h2 id="DBLogin">步驟 8：建立資料庫登入和指派權限</h2>
+## 步驟 8：建立資料庫登入和指派權限
 
 在 SQL Database 中，您可以使用 Transact-SQL 建立登入資訊和授與權限。在本課程中，您可以使用 Transact-SQL 來執行三項作業：
 
@@ -510,20 +514,20 @@
 
 SQL Server 驗證登入資訊可用於伺服器連線。存取 SQL Database 伺服器上資料庫的所有使用者都必須執行此作業，方法是提供 SQL Server 驗證登入名稱和密碼。 
 
-若要建立登入，您必須先連線到**主要**資料庫。
+若要建立登入，您必須先連線到 **master** 資料庫。
 
 <h4 id="CreateLogin">建立 SQL Server 驗證登入</h4>
 
-1. 在[管理入口網站]中(http://manage.windowsazure.com)，選取 [**SQL Databases**]，並按一下 [**伺服器**]，接著選擇伺服器，然後按一下白色箭頭開啟
-伺服企頁面。
+1. 在 [管理入口網站](http://manage.windowsazure.com) 中，選取 [**SQL Databases**]，按一下 [**伺服器**]，選擇伺服器，然後按一下白色箭號以開啟
+伺服器頁面。
 
 2. 在 [快速啟動] 頁面上按一下 [**管理伺服器**]，以開啟與 SQL Database 適用的管理入口網站的新連線。 
 
-3. 將要連線的目標資料庫指定為**主要**，然後使用您的使用者名稱和密碼登入。這是指您在建立伺服器時所指定的系統管理員登入資訊。
+3. 將要連線的目標資料庫指定為 [**master**]，然後使用您的使用者名稱和密碼登入。這是指您在建立伺服器時所指定的系統管理員登入資訊。
 
-4. SQL Database 管理入口網站會在新的瀏覽器視窗中開啟，您即可連線至**主要**資料庫。
+4. SQL Database 管理入口網站會在新的瀏覽器視窗中開啟，您即可連線至 **master** 資料庫。
 
-5. 如果您在頁面上看到類似以下的錯誤，請忽略它。按一下 [**新增查詢**]，以開啟可在**主要**資料庫上執行 Transact-SQL 命令的查詢視窗。
+5. 如果您在頁面上看到類似以下的錯誤，請忽略它。按一下 [**新增查詢**]，以開啟可在 **master** 資料庫上執行 Transact-SQL 命令的查詢視窗。
 
 	![Navigation pane][Image15]
 
@@ -531,7 +535,7 @@ SQL Server 驗證登入資訊可用於伺服器連線。存取 SQL Database 伺�
 
         CREATE LOGIN SQLDBLogin WITH password='Password1';
 
-7. 執行此命令，以建立名為 'SQLDBLogin' 的新 SQL Server 登入。
+7. 執行此命令，以建立名為  'SQLDBLogin' 的新 SQL Server 登入。
 
 
 <h4 id="CreateDBuser">建立資料庫使用者和指派權限</h4>
@@ -559,9 +563,9 @@ SQL Server 驗證登入資訊可用於伺服器連線。存取 SQL Database 伺�
 您現在便擁有具備 **School** 資料庫唯讀權限的新 SQL Server 驗證登入。透過這些步驟，您可以建立其他 SQL Server 驗證登入，以允許對資料的不同層級存取。
 
 
-<h2 id="ClientConnection">步驟 9：從應用程式連線</h2>
+## 步驟 9：從應用程式連線
 
-您可以使用 ADO.NET 連線到 Microsoft Azure SQL Database。不同於內部部署連線，您需要自行處理可能終止連線或暫時封鎖新連線的節流或其他服務錯誤。這種情況稱為暫時錯誤。若要管理暫時錯誤，您需要實作重試策略。連線到 Azure SQL Database 時，[Transient Fault Handling Application Block](http://go.microsoft.com/fwlink/?LinkId=519356)(屬於 2013 年 4 月 Enterprise Library 6 一部分) 會有識別暫時錯誤情況的偵測策略。
+您可以使用 ADO.NET 連線到 Microsoft Azure SQL Database。不同於內部部署連線，您需要自行處理可能終止連線或暫時封鎖新連線的節流或其他服務錯誤。這種情況稱為暫時錯誤。若要管理暫時錯誤，您需要實作重試策略。連接到 Azure SQL Database 時，[暫時性錯誤處理應用程式區塊](http://go.microsoft.com/fwlink/?LinkId=519356) (Enterprise Library 6 的一部分 - 2013 年 4 月) 具有識別暫時性錯誤狀況的偵測策略。
 
 <h4>範例 C# 主控台應用程式</h4>
 
@@ -642,19 +646,19 @@ SQL Server 驗證登入資訊可用於伺服器連線。存取 SQL Database 伺�
 
 
 
-<h2 id="NextSteps">後續步驟</h2>
+## 後續步驟
 
 現在您對 SQL Database 和管理入口網站已有一定程度的了解，您可以嘗試 SQL Server 資料庫管理員所使用的其他工具和技巧。
 
-若要主動管理您的新資料庫，請考慮安裝並使用 SQL Server Management Studio。Management Studio 是管理 SQL Server 資料庫 (包括在 Azure 上執行的資料庫) 的主要資料庫管理工具。透過 Management Studio，您可以儲存查詢以供日後使用、新增資料表和預存程序，並在豐富的指令碼環境 (包括語法檢查程式、IntelliSense 及範本) 中提高您的 Transact-SQL 技巧。若要開始使用，請遵循使用 [SQL Server Management Studio 管理 SQL Database] 中的指示進行(http://www.azure.microsoft.com/zh-tw/documentation/articles/sql-database-manage-azure-ssms/)。
+若要主動管理您的新資料庫，請考慮安裝並使用 SQL Server Management Studio。Management Studio 是管理 SQL Server 資料庫 (包括在 Azure 上執行的資料庫) 的主要資料庫管理工具。透過 Management Studio，您可以儲存查詢以供日後使用、新增資料表和預存程序，並在豐富的指令碼環境 (包括語法檢查程式、IntelliSense 及範本) 中提高您的 Transact-SQL 技巧。若要開始使用，請依照 [使用 SQL Server Management Studio 管理 SQL Database](http://www.azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/) 中的指示進行。
 
-精通 Transact-SQL 查詢和資料定義語言是資料庫管理員的基本條件。如果您不熟悉 Transact-SQL，請從[教學課程：編寫 Transact-SQL 陳述式](http://msdn.microsoft.com/zh-tw/library/ms365303.aspx) 學習一些基本技巧。
+精通 Transact-SQL 查詢和資料定義語言是資料庫管理員的基本條件。如果您不熟悉 Transact-SQL，請從[教學課程：撰寫 Transact-SQL 陳述式](http://msdn.microsoft.com/library/ms365303.aspx)開始，了解一些基本技能。
 
 還有其他方法可以將內部部署資料庫移至 SQL Database。如果您具備現有的資料庫，或如果您已下載範例資料庫來練習，請嘗試下列替代方法：
 
-* [將資料庫移轉至 SQL Database](http://msdn.microsoft.com/zh-tw/library/windowsazure/ee730904.aspx)
-* [在 SQL Database 中複製資料庫](http://msdn.microsoft.com/zh-tw/library/windowsazure/ff951624.aspx)
-* [將 SQL Server 資料庫部署至 Azure 虛擬機器](http://msdn.microsoft.com/zh-tw/library/dn195938.aspx)
+* [將資料庫移轉至 SQL Database](http://msdn.microsoft.com/library/windowsazure/ee730904.aspx)
+* [在 SQL Database 中複製資料庫](http://msdn.microsoft.com/library/windowsazure/ff951624.aspx)
+* [將 SQL Server 資料庫部署至 Azure 虛擬機器](http://msdn.microsoft.com/library/dn195938)
 
 
 
@@ -680,4 +684,4 @@ SQL Server 驗證登入資訊可用於伺服器連線。存取 SQL Database 伺�
 [Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
 
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

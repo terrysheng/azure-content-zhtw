@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/11/2014" 
@@ -90,11 +90,10 @@
 [SQL Database 的業務續航力]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
-[原始檔控制功能]: http://azure.microsoft.com/develop/mobile/tutorials/store-scripts-in-source-control/
-[使用 Azure 命令列工具]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
+[原始檔控制功能]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
+[使用 Azure 命令列工具]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [Azure 入口網站]: http://manage.windowsazure.com/
-[Azure 服務儀表板]: http://azure.microsoft.com/support/service-dashboard/
-[使用命令列工具將行動服務自動化]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
+[Azure 服務儀表板]: http://www.windowsazure.com/support/service-dashboard/
+[使用命令列工具將行動服務自動化]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

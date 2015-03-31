@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="開始使用驗證 (Android) | 行動開發人員中心" 
 	description="了解如何使用行動服務透過眾多識別提供者驗證 Android 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" 
 	services="mobile-services" 
@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
+	ms.date="02/03/2015" 
 	ms.author="ricksal"/>
 
 # 將驗證加入至行動服務應用程式
@@ -23,6 +23,8 @@
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
+## 摘要
+
 <p>本主題顯示如何在 Azure 行動服務中從應用程式驗證使用者。在本教學課程中，您將使用行動服務支援的身分識別提供者，將驗證加入至快速入門專案。由行動服務成功驗證並授權之後，就會顯示使用者識別碼值。</p>
 </div>
 
@@ -31,17 +33,8 @@
 
 本教學課程帶領您執行下列基本步驟，在您的應用程式中啟用驗證：
 
-1. [註冊應用程式進行驗證，並設定行動服務]
-2. [限制只有經驗證的使用者具有資料表的權限]
-3. [將驗證新增到應用程式]
-4. [將驗證權杖儲存在用戶端]
-5. [重新整理過期的權杖]
 
- 
-
->[AZURE.NOTE] 如果您想查看已完成之應用程式的原始程式碼，請移至<a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithAuth/Android" target="_blank">這裡</a>。
-
-## 必要條件
+##必要條件
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
@@ -53,15 +46,15 @@
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
-3. 在 Eclipse 中，開啟您完成教學課程[開始使用行動服務]時建立的專案。 
+3. 在 Android Studio 中，開啟您完成[開始使用行動服務]教學課程時所建立的專案。 
 
-4. 從 [**執行**] 功能表，按一下 [**執行**] 來啟動應用程式。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。 
+4. 從 [**執行**] 功能表，按一下 [**執行**] 應用程式。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。 
 
 	 這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 _TodoItem_ 資料表現在需要驗證。
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
-<h2><a name="add-authentication"></a>將驗證新增到應用程式</h2>
+<h2><a name="add-authentication"></a>將驗證新增至應用程式</h2>
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
@@ -103,8 +96,7 @@
 
 [13]: ./media/mobile-services-android-get-started-users/mobile-identity-tab.png
 [14]: ./media/mobile-services-android-get-started-users/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-android-get-started-users/mobile-portal-change-table-per
-	ms.png
+[15]: ./media/mobile-services-android-get-started-users/mobile-portal-change-table-perms.png
 
 
 <!-- URLs. -->
@@ -112,14 +104,13 @@
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[使用 Live Connect 在 Windows 市集應用程式提供單一登入功能]: /zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-android
-[將行動服務新增至現有的應用程式]: /zh-tw/develop/mobile/tutorials/get-started-with-data-android
-[開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-android
-[開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-android
-[使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-android
+[使用 Live Connect 在 Windows 市集應用程式提供單一登入功能]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[開始使用行動服務]: /develop/mobile/tutorials/get-started-android
+[將行動服務新增至現有的應用程式]: /develop/mobile/tutorials/get-started-with-data-android
+[開始使用驗證]: /develop/mobile/tutorials/get-started-with-users-android
+[開始使用推播通知]: /develop/mobile/tutorials/get-started-with-push-android
+[使用指令碼授權使用者]: /develop/mobile/tutorials/authorize-users-in-scripts-android
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

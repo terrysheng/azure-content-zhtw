@@ -1,54 +1,40 @@
+﻿
 
+1. 登入 Azure 管理入口網站，按一下 [**行動服務**]，然後選取您的行動服務。
 
-1. 登入 [Azure 管理入口網站]，按一下 **[行動服務]**，然後按一下您的應用程式。
+2. 按一下 [**API**] 索引標籤，然後按一下 [**建立**]。這樣做會顯示 [**Create a new custom API**] 對話方塊。
 
-	![](./media/mobile-services-create-custom-api/mobile-services-selection.png)
+3. 在 [**API 名稱**] 中輸入 _completeall_，然後按一下 [檢查] 按鈕以建立新的 API。
 
-2. 按一下 **[API]** 索引標籤，然後按一下 **[建立自訂 API]**。
+	> [AZURE.NOTE] 有了預設權限，具備應用程式金鑰的任何人都可以呼叫自訂 API。不過，應用程式金鑰並不會被視為安全的認證，因為它不是以安全的方式散佈或儲存。請考慮限制只有經過驗證的使用者才能存取，以提供進階的安全性。
 
-	![](./media/mobile-services-create-custom-api/mobile-custom-api-create.png)
+4. 按一下 API 資料表中的 **completeall**。
 
-	這樣做會顯示 **[建立新的自訂 API]** 對話方塊。
+5. 按一下 [**指令碼**] 索引標籤，以下列程式碼取代現有的程式碼，然後按一下 [**儲存**]。	此程式碼使用 [mssql 物件] 直接存取 **todoitem** 資料表，以在所有項目上設定 `complete` 旗標。因為使用了 **exports.post** 函數，所以用戶端會傳送 POST 要求以執行作業。系統會以整數值將變更的列數傳回給用戶端。
 
-3. 在 **[API 名稱]** 輸入 _completeall_，然後按一下檢查按鈕。
-
-	![](./media/mobile-services-create-custom-api/mobile-custom-api-create-dialog2.png)
-
-	這樣做會建立新的 API。
-
-	> [AZURE.NOTE] 已設定預設權限，這表示應用程式的任何使用者均可呼叫自訂 API。不過，應用程式金鑰並未安全地發佈或儲存，所以無法視為安全的認證。因此，您應考慮僅限通過驗證的使用者存取可修改資料或影響行動服務的操作。
-
-4. 按一下 API 資料表中的新 **completeall** 項目。
-
-	![](./media/mobile-services-create-custom-api/mobile-custom-api-select2.png)
-
-5. 按一下 **[指令碼]** 索引標籤，以下列程式碼取代現有的程式碼，然後按一下 **[儲存]**：
 
 		exports.post = function(request, response) {
 			var mssql = request.service.mssql;
-			var sql = "UPDATE todoitem SET complete = 1 " + 
+			var sql = "UPDATE todoitem SET complete = 1 " +
                 "WHERE complete = 0; SELECT @@ROWCOUNT as count";
 			mssql.query(sql, {
-				success: function(results) {			
-					if(results.length == 1)							
-						response.send(200, results[0]);			
+				success: function(results) {
+					if(results.length == 1)
+						response.send(200, results[0]);
 				}
 			})
 		};
 
 
-	此程式碼使用 [mssql 物件]直接存取 **todoitem** 資料表，以在所有項目上設定完成旗標。因為使用了 **exports.post** 函數，所以用戶端會傳送 POST 要求以執行此操作。系統會以整數值將變更的列數傳回給用戶端。
 
 > [AZURE.NOTE]
-> <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">Express.js 程式庫</a>會實作提供給自訂 API 函數的 <a href="http://msdn.microsoft.com/library/windowsazure/jj554218.aspx" target="_blank">request</a> 和 <a href="http://msdn.microsoft.com/library/windowsazure/dn303373.aspx" target="_blank">response</a> 物件。如需相關資訊，請參閱<a href="http://msdn.microsoft.com/library/windowsazure/dn280974.aspx" target="_blank">自訂 API</a>。 
-
-接著，您將會修改快速入門應用程式，以加入新按鈕和非同步呼叫新自訂 API 的程式碼。
+> <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">Express.js 程式庫</a> 會實作提供給 API 函數的 <a href="http://msdn.microsoft.com/library/windowsazure/jj554218.aspx" target="_blank">request</a> 和 <a href="http://msdn.microsoft.com/library/windowsazure/dn303373.aspx" target="_blank">response</a> 物件。如需相關資訊，請參閱<a href="http://msdn.microsoft.com/library/windowsazure/dn280974.aspx" target="_blank">自訂 API</a>。
 
 <!-- Anchors. -->
 
 <!-- Images. -->
 
 <!-- URLs. -->
-[Azure 管理入口網站]: https://manage.windowsazure.com/
 [mssql 物件]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
-<!--HONumber=42-->
+
+<!--HONumber=47-->

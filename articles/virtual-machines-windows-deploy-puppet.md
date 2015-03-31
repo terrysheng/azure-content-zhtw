@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="關於 Puppet 和 Azure 虛擬機器" 
 	description="說明如何在 Azure VM 上安裝和設定 Puppet" 
 	services="virtual-machines" 
@@ -16,9 +16,9 @@
 	ms.date="01/23/2015" 
 	ms.author="kathydav"/>
 
-# 關於 Puppet 和 Azure 虛擬機器
+#關於 Puppet 和 Azure 虛擬機器
 
-<p>Puppet Enterprise 是一個可用來建置、部署及管理基礎結構的自動化軟體。您可以使用它來管理您的 IT 基礎結構生命週期，包括：探索、佈建、作業系統和應用程式的組態管理、協調流程，以及報告。   
+<p>Puppet Enterprise 是一個可用來建置、部署及管理基礎結構的自動化軟體。您可以用來管理 IT 基礎結構生命週期，包括：探索、佈建、作業系統和應用程式的組態管理、協調流程，以及報告。   
 
 Puppet 是一個主從式架構系統。Puppet Master 和 Puppet Enterprise 代理程式皆可透過 Azure 進行安裝：
 
@@ -28,8 +28,8 @@ Puppet 是一個主從式架構系統。Puppet Master 和 Puppet Enterprise 代�
 如需指示，您可以從 [Microsoft Windows 和 Azure](http://puppetlabs.com/solutions/microsoft) 頁面下載《入門指南》。  
 
 
-## 其他資源
-[與 Microsoft Azure 和 Visual Studio 的全新整合 (英文)]
+##其他資源
+[與 Microsoft Azure 和 Visual Studio 的全新整合] (英文)
 
 [如何登入執行 Windows Server 的虛擬機器]
 
@@ -38,12 +38,11 @@ Puppet 是一個主從式架構系統。Puppet Master 和 Puppet Enterprise 代�
 [管理延伸模組]
 
 <!--Link references-->
-[與 Microsoft Azure 和 Visual Studio 的全新整合 (英文)]: http://puppetlabs.com/blog/new-integrations-windows-azure-and-visual-studio
+[使用 Microsoft Azure 和 Visual Studio 的整合]: http://puppetlabs.com/blog/new-integrations-windows-azure-and-visual-studio
 [如何登入執行 Windows Server 的虛擬機器]: ../virtual-machines-log-on-windows-server/
 [如何登入執行 Linux 的虛擬機器]: ../virtual-machines-linux-how-to-log-on
-[Azure VM 延伸模組與功能]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Azure VM 延伸項目與功能]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="如何啟用 Google 雲端通訊" 
 	description="請遵循本教學課程，使用 Azure 行動服務建立新的服務。" 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -31,12 +31,11 @@
 
 
 <!-- URLs. -->
-[開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[開始使用推播通知]: /documentation/articles/mobile-services-javascript-backend-android-get-started-push/
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [行動服務 SDK]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
 [管理入口網站]: https://manage.windowsazure.com/
-[.NET 後端版本]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
+[.NET 後端版本]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

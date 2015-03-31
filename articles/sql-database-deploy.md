@@ -1,32 +1,42 @@
-﻿<properties urlDisplayName="How to deploy" pageTitle="如何部署 SQL 資料庫 - Azure" metaKeywords="" description="了解如何將 SQL Server 資料庫部署到 Azure。您將使用 [Deploy Database to SQL Database] 精靈來上傳範例資料庫。" metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
+﻿<properties 
+	pageTitle="如何部署 SQL 資料庫 - Azure" 
+	description="了解如何將 SQL Server 資料庫部署到 Azure。您將使用 [Deploy Database to SQL Database] 精靈來上傳範例資料庫。" 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="jeffreyg" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/25/2015" 
+	ms.author="jeffreyg"/>
 
 
 
 
 
 
-<h1><a id="howtodeploySQLdb"></a>如何將資料庫部署至 Azure</h1>
+<h1><a id="howtodeploySQLdb"></a>如何將資料庫部署到 Azure</h1>
 
 將內部部署 SQL Server 資料庫移至 Azure 的方式有數種。在此工作中，您將使用 [Deploy Database to SQL Database] 精靈來上傳範例資料庫。
 
 School 範例資料庫非常簡便，其所有物件都與 SQL Database 相容，排除了修改或準備資料庫進行移轉的需求。做為新的系統管理員，在使用自己的資料庫之前，首先嘗試部署簡單的資料庫以熟悉步驟。 
 
-**注意：**檢閱《SQL Database 移轉指南》以取得如何準備內部部署資料庫以移轉至 Azure 的詳細指示。另外，請考慮下載 Azure 訓練套件。它包括顯示移轉內部部署資料庫替代方法的實驗室。
+**注意：**請檢閱《Azure SQL Database 移轉指南》，以取得準備將內部部署資料庫移轉至 Azure 的詳細指示。此外，請考慮下載 Azure 訓練套件。其中包含一個實驗室，會說明移轉內部部署資料庫的替代方法。
 
-##目錄##
-* [作法：在內部部署伺服器上建立 school 資料庫](#schooldb)
-* [作法：部署至 SQL Database](#deploydb)
-* [作法：驗證資料庫部署](#verify)
 
 <h2><a id="schooldb"></a>作法：在內部部署伺服器上建立 school 資料庫</h2>
 
-您可以在 [開始使用 SQL Database 管理][]中找到建立此資料庫的指令碼。在此指南中，您將在 Management Studio 中執行這些指令碼，以建立內部部署版本的 school 資料庫。
+您可以在 [開始使用 SQL Database 管理][] 中找到建立此資料庫的指令碼。在此指南中，您將在 Management Studio 中執行這些指令碼，以建立內部部署版本的 school 資料庫。
 
 1. 在 Management Studio 中，連接到內部部署伺服器。以滑鼠右鍵按一下 [**資料庫**]，按一下 [**新增資料庫**]，並輸入 *school*。
 
-2. 以滑鼠右鍵按一下 *school*，並按一下 [**新增查詢**]。 
+2. 以滑鼠右鍵按一下 *school*，然後按一下 [**新增查詢**]。 
 
 3. 複製然後執行教學課程中的建立結構描述指令碼。 
 
@@ -529,7 +539,7 @@ School 範例資料庫非常簡便，其所有物件都與 SQL Database 相容�
 
 1. 在 Management Studio 中，連接到有您要移轉之資料庫的內部部署 SQL Server 執行個體。
 
-2. 以滑鼠右鍵按一下您剛才建立的 school 資料庫，指向 [**工作**]，並按一下 [**將資料庫部署至 SQL Azure**]。
+2. 以滑鼠右鍵按一下您剛才建立的 school 資料庫，指向 [**工作**]，然後按一下 [**將資料庫部署到 SQL Azure**]。
 
 3. 在 [部署設定] 中，輸入資料庫的名稱 (例如 *school*)。 
 
@@ -543,7 +553,7 @@ School 範例資料庫非常簡便，其所有物件都與 SQL Database 相容�
 
 8. 按一下 [**選項**]。
 
-9. 在 [連接屬性] 的 [連接到資料庫] 中，輸入 **master**。
+9. 在 [連接屬性] 的 [**連接到資料庫**] 中，輸入 **master**。
 
 10. 按一下 [**連接**]。此步驟會以連接規格做為總結，並引導您回到精靈。
 
@@ -555,9 +565,9 @@ School 範例資料庫非常簡便，其所有物件都與 SQL Database 相容�
 
 1. 在 Management Studio 的 [物件總管] 中，重新整理資料庫以檢視您剛才建立的新資料庫。
 
-2. 展開 [資料庫] 資料夾。您應該會在清單中看見 **school** 資料庫。
+2. 展開 [**資料庫**] 資料夾。您應該會在清單中看見 **school** 資料庫。
 
-3. 以滑鼠右鍵按一下 school 資料庫，並按一下 [**新增查詢**]。
+3. 以滑鼠右鍵按一下 school 資料庫，然後按一下 [**新增查詢**]。
 
 4. 執行下列查詢以驗證該資料是否可以存取。
 
@@ -581,7 +591,7 @@ School 範例資料庫非常簡便，其所有物件都與 SQL Database 相容�
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
 </pre></div>
 
-[開始使用 SQL Database 管理]: /zh-tw/manage/services/sql-databases/getting-started-w-sql-databases/  
+[開始使用 SQL Database 管理]: /manage/services/sql-databases/getting-started-w-sql-databases/  
 
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

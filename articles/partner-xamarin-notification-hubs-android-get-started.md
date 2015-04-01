@@ -1,16 +1,16 @@
 <properties 
 	pageTitle="開始使用適用於 Xamarin.Android 應用程式的通知中心" 
-	description="了解如何使用 Azure 通知中心，將推播通知傳送到 Xamarin Android 應用程式。 
-	authors="lindydonna" 
+	description="了解如何使用 Azure 通知中心，將推播通知傳送到 Xamarin Android 應用程式。"
+	authors="yuaxu" 
 	manager="dwrede" 
 	editor="" 
-	services="mobile-services" 
+	services="notification-hubs" 
 	documentationCenter="xamarin"/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
 	ms.date="11/11/2014" 

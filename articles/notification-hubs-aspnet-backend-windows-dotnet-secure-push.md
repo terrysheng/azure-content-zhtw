@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure 通知中樞安全推播" 
-	description了解如何在 Azure 中傳送安全的推播通知。程式碼範例是以 C# 撰寫並使用 .NET API。" 
+	description="了解如何在 Azure 中傳送安全的推播通知。程式碼範例是以 C# 撰寫並使用 .NET API。" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	manager="dwrede" 

@@ -78,10 +78,10 @@
 
 以下是資料表作業的標準主要函數特徵： 
 
-+ [Insert][insert 函數︰]: `function insert (item, user, request) { ... }`
-+ [Update][update 函數︰]: `function update (item, user, request) { ... }`
-+ [Delete][delete 函數︰]: `function del (id, user, request) { ... }`
-+ [Read][read 函數︰]: `function read (query, user, request) { ... }`
++ [Insert][insert 函數]: `function insert (item, user, request) { ... }`
++ [Update][update 函數]: `function update (item, user, request) { ... }`
++ [Delete][delete 函數]: `function del (id, user, request) { ... }`
++ [Read][read 函數]: `function read (query, user, request) { ... }`
 
 >[AZURE.NOTE]註冊至刪除作業的函數必須命名為 _del_，因為 delete 是 JavaScript 的保留關鍵字。 
 
@@ -178,7 +178,7 @@
 
 當您提供 **success** 處理常式給 **execute** 函數時，也必須呼叫 **respond** 函數做為 **success** 處理常式的一部分，讓執行階段知道指令碼已完成且可以寫入回應。若呼叫 **respond** 時未傳遞任何引數，行動服務會產生預設回應。 
 
->[AZURE.NOTE]只能在第一次呼叫 **execute** 函數後以無引數呼叫 **respond** 的方式叫用預設回應。
+>[AZURE.NOTE]只能在第一次呼叫 **execute** 函數後以無引數呼叫 **respond**的方式叫用預設回應。
  
 ###<a name="override-error"></a>作法：覆寫預設的錯誤處理
 
@@ -1038,7 +1038,7 @@ You can then use a function like this in a table operation script:
 [管理入口網站]: https://manage.windowsazure.com/
 [排程作業]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
 [使用伺服器指令碼在行動服務中驗證與修改資料]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
-[管理 Azure 行動服務的命令]: /documentation/articles/virtual-machines-command-line-tools/#Mobile_Scripts
+[管理 Azure 行動服務的命令]: /documentation/articles/virtual-machines-command-line-tools.md#Mobile_Scripts
 [Windows 市集推播]: /develop/mobile/tutorials/get-started-with-push-dotnet/
 [Windows Phone 推播]: /develop/mobile/tutorials/get-started-with-push-wp8/
 [iOS 推播]: /develop/mobile/tutorials/get-started-with-push-ios/

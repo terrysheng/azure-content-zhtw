@@ -1,6 +1,6 @@
 ﻿<properties 
    pageTitle="使用 Chef 自動化 Azure 虛擬機器部署" 
-   說明="了解使用 Chef 自動化 Azure 虛擬機器的藝術" 
+   description="了解使用 Chef 自動化 Azure 虛擬機器的藝術" 
    services="virtual-machines" 
    documentationCenter="" 
    authors="diegoviso" 

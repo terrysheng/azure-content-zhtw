@@ -1,6 +1,6 @@
 ﻿<properties
 	pageTitle="行動服務中使用 JavaScript 後端的使用者服務端授權 |行動開發人員中心"
-	了解如何在 Azure 行動服務的 JavaScript 後端為使用者授權。"
+	description=了解如何在 Azure 行動服務的 JavaScript 後端為使用者授權。"
 	services="mobile-services"
 	authors="krisragh"
 	manager="dwrede"

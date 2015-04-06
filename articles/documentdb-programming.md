@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="DocumentDB 程式設計：預存程序、觸發程序和 UDF | Azure" 
 	description="了解如何使用 Microsoft Azure DocumentDB 來撰寫 JavaScript 原生預存程序、觸發程序和使用者定義函數 (UDF)。" 
 	services="documentdb" 
@@ -142,7 +142,7 @@
 上面描述的範例已示範如何使用預存程序。本教學課程稍後會討論觸發程序和使用者定義函數 (UDF)。首先，讓我們看一下 DocumentDB 中關於指令碼支援的一般特性。  
 
 ##執行階段支援
-[DocumentDB JavaScript 伺服器端 SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) 支援以 [ECMA-262] 做為標準的大部分主流 JavaScript 語言功能(../documentdb-interactions-with-resources.md)。
+[DocumentDB JavaScript 伺服器端 SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) 支援以 [ECMA-262 做為標準的大部分主流 JavaScript 語言功能](../documentdb-interactions-with-resources.md)。
  
 ##交易
 一般資料庫中的交易可以定義為以單一工作邏輯單位執行的一連串作業。每筆交易都提供「**ACID 保證**」。ACID 是個著名的縮寫，代表四個屬性：不可部分完成的作業 (Atomicity)、一致性 (Consistency)、隔離 (Isolation) 和持久性 (Durability)。  
@@ -601,7 +601,7 @@ JavaScript 函數能使用的資源也受到限制。DocumentDB 會根據所佈�
 	    });
 
 
-下列範例則說明如何建立使用者定義函數 (UDF) 並將它用於 [DocumentDB SQL 查詢] 中(../documentdb-sql-query.md)。
+下列範例則說明如何建立使用者定義函數 (UDF) 並將它用於 [DocumentDB SQL 查詢 中](../documentdb-sql-query.md)。
 
 	UserDefinedFunction function = new UserDefinedFunction()
 	{

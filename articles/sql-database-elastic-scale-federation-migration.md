@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="同盟移轉" 
 	description="概述將使用同盟功能建立的現有應用程式移轉至 Elastic Scale 模型的步驟。" 
 	services="sql-database" 
@@ -65,7 +65,7 @@ Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘�
 
     USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF`
 
-使用 Elastic Scale API 後，將透過[資料相依路由]建立特定分區的連線(./sql-database-elastic-scale-data-dependent-routing.md) (藉由 **RangeShardMap** 類別的 **OpenConnectionForKey** 方法)。 
+使用 Elastic Scale API 後，將透過[資料相依路由建立特定分區的連線](./sql-database-elastic-scale-data-dependent-routing.md) (藉由 **RangeShardMap** 類別的 **OpenConnectionForKey** 方法)。 
 
     //Connect and issue queries on the shard with key=100 
     using (SqlConnection conn = rangeShardMap.OpenConnectionForKey(100, csb))  

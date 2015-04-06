@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="多分區查詢" 
 	description="使用 Elastic Scale API 對於分區執行查詢。" 
 	services="sql-database" 
@@ -18,7 +18,7 @@
 
 # 多分區查詢
 ## 概觀
-**多分區查詢**用於資料收集/報告等工作，這些工作需要跨越數個分區執行查詢。(這與[資料相依路由]相反(./sql-database-elastic-scale-data-dependent-routing.md)，其在單一分區執行所有工作。) 
+**多分區查詢**用於資料收集/報告等工作，這些工作需要跨越數個分區執行查詢。(這與[資料相依路由相反](./sql-database-elastic-scale-data-dependent-routing.md)，其在單一分區執行所有工作。) 
 
 Elastic Scale 用戶端程式庫引進一個新的命名空間，稱為 **Microsoft.Azure.SqlDatabase.ElasticScale.Query**，可讓您使用單一查詢和結果來查詢多個分區。它提供一組分區的查詢抽象方法。它也提供替代執行原則，特別是部分結果，以處理查詢許多分區時的失敗。  
 

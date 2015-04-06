@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="如何使用 SQL Database (.NET) - Azure 功能指南" 
 	description="開始使用 SQL Database。了解如何建立 SQL Database 執行個體並使用 ADO.NET、ODBC 和 EntityClient Provider 進行連線。" 
 	services="sql-database" 
@@ -68,8 +68,7 @@ SQL Database 可在 Azure 上提供關聯式資料儲存體、存取和管理服
 	MAXSIZE 會在第一次建立資料庫時指定，且後續可使用 ALTER DATABASE 加以變更。MAXSIZE 可用來限制資料庫的大小。
 
 	Azure 上的每個 SQL Database 實際上有三個複本。這是為了要確保高可用性。
-容錯移轉是透明的機制，且屬於服務的一部分。[服務等級
-協定][] 提供 SQL Database 99.9% 的運作時間。
+容錯移轉是透明的機制，且屬於服務的一部分。[服務等級協定][] 提供 SQL Database 99.9% 的運作時間。
 
 8. 在 [伺服器] 中，選取 [New SQL Database server]****。 
 

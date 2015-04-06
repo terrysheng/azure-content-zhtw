@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="如何監視 SQL Database - Azure 服務管理" 
 	description="了解如何使用 Azure Management Portal 監視 SQL Database。" 
 	services="sql-database" 
@@ -26,6 +26,6 @@
 
 如需詳細資訊，請參閱 [使用動態管理檢視監視 SQL Database][]。
 
-[使用動態管理檢視監視 SQL Database ]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
+[使用動態管理檢視監視 SQL Database]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
 
 <!--HONumber=47-->

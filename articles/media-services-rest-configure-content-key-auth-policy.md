@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="使用 REST 設定內容金鑰授權原則" 
 	description="了解如何設定內容金鑰的授權原則。" 
 	services="media-services" 
@@ -61,7 +61,7 @@ Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使�
 >
 >在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發的設定](../media-services-rest-how-to-use)。
 
->順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務]中所述(../media-services-rest-connect_programmatically/)。 
+>順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務](../media-services-rest-connect_programmatically/)中所述。 
 
 
 ###Open 限制
@@ -257,7 +257,7 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。這
 	
 ###建立 ContentKeyAuthorizationPolicies
 
-建立「Token 限制原則」，如[這裡]所示(#ContentKeyAuthorizationPolicies)。
+建立「Token 限制原則」，如[這裡](#ContentKeyAuthorizationPolicies)所示。
 
 
 ###建立 ContentKeyAuthorizationPolicyOptions
@@ -301,11 +301,11 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。這
 	
 ####連結 ContentKeyAuthorizationPolicies 與選項
 
-連結 ContentKeyAuthorizationPolicies 與選項，如[這裡]所示(#ContentKeyAuthorizationPolicies)。
+連結 ContentKeyAuthorizationPolicies 與選項，如[這裡](#ContentKeyAuthorizationPolicies)所示。
 
 ####將授權原則加入內容金鑰
 
-將 AuthorizationPolicy 加入 ContentKey，如[這裡]所示(#AddAuthorizationPolicyToKey)。
+將 AuthorizationPolicy 加入 ContentKey，如[這裡](#AddAuthorizationPolicyToKey)所示。
 
 
 ##PlayReady 動態加密 
@@ -401,11 +401,11 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。這
 
 ####連結 ContentKeyAuthorizationPolicies 與選項
 
-連結 ContentKeyAuthorizationPolicies 與選項，如[這裡]所示(#ContentKeyAuthorizationPolicies)。
+連結 ContentKeyAuthorizationPolicies 與選項，如[這裡](#ContentKeyAuthorizationPolicies)所示。
 
 ####將授權原則加入內容金鑰
 
-將 AuthorizationPolicy 加入 ContentKey，如[這裡]所示(#AddAuthorizationPolicyToKey)。
+將 AuthorizationPolicy 加入 ContentKey，如[這裡](#AddAuthorizationPolicyToKey)所示。
 
 
 ###Token 限制
@@ -414,7 +414,7 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。這
 	
 ####建立 ContentKeyAuthorizationPolicies
 	
-建立 ContentKeyAuthorizationPolicies，如[這裡]所示(#ContentKeyAuthorizationPolicies2)。
+建立 ContentKeyAuthorizationPolicies，如[這裡](#ContentKeyAuthorizationPolicies2)所示。
 
 ####建立 ContentKeyAuthorizationPolicyOptions
 	
@@ -457,11 +457,11 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。這
 
 ####連結 ContentKeyAuthorizationPolicies 與選項
 
-連結 ContentKeyAuthorizationPolicies 與選項，如[這裡]所示(#ContentKeyAuthorizationPolicies)。
+連結 ContentKeyAuthorizationPolicies 與選項，如[這裡](#ContentKeyAuthorizationPolicies)所示。
 
 ####將授權原則加入內容金鑰
 
-將 AuthorizationPolicy 加入 ContentKey，如[這裡]所示(#AddAuthorizationPolicyToKey)。
+將 AuthorizationPolicy 加入 ContentKey，如[這裡](#AddAuthorizationPolicyToKey)所示。
 
 
 ##<a id="types"></a>定義 ContentKeyAuthorizationPolicy 時使用的類型

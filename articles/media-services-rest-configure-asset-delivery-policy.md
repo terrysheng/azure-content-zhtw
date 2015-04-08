@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="使用 REST 設定資產傳遞原則" 
 	description="本主題說明如何設定不同的資產傳遞原則。" 
 	services="media-services" 
@@ -59,7 +59,7 @@ HDS
 >
 >在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發的設定](../media-services-rest-how-to-use)。
 
->順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務]中所述(../media-services-rest-connect_programmatically/)。 
+>順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務](../media-services-rest-connect_programmatically/)中所述。 
 
 
 ##清除資產傳遞原則 

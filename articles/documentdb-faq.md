@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="DocumentDB 常見問題集 | Azure" 
 	description="關於 Azure DocumentDB nosql 文件資料庫服務常見問題的解答。了解容量及要求單位，並了解如何按照應用程式的需求進行調整。" 
 	services="documentdb" 
@@ -42,7 +42,7 @@ DocumentDB 是 NoSQL 文件導向的資料庫，以 JSON 格式儲存資料。Do
 對於新的 Web 和行動應用程式，規模、效能和可查詢無結構描述的資料都很重要，DocumentDB 是不錯的選擇。DocumentDB 有助於快速開發，且支援應用程式資料模型的持續反覆運算。管理使用者產生之內容和資料的應用程式，就是 DocumentDB 的常見使用案例。  
 
 ###規模和容量有何限制？
-每一個 Azure DocumentDB 帳戶都支援容量單位數上限，這可透過 Azure 入口網站來設定。如果您需要更多容量單位，請聯絡支援人員來增加帳戶配額。如需資源配額的詳細資訊，請參閱[預覽版本的 DocumentDB 限制]。(../documentdb-limits/) 
+每一個 Azure DocumentDB 帳戶都支援容量單位數上限，這可透過 Azure 入口網站來設定。如果您需要更多容量單位，請聯絡支援人員來增加帳戶配額。如需資源配額的詳細資訊，請參閱[預覽版本的 DocumentDB 限制](../documentdb-limits/)。 
 
 
 ###Microsoft Azure DocumentDB 的費用是多少？

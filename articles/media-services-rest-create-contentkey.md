@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="使用 REST 建立 ContentKey" 
 	description="了解如何建立提供資產安全存取的內容金鑰。" 
 	services="media-services" 
@@ -23,7 +23,7 @@
 
 媒體服務可讓您建立新的資產及傳遞已加密的資產。**ContentKey** 提供**資產**的安全存取。 
 
-當您建立新資產 (例如，在[上傳檔案]之前(../media-services-rest-upload-files/))，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
+當您建立新資產 (例如，在[上傳檔案](../media-services-rest-upload-files/)之前)，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
 
 當您將資產傳遞給用戶端時，您可以使用下列兩個加密的其中一個，[設定動態加密資產](../media-services-rest-configure-asset-delivery-policy) ：**DynamicEnvelopeEncryption** 或 **DynamicCommonEncryption**。
 
@@ -69,7 +69,7 @@
 >
 >在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發的設定](../media-services-rest-how-to-use)。
 
->順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務]中所述(../media-services-rest-connect_programmatically/)。 
+>順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務](../media-services-rest-connect_programmatically/)中所述。 
 
 ##擷取 ProtectionKeyId 
  

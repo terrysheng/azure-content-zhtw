@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="含 Apache Storm on HDInsight 的 Twitter 趨勢主題 | Azure"
    description="了解如何使用 Trident 建立 Storm 拓撲，以根據雜湊標記來判斷趨勢主題。"
    services="hdinsight"
@@ -127,7 +127,7 @@ Spout (**TwitterSpout**) 會使用 <a href="http://twitter4j.org/en/" target="_b
 
 ##後續步驟
 
-現在，您已經在本機測試拓撲、探索如何 [將此拓撲部署至 Storm on HDInsight]。(../hdinsight-storm-deploy-monitor-topology/)。
+現在，您已經在本機測試拓撲、探索如何 [將此拓撲部署至 Storm on HDInsight](../hdinsight-storm-deploy-monitor-topology/)。
 
 您也可能會對下列 Storm 主題感興趣：
 

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="如何從媒體服務傳遞串流內容" 
 	description="了解如何建立定位器，用來建置串流 URL。程式碼使用 REST API。" 
 	authors="juliako" 
@@ -24,7 +24,7 @@
 ##概觀
 
 
-您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。[將資產編碼](../media-services-rest-encode-asset) 主題說明如何編碼為調適性位元速率 MP4 集。建立定位器之前，您應該依[此]主題所述設定資產傳遞原則(../media-services-rest-configure-asset-delivery-policy) 。 
+您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。[將資產編碼](../media-services-rest-encode-asset) 主題說明如何編碼為調適性位元速率 MP4 集。建立定位器之前，您應該依[此](../media-services-rest-configure-asset-delivery-policy)主題所述設定資產傳遞原則。 
 
 您也可以使用隨選串流定位器來建置指向可漸進式下載之 MP4 檔案的 URL。  
 

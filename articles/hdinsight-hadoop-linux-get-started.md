@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="在 Linux 上開始在 HDInsight 中搭配使用 Hadoop 與 Hive| Azure" 
    description="在 Linux 上開始在 HDInsight 中使用 Hadoop。了解如何佈建在 Linux 上執行的 HDInsight Hadoop 叢集以及使用 Hive 查詢資料" 
    services="hdinsight" 
@@ -112,7 +112,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為「 *WA
 	
 5. 按一下 [**建立 HDInsight 叢集**]。佈建完成時，狀態欄便會顯示 [**執行中**]。
 
-	>[AZURE.NOTE] 上述程序會使用 quick-create 選項建立 Linux 叢集，此選項使用預設的 SSH 使用者名稱和 Azure 儲存體容器。若要使用自訂選項建立叢集，例如使用 SSH 金鑰進行驗證或使用其他儲存體帳戶，請參閱 [使用自訂選項佈建 HDInsight Linux 叢集]。(../hdinsight-hadoop-provision-linux-clusters)。
+	>[AZURE.NOTE] 上述程序會使用 quick-create 選項建立 Linux 叢集，此選項使用預設的 SSH 使用者名稱和 Azure 儲存體容器。若要使用自訂選項建立叢集，例如使用 SSH 金鑰進行驗證或使用其他儲存體帳戶，請參閱 [使用自訂選項佈建 HDInsight Linux 叢集](../hdinsight-hadoop-provision-linux-clusters)。
 
 
 ## <a name="hivequery"></a>在叢集上提交 Hive 工作

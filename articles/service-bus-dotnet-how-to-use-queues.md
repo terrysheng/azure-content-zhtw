@@ -1,4 +1,4 @@
-﻿<properties
+<properties
     pageTitle="如何使用服務匯流排佇列 (.NET) - Azure"
     description="了解如何在 Azure 使用服務匯流排佇列。程式碼範例是以 C# 撰寫並使用 .NET API。"
     services="service-bus"
@@ -262,6 +262,6 @@
   [Azure 管理入口網站]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [佇列、主題和訂閱。]: http://msdn.microsoft.com/library/hh367516.aspx
-  [服務匯流排代理訊息 .NET 教學課程。]: http://msdn.microsoft.com/library/hh367512.aspx
+  [服務匯流排代理訊息 .NET 教學課程]: http://msdn.microsoft.com/library/hh367512.aspx
 
 <!--HONumber=47-->

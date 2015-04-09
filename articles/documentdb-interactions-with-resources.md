@@ -112,7 +112,7 @@ DocumentDB 服務的回應是產生成功回應和狀態碼，指出已成功註
 	}
 
 ##使用 POST 執行預存程序
-最後，若要在上述範例中執行預存程序，則一個必須對預存程序資源的 URI 發出 POST(/dbs/_rid-db/colls/_rid-coll/sprocs/sproc1)。下列程式碼就將此說明。  
+最後，為了執行上述範例的預存程序，您需要對預存程序資源的 URI (/dbs/_rid-db/colls/_rid-coll/sprocs/sproc1) 發出 POST。下列程式碼就將此說明。  
 
 	POST /dbs/MyDb/colls/MyColl/sprocs/sproc1 HTTP/1.1
 	 [ { "id": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
@@ -156,19 +156,19 @@ DocumentDB 服務將做出下列回應。
 ##使用 PUT、GET、和 DELETE
 取代或讀取資源分別等同於對資源的 _self 連結發出 PUT (具有有效要求本文) 和 GET 動詞命令。同樣地，刪除資源等同於對資源的 _self 連結發出 DELETE 動詞命令。必須指出的一點是，要想在 DocumentDB 的資源模型中以階層方式組織資源，就必須支援串聯刪除功能，以便只要刪除擁有者的資源就能刪除相依資源。相依資源可能會散佈在擁有者資源以外的其他節點，因此，刪除作業可能進展緩慢。不論記憶體回收的機制為何，資源一經刪除，就會立即釋出配額供您使用。請注意，系統會保留參考完整性。例如，您不可以將集合插入至已刪除的資料庫，或者取代或查詢不再存在之集合的文件。  
  
-對資源的 feed 發出 GET 或是查詢集合都可能會導致產生數百萬個項目，因此這兩部伺服器根本不可能有辦法顯示這些項目，用戶端也不可能在一次往返/要求和回應交換內就完全取用這些項目。為了解決此問題，DocumentDB 允許用戶端以一次一頁的方式對大型摘要進行分頁處理。用戶端可以使用 [x-ms-continuationToken] 回應標頭做為資料指標，以導覽到下一頁。   
+對資源的 feed 發出 GET 或是查詢集合都可能會導致產生數百萬個項目，因此這兩部伺服器根本不可能有辦法顯示這些項目，用戶端也不可能在一次往返/要求和回應交換內就完全取用這些項目。為了解決此問題，DocumentDB 允許用戶端以一次一頁的方式對大型摘要進行分頁處理。用戶端可以使用 [x-ms-continuationToken] 回應標頭做為資料指標，以瀏覽至下一頁。   
 
 ##開放式並行存取控制
 大部分的 Web 應用程式都依賴以實體標記為基礎的開放式並行存取控制，以避免令人厭煩的「遺失更新」和「遺失刪除」問題。實體標記是支援 HTTP 且與資源相關聯的邏輯時間戳記。DocumentDB 透過確定每個 HTTP 回應都 (持久) 包含與特定資源相關聯的版本，原生支援開放式並行存取控制。在下列情況時，可正確偵測到並行存取控制衝突：  
 
-1.	如果兩個用戶端同時以最新版本的資源 (透過 [if-match] 要求標頭來指定) 對資源發出變更要求 (透過 PUT/DELETE 動詞命令)，則 DocumentDB 資料庫引擎會讓它們遵循交易式並行存取控制。
+1.	如果兩個用戶端同時以最新版本的資源 (透過 [if-match] 要求標頭來指定) 對資源發出變更要求 (透過 PUT/ DELETE 動詞命令)，則 DocumentDB 資料庫引擎會讓它們遵循交易式並行存取控制。
 2.	如果用戶端提出舊版資源 (透過 [if-match] 要求標頭來指定)，則會拒絕其要求。  
 
 ##連線選項
 在 DocumentDB 所公開的邏輯定址模型中，每個資源都具有可透過其 _self 連結來加以識別的邏輯和穩定 URI。做為遍布多個區域的分散式儲存體系統，DocumentDB 中的各種資料庫帳戶所下轄的資源會分割給多部電腦，並且會複寫每個資料分割以提供高可用性。管理給定資料分割資源的複本會註冊實體位址。雖然實體位址在一段時間後就會因為失敗而有所變更，但是其邏輯位址仍會維持不變。同時以資源形式在內部提供使用的路由表，會保存將邏輯位址轉譯為實體位址的方法。DocumentDB 公開兩種連線模式：  
 
-1.	**閘道模式：**在從邏輯至實體位址的轉換或路由詳細資料中，會避免轉譯用戶端；僅處理邏輯 URI，並安穩地瀏覽資源模型。用戶端使用邏輯 URI 發出要求，而且 Edge 機器將邏輯 URI 轉譯為管理資源並轉送要求的複本的實體位址。利用 Edge 機器快取 (和定期重新整理) 路由表，路由極有效率。
-2.	**直接連線模式：**用戶端直接在其處理空間中管理路由表和定期重新整理。用戶端可以直接與複本連線，並略過 Edge 機器。
+1.	**閘道模式：**在從邏輯至實體位址的轉換或路由詳細資料中，會避免轉譯用戶端；僅處理邏輯 URI，並安穩地瀏覽資源模型。用戶端使用邏輯 URI 發出要求，而且 Edge 機器將邏輯 URI 轉譯為管理資源並轉送要求的複本的實體位址。利用 Edge 機器快取 (和定期重新整理) 路由表，路由極有效率。 
+2.	**直接連線模式：**用戶端直接在其處理空間中管理路由表和定期重新整理。用戶端可以直接與複本連線，並略過 Edge 機器。   
 
 
 <table width="300">
@@ -252,12 +252,12 @@ DocumentDB 服務將做出下列回應。
 瀏覽 [Azure DocumentDB REST API 參考](https://msdn.microsoft.com/library/azure/dn781481.aspx)以深入了解使用 REST API 運用資源。
 
 ##參考
--   [Azure DocumentDB REST API 參考](https://msdn.microsoft.com/library/azure/dn781481.aspx)
+-   [Azure DocumentDB REST API 參考](https://msdn.microsoft.com/library/azure/dn781481.aspx) 
 -	REST [http://en.wikipedia.org/wiki/Representational_state_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
--	JSON 規格[http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
+-	JSON 規格  [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
 -	HTTP 規格[http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
--	實體標記[http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
--	[查詢 DocumentDB](../documentdb-sql-query/)
+-	實體標籤[http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
+-	[查詢 DocumentDB](documentdb-sql-query.md)
 -	[DocumentDB SQL 參考](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 -	[DocumentDB 程式設計：預存程序、觸發程序和 UDF](../documentdb-programming/)
 -	[DocumentDB 參考文件](https://msdn.microsoft.com/library/azure/dn781482.aspx)
@@ -265,4 +265,4 @@ DocumentDB 服務將做出下列回應。
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
 
-<!--HONumber=47-->
+<!--HONumber=49-->

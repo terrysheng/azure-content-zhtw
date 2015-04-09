@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="如何使用 Azure 受管理快取服務" 
-	description="" 
+	description="了解如何改善與 Azure 受管理快取服務的 Azure 應用程式的效能" 
 	services="cache" 
 	documentationCenter="" 
 	authors="steved0x" 
@@ -13,29 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="02/24/2015" 
 	ms.author="sdanie"/>
 
 # 如何使用 Azure 受管理快取服務
 
-本指南示範如何開始使用「Azure 受管理快取服務」。這些範例均以 C\# 程式碼撰寫，並使用 .NET API。涵蓋的案例包括「建立和設定快取」、「設定快取用戶端」、「新增和移除快取中的物件」、「將 ASP.NET 工作階段狀態儲存在快取中」，以及「使用快取啟用 ASP.NET 頁面輸出快取」。如需有關使用「Azure 快取」的詳細資訊，請參閱[後續步驟][]一節。
+本指南示範如何開始使用 **Azure 受管理快取服務**。這些範例均以 C\# 程式碼撰寫，並使用 .NET API。涵蓋的案例包括「建立和設定快取」、「設定快取用戶端」、「新增和移除快取中的物件」、「將 ASP.NET 工作階段狀態儲存在快取中」，以及「使用快取啟用 ASP.NET 頁面輸出快取」。如需有關使用「Azure 快取」的詳細資訊，請參閱[後續步驟][]一節。
 
 >如需為應用程式選擇正確「Azure 快取」提供項目的相關指引，請參閱[我適合使用哪個 Azure 快取服務？][]。
-
-## 目錄
-
--   [何謂 Azure 受管理快取服務？][]
--	[開始使用受管理的快取服務]
-	-	[建立快取][]
-	-	[設定快取][]
-	-	[設定快取用戶端][]
--	[使用快取][]
-	-	[作法：建立 DataCache 物件][]
-	-   [作法：從快取新增和擷取物件][]
-	-   [作法：指定快取中物件的到期時間][]
-	-   [作法：將 ASP.NET 工作階段狀態儲存在快取中][]
-	-   [作法：將 ASP.NET 頁面輸出快取儲存在快取中][]
--   [後續步驟][]
 
 <a name="what-is"></a>
 ## 何謂 Azure 受管理快取服務？
@@ -56,7 +41,7 @@ Azure 受管理快取服務是一種分散式、記憶體內的可擴充解決�
 -	標準 - 大小從 1GB 到 10GB 的快取
 -	高級 - 大小從 5GB 到 150GB 的快取
 
-每一個層次都有不同的功能和定價。本指南稍後將探討這些功能，如需定價的詳細資訊，請參閱[快取定價詳細資料][]。
+每一層都有不同的功能和定價。本指南稍後將探討這些功能，如需定價的詳細資訊，請參閱[快取定價詳細資料][]。
 
 本指南提供開始使用受管理的快取服務的概觀。如需有關本入門指南涵蓋範圍外之功能的更多詳細資訊，請參閱 [Azure 受管理快取服務概觀][]。
 
@@ -80,19 +65,19 @@ Azure 受管理快取服務是一種分散式、記憶體內的可擴充解決�
 
 >如需有關安裝和使用 Azure PowerShell 的指示，請參閱[如何安裝和設定 Azure PowerShell][]。
 
-請叫用 [Add-AzureAccount][] Cmdlet，然後輸入與您帳戶關聯的電子郵件地址和密碼。叫用 [Add-AzureAccount][] Cmdlet 之後，預設會選擇並顯示一個訂用帳戶。若要變更訂用帳戶，請叫用 [Select-AzureSubscription][] Cmdlet。
+請叫用 [Add-AzureAccount][] Cmdlet，然後輸入與您帳戶相關聯的電子郵件地址和密碼。叫用 [Add-AzureAccount][] Cmdlet 之後，預設會選擇並顯示一個訂用帳戶。若要變更訂用帳戶，請叫用 [Select-AzureSubscription][] Cmdlet。
 
 >如果您已使用帳戶的憑證來設定 Azure PowerShell，那麼就可以跳過此步驟。如需有關將 Azure PowerShell 與 Azure 帳戶連接的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][]。
 
 預設會選擇並顯示一個訂用帳戶。若要變更訂用帳戶，請叫用 [Select-AzureSubscription][] Cmdlet。
 
-請叫用 [New-AzureManagedCache][] Cmdlet，然後指定快取的名稱、地區、快取提供項目和大小。
+請叫用 [New-AzureManagedCache][] Cmdlet，然後指定快取的名稱、區域、快取服務和大小。
 
 針對 [名稱]，請輸入要用於快取端點的子網域名稱。端點必須是介於 6 到 20 個字元之間的字串、僅包含小寫數字和字母，而且必須以字母開頭。
 
 針對 [位置]，請指定快取的地區。為獲得最佳效能，請在與快取用戶端應用程式相同的地區中建立快取。
 
-快取大小是由 [SKU] 和 [記憶體] 共同決定。受管理的快取服務共有下列三個階層：
+快取大小是由 [**Sku**] 和 [**記憶體**] 共同決定。受管理的快取服務共有下列三個階層：
 
 -	基本 - 大小從 128MB 到 1GB 的快取 (每次增量 128MB)，具有一個預設具名快取
 -	標準 - 大小從 1GB 到 10GB 的快取 (每次增量 1GB)，支援通知和最多 10 個具名快取
@@ -106,7 +91,7 @@ Azure 受管理快取服務是一種分散式、記憶體內的可擴充解決�
 
 >如需建立快取時可使用之參數和值的完整清單，請參閱 [New-AzureManagedCache][] Cmdlet 文件。
 
-叫用 PowerShell Cmdlet 之後，可能需要數分鐘的時間建立快取。建立快取之後，新快取的狀態會是「正在執行」，並具備預設設定而已可供使用，而且還可在 [Azure 管理入口網站][]中檢視和設定。若要自訂快取的組態，請參閱接下來的[設定快取][]一節。
+叫用 PowerShell Cmdlet 之後，可能需要數分鐘的時間建立快取。建立該項快取之後，您的新快取不僅有 `Running` 狀態、可用於預設設定，還可在 [Azure 管理入口網站][]中檢視和設定。若要自訂快取的組態，請參閱接下來的[設定快取][]一節。
 
 您可以在 Azure PowerShell 視窗中監視建立進度。快取可供使用之後，[New-AzureManagedCache][] Cmdlet 會顯示快取資訊，如下列範例所示。
 
@@ -147,7 +132,7 @@ Azure 受管理快取服務是一種分散式、記憶體內的可擴充解決�
 
 ## 到期原則和時間 (分鐘) ##
 
-[到期原則] 與 [時間 (分鐘)] 設定會共同決定快取項目何時到期。有三種類型的到期原則：[絕對]、[滑動] 及 [永不]。 
+[到期原則] 與 [時間 (分鐘)] 設定會共同決定快取項目何時到期。有三種類型的到期原則：**[絕對**]、[**滑動**] 和 [**永不**]。 
 
 如果指定 [絕對]，在將項目新增至快取時，[時間 (分鐘)] 指定的到期間隔即會開始計時。過了 [時間 (分鐘)] 所指定的間隔之後，項目即過期。 
 
@@ -155,7 +140,7 @@ Azure 受管理快取服務是一種分散式、記憶體內的可擴充解決�
 
 指定 [永不] 時，[時間 (分鐘)] 必須設定為 **0**，項目才會永不過期。
 
-[絕對] 為預設到期原則，其 [時間 (分鐘)] 的預設設定為 10 分鐘。具名快取中每個項目的到期原則都是固定的，但是可針對每個項目自訂 [時間 (分鐘)]，方法是使用 **Add** 和 **Put** 多載來採用逾時參數。
+[**絕對**] 為預設到期原則，其 [**時間 (分鐘)**] 的預設設定為 10 分鐘。具名快取中每個項目的到期原則都是固定的，但是可針對每個項目自訂 [時間 (分鐘)]，方法是使用 **Add** 和 **Put** 多載來採用逾時參數。
 
 如需收回和到期原則的詳細資訊，請參閱[到期與收回][]。
 
@@ -187,7 +172,7 @@ Azure 受管理快取服務是一種分散式、記憶體內的可擴充解決�
 
 您可從 Azure 網站、Web 和背景工作角色以及虛擬機器上執行的 Azure 應用程式，存取使用受管理的快取服務建立的快取。我們有提供 NuGet 套件，此套件可簡化快取用戶端應用程式的組態作業。 
 
-若要使用 Cache NuGet 封裝設定用戶端應用程式，請在 [方案總管] 中的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。 
+若要使用 Cache NuGet 封裝設定用戶端應用程式，請在 [**方案總管**] 中的專案上按一下滑鼠右鍵，然後選擇 [**管理 NuGet 封裝**]。 
 
 ![NuGetPackageMenu][NuGetPackageMenu]
 
@@ -238,11 +223,11 @@ NuGet 封裝會將下列組態元素新增至應用程式的 web.config 或 app.
 
 在新增組態後，請在剛新增的組態中取代下列兩個項目。
 
-1. 以「管理入口網站」中 [儀表板] 上顯示的端點取代 **[Cache role name or Service Endpoint]**。
+1. 將 **[Cache role name or Service Endpoint]** 取代為「管理入口網站」中 [儀表板] 上所顯示的端點。
 
 	![Endpoint][Endpoint]
 
-2. 將 securityProperties 區段取消註解，並以驗證金鑰取代 **[Authentication Key]**；在「管理入口網站」中從快取儀表板按一下 [管理金鑰]，即可找到此金鑰。
+2. 將 securityProperties 區段取消註解，並將 **[Authentication Key]** 取代為驗證金鑰；在「管理入口網站」中從快取儀表板按一下 [**管理金鑰**]，即可找到此金鑰。
 
 	![AccessKeys][AccessKeys]
 
@@ -272,7 +257,7 @@ NuGet 套件也會新增下列組件的參考：
 
 如果您的專案為 Web 專案，則也會新增下列組件參考：
 
--	Microsoft.Web.DistributedCache.dll
+-	Microsoft.Web.DistributedCache.dll.
 
 >這些組件位於 C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\[sdk version]\\ref\\Caching\\ 資料夾中。
 
@@ -283,16 +268,17 @@ NuGet 套件也會新增下列組件的參考：
 
 本節中的步驟描述如何利用快取執行常見工作。
 
--	[作法：建立 DataCache 物件][]
--   [作法：從快取新增和擷取物件][]
--   [作法：指定快取中物件的到期時間][]
--   [作法：將 ASP.NET 工作階段狀態儲存在快取中][]
--   [作法：將 ASP.NET 頁面輸出快取儲存在快取中][]
+-	[做法：建立 DataCache 物件][]
+-   [做法：從快取新增和擷取物件][]
+-   [做法：指定快取中物件的到期時間][]
+-   [做法：將 ASP.NET 工作階段狀態儲存在快取中][]
+-   [做法：將 ASP.NET 頁面輸出快取儲存在快取中][]
 
 <a name="create-cache-object"></a>
 ## 作法：建立 DataCache 物件
 
-為了能夠以程式設計方式使用快取，您需要快取的參考。新增下面這一行至您想要從中使用 Azure 快取之檔案的頂端：
+為了能夠以程式設計方式使用快取，您需要快取的參考。將下列程式碼新增至您想要從中使用
+Azure 快取：
 
     using Microsoft.ApplicationServer.Caching;
 
@@ -310,8 +296,7 @@ NuGet 套件也會新增下列組件的參考：
     DataCacheFactory cacheFactory = new DataCacheFactory();
     DataCache cache = cacheFactory.GetDefaultCache();
     // Or DataCache cache = cacheFactory.GetCache("MyCache");
-    // cache can now be used to add and retrieve ite
-	ms.	
+    // cache can now be used to add and retrieve items.	
 
 <a name="add-object"></a>
 ## 作法：從快取新增和擷取物件
@@ -323,9 +308,7 @@ NuGet 套件也會新增下列組件的參考：
 
 如果具有相同索引鍵的物件已在快取中，則將擲回 **DataCacheException**，並隨附下列訊息：
 
-> ErrorCode:SubStatus:嘗試在快取建立
-> 索引鍵已存在的物件。快取將只會接受
-> 物件的唯一索引鍵值。
+> ErrorCode:SubStatus:正在嘗試利用快取中已有的索引鍵建立物件。快取只會接受唯一的物件索引鍵值。
 
 若要抓取具有特定索引鍵的物件，可使用 **Get** 方法。如果物件存在，則會加以傳回，但如果不存在，則會傳回 null。
 
@@ -356,7 +339,7 @@ NuGet 套件也會新增下列組件的參考：
 
 ![NamedCaches][NamedCaches]
 
-「到期原則」有三種類型：[永不]、[絕對] 及 [滑動]。這些類型會設定如何使用 [時間 (分鐘)] 來決定到期時間。預設 [到期類型] 為 [絕對]，表示當項目放入快取時，項目到期時間的倒數計時器即會開始倒數。一旦過了項目的指定時間量，項目即到期。如果指定 [滑動]，則每次快取中的項目被存取時，就會重設項目的到期倒數時間，而要等到最後一次存取項目後過了所指定的時間長度時，項目才會過期。如果指定 [永不]，則 [時間 (分鐘)] 必須設定為 **0**，項目將不會到期，只要它們留在快取中就會一直有效。
+「到期原則」有三種類型：**[永不**]、[**絕對**] 和 [**滑動**]。這些類型會設定如何使用 [時間 (分鐘)] 來決定到期時間。預設 [到期類型] 為 [絕對]，表示當項目放入快取時，項目到期時間的倒數計時器即會開始倒數。一旦過了項目的指定時間量，項目即到期。如果指定 [滑動]，則每次快取中的項目被存取時，就會重設項目的到期倒數時間，而要等到最後一次存取項目後過了所指定的時間長度時，項目才會過期。如果指定 [永不]，則 [時間 (分鐘)] 必須設定為 **0**，項目將不會到期，只要它們留在快取中就會一直有效。
 
 如果想要一個比快取屬性中設定的值還長或短的逾時間隔，可以使用 **Add** 和 **Put** 多載來採用 **TimeSpan** 參數，以在新增或更新快取中的項目時指定特定持續時間。在下列範例中，會將字串 **value** 加入快取並以 **item** 建立索引，逾時值設為 30 分鐘。
 
@@ -446,11 +429,11 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
 [設定快取]: #enable-caching
 [設定快取用戶端]: #NuGet
 [使用快取]: #working-with-caches
-[作法：建立 DataCache 物件]: #create-cache-object
-[作法：從快取新增和抓取物件]: #add-object
-[作法：指定快取中物件的到期時間]: #specify-expiration
-[作法：將 ASP.NET 工作階段狀態儲存在快取中]: #store-session
-[作法：將 ASP.NET 頁面輸出快取儲存在快取中]: #store-page
+[做法：建立 DataCache 物件]: #create-cache-object
+[做法：從快取新增和擷取物件]: #add-object
+[做法：指定快取中物件的到期時間]: #specify-expiration
+[做法：將 ASP.NET 工作階段狀態儲存在快取中]: #store-session
+[做法：將 ASP.NET 頁面輸出快取儲存在快取中]: #store-page
 [以支援的.NET Framework 設定檔做為目標]: #prepare-vs-target-net
   
 <!-- IMAGES -->
@@ -471,27 +454,26 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
    
 <!-- LINKS -->
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[作法：以程式設計方式設定快取用戶端]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[做法：以程式設計方式設定快取用戶端]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Azure 快取的工作階段狀態提供者]: http://go.microsoft.com/fwlink/?LinkId=320835
-[Azure AppFabric 快取：快取工作階段狀態]: http://www.microsoft.com/zh-tw/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
+[Azure AppFabric 快取：快取工作階段狀態]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Azure 快取的輸出快取提供者]: http://go.microsoft.com/fwlink/?LinkId=320837
 [Azure 共用快取]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 [小組部落格]: http://blogs.msdn.com/b/windowsazure/
-[Azure 快取]: http://www.microsoft.com/zh-tw/showcase/Search.aspx?phrase=azure+caching
+[Azure 快取]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
 [如何設定虛擬機器大小]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Azure 快取容量規劃考量]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure 快取]: http://go.microsoft.com/fwlink/?LinkId=252658
-[作法：以宣告方式設定 ASP.NET 網頁的快取性]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
-[作法：以程式設計方式設定頁面的快取性]: http://msdn.microsoft.com/library/z852zf6b.aspx
-[Azure 受管理的快取服務概觀]: http://go.microsoft.com/fwlink/?LinkId=320830
-[受管理的快取服務]: http://go.microsoft.com/fwlink/?LinkId=320830
+[做法：以宣告方式設定 ASP.NET 網頁的快取性]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[做法：以程式設計方式設定頁面的快取性]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Azure 受管理快取服務概觀]: http://go.microsoft.com/fwlink/?LinkId=320830
+[受管理的快取服務]: http://go.microsoft.com/fwlink/?LinkId=320830
 [OutputCache 指示詞]: http://go.microsoft.com/fwlink/?LinkId=251979
 [疑難排解和診斷]: http://go.microsoft.com/fwlink/?LinkId=320839
 [NuGet 封裝管理員安裝]: http://go.microsoft.com/fwlink/?LinkId=240311
-[快取定價詳細資料]: http://azure.microsoft.com/pricing/details/cache/
-[管理入口網站]:https://manage.windowsazure.com/
-[快取提供項目]: http://go.microsoft.com/fwlink/?LinkId=317277
+[快取定價詳細資料]: http://www.windowsazure.com/pricing/details/cache/
+[管理入口網站]: https://manage.windowsazure.com/
+[快取服務]: http://go.microsoft.com/fwlink/?LinkId=317277
 [容量規劃]: http://go.microsoft.com/fwlink/?LinkId=320167
 [到期與收回]: http://go.microsoft.com/fwlink/?LinkId=317278
 [高可用性]: http://go.microsoft.com/fwlink/?LinkId=317329
@@ -503,10 +485,7 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
 [如何安裝和設定 Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
 [Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
 [Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
-[作法：從快取新增和擷取物件]: #add-object
 
 [我適合使用哪個 Azure 快取服務？]: http://msdn.microsoft.com/library/azure/dn766201.aspx
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=49-->

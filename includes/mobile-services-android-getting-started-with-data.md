@@ -1,6 +1,6 @@
 ﻿您的行動服務已準備就緒，現在可以更新應用程式以便在行動服務 (而非本機收集) 中儲存項目。 
 
-1. 請確定 *build.gradle (Module app)* 檔案中的 [**相依性**] 標記是否包含下列程式碼行，如果沒有，請將它們加入。這會將參考新增至行動服務 Android 用戶端 SDK。
+1. 請確定 *build.gradle (Module app)* 檔案中的 [相依性] 標記是否包含下列程式碼行，如果沒有，請將它們加入。這會將參考新增至行動服務 Android 用戶端 SDK。
 
 		compile 'com.android.support:support-v4:21.0.3'
     	compile 'com.google.code.gson:gson:2.2.2'
@@ -8,7 +8,7 @@
 	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2-beta'
 
 
-2. 現在按一下 [**同步處理專案與 Gradle 檔案**] 以重新建置專案。
+2. 現在按一下 [同步處理專案與 Gradle 檔案] 以重新建置專案。
 
 3. 開啟 AndroidManifest.xml 檔案並加入下行，可讓應用程式存取 Azure 中的行動服務。
 
@@ -165,4 +165,5 @@
 
 <!-- URLs. -->
 [行動服務 Android SDK]: http://aka.ms/Iajk6q
-<!--HONumber=47-->
+
+<!--HONumber=49-->

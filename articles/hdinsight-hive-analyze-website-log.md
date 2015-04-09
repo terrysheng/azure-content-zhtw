@@ -29,16 +29,16 @@
 
 ![HDI.Samples.Website.Log.Analysis][img-hdi-weblogs-sample]
 
-## 必要條件
+##必要條件
 
-- 您必須已佈建 **HDInsight 叢集**。如需指示，請參閱[佈建 HDInsight 叢集][hdinsight-provision]。 
+- 您必須已佈建 **HDInsight 叢集**。如需指示，請參閱＜[佈建 HDInsight 叢集][hdinsight-provision]＞。 
 - 您必須安裝 Microsoft Excel 2010 或 Microsoft Excel 2013。
-- 您必須有 [Microsoft Hive ODBC 驅動程式](http://www.microsoft.com/zh-tw/download/details.aspx?id=40886)，才能將資料從 Hive 匯入 Excel 中。
+- 您必須有 [Microsoft Hive ODBC 驅動程式](http://www.microsoft.com/download/details.aspx?id=40886)，才能將資料從 Hive 匯入 Excel 中。
 
 
-## 執行範例
+##執行範例
 
-1. 從 [Azure 管理入口網站] 中，按一下您要執行範例的叢集，然後按一下底部的 [**Query Console**]。或者，您也可以使用下列 URL 直接開啟 Query Console：
+1. 從 [Azure 管理入口網站] 中，按一下您要執行範例的叢集，然後按一下底部的 [**查詢主控台**]。或者，您也可以使用下列 URL 直接開啟 Query Console：
 
 	 	https://<clustername>.azurehdinsight.net
 	
@@ -47,12 +47,13 @@
 2. 從開啟的網頁中，按一下 [**Getting Started Gallery**] 索引標籤，然後在 [**範例**] 類別下按一下 [**Website Log Analysis**] 範例。
 3. 依照網頁上提供的指示完成範例。
 
-## 後續步驟
+##後續步驟
 嘗試範例以了解如何使用 Azure HDInsight 來分析感應器資料。請參閱[搭配使用 Hive 與 HDInsight 來分析感應器資料][hdinsight-sensor-data-sample]。
 
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-sensor-data-sample]: hdinsight-use-hive-sensor-data-analysis.md
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
-<!--HONumber=45--> 
+
+<!--HONumber=49-->

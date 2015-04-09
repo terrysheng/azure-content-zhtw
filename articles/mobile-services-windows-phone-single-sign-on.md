@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="11/22/2014" 
@@ -19,24 +19,24 @@
 # 使用 Live Connect 單一登入驗證 Windows Phone 8 應用程式
 
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">Windows 市集 C#</a><a href="/zh-tw/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">Windows 市集 JavaScript</a><a href="/zh-tw/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone" class="current">Windows Phone</a>
+	<a href="/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">Windows 市集 C#</a><a href="/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">Windows 市集 JavaScript</a><a href="/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone" class="current">Windows Phone</a>
 </div>	
 
 本主題說明如何在 Windows Phone 8 應用程式的 Azure 行動服務中，使用 Live Connect 單一登入來驗證使用者。在本教學課程中，您會使用 Live Connect 將驗證新增至快速入門專案。經 Live Connect 成功驗證後，畫面會顯示名稱來歡迎登入使用者並顯示使用者識別碼。  
 
->[AZURE.NOTE]本教學課程將示範使用由適用於 Windows Phone 應用程式的 Live Connect 所提供之單一登入經驗的優點。這可讓您更輕鬆地使用行動服務來驗證已登入使用者。如需支援多個驗證提供者的更一般化驗證經驗的詳細資訊，請參閱<a href="/zh-tw/documentation/articles/mobile-services-windows-phone-get-started-users">將驗證新增至您的應用程式</a>主題。 
+>[AZURE.NOTE]本教學課程將示範使用由適用於 Windows Phone 應用程式的 Live Connect 所提供之單一登入經驗的優點。這可讓您更輕鬆地使用行動服務來驗證已登入使用者。如需支援多個驗證提供者的更一般化驗證經驗的詳細資訊，請參閱<a href="mobile-services-windows-phone-get-started-users.md">將驗證加入您的應用程式</a>主題。 
 
 本教學課程會逐步引導您完成啟用 Live Connect 驗證的基本步驟：
 
 1. [註冊應用程式進行驗證，並設定行動服務]
 2. [限制只有經驗證的使用者具有資料表的權限]
-3. [將驗證新增到應用程式]
+3. [將驗證加入應用程式]
 
-本教學課程需要下列各項：
+本教學課程需要下列項目：
 
 + [Live SDK for Windows and Windows Phone]
 + Microsoft Visual Studio 2012 Express for Windows Phone
-+ 您還必須先完成教學課程[新增行動服務至現有應用程式]。
++ 您還必須先完成教學課程[將行動服務新增至現有的應用程式]。
 
 <h2><a name="register"></a>使用 Live Connect 註冊您的應用程式</h2>
 
@@ -44,25 +44,25 @@
 
 1. 登入 [Azure 管理入口網站]，按一下 [**行動服務**]，然後按一下您的行動服務。
 
-   	![][4]
+	![][4]
 
 2. 按一下 [**儀表板**] 索引標籤，並記下 [**網站 URL**] 值。
 
-   	![][5]
+	![][5]
 
     您將使用此值來定義重新導向網域。
 
-3. 導覽至 Live Connect 開發人員中心的<a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">我的應用程式</a>頁面，並視需要使用您的 Microsoft 帳戶登入。 
+3. 瀏覽到 Live Connect 開發人員中心的 [<a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">我的應用程式</a>] 頁面，並視需要使用您的 Microsoft 帳戶登入。 
 
-4. 按一下 [**建立應用程式**]、然後輸入 [**應用程式名稱**]，並按一下 [**I accept**]。
+4. 按一下 [**建立應用程式**]、然後輸入 [**應用程式名稱**]，並按一下 [**我接受**]。
 
-   	![][1] 
+	![][1] 
 
    	這會向 Live Connect 註冊應用程式。
 
 5. 依序按一下 [**應用程式設定**] 頁面、[**API 設定**]，並記下 [**用戶端識別碼**] 和 [**用戶端密碼**] 的值。 
 
-   	![][2]
+	![][2]
 
  > [AZURE.NOTE] **安全性注意事項**用戶端密碼是重要的安全性認證。請勿將用戶端密碼與任何人分享，或與您的應用程式一起散發。
 
@@ -70,7 +70,7 @@
 
 7. 回到管理入口網站，按一下 [**身分識別**] 索引標籤，輸入從 Live Connect 取得的 [**用戶端密碼**]，然後按一下 [**儲存**]。
 
-   	![][13]
+	![][13]
 
 您的行動服務和您的應用程式現在都已設定成使用 Live Connect。
 
@@ -78,13 +78,13 @@
 
 1. 在管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItem**] 資料表。 
 
-   	![][14]
+	![][14]
 
 2. 按一下 [**權限**] 索引標籤，將所有權限設定為 [**僅限通過驗證的使用者**]，然後按一下 [**儲存**]。這可確保針對 **TodoItem** 資料表所做的所有操作都需要一位通過驗證的使用者。這亦可簡化下一堂教學課程的指令碼，因為他們將無需容許匿名使用者的可能性。
 
-   	![][15]
+	![][15]
 
-3. 在 Visual Studio 2012 Express for Windows Phone 中，開啟您在完成[將行動服務新增至現有應用程式]教學課程時所建立的專案。 
+3. 在 Visual Studio 2012 Express for Windows Phone 中，開啟您在完成[將行動服務新增至現有的應用程式]教學課程時所建立的專案。 
 
 4. 按 F5 鍵執行此快速入門型應用程式；確認發生狀態代碼 401 (未經授權) 的例外狀況。 
    
@@ -92,7 +92,7 @@
 
 接下來，您將更新應用程式，先使用 Live Connect 驗證使用者再向行動服務要求資源。
 
-<h2><a name="add-authentication"></a>將驗證新增到應用程式</h2>
+<h2><a name="add-authentication"></a>將驗證加入應用程式</h2>
 
 1. 下載並安裝 [Live SDK for Windows and Windows Phone]。
 
@@ -140,7 +140,7 @@
 
 7. 使用向 Live Connect 註冊應用程式時所產生的用戶端識別碼值，來更新上一個步驟中的字串 _<< INSERT CLIENT ID HERE >>_。
 
-    > [AZURE.NOTE] 在 Windows Phone 8 應用程式中，您可透過將此用戶端識別碼值傳遞至類別建構函式來建立 **LiveAuthClient** 類別的執行個體。在 [Windows 市集應用程式](/ zh-tw/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/) 中，相同類別會藉由傳遞重新導向網域 URI 具現化。
+    > [AZURE.NOTE] 在 Windows Phone 8 應用程式中，您可透過將此用戶端識別碼值傳遞至類別建構函式來建立 **LiveAuthClient** 類別的執行個體。在 [Windows 市集應用程式](/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)中，可藉由傳遞重新導向網域 URI 來具現化相同的類別。
 
 8. 刪除或註解化現有的 **OnNavigatedTo** 方法，這將會以下列處理頁面上 **Loaded** 事件的方法覆寫和取代該現有方法。 
 
@@ -161,7 +161,7 @@
             this.Loaded += MainPage_Loaded;
         }
 
-   	此建構函式也會為 Loaded 事件註冊處理常式。
+   	This constructor also registers the handler for the Loaded event.
 		
 9. 按 F5 鍵執行應用程式，並以您的 Microsoft 帳戶登入 Live Connect。 
 
@@ -174,7 +174,7 @@
 <!-- Anchors. -->
 [註冊應用程式進行驗證，並設定行動服務]: #register
 [限制只有經驗證的使用者具有資料表的權限]: #permissions
-[將驗證新增到應用程式]: #add-authentication
+[將驗證加入應用程式]: #add-authentication
 [後續步驟]:#next-steps
 
 <!-- Images. -->
@@ -185,19 +185,16 @@
 
 [13]: ./media/mobile-services-windows-phone-single-sign-on/mobile-identity-tab-ma-only.png
 [14]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-per
-	ms.png
+[15]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-perms.png
 [16]: ./media/mobile-services-windows-phone-single-sign-on/mobile-add-reference-live-wp8.png
 
 <!-- URLs. -->
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows and Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[將行動服務新增至現有應用程式]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-data/
-[新增行動服務至現有應用程式]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-data/
-[開始使用驗證]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started-users
-[使用指令碼授權使用者]: /zh-tw/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/
+[將行動服務新增至現有的應用程式]: mobile-services-windows-phone-get-started-data.md
+[開始使用驗證]: mobile-services-windows-phone-get-started-users.md
+[使用指令碼授權使用者]: mobile-services-windows-phone-authorize-users-in-scripts.md
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

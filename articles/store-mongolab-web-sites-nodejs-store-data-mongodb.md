@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="在 MongoLab 上使用 MongoDB 的 Node.js 網站 - Azure" 
-	description="了解如何建立 Node.js Azure 網站，連線到 MongoLab 上主控的 MongoDB 執行個體。" 
+	pageTitle="在 MongoLab 上使用 MongoDB 的 Node.js 網站 - Azure「" 
+	description="了解如何建立 Node.js Azure 網站，連線到 MongoLab 上主控的 MongoDB 執行個體。」" 
 	services="web-sites, virtual-machines" 
 	documentationCenter="nodejs" 
 	authors="chrischang12" 
-	manager="partners@mongolab.com" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="chris@mongolab.com"/>
+	ms.date="02/04/2014" 
+	ms.author="mwasson"/>
 
 
 
@@ -27,10 +27,10 @@
 
 探險家們大家好！歡迎使用「MongoDB 即服務」。在本教學課程中，您將：
 
-1. [佈建資料庫][佈建] - Azure 市集 [MongoLab](http://mongolab.com) 附加元件將提供裝載於 Azure 雲端、由 MongoLab 雲端資料庫平台管理的 MongoDB 資料庫。
-2. [建立應用程式][建立] - 一個用於維護工作清單的簡單 Node.js 應用程式。
-3. [部署應用程式][部署] - 嘗試將幾項設定連結，即可完成我們的程式碼。
-4. [管理資料庫][管理] - 最後，我們將展示 MongoLab 的 Web 資料庫管理入口網站，您可在該處輕鬆搜尋、顯示和修改資料。
+1. [佈建資料庫][provision] - Azure 市集 [MongoLab](http://mongolab.com) 附加元件將提供裝載於 Azure 雲端、由 MongoLab 雲端資料庫平台管理的 MongoDB 資料庫。
+2. [建立應用程式][create] - 一個用於維護工作清單的簡單 Node.js 應用程式。
+3. [部署應用程式][deploy] - 嘗試將幾項設定連結，即可完成我們的程式碼。
+4. [管理資料庫][manage] - 最後，我們將展示 MongoLab 的 Web 資料庫管理入口網站，您可在該處輕鬆搜尋、顯示和修改資料。
 
 進行本教學課程的過程中若有任何問題，請隨時發送電子郵件至 [support@mongolab.com](mailto:support@mongolab.com)。
 
@@ -46,19 +46,19 @@
 如果您已對 Azure 市集有一定的了解，請從本節著手快速開始。否則請繼續下方的[佈建資料庫][佈建]。
  
 1. 開啟 Azure 市集。  
-![Store][button-store]
+![市集][button-store]
 2. 按一下 [MongoLab 附加元件]。  
 ![MongoLab][entry-mongolab]
-3. 在 [附加元件] 清單中按一下您的 [MongoLab 附加元件]，然後按一下 **[連線資訊]**。  
+3. 在 [附加元件] 清單中按一下您的 [MongoLab 附加元件]，然後按一下 [連線資訊]。  
 ![ConnectionInfoButton][button-connectioninfo]  
-4. 將 MONGOLAB_URI 複製到剪貼簿。ard.  
+4. 將 MONGOLAB_URI 複製到剪貼簿。  
 ![ConnectionInfoScreen][screen-connectioninfo]  
 **此 URI 包含您的資料庫使用者名稱和密碼。這是機密資訊，請勿洩露。**
 5. 將這個值新增到 Azure Web 應用程式的 [組態] 功能表中的 [連接字串] 清單：  
 ![WebSiteConnectionStrings][focus-website-connectinfo]
-6. 在 **[名稱]** 中輸入 MONGOLAB\_URI。
-7. 在 **[值]** 中貼上在上一節取得的連接字串。
-8. 在 [類型] 下拉式清單中選取 **[自訂]** (取代預設的 **[SQLAzure]**)。
+6. 在 [名稱] 中輸入 MONGOLAB\_URI。
+7. 在 [值] 中貼上在上一節取得的連接字串。
+8. 在 [類型] 下拉式清單中選取 [自訂] (取代預設的 [SQLAzure]****)。
 9. 執行  `npm install mongoose` 以取得 M ongoose (MongoDB 節點驅動程式)。
 10. 在程式碼中設定勾點，以從環境變數取得 MongoLab 連線 URI 並進行連接：
 
@@ -68,7 +68,7 @@
  		...
  		mongoose.connect(connectionString);
 
-注意：Azure 會將 **CUSTOMCONNSTR\_** 前置詞新增到原始宣告的連接字串，這也是為什麼程式碼參考的是 **CUSTOMCONNSTR\_MONGOLAB\_URI.** 而非 **MONGOLAB\_URI**。
+注意：Azure 會將 **CUSTOMCONNSTR\_** 前置詞新增到原始宣告的連接字串，這也是為什麼程式碼參考的是 **CUSTOMCONNSTR\_MONGOLAB\_URI** 而非 **MONGOLAB\_URI**。
 
 現在，回到教學課程...
 
@@ -89,7 +89,7 @@
 
 		npm install express -g
  
-	`-g` 表示全域模式，用於在未指定目錄路徑的情況下使 <strong>express</strong> 模組可供使用。如果您收到 <strong>Error:EPER，chmod '/usr/local/bin/express'</strong>，使用 <strong>sudo</strong> 在更高的權限層級執行 npm。
+	`-g` 表示全域模式，用於在未指定目錄路徑的情況下使 <strong>express</strong> 模組可供使用。如果您收到 <strong>Error:EPERM, chmod '/usr/local/bin/express'</strong>，使用 <strong>sudo</strong> 在更高的權限層級執行 npm。
 
     此命令的輸出應類似這樣：
 
@@ -120,15 +120,15 @@
  
 3. 若要建立用於此應用程式的 Scaffolding，請使用 **express** 命令：
 
-    express
+    	express
 
     請注意，本教學課程使用 Express v4.x.x。如果您的系統上已安裝 Express 3 應用程式產生器，您應該先將它解除安裝：
 
-    npm uninstall -g express
+    	npm uninstall -g express
 
-    現在請安裝版本為 4.x.x 的新產生器：
+    現在，請為 4.x.x 版安裝新的產生器：
 
-    npm install -g express-generator
+    	npm install -g express-generator
 
 	執行 **express** 命令後，輸出應該與下列內容類似：
 
@@ -405,7 +405,7 @@
 	
 	npm install azure-cli -g
 
-若您已從 <a href="/zh-tw/develop/nodejs/">Azure 開發人員中心</a>安裝 <strong>Azure SDK for Node.js</strong>，則應該已經安裝命令列工具。如需詳細資訊，請參閱<a href="/zh-tw/develop/nodejs/how-to-guides/command-line-tools/">適用於 Mac 與 Linux 的 Azure 命令列工具</a>。
+若您已從 <a href="/develop/nodejs/">Azure 開發人員中心</a>安裝 <strong>Azure SDK for Node.js</strong>，則應該已經安裝命令列工具。如需詳細資訊，請參閱 [<a href="virtual-machines-command-line-tools.md">適用於 Mac 與 Linux 的 Azure 命令列工具</a>]。
 
 雖然 Azure 命令列工具主要是為了 Mac 和 Linux 使用者而建立，但這些工具會以 Node.js 為基礎，且應該可在任何可執行 Node 的系統上使用。
 
@@ -417,7 +417,7 @@
 
 		azure account download
 	
-	![The download page][download-publishing-settings]
+	![下載頁面][download-publishing-settings]
 	
 	檔案應該會自動開始下載，如果沒有，您可以按一下頁面開頭的連結手動下載檔案。
 
@@ -442,27 +442,27 @@
 
 在 Azure 建立網站很容易。如果這是您的第一個 Azure 網站，您必須使用入口網站。如果您已有至少一個網站，請直接跳至步驟 7。
 
-1. 在 Azure 入口網站按一下 **[新增]**。    
-![New][button-new]
-2. 選取 **[運算] > [網站] > [快速建立]**。 
+1. 在 Azure 入口網站按一下 [新增]。    
+![新增][button-new]
+2. 選取 [運算] > [網站] > [快速建立]。 
 ![CreateSite][screen-mongolab-newwebsite]
 3. 輸入 URL 前置詞。選擇您喜愛的名稱，但記住一定要獨一無二 (很可能無法使用 'mymongoapp')。
-4. 按一下 **[建立網站]**。
+4. 按一下 [建立網站]。
 5. 當網站建立完成時，按一下網站清單中的網站名稱。網站儀表板隨即顯示。  
 ![WebSiteDashboard][screen-mongolab-websitedashboard]
-6. 按一下 **[快速概覽]** 底下的 **[設定從原始檔控制進行部署]**，選取 [GitHub]，然後輸入要使用的 git 使用者名稱和密碼。要發佈至您的網站時將使用這個密碼 (步驟 9)。  
+6. 按一下 [快速概覽] 底下的 [設定從原始檔控制進行部署]，選取 [GitHub]，然後輸入要使用的 git 使用者名稱和密碼。要發佈至您的網站時將使用這個密碼 (步驟 9)。  
 7. 如果您以上述步驟建立網站，以下命令將會完成此程序。不過，若您已有多個 Azure 網站，可以跳過以上步驟，同樣使用此命令建立新的網站。在您的 **tasklist** 專案目錄中： 
 
 		azure site create myuniquesitename --git  
 	以您網站獨有的名稱取代  'myuniquesitename'。若此命令會建立網站，系統將提示您指定網站會建立在哪個資料中心。請選取地理位置與您的 MongoLab 資料庫接近的資料中心。
 	
 	`--git` 參數將建立：
-	A. 本機 git 存放庫 (在 **tasklist** 資料夾中)，如果不存在的話。
-	A. 名為  'azure' 的 [Git 遠端]，用於將應用程式發行至 Azure。
-	A. [iisnode.yml] 檔案，其中包含 Azure 代管節點應用程式使用的設定。
-	A. .gitignore 檔案，以排除 node-modules 資料夾而不要將其發佈至 .git。  
+	* 本機 git 存放庫 (在 **tasklist** 資料夾中)，如果不存在的話。
+	* 名為  'azure' 的 [Git 遠端]，用於將應用程式發行至 Azure。
+	* [iisnode.yml] 檔案，其中包含 Azure 代管節點應用程式所使用的設定。
+	* .gitignore 檔案，以防止將 node-modules 資料夾發佈至 .git。  
 	  
-	一旦此命令完成，您將會看到類似以下的輸出。請注意，**Created website at** 開頭的這一行包含網站的 URL。
+	此命令完成後，您將會看到類似以下的輸出。請注意，**Created website at** 開頭的這一行包含網站的 URL。
 
 		info:   Executing command site create
 		info:   Using location southcentraluswebspace
@@ -487,19 +487,19 @@
 	
 	您將看到類似以下的輸出：部署開始時，Azure 會下載所有 npm 模組。 
 
-		Counting objects: 17, done.
+		Counting objects:17, done.
 		Delta compression using up to 8 threads.
-		Compressing objects: 100% (13/13), done.
-		Writing objects: 100% (17/17), 3.21 KiB, done.
+		Compressing objects:100% (13/13), done.
+		Writing objects:100% (17/17), 3.21 KiB, done.
 		Total 17 (delta 0), reused 0 (delta 0)
-		remote: New deployment received.
-		remote: Updating branch 'master'.
-		remote: Preparing deployment for commit id 'ef276f3042'.
-		remote: Preparing files for deployment.
-		remote: Running NPM.
+		remote:New deployment received.
+		remote:Updating branch 'master'.
+		remote:Preparing deployment for commit id 'ef276f3042'.
+		remote:Preparing files for deployment.
+		remote:Running NPM.
 		...
-		remote: Deploying Web.config to enable Node.js activation.
-		remote: Deployment successful.
+		remote:Deploying Web.config to enable Node.js activation.
+		remote:Deployment successful.
 		To https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git
  		 * [new branch]      master -> master
  
@@ -520,7 +520,7 @@
 
 從您的專案目錄執行  `azure site browse` 可自動開啟瀏覽器，或手動開啟瀏覽器並瀏覽至您的網站 URL (myuniquesite.azurewebsites.net)：
 
-![A webpage displaying an empty tasklist][node-mongo-finished]
+![顯示空白工作清單的網頁][node-mongo-finished]
 
 <h2><a name="manage"></a>管理資料庫</h2>
 
@@ -538,34 +538,33 @@
 [button-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png
 [screen-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png
 [focus-website-connectinfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/focus-mongolab-websiteconnectionstring.png
-[佈建]: #provision
-[建立]: #create
-[部署]: #deploy
-[管理]: #manage
+[provision]: #provision
+[create]: #create
+[deploy]: #deploy
+[manage]: #manage
 [Node.js]: http://nodejs.org
 [MongoDB]: http://www.mongodb.org
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
 [Mongoose]: http://mongoosejs.com
-[免費]: /zh-tw/pricing/free-trial
+[免費]:/pricing/free-trial
 [Git 遠端]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-[適用於 Mac 與 Linux 的 Azure 命令列工具]: /zh-tw/develop/nodejs/how-to-guides/command-line-tools/
-[Azure 開發人員中心]: /zh-tw/develop/nodejs/
-[建立 Node.js 應用程式並部署至 Azure 網站]: /zh-tw/develop/nodejs/tutorials/create-a-website-(mac)/
-[使用 Git 發佈至 Azure 網站]: /zh-tw/develop/nodejs/common-tasks/publishing-with-git/
+[適用於 Mac 與 Linux 的 Azure 命令列工具]:virtual-machines-command-line-tools.md
+[Azure 開發人員中心]:/develop/nodejs/
+[建立 Node.js 應用程式並部署至 Azure 網站]:/develop/nodejs/tutorials/create-a-website-(mac)/
+[使用 Git 發佈至 Azure 網站]:/develop/nodejs/common-tasks/publishing-with-git/
 [MongoLab]: http://mongolab.com
-[儲存體位於 MongoDB 的 Node.js Web 應用程式 (虛擬機器)]: /zh-tw/develop/nodejs/tutorials/website-with-mongodb-(mac)/
-[node-mongo-finished]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png
-[node-mongo-express-results]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/express_output.png
-[download-publishing-settings]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/azure-account-download-cli.png
-[import-publishing-settings]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/azureimport.png
-[mongolab-create]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-create.png
-[mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
+[使用 MongoDB 上儲存體的 Node.js Web 應用程式 (虛擬機器)]:/develop/nodejs/tutorials/website-with-mongodb-(mac)/
+[node-mongo-finished]: /media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png
+[node-mongo-express-results]: /media/store-mongolab-web-sites-nodejs-store-data-mongodb/express_output.png
+[download-publishing-settings]: /media/store-mongolab-web-sites-nodejs-store-data-mongodb/azure-account-download-cli.png
+[import-publishing-settings]: /media/store-mongolab-web-sites-nodejs-store-data-mongodb/azureimport.png
+[mongolab-create]: /media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-create.png
+[mongolab-view]: /media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
 
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

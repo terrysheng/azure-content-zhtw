@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="11/22/2014" 
@@ -18,24 +18,24 @@
 
 # 使用 Live Connect 單一登入驗證 Windows 市集應用程式
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#" class="current">Windows 市集 C#</a><a href="/zh-tw/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">Windows 市集 JavaScript</a><a href="/zh-tw/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone">Windows Phone</a>
+	<a href="/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#" class="current">Windows 市集 C#</a><a href="/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">Windows 市集 JavaScript</a><a href="/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone">Windows Phone</a>
 </div>	
 
 本主題說明如何在 Windows 市集或 Windows Phone 8.1 市集應用程式的 Azure 行動服務中，使用 Live Connect 單一登入來驗證使用者。在本教學課程中，您會使用 Live Connect 將驗證新增至快速入門專案。在經過 Live Connect 成功驗證後，畫面會顯示名稱和使用者識別碼值來歡迎已登入使用者。  
 
->[AZURE.NOTE]本教學課程將示範使用由 Live Connect 為 Windows 市集應用程式所提供的單一登入體驗好處。這可讓您更輕鬆地使用行動服務來驗證已登入使用者。如需支援多個驗證提供者的更一般化驗證經驗的詳細資訊，請參閱<a href="/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/">開始使用驗證</a>主題。 
+>[AZURE.NOTE]本教學課程將示範使用由 Live Connect 為 Windows 市集應用程式所提供的單一登入體驗好處。這可讓您更輕鬆地使用行動服務來驗證已登入使用者。如需支援多個驗證提供者的更一般化驗證經驗的詳細資訊，請參閱<a href="mobile-services-windows-store-dotnet-get-started-users.md/">開始使用驗證</a>主題。 
 
 本教學課程會逐步引導您完成啟用 Live Connect 驗證的基本步驟：
 
 1. [註冊應用程式進行驗證，並設定行動服務]
 2. [限制只有經驗證的使用者具有資料表的權限]
-3. [將驗證新增到應用程式]
+3. [將驗證加入應用程式]
 
-本教學課程需要下列各項：
+本教學課程需要下列項目：
 
 + [Live SDK for Windows]
 + Microsoft Visual Studio 2012 Express for Windows 8 RC 或更新版本
-+ 您還必須先完成教學課程[新增行動服務至現有應用程式]。
++ 您還必須先完成教學課程[將行動服務新增至現有的應用程式]。
 
 ##<a name="register"></a>向 Windows 市集註冊應用程式
 
@@ -48,7 +48,7 @@
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 <ol start="3">
-<li><p>在 Visual Studio 2012 Express for Windows 8 中，開啟您在完成<a href="/zh-tw/documentation/articles/mobile-services-windows-store-get-started">開始使用行動服務</a>教學課程時所建立的專案。</p></li> 
+<li><p>在 Visual Studio 2012 Express for Windows 8 中，開啟您在完成<a href="/documentation/articles/mobile-services-windows-store-get-started">開始使用行動服務</a>教學課程時所建立的專案。</p></li> 
 <li><p>按 F5 鍵執行此快速入門型應用程式；確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。</p>
    
    	<p>這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 <em>TodoItem</em> 資料表現在需要驗證。</p></li>
@@ -56,7 +56,7 @@
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
-##<a name="add-authentication"></a>將驗證新增到應用程式
+##<a name="add-authentication"></a>將驗證加入應用程式
 
 1. 下載並安裝 [Live SDK for Windows]。
 
@@ -110,12 +110,12 @@
 
     這會建立儲存目前 Live Connect 工作階段的成員變數，以及處理驗證程序的方法。此程式碼會儘可能地強制登出，以確保每次執行應用程式時會提示使用者提供認證。這將有助於使用不同 Microsoft 帳戶測試應用程式，以確保驗證正常運作。只有當已登入使用者沒有已連線的 Microsoft 帳戶時，此機制才能運作。 
 
-	>[AZURE.NOTE]您不應在每次執行應用程式時，都要求 Live Connection 驗證權杖或行動服務授權權杖。這麼做不只效率不彰，而且如果同時有許多用戶試圖啟動您的應用程式時，還可能遇到使用量相關的問題。更好的方法是快取權杖並先嘗試使用快取的行動服務權杖，然後再呼叫 **LoginWithMicrosoftAccountAsync**。如需快取此權杖的範例，請參閱[開始使用驗證](/zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/#tokens)。
+	>[AZURE.NOTE]您不應在每次執行應用程式時，都要求 Live Connection 驗證權杖或行動服務授權權杖。這麼做不只效率不彰，而且如果同時有許多用戶試圖啟動您的應用程式時，還可能遇到使用量相關的問題。更好的方法是快取權杖並先嘗試使用快取的行動服務權杖，然後再呼叫 **LoginWithMicrosoftAccountAsync**。如需快取此權杖的範例，請參閱[開始使用驗證]。(mobile-services-windows-store-dotnet-get-started-users.md#tokens)
 	
 
-7. 使用在 Live Connect 中設定應用程式時所指定的重新導向網域，來更新上一步的 _<< INSERT REDIRECT DOMAIN HERE >>_ 字串，格式為 **https://_service-name_.azure-mobile.net/**.。
+7. 使用在 Live Connect 中設定應用程式時所指定的重新導向網域，來更新上一步的 _<< INSERT REDIRECT DOMAIN HERE >>_ 字串，格式為 **https://_service-name_.azure-mobile.net/**。
 
-    > [AZURE.NOTE] 在 Windows 市集應用程式中，<strong>LiveAuthClient</strong> 類別的執行個體建立方式，是將重新導向網域 URI 值傳遞到類別建構函式。在 [Windows Phone 8 應用程式](/zh-tw/develop/mobile/tutorials/single-sign-on-wp8/)中，您可透過傳遞用戶端 ID 來具現化相同類別。
+    > [AZURE.NOTE] 在 Windows 市集應用程式中，<strong>LiveAuthClient</strong> 類別的執行個體建立方式，是將重新導向網域 URI 值傳遞到類別建構函式。在 [Windows Phone 8 應用程式](/develop/mobile/tutorials/single-sign-on-wp8/)中，可按下用戶端識別碼來具現化相同的類別。
 
 8. 使用呼叫新 **Authenticate** 方法的處理常式，來取代現有的 **OnNavigatedTo** 事件處理常式：
 
@@ -136,7 +136,7 @@
 <!-- Anchors. -->
 [註冊應用程式進行驗證，並設定行動服務]: #register
 [限制只有經驗證的使用者具有資料表的權限]: #permissions
-[將驗證新增到應用程式]: #add-authentication
+[將驗證加入應用程式]: #add-authentication
 [後續步驟]:#next-steps
 
 <!-- Images. -->
@@ -162,12 +162,11 @@
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[新增行動服務至現有應用程式]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
-[開始使用驗證]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
-[使用指令碼授權使用者]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts/
+[將行動服務新增至現有的應用程式]: mobile-services-windows-store-dotnet-get-started-data.md
+[開始使用驗證]: mobile-services-windows-store-dotnet-get-started-users.md
+[使用指令碼授權使用者]: mobile-services-windows-store-dotnet-authorize-users-in-scripts.md
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[行動服務 .NET 作法概念參考資料]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
+[行動服務 .NET 做法概念性參考]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

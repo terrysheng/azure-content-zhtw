@@ -1,248 +1,201 @@
-﻿<properties 
-	pageTitle="如何調整網站規模" 
-	description="必要" 
-	services="web-sites" 
+<properties 
+	pageTitle="在 Azure App Service 中調整 Web 應用程式規模" 
+	description="了解如何在 Azure App Service 中調升和調降 Web 應用程式規模，包括自動調整。" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-# 如何調整網站規模 #
+# 在 Azure App Service 中調整 Web 應用程式規模 #
 
-為了提升 Microsoft Azure 中網站的效能和輸送量，您可以使用 Azure 管理入口網站將「免費」的虛擬主機方案模式調整為「共用」、「基本」或「標準」。 
+若要在 Microsoft Azure 上提高 Web 應用程式的效能和輸送量，可以使用 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)，將您的 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 方案從 [免費] 模式調整為 [共用]、[基本]、[標準] 或 [高階] 模式。 
 
-調升 Azure 網站規模牽涉到兩個相關動作：將虛擬主機方案模式變更為較高的服務等級，和在切換為較高的服務等級後設定特定設定。本文章涵蓋以上兩個主題。較高的服務層級 (如「標準」模式) 能讓您以更健全、更彈性的方式決定 Azure 中的資源使用情況。
+調升 Azure Web 應用程式規模牽涉到兩個相關動作：將 App Service 方案模式變更為較高的服務層級，以及在切換為較高的服務層級後設定特定設定。本文章涵蓋以上兩個主題。較高的服務層級 (如 [標準] 和 [高階] 模式) 能讓您以更健全、更彈性的方式決定 Azure 中的資源使用情況。
 
-模式的變更和設定可在管理入口網站的 [調整] 索引標籤中輕易完成。您可以視需要擴大或縮小。這些變更只需要幾秒鐘的時間便能完成套用，且影響範圍遍及虛擬主機方案內的所有網站。您不需要變更程式碼或重新部署應用程式。
+模式的變更和設定可在管理入口網站的 [調整] 索引標籤中輕易完成。您可以視需要擴大或縮小。這些變更只需幾秒鐘便能完成套用，且影響範圍遍及 App Service 方案內的所有 Web 應用程式。您不需要變更程式碼或重新部署應用程式。
 
-如需虛擬主機方案的相關資訊，請參閱[什麼是虛擬主機方案？](http://azure.microsoft.com/documentation/articles/web-sites-web-hosting-plan-overview/)與[Azure 網站虛擬主機方案深入概觀](http://www.azure.microsoft.com/zh-tw/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/)。
-如需個別虛擬主機方案之定價與功能的相關資訊，請參閱[網站定價詳細資料](http://azure.microsoft.com/pricing/details/web-sites/)。  
+如需 App Service 方案的相關資訊，請參閱[什麼是 App Service 方案？](web-sites-web-hosting-plan-overview.md) 和 [Azure App Service 方案的深入概觀](azure-web-sites-web-hosting-plans-in-depth-overview.md). 如需個別 App Service 方案的定價和功能相關資訊，請參閱 [App Service 定價詳細資料](/pricing/details/web-sites/).  
 
-> [AZURE.NOTE] 將網站從「免費」****虛擬主機方案模式切換到「基本」****或「標準」****虛擬主機方案模式之前，您必須先 Azure 網站訂用帳戶的支出上限。若要檢視或變更 Microsoft Azure 網站訂用帳戶的選項，請參閱 [Microsoft Azure 訂用帳戶][azuresubscriptions]。
-
-本文內容：
-
-- [調整為共用或基本方案模式](#scalingsharedorbasic)
-- [調整為標準方案模式](#scalingstandard)
-- [調整與網站連接的 SQL Server Database](#ScalingSQLServer)
-- [開發人員功能](#devfeatures)
-- [其他功能](#OtherFeatures)
+> [AZURE.NOTE] 將 Web 應用程式從 [免費] 模式切換為 [基本]、[標準] 或 [高階] 模式之前，您必須先適當地移除 Azure App Service 訂用帳戶的支出費用上限。若要檢視或變更 Microsoft Azure App Service 訂用帳戶的選項，請參閱 [Microsoft Azure 訂用帳戶][azuresubscriptions]。
 
 <a name="scalingsharedorbasic"></a>
 <!-- ===================================== -->
-## 調整為共用或基本方案模式
+## 調整為共用或基本模式
 <!-- ===================================== -->
 
-1. 在瀏覽器中開啟[管理入口網站][入口網站]。
+1. 在瀏覽器中，開啟 [Azure 入口網站][portal]。
 	
-2. 在 [網站]**** 索引標籤中，選取您的網站。
+2. 在 Web 應用程式刀鋒視窗中，依序按一下 [所有設定]、[調整規模] 及 [從免費方案升級以加入執行個體並取得更佳效能]。
 	
-	![Selecting a website][SelectWebsite]
+	![選擇方案][ChooseWHP]
 	
-3. 按一下 [調整]**** 索引標籤。
+4. 在 [選擇定價層] 刀鋒視窗中，選擇 [共用] 或 [基本] 模式，然後按一下 [選取]。
 	
-	![The scale tab][SelectScaleTab]
+	一旦作業完成之後，[通知] 索引標籤就會閃爍綠色以代表 [成功]。 
 	
-4. 在 [虛擬主機方案模式]**** 區段中，選擇 [共用]**** 或 [基本]****。影像中的範例選擇 [基本]。
+5. 將 [執行個體] 滑桿從左邊滑動到右邊以增加執行個體數目，然後按一下命令列中的 [儲存]。[共用] 模式未提供執行個體大小選項。如需這些執行個體大小的詳細資訊，請參閱 [Microsoft Azure 的虛擬機器和雲端服務大小][vmsizes]。
 	
-	![Choose Web Hosting Plan][ChooseWHP]
+	![基本模式的執行個體大小][ChooseBasicInstances]
 	
-	[虛擬主機方案網站]**** 區段顯示目前方案中網站的簡短清單。所有採用目前方案的網站都將變更為您選取虛擬主機方案模式。
-	
-5. 在 [容量]**** 區段中，選擇 [執行個體大小]****。可用選項包括 [小型]****、[中型] **** 或 [大型]****。共用模式未提供執行個體大小選項。如需這些執行個體大小的詳細資訊，請參閱 [Microsoft Azure 的虛擬機器和雲端服務大小][vmsizes]。
-	
-	![Instance size for Basic mode][ChooseBasicInstanceSize]
-	
-6. 使用滑桿來選擇所需的 [執行個體計數]****。
-	
-	![Instance count for Basic mode][ChooseBasicInstanceCount]
-	
-7. 在命令列中選擇 [儲存]****。 
-	
-	![Save button][SaveButton]
- 	
-	> [AZURE.NOTE] 如果需要的話，您可以個別設定和儲存 [虛擬主機方案]****、[執行個體大小]**** 與 [執行個體計數]**** 設定。
-	
-8. 確認訊息會提醒您採用之虛擬主機方案與目前網站相同的網站也會變更為新模式。選擇 [是]**** 以完成變更。 
-	
-	在範例中，方案模式已變更為 [基本]****：
-	
-	![Plan change complete][BasicComplete]
+	一旦作業完成之後，[通知] 索引標籤就會閃爍綠色以代表 [成功]。 
 	
 <a name="scalingstandard"></a>
 <!-- ================================= -->
-## 調整為標準方案模式
+## 調整為標準或高階模式
 <!-- ================================= -->
 
-> [AZURE.NOTE] 在將虛擬主機方案切換為 [標準] 模式之前，您應該先移除 Microsoft Azure 網站訂用帳戶的支出上限。以免帳單期間還未結束，網站就因為已達支出上限而變得無法使用。若要檢視或變更 Microsoft Azure 網站訂用帳戶的選項，請參閱 [Microsoft Azure 訂用帳戶][azuresubscriptions]。
+> [AZURE.NOTE] 在將 App Service 方案切換為 [標準] 或 [高階] 模式之前，應該針對您的 Microsoft Azure App Service 訂用帳戶適當地移除支出費用上限，以免在帳單期間還未結束之前，Web 應用程式就因為已達支出上限而變得無法使用。若要檢視或變更 Microsoft Azure App Service 訂用帳戶的選項，請參閱 [Microsoft Azure 訂用帳戶][azuresubscriptions]。
 
-1. 若要調整為標準，請依照與調整為「共用」或「基本」模式相同的初始步驟，然後將 [虛擬主機方案模式]**** 選擇為 [標準]****。 
+1. 若要調整為 [標準] 或 [高階] 模式，請依照與調整為 [共用] 或 [基本] 時相同的初始步驟執行，接著在 [選擇定價層] 中選擇 [標準] 或 [高階] 模式，然後按一下 [選取]。 
 	
-	![Choose Standard Plan][ChooseStandard]
+	一旦作業完成之後，[通知] 索引標籤就會閃爍綠色以表示 [成功]，而且將啟用 [自動調整模式]。
 	
-	如同先前所述，[虛擬主機方案網站]**** 區段會顯示採用目前方案的簡短網站清單。在這種情況下，所有採用目前方案的網站均會變更為標準模式。
+	![在標準或高階模式中調整規模][ScaleStandard]
 	
-2. 選取 [標準]**** 會展開 [容量]**** 區段以顯示 [執行個體大小]**** 與 [執行個體計數]**** 選項 (「基本」模式亦提供這些選項)。唯有「標準」模式提供 [編輯排程的調整規模設定]**** 與 [依度量調整規模]**** 選項。
+	您仍然可以滑動 [執行個體] 滑桿，手動調整為更多執行個體，就像在 [基本] 模式中所做的一樣 (如上所述)。但是，您將在此處了解如何使用 [自動調整模式]。 
 	
-	![Capacity section in Standard][CapacitySectionStandard]
+2. 在 [自動調整模式] 中，選取 [效能]，以根據效能度量進行自動調整。
 	
-3. 設定 [執行個體大小]****。可用選項包括 [小型]****、[中型] **** 或 [大型]****。
+	![將自動調整模式設為效能][Autoscale]
 	
-	![Choose instance size][ChooseInstanceSize]
+3. 在 [執行個體範圍] 中，移動這兩個滑桿來定義執行個體數目的下限與上限，以針對 App Service 方案進行自動調整。在此教學課程中，請將上限滑桿移至 **6** 個執行個體。
 	
-	如需這些執行個體大小的詳細資訊，請參閱 [Microsoft Azure 的虛擬機器和雲端服務大小][vmsizes]。
+4. 按一下命令列中的 [儲存]。
 	
-4. 如果您想要根據日間和夜間、工作日和週末和/或特定日期和時間來自動調整資源，請在 [編輯排程的調整規模設定]**** 選項中選擇 [設定排程時間]****。
+4. 在 [目標度量] 下方，按一下 [>]，為預設度量設定自動調整規則。  
 	
-	![Set up schedule times][SetUpScheduleTimesButton]
+	![設定目標度量][SetTargetMetrics]
 	
-5. [設定排程時間]**** 對話方塊提供許多有用的組態選擇。
+	您可以為不同的效能度量 (包括 CPU、記憶體、磁碟佇列、HTTP 佇列和資料流程) 設定自動調整規則。您會在此處將 CPU 百分比設為自動調整，以執行下列作業：
 	
-	![SetUpScheduleTimesDialog][SetUpScheduleTimesDialog]
+	- 如果 CPU 在最後 10 分鐘內超過 70%，即會調升 1 個執行個體
+	- 如果 CPU 在最後 5 分鐘內超過 90%，即會調升 3 個執行個體
+	- 如果 CPU 在最後 30 分鐘內低於 50%，即會調降 1 個執行個體 
 	
-6. 在 [週期性排程]**** 下，選取 [白天與夜晚的不同調整規模設定]**** 和/或 [工作日和週末的不同調整規模設定]****，可根據日間和夜間排程及/或個別的工作日和週末排程來調整資源。
 	
-	> [AZURE.NOTE] 為因應此項功能的目的，週末的開始時間為星期五結束時 (預設為下午 8:00)，結束時間為星期一開始時 (預設為上午 8:00)。週末設定檔使用的一天開始時間和結束時間與您在 [時間]**** 設定中的定義相同。
+4. 將 [度量] 下拉式清單保留為 [CPU 百分比]。
 	
-7. 在 [時間]**** 下方，選擇一天的開始和結束時間 (以半小時為單位) 及時區。依預設，一天的開始時間為上午 8:00，結束時間為下午 8:00。日光節約時間取決於您選取的時區。 
+5. 在 [調升規則] 中，藉由將 [條件] 設為 [大於]、將 [閾值] 設為 [70] (%)、將 [經過的時間] 設為 [10] (分鐘)、將 [調升依據] 設為 [1] (執行個體)，以及將 [緩和時間] 設為 [10] (分鐘)，來設定第一個規則。 
 	
-8. 在 [特定日期]**** 下方，您可以建立一或多個具名的時間範圍來調整資源。例如，對於可能會產生大量 Web 流量的銷售或發表活動，您也許會想要在活動進行期間提供額外的資源。
+	![設定第一個自動調整規則][SetFirstRule]
 	
-9. 選擇完畢之後，請按一下 [確定]**** 來關閉 [排程時間]**** 對話方塊。
+	>[AZURE.NOTE] [緩和時間] 設定會指定在前次調整動作之後，此規則再次執行調整前所應等待的時間。
 	
-10.   [編輯排程的調整規模設定]**** 方塊現在會根據您的變更顯示可設定的排程或事件。您可以選取一或多個週期性排程或特定的日期來予以設定。 
+6. 按一下 [新增調升規則]，然後藉由將 [條件] 設為 [大於]、將 [閾值] 設為 [90] (%)、將 [經過的時間] 設為 [1] (分鐘)、將 [調升依據] 設為 [3] (執行個體)，以及將 [緩和時間] 設為 [1] (分鐘)，來設定第二個規則。
 	
-	![Edit scale settings for schedule][EditScaleSettingsForSchedule]
+	![設定第二個自動調整規則][SetSecondRule]
 	
-	您現在可以使用 [依度量調整規模]**** 與 [執行個體計數]**** 功能來針對每個選擇的排程微調資源調整。 
+5. 在 [調降規模規則] 中，藉由將 [條件] 設為 [小於]、將 [閾值] 設為 [50] (%)、將 [經過的時間] 設為 [30] (分鐘)、將 [調降規模依據] 設為 [1] (執行個體)，以及將 [緩和時間] 設為 [60] (分鐘)，來設定第三個規則。 
 	
-11.  若要在網站負載變更時動態地調整網站使用的執行個體數目，請選擇 [CPU]**** 來啟用 [依度量調整規模]**** 選項。
+	![設定第三個自動調整規則][SetThirdRule]
 	
-	![Scale By Metric][ScaleByMetric]
+7. 按一下命令列中的 [儲存]。自動調整規則現在應該會反映在 [調整規模] 刀鋒視窗中。 
 	
-	圖表顯示在過去一週內使用的執行個體數目。您可以使用圖表來監視調整活動。
-	
-12. [依度量調整規模]**** 戶會修改 [執行個體計數]**** 功能，因此您可以設定要用於自動調整的虛擬機器數目下限和上限。Azure 一律會避免超出或低於您設定的限制。
-	
-	![Instance count][InstanceCount]
-	
-13. [依度量調整規模]**** 也會啟用 [目標 CPU]**** 選項，以便您指定 CPU 使用量的目標範圍。此範圍代表網站的平均 CPU 使用率。Windows Azure 會增加或移除標準執行個體，以將網站維持在此範圍之內。
-	
-€
-	
-	**注意**：啟用 [依度量調整規模]**** 時，Microsoft Azure 會每隔五分鐘檢查網站的 CPU 一次，然後在該時間點視需要增加執行個體。如果 CPU 使用率較低，Microsoft Azure 會每隔兩小時移除執行個體一次，確保網站維持一定效能。一般說來，將執行個體計數下限設定為 1 是合適的值。然而，如果網站突然湧入大量的使用量，請確保您的執行個體數目下限足以處理負載。例如，如果網站在 Microsoft Azure 檢查 CPU 使用率之前的 5 分鐘間隔內突然湧入大量流量，網站在該段時間內可能會處於沒有回應的狀態。如果您已預知會突然湧入大量流量，請設定較高的執行個體計數下限來因應突發的流量。 
-	
-14. 完成 [編輯排程的調整規模設定]**** 清單中的項目變更後，請按一下頁面底部之命令列中的 [儲存]**** 圖示來一次儲存所有排程設定 (您不需要分別儲存每個排程)。
-
-> [AZURE.NOTE] 在 [Azure Preview 入口網站](https://portal.azure.com/)中，您不僅可以調整 CPU 百分比，還能調整其他 [記憶體百分比]、[磁碟佇列長度]、[HTTP 佇列長度]、[資料輸入] 及 [資料輸出] 的度量。您也可以建立一或多個調升規模和調降規模規則，以便讓您可以調整更多自訂控制。如需詳細資訊，請參閱 Azure 預覽入口網站文件中的[如何調整網站規模](http://azure.microsoft.com/documentation/articles/insights-how-to-scale/)。
+	![設定自動調整規則結果][SetRulesFinal]
 
 <a name="ScalingSQLServer"></a>
-##調整與網站連接的 SQL Server Database	
-如果您有一或多個與網站連接的 SQL Server 資料庫 (不論虛擬主機方案模式為何)，這些資料庫會列示於 [調整規模] 頁面底部的 [已連結的資源]**** 區段中。
+##調整與 Web 應用程式連接的 SQL Server 資料庫規模
+如果您有一或多個 SQL Server 資料庫連結至 Web 應用程式 (不論 App Service 方案模式為何)，您都可以根據需求快速調整它們的規模。
 
-1. 若要調整資料庫的規模，請在 [已連結的資源]**** 區段中，按一下資料庫名稱旁的 [管理這個資料庫的調整規模]**** 連結。
+1. 若要調整其中一個連結的資料庫規模，可在 [Azure 入口網站][portal]中開啟 Web 應用程式的刀鋒視窗。在 [基本功能] 摺疊下拉式清單中，按一下 [資源群組] 連結。接著，在資源群組刀鋒視窗的 [摘要] 組件中，按一下其中一個連結的資料庫。
+
+	![連結的資料庫][ResourceGroup]
 	
-	![Linked database][LinkedResources]
+2. 在連結的 SQL Database 刀鋒視窗中，按一下 [定價層] 組件、根據您的效能需求選取其中一個層級，然後按一下 [選取]。 
 	
-2. 此連結會帶您前往 Azure 管理入口網站的 [SQL Server] 索引標籤，供您設定資料庫的 [版本]**** 與 [大小上限]****：
+	![調整您的 SQL Database 規模][ScaleDatabase]
 	
-	![Scale your SQL Server database][ScaleDatabase]
+3. 您也可以設定異地複寫，以提高 SQL Database 的高可用性和災害復原功能。若要執行這個動作，可按一下 [異地複寫] 組件。
 	
-	對於 [版本]****，請根據所需的儲存體容量選擇 [基本]****、[標準]**** 或 [高階]****。對於 **Web** 與「商業」****版本的後續情況，請參閱[Web 與商業版本終止支援常見問題集](http://msdn.microsoft.com/library/azure/dn741330.aspx)。
-	
-	您選擇的 [大小上限]**** 值能指定資料庫的上限。我們收取的資料庫費用乃是以實際儲存的資料量為準，因此變更 [大小上限]**** 屬性本身並不會影響資料庫費用。如需詳細資訊，請參閱 [Microsoft Azure SQL Database 中的帳戶和計費][SQLaccountsbilling]。
+	![針對 SQL Database 設定異地複寫][GeoReplication]
 
 <a name="devfeatures"></a>
 ## 開發人員功能
-視虛擬主機方案模式而定，可以使用下列以開發人員為導向的功能：
+視 Web 應用程式的模式而定，可使用下列以開發人員為導向的功能：
 
-**位元**
+### 位元 ###
 
-- 基本和標準方案模式支援 64 和 32 位元的應用程式。
-- 免費和共用方案模式僅支援 32 位元的應用程式。
+- [基本]、[標準] 及 [高階] 模式支援 64 位元和 32 位元的應用程式。
+- [免費] 和 [共用] 方案模式僅支援 32 位元的應用程式。
 
-**偵錯工具支援**
+### 偵錯工具支援 ###
 
-- 對於免費、共用及基本虛擬主機方案模式提供的偵錯工具支援，每個應用程式僅限 1 個同時連線。
-- 對於標準虛擬主機方案模式提供的偵錯工具支援，每個應用程式可擁有 5 個同時連線。
+- 在每個 App Service 方案 1 個同時連線的情況下，偵錯工具支援適用於 [免費]、[共用] 及 [基本] 模式。
+- 在每個 App Service 方案 5 個同時連線的情況下，偵錯工具支援適用於 [標準] 和 [高階] 模式。
 
 <a name="OtherFeatures"></a>
 ## 其他功能
 
-**Web 端點監視**
+### Web 端點監視 ###
 
-- 基本和標準虛擬主機方案模式提供 Web 端點監視功能。如需 Web 端點監視的詳細資訊，請參閱[如何監視網站](http://azure.microsoft.com/documentation/articles/web-sites-monitor/)。
+- Web 端點監視適用於 [基本]、[標準] 及 [高階] 模式。如需 Web 端點監視的詳細資訊，請參閱[如何監視 Web 應用程式](web-sites-monitor.md).。
 
-- 如需虛擬主機方案其他所有功能的詳細資訊，包括所有使用者 (包括開發人員) 關心的定價和功能，請參閱[網站定價詳細資料](http://azure.microsoft.com/pricing/details/web-sites/)。
+- 如需 App Service 方案中所有剩餘功能的詳細資訊，包括所有使用者 (包含開發人員在內) 關心的定價和功能，請參閱 [App Service 定價詳細資料](/pricing/details/web-sites/).。
+
+>[AZURE.NOTE] 如果您想要在註冊 Azure 帳戶之前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，讓您能夠在 App Service 中立即建立短期的入門 Web 應用程式。不需要信用卡，無需承諾。
 
 <a name="Next Steps"></a>	
 ## 後續步驟
 
-- 若要開始使用 Azure，請參閱 [Microsoft Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
-
+- 若要開始使用 Azure，請參閱 [Microsoft Azure 免費試用](/pricing/free-trial/).。
 - 如需定價、支援及 SLA 的相關資訊，請參閱以下連結：
 	
-	[資料傳輸定價詳細資料](http://azure.microsoft.com/pricing/details/data-transfers/)
+	[資料傳輸定價詳細資料](/pricing/details/data-transfers/)
 	
-	[Microsoft Azure 支援方案](http://azure.microsoft.com/support/plans/)
+	[Microsoft Azure 支援方案](/support/plans/)
 	
-	[服務等級協定](http://azure.microsoft.com/support/legal/sla/)
+	[服務等級協定](/support/legal/sla/)
 	
-	[SQL Database 定價詳細資料](http://azure.microsoft.com/pricing/details/sql-database/)
+	[SQL Database 定價詳細資料](/pricing/details/sql-database/)
 	
 	[Microsoft Azure 的虛擬機器和雲端服務大小][vmsizes]
 	
-	[網站定價詳細資料](http://azure.microsoft.com/pricing/details/web-sites/)
+	[App Service 定價詳細資料](/pricing/details/web-sites/)
 	
-	[網站定價詳細資料 - SSL 連線](http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)
+	[App Service 定價詳細資料 - SSL 連線](/pricing/details/web-sites/#ssl-connections)
 
-- 如需 Azure 網站最佳做法 (包括建置可調整且具彈性的架構) 的相關資訊，請參閱[最佳做法：Windows Azure 網站 (WAWS)](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)。
+- 如需 Azur App Service 最佳做法 (包括建置可調整且具彈性的架構) 的相關資訊，請參閱[最佳做法：Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)。
 
-- 調整 Azure 網站規模的影片：
+- 調整 Web Apps 規模的相關影片：
 	
-	[何時該調整 Azure 網站規模，與 Stefan Schackow](http://azure.microsoft.com/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
-	
-	[自動調整 Azure 網站規模、CPU 或排程，與 Stefan Schackow](http://azure.microsoft.com/documentation/videos/auto-scaling-azure-web-sites/)
+	- [何時該調整 Azure 網站規模 - 和 Stefan Schackow 一起](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+	- [自動調整 Azure 網站規模、CPU 或排程 - 和 Stefan Schackow 一起](/documentation/videos/auto-scaling-azure-web-sites/)
+	- [如何調整 Azure 網站規模 - 和 Stefan Schackow 一起](/documentation/videos/how-azure-web-sites-scale/)
 
-	[如何調整 Azure 網站規模，與 Stefan Schackow](http://azure.microsoft.com/documentation/videos/how-azure-web-sites-scale/)
-
-
+## 相關變更
+* 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 如需從舊版入口網站變更為新版入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- LINKS -->
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkId=309169
 [SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
 [azuresubscriptions]:http://go.microsoft.com/fwlink/?LinkID=235288
-[portal]: https://manage.windowsazure.com/
+[portal]: https://portal.azure.com/
 
 <!-- IMAGES -->
-[SelectWebsite]: ./media/web-sites-scale/01SelectWebSite.png
-[SelectScaleTab]: ./media/web-sites-scale/02SelectScaleTab.png
-
-[ChooseWHP]: ./media/web-sites-scale/03aChooseWHP.png
-[ChooseBasicInstanceSize]: ./media/web-sites-scale/03bChooseBasicInstanceSize.png
-[ChooseBasicInstanceCount]: ./media/web-sites-scale/04ChooseBasicInstanceCount.png
+[ChooseWHP]: ./media/web-sites-scale/scale1ChooseWHP.png
+[ChooseBasicInstances]: ./media/web-sites-scale/scale2InstancesBasic.png
 [SaveButton]: ./media/web-sites-scale/05SaveButton.png
 [BasicComplete]: ./media/web-sites-scale/06BasicComplete.png
-[ChooseStandard]: ./media/web-sites-scale/07ChooseStandard.png
-[CapacitySectionStandard]: ./media/web-sites-scale/08CapacitySectionStandard.png
-[ChooseInstanceSize]: ./media/web-sites-scale/09ChooseInstanceSize.png
-[SetUpScheduleTimesButton]: ./media/web-sites-scale/10SetUpScheduleTimesButton.png
-[SetUpScheduleTimesDialog]: ./media/web-sites-scale/11SetUpScheduleTimesDialog.png
-[EditScaleSettingsForSchedule]: ./media/web-sites-scale/12EditScaleSettingsForSchedule.png
-[ScaleByMetric]: ./media/web-sites-scale/13ScaleByMetric.png
-[InstanceCount]: ./media/web-sites-scale/14InstanceCount.png
-[TargetCPU]: ./media/web-sites-scale/15TargetCPU.png
-[LinkedResources]: ./media/web-sites-scale/16LinkedResources.png
-[ScaleDatabase]: ./media/web-sites-scale/17ScaleDatabase.png
+[ScaleStandard]: ./media/web-sites-scale/scale3InstancesStandard.png
+[Autoscale]: ./media/web-sites-scale/scale4AutoScale.png
+[SetTargetMetrics]: ./media/web-sites-scale/scale5AutoScaleTargetMetrics.png
+[SetFirstRule]: ./media/web-sites-scale/scale6AutoScaleFirstRule.png
+[SetSecondRule]: ./media/web-sites-scale/scale7AutoScaleSecondRule.png
+[SetThirdRule]: ./media/web-sites-scale/scale8AutoScaleThirdRule.png
+[SetRulesFinal]: ./media/web-sites-scale/scale9AutoScaleFinal.png
+[ResourceGroup]: ./media/web-sites-scale/scale10ResourceGroup.png
+[ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
+[GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="03/20/2015" 
 	ms.author="mimig"/>
 
 #Microsoft Azure DocumentDB 簡介
 
 本文針對開發人員、IT 專業人員和業務決策者，提供 Microsoft Azure DocumentDB (NoSQL 文件資料庫服務) 簡介。 
 
-我們建議您觀看 Ryan CrawCour 與 Hanselman 介紹 Azure DocumentDB 的下列影片來快速入門。 
+我們建議從觀看下列影片 (由 Ryan CrawCour 和 Scott Hanselman 介紹 Azure DocumentDB) 並試試[查詢遊樂場](http://www.documentdb.com/sql/demo) (您可以在其中試用 DocumentDB) 開始，並對我們的資料集執行 SQL 查詢。
 
 > [AZURE.VIDEO documentdb-101-with-ryan-crawcour]
 
@@ -31,7 +31,7 @@
 -	[如何使用 DocumentDB 來開發應用程式？](#develop)
 -	[建置 DocumentDB 應用程式的後續步驟是什麼？](#next-steps)  
 
-##<a name="what-is-docdb"></a>什麼是 Azure DocumentDB？
+##<a name="what-is-docdb"></a>什麼是 Azure DocumentDB？  
 
 新式應用程式會快速地產生、使用和回應非常大量的資料。不僅這些應用程式發展地極為快速，基礎資料結構描述也是如此。因此，開發人員越來越常選擇無結構描述的 NoSQL 資料庫，做為簡單、快速、彈性的方案來儲存和處理資料，同時還保有快速逐一查看應用程式資料模型和非結構化資料摘要的能力。不過，許多無結構描述資料庫都不允許非一般的查詢和交易式處理，以致於很難進行進階資料管理。這就 DocumentDB 的切入點。Microsoft 開發了 DocumentDB，以滿足在管理無結構描述資料時的這些需求。
 
@@ -43,13 +43,13 @@ Azure DocumentDB 提供下列重要功能和優點：
 
 -	**使用常見的 SQL 語法執行特定查詢：**將異質 JSON 文件儲存在 DocumentDB 中，然後透過常見的 SQL 語法查詢這些文件。DocumentDB 利用高度並行、無鎖定、記錄結構化索引技術，來自動為所有文件內容編制索引。這使得在不指定結構描述提示、次要索引或檢視表的情況下，即可執行豐富的即時查詢。
 
--	**在資料庫內執行 JavaScript：**使用標準 JavaScript 以預存程序、觸發程序及使用者定義函式 (UDF) 表示應用程式邏輯。這可讓您的應用程式邏輯在 JSON 資料上運作，而不需擔心應用程式與資料庫結構描述之間不相符。DocumentDB 提供直接在資料庫引擎內的 JavaScript 應用程式邏輯完整交易式執行。JavaScript 的深入整合可允許從 JavaScript 程式內，以獨立交易方式執行 INSERT、REPLACE、DELETE 及 SELECT 操作。
+-	**在資料庫內執行 JavaScript：**使用標準 JavaScript 以預存程序、觸發程序及使用者定義函式 (UDF) 表示應用程式邏輯。這可讓您的應用程式邏輯在 JSON 資料上運作，而不需擔心應用程式與資料庫結構描述之間不相符。DocumentDB 提供直接在資料庫引擎內的 JavaScript 應用程式邏輯完整交易式執行。JavaScript 的深入整合可允許從 JavaScript 程式內，以獨立交易方式執行 INSERT、REPLACE、DELETE 及 SELECT 作業。 
 
--	**可微調的一致性層級：**從四個完善定義的一致性層級中選取，即可在一致性與效能之間做出最佳取捨。針對查詢和讀取操作，DocumentDB 提供四個不同的一致性層級：強式、有限過期性、工作階段及最終。這些細微且定義完善的一致性層級可讓您在一致性、可用性及延遲之間做出最佳取捨。
+-	**可微調的一致性層級：**從四個完善定義的一致性層級中選取，即可在一致性與效能之間做出最佳取捨。針對查詢和讀取操作，DocumentDB 提供四個不同的一致性層級：增強式、界限-陳舊、工作階段和最終。這些細微且定義完善的一致性層級可讓您在一致性、可用性及延遲之間做出最佳取捨。 
 
 -	**完全受管理：**免除管理資料庫和電腦資源的需要。對於完全受管理的 Microsoft Azure 服務，您不需要管理虛擬機器、部署及設定軟體，或處理複雜的資料層升級。每個資料庫都會自動備份來防止區域性故障發生。您可以輕鬆地新增 DocumentDB 帳戶，並視需要佈建容量，讓您可以專注於您的應用程式，而不是操作和管理您的資料庫。
 
--	**可彈性調整的輸送量和儲存體：**可輕鬆地擴大或縮小 DocumentDB 規模來符合您的應用程式需求。調整時，是透過保留之 SSD 支援儲存體及輸送量的精細單位來調整。您可以隨著應用程式的成長購買更多容量單位，在可預測效能的情況下，彈性地調整 DocumentDB。
+-	**可彈性調整的輸送量和儲存體：**可輕鬆地擴大或縮小 DocumentDB 規模來符合您的應用程式需求。調整時，是透過保留之 SSD 支援儲存體及輸送量的精細單位來調整。您可以隨著應用程式的成長購買更多容量單位，在可預測效能的情況下，彈性地調整 DocumentDB。 
 
 -	**為開放而設計：**使用現有技能和工具快速入門。使用 DocumentDB 進行程式設計既簡單、可行，且不需要採用新工具或符合 JSON 或 JavaScript 的自訂延伸模組。您可以存取所有的資料庫功能，包括 CRUD、查詢和透過簡單的 RESTful HTTP 介面處理的 JavaScript。DocumentDB 融入現有的格式、語言和標準，同時提供最高價值的資料庫功能。
 
@@ -93,12 +93,13 @@ DocumentDB 可讓您將應用程式邏輯撰寫成完全以 JavaScript 撰寫的
 ##<a name="next-steps"></a>後續步驟
 若要開始使用 Azure DocumentDB，請探索以下資源：
 
-- [立即試用 DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB)
--	[DocumentDB 資源模型和概念](/documentation/articles/documentdb-resources/)
--	[與 DocumentDB 資源互動](/documentation/articles/documentdb-interactions-with-resources/)
--	[建立 DocumentDB 資料庫帳戶](/documentation/articles/documentdb-create-account/)
--	[開始使用 DocumentDB .NET SDK](/documentation/articles/documentdb-get-started/)
+-   [立即試用 DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB)
+-   [查詢遊樂場](http://www.documentdb.com/sql/demo)
+-	[DocumentDB 資源模型和概念](documentdb-resources.md)
+-	[使用 DocumentDB 資源進行互動](documentdb-interactions-with-resources.md)
+-	[建立 DocumentDB 資料庫帳戶](documentdb-create-account.md)
+-	[開始使用 DocumentDB .NET SDK](documentdb-get-started.md)
 
 [1]: ./media/documentdb-introduction/intro.png
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="如何使用 CDN - Azure 功能指南" 
 	description="了解如何使用 Azure 內容傳遞網路 (CDN) 來快取 Blob 和靜態內容，以傳遞高頻寬內容。" 
 	services="cdn" 
@@ -20,8 +20,6 @@
 
 
 
-[WACOM.INCLUDE [cdn](../includes/cdn.md)]
+[AZURE.INCLUDE [cdn](../includes/cdn.md)]
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=49-->

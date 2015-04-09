@@ -26,7 +26,7 @@
 -	如何透過網頁瀏覽器輕鬆地瀏覽 DocumentDB 查詢結果頁面？
 -	如何疑難排解 DocumentDB 查詢的語法錯誤？ 
 
-##<a id="Launch"></a>啟動並瀏覽查詢總管##
+##<a id="Launch"></a>啟動並瀏覽 查詢總管##
 
 您可以從任何 DocumentDB 帳戶、資料庫和集合分頁啟動 [查詢總管] 。
   
@@ -44,7 +44,7 @@
 
 [查詢總管] 可讓您輕鬆地針對 DocumentDB 集合建立、編輯和執行查詢，並包含醒目提示的基本關鍵字和值以改善查詢撰寫經驗。  
 
-- 初次開啟 [查詢總管] 時，系統會提供 SELECT * FROM 的預設查詢。您可以接受預設查詢或建構本身，然後按一下 [**執行查詢**] 按鈕以檢視結果。[查詢總管] 支援 DocumentDB SQL 查詢語言，如 [查詢 DocumentDB] (../documentdb-sql-query/) 中所述。
+- 初次開啟 [查詢總管] 時，系統會提供 SELECT * FROM 的預設查詢。您可以接受預設查詢或建構本身，然後按一下 [**執行查詢**] 按鈕以檢視結果。[查詢總管] 支援 DocumentDB SQL 查詢語言，如[查詢 DocumentDB](documentdb-sql-query.md) 中所述。
 
 	![Screenshot of Query Explorer query results](./media/documentdb-query-collections-query-explorer/queryresults1.png) 
 
@@ -62,7 +62,7 @@
 
 ##<a name="NextSteps"></a>後續步驟
 
-- 若要深入了解 DocumentDB，請按一下 [這裡](http://azure.com/docdb)。
-- 若要深入了解 [查詢總管] 中支援的 DocumentDB SQL 文法，請按一下 [這裡](../documentdb-sql-query/)。
+- 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
+- 若要深入了解 [查詢總管] 中支援的 DocumentDB SQL 文法，請按一下[這裡](documentdb-sql-query.md)。
 
-<!--HONumber=47-->
+<!--HONumber=49-->

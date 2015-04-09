@@ -1,144 +1,68 @@
 <properties 
-	pageTitle="如何設定網站 - Azure 服務管理" 
-	description="了解如何在 Azure 中設定網站，包括如何設定網站使用 SQL Database 或 MySQL 資料庫。" 
-	services="web-sites" 
+	pageTitle="在 Azure App Service 中設定 Web 應用程式" 
+	description="如何在 Azure App Service 中設定 Web 應用程式" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="MikeWasson" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/18/2014" 
+	ms.date="03/24/2015" 
 	ms.author="mwasson"/>
 
 
-# 如何設定網站 #
-在 Azure 管理入連接字串網站中，您可以將網站和連結的組態選項變更為其他 Azure 資源，例如資料庫。
+# 在 Azure App Service 中設定 Web 應用程式 #
 
-## 目錄 ##
-- [作法：變更網站組態選項](#howtochangeconfig)
-- [作法：設定網站使用 SQL 資料庫](#howtoconfigSQL)
-- [作法：設定網站使用 MySQL 資料庫](#howtoconfigMySQL)
-- [作法：設定自訂網域名稱](#howtodomain)
-- [作法：設定網站使用 SSL](#howtoconfigSSL)
-- [後續步驟](#next)
+本主題說明如何使用 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)設定 Web 應用程式。
 
+## 應用程式設定
 
-##<a name="howtochangeconfig"></a>作法：變更網站組態選項
+1. 在 [Azure 入口網站](https://portal.azure.com)中，開啟 Web 應用程式的刀鋒視窗。
+2. 按一下 [所有設定]。
+3. 按一下 [應用程式設定]。
 
-<!-- HOW TO: CHANGE CONFIGURATION OPTIONS FOR A WEBSITE -->
+![](./media/web-sites-configure/configure01.png)
 
-設定網站組態選項：
+[應用程式設定] 刀鋒視窗中的設定會以數種類別來分組。
 
-1. 在 [管理入口網站][](https://manage.windowsazure.com/) 中，開啟網站的管理頁面。
-1. 按一下 [設定]<strong></strong> 索引標籤。
-
-**[設定]** 索引標籤具有下列區段：
-
-### 一般
+### 一般設定
 
 **Framework 版本**。如果您的應用程式使用下列任何 Framework，請設定下列選項： 
 
 - **.NET Framework**：設定 .NET Framework 版本。 
-- **PHP**：設定 PHP 版本，或設為 [關閉]**** 以停用 PHP。 
-- **Java**：選取已顯示的版本以啟用 Java，或設為 [關閉]<strong></strong> 以停用 Java。 
-- 如果啟用 Java，請使用 [Web 容器]<strong></strong> 選項以在 Tomcat 和 Jetty 版本之間選擇。
-- **Python**：選取 Python 版本，或設為 [關閉]**** 以停用 Python。
+- **PHP**：設定 PHP 版本，或設為 [關閉] 以停用 PHP。 
+- **Java**：選取 Java 版本，或設為 [關閉] 以停用 Java 。使用 [Web 容器] 選項來選擇 Tomcat 或 Jetty 版本。
+- **Python**：選取 Python 版本，或設為 [關閉] 以停用 Python。
 
-在技術上，針對您的網站啟用 Java 會停用 .NET、PHP 與 Python 選項。
+在技術上，針對您的應用程式啟用 Java 就會停用 .NET、PHP 與 Python 選項。
 
-<strong>Managed 管線模式</strong>。設定 IIS [管線模式](http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application)。請保留 [已整合 (預設)] 的設定，除非您擁有的舊版網站需要舊版 IIS。
+**平台**。選取 Web 應用程式是否會在 32 位元或 64 位元環境中執行。64 位元環境需要 [基本] 或 [標準] 模式。[免費] 與 [共用] 模式一律於 32 位元環境中執行。
 
-<strong>平台</strong>。選取應用程式是否在 32 位元或 64 位元環境中執行。64 位元環境需要 [基本] 或 [標準] 模式。[免費] 與 [共用] 模式一律於 32 位元環境中執行。
+**Web 通訊端**。設為 [開啟] 以啟用 WebSocket 通訊協定；例如，如果您的 Web 應用程式會使用 [ASP.NET SignalR](http://www.asp.net/signalr) 或 [socket.io](web-sites-nodejs-chat-app-socketio.md)。
 
-<strong>Web 通訊端</strong>。設為 **[開啟]** 以啟用 WebSocket 通訊協定，例如倘若您的網站使用 [ASP.NET SignalR](http://www.asp.net/signalr) 或 [socket.io](http://azure.microsoft.com/documentation/articles/web-sites-nodejs-chat-app-socketio/)。
+**永遠開啟**。根據預設，Web 應用程式如果閒置一段時間，就會卸載。此舉有助於系統保留資源。在 [基本] 或 [標準] 模式中，您可以啟用 [永遠開啟]，讓應用程式隨時都能載入。如果您的應用程式會執行連續的 Web 工作，就應該啟用 [永遠開啟]，否則這些 Web 工作可能無法可靠地執行
 
-<strong>永遠開啟</strong>。根據預設，網站如果閒置一段時間，就會卸載。此舉有助於系統保留資源。在 [基本] 或 [標準] 模式中，您可以啟用 [永遠開啟]<strong></strong>，以讓網站全天候載入。如果您的網站執行連續的網路工作，應啟用 **[永遠開啟]**，否則這些網路工作可能無法可靠地執行
+**受管理的管線版本**。設定 IIS [管線模式](http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application)。除非您擁有的舊版應用程式需要舊版 IIS，否則請保留 [整合 (預設值)] 的設定。
 
-<strong>在 Visual Studio Online 中編輯</strong>。透過 Visual Studio Online 啟用即時程式碼編輯。一經啟用，[儀表板] 索引標籤就會在 [快速概覽]<strong></strong> 區段之下顯示一個名為 [在 Visual Studio Online 中編輯]<strong></strong> 的連結。按一下此連結，可直接在線上編輯網站。如果您需要驗證，可以使用基本的部署憑證。
-
-注意：如果您已啟用從原始檔控制進行部署，則部署作業可能會覆寫您在 Visual Studio Online 編輯器中所做的變更。 
+**自動交換**。如果您針對部署位置啟用「自動交換」，當您將更新推送到該位置時，App Service 就會將 Web 應用程式自動交換至生產位置。如需詳細資訊，請參閱[將 Azure App Service 中的 Web 應用程式部署至預備位置](web-sites-staged-publishing.md)。
 
 
-### 憑證
+### 偵錯
 
-在 [基本] 或 [標準] 模式中，您可以上傳自訂網域的 SSL 憑證。如需詳細資訊，請參閱對 [Azure 網站啟用 HTTPS](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)。 
+**遠端偵錯**。啟用遠端偵錯。一經啟用，您就可以使用 Visual Studio 中的遠端偵錯工具，直接連接到您的 Web 應用程式。遠端偵錯將保持啟用達 48 小時。 
 
-您上傳的憑證會列示在此。憑證上傳完畢後，可以將其指派給訂閱及區域中的任何一個網站。萬用字元憑證可用於接受此憑證之網域內的任何網站上。只有當該憑證不具有有效繫結關係時，才能刪除憑證。
-
-### 網域名稱
-
-檢視或新增網站的其他網域名稱。如需詳細資訊，請參閱[設定 Azure 網站的自訂網域名稱](http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/)。
-
-### SSL 繫結
-
-如果您已上傳 SSL 憑證，則可以將該憑證繫結至自訂網域名稱。如需詳細資訊，請參閱對 [Azure 網站啟用 HTTPS](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)。
-
-### 部署
-
-在啟用從原始檔控制進行部署時才會出現這個區段。請使用這些設定以設定部署。
-
-- <strong>Git URL</strong>。如果您已為 Azure 網站建立 Git 儲存機制，那麼 Git URL 就是您推送內容的 URL。
-- <strong>部署觸發程序 URL</strong>。您可在 GitHub、CodePlex、Bitbucket 或其他儲存機制上設定此 URL，以便在認可動作推送至儲存機制時觸發部署。
-- <strong>要部署的分支</strong>。指定當您推送內容時要部署的分支。
-
-若要設定從原始檔控制進行部署，請檢視 **[儀表板]** 索引標籤，然後按一下 **[設定從原始檔控制進行部署]**。 
-
-### 應用程式診斷
-
-從支援記錄功能的 Web 應用程式寫入診斷記錄的選項： 
-
-- <strong>檔案系統</strong>。將記錄寫入網站的檔案系統。檔案系統記錄功能會持續運作 12 小時。您可以從 FTP 共用存取網站的記錄。(請參閱 [FTP 認證](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials))。
-- <strong>資料表儲存體</strong>。將記錄寫入 Azure 資料表儲存體。該儲存體中沒有時限，除非您停用記錄，否則記錄會一直啟用。 
-- <strong>Blob 儲存體</strong>。將記錄寫入 Azure Blob 儲存體。該儲存體中沒有時限，除非您停用記錄，否則記錄會一直啟用。
-
-<strong>記錄層級</strong>。記錄功能一經啟用，此選項便會指定要記錄的資訊數量 (錯誤、警告、資訊或詳細資訊)。
-
-**管理資料表儲存體**。啟用資料表儲存體時，按一下此按鈕可設定儲存體帳戶和資料表名稱。
-
-**管理 Bob 儲存體**。啟用 Blob 儲存體時，按一下此按鈕可設定儲存體帳戶和 Blob 儲存體名稱。
-
-### 網站診斷
-
-用於收集網站診斷資訊的選項。
-
-<strong>Web 伺服器記錄</strong>。啟用 Web 伺服器記錄。記錄會儲存為 W3C 延伸的記錄檔格式。您可以將記錄儲存至 Azure 儲存體或網站的檔案系統。
- 
-- 如果您選擇 [檔案系統]<strong></strong>，記錄都會儲存到 [儀表板] 頁面上的 [FTP 診斷記錄]"" 下方列示的 FTP 網站。(請參閱 [FTP 認證](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials))。 
-- 如果您選擇 **[檔案系統]**，請使用 [配額]<strong></strong> 方塊以為記錄檔設定最大的磁碟空間量。最小值為 25MB，而最大值則是 100MB。預設值為 35MB。到達配額時，最新的檔案會覆寫最舊的檔案。如果您需要保留的記錄超過 100MB，請使用 Azure 儲存體，其提供您大上很多的儲存容量。
-- 選擇性地按一下 [設定保留]<strong></strong> 可在一段時間之後自動刪除檔案。依預設，系統永遠不會刪除記錄。   
-
-<strong>詳細的錯誤訊息</strong>。一經啟用，詳細的錯誤訊息會另存為 .htm 檔案。若要檢視檔案，請移至 [儀表板] 頁面上的 [FTP 診斷記錄]"" 下方列示的 FTP 網站。檔案都會儲存在 FTP 網站中的 /LogFiles/DetailedErrors 之下。(請參閱 [FTP 認證](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials))。
-
-<strong>失敗的要求追蹤</strong>。一經啟用，失敗要求就會記錄為 XML 檔案。若要檢視檔案，請移至 [儀表板] 頁面上的 [FTP 診斷記錄]"" 下方列示的 FTP 網站。(請參閱 [FTP 認證](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials))。檔案會儲存在 /LogFiles/W3SVC*xxx* 之下，其中 xxx 是唯一識別碼。此資料夾內含有一個 XSL 檔案和一或多個 XML 檔案。請務必下載 XSL 檔案，因為 XSL 檔案可提供格式化和篩選 XML 檔案內容的功能。
-
-<strong>遠端偵錯</strong>可啟用遠端偵錯。一經啟用，您就可以使用 Visual Studio 中的遠端偵錯工具直接連線至 Azure 網站。遠端偵錯將保持啟用達 48 小時。
-
-**注意**：遠端偵錯無法在超過 20 個字元的網站名稱或使用者名稱上運作。 
-
-### 監控
-
-在 [基本] 或 [標準] 模式中，您可以測試 HTTP 或 HTTPS 端點的可用性，最多可測試三個分散的地理位置。如果 HTTP 回應碼為錯誤 (4xx 或 5xx)，或是當回應時間超過 30 秒時，監視測試即告失敗。如果所有指定位置上的端點監視測試全都成功，表示該端點可用。 
-
-如需詳細資訊，請參閱 [如何：監視 Web 端點狀態](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409)。
-
-
-### 開發人員分析
-
-選擇 [附加元件]<strong></strong> 以從清單中選取分析附加元件，或是前往 Azure 市集選擇。選擇 [自訂]<strong></strong> 以從清單選取分析資料提供者，例如 New Relic。如果您使用自訂提供者，必須在 [提供者金鑰]<strong></strong> 方塊中輸入授權金鑰。 
-
-如需使用 New Relic 搭配 Azure 網站的詳細資訊，請參閱 <a href="http://azure.microsoft.com/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/">Azure 網站上的 New Relic 應用程式效能管理</a>。
 
 ### 應用程式設定
 
-Web 應用程式啟動時載入的名稱/值組。 
+本區段包含您的 Web 應用程式將在啟動時載入的名稱/值組。 
 
-- 如果是 .NET 網站，這些設定會在執行階段插入至 .NET 組態的 AppSettings，並覆蓋現有的設定。 
+- 如果是 .NET 應用程式，這些設定就會在執行階段插入 .NET 設定 `AppSettings`，並覆寫現有的設定。 
 
 - PHP、Python、Java 和 Node 應用程式可以在執行階段以環境變數的形式存取這些設定。系統會為每個應用程式設定建立兩個環境變數，一個變數具有由應用程式設定項目指定的名稱，另一個則具有 APPSETTING_ 前置詞。這兩個變數都包含相同的值。
 
@@ -146,7 +70,7 @@ Web 應用程式啟動時載入的名稱/值組。
 
 連結資源的連接字串。 
 
-如果是 .NET 網站，這些連接字串會在執行階段插入至 .NET 組態的 connectionStrings 設定，並覆寫索引鍵等於所連結資料庫名稱的現有項目。 
+如果是 .NET 應用程式，這些連接字串就會在執行階段插入 .NET 設定的 `connectionStrings` 設定，並覆寫索引鍵相當於所連結資料庫名稱的現有項目。 
 
 如果是 PHP、Python、Java 及 Node 應用程式，您可以在執行階段將這些設定視為環境變數使用，並加上連線類型前置詞。環境變數首碼如以下所示： 
 
@@ -155,73 +79,100 @@ Web 應用程式啟動時載入的名稱/值組。
 - SQL Database：SQLAZURECONNSTR_
 - 自訂：CUSTOMCONNSTR_
 
-例如，如果 MySql 連接字串命名為 connectionstring1，則可透過環境變數 <code>MYSQLCONNSTR_connectionString1</code>. 加以存取。
-
-<strong>注意</strong>：將資料庫資源連結至網站時也會建立連接字串。以此方式建立的連接字串在於組態管理頁面上檢視時為 
-唯讀狀態。
+例如，如果已將 MySql 連接字串命名為 `connectionstring1`，則可透過環境變數 `MYSQLCONNSTR_connectionString1` 加以存取。
 
 ### 預設文件
 
-網站的預設文件是所顯示未指定網站特定頁面的網頁。如果網站包含清單中的多個檔案，請務必讓預設文件在清單中置頂。
+預設文件是顯示於網站根 URL 上的網頁。系統會使用清單中第一個相符的檔案。 
 
-Web 應用程式可能會使用根據 URL 路由的模組，而非處理靜態內容，若是如此，就不會有像這樣的預設文件了。   
+Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理靜態內容，若是如此，就不會有這類預設文件。    
 
 ### 處理常式對應
 
 使用此區域可新增自訂指令碼處理器，以處理特定副檔名的要求。 
 
 - **副檔名**。要處理的副檔名，例如 *.php 或 handler.fcgi。 
-- **指令碼處理器路徑**。指令碼處理器的絕對路徑。符合該副檔名的檔案要求，將由指令碼處理器來處理。使用路徑 <code>D:\home\site\wwwroot</code> 可指出網站的根目錄。
+- **指令碼處理器路徑**。指令碼處理器的絕對路徑。符合該副檔名的檔案要求，將由指令碼處理器來處理。使用路徑 `D:\home\site\wwwroot`，以指出應用程式的根目錄。
 - **其他引數**。指令碼處理器選用的命令列引數 
 
 
 ### 虛擬應用程式與目錄 
-
-若要設定與您的網站相關聯的虛擬應用程式與目錄，請指定個別虛擬目錄及其相對於網站根目錄的對應實體路徑。或者，您可以選取 [應用程式]<strong></strong> 核取方塊，勾選虛擬目錄作為網站組態中的應用程式。
-
-	
-
-<!-- HOW TO: CONFIGURE A WEBSITE TO USE A SQL DATABASE -->
-##<a name="howtoconfigSQL"></a>作法：設定網站以使用 SQL 資料庫
-
-請遵循以下步驟，將網站連結至 SQL 資料庫：
-
-1. 在[管理入口網站](http://manage.windowsazure.com)中，選取 **[網站]** 以顯示由目前登入帳戶所建立的網站清單。
-
-2. 從網站清單中選取一個網站，以開啟該網站的 **[管理]** 頁面。
-
-3. 按一下 **[已連結的資源]** 索引標籤，這時 **[已連結的資源]** 頁面上會顯示一則訊息，指出**「您沒有任何已連結的資源。」**。
-
-4. 按一下 **[連結資源]** 以開啟 **[連結資源]** 精靈。
-
-5. 按一下 **[建立新的資源]** 以顯示可連結至您網站的資源類型清單。
-
-6. 按一下 **[SQL Database]** 以顯示 **[連結資料庫]** 精靈。
-
-7. 完成 **[連結資料庫]** 精靈第 3 與第 4 頁上的必填欄位，然後按一下第 4 頁上的 **[完成]** 核取記號。
-
-Azure 會使用指定的參數建立 SQL 資料庫，然後將該資料庫連結至網站。
-
-<!-- HOW TO: CONFIGURE A WEBSITE TO USE A MYSQL DATABASE -->
-##<a name="howtoconfigMySQL"></a>作法：設定網站以使用 MySQL 資料庫##
-若要設定網站以使用 MySQL 資料庫，請遵循使用 SQL 資料庫的相同步驟，但在 **[連結資源]** 精靈中，選擇 **[MySQL 資料庫]** 而非 **[SQL 資料庫]**。 
-
-或者，您可以使用 **[自訂建立]** 選項來建立網站。在 **[資料庫]** 下拉式清單中，選擇 **[建立新的 MySQL 資料庫]** 或 **[使用現有的 MySQL 資料庫]**。 
-
-##<a name="howtodomain"></a>作法：設定自訂網域名稱
-
-如需設定網站以使用自訂網域名稱的相關資訊，請參閱[設定 Azure 網站的自訂網域名稱](http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/)。
-
-##<a name="howtoconfigSSL"></a>作法：設定網站以使用 SSL##
-
-如需在 Azure 上設定自訂網域之 SSL 的詳細資訊，請參閱[對 Azure 網站啟用 HTTPS](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)。 
-
-##<a name="next"></a>後續步驟
-
-* [如何調整網站](http://azure.microsoft.com/documentation/articles/web-sites-scale/)
-
-* [如何監視網站](http://azure.microsoft.com/documentation/articles/web-sites-monitor/)
+ 
+若要設定虛擬應用程式與目錄，請指定個別虛擬目錄及其相對於網站根目錄的對應實體路徑。或者，您可以選取 [應用程式] 核取方塊，勾選虛擬目錄做為應用程式。
 
 
+## 啟用診斷記錄
 
-<!--HONumber=42-->
+啟用診斷記錄：
+
+1. 在 Web 應用程式的刀鋒視窗中，按一下 [所有設定]。
+2. 按一下 [診斷記錄]。 
+
+從支援記錄功能的 Web 應用程式寫入診斷記錄的選項： 
+
+- **應用程式記錄**。將應用程式記錄寫入檔案系統。記錄功能會持續運作 12 小時。 
+
+**層級**。應用程式記錄功能一經啟用，此選項便會指定要記錄的資訊數量 (錯誤、警告、資訊或詳細資訊)。
+
+**Web 伺服器記錄**。記錄會儲存為 W3C 延伸的記錄檔格式。 
+
+**詳細的錯誤訊息**。將詳細的錯誤訊息儲存為 .htm 檔案。檔案會儲存在 /LogFiles/DetailedErrors 下方。 
+
+**失敗的要求追蹤**。將失敗的要求記錄於 XML 檔案中。檔案會儲存在 /LogFiles/W3SVC*xxx* 之下，其中 xxx 是唯一識別碼。此資料夾內含有一個 XSL 檔案和一或多個 XML 檔案。請務必下載 XSL 檔案，因為 XSL 檔案可提供格式化和篩選 XML 檔案內容的功能。
+
+若要檢視記錄檔，您必須建立 FTP 認證，如下所示：
+
+1. 在 Web 應用程式的刀鋒視窗中，按一下 [所有設定]。
+2. 按一下 [部署認證]。
+3. 請輸入使用者名稱和密碼。
+4. 按一下 [儲存]。
+
+![](./media/web-sites-configure/configure03.png)
+
+
+完整的 FTP 使用者名稱為 [app\username」，其中  app 部分為您 Web 應用程式的名稱。username 則列於 Web 應用程式刀鋒視窗的 [Essentials] 部分。
+
+![](./media/web-sites-configure/configure02.png)
+
+## 其他配置作業
+
+### SSL 
+
+您可在基本或標準模式中上傳自訂網域的 SSL 憑證。如需更多資訊，請參閱[啟動網頁應用程式的 HTTPS](web-sites-configure-ssl-certificate.md)。 
+
+若要檢視您上傳的憑證，依序按一下 [所有設定] > [自訂網域和 SSL]。
+
+### 網域名稱
+
+新增 Web 應用程式的自訂網域名稱。如需詳細資訊，請參閱[在 Azure App Service 中設定 Web 應用程式的自訂網域名稱](web-sites-custom-domain-name.md)。
+
+若要檢視您的網域名稱，依序按一下 [所有設定] > [自訂網域和 SSL]。
+
+### 部署
+
+- 設定連續部署。請參閱[在 Azure App Service 中使用 Git 來部署 Web 應用程式](web-sites-publish-source-control.md)
+- 部署位置。請參閱[將 Azure App Service 中的 Web 應用程式部署至預備環境](web-sites-staged-publishing.md)
+
+若要檢視您的部署位置，依序按一下 [所有設定] > [部署位置]。
+
+
+### 監控
+
+在 [基本] 或 [標準] 模式中，您可以測試 HTTP 或 HTTPS 端點的可用性，最多可測試三個分散的地理位置。如果 HTTP 回應碼為錯誤 (4xx 或 5xx)，或是當回應時間超過 30 秒時，監視測試即告失敗。如果所有指定位置上的端點監視測試全都成功，表示該端點可用。 
+
+如需詳細資訊，請參閱[作法：監視 Web 端點狀態](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409)。
+
+>[AZURE.NOTE] 如果您想要在註冊 Azure 帳戶之前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，讓您能夠在 App Service 中立即建立短期的入門 Web 應用程式。不需要信用卡，無需承諾。
+
+## 後續步驟
+
+- [設定自訂網域名稱](web-sites-custom-domain-name.md)
+- [啟用 HTTPS](web-sites-configure-ssl-certificate.md)
+- [在 Azure App Service 中調整 Web 應用程式規模](web-sites-scale.md)
+- [在 Azure App Service 中監視 Web 應用程式的基本概念](web-sites-monitor.md)
+
+## 相關變更
+* 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 如需從舊版入口網站變更為新版入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+
+<!--HONumber=49-->

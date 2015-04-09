@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="03/02/2015" 
+	ms.date="03/11/2015" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>使用 DocumentDB 和 HDInsight 執行 Hadoop 工作
@@ -32,9 +32,9 @@
 
 接著回到本文，您將在本文中找到有關如何在 DocumentDB 資料上執行分析工作的完整詳細資訊。
 
-> [AZURE.TIP] 本教學課程假設您先前已有使用 Apache Hadoop、Hive 和/或 Pig 的經驗。如果您不熟悉 Apache Hadoop、Hive 和 Pig，建議您造訪 [Apache Hadoop 文件][apache-hadoop-doc]。本教學課程也假設您先前已有使用 DocumentDB 的經驗，且擁有 DocumentDB 帳戶。如果您不熟悉 DocumentDB 或沒有 DocumentDB 帳戶，請造訪我們的 [開始使用][getting-started] 頁面。
+> [AZURE.TIP] 本教學課程假設您先前已有使用 Apache Hadoop、Hive 和/或 Pig 的經驗。如果您不熟悉 Apache Hadoop、Hive 和 Pig，建議您造訪 [Apache Hadoop 文件][apache-hadoop-doc]。本教學課程也假設您先前已有使用 DocumentDB 的經驗，且擁有 DocumentDB 帳戶。如果您不熟悉 DocumentDB 或沒有 DocumentDB 帳戶，請造訪我們的[開始使用][getting-started]頁面。
 
-是否沒有時間完成本教學課程，而只想取得 Hive、Pig 和 MapReduce 的完整範例 PowerShell 指令碼？沒問題，您可以在 [這裡][documentdb-hdinsight-samples] 取得這些範例。下載項目也包含這些範例的 hql、pig 和 java 檔案。
+是否沒有時間完成本教學課程，而只想取得 Hive、Pig 和 MapReduce 的完整範例 PowerShell 指令碼？沒問題，您可以在[這裡][documentdb-hdinsight-samples]取得。下載項目也包含這些範例的 hql、pig 和 java 檔案。
 
 ## <a name="Prerequisites"></a>必要條件
 在依照本教學課程中的指示進行之前，請先確定您已備妥下列項目：
@@ -51,7 +51,7 @@
 
 > [AZURE.IMPORTANT] 如果您「**已經**」具有 Azure 儲存體帳戶，且願意在該帳戶內建立新的 Blob 容器，則您可以跳到 [步驟 2：建立自訂的 HDInsight 叢集](#ProvisionHDInsight)。
 
-Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為「 *WASB*」或「 *Azure 儲存體 - Blob*」。WASB 是 Microsoft 在 Azure Blob 儲存體上的 HDFS 實作。如需詳細資訊，請參閱 [搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
+Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。其稱為  *WASB* 或  *Azure Storage - Blob*。WASB 是 Microsoft 在 Azure Blob 儲存體上的 HDFS 實作。如需詳細資訊，請參閱 [搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
 
 佈建 HDInsight 叢集時，您可以指定 Azure 儲存體帳戶。將該帳戶的特定 Blob 儲存體容器指定為預設檔案系統，如同在 HDFS 中一般。依預設，系統會在與您指定儲存體帳戶的相同資料中心內佈建 HDInsight 叢集。
 
@@ -73,7 +73,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為�
 4. 等候新儲存體帳戶的 [**狀態**] 變更為 [**線上**]。
 
 ## <a name="ProvisionHDInsight"></a>步驟 2：建立自訂的 HDInsight 叢集
-本教學課程會使用 Azure 管理入口網站的指令碼動作，來自訂您的 HDInsight 叢集。在本教學課程中，我們將使用 Azure 管理入口網站來建立自訂的叢集。如需有關如何使用 PowerShell 指令程式或 HDInsight .NET SDK 的指示，請參閱 [使用指令碼動作來自訂 HDInsight 叢集][hdinsight-custom-provision] 一文。
+本教學課程會使用 Azure 管理入口網站的指令碼動作，來自訂您的 HDInsight 叢集。在本教學課程中，我們將使用 Azure 管理入口網站來建立自訂的叢集。如需有關如何使用 PowerShell 指令程式或 HDInsight .NET SDK 的指示，請參閱[使用指令碼動作來自訂 HDInsight 叢集][hdinsight-custom-provision]一文。
 
 1. 登入 [Azure 管理入口網站][azure-management-portal]。您可能已經在先前步驟中登入。
 
@@ -156,7 +156,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為�
 			<td>指定指令碼動作的名稱。</td></tr>
 		<tr><td>指令碼 URI</td>
 			<td>對自訂叢集所叫用的指令碼指定 URI。</br></br>
-			請輸入： </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v01.ps1</strong>。</td></tr>
+			請輸入： </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v02.ps1</strong>。</td></tr>
 		<tr><td>節點類型</td>
 			<td>指定執行自訂指定碼的節點。您可以選擇 [<b>所有節點</b>]、[<b>僅限前端節點</b>] 或 [<b>僅限背景工作節點</b>]。</br></br>
 			請選取 [<strong>所有節點</strong>]。</td></tr>
@@ -169,7 +169,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為�
 
 ## <a name="InstallCmdlets"></a>步驟 3：安裝並設定 Azure PowerShell
 
-1. 安裝 Azure PowerShell。您可以在 [這裡][powershell-install-configure] 找到指示。
+1. 安裝 Azure PowerShell。您可以在[這裡][powershell-install-configure]找到指示。
 
 	> [AZURE.NOTE] 或者，您可以使用 HDInsight 的線上 Hive 編輯器 (僅限 Hive 查詢)。若要這樣做，請登入 [Azure 管理入口網站][azure-management-portal]，按一下左側窗格中的 **HDInsight** 以檢視您的 HDInsight 叢集清單。按一下您要執行 Hive 查詢的叢集，然後按一下 [**查詢主控台**]。
 
@@ -178,10 +178,10 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為�
 	- 在執行比 Windows 8 或 Windows Server 2012 更舊版本的電腦上，使用 [開始] 功能表。在 [開始] 功能表中，在搜尋方塊中輸入**命令提示字元**，然後按一下結果清單中的 [**命令提示字元**]。在命令提示字元中，輸入 **powershell_ise**，並按一下 **Enter**。
 
 3. 新增您的 Azure 帳戶。
-	1.在主控台窗格中，輸入 **Add-AzureAccount**，並按一下  **Enter**。 
-	2.輸入與您 Azure 訂閱相關聯的電子郵件地址，並按一下 [**繼續**]。 
-	3.輸入您 Azure 訂閱的密碼。 
-	4.按一下 [**登入**]。
+	1. 在主控台窗格中，輸入 **Add-AzureAccount**，並按一下  **Enter**。 
+	2. 輸入與您 Azure 訂閱相關聯的電子郵件地址，並按一下 [**繼續**]。 
+	3. 輸入您 Azure 訂閱的密碼。 
+	4. 按一下 [**登入**]。
 
 4. 下圖將指出 Azure PowerShell 指令碼環境的重要部分。 
 
@@ -206,8 +206,8 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為�
 
     <p>首先，我們要在 DocumentDB 集合中建立 Hive 資料表。將下列程式碼片段加入 [PowerShell 指令碼] 窗格中 # 1 的程式碼片段<strong>後面</strong>。請確定包含選擇性的 DocumentDB.query 參數，將文件整理成只有 _ts 和 _rid。 </p>
 
-    > [AZURE.NOTE] **命名 DocumentDB.inputCollections 是正確的選擇。**沒錯，我們允許在一筆輸入中女加入多個集合： </br>
-    '*DocumentDB.inputCollections*' = '*\<DocumentDB 輸入集合名稱 1\>*,*\<DocumentDB 輸入集合名稱 2\>*' </br> 不使用空格，只使用單一逗點分隔的集合名稱。
+    > [AZURE.NOTE] **命名 DocumentDB.inputCollections 未發生錯誤。**沒錯，我們允許加入多個集合做為輸入： </br>
+    '*DocumentDB.inputCollections*' = '*\<DocumentDB 輸入集合名稱1\>*,*\<DocumentDB 輸入集合名稱 2\>*' </br> 不使用空格，只使用單一逗點分隔的集合名稱。
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
 		$queryStringPart1 = "drop table DocumentDB_timestamps; "  + 
@@ -222,7 +222,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為�
  
 3.  接下來，我們將建立輸出集合的 Hive 資料表。輸出文件屬性包括月、日、小時、分鐘和總發生次數。
 
-	> [AZURE.NOTE] **再重申一次，命名 DocumentDB.outputCollections 是正確的選擇。**沒錯，我們允許在一筆輸出中加入多個集合： </br>
+	> [AZURE.NOTE] **再度，命名 DocumentDB.outputCollections 未發生錯誤。**沒錯，我們允許加入多個集合做為輸出： </br>
     '*DocumentDB.outputCollections*' = '*\<DocumentDB 輸出集合名稱 1\>*,*\<DocumentDB 輸出集合名稱 2\>*' </br> 不使用空格，只使用單一逗點分隔的集合名稱。 </br></br>
     文件將會是跨多個集合的分散式循環配置資源。第一批文件會儲存在一個集合中，然後第二批文件會儲存在下一個集合中，以此類推。
 
@@ -277,11 +277,11 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為�
 9. **執行**新的指令碼！**按一下**綠色的執行按鈕。
 
 10. 查看結果。登入 [Azure 預覽入口網站][azure-preview-portal]。 
-	1.按一下左側面板上的 [<strong>瀏覽</strong>]。 </br>
-	2.按一下 [瀏覽] 面板右上方的 [<strong>所有項目</strong>]。 </br>
-	3.尋找並按一下 [<strong>DocumentDB 帳戶</strong>]。 </br>
-	4.接下來，依序尋找您的 [<strong>DocumentDB 帳戶</strong>]、[<strong>DocumentDB 資料庫</strong>] 和與 Hive 查詢中指定輸出集合相關聯的 [<strong>DocumentDB 集合</strong>]。</br>
-	5.最後，按一下 [<strong>開發人員工具</strong>] 底下的 <strong>Document Explorer</strong>。</br></p>
+	1. 按一下左側面板上的 [<strong>瀏覽</strong>]。 </br>
+	2. 按一下 [瀏覽] 面板右上方的 [<strong>所有項目</strong>]。 </br>
+	3. 尋找並按一下 [<strong>DocumentDB 帳戶</strong>]。 </br>
+	4. 接下來，依序尋找您的 [<strong>DocumentDB 帳戶</strong>]、[<strong>DocumentDB 資料庫</strong>] 和與 Hive 查詢中指定輸出集合相關聯的 [<strong>DocumentDB 集合</strong>]。</br>
+	5. 最後，按一下 [<strong>開發人員工具</strong>] 底下的 <strong>Document Explorer</strong>。</br></p>
 
 	您將會看到 Hive 查詢的結果。
 
@@ -364,11 +364,11 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為�
 9. **執行**新的指令碼！**按一下**綠色的執行按鈕。
 
 10. 查看結果。登入 [Azure 預覽入口網站][azure-preview-portal]。 
-	1.按一下左側面板上的 [<strong>瀏覽</strong>]。 </br>
-	2.按一下 [瀏覽] 面板右上方的 [<strong>所有項目</strong>]。 </br>
-	3.尋找並按一下 [<strong>DocumentDB 帳戶</strong>]。 </br>
-	4.接下來，依序尋找您的 [<strong>DocumentDB 帳戶</strong>]、[<strong>DocumentDB 資料庫</strong>] 和與 Pig 查詢中指定輸出集合相關聯的 [<strong>DocumentDB 集合</strong>]。</br>
-	5.最後，按一下 [<strong>開發人員工具</strong>] 底下的 <strong>Document Explorer</strong>。</br></p>
+	1. 按一下左側面板上的 [<strong>瀏覽</strong>]。 </br>
+	2. 按一下 [瀏覽] 面板右上方的 [<strong>所有項目</strong>]。 </br>
+	3. 尋找並按一下 [<strong>DocumentDB 帳戶</strong>]。 </br>
+	4. 接下來，依序尋找您的 [<strong>DocumentDB 帳戶</strong>]、[<strong>DocumentDB 資料庫</strong>] 和與 Pig 查詢中指定輸出集合相關聯的 [<strong>DocumentDB 集合</strong>]。</br>
+	5. 最後，按一下 [<strong>開發人員工具</strong>] 底下的 <strong>Document Explorer</strong>。</br></p>
 
 	您將會看到 Pig 查詢的結果。
 
@@ -395,7 +395,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為�
 		Select-AzureSubscription $subscriptionName
 		$TallyPropertiesJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $TallyPropertiesJobDefinition | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600  
 
-	除了 MapReduce 工作定義，您也提供想要用來執行 MapReduce 工作的 HDInsight 叢集名稱，以及認證。Start-AzureHDInsightJob 是非同步呼叫。若要檢查工作是否完成，請使用  *Wait-AzureHDInsightJob* 指令程式。
+	除了 MapReduce 工作定義，您也提供想要用來執行 MapReduce 工作的 HDInsight 叢集名稱，以及認證。Start-AzureHDInsightJob 是非同步呼叫。若要檢查工作是否完成，請使用 *Wait-AzureHDInsightJob*指令程式。
 
 4. 新增下列命令來檢查 MapReduce 工作執行時有無任何錯誤。	
 	
@@ -407,11 +407,11 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為�
 5. **執行**新的指令碼！**按一下**綠色的執行按鈕。
 
 6. 查看結果。登入 [Azure 預覽入口網站][azure-preview-portal]。 
-	1.按一下左側面板上的 [<strong>瀏覽</strong>]。
-	2.按一下 [瀏覽] 面板右上方的 [<strong>所有項目</strong>]。
-	3.尋找並按一下 [<strong>DocumentDB 帳戶</strong>]。
-	4.接下來，依序尋找您的 [<strong>DocumentDB 帳戶</strong>]、[<strong>DocumentDB 資料庫</strong>] 和與 MapReduce 工作中指定輸出集合相關聯的 [<strong>DocumentDB 集合</strong>]。
-	5.最後，按一下 [<strong>開發人員工具</strong>] 底下的 <strong>Document Explorer</strong>。
+	1. 按一下左側面板上的 [<strong>瀏覽</strong>]。
+	2. 按一下 [瀏覽] 面板右上方的 [<strong>所有項目</strong>]。
+	3. 尋找並按一下 [<strong>DocumentDB 帳戶</strong>]。
+	4. 接下來，依序尋找您的 [<strong>DocumentDB 帳戶</strong>]、[<strong>DocumentDB 資料庫</strong>] 和與 MapReduce 工作中指定輸出集合相關聯的 [<strong>DocumentDB 集合</strong>]。
+	5. 最後，按一下 [<strong>開發人員工具</strong>] 底下的 <strong>Document Explorer</strong>。
 
 	您將會看到 MapReduce 工作的結果。
 
@@ -431,13 +431,13 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為�
 - [搭配 HDInsight 使用 MapReduce][hdinsight-use-mapreduce]
 - [搭配 HDInsight 使用 Hive][hdinsight-use-hive]
 - [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
-- [使用指令碼動作來自訂 HDInsight 叢集][hdinsight-hadoop-customize-cluster]
+- [使用指令碼動作來自訂 HDInsight 叢集][hdinsight-hadoop-customize-cluster] 
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-hadoop-doc]: http://hadoop.apache.org/docs/current/
 [apache-hive]: http://hive.apache.org/
 [apache-pig]: http://pig.apache.org/
-[getting-started]: ../documentdb-get-started/
+[getting-started]: documentdb-get-started.md
 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-powershell-diagram]: ./media/documentdb-run-hadoop-with-hdinsight/azurepowershell-diagram-med.png
@@ -445,19 +445,19 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為�
 
 [documentdb-hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [documentdb-github]: https://github.com/Azure/azure-documentdb-hadoop
-[documentdb-java-application]: ../documentdb-java-application/
-[documentdb-manage-collections]: ../documentdb-manage/#Collections
-[documentdb-manage-document-storage]: ../documentdb-manage/#IndexOverhead
-[documentdb-manage-throughput]: ../documentdb-manage/#ProvThroughput
+[documentdb-java-application]: documentdb-java-application.md
+[documentdb-manage-collections]: documentdb-manage.md#Collections
+[documentdb-manage-document-storage]: documentdb-manage.md#IndexOverhead
+[documentdb-manage-throughput]: documentdb-manage.md#ProvThroughput
 
-[hdinsight-custom-provision]: ../hdinsight-provision-clusters/#powershell
-[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
-[hdinsight-hadoop-customize-cluster]: ../hdinsight-hadoop-customize-cluster/
-[hdinsight-get-started]: ../hdinsight-get-started/ 
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
+[hdinsight-custom-provision]: hdinsight-provision-clusters.md#powershell
+[hdinsight-develop-deploy-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-hadoop-customize-cluster]: hdinsight-hadoop-customize-cluster.md
+[hdinsight-get-started]: hdinsight-get-started.md 
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
 
 [image-customprovision-page1]: ./media/documentdb-run-hadoop-with-hdinsight/customprovision-page1.png
 [image-customprovision-page4]: ./media/documentdb-run-hadoop-with-hdinsight/customprovision-page4.png
@@ -467,6 +467,6 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為�
 [image-mapreduce-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/mapreducequeryresults.PNG
 [image-pig-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/pigqueryresults.PNG
 
-[powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: install-configure-powershell.md
 
-<!--HONumber=47-->
+<!--HONumber=49-->

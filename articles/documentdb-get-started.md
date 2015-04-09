@@ -2,7 +2,7 @@
 	pageTitle="開始使用 DocumentDB .NET SDK | Azure" 
 	description="了解如何建立和設定 Azure DocumentDB 帳戶、建立資料庫、建立集合，以及在 NoSQL 文件資料庫帳戶內儲存 JSON 文件。" 
 	services="documentdb" 
-	documentationCenter="" 
+	documentationCenter=".net" 
 	authors="mimig1" 
 	manager="jhubbard" 
 	editor="monicar"/>
@@ -11,20 +11,24 @@
 	ms.service="documentdb" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
-	ms.author="mimig"/>
+	ms.date="03/23/2015" 
+	ms.author="anhoh"/>
 
 #開始使用 DocumentDB .NET SDK  
 
-本指南示範如何使用 [Microsoft Azure DocumentDB (預覽)](https://portal.azure.com/#gallery/Microsoft.DocumentDB) 和 [DocumentDB .NET SDK](http://go.microsoft.com/fwlink/p/?linkid=402989)。DocumentDB 是一個 NoSQL 文件資料庫服務，有提供[一些 API 和 SDK](http://go.microsoft.com/fwlink/p/?linkid=522476)。本文中的程式碼範例是以 C# 撰寫並使用 DocumentDB .NET SDK，此 SDK 是以 NuGet 封裝的形式封裝及散佈。 
+本指南示範如何使用 [Microsoft Azure DocumentDB (預覽)](https://portal.azure.com/#gallery/Microsoft.DocumentDB) 和 [DocumentDB .NET SDK](https://go.microsoft.com/fwlink/p/?linkid=402989)。DocumentDB 是一個 NoSQL 文件資料庫服務，有提供[一些 API 和 SDK](https://go.microsoft.com/fwlink/p/?linkid=522476)。本文中的程式碼範例是以 C# 撰寫並使用 DocumentDB .NET SDK，此 SDK 是以 NuGet 封裝的形式封裝及散佈。 
 
-本文中涵蓋的案例包括建立和設定 DocumentDB 帳戶、建立資料庫、建立集合，以及將 JSON 文件儲存在帳戶內。這些範例中每個都是 [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) 上所提供之完整方案的一部分。您可以[下載方案](#GetSolution) 以檢視範例程式碼的內容，或就檢閱本文中的範例。
+本文中涵蓋的案例包括建立和設定 DocumentDB 帳戶、建立資料庫、建立集合，以及將 JSON 文件儲存在帳戶內。這些範例中每個都是 [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) 上所提供之完整方案的一部分。您可以[下載解決方案](#GetSolution)以檢視範例程式碼的內容，或只檢閱本文中的範例。
 
-##<a id="Connect"></a>連接到 DocumentDB 帳戶
+##<a id="CreateAccount"></a>建立 DocumentDB 帳戶
 
-我們將從建立新的 [DocumentClient](http://go.microsoft.com/fwlink/p/?linkid=522477) 類別執行個體開始，以便建立與 DocumentDB 帳戶的連線。   我們的 C# 應用程式中需要有下列參考：  
+[AZURE.INCLUDE [documentdb-create-dbaccount](../includes/documentdb-create-dbaccount.md)]
+
+##<a id="Connect"></a>連線到 DocumentDB 帳戶
+
+我們將從建立新的 [DocumentClient](https://go.microsoft.com/fwlink/p/?linkid=522477) 類別執行個體開始，以便建立與 DocumentDB 帳戶的連線。我們的 C# 應用程式中需要有下列參考：  
 
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
@@ -38,18 +42,18 @@
     // Create a new instance of the DocumentClient.
     var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);  
 
-> [AZURE.WARNING] 請勿將認證儲存在原始程式碼中。為了讓這個範例簡單明瞭，原始程式碼中顯示認證。請參閱 [Azure 網站：應用程式字串與連接字串的運作方式](http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) (英文) 以取得生產環境如何儲存認證的詳細資訊。 
+> [AZURE.WARNING] 請不要將認證儲存在原始程式碼中。為了讓這個範例簡單明瞭，原始程式碼中顯示認證。請參閱 [Azure 網站：應用程式字串與連接字串的運作方式](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) (英文) 以取得生產環境如何儲存認證的詳細資訊。 
 
 EndpointUrl 和 AuthorizationKey 值為 DocumentDB 帳戶的 URI 和主要金鑰，您可以從 DocumentDB 帳戶的 [Azure 預覽管理入口網站](https://portal.azure.com)分頁取得。 
 
-![][1]
+![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][1]
  
-這些金鑰可授與 DocumentDB 帳戶和所含資源的管理存取權。DocumentDB 也支援使用資源金鑰，這些金鑰可讓用戶端根據您已授與的權限來讀取、寫入及刪除 DocumentDB 帳戶中的資源，而不需要帳戶金鑰。如需資源金鑰的詳細資訊，請參閱 [DocumentDB 資源模型和概念]的＜權限＞區段(../documentdb-resources/)。
+這些金鑰可授與 DocumentDB 帳戶和所含資源的管理存取權。DocumentDB 也支援使用資源金鑰，這些金鑰可讓用戶端根據您已授與的權限來讀取、寫入及刪除 DocumentDB 帳戶中的資源，而不需要帳戶金鑰。如需有關資源金鑰的詳細資訊，請參閱 [DocumentDB 資源模型和概念](documentdb-resources.md)的＜權限＞小節。
 
 現在您已經知道如何連接到 DocumentDB 帳戶和建立 **DocumentClient** 類別的執行個體，接下來讓我們看看如何使用 DocumentDB 資源。  
 
 ##<a id="CreateDB"></a>建立資料庫
-可以使用 **DocumentClient** 類別的 [CreateDatabaseAsync](http://go.microsoft.com/fwlink/p/?linkid=522478) 方法建立 DocumentDB 資料庫。  
+使用 **DocumentClient** 類別的 [CreateDatabaseAsync](https://go.microsoft.com/fwlink/p/?linkid=522478) 方法，即可建立資料庫。  
 
 	// Create a database.
 	Database database = await client.CreateDatabaseAsync(
@@ -60,7 +64,7 @@ EndpointUrl 和 AuthorizationKey 值為 DocumentDB 帳戶的 URI 和主要金鑰
 
 ##<a id="CreateColl"></a>建立集合  
 
-可以使用 **DocumentClient** 類別的 [CreateDocumentCollectionAsync](http://go.microsoft.com/fwlink/p/?linkid=522479) 方法建立 DocumentDB 集合。在上一個步驟中建立的資料庫有一些屬性，其中一個是 [CollectionsLink](http://go.microsoft.com/fwlink/p/?linkid=522481) 屬性。憑著此資訊，我們現在可以建立集合。  
+使用 **DocumentClient** 類別的 [CreateDocumentCollectionAsync](https://go.microsoft.com/fwlink/p/?linkid=522479) 方法，即可建立集合。在上一個步驟中建立的資料庫有一些屬性，其中一個是 [CollectionsLink](https://go.microsoft.com/fwlink/p/?linkid=522481) 屬性。憑著此資訊，我們現在可以建立集合。  
 
   	// Create a document collection.
   	DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync(database.CollectionsLink,
@@ -70,7 +74,7 @@ EndpointUrl 和 AuthorizationKey 值為 DocumentDB 帳戶的 URI 和主要金鑰
   		    });
     
 ##<a id="CreateDoc"></a>建立文件	
-可以使用 **DocumentClient** 類別的 [CreateDocumentAsync](http://go.microsoft.com/fwlink/p/?linkid=522482) 方法建立 DocumentDB 文件。在上一個步驟中建立的集合有一些屬性，其中一個是 [DocumentsLink](http://go.microsoft.com/fwlink/p/?linkid=522483) 屬性。憑著此資訊，我們現在可以插入一份或更多文件。針對此範例的目的，我們將假設有一個 Family 類別，此類別描述一個家族的屬性，例如名稱、姓別和年齡。  
+使用 **DocumentClient** 類別的 [CreateDocumentAsync](https://go.microsoft.com/fwlink/p/?linkid=522482) 方法，即可建立文件。在上一個步驟中建立的集合有一些屬性，其中一個是 [DocumentsLink](https://go.microsoft.com/fwlink/p/?linkid=522483) 屬性。憑著此資訊，我們現在可以插入一份或更多文件。針對此範例的目的，我們將假設有一個 Family 類別，此類別描述一個家族的屬性，例如名稱、姓別和年齡。如果您想要檢視我們的範例 Family 類別，請造訪我們 [GitHub 儲存機制](https://github.com/Azure/azure-documentdb-net/blob/master/tutorials/get-started/src/Program.cs)。 
 
     // Create the Andersen family document.
 	Family AndersenFamily = new Family
@@ -131,7 +135,8 @@ EndpointUrl 和 AuthorizationKey 值為 DocumentDB 帳戶的 URI 和主要金鑰
  
 
 ##<a id="Query"></a>查詢 DocumentDB 資源
-DocumentDB 對每個集合中儲存的 JSON 文件，支援豐富的查詢。下列範例程式碼示範可在我們於前一個步驟中插入的文件上執行的各種查詢 (同時使用 DocumentDB SQL 語法和 LINQ)。  
+
+DocumentDB 對每個集合中儲存的 JSON 文件，支援豐富的查詢。下列範例程式碼示範可在我們於前一個步驟中插入的文件上執行的各種查詢 (同時使用 DocumentDB SQL 語法和 LINQ)。 
 
     // Query the documents using DocumentDB SQL for the Andersen family.
     var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
@@ -196,23 +201,25 @@ DocumentDB 對每個集合中儲存的 JSON 文件，支援豐富的查詢。下
 -   [DocumentDB 帳戶][documentdb-create-account]。
 -   GitHub 上提供的 [GetStarted](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) 方案。 
 
-若要在 Visual Studio 2013 中還原對 DocumentDB.NET SDK 的參考，請在 [方案總管] 中的 GetStarted 方案上按一下滑鼠右鍵，然後按一下 [啟用 NuGet 封裝還原]，便會還原參考。接下來，在 App.config 檔案中，如[連接至 DocumentDB 帳戶]中所述更新 EndpointUrl 和 AuthorizationKey 值(#Connect)。 
+若要在 Visual Studio 2013 中還原對 DocumentDB.NET SDK 的參考，請在 [方案總管] 中的 GetStarted 方案上按一下滑鼠右鍵，然後按一下 [啟用 NuGet 封裝還原]。接下來，在 App.config 檔案中，如[連線至 DocumentDB 帳戶](#Connect)中所述更新 EndpointUrl 和 AuthorizationKey 值。 
 
 ##<a id="NextSteps"></a>後續步驟
--	了解如何[監視 DocumentDB 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=402378)。
--	如需有關程式設計模型的詳細資料，請參閱 [DocumentDB 文件頁面](http://go.microsoft.com/fwlink/p/?LinkID=402319)上的＜開發＞一節。
+-	了解如何[監視 DocumentDB 帳戶](https://go.microsoft.com/fwlink/p/?LinkId=402378)。
+-	在[查詢遊樂場](http://www.documentdb.com/sql/demo)中，對我們的範例資料集執行查詢。
+-	深入了解 [DocumentDB 文件頁面](../documentation/services/documentdb/)的＜開發＞一節中的程式設計模型。
 
 
-[連接到 DocumentDB 帳戶]: #Connect
+[連線到 DocumentDB 帳戶]: #Connect
 [建立資料庫]: #CreateDB
 [建立集合]: #CreateColl
 [建立文件]: #CreateDoc
 [查詢 DocumentDB 資源]: #Query
 [後續步驟]: #NextSteps
 [doc-landing-page]: ../documentation/services/documentdb/
-[documentdb-create-account]: ../documentdb-create-account/
-[documentdb-manage]: ../documentdb-manage/
+[documentdb-create-account]: documentdb-create-account.md
+[documentdb-manage]: documentdb-manage.md
 
-[1]: ./media/documentdb-get-started/gs1.png
+[1]: ../includes/media/documentdb-keys/keys.png
 
-<!--HONumber=47-->
+
+<!--HONumber=49-->

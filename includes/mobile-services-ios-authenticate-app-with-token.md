@@ -1,87 +1,33 @@
-﻿
-先前範例所示範的標準登入，在每次應用程式啟動時，皆需要用戶端連絡身分識別提供者和行動服務。這個方法不只效率不彰，而且如果同時有許多用戶試圖啟用您的應用程式時，還可能遇到使用量相關的問題。更好的方法就是快取行動服務傳回的驗證權杖，然後嘗試在使用提供者形式登入前先使用此方法。 
+﻿先前範例所示範的標準登入，在每次應用程式啟動時，皆需要用戶端連絡身分識別提供者和行動服務。這個方法不能調整且效率不佳。
+
+更好的方法就是快取 Azure Mobile Services 傳回的授權權杖，然後嘗試在使用提供者形式登入前先使用此方法。
+
+1. 建議在 iOS 用戶端上用來加密和儲存驗證權杖的方法是使用 iOS Keychain。我們將使用 [SSKeychain](https://github.com/soffes/sskeychain) -- iOS Keychain 的一種簡單的包裝函式。依照 [SSKeychain] 頁面上的指示，將該包裝函式加入至您的專案。確認已在專案的 [建置設定] ([Apple LLVM - 語言 - 模組] 區段) 中啟用 [啟用模組] 設定。
+
+2. 開啟 **QSTodoListViewController.m**，並加入下列程式碼：
 
 
->[AZURE.NOTE] 無論您使用用戶端管理或服務管理驗證，皆可以快取行動服務發行的權杖。本教學課程使用服務管理驗證。
-
-1. 建議在 iOS 用戶端上用來加密和儲存驗證權杖的方法是使用 Keychain。若要這樣做，請建立類別 KeychainWrapper，從 [LensRocket 範例](https://github.com/WindowsAzure-Samples/iOS-LensRocket)複製 [KeychainWrapper.m](https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.m) 和 [KeychainWrapper.h](https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.h)。我們使用這個 KeychainWrapper 作為 Apple 文件中定義的 KeychainWrapper，並不會說明自動參考計數 (ARC)。
-
-
-2. 開啟專案檔 **QSTodoListViewController.m**，然後新增下列程式碼：
-
-		
-		- (void) saveAuthInfo{
-		    [KeychainWrapper createKeychainValue:self.todoService.client.currentUser.userId
-				 forIdentifier:@"userid"];
-		    [KeychainWrapper createKeychainValue:self.todoService.client.currentUser.mobileServiceAuthenticationToken
-				 forIdentifier:@"token"];
+		- (void) saveAuthInfo {
+				[SSKeychain setPassword:self.todoService.client.currentUser.mobileServiceAuthenticationToken forService:@"AzureMobileServiceTutorial" account:self.todoService.client.currentUser.userId]
 		}
-		
-		
+
+
 		- (void)loadAuthInfo {
-		    NSString *userid = [KeychainWrapper keychainStringFromMatchingIdentifier:@"userid"];
+				NSString *userid = [[SSKeychain accountsForService:@"AzureMobileServiceTutorial"][0] valueForKey:@"acct"];
 		    if (userid) {
-		        NSLog(@"userid: %@", userid);
+		        NSLog(@"userid:%@", userid);
 		        self.todoService.client.currentUser = [[MSUser alloc] initWithUserId:userid];
-		        self.todoService.client.currentUser.mobileServiceAuthenticationToken = [KeychainWrapper keychainStringFromMatchingIdentifier:@"token"];
+		         self.todoService.client.currentUser.mobileServiceAuthenticationToken = [SSKeychain passwordForService:@"AzureMobileServiceTutorial" account:userid];
+
 		    }
 		}
-		
 
+3. 在 **QSTodoListViewController.m** 中的 **viewDidAppear** 方法結尾，於 `[self refresh]` 這一行之前，加入 **saveAuthInfo** 的呼叫。透過這個呼叫，我們只能儲存使用者識別碼和 token 屬性：
 
-3. 在 **QSTodoListViewController.m** 中的 **viewDidAppear** 方法結尾，新增 saveAuthInfo 的呼叫。透過這個呼叫，我們只需儲存 userId 和 token 屬性。  
+				[self saveAuthInfo];
 
+4. 讓我們也在應用程式啟動時載入使用者識別碼和 token。在 **QSTodoListViewController.m** 的 **viewDidLoad** 方法中，在將 **self.todoService** 初始化之後，加入 loadAuthInfo 的呼叫。
 
+				[self loadAuthInfo];
 
-		- (void)viewDidAppear:(BOOL)animated
-		{
-		    MSClient *client = self.todoService.client;
-		
-		    if (client.currentUser != nil) {
-		        return;
-		    }
-		
-		    [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
-		
-		        [self saveAuthInfo];
-		        [self refresh];
-		    }];
-		}
-
-  
-4. 現在，我們已經了解如何快取使用者權杖和識別碼，讓我們來看看如何在應用程式啟動時加以載入。在 **QSTodoListViewController.m** 的 **viewDidLoad** 方法中，在將 **self.todoService** 初始化之後，新增 loadAuthInfo 的呼叫。 
-		
-		- (void)viewDidLoad
-		{
-		    [super viewDidLoad];
-		    
-		    // Create the todoService - this creates the Mobile Service client inside the wrapped service
-		    self.todoService = [QSTodoService defaultService];
-
-			[self loadAuthInfo];
-		    
-		    // Set the busy method
-		    UIActivityIndicatorView *indicator = self.activityIndicator;
-		    self.todoService.busyUpdate = ^(BOOL busy)
-		    {
-		        if (busy)
-		        {
-		            [indicator startAnimating];
-		        } else
-		        {
-		            [indicator stopAnimating];
-		        }
-		    };
-		    
-		    // have refresh control reload all data from server
-		    [self.refreshControl addTarget:self
-		                            action:@selector(onRefresh:)
-		                  forControlEvents:UIControlEventValueChanged];
-		
-		    // load the data
-		    [self refresh];
-		}
-
-5. 如果應用程式向您應通過的行動服務提出要求 (因為使用者已通過驗證)，但您收到 401 回應 (未經授權的錯誤)，則表示您所忽略的使用者權杖已經到期在適用於可用來與行動服務互動的每個方法的完成處理常式中，我們應該檢查 401 回應，或者可在 MSFilter 的 handleRequest 方法這個位置處理一些事項。如需查看處理這個案例的方式，請參閱[這個部落格文章](http://www.thejoyofcode.com/Handling_expired_tokens_in_your_application_Day_11_.aspx)
-
-<!--HONumber=42-->
+<!--HONumber=49-->

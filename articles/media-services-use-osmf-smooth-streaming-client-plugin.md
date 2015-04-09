@@ -20,7 +20,7 @@
 
 # 如何使用 Adobe Open Source Media Framework 的 Microsoft Smooth Streaming 外掛程式 #
 
-## 概觀 ##
+##概觀 ##
 Open Source Media Framework 2.0 的 Microsoft Smooth Streaming 外掛程式 (SS for OSMF) 可擴充 OSMF 的預設功能，並可為新的和現有的 OSMF 播放程式新增 Microsoft Smooth Streaming 內容播放功能。此外掛程式也可為 Strobe Media Playback (SMP) 新增 Smooth Streaming 播放功能。
 
 SS for OSMF 包含兩個外掛程式版本：
@@ -31,7 +31,7 @@ SS for OSMF 包含兩個外掛程式版本：
 
 本文假設讀者具備使用 OSMF 和 OSMF 外掛程式的一般知識。如需 OSMF 的詳細資訊，請參閱 [OSMF 官方網站](http://osmf.org/)上的文件。
 
-### OSMF 2.0 的 Smooth Streaming 外掛程式
+###OSMF 2.0 的 Smooth Streaming 外掛程式
 
 此外掛程式支援以下列功能載入及播放隨選的 Smooth Streaming 內容：
 
@@ -68,7 +68,7 @@ OSMF 外掛程式可以靜態方式 (在編譯時) 或動態方式 (在執行階
 
 如需靜態和動態載入的詳細資訊，請參閱官方 [OSMF 外掛程式頁面](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf)。
 
-### SS for OSMF 靜態載入
+###SS for OSMF 靜態載入
 下方的程式碼片段將說明如何以靜態方式載入 OSMF 的 SS 外掛程式，並使用 OSMF MediaFactory 類別播放基本視訊。在加入 SS for OSMF 程式碼之前，請確定專案參考包含 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" 靜態外掛程式。
 
 <pre><code>
@@ -204,7 +204,7 @@ package
 </code></pre>
 
 
-### SS for OSMF 動態載入
+###SS for OSMF 動態載入
 
 下方的程式碼片段將說明如何以動態方式載入 OSMF 的 SS 外掛程式，並使用 OSMF MediaFactory 類別播放基本視訊。在加入 SS for OSMF 程式碼之前，請將 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" 動態外掛程式複製到專案資料夾 (如果您要使用 FILE 通訊協定進行載入)，或是在 Web 伺服器下複製 (以進行 HTTP 載入)。您不需要在專案參考中加入 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc"。
 
@@ -342,14 +342,14 @@ package
 }
 </code></pre>
 
-## Strobe Media Playback 與 SS ODMF 動態外掛程式
+##Strobe Media Playback 與 SS ODMF 動態外掛程式
 Smooth Streaming for OSMF 動態外掛程式與 [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html) 是相容的。您可以使用 SS for OSMF 外掛程式，將 Smooth Streaming 內容播放新增至 SMP。若要這麼做，請使用下列步驟，在 Web 伺服器下複製 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf"，以進行 HTTP 載入：
 
 1.	瀏覽 [Strobe Media Playback 設定頁面](http://osmf.org/dev/2.0gm/setup.html)。 
 2.	將 src 設為 Smooth Streaming 來源 (例如 http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
 3.	進行所需的組態變更，然後按一下 [Preview and Update]。
  
-	**注意**：您的內容 Web 伺服器需要有效的 crossdomain.xml。 
+	**注意**：您的內容 Web 伺服器需要有效的 crossdomain.xml。
 4.	使用您慣用的文字編輯器，將程式碼複製並貼至簡單的 HTML 頁面，如下列範例所示：
 
 
@@ -400,8 +400,8 @@ Smooth Streaming for OSMF 動態外掛程式與 [Strobe Media Playback (SMP)](ht
 
 
 6. 	儲存您的 HTML 頁面，並發佈至 Web 伺服器。使用您慣用且具有 Flash&reg; Player 功能的網際網路瀏覽器 (Internet Explorer、Chrome、Firefox 等)，瀏覽至已發佈的網頁。
-7. 	在 Adobe&reg; Flash&reg; Player 內欣賞 Smooth Streaming 內容。
+7. 	在 Adobe &reg; Flash&reg; Player 內欣賞 Smooth Streaming 內容。
 
 如需一般 OSMF 開發的詳細資訊，請參閱官方 [OSMF 開發頁面](http://osmf.org/resources.html)。
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

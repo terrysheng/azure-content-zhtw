@@ -35,22 +35,22 @@ DocumentDB 管理的資料庫實體稱為「**資源**」。每個資源可透�
 >[AZURE.NOTE] DocumentDB 也提供高效率的 TCP 通訊協定，此 TCP 通訊協定在通訊模型中也符合 REST 限制，並且可以透過 [.NET client SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 取得。
 
 ![][1]  
-**Hierarchical resource model under a database account**   
+**資料庫帳戶的階層式資源模型**   
 
-若要開始使用資源，您必須 [建立 DocumentDB 資料庫帳戶]，(./documentdb-create-account.md) 方法是使用您的 Azure 訂閱。資料庫帳戶包含一組「**資料庫**」，而每個資料庫都包含多個「**集合**」，且各集合因此包含「**預存程序、觸發程序、UDF、文件**」和相關「**附件**」。資料庫也有相關聯的「**使用者**」，每位使用者都有一組可存取集合、預存程序、觸發程序、UDF、文件或附件的「**權限**」。雖然資料庫、使用者、權限和集合都是具有已知結構描述的系統定義資源，但是文件和附件包含任意使用者定義 JSON 內容。  
+若要開始使用資源，您必須使用 Azure 訂用帳戶[建立 DocumentDB 資料庫帳戶](documentdb-create-account.md)。資料庫帳戶包含一組「**資料庫**」，而每個資料庫都包含多個「**集合**」，且各集合因此包含「**預存程序、觸發程序、UDF、文件**」和相關「**附件**」。資料庫也有相關聯的「**使用者**」，每位使用者都有一組可存取集合、預存程序、觸發程序、UDF、文件或附件的「**權限**」。雖然資料庫、使用者、權限和集合都是具有已知結構描述的系統定義資源，但是文件和附件包含任意使用者定義 JSON 內容。  
 
-|資源 |描述
+|資源 	|說明
 |-----------|-----------
-|資料庫帳戶 |資料庫帳戶會與一或多個代表所佈建文件儲存體和輸送量的容量單位、一組資料庫和 Blob 儲存體相關聯。您可以使用 Azure 訂用帳戶建立一或多個資料庫帳戶。
-|資料庫 |資料庫是分割給多個集合之文件儲存體的邏輯容器。同時也是使用者容器。
-|使用者 |用於權限範圍界定/分割的邏輯命名空間。 
-|權限 |使用者的相關聯授權權杖，可讓使用者獲得授權以存取特定資源。
-|集合 |集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。
-|預存程序 |以 JavaScript 撰寫的應用程式邏輯，可向集合註冊並透過交易方式在資料庫引擎內執行。
-|觸發程式 |以 JavaScript 模型副作用撰寫的應用程式邏輯，其與插入、取代或刪除作業相關聯。
-|UDF |以 JavaScript 撰寫的無副作用應用程式邏輯。UDF 可讓您建立自訂查詢運算子的模型，進而擴充核心 DocumentDB 查詢語言。
-|文件 |使用者定義的 (任意) JSON 內容。依照預設，不是不需要定義任何結構描述，就是需要提供所有新增至集合之文件的次要索引。
-|附件 |附件是含有外部 Blob/媒體之參考和相關聯中繼資料的特殊文件。開發人員可以選擇讓 DocumentDB 管理 Blob，或使用外部 Blob 服務提供者 (例如 OneDrive、Dropbox 等) 儲存 Blob。 
+|資料庫帳戶	|資料庫帳戶是與一或多個代表所佈建文件儲存體和輸送量的容量單位、一組資料庫和 Blob 儲存體相關聯。您可以使用 Azure 訂用帳戶建立一或多個資料庫帳戶。
+|資料庫	|資料庫是分割給多個集合之文件儲存體的邏輯容器。同時也是使用者容器。
+|使用者	|用於權限範圍界定/分割的邏輯命名空間。 
+|權限	|使用者的相關聯授權權杖，可讓使用者獲得授權以存取特定資源。
+|集合	|集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。
+|預存程序	|以 JavaScript 撰寫的應用程式邏輯，會向集合註冊並透過交易方式在資料庫引擎內執行。
+|觸發程序	|以 JavaScript 模型副作用撰寫的應用程式邏輯，其與插入、取代或刪除作業相關聯。
+|UDF	|以 JavaScript 撰寫的無副作用應用程式邏輯。UDF 可讓您建立自訂查詢運算子的模型，進而擴充核心 DocumentDB 查詢語言。
+|文件	|使用者定義的 (任意) JSON 內容。依照預設，不是不需要定義任何結構描述，就是需要提供所有新增至集合之文件的次要索引。
+|附件	|附件是含有外部 Blob/媒體之參考和相關聯中繼資料的特殊文件。開發人員可以選擇讓 DocumentDB 管理 Blob，或使用外部 Blob 服務提供者 (例如 OneDrive、Dropbox 等) 儲存 Blob。 
 
 
 ##系統與使用者定義的資源
@@ -106,15 +106,15 @@ DocumentDB 不會要求您提供用於 JSON 標準或特殊編碼的專屬延伸
 ###資源定址
 所有資源都能以 URI 定址。資源的 [**_self**] 屬性值代表資源的相對 URI。URI 的格式是由 /\<feed\>/{_rid} 路徑片段所組成：  
 
-|_self 的值 |描述
+|_self 的值	|說明
 |-------------------|-----------
-|/dbs |資料庫帳戶下的資料庫摘要。
-|/dbs/{_rid-db} |具有唯一 id 屬性且屬性值為 {_rid-db} 的資料庫。
-|/dbs/{_rid-db}/colls/ |資料庫下的集合摘要。
-|/dbs/{_rid-db}/colls/{_rid-coll} |具有唯一 id 屬性且屬性值為 {_rid-coll} 的集合。
-|/dbs/{_rid-db}/users/ |資料庫下的使用者摘要。 
-|/dbs/{_rid-db}/users/{_rid-user} |具有唯一 id 屬性且屬性值為 {_rid-user} 的使用者。
-|/dbs/{_rid-db}/users/{_rid-user}/permissions |資料庫下的權限摘要。 
+|/dbs	|資料庫帳戶下的資料庫摘要。
+|/dbs/{_rid-db}	|具有唯一 id 屬性且屬性值為 {_rid-db} 的資料庫。
+|/dbs/{_rid-db}/colls/	|在資料庫底下的集合摘要。
+|/dbs/{_rid-db}/colls/{_rid-coll}	|具有唯一 id 屬性且屬性值為 {_rid-coll} 的集合。
+|/dbs/{_rid-db}/users/	|在資料庫底下的使用者摘要。 
+|/dbs/{_rid-db}/users/{_rid-user}	|具有唯一 id 屬性且屬性值為 {_rid-user} 的使用者。
+|/dbs/{_rid-db}/users/{_rid-user}/permissions	|在資料庫底下的權限摘要。 
 |/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission}	|具有唯一 id 屬性且屬性值為 {_rid-permission} 的權限。  
   
 資源也具有使用者定義的唯一名稱，並透過資源的 id 屬性公開。id 是使用者定義的字串，最多 256 個字元，且在特定父系資源的內容中會是唯一的。例如，給定集合內所有文件的 id 屬性值都是唯一的，但是在不同集合中則不一定如此。同樣地，給定使用者之所有權限的 id 屬性值是唯一的，但是在所有使用者中則不一定如此。_rid 屬性可用來建構資源的可定址 _self 連結。   
@@ -130,7 +130,7 @@ _self 和 _rid 屬性值都是用來表示資源的標準方法，並可互相�
 
 根據您的應用程式規模和效能需求，您可以逐漸地新增或移除 CU。每個 CU 皆附有一組彈性集合、SSD 支持佈建文件儲存體和輸送量，以及佈建的輸送量。與 CU 相關聯的佈建儲存體和輸送量容量，會散佈在您使用資料庫帳戶在各種資料庫中建立的 DocumentDB 集合之間。佈建在資料庫帳戶之下的容量，可用於帳戶中既有或新建的所有資料庫和集合。資料庫帳戶的大小沒有實際的規模限制；經過一段時間之後，可能會根據供應項目限制新增任意數目的容量單位。CU 內所管理的資源會透過資料分割進行向下調整，並進行複寫以取得高可用性。 
 
-您可以透過 Azure 入口網站來 [建立及管理 DocumentDB 資料庫帳戶]，(./documentdb-create-account.md) 網址是 [http://portal.azure.com/](http://portal.azure.com/)。建立和管理資料庫帳戶都需要管理存取權，而且只有在 Azure 訂用帳戶下才能執行。 
+您可以透過 Azure 入口網站 (網址為 [http://portal.azure.com/](http://portal.azure.com/)) 來[建立和管理 DocumentDB 資料庫帳戶](documentdb-create-account.md)。建立和管理資料庫帳戶都需要管理存取權，而且只有在 Azure 訂用帳戶下才能執行。 
 
 ###資料庫帳戶屬性
 在佈建和管理資料庫帳戶時，您可以設定和讀取下列屬性：  
@@ -139,14 +139,14 @@ _self 和 _rid 屬性值都是用來表示資源的標準方法，並可互相�
 <tbody>
 <tr>
 <td valign="top" ><p><b>屬性名稱</b></p></td>
-<td valign="top" ><p><b>描述</b></p></td>
+<td valign="top" ><p><b>說明</b></p></td>
 </tr>
 
 <tr>
 <td valign="top" ><p>一致性原則</p></td>
 <td valign="top" ><p>設定此屬性，以設定您資料庫帳戶下所有集合的預設一致性層級。您可以使用 [x-ms-consistency-level] 要求標頭，覆寫每個要求的一致性層級。未來，我們可能會支援覆寫每個集合的一致性層級。 </p>
 
-<p>請注意，此屬性只會套用至<i>使用者定義的資源</i>。所有系統定義資源都是設定成支援具有強式一致性的讀取/查詢。</p></td>
+<p>請注意，此屬性只會套用至 <i>使用者定義的資源</i>。所有系統定義資源都是設定成支援具有強式一致性的讀取/查詢。</p></td>
 </tr>
 
 <tr>
@@ -192,7 +192,7 @@ _self 和 _rid 屬性值都是用來表示資源的標準方法，並可互相�
 </tbody>
 </table>
 
-請注意，除了從 Azure 入口網站佈建、設定和管理資料庫帳戶之外，您還可以使用程式設計方式，透過 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 以及 [用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 來建立和管理 DocumentDB 資料庫帳戶。  
+請注意，除了從 Azure 入口網站佈建、設定和管理資料庫帳戶之外，您還可以使用程式設計方式，透過 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 以及[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 來建立和管理 DocumentDB 資料庫帳戶。  
 
 ##資料庫
 DocumentDB 資料庫是一個或多個集合和使用者的邏輯容器，如下圖所示。您可以在 DocumentDB 資料庫帳戶下，根據供應項目限制建立任意數目的資料庫。  
@@ -211,7 +211,7 @@ DocumentDB 資料庫預設是彈性的 - 範圍從幾 GB 到數 PB 的 SSD 支�
 
 DocumentDB 資料庫同時也是使用者的容器。使用者因此是一組權限的邏輯命名空間，可針對集合、文件和附件提供微調的授權和存取權。  
  
-與 DocumentDB 資源模型中的其他資源相同，使用 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或任何 [用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)，即可輕鬆地建立、取代、刪除、讀取或列舉資料庫。DocumentDB 保證讀取或查詢資料庫資源之中繼資料的強式一致性。刪除資料庫會自動確定您無法存取其內所含的任何集合或使用者。即使 DocumentDB 在背景回收佈建為所刪除資料庫一部分的儲存體和輸送量，但是針對所刪除資料庫佈建的儲存體和輸送量還是立即可用。   
+與 DocumentDB 資源模型中的其他資源相同，使用 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或任何[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)，即可輕鬆地建立、取代、刪除、讀取或列舉資料庫。DocumentDB 保證讀取或查詢資料庫資源之中繼資料的強式一致性。刪除資料庫會自動確定您無法存取其內所含的任何集合或使用者。即使 DocumentDB 在背景回收佈建為所刪除資料庫一部分的儲存體和輸送量，但是針對所刪除資料庫佈建的儲存體和輸送量還是立即可用。   
 
 ##集合
 DocumentDB 集合是您 JSON 文件的容器。集合也是交易和查詢的規模單位。您可以透過新增更多的集合，以向下調整 DocumentDB 資料庫。如果您的應用程式需要進行更多調整，則可以佈建更多 SSD 支持文件儲存體 (和輸送量)，並將它散佈至您資料庫帳戶下一個或多個資料庫的集合。
@@ -238,7 +238,7 @@ DocumentDB 是真正無結構描述資料庫系統。它不會假設或不需要
 2.	關聯式作業 (包括複合、篩選、投射、彙總和自我聯結) 的子集。 
 3.	可與 (1) 和 (2) 搭配使用的純 JavaScript 型 UDF。  
 
-DocumentDB 查詢模型嘗試打破功能、效率和簡化之間的平衡。DocumentDB 資料庫引擎會原生編譯和執行 SQL 查詢陳述式。您可以使用 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或任何 [用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 來查詢集合。.NET SDK 隨附於 LINQ 提供者。在未來的版本中，將會提供原生底線對應，而從用戶端 [DocumentDB JavaScript SDK](https://github.com/Azure/azure-documentdb-js) 以及使用伺服器端預存程序和觸發程序都可以使用它。   
+DocumentDB 查詢模型嘗試打破功能、效率和簡化之間的平衡。DocumentDB 資料庫引擎會原生編譯和執行 SQL 查詢陳述式。您可以使用 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或任何[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 來查詢集合。.NET SDK 隨附於 LINQ 提供者。在未來的版本中，將會提供原生底線對應，而從用戶端 [DocumentDB JavaScript SDK](https://github.com/Azure/azure-documentdb-js) 以及使用伺服器端預存程序和觸發程序都可以使用它。   
 
 ###多文件交易
 資料庫交易提供安全且可預測的程式設計模型來處理同時的資料變更。在 RDBMS 中，撰寫商務邏輯的傳統方式是撰寫 [**預存程序**] 和/或 [**觸發程序**]，並將它傳送至資料庫伺服器以進行交易式執行。在 RDBMS 中，需要有應用程式設計人員，才能處理兩個不同的程式設計語言： 
@@ -255,7 +255,7 @@ DocumentDB 查詢模型嘗試打破功能、效率和簡化之間的平衡。Doc
 
 直接在資料庫引擎 (與緩衝集區位於相同的位址空間) 內執行 JavaScript 的能力，可對集合的文件啟用資料庫作業的具效能和交易式執行。甚至，因為 DocumentDB 資料庫引擎深入承諾 JSON 和 JavaScript，所以可去除應用程式的類型系統與資料庫之間的任何阻抗不相符。   
 
-建立集合之後，就可以使用 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或任何 [用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)，向集合註冊預存程序、觸發程序和 UDF。註冊之後，您就可以參考和執行它們。請考慮使用下列完全以 JavaScript 撰寫的預存程序、採用兩個引數 (書籍名稱和作者名稱)，並建立新的文件、查詢文件，然後更新文件；所有都支援隱含 ACID 交易。在執行期間的任何時間點，如果擲回 JavaScript 例外狀況，整個交易便會中止。
+建立集合之後，就可以使用 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或任何[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)，向集合註冊預存程序、觸發程序和 UDF。註冊之後，您就可以參考和執行它們。請考慮使用下列完全以 JavaScript 撰寫的預存程序、採用兩個引數 (書籍名稱和作者名稱)，並建立新的文件、查詢文件，然後更新文件；所有都支援隱含 ACID 交易。在執行期間的任何時間點，如果擲回 JavaScript 例外狀況，整個交易便會中止。
 
 	function businessLogic(name, author) {
 	    var context = getContext();
@@ -288,7 +288,7 @@ DocumentDB 查詢模型嘗試打破功能、效率和簡化之間的平衡。Doc
 	        })
 	};
 
-用戶端可以將上面的 JavaScript 邏輯「傳送」至資料庫，以透過 HTTP POST 進行交易式執行。如需有關使用 HTTP 方法的詳細資訊，請參閱 [與 DocumentDB 資源的 RESTful 互動](../documentdb-interactions-with-resources/)。 
+用戶端可以將上面的 JavaScript 邏輯「傳送」至資料庫，以透過 HTTP POST 進行交易式執行。如需有關使用 HTTP 方法的詳細資訊，請參閱[與 DocumentDB 資源的 RESTful 互動](documentdb-interactions-with-resources.md)。 
 
 	client.createStoredProcedureAsync(collection._self, {id: "CRUDProc", body: businessLogic})
 	   .then(function(createdStoredProcedure) {
@@ -308,7 +308,7 @@ DocumentDB 查詢模型嘗試打破功能、效率和簡化之間的平衡。Doc
 
 預存程序和觸發程序會透過定義良好的物件模型 (可公開目前集合內容)，以與集合以及集合內的文件互動。  
 
-使用 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或任何 [用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)，即可輕鬆地建立、刪除、讀取或列舉 DocumentDB 中的文件。DocumentDB 一律提供讀取或查詢集合之中繼資料的強式一致性。刪除集合會自動確定您無法存取其內所含的任何文件、附件、預存程序、觸發程序和 UDF。即使 DocumentDB 在背景回收佈建為所刪除集合一部分的儲存體和輸送量，但是針對所刪除集合佈建的儲存體和輸送量還是立即可用。   
+使用 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或任何[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)，即可輕鬆地建立、刪除、讀取或列舉 DocumentDB 中的文件。DocumentDB 一律提供讀取或查詢集合之中繼資料的強式一致性。刪除集合會自動確定您無法存取其內所含的任何文件、附件、預存程序、觸發程序和 UDF。即使 DocumentDB 在背景回收佈建為所刪除集合一部分的儲存體和輸送量，但是針對所刪除集合佈建的儲存體和輸送量還是立即可用。   
  
 ##預存程序、觸發程序和 UDF
 如上一節所述，您可以撰寫直接在資料庫引擎的交易內執行的應用程式邏輯。應用程式邏輯可以完全以 JavaScript 撰寫，也可以建模為預存程序、觸發程序或 UDF。預存程序或觸發程序內的 JavaScript 程式碼可以在集合內插入、取代、刪除、讀取或查詢文件。另一方面，UDF 內的 JavaScript 只能透過列舉查詢結果集的文件來執行無副作用的運算，並產生另一個結果集。若是多重租用，DocumentDB 會強制執行嚴謹的保留型資源控管。每個預存程序、觸發程序或 UDF 都會取得固定配量的作業系統資源來執行工作。甚至，預存程序、觸發程序或 UDF 無法連結外部 JavaScript 程式庫，因此，如果它們超出配置的資源預算，則會將它們列入黑名單中。您可以使用 REST API 向集合註冊、取消註冊預存程序、觸發程序或 UDF。註冊時，預存程序、觸發程序或 UDF 會預先編譯並儲存為位元組程式碼，以在稍後執行。下節說明如何使用 DocumentDB JavaScript SDK 來註冊、執行和取消註冊預存程序、觸發程序和 UDF。JavaScript SDK 是一個透過 [DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 的簡單包裝函式。 
@@ -350,8 +350,8 @@ DocumentDB 查詢模型嘗試打破功能、效率和簡化之間的平衡。Doc
 	        console.log("Error");
 	    });
 
-###取消註冊預存程序
-只要對現有預存程序資源發出 HTTP DELETE，即可取消註冊預存程序。   
+###Unregistering a stored procedure
+Un-registering a stored procedure is simply done by issuing an HTTP DELETE against an existing stored procedure resource.   
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
 	    .then(function (response) {
@@ -439,7 +439,7 @@ UDF 可以指定為 SQL 查詢的一部分，以及做為一種擴充核心 [Doc
 	        console.log("Error");
 	    });
 
-雖然上面的程式碼片段顯示透過 [DocumentDB JavaScript SDK](https://github.com/Azure/azure-documentdb-js) 的註冊 (POST)、取消註冊 (PUT)、讀取/列出 (GET) 和執行 (POST)，但是您也可以使用 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或其他 [用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 來執行這些作業。 
+雖然上面的程式碼片段顯示透過 [DocumentDB JavaScript SDK](https://github.com/Azure/azure-documentdb-js) 的註冊 (POST)、取消註冊 (PUT)、讀取/列出 (GET) 和執行 (POST)，但是您也可以使用 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或其他[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 來執行這些作業。 
 
 ##文件
 您可以在集合中插入、取代、刪除、讀取、列舉和查詢任意 JSON 文件。DocumentDB 不會託管任何結構描述，而且不需要次要索引，就支援逐一查詢集合中的文件。   
@@ -483,14 +483,14 @@ DocumentDB 使用者代表用於分組權限的邏輯命名空間。DocumentDB �
 與所有其他資源相同，使用 REST API 或任何用戶端 SDK，即可輕鬆地在 DocumentDB 中建立、取代、刪除、讀取或列舉使用者。DocumentDB 一律提供讀取或查詢使用者資源之中繼資料的強式一致性。這值得指出刪除使用者時會自動確保您無法存取其內所含的任何權限。即使 DocumentDB 在背景回收佈建為所刪除使用者一部分的權限配額，但是所刪除權限還是立即可以再度使用。  
 
 ##權限
-從存取控制觀點來看，資源 (例如資料庫帳戶、資料庫、使用者和權限) 會被視為「 *管理*」資源，因為這些都需要管理權限。另一方面，會將資源 (包括集合、文件、附件、預存程序、觸發程序和 UDF) 限制至給定資料庫，並將其視為「 *應用程式資源*」。對應至可存取它們的兩種資源和角色 (即系統管理員和使用者)，授權模型定義兩種類型的「 *存取金鑰*」：「 *主要金鑰*」和「 *資源金鑰*」。主要金鑰是資料庫帳戶的一部分，並且提供給將佈建資料庫帳戶的開發人員 (或系統管理員)。此主要金鑰具有系統管理員語意，即它可以用來授權對管理和應用程式資源的存取權。相較之下，資源金鑰是精細的存取金鑰，可允許存取「 *特定*」應用程式資源。因此，它會擷取資料庫使用者與使用者具有特定資源 (例如，集合、文件、附件、預存程序、觸發程序或 UDF) 的權限之間的關聯性。   
+從存取控制觀點來看，資源 (例如資料庫帳戶、資料庫、使用者和權限) 會被視為 *administrative*資源，因為這些都需要管理權限。另一方面，會將資源 (包括集合、文件、附件、預存程序、觸發程序和 UDF) 限制至給定資料庫，並將其視為 *application resources*。對應至可存取它們的兩種類型的資源和角色 (即系統管理員和使用者)，授權模型定義兩種類型的 *access keys*: *master key*和 *resource key*。主要金鑰是資料庫帳戶的一部分，並且提供給將佈建資料庫帳戶的開發人員 (或系統管理員)。此主要金鑰具有系統管理員語意，即它可以用來授權對管理和應用程式資源的存取權。相較之下，資源金鑰是精細的存取金鑰，可允許存取 *specific*應用程式資源。因此，它會擷取資料庫使用者與使用者具有特定資源 (例如，集合、文件、附件、預存程序、觸發程序或 UDF) 的權限之間的關聯性。   
 
 取得資源金鑰的唯一方式是透過建立給定使用者的權限資源。請注意，若要建立或擷取權限，授權標頭中必須要有主要金鑰。權限資源會繫結資源、其存取權和使用者。建立權限資源之後，使用者只需要具有相關聯的資源金鑰，就能存取相關資源。因此，可能會以權限資源的邏輯和壓縮呈現來檢視資源金鑰。  
 
 與所有其他資源相同，使用 REST API 或任何用戶端 SDK，即可輕鬆地在 DocumentDB 中建立、取代、刪除、讀取或列舉權限。DocumentDB 一律提供讀取或查詢權限之中繼資料的強式一致性。 
 
 ##後續步驟
-深入了解如何使用 HTTP 命令來使用資源，請參閱 [與 DocumentDB 資源的 RESTful 互動](../documentdb-interactions-with-resources/)。
+深入了解如何使用 HTTP 命令來使用資源，請參閱[與 DocumentDB 資源的 RESTful 互動](documentdb-interactions-with-resources.md)。
 
 
 [1]: ./media/documentdb-resources/resources1.png
@@ -498,4 +498,4 @@ DocumentDB 使用者代表用於分組權限的邏輯命名空間。DocumentDB �
 [3]: ./media/documentdb-resources/resources3.png
 [4]: ./media/documentdb-resources/resources4.png
 
-<!--HONumber=47-->
+<!--HONumber=49-->

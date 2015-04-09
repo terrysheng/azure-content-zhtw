@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="使用排程器來排程後端工作 - 行動服務" 
 	description="使用 Azure 行動服務排程工具排程行動應用程式的工作。" 
 	services="mobile-services" 
@@ -19,8 +19,8 @@
 # 在行動服務中為週期性工作排程 
 
 > [AZURE.SELECTOR-LIST (平台 | 後端)]
-- [(任何 | .NET)](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/)
-- [(任何 | Javascript)](/documentation/articles/mobile-services-schedule-recurring-tasks/)
+- [(任何 | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [(任何 | Javascript)](mobile-services-schedule-recurring-tasks.md)
  
 本主題將示範如何在管理入口網站中使用工作排程器功能，以根據您所定義的排程來，從而定義要執行的伺服器指令碼。在此情況下，指令碼會定期向遠端服務 (在此案例中為 Twitter) 查詢，並將結果儲存在新資料表中。可排定的其他一些定期工作包括：
 
@@ -52,7 +52,7 @@
 
 2. 按一下 [**排程器**] 索引標籤，然後按一下 [**+建立**]。 
 
-    >[AZURE.NOTE]當您在 <em>免費</em> 層執行您的行動服務時，您一次只能執行一個排程的工作。在付費層中，您一次可以執行多達十個排定工作。
+    >[AZURE.NOTE]當您在<em>免費</em> 層中執行行動服務時，您一次只能執行一個排定工作。在付費層中，您一次可以執行多達十個排定工作。
 
 3. 在排程器對話方塊的 [**工作名稱**] 中輸入 _getUpdates_，設定排程間隔和單位，然後按一下核取按鈕。 
 
@@ -153,7 +153,7 @@
 ## <a name="nextsteps"> </a>後續步驟
 
 * [行動服務伺服器指令碼參考]
-  <br/>深入了解登錄及使用伺服器指令碼。
+  <br/>深入了解註冊及使用伺服器指令碼。
 
 <!-- Anchors. -->
 [註冊以取得 Twitter 存取權與儲存認證]: #get-oauth-credentials
@@ -183,4 +183,4 @@
 [Twitter 開發人員]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [應用程式設定]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=47-->
+<!--HONumber=49-->

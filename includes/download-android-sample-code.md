@@ -7,7 +7,7 @@
 
 3. 開啟 Android Studio。如果您正在使用不同的專案，而它出現的話，請關閉專案 ([**檔案 => 關閉專案**])。
 
-4. 選取 [**開啟現有的 Android Studio 專案**]，瀏覽至  *GettingStartedWithData* 中  *AndroidStudio* 資料夾的專案位置，然後按一下 [**確定**]。 
+4. 選取 [開啟現有的 Android Studio 專案]，瀏覽至  *GettingStartedWithData* 的  *AndroidStudio* 資料夾中的專案位置，然後按一下 [確定]。 
 
 
  	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
@@ -18,4 +18,5 @@
 
 <!-- URLs. -->
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122
-<!--HONumber=47-->
+
+<!--HONumber=49-->

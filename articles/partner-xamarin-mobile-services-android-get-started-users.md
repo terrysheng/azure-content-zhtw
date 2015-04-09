@@ -10,13 +10,13 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/23/2014" 
 	ms.author="donnam"/>
 
-# 將驗證新增到您的行動服務應用程式
+# 將驗證加入至行動服務應用程式
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
@@ -26,9 +26,9 @@
 
 1. [註冊應用程式進行驗證，並設定行動服務]
 2. [限制只有經驗證的使用者具有資料表的權限]
-3. [將驗證新增到應用程式]
+3. [將驗證加入應用程式]
 
-本教學課程以行動服務快速入門為基礎。您也必須先完成教學課程[開始使用行動服務]。 
+本教學課程會以行動服務快速入門為基礎。您也必須先完成教學課程[開始使用行動服務]。 
 
 完成本教學課程需要有 Xamarin.Android 和 Android SDK 4.2 或更新版本。 
 
@@ -44,7 +44,7 @@
 
 3. 在 Eclipse 中，開啟您完成教學課程[開始使用行動服務]時建立的專案。 
 
-4. 從 [執行]**** 功能表，按一下 [執行]**** 來啟動應用程式。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。 
+4. 從 [**執行**] 功能表，按一下 [**執行**] 啟動應用程式；確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。 
 
 	 這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 _TodoItem_ 資料表現在需要驗證。
 
@@ -81,7 +81,7 @@
 
 	此呼叫會啟動驗證程序再非同步等候它。
 
-4. 將 **OnCreate** 方法中的 `await Authenticate();` 後面的其餘程式碼移至新的 **CreateTable** 方法，如下所示：
+4. 將 **OnCreate** 方法中 `await Authenticate();` 後面的其餘程式碼移至新的 **CreateTable** 方法，如下所示：
 
 	        private async Task CreateTable()
 	        {
@@ -104,7 +104,7 @@
 		await CreateTable();
 
 
-6. 從 [執行]**** 功能表，按一下 [執行]**** 來啟動應用程式，並以您選擇的身分識別提供者登入。 
+6. 從 [**執行**] 功能表，按一下 [**執行**] 來啟動應用程式，並以您選擇的身分識別提供者登入。 
 
    	成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
 
@@ -118,7 +118,7 @@
 <!-- Anchors. -->
 [註冊應用程式進行驗證，並設定行動服務]: #register
 [限制只有經驗證的使用者具有資料表的權限]: #permissions
-[將驗證新增到應用程式]: #add-authentication
+[將驗證加入應用程式]: #add-authentication
 [後續步驟]:#next-steps
 
 <!-- Images. -->
@@ -134,15 +134,16 @@
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-xamarin-android
-[開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-android
-[開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-android
-[開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-android
-[使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
+[開始使用行動服務]: /develop/mobile/tutorials/get-started-xamarin-android
+[開始使用資料]: /develop/mobile/tutorials/get-started-with-data-xamarin-android
+[開始使用驗證]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
+[開始使用推播通知]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
+[使用指令碼授權使用者]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
 [完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
+<!--HONumber=49--> 
 
-<!--HONumber=42-->
+<!--HONumber=49-->

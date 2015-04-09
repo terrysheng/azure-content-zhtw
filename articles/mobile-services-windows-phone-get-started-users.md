@@ -10,13 +10,13 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
-# 在您的行動服務應用程式中新增驗證
+# 將驗證加入至行動服務應用程式
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users-legacy](../includes/mobile-services-selector-get-started-users-legacy.md)]
 
@@ -32,11 +32,11 @@
 
 1. [註冊應用程式進行驗證，並設定行動服務]
 2. [限制只有經驗證的使用者具有資料表的權限]
-3. [將驗證新增到應用程式]
+3. [將驗證加入應用程式]
 
-本教學課程會以行動服務快速入門為基礎。您也必須先完成教學課程[開始使用行動服務]。 
+本教學課程以行動服務快速入門為基礎。您也必須先完成教學課程[開始使用行動服務]。 
 
->[AZURE.NOTE]本教學課程示範行動服務如何管理不同的身分識別提供者的驗證流程。此方法設定起來很簡單，而且可支援多個提供者。若要改用 Live Connect 與用戶端管理驗證方式，在您的 Windows Phone 應用程式中提供單一登入體驗，請參閱[使用 Live Connect 在 Windows Phone 應用程式提供單一登入功能]主題。透過用戶端管理的驗證，您的應用程式就能存取身分識別提供者所維護的其他使用者資料。您可以呼叫伺服器指令碼中的 **user.getIdentities()** 函數，取得行動服務中的相同使用者資料。如需詳細資訊，請參閱[本文章](http://go.microsoft.com/fwlink/p/?LinkId=506605)。
+>[AZURE.NOTE]本教學課程示範行動服務如何管理不同的身分識別提供者的驗證流程。此方法設定起來很簡單，而且可支援多個提供者。若要改用 Live Connect 與用戶端管理驗證方式，在您的 Windows Phone 應用程式中提供單一登入體驗，請參閱[使用 Live Connect 單一登入驗證 Windows Phone 應用程式]主題。透過用戶端管理的驗證，您的應用程式就能存取身分識別提供者所維護的其他使用者資料。您可以呼叫伺服器指令碼中的 **user.getIdentities()** 函數，取得行動服務中的相同使用者資料。如需詳細資訊，請參閱[本文章](http://go.microsoft.com/fwlink/p/?LinkId=506605)。
 
 ##<a name="register"></a>註冊應用程式進行驗證，並設定行動服務
 
@@ -50,15 +50,14 @@
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 
-3. 在 Visual Studio 2012 Express for Windows Phone 中，開啟您在完成[開始使用行動服務]教學課程時所建立的專案。 
+<ol start="3">
+<li>在 Visual Studio 2012 Express for Windows Phone 中，開啟您在完成<strong>開始使用行動服務</strong>教學課程時所建立的專案。</li>
 
-4. 按 F5 鍵執行此快速入門型應用程式；確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。 
-   
-   	這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 _TodoItem_ 資料表現在需要驗證。
+<li>按 F5 鍵執行此快速入門型應用程式；確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 <em>TodoItem</em> 資料表現在需要驗證。</li></ol>
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
-##<a name="add-authentication"></a>將驗證新增到應用程式
+##<a name="add-authentication"></a>將驗證加入應用程式
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app](../includes/mobile-services-windows-phone-authenticate-app.md)]
 
@@ -68,12 +67,12 @@
 
 ## <a name="next-steps"> </a>後續步驟
 
-在下一個教學課程[行動服務使用者的伺服器端授權][以指令碼授權使用者]中，您將使用由行動服務根據經驗證的使用者而提供的使用者識別碼值，來篩選行動服務傳回的資料。 
+在下一個教學課程[行動服務使用者的服務端授權](mobile-services-javascript-backend-service-side-authorization.md)中，您將使用由行動服務根據經驗證的使用者而提供的使用者識別碼值，來篩選行動服務傳回的資料。 
 
 <!-- Anchors. -->
 [註冊應用程式進行驗證，並設定行動服務]: #register
 [限制只有經驗證的使用者具有資料表的權限]: #permissions
-[將驗證新增到應用程式]: #add-authentication
+[將驗證加入應用程式]: #add-authentication
 [後續步驟]:#next-steps
 
 <!-- Images. -->
@@ -85,10 +84,9 @@
 
 <!-- URLs. -->
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-phone-get-started
-[以指令碼授權使用者]: /zh-tw/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts
+[開始使用行動服務]: mobile-services-windows-phone-get-started.md
+[使用指令碼授權使用者]: mobile-services-windows-phone-authorize-users-in-scripts.md
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[使用 Live Connect 在 Windows Phone 應用程式提供單一登入功能]: /zh-tw/documentation/articles/mobile-services-windows-phone-single-sign-on
+[使用 Live Connect 單一登入驗證 Windows Phone 應用程式]: mobile-services-windows-phone-single-sign-on.md
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

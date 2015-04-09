@@ -20,7 +20,7 @@
 
 您可以在 [Azure 預覽入口網站](https://portal.azure.com/)中監視 DocumentDB 帳戶。每一個 DocumentDB 帳戶都有效能度量 (例如要求和伺服器錯誤) 和使用量度量 (例如儲存體用量) 可供使用。
 
-## <a id="metrics"></a>作法：檢視 DocumentDB 帳戶的效能度量
+## <a id="metrics"></a>  作法：檢視 DocumentDB 帳戶的效能度量
 1.	在 [Azure 預覽入口網站](https://portal.azure.com/)中，按一下 [**瀏覽**]、[**DocumentDB 帳戶**]，然後按一下您想要檢視效能度量的 DocumentDB 帳戶名稱。
 2.	在 [**監視**] 透鏡內，依預設可以看到：
 	*	當日的要求總數。
@@ -52,7 +52,7 @@
 ## <a id="create"></a>建立並排效能度量圖表
 Azure Preview 入口網站可讓您建立並排度量圖表。  
 
-1.	首先，在您要複製並修改的圖表上按一下滑鼠右鍵，然後選取 **自訂**. 
+1.	首先，在您要複製並修改的圖表上按一下滑鼠右鍵，然後選取 [**自訂**]。 
 
 	![](./media/documentdb-monitor-accounts/madocdb6.png)
 
@@ -95,7 +95,7 @@ Azure Preview 入口網站可讓您建立並排度量圖表。
 
  
 ## <a id="next"></a>後續步驟
-若要深入了解 DocumentDB 容量和效能，請參閱[管理 DocumentDB 容量和效能](../documentdb-manage/)。 
+若要深入了解 DocumentDB 容量和效能，請參閱[管理 DocumentDB 容量和效能](documentdb-manage.md)。 
 
 <!--Anchors-->
 [如何檢視 DocumentDB 帳戶的效能度量]: #How-to-view-performance-metrics-for-a-DocumentDB-account
@@ -105,4 +105,4 @@ Azure Preview 入口網站可讓您建立並排度量圖表。
 [如何設定 DocumentDB 帳戶的效能度量警示]: #How-to-setup-performance-metric-alerts-for-a-DocumentDB-account
 [後續步驟]: #Next-steps
 
-<!--HONumber=47-->
+<!--HONumber=49-->

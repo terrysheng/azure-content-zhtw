@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="開始使用驗證 (Appcelerator) | 行動開發人員中心" 
 	description="了解如何使用行動服務透過眾多識別提供者驗證 iOS 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/24/2014" 
@@ -26,7 +26,7 @@
 
 1.  [註冊應用程式進行驗證，並設定行動服務]
 2.  [限制只有經驗證的使用者具有資料表的權限]
-3.  [將驗證新增到應用程式]
+3.  [將驗證加入應用程式]
 
 本教學課程以行動服務快速入門為基礎。您也必須先完成教學課程[開始使用行動服務]。
 
@@ -36,7 +36,7 @@
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-##<a name="permissions"></a>限制只有經驗證的使用者具有權限
+##<a name="permissions"></a> 限制只有經驗證的使用者具有權限
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
@@ -56,16 +56,16 @@
 
 2.	若要提供所有可用身分識別提供者，請使用下列程式碼：
 
-        var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
-        var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
-        var appName = 'appctest';
-        azureMobileServices.setAppName(appName);
-        var authenticationClients = ['Google', 'Facebook', 'Twitter', 'Microsoft Account', 'Active Directory', 'Cancel'];
-        var dialog = Ti.UI.createOptionDialog({
+        	var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
+        	var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
+        	var appName = 'appctest';
+        	azureMobileServices.setAppName(appName);
+        	var authenticationClients = ['Google', 'Facebook', 'Twitter', 'Microsoft Account', 'Active Directory', 'Cancel'];
+       	 var dialog = Ti.UI.createOptionDialog({
             options : authenticationClients,
             title : 'Select a client'
-        });
-        dialog.addEventListener('click', function(evt) {
+       	 });
+        	dialog.addEventListener('click', function(evt) {
             if (evt.index == 0 || evt.index == 1 || evt.index == 2 || evt.index == 3 || evt.index == 4) {
                 var str = authenticationClients[evt.index];
                 str = str.replace(/ /g, '');
@@ -79,20 +79,20 @@
             } else {
                 dialog.hide();
             }
-        });
-        dialog.show();
+        	});
+        	dialog.show();
 
 3.	若要提供特定身分識別提供者，請使用下列程式碼：
 
-        var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
-        var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
-        var authorizeClient = "Google"; //Replace "Google" with identity provider.
-        authorizeClient = authorizeClient.toLowerCase();
-        azureMobileServices.authorizeClient(authorizeClient, function(result) {
+        	var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
+        	var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
+        	var authorizeClient = "Google"; //Replace "Google" with identity provider.
+        	authorizeClient = authorizeClient.toLowerCase();
+        	azureMobileServices.authorizeClient(authorizeClient, function(result) {
             if (result == 'true') {
                 Alloy.createController('TableData');
             }
-        });
+        	});
 
 >[AZURE.NOTE] 如果您使用的身分識別提供者不是 Google，請將傳給 **authorizeClient** 的值變更為下列其中一個： *microsoftaccount*、 *facebook*、 *twitter*或 *windowsazureactivedirectory*。
 
@@ -105,11 +105,12 @@
 
 [註冊應用程式進行驗證，並設定行動服務]: #register
 [限制只有經驗證的使用者具有資料表的權限]: #permissions
-[將驗證新增到應用程式]: #add-authentication
+[將驗證加入應用程式]: #add-authentication
 
 <!-- Images. -->
 
 <!-- URLs. -->
-[開始使用行動服務]: /zh-tw/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[開始使用行動服務]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
+<!--HONumber=49--> 
 
-<!--HONumber=42-->
+<!--HONumber=49-->

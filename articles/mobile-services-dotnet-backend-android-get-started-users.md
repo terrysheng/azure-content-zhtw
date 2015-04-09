@@ -34,7 +34,7 @@
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
 
-##<a name="permissions"></a>限制只有通過驗證的使用者具有權限
+##<a name="permissions"></a>限制只有經驗證的使用者具有權限
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
@@ -46,7 +46,7 @@
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
-##<a name="add-authentication"></a>將驗證新增至應用程式
+##<a name="add-authentication"></a>將驗證新增到應用程式
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
@@ -72,14 +72,14 @@
 [後續步驟]:#next-steps
 
 <!-- URLs. -->
-[開始使用行動服務]: /documentation/articles/mobile-services-dotnet-backend-android-get-started/
-[開始使用資料]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
-[開始使用驗證]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-[開始使用推播通知]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
-[使用指令碼授權使用者]: /documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
+[開始使用行動服務]: mobile-services-dotnet-backend-android-get-started.md
+[開始使用資料]: mobile-services-dotnet-backend-android-get-started-data.md
+[開始使用驗證]: mobile-services-dotnet-backend-android-get-started-users.md
+[開始使用推播通知]: mobile-services-dotnet-backend-android-get-started-push.md
+[使用指令碼授權使用者]: mobile-services-dotnet-backend-android-authorize-users-in-scripts.md
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[行動服務 .NET 作法概念性參考]: /develop/mobile/how-to-guides/work-with-net-client-library
-[註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證]: /documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+[行動服務 .NET 做法概念性參考]: /develop/mobile/how-to-guides/work-with-net-client-library
+[註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!--HONumber=47-->
+<!--HONumber=49-->

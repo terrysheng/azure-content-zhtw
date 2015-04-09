@@ -1,6 +1,6 @@
 ﻿我們的權杖快取應該只在簡單案例中使用，在權杖過期或被撤銷時會有什麼影響？當應用程式停止運作的時候，那麼權杖可能過期了。這表示權杖快取會失效。然而在應用程式直接發出呼叫或行動服務程式庫發出呼叫期間，實際執行應用程式，權杖也有可能過期。這將會導致出現 HTTP 狀態碼 401「未經授權」。 
 
-我們必須能夠偵測到過期的權杖，並加以重新整理。若要這麼做，我們可以使用  [Android 用戶端程式庫](http://dl.windowsazure.com/androiddocs/) 的 [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html)。
+我們必須能夠偵測到過期的權杖，並加以重新整理。若要這麼做，我們可以使用 [Android 用戶端程式庫](http://dl.windowsazure.com/androiddocs/) 的 [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html)。
 
 在本節中，您將會對 ServiceFilter 進行定義，它會偵測 HTTP 狀態碼 401 並觸發權杖和權杖快取的更新。除此之外，ServiceFilter 會在進行驗證期間阻擋其他外來要求，如此一來這些要求即可使用更新後的權杖。
 
@@ -235,8 +235,8 @@
 	    }
 
 
-       在此程式碼中，除了使用 `ProgressFilter` 以外，還要使用 `RefreshTokenCacheFilter`。同時在 `onCreate` 期間，我們也想要載入權杖快取。因此將 `false` 傳送至  `authenticate` 方法。
+       在此程式碼中，除了使用 `ProgressFilter` 以外，還要使用 `RefreshTokenCacheFilter`。同時在 `onCreate` 期間，我們也想要載入權杖快取。因此將 `false` 傳入至  `authenticate` 方法。
 
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

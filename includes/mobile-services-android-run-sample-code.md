@@ -1,4 +1,4 @@
-﻿1. 在 [專案總管] 中，依序展開 **app** => **java** => **com.example.GetStartedWithData**、**src** 和 **.com.example.GetStartedWithData**，然後開啟 *ToDoActivity.java* 檔案。
+﻿1.在 [專案總管] 中，依序展開 **app** => **java** => **com.example.GetStartedWithData**、**src** 和 **.com.example.GetStartedWithData**，然後開啟 *ToDoActivity.java* 檔案。
 
    	![](./media/download-android-sample-code/mobile-services-android-studio-project.png)
 
@@ -13,7 +13,7 @@
 
 
 
-	> [AZURE.NOTE] 您可以使用 Android 手機或使用 Android 模擬器來執行此專案。使用 Android 手機來執行需要先下載手機專用的 USB 驅動程式。
+	> [AZURE.NOTE] 您可以使用 Android 手機或使用 Android 模擬器來執行此專案。使用 Android 手機執行需要先下載手機專用的 USB 驅動程式。
 	>
 	> 若要在 Android 模擬器中執行專案，您至少必須定義一個 Android 虛擬裝置 (AVD)。使用 AVD Manager 來建立及管理這些裝置。
 
@@ -24,4 +24,5 @@
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
    	請注意，儲存的文字是儲存在記憶體中集合，並顯示在下列清單中。
-<!--HONumber=47-->
+
+<!--HONumber=49-->

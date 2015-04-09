@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="DocumentDB 程式設計：預存程序、觸發程序和 UDF | Azure" 
 	description="了解如何使用 Microsoft Azure DocumentDB 來撰寫 JavaScript 原生預存程序、觸發程序和使用者定義函數 (UDF)。" 
 	services="documentdb" 
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="03/23/2015" 
 	ms.author="mimig"/>
 
 # DocumentDB 程式設計：預存程序、觸發程序和 UDF
 
 了解 DocumentDB 的語言如何整合，JavaScript 的交易式執行可讓開發人員在 JavaScript 中原生撰寫 [**預存程序**]、[**觸發程序**] 和 [**使用者定義函數 (UDF)**]。這一特點可讓您得以撰寫可以直接在資料庫儲存體資料分割上傳送和執行的應用程式邏輯。 
 
-閱讀本文後，您將能夠回答下列問題：
+我們建議使用者從觀看下列影片開始入門，Andrew Liu 在其中提供了 DocumentDB 的伺服器端程式設計模型的簡介。 
+
+> [AZURE.VIDEO azure-demo-a-quick-intro-to-azure-documentdbs-server-side-javascript]
+
+然後，回到這篇文章，您將了解下列問題的答案：  
 
 - 如何使用 JavaScript 撰寫預存程序、觸發程序或 UDF？
 - DocumentDB 如何保證 ACID？
@@ -31,11 +35,11 @@
 
 ##簡介
 
-這種「以 JavaScript 做為新式 T-SQL」的方式，可讓應用程式開發人員不必傷腦筋處理複雜的類型系統不符問題和物件關聯式對應技術。此外，它本身還有一些可加以利用以便建置豐富應用程式的優勢：  
+這種*「以 JavaScript 做為新式 T-SQL」*的方式，可讓應用程式開發人員不必傷腦筋處理複雜的類型系統不符問題和物件關聯式對應技術。此外，它本身還有一些可加以利用以便建置豐富應用程式的優勢：  
 
 -	**程序的邏輯：**作為高層級程式設計語言的 JavaScript，提供了可用來表達商務邏輯的豐富且熟悉介面。您可以執行更接近資料的複雜序列作業。
 
--	**不可部分完成的交易：**DocumentDB 保證在單一預存程序或觸發程序內執行的資料庫作業是不可部分完成的作業。這可讓應用程式結合單一批次中的相關作業，讓它們全部成功或全部失敗 。
+-	**不可部分完成的交易：**DocumentDB 保證在單一預存程序或觸發程序內執行的資料庫作業是不可部分完成的作業。這可讓應用程式結合單一批次中的相關作業，讓它們全部成功或全部失敗 。 
 
 -	**效能：**JSON 本身就對應至 Javascript 語言類型系統並且同時是 DocumentDB 中儲存體基本單位的事實，可提供許多最佳化功能，例如在緩衝集區中對 JSON 文件執行滯後具體化，並讓執行中程式碼可以依需求使用這些文件。將商務邏輯傳送到資料庫的相關效能優勢有多種：
 	-	批次處理 - 開發人員可以群組多個作業 (例如插入)，大量進行提交。因此，網路流量延遲成本以及建立個別交易的額外儲存負荷得以大幅降低。 
@@ -45,7 +49,7 @@
 	-	它會在未經處理的資料上方新增抽象層，讓資料架構設計人員發展其應用程式，而不會動到資料。這在資料無結構描述時特別有用，因為暫時的假設是，如果它們需要直接處理資料，則可能需要編譯成應用程式。  
 	-	這個抽象層讓企業得以透過指令碼簡化存取來確保資料安全。  
 
-[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 以及許多平台 (包括 .NET、Node.js 和 JavaScript) 中的 [用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 都支援建立和執行觸發程序、預存程序和自訂查詢運算子。**本教學課程使用 [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** 說明預存程序、觸發程序和 UDF 的語法和用法。   
+[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 以及許多平台 (包括 .NET、Node.js 和 JavaScript) 中的[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 都支援建立和執行觸發程序、預存程序和自訂查詢運算子。**本教學課程使用 [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** 說明預存程序、觸發程序和 UDF 的語法和用法。   
 
 ##範例：撰寫簡易預存程序 
 我們先來看看簡單的預存程序，此程序會傳回 "Hello World" 回應。
@@ -142,10 +146,10 @@
 上面描述的範例已示範如何使用預存程序。本教學課程稍後會討論觸發程序和使用者定義函數 (UDF)。首先，讓我們看一下 DocumentDB 中關於指令碼支援的一般特性。  
 
 ##執行階段支援
-[DocumentDB JavaScript 伺服器端 SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) 支援以 [ECMA-262 做為標準的大部分主流 JavaScript 語言功能](../documentdb-interactions-with-resources.md)。
+[DocumentDB JavaScript 伺服器端 SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) 支援以 [ECMA-262](documentdb-interactions-with-resources.md) 做為標準的大部分主流 JavaScript 語言功能。
  
 ##交易
-一般資料庫中的交易可以定義為以單一工作邏輯單位執行的一連串作業。每筆交易都提供「**ACID 保證**」。ACID 是個著名的縮寫，代表四個屬性：不可部分完成的作業 (Atomicity)、一致性 (Consistency)、隔離 (Isolation) 和持久性 (Durability)。  
+一般資料庫中的交易可以定義為以單一工作邏輯單位執行的一連串作業。每筆交易都提供「**ACID 保證**」。ACID 是個著名的縮寫，代表四個屬性 - 不可部分完成的作業 (Atomicity)、一致性 (Consistency)、隔離 (Isolation) 和持久性 (Durability)。  
 
 簡言之，不可部分完成的作業保證會將交易內完成的所有工作視為單一單位，所有工作不是全部認可就是一個都不認可。「一致性」確保資料在交易中一律處於良好內部狀態。「隔離」保證兩個交易不會彼此干擾；一般而言，大部分的商業系統都會提供多個可以根據應用程式的需要來使用的隔離等級。「持久性」確保資料庫中所認可的任何變更一律會存在。   
 
@@ -231,7 +235,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 ##預先編譯
 預存程序、觸發程序和 UDF 會隱含地預先編譯為位元組程式碼格式，以避免掉每次叫用指令碼時的編譯成本。這種作法可確保能夠快速叫用預存程序，且只需耗費少量資源。
 
-##<a id="trigger"></a>觸發程序
+##<a id="trigger"></a> 觸發程序
 ###預先觸發程序
 DocumentDB 提供作業在文件上執行或觸發的觸發程序。例如，您可以在建立文件時指定預先觸發程序；此預先觸發程序會在建立文件之前執行。下列範例說明如何使用預先觸發程序來驗證所建立文件的屬性：
 
@@ -403,7 +407,7 @@ DocumentDB 提供作業在文件上執行或觸發的觸發程序。例如，您
 		.then(function(response) { 
 		    console.log("Created", response.resource);
 	
-		    var query = 'SELECT * FROM TaxPayers t WHERE tax(t.income) > 20000'; 
+		    var query = 'SELECT * FROM TaxPayers t WHERE udf.tax(t.income) > 20000'; 
 		    return client.queryDocuments(collection.self,
 	               query).toArrayAsync();
 		}, function(error) {
@@ -547,7 +551,7 @@ JavaScript 函數能使用的資源也受到限制。DocumentDB 會根據所佈�
 在這裏，要與要求搭配執行的預先觸發程序指定於 x-ms-documentdb-pre-trigger-include 標頭中。相對應地，後續觸發程序則是指定於 x-ms-documentdb-post-trigger-include 標頭中。請注意，您可以指定給定要求的預先和後續觸發程序。
 
 ##SDK 支援
-除了 [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) 用戶端之外，DocumentDB 還支援 [.NET](https://msdn.microsoft.com/library/azure/dn783362.aspx)、[Java](http://dl.windowsazure.com/documentdb/javadoc/)、[JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) 和 [Python SDK](http://dl.windowsazure.com/documentDB/pythondocs/)。使用上述任何 SDK，也可以建立和執行預存程序、觸發程序和 UDF。下列範例說明如何使用 .NET 用戶端建立和執行預存程序。請注意 .NET 類型是如何在預存程序中以 JSON 形式傳入及讀回。
+除了 [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) 用戶端之外，DocumentDB 還支援 [.NET](https://msdn.microsoft.com/library/azure/dn783362.aspx)、[Java](http://dl.windowsazure.com/documentdb/javadoc/)、[JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) 和 [Python SDKs](http://dl.windowsazure.com/documentDB/pythondocs/)。使用上述任何 SDK，也可以建立和執行預存程序、觸發程序和 UDF。下列範例說明如何使用 .NET 用戶端建立和執行預存程序。請注意 .NET 類型是如何在預存程序中以 JSON 形式傳入及讀回。
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -601,7 +605,7 @@ JavaScript 函數能使用的資源也受到限制。DocumentDB 會根據所佈�
 	    });
 
 
-下列範例則說明如何建立使用者定義函數 (UDF) 並將它用於 [DocumentDB SQL 查詢 中](../documentdb-sql-query.md)。
+下列範例則說明如何建立使用者定義函數 (UDF) 並將它用於 [DocumentDB SQL 查詢](documentdb-sql-query.md)中。
 
 	UserDefinedFunction function = new UserDefinedFunction()
 	{
@@ -613,7 +617,7 @@ JavaScript 函數能使用的資源也受到限制。DocumentDB 會根據所佈�
 	};
 	
 	foreach (Book book in client.CreateDocumentQuery(collection.SelfLink,
-	    "SELECT * FROM Books b WHERE LOWER(b.Title) = 'war and peace'"))
+	    "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
 	{
 	    Console.WriteLine("Read {0} from query", book);
 	}
@@ -625,10 +629,10 @@ JavaScript 函數能使用的資源也受到限制。DocumentDB 會根據所佈�
 ##參考
 
 - JSON [http://www.json.org/](http://www.json.org/) (英文) 
-- JavaScript ECMA-262 [http://www.ecma-international.org/publications/standards/Ecma-262.htm ](http://www.ecma-international.org/publications/standards/Ecma-262.htm ) (英文)
+- JavaScript ECMA-262 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm ) (英文)
 -	JavaScript - JSON 類型系統 [http://www.json.org/js.html](http://www.json.org/js.html) (英文) 
 -	安全和可攜式資料庫擴充性 - [http://dl.acm.org/citation.cfm?id=276339](http://dl.acm.org/citation.cfm?id=276339) (英文) 
 -	服務導向資料庫架構 - [http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) (英文) 
 -	在 Microsoft SQL Server 中託管 .NET 執行階段 - [http://dl.acm.org/citation.cfm?id=1007669](http://dl.acm.org/citation.cfm?id=1007669) (英文) 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -13,35 +13,35 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="03/23/2015" 
 	ms.author="stbaro"/>
 
 # 使用 Azure 資源管理員範本部署 DocumentDB 和 Azure 網站 #
 
 本教學課程示範如何使用 Azure 資源管理員範本來部署和整合 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/)、[Azure 網站](http://azure.microsoft.com/services/websites/)和範例 Web 應用程式。
 
-完成本教學課程之後，您將能夠回答下列問題：  
+完成本教學課程後, 您將能夠回答下列問題：  
 
 -	如何使用 Azure 資源管理員範本來部署和整合 DocumentDB 帳戶和 Azure 網站？
 -	如何使用 Azure 資源管理員範本來部署和整合 DocumentDB 帳戶、Azure 網站和 Webdeploy 應用程式？
 
 ##<a id="Prerequisites"></a>必要條件 ##
-> [AZURE.TIP] 雖然本教學課程不會假設先前有使用 Azure 資源管理員範本、JSON 或 Azure PowerShell 的經驗，如果您想要修改參考的範本或部署選項，那麼會需要每個領域的知識。
+> [AZURE.TIP] 雖然本教學課程不會假設先前有使用 Azure 資源管理員範本、JSON 或 Azure PowerShell 的經驗，但是，如果您想要修改參考的範本或部署選項，則需要每個領域的知識。
 
-在依照本教學課程中的指示進行之前，請確定備妥下列項目：
+在依照本教學課程中的指示進行之前，請先確定您已備妥下列項目：
 
-- Azure 訂用帳戶。Azure 是訂用帳戶型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項](http://azure.microsoft.com/pricing/purchase-options/)、[成員優惠](http://azure.microsoft.com/pricing/member-offers/)或[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
-- 一個 Azure 儲存體帳戶。如需相關指示，請參閱[關於 Azure 儲存體帳戶](../storage-whatis-account/)。
-- 具有 Azure PowerShell 的工作站。如需指示，請參閱[安裝和設定 Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)。
+- Azure 訂閱。Azure 是訂用帳戶型平台。如需有關如何取得訂閱的詳細資訊，請參閱[購買選項](http://azure.microsoft.com/pricing/purchase-options/)、[會員優惠](http://azure.microsoft.com/pricing/member-offers/)或[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+- 一個 Azure 儲存體帳戶。如需相關指示，請參閱[關於 Azure 儲存體帳戶](storage-whatis-account.md)。
+- 具有 Azure PowerShell 的工作站。如需相關指示，請參閱[安裝和設定 Azure PowerShell](install-configure-powershell.md)。
 
 ##<a id="CreateDB"></a>步驟 1：下載並解壓縮範例檔案 ##
 讓我們從下載範例檔案開始，我們將在本教學課程中使用。
 
-1. 下載[建立 DocumentDB 帳戶、網站和部署示範應用程式範例](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip)至本機資料夾 (例如 C:\DocumentDBTemplates) 並解壓縮檔案。此範例會將部署 DocumentDB 帳戶、Azure 網站和 Web 應用程式。它還會自動設定 Web 應用程式，以連線到 DocumentDB 帳戶。
+1. 將[建立 DocumentDB 帳戶、網站和部署示範應用程式範例](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip)下載至本機資料夾 (例如 C:\DocumentDBTemplates) 並解壓縮檔案。此範例會將部署 DocumentDB 帳戶、Azure 網站和 Web 應用程式。它還會自動設定 Web 應用程式，以連線到 DocumentDB 帳戶。
 
-2. 下載[建立 DocumentDB 帳戶和網站範例](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip)至本機資料夾 (例如 C:\DocumentDBTemplates) 並解壓縮檔案。此範例會將部署 DocumentDB 帳戶和 Azure 網站，並將修改網站的組態來輕鬆地呈現 DocumentDB 連接資訊，但不包含 Web 應用程式。  
+2. 將[建立 DocumentDB 帳戶和網站範例](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip)下載至本機資料夾 (例如 C:\DocumentDBTemplates) 並解壓縮檔案。此範例會將部署 DocumentDB 帳戶和 Azure 網站，並將修改網站的組態來輕鬆地呈現 DocumentDB 連接資訊，但不包含 Web 應用程式。  
 
-> [AZURE.TIP] 請注意，根據您的電腦的安全性設定，您可能需要解除封鎖所擷取的檔案，方法是在按一下滑鼠右鍵，按一下 [**內容性**]，然後按一下 [**解除封鎖**]。
+> [AZURE.TIP] 請注意，根據您電腦的安全性設定，您可能需要解除封鎖所擷取的檔案，方法是在按一下滑鼠右鍵，並按一下 [**內容**]，然後按一下 [**解除封鎖**]。
 
 ![Screenshot of the Properties window with the Unblock button highlighted](./media/documentdb-create-documentdb-website/image1.png)
 
@@ -50,7 +50,7 @@
 
 現在讓我們來部署第一個範本。
 
-> [AZURE.TIP] 範本不會驗證輸入的網站名稱和 DocumentDB 帳戶名稱 a) 是否有效且 b) 可用。強烈建議您在執行 PowerShell 部署指令碼之前，先確認您打算提供之名稱的可用性。
+> [AZURE.TIP] 範本不會驗證下面輸入的網站名稱和 DocumentDB 帳戶名稱 a) 是否有效且 b) 可用。強烈建議您在執行 PowerShell 部署指令碼之前，先確認您打算提供之名稱的可用性。
 
 1. 開啟 Microsoft Azure PowerShell，然後瀏覽至您下載並解壓縮[建立 DocumentDB 帳戶、網站和部署示範應用程式範例](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip)的資料夾 (例如 C:\DocumentDBTemplates\CreateDocDBWebsiteTodo)。
 
@@ -139,7 +139,7 @@
 
 	![Screenshot of the Resource Group and Account blades with the Query Explorer tile highlighted](./media/documentdb-create-documentdb-website/image8.png)
 
-11. 執行預設查詢，"SELECT * FROM c"，並檢查結果。請注意查詢已擷取您在步驟 7 所建立待辦事項的 JSON 表示法。任意嘗試查詢；例如，嘗試執行 SELECT * FROM c WHERE c.isComplete = true，傳回所有已標示為完成的待辦事項。
+11. 執行預設查詢 ("SELECT * FROM c")，並檢查結果。請注意查詢已擷取您在步驟 7 所建立待辦事項的 JSON 表示法。任意嘗試查詢；例如，嘗試執行 SELECT * FROM c WHERE c.isComplete = true，傳回所有已標示為完成的待辦事項。
 
 
 	![Screenshot of the Query Explorer and Results blades showing the query results](./media/documentdb-create-documentdb-website/image5.png)
@@ -149,9 +149,9 @@
 
 現在讓我們來部署第二個範本。
 
-> [AZURE.TIP] 範本不會驗證輸入的網站名稱和 DocumentDB 帳戶名稱 a) 是否有效且 b) 可用。強烈建議您在執行 PowerShell 部署指令碼之前，先確認您打算提供之名稱的可用性。
+> [AZURE.TIP] 範本不會驗證下面輸入的網站名稱和 DocumentDB 帳戶名稱 a) 是否有效且 b) 可用。強烈建議您在執行 PowerShell 部署指令碼之前，先確認您打算提供之名稱的可用性。
 
-1. 開啟 Microsoft Azure PowerShell，然後瀏覽至您下載並解壓縮[建立 DocumentDB 帳戶和網站](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip)的資料夾 (例如 C:\DocumentDBTemplates\CreateDocDBWebsite)。
+1. 開啟 Microsoft Azure PowerShell，然後瀏覽至您下載並解壓縮[建立 DocumentDB 帳戶和網站範例](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) 的資料夾 (例如 C:\DocumentDBTemplates\CreateDocDBWebsite)。
 
 
 2. 我們即將執行 CreateDocDBWebsite.ps1 PowerShell 指令碼。指令碼採用與我們部署的第一個範本相同的參數，即：
@@ -180,7 +180,7 @@
 
 	- 	建立了一系列的預設監視規則。
 
-6. 讓我們開啟 [Azure 預覽入口網站](https://portal.azure.com)，選擇瀏覽資源群組，並選取我們部署期間建立的資源群組 (以上範例的 myOtherDemoResourceGroup)。
+6. 讓我們開啟 [Azure 預覽入口網站](https://portal.azure.com)，並選擇瀏覽資源群組，然後選取我們在部署期間建立的資源群組 (在上面的範例中，是 myOtherDemoResourceGroup)。
 7. 在 [摘要] 透鏡中，按一下剛部署的 Azure 網站。
 
 	![Screenshot of the Summary lens with the myotherdocumentdwebsite website highlighted](./media/documentdb-create-documentdb-website/image6.png)
@@ -200,4 +200,4 @@
 - 若要深入了解 Azure 網站，請按一下[這裡](http://go.microsoft.com/fwlink/?LinkId=325362)。
 - 若要深入了解 Azure 資源管理員範本，請按一下[這裡](https://msdn.microsoft.com/library/azure/dn790549.aspx)。
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="開始使用資料 (Android) | 行動開發人員中心" 
-	description="了解如何開始使用行動服務，在您的 Android 應用程式中使用資料。" 
+	description="了解如何開始使用行動服務，在您的 Android 應用程式中使用資料." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -24,7 +24,7 @@
 
 您將在本教學課程中建立的行動服務，將可在行動服務中支援 .NET 執行階段。如此，您即可在行動服務中使用 .NET 語言和 Visual Studio 來撰寫伺服器端商務邏輯。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 [JavaScript 後端版本]。
 
-> [AZURE.IMPORTANT]本教學課程需要 Visual Studio 2013。
+> [AZURE.IMPORTANT] 本教學課程需要 Visual Studio 2013。
 
 <!-- -->
 
@@ -90,7 +90,7 @@
 
 	這樣會執行您的應用程式 (以 Android SDK 建立)，該應用程式利用用戶端程式庫傳送查詢，然後從您的行動服務傳回項目。
 
-5. 同樣地，輸入有意義的文字，然後按一下 [加入]****。
+5. 同樣地，輸入有意義的文字，然後按一下 [加入]。
 
    	這會傳送新項目以插入至行動服務。
 
@@ -107,7 +107,7 @@
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/sql-azure-query.png)
 
-Android 的「開始使用資料」****教學課程到此結束。
+Android 的「開始使用資料」教學課程到此結束。
 
 
 
@@ -115,15 +115,15 @@ Android 的「開始使用資料」****教學課程到此結束。
 
 本教學課程示範讓 Android 應用程式在行動服務中使用資料的基礎。 
 
-<!--接下來，考慮完成本教學課程中採用 GetStartedWithData 應用程式所建立的下列其中一個教學課程：
+<!--Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
 
-* [使用指令碼驗證及修改資料]
-  <br/>深入了解在行動服務中使用伺服器指令碼，來驗證及變更從應用程式傳送出來的資料。
+* [Validate and modify data with scripts]
+  <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
 
-* [使用分頁縮小查詢範圍]
-  <br/>了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
+* [Refine queries with paging]
+  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
 
-完成資料系列後，請嘗試
+Once you have completed the data series, try
 -->
 
 完成以下其中一項教學課程：
@@ -134,7 +134,7 @@ Android 的「開始使用資料」****教學課程到此結束。
 * [開始使用推播通知] 
   <br/>了解如何將極為基本的推播通知傳送到應用程式。
 
-* [行動服務 .NET 作法概念性參考]
+* [行動服務 .NET 做法概念性參考]
   <br/>深入了解如何搭配使用行動服務與 .NET
   
 <!-- Anchors. -->
@@ -180,10 +180,10 @@ Android 的「開始使用資料」****教學課程到此結束。
 
 
 <!-- URLs. -->
-[開始使用資料 (Eclipse)]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data-EC/
+[開始使用資料 (Eclipse)]: mobile-services-dotnet-backend-android-get-started-data-EC.md
 [使用指令碼驗證及修改資料]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [使用分頁縮小查詢範圍]: /develop/mobile/tutorials/add-paging-to-data-dotnet
-[開始使用行動服務]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[開始使用行動服務]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [開始使用驗證]: /develop/mobile/tutorials/get-started-with-users-android
 [開始使用推播通知]: /develop/mobile/tutorials/get-started-with-push-android
 [JavaScript 和 HTML]: /develop/mobile/tutorials/get-started-with-data-js
@@ -193,7 +193,8 @@ Android 的「開始使用資料」****教學課程到此結束。
 [管理入口網站]: https://manage.windowsazure.com/
 [行動服務 SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [開發人員程式碼範例網站]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[行動服務 .NET 作法概念性參考]: /develop/mobile/how-to-guides/work-with-net-client-library
+[行動服務 .NET 做法概念性參考]: /develop/mobile/how-to-guides/work-with-net-client-library
 [MobileServiceClient 類別]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-[行動服務 .NET 作法概念性參考]: /documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
-<!--HONumber=47-->
+[行動服務 .NET 做法概念性參考]: mobile-services-windows-dotnet-how-to-use-client-library.md  
+
+<!--HONumber=49-->

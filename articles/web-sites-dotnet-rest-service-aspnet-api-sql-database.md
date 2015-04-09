@@ -1,35 +1,34 @@
-﻿<properties 
-	pageTitle="使用 Web API 的 .NET REST 服務 - Azure 教學課程" 
-	description="指導如何使用 Visual Studio 將使用 ASP.NET Web API 的應用程式部署至 Azure 網站的教學課程。" 
-	services="web-sites" 
+<properties 
+	pageTitle="在 Azure App Service 中使用 ASP.NET Web API 和 SQL Database 建立 REST 服務" 
+	description="指導如何使用 Visual Studio，將使用 ASP.NET Web API 的應用程式部署至 Azure Web 應用程式的教學課程。" 
+	services="app-service\web" 
 	documentationCenter=".net" 
-	authors="riande" 
+	authors="Rick-Anderson" 
+	writer="Rick-Anderson" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/06/2014" 
+	ms.date="03/24/2015" 
 	ms.author="riande"/>
 
-# 使用 ASP.NET Web API 和 SQL Database 的 REST 服務 
+# 在 Azure App Service 中使用 ASP.NET Web API 和 SQL Database 建立 REST 服務
 
-***作者：[Rick Anderson](https://twitter.com/RickAndMSFT) 和 Tom Dykstra。***
-
-本教學課程示範如何使用 Visual Studio 2013 中或 Visual Studio 2013 for Web Express 中的 [Publish Web] 精靈，以將 ASP.NET Web 應用程式部署至 Azure 網站。 
+本教學課程示範如何使用 Visual Studio 2013 中或 Visual Studio 2013 for Web Express 中的 [發行 Web] 精靈，將 ASP.NET Web 應用程式部署至 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)。 
 
 您可以免費申請 Azure 帳戶，而且如果您還沒有 Visual Studio 2013，SDK 會自動安裝 Visual Studio 2013 for Web Express。如此您就能開始免費進行 Azure 相關開發。
 
-本教學課程假設您先前沒有使用 Azure 的經驗。完成此教學課程後，您將有個簡單的 Web 應用程式已在雲端中啟動並執行。
+本教學課程假設您先前沒有使用 Azure 的經驗。完成本教學課程後，您將有個簡單的 Web 應用程式已在雲端中啟動並執行。
  
 您將學到：
 
 * 如何安裝 Azure SDK 好讓電腦適合用於進行 Azure 開發。
-* 如何建立 Visual Studio ASP.NET MVC 5 專案，並將它發行至 Azure 網站。
+* 如何建立 Visual Studio ASP.NET MVC 5 專案，並將它發行至 Azure 應用程式。
 * 如何使用 ASP.NET Web API 來啟用符合 REST 限制的 API 呼叫。
 * 如何使用 SQL 資料庫在 Azure 中儲存資料。
 * 如何將應用程式更新發行至 Azure。
@@ -38,106 +37,51 @@
 
 ![screenshot of web site][intro001]
 
-本教學課程內容：
-
-* [設定開發環境][setupdbenv]
-* [設定 Azure 環境][setupwindowsazureenv]
-* [建立 ASP.NET MVC 5 應用程式][createapplication]
-* [將應用程式部署至 Azure][deployapp1]
-* [將資料庫新增至應用程式][adddb]
-* [新增控制器和資料檢視][addcontroller]
-* [新增符合 REST 限制的 Web API 介面][addwebapi]
-* [新增 XSRF 保護][]
-* [將應用程式更新發行至 Azure 和 SQL Database][deploy2]
-
 <a name="bkmk_setupdevenv"></a>
-<!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
+<!-- 下一行會產生「設定開發環境」區段，如 http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ 中所示 -->
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
-
-<h2><a name="bkmk_setupwindowsazure"></a>設定 Azure 環境</h2>
-
-接下來，建立 Azure 網站和 SQL 資料庫，以設定 Azure 環境。
-
-### 在 Azure 中建立網站和 SQL 資料庫
-
-下一個步驟是建立應用程式將使用的 Azure 網站和 SQL 資料庫。
-
-您的 Azure 網站會在共用主控環境中執行，意即會在與其他 Azure 用戶端共用的虛擬機器 (VM) 上執行。共用主控環境是一種在雲端中開始營運的低成本方法。因為應用程式是在專用 VM 上執行，所以如果日後您的 Web 流量增加，可依需求對應用程式進行延展。如果您需要更複雜的架構，可以移轉至 Azure 雲端服務。雲端服務是執行於您可視本身需求來設定的專用 VM 上。
-
-SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯式資料庫服務。工具和應用程式如果使用 SQL Server，同樣也可以使用 SQL Database。
-
-1. 在 [Azure 管理入口網站](https://manage.windowsazure.com)中，按一下左側索引標籤中的 [網站]****，然後按一下 [新增]****。
-
-2. 按一下 [自訂建立]****。
-
-	![使用管理入口網站中的資料庫連結來建立](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr6.PNG)
-
-	就會開啟　[新網站 - 自訂建立]**** 精靈。 
-
-3. 在精靈的 [新增網站]**** 步驟中，於 [URL]**** 方塊中輸入字串，以做為您應用程式的唯一 URL。完整的 URL 將包含您在此處輸入的字串，加上您在文字方塊下方看到的尾碼。下圖顯示 "contactmgr11"，不過該 URL 可能已被佔用，因此您必須選擇不同的 URL。
-
-1. 在 [區域]**** 下拉式清單中，選擇最接近您的位置。
-
-1. 在 [資料庫]**** 下拉式清單中，選擇 [建立免費 20 MB SQL 資料庫]****。
-
-	![[新網站 - 使用資料庫建立] 精靈的 [建立新網站] 步驟](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrCWS.png)
-
-6. 按一下指向方塊右下角的箭號。
-
-	精靈隨即前進至 [資料庫設定]**** 步驟。
-
-7. 在 [名稱]**** 方塊中，輸入 *ContactDB*。
-
-8. 在 [伺服器]**** 方塊中，選取 [新的 SQL 資料庫伺服器]****。或者，如果您已建立 SQL Server 資料庫，可從下拉式清單控制項選取該 SQL Server。
-
-9. 按一下指向方塊右下角的箭號。
-
-10. 輸入系統管理員的 [登入名稱]**** 和 [密碼]****。若選取 [新的 SQL 資料庫伺服器]****，則不要在此處輸入現有的名稱和密碼，而是輸入新的名稱和密碼；您現在定義的名稱和密碼將供未來存取資料庫時使用。如果選取先前建立的 SQL Server，系統會提示您提供先前建立之 SQL Server 帳戶名稱的密碼。在本教學課程中，我們不會勾選 [進階]**** 方塊。[進階]**** 方塊可讓您設定資料庫大小 (預設值為 1 GB，不過您可以增加到 150 GB) 和定序。
-
-11. 按一下方塊底部的核取方塊來表示完成。
-
-	![[新網站 - 使用資料庫建立] 精靈的 [資料庫設定] 步驟][setup007]
-
-	 下圖顯示如何使用現有的 SQL Server 和登入。
-	
-	![[新網站 - 使用資料庫建立] 精靈的 [資料庫設定] 步驟][rxPrevDB]
-
-	管理入口網站會隨即返回 [網站] 頁面，且 [狀態]**** 欄顯示正在建立網站。稍待片刻 (通常不到一分鐘)，[狀態]**** 欄就會顯示網站成功建立。在左側的導覽列中，[網站]**** 圖示旁邊會顯示您的帳戶中已有的網站數；[SQL 資料庫]**** 圖示旁邊則會顯示資料庫數目。
-
-<!-- [Websites page of Management Portal, website created][setup009] -->
-
-<h2><a name="bkmk_createmvc4app"></a>建立 ASP.NET MVC 5 應用程式</h2>
-
-您已建立 Azure 網站，但網站中還沒有內容。接下來的步驟是建立要發行至 Azure 的 Visual Studio Web 應用程式。
 
 ### 建立專案
 
 1. 啟動 Visual Studio 2013。
-1. 從 [檔案]**** 功能表，按一下 [新增專案]****。
-3. 在 [新增專案]**** 對話方塊中，展開 [Visual C#]**** 並選取 [Web]****，然後選取 [ASP.NET MVC 5 Web 應用程式]****。保留預設的 [.NET Framework 4.5]****。將應用程式命名為 **ContactManager**，然後按一下 [確定]****。
-	![[新增專案] 對話方塊](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
-1. 在 [新增 ASP.NET 專案]**** 對話方塊中，選取 [MVC]**** 範本，勾選 [Web API]****，然後按一下 [變更驗證]****。
+1. 從 [檔案] 功能表，按一下 [新增專案]。
+3. 在 [新增專案] 對話方塊中，展開 [Visual C#] 並選取 [Web]，然後選取 [ASP.NET MVC 5 Web 應用程式]。將應用程式命名為 **ContactManager**，然後按一下 [確定]。
 
-	![[新增 ASP.NET 專案] 對話方塊](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
 
-1. 在 [變更驗證]**** 對話方塊中，按一下 [不需要驗證]****，然後按一下 [確定]****。
+1. 在 [新增 ASP.NET 專案] 對話方塊中，選取 [MVC] 範本，勾選 [Web API]，然後按一下 [變更驗證]。
 
-	![沒有驗證](./media/web-sites-dotnet-get-started-vs2013/GS13noauth.png)
+	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+
+1. 在 [變更驗證] 對話方塊中，按一下 [不需要驗證]，然後按一下 [確定]。
+
+	![No Authentication](./media/web-sites-dotnet-get-started-vs2013/GS13noauth.png)
 
 	您所建立的範例應用程式將不會具備需要使用者登入的功能。如需如何實作驗證與授權功能的相關資訊，請參閱本教學課程最後的[後續步驟](#nextsteps) 小節。 
 
-1. 在 [新增 ASP.NET 專案]**** 對話方塊中，按一下 [確定]****。
+1. 在 [新增 ASP.NET 專案] 對話方塊中，按一下 [確定]。
 
-	![[新增 ASP.NET 專案] 對話方塊](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
+	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+
+如果您先前未登入 Azure，系統將提示您登入。
+
+1. 設定精靈將根據 *ContactManager* 建議唯一名稱 (請參閱下圖)。選取您附近的區域。您可以使用 [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com") 尋找最短延遲的資料中心。 
+2. 如果您之前未建立過資料庫伺服器，請選取 [建立新的伺服器]，輸入資料庫使用者名稱和密碼。
+
+	![Configure Azure Website](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/configAz.PNG)
+
+如果您有資料庫伺服器，請使用它來建立新的資料庫。資料庫伺服器是非常寶貴的資源，而且您通常會想要在同一部伺服器上建立多個資料庫來進行測試和開發，而非在每個資料庫中各建立一個資料庫伺服器。請確定您的網站和資料庫位於相同區域。
+
+![Configure Azure Website](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/configWithDB.PNG)
 
 ### 設定頁首及頁尾
 
 
-1. 在 [方案總管]**** 中，展開  *Views\Shared* 資料夾，然後開啟 *_Layout.cshtml* 檔案。
+1. 在 [方案總管] 中，展開  *Views\Shared* 資料夾，然後開啟 *_Layout.cshtml* 檔案。
 
-	![[方案總管] 中的 _Layout.cshtml][newapp004]
+	![_Layout.cshtml in Solution Explorer][newapp004]
 
-1. 以下列程式碼取代 *_Layout.cshtml* 檔案的內容：
+1. 使用下列程式碼來取代 *Views\Shared_Layout.cshtml* 檔案的內容。
 
 
 		<!DOCTYPE html>
@@ -176,61 +120,29 @@ SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯式資�
 		</body>
 		</html>
 			
-以上標記會將應用程式名稱從 "My ASP.NET App" 變更為 "Contact Manager"，同時移除對 [首頁]****、[關於]**** 和 [連絡人]**** 的連結。
+以上標記會將應用程式名稱從 "My ASP.NET App" 變更為 "Contact Manager"，同時移除對 [首頁]、[關於] 和 [連絡人] 的連結。
 
 ### 在本機執行應用程式
 
 1. 按 CTRL+F5 執行應用程式。
 應用程式首頁隨即出現在預設瀏覽器中。
-	![[待辦事項清單] 首頁](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
+	![To Do List home page](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
 
 只需執行上述作業，即可建立稍後要部署至 Azure 的應用程式。稍後您將新增資料庫功能。
 
 <h2><a name="bkmk_deploytowindowsazure1"></a>將應用程式部署至 Azure</h2>
 
-1. 在 Visual Studio 中，於 [方案總管]**** 中的專案上按一下滑鼠右鍵，然後選取操作功能表中的 [發行]****。
+1. 在 Visual Studio 中，使用滑鼠右鍵按一下 [方案總管] 中的專案，然後選取操作功能表中的 [發行]。
 
-	![在專案內容功能表中發行][PublishVSSolution]
+	![Publish in project context menu][PublishVSSolution]
 
-	此時會開啟 [發行 Web]**** 精靈。
+	此時會開啟 [發行 Web] 精靈。
 
-2. 在 [發行 Web]**** 精靈的 [設定檔]**** 索引標籤中，按一下 [匯入]****。
+12. 按一下 [發行]。
 
-	![Import publish settings][ImportPublishSettings]
+![Settings tab](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/pw.png)
 
-	[匯入發行設定檔]**** 對話方塊隨即出現。
-
- 3.	選取 [從 Azure 網站匯入]。如果您尚未登入，請務必先登入。按一下 [登入]****。輸入與訂閱相關的使用者並遵循登入步驟。
-
-	![sign in](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr7.png)
-
-	從下拉式清單選取您的網站，然後按一下 [確定]****。
-
-	![Import Publish Profile](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr8.png)
-
-8. 在 [連線]**** 索引標籤中，按一下 [驗證連線]**** 以確定設定正確。
-
-	![Validate connection][ValidateConnection]
-
-9. 當連線通過驗證後，[驗證連線]**** 按鈕旁邊會顯示綠色核取方塊。
-
-	![connection successful icon and Next button in Connection tab][firsdeploy007]
-
-1. 按 [下一步]****。
-
-	![Settings tab](./media/web-sites-dotnet-get-started-vs2013/GS13SettingsTab.png)
-
-	您可以接受此索引標籤上的預設設定。您是要部署「發行」建置組態，且不需要刪除目的地伺服器上的檔案、預先編譯應用程式，或排除 App_Data folder 中的檔案。如果您想要在即時的 Azure 網站上進行偵錯，便需要部署偵錯組態 (非發行)。請參閱本教學課程最後的[後續步驟](#nextsteps) 小節。
-
-12. 在 [預覽]**** 索引標籤中，按一下 [開始預覽]****。
-
-	此索引標籤會列出要複製至伺服器的檔案。顯示預覽並非要發行應用程式時的必要動作，但是是可以知道的有用功能。在此情況中，您不需要對顯示的檔案清單進行任何處理。當您下次發行時，唯有變更過的檔案會出現在預覽清單中。
-
-	![StartPreview button in the Preview tab][firsdeploy009]
-
-12. 按一下 [發行]****。
-
-	Visual Studio 隨即開始進行將檔案複製至 Azure 伺服器的程序。[輸出]**** 視窗會顯示已採取的部署動作，並報告部署作業已順利完成。
+Visual Studio 隨即開始進行將檔案複製至 Azure 伺服器的程序。[輸出] 視窗會顯示已採取的部署動作，並報告部署作業已順利完成。
 
 14. 預設瀏覽器會自動開啟已部署之網站的 URL。
 
@@ -246,11 +158,11 @@ SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯式資�
 
 首先，您會在程式碼中建立簡單的資料模型。
 
-1. 在 [方案總管]**** 中，於 Models 資料夾上按一下滑鼠右鍵，按一下 [新增]****，然後按一下 [類別]****。
+1. 在 [方案總管] 中，使用滑鼠右鍵按一下 Models 資料夾、按一下 [新增]，然後按一下 [類別]。
 
 	![Add Class in Models folder context menu][adddb001]
 
-2. 在 [加入新項目]**** 對話方塊中，將新的類別檔案命名為  *Contact.cs*，然後按一下 [新增]****。
+2. 在 [加入新項目] 對話方塊中，將新的類別檔案命名為  *Contact.cs*，然後按一下 [新增]。
 
 	![Add New Item dialog box][adddb002]
 
@@ -286,45 +198,45 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 <h2><a name="bkmk_addcontroller"></a>新增控制器和資料檢視</h2>
 
-1. 在 [方案總管]**** 中，展開 Controllers 資料夾。
+1. 在 [方案總管] 中，展開 Controllers 資料夾。
 
 3. 建置專案 **(Ctrl+Shift+B)**。(使用樣板機制前必須先建置專案。) 
 
-4. 在 Controllers 資料夾上按一下滑鼠右鍵、按一下 [新增]****，然後按一下 [控制器]****。
+4. 在 Controllers 資料夾上按一下滑鼠右鍵、按一下 [新增]，然後按一下 [控制器]。
 
 	![Add Controller in Controllers folder context menu][addcode001]
 
-1. 在 [新增 Scaffold]**** 對話方塊中，選取 [具有檢視、使用 Entity Framework 的控制器]****，然後一下 [新增]****。
+1. 在 [新增 Scaffold] 對話方塊中，選取 [具有檢視、使用 Entity Framework 的控制器]，然後一下 [新增]。
 
  ![Add controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.PNG)
 
-6. 將控制器名稱設為 **HomeController**。選取 [Contact]**** 做為模型類別。按一下 [新資料內容]**** 按鈕，並接受 [新資料內容類型]**** 的預設值 "ContactManager.Models.ContactManagerContext"。按一下 [新增]****。
+6. 將控制器名稱設為 **HomeController**。選取 [Contact] 做為模型類別。按一下 [新資料內容] 按鈕，並接受 [新資料內容類型] 的預設值 "ContactManager.Models.ContactManagerContext"。按一下 [新增]。
 
 	![Add Controller dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.PNG)
 
-	對話方塊會提示您：「名為 HomeController 的檔案已存在。您要取代該檔案嗎？」按一下 [是]****。我們會覆寫隨著新專案一同建立的首頁控制器。我們會將新的首頁控制器用於連絡人清單。
+	對話方塊會提示您：「名為 HomeController 的檔案已存在。您要取代該檔案嗎？」按一下 [**是**]。我們會覆寫隨著新專案一同建立的首頁控制器。我們會將新的首頁控制器用於連絡人清單。
 
 	Visual Studio 就會針對 **Contact** 物件的 CRUD 資料庫操作建立控制器方法與檢視。
 
 ## 啟用移轉、建立資料庫、新增範例資料和資料初始設定式 ##
 
-下一個工作是啟用 [Code First 移轉](http://curah.microsoft.com/55220)功能，以便根據您建立的資料模型建立資料庫。
+下一個工作是啟用 [Code First 移轉](http://curah.microsoft.com/55220)功能，以根據您建立的資料模型來建立資料庫。
 
-1. 在 [工具]**** 功能表中，依序選取 [Library Package Manager]**** 及 [Package Manager Console]****。
+1. 在 [工具] 功能表中，依序選取 [Library Package Manager] 及 [Package Manager Console]。
 
 	![Package Manager Console in Tools menu][addcode008]
 
-2. 在 [封裝管理員主控台]**** 視窗中，輸入下列命令：
+2. 在 [封裝管理員主控台] 視窗中，輸入下列命令：
 
 		enable-migrations 
   
 	**enable-migrations** 命令會建立 *Migrations* 資料夾，並在該資料夾置入 *Configuration.cs* 檔案，您可以編輯該檔案來設定 [移轉]。 
 
-2. 在 [封裝管理員主控台]**** 視窗中，輸入下列命令：
+2. 在 [封裝管理員主控台] 視窗中，輸入下列命令：
 
 		add-migration Initial
 
-	**add-migration Initial** 命令會產生可建立資料庫、名為 **&lt;date_stamp&gt;Initial** 的類別。第一個參數 ( *Initial* ) 是任意的，用於建立檔案的名稱。您可以在 [方案總管]**** 中看到新的類別檔案。
+	**add-migration Initial** 命令會產生可建立資料庫、名為 **&lt;date_stamp&gt;Initial** 的類別。第一個參數 ( *Initial*) 是任意的，用於建立檔案的名稱。您可以在 [方案總管] 中看到新的類別檔案。
 
 	在 **Initial** 類別中，**Up** 方法會建立 Contacts 資料表，**Down** 方法 (當您希望回到前一個狀態時使用) 則會捨棄該資料表。
 
@@ -395,7 +307,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 	以上的這個程式碼會以連絡人資訊初始化資料庫。如需植入資料庫的詳細資訊，請參閱[偵錯 Entity Framework (EF) DB](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)。
 
 
-1. 在 [封裝管理員主控台]**** 中輸入命令：
+1. 在 [封裝管理員主控台] 中輸入命令：
 
 		update-database
 
@@ -504,14 +416,14 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 		    </fieldset>
 		</form>
 
-3. 在 Content 資料夾上按一下滑鼠右鍵，按一下 [新增]****，然後按一下 [新增項目...]****。
+3. 在 Content 資料夾上按一下滑鼠右鍵，按一下 [新增]，然後按一下 [新增項目...]。
 
 	![Add style sheet in Content folder context menu][addcode005]
 
-4. 在 [加入新項目]**** 對話方塊中，於右上角的搜尋方塊中輸入 **Style**，然後選取 [樣式表]****。
+4. 在 [加入新項目] 對話方塊中，於右上角的搜尋方塊中輸入 **Style**，然後選取 [樣式表]。
 	![Add New Item dialog box][rxStyle]
 
-5. 將檔案命名為 *Contacts.css*，然後按一下 [新增]****。以下列程式碼取代檔案的內容。
+5. 將檔案命名為 *Contacts.css*，然後按一下 [新增]。以下列程式碼取代檔案的內容。
     
         .column {
             float: left;
@@ -596,15 +508,15 @@ To:
 
 <h2><a name="bkmk_addwebapi"></a>為符合 Web API REST 限制的介面新增控制器</h2>
 
-1. 在 [方案總管]**** 中，使用滑鼠右鍵按一下控制器、按一下 [新增]****，然後按一下 [控制器...]****。 
+1. 在 [方案總管] 中，使用滑鼠右鍵按一下控制器、按一下 [新增]，然後按一下 [控制器...]。 
 
-1. 在 [新增 Scaffold]**** 對話方塊中，選取 [具有動作、使用 Entity Framework 的 Web API 2 控制器]****，然後一下 [新增]****。
+1. 在 [新增 Scaffold] 對話方塊中，選取 [具有動作、使用 Entity Framework 的 Web API 2 控制器]，然後一下 [新增]。
 
 	![Add API controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.PNG)
 
-4. 在 [加入控制器]**** 對話方塊中，輸入 "ContactsController" 作為控制器名稱。針對 [模型類別]**** 選取 "Contact (ContactManager.Models)"。保留 [資料內容類別]**** 的預設值。 
+4. 在 [加入控制器] 對話方塊中，輸入 "ContactsController" 作為控制器名稱。針對 [模型類別] 選取 [Contact (ContactManager.Models)]。保留 [資料內容類別] 的預設值。 
 
-6. 按一下 [新增]****。
+6. 按一下 [新增]。
 
 ### 在本機執行應用程式
 
@@ -612,7 +524,7 @@ To:
 
 	![Index page][intro001]
 
-2. 輸入連絡人，然後按一下 [新增]****。應用程式會返回首頁並顯示您輸入的連絡人。
+2. 輸入連絡人，然後按一下 [新增]。應用程式會返回首頁並顯示您輸入的連絡人。
 
 	![Index page with to-do list items][addwebapi004]
 
@@ -644,7 +556,7 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 
 如需詳細資訊，請參閱 [Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))。
 
-1. 在 [方案總管]**** 中，使用滑鼠右鍵按一下 **ContactManager** 專案、按一下 [新增]****，然後按一下 [類別]****。
+1. 在 [方案總管] 中，使用滑鼠右鍵按一下 **ContactManager** 專案、按一下 [新增]，然後按一下 [類別]。
 
 2. 將檔案命名為 *ValidateHttpAntiForgeryTokenAttribute.cs*，然後新增以下程式碼：
 
@@ -716,7 +628,7 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
             }
         }
 
-1. 將以下 *using* 陳述式新增至合約控制器，使您得以存取 **[ValidateHttpAntiForgeryToken]** 屬性。
+1. 將以下的 *using* 陳述式新增至合約控制器，使您得以存取 **[ValidateHttpAntiForgeryToken]** 屬性。
 
 	using ContactManager.Filters;
 
@@ -785,22 +697,22 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 
 若要發行應用程式，您需要重複先前遵循過的程序。
 
-1. 在 [方案總管]**** 中，使用滑鼠右鍵按一下專案，然後選取 [發行]****。
+1. 在 [方案總管] 中，使用滑鼠右鍵按一下專案，然後選取 [發行]。
 
 	![Publish][rxP]
 
-5. 按一下 [設定]**** 索引標籤。
+5. 按一下 [設定] 索引標籤。
 	
 
-1. 在 [ContactsManagerContext(ContactsManagerContext)]**** 下方，按一下 **v** 圖示，將 *Remote connection string* 變更為連絡人資料庫的連接字串。按一下 [ContactDB]****。
+1. 在 [ContactsManagerContext(ContactsManagerContext)] 下方，按一下 **v** 圖示，將 *Remote connection string* 變更為連絡人資料庫的連接字串。按一下 [ContactDB]。
 
 	![Settings](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt5.png)
 
-7. 勾選 [執行 Code First 移轉 (在應用程式啟動時執行)]****。
+7. 勾選 [執行 Code First 移轉 (在應用程式啟動時執行)]。
 
-1. 依序按 [下一步]**** 和 [預覽]****。Visual Studio 會顯示即將新增或更新的檔案清單。
+1. 依序按 [下一步] 和 [預覽]。Visual Studio 會顯示即將新增或更新的檔案清單。
 
-8. 按一下 [發行]****。
+8. 按一下 [發行]。
 部署完成後，瀏覽器會開啟應用程式的首頁。
 
 	![Index page with no contacts][intro001]
@@ -813,13 +725,15 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 
 當您發現輸入的項目已儲存且出現在 Contact Manager 頁面時，表示該項目已儲存在資料庫中。
 
-![含有連絡人的索引頁面][addwebapi004]
+![Index page with contacts][addwebapi004]
 
 應用程式現已在雲端運作，並使用 SQL Database 來儲存資料。在 Azure 中完成應用程式測試後，請將應用程式刪除。應用程式已處於公開狀態且不具有限制存取權限的機制。
 
+>[AZURE.NOTE] 如果您想要在註冊 Azure 帳戶之前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，讓您能夠在 App Service 中立即建立短期的入門 Web 應用程式。不需要信用卡，無需承諾。
+
 <h2><a name="nextsteps"></a>後續步驟</h2>
 
-真實的應用程式會要求驗證和授權，而您需要使用成員資格資料庫來達成目的。[部署含有 OAuth、成員資格及 SQL Database 的安全 ASP.NET MVC 應用程式](http://azure.microsoft.com/develop/net/tutorials/web-site-with-sql-database/)教學課程是以本教學課程為基礎，示範如何部署含有成員資格資料庫的 Web 應用程式。
+真實的應用程式會要求驗證和授權，而您需要使用成員資格資料庫來達成目的。[部署含有 OAuth、成員資格及 SQL Database 的安全 ASP.NET MVC 應用程式](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) 教學課程是以本教學課程為基礎，示範如何部署含有成員資格資料庫的 Web 應用程式。
 
 另一個儲存 Azure 應用程式資料的方法是使用 Azure 儲存體，它能以 Blob 和資料表的形式提供非關聯式的資料儲存。以下連結提供 Web API、ASP.NET MVC 及 Window Azure 的詳細資訊。
  
@@ -827,11 +741,15 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 * [使用 MVC 的 Entity Framework 入門][EFCodeFirstMVCTutorial]
 * [ASP.NET MVC 5 入門](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [您的第一個 ASP.NET Web API](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
-* [偵錯 WAWS](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+* [偵錯 WAWS](web-sites-dotnet-troubleshoot-visual-studio.md)
 
 本教學課程和範例應用程式是由 [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) 在 Tom Dykstra 和 Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)) 的協助下所撰寫。 
 
 如果您發現喜歡的地方或希望我們改善的地方 (不論是針對本教學課程或其示範的產品)，歡迎留下意見反應。您的意見反應將協助我們訂出優先改善要務。我們非常希望能了解您對於將設定和部署成員資格資料庫之程序更進一步自動化的期待為何。 
+
+## 相關變更
+* 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 如需從舊版入口網站變更為新版入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- bookmarks -->
 [新增 OAuth 提供者]: #addOauth
@@ -901,5 +819,4 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

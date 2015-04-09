@@ -1,205 +1,100 @@
 ﻿<properties 
-	pageTitle="Azure 網站 Web 主控方案深入概觀 - Microsoft Azure 功能指南" 
-	description="了解 Azure 網站之 Web 主控方案的運作方式，以及在管理經驗上帶來的效益。" 
-	services="web-sites" 
+	pageTitle="Azure 應用程式服務方案深入概觀" 
+	description="了解 Azure 應用程式服務之應用程式服務方案的運作方式，以及在管理經驗上帶來的效益。" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="btardif" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service" 
 	ms.workload="web" 
-	ms.tgt_pltfrm="ibiza" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
-	ms.author="byvinyal, yochayk"/>
-</br>
-#Azure 網站 Web 主控方案深入概觀#
-</br>
-虛擬主機方案 (WHP) 代表可跨網站共用的一組特性和功能。Web 主控方案支援 4 個 Azure 網站價格層 (免費、共用、基本及標準)，每一層都有它自己的功能與容量。相同訂閱、資源群組及地理位置中的網站都能共用 Web 主控方案。共用一個 Web 主控方案的所有網站，均可利用 Web 主控方案層定義的所有功能和特性。與指定 Web 主控方案關聯的所有網站，可在 Web 主控方案定義的資源上執行。例如，如果您的 Web 主控方案設為使用兩個「小型」虛擬機器，與該 Web 主控方案關聯的所有網站將可在兩部虛擬機器上執行。就像 Azure 網站的一貫情況，執行網站的虛擬機器受到完整管理且具有高可用性。
-</br>
-在本文中，我們將探討重要的特性，例如 Web 主控方案的層級與規模，以及這些特性如何在管理您的網站時發揮效用。 
-</br>
-##網站、Web 主控方案和資源群組##
-</br>
-在任何指定時間，一個網站只能與一個虛擬主機方案產生關聯。一個 Web 主控方案會與一個資源群組產生關聯。資源群組是 Azure 中的新概念，可作為其內含各項資源的生命週期界限。資源群組可讓您集中管理應用程式的所有層面。 
-</br>
-您在一個資源群組中可以有多個 Web 主控方案，每個主控方案有自己的一套供其相關聯網站所使用的功能。下圖說明此關係：
-</br>
-</br>
-![Resource Groups and Web Hosting Plans](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview01.png)
-</br>
-</br>
-在單一資源群組中有多個 Web 主控方案可讓您將不同的網站配置到不同的資源，主要是執行您網站的虛擬機器。例如，這項功能可以區隔開發、測試及實際執行站台之間的資源，您可能會想要將一個虛擬主機方案及其自己的一組專用資源配置給實際執行網站，而將第二個虛擬主機方案配置給開發和測試站台。 
-</br>
-在單一資源群組中有多個 Web 主控方案也可讓您定義一個跨越不同區域的應用程式。例如，在兩個區域中執行的高可用性網站將包括兩個 Web 主控方案，每個區域各有一個方案，而每個 Web 主控方案有一個相關聯的網站。在這類情況中，所有網站將會與定義一個應用程式的單一資源群組相關聯。擁有資源群組的單一檢視，並有多個 Web 主控方案與多個網站，使得要管理、控制和檢視網站的健康情況極為容易。除了管理指定應用程式的網站資源和相關的網站以外，您還可以將任何 Azure 資源 (如 SQL-Azure 資料庫和小組專案) 產生關聯。 
-</br>
-##何時應建立新資源群組，以及何時應建立新 Web 主控方案？##
-</br>
-建立新網站時，如果您即將建立的網站代表新 Web 應用程式，就應該考慮建立新資源群組。在此情況下，建立新資源群組、關聯的 Web 主控方案和網站是正確選擇。透過新 Azure 入口網站預覽使用組件庫或新的網站 + SQL 選項來建立這類新網站時，入口網站將預設成為您的新網站建立新資源群組和 Web 主控方案。不過，如果需要的話，您也可以覆寫這些預設值。
-</br>
-</br>
-![Creating a new Web Hosting Plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview02.png)
-</br>
-</br>
-您隨時可以將新的網站或其他任何資源群組加入至現有的資源群組。從現有資源群組的內容建立新網站時，新網站精靈會預設為現有資源和 Web 主控方案。在這裡，您也可以視需要覆寫這些預設值。將新的網站加入至現有的資源群組時，您可以選擇將站台加入至現有的虛擬主機方案 (這是新 Azure 入口網站預覽中的預設選項)，或建立新的虛擬主機方案以將站台加入至其中。
-</br>
-建立新的主控方案可讓您為網站配置一組新的資源，並讓您更有效地控制資源配置，因為每個 Web 主控方案會取得其自己的一組虛擬機器。由於您可以在 Web 主控方案之間移動網站 (假設 Web 主控方案在相同區域)，決定是否建立新 Web 主控方案相形之下便較不重要了。如果指定的網站開始耗用太多資源，或是您正好需要將幾個網站區隔出來，便可建立新的虛擬主機方案，再將網站移入其中。
-</br>
-如果您想要在不同區域中建立新的網站，而該區域目前沒有 Web 主控方案，您必須在該區域中建立新的 Web 主控方案，才能夠有與其相關聯的網站。 
-</br>
-切記，您無法在資源群組之間移動 Web 主控方案或網站。同時，您無法在位於兩個不同區域的兩個 Web 主控方案之間移動網站。 
-</br>
-##Azure 預覽入口網站中的現有資源群組##
-</br>
-如果您在 Azure 網站上已經有現有的網站，您會發現您的所有網站都顯示在 Azure Preview 入口網站上。您只要按一下左導覽窗格中的 [瀏覽]**** 按鈕，然後選取 [網站]****，即可查看您所有網站的簡單列表：
-</br>
-</br>
-![See all your website as a flat list](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview03.png)
-</br>
-</br>
-您也可以按一下左導覽窗格中的 [瀏覽]**** 按鈕，然後選取 [資源群組]****，以查看已為您建立的所有資源群組：
-</br>
-</br>
-![See all the resource groups that have been created](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview04.png)
-</br>
-</br>
-在您已有網站的每個區域中，您也會發現有自動產生的預設資源群組。為網站自動產生的資源群組名稱為 *Default-Web-<LOCATION NAME>*，其中，位置名稱代表 Azure 區域 (例如  *Default-Web-WestUS*)。在每個資源群組中，您會找到群組區域的所有現有網站。您在過去建立及將在未來建立的每個網站，不論是在完整 Azure 入口網站或 Azure Preview 入口網站中建立，都會出現在這兩個入口網站上。 
-</br>
-因為每個網站都必須與 Web 主控方案產生關聯，我們已根據以下慣例，在每個區域中為現有的網站建立預設 Web 主控方案：
-</br>
-* 您的所有「免費」****網站都與「預設」****虛擬主機方案關聯，其定價層皆設定為「免費」。**** 
-</br>
-* 您的所有「共用」****網站都與「預設」****虛擬主機方案關聯，其定價層皆設定為「共用」。****
-</br>
-* 您的所有「標準」****網站都與預設虛擬主機方案關聯，其定價層皆設定為「標準」。**** 
-</br>
-此虛擬主機方案的名稱為 **DefaultServerFarm**。選擇此名稱是為了支援舊版 API。**ServerFarm** 名稱有時會使人誤以為它指的是 **Web 主控方案**，但務必注意它是 Web 主控方案的名稱，並非屬於自身的實體。 
-</br>
-##Web 主控方案常見問題集##
-</br>
-**問題**：如何建立虛擬主機方案？
-</br>
-**回答**：Web 主控方案是容器，因此您不能建立空白的 Web 主控方案。不過，在建立站台時，會明確建立新的「虛擬主機方案」。
-</br>
-若要使用新「Azure 入口網站預覽」****中的 UI 來執行這項操作，請按一下 [新增]****，然後選取 [網站]****，將會開啟 [網站] 建立刀鋒視窗。在下方第一張圖中，您可以看到左下方的 [新增]**** 圖示，而在第二張圖中，您可以看到 [網站]**** 建立刀鋒視窗、[虛擬主機方案]**** 刀鋒視窗，以及 [定價層]**** 刀鋒視窗：
-</br>
-</br>
-![Create a new website](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview05.png)
-</br>
-</br>
-![Website, Web Hosting Plan and pricing tier blades](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview06.png)
-</br>
-</br>
-針對此範例，我們將選擇建立一個稱為 **contosomarketing** 的新網站，並將它放入稱為 **contoso** 的新虛擬主機方案中。為這個虛擬主機方案選取的 [定價層] 為 [小型標準]****。如需有關虛擬主機方案定價層的詳細資訊，以及各層提供的功能、定價和調整規模選項，請瀏覽 [Azure 網站虛擬主機方案規格](http://go.microsoft.com/?linkid=9845586)。 
-</br>
-也請注意，Web 主控方案也可以建立在現有的 Azure 入口網站。這項操作可在 [快速建立]**** 精靈中完成，方法是從 [虛擬主機方案]**** 下拉式清單中選取 [建立新的虛擬主機方案]****：
-</br>
-</br>
-![Create new web hosting plan in the existing portal](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview07.png)
-</br>
-</br>
-針對此範例，我們將建立一個稱為 **northwind** 的新站台，並選擇建立新的虛擬主機方案。這項操作將會產生名為 **default0** 的新虛擬主機方案，此方案包含 **northwind** 網站。透過此方式建立的所有 Web 主控方案將遵循此命名慣例，而 Web 主控方案在建立之後即不能加以重新命名。此外，透過此程序建立的虛擬主機方案將會建立在「免費」****定價層。
-</br>
-**問題**：如何將網站指派給某個**虛擬主機方案**？
-</br>
-**回答**：網站是在網站建立程序期間指派給 Web 主控方案。若要使用新「Azure 入口網站預覽」****中的 UI 來執行這項操作，請按一下 [新增]****，然後選取 [網站]****：
-</br>
-</br>
-![Create a new website](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview08.png)
-</br>
-</br>
-然後，在網站建立分頁中，選取主控方案：
-</br>
-</br>
-![Select a hosting plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview09.png)
-</br>
-</br>
-使用現有的 Azure 入口網站，也可以將網站建立到特定的 Web 主控方案中。這項操作可在 [快速建立]**** 精靈中完成。輸入網站 URL 之後，使用 [**WEB 主控方案**] 下拉式清單來選取要加入網站的方案：
-</br>
-</br>
-![Select a hosting plan in the existing portal](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview10.png)
-</br>
-</br>
-**問題**：如何將站台移到不同的虛擬主機方案？
-</br>
-**回答**：您可以使用 Azure 預覽入口網站，將網站移至不同的 Web 主控方案。網站可以在相同地理區域中、屬於相同資源群組的虛擬主機方案之間移動。
-</br>
-若要將站台移到另一個方案中，請瀏覽至您想要移動之站台的網站刀鋒視窗。然後按一下 [虛擬主機方案]****：
-</br>
-</br>
-![Choose a new or existing web hosting plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview22.png)
-</br>
-</br>
-這會開啟 [Web 主控方案] 分頁。在此時，您可以挑選現有的 Web 主控方案，或建立新的方案。不同地理位置或資源群組中的方案會呈現灰色而無法選取。
-</br>
-請注意，每個 Web 主控方案都有自己的定價層。當您將站台從 [免費]**** 層虛擬主機方案移到 [標準]**** 虛擬主機方案時，您的網站將可以利用 [標準] 層的所有功能和資源。 
-</br>
-</br>
-**問題**：如何調整虛擬主機方案規模？
-</br>
-**回答**：有兩種方式可擴大 Web 主控方案。一個方式是向上擴大您的 Web 主控方案，以及與該 Web 主控方案關聯的所有網站。透過變更虛擬主機方案的定價層，該虛擬主機方案中的所有站台都將受到該定價層所定義的功能和資源規範。 
-</br>
-在下圖中，您可以看到 [虛擬主機方案]**** 刀鋒視窗和 [定價層]**** 刀鋒視窗。按一下 [虛擬主機方案]**** 刀鋒視窗中的 [定價層]**** 部分將會展開 [定價層]**** 刀鋒視窗，您可以在其中變更虛擬主機方案的定價層。
-</br>
-</br>
-![The Web Hosting Plan blade and the Pricing Tier](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview16.png)
-</br>
-</br>
-調整方案的第二種方法是增加 Web 主控方案中的執行個體數目，以相應擴大方案。在下圖中，您可以看到 [虛擬主機方案]**** 刀鋒視窗以及 [調整規模]**** 刀鋒視窗。按一下 [虛擬主機方案]**** 刀鋒視窗中的 [調整規模] 區域會展開它，可讓您變更方案的執行個體計數：
-</br>
-</br>
-![Changing the instance count of a hosting plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview17.png)
-</br>
-</br>
-由於上圖中的 [虛擬主機方案] 已設定為使用 [標準]**** 定價層，因此會啟用 [自動調整規模]**** 選項。 
-</br>
-在「完整 Azure 入口網站」中，可以在 [調整規模]**** 索引標籤中執行這項操作，如下所示：
-</br>
-</br>
-![Changing the instance count of a hosting plan in the existing portal](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview18.png)
-</br>
-</br>
-**問題**：如何刪除虛擬主機方案？
-</br>
-**回答**：若要刪除 Web 主控方案，您必須先刪除與其關聯的所有網站。刪除「虛擬主機方案」中的所有網站之後，即可從 [虛擬主機方案] 刀鋒視窗中刪除該「虛擬主機方案」：
-</br>
-</br>
-![Deleting a web hosting plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview19.png)
-</br>
-</br>
-在完整 Azure 網站入口網站中，刪除 Web 主控方案中的最後一個網站時，將會自動刪除相關聯的 Web 主控方案。
-</br>
-**問題**：如何監視虛擬主機方案？
-</br>
-**回答**：您可以使用 [虛擬主機方案] 刀鋒視窗中的 [監視] 部分來監視「虛擬主機方案」：
-</br>
-</br>
-![Monitoring a web hosting plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview20.png)
-</br>
-</br>
-在監視控制項上控一下滑鼠右鍵，然後選取 [編輯查詢]****，即可自訂這些控制項：
-</br>
-</br>
-![Editing the monitoring controls](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview21.png)
-</br>
-</br>
-公開的度量如下：
-</br>
-* CPU 百分比
-</br>
-* 記憶體百分比
-</br>
-* 磁碟佇列長度 
-</br>
-* HTTP 佇列長度。 
-</br>
-此度量代表屬於 Web 主控方案之執行個體的平均使用量。所有度量均可用來設定警示以及「自動調整規模」規則。
-</br>
-##重點與結論##
-</br>
-Web 主控方案代表可跨網站共用的一組特性和功能。「Web 主控方案」提供您將網站配置到特定資源集虛擬機器的彈性，並進一步將您的 Azure 資源配置與網站使用量最佳化。 
+	ms.date="03/24/2014" 
+	ms.author="byvinyal"/>
 
-<!--HONumber=47-->
+#Azure 應用程式服務方案深入概觀#
+
+**應用程式服務方案**代表一組功能和容量，您可以跨 [Azure 應用程式服務](http://go.microsoft.com/fwlink/?LinkId=529714)中的多個應用程式中共用 (包括 Web 應用程式、行動應用程式、邏輯應用程式或 API 應用程式)。這些方案支援 5 個定價層 (**免費**、**共用**、**基本**、**標準**和**高階**)，每個層都有其專屬功能和容量。相同訂閱和地理位置中的應用程式都能共用方案。共用一個方案的所有應用程式，都可以利用方案層所定義的所有功能和特性。與指定方案相關聯的所有應用程式，可在方案所定義的資源上執行。例如，如果您的方案設定為使用標準服務層中的兩個「小型」執行個體，與該方案相關聯的所有應用程式會在兩個執行個體上執行，而且可以存取標準服務層功能。應用程式在其上執行的方案執行個體完全受管理且高度可用。
+
+在本文中，我們將探討重要的特性，例如應用程式服務方案的層級與規模，以及這些特性如何在管理您的應用程式時發揮效用。
+
+##應用程式和應用程式服務方案
+
+在任何指定時間，應用程式服務方案中的一個應用程式只能與一個應用程式服務方案產生關聯。 
+
+應用程式和方案都包含在資源群組中。資源群組作為其內含各項資源的生命週期界限。資源群組可讓您集中管理應用程式的所有層面。
+
+單一資源群組中有多個應用程式服務方案可讓您將不同的應用程式配置到不同的實際資源。例如，這容許區隔開發、測試與生產環境之間的資源。此狀況的案例是您想要配置一個具有生產應用程式之一組專屬資源的方案，以及針對開發和測試環境配置第二個方案。如此一來，對您應用程式的新版本進行負載測試並不會與您的生產應用程式競爭相同的資源，而您的生產應用程式服務真實的客戶。
+
+單一資源群組中有多個方案也可讓您定義一個跨越地理區域的應用程式。例如，在兩個區域中執行的高度可用應用程式將包括兩個方案，每個區域一個方案，而一個應用程式則與每個方案相關聯。在這種情況下，應用程式的所有複本都會與單一資源群組相關聯。具有資源群組的單一檢視，並有多個方案與多個應用程式，使得要管理、控制和檢視應用程式的健康情況極為容易。
+
+## 建立新的應用程式服務方案與使用現有方案
+
+建立新應用程式時，如果您即將建立的應用程式代表全新專案，就應該考慮建立新資源群組。在此情況下，建立新資源群組、方案和應用程式是正確選擇。
+
+如果您即將建立的應用程式是較大應用程式的元件，就應該在配置給該較大應用程式的資源群組內建立此 Web 應用程式。
+
+不論新的應用程式是全新的應用程式還是較大應用程式的一部分，您都可以選擇利用現有應用程式服務方案來裝載它，或建立一個新的應用程式服務方案。這是容量和預期負載的問題。如果這個新的應用程式需要大量資源，而且縮放係數與現有方案中所裝載的其他應用程式不同，則建議隔離它與其專屬方案。
+
+建立新的方案可讓您為 Web 應用程式配置一組新的資源，並讓您更有效地控制資源配置，因為每個方案都有其專屬的一組執行個體。
+ 
+具有跨方案移動應用程式的功能也可讓您變更跨更大應用程式配置資源的方式。
+ 
+最後，如果您想要在不同區域中建立新的應用程式，而該區域目前沒有方案，則需要在該區域中建立新的方案，才能在該處裝載應用程式。
+
+##應用程式服務方案常見問答集
+
+**問題**：如何建立應用程式服務方案？
+
+**回答**：您無法建立空白的應用程式服務方案，不過，可以在建立應用程式期間明確地建立新的方案。
+
+若要在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中這麼做，請按一下 [**新增**]，然後依序選取 [**Web + 行動**]、[**Web 應用程式**]、[**行動應用程式**]、[**邏輯應用程式**] 或 [**API 應用程式**]。接著，您可以選取或建立新應用程式的應用程式服務方案。
+ 
+![應用程式服務方案常見問答集](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview01.png)
+
+**問題**：如何將應用程式指派給**應用程式服務方案**？
+
+**回答**：在建立程序期間，可以將應用程式指派給現有計畫。
+
+若要在 [Azure 入口網站](http://portal.azure.com)中這麼做，請按一下 [**新增**]，然後依序選取 [**Web + 行動**]、[**Web 應用程式**]、[**行動應用程式**]、[**邏輯應用程式**] 或 [**API 應用程式**]。接著，您可以選取或建立新應用程式的應用程式服務方案。按一下**或者，選取現有項目**會提供您可以從中選擇的現有方案清單。
+
+![應用程式服務方案常見問答集](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview02.png)
+ 
+**問題**：如何將應用程式移到不同的應用程式服務方案？
+
+**回答**：您可以在 [Azure 入口網站](http://portal.azure.com)中將應用程式移到不同的應用程式服務方案。應用程式可以在相同地理區域的不同方案之間移動。
+
+若要將應用程式移到另一個方案，請瀏覽至您想要移動的應用程式，然後按一下 [**變更應用程式服務方案**]。
+ 
+這會開啟 [應用程式服務方案] 刀鋒視窗。此時，您可以挑選現有的方案，或建立新的方案。不同地理位置中的方案會呈現灰色而無法選取。
+
+![應用程式服務方案常見問答集](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview03.png)
+
+請注意，每個方案都有其專屬定價層。將網站從 [**免費**] 層移到 [**標準**] 層時，您的應用程式將可以利用 [**標準**] 層的所有功能和資源。
+
+**問題**：如何調整應用程式服務方案？
+
+**回答**：有三種方式可以調整方案：
+
+- 變更方案的**定價層**。例如，[**基本**] 層中的方案可以轉換成 [**標準**] 或 [**高階**] 層，而且與該方案相關聯的所有應用程式都可以利用新服務層所提供的功能。
+- 變更方案的**執行個體大小** (例如 [**基本**] 層中使用**小型**執行個體的方案可以變更為使用**大型**執行個體。與該方案相關聯的所有應用程式都可以利用較大執行個體大小所提供的額外記憶體和 CPU 資源。
+- 變更方案的**執行個體計數**。例如，向外延展為 3 個執行個體的 [**標準**] 方案可以延展為 10 個執行個體，而 [**高階**] (預覽) 方案可以向外延展為 20 個執行個體 (在某些限制下)。與該方案相關聯的所有應用程式都可以利用較大執行個體計數所提供的額外記憶體和 CPU 資源。
+
+在下圖中，您可以看到 [**應用程式服務方案**] 刀鋒視窗和 [**定價層**] 刀鋒視窗。按一下 [**應用程式服務方案**] 刀鋒視窗的 [**定價層**] 部分，將會展開 [**定價層**] 刀鋒視窗，您可以在其中變更方案的定價層和執行個體大小。
+ 
+![應用程式服務方案常見問答集](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview04.png)
+
+##摘要
+
+應用程式服務方案代表可跨應用程式共用的一組特性和功能。應用程式服務方案可讓您將特定應用程式彈性地配置給一組指定的資源，並進一步最佳化 Azure 資源使用率。如此一來，如果您想要節省測試環境的成本，則可以跨多個應用程式共用方案。透過延展到多個區域和方案，也可以最大化生產環境的輸送量。
+
+## 變更內容
+
+* 如需從網站變更為應用程式服務的指南，請參閱：[Azure 應用程式服務和它對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 如需從舊入口網站變更為新入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+
+<!--HONumber=49-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="管理 DocumentDB 帳戶 | Azure" 
 	description="了解如何管理 DocumentDB 帳戶。" 
 	services="documentdb" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="03/23/2015" 
 	ms.author="stbaro"/>
 
 #如何管理 DocumentDB 帳戶
@@ -23,16 +23,15 @@
 ## <a id="keys"></a>檢視、複製和重新產生存取金鑰
 當您建立 DocumentDB 帳戶時，服務會產生兩個主要存取金鑰，用於存取 DocumentDB 帳戶時的驗證。透過提供這兩個存取金鑰，DocumentDB 讓您可以重新產生金鑰，同時又不需中斷 DocumentDB 帳戶。
 
-在 [Azure 管理預覽入口網站](https://portal.azure.com/)中，從 [**DocumentDB 帳戶**] 分頁存取 [**金鑰**] 部分，即可檢視、複製及重新產生存取
-DocumentDB 帳戶所用的存取金鑰。
+在 [Azure 預覽入口網站](https://portal.azure.com/)中，從 [**DocumentDB 帳戶**] 刀鋒視窗存取 [**金鑰**] 部分，即可檢視、複製和重新產生用來存取 DocumentDB 帳戶的存取金鑰。
 
-![](./media/documentdb-manage-account/image002.jpg)
+![](../includes/media/documentdb-keys/keys.png)
 
 ### 檢視及複製存取金鑰
 
-1.      在 [Azure 預覽入口網站](https://portal.azure.com/)中，存取您的 DocumentDB 帳戶。 
+1.      在 [Azure 預覽入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。
 
-2.      在 [**摘要**] 透鏡中按一下 [**金鑰**]。
+2.      在 [**摘要**] 透鏡中，按一下 [**金鑰**]。
 
 3.      在 [**金鑰**] 分頁中，按一下要複製之金鑰旁的 [**複製**] 按鈕。
 
@@ -48,8 +47,7 @@ DocumentDB 帳戶所用的存取金鑰。
 
 1.      更新應用程式程式碼中的存取金鑰，以參考 DocumentDB 帳戶的次要存取金鑰。
 
-2.      重新產生 DocumentDB 帳戶的主要存取金鑰。
-在 [Azure 管理預覽入口網站](https://portal.azure.com/)中存取 DocumentDB 帳戶。
+2.      重新產生 DocumentDB 帳戶的主要存取金鑰。在 [Azure 預覽入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。
 
 3.      在 [摘要] 透鏡中按一下 [**金鑰**]。
 
@@ -61,7 +59,7 @@ DocumentDB 帳戶所用的存取金鑰。
 
 *請注意，新產生的金鑰可能需要經過幾分鐘之後才能用來存取 DocumentDB 帳戶。*
 
-## <a id="consistency"></a>管理 DocumentDB 一致性設定
+## <a id="consistency"></a>管理 DocumentDB 一致性設定：
 DocumentDB 支援四個定義完善的使用者可設定資料一致性層級，使開發人員得以在預測範圍內針對一致性、可用性和延遲做出適當取捨。
 
 - **增強式**一致性可保證讀取作業一律傳回上次寫入的值。
@@ -72,12 +70,11 @@ DocumentDB 支援四個定義完善的使用者可設定資料一致性層級，
 
 - **最終**一致性可保證讀取作業一律讀取寫入內容的有效子集，且最終會趨於一致。
 
-*請注意，預設是使用工作階段層級一致性佈建 DocumentDB 帳戶。如需有關 DocumentDB 一致性設定的詳細資訊，請參閱[一致性
-層級](http://go.microsoft.com/fwlink/p/?LinkId=402365)一節。*
+*請注意，預設是使用工作階段層級一致性佈建 DocumentDB 帳戶。如需有關 DocumentDB 一致性設定的詳細資訊，請參閱[一致性層級](http://go.microsoft.com/fwlink/p/?LinkId=402365)一節。*
 
 ### 指定 DocumentDB 帳戶的預設一致性
 
-1.      在 [Azure 管理預覽入口網站](https://portal.azure.com/)中，存取您的 DocumentDB 帳戶。 
+1.      在 [Azure 預覽入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。
 
 2.      在 [**組態**] 透鏡中，按一下 [**預設一致性**]。
 
@@ -87,18 +84,20 @@ DocumentDB 支援四個定義完善的使用者可設定資料一致性層級，
 
 ![](./media/documentdb-manage-account/image006.png)
 
-4.      按一下 [儲存]****。
+4.      按一下 [儲存]。
 
-5.      您可以透過 Azure 管理預覽入口網站的通知中心監視作業進度。
+5.      透過 Azure 預覽入口網站通知中樞可監視作業的進度。
 
 *請注意，整個 DocumentDB 帳戶的預設一致性設定變更可能需要幾分鐘的時間才會生效。*
 
-## <a id="capacity"></a>管理 DocumentDB 容量設定：Microsoft Azure DocumentDB 可讓您在應用程式的生命週期內，隨著應用程式需求的變更彈性地調整。DocumentDB 的調整，可藉由透過 Azure 管理預覽入口網站增加 DocumentDB 資料庫帳戶的容量來實現。
+## <a id="capacity"></a>管理 DocumentDB 容量設定：
+Microsoft Azure DocumentDB 可讓您在應用程式的生命週期內，隨著應用程式需求的變更彈性地調整。DocumentDB 的調整，可藉由透過 Azure 預覽入口網站增加 DocumentDB 資料庫帳戶的容量來實現。
 
-當您建立資料庫帳戶時，系統會為其佈建資料庫儲存體和預留的輸送量。您可以隨時在 Azure 管理預覽入口網站中新增或移除容量單位，藉此變更對帳戶佈建的資料庫儲存體和輸送量。 
+當您建立資料庫帳戶時，系統會為其佈建資料庫儲存體和預留的輸送量。您可以隨時在 Azure 預覽入口網站中新增或移除容量單位，藉此變更對帳戶佈建的資料庫儲存體和輸送量。
 
 ### 新增或移除容量單位
-1.      在 [Azure 管理預覽入口網站](https://portal.azure.com/)中，存取您的 DocumentDB 帳戶。 
+
+1.      在 [Azure 預覽入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。
 
 2.      在 [**流量**] 透鏡中按一下 [**調整**]。
 
@@ -107,18 +106,20 @@ DocumentDB 支援四個定義完善的使用者可設定資料一致性層級，
 
 ![](./media/documentdb-manage-account/image007.png)
 
-4.      按一下 [**儲存**] (請注意，調整作業可能需要幾分鐘的時間才能完成，您可以透過 Azure 管理預覽入口網站的通知中心監視作業進度)。
+4.      按一下 [**儲存**] (請注意，調整作業可能需要幾分鐘的時間才能完成，您可以透過 Azure 預覽入口網站通知中樞監視作業的進度)。
 
- *請注意，對於每個 DocumentDB 帳戶，DocumentDB 預覽最多支援 5 個容量單位。*
- 
+ *請注意，對於每個 DocumentDB 帳戶，DocumentDB 預覽最多支援 5 個容量
+單位。*
 
-## <a id="delete"></a>作法：刪除 DocumentDB 帳戶：若要移除不再使用的 DocumentDB 帳戶，請使用 [**DocumentDB 帳戶**] 分頁的 [**刪除**] 命令。
 
-> [AZURE.WARNING] 在預覽版本中，無法還原已刪除的 DocumentDB 帳戶的內容。刪除 DocumentDB 帳戶將會刪除所有帳戶的資源，包括資料庫、集合、文件和附件。*
+## <a id="delete"></a> 作法：刪除 DocumentDB 帳戶：
+若要移除不再使用的 DocumentDB 帳戶，請使用 [**DocumentDB 帳戶**] 分頁的 [**刪除**] 命令。
+
+> [AZURE.WARNING] 在預覽版本中，無法還原已刪除的 DocumentDB 帳戶的內容。刪除 DocumentDB 帳戶將會刪除所有帳戶的資源，包括資料庫、集合、文件和附件。
 
 ![](./media/documentdb-manage-account/image009.png)
 
-1.      在 [Azure 管理預覽入口網站](https://portal.azure.com/)中，存取要刪除的 DocumentDB 帳戶。 
+1.      在 [Azure 預覽入口網站](https://portal.azure.com/)中，存取要刪除的 DocumentDB 帳戶。
 
 2.      在 [**DocumentDB 帳戶**] 分頁中，按一下 [**刪除**] 命令。
 
@@ -130,8 +131,10 @@ DocumentDB 支援四個定義完善的使用者可設定資料一致性層級，
 
 了解如何[開始使用 DocumentDB 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=402364)。
 
-若要深入了解 DocumentDB，請參閱 [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409) 上的 Azure DocumentDB 文件。
+若要深入了解 DocumentDB，請參閱下列位置上的 Azure DocumentDB 文件：
+
+[azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409)。
 
  
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -47,7 +47,7 @@
 在這兩種類別的內容中，DocumentDB 支援三種類型的存取控制角色：帳戶管理員、唯讀管理員和資料庫使用者。每個存取控制角色的權限如下：
  
 - 帳戶管理員：給定 DocumentDB 帳戶內所有資源 (系統管理和應用程式) 的完整存取權。
-- 唯讀管理員：給定 DocumentDB 帳戶內所有資源 (系統管理和應用程式) 的唯讀存取權。 
+- 唯讀系統管理員：給定 DocumentDB 帳戶內所有資源 (系統管理和應用程式) 的唯讀存取權。 
 - 資料庫使用者：與一組特定 DocumentDB 資料庫資源 (例如集合、文件、指令碼) 相關聯的 DocumentDB 使用者資源。多個使用者資源可以與一個給定資料庫相關聯，而每個使用者資源可以有與其相關聯的多個權限。
 
 請謹記上述的類別和資源，DocumentDB 存取控制模型可定義三種類型的存取建構：
@@ -159,8 +159,8 @@ DocumentDB 權限資源會與 DocumentDB 使用者相關聯。每位使用者可
 
 ##<a name="NextSteps"></a>後續步驟
 
-- 若要深入了解 DocumentDB，請按一下 [這裡](http://azure.com/docdb)。
-- 若要了解如何管理主要和唯讀金鑰，請按一下 [這裡](http://azure.microsoft.com/documentation/articles/documentdb-manage-account/)。
+- 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
+- 若要了解如何管理主要和唯讀金鑰，請按一下 [這裡](documentdb-manage-account.md)。
 - 若要了解如何建構 DocumentDB 授權權杖，請按一下 [這裡](https://msdn.microsoft.com/library/azure/dn783368.aspx)
 
-<!--HONumber=47-->
+<!--HONumber=49-->

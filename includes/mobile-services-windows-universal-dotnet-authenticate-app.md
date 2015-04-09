@@ -1,4 +1,4 @@
-
+﻿
 1. 開啟共用的專案檔案 MainPage.cs 並新增下列 using 陳述式：
 
         using Windows.UI.Popups;
@@ -35,13 +35,13 @@
             }
         }
 
-    此使用者即可透過 Facebook 登入來驗證。如果您打算使用除了 Facebook 以外的身分識別提供者，請將上方的 **MobileServiceAuthenticationProvider** 值變更成您提供者。
+    此使用者即可透過 Facebook 登入來驗證。如果您使用的是 Facebook 以外的身分識別提供者，請將上方的 **MobileServiceAuthenticationProvider** 值變更成您提供者的值。
 
-3. 將現有 **OnNavigatedTo** 方法覆寫中的 **RefreshTodoItems** 方法呼叫註解化或刪除。
+3. 註解或刪除現有 **OnNavigatedTo** 方法覆寫中的 **RefreshTodoItems** 方法呼叫。
 
 	如此能避免在使用者通過驗證之前載入資料。
 
-	>[AZURE.NOTE]若要成功地從 Windows Phone 市集 8.1 應用程式通過驗證，您必須在系統呼叫 **OnNavigated** 方法後，以及頁面的 **Loaded** 事件引發後呼叫 LoginAsync。在本教學課程中，您可以透過將 **Sign in** 按鈕新增至應用程式中來達成此目的。
+	>[AZURE.NOTE]若要成功地從 Windows Phone 市集 8.1 應用程式通過驗證，您必須在系統呼叫 **OnNavigated** 方法後，以及引發頁面的 **Loaded** 事件後呼叫 LoginAsync。在本教學課程中，您可以藉由將 [登入] 按鈕新增至應用程式中來達成目的。
 
 4. 將下列程式碼片段新增至 MainPage 類別：
 
@@ -83,10 +83,12 @@
             base.OnActivated(args);
         }
 
-	如果 **OnActivated** 方法已存在，只要新增 `#if...#endif` 程式碼區塊即可。
+	If the **OnActivated** method already exists, just add the `#if...#endif` code block.
 
-8. 按 F5 鍵以執行 Windows 市集應用程式、按一下 **[Sign in]** 按鈕，然後以您選擇的身分識別提供者登入應用程式。 
+8. 按下 F5 鍵以執行 Windows 市集應用程式、按一下 [登入] 按鈕，然後以您選擇的身分識別提供者登入應用程式。 
 
    	成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
 
-9. 以滑鼠右鍵按一下 Windows Phone 市集應用程式專案、按一下 **[設定為啟始專案]**，然後重複上一個步驟以驗證 Windows Phone 市集應用程式是否也能正常運作。  <!--HONumber=42-->
+9. 以滑鼠右鍵按一下 Windows Phone 市集應用程式專案、按一下 [設定為啟始專案]，然後重複上一個步驟以驗證 Windows Phone 市集應用程式是否也能正常運作。  
+
+<!--HONumber=49-->

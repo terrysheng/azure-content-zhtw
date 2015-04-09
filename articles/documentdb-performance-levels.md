@@ -69,7 +69,7 @@ DocumentDB 可供進行許多的資料庫作業，包括查詢、使用者定義
 
 建立集合之後，您可以透過 DocumentDB SDK 或透過 Azure 管理入口網站修改效能等級。 
 
-> [AZURE.IMPORTANT] DocumentDB 標準集合是依每小時費率收費，並且您建立的每個集合將被收取最少一小時的使用量。
+> [AZURE.IMPORTANT] DocumentDB 標準集合是依每小時費率收費，並且您建立的每個集合將被收取最少一小時的使用量。 
 
 如果您將集合的效能等級調整在一個小時內，您仍會被收取在該小時期間所設定最高的效能等級。例如，如果您在上午 8:53 增加某個集合的效能等級，您會被從上午 8:00 開始收取新的層級費用。同樣地，如果您在上午 8:53 減少效能等級，則會在上午 9:00 套用新的費率。
 
@@ -78,7 +78,7 @@ DocumentDB 可供進行許多的資料庫作業，包括查詢、使用者定義
 > [AZURE.NOTE] 當您的應用程式超過一個或多個集合的效能等級時，要求將會依每個集合為基礎降低。這表示某些應用程式的要求可能會成功，而其他的可能受到節流控制。
 
 ##<a id="Sub3"></a>處理效能等級##
-DocumentDB 集合可讓您根據查詢模式和應用程式的效能需求來分割資料。如需使用 DocumentDB 分割資料的詳細資訊，請參閱[分割資料文件](http://azure.microsoft.com/documentation/articles/documentdb-partition-data/)。藉由 DocumentDB 的自動索引和查詢支援，在相同集合內共置異質文件是相當常見的。決定是否應該將不同的集合用於資料的重要考量包括：
+DocumentDB 集合可讓您根據查詢模式和應用程式的效能需求來分割資料。如需使用 DocumentDB 分割資料的詳細資訊，請參閱[分割資料文件](documentdb-partition-data.md)。藉由 DocumentDB 的自動索引和查詢支援，在相同集合內共置異質文件是相當常見的。決定是否應該將不同的集合用於資料的重要考量包括：
 
 - 查詢 - 集合是查詢執行的範圍。如果您需要跨一組文件進行查詢，最有效率的讀取模式是來自共置在單一集合的文件。
 - 交易 - 集合是預存程序和觸發程序的交易網域。所有交易的範圍為單一集合。 
@@ -93,12 +93,12 @@ DocumentDB 集合可讓您根據查詢模式和應用程式的效能需求來分
 若要深入了解 Azure DocumentDB 的定價和管理資料，請探索這些資源：
  
 - [DocumentDB 定價](http://azure.microsoft.com/pricing/details/documentdb/)
-- [管理 DocumentDB 容量](http://azure.microsoft.com/documentation/articles/documentdb-manage/) 
-- [在 DocumentDB 中模型化資料](http://azure.microsoft.com/documentation/articles/documentdb-modeling-data/)
-- [在 DocumentDB 中分割資料](http://azure.microsoft.com/documentation/articles/documentdb-partition-data/)
+- [管理 DocumentDB 容量](documentdb-manage.md) 
+- [在 DocumentDB 中模型化資料](documentdb-modeling-data.md)
+- [在 DocumentDB 中分割資料](documentdb-partition-data.md)
 
-若要深入了解 DocumentDB，請參閱 Azure DocumentDB [documentation](http://azure.microsoft.com/documentation/services/documentdb/)。 
+若要深入了解 DocumentDB，請參閱 Azure DocumentDB [文件](http://azure.microsoft.com/documentation/services/documentdb/)。 
 
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

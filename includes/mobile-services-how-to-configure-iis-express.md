@@ -1,5 +1,5 @@
-
-1. 如果行動服務目前正在 IIS Express 中執行，請確實加以停止。以滑鼠右鍵按一下 IIS Express 系統匣圖示，然後對行動服務按一下 **[停止]**。
+﻿
+1. 如果行動服務目前正在 IIS Express 中執行，請確實加以停止。以滑鼠右鍵按一下 IIS Express 系統匣圖示，然後對行動服務按一下 [停止]。
 
     ![](./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png)
 
@@ -13,7 +13,7 @@
 
         C:\Users\<your profile name>\Documents\IISExpress\config\applicationhost.config
 
-4. 設定 IIS Express 以允許對服務的遠端連線要求。若要執行此動作，請在 applicationhost.config 檔案中找出行動服務的網站元素，然後使用您先前記下的 IP 位址，為連接埠新增新的  `binding` 元素。接著，請儲存 applicationhost.config 檔案。 
+4. 設定 IIS Express 以允許對服務的遠端連線要求。若要這麼做，請在 applicationhost.config 檔案中找出行動服務的網站元素，然後使用您先前記下的 IP 位址，為連接埠新增新的 `binding` 元素。接著，請儲存 applicationhost.config 檔案。 
 
     更新的網站元素應會如下所示：
 
@@ -27,15 +27,16 @@
             </bindings>
         </site>
 
-5. 開啟 Windows 防火牆主控台，然後建立新的連接埠規則，以允許對連接埠的連線。如需建立新的 Windows 防火牆連接埠規則的詳細資訊，請參閱[如何新增 Windows 防火牆連接埠規則]。
+5. 開啟 Windows 防火牆主控台，然後建立新的連接埠規則，以允許對連接埠的連線。如需有關建立新的 Windows 防火牆連接埠規則的詳細資訊，請參閱[如何新增 Windows 防火牆連接埠規則]。
 
     >[AZURE.NOTE] 如果您的測試機器已加入某個網域，則防火牆例外可能會由網域原則所控制。在此情況下，您必須與網域管理員連絡，以了解機器連接埠的例外。
 
     現在，您應已完成對代管行動服務的 IIS Express 進行測試所需的設定。 
 
-    >[AZURE.NOTE] 在完成對服務的本機測試後，您應刪除先前建立的 Windows 防火牆規則。 
+    >[AZURE.NOTE]  在完成對服務的本機測試後，您應刪除先前建立的 Windows 防火牆規則。 
 
 
 <!-- URLs. -->
 [如何加入新的 Windows 防火牆連接埠規則]:  http://go.microsoft.com/fwlink/?LinkId=392240
-<!--HONumber=42-->
+
+<!--HONumber=49-->

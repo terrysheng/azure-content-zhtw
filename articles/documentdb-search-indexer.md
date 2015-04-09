@@ -13,14 +13,14 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="03/02/2015" 
+    ms.date="03/19/2015" 
     ms.author="andrl"/>
 
 #使用索引子連接 DocumentDB 與 Azure 搜尋
 
 如果您想要實作 DocumentDB 資料上的絕佳搜尋經驗，請在 DocumentDB 中使用 Azure 搜尋索引子！在本文中，我們將說明如何整合 Azure DocumentDB 與 Azure 搜尋，而不需要撰寫任何程式碼來維護索引的基礎結構！
 
-若要設定此功能，您必須 [設定 Azure 搜尋帳戶](/documentation/articles/search-get-started/#start-with-the-free-service) (您不需要升級至標準搜尋)，然後呼叫 [Azure 搜尋 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 以建立 DocumentDB **資料來源**和該資料來源的**索引子**。
+若要設定此功能，您必須 [設定 Azure 搜尋帳戶](search-get-started.md#start-with-the-free-service) (您不需要升級至標準搜尋)，然後呼叫 [Azure 搜尋 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 以建立 DocumentDB **資料來源**和該資料來源的**索引子**。
 
 ##<a id="Concepts"></a>Azure 搜尋索引子概念
 
@@ -60,13 +60,13 @@ Azure 搜尋支援建立與管理資料來源 (包括 DocumentDB) 和操作這�
 
     - **query**：選用。您可以指定查詢將任意 JSON 文件簡維成 Azure 搜尋可以編製索引的一般結構描述。
 
-- **dataChangeDetectionPolicy**：選用。請參閱 [資料變更偵測原則](#DataChangeDetectionPolicy) 。
+- **dataChangeDetectionPolicy**：選用。請參閱以下的 [資料變更偵測原則](#DataChangeDetectionPolicy)。
 
-- **dataDeletionDetectionPolicy**：選用。請參閱 [資料刪除偵測原則](#DataDeletionDetectionPolicy) 。
+- **dataDeletionDetectionPolicy**：選用。請參閱以下的 [資料刪除偵測原則](#DataDeletionDetectionPolicy)。
 
 ###<a id="DataChangeDetectionPolicy"></a>擷取已變更的文件
 
-資料變更偵測原則旨在有效率地識別已變更的資料項目。目前，唯一支援的原則是使用 `_ts` DocumentDB 所提供之上次修改時間戳記屬性的 `High Water Mark` 原則，指定方式如下：
+資料變更偵測原則旨在有效率地識別已變更的資料項目。目前，唯一支援的原則是使用 `_ts` DocumentDB 所提供之上次修改時間戳記屬性的 `High Water Mark`原則，指定方式如下：
 
     { 
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -80,7 +80,7 @@ Azure 搜尋支援建立與管理資料來源 (包括 DocumentDB) 和操作這�
 
 ###<a id="DataDeletionDetectionPolicy"></a>擷取已刪除的文件
 
-當從來源資料表中刪除資料列時，您也應該在搜尋索引中刪除這些資料列。資料刪除偵測原則旨在有效率地識別已刪除的資料項目。目前，唯一支援的原則是「 `軟刪除`」原則 (刪除會標示為某種形式的旗標)，指定方式如下：
+當從來源資料表中刪除資料列時，您也應該在搜尋索引中刪除這些資料列。資料刪除偵測原則旨在有效率地識別已刪除的資料項目。目前，唯一支援的原則是「 `Soft Delete`」原則 (刪除會標示為某種形式的旗標)，指定方式如下：
 
     { 
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
@@ -95,7 +95,7 @@ Azure 搜尋支援建立與管理資料來源 (包括 DocumentDB) 和操作這�
 下列範例會建立包含自訂查詢和原則提示的資料來源：
 
     {
-        "name": "myDocDbDataSource",
+        "name": "mydocdbdatasource",
         "type": "documentdb",
         "credentials": {
             "connectionString": "AccountEndpoint=https://myDocDbEndpoint.documents.azure.com;AccountKey=myDocDbAuthKey;Database=myDocDbDatabaseId"
@@ -121,7 +121,7 @@ Azure 搜尋支援建立與管理資料來源 (包括 DocumentDB) 和操作這�
 
 ##<a id="CreateIndex"></a>步驟 2：建立索引
 
-建立目標 Azure 搜尋索引 (如果您尚未建立)。您可以從 [Azure 入口網站 UI](/documentation/articles/search-get-started/#test-service-operations) 或使用 [建立索引 API](https://msdn.microsoft.com/library/azure/dn798941.aspx) 來執行此作業。
+建立目標 Azure 搜尋索引 (如果您尚未建立)。您可以從 [Azure 入口網站 UI](search-get-started.md#test-service-operations) 或使用 [建立索引 API](https://msdn.microsoft.com/library/azure/dn798941.aspx) 來執行此作業。
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -172,7 +172,7 @@ Azure 搜尋支援建立與管理資料來源 (包括 DocumentDB) 和操作這�
 下列範例會建立包含識別碼和描述欄位的索引：
 
     {
-       "name": "mySearchIndex",
+       "name": "mysearchindex",
        "fields": [{
          "name": "id",
          "type": "Edm.String",
@@ -196,7 +196,7 @@ Azure 搜尋支援建立與管理資料來源 (包括 DocumentDB) 和操作這�
 
 您可以使用包含下列標頭的 HTTP POST 要求，在 Azure 搜尋服務內建立新的索引子。
     
-    POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
+    POST https://[Search service name].search.windows.net/indexers?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -208,13 +208,13 @@ Azure 搜尋支援建立與管理資料來源 (包括 DocumentDB) 和操作這�
 
 - **targetIndexName**：必要。現有索引的名稱。
 
-- **schedule**：選用。請參閱 [索引排程](#IndexingSchedule) 。
+- **schedule**：選用。請參閱以下的[索引排程](#IndexingSchedule)。
 
 ###<a id="IndexingSchedule"></a>依照排程執行索引子
 
 索引子可以選擇性地指定排程。如果排程存在的話，則索引子會依照排程定期執行。排程具有下列屬性：
 
-- **interval**：必要。可用來指定索引子執行間隔或期間的持續時間值。允許的最小間隔為 5 分鐘；最長間隔為一天。它必須格式化為 XSD "dayTimeDuration" 值 ([ISO 8601 持續時間](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。間隔的模式為： `P[nD][T[nH][nM]]`。範例： `PT15M` 代表每隔 15 分鐘， `PT2H` 代表每隔 2 個小時。 
+- **interval**：必要。可用來指定索引子執行間隔或期間的持續時間值。允許的最小間隔為 5 分鐘；最長間隔為一天。它必須格式化為 XSD "dayTimeDuration" 值 ([ISO 8601 持續時間](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。其模式為： `P[nD][T[nH][nM]]`. Examples: `PT15M` 每隔 15 分鐘， `PT2H` 每隔 2 小時。 
 
 - **startTime**：必要。指定索引子應該開始執行的 UTC 日期時間。 
 
@@ -223,9 +223,9 @@ Azure 搜尋支援建立與管理資料來源 (包括 DocumentDB) 和操作這�
 下列範例會建立索引子，可將資料從 `myDocDbDataSource` 資料來源所參考的集合，依照排程 (從 2015 年 1 月 1 日 UTC 開始，每小時執行一次) 複製到 `mySearchIndex`。
 
     {
-        "name" : "mySearchIndexer",
-        "dataSourceName" : "myDocDbDataSource",
-        "targetIndexName" : "mySearchIndex",
+        "name" : "mysearchindexer",
+        "dataSourceName" : "mydocdbdatasource",
+        "targetIndexName" : "mysearchindex",
         "schedule" : { "interval" : "PT1H", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
@@ -293,4 +293,4 @@ Azure 搜尋支援建立與管理資料來源 (包括 DocumentDB) 和操作這�
 
  - 若要深入了解 Azure 搜尋，請按一下 [這裡](/services/search/)。
 
-<!--HONumber=47-->
+<!--HONumber=49-->

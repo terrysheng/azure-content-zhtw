@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="在 Xamarin Android 應用程式中開始使用行動服務中的驗證 - Azure 行動服務" 
 	description="了解如何使用行動服務透過眾多識別提供者驗證 Xamarin Android 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。" 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/23/2014" 
@@ -26,17 +26,17 @@
 
 1. [註冊應用程式進行驗證，並設定行動服務]
 2. [限制只有經驗證的使用者具有資料表的權限]
-3. [將驗證新增到應用程式]
+3. [將驗證加入應用程式]
 
-本教學課程會以行動服務快速入門為基礎。您也必須先完成教學課程[開始使用行動服務]。 
+本教學課程以行動服務快速入門為基礎。您也必須先完成教學課程[開始使用行動服務]。 
 
-## <a name="register"></a>註冊應用程式進行驗證，並設定行動服務
+##<a name="register"></a>註冊應用程式進行驗證，並設定行動服務
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
 
-## <a name="permissions"></a>限制只有通過驗證的使用者具有權限
+##<a name="permissions"></a>限制只有經驗證的使用者具有權限
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
@@ -48,13 +48,13 @@
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
-## <a name="add-authentication"></a>將驗證新增到應用程式
+##<a name="add-authentication"></a>將驗證加入應用程式
 
-1. 將下列屬性加入至 **TodoActivity** 類別：
+1. 將下列屬性新增至 **TodoActivity** 類別：
 
 			private MobileServiceUser user;
 
-2. 將下列方法加入至 **TodoActivity** 類別： 
+2. 將下列方法加入 **TodoActivity** 類別： 
 
 	        private async Task Authenticate()
 	        {
@@ -88,15 +88,15 @@
    	成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
 
 
-<!-- ## <a name="next-steps"> </a>後續步驟
+<!-- ## <a name="next-steps"> </a>Next steps
 
-在下一個[行動服務使用者的伺服器端授權][以指令碼授權使用者]教學課程中，您將使用由行動服務根據經驗證的使用者而提供的使用者識別碼值，來篩選行動服務傳回的資料。 
+In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
  -->
  
 <!-- Anchors. -->
 [註冊應用程式進行驗證，並設定行動服務]: #register
 [限制只有經驗證的使用者具有資料表的權限]: #permissions
-[將驗證新增到應用程式]: #add-authentication
+[將驗證加入應用程式]: #add-authentication
 [後續步驟]:#next-steps
 
 
@@ -104,13 +104,12 @@
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started/
-[開始使用驗證]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users/
-[開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push/
-[使用指令碼授權使用者]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts
-[JavaScript 和 HTML]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[開始使用行動服務]: mobile-services-dotnet-backend-xamarin-android-get-started.md
+[開始使用驗證]: mobile-services-dotnet-backend-xamarin-android-get-started-users.md
+[開始使用推播通知]: mobile-services-dotnet-backend-xamarin-android-get-started-push.md
+[使用指令碼授權使用者]: mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
+[JavaScript 和 HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

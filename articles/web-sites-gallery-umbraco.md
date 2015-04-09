@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="在 Microsoft Azure 中從組件庫建立 Umbraco 網站" 
-	description="必要" 
+	description="建立 Umbraco 內容管理系統，然後部署到 Azure 網站。" 
 	services="web-sites" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2014" 
+	ms.date="02/25/2015" 
 	ms.author="tomfitz"/>
 
 #在 Microsoft Azure 中從映像庫建立 Umbraco 網站#
@@ -22,58 +22,58 @@ Umbraco CMS 是個功能齊全的開放原始碼內容管理系統，可用來�
 
 本文展示了可大幅簡化資源管理的新 Azure 預覽入口網站。新的 Azure 入口網站旨在加快您的軟體交付程序速度，方法是在單一工作區中放置 Microsoft 及其夥伴的跨平台工具、技術和服務。與其使用獨立資源 (如 Azure 網站、Visual Studio 專案或資料庫)，您可以單一資源群組的方式來建立、管理及分析整個應用程式。 
 
-在本教學課程中，您將了解：
+在本教學課程中，您將學到：
 
 - 如何使用新的 Azure 預覽入口網站，透過映像庫來建立新網站
 - 如何使用 Umbraco CMS 來建置部落格網站 
 
 ##在 Azure 入口網站中從映像庫建立網站
 
-1. 登入 [[Microsoft Azure 管理入口網站](https://portal.azure.com/)]。
+1. 登入 [Microsoft Azure 管理入口網站](https://portal.azure.com/)。
 
-2. 選擇 [**Azure 映像庫**] 圖示。
+2. 選擇 [Azure 組件庫] 圖示。
 	
 	![Choose Web Gallery][01Startboard]
 	
-3. 在 [**映像庫**] 中，選取 [**Web**] 索引標籤，然後選取 [**Umbraco CMS**]。
+3. 在 [組件庫] 中，選取 [Web] 索引標籤，然後選取 [Umbraco CMS]。
 	
 	![Select Umbraco in the Web Gallery][02WebGallery]
 	
-4. 若要建立新的 Umbraco CMS 網站，請按一下 [**建立**]。
+4. 若要建立新的 Umbraco CMS 網站，請按一下 [建立]。
 	
 	![Click Create][03UmbracoCMS]
 	
-5. 下一個步驟是設定所有與 Umbraco CMS 相關的資源。在此案例中的資源是網站和 SQL Server 資料庫。首先，選取 [**網站**] 以進行網站設定，例如網站 [**URL**]、[**Web 主控方案**]、[**Web App 設定**] 和 [**位置**]。 
+5. 下一個步驟是設定所有與 Umbraco CMS 相關的資源。在此案例中的資源是網站和 SQL Server 資料庫。首先，選取 [網站] 以進行網站設定，例如，網站 [URL]、[虛擬主機方案]、[Web 應用程式設定] 和 [位置]。 
 	
 	![Configure resources][04AppSettings]
 	
-6. 現在開始設定資料庫。選取 [**資料庫**]，然後選擇 [**建立新的資料庫**]。本範例將為 Azure 上的資料庫建立 SQL Server。
+6. 現在開始設定資料庫。選取 [資料庫]，然後選擇 [建立新的資料庫]。本範例將為 Azure 上的資料庫建立 SQL Server。
 	
 	![Create a SQL Server on Azure][05NewServer]
 	
-7. 現在已設定好網站和資料庫，您可以開始部署應用程式，方法是在第一個 [**Umbraco CMS**] 分頁 (上圖中所示) 的底部上，按一下 [**建立**]。
+7. 現在已設定好網站和資料庫，您可以開始部署應用程式，方法是在第一個 [Umbraco CMS] 刀鋒視窗的底部，按一下 [建立]，如上圖所示。
 	
 	![Click Create][06UmbracoCMSGroup]
 	
-完成部署後，入口網站中的開始面板會顯示已建立 Umbraco CMS 的資源群組，在此案例中是 **UmbracoCMSgroup**。在 [**摘要**] 區段中，按一下網站名稱 (在此案例中是 **umbracocmsgroup**) 以查看網站的屬性。另外，在 [**摘要**] 區段中，您還可以選取資料庫資源，以查看相關資料庫的屬性。
+完成部署後，入口網站中的開始面板會顯示已建立 Umbraco CMS 的資源群組，在此案例中是 **UmbracoCMSgroup**。在 [摘要] 區段中，按一下網站名稱 (在此案例中是 **umbracocmsgroup**) 以查看網站的內容。另外，在 [摘要] 區段中，您還可以選取資料庫資源，以查看相關資料庫的內容。
 	
 ![][07UmbracoCMSGroupBlade]
 
 ## 啟動和設定 Umbraco CMS 網站 ##
 
-1. 在網站的詳細資料分頁上，按一下 [**瀏覽**] 以瀏覽網站 (在此案例中是 umbracocmsgroup.azurewebsites.net)。
+1. 在網站的詳細資料刀鋒視窗上，按一下 [瀏覽] 以瀏覽網站 (在此案例中是 umbracocmsgroup.azurewebsites.net)。
 	
 	![Browse to your site][08UmbracoCMSGroupRunning]
 	
-2. 瀏覽網站時，Umbraco CMS 會啟動其安裝程式精靈。輸入要求的資訊，然後按一下 [**自訂**]。
+2. 瀏覽網站時，Umbraco CMS 會啟動其安裝程式精靈。輸入要求的資訊，然後按一下 [自訂]。
 	
 	![Install Umbraco wizard][09InstallUmbraco7]
 	
-3. 輸入 Umbraco 即將使用的資料庫連線和驗證詳細資料。在資料庫類型中選取 [**Microsoft SQL Azure**]。您可以從網站的 [**網站設定**] 區段中取得資料庫的連接字串。
+3. 輸入 Umbraco 即將使用的資料庫連線和驗證詳細資料。針對資料庫類型選取 [Microsoft SQL Azure]。您可以從網站的 [網站設定] 區段中取得資料庫的連接字串。
 	
 	![Configure your database][10ConfigureYourDatabase] 
 	
-4. 如果您不熟悉 Umbraco CMS，您可以選取網站入門套件。您也可以按一下 [**不用，謝謝。我不要安裝入門網站。**]。
+4. 如果您不熟悉 Umbraco CMS，您可以選取網站入門套件。您也可以按一下 [不用，謝謝。我不要安裝入門網站]。
 	
 	![Install a starter website][11InstallAStarterWebsite]
 	
@@ -81,15 +81,15 @@ Umbraco CMS 是個功能齊全的開放原始碼內容管理系統，可用來�
 	
 	![Umbraco CMS dashboard][14FriendlyCMS]
 	
-6. 您現在可以建立即將發佈的範例文字頁面。依序選取 [**內容**]、[**溢位**] 及 [**TextPage**]。
+6. 您現在可以建立您將發行的範例文字頁面。依序選取 [內容]、[溢位] 及 [TextPage]。
 	
 	![Create a text page][15CreateItemUnderOverflow]
 	
-7. 輸入文字頁面的標題和部分內容，如下所示。結束時，請按一下 [**儲存並發佈**]。
+7. 輸入文字頁面的標題和部分內容，如下所示。結束時，按一下 [儲存並發行]。
 	
 	![Enter a title and some content][16EnterAName]
 	
-8. 等候發佈您的頁面。發行完成時，您將在畫面的右下角看到一則小警示。您現在可以開始瀏覽網站上的新內容。 
+8. 等候發行您的頁面。發行完成時，您將在畫面的右下角看到一則小警示。您現在可以開始瀏覽網站上的新內容。 
 	
 	![Published web site page][17MyPage]
 	
@@ -114,8 +114,7 @@ Umbraco CMS 是個功能齊全的開放原始碼內容管理系統，可用來�
 <!-- IMAGES -->
 [01Startboard]: ./media/web-sites-gallery-umbraco/01Startboard.PNG
 [02WebGallery]: ./media/web-sites-gallery-umbraco/02WebGallery.PNG
-[03UmbracoCMS]: ./media/web-sites-gallery-umbraco/03UmbracoC
-	ms.PNG
+[03UmbracoCMS]: ./media/web-sites-gallery-umbraco/03UmbracoCMS.PNG
 [04AppSettings]: ./media/web-sites-gallery-umbraco/04AppSettings.PNG
 [05NewServer]: ./media/web-sites-gallery-umbraco/05NewServer.PNG
 [06UmbracoCMSGroup]: ./media/web-sites-gallery-umbraco/06UmbracoCMSGroup.PNG
@@ -125,10 +124,9 @@ Umbraco CMS 是個功能齊全的開放原始碼內容管理系統，可用來�
 [10ConfigureYourDatabase]: ./media/web-sites-gallery-umbraco/10ConfigureYourDatabase.png
 [11InstallAStarterWebsite]: ./media/web-sites-gallery-umbraco/11InstallAStarterWebsite.png
 [12ConfigureYourDatabase]: ./media/web-sites-gallery-umbraco/12ConfigureYourDatabase.png
-[14FriendlyCMS]: ./media/web-sites-gallery-umbraco/14FriendlyC
-	ms.PNG
+[14FriendlyCMS]: ./media/web-sites-gallery-umbraco/14FriendlyCMS.PNG
 [15CreateItemUnderOverflow]: ./media/web-sites-gallery-umbraco/15CreateItemUnderOverflow.PNG
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

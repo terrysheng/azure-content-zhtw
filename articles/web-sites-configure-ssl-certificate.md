@@ -1,23 +1,22 @@
 ﻿<properties 
-	pageTitle="為 Azure 網站啟用 HTTPS - .NET 開發人員中心" 
-	description="了解如何使用 Azure 網站啟用 SSL。" 
-	services="web-sites" 
+	pageTitle="針對 Azure App Service 中的 Web 應用程式啟用 HTTPS" 
+	description="了解如何使用 Azure App Service 啟用 SSL。" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2014" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
 
 [AZURE.INCLUDE [configure-ssl-web-site](../includes/configure-ssl-web-site.md)]
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

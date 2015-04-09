@@ -1,14 +1,14 @@
 ﻿<properties 
 	pageTitle="在 Azure 中使用 Visual Studio Online 來連續傳遞" 
 	description="了解如何將 Visual Studio Online 小組專案設定為自動建立和部署至 Azure 網站或雲端服務。" 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="kempb" 
 	manager="douge" 
 	editor="tglee"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
@@ -19,7 +19,7 @@
 
 # 使用 Visual Studio Online 連續傳遞至 Azure
 
-  您可以將 Visual Studio Online Team 專案設定為自動建置和部署至 Azure 網站或雲端服務。(如需如何使用 *on-premises*的 Team Foundation Server 來設定連續組建及部署系統的相關資訊，請參閱 [Azure 中雲端服務的連續傳遞](../cloud-services-dotnet-continuous-delivery))。
+  您可以將 Visual Studio Online 小組專案設定為自動建置和部署至 Azure Web 應用程式或雲端服務。(如需如何使用 *on-premises*的 Team Foundation Server 來設定連續組建及部署系統的相關資訊，請參閱 [Azure 中雲端服務的連續傳遞](cloud-services-dotnet-continuous-delivery.md))。
 
 本教學課程假設您已安裝 Visual Studio 2013 和 Azure SDK。如果尚無 Visual Studio 2013，請至 [www.visualstudio.com](http://www.visualstudio.com) 選擇 [**免費開始用**] 連結來下載。從[這裡](http://go.microsoft.com/fwlink/?LinkId=239540)安裝 Azure SDK。
 
@@ -52,7 +52,7 @@
 您可以依照本逐步解說的步驟來部署網站或雲端服務 (Azure 應用程式)。
 如果要建立新方案，請建立新的 Azure 雲端服務專案，
 或建立新的 ASP.NET MVC 專案。請確定專案以 .NET Framework 4 或 4.5 為目標，如果是建立雲端服務專案，請加入 ASP.NET MVC Web 角色和背景工作角色，然後對 Web 角色選擇網際網路應用程式。出現提示時，選擇 [**網際網路應用程式**]。
-如果要建立網站，請選擇 ASP.NET Web 應用程式專案範本，然後選擇 MVC。請參閱[開始使用 Azure 和 ASP.NET](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)。
+如果要建立網站，請選擇 ASP.NET Web 應用程式專案範本，然後選擇 MVC。請參閱[開始使用 Azure 網站和 ASP.NET](web-sites-dotnet-get-started.md)。
 
 2. 開啟方案的內容功能表，選取 [**將方案加入至原始檔控制**]。<br/>
 ![][5]
@@ -137,7 +137,7 @@ Team Explorer 會顯示簽入已觸發的組建。<br/>
 ><tr><td>不要刪除</td><td>若為 true，則不覆寫現有的不相關部署 (允許升級)。</td></tr>
 <tr><td>部署設定的路徑</td><td>網站的 .pubxml 檔案路徑 (相對於儲存機制的根資料夾)。雲端服務會忽略此參數。</td></tr>
 <tr><td>Sharepoint 部署環境</td><td>與服務名稱相同</td></tr>
-<tr><td>Windows Azure 部署環境</td><td>網站或雲端服務名稱</td></tr>
+<tr><td>Azure 部署環境</td><td>網站或雲端服務名稱</td></tr>
 </table>
 <br/>
 
@@ -241,7 +241,7 @@ Team Explorer 會顯示簽入已觸發的組建。<br/>
 
 如需在 Visual Studio Online 中進行單元測試的詳細資訊，請參閱[在建置中執行單元測試](http://go.microsoft.com/fwlink/p/?LinkId=510474)。
 
-如需詳細資訊，請參閱 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)。如果使用 Git，請參閱[在 Git 中共用程式碼](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) 和[從原始檔控制發行至 Azure 網站](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control)。
+如需詳細資訊，請參閱 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)。如果使用 Git，請參閱[在 Git 中共用程式碼](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)和[使用 Git 發佈至 Azure 網站](web-sites-publish-source-control.md)。
 
 [步驟 1：建立 Team 專案。]: #step1
 [步驟 2：將專案簽入至原始檔控制。]: #step2
@@ -302,4 +302,4 @@ Team Explorer 會顯示簽入已觸發的組建。<br/>
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

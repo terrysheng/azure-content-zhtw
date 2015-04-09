@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="如何使用 In-Role Cache (.NET) - Azure 功能指南" 
 	description="了解如何使用 Azure In-Role Cache。這些範例均以 C# 程式碼撰寫，並使用 .NET API。" 
 	services="cache" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="02/24/2015" 
 	ms.author="sdanie"/>
 
 
@@ -23,24 +23,9 @@
 
 # 如何使用 Azure 快取的角色中快取
 
-本指南說明如何開始使用 
-**Azure Cache 的 In-Role Cache**.這些範例均以 C\# 程式碼撰寫，並使用 .NET API。涵蓋的案例包括「設定快取叢集」、「設定快取用戶端」、「新增和移除快取中的物件」、「將 ASP.NET 工作階段狀態儲存在快取中」，以及「使用快取啟用 ASP.NET 頁面輸出快取」。如需有關使用 In-Role Cache 的詳細資訊，請參閱[後續步驟][]一節。
+本指南顯示如何開始使用 **Azure 快取的 In-Role Cache**。這些範例均以 C\# 程式碼撰寫，並使用 .NET API。涵蓋的案例包括「設定快取叢集」、「設定快取用戶端」、「新增和移除快取中的物件」、「將 ASP.NET 工作階段狀態儲存在快取中」，以及「使用快取啟用 ASP.NET 頁面輸出快取」。如需有關使用 In-Role Cache 的詳細資訊，請參閱[後續步驟][]一節。
 
 >如需為應用程式選擇正確「Azure 快取」提供項目的相關指引，請參閱[我適合使用哪個 Azure 快取服務？][]。
-
-## 目錄
-
--   [何謂 In-Role Cache？][]
--	[開始使用 In-Role Cache]
-	-	[設定快取叢集][]
-	-	[設定快取用戶端][]
--	[使用快取][]
-	-	[作法：建立 DataCache 物件][]
-	-   [作法：從快取新增和擷取物件][]
-	-   [作法：指定快取中物件的到期時間][]
-	-   [作法：將 ASP.NET 工作階段狀態儲存在快取中][]
-	-   [作法：將 ASP.NET 頁面輸出快取儲存在快取中][]
--   [後續步驟][]
 
 <a name="what-is"></a>
 ## 何謂角色中快取？
@@ -71,15 +56,15 @@
 -	選擇性地對個別快取設定高可用性。
 -	使用擴充的快取功能，例如區域、標記和通知。
 
-本指南提供開始使用角色中快取的概觀。如需有關本入門指南涵蓋範圍外之功能的更多詳細資訊，請參閱 [In-Role Cache 概觀][]。
+本指南提供開始使用角色中快取的概觀。如需有關本入門指南涵蓋範圍外之這些功能的詳細資訊，請參閱 [In-Role Cache 概觀][]。
 
 <a name="getting-started-cache-role-instance"></a>
 ## 開始使用角色中快取
 
 角色中快取提供一種方法，可透過主控角色執行個體的虛擬機器上的記憶體來啟用快取。主控快取的角色執行個體也稱為「快取叢集」。角色執行個體快取部署技術有兩種：
 
--	「專用角色」快取 - 角色執行個體專門用於快取。
--	「共置角色」快取 - 快取與應用程式共用虛擬機器資源 (頻寬、CPU 和記憶體)。
+-	**專用角色**快取 - 角色執行個體專門用於快取。
+-	**共置角色**快取 - 快取與應用程式共用虛擬機器資源 (頻寬、CPU 和記憶體)。
 
 若要對角色執行個體使用快取，您需要設定快取叢集，然後設定快取用戶端，以便它們可以存取快取叢集。
 
@@ -89,11 +74,11 @@
 <a name="enable-caching"></a>
 ## 設定快取叢集
 
-若要設定「共置角色」快取叢集，請選取您要用來主控快取叢集的角色。在 [方案總管] 中的角色屬性上按一下滑鼠右鍵，然後選擇 [屬性]。
+若要設定「共置角色」快取叢集，請選取您要用來主控快取叢集的角色。在 [**方案總管**] 中的角色屬性上按一下滑鼠右鍵，然後選擇 [**屬性**]。
 
 ![RoleCache1][RoleCache1]
 
-切換至 [快取] 索引標籤、核取 [啟用快取] 核取方塊，然後指定所需的快取選項。在 [背景工作角色] 或 [ASP.NET Web 角色] 中啟用快取時，預設組態為「共置角色」快取，並將 30% 的角色執行個體記憶體配置給快取。系統會自動設定預設快取，但如果想要的話，您也可以建立其他具名快取，這些快取將會共用配置的記憶體。
+切換至 [快取] 索引標籤、核取 [啟用快取] 核取方塊，然後指定所需的快取選項。在 [**背景工作角色**] 或 [**ASP.NET Web 角色**] 中啟用快取時，預設組態為「共置角色」快取，並將 30% 的角色執行個體記憶體配置給快取。系統會自動設定預設快取，但如果想要的話，您也可以建立其他具名快取，這些快取將會共用配置的記憶體。
 
 ![RoleCache2][RoleCache2]
 
@@ -113,9 +98,9 @@
 
 快取大小由以下幾項共同決定：角色的虛擬機器大小、角色的執行個體計數，以及快取叢集是設定為專用角色還是共置角色快取叢集。
 
->本節提供如何設定快取大小的簡化概觀。如需有關快取大小及其他容量規劃考量的詳細資訊，請參閱 [In-Role 容量規劃考量][]。
+>本節提供如何設定快取大小的簡化概觀。如需有關快取大小及其他容量規劃考量的詳細資訊，請參閱 [In-Role Cache 容量規劃考量][]。
 
-若要設定虛擬機器大小和角色執行個體數目，請在 [方案總管] 的角色屬性上按一下滑鼠右鍵，然後選擇 [屬性]。
+若要設定虛擬機器大小和角色執行個體數目，請在 [**方案總管**] 的角色屬性上按一下滑鼠右鍵，然後選擇 [**屬性**]。
 
 ![RoleCache1][RoleCache1]
 
@@ -125,34 +110,34 @@
 
 VM 大小的記憶體總計如下： 
 
--	**Small**：1.75 GB
--	**Medium**：3.5 GB
--	**Large**：7 GB
--	**ExtraLarge**：14 GB
+-	**小型**：1.75 GB
+-	**中型**：3.5 GB
+-	**大型**：7 GB
+-	**超大型**：14 GB
 
 
 > 這些記憶體大小代表 VM 的可用記憶體總數，並由 OS、快取程序、快取資料和應用程式共用。如需有關設定「虛擬機器大小」的詳細資訊，請參閱[如何設定虛擬機器大小][]。請注意，**ExtraSmall** VM 大小不支援快取。
 
-已指定 [共置角色] 快取時，會以指定的虛擬機器記憶體百分比決定快取大小。已指定 [專用角色] 快取時，則會將虛擬機器的所有可用記憶體都用於快取。如果設定兩個角色執行個體，則會使用相加在一起的虛擬機器記憶體。這會構成快取叢集，可用快取記憶體會分配給多個角色執行個體，但以單一資源的樣貌呈現給快取的用戶端們。設定其他角色執行個體會以相同方式增加快取大小。若要判斷佈建所需大小之快取所需的設定，可以使用 [In-Role Cache 容量規劃考量][]中所含的「容量規劃試算表」。
+指定 [**共置角色**] 快取時，會以指定的虛擬機器記憶體百分比決定快取大小。已指定 [專用角色] 快取時，則會將虛擬機器的所有可用記憶體都用於快取。如果設定兩個角色執行個體，則會使用相加在一起的虛擬機器記憶體。這會構成快取叢集，可用快取記憶體會分配給多個角色執行個體，但以單一資源的樣貌呈現給快取的用戶端們。設定其他角色執行個體會以相同方式增加快取大小。若要判斷佈建所需大小之快取所需的設定，可以使用 [In-Role Cache 容量規劃考量][]中所含的「容量規劃試算表」。
 
 一旦設定了快取叢集，您可以設定快取用戶端，以允許存取快取。
 
 <a name="NuGet"></a>
 ## 設定快取用戶端
 
-若要存取「角色中快取」的快取，用戶端必須位於相同部署內。如果快取叢集為專用角色快取叢集，則用戶端為部署中的其他角色。如果快取叢集為共置角色快取叢集，則用戶端可以是部署中的其他角色，或是主控快取叢集的角色本身。我們有提供一個 NuGet 封裝，可用來設定每一個存取快取的用戶端角色。若要使用 Caching NuGet 封裝來設定角色以存取快取叢集，請在 [方案總管] 中的角色專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。 
+若要存取「角色中快取」的快取，用戶端必須位於相同部署內。如果快取叢集為專用角色快取叢集，則用戶端為部署中的其他角色。如果快取叢集為共置角色快取叢集，則用戶端可以是部署中的其他角色，或是主控快取叢集的角色本身。系統會提供一個 NuGet 套件，可用來設定每一個存取快取的用戶端角色。若要使用 Caching NuGet 封裝來設定角色以存取快取叢集，請在 [**方案總管**] 中的角色專案上按一下滑鼠右鍵，然後選擇 [**管理 NuGet 封裝**]。 
 
 ![RoleCache4][RoleCache4]
 
-選取 \[In-Role Cache\]、按一下 [安裝]，然後按一下 [我接受]。
+選取 [**In-Role Cache**]、按一下 [**安裝**]，然後按一下 [**我接受**]。
 
->如果 \[In-Role Cache\] 未出現在清單中，請在 [線上搜尋] 文字方塊中輸入 **WindowsAzure.Caching**，然後從結果中選取。
+>如果 [**In-Role Cache**] 未出現在清單中，請在 [**線上搜尋**] 文字方塊中輸入 **WindowsAzure.Caching**，然後從結果中選取。
 
 ![RoleCache5][RoleCache5]
 
 NuGet 會執行數項工作：將必要的組態新增至角色的組態檔、將快取用戶端診斷層級設定新增至 Azure 應用程式的 ServiceConfiguration.cscfg 檔案，以及新增必要的組件參考。
 
->針對 ASP.NET Web 角色，Caching NuGet 封裝也會將兩個已標成註解的區段新增至 web.config 中。第一個區段可讓工作階段儲存在快取中，第二個區段則可讓 ASP.NET 頁面輸出快取處理。如需詳細資訊，請參閱[作法：將 ASP.NET 工作階段狀態儲存在快取中]以及[作法：將 ASP.NET 頁面輸出快取儲存在快取中][]。
+>針對 ASP.NET Web 角色，Caching NuGet 封裝也會將兩個已標成註解的區段新增至 web.config 中。第一個區段可讓工作階段儲存在快取中，第二個區段則可讓 ASP.NET 頁面輸出快取處理。如需詳細資訊，請參閱[做法：將 ASP.NET 工作階段狀態儲存在快取中]以及[作法：將 ASP.NET 頁面輸出快取儲存在快取中][]。
 
 NuGet 封裝會將下列組態元素新增至角色的 web.config 或 app.config 中。**dataCacheClients** 區段與 **cacheDiagnostics** 區段會新增至 **configSections** 元素之下。如果 **configSections** 元素不存在，則會建立一個做為 **configuration** 元素的子系。
 
@@ -170,7 +155,7 @@ NuGet 封裝會將下列組態元素新增至角色的 web.config 或 app.config
                allowDefinition="Everywhere" />
     </configSections>
 
-These new sections include references to a **dataCacheClients** element and a **cacheDiagnostics** element. 這些元素也會新增至 **configuration** 元素。
+這些新的區段包括 **dataCacheClients** 元素和 **cacheDiagnostics** 元素的參考。這些元素也會加入 **configuration** 元素中。
 
     <dataCacheClients>
       <dataCacheClient name="default">
@@ -182,7 +167,7 @@ These new sections include references to a **dataCacheClients** element and a **
       <crashDump dumpLevel="Off" dumpStorageQuotaInMB="100" />
     </cacheDiagnostics>
 
-After the configuration is added, replace **[cache cluster role name]** with the name of the role that hosts the cache cluster.
+加入組態之後，請將 **[cache cluster role name]** 取代為主控快取叢集的角色名稱。
 
 >如果未以主控快取叢集之角色的名稱取代 **[cache cluster role name]**，則當快取被存取時，將會擲回 **TargetInvocationException** 及內部 **DatacacheException**，並隨附 "No such role exists" 訊息。
 
@@ -210,7 +195,7 @@ NuGet 套件也會新增下列組件的參考：
 
 如果您的角色為 ASP.NET Web 角色，則也會新增下列組件參考：
 
--	Microsoft.Web.DistributedCache.dll
+-	Microsoft.Web.DistributedCache.dll.
 
 >這些組件位於 C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\2012-10\\ref\\Caching\\ 資料夾中。
 
@@ -221,23 +206,21 @@ NuGet 套件也會新增下列組件的參考：
 
 本節中的步驟描述如何利用快取執行常見工作。
 
--	[作法：建立 DataCache 物件][]
--   [作法：從快取新增和擷取物件][]
--   [作法：指定快取中物件的到期時間][]
--   [作法：將 ASP.NET 工作階段狀態儲存在快取中][]
--   [作法：將 ASP.NET 頁面輸出快取儲存在快取中][]
+-	[做法：建立 DataCache 物件][]
+-   [做法：從快取新增和擷取物件][]
+-   [做法：指定快取中物件的到期時間][]
+-   [做法：將 ASP.NET 工作階段狀態儲存在快取中][]
+-   [做法：將 ASP.NET 頁面輸出快取儲存在快取中][]
 
 <a name="create-cache-object"></a>
 ## 作法：建立 DataCache 物件
 
 為了能夠以程式設計方式使用快取，您需要快取的參考。將下列程式碼新增至您想要從中使用
-In-Role Cache 之檔案的頂端：
+In-Role Cache：
 
     using Microsoft.ApplicationServer.Caching;
 
->如果在安裝了會加入必要參考的 Caching NuGet 封裝之後，Visual Studio 還是無法辨識 using
-陳述式中的類型，請確定專案的目標
-設定檔是 .NET Framework 4 或更新版本，並務必選取其中一個未指定「用戶端設定檔」的設定檔。如需設定快取用戶端的指示，請參閱[設定快取用戶端][]。
+>即使在安裝 Caching NuGet 封裝並加入必要參考之後，如果 Visual Studio 還是無法辨識 using 陳述式中的類型，請確定專案的目標設定檔為 .NET Framework 4.0 或更高版本，並務必選取其中一個未指定**用戶端設定檔**的設定檔。如需設定快取用戶端的指示，請參閱[設定快取用戶端][]。
 
 有兩種方式可以建立 **DataCache** 物件。第一種方式為僅建立 **DataCache**，並傳入所需快取的名稱。
 
@@ -251,8 +234,7 @@ In-Role Cache 之檔案的頂端：
     DataCacheFactory cacheFactory = new DataCacheFactory();
     DataCache cache = cacheFactory.GetDefaultCache();
     // Or DataCache cache = cacheFactory.GetCache("MyCache");
-    // cache can now be used to add and retrieve ite
-	ms.	
+    // cache can now be used to add and retrieve items.	
 
 <a name="add-object"></a>
 ## 作法：從快取新增和擷取物件
@@ -264,8 +246,7 @@ In-Role Cache 之檔案的頂端：
 
 如果具有相同索引鍵的物件已在快取中，則將擲回 **DataCacheException**，並隨附下列訊息：
 
-> ErrorCode:SubStatus:正在嘗試利用快取中已有的索引鍵建立物件。快取將只會接受
-> 物件的唯一索引鍵值。
+> ErrorCode:SubStatus:嘗試在快取建立 索引鍵已存在的物件。快取將只會接受 物件的唯一索引鍵值。
 
 若要抓取具有特定索引鍵的物件，可使用 **Get** 方法。如果物件存在，則會加以傳回，但如果不存在，則會傳回 null。
 
@@ -296,7 +277,7 @@ In-Role Cache 之檔案的頂端：
 
 ![RoleCache6][RoleCache6]
 
-「到期原則」有三種類型：[無]、[絕對]及[滑動視窗]。這些類型會設定如何使用 [存留時間 (分鐘)] 來決定到期時間。預設 [到期類型] 為 [絕對]，表示當項目放入快取時，項目到期時間的倒數計時器即會開始倒數。一旦過了項目的指定時間量，項目即到期。如果指定 [滑動視窗]，則每次快取中的項目被存取時，就會重設項目的到期倒數時間，而要等到最後一次存取項目後過了所指定的時間長度時，項目才會過期。如果指定 [無]，則 [存留時間 (分鐘)] 必須設定為 **0**，項目將不會到期，只要它們留在快取中就會一直有效。
+「到期原則」有三種類型：**[無**]、[**絕對**] 和 [**滑動視窗**]。這些類型會設定如何使用 [存留時間 (分鐘)] 來決定到期時間。預設 [到期類型] 為 [絕對]，表示當項目放入快取時，項目到期時間的倒數計時器即會開始倒數。一旦過了項目的指定時間量，項目即到期。如果指定 [滑動視窗]，則每次快取中的項目被存取時，就會重設項目的到期倒數時間，而要等到最後一次存取項目後過了所指定的時間長度時，項目才會過期。如果指定 [無]，則 [存留時間 (分鐘)] 必須設定為 **0**，項目將不會到期，只要它們留在快取中就會一直有效。
 
 如果想要一個比角色屬性中設定的值還長或短的逾時間隔，可以使用 **Add** 和 **Put** 多載來採用 **TimeSpan** 參數，以在新增或更新快取中的項目時指定特定持續時間。在下列範例中，會將字串 **value** 加入快取並以 **item** 建立索引，逾時值設為 30 分鐘。
 
@@ -314,7 +295,7 @@ In-Role Cache 之檔案的頂端：
 <a name="store-session"></a>
 ## 作法：將 ASP.NET 工作階段狀態儲存在快取中
 
-角色中快取的工作階段狀態提供者為 ASP.NET 應用程式的程序外儲存體機制。此提供者可讓您將工作階段狀態儲存在 Azure 快取中，而不是記憶體內或 SQL Server Database 中。若要使用快取工作階段狀態提供者，請先設定快取叢集，然後使用 Caching NuGet 封裝來設定 ASP.NET 應用程式的快取功能，如[開始使用 In-Role Cache][] 所述。在安裝 Caching NuGet 套件時，它會在 web.config 新增已標成註解的區段，其中包含讓 ASP.NET 應用程式對角色中快取使用工作階段狀態提供者所需的組態。
+角色中快取的工作階段狀態提供者為 ASP.NET 應用程式的程序外儲存體機制。此提供者可讓您將工作階段狀態儲存在 Azure 快取中，而不是記憶體內或 SQL Server Database 中。若要使用快取工作階段狀態提供者，請先設定快取叢集，然後使用 Caching NuGet 封裝來設定 ASP.NET 應用程式的快取功能 (如[開始使用 In-Role Cache][] 所述)。在安裝 Caching NuGet 套件時，它會在 web.config 新增已標成註解的區段，其中包含讓 ASP.NET 應用程式對角色中快取使用工作階段狀態提供者所需的組態。
 
     <!--Uncomment this section to use In-Role Cache for session state caching
     <system.web>
@@ -368,16 +349,14 @@ In-Role Cache 之檔案的頂端：
 <a name="next-steps"></a>
 ## 後續步驟
 
-現在，您已了解 In-Role Cache 的基本概念，
-請循著下列連結以了解如何執行更複雜的快取工作。
+了解角色中快取的基礎概念之後，請參考下列連結以了解如何執行更複雜的快取工作。
 
 -   請參閱 MSDN 參考：[In-Role Cache][]
 -   了解如何移轉至角色中快取：[移轉至 In-Role Cache][]
 -   查看範例：[In-Role Cache 範例][]
--	觀看 TechEd 2013 針對角色中快取所舉行的講習會視訊內容 - [最大效能：利用 Azure 快取加速您的雲端服務應用程式][] (英文)
+-	觀看[最佳效能：使用 Azure 快取來加速雲端服務應用程式][] (英文)
 
 <!-- INTRA-TOPIC LINKS -->
-
 [後續步驟]: #next-steps
 [何謂 In-Role Cache？]: #what-is
 [建立 Azure 快取]: #create-cache
@@ -390,12 +369,12 @@ In-Role Cache 之檔案的頂端：
 [設定所需的快取大小]: #cache-size
 [設定快取用戶端]: #NuGet
 [使用快取]: #working-with-caches
-[作法：建立 DataCache 物件]: #create-cache-object
-[作法：從快取新增和抓取物件]: #add-object
-[作法：指定快取中物件的到期時間]: #specify-expiration
-[作法：將 ASP.NET 工作階段狀態儲存在快取中]: #store-session
-[作法：將 ASP.NET 頁面輸出快取儲存在快取中]: #store-page
-[以支援的.NET Framework 設定檔做為目標]: #prepare-vs-target-net
+[做法：建立 DataCache 物件]: #create-cache-object
+[做法：從快取新增和擷取物件]: #add-object
+[做法：指定快取中物件的到期時間]: #specify-expiration
+[做法：將 ASP.NET 工作階段狀態儲存在快取中]: #store-session
+[做法：將 ASP.NET 頁面輸出快取儲存在快取中]: #store-page
+[以支援的 .NET Framework 設定檔做為目標]: #prepare-vs-target-net
  
 <!-- IMAGES --> 
 [RoleCache1]: ./media/cache-dotnet-how-to-use-in-role/cache8.png
@@ -410,15 +389,14 @@ In-Role Cache 之檔案的頂端：
   
 <!-- LINKS -->
 [如何設定虛擬機器大小]: http://go.microsoft.com/fwlink/?LinkId=164387
-[作法：以程式設計方式設定快取用戶端]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
-[作法：以程式設計方式設定頁面的快取性]: http://msdn.microsoft.com/library/z852zf6b.aspx
-[作法：以宣告方式設定 ASP.NET 網頁的快取性]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[做法：以程式設計方式設定快取用戶端]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[做法：以程式設計方式設定頁面的快取性]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[做法：以宣告方式設定 ASP.NET 網頁的快取性]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
 [In-Role Cache 容量規劃考量]: http://go.microsoft.com/fwlink/?LinkId=252651
-[In-Role 容量規劃考量]: http://go.microsoft.com/fwlink/?LinkId=252651
 [In-Role Cache 範例]: http://msdn.microsoft.com/library/jj189876.aspx
 [In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=252658
-[In-Role Cache]: http://www.microsoft.com/zh-tw/showcase/Search.aspx?phrase=azure+caching
-[最大效能：利用 Azure 快取加速您的雲端服務應用程式]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
+[In-Role Cache]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
+[最佳效能：使用 Azure 快取來加速雲端服務應用程式]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
 [移轉至 In-Role Cache]: http://msdn.microsoft.com/library/hh914163.aspx
 [NuGet 封裝管理員安裝]: http://go.microsoft.com/fwlink/?LinkId=240311
 [In-Role Cache 的輸出快取提供者]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
@@ -427,24 +405,10 @@ In-Role Cache 之檔案的頂端：
 [In-Role Cache 的工作階段狀態提供者]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
 [小組部落格]: http://blogs.msdn.com/b/windowsazure/
 [In-Role Cache 疑難排解和診斷]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
-[Azure AppFabric 快取：快取工作階段狀態]: http://www.microsoft.com/zh-tw/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
+[Azure AppFabric 快取：快取工作階段狀態]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Azure 管理入口網站]: http://windows.azure.com/
 [Azure 共用快取]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
 [我適合使用哪個 Azure 快取服務？]: http://msdn.microsoft.com/library/azure/dn766201.aspx
 
-[何謂 In-Role Cache？]: #what-is
-[開始使用 In-Role Cache]: #getting-started-cache-role-instance
-[設定快取叢集]: #enable-caching
-[設定快取用戶端]: #NuGet
-[使用快取]: #working-with-caches
-[作法：建立 DataCache 物件]: #create-cache-object
-[作法：從快取新增和擷取物件]: #add-object
-[作法：指定快取中物件的到期時間]: #specify-expiration
-[作法：將 ASP.NET 工作階段狀態儲存在快取中]: #store-session
-[作法：將 ASP.NET 頁面輸出快取儲存在快取中]: #store-page
-[後續步驟]: #next-steps
-
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=49-->

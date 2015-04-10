@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="使用 Live Connect (JavaScript) 驗證應用程式" 
-	說明=「了解如何從 Windows 市集應用程式在 Azure 行動服務中使用 Live Connect 單一登入。」 
+	description="了解如何從 Windows 市集應用程式在 Azure 行動服務中使用 Live Connect 單一登入。"
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 

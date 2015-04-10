@@ -1,6 +1,6 @@
 <properties
-   pageTitle="測試流量管理員設定「"
-   描述 =「本文將協助您測試流量管理員設定。」
+   pageTitle="測試流量管理員設定"
+   description="本文將協助您測試流量管理員設定。"
    services="traffic-manager"
    documentationCenter="na"
    authors="cherylmc"

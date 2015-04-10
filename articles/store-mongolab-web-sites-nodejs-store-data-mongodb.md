@@ -557,12 +557,12 @@
 [使用 Git 發佈至 Azure 網站]:/develop/nodejs/common-tasks/publishing-with-git/
 [MongoLab]: http://mongolab.com
 [使用 MongoDB 上儲存體的 Node.js Web 應用程式 (虛擬機器)]:/develop/nodejs/tutorials/website-with-mongodb-(mac)/
-[node-mongo-finished]: /media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png
-[node-mongo-express-results]: /media/store-mongolab-web-sites-nodejs-store-data-mongodb/express_output.png
-[download-publishing-settings]: /media/store-mongolab-web-sites-nodejs-store-data-mongodb/azure-account-download-cli.png
-[import-publishing-settings]: /media/store-mongolab-web-sites-nodejs-store-data-mongodb/azureimport.png
-[mongolab-create]: /media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-create.png
-[mongolab-view]: /media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
+[node-mongo-finished]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png
+[node-mongo-express-results]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/express_output.png
+[download-publishing-settings]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/azure-account-download-cli.png
+[import-publishing-settings]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/azureimport.png
+[mongolab-create]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-create.png
+[mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
 
 
 

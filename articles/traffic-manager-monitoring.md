@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="流量管理員監視
-   description="本文將協助了解和設定流量管理員的監視功能
+   pageTitle="流量管理員監視"
+   description="本文將協助了解和設定流量管理員的監視功能"
    services="traffic-manager"
    documentationCenter=""
    authors="cherylmc"

@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="如何使用 Python 的資料表儲存體 | Microsoft Azure「 
-	description="了解如何使用 Python 的資料表服務來建立和刪除資料表，以及插入、刪除和查詢資料表。」 
+	pageTitle="如何使用 Python 的資料表儲存體 | Microsoft Azure"
+	description="了解如何使用 Python 的資料表服務來建立和刪除資料表，以及插入、刪除和查詢資料表。" 
 	services="storage" 
 	documentationCenter="python" 
 	authors="huguesv" 

@@ -226,7 +226,7 @@ Python 虛擬環境。如果網站上不存在相容的虛擬環境，會於部�
 
 第一次部署將需要一些時間，因為它會建立虛擬環境、安裝封裝等。
 
-Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱[疑難排解 - 部署]一節(#troubleshooting-deployment)。
+Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱[疑難排解 - 部署]一節 (#troubleshooting-deployment)。
 
 瀏覽至 Azure URL，以檢視您的變更。
 

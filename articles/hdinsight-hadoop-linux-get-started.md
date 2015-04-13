@@ -80,7 +80,7 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為「 *WA
 
 佈建 HDInsight 叢集時，您可以佈建包含 Hadoop 及相關應用程式的 Azure 運算資源。在本節中，您將使用 quick-create 選項在 Linux 上佈建 HDInsight 叢集。此選項使用預設使用者名稱和 Azure 儲存體容器，並使用在 Ubuntu 12.04 LTS 上執行的 HDInsight 3.2 版 (Hadoop 2.5 版、HDP 2.2 版) 設定叢集。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱 [HDInsight 元件版本設定](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/)頁面。
 
->[AZURE.NOTE]  您也可以建立執行 Windows Server 作業系統的 Hadoop 叢集。如需相關指示，請參閱 [在 Windows 上開始使用 HDInsight]。(../hdinsight-get-started/)。
+>[AZURE.NOTE]  您也可以建立執行 Windows Server 作業系統的 Hadoop 叢集。如需相關指示，請參閱 [在 Windows 上開始使用 HDInsight](../hdinsight-get-started/)。
 
 
 **佈建 HDInsight 叢集** 

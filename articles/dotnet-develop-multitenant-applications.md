@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="多租用戶 Web 應用程式模式 - Azure 架構" 
 	description="找出說明如何在 Azure 實作多租用戶 Web 應用程式的結構概觀和設計模式。" 
 	services="" 
@@ -92,7 +92,7 @@ Azure 提供許多可為應用程式佈建新租用戶的方式。就租用戶�
 
 <!--links-->
 
-[在 Azure 上主控多租用戶應用程式]: http://msdn.microsoft.com/library/hh534480.aspx
+[在 Azure 上代管多租用戶應用程式]: http://msdn.microsoft.com/library/hh534480.aspx
 [在 Azure 上設計多租用戶應用程式]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
 

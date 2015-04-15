@@ -55,7 +55,7 @@
 
 	4. 建立預設端點，並視需要新增更多端點。您也可以稍後再新增端點。 
 
-	![建立新 VM 的可用性設定組](./media/virtual-machines-how-to-configure-availability/VMavailabilityset.png) 
+	![Create an availabililty set for a new VM](./media/virtual-machines-how-to-configure-availability/VMavailabilityset.png) 
 
 6. 在第四個畫面上，選擇您要安裝的擴充程式。擴充程式提供可輕鬆管理虛擬機器的功能，例如執行反惡意程式碼或重設密碼。如需詳細資訊，請參閱 [Azure VM 代理程式與 VM 延伸模組](http://go.microsoft.com/fwlink/p/?LinkId=XXX)。
 

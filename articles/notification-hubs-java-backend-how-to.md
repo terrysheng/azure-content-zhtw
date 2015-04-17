@@ -1,9 +1,9 @@
-<properties 
-	pageTitle="如何搭配使用通知中心與 Java" 
-	description="了解如何從 Java 後端使用 Azure 通知中心。" 
+﻿<properties 
+	pageTitle="如何搭配使用通知中樞與 Java" 
+	description="了解如何從 Java 後端使用 Azure 通知中樞。" 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="piyushjo" 
+	authors="yuaxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,21 +14,21 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="01/12/2015" 
-	ms.author="piyushjo"/>
+	ms.author="yuaxu"/>
 
-# 如何從 Java 使用通知中心
+# 如何從 Java 使用通知中樞
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/zh-tw/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/zh-tw/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/zh-tw/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a>
+    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
 </div>
 
-本主題說明最新完整支援的官方 Azure 通知中心 Java SDK 有哪些主要功能。 
+本主題說明最新完整支援的官方 Azure 通知中樞 Java SDK 有哪些主要功能。 
 這是開放原始碼專案，您可以在 [Java SDK] 檢視完整的 SDK 程式碼。 
 
-一般而言，您可以使用通知中心 REST 介面，存取 Java/PHP/Python/Ruby 後端的所有通知中心功能，如 MSDN 主題[通知中心 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 中所述。此 Java SDK 透過 Java 中的這些 REST 介面提供了精簡型包裝函式。 
+一般而言，您可以使用通知中樞 REST 介面，存取 Java/PHP/Python/Ruby  後端的所有通知中樞功能，如 MSDN 主題[通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 中所述。此 Java SDK 透過 Java 中的這些 REST 介面提供了精簡型包裝函式。 
 
 SDK 目前支援：
 
-- 通知中心的 CRUD 
+- 通知中樞的 CRUD 
 - 註冊的 CRUD
 - 安裝管理
 - 匯入/匯出註冊
@@ -47,15 +47,15 @@ SDK 目前支援：
 
 	mvn package
 
-## 程式碼
+## 代碼
 
-### 通知中心 CRUD
+### 通知中樞 CRUD
 
 **建立 NamespaceManager：**
 	
 	NamespaceManager namespaceManager = new NamespaceManager("connection string")
 
-**建立通知中心：**
+**建立通知中樞：**
 	
 	NotificationHubDescription hub = new NotificationHubDescription("hubname");
 	hub.setWindowsCredential(new WindowsCredential("sid","key"));
@@ -65,21 +65,21 @@ SDK 目前支援：
 
 	hub = new NotificationHub("connection string", "hubname");
 
-**取得通知中心：**
+**取得通知中樞：**
 	
 	hub = namespaceManager.getNotificationHub("hubname");
 
-**更新通知中心：**
+**更新通知中樞：**
 	
 	hub.setMpnsCredential(new MpnsCredential("mpnscert", "mpnskey"));
 	hub = namespaceManager.updateNotificationHub(hub);
 
-**刪除通知中心：**
+**刪除通知中樞：**
 	
 	namespaceManager.deleteNotificationHub("hubname");
 
 ### 註冊 CRUD
-**建立通知中心用戶端：**
+**建立通知中樞用戶端：**
 
 	hub = new NotificationHub("connection string", "hubname");
 
@@ -127,11 +127,11 @@ SDK 目前支援：
 	
 		hub.getRegistration(regid);
 	
-* 	**取得中樞中的所有註冊：**
+* 	**取得中心的所有註冊：**
 	
 		hub.getRegistrations();
 	
-* 	**取得有標籤的註冊：**
+* 	**取得具有標籤的註冊：**
 	
 		hub.getRegistrationsByTag("myTag");
 	
@@ -274,7 +274,7 @@ CreateOrUpdate、Patch 和 Delete 最終都會與 Get 一致。您要求的作�
 		tags.add("foo");
 		hub.sendNotification(n, tags);
 
-* **傳送至標籤運算式**
+* **傳送至標籤運算式**       
 
 		hub.sendNotification(n, "foo && ! bar");
 
@@ -289,23 +289,23 @@ CreateOrUpdate、Patch 和 Delete 最終都會與 Get 一致。您要求的作�
 執行 Java 程式碼現在應會產生一則顯示於目標裝置的通知。
 
 ## <a name="next-steps"></a>後續步驟
-在本主題中，我們會說明如何為通知中心建立簡單的 Java REST 用戶端。您可以在這裡執行下列動作：
+在本主題中，我們會說明如何為通知中樞建立簡單的 Java REST 用戶端。您可以在這裡執行下列動作：
 
 * 下載完整 [Java SDK]，其中包含完整的 SDK 程式碼。 
 * 試用範例：
-	- [開始使用通知中心]
+	- [開始使用通知中樞]
 	- [傳送即時新聞]
 	- [傳送當地語系化的即時新聞]
 	- [傳送通知給已驗證的使用者]
 	- [傳送跨平台通知給已驗證的使用者]
 
 [Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
-[開始使用教學課程]: http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/
-[開始使用通知中心]: http://azure.microsoft.com/manage/services/notification-hubs/getting-started-windows-dotnet/
-[傳送即時新聞]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-dotnet/
-[傳送當地語系化的即時新聞]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[傳送通知給已驗證的使用者]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users/
-[傳送跨平台通知給已驗證的使用者]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[開始使用教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[開始使用通知中樞]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
+[傳送即時新聞]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
+[傳送當地語系化的即時新聞]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
+[傳送通知給已驗證的使用者]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
+[傳送跨平台通知給已驗證的使用者]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Maven]: http://maven.apache.org/
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

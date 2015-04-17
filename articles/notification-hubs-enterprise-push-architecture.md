@@ -43,20 +43,20 @@
 3. 行動應用程式
 	- 接收及顯示通知
 		
-###優點：
+### 優點：
 
 1. 接收器 (行動應用程式/透過通知中樞傳送的服務) 與傳送器 (後端系統) 的解離可讓您在變更少量架構的情況下整合額外的後端系統。
 2. 含有多個行動應用程式的案例也能藉此接收來自一或多個後端系統的事件。  
 
 ## 範例：
 
-###必要條件
+### 必要條件
 您應該先完成下列教學課程以熟悉概念，以及常用的建立和組態步驟：
 
-1. [服務匯流排發行/訂閱程式撰寫] - 說明服務匯流排主題/訂閱的操作詳細資料、如何建立命名空間來容納主題/訂閱、如何傳送訊息及接收來自主題/訂閱的訊息。 
-2. [通知中樞 - Windows 通用教學課程] - 說明如何設定 Windows 市集應用程式，以及使用通知中樞來註冊和接收通知。 
+1. [服務匯流排發行/訂閱程式撰寫] - 說明服務匯流排主題/訂閱的操作詳細資料、如何建立命名空間來容納主題/訂閱、如何傳送訊息及接收來自主題/訂閱的訊息。
+2. [通知中樞 - Windows 通用教學課程] - 說明如何設定 Windows 市集應用程式，以及使用通知中樞來註冊和接收通知。
 
-###範例程式碼
+### 範例程式碼
 
 如需完整範例程式碼，請參閱[通知中樞範例]。其可劃分為三個元件：
 
@@ -78,7 +78,7 @@
             SendMessage(connectionString);
         }
 	
-	c. `CreateTopic` 可用來建立傳送訊息的服務匯流排主題。 
+	c. `CreateTopic` 可用來建立傳送訊息的服務匯流排主題。
 
         public static void CreateTopic(string connectionString)
         {
@@ -265,10 +265,10 @@
 
 <!-- Links -->
 [通知中樞範例]: https://github.com/Azure/azure-notificationhubs-samples
-[Azure 行動服務]: http://azure.microsoft.com/ documentation/services/mobile-services/
-[Azure 服務匯流排]: http://azure.microsoft.com/ documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[服務匯流排發行/訂閱程式撰寫]: http://azure.microsoft.com/ documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-[Azure WebJob]: http://azure.microsoft.com/ documentation/articles/web-sites-create-web-jobs/
-[通知中樞 - Windows 通用教學課程]: http://azure.microsoft.com/ documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Azure 行動服務]: http://azure.microsoft.com/documentation/services/mobile-services/
+[Azure 服務匯流排]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+[服務匯流排發行/訂閱程式撰寫]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Azure WebJob]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
+[通知中樞 - Windows 通用教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

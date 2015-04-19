@@ -193,7 +193,7 @@ SendGrid 功能。如需完整的
 了解 SendGrid 電子郵件服務的基本概念後，請參考
 下列連結以取得更多資訊。
 
-* 示範在 Azure 部署中使用 SendGrid 的範例：[如何在 Azure 部署中使用 SendGrid 透過 Java 傳送電子郵件](../store-sendgrid-java-how-to-send-email-example/)
+* 示範在 Azure 部署中使用 SendGrid 的範例：[如何在 Azure 部署中使用 SendGrid 透過 Java 傳送電子郵件](store-sendgrid-java-how-to-send-email-example.md)
 * SendGrid Java SDK：<https://sendgrid.com/docs/Code_Examples/java.html>
 * SendGrid API 文件：<https://sendgrid.com/docs/API_Reference/index.html>
 * Azure 客戶的 SendGrid 特別優惠：<https://sendgrid.com/windowsazure.html>

@@ -511,7 +511,7 @@ Spout 和 Bolt 會以名為**eventhubs-storm-spout-0.9-jar-with-dependencies.jar
 
 在本文件中，您已經了解如何使用 Java 事件中心 Spout 和 Bolt，利用 C# 拓撲來使用 Azure 事件中心的資料。若要深入了解如何建立 C# 拓撲，請參閱下列內容。
 
-* [使用 Visual Studio 開發 Apache Storm on HDInsight 的 C# 拓撲](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [使用 Visual Studio 開發 Apache Storm on HDInsight 的 C# 拓撲](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 * [HDInsight Storm 範例](https://github.com/hdinsight/hdinsight-storm-examples)
 

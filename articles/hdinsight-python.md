@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="在 Azure HDInsight 中搭配 Hive 與 Pig 來使用 Python" 
 	description="了解如何在 Azure HDInsight 上從 Hive 和 Pig 中使用 Python 使用者定義函數 (UDF)。" 
 	services="hdinsight" 
@@ -171,7 +171,7 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 	此指令碼會擷取 HDInsight 叢集的資訊，然後擷取預設儲存體帳戶的帳戶和金鑰，再將檔案上傳至容器的根目錄。
 
-	> [AZURE.NOTE] 關於其他的指令碼上傳方法，請參閱[在 HDInsight 中將 Hadoop 工作的資料上傳](/zh-tw/documentation/articles/hdinsight-upload-data/) 文件。
+	> [AZURE.NOTE] 關於其他的指令碼上傳方法，請參閱[在 HDInsight 中將 Hadoop 工作的資料上傳](hdinsight-upload-data.md) 文件。
 
 ###使用 Hive 儀表板 (只有 Hive 範例)
 
@@ -267,8 +267,7 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 <tr>
 <td>關於此工作..</td><td>請在 Blob 容器中查看這些檔案</td>
 </tr>
-
-<td>Hive</td><td>/HivePython/stderr</br>/HivePython/stdout</td>
+<td>Hive</td><td>/HivePython/stderr<br />/HivePython/stdout</td>
 </tr>
 <td>Pig</td><td>/PigPython/stderr</br>/PigPython/stdout</td>
 </tr>

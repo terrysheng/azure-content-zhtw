@@ -78,7 +78,7 @@ WebJob 會在 Web 應用程式的內容中執行，且無法單獨擴充。例�
 * 在只適用此用途的個別 Web 應用程式中，以 WebJob 的形式執行程式。您接著可從前端 Web 應用程式獨立調整後端 Web 應用程式的規模。
 * 在 Azure 雲端服務背景工作角色中執行程式。如果選擇此選項，則您能夠在雲端服務 Web 角色或 Web 應用程式中執行前端。
 
-本教學課程說明如何在 Web 應用程式中執行前端，並在相同 Web 應用程式中以 WebJob 的形式執行後端。如需如何選擇最符合您案例的最佳環境相關資訊，請參閱 [Azure Web 應用程式、雲端服務與虛擬機器之比較](../choose-web-site-cloud-service-vm/)。
+本教學課程說明如何在 Web 應用程式中執行前端，並在相同 Web 應用程式中以 WebJob 的形式執行後端。如需如何選擇最符合您案例的最佳環境相關資訊，請參閱 [Azure Web 應用程式、雲端服務與虛擬機器之比較](choose-web-site-cloud-service-vm.md)。
 
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 

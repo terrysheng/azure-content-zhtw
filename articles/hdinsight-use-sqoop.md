@@ -82,7 +82,7 @@
 
 		* 在 **Azure 虛擬機器**中使用 SQL Server 時，可以使用任何虛擬網路組態，只要主控 SQL Server 的虛擬機器屬於與 HDInsight 相同的虛擬網路即可。
 
-	* 若要**將 HDInsight 叢集佈建到虛擬網路上**，請參閱[使用自訂選項在 HDInsight 中佈建 Hadoop 叢集](/zh-tw/documentation/articles/hdinsight-provision-clusters/)
+	* 若要**將 HDInsight 叢集佈建到虛擬網路上**，請參閱[使用自訂選項在 HDInsight 中佈建 Hadoop 叢集](hdinsight-provision-clusters.md)
 
 	> [AZURE.NOTE] SQL Server 也必須允許 SQL 驗證。您必須使用 SQL 登入來執行本文中的步驟。
 
@@ -363,7 +363,7 @@ WASB 語法如下：
 > [AZURE.NOTE] 除了連接字串資訊以外，本節中的步驟應可運用在 Azure SQL Database 或 SQL Server 上。這些步驟已使用下列組態進行測試：
 > 
 > * **Azure 虛擬網路點對站組態** - 在私人資料中心裡將 HDInsight 叢集連接到 SQL Server 的虛擬網路。如需詳細資訊，請參閱[使用管理入口網站設定點對站 VPN](http://msdn.microsoft.com/library/azure/dn133792.aspx)。
-> * **Azure HDInsight 3.1** - 如需在虛擬網路上建立叢集的相關資訊，請參閱[使用自訂選項在 HDInsight 中佈建 Hadoop 叢集](/zh-tw/documentation/articles/hdinsight-provision-clusters/)
+> * **Azure HDInsight 3.1** - 如需在虛擬網路上建立叢集的相關資訊，請參閱[使用自訂選項在 HDInsight 中佈建 Hadoop 叢集](hdinsight-provision-clusters.md)
 > * **SQL Server 2014** - 以設定成允許 SQL 驗證，以及執行 VPN 用戶端組態套件安全地連接到虛擬網路
 
 **匯出 log4j 記錄檔**

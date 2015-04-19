@@ -124,7 +124,7 @@ RRAS1 提供公司網路子網路上的電腦與 TestVNET 虛擬網路之間的�
 	- 按一下 [**新增閘道子網路**]。
 11.	按一下 [完成] 圖示。等候虛擬網路建立後再繼續。
 
-接下來，使用 [如何安裝和設定 Azure PowerShell](../install-configure-powershell/) 中的指示，在本機電腦上安裝 Azure PowerShell。 
+接下來，使用 [如何安裝和設定 Azure PowerShell](install-configure-powershell.md) 中的指示，在本機電腦上安裝 Azure PowerShell。 
 
 接著，建立 TestVNET 虛擬網路的新雲端服務。您必須選擇唯一的名稱。例如，您可以將它命名為 TestVNET-*UniqueSequence*，其中的 *UniqueSequence* 是貴公司的縮寫。例如，如果貴公司名稱為 Tailspin Toys，您可以將雲端服務命名為 TestVNET-Tailspin。
 
@@ -287,17 +287,17 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。這�
 
 ##其他資源
 
-[設定 SharePoint 內部網路伺服器陣列中的測試混合式雲端](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[設定 SharePoint 內部網路伺服器陣列中的測試混合式雲端](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[在混合式雲端中設定 Web 型 LOB 應用程式進行測試](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[在混合式雲端中設定 Web 型 LOB 應用程式進行測試](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
-[在混合式雲端中設定 Office 365 Directory 同步處理 (DirSync) 進行測試](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[在混合式雲端中設定 Office 365 Directory 同步處理 (DirSync) 進行測試](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-[設定用於測試的模擬混合式雲端環境](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[設定用於測試的模擬混合式雲端環境](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
 ##將此環境的持續成本降至最低
 
-若要將在此環境中執行虛擬機器的成本降至最低，請盡速執行所需的測試和示範，然後在不使用時予以刪除或關閉虛擬機器。例如，您可以使用 Azure 自動化和 Runbook 在每個營業日結束時自動關閉 Test_VNET 虛擬網路中的虛擬機器。如需詳細資訊，請參閱 [開始使用 Azure 自動化]。(../automation-create-runbook-from-samples/)。 
+若要將在此環境中執行虛擬機器的成本降至最低，請盡速執行所需的測試和示範，然後在不使用時予以刪除或關閉虛擬機器。例如，您可以使用 Azure 自動化和 Runbook 在每個營業日結束時自動關閉 Test_VNET 虛擬網路中的虛擬機器。如需詳細資訊，請參閱 [開始使用 Azure 自動化]。(automation-create-runbook-from-samples.md)。 
 
 Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機器。如需詳細資訊，請參閱 [價格 - 虛擬網路](http://azure.microsoft.com/pricing/details/virtual-network/)。若要將這個 VPN 閘道的成本降至最低，請使用這些步驟建立測試環境，並盡速執行所需的測試和示範或刪除閘道。 
 

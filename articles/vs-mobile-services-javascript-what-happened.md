@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [開始使用](/documentation/articles/vs-mobile-services-javascript-getting-started/)
-> - [發生什麼情形](/documentation/articles/vs-mobile-services-javascript-what-happened/)
+> - [開始使用](vs-mobile-services-javascript-getting-started.md)
+> - [發生什麼情形](vs-mobile-services-javascript-what-happened.md)
 
 ###<span id="whathappened">我的專案發生什麼情形？</id>
 

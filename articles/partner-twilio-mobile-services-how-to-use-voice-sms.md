@@ -72,14 +72,14 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 註冊 Twilio 帳戶時，您會收到帳戶識別碼和驗證權杖。兩者皆為呼叫 Twilio API 所需。為了防止未經授權存取您的帳戶，您妥善保管驗證權杖。在 [Twilio 帳戶頁面][twilio_account] 的 **[ACCOUNT SID]** 和 **[AUTH TOKEN]** 欄位中，分別可檢視您的帳戶識別碼和驗證權杖。
 
 <h2><a id="create_app"></a>建立行動服務</h2>
-代管已啟用 Twilio 功能之應用程式的行動服務，與其他行動服務並無不同。您只是在服務中新增 Twilio node.js 程式庫，以便從您的行動服務自訂 API 指令碼加以參考而已。如需建立初始行動服務的資訊，請參閱[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-ios-get-started/)。
+代管已啟用 Twilio 功能之應用程式的行動服務，與其他行動服務並無不同。您只是在服務中新增 Twilio node.js 程式庫，以便從您的行動服務自訂 API 指令碼加以參考而已。如需建立初始行動服務的資訊，請參閱[開始使用行動服務](mobile-services-ios-get-started.md)。
 
 <h2><a id="ConfigureMobileService"></a>設定行動服務以使用 Twilio Node.js 程式庫</h2>
 Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您方便而輕鬆地與 Twilio REST API 和 Twilio 用戶端互動，以產生 TwiML 回應。
 
 若要在行動服務中使用 Twilio node.js 程式庫，您必須利用行動服務 npm 模組支援 (只要將您的指令碼儲存在來源控制中，即可支援)。 
 
-1. 完成[在原始檔控制中儲存指令碼](/zh-tw/documentation/articles/mobile-services-store-scripts-source-control/)。這會逐步帶您設定行動服務的原始檔控制，並在 Git 儲存機制中儲存您的伺服器指令碼。
+1. 完成[在原始檔控制中儲存指令碼](mobile-services-store-scripts-source-control.md)。這會逐步帶您設定行動服務的原始檔控制，並在 Git 儲存機制中儲存您的伺服器指令碼。
 
 2. 為行動服務設定原始檔控制後，請在您的本機電腦上開啟儲存機制，瀏覽至  `\services` 子資料夾，在文字編輯器中開啟 package.json 檔案，再將下列欄位新增至「相依性」****物件：
 

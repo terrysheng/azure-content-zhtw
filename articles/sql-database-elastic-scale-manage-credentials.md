@@ -36,7 +36,7 @@
 
      請勿使用 "username@server" 格式的 [使用者識別碼] 值 -- 而只是使用 "username"。這是因為認證必須同時適用於入分區對應管理員資料庫和個別分區 (可能位於不同的伺服器上)。
      
-* **分區對應管理員存取的使用者認證**︰在不管理分區對應的應用程式中具現化分區對應管理員時，請使用在全域分區對應上具有唯讀權限的認證。這些認證之下從全域分區對應擷取的資訊用於[資料相依路由](./sql-database-elastic-scale-data-dependent-routing.md) 以及填入用戶端上的分區對應快取。認證是透過 **GetSqlShardMapManager** 的相同呼叫模式來提供，如上所示： 
+* **分區對應管理員存取的使用者認證**︰在不管理分區對應的應用程式中具現化分區對應管理員時，請使用在全域分區對應上具有唯讀權限的認證。這些認證之下從全域分區對應擷取的資訊用於[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md) 以及填入用戶端上的分區對應快取。認證是透過 **GetSqlShardMapManager** 的相同呼叫模式來提供，如上所示： 
  
         // Obtain shard map manager. 
         ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 

@@ -22,7 +22,7 @@
 
 # <a id="monitormediaservicesaccount"></a>如何監視媒體服務帳戶
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow)和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow)系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時串流工作流程](media-services-live-streaming-workflow.md)系列的一部分。 
 
 Azure 媒體服務儀表板會顯示可用來管理媒體服務帳戶的使用量度量和帳戶資訊。
 

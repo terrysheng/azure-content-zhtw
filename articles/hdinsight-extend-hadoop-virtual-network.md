@@ -62,7 +62,7 @@ Azure 虛擬網路可讓您延伸 Hadoop 解決方案以合併內部部署資源
 >
 > 強烈建議您每個叢集只指定一個子網路。
 
-如需如何在虛擬網路佈建 HDInsight 叢集的詳細資訊，請參閱[在 HDInsight 中佈建 Hadoop 叢集](/documentation/articles/hdinsight-provision-clusters/)。
+如需如何在虛擬網路佈建 HDInsight 叢集的詳細資訊，請參閱[在 HDInsight 中佈建 Hadoop 叢集](hdinsight-provision-clusters.md)。
 
 ##<a id="tasks"></a>工作和資訊
 
@@ -74,7 +74,7 @@ HDInsight 叢集會被指派特定的虛擬網路介面 FQDN。在從虛擬網�
 
 	https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/<servicename>/components/<componentname>
 
-> [AZURE.NOTE] 如需如何搭配使用 Ambari 與 HDInsight 的詳細資訊，請參閱[使用 Ambari API 監視 HDInsight 中的 Hadoop 叢集](/documentation/articles/hdinsight-monitor-use-ambari-api/)。
+> [AZURE.NOTE] 如需如何搭配使用 Ambari 與 HDInsight 的詳細資訊，請參閱[使用 Ambari API 監視 HDInsight 中的 Hadoop 叢集](hdinsight-monitor-use-ambari-api.md)。
 
 您必須指定叢集名稱和叢集上執行的服務和元件，例如 YARN 資源管理員。
 
@@ -82,7 +82,7 @@ HDInsight 叢集會被指派特定的虛擬網路介面 FQDN。在從虛擬網�
 
 比方說，若要從 HDInsight Hadoop 叢集傳回 FQDN，您可以使用下列其中一種方法，擷取 YARN 資源管理員的資料。
 
-* [Azure PowerShell](/documentation/articles/install-configure-powershell/)
+* [Azure PowerShell](install-configure-powershell.md)
 
 		$ClusterDnsName = <clustername>
 		$Username = <cluster admin username>
@@ -109,7 +109,7 @@ HDInsight 叢集會被指派特定的虛擬網路介面 FQDN。在從虛擬網�
 
 若要取得 Zookeeper 仲裁位址，請使用下列其中一種方法來查詢 Ambari 管理服務。
 
-* [Azure PowerShell](/documentation/articles/install-configure-powershell/)
+* [Azure PowerShell](install-configure-powershell.md)
 
 		$ClusterDnsName = <clustername>
 		$Username = <cluster admin username>
@@ -129,7 +129,7 @@ HDInsight 叢集會被指派特定的虛擬網路介面 FQDN。在從虛擬網�
 
 		curl -G -u <username>:<password> "https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum" | jq .items[0].properties[]
 
-> [AZURE.NOTE] 如需如何搭配使用 Ambari 與 HDInsight 的詳細資訊，請參閱[使用 Ambari API 監視 HDInsight 中的 Hadoop 叢集](/documentation/articles/hdinsight-monitor-use-ambari-api/)。
+> [AZURE.NOTE] 如需如何搭配使用 Ambari 與 HDInsight 的詳細資訊，請參閱[使用 Ambari API 監視 HDInsight 中的 Hadoop 叢集](hdinsight-monitor-use-ambari-api.md)。
 
 在擁有仲裁資訊後，請將其用於用戶端應用程式中。
 
@@ -162,13 +162,13 @@ HDInsight 叢集會被指派特定的虛擬網路介面 FQDN。在從虛擬網�
 
 下列範例示範如何搭配使用 HDInsight 與 Azure 虛擬網路。
 
-* [使用 HDInsight 中的 Storm 和 HBase 分析感應器資料](/documentation/articles/hdinsight-storm-sensor-data-analysis/) - 示範如何在虛擬網路中設定 Storm 和 HBase  叢集，以及如何從 Storm 將資料遠端寫入至 HBase。
+* [使用 HDInsight 中的 Storm 和 HBase 分析感應器資料](hdinsight-storm-sensor-data-analysis.md) - 示範如何在虛擬網路中設定 Storm 和 HBase  叢集，以及如何從 Storm 將資料遠端寫入至 HBase。
 
-* [在 Azure 虛擬網路上佈建 HBase 叢集](/documentation/articles/hdinsight-hbase-provision-vnet/) - 提供有關在 Azure 虛擬網路上佈建 HBase 叢集的資訊。
+* [在 Azure 虛擬網路上佈建 HBase 叢集](hdinsight-hbase-provision-vnet.md) - 提供有關在 Azure 虛擬網路上佈建 HBase 叢集的資訊。
 
-* [在 HDInsight 佈建 Hadoop 叢集](/documentation/articles/hdinsight-provision-clusters/) - 提供有關佈建 Hadoop 叢集的資訊，包括有關使用 Azure 虛擬網路的資訊。
+* [在 HDInsight 佈建 Hadoop 叢集](hdinsight-provision-clusters.md) - 提供有關佈建 Hadoop 叢集的資訊，包括有關使用 Azure 虛擬網路的資訊。
 
-* [在 HDInsight 中搭配使用 Sqoop 和 Hadoop](/documentation/articles/hdinsight-use-sqoop/) - 提供搭配使用 Sqoop 與 SQL Server 透過虛擬網路傳輸資料的相關資訊。
+* [在 HDInsight 中搭配使用 Sqoop 和 Hadoop](hdinsight-use-sqoop.md) - 提供搭配使用 Sqoop 與 SQL Server 透過虛擬網路傳輸資料的相關資訊。
 
 若要深入了解 Azure 虛擬網路，請參閱 [Azure 虛擬網路概觀](http://msdn.microsoft.com/library/azure/jj156007.aspx)。
 

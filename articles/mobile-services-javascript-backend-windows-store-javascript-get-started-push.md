@@ -24,7 +24,7 @@
 本主題說明如何使用 Azure 行動服務傳送推播通知至 Windows 市集應用程式。 
 在本教學課程中，您會啟用透過 Azure 通知中心將推播通知傳送至快速入門專案的功能。完成後，您的行動服務就會在每次插入記錄時使用通知中心傳送推播通知。您所建立的通知中心可透過行動服務免費使用、可在行動服務以外個別管理，並且可供其他應用程式和服務使用。
 
->[AZURE.NOTE]本主題說明如何針對 Windows 市集應用程式，使用 Windows Notification Service (WNS) 來手動設定推播通知。您可以利用 Visual Studio 2013 工具，在 Windows 應用程式專案中自動設定相同的推播通知。如需詳細資訊，請參閱本教學課程的[通用 Windows 應用程式版本](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push)。
+>[AZURE.NOTE]本主題說明如何針對 Windows 市集應用程式，使用 Windows Notification Service (WNS) 來手動設定推播通知。您可以利用 Visual Studio 2013 工具，在 Windows 應用程式專案中自動設定相同的推播通知。如需詳細資訊，請參閱本教學課程的[通用 Windows 應用程式版本](mobile-services-javascript-backend-windows-store-javascript-get-started-push.md)。
 
 本教學課程將逐步引導您完成下列啟用推播通知的基本步驟：
 

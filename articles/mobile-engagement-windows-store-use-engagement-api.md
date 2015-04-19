@@ -18,7 +18,7 @@
 
 #如何在 Windows 上使用 Engagement API
 
-此文件是[如何在 Windows 上整合 Engagement](../mobile-engagement-windows-store-integrate-engagement/)的補充：它會提供關於如何使用 Engagement API 來回報您應用程式的統計資料之詳細資訊。
+此文件是[如何在 Windows 上整合 Engagement](mobile-engagement-windows-store-integrate-engagement.md)的補充：它會提供關於如何使用 Engagement API 來回報您應用程式的統計資料之詳細資訊。
 
 請留意，如果您只想 Engagement 報告應用程式的工作階段、活動、當機和技術資訊，則最簡單的方式是讓您所有有的 `Page` 子類別繼承自 `EngagementPage` 類別。
 
@@ -30,7 +30,7 @@ Engagement API 由 `EngagementAgent` 類別提供。您可以透過 `EngagementA
 
 ##Engagement 概念
 
-以下部分簡要說明適用於 Windows 平台的 [Mobile Engagement 概念](../mobile-engagement-concepts/) 。
+以下部分簡要說明適用於 Windows 平台的 [Mobile Engagement 概念](mobile-engagement-concepts.md) 。
 
 ### `工作階段`和 `活動`
 

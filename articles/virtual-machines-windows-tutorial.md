@@ -25,7 +25,7 @@
 本教學課程示範建立 Azure 虛擬機器 (VM) 有多麼容易。本教學課程使用 Windows Server 映像，不過這是透過 Azure 提供的許多映像之一。這包括 Windows 作業系統、以 Linux 為基礎的作業系統和預先安裝應用程式的影像。您可以選擇的映像取決於您擁有的訂閱類型。例如，桌面映像可能可供 MSDN 訂閱者使用。
 
 
-您也可以使用 [自己的映像做為範本](../virtual-machines-create-upload-vhd-windows-server/) 來建立 Windows VM。若要深入了解 Azure VM，請參閱 [Azure 虛擬機器概觀](http://msdn.microsoft.com/library/azure/jj156143.aspx)。
+您也可以使用 [自己的映像做為範本](virtual-machines-create-upload-vhd-windows-server.md) 來建立 Windows VM。若要深入了解 Azure VM，請參閱 [Azure 虛擬機器概觀](http://msdn.microsoft.com/library/azure/jj156143.aspx)。
 
 [AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
@@ -106,11 +106,11 @@
 
 若要深入了解如何在 Azure 上設定 Windows 虛擬機器，請參閱：
 
-[如何連接虛擬機器與虛擬網路或雲端服務](../cloud-services-connect-virtual-machine/)
+[如何連接虛擬機器與虛擬網路或雲端服務](cloud-services-connect-virtual-machine.md)
 
-[建立 Windows Server VHD 並上傳至 Azure](../virtual-machines-create-upload-vhd-windows-server/)
+[建立 Windows Server VHD 並上傳至 Azure](virtual-machines-create-upload-vhd-windows-server.md)
 
-[管理虛擬機器的可用性](../manage-availability-virtual-machines/)
+[管理虛擬機器的可用性](manage-availability-virtual-machines.md)
 
 [關於 Azure VM 組態設定](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 

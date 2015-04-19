@@ -1,5 +1,5 @@
 ﻿> [AZURE.SELECTOR]
-- [入口網站](/documentation/articles/media-services-manage-content/)
-- [.NET SDK](/documentation/articles/media-services-index-content/)
+- [入口網站](media-services-manage-content.md)
+- [.NET SDK](media-services-index-content.md)
 
 <!--HONumber=47-->

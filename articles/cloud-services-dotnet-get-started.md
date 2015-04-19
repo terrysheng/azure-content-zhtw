@@ -34,7 +34,7 @@
 
 ## 替代架構：網站和 WebJob
 
-本教學課程示範如何在 Azure 雲端服務中執行前端與後端。替代方式是在 [Azure 網站](/zh-tw/services/web-sites/)中執行前端，並且將 [WebJob](http://go.microsoft.com/fwlink/?LinkId=390226) 功能 (目前處於預覽) 用於後端。如需有關使用 WebJobs 的教學課程，請參閱[開始使用 Azure WebJobs SDK](/zh-tw/documentation/articles/websites-dotnet-webjobs-sdk-get-started/)。如需有關如何最適合您案例之服務的資訊，請參閱 [Azure 網站、雲端服務與虛擬機器之比較](http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/)。
+本教學課程示範如何在 Azure 雲端服務中執行前端與後端。替代方式是在 [Azure 網站](/zh-tw/services/web-sites/)中執行前端，並且將 [WebJob](http://go.microsoft.com/fwlink/?LinkId=390226) 功能 (目前處於預覽) 用於後端。如需有關使用 WebJobs 的教學課程，請參閱[開始使用 Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)。如需有關如何最適合您案例之服務的資訊，請參閱 [Azure 網站、雲端服務與虛擬機器之比較](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/)。
 
 ## 您將學到什麼
 
@@ -47,7 +47,7 @@
 
 ## 必要條件
 
-本教學課程假設您了解 [Azure 雲端服務的基本概念](http://azure.microsoft.com/ documentation/articles/fundamentals-application-models/#CloudServices)，例如 *web role* 和 *worker role* 術語。同時也假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 或 [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) 專案。範例應用程式使用 MVC，但大多數的教學課程內容亦適用於 Web Form。 
+本教學課程假設您了解 [Azure 雲端服務的基本概念](http://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices)，例如 *web role* 和 *worker role* 術語。同時也假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 或 [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) 專案。範例應用程式使用 MVC，但大多數的教學課程內容亦適用於 Web Form。 
 
 您不需 Azure 訂閱即可在本機執行應用程式，但需要訂閱才能將應用程式部署至雲端。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](/zh-tw/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668)或是[申請免費試用](/zh-tw/pricing/free-trial/?WT.mc_id=A55E3C668)。
 
@@ -795,7 +795,7 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
 以下是可示範更多真實世界程式碼編寫作法的一些雲端服務範例應用程式，依較不複雜到較複雜的順序列出：
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31)。概念類似 Contoso Ads，但實作更多功能和更多真實世界程式碼編寫實務。
-* [具有表格、佇列和 Blob 的 Azure 雲端服務多層式應用程式](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)。介紹「Azure 儲存體資料表」以及 Blob 和佇列，並隨附[逐步教學課程系列](http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/)。
+* [具有表格、佇列和 Blob 的 Azure 雲端服務多層式應用程式](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)。介紹「Azure 儲存體資料表」以及 Blob 和佇列，並隨附[逐步教學課程系列](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/)。
 * [Windows Azure 中的雲端服務基礎](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649)。完整範例示範由 Microsoft 模式和作法小組提供的許多最佳作法。
 
 如需針對雲端進行開發的一般相關資訊，請參閱[使用 Windows Azure 建置真實世界的雲端應用程式](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)。
@@ -807,7 +807,7 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
 * [Azure 雲端服務第 1 部分：簡介](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Azure 雲端服務](/zh-tw/documentation/services/cloud-services/)
 * [Azure 儲存體](/zh-tw/documentation/services/storage/)
-* [如何使用.NET 的 Blob 儲存體](/zh-tw/documentation/articles/storage-dotnet-how-to-use-blobs/)
-* [How to use Queue Storage from .NET](/zh-tw/documentation/articles/storage-dotnet-how-to-use-queues/)
+* [如何使用.NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)
+* [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md)
 
 <!--HONumber=45--> 

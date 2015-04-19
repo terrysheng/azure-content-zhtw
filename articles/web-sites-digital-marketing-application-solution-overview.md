@@ -89,7 +89,7 @@ Azure 網站[向上延展和向外延展]的能力非常適合無法預期的工
 ## 其他資源
 
 - [Azure 網站文件](/zh-tw/documentation/services/websites/)
-- [Azure 網站的學習地圖](/zh-tw/documentation/articles/websites-learning-map/)
+- [Azure 網站的學習地圖](websites-learning-map.md)
 - [Azure Web 部落格](/blog/topics/web/)
 
 

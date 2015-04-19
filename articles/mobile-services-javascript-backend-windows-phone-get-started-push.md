@@ -31,7 +31,7 @@
 
 本教學課程會以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務]或[開始使用資料]，將您的專案連接到行動服務。若未連接行動服務，[新增推播通知] 精靈會為您建立此連線。 
 
->[AZURE.NOTE]若要將推播通知傳送至 Windows Phone 8.1 市集應用程式，請遵循本教學課程的 [Windows 市集應用程式](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) 版本。
+>[AZURE.NOTE]若要將推播通知傳送至 Windows Phone 8.1 市集應用程式，請遵循本教學課程的 [Windows 市集應用程式](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) 版本。
 
 ##<a id="update-app"></a>更新應用程式以註冊通知
 

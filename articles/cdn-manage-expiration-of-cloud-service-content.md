@@ -48,7 +48,7 @@
 
 #另請參閱
 
-[如何管理 Azure 內容傳遞網路 (CDN) 中 Blob 內容的到期](./cdn-manage-expiration-of-blob-content.md
+[如何管理 Azure 內容傳遞網路 (CDN) 中 Blob 內容的到期](cdn-manage-expiration-of-blob-content.md
 )
 
 <!--HONumber=49-->

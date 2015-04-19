@@ -27,7 +27,7 @@
 >[AZURE.NOTE]若想取得工作流程設計工具，請連絡 mepd@microsoft.com。
 
 
-建立工作流程檔案後，此檔案可上傳做為資產，然後用來編碼媒體檔案。如需如何使用 **.NET** 以 **Media Encoder Premium Workflow** 進行編碼的相關資訊，請參閱[使用 Media Encoder Premium Workflow 進行進階編碼](../media-services-encode-with-premium-workflow)。
+建立工作流程檔案後，此檔案可上傳做為資產，然後用來編碼媒體檔案。如需如何使用 **.NET** 以 **Media Encoder Premium Workflow** 進行編碼的相關資訊，請參閱[使用 Media Encoder Premium Workflow 進行進階編碼](media-services-encode-with-premium-workflow.md)。
 
 ##<a id="existing_workflows"></a>修改現有的工作流程
 

@@ -179,9 +179,9 @@ Azure SQL 資料同步可讓您選取要同步的資料表和資料欄。如果�
 ## 後續步驟
 如需 SQL Database 與 SQL 資料同步的其他資訊，請參閱：
 
-* [註冊 SQL Database 的 Premium 版] (../sign-up-for-sql-database-premium/)
+* [註冊 SQL Database 的 Premium 版] (sign-up-for-sql-database-premium.md)
 * [SQL 資料同步 (WA 入口網站)](http://msdn.microsoft.com/library/windowsazure/jj856263.aspx)
-* [開始使用 Azure SQL Database](../getting-started-w-sql-databases/)
+* [開始使用 Azure SQL Database](getting-started-w-sql-databases.md)
 * [SQL Server 資料庫生命週期 ](http://go.microsoft.com/fwlink/?LinkId=275193)
 
 

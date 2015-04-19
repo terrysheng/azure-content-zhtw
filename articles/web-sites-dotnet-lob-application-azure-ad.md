@@ -22,7 +22,7 @@
 
 您使用的 AAD 租用戶可以擁有純 Azure 目錄，或可以是與您的內部部署 Active Directory (AD) 同步處理的目錄，以便為內部部署或遠端的工作者建立單一登入體驗。
 
-如需 Azure 網站的不同企業驗證和授權選項的概觀，請參閱[在 Azure 網站的 LOB 應用程式中驗證及授權使用者](../web-sites-authentication-authorization)。
+如需 Azure 網站的不同企業驗證和授權選項的概觀，請參閱[在 Azure 網站的 LOB 應用程式中驗證及授權使用者](web-sites-authentication-authorization.md)。
 
 <a name="bkmk_build"></a>
 ## 將建置的項目 ##
@@ -339,8 +339,8 @@
 ## 進一步資源
 
 - [使用 SSL 和 Authorize 屬性保護應用程式](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [在 Azure 網站的 LOB 應用程式中驗證及授權使用者](../web-sites-authentication-authorization/)
-- [在使用 AD FS 驗證的 Azure 網站中建立 ASP.NET MVC 特定業務應用程式](../web-sites-dotnet-lob-application-adfs/)
+- [在 Azure 網站的 LOB 應用程式中驗證及授權使用者](web-sites-authentication-authorization.md)
+- [在使用 AD FS 驗證的 Azure 網站中建立 ASP.NET MVC 特定業務應用程式](web-sites-dotnet-lob-application-adfs.md)
 - [Microsoft Azure Active Directory 範例與文件](https://github.com/AzureADSamples)
 - [Vittorio Bertocci 的部落格](http://blogs.msdn.com/b/vbertocci/) (英文)
 - [將 VS2013 Web 專案從 WIF 遷移到 Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/) (英文)

@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [開始使用](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [發生什麼情形](/documentation/articles/vs-storage-aspnet-what-happened/)
+> - [開始使用](vs-storage-aspnet-getting-started-queues.md)
+> - [發生什麼情形](vs-storage-aspnet-what-happened.md)
 
 ## 開始使用 Azure 儲存體 (ASP.NET 專案)
 
 > [AZURE.SELECTOR]
-> - [Blob](/documentation/articles/vs-storage-aspnet-getting-started-blobs/)
-> - [佇列](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
-> - [資料表](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
+> - [Blob](vs-storage-aspnet-getting-started-blobs.md)
+> - [佇列](vs-storage-aspnet-getting-started-queues.md)
+> - [資料表](vs-storage-aspnet-getting-started-tables.md)
 
 Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。如需詳細資訊，請參閱 [如何從 .NET 使用佇列儲存體](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/) (英文)。
 

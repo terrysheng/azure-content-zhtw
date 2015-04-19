@@ -18,7 +18,7 @@
 
 #作法：檢查工作進度
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 系列的一部分。 
 
 ##使用入口網站來檢查工作狀態
 
@@ -31,7 +31,7 @@
 
 ##下一步
 
-發佈內容。如需詳細資訊，請參閱 [如何：為資產編碼](../media-services-manage-content#publish)。 
+發佈內容。如需詳細資訊，請參閱 [如何：為資產編碼](media-services-manage-content#publish.md)。 
 
 
 [checkstatus]: ./media/media-services-monitor-job-progress/media-services-monitor-job-progress.png

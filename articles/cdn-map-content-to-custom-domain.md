@@ -88,7 +88,7 @@
 #另請參閱
 
 
-[如何啟用 Azure 內容傳遞網路 (CDN)](./cdn-create-new-endpoint.md)  
+[如何啟用 Azure 內容傳遞網路 (CDN)](cdn-create-new-endpoint.md)  
 **Azure CDN 概觀**
 
 

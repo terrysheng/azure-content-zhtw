@@ -26,7 +26,7 @@ Azure SQL Database Elastic Scale (預覽階段) 可讓應用程式的資料層�
 
 如需 Elastic Scale 運作方式的詳細資訊，請參閱 [Elastic Scale 概觀](http://go.microsoft.com/?linkid=9862592)。
 
-如需 Elastic Scale 所有相關主題的清單，請參閱 [Elastic Scale 說明文件圖](./sql-database-elastic-scale-documentation-map.md)
+如需 Elastic Scale 所有相關主題的清單，請參閱 [Elastic Scale 說明文件圖](sql-database-elastic-scale-documentation-map.md)
 
 ## Elastic Scale 範例應用程式
 
@@ -92,7 +92,7 @@ Elastic Scale 程式庫和服務範本是免費的。Elastic Scale 不會在您�
 ## 後續步驟
 如需 Elastic Scale 功能的詳細資訊，請參閱：
 
-* [Elastic Scale 學習頁面](./sql-database-elastic-scale-documentation-map.md) 
+* [Elastic Scale 學習頁面](sql-database-elastic-scale-documentation-map.md) 
 -    程式碼範例： 
     -    [Elastic Scale with Azure SQL Database - 開始使用](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Elastic Scale with Azure SQL Database - 與實體架構整合](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)

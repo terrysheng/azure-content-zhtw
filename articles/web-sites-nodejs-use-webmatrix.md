@@ -100,7 +100,7 @@
 
 ##後續步驟
 
-若要深入了解 Azure 隨附之 Node.js 的版本相關資訊，以及如何指定要與您的應用程式搭配使用的版本，請參閱[在 Azure 應用程式中指定 Node.js 版本](/zh-tw/documentation/articles/nodejs-specify-node-version-azure-apps/).
+若要深入了解 Azure 隨附之 Node.js 的版本相關資訊，以及如何指定要與您的應用程式搭配使用的版本，請參閱[在 Azure 應用程式中指定 Node.js 版本](nodejs-specify-node-version-azure-apps.md).
 
 如果您在將應用程式部署到 Azure 後遇到問題，請參閱[如何在 Azure 網站中對 Node.js 應用程式進行偵錯](http://azure.microsoft.com/develop/nodejs/how-to-guides/Debug-Website/)以取得診斷問題的詳細資訊。
 

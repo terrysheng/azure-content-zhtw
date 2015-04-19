@@ -20,7 +20,7 @@
 
 # <a id="managemediaservicesorigins"></a>如何在媒體服務帳戶中管理串流端點
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow)和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow)系列的一部分。  
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時串流工作流程](media-services-live-streaming-workflow.md)系列的一部分。  
 
 
 在媒體服務中，串流端點代表可以直接將內容傳遞給用戶端播放程式應用程式，或傳遞給內容傳遞網路 (CDN) 進行進一步發佈的串流服務。目前 Microsoft Azure 媒體服務不提供順暢的 CDN 整合，但您可以利用市場上的 CDN 提供者 (Azure CDN 或 Akamai)。從串流端點服務的輸出串流可以是即時串流或媒體服務帳戶中的隨選視訊資產。 

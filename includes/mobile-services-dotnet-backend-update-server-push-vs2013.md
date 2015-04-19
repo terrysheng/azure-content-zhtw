@@ -47,5 +47,5 @@
     > [WACOM.NOTE] 任何具有應用程式金鑰的用戶端均可呼叫此 POST 方法，因此這並不安全。為了保護端點，請將 `[AuthorizeLevel(AuthorizationLevel.User)]` 屬性套用至方法或類別，以要求驗證。
 
   [ApiController]: http://go.microsoft.com/fwlink/p/?LinkId=512673
-  [TableController]: http://msdn.microsoft.com/zh-tw/library/azure/dn643359.aspx
+  [TableController]: http://msdn.microsoft.com/library/azure/dn643359.aspx
   [Web API Add Scaffold dialog]: ./media/mobile-services-dotnet-backend-update-server-push-vs2013/add-custom-api-controller.png

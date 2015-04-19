@@ -23,7 +23,7 @@
 
 您也可能對以下相關主題有興趣：
 
-- 您可以選擇性地使用管理入口網站精靈[設定站台對站台 VPN](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx) (英文)，然後安裝新樹系，或將內部部署樹系延伸至 Azure 虛擬網路。如需相關步驟，請參閱[在 Azure 虛擬網路中安裝複本 Active Directory 網域控制站](../virtual-networks-install-replica-active-directory-domain-controller)。
+- 您可以選擇性地使用管理入口網站精靈[設定站台對站台 VPN](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx) (英文)，然後安裝新樹系，或將內部部署樹系延伸至 Azure 虛擬網路。如需相關步驟，請參閱[在 Azure 虛擬網路中安裝複本 Active Directory 網域控制站](virtual-networks-install-replica-active-directory-domain-controller.md)。
 -  如需在 Azure 虛擬網路上安裝 Active Directory 網域服務 (AD DS) 的概念指引，請參閱[在 Azure 虛擬機器上部署 Windows Server Active Directory 的指南](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx)。
 
 
@@ -65,7 +65,7 @@
 	**虛擬機器設定**  | <p>雲端服務：第一個 VM 選擇 [<b>建立新的雲端服務</b>]，然後在您建立更多裝載 DC 角色的 VM 時，選取該相同的雲端服務名稱。</p><p>雲端服務 DNS 名稱：指定全域唯一名稱</p><p>區域/同質群組/虛擬網路：指定虛擬網路名稱 (例如 WestUSVNet)。</p><p>儲存體帳戶：選擇 [<b>使用自動產生的儲存體帳戶</b>]，然後在您建立更多裝載 DC 角色的 VM 時，選取該相同的儲存體帳戶名稱。</p><p>可用性設定組：選擇 [<b>建立可用性設定組</b>]。</p><p>可用性設定組名稱：請在您建立第一個 VM 時輸入可用性設定組的名稱，然後在您建立更多 VM 時選擇該相同名稱。</p>
 	**虛擬機器組態**  | <p>選取 [<b>安裝 VM 代理程式</b>] 以及您所需的任何其他延伸模組。</p>
 2. 將磁碟連接至將執行 DC 伺服器角色的每個 VM。需要額外的磁碟來儲存 AD 資料庫、記錄檔和 SYSVOL。指定磁碟的大小 (例如 10 GB) 並保留 [**主機快取喜好設定**] 設為 [**無**]。在您第一次登入 VM 之後，請開啟 [**伺服器管理員**] > [**檔案和儲存體服務**]，以在磁碟上使用 NTFS 建立磁碟區。
-3. 為將執行 DC 角色的 VM 保留靜態 IP 位址。若要保留靜態 IP 位址，請下載 Microsoft Web Platform Installer，[安裝 Azure PowerShell](../powershell-install-configure) 並執行 Set-AzureStaticVNetIP Cmdlet。例如：
+3. 為將執行 DC 角色的 VM 保留靜態 IP 位址。若要保留靜態 IP 位址，請下載 Microsoft Web Platform Installer，[安裝 Azure PowerShell](powershell-install-configure.md) 並執行 Set-AzureStaticVNetIP Cmdlet。例如：
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
@@ -115,7 +115,7 @@
 
 -  [在管理入口網站中設定站對站 VPN](https://msdn.microsoft.com/library/dn133795.aspx)
 
--  [在 Azure 虛擬網路中安裝複本 Active Directory 網域控制站](../virtual-networks-install-replica-active-directory-domain-controller)
+-  [在 Azure 虛擬網路中安裝複本 Active Directory 網域控制站](virtual-networks-install-replica-active-directory-domain-controller.md)
 
 -  [Windows Azure IT 專業人員 IaaS：(01) 虛擬機器基礎](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 
@@ -123,7 +123,7 @@
 
 -  [虛擬網路概觀](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
--  [如何安裝和設定 Azure PowerShell](../powershell-install-configure/)
+-  [如何安裝和設定 Azure PowerShell](powershell-install-configure.md)
 
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 通知中樞通知使用者" 
+	pageTitle="Azure 通知中心通知使用者" 
 	description="了解如何在 Azure 中傳送安全的推播通知。程式碼範例是以 C# 撰寫並使用 .NET API。" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,38 +13,27 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="2/16/2015" 
-	ms.author="wesmc"/>
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
-# Azure 通知中樞通知使用者
+# Azure 通知中心通知使用者
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal" class="current">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
-		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
+    	<a href="/zh-tw/documentation/articles/notification-hubs-windows-dotnet-notify-users/" title="Windows Universal" class="current">Windows Universal</a><a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
+		<a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
-## 概觀
+Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，而大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。本教學課程將示範如何使用 Azure 通知中心，來將推播通知傳送到特定裝置上的特定應用程式使用者。ASP.NET WebAPI 後端可用來驗證用戶端並產生通知，如指引主題[從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中所示。本教學課程會以您在**開始使用通知中心**教學課程中所建立的通知中心為基礎。
 
-Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，而大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。本教學課程將示範如何使用 Azure 通知中樞，來將推播通知傳送到特定裝置上的特定應用程式使用者。ASP.NET WebAPI 後端可用來驗證用戶端並產生通知，如指引主題[從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中所示。本教學課程會以您在[開始使用通知中樞]教學課程中所建立的通知中樞為基礎。
+本教學課程也是**安全推播**教學課程的必要條件。完成本**通知使用者**教學課程後，您可以繼續進行**安全推播**教學課程，該教學課程說明如何修改**通知使用者**程式碼，來以安全的方式傳送推播通知。 
 
-本教學課程也是[安全推播]教學課程的必要條件。完成本教學課程中的步驟後，您可以繼續進行[安全推播]教學課程，該教學課程說明如何修改本教學課程中的程式碼，以安全的方式傳送推播通知。 
+> [AZURE.NOTE] 本教學課程假設您已建立並設定通知中心，如[開始使用通知中心 (Windows 市集)](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/) 中所述。
+> 如果您使用行動服務作為後端服務，請參閱本教學課程的[行動服務版本](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md)。
+>如本教學課程的說明，您將會建立 Windows Phone 市集 8.1 應用程式。相同的程式碼也可用於 Windows Store 和 Windows Universal 應用程式。這些應用程式都必須使用 Windows (非 Windows Phone) 認證。
 
+## 建立與設定通知中心
 
-## 必要條件 
-
-在開始本教學課程之前，您必須已完成下列行動服務教學課程：
-
-+ [開始使用通知中樞]<br/>您要建立通知中樞，然後保留應用程式名稱並註冊以接收本教學課程中的通知。
-
-
-
-
-> [AZURE.NOTE] 如果您要使用行動服務做為後端服務，請參閱本教學課程的[行動服務版本](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) 。
-
-
-## 建立與設定通知中樞
-
-在您開始本教學課程之前，您必須保留應用程式名稱，然後建立 Azure 通知中樞並將它連接到該應用程式。請依照[開始使用通知中樞 (Windows 市集)](http://azure.microsoft.comnotification-hubs-windows-store-dotnet-get-started.md) 中的步驟進行；尤其是[向 Windows 市集註冊您的應用程式] (notification-hubs-windows-store-dotnet-get-started.md#register) 一節和[設定通知中樞] (notification-hubs-windows-store-dotnet-get-started.md#configure-hub) 一節。尤其請確定您已在入口網站的通知中樞內，輸入 [**設定**] 索引標籤中的 [**封裝 SID**] 和 [**用戶端密碼**] 值。此設定程序會在[設定通知中樞](notification-hubs-windows-store-dotnet-get-started.md#configure-hub)一節中加以說明。這是重要步驟：如果入口網站上的認證與您為所選應用程式名稱指定的認證不符，則推播通知將無法順利進行。
+在您開始本教學課程之前，您必須保留應用程式名稱，然後建立 Azure 通知中心並將它連接到該應用程式。請依照[開始使用通知中心 (Windows 市集)](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/) 中的步驟進行；尤其是[向 Windows 市集註冊您的應用程式](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register)一節和[設計您的通知中心](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub)一節。尤其請確定您已在入口網站的通知中心內，輸入 [**設定**] 索引標籤中的 [**封裝 SID**] 和 [**用戶端密碼**] 值。此組態程序會在[設定您的通知中心](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub)一節中加以說明。這是重要步驟：如果入口網站上的認證與您為所選應用程式名稱指定的認證不符，則推播通知將無法順利進行。
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -61,7 +50,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 3. 在 [**名稱**] 方塊中輸入 **NotifyUserWindowsPhone**，然後按一下 [**確定**] 以產生專案。
 
  
-4. 建立此應用程式與 Windows Phone 市集的關聯：在 [方案總管] 中，以滑鼠右鍵按一下 [***NotifyUserWindowsPhone (Windows Phone 8.1)*]，再依序按一下 [**市集**] 和 [**將應用程式與市集建立關聯...**]。
+4. 建立此應用程式與 Windows Phone 市集的關聯：在 [方案總管] 中，以滑鼠右鍵按一下 [**NotifyUserWindowsPhone (Windows Phone 8.1)**]，再依序按一下 [**市集**] 和 [**將應用程式與市集建立關聯...**]。
 
 	![][10]
  
@@ -69,7 +58,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 	![][11]
 	
-	> [AZURE.NOTE] 請務必記下您在此程序期間所選的應用程式名稱。您必須使用從 [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409) 中取得的認證，為這個特定保留的應用程式名稱，在入口網站上設定通知中樞。此設定程序會在[設定通知中樞](notification-hubs-windows-store-dotnet-get-started.md#configure-hub)中加以說明。這是重要步驟：如果入口網站上的認證與您為所選應用程式名稱指定的認證不符，則推播通知將無法順利進行。
+	> [AZURE.NOTE] 請務必記下您在此程序期間所選的應用程式名稱。您必須使用從 [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409) 中取得的認證，為這個特定保留的應用程式名稱，在入口網站上設定通知中心。此組態程序會在[設定您的通知中心](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub)中加以說明。這是重要步驟：如果入口網站上的認證與您為所選應用程式名稱指定的認證不符，則推播通知將無法順利進行。
 
 6. 在 [方案總管] 中，以滑鼠右鍵按一下 **NotifyUserWindowsPhone (Windows Phone 8.1)** 專案，然後按一下 [**管理 NuGet 封裝**]。
 
@@ -83,7 +72,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 11. 在 [方案總管] 的 **NotifyUserWindowsPhone (Windows Phone 8.1)** 專案中，連按兩下 **MainPage.xaml**，在 Visual Studio 編輯器中開啟該檔案。
 
-12. 在 **MainPage.xaml** XML 程式碼中，使用下列程式碼取代 `<Grid>` 區段：
+12. 在 **MainPage.xaml** XML 程式碼中，使用下列程式碼來取代 `<Grid>` 區段：
 
 		<Grid>
 	        <Grid.RowDefinitions>
@@ -116,7 +105,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
     	</Grid>
 
 
-13. 在 [方案總管] 中，以滑鼠右鍵按一下 **NotifyUserWindowsPhone (Windows Phone 8.1)** 專案，然後按一下 [**新增**]，再按一下 [**類別**]。將類別命名為 **RegisterClient.cs**，然後按一下 [**確定**] 以產生類別。為註冊推播通知，此元件會實作連絡應用程式後端所需的 REST 呼叫。它也會在本機儲存通知中樞所建立的  *registrationIds*，如[從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中的詳細說明。請注意，當您按一下 [**Log in and register**] 按鈕時，系統便會使用儲存在本機儲存體中的授權權杖。
+13. 在 [方案總管] 中，以滑鼠右鍵按一下 **NotifyUserWindowsPhone (Windows Phone 8.1)** 專案，然後按一下 [**新增**]，再按一下 [**類別**]。將類別命名為 **RegisterClient.cs**，然後按一下 [**確定**] 以產生類別。為註冊推播通知，此元件會實作連絡應用程式後端所需的 REST 呼叫。它也會在本機儲存通知中心所建立的  *registrationIds*，如[從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中的詳細說明。請注意，當您按一下 [**Log in and register**] 按鈕時，系統便會使用儲存在本機儲存體中的授權權杖。
 
 14. 在  `RegisterClient` 類別定義中新增下列程式碼。請確定使用在上一節中所取得的後端端點來取代  `{backend endpoint}`：
 
@@ -207,7 +196,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		using System.Net.Http.Headers;
 		using Newtonsoft.Json;
 		
-16. 在 MainPage.xaml.cs 中新增按鈕的程式碼。**Log in and register** 的回呼會在本機儲存體中儲存基本驗證權杖 (請注意，這代表驗證結構描述使用的任何權杖)，然後使用  `RegisterClient` 呼叫後端。**AppBackend** 的回呼會呼叫後端，以觸發安全通知到這位使用者的所有裝置。 
+16. 在 MainPage.xaml.cs 中新增按鈕的程式碼。**Log in and register** 的回呼會在本機儲存體中儲存基本驗證權杖 (請注意，這代表驗證結構描述使用的任何權杖)，然後使用  `RegisterClient` 來呼叫後端。**AppBackend** 的回呼會呼叫後端，以觸發安全通知到這位使用者的所有裝置。 
 
 	將下列程式碼新增至 MainPage.xaml.cs 中的  `OnNavigatedTo()` 方法後面。請確定使用在上一節中所取得的後端端點來取代  `{backend endpoint}`：
 
@@ -262,7 +251,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 2. 在 **NotifyUserWindowsPhone** 應用程式 UI 中，輸入使用者名稱和密碼。這些可以是任何字串，但必須是相同值。
 
-3. 在 **NotifyUserWindowsPhone** 應用程式 UI 中，按一下 [**Log in and register**]。然後按一下 [**傳送推播**]。
+3. 在 **NotifyUserWindowsPhone** 應用程式 UI 中，按一下 [**Log in and register**]。然後按一下 **[傳送推播]**。
 
 
 [9]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
@@ -271,10 +260,4 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push13.png
 
-
-
-<!-- URLs. -->
-[開始使用通知中樞]: notification-hubs-windows-store-dotnet-get-started.md
-[安全推播]: notification-hubs-aspnet-backend-windows-dotnet-secure-push.md
-
-<!--HONumber=49-->
+<!--HONumber=45--> 

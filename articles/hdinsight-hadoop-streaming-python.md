@@ -196,7 +196,7 @@ Python 可以使用 **sys** 模組從 STDIN 讀取資料並使用 **print** 來�
 
 現在您已學會如何搭配 HDInsight 使用串流 MapRedcue 工作，接著請使用下列連結來探索 Azure HDInsight 的其他使用方式。
 
-* [使用 Hive 搭配 HDInsight](../hdinsight-use-hive/)
-* [搭配 HDInsight 使用 Pig](../hdinsight-use-pig/)
-* [搭配 HDInsight 使用 MapReduce 工作](../hdinsight-use-mapreduce)
+* [使用 Hive 搭配 HDInsight](hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
+* [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 <!--HONumber=47-->

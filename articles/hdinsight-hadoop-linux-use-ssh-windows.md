@@ -20,7 +20,7 @@
 
 以 Linux 為基礎的 HDInsight 叢集提供使用密碼或 SSH 金鑰保護 SSH 存取的選項。本文提供從 Windows 用戶端使用 PuTTY SSH 用戶端連接到 HDInsight 的資訊。
 
-> [AZURE.NOTE] 本文中的步驟假設您是使用 Windows 用戶端。如果您使用 Linux、 Unix 或 OS X 用戶端，請參閱 [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/)。
+> [AZURE.NOTE] 本文中的步驟假設您是使用 Windows 用戶端。如果您使用 Linux、 Unix 或 OS X 用戶端，請參閱 [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ##必要條件
 
@@ -224,10 +224,10 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 
 您已經了解如何使用 SSH 金鑰進行驗證，接著請了解如何在 HDInsight 上搭配使用 MapReduce 和 Hadoop。
 
-* [搭配 HDInsight 使用 Hive](../hdinsight-use-hive/)
+* [搭配 HDInsight 使用 Hive](hdinsight-use-hive.md)
 
-* [搭配 HDInsight 使用 Pig](../hdinsight-use-pig/)
+* [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 
-* [搭配 HDInsight 使用 MapReduce 工作](../hdinsight-use-mapreduce/)
+* [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
  
 <!--HONumber=47-->

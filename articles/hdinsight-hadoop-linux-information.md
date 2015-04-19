@@ -125,9 +125,9 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 
 ##後續步驟
 
-* [使用 Hive 搭配 HDInsight](../hdinsight-use-hive/)
-* [搭配 HDInsight 使用 Pig](../hdinsight-use-pig/)
-* [搭配 HDInsight 使用 MapReduce 工作](../hdinsight-use-mapreduce)
+* [使用 Hive 搭配 HDInsight](hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
+* [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
 
 <!--HONumber=47-->

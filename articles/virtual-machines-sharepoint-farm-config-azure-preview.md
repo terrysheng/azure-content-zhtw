@@ -26,7 +26,7 @@ SharePoint Server 伺服器陣列是 Microsoft Azure 預覽入口網站的一項
 
 下列區段提供每個伺服器陣列的組態詳細資料。
 
-如需詳細資訊，請參閱 [SharePoint Server 伺服器陣列](../virtual-machines-sharepoint-farm-azure-preview/).
+如需詳細資訊，請參閱 [SharePoint Server 伺服器陣列](virtual-machines-sharepoint-farm-azure-preview.md).
 
 ##基本 SharePoint 伺服器陣列
 
@@ -121,7 +121,7 @@ SharePoint Server 伺服器陣列是 Microsoft Azure 預覽入口網站的一項
 
 ##其他資源
 
-[SharePoint Server 伺服器陣列](../virtual-machines-sharepoint-farm-azure-preview/)
+[SharePoint Server 伺服器陣列](virtual-machines-sharepoint-farm-azure-preview.md)
 
 [Azure 基礎結構服務上的 SharePoint](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 

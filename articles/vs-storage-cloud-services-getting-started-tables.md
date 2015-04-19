@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [開始使用](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
-> - [發生什麼情形](/documentation/articles/vs-storage-cloud-services-what-happened/)
+> - [開始使用](vs-storage-cloud-services-getting-started-tables.md)
+> - [發生什麼情形](vs-storage-cloud-services-what-happened.md)
 
 ##開始使用 Azure 儲存體 (雲端服務專案)
 
 > [AZURE.SELECTOR]
-> - [Blob](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
-> - [佇列](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
-> - [資料表](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
+> - [Blob](vs-storage-cloud-services-getting-started-blobs.md)
+> - [佇列](vs-storage-cloud-services-getting-started-queues.md)
+> - [資料表](vs-storage-cloud-services-getting-started-tables.md)
 
 Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。Azure 資料表很適合儲存結構化、非關聯式資料。  如需詳細資訊，請參閱[如何使用 .NET 的資料表儲存體](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET")。
 

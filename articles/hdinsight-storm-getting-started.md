@@ -42,7 +42,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
 * Windows Azure PowerShell
 
-* 如果不熟悉 Apache Storm，請先閱讀 [HDInsight Storm 概觀](/zh-tw/documentation/articles/hdinsight-storm-overview) 文章。
+* 如果不熟悉 Apache Storm，請先閱讀 [HDInsight Storm 概觀](hdinsight-storm-overview.md) 文章。
 
 ## <a id="provision"></a>在 Azure 入口網站上佈建 Storm 叢集
 
@@ -72,7 +72,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
 	![storage account](./media/hdinsight-storm-getting-started/wizard4.png)
 
-8. 在 [**指令碼動作**] 頁面上，按一下 [**加入指令碼動作**]，以提供自訂指令碼的詳細資料，您想要執行該指令碼以自訂叢集，做為正在建立的叢集。例如，您可以使用指令碼動作來自訂叢集以安裝 <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](/zh-tw/documentation/articles/hdinsight-hadoop-customize-cluster/)。 
+8. 在 [**指令碼動作**] 頁面上，按一下 [**加入指令碼動作**]，以提供自訂指令碼的詳細資料，您想要執行該指令碼以自訂叢集，做為正在建立的叢集。例如，您可以使用指令碼動作來自訂叢集以安裝 <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。 
 	
 	![Configure Script Action to customize an HDInsight HBase cluster](./media/hdinsight-storm-getting-started/wizard5.png "Use Script Action to customize an HDInsight cluster") 
 
@@ -197,9 +197,9 @@ WordCountTopology 範例不會將輸出寫入目錄中，但我們可以使用 S
 
 	> [AZURE.NOTE] Java 文件由網頁組成。解壓縮之後，請使用瀏覽器來檢視 **index.html** 檔案。
 
-* [使用 Storm 和 HDInsight 分析感應器資料](/zh-tw/documentation/articles/hdinsight-storm-sensor-data-analysis)
+* [使用 Storm 和 HDInsight 分析感應器資料](hdinsight-storm-sensor-data-analysis.md)
 
-* [在 HDInsight 中的 Storm 上使用 SCP.NET 和 C# 開發串流資料處理應用程式](/zh-tw/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application)
+* [在 HDInsight 中的 Storm 上使用 SCP.NET 和 C# 開發串流資料處理應用程式](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html

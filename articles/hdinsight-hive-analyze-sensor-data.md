@@ -31,7 +31,7 @@
 
 ## 必要條件：
 
-* HDInsight (Hadoop) 叢集 - 如需建立叢集的詳細資訊，請參閱[在 HDInsight 中佈建 Hadoop 叢集](/zh-tw/documentation/articles/hdinsight-provision-clusters/)
+* HDInsight (Hadoop) 叢集 - 如需建立叢集的詳細資訊，請參閱[在 HDInsight 中佈建 Hadoop 叢集](hdinsight-provision-clusters.md)
 
 * Microsoft Excel 2013
 

@@ -339,8 +339,8 @@ HTTP 型 Web 服務可讓您支援各種用戶端，包括行動用戶端。ASP.
 
 如需這三個 Web 裝載選項的詳細資訊，請參閱下列資源：
 
-* [Azure 簡介](../fundamentals-introduction-to-azure/)
-* [計算 Azure 所提供的裝載選項](../fundamentals-application-models/)
+* [Azure 簡介](fundamentals-introduction-to-azure.md)
+* [計算 Azure 所提供的裝載選項](fundamentals-application-models.md)
 
 若要開始對應用程式使用您選擇的選項，請參閱下列資源：
 

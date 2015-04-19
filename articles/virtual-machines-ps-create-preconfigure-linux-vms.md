@@ -22,11 +22,11 @@
 
 這些步驟遵循建立 Azure PowerShell 命令集合的填空方法。如果您剛使用 PowerShell 或只想知道可指定哪些值來成功設定組態，這個方法相當實用。進階的 PowerShell 使用者可以使用命令並取代本身的變數值 (以「$」為開頭的行)。
 
-關於設定以 Windows 為基礎的虛擬機器的系列主題，請參閱 [使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](../virtual-machines-ps-create-preconfigure-windows-vms/)。
+關於設定以 Windows 為基礎的虛擬機器的系列主題，請參閱 [使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)。
 
 ##步驟 1：安裝 Azure PowerShell
 
-如果您尚未這樣做，請使用 [如何安裝和設定 Azure PowerShell](../install-configure-powershell/) 中的指示在本機電腦上安裝 Azure PowerShell。然後，開啟 Azure PowerShell 命令提示字元。
+如果您尚未這樣做，請使用 [如何安裝和設定 Azure PowerShell](install-configure-powershell.md) 中的指示在本機電腦上安裝 Azure PowerShell。然後，開啟 Azure PowerShell 命令提示字元。
 
 ##步驟 2：設定您的訂閱和儲存體帳戶
 
@@ -89,7 +89,7 @@
 
 	$vm1 | Add-AzureProvisioningConfig -Linux -SSHKeyPairs "<SSH key pairs>"
 
-如需詳細資訊，請參閱 [如何對 Azure 上的 Linux 使用 SSH]。(../virtual-machines-linux-use-ssh-key/)。
+如需詳細資訊，請參閱 [如何對 Azure 上的 Linux 使用 SSH]。(virtual-machines-linux-use-ssh-key.md)。
 
 也可選擇指定已在訂閱中部署的 SSH 公開金鑰清單。
 
@@ -157,7 +157,7 @@
 
 將命令集複製到剪貼簿，然後以滑鼠右鍵按一下 [開啟 Azure PowerShell 命令提示字元]。這將發出命令集作為一系列的 PowerShell 命令，並建立 Azure 虛擬機器。如果您在錯誤的訂閱、儲存體帳戶、雲端服務、可用性設定組、虛擬網路或子網路中建立虛擬機器，請刪除虛擬機器，並更正命令區塊語法，然後執行更正的命令集。 
 
-建立虛擬機器之後，請參閱 [如何登入執行 Linux 的虛擬機器]。(../virtual-machines-linux-how-to-log-on/)。 
+建立虛擬機器之後，請參閱 [如何登入執行 Linux 的虛擬機器]。(virtual-machines-linux-how-to-log-on.md)。 
 
 如果您將再次建立這個虛擬機器或類似的虛擬機器，您可以： 
 
@@ -260,11 +260,11 @@
 
 [Azure 虛擬機器的概觀](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[如何安裝和設定 Azure PowerShell](../install-configure-powershell/)
+[如何安裝和設定 Azure PowerShell](install-configure-powershell.md)
 
-[如何登入執行 Linux 的虛擬機器](../virtual-machines-linux-how-to-log-on/)
+[如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)
 
-[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](../virtual-machines-ps-create-preconfigure-windows-vms/)
+[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 
 <!--HONumber=47-->

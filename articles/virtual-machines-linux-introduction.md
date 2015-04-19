@@ -38,7 +38,7 @@
 
 使用 Azure 管理入口網站來建立 Linux 虛擬機器時，系統會要求您提供使用者名稱、密碼和 (選擇性) SSH 公開金鑰。在 Azure 上部署 Linux 虛擬機器的使用者名稱選擇受到下列限制：不允許使用已存在於虛擬機器中的系統帳戶名稱 (UID <100)，例如 'root'。
 
- - 請參閱[如何對 Azure 上的 Linux 使用 SSH](../linux-use-ssh-key/)
+ - 請參閱[如何對 Azure 上的 Linux 使用 SSH](linux-use-ssh-key.md)
 
 
 ### <a id="keygeneration"></a>產生 SSH 金鑰
@@ -92,14 +92,14 @@
 
 您可以選擇使用 **sudo -s** 來取得 root shell。
 
-- 請參閱[在 Azure 中的 Linux 虛擬機器上使用根權限](../virtual-machines-linux-use-root-privileges/)
+- 請參閱[在 Azure 中的 Linux 虛擬機器上使用根權限](virtual-machines-linux-use-root-privileges.md)
 
 
 ## <a id="firewallconfiguration"></a>防火牆設定
 
 Azure 提供輸入封包篩選器，可限制只能連線至管理入口網站中指定的連接埠。預設允許的連接埠只有 SSH。您可以在管理入口網站中設定端點，以開放存取 Linux 虛擬機器上的其他連接埠：
 
- - 請參閱：[如何設定虛擬機器的端點](../virtual-machines-set-up-endpoints/)
+ - 請參閱：[如何設定虛擬機器的端點](virtual-machines-set-up-endpoints.md)
 
 Azure 映像庫中的 Linux 映像依預設不會啟用 *iptables* 防火牆。如有需要，可設定防火牆來提供其他篩選。
 
@@ -114,7 +114,7 @@ Azure 映像庫中的 Linux 映像依預設不會啟用 *iptables* 防火牆。�
 
 Azure Linux 代理程式包括可自動偵測此名稱變更、適當地設定虛擬機器來保存此變更，以及將此變更發佈至平台 DNS 伺服器等功能。
 
- - [Azure Linux 代理程式使用者指南](../virtual-machines-linux-agent-user-guide/)
+ - [Azure Linux 代理程式使用者指南](virtual-machines-linux-agent-user-guide.md)
 
 ### Ubuntu 映像
 Ubuntu 映像會利用可提供啟動載入虛擬機器其他功能的 cloud-init。
@@ -132,7 +132,7 @@ Azure 可將現有虛擬機器的狀態擷取到映像中，供以後用來部�
 
 3. 按一下管理入口網站中的 \[擷取\] ( *Capture*)，或使用 Powershell 或 CLI 工具，將虛擬機器擷取為映像。
 
- - 請參閱：[如何擷取 Linux 虛擬機器作為範本使用](../virtual-machines-linux-capture-image/)
+ - 請參閱：[如何擷取 Linux 虛擬機器作為範本使用](virtual-machines-linux-capture-image.md)
 
 
 ## <a id="attachingdisks"></a>連接磁碟
@@ -143,9 +143,9 @@ Azure 可將現有虛擬機器的狀態擷取到映像中，供以後用來部�
 
 	>[AZURE.NOTE] 請注意，資源磁碟是「暫時」磁碟，可能會在 VM 重新開機時遭到刪除及重新格式化。
 
-在 Linux 上，核心有可能將資料磁碟命名為 `/dev/sdc`，且使用者必須分割、格式化及掛接該資源。本教學課程中將涵蓋這部分的逐步說明：[如何將資料磁碟附加至虛擬機器](../virtual-machines-linux-how-to-attach-disk/)。
+在 Linux 上，核心有可能將資料磁碟命名為 `/dev/sdc`，且使用者必須分割、格式化及掛接該資源。本教學課程中將涵蓋這部分的逐步說明：[如何將資料磁碟附加至虛擬機器](virtual-machines-linux-how-to-attach-disk.md)。
 
- - 另請參閱：[在 Linux 上設定軟體 RAID](../virtual-machines-linux-configure-raid/)
+ - 另請參閱：[在 Linux 上設定軟體 RAID](virtual-machines-linux-configure-raid.md)
 
 
 

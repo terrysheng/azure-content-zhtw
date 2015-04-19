@@ -20,7 +20,7 @@
 
 在本文中，您會學習如何將內部部署 [Active Directory Federation Services](http://technet.microsoft.com/ library/hh831502.aspx) 做為身分識別提供者，在 [Azure 網站](http://azure.microsoft.com/services/websites/)中建立 ASP.NET MVC 特定業務 (LOB) 應用程式。當您想要在 Azure 網站中建立的 LOB 應用程式，但您的組織需要在內部儲存所有資料時，可以利用這種情況。
 
-如需 Azure 網站的不同的企業驗證和授權選項的概觀，請參閱[在 Azure 網站的 LOB 應用程式中驗證及授權使用者](./web-sites-authentication-authorization/)。
+如需 Azure 網站的不同的企業驗證和授權選項的概觀，請參閱[在 Azure 網站的 LOB 應用程式中驗證及授權使用者](web-sites-authentication-authorization)。
 
 <a name="bkmk_build"></a>
 ## 將建置的項目 ##
@@ -341,8 +341,8 @@ Azure 網站使用兩種方法支援內部部署資料庫的存取：[混合式�
 ## 進一步資源
 
 - [使用 SSL 和 Authorize 屬性保護應用程式](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [在 Azure 網站的 LOB 應用程式中驗證及授權使用者](../web-sites-authentication-authorization/)
-- [在使用 Azure Active Directory 驗證的 Azure 網站中建立 ASP.NET MVC 特定業務應用程式](../web-sites-dotnet-lob-application-azure-ad/)
+- [在 Azure 網站的 LOB 應用程式中驗證及授權使用者](web-sites-authentication-authorization.md)
+- [在使用 Azure Active Directory 驗證的 Azure 網站中建立 ASP.NET MVC 特定業務應用程式](web-sites-dotnet-lob-application-azure-ad.md)
 - [在 Visual Studio 2013 中搭配使用內部部署組織驗證選項 (ADFS) 與 ASP.NET](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/) (英文)
 - [Vittorio Bertocci 的部落格](http://blogs.msdn.com/b/vbertocci/) (英文)
 - [將 VS2013 Web 專案從 WIF 遷移到 Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/) (英文)

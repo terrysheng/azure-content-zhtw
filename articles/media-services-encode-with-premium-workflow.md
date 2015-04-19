@@ -26,15 +26,15 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 
 以下主題說明 **Media Encoder Premium Workflow** 的相關詳細資料： 
 
-- [Media Encoder Premium Workflow 支援的格式](../media-services-premium-workflow-encoder-formats) - 討論 **Media Encoder Premium Workflow** 支援的檔案格式和轉碼器。
+- [Media Encoder Premium Workflow 支援的格式](media-services-premium-workflow-encoder-formats.md) - 討論 **Media Encoder Premium Workflow** 支援的檔案格式和轉碼器。
 
-- [比較編碼器](../media-services-encode-asset#compare_encoders) 章節比較 **Media Encoder Premium Workflow** 和 **Azure Media Encoder** 的編碼功能。
+- [比較編碼器](media-services-encode-asset#compare_encoders.md) 章節比較 **Media Encoder Premium Workflow** 和 **Azure Media Encoder** 的編碼功能。
 
 本主題示範如何使用 .NET 以 **Media Encoder Premium Workflow** 進行編碼。
 
 ##編碼
 
-**Media Encoder Premium Workflow** 的編碼工作需要個別的組態檔，這稱為工作流程檔案。這些檔案具有 .workflow 副檔名，使用[工作流程設計工具](../media-services-workflow-designer) 來建立。
+**Media Encoder Premium Workflow** 的編碼工作需要個別的組態檔，這稱為工作流程檔案。這些檔案具有 .workflow 副檔名，使用[工作流程設計工具](media-services-workflow-designer.md) 來建立。
 
 您也可以在[這裡](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)取得預設的工作流程檔案。資料夾也包含這些檔案的說明。
 
@@ -59,7 +59,7 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 
 6. 提交編碼工作 (Job)。
 
-以下是完整的範例。如需如何使用媒體服務 .NET 開發進行設定的相關資訊，請參閱[使用 .NET 進行媒體服務開發](../media-services-dotnet-how-to-use)。
+以下是完整的範例。如需如何使用媒體服務 .NET 開發進行設定的相關資訊，請參閱[使用 .NET 進行媒體服務開發](media-services-dotnet-how-to-use.md)。
 
 
  	using System; 

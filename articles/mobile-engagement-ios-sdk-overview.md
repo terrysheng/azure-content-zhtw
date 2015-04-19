@@ -18,16 +18,16 @@
 
 #2.0.0
 
-從這裡開始取得有關如何在 iOS 應用程式中整合 Azure Mobile Engagement 的所有詳細資料。如果您想要先試用一下，請確認完成我們的 [15 分鐘教學課程](../mobile-engagement-ios-get-started/)。
+從這裡開始取得有關如何在 iOS 應用程式中整合 Azure Mobile Engagement 的所有詳細資料。如果您想要先試用一下，請確認完成我們的 [15 分鐘教學課程](mobile-engagement-ios-get-started.md)。
 
-按一下來查看 [SDK 內容](../mobile-engagement-ios-sdk-content)
+按一下來查看 [SDK 內容](mobile-engagement-ios-sdk-content.md)
 
 ##整合程序
-1. 從這裡開始：[如何在 iOS 應用程式中整合 Mobile Engagement](../mobile-engagement-ios-integrate-engagement/)
+1. 從這裡開始：[如何在 iOS 應用程式中整合 Mobile Engagement](mobile-engagement-ios-integrate-engagement.md)
 
-2. 針對通知：[如何在 iOS 應用程式中整合 Reach (通知)](../mobile-engagement-ios-integrate-engagement-reach/)
+2. 針對通知：[如何在 iOS 應用程式中整合 Reach (通知)](mobile-engagement-ios-integrate-engagement-reach.md)
 
-3. 標記計畫實作：[如何在 iOS 應用程式中使用進階的 Mobile Engagement 標記 API](../mobile-engagement-ios-use-engagement-api/)
+3. 標記計畫實作：[如何在 iOS 應用程式中使用進階的 Mobile Engagement 標記 API](mobile-engagement-ios-use-engagement-api.md)
 
 
 ##版本資訊
@@ -41,13 +41,13 @@
 -   增強安全性。
 -   已移除 SmartAd 追蹤。
 
-如需較早版本，請參閱[完整版本資訊](../mobile-engagement-ios-release-notes/)
+如需較早版本，請參閱[完整版本資訊](mobile-engagement-ios-release-notes.md)
 
 ##升級程序
 
 如果您已經整合舊版 Engagement 到您的應用程式，在升級 SDK 時您必須考慮以下幾點。
 
-如果您錯過數個版本的 SDK，您可能要遵循數個程序，請參閱完整的[升級程序](../mobile-engagement-ios-upgrade-procedure/)。
+如果您錯過數個版本的 SDK，您可能要遵循數個程序，請參閱完整的[升級程序](mobile-engagement-ios-upgrade-procedure.md)。
 
 針對每個新版 SDK，您必須先取代 (在 xcode 中移除並重新匯入) EngagementSDK 與 EngagementReach 資料夾。
 

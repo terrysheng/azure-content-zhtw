@@ -46,7 +46,7 @@ HDInsight 會透過新增次要前端節點 (Head Node1)，來將這個單一失
 
 您可以使用 Azure PowerShell Cmdlet 或 HDInsight SDK 來設定超大型 VM。
 
-[使用 PowerShell 管理 HDInsight](../hdinsight-administer-use-powershell/) 中記載使用 PowerShell 建立與佈建叢集的說明。超大型前端節點的組態要求將 `-HeadNodeVMSize ExtraLarge` 參數加入此程式碼中所使用的 `New-AzureHDInsightcluster`Cmdlet。
+[使用 PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md) 中記載使用 PowerShell 建立與佈建叢集的說明。超大型前端節點的組態要求將 `-HeadNodeVMSize ExtraLarge` 參數加入此程式碼中所使用的 `New-AzureHDInsightcluster`Cmdlet。
 
     # Create a new HDInsight cluster in Azure PowerShell
 	# Configured with an ExtraLarge Headnode VM

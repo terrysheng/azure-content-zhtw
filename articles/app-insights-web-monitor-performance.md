@@ -35,7 +35,7 @@ Application Insights 能監視託管於內部部署設施或虛擬機器上的 A
 
 * [將 Application Insights 新增至 Visual Studio 中的應用程式專案][greenbrown] - 建議的方法。除了被動效能監視之外，您還可以插入診斷記錄及追蹤流量。
 * [立即監視即時網站的效能][redfield] - 如果選用這個方法，便不需要更新應用程式專案或重新部署網站。
-* [使用 Microsoft Azure 網站] -(../insights-how-to-customize-monitoring/)  您已經可以在網站的 [監視] 透鏡上看到度量。 
+* [使用 Microsoft Azure 網站] -(insights-how-to-customize-monitoring.md)  您已經可以在網站的 [監視] 透鏡上看到度量。 
 
 
 ## <a name="view"></a>檢視報告

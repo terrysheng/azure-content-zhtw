@@ -22,7 +22,7 @@
 
 # 如何管理媒體服務中的內容 #
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow)系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)系列的一部分。 
 
 本主題說明如何使用 Azure 管理入口網站在媒體服務帳戶中管理媒體內容。
 
@@ -84,7 +84,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 若要利用動態封裝，您需要執行下列動作：
 
 - 將您的夾層 (來源) 檔編碼為一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案 (編碼步驟稍後示範於本教學課程中。
-- 為您計畫從該處傳遞內容的串流端點取得至少一個隨選串流單元。如需詳細資訊，請參閱[如何調整隨選串流保留單元](../media-services-manage-origins#scale_streaming_endpoints/)。
+- 為您計畫從該處傳遞內容的串流端點取得至少一個隨選串流單元。如需詳細資訊，請參閱[如何調整隨選串流保留單元](media-services-manage-origins#scale_streaming_endpoints.md)。
 
 使用動態封裝，您只需要以單一儲存格式儲存及播放檔案，媒體服務會根據來自用戶端的要求建置及傳遞適當的回應。 
 
@@ -128,8 +128,8 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 如果您想要讓媒體服務以 AES 金鑰或 PlayReady DRM 動態加密資產，請務必先執行下列動作：
 
 - 將您的夾層 (來源) 檔編碼為一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案 (編碼步驟示範於[編碼](#encode) 一節中）。
-- 為您計畫從該處傳遞內容的串流端點取得至少一個隨選串流單元。如需詳細資訊，請參閱[如何調整隨選串流保留單元](../media-services-manage-origins#scale_streaming_endpoints/)。
-- 設定「預設 aes 清除金鑰服務原則」或「預設 playready 授權服務原則」。如需詳細資訊，請參閱[設定內容金鑰授權原則](../media-services-portal-configure-content-key-auth-policy)。  
+- 為您計畫從該處傳遞內容的串流端點取得至少一個隨選串流單元。如需詳細資訊，請參閱[如何調整隨選串流保留單元](media-services-manage-origins#scale_streaming_endpoints.md)。
+- 設定「預設 aes 清除金鑰服務原則」或「預設 playready 授權服務原則」。如需詳細資訊，請參閱[設定內容金鑰授權原則](media-services-portal-configure-content-key-auth-policy.md)。  
 
 
 	當您已經準備要啟用加密時，請按 [**內容**] 頁面底部的 [**加密**] 按鈕。

@@ -30,7 +30,7 @@
 
 這個 [**從組件庫**] 選項會開啟可協助您設定虛擬機器的精靈。您可以使用精靈的最後一個頁面，來安裝 VM 代理程式和 Symantec 安全性延伸模組。 
 
-如需一般指示，請參閱 [建立執行 Windows Server 的虛擬機器]。(../virtual-machines-windows-tutorial/)。當您進入精靈的最後一個頁面時：
+如需一般指示，請參閱 [建立執行 Windows Server 的虛擬機器]。(virtual-machines-windows-tutorial.md)。當您進入精靈的最後一個頁面時：
 
 1.	在 VM 代理程式下，[**安裝 VM 代理程式**] 應已勾選。
 
@@ -45,7 +45,7 @@
 
 在開始之前，您將需要下列項目：
 
-- Azure PowerShell 模組 0.8.2 版或更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查已安裝的 Azure PowerShell 版本。如需最新版本的指示與連結，請參閱[如何安裝和設定 Azure PowerShell](../install-configure-powershell/)。  
+- Azure PowerShell 模組 0.8.2 版或更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查已安裝的 Azure PowerShell 版本。如需最新版本的指示與連結，請參閱[如何安裝和設定 Azure PowerShell](install-configure-powershell.md)。  
 
 - VM 代理程式。 
 
@@ -67,13 +67,13 @@
 
 若要確認 Symantec 安全性延伸模組已安裝且是最新的：
 
-1.	登入虛擬機器。如需詳細資訊，請參閱 [如何登入執行 Windows Server 的虛擬機器](../virtual-machines-log-on-windows-server/)。
+1.	登入虛擬機器。如需詳細資訊，請參閱 [如何登入執行 Windows Server 的虛擬機器](virtual-machines-log-on-windows-server.md)。
 2.	在 Windows Server 2008 R2 中，依序按一下 [**開始 > Symantec Endpoint Protection**]。在 Windows Server 2012 或 Windows Server 2012 R2 的 [開始] 畫面中，輸入 **Symantec**，然後按一下 [**Symantec Endpoint Protection**]。
 3.	在 [**狀態 - Symantec Endpoint Protection**] 視窗的 [**狀態**] 索引標籤中，套用更新或視需要重新啟動。
 
 ## 其他資源
 
-[如何登入執行 Windows Server 的虛擬機器](../virtual-machines-log-on-windows-server/)
+[如何登入執行 Windows Server 的虛擬機器](virtual-machines-log-on-windows-server.md)
 
 [管理延伸模組](https://msdn.microsoft.com/library/dn606311.aspx)
 

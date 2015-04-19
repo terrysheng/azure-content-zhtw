@@ -90,7 +90,7 @@ Azure 組件庫提供受歡迎網站內容管理系統 (CMS) 的範本，例如 
 ## 其他資源
 
 - [Azure 網站文件](/zh-tw/documentation/services/websites/)
-- [了解 Azure 網站的對應](/zh-tw/documentation/articles/websites-learning-map/)
+- [了解 Azure 網站的對應](websites-learning-map.md)
 - [Azure Web 部落格](/blog/topics/web/)
 
 

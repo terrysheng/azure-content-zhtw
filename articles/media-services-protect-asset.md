@@ -19,7 +19,7 @@
 
 # 作法：使用 PlayReady 或 AES-128 動態加密資產
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) and [媒體服務即時資料流工作流程](../media-services-live-streaming-workflow) 系列的一部分。
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) and [媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md) 系列的一部分。
   
 ## 概觀
 

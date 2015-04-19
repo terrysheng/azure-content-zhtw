@@ -23,7 +23,7 @@
 
 本教學課程說明如何開始在 Azure 網站上執行 Python。Azure 網站提供有限的免費主控和快速的部署，而現在您可以使用 Python！隨著應用程式規模增加，您可以切換為付費主控，也可以與其他所有 Azure 服務整合。
 
-您將使用 Bottle Web 架構建立應用程式 (請參閱本教學課程的其他版本 [Django](../web-sites-python-create-deploy-django-app) 和 [Flask](../web-sites-python-create-deploy-flask-app))。您會從 Azure 組件庫建立網站、設定 Git 部署，並於本機複製儲存機制。然後您會在本機執行應用程式、進行變更、認可和推送至 Azure。本教學課程示範如何從 Windows 或 Mac/Linux 執行這項操作。
+您將使用 Bottle Web 架構建立應用程式 (請參閱本教學課程的其他版本 [Django](web-sites-python-create-deploy-django-app.md) 和 [Flask](web-sites-python-create-deploy-flask-app.md))。您會從 Azure 組件庫建立網站、設定 Git 部署，並於本機複製儲存機制。然後您會在本機執行應用程式、進行變更、認可和推送至 Azure。本教學課程示範如何從 Windows 或 Mac/Linux 執行這項操作。
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 

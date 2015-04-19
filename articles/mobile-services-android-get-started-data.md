@@ -36,7 +36,7 @@
 > [AZURE.NOTE] 若要查看已完成應用程式的原始程式碼，請移至 <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData">這裡</a>。
 
 如果您想要查看本教學課程的 Eclipse 版本，請移至 
-[使用 Eclipse 開始使用資料](/documentation/articles/mobile-services-android-get-started-data-EC/)。
+[使用 Eclipse 開始使用資料](mobile-services-android-get-started-data-EC.md)。
 
 > [AZURE.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure 免費試用</a>。
 

@@ -49,7 +49,7 @@ Microsoft Azure SQL Database Elastic Scal 包含自我裝載的服務。散發�
 
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 
-* 從 [Windows 8.1︰下載套件與工具](http://msdn.microsoft.com/en-US/windows/hardware/gg454513#drivers)取得 WDK
+* 從 [Windows 8.1︰下載套件與工具](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)取得 WDK
 
 ##    <a name="to-configure-ssl-cert"></a>設定 SSL 憑證
 需要 SSL 憑證，才能將通訊加密和驗證伺服器。從以下三種案例中選擇最適用的案例，然後執行其所有步驟：

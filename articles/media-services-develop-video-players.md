@@ -35,5 +35,5 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 
 ##使用現有播放器來播放您的內容
 
-如需詳細資訊，請參閱[使用現有播放器來播放您的內容](../media-services-playback-content-with-existing-players)。
+如需詳細資訊，請參閱[使用現有播放器來播放您的內容](media-services-playback-content-with-existing-players.md)。
 <!--HONumber=47-->

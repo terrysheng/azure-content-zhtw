@@ -1,7 +1,7 @@
 
 驗證使用者提交的資料長度一向是最佳做法。在本節中，您會將程式碼新增到行動服務，此服務會驗證傳送至行動服務之字串資料長度，並拒絕太長的字串，在此案例中為超過 10 個字元。
 
-1. 使用 **[以系統管理員身分執行]** 選項啟動 Visual Studio，然後開啟解決方案，該解決方案包含您在[開始使用]或[開始使用資料](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)教學課程中使用的行動服務專案。
+1. 使用 **[以系統管理員身分執行]** 選項啟動 Visual Studio，然後開啟解決方案，該解決方案包含您在[開始使用]或[開始使用資料](mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md)教學課程中使用的行動服務專案。
 
 2. 在 [方案總管] 視窗中展開 Todo 清單服務專案，然後展開 **[控制器]**。開啟行動服務專案的 TodoItemController.cs 檔案。  
 
@@ -29,9 +29,9 @@
 
    	![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-build-dotnet-service.png)
 
-5. 以滑鼠右鍵按一下服務專案，然後按一下 **[發行]**。使用您先前在[開始使用]或[開始使用資料](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)教學課程中使用的發行設定，將行動服務發行至您的 Microsoft Azure 帳戶。
+5. 以滑鼠右鍵按一下服務專案，然後按一下 **[發行]**。使用您先前在[開始使用]或[開始使用資料](mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md)教學課程中使用的發行設定，將行動服務發行至您的 Microsoft Azure 帳戶。
  
-     >[AZURE.NOTE] 您可以在 IIS Express 中，使用本機主控的服務進行其他測試。如需詳細資訊，請參閱[開始使用資料](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)教學課程。
+     >[AZURE.NOTE] 您可以在 IIS Express 中，使用本機主控的服務進行其他測試。如需詳細資訊，請參閱[開始使用資料](mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md)教學課程。
 
     ![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-publish-dotnet-service.png)
 

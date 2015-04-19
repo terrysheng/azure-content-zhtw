@@ -120,8 +120,8 @@ Microsoft 提供在 HDInsight 叢集上安裝元件的範例指令碼。範例�
 
 - [在 HDInsight 叢集上安裝和使用 Spark 1.0][hdinsight-install-spark]
 - [在 HDInsight Hadoop 叢集上安裝和使用 R][hdinsight-r-scripts]
-- [在 HDInsight 叢集上安裝和使用 Solr](../hdinsight-hadoop-solr-install)
-- [在 HDInsight 叢集上安裝和使用 Giraph](../hdinsight-hadoop-giraph-install)  
+- [在 HDInsight 叢集上安裝和使用 Solr](hdinsight-hadoop-solr-install.md)
+- [在 HDInsight 叢集上安裝和使用 Giraph](hdinsight-hadoop-giraph-install.md)  
 
 > [AZURE.NOTE] 範例指令碼只能與 HDInsight 叢集版本 3.1 或以上版本搭配使用。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/)。
 

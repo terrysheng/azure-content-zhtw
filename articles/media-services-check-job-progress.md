@@ -18,7 +18,7 @@
 
 # 作法：檢查工作進度
 
-這篇文章屬於[要求工作流程上的媒體服務視訊](../media-services-video-on-demand-workflow)系列。 
+這篇文章屬於[要求工作流程上的媒體服務視訊](media-services-video-on-demand-workflow.md)系列。 
 
 執行作業時，您通常需要設法追蹤作業進度。下列程式碼定義 StateChanged 事件處理常式。此事件處理常式可追蹤作業進度，並根據狀態來提供更新的狀態。程式碼也定義 LogJobStop 方法。此協助程式方法會記錄錯誤詳細資料。
 

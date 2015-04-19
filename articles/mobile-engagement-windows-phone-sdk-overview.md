@@ -17,17 +17,17 @@
 	ms.author="kapiteir" />
 
 #適用於 Azure Mobile Engagement v2.0.0 的 Windows Phone SDK 
-從這裡開始了解所有在 Windows Phone 應用程式中整合 Azure Mobile Engagement 的細節。如果您想要先試用一下，請確認完成我們的 [15 分鐘教學課程](../mobile-engagement-windows-phone-get-started/)。
+從這裡開始了解所有在 Windows Phone 應用程式中整合 Azure Mobile Engagement 的細節。如果您想要先試用一下，請確認完成我們的 [15 分鐘教學課程](mobile-engagement-windows-phone-get-started.md)。
 
-按一下來查看 [SDK 內容](../mobile-engagement-windows-phone-sdk-content/)
+按一下來查看 [SDK 內容](mobile-engagement-windows-phone-sdk-content.md)
 
 ##整合程序
 
-1. 從這裡開始：[如何在您的 Windows Phone 應用程式整合 Mobile Engagement](../mobile-engagement-windows-phone-integrate-engagement/)
+1. 從這裡開始：[如何在您的 Windows Phone 應用程式整合 Mobile Engagement](mobile-engagement-windows-phone-integrate-engagement.md)
 
-2. 針對通知：[如何在您的 Windows Phone 應用程式整合 Reach (通知)](../mobile-engagement-windows-phone-integrate-engagement-reach/)
+2. 針對通知：[如何在您的 Windows Phone 應用程式整合 Reach (通知)](mobile-engagement-windows-phone-integrate-engagement-reach.md)
 
-3. 標記計畫實作：[如何在您的 Windows Phone 應用程式使用進階的 Mobile Engagement 標記 API](../mobile-engagement-windows-phone-use-engagement-api/)
+3. 標記計畫實作：[如何在您的 Windows Phone 應用程式使用進階的 Mobile Engagement 標記 API](mobile-engagement-windows-phone-use-engagement-api.md)
 
 ##版本資訊
 
@@ -36,7 +36,7 @@
 -   連接字串組態取代 appId/sdkKey 組態。
 -   增強安全性。
 
-如需較早版本，請參閱[完整版本資訊](../mobile-engagement-windows-phone-release-notes/)
+如需較早版本，請參閱[完整版本資訊](mobile-engagement-windows-phone-release-notes.md)
 
 ##升級程序
 

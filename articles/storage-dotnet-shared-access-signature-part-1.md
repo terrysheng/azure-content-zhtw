@@ -20,7 +20,7 @@
 
 # 共用存取簽章，第 1 部分：了解 SAS 模型
 
-若要在無需提供您帳戶金鑰的情況下，將儲存體帳戶中 Blob、資料表和佇列的限制存取授與其他用戶端，則使用共用存取簽章 (SAS) 會是個佷有效的方式。在本教學課程有關共用存取簽章的第 1 部分中，我們將提供 SAS 模型的概觀並檢閱 SAS 最佳做法。[第 2 部分](../storage-dotnet-shared-access-signature-part-2/) (在本教學課程中) 將逐步引導您使用 Blob 服務來完成建立共用存取簽章的程序。
+若要在無需提供您帳戶金鑰的情況下，將儲存體帳戶中 Blob、資料表和佇列的限制存取授與其他用戶端，則使用共用存取簽章 (SAS) 會是個佷有效的方式。在本教學課程有關共用存取簽章的第 1 部分中，我們將提供 SAS 模型的概觀並檢閱 SAS 最佳做法。[第 2 部分](storage-dotnet-shared-access-signature-part-2.md) (在本教學課程中) 將逐步引導您使用 Blob 服務來完成建立共用存取簽章的程序。
 
 ## 共用存取簽章為何？ ##
 
@@ -223,7 +223,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&s
 
 ## Next Steps ##
 
-[Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](../storage-dotnet-shared-access-signature-part-2/)
+[Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](storage-dotnet-shared-access-signature-part-2.md)
 
 [Manage Access to Azure Storage Resources](http://msdn.microsoft.com/library/windowsazure/ee393343.aspx)
 

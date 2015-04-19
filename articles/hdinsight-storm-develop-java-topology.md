@@ -454,16 +454,16 @@ Trident 是 Storm 所提供且支援可設定狀態處理的高階抽象。Tride
 
 如需 Trident 的詳細資訊，請參閱 [<a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">Trident API 概觀</a>]。
 
-如需 Trident 應用程式的範例，請參閱 [含 Apache Storm on HDInsight 的 Twitter 趨勢主題](../hdinsight-storm-twitter-trending/)
+如需 Trident 應用程式的範例，請參閱 [含 Apache Storm on HDInsight 的 Twitter 趨勢主題](hdinsight-storm-twitter-trending.md)
 
 ##後續步驟
 
 您已經了解如何使用 Java 建立 Storm 拓撲，現在要了解如何：
 
-* [部署和管理 HDInsight 上的 Apache Storm 拓撲](../hdinsight-storm-deploy-monitor-topology/)
+* [部署和管理 HDInsight 上的 Apache Storm 拓撲](hdinsight-storm-deploy-monitor-topology.md)
 
-* [使用 Visual Studio 開發 Apache Storm on HDInsight 的 C# 拓撲](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [使用 Visual Studio 開發 Apache Storm on HDInsight 的 C# 拓撲](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
-* [分析含 Apache Storm on HDInsight 的 Twitter 趨勢主題](../hdinsight-storm-twitter-trending)
+* [分析含 Apache Storm on HDInsight 的 Twitter 趨勢主題](hdinsight-storm-twitter-trending.md)
 
 <!--HONumber=47-->

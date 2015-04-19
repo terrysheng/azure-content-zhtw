@@ -29,7 +29,7 @@
 
 當您使用 [**From Gallery**] 選項來建立虛擬機器時，[Azure 管理入口網站](http://manage.windowsazure.com)可讓您安裝 VM 代理程式和 Trend Micro 安全性延伸模組。如果您打算建立單一虛擬機器，使用此方法可輕易地新增 Trend Micro 的防護。
 
-這個 [**從組件庫**] 選項會開啟可協助您設定虛擬機器的精靈。您可以使用精靈的最後一個頁面，來安裝 VM 代理程式和 Trend Micro 安全性延伸模組。如需一般指示，請參閱 [建立執行 Windows Server 的虛擬機器]。(../virtual-machines-windows-tutorial/)。當您進入精靈的最後一個頁面時，請執行下列動作：
+這個 [**從組件庫**] 選項會開啟可協助您設定虛擬機器的精靈。您可以使用精靈的最後一個頁面，來安裝 VM 代理程式和 Trend Micro 安全性延伸模組。如需一般指示，請參閱 [建立執行 Windows Server 的虛擬機器]。(virtual-machines-windows-tutorial.md)。當您進入精靈的最後一個頁面時，請執行下列動作：
 
 1.	在 [VM 代理程式] 下，勾選 [**安裝 VM 代理程式**]。
 
@@ -43,7 +43,7 @@
 
 若要執行此作業，您將需要下列項目：
 
-- 在本機電腦上安裝 Azure PowerShell 模組 0.8.2 版或更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查已安裝的 Azure PowerShell 版本。如需最新版本的指示與連結，請參閱[如何安裝和設定 Azure PowerShell](../install-configure-powershell/)。 
+- 在本機電腦上安裝 Azure PowerShell 模組 0.8.2 版或更新版本。您可以使用 **Get-Module azure | format-table version** 命令來檢查已安裝的 Azure PowerShell 版本。如需最新版本的指示與連結，請參閱[如何安裝和設定 Azure PowerShell](install-configure-powershell.md)。 
 
 - 在目標虛擬機器上安裝 VM 代理程式。 
 

@@ -26,7 +26,7 @@
 
 ##步驟 1：安裝 Azure PowerShell
 
-如果您尚未這樣做，請使用 [如何安裝和設定 Azure PowerShell 在本機電腦安裝 Azure PowerShell](../install-configure-powershell/) 中的指示。然後，開啟 Azure PowerShell 命令提示字元。
+如果您尚未這樣做，請使用 [如何安裝和設定 Azure PowerShell 在本機電腦安裝 Azure PowerShell](install-configure-powershell.md) 中的指示。然後，開啟 Azure PowerShell 命令提示字元。
 
 ##步驟 2：設定您的訂閱和儲存體帳戶
 
@@ -265,8 +265,8 @@
 
 [Azure 虛擬機器的概觀](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[如何安裝和設定 Azure PowerShell](../install-configure-powershell/)
+[如何安裝和設定 Azure PowerShell](install-configure-powershell.md)
 
-[使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器](../virtual-machines-ps-create-preconfigure-linux-vms/)
+[使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 <!--HONumber=47-->

@@ -20,7 +20,7 @@
 
 本指南提供了 C# 程式碼範例，示範如何透過 Azure 佇列儲存體服務使用 Azure WebJobs SDK 1.x 版。
 
-本指南假設您知道[如何使用指向儲存體帳戶的連接字串在 Visual Studio 中建立 WebJob 專案](../websites-dotnet-webjobs-sdk-get-started/)。
+本指南假設您知道[如何使用指向儲存體帳戶的連接字串在 Visual Studio 中建立 WebJob 專案](websites-dotnet-webjobs-sdk-get-started.md)。
 
 大部分的程式碼片段只會顯示函數，不會顯示建立 `JobHost` 物件的程式碼，如此範例所示：
 
@@ -294,7 +294,7 @@ SDK 會自動將物件序列化為 JSON。即使物件是空值，也一律會�
 
 ## <a id="blobs"></a>如何在處理佇列訊息時讀取及寫入 Blob 與表格
 
- `Blob` 與 `Table` 屬性可讓您讀取和寫入 Blob 與資料表。本節中的範例適用於 Blob。如需示範如何在建立或更新 Blob 時觸發程序的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure Blob 儲存體](../websites-dotnet-webjobs-sdk-storage-blobs-how-to/)，若需讀取和撰寫資料表的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure 資料表儲存體](../websites-dotnet-webjobs-sdk-storage-tables-how-to/)。
+ `Blob` 與 `Table` 屬性可讓您讀取和寫入 Blob 與資料表。本節中的範例適用於 Blob。如需示範如何在建立或更新 Blob 時觸發程序的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure Blob 儲存體](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)，若需讀取和撰寫資料表的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure 資料表儲存體](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)。
 
 ### 觸發 Blob 作業的字串佇列訊息
 
@@ -310,7 +310,7 @@ SDK 會自動將物件序列化為 JSON。即使物件是空值，也一律會�
 		    blobInput.CopyTo(blobOutput, 4096);
 		}
 
- `Blob` 屬性建構函式採用 `blobPath` 參數來指定容器與 Blob 名稱。如需此預留位置的詳細資訊，請參閱[如何透過 WebJobs SDK 使用 Azure Blob 儲存體](../websites-dotnet-webjobs-sdk-storage-blobs-how-to/), 
+ `Blob` 屬性建構函式採用 `blobPath` 參數來指定容器與 Blob 名稱。如需此預留位置的詳細資訊，請參閱[如何透過 WebJobs SDK 使用 Azure Blob 儲存體](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), 
 
 當這個屬性裝飾 `Stream`物件，另一個建構函式參數會將 `FileAccess` 模式指定為讀取、 寫入或讀取/寫入。 
 

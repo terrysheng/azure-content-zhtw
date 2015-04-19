@@ -127,17 +127,17 @@ Spout (**TwitterSpout**) 會使用 <a href="http://twitter4j.org/en/" target="_b
 
 ##後續步驟
 
-現在，您已經在本機測試拓撲、探索如何 [將此拓撲部署至 Storm on HDInsight](../hdinsight-storm-deploy-monitor-topology/)。
+現在，您已經在本機測試拓撲、探索如何 [將此拓撲部署至 Storm on HDInsight](hdinsight-storm-deploy-monitor-topology.md)。
 
 您也可能會對下列 Storm 主題感興趣：
 
-* [使用 Maven 開發 Storm on HDInsight 的 Java 拓撲](../hdinsight-storm-develop-java-topology/)
+* [使用 Maven 開發 Storm on HDInsight 的 Java 拓撲](hdinsight-storm-develop-java-topology.md)
 
-* [使用 Visual Studio 開發 Storm on HDInsight 的 C# 拓撲](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [使用 Visual Studio 開發 Storm on HDInsight 的 C# 拓撲](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 如需 HDinsight 的 Storm 範例：
 
 * [Storm on HDInsight 範例](https://github.com/hdinsight/hdinsight-storm-examples)
 
-* [使用 Storm on HDInsight 分析 EventHub 感應器資料](../hdinsight-storm-sensor-data-analysis/)
+* [使用 Storm on HDInsight 分析 EventHub 感應器資料](hdinsight-storm-sensor-data-analysis.md)
 <!--HONumber=47-->

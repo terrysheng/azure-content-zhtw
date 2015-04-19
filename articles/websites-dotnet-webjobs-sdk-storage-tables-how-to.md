@@ -18,9 +18,9 @@
 
 # 如何透過 WebJobs SDK 使用 Azure 資料表儲存體
 
-本指南提供 C# 程式碼範例，示範如何使用 [WebJobs SDK](../websites-dotnet-webjobs-sdk/) 1.x 版讀取和寫入 Azure 儲存體資料表。
+本指南提供 C# 程式碼範例，示範如何使用 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 1.x 版讀取和寫入 Azure 儲存體資料表。
 
-本指南假設您知道[如何使用指向儲存體帳戶的連接字串在 Visual Studio 中建立 WebJob 專案](../websites-dotnet-webjobs-sdk-get-started/).。
+本指南假設您知道[如何使用指向儲存體帳戶的連接字串在 Visual Studio 中建立 WebJob 專案](websites-dotnet-webjobs-sdk-get-started.md).。
 		
 有一些程式碼片段顯示 `Table` 屬性用於[以手動方式呼叫](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#manual)的函式中，也就是說使用的並非觸發屬性。 
 
@@ -149,11 +149,11 @@ The following code sample adds `Person` 實體至名為 *Ingress* 的資料表�
 		    tableBinding.Execute(insertOperation);
 		}
 
-如需如何使用 `CloudTable` 物件的詳細資訊，請參閱[如何從 .NET 使用資料表儲存體](../storage-dotnet-how-to-use-tables/)。 
+如需如何使用 `CloudTable` 物件的詳細資訊，請參閱[如何從 .NET 使用資料表儲存體](storage-dotnet-how-to-use-tables.md)。 
 
 ## <a id="queues"></a>佇列操作說明文章所涵蓋的相關主題
 
-如需如何處理佇列訊息所觸發資料表處理的詳細資訊，或如需非專屬於資料表處理的 WebJobs SDK 案例，請參閱[如何透過 WebJobs SDK 使用 Azure 佇列儲存體](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+如需如何處理佇列訊息所觸發資料表處理的詳細資訊，或如需非專屬於資料表處理的 WebJobs SDK 案例，請參閱[如何透過 WebJobs SDK 使用 Azure 佇列儲存體](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 那篇文章所涵蓋的主題包括下列各項：
 

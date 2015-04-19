@@ -523,7 +523,7 @@
 	
 	npm install azure-cli -g
 
-> [AZURE.NOTE] 如需詳細資訊，請參閱[安裝及設定 Azure 跨平台命令列介面](/zh-tw/documentation/articles/xplat-cli/);
+> [AZURE.NOTE] 如需詳細資訊，請參閱[安裝及設定 Azure 跨平台命令列介面](xplat-cli.md);
 
 > [AZURE.NOTE] 雖然命令列工具主要是為了 Mac 和 Linux 使用者而建立，不過它們是以 Node.js 為基礎，且應該可在任何能執行 Node 的系統上使用。
 

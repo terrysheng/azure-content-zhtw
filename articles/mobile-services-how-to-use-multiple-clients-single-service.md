@@ -46,7 +46,7 @@
 
 在 .NET 後端行動服務中，若要傳送通知，您要在從 [ApiServices.Push](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx) 屬性取得的 [PushClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) 物件上呼叫 [SendAsync] 方法。所傳送的推播通知 (原生或範本)，取決於傳遞至 [SendAsync] 方法的特定 [IPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx) 衍生物件，如下表所示： 
 
-|平台 |[APNS](/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push)|[GCM](/documentation/articles/mobile-services-dotnet-backend-android-get-started-push) |[WNS](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) |[MPNS](/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push)|
+|平台 |[APNS](mobile-services-dotnet-backend-ios-get-started-push.md)|[GCM](mobile-services-dotnet-backend-android-get-started-push.md) |[WNS](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) |[MPNS](mobile-services-dotnet-backend-windows-phone-get-started-push.md)|
 |-----|-----|----|----|-----|
 |原生|[ApplePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.applepushmessage.aspx)   |[GooglePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.googlepushmessage.aspx)     |[WindowsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.windowspushmessage.aspx) | [MpnsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.mpnspushmessage.aspx) |
 
@@ -81,7 +81,7 @@
 
 在 JavaScript 後端行動服務中，若要傳送通知，您要在從全域 [push 物件]取得的平台特定物件上，呼叫 **send** 方法，如下表所示： 
 
-|平台 |[APNS](/documentation/articles/mobile-services-javascript-backend-ios-get-started-push)|[GCM](/documentation/articles/mobile-services-javascript-backend-android-get-started-push) |[WNS](/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) |[MPNS](/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push)|
+|平台 |[APNS](mobile-services-javascript-backend-ios-get-started-push.md)|[GCM](mobile-services-javascript-backend-android-get-started-push.md) |[WNS](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) |[MPNS](mobile-services-javascript-backend-windows-phone-get-started-push.md)|
 |-----|-----|----|----|-----|
 |原生|[apns 物件](http://msdn.microsoft.com/library/azure/jj839711.aspx)   |[gcm 物件](http://msdn.microsoft.com/library/azure/dn126137.aspx)     |[wns 物件](http://msdn.microsoft.com/library/azure/jj860484.aspx) | [mpns 物件](http://msdn.microsoft.com/library/azure/jj871025.aspx) |
 
@@ -162,7 +162,7 @@
 
 Visual Studio 2013 Update 2 新增對通用 Windows 應用程式專案的支援。通用應用程式解決方案包括 Windows 市集 8.1 和 Windows Phone 市集 8.1 應用程式專案，以及共用程式碼專案。在這種專案中，共用程式碼會被當作 Windows 市集和 Windows Phone 專案的一部分。如需詳細資訊，請參閱[建置適用於所有 Windows 裝置的通用 Windows 應用程式]。C#/XAML 和 JavaScript/HTML 都可以用來撰寫通用 Windows 應用程式。 
 
-依預設，[Azure 管理入口網站]中的 [行動服務] 快速入門索引標籤會產生通用 Windows 應用程式版的 TodoList 範例應用程式來協助您開始使用。您可以選擇下載 C#/XAML 或 JavaScript/HTML 版本的專案。如需詳細資訊，請參閱[開始使用行動服務](/documentation/articles/mobile-services-windows-store-get-started/)。 
+依預設，[Azure 管理入口網站]中的 [行動服務] 快速入門索引標籤會產生通用 Windows 應用程式版的 TodoList 範例應用程式來協助您開始使用。您可以選擇下載 C#/XAML 或 JavaScript/HTML 版本的專案。如需詳細資訊，請參閱[開始使用行動服務](mobile-services-windows-store-get-started.md)。 
 
 >[AZURE.NOTE]入口網站提供的 C# 版快速入門應用程式專案會共用 MainPage.xaml.cs 程式碼後置頁面，但不會使用檢視模型。如需將 TodoList 應用程式當作使用 MVVM 之 C# 版通用 Windows 應用程式專案的範例，請參閱[使用 MVVM 的 Azure 行動服務通用 Windows 應用程式]。 
 
@@ -170,7 +170,7 @@ Visual Studio 2013 Update 2 新增對通用 Windows 應用程式專案的支援�
 
 您可以運用您的 Visual Studio 和 C# 開發經驗，使用 Xamarin 以及 Visual Studio 或 Xamarin Studio 來開發適用於 iOS 和 Android 的應用程式。Xamarin 使用 .NET Framework 的跨平台實作，可讓您使用 C# 程式碼來開發 iOS 和 Android 應用程式。藉由使用 Xamarin，您可以運用 Windows 專案中，使用行動服務 .NET 用戶端程式庫來存取行動服務的現有程式碼。如需詳細資訊，請參閱 [Visual Studio 中的跨平台開發](http://msdn.microsoft.com/library/dn771552.aspx)。
 
-若要開始建置使用行動服務的 Xamarin 應用程式，請參閱 Xamarin 快速入門教學課程 ([iOS](/documentation/articles/partner-xamarin-mobile-services-ios-get-started) / [Android](/documentation/articles/partner-xamarin-mobile-services-android-get-started)))。
+若要開始建置使用行動服務的 Xamarin 應用程式，請參閱 Xamarin 快速入門教學課程 ([iOS](partner-xamarin-mobile-services-ios-get-started.md) / [Android](partner-xamarin-mobile-services-android-get-started.md)))。
 
 
 ### Windows 市集和 Windows Phone Silverlight 應用程式

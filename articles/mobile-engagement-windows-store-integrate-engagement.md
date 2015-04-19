@@ -22,7 +22,7 @@
 
 本程序說明如何啟用您 Windows 應用程式內 Engagement 的分析與監視功能。
 
-下列步驟便足以啟用計算使用者、工作階段、活動、當機和技術相關的所有統計資料需要的記錄檔之報告。用來計算其他像是事件、錯誤及作業等統計資料，所需的記錄檔之報告必須使用 Engagement API 來手動完成 (請參閱的 [如何在您的 Windows 市集應用程式中使用進階的 Mobile Engagement 標記 API](../mobile-engagement-windows-store-use-engagement-api/))，因為這些是應用程式相關的統計資料。.
+下列步驟便足以啟用計算使用者、工作階段、活動、當機和技術相關的所有統計資料需要的記錄檔之報告。用來計算其他像是事件、錯誤及作業等統計資料，所需的記錄檔之報告必須使用 Engagement API 來手動完成 (請參閱的 [如何在您的 Windows 市集應用程式中使用進階的 Mobile Engagement 標記 API](mobile-engagement-windows-store-use-engagement-api.md))，因為這些是應用程式相關的統計資料。.
 
 ##支援的版本
 

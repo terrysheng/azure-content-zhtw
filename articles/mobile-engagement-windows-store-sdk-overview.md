@@ -18,17 +18,17 @@
 
 #2.0.0
 
-從這裡開始了解所有在 Windows 市集應用程式中整合 Azure Mobile Engagement 的細節。如果您想要先試用一下，請確認完成我們的 [15 分鐘教學課程](../mobile-engagement-windows-store-dotnet-get-started/)。
+從這裡開始了解所有在 Windows 市集應用程式中整合 Azure Mobile Engagement 的細節。如果您想要先試用一下，請確認完成我們的 [15 分鐘教學課程](mobile-engagement-windows-store-dotnet-get-started.md)。
 
-按一下來查看 [SDK 內容](../mobile-engagement-windows-store-sdk-content/)
+按一下來查看 [SDK 內容](mobile-engagement-windows-store-sdk-content.md)
 
 ##整合程序
 
-1. 從這裡開始：[如何在您的 Windows 市集應用程式整合 Mobile Engagement](../mobile-engagement-windows-store-integrate-engagement/)
+1. 從這裡開始：[如何在您的 Windows 市集應用程式整合 Mobile Engagement](mobile-engagement-windows-store-integrate-engagement.md)
 
-2. 針對通知：[如何在您的 Windows 市集應用程式整合 Reach (通知)](../mobile-engagement-windows-store-integrate-engagement-reach/)
+2. 針對通知：[如何在您的 Windows 市集應用程式整合 Reach (通知)](mobile-engagement-windows-store-integrate-engagement-reach.md)
 
-3. 標記計畫實作：[如何在您的 Windows 市集應用程式使用進階的 Mobile Engagement 標記 API](../mobile-engagement-windows-store-use-engagement-api/)
+3. 標記計畫實作：[如何在您的 Windows 市集應用程式使用進階的 Mobile Engagement 標記 API](mobile-engagement-windows-store-use-engagement-api.md)
 
 ##版本資訊
 
@@ -39,13 +39,13 @@
 -   連接字串組態取代 appId/sdkKey 組態。
 -   增強安全性。
 
-如需較早版本，請參閱[完整版本資訊](../mobile-engagement-windows-store-release-notes/)
+如需較早版本，請參閱[完整版本資訊](mobile-engagement-windows-store-release-notes.md)
 
 ##升級程序
 
 如果您已經整合舊版 Engagement 到您的應用程式，在升級 SDK 時您必須考慮以下幾點。
 
-如果您有錯過幾個版本的 SDK，您必須遵循幾個步驟，請參閱完整的[升級程序](../mobile-engagement-windows-store-upgrade-procedure/)。例如，如果您要從 0.10.1 移轉到 0.11.0 您必須先遵循「從 0.9.0 到 0.10.1」的程序，然後「從 0.10.1 到 0.11.0」的程序。
+如果您有錯過幾個版本的 SDK，您必須遵循幾個步驟，請參閱完整的[升級程序](mobile-engagement-windows-store-upgrade-procedure.md)。例如，如果您要從 0.10.1 移轉到 0.11.0 您必須先遵循「從 0.9.0 到 0.10.1」的程序，然後「從 0.10.1 到 0.11.0」的程序。
 
 ##從 1.1.1 到 2.0.0
 

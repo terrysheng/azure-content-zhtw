@@ -36,7 +36,7 @@ MapReduce 程式也可透過程式設計方式，使用 Microsoft .NET API for H
 
 - 您必須具有 Azure 帳戶。如需帳戶註冊方式的相關資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)頁面。
 
-- 您必須已佈建 HDInsight 叢集。如需各種建立此類叢集方式的相關指示，請參閱[佈建 HDInsight 叢集](../hdinsight-provision-clusters/)
+- 您必須已佈建 HDInsight 叢集。如需各種建立此類叢集方式的相關指示，請參閱[佈建 HDInsight 叢集](hdinsight-provision-clusters.md)
 
 - 您必須已安裝 Azure PowerShell 並加以設定，使其可用於您的帳戶。如需執行此項作業之指示，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。
 

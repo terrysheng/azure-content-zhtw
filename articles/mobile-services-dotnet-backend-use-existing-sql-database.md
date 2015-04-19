@@ -32,7 +32,7 @@
 <a name="ExistingModel"></a>
 ## 探索現有的資料庫模型
 
-在本教學課程中，我們將使用以您的行動服務建立的資料庫，但不會使用已建立的預設模型。我們將手動建立任意模型，以代表您可能會有的現有應用程式。如需如何改為連接到內部部署資料庫的完整相關資訊，請參閱[使用混合式連線從 Azure 行動服務連線至內部佈署 SQL Server](/zh-tw/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/)。
+在本教學課程中，我們將使用以您的行動服務建立的資料庫，但不會使用已建立的預設模型。我們將手動建立任意模型，以代表您可能會有的現有應用程式。如需如何改為連接到內部部署資料庫的完整相關資訊，請參閱[使用混合式連線從 Azure 行動服務連線至內部佈署 SQL Server](mobile-services-dotnet-backend-hybrid-connections-get-started.md)。
 
 1. 首先，請在 **Visual Studio 2013 Update 2** 中建立行動服務伺服器專案，或使用您可以在服務的 [行動服務] 索引標籤上 (在 [Azure 管理入口網站中](http://manage.windowsazure.com)) 下載的快速入門專案。基於本教學課程的用途，我們假設您的伺服器專案名稱是 **ShoppingService**。
 

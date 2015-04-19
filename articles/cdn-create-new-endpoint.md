@@ -36,6 +36,6 @@
 > 注意：為端點建立的組態無法立即使用，最多需要 60 分鐘進行註冊，以透過 CDN 網路傳播。嘗試立即使用 CDN 網域名稱的使用者可能會收到狀態碼 400 (不正確的要求)，直到可透過 CDN 使用內容為止。
 
 #另請參閱
-[如何將內容傳遞網路 (CDN) 內容對應至自訂網域](./cdn-map-content-to-custom-domain.md)
+[如何將內容傳遞網路 (CDN) 內容對應至自訂網域](cdn-map-content-to-custom-domain.md)
 
 <!--HONumber=49-->

@@ -19,13 +19,13 @@
 
 #使用 .NET 建立 ContentKeys
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow) 系列的一部分。  
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 和[媒體服務即時串流工作流程](media-services-live-streaming-workflow.md) 系列的一部分。  
 
 媒體服務可讓您建立新的資產及傳遞已加密的資產。**ContentKey** 提供**資產**的安全存取。 
 
-當您建立新資產 (例如，在[上傳檔案]之前(../media-services-dotnet-upload-files/))，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
+當您建立新資產 (例如，在[上傳檔案]之前(media-services-dotnet-upload-files.md))，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
 
-當您將資產傳遞給用戶端時，您可以使用下列兩個加密的其中一個，[設定動態加密資產](../media-services-dotnet-configure-asset-delivery-policy) ：**DynamicEnvelopeEncryption** 或 **DynamicCommonEncryption**。
+當您將資產傳遞給用戶端時，您可以使用下列兩個加密的其中一個，[設定動態加密資產](media-services-dotnet-configure-asset-delivery-policy.md) ：**DynamicEnvelopeEncryption** 或 **DynamicCommonEncryption**。
 
 加密的資產必須與 **ContentKey** 相關聯。本文說明如何建立內容金鑰。
 

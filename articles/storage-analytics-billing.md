@@ -45,6 +45,6 @@
 
 [關於儲存體分析記錄](https://msdn.microsoft.com/library/azure/hh343262.aspx)
 
-[關於儲存體分析度量](../storage-about-analytics-metrics.md) 
+[關於儲存體分析度量](storage-about-analytics-metrics.md.md) 
 
 <!--HONumber=47-->

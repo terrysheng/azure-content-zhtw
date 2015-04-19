@@ -24,7 +24,7 @@
 
 > Azure 檔案服務目前不支援儲存體分析。
 
-> 如需關於使用儲存體分析和其他工具來識別、診斷和排解 Azure 儲存體相關問題的深入指南，請參閱 [Microsoft Azure 儲存體的監視、診斷和疑難排解](../storage-monitoring-diagnosing-troubleshooting/)。
+> 如需關於使用儲存體分析和其他工具來識別、診斷和排解 Azure 儲存體相關問題的深入指南，請參閱 [Microsoft Azure 儲存體的監視、診斷和疑難排解](storage-monitoring-diagnosing-troubleshooting.md)。
 
 
 ##目錄##

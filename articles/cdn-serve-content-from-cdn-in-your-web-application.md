@@ -193,7 +193,7 @@
 
 ![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-updates-1.PNG)
 
-您也可以在 PowerShell 指令碼中這樣做，可設定所有 Blob 的 Cache-Control 標頭。針對[自動從 ASP.NET 應用程式將內容上傳至 CDN 端點]中的指令碼(#upload)，尋找下列程式碼片段：
+您也可以在 PowerShell 指令碼中這樣做，可設定所有 Blob 的 Cache-Control 標頭。針對[自動從 ASP.NET 應用程式將內容上傳至 CDN 端點](#upload)中的指令碼，尋找下列程式碼片段：
 
     Set-AzureStorageBlobContent `
         -Container $StorageContainer `

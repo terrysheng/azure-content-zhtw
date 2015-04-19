@@ -20,7 +20,7 @@
  
 今日的應用程式可實現動態需求。從季節性和變數需求，到未預期的社交媒體趨勢，新式應用程式必須順利處理不確定或預期的大量載入。Azure 服務匯流排的平台即服務 (PaaS) 性質，可讓您建立可輕鬆調整並可從元件需求激增或暫時中斷等情形復原的應用程式。  
  
-[使用服務匯流排佇列建置 .NET 多層式應用程式](/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/)
+[使用服務匯流排佇列建置 .NET 多層式應用程式](cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md)
  
 ## 瀏覽
 - [Mcrosoft Azure 服務匯流排基本概念](http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/)

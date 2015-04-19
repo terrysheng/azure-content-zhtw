@@ -19,7 +19,7 @@
 
 # 共用存取簽章，第 2 部分：透過 Blob 服務來建立與使用 SAS
 
-本教學課程的[第 1 部分](../storage-dotnet-shared-access-signature-part-1/)探討了共用存取簽章 (SAS)，並說明使用它們的最佳作法。第 2 部分顯示如何產生然後使用共用存取簽章以搭配 Azure Blob 服務。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。所涵蓋的案例包括使用共用存取簽章的以下層面：
+本教學課程的[第 1 部分](storage-dotnet-shared-access-signature-part-1.md)探討了共用存取簽章 (SAS)，並說明使用它們的最佳作法。第 2 部分顯示如何產生然後使用共用存取簽章以搭配 Azure Blob 服務。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。所涵蓋的案例包括使用共用存取簽章的以下層面：
 
 - 在容器上產生共用存取簽章
 - 在 blob 上產生共用存取簽章
@@ -533,7 +533,7 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
 
 # 後續步驟 #
 
-[共用存取簽章，第 1 部分：了解 SAS 模型](../storage-dotnet-shared-access-signature-part-1/)
+[共用存取簽章，第 1 部分：了解 SAS 模型](storage-dotnet-shared-access-signature-part-1.md)
 
 [管理 Azure 儲存體資源的存取](http://msdn.microsoft.com/library/windowsazure/ee393343.aspx)
 

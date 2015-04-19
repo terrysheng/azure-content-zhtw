@@ -19,12 +19,12 @@
 
 #作法：傳遞串流內容
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow) 系列的一部分。  
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 和[媒體服務即時串流工作流程](media-services-live-streaming-workflow.md) 系列的一部分。  
 
 ##概觀
 
 
-您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。[將資產編碼](../media-services-rest-encode-asset) 主題說明如何編碼為調適性位元速率 MP4 集。建立定位器之前，您應該依[此](../media-services-rest-configure-asset-delivery-policy)主題所述設定資產傳遞原則。 
+您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。[將資產編碼](media-services-rest-encode-asset.md) 主題說明如何編碼為調適性位元速率 MP4 集。建立定位器之前，您應該依[此](media-services-rest-configure-asset-delivery-policy.md)主題所述設定資產傳遞原則。 
 
 您也可以使用隨選串流定位器來建置指向可漸進式下載之 MP4 檔案的 URL。  
 

@@ -175,7 +175,7 @@
 
 [混合式連線網站](http://azure.microsoft.com/services/biztalk-services/)
 
-[BizTalk 服務：儀表板、監視器、調整規模、設定和混合式連線索引標籤](../biztalk-dashboard-monitor-scale-tabs/)
+[BizTalk 服務：儀表板、監視器、調整規模、設定和混合式連線索引標籤](biztalk-dashboard-monitor-scale-tabs.md)
 
 [透過絕佳的應用程式可攜性建置真實的混合式雲端 (第 9 頻道視訊)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 

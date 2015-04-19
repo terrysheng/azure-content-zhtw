@@ -68,7 +68,7 @@ Azure 儲存體帳戶是指可讓您存取 Azure 儲存體服務的安全帳戶�
 
 ![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
 
-當您準備好要建立標準儲存體帳戶時，請參閱[建立、 管理或刪除儲存體帳戶](../storage-create-storage-account/)以了解詳細資訊。
+當您準備好要建立標準儲存體帳戶時，請參閱[建立、 管理或刪除儲存體帳戶](storage-create-storage-account.md)以了解詳細資訊。
 
 ### Premium 儲存體帳戶 (預覽)
 
@@ -128,7 +128,7 @@ Blob 儲存體提供兩種 Blob 類型：區塊 Blob 和頁面 Blob (磁碟)。�
 
 建立儲存體帳戶時所指派的兩組存取金鑰可用於驗證。當您定期重新產生金鑰做為一般安全性金鑰管理作法時，擁有兩組金鑰可確保您的應用程式保持為可用狀態。
 
-如果您確實需要允許使用者對儲存體資源進行控管存取，則您可以建立[共用存取簽章](../storage-dotnet-shared-access-signature-part-1/)。共用存取簽章是指可附加在 URL 後面的權杖，可提供容器、Blob、資料表或佇列的委派存取。在權杖有效的期限內，擁有權杖的任何人都可以存取它在指定權限中所指向的資源。請注意，Azure 檔案儲存體目前不支援共用存取簽章。
+如果您確實需要允許使用者對儲存體資源進行控管存取，則您可以建立[共用存取簽章](storage-dotnet-shared-access-signature-part-1.md)。共用存取簽章是指可附加在 URL 後面的權杖，可提供容器、Blob、資料表或佇列的委派存取。在權杖有效的期限內，擁有權杖的任何人都可以存取它在指定權限中所指向的資源。請注意，Azure 檔案儲存體目前不支援共用存取簽章。
 
 最後，您可以指定容器及其 Blob 或特定的 Blob 是否可供公用存取。當您將容器或 Blob 指定為公用時，任何人都可以進行匿名讀取；不需要驗證。公用容器和 Blob 對於公開資源 (例如網站上所託管的媒體和文件) 而言非常有用。若要縮短全球使用者的網路延遲，您可以使用 Azure CDN 來快取網站所用的 Blob 資料。
 
@@ -183,38 +183,38 @@ Blob 儲存體提供兩種 Blob 類型：區塊 Blob 和頁面 Blob (磁碟)。�
 <h3>針對 .NET 開發人員</h3>
 
 - [.NET 用戶端程式庫參考](http://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
-- [如何從 .NET 使用 Blob 儲存體](../storage-dotnet-how-to-use-blobs/)
-- [如何從 .NET 使用資料表儲存體](../storage-dotnet-how-to-use-tables/)
-- [如何從 .NET 使用佇列儲存體](../storage-dotnet-how-to-use-queues/)
+- [如何從 .NET 使用 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)
+- [如何從 .NET 使用資料表儲存體](storage-dotnet-how-to-use-tables.md)
+- [如何從 .NET 使用佇列儲存體](storage-dotnet-how-to-use-queues.md)
 
 <h3>針對 Java/Android 開發人員</h3>
 
 - [Java 用戶端程式庫參考]()
-- [如何從 Java/Android 使用 Blob 儲存體](../storage-java-how-to-use-blob-storage/)
-- [如何從 Java/Android 使用資料表儲存體](../storage-java-how-to-use-table-storage/)
-- [如何從 Java/Android 使用佇列儲存體](../storage-java-how-to-use-queue-storage/)
+- [如何從 Java/Android 使用 Blob 儲存體](storage-java-how-to-use-blob-storage.md)
+- [如何從 Java/Android 使用資料表儲存體](storage-java-how-to-use-table-storage.md)
+- [如何從 Java/Android 使用佇列儲存體](storage-java-how-to-use-queue-storage.md)
 
 <h3>針對 Node.js 開發人員</h3>
 
-- [如何從 Node.js 使用 Blob 儲存體](../storage-nodejs-how-to-use-blob-storage/)
-- [如何從 Node.js 使用資料表儲存體](../storage-nodejs-how-to-use-table-storage/)
-- [如何從 Node.js 使用佇列儲存體](../storage-nodejs-how-to-use-queues/)
+- [如何從 Node.js 使用 Blob 儲存體](storage-nodejs-how-to-use-blob-storage.md)
+- [如何從 Node.js 使用資料表儲存體](storage-nodejs-how-to-use-table-storage.md)
+- [如何從 Node.js 使用佇列儲存體](storage-nodejs-how-to-use-queues.md)
 
 <h3>針對 PHP 開發人員</h3>
 
-- [如何從 PHP 使用 Blob 儲存體](../storage-php-how-to-use-blobs/)
-- [如何從 PHP 使用資料表儲存體](../storage-php-how-to-use-table-storage/)
-- [如何從 PHP 使用佇列儲存體](../storage-php-how-to-use-queues/)
+- [如何從 PHP 使用 Blob 儲存體](storage-php-how-to-use-blobs.md)
+- [如何從 PHP 使用資料表儲存體](storage-php-how-to-use-table-storage.md)
+- [如何從 PHP 使用佇列儲存體](storage-php-how-to-use-queues.md)
 
 <h3>針對 Ruby 開發人員</h3>
 
-- [如何從 Ruby 使用 Blob 儲存體](../storage-ruby-how-to-use-blob-storage/)
-- [如何從 Ruby 使用資料表儲存體](../storage-ruby-how-to-use-table-storage/)
-- [如何從 Ruby 使用佇列儲存體](../storage-ruby-how-to-use-queue-storage/)
+- [如何從 Ruby 使用 Blob 儲存體](storage-ruby-how-to-use-blob-storage.md)
+- [如何從 Ruby 使用資料表儲存體](storage-ruby-how-to-use-table-storage.md)
+- [如何從 Ruby 使用佇列儲存體](storage-ruby-how-to-use-queue-storage.md)
 
 <h3>針對 Python 開發人員</h3>
 
-- [如何從 Python 使用 Blob 儲存體](../storage-python-how-to-use-blob-storage/)
-- [如何從 Python 使用資料表儲存體](../storage-python-how-to-use-table-storage/)
-- [如何從 Python 使用佇列儲存體](../storage-python-how-to-use-queue-storage/)
+- [如何從 Python 使用 Blob 儲存體](storage-python-how-to-use-blob-storage.md)
+- [如何從 Python 使用資料表儲存體](storage-python-how-to-use-table-storage.md)
+- [如何從 Python 使用佇列儲存體](storage-python-how-to-use-queue-storage.md)
 <!--HONumber=42-->

@@ -38,7 +38,7 @@
 
 	**注意**：如需關於將虛擬機器放在相同雲端服務中的詳細資訊，請參閱[如何在雲端服務中連接虛擬機器](http://www.windowsazure.com/zh-tw/manage/windows/how-to-guides/connect-to-a-cloud-service/)。
 
-12. 在 [**區域/同質群組/虛擬網路**] 中，選取您要用於虛擬機器的區域、同質群組或虛擬網路。如需有關同質群組的詳細資訊，請參閱[關於虛擬網路的同質群組](http://msdn.microsoft.com/zh-tw/library/azure/jj156085.aspx)。
+12. 在 [**區域/同質群組/虛擬網路**] 中，選取您要用於虛擬機器的區域、同質群組或虛擬網路。如需有關同質群組的詳細資訊，請參閱[關於虛擬網路的同質群組](http://msdn.microsoft.com/library/azure/jj156085.aspx)。
 
 13. 在 [**儲存體帳戶**] 中，為 VHD 檔案選取現有的儲存體帳戶，或使用自動產生的儲存體帳戶。每個區域只會自動建立一個儲存體帳戶。您利用此設定建立的所有其他虛擬機器均位於此儲存體帳戶。您的儲存體帳戶限制為 20 個。
 
@@ -46,7 +46,7 @@
 
 	**注意**：屬於可用性設定組的虛擬機器會部署到不同的容錯網域。將多個虛擬機器放在相同的可用性設定組中，有助於確保應用程式在網路故障、本機磁碟硬體故障和任何規劃停機期間仍可使用。
 
-15.  在 [**端點**] 下，檢閱將建立以允許連線至虛擬機器的新端點，例如透過遠端桌面或安全殼層 (SSH) 用戶端。您也可以立即加入端點，或在稍後建立端點。如需有關稍後建立端點的指示，請參閱[如何設定虛擬機器的端點](http://azure.microsoft.com/zh-tw/documentation/articles/virtual-machines-set-up-endpoints/)。 
+15.  在 [**端點**] 下，檢閱將建立以允許連線至虛擬機器的新端點，例如透過遠端桌面或安全殼層 (SSH) 用戶端。您也可以立即加入端點，或在稍後建立端點。如需有關稍後建立端點的指示，請參閱[如何設定虛擬機器的端點](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/)。 
 
 16.  在 [**VM 代理程式**] 下，決定是否安裝 VM 代理程式。此代理程式提供環境讓您安裝延伸模組，以協助您與虛擬機器互動。如需詳細資訊，請參閱[管理延伸模組](http://go.microsoft.com/FWLink/p/?LinkID=390493)。
 
@@ -58,7 +58,7 @@
 ##後續步驟##
 虛擬機器建立後，將會自動啟動。當入口網站顯示狀態為執行中，您便可以登入虛擬機器。如需指示，請參閱下列文章︰
 
-- [如何登入執行 Linux 的虛擬機器](../virtual-machines-linux-how-to-log-on)
-- [如何登入執行 Windows Server 的虛擬機器](../virtual-machines-log-on-windows-server)
+- [如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)
+- [如何登入執行 Windows Server 的虛擬機器](virtual-machines-log-on-windows-server.md)
 
 

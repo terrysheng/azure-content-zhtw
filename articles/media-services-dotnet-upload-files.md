@@ -21,7 +21,7 @@
 #使用 .NET 將檔案上傳至媒體服務帳戶
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 系列的一部分。 
 
 在媒體服務中，您可以將數位檔案上傳 (或內嵌) 到資產。**Asset** 實體可以包含視訊、音訊、影像、縮圖集合、文字播放軌和隱藏式輔助字幕檔案 (和這些檔案的中繼資料。)上傳檔案之後，您的內容會安全地儲存在雲端，以進一步進行處理和串流處理。
 
@@ -37,7 +37,7 @@
 
 	請注意，媒體服務可為您的資產提供磁碟上的儲存體加密，而不是在線上加密，例如數位版權管理員 (DRM)。
 
-如果您指定使用 **CommonEncrypted** 選項或 **EnvelopeEncypted** 選項加密資產，則需要建立資產與 **ContentKey** 的關聯。如需詳細資訊，請參閱[如何建立 ContentKey](../media-services-dotnet-create-contentkey)。 
+如果您指定使用 **CommonEncrypted** 選項或 **EnvelopeEncypted** 選項加密資產，則需要建立資產與 **ContentKey** 的關聯。如需詳細資訊，請參閱[如何建立 ContentKey](media-services-dotnet-create-contentkey.md)。 
 
 如果您指定使用 **StorageEncrypted** 選項來加密資產，則 Media Services SDK for .NET 會建立資產的 **StorateEncrypted** **ContentKey**。
 

@@ -533,7 +533,7 @@ HDInsight Tools for Visual Studio 也可以用來建立混合式拓撲，其中�
 
 ##後續步驟
 
-現在，您已經了解如何使用 HDInsight Tools for Visual Studio 來開發和部署 Storm 拓撲，接著了解如何 [搭配使用 Azure 事件中心與 Storm on HDInsight 來處理事件](../hdinsight-storm-develop-csharp-event-hub-topology/)。
+現在，您已經了解如何使用 HDInsight Tools for Visual Studio 來開發和部署 Storm 拓撲，接著了解如何 [搭配使用 Azure 事件中心與 Storm on HDInsight 來處理事件](hdinsight-storm-develop-csharp-event-hub-topology.md)。
 
 若要探索建立 C# 拓撲的詳細資訊，請瀏覽 [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md)。
 
@@ -541,26 +541,26 @@ HDInsight Tools for Visual Studio 也可以用來建立混合式拓撲，其中�
 
 **Apache Storm on HDInsight**
 
-* [使用 Apache Storm on HDInsight 部署和監視拓撲](../hdinsight-storm-deploy-monitor-topology/)
+* [使用 Apache Storm on HDInsight 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology.md)
 
-* [搭配使用 Azure 事件中心與 Storm on HDInsight 來處理事件](../hdinsight-storm-develop-csharp-event-hub-topology/)
+* [搭配使用 Azure 事件中心與 Storm on HDInsight 來處理事件](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
-* [開發 Apache Storm on HDInsight 的 Java 型拓撲](../hdinsight-storm-develop-java-topology/)
+* [開發 Apache Storm on HDInsight 的 Java 型拓撲](hdinsight-storm-develop-java-topology.md)
 
-* [使用 Apache Storm on HDInsight 趨勢 Twitter 的雜湊標記](../hdinsight-storm-twitter-trending/)
+* [使用 Apache Storm on HDInsight 趨勢 Twitter 的雜湊標記](hdinsight-storm-twitter-trending.md)
 
 * [Storm on HDInsight 範例](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md)
 
 **Apache Hadoop on HDInsight**
 
-* [搭配使用 Hive 與 HDInsight 上的 Hadoop](../hdinsight-use-hive/)
+* [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
 
-* [搭配使用 Pig 與 HDInsight 上的 Hadoop](../hdinsight-use-pig/)
+* [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
-* [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](../hdinsight-use-mapreduce/)
+* [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
 **Apache HBase on HDInsight**
 
-* [開始使用 HBase on HDInsight](../hdinsight-hbase-get-started/)
+* [開始使用 HBase on HDInsight](hdinsight-hbase-get-started.md)
 
 <!--HONumber=47-->

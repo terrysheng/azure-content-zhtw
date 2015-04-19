@@ -78,7 +78,7 @@
 * [開始使用推播通知] 
   <br/>了解如何傳送非常基本的推播通知到您的應用程式。
 
-如需通用 Windows 應用程式的詳細資訊，請參閱[從單一行動服務支援多個裝置平台](/zh-tw/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs)。
+如需通用 Windows 應用程式的詳細資訊，請參閱[從單一行動服務支援多個裝置平台](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md)。
 
 <!-- Anchors. -->
 [開始使用行動服務]:#getting-started

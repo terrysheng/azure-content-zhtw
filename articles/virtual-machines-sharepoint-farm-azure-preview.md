@@ -32,7 +32,7 @@
 
 此伺服器陣列組態可用來測試較高的用戶端負載、外部 SharePoint 網站的高可用性，以及 SharePoint 伺服器陣列的 SQL Server AlwaysOn。此組態也可用於高可用性環境中的 SharePoint 應用程式開發。
  
-如需這兩種伺服器陣列的組態詳細資料，請參閱 [SharePoint Server 伺服器陣列組態詳細資料](../virtual-machines-sharepoint-farm-config-azure-preview/).
+如需這兩種伺服器陣列的組態詳細資料，請參閱 [SharePoint Server 伺服器陣列組態詳細資料](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
 ##逐步設定##
 
@@ -87,7 +87,7 @@ SharePoint Server 伺服器陣列會使用 Azure 資源管理員和指令碼，�
 
 [Azure 基礎結構服務上的 SharePoint](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[SharePoint Server 伺服器陣列組態詳細資料](../virtual-machines-sharepoint-farm-config-azure-preview/)
+[SharePoint Server 伺服器陣列組態詳細資料](virtual-machines-sharepoint-farm-config-azure-preview.md)
 
 [設定 SharePoint 內部網路伺服器陣列中的測試混合式雲端](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 

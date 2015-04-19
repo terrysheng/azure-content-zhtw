@@ -114,7 +114,7 @@ Storm UI 的主頁面會提供下列資訊。
 
 ##HDInsight Tools for Visual Studio
 
-HDInsight Tools 可以用來將 C# 或混合式拓撲提交至「Storm 叢集」。下列步驟使用範例應用程式。如需使用 HDInsight Tools 建立您專屬拓撲的詳細資訊，請參閱 [使用 HDInsight Tools for Visual Studio 開發 C# 拓撲]。(../hdinsight-storm-develop-csharp-visual-studio-topology/)。
+HDInsight Tools 可以用來將 C# 或混合式拓撲提交至「Storm 叢集」。下列步驟使用範例應用程式。如需使用 HDInsight Tools 建立您專屬拓撲的詳細資訊，請參閱 [使用 HDInsight Tools for Visual Studio 開發 C# 拓撲]。(hdinsight-storm-develop-csharp-visual-studio-topology.md)。
 
 使用下列步驟，將範例部署至 Storm on HDInsight 叢集，然後檢視和管理拓撲。
 
@@ -166,7 +166,7 @@ REST API 的要求必須使用利用 HDInsight 叢集管理員名稱和密碼的
 
 ##後續步驟
 
-現在，您已經了解如何使用 Storm Dashboard 來部署和監視拓撲、了解如何[使用 HDInsight Tools for Visual Studio 開發 C# 拓撲]。(../hdinsight-storm-develop-csharp-visual-studio-topology/)或如何 [使用 Maven 開發 Java 型拓撲](../hdinsight-storm-develop-java-topology/)。
+現在，您已經了解如何使用 Storm Dashboard 來部署和監視拓撲、了解如何[使用 HDInsight Tools for Visual Studio 開發 C# 拓撲]。(hdinsight-storm-develop-csharp-visual-studio-topology.md)或如何 [使用 Maven 開發 Java 型拓撲](hdinsight-storm-develop-java-topology.md)。
 
 
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor/dashboard-link.png

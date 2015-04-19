@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [開始使用](/documentation/articles/vs-mobile-services-cordova-getting-started/)
-> - [發生什麼情形](/documentation/articles/vs-mobile-services-cordova-what-happened/)
+> - [開始使用](vs-mobile-services-cordova-getting-started.md)
+> - [發生什麼情形](vs-mobile-services-cordova-what-happened.md)
 
 ###<span id="whathappened">我的專案發生什麼情形？</span>
 

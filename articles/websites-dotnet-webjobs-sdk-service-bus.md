@@ -18,9 +18,9 @@
 
 # 如何使用 WebJobs SDK 來使用 Azure 服務匯流排
 
-本指南提供 C# 程式碼範例，來示範如何在建立或更新 Azure Blob 時觸發程序。此程式碼範例會使用 [WebJobs SDK](../websites-dotnet-webjobs-sdk/) 版本 1.x。
+本指南提供 C# 程式碼範例，來示範如何在建立或更新 Azure Blob 時觸發程序。此程式碼範例會使用 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 版本 1.x。
 
-本指南假設您知道[如何在 Visual Studio 中使用指向您儲存體帳戶的連接字串來建立 WebJob 專案](../websites-dotnet-webjobs-sdk-get-started/)。
+本指南假設您知道[如何在 Visual Studio 中使用指向您儲存體帳戶的連接字串來建立 WebJob 專案](websites-dotnet-webjobs-sdk-get-started.md)。
 
 程式碼片段只會顯示函數，不會顯示建立 `JobHost` 物件的程式碼，如此範例所示：
 
@@ -138,7 +138,7 @@ SDK 會針對 POCO [(純舊 CLR 物件](http://en.wikipedia.org/wiki/Plain_Old_C
 
 ## <a id="queues"></a>儲存體佇列做法文章所涵蓋的相關主題
 
-如需並非服務服務匯流排特有的 WebJobs SDK 案例相關資訊，請參閱[如何使用 WebJobs SDK 來使用 Azure 佇列儲存體](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+如需並非服務服務匯流排特有的 WebJobs SDK 案例相關資訊，請參閱[如何使用 WebJobs SDK 來使用 Azure 佇列儲存體](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 該文章中涵蓋的主題如下：
 

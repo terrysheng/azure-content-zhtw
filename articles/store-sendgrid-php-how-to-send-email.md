@@ -404,7 +404,7 @@ SendGrid 提供了運用 'filters' 的其他電子郵件功能。這些設定可
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [特殊優惠]: https://www.sendgrid.com/windowsazure.html
-  [封裝和部署 Azure 的 PHP 應用程式]: http://msdn.microsoft.com/zh-tw/library/windowsazure/hh674499(v=VS.103).aspx
+  [封裝和部署 Azure 的 PHP 應用程式]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
   [http://swiftmailer.org/download]: http://swiftmailer.org/download
   [curl 函式]: http://php.net/curl
   [雲端式電子郵件服務]: https://sendgrid.com/email-solutions

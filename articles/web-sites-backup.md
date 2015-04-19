@@ -132,7 +132,7 @@ Web Apps 可以備份下列資訊：
 
 [什麼是儲存體帳戶？](storage-whatis-account.md)
 
-[作法：建立儲存體帳戶](../storage-create-storage-account/)
+[作法：建立儲存體帳戶](storage-create-storage-account.md)
 
 [如何監視儲存體帳戶](storage-monitor-storage-account.md)
 

@@ -86,7 +86,7 @@
 
 在實際情況中，如果有一個應用程式推送資料庫中某筆記錄的更新，然後又有另一個應用程式嘗試使用該記錄的過期版本欄位來推送同一筆記錄的更新，此時便會發生同步衝突。根據[開始使用離線資料]所述，您需要版本系統屬性才能支援離線同步處理功能。每個資料庫更新都會檢查此版本資訊。如果應用程式的執行個體嘗試使用過期版本更新記錄，衝突便會發生，而且它會在應用程式中被當作  `MobileServicePreconditionFailedException` 加以攔截。如果應用程式未攔截  `MobileServicePreconditionFailedException`，則最後會擲回  `MobileServicePushFailedException` 以說明發生多少個同步錯誤。
 
->[AZURE.NOTE] 若要使用離線資料同步來同步刪除的記錄，您應啟用[虛刪除](/zh-tw/documentation/articles/mobile-services-using-soft-delete/)。否則，您必須手動移除本機存放區中的記錄，或呼叫  `IMobileServiceSyncTable::PurgeAsync()` 以清除本機存放區。
+>[AZURE.NOTE] 若要使用離線資料同步來同步刪除的記錄，您應啟用[虛刪除](mobile-services-using-soft-delete.md)。否則，您必須手動移除本機存放區中的記錄，或呼叫  `IMobileServiceSyncTable::PurgeAsync()` 以清除本機存放區。
 
 
 下列步驟說明如何使用範例同時執行 Windows Phone 8.1 和 Windows 市集 8.1 用戶端，以造成並解決衝突。

@@ -18,7 +18,7 @@
 
 想知道有多少使用者造訪過您的網站嗎？想知道頁面的平均載入時間，或是使用中的瀏覽器有哪些？只要在網頁的程式碼中插入幾行，您即可收集客戶如何使用您的網站的相關資料。 
 
-*您也可以為非 Azure 網站執行此作業：[使用 Application Insights 監視 Web 應用程式使用量](../app-insights-web-track-usage/)。*
+*您也可以為非 Azure 網站執行此作業：[使用 Application Insights 監視 Web 應用程式使用量](app-insights-web-track-usage.md)。*
 
 ![End User Analytics](./media/insights-usage-analytics/Insights_ConfiguredExperience.png)
 

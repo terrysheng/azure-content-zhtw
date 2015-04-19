@@ -73,7 +73,7 @@
 ## 載入 Runbook 
 
 1. 下載 **ShardElasticity.zip** 檔案，並將內容解壓縮。
-2. [使用 NuGet 加入 Elastic Scale 二進位檔的參考](./sql-database-elastic-scale-add-references-visual-studio.md)
+2. [使用 NuGet 加入 Elastic Scale 二進位檔的參考](sql-database-elastic-scale-add-references-visual-studio.md)
 3. 尋找 Elastic Scale 用戶端程式庫 (**Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll**)。
 4. 將 DLL 放入 ShardElasticityModule 資料夾，並壓縮資料夾。 
 3. 在 Azure 自動化帳戶中，上傳 ShardElasticityModule.zip 檔案作為**資產**。 

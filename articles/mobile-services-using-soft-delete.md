@@ -104,7 +104,7 @@
         }
     }
 
-若要深入了解 .NET 後端行動服務的排程工作，請參閱：[在 JavaScript 後端行動服務中排程週期性工作](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
+若要深入了解 .NET 後端行動服務的排程工作，請參閱：[在 JavaScript 後端行動服務中排程週期性工作](mobile-services-dotnet-backend-schedule-recurring-tasks.md) 
 
 
 
@@ -145,7 +145,7 @@
         }});
     }
 
-若要深入了解 JavaScript 後端行動服務的排程工作，請參閱：[在 JavaScript 後端行動服務中排程週期性工作](/documentation/articles/mobile-services-schedule-recurring-tasks/)。
+若要深入了解 JavaScript 後端行動服務的排程工作，請參閱：[在 JavaScript 後端行動服務中排程週期性工作](mobile-services-schedule-recurring-tasks.md)。
 
 
 

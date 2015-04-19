@@ -19,7 +19,7 @@
 
 # 使用 Azure Media Indexer 編製媒體檔案索引
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 系列的一部分。 
 
 Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。您可以處理一份媒體檔或是批次處理多個媒體檔案。您也可以指定資訊清單檔中的檔案 URL 來針對可在網際網路上公開取得的檔案編製索引。
 

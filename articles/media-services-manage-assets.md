@@ -19,7 +19,7 @@
 
 # 作法：管理儲存體中的資產
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow)和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow)系列的一部分。  
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時串流工作流程](media-services-live-streaming-workflow.md)系列的一部分。  
 
 
 建立媒體資產之後，您可以存取和管理伺服器上的資產。您也可以在伺服器上管理其他屬於媒體服務的物件，包括工作、作業、存取原則、定位器等等。

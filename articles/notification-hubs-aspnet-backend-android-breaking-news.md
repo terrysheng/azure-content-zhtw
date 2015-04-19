@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="通知中樞即時新聞教學課程 - Android" 
-	description="了解如何使用 Azure 服務匯流排通知中樞將本地化重大新聞通知傳送至 Android 裝置。" 
+	pageTitle="通知中心即時新聞教學課程 - Android" 
+	description="了解如何使用 Azure 服務匯流排通知中心將本地化重大新聞通知傳送至 Android 裝置。" 
 	services="notification-hubs" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -17,15 +17,15 @@
 	ms.author="ricksal"/>
 
 
-# 使用通知中樞傳送即時新聞
+# 使用通知中心傳送即時新聞
 <div class="dev-center-tutorial-selector sublanding">     	
-	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal" >Windows Universal</a><a href="/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a>
-	<a href="/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android" class="current">Android</a>
+	<a href="/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal" >Windows Universal</a><a href="/zh-tw/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/zh-tw/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a>
+	<a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android" class="current">Android</a>
 </div>
 
-本主題將說明如何使用 Azure 通知中樞，將即時新聞通知廣播至 Android 應用程式。完成時，您便能夠註冊您所感興趣的即時新聞類別，並僅接收這些類別的推播通知。此情況是許多應用程式的共同模式，這些應用程式必須將通知傳送給先前宣告對通知有興趣的使用者群組，例如，RSS 閱讀程式、供樂迷使用的應用程式等等。 
+本主題將說明如何使用 Azure 通知中心，將即時新聞通知廣播至 Android 應用程式。完成時，您便能夠註冊您所感興趣的即時新聞類別，並僅接收這些類別的推播通知。此情況是許多應用程式的共同模式，這些應用程式必須將通知傳送給先前宣告對通知有興趣的使用者群組，例如，RSS 閱讀程式、供樂迷使用的應用程式等等。 
 
-在通知中樞內建立註冊時，您可以透過包含一或多個 _標籤_ 來啟用廣播案例。當標籤收到通知時，所有已註冊此標籤的裝置都會收到通知。由於標籤只是簡單的字串而已，您無需預先佈建標籤。如需有關標籤的詳細資訊，請參閱[通知中樞指引]。 
+在通知中心內建立註冊時，您可以透過包含一或多個 _標籤_ 來啟用廣播案例。當標籤收到通知時，所有已註冊此標籤的裝置都會收到通知。由於標籤只是簡單的字串而已，您無需預先佈建標籤。如需標籤的詳細資訊，請參閱[通知中心指引]。 
 
 本教學課程會逐步引導您完成啟用此案例的基本步驟：
 
@@ -34,11 +34,11 @@
 3. [從後端傳送通知]
 4. [執行應用程式並產生通知]
 
-本主題會以您在[開始使用通知中樞][get-started]中所建立的應用程式為基礎。開始本教學課程之前，您必須已完成[開始使用通知中樞][get-started]。
+本主題會以您在[開始使用通知中心][get-started]中所建立的應用程式為基礎。開始本教學課程之前，您必須已完成[開始使用通知中心][get-started]。
 
 ## <a name="adding-categories"></a>在應用程式中新增類別選項
 
-第一個步驟是在您現有的主要活動上新增 UI 元素，以便使用者選取要註冊的類別。使用者所選取的類別會儲存在裝置上。啟動應用程式時，您的通知中樞內會建立以所選類別做為標籤的裝置註冊。 
+第一個步驟是在您現有的主要活動上新增 UI 元素，以便使用者選取要註冊的類別。使用者所選取的類別會儲存在裝置上。啟動應用程式時，您的通知中心內會建立以所選取類別做為標籤的裝置註冊。 
 
 1. 開啟您的 res/layout/activity_main.xml 檔案，並將內容取代為下列項目：
 			
@@ -167,16 +167,16 @@
 
 	本類別會使用本機儲存體來儲存此裝置必須接收的新聞類別。它也包含註冊這些類別的方法。
 
-4. 在上述程式碼中，請使用您的通知中樞名稱及先前取得的  *DefaultListenSharedAccessSignature* 連接字串，來取代 `<hub name>` 和 `<connection string with listen access>` 預留位置。
+4. 在上述程式碼中，請使用您的通知中心名稱及先前取得的  *DefaultListenSharedAccessSignature* 連接字串，來取代 `<hub name>` 和 `<connection string with listen access>` 預留位置。
 
 	> [AZURE.NOTE] 因為隨用戶端應用程式散佈的憑證通常不安全，您應只將接聽存取權的金鑰隨用戶端應用程式散佈。您的應用程式可透過接聽存取權來註冊通知，但無法修改現有的註冊或無法傳送通知。在安全的後端服務中，會使用完整存取金鑰來傳送通知和變更現有的註冊。
 
-4. 在您的 **MainActivity** 類別中，移除您 **NotificationHub** 和 **GoogleCloudMessaging** 的私人欄位，並新增 [**通知**] 的欄位：
+4. 在您的 [**MainActivity**] 類別中，移除您 [**NotificationHub**] 和 [**GoogleCloudMessaging**] 的私人欄位，並新增 [**通知**] 的欄位：
 
 		// private GoogleCloudMessaging gcm;
 		// private NotificationHub hub;
 		private Notifications notifications;
-
+ 
 5. 然後，在 [**onCreate**] 方法中移除 [**中心**] 欄位和 [**registerWithNotificationHubs**] 方法的初始化。然後新增下列可初始化 **Notifications** 類別執行個體的程式碼行。此方法應包含以下幾行：
 
 		@Override
@@ -217,13 +217,13 @@
 			notifications.storeCategoriesAndSubscribe(categories);
 	    }
 	
-	此方法會建立一份類別清單，並使用 **Notifications** 類別在本機儲存體中儲存清單，然後向通知中樞註冊對應標籤。變更類別時，系統會使用新類別重新建立註冊。
+	此方法會建立一份類別清單，並使用 **Notifications** 類別在本機儲存體中儲存清單，並在通知中樞註冊對應標籤。變更類別時，系統會使用新類別重新建立註冊。
 
-您的應用程式現在可以在裝置上的本機儲存體中儲存一組類別，並在使用者每次變更類別選項時在通知中樞註冊。 
+您的應用程式現在可以在裝置上的本機儲存體中儲存一組類別，並在使用者每次變更類別選項時在通知中心註冊。 
 
 ## <a name="register"></a>註冊通知
 
-這些步驟會在啟動時，使用已儲存在本機儲存體中的類別在通知中樞註冊。 
+這些步驟會在啟動時，使用已儲存在本機儲存體中的類別在通知中心註冊。 
 
 > [AZURE.NOTE] 由於 Google 雲端通訊 (GCM) 所指派的 registrationId 可以隨時變更，您應經常註冊通知以避免通知失敗。此範例會在應用程式每次啟動時註冊通知。若是經常執行 (一天多次) 的應用程式，如果距離上次註冊的時間不到一天，則您可能可以略過註冊以保留頻寬。
 
@@ -240,7 +240,7 @@
 
 		notifications.subscribeToCategories(notifications.retrieveCategories());
 
-	這會確保應用程式每次啟動時都會從本機儲存體擷取類別，並要求這些類別的註冊。**InitNotificationsAsync** 方法是[開始使用通知中樞][get-started]教學課程的一部分，但本主題中將不會用到。
+	這會確保應用程式每次啟動時都會從本機儲存體擷取類別，並要求這些類別的註冊。**InitNotificationsAsync** 方法是[開始使用通知中心]教學課程的一部分，但本主題中將不會用到。
 
 3. 接著，將下列方法新增至 [**MainActivity**]：
 
@@ -266,7 +266,7 @@
 
 	這會根據原先儲存的類別狀態更新主要活動。 
 
-現在已完成此應用程式，且可在裝置本機儲存體中儲存一組類別，以供每次使用者變更類別選項在通知中樞註冊時使用。接著，我們會定義可將類別通知傳送至此應用程式的後端。
+現在已完成此應用程式，且可在裝置本機儲存體中儲存一組類別，以供每次使用者變更類別選項在通知中心註冊時使用。接著，我們會定義可將類別通知傳送至此應用程式的後端。
 
 <h2><a name="send"></a>從後端傳送通知</h2>
 
@@ -280,7 +280,7 @@
 
 2. 啟用一或多個類別切換，然後按一下 [**訂閱**]。
 
-	應用程式會將選取的類別轉換成標籤，並在通知中樞內為選取的標籤要求新裝置註冊。系統會傳回已註冊類別並顯示在對話方塊中。
+	應用程式會將選取的類別轉換成標籤，並在通知中心內為選取的標籤要求新裝置註冊。系統會傳回已註冊類別並顯示在對話方塊中。
 
 4. 若要從後端傳送新通知，您可以使用下列其中一種方式：
 
@@ -292,13 +292,13 @@
 
 ## <a name="next-steps"> </a>後續步驟
 
-在本教學課程中，我們了解到如何按類別廣播即時新聞。請考慮完成下列其中一個強調其他進階通知中樞案例的教學課程：
+在本教學課程中，我們了解到如何按類別廣播即時新聞。請考慮完成下列其中一個強調其他進階通知中心案例的教學課程：
 
-+ [使用通知中樞廣播已當地語系化的即時新聞]
++ [使用通知中心廣播已當地語系化的即時新聞]
 
 	了解如何擴充即時新聞應用程式，以啟用傳送已當地語系化的通知。 
 
-+ [使用通知中樞來通知使用者]
++ [使用通知中心來通知使用者]
 
 	了解如何推播通知給特定的經驗證使用者。在僅傳送通知給特定使用者的情況下，這是很好的解決方案。
 
@@ -314,17 +314,17 @@
 [A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
 
 <!-- URLs.-->
-[get-started]: notification-hubs-android-get-started.md
-[使用通知中樞廣播已當地語系化的即時新聞]: /manage/services/notification-hubs/breaking-news-localized-dotnet/ 
-[使用通知中樞來通知使用者]: /manage/services/notification-hubs/notify-users
-[行動服務]: /develop/mobile/tutorials/get-started/
-[通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx
-[Windows 市集的通知中樞作法]: http://msdn.microsoft.com/library/jj927172.aspx
+[get-started]: /zh-tw/documentation/articles/notification-hubs-android-get-started/
+[使用通知中心廣播已當地語系化的即時新聞]: /zh-tw/manage/services/notification-hubs/breaking-news-localized-dotnet/ 
+[使用通知中心來通知使用者]: /zh-tw/manage/services/notification-hubs/notify-users
+
+[通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
+[Windows 市集的通知中心作法]: http://msdn.microsoft.com/library/jj927172.aspx
 [提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[wns 物件]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

@@ -74,6 +74,6 @@
 
   [Azure 虛擬網路概觀]: http://go.microsoft.com/fwlink/p/?LinkID=294063
   [建立新的虛擬機器]: ./media/create-and-configure-centos-vm-in-portal/CreateVM.png
-  [強式密碼]: http://msdn.microsoft.com/zh-tw/library/ms161962.aspx
+  [強式密碼]: http://msdn.microsoft.com/library/ms161962.aspx
   [PuTTY 下載頁面]: http://www.puttyssh.org/download.html
   [PuTTY Screen]: ./media/create-and-configure-centos-vm-in-portal/putty.png

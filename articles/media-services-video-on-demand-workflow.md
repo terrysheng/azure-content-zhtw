@@ -28,11 +28,11 @@
 下圖顯示在點播視訊工作流程中牽涉到的媒體服務平台的主要部分。
 ![VoD workflow][vod-overview]
 
-如需詳細資訊，請參閱[媒體服務概觀](../media-services-overview)。
+如需詳細資訊，請參閱[媒體服務概觀](media-services-overview.md)。
 
 ##建立媒體服務帳戶
 
-使用 **Azure 管理入口網站** [建立 Azure 媒體服務帳戶](../media-services-create-account/)。 
+使用 **Azure 管理入口網站** [建立 Azure 媒體服務帳戶](media-services-create-account.md)。 
 
 ##設定串流端點
 
@@ -82,7 +82,7 @@
 
 ###編碼 
 
-請參閱[以 Azure 媒體服務進行編碼](../media-services-encode-asset)。
+請參閱[以 Azure 媒體服務進行編碼](media-services-encode-asset.md)。
 
 ##設定內容金鑰授權原則 
 
@@ -108,12 +108,12 @@
 
 您也可以透過新增儲存體帳戶，來調整媒體服務帳戶。每個儲存體帳戶的限制為 500 TB。若想將儲存空間擴大為超過預設限制，您可以選擇將多個儲存體帳戶附加至單一媒體服務帳戶。
 
-[此](../media-services-how-to-scale) 為相關主題的主題連結。
+[此](media-services-how-to-scale.md) 為相關主題的主題連結。
 
 
 ##播放您的內容
 
-如需詳細資訊，請參閱[使用現有播放器來播放您的內容](../media-services-playback-content)。
+如需詳細資訊，請參閱[使用現有播放器來播放您的內容](media-services-playback-content.md)。
 
 [vod-overview]: ./media/media-services-overview/media-services-video-on-demand.png
 <!--HONumber=47-->

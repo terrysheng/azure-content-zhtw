@@ -29,7 +29,7 @@
 
 本主題將示範如何使用 Azure 行動服務，以在 Windows 市集應用程式中運用資料。在本教學課程中，您將下載 Visual Studio 2013 專案，以取得在記憶體中儲存資料的應用程式、建立新的行動服務、整合行動服務與該應用程式，然後登入 Azure 管理入口網站來檢視執行應用程式時所做的資料變更。
 
->[AZURE.NOTE]本主題將示範如何使用 Visual Studio 2013 將 Azure 行動服務新增至 Windows 市集專案。您可將相同的 JavaScript 後端行動服務新增至通用 Windows 應用程式專案中。如需詳細資訊，請參閱本教學課程的[通用 Windows 應用程式版本](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data)。
+>[AZURE.NOTE]本主題將示範如何使用 Visual Studio 2013 將 Azure 行動服務新增至 Windows 市集專案。您可將相同的 JavaScript 後端行動服務新增至通用 Windows 應用程式專案中。如需詳細資訊，請參閱本教學課程的[通用 Windows 應用程式版本](mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md)。
 
 本教學課程將逐步引導您完成下列基本步驟：
 

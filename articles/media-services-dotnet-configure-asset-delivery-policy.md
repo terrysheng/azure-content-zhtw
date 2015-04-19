@@ -19,13 +19,13 @@
 #作法：設定資產傳遞原則
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 和[媒體服務即時串流工作流程](media-services-live-streaming-workflow.md) 系列的一部分。 
 
 媒體服務內容傳遞工作流程的其中一個步驟，是設定您要進行串流處理之資產的傳遞原則。資產傳遞原則會告訴媒體服務您想要如何傳遞資產：您的資產應該動態封裝成哪個串流通訊協定 (如 MPEG DASH、HLS、Smooth Streaming 或所有)，您是否想要動態加密您的資產及其方式 (信封或一般加密)。 
 
 本主題討論建立和設定資產傳遞原則的原因與方法。 
 
->[AZURE.NOTE]為了能夠使用動態封裝和動態加密，您必須確定有至少一個縮放單位 (也稱為串流單位)。如需詳細資訊，請參閱[如何調整媒體服務](../media-services-manage-origins#scale_streaming_endpoints)。 
+>[AZURE.NOTE]為了能夠使用動態封裝和動態加密，您必須確定有至少一個縮放單位 (也稱為串流單位)。如需詳細資訊，請參閱[如何調整媒體服務](media-services-manage-origins#scale_streaming_endpoints.md)。 
 >
 >此外，您的資產必須包含一組調適性位元速率 MP4 或調適性位元速率 Smooth Streaming 檔案。      
 
@@ -53,7 +53,7 @@ HDS
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
-如需有關如何發佈資產，並建置串流 URL 的指示，請參閱[建置串流 URL](../media-services-deliver-streaming-content)。
+如需有關如何發佈資產，並建置串流 URL 的指示，請參閱[建置串流 URL](media-services-deliver-streaming-content.md)。
 
 ##清除資產傳遞原則 
 
@@ -74,7 +74,7 @@ HDS
 ##DynamicCommonEncryption 資產傳遞原則 
 
 
-下列 **CreateAssetDeliveryPolicy** 方法會建立 **AssetDeliveryPolicy**，而後者設定成將動態一般加密 (**DynamicCommonEncryption**) 套用至 Smooth Streaming 通訊協定 (將會封鎖其他通訊協定進行串流處理)。此方法會採用兩個參數：**Asset** (您要套用傳遞原則的資產) 和 **IContentKey** (**CommonEncryption** 類型的內容金鑰，如需詳細資訊，請參閱：[建立內容金鑰](../media-services-dotnet-create-contentkey#common_contentkey))。
+下列 **CreateAssetDeliveryPolicy** 方法會建立 **AssetDeliveryPolicy**，而後者設定成將動態一般加密 (**DynamicCommonEncryption**) 套用至 Smooth Streaming 通訊協定 (將會封鎖其他通訊協定進行串流處理)。此方法會採用兩個參數：**Asset** (您要套用傳遞原則的資產) 和 **IContentKey** (**CommonEncryption** 類型的內容金鑰，如需詳細資訊，請參閱：[建立內容金鑰](media-services-dotnet-create-contentkey#common_contentkey.md))。
 
 如需建立 AssetDeliveryPolicy 時可以指定之值的相關資訊，請參閱[定義 AssetDeliveryPolicy 時使用的類型](#types) 小節。 
 
@@ -107,7 +107,7 @@ HDS
 
 ##DynamicEnvelopeEncryption 資產傳遞原則 
 
-下列 **CreateAssetDeliveryPolicy** 方法會建立 **AssetDeliveryPolicy**，而後者設定成將動態信封加密 (**DynamicEnvelopeEncryption**) 套用至 HLS 和 DASH 通訊協定 (將會封鎖其他通訊協定進行串流處理)。此方法會採用兩個參數：**Asset** (您要套用傳遞原則的資產) 和 **IContentKey** (**EnvelopeEncryption** 類型的內容金鑰，如需詳細資訊，請參閱：[建立內容金鑰](../media-services-dotnet-create-contentkey#envelope_contentkey))。
+下列 **CreateAssetDeliveryPolicy** 方法會建立 **AssetDeliveryPolicy**，而後者設定成將動態信封加密 (**DynamicEnvelopeEncryption**) 套用至 HLS 和 DASH 通訊協定 (將會封鎖其他通訊協定進行串流處理)。此方法會採用兩個參數：**Asset** (您要套用傳遞原則的資產) 和 **IContentKey** (**EnvelopeEncryption** 類型的內容金鑰，如需詳細資訊，請參閱：[建立內容金鑰](media-services-dotnet-create-contentkey#envelope_contentkey.md))。
 
 
 如需建立 AssetDeliveryPolicy 時可以指定之值的相關資訊，請參閱[定義 AssetDeliveryPolicy 時使用的類型](#types) 小節。   

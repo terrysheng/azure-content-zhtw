@@ -1,4 +1,4 @@
-<properties pageTitle="Azure 通知中樞豐富內容推播" description="了解如何從 Azure 將各種推播通知傳送至 iOS 應用程式。程式碼範例是以 Objective-C 及 C# 撰寫。" documentationCenter="ios" services="notification-hubs" authors="wesmc7777" manager="dwrede" editor=""/>
+<properties pageTitle="Azure 通知中心豐富內容推播" description="了解如何從 Azure 將各種推播通知傳送至 iOS 應用程式。程式碼範例是以 Objective-C 及 C# 撰寫。" documentationCenter="ios" services="notification-hubs" authors="ysxu" manager="timlt" editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -6,18 +6,16 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
-	ms.author="wesmc"/>
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
-# Azure 通知中樞豐富內容推播
+# Azure 通知中心豐富內容推播
 
 <div class="dev-center-tutorial-selector sublanding">
-        <a href="/documentation/articles/notification-hubs-aspnet-backend-ios-rich-push/" title="iOS" class="current">iOS</a>
+        <a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-ios-rich-push/" title="iOS" class="current">iOS</a>
 </div>
 
-## 概觀
-
-為了與使用者進行即時豐富內容交流，應用程式可能會想要推播純文字以外的內容。這些通知可提高使用者互動，並呈現如 URL、音效、影像/優待券等內容。本教學課程會以[通知使用者](notification-hubs-aspnet-backend-ios-notify-users.md) 主題為基礎，並說明如何傳送包含裝載 (例如影像) 的推播通知。
+為了與使用者進行即時豐富內容交流，應用程式可能會想要推播純文字以外的內容。這些通知可提高使用者互動，並呈現如 URL、音效、影像/優待券等內容。本教學課程會以[通知使用者](http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/)主題為基礎，並說明如何傳送包含裝載 (例如影像) 的推播通知。
 
 本教學課程適用於 iOS 7 和 8。
     ![][IOS1]
@@ -34,7 +32,7 @@
 
 ## WebAPI 專案
 
-1. 在 Visual Studio 中，開啟您在[通知使用者](notification-hubs-aspnet-backend-ios-notify-users.md)教學課程中建立的 **AppBackend** 專案。
+1. 在 Visual Studio 中，開啟您在[通知使用者](http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/)教學課程中建立的 **AppBackend** 專案。
 2. 取得您通知使用者時要使用的影像，並將它放在專案目錄中的 **img** 資料夾。
 3. 按一下 [方案總管] 中的 [**顯示所有檔案**]，並以滑鼠右鍵按一下要 [**加入至專案**] 的資料夾。
 4. 選取影像後，在 [屬性] 視窗中將其 [建置動作] 變更為 [**內嵌資源**]。
@@ -90,7 +88,7 @@
             }
         }
 
-> [AZURE.NOTE] \(選用) 如需如何新增和取得專案資源的詳細資訊，請參閱[如何使用 Visual C# 來內嵌和存取資源](http://support.microsoft.com/kb/319292)。
+> [AZURE.NOTE]  (選用) 如需如何新增和取得專案資源的詳細資訊，請參閱[如何使用 Visual C# 來內嵌和存取資源](http://support.microsoft.com/kb/319292)。
 
 7. 在 **NotificationsController.cs** 中，使用下列程式碼片段重新定義 **NotificationsController**。這會將初始無訊息豐富內容通知識別碼傳送到裝置，並可讓用戶端擷取影像：
 
@@ -124,11 +122,11 @@
 
 8. 為了可以從所有裝置存取此應用程式，我們現在可以將它重新部署到 Azure 網站。以滑鼠右鍵按一下 **AppBackend** 專案，然後選取 [**發行**]。
 
-9. 選取 Azure 網站作為您的發行目標。使用您的 Azure 帳戶登入，並選取現有或新的網站，記下 [**連線**] 索引標籤中的 [**目的地 URL**] 屬性。我們後續會在本教學課程中將此 URL 視為您的 *後端端點*。按一下 [**發行**]。
+9. 選取 Azure 網站作為您的發行目標。使用您的 Azure 帳戶登入，並選取現有或新的網站，記下 [**連線**] 索引標籤中的 [**目的地 URL**] 屬性。我們後續會在本教學課程中將此 URL 稱為您的 *backend endpoint*。按一下 [**發行**]。
 
 ## 修改 iOS 專案
 
-既然您已修改應用程式後端只傳送通知的  *id*，您將變更 iOS 應用程式以處理該識別碼，並從後端擷取豐富內容的訊息。
+現在您已修改應用程式後端只傳送通知的  *id*，您將需變更 iOS 應用程式以處理該識別碼，並從後端擷取豐富內容的訊息。
 
 1. 開啟您的 iOS 專案，並在 [**目標**] 區段中移至主要應用程式目標，啟用遠端通知。
 
@@ -136,7 +134,7 @@
 
     ![][IOS3]
 
-3. 移至 **Main.storyboard**，並從[通知使用者](notification-hubs-aspnet-backend-ios-notify-users.md)教學課程確定您有檢視控制器 (在本教學課程中稱為首頁檢視控制器)。
+3. 移至 [**Main.storyboard**]，並從[通知使用者](http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/)教學課程確定您有檢視控制器 (在本教學課程中稱為首頁檢視控制器) 。
 
 4. 將 [**導覽控制器**] 新增到您的腳本，按住 Ctrl 再拖曳到 [首頁檢視控制器]，讓它成為導覽的**根目錄檢視**。請確定只針對 [導覽控制器] 選取 [屬性檢查程式] 中的 [**是初始檢視控制器**]。
 
@@ -231,7 +229,7 @@
         homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
         hvc.deviceToken = deviceToken;
 
-15. 然後，將下列方法加入 **AppDelegate.m**，以擷取您的端點影像，並在擷取完成時傳送本機通知。請務必以後端端點取代預留位置 `{backend endpoint}`：
+15. 然後，將下列方法加入 **AppDelegate.m**，以擷取您的端點影像，並在擷取完成時傳送本機通知。請確定使用您的後端端點來替換 `{backend endpoint}` 預留位置：
 
         NSString *const GetNotificationEndpoint = @"{backend endpoint}/api/notifications";
 
@@ -375,4 +373,4 @@
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [開始使用](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
-> - [發生什麼情形](/documentation/articles/vs-storage-aspnet5-what-happened/)
+> - [開始使用](vs-storage-aspnet5-getting-started-blobs.md)
+> - [發生什麼情形](vs-storage-aspnet5-what-happened.md)
 
 ### <span id="whathappened">我的專案發生什麼情形？</span>
 

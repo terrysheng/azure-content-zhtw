@@ -65,7 +65,7 @@ Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘�
 
     USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF`
 
-使用 Elastic Scale API 後，將透過[資料相依路由建立特定分區的連線](./sql-database-elastic-scale-data-dependent-routing.md) (藉由 **RangeShardMap** 類別的 **OpenConnectionForKey** 方法)。 
+使用 Elastic Scale API 後，將透過[資料相依路由建立特定分區的連線](sql-database-elastic-scale-data-dependent-routing.md) (藉由 **RangeShardMap** 類別的 **OpenConnectionForKey** 方法)。 
 
     //Connect and issue queries on the shard with key=100 
     using (SqlConnection conn = rangeShardMap.OpenConnectionForKey(100, csb))  
@@ -82,7 +82,7 @@ Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘�
         } 
     }
 
-本小節的步驟是必要的步驟，不過可能無法解決所有發生的移轉情況。如需詳細資訊，請參閱 [Elastic Scale 的概念概觀](./sql-database-elastic-scale-introduction.md) 及 [API 參考](http://go.microsoft.com/?linkid=9862604)。
+本小節的步驟是必要的步驟，不過可能無法解決所有發生的移轉情況。如需詳細資訊，請參閱 [Elastic Scale 的概念概觀](sql-database-elastic-scale-introduction.md) 及 [API 參考](http://go.microsoft.com/?linkid=9862604)。
 
 ## 切換移出現有同盟成員 
 
@@ -102,7 +102,7 @@ Azure SQL 資料庫同盟功能即將於 2015 年 9 月的 Web/企業版中淘�
 
 
 ##功能比較  
-雖然 Elastic Scale 提供其他許多功能 (例如，[多分區查詢](./sql-database-elastic-scale-multishard-querying.md)、[分割和合併分區](./sql-database-elastic-scale-overview-split-and-merge.md)、[分區彈性](./sql-database-elastic-scale-elasticity.md)、[用戶端塊取](./sql-database-elastic-scale-shard-map-management.md)等等)，不過許多實用的同盟功能是 Elastic Scale 所不支援的。
+雖然 Elastic Scale 提供其他許多功能 (例如，[多分區查詢](sql-database-elastic-scale-multishard-querying.md)、[分割和合併分區](sql-database-elastic-scale-overview-split-and-merge.md)、[分區彈性](sql-database-elastic-scale-elasticity.md)、[用戶端塊取](sql-database-elastic-scale-shard-map-management.md)等等)，不過許多實用的同盟功能是 Elastic Scale 所不支援的。
   
 
 - 使用 **FILTERING=ON**。Elastic Scale 目前不支援資料列層級篩選。移轉能夠將篩選邏輯建立到按照分區發出的查詢，如下所示： 

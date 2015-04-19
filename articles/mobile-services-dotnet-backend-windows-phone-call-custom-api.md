@@ -25,13 +25,13 @@
 
 本主題中所建立的自訂 API 可提供您傳送單一 POST 要求，並將資料表中所有 todo 項目的已完成旗標設定為 `true`。若沒有此自訂 API，用戶端必須傳送個別要求，來為資料表中的每個 todo 項目更新旗標。
 
-您會將此功能新增至當您完成[將行動服務新增至現有的應用程式](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/) 教學課程時所建立的應用程式。若要達到此目的，您將需要完成下列步驟:
+您會將此功能新增至當您完成[將行動服務新增至現有的應用程式](mobile-services-dotnet-backend-windows-phone-get-started-data.md) 教學課程時所建立的應用程式。若要達到此目的，您將需要完成下列步驟:
 
 1. [定義自訂 API]
 2. [更新應用程式以呼叫自訂 API]
 3. [測試應用程式]
 
-本教學課程的基礎是 GetStartedWithData 範例 (簡單的 TodoList 應用程式)。在開始本教學課程之前，您必須先完成[將行動服務新增至現有的應用程式](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/).
+本教學課程的基礎是 GetStartedWithData 範例 (簡單的 TodoList 應用程式)。在開始本教學課程之前，您必須先完成[將行動服務新增至現有的應用程式](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
 
 ## <a name="define-custom-api"></a>定義自訂 API
 

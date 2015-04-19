@@ -155,8 +155,8 @@ Reach SDK 需要 **Android 支援程式庫 (v4)**。
 
 若要受益於「隨時」推送，您需要使用一或多個原生推送服務，視您的目標裝置而定：
 
-  - Google Play 裝置：遵循[如何整合 GCM 與 Engagement]指南，來使用 [Google Cloud Messaging](../mobile-engagement-android-gcm-integrate/) 。
-  - Amazon 裝置：遵循[如何整合 ADM 與 Engagement]指南，來使用 [Amazon Device Messaging](../mobile-engagement-android-adm-integrate/) 。
+  - Google Play 裝置：遵循[如何整合 GCM 與 Engagement]指南，來使用 [Google Cloud Messaging](mobile-engagement-android-gcm-integrate.md) 。
+  - Amazon 裝置：遵循[如何整合 ADM 與 Engagement]指南，來使用 [Amazon Device Messaging](mobile-engagement-android-adm-integrate.md) 。
 
 如果您的目標想要同時鎖定 Amazon 和 Google Play 裝置，可以將所有東西放在一個 AndroidManifest.xml/APK 進行開發。但提交給 Amazon 時，如果他們發現 GCM 程式碼可能會拒絕您的應用程式。
 

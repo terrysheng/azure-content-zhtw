@@ -18,7 +18,7 @@
 
 #如何在 Android 上使用 Engagement API
 
-這份文件是[如何在 Android 上整合 Engagement] 文件的附加元件(../mobile-engagement-android-integrate-engagement/)：它提供如何使用 Engagement API 報告應用程式統計資料的深入詳細資料。
+這份文件是[如何在 Android 上整合 Engagement] 文件的附加元件(mobile-engagement-android-integrate-engagement.md)：它提供如何使用 Engagement API 報告應用程式統計資料的深入詳細資料。
 
 請記住，如果您只想要 Engagement 報告您應用程式的工作階段、活動、當機和技術資訊，那麼最簡單的方法是讓所有 `Activity` 子類別繼承自對應的 `EngagementActivity` 類別。
 
@@ -28,7 +28,7 @@ Engagement API 由 `EngagementAgent` 類別提供。此類別的執行個體可�
 
 ##Engagement 概念
 
-下列的部分精簡常見的 [ Mobile Engagement 概念](../mobile-engagement-concepts/) (適用於 Android 平台)。
+下列的部分精簡常見的 [ Mobile Engagement 概念](mobile-engagement-concepts.md) (適用於 Android 平台)。
 
 ### `工作階段`和 `活動`
 

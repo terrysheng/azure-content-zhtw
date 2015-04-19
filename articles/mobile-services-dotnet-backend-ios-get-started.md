@@ -76,7 +76,7 @@
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../includes/mobile-services-ios-run-app.md)]
 
-這會說明如何對執行於 Azure 中的行動服務執行新的用戶端應用程式。您必須設定 Web 伺服器和防火牆以允許來自您 iOS 開發電腦的存取，才能對執行於本機電腦上的行動服務測試 iOS 應用程式。如需詳細資訊，請參閱[設定本機 Web 伺服器以允許連接到本機行動服務](/zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).。
+這會說明如何對執行於 Azure 中的行動服務執行新的用戶端應用程式。您必須設定 Web 伺服器和防火牆以允許來自您 iOS 開發電腦的存取，才能對執行於本機電腦上的行動服務測試 iOS 應用程式。如需詳細資訊，請參閱[設定本機 Web 伺服器以允許連接到本機行動服務](mobile-services-dotnet-backend-how-to-configure-iis-express.md).。
 
 ## <a name="next-steps"> </a>後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：

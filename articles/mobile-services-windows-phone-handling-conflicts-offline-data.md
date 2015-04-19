@@ -92,7 +92,7 @@
 
     在 WebApiConfig.cs 檔案中，注意您的預設資料庫初始設定式類別是衍生自  `DropCreateDatabaseIfModelChanges` 類別。這意味對模型的任何變更都會導致資料表捨棄，並重新建立以容納新模型。因此資料表的資料將流失，並且將重新植入資料表。請修改資料庫初始設定式的 Seed 方法，使  `Seed()` 初始化函數如下所示，以初始化新的 DueDate 資料行。儲存 WebApiConfig.cs 檔案。
 
-    >[AZURE.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型](/zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations)。
+    >[AZURE.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)。
 
 
         new TodoItem { Id = "1", Text = "First item", Complete = false, DueDate = DateTime.Today },

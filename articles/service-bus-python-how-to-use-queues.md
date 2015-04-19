@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-**注意：**如果您需要安裝 Python 或 [Python Azure 封裝][]，請參閱 [Python 安裝指南](../python-how-to-install/)。
+**注意：**如果您需要安裝 Python 或 [Python Azure 封裝][]，請參閱 [Python 安裝指南](python-how-to-install.md)。
 
 
 ## 如何建立佇列

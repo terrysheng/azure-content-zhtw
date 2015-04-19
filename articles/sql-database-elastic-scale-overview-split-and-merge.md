@@ -20,9 +20,9 @@ authors="torsteng"/>
 
 在以 Azure SQL Database 建置的應用程式中，當 Azure SQL Database 的單一縮放單位不能再滿足其資料或處理需求時，將會面臨挑戰。像是非常熱門的應用程式，或一組特定租用戶超出單一 Azure SQL DB 資料庫限制的應用程式。Elastic Scale**分割/合併服務**大幅減輕這種痛苦。 
 
-本文討論的分割/合併服務可變更 Azure DB 資料庫數目，並平衡它們之間的 **Shardlet** 分佈，以管理相應縮小和相應放大。(關於詞彙的定義，請參閱 [Elastic Scale 名詞解釋](./sql-database-elastic-scale-glossary.md))。 
+本文討論的分割/合併服務可變更 Azure DB 資料庫數目，並平衡它們之間的 **Shardlet** 分佈，以管理相應縮小和相應放大。(關於詞彙的定義，請參閱 [Elastic Scale 名詞解釋](sql-database-elastic-scale-glossary.md))。 
 
-在目前可選擇的 Azure SQL DB 版本中，也可以藉由相應增加或減少單一 Azure SQL DB 資料庫的容量來管理容量。「分割/合併」不討論彈性容量管理的相應增加/減少大小 - 請參閱「分區彈性」([Elastic Scale 分區彈性])。(./sql-database-elastic-scale-elasticity.md))。 
+在目前可選擇的 Azure SQL DB 版本中，也可以藉由相應增加或減少單一 Azure SQL DB 資料庫的容量來管理容量。「分割/合併」不討論彈性容量管理的相應增加/減少大小 - 請參閱「分區彈性」([Elastic Scale 分區彈性])。(sql-database-elastic-scale-elasticity.md))。 
  
 ## 分割/合併的新功能
 
@@ -65,7 +65,7 @@ authors="torsteng"/>
 
 ## 概念和重要功能
 
-**客戶主控式服務**︰分割/合併以客戶主控式服務提供。您必須將服務部署並裝載於 Microsoft Azure 訂閱中。您從 NuGet 下載的封裝包含設定範本，可加入您特定部署的資訊而使之完備。請參閱[分割合併教學課程](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) 以取得詳細資訊。因為服務是在您的 Azure 訂閱中執行，您可以控制和設定服務的大部分安全性層面。預設範本包含設定 SSL、以憑證為基礎的用戶端驗證、加密儲存的認證、DoS 防護及 IP 限制等選項。您可以下列文件中找到安全性層面的詳細資訊：[Elastic Scale 安全性考量](./sql-database-elastic-scale-configure-security.md)。
+**客戶主控式服務**︰分割/合併以客戶主控式服務提供。您必須將服務部署並裝載於 Microsoft Azure 訂閱中。您從 NuGet 下載的封裝包含設定範本，可加入您特定部署的資訊而使之完備。請參閱[分割合併教學課程](sql-database-elastic-scale-configure-deploy-split-and-merge.md) 以取得詳細資訊。因為服務是在您的 Azure 訂閱中執行，您可以控制和設定服務的大部分安全性層面。預設範本包含設定 SSL、以憑證為基礎的用戶端驗證、加密儲存的認證、DoS 防護及 IP 限制等選項。您可以下列文件中找到安全性層面的詳細資訊：[Elastic Scale 安全性考量](sql-database-elastic-scale-configure-security.md)。
 
 預設部署服務以一個背景工作角色和一個 Web 角色執行。各角色在 Azure 雲端服務中使用 A1 VM 大小。雖然您無法在部署封裝時修改這些設定，但可以在部署成功後在執行中的雲端服務中變更它們 (透過 Azure 入口網站)。請注意，基於技術原因，不可以將背景工作角色設定多個執行個體。 
 
@@ -109,7 +109,7 @@ authors="torsteng"/>
 
 ## 取得服務二進位檔
 
-分割/合併服務的二進位檔是透過 [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/) 提供。請參閱逐步[分割合併教學課程](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) 以取得有關如何下載二進位檔的詳細資訊。
+分割/合併服務的二進位檔是透過 [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/) 提供。請參閱逐步[分割合併教學課程](sql-database-elastic-scale-configure-deploy-split-and-merge.md) 以取得有關如何下載二進位檔的詳細資訊。
 
 ## 分割/合併使用者介面
 
@@ -204,9 +204,9 @@ authors="torsteng"/>
 
 ## 參考 
 
-* [分割合併教學課程](./sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+* [分割合併教學課程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 
-* [Elastic Scale 安全性考量](./sql-database-elastic-scale-configure-security.md)  
+* [Elastic Scale 安全性考量](sql-database-elastic-scale-configure-security.md)  
 
 
 <!--Anchors-->

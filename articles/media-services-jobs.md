@@ -59,6 +59,6 @@
 
 ##相關連結
 
-[配額和限制](../media-services-quotas-and-limitations) - 說明 Media Services Encoder 使用的配額和限制
+[配額和限制](media-services-quotas-and-limitations.md) - 說明 Media Services Encoder 使用的配額和限制
 
 <!--HONumber=47-->

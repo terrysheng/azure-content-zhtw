@@ -20,7 +20,7 @@
 
 本主題已被取代。請遵循這些教學課程中的更新指導方針：
 
-+ [將推播通知新增至您的行動服務應用程式](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/)<br/>更新 TodoList 行動服務來使用 Azure 通知中心，將通知傳送給 TodoList 範例應用程式的使用者。
-+ [將推播通知傳送給驗證的使用者](/zh-tw/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users/)<br/>延伸先前的教學課程，而僅允許已登入的使用者註冊通知。
++ [將推播通知新增至您的行動服務應用程式](mobile-services-javascript-backend-windows-phone-get-started-push.md)<br/>更新 TodoList 行動服務來使用 Azure 通知中心，將通知傳送給 TodoList 範例應用程式的使用者。
++ [將推播通知傳送給驗證的使用者](mobile-services-javascript-backend-windows-phone-push-notifications-app-users.md)<br/>延伸先前的教學課程，而僅允許已登入的使用者註冊通知。
 
 <!--HONumber=42-->

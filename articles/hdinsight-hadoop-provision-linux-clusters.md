@@ -27,9 +27,9 @@
 
 ![HDInsight Cluster][img-hdi-cluster]
 
-HDInsight 叢集摘要了 Hadoop 實作詳細資料，因此您無需擔心如何與叢集的不同節點通訊。佈建 HDInsight 叢集時，您可以佈建包含 Hadoop 及相關應用程式的 Azure 運算資源。如需詳細資訊，請參閱 [HDInsight 中 Hadoop 的簡介](../hdinsight-hadoop-introduction/)。待分析的資料會儲存在 Azure Blob 儲存體中，在 HDInsight 環境中又稱為「 *Azure 儲存體 - Blob*」(簡稱為 WASB)。如需詳細資訊，請參閱 [搭配 HDInsight 使用 Azure Blob 儲存體](../hdinsight-use-blob-storage/)。
+HDInsight 叢集摘要了 Hadoop 實作詳細資料，因此您無需擔心如何與叢集的不同節點通訊。佈建 HDInsight 叢集時，您可以佈建包含 Hadoop 及相關應用程式的 Azure 運算資源。如需詳細資訊，請參閱 [HDInsight 中 Hadoop 的簡介](hdinsight-hadoop-introduction.md)。待分析的資料會儲存在 Azure Blob 儲存體中，在 HDInsight 環境中又稱為「 *Azure 儲存體 - Blob*」(簡稱為 WASB)。如需詳細資訊，請參閱 [搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-use-blob-storage.md)。
 
-本文針對佈建叢集的不同方式提供指示。如果您想知道佈建叢集的快速入門方法，請參閱 [在 Linux 上開始使用 Azure HDInsight](../hdinsight-hadoop-linux-get-started)。
+本文針對佈建叢集的不同方式提供指示。如果您想知道佈建叢集的快速入門方法，請參閱 [在 Linux 上開始使用 Azure HDInsight](hdinsight-hadoop-linux-get-started.md)。
 
 **必要條件：**
 
@@ -37,14 +37,14 @@ HDInsight 叢集摘要了 Hadoop 實作詳細資料，因此您無需擔心如�
 
 - Azure 訂閱。Azure 是訂用帳戶型平台。HDInsight PowerShell Cmdlet 會為您的訂用帳戶執行相關工作。如需取得訂閱的詳細資訊，請參閱<a href="http://azure.microsoft.com/pricing/purchase-options/" target="_blank">購買選項</a>、<a href="http://azure.microsoft.com/pricing/member-offers/" target="_blank">會員優惠</a>或 <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">免費試用</a>。
 - SSH 金鑰。如果您想要使用帶有金鑰的 SSH (而非密碼) 遠端登入到 Linux 叢集。建議使用金鑰的方式，因為它較為安全。如需如何產生 SSH 金鑰的相關指示，請參閱下列文章
-	-  從 Linux 電腦 - [從 Linux、Unix 或 OS X 搭配使用 SSH 與以 Linux 為基礎的 HDInsight (Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix)。
-	-  從 Windows 電腦 - [從 Windows 搭配使用 SSH 與以 Linux 為基礎的 HDInsight (Hadoop)](../hdinsight-hadoop-linux-use-ssh-windows)。
+	-  從 Linux 電腦 - [從 Linux、Unix 或 OS X 搭配使用 SSH 與以 Linux 為基礎的 HDInsight (Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
+	-  從 Windows 電腦 - [從 Windows 搭配使用 SSH 與以 Linux 為基礎的 HDInsight (Hadoop)](hdinsight-hadoop-linux-use-ssh-windows.md)。
 
 ## <a id="configuration"></a>組態選項
 
 ### Linux 上的叢集
 
-HDInsight 提供在 Azure 上佈建 Linux 叢集的選項。如果您熟悉 Linux 或 Unix、要從現有的以 Linux 為基礎的 Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，請佈建 Linux 叢集。如需 Linux 上的 Azure HDInsight 的詳細資訊，請參閱 [HDInsight 中 Hadoop 的簡介]。(../hdinsight-hadoop-introduction)。 
+HDInsight 提供在 Azure 上佈建 Linux 叢集的選項。如果您熟悉 Linux 或 Unix、要從現有的以 Linux 為基礎的 Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，請佈建 Linux 叢集。如需 Linux 上的 Azure HDInsight 的詳細資訊，請參閱 [HDInsight 中 Hadoop 的簡介]。(hdinsight-hadoop-introduction.md)。 
 
 ### 其他儲存體
 
@@ -72,7 +72,7 @@ Windows | 按一下 [這裡](#portal) |按一下[這裡](#cli) |按一下[這裡
 
 ### <a id="portal"></a>使用 Azure 管理入口網站
 
-HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相同的資料中心上必須要有 Azure 儲存體帳戶，您才能建立 HDInsight 叢集。如需詳細資訊，請參閱 [搭配 HDInsight 使用 Azure Blob 儲存體](../hdinsight-use-blob-storage/)。如需建立 Azure 儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶][azure-create-storageaccount]。
+HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相同的資料中心上必須要有 Azure 儲存體帳戶，您才能建立 HDInsight 叢集。如需詳細資訊，請參閱 [搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-use-blob-storage.md)。如需建立 Azure 儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶][azure-create-storageaccount]。
 
 
 > [WACOM.NOTE] 目前只有**東亞**、**東南亞**、**北歐**、**西歐**、**美國東部**、**美國西部**、**美國中北部**和**美國中南部**等區域可以裝載 HDInsight 叢集。
@@ -526,12 +526,12 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
 ##<a id="nextsteps"></a>後續步驟
 在本文中，您已學到幾種方式可以在 Linux 上佈建 HDInsight Hadoop 叢集。若要深入了解，請參閱下列文章：
 
-- [在 Linux 上使用 HDInsight](../hdinsight-hadoop-linux-information)。了解在 Linux 上使用 HDInsight 叢集的細微差異。
-- [使用 Ambari 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari)。了解如何使用 Ambari Web 或 Ambari REST API 在 HDInsight 叢集上監視及管理以 Linux 為基礎的 Hadoop。 
+- [在 Linux 上使用 HDInsight](hdinsight-hadoop-linux-information.md)。了解在 Linux 上使用 HDInsight 叢集的細微差異。
+- [使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。了解如何使用 Ambari Web 或 Ambari REST API 在 HDInsight 叢集上監視及管理以 Linux 為基礎的 Hadoop。 
 - [搭配 HDInsight 使用 MapReduce][hdinsight-use-mapreduce]。深入了解在叢集上執行 MapReduce 工作的不同方法。
 - [搭配 HDInsight 使用 Hive][hdinsight-use-hive]。深入了解在叢集上執行 Hive 查詢的不同方法。
 - [搭配 HDInsight 使用 Pig][hdinsight-use-pig]。深入了解在叢集上執行 Pig 工作的不同方法。
-- [搭配 HDInsight 使用 Azure Blob 儲存體](../hdinsight-use-blob-storage)。了解 HDInsight 如何使用 Azure Blob 儲存體來儲存 HDInsight 叢集的資料。
+- [搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-use-blob-storage.md)。了解 HDInsight 如何使用 Azure Blob 儲存體來儲存 HDInsight 叢集的資料。
 - [將資料上傳至 HDInsight][hdinsight-upload-data]。了解如何使用 HDInsight 叢集的 Azure Blob 儲存體中儲存的資料。
 
 [hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/

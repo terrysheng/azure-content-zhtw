@@ -31,10 +31,10 @@ Azure 服務匯流排訊息就類似於傳遞信件的郵遞服務，可在傳�
 
 如需服務匯流排訊息的相關詳細資訊，請參閱下列主題。
 
-- [Azure 服務匯流排架構概觀](../fundamentals-service-bus-hybrid-solutions/)
+- [Azure 服務匯流排架構概觀](fundamentals-service-bus-hybrid-solutions.md)
 
-- [如何使用服務匯流排佇列](../service-bus-dotnet-how-to-use-queues)
+- [如何使用服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)
 
-- [如何使用服務匯流排主題](../service-bus-dotnet-how-to-use-topics-subscriptions)
+- [如何使用服務匯流排主題](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 <!--HONumber=47-->

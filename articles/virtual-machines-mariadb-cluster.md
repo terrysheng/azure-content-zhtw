@@ -368,8 +368,8 @@ and for MariaDB3
 [Azure CLI]: http://azure.microsoft.com/documentation/articles/xplat-cli/
 [Azure CLI 命令參考]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/
 [建立驗證的 SSH 金鑰]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
-[效能微調策略]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
-[最佳化和測試 Azure Linux VM 上的 MySQL 效能]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[效能微調策略]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[最佳化和測試 Azure Linux VM 上的 MySQL 效能]:http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [Azure CLI 中的問題 #1268]:https://github.com/Azure/azure-xplat-cli/issues/1268
 [在 Linux 上叢集 MySQL 的另一種方法]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 

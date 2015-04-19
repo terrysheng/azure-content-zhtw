@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="如何搭配使用 AMQP 1.0 和 .NET 服務匯流排 API - Azure" 
 	description="了解如何搭配使用 Advanced Message Queuing Protodol (AMQP) 1.0 和 Azure .NET 服務匯流排 API。" 
 	services="service-bus" 
@@ -209,7 +209,7 @@
 執行應用程式將產生表單的輸出：
 
 	> SimpleSenderReceiver.exe
-	Press [enter] to send a message.Type 'exit' + [enter] to quit.
+	Press [enter] to send a message. Type 'exit' + [enter] to quit.
 	
 	Sent message with MessageID = fb7f5d3733704e4ba4bd55f759d9d7cf
 	Received message with MessageID = fb7f5d3733704e4ba4bd55f759d9d7cf
@@ -241,7 +241,7 @@
 ### JMS 應用程式的輸出
 
 	> java SimpleSenderReceiver sendonly
-	Press [enter] to send a message.Type 'exit' + [enter] to quit.
+	Press [enter] to send a message. Type 'exit' + [enter] to quit.
 	Sent message with JMSMessageID = ID:4364096528752411591
 	Sent message with JMSMessageID = ID:459252991689389983
 	Sent message with JMSMessageID = ID:1565011046230456854
@@ -250,7 +250,7 @@
 ### .NET 應用程式的輸出
 
 	> SimpleSenderReceiver.exe	
-	Press [enter] to send a message.Type 'exit' + [enter] to quit.
+	Press [enter] to send a message. Type 'exit' + [enter] to quit.
 	Received message with MessageID = 4364096528752411591
 	Received message with MessageID = 459252991689389983
 	Received message with MessageID = 1565011046230456854
@@ -268,7 +268,7 @@
 #### .NET 應用程式的輸出
 
 	> SimpleSenderReceiver.exe sendonly
-	Press [enter] to send a message.Type 'exit' + [enter] to quit.
+	Press [enter] to send a message. Type 'exit' + [enter] to quit.
 	Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3	
 	Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
 	Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
@@ -278,7 +278,7 @@
 #### JMS 應用程式的輸出
 
 	> java SimpleSenderReceiver	
-	Press [enter] to send a message.Type 'exit' + [enter] to quit.
+	Press [enter] to send a message. Type 'exit' + [enter] to quit.
 	Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
 	Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
 	Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
@@ -316,4 +316,4 @@
 
 [如何使用服務匯流排佇列]: http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/
 
-<!--HONumber=49-->
+<!--HONumber=47-->

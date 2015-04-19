@@ -30,11 +30,11 @@
 
 您也需要 Azure 儲存體帳戶和金鑰才能存取它 (您可以從 Azure 入口網站取得此資訊)。
 
-如果您需要在 Azure 上建立 Linux VM 的說明，請參閱[建立執行 Linux 的虛擬機器](../virtual-machines-linux-tutorial/)。
+如果您需要在 Azure 上建立 Linux VM 的說明，請參閱[建立執行 Linux 的虛擬機器](virtual-machines-linux-tutorial.md)。
 
 雖然特定的安裝命令將會假設 Ubuntu，但是您可以針對任何支援的發行版採用一般步驟。
 
- *script-vm* VM 需要安裝 xplat-cli，並且與 Azure 之間具有正常運作的連線。如需此動作的說明，請參閱[安裝與設定 Azure 跨平台命令列介面](../xplat-cli/)。
+ *script-vm* VM 需要安裝 xplat-cli，並且與 Azure 之間具有正常運作的連線。如需此動作的說明，請參閱[安裝與設定 Azure 跨平台命令列介面](xplat-cli.md)。
 
 ## 上傳指令碼
 
@@ -104,6 +104,6 @@
 
 [Azure Linux 延伸模組 (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
-[Azure 上的 Linux 和開放原始碼運算](../virtual-machines-linux-opensource/)
+[Azure 上的 Linux 和開放原始碼運算](virtual-machines-linux-opensource.md)
 
 <!--HONumber=47-->

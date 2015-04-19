@@ -232,7 +232,7 @@
 +  可以列印的字元：**"**(0x0022), **\+** (0x002B), **/** (0x002F), **?**(0x003F), **\\** (0x005C), **`** (0x0060)
 +  識別碼 "." 和 ".."
 
-您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表](/documentation/articles/virtual-machines-command-line-tools/#Mobile_Tables)。
+您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表](virtual-machines-command-line-tools.md/#Mobile_Tables)。
 
 
 ###<a name="access-headers"></a>作法：存取自訂參數

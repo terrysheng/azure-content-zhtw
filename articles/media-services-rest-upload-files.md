@@ -21,7 +21,7 @@
 #使用 REST API 將檔案上傳至媒體服務帳戶
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 系列的一部分。 
 
 在媒體服務中，您會將數位檔案上傳到到資產。[資產](https://msdn.microsoft.com/library/azure/hh974277.aspx)實體可以包含視訊、音訊、影像、縮圖集合、文字播放軌及隱藏式字幕檔案 (以及這些檔案的相關中繼資料)。一旦檔案會上傳到資產，您的內容會安全地儲存在雲端，以便進行進一步的處理和串流。 
 
@@ -39,9 +39,9 @@
 
 >[AZURE.NOTE] 使用媒體服務 REST API 時，適用下列考量事項：
 >
->在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發的設定](../media-services-rest-how-to-use)。
+>在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發的設定](media-services-rest-how-to-use.md)。
 
->順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務]中所述(../media-services-rest-connect_programmatically/)。 
+>順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務]中所述(media-services-rest-connect_programmatically.md)。 
  
 資產是媒體服務中多種類型或物件集的容器，包括視訊、音訊、影像、縮圖集合、文字播放軌和隱藏式字幕檔案。在 REST API 中，建立資產必須傳送 POST 要求給媒體服務，並將關於您資產的任何屬性資訊放在要求主體中。
 
@@ -56,7 +56,7 @@
 
 - **EnvelopeEncryptionProtected** = **4**：指定您是否上傳使用 AES 檔案加密的 HLS。請注意，檔案必須已由 Transform Manager 編碼和加密。
 
->[AZURE.NOTE]如果您的資產會使用加密，您必須建立 **ContentKey** 並將它連結到您的資產，如下列主題中所述：[如何建立 ContentKey](../media-services-rest-create-contentkey)。請注意，檔案上傳到資產之後，您必須將 **AssetFile** 實體上的加密屬性更新為在**資產**加密期間得到的值。請使用 **MERGE** HTTP 要求。 
+>[AZURE.NOTE]如果您的資產會使用加密，您必須建立 **ContentKey** 並將它連結到您的資產，如下列主題中所述：[如何建立 ContentKey](media-services-rest-create-contentkey.md)。請注意，檔案上傳到資產之後，您必須將 **AssetFile** 實體上的加密屬性更新為在**資產**加密期間得到的值。請使用 **MERGE** HTTP 要求。 
 
 
 下列範例示範如何建立資產。

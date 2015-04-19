@@ -19,19 +19,19 @@
 
 # <a id="nonendorsed"> </a>非背書散發套件的資訊 #
 
-**重要事項**：只有當使用其中一個[背書散發套件](../virtual-machines-linux-endorsed-distributions)時，Azure 平台 SLA 才適用於執行 Linux OS 的虛擬機器。Azure 映像庫中提供的所有 Linux 散發套件，皆為使用必要組態的背書散發套件。
+**重要事項**：只有當使用其中一個[背書散發套件](virtual-machines-linux-endorsed-distributions.md)時，Azure 平台 SLA 才適用於執行 Linux OS 的虛擬機器。Azure 映像庫中提供的所有 Linux 散發套件，皆為使用必要組態的背書散發套件。
 
-- [Azure 上的 Linux - 背書散發套件](../virtual-machines-linux-endorsed-distributions)
+- [Azure 上的 Linux - 背書散發套件](virtual-machines-linux-endorsed-distributions.md)
 - [Microsoft Azure 中 Linux 映像的支援](http://support2.microsoft.com/kb/2941892)
 
 所有執行於 Azure 的散發套件都必須符合許多必要條件，才能在平台上正確執行。本文並未列出所有的必要條件，因為每個散發套件都不同；而且即使您符合下列所有條件，仍很可能需要詳加審視您的 Linux 系統，以確保它可在平台上正常運作。
 
-基於這個原因，我們建議您盡可能從其中一個 [Azure 背書散發套件上的 Linux](../linux-endorsed-distributions) 開始著手。下列文章會逐步引導您如何準備 Azure 支援的各種 Linux 背書散發套件：
+基於這個原因，我們建議您盡可能從其中一個 [Azure 背書散發套件上的 Linux](linux-endorsed-distributions.md) 開始著手。下列文章會逐步引導您如何準備 Azure 支援的各種 Linux 背書散發套件：
 
-- **[CentOS 型散發套件](../virtual-machines-linux-create-upload-vhd-centos)**
-- **[Oracle Linux](../virtual-machines-linux-create-upload-vhd-oracle)**
-- **[SLES & openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
-- **[Ubuntu](../virtual-machines-linux-create-upload-vhd-ubuntu)**
+- **[CentOS 型散發套件](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[SLES & openSUSE](virtual-machines-linux-create-upload-vhd-suse.md)**
+- **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 
 本文接下來會將重點放在於 Azure 上執行 Linux 散發套件時的一般指引。
 
@@ -40,7 +40,7 @@
 
 - Azure 不支援較新的 VHDX 格式。您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。
 
-- 安裝 Linux 系統時，建議您使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。這可避免 LVM 與複製之虛擬機器的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至其他虛擬機器時。如果需要，您可以在資料磁碟上使用 LVM 或 [RAID](../virtual-machines-linux-configure-raid)。
+- 安裝 Linux 系統時，建議您使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。這可避免 LVM 與複製之虛擬機器的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至其他虛擬機器時。如果需要，您可以在資料磁碟上使用 LVM 或 [RAID](virtual-machines-linux-configure-raid.md)。
 
 - 由於 2.6.37 以下的 Linux 核心版本有錯誤，因此較大的 VM 不支援 NUMA。這個問題主要會影響使用上游 Red Hat 2.6.32 kernel 的散發套件。手動安裝 Azure Linux 代理程式 (waagent) 將會自動停用 Linux Kernel GRUB 組態中的 NUMA。
 
@@ -103,7 +103,7 @@ Azure 上 VHD 映像的虛擬大小須對齊至 1MB。一般而言，使用 Hype
 
 ## Linux Kernel 需求 ##
 
-適用於 Hyper-V 和 Azure 的 Linux Integration Services (LIS) 驅動程式會直接提供給上游 Linux Kernel。許多包括最新 Linux kernel 版本 (例如 3.x) 的散發套件已經有這些驅動程式，或提供這些驅動程式及其核心的 Backport 版本。這些驅動程式在上游核心經常有新的修正和功能更新，因此建議您盡量執行[背書散發套件](../linux-endorsed-distributions)，其中將包含這些修正和更新。
+適用於 Hyper-V 和 Azure 的 Linux Integration Services (LIS) 驅動程式會直接提供給上游 Linux Kernel。許多包括最新 Linux kernel 版本 (例如 3.x) 的散發套件已經有這些驅動程式，或提供這些驅動程式及其核心的 Backport 版本。這些驅動程式在上游核心經常有新的修正和功能更新，因此建議您盡量執行[背書散發套件](linux-endorsed-distributions.md)，其中將包含這些修正和更新。
 
 如果您打算執行 Red Hat Enterprise Linux 版本 **6.0-6.3** 的變體，則您必須安裝 Hyper-V 最新的 LIS 驅動程式。您可以[在此位置](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)找到這些驅動程式。因為 RHEL **6.4+** (及變體) 已經在核心包含 LIS 驅動程式，所以在 Azure 上執行這些系統時不需要其他的安裝套件。
 
@@ -129,7 +129,7 @@ Azure 上 VHD 映像的虛擬大小須對齊至 1MB。一般而言，使用 Hype
 
 ## Azure Linux 代理程式 ##
 
-在 Azure 中佈建 Linux 虛擬機器需要 [Azure Linux 代理程式](../virtual-machines-linux-agent-user-guide) (waagent)，才能適當地佈建。[Linux 代理程式 GitHub 儲存機制](https://github.com/Azure/WALinuxAgent)取得最新版本、檔案問題或送出提取要求。
+在 Azure 中佈建 Linux 虛擬機器需要 [Azure Linux 代理程式](virtual-machines-linux-agent-user-guide.md) (waagent)，才能適當地佈建。[Linux 代理程式 GitHub 儲存機制](https://github.com/Azure/WALinuxAgent)取得最新版本、檔案問題或送出提取要求。
 
 - Linux 代理程式已在 Apache 2.0 授權下發行。許多散發套件已提供代理程式的 RPM 或 Deb 套件，因此在某些情況下，您可以不費吹灰之力就能安裝及更新此代理程式。
 
@@ -158,7 +158,7 @@ Azure 上 VHD 映像的虛擬大小須對齊至 1MB。一般而言，使用 Hype
 
 - 安裝 Azure Linux 代理程式
 
-	如需在 Azure 上佈建 Linux 映像，您需要 Azure Linux 代理程式。許多散發套件以 RPM 或 Deb 套件 (此套件通常稱為 'WALinuxAgent' 或 'walinuxagent') 的形式提供代理程式。您也可以遵循 [Linux 代理程式指南](../virtual-machines-linux-agent-user-guide)中的步驟來手動安裝代理程式。
+	如需在 Azure 上佈建 Linux 映像，您需要 Azure Linux 代理程式。許多散發套件以 RPM 或 Deb 套件 (此套件通常稱為 'WALinuxAgent' 或 'walinuxagent') 的形式提供代理程式。您也可以遵循 [Linux 代理程式指南](virtual-machines-linux-agent-user-guide.md)中的步驟來手動安裝代理程式。
 
 - 確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。這通常是預設值。
 

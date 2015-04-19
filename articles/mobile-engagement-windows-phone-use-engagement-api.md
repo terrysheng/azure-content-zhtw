@@ -18,7 +18,7 @@
 
 #如何在 Windows Phone 上使用 Engagement API
 
-此文件是[如何在您的 Windows Phone 應用程式整合 Mobile Engagement](../mobile-engagement-windows-phone-integrate-engagement/) 文件的補充。它會提供關於如何使用 Engagement API 來回報您應用程式的統計資料之詳細資訊。
+此文件是[如何在您的 Windows Phone 應用程式整合 Mobile Engagement](mobile-engagement-windows-phone-integrate-engagement.md) 文件的補充。它會提供關於如何使用 Engagement API 來回報您應用程式的統計資料之詳細資訊。
 
 如果您只想 Engagement 報告應用程式的工作階段、活動、當機和技術資訊，則最簡單的方式是讓您所有有的 `PhoneApplicationPage` 子類別繼承自 `EngagementPage` 類別。
 

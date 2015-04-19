@@ -259,7 +259,7 @@ DocumentDB 服務將做出下列回應。
 -	實體標籤[http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
 -	[查詢 DocumentDB](documentdb-sql-query.md)
 -	[DocumentDB SQL 參考](https://msdn.microsoft.com/library/azure/dn782250.aspx)
--	[DocumentDB 程式設計：預存程序、觸發程序和 UDF](../documentdb-programming/)
+-	[DocumentDB 程式設計：預存程序、觸發程序和 UDF](documentdb-programming.md)
 -	[DocumentDB 參考文件](https://msdn.microsoft.com/library/azure/dn781482.aspx)
 
 

@@ -73,7 +73,7 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 * [在雲端裝載互動式程式碼](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [取得使用 WebJobs SDK 進行本機開發的儀表板](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)
 * [將追蹤加入至 Azure 網站和 WebJobs](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
-* [監視、診斷及疑難排解 Microsoft Azure 儲存體](../storage-monitoring-diagnosing-troubleshooting/)
+* [監視、診斷及疑難排解 Microsoft Azure 儲存體](storage-monitoring-diagnosing-troubleshooting.md)
 * 影片
 	* [WebJobs 工具與遠端偵錯](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 

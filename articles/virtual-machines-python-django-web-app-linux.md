@@ -56,7 +56,7 @@ Azure 裝載 Django 型網站。本教學課程假設您先前沒有使用 Azure
 
 ## <a id="setup"> </a>設定開發環境
 
-**注意：**如果您需要安裝 Python 或想要使用用戶端程式庫，請參閱 [Python 安裝指南](../python-how-to-install/).
+**注意：**如果您需要安裝 Python 或想要使用用戶端程式庫，請參閱 [Python 安裝指南](python-how-to-install.md).
 
 Ubuntu Linux VM 已經預先安裝 Python 2.7，但是並未安裝 Apache 或 Django。請按照下列步驟連線至您的 VM 以安裝 Apache 和 Django。
 

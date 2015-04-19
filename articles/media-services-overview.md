@@ -36,7 +36,7 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 
 ##概念
 
-如需詳細資訊，請參閱[概念](../media-services-concepts)。
+如需詳細資訊，請參閱[概念](media-services-concepts.md)。
 
 ##選擇您的媒體經驗
 
@@ -126,7 +126,7 @@ XBox 主控台擁有較大的螢幕和較大的儲存容量，適合採用離線
 1. 發佈資產。
 1. 漸進式下載內容。
 
-[媒體服務隨選視訊](../media-services-video-on-demand-workflow) 包含示範如何執行上述工作的主題連結。
+[媒體服務隨選視訊](media-services-video-on-demand-workflow.md) 包含示範如何執行上述工作的主題連結。
 
 ###即時資料流
 
@@ -142,7 +142,7 @@ XBox 主控台擁有較大的螢幕和較大的儲存容量，適合採用離線
 1. 當您想停止串流和封存事件時，停止程式。
 1. 刪除程式 (以及選擇性刪除資產)。
 
-[媒體服務即時資料流](../media-services-live-streaming-wrokflow) 包含示範如何執行上述工作的主題連結。
+[媒體服務即時資料流](media-services-live-streaming-wrokflow.md) 包含示範如何執行上述工作的主題連結。
 
 ##用戶端
 
@@ -157,7 +157,7 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 - 建置 Windows 8 上的視訊應用程式 
 - [XBOX 視訊應用程式開發](http://xbox.create.msdn.com/)
 
-如需詳細資訊，請參閱[開發視訊播放器應用程式](../media-services-develop-video-players)
+如需詳細資訊，請參閱[開發視訊播放器應用程式](media-services-develop-video-players.md)
 
 ##模式與實例指南
 

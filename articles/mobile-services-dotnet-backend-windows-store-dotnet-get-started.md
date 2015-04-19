@@ -27,7 +27,7 @@
 
 >[AZURE.NOTE]本主題將說明如何使用 Azure 管理入口網站建立新的行動服務專案和通用 Windows 應用程式。使用 Visual Studio 2013 Update 3，可讓您將新的行動服務專案新增至現有的 Visual Studio 方案。如需詳細資訊，請參閱 Windows 開發人員中心的[快速入門：新增行動服務 (.NET 後端)](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx).
 
->若要將行動服務新增至 Windows Phone 8.0 或 Windows Phone Silverlight 8.1 應用程式專案，請參閱[開始使用 Windows Phone 的資料](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)。
+>若要將行動服務新增至 Windows Phone 8.0 或 Windows Phone Silverlight 8.1 應用程式專案，請參閱[開始使用 Windows Phone 的資料](mobile-services-dotnet-backend-windows-phone-get-started-data.md)。
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
@@ -109,7 +109,7 @@
 * [行動服務 .NET 後端的疑難排解]
   <br/> 了解如何診斷和修正行動服務 .NET 後端可能發生的問題。 
 
-如需通用 Windows 應用程式的詳細資訊，請參閱[從單一行動服務支援多個裝置平台](/zh-tw/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs)。
+如需通用 Windows 應用程式的詳細資訊，請參閱[從單一行動服務支援多個裝置平台](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md)。
 
 <!-- Anchors. -->
 [開始使用行動服務]:#getting-started

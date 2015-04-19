@@ -53,7 +53,7 @@ Azure 中的虛擬機器是您在雲端中可以控制和管理的伺服器。�
 
 [AZURE.INCLUDE [virtual-machines-Linux-tutorial-log-on-attach-disk](../includes/virtual-machines-Linux-tutorial-log-on-attach-disk.md)]
 
-> [AZURE.NOTE] 您也可以使用 SSH 金鑰做為識別，以連線到您的 Linux 虛擬機器。請參閱[如何搭配使用 SSH 和 Azure 上的 Linux](./virtual-machines-linux-use-ssh-key/)了解如何設定 SSH 金鑰並使用它連線。
+> [AZURE.NOTE] 您也可以使用 SSH 金鑰做為識別，以連線到您的 Linux 虛擬機器。請參閱[如何搭配使用 SSH 和 Azure 上的 Linux](virtual-machines-linux-use-ssh-key)了解如何設定 SSH 金鑰並使用它連線。
 
 ##後續步驟 
 
@@ -65,7 +65,7 @@ Azure 中的虛擬機器是您在雲端中可以控制和管理的伺服器。�
 
 - [關於 Azure VM 組態設定](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
-- [Azure 上 Linux 的 Docker 虛擬機器擴充程式](../virtual-machines-docker-vm-extension/)
+- [Azure 上 Linux 的 Docker 虛擬機器擴充程式](virtual-machines-docker-vm-extension.md)
 
 
 [後續步驟]: #next

@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [入門](/documentation/articles/vs-mobile-services-dotnet-getting-started/)
-> - [發生什麼情形](/documentation/articles/vs-mobile-services-dotnet-what-happened/)
+> - [入門](vs-mobile-services-dotnet-getting-started.md)
+> - [發生什麼情形](vs-mobile-services-dotnet-what-happened.md)
 
 ###<span id="whathappened">我的專案發生什麼情形？</span>
 

@@ -23,7 +23,7 @@
 
 本程序說明如何啟用您應用程式內 Engagement 的分析與監視功能。
 
-下列步驟便足以啟用計算使用者、工作階段、活動、當機和技術相關的所有統計資料需要的記錄檔之報告。用來計算其他像是事件、錯誤及作業等統計資料，所需的記錄檔之報告必須使用 Engagement API 來手動完成 (請參閱下方的 [如何在您的 Windows Phone 應用程式中使用進階的 Mobile Engagement 標記 API](../mobile-engagement-windows-phone-use-engagement-api/) )，因為這些是應用程式相關的統計資料。
+下列步驟便足以啟用計算使用者、工作階段、活動、當機和技術相關的所有統計資料需要的記錄檔之報告。用來計算其他像是事件、錯誤及作業等統計資料，所需的記錄檔之報告必須使用 Engagement API 來手動完成 (請參閱下方的 [如何在您的 Windows Phone 應用程式中使用進階的 Mobile Engagement 標記 API](mobile-engagement-windows-phone-use-engagement-api.md) )，因為這些是應用程式相關的統計資料。
 
 ##支援的版本
 
@@ -209,7 +209,7 @@ Engagement 的組態集中在您專案的 `Resources\EngagementConfiguration.xml
 
 (選擇性) 您可能想要報告應用程式特定的事件、錯誤和作業，若要這樣做，請使用 `EngagementAgent` 類別中找到的其他方法。Engagement API 允許使用所有 Engagement 的進階功能。
 
-如需詳細資訊，請參閱[如何在您的 Windows Phone 應用程式中使用進階的 Mobile Engagement 標記 API](../mobile-engagement-windows-phone-use-the-engagement-api/)。
+如需詳細資訊，請參閱[如何在您的 Windows Phone 應用程式中使用進階的 Mobile Engagement 標記 API](mobile-engagement-windows-phone-use-the-engagement-api.md)。
 
 ##進階組態
 

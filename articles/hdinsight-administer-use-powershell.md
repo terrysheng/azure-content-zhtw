@@ -70,7 +70,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 
 
-如需使用管理入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/)。
+如需使用管理入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[建立、管理或刪除儲存體帳戶](storage-create-storage-account.md)。
 
 如果您已有儲存體帳戶，但不知道帳戶名稱和帳戶金鑰，您可以使用下列命令來擷取資訊：
 
@@ -79,7 +79,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 	# List the keys for a storage account
 	Get-AzureStorageKey <StorageAccountName>
 
-如需有關使用管理入口網站取得資訊的詳細資訊，請參閱*作法：檢視、複製和重新產生儲存體存取金鑰*小節，其屬於[建立、管理或刪除儲存體帳戶](../storage-create-storage-account/)。
+如需有關使用管理入口網站取得資訊的詳細資訊，請參閱*作法：檢視、複製和重新產生儲存體存取金鑰*小節，其屬於[建立、管理或刪除儲存體帳戶](storage-create-storage-account.md)。
 
 **建立 Azure 儲存容器**
 

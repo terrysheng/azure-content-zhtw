@@ -28,7 +28,7 @@
 
 範例應用程式是使用 Visual Studio 2013 以 C# 撰寫。如果您還沒有 Visual Studio，請試用免費的 [Visual Studio 2013 Express 版](http://www.visualstudio.com/zh-tw/products/visual-studio-express-vs.aspx)。
 
-您需要 Azure 訂閱和 Azure Search 服務來完成教學課程。請參閱[開始使用 Azure Search](../search-get-started/)，以便設定此服務。
+您需要 Azure 訂閱和 Azure Search 服務來完成教學課程。請參閱[開始使用 Azure Search](search-get-started.md)，以便設定此服務。
 
 [WACOM.INCLUDE [要完成此教學課程，您必須要有 Azure 帳戶：](../includes/free-trial-note.md)]
 

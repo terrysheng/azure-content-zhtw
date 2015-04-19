@@ -25,7 +25,7 @@ TodoItem 類別可定義資料物件，您必須將相同屬性新增至此類�
 
 	這些屬性可用來產生 SAS 及儲存映像資訊。請注意，這些屬性上的大小寫符合 JavaScript 後端版本。 
 
-	>[AZURE.NOTE] 使用預設資料庫初始設定式時，當 Entity Framework 在 Code First 定義中偵測到資料模型變更時，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。無法針對 Azure 中的 SQL Database 使用預設的初始設定式。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型](/zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+	>[AZURE.NOTE] 使用預設資料庫初始設定式時，當 Entity Framework 在 Code First 定義中偵測到資料模型變更時，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。無法針對 Azure 中的 SQL Database 使用預設的初始設定式。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 ##<a name="update-scripts"></a>更新 TodoItem 控制器以產生共用存取簽章 
 

@@ -174,7 +174,7 @@
 * 在 [https://www.twilio.com/docs][twilio_docs] 上深入了解 Twilio。
 
 ##<a name="seealso"></a>另請參閱
-* [如何透過 Twilio 來使用 Azure 的語音和簡訊功能](../twilio-dotnet-how-to-use-for-voice-sms/)
+* [如何透過 Twilio 來使用 Azure 的語音和簡訊功能](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_pricing]: http://www.twilio.com/pricing
 [try_twilio]: http://www.twilio.com/try-twilio

@@ -19,7 +19,7 @@
 
 # 如何調整媒體服務  
 
-這篇文章屬於[要求工作流程上的媒體服務視訊](../media-services-video-on-demand-workflow)系列。
+這篇文章屬於[要求工作流程上的媒體服務視訊](media-services-video-on-demand-workflow.md)系列。
 
 ## 概觀
 
@@ -27,7 +27,7 @@
 
 ## 串流保留單元
 
-如需詳細資訊，請參閱[調整串流單元](../media-services-manage-origins#scale_streaming_endpoints)。
+如需詳細資訊，請參閱[調整串流單元](media-services-manage-origins#scale_streaming_endpoints.md)。
 
 ## <a id="encoding_reserved_units"></a>編碼保留單元
 

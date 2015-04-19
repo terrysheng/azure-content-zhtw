@@ -525,7 +525,7 @@ Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。您可以�
 ##<a id="nextsteps"></a>後續步驟
 本教學課程中，您學到如何開發 Hadoop 串流 MapReduce 工作、如何在 HDInsight Emulator 上測試應用程式，以及如何撰寫 PowerShell 指令碼來佈建 HDInsight 叢集並於叢集上執行 MapReduce。若要深入了解，請參閱下列文章：
 
-- [開始使用 Azure HDInsight](../hdinsight-get-started/)
+- [開始使用 Azure HDInsight](hdinsight-get-started.md)
 - [開始使用 HDInsight Emulator][hdinsight-get-started-emulator]
 - [開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-mapreduce]
 - [使用 Azure Blob 儲存體搭配 HDInsight][hdinsight-storage]

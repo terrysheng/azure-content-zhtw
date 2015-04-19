@@ -22,7 +22,7 @@
 
 本文提供藍圖以及一些最佳方法，供您在建立與維護搜尋服務和其索引時使用。 
 
-我們假設您已佈建此服務。如果尚未執行該作業，請參閱[開始使用 Azure Search](../search-get-started/)，以取得進一步指示。
+我們假設您已佈建此服務。如果尚未執行該作業，請參閱[開始使用 Azure Search](search-get-started.md)，以取得進一步指示。
 
 + [步驟 1：建立索引](#sub-1)
 + [步驟 2：新增文件](#sub-2)
@@ -35,7 +35,7 @@
 
 查詢會以包含搜尋資料和屬性的搜尋索引為目標。此情況下，您佈建服務後的第一個步驟就是以 JSON 格式定義索引結構描述，並執行 HTTPS PUT 要求以在服務中建立索引。 
 
-應用程式程式碼會建構索引。沒有內建工具或編輯器可協助您在使用者介面中定義索引。示範各種建構索引方式的範例包括[使用 Azure Search 建立第一個搜尋解決方案](../search-create-first-solution/) (其中結構描述已在 Program.cs 檔案中指定) 及[開始使用 Azure Search 中的評分設定檔](../search-get-started-scoring-profiles) (在獨立 JSON 結構描述檔案中提供索引)。如需深入了解如何建立索引，請參閱 MSDN 上的[建立索引 (Azure Search API)](http://msdn.microsoft.com/library/dn798941.aspx)。
+應用程式程式碼會建構索引。沒有內建工具或編輯器可協助您在使用者介面中定義索引。示範各種建構索引方式的範例包括[使用 Azure Search 建立第一個搜尋解決方案](search-create-first-solution.md) (其中結構描述已在 Program.cs 檔案中指定) 及[開始使用 Azure Search 中的評分設定檔](search-get-started-scoring-profiles.md) (在獨立 JSON 結構描述檔案中提供索引)。如需深入了解如何建立索引，請參閱 MSDN 上的[建立索引 (Azure Search API)](http://msdn.microsoft.com/library/dn798941.aspx)。
 
 <h2 id="sub-2">步驟 2：新增文件</h2>
 

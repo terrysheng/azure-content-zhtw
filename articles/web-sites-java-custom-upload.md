@@ -21,7 +21,7 @@
 本主題說明如何將自訂 Java 網站上傳至 Azure。內容包括適用於任何 Java 網站的資訊，以及針對特定應用程式的一些範例。
 
 請注意，Azure 提供了使用 Azure 入口網站的組態 UI 和 Azure 應用程式組件庫來建立 Java 網站的方法，如同此文所說明：[開始使用 Azure 網站和 Java
-](../web-sites-java-get-started)。本教學課程適用於您不打算使用 Azure 組態 UI 或 Azure 應用程式組件庫的案例。  
+](web-sites-java-get-started.md)。本教學課程適用於您不打算使用 Azure 組態 UI 或 Azure 應用程式組件庫的案例。  
 
 # 組態方針
 

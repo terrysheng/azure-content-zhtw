@@ -238,7 +238,7 @@ Elastic Scale 支援下列 .Net Framework 型別作為分區化索引鍵：
 
 請注意，這些應用程式 (使用以唯讀認證開啟的 **ShardMapManager**) 將無法變更對應或對應方式。針對這些需求，請建立管理專用應用程式或 PowerShell 指令碼，以提供稍早所述較高權限的認證。   
 
-如需詳細資訊，請參閱[資料相依路由](./sql-database-elastic-scale-data-dependent-routing.md)。 
+如需詳細資訊，請參閱[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)。 
 
 ## 修改分區對應 
 
@@ -270,9 +270,9 @@ Elastic Scale 支援下列 .Net Framework 型別作為分區化索引鍵：
 
 對於已經存在的分區對應，應用程式通常只需要加入新的分區，以處理預期來自新的索引鍵或索引鍵範圍的資料。例如，以租用戶識別碼分區化的應用程式，可能需要為新的租用戶佈建新的分區，或者，每月分區化的資料可能需要在每個新月份開始之前佈建新的分區。 
 
-如果索引鍵值的新範圍尚不屬於現有的對應，而且不需要移動任何資料，則加入新的分區並將新的索引鍵或範圍與該分區產生關聯就非常簡單。如需有關加入新分區的詳細資訊，請參閱[加入新的分區](./sql-database-elastic-scale-add-a-shard.md)。
+如果索引鍵值的新範圍尚不屬於現有的對應，而且不需要移動任何資料，則加入新的分區並將新的索引鍵或範圍與該分區產生關聯就非常簡單。如需有關加入新分區的詳細資訊，請參閱[加入新的分區](sql-database-elastic-scale-add-a-shard.md)。
 
-不過，在需要資料移動的情況下，分割合併服務需要結合必要的分區對應更新，以協調分區之間的資料移動。如需有關使用分割合併服務的詳細資訊，請參閱[分割合併的概觀](./sql-database-elastic-scale-overview-split-and-merge.md) 
+不過，在需要資料移動的情況下，分割合併服務需要結合必要的分區對應更新，以協調分區之間的資料移動。如需有關使用分割合併服務的詳細資訊，請參閱[分割合併的概觀](sql-database-elastic-scale-overview-split-and-merge.md) 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 

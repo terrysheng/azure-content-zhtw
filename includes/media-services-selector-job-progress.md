@@ -1,5 +1,5 @@
 ﻿> [AZURE.SELECTOR]
-- [入口網站](/documentation/articles/media-services-portal-check-job-progress/)
-- [.NET SDK](/documentation/articles/media-services-check-job-progress/)
-- [REST API](/documentation/articles/media-services-rest-check-job-progress/)
+- [入口網站](media-services-portal-check-job-progress.md)
+- [.NET SDK](media-services-check-job-progress.md)
+- [REST API](media-services-rest-check-job-progress.md)
 <!--HONumber=47-->

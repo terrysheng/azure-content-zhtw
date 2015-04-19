@@ -21,7 +21,7 @@
 #設定內容金鑰授權原則 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 和[媒體服務即時串流工作流程](media-services-live-streaming-workflow.md) 系列的一部分。 
 
 
 ##概觀
@@ -35,14 +35,14 @@ Microsoft Azure 媒體服務可讓您提供您使用進階加密標準 (AES) (�
 
 如果您計畫有多個內容金鑰，或想要指定**金鑰\授權傳遞服務** URL，而非媒體服務金鑰傳遞服務，請使用媒體服務 .NET SDK 或 REST API。
 
-[使用媒體服務 .NET SDK 設定內容金鑰授權原則](../media-services-dotnet-configure-content-key-auth-policy/)
+[使用媒體服務 .NET SDK 設定內容金鑰授權原則](media-services-dotnet-configure-content-key-auth-policy.md)
 
-[使用媒體服務 REST API 設定內容金鑰授權原則](../media-services-rest-configure-content-key-auth-policy/)
+[使用媒體服務 REST API 設定內容金鑰授權原則](media-services-rest-configure-content-key-auth-policy.md)
 
 ###適用一些考量事項：
 
-- 為了能夠使用動態封裝和動態加密，您必須確定有至少一個縮放單位 (也稱為串流單位)。如需詳細資訊，請參閱[如何調整媒體服務](../media-services-manage-origins#scale_streaming_endpoints)。 
-- 您的資產必須包含一組調適性位元速率 MP4 或調適性位元速率 Smooth Streaming 檔案。如需詳細資訊，請參閱[為資產編碼](../media-services-encode-asset/)。  
+- 為了能夠使用動態封裝和動態加密，您必須確定有至少一個縮放單位 (也稱為串流單位)。如需詳細資訊，請參閱[如何調整媒體服務](media-services-manage-origins#scale_streaming_endpoints.md)。 
+- 您的資產必須包含一組調適性位元速率 MP4 或調適性位元速率 Smooth Streaming 檔案。如需詳細資訊，請參閱[為資產編碼](media-services-encode-asset.md)。  
 - 金鑰傳遞服務會快取 ContentKeyAuthorizationPolicy 和其相關物件 (原則選項和限制) 15 分鐘。如果您建立 ContentKeyAuthorizationPolicy，並指定要使用 "Token" 的限制，那麼便測試它，然後將原則更新為"Open" 限制，將需要大約 15 分鐘，原則才會切換為 "Open" 版本的原則。
 
 
@@ -87,7 +87,7 @@ Microsoft Azure 媒體服務可讓您提供您使用進階加密標準 (AES) (�
 您可以按一下 [**匯入原則 xml**] 按鈕，並提供符合[這裡](https://msdn.microsoft.com/library/azure/dn783459.aspx)所定義 XML 結構描述的不同 XML。
 
 ##後續步驟
-您已設定內容金鑰的授權原則，因此請移至[作法：使用 Azure 管理入口網站來啟用加密](../media-services-manage-content#encrypt/) 主題。
+您已設定內容金鑰的授權原則，因此請移至[作法：使用 Azure 管理入口網站來啟用加密](media-services-manage-content#encrypt.md) 主題。
 
 
 [open_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-open-restriction.png

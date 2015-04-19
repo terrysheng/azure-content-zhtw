@@ -20,11 +20,11 @@
 # 作法：傳遞串流內容
 
 
-這篇文章屬於[要求工作流程上的媒體服務視訊](../media-services-video-on-demand-workflow)和[媒體服務即時資料流工作流程](../media-services-live-streaming-workflow)系列。  
+這篇文章屬於[要求工作流程上的媒體服務視訊](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列。  
 
 ## 概觀
 
-建立隨選串流定位器，並建置串流 URL，即可串流處理調適性位元速率 MP4 集。[為資產編碼](../media-services-encode-asset)主題顯示如何編碼為調適性位元速率 MP4 集。建立定位器之前，您應該如[此](../media-services-dotnet-configure-asset-delivery-policy)主題所述設定資產傳遞原則。 
+建立隨選串流定位器，並建置串流 URL，即可串流處理調適性位元速率 MP4 集。[為資產編碼](media-services-encode-asset.md)主題顯示如何編碼為調適性位元速率 MP4 集。建立定位器之前，您應該如[此](media-services-dotnet-configure-asset-delivery-policy.md)主題所述設定資產傳遞原則。 
 
 您也可以使用隨選串流定位器來建置指向可漸進式下載之 MP4 檔案的 URL。  
 

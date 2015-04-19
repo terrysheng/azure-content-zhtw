@@ -18,7 +18,7 @@
 
 #如何在 Windows 上整合 Engagement Reach
 
-在遵循本指南之前，您必須先遵循[如何在 Windows 上整合 Engagement](../mobile-engagement-windows-store-integrate-engagement/) 文件中所述的整合程序。
+在遵循本指南之前，您必須先遵循[如何在 Windows 上整合 Engagement](mobile-engagement-windows-store-integrate-engagement.md) 文件中所述的整合程序。
 
 ##將 Engagement Reach SDK 內嵌到您的 Windows 專案
 

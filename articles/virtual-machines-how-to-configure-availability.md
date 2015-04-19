@@ -65,8 +65,8 @@
 
 若要使用 Azure PowerShell 命令建立 Azure VM，並將它加入新的或現有的可用性設定組，請參閱下列內容：
 
-- [使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](../virtual-machines-ps-create-preconfigure-windows-vms/)
-- [使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器](../virtual-machines-ps-create-preconfigure-linux-vms/)
+- [使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 <<<<<<< HEAD
 	>[AZURE.NOTE] 在沒有參數的情況下執行  `Get-AzureVMImage`，以取得適用於您的訂閱的所有映像清單。這可能會傳回龐大的清單。若要縮短清單，請使用映像系列名稱之類的屬性。如需可為您說明如何執行此動作以找出特定映像的提示和範例，請參閱[使用 Windows PowerShell 管理映像](http://msdn.microsoft.com/library/azure/dn790330.aspx)

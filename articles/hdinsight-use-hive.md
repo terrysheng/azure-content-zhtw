@@ -209,11 +209,11 @@ Hive 可讓您使用 SQL 型的查詢語言來輕鬆查詢資料，但 HDInsight
 * [開始使用 HDInsight Hadoop Tools for Visual Studio][1]
 * [在 HDInsight 上使用 Oozie][hdinsight-use-oozie]
 * [以程式設計方式提交 Hadoop 工作][hdinsight-submit-jobs]
-* [在 HDInsight 上使用 Pig](../hdinsight-use-pig/)
+* [在 HDInsight 上使用 Pig](hdinsight-use-pig.md)
 * [使用 HDInsight 分析班機延誤資料][hdinsight-analyze-flight-data]
 * [Azure HDInsight SDK 文件][hdinsight-sdk-documentation]
 * [將資料上傳至 HDInsight][hdinsight-upload-data]
-* [開始使用 Azure HDInsight](../hdinsight-get-started/)
+* [開始使用 Azure HDInsight](hdinsight-get-started.md)
 
 
 [1]: ../hdinsight-hadoop-visual-studio-tools-get-started/

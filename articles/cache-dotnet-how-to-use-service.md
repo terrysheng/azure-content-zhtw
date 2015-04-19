@@ -182,7 +182,7 @@ Azure 受管理快取服務是一種分散式、記憶體內的可擴充解決�
 
 NuGet 會執行數項工作：它會將必要的組態新增至應用程式的組態檔，以及新增必要的組件參考。若為雲端服務專案，也會將快取用戶端診斷層級設定新增至雲端服務的 ServiceConfiguration.cscfg 檔案。
 
->針對 ASP.NET Web 專案，Cache NuGet 封裝也會將兩個已標成註解的區段新增至 web.config 中。第一個區段可讓工作階段儲存在快取中，第二個區段則可讓 ASP.NET 頁面輸出快取處理。如需詳細資訊，請參閱[作法：將 ASP.NET 工作階段狀態儲存在快取中]以及[作法：將 ASP.NET 頁面輸出快取儲存在快取中][]。
+>針對 ASP.NET Web 專案，Cache NuGet 封裝也會將兩個已標成註解的區段新增至 web.config 中。第一個區段可讓工作階段儲存在快取中，第二個區段則可讓 ASP.NET 頁面輸出快取處理。如需詳細資訊，請參閱[做法：將 ASP.NET 工作階段狀態儲存在快取中]以及[做法：將 ASP.NET 頁面輸出快取儲存在快取中][]。
 
 NuGet 封裝會將下列組態元素新增至應用程式的 web.config 或 app.config 中。**dataCacheClients** 區段與 **cacheDiagnostics** 區段會新增至 **configSections** 元素之下。如果 **configSections** 元素不存在，則會建立一個做為 **configuration** 元素的子系。
 
@@ -473,7 +473,7 @@ Azure 快取的輸出快取提供者為輸出快取資料的程序外儲存體�
 [NuGet 封裝管理員安裝]: http://go.microsoft.com/fwlink/?LinkId=240311
 [快取定價詳細資料]: http://www.windowsazure.com/pricing/details/cache/
 [管理入口網站]: https://manage.windowsazure.com/
-[快取服務]: http://go.microsoft.com/fwlink/?LinkId=317277
+[快取提供項目]: http://go.microsoft.com/fwlink/?LinkId=317277
 [容量規劃]: http://go.microsoft.com/fwlink/?LinkId=320167
 [到期與收回]: http://go.microsoft.com/fwlink/?LinkId=317278
 [高可用性]: http://go.microsoft.com/fwlink/?LinkId=317329

@@ -18,5 +18,5 @@
 
 # 使用通知中心向使用者傳送跨平台通知
 
-本主題已被取代而不再有效。若要了解如何透過 Azure 行動服務使用 Azure 通知中樞來傳送通知給特定使用者，請參閱[傳送推播通知給已驗證的使用者]主題(/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/)。 
+本主題已被取代而不再有效。若要了解如何透過 Azure 行動服務使用 Azure 通知中樞來傳送通知給特定使用者，請參閱[傳送推播通知給已驗證的使用者]主題(mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md)。 
 <!--HONumber=47-->

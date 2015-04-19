@@ -89,17 +89,17 @@
 
 如需 HDInsight 中 Hive 的一般資訊。
 
-* [搭配使用 Hive 與 HDInsight 上的 Hadoop](../hdinsight-use-hive/)
+* [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
 
 如需您可以在 HDInsight 上使用 Hadoop 之其他方式的詳細資訊。
 
-* [搭配使用 Pig 與 HDInsight 上的 Hadoop](../hdinsight-use-pig/)
+* [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
-* [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](../hdinsight-use-mapreduce/)
+* [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
 如需 HDInsight Tools for Visual Studio 的詳細資訊。
 
-* [開始使用 HDInsight tools for Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started/)
+* [開始使用 HDInsight tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx

@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [開始使用](/documentation/articles/vs-mobile-services-cordova-getting-started/)
-> - [發生什麼情形](/documentation/articles/vs-mobile-services-cordova-what-happened/)
+> - [開始使用](vs-mobile-services-cordova-getting-started.md)
+> - [發生什麼情形](vs-mobile-services-cordova-what-happened.md)
 
 ## 開始使用行動服務 (Cordova 專案)
 

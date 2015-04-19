@@ -141,8 +141,8 @@ HDInsight .NET SDK 提供 <a href="http://msdn.microsoft.com/library/microsoft.w
 
 - **安裝 Spark**。請參閱[在 HDInsight 叢集上安裝 Spark][hdinsight-install-spark]。
 - **安裝 R**。請參閱[在 HDInsight 叢集上安裝 R][hdinsight-install-r]。
-- **安裝 Solr**。[在 HDInsight 叢集上安裝和使用 Solr](../hdinsight-hadoop-solr-install)
-- **安裝 Giraph**。[在 HDInsight 叢集上安裝和使用 Giraph](../hdinsight-hadoop-giraph-install)
+- **安裝 Solr**。[在 HDInsight 叢集上安裝和使用 Solr](hdinsight-hadoop-solr-install.md)
+- **安裝 Giraph**。[在 HDInsight 叢集上安裝和使用 Giraph](hdinsight-hadoop-giraph-install.md)
 
 ## <a name="support"></a>支援 HDInsight 叢集上使用的開放原始碼軟體
 Microsoft Azure HDInsight 服務是彈性的平台，可讓您使用圍繞著 Hadoop 形成的開放原始碼技術生態系統，在雲端建置巨量資料應用程式。Microsoft Azure 會為開放原始碼技術提供一般層級的支援，如此處所述： <a href="http://azure.microsoft.com/support/faq/" target="_blank">Azure 支援常見問題集網站的支援範圍區段</a>。此外，HDInsight 服務為如下所述的某些元件提供額外的支援層級。

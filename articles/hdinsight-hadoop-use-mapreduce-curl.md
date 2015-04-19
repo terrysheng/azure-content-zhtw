@@ -106,11 +106,11 @@ Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 
 
 如需 HDInsight 中 MapReduce 工作的一般資訊。
 
-* [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](../hdinsight-use-mapreduce/)
+* [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
 如需您可以在 HDInsight 上使用 Hadoop 之其他方式的詳細資訊。
 
-* [搭配使用 Hive 與 HDInsight 上的 Hadoop](../hdinsight-use-hive/)
+* [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
 
-* [搭配使用 Pig 與 HDInsight 上的 Hadoop](../hdinsight-use-pig/)
+* [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 <!--HONumber=47-->

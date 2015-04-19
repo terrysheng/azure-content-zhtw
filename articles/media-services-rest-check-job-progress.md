@@ -18,7 +18,7 @@
 
 #作法：檢查工作進度
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 系列的一部分。 
 
 執行作業時，您通常需要設法追蹤作業進度。您可以使用工作的 State 屬性，以查明工作狀態。如需 State 屬性的詳細資訊，請參閱[工作實體屬性](https://msdn.microsoft.com/library/azure/5100ddd7-92ff-4c37-84d2-4f84fee250a7#job_entity_properties)。
 

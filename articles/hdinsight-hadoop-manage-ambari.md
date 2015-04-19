@@ -20,7 +20,7 @@
 
 了解如何使用 Ambari 管理和監視以 Linux 為基礎的 HDInsight 叢集。
 
-> [AZURE.NOTE] 本文的多數資訊僅適用於以 Linux 為基礎的 HDInsight 叢集。若為以 Windows 為基礎的 HDInsight 叢集，則只能透過 Ambari REST API 進行監視。請參閱 [在 HDInsight 使用 Ambari API 監視以 Windows 為基礎的 Hadoop]。(../hdinsight-monitor-use-ambari-api/)。
+> [AZURE.NOTE] 本文的多數資訊僅適用於以 Linux 為基礎的 HDInsight 叢集。若為以 Windows 為基礎的 HDInsight 叢集，則只能透過 Ambari REST API 進行監視。請參閱 [在 HDInsight 使用 Ambari API 監視以 Windows 為基礎的 Hadoop]。(hdinsight-monitor-use-ambari-api.md)。
 
 ##<a id="whatis"></a>什麼是 Ambari？
 

@@ -29,7 +29,7 @@
 管理和向外延展應用程式的前端與後端元件。  雲端服務 
 提供強固的專屬虛擬機器來穩定代管各個角色。
 
-如需雲端服務的詳細資訊，及其與 Azure 網站和虛擬機器的比較資訊，請參閱 [Azure 網站、雲端服務和虛擬機器的比較](http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/) (英文)。
+如需雲端服務的詳細資訊，及其與 Azure 網站和虛擬機器的比較資訊，請參閱 [Azure 網站、雲端服務和虛擬機器的比較](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/) (英文)。
 
 >[AZURE.TIP] 您正在尋求建立簡單的網站嗎？如果您的案例只涉及簡單的網站前端，請考慮 <a href="/zh-tw/documentation/articles/web-sites-nodejs-develop-deploy-mac/">使用輕量型「Azure 網站」</a>。 隨著網站擴大，以及需求改變，您可以很輕易地升級到雲端服務。
 

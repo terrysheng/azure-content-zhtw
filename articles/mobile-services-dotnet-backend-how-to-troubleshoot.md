@@ -135,7 +135,7 @@
 
 使用附有 SQL Database 的行動服務 .NET 後端時，會以 Entity Framework (EF) 作為資料存取技術，讓您能夠查詢資料庫及保存物件。EF 代表開發人員處理的重要面向之一，是資料庫資料行 (也稱為 *schema*) 如何隨著程式碼中指定的模型類別而變更。此程序稱為 [Code First 移轉](http://msdn.microsoft.com/data/jj591621)。
 
-移轉可能會很複雜，且資料庫狀態與 EF 模型必須保持同步，才能成功。如需如何處理行動服務的移轉和可能發生之錯誤的相關指示，請參閱[如何對 .NET 後端行動服務進行資料模型變更](/zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/).。
+移轉可能會很複雜，且資料庫狀態與 EF 模型必須保持同步，才能成功。如需如何處理行動服務的移轉和可能發生之錯誤的相關指示，請參閱[如何對 .NET 後端行動服務進行資料模型變更](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).。
 
 <!-- IMAGES -->
 

@@ -39,7 +39,7 @@
 	-	Azure AD 將[信賴憑證者](http://en.wikipedia.org/wiki/Relying_party)應用程式的管理工作委派給非系統管理員角色，但機密目錄資料的應用程式存取權仍必須由全域系統管理員設定。
 	-	傳送一組一般用途的宣告類型供所有信賴憑證者應用程式使用。如需宣告類型的清單，請參閱[支援的權杖和宣告類型](http://msdn.microsoft.com/library/azure/dn195587.aspx)。宣告無法自訂。
 	-	[Azure AD 圖形 API](http://msdn.microsoft.com/library/azure/hh974476.aspx) 可讓應用程式存取存取 Azure AD 中的目錄資料。 
--	[內部部署的安全性權杖服務 (STS)，例如 AD FS](../web-sites-dotnet-lob-application-adfs/) - 您可以為具有內部部署 STS (如 AD FS) 的 Web 應用程式實作驗證和授權。使用內部部署的 AD FS 具有下列特性：
+-	[內部部署的安全性權杖服務 (STS)，例如 AD FS](web-sites-dotnet-lob-application-adfs.md) - 您可以為具有內部部署 STS (如 AD FS) 的 Web 應用程式實作驗證和授權。使用內部部署的 AD FS 具有下列特性：
 	-	AD FS 拓撲必須在內部部署，需要成本和管理費用。
 	-	公司政策要求 AD 資料儲存在內部時最佳。
 	-	只有 AD FS 系統管理員可設定[信賴憑證者信任和宣告規則](http://technet.microsoft.com/library/dd807108.aspx)。

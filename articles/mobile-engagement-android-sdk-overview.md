@@ -18,18 +18,18 @@
 
 
 #Android SDK for Azure Mobile Engagement 3.0.0 版
-從這裡開始，取得有關如何將 Azure Mobile Engagement 整合在應用程式中的所有詳細資料。如果您想先試用，請務必進行我們的 [15 分鐘教學課程](../mobile-engagement-android-get-started/)。
+從這裡開始，取得有關如何將 Azure Mobile Engagement 整合在應用程式中的所有詳細資料。如果您想先試用，請務必進行我們的 [15 分鐘教學課程](mobile-engagement-android-get-started.md)。
 
-按一下此選項以查看 [SDK 內容](../mobile-engagement-android-sdk-content)
+按一下此選項以查看 [SDK 內容](mobile-engagement-android-sdk-content.md)
 
 ##整合程序
-1. 從這裡開始：[如何將 Mobile Engagement 整合在 Android 應用程式中](../mobile-engagement-android-integrate-engagement/)
+1. 從這裡開始：[如何將 Mobile Engagement 整合在 Android 應用程式中](mobile-engagement-android-integrate-engagement.md)
 
-2. 通知：[如何將 Reach (通知) 整合在 Android 應用程式中](../mobile-engagement-android-integrate-engagement-reach/)
-	1. Google Cloud Messaging (GCM)：[如何整合 GCM 與 Mobile Engagement](../mobile-engagement-android-gcm-integrate/)
-	2. Amazon Device Messaging (ADM)：[如何整合 ADM 與 Mobile Engagement](../mobile-engagement-android-adm-integrate/)
+2. 通知：[如何將 Reach (通知) 整合在 Android 應用程式中](mobile-engagement-android-integrate-engagement-reach.md)
+	1. Google Cloud Messaging (GCM)：[如何整合 GCM 與 Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
+	2. Amazon Device Messaging (ADM)：[如何整合 ADM 與 Mobile Engagement](mobile-engagement-android-adm-integrate.md)
 
-3. 標記計劃實作：[如何在 Android 應用程式中使用進階 Mobile Engagement 標記 API](../mobile-engagement-android-use-engagement-api/)
+3. 標記計劃實作：[如何在 Android 應用程式中使用進階 Mobile Engagement 標記 API](mobile-engagement-android-use-engagement-api.md)
 
 
 ##版本資訊
@@ -43,13 +43,13 @@
 -   安全性增強功能。
 -   已移除 Google Play 和 SmartAd 追蹤。
 
-如需先前的版本，請參閱[完整版本資訊](../mobile-engagement-android-release-notes/)
+如需先前的版本，請參閱[完整版本資訊](mobile-engagement-android-release-notes.md)
 
 ##升級程序
 
 如果您已經將較舊版本的 SDK 整合到應用程式中，則在升級 SDK 時必須考慮下列幾點。
 
-如果您遺漏數個版本的 SDK，則可能要遵循數個程序，請參閱完整[升級程序](../mobile-engagement-android-upgrade-procedure/)。例如，如果您從 1.4.0 移轉到 1.6.0，必須先遵循＜從 1.4.0 到 1.5.0＞程序，再遵循＜從 1.5.0 到 1.6.0＞程序。
+如果您遺漏數個版本的 SDK，則可能要遵循數個程序，請參閱完整[升級程序](mobile-engagement-android-upgrade-procedure.md)。例如，如果您從 1.4.0 移轉到 1.6.0，必須先遵循＜從 1.4.0 到 1.5.0＞程序，再遵循＜從 1.5.0 到 1.6.0＞程序。
 
 不論您升級開始的版本為何，都必須將所有 `mobile-engagement-VERSION.jar` 取代為新的。
 

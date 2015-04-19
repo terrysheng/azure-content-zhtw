@@ -137,7 +137,7 @@ VM 大小的記憶體總計如下：
 
 NuGet 會執行數項工作：將必要的組態新增至角色的組態檔、將快取用戶端診斷層級設定新增至 Azure 應用程式的 ServiceConfiguration.cscfg 檔案，以及新增必要的組件參考。
 
->針對 ASP.NET Web 角色，Caching NuGet 封裝也會將兩個已標成註解的區段新增至 web.config 中。第一個區段可讓工作階段儲存在快取中，第二個區段則可讓 ASP.NET 頁面輸出快取處理。如需詳細資訊，請參閱[做法：將 ASP.NET 工作階段狀態儲存在快取中]以及[作法：將 ASP.NET 頁面輸出快取儲存在快取中][]。
+>針對 ASP.NET Web 角色，Caching NuGet 封裝也會將兩個已標成註解的區段新增至 web.config 中。第一個區段可讓工作階段儲存在快取中，第二個區段則可讓 ASP.NET 頁面輸出快取處理。如需詳細資訊，請參閱[做法：將 ASP.NET 工作階段狀態儲存在快取中]以及[做法：將 ASP.NET 頁面輸出快取儲存在快取中][]。
 
 NuGet 封裝會將下列組態元素新增至角色的 web.config 或 app.config 中。**dataCacheClients** 區段與 **cacheDiagnostics** 區段會新增至 **configSections** 元素之下。如果 **configSections** 元素不存在，則會建立一個做為 **configuration** 元素的子系。
 
@@ -317,7 +317,7 @@ In-Role Cache：
 如需有關使用快取服務工作階段狀態提供者的詳細資訊，請參閱 [In-Role Cache 的工作階段狀態提供者][]。
 
 <a name="store-page"></a>
-## 作法：將 ASP.NET 頁面輸出快取儲存在快取中
+## 做法：將 ASP.NET 頁面輸出快取儲存在快取中
 
 角色中快取的輸出快取提供者為輸出快取資料的程序外儲存體機制。此資料特別適用於完整 HTTP 回應 (頁面輸出快取)。提供者插入 ASP.NET 4 中導入的新輸出快取提供者擴充點。若要使用輸出快取提供者，請先設定快取叢集，然後使用 Caching NuGet 封裝來設定 ASP.NET 應用程式的快取功能，如[開始使用 In-Role Cache][]所述。在安裝 Caching NuGet 套件時，它會在 web.config 新增下列已標成註解的區段，其中包含讓 ASP.NET 應用程式對角色中快取使用輸出快取提供者所需的組態。
 

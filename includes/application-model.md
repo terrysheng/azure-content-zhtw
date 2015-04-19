@@ -269,7 +269,7 @@ Azure 資料中心內的負載平衡器如何將
 如我先前所述，服務定義 (CSDEF) 檔是 XML
 檔案，用以描述構成整個應用程式的各種
 角色。XML 檔案的完整結構描述可在此找到：
-[http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758711.aspx][]。
+[http://msdn.microsoft.com/library/windowsazure/ee758711.aspx][]。
 CSDEF 檔案包含您希望在應用程式中的每個角色的 WebRole 
 或 WorkerRole 元素。將角色部署為 Web 角色 (使用
 WebRole 元素) 表示程式碼將會在包含 Windows Server 2008 和 
@@ -486,7 +486,7 @@ Microsoft 提供的 99.95%服務等級協定。
 服務組態 (CSCFG) 檔是 XML 檔案，用以描述
 不需重新部署應用程式即可變更的設定。
 如需 XML 檔案的完整結構描述，請至：
-[http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758710.aspx][]。
+[http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][]。
 CSCFG 檔案會針對您應用程式中的每個角色各包含
 一個 Role 元素。以下是一些您可以在 CSCFG 檔案中指定的項目
 檔案的路徑：
@@ -503,7 +503,7 @@ CSCFG 檔案會針對您應用程式中的每個角色各包含
     將 osVersion 屬性的值設定為
     "WA-GUEST-OS-2.8\_201109-01" 會導致所有角色執行個體取得
     此網頁上所描述的功能：
-    [http://msdn.microsoft.com/zh-tw/library/hh560567.aspx][]。如需
+    [http://msdn.microsoft.com/library/hh560567.aspx][]。如需
 客體作業系統版本的詳細資訊，請參閱[管理升級至
 Azure 客體作業系統]。
 
@@ -585,14 +585,14 @@ Azure 應該建立角色 \#1 的三個執行個體和
   [4]: ./media/application-model/application-model-7.jpg
   
   [Azure 定價]: http://www.windowsazure.com/zh-tw/pricing/calculator/
-  [在 Azure 中管理憑證]: http://msdn.microsoft.com/zh-tw/library/windowsazure/gg981929.aspx
-  [http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee758710.aspx
-  [http://msdn.microsoft.com/zh-tw/library/hh560567.aspx]: http://msdn.microsoft.com/zh-tw/library/hh560567.aspx
-  [管理升級至 Azure 客體作業系統]: http://msdn.microsoft.com/zh-tw/library/ee924680.aspx
+  [在 Azure 中管理憑證]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
+  [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
+  [管理升級至 Azure 客體作業系統]: http://msdn.microsoft.com/library/ee924680.aspx
   [Azure 管理入口網站]: http://manage.windowsazure.com/
   [5]: ./media/application-model/application-model-8.jpg
   [部署和更新 Azure 應用程式]: http://www.windowsazure.com/zh-tw/develop/net/fundamentals/deploying-applications/
-  [建立 Azure 託管服務]: http://msdn.microsoft.com/zh-tw/library/gg432967.aspx
-  [在 Azure 中管理託管服務]: http://msdn.microsoft.com/zh-tw/library/gg433038.aspx
-  [將應用程式移轉到 Azure]: http://msdn.microsoft.com/zh-tw/library/gg186051.aspx
-  [設定 Azure 應用程式]: http://msdn.microsoft.com/zh-tw/library/windowsazure/ee405486.aspx
+  [建立 Azure 託管服務]: http://msdn.microsoft.com/library/gg432967.aspx
+  [在 Azure 中管理託管服務]: http://msdn.microsoft.com/library/gg433038.aspx
+  [將應用程式移轉到 Azure]: http://msdn.microsoft.com/library/gg186051.aspx
+  [設定 Azure 應用程式]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx

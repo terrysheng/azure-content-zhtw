@@ -18,7 +18,7 @@
 
 #如何在您的 Windows Phone 專案上整合 Engagement Reach SDK
 
-在遵循本指南之前，您必須先遵循[如何在 Windows Phone 上整合 Engagement](../mobile-engagement-windows-phone-integrate-engagement/) 文件中所述的整合程序。
+在遵循本指南之前，您必須先遵循[如何在 Windows Phone 上整合 Engagement](mobile-engagement-windows-phone-integrate-engagement.md) 文件中所述的整合程序。
 
 ##將 Engagement Reach SDK 內嵌到您的 Windows Phone 專案
 

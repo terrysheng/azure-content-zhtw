@@ -29,11 +29,11 @@
 ![Live workflow][live-overview]
 
 
-如需詳細資訊，請參閱[媒體服務概觀](../media-services-overview)。
+如需詳細資訊，請參閱[媒體服務概觀](media-services-overview.md)。
 
 ##建立媒體服務帳戶
 
-使用 **Azure 管理入口網站** [建立 Azure 媒體服務帳戶](../media-services-create-account/)。
+使用 **Azure 管理入口網站** [建立 Azure 媒體服務帳戶](media-services-create-account.md)。
 
 ##設定串流端點
 
@@ -82,7 +82,7 @@
 
 您可以藉由指定您要佈建給帳戶的**串流保留單元**數目來調整 **媒體服務**。 
 
-如需調整串流單元的相關資訊，請參閱：[如何調整串流單位](../media-services-manage-origins#scale_streaming_endpoints)。
+如需調整串流單元的相關資訊，請參閱：[如何調整串流單位](media-services-manage-origins#scale_streaming_endpoints.md)。
 
 
 

@@ -99,7 +99,7 @@ Blob 容器提供一組 blob。Blob 容器在媒體服務中是做為存取控�
 
 ###媒體服務編碼器
 
-如需支援的編碼器相關資訊，請參閱[編碼器](../media-services-encode-asset)。
+如需支援的編碼器相關資訊，請參閱[編碼器](media-services-encode-asset.md)。
 
 
 ##即時資料流
@@ -166,7 +166,7 @@ Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使�
 
 StreamingEndpoint 代表可以直接將內容傳遞給用戶端播放程式應用程式，或傳遞給內容傳遞網路 (CDN) 進行進一步發佈的串流服務 (Azure 媒體服務現在提供 Azure CDN 整合)。來自 StreamingEndpoint 服務的輸出資料流可以是即時資料流，也可以是媒體服務帳戶中的隨選視訊資產。此外，您可以藉由調整縮放單元 (也稱為串流單元)，控制 StreamingEndpoint 服務處理成長頻寬需求的產能。建議您為生產環境中的應用程式配置一個或多個縮放單位。縮放單位提供您可以以 200 Mbps 為增量購買的專用流出容量和目前包含動態封裝的其他功能。 
 
-如果您打算使用動態封裝和\或動態加密，您想要串流處理的端點上至少必須有一個串流單元。如需詳細資訊，請參閱[調整串流單元](../media-services-manage-origins#scale_streaming_endpoints)。
+如果您打算使用動態封裝和\或動態加密，您想要串流處理的端點上至少必須有一個串流單元。如需詳細資訊，請參閱[調整串流單元](media-services-manage-origins#scale_streaming_endpoints.md)。
 
 ###資產傳遞原則
 

@@ -490,18 +490,18 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
   [Windows Management Framework 3.0]: http://www.microsoft.com/zh-TW/download/details.aspx?id=34595
   [Windows Management Framework 4.0]: http://www.microsoft.com/zh-TW/download/details.aspx?id=40855
   [如何安裝和設定 Windows Azure PowerShell]: http://www.windowsazure.com/zh-TW/documentation/articles/install-configure-powershell/
-  [開始使用 Windows PowerShell]: http://technet.microsoft.com/zh-TW/library/hh857337.aspx
+  [開始使用 Windows PowerShell]: http://technet.microsoft.com/library/hh857337.aspx
   [關於 Azure Powershell 模組]: #about
   [建立資源群組]: #create
   [管理資源群組]: #manage
   [疑難排解資源群組]: #troubleshoot
   [後續步驟]: #next
-  [Azure 服務管理 Cmdlet]: http://msdn.microsoft.com/zh-TW/library/jj152841.aspx
+  [Azure 服務管理 Cmdlet]: http://msdn.microsoft.com/library/jj152841.aspx
   [Azure 資源管理員 Cmdlet]: http://go.microsoft.com/fwlink/?LinkID=394765
   [Azure 設定檔 Cmdlet]: http://go.microsoft.com/fwlink/?LinkID=394766
   [Switch-AzureMode]: http://go.microsoft.com/fwlink/?LinkID=394398
   [1]: http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409
-  [使用資源群組管理您的 Azure 資源]: http://azure.microsoft.com/zh-TW/documentation/articles/azure-preview-portal-using-resource-groups
+  [使用資源群組管理您的 Azure 資源]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups
   [將 Azure 跨平台命令列介面與資源管理員搭配使用]: http://www.windowsazure.com/zh-TW/documentation/articles/xplat-cli-azure-resource-manager/
   [Azure 部落格]: http://blogs.msdn.com/windowsazure
   [Windows PowerShell 部落格]: http://blogs.msdn.com/powershell

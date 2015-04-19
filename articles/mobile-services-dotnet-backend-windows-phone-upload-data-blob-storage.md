@@ -25,7 +25,7 @@
 
 您無法將資料安全上傳至 Blob 儲存體服務所需的認證，安全地散佈給用戶端應用程式。相反地，您必須將認證儲存在行動服務中，並使用這些認證來產生用來上傳新影像的共用存取簽章 (SAS)。行動服務會安全地將 SAS (到期時間很短的認證&mdash;在此例中為 5 分鐘) 傳回給用戶端應用程式。應用程式會使用此暫存認證來上傳影像。在此範例中，來自 Blob 服務的下載是公開的。
 
-在本教學課程中，您會將功能加入至 [GetStartedWithData 範例應用程式專案](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)， 以使用行動服務所產生的 SAS 來拍照並將影像上傳至 Azure 。本教學課程會逐步引導您完成更新簡單 TodoList 應用程式的基本步驟，以將影像上傳到 Blob 儲存體服務:
+在本教學課程中，您會將功能加入至 [GetStartedWithData 範例應用程式專案](mobile-services-dotnet-backend-windows-phone-get-started-data.md)， 以使用行動服務所產生的 SAS 來拍照並將影像上傳至 Azure 。本教學課程會逐步引導您完成更新簡單 TodoList 應用程式的基本步驟，以將影像上傳到 Blob 儲存體服務:
 
 1. [安裝儲存體用戶端程式庫]
 2. [更新用戶端應用程式以擷取影像]
@@ -40,7 +40,7 @@
 + [Windows Phone SDK 8.0] 或更高版本
 + 已安裝適用於 Microsoft Visual Studio 的 Nuget Package Manager
 + [Azure 儲存體帳戶][如何建立儲存體帳戶]
-+ 完成教學課程[將行動服務新增至現有的應用程式](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)  
++ 完成教學課程[將行動服務新增至現有的應用程式](mobile-services-dotnet-backend-windows-phone-get-started-data.md)  
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
 

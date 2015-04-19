@@ -19,7 +19,7 @@
 
 #如何調整編碼
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 系列的一部分。
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 系列的一部分。
 
 ##概觀
 
@@ -51,7 +51,7 @@
 
 ##配額和限制
 
-如需配額和限制以及如何開啟支援票證的相關資訊，請參閱[配額和限制](../media-services-quotas-and-limitations)。
+如需配額和限制以及如何開啟支援票證的相關資訊，請參閱[配額和限制](media-services-quotas-and-limitations.md)。
 
 
 

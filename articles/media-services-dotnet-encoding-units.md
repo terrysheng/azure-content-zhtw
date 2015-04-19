@@ -21,7 +21,7 @@
 
 #如何使用 .NET SDK 調整編碼
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 系列的一部分。
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 系列的一部分。
   
 ##概觀
 

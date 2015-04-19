@@ -18,9 +18,9 @@
 
 # <a name="getting-started"> </a>開始使用行動服務
 
-本主題已不再支援；無法再從入口網站下載 Windows Phone 8.0 快速啟動專案。如需將行動服務新增至現有的 Windows Phone 8.0 或 Windows Phone 8.1 Silverlight 應用程式，請參閱[新增行動服務至現有應用程式主題](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)。 
+本主題已不再支援；無法再從入口網站下載 Windows Phone 8.0 快速啟動專案。如需將行動服務新增至現有的 Windows Phone 8.0 或 Windows Phone 8.1 Silverlight 應用程式，請參閱[新增行動服務至現有應用程式主題](mobile-services-dotnet-backend-windows-phone-get-started-data.md)。 
 
-可在通用 Windows 專案的 Windows Phone 市集 8.1 應用程式下載取得快速啟動專案。如需詳細資訊，請參閱[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/)。
+可在通用 Windows 專案的 Windows Phone 市集 8.1 應用程式下載取得快速啟動專案。如需詳細資訊，請參閱[開始使用行動服務](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md)。
 
 
 

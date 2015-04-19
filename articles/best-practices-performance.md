@@ -218,7 +218,7 @@ Azure 可直接支援 Hadoop，而且能夠使用其他技術。如需 Azure HDI
 
 * [巨量資料](/zh-tw/solutions/big-data/) 
 * [Azure HDInsight 服務](/zh-tw/documentation/services/hdinsight/)
-* [開始使用 Azure HDInsight 服務](/zh-tw/documentation/articles/hdinsight-get-started/)
+* [開始使用 Azure HDInsight 服務](hdinsight-get-started.md)
 
 如需各種 noSQL 儲存方法相關問題的討論，請參閱： 
 

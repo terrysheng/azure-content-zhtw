@@ -51,7 +51,7 @@ Azure 搜尋是一種雲端架構服務和 HTTP 架構 API，可用來自訂搜�
 +	[限制條件](http://msdn.microsoft.com/library/dn798934.aspx)
 +	[價格詳細資料](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
-當您準備要註冊時，請參閱[開始使用 Azure 搜尋](../search-get-started/)。
+當您準備要註冊時，請參閱[開始使用 Azure 搜尋](search-get-started.md)。
 
 
 <h2 id="sub-2">管理工作</h2>

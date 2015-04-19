@@ -28,7 +28,7 @@
 + [更新應用程式以在註冊前先登入]
 + [測試應用程式]
  
-本教學課程支援 Windows Phone 8.0 和 Windows Phone 8.1 ("Silverlight") 應用程式。如需 Windows Phone 8.1 市集應用程式，請參閱本主題的 [Windows 市集版本](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users)。
+本教學課程支援 Windows Phone 8.0 和 Windows Phone 8.1 ("Silverlight") 應用程式。如需 Windows Phone 8.1 市集應用程式，請參閱本主題的 [Windows 市集版本](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md)。
 
 ## 必要條件 
 

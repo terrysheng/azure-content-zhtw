@@ -18,7 +18,7 @@
 
 # 使用 Elastic Scale 與 Entity Framework 
  
-您可以使用 Azure SQL Database Elastic Scale 與 Microsoft 的 Entity Framework (EF) 來建置應用程式。Elastic Scale 可讓您透過分區化和相應放大應用程式的資料層，以放大和縮小容量。這份文件說明為了與 Elastic Scale 功能整合，Entity Framework 應用程式中需要做的變更。重點在於撰寫 [Elastic Scale 分區管理](http://go.microsoft.com/?linkid=9862595) 和 [資料相依路由](./sql-database-elastic-scale-data-dependent-routing.md) (使用 Entity Framework **Code First**方法)。整份文件中以 EF 的 [Code First - 新的資料庫](http://msdn.microsoft.com/data/jj193542.aspx) 教學課程作為執行範例。本文所附的範例程式碼取自於 Visual Studio 程式碼範例中的 Elastic Scale 範例。
+您可以使用 Azure SQL Database Elastic Scale 與 Microsoft 的 Entity Framework (EF) 來建置應用程式。Elastic Scale 可讓您透過分區化和相應放大應用程式的資料層，以放大和縮小容量。這份文件說明為了與 Elastic Scale 功能整合，Entity Framework 應用程式中需要做的變更。重點在於撰寫 [Elastic Scale 分區管理](http://go.microsoft.com/?linkid=9862595) 和 [資料相依路由](sql-database-elastic-scale-data-dependent-routing.md) (使用 Entity Framework **Code First**方法)。整份文件中以 EF 的 [Code First - 新的資料庫](http://msdn.microsoft.com/data/jj193542.aspx) 教學課程作為執行範例。本文所附的範例程式碼取自於 Visual Studio 程式碼範例中的 Elastic Scale 範例。
   
 ## 下載並執行範例程式碼
 若要下載本文的程式碼：
@@ -53,7 +53,7 @@ Entity Framework 開發人員依賴下列四種工作流程來建置應用程式
 
 ## Elastic Scale 假設 
 
-關於詞彙的定義，請參閱 [Elastic Scale 名詞解釋](./sql-database-elastic-scale-glossary.md)。
+關於詞彙的定義，請參閱 [Elastic Scale 名詞解釋](sql-database-elastic-scale-glossary.md)。
 
 在 Azure SQL Database Elastic Scale 中，您會定義應用程式資料的資料分割，稱為 Shardlet。Shardlet 以分區化索引鍵來識別，而且會對應到特定的資料庫。根據目前的商務需求，應用程式可依需要而有無數個資料庫，並散發 Shardlet 來提供足夠的容量或效能。分區化索引鍵值到資料庫的對應，由 Elastic Scale API 所提供的分區對應來儲存。我們將這項功能稱為分區對應管理，簡稱為 SMM。對於攜帶分區化索引鍵的要求，分區對應也充當資料庫連接的代理人。我們將這項功能稱為資料相依路由。 
  

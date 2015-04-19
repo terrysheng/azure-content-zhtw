@@ -60,7 +60,7 @@
 6.    在儲存體連接字串中的預留位置，輸入儲存體帳戶和其中一個提供的存取金鑰。**Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString** 設定的 **SplitMergeWeb** 和 **SplitMergeWorker** 角色區段下會使用此連接字串。您可能對不同的角色使用不同的儲存體帳戶。 
 
 ### 設定安全性 
-如需有關設定服務安全性的詳細指示，請參閱 [Elastic Scale 安全性設定](./sql-database-elastic-scale-configure-security.md)。
+如需有關設定服務安全性的詳細指示，請參閱 [Elastic Scale 安全性設定](sql-database-elastic-scale-configure-security.md)。
 
 為了  執行適當的簡單測試部署以完成本教學課程，將會執行一組最基本的設定步驟，讓服務啟動並執行。這些步驟只會啟用一個電腦/帳戶來與服務通訊。
 
@@ -120,7 +120,7 @@ Web 角色：
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 
-請注意，在實際執行部署中，CA、加密、伺服器憑證和用戶端憑證應該使用個別憑證。如需詳細指示，請參閱[安全性設定](./sql-database-elastic-scale-configure-security.md)。
+請注意，在實際執行部署中，CA、加密、伺服器憑證和用戶端憑證應該使用個別憑證。如需詳細指示，請參閱[安全性設定](sql-database-elastic-scale-configure-security.md)。
 
 ### 部署分割合併服務
 1. 移至 [Azure 管理入口網站](https://manage.windowsazure.com)。

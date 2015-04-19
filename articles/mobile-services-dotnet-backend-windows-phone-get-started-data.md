@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="在現有的應用程式中加入行動服務 (Windows Phone) | 行動開發人員中心" 
 	description="了解如何開始使用行動服務，在您的 Windows Phone 應用程式中使用資料。" 
 	services="mobile-services" 
@@ -36,7 +36,7 @@
 
 ##下載 GetStartedWithData 專案
 
-本教學課程以 [GetStartedWithMobileServices 應用程式][開發人員程式碼範例網站為基礎 (Visual Studio 2013 的 Windows Phone Silverlight 8.1 應用程式專案)。  
+本教學課程以 [GetStartedWithMobileServices 應用程式][開發人員程式碼範例網站]為基礎 (Visual Studio 2013 的 Windows Phone Silverlight 8.1 應用程式專案)。  
 
 1. 從[開發人員程式碼範例網站]中下載 C# 版本的 GetStartedWithMobileServices 範例應用程式。 
 

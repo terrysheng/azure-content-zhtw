@@ -45,7 +45,7 @@
 
 ##第 1 階段：設定混合式雲端環境
 
-使用 [設定用於測試的混合式雲端環境] (../virtual-networks-setup-hybrid-cloud-environment-testing/) 主題中的指示。由於這個測試環境不需要公司網路子網路上的 APP1 伺服器，因此可以暫時將它關閉。
+使用 [設定用於測試的混合式雲端環境] (virtual-networks-setup-hybrid-cloud-environment-testing.md) 主題中的指示。由於這個測試環境不需要公司網路子網路上的 APP1 伺服器，因此可以暫時將它關閉。
 
 這是您目前的組態。
 
@@ -180,12 +180,12 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 
 [使用 Office 伺服器和雲端的解決方案](http://technet.microsoft.com/library/dn262744.aspx)
 
-[設定用於測試的混合式雲端環境](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[設定用於測試的混合式雲端環境](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[設定 SharePoint 內部網路伺服器陣列中的測試混合式雲端](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[設定 SharePoint 內部網路伺服器陣列中的測試混合式雲端](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[在混合式雲端中設定 Web 型 LOB 應用程式進行測試](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[在混合式雲端中設定 Web 型 LOB 應用程式進行測試](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
-[設定用於測試的模擬混合式雲端環境](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[設定用於測試的模擬混合式雲端環境](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
 <!--HONumber=47-->

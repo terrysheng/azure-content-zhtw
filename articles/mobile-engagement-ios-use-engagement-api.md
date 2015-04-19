@@ -31,7 +31,7 @@ Engagement API 是由  `EngagementAgent` 類別所提供。此類別的執行個
 
 ##Engagement 概念
 
-下列部分精簡了適用於 iOS 平台的一般 [Mobile Engagement 概念](../mobile-engagement-concepts/) 。
+下列部分精簡了適用於 iOS 平台的一般 [Mobile Engagement 概念](mobile-engagement-concepts.md) 。
 
 ### `工作階段`與 `活動`
 

@@ -19,7 +19,7 @@
 
 # 使用 Media Services SDK for .NET 連線到媒體服務帳戶
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 和[媒體服務即時串流工作流程](media-services-live-streaming-workflow.md) 系列的一部分。 
 
 本主題描述使用 Media Services SDK for .NET 進行程式設計時，如何取得與 Microsoft Azure 媒體服務的程式設計連線。
 

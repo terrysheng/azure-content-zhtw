@@ -19,7 +19,7 @@
 
 #如何使用 Azure Media Encoder 為資產編碼
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 系列的一部分。 
 
 ##概觀
 
@@ -207,7 +207,7 @@
 
 
 ##後續步驟
-現在您已了解如何建立為資產編碼的工作，請移至[如何使用媒體服務檢查工作進度](../media-services-check-job-progress/) 主題。
+現在您已了解如何建立為資產編碼的工作，請移至[如何使用媒體服務檢查工作進度](media-services-check-job-progress.md) 主題。
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [編碼器預設]: http://msdn.microsoft.com/library/dn619392.aspx

@@ -17,8 +17,8 @@
 # 在行動服務中的使用者服務端授權
 
 > [AZURE.SELECTOR-LIST (平台 | 後端)]
-- [(任何 | .NET)](/zh-tw/documentation/articles/mobile-services-dotnet-backend-service-side-authorization/)
-- [(任何 | Javascript)](/zh-tw/documentation/articles/mobile-services-javascript-backend-service-side-authorization/)
+- [(任何 | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
+- [(任何 | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
 本主題說明如何使用伺服器端指令碼來授權使用者。在此教學課程中，您使用 Azure 行動服務註冊指令碼，根據使用者識別碼篩選查詢，並且只提供使用者對自己資料的存取權。
 

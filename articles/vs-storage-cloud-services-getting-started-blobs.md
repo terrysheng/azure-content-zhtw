@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [開始使用](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
-> - [發生什麼情形](/documentation/articles/vs-storage-cloud-services-what-happened/)
+> - [開始使用](vs-storage-cloud-services-getting-started-blobs.md)
+> - [發生什麼情形](vs-storage-cloud-services-what-happened.md)
 
 ## 開始使用 Azure 儲存體 (雲端服務專案)
 
 > [AZURE.SELECTOR]
-> - [Blob](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
-> - [佇列](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
-> - [資料表](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
+> - [Blob](vs-storage-cloud-services-getting-started-blobs.md)
+> - [佇列](vs-storage-cloud-services-getting-started-queues.md)
+> - [資料表](vs-storage-cloud-services-getting-started-tables.md)
 
 Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非結構化資料的服務，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。單一 Blob 可以是任何大小。Blob 可以是影像、音訊和視訊檔、原始資料及文件檔案。
 

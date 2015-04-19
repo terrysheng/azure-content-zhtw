@@ -49,7 +49,7 @@
 
 若要透過混合式連線使用內部部署 SQL Server 或 SQL Server Express 資料庫，必須在靜態連接埠上啟用 TCP/IP。SQL Server 上的預設執行個體會使用靜態連接埠 1433，但指定的執行個體則否。 
 
-如需如何設定 SQL Server 使其符合上述條件的詳細指示，請參閱[在內部部署中安裝 SQL Server Express、啟用 TCP/IP 及建立 SQL Server 資料庫](/zh-tw/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL). 如果您已在符合上述條件的組態和環境中安裝 SQL Server，則可以略過並開始[建立內部部署 SQL Server 資料庫](/zh-tw/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB). 
+如需如何設定 SQL Server 使其符合上述條件的詳細指示，請參閱[在內部部署中安裝 SQL Server Express、啟用 TCP/IP 及建立 SQL Server 資料庫](web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL.md). 如果您已在符合上述條件的組態和環境中安裝 SQL Server，則可以略過並開始[建立內部部署 SQL Server 資料庫](web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB.md). 
 
 基於本教學課程的目的，我們會假設資料庫名稱為 **OnPremisesDB**，該資料庫在連接埠 **1433** 上執行，而機器的主機名稱為 **onPremisesServer**。
 
@@ -115,7 +115,7 @@
 ### 將混合式連線與服務產生關聯
 1. 在入口網站的 [**行動服務**] 索引標籤中，選取現有的行動服務或建立新的服務。 
 
-	>[AZURE.NOTE]請確實選取使用 .NET 後端建立的服務，或建立新的 .NET 後端行動服務。若想了解如何建立新的 .NET 後端行動服務，請參閱[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) 
+	>[AZURE.NOTE]請確實選取使用 .NET 後端建立的服務，或建立新的 .NET 後端行動服務。若想了解如何建立新的 .NET 後端行動服務，請參閱[開始使用行動服務](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) 
 
 2. 在行動服務的 [**設定**] 索引標籤上找出 [**混合式連線**] 區段，然後選取 [**新增混合式連線**]。
 
@@ -140,7 +140,7 @@
 
 3. 在 Visual Studio 2013 中，開啟定義 .NET 型行動服務的專案。 
 
-	若想了解如何下載 .NET 後端專案，請參閱[開始使用行動服務](/zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) .。
+	若想了解如何下載 .NET 後端專案，請參閱[開始使用行動服務](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) .。
  
 4. 在 [方案總管] 中展開 [**Models**] 資料夾，然後開啟以  *Context.cs* 結尾的資料模型檔案。
 

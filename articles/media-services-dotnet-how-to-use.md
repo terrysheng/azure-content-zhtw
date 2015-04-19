@@ -25,7 +25,7 @@
 
 ## 必要條件
 
--   新的或現有 Azure 訂用帳戶中的媒體服務帳戶。請參閱[如何建立媒體服務帳戶](../media-services-create-account/)主題。
+-   新的或現有 Azure 訂用帳戶中的媒體服務帳戶。請參閱[如何建立媒體服務帳戶](media-services-create-account.md)主題。
 -   作業系統：Windows 7、Windows 2008 R2 或 Windows 8。
 -   .NET Framework 4.5。
 -   Visual Studio 2013、Visual Studio 2012 或 Visual Studio 2010 SP1 (Professional、Premium、Ultimate 或 Express)。 

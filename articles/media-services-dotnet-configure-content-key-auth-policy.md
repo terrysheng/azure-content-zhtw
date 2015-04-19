@@ -21,7 +21,7 @@
 #動態加密：設定內容金鑰授權原則 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)] 
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 和[媒體服務即時串流工作流程](../media-services-live-streaming-workflow) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 和[媒體服務即時串流工作流程](media-services-live-streaming-workflow.md) 系列的一部分。 
 
 ##概觀
 
@@ -29,7 +29,7 @@ Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使�
 
 您目前可以加密下列串流格式：HLS、MPEG DASH 和 Smooth Streaming。您無法加密 HDS 串流格式或漸進式下載。
 
-如果您想要媒體服務加密資產，則需要將加密金鑰 (**CommonEncryption** 或 **EnvelopeEncryption**) 與資產產生關聯 (如[這裡]所述(../media-services-dotnet-create-contentkey/))，同時設定金鑰的授權原則 (如本文所述)。 
+如果您想要媒體服務加密資產，則需要將加密金鑰 (**CommonEncryption** 或 **EnvelopeEncryption**) 與資產產生關聯 (如[這裡]所述(media-services-dotnet-create-contentkey.md))，同時設定金鑰的授權原則 (如本文所述)。 
 
 播放程式要求串流時，媒體服務便會使用 AES 或 PlayReady 加密，使用指定的金鑰動態加密您的內容。為了將串流解密，播放程式將從金鑰傳遞服務要求金鑰。為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
 
@@ -47,8 +47,8 @@ Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使�
 
 ###有一些考量：
 
-- 若要能夠使用動態封裝和動態加密，您必須確定至少有一個縮放單元 (也稱為串流單元)。如需詳細資訊，請參閱[如何調整媒體服務](../media-services-manage-origins#scale_streaming_endpoints)。 
-- 您的資產必須包含一組多位元速率 MP4 或多位元速率 Smooth Streaming 檔案。如需詳細資訊，請參閱[為資產編碼](../media-services-encode-asset/)。  
+- 若要能夠使用動態封裝和動態加密，您必須確定至少有一個縮放單元 (也稱為串流單元)。如需詳細資訊，請參閱[如何調整媒體服務](media-services-manage-origins#scale_streaming_endpoints.md)。 
+- 您的資產必須包含一組多位元速率 MP4 或多位元速率 Smooth Streaming 檔案。如需詳細資訊，請參閱[為資產編碼](media-services-encode-asset.md)。  
 - 使用 **AssetCreationOptions.StorageEncrypted** 選項，上傳資產並為其編碼。
 - 如果您計劃有多個內容金鑰需要相同的原則組態，強烈建議建立一個授權原則，並針對多個內容金鑰重複使用。
 - 金鑰傳遞服務會快取 ContentKeyAuthorizationPolicy 和其相關物件 (原則選項和限制) 15 分鐘。如果您建立 ContentKeyAuthorizationPolicy，並指定要使用 "Token" 的限制，那麼便測試它，然後將原則更新為"Open" 限制，將需要大約 15 分鐘，原則才會切換為 "Open" 版本的原則。
@@ -393,6 +393,6 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。這
 
 
 ##後續步驟
-現在，您已設定內容金鑰授權原則，請移至[如何設定資產傳遞原則](../media-services-dotnet-configure-asset-delivery-policy/) 主題。
+現在，您已設定內容金鑰授權原則，請移至[如何設定資產傳遞原則](media-services-dotnet-configure-asset-delivery-policy.md) 主題。
 
 <!--HONumber=47-->

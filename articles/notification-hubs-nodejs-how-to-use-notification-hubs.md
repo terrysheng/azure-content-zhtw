@@ -1,47 +1,57 @@
 <properties 
-	pageTitle="如何搭配 Node.js 使用通知中樞" 
-	description="了解如何使用通知中樞，從 Node.js 應用程式傳送推播通知。" 
+	pageTitle="通知中心 - Node.js 開發人員中心" 
+	description="了解如何使用通知中心傳送推播通知。程式碼範例專為 Node.js 應用程式撰寫。" 
 	services="notification-hubs" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	authors="ggailey777" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
-	ms.author="mwasson"/>
+	ms.date="09/17/2014" 
+	ms.author="glenga"/>
 
-# 如何從 Node.js 使用通知中樞
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js" class="current">Node.js</a>
-</div>
 
-## 概觀
 
-本指南將說明如何從 Node.js 應用程式使用通知中樞。本文說明的案例包括**傳送通知到 Android、iOS、Windows Phone 和 Windows 市集應用程式**。如需通知中樞的詳細資訊，請參閱[後續步驟](#next) 一節。
 
-## 什麼是通知中樞？
 
-Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以將推播通知傳送至行動裝置。如需詳細資訊，請參閱 [Azure 通知中樞](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx)。
 
-## 建立 Node.js 應用程式
+# 如何使用通知中樞
+
+本指南將說明如何從 Node.js 應用程式使用通知中心。本文說明的案例包括**傳送通知到 Android、iOS、Windows Phone 和 Windows 市集應用程式**。如需通知中心的詳細資訊，請參閱[後續步驟](#next) 一節。
+
+## 目錄
+
+-   [什麼是通知中心？](#hub)
+-   [建立 Node.js 應用程式](#create)
+-   [將應用程式設為使用通知中心](#config)
+-   [做法：傳送通知](#send)
+-   [後續步驟](#next)
+
+## <a id="hub"></a>什麼是通知中心？
+
+Azure 通知中心提供易用、多平台、可擴充的基礎結構，用以將推播通知傳送至行動裝置。如需詳細資訊，請參閱 [Azure 通知中心](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx)。
+
+## <a id="create"></a>建立 Node.js 應用程式
 
 建立空白的 Node.js 應用程式。如需建立 Node.js 應用程式的相關指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][nodejswebsite]、[Node.js 雲端服務][Node.js Cloud Service] (使用 Windows PowerShell) 或[使用 WebMatrix 的網站]。
 
-## 將應用程式設為使用通知中樞
+## <a id="config"></a>將應用程式設為使用通知中心
 
-若要使用 Azure 通知中樞，您需要下載並使用 Node.js azure 封裝。這包含一組便利的程式庫，可用來與 REST 服務進行通訊。
+若要使用 Azure 通知中心，您必須下載並使用
+Node.js azure 套件。套件含有一組能與 REST 服務通訊的便利程式庫。
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
 1.  使用命令列介面，例如 **PowerShell** (Windows)、**Terminal** (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
 
-2.  在命令視窗中輸入 **npm install azure**，這應該會產生下列輸出：
+2.  在命令視窗中輸入 **npm install azure**，應產生
+    下例輸出：
 
         azure@0.7.0 node_modules\azure
 		|-- dateformat@1.0.2-1.2.3
@@ -55,7 +65,7 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
 		|-- xml2js@0.2.6 (sax@0.4.2)
 		|-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
 
-3.  您可以手動執行 **ls** 或 **dir** 命令，確認已建立 **node\_modules** 資料夾。在該資料夾內找到 **azure** 封裝，其中包含您存取通知中樞所需的程式庫。
+3.  您可以手動執行 **ls** 或 **dir** 命令，確認已建立 **node\_modules** 資料夾。在該資料夾內找到 **azure** 封裝，其中包含您存取通知中心所需的程式庫。
 
 ### 匯入模組
 
@@ -65,15 +75,15 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
 
 ### 設定 Azure 通知中樞連線
 
-**NotificationHubService** 物件可讓您使用通知中樞。下列程式碼會為名為 **hubname** 的通知中樞建立 **NotificationHubService** 物件。請將程式碼新增至 **server.js** 檔案的頂端附近，放置在匯入 azure 模型的陳述式後方：
+**NotificationHubService** 物件可讓您使用通知中心。下列程式碼會為名為 **hubname** 的通知中心建立 **NotificationHubService** 物件。請將程式碼新增至 **server.js** 檔案的頂端附近，放置在匯入 azure 模型的陳述式後方：
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
 執行下列步驟，可從 Azure 管理入口網站取得連線 **connectionstring** 值：
 
-1. 從 Azure 管理入口網站中選取 [**服務匯流排**]，然後選取包含通知中樞的命名空間。
+1. 從 Azure 管理入口網站中選取 [**服務匯流排**]，然後選取包含通知中心的命名空間。
 
-2. 選取 [**通知中樞**]，然後選取您要使用的中心。
+2. 選取 [**通知中心**]，然後選取您要使用的中心。
 
 3. 從 [**quick glance**] 區段中選取 [**檢視連接字串**]，然後複製連接字串值。
 
@@ -81,7 +91,7 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
 
 </div>
 
-## 如何傳送通知
+## <a id="send"></a>如何傳送通知
 
 **NotificationHubService** 物件會公開下列可將通知傳送至特定裝置和應用程式的物件執行個體：
 
@@ -140,7 +150,7 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
 
 * Tags - 標籤識別碼。若未提供標籤，通知將會傳送至所有用戶端
 * Payload - 訊息的 XML 裝載
-* TargetName - 快顯通知的「快顯」。磚通知的「權杖」。
+* TargetName - 'toast' 用於快顯通知。 'token' 用於磚通知。
 * NotificationClass - 通知的優先順序。如需有效值，請參閱[從伺服器推播通知](http://msdn.microsoft.com/library/hh221551.aspx)的「HTTP 標頭元素」一節。
 * Options - 選用的要求標頭
 * Callback - 回呼函數
@@ -177,26 +187,26 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
 	  }
 	});
 
-## 後續步驟
+## <a id="next"></a>後續步驟
 
-了解基本的通知中樞使用方式之後，請參考下列連結以取得更多資訊。
+了解基本的通知中心使用方式之後，請參考下列連結以取得更多資訊。
 
--   請參閱 MSDN 參考：[Azure 通知中樞][]
--   造訪 GitHub 上的 [Azure SDK for Node] 儲存機制。
+-   請參閱 MSDN 參考：[Azure 通知中心](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx)
+-   造訪 GitHub 上之[節點的 Azure SDK] 儲存機制。
 
-  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [節點的 Azure SDK]: https://github.com/WindowsAzure/azure-sdk-for-node
   [後續步驟]: #nextsteps
   [什麼是服務匯流排主題和訂閱？]: #what-are-service-bus-topics
   [建立服務命名空間]: #create-a-service-namespace
   [取得命名空間的預設管理認證]: #obtain-default-credentials
   [建立 Node.js 應用程式]: #Create_a_Nodejs_Application
-  [設定應用程式使用服務匯流排]: #Configure_Your_Application_to_Use_Service_Bus
-  [做法：建立主題]: #How_to_Create_a_Topic
-  [做法：建立訂閱]: #How_to_Create_Subscriptions
-  [做法：傳送訊息至主題]: #How_to_Send_Messages_to_a_Topic
-  [做法：自訂閱接收訊息]: #How_to_Receive_Messages_from_a_Subscription
-  [做法：處理應用程式當機與無法讀取的訊息]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
-  [做法：刪除主題和訂閱]: #How_to_Delete_Topics_and_Subscriptions
+  [ 設定應用程式使用服務匯流排]: #Configure_Your_Application_to_Use_Service_Bus
+  [作法：建立主題]: #How_to_Create_a_Topic
+  [作法：建立訂閱]: #How_to_Create_Subscriptions
+  [作法：傳送訊息至主題]: #How_to_Send_Messages_to_a_Topic
+  [作法：自訂閱接收訊息]: #How_to_Receive_Messages_from_a_Subscription
+  [作法：處理應用程式當機與無法讀取的訊息]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
+  [作法：刪除主題和訂閱]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
   [主題概念]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
   [Azure 管理入口網站]: http://manage.windowsazure.com
@@ -206,14 +216,13 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
   [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
   [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Azure 服務匯流排通知中樞]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
+  [Azure 服務匯流排通知中心]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
-  [使用 WebMatrix 的網站]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Node.js 雲端服務]: cloud-services-nodejs-develop-deploy-app.md
+  [使用 WebMatrix 的網站]: /zh-tw/develop/nodejs/tutorials/web-site-with-webmatrix/
+  [Node.js 雲端服務]: /zh-tw/documentation/articles/cloud-services-nodejs-develop-deploy-app/
 [先前的管理入口網站]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
-  [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
-  [使用儲存體的 Node.js 雲端服務]: /develop/nodejs/tutorials/web-app-with-storage/
-  [使用儲存體的 Node.js Web 應用程式]: /develop/nodejs/tutorials/web-site-with-storage/
+  [nodejswebsite]: /zh-tw/develop/nodejs/tutorials/create-a-website-(mac)/
+  [使用儲存體的 Node.js 雲端服務]: /zh-tw/develop/nodejs/tutorials/web-app-with-storage/
+  [使用儲存體的 Node.js Web 應用程式]: /zh-tw/develop/nodejs/tutorials/web-site-with-storage/
 
-
-<!--HONumber=49-->
+<!--HONumber=45--> 

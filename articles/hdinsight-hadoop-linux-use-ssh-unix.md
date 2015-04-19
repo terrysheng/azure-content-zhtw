@@ -20,7 +20,7 @@
 
 以 Linux 為基礎的 HDInsight 叢集提供使用密碼或 SSH 金鑰保護 SSH 存取的選項。本文件提供從 Linux、Unix 或 OS X 用戶端搭配使用 SSH 與 HDInsight 的資訊。
 
-> [AZURE.NOTE] 本文中的步驟假設您是使用 Linux、Unix 或 OS X 用戶端。雖然在安裝有提供 `ssh` 和 `ssh-keygen` 的封裝 (例如 Git for Windows) 後，您可以在 Windows 用戶端上執行這些步驟，但建議 Windows 用戶端依照 [從 Windows 搭配使用 SSH 與以 Linux 為基礎的 HDInsight (Hadoop)] 中的步驟進行。(/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/)。
+> [AZURE.NOTE] 本文中的步驟假設您是使用 Linux、Unix 或 OS X 用戶端。雖然在安裝有提供 `ssh` 和 `ssh-keygen` 的封裝 (例如 Git for Windows) 後，您可以在 Windows 用戶端上執行這些步驟，但建議 Windows 用戶端依照 [從 Windows 搭配使用 SSH 與以 Linux 為基礎的 HDInsight (Hadoop)] 中的步驟進行。(hdinsight-hadoop-linux-use-ssh-windows.md)。
 
 ##必要條件
 
@@ -229,10 +229,10 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 
 您已經了解如何使用 SSH 金鑰進行驗證，接著請了解如何在 HDInsight 上搭配使用 MapReduce 和 Hadoop。
 
-* [搭配 HDInsight 使用 Hive](../hdinsight-use-hive/)
+* [搭配 HDInsight 使用 Hive](hdinsight-use-hive.md)
 
-* [搭配 HDInsight 使用 Pig](../hdinsight-use-pig/)
+* [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 
-* [搭配 HDInsight 使用 MapReduce 工作](../hdinsight-use-mapreduce/)
+* [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
  
 <!--HONumber=47-->

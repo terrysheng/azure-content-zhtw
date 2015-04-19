@@ -86,7 +86,7 @@ HDInsight 上的　Storm 叢集內建就支援 .NET、Java 和 Python。雖然 S
 
 SCP 是一個可讓 .NET 開發人員設計和實作拓撲 (包括 spout 和 bolt) 的專案。Storm 叢集預設提供 SCP 的支援。
 
-如需有關使用 SCP 進行開發的相關資訊，請參閱[在 HDInsight 中的 Storm 上使用 SCP.NET 和 C# 開發串流資料處理應用程式](/zh-tw/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application)。
+如需有關使用 SCP 進行開發的相關資訊，請參閱[在 HDInsight 中的 Storm 上使用 SCP.NET 和 C# 開發串流資料處理應用程式](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)。
 
 ### Java
 
@@ -120,7 +120,7 @@ Storm 可以提供不同程度的訊息處理保證。例如，基本的 Storm �
 
 批次處理有多種方式。在基本的 Storm Java 拓撲中，您可能使用簡單的計數器來批次處理 X 個 Tuple 再發出它們，或使用稱為計時 Tuple 的內部計時機制，每 X 秒發出一批。
 
-有關使用計時 Tuple 的範例，請參閱[使用 Storm 和 HDInsight 分析感應器資料](/zh-tw/documentation/articles/hdinsight-storm-sensor-data-analysis.md)
+有關使用計時 Tuple 的範例，請參閱[使用 Storm 和 HDInsight 分析感應器資料](hdinsight-storm-sensor-data-analysis.md.md)
 
 如果您使用 Trident，則是以 Tuple 批次處理為基礎。
 
@@ -138,9 +138,9 @@ Storm 可以提供不同程度的訊息處理保證。例如，基本的 Storm �
 
 * [開始使用 HDInsight 中的 Storm][gettingstarted]
 
-* [使用 Storm 和 HDInsight 分析感應器資料](/zh-tw/documentation/articles/hdinsight-storm-sensor-data-analysis)
+* [使用 Storm 和 HDInsight 分析感應器資料](hdinsight-storm-sensor-data-analysis.md)
 
-* [在 HDInsight 中的 Storm 上使用 SCP.NET 和 C# 開發串流資料處理應用程式](/zh-tw/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application)
+* [在 HDInsight 中的 Storm 上使用 SCP.NET 和 C# 開發串流資料處理應用程式](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html

@@ -22,7 +22,7 @@
 
 儲存體分析可以儲存包含與儲存體服務要求相關之彙總的交易統計資料及容量資料的度量。報告的交易是屬於 API 作業層級以及儲存體服務層級，而報告的容量則是屬於儲存體服務層級。度量資料可用來分析儲存體服務使用量、診斷針對儲存體服務提出之要求的問題，以及提升使用服務的應用程式效能。
 
-若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。您可以從 [Azure 管理入口網站](https://manage.windowsazure.com/)啟用它；如需詳細資訊，請參閱[如何監視儲存體帳戶](../how-to-monitor-a-storage-account)。您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。[針對每個服務，使用「取得 Blob 服務屬性」、「取得佇列服務屬性」](https://msdn.microsoft.com/library/hh452239.aspx)，以及[「取得資料表服務屬性」作業來啟用儲存體分析](https://msdn.microsoft.com/library/hh452238.aspx)。
+若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。您可以從 [Azure 管理入口網站](https://manage.windowsazure.com/)啟用它；如需詳細資訊，請參閱[如何監視儲存體帳戶](how-to-monitor-a-storage-account.md)。您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。[針對每個服務，使用「取得 Blob 服務屬性」、「取得佇列服務屬性」](https://msdn.microsoft.com/library/hh452239.aspx)，以及[「取得資料表服務屬性」作業來啟用儲存體分析](https://msdn.microsoft.com/library/hh452238.aspx)。
 
 ##交易度量
 
@@ -82,5 +82,5 @@
 
 ###其他資源
 
-[如何監視儲存體帳戶](../how-to-monitor-a-storage-account) 
+[如何監視儲存體帳戶](how-to-monitor-a-storage-account.md) 
 <!--HONumber=47-->

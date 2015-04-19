@@ -19,7 +19,7 @@
 
 # 如何使用 Azure Media Encoder 為資產編碼
 
-這篇文章屬於[要求工作流程上的媒體服務視訊](../media-services-video-on-demand-workflow)系列。 
+這篇文章屬於[要求工作流程上的媒體服務視訊](media-services-video-on-demand-workflow.md)系列。 
 
 ## 概觀
 若要透過網際網路傳遞數位視訊，您必須壓縮媒體。數位視訊檔案十分龐大，而且可能太大而無法透過網際網路傳遞，或者您客戶的裝置無法正確顯示。編碼是一個程序，可壓縮視訊和音訊，以讓您的客戶可以檢視您的媒體。
@@ -206,7 +206,7 @@
 
 
 ## 後續步驟
-現在，您知道如何建立編碼資產的工作 (Job)，請移至[如何使用媒體服務檢查工作進度](../media-services-check-job-progress/)主題。
+現在，您知道如何建立編碼資產的工作 (Job)，請移至[如何使用媒體服務檢查工作進度](media-services-check-job-progress.md)主題。
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [編碼器預設]: http://msdn.microsoft.com/library/dn619392.aspx

@@ -18,7 +18,7 @@
 
 # 使用 Azure PowerShell 管理您的虛擬機器
 
-開始執行之前，您必須確定已安裝 Azure PowerShell。若要這樣做，請造訪[如何安裝及設定 Azure PowerShell](../install-configure-powershell/)
+開始執行之前，您必須確定已安裝 Azure PowerShell。若要這樣做，請造訪[如何安裝及設定 Azure PowerShell](install-configure-powershell.md)
 
 ## 取得映像
 

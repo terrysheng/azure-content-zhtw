@@ -26,7 +26,7 @@
 指定 Node.js 應用程式的 HTTPS 端點，該應用程式在 Web 角色中託管為 Azure 雲端服務，以及如何上傳
 SSL 憑證以保護您的應用程式。
 
-> [AZURE.NOTE] 這篇文章的步驟僅適用於在 Web 角色中託管為 Azure 雲端服務的節點應用程式，請參閱[設定 Azure 網站的 SSL 憑證](../web-sites-configure-ssl-certificate/)。
+> [AZURE.NOTE] 這篇文章的步驟僅適用於在 Web 角色中託管為 Azure 雲端服務的節點應用程式，請參閱[設定 Azure 網站的 SSL 憑證](web-sites-configure-ssl-certificate.md)。
 
 此工作包含下列步驟：
 

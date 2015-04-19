@@ -19,7 +19,7 @@
 
 #如何使用 Azure Media Encoder 為資產編碼
 
-這篇文章是[媒體服務點播視訊工作流程](../media-services-video-on-demand-workflow) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 系列的一部分。 
 
 ##概觀
 若要透過網際網路傳遞數位視訊，您必須壓縮媒體。數位視訊檔案十分龐大，而且可能太大而無法透過網際網路傳遞，或是太大而使您客戶的裝置無法正確顯示。編碼是壓縮視訊和音訊，好讓客戶能檢視您的媒體的程序。
@@ -32,9 +32,9 @@
 
 >[AZURE.NOTE] 使用媒體服務 REST API 時，適用下列考量事項：
 >
->在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發的設定](../media-services-rest-how-to-use)。
+>在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發的設定](media-services-rest-how-to-use.md)。
 
->順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務](../media-services-rest-connect_programmatically/)中所述。 
+>順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。後續的呼叫必須向新的 URI 提出，如[使用 REST API 連接至媒體服務](media-services-rest-connect_programmatically.md)中所述。 
 
 
 下列範例會示範如何建立和張貼工作，並將一個工作設為在特定的解析度與品質將視訊編碼。當透過 Azure Media Encoder 編碼時，您可以使用[這裡](https://msdn.microsoft.com/library/azure/dn619389.aspx)指定的工作組態預設。
@@ -110,7 +110,7 @@
 
 
 ##後續步驟
-現在您已了解如何建立為資產編碼的工作，請移至[如何使用媒體服務檢查工作進度](../media-services-rest-check-job-progress/) 主題。
+現在您已了解如何建立為資產編碼的工作，請移至[如何使用媒體服務檢查工作進度](media-services-rest-check-job-progress.md) 主題。
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [編碼器預設]: http://msdn.microsoft.com/library/dn619392.aspx

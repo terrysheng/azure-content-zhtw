@@ -41,7 +41,7 @@ Azure 虛擬機器可以讓開發人員、IT 操作人員及其他人在雲端�
 
 
 
-您可以藉由 VHD 指定新 VM 的大小。[Azure 組件庫](http://msdn.microsoft.com/zh-tw/library/windowsazure/dn197896.aspx)中會列出每個大小的完整統計資料。  
+您可以藉由 VHD 指定新 VM 的大小。[Azure 組件庫](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx)中會列出每個大小的完整統計資料。  
 
 -	**超小**：具備 1 個共用核心及 768 MB 記憶體。
 -	**小**：具備 1 個核心及 1.75 GB 記憶體。

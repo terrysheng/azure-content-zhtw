@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="什麼是雲端服務 - Azure 服務管理" 
 	description="Azure 中的雲端服務簡介。" 
 	services="cloud-services" 
@@ -68,7 +68,7 @@
 
 [HTMonitorCloudServices]:http://azure.microsoft.com/ manage/services/cloud-services/how-to-monitor-a-cloud-service/
 [SLA]: http://azure.microsoft.com/ support/legal/sla/
-[CloudServicesDiagnostics]: http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-diagnostics/
-[Comparison]: http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/
+[CloudServicesDiagnostics]: http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/
+[Comparison]: http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/
 
 <!--HONumber=45--> 

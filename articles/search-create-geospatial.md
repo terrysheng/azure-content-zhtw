@@ -40,7 +40,7 @@
 <h2 id="sub-1">必要條件</h2>
 
 +	Visual Studio 2012 或更高版本，並安裝 ASP.NET MVC 4 與 SQL Server。如果您尚未安裝此軟體，可以下載免費的 Express 版：[Visual Studio 2013 Express](http://www.visualstudio.com/zh-tw/products/visual-studio-express-vs.aspx) 和 [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx)。
-+	Azure 搜尋服務。您需要搜尋服務名稱，以及系統管理金鑰。如需詳細資訊，請參閱[開始使用 Azure Search](../search-get-started/)。
++	Azure 搜尋服務。您需要搜尋服務名稱，以及系統管理金鑰。如需詳細資訊，請參閱[開始使用 Azure Search](search-get-started.md)。
 +	Bing 地圖服務與其存取金鑰。下一節會提供說明
 +	[CodePlex 上的 Azure 搜尋 GeoSearch 範例](https://azuresearchgeospatial.codeplex.com/)。在 [來源] 索引標籤上，按一下 [**下載**] 以取得解決方案的壓縮檔。 
 

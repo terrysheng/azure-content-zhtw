@@ -24,7 +24,7 @@
 
 ##註冊您的應用程式
 
->[AZURE.NOTE] 當您想要對應用程式使用[服務主導登入作業](http://msdn.microsoft.com/library/azure/dn283952.aspx)時，本主題中所述的步驟適用於[將驗證加入至行動服務應用程式] (/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) 教學課程。或者，如果您的應用程式具有 Azure Active Directory 及 .NET 後端行動服務的[用戶端主導登入作業](http://msdn.microsoft.com/library/azure/jj710106.aspx)需求，則您應該從[使用 Active Directory Authentication Library 單一登入驗證您的應用程式](/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/)教學課程開始。
+>[AZURE.NOTE] 當您想要對應用程式使用[服務主導登入作業](http://msdn.microsoft.com/library/azure/dn283952.aspx)時，本主題中所述的步驟適用於[將驗證加入至行動服務應用程式] (mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md) 教學課程。或者，如果您的應用程式具有 Azure Active Directory 及 .NET 後端行動服務的[用戶端主導登入作業](http://msdn.microsoft.com/library/azure/jj710106.aspx)需求，則您應該從[使用 Active Directory Authentication Library 單一登入驗證您的應用程式](mobile-services-windows-store-dotnet-adal-sso-authentication.md)教學課程開始。
 
 
 1. 登入 [Azure 管理入口網站]，按一下 [**行動服務**]，然後按一下您的行動服務。

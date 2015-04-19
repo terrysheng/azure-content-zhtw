@@ -372,8 +372,8 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 應�
 
 ## 另請參閱##
 - [在 HDInsight 叢集上安裝 R][hdinsight-install-r] 說明如何使用叢集自訂，以在 HDInsight Hadoop 叢集上安裝和使用 R。R 是一個用於統計計算的開放原始碼語言和環境，提供數百個內建的統計函式及它自己的程式設計語言，此語言結合了函式型和物件導向程式設計的層面。它也提供廣泛的圖形功能。
-- [在 HDInsight 叢集上安裝 Giraph](../hdinsight-hadoop-giraph-install)。使用叢集自訂在 HDInsight Hadoop 叢集上安裝 Giraph。Giraph 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。
-- [在 HDInsight 叢集上安裝 Solr](../hdinsight-hadoop-solr-install)。使用叢集自訂在 HDInsight Hadoop 叢集上安裝 Solr。Solr 可讓您對儲存的資料執行搜尋功能強大的搜尋作業。
+- [在 HDInsight 叢集上安裝 Giraph](hdinsight-hadoop-giraph-install.md)。使用叢集自訂在 HDInsight Hadoop 叢集上安裝 Giraph。Giraph 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。
+- [在 HDInsight 叢集上安裝 Solr](hdinsight-hadoop-solr-install.md)。使用叢集自訂在 HDInsight Hadoop 叢集上安裝 Solr。Solr 可讓您對儲存的資料執行搜尋功能強大的搜尋作業。
 
 
 

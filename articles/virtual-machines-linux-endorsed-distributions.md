@@ -22,7 +22,7 @@
 
 #經 Azure 背書之配送映像上的 Linux
 
-Azure 映像庫上的配送映像是由下列合作夥伴提供，而我們仍繼續與不同的 Linux 社群合作來提供更多經過背書的配送映像。同時，針對映像庫中未提供的散發套件，您可以隨時依照[本頁](../virtual-machines-linux-create-upload-vhd/)上的方針，來使用您自己的 Linux。
+Azure 映像庫上的配送映像是由下列合作夥伴提供，而我們仍繼續與不同的 Linux 社群合作來提供更多經過背書的配送映像。同時，針對映像庫中未提供的散發套件，您可以隨時依照[本頁](virtual-machines-linux-create-upload-vhd.md)上的方針，來使用您自己的 Linux。
 
 ## Canonical ##
  

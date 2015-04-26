@@ -146,4 +146,5 @@ TodoItem 類別可定義資料物件，您必須將相同屬性新增至此類�
 <!-- URLs. -->
 [如何建立儲存體帳戶]: /zh-tw/manage/services/storage/how-to-create-a-storage-account
 [應用程式設定]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+
 <!--HONumber=42-->

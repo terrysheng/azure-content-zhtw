@@ -8,4 +8,5 @@
    	請注意，插入完成之後，應用程式會收到來自 WNS 的推播通知。
 
    	![](./media/mobile-services-windows-store-test-push/mobile-quickstart-push2.png)
+
 <!--HONumber=42-->

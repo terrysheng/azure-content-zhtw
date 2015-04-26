@@ -186,4 +186,5 @@ Azure 上 VHD 映像的虛擬大小須對齊至 1MB。一般而言，使用 Hype
 - 接著，您必須關閉虛擬機器，並將 VHD 上傳至 Azure。
 
 
+
 <!--HONumber=42-->

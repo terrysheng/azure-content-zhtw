@@ -789,7 +789,7 @@ Azure 診斷可收集下列類型的遙測資料：
 [使用 Azure 診斷收集記錄資料]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [開發 Azure 應用程式的疑難排解最佳作法]: http://msdn.microsoft.com/library/windowsazure/hh771389.aspx
 [免費試用版]: http://azure.microsoft.com/ pricing/free-trial/
-[安裝及設定 Azure PowerShell 0.8.7 版或更新版本]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[安裝及設定 Azure PowerShell 0.8.7 版或更新版本]: http://azure.microsoft.com/ documentation/articles/install-configure-powershell/
 [Azure 診斷 1.2 組態結構描述]: http://msdn.microsoft.com/library/azure/dn782207.aspx
 [Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495270.aspx
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495145.aspx

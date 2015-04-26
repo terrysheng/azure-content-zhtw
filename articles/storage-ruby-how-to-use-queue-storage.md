@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="如何使用 Ruby 的佇列儲存體 | Microsoft Azure"
-	description="了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。範例以 Ruby 撰寫。"
+	pageTitle="如何使用 Ruby 的佇列儲存體 | Microsoft Azure「 
+	description="了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。範例以 Ruby 撰寫。」 
 	services="storage" 
 	documentationCenter="ruby" 
 	authors="tfitzmac,tamram" 

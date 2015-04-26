@@ -31,4 +31,5 @@ Windows Azure 行動服務程式庫以 **MobileServices.js** 檔案的形式加�
 在  `services\mobileServices\settings` 資料夾中，已產生一個含有 **MobileServiceClient** 的新的 JavaScript (.js) 檔案，內含所選行動服務的應用程式 URL 和應用程式金鑰。  
 
 
+
 <!--HONumber=42-->

@@ -383,4 +383,5 @@ Azure 儲存體中的 Blob。
   [如何建立儲存體帳戶]: http://azure.microsoft.com/manage/services/storage/how-to-create-a-storage-account/
   [如何管理儲存體帳戶]: http://azure.microsoft.com/manage/services/storage/how-to-manage-a-storage-account/
   [如何從 Java 使用 Blob 儲存體服務]: http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/
+
 <!--HONumber=42-->

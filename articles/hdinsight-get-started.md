@@ -301,4 +301,5 @@ HDInsight 會使用 Azure Blob 儲存體來儲存資料。稱為 *WASB* 或 *Azu
 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
+
 <!--HONumber=42-->

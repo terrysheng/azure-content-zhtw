@@ -90,4 +90,5 @@ Excel適用的 Power Query 增益集可協助您將 HDInsight 叢集中的資料
 [image-hdi-powerquery-imported-table]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportedTable.PNG 
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689 
+
 <!--HONumber=42-->

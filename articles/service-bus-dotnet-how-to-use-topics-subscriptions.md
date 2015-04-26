@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
     pageTitle="如何使用服務匯流排主題 (.NET) - Azure" 
     description="了解如何在 Azure 使用服務匯流排主題及訂閱。程式碼範例專為 .NET 應用程式撰寫。" 
     services="service-bus" 
@@ -344,6 +344,6 @@ Visual Web Developer 中的程式庫和工具。服務匯流排 NuGet 套件為�
   
   [佇列、主題和訂閱]: http://msdn.microsoft.com/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/microsoft.servicebus.messaging.sqlfilter.aspx
-  [服務匯流排代理訊息 .NET 教學課程。]: http://msdn.microsoft.com/library/hh367512.aspx
+  [服務匯流排代理訊息 .NET 教學課程]: http://msdn.microsoft.com/library/hh367512.aspx
 
 <!--HONumber=47-->

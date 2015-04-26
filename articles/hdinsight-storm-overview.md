@@ -148,4 +148,5 @@ Storm 可以提供不同程度的訊息處理保證。例如，基本的 Storm �
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [poweredby]: https://storm.incubator.apache.org/documentation/Powered-By.html
 [gettingstarted]: /zh-tw/documentation/articles/hdinsight-storm-getting-started
+
 <!--HONumber=42-->

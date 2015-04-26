@@ -114,4 +114,5 @@ WebJobs SDK 提供多種使用 Azure 儲存體的方法。例如，如果使用 
 如需 WebJobs SDK 的詳細資訊，請參閱 [Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
 
 
+
 <!--HONumber=42-->

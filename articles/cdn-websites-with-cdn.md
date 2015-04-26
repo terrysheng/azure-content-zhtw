@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="在 Azure 應用程式服務中使用 Azure CDN" 
 	description="教學課程，指導您如何將 Web 應用程式部署至提供整合式 Azure CDN 端點內容的 Azure 應用程式服務" 
 	services="app-service\web" 
@@ -156,7 +156,7 @@
 
 如需有關如何設定 `<clientCache>` 元素的詳細資訊，請參閱[用戶端快取 &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache)。
 
-在[透過 Azure CDN 從控制器動作提供內容](#controller)中，我也會說明如何在 CDN 快取中設定控制器動作結果的快取設定。
+在[透過 Azure CDN 從控制器動作提供內容]中(#controller)，我也會說明如何在 CDN 快取中設定控制器動作結果的快取設定。
 
 <a name="controller"></a>
 ## 透過 Azure CDN 從控制器動作提供內容 ##

@@ -297,4 +297,5 @@ Hive 工作會先顯示叢集上所建立的 Hive 資料表，以及從 hivesamp
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
 
+
 <!--HONumber=42-->

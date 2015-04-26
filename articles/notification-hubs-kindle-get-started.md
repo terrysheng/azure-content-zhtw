@@ -1,29 +1,33 @@
 ﻿<properties 
-	pageTitle="開始使用 Azure 通知中心" 
-	description="了解如何使用 Azure 通知中心傳送推播通知。" 
+	pageTitle="開始使用 Azure 通知中樞" 
+	description="了解如何使用 Azure 通知中樞傳送推播通知。" 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="piyushjo" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-kindle" 
 	ms.devlang="Java" 
 	ms.topic="hero-article" 
-	ms.date="09/24/2014" 
-	ms.author="piyushjo"/>
+	ms.date="03/16/2015" 
+	ms.author="wesmc"/>
 
-# 開始使用通知中心
+# 開始使用通知中樞
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/zh-tw/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/zh-tw/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/zh-tw/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/zh-tw/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/zh-tw/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle" class="current">Kindle</a><a href="/zh-tw/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/zh-tw/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/zh-tw/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
+[AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
 
-本主題將說明如何使用 Azure 通知中心將推播通知傳送至 Kindle 應用程式。 
+## 概觀
+
+本主題將說明如何使用 Azure 通知中樞將推播通知傳送至 Kindle 應用程式。 
 在本教學課程中，您將使用 Amazon Device Messaging (ADM)，建立可接收推播通知的空白 Kindle 應用程式。
 
-本教學課程需要下列各項：
+## 必要條件
+
+本教學課程需要下列項目：
 
 + Android SDK (假設您將使用 Eclipse)，您可以從<a href="http://go.microsoft.com/fwlink/?LinkId=389797">這裡</a>下載。
 + 請依照<a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">這裡</a>提供的步驟，針對 Kindle 設定您的開發環境。
@@ -63,11 +67,11 @@
 4.  輸入 **android** 做為 [**金鑰存放區**] 密碼。
 
 5.  複製 **MD5** 指紋。
-6.  返回開發人員入口網站，在 [**訊息**] 索引標籤中按一下 [**Android/Kindle**]，然後輸入您的應用程式的封裝名稱 (例如 **com.sample.notificationhubtest**)、[**MD5**] 值，然後按一下 [**產生 API 金鑰**]。
+6.  返回開發人員入口網站，在 [**訊息**] 索引標籤中按一下 **Android/Kindle**，然後輸入您的應用程式的封裝名稱 (例如 **com.sample.notificationhubtest**)、**MD5** 值，然後按一下 [**產生 API 金鑰**]。
 
 ## 將認證新增至中心
 
-在入口網站中，將用戶端密碼和用戶端 ID 新增至通知中心的 [**設定**] 索引標籤。
+在入口網站中，將用戶端密碼和用戶端 ID 新增至通知中樞的 [**設定**] 索引標籤。
 
 ## 設定您的應用程式
 
@@ -76,7 +80,7 @@
 將 ADM 程式庫新增至您的 Eclipse 專案。
 
 1. 若要取得 ADM 程式庫，請[下載 SDK]。將 SDK zip 檔案解壓縮。
-2. 在 Eclipse 中，以滑鼠右鍵按一下您的專案，然後按一下 [**屬性**]。選取左側的 [**Java Build Path**]，然後選取頂端的 [**程式庫**] 索引標籤。按一下 [**新增外部 Jar**]，然後從您解壓縮 Amazon SDK 的目錄中選取檔案  `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar`。
+2. 在 Eclipse 中，以滑鼠右鍵按一下您的專案，然後按一下 [**屬性**]。選取左側的 **Java Build Path**，然後選取頂端的 [**程式庫**] 索引標籤。按一下 [**新增外部 Jar**]，然後從您解壓縮 Amazon SDK 的目錄中選取檔案  `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar`。
 3. 下載 NotificationHubs Android SDK (連結)。
 4. 將封裝解壓縮，然後將檔案  `notification-hubs-sdk.jar` 拖曳到 Eclipse 的 `libs` 資料夾中。
 
@@ -131,7 +135,7 @@
 
 ## 建立您的 ADM 訊息處理常式：
 
-1. 建立繼承自  `com.amazon.device.messaging.ADMMessageHandlerBase` 的新類別，並將其命名為  `MyADMMessageHandler`，如下圖所示：
+1. 建立繼承自 `com.amazon.device.messaging.ADMMessageHandlerBase` 的新類別，並將其命名為 `MyADMMessageHandler`，如下圖所示：
 
 	![][6]
 
@@ -278,4 +282,4 @@
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

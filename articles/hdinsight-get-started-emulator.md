@@ -495,4 +495,5 @@ HDInsight Emulator 也支援部分 Azure HDInsight PowerShell Cmdlet。這些 Cm
 [hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 
 [image-hdi-emulator-services]: ./media/hdinsight-get-started-emulator/HDI.Emulator.Services.png 
+
 <!--HONumber=42-->

@@ -127,7 +127,7 @@
 
 ![Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-The fields in this dialog correspond to fields on the **New Job** dialog of the Azure Management Portal. For more information, see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md)。
+此對話方塊中的欄位會對應至 Azure 管理入口網站中 [新增工作] 對話方塊上的欄位。 如需詳細資訊，請參閱 [Run Background tasks with WebJobs](web-sites-create-web-jobs.md)。
 
 若是排定的 WebJob (不適用於連續執行的 WebJob)，則 Visual Studio 會建立 [Azure 排程器](/services/scheduler/)工作集合 (如果尚未存在)，然後在集合中建立工作：
 

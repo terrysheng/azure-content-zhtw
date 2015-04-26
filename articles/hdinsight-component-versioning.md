@@ -145,4 +145,5 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/ 
+
 <!--HONumber=42-->

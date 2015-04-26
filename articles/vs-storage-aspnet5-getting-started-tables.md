@@ -193,4 +193,5 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 [深入了解 Azure 儲存體](http://azure.microsoft.com/documentation/services/storage/)
 另請參閱[使用伺服器總管瀏覽和管理儲存體資源](http://msdn.microsoft.com/library/azure/ff683677.aspx)和 [ASP.NET 5](http://www.asp.net/vnext)。
+
 <!--HONumber=42-->

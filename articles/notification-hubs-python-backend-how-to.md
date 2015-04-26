@@ -1,4 +1,11 @@
-﻿<properties pageTitle="如何透過 Python 使用通知中樞" description="了解如何透過 Python 後端使用 Azure 通知中樞。" services="notification-hubs" documentationCenter="" authors="piyushjo" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="如何透過 Python 使用通知中樞" 
+	description="了解如何透過 Python 後端使用 Azure 通知中樞。" 
+	services="notification-hubs" 
+	documentationCenter="" 
+	authors="yuaxu" 
+	manager="dwrede" 
+	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -7,14 +14,14 @@
 	ms.devlang="php" 
 	ms.topic="article" 
 	ms.date="12/09/2014" 
-	ms.author="piyushjo"/>
+	ms.author="yuaxu"/>
 
 # 如何透過 Python 使用通知中樞
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/zh-tw/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/zh-tw/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/zh-tw/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a>
+    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
 </div>
 
-您可以透過 Java/PHP/Python/Ruby 後端使用通知中樞 REST 介面來存取所有通知中樞功能，如 MSDN 主題[通知中心 REST API](http://msdn.microsoft.com/library/dn223264.aspx)所述。
+您可以使用通知中樞 REST 介面，存取 Java/PHP/Python/Ruby 後端的所有通知中樞功能，如 MSDN 主題[通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 中所述。
 
 > [AZURE.NOTE] 這是在 Python 實作通知傳送的範例參考實作，並非正式支援的通知中樞 Python SDK。
 
@@ -26,7 +33,7 @@
 * 使用 Python 介面傳送通知到通知中樞 REST API。 
 * 取得 HTTP REST 要求/回應的傾印以用於偵錯/教學用途。 
 
-您可以遵循選定行動平台的[使用者入門教學課程](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/)來實作 Python 的後端部分。
+您可以依照[入門教學課程](notification-hubs-windows-store-dotnet-get-started.md)， 針對您所選的行動平台，在 Python 中實作後端部分。
 
 > [AZURE.NOTE] 此範例的範圍僅限於傳送通知，不會執行任何註冊管理。
 
@@ -44,10 +51,10 @@
 	wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello world!</text></binding></visual></toast>"""
 	hub.send_windows_notification(wns_payload)
 	
-## 實作
-如果您尚未實作，請遵循[使用者入門教學課程]截至最後一節的指示實作後端。
+## Implementation
+如果您尚未實作，請依循[開始使用教學課程]的指示直到最後一節，以完成後端實作。
 
-如需實作完整 REST 包裝函式的詳細資料，請移至 [MSDN](http://msdn.microsoft.com/library/dn530746.aspx)。在本節中，我們將針對存取通知中樞 REST 端點和傳送通知所需之主要步驟的 Python 實作進行說明：
+您可以在 [MSDN](http://msdn.microsoft.com/library/dn530746.aspx) 上找到所有實作完整 REST 包裝函式的詳細資料。在本節中，我們將針對存取通知中樞 REST 端點和傳送通知所需之主要步驟的 Python 實作進行說明：
 
 1. 解析連接字串
 2. 產生授權權杖
@@ -200,7 +207,7 @@
 
         self.make_http_request(url, payload_to_send, headers)
 
-上述方法會傳送 HTTP POST 要求至通知中心的 /messages 端點，並使用正確的主體和標頭傳送通知。
+上述方法會傳送 HTTP POST 要求至通知中樞的 /messages 端點，並使用正確的主體和標頭傳送通知。
 
 ### 使用偵錯屬性啟用詳細的記錄
 在初始化通知中樞時啟用偵錯屬性會寫出關於 HTTP 要求和回應傾印的詳細記錄資訊，以及詳細的通知訊息傳送結果。 
@@ -212,7 +219,7 @@
 
 通知中樞傳送要求 HTTP URL 會附加 "test" 查詢字串做為結果。 
 
-##<a name="complete-tutorial"></a>完成教學課程
+## <a name="complete-tutorial"></a>完成教學課程
 現在您可以透過從 Python 後端傳送通知，來完成開始使用教學課程。
 
 初始化您的通知中樞用戶端 (請依[開始使用教學課程]中的指示替換連接字串和中樞名稱)：
@@ -336,7 +343,7 @@
 
 <!-- URLs -->
 [Python REST 包裝函式範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[使用者入門教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[開始使用教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [即時新聞教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
 [當地語系化新聞教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
@@ -347,4 +354,4 @@
 [4]: ./media/notification-hubs-python-backend-how-to/SendWithMultipleTags.png
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

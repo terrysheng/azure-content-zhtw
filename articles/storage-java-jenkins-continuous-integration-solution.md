@@ -187,4 +187,5 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
   [如何建立儲存體帳戶]: http://go.microsoft.com/fwlink/?LinkId=279823
   [認識 Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
   [ms-open-tech]: http://msopentech.com
+
 <!--HONumber=42-->

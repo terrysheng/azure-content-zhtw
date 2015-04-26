@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="傳送推播通知給已驗證的使用者" 
 	description="了解如何將推播通知傳送給特定" 
 	services="mobile-services,notification-hubs" 
@@ -56,7 +56,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 
 
 <!-- URLs. -->
-[在您的行動服務應用程式中新增驗證]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
+[將驗證加入至行動服務應用程式]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
 [開始使用推播通知]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/

@@ -47,7 +47,7 @@ SendGrid 是[雲端式電子郵件服務]，能提供可靠的[交易式電子�
    
 	![][2]
 
-	這會顯示 [TodoItem]**** 資料表中發生插入時所叫用的函數。
+	這會顯示 [TodoItem] 資料表中發生插入時所叫用的函數。
 
 4. 使用下列程式碼來取代插入函數：
 
@@ -136,6 +136,7 @@ SendGrid 是[雲端式電子郵件服務]，能提供可靠的[交易式電子�
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [雲端式電子郵件服務]: https://sendgrid.com/email-solutions
 [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
+
 
 
 

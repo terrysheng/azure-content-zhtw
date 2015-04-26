@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="發生災害時回復行動服務 - Azure 行動服務" 
 	description="了解如何在發生災害時回復行動服務。" 
 	services="mobile-services" 
@@ -94,6 +94,6 @@
 [使用 Azure 命令列工具]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [Azure 入口網站]: http://manage.windowsazure.com/
 [Azure 服務儀表板]: http://www.windowsazure.com/support/service-dashboard/
-[使用命令列工具來自動化行動服務]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
+[使用命令列工具將行動服務自動化]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
 <!--HONumber=47-->

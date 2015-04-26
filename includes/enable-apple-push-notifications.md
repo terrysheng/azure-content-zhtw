@@ -1,4 +1,4 @@
-﻿
+
 Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循這些指示建立必要的憑證，並將憑證上傳至您的行動服務。如需正式的 APNS 功能文件，請參閱 [Apple 推播通知服務](http://go.microsoft.com/fwlink/p/?LinkId=272584)。
 
 ## <a id="certificates"></a>產生憑證簽署要求檔案
@@ -7,11 +7,11 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
 1. 從 Utilities 資料夾中，執行 Keychain Access 工具。
 
-2. 按一下 [Keychain 存取]****，並展開 [憑證助理]****，然後按一下 [向憑證授權單位要求憑證...]****。
+2. 按一下 [**Keychain 存取**]，並展開 [**憑證助理**]，然後按一下 [**向憑證授權單位要求憑證...**]。
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step5.png)
 
-3. 選取您的 [**使用者電子郵件地址**] 和 [**一般名稱**]，確定已勾選 [**已儲存至磁碟**]，然後按一下 [**繼續**]。請將 [**CA 電子郵件地址**] 欄位留空，因為它不是必要資訊。
+3. 選取您的 [**使用者電子郵件地址**] 和 [**一般名稱**]，確定已選取 [**已儲存至磁碟**]，然後按一下 [**繼續**]。請將 [**CA 電子郵件地址**] 欄位留空，因為它不是必要資訊。
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step6.png)
 
@@ -19,7 +19,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step7.png)
 
-  	這會在選取的位置中儲存 CSR 檔案，預設的位置是在桌面上。請記住對於此檔案選擇的位置。
+  	這會在選取的位置儲存 CSR 檔；預設位置為桌面。請記住對於此檔案選擇的位置。
 
 接下來，您要向 Apple 註冊應用程式、啟用推播通知，以及上傳這個匯出的 CSR 以建立推播憑證。
 
@@ -27,13 +27,13 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
 若要從行動服務將推播通知傳送至 iOS 應用程式，您必須向 Apple 註冊您的應用程式，並註冊進行推播通知。  
 
-1. 如果您尚未註冊應用程式，請瀏覽至 Apple 開發人員中心的 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS 佈建入口網站</a>，然後使用您的 Apple ID 登入，並按一下 [識別碼]****，接著按一下 [應用程式識別碼]****，最後按一下 [+]**** 號註冊新的應用程式。
+1. 如果您尚未註冊應用程式，請瀏覽至 Apple 開發人員中心的 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS 佈建入口網站</a>，使用您的 Apple ID 登入，按一下 [**識別碼**]，然後按一下 [**App ID**]，最後按一下 **+** 號註冊新的應用程式。
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-02.png)
 
 
 
-> [AZURE.NOTE] 如果您選擇提供 [搭售方案識別碼]<strong></strong> 值而非 <i>MobileServices.Quickstart</i>，則您必須也更新 Xcode 專案中的套件組合識別碼值。建議您使用您已經在快速入門專案中使用的確切套件組合識別碼值。
+> [AZURE.NOTE] 如果您選擇提供 <strong>Bundle Identifier</strong> 值而非 <i>MobileServices.Quickstart</i>，則您必須也更新 Xcode 專案中的套件組合識別碼值。建議您使用您已經在快速入門專案中使用的確切套件組合識別碼值。
 
 2. 在 [**描述**] 中輸入您應用程式的名稱，在 [**搭售方案識別碼**] 中輸入 _MobileServices.Quickstart_ 值，勾選 [應用程式服務] 區段中的 [推播通知] 選項，然後按一下 [**繼續**]。此範例會使用識別碼 **MobileServices.Quickstart**，但您可能不會重複使用此相同識別碼，因為應用程式識別碼在所有使用者中必須是唯一的。因此，建議您在應用程式名稱之後附加您的全名或縮寫。
 
@@ -46,7 +46,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
     ![](./media/enable-apple-push-notifications/mobile-services-ios-push-04.png)
 
 
-   	按一下 [提交]**** 之後，您將看見 [註冊完成]**** 畫面，如下所示。按一下 [**完成**]。
+   	按一下 [**提交**] 之後，您將看見 [**註冊完成**] 畫面，如下所示。按一下 [**完成**]。
 
 
     ![](./media/enable-apple-push-notifications/mobile-services-ios-push-05.png)
@@ -72,7 +72,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-10.png)
 
-6. 在入口網站建立憑證之後，依序按一下 [下載]**** 按鈕和 [完成]****。
+6. 在入口網站建立憑證之後，依序按一下 [**下載**] 按鈕和 [**完成**]。
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-11.png)
 
@@ -94,7 +94,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
 ## <a id="profile"></a>建立應用程式的佈建設定檔
 
-1. 返回 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS 佈建入口網站</a>，選取 [佈建設定檔]****，再選取 [全部]****，然後按一下 [+]**** 按鈕建立新的設定檔。如此會啟動**新增 iOS 佈建設定檔**精靈
+1. 返回 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS 佈建入口網站</a>，選取 [**佈建設定檔**]，再選取 [**全部**]，然後按一下 **+** 按鈕建立新的設定檔。如此會啟動**新增 iOS 佈建設定檔**精靈
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-12.png)
 
@@ -102,7 +102,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-13.png)
 
-3. 接著，從 [應用程式 ID] ****下拉式清單選取行動服務快速入門應用程式的應用程式 ID，然後按一下 [繼續]****
+3. 接著，從 [**應用程式 ID**] 下拉式清單選取行動服務快速入門應用程式的應用程式 ID，然後按一下 [**繼續**]
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-14.png)
 
@@ -114,7 +114,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-16.png)
 
-6. 最後，在 [設定檔名稱]**** 中為設定檔挑選名稱，然後依序按一下 [產生]**** 和 [完成]****
+6. 最後，在 [**設定檔名稱**] 中為設定檔挑選名稱，然後依序按一下 [**產生**] 和 [**完成**]
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-17.png)
 
@@ -130,4 +130,4 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動服務。遵循
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step17.png)
 
-<!--HONumber=47-->
+<!--HONumber=49-->

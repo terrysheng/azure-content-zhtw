@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="如何管理 SQL Database" 
 	description="了解如何管理 Azure SQL 資料庫。" 
 	headerExpose="" 
@@ -136,7 +136,7 @@ Management Studio 具有目前無法在管理入口網站中使用的功能，�
 現在，您已建立並測試數個登入。如需詳細資訊，請參閱 [管理 SQL Database 中的資料庫和登入][] 和 [使用動態管理檢視監視 SQL Database][]。
 
 [管理 SQL Database 中的資料庫和登入]: http://msdn.microsoft.com/library/windowsazure/ee336235.aspx
-[使用動態管理檢視監視 SQL Database ]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
+[使用動態管理檢視監視 SQL Database]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
 [使用 Management Studio 管理 SQL Database]: http://www.windowsazure.com/develop/net/common-tasks/sql-azure-management/
 
 

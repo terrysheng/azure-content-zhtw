@@ -13,4 +13,5 @@
 
 此外掛程式使用最新版本的 Azure SDK。您可以使用 Web Platform Installer (WebPI) 下載此 SDK <http://go.microsoft.com/fwlink/?LinkID=252838>：不過，如果您沒有安裝此 SDK，則建立第一個 Azure 部署專案時，Azure Plugin for Eclipse with Java (由 Microsoft Open Technologies 提供) 會自動安裝適當版本的 Azure SDK。 
 
+
 <!--HONumber=42-->

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	writer="ricksal" 
 	pageTitle="從 Android 用戶端呼叫自訂 API | 行動開發人員中心" 
 	description="了解如何定義自訂 API 然後從使用 Azure 行動服務的 Android 應用程式呼叫它。" 
@@ -69,6 +69,6 @@
 [開始使用驗證]: /documentation/articles/mobile-services-android-get-started-users/
 [開始使用推播通知]: /documentation/articles/mobile-services-android-get-started-push/
 
-[在原始程式碼控制中儲存伺服器指令碼]: /documentation/articles/mobile-services-store-scripts-source-control
+[在原始檔控制中儲存伺服器指令碼]: /documentation/articles/mobile-services-store-scripts-source-control
 
 <!--HONumber=47-->

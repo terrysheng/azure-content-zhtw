@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="在 Azure 上使用適用於 Linux 的 Docker VM 擴充程式" 
 	description="說明 Docker 和 Azure 虛擬機器擴充程式，並說明如何以程式設計的方式，使用 azure-cli 命令介面從命令列在 Azure 上建立 Docker 主機的虛擬機器。" 
 	services="virtual-machines" 
@@ -126,7 +126,7 @@ WARNING: No swap limit support
 <!--Anchors-->
 [從映像庫建立新的 VM]: #createvm
 [建立 Docker 憑證]: #dockercerts
-[新增 Docker VM 延伸模組]: #adddockerextension
+[新增 Docker VM 擴充程式]: #adddockerextension
 [測試 Docker 用戶端與 Azure Docker 主機]: #testclientandserver
 [後續步驟]: #next-steps
 

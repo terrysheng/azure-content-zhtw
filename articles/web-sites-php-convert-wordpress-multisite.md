@@ -50,7 +50,7 @@
 
 ## 網路設定
 
-登入 Web 應用程式的 *wp-admin* 區域，在 [Tools] (工具) 功能表下方應該會出現名為 [Network Setup] (網路設定) 的新項目。按一下 [Network Setup] (網路設定)，並填寫網路的詳細資料。
+登入 Web 應用程式的 *wp-admin* 區域，在 [Tools] \(工具) 功能表下方應該會出現名為 [Network Setup] \(網路設定) 的新項目。按一下 [Network Setup] \(網路設定)，並填寫網路的詳細資料。
 
 ![網路設定畫面][wordpress-network-setup]
 
@@ -63,12 +63,12 @@
 資料庫中現在已設定網路，還差一步就能啟用網路功能。請完成`wp-config.php` 設定，並確定 `web.config` 可適當地路由傳送每一個網站。
 
 
-在 [*Network Setup*] 頁面上按一下 [Install] (安裝) 按鈕後，WordPress 將嘗試更新 `wp-config.php` 和 `web.config` 檔案。不過，一定要檢查檔案，以確定更新成功。如果失敗，此畫面會顯示必要的更新。編輯並儲存檔案。
+在 [*Network Setup*] 頁面上按一下 [Install] \(安裝) 按鈕後，WordPress 將嘗試更新 `wp-config.php` 和 `web.config` 檔案。不過，一定要檢查檔案，以確定更新成功。如果失敗，此畫面會顯示必要的更新。編輯並儲存檔案。
 
 
 進行這些更新之後，您需要先登出，然後再登入回到 wp-admin 儀表板。
 
-管理列上現在應該又會多一個標示為 [My Sites] (我的網站) 的功能表。此功能表可讓您透過 [Network Admin] (網路管理) 儀表板來控制新的網路。
+管理列上現在應該又會多一個標示為 [My Sites] \(我的網站) 的功能表。此功能表可讓您透過 [Network Admin] \(網路管理) 儀表板來控制新的網路。
 
 # 新增自訂網域
 
@@ -79,9 +79,9 @@
 「免費」的 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 方案模式不支援將自訂網域新增至 Web Apps。您需要切換至「共用」或「標準」模式。作法：
 
 * 登入 Azure 入口網站，並找出您的 Web 應用程式。 
-* 按一下主內容區域的 [Scale] (調整模規) 索引標籤
+* 按一下主內容區域的 [Scale] \(調整模規) 索引標籤
 * 在 [一般] 下方，選取 [*SHARED*] 或 [*STANDARD*]。
-* 按一下 [Save] (儲存)。
+* 按一下 [Save] \(儲存)。
 
 視使用量和您設定的其他設定而定，可能會出現訊息要求您確認變更，並認可 Web 應用程式現在可能會引發成本。
 
@@ -120,15 +120,15 @@ DNS 變更需要一些時間才會完全生效，如果無法立即執行下列�
 
 ## 安裝和設定外掛程式
 
-WordPress 多網站目前沒有內建的方法可對應自訂網域。不過，有一個名為 [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] 的外掛程式可為您增加此功能。請登入網站的 [Network Admin] (網路管理) 部分，並安裝 **WordPress MU Domain Mapping** 外掛程式。
+WordPress 多網站目前沒有內建的方法可對應自訂網域。不過，有一個名為 [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] 的外掛程式可為您增加此功能。請登入網站的 [Network Admin] \(網路管理) 部分，並安裝 **WordPress MU Domain Mapping** 外掛程式。
 
-安裝並啟動此外掛程式之後，請移至 [Settings] (設定) > [Domain Mapping] (網域對應) 來設定外掛程式。在第一個文字方塊 [Server IP Address]** (伺服器 IP 位址) 中，輸入您用來設定網域 A 記錄的 IP 位址。設定所需的任何 [Domain Options]** (網域選項) (預設值通常就很適合)，然後按一下 [Save] (儲存)。
+安裝並啟動此外掛程式之後，請移至 [Settings] \(設定) > [Domain Mapping] \(網域對應) 來設定外掛程式。在第一個文字方塊 *[Server IP Address]* (伺服器 IP 位址) 中，輸入您用來設定網域 A 記錄的 IP 位址。設定所需的任何 *[Domain Options]* (網域選項) (預設值通常就很適合)，然後按一下 [Save] \(儲存)。
 
 ## 對應網域
 
-移至要讓網域對應到的網站的 [Dashboard] (儀表板)。按一下 [Tools] (工具) > [Domain Mapping] (網域對應)，在文字方塊中輸入新的網域，然後按一下 [Add] (新增)。
+移至要讓網域對應到的網站的 [Dashboard] \(儀表板)。按一下 [Tools] \(工具) > [Domain Mapping] \(網域對應)，在文字方塊中輸入新的網域，然後按一下 [Add] \(新增)。
 
-依預設，新的網域會改寫為自動產生的網站網域。如果要讓所有流量都傳送至新網域，請在儲存之前勾選 [Primary domain for this blog] ** (適用於這個部落格的主要網域) 方塊。可加入至網站的網域數量不限，但只能有一個主網域。
+依預設，新的網域會改寫為自動產生的網站網域。如果要讓所有流量都傳送至新網域，請在儲存之前勾選 *[Primary domain for this blog]* (適用於這個部落格的主要網域) 方塊。可加入至網站的網域數量不限，但只能有一個主網域。
 
 ## 再做一次
 

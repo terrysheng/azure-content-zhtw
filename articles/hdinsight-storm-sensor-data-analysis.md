@@ -1356,4 +1356,5 @@ Bolt 在拓撲中負責主要的處理工作。在此拓撲中，有三個 bolt�
 * 如需在 .NET 中建立拓撲的相關資訊，請參閱[在 HDInsight 中的 Storm 上使用 SCP.NET 和 C# 開發串流資料處理應用程式](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)
 
 [azure-portal]: https://manage.windowsazure.com/
+
 <!--HONumber=42-->

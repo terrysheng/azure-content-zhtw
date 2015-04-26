@@ -42,28 +42,28 @@
 請依照下列步驟來建立 Azure 網站和 SQL Database：
 
 1. 登入 [Azure 管理入口網站][management-portal]。
-2. 按一下入口網站左下方的 [新增]**** 圖示。
+2. 按一下入口網站左下方的 [新增] 圖示。
 ![Create New Azure Web Site][new-website]
 
-3. 依序按一下 [網站]**** 及 [自訂建立]****。
+3. 依序按一下 [網站] 及 [自訂建立]。
 
 	![Custom Create a new Web Site][custom-create]
 
-	輸入 **URL**的值，從 [資料庫]**** 下拉式清單選取 [建立新的 SQL Database]****，然後選取 [從原始檔控制發行]****。按一下對話方塊底部的箭頭。
+	輸入 **URL**的值，從 [資料庫] 下拉式清單選取 [建立新的 SQL Database]，然後選取 [從原始檔控制發行]。按一下對話方塊底部的箭頭。
 
 	![Fill in web site details][website-details-sqlazure]
 
-4. 輸入您資料庫的 [名稱]**** 值，選取 [新增 SQL Database 伺服器]****，提供登入認證，然後選取區域。按一下對話方塊底部的箭頭。
+4. 輸入您資料庫的 [名稱] 值，選取 [新增 SQL Database 伺服器]，提供登入認證，然後選取區域。按一下對話方塊底部的箭頭。
 
 	![Fill in SQL Database settings][database-settings]
 
-5. 為您的原始程式碼選取 [本機 Git 儲存機制]****。
+5. 為您的原始程式碼選取 [本機 Git 儲存機制]。
 
 	![where is your source code][where-is-code]
 
 	如果您從未設定 Git 儲存機制，則必須提供使用者名稱和密碼。
 
-6. 建立網站之後，開啟網站的儀表板，然後選取 [檢視部署]****。
+6. 建立網站之後，開啟網站的儀表板，然後選取 [檢視部署]。
 
 	![Web site dashboard][go-to-dashboard]
 
@@ -75,15 +75,15 @@
 
 若要連接到正在 Azure 網站上執行的 SQL Database 執行個體，您將需要連接資訊。若要取得 SQL Database 連接資訊，請依照下列步驟進行：
 
-1. 從 Azure 管理入口網站中，按一下 [已連結的資源]****，然後按一下資料庫名稱。
+1. 從 Azure 管理入口網站中，按一下 [已連結的資源]，然後按一下資料庫名稱。
 
 	![Linked Resources][linked-resources]
 
-2. 按一下 [檢視連接字串]****。
+2. 按一下 [檢視連接字串]。
 
 	![Connection string][connection-string]
 	
-3. 從所產生對話方塊的 [PHP]**** 區段中，請記下  `SERVER`、 `DATABASE` 和  `USERNAME` 的值。
+3. 從所產生對話方塊的 [PHP] 區段中，請記下  `SERVER`、 `DATABASE` 和  `USERNAME` 的值。
 
 ##在本機建置及測試您的應用程式
 
@@ -230,7 +230,7 @@
 
 ##發行您的應用程式
 
-當您在本機完成應用程式測試之後，可以使用 Git 將其發行至 Azure 網站。不過，您必須先更新應用程式中的資料庫連接資訊。使用您稍早取得的資料庫連接資訊 (在＜取得 SQL Database 連線資訊＞**** 一節中)，將  `createdatabase.php` 和  `index.php` **兩者**檔案中的下列資訊都更新為適當的值：
+當您在本機完成應用程式測試之後，可以使用 Git 將其發行至 Azure 網站。不過，您必須先更新應用程式中的資料庫連接資訊。使用您稍早取得的資料庫連接資訊 (在＜取得 SQL Database 連線資訊＞ 一節中)，將  `createdatabase.php` 和  `index.php` **兩者**檔案中的下列資訊都更新為適當的值：
 
 	// DB connection info
 	$host = "tcp:<value of SERVER>";
@@ -300,6 +300,7 @@
 [management-portal]: https://manage.windowsazure.com/
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
 [where-is-code]: ./media/web-sites-php-sql-database-deploy-use-git/setupgit.png
+
 
 
 <!--HONumber=42-->

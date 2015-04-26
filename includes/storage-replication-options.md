@@ -19,4 +19,5 @@
 如需複寫選項的詳細資訊，請參閱 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) 和 [Azure 儲存體備援選項](http://msdn.microsoft.com/library/azure/dn727290.aspx)。
 	
 您可以在[儲存體定價詳細資料](/zh-tw/pricing/details/storage/)頁面上找到各個複寫選項之間的價格差異。
+
 <!--HONumber=42-->

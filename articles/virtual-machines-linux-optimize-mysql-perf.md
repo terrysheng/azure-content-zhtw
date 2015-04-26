@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Linux Vm 上的 MySQL 效能最佳化" 
-	description="了解如何最佳化在執行 Linux 的 Azure 虛擬機器 (VM) 上執行的 MySQL。" 
+	pageTitle="在 Azure Linux VM 上最佳化 MySQL 效能" 
+	description="了解如何最佳化在執行 Linux 之 Azure 虛擬機器 (VM) 上執行的 MySQL。" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="NingKuang" 
@@ -16,66 +16,66 @@
 	ms.date="10/27/2014" 
 	ms.author="ningk"/>
 
-#Azure Linux Vm 上的 MySQL 效能最佳化 
+#在 Azure Linux VM 上最佳化 MySQL 效能 
 
-有許多因素影響 MySQL 在 Azure 上的效能，包括虛擬硬體的選取和軟體的組態。本文著重於透過儲存體、系統和資料庫組態來最佳化效能。
+有許多因素會影響 Azure 上的 MySQL 效能，均與虛擬硬體選取和軟體設定有關。本文著重於透過儲存體、系統和資料庫設定最佳化效能。
 
-##利用 Azure 虛擬機器上的 RAID 
-儲存體是影響雲端環境之資料庫效能的關鍵因素。相較於單一磁碟，RAID 可透過並行存取提供更快速的存取。請參閱[標準 RAID 層級](http://en.wikipedia.org/wiki/Standard_RAID_levels)了解詳細資訊。   
+##在 Azure 虛擬機器上利用 RAID 
+儲存體是影響雲端環境中的資料庫效能的關鍵因素。相較於單一磁碟，RAID 可透過並行提供更快速的存取。如需詳細資訊，請參閱[標準 RAID 層級](http://en.wikipedia.org/wiki/Standard_RAID_levels)。   
 
-透過 RAID 能大幅改善 Azure 中的磁碟 I/O 輸送量和 I/O 回應時間。我們的實驗測試顯示，當 RAID 的數目變成兩倍時 (從 2 到 4、4 到 8，依此類推)，磁碟 I/O 輸送量平均能變成兩倍，而 I/O 回應時間平均能減少一半。請參閱[附錄 A](#AppendixA) 了解詳細資訊。  
+Azure 中的磁碟 I/O 輸送量和 I/O 回應時間可透過 RAID 大幅改進。我們的實驗室測試顯示︰當 RAID 磁碟數目增加一倍 (從 2 到 4、4 到 8 等) 時，磁碟 I/O 輸送量可以增加一倍，而平均 I/O 回應時間則可減少一半。請參閱[附錄 A](#AppendixA) 以取得詳細資訊。  
 
-除了磁碟 I/O，增加 RAID 層級也會改善 MySQL 的效能。請參閱[附錄 B](#AppendixB) 了解詳細資訊。  
+除了磁碟 I/O 以外，MySQL 效能會在您提高 RAID 層級時改善。請參閱[附錄 B](#AppendixB) 以取得詳細資訊。  
 
-您可能也會想要考慮的區塊大小。通常當您有較大的區塊時，您會有較低的額外負荷，特別是針對大型的寫入。不過，當區塊大小太大時，它可能會增加額外負荷，而且您無法利用 RAID 的優點。目前預設的大小為 512KB，經證實這是一般生產環境的最佳大小。請參閱[附錄 C](#AppendixC) 了解詳細資訊。   
+您也可能要考慮區塊大小。通常當您有較大的區塊大小時，您的額外負荷會比較低，尤其是大量寫入時。不過，當區塊大小太大時，可能會增加額外的負荷，而且無法利用 RAID。目前的預設大小為 512 KB，經證明是大多數一般實際執行環境的最佳大小。請參閱[附錄 C](#AppendixC) 以取得詳細資訊。   
 
-請注意，您可加入的磁碟數目對於不同的虛擬機器類型有所限制。這些限制在 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)中有詳細討論。雖然您可以選擇使用較少的磁碟設定 RAID，但您需要 4 個連接的資料磁碟，才能按照本文中的 RAID 範例進行。  
+請注意，您可針對不同虛擬機器類型新增的磁碟數目會有所限制。[Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)中有這些限制的詳細說明。雖然您可以選擇設定具有較少磁碟的 RAID，但您需要連接 4 個資料磁碟，才能遵循本文中的 RAID 4 範例。  
 
-本文假設您已經建立 Linux 虛擬機器，並且已安裝和設定 MySQL。請參考「如何在 Azure 上安裝 MySQL」了解入門的詳細資訊。  
+本文假設您已經建立 Linux 虛擬機器並已安裝及設定 MYSQL 。如需開始使用的詳細資訊，請參閱「如何在 Azure 上安裝 MySQL」。  
   
 ###在 Azure 上設定 RAID
-下列步驟說明如何使用 Windows Azure 管理入口網站在 Azure 上建立 RAID。您也可以使用 Windows PowerShell 指令碼設定 RAID。 
-在此範例中我們將使用 4 個磁碟設定 RAID 0。  
+下列步驟說明如何使用 Windows Azure 管理入口網站，在 Azure 上建立 RAID。您也可以使用 Windows PowerShell 指令碼設定 RAID。 
+在此範例中，我們將設定具有 4 個磁碟的 RAID 0。  
 
-####步驟 1：將資料磁碟加入您的虛擬機器  
+####步驟 1：將資料磁碟新增至您的虛擬機器  
 
-在 Azure 管理入口網站中的 [虛擬機器] 頁面中，按一下您想要加入資料磁碟的虛擬機器。在此範例中，該虛擬機器為 mysqlnode1。  
+在 Azure 管理入口網站的 [虛擬機器] 頁面上，按一下您要新增資料磁碟的虛擬機器。在此範例中，虛擬機器是 mysqlnode1。  
 
 ![][1]
 
-在該虛擬機器的頁面上，按一下 [儀表板]。  
+在虛擬機器頁面上，按一下 [**儀表板**]。  
 
 ![][2]
  
 
-在工作列上，按一下 [連接]。
+在工作列上，按一下 [**連接**]。
  
 ![][3]
 
-然後按一下 [連接空的磁碟]。  
+然後按一下 [**連接空的磁碟**。  
 
 ![][4]
  
-對於資料磁碟，[主機快取偏好設定] 應該設為 [無]。  
+資料磁碟的 [**主機快取喜好設定**] 應設定為 [**無**]。  
 
-這會新增一個空的磁碟到您的虛擬機器。請再重複此步驟三次，好讓您有 4 個用於 RAID 的資料磁碟。  
+這會將一個空的磁碟新增到虛擬機器中。再重複執行此步驟三次，您的 RAID 就有 4 個資料磁碟。  
 
-您可以在核心訊息記錄查看虛擬機器中加入的磁碟。例如，若要在 Ubuntu 上查看此記錄，請使用下列命令：  
+查看核心訊息記錄檔，您可以看到虛擬機器中新增的磁碟機。例如，若要在 Ubuntu 上查看此資料，請使用下列命令：  
 
 	sudo grep SCSI /var/log/dmesg
 
-####步驟 2：使用額外的磁碟建立 RAID
-請遵循此文件了解詳細的 RAID 設定步驟：  
+####步驟 2：建立具有額外磁碟的 RAID
+遵循這份文件中詳細的 RAID 安裝步驟：  
 
 [http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
 
->[AZURE.NOTE] 如果您正在使用 XFS 檔案系統，在您建立 RAID 之後請遵循下列步驟。
+>[AZURE.NOTE] 如果您使用 XFS 檔案系統，請在建立 RAID 後遵循下列步驟。
 
-若要在 Debian、Ubuntu 或 Linux Mint 上安裝 XFS 請使用下列命令：  
+若要在 Debian、Ubuntu 或 Linux Mint 上安裝 XFS，請使用下列命令：  
 
 	apt-get -y install xfsprogs  
 
- 若要在 Fedora、CentOS 或 RHEL 上安裝 XFS 請使用下列命令：  
+若要在 Fedora 、CentOS 或 RHEL 上安裝 XFS，請使用下列命令：  
 
 	yum -y install xfsprogs  xfsdump 
 
@@ -90,41 +90,41 @@
 
 	root@mysqlnode1:~# cp -rp /var/lib/mysql/* /RAID0/mysql/
 
-####步驟 5：修改權限，使 MySQL 能夠存取 (讀取和寫入) 資料磁碟
+####步驟 5：修改權限，因此 MySQL 可以存取 (讀取和寫入) 資料磁碟
 使用下列命令：  
 
 	root@mysqlnode1:~# chown -R mysql.mysql /RAID0/mysql && chmod -R 755 /RAID0/mysql
 
 
 ##調整磁碟 I/O 排程演算法
-Linux 實作四種類型的 I/O 排程演算法：  
+Linux 會實作四種類型的 I/O 排程演算法：  
 
--	NOOP 演算法 (No Operation)
--	期限演算法 (Deadline)
+-	NOOP 演算法 (沒有作業)
+-	期限演算法 (期限)
 -	完全公平佇列演算法 (CFQ)
--	預算期間演算法(Anticipatory)  
+-	預算週期演算法 (預期)  
 
-您可以在不同情況選取不同的 I/O 排程器以最佳化效能。在完全隨機存取的環境中，CFQ 和 Deadline 演算法的效能沒有太大的差別。通常建議將 MySQL 資料庫環境設為 Deadline 以維持穩定性。如果有大量的循序 I/O，CFQ 可能會降低磁碟 I/O 的效能。   
+您可以在不同的狀況下選取不同的 I/O 排程器，讓效能達到最佳化。在完全隨機存取環境中，CFQ 與期限演算法的效能沒有太大差別。通常建議將 MySQL 資料庫環境設為 [期限]，以求穩定性。如果有大量循序 I/O，CFQ 可能會降低磁碟 I/O 效能。   
 
-對於 SSD 和其他設備，使用 NOOP 或 Deadline 可以達到比「預設」排程器更好的效能。   
+對於 SSD 和其他設備，使用 NOOP 或 [期限] 可達到比預設排程器更佳的效能。   
 
-自核心 2.5 開始，預設的 I/O 排程演算法是 Deadline。自核心 2.6.18 開始，CFQ 為預設的 I/O 排程演算法。您可以在核心開機時間指定此設定，或在系統執行時動態地修改此設定。  
+從核心 2.5 起，預設 I/O 排程演算法為 [期限]。從核心 2.6.18 開始，CFQ 成為預設 I/O 排程演算法。您可以在核心開機時指定此設定，或在系統執行時動態修改此設定。  
 
-下列範例會示範如何檢查，以及將 NOOP 演算法設定為預設排程器。  
+下列範例示範如何檢查預設排程器並將其設定為 NOOP 演算法。  
 
-Debian 散發套件系列：
+若為 Debian 散發版本系列：
 
 ###步驟 1. 檢視目前的 I/O 排程器
 使用下列命令：  
 
 	root@mysqlnode1:~# cat /sys/block/sda/queue/scheduler 
 
-您會看到下列輸出，表示目前的排程器。  
+您會看到下列輸出，其表示目前的排程器。  
 
 	noop [deadline] cfq 
 
 
-###步驟 2.變更目前裝置 (/dev/sda) 的 I/O 排程演算法
+###步驟 2.變更 I/O 排程演算法的目前裝置 (/dev/sda)
 使用下列命令：  
 
 	azureuser@mysqlnode1:~$ sudo su -
@@ -132,9 +132,9 @@ Debian 散發套件系列：
 	root@mysqlnode1:~# sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash elevator=noop"/g' /etc/default/grub
 	root@mysqlnode1:~# update-grub
 
->[AZURE.NOTE] 只針對 /dev/sda 做此設定並沒有幫助。必須在所有資料庫所在的磁碟上做此設定。  
+>[AZURE.NOTE] 單獨針對 /dev/sda 設定此項並不是很有用。必須在資料庫所在的所有資料磁碟上進行設定。  
 
-您應該會看到下列輸出，表示已經成功地重建 grub.cfg，且預設排程器已經更新為 NOOP。  
+您應會看到下列輸出，表示 grub.cfg 已成功重建且預設排程器已更新為 NOOP。  
 
 	Generating grub configuration file ...
 	Found linux image: /boot/vmlinuz-3.13.0-34-generic
@@ -145,16 +145,16 @@ Debian 散發套件系列：
 	Found memtest86+ image: /memtest86+.bin
 	done
 
-針對 Redhat 散發套件系列，您只需要下列命令：   
+若為 Redhat 散發版本系列，您只需要使用下列命令：   
 
 	echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 ##設定系統檔案作業設定
-一項最佳做法是停用檔案系統上的 Atime 記錄功能。Atime 是上一次存取檔案的時間。每當存取檔案時，檔案系統會在記錄檔中記錄時間戳記。不過，這項資訊很少使用。如果不需要，您可以將它停用，這樣能減少整體的磁碟存取時間。  
+最佳作法是停用檔案系統上的 atime 記錄功能。Atime 是上次檔案存取時間。每當存取檔案時，檔案系統就會在記錄檔中記錄時間戳記。不過，很少使用這項資訊。如果您不需要它，可予以停用，將會減少整體的磁碟存取時間。  
  
-若要停用 Atime 記錄，您必須修改檔案系統組態檔案 /etc/fstab，並加入 **noatime** 選項。  
+若要停用 atime 記錄，您必須修改檔案系統組態檔案 /etc/ fstab，並加入 **noatime** 選項。  
 
-例如，編輯 vim /etc/fstab 檔案並新增 noatime，如下所示。  
+例如，編輯  vim /etc/fstab 檔案，如下所示加入 noatime。  
 
 	# CLOUD_IMG: This file was created/modified by the Cloud Image build process
 	UUID=3cc98c06-d649-432d-81df-6dcd2a584d41       /        ext4   defaults,discard        0 0
@@ -162,11 +162,11 @@ Debian 散發套件系列：
 	UUID="431b1e78-8226-43ec-9460-514a9adf060e"     /RAID0   xfs   defaults,nobootwait, noatime 0 0
 	/dev/sdb1       /mnt    auto    defaults,nobootwait,comment=cloudconfig 0       2
 
-然後使用下列命令重新掛接檔案系統：  
+然後，使用下列命令重新掛接檔案系統：  
 
 	mount -o remount /RAID0
 
-測試修改過的結果。請注意，當您修改測試檔案時，存取時間不會更新。  
+測試修改過的結果。請注意當您修改測試檔案時，存取時間不會更新。  
 
 修改前範例：		
 
@@ -176,65 +176,65 @@ Debian 散發套件系列：
 
 ![][6]
 
-##增加高並行存取之系統控制代碼的最大數目
-MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目是 1024，這不總是足夠。**使用下列步驟增加系統的最大並行控制代碼，以支援 MySQL** 的高並行存取。
+##增加高並行存取的系統控制代碼數目上限
+MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目為 1024，這並不足夠。**使用下列步驟來增加系統的並行控制代碼上限，以支援 MySQL 的高並行存取**。
 
 ###步驟 1：修改 limits.conf 檔案
-在 /etc/security/limits.conf 檔案加入下列四行，以增加允許之並行控制代碼的最大值。請注意，65536 是系統能支援的最大數目。   
+在 /etc/security/limits.conf 檔案中加入下列四行，以增加允許的並行控制代碼上限。請注意 65536 是系統可支援的數目上限。   
 
 	* soft nofile 65536
 	* hard nofile 65536
 	* soft nproc 65536
 	* hard nproc 65536
 
-###步驟 2：針對新的限制更新系統
+###步驟 2：更新系統，以取得新的限制
 執行以下命令：  
 
 	ulimit -SHn 65536
 	ulimit -SHu 65536 
 
-###步驟 3：確定在開機時間已更新限制
-將下列啟動命令加入 /etc/rc.local 檔案中，使它在每個開機時間內生效。  
+###步驟 3：確定會在開機時更新限制
+將下列啟動命令放入 /etc/rc.local 檔案中，以便在每次開機時生效。  
 
 	echo "ulimit -SHn 65536" >>/etc/rc.local
 	echo "ulimit -SHu 65536" >>/etc/rc.local
 
 ##MySQL 資料庫最佳化 
-您可以將設定 Azure 上 MySQL 的相同效能調整策略用於內部部署電腦。  
+您可以使用相同的效能微調策略，將 Azure 上的 MySQL 設定為內部部署電腦。  
 
-主要 I/O 的最佳化規則：   
+主要的 I/O 最佳化規則如下：   
 
 -	增加快取的大小。
--	減少 I/O 回應時間。
+-	減少 I/O 回應時間。  
 
-若要最佳化 MySQL 伺服器設定，您可以更新 my.cnf 檔案，也就是伺服器和用戶端電腦的預設組態檔。  
+若要最佳化 MySQL 伺服器設定，您可以更新 my.cnf 檔案，該檔案是伺服器和用戶端電腦的預設組態檔。  
 
 下列組態項目是影響 MySQL 效能的主要因素：  
 
--	**innodb_buffer_pool_size**：緩衝集區包含經過緩衝處理的資料和索引。這通常設定為 70% 的實體記憶體。
--	**innodb_log_file_size**：這是重做記錄檔大小。您可以使用重做記錄檔確保寫入作業快速可靠，並可在損毀之後復原。此項設定為 512 MB，將提供您充足的空間來記錄寫入作業。
--	**max_connections**：有時候應用程式無法適當地關閉連線。較大的值可讓伺服器有更多時間來回收閒置的連線。連線數目上限為 10000，但建議的最大值為 5000。
--	**Innodb_file_per_table**：此設定會啟用或停用 InnoDB 在個別檔案儲存資料表的功能。開啟此設定會確保能有效地套用幾個進階的管理作業。從效能觀點來看，它可以加速資料表空間傳輸，並將零碎資料管理效能最佳化。所以建議將此項設為 ON。</br>
-	自 MySQL 5.6 開始，預設設定是 ON。因此，不需要採取動作。對於其他早於 5.6 的版本，預設設定是 OFF。需要將此項設為 ON。且需要在資料載入之前透用它，因為只有新建立的資料表會受到影響。
--	**innodb_flush_log_at_trx_commit**：預設值是 1，且範圍設定為 0~2。預設值是最適合獨立的 MySQL 資料庫的選項。2 的設定有最好的資料完整性，而且很適合 MySQL 叢集中的 Master。0 的設定允許資料遺失，這會影響可靠性，但在某些情況會有較佳的效能，這適合 MySQL 叢集中的 Slave。
--	**Innodb_log_buffer_size**：記錄緩衝區可讓交易執行，而不需要在交易認可之前排清磁碟的記錄檔。不過，如果有大型二進位物件或文字欄位，會非常快速地耗用快取，將會觸發頻繁的磁碟 I/O。如果 Innodb_log_waits 狀態變數不是 0，最好增加緩衝區大小。
--	**query_cache_size**：最佳的選項是一開始就停用它。將 query_cache_size 設為 0 (在 MySQL 5.6 中此為預設值)，並使用其他方法來加速查詢。  
+-	**innodb_buffer_pool_size**︰緩衝集區包含經過緩衝處理的資料和索引。這通常設定為 70% 的實體記憶體。
+-	**innodb_log_file_size**︰這是重做記錄檔大小。您可以使用重做記錄檔來確保寫入作業快速、可靠並可在當機後復原。這會設定為 512 MB，將提供大量空間給您記錄寫入作業。
+-	**max_connections**︰有時候應用程式並未正確地關閉連線。較大的值讓伺服器有更多的時間來回收閒置的連線。連線數目上限為 10000，但建議的上限為 5000。
+-	**Innodb_file_per_table**︰這項設定可啟用或停用 InnoDB 在個別檔案中儲存資料表的功能。開啟此選項將確保可有效地套用數個進階管理作業。從效能觀點來看，它可以加速資料表空間傳輸，並將 debris 管理效能最佳化。因此這個選項的建議設定為 ON。</br>
+	從 MySQL 5.6 開始，預設設定為 ON。因此，不需要採取任何動作。若為其他版本，也就是 5.6 以前的版本，預設設定為 OFF。必須將此選項設為 ON。而且應在載入資料之前套用，因為只有新建的資料表會受影響。
+-	**innodb_flush_log_at_trx_commit**︰預設值為 1，其範圍設為 0~2。對獨立 MySQL DB 而言，預設值是最適合的選項。設定為 2 可達到最大資料完整性，適合於 MySQL 叢集中的主機。設定為 0 會讓資料遺失，這可能會影響可靠性，在某些情況下，效能會更佳，適合於 MySQL 叢集中的從屬。
+-	**Innodb_log_buffer_size**︰記錄緩衝區允許交易執行，而不需在交易認可前將記錄檔排清到磁碟。不過，如果有大型二進位物件或文字欄位，將會非常快速地耗用快取，並將觸發頻繁的磁碟 I/O。如果 Innodb_log_waits 狀態變數不是 0，最好能增加緩衝區大小。
+-	**query_cache_size**︰  最佳選項就是一開始就將它停用。將 query_cache_size 設為 0 (這現在是 MySQL 5.6 中的預設值)，並使用其他方法來加速查詢。  
   
-請參閱[附錄 D](AppendixD) 了解最佳化之後的效能比較。
+請參閱[附錄 D](AppendixD) 來比較最佳化之後的效能。
 
 
-##開啟分析效能瓶頸的 MySQL 緩慢查詢記錄
- MySQL 緩慢查詢記錄可以協助您識別 MySQL 的緩慢查詢。啟用 MySQL 緩慢查詢記錄之後，您可以使用像是 **mysqldumpslow** 的 MySQL 工具來識別效能瓶頸。  
+##開啟 MySQL 緩慢查詢記錄，以便分析效能瓶頸
+MySQL 緩慢查詢記錄檔可協助您識別 MySQL 的較慢查詢。啟用 MySQL 緩慢查詢記錄檔之後，您可以使用 **mysqldumpslow** 之類的 MySQL 工具來識別效能瓶頸。  
 
-請注意，預設未啟用此選項。開啟緩慢查詢記錄可能會耗用一些 CPU 資源。因此，建議您在疑難排解效能瓶頸時啟用此選項。
+請注意，預設不會啟用此選項。開啟緩慢查詢記錄檔可能會耗用一些 CPU 資源。因此，建議您暫時啟用這個選項，以便排解效能瓶頸。
 
-###步驟 1：將下列幾行加入 my.cnf 檔案的結尾進行修改   
+###步驟 1：將下列幾行加至 my.cnf 檔案結尾，以修改該檔案   
 
 	long_query_time = 2
 	slow_query_log = 1
 	slow_query_log_file = /RAID0/mysql/mysql-slow.log
 
-###步驟 2：重新啟動 MySQL 伺服器
+###步驟 2：重新啟動 mysql 伺服器
 	service  mysql  restart
 
 ###步驟 3：使用 "show" 命令檢查設定是否生效
@@ -243,7 +243,7 @@ MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目是 1
    
 ![][8]
  
-在此範例中，您可以看到緩慢查詢功能已開啟。然後您可以使用 **mysqldumpslow** 工具判斷效能瓶頸，並最佳化效能，例如加入索引。
+在此範例中，您可以看到緩慢查詢功能已開啟。您可以接著使用 **mysqldumpslow** 工具，判斷效能瓶頸並最佳化效能，例如加入索引。
 
 
 
@@ -251,10 +251,9 @@ MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目是 1
 
 ##附錄
 
-以下是在特定的實驗室環境所產生的樣本效能測試資料，它們提供使用不同效能調整方法，所得到的效能資料趨勢之一般性背景，不過，這些資料可能會因為不同環境或產品版本而有所差異。 
+以下是在目標實驗室環境上產生的範例效能測試資料，可提供採用不同效能調整方法的效能資料趨勢的一般背景，不過，在不同的環境或產品版本之下結果可能會有所不同。 
 
-<a name="AppendixA"></a>附錄 A：
-
+<a name="AppendixA"></a>附錄 A：  
 **不同 RAID 層級的磁碟效能 (IOPS)** 
 
 
@@ -264,12 +263,10 @@ MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目是 1
 
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=5G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
 
->AZURE.NOTE: 這項測試的工作負載會使用 64 個執行緒，嘗試達到 RAID 的最高上限。
+>AZURE.NOTE︰這項測試的工作負載會使用 64 個執行緒，並嘗試達到 RAID 的上限。
 
-<a name="AppendixB"></a>附錄 B：
-
-**使用不同 RAID 層級比較 MySQL 效能 (輸送量)**   
-
+<a name="AppendixB"></a>附錄 B：  
+**不同 RAID 層級的 MySQL 效能 (輸送量) 比較**   
 (XFS 檔案系統)
 
  
@@ -280,19 +277,18 @@ MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目是 1
 
 	mysqlslap -p0ps.123 --concurrency=2 --iterations=1 --number-int-cols=10 --number-char-cols=10 -a --auto-generate-sql-guid-primary --number-of-queries=10000 --auto-generate-sql-load-type=write -engine=innodb
 
-**使用不同 RAID 層級比較 MySQL 效能 (OLTP)**  
+**不同 RAID 層級的 MySQL 效能 (OLTP) 比較**  
 ![][12]
 
 **測試命令：**
 
 	time sysbench --test=oltp --db-driver=mysql --mysql-user=root --mysql-password=0ps.123  --mysql-table-engine=innodb --mysql-host=127.0.0.1 --mysql-port=3306 --mysql-socket=/var/run/mysqld/mysqld.sock --mysql-db=test --oltp-table-size=1000000 prepare
 
-<a name="AppendixC"></a>附錄 C： 
-
-**比較不同區塊大小的磁碟效能 (IOPS)**  
-
+<a name="AppendixC"></a>附錄 C：   
+**不同區塊大小的磁碟效能 (IOPS) 比較**  
 (XFS 檔案系統)
 
+ 
 ![][13]
 
 **測試命令：**  
@@ -300,13 +296,11 @@ MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目是 1
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=30G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=1G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite  
 
-請注意，這項測試所使用的檔案大小分別為 30 GB 和 1 GB，使用 RAID 0 (4 個磁碟) XFS 檔案系統。
+請注意，這項測試所使用的檔案大小分別為 30 GB 和 1 GB，搭配 RAID 0 (4 磁碟) XFS fie 系統。
 
 
-<a name="AppendixD"></a>附錄 D：
-
-**最佳化前與最佳化後的 MySQL 效能比較 (輸送量)**  
-
+<a name="AppendixD"></a>附錄 D：  
+**最佳化之前和之後的 MySQL 效能 (輸送量) 比較**  
 (XFS 檔案系統)
 
   
@@ -316,9 +310,9 @@ MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目是 1
 
 	mysqlslap -p0ps.123 --concurrency=2 --iterations=1 --number-int-cols=10 --number-char-cols=10 -a --auto-generate-sql-guid-primary --number-of-queries=10000 --auto-generate-sql-load-type=write -engine=innodb,misam
 
-**預設及最佳化的組態設定如下：**
+**預設值與最佳化的組態設定如下所示：**
 
-|參數	|預設	|最佳化
+|參數	|預設直	|最佳化
 |-----------|-----------|-----------
 |**innodb_buffer_pool_size**	|無	|7G
 |**innodb_log_file_size**	|5M	|512M
@@ -329,7 +323,7 @@ MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目是 1
 |**query_cache_size**	|16M	|0
 
 
-如需更多及更詳細的最佳化組態參數，請參考 MySQL 官方指示。  
+如需更詳細的最佳化設定參數，請參閱 mysql 官方指示。  
 
 [http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html](http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html)  
 
@@ -337,12 +331,12 @@ MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目是 1
 
 **測試環境**  
 
-|硬體	|詳細資訊
+|硬體	|詳細資料
 |-----------|-------
-|CPU	|AMD Opteron(tm) 處理器 4171 HE/4 核心
-|記憶體	|14G
-|磁碟	|10G/disk
-|作業系統	|Ubuntu 14.04.1 LTS
+|Cpu	|AMD Opteron(tm) 處理器 4171 HE/4 核心
+|記憶體|14G
+|磁碟|10G/磁碟
+|OS	|Ubuntu 14.04.1 LTS
 
 
 
@@ -361,5 +355,4 @@ MySQL 是高並行存取資料庫。Linux 的並行控制代碼預設數目是 1
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

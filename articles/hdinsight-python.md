@@ -278,4 +278,5 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 如果您需要載入非預設提供的 Python 模組，請參閱[如何將模組部署至 Azure HDInsight](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx) (英文)，以取得相關作法的範例。
 
 如果您想要在 HDInsight 上從遠端執行工作但不使用 PowerShell，請參閱[如何從 Linux 使用 Azure HDInsight](http://blogs.msdn.com/b/benjguin/archive/2014/02/18/how-to-use-hdinsight-from-linux.aspx)，以取得透過 WebHCat REST API 使用 Python 執行工作的範例。
+
 <!--HONumber=42-->

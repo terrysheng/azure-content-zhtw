@@ -92,4 +92,5 @@
 	blockBlob.Delete();
 
 [深入了解 Azure 儲存體](http://azure.microsoft.com/documentation/services/storage/)
-另請參閱[使用伺服器總管瀏覽儲存體資源](http://msdn.microsoft.com/library/azure/ff683677.aspx)。<!--HONumber=42-->
+另請參閱[使用伺服器總管瀏覽儲存體資源](http://msdn.microsoft.com/library/azure/ff683677.aspx)。
+<!--HONumber=42-->

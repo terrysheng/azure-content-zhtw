@@ -218,4 +218,5 @@
 [SharePoint Online]: http://office.microsoft.com/zh-tw/sharepoint/
 [使用 Active Directory Authentication Library 單一登入驗證您的應用程式]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
 
+
 <!--HONumber=42-->

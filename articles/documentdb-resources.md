@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="DocumentDB 資源模型和概念 | Azure" 
 	description="Microsoft Azure DocumentDB 是完全受到管理的 NoSQL 文件資料庫，其使用由資料庫帳戶、資料庫、集合、預存程序、觸發程序、UDF、文件、附件、媒體、使用者及權限所組成的階層式模型來管理資源。"  
 	services="documentdb" 
@@ -351,7 +351,7 @@ DocumentDB 查詢模型嘗試打破功能、效率和簡化之間的平衡。Doc
 	    });
 
 ###Unregistering a stored procedure
-Un-registering a stored procedure is simply done by issuing an HTTP DELETE against an existing stored procedure resource.   
+只要對現有預存程序資源發出 HTTP DELETE，即可取消註冊預存程序。   
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
 	    .then(function (response) {

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="如何在 Azure VM 上安裝和設定 Symantec Endpoint Protection" 
 	description="說明如何在 Azure 的新的或現有的 VM 上，安裝和設定 Symantec Endpoint Protection 安全性延伸模組" 
 	services="virtual-machines" 
@@ -30,7 +30,7 @@
 
 這個 [**從組件庫**] 選項會開啟可協助您設定虛擬機器的精靈。您可以使用精靈的最後一個頁面，來安裝 VM 代理程式和 Symantec 安全性延伸模組。 
 
-如需一般指示，請參閱 [建立執行 Windows Server 的虛擬機器]。(virtual-machines-windows-tutorial.md)。當您進入精靈的最後一個頁面時：
+如需一般指示，請參閱 [建立執行 Windows Server 的虛擬機器](virtual-machines-windows-tutorial.md)。當您進入精靈的最後一個頁面時：
 
 1.	在 VM 代理程式下，[**安裝 VM 代理程式**] 應已勾選。
 

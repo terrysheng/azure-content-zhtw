@@ -202,4 +202,5 @@ cc.cs 檔案中的 reducer 程式碼會使用 [StreamReader][streamreader]   物
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
+
 <!--HONumber=42-->

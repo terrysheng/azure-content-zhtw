@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="如何使用 SendGrid 電子郵件服務 (Node.js) - Azure" 
 	description="了解如何在 Azure 使用 SendGrid 電子郵件服務傳送電子郵件。程式碼範例以 Node.js API 撰寫。" 
 	services="" 
@@ -186,8 +186,7 @@ SendGrid 提供了運用篩選器的其他電子郵件功能。這些設定可�
 某些電子郵件屬性可使用 **set*Property*** 覆寫，或可使用 **add*Property*** 附加。例如，您可以使用下列方式新增其他收件者：
 
     email.addTo('jeff@contoso.com');
-
-或使用下列方式設定篩選器
+    or set a filter by using
 
     email.addFilter('footer', 'enable', 1);
     email.addFilter('footer', 'text/html', '<strong>boo</strong>');

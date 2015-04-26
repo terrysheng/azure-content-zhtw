@@ -107,7 +107,7 @@ Azure 媒體服務 .NET SDK 現在是版本 3.1.0.1。
 - 媒體服務現在可讓您透過 SSL 連線擷取即時的 Smooth Streaming (FMP4) 內容。若要透過 SSL 擷取，請務必將擷取 URL 更新為 HTTPS。如需有關即時串流的詳細資訊，請參閱[使用 Azure 媒體服務即時串流]。
 - 請注意，目前您無法透過 SSL 連線擷取 RTMP 即時串流。
 - 您也可以透過 SSL 連線串流您的內容。若要這樣做，請確定您的串流 URL 以 HTTPS 開頭。
-- 請注意，只有在您從中傳遞內容的串流端點在 2014 年 9 月 10 日之後建立時，才能透過 SSL 串流。如果您的串流 URL 是根據 9 月日之後建立的串流端點，則 URL 會包含 "streaming.mediaservices.windows.net" (新格式)。包含 "origin.mediaservices.windows.net" (舊格式) 的串流 URL 不支援 SSL。如果您的 URL 是舊格式，而且您想要能夠透過 SSL 串流，請[建立新的串流端點](http://azure.microsoft.com/documentation/articles/media-services-manage-origins/)。使用根據新的串流端點建立的 URL，透過 SSL 串流處理內容。
+- 請注意，只有在您從中傳遞內容的串流端點在 2014 年 9 月 10 日之後建立時，才能透過 SSL 串流。如果您的串流 URL 是根據 9 月日之後建立的串流端點，則 URL 會包含 "streaming.mediaservices.windows.net" (新格式)。包含 "origin.mediaservices.windows.net" (舊格式) 的串流 URL 不支援 SSL。如果您的 URL 是舊格式，而且您想要能夠透過 SSL 串流，請[建立新的串流端點](http://azure.microsoft.com/ documentation/articles/media-services-manage-origins/)。使用根據新的串流端點建立的 URL，透過 SSL 串流處理內容。
    
 ## <a id="october_changes_14"></a>2014 年 10 月版本
 

@@ -277,4 +277,5 @@ Azure 會將磁碟大小對應 (無條件進位) 至表格中指定之最接近�
 [MSDN 參考](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
+
 <!--HONumber=42-->

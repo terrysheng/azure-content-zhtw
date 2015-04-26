@@ -249,4 +249,5 @@ Hive 可讓您使用 SQL 型的查詢語言來輕鬆查詢資料，但 HDInsight
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
+
 <!--HONumber=42-->

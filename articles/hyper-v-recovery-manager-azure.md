@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="教學課程：設定內部部署 VMM 網站和 Azure 之間的保護" 
-	description="Azure 站台復原可協調將位於內部部署 VMM 雲端中的 Hyper-V 虛擬機器複寫、容錯移轉及復原至 Azure 的作業。" 
+	description="Azure Site Recovery 可協調將位於內部部署 VMM 雲端中的 Hyper-V 虛擬機器複寫、容錯移轉及復原至 Azure 的作業。" 
 	services="site-recovery" 
 	documentationCenter="" 
 	authors="raynew" 
@@ -37,7 +37,7 @@
 <UL>
 <LI><b>Azure 帳戶</b>-您將需要一個 Azure 帳戶。如果您沒有帳戶，請參閱 <a href="http://aka.ms/try-azure">Azure 免費試用</a>。您可以從 <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Azure Site Recovery 管理員定價詳細資料</a>取得訂閱定價資訊。</LI>
 
-<LI><b>Azure 儲存體帳戶</b>-您需要 Azure 儲存體帳戶才能將複寫的資料儲存至 Azure。此帳戶必須啟用異地複寫。應該與 Azure 站台復原服務位於相同的區或，且與相同的訂閱相關聯。若要深入了解設定 Azure 儲存體，請參閱 <a href="http://go.microsoft.com/fwlink/?LinkId=398704">Microsoft Azure 儲存體簡介</a>。</LI><LI><b>VMM 伺服器</b>-在 System Center 2012 R2 上執行的 VMM 伺服器。</LI>
+<LI><b>Azure 儲存體帳戶</b>-您需要 Azure 儲存體帳戶才能將複寫的資料儲存至 Azure。此帳戶必須啟用異地複寫。應該與 Azure Site Recovery 服務位於相同的區或，且與相同的訂閱相關聯。若要深入了解設定 Azure 儲存體，請參閱 <a href="http://go.microsoft.com/fwlink/?LinkId=398704">Microsoft Azure 儲存體簡介</a>。</LI><LI><b>VMM 伺服器</b>-在 System Center 2012 R2 上執行的 VMM 伺服器。</LI>
 <LI><b>VMM 雲端</b>-VMM 伺服器上至少一個雲端，此雲端應該包含：
 	<UL>
 	<LI>一或多個 VMM 主機群組</LI>
@@ -88,7 +88,7 @@
 
 
 
- <a name="download"></a> <h3>步驟 2：產生註冊金鑰並安裝 Azure 站台復原提供者</h3>
+ <a name="download"></a> <h3>步驟 2：產生註冊金鑰並安裝 Azure Site Recovery 提供者</h3>
  
 
 1. 在 [復原服務]<b></b> 頁面中，按一下保存庫以開啟 [快速入門] 頁面。您也可以使用圖示隨時開啟 [快速入門]。
@@ -129,7 +129,7 @@
 8. 在 [初始雲端中繼資料同步] 中，選取您是否要將 VMM 伺服器上所有雲端的中繼資料與保存庫同步。這個動作只需要在每個伺服器上進行一次。如果不要同步所有雲端，您可以取消核取這項設定，再於 VMM 主控台的雲端屬性中個別同步每個雲端。
 
 
-9. 在 [資料加密] 中，您可以指定一個位置來儲存自動為資料加密產生的 SSL 憑證。如果您在 Azure 站台復原入口網站中為 Azure 所保護的雲端啟用資料加密，則會使用此憑證。請保護此憑證的安全。當您執行至 Azure 的容錯移轉時，您將選取它來將加密的資料解密。 
+9. 在 [資料加密] 中，您可以指定一個位置來儲存自動為資料加密產生的 SSL 憑證。如果您在 Azure Site Recovery 入口網站中為 Azure 所保護的雲端啟用資料加密，則會使用此憑證。請保護此憑證的安全。當您執行至 Azure 的容錯移轉時，您將選取它來將加密的資料解密。 
 如果您是從一個內部部署站台複寫到另一個內部部署站台，則與此選項無關。
 
 	![Server registration](./media/hyper-v-recovery-manager-configure-vault/SR_ProviderSyncEncrypt.png)
@@ -137,9 +137,9 @@
 8. 按一下 [註冊]<b></b> 以完成此程序。註冊之後，Azure Site Recovery 即可從 VMM 伺服器抓取中繼資料。伺服器會顯示在保存庫中 [**伺服器**] 頁面上 [<b>資源</b>] 索引標籤的結尾。
 
 <h3><a id="storage"></a>步驟 3：建立 Azure 儲存體帳戶</h3>
-如果您沒有 Azure 儲存體帳戶，請按一下 [新增 Azure 儲存體帳戶]。此帳戶應啟用異地複寫。此帳戶應與 Azure 站台復原服務位於相同的區或，且與相同的訂閱相關聯。
+如果您沒有 Azure 儲存體帳戶，請按一下 [新增 Azure 儲存體帳戶]。此帳戶應啟用異地複寫。此帳戶應與 Azure Site Recovery 服務位於相同的區或，且與相同的訂閱相關聯。
 
-<P>您可以使用這個教學課程，在內部部署 Azure 部署中設定 Azure Site Recovery 的快速概念證明。該教學課程盡可能使用最快的路徑和預設設定。您將會建立 Azure 站台復原保存庫、在來源 VMM 伺服器中安裝 Azure 站台復原提供者、在位於 VMM 雲端中的 Hyper-V 主機伺服器上安裝 Azure 復原服務代理程式、設定雲端保護設定、啟用虛擬機器的保護功能，以及測試您的部署。</P>
+<P>您可以使用這個教學課程，在內部部署 Azure 部署中設定 Azure Site Recovery 的快速概念證明。該教學課程盡可能使用最快的路徑和預設設定。您將會建立 Azure Site Recovery 保存庫、在來源 VMM 伺服器中安裝 Azure Site Recovery 提供者、在位於 VMM 雲端中的 Hyper-V 主機伺服器上安裝 Azure 復原服務代理程式、設定雲端保護設定、啟用虛擬機器的保護功能，以及測試您的部署。</P>
 
 	![Storage account](./media/hyper-v-recovery-manager-configure-vault/SR_E2AStorageAgent.png)
 
@@ -194,7 +194,7 @@
 正確設定伺服器、雲端和網路後，您就可以對雲端中的虛擬機器啟用保護。請注意：
 
 - 虛擬機器必須符合 Azure 需求。請在《規劃指南》的<a href="http://go.microsoft.com/fwlink/?LinkId=402602">必要條件和支援</a>中查看這些需求。
-- 若要啟用保護功能，您必須為虛擬機器設定作業系統和作業系統磁碟屬性。當您使用虛擬機器範本在 VMM 中建立虛擬機器時，您可以設定屬性。您也可以在虛擬機器屬性的 [一般] 和 [硬體組態] 索引標籤上，為現有的虛擬機器設定這些屬性。若未在 VMM 中設定這些屬性，您將可在 Azure 站台復原入口網站中加以設定。
+- 若要啟用保護功能，您必須為虛擬機器設定作業系統和作業系統磁碟屬性。當您使用虛擬機器範本在 VMM 中建立虛擬機器時，您可以設定屬性。您也可以在虛擬機器屬性的 [一般] 和 [硬體組態] 索引標籤上，為現有的虛擬機器設定這些屬性。若未在 VMM 中設定這些屬性，您將可在 Azure Site Recovery 入口網站中加以設定。
 
 	![Create virtual machine](./media/hyper-v-recovery-manager-configure-vault/SR_EnableVMME2ANew.png)
 

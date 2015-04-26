@@ -226,4 +226,5 @@ WordCount 指令碼的輸出應會在 cmd 視窗中顯示如下：
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
 
 
+
 <!--HONumber=42-->

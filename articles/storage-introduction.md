@@ -217,4 +217,5 @@ Blob 儲存體提供兩種 Blob 類型：區塊 Blob 和頁面 Blob (磁碟)。�
 - [如何從 Python 使用 Blob 儲存體](storage-python-how-to-use-blob-storage.md)
 - [如何從 Python 使用資料表儲存體](storage-python-how-to-use-table-storage.md)
 - [如何從 Python 使用佇列儲存體](storage-python-how-to-use-queue-storage.md)
+
 <!--HONumber=42-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="使用 JavaScript 後端行動服務" 
 	description="提供如何在 Azure 行動服務中定義、註冊和使用伺服器指令碼的範例。" 
 	services="mobile-services" 
@@ -78,10 +78,10 @@
 
 以下是資料表作業的標準主要函數特徵： 
 
-+ [Insert][insert 函數]: `function insert (item, user, request) { ... }`
-+ [Update][update 函數]: `function update (item, user, request) { ... }`
-+ [Delete][delete 函數]: `function del (id, user, request) { ... }`
-+ [Read][read 函數]: `function read (query, user, request) { ... }`
++ [Insert][insert 函數︰]: `function insert (item, user, request) { ... }`
++ [Update][update 函數︰]: `function update (item, user, request) { ... }`
++ [Delete][delete 函數︰]: `function del (id, user, request) { ... }`
++ [Read][read 函數︰]: `function read (query, user, request) { ... }`
 
 >[AZURE.NOTE]註冊至刪除作業的函數必須命名為 _del_，因為 delete 是 JavaScript 的保留關鍵字。 
 
@@ -178,7 +178,7 @@
 
 當您提供 **success** 處理常式給 **execute** 函數時，也必須呼叫 **respond** 函數做為 **success** 處理常式的一部分，讓執行階段知道指令碼已完成且可以寫入回應。若呼叫 **respond** 時未傳遞任何引數，行動服務會產生預設回應。 
 
->[AZURE.NOTE]只能在第一次呼叫 **execute** 函數後以無引數呼叫 **respond**的方式叫用預設回應。
+>[AZURE.NOTE]只能在第一次呼叫 **execute** 函數後以無引數呼叫 **respond** 的方式叫用預設回應。
  
 ###<a name="override-error"></a>作法：覆寫預設的錯誤處理
 
@@ -232,7 +232,7 @@
 +  可以列印的字元：**"**(0x0022), **\+** (0x002B), **/** (0x002F), **?**(0x003F), **\\** (0x005C), **`** (0x0060)
 +  識別碼 "." 和 ".."
 
-您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表](virtual-machines-command-line-tools.md/#Mobile_Tables)。
+您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表](virtual-machines-command-line-tools.md#Mobile_Tables)。
 
 
 ###<a name="access-headers"></a>作法：存取自訂參數
@@ -1038,7 +1038,7 @@ You can then use a function like this in a table operation script:
 [管理入口網站]: https://manage.windowsazure.com/
 [排程作業]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
 [使用伺服器指令碼在行動服務中驗證與修改資料]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
-[管理 Azure 行動服務的命令]: /documentation/articles/virtual-machines-command-line-tools.md#Mobile_Scripts
+[管理 Azure 行動服務的命令]: virtual-machines-command-line-tools.md#Mobile_Scripts
 [Windows 市集推播]: /develop/mobile/tutorials/get-started-with-push-dotnet/
 [Windows Phone 推播]: /develop/mobile/tutorials/get-started-with-push-wp8/
 [iOS 推播]: /develop/mobile/tutorials/get-started-with-push-ios/

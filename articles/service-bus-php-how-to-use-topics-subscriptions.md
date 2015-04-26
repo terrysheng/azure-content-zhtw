@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="如何使用服務匯流排主題 (PHP) - Azure" 
 	description="了解如何在 Azure 對於 PHP 使用服務匯流排主題。" 
 	services="service-bus" 
@@ -336,7 +336,7 @@
 [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
 [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
 [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+[佇列、主題和訂閱]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
 [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
 [sqlfilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 

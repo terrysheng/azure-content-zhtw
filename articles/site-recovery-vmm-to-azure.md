@@ -34,7 +34,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 ### Azure 先決條件
 
 - 您將需要 [Microsoft Azure](http://azure.microsoft.com/) 帳戶。如果您沒有帳戶，請以[免費試用](http://aka.ms/try-azure)開頭。此外，您可以參閱 [Azure Site Recovery 管理員訂價](http://go.microsoft.com/fwlink/?LinkId=378268)。
-- 您將需要 Azure 儲存體帳戶才能將複寫的資料儲存至 Azure。此帳戶必須啟用異地複寫。應該與 Azure 站台復原服務位於相同的區或，且與相同的訂閱相關聯。若要深入了解設定 Azure 儲存體，請參閱 [Microsoft Azure 儲存體簡介](http://go.microsoft.com/fwlink/?LinkId=398704)。
+- 您將需要 Azure 儲存體帳戶才能將複寫的資料儲存至 Azure。此帳戶必須啟用異地複寫。應該與 Azure Site Recovery 服務位於相同的區或，且與相同的訂閱相關聯。若要深入了解設定 Azure 儲存體，請參閱 [Microsoft Azure 儲存體簡介](http://go.microsoft.com/fwlink/?LinkId=398704)。
 - 您必須確認您想要保護的虛擬機器符合 Azure 要求。如需詳細資料，請參閱[虛擬機器支援](https://msdn.microsoft.com/library/azure/dn469078.aspx#BKMK_E2A)。
 
 ### VMM 先決條件
@@ -146,7 +146,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 8. 在 [初始雲端中繼資料同步] 中，選取您是否要將 VMM 伺服器上所有雲端的中繼資料與保存庫同步。這個動作只需要在每個伺服器上進行一次。如果不要同步所有雲端，您可以取消核取這項設定，再於 VMM 主控台的雲端屬性中個別同步每個雲端。
 
 
-9. 在 [資料加密] 中，您可以指定一個位置來儲存自動為資料加密產生的 SSL 憑證。如果您在 Azure 站台復原入口網站中為 Azure 所保護的雲端啟用資料加密，則會使用此憑證。請保護此憑證的安全。當您執行至 Azure 的容錯移轉時，您將選取它來將加密的資料解密。 
+9. 在 [資料加密] 中，您可以指定一個位置來儲存自動為資料加密產生的 SSL 憑證。如果您在 Azure Site Recovery 入口網站中為 Azure 所保護的雲端啟用資料加密，則會使用此憑證。請保護此憑證的安全。當您執行至 Azure 的容錯移轉時，您將選取它來將加密的資料解密。 
 
 	![Server registration](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderSyncEncrypt.png)
 
@@ -154,7 +154,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 ## 步驟 4：建立 Azure 儲存體帳戶
 
-如果您沒有 Azure 儲存體帳戶，請按一下 [**新增 Azure 儲存體帳戶**]。此帳戶應啟用異地複寫。此帳戶應與 Azure 站台復原服務位於相同的區或，且與相同的訂閱相關聯。
+如果您沒有 Azure 儲存體帳戶，請按一下 [**新增 Azure 儲存體帳戶**]。此帳戶應啟用異地複寫。此帳戶應與 Azure Site Recovery 服務位於相同的區或，且與相同的訂閱相關聯。
 
 
 ![Storage account](./media/site-recovery-vmm-to-azure/ASRE2AVMM_StorageAgent.png)
@@ -218,7 +218,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 正確設定伺服器、雲端和網路後，您就可以對雲端中的虛擬機器啟用保護。請注意：
 
 - 虛擬機器必須符合 Azure 需求。請在《規劃指南》的<a href="http://go.microsoft.com/fwlink/?LinkId=402602">必要條件和支援</a>中查看這些需求。
-- 若要啟用保護功能，您必須為虛擬機器設定作業系統和作業系統磁碟屬性。當您使用虛擬機器範本在 VMM 中建立虛擬機器時，您可以設定屬性。您也可以在虛擬機器屬性的 [一般] 和 [硬體組態] 索引標籤上，為現有的虛擬機器設定這些屬性。若未在 VMM 中設定這些屬性，您將可在 Azure 站台復原入口網站中加以設定。
+- 若要啟用保護功能，您必須為虛擬機器設定作業系統和作業系統磁碟屬性。當您使用虛擬機器範本在 VMM 中建立虛擬機器時，您可以設定屬性。您也可以在虛擬機器屬性的 [一般] 和 [硬體組態] 索引標籤上，為現有的虛擬機器設定這些屬性。若未在 VMM 中設定這些屬性，您將可在 Azure Site Recovery 入口網站中加以設定。
 
 	![Create virtual machine](./media/site-recovery-vmm-to-azure/ASRE2AVMM_EnableNew.png)
 

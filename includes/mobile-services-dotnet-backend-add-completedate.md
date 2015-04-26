@@ -38,4 +38,5 @@
 
 5. 重新建置 todolist .NET 後端服務專案並確認未發生建置錯誤。 
 
-接下來，您將更新用戶端應用程式以顯示新 **CompleteDate** 資料。<!--HONumber=42-->
+接下來，您將更新用戶端應用程式以顯示新 **CompleteDate** 資料。
+<!--HONumber=42-->

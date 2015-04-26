@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="教學課程：設定內部部署 VMM 網站之間的保護" 
-	description="Azure 站台復原可協調內部部署 VMM 網站之間的 Hyper-V 虛擬機器複寫、容錯移轉及復原作業。" 
+	description="Azure Site Recovery 可協調內部部署 VMM 網站之間的 Hyper-V 虛擬機器複寫、容錯移轉及復原作業。" 
 	services="site-recovery" 
 	documentationCenter="" 
 	authors="raynew" 
@@ -61,7 +61,7 @@
 
 確認已達成先決條件之後，請執行下列動作：
 <UL>
-<LI><a href="#vault">步驟 1：建立保存庫</a>-建立 Azure 站台復原保存庫。</LI>
+<LI><a href="#vault">步驟 1：建立保存庫</a>-建立 Azure Site Recovery 保存庫。</LI>
 <LI><a href="#download">步驟 2：在每個 VMM 伺服器上安裝「提供者」應用程式</a>-在保存庫中產生註冊金鑰，及下載「提供者」安裝檔。您將在每部 VMM 伺服器上執行安裝程式來安裝提供者，並在保存庫中註冊伺服器。</LI>
 <LI><a href="#clouds">步驟 3：設定雲端保護</a>-為 VMM 雲端進行保護設定。這些保護設定會套用至您啟用 Azure Site Recovery 保護功能之雲端中的所有虛擬機器。</LI>
 <LI><a href="#storagemapping">步驟 4：設定儲存體對應</a>-如果您想要指定複寫資料的儲存位置，可以設定儲存體對應。這會將來源 VMM 伺服器上的儲存體分類對應至目標伺服器上的儲存體分類。</LI>

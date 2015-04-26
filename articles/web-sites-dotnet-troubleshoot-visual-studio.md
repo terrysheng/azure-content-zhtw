@@ -207,9 +207,9 @@ Visual Studio 可讓您存取管理 [Azure 入口網站](http://go.microsoft.com
 
 	![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
-1. In **Solution Explorer**, right-click the web project (not the WebJob project), and click **Publish**.
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 Web 專案 (而非 WebJob 專案)，然後按一下 [發行]
 
-2. In the **Profile** drop-down list, select the same profile that you used in [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md)。
+2. 在 [設定檔] 下拉式清單中，選取您在 開始使用 Azure WebJobs SDK [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md)中使用的相同設定檔。
 
 3. 按一下 [設定] 索引標籤，將 [組態] 變更為 [偵錯]，然後按一下 [發行]。
 

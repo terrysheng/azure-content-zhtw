@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="如何搭配使用 docker-machine 和 Azure" 
    description="示範如何使用 Ubuntu 上的 Docker Machine，在 Azure 上啟動並執行。" 
    services="virtual-machines" 
@@ -53,7 +53,8 @@
 		openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 		openssl pkcs12 -export -out mycert.pfx -in mycert.pem -name "My Certificate"
 
-	Be ready here to enter the export password for your certificate and capture it for future usage. Then type:
+	準備好在這裡匯出憑證密碼，並加以擷取以供日後使用。接著輸入：
+
 
 		openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 

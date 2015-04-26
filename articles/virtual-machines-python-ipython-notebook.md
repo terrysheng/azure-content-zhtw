@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="IPython Notebook - Azure 教學課程" 
 	description="本教學課程說明如何使用執行 Linux 或 Windows 的虛擬機器 (VM)，在 Azure 上部署 IPython Notebook。" 
 	services="virtual-machines" 
@@ -349,7 +349,7 @@ Python 生態系統對於 Azure 所具備的功能。其中涵蓋廣泛的
 [portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
 [portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
-[repository]: https://github.com/ipython/ipython
+[儲存機制]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 
 [Python 2.7]: http://www.python.org/download

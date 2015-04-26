@@ -121,4 +121,5 @@ Azure AD 目前並未完全取代內部部署 Windows Server AD。如先前所�
 ##關於作者
 
 David Chappell 是 Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) (位於美國加州舊金山) 的主席。經由他的演說、撰寫和諮詢，
+
 <!--HONumber=42-->

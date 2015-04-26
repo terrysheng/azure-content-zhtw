@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="如何搭配使用通知中心與 PHP" 
-	description="了解如何從 PHP 後端使用 Azure 通知中心。" 
+	pageTitle="如何搭配使用通知中樞與 PHP" 
+	description="了解如何從 PHP 後端使用 Azure 通知中樞。" 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="piyushjo" 
+	authors="yuaxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,22 +14,22 @@
 	ms.devlang="php" 
 	ms.topic="article" 
 	ms.date="11/14/2014" 
-	ms.author="piyushjo"/>
+	ms.author="yuaxu"/>
 
-# 如何從 PHP 使用通知中心
+# 如何從 PHP 使用通知中樞
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/zh-tw/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/zh-tw/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP" class="current">PHP</a><a href="/zh-tw/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a>
+    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP" class="current">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
 </div>
 
-您可以使用通知中心 REST 介面，存取 Java/PHP/Ruby 後端的所有通知中心功能，如 MSDN 主題[通知中心 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 中所述。
+您可以使用通知中樞 REST 介面，存取 Java/PHP/Ruby 後端的所有通知中樞功能，如 MSDN 主題[通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 中所述。
 
 在本主題中，我們將說明如何：
 
-* 在 PHP 中建置通知中心功能的 REST 用戶端；
-* 依照[開始使用教學課程](http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/)，針對您所選的行動平台，在 PHP 中實作後端部分。
+* 在 PHP 中建置通知中樞功能的 REST 用戶端；
+* 依照[入門教學課程](notification-hubs-ios-get-started.md)， 針對您所選的行動平台，在 PHP 中實作後端部分。
 
 ## 用戶端介面
-主要用戶端介面可提供與 [.NET 通知中心 SDK](http://msdn.microsoft.com/library/jj933431.aspx) 提供的相同方法，這可讓您直接轉譯本網站上目前所提供以及網際網路上社群所貢獻的所有教學課程和範例。
+主要用戶端介面可提供與 [.NET 通知中樞 SDK](http://msdn.microsoft.com/library/jj933431.aspx) 提供的相同方法，這可讓您直接轉譯本網站上目前所提供以及網際網路上社群所貢獻的所有教學課程和範例。
 
 您可在 [PHP REST 包裝函式範例]中找到所有可用的程式碼。
 
@@ -43,10 +43,10 @@
 	$hub->sendNotification($notification);
 
 ## 實作
-如果您還沒有這麼做，請遵循我們的[開始使用教學課程]，一直到您必須實作後端的最後一節。
+如果您尚未實作，請依循[開始使用教學課程]的指示直到最後一節，以完成後端實作。
 此外，您也可以從 [PHP REST 包裝函式範例]使用程式碼，並直接移至[完成教學課程](#complete-tutorial) 一節。
 
-您可以在 [MSDN](http://msdn.microsoft.com/library/dn530746.aspx) 上找到所有實作完整 REST 包裝函式的詳細資料。在本節中，我們將針對存取通知中心 REST 端點所需主要步驟的 PHP 實作進行說明：
+您可以在 [MSDN](http://msdn.microsoft.com/library/dn530746.aspx) 上找到所有實作完整 REST 包裝函式的詳細資料。在本節中，我們將針對存取通知中樞 REST 端點所需主要步驟的 PHP 實作進行說明：
 
 1. 解析連接字串
 2. 產生授權權杖
@@ -90,7 +90,7 @@
 
 
 ### 建立安全性權杖
-您可以在[這裡](http://msdn.microsoft.com/library/dn495627.aspx)找到建立安全性權杖的詳細資料
+如需建立安全性權杖的詳細資料，請移至[此處](http://msdn.microsoft.com/library/dn495627.aspx)。
 您必須將下列方法新增至 **NotificationHub** 類別，才能根據目前要求的 URI 及擷取自連接字串的認證來建立權杖。
 
 	private function generateSasToken($uri) {
@@ -133,7 +133,7 @@
 
 此類別是原生通知主體的容器，或是一組範本通知案例的屬性，及一組包含格式 (原生平台或範本) 的標頭，以及平台特定屬性 (如 Apple 到期屬性和 WNS 標頭)。
 
-請參閱[通知中心 REST API 文件](http://msdn.microsoft.com/library/dn495827.aspx)及特定通知平台的格式，以取得所有可用選項。
+如需所有適用選項，請參閱[通知中樞 REST API 文件](http://msdn.microsoft.com/library/dn495827.aspx)和特定的通知平台格式。
 
 有了此類別之後，我們現在可以在 **NotificationHub** 類別內寫入傳送通知方法。
 
@@ -198,13 +198,12 @@
 		}
 	} 
 
-上述方法會傳送 HTTP POST 要求至通知中心的 /messages 端點，並使用正確的主體和標頭傳送通知。
+上述方法會傳送 HTTP POST 要求至通知中樞的 /messages 端點，並使用正確的主體和標頭傳送通知。
 
 ## <a name="complete-tutorial"></a>完成教學課程
 現在您可以透過從 PHP 後端傳送通知，來完成開始使用教學課程。
 
 初始化您的通知中樞用戶端 (請依[開始使用教學課程]中的指示替換連接字串和中樞名稱)：
-
 	$hub = new NotificationHub("connection string", "hubname");	
 
 然後根據您的目標行動平台新增傳送程式碼。
@@ -250,7 +249,7 @@
 
 
 ## 後續步驟
-在本主題中，我們會說明如何為通知中心建立簡單的 Java REST 用戶端。您可以在這裡執行下列動作：
+在本主題中，我們會說明如何為通知中樞建立簡單的 Java REST 用戶端。您可以在這裡執行下列動作：
 
 * 下載完整的 [PHP REST 包裝函式範例]，其中包含上述所有程式碼。
 * 繼續了解[即時新聞教學課程]中的通知中樞標記功能
@@ -260,4 +259,4 @@
 [PHP REST 包裝函式範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [開始使用教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

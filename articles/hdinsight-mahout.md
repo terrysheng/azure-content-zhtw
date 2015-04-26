@@ -420,4 +420,5 @@ Mahout 工作不會清除在處理期間所建立的暫存檔。此外，工作�
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
+
 <!--HONumber=42-->

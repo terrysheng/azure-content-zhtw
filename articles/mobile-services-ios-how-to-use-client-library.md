@@ -530,4 +530,5 @@ _(選用) 本節說明如何使用屬性來自訂資料型別的序列化方式�
 [使用 CLI 管理行動服務資料表]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 
 
+
 <!--HONumber=42-->

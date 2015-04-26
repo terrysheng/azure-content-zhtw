@@ -174,4 +174,5 @@ HDInsight 服務提供數種方式來使用自訂元件。不論在叢集上使�
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster provisioning"
+
 <!--HONumber=42-->

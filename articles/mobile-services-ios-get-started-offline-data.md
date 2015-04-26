@@ -295,4 +295,5 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 [Azure Friday︰Azure 行動服務中的離線應用程式]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
 
+
 <!--HONumber=42-->

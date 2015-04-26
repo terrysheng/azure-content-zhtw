@@ -53,4 +53,5 @@
    	請注意，**skip(3)** 方法在查詢 URI 中會轉譯成查詢選項 **$skip=3**。
 
 <!-- URLs -->
-[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412<!--HONumber=42-->
+[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412
+<!--HONumber=42-->

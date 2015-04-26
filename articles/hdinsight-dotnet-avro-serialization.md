@@ -1408,4 +1408,5 @@ Microsoft Avro 程式庫可使用反映、根據要序列化的 C# 物件資料�
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
 
+
 <!--HONumber=42-->

@@ -46,4 +46,5 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
 [AZURE.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
 
 如需詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
+
 <!--HONumber=42-->

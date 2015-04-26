@@ -722,4 +722,5 @@ HDInsight 叢集隨附一個範例 Hive 資料表，稱為  *hivesampletable*。
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
+
 <!--HONumber=42-->

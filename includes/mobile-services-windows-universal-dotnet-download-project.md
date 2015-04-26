@@ -19,4 +19,5 @@
 
 	![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png)
 
-6. 重複步驟 3 和 4 以確認範例的行為相同。<!--HONumber=42-->
+6. 重複步驟 3 和 4 以確認範例的行為相同。
+<!--HONumber=42-->

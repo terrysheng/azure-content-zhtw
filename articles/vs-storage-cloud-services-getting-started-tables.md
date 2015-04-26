@@ -42,4 +42,5 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
       CloudConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
 
 [AZURE.INCLUDE [vs-storage-getting-started-tables-include](../includes/vs-storage-getting-started-tables-include.md)]
+
 <!--HONumber=42-->

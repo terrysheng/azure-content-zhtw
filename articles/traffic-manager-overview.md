@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="流量管理員概觀"
-   description="本文將協助您了解何謂流量管理員及其運作方式"
+   pageTitle="流量管理員概觀
+   description="本文將協助您了解何謂流量管理員及其運作方式
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/27/2015"
-   ms.author="joaoma" />
+   ms.author="cherylmc" />
 
 # 流量管理員概觀
 

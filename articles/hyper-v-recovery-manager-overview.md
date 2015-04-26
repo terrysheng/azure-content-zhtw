@@ -1,6 +1,6 @@
-﻿<properties 
-	pageTitle="Azure 站台復原概觀" 
-	description="部署 Azure 站台復原，以將其他內部部署站台或 Azure 當做目的地保護內部部署虛擬機器。" 
+<properties 
+	pageTitle="Azure Site Recovery 概觀" 
+	description="部署 Azure Site Recovery，以將其他內部部署站台或 Azure 當做目的地保護內部部署虛擬機器。" 
 	services="site-recovery" 
 	documentationCenter="" 
 	authors="raynew" 
@@ -16,7 +16,7 @@
 	ms.date="02/18/2015" 
 	ms.author="raynew"/>
 
-# Azure 站台復原概觀
+# Azure Site Recovery 概觀
 
 <div class="dev-callout"> 
 <p>Azure Site Recovery 會在一些案例中協調複寫和容錯移轉：</p>
@@ -45,10 +45,10 @@
 </thead>
 
 <tr>
-<td>資料至 Azure 站台復原</td>
-<td><p>雲端中繼資料會傳送至 Azure 站台復原。</p> <p>複寫的資料會儲存在 Azure 儲存體中。</p></td>
-<td><p>雲端中繼資料會傳送至 Azure 站台復原。</p> <p>複寫資料儲存在目標 Hyper-V 伺服器所指定的位置。</p></td>
-<td><p>雲端中繼資料會傳送至 Azure 站台復原。</p> <p>複寫資料儲存在目標陣列存放裝置中。</p></td>
+<td>資料至 Azure Site Recovery</td>
+<td><p>雲端中繼資料會傳送至 Azure Site Recovery。</p> <p>複寫的資料會儲存在 Azure 儲存體中。</p></td>
+<td><p>雲端中繼資料會傳送至 Azure Site Recovery。</p> <p>複寫資料儲存在目標 Hyper-V 伺服器所指定的位置。</p></td>
+<td><p>雲端中繼資料會傳送至 Azure Site Recovery。</p> <p>複寫資料儲存在目標陣列存放裝置中。</p></td>
 </tr>
 
 <tr>
@@ -74,7 +74,7 @@
 
 <tr>
 <td>Azure 儲存體</td>
-<td><p>需要 Azure 儲存體帳戶。</p> <p>帳戶應該啟用異地複寫、與 Azure 站台復原服務位於相同的區或，且與相同的訂閱相關聯。</p></td>
+<td><p>需要 Azure 儲存體帳戶。</p> <p>帳戶應該啟用異地複寫、與 Azure Site Recovery 服務位於相同的區或，且與相同的訂閱相關聯。</p></td>
 <td>不適用</td>
 <td>不適用</td>
 </tr>
@@ -108,7 +108,7 @@
 </tr>
 
 <tr>
-<td>Azure 站台復原提供者</td>
+<td>Azure Site Recovery 提供者</td>
 <td>安裝在來源 VMM 伺服器上</td>
 <td>安裝在來源和目標 VMM 伺服器上</td>
 <td>安裝在來源和目標 VMM 伺服器上</td>

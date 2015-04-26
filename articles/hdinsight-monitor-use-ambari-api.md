@@ -186,4 +186,5 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
+
 <!--HONumber=42-->

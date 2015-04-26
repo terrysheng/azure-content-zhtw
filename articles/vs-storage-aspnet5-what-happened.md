@@ -41,4 +41,5 @@ Azure 儲存體 NuGet 封裝已加入至 Visual Studio 專案。
 ##### 加入 Azure 儲存體的連接字串 
 在專案的 config.json 檔案中，已使用所選儲存體帳戶的連接字串和金鑰建立一個元素。
 
-如需詳細資訊，請參閱 [ASP.NET 5](http://www.asp.net/vnext)。<!--HONumber=42-->
+如需詳細資訊，請參閱 [ASP.NET 5](http://www.asp.net/vnext)。
+<!--HONumber=42-->

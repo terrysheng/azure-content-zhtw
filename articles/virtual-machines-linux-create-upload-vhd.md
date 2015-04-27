@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="在 Azure 中建立及上傳 Linux VHD" 
 	description="了解如何建立及上傳包含 Linux 作業系統的 Azure 虛擬硬碟 (VHD)。" 
 	services="virtual-machines" 
@@ -20,7 +20,7 @@
 
 本文說明如何建立及上傳虛擬硬碟 (VHD)，以便用它做為您自己的映像，在 Azure 中建立虛擬機器。您將了解如何準備作業系統，以便用它根據該映像建立多台虛擬機器。  
 
-> [AZURE.NOTE] 您不需要有任何 Azure VM 的使用經驗，也能完成本文中的步驟。但您必須要有 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資訊，請參閱[建立 Azure 帳戶](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/)。 
+> [AZURE.NOTE] 您不需要有任何 Azure VM 的使用經驗，也能完成本文的步驟。但您必須要有 Azure 帳戶。只需要幾分鐘的時間，您就可以建立免費試用帳戶。如需詳細資訊，請參閱[建立 Azure 帳戶](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/)。 
 
 Azure 中的虛擬機器會執行根據您建立虛擬機器時所選擇映像的作業系統。您的映像會以 VHD 格式的 .vhd 檔案儲存在儲存體帳戶中。如需 Azure 中的磁碟和映像的詳細資訊，請參閱[管理磁碟和映像](http://msdn.microsoft.com/library/windowsazure/jj672979.aspx)。
 
@@ -34,7 +34,7 @@ Azure 中的虛擬機器會執行根據您建立虛擬機器時所選擇映像�
 
 - **管理憑證** - 您已針對要上傳 VHD 的訂閱建立管理憑證，並將此憑證匯出至 .cer 檔案。如需建立憑證的詳細資訊，請參閱[建立 Azure 的管理憑證](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx)。 
 
-- **儲存在 .vhd 檔案中的 Linux 作業系統**  - 您已將支援的 Linux 作業系統安裝在虛擬硬碟中。有多項工具可用來建立 .vhd 檔案，例如，您可以使用虛擬化解決方案 (例如 Hyper-V) 來建立 .vhd 檔案並安裝作業系統。如需指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。 
+- **以 .vhd 檔案安裝的 Linux 作業系統**  - 您已將支援的 Linux 作業系統安裝至虛擬硬碟。有多項工具可用來建立 .vhd 檔案，例如，您可以使用虛擬化解決方案 (例如 Hyper-V) 來建立 .vhd 檔案並安裝作業系統。如需指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。 
 
 	**重要事項**：Azure 不支援較新的 VHDX 格式。您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。
 
@@ -42,7 +42,7 @@ Azure 中的虛擬機器會執行根據您建立虛擬機器時所選擇映像�
 
 - **Linux Azure 命令列工具** - 如果您打算使用 Linux 作業系統來建立映像，則您可以使用 [適用於 Linux 和 Mac 的 Azure 命令列工具](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409)來上傳 VHD。
 
-- **Azure Powershell 工具** -  `Add-AzureVhd` Cmdlet 也可用來上傳 VHD。若要下載 Azure Powershell Cmdlet，請造訪 [Azure 下載](http://azure.microsoft.com/downloads/)。如需參照資訊，請參閱 [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn495173.aspx)。
+- **Azure Powershell 工具** -  `Add-AzureVhd` Cmdlet 也可用來上傳 VHD。若要下載 Azure Powershell Cmdlet，請造訪 [Azure 下載](http://azure.microsoft.com/downloads/)。如需參考資訊，請參閱 [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn495173.aspx)。
 
 
 此工作包含下列步驟：
@@ -58,13 +58,13 @@ Microsoft Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](l
 
 - **[CentOS 型散發套件](virtual-machines-linux-create-upload-vhd-centos.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
-- **[SLES & openSUSE](virtual-machines-linux-create-upload-vhd-suse.md)**
+- **[SLES 和 openSUSE](virtual-machines-linux-create-upload-vhd-suse.md)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 - **[其他 - 非背書散發套件](virtual-machines-linux-create-upload-vhd-generic.md)**
 
-如需準 Azure 的 Linux 映像之其他秘訣，請參閱 **[Linux 安裝注意事項](../virtual-machines-linux-create-upload-vhd-generic/#linuxinstall)**。
+另請參閱 **[Linux 安裝注意事項](../virtual-machines-linux-create-upload-vhd-generic/#linuxinstall)**，以取得準備 Azure 之 Linux 映像的其他秘訣。
 
-遵循上述指南中的步驟後，您應會有一個已準備好上傳到 Azure 的 VHD 檔案。
+在完成上述指南中的步驟後，您應會有一個已準備好上傳到 Azure 的 VHD 檔案。
 
 
 ## <a id="createstorage"> </a>步驟 2：在 Azure 中建立儲存體帳戶 ##
@@ -73,11 +73,11 @@ Microsoft Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](l
 
 1. 登入 Azure 管理入口網站。
 
-2. 在命令列上，按一下 [新增]。
+2. 在命令列上，按一下 **[新增]**。
 
 	![Create storage account](./media/virtual-machines-linux-create-upload-vhd/create.png)
 
-3. 按一下 [儲存體帳戶]，然後按一下 [快速建立]。
+3. 按一下 **[儲存體帳戶]**，然後按一下 **[快速建立]**。
 
 	![Quick create a storage account](./media/virtual-machines-linux-create-upload-vhd/storage-quick-create.png)
 
@@ -85,15 +85,15 @@ Microsoft Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](l
 
 	![Enter storage account details](./media/virtual-machines-linux-create-upload-vhd/storage-create-account.png)
 
-- 在 [URL] 下，為儲存體帳戶輸入要在 URL 中使用的子網域名稱。此項目可以包含 3 至 24 個小寫字母與數字。此名稱會成為 URL 內用來為訂閱的 Blob、「佇列」或「資料表」資源定址的主機名稱。
+- 在 **[URL]** 下，為儲存體帳戶輸入要在 URL 中使用的子網域名稱。此項目可以包含 3 至 24 個小寫字母與數字。此名稱會成為 URL 內用來為訂閱的 Blob、「佇列」或「資料表」資源定址的主機名稱。
 	
 - 選擇儲存體帳戶的位置或同質群組。藉由指定同質群組，您可以將雲端服務並置在與儲存體相同的資料中心。
  
 - 決定儲存體帳戶是否要使用地理區域複寫。依預設會開啟地理區域複寫。此選項可讓您免費將資料複寫至次要位置，使您在遇到無法在主要位置中處理的重大錯誤時，可將儲存體容錯移轉至次要位置。次要位置會自動指派，且無法變更。如果法律規定或組織原則要求您必須更嚴密地掌控雲端儲存體的位置，您可以關閉地理區域複寫。但請注意，如果您後續又開啟地理區域複寫，在您將現有的資料複寫至次要位置時，將會產生一次性的資料傳輸費用。不含地理區域複寫的儲存服務會有相對的折扣。
 
-5. 按一下 [建立儲存體帳戶]。
+5. 按一下 **[建立儲存體帳戶]**。
 
-	帳戶此時會列在 [儲存體帳戶]。
+	帳戶此時會列在 [**儲存體帳戶**] 下。
 
 	![Storage account successfully created](./media/virtual-machines-linux-create-upload-vhd/Storagenewaccount.png)
 
@@ -116,7 +116,7 @@ Microsoft Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](l
 
 	`Import-AzurePublishSettingsFile <PathToFile>`
 
-	其中，`<PathToFile>` 是 .publishsettings 檔案的完整路徑。 
+	其中 `<PathToFile>` 是 .publishsettings 檔案的完整路徑。 
 
 	如需詳細資訊，請參閱[開始使用 Azure Cmdlet](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
 
@@ -145,6 +145,4 @@ Microsoft Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](l
 [步驟 4：將映像上傳至 Azure]: #upload
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

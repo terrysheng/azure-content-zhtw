@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 通知中心通知使用者" 
+	pageTitle="Azure 通知中樞通知使用者" 
 	description="了解如何在 Azure 中傳送安全的推播通知。程式碼範例是以 Objective-C 撰寫並使用 .NET API。" 
 	documentationCenter="ios" 
 	authors="ysxu" 
@@ -16,28 +16,28 @@
 	ms.date="11/22/2014" 
 	ms.author="yuaxu"/>
 
-# Azure 通知中心通知使用者
+# Azure 通知中樞通知使用者
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/zh-tw/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
-		<a href="/zh-tw/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
+    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
+		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
-Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，而大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。本教學課程將示範如何使用 Azure 通知中心，來將推播通知傳送到特定裝置上的特定應用程式使用者。ASP.NET WebAPI 後端可用來驗證用戶端並產生通知，如指引主題[從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中所示。
+Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，而大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。本教學課程將示範如何使用 Azure 通知中樞，來將推播通知傳送到特定裝置上的特定應用程式使用者。ASP.NET WebAPI 後端可用來驗證用戶端並產生通知，如指引主題[從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中所示。
 
-> [AZURE.NOTE] 本教學課程假設您已建立並設定通知中樞，如[開始使用通知中樞 (iOS)](http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/) 中所述。本教學課程也是[安全推播 (iOS)](http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/) 教學課程的必要條件。
-> 如果您使用行動服務作為後端服務，請參閱本教學課程的[行動服務版本](mobile-services-javascript-backend-ios-push-notifications-app-users.md)。
+> [AZURE.NOTE] 本教學課程假設您已建立並設定通知中樞，如[開始使用通知中樞 (iOS)](notification-hubs-ios-get-started.md) 中所述。本教學課程亦是[安全推播 (iOS)](notification-hubs-aspnet-backend-ios-secure-push.md) 教學課程的必要條件。
+> 如果您要使用行動服務做為後端服務，請參閱本教學課程的[行動服務版本](mobile-services-javascript-backend-ios-push-notifications-app-users.md) 。
 
 
-## 建立與設定通知中心
+## 建立與設定通知中樞
 
-請遵循 [開始使用通知中心 (iOS)](http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/) 中 1 到 5 節的指示進行。如需 iOS 裝置佈建上的其他資源，請參閱 [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html) 中的指南。
+請遵循 [開始使用通知中樞 (iOS)](notification-hubs-ios-get-started.md) 中 1 到 5 節的指示進行。如需 iOS 裝置佈建上的其他資源，請參閱 [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html) 中的指南。
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## 修改您的 iOS 應用程式
 
-1. 開啟您依照[開始使用通知中心 (iOS)](http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/) 中第 1 節到第 5 節所建立的單一頁面檢視應用程式。
+1. 開啟您依照[開始使用通知中樞 (iOS)](notification-hubs-ios-get-started.md) 中第 1 節到第 5 節所建立的單一頁面檢視應用程式。
 
 > [AZURE.NOTE] 在本節中，我們假設您已使用空白組織名稱設定您的專案。否則，您需要針對所有類別名稱預先考量您的組織名稱。
 
@@ -206,7 +206,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 		    [dataTask resume];
 		}
 
-	上面的程式碼會實作指引文章[從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中所說明的邏輯，方法是使用 NSURLSession 來對您的應用程式後端執行 REST 呼叫，然後使用 NSUserDefaults 來本機儲存通知中心傳回的 registrationId。
+	上面的程式碼會實作指引文章[從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中所說明的邏輯，方法是使用 NSURLSession 來對您的應用程式後端執行 REST 呼叫，然後使用 NSUserDefaults 在本機上儲存通知中樞傳回的 registrationId。
 
 	請注意，此類別需要設定 **authorizationHeader** 屬性，才能正常運作。您可以在登入後，透過 **ViewController** 類別設定此屬性。
 
@@ -327,11 +327,11 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 2. 在 iOS 應用程式 UI 中，輸入使用者名稱和密碼。這些可以是任何字串，但必須是相同值。然後按一下 [**登入**]。
 
-3. 您應該會看到註冊成功的快顯通知。按一下 **[確定]**。
+3. 您應該會看到註冊成功的快顯通知。按一下 [**確定**]。
 
 4. 按一下 [**傳送推播**]，並按 home 按鈕。隨即出現推播通知。
 
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

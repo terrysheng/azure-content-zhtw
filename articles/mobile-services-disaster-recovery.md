@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="發生災害時回復行動服務 - Azure 行動服務" 
 	description="了解如何在發生災害時回復行動服務。" 
 	services="mobile-services" 
@@ -77,7 +77,7 @@
 5. 與原始檔控制中的原始版本比較，以確認所有指令碼都已正確回復。在大部分情況下，指令碼會自動回復而不會遺失資料，但如果您發現有不一致之處，則可以手動回復該指令碼。
 
 6. 請確定回復後的服務開始與 Azure SQL Database 進行通訊。回復命令會回復行動服務，但會保留原始資料庫的連線。如果主要 Azure 區域中的問題也影響到資料庫，則已回復的服務可能仍然無法正確執行。您可以利用 Azure 服務儀表板來檢查特定區域的資料庫狀態。如果原始資料庫未執行時，您可以回復它：
-	+ 依照 [SQL Database 的業務續航力]中的說明，將 Azure SQL Database 回復到您剛回復行動服務的 Azure 區域。
+	+ 依照 [SQL Database 業務持續性]中的說明，將 Azure SQL Database 回復到您剛回復行動服務的 Azure 區域。
 	+ 在 Azure 入口網站中，在行動服務的 [**設定**] 索引標籤上選擇 [變更資料庫]，然後選取剛回復的資料庫。
 
 現在的狀態應該是行動服務已回復到新的 Azure 區域，且現在正使用其原始 URL 接收來自您的市集應用程式的流量。
@@ -87,13 +87,13 @@
 <!-- Images. -->
 
 <!-- URLs. -->
-[SQL Database 的業務續航力]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
+[SQL Database 業務持續性]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
 [原始檔控制功能]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
 [使用 Azure 命令列工具]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [Azure 入口網站]: http://manage.windowsazure.com/
 [Azure 服務儀表板]: http://www.windowsazure.com/support/service-dashboard/
-[使用命令列工具將行動服務自動化]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
+[使用命令列工具來自動化行動服務]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
 <!--HONumber=47-->

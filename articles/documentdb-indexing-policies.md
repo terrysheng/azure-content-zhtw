@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="DocumentDB 索引編製原則 | Azure" 
 	description="了解 DocumentDB 中索引的運作方式，以及了解如何設定索引原則。" 
 	services="documentdb" 
@@ -152,7 +152,7 @@ DocumentDB 中的索引利用 JSON 文法允許**以樹狀結構表示**文件�
 如果您的使用案例並不需要有效率的範圍查詢，則預設的雜湊索引可提供最佳的儲存與效能取捨。請注意，若要支援範圍查詢，您必須指定自訂的索引原則。
 
 > [AZURE.NOTE] 只有針對數值才支援範圍索引。
-  
+  
 下列範例示範如何使用 .NET SDK 提高集合中範圍索引的精確度。請注意，這裡會使用特殊的路徑 "/" (將在下一節中說明)。
 
 

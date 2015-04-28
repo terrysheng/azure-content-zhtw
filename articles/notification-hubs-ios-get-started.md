@@ -1,6 +1,6 @@
-﻿<properties 
-	pageTitle="Приступая к работе с концентраторами уведомлений Azure" 
-	description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений." 
+<properties 
+	pageTitle="開始使用 Azure 通知中樞" 
+	description="了解如何使用 Azure 通知中樞推播通知。" 
 	services="notification-hubs" 
 	documentationCenter="ios" 
 	authors="wesmc" 
@@ -16,95 +16,95 @@
 	ms.date="03/16/2015" 
 	ms.author="wesmc"/>
 
-# Приступая к работе с концентраторами уведомлений
+# 開始使用通知中樞
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
 
-##Обзор
+## 概觀
 
-В этом разделе показано, как использовать концентраторы уведомлений Azure для отправки push-уведомлений в приложение на платформе iOS.
-В этом учебнике вам предстоит создать пустое приложение iOS, получающее push-уведомления с помощью службы push-уведомлений Apple (APNS). По завершении вы сможете рассылать push-уведомления на все устройства, где запущено ваше приложение, с помощью центра уведомлений.
+本主題將示範如何使用 Azure 通知中樞將推播通知傳送至 iOS 應用程式。
+在本教學課程中，您將使用 Apple 推播通知服務 (APN)，建立可接收推播通知的空白 iOS 應用程式。完成時，您便能夠使用通知中樞，將推播通知廣播到所有正在執行您應用程式的裝置。
 
-В этом учебнике описывается простой сценарий вещания с использованием центров уведомлений. 
+本教學課程將示範使用通知中樞的簡單廣播案例。 
 
-##Предварительные требования
+## 必要條件
 
-Для работы с этим учебником нужны такие компоненты:
+本教學課程需要下列先決條件：
 
-+ [Пакет SDK для мобильных служб для iOS]
-+ [XCode 4.5][Установка Xcode]
-+ Устройство с iOS 5.0 (или более поздней версии)
-+ Участие в программе для разработчиков на платформе iOS
++ [行動服務 iOS SDK]
++ [XCode 4.5][安裝 Xcode]
++ iOS 5.0 (或以上版本) 功能裝置
++ iOS Developer Program 成員資格
 
-   > [AZURE.NOTE] В соответствии с требованиями к конфигурации push-уведомлений необходимо развернуть и протестировать push-уведомления на устройстве с iOS (iPhone или iPad), а не в эмуляторе.
+   > [AZURE.NOTE] 基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
 
-Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными центрам уведомлений для приложений iOS.
+完成本教學課程是 iOS 應用程式所有其他通知中樞教學課程的先決條件。
 
-> [AZURE.NOTE] Для работы с этим учебником требуется активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в статье [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
+> [AZURE.NOTE] 若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started)。
 
 [AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
-##Настройка концентратора уведомлений
+## 設定通知中樞
 
-1. В Keychain Access щелкните правой клавишей мыши по новому сертификату **Мои сертификаты** приложения быстрого запуска. Нажмите **Экспорт**, задайте имя файла, выберите формат **.p12** и нажмите кнопку **Сохранить**.
+1. 在 Keychain Access 中，以滑鼠右鍵按一下快速入門應用程式的新憑證 [**我的憑證**]。按一下 [**匯出**]、為檔案命名、選取 [**.p12**] 格式，然後按一下 [**儲存**]。
 
     ![][26]
 
-  Запишите имя файла и расположение экспортируемого сертификата.
+  記下匯出憑證的檔案名稱和位置。
 
->[AZURE.NOTE] В этом учебнике создается файл Quickstart.p12. Имя файла и расположение могут отличаться.
+>[AZURE.NOTE] 本教學課程會建立 QuickStart.p12 檔案。您可能會有不同的檔案名稱和位置。
 
-2. Войдите на [портал управления Azure] и щелкните **+СОЗДАТЬ** в нижней части экрана.
+2. 登入 [Azure 管理入口網站]，並按一下畫面底部的 [**+新增**]。
 
-3. Последовательно щелкните элементы **Службы приложений**, **Шина обслуживания**, **Концентратор уведомлений** и **Быстрое создание**.
+3. 依序按一下 [**應用程式服務 (App Services)**]、[**服務匯流排 (Service Bus)**]、[**通知中樞 (Notification Hub)**]、[**快速建立 (Quick Create)**]。
 
    	![][27]
 
-4. Введите имя для центра уведомлений, выберите нужный регион и щелкните элемент **Создать новый центр уведомлений**.
+4. 為您的通知中樞輸入名稱、選取所需的區域，然後按一下 [**建立新的通知中樞**]。
 
    	![][28]
 
-5. Выберите только что созданное пространство имен (обычно это ***имя концентратора уведомлений*-ns**) и щелкните расположенную вверху вкладку **Настройка**.
+5. 按一下您剛才建立的命名空間 (通常為 ***notification hub name*-ns**)，然後按一下頂端的 [**設定**] 索引標籤。
 
    	![][29]
 
-6. Откройте расположенную вверху вкладку **Концентраторы уведомлений** и выберите недавно созданный концентратор уведомлений.
+6. 按一下頂端的 [**通知中樞**] 索引標籤，然後按一下您剛才建立的通知中樞。
 
    	![][210]
 
-7. Выберите расположенную сверху вкладку **Настройка**, а затем щелкните **Загрузить** для параметров службы уведомлений Apple. Выберите ранее экспортированный сертификат **.p12** и пароль для него. Обязательно укажите, следует ли использовать службу push-уведомлений **Рабочая среда** (если вы хотите отправлять push-уведомления пользователям, которые приобрели ваше приложение в Магазине) или **Песочница** (во время разработки).
+7. 選取頂端的 [**設定**] 索引標籤，然後按一下 Apple 通知設定的 [**上傳**]。然後選取稍早匯出的 **.p12** 憑證，以及憑證的密碼。務必選擇要使用**生產** (如果要傳送推播通知給在市集購買您應用程式的使用者) 或**沙箱** (開發期間) 推播服務。
 
    	![][211]
 
-8. Щелкните расположенную сверху вкладку **Панель мониторинга** и щелкните **Сведения о подключении**. Запишите значения двух строк подключения.
+8. 按一下頂端的 [**儀表板**] 索引標籤，然後按一下 [**連接資訊**]。記下這兩個連接字串。
 
    	![][212]
 
-Концентратор уведомлений теперь настроен для работы с APNs, и у вас есть строки подключения, чтобы зарегистрировать приложение и отправлять уведомления.
+現在已將您的通知中樞設定成使用 APN，而且您已擁有可用來註冊應用程式和傳送通知的連接字串。
 
-##Подключение приложения к концентратору уведомлений
+## 將您的應用程式連接到通知中樞
 
-1. В XCode создайте новый проект iOS и выберите шаблон **Приложение одного представления**.
+1. 在 XCode 中建立新的 iOS 專案，並選取 [**Single View Application**] 範本。
 
    	![][31]
 
-2. В разделе **Цели** щелкните имя проекта, разверните **Удостоверения подписи кода**, а затем в разделе **Отладка** выберите профиль удостоверения подписи кода. Кроме того, при использовании более новой версии XCode переключите параметр **Levels** (Уровни) с **Basic** (Базовые) на **All** (Все) и задайте для элемента строки **Provisioning Profile** (Профиль подготовки) профиль подготовки.
+2. 在 [**目標**] 下按一下您的專案名稱，然後展開 [**Code Signing Identity**]，接著在 [**偵錯**] 下選取程式碼簽署識別設定檔。另外，如果使用較新版本的 XCode，請將 [**層級**] 從 [**基本**] 切換成 [**全部**]，並將 [**Provisioning Profile**] 行項目設定為佈建設定檔。
 
    	![][32]
 
-3. Скачайте пакет Azure Mobile SDK для iOS. Откройте ZIP-файл и перетащите папку WindowsAzureMessaging.framework в папку Framework в проекте XCode. Выберите **Copy items in destination group's folder** (Копировать элементы в папку конечной группы) и нажмите кнопку **ОК**.
+3. 下載 Azure Mobile SDK for iOS。開啟 .zip 檔案，並將 WindowsAzureMessaging.framework 資料夾拖曳到 XCode 專案中的 Framework 資料夾。選取 [**Copy items in destination group's folder**]，然後按一下 [**確定**]。
 
    	![][33]
 
-4. В файле AppDelegate.h добавьте следующий каталог импорта:
+4. 在 AppDelegate.h 檔案中新增下列 import 指示詞：
 
          #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
 
-5. В файле AppDelegate.m добавьте следующий код в метод `didFinishLaunchingWithOptions`:
+5. 在 AppDelegate.m 檔案的  `didFinishLaunchingWithOptions` 方法中新增下列程式碼：
 
          [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
-	Для iOS 8
+	對於 iOS 8
    
 	 	UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
                                             UIUserNotificationTypeAlert |
@@ -114,7 +114,7 @@
     	[[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     	[[UIApplication sharedApplication] registerForRemoteNotifications];
 
-6. В том же файле добавьте следующий метод:
+6. 在相同檔案中新增下列方法：
 
 	    - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
 		    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:
@@ -127,7 +127,7 @@
 	    	}];
 		}
 
-7. *(Необязательно)* В том же самом файле добавьте следующий метод для отображения **UIAlert**, если уведомление получено при активном приложении:
+7. *(選用)* 同樣地，如果應用程式正在作用中時收到通知，您可以在相同檔案中新增下列方法以顯示 **UIAlert**：
 
 
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
@@ -138,33 +138,33 @@
 		    [alert show];
 		}
 
-8. Запустите приложение на устройстве.
+8. 在您的裝置上執行應用程式。
 
-##Отправка уведомления из серверной части
+## 從後端傳送通知
 
-Уведомления можно отправлять с помощью концентраторов уведомлений из любого серверного компонента с помощью [интерфейса REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx). В этом учебнике мы будем отправлять уведомления с помощью консольного приложения .NET. Пример отправки уведомлений с сервера мобильных служб Azure, интегрированного с концентраторами уведомлений, см. в статье **Приступая к работе с push-уведомлениями в мобильных службах** ([сервер .NET](mobile-services-javascript-backend-ios-get-started-push.md) | [серверная часть JavaScript](mobile-services-javascript-backend-ios-get-started-push.md)).  Пример отправки уведомлений с помощью интерфейсов API REST см. в статье **Использование концентраторов уведомлений с Java/PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
+您可以使用 [REST 介面](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)，從任何後端使用通知中樞來傳送通知。在本教學課程中，您將透過 .NET 主控台應用程式來傳送通知。如需如何從已與通知中樞整合的 Azure 行動服務後端傳送通知的範例，請參閱**開始在行動服務中使用推播通知** ([.NET 後端](mobile-services-javascript-backend-ios-get-started-push.md) | [JavaScript 後端](mobile-services-javascript-backend-ios-get-started-push.md))。如需如何使用 REST API 傳送通知的範例，請參閱**如何從 Java/PHP 使用通知中樞** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md))。
 
-1. В Visual Studio в меню **Файл** последовательно выберите **Создать**, **Проект...**, а затем в области **Visual C#** щелкните **Windows** и **Консольное приложение** и нажмите кнопку **ОК**.  
+1. 在 Visual Studio 中，從 [**檔案**] 功能表選取 [**新建**]、[**專案...**]，然後按一下 [**Visual C#**] 下方的 [**Windows**] 和 [**主控台應用程式**]，再按一下 [**確定**]。  
 
    	![][20]
 
-	Будет создан новый проект консольного приложения.
+	這會建立新的主控台應用程式專案。
 
-2. В меню **Инструменты** последовательно выберите **Диспетчер пакетов библиотеки** и **Консоль диспетчера пакетов**.
+2. 在 [**工具**] 功能表中按一下 [**Library Package Manager**]，再按一下 [**Package Manager Console**]。
 
-	Отобразится консоль диспетчера пакетов.
+	這會顯示 [Package Manager Console]。
 
-6. В окне консоли выполните следующую команду:
+6. 在主控台視窗中，執行下列命令：
 
         Install-Package WindowsAzure.ServiceBus
 
-	После этого будет добавлена ссылка на пакет SDK для Azure Service Bus с помощью пакета NuGet <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus</a>.
+	這會使用 <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 封裝</a>，來新增 Azure 服務匯流排 SDK 的參考。
 
-5. Откройте файл Program.cs и добавьте следующий оператор `using`:
+5. 開啟檔案 Program.cs，並新增下列  `using` 陳述式：
 
         using Microsoft.ServiceBus.Notifications;
 
-6. В классе **Program** добавьте следующий метод:
+6. 在 **Program** 類別中，新增下列方法：
 
         private static async void SendNotificationAsync()
         {
@@ -173,24 +173,24 @@
             await hub.SendAppleNativeNotificationAsync(alert);
         }
 
-	Обязательно замените заполнитель "имя центра" именем центра уведомлений, отображаемым на вкладке **Центры уведомлений** портала: Замените заполнитель строки подключения строкой с именем **DefaultFullSharedAccessSignature**, полученной в разделе "Настройка центра уведомлений".
+	請確實使用出現在入口網站 [**通知中樞**] 索引標籤上的通知中樞名稱，取代 "hub name" 預留位置。此外，請使用您在「設定通知中樞」一節中取得之名為 **DefaultFullSharedAccessSignature** 的連接字串，來取代連接字串預留位置。
 
-	>[AZURE.NOTE]Обязательно используйте строку подключения с **полным** доступом, а не с доступом для **прослушивания**. У строки с доступом к прослушиванию нет прав на отправку уведомлений.
+	>[AZURE.NOTE]請確定您使用包含 [**完整**] 存取權 (而非 [**接聽**] 存取權) 的連接字串。接聽存取權字串不具備傳送通知的權限。
 
-5. Затем добавьте следующие строки в метод **Main**:
+5. 接著在 **Main** 方法中新增下列程式碼行：
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-5. Нажмите клавишу F5, чтобы запустить консольное приложение.
+5. 按 F5 鍵以執行主控台應用程式。
 
-	На устройстве должно отобразиться оповещение. Если вы используете Wi-fi, убедитесь, что подключение работает.
+	您應該會在裝置上收到警示。如果您使用 Wi-fi，請確定連線正在運作。
 
-Все возможные виды полезных нагрузок можно найти в [руководстве по программированию локальных и push-уведомлений] Apple.
+您可以在 Apple [本機和推播通知程式設計指南]中找到所有可能的裝載。
 
-##Дальнейшие действия
+## 後續步驟
 
-В этом простом примере осуществляется рассылка уведомлений на все устройства iOS. Для охвата определенных пользователей см. учебник [Использование концентраторов уведомлений для отправки push-уведомлений пользователям], если же требуется разделить пользователей по группам интересов, см. [Использование концентраторов уведомлений для передачи экстренных новостей]. Дополнительные сведения об использовании концентраторов уведомлений см. в статье [Общие сведения о концентраторах уведомлений].
+在此簡單範例中，您將廣播通知到您的所有 iOS 裝置。若要以特定使用者為目標，請參閱[使用通知中樞來推播通知給使用者][使用通知中樞將通知推播給使用者]教學課程，在此同時，如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中樞傳送即時新聞]。在[通知中樞指引]中深入了解如何使用通知中樞。
 
 
 
@@ -266,21 +266,21 @@
 
 
 <!-- URLs. -->
-[Пакет SDK для мобильных служб для iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Отправка страницы приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[行動服務 iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
+[提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started-ios
-[Портал управления Azure]: https://manage.windowsazure.com/
-[Руководство по использованию концентраторов уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
-[Установка Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Портал подготовки iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[開始使用行動服務]: /develop/mobile/tutorials/get-started-ios
+[Azure 管理入口網站]: https://manage.windowsazure.com/
+[通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx
+[安裝 Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[iOS 佈建入口網站]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Использование концентраторов уведомлений для отправки push-уведомлений пользователям]: notification-hubs-ios-mobile-services-register-user-push-notifications.md
-[Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-ios-send-breaking-news.md
+[使用通知中樞將通知推播給使用者]: notification-hubs-ios-mobile-services-register-user-push-notifications.md
+[使用通知中樞傳送即時新聞]: notification-hubs-ios-send-breaking-news.md
 
-[Руководство по программированию локальных и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[本機和推播通知程式設計指南]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
 
 <!--HONumber=49-->

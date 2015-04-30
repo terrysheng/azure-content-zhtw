@@ -25,7 +25,7 @@
 
 如果您依照＜使用 IPython Notebook 伺服器設定 Azure 虛擬機器＞中的指示執行，就已經將這個指令碼檔案下載至虛擬機器上的 `C:\Users\<user name>\Documents\Data Science Scripts` 目錄中。您需要在這些查詢的對應欄位中插入自己的資料結構描述和 Azure Blob 儲存體設定，而這些 Hive 查詢應已準備好可進行提交。 
 
-我們假設 Hive 資料表的資料為**未壓縮**的表格格式，而且資料已上傳至 Hadoop 叢集所使用的儲存體帳戶的預設或其他容器。如果使用者想要練習「NYC 計程車車程資料」__，就需要先[下載全部的 24 個檔案](http://www.andresmh.com/nyctaxitrips/) (12 個車程檔和 12 個費用檔)、將所有檔案**解壓縮**至 .csv 檔案，然後將它們上傳至在[自訂 Azure HDInsight Hadoop 叢集](machine-learning-data-science-customize-hadoop-cluster.html)時所使用的 Azure 儲存體帳戶的預設或其他容器。 
+我們假設 Hive 資料表的資料為**未壓縮**的表格格式，而且資料已上傳至 Hadoop 叢集所使用的儲存體帳戶的預設或其他容器。如果使用者想要練習_「NYC 計程車車程資料」_，就需要先[下載全部的 24 個檔案](http://www.andresmh.com/nyctaxitrips/) (12 個車程檔和 12 個費用檔)、將所有檔案**解壓縮**至 .csv 檔案，然後將它們上傳至在[自訂 Azure HDInsight Hadoop 叢集](machine-learning-data-science-customize-hadoop-cluster.html)時所使用的 Azure 儲存體帳戶的預設或其他容器。 
 
 Hive 查詢可以在 Hadoop 叢集前端節點上的 Hadoop 命令列中提交。您必須：
 
@@ -67,7 +67,6 @@ Hive 查詢可以在 Hadoop 叢集前端節點上的 Hadoop 命令列中提交�
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
 - `<path to blob data>`：如果要上傳至 Hive 資料表的 Blob 檔案是在 HDInsight Hadoop 叢集的預設容器中，`<path to blob data>` 格式應該是 `'wasb:///<directory in this container>/<blob file name>'`。Blob 檔案也可以位於 HDInsight Hadoop 叢集的其他容器中。在此情況下，`<path to blob data>` 格式應該是 `'wasb://<container name>@<storage account name>.blob.windows.core.net/<blob file name>'`。
-
 >[AZURE.NOTE] 上傳至 Hive 資料表的 Blob 資料必須位於 Hadoop 叢集儲存體帳戶的預設或其他容器中。否則， `LOAD DATa` 查詢將會失敗並提報它無法存取資料。 
 
 
@@ -75,7 +74,7 @@ Hive 查詢可以在 Hadoop 叢集前端節點上的 Hadoop 命令列中提交�
 
 如果資料量很大，對於只需掃描資料表中數個資料分割的查詢而言，分割資料表就很有助益。例如，  依日期分割網站的記錄資料就很合理。 
 
-除了分割資料表之外，對於使用 ORC 格式儲存 Hive 資料也很有助益。ORC 代表「已最佳化的單欄式資料列」。  如需更多詳細資訊，請參閱＜[在 Hive 讀取、寫入及處理資料時使用 ORC 檔案提升效能](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles)＞__。
+除了分割資料表之外，對於使用 ORC 格式儲存 Hive 資料也很有助益。ORC 代表「已最佳化的單欄式資料列」。  如需更多詳細資訊，請參閱_＜[在 Hive 讀取、寫入及處理資料時使用 ORC 檔案提升效能](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles)＞_。
 
 ### 資料分割資料表
 

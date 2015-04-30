@@ -140,7 +140,7 @@ https://&#60;Hadoop 叢集名稱>.azurehdinsight.net/Home/HiveEditor
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> SELECT * FROM <database name>.<external textfile table name>;
 
->[AZURE.NOTE] 如果 TEXTFILE 資料表 `<database name>.<external textfile table name>` 具有資料分割，則在步驟 3 中， `SELECT * FROM <database name>.<external textfile table name>` 將會選取資料分割變數做為所傳回資料集中的欄位。將它插入 `<database name>.<ORC table name>` 將會失敗，因為 `<database name>.<ORC table name>` 沒有資料分割參數可做為資料表結構描述中的欄位。在此情況下，使用者需要明確選取要插入 `<database name>.<ORC table name>` 的欄位，如下所示：
+[AZURE.NOTE] 如果 TEXTFILE 資料表 `<database name>.<external textfile table name>` 具有資料分割，則在步驟 3 中， `SELECT * FROM <database name>.<external textfile table name>` 將會選取資料分割變數做為所傳回資料集中的欄位。將它插入 `<database name>.<ORC table name>` 將會失敗，因為 `<database name>.<ORC table name>` 沒有資料分割參數可做為資料表結構描述中的欄位。在此情況下，使用者需要明確選取要插入 `<database name>.<ORC table name>` 的欄位，如下所示：
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
 		      SELECT field1, field2, ..., fieldN

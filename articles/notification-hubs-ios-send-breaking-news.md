@@ -259,6 +259,7 @@
 [使用通知中樞廣播已當地語系化的即時新聞]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
 [行動服務]: /develop/mobile/tutorials/get-started
 [使用通知中樞來通知使用者]: /manage/services/notification-hubs/notify-users/
+[使用通知中樞通知使用者]: /manage/services/notification-hubs/notify-users/
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="BizTalk 規則" 
    description="本主題涵蓋 BizTalk 規則的功能，並提供其使用方式的指示" 
    services="app-service\logic" 
@@ -113,7 +113,7 @@ _IF_ _condition_ _THEN_ _action_
  
    ![Alt text][4]
 
-2. 接著 按一下 [詞彙定義]。這會顯示 [詞彙撰寫畫面]。按一下 [新增]，開始加入新的詞彙定義。
+2.接著 按一下 [詞彙定義]。這會顯示 [詞彙撰寫畫面]。按一下 [新增]，開始加入新的詞彙定義。
 目前支援的詞彙定義有兩種 - 常值和 XML。
 
 ## 常值定義

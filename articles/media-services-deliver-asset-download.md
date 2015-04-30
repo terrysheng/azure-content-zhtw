@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="如何傳遞媒體資產 - Azure" 
 	description="了解在 Azure 中，已上傳至媒體服務的媒體資產有哪些傳遞選項。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
 	services="media-services" 
@@ -16,13 +16,13 @@
 	ms.date="02/15/2015" 
 	ms.author="juliako"/>
 
-# 作法：透過下載來傳遞資產
+# 做法：透過下載來傳遞資產
 
-這篇文章屬於[要求工作流程上的媒體服務視訊](media-services-video-on-demand-workflow.md)系列。  
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)系列的一部分。  
 
-此主題將討論已上傳至媒體服務的媒體資產有哪些傳遞選項。您可以透過多種應用程式案例來傳遞媒體服務內容。您可以下載媒體資產，或使用定位器加以存取。您可以將媒體內容傳送至另一個應用程式，或是另一個內容提供者。若要改善效能和延展性，您也可以使用 Azure CDN 之類的內容傳遞網路 (CDN) 來傳遞內容。
+此主題將討論已上傳至媒體服務的媒體資產有哪些傳遞選項。您可以透過多種應用程式案例來傳遞媒體服務內容。您可以下載媒體資產，或使用定位器加以存取。您可以將媒體內容傳送至另一個應用程式，或是另一個內容提供者。若要改善效能和延展性，您也可以使用內容傳遞網路 (CDN) 傳遞內容。
 
-此範例將說明如何從媒體服務下載媒體資產。程式碼會以工作 ID 查詢與媒體服務帳戶相關聯的工作，並存取其 **OutputMediaAssets** 集合 (這是執行工作後所產生的一或多個輸出媒體資產集合)。此  範例將說明如何從工作下載輸出媒體資產，但您也可以套用相同的方式來下載其他資產。
+這個範例示範如何從媒體服務下載媒體資產到本機電腦。程式碼會以工作 ID 查詢與媒體服務帳戶相關聯的工作，並存取其 **OutputMediaAssets** 集合 (這是執行工作後所產生的一或多個輸出媒體資產集合)。此範例說明如何從工作下載輸出媒體資產，但您也可以用相同的方式來下載其他資產。
 
 	
 	// Download the output asset of the specified job to a local folder.
@@ -41,7 +41,7 @@
 	
 		// Create a SAS locator to download the asset
 	    IAccessPolicy accessPolicy = _context.AccessPolicies.Create("File Download Policy", TimeSpan.FromDays(30), AccessPermissions.Read);
-	    ILocator locator = _context.Locators.CreateSasLocator(outputAsset, accessPolicy);
+	    ILocator locator = _context.Locators.CreateLocator(LocatorType.Sas, outputAsset, accessPolicy);
 	
 	    BlobTransferClient blobTransfer = new BlobTransferClient
 	    {
@@ -74,4 +74,5 @@
 	    Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
 	}
   
-<!--HONumber=45--> 
+
+<!--HONumber=52-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="在 5 分鐘內開始使用 Azure Blob、資料表和佇列" 
 	description="了解如何利用 Azure 快速入門和 Visual Studio，快速掌握 Microsoft Azure Blob、資料表和佇列。" 
 	services="storage" 
@@ -25,7 +25,7 @@
 - 在 Azure 儲存體模擬器上執行第一個 Azure 儲存體應用程式
 - 在 Azure 儲存體服務上執行第一個 Azure 儲存體應用程式
 
-如果您想要在一頭栽進程式碼前了解 Azure 儲存體，請參閱[後續步驟][]。
+如果您想要在一頭栽進程式碼前了解 Azure 儲存體，請參閱[後續步驟](#next-steps)。
 
 ## 在 Azure 儲存體模擬器上執行第一個 Azure 儲存體應用程式
 
@@ -40,11 +40,11 @@
 現在，讓我們在 Visual Studio 中使用其中一個 Azure 快速入門範例專案，建立簡單的 Azure 儲存體應用程式。本教學課程著重於 **Azure Blob 儲存體**、**Azure 資料表儲存體**和 **Azure 儲存體佇列**範例專案。下列指示適用於每個範例專案，除非您在步驟 3.a 中選擇不同的範本：
 
 1. 按 [**開始**] 按鈕或 Windows 鍵，輸入 Visual Studio 2013 或 VS Express 2013 for Web。按一下要啟動的程式。
-2. 從 [檔案]**** 功能表，按一下 [新增專案]****。
+2. 從 [檔案] 功能表，按一下 [新增專案]。
 3. 在 [**新增專案**] 對話方塊中，按一下 [**已安裝**] > [**範本**] > [**Visual C#**] > [**雲端**] > [**快速入門**] > [**資料服務**]。
 	- 3.a.選擇下列其中一個範本：Azure Blob 儲存體、Azure 資料表儲存體或 Azure 儲存體佇列。 
 	- 3.b.確定已選取 [**.NET Framework 4.5**] 作為目標架構。	
-	- 3.c.根據您選擇的範本來命名應用程式，例如 **DataBlobStorage**、**DataTableStorage** 或 **DataStorageQueue**。按一下 [確定]****。這應會建立新的 Visual Studio 方案。請參閱下列螢幕擷取畫面作為範例：
+	- 3.c.根據您選擇的範本來命名應用程式，例如 **DataBlobStorage**、**DataTableStorage** 或 **DataStorageQueue**。按一下 [確定]。這應會建立新的 Visual Studio 方案。請參閱下列螢幕擷取畫面作為範例：
 	
 	![Azure QuickStarts][Image1]
 
@@ -56,7 +56,7 @@
 2.	在 Visual Studio 中，按一下 [**建置**] 功能表上的 [**建置方案**]。 
 3.	在 [**偵錯**] 功能表上，按 **F11** 逐步執行方案，或按 **F5** 執行方案。
 
-## 在 Azure 儲存體服務上執行第一個 Azure 儲存體應用程式
+## 在雲端 Azure 儲存體上執行第一個 Azure 儲存體應用程式
 本節示範如何藉由開發可存取 [Azure 儲存體服務](http://azure.microsoft.com/documentation/services/storage/)的範例應用程式，針對 **Azure 儲存體 Blob**、**資料表**和**佇列**進行程式設計。
 
 若要完成此區段，請務必先執行下列的必要工作：
@@ -66,16 +66,16 @@
 3. 檢查您是否已在電腦上安裝 [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653)，因為 Azure 快速入門範例專案需要該元件。如果不確定您的電腦中安裝哪個版本的 .NET Framework，請參閱[作法：判斷安裝的 .NET Framework 版本](https://msdn.microsoft.com/vstudio/hh925568.aspx)。或者，按 [**開始**] 按鈕或 Windows 鍵，輸入 [**控制台**]。然後，按一下 [**程式**] > [**程式和功能**]。請查看 .NET Framework 4.5 是否列在所有已安裝的程式中。
 4.	取得 Azure 訂用帳戶 (如果您尚未擁有) 並建立 [**標準儲存體**] 帳戶：
 	- 若要取得 Azure 訂用帳戶，請參閱[免費試用版](http://azure.microsoft.com/pricing/free-trial/)、[購買選項](http://azure.microsoft.com/pricing/purchase-options/)和[會員優惠](http://azure.microsoft.com/pricing/member-offers/) (適用於 MSDN、Microsoft Partner Network、BizSpark 和其他 Microsoft 方案的成員)。
-	- 若要在 Azure 中建立 [**標準儲存體**] 帳戶，請參閱[如何建立、管理或刪除儲存體帳戶](storage-create-storage-account.md)。**注意︰**在 Azure 中儲存體帳戶分為兩種類型：標準儲存體帳戶和進階儲存體帳戶。標準儲存體帳戶可供存取 Azure Blob、資料表和佇列儲存體。進階儲存體帳戶目前只能在 Azure 虛擬機器使用的磁碟上儲存資料。如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)。
+	- 若要在 Azure 中建立 [**標準儲存體**] 帳戶，請參閱[如何建立、管理或刪除儲存體帳戶](storage-create-storage-account.md)。**注意：**在 Azure 中儲存體帳戶分為兩種類型：標準儲存體帳戶和進階儲存體帳戶。標準儲存體帳戶可供存取 Azure Blob、資料表和佇列儲存體。進階儲存體帳戶目前只能在 Azure 虛擬機器使用的磁碟上儲存資料。如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)。
 
 現在，讓我們在 Visual Studio 中使用其中一個 Azure 快速入門範例專案，建立簡單的 Azure 儲存體應用程式。本教學課程著重於 **Azure Blob 儲存體**、**Azure 資料表儲存體**和 **Azure 儲存體佇列**範例專案。下列指示適用於每個範例專案，除非您在步驟 3.a 中選擇不同的範本：
 
 1. 按 [**開始**] 按鈕或 Windows 鍵，輸入 Visual Studio 2013 或 VS Express 2013 for Web。按一下要啟動的程式。
-2. 從 [檔案]**** 功能表，按一下 [新增專案]****。
+2. 從 [檔案] 功能表，按一下 [新增專案]。
 3. 在 [**新增專案**] 對話方塊中，按一下 [**已安裝**] > [**範本**] > [**Visual C#**] > [**雲端**] > [**快速入門**] > [**資料服務**]。
 	- 3.a.選擇下列其中一個範本：Azure Blob 儲存體、Azure 資料表儲存體或 Azure 儲存體佇列。 
 	- 3.b.確定已選取 [**.NET Framework 4.5**] 作為目標架構。
-	- 3.c.根據您選擇的範本來命名應用程式，例如 **DataBlobStorage**、**DataTableStorage** 或 **DataStorageQueue**。按一下 [確定]****。這應會建立新的 Visual Studio 方案。 
+	- 3.c.根據您選擇的範本來命名應用程式，例如 **DataBlobStorage**、**DataTableStorage** 或 **DataStorageQueue**。按一下 [確定]。這應會建立新的 Visual Studio 方案。 
 
 我們鼓勵您檢閱原始程式碼，以了解如何針對 Azure 儲存體進行程式設計，然後再執行應用程式。若要檢閱程式碼，請在 Visual Studio 中選取 [**檢視**] 功能表上的 [**方案總管**]。然後，按兩下 Program.cs 檔案。 
 
@@ -112,4 +112,4 @@
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

@@ -17,9 +17,9 @@
 	ms.author="juliako"/>
 
 
-# 作法：取得媒體處理器執行個體
+# 做法：取得媒體處理器執行個體
 
-這篇文章屬於[要求工作流程上的媒體服務視訊](media-services-video-on-demand-workflow.md)系列。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 系列的一部分。 
 
 ## 概觀
 
@@ -38,8 +38,18 @@
   <tbody>
     <tr>
        <td>Azure Media Encoder</td>
-       <td>可讓您使用 Media Encoder 執行編碼工作。</td>
+       <td>讓您使用 Azure Media Encoder 執行編碼工作。</td>
        <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Azure Media Encoder 的工作預設字串</a></td>
+    </tr>
+    <tr>
+       <td>Media Encoder Premium Workflow</td>
+       <td>可讓您使用 Media Encoder Premium Workflow 執行編碼工作。</td>
+       <td><a href="http://azure.microsoft.com/documentation/articles/media-services-encode-with-premium-workflow/">使用 Media Encoder Premium Workflow 進行編碼。</a></td>
+    </tr>    
+	<tr>
+        <td>Azure Media Indexer</td>
+        <td>可讓您的媒體檔案和內容可供搜尋，以及產生隱藏式輔助字幕和關鍵字。</td>
+		<td><a href="http://azure.microsoft.com/documentation/articles/media-services-index-content/">使用 Azure Media Indexer 編輯媒體檔案索引</a>。</td>
     </tr>
     <tr>
         <td>Windows Azure Media Packager</td>
@@ -52,12 +62,7 @@
         <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Azure Media Packager 的工作預設字串</a></td>
     </tr>
     <tr>
-        <td>Azure Media Indexer</td>
-        <td>可讓您的媒體檔案和內容可供搜尋，以及產生隱藏式輔助字幕和關鍵字。</td>
-		<td>N/A</td>
-    </tr>
-    <tr>
-        <td>Storage Decryption</td>
+        <td>儲存體解密</td>
         <td>可讓您對使用儲存體加密功能加密的媒體資產進行解密。</td>
 		<td>N/A</td>
     </tr>  </tbody>
@@ -67,7 +72,7 @@
 
 ## 取得 MediaProcessor
 
-下列方法將說明如何取得媒體處理器執行個體。此程式碼範例假設使用名為 **_context** 的模組層級變數，以參考伺服器內容 [做法：以程式設計方式連線到媒體服務]一節所說明。
+下列方法將說明如何取得媒體處理器執行個體。此程式碼範例假設使用名為 **_context** 的模組層級變數，以參考伺服器內容，如[如何以程式設計方式連接到媒體服務]一節所說明。
 
 	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 	{
@@ -81,9 +86,10 @@
 	}
 
 ## 後續步驟
-現在，您已了解如何取得媒體處理器執行個體，請移至[如何為資產編碼][]主題，以了解如何使用 Azure Media Encoder 為資產編碼。
+現在您知道如何取得媒體處理器執行個體，請移至[如何為資產編碼][]主題，以了解如何使用 Azure Media Encoder 為資產編碼。
 
-[如何為資產編碼]: ../media-services-encode-asset/
+[如何為資產編碼]: media-services-encode-asset.md
 [Azure Media Encoder 的工作預設字串]: http://msdn.microsoft.com/library/jj129582.aspx
-[做法：以程式設計方式連線到媒體服務]: ../media-services-set-up-computer/
-<!--HONumber=45--> 
+[如何以程式設計方式連接到媒體服務]: ../media-services-set-up-computer/
+
+<!--HONumber=52-->

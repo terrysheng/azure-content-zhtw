@@ -1,20 +1,21 @@
-﻿<properties 
+<properties 
 	pageTitle="採用 Flask 的 Python 網站 - Azure 教學課程" 
 	description="介紹在 Azure 上執行 Python 網站的教學課程。" 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter="python" 
+	tags="python"
 	authors="huguesv" 
-	manager="" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="12/17/2014" 
-	ms.author="huvalo"/>
+	ms.date="02/09/2015" 
+	ms.author="huguesv"/>
 
 
 
@@ -23,68 +24,55 @@
 
 本教學課程說明如何開始在 Azure 網站上執行 Python。Azure 網站提供有限的免費主控和快速的部署，而現在您可以使用 Python！隨著應用程式規模增加，您可以切換為付費主控，也可以與其他所有 Azure 服務整合。
 
-您將建立使用 Flask Web 架構的應用程式 (請參閱本教學課程適用於 [Django](web-sites-python-create-deploy-django-app.md) 與 [Bottle] 的其他版本(web-sites-python-create-deploy-bottle-app.md))。您會從 Azure 組件庫建立網站、設定 Git 部署，並於本機複製儲存機制。然後您會在本機執行應用程式、進行變更、認可和推送至 Azure。本教學課程示範如何從 Windows 或 Mac/Linux 執行這項操作。
+您將建立使用 Flask Web 架構的應用程式 (請參閱本教學課程適用於 [Django](web-sites-python-create-deploy-django-app.md) 與 [Bottle](web-sites-python-create-deploy-bottle-app.md) 的其他版本)。您會從 Azure 組件庫建立網站、設定 Git 部署，並於本機複製儲存機制。然後您會在本機執行應用程式、進行變更、認可和推送至 Azure。本教學課程示範如何從 Windows 或 Mac/Linux 執行這項操作。
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 
-+ [先決條件](#prerequisites)
-+ [在入口網站上建立網站](#website-creation-on-portal)
-+ [應用程式概觀](#application-overview)
-+ 網站開發
-  + [Windows - Python Tools for Visual Studio](#website-development-windows-ptvs)
-  + [Windows - 命令列](#website-development-windows-command-line)
-  + [Mac/Linux - 命令列](#website-development-mac-linux-command-line)
-+ [疑難排解 - 部署](#troubleshooting-deployment)
-+ [疑難排解 - 封裝安裝](#troubleshooting-package-installation)
-+ [疑難排解 - 虛擬環境](#troubleshooting-virtual-environment)
-+ [後續步驟](#next-steps)
-
-
-<h2><a name="prerequisites"></a>先決條件</h2>
+## 必要條件
 
 - Windows、Mac 或 Linux
 - Python 2.7 或 3.4
 - setuptools、pip、virtualenv (僅 Python 2.7)
 - Git
-- Python Tools for Visual Studio (選用)
+- [Python Tools 2.1 for Visual Studio][] (選擇性)
 
 **注意**：Python 專案目前不支援 TFS 發行。
 
 ### Windows
 
-如果您還沒有安裝 Python 2.7 或 3.4 (32 位元)，建議您使用 Web Platform Installer 安裝 [Azure SDK for Python 2.7](http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409) 或 [Azure SDK for Python 3.4](http://go.microsoft.com/fwlink/?LinkID=516990&clcid=0x409)。這會安裝 32 位元版本的 Python、setuptools、pip、virtualenv 等 (32 位元 Python 安裝於 Azure 主機電腦上)。或者，您可以從 [python.org](http://www.python.org/) 取得 Python。
+如果您還沒有安裝 Python 2.7 或 3.4 (32 位元)，建議您使用 Web Platform Installer 安裝 [Azure SDK for Python 2.7][] 或 [Azure SDK for Python 3.4][]。這會安裝 32 位元版本的 Python、setuptools、pip、virtualenv 等 (32 位元 Python 安裝於 Azure 主機電腦上)。或者，您可以從 [python.org][] 取得 Python。
 
-針對 Git，建議您使用 [Git for Windows](http://msysgit.github.io/)。本教學課程使用 Git for Windows 的 Git Shell。如果您使用 Visual Studio，您可以使用整合式的 Git 支援。
+針對 Git，建議您安裝 [Git for Windows][] 或 [GitHub for Windows][]。如果您使用 Visual Studio，您可以使用整合式的 Git 支援。
 
-我們也建議您安裝 [Python Tools for Visual Studio](http://pytools.codeplex.com)。這是選擇性的，但如果您有 [Visual Studio](http://www.visualstudio.com/) (包含免費的 Visual Studio Express 2013 for Web)，它會提供您絕佳的 Python IDE。
+我們也建議您安裝 [Python Tools 2.1 for Visual Studio][]。這是選擇性的，但如果您有 [Visual Studio][] (包含免費的 Visual Studio Community 2013 或 Visual Studio Express 2013 for Web)，它會提供您絕佳的 Python IDE。
 
 ### Mac/Linux
 
 您應該已經安裝 Python 與 Git，但請確定您擁有的是 Python 2.7 或 3.4。
 
 
-<h2><a name="website-creation-on-portal"></a>在入口網站上建立網站</h2>
+## 在入口網站上建立網站
 
-建立應用程式的第一步是透過 Azure 管理入口網站建立網站。若要建立網站，您需要登入入口網站並按一下左下角的 [新增]**** 按鈕。隨即會出現一個視窗。依序按一下 [計算]****、[網站]**** 然後 [從組件庫]****。
+建立應用程式的第一步是透過 Azure 管理入口網站建立網站。若要建立網站，您需要登入入口網站並按一下左下角的 [新增] 按鈕。隨即會出現一個視窗。依序按一下 [計算]、[網站] 然後 [從組件庫]。
 
 ![](./media/web-sites-python-create-deploy-flask-app/portal-create-site.png)
 
-會出現一個視窗，列出組件庫中可用的應用程式。按一下左側的 [應用程式架構]**** 類別，然後選取 [Flask]****。
+會出現一個視窗，列出組件庫中可用的應用程式。按一下左側的 [應用程式架構] 類別，然後選取 [Flask]。
 
 ![](./media/web-sites-python-create-deploy-flask-app/portal-gallery-flask.png)
 
 在下一頁中，輸入您網站的名稱和地區，然後按一下 [完成] 按鈕。
 
-系統隨即會迅速地設定網站。您可以按一下底部工具列中的 [瀏覽]**BROWSE** 按鈕，您會看到新的 Flask 應用程式在 Azure 上執行。
+系統隨即會迅速地設定網站。您可以按一下底部工具列中的 [瀏覽]按鈕，您會看到新的 Flask 應用程式在 Azure 上執行。
 
 ![](./media/web-sites-python-create-deploy-flask-app/portal-website-flask.png)
  
-接下來，您需要新增透過 Git 發行的支援功能。您可以藉由選擇 [設定從原始檔控制進行部署]**** 來完成操作。
+接下來，您需要新增透過 Git 發行的支援功能。您可以藉由選擇 [設定從原始檔控制進行部署] 來完成操作。
 
 ![](./media/web-sites-python-create-deploy-flask-app/portal-site-created.png)
 
-從 [設定部署]**** 對話方塊中，向下捲動並選取 [本機 Git 儲存機制]**** 選項。按一下向右箭頭以繼續操作。
+從 [設定部署] 對話方塊中，向下捲動並選取 [本機 Git 儲存機制] 選項。按一下向右箭頭以繼續操作。
 
 ![](./media/web-sites-python-create-deploy-flask-app/portal-setup-deployment.png)
 
@@ -95,7 +83,7 @@
 在後續章節中，我們會遵循這些指示。
 
 
-<h2><a name="application-overview"></a>應用程式概觀</h2>
+## 應用程式概觀
 
 ### Git 儲存機制內容
 
@@ -162,7 +150,7 @@ Python 虛擬環境。如果網站上不存在相容的虛擬環境，會於部�
 - Mac/Linux，使用命令列
 
 
-<h2><a name="website-development-windows-ptvs"></a>網站開發 - Windows - Python Tools for Visual Studio</h2>
+## 網站開發 - Windows - 適用於 Visual Studio 的 Python 工具
 
 ### 複製儲存機制
 
@@ -176,7 +164,7 @@ Python 虛擬環境。如果網站上不存在相容的虛擬環境，會於部�
 
 ### 建立虛擬環境
 
-現在我們要建立本機開發的虛擬環境。以滑鼠右鍵按一下 [Python 環境]****，選取 [加入虛擬環境...]****。
+現在我們要建立本機開發的虛擬環境。以滑鼠右鍵按一下 [Python 環境]，選取 [加入虛擬環境...]。
 
 - 請確定環境的名稱是  `env`。
 
@@ -186,7 +174,7 @@ Python 虛擬環境。如果網站上不存在相容的虛擬環境，會於部�
 
 ![](./media/web-sites-python-create-deploy-flask-app/ptvs-add-virtual-env-27.png)
 
-按一下 [建立]****。這會建立虛擬環境，並安裝 requirements.txt 中列出的相依性。
+按一下 [**建立**]。這會建立虛擬環境，並安裝 requirements.txt 中列出的相依性。
 
 ### 使用開發伺服器來執行
 
@@ -194,7 +182,7 @@ Python 虛擬環境。如果網站上不存在相容的虛擬環境，會於部�
 
 ![](./media/web-sites-python-create-deploy-flask-app/windows-browser-flask.png)
 
-您可以在來源中設定中斷點、使用監看式視窗等等。如需各種功能的詳細資訊，請參閱 [PTVS 文件](http://pytools.codeplex.com/documentation)。
+您可以在來源中設定中斷點、使用監看式視窗等等。如需各種功能的詳細資訊，請參閱 [PTVS 文件][]。
 
 ### 進行變更
 
@@ -208,30 +196,30 @@ Python 虛擬環境。如果網站上不存在相容的虛擬環境，會於部�
 
 您的應用程式可能會擁有 Python 和 Flask 之外的相依性。
 
-您可以使用 pip 安裝其他封裝。若要安裝封裝，以滑鼠右鍵按一下虛擬環境，然後選取 [安裝 Python 封裝]****。
+您可以使用 pip 安裝其他封裝。若要安裝封裝，以滑鼠右鍵按一下虛擬環境，然後選取 [安裝 Python 封裝]。
 
 例如，若要安裝 Azure SDK for Python，讓您可存取 Azure 儲存體、服務匯流排和其他 Azure 服務，請輸入  `azure`：
 
 ![](./media/web-sites-python-create-deploy-flask-app/ptvs-install-package-dialog.png)
 
-以滑鼠右鍵按一下虛擬環境，然後選取 [產生 requirements.txt]**** 更新 requirements.txt。
+以滑鼠右鍵按一下虛擬環境，然後選取 [產生 requirements.txt] 更新 requirements.txt。
 
 然後，將變更認可到 Git 儲存機制的 requirements.txt。
 
 ### 部署至 Azure
 
-若要觸發部署，按一下 [同步]**** 或 [推送]****。同步處理會推送和提取。
+若要觸發部署，按一下 [同步] 或 [推送]。同步處理會推送和提取。
 
 ![](./media/web-sites-python-create-deploy-flask-app/ptvs-git-push.png)
 
 第一次部署將需要一些時間，因為它會建立虛擬環境、安裝封裝等。
 
-Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱[疑難排解 - 部署]一節 (#troubleshooting-deployment)。
+Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱[疑難排解 - 部署](#troubleshooting-deployment)一節。
 
 瀏覽至 Azure URL，以檢視您的變更。
 
 
-<h2><a name="website-development-windows-command-line"></a>網站開發 - Windows - 命令列</h2>
+## 網站開發 - Windows - 命令列
 
 ### 複製儲存機制
 
@@ -310,7 +298,7 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 瀏覽至 Azure URL，以檢視您的變更。
 
 
-<h2><a name="website-development-mac-linux-command-line"></a>網站開發 - Mac/Linux - 命令列</h2>
+## 網站開發 - Mac/Linux - 命令列
 
 ### 複製儲存機制
 
@@ -389,22 +377,22 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 瀏覽至 Azure URL，以檢視您的變更。
 
 
-<h2><a name="troubleshooting-deployment"></a>疑難排解 - 部署</h2>
+## Troubleshooting - Deployment
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
 
 
-<h2><a name="troubleshooting-package-installation"></a>疑難排解 - 封裝安裝</h2>
+## 疑難排解 - 封裝安裝
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
 
 
-<h2><a name="troubleshooting-virtual-environment"></a>疑難排解 - 虛擬環境</h2>
+## 疑難排解 - 虛擬環境
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 
-<h2><a name="next-steps"></a>後續步驟</h2>
+## 後續步驟
 
 請遵循下列連結以深入了解 Flask 和 Python Tools for Visual Studio： 
  
@@ -418,13 +406,20 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 
 
 <!--Link references-->
-[Azure 上採用 Python Tools 2.1 for Visual Studio 的 Flask 和 MongoDB]: ../web-sites-python-ptvs-flask-table-storage
-[Azure 上採用 Python Tools 2.1 for Visual Studio 的 Flask 和 Azure 資料表儲存體]: ../web-sites-python-ptvs-flask-mongodb
+[Azure 上採用 Python Tools 2.1 for Visual Studio 的 Flask 和 MongoDB]: web-sites-python-ptvs-flask-table-storage.md
+[Azure 上採用 Python Tools 2.1 for Visual Studio 的 Flask 和 Azure 資料表儲存體]: web-sites-python-ptvs-flask-mongodb.md
 
 <!--External Link references-->
+[Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
+[Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?linkid=516990
+[python.org]: http://www.python.org/
+[Git for Windows]: http://msysgit.github.io/
+[GitHub for Windows]: https://windows.github.com/
+[適用於 Visual Studio 的 Python 工具]: http://aka.ms/ptvs
+[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Visual Studio]: http://www.visualstudio.com/
+[PTVS 文件]: http://pytools.codeplex.com/documentation
 [Python Tools for Visual Studio 文件]: http://pytools.codeplex.com/documentation 
 [Flask 文件]: http://flask.pocoo.org/ 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

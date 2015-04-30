@@ -1,20 +1,21 @@
 ﻿<properties 
 	pageTitle="在 Azure 網站上設定 Python" 
 	description="本教學課程說明在 Azure 網站上編寫與設定基本的 Web 伺服器閘道介面 (WSGI) 相容之 Python 應用程式的選項。" 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter="python" 
+	tags="python"
 	authors="huguesv" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="12/17/2014" 
-	ms.author="huvalo"/>
+	ms.date="02/09/2015" 
+	ms.author="huguesv"/>
 
 
 
@@ -25,22 +26,8 @@
 
 它會說明 Git 部署的其他功能，例如虛擬環境和使用 requirements.txt 進行封裝安裝。
 
-+ [Bottle、Django 或 Flask？](#bottle-django-flask)
-+ [在入口網站上建立網站](#website-creation-on-portal)
-+ [Git 發行](#git-publishing)
-+ [應用程式概觀](#application-overview)
-+ [WSGI 處理常式](#wsgi-handler)
-+ [虛擬環境](#next-steps)
-+ [封裝管理](#next-steps)
-+ [Python 版本](#next-steps)
-+ [虛擬環境 Proxy](#virtual-environment-proxy)
-+ [自訂 Git 部署](#customize-git-deployment)
-+ [疑難排解 - 部署](#troubleshooting-deployment)
-+ [疑難排解 - 封裝安裝](#troubleshooting-package-installation)
-+ [疑難排解 - 虛擬環境](#troubleshooting-virtual-environment)
 
-
-<h2><a name="bottle-django-flask"></a>Bottle、Django 或 Flask？</h2>
+## Bottle、Django 或 Flask？
 
 Azure 組件庫包含 Bottle、Django 和 Flask 架構的範本。如果您在開發您的第一個 Azure 網站，或是您不熟悉 Git，我們建議您遵循這些教學課程，其中包括了在 Windows 或 Mac 使用 Git 部署，從組件庫建置工作應用程式的逐步指示：
 
@@ -49,7 +36,7 @@ Azure 組件庫包含 Bottle、Django 和 Flask 架構的範本。如果您在�
 - [使用 Flask 建立網站][]
 
 
-<h2><a name="website-creation-on-portal"></a>在入口網站上建立網站</h2>
+## 在入口網站上建立網站
 
 本教學課程假定現有一個 Azure 訂閱，而且能夠存取 Azure 管理入口網站。
 
@@ -58,7 +45,7 @@ Azure 組件庫包含 Bottle、Django 和 Flask 架構的範本。如果您在�
 ![](./media/web-sites-python-configure/configure-python-create-website.png)
 
 
-<h2><a name="git-publishing"></a>Git 發行</h2>
+## Git 發行
 
 在您新建立的網站上使用 [快速啟動] 或 [儀表板] 索引標籤以設定 Git 發行。本教學課程將使用 Git 來建立、管理並將您的 Python 網站發行至 Azure 網站。
 
@@ -67,7 +54,7 @@ Azure 組件庫包含 Bottle、Django 和 Flask 架構的範本。如果您在�
 Git 發行設定完畢後，會建立一個 Git 儲存機制並與您的網站產生關聯。該儲存機制的 URL 會加以顯示，方便您將資料從本機開發環境推送到雲端。若要透過 Git 發行應用程式，請確保同時安裝了 Git 用戶端，並遵守提供的指示將您的網站內容推送到 Azure 網站。
 
 
-<h2><a name="application-overview"></a>應用程式概觀</h2>
+## 應用程式概觀
 
 在後續章節中，會建立下列檔案。它們應該放在 Git 儲存機制的根目錄中。
 
@@ -78,7 +65,7 @@ Git 發行設定完畢後，會建立一個 Git 儲存機制並與您的網站�
     ptvs_virtualenv_proxy.py
 
 
-<h2><a name="wsgi-handler"></a>WSGI 處理常式</h2>
+## WSGI 處理常式
 
 WSGI 是由 [PEP 3333](http://www.python.org/dev/peps/pep-3333/) 描述的一項 Python 標準，此標準定義了 Web 伺服器與 Python 之間的介面。此標準為您提供標準化介面，方便您使用 Python 撰寫各種 Web 應用程式與架構。今日熱門的 Python Web 架構都採用 WSGI。Azure 網站針對此類任何架構提供支援，而進階使用者甚至可以撰寫自己的架構，但前提是自訂處理常式必須遵守 WSGI 規範指示。
 
@@ -97,10 +84,10 @@ WSGI 是由 [PEP 3333](http://www.python.org/dev/peps/pep-3333/) 描述的一項
         httpd = make_server('localhost', 5555, wsgi_app)
         httpd.serve_forever()
 
-您可以搭配  `python app.py` 在本機執行此應用程式，然後在您的網頁瀏覽器中瀏覽到 `http://localhost:5555`。
+您可以在本機 `python app.py`執行這個應用程式，然後在網頁瀏覽器中瀏覽至 `http://localhost:5555`。
 
 
-<h2><a name="virtual-environment"></a>虛擬環境</h2>
+## 虛擬環境
 
 雖然上述範例應用程式不需要任何外部的封裝，但您的應用程式可能需要。
 
@@ -111,7 +98,7 @@ WSGI 是由 [PEP 3333](http://www.python.org/dev/peps/pep-3333/) 描述的一項
 您可能想要在本機建立虛擬環境以進行開發，但是請勿將它包含在 Git 儲存機制中。
 
 
-<h2><a name="package-management"></a>封裝管理</h2>
+## 封裝管理
 
 Requirements.txt 中所列封裝，將會使用 pip 自動安裝於虛擬環境中。這種情況會發生在每個部署，但是如果已安裝封裝，pip 會跳過安裝。
 
@@ -120,7 +107,7 @@ Requirements.txt 中所列封裝，將會使用 pip 自動安裝於虛擬環境�
     azure==0.8.4
 
 
-<h2><a name="python-version"></a>Python 版本</h2>
+## Python 版本
 
 [AZURE.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-runtime.md)]
 
@@ -129,7 +116,7 @@ Requirements.txt 中所列封裝，將會使用 pip 自動安裝於虛擬環境�
     python-2.7
 
 
-<h2><a name="web-config"></a>Web.config</h2>
+## Web.config
 
 您需要建立 web.config 檔來指定伺服器應該如何處理要求。
 
@@ -249,7 +236,7 @@ Python 3.4  `web.config` 範例：
 `PYTHONPATH` 可自訂，但是如果您藉由在 requirements.txt 中指定相依性，將它們全部安裝於虛擬環境中，您應該不需要變更它。
 
 
-<h2><a name="virtual-environment-proxy"></a>虛擬環境 Proxy</h2>
+## 虛擬環境 Proxy
 
 下列指令碼用來擷取 WSGI 處理常式，會啟動虛擬環境並記錄錯誤。它已設計為 Generic，不需修改就可使用。
 
@@ -257,15 +244,15 @@ Python 3.4  `web.config` 範例：
 
      # ############################################################################
      #
-     # Copyright (c) Microsoft Corporation. 
+     # Copyright (c) Microsoft Corporation。 
      #
-     # This source code is subject to terms and conditions of the Apache License, Version 2.0. A 
-     # copy of the license can be found in the License.html file at the root of this distribution. If 
-     # you cannot locate the Apache License, Version 2.0, please send an email to 
-     # vspython@microsoft.com. By using this source code in any fashion, you are agreeing to be bound 
-     # by the terms of the Apache License, Version 2.0.
+     # 此原始程式碼是受到條款與條件的 Apache 授權 2.0 版的規範。A 
+     # 您可以在 License.html 檔案中找到一份授權複本，此檔案位於此發佈的根目錄中。如果 
+     # 找不到 Apache 授權 2.0 版，請傳送電子郵件至 
+     # vspython@microsoft.com。以任何方式使用此原始程式碼，表示您同意受到 
+     # Apache 授權 2.0 版條款的規範。
      #
-     # You must not remove this notice, or any other, from this software.
+     # 您不得從本軟體移除此聲明，或任何其他聲明。
      #
      # ###########################################################################
 
@@ -375,31 +362,29 @@ Python 3.4  `web.config` 範例：
         return handler
 
 
-<h2><a name="customize-git-deployment"></a>自訂 Git 部署</h2>
+## 自訂 Git 部署
 
 [AZURE.INCLUDE [web-sites-python-customizing-runtime](../includes/web-sites-python-customizing-deployment.md)]
 
 
-<h2><a name="troubleshooting-deployment"></a>疑難排解 - 部署</h2>
+## 疑難排解 - 部署
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
 
 
-<h2><a name="troubleshooting-package-installation"></a>疑難排解 - 封裝安裝</h2>
+## 疑難排解 - 封裝安裝
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
 
 
-<h2><a name="troubleshooting-virtual-environment"></a>疑難排解 - 虛擬環境</h2>
+## 疑難排解 - 虛擬環境
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 
 
-[使用 Bottle 建立網站]: ../web-sites-python-create-deploy-bottle-app
-[使用 Django 建立網站]: ../web-sites-python-create-deploy-django-app
-[使用 Flask 建立網站]: ../web-sites-python-create-deploy-flask-app
+[使用 Bottle 建立網站]: web-sites-python-create-deploy-bottle-app.md
+[使用 Django 建立網站]: web-sites-python-create-deploy-django-app.md
+[使用 Flask 建立網站]: web-sites-python-create-deploy-flask-app.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

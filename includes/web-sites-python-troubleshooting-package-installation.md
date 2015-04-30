@@ -1,4 +1,4 @@
-﻿在 Azure 上執行時，有些封裝可能無法使用 pip 安裝。這可能只是因為在 Python 套件索引上無法使用該封裝。這可能是需要有編譯器 (在執行 Azure 網站的電腦上無法使用編譯器)。
+在 Azure 上執行時，有些封裝可能無法使用 pip 安裝。這可能只是因為在 Python 套件索引上無法使用該封裝。這可能是需要有編譯器 (在執行 Azure 網站的電腦上無法使用編譯器)。
 
 在本節中，我們將探討如何處理這個問題。
 
@@ -67,5 +67,4 @@ Mac/Linux 使用者：如果您無法存取 Windows 電腦，請參閱[建立執
 [建立執行 Windows 的虛擬機器]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
 [Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-
-<!--HONumber=49-->
+<!--HONumber=52--> 

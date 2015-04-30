@@ -13,70 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="02/20/2015" 
 	ms.author="juliako"/>
 
 
 # 如何調整媒體服務  
 
-這篇文章屬於[要求工作流程上的媒體服務視訊](media-services-video-on-demand-workflow.md)系列。
-
 ## 概觀
 
-您可以指定要佈建給帳戶的**串流保留單元**和**編碼保留單元**來調整媒體服務。 
+您可以指定要佈建給帳戶的**串流保留單元**和**編碼保留單元**，藉以調整**媒體服務**。 
 
-## 串流保留單元
+您也可以透過新增儲存體帳戶，來調整媒體服務帳戶。每個儲存體帳戶的限制為 500 TB。若想將儲存空間擴大為超過預設限制，您可以選擇將多個儲存體帳戶附加至單一媒體服務帳戶。
 
-如需詳細資訊，請參閱[調整串流單元](media-services-manage-origins#scale_streaming_endpoints.md)。
+本主題會連結相關主題。
 
-## <a id="encoding_reserved_units"></a>編碼保留單元
+## <a id="streaming_endpoins"></a>串流保留單位
 
-媒體服務帳戶是與可決定編碼工作處理速度的保留單元類型相關聯。您可以選擇下列保留單元類型：Basic、Standard 或 Premium。例如，在執行相同編碼工作的前提下，使用 Standard 保留單元類型的速度會比 Basic 類型快。如需詳細資訊，請參閱 [Milan Gada](http://azure.microsoft.com/blog/author/milanga)　所寫的＜編碼保留單元類型＞部落格。
+如需詳細資訊，請參閱 [調整串流單位](media-services-manage-origins.md#scale_streaming_endpoints).
 
-除了指定保留單元類型之外，您還可以指定使用編碼保留單元來佈建帳戶。佈建的編碼保留單元數目可決定給定帳戶中可同時處理的媒體工作數目。例如，如果帳戶有 5 個保留單元，則只要有工作需要處理，就會同時執行 5 個媒體工作。剩餘的工作會在佇列中等待，且隨著執行中的工作完成，就立即循序地挑選來開始處理。如果帳戶未佈建任何保留單元，則會循序地挑選工作。在此情況下，一件工作完成與下一件工作開始之間的等待時間，視系統中的資源可用性而定。
+## <a id="encoding_reserved_units"></a>編碼保留單位
 
-若要變更保留單元類型以及編碼保留單元數目，請執行下列動作：
+如需瞭解如何調整編碼單位，請參閱下列**入口網站**和 **.NET** 主題。
 
-1. 在 [[管理入口網站](https://manage.windowsazure.com/)] 中，按一下 [**媒體服務**]。接著，按一下媒體服務的名稱。
+[AZURE.INCLUDE [media-services-selector-scale-encoding-units](../includes/media-services-selector-scale-encoding-units.md)]
 
-2. 選取 [**編碼**] 頁面。 
+請注意，編碼與編製索引工作的保留單位都相同。
 
-	若要變更 [**保留單元類型**]，請按 BASIC、STANDARD 或 PREMIUM。 
+## <a id="storage"></a>調整儲存體
 
-	若要變更所選取保留單元類型的保留單元數目，請使用 [**編碼**] 滑動軸。 
-	
-	
-	![Processors page](./media/media-services-how-to-scale/media-services-encoding-scale.png)
-
-	  
-	>[Azure.Note] 下列資料中心並未提供 Premium 保留單元類型：新加坡、香港特別行政區、大阪、北京、上海。
-
-3. 按 [儲存] 以儲存您的變更。
-
-	新的編碼保留單元會在您按 [儲存] 後立即配置。
-
-	>[Azure.Note] 計算成本時會使用 24 小時內指定的最大單元數。
-
-## 建立支援票證
-
-依預設，每一個媒體服務帳戶可調整為最多 25 個編碼保留單元和 5 個隨選串流保留單元。您可以建立支援票證來要求更高的限制。
-
-若要建立支援票證，請執行下列動作： 
-
-1. 在[管理入口網站](http://manage.windowsazure.com)，登入 Azure 帳戶。
-2. 移至[支援](http://azure.microsoft.com/support/contact/)。
-3. 按一下 [取得支援]。
-4. 選取您的訂用帳戶。
-5. 在支援類型下，選取 [技術]。
-6. 按一下 [建立票證]。
-7. 在下一頁顯示的產品清單中，選取 [Azure 媒體服務]。
-8. 在 [問題類型] 中選取 [媒體處理]，然後在類別下選取 [保留單元]。
-9. 按一下 [繼續]。
-10. 依照下一頁的指示進行，然後輸入您需要多少編碼保留單元或隨選串流保留單元的詳細資料。
-11. 按一下 [提交] 來建立票證。
+如需詳細資訊，請參閱 [管理多個儲存體帳戶的媒體服務資產](https://msdn.microsoft.com/library/azure/dn271889.aspx) 和 [使用 Azure 儲存體 
+](https://msdn.microsoft.com/library/azure/dn767951.aspx)。
 
 
 
 
-
-<!--HONumber=45--> 
+<!--HONumber=52-->

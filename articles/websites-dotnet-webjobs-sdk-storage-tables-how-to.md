@@ -1,44 +1,36 @@
-﻿<properties 
+<properties 
 	pageTitle="如何透過 WebJobs SDK 使用 Azure 資料表儲存體" 
 	description="了解如何透過 WebJobs SDK 使用 Azure 資料表儲存體建立資料表、將實體新增至資料表以及讀取現有資料表。" 
-	services="web-sites, storage" 
+	services="app-service\web, storage" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="04/03/2015" 
 	ms.author="tdykstra"/>
 
 # 如何透過 WebJobs SDK 使用 Azure 資料表儲存體
 
-本指南提供 C# 程式碼範例，示範如何使用 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 1.x 版讀取和寫入 Azure 儲存體資料表。
+## 概觀
 
-本指南假設您知道[如何使用指向儲存體帳戶的連接字串在 Visual Studio 中建立 WebJob 專案](websites-dotnet-webjobs-sdk-get-started.md).。
+本指南提供 C# 程式碼範例，示範如何使用 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 讀取和寫入 Azure 儲存體資料表。版本 1.x。
+
+本指南假設您知道[如何使用指向您儲存體帳戶的連接字串，在 Visual Studio 中建立 WebJob 專案](websites-dotnet-webjobs-sdk-get-started.md)。
 		
-有一些程式碼片段顯示 `Table` 屬性用於[以手動方式呼叫](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#manual)的函式中，也就是說使用的並非觸發屬性。 
-
-## 目錄
-
--   [如何將實體新增至資料表](#ingress)
--   [即時監視](#monitor)
--   [如何讀取資料表中的多個實體](#multiple)
--   [如何讀取資料表中的單一實體](#readone)
--   [如何直接使用 .NET 儲存體 API 和資料表搭配使用](#readone)
--   [佇列操作說明文章所涵蓋的相關主題](#queues)
--   [後續步驟](#nextsteps)
+某些程式碼片段顯示[以手動方式呼叫](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual)的函式中使用的 `Table` 屬性也就是說，不使用其中一個觸發程序屬性。 
 
 ## <a id="ingress"></a> 如何將實體新增至資料表
 
-若要將實體新增至資料表，請使用 `Table` 屬性搭配 `ICollector<T>` 或 `IAsyncCollector<T>` 參數，其中 `T` specifies the schema of the entities you want to add. The attribute constructor takes a string parameter that specifies the name of the table. 
+若要將實體新增至資料表，請使用 `Table` 屬性搭配 `ICollector<T>` 或 `IAsyncCollector<T>` 參數，其中 `T` 指定您要新增的實體結構描述。 屬性建構函式接受指定表格名稱的字串參數。 
 
-The following code sample adds `Person` 實體至名為 *Ingress* 的資料表。
+下列程式碼範例新增 `Person` 實體至名為 *Ingress* 的資料表。
 
 		[NoAutomaticTrigger]
 		public static void IngressDemo(
@@ -73,17 +65,17 @@ The following code sample adds `Person` 實體至名為 *Ingress* 的資料表�
 
 ## <a id="monitor"></a>即時監視
 
-因為資料外送流量函式經常處理大量資料，所以 WebJobs SDK 儀表板提供即時監視資料。[引動過程記錄]**** 區段可告訴您是否仍有執行中的函式。
+因為資料外送流量函式經常處理大量資料，所以 WebJobs SDK 儀表板提供即時監視資料。[引動過程記錄] 區段可告訴您是否仍有執行中的函式。
 
-![Ingress function running](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
+![輸入函式執行中](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
 
-[引動過程詳細資料]**** 頁面會報告執行中函式的進度 (寫入的實體數目)，並讓您有機會將它中止。 
+[引動過程詳細資料] 頁面會報告執行中函式的進度 (寫入的實體數目)，並讓您有機會將它中止。 
 
-![Ingress function running](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressprogress.png)
+![輸入函式執行中](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressprogress.png)
 
-當函式完成時，[引動過程詳細資料]**** 頁面會報告寫入的資料列數目。
+當函式完成時，[引動過程詳細資料] 頁面會報告寫入的資料列數目。
 
-![Ingress function finished](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingresssuccess.png)
+![輸入函式已完成](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingresssuccess.png)
 
 ## <a id="multiple"></a>如何讀取資料表中的多個實體
 
@@ -153,23 +145,21 @@ The following code sample adds `Person` 實體至名為 *Ingress* 的資料表�
 
 ## <a id="queues"></a>佇列操作說明文章所涵蓋的相關主題
 
-如需如何處理佇列訊息所觸發資料表處理的詳細資訊，或如需非專屬於資料表處理的 WebJobs SDK 案例，請參閱[如何透過 WebJobs SDK 使用 Azure 佇列儲存體](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+如需如何處理佇列訊息所觸發的資料表處理的相關資訊，或是非資料表處理特有的 WebJobs SDK 案例，請參閱[如何透過 WebJobs SDK 使用 Azure 佇列儲存體](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)。 
 
-那篇文章所涵蓋的主題包括下列各項：
+該文章涵蓋下列主題：
 
 * 非同步函式
 * 多個執行個體
 * 順利關機
 * 在函式主體中使用 WebJobs SDK 屬性
 * 在程式碼中設定 SDK 連接字串
-* 為程式碼中的 WebJobs SDK 建構函式設定參數值
+* 在程式碼中設定 WebJobs SDK 建構函式參數的值
 * 手動觸發函式
 * 寫入記錄檔
 
-## <a id="nextsteps"></a>後續步驟
+## <a id="nextsteps"></a> 後續步驟
 
 本指南提供的程式碼範例示範如何處理使用 Azure 資料表的常見案例。如需如何使用 Azure WebJobs 與 WebJobs SDK 的相關詳細資訊，請參閱 [Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

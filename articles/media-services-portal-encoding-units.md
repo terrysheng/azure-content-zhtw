@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="如何調整編碼保留單元" 
 	description="了解如何指定要佈建給帳戶的隨選串流保留單元和編碼保留單元，以調整媒體服務。" 
 	services="media-services" 
@@ -17,11 +17,11 @@
 	ms.author="juliako"/>
 
 
-#如何調整編碼
+# 如何調整編碼
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 系列的一部分。
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)系列的一部分。
 
-##概觀
+## 概觀
 
 媒體服務帳戶是與可決定編碼工作處理速度的保留單元類型相關聯。您可以選擇下列保留單元類型：**Basic**、**Standard** 或 **Premium**。例如，在執行相同編碼工作的前提下，使用 **Standard** 保留單元類型的速度會比 **Basic** 類型快。如需詳細資訊，請參閱[編碼保留單元類型](http://azure.microsoft.com/blog/author/milanga)。
 
@@ -49,12 +49,12 @@
 
 	>[Azure.Note] 計算成本時會使用 24 小時內指定的最大單位數。
 
-##配額和限制
+## 配額和限制
 
-如需配額和限制以及如何開啟支援票證的相關資訊，請參閱[配額和限制](media-services-quotas-and-limitations.md)。
-
-
+如需配額和限制以及如何開啟支援票證的相關資訊，請參閱[配額和限制](media-services-quotas-and-limitations.md)
 
 
 
-<!--HONumber=47-->
+
+
+<!--HONumber=52-->

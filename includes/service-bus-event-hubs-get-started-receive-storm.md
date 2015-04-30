@@ -6,7 +6,7 @@
 
 本教學課程使用 [HDInsight Storm] 安裝，其包含在已可使用的事件中心 Spout 中。
 
-1. 請遵循 [HDInsight Storm - 入門](http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/) 程序來建立新的 HDInsight 叢集，並透過遠端桌面與其連線。
+1. 請依照 [HDInsight Storm - 入門](../articles/hdinsight-storm-getting-started.md) 程序來建立新的 HDInsight 叢集，並透過遠端桌面與其連線。
 
 2. 將  `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 檔案複製到本機開發環境。這包含 events-storm-spout。
 
@@ -24,8 +24,8 @@
 
 7. 插入 **GroupId** 和 **ArtifactId**，然後按一下 [**完成**]
 
-8. 在 **pom.xml**中，於 `<dependency>` 節點中新增下列相依性。
-		
+8. 在 **pom.xml**中，於 '<dependency>' 節點中新增下列相依性。
+
 		<dependency>
 			<groupId>org.apache.storm</groupId>
 			<artifactId>storm-core</artifactId>
@@ -57,20 +57,20 @@
 9. 在 **src** 資料夾中，建立一個稱為 **Config.properties** 的檔案，然後複製下列內容，並替代下列值：
 
 		eventhubspout.username = ReceiveRule
-		
+
 		eventhubspout.password = {receive rule key}
-		
+
 		eventhubspout.namespace = ioteventhub-ns
-		
+
 		eventhubspout.entitypath = {event hub name}
-		
+
 		eventhubspout.partitions.count = 16
-		
+
 		# if not provided, will use storm's zookeeper settings
 		# zookeeper.connectionstring=localhost:2181
-		
+
 		eventhubspout.checkpoint.interval = 10
-		
+
 		eventhub.receiver.credits = 10
 
 	**eventhub.receiver.credits** 的值可決定批次處理多少事件之後，才將它們釋放到 Storm 管線。為了簡單起見，此範例會將此值設定為 10。在生產環境中，它通常應設定為較高的值。例如，1024年。
@@ -85,31 +85,31 @@
 		import backtype.storm.topology.OutputFieldsDeclarer;
 		import backtype.storm.topology.base.BaseRichBolt;
 		import backtype.storm.tuple.Tuple;
-		
+
 		public class LoggerBolt extends BaseRichBolt {
 			private OutputCollector collector;
 			private static final Logger logger = LoggerFactory
 				      .getLogger(LoggerBolt.class);
-		
+
 			@Override
-			public void execute(Tuple tuple) {				
+			public void execute(Tuple tuple) {
 				String value = tuple.getString(0);
-				logger.info("Tuple value: " + value);
-				
+				logger.info("Tuple value:" + value);
+
 				collector.ack(tuple);
 			}
-		
+
 			@Override
 			public void prepare(Map map, TopologyContext context, OutputCollector collector) {
 				this.collector = collector;
 				this.count = 0;
 			}
-		
+
 			@Override
 			public void declareOutputFields(OutputFieldsDeclarer declarer) {
 				// no output fields
 			}
-		
+
 		}
 
 	此 Storm Bolt 會記錄已接收事件的內容。這可以輕鬆地擴充以將 Tuple 儲存至儲存體服務。[HDInsight 感應器分析教學課程]使用這種相同的方式，將資料儲存至 HBase。
@@ -126,11 +126,11 @@
 		import com.microsoft.eventhubs.samples.EventCount;
 		import com.microsoft.eventhubs.spout.EventHubSpout;
 		import com.microsoft.eventhubs.spout.EventHubSpoutConfig;
-		
+
 		public class LogTopology {
 			protected EventHubSpoutConfig spoutConfig;
 			protected int numWorkers;
-		
+
 			protected void readEHConfig(String[] args) throws Exception {
 				Properties properties = new Properties();
 				if (args.length > 1) {
@@ -139,7 +139,7 @@
 					properties.load(EventCount.class.getClassLoader()
 							.getResourceAsStream("Config.properties"));
 				}
-		
+
 				String username = properties.getProperty("eventhubspout.username");
 				String password = properties.getProperty("eventhubspout.password");
 				String namespaceName = properties
@@ -154,31 +154,31 @@
 				int receiverCredits = Integer.parseInt(properties
 						.getProperty("eventhub.receiver.credits")); // prefetch count
 																	// (opt)
-				System.out.println("Eventhub spout config: ");
-				System.out.println("  partition count: " + partitionCount);
-				System.out.println("  checkpoint interval: "
+				System.out.println("Eventhub spout config:");
+				System.out.println("  partition count:" + partitionCount);
+				System.out.println("  checkpoint interval:"
 						+ checkpointIntervalInSeconds);
-				System.out.println("  receiver credits: " + receiverCredits);
-		
+				System.out.println("  receiver credits:" + receiverCredits);
+
 				spoutConfig = new EventHubSpoutConfig(username, password,
 						namespaceName, entityPath, partitionCount, zkEndpointAddress,
 						checkpointIntervalInSeconds, receiverCredits);
-		
+
 				// set the number of workers to be the same as partition number.
 				// the idea is to have a spout and a logger bolt co-exist in one
 				// worker to avoid shuffling messages across workers in storm cluster.
 				numWorkers = spoutConfig.getPartitionCount();
-		
+
 				if (args.length > 0) {
 					// set topology name so that sample Trident topology can use it as
 					// stream name.
 					spoutConfig.setTopologyName(args[0]);
 				}
 			}
-		
+
 			protected StormTopology buildTopology() {
 				TopologyBuilder topologyBuilder = new TopologyBuilder();
-		
+
 				EventHubSpout eventHubSpout = new EventHubSpout(spoutConfig);
 				topologyBuilder.setSpout("EventHubsSpout", eventHubSpout,
 						spoutConfig.getPartitionCount()).setNumTasks(
@@ -190,14 +190,14 @@
 						.setNumTasks(spoutConfig.getPartitionCount());
 				return topologyBuilder.createTopology();
 			}
-		
+
 			protected void runScenario(String[] args) throws Exception {
 				boolean runLocal = true;
 				readEHConfig(args);
 				StormTopology topology = buildTopology();
 				Config config = new Config();
 				config.setDebug(false);
-		
+
 				if (runLocal) {
 					config.setMaxTaskParallelism(2);
 					LocalCluster localCluster = new LocalCluster();
@@ -209,7 +209,7 @@
 				    StormSubmitter.submitTopology(args[0], config, topology);
 				}
 			}
-		
+
 			public static void main(String[] args) throws Exception {
 				LogTopology topology = new LogTopology();
 				topology.runScenario(args);
@@ -220,7 +220,7 @@
 	這個類別會建立新的事件中心 Spout，方法是使用組態檔中的屬性來進行具現化。請務必注意此範例所建立的 Spouts 工作數目要與事件中心內的磁碟分割數目一樣多，才能使用該事件中心所允許的最大平行處理。
 
 <!-- Links -->
-[事件中心概觀]: http://msdn.microsoft.com/library/azure/dn821413.aspx
+[事件中心概觀]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 [HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
 [HDInsight 感應器分析教學課程]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 
@@ -229,4 +229,4 @@
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-<!--HONumber=47-->
+<!--HONumber=52--> 

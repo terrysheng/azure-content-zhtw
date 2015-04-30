@@ -1,4 +1,4 @@
-﻿**如果以下條件成立**，Azure 將會確定您的應用程式使用 Python：
+**如果以下條件成立**，Azure 將會確定您的應用程式使用 Python：
 
 - requirements.txt 檔案位於根資料夾中
 - 任何 .py 檔案位於根資料夾中，或擁有指定 Python 的 runtime.txt
@@ -32,5 +32,4 @@
 當這些檔案不存在時，Azure 會建立一個暫存的部署指令碼，並執行該指令碼。它與您使用上述命令建立的指令碼完全相同。
 
 [Azure 命令列介面]: http://azure.microsoft.com/downloads/
-
-<!--HONumber=49-->
+<!--HONumber=52--> 

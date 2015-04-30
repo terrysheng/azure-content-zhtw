@@ -22,7 +22,7 @@
 
 # <a id="monitormediaservicesaccount"></a>如何監視媒體服務帳戶
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時串流工作流程](media-services-live-streaming-workflow.md)系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列的一部分。 
 
 Azure 媒體服務儀表板會顯示可用來管理媒體服務帳戶的使用量度量和帳戶資訊。
 
@@ -30,15 +30,15 @@ Azure 媒體服務儀表板會顯示可用來管理媒體服務帳戶的使用�
  
 >[AZURE.NOTE] 其他成本與 Azure 管理入口網站中監視儲存體資料有關。如需詳細資訊，請參閱[儲存體分析及計費](http://go.microsoft.com/fwlink/?LinkId=256667)。
 
-## <a id="configuremonitoring"></a>作法：監視媒體服務帳戶
+## <a id="configuremonitoring"></a>做法：監視媒體服務帳戶
 
-1. 在 [[管理入口網站](http://go.microsoft.com/fwlink/?LinkID=256666)]，按一下 [**媒體服務**]，然後按一下媒體服務帳戶名稱，即可開啟儀表板。 
+1. 在 [管理入口網站](http://go.microsoft.com/fwlink/?LinkID=256666)，按一下 [**媒體服務**]，然後按一下媒體服務帳戶名稱，即可開啟儀表板。 
 
 	![MediaServices_Dashboard][dashboard]
 
 2. 若要監視您的編碼工作或資料，只要開始將編碼工作提交至媒體服務即可，或利用 Azure 媒體隨選串流將內容串流傳輸給客戶。大約一小時過後，您在儀表板上應該就會開始看到監視資料。
 
-## <a id="configuringstorage"></a>作法：監視 Blob 儲存體使用量 (選用)
+## <a id="configuringstorage"></a>做法：監視 Blob 儲存體使用量 (選用)
 1. 按一下 [**快速瀏覽**] 區段下的 [**儲存體帳戶**] 名稱。
 2. 在儲存體帳戶頁面上，按一下 [**設定頁面**] 連結，然後向下捲動到 Blob、資料表和佇列服務的 [**監視**] 設定，如下所示。
 
@@ -68,4 +68,4 @@ Azure 媒體服務儀表板會顯示可用來管理媒體服務帳戶的使用�
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

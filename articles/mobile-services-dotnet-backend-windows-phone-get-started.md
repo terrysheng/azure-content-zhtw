@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/20/2014" 
 	ms.author="glenga"/>
 
@@ -23,6 +23,4 @@
 可在通用 Windows 專案的 Windows Phone 市集 8.1 應用程式下載取得快速啟動專案。如需詳細資訊，請參閱[開始使用行動服務](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md)。
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

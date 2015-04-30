@@ -1,5 +1,5 @@
-﻿## 將訊息傳送至事件中心
-在本節中，我們會撰寫一個 Java 主控台應用程式，以將事件傳送至事件中心。我們將利用 [Apache Qpid 專案](http://qpid.apache.org/)中的 JMS AMQP 提供者。這與搭配使用 Service Bus Queues and Topics 與透過 Java 的 AMQP 類似 (如[這裡](http://azure.microsoft.com/documentation/articles/service-bus-java-how-to-use-jms-api-amqp/)所示)。如需詳細資訊，請參閱 [Qpid JMS 文件](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html)和 [Java 訊息服務](http://www.oracle.com/technetwork/java/jms/index.html)。
+## 將訊息傳送至事件中心
+在本節中，我們會撰寫一個 Java 主控台應用程式，以將事件傳送至事件中心。我們將利用 [Apache Qpid 專案](http://qpid.apache.org/)中的 JMS AMQP 提供者。這與搭配使用 Service Bus Queues and Topics 與透過 Java 的 AMQP 類似 [如[這裡]所示](../articles/service-bus-java-how-to-use-jms-api-amqp.md)。如需詳細資訊，請參閱 [Qpid JMS 文件](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html)和 [Java 訊息服務](http://www.oracle.com/technetwork/java/jms/index.html)。
 
 1. 在 Eclipse 中，建立名為 **Sender** 的新 Java 專案。
 
@@ -13,13 +13,13 @@
 
 5. 在 **Sender** 專案的根目錄中，使用下列內容建立名為 **servicebus.properties** 的檔案。請務必替代您事件中心名稱和命名空間名稱的值 (後者通常是  `{event hub name}-ns`)。您也必須替代先前針對 **SendRule** 建立之金鑰的 URL 編碼版本。您可以在[這裡](http://www.w3schools.com/tags/ref_urlencode.asp)對其進行 URL 編碼。
 
-		# servicebus.properties - sample JNDI configuration
+		# servicebus.properties - 範例 JNDI 設定
 
-		# Register a ConnectionFactory in JNDI using the form:
+		# 使用下列格式在 JNDI 中登錄 ConnectionFactory：
 		# connectionfactory.[jndi_name] = [ConnectionURL]
 		connectionfactory.SBCF = amqps://SendRule:{Send Rule key}@{namespace name}.servicebus.windows.net/?sync-publish=false
 
-		# Register some queues in JNDI using the form
+		# 使用下列格式在 JNDI 中登錄一些佇列
 		# queue.[jndi_name] = [physical_name]
 		# topic.[jndi_name] = [physical_name]
 		queue.EventHub = {event hub name}
@@ -92,5 +92,5 @@
 
 
 <!-- Images -->
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
-<!--HONumber=47-->
+[8]:./media/service-bus-event-hubs-getstarted/create-sender-java1.png
+<!--HONumber=52--> 

@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="如何從媒體服務傳遞串流內容 - Azure" 
-	description="了解如何建立用來建置串流 URL 的定位器。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
+	description="了解如何建立定位器，用來建置串流 URL。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
 	authors="juliako" 
 	manager="dwrede" 
 	editor="" 
@@ -17,18 +17,18 @@
 	ms.author="juliako"/>
 
 
-# 作法：傳遞串流內容
+# 做法：傳遞串流內容
 
 
-這篇文章屬於[要求工作流程上的媒體服務視訊](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列。  
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列的一部分。  
 
 ## 概觀
 
-建立隨選串流定位器，並建置串流 URL，即可串流處理調適性位元速率 MP4 集。[為資產編碼](media-services-encode-asset.md)主題顯示如何編碼為調適性位元速率 MP4 集。建立定位器之前，您應該如[此](media-services-dotnet-configure-asset-delivery-policy.md)主題所述設定資產傳遞原則。 
+您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。[為資產編碼](media-services-encode-asset.md)主題顯示如何編碼為調適性位元速率 MP4 集。建立定位器之前，您應該如[這個](media-services-dotnet-configure-asset-delivery-policy.md)主題中所述，設定資產傳遞原則。 
 
 您也可以使用隨選串流定位器來建置指向可漸進式下載之 MP4 檔案的 URL。  
 
-本主題顯示如何建立隨選串流定位器以發佈資產，並建置 Smooth、MPEG DASH 和 HLS 串流 URL。它也會顯示熱點以建置漸進式下載 URL。 
+本主題說明如何建立隨選串流定位器以發佈資產及建置 Smooth、MPEG DASH 和 HLS 串流 URL。它也會示範如何建置漸進式下載 URL。 
   	 
 ## 建立隨選串流定位器
 
@@ -36,9 +36,9 @@
 
    1. 定義存取原則。
    2. 建立隨選串流定位器。
-   3. 如果您想要進行串流處理，請取得資產中的串流資訊清單檔 (.ism)。 
+   3. 如果您想要串流處理，請取得資產內的串流資訊清單檔案 (.ism)。 
    		
-	如果您想要進行漸進式下載，請取得資產中的 MP4 檔案名稱。  
+	如果您想要漸進式地下載，請取得資產中的 MP4 檔案名稱。  
    4. 建置資訊清單檔或 MP4 檔案的 URL。 
    
 
@@ -82,7 +82,7 @@
 	    Console.WriteLine();
 	}
 
-此程式碼會輸出:
+此程式碼會輸出：
 	
 	URL to manifest for client streaming using Smooth Streaming protocol:
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
@@ -151,4 +151,4 @@
 	Console.WriteLine(hlsUri);
 	Console.WriteLine(mpegDashUri);
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

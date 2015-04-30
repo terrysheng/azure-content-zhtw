@@ -30,7 +30,7 @@
 
 若要完成本教學課程，您需要下列項目：
 
-+ C 開發環境。在本教學課程中，我們假設 [Azure Linux VM](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/)上的 gcc 堆疊有 Ubuntu 14.04。其他環境的指示將會在外部連結中提供。
++ C 開發環境。在本教學課程中，我們假設 [Azure Linux VM](virtual-machines-linux-tutorial.md) 上的 gcc 堆疊有 Ubuntu 14.04。其他環境的指示將會在外部連結中提供。
 
 + Microsoft Visual Studio Express 2013 for Windows
 
@@ -56,7 +56,7 @@
 
    	![][4]
 
-6. 按一下頁面頂端的 [**設定**] 索引標籤上，新增名為 **SendRule** 且具有 *Send* 權限的規則，再新增另一個名為 **ReceiveRule** 且具有 *Manage, Send, Listen* 權限的規則，然後按一下 [**儲存**]。
+6. 按一下頁面頂端的 [**設定**] 索引標籤，新增名為 **SendRule** 且具有 *Send* 權限的規則，並新增名為 **ReceiveRule** 且具有 *Manage、Send、Listen* 權限的規則，然後按一下 [**儲存**]。
 
    	![][5]
 
@@ -104,4 +104,5 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [事件處理器主機]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [事件中心概觀]: http://msdn.microsoft.com/library/azure/dn836025.aspx
-<!--HONumber=47-->
+
+<!--HONumber=52-->

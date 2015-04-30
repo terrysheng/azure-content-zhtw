@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="如何新增編碼單元" 
 	description="了解如何使用 .NET 新增編碼單元"  
 	services="media-services" 
@@ -19,13 +19,13 @@
 
 
 
-#如何使用 .NET SDK 調整編碼
+# 如何使用 .NET SDK 調整編碼
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 系列的一部分。
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)系列的一部分。
   
-##概觀
+## 概觀
 
-媒體服務帳戶是與可決定編碼工作處理速度的保留單元類型相關聯。您可以選擇下列保留單元類型：Basic、Standard 或 Premium。例如，在執行相同編碼工作的前提下，使用 Standard 保留單元類型的速度會比 Basic 類型快。如需詳細資訊，請參閱 [Milan Gada](http://azure.microsoft.com/blog/author/milanga/)　所寫的＜編碼保留單元類型＞部落格。
+媒體服務帳戶是與可決定編碼工作處理速度的保留單元類型相關聯。您可以選擇下列保留單元類型：Basic、Standard 或 Premium。例如，在執行相同編碼工作的前提下，使用 Standard 保留單元類型的速度會比 Basic 類型快。如需詳細資訊，請參閱 [Milan Gada](http://azure.microsoft.com/blog/author/milanga/) 所寫的＜編碼保留單元類型＞部落格。
 
 除了指定保留單元類型之外，您還可以指定使用編碼保留單元來佈建帳戶。佈建的編碼保留單元數目可決定給定帳戶中可同時處理的媒體工作數目。例如，如果帳戶有 5 個保留單元，則只要有工作需要處理，就會同時執行 5 個媒體工作。剩餘的工作會在佇列中等待，且隨著執行中的工作完成，就立即循序地挑選來開始處理。如果帳戶未佈建任何保留單元，則會循序地挑選工作。在此情況下，一件工作完成與下一件工作開始之間的等待時間，視系統中的資源可用性而定。
 
@@ -41,7 +41,7 @@
 	
 	Console.WriteLine("Number of reserved units: {0}", encodingBasicReservedUnit.CurrentReservedUnits);
 
-##建立支援票證
+## 建立支援票證
 
 依預設，每一個媒體服務帳戶可調整為最多 25 個編碼保留單元和 5 個隨選串流保留單元。您可以建立支援票證來要求更高的限制。
 
@@ -60,4 +60,4 @@
 11. 按一下 [提交] 來建立票證。
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

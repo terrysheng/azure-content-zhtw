@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="開始使用事件中心" 
 	description="遵循此教學課程，開始使用 Azure Event Hubs 以 Java 傳送事件並且在 Apache Storm 叢集中接收這些事件。" 
 	services="service-bus" 
@@ -108,4 +108,5 @@
 [HDInsight Storm 概觀]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
 [使用 Storm 和 HDInsight 分析感應器資料]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 [在 Storm 和 HDInsight 上使用 SCP.NET 和 C# 開發串流資料處理應用程式]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
-<!--HONumber=47-->
+
+<!--HONumber=52-->

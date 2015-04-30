@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="如何從媒體服務傳遞串流內容" 
 	description="了解如何建立定位器，用來建置串流 URL。程式碼使用 REST API。" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor="" 
 	services="media-services" 
@@ -17,14 +17,14 @@
 	ms.author="juliako"/>
 
 
-#作法：傳遞串流內容
+# 做法：傳遞串流內容
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 和[媒體服務即時串流工作流程](media-services-live-streaming-workflow.md) 系列的一部分。  
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列的一部分。  
 
-##概觀
+## 概觀
 
 
-您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。[將資產編碼](media-services-rest-encode-asset.md) 主題說明如何編碼為調適性位元速率 MP4 集。建立定位器之前，您應該依[此](media-services-rest-configure-asset-delivery-policy.md)主題所述設定資產傳遞原則。 
+您可以建立隨選串流定位器及建置串流 URL，串流處理調適性位元速率 MP4 集。[為資產編碼](media-services-rest-encode-asset.md)主題顯示如何編碼為調適性位元速率 MP4 集。建立定位器之前，您應該如[此](media-services-rest-configure-asset-delivery-policy.md)主題所述設定資產傳遞原則。 
 
 您也可以使用隨選串流定位器來建置指向可漸進式下載之 MP4 檔案的 URL。  
 
@@ -32,7 +32,7 @@
 
 [下列](#types) 一節顯示 REST 呼叫會使用其值的列舉類型。   
   
-##建立隨選串流定位器
+## 建立隨選串流定位器
 
 若要建立隨選串流定位器並取得 URL，您需要執行下列動作：
 
@@ -45,7 +45,7 @@
    4. 建置資訊清單檔或 MP4 檔案的 URL。 
 
 
-###建立存取原則
+### 建立存取原則
 
 要求：
 		
@@ -55,7 +55,7 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
 	x-ms-version: 2.8
 	x-ms-client-request-id: 6bcfd511-a561-448d-a022-a319a89ecffa
 	Host: media.windows.net
@@ -82,7 +82,7 @@
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#AccessPolicies/@Element","Id":"nb:pid:UUID:69c80d98-7830-407f-a9af-e25f4b0d3e5f","Created":"2015-02-18T06:52:09.8862191Z","LastModified":"2015-02-18T06:52:09.8862191Z","Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 
-###建立隨選串流定位器
+### 建立隨選串流定位器
 
 建立指定資產和資產原則的定位器。
 
@@ -94,7 +94,7 @@
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
 	x-ms-version: 2.8
 	x-ms-client-request-id: ac159492-9a0c-40c3-aacc-551b1b4c5f62
 	Host: media.windows.net
@@ -121,7 +121,7 @@
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#Locators/@Element","Id":"nb:lid:UUID:be245661-2bbd-4fc6-b14f-9cf9a1492e5e","ExpirationDateTime":"2015-03-20T06:34:47.267872+00:00","Type":2,"Path":"http://amstest1.streaming.mediaservices.windows.net/be245661-2bbd-4fc6-b14f-9cf9a1492e5e/","BaseUri":"http://amstest1.streaming.mediaservices.windows.net","ContentAccessComponent":"be245661-2bbd-4fc6-b14f-9cf9a1492e5e","AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872+00:00","Name":null}
 
-###建置串流 URL
+### 建置串流 URL
 
 使用建立定位器之後傳回的 **Path** 值建置 Smooth、HLS 和 MPEG DASH URL。 
 
@@ -146,7 +146,7 @@ DASH：**Path** + 資訊清單檔案名稱 + "/manifest(format=mpd-time-csf)"
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-###建置漸進式下載 URL
+### 建置漸進式下載 URL
 
 使用建立定位器之後傳回的 **Path** 值建置漸進式下載 URL。   
 
@@ -156,7 +156,7 @@ URL：**Path** + 資產檔案 MP4 名稱
 
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-##<a id="types"></a>列舉類型
+## <a id="types"></a>列舉類型
 
     [Flags]
     public enum AccessPermissions
@@ -174,4 +174,5 @@ URL：**Path** + 資產檔案 MP4 名稱
         Sas = 1,
         OnDemandOrigin = 2,
     }
-<!--HONumber=47-->
+
+<!--HONumber=52-->

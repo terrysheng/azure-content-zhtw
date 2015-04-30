@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="開始使用事件中心" 
 	description="遵循此教學課程，開始使用 Azure Event Hubs 以 C 傳送事件並且在 Apache Storm 叢集中接收這些事件。" 
 	services="service-bus" 
@@ -30,7 +30,7 @@
 
 若要完成本教學課程，您需要下列項目：
 
-+ C 開發環境。在本教學課程中，我們假設 [Azure Linux VM](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/)上的 gcc 堆疊有 Ubuntu 14.04。其他環境的指示將會在外部連結中提供。
++ C 開發環境。在本教學課程中，我們假設 [Azure Linux VM](virtual-machines-linux-tutorial.md) 上的 gcc 堆疊有 Ubuntu 14.04。其他環境的指示將會在外部連結中提供。
 
 + 為了執行 [Maven](http://maven.apache.org/) 所設定的 Java 開發環境。在本教學課程中，我們將採用 [Eclipse](https://www.eclipse.org/)。
 
@@ -110,4 +110,5 @@
 [HDInsight Storm 概觀]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
 [使用 Storm 和 HDInsight 分析感應器資料]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 [在 Storm 和 HDInsight 上使用 SCP.NET 和 C# 開發串流資料處理應用程式]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
-<!--HONumber=47-->
+
+<!--HONumber=52-->

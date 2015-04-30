@@ -17,13 +17,13 @@
 	ms.author="juliako"/>
 
 
-# 作法：使用 PlayReady 或 AES-128 動態加密資產
+# 做法：使用 PlayReady 或 AES-128 動態加密資產
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) and [媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md) 系列的一部分。
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md)系列的一部分。
   
 ## 概觀
 
-Microsoft Azure 媒體服務可讓您提供使用進階加密標準 (AES) (使用 128 位元加密金鑰) 和 PlayReady DRM (動態) 加密的內容。媒體服務也提供服務，傳遞金鑰和 PlayReady 授權給授權用戶端。若要提供受保護的內容，您需要設定內容金鑰授權原則並設定資產傳遞原則。
+Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使用 128 位元加密金鑰) 和 PlayReady DRM 所加密的內容 (動態)。媒體服務也提供服務，傳遞金鑰和 PlayReady 授權給授權用戶端。若要提供受保護的內容，您需要設定內容金鑰授權原則並設定資產傳遞原則。
 
 ## 設定
 
@@ -33,4 +33,5 @@ Microsoft Azure 媒體服務可讓您提供使用進階加密標準 (AES) (使�
 設定資產傳遞原則
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
  
-<!--HONumber=45--> 
+
+<!--HONumber=52-->

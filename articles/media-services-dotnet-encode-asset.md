@@ -17,24 +17,25 @@
 	ms.author="juliako"/>
 
 
-#如何使用 Azure Media Encoder 為資產編碼
+# 如何使用 Azure Media Encoder 為資產編碼
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md)系列的一部分。 
 
-##概觀
+## 概觀
 
 若要透過網際網路傳遞數位視訊，您必須壓縮媒體。數位視訊檔案十分龐大，而且可能太大而無法透過網際網路傳遞，或是太大而使您客戶的裝置無法正確顯示。編碼是壓縮視訊和音訊，好讓客戶能檢視您的媒體的程序。
 
-編碼工作是媒體服務中最常見的處理作業。您建立編碼工作以將媒體檔案從一種編碼轉換成另一種編碼。編碼時，您可以使用媒體服務內建的 Media Encoder。您也可以使用媒體服務合作夥伴提供的編碼器；第三方編碼器可透過 Azure Marketplace 取得。您可以使用針對您的編碼器定義的預設字串，或使用預設組態檔，指定編碼工作的詳細資料。若要查看可用的預設類型，請參閱＜Azure 媒體服務的工作預設＞。如果您使用協力廠商編碼器，您應該[驗證檔案](https://msdn.microsoft.com/library/azure/dn750842.aspx)。
+編碼工作是媒體服務中最常見的處理作業。您建立編碼工作以將媒體檔案從一種編碼轉換成另一種編碼。編碼時，您可以使用媒體服務內建的 Media Encoder。您也可以使用媒體服務合作夥伴提供的編碼器；第三方編碼器可透過 Azure Marketplace 取得。您可以使用針對您的編碼器定義的預設字串，或使用預設組態檔，指定編碼工作的詳細資料。若要查看可用的預設類型，請參閱＜Azure 媒體服務的工作預設＞。如果您使用第三方編碼器，則應該[驗證檔案](https://msdn.microsoft.com/library/azure/dn750842.aspx)。
 
 建議一律將夾層檔編碼為調適性位元速率 MP4 集，然後使用[動態封裝](https://msdn.microsoft.com/library/azure/jj889436.aspx)將該集合轉換為所要的格式。
 
+如果您的輸出資產是儲存體加密，必須設定資產傳遞原則。如需詳細資訊，請參閱[設定資產傳遞原則](media-services-dotnet-configure-asset-delivery-policy.md)。
 
-##建立具有單一編碼工作的工作 
+## 建立具有單一編碼工作的工作 
 
-使用 Azure Media Encoder 編碼時，您可以使用[這裡](https://msdn.microsoft.com/library/azure/dn619389.aspx)指定的工作組態預設。
+當透過 Azure Media Encoder 編碼時，您可以使用[這裡](https://msdn.microsoft.com/library/azure/dn619389.aspx)指定的工作組態預設。
 
-###使用 Media Services SDK for .NET  
+### 使用 Media Services SDK for .NET  
 
 下列 **EncodeToAdaptiveBitrateMP4Set** 方法會建立編碼工作 (Job)，並將單一編碼工作 (Task) 新增至工作 (Job)。此工作 (Task) 會使用 "Azure Media Encoder" 編碼為 "H264 Adaptive Bitrate MP4 Set 720p"。 
 
@@ -105,7 +106,7 @@
         return processor;
     }
 
-###使用 Media Services SDK for .NET 延伸模組
+### 使用 Media Services SDK for .NET 延伸模組
 
     static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
     {
@@ -137,11 +138,11 @@
         return outputAsset;
     } 
 
-##建立具有鏈結工作 (Task) 的工作 (Job) 
+## 建立具有鏈結工作的工作 
 
-在許多應用程式案例中，開發人員都想要建立一連串的處理工作 (Task)。在媒體服務中，您可以建立一連串的鏈結工作 (Task)。每項工作 (Task) 都會執行不同的處理步驟，並且可以使用不同的媒體處理器。鏈結工作 (Task) 可以將資產從某個工作 (Task) 傳遞給另一個工作 (Task)，並對資產執行連續的工作 (Task)。不過，工作 (Job) 中所執行的工作 (Task) 不一定要連續執行。建立鏈結工作 (Task) 時，會在單一 **IJob** 物件中建立鏈結 **ITask** 物件。
+在許多應用程式案例中，開發人員想要建立一連串的處理工作。在媒體服務中，您可以建立一連串的鏈結工作。每一項工作會執行不同的處理步驟，而且可以使用不同的媒體處理器。鏈結工作可以將資產從一個工作遞交到另一個工作，對資產執行一連串的工作。不過，在工作中執行的工作不必按照順序。當您建立鏈結工作時，鏈結的 **ITask** 物件會建立在單一 **IJob** 物件中。
 
->[AZURE.NOTE] 目前的限制是每個工作 (Job) 有 30 個工作 (Task)。如果您需要鏈結 30 個以上的工作 (Task)，請建立多個工作 (Job) 來包含這些工作 (Task)。
+>[AZURE.NOTE] 目前有每個工作裡 30 個工作的限制。如果您需要鏈結超過 30 個工作，請建立多個工作來包含這些工作。
 
 下列 **CreateChainedTaskEncodingJob** 方法會建立含有兩個鏈結工作 (Task) 的工作 (Job)。因此，此方法會傳回含有兩個輸出資產的工作 (Job)。
 
@@ -206,8 +207,7 @@
     }
 
 
-##後續步驟
-現在您已了解如何建立為資產編碼的工作，請移至[如何使用媒體服務檢查工作進度](media-services-check-job-progress.md) 主題。
+## 後續步驟
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [編碼器預設]: http://msdn.microsoft.com/library/dn619392.aspx
@@ -217,4 +217,4 @@
 [如何檢查工作進度]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Azure Media Packager 的工作預設]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
 
-<!--HONumber=47-->
+<!--HONumber=52-->

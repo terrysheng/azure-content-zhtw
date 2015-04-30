@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="開始使用事件中心" 
 	description="遵循此教學課程，可開始使用 Azure Event Hubs 透過 Java 傳送事件並透過利用 EventProcessorHost 以 C# 接收。" 
 	services="service-bus" 
@@ -105,4 +105,4 @@
 [事件處理器主機]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [事件中心概觀]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
-<!--HONumber=47-->
+<!--HONumber=52-->

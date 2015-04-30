@@ -42,7 +42,7 @@
 
 
 
-5. 在 [專案總管] 中，以滑鼠右鍵按一下 *src* 資料夾的專案名稱 (`com.example.{your projects name}`)，依序選擇 [**新增**] 及 [**類別**]。在對話方塊的類別名稱欄位中輸入 **MarkAllResult**，選擇 [確定]，然後以下列程式碼取代產生的類別定義：
+5. 在 [專案總管] 中，以滑鼠右鍵按一下 *src* 資料夾中的專案名稱 (`com.example.{your projects name}`)，選擇 [新增]，然後選擇 [類別]。在對話方塊的類別名稱欄位中輸入 **MarkAllResult**，選擇 [確定]，然後以下列程式碼取代產生的類別定義：
 
 		import com.google.gson.annotations.SerializedName;
 		
@@ -111,4 +111,5 @@
   	![](./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png)
 
 	這時會顯示訊息對話方塊，指出標示為已完成的項目數，且會再次篩選查詢來清除清單中的所有項目。
-<!--HONumber=47-->
+
+<!--HONumber=52-->

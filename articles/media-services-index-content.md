@@ -10,10 +10,10 @@
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/04/2015" 
+	ms.date="03/25/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 
 這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 系列的一部分。 
 
-Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。您可以處理一份媒體檔或是批次處理多個媒體檔案。您也可以指定資訊清單檔中的檔案 URL 來針對可在網際網路上公開取得的檔案編製索引。
+Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。您可以處理一份媒體檔或是批次處理多個媒體檔案。  
 
 >[AZURE.NOTE] 在編製內容索引時，請務必使用語音非常清楚的媒體檔案 (不含背景音樂、噪音、效果或麥克風雜音)。適當內容的一些範例有：錄製的會議、演講或簡報。下列內容可能不適合用來編製索引：電影、電視節目、任何具有混合音訊與音效的內容、錄製效果不良有背景噪音 (雜音) 的內容。
 
@@ -38,11 +38,11 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 	如需詳細資訊，請參閱[搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)。
 
 
-本主題說明如何建立索引作業來**編製資產索引**、**編製多個檔案的索引**，和**編製在網際網路上公開可用之檔案的索引**。
+本主題示範如何建立索引工作 **建立資產的索引** 和 **建立多個檔案的索引**。
 
 如需最新的 Azure Media Indexer 更新，請參閱[媒體服務部落格](http://azure.microsoft.com/blog/topics/media-services/)。
 
-##針對索引工作使用組態和資訊清單檔
+## 針對索引工作使用組態和資訊清單檔
 
 您可以使用工作組態來為索引工作指定更多詳細資料。例如，您可以指定要用於媒體檔案的中繼資料。語言引擎會使用此中繼資料來擴充其詞彙，並大幅提升語音辨識準確度。
 
@@ -50,7 +50,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 
 如需詳細資訊，請參閱 [Azure Media Indexer 的工作預設](https://msdn.microsoft.com/library/azure/dn783454.aspx)。
 
-##編製資產索引
+## 編製資產索引
 
 下列方法會將媒體檔案上傳為資產，並建立工作來編製資產索引。
 
@@ -96,7 +96,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 	    progressJobTask.Wait();
 	
 	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
+	    // method for job progress should log errors.Here we check 
 	    // for error state and exit if needed.
 	    if (job.State == JobState.Error)
 	    {
@@ -143,7 +143,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 	    return processor;
 	} 
 	
-###<a id="output_files"></a>輸出檔案
+### <a id="output_files"></a>輸出檔
 
 索引工作會產生下列輸出檔案。檔案會儲存在第一個輸出資產。
 
@@ -157,7 +157,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 <br/>
 它需要在執行 Microsoft SQL 2008 或更新版本的電腦上安裝 Indexer SQL 附加元件。使用 Microsoft SQL Server 全文檢索搜尋來搜尋 AIB 可以比搜尋 WAMI 產生之隱藏式字幕檔案提供更正確的搜尋結果。這是因為 AIB 包含發音類似的替代字，而隱藏式字幕檔案則包含音訊每一節的最高信賴字。如果搜尋說的話重要性最高，則建議一起使用 AIB 和 Microsoft SQL Server。
 <br/><br/>
-若要下載附加元件，請按一下 [<a href="http://aka.ms/indexersql">Azure Media Indexer SQL 附加元件</a>]。
+若要下載附加元件，請按一下 <a href="http://aka.ms/indexersql">Azure Media Indexer SQL 附加元件</a>。
 <br/><br/>
 也可以利用其他搜尋引擎，例如 Apache Lucene/Solr，只根據隱藏式字幕和關鍵字 XML 檔案編製視訊的索引，但這會導致搜尋結果較不正確。</td></tr>
 <tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
@@ -176,7 +176,7 @@ SAMI 和 TTML 都包含稱為 <b>Recognizability</b> 的標記，它會根據來
 
 如果不是所有輸入媒體檔案都成功編製索引，則索引工作將會失敗，錯誤碼為 4000。如需詳細資訊，請參閱[錯誤碼](#error_codes)。
 
-##編製多個檔案的索引
+## 編製多個檔案的索引
 
 下列方法會將多個媒體檔案上傳為資產，並建立工作來批次編製這些檔案的索引。
 
@@ -228,7 +228,7 @@ SAMI 和 TTML 都包含稱為 <b>Recognizability</b> 的標記，它會根據來
 	    progressJobTask.Wait();
 	
 	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
+	    // method for job progress should log errors.Here we check 
 	    // for error state and exit if needed.
 	    if (job.State == JobState.Error)
 	    {
@@ -256,7 +256,7 @@ SAMI 和 TTML 都包含稱為 <b>Recognizability</b> 的標記，它會根據來
 	}
 
 
-###輸出檔案
+### 輸出檔案
 
 當有多個輸入媒體檔案時，WAMI 會產生工作輸出的資訊清單檔，名為 'JobResult.txt'。針對每個輸入媒體檔案，產生的 AIB、SAMI、TTML 以及關鍵字檔案會循序編號，如下所示。
 
@@ -298,88 +298,13 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 
 如果不是所有輸入媒體檔案都成功編製索引，則索引工作將會失敗，錯誤碼為 4000。如需詳細資訊，請參閱[錯誤碼](#error_codes)。
 
-###部分成功的工作
+### 部分成功的工作
 
 如果不是所有輸入媒體檔案都成功編製索引，則索引工作將會失敗，錯誤碼為 4000。如需詳細資訊，請參閱[錯誤碼](#error_codes)。
 
 
 會產生 (與成功工作) 相同的輸出。您可以參閱輸出資訊清單檔，根據 Error 欄位值找出哪些輸入檔案失敗。針對失敗的輸入檔案，將不會產生結果的 AIB、SAMI、TTML 和關鍵字檔案。
 
-##編製來自網際網路之檔案的索引
-
-針對網際網路上公開可用的媒體檔案，您也可以編製其索引而不必將它們複製到 Azure 儲存體。您可以使用資訊清單檔案指定媒體檔案的 URL。如需詳細資訊，請參閱 [Azure Media Indexer 的工作預設](https://msdn.microsoft.com/library/azure/dn783454.aspx)。
-
-請注意，支援 HTTP 和 HTTPS URL 通訊協定。
-
-下列方法和組態會建立工作以編製網際網路媒體檔案的索引。
-	
-	static bool RunIndexingJobWithPublicUrl(string inputMediaUrl, string outputFolder)
-	{
-	    // Create the manifest file that contains the input media URL
-	    string manifestFile = "input.lst";
-	    File.WriteAllLines(manifestFile, new string[] { inputMediaUrl });
-	
-	    // Create an asset and upload the manifest file to storage.
-	    IAsset asset = CreateAssetAndUploadSingleFile(manifestFile,
-	        "My Indexing Input Asset - Public URL",
-	        AssetCreationOptions.None);
-	
-	    // Declare a new job.
-	    IJob job = _context.Jobs.Create("My Indexing Job - Public URL");
-	
-	    // Get a reference to the Azure Media Indexer.
-	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
-	
-	    // Read configuration.
-	    string configuration = File.ReadAllText("public.config");
-	
-	    // Create a task with the encoding details, using a string preset.
-	    ITask task = job.Tasks.AddNew("My Indexing Task - Public URL",
-	        processor,
-	        configuration,
-	        TaskOptions.None);
-	
-	    // Specify the input asset to be indexed.
-	    task.InputAssets.Add(asset);
-	
-	    // Add an output asset to contain the results of the job.
-	    task.OutputAssets.AddNew("My Indexing Output Asset - Public URL", AssetCreationOptions.None);
-	
-	    // Use the following event handler to check job progress.  
-	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-	
-	    // Launch the job.
-	    job.Submit();
-	
-	    // Check job execution and wait for job to finish. 
-	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-	    progressJobTask.Wait();
-	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
-	    // for error state and exit if needed.
-	    if (job.State == JobState.Error)
-	    {
-	        Console.WriteLine("Exiting method due to job error.");
-	        return false;
-	    }
-	
-	    // Download the job outputs.
-	    DownloadAsset(task.OutputAssets.First(), outputFolder);
-	
-	    return true;
-	}
-
-###輸出檔案
-
-如需輸出檔案的描述，請參閱[輸出檔案](#output_files)。 
-
-
-##處理受保護檔案
-
-透過 http 或 https 下載網際網路檔案時，Indexer 支援使用者名稱和密碼的基本驗證。
-
-您可以在工作組態中指定 **username** 和 **password**，如 [Azure Media Indexer 的工作預設](https://msdn.microsoft.com/library/azure/dn783454.aspx)中所述。
 
 ### <a id="error_codes"></a>錯誤碼
 
@@ -399,16 +324,16 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 損毀的媒體檔案。
 <br/>或<br/>
 輸入媒體沒有音訊資料流。</td></tr>
-<tr><td>4000</td><td>批次編製索引已部分成功</td><td>某些輸入媒體檔案無法編製索引。如需詳細資訊，請參閱<a href="output_files">輸出檔案</a>。</td></tr>
+<tr><td>4000</td><td>批次編製索引已部分成功</td><td>某些輸入媒體檔案無法編製索引。如需詳細資訊，請參閱<a href="output_files">輸出檔</a>。</td></tr>
 <tr><td>其他</td><td>內部錯誤</td><td>請連絡技術支援小組。</td></tr>
 </table>
 
 
-##<a id="supported_languages"></a>支援的語言
+## <a id="supported_languages"></a>支援的語言
 
 目前只支援英文。
 
-##相關連結
+## 相關連結
 
 [搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
@@ -418,4 +343,4 @@ Error：表示這個媒體檔案是否已成功編製索引。0 代表成功，�
 
 <!-- URLs. -->
 
-<!--HONumber=47-->
+<!--HONumber=52-->

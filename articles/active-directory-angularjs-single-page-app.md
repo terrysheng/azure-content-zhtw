@@ -1,7 +1,7 @@
-﻿<properties 
+<properties 
 	pageTitle="如何使用 Azure AD 建置 AngularJS 單頁應用程式" 
 	description="示範使用 Active Directory 驗證程式庫 (ADAL) for JavaScript 來保護 AngularJS 式單一頁面應用程式，使用 ASP.NET Web API 後端實作，其呼叫使用 CORS 的另一個 ASP.NET Web API。" 
-	services="" 
+	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
 	manager="terrylan" 
@@ -13,13 +13,13 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="identity" 
-	ms.date="02/20/2015" 
+	ms.date="04/01/2015" 
 	ms.author="justinha"/>
 
 
 # 如何使用 Azure AD 建置 AngularJS 單頁應用程式 
 
-本教學課程示範使用 Active Directory 驗證程式庫 (ADAL) for JavaScript 來保護 AngularJS 式單一頁面應用程式，使用 ASP.NET Web API 後端實作，其呼叫使用 CORS 的另一個 ASP.NET Web API。若要查看本教學課程使用的程式碼範例，請參閱 github 上的 [AzureADSamples/SinglePageApp-AngularJS-DotNet](https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet)。
+本教學課程示範使用 Active Directory 驗證程式庫 (ADAL) for JavaScript 來保護 AngularJS 式單一頁面應用程式，使用 ASP.NET Web API 後端實作，其呼叫使用 CORS 的另一個 ASP.NET Web API。如需查看用於此教學課程的程式碼範例，請參閱 GitHub 上的 [AzureADSamples/SinglePageApp-AngularJS-DotNet](https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet)。
 
 ADAL for Javascript 是開放原始碼程式庫。如需分佈選項、原始程式碼和投稿內容，請參閱 [ADAL JS 儲存機制](https://github.com/AzureAD/azure-activedirectory-library-for-js)。
 
@@ -31,7 +31,7 @@ ADAL for Javascript 是開放原始碼程式庫。如需分佈選項、原始程
 
 - Visual Studio 2013
 - 網際網路連線
-- Azure 訂用帳戶 ([免費試用版](https://account.windowsazure.com/organization)就已足夠)
+- Azure 定用帳戶 ([免費試用](https://account.windowsazure.com/organization)已足夠)
 
 每個 Azure 訂用帳戶都有相關聯的 Azure Active Directory (Azure AD) 租用戶。此範例所使用的所有 Azure AD 功能都可供免費使用。
 
@@ -50,7 +50,7 @@ ADAL for Javascript 是開放原始碼程式庫。如需分佈選項、原始程
 6. 按一下 [**加入我的組織正在開發的應用程式**]。
 7. 輸入應用程式的易記名稱，例如 "To Go API"，選取 [**Web 應用程式**] 和/或 [**Web API**]，然後按 [**下一步**]。
 8. 針對登入 URL，就此範例輸入基礎 URL，預設為 `https://localhost:44327/`。
-9. 針對應用程式識別碼 URI，輸入  `https://<your_directory_name>/ToGoAPI`，以 Azure AD 目錄的名稱取代 `<your_directory_name>`。儲存組態。
+9. 針對應用程式識別碼 URI，請輸入 `https://<your_directory_name>/ToGoAPI`，使用您 Azure AD 目錄的名稱取代 `<your_directory_name>`。儲存組態。
 
 全部完成了！繼續進行下一步之前，您需要尋找您的 API 的應用程式識別碼 URI。
 
@@ -65,21 +65,21 @@ ADAL for Javascript 是開放原始碼程式庫。如需分佈選項、原始程
 4. 尋找應用程式金鑰 `ida:Audience`，並將該值取代為您從 Azure 入口網站複製的應用程式識別碼 URI。
 5. 同樣在 ToGoAPI 專案中，開啟檔案 `Controllers/ToGoListController.cs`。在 `[EnableCors...]` 屬性中，輸入 To Do SPA 用戶端的位置。依預設它是 `https://localhost:44326`。請確定省略結尾斜線。
 5. 在 TodoSPA 專案中，開啟檔案 `App/Scripts/App.js` 並找出 `endpoints` 物件的宣告。
-6. 輸入 To Go API 端點位置的對應，其資源識別碼或應用程式識別碼 URI。 `endpoints`物件的屬性名稱應該是 To Go API 的位置。根據預設，它是 `https://localhost:44327/`。這個屬性的值應該是您從入口網站中複製的應用程式識別碼 URI，例如 `https://<your_tenant_name>/ToGoAPI`。
+6. 輸入 To Go API 端點位置的對應，其資源識別碼或應用程式識別碼 URI。 `endpoints`物件的屬性名稱應該是 To Go API 的位置。根據預設它是 `https://localhost:44327/`. 這個屬性的值應該是您從入口網站中複製的應用程式識別碼 URI，例如  `https://<your_tenant_name>/ToGoAPI`。
 8. 別擔心此檔案中的其他組態值，我們很快會加以說明。
-9. 同樣在 TodoSPA 專案中，開啟檔案 `App/Scripts/toGoListSvc.js`。將  `apiEndpoint` 變數的值取代為您的 To Go API 的位置。依預設它是 `https://localhost:44327/`。
+9. 同樣在 TodoSPA 專案中，開啟檔案 `App/Scripts/toGoListSvc.js`。將 `apiEndpoint` 變數的值取代為您的 To Go API 的位置。依預設它是 `https://localhost:44327/`。
 
 ## 向 Azure Active Directory 租用戶註冊 To Do 單頁應用程式
 
 1. 重新登入 [Azure 管理入口網站](https://manage.windowsazure.com)。
 2. 在左側導覽中按一下 **Active Directory**。
-3. 按一下您要註冊範例應用程式的目錄租用戶。
+3. 按一下您要註冊範例應用程式的租用戶。
 4. 按一下 [**應用程式**] 索引標籤。
 5. 在下拉式清單中，按一下 [**新增**]。
 6. 按一下 [**加入我的組織正在開發的應用程式**]。
 7. 輸入應用程式的易記名稱，例如 "To Do SPA"，選取 [**Web 應用程式] 和/或 [Web API**]，然後按 [**下一步**]。
 8. 針對登入 URL，就此範例輸入基礎 URL，預設為 `https://localhost:44326/`。
-9. 針對應用程式識別碼 URI，輸入  `https://<your_directory_name>/ToDoSPA`，以 Azure AD 目錄的名稱取代 `<your_directory_name>`。
+9. 針對應用程式識別碼 URI，請輸入 `https://<your_directory_name>/ToDoSPA`，使用您 Azure AD 目錄的名稱取代 `<your_directory_name>`。
 10. 在 [**其他應用程式的權限**] 區段中，按一下 [**新增應用程式**]。在 [**顯示**] 下拉式清單選取 [**其他**]，然後按一下上方的核取記號。找到並按一下 To Go API，然後按一下底部的核取記號，以新增應用程式。從 [**委派的權限**] 下拉式清單中選取 [**存取 To Go API**]，並儲存組態。
 
 全部完成了！繼續進行下一步之前，您需要尋找您的應用程式的用戶端識別碼。
@@ -119,7 +119,7 @@ ADAL for Javascript 是開放原始碼程式庫。如需分佈選項、原始程
 
 ### 建立 To Go API Azure 網站
 
-1. 登入 [Azure 管理入口網站]。(https://manage.windowsazure.com)。
+1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com)。
 2. 在左側導覽中按一下 [**網站**]。
 3. 在左下角按一下 [**新增**]，選取 [**計算**] > [**網站**] > [**自訂建立**]，選取主控方案和區域，並提供您的網站的名稱，例如 togo-contoso.azurewebsites.net。選取要使用的資料庫，或建立新資料庫。按一下 [**建立網站**]。
 4. 建立網站之後，按一下網站來加以管理。在這組步驟中，下載 .publishsettings 檔案，並加以儲存。也可以使用其他部署機制，例如從原始檔控制。如需使用 .publishsettings 檔案的詳細資訊，請參閱[作法：連線至您的訂閱](http://azure.microsoft.com/documentation/articles/install-configure-powershell/#Connect)。 
@@ -134,21 +134,21 @@ ADAL for Javascript 是開放原始碼程式庫。如需分佈選項、原始程
 ### 更新兩個專案以使用 Azure 網站
 
 1. 在 Visual Studio 中，移至 TodoSPA 專案。
-2. 需要兩項變更。在 `App\Scripts\app.js` 中，將 `endpoints`物件的屬性名稱取代為 To Go API 的新位置，例如 `https://togo-contoso.azurewebsites.net/`. 。在 `App\Scripts\toGoListSvc.js` 中，將 `apiEndpoint` 變數以相同的值取代。
+2. 需要兩項變更。在 `App\Scripts\app.js` 中，將 `endpoints`物件的屬性名稱取代為 To Go API 的新位置，例如 `https://togo-contoso.azurewebsites.net/`.  。在 `App\Scripts\toGoListSvc.js` 中，將 `apiEndpoint` 變數以相同的值取代。
 3. 在 ToGoAPI 專案中，只需進行一項變更。在 `Controllers\ToGoListController.cs` 中，更新 `[EnableCors...]` 屬性，以反映 To Do SPA 的新位置，例如 `https://todo-contoso.azurewebsites.net`。同樣地，請確定省略結尾斜線。
 
 ### 將 To Go API 發行至 Azure 網站
 
 1. 切換至 Visual Studio，並移至 ToGoAPI 專案。在 [方案總管] 中以滑鼠右鍵按一下專案，再選取 [**發行**]。按一下 [**匯入**]，並匯入您所下載的 To Go API 發行設定檔。
-6. 在 [**連線**] 索引標籤上，更新目的地 URL，使得它是 https，例如 https://togo-constoso.azurewebsites.net。按 [**下一步**]。
-7. 在 [**設定**] 索引標籤上，請確定「未」選取 [**啟用組織驗證**]。按一下 [發行]****。
+6. 在 [**連線**] 索引標籤上，更新目的地 URL，使得它是 https，例如 https://togo-constoso.azurewebsites.net 。按 [**下一步**]。
+7. 在 [**設定**] 索引標籤上，請確定「未」選取 [**啟用組織驗證**]。按一下 [發行]。
 8. Visual Studio 將發行專案，並自動開啟瀏覽器到專案的 URL。如果您看到專案的預設 Web 網頁，發行即成功。
 
 ### 將 To Do SPA 發行至 Azure 網站
 
 1. 切換至 Visual Studio，並移至 TodoSPA 專案。在 [方案總管] 中以滑鼠右鍵按一下專案，再選取 [**發行**]。按一下 [**匯入**]，並匯入您所下載的 To Do SPA .publishsettings 檔案。
-6. 在 [**連線**] 索引標籤上，更新目的地 URL，使得它是 https，例如 https://todo-contoso.azurewebsites.net。按 [**下一步**]。
-7. 在 [**設定**] 索引標籤上，請確定「未」選取 [**啟用組織驗證**]。按一下 [發行]****。
+6. 在 [**連線**] 索引標籤上，更新目的地 URL，使得它是 https，例如 https://todo-contoso.azurewebsites.net 。按 [**下一步**]。
+7. 在 [**設定**] 索引標籤上，請確定「未」選取 [**啟用組織驗證**]。按一下 [發行]。
 8. Visual Studio 將發行專案，並自動開啟瀏覽器到專案的 URL。如果您看到專案的預設 Web 網頁，發行即成功。
 
 ### 在目錄租用戶中更新 To Do SPA 組態
@@ -156,7 +156,7 @@ ADAL for Javascript 是開放原始碼程式庫。如需分佈選項、原始程
 1. 瀏覽至 [Azure 管理入口網站](https://manage.windowsazure.com)。
 2. 在左側導覽中按一下 **Active Directory**，並選取您的租用戶。
 3. 在 [**應用程式**] 索引標籤上，選取 [**To Do SPA**] 應用程式。
-4. 在 [**設定**] 索引標籤上，將 [**登入 URL**] 和 [**回覆 URL**] 欄位更新為您的 SPA 的位址，例如 https://todo-contoso.azurewebsites.net。儲存組態。
+4. 在 [**設定**] 索引標籤上，將 [**登入 URL**] 和 [**回覆 URL**] 欄位更新為您的 SPA 的位址，例如 https://todo-contoso.azurewebsites.net 。儲存組態。
 
 ## 關於程式碼
 
@@ -183,4 +183,4 @@ ADAL for Javascript 是開放原始碼程式庫。如需分佈選項、原始程
 
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="開始為 Windows Phone 應用程式使用 Azure 行動服務" 
 	description="遵循此教學課程，可開始使用 Azure 行動服務進行 Windows Phone 開發。" 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
 	ms.date="11/22/2014" 
@@ -22,5 +22,4 @@
 
 可在通用 Windows 專案的 Windows Phone 市集 8.1 應用程式下載取得快速啟動專案。如需詳細資訊，請參閱[開始使用行動服務](mobile-services-javascript-backend-windows-store-dotnet-get-started.md)。 
 
-
-<!--HONumber=42-->
+<!--HONumber=52-->

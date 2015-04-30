@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="如何傳遞 Apple HTTP 即時資料流 (HLS) - Azure" 
 	description="了解如何為媒體服務原始伺服器上的 Apple HTTP 即時資料流 (HLS) 內容建立定位器。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
 	services="media-services" 
@@ -20,9 +20,9 @@
 
 
 
-<h1>作法：傳遞 Apple HLS 串流內容</h1>
+<h1>做法：傳遞 Apple HLS 串流內容</h1>
 
-本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是＜[作法：傳遞串流內容](media-services-deliver-streaming-content.md).
+本文是介紹 Azure 媒體服務程式設計的系列文章之一。上一個主題是[作法：傳遞串流內容](media-services-deliver-streaming-content.md).
 
 本主題說明如何為媒體服務原始伺服器上的 Apple HTTP 即時資料流 (HLS) 內容建立定位器。透過此方式，您可以建置 Apple HLS 內容的 URL，並將它提供給 Apple iOS 裝置進行播放。建置定位器 URL 的基本方式相同。為原始伺服器上的 Apple HLS 串流資產路徑建置定位器，然後建置可連結至串流內容之資訊清單的完整 URL。
 
@@ -99,6 +99,6 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 [開始使用 Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=252966
 [使用 Azure 媒體服務 REST API 建置應用程式]: http://go.microsoft.com/fwlink/?linkid=252967
 [使用 Media Services SDK for .NET 建置應用程式]: http://go.microsoft.com/fwlink/?linkid=247821
-[媒體服務論壇]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+[媒體服務論壇]: http://social.msdn.microsoft.com/Forums/MediaServices/threads
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

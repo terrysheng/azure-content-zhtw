@@ -1,7 +1,7 @@
-<properties 
+﻿<properties 
 	pageTitle="在 Xamarin iOS 應用程式中開始使用行動服務 - Azure 行動服務" 
 	description="遵循此教學課程，可開始使用 Azure 行動服務進行 Xamarin iOS 開發" 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
 	manager="dwrede" 
@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/11/2014" 
 	ms.author="donnam"/>
 
@@ -31,7 +31,7 @@
 
 完成本教學課程是 Xamarin iOS 應用程式所有其他行動服務教學課程的先決條件。 
 
->[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started" target="_blank">Azure 免費試用</a>。<br />本教學課程需要 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>。您可以使用免費試用版。
+>[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started" target="_blank">Azure 免費試用</a>。<br />此教學課程需要 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>。您可以使用免費試用版。
 
 ## 建立新的行動服務
 
@@ -39,11 +39,11 @@
 
 ## 建立新的 Xamarin iOS 應用程式
 
-在建立您的行動服務之後，您可以依照 \[管理入口網站\] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。 
+在建立您的行動服務之後，您可以依照 [管理入口網站] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。 
 
 在本節中，您將為行動服務下載新的 Xamarin iOS 應用程式和服務專案。
 
-1. 在管理入口網站中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
+1. 在管理入口網站中，按一下 [**行動服務**]，然後按一下您剛剛建立的行動服務。
    
 2. 在快速入門索引標籤中，按一下 [**選擇平台**] 下的 [**Xamarin**]，並展開 [**建立新的 Xamarin 應用程式**]。
 
@@ -53,7 +53,7 @@
 
   	![][7]
 
-3. 在您的本機電腦或虛擬機器下載並安裝 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> (如果您尚未這麼做)。  
+3. 如果您尚未這麼做，請在您的本機電腦或虛擬機器下載並安裝 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>。  
 
 4. 下載並安裝 [Xcode] v4.4 或更新版本和 [Xamarin Studio]。您也可以使用 Xamarin for Visual Studio。
 
@@ -83,7 +83,7 @@
 
 2. 按 [**執行**] 按鈕以建置用戶端專案，並在 iPhone 模擬器中啟動應用程式。
 
-3. 在應用程式中輸入有意義的文字，例如 _Complete the tutorial_，然後按一下加號 (**+**) 圖示。
+3. 在應用程式中輸入有意義的文字 (例如 _Complete the tutorial_)，然後按一下加號 (**+**) 圖示。
 
 	![][10]
 
@@ -123,21 +123,20 @@
 [10]: ./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[開始使用離線資料同步]: /zh-tw/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data
-[開始使用驗證]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users
-[開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push
+[開始使用離線資料同步]: mobile-services-xamarin-ios-get-started-offline-data.md
+[開始使用驗證]: mobile-services-dotnet-backend-xamarin-ios-get-started-users.md
+[開始使用推播通知]: mobile-services-dotnet-backend-xamarin-ios-get-started-push.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [行動服務 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript 和 HTML]: mobile-services-win8-javascript/
 [管理入口網站]: https://manage.windowsazure.com/
-[JavaScript 後端版本]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-ios-get-started
-[開始以 Visual Studio 2012 使用行動服務中的資料]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
-[行動服務 .NET 後端的疑難排解]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+[JavaScript 後端版本]: partner-xamarin-mobile-services-ios-get-started.md
+[開始以 Visual Studio 2012 使用行動服務中的資料]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
+[行動服務 .NET 後端的疑難排解]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
-[Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
+[適用於 Windows 的 Xamarin]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-
-<!--HONumber=42-->
+<!--HONumber=52-->

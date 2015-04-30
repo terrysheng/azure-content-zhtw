@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="在 Xamarin Android 應用程式中開始使用行動服務 - Azure 行動服務" 
 	description="遵循此教學課程，可開始使用 Azure 行動服務進行 Xamarin Android 開發。" 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
 	manager="dwrede" 
@@ -10,9 +10,9 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/11/2014" 
 	ms.author="donnam"/>
 
@@ -30,7 +30,7 @@
 
 完成本教學課程是 Xamarin Android 應用程式所有其他行動服務教學課程的先決條件。 
 
->[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started" target="_blank">Azure 免費試用</a>。<br />本教學課程需要 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>。您可以使用免費試用版。
+>[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得多達 10 個免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started" target="_blank">Azure 免費試用</a>。<br />此教學課程需要 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>。您可以使用免費試用版。
 
 ## 建立新的行動服務
 
@@ -38,11 +38,11 @@
 
 ## 建立新的 Xamarin Android 應用程式
 
-在建立您的行動服務之後，您可以依照 \[管理入口網站\] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。 
+在建立您的行動服務之後，您可以依照 [管理入口網站] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。 
 
 在本節中，您將為行動服務下載新的 Xamarin Android 應用程式和服務專案。
 
-1. 在管理入口網站中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
+1. 在管理入口網站中，按一下 [**行動服務**]，然後按一下您剛剛建立的行動服務。
    
 2. 在快速入門索引標籤中，按一下 [**選擇平台**] 下的 [**Xamarin**]，並展開 [**建立新的 Xamarin 應用程式**]。
 
@@ -52,9 +52,9 @@
 
   	![][7]
 
-3. 在您的本機電腦或虛擬機器下載並安裝 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> (如果您尚未這麼做)。  
+3. 如果您尚未這麼做，請在您的本機電腦或虛擬機器下載並安裝 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>。  
 
-4. 下載並安裝 [Xamarin Studio] 或 Xamarin for Visual Studio (若您尚未這麼做)。
+4. 如果您尚未這麼做，請下載並安裝 [Xamarin Studio] 或 Xamarin for Visual Studio。
 
 5. 在 [**下載服務並發佈到雲端**] 下選取 [**Android**]，然後按 [**下載**]。 
 
@@ -80,18 +80,18 @@
 
 	![][9]
 
-2. 按 [**執行**] 按鈕，以建置專案並啟動應用程式。系統將要求您選取模擬器或連接的 USB 裝置。 
+2. 按 [執行] 按鈕，以建置專案並啟動應用程式。系統將要求您選取模擬器或連接的 USB 裝置。 
 
 	> [AZURE.NOTE] 若要能夠在 Android 模擬器中執行此專案，您必須至少定義一個 Android 虛擬裝置 (AVD)。使用 AVD Manager 來建立與管理這些裝置。
 
-3. 在應用程式中輸入有意義的文字，例如 _Complete the tutorial_，然後按一下加號 (**+**) 圖示。
+3. 在應用程式中輸入有意義的文字 (例如 _Complete the tutorial_)，然後按一下加號 (**+**) 圖示。
 
 	![][10]
 
 	如此會傳送 POST 要求到 Azure 中代管的新行動服務。要求中的資料會插入 TodoItem 資料表中。行動服務會傳回資料表中儲存的項目，而該資料會顯示在清單中。
 
 	> [AZURE.NOTE] 
-   	> 您可以檢閱存取行動服務來查詢和插入資料的程式碼，這可以在 ToDoActivity.cs C# 檔案中找到。
+   	> 您可以檢閱存取行動服務以查詢與插入資料的程式碼，您可在 ToDoActivity.cs C# 檔案中找到此程式碼。
     
 ## 後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作： 
@@ -124,22 +124,20 @@
 [10]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
 <!-- URLs. -->
-[開始使用離線資料同步]: /zh-tw/documentation/articles/mobile-services-xamarin-android-get-started-offline-data
-[開始使用驗證]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users
-[開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-push
+[開始使用離線資料同步]: mobile-services-xamarin-android-get-started-offline-data.md
+[開始使用驗證]: mobile-services-dotnet-backend-xamarin-android-get-started-users.md
+[開始使用推播通知]: mobile-services-dotnet-backend-xamarin-android-get-started-push.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [行動服務 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript 和 HTML]: mobile-services-win8-javascript/
 [管理入口網站]: https://manage.windowsazure.com/
-[JavaScript 後端版本]: /zh-tw/documentation/articles/partner-xamarin-mobile-services-android-get-started
-[開始以 Visual Studio 2012 使用行動服務中的資料]: /zh-tw/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
-[行動服務 .NET 後端的疑難排解]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+[JavaScript 後端版本]: partner-xamarin-mobile-services-android-get-started.md
+[開始以 Visual Studio 2012 使用行動服務中的資料]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
+[行動服務 .NET 後端的疑難排解]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
-[Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
+[適用於 Windows 的 Xamarin]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

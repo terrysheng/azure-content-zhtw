@@ -1,4 +1,4 @@
-﻿## 將訊息傳送至事件中心
+## 將訊息傳送至事件中心
 在本節中，您將撰寫一個 Windows 主控台應用程式，以將事件傳送至事件中心。
 
 1. 在 Visual Studio 中，使用**主控台應用程式**專案範本建立新的「Visual C# 桌面應用程式」專案。將專案命名為 **Sender**。
@@ -19,7 +19,7 @@
 
 		using Microsoft.ServiceBus.Messaging;
 
-5. 將下列  `static` 欄位加入至 **Program** 類別，並將值替代為您在上一節中所建立的事件中心名稱，以及將連接字串替代為 **send** 權限：
+5. 將下列欄位加入至 **Program** 類別，並將值替代為您在上一節中所建立的事件中心名稱，以及將連接字串替代為 **Send** 權限：
 
 		static string eventHubName = "{event hub name}";
         static string connectionString = "{send connection string}";
@@ -34,13 +34,13 @@
                 try
                 {
                     var message = Guid.NewGuid().ToString();
-                    Console.WriteLine("{0} > Sending message: {1}", DateTime.Now.ToString(), message);
+                    Console.WriteLine("{0} > Sending message:{1}", DateTime.Now.ToString(), message);
                     await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(message)));
                 }
                 catch (Exception exception)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("{0} > Exception: {1}", DateTime.Now.ToString(), exception.Message);
+                    Console.WriteLine("{0} > Exception:{1}", DateTime.Now.ToString(), exception.Message);
                     Console.ResetColor();
                 }
 
@@ -60,5 +60,5 @@
 
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
-<!--HONumber=47-->
+[8]:./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+<!--HONumber=52--> 

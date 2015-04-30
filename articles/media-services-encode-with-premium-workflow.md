@@ -16,11 +16,11 @@
 	ms.date="03/03/2015" 
 	ms.author="juliako"/>
 
-#使用 Media Encoder Premium Workflow 進行進階編碼 (公開預覽)
+# 使用 Media Encoder Premium Workflow 進行進階編碼 (公用預覽版)
 
 **注意**本主題中討論的 Media Encoder Premium Workflow 媒體編碼器不適用於中國。
 
-##概觀
+## 概觀
 
 Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處理器公用預覽版。此處理器為高階隨選工作流程提供先進的編碼功能。 
 
@@ -28,13 +28,13 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 
 - [Media Encoder Premium Workflow 支援的格式](media-services-premium-workflow-encoder-formats.md) - 討論 **Media Encoder Premium Workflow** 支援的檔案格式和轉碼器。
 
-- [比較編碼器](media-services-encode-asset#compare_encoders.md) 章節比較 **Media Encoder Premium Workflow** 和 **Azure Media Encoder** 的編碼功能。
+- [比較編碼器](media-services-encode-asset.md#compare_encoders) 章節比較 **Media Encoder Premium Workflow** 和 **Azure Media Encoder** 的編碼功能。
 
 本主題示範如何使用 .NET 以 **Media Encoder Premium Workflow** 進行編碼。
 
-##編碼
+## 編碼
 
-**Media Encoder Premium Workflow** 的編碼工作需要個別的組態檔，這稱為工作流程檔案。這些檔案具有 .workflow 副檔名，使用[工作流程設計工具](media-services-workflow-designer.md) 來建立。
+**Media Encoder Premium Workflow** 的編碼工作需要個別的組態檔，這稱為工作流程檔案。這些檔案具有 .workflow 副檔名，使用[工作流程設計工具](media-services-workflow-designer.md) 工具。
 
 您也可以在[這裡](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)取得預設的工作流程檔案。資料夾也包含這些檔案的說明。
 
@@ -46,7 +46,7 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
  
 1. 建立資產並上傳工作流程檔案。 
 2. 建立資產並上傳來源媒體檔案。
-3. 取得 "Media Encoder Premium Workflow" 媒體處理器。
+3. 取得"Media Encoder Premium Workflow"媒體處理器。
 4. 建立工作 (Job) 和工作 (Task)。
 5. 將兩個輸入資產加入工作 (Task)。
 	
@@ -59,7 +59,7 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 
 6. 提交編碼工作 (Job)。
 
-以下是完整的範例。如需如何使用媒體服務 .NET 開發進行設定的相關資訊，請參閱[使用 .NET 進行媒體服務開發](media-services-dotnet-how-to-use.md)。
+以下是完整的範例。如需如何使用媒體服務 .NET 開發進行設定的相關資訊，請參閱 [使用 .NET 進行媒體服務開發](media-services-dotnet-how-to-use.md)。
 
 
  	using System; 
@@ -156,7 +156,7 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 	
 	            // Specify the input asset to be encoded.
 	            task.InputAssets.Add(workflow);
-	            task.InputAssets.Add(video); // we add one asset
+	            task.InputAssets.Add(video); // 我們加入一個資產
 	            // Add an output asset to contain the results of the job. 
 	            // This output is specified as AssetCreationOptions.None, which 
 	            // means the output asset is not encrypted. 
@@ -175,7 +175,7 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 	            progressJobTask.Wait();
 	
 	            // If job state is Error the event handling 
-	            // method for job progress should log errors.  Here we check 
+	            // method for job progress should log errors.Here we check 
 	            // for error state and exit if needed.
 	            if (job.State == JobState.Error)
 	            {
@@ -260,4 +260,10 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 	        }
 	    }
 	}
-<!--HONumber=47-->
+
+
+## 已知問題
+
+如果您的輸入視訊不包含隱藏式字幕，輸出資產仍然會包含空白 TTML 檔案。
+
+<!--HONumber=52-->

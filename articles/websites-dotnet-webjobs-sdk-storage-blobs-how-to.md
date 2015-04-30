@@ -1,42 +1,30 @@
-﻿<properties 
-	pageTitle="如何使用 WebJobs SDK 來使用 Azure Blob 儲存體" 
+<properties 
+	pageTitle="如何透過 WebJobs SDK 使用 Azure Blob 儲存體" 
 	description="了解如何使用 WebJobs SDK 來使用 Azure Blob 儲存體。在容器中出現新的 Blob 時觸發程序並處理 'poison blobs'。" 
-	services="web-sites, storage" 
+	services="app-service\web, storage" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="04/03/2015" 
 	ms.author="tdykstra"/>
 
-# 如何使用 WebJobs SDK 來使用 Azure Blob 儲存體
+# 如何透過 WebJobs SDK 使用 Azure Blob 儲存體
 
-本指南提供 C# 程式碼範例，來示範如何在建立或更新 Azure Blob 時觸發程序。此程式碼範例會使用 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 版本 1.x。
+## 概觀
 
-如需示範如何建立 Blob 的程式碼範例，請參閱[如何使用 WebJobs SDK 來使用 Azure 佇列儲存體](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+本指南提供 C# 程式碼範例，示範如何在建立或更新 Azure Blob 時觸發程序。此程式碼範例使用[WebJobs SDK](websites-dotnet-webjobs-sdk.md) 版本 1.x。
+
+如需示範如何建立 Blob 的程式碼範例，請參閱[如何使用 WebJobs SDK 來使用 Azure 佇列儲存體](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)。 
 		
-本指南假設您知道[如何在 Visual Studio 中使用指向您儲存體帳戶的連接字串來建立 WebJob 專案](websites-dotnet-webjobs-sdk-get-started.md).
-
-## 目錄
-
--   [如何在建立或更新 Blob 時觸發函數](#trigger)
-	- 適用於含有副檔名之 Blob 名稱的單一預留位置
-	- 個別的 Blob 名稱和副檔名預留位置
--   [BlobTrigger 使用的類型](#types)
--   [繫結至字串來取得文字 Blob 內容](#string)
--   [使用 ICloudBlobStreamBinder 來取得序列化的 Blob 內容](#icbsb)
--   [如何處理有害的 Blob](#poison)
--   [Blob 輪詢演算法](#polling)
--   [Blob 回條](#receipts)
--   [佇列文章所涵蓋的相關主題](#queues)
--   [後續步驟](#nextsteps)
+本指南假設您知道[如何使用指向您儲存體帳戶的連接字串，在 Visual Studio 中建立 WebJob 專案](websites-dotnet-webjobs-sdk-get-started.md)。
 
 ## <a id="trigger"></a> 如何在建立或更新 Blob 時觸發函數
 
@@ -99,7 +87,7 @@
 * `ICloudBlob`
 * `CloudBlockBlob`
 * `CloudPageBlob`
-* 透過 [ICloudBlobStreamBinder] 還原序列化的其他類型(#icbsb) 
+* 透過 [ICloudBlobStreamBinder](#icbsb) 還原序列化的其他類型 
 
 如果您想要直接使用 Azure 儲存體帳戶，也可以將 `CloudStorageAccount` 參數新增至方法簽章。
 
@@ -158,11 +146,11 @@
 
 當 `BlobTrigger` 函數失敗時，SDK 會再次呼叫它，以防失敗是因暫時性錯誤所造成。如果失敗是因為 Blob 的內容所造成，則此函數會在其每次嘗試處理該 Blob 時失敗。根據預設，SDK 最多會針對指定的 Blob 呼叫函數 5 次。如果第五次嘗試失敗，則 SDK 會在名為 *webjobs-blobtrigger-poison* 的佇列中新增一則訊息。
 
-您可以設定重試次數上限。相同的 [MaxDequeueCount](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#configqueue) 設定可用於處理有害的 Blob 和處理有害的佇列訊息。 
+您可以設定重試次數上限。相同的 [MaxDequeueCount](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) 設定可用於處理有害的 Blob 和處理有害的佇列訊息。 
 
 適用於有害 Blob 的佇列訊息是一個 JSON 物件，其中包含下列屬性：
 
-* FunctionId (格式為 *{WebJob name}*.Functions.*{Function name}*，例如：WebJob1.Functions.CopyBlob)
+* FunctionId (例如，在 format {WebJob name}.Functions.{Function name} 中為 WebJob1.Functions.CopyBlob)
 * BlobType ("BlockBlob" 或 "PageBlob")
 * ContainerName
 * BlobName
@@ -213,7 +201,7 @@ WebJobs SDK 可確保不會有任何 `BlobTrigger` 函數會針對相同的新�
 
 Blob 回條儲存於 AzureWebJobsStorage 連接字串所指定之 Azure 儲存體帳戶中名為 *azure-webjobs-hosts* 的容器中。Blob 回條具有下列資訊：
 
-* 已針對該 Blob 呼叫過的函數 ("*{WebJob name}*.Functions.*{Function name}*"，例如："WebJob1.Functions.CopyBlob")
+* Blob 已呼叫的函式 ("* {WebJob 名稱} *。Functions.* {函式名稱} *"，例如："WebJob1.Functions.CopyBlob")
 * 容器名稱
 * Blob 類型 ("BlockBlob" 或 "PageBlob")
 * Blob 名稱
@@ -223,24 +211,22 @@ Blob 回條儲存於 AzureWebJobsStorage 連接字串所指定之 Azure 儲存�
 
 ## <a id="queues"></a>佇列文章所涵蓋的相關主題
 
-如需如何處理佇列訊息所觸發的 Blob 處理的相關資訊，或是非 Blob 處理特有的 WebJobs SDK 案例，請參閱[如何使用 WebJobs SDK 來使用 Azure 佇列儲存體](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+如需如何處理佇列訊息所觸發的 Blob 處理的相關資訊，或是非 Blob 處理特有的 WebJobs SDK 案例，請參閱[如何使用 WebJobs SDK 來使用 Azure 佇列儲存體](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)。 
 
 該文章中涵蓋的相關主題如下：
 
-* 非同步函數
+* 非同步函式
 * 多個執行個體
 * 順利關機
-* 在函數主體中使用 WebJobs SDK 屬性
+* 在函式主體中使用 WebJobs SDK 屬性
 * 在程式碼中設定 SDK 連接字串。
 * 在程式碼中設定 WebJobs SDK 建構函式參數的值
 * 設定 `MaxDequeueCount` 來處理有害的 Blob。
-* 手動觸發函數
+* 手動觸發函式
 * 寫入記錄檔
 
 ## <a id="nextsteps"></a> 後續步驟
 
 本指南提供了程式碼範例，示範如何處理使用 Azure Blob 的常見案例。如需如何使用 Azure WebJobs 與 WebJobs SDK 的相關詳細資訊，請參閱 [Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

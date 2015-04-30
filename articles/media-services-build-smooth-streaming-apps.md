@@ -33,7 +33,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 
 # 必要條件
 - Windows 8 32 位元或 64 位元。您可以從 MSDN 取得 [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/evalcenter/jj554510.aspx)。
-- 在 Windows 8 上安裝 Visual Studio 2012 或 Visual Studio Express 2012 for Windows 8。您可以從[這裡](http://www.microsoft.com/visualstudio/11/zh-tw/downloads)取得試用版。
+- 在 Windows 8 上安裝 Visual Studio 2012 或 Visual Studio Express 2012 for Windows 8。您可以從[這裡](http://www.microsoft.com/visualstudio/11/downloads)取得試用版。
 - [Microsoft Smooth Streaming Client SDK for Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)。
 
 您可以從 MSDN 開發人員程式碼範例 (Code Gallery) 下載每個課程的已完成解答：[課程 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "A Simple Windows 8 Smooth Streaming Media Player")、[課程 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "A Simple Windows 8 Smooth Streaming Media Player with a Slider Bar Control")、[課程 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "A Windows 8 Smooth Streaming Media Player with Stream Selection") 和[課程 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "A Windows 8 Smooth Streaming Media Player with Track Selection")。
@@ -54,7 +54,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 **建立 Windows 市集專案**
 
 1.	執行 Visual Studio 2012 或更新版本。
-2.	從 **[檔案]** 功能表中，按一下 **[新增]**，然後按一下 **[專案]**。
+2.	從 [檔案] 功能表中，按一下 [新增]，然後按一下 [專案]。
 3.	從 [新增專案] 對話方塊中，輸入或選取下列值：
 
 	<table border="1">
@@ -88,7 +88,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 	</tr>
 	</table>
 
-4.	按一下 **[確定]**。
+4.	按一下 [確定]。
 
 **加入 Smooth Streaming Client SDK 的參考**
 
@@ -111,14 +111,14 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 	</tr>
 	</table>
 	
-3.	按一下 **[確定]**。 
+3.	按一下 [確定]。 
 
 加入參考之後，您必須選取目標平台 (x64 或 x86)，而加入參考在「任何 CPU 平台」組態中將沒有作用。在方案總管中，您會看到這些加入的參考具有黃色警告標記。
 
 **設計播放程式使用者介面**
 
 1.	從 [方案總管] 中，按兩下 [**MainPage.xaml**]，以設計檢視來開啟它。
-2.	在 XAML 檔案中，找到 **&lt;Grid&gt;** 和 **&lt;/Grid&gt;**  標籤，然後在這兩個標籤之間貼入下列程式碼：
+2.	在 XAML 檔案中找到 **&lt;Grid&gt;** 和 **&lt;/Grid&gt;** 標籤，然後在這兩個標籤之間貼上下列程式碼：
 
 		<Grid.RowDefinitions>
 		    <RowDefinition Height="20"/>    <!-- spacer -->
@@ -321,7 +321,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。若要啟用 Smo
 
 4.	在 **MainPage** 建構函式的結尾，新增下行以訂閱調適性來源開放事件：
 	
-	adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
+		adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
 	    new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
 
 5.	按 **CTRL+S** 儲存檔案。
@@ -354,7 +354,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。若要啟用 Smo
 		}
 		#endregion Adaptive Source Level Events
 
-4.	在 <strong>mediaElement AdaptiveSourceOpened</strong> 方法的尾端，新增下列程式碼以訂閱事件：
+4.	在 <strong>mediaElement AdaptiveSourceOpened</strong> 方法的結尾，新增下列程式碼以訂閱事件：
 	
 		adaptiveSource.ManifestReadyEvent +=
 	                mediaElement_ManifestReady;
@@ -492,7 +492,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。若要啟用 Smo
 		}
 		#endregion sliderMediaPlayer
 
-	**注意：**使用 CoreDispatcher 可以從非 UI 執行緒變更 UI 執行緒。如果發送器執行緒發生瓶頸，則開發人員可以選擇使用由 UI-element 所提供且他/她想要更新的發送器。例如：
+	**注意：** 使用 CoreDispatcher 可以從非 UI 執行緒變更 UI 執行緒。如果發送器執行緒發生瓶頸，則開發人員可以選擇使用由 UI-element 所提供且他/她想要更新的發送器。例如：
 	
 		await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 		  timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 
@@ -507,9 +507,9 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。若要啟用 Smo
 
 7.	在 **MediaOpened** 方法的結尾，新增下列程式碼：
 	
-	sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
-	sliderProgress.Width = mediaElement.Width;
-	setupTimer();
+		sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
+		sliderProgress.Width = mediaElement.Width;
+		setupTimer();
 
 8.	按 **CTRL+S** 儲存檔案。
 
@@ -577,7 +577,8 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。在
 
 1. 從 [方案總管] 中，在 [**MainPage.xaml**] 上按一下滑鼠右鍵，然後按一下 [**檢視程式碼**]。
 2. 在 SSPlayer 命名空間內，新增類別：
-		#region class Stream
+
+	    #region class Stream
 	
 	    public class Stream
 	    {
@@ -797,7 +798,7 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。在
 
 您已完成課程 3。在本課程中，您新增了選擇資料流的功能。
 
-# 課程 4：選取 Smooth Streaming 曲目
+# 課程 4： 選取 Smooth Streaming 曲目
 Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) 和解析度編碼的視訊檔案。在本課程中，您將讓使用者選取曲目。本課程包含下列程序：
 
 1. 修改 XAML 檔案
@@ -1008,4 +1009,4 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

@@ -1,6 +1,6 @@
-##<a name="update-app"></a>更新應用程式以呼叫自訂 API
+## <a name="update-app"></a>更新應用程式以呼叫自訂 API
 
-1. 在 Visual Studio 2012 Express for Windows Phone 中，開啟快速入門專案中的 MainPage.xaml 檔案，尋找名為  `ButtonRefresh` 的 **Button** 元素，並使用下列 XAML 程式碼取代它： 
+1. 在 Visual Studio，開啟快速入門專案中的 MainPage.xaml 檔案，尋找名為  `ButtonRefresh` 的 [按鈕] 元素，並使用下列 XAML 程式碼取代它： 
 
         <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
             <Button Width="225" Name="ButtonRefresh" 
@@ -20,7 +20,7 @@
 
 	此類別是用來保留自訂 API 傳回的資料列計數值。 
 
-3. 在 **MainPage** 類別中尋找 **RefreshTodoItems** 方法，並確定使用下列 **Where** 方法定義  `query`：
+3. 在 **MainPage** 類別中找出 **RefreshTodoItems** 方法，並確定使用下列 **Where** 方法定義 `query`：
 
         .Where(todoItem => todoItem.Complete == false)
 
@@ -54,13 +54,14 @@
 
 1. 在 Visual Studio 中按 **F5** 鍵，以重建專案並啟動應用程式。
 
-2. 在應用程式的 **[Insert a TodoItem]** 中輸入一些文字，然後點選 **[儲存]**。
+2. 在應用程式的 [Insert a TodoItem] 中鍵入一些文字，然後點選 [儲存]。
 
 3. 重複前一個步驟，直到將數個 Todo 項目新增至清單為止。
 
-4. 點選 **[Complete All]** 按鈕。
+4. 點選 [Complete All] 按鈕。
 
   	![](./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png)
 
 	出現訊息方塊，指出標示為完成的項目數，並重新執行篩選查詢，以便清除清單的所有項目。
-<!--HONumber=42-->
+
+<!--HONumber=52-->

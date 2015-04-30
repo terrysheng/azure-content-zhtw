@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
 	pageTitle="媒體服務 REST API 概觀 - Azure" 
 	description="媒體服務 REST API 概觀" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -88,7 +88,7 @@ Microsoft Azure 媒體服務會接受以 OData 為基礎的 HTTP 要求，而且
 
 ## 探索媒體服務模型
 
-若要讓使用者更容易找到媒體服務實體，可以使用 $metadata 作業。它可讓您擷取所有有效的實體類型、實體屬性、關聯、函式、動作等等。下列範例示範如何建構 URI： https://media.windows.net/API/$metadata。
+若要讓使用者更容易找到媒體服務實體，可以使用 $metadata 作業。它可讓您擷取所有有效的實體類型、實體屬性、關聯、函式、動作等等。下列範例示範如何建構 URI: https://media.windows.net/API/$metadata。
 
 如果您想要在瀏覽器檢視中繼資料，或是未在要求中包含 x-ms-version 標頭，您應該將 "?api-version=2.x" 附加到 URI 的結尾。
 
@@ -103,4 +103,4 @@ Microsoft Azure 媒體服務會接受以 OData 為基礎的 HTTP 要求，而且
 
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

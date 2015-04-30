@@ -1,26 +1,28 @@
-﻿<properties 
+<properties 
 	pageTitle="如何透過 WebJobs SDK 使用 Azure 佇列儲存體" 
 	description="了解如何透過 WebJobs SDK 使用 Azure 佇列儲存體建立和刪除查詢、插入、查看、取得和刪除佇列訊息等。" 
-	services="web-sites, storage" 
+	services="app-service\web, storage" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="04/03/2015" 
 	ms.author="tdykstra"/>
 
 # 如何透過 WebJobs SDK 使用 Azure 佇列儲存體
 
+## 概觀
+
 本指南提供了 C# 程式碼範例，示範如何透過 Azure 佇列儲存體服務使用 Azure WebJobs SDK 1.x 版。
 
-本指南假設您知道[如何使用指向儲存體帳戶的連接字串在 Visual Studio 中建立 WebJob 專案](websites-dotnet-webjobs-sdk-get-started.md)。
+本指南假設您知道[如何使用指向您儲存體帳戶的連接字串，在 Visual Studio 中建立 WebJob 專案](websites-dotnet-webjobs-sdk-get-started.md)。
 
 大部分的程式碼片段只會顯示函數，不會顯示建立 `JobHost` 物件的程式碼，如此範例所示：
 
@@ -30,7 +32,7 @@
 		    host.RunAndBlock();
 		}
 		
-## 目錄
+本指南包含下列主題：
 
 -   [如何在收到佇列訊息時觸發函數](#trigger)
 	- 字串佇列訊息
@@ -58,14 +60,14 @@
 -   [如何設定組態選項](#config)
 	- 在程式碼中設定 SDK 連接字串
 	- 設定 QueueTrigger 設定
-	- 為程式碼中的 WebJobs SDK 建構函式設定參數值
+	- 在程式碼中設定 WebJobs SDK 建構函式參數的值
 -   [如何手動觸發函數](#manual)
 -   [如何寫入記錄檔](#logs)
 -   [後續步驟](#nextsteps)
 
 ## <a id="trigger"></a> 如何在接收到佇列訊息時觸發函式
 
-若要撰寫 WebJobs SDK 會在收到佇列訊息時呼叫的函式，請使用 `QueueTrigger` 屬性。屬性建構函式採用字串參數，來指定要輪詢的佇列名稱。您也可以[動態設定佇列名稱](#config)。
+若要撰寫 WebJobs SDK 在收到佇列訊息時所呼叫的函數，請使用 `QueueTrigger` 屬性。屬性建構函式採用字串參數，來指定要輪詢的佇列名稱。您也可以[動態設定佇列名稱](#config)。
 
 ### 字串佇列訊息
 
@@ -96,7 +98,7 @@ SDK 會使用 [Newtonsoft.Json NuGet 套件](http://www.nuget.org/packages/Newto
 
 ### 非同步函式
 
-下面的非同步函數[會將記錄檔寫入儀表板](#logs)。
+下面的非同步函式[會將記錄檔寫入儀表板](#logs)。
 
 		public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
 		{
@@ -129,11 +131,11 @@ SDK 會實作隨機指數型倒退演算法，以降低閒置佇列輪詢對儲�
 
 ### <a id="instances"></a> 多個執行個體
 
-如果您的網站在多個執行個體上執行，則連續 WebJob 將在每部機器上執行，而且每部機器將會等待觸發程序並嘗試執行函數。在某些案例中，這會導致部分函數處理相同的資料兩次，因此函數應是以等冪的方式 (寫入，因此使用相同輸入資料重複呼叫函數才不會產生重複的結果)。  
+如果您的 Web 應用程式在多個執行個體上執行，則連續 WebJob 將在每部機器上執行，而且每部機器將會等待觸發程序並嘗試執行函數。在某些案例中，這會導致部分函數處理相同的資料兩次，因此函數應是以等冪的方式 (寫入，因此使用相同輸入資料重複呼叫函數才不會產生重複的結果)。  
 
 ### <a id="parallel"></a> 平行執行
 
-如果您有多個函式在不同的佇列上接聽，則同時接收到訊息時，SDK 會以平行方式呼叫它們。 
+如果您有多個函數在不同的佇列上接聽，則同時接收到訊息時，SDK 會以平行方式呼叫它們。 
 
 收到單一佇列的多個訊息時也是如此。根據預設，SDK 會一次取得一批 (16 個) 佇列訊息，並執行以平行方式處理它們的函數。[批次大小是可以設定的](#config)。當要處理的訊息數目減少到批次大小 (該批訊息數目) 的一半時，SDK 就會取得另一批訊息並開始處理那些訊息。因此，每個函數並行處理之訊息的上限數目為批次大小 (該批訊息數目) 的 1.5 倍。這項限制個別套用至具有 `QueueTrigger` 屬性的每個函式。如果您不想平行執行在單一佇列中收到的訊息，請將批次大小設定為 1。
 
@@ -144,7 +146,7 @@ SDK 會實作隨機指數型倒退演算法，以降低閒置佇列輪詢對儲�
 * `DateTimeOffset` expirationTime
 * `DateTimeOffset` insertionTime
 * `DateTimeOffset` nextVisibleTime
-* `string` queueTrigger (包含訊息文字)
+* `string` queueTrigger (contains message text)
 * `string` id
 * `string` popReceipt
 * `int` dequeueCount
@@ -213,7 +215,7 @@ SDK 會實作隨機指數型倒退演算法，以降低閒置佇列輪詢對儲�
 	    }
 	}
 
-注意：****儀表板可能不會正確顯示已關閉之函數的狀態與輸出。
+注意：儀表板可能不會正確顯示已關閉之函數的狀態與輸出。
  
 如需詳細資訊，請參閱 [WebJobs 正常關機](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR)。   
 
@@ -260,15 +262,15 @@ SDK 會自動將物件序列化為 JSON。即使物件是空值，也一律會�
 		    outputQueueMessage.Add(queueMessage + "2");
 		}
 
-每個佇列訊息都會在呼叫 `Add` 方法時立即建立。
+呼叫 `Add` 方法時，就會立即建立每個佇列訊息。
 
 ### 適用於 Queue 屬性的型別
 
 您可以在下列參數型別使用 `Queue` 屬性：
 
 * `out string` (函式結束時，如果參數值非 Null，就會建立佇列訊息)
-* `out byte[]`(作用就像是 `string`) 
-* `out CloudQueueMessage`(作用就像是 `string`) 
+* `out byte[]` (運作方式類似  `string`) 
+* `out CloudQueueMessage` (運作方式類似  `string`) 
 * `out POCO` (可序列化型別，當函式結束時，如果參數為 Null，就會使用 Null 物件建立訊息)
 * `ICollector`
 * `IAsyncCollector`
@@ -294,7 +296,7 @@ SDK 會自動將物件序列化為 JSON。即使物件是空值，也一律會�
 
 ## <a id="blobs"></a>如何在處理佇列訊息時讀取及寫入 Blob 與表格
 
- `Blob` 與 `Table` 屬性可讓您讀取和寫入 Blob 與資料表。本節中的範例適用於 Blob。如需示範如何在建立或更新 Blob 時觸發程序的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure Blob 儲存體](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)，若需讀取和撰寫資料表的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure 資料表儲存體](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)。
+ `Blob` 與 `Table` 屬性可讓您讀取和寫入 Blob 與資料表。本節中的範例適用於 Blob。如需示範建立或更新的 Blob 時如何觸發程序的程式碼範例，請參閱[如何透過 WebJobs SDK使用 Azure Blob 儲存體](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)；如需讀取和寫入資料表的程式碼範例，請參閱[如何透過 WebJobs SDK使用 Azure 資料表儲存體](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)。
 
 ### 觸發 Blob 作業的字串佇列訊息
 
@@ -310,7 +312,7 @@ SDK 會自動將物件序列化為 JSON。即使物件是空值，也一律會�
 		    blobInput.CopyTo(blobOutput, 4096);
 		}
 
- `Blob` 屬性建構函式採用 `blobPath` 參數來指定容器與 Blob 名稱。如需此預留位置的詳細資訊，請參閱[如何透過 WebJobs SDK 使用 Azure Blob 儲存體](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), 
+ `Blob` 屬性建構函式採用 `blobPath` 參數來指定容器與 Blob 名稱。如需此預留位置的詳細資訊，請參閱[如何透過 WebJobs SDK 使用 Azure Blob 儲存體](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)， 
 
 當這個屬性裝飾 `Stream`物件，另一個建構函式參數會將 `FileAccess` 模式指定為讀取、 寫入或讀取/寫入。 
 
@@ -371,7 +373,7 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次失敗�
 
 有害佇列的名稱為 *{originalqueuename}*-poison。您可以撰寫函數，透過記錄或傳送通知表示需要手動處理，來處理有害佇列中的訊息。 
 
-在下列範例中，當佇列訊息包含不存在的 Blob 名稱時， `CopyBlob` 函式將會失敗。發生失敗時，訊息會從 copyblobqueue 佇列移到 copyblobqueue-poison 佇列。 `ProcessPoisonMessage` 接著會記錄有害訊息。
+在下列範例中，當佇列訊息包含不存在的 Blob 名稱時， `CopyBlob` 函式將會失敗。發生失敗時，訊息會從copyblobqueue 佇列移到 copyblobqueue-poison 佇列。 `ProcessPoisonMessage` 接著會記錄有害訊息。
 
 		public static void CopyBlob(
 		    [QueueTrigger("copyblobqueue")] string blobName,
@@ -389,7 +391,7 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次失敗�
 
 下圖顯示這些函式處理有害訊息之後的主控台輸出。
 
-![Console output for poison message handling](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/poison.png)
+![主控台輸出中的有害訊息處理](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/poison.png)
 
 ### 手動處理有害訊息
 
@@ -468,14 +470,14 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次失敗�
 
 方法是將 `NameResolver` 物件傳入 `JobHostConfiguration` 型別。在 WebJobs SDK 屬性建構函式參數中包含以百分比 (%) 符號括住的特殊預留位置，然後 `NameResolver` 程式碼會指定實際要用以取代那些預留位置的值。
 
-例如，假設您想要在測試環境中使用名為 logqueuetest 的佇列，以及在生產環境中使用名為 logqueueprod 的佇列。您不想使用硬式編碼的佇列名稱，而想要在會有實際佇列名稱的 `appSettings` 集合中指定項目的名稱。如果 `appSettings` 索引鍵為 logqueue，您的函式看起來可能像下面的範例。
+例如，假設您想要在測試環境中使用名為 logqueuetest 的佇列，以及在生產環境中使用名為logqueueprod 的佇列。您不想使用硬式編碼的佇列名稱，而想要在會有實際佇列名稱的 `appSettings` 集合中指定項目的名稱。如果 `appSettings` 索引鍵為 logqueue，您的函式看起來可能像下面的範例。
 
 		public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
 		{
 		    Console.WriteLine(logMessage);
 		}
 
- `NameResolver` 類別接著可以從 `appSettings` 取得佇列名稱，如下面範例所示：
+Your `NameResolver` class could then get the queue name from `appSettings` as shown in the following example:
 
 		public class QueueNameResolver : INameResolver
 		{
@@ -495,7 +497,7 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次失敗�
 		    host.RunAndBlock();
 		}
  
-注意：****每次呼叫函式時，都會解析佇列、資料表及 Blob 名稱，但只有在應用程式啟動時才會解析 Blob 容器名稱。您無法在執行工作時，變更 Blob 容器名稱。
+注意：每次呼叫函式時，都會解析佇列、資料表及 Blob 名稱，但只有在應用程式啟動時才會解析 Blob 容器名稱。您無法在執行工作時，變更 Blob 容器名稱。
 
 ## <a id="manual"></a>如何手動觸發函式
 
@@ -524,19 +526,19 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次失敗�
 
 儀表板會在兩個地方顯示記錄檔：WebJob 的頁面與特定 WebJob 引動過程的頁面。 
 
-![Logs in WebJob page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
+![WebJob 頁面中的記錄檔](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
-![Logs in function invocation page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
+![函式引動過程頁面中的記錄檔](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
 
 您在函式或在 `Main()` 方法中所呼叫主控台方法的輸出會顯示在 WebJob 的 [儀表板] 頁面，而不是特定方法引動過程的頁面。您從方法簽章的參數所取得 TextWriter 物件的輸出會顯示在方法引動過程的 [儀表板] 頁面。
 
 因為主控台屬於單一執行緒，無法同時執行許多工作函式，所以主控台輸出無法連結到特定的方法引動過程。這就是 SDK 提供的每個函式引動過程都使用自己專屬的記錄寫入器物件的原因。
 
-若要寫入[應用程式追蹤記錄](../web-sites-dotnet-troubleshoot-visual-studio/#logsoverview)，請使用 `Console.Out` (建立標示為 INFO 的記錄檔) 與 `Console.Error` (建立標示為 ERROR 的記錄檔)。替代方法是使用 [Trace 或 TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)，除了資訊與錯誤之外，還能提供詳細資訊、警告及嚴重層級。視您設定 Azure 網站的方式而定，應用程式追蹤記錄檔會出現在網站記錄檔、Azure 資料表或 Azure Blob 中。所有主控台輸出的應用程式記錄檔裡最近的 100 筆記錄也同樣會顯示在 WebJob 的 [儀表板] 頁面，而不是函式引動過程的頁面。 
+若要寫入[應用程式追蹤記錄](web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview)，請使用 `Console.Out` (會建立標記為 INFO 的記錄檔) 和 `Console.Error`(會建立標記為 ERROR 的記錄檔)。替代方法是使用 [Trace 或 TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)，除了資訊與錯誤之外，還能提供詳細資訊、警告及嚴重層級。視您設定 Azure 網頁應用程式的方式而定，應用程式追蹤記錄檔會出現在網頁應用程式記錄檔、Azure 資料表或 Azure Blob 中。所有主控台輸出的應用程式記錄檔裡最近的 100 筆記錄也同樣會顯示在 WebJob 的 [儀表板] 頁面，而不是函式引動過程的頁面。 
 
 只有當程式是以 Azure WebJob 執行時，主控台輸出才會顯示在儀表板，而不是在本機或在某些其他環境中執行時。
 
-您可以[將儀表板連線字串設為空值]來停用記錄(#config)。
+您可以[將儀表板連線字串設為空值](#config)來停用記錄。
 
 下面的範例示範寫入記錄檔的幾種方式：
 
@@ -550,37 +552,36 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次失敗�
 		    logger.WriteLine("TextWriter - " + logMessage);
 		}
 
-在 WebJobs SDK 儀表板中，當您移到某個特定函式引動過程的頁面並按一下 [切換輸出]**** 時，就會顯示來自 `TextWriter` 物件的輸出：
+在 WebJobs SDK 儀表板中，當您移到某個特定函式引動過程的頁面並按一下 [切換輸出] 時，就會顯示來自 `TextWriter` 物件的輸出：
 
-![Click function invocation link](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardinvocations.png)
+![按一下函式引動過程連結](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardinvocations.png)
 
-![Logs in function invocation page](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
+![函式引動過程頁面中的記錄檔](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardlogs.png)
 
-在 WebJobs SDK 儀表板中，當您移到 WebJob (而非函式引動過程) 的頁面並按一下 [切換輸出]**** 時，則會顯示主控台輸出最近的 100 行。
+在 WebJobs SDK 儀表板中，當您移到 WebJob (而非函式引動過程) 的頁面並按一下 [切換輸出] 時，則會顯示主控台輸出最近的 100 行。
  
-![Click Toggle Output](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
+![按一下切換輸出](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
-在連續的 WebJob 中，應用程式記錄檔顯示在網站檔案系統的 /data/jobs/continuous/*{webjobname}*/job_log.txt 中。
+在連續的 WebJob 中，應用程式記錄檔顯示在網頁應用程式檔案系統的 /data/jobs/continuous/*{webjobname}*/job_log.txt 中。
 
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
 		[09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
 在 Azure Blob 中，應用程式記錄檔看起來像這樣：
+
 		2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!,
 		2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!,
 		2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
 
 而在 Azure 資料表中， `Console.Out` 和 `Console.Error` 記錄檔看起來像這樣：
 
-![Info log in table](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableinfo.png)
+![在資料表中的資訊記錄檔](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableinfo.png)
 
-![Error log in table](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableerror.png)
+![在資料表中的錯誤記錄檔](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableerror.png)
 
-## <a id="nextsteps"></a>後續步驟
+## <a id="nextsteps"></a> 後續步驟
 
 本指南提供的程式碼範例示範如何處理使用 Azure 佇列的常見案例。如需如何使用 Azure WebJobs 與 WebJobs SDK 的相關詳細資訊，請參閱 [Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

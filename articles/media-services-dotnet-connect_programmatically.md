@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="使用 .NET 連線到媒體服務帳戶" 
 	description="本主題示範如何使用 .NET 連線到媒體服務。" 
 	services="media-services" 
@@ -19,14 +19,14 @@
 
 # 使用 Media Services SDK for .NET 連線到媒體服務帳戶
 
-這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 和[媒體服務即時串流工作流程](media-services-live-streaming-workflow.md) 系列的一部分。 
+這篇文章是[媒體服務點播視訊工作流程](media-services-video-on-demand-workflow.md) 和[媒體服務即時資料流工作流程](media-services-live-streaming-workflow.md) 系列的一部分。 
 
 本主題描述使用 Media Services SDK for .NET 進行程式設計時，如何取得與 Microsoft Azure 媒體服務的程式設計連線。
 
 
 ## 連線到媒體服務
 
-若要以程式設計方式連線到媒體服務，您必須先前已設定 Azure 帳戶，並在該帳戶上設定媒體服務，然後設定 Visual Studio 專案，才能使用 Media Services SDK for .NET 進行開發。如需詳細資訊，請參閱＜使用 Media Services SDK for .NET　進行開發的設定＞。
+若要以程式設計方式連線到媒體服務，您必須先前已設定 Azure 帳戶，並在該帳戶上設定媒體服務，然後設定 Visual Studio 專案，才能使用 Media Services SDK for .NET 進行開發。如需詳細資訊，請參閱＜使用 Media Services SDK for .NET 進行開發的設定＞。
 
 媒體服務帳戶設定程序結束時，您會取得下列必要連線值。使用這些值，即可進行與媒體服務的程式設計連線。
 
@@ -83,7 +83,7 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 		
 		CloudMediaContext context = new CloudMediaContext(_cachedCredentials);
 
-- 您也可以快取 AccessToken 字串和 TokenExpiration 值。稍後可以使用這些值，來建立具有快取權杖資料的新 MediaServicesCredentials 物件。這在權杖可以於多個程序或電腦之間安全地共用的案例中特別有用。
+- 您也可以快取 AccessToken 字串和 TokenExpiration 值。稍後可以使用這些值，來建立具有快取權杖資料的新 MediaServicesCredentials 物件。這特別適用於權杖可以在多個處理程序或電腦之間安全共用的情況。
 
 	下列程式碼片段會呼叫此範例中未定義的 SaveTokenDataToExternalStorage、GetTokenDataFromExternalStorage 和 UpdateTokenDataInExternalStorageIfNeeded 方法。您可以定義這些方法來儲存、擷取和更新外接式儲存裝置中的權杖資料。 
 
@@ -191,4 +191,4 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 
 <!-- URLs. -->
 
-<!--HONumber=47-->
+<!--HONumber=52-->

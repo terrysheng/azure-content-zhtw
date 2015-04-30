@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="開始使用事件中心" 
-	description="遵循此教學課程，可開始藉由 C# 利用 EventProcessorHost 來使用 Azure Event Hubs。" 
-	services="service-bus" 
-	documentationCenter="" 
-	authors="fsautomata" 
-	manager="timlt" 
+<properties
+	pageTitle="開始使用事件中心"
+	description="遵循此教學課程，可開始藉由 C# 利用 EventProcessorHost 來使用 Azure Event Hubs。"
+	services="service-bus"
+	documentationCenter=""
+	authors="fsautomata"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="core" 
-	ms.tgt_pltfrm="csharp" 
-	ms.devlang="csharp" 
-	ms.topic="hero-article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="service-bus"
+	ms.workload="core"
+	ms.tgt_pltfrm="csharp"
+	ms.devlang="csharp"
+	ms.topic="hero-article"
+	ms.date="04/13/2015"
 	ms.author="sethm"/>
 
 # 開始使用事件中心
@@ -22,15 +22,13 @@
 
 ## 簡介
 
-事件中心是可高度擴充的內嵌系統，每秒可處理數百萬事件，可讓您的應用程式處理和分析連接的裝置和應用程式所產生的大量資料。收集到事件中心後，您可以使用任何即時分析提供者或儲存體叢集轉換和儲存資料。如需事件中心詳細資訊，請參閱[事件中心開發人員指南]。 
+「事件中樞」是一種服務，可用來處理來自連接裝置和應用程式的大量事件資料。收集資料至「事件中樞」之後，可以使用存放裝置叢集來儲存資料，或使用即時分析提供者進行轉換。此大規模事件收集和處理功能是新型應用程式架構 (包括物聯網) 的重要元件。
 
-如需詳細資訊，請參閱[事件中心概觀]。
-
-在本教學課程中，您將了解如何使用以 C# 撰寫的主控台應用程式將訊息擷取到事件中心，以及使用 C# [事件處理器主機]程式庫平行擷取它們。
+本教學課程示範如何使用 Azure 管理入口網站來建立「事件中樞」。另外也會示範如何使用以 C# 撰寫的主控台應用程式將訊息收集到「事件中樞」，以及如何使用 C# [事件處理器主機]程式庫平行擷取訊息。
 
 若要完成本教學課程，您需要下列項目：
 
-+ Microsoft Visual Studio Express 2013 for Windows
++ Microsoft Visual Studio 2013，或 Microsoft Visual Studio Express 2013 for Windows。
 
 + 使用中的 Azure 帳戶。 <br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
@@ -54,11 +52,11 @@
 
    	![][4]
 
-6. 按一下頂端的 [**設定**] 索引標籤上，新增名為 **SendRule** 且具有 *Send* 權限的規則，再新增另一個名為 **ReceiveRule** 且具有 *Manage, Send, Listen* 權限的規則，然後按一下 [**儲存**]。
+6. 按一下頂端的 [**設定**] 索引標籤，新增名為 **SendRule** 且具有 *Send* 權限的規則，並新增名為 **ReceiveRule** 且具有 *Manage、Send、Listen* 權限的規則，然後按一下 [**儲存**]。
 
    	![][5]
 
-7. 按一下頁面頂端的 [**儀表板**] 索引標籤，然後按一下 [**連接資訊**]。記下這兩個連接字串。
+7. 按一下頁面頂端的 [**儀表板**] 索引標籤，然後按一下 [**連接資訊**]。記下兩個連接字串，或複製到別處，以供本教學課程後續使用。
 
    	![][6]
 
@@ -81,6 +79,14 @@
 
    	![][22]
 
+## 後續步驟
+
+您已經建置工作應用程式，可建立「事件中樞」和傳送及接收資料，接下來可進行下列案例：
+
+- 使用[「事件中樞」的完整範例應用程式]。
+- [使用「事件中樞」向外調整事件處理]的範例。
+- 使用服務匯流排佇列的[佇列訊息解決方案]。
+
 <!-- Images. -->
 [1]: ./media/service-bus-event-hubs-getstarted/create-event-hub1.png
 [2]: ./media/service-bus-event-hubs-getstarted/create-event-hub2.png
@@ -96,5 +102,9 @@
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [事件處理器主機]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [事件中心概觀]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[使用「事件中樞」的範例應用程式]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
+[使用「事件中樞」向外調整事件處理]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[佇列訊息解決方案]: cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
+[「事件中樞」的完整範例應用程式]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 
-<!--HONumber=47-->
+<!--HONumber=52-->

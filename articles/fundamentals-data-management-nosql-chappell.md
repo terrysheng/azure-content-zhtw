@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Understand NoSQL technologies" pageTitle="了解 Azure 上的 NoSQL 技術 | Azure" metaKeywords="" description="了解 HDInsight 上的 NoSQL 技術如何協助您管理不適用於關聯式資料庫的資料，例如巨量資料集和 JSON 文件或圖形。" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight,documentdb" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="cgronlun" />
+<properties urlDisplayName="Understand NoSQL technologies" pageTitle="了解 Azure 上的 NoSQL 技術 | Azure" metaKeywords="" description="了解 HDInsight 上的 NoSQL 技術如何協助您管理不適用於關聯式資料庫的資料，例如巨量資料集和 JSON 文件或圖形。" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight,documentdb" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="cgronlun" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/01/2014" ms.author="cgronlun" />
 
@@ -28,3 +28,5 @@
 
 **下載：** <a href="http://go.microsoft.com/fwlink/p/?LinkId=330292" target="_blank">《了解 Microsoft Azure 上的 NoSQL》PDF 檔案</a>
 
+
+<!--HONumber=35.2-->

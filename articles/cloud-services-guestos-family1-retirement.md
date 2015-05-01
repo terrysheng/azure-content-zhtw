@@ -78,4 +78,5 @@ foreach($subscription in Get-AzureSubscription) {
 ## 客體作業系統系列 1 的延長支援已在 2014 年 11 月 3 日結束。
 以客體作業系統系列 1 為基礎的雲端服務將不再受到支援。請儘早移轉系列 1 以避免服務中斷。 
 
+
 <!--HONumber=52-->

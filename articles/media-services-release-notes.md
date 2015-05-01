@@ -495,4 +495,5 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [跨多個儲存體帳戶管理媒體服務資產]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
 
+
 <!--HONumber=52-->

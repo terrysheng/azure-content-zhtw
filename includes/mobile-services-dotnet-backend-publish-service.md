@@ -15,4 +15,5 @@
 	![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-2.png)
 
 	發佈成功後，您會再次看到行動服務已啟動並執行的確認頁面，而這次是在 Azure 中。
+
 <!--HONumber=52--> 

@@ -37,4 +37,5 @@ RemoteApp 會使用 Windows Server 2012 R2 映像來主控您要與使用者共�
 - 映像必須已使用 **/oobe /generalize /shutdown** 參數 (請勿使用 **/mode:vm** 參數) 執行過 SYSPREP。
 - 不支援從快照鏈結上傳您 VHD。
 
+
 <!--HONumber=52-->

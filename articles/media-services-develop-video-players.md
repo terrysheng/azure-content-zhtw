@@ -66,4 +66,5 @@ VAST 檔案會指定要顯示的廣告。VMAP 檔案會指定何時播放各種�
 
 如需瞭解即時資料流視訊的隱藏式字幕和廣告支援，請參閱[字幕支援和廣告插入標準](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad)。
 
+
 <!--HONumber=52-->

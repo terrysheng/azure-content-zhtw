@@ -90,4 +90,5 @@ POP3 連接器可讓您連接到 POP3 伺服器，並執行傳送有附件之電
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
+
 <!--HONumber=52-->

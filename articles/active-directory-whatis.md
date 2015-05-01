@@ -46,4 +46,5 @@ Azure AD 有一些功能等級，從雲端目錄與應用程式存取跨越到�
 * [Azure 身分識別](/manage/windows/fundamentals/identity/)
 * [MSDN 上的 Azure AD 程式庫](http://go.microsoft.com/fwlink/?LinkId=293425)
 
+
 <!--HONumber=52-->

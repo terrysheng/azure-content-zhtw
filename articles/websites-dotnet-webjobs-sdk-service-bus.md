@@ -156,4 +156,5 @@ SDK 會針對 POCO [(純舊 CLR 物件](http://en.wikipedia.org/wiki/Plain_Old_C
 
 本指南提供的程式碼範例會示範如何處理使用 Azure 服務匯流排的常見案例。如需如何使用 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱 [Azure WebJobs 建議資源](http://go.microsoft.com/fwlink/?linkid=390226)。
 
+
 <!--HONumber=52-->

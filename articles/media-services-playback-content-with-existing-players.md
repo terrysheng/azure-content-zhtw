@@ -81,4 +81,5 @@ Azure 媒體服務支援許多熱門的串流格式，例如 Smooth Streaming、
  
 [AMSPlayer]: ./media/media-services-players/media-services-portal-player.png
 
+
 <!--HONumber=52-->

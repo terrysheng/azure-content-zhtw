@@ -116,4 +116,5 @@ SFTP 連接器可讓您從 SFTP 伺服器移入/移出資料。它可以讓您�
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
+
 <!--HONumber=52-->

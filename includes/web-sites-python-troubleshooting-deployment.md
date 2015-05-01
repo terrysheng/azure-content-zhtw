@@ -7,4 +7,5 @@
 按一下 [檢視記錄檔]**** 以查看自訂部署指令碼的輸出：
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-log.png)
+
 <!--HONumber=52--> 

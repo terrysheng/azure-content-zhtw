@@ -32,4 +32,5 @@
 當這些檔案不存在時，Azure 會建立一個暫存的部署指令碼，並執行該指令碼。它與您使用上述命令建立的指令碼完全相同。
 
 [Azure 命令列介面]: http://azure.microsoft.com/downloads/
+
 <!--HONumber=52--> 

@@ -100,4 +100,5 @@ Yammer 連接器可讓您連線到 Yammer 並執行「張貼訊息」動作和�
 [10]: ./media/app-service-logic-connector-yammer/img10.PNG
 [11]: ./media/app-service-logic-connector-yammer/img11.PNG
 
+
 <!--HONumber=52-->

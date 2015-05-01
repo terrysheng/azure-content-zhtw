@@ -52,4 +52,5 @@ Microsoft Azure Operational Insights 的核心是我們的搜尋功能，可讓�
 - [IIS 管理套件事件警示規則的 OpInsights 搜尋對等項目](http://blogs.msdn.com/b/dmuscett/archive/2014/11/05/iis-mp-event-alerting-rules-s-opinsights-searches-equivalents.aspx) (英文)
 - [有用的 Operational Insights 搜尋查詢集合](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-searches-collection.aspx) (英文)
 
+
 <!--HONumber=52-->

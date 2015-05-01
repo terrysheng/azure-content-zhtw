@@ -87,4 +87,5 @@ Microsoft 可自行決定是否延長該期間，以緩和客戶轉換時的不�
 
 如果 Web 應用程式架構與基礎作業系統之間需要更深入的相依性，您可以使用「[啟動工作](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)」之類的平台支援功能或我們未來可能會推出的擴充性機制。您也可以使用 [Azure 虛擬機器](http://www.windowsazure.com/home/scenarios/virtual-machines/) (IaaS - 基礎結構即服務)，只不過您需要自行負責維護基礎作業系統。
 
+
 <!--HONumber=52-->

@@ -813,4 +813,5 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
 * [如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)
 * [如何使用 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)
 
+
 <!--HONumber=52-->

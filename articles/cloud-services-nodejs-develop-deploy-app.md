@@ -204,4 +204,5 @@ Azure SDK 安裝的其中一項工具是 Azure 計算模擬器，可讓您測試
 [如何從 Azure 訂用帳戶刪除儲存體帳戶]: https://www.windowsazure.com/manage/services/storage/how-to-manage-a-storage-account/
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
 
+
 <!--HONumber=52-->

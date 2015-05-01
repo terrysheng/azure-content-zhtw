@@ -217,4 +217,5 @@ PTVS 提供簡單的方法將 Web 應用程式部署至 Azure 網站。
 [Azure 儲存體]: http://azure.microsoft.com/documentation/services/storage/
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
 
+
 <!--HONumber=52-->

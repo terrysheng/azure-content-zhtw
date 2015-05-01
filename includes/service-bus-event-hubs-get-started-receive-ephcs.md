@@ -122,4 +122,5 @@
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
 [事件中心程式設計指南]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+
 <!--HONumber=52--> 

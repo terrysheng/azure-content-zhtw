@@ -58,4 +58,5 @@
 
 現在您已經準備好開始建立新的集合 ([雲端](remoteapp-create-cloud-deployment.md) 集合或 [混合式](remoteapp-create-hybrid-deployment.md))，視您的需求而定。
 
+
 <!--HONumber=52-->

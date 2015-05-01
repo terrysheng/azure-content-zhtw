@@ -79,4 +79,5 @@ Azure 服務匯流排連接器讓您透過佇列/主題/訂閱接收和傳送訊
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
+
 <!--HONumber=52-->

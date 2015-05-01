@@ -22,4 +22,5 @@
 
 RemoteApp 的優點之一是我們不斷地努力改進 RemoteApp。每當 RemoteApp 有新功能時 ，我們便會在這裡發表變更。
 
+
 <!--HONumber=52-->

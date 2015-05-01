@@ -111,4 +111,5 @@
 [使用 Storm 和 HDInsight 分析感應器資料]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 [在 Storm 和 HDInsight 上使用 SCP.NET 和 C# 開發串流資料處理應用程式]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
 
+
 <!--HONumber=52-->

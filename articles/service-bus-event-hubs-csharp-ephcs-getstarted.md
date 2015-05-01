@@ -107,4 +107,5 @@
 [佇列訊息解決方案]: cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
 [「事件中樞」的完整範例應用程式]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 
+
 <!--HONumber=52-->

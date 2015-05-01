@@ -171,4 +171,5 @@ Oracle 連接器可以在邏輯應用程式中做為觸發程序/動作使用。
 [設定 Oracle 用戶端]: https://msdn.microsoft.com/zh-tw/library/dd787872.aspx
 
 
+
 <!--HONumber=52-->

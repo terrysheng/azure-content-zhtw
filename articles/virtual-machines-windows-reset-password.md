@@ -97,4 +97,5 @@ VMAccess 延伸項目會在 VM 上執行這兩個命令：
 [透過 RDP 或 SSH 連接到 Azure 虛擬機器](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 
+
 <!--HONumber=52-->

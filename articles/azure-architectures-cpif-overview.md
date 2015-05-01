@@ -59,4 +59,5 @@ CPIF 描述組織、客戶及合作夥伴應如何使用 Azure、System Center �
 
 [Azure 搜尋](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
+
 <!--HONumber=52-->

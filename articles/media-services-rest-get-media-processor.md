@@ -122,4 +122,5 @@
 [Azure Media Encoder 的工作預設字串]: http://msdn.microsoft.com/library/jj129582.aspx
 [做法：以程式設計方式連接到媒體服務]: ../media-services-rest-connect_programmatically/
 
+
 <!--HONumber=52-->

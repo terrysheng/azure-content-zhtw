@@ -1009,4 +1009,5 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
 
+
 <!--HONumber=52-->

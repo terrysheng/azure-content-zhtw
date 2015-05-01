@@ -42,4 +42,5 @@ Azure RemoteApp 可透過 [Azure PowerShell 工具](https://msdn.microsoft.com/l
 
 * 請參閱 Azure 自動化[入門教學課程](automation-create-runbook-from-samples.md)
 
+
 <!--HONumber=52-->

@@ -357,4 +357,5 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
+
 <!--HONumber=52-->

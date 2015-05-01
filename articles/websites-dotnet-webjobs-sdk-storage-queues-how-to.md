@@ -584,4 +584,5 @@ Your `NameResolver` class could then get the queue name from `appSettings` as sh
 
 本指南提供的程式碼範例示範如何處理使用 Azure 佇列的常見案例。如需如何使用 Azure WebJobs 與 WebJobs SDK 的相關詳細資訊，請參閱 [Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
 
+
 <!--HONumber=52-->

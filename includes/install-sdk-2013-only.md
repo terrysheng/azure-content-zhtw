@@ -7,4 +7,5 @@
 >[AZURE.NOTE] 視您的電腦上有多少 SDK 相依性而定，安裝 SDK 可能需要很長的時間 (從數分鐘到半小時以上不等)。
 
 [Azure SDK for Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkID=324322
+
 <!--HONumber=52--> 

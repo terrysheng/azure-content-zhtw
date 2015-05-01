@@ -269,4 +269,5 @@ Microsoft Azure 事件中心是事件攝入服務，它能提供大規模進入�
 [sync]: http://msdn.microsoft.com/library/azure/hh456371.aspx
 [hybrid]: integration-hybrid-connection-overview.md
 
+
 <!--HONumber=52-->

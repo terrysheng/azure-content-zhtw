@@ -55,4 +55,5 @@ RemoteApp 支援從 Windows Server 2012 R2 安裝的資料流 32 位元或 64 �
 - 您應該針對多使用者、多處理器環境微調和平衡應用程式[執行緒使用量](https://msdn.microsoft.com/library/aa383520.aspx) (英文)。
 - 若要最佳化效能，讓應用程式[偵測](https://msdn.microsoft.com/library/aa380798.aspx)它們是否正在用戶端工作階段中執行是個好方法。 
 
+
 <!--HONumber=52-->

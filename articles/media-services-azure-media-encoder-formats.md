@@ -137,4 +137,5 @@ Azure 媒體服務提供匯入未壓縮視訊資料的支援。
 <tr><td>Indeo-produced YVU9 格式</td><td>Indeo-produced YVU9 格式，包含與最後一個影格的區別額外資訊。每個像素 9.5 位元，但回報為 9 位元。</td></tr>
 </table>
 
+
 <!--HONumber=52-->

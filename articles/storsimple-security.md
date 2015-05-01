@@ -245,4 +245,5 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 
 [開始使用實體裝置](https://msdn.microsoft.com/library/azure/dn772410.aspx)
 
+
 <!--HONumber=52-->

@@ -18,4 +18,5 @@
    	如此可讓您瀏覽由應用程式插入資料表中的資料。
 
    	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
+
 <!--HONumber=52--> 

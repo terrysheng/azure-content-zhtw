@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="流量管理員概觀
-   description="本文將協助您了解何謂流量管理員及其運作方式
+   pageTitle="流量管理員概觀"
+   description="本文將協助您了解何謂流量管理員及其運作方式"
    services="traffic-manager"
    documentationCenter=""
    authors="cherylmc"

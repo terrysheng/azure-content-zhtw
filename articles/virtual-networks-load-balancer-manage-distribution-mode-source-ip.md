@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    authors="danielceckert" 
    documentationCenter="dev-center-name" 
    editor=""
@@ -15,16 +15,12 @@
    ms.service="virtual-network"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-   />
-   
+   ms.workload="infrastructure-services"/>
+<!--HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md-->
+
+
 # 管理虛擬網路：負載平衡器分配模式 (來源 IP 同質性)
-=======
-   /> 
-   
-# 管理虛擬網路：負載平衡器分配模式 (來源 IP 同質性)
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+
 
 「來源 IP 同質性」**** (也稱為「工作階段同質性」****或「用戶端 IP 同質性」****)，Azure 負載平衡器分配模式，將來自單一用戶端的連線繫結到單一的 Azure 裝載伺服器，而不是將每個用戶端連線動態分配到不同的 Azure 裝載伺服器 (預設的負載平衡器行為)。
 

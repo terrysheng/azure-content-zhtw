@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="在資料中加入分頁 (Xamarin Android) | 行動開發人員中心" 
-	description="了解如何使用分頁來管理行動服務傳回您 Xamarin Android 應用程式的資料量。 
+	description="了解如何使用分頁來管理行動服務傳回您 Xamarin Android 應用程式的資料量。" 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 

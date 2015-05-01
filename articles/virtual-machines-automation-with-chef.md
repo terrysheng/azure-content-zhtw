@@ -1,18 +1,20 @@
-﻿<properties 
-   pageTitle="使用 Chef 自動化 Azure 虛擬機器部署" 
-   說明="了解使用 Chef 自動化 Azure 虛擬機器的藝術" 
-   services="virtual-machines" 
-   documentationCenter="" 
-   authors="diegoviso" 
-   manager="timlt" 
-   editor=""/>
+<properties 
+	pageTitle="使用 Chef 自動化 Azure 虛擬機器部署" 
+	description="了解使用 Chef 自動化 Azure 虛擬機器的藝術" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="diegoviso" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" 
-ms.tgt_pltfrm="vm-multiple" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.date="01/29/2015" 
-ms.author="diviso"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-multiple" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="diviso"/>
 
 # 使用 Chef 自動化 Azure 虛擬機器部署
 

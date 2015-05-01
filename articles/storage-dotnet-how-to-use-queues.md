@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="如何使用 .NET 的佇列儲存體 | Microsoft Azure「 
-	description="了解如何使用 Microsoft Azure 佇列儲存體來建立和刪除佇列，以及插入、查看、取得和刪除佇列訊息。」 
+	pageTitle="如何使用 .NET 的佇列儲存體 | Microsoft Azure「" 
+	description="了解如何使用 Microsoft Azure 佇列儲存體來建立和刪除佇列，以及插入、查看、取得和刪除佇列訊息。」" 
 	services="storage" 
 	documentationCenter=".net" 
 	authors="tamram" 

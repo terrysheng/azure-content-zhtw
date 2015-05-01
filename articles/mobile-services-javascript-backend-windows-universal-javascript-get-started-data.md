@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="開始使用資料 (Windows 市集 JavaScript) | 行動開發人員中心" 
-	description="了解如何開始使用行動服務，在您的 Windows 市集 JavaScript 應用程式中使用資料。 
+	description="了解如何開始使用行動服務，在您的 Windows 市集 JavaScript 應用程式中使用資料。" 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 

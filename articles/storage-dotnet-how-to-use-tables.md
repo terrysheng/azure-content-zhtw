@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="如何使用 .NET 的資料表儲存體 | Microsoft Azure「 
-	description="了解如何使用 Microsoft Azure 資料表儲存體來建立和刪除資料表，以及插入和查詢資料表中的實體。」 
+	pageTitle="如何使用 .NET 的資料表儲存體 | Microsoft Azure「" 
+	description="了解如何使用 Microsoft Azure 資料表儲存體來建立和刪除資料表，以及插入和查詢資料表中的實體。」" 
 	services="storage" 
 	documentationCenter=".net" 
 	authors="tamram" 

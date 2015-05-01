@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="如何使用 Java 的 Blob 儲存體 | Microsoft Azure「 
-	description="了解如何使用 Azure Blob 服務來上傳、下載、列出及刪除 Blob 內容。範例以 Java 撰寫。」 
+	pageTitle="如何使用 Java 的 Blob 儲存體 | Microsoft Azure「" 
+	description="了解如何使用 Azure Blob 服務來上傳、下載、列出及刪除 Blob 內容。範例以 Java 撰寫。」" 
 	services="storage" 
 	documentationCenter="java" 
 	authors="rmcmurray" 

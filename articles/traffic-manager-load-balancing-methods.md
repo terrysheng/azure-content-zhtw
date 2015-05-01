@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="關於流量管理員負載平衡方法「
-   description="此文章將協助您了解流量管理員所使用的不同負載平衡方法」
+   pageTitle="關於流量管理員負載平衡方法「"
+   description="此文章將協助您了解流量管理員所使用的不同負載平衡方法」"
    services="traffic-manager"
    documentationCenter=""
    authors="cherylmc"

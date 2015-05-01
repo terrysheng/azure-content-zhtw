@@ -1,6 +1,6 @@
-﻿<properties 
-	pageTitle="如何使用 Ruby 的 Blob 儲存體 | Microsoft Azure「 
-	description="了解如何使用 Azure Blob 服務來上傳、下載、列出及刪除 Blob 內容。範例以 Ruby 撰寫。」 
+<properties 
+	pageTitle="如何使用 Ruby 的 Blob 儲存體 | Microsoft Azure「" 
+	description="了解如何使用 Azure Blob 服務來上傳、下載、列出及刪除 Blob 內容。範例以 Ruby 撰寫。」" 
 	services="storage" 
 	documentationCenter="ruby" 
 	authors="tfitzmac,tamram" 

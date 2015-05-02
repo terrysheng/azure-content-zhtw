@@ -6,11 +6,11 @@
 
 3. 選取 [開啟現有的 Android Studio 專案]，瀏覽至專案位置，然後按一下 [確定]。 
 
- 	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
+ 	![][14]
 
 4. 在左側 [**專案總管**] 視窗中，確定已選取 [*Project*] 索引標籤，然後依序開啟 **app**、**src**、**java**，並連按兩下 **ToDoactivity**。
 
-   	![](./media/mobile-services-android-get-started/Android-Studio-quickstart.png)
+   	![][8]
 
 
 5. 如果下載的 SDK 是 2.0 版，則需要以您行動服務的 Url 和索引鍵來更新程式碼：
@@ -33,11 +33,11 @@
 
 8. 回到管理入口網站，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItems**] 資料表。
 
-   	![](./media/mobile-services-android-get-started/mobile-data-tab1.png)
+   	![][11]
 
    	如此可讓您瀏覽由應用程式插入資料表中的資料。
 
-   	![](./media/mobile-services-android-get-started/mobile-data-browse.png)
+   	![][12]
 
 
 <!-- Images. -->

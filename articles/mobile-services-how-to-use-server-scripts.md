@@ -1038,7 +1038,7 @@ You can then use a function like this in a table operation script:
 [管理入口網站]: https://manage.windowsazure.com/
 [排程作業]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
 [使用伺服器指令碼在行動服務中驗證與修改資料]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
-[管理 Azure 行動服務的命令]: virtual-machines-command-line-tools/#Mobile_Scripts
+[管理 Azure 行動服務的命令]: virtual-machines-command-line-tools.md#Mobile_Scripts
 [Windows 市集推播]: /develop/mobile/tutorials/get-started-with-push-dotnet/
 [Windows Phone 推播]: /develop/mobile/tutorials/get-started-with-push-wp8/
 [iOS 推播]: /develop/mobile/tutorials/get-started-with-push-ios/

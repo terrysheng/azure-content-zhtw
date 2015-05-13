@@ -1,69 +1,50 @@
-﻿<properties 
+<properties 
    pageTitle="Azure Mobile Engagement 使用者介面 - 監視" 
-   description="Azure Mobile Engagement [監視] 區段的使用者介面概觀" 
+   description="了解如何使用 Azure Mobile Engagement 監視應用程式的即時資料" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
-   authors="v-micada" 
-   manager="mattgre" 
+   documentationCenter="" 
+   authors="piyushjo" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
-   ms.workload="required" 
+   ms.tgt_pltfrm="mobile-multiple"
+   ms.workload="mobile" 
    ms.date="02/17/2015"
-   ms.author="v-micada"/>
+   ms.author="piyushjo"/>
 
-# Azure Mobile Engagement - 使用者介面
+# 如何監視應用程式的即時資料
+UI 的 \[監視\] 區段提供即時分析資訊，並可讓您設定在 UI 之 \[分析\] 區段中過去可用的大多數相同功能達到臨界值時發出警示。＜概念＞中的＜詞彙＞具有＜分析和監視＞中術語和縮寫的定義，如下所示：「作用中使用者」、「新增使用者」、「保留使用者」、「工作階段」、「使用者路徑圖表」、「使用者地圖」、「追蹤 URL」、「趨勢」、「活動」、「事件」、「工作」、「錯誤」、「額外資訊」、「損毀」和「應用程式資訊」。
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introduction">簡介</a>
-<a href="../mobile-engagement-user-interface-navigation" title="Navigation">瀏覽</a>
-<a href="../mobile-engagement-user-interface-home/" title="Home">首頁</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">我的帳戶</a>
-<a href="../mobile-engagement-user-interface-analytics" title="Analytics">分析</a>
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">監視</a>
-<a href="../mobile-engagement-user-interface-reach" title="Reach">觸達</a>
-<a href="../mobile-engagement-user-interface-segments" title="Segments">使用者分佈</a>
-<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">儀表板</a>
-<a href="../mobile-engagement-user-interface-settings" title="Settings">設定</a>
-</div>
+### 另請參閱
+-  [概念 - 詞彙][Link 6]、[疑難排解指南 - 分析][Link 21]
 
-# 監視
+## 監視 - 工作階段、工作、事件、錯誤和損毀
+您可以看到工作階段中和特定螢幕上目前有多少位使用者，或是目前有多少位使用者執行特定動作。您可以檢視除以「工作階段」、「工作」、「事件」、「錯誤」和「損毀」的使用者活動。您可以查看目前的資訊，並顯示最後一個小時、一天或一週的資訊。您可以查看每種類別中的所有資訊，或依特定「工作階段」、「工作」、「事件」、「錯誤」和「損毀」中進行排序。即時監視適用於在事件 \(例如推播行銷活動\) 期間用來查看傳送推播通知後是否有立即作用的報升。
  
-UI 的 [監視] 區段提供即時的分析資訊，而且可讓您設定警示，當 UI 的 [分析] 區段中過去可取得的大部分相同資訊達到臨界值時觸發警示。＜概念＞中的「詞彙」提供 [分析] 和 [監視] 中的術語和縮寫定義，例如：作用中使用者、新使用者、保留使用者、工作階段、使用者路徑圖表、使用者地圖、追蹤 URL、趨勢、活動、事件、作業、錯誤、額外資訊、當機以及應用程式資訊。
+![Monitor1][14]
 
-**另請參閱：** 
+## 監視 - 事件 - 詳細資料疑難排解
+從測試裝置產生應用程式中的事件以及在 \[監視 - 事件 - 詳細資料\] 中尋找它是一種最簡單的方法，可尋找測試裝置的裝置識別碼，以及確認 Azure Mobile Engagement 分析、監視和區段整合可以從您的應用程式運作。測試裝置的裝置識別碼之後，即可在 \[我的帳戶 - 裝置\] 中將它加入測試裝置。如果您無法產生事件，請確定已使用 SDK 將 Azure Mobile Engagement 正確地整合到 Android/iOS/Web/Windows/Windows Phone 應用程式。
 
--  [概念 - 詞彙][Link 6]、[疑難排解指南 - 分析][Link 2]
-
-## 監視 - 工作階段、作業、事件、錯誤和當機：
-您可以查看有多少使用者目前正在工作階段和特定畫面，或執行特定動作。您可以檢視每個工作階段、作業、事件、錯誤和當機的使用者活動。您可以查看目前的資訊，並顯示過去一小時、過去一天或過去一週的資訊。您可以查看每個類別中的所有資訊，或者依特定工作階段、作業、事件、錯誤和當機排序資訊。在如推送活動等事件期間，若要查看傳送推送通知後是否立即發生上報動作時，即時監視就會很好用。 
- 
-![Monitor1][14]  
-
-## [監視] - [事件] - [詳細資料] 的疑難排解：
-若要尋找測試裝置的「裝置識別碼」，並且確認您的應用程式已整合 Azure Mobile Engagement 的 [分析]、[監視] 和 [區段] 運作，其中一個最簡單的方式就是在測試裝置的應用程式中產生事件，並且在 [監視] - [事件] - [詳細資料] 中尋找。找到測試裝置的「裝置識別碼」之後，就可以在 [我的帳戶] - [裝置] 中將它加入您的測試裝置。如果您無法產生事件，請確定已使用 SDK 將 Azure Mobile Engagement 正確整合到您的 Android/iOS/Web/Windows/Windows Phone 應用程式中。
-
-**另請參閱：** 
-
+### 另請參閱
 -  [SDK 文件][Link 5]
 
-![Monitor2][15]  
+![Monitor2][15]
 
-## [監視] - [當機] - [詳細資料] 的疑難排解：
-您可以從 [監視] - [當機] - [詳細資料] 檢閱有關您應用程式的當機資訊，協助判斷應用程式當機的原因。您也應該針對 Android/iOS/Web/Windows/Windows Phone 的每個 SDK 版本，查閱版本資訊中每個 SDK 版本的已知問題。 
+## 監視 - 損毀 - 詳細資料疑難排解
+您可以從 \[監視 - 損毀 - 詳細資料\] 檢閱應用程式的損毀資訊，以協助判斷您應用程式的損毀原因。您也應該在 Android/iOS/Web/Windows/Windows Phone 之每個 SDK 版本的版本資訊中，查閱每個 SDK 版本的已知問題。
 
-**另請參閱：** 
-
+### 另請參閱
 -  [SDK 文件 - 版本資訊][Link 5]
 
-![Monitor3][16] 
+![Monitor3][16]
 
-## [監視] - [警示]：
-您也可以指定警示的條件，當達到條件時，警示會透過電子郵件或立即訊息自動傳送給您。(支援任何與 XMPP 相容的服務，例如 Google 的 GTalk 或 Apple 的 iChat)。警示是根據預先定義的偵測臨界值，當偵測到大於 (>) 或小於 (<) 每秒鐘、每分鐘或每小時的特定工作階段數、作業數、事件數、錯誤數或當機數時會觸發警示。警示可以監視指定類型的所有活動，或者只監視特定的作業、事件或錯誤活動。您也可以指定「最小偵測率」，這是對於相同警示的兩個通知之間間隔的最小時間量，確保當您的警示被觸發時，您在每 X 分鐘之內只會收到 1 個通知。
+## 監視 - 警示
+您也可以指定透過電子郵件或立即訊息自動傳送給您之警示的條件 \(支援任何 XMPP 相容服務，例如 Google 的 GTalk 或 Apple 的 iChat\)。 警示是根據一個預先定義的偵測臨界值，而此臨界值大於 \(\>\) 或小於 \(\<\) 每秒、分鐘或小時特定數目的工作階段、工作、事件、錯誤或損毀。警示可以監視某指定類型的所有活動，或只監視特定工作、事件或錯誤活動。您也可以指定最小偵測率，這是分隔相同警示之兩個通知的最小時間量，藉此確定觸發警示時，每 X 分鐘不會收到 1 個以上的通知。
  
 ![Monitor4][17]
 
@@ -87,20 +68,20 @@ UI 的 [監視] 區段提供即時的分析資訊，而且可讓您設定警示�
 [17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
 [18]: ./media/mobile-engagement-user-interface-reach/reach1.png
 [19]: ./media/mobile-engagement-user-interface-reach/reach2.png
-[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[20]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png
 [34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
 [35]: ./media/mobile-engagement-user-interface-segments/segments1.png
 [36]: ./media/mobile-engagement-user-interface-segments/segments2.png
@@ -128,9 +109,9 @@ UI 的 [監視] 區段提供即時的分析資訊，而且可讓您設定警示�
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: ../mobile-engagement-user-interface/
-[Link 2]: ../mobile-engagement-troubleshooting-guide/
-[Link 3]: ../mobile-engagement-how-tos/
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
@@ -139,27 +120,27 @@ UI 的 [監視] 區段提供即時的分析資訊，而且可讓您設定警示�
 [Link 9]: http://azure.microsoft.com/services/mobile-engagement/
 [Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
 [Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: ../mobile-engagement-user-interface-navigation/
-[Link 13]: ../mobile-engagement-user-interface-home/
-[Link 14]: ../mobile-engagement-user-interface-my-account/
-[Link 15]: ../mobile-engagement-user-interface-analytics/
-[Link 16]: ../mobile-engagement-user-interface-monitor/
-[Link 17]: ../mobile-engagement-user-interface-reach/
-[Link 18]: ../mobile-engagement-user-interface-segments/
-[Link 19]: ../mobile-engagement-user-interface-dashboard/
-[Link 20]: ../mobile-engagement-user-interface-settings/
-[Link 21]: ../mobile-engagement-troubleshooting-guide-analytics/
-[Link 22]: ../mobile-engagement-troubleshooting-guide-apis/
-[Link 23]: ../mobile-engagement-troubleshooting-guide-push-reach/
-[Link 24]: ../mobile-engagement-troubleshooting-guide-service/
-[Link 25]: ../mobile-engagement-troubleshooting-guide-sdk/
-[Link 26]: ../mobile-engagement-troubleshooting-guide-sr-info/
-[Link 27]: ../mobile-engagement-how-tos-first-push/
-[Link 28]: ../mobile-engagement-how-tos-test-campaign/
-[Link 29]: ../mobile-engagement-how-tos-personalize-push/
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push/
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign/
-[Link 32]: ../mobile-engagement-how-tos-text-view/
-[Link 33]: ../mobile-engagement-how-tos-web-view/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-how-tos-first-push.md
+[Link 28]: mobile-engagement-how-tos-test-campaign.md
+[Link 29]: mobile-engagement-how-tos-personalize-push.md
+[Link 30]: mobile-engagement-how-tos-differentiate-push.md
+[Link 31]: mobile-engagement-how-tos-schedule-campaign.md
+[Link 32]: mobile-engagement-how-tos-text-view.md
+[Link 33]: mobile-engagement-how-tos-web-view.md
 
-<!--HONumber=47-->
+<!--HONumber=52-->

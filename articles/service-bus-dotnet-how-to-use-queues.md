@@ -1,4 +1,4 @@
-﻿<properties
+<properties
     pageTitle="如何使用服務匯流排佇列 (.NET) - Azure"
     description="了解如何在 Azure 使用服務匯流排佇列。程式碼範例是以 C# 撰寫並使用 .NET API。"
     services="service-bus"
@@ -41,7 +41,7 @@
 
 1.  在 [方案總管] 中以滑鼠右鍵按一下 [**參考**]，然後按一下
     [**管理 NuGet 封裝**]。
-2.  搜尋「服務匯流排」並選取 [**Microsoft Azure 服務匯流排**] 項目。按一下 [安裝] ****完成安裝作業，然後關閉此對話方塊。
+2.  搜尋「服務匯流排」並選取 [**Microsoft Azure 服務匯流排**] 項目。按一下 [安裝] 完成安裝作業，然後關閉此對話方塊。
 
     ![][7]
 
@@ -245,7 +245,7 @@
 
 -   請參閱 MSDN 參考：[佇列、主題和訂閱。][]
 -   建立一個可行的應用程式，往返傳送或接收
-    服務匯流排佇列的訊息：。[服務匯流排代理訊息 .NET
+    服務匯流排佇列的訊息：[服務匯流排代理訊息 .NET
     教學課程]。
 
   [後續步驟]: #next-steps
@@ -262,6 +262,6 @@
   [Azure 管理入口網站]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [佇列、主題和訂閱。]: http://msdn.microsoft.com/library/hh367516.aspx
-  [服務匯流排代理訊息 .NET 教學課程。]: http://msdn.microsoft.com/library/hh367512.aspx
+  [服務匯流排代理訊息 .NET 教學課程]: http://msdn.microsoft.com/library/hh367512.aspx
 
 <!--HONumber=47-->

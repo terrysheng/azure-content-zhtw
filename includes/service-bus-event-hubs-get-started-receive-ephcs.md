@@ -24,7 +24,7 @@
 
 5. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後按一下 [**管理 NuGet 封裝**]。
 
-	[管理 NuGet 封裝]**** 對話方塊隨即出現。
+	[管理 NuGet 封裝] 對話方塊隨即出現。
 
 6. 搜尋  `Microsoft Azure Service Bus Event Hub - EventProcessorHost`，然後按一下 [**安裝**] 並接受使用條款。
 
@@ -110,6 +110,7 @@
 <!-- Links -->
 [事件中心概觀]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 [向外延展的事件處理]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[擴充事件處理範例]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [Azure 儲存體帳戶]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Azure 管理入口網站]: http://manage.windowsazure.com
@@ -122,5 +123,4 @@
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
 [事件中心程式設計指南]: http://msdn.microsoft.com/library/azure/dn789972.aspx
-
 <!--HONumber=52--> 

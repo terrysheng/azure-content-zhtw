@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="使用行動服務 .NET 用戶端程式庫" 
 	description="了解如何使用適用於 Azure 行動服務的 .NET 用戶端。" 
 	services="" 
@@ -722,7 +722,7 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 
 <!-- URLs. -->
 [開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started
-[行動服務 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Windows 市集快速入門教學課程]: http://azure.microsoft.com/develop/mobile/tutorials/get-started/
 [Windows Phone 快速入門教學課程]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-wp8/
 [Windows 市集資料教學課程]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-dotnet/
@@ -744,17 +744,16 @@ Windows 執行階段中的部分控制項支援名為 [ISupportIncrementalLoadin
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 [ASCII 控制碼 C0 和 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[管理行動服務資料表的命令]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[使用 CLI 管理行動服務資料表]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [開放式並行存取教學課程]: http://azure.microsoft.com/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
 
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
 [Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx
 [Take]: http://msdn.microsoft.com/library/windowsazure/dn250574.aspx
 [Fiddler]: http://www.telerik.com/fiddler
-APIAzure 行動服務用戶端 SDK 中的自訂 API[: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
-[從用戶端呼叫自訂 API] : /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
+[Azure 行動服務用戶端 SDK 中的自訂 API]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
+[從用戶端呼叫自訂 API]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
-
 
 
 <!--HONumber=42-->

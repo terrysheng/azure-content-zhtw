@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="在 Xamarin iOS 應用程式中開始使用行動服務 - Azure 行動服務" 
 	description="遵循此教學課程，可開始使用 Azure 行動服務進行 Xamarin iOS 開發" 
 	services="mobile-services" 
@@ -39,7 +39,7 @@
 
 ## 建立新的 Xamarin iOS 應用程式
 
-在建立您的行動服務之後，您可以依照 [管理入口網站] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。 
+在建立您的行動服務之後，您可以依照 \[管理入口網站] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。 
 
 在本節中，您將為行動服務下載新的 Xamarin iOS 應用程式和服務專案。
 
@@ -138,6 +138,5 @@
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [適用於 Windows 的 Xamarin]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-
 
 <!--HONumber=52-->

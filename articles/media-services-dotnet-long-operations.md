@@ -39,7 +39,7 @@ Media Services .NET SDK 提供能傳送要求並等候作業完成的 API (API �
 
 此範例也示範用戶端如何使用這個類別。
 
-### ChannelOperations class definition
+### ChannelOperations 類別定義
 
 	/// <summary> 
 	/// The ChannelOperations class only implements 
@@ -169,7 +169,7 @@ Media Services .NET SDK 提供能傳送要求並等候作業完成的 API (API �
 	    }
 	}
 
-### The client code
+### 用戶端程式碼
 
 	ChannelOperations channelOperations = new ChannelOperations();
 	string opId = channelOperations.StartChannelCreation("MyChannel001");
@@ -185,6 +185,5 @@ Media Services .NET SDK 提供能傳送要求並等候作業完成的 API (API �
 	
 	// If we got here, we should have the newly created channel id.
 	Console.WriteLine(channelId);
-
 
 <!--HONumber=52-->

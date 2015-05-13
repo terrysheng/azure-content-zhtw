@@ -43,13 +43,13 @@ PhoneGap 支援多個平台的開發。除了 PhoneGap 工具本身以外，您�
 
 <h2>建立新的 PhoneGap 應用程式</h2>
 
-在建立您的行動服務之後，您可以依照 [管理入口網站] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。 
+在建立您的行動服務之後，您可以依照 \[管理入口網站] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。 
 
 在本節中，您將建立連接到行動服務的新 PhoneGap 應用程式。
 
 1.  在管理入口網站中，按一下 [**行動服務**]，然後按一下您剛剛建立的行動服務。
 
-2. 在 [快速入門] 索引標籤中，按一下 [**選擇平台**] 下的 [**PhoneGap**]，然後展開 [**Create a new PhoneGap app**]。
+2. 在 [快速入門] 索引標籤中，按一下 [**選擇平台**] 下的 [**PhoneGap**]，然後展開 [**建立新的 PhoneGap 應用程式**]。
 
    	![][0]
 
@@ -172,7 +172,6 @@ PhoneGap 支援多個平台的開發。除了 PhoneGap 工具本身以外，您�
 [管理入口網站]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-
 
 
 <!--HONumber=52-->

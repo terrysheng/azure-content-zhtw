@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="使用 DocumentDB 建置 Node.js Web 應用程式 | Azure" 
-	description="了解如何使用 Microsoft Azure DocumentDB 來儲存和存取託管於 Azure 網站的 Node.js Express Web 應用程式資料。" 
+	description="了解如何使用 Microsoft Azure DocumentDB 來儲存和存取託管於 Azure 網站上的 Node.js Express Web 應用程式資料。" 
 	services="documentdb" 
 	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
@@ -13,46 +13,42 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="03/20/2015" 
+	ms.date="04/29/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>使用 DocumentDB 建置 Node.js Web 應用程式
 
-本教學課程示範如何使用 Azure DocumentDB 服務，從託管於 Azure 網站上的 Node.js Express 應用程式儲存和存取資料。
+本教學課程說明如何使用 Azure DocumentDB 服務，從託管於 Azure 網站上的 Node.js Express 應用程式儲存和存取資料。
 
-我們建議從觀看下列影片開始，而此影片是由 Andrew Liu 示範如何佈建 Azure DocumentDB 資料庫帳戶並將 JSON 文件儲存在 Node.js 應用程式中。 
+我們建議使用者從觀看下列影片開始，內容示範如何佈建 Azure DocumentDB 資料庫帳戶，以及如何將 JSON 文件儲存在 Node.js 應用程式中。
 
 > [AZURE.VIDEO azure-demo-getting-started-with-azure-documentdb-on-nodejs-in-linux]
 
-然後，回到這篇文章，您將了解下列問題的答案：
+然後，回到這篇文章，您可在此找到下列問題的答案：
 
-- 如何使用 documentdb npm 模組與 DocumentDB 搭配使用？
+- 如何透過 documentdb npm 模組搭配使用 DocumentDB？
 - 如何將 Web 應用程式部署至 Azure 網站？
 
-依照本教學課程的步驟，您將建置一個簡單的 Web 型
-工作管理應用程式，以允許建立、擷取和
-完成工作。這些工作將會以 JSON 文件形式儲存在 Azure
-DocumentDB。
+依照本教學課程的指示，您將建置一個簡單的網頁型工作管理應用程式，可讓您建立、擷取和完成工作。在 Azure DocumentDB 中，這些工作將會儲存為 JSON 文件。
 
-![Screen shot of the My Todo List application created in this tutorial](./media/documentdb-nodejs-application/image1.png)
+![本教學課程所建立的 \[我的待辦事項清單\] 應用程式螢幕擷取畫面](./media/documentdb-nodejs-application/image1.png)
 
-沒有時間完成本教學課程，而且只想要從 GitHub 取得完整的方案？沒問題，請從[這裡](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo)取得。
+是否沒有時間完成本教學課程，只是想要從 GitHub 取得完整的解決方案？ 這不是問題，您可以從[這裡](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo)取得。
 
 ## <a name="_Toc395783176"></a>必要條件
 
-> [AZURE.TIP] 本教學課程假設您先前已有些許使用 Node.js 和 Azure 網站的經驗。
+> [AZURE.TIP]本教學課程假設您先前已有些許使用 Node.js 和 Azure 網站的經驗。
 
-在依照本文指示進行之前，您應該確定
-已具有下列項目：
+在依照本文中的指示進行之前，您應先確定備妥下列項目：
 
-- 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 [Azure 免費試用](../../pricing/free-trial/)。
-- [Node.js][] 0.10.29 版或更高版本。
-- [Express 產生器](http://www.expressjs.com/starter/generator.html) (您可以透過 `npm install express-generator -g` 安裝)
+- 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](../../pricing/free-trial/)。
+- [Node.js][] v0.10.29 版或更高版本。
+- [Express 產生器](http://www.expressjs.com/starter/generator.html) \(您可以透過 `npm install express-generator -g` 進行安裝\)
 - [Git][]。
 
 ## <a name="_Toc395637761"></a>步驟 1：建立 DocumentDB 資料庫帳戶
 
-讓我們從建立 DocumentDB 帳戶開始。如果您已經有帳戶，您可以跳到[步驟 2：建立新的 Node.js 應用程式](#_Toc395783178)。
+現在就開始建立 DocumentDB 帳戶。如果您已經擁有帳戶，您可以跳到[步驟 2：建立新的 Node.js 應用程式](#_Toc395783178)。
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../includes/documentdb-create-dbaccount.md)]
 
@@ -60,11 +56,11 @@ DocumentDB。
 
 ## <a name="_Toc395783178"></a>步驟 2：建立新的 Node.js 應用程式
 
-現在讓我們使用 [Express](http://expressjs.com/) 架構來建立基本的 Hello World Node.js 專案。
+現在讓我們使用 [Express](http://expressjs.com/) 架構開始建立基本的 Hello World Node.js 專案。
 
-1. 開啟您喜好的終端機。
+1. 開啟您偏好的終端機。
 
-2. 使用 express 產生器來產生名為 **todo** 的新應用程式。
+2. 使用 Express 產生器來產生名為 **todo** 的新應用程式。
 
 		express todo
 
@@ -73,35 +69,31 @@ DocumentDB。
 		cd todo
 		npm install
 
-4. 執行新應用程式。
+4. 執行新的應用程式。
 
 		npm start
 
-5. 您可以檢視新的應用程式，方法是將瀏覽器瀏覽至 [http://localhost:3000](http://localhost:3000)。
+5. 您可以檢視新的應用程式，請導覽瀏覽器至 [http://localhost:3000/](http://localhost:3000)。
 
-	![Screenshot of the Hello World application in a browser window](./media/documentdb-nodejs-application/image12.png)
+	![Hello World 應用程式在瀏覽器視窗中的螢幕擷取畫面](./media/documentdb-nodejs-application/image12.png)
 
 ## <a name="_Toc395783179"></a>步驟 3：安裝其他模組
 
-**package.json** 檔案是建立在
-專案根目錄中的其中一個檔案。這個檔案包含 Node.js 應用程式
-的其他必要模組清單。稍後，將此
-應用程式部署至 Azure 網站時，會使用這個檔案來判定
-需要在 Azure 上安裝以支援您應用程式的模式。在本教學課程中，我們仍需要安裝兩個封裝。
+**package.json** 檔案是建立在專案根目錄中的其中一個檔案。這個檔案包含 Node.js 應用程式所需的其他模組清單。之後，當您將此應用程式部署至 Azure 網站時，此檔案可用來決定 Azure 上需要安裝哪些模組才能支援您的應用程式。在本教學課程中，我們還需要再安裝兩個封裝。
 
-1. 回到終端機，透過 npm 安裝 **async** 模組。
+1. 返回終端機，透過 npm 安裝 **async** 模組。
 
 		npm install async --save
 
-1. 透過 npm 安裝 **documentdb** 模組。此模組可發揮 DocumentDB 的所有強大功能。
+1. 透過 npm 安裝 **documentdb** 模組。這是 DocumentDB 發揮所有強大功能的模組。
 
 		npm install documentdb --save
 
-3. 快速檢查應用程式的 **package.json** 檔案，應該會顯示其他模組。這個檔案會在執行您的應用程式時告訴 Azure 要下載及安裝的封裝。它應該類似下面的範例。
+3. 快速檢查應用程式的 **package.json** 檔案應該會顯示其他模組。這個檔案會告訴 Azure 在執行您的應用程式時要下載及安裝的封裝。它看起來應該類似下面的範例。
 
-	![Screenshot of the package.json tab](./media/documentdb-nodejs-application/image17.png)
+	![\[package.json\] 索引標籤的螢幕擷取畫面](./media/documentdb-nodejs-application/image17.png)
 
-       這會讓 Node (之後則是 Azure) 知道您的應用程式需要仰賴這些額外模組。
+這會讓 Node \(之後則是 Azure\) 知道您的應用程式需要仰賴這些額外模組。
 
 ## <a name="_Toc395783180"></a>步驟 4：在節點應用程式中使用 DocumentDB 服務
 
@@ -109,10 +101,10 @@ DocumentDB。
 
 ### 建立模型
 
-1. 在 project 目錄中，建立名稱為 **models** 的新目錄。
-2. 在 **models** 目錄中，建立名稱為 **taskDao.js** 的新檔案。此檔案將包含您的應用程式建立之工作的模型。
-3. 在同一個 **models** 目錄中，建立名為 **docdbUtils.js** 的另一個新檔案。這個檔案會包含一些實用、可重複使用的程式碼，我們會在應用程式中使用。 
-4. 複製下列程式碼到 **docdbUtils.js**
+1. 在專案目錄中，建立一個名為 **models** 的新目錄。
+2. 在 **models** 目錄中，建立名為 **taskDao.js** 的新檔案。此檔案將包含應用程式所建立工作的模型。
+3. 在同一個 **models** 目錄中，建立另一個名為 **docdbUtils.js** 的新檔案。這個檔案會包含一些實用、可重複使用，適用於整個應用程式的程式碼。 
+4. 將下列程式碼複製到 **docdbUtils.js**
 
 		var DocumentDBClient = require('documentdb').DocumentClient;
 			
@@ -154,8 +146,8 @@ DocumentDB。
 		                name: '@id',
 		                value: collectionId
 		            }]
-		        };
-		        
+		        };		       
+				
 		        client.queryCollections(databaseLink, querySpec).toArray(function (err, results) {
 		            if (err) {
 		                callback(err);
@@ -165,8 +157,12 @@ DocumentDB。
 		                    var collectionSpec = {
 		                        id: collectionId
 		                    };
-		
-		                    client.createCollection(databaseLink, collectionSpec, function (err, created) {
+							
+				 			var requestOptions = {
+								offerType: 'S1'
+							};
+							
+		                    client.createCollection(databaseLink, collectionSpec, requestOptions, function (err, created) {
 		                        callback(null, created);
 		                    });
 		
@@ -179,15 +175,17 @@ DocumentDB。
 		};
 				
 		module.exports = DocDBUtils;
+
+> [AZURE.TIP]createCollection 會採用選擇性的 requestOptions 參數，可以用來指定集合的優惠類型。如果未提供 requestOptions.offerType 值，則將會使用預設的優惠類型來建立集合。如需 DocumentDB 優惠類型的詳細資訊，請參閱 [DocumentDB 中的效能層級](documentdb-performance-levels.md)
 		
 3. 儲存並關閉 **docdbUtils.js** 檔案。
 
-4. 在 **taskDao.js** 檔案的開頭，新增下列程式碼以參考在以上所建立的 **DocumentDBClient** 和 **docdbUtils.js**：
+4. 在 **taskDao.js** 檔案的開頭加入下列程式碼，以參考我們之前建立的 **DocumentDBClient** 和 **docdbUtils.js**：
 
         var DocumentDBClient = require('documentdb').DocumentClient;
 		var docdbUtils = require('./docdbUtils');
 
-4. 接下來，要加入程式碼以定義和匯出 Task 物件。這是負責初始化我們的 Task 物件並設定我們將使用的資料庫和文件集合。
+4. 接下來，要加入程式碼以定義和匯出 Task 物件。這會負責初始化我們的 Task 物件，並設定我們即將使用的資料庫和文件集合。
 
 		function TaskDao(documentDBClient, databaseId, collectionId) {
 		  this.client = documentDBClient;
@@ -200,7 +198,7 @@ DocumentDB。
 		
 		module.exports = TaskDao;
 
-5. 接下來，加入下列程式碼以定義 Task 物件上的其他方法，允許與 DocumentDB 中儲存的資料互動。
+5. 接下來，新增下列程式碼以定義 Task 物件上的其他方法，可用來與 DocumentDB 中存放的資料進行互動。
 
 		TaskDao.prototype = {
 		    init: function (callback) {
@@ -297,12 +295,12 @@ DocumentDB。
 		    }
 		};
 
-6. 儲存並關閉 **taskDao.js** 檔案。 
+6. 儲存並關閉 **taskDao.js** 檔案。
 
 ### 建立控制器
 
-1. 在您專案的 **routes** 目錄建立名為 **tasklist.js** 的新檔案。 
-2. 在 **tasklist.js** 中加入以下程式碼。這會載入 DocumentDBClient 和 async 模組，它們是由 **tasklist.js** 所使用。這也會定義 **TaskList** 函數，系統會傳遞我們稍早定義的 **Task** 物件執行個體給它：
+1. 在專案的 **routes** 目錄中，建立名為 **tasklist.js** 的新檔案。 
+2. 在 **tasklist.js** 中加入以下程式碼。這會載入供 **tasklist.js** 使用的 DocumentDBClient 和 async 模組。這也會定義 **TaskList** 函數，系統會傳遞我們稍早定義的 **Task** 物件執行個體給它：
 
 		var DocumentDBClient = require('documentdb').DocumentClient;
 		var async = require('async');
@@ -313,7 +311,7 @@ DocumentDB。
 		
 		module.exports = TaskList;
 
-3. 繼續在 **tasklist.js** 檔案中加入 **showTasks、addTask** 和 **completeTasks** 方法：
+3. 繼續在 **tasklist.js** 檔案中加入用來 **showTasks \(顯示工作\)、addTask \(新增工作\)** 和 **completeTasks \(完成工作\)** 的方法：
 		
 		TaskList.prototype = {
 		    showTasks: function (req, res) {
@@ -377,10 +375,10 @@ DocumentDB。
 
 4. 儲存並關閉 **tasklist.js** 檔案。
  
-### 新增 config.json
+### 新增 config.js
 
-1. 在 project 目錄中，建立名稱為 **config.js** 的新檔案。
-2. 將下列內容新增至 **config.json**。這會定義組態設定和我們的應用程式所需的值。
+1. 在您的專案目錄中，建立名為 **config.js** 的新檔案。
+2. 將下列程式碼新增至 **config.js**。這會定義應用程式所需的組態設定和值。
 
 		var config = {}
 		
@@ -391,13 +389,13 @@ DocumentDB。
 		
 		module.exports = config;
 
-3. 在 **config.js** 檔案中，使用可在 [Azure 預覽入口網站](http://portal.azure.com) 之 DocumentDB 帳戶的 [金鑰] 刀鋒視窗上找到的值來更新 HOST 和 AUTH_KEY 值：
+3. 在 **config.js** 檔案中，使用在 [Microsoft Azure 入口網站](http://portal.azure.com) DocumentDB 帳戶的 \[金鑰\] 刀鋒視窗上找到的值來更新 \[主機\] 和 \[AUTH\_KEY\] 的值：
 
 4. 儲存並關閉 **config.js** 檔案。
  
 ### 修改 app.js
 
-1. 在專案目錄中，開啟 **app.js** 檔案。此檔案是稍早建立 Express Web 應用程式時所建立。
+1. 在專案目錄中，開啟 **app.js** 檔案。這是稍早建立 Express Web 應用程式時所建立的檔案。
 2. 將下列程式碼新增至 **app.js** 的最上方
 	
 		var DocumentDBClient = require('documentdb').DocumentClient;
@@ -405,13 +403,13 @@ DocumentDB。
 		var TaskList = require('./routes/tasklist');
 		var TaskDao = require('./models/taskDao');
 
-3. 此程式碼會定義要使用的組態檔，並繼續從此檔案中讀取值，成為我們將使用的一些變數。
-4. 取代 **app.js** 檔案中的下列兩行：
+3. 此程式碼會定義要使用的組態檔，並繼續讀出此檔案中的值到我們即將使用的變數。
+4. 將 **app.js** 檔案中的下列兩行取代為：
 
 		app.use('/', routes);
 		app.use('/users', users); 
 
-      為下列程式碼片段：
+      下列程式碼片段：
 
 		var docDbClient = new DocumentDBClient(config.host, {
 		    masterKey: config.authKey
@@ -425,13 +423,13 @@ DocumentDB。
 		app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
-6. 這些程式行會定義我們的 **TaskDao** 物件的新執行個體，並具有 DocumentDB 的新連線 (使用從 **config.js** 讀取的值)、初始化工作物件，然後將表單動作與我們的 **TaskList** 控制器上的方法繫結。 
+6. 這幾行會定義 **TaskDao** 物件的新執行個體，內含與 DocumentDB 的新連線 \(使用從 **config.js** 中讀取的值\)，初始化工作物件，然後將表單動作繫結至 **TaskList** 控制站上的方法。 
 
-7. 最後，儲存並關閉 **app.js** 檔案，這樣就差不多完成了。
+7. 最後，儲存並關閉 **app.js** 檔案，我們就差不多快完成了。
  
 ## <a name="_Toc395783181"></a>步驟 5：建置使用者介面
 
-現在，讓我們將注意力轉到建置使用者介面，以便使用者可以實際與我們的應用程式互動。我們建立的 Express 應用程式使用 **Jade** 做為檢視引擎。如需 Jade 的詳細資訊，請參閱 [http://jade-lang.com/](http://jade-lang.com/)。
+現在，讓我們將注意力轉到建置使用者介面，以便使用者可以實際與我們的應用程式互動。我們建立的 Express 應用程式使用 **Jade** 做為檢視引擎。如需 Jade 的詳細資訊，請參閱 [http://jade-lang.com/](http://jade-lang.com/) \(英文\)。
 
 1. **views** 目錄中的 **layout.jade** 檔是用來作為其他 **.jade** 檔案的全域範本。在此步驟中，您將修改它以使用 [Twitter Bootstrap](https://github.com/twbs/bootstrap)，這個工具組能夠方便設計美觀的網站。 
 2. 開啟在 **views** 資料夾中找到的 **layout.jade** 檔案，並將其中的內容取代為下列內容；
@@ -452,10 +450,10 @@ DocumentDB。
 
 
 
-	這個程式碼實際上會指示 **Jade** 引擎呈現我們應用程式的部分 HTML，並建立稱為 **content** 的 **block**，我們可以在其中提供內容頁面的配置。
-	儲存並關閉此 **layout.jade** 檔案。
+	This effectively tells the **Jade** engine to render some HTML for our application and creates a **block** called **content** where we can supply the layout for our content pages.
+	Save and close this **layout.jade** file.
 
-4. 現在開啟我們的應用程式將使用的 **index.jade** 檔案，並將檔案的內容取代為下列內容：
+4. 現在，開啟 **index.jade** 檔案 \(應用程式即將使用的檢視\)，並將檔案中的內容取代為下列內容；
 
 		extends layout
 		
@@ -497,13 +495,11 @@ DocumentDB。
 
 	這個程式碼會擴充配置，並為我們在前面的 **layout.jade** 檔案中看到的 **content** 預留位置提供內容。
 	
-	在此配置中，我們建立了兩個 HTML 表單。 
-	第一個表單包含我們的資料和一個按鈕，可讓我們更新項目，方法是張貼至控制器的 **/completetask** 方法。
-	第二個表單包含兩個輸入欄位和一個按鈕，可讓我們建立新項目，方法是張貼至控制器的 **/addtask** 方法。
+	在此配置中，我們建立了兩個 HTML 表單。第一個表單包含資料的表格，以及可讓我們透過張貼到控制器的 **/completetask** 方法來更新項目的按鈕。第二個表單包含兩個輸入欄位，以及可讓我們透過張貼到控制器的 **/addtask** 方法來建立項目的按鈕。
 	
 	這應該就是要讓應用程式開始運作所需的所有程式碼。
 
-5. 開啟 **public\stylesheets** 目錄中的 **style.css** 檔案，並並將其中的程式碼取代為下列內容：
+5. 開啟 **public\\stylesheets** 目錄中的 **style.css** 檔案，然後使用下列內容取代程式碼：
 
 		body {
 		  padding: 50px;
@@ -527,47 +523,40 @@ DocumentDB。
 
 ## <a name="_Toc395783181"></a>步驟 6：在本機執行您的應用程式
 
-1. 若要在本機電腦上測試應用程式，請在終端機中執行 `npm start` 以啟動您的應用程式，以及啟動看起來類似下圖的瀏覽器頁面：
+1. 若要在本機電腦上測試應用程式，請在終端機中執行 `npm start` 以啟動應用程式，並啟動顯示如下圖所示頁面的瀏覽器：
 
-	![Screenshot of the MyTodo List application in a browser window](./media/documentdb-nodejs-application/image18.png)
+	![\[我的待辦事項清單\] 應用程式在瀏覽器視窗中的螢幕擷取畫面](./media/documentdb-nodejs-application/image18.png)
 
 
-2. 使用所提供的 [項目]、[項目名稱] 和 [類別] 欄位來輸入
-資訊，然後按一下 [**加入項目**]。
+2. 使用所提供的 \[項目\]、\[項目名稱\] 和 \[類別\] 等欄位來輸入資訊，然後按一下 \[**新增項目**\]。
 
-3. 系統應該會更新此頁面以在 ToDo
-清單中顯示新建立的項目。
+3. 系統應該會更新此頁面，以在 \[待辦事項\] 清單中顯示新建立的項目。
 
-	![Screenshot of the application with a new item in the ToDo list](./media/documentdb-nodejs-application/image19.png)
+	![\[待辦事項\] 清單中包含一個新項目的應用程式螢幕擷取畫面](./media/documentdb-nodejs-application/image19.png)
 
-4. 若要完成工作，您只需勾選 [已完成] 資料行中的核取方塊，
-然後按一下 [**更新工作**]。
+4. 若要完成工作，您只需勾選 \[已完成\] 資料行中的核取方塊，然後按一下 \[更新工作\]****。
 
 ## <a name="_Toc395783182"></a>步驟 7：將應用程式部署至 Azure 網站
 
-1. 如果您還沒有這麼做，可為您的 Azure 網站啟用 git 儲存機制。您可以在[這裡](web-sites-publish-source-control-git.md#step4)找到如何執行這項作業的指示。
+1. 如果您還沒有這麼做，請為您的 Azure 網站提供一個 Git 儲存機制。您可以在[這裡](web-sites-publish-source-control-git.md#step4)找到如何執行這項作業的相關指示。
 
-2. 將您的 Azure 網站新增為 git 遠端。
+2. 新增您的 Azure 網站做為 Git 遠端。
 
 		git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
 
-3. 推送到遠端來部署。
+3. 透過推送到遠端進行部署。
 
 		git push azure master
 
-4. 幾秒後，git 便會完成發佈 Web
-應用程式並啟動瀏覽器，您可以在瀏覽器中看到您方便好用的應用程式
-已在 Azure 中執行！
+4. 幾秒後，Git 便會發佈 Web 應用程式並啟動瀏覽器，您可以在瀏覽器中看到您方便好用的應用程式已在 Azure 中執行！
 
-## <a name="_Toc395637775"></a>後續步驟
+## <a name="_Toc395637775"></a>接續步驟
 
-恭喜！您剛剛已使用 Azure DocumentDB 建立您的第一個 Express Web
-應用程式並發行至 Azure 網站。
+恭喜！ 您剛剛已經使用 Azure DocumentDB 建置您的第一個Node.js Express Web 應用程式，並將它發佈至 Azure 網站。
 
 您可以在[這裡](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo)下載完整參考應用程式的原始程式碼。
 
-  [Node.js]: http://nodejs.org/
-  [Git]: http://git-scm.com/
-  [Azure 管理入口網站]: http://portal.azure.com
+[Node.js]: http://nodejs.org/
+[Git]: http://git-scm.com/
 
-<!--HONumber=49-->
+<!--HONumber=52-->

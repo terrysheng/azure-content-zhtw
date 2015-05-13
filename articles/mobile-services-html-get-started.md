@@ -55,7 +55,7 @@
 
 ## <h2>建立新的 HTML 應用程式</h2>
 
-在建立您的行動服務之後，您可以依照 [管理入口網站] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。 
+在建立您的行動服務之後，您可以依照 \[管理入口網站] 中的簡易快速入門，來建立新的應用程式或修改現有的應用程式，以連接到您的行動服務。 
 
 在本節中，您將建立連線至您行動服務的新 HTML 應用程式。
 
@@ -162,5 +162,4 @@
 [行動服務 HTML/JavaScript 做法概念性參考]: /develop/mobile/how-to-guides/work-with-html-js-client
 [跨原始資源共用]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 [行動服務 HTML/JavaScript 作法概念性參考]: /develop/mobile/how-to-guides/work-with-html-js-client
-
 <!--HONumber=52-->

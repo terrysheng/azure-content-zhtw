@@ -29,11 +29,11 @@
 
 ### 檢視及複製存取金鑰
 
-1.      在 [Azure 預覽入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。
+1.      在 [Azure 預覽入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。
 
-2.      在 [**摘要**] 透鏡中，按一下 [**金鑰**]。
+2.      在 [**摘要**] 透鏡中，按一下 [**金鑰**]。
 
-3.      在 [**金鑰**] 分頁中，按一下要複製之金鑰旁的 [**複製**] 按鈕。
+3.      在 [**金鑰**] 分頁中，按一下要複製之金鑰旁的 [**複製**] 按鈕。
 
   ![](./media/documentdb-manage-account/image004.jpg)
 
@@ -45,17 +45,17 @@
 
 如果您有應用程式或雲端服務正在使用 DocumentDB 帳戶，除非您變換金鑰，否則會在重新產生金鑰後失去連線。下列步驟概述變換金鑰所牽涉的程序。
 
-1.      更新應用程式程式碼中的存取金鑰，以參考 DocumentDB 帳戶的次要存取金鑰。
+1.      更新應用程式程式碼中的存取金鑰，以參考 DocumentDB 帳戶的次要存取金鑰。
 
-2.      重新產生 DocumentDB 帳戶的主要存取金鑰。在 [Azure 預覽入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。
+2.      重新產生 DocumentDB 帳戶的主要存取金鑰。在 [Azure 預覽入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。
 
-3.      在 [摘要] 透鏡中按一下 [**金鑰**]。
+3.      在 [摘要] 透鏡中按一下 [**金鑰**]。
 
-4.      在 [**金鑰**] 分頁中按一下 [**重新產生主要金鑰**] 命令，然後按一下 [**確定**] 以確認要產生新的金鑰。
+4.      在 [**金鑰**] 分頁中按一下 [**重新產生主要金鑰**] 命令，然後按一下 [**確定**] 以確認要產生新的金鑰。
 
-5.      一旦確認新的金鑰可供使用後 (重新產生後約 5 分鐘)，更新應用程式程式碼中的存取金鑰，以參考新的主要存取金鑰。
+5.      一旦確認新的金鑰可供使用後 (重新產生後約 5 分鐘)，更新應用程式程式碼中的存取金鑰，以參考新的主要存取金鑰。
 
-6.      重新產生次要存取金鑰。
+6.      重新產生次要存取金鑰。
 
 *請注意，新產生的金鑰可能需要經過幾分鐘之後才能用來存取 DocumentDB 帳戶。*
 
@@ -74,19 +74,19 @@ DocumentDB 支援四個定義完善的使用者可設定資料一致性層級，
 
 ### 指定 DocumentDB 帳戶的預設一致性
 
-1.      在 [Azure 預覽入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。
+1.      在 [Azure 預覽入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。
 
-2.      在 [**組態**] 透鏡中，按一下 [**預設一致性**]。
+2.      在 [**組態**] 透鏡中，按一下 [**預設一致性**]。
 
-3.      在 [**預設一致性**] 分頁中，選取 DocumentDB 帳戶的預設一致性層級。
+3.      在 [**預設一致性**] 分頁中，選取 DocumentDB 帳戶的預設一致性層級。
 
 ![](./media/documentdb-manage-account/image005.png)
 
 ![](./media/documentdb-manage-account/image006.png)
 
-4.      按一下 [儲存]。
+4.      按一下 [儲存]。
 
-5.      透過 Azure 預覽入口網站通知中樞可監視作業的進度。
+5.      透過 Azure 預覽入口網站通知中樞可監視作業的進度。
 
 *請注意，整個 DocumentDB 帳戶的預設一致性設定變更可能需要幾分鐘的時間才會生效。*
 
@@ -97,16 +97,16 @@ Microsoft Azure DocumentDB 可讓您在應用程式的生命週期內，隨著�
 
 ### 新增或移除容量單位
 
-1.      在 [Azure 預覽入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。
+1.      在 [Azure 預覽入口網站](https://portal.azure.com/)中，存取 DocumentDB 帳戶。
 
-2.      在 [**流量**] 透鏡中按一下 [**調整**]。
+2.      在 [**流量**] 透鏡中按一下 [**調整**]。
 
-3.      在 [**調整**] 分頁中，指定 DocumentDB 帳戶的容量單位數目。
+3.      在 [**調整**] 分頁中，指定 DocumentDB 帳戶的容量單位數目。
 
 
 ![](./media/documentdb-manage-account/image007.png)
 
-4.      按一下 [**儲存**] (請注意，調整作業可能需要幾分鐘的時間才能完成，您可以透過 Azure 預覽入口網站通知中樞監視作業的進度)。
+4.      按一下 [**儲存**] \(請注意，調整作業可能需要幾分鐘的時間才能完成，您可以透過 Azure 預覽入口網站通知中樞監視作業的進度)。
 
  *請注意，對於每個 DocumentDB 帳戶，DocumentDB 預覽最多支援 5 個容量
 單位。*
@@ -119,13 +119,13 @@ Microsoft Azure DocumentDB 可讓您在應用程式的生命週期內，隨著�
 
 ![](./media/documentdb-manage-account/image009.png)
 
-1.      在 [Azure 預覽入口網站](https://portal.azure.com/)中，存取要刪除的 DocumentDB 帳戶。
+1.      在 [Azure 預覽入口網站](https://portal.azure.com/)中，存取要刪除的 DocumentDB 帳戶。
 
-2.      在 [**DocumentDB 帳戶**] 分頁中，按一下 [**刪除**] 命令。
+2.      在 [**DocumentDB 帳戶**] 分頁中，按一下 [**刪除**] 命令。
 
-3.      在後續的確認分頁中輸入 DocumentDB 帳戶名稱，確認您想要刪除該帳戶。
+3.      在後續的確認分頁中輸入 DocumentDB 帳戶名稱，確認您想要刪除該帳戶。
 
-4.      在確認分頁中按一下 [**刪除**] 按鈕。
+4.      在確認分頁中按一下 [**刪除**] 按鈕。
 
 ## <a id="next"></a>後續步驟
 

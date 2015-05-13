@@ -477,7 +477,7 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次失敗�
 		    Console.WriteLine(logMessage);
 		}
 
-Your `NameResolver` class could then get the queue name from `appSettings` as shown in the following example:
+'NameResolver' 類別接著可以從 'appSettings' 取得佇列名稱，如下列範例所示：
 
 		public class QueueNameResolver : INameResolver
 		{
@@ -583,6 +583,5 @@ Your `NameResolver` class could then get the queue name from `appSettings` as sh
 ## <a id="nextsteps"></a> 後續步驟
 
 本指南提供的程式碼範例示範如何處理使用 Azure 佇列的常見案例。如需如何使用 Azure WebJobs 與 WebJobs SDK 的相關詳細資訊，請參閱 [Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
-
 
 <!--HONumber=52-->

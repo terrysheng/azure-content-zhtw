@@ -40,7 +40,7 @@
 
 2. 按一下 [**加入新的資料表**]，並建立名為 **TodoItem** 的新資料表。
 
-3. 下載新的 Appcelerator [Todolist] 應用程式，然後解壓縮專案。
+3. 下載新的 Appcelerator [Todolist 應用程式]，然後解壓縮專案。
 
 4. 下載並安裝 [Appcelerator Titanium Studio][Appcelerator Titanium] 和 SDK v3.2.1 或更新版本 (若您尚未這麼做)。您還需要 Xcode (v 5.0 +) 和/或 Android SDK (v 4.3+) 才能執行專案。
 
@@ -129,6 +129,5 @@
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
 [開始使用驗證]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users.md
 [開始使用推播通知]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push.md
-
 
 <!--HONumber=52-->

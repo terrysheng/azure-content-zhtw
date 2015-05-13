@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="開始使用 Windows 市集應用程式的行動服務 | 行動開發人員中心" 
 	description="遵循此教學課程，可開始使用 Azure 行動服務進行 C# 或 JavaScript 的 Windows 市集開發。" 
 	services="mobile-services" 
@@ -41,7 +41,7 @@
 
 ## 建立新的通用 Windows 應用程式
 
-在建立您的行動服務之後，您可以依照 [管理入口網站] 中的簡易快速入門，來建立新的通用 Windows 應用程式或修改現有的 Windows 市集或 Windows Phone 應用程式專案，以連接到您的行動服務。 
+在建立您的行動服務之後，您可以依照 \[管理入口網站] 中的簡易快速入門，來建立新的通用 Windows 應用程式或修改現有的 Windows 市集或 Windows Phone 應用程式專案，以連接到您的行動服務。 
 
 在本節中，您將建立與行動服務連線的新通用 Windows 應用程式。
 
@@ -58,7 +58,7 @@
 
 4. 按一下 [**建立 TodoItem 資料表**] 以建立可儲存應用程式資料的資料表。
 
-5. 在 [**Download and run your app**] 下，選取您的應用程式語言，然後按一下 [**下載**]。 
+5. 在 [**下載並執行您的應用程式**] 下，選取您的應用程式語言，然後按一下 [**下載**]。 
 
   	這將會下載與行動服務連接的範例 *To do list* 應用程式專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 
@@ -105,6 +105,5 @@
 [行動服務 SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [管理入口網站]: https://manage.windowsazure.com/
 [開始以 Visual Studio 2012 使用行動服務中的資料]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
-
 
 <!--HONumber=52-->

@@ -1,7 +1,7 @@
 <properties
-	pageTitle="開始使用適用於 Xamarin.Android 應用程式的通知中樞"
-	description="了解如何使用 Azure 通知中樞，將推播通知傳送到 Xamarin Android 應用程式。"
-	authors="yuaxu"
+	pageTitle="開始使用適用於 Xamarin.Android 應用程式的通知中心"
+	description="了解如何使用 Azure 通知中心，將推播通知傳送到 Xamarin Android 應用程式。"
+	authors="ysxu"
 	manager="dwrede"
 	editor=""
 	services="notification-hubs"
@@ -13,80 +13,79 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/11/2014"
-	ms.author="donnam"/>
+	ms.date="04/14/2015"
+	ms.author="yuaxu"/>
 
-# 開始使用通知中樞
+# 開始使用通知中心
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
 
-## 概觀
+##概觀
 
-本主題將示範如何使用 Azure 通知中樞將推播通知傳送至 Xamarin.Android 應用程式。
-在本教學課程中，您將使用 Google 雲端通訊 (GCM)，建立可接收推播通知的空白 Xamarin.Android 應用程式。完成時，您便能夠使用通知中樞，將推播通知廣播到所有正在執行您應用程式的裝置。完成的程式碼可從 [NotificationHubs 應用程式][GitHub]範例中取得。
+本主題將示範如何使用 Azure 通知中心將推播通知傳送至 Xamarin.Android 應用程式。在本教學課程中，您將使用 Google 雲端通訊 \(GCM\)，建立可接收推播通知的空白 Xamarin.Android 應用程式。完成時，您便能夠使用通知中心，將推播通知廣播到所有正在執行您應用程式的裝置。[NotificationHubs 應用程式][GitHub]範例中提供完成的程式碼。
 
-本教學課程將示範使用通知中樞的簡單廣播案例。 
+本教學課程將示範使用通知中心的簡單廣播案例。
 
-## 必要條件
+##必要條件
 
-本教學課程需要下列項目：
+本教學課程需要下列各項：
 
 + [Xamarin.Android]
 + 有效的 Google 帳戶
 + [Azure 行動服務元件]
-+ [Azure 通訊元件]
-+ [Google 雲端通訊用戶端元件]
++ [Azure 訊息元件]
++ [Google Cloud Messaging 用戶端元件]
 
-完成本教學課程是 Xamarin.Android 應用程式其他所有通知中樞教學課程的先決條件。
+完成本教學課程是 Xamarin.Android 應用程式所有其他通知中樞教學課程的先決條件。
 
-> [AZURE.IMPORTANT] 若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F)。
+> [AZURE.IMPORTANT]若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F)。
 
-## <a name="register"></a>啟用 Google 雲端通訊
+##<a name="register"></a>啟用 Google Cloud Messaging
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
-## <a name="configure-hub"></a>設定通知中樞
+##<a name="configure-hub"></a>設定通知中心
 
 [AZURE.INCLUDE [notification-hubs-android-configure-push](../includes/notification-hubs-android-configure-push.md)]
 
-## <a name="connecting-app"></a>將您的應用程式連接到通知中樞
+##<a name="connecting-app"></a>將您的應用程式連接到通知中心
 
 ### 建立新專案
 
-1. 在 Xamarin Studio (或 Visual Studio) 中，按一下 [**檔案**] 和 [**新增**]，然後按一下 [**新增方案**] 對話方塊中的 [**Android 應用程式**]，最後按一下 [**確定**]。
+1. 在 Xamarin Studio \(或 Visual Studio\) 中，按一下 \[**檔案**\] 和 \[**新增**\]，然後按一下 \[**新增方案**\] 對話方塊中的 \[**Android 應用程式**\]，最後按一下 \[**確定**\]。
 
-   	![][14]
+   ![][14]
 
-	這會建立新的 Android 專案。
+	This creates a new Android project.
 
-2. 按一下 [方案] 檢視中的新專案來開啟專案屬性，並選擇 [**選項**]。選取 [**建置**] 區段中的 [**Android Application**] 項目。
+2. 按一下 \[方案\] 檢視中的新專案來開啟專案屬性，並選擇 **[選項]**。選取 **[建置]** 區段中的 **[Android Application]** 項目。
 
-   	![][15]
+   ![][15]
 
-3. 將 [**Minimum Android version**] 設定為 API 層級 8。
+3. 將 **[Minimum Android version]** 設定為 API 層級 8。
 
-4. 將 [**Target Android version**] 設定為想要的目標 API 版本 (必須是 API 層級 8 或更高版本)。
+4. 將 **[Target Android version]** 設定為想要的目標 API 版本 \(必須是 API 層級 8 或更高版本\)。
 
-5. 確定 [**封裝名稱**] 的第一個字母是小寫。
+5. 確定 **[套件名稱]** 的第一個字母是小寫。
 
-	> [AZURE.IMPORTANT] 套件名稱的第一個字母必須是小寫。否則，當您針對以下推播通知註冊 **BroadcastReceiver** 和 **IntentFilter** 時，您會收到應用程式資訊清單錯誤。
+	> [AZURE.IMPORTANT]套件名稱的第一個字母必須是小寫。否則，當您針對以下推播通知註冊 **BroadcastReceiver** 和 **IntentFilters** 時，您會收到應用程式資訊清單錯誤。
 
-### 將所需的元件新增至專案中
+### 將必要元件新增至專案
 
 可在 Xamarin 元件存放區中取得的 Google Cloud Messaging 用戶端會簡化在 Xamarin.Android 中支援推播通知的程序。
 
-1. 以滑鼠右鍵按一下 Xamarin.Android 應用程式中的 [元件] 資料夾，然後選擇 [**取得更多元件...**]
+1. 使用滑鼠右鍵按一下 Xamarin.Android 應用程式中的 \[元件\] 資料夾，然後選擇 **[取得更多元件...\]**
 
-2. 搜尋 **Azure 行動服務**元件，並將其新增至專案中。
+2. 搜尋 \[**Azure 行動服務**\] 元件，並將該元件新增至專案。
 
-3. 搜尋 **Azure 通訊**元件，並將其新增至專案中。
+3. 搜尋 \[**Azure 訊息**\] 元件，並將該元件新增至專案。
 
-4. 搜尋 **Google 雲端通訊用戶端**元件，並將其新增至專案中。
+4. 搜尋 \[**Google Cloud Messaging 用戶端**\] 元件，並將該元件新增至專案。
 
 
-### 在專案中設定通知中樞
+### 在專案中設定通知中心
 
-1. 建立 **Constants.cs** 類別，並定義下列常數值 (以值取代預留位置)：
+1. 建立 **Constants.cs** 類別，並定義下列常數值 \(以值取代預留位置\)：
 
         public const string SenderID = "<GoogleProjectNumber>"; // Google API Project Number
 
@@ -114,9 +113,9 @@
 
 4. 建立新類別 **MyBroadcastReceiver**。
 
-	> [AZURE.NOTE] 我們將在下文中從頭逐步建立 **BroadcastReceiver**。不過，除了手動建立 **MyBroadcastReceiver.cs**，還有個快速的方式，那就是參考 GitHub 上提供之範例 Xamarin.Android 專案中的 **GcmService.cs** 檔案。複製 **GcmService.cs** 之後再變更類別名稱，也是很好的開始。
+	> [AZURE.NOTE]我們將在下文中從頭逐步建立 **BroadcastReceiver**。不過，除了手動建立 **MyBroadcastReceiver.cs**，還有個快速的方式，那就是參考 GitHub 上提供之範例 Xamarin.Android 專案中的 **GcmService.cs** 檔案。複製 **GcmService.cs** 之後再變更類別名稱，也是很好的開始。
 
-5. 將下列的 using 陳述式新增至 **MyBroadcastReceiver.cs** (請參閱稍早新增的元件和組件)：
+5. 將下列的 using 陳述式新增至 **MyBroadcastReceiver.cs** \(請參閱稍早新增的元件和組件\)：
 
 		using WindowsAzure.Messaging;
 		using Gcm.Client;
@@ -148,7 +147,7 @@
             public const string TAG = "MyBroadcastReceiver-GCM";
         }
 
-7. 在 **MyBroadcastReceiver.cs** 中，新增另一個衍生自 **GcmServiceBase** 且名稱為 **PushHandlerService** 的類別。請務必將 [**服務**] 屬性套用至類別中：
+7. 在 **MyBroadcastReceiver.cs** 中，新增另一個衍生自 **GcmServiceBase** 且名稱為 **PushHandlerService** 的類別。請一定要將 **Service** 屬性套用至類別：
 
     	[Service] // Must use the service tag
     	public class PushHandlerService : GcmServiceBase
@@ -157,15 +156,14 @@
         	private NotificationHub Hub { get; set; }
 
         	public PushHandlerService() : base(Constants.SenderID)
-       		{
             	Log.Info(MyBroadcastReceiver.TAG, "PushHandlerService() constructor");
         	}
     	}
 
 
-8. **GcmServiceBase** 會實作 **OnRegistered()**、**OnUnRegistered()**、**OnMessage()**、**OnRecoverableError()** 和 **OnError()** 等方法。我們的實作類別 **PushHandlerService** 必須覆寫這些方法，而且這些方法將在發生與通知中樞的互動時受到觸發做為回應。
+8. **GcmServiceBase** 實作 **OnRegistered\(\)**、**OnUnRegistered\(\)**、**OnMessage\(\)**、**OnRecoverableError\(\)** 和 **OnError\(\)** 等方法。我們的實作類別 **PushHandlerService** 必須覆寫這些方法，而且這些方法將在發生與通知中心的互動時受到觸發作為回應。
 
-9. 以下列程式碼覆寫 **PushHandlerService** 中的 **OnRegistered()** 方法：
+9. 以下列程式碼覆寫 **PushHandlerService** 中的 **OnRegistered\(\)** 方法：
 
         protected override void OnRegistered(Context context, string registrationId)
         {
@@ -198,7 +196,7 @@
             }
         }
 
-	> [AZURE.NOTE] 在以上的 **OnRegistered()** 程式碼中，您應該發現能夠指定標籤來註冊特定傳訊通道。
+	> [AZURE.NOTE]在以上的 **OnRegistered\(\)** 程式碼中，您應該發現能夠指定標籤來註冊特定傳訊通道。
 
 10. 以下列程式碼覆寫 **PushHandlerService** 中的 **OnMessage** 方法：
 
@@ -249,38 +247,38 @@
             notificationManager.Notify(1, notification);
         }
 
-12. 覆寫抽象成員 **OnUnRegistered()**、**OnRecoverableError()** 和 **OnError()**，以便您的程式碼進行編譯。
+12. 覆寫抽象成員 **OnUnRegistered\(\)**、**OnRecoverableError\(\)** 和 **OnError\(\)**，以便您的程式碼進行編譯。
 
 
-<h2><a name="run-app"></a>在模擬器中執行您的應用程式</h2>
+##<a name="run-app"></a>在模擬器中執行您的應用程式
 
-當您在模擬器中執行此應用程式時，請務必使用支援 Google API 的 Android 虛擬裝置 (AVD)。
+當您在模擬器中執行此應用程式時，請務必使用支援 Google API 的 Android 虛擬裝置 \(AVD\)。
 
-> [AZURE.IMPORTANT] 若要收到推播通知，您必須在 Android 虛擬裝置上設定 Google 帳戶 (在模擬器中，瀏覽至 [**設定**]，然後按一下 [**新增帳戶**])。另外，確定模擬器已連線到網際網路。
+	> [AZURE.IMPORTANT] In order to receive push notifications, you must set up a Google account on your Android Virtual Device (in the emulator, navigate to **Settings** and click **Add Account**). Also, make sure that the emulator is connected to the Internet.
 
-1. 從 [**工具**] 中，按一下 [**Open Android Emulator Manager**]，選取您的裝置，然後按一下 [**Edit**]。
+1. 從 **[工具]** 中，按一下 **[Open Android Emulator Manager]**，選取您的裝置，然後按一下 **[Edit]**。
 
-   	![][18]
+   ![][18]
 
-2. 在 [**目標**] 中選取 **Google API**，然後按一下 [**確定**]。
+2. 在 **[Target]** 中選取 **[Google API]**，然後按一下 **[OK]**。
 
-   	![][19]
+   ![][19]
 
-3. 在頂端工具列上，按一下 [**執行**]，然後選取您的應用程式。這將啟動模擬器，並執行應用程式。
+3. 在頂端工具列上，按一下 **[執行]**，然後選取您的應用程式。這將啟動模擬器，並執行應用程式。
 
-  應用程式會從 GCM 擷取  *registrationId*，並向通知中樞註冊。
+  應用程式將從 GCM 擷取 *registrationId*，並向通知中心註冊。
 
-<h2><a name="send"></a>從後端傳送通知</h2>
+<a name="send"></a>從後端傳送通知
 
-您可以使用 <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 介面</a>，從任何後端使用通知中樞來傳送通知。在本教學課程中，我們將透過 .NET 主控台應用程式，以及使用節點指令碼透過行動服務來傳送通知。
+您可以使用 <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 介面</a>，從任何後端使用通知中心傳送通知。在本教學課程中，我們將透過 .NET 主控台應用程式，以及使用節點指令碼透過行動服務來傳送通知。
 
 使用 .NET 應用程式傳送通知：
 
-1. 建立新的 Visual C# 主控台應用程式：
+1. 建立新的 Visual C\# 主控台應用程式：
 
-   	![][20]
+   ![][20]
 
-2. 使用 <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 封裝</a>來新增 Azure 服務匯流排 SDK 的參考。在 Visual Studio 主功能表中，依序按一下 [**工具**]、[**Library Package Manager**]、[**Package Manager Console**]。接著，在主控台視窗中輸入：
+2. 使用 <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 封裝</a>新增 Azure 服務匯流排 SDK 的參考。在 Visual Studio 主功能表中，依序按一下 **[工具]**、**[Library Package Manager]**、**[Package Manager Console]**。接著，在主控台視窗中輸入：
 
         Install-Package WindowsAzure.ServiceBus
 
@@ -290,7 +288,7 @@
 
         using Microsoft.ServiceBus.Notifications;
 
-3. 在  `Program` 類別中，新增下列方法：
+3. 在 `Program` 類別中，新增下列方法：
 
         private static async void SendNotificationAsync()
         {
@@ -305,23 +303,23 @@
 
 5. 按 F5 鍵以執行應用程式。您應會收到快顯通知。
 
-   	![][21]
+   ![][21]
 
 若要使用行動服務傳送通知，請依照[開始使用行動服務]中的步驟進行，然後執行下列動作：
 
 1. 登入 [Azure 管理入口網站]，然後選取您的行動服務。
 
-2. 選取頂端的 [**排程器**] 索引標籤。
+2. 選取頂端的 **[排程器]** 索引標籤。
 
-   	![][22]
+   ![][22]
 
-3. 建立新的排定工作、插入名稱，然後選取 [**隨選**]。
+3. 建立新的排定工作、插入名稱，然後選取 **[隨選]**。
 
-   	![][23]
+   ![][23]
 
-4. 在工作建立之後，按一下此工作名稱。然後按一下頂端列中的 [**指令碼**]。
+4. 在工作建立之後，按一下此工作名稱。然後按一下頂端列中的 **[指令碼]**。
 
-5. 將下列指令碼插入您的排程器函數內。請確定使用您的通知中樞名稱和稍早取得的  *DefaultFullSharedAccessSignature* 連接字串，來取代預留位置。按一下 [**儲存**]。
+5. 將下列指令碼插入您的排程器函數內。請確定使用您的通知中心名稱和稍早取得的 *DefaultFullSharedAccessSignature* 連接字串，來取代預留位置。按一下 **[儲存]**。
 
         var azure = require('azure');
 		var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string>');
@@ -338,19 +336,19 @@
           }
 	    );
 
-6. 按一下底列上的 [**執行一次**]。您應會收到快顯通知。
+6. 按一下底列上的 **[執行一次]**。您應會收到快顯通知。
 
 ## <a name="next-steps"> </a>後續步驟
 
-在此簡單範例中，您將廣播通知到您的所有 Android 裝置。若要以特定使用者為目標，請參閱[使用通知中樞來推播通知給使用者][使用通知中樞將通知推播給使用者]教學課程，在此同時，如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中樞傳送即時新聞]。若要深入了解如何使用通知中樞，請參閱 [Azure 通知中樞指引][通知中樞指引]和 [Android 的通知中樞作法]。
+在此簡單範例中，您將廣播通知到您的所有 Android 裝置。若要以特定使用者為目標，請參閱教學課程[使用通知中心來推播通知給使用者]，在此同時，如果您想要按興趣群組分隔使用者，您可以參閱[使用通知中心傳送即時新聞]。若要深入了解如何使用通知中心，請參閱 [Azure 通知中心概觀]和 [Android 的通知中心作法] \(英文\)。
 
 <!-- Anchors. -->
-[啟用 Google 雲端通訊]: #register
-[設定通知中樞]: #configure-hub
-[將您的應用程式連接到通知中樞]: #connecting-app
-[使用模擬器執行您的應用程式]: #run-app
-[從後端傳送通知]: #send
-[後續步驟]:#next-steps
+[Enable Google Cloud Messaging]: #register
+[Configure your Notification Hub]: #configure-hub
+[Connecting your app to the Notification Hub]: #connecting-app
+[Run your app with the emulator]: #run-app
+[Send notifications from your back-end]: #send
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [1]: ./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-developers.png
@@ -378,25 +376,24 @@
 [23]: ./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [開始使用行動服務]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
-[JavaScript 和 HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx
-[Android 的通知中樞作法]: http://msdn.microsoft.com/library/dn282661.aspx
+[Azure 通知中心概觀]: http://msdn.microsoft.com/library/jj927170.aspx
+[Android 的通知中心作法]: http://msdn.microsoft.com/library/dn282661.aspx
 
-[使用通知中樞將通知推播給使用者]: /manage/services/notification-hubs/notify-users-aspnet
-[使用通知中樞傳送即時新聞]: /manage/services/notification-hubs/breaking-news-dotnet
-[GCMClient 元件頁面]: http://components.xamarin.com/view/GCMClient
-[Xamarin.NotificationHub GitHub 頁面]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
+[使用通知中心來推播通知給使用者]: /manage/services/notification-hubs/notify-users-aspnet
+[使用通知中心傳送即時新聞]: /manage/services/notification-hubs/breaking-news-dotnet
+[GCMClient Component page]: http://components.xamarin.com/view/GCMClient
+[Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure 行動服務元件]: http://components.xamarin.com/view/azure-mobile-services/
-[Google 雲端通訊用戶端元件]: http://components.xamarin.com/view/GCMClient/
-[Azure 通訊元件]: http://components.xamarin.com/view/azure-messaging
-
-<!--HONumber=49-->
+[Google Cloud Messaging 用戶端元件]: http://components.xamarin.com/view/GCMClient/
+[Azure 訊息元件]: http://components.xamarin.com/view/azure-messaging
+<!--HONumber=52-->

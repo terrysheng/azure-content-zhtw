@@ -145,6 +145,7 @@ WARNING: No swap limit support
 
 <!--Link references-->
 [如何從 Azure 跨平台介面 (xplat-cli) 使用 Docker VM 延伸模組]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
+[如何從 Azure 跨平台介面 (xplat-cli) 使用 Docker VM 擴充程式]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
 [Azure Linux 代理程式]: ../virtual-machines-linux-agent-user-guide/
 [其他 azure.microsoft.com 文件主題的連結 3]: ../storage-whatis-account/
 

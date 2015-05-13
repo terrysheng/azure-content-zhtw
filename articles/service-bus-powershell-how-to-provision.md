@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="使用 PowerShell 管理服務匯流排"
 	description="使用 PowerShell 指令碼 (而非 .NET) 管理服務匯流排"
 	services="service-bus"
@@ -37,8 +37,7 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您在 Azure 中用�
 ## 包括對服務匯流排之 .NET 組件的參考
 
 可用於管理服務匯流排的 PowerShell Cmdlet 並不多。若要佈建不是透過現有 Cmdlet 公開的
-實體，我們將會使用
-[服務匯流排 NuGet 套件][]來使用服務匯流排的 .NET 用戶端。
+實體，我們將會使用[服務匯流排 NuGet 套件][]來使用服務匯流排的 .NET 用戶端。
 
 首先，我們想要確定我們的指令碼可以找到與 NuGet 套件一起安裝的 **Microsoft.ServiceBus.dll** 組件。為了要有使用彈性，指令碼將會執行這些步驟：
 
@@ -181,7 +180,7 @@ Write-Output "The consumer group [$ConsumerGroupName] for the [$Path] event hub 
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [powershell-install-configure]: ../install-configure-powershell/
-[Service Bus NuGet package]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
+[服務匯流排 NuGet 套件]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx

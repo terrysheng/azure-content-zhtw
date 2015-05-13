@@ -1,8 +1,8 @@
-﻿<!---
+<!---
 Don't use this file. It's deprecated and will be removed. Instead use, virtual-machines-Linux-tutorial-log-on-attach-disk.md
 -->
 
-## <a id="logon"> </a>如何在建立虛擬機器之後登入##
+## <a id="logon"> </a>如何在建立虛擬機器之後登入 ##
 
 您可以使用 SSH 用戶端來管理虛擬機器的設定及機器上執行的應用程式。若要這樣做，必須在您要用來存取虛擬機器的電腦上安裝 SSH 用戶端。有許多 SSH 用戶端程式可供選擇。下面是一些可能的選項：
 
@@ -11,47 +11,46 @@ Don't use this file. It's deprecated and will be removed. Instead use, virtual-m
 
 此教學課程會說明如何使用 PuTTY 程式來存取虛擬機器。
 
-1. 在管理入口網站中尋找 [**主機名稱**] 和 [**連接埠資訊**]。您可以從虛擬機器的儀表板中找到您需要的資訊。請按一下虛擬機器名稱，然後在儀表板的 [**快速瀏覽**] 區段中尋找 [**SSH 詳細資料**]。
+1. 在管理入口網站中尋找 \[主機名稱\] 和 \[連接埠資訊\]。您可以從虛擬機器的儀表板中找到您需要的資訊。請按一下虛擬機器名稱，然後在儀表板的 \[Quick Glance\] 區段中尋找 \[SSH Details\]。
 
-	![Find SSH details](./media/CreateVirtualMachineLinuxTutorial/SSHdetails.png)
+	![尋找 SSH 詳細資料](./media/CreateVirtualMachineLinuxTutorial/SSHdetails.png)
 
 2. 開啟 PuTTY 程式。
 
-3. 輸入您從儀表板收集的 [**主機名稱**] 和 [**連接接埠資訊**]，然後按一下 [**開啟**]。
+3. 輸入您從儀表板收集的 \[主機名稱\] 和 \[連接埠資訊\]，然後按一下 \[開啟\]。
 
-	![Enter the host name and port information](./media/CreateVirtualMachineLinuxTutorial/putty.png)
+	![輸入主機名稱和連接埠資訊](./media/CreateVirtualMachineLinuxTutorial/putty.png)
 
 4. 使用您在建立機器時指定的 NewUser1 帳戶，登入虛擬機器。
 
-	![Log on to the new virtual machine](./media/CreateVirtualMachineLinuxTutorial/sshlogin.png)
+	![登入新的虛擬機器](./media/CreateVirtualMachineLinuxTutorial/sshlogin.png)
 
 	您現在可以開始使用虛擬機器，就如同操作任何其他伺服器一樣。
 
 
-## <a id="attachdisk"> </a>如何將資料磁碟連接至新的虛擬機器##
+## <a id="attachdisk"> </a>如何將資料磁碟連接至新的虛擬機器 ##
 
 應用程式可能需要儲存資料。若要進行此設定，請將資料磁碟連接至先前建立的虛擬機器。最簡單的方法是將空的資料磁碟連接至機器。
 
-**注意：資料磁碟與資源磁碟**  
-資料磁碟位於 Azure 儲存體，可用於檔案和應用程式資料的永續儲存。
+**注意：資料磁碟與資源磁碟的比較**資料磁碟位於 Azure 儲存體，可永久儲存檔案和應用程式資料。
 
-每個建立的虛擬機器也都連接一個暫時性本機 *資源磁碟*。因為資源磁碟上的資料在重新開機之後就會消失，通常供虛擬機器中執行的應用程式和處理程序暫時儲存資料。也用來儲存作業系統的分頁檔或交換檔。
+每個建立的虛擬機器也都連接一個暫時性本機*資源磁碟*。因為資源磁碟上的資料在重新開機之後就會消失，通常供虛擬機器中執行的應用程式和處理程序暫時儲存資料。也用來儲存作業系統的分頁檔或交換檔。
 
-在 Linux 上，資源磁碟通常由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的 **/mnt**)。請注意，資源磁碟是 *暫存* 磁碟，可能會在 VM 取消佈建時清空。換句話說，在 Linux 上，核心有可能將資料磁碟命名為 `/dev/sdc`，且使用者必須分割、格式化及掛接該資源。如需詳細資訊，請參閱＜[Azure Linux 代理程式使用者指南](http://www.windowsazure.com/zh-tw/manage/linux/how-to-guides/linux-agent-guide/)＞(英文)。
+在 Linux 上，資源磁碟通常由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** \(或 Ubuntu 映像中的 **/mnt**\)。請注意，資源磁碟是*暫存*磁碟，可能會在 VM 取消佈建時清空。換句話說，在 Linux 上，核心有可能將資料磁碟命名為 `/dev/sdc`，且使用者必須分割、格式化及掛接該資源。如需詳細資訊，請參閱＜[Azure Linux 代理程式使用者指南](http://www.windowsazure.com/manage/linux/how-to-guides/linux-agent-guide/)＞\(英文\)。
 
 
 
 1. 如果您尚未登入，請登入 Azure 管理入口網站。
 
-2. 按一下 [**虛擬機器**]，然後選取您先前建立的 [**MyTestVM1**] 虛擬機器。
+2. 按一下 \[虛擬機器\]，然後選取先前建立的 \[MyTestVM1\] 虛擬機器。
 
-3. 在命令列上按一下 [**連接**]，然後按一下 [**連接空的磁碟**]。
+3. 在命令列上，按一下 \[連接\]，然後按一下 \[連接空的磁碟\]。
 	
-	[**連接空的磁碟**] 對話方塊隨即出現。
+	\[連接空的磁碟\] 對話方塊隨即出現。
 
-	![Define disk details](./media/CreateVirtualMachineLinuxTutorial/attachnewdisklinux.png)
+	![定義磁碟詳細資料](./media/CreateVirtualMachineLinuxTutorial/attachnewdisklinux.png)
 
-4. 已為您定義 [**虛擬機器名稱**]、[**儲存體位置**] 和 [**檔案名稱**]。您只需要輸入想要的磁碟大小。在 [**大小**] 欄位中輸入 **5**。
+4. 系統已為您定義 \[虛擬機器名稱\]、\[儲存位置\] 和 \[檔案名稱\]。您只需要輸入想要的磁碟大小。在 \[大小\] 欄位中輸入 **5**。
 
 	**注意：**所有磁碟都是從 Azure 儲存體中的 VHD 檔案建立。您可以為加入儲存體的 VHD 檔案命名，但磁碟的名稱是自動產生的。
 
@@ -59,14 +58,14 @@ Don't use this file. It's deprecated and will be removed. Instead use, virtual-m
 
 6. 您可以查看儀表板，以確認資料磁碟已成功連接至虛擬機器。請按一下虛擬機器的名稱來顯示儀表板。
 
-	虛擬機器的磁碟數目現在是 2，且您連接的磁碟會列在 [**磁碟**] 表格中。
+	虛擬機器的磁碟數目現在是 2，且您連接的磁碟會列在 \[磁碟\] 表格中。
 
-	![Attach disk success](./media/CreateVirtualMachineLinuxTutorial/attachemptysuccess.png)
+	![成功連接磁碟](./media/CreateVirtualMachineLinuxTutorial/attachemptysuccess.png)
 
 
 您剛連接至虛擬機器的資料磁碟為離線狀態，且在新增之後尚未初始化。您必須先登入機器並將磁碟初始化，才能使用該磁碟來儲存資料。
 
-1. 使用**如何在建立虛擬機器之後登入**中列出的步驟，連線至虛擬機器。
+1. 使用「如何在建立虛擬機器之後登入」中列出的步驟，連線至虛擬機器。
 
 
 2. 在 SSH 視窗中，輸入下列命令，然後輸入帳戶密碼：
@@ -75,43 +74,43 @@ Don't use this file. It's deprecated and will be removed. Instead use, virtual-m
 
 	在出現的訊息中，您可以找到最後一個新增之資料磁碟的識別碼。
 
-	![Identify disk](./media/CreateVirtualMachineLinuxTutorial/diskmessages.png)
+	![識別磁碟](./media/CreateVirtualMachineLinuxTutorial/diskmessages.png)
 
 
 3. 在 SSH 視窗中，輸入下列命令來建立新的裝置，然後輸入帳戶密碼：
 
 	`sudo fdisk /dev/sdc`
 
-	>[WACOM.NOTE]在此範例中，如果 /sbin 或 /usr/sbin 不在您的 `$PATH` 中，您可能需要在部份散發套件上使用 `sudo -i`。
+	>[AZURE.NOTE]在此範例中，如果 /sbin 或 /usr/sbin 不在您的 `$PATH` 中，您可能需要在部份散發套件上使用 `sudo -i`。
 
 
 4. 輸入 **n** 建立新的磁碟分割。
 
-	![Create new device](./media/CreateVirtualMachineLinuxTutorial/diskpartition.png)
+	![建立新的裝置](./media/CreateVirtualMachineLinuxTutorial/diskpartition.png)
 
 
 5. 輸入 **p** 將磁碟分割設為主要磁碟分割，輸入 **1** 設為第一個磁碟分割，然後按 Enter 鍵接受預設的磁柱值。
 
-	![Create partition](./media/CreateVirtualMachineLinuxTutorial/diskcylinder.png)
+	![建立磁碟分割](./media/CreateVirtualMachineLinuxTutorial/diskcylinder.png)
 
 
 6. 輸入 **p** 查看目前分割之磁碟的詳細資料。
 
-	![List disk information](./media/CreateVirtualMachineLinuxTutorial/diskinfo.png)
+	![列出磁碟資訊](./media/CreateVirtualMachineLinuxTutorial/diskinfo.png)
 
 
-7. 輸入 **w** 以寫入磁碟的設定。
+7. 輸入 **w** 寫入磁碟的設定。
 
-	![Write the disk changes](./media/CreateVirtualMachineLinuxTutorial/diskwrite.png)
+	![寫入磁碟變更](./media/CreateVirtualMachineLinuxTutorial/diskwrite.png)
 
 
 8. 您必須在新的磁碟分割上建立檔案系統。做為範例，請輸入下列命令來建立檔案系統，然後輸入帳戶密碼：
 
 	`sudo mkfs -t ext4 /dev/sdc1`
 
-	![Create file system](./media/CreateVirtualMachineLinuxTutorial/diskfilesystem.png)
+	![建立檔案系統](./media/CreateVirtualMachineLinuxTutorial/diskfilesystem.png)
 
-	>[WACOM.NOTE] 請注意，SUSE Linux Enterprise 11 系統上僅對 ext4 檔案系統提供唯讀存取。針對這些系統，建議您將新檔案系統格式化為 ext3，而非 ext4。
+	>[AZURE.NOTE]請注意，SUSE Linux Enterprise 11 系統上僅對 ext4 檔案系統提供唯讀存取。針對這些系統，建議您將新檔案系統格式化為 ext3，而非 ext4。
 
 
 9. 接下來您必須有可供掛接新檔案系統的目錄。做為範例，請輸入下列命令建立新目錄來掛接磁碟機，然後輸入帳戶密碼：
@@ -128,7 +127,7 @@ Don't use this file. It's deprecated and will be removed. Instead use, virtual-m
 
 11. 將新的磁碟機新增至 /etc/fstab：
 
-	為了確保重新開機之後自動重新掛接磁碟機，必須將磁碟機新增至 /etc/fstab 檔案。此外，強烈建議在 /et/fstab 中使用全域唯一識別碼 (Universally Unique IDentifier, UUID) 來參考磁碟機，而不只是裝置名稱 (例如，/dev/sdc1)。若要尋找新磁碟機的 UUID，您可以使用 **blkid** 公用程式：
+	為了確保重新開機之後自動重新掛接磁碟機，必須將磁碟機新增至 /etc/fstab 檔案。此外，強烈建議在 /et/fstab 中使用全域唯一識別碼 \(Universally Unique IDentifier, UUID\) 來參考磁碟機，而不只是裝置名稱 \(例如，/dev/sdc1\)。若要尋找新磁碟機的 UUID，您可以使用 **blkid** 公用程式：
 	
 		`sudo -i blkid`
 
@@ -138,9 +137,9 @@ Don't use this file. It's deprecated and will be removed. Instead use, virtual-m
 		`/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
 		`/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
 
-	>[WACOM.NOTE] 並不要求一定要使用 sudo 存取權，只是在某些散發套件上，如果 /sbin 或 /usr/sbin 不在 `$PATH` 中，則使用 `sudo -i` 來執行會比較簡單。
+	>[AZURE.NOTE]blkid 並不要求一定要使用 sudo 存取權，只是在某些散發套件上，如果 /sbin 或 /usr/sbin 不在 `$PATH` 中，則使用 `sudo -i` 來執行會比較簡單。
 
-	**警告：**不當編輯 /etc/fstab 檔案會導致系統無法開機。如果不確定，請參閱散發套件的文件，以取得如何適當編輯此檔案的相關資訊。在編輯之前，也建議先備份 /etc/fstab 檔案。
+	**注意：**不當編輯 /etc/fstab 檔案會導致系統無法開機。如果不確定，請參閱散發套件的文件，以取得如何適當編輯此檔案的相關資訊。在編輯之前，也建議先備份 /etc/fstab 檔案。
 
 	請使用文字編輯器，在 /etc/fstab 檔案的結尾輸入新檔案系統的相關資訊。在此範例中，我們使用先前步驟所建立之新的 **/dev/sdc1** 裝置的 UUID 值，並使用掛接點 **/datadrive**：
 
@@ -152,7 +151,7 @@ Don't use this file. It's deprecated and will be removed. Instead use, virtual-m
 
 	如果還有建立其他資料磁碟機或磁碟分割，同樣也需要分別在 /etc/fstab 中輸入。
 
-	現在，您可以測試檔案系統是否適當掛接，方法是取消掛接檔案系統，再重新掛接，例如使用先前步驟中建立的範例掛接點 `/datadrive`： 
+	現在，您可以測試檔案系統是否適當掛接，方法是取消掛接檔案系統，再重新掛接，例如使用先前步驟中建立的範例掛接點 `/datadrive`：
 
 		`sudo umount /datadrive`
 		`sudo mount /datadrive`
@@ -160,6 +159,8 @@ Don't use this file. It's deprecated and will be removed. Instead use, virtual-m
 	如果第二個命令發生錯誤，請檢查 /etc/fstab 檔案的語法是否正確。
 
 
-	>[WACOM.NOTE] 後續移除資料磁碟而不編輯 fstab，可能會造成 VM 無法開機。如果這是常見情況，那麼多數散發套件會提供 `nofail` 和/或 `nobootwait` 選項，使得即使沒有磁碟，也能讓系統開機。請查閱散發套件的文件，以取得這些參數的相關資訊。
+	>[AZURE.NOTE] 後續移除資料磁碟而不編輯 fstab，可能會造成 VM 無法開機。 如果這是常見情況，那麼多數散發套件會提供 `nofail` 和/或 `nobootwait` 選項，使得即使沒有磁碟，也能讓系統開機。 請查閱散發套件的文件，以取得這些參數的相關資訊。
 
 
+
+<!--HONumber=52-->

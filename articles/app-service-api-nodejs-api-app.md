@@ -1,4 +1,11 @@
-\<properties pageTitle="在 Azure App Service 中建置和部署 Node.js API 應用程式" description="兩解如何建立 Node.js API 應用程式封裝並將其部署至 Azure App Service." services="app-service\\api" documentationCenter="nodejs" authors="pkefal" manager="", editor=""/\>
+﻿<properties 
+	pageTitle="在 Azure App Service 中建置和部署 Node.js API 應用程式" 
+	description="兩解如何建立 Node.js API 應用程式封裝並將其部署至 Azure App Service." 
+	services="app-service\api" 
+	documentationCenter="nodejs" 
+	authors="pkefal" 
+	manager="", 
+	editor=""/>
 
 <tags
 	ms.service="app-service-api"

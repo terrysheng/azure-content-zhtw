@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="開始使用 Azure 自動化" 
 	description="了解如何在 Azure 中匯入和執行自動化工作。" 
 	services="automation" 
@@ -138,5 +138,4 @@ Microsoft 和 Azure 自動化社群會提供範例 Runbook，協助您開始建�
 
 ## 意見反應
 
-<strong>請不吝提供意見！</strong> 如果您要尋找 Azure 自動化 Runbook 解決方案或整合模組，請在指令碼中心提出指令碼要求。如果您有關於 Azure 自動化的任何意見或功能要求，請張貼在 [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback) 上。感謝您 ！ 
-<!--HONumber=52-->
+<strong>請不吝提供意見！</strong> 如果您要尋找 Azure 自動化 Runbook 解決方案或整合模組，請在指令碼中心提出指令碼要求。如果您有關於 Azure 自動化的任何意見或功能要求，請張貼在 [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback) 上。感謝您 ！ <!--HONumber=52-->

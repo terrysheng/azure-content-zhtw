@@ -1,20 +1,7 @@
-﻿
-<properties 
-	pageTitle="設定與擷取 Blob 儲存體的屬性和中繼資料 | Microsoft Azure" description="了解如何設定與擷取 Azure 儲存體容器及 Blob 的屬性和中繼資料。" 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/21/2015" 
-	ms.author="tamram"/>
+\<properties pageTitle="設定與擷取 Blob 儲存體的屬性和中繼資料 \| Microsoft Azure" description="了解如何設定與擷取 Azure 儲存體容器及 Blob 的屬性和中繼資料。" services="storage" documentationCenter="" authors="tamram" manager="adinah" editor=""/\>
+
+\<tags ms.service="storage" ms.workload="storage" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="04/21/2015" ms.author="tamram"/\>
 
 
 # 設定與擷取屬性和中繼資料 #

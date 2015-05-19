@@ -43,27 +43,27 @@
 
 2. 依序按一下 **[App Services]**、**[服務匯流排]**、**[Notification Hub]**、**[快速建立]**。
 
-   ![][7]
+   	![][7]
 
 3. 為您的通知中心輸入名稱、選取所需的區域，然後按一下 **[Create a new Notification Hub]**。
 
-   ![][8]
+   	![][8]
 
 4. 按一下您剛才建立的命名空間 (通常為 ***notification hub name*-ns**)，然後按一下頂端的 **[設定]** 索引標籤。
 
-   ![][9]
+   	![][9]
 
 5. 按一下頂端的 **[Notification Hubs]** 索引標籤，然後按一下您剛才建立的通知中心。
 
-   ![][10]
+   	![][10]
 
 6. 按一下底部的 **[連接資訊]**。記下這兩個連接字串。
 
-   ![][12]
+   	![][12]
 
 7. 按一下 **[設定]** 索引標籤，然後按一下 **[Windows Phone notifications settings]** 區段中的 **[Enable unauthenticated push notifications]** 核取方塊。
 
-   ![][15]
+   	![][15]
 
 現在您已擁有註冊 Windows Phone 8 應用程式和傳送通知所需的連接字串。
 
@@ -73,9 +73,9 @@
 
 1. 在 Visual Studio 中建立新的 Windows Phone 8 應用程式。
 
-   ![][13]
+   	![][13]
 
-	In Visual Studio 2013 Update 2 or later, you instead create a Windows Phone Silverlight application.
+	在 Visual Studio 2013 Update 2 或更新版本中，您必須改為建立 Windows Phone Silverlight 應用程式。
 	
 	![][11]	
 
@@ -116,9 +116,9 @@
     
 6. 在 \[方案總管\] 中，展開 \[**屬性**\]、開啟 WMAppManifest.xml 檔案、按一下 \[**功能**\] 索引標籤，然後確定已核取 \[**ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION**\] 功能。
 
-   ![][14]
+   	![][14]
 
-   這可確保您的應用程式可以接收推播通知.
+   	這可確保您的應用程式可以接收推播通知.
 	
 7. 按 F5 鍵以執行應用程式。
 
@@ -130,9 +130,9 @@
 
 1. 以滑鼠右鍵按一下方案，選取 **[新增]** 和 **[新增專案...\]**，然後按一下 **[Visual C\#\]** 下方的 **[Windows]** 和 **[主控台應用程式]**，再按一下 **[確定]**。 
 
-   ![][6]
+   	![][6]
 
-		即會將新的 Visual C# 主控台應用程式新增到方案中。 
+	即會將新的 Visual C# 主控台應用程式新增到方案中。 
 
 4. 按一下滑鼠右鍵，再依序按一下 \**[工具]**、**[程式庫套件管理員\]** 和 **[套件管理器主控台]**。 
 

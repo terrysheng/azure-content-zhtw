@@ -1,7 +1,7 @@
-
+﻿
 <properties 
-pageTitle="設定與擷取 Blob 儲存體的屬性和中繼資料 | Microsoft Azure" d
-escription="了解如何設定與擷取 Azure 儲存體容器及 Blob 的屬性和中繼資料。" 
+pageTitle="設定與擷取 Blob 儲存體的屬性和中繼資料 | Microsoft Azure"
+description="了解如何設定與擷取 Azure 儲存體容器及 Blob 的屬性和中繼資料。" 
 services="storage" 
 documentationCenter="" 
 authors="tamram" 

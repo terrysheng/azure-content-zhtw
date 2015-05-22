@@ -103,7 +103,7 @@
 
 取得回應時間大於 5 秒的所有要求。時間是依刻度代表：10000 刻度 = 1 毫秒。
 
-!\["Response time":\(threshold TO *\)\](./media/app-insights-diagnostic-search/11-responsetime.png\)
+!["Response time":(threshold TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
 
 
 

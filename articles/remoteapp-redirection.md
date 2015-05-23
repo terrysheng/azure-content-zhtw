@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
     pageTitle="在 Azure RemoteApp 中使用重新導向" 
     description="了解如何在 RemoteApp 中設定和使用重新導向" 
     services="remoteapp" 
@@ -104,4 +104,4 @@ RemoteApp 會利用遠端桌面通訊協定 \(RDP\) 與 RemoteFX 來提供重新
 7. 選取 \[已啟用\]，然後在 \[RemoteFX USB 重新導向存取權限\] 中選取系統管理員與使用者。
 8. 按一下 \[確定\]。 
 
-<!--HONumber=54-->
+<!---HONumber=54-->

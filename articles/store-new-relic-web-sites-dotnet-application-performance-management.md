@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure 上的 New Relic 應用程式效能管理「" 
-	description="了解如何對 Azure 使用 New Relic 的效能監視。」" 
+	pageTitle="在 Azure App Service 中的 .NET Web 應用程式使用 New Relic 應用程式效能管理" 
+	description="了解如何在 Azure App Service 上執行的 ASP.NET 應用程式使用 New Relic 的效能監視。" 
 	services="app-service\web" 
 	documentationCenter=".net" 
-	authors="stepsic-microsoft-com" 
-	manager="carolz" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
@@ -13,185 +13,91 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="04/17/2015" 
 	ms.author="stepsic"/>
 
 
 
-#Azure Web 應用程式上的 New Relic 應用程式效能管理
+# 在 Azure App Service 中的 .NET Web 應用程式使用 New Relic 應用程式效能管理
 
-本指南說明如何將 New Relic 的世界級效能
-監視加入 Azure Web 應用程式。我們將討論以快速又簡單的
-程序將 New Relic 加入至應用程式，並介紹一些
-New Relic 功能。如需有關使用 New Relic 的詳細資訊，請參閱[使用 New Relic](#using-new-relic)。
+本指南說明如何將 New Relic 的世界級效能監視加入至 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中的 Web 應用程式。我們將討論以快速又簡單的程序將 New Relic 加入至應用程式，並介紹一些 New Relic 功能。如需有關使用 New Relic 的詳細資訊，請參閱＜[使用 New Relic](#using-new-relic)＞。
 
-什麼是 New Relic？
---
+## 什麼是 New Relic？
 
-New Relic 是監視生產應用程式的開發人員導向工具
-並提供其效能和可靠性的深入分析。當您 [顯示選項] 並檢視所選取的憑證時，它
-是設計用來快速識別並診斷效能問題，並
-提供輕鬆解決這些問題所需的效能。
+New Relic 是一種開發人員專用工具，可監視生產應用程式，並深入探索其效能和可靠性。主要是讓您在識別和診斷效能問題時可節省時間，並隨手取得解決這些問題所需的資訊。
 
-New Relic 會追蹤 Web 交易的載入時間和輸送量，包括來自
-伺服器和使用者瀏覽器。它會顯示您花多少時間在
-資料庫上、分析緩慢查詢和 Web 要求、提供正常運作時間監視和
-警示、追蹤應用程式例外狀況等等。
+New Relic 會追蹤 Web 交易的載入時間和輸送量，包括來自伺服器和使用者瀏覽器。它會顯示您在資料庫中花費多少時間、分析較慢的查詢和 Web 要求、提供運作時間監視和警示、追蹤應用程式例外狀況，還有許多其他功能。
 
-透過 Azure 市集享受 New Relic 優惠價格
---
+## 透過 Azure 市集享受 New Relic 優惠價格
 
-New Relic Standard 供 Azure 使用者免費使用。
-根據您所使用的網站模式及執行個體大小 (如果使用保留模式)，我們提供了多種 New Relic Pro 套件。
+New Relic Standard 供 Azure 使用者免費使用。根據您所使用的網站模式及執行個體大小 (如果使用保留模式)，我們提供了多種 New Relic Pro 套件。
 
-如需定價資訊，請參閱 [Azure 市集的 New Relic 頁面](http://azure.microsoft.com/marketplace/partners/newrelic/newrelic)。
+如需定價資訊，請參閱[Azure Marketplace 的 New Relic 頁面](/marketplace/partners/newrelic/newrelic)。
 
-> [AZURE.NOTE] 最多只列出 10 個運算執行個體的定價。若超過 10 個，請連絡 New Relic (sales@newrelic.com) 詢問批量價格。
+> [AZURE.NOTE]最多只列出 10 個運算執行個體的定價。若超過 10 個，請連絡 New Relic (sales@newrelic.com) 詢問批量價格。
 
 Azure 客戶部署 New Relic 代理程式時享有 New Relic Pro 試用訂閱 2 週。
 
-使用 Azure 市集註冊 New Relic
---
+使用 Azure Marketplace 註冊 New Relic --
 
-New Relic 與 Azure Web 角色、背景工作角色和網站緊密整合。
+New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密整合。
 
-若要直接從 Azure 市集註冊 New Relic，請依照下列四個簡單的步驟。
+若要直接從 Azure Marketplace 市集註冊 New Relic，請依照下列四個簡單的步驟。
 
-### 步驟 1.透過 Azure 市集註冊
+## 步驟 1.建立 New Relic 帳戶
 
-1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com)。
-2. 在管理入口網站的下方窗格中，按一下 [新增]。
-3. 按一下 [**市集**]。
-4. 在 [**選擇附加元件**] 對話方塊中，選取 [**New Relic**]，然後按 [**下一步**]。
-5. 在 [**個人化附加元件**] 對話方塊中，選取您要的 New Relic 方案。
-7. 輸入要在 Azure 設定中顯示的 New Relic 服務名稱，
-   或接受預設值 **NewRelic**。這個名稱
-   在您訂閱的 Azure 市集項目清單必須是唯一的。
-8. 選擇地區值，例如**美國西部**。
-9. 按 [**下一步**]。
-10. 在 [**檢閱購買項目**] 對話方塊中，檢閱方案和價格資訊，
-    並檢閱法律條款。如果您同意接受這些條款，請按一下 [購買]。
-11. 按一下 [**購買**] 之後，New Relic 帳戶的建立程序就會開始。您可以在 Azure 管理入口網站中監視狀態。
-12. 若要擷取 New Relic 授權金鑰，請按一下您剛建立的附加元件，然後按一下 [**連線資訊**]。 
-13. 複製出現的授權金鑰。安裝 New Relic Nuget 套件時需要輸入此金鑰。
+1. 登入 [Azure 預覽入口網站](https://portal.azure.com)，然後按一下左下角的 [新增]****。
+3. 按一下 [開發人員服務]**** > [New Relic APM]****。
+4. 指定下列各項來設定 New Relic 帳戶，然後按一下 [建立]****。
+	- **Name**
+	- **定價層**
+	- **資源群組**
+	- **訂用帳戶**
+	- **位置**
+	- **法律條款**
 
-### 步驟 2：安裝 New Relic 套件
+11. 按一下 [建立]**** 之後，New Relic 帳戶的建立程序就會開始。您可以按一下 [通知]**** 按鈕來監視狀態。建立之後，隨即會顯示 New Relic 帳戶的刀鋒視窗。
 
-New Relic 網站代理程式會以 NuGet 套件發行，您可以使用 Visual Studio 或 WebMatrix 將 NuGet 套件新增至網站。如果您不熟悉將 Visual Studio 或 WebMatrix 與 Azure 網站搭配使用，請參閱[使用 Visual Studio 將 ASP.NET Web 應用程式部署至 Azure 網站][vswebsite]或[使用 Microsoft WebMatrix 開發與部署網站][webmatrixwebsite]。
+12. 若要擷取 New Relic 授權金鑰，請查看刀鋒視窗頂端的 [Essentials]**** 面板。當您將 Web 應用程式與 New Relic 帳戶整合時，您的 Web 應用程式執行個體將在其應用程式設定中自動註冊此授權金鑰。
 
-在您所使用的特定開發環境中執行下列步驟：
+## 步驟 2：設定 Web 應用程式的 New Relic 整合
 
-**Visual Studio**
+2. 在 [Azure 預覽入口網站](https://portal.azure.com)中，開啟 Web 應用程式的刀鋒視窗。
+3. 按一下 [應用程式監視]**** > [New Relic]****。選取您在前一個步驟中建立的檔案，然後按一下 [確定]****。 
 
-1. 開啟 Visual Studio 網站解決方案。
+	![](./media/store-new-relic-web-sites-dotnet-application-performce-management/configure-new-relic-integration.png)
 
-2. 開啟 [封裝管理員主控台]，方法是依序選取 **[工具] > [程式庫封裝管理員] >  
-   [封裝管理員主控台]**。在 [NuGet 封裝管理員主控台] 視窗的頂端中，
-   將您的專案設定為預設專案。
+	完成儲存操作之後，在 Web 應用程式刀鋒視窗中，按一下 [所有設定]****，然後按一下 [應用程式設定]****。您應會看見 **NEWRELIC_LICENSEKEY** 設定已新增至刀鋒視窗的 [應用程式設定]**** 區段，以支援 New Relic：
 
-	![封裝管理員主控台](./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelicAzureNuget04.png)
+	>[AZURE.NOTE]新的應用程式設定最多可能需要 30 秒的時間才能生效。若要強制設定立即生效，請重新啟動 Web 應用程式。
 
-3. 在 Package Manager 命令提示字元中，使用下列命令安裝套件：
+## 步驟 3：發佈 ASP.NET Web 應用程式
 
-		Install-Package NewRelic.Azure.WebSites
+使用 Visual Studio 或 WebMatrix 來發佈 Web 應用程式。如果您先前已發佈 Web 應用程式，再次發佈以便 Web 應用程式執行個體新增必要的 New Relic NuGet 封裝以啟用 New Relic 監視。
 
-4. 在授權金鑰提示上，輸入您從 Azure 市集取得的授權金鑰。
-
-	![輸入][vslicensekey]
-
-<!--5. 選擇性：在應用程式名稱提示上，輸入要在 New Relic 儀表板中
-   顯示的應用程式名稱。或者，使用方案名稱做為預設值。
-
-	![輸入應用程式名稱](./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelicAzureNuget08.png)-->
-
-**WebMatrix**
-
-1. 使用 WebMatrix 開啟網站。
-
-2. 在功能區的 [**首頁**] 索引標籤中，選取 [**NuGet**]。
-
-	![首頁索引標籤上的 NuGet 按鈕][wmnugetbutton]
-
-3. 在 NuGet 組件庫中，將來源設定為 [NuGet Official Package Source]，然後搜尋 NewRelic.Azure.WebSites。
-
-	![搜尋 NewRelic.Azure.WebSites 的 NuGet 組件庫][wmnugetgallery]
-
-4. 選取 [New Relic for Azure Web Sites] 項目，然後按一下 [安裝]。
-
-5. 安裝套件後，您的網站現在將包含名為 **newrelic** 的資料夾。展開此資料夾，並開啟 **newrelic.config** 檔案。在此檔案中，以您從 Azure 市集中收到的授權金鑰取代 **REPLACE\_WITH\_LICENSE_KEY** 值。
-
-	![展開 newrelic 資料夾並選取 newrelic.conf][newrelicconf]
-
-	在新增授權金鑰資訊後，將變更儲存至 **newrelic.config** 檔案。
-
-### 步驟 3.設定網站與發行應用程式。
-
-您在前一個步驟中新增至應用程式的 New Relic 套件，是由新增至 Azure 網站的「**應用程式設定**」設定的。執行下列步驟以新增這些設定。
-
-1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com)，並瀏覽到您的網站。
-
-2. 從您的網站中選取 [設定]。在 [**開發人員分析**] 區段中，選取 [**附加元件**] 或 [**自訂**]。這兩種方法皆會產生相同輸出，但需要稍有不同的輸入。**[附加元件**] 會列出目前的 New-Relic 授權，並讓您選取其中一個授權，而 [**自訂**] 會要求您手動指定授權金鑰。
-
-	如果選取了 [附加元件]，請使用 [選擇附加元件] 欄位選取您的 New-Relic 授權。
-
-	![附加元件欄位的影像][add-on]
-
-	如果選取了 [自訂]，請使用選取 New-Relic 作為 [提供者]，然後在 [提供者金鑰] 欄位中輸入您的授權。
-
-	![自訂欄位的影像][custom]
-
-3. 在 [開發人員分析] 中指定授權之後，按一下 [儲存]。一旦儲存操作完成後，下列值便會新增至頁面的 [**應用程式設定**] 區段以支援 New-Relic：
-
-	<table border="1">
-	<thead>
-	<tr>
-	<td>金鑰</td>
-	<td>值</td>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	<td>COR\_ENABLE\_PROFILING</td><td>1</td>
-	</tr>
-	<tr>
-	<td>COR\_PROFILER</td><td>{71DA0A04-7777-4EC6-9643-7D28B46A8A41}</td>
-	</tr>
-	<tr>
-	<td>COR\_PROFILER\_PATH</td><td>C:\Home\site\wwwroot\newrelic\NewRelic.Profiler.dll</td>
-	</tr>
-	<tr>
-	<td>NEWRELIC\_HOME</td><td>C:\Home\site\wwwroot\newrelic</td>
-	</tr>
-	<tr>
-	<td>NEWRELIC\_LICENSEKEY</td><td>Your license key</td>
-	</tr>
-	</tbody>
-	</table><br/>
-
-	> [AZURE.NOTE] 新的「應用程式設定」<strong></strong> 最多可能需要 30 秒的時間才能生效。若要強制設定立即生效，請重新啟動網站。
-
-
-4. 使用 Visual Studio 或 WebMatrix 來發行應用程式。
-
-### 步驟 4.在 New Relic 中檢查應用程式的效能。
+## 步驟 4.在 New Relic 中檢查應用程式的效能。
 
 檢視 New Relic 儀表板：
 
-1. 從 Azure 入口網站，按一下 [**管理**] 按鈕。
-2. 以您的 New Relic 帳戶電子郵件和密碼登入。
-3. 從 New Relic 功能表列，依序選取 **[應用程式] > (應用程式的名稱)**。
+2. 在 [Azure 預覽入口網站](https://portal.azure.com)中，開啟 Web 應用程式的刀鋒視窗。
+3. 按一下 [應用程式監視]**** > [應用程式名稱]**** > [在 New Relic 檢視]****。
 
-	**[監視] > [概觀]** 儀表板會自動顯示。
+	![](./media/store-new-relic-web-sites-dotnet-application-performce-management/view-new-relic-data.png)
 
-	![New Relic 監視儀表板](./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelic_app.png)
+3. 如果這是您首次使用帳戶，請設定您的帳戶資訊。
+3. 從 New Relic 功能表列，選取 [Applications] > (應用程式的名稱)****。
 
-	從 [應用程式] 功能表的清單中選取應用程式之後，[概觀] 儀表板會顯示目前的應用程式伺服器和瀏覽器資訊。
+	自動會顯示 [Monitoring] > [Overview]**** 儀表板。
+
+	![New Relic monitoring dashboard](./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelic_app.png)
+
+	從 [Applications]**** 功能表的清單中選取應用程式之後，[Overview]**** 儀表板會顯示目前的應用程式伺服器和瀏覽器資訊。
 
 ### <a id="using-new-relic"></a>使用 New Relic
 
-從 [Applications] 功能表的清單中選取應用程式之後，[Overview] 儀表板會顯示目前的應用程式伺服器和瀏覽器資訊。若要在這兩個檢視之間切換，請按一下 [**應用程式伺服器**] 或 [**瀏覽器**] 按鈕。
+從 [Applications] 功能表的清單中選取應用程式之後，[Overview] 儀表板會顯示目前的應用程式伺服器和瀏覽器資訊。若要在這兩個檢視之間切換，請按一下 [App server]**** 或 [Browser]**** 按鈕。
 
-除了<a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">標準 New Relic UI</a>和<a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">儀表板向下鑽研</a>功能，[應用程式概觀] 儀表板還有其他功能。
+除了<a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">標準 New Relic UI</a>和<a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">儀表板向下鑽研</a>功能，[Applications Overview] 儀表板還有其他功能。
 
 <table border="1">
   <thead>
@@ -207,19 +113,19 @@ New Relic 網站代理程式會以 NuGet 套件發行，您可以使用 Visual S
     </tr>
      <tr>
        <td>檢視應用程式的 <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> 分數的臨界值層級</td>
-       <td>指向 [Apdex score ?]<b><b> 圖示</b></b>。</td>
+       <td>指向 [Apdex score <b>?<b>] 圖示。</b></b></td>
     </tr>
     <tr>
        <td>檢視全球 Apdex 詳細資料</td>
-       <td>從 [Overview] 的 [Browser]<b></b> 檢視中，指向 Global Apdex 地圖的任意處。<b>秘訣</b>：若要直接移至選取的應用程式的 <a href="https://newrelic.com/docs/site/geography" target="_blank">Geography</a> 儀表板，請按一下 [Global Apdex]<b></b> 標題，或按一下 Global Apdex 地圖的任意處。</td>
+       <td>從 [Overview] 的 [Browser]<b></b> 檢視中，指向 Global Apdex 地圖的任意處。<br /><b>秘訣：</b>若要直接移至選取的應用程式的 <a href="https://newrelic.com/docs/site/geography" target="_blank">Geography</a> 儀表板，請按一下 [Global Apdex]<b></b> 標題，或按一下 Global Apdex 地圖的任意處。</td>
     </tr>
     <tr>
-       <td>檢視 <a href="https://docs.newrelic.com/docs/applications-menu/transactions-dashboard" target="_blank">Web 交易</a> 儀表板</td>
-       <td>按一下 [應用程式概觀] 儀表板的 [Web 交易] 資料表。或者，若要檢視特定 Web 交易 (包括 <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">Key Transactions</a>) 的詳細資料，請按一下其名稱。</td>
+       <td>檢視 <a href="https://docs.newrelic.com/docs/applications-menu/transactions-dashboard" target="_blank">Web Transactions</a> 儀表板</td>
+       <td>按一下 [Applications Overview] 儀表板的 [Web Transactions] 資料表。或者，若要檢視特定 Web 交易 (包括 <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">Key Transactions</a>) 的詳細資料，請按一下其名稱。</td>
     </tr>
     <tr>
        <td>檢視 <a href="https://newrelic.com/docs/site/errors" target="_blank">Errors</a> 儀表板</td>
-       <td>按一下 [應用程式概觀] 儀表板上的 [誤差率圖表] 標題。<br /><b>秘訣：</b>您也可以從 [Applications]<b></b> &gt; (您的應用程式) &gt; [Events] &gt; [Errors] 來檢視 [Errors] 儀表板。</td>
+       <td>按一下 [Applications Overview] 儀表板的 [Error rate] 圖表標題。<br /><b>祕訣：</b>您也可以從 [Applications]<b></b> > (您的應用程式) > [Events] > [Errors] 來檢視 [Errors] 儀表板。</td>
     </tr>
     <tr>
        <td>檢視應用程式的伺服器詳細資料</td>
@@ -235,26 +141,30 @@ New Relic 網站代理程式會以 NuGet 套件發行，您可以使用 Visual S
   </tbody>
 </table>
 
-以下是選取 [瀏覽器] 檢視時的 [應用程式概觀] 儀表板範例。
+以下是選取 [Browser] 檢視時的 [Applications Overview] 儀表板範例。
 
-![封裝管理員主控台](./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelic_app_browser.png)
+![Package manager console](./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelic_app_browser.png)
 
 ## 後續步驟
 
 如需詳細資訊，請參閱下列其他資源：
 
- * [在 Azure 網站上安裝 .NET 代理程式](https://newrelic.com/docs/dotnet/azure-web-sites-beta#manual_install)：New Relic .NET 代理程式安裝程序 
- * [New Relic 使用者介面](https://newrelic.com/docs/site/the-new-relic-ui)： 
-New Relic UI,、設定使用者權限和設定檔，以及使用標準功能和儀表板向下鑽研詳細資料的概觀
- * [應用程式概觀](https://newrelic.com/docs/site/applications-overview)：使用 New Relic 的 [應用程式概觀] 儀表板時可用的功能
- * [Apdex](https://newrelic.com/docs/site/apdex)：Apdex 如何衡量應用程式的使用者滿意度的概觀
- * [實際使用者監控](https://newrelic.com/docs/features/real-user-monitoring)：RUM 如何詳細說明使用者瀏覽器載入網頁的所需時間、 
-使用者來自何處，和使用者使用什麼瀏覽器的概觀
- * [尋找說明](https://newrelic.com/docs/site/finding-help)：New Relic 線上說明中心提供的資源
+ * [為 Azure 網站安裝 .NET 代理程式](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-websites#manual) (英文)：New Relic .NET 代理程式安裝程序 
+ * [New Relic 使用者介面](https://newrelic.com/docs/site/the-new-relic-ui) (英文)：New Relic UI、設定使用者權限和設定檔，以及使用標準功能和儀表板向下鑽研詳細資料的概觀
+ * [應用程式概觀](https://newrelic.com/docs/site/applications-overview) (英文)：使用 New Relic 的 [Applications Overview] 儀表板時可用的功能
+ * [Apdex](https://newrelic.com/docs/site/apdex) (英文)：Apdex 如何衡量應用程式的使用者滿意度概觀
+ * [實際使用者監控](https://newrelic.com/docs/features/real-user-monitoring) (英文)：RUM 如何詳述使用者瀏覽器載入網頁所需的時間、使用者來自何方及使用什麼瀏覽器的概觀
+ * [尋找說明](https://newrelic.com/docs/site/finding-help) (英文)：New Relic 線上說明中心提供的資源
+
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+
+## 變更的項目
+* 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
-[webmatrixwebsite]: http://www.windowsazure.com/develop/net/tutorials/website-with-webmatrix/
-[vswebsite]: http://www.windowsazure.com/develop/net/tutorials/get-started/
+[webmatrixwebsite]: web-sites-dotnet-using-webmatrix.md
+[vswebsite]: web-sites-dotnet-get-started.md
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
 [wmnugetgallery]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetgallery.png
@@ -264,4 +174,4 @@ New Relic UI,、設定使用者權限和設定檔，以及使用標準功能和�
 [add-on]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nraddon.png
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
 
-<!--HONumber=49-->
+<!--HONumber=54-->

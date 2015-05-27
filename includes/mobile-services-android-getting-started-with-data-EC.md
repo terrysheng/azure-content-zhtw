@@ -1,18 +1,18 @@
-﻿您的行動服務已準備就緒，現在可以更新應用程式以便在行動服務 (而非本機收集) 中儲存項目。 
+您的行動服務已準備就緒，現在可以更新應用程式以便在行動服務 (而非本機收集) 中儲存項目。
 
 1. 如果您還沒有 [Mobile Services Android SDK]，請立即下載並將壓縮檔解壓縮。
 
 2. 從 SDK 的 `mobileservices` 資料夾，將 `.jar` 檔案複製到 GetStartedWithData 專案的 `libs` 資料夾。
 
-3. 在 Eclipse 的 [套件瀏覽器] 中，以滑鼠右鍵按一下 `libs` 資料夾，按一下 [重新整理]****，就會出現複製的 jar 檔案
+3. 在 Eclipse 的 [封裝瀏覽器] 中，以滑鼠右鍵按一下 `libs` 資料夾，按一下 [重新整理]****，就會出現複製的 jar 檔案
 
   	這會將 Mobile Services SDK 參考加入至工作空間。
 
-4. 開啟 AndroidManifest.xml 檔案並加入下行，可讓應用程式存取 Azure 中的行動服務。
+4. 開啟 AndroidManifest.xml 檔案並加入這一行，以便讓應用程式存取 Azure 中的行動服務。
 
 		<uses-permission android:name="android.permission.INTERNET" />
 
-5. 從 [套件瀏覽器] 中，開啟位於 com.example.getstartedwithdata 套件中的 TodoActivity.java 檔案，並取消註解下列這幾行程式碼： 
+5. 從 [套件瀏覽器] 中，開啟位於 com.example.getstartedwithdata 套件中的 TodoActivity.java 檔案，並取消註解下列這幾行程式碼：
 
 		import java.net.MalformedURLException;
 		import android.os.AsyncTask;
@@ -37,7 +37,7 @@
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-8. 儲存檔案，專案會指出建置錯誤。請搜尋其餘三個用到 `toDoItemList` 變數的地方，並將指出的區段變成註解。這會完全移除記憶體中的清單。 
+8. 儲存檔案，專案會指出建置錯誤。請搜尋其餘三個用到 `toDoItemList` 變數的地方，並將指出的區段變成註解。這會完全移除記憶體中的清單。
 
 9. 現在開始加入我們的行動服務。將下列幾行程式碼取消註解：
 
@@ -47,7 +47,7 @@
 10. 在檔案底部找出 *ProgressFilter* 類別並取消註解。此類別會在 *MobileServiceClient* 執行網路作業時顯示 'loading' 指示。
 
 
-11. 在「管理入口網站」中，按一下 [行動服務]****，然後按一下您剛剛建立的行動服務。
+11. 在管理入口網站中，按一下 [行動服務]****，然後按一下您剛剛建立的行動服務。
 
 12. 按一下 [儀表板]**** 索引標籤並記下 [網站 URL]****，然後按一下 [管理金鑰]**** 並記下 [應用程式金鑰]****。
 
@@ -71,7 +71,7 @@
 			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
 		}
 
-  	這會建立 *MobileServiceClient* 的新執行個體，可用來存取您的行動服務。也會建立 *MobileServiceTable* 執行個體，用於代理行動服務中的資料儲存。
+  	這會建立用來存取行動服務的新 *MobileServiceClient* 執行個體。也會建立 *MobileServiceTable* 執行個體，用於代理行動服務中的資料儲存。
 
 14. 在上述程式碼中，依序將 `MobileServiceUrl` 和 `AppKey` 換成您的行動服務中的 URL 和應用程式金鑰。
 
@@ -155,5 +155,5 @@
 		
 
 <!-- URLs. -->
-[行動服務 Android SDK]: http://aka.ms/Iajk6q
-<!--HONumber=47-->
+[Mobile Services Android SDK]: http://aka.ms/Iajk6q
+<!--HONumber=54-->

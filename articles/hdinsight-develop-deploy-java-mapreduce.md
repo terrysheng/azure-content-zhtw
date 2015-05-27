@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="在 HDInsight 上開發 Hadoop 的 Java MapReduce 程式 | Azure" 
-	description="了解如何在 HDInsight Emulator 上開發 Java MapReduce 程式，以及如何部署至 HDInsight。" 
+	pageTitle="開發 Hadoop 的 Java MapReduce 程式 | Microsoft Azure" 
+	description="了解如何在 HDInsight 模擬器上開發 Java MapReduce 程式，以及如何部署至 HDInsight。" 
 	services="hdinsight" 
 	editor="cgronlun" 
 	manager="paulettm" 
@@ -13,58 +13,49 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="04/01/2015" 
 	ms.author="nitinme"/>
 
 # 在 HDInsight 上開發 Hadoop 的 Java MapReduce 程式
-本教學課程引導您完成一項端對端案例，在 Apache Maven 中使用 Java 來開發字數統計 Hadoop MapReduce 工作。本教學課程也說明如何在 HDInsight Emulator 上測試應用程式，然後部署到 Azure HDInsight 叢集上執行。
+本教學課程引導您完成一項端對端案例，在 Java 中使用 Apache Maven 來開發字數統計 Hadoop MapReduce 工作。本教學課程也說明如何在 HDInsight Emulator for Azure 上測試應用程式，然後部署到 Azure HDInsight 叢集上執行。
 
-**必要條件：**
+##<a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前，您必須完成下列工作：
 
-- 安裝 Azure HDInsight Emulator。如需指示，請參閱[開始使用 HDInsight Emulator][hdinsight-emulator]。
+- 安裝 HDInsight Emulator。如需指示，請參閱＜[開始使用 HDInsight Emulator][hdinsight-emulator]＞。確定所有必要服務都在執行中。在已安裝 HDInsight Emulator 的電腦上，從桌面捷徑啟動 Hadoop 命令列，導覽至 **C:\\hdp**，然後執行命令 **start_local_hdp_services.cmd**。	
 - 在模擬器電腦上安裝 Azure PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install-configure]。
 - 在模擬器電腦上安裝 Java 平台 JDK 7 或更高版本。模擬器電腦上已有此版本。
 - 安裝和設定 [Apache Maven](http://maven.apache.org/)。
-- 取得 Azure 訂用帳戶。如需相關指示，請參閱[購買選項][azure-purchase-options]、[會員優惠][azure-member-offers]或[免費試用版][azure-free-trial]。
+- 取得 Azure 訂用帳戶。如需指示，請參閱＜[購買選項][azure-purchase-options]＞、＜[成員優惠][azure-member-offers]＞或＜[免費試用][azure-free-trial]＞。
 
-##本文內容
-
-- [使用 Apache Maven 以 Java 建立字數統計 MapReduce 程式](#develop)
-- [在模擬器上測試程式](#test)
-- [將資料檔和應用程式上傳至 Azure Blob 儲存體](#upload)
-- [在 Azure HDInsight 上執行 MapReduce 程式](#run)
-- [擷取 MapReduce 結果](#retrieve)
-- [後續步驟](#nextsteps)
 
 ##<a name="develop"></a>使用 Apache Maven 以 Java 建立 MapReduce 程式
 
 建立字數統計 MapReduce 應用程式。這是一個簡單的應用程式，可計算給定輸入集中每個字的出現次數。本節中，我們將執行下列工作：
 
 1. 使用 Apache Maven 建立專案
-2. 更新專案的物件模型 (POM)
+2. 更新專案物件模型 (POM)
 3. 建立字數統計 MapReduce 應用程式
 4. 建置和封裝應用程式
 
 **使用 Maven 建立專案**
 
-1. 建立目錄 **C:\Tutorials\WordCountJava\**。
-2. 從開發環境的命令列中，將目錄切換至您建立的位置。
+1. 建立目錄 **C:\\Tutorials\\WordCountJava**。2. 從開發環境的命令列中，將目錄切換至您建立的位置。
 3. 使用隨 Maven 一起安裝的 __mvn__ 命令來產生專案的結構。
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
-	這會在目前的目錄中建立新目錄，名稱由 __artifactID__ 參數指定 (此範例中為 **wordcountjava**)。此目錄包含下列項目。
+	這會在目前的目錄中建立新目錄，名稱由 __artifactID__ 參數指定 (此範例中為 **wordcountjava**)。 此目錄包含下列項目：
 
-	* __pom.xml__ - 專案物件模型 ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) 包含用來建置專案的資訊和組態詳細資料
+	* __pom.xml__ - [專案物件模型 (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)，包含用來建置專案的資訊和組態詳細資料。
 
-	* __src__ - 含有 __main\java\org\apache\hadoop\examples__ 目錄的目錄，您將在此撰寫應用程式。
-3. 刪除 __src\test\java\org\apache\hadoop\examples\apptest.java__ 檔案，因為此範例中不會用到。
+	* __src__ - 含有 __main\\java\\org\\apache\\hadoop\\examples__ 目錄的目錄，您將在此撰寫應用程式。
+3. 刪除 __src\\test\\java\\org\\apache\\hadoop\\examples\\apptest.java__ 檔案，因為此範例中不會用到。
 
-**更新專案物件模型 (POM)**
+**更新 POM**
 
-1. 編輯 __pom.xml__ 檔案，在 `<dependencies>` 區段內新增下列程式碼。
+1. 編輯 __pom.xml__ 檔案，在 `<dependencies>` 區段內新增下列程式碼：
 
 		<dependency>
 		  <groupId>org.apache.hadoop</groupId>
@@ -82,9 +73,9 @@
       	  <version>2.5.1</version>                                                                                            
     	</dependency>
 
-	這向 Maven 表示專案需要特定版本 (列於 <artifactId\> 內) 的程式庫 (列於 <version\> 內)。編譯時，將會從預設 Maven 儲存機制下載此版本。您可以使用 [Maven 儲存機制搜尋](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) (英文) 檢視詳細資訊。
+	這向 Maven 表示專案需要特定版本 (列於 <version> 內) 的程式庫 (列於 <artifactId> 內)。編譯時，將會從預設 Maven 儲存機制下載此版本。您可以使用 [Maven 儲存機制搜尋](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) (英文) 檢視詳細資訊。
 
-2. 將下列程式碼新增至 __pom.xml__ 檔案。這必須位於檔案的 `<project>...</project>` 標籤內；例如在 `</dependencies>` 和 `</project>` 之間。
+2. 將下列程式碼新增至 __pom.xml__ 檔案。這必須在檔案中的 `<project>...</project>` 標籤內；例如，在 `</dependencies>` 和 `</project>` 之間。
 
 		<build>
   		  <plugins>
@@ -110,17 +101,17 @@
   		  </plugins>
 	    </build>
 
-	這會設定 [maven-shade-plugin](http://maven.apache.org/plugins/maven-shade-plugin/)，用來防止以 Maven 所建立的 JAR 中發生授權重複。使用此項目的理由在於，重複的授權檔會導致 HDInsight 叢集在執行階段發生錯誤。使用 maven-shade-plugin 與 `ApacheLicenseResourceTransformer` 實作可防止此錯誤。
+	這會設定 [Maven Shade 外掛程式](http://maven.apache.org/plugins/maven-shade-plugin/)，用來防止以 Maven 所建立的 JAR 中發生授權重複。使用此項目的理由在於，重複的授權檔會導致 HDInsight 叢集在執行階段發生錯誤。使用 Maven Shade 外掛程式與 `ApacheLicenseResourceTransformer` 實作可防止此錯誤。
 
-	maven-shade-plugin 也會產生 uberjar (或 fatjar)，內含應用程式需要的所有相依項目。
+	Maven Shade 外掛程式也會產生 uberjar (或稱為 fatjar)，內含應用程式需要的所有相依項目。
 
 3. 儲存 __pom.xml__ 檔案。
 
 **建立字數統計應用程式**
 
-1. 移至 __wordcountjava\src\main\java\org\apache\hadoop\examples__ 目錄，將 __app.java__ 檔案重新命名為 __WordCount.java__。
+1. 移至 __wordcountjava\\src\\main\\java\\org\\apache\\hadoop\\examples__ 目錄，將 __app.java__ 檔案重新命名為 __WordCount.java__。
 2. 開啟記事本。
-2. 將下列程式複製並貼到記事本中。
+2. 將下列程式複製並貼到記事本中：
 
 		package org.apache.hadoop.examples;
 		
@@ -199,35 +190,35 @@
 
 1. 開啟命令提示字元，切換至 __wordcountjava__ 目錄。
 
-2. 使用下列命令來建置含有應用程式的 JAR。
+2. 使用下列命令來建置含有應用程式的 JAR 檔案：
 
 		mvn clean package
 
 	這會清除任何先前的組建成品、下載任何尚未安裝的相依項目，然後建置並封裝應用程式。
 
-3. 指令完成時，__wordcountjava\target__ 目錄將包含一個名為 __wordcountjava-1.0-SNAPSHOT.jar__ 的檔案。
+3. 命令完成時，__wordcountjava\\target__ 目錄將包含一個名為 __wordcountjava-1.0-SNAPSHOT.jar__ 的檔案。
 
-	> [AZURE.NOTE] __wordcountjava-1.0-SNAPSHOT.jar__ 檔案是一個 uberjar (有時稱為 fatjar)，內含執行應用程式所需的所有相依項目。
+	> [AZURE.NOTE]__wordcountjava-1.0-SNAPSHOT.jar__ 檔案是 uberjar。
 
 
 ##<a name="test"></a>在模擬器上測試程式
 
 在 HDInsight Emulator 上測試 MapReduce 工作時需要執行下列程序：
 
-1. 將資料檔案上傳至模擬器上的 HDFS
+1. 將資料檔案上傳至模擬器上的 Hadoop 分散式檔案系統 (HDFS)
 2. 建立本機使用者群組
 3. 執行字數統計 MapReduce 工作
 4. 擷取工作結果
 
-依預設，HDInsight Emulator 會使用 HDFS 做為預設檔案系統。  您也可以選擇設定 HDInsight Emulator 來使用 Azure Blob 儲存體。如需詳細資料，請參閱[開始使用 HDInsight Emulator][hdinsight-emulator-wasb]。 
+依預設，HDInsight Emulator 使用 HDFS 做為檔案系統。您也可以選擇設定 HDInsight 模擬器來使用 Azure Blob 儲存體。如需詳細資料，請參閱＜[開始使用 HDInsight Emulator][hdinsight-emulator-wasb]＞。
 
-本教學課程中，您將使用 HDFS *copyFromLocal* 命令將資料檔案上傳至 HDFS。下一節說明如何使用 Azure PowerShell 將檔案上傳至 Azure Blob 儲存體。如需有關將檔案上傳至 Azure Blob 儲存體的其他方法，請參閱[將資料上傳至 HDInsight][hdinsight-upload-data]。
+本教學課程中，您將使用 HDFS **copyFromLocal** 命令將資料檔案上傳至 HDFS。下一節說明如何使用 Azure PowerShell 將檔案上傳至 Azure Blob 儲存體。如需有關將檔案上傳至 Azure Blob 儲存體的其他方法，請參閱＜[將資料上傳到 HDInsight][hdinsight-upload-data]＞。
 
 本教學課程使用下列 HDFS 資料夾結構：
 
 <table border="1">
 <tr><td>資料夾</td><td>注意</td></tr>
-<tr><td>/WordCount</td><td>字數統計專案的根資料夾。 </td></tr>
+<tr><td>/WordCount</td><td>字數統計專案的根資料夾。</td></tr>
 <tr><td>/WordCount/Apps</td><td>對應器和歸納器可執行檔的資料夾。</td></tr>
 <tr><td>/WordCount/Input</td><td>MapReduce 來源檔案資料夾。</td></tr>
 <tr><td>/WordCount/Output</td><td>MapReduce 輸出檔案資料夾。</td></tr>
@@ -236,32 +227,33 @@
 
 本教學課程使用 %hadoop_home% 目錄中的 .txt 檔案做為資料檔案。
 
-> [AZURE.NOTE] Hadoop HDFS 命令區分大小寫。
+> [AZURE.NOTE]Hadoop HDFS 命令區分大小寫。
 
 **將資料檔案複製到模擬器 HDFS**
 
-0. 從桌面開啟 Hadoop 命令列。Hadoop 命令是由模擬器安裝程式來安裝。
-1. 從 Hadoop 命令列視窗中，執行下列命令來建立輸入檔案的目錄：
+1. 從桌面開啟 Hadoop 命令列。Hadoop 命令是由模擬器安裝程式來安裝。
+2. 從 Hadoop 命令列視窗中，執行下列命令來建立輸入檔案的目錄：
 
+		hadoop fs -mkdir /WordCount
 		hadoop fs -mkdir /WordCount/Input
 
 	這裡使用的路徑是相對路徑。此命令相當於：
 
 		hadoop fs -mkdir hdfs://localhost:8020/WordCount/Input
 
-2. 執行下列命令將一些文字檔案複製到 HDFS 上的輸入資料夾：
+3. 執行下列命令將一些文字檔案複製到 HDFS 上的輸入資料夾：
 
-		hadoop fs -copyFromLocal C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common\*.txt /WordCount/Input
+		hadoop fs -copyFromLocal C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common*.txt /WordCount/Input
 
 	MapReduce 工作將計算這些檔案中的字數。
 
-3. 使用下列命令來列出並驗證已上傳的檔案：
+4. 使用下列命令來列出並驗證已上傳的檔案：
 
 		hadoop fs -ls /WordCount/Input
 
 **建立本機使用者群組**
 
-為了在叢集上成功執行 MapReduce 工作，您必須建立名為 hdfs 的使用者群組。在此群組中，您也必須加入使用者 hadoop 和您用來登入模擬器的本機使用者。從提高權限的命令提示字元中，使用下列命令：
+為了在叢集上成功執行 MapReduce 工作，您必須建立名為 hdfs 的使用者群組。在此群組中，您也必須加入稱為 hadoop 的使用者，和您用來登入模擬器的本機使用者。從提高權限的命令提示字元中，使用下列命令：
 
 		# Add a user group called hdfs		
 		net localgroup hdfs /add
@@ -287,9 +279,9 @@
 
 	![HDI.EMulator.WordCount.Run][image-emulator-wordcount-run]
 
-	從螢幕擷取畫面中，您可以看到對應和歸納都已 100% 完成。其中也列出工作識別碼。從桌面開啟 **Hadoop MapReduce 狀態** 捷徑並尋找相同的工作識別碼，可擷取同樣的報告。
+	從螢幕擷取畫面中，您可以看到對應和歸納都已 100% 完成。其中也列出工作識別碼。從桌面開啟 [**Hadoop MapReduce 狀態**] 捷徑並尋找相同的工作識別碼，可擷取同樣的報告。
 
-另一個執行 MapReduce 工作的方法是使用 Azure PowerShell。如需指示，請參閱[開始使用 HDInsight Emulator][hdinsight-emulator]。
+另一個執行 MapReduce 工作的方法是使用 Azure PowerShell。如需指示，請參閱＜[開始使用 HDInsight Emulator][hdinsight-emulator]＞。
 
 **從 HDFS 顯示輸出**
 
@@ -299,20 +291,20 @@
 		hadoop fs -ls /WordCount/Output/
 		hadoop fs -cat /WordCount/Output/part-r-00000
 
-	您可以在命令尾端附加 "|more" 來取得頁面檢視。或者，使用 findstr 命令來尋找字串模式：
+	您可以在命令尾端附加 "|more" 來取得頁面檢視。或者，使用 **findstr** 命令來尋找字串模式：
 
 		hadoop fs -cat /WordCount/Output/part-r-00000 | findstr "there"
 
-目前為止，您已開發字數統計 MapReduce 工作，並於模擬器上成功測試。下一步是在 Azure HDInsight 上部署並執行。
+現在您已開發字數統計 MapReduce 工作，並於模擬器上成功測試。下一步是在 Azure HDInsight 上部署並執行。
 
 
 
 ##<a id="upload"></a>將資料和應用程式上傳至 Azure Blob 儲存體
-Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight 叢集時，Azure Blob 儲存體容器用來儲存系統檔案。您可以使用此預設容器或不同的容器 (在相同的 Azure 儲存體帳戶上，或與叢集相同的資料中心上的不同儲存體帳戶) 來儲存資料檔案。 
+Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight 叢集時，Azure Blob 儲存體容器用來儲存系統檔案。您可以使用此預設容器或不同的容器 (在相同的 Azure 儲存體帳戶上，或與叢集相同的資料中心上的不同儲存體帳戶) 來儲存資料檔案。
 
-本教學課程中，您將在另一個儲存體帳戶上建立容器來儲存資料檔案和 MapReduce 應用程式。資料檔是模擬器工作站上的 **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common** 目錄中的文字檔。
+本教學課程中，您將在另一個儲存體帳戶上建立容器來儲存資料檔案和 MapReduce 應用程式。資料檔是模擬器工作站上的 **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common** 目錄中的文字檔。
 
-**建立 Blob 儲存體容器和容器**
+**建立 Blob 儲存體和容器**
 
 1. 開啟 Azure PowerShell。
 2. 設定變數，然後執行命令：
@@ -322,22 +314,22 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 		$containerName_Data = "<ContainerName>"
 		$location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-	**$subscripionName** 與您的 Azure 訂用帳戶相關聯。您必須命名 **$storageAccountName\_Data** 和 **$containerName\_Data**。關於命名限制，請參閱[命名和參考容器、Blob 及中繼資料](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx)。 
+	**$subscripionName** 變數與您的 Azure 訂用帳戶相關聯。您必須命名 **$storageAccountName_Data** 和 **$containerName_Data**。關於命名限制，請參閱＜[命名和參考容器、Blob 及中繼資料](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx)＞。
 
-3. 執行下列命令來建立儲存體帳戶，並在帳戶上建立 Blob 儲存體容器
+3. 執行下列命令來建立儲存體帳戶，並在帳戶上建立 Blob 儲存體容器：
 
-		# Select Azure subscription
+		# Select an Azure subscription
 		Select-AzureSubscription $subscriptionName
 		
-		# Create a storage account
+		# Create a Storage account
 		New-AzureStorageAccount -StorageAccountName $storageAccountName_Data -location $location
 				
 		# Create a Blob storage container
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName_Data | %{ $_.Primary }
-		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName_Data -StorageAccountKey $storageAccountKey  
+		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Data –StorageAccountKey $storageAccountKey  
 		New-AzureStorageContainer -Name $containerName_Data -Context $destContext
 
-4. Run the following commands to verify the storage account and the container:
+4. 執行下列命令以驗證儲存體帳戶和容器：
 
 		Get-AzureStorageAccount -StorageAccountName $storageAccountName_Data
 		Get-AzureStorageContainer -Context $destContext
@@ -351,16 +343,16 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 		$storageAccountName_Data = "<AzureStorageAccountName>"  
 		$containerName_Data = "<ContainerName>"
 
-		$localFolder = "C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common\"
+		$localFolder = "C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common"
 		$destFolder = "WordCount/Input"
 
-	**$storageAccountName\_Data** 和 **$containerName\_Data** 與您在上一個程序的定義都相同。
+	**$storageAccountName_Data** 和 **$containerName_Data** 變數與您在上一個程序中的定義相同。
 
-	請注意，來源檔案資料夾是 **c:\Hadoop\hadoop-1.1.0-SNAPSHOT**，目的地資料夾是 **WordCount/Input**。
+	請注意，來源檔案資料夾是 **c:\\Hadoop\\hadoop-1.1.0-SNAPSHOT**，目的地資料夾是 **WordCount/Input**。
 
-3. 執行下列命令來取得來源檔案資料夾中的 txt 檔案清單：
+3. 執行下列命令來取得來源檔案資料夾中的 .txt 檔案清單：
 
-		# Get a list of the txt files
+		# Get a list of the .txt files
 		$filesAll = Get-ChildItem $localFolder
 		$filesTxt = $filesAll | where {$_.Extension -eq ".txt"}
 		
@@ -373,7 +365,7 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 
 5. 執行下列命令來複製檔案：
 
-		# Copy the file from local workstation to the Blob container        
+		# Copy the files from the local workstation to the Blob container        
 		foreach ($file in $filesTxt){
 		 
 		    $fileName = "$localFolder\$file"
@@ -401,10 +393,10 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 		$storageAccountName_Data = "<AzureStorageAccountName>"  
 		$containerName_Data = "<ContainerName>"
 
-		$jarFile = "C:\Tutorials\WordCountJava\WordCount.jar"
+		$jarFile = "C:\Tutorials\WordCountJava\wordcountjava\target\wordcountjava-1.0-SNAPSHOT.jar"
 		$blobFolder = "WordCount/jars"
 
-	**$storageAccountName\_Data** 和 **$containerName\_Data** 與您在上一個程序中的定義相同，這表示您會將資料檔案和應用程式上傳至相同儲存體帳戶上的相同容器。
+	**$storageAccountName_Data** 和 **$containerName_Data** 變數與您在上一個程序中的定義相同，這表示您會將資料檔案和應用程式上傳至相同儲存體帳戶上的相同容器。
 
 	請注意，目的地資料夾是 **WordCount/jars**。
 
@@ -425,11 +417,11 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
         Write-Host "The Uploaded application file:" -BackgroundColor Green
 		Get-AzureStorageBlob -Container $containerName_Data -Context $destContext -Prefix $blobFolder
 
-	您應該會看到這裡列出的 jar 檔案。
+	您應該會看到這裡列出的 JAR 檔案。
 
 ##<a name="run"></a>在 Azure HDInsight 上執行 MapReduce 工作
 
-本節中，您將建立 PowerShell 指令碼來執行下列工作：
+本節中，您將建立 Azure PowerShell 指令碼來執行下列工作：
 
 1. 佈建 HDInsight 叢集
 	
@@ -451,15 +443,15 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 	2. 刪除做為預設 HDInsight 叢集檔案系統的儲存體帳戶
 
 
-**執行 PowerShell 指令碼**
+**執行 Azure PowerShell 指令碼**
 
 1. 開啟記事本。
 2. 複製並貼上下列程式碼：
 		
-		# The storage account and the HDInsight cluster variables
+		# The Storage account and the HDInsight cluster variables
 		$subscriptionName = "<AzureSubscriptionName>"
 		$stringPrefix = "<StringForPrefix>"
-		$location = "<MicrosoftDataCenter>"     ### must match the data storage account location
+		$location = "<MicrosoftDataCenter>"     ### Must match the data Storage account location
 		$clusterNodes = <NumberOFNodesInTheCluster>
 
 		$storageAccountName_Data = "<TheDataStorageAccountName>"
@@ -477,22 +469,22 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 		$mrOutput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Output/"
 		$mrStatusOutput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/MRStatusOutput/"
 		
-		# Create a PSCredential object. The username and password are hardcoded here.  You can change them if you want.
+		# Create a PSCredential object. The user name and password are hardcoded here. You can change them if you want.
 		$password = ConvertTo-SecureString "Pass@word1" -AsPlainText -Force
 		$creds = New-Object System.Management.Automation.PSCredential ("Admin", $password) 
 		
 		Select-AzureSubscription $subscriptionName
 		
 		#=============================
-		# Create a storage account used as the default file system
+		# Create a Storage account used as the default file system
 		Write-Host "Create a storage account" -ForegroundColor Green
 		New-AzureStorageAccount -StorageAccountName $storageAccountName_Default -location $location
 		
 		#=============================
-		# Create a Blob storage container used as teh default file system
+		# Create a Blob storage container used as the default file system
 		Write-Host "Create a Blob storage container" -ForegroundColor Green
 		$storageAccountKey_Default = Get-AzureStorageKey $storageAccountName_Default | %{ $_.Primary }
-		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName_Default -StorageAccountKey $storageAccountKey_Default
+		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Default –StorageAccountKey $storageAccountKey_Default
 		
 		New-AzureStorageContainer -Name $containerName_Default -Context $destContext
 		
@@ -526,32 +518,32 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 		Write-Host "Delete the HDInsight cluster" -ForegroundColor Green
 		Remove-AzureHDInsightCluster -Name $clusterName  
 		
-		# Delete the default file system storage account
+		# Delete the default file system Storage account
 		Write-Host "Delete the storage account" -ForegroundColor Green
 		Remove-AzureStorageAccount -StorageAccountName $storageAccountName_Default
 
-3. 設定指令碼中的前六個變數。**$stringPrefix** 用來對 HDInsight 叢集名稱、儲存體帳戶名稱和 Blob 儲存體容器名稱的指定字串加上首碼。因為這些項目的名稱必須為 3 到 24 個字元，請確定您指定的字串和此指令碼使用的名稱，合計不超過名稱的字元限制。**$stringPrefix** 必須全部為小寫。 
+3. 設定指令碼中的前六個變數。**$stringPrefix** 變數是用於對 HDInsight 叢集名稱、儲存體帳戶名稱和 Blob 儲存體容器名稱的指定字串加上首碼。因為這些項目的名稱必須為 3 到 24 個字元，請確定您指定的字串和此指令碼使用的名稱，合計不超過名稱的字元限制。**$stringPrefix** 必須全部為小寫。
  
-	**$storageAccountName\_Data** and **$containerName\_Data** are the storage account and container that are used for storing the data files and the application. **$location** must match the data storage account location.
+	**$storageAccountName_Data** 和 **$containerName_Data** 變數是用來儲存資料檔案和應用程式的儲存體帳戶和容器。**$location** 變數必須符合資料儲存體帳戶位置。
 
 4. 檢閱其餘變數。
 5. 儲存指令碼檔案。
 6. 開啟 Azure PowerShell。
-7. 執行下列命令將執行原則設為 remotesigned：
+7. 執行下列命令將執行原則設為 RemoteSigned：
 
 		PowerShell -File <FileName> -ExecutionPolicy RemoteSigned
 
-8. 出現提示時，輸入 HDInsight 叢集的使用者名稱和密碼。因為您在指令碼最後會刪除叢集，然後就不再需要使用者名稱和密碼，所以使用者名稱和密碼可以是任何字串。如果不希望出現認證提示，請參閱[在 Windows PowerShell 中使用密碼、安全字串和認證][powershell-PSCredential]
+8. 出現提示時，輸入 HDInsight 叢集的使用者名稱和密碼。因為您在指令碼最後會刪除叢集，然後就不再需要使用者名稱和密碼，所以使用者名稱和密碼可以是任何字串。如果不希望出現認證提示，請參閱＜[在 Windows PowerShell 中使用密碼、安全字串和認證][powershell-PSCredential]＞。
 
 
 ##<a name="retrieve"></a>擷取 MapReduce 工作輸出
-本節說明如何下載和顯示輸出。  如需有關在 Excel 上顯示結果的詳細資訊，請參閱[使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight][hdinsight-ODBC]和[使用 Power Query 將 Excel 連接到 HDInsight][hdinsight-power-query]。
+本節說明如何下載和顯示輸出。如需有關在 Excel 上顯示結果的詳細資訊，請參閱＜[使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight][hdinsight-ODBC]＞和＜[使用 Power Query 將 Excel 連接到 HDInsight][hdinsight-power-query]＞。
 
 
 **擷取輸出**
 
 1. 開啟 Azure PowerShell 視窗。
-2. 切換至 **C:\Tutorials\WordCountJava** 目錄。預設 Azure PowerShell 資料夾是 **C:\Windows\System32\WindowsPowerShell\v1.0**。您執行的 Cmdlet 會將輸出檔案下載至目前的資料夾。  您沒有權限將檔案下載至系統資料夾。
+2. 切換至 **C:\\Tutorials\\WordCountJava** 目錄。預設 Azure PowerShell 資料夾是 **C:\\Windows\\System32\\WindowsPowerShell\\v1.0**。您執行的 Cmdlet 會將輸出檔案下載至目前的資料夾。您沒有權限將檔案下載至系統資料夾。
 2. 執行下列命令來設定值：
 
 		$subscriptionName = "<AzureSubscriptionName>"
@@ -559,55 +551,55 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 		$containerName_Data = "<TheDataBlobStorageContainerName>"
 		$blobName = "WordCount/Output/part-r-00000"
 	
-3. 執行下列命令來建立 Azure 儲存體內容物件： 
+3. 執行下列命令來建立 Azure 儲存體內容物件：
 		
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName_Data | %{ $_.Primary }
-		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName_Data -StorageAccountKey $storageAccountKey  
+		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Data –StorageAccountKey $storageAccountKey  
 
 4. 執行下列命令來下載和顯示輸出：
 
 		Get-AzureStorageBlobContent -Container $containerName_Data -Blob $blobName -Context $storageContext -Force
 		cat "./$blobName" | findstr "there"
 
-工作完成之後，您可以選擇使用 [Sqoop][hdinsight-use-sqoop] 將資料匯出至 SQL Server 或 Azure SQL 資料庫，或將資料匯出至 Excel。  
+工作完成之後，您可以選擇使用 [Sqoop][hdinsight-use-sqoop] 將資料匯出至 SQL Server 或 Azure SQL Database，或將資料匯出至 Excel。
 
-##<a id="nextsteps"></a>後續步驟
-本教學課程中，您學到如何開發 Java MapReduce 工作、如何在 HDInsight Emulator 上測試應用程式，以及如何撰寫 PowerShell 指令碼來佈建 HDInsight 叢集並於叢集上執行 MapReduce。若要深入了解，請參閱下列文章：
+##<a id="nextsteps"></a>接續步驟
+本教學課程中，您學到如何開發 Java MapReduce 工作、如何在 HDInsight Emulator 上測試應用程式，以及如何撰寫 Azure PowerShell 指令碼來佈建 HDInsight 叢集並於叢集上執行 MapReduce 工作。若要深入了解，請參閱下列文章：
 
 - [開發 HDInsight 的 C# Hadoop 串流 MapReduce 程式][hdinsight-develop-streaming]
-- [開始使用 Azure HDInsight][hdinsight-get-started]
+- [Azure HDInsight 使用者入門][hdinsight-get-started]
 - [開始使用 HDInsight Emulator][hdinsight-emulator]
-- [使用 Azure Blob 儲存體搭配 HDInsight][hdinsight-storage]
-- [使用 PowerShell 管理 HDInsight][hdinsight-admin-powershell]
-- [將資料上傳至 HDInsight][hdinsight-upload-data]
-- [使用 Hive 搭配 HDInsight][hdinsight-use-hive]
-- [使用 Pig 搭配 HDInsight][hdinsight-use-pig]
+- [在 HDInsight 上使用 Azure Blob 儲存體][hdinsight-storage]
+- [使用 Azure PowerShell 管理 HDInsight][hdinsight-admin-powershell]
+- [將資料上傳到 HDInsight][hdinsight-upload-data]
+- [搭配 HDInsight 使用 Hivet][hdinsight-use-hive]
+- [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
 - [使用 Power Query 將 Excel 連接到 HDInsight][hdinsight-power-query]
-- [使用 Microsoft Hive ODBC Driver 將 Excel 連接到 HDInsight][hdinsight-ODBC]
+- [使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight][hdinsight-ODBC]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
-[hdinsight-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
-[hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
+[hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
-[hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-emulator]: ../hdinsight-get-started-emulator/
-[hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator/#blobstorage
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
-[hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-emulator]: hdinsight-get-started-emulator.md
+[hdinsight-emulator-wasb]: hdinsight-get-started-emulator.md#blobstorage
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: install-configure-powershell.md
 
 
 
@@ -615,4 +607,4 @@ Azure HDInsight 使用 Azure Blob 儲存體來儲存資料。佈建 HDInsight �
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
 
-<!--HONumber=42-->
+<!--HONumber=54-->

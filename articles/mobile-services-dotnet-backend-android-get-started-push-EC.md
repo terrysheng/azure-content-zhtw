@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="開始使用推播 (Android) | 行動開發人員中心" 
 	description="了解如何使用 Azure 行動服務傳送推播通知至 Android .Net 應用程式。" 
 	services="mobile-services, notification-hubs" 
@@ -20,11 +20,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push-EC.md)]
 
-本主題說明如何使用 Azure 行動服務傳送推播通知至 Android 應用程式。在本教學課程中，您會使用 Google 雲端通訊 (GCM) 將推播通知新增至快速入門專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。 
+本主題說明如何使用 Azure 行動服務傳送推播通知至 Android 應用程式。在本教學課程中，您會使用 Google 雲端通訊 (GCM) 將推播通知新增至快速入門專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。
 
 本教學課程將逐步引導您完成下列步驟：
 
-1. [啟用 Google 雲端通訊](#register)
+1. [啟用 Google Cloud Messaging](#register)
 2. [設定行動服務以傳送推播要求](#configure)
 5. [更新伺服器以傳送推播通知](#update-server)
 7. [將推播通知新增至應用程式](#update-app)
@@ -32,30 +32,30 @@
 9. [對已發佈的行動服務進行應用程式測試](#test-app)
 
 
-本教學課程以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務]或[開始使用資料]，將您的專案連接到行動服務。同樣地，本教學課程也需要 Visual Studio 2013。 
+本教學課程會以行動服務快速入門為基礎。開始本教學課程之前，您必須先完成[開始使用行動服務]或[開始使用資料]，將您的專案連接到行動服務。同樣地，本教學課程也需要 Visual Studio 2013。
 
->[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 免費試用</a>。 
-
-
-##<a id="register"></a>啟用 Google 雲端通訊
-
-[AZURE.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
+>[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 免費試用</a>。
 
 
-##<a id="configure"></a>設定行動服務來傳送推播要求
+##<a id="register"></a>啟用 Google Cloud Messaging
+
+[AZURE.INCLUDE [啟用 GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
+
+
+##<a id="configure"></a>設定行動服務以傳送推播要求
 
 1. 登入 [Azure 管理入口網站]，按一下 [行動服務]****，然後按一下您的應用程式。
 
    	![](./media/mobile-services-android-get-started-push/mobile-services-selection.png)
 
-2. 按一下 [**推播**] 索引標籤，輸入前一個程序中從 GCM 取得的 [**API 金鑰**] 值，然後按一下 [**儲存**]。
+2. 按一下 [推播]**** 索引標籤，輸入前一個程序中從 GCM 取得的 [API Key]**** 值，然後按一下 [儲存]****。
 
    	![](./media/mobile-services-android-get-started-push/mobile-push-tab-android.png)
 
-> [AZURE.IMPORTANT] 如果您在入口網站的 [推播] 索引標籤中設定進階推播通知的 GCM 認證，這些認證將會與通知中心共用，以設定您的應用程式適用的通知中心。
+> [AZURE.IMPORTANT]如果您在入口網站的 [推播] 索引標籤中設定進階推播通知的 GCM 認證，這些認證將會與通知中心共用，以設定您的應用程式適用的通知中心。
 
 
-您的行動服務現在已完成設定，而可與 GCM 和通知中樞搭配使用。
+您的行動服務現在已設定成使用 GCM 和通知中心。
 
 
 <h2><a name="download-the-service"></a>將服務下載至您的本機電腦</h2>
@@ -68,13 +68,13 @@
 
 ##<a id="update-server"></a>更新伺服器以傳送推播通知
 
-1. 在 Visual Studio 的 [方案總管] 中，展開行動服務專案中的 **Controllers** 資料夾。開啟 TodoItemController.cs。在檔案的最上方，新增下列  `using` 陳述式：
+1. 在 Visual Studio 的 [方案總管] 中，展開行動服務專案中的 **Controllers** 資料夾。開啟 TodoItemController.cs。在檔案頂端新增下列 `using` 陳述式：
 
 
 		using System;
 		using System.Collections.Generic;
 
-2. 以下列程式碼更新  `PostTodoItem` 方法定義：  
+2. 以下列程式碼取代 `PostTodoItem` 方法：
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -98,7 +98,7 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-    此程式碼會在插入 Todo 項目之後傳送推播通知 (含所插入項目的文字)。如果發生錯誤，程式碼將會新增可透過管理入口網站從行動服務的 [**記錄檔**] 索引標籤來檢視的錯誤記錄項目。
+    此程式碼會在插入 Todo 項目之後傳送推播通知 (含所插入項目的文字)。如果發生錯誤，程式碼將會新增可透過管理入口網站從行動服務的 [記錄檔]**** 索引標籤來檢視的錯誤記錄項目。
 
 
 <h2><a name="publish-the-service"></a>將行動服務發佈至 Azure</h2>
@@ -113,13 +113,13 @@
 [AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version-EC.md)]
 
 
-下一個步驟是安裝 Google Play 服務。Google 雲端通訊對於開發和測試有最低 API 層級需求，這些是資訊清單中的 **minSdkVersion** 屬性所必須遵守。 
+下一個步驟是安裝 Google Play 服務。Google 雲端通訊在開發和測試方面有一些 API 層級的最低需求，這些是資訊清單中的 **minSdkVersion** 屬性所必須遵守。
 
 如果您要以較舊的裝置進行測試，請參考[設定 Google Play 服務 SDK]，以確認此值可以設得多低，並加以適當設定。
 
 ###新增 Google Play 服務至專案
 
-[AZURE.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services-EC.md)]
+[AZURE.INCLUDE [新增 Play 服務](../includes/mobile-services-add-Google-play-services-EC.md)]
 
 ###新增程式碼
 
@@ -133,17 +133,17 @@
 
 請務必使用支援 Google API 的 Android 虛擬裝置 (AVD)。
 
-1. 從 [**視窗**] 中選取 [**Android Virtual Device Manager**]，選取您的裝置，按一下 [**編輯**] (如果您沒有任何裝置，則按一下 [**新增**])。
+1. 從 [視窗]**** 中選取 [Android Virtual Device Manager]****，選取您的裝置，按一下 [編輯]**** (如果您沒有任何裝置，則按 [新增]****)。
 
 	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager.png)
 
-2. 選取 [**目標**] 中的 [**Google API**] (或 [**Google APIs x86**])，然後按一下 [確定]。
+2. 在 [目標]**** 中選取 [Google API]**** (或 [Google APIs x86]****)，然後按一下 [確定]。
 
    	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
 
 	如此會使 AVD 變成使用 Google API。如果您安裝了數個版本的 Android SDK，請確定 API 層級符合您先前在專案屬性中設定的層級。
 
-###<a id="local-testing"></a> 啟用推播通知以進行本機測試
+###<a id="local-testing"></a>啟用推播通知以進行本機測試
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
@@ -151,7 +151,7 @@
 
 1. 在 Eclipse 的 [執行]**** 功能表中按一下 [執行]****，以啟動應用程式。
 
-2. 在應用程式中，輸入有意義的文字，如 A new Mobile Services task，然後按一下 [新增]**** 按鈕。
+2. 在應用程式中，輸入有意義的文字，如 _A new Mobile Services task_，然後按一下 [加入]**** 按鈕。
 
   	![](./media/mobile-services-android-get-started-push/mobile-quickstart-push1-android.png)
 
@@ -175,35 +175,30 @@
 + [Send template-based notifications to subscribers]
 	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
 -->
-在下列主題中深入了解行動服務和通知中樞：
+在下列主題中深入了解行動服務和通知中心：
 
-* [開始使用資料]
-  <br/>深入了解如何使用行動服務儲存和查詢資料。
+* [開始使用資料] <br/>深入了解如何使用行動服務來儲存與查詢資料。
 
-* [開始使用驗證]
-  <br/>了解如何使用行動服務驗證使用不同帳戶類型的應用程式使用者。
+* [開始使用驗證] <br/>了解如何使用行動服務驗證使用不同帳戶類型的應用程式使用者。
 
-* [什麼是通知中樞？]
-  <br/>深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
+* [什麼是通知中心？] <br/>深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
 
-* [偵錯通知中樞應用程式](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>取得通知中樞解決方案的疑難排解和偵錯指引。 
+* [偵錯通知中心應用程式](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>取得通知中心解決方案的疑難排解和偵錯指引。
 
-* [如何使用行動服務 Android 用戶端程式庫]
-  <br/>深入了解如何搭配使用行動服務與 Android。  
+* [如何使用適用於行動服務的 Android 用戶端程式庫] <br/>深入了解如何搭配 Android 使用行動服務。
   
 <!-- Anchors. -->
 
-[建立新的行動服務]: #create-service
-[在本機下載服務]: #download-the-service-locally
-[測試行動服務]: #test-the-service
-[下載 GetStartedWithData 專案]: #download-app
-[更新應用程式以使用行動服務進行資料存取]: #update-app
-[對本機代管的服務測試 Android 應用程式]: #test-locally-hosted
-[將行動服務發佈至 Azure]: #publish-mobile-service
-[對 Azure 代管的服務測試 Android 應用程式]: #test-azure-hosted
-[對已發佈的行動服務進行應用程式測試]: #test-app
-[後續步驟]:#next-steps
+[Create a new mobile service]: #create-service
+[Download the service locally]: #download-the-service-locally
+[Test the mobile service]: #test-the-service
+[Download the GetStartedWithData project]: #download-app
+[Update the app to use the mobile service for data access]: #update-app
+[Test the Android App against the service hosted locally]: #test-locally-hosted
+[Publish the mobile service to Azure]: #publish-mobile-service
+[Test the Android App against the service hosted in Azure]: #test-azure-hosted
+[Test the app against the published mobile service]: #test-app
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/app-view.png
@@ -235,27 +230,27 @@
 
 
 <!-- URLs. -->
-[使用指令碼驗證及修改資料]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[使用分頁縮小查詢範圍]: /develop/mobile/tutorials/add-paging-to-data-dotnet
-[開始使用行動服務]: /documentation/articles/mobile-services-dotnet-backend-android-get-started
-[開始使用資料]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-[開始使用驗證]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users
-[JavaScript 和 HTML]: /develop/mobile/tutorials/get-started-with-data-js
-[JavaScript 後端版本]: /develop/mobile/tutorials/get-started-with-data-android
+[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-dotnet
+[開始使用行動服務]: mobile-services-dotnet-backend-android-get-started.md
+[開始使用資料]: mobile-services-dotnet-backend-android-get-started-data.md
+[開始使用驗證]: mobile-services-dotnet-backend-android-get-started-users.md
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-data-js
+[JavaScript backend version]: /develop/mobile/tutorials/get-started-with-data-android
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Management Portal]: https://manage.windowsazure.com/
+[Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
+[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
+[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
+[MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+
+[如何使用適用於行動服務的 Android 用戶端程式庫]: mobile-services-android-how-to-use-client-library.md
+
+[Send push notifications to authenticated users]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
+
+[什麼是通知中心？]: notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[管理入口網站]: https://manage.windowsazure.com/
-[行動服務 SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[開發人員程式碼範例網站]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[行動服務 .NET 做法概念性參考]: /develop/mobile/how-to-guides/work-with-net-client-library
-[MobileServiceClient 類別]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-[如何使用行動服務 Android 用戶端程式庫]: /documentation/articles/mobile-services-android-how-to-use-client-library
-
-[將推播通知傳送給驗證的使用者]: /documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/
-
-[什麼是通知中樞？]: /documentation/articles/notification-hubs-overview/
-[將廣播通知傳送給訂閱者]: /documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[傳送以範本為基礎的通知給訂閱者]: /documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
-[Azure 管理入口網站]: https://manage.windowsazure.com/
-
-<!--HONumber=47-->
+<!--HONumber=54-->

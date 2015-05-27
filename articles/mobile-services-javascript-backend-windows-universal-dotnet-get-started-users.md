@@ -10,15 +10,15 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
-# 將驗證加入至行動服務應用程式
+# 在您的行動服務應用程式中新增驗證
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]		
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)] 
 
 本主題說明如何從您的通用 Windows 應用程式在 Azure 行動服務中驗證使用者。在本教學課程中，您將使用行動服務支援的身分識別提供者，將驗證加入至快速入門專案。由行動服務成功驗證並授權之後，就會顯示使用者識別碼值。
 
@@ -26,75 +26,61 @@
 
 1. [註冊應用程式進行驗證，並設定行動服務]
 2. [限制只有經驗證的使用者具有資料表的權限]
-3. [將驗證加入應用程式]
+3. [將驗證新增至應用程式]
 5. [將驗證權杖儲存在用戶端]
 
-本教學課程以行動服務快速入門為基礎。您也必須先完成教學課程[開始使用行動服務]。 
+本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務]。
 
 >[AZURE.NOTE]本教學課程說明如何在 Windows 市集與 Windows Phone 市集 8.1 應用程式中驗證使用者。有關 Windows Phone 8.0 或 Windows Phone Silverlight 8.1 應用程式，請檢視此版本的[開始使用行動服務中的驗證](mobile-services-windows-phone-get-started-users.md)。
 
->本教學課程示範行動服務如何管理不同的身分識別提供者的驗證流程。此方法設定起來很簡單，而且可支援多個提供者。若要改用 Live Connect 與用戶端管理驗證方式，在您的 Windows Phone 應用程式中提供單一登入體驗，請參閱[使用 Live Connect 在 Windows 市集應用程式提供單一登入功能]主題。透過用戶端管理的驗證，您的應用程式就能存取身分識別提供者所維護的其他使用者資料。您可以呼叫伺服器指令碼中的 **user.getIdentities()** 函數，取得行動服務中的相同使用者資料。如需詳細資訊，請參閱[本文章](http://go.microsoft.com/fwlink/p/?LinkId=506605)。
+>本教學課程示範行動服務如何管理不同的身分識別提供者的驗證流程。此方法設定起來很簡單，而且可支援多個提供者。若要改用 Live Connect 與用戶端管理的驗證方式，並且在您的 Windows Phone 應用程式中提供單一登入體驗，請參閱[使用 Microsoft 帳戶以用戶端管理的驗證來驗證 Windows 市集應用程式](mobile-services-windows-store-dotnet-single-sign-on.md)主題。藉由使用用戶端管理的驗證，您的應用程式即可存取身分識別提供者保留的其他使用者資料。您可藉由呼叫伺服器指令碼中的 **user.getIdentities()** 函數，在行動服務中取得相同的使用者資料。如需詳細資訊，請參閱 [這篇文章](http://go.microsoft.com/fwlink/p/?LinkId=506605)。
 
-##<a name="register"></a> 註冊應用程式進行驗證，並設定行動服務
+##<a name="register"></a>註冊應用程式進行驗證，並設定行動服務
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-<ol start="5">
-<li><p>(選用) 完成<a href="mobile-services-how-to-register-store-app-package-microsoft-authentication.md">註冊 Windows 市集應用程式套件以採用 Microsoft 驗證</a>中的步驟。</p>
-<p>請注意，此步驟僅適用於「Microsoft 帳戶」登入提供者，所以是選用步驟。向行動服務註冊 Windows 市集應用程式封裝資訊之後，用戶端就能夠重複使用 Microsoft 帳戶登入認證來享受單一登入的方便性。如果您沒有執行此動作，Microsoft 帳戶登入使用者會在每次呼叫登入方法時j都會看到登入提示。若您打算使用「Microsoft 帳戶」身分識別提供者，請完成這個步驟。</p>
-</li>
-</ol>
+##<a name="permissions"></a>限制只有通過驗證的使用者具有權限
 
-##<a name="permissions"></a> 限制只有經驗證的使用者具有權限
+[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../includes/mobile-services-restrict-permissions-windows.md)] 
+ 
+>[AZURE.NOTE]當您使用 Visual Studio 工具將您的應用程式連接到行動服務時，此工具會分別針對個別用戶端平台需要產生共兩組 **MobileServiceClient** 定義。這時您可以順勢將使用 `#if...#endif` 包裝的 **MobileServiceClient** 定義統一至單一未包裝的定義以供這兩個應用程式版本使用，藉此簡化產生的程式碼。如果您是從 Azure 管理入口網站下載快速入門應用程式，則不需要這麼做。
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
-
-<ol start="3">
-<li><p>在 Visual Studio 中，以滑鼠右鍵按一下 TodoList 應用程式的 Windows 市集專案，然後按一下 [<strong>設定為啟始專案</strong>]。</p></li>
-<li><p>在共用專案中，開啟 App.xaml.cs 專案檔案並找到 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> 的定義，然後確保該定義已設定為連接至 Azure 中執行的行動服務。</p>
-<p>當您使用 Visual Studio 工具將您的應用程式連接到行動服務時，此工具會分別針對個別用戶端平台需要產生共兩組 <strong>MobileServiceClient</strong> 定義。這時您可以順勢將使用 <code>#if...#endif</code> 包裝的 <strong>MobileServiceClient</strong> 定義統一至單一未包裝的定義以供這兩個應用程式版本使用，藉此簡化產生的程式碼。如果您是從 Azure 管理入口網站下載快速入門應用程式，則不需要這麼做。</p>
-</li> 
-<li><p>按 F5 鍵執行 Windows 市集應用程式；確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。</p>
-   
-   	<p>這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 <em>TodoItem</em> 資料表現在需要驗證。</p></li>
-</ol>
-
-接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
-
-##<a name="add-authentication"></a> 將驗證加入應用程式
+##<a name="add-authentication"></a>將驗證新增至應用程式
 
 [AZURE.INCLUDE [mobile-services-windows-universal-dotnet-authenticate-app](../includes/mobile-services-windows-universal-dotnet-authenticate-app.md)] 
 
-##<a name="tokens"></a>將驗證權杖儲存在用戶端
+現在，由您信任的識別提供者驗證的任何使用者都能存取 *TodoItem* 資料表。若要更善加保護使用者專屬的資料，您還必須實作授權。若要進行，您要取得指定使用者的使用者識別碼，然後用來判斷使用者對於指定資源具備何種層級的存取權。
+
+##<a name="tokens"></a>將授權權杖儲存在用戶端
 
 [AZURE.INCLUDE [mobile-services-windows-store-dotnet-authenticate-app-with-token](../includes/mobile-services-windows-store-dotnet-authenticate-app-with-token.md)] 
 
 ## <a name="next-steps"> </a>後續步驟
 
-在下一個教學課程[「行動服務使用者的服務端授權」](mobile-services-javascript-backend-service-side-authorization.md) 中，您將使用由行動服務根據經驗證的使用者而提供的使用者識別碼值，來篩選行動服務傳回的資料。您可以在行動服務 .NET 作法概念參考資料中深入了解[行動服務 .NET 做法概念性參考]。
+在下一個[行動服務使用者的伺服器端授權](mobile-services-javascript-backend-service-side-authorization.md)教學課程中，您將使用由行動服務根據經驗證的使用者而提供的使用者識別碼值，來篩選行動服務傳回的資料。您可以在[行動服務 .NET 作法概念參考資料]中深入了解如何使用搭配 .NET 的行動服務。
 
 <!-- Anchors. -->
 [註冊應用程式進行驗證，並設定行動服務]: #register
 [限制只有經驗證的使用者具有資料表的權限]: #permissions
-[將驗證加入應用程式]: #add-authentication
+[將驗證新增至應用程式]: #add-authentication
 [將驗證權杖儲存在用戶端]: #tokens
-[後續步驟]:#next-steps
+[Next Steps]: #next-steps
 
 
 <!-- URLs. -->
-[提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[使用 Live Connect 在 Windows 市集應用程式提供單一登入功能]: mobile-services-windows-store-dotnet-single-sign-on.md
+
 [開始使用行動服務]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
-[開始使用資料]: mobile-services-javascript-backend-windows-store-dotnet-get-started-data.md
-[開始使用驗證]: mobile-services-javascript-backend-windows-store-dotnet-get-started-users.md
-[開始使用推播通知]: mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
-[使用指令碼授權使用者]: mobile-services-windows-store-dotnet-authorize-users-in-scripts.md
-[JavaScript 和 HTML]: mobile-services-windows-store-javascript-get-started-users.md
+[Get started with data]: mobile-services-javascript-backend-windows-store-dotnet-get-started-data.md
+[Get started with authentication]: mobile-services-javascript-backend-windows-store-dotnet-get-started-users.md
+[Get started with push notifications]: mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
+[Authorize users with scripts]: mobile-services-windows-store-dotnet-authorize-users-in-scripts.md
+[JavaScript and HTML]: mobile-services-windows-store-javascript-get-started-users.md
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
-[行動服務 .NET 做法概念性參考]: mobile-services-windows-dotnet-how-to-use-client-library.md
-[註冊 Windows 市集應用程式封裝以進行 Microsoft 驗證]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
+[Azure Management Portal]: https://manage.windowsazure.com/
+[行動服務 .NET 作法概念參考資料]: mobile-services-windows-dotnet-how-to-use-client-library.md
+[Register your Windows Store app package for Microsoft authentication]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!--HONumber=49-->
+<!--HONumber=54-->

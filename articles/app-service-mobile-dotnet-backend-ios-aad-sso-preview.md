@@ -16,13 +16,13 @@ ms.author="mahender" />
 
 # 將 Azure Active Directory 單一登入新增至您的 iOS 應用程式
 
-[WACOM.INCLUDE [app-service-mobile-selector-aad-sso](../includes/app-service-mobile-selector-aad-sso.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../includes/app-service-mobile-selector-aad-sso.md)]
 
 在本教學課程中，您會使用 Active Directory Authentication Library 將驗證新增至快速入門專案。
 
 為了能夠驗證使用者，您必須向 Azure Active Directory (AAD) 租用戶註冊您的應用程式。此作業有兩個階段。第一，您必須註冊應用程式服務，並公開其權限。第二，您必須註冊 iOS 應用程式，並為其授與對這些權限的存取權。
 
-本教學課程需要下列項目：
+本教學課程需要下列各項：
 
 * XCode 4.5 和 iOS 6.0 (或更新版本)
 * 完成[開始使用行動應用程式]教學課程。
@@ -31,7 +31,7 @@ ms.author="mahender" />
 
 ## <a name="register-application"></a>向 Azure Active Directory 註冊您的應用程式
 
-[WACOM.INCLUDE [app-service-mobile-adal-register-app](../includes/app-service-mobile-adal-register-app.md)]
+[AZURE.INCLUDE [app-service-mobile-adal-register-app](../includes/app-service-mobile-adal-register-app.md)]
 
 ## <a name="require-authentication"></a>將應用程式設定為需要驗證
 
@@ -47,7 +47,7 @@ ms.author="mahender" />
 
 4. 選取 [**建置階段**] 索引標籤。在 [**目標相依性**] 下，新增 `ADALiOS`。
 
-5. 在 [**Link Binary With Libraries**] 下，新增 `libADALiOS.a`。
+5. 在 [**連結二進位檔與程式庫**] 下，新增 `libADALiOS.a`。
 
 您現在將可在專案中參考 Active Directory Authentication Library。
 
@@ -92,15 +92,15 @@ ms.author="mahender" />
             }];
         }
 
-4. 在前述  `loginAndGetData` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 取代為您佈建應用程式的租用戶名稱，其格式應為 <https://login.windows.net/tenant-name.onmicrosoft.com>。此值可從 [Azure 管理入口網站]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
+4. 在上述 `loginAndGetData` 方法的程式碼中，將 **INSERT-AUTHORITY-HERE** 取代成您佈建應用程式的租用戶名稱，其格式應為 https://login.windows.net/tenant-name.onmicrosoft.com。此值可從 [Azure 管理入口網站]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
 
-5. 在前述  `loginAndGetData` 方法的程式碼中，將 **INSERT-RESOURCE-URI-HERE** 取代為您行動應用程式的**應用程式識別碼 URI**。如果您依照[如何使用 Azure Active Directory 設定行動應用程式]主題的內容操作，您的應用程式識別碼 URI 應會類似於 <https://contosogateway.azurewebsites.net/login/aad>。
+5. 在前述 `loginAndGetData` 方法的程式碼中，將 **INSERT-RESOURCE-URI-HERE** 取代為您行動應用程式的 [**應用程式識別碼 URI**]。如果您依照[如何向 Azure Active Directory 設定您的行動應用程式]主題的內容操作，您的應用程式識別碼 URI 應類似於 https://contosogateway.azurewebsites.net/login/aad。
 
-6. 在前述  `loginAndGetData` 方法的程式碼中，將 **INSERT-CLIENT-ID-HERE** 取代為您從原生用戶端應用程式中複製的用戶端識別碼。
+6. 在前述 `loginAndGetData` 方法的程式碼中，將 **INSERT-CLIENT-ID-HERE** 取代為您從原生用戶端應用程式中複製的用戶端識別碼。
 
-7. 在前述  `loginAndGetData` 方法的程式碼中，將 **INSERT-REDIRECT-URI-HERE** 取代為您應用程式服務閘道的 /login/done 端點。此項目應與 https://contosogateway.azurewebsites.net/login/done 類似。
+7. 在前述 `loginAndGetData` 方法的程式碼中，將 **INSERT-REDIRECT-URI-HERE** 取代為您應用程式服務閘道的 /login/done 端點。此項目應與 https://contosogateway.azurewebsites.net/login/done 類似。
 
-8. 在 QSTodoListViewController 中，將 `[self refresh]` 取代為下列內容，以修改 `ViewDidLoad`：
+8. 在 QSTodoListViewController 中，使用下列程式碼取代 `[self refresh]`，以修改 `viewDidLoad`：
 
         [self loginAndGetData];
 
@@ -111,9 +111,9 @@ ms.author="mahender" />
 3. 應用程式會驗證並傳回 todo 項目。
 
 <!-- URLs. -->
-[如何使用 Azure Active Directory 設定行動應用程式]: app-service-mobile-how-to-configure-active-directory-authentication-preview.md
+[如何向 Azure Active Directory 設定您的行動應用程式]: app-service-mobile-how-to-configure-active-directory-authentication-preview.md
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
- [開始使用行動應用程式]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[開始使用行動應用程式]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 
-<!--HONumber=49-->
+<!--HONumber=54-->

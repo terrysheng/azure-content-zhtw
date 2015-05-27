@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="在 Azure App Service 中部署 Web 應用程式"
 	description="了解可用來將內容部署到 Web 應用程式的方法。"
 	services="app-service\web"
@@ -36,9 +36,9 @@
 
 ###<a name="ide"></a>從 IDE 部署
 
-[Visual Studio](http://www.visualstudio.com/) 和 [WebMatrix](http://www.microsoft.com/web/webmatrix/) 是可供您用於 Web 開發的 Microsoft IDE (整合式開發環境)。這兩者都提供有助於部署 Web 應用程式的內建功能。兩者都可使用 [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) 將其他與部署有關的工作自動化，例如資料庫部署和連接字串變更。這兩者也都可以使用 [FTP 或 FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol) 來部署。
+[Visual Studio](http://www.visualstudio.com/) 和 [WebMatrix](http://www.microsoft.com/web/webmatrix/) 是可供您用於 Web 開發的 Microsoft IDE (整合式開發環境)。這兩者都提供有助於部署 Web 應用程式的內建功能。兩者都可使用 [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy)將其他與部署有關的工作自動化，例如資料庫部署和連接字串變更。這兩者也都可使用 [FTP 或 FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol) 進行部署。
 
-WebMatrix 可快速安裝且易於了解，但 Visual Studio 可用來處理 Web Apps 的功能則多出許多。在 Visual Studio IDE 中，您可以建立、停止、啟動及刪除 Web 應用程式，此外，還可以檢視即時建立的記錄，以及進行遠端偵錯，功能眾多。Visual Studio 也會與原始檔控制系統 (例如 [Visual Studio Online])(#vso)、[Team Foundation Server](#tfs)及 [Git 儲存機制](#git)。
+WebMatrix 可快速安裝且易於了解，但 Visual Studio 可用來處理 Web Apps 的功能則多出許多。在 Visual Studio IDE 中，您可以建立、停止、啟動及刪除 Web 應用程式，此外，還可以檢視即時建立的記錄，以及進行遠端偵錯，功能眾多。Visual Studio 也可與 [Visual Studio Online](#vso)、[Team Foundation Server](#tfs) 和 [Git 儲存機制](#git)等原始檔控制系統相整合。
 
 * [Visual Studio](#vs)
 * [WebMatrix](#webmatrix)
@@ -76,8 +76,8 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
 
 如需詳細資訊，請參閱下列資源：
 
-* [使用 Visual Studio Online 和 TFVC 連續傳遞至 Azure](cloud-services-continuous-delivery-use-vso.md).示範如何使用 TFVC，從 Visual Studio Online 設定連續傳遞至 Web 應用程式的逐步教學課程。TFVC 是集中式原始檔控制選項，相對於作為分散式原始檔控制選項的 Git。
-* [使用 Visual Studio Online 和 Git 連續傳遞至 Azure](cloud-services-continuous-delivery-use-vso-git.md).與上一個教學課程類似，但使用 Git 而不是 TFVC。
+* [使用 Visual Studio Online 和 TFVC 連續傳遞至 Azure](cloud-services-continuous-delivery-use-vso.md)。示範如何使用 TFVC，從 Visual Studio Online 設定連續傳遞至 Web 應用程式的逐步教學課程。TFVC 是集中式原始檔控制選項，相對於作為分散式原始檔控制選項的 Git。
+* [使用 Visual Studio Online 和 Git 連續傳遞至 Azure](cloud-services-continuous-delivery-use-vso-git.md) (英文)。與上一個教學課程類似，但使用 Git 而不是 TFVC。
 
 ##<a name="git"></a>使用 Git 的儲存機制網站
 
@@ -85,9 +85,9 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
 
 如需詳細資訊，請參閱下列資源：
 
-* [使用 Git 從原始檔控制發行至 Web Apps](web-sites-publish-source-control.md).說明如何使用 Git，從本機電腦直接發行至 Web Apps (在 Azure 中，這個發行方法稱為「本機 Git」)。此外也說明如何為 Git 儲存機制啟用從 GitHub、CodePlex 或 BitBucket 的連續部署。
-* [使用 Kudu 透過 GitHub 部署至 Web Apps](/documentation/videos/deploying-to-azure-from-github/).由 Scott Hanselman 和 David Ebbo 提供的影片，示範如何從 GitHub 直接將 Web 應用程式部署至 Web Apps。
-* [部署至 Web Apps 的 Azure 按鈕](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/).觸發從 Git 儲存機制部署之方法的相關部落格。
+* [使用 Git 從原始檔控制發行至 Web Apps](web-sites-publish-source-control.md)。說明如何使用 Git，從本機電腦直接發行至 Web Apps (在 Azure 中，這個發行方法稱為「本機 Git」)。此外也說明如何為 Git 儲存機制啟用從 GitHub、CodePlex 或 BitBucket 的連續部署。
+* [使用 Kudu 透過 GitHub 部署至 Web Apps](/documentation/videos/deploying-to-azure-from-github/)。由 Scott Hanselman 和 David Ebbo 提供的影片，示範如何從 GitHub 直接將 Web 應用程式部署至 Web Apps。
+* [部署至 Web Apps 的 Azure 按鈕](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/)。觸發從 Git 儲存機制部署之方法的相關部落格。
 * [Git、Mercurial 和 Dropbox 的 Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)。
 
 ##<a name="mercurial"></a>使用 Mercurial 的儲存機制網站
@@ -96,7 +96,7 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
 
 如需如何使用 Mercurial 進行部署的相關資訊，請參閱下列資源：
 
-* [使用 Git 從原始檔控制發行至 Web Apps](web-sites-publish-source-control.md).此教學課程說明的是發佈 Git 儲存機制的方式，但在 CodePlex 或 BitBucket 中受到代管的 Mercurial 儲存機制其實也採用類似的程序。
+* [使用 Git 從原始檔控制發行至 Web Apps](web-sites-publish-source-control.md)。此教學課程說明的是發佈 Git 儲存機制的方式，但在 CodePlex 或 BitBucket 中受到代管的 Mercurial 儲存機制其實也採用類似的程序。
 * [Git、Mercurial 和 Dropbox 的 Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)。
 
 ##<a name="dropbox"></a>Dropbox
@@ -113,7 +113,7 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
 
 * [開始使用 Azure 和 ASP.NET](web-sites-dotnet-get-started.md)。說明如何使用 Visual Studio 和 Web Deploy 建立及部署簡易的 ASP.NET MVC Web 專案。
 * [如何使用 Visual Studio 部署 Azure WebJob](websites-dotnet-deploy-webjobs.md)。如何設定主控台應用程式專案，使其部署為 WebJob。  
-* [將使用成員資格、OAuth 和 SQL Database 的安全 ASP.NET MVC 5 應用程式部署至 Web Apps](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)。說明如何使用 Visual Studio、Web Deploy 和 Entity Framework Code First Migrations，建立及部署具有 SQL Database 的 ASP.NET MVC Web 專案。
+* [將使用成員資格、OAuth 和 SQL 資料庫的安全 ASP.NET MVC 5 應用程式部署至 Web Apps](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)。說明如何使用 Visual Studio、Web Deploy 和 Entity Framework Code First Migrations，建立及部署具有 SQL Database 的 ASP.NET MVC Web 專案。
 * [Visual Studio 和 ASP.NET 的 Web 部署概觀](http://msdn.microsoft.com/library/dd394698.aspx)。這是使用 Visual Studio 進行 Web 部署的基本簡介。這項資源已過時，但仍包含相關資訊，包括部署資料庫和 Web 應用程式的選項概觀，以及您可能必須執行或手動設定 Visual Studio 為您執行的額外部署工作。這是與一般部署有關的主題，而不是只討論對 Web Apps 的部署。
 * [使用 Visual Studio 的 ASP.NET Web 部署](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction)。這是分成 12 個單元的教學課程系列，其中討論的部署工作比此處所列的其他資源更為詳盡。本教學課程撰寫後已新增某些 Azure 部署功能，但稍後的附註會說明遺漏的功能。
 * [在 Visual Studio 2012 中直接從 Git 儲存機制將 ASP.NET 網站部署至 Azure](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881)。說明如何使用 Git 外掛程式將程式碼認可至 Git，以及將 Azure 連接到 Git 儲存機制，以在 Visual Studio 中部署 ASP.NET Web 專案。自 Visual Studio 2013 起，Git 支援已是內建的功能，不需安裝外掛程式。
@@ -123,7 +123,7 @@ Azure 提供了一個 REST 管理 API 和數個有助於使用 API 的架構，�
 如需如何從 WebMatrix 部署至 Web Apps 的相關資訊，請參閱下列資源：
 
 * [用 Microsoft WebMatrix 開發和部署 Web 應用程式](web-sites-dotnet-using-webmatrix.md)。說明如何使用 WebMatrix 範本建立簡易的 ASP.NET Web 應用程式，並使用 WebMatrix 和 Web Deploy 將其部署至 Web Apps。
-* [使用 WebMatrix 建立 Node.js 網站並部署至 Azure](web-sites-nodejs-use-webmatrix.md)。
+* [使用 WebMatrix 來建立 Node.js 網站並部署至 Azure](web-sites-nodejs-use-webmatrix.md)。
 * [使用 WebMatrix 建立並部署 PHP-MySQL Web 應用程式](web-sites-php-mysql-use-webmatrix.md)。
 * [WebMatrix 3：整合 Git 並部署至 Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD)。說明如何使用 WebMatrix 從 Git 原始檔控制儲存機制進行部署。
 
@@ -146,7 +146,7 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 
 如需詳細資訊，請參閱下列資源：
 
-* [使用 Git 從原始檔控制發行至 Web Apps](web-sites-publish-source-control.md).說明如何使用 Git，從本機電腦直接發行至 Web 應用程式 (在 Azure 中，這個發行方法稱為「本機 Git」)。此外也說明如何為 Git 儲存機制啟用從 GitHub、CodePlex 或 BitBucket 的連續部署。
+* [使用 Git 從原始檔控制發行至 Web Apps](web-sites-publish-source-control.md)。說明如何使用 Git，從本機電腦直接發行至 Web 應用程式 (在 Azure 中，這個發行方法稱為「本機 Git」)。此外也說明如何為 Git 儲存機制啟用從 GitHub、CodePlex 或 BitBucket 的連續部署。
 * [從任何 git/hg 儲存機制發行至 Web Apps](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html)。說明 Web Apps 中「外部儲存機制」功能的部落格。
 * [Git、Mercurial 和 Dropbox 的 Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)。
 * [從一個 Git 儲存機制將兩個網站部署至 Azure](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx)。取自 Scott Hanselman 的部落格文章。
@@ -154,12 +154,12 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 
 ##<a name=msbuild></a>MSBuild
 
-如果您使用 [Visual Studio IDE](#vs) 進行開發，就能使用 [MSBuild](http://msbuildbook.com/) 來將任何可在 IDE 中執行的工作自動化。您可以設定 MSBuild，以使用 [Web Deploy](#webdeploy) 或 [FTP/FTPS](#ftp) 來複製檔案。Web Deploy 也可自動化其他多種部署相關工作，例如部署資料庫。
+如果您使用 [Visual Studio IDE](#vs) 進行開發，您將可使用 [MSBuild](http://msbuildbook.com/) 將任何您可在 IDE 中執行的工作自動化。您可以設定 MSBuild，以使用 [Web Deploy](#webdeploy) 或 [FTP/FTPS](#ftp) 來複製檔案。Web Deploy 也可自動化其他多種部署相關工作，例如部署資料庫。
 
 如需使用 MSBuild 進行命令列部署的詳細資訊，請參閱下列資源：
 
-* [使用 Visual Studio 的 ASP.NET Web 部署：命令列部署](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment).這是系列中的第十個教學課程，討論如何使用 Visual Studio 部署至 Azure。此課程說明在 Visual Studio 中設定發佈設定檔後，如何使用命令列進行部署。
-* [深入了解 Microsoft Build Engine：使用 MSBuild 和 Team Foundation Build](http://msbuildbook.com/)。這是實體書籍，其中有幾章會說明如何使用 MSBuild 進行部署。
+* [使用 Visual Studio 的 ASP.NET Web 部署：命令列部署](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment)。這是系列中的第十個教學課程，討論如何使用 Visual Studio 部署至 Azure。此課程說明在 Visual Studio 中設定發佈設定檔後，如何使用命令列進行部署。
+* [深入瞭解 Microsoft Build Engine： 使用 MSBuild 和 Team Foundation Build](http://msbuildbook.com/)。這是實體書籍，其中有幾章會說明如何使用 MSBuild 進行部署。
 
 ##<a name="ftp2"></a>FTP 指令碼
 
@@ -171,7 +171,7 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 
 ##<a name="powershell"></a>Windows PowerShell
 
-您可以從 [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx) 執行 MSBuild 或 FTP 部署功能。如果您這麼做，則您也可以使用 Windows PowerShell Cmdlet 的集合，使 Azure REST 管理 API 更容易呼叫。
+您可以從 [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx) (英文) 執行 MSBuild 或 FTP 部署功能。如果您這麼做，則您也可以使用 Windows PowerShell Cmdlet 的集合，使 Azure REST 管理 API 更容易呼叫。
 
 如需詳細資訊，請參閱下列資源：
 
@@ -208,16 +208,16 @@ Team Foundation Server 是 Microsoft 針對原始檔控制和團隊共同作業�
 
 ##<a name="nextsteps"></a>後續步驟
 
-在某些情況中，您可能想要能夠輕鬆地在預備版本和生產版本的 Web 應用程式之間來回切換。如需詳細資訊，請參閱 [Web Apps 上的預備部署](web-sites-staged-publishing.md)。
+在某些情況中，您可能想要能夠輕鬆地在預備版本和生產版本的 Web 應用程式之間來回切換。[如需詳細資訊，請參閱 Web Apps 上的預備部署](web-sites-staged-publishing.md)。
 
-具有備份及還原計劃是部署工作流程中相當重要的環節。如需 Web Apps 備份和還原功能的相關資訊，請參閱 [Web Apps 備份](web-sites-backup.md)。  
+具有備份及還原計劃是部署工作流程中相當重要的環節。如需 Web Apps 備份和還原功能的相關資訊，請參閱 [Web Apps 備份](web-sites-backup.md)。
 
 如需如何使用 Azure 的角色型存取控制來管理 Web Apps 部署存取的相關資訊，請參閱 [RBAC 和 Web 應用程式發行](http://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing)。
 
-如需其他部署主題的相關資訊，請參閱 [Web Apps 文件](/documentation/services/web-sites/)中的＜部署＞一節。
+如需其他部署主題的相關資訊，請參閱[ Web Apps 文件](/documentation/services/web-sites/)中的 [部署] 一節。
 
-## 相關變更
+## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊版入口網站變更為新版入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!--HONumber=49-->
+<!--HONumber=54-->

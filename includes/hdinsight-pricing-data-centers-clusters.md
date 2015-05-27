@@ -1,3 +1,5 @@
 
-> [AZURE.IMPORTANT] The storage account must be located in the same datacenter as the HDInsight cluster. For available datacenters, see the **Regions** menu on the [HDInsight Pricing page](/pricing/details/hdinsight/).
+> [AZURE.IMPORTANT]儲存體帳戶必須與 HDInsight 叢集位於相同的資料中心。如需可用的資料中心，請參閱 [HDInsight 定價頁面](/pricing/details/hdinsight/) 上的 [區域]**** 功能表。
 
+
+<!--HONumber=54-->

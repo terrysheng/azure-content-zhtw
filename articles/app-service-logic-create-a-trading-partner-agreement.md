@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="在 Microsoft Azure 應用程式服務中建立交易夥伴協議" 
    description="建立交易夥伴協議" 
    services="app-service\logic" 
@@ -19,10 +19,10 @@
 
 # 建立交易夥伴協議   
 
-交易夥伴是指涉及 B2B  (企業對企業) 通訊的實體。當兩個夥伴建立關係時，這稱為「 *Agreement*」。定義的協議會以這兩個夥伴想要達成的通訊為基礎，且是特定的通訊協定或傳輸。支援各種 B2B 通訊協定和傳輸  Azure 應用程式服務包括：
+交易夥伴是指涉及 B2B (企業對企業) 通訊的實體。當兩個夥伴建立關係時，這稱為*協議*。定義的協議會以這兩個夥伴想要達成的通訊為基礎，且是特定的通訊協定或傳輸。Azure App Service 支援的各種 B2B 通訊協定和傳輸包括：
 
 - AS2 (Applicability Statement 2)
-- EDIFACT (聯合國/行政、商業、傳輸的電子資料交換  (UN/EDIFACT))
+- EDIFACT (聯合國/行政、商業、傳輸的電子資料交換 (UN/EDIFACT))
 - X12 (ASC X12)
 
 ### 支援 B2B 案例的 BizTalk API 應用程式
@@ -77,5 +77,4 @@
 [2]: ./media/app-service-logic-create-a-trading-partner-agreement/ProtocolSelection.jpg
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg
 
-
-<!--HONumber=49-->
+<!--HONumber=54-->

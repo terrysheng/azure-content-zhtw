@@ -1,35 +1,35 @@
-﻿<properties 
+<properties 
 	pageTitle="" 
-	description="" 
+	description="說明您在 Visual Studio 中的 Azure 行動服務專案的情形 " 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-what-happened" 
-	ms.devlang="na" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="NA" 
+	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# 我的專案發生什麼情形？
 
 > [AZURE.SELECTOR]
-> - [開始使用](vs-mobile-services-javascript-getting-started.md)
-> - [發生什麼情形](vs-mobile-services-javascript-what-happened.md)
+> - [Getting Started](vs-mobile-services-javascript-getting-started.md)
+> - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
 ###<span id="whathappened">我的專案發生什麼情形？</id>
 
 #####加入參考
 
-Windows Azure 行動服務程式庫以 **MobileServices.js** 檔案的形式加入至專案。
+Azure 行動服務程式庫已使用 **MobileServices.js** 檔案的形式新增至專案。
   
 #####行動服務的連接字串值 
 
-在  `services\mobileServices\settings` 資料夾中，已產生一個含有 **MobileServiceClient** 的新的 JavaScript (.js) 檔案，內含所選行動服務的應用程式 URL 和應用程式金鑰。  
+在 `services\mobileServices\settings` 資料夾中，已產生一個含有 **MobileServiceClient** 的新的 JavaScript (.js) 檔案，其中包含所選行動服務的應用程式 URL 和應用程式金鑰。
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

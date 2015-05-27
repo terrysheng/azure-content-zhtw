@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Azure Mobile Engagement Android SDK 整合" 
 	description="Android SDK for Azure Mobile Engagement 的最新更新和程序"
 	services="mobile-engagement" 
@@ -19,63 +19,63 @@
 
 #升級程序
 
-如果您已經將較舊版本的 SDK 整合到應用程式中，則在升級 SDK 時必須考慮下列幾點。
+如果您已經整合我們的舊版 SDK 到您的應用程式，在升級 SDK 時您必須考慮以下幾點。
 
-如果您遺漏數個版本的 SDK，則可能要遵循數個程序。例如，如果您從 1.4.0 移轉到 1.6.0，必須先遵循＜從 1.4.0 到 1.5.0＞程序，再遵循＜從 1.5.0 到 1.6.0＞程序。
+如果您有錯過幾個版本的 SDK，您必須遵循幾個步驟。例如，如果您要從 1.4.0 移轉到 1.6.0，必須先遵循「從 1.4.0 到 1.5.0」的程序，然後再依照「從 1.5.0 到 1.6.0」的程序進行。
 
-不論您升級開始的版本為何，都必須將所有 `mobile-engagement-VERSION.jar` 取代為新的。
+不論您升級開始的版本為何，都必須將所有 `mobile-engagement-VERSION.jar` 替換為新的。
 
 ###從 2.4.0 到 3.0.0
 
-以下說明如何從 Capptain SAS 提供的 Capptain 服務，將 SDK 整合移轉到由 Azure Mobile Engagement 提供的應用程式。 
+以下說明如何將 SDK 整合從 Capptain SAS 提供的 Capptain 服務，移轉到由 Azure Mobile Engagement 提供的應用程式內。
 
->[AZURE.IMPORTANT] Capptain 和 Mobile Engagement 不是相同的服務，以下所提供的程序只強調如何移轉用戶端應用程式。移轉應用程式中的 SDK 不會將您的資料從 Capptain 伺服器移轉到 Mobile Engagement 伺服器
+>[AZURE.IMPORTANT]Capptain 和 Mobile Engagement 是不同的服務，而以下程序只專注在移轉用戶端應用程式。移轉應用程式中的 SDK「不會」將您的資料從 Capptain 伺服器移轉到 Mobile Engagement 伺服器
 
-如果您從舊版移轉，請參閱 Capptain 網站，先移轉到 2.4，然後再套用下列程序
+如果您是從較早版本移轉，請參閱 Capptain 網站，先移轉到 2.4 後再套用以下程序
 
 #### JAR 檔案
 
-在 `libs` 資料夾中，將 `capptain.jar` 取代為 `mobile-engagement-VERSION.jar`。
+將 `libs` 資料夾中的 `capptain.jar` 以 `mobile-engagement-VERSION.jar`取代。
 
 #### 資源檔
 
-我們提供的每個資源檔 (前置詞為 `capptain_`) 都必須取代為新的資源檔 (前置詞為 `engagement_`)。
+我們提供的每個資源檔 (前置詞為 `capptain_`) 都必須替換為新的資源檔 (前置詞為 `engagement_`)。
 
-如果您已自訂那些檔案，則必須在新的檔案上重新套用自訂，**資源檔中的所有識別碼也已重新命名**。
+如果您已自訂這些檔案，則必須在新的檔案上重新套用自訂，****資源檔中的所有識別碼也已重新命名。
 
 #### 應用程式識別碼
 
 現在 Engagement 使用連接字串來設定 SDK 識別碼，例如應用程式識別碼。
 
-您必須在啟動程式活動中使用 `EngagementAgent.init` 方法，就像這樣：
+您必須在啟動程式活動中使用 `EngagementAgent.init` 方法，如下所示：
 
 			EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
 			engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
 			EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-應用程式的連接字串會顯示在 Azure 入口網站。
+您應用程式的連接字串會顯示在 Azure 入口網站。
 
 請移除對 `CapptainAgent.configure` 的所有呼叫，因為 `EngagementAgent.init` 已取代該方法。
 
-`appId` 無法再使用 `AndroidManifest.xml` 進行設定。
+無法再使用 `AndroidManifest.xml` 設定 `appId`。
 
-如果您的 `AndroidManifest.xml` 有下列區段，請將它移除：
+如果您的 `AndroidManifest.xml` 有下列區段，請將其移除：
 
 			<meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
 #### Java API
 
-對我們 SDK 任何 Java 類別的每個呼叫都必須重新命名，例如 `CapptainAgent.getInstance(this)` 必須重新命名 `EngagementAgent.getInstance(this)`、 `extends CapptainActivity` 必須重新命名 `extends EngagementActivity` 等等...
+對 SDK 任何 Java 類別的各個呼叫都必須重新命名，例如 `CapptainAgent.getInstance(this)` 必須重新命名為 `EngagementAgent.getInstance(this)`、`extends CapptainActivity` 必須重新命名為 `extends EngagementActivity`，以此類推...
 
-如果您與預設代理程式喜好設定檔進行整合，現在預設檔案名稱是 `engagement.agent`，而索引鍵為 `engagement:agent`。
+如果您已整合預設代理程式喜好設定檔，現在預設檔案名稱是 `engagement.agent`，而索引鍵為 `engagement:agent`。
 
-在建立 Web 通知時，Javascript 繫結器現在是 `engagementReachContent`。
+建立 Web 公告時，Javascript 繫結器現在是 `engagementReachContent`。
 
 #### AndroidManifest.xml
 
 這裡有許多變更，服務不再共用，且許多接收器不再可匯出。
 
-服務宣告現在更簡單，移除意圖篩選及其內所有中繼資料，然後加入 `exportable=false`。
+服務宣告現在更為簡單，移除意圖篩選及其內所有中繼資料，然後加入 `exportable=false`。
 
 再加上所有項目重新命名以使用 Engagement。
 
@@ -185,7 +185,7 @@ Reach 活動現在宣告如下：
 			
 如果您有自訂的 Reach 活動，只需要變更意圖動作，以符合 `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` 或 `com.microsoft.azure.engagement.reach.intent.action.POLL`。
 
-廣播接收器已重新命名，此外我們現在加入 `exported=false`。以下是新規格之接收器的完整清單 (當然，請只重新命名您所使用的項目)：
+廣播接收器已重新命名，此外我們現在也已加入 `exported=false`。以下是新規格之接收器的完整清單 (當然，請只重新命名您所使用的項目)：
 
 			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
 			  android:exported="false">
@@ -273,19 +273,19 @@ Reach 活動現在宣告如下：
 		    </intent-filter>
 		  </receiver>
 
-請注意，您的廣播接收器 **EngagementMessageReceiver** 實作的宣告在 `AndroidManifest.xml` 中已變更。這是因為已經移除從任意 XMPP 實體傳送和接收任意 XMPP 訊息的 API，以及在裝置之間傳送和接收訊息的 API。因此，您也必須從您的 **EngagementMessageReceiver** 實作刪除下列回呼：
+請注意，您的廣播接收器 **EngagementMessageReceiver** 實作的宣告已在 `AndroidManifest.xml` 中變更。這是因為已經移除從任意 XMPP 實體傳送和接收任意 XMPP 訊息的 API，以及在裝置之間傳送和接收訊息的 API。因此，您也必須從您的 **EngagementMessageReceiver** 實作刪除下列回呼：
 
 			protected void onDeviceMessageReceived(android.content.Context context, java.lang.String deviceId, java.lang.String payload)
 
-和
+and
 
 			protected void onXMPPMessageReceived(android.content.Context context, android.os.Bundle message)
 
-然後刪除 **EngagementAgent** 對下列的任何呼叫：
+然後刪除 **EngagementAgent** 對下列項目的任何呼叫：
 
 			sendMessageToDevice(java.lang.String deviceId, java.lang.String payload, java.lang.String packageName)
 
-和
+and
 
 			sendXMPPMessage(android.os.Bundle msg)
 
@@ -301,4 +301,4 @@ Proguard 組態受到品牌重新命名的影響，規則現在類似：
 			  <methods>;
 			}
 
-<!--HONumber=47-->
+<!--HONumber=54-->

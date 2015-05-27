@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="開始在 Xamarin Android 中使用行動應用程式的驗證" 
 	description="了解如何使用行動應用程式透過眾多識別提供者驗證 Xamarin Android 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。" 
 	services="app-service\mobile" 
@@ -22,13 +22,13 @@
 
 本主題說明如何從用戶端應用程式驗證應用程式服務行動應用程式的使用者。在本教學課程中，您將使用應用程式服務支援的身分識別提供者，將驗證新增至快速入門專案。由行動應用程式成功驗證並授權之後，就會顯示使用者識別碼值。
 
-本教學課程以行動應用程式快速入門為基礎。您也必須先完成[建立 Xamarin.Android 應用程式]教學課程。 
+本教學課程以行動應用程式快速入門為基礎。您也必須先完成[建立 Xamarin.Android 應用程式教學課程]。
 
-## <a name="register"></a>註冊應用程式進行驗證，並設定應用程式服務
+##<a name="register"></a>註冊應用程式進行驗證，並設定應用程式服務
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../includes/app-service-mobile-register-authentication.md)] 
 
-## <a name="permissions"></a>限制只有通過驗證的使用者具有權限
+##<a name="permissions"></a>限制只有通過驗證的使用者具有權限
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
 
@@ -40,13 +40,13 @@
 
 接下來，您要將應用程式更新為在要求應用程式服務的資源之前必須驗證使用者。
 
-## <a name="add-authentication"></a>將驗證新增至應用程式
+##<a name="add-authentication"></a>將驗證新增至應用程式
 
 1. 將下列屬性新增至 **TodoActivity** 類別：
 
-			private MobileServiceUser user;
+			private MobileServiceUser user;
 
-2. 將下列方法加入 **TodoActivity** 類別： 
+2. 將下列方法加入 **TodoActivity** 類別：
 
 	        private async Task Authenticate()
 	        {
@@ -61,11 +61,11 @@
 	            }
 	        }
 
-    這會建立新的方法來處理驗證程序。使用者透過 Facebook 登入來驗證。將出現對話方塊來顯示已驗證的使用者的識別碼。 
+    這會建立新的方法來處理驗證程序。使用者透過 Facebook 登入來驗證。將出現對話方塊來顯示已驗證的使用者的識別碼。
 
-    > [AZURE.NOTE] 如果您使用的身分識別提供者不是 Facebook，請將傳給上述 **LoginAsync** 的值變更為下列其中一個：_MicrosoftAccount_、_Twitter_、_Google_ 或 _WindowsAzureActiveDirectory_。
+    > [AZURE.NOTE]如果您使用的身分識別提供者不是 Facebook，請將傳給上述 **LoginAsync** 的值變更為下列其中一個：_MicrosoftAccount_、_Twitter_、_Google_ 或 _WindowsAzureActiveDirectory_。
 
-3. 在 **OnCreate** 方法中，在具現化  `MobileServiceClient` 物件的程式碼後面新增下列這一行程式碼。
+3. 在 **onCreate** 方法中，在具現化 `MobileServiceClient` 物件的程式碼後面加入下列這一行程式碼。
 
 		// Get the Mobile App Table instance to use
         toDoTable = client.GetTable <ToDoItem> ();
@@ -75,17 +75,17 @@
 	此呼叫會啟動驗證程序再非同步等候它。
 
 
-4. 從 [**執行**] 功能表，按一下 [**執行**] 來啟動應用程式，並以您選擇的身分識別提供者登入。 
+4. 從 [執行]**** 功能表，按一下 [執行]**** 來啟動應用程式，並以您選擇的身分識別提供者登入。
 
    	當您成功登入後，應用程式將會顯示 todo 項目的清單，您可以對資料進行更新。
 
 
 <!-- URLs. -->
-[提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 
-[建立 Xamarin.Android 應用程式]: app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md
+[建立 Xamarin.Android 應用程式教學課程]: app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md
 
-[Azure 管理入口網站]: https://portal.azure.com
+[Azure Management Portal]: https://portal.azure.com
 
-<!--HONumber=49-->
+<!--HONumber=54-->

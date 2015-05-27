@@ -1,9 +1,9 @@
-﻿<properties 
-	pageTitle="Azure Mobile Engagement Windows 市集 SDK 版本資訊" 
-	description="適用於 Azure Mobile Engagement 的 Windows 市集 SDK 之最新的更新與程序" 					
+<properties 
+	pageTitle="Windows 通用 app SDK 版本資訊" 
+	description="Azure Mobile Engagement - Windows 通用 app SDK 版本資訊"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="lalathie" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -11,12 +11,23 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/02/2015" 
+	ms.author="piyushjo" />
 
-#版本資訊
+#Windows 通用 app SDK 版本資訊
+
+##3.0.1 (2015/04/29)
+
+-   已修復影響 SDK 在部分 Windows Phone WinRT 應用程式上的初始化錯誤。
+
+##3.0.0 (2015/04/03)
+
+-   導入了跨平台 app (Windows 和 Windows Phone WinRT) 的 Mobile Engagement SDK。
+-   預設通知圖示已更新。
+-   按一下通知時，會傳回系統通知動作回饋。
+-   已修復系統通知有時在點選後於應用程式內重播的狀況。
 
 ##2.0.0 (2015/02/17)
 
@@ -25,4 +36,4 @@
 -   增強安全性。
 
 
-<!--HONumber=47-->
+<!--HONumber=54-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="使用排程器來排程後端工作 - 行動服務" 
 	description="使用 Azure 行動服務排程工具排程行動應用程式的工作。" 
 	services="mobile-services" 
@@ -18,9 +18,9 @@
 
 # 在行動服務中為週期性工作排程 
 
-> [AZURE.SELECTOR-LIST (平台 | 後端)]
-- [(任何 | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [(任何 | Javascript)](mobile-services-schedule-recurring-tasks.md)
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
  
 本主題將示範如何在管理入口網站中使用工作排程器功能，以根據您所定義的排程來，從而定義要執行的伺服器指令碼。在此情況下，指令碼會定期向遠端服務 (在此案例中為 Twitter) 查詢，並將結果儲存在新資料表中。可排定的其他一些定期工作包括：
 
@@ -42,23 +42,23 @@
 
 接下來，您必須建立要儲存推文的新資料表。
 
-2. 在管理入口網站中，按一下行動服務的 [**資料**] 索引標籤，然後按一下 [**+建立**]。
+2. 在管理入口網站中，按一下行動服務的 [資料]**** 索引標籤，然後按一下 [建立]****。
 
-3. 在 [**資料表名稱**] 中輸入 _Updates_，然後按一下核取按鈕。
+3. 在 [資料表名稱]**** 中輸入 _Updates_，然後按一下核取按鈕。
 
 ##<a name="add-job"></a>建立新的排定工作  
 
 現在，您可以建立可存取 Twitter 並將推文資料儲存於全新 Updates 資料表中的排定工作。
 
-2. 按一下 [**排程器**] 索引標籤，然後按一下 [**+建立**]。 
+2. 按一下 [排程器]**** 索引標籤，然後按一下 [建立]****。 
 
-    >[AZURE.NOTE]當您在<em>免費</em> 層中執行行動服務時，您一次只能執行一個排定工作。在付費層中，您一次可以執行多達十個排定工作。
+    >[AZURE.NOTE]當您在<em>免費</em>層中執行行動服務時，您一次只能執行一個排定工作。在付費層中，您一次可以執行多達十個排定工作。
 
-3. 在排程器對話方塊的 [**工作名稱**] 中輸入 _getUpdates_，設定排程間隔和單位，然後按一下核取按鈕。 
+3. 在排程器對話方塊的 [工作名稱]__ 中輸入 **getUpdates**、設定排程間隔和單位，然後按一下核取按鈕。
 
-   	這會建立名為 **getUpdates** 的新工作。 
+   	這會建立名為 **getUpdates** 的新工作。
 
-4. 按一下您剛才建立的新工作，按一下 [**指令碼**] 索引標籤，將預留位置函數 **getUpdates** 取代為下列程式碼：
+4. 按一下您剛才建立的新工作，按一下 [指令碼]**** 索引標籤，將預留位置函數 **getUpdates** 取代為下列程式碼：
 
 		var updatesTable = tables.getTable('Updates');
 		var request = require('request');
@@ -138,13 +138,13 @@
 
     >[AZURE.NOTE]本範例會假設每次排定執行期間，資料表只會插入幾個資料列。倘若一個迴圈會在免費層上執行插入許多資料列，則您可能會沒有足夠的連線。在此情況下，您應該以批次方式執行插入。如需詳細資訊，請參閱<a href="/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">作法：執行大量插入</a>。
 
-6. 按一下 [**執行一次**] 以測試指令碼。 
+6. 按一下 [執行一次]**** 以測試指令碼。
 
    	當工作在排程器中維持停用狀態時，這麼做會儲存並執行工作。
 
-7. 按 [上一步] 按鈕，再依序按一下 [**資料**]、[**Updates**] 資料表、[**瀏覽**]，並驗證 Twitter 資料是否已插入資料表中。
+7. 按 [上一步] 按鈕，再依序按一下 [資料]****、[Updates]**** 資料表、[瀏覽]****，並驗證 Twitter 資料是否已插入資料表中。
 
-8. 按 [上一步] 按鈕，再按一下 [**排程器**]、選取 [**getUpdates**]，然後按一下 [**啟用**]。
+8. 按 [上一步] 按鈕，再按一下 [排程器]****、選取 [getUpdates]****，然後按一下 [啟用]****。
 
    	這會讓工作在指定的排程上執行，在此案例中為每個小時。
 
@@ -152,14 +152,13 @@
 
 ## <a name="nextsteps"> </a>後續步驟
 
-* [行動服務伺服器指令碼參考]
-  <br/>深入了解註冊及使用伺服器指令碼。
+* [行動服務伺服器指令碼參考] <br/>深入了解如何註冊和使用伺服器指令碼。
 
 <!-- Anchors. -->
 [註冊以取得 Twitter 存取權與儲存認證]: #get-oauth-credentials
 [建立新的 Updates 資料表]: #create-table
 [建立新的排定工作]: #add-job
-[後續步驟]: #next-steps
+[Next steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-my-apps.png
@@ -178,9 +177,9 @@
 <!-- URLs. -->
 [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
-[Azure 管理入口網站]: https://manage.windowsazure.com/
-[在行動服務中註冊您的應用程式以進行 Twitter 登入]: /develop/mobile/how-to-guides/register-for-twitter-authentication
-[Twitter 開發人員]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[應用程式設定]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
+[Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=49-->
+<!--HONumber=54-->

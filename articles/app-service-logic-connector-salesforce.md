@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Salesforce 連接器" 
    description="如何使用 Salesforce 連接器" 
    services="app-service\logic" 
@@ -17,9 +17,9 @@
    ms.author="sutalasi"/>
 
 
-# 在邏輯應用程式中使用 Saleforce 連接器#
+#在邏輯應用程式中使用 Saleforce 連接器#
 
-邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。Salesforce 連接器可讓您建立和修改不同的實體 (例如帳戶、潛在客戶等等)。以下是有關 Salesforce 的一般整合案例。
+邏輯應用程式可以根據各種資料來源和提供項目連接器觸發，以在流程中取得和處理資料。Salesforce 連接器可讓您建立和修改不同的實體，例如帳戶、潛在客戶等。以下是涉及 Salesforce 的典型整合案例。
 
 - Salesforce 和 ERP 系統 (例如 SAP 和 QuickBooks) 之間的帳戶同步處理	
 
@@ -39,8 +39,19 @@
 - 執行查詢：使用此動作可執行以 Salesforce 物件查詢語言 (SOQL) 撰寫的 SELECT 查詢
 
 
-## 建立邏輯應用程式##
-若要在邏輯應用程式中使用 Salesforce 連接器，您應該已經建立好 API 應用程式連接器，或者您可以在邏輯應用程式中即時建立一個連接器。讓我們建立一個可在 Salesforce 中建立帳戶，並更新相同帳戶之帳單寄送地址詳細資料的簡單邏輯應用程式。
+##建立 SalesForce 連接器 API 應用程式##
+1.	使用 Azure 入口網站右下方的 [+新增] 選項開啟 Azure Marketplace。
+2.	瀏覽至 [Web 與行動] > [API 應用程式]，並搜尋 SalesForce。
+3.	設定 SalesForce 連接器，方法為提供裝載方案及資源群組的詳細資料，並選取 API 應用程式的名稱。
+
+	![][15]
+4. 設定 [封裝設定] 中您有興趣讀取/寫入的 SalesForce 實體。
+
+完成上述步驟後，您現在即可建立 SalesForce 連接器 API 應用程式。
+
+
+##建立邏輯應用程式##
+讓我們建立一個可在 Salesforce 中建立帳戶，並更新相同帳戶之帳單寄送地址詳細資料的簡單邏輯應用程式。
 
 1.	登入 Azure 入口網站，並按一下 [新增] -> [Web + 行動] -> [邏輯應用程式]
 
@@ -58,16 +69,12 @@
 
     ![][4]
 
-5.	在組件庫中展開 [新建]，以查看所有可用的 API 應用程式。從組件庫中選取 [Salesforce]，[Salesforce 連接器] 便會被新增至流程。
+5.	展開組件庫中的 [此資源群組中的 API 應用程式] 來查看所有可用的 API 應用程式。從組件庫中選取 [Salesforce]，[Salesforce 連接器] 便會被新增至流程。
 
-
-6.	[Salesforce 實體] 的預設值是 [帳戶、潛在客戶、商機、案例、連絡人]。您可以新增其他實體，包括 Salesforce 帳戶中可用的自訂實體，然後按一下 [✓]。
 
 	![][5]
 
-7.	這便會在與邏輯應用程式相同的資源群組中建立新的 [Salesforce 連接器] API 應用程式。建立 API 應用程式大約需要 30 秒的時間。
-
-8.	建立應用程式之後，按一下 [授權] 以提供 Salesforce 登入認證。
+8.	若要授權您的邏輯應用程式存取您的 SalesForce 帳戶，請按一下 [授權] 以提供 Salesforce 登入認證。
 
 	![][6]
 
@@ -85,17 +92,17 @@
 
 	![][10]
 
-12.	提供 [帳戶名稱]，然後按一下 [✓]。 
+12.	提供 [帳戶名稱]，然後按一下 [✓]。
 
 	![][11]
 
-13.	從組件庫的 [最近使用的] 區段中選取 [Salesforce 連接器]，即會新增新的 Salesforce 動作。
+13.	從組件庫的 [最近使用的] 區段中選取 [Salesforce 連接器]，即會新增 Salesforce 動作。
 
 14.	從動作清單中選取 [更新帳戶]，[更新帳戶] 動作的輸入參數便會隨即顯示。
 
 	![][12]
 
-15.	按一下 [記錄識別碼] 旁邊的 [+]，並從 [建立帳戶] 動作的輸出中挑選識別碼值。 
+15.	按一下 [記錄識別碼] 旁邊的 [+]，並從 [建立帳戶] 動作的輸出中挑選識別碼值。
 
 	![][13]
 
@@ -103,11 +110,11 @@
 
 	![][14]
 
-17. 在邏輯應用程式編輯器畫面上按一下 [確定]，然後按一下 [ 'Create']。完成建立大約需要 30 秒的時間。
+17. 按一下邏輯應用程式編輯器畫面上的 [確定]，然後按一下 [建立]。完成建立大約需要 30 秒的時間。
 
-18. 瀏覽剛建立的邏輯應用程式，然後按一下 [ 'Run'] 以啟動該應用程式。
+18. 瀏覽剛建立的邏輯應用程式，然後按一下 [執行] 以啟動該應用程式。
 
-19. 您可以檢查 Salesforce 帳戶中是否已建立名為 'Contoso' 的新帳戶。
+19. 您可以檢查 Salesforce 帳戶中是否已建立名為 Contoso 的新帳戶。
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-salesforce/1_New_Logic_App.png
@@ -124,7 +131,8 @@
 [12]: ./media/app-service-logic-connector-salesforce/12_Salesforce_Update_Account.png
 [13]: ./media/app-service-logic-connector-salesforce/13_Record_ID_from_Create.png
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
+[15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="行動服務中使用 .NET 後端的使用者服務端授權 |行動開發人員中心"
 	description="了解如何在 Azure 行動服務的 .NET 後端為使用者授權。"
 	services="mobile-services"
@@ -16,23 +16,23 @@
 
 # 在行動服務中的使用者服務端授權
 
-> [AZURE.SELECTOR-LIST (平台 | 後端)]
-- [(任何 | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(任何 | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
+- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
 本主題說明如何使用伺服器端邏輯來授權使用者。在此教學課程中，您根據使用者識別碼在NET 篩選查詢中修改資料存取方法，並且只提供使用者對自己資料的存取權。
 
-本教學課程是根據行動服務快速入門，並且以[將驗證新增至現有的行動服務應用程式]教學課程為基礎而建立。請先完成[將驗證新增至現有的行動服務應用程式]。
+本教學課程是根據＜行動服務快速入門＞，並且以[將驗證新增至現有的行動服務應用程式]教學課程為基礎而建立。請先完成[將驗證新增至現有的行動服務應用程式]。
 
 ## <a name="register-scripts"></a>修改資料存取方法
 
-1. 在 Visual Studio 中開啟行動專案，展開 DataObjects 資料夾，然後開啟 **TodoItem.cs**。**TodoItem** 類別可定義資料物件，而且您需要新增 **UserId** 屬性才能使用於篩選。將下列新 UserId 屬性新增至 **TodoItem** 類別：
+1. 在 Visual Studio 中開啟行動專案，展開 DataObjects 資料夾，然後開啟 **TodoItem.cs**。**TodoItem** 類別可定義資料物件，而且您需要新增 **UserId** 屬性才能用於篩選。將下列新 UserId 屬性新增至 **TodoItem** 類別：
 
 		public string UserId { get; set; }
 
-	>[AZURE.NOTE] 若要讓此資料模型變更，並保有資料庫中的現有資料，您必須使用 [Code First 移轉](/ zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations)。
+	>[AZURE.NOTE]若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 [Code First 移轉](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)。
 
-2. 在 Visual Studio 中，展開 Controllers 資料夾，然後開啟 **TodoItemController.cs**。尋找 **PostTodoItem** 方法，並將下列程式碼新增至方法開頭：這個程式碼會將已驗證使用者的使用者識別碼新增至項目 (在它插入到 TodoItem 資料表之前)。
+2. 在 Visual Studio 中，展開 Controllers 資料夾，然後開啟 **TodoItemController.cs**。尋找 **PostTodoItem** 方法，並將下列程式碼新增至方法開頭。這個程式碼會將已驗證使用者的使用者識別碼新增至項目 (在它插入到 TodoItem 資料表之前)。
 
 			// Get the logged in user
 			var currentUser = User as ServiceUser;
@@ -40,7 +40,7 @@
 			// Set the user ID on the item
 			item.UserId = currentUser.Id;
 
-3. 尋找 **GetAllTodoItems** 方法，並使用下行程式碼取代現有的 **return** 陳述式：這個查詢會篩選傳回的 TodoItem 物件，讓每個使用者只會收到他們所插入的項目。
+3. 找出 **GetAllTodoItems** 方法，並使用下行程式碼行取代現有的 **return** 陳述式：This query filters the returned TodoItem objects so that each user only receives the items that they inserted.
 
 				// Get the logged in user
 				var currentUser = User as ServiceUser;
@@ -59,19 +59,19 @@
 
 
 <!-- Anchors. -->
-[註冊伺服器指令碼]: #register-scripts
-[後續步驟]:#next-steps
+[Register server scripts]: #register-scripts
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 
 [3]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started
-[開始使用資料]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
-[將驗證新增至現有的行動服務應用程式]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
-[開始使用推播通知]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
+[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
+[將驗證新增至現有的行動服務應用程式]: mobile-services-dotnet-backend-ios-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
 
-[行動服務 .NET 做法概念性參考]: /zh-tw/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!--HONumber=45--> 
+<!--HONumber=54-->

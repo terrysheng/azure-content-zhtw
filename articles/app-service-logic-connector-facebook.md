@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
    pageTitle="Facebook 連接器 API 應用程式" 
    description="如何使用 Facebook 連接器" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="adgoda" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -19,22 +19,22 @@
 
 # 在邏輯應用程式中使用 Facebook 連接器 #
 
-邏輯應用程式可根據各種資料來源觸發，並提供連接器以在流程中取得和處理資料。 
+邏輯應用程式可以根據各種資料來源和提供項目連接器觸發，以在流程中取得和處理資料。
 
 Facebook 連接器可讓您從 Facebook 帳戶擷取「使用者時間軸上的新貼文」、「網頁上的新貼文」、「發佈貼文」、「發佈相片」等。
 
-- Facebook 連接器觸發程序將會擷取「使用者時間軸上的新貼文」或「網頁上的新貼文」。擷取新的推文時，就會觸發流程的新執行個體，並將在要求中接收的資料傳遞至流程進行處理。 
-- Facebook 連接器動作可讓您「發佈貼文」、「發佈相片 」等等。這些動作將取得回應並使其可用於要取用的流程中的動作。
+- Facebook 連接器觸發程序將會擷取「使用者時間軸上的新貼文」或「網頁上的新貼文」。擷取到新推文時，它會觸發流程的新執行個體，並將要求中所收到的資料傳遞到處理的流程中。 
+- Facebook 連接器動作可讓您「發佈貼文」、「發佈相片 」等等。這些動作會取得回應，並可供流程中的動作取用。
 
 ## 建立邏輯應用程式的 Facebook 連接器 ##
-若要使用 Facebook 連接器，您必須先建立 Facebook 連接器 API 應用程式的執行個體。如下所示完成此作業：
+若要使用 Facebook 連接器，您必須先建立 Facebook 連接器 API 應用程式的執行個體。如下所示，完成此作業：
 
-1.	使用 Azure 入口網站左下方的 [+ 新增] 選項，開啟 Azure Marketplace。
+1.	使用 Azure 入口網站左下方的 [+新增] 選項開啟 Azure Marketplace。
 2.	瀏覽至 [Web 與行動] > [API 應用程式]，並搜尋 [Facebook 連接器]。
 3.	設定 Facebook 連接器，如下所示：
  
 	![][1]
-4.	按一下 [確定] 來建立。
+4.	按一下 [確定] 以建立。
 5.	一旦建立 API 應用程式執行個體，您即可在相同的資源群組中建立邏輯應用程式以使用 Facebook 連接器。 
 	- 也可以從邏輯應用程式建立 Facebook 連接器 API 應用程式執行個體。 
 	- 開啟邏輯應用程式編輯器，然後按一下右邊組件庫中可用的 Facebook 連接器
@@ -47,7 +47,7 @@ Facebook 連接器可讓您從 Facebook 帳戶擷取「使用者時間軸上的�
 1.	建立新的邏輯應用程式，並選擇具有 Facebook 連接器的相同資源群組。
  
 	![][2]
-2.	開啟 [觸發程序和動作]，以開啟 [邏輯應用程式設計工具] 並設定您的流程。 
+2.	開啟 [觸發程序和動作] 以開啟邏輯應用程式設計工具，並設定您的流程。 
  
 	![][3]
 3.	Facebook 連接器就會出現在右邊組件庫的 [最近使用] 區段中。選取該項目。
@@ -58,9 +58,7 @@ Facebook 連接器可讓您從 Facebook 帳戶擷取「使用者時間軸上的�
 	![][5]
 5.	允許 [Azure AppService 邏輯應用程式] 
 
-	![][6]
-	![][7]
-	![][8]     
+	![][6] ![][7] ![][8]     
 6.	選取觸發程序。
  
 	![][9]
@@ -71,8 +69,9 @@ Facebook 連接器可讓您從 Facebook 帳戶擷取「使用者時間軸上的�
  
 	![][11]
 
+**提示** - 若要取得 Facebook 頁面識別碼或 Yammer 群組識別碼，請在 URL 中尋找數值代碼。
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-facebook/img1.png
 [2]: ./media/app-service-logic-connector-facebook/img2.png
 [3]: ./media/app-service-logic-connector-facebook/img3.png
@@ -85,4 +84,4 @@ Facebook 連接器可讓您從 Facebook 帳戶擷取「使用者時間軸上的�
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!--HONumber=49-->
+<!--HONumber=54-->

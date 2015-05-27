@@ -1,36 +1,36 @@
-﻿<properties 
+<properties 
 	pageTitle="處理行動服務 (iOS) 中的離線資料衝突 | 行動開發人員中心" 
-	description="了解您在 iOS 應用程式中同步離線資料時應如何使用 Azure 行動服務處理衝突" 
+	description="了解您在 iOS 應用程式中同步離線資料時如何使用 Azure 行動服務處理衝突" 
 	documentationCenter="ios" 
 	authors="krisragh" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="dotnet" 
+	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="01/26/2015" 
-	ms.author="krisragh,donnam"/>
+	ms.date="04/16/2015" 
+	ms.author="krisragh;donnam"/>
 
 
 # 處理行動服務中的離線資料同步衝突
 
-[WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
 
 本主題將說明在使用 Azure 行動服務的離線功能時，應如何同步處理資料及處理衝突。本教學課程會以先前的教學課程[開始使用離線資料]中的步驟和範例應用程式為基礎。在開始本教學課程之前，您必須先完成[開始使用離線資料]。
 
->[AZURE.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。
+>[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。
 
 本教學課程將逐步引導您完成下列基本步驟：
 
 1. [更新應用程式專案以允許編輯]
 2. [更新待辦事項清單檢視控制器]
 3. [新增待辦事項檢視控制器]
-4. [將待辦事項檢視控制器和 segue 新增至腳本]
+4. [將待辦事項檢視控制和 Segue 新增至腳本]
 5. [將事項詳細資料新增至待辦事項檢視控制器]
 6. [新增儲存編輯內容的支援]
 7. [衝突處理問題]
@@ -41,7 +41,7 @@
 
 ## 完成開始使用離線資料教學課程
 
-遵循[開始使用離線資料]教學課程中的指示完成該專案。我們將使用在該教學課程中完成的專案，作為本教學課程的起點。
+遵循[開始使用離線資料]教學課程中的指示，完成該專案。我們將使用在該教學課程中完成的專案，作為本教學課程的起點。
 
 ## <a name="update-app"></a>更新應用程式專案以允許編輯
 
@@ -51,7 +51,7 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 
 ### <a name="update-list-view"></a>更新待辦事項清單檢視控制器
 
-1. 在 Xcode 的 [專案導覽] 中選取 [MainStoryboard_iPhone.storyboard]****，然後選取 [待辦事項清單檢視控制器]****。選取資料表檢視儲存格，並將其 [配件] 模式設為 [**公開指標**]。公開指標會為使用者指出如果他們點選了相關聯的資料表檢視控制器，就會顯示新的檢視。公開指標不會產生事件。
+1. 在 Xcode 的 [專案導覽] 中選取 [MainStoryboard_iPhone.storyboard]****，然後選取 [待辦事項清單檢視控制器]****。選取資料表檢視儲存格，並將其 [配件] 模式設為 [公開指標]****。公開指標會為使用者指出如果他們點選了相關聯的資料表檢視控制器，就會顯示新的檢視。公開指標不會產生事件。
 
       ![][update-todo-list-view-controller-2]
 
@@ -72,7 +72,7 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 
         typedef void (^ItemEditCompletionBlock) (NSDictionary *editedItem);
 
-3. 在 **QSItemViewController.h** 中，新增一個用來包含要修改之項目的屬性，以及為使用者按下詳細資料檢視中 [下一步] 按鈕後所叫用的回呼新增一個屬性：
+3. 在 **QSItemViewController.h** 中，新增一個用來包含要修改之項目的屬性，以及為使用者按下詳細資料檢視中 [返回] 按鈕後所叫用的回呼新增一個屬性：
 
         @property (nonatomic, weak) NSMutableDictionary *item;
         @property (nonatomic, strong) ItemEditCompletionBlock editCompleteBlock;
@@ -106,7 +106,7 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
                         forControlEvents:UIControlEventValueChanged];
         }
 
-6. 在 **QSItemViewController.m**中，另外新增四個用來處理已編輯控制事件的方法：
+6. 在 **QSItemViewController.m** 中，另外新增四個用來處理已編輯控制事件的方法：
 
         - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
             [textField resignFirstResponder];
@@ -123,7 +123,7 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
             [[self view] endEditing:YES];
         }
 
-7. 在 **QSItemViewController** 中， 還要新增下列方法，以便在使用者按下導覽列中 [**上一頁**] 按鈕時呼叫。此方法可以在其他事件時呼叫，所以我們會先檢查父檢視。如果項目有任何變更，則會修改 **self.item** 以及呼叫回呼 **editCompleteBlock**：
+7. 在 **QSItemViewController** 中，還要新增下列方法，以便在使用者按下導覽列中 [返回]**** 按鈕時呼叫。此方法可以在其他事件時呼叫，所以我們會先檢查父檢視。如果項目有任何變更，則會修改 **self.item** 以及呼叫 **editCompleteBlock** 回呼：
 
         - (void)didMoveToParentViewController:(UIViewController *)parent
         {
@@ -143,15 +143,15 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
             }
         }
 
-### <a name="add-segue"></a>將待辦事項檢視控制器和 segue 新增至腳本
+### <a name="add-segue"></a>將待辦事項檢視控制器和 Segue 新增至腳本
 
 1. 使用 [專案導覽] 返回 **MainStoryboard_iPhone.storyboard** 檔案。
 
-2. 在腳本中現有的 [待辦事項清單檢視控制器] ****右側，為待辦事項新增檢視控制器。將此檢視控制器的自訂類別設為 [**QSTodoItemViewController**]。若要深入了解，請參閱[將場景新增至腳本]。
+2. 在腳本中現有的 [待辦事項清單檢視控制器]**** 右側，為待辦事項新增檢視控制器。將此新檢視控制器的自訂類別設為 **QSItemViewController**。若要深入了解，請參閱[將場景新增至腳本]。
 
-3. 將 [**待辦事項清單檢視控制器**] 中的 **Show** segue 新增至 [**待辦事項檢視控制器**]。然後，在屬性偵測器中，將 segue 識別碼設定為 **detailSegue**。 
+3. 將 [待辦事項清單檢視控制器]**** 中的 **Show** segue 新增至 [待辦事項檢視控制器]****。然後，在屬性偵測器中，將 segue 識別碼設定為 **detailSegue**。
 
-    請不要從原始檢視控制器中的任何儲存格或按鈕建立此 segue。您應按住 CTRL，然後在腳本介面中，從 [**待辦事項清單檢視控制器**] 上的檢視控制器圖示拖曳至 [**待辦事項檢視控制器**]。
+    請不要從原始檢視控制器中的任何儲存格或按鈕建立此 segue。您應按住 CTRL，然後在腳本介面中，從 [待辦事項清單檢視控制器]**** 上的檢視控制器圖示拖曳至 [待辦事項檢視控制器]****：
 
     ![][todo-list-view-controller-add-segue]
 
@@ -159,19 +159,19 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 
         Nested push animation can result in corrupted navigation bar
 
-    若要深入了解 Segue，請參閱[在腳本中的場景之間新增 Segue]。 
+    若要深入了解 Segue，請參閱[在腳本中的場景之間新增 Segue]。
 
-4. 將項目文字的文字欄位和完成狀態的分段控制項新增至新的 [待辦事項檢視控制器]****，連同標籤在內。在分段控制項中，將 [Segment 0]**** 的標題設為 [Yes]****，將 [Segment 1]**** 的標題設為 [No]****。將這些新欄位連接至程式碼中的出口。若要深入了解，請參閱[建置使用者介面]和[分段控制項]。
+4. 將項目文字的文字欄位和完成狀態的分段控制項新增至新的 [待辦事項檢視控制器]****，連同標籤在內。在分段控制項中，將 [區段 0]**** 的標題設為 [是]****，並將 [區段 1]**** 的標題設為 [否]****。將這些新欄位連接到程式碼中的出口。若要深入了解，請參閱[建置使用者介面]和[分段控制項]。
 
       ![][add-todo-item-view-controller-3]
 
-5. 將這些新欄位連接到已新增至 **QSItemViewController.m** 的對應出口。將項目文字欄位連接到 **itemText** 出口，並將完成狀態分段控制項連接到 **itemComplete** 出口。若要深入了解，請參閱[建立出口連線]。
+5. 將這些新欄位連接到已新增至 **QSItemViewController.m** 的對應出口。將項目文字欄位連接到 [itemText]**** 出口，並將完成狀態分段控制項連接到 [itemComplete]**** 出口。若要深入了解，請參閱[建立出口連線]。
 
-6. 將文字欄位的委派設為檢視控制器。按住 CTRL，然後在腳本介面中，從文字欄位拖曳至 [待辦事項檢視控制器] ****下的檢視控制器圖示，然後選取委派出口；這會向腳本指出此文字欄位的委派就是這個檢視控制器。
+6. 將文字欄位的委派設為檢視控制器。按住 CTRL，然後在腳本介面中，從文字欄位拖曳至 [待辦事項檢視控制器]**** 下的檢視控制器圖示，然後選取委派出口；這會向腳本指出此文字欄位的委派就是這個檢視控制器。
 
 7. 確認應用程式可在您目前所做的所有變更下運作。接著，在模擬器中執行應用程式。將項目新增至待辦事項清單，然後按一下這些項目。您將會看見項目檢視控制器 (目前是空的)。
 
-      ![][add-todo-item-view-controller-4]          ![][add-todo-item-view-controller-5]
+      ![][add-todo-item-view-controller-4] ![][add-todo-item-view-controller-5]
 
 ### <a name="add-item-details"></a>將事項詳細資料新增至待辦事項檢視控制器
 
@@ -183,7 +183,7 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 
         @property (strong, nonatomic)   NSDictionary *editingItem;
 
-3. 在 **QSTodoListViewController.m** 中實作 **tableView:didSelectRowAtIndexPath:**，以儲存所編輯的項目，然後呼叫 segue 以顯示詳細檢視。
+3. 在 **QSTodoListViewController.m** 中實作 **tableView:didSelectRowAtIndexPath:**，以儲存要編輯的項目，然後呼叫 segue 以顯示詳細檢視。
 
         - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
             NSManagedObject *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -192,7 +192,7 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
             [self performSegueWithIdentifier:@"detailSegue" sender:self];
         }
 
-4. 在 **QSTodoListViewController.m** 中實作 **prepareForSegue:sender:**，以將事項傳遞至 [**待辦事項檢視控制器**]，並指定當使用者結束詳細資料檢視時的回呼︰
+4. 在 **QSTodoListViewController.m** 中實作 **prepareForSegue:sender:**，以將事項傳遞至 [待辦事項檢視控制器]****，並指定當使用者結束詳細資料檢視時的回呼︰
 
         - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
             if ([[segue identifier] isEqualToString:@"detailSegue"]) {
@@ -238,7 +238,7 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 
 ### <a name="conflict-handling-problem"></a>衝突處理問題
 
-1. 我們將查看在兩個不同的用戶端同時嘗試修改同一項資料時，會有什麼狀況。在下面的範例清單中，沒有 "Mobile Services is Cool!" 項目我們要在某一個裝置上將此項目變更為 "I love Mobile Services!"，而在另一個裝置上將此項目變更為 "I love Azure!"。
+1. 我們將查看在兩個不同的用戶端同時嘗試修改同一項資料時，會有什麼狀況。在下面的範例清單中，沒有 "Mobile Services is Cool!" 項目 我們要在某一個裝置上將此項目變更為 "I love Mobile Services!"，而在另一個裝置上將此項目變更為 "I love Azure!"。
 
       ![][conflict-handling-problem-1]
 
@@ -269,7 +269,7 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 
 2. 在 **QSTodoService.m** 中，依照下列方式變更 **init** 行，而再次接收作為參數的同步內容委派：
 
-€
+        -(QSTodoService *)initWithDelegate:(id)syncDelegate
 
 3. 在 **QSTodoService.m** 中，將 **defaultServiceWithDelegate** 中的 **init** 呼叫變更為 **initWithDelegate**：
 
@@ -415,7 +415,7 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 
 ### <a name="test-app"></a>測試應用程式
 
-我們要對含有衝突的應用程式進行測試。請在兩個同時執行或使用應用程式和 REST 用戶端的不同應用程式執行個體中，編輯相同的項目。 
+我們要對含有衝突的應用程式進行測試。 請在兩個同時執行或使用應用程式和 REST 用戶端的不同應用程式執行個體中，編輯相同的項目。
 
 請從頂端拖曳，以在應用程式執行個體中執行重新整理動作。您現在會看見調解衝突的提示︰
 
@@ -437,7 +437,7 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 [更新應用程式專案以允許編輯]: #update-app
 [更新待辦事項清單檢視控制器]: #update-list-view
 [新增待辦事項檢視控制器]: #add-view-controller
-[將待辦事項檢視控制器和 segue 新增至腳本]: #add-segue
+[將待辦事項檢視控制和 Segue 新增至腳本]: #add-segue
 [將事項詳細資料新增至待辦事項檢視控制器]: #add-item-details
 [新增儲存編輯內容的支援]: #saving-edits
 [衝突處理問題]: #conflict-handling-problem
@@ -458,19 +458,17 @@ SDK 中的離線同步功能可讓您透過程式碼處理此類衝突，並可�
 
 
 [分段控制項]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/UIKitUICatalog/UISegmentedControl.html
-[核心資料模型編輯器說明]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
+[Core Data Model Editor Help]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
 [建立出口連線]: https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html
-[建立使用者介面]: https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html
+[建置使用者介面]: https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html
 [在腳本中的場景之間新增 Segue]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1
 [將場景新增至腳本]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
-[核心資料]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
-[在此下載預覽 SDK]: http://aka.ms/Gc6fex
-[如何使用 iOS 的行動服務用戶端程式庫]: /zh-tw/documentation/articles/mobile-services-ios-how-to-use-client-library/
-[開始使用離線 iOS 範例]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
-[開始使用離線資料]: /zh-tw/documentation/articles/mobile-services-ios-get-started-offline-data/
-[開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-ios-get-started/
-[開始使用資料]: /zh-tw/documentation/articles/mobile-services-ios-get-started-data/
+[Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
+[Download the preview SDK here]: http://aka.ms/Gc6fex
+[How to use the Mobile Services client library for iOS]: mobile-services-ios-how-to-use-client-library.md
+[Getting Started Offline iOS Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
+[開始使用離線資料]: mobile-services-ios-get-started-offline-data.md
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
+[Get started with data]: mobile-services-ios-get-started-data.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

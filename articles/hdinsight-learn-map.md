@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="HDInsight 的學習地圖 | Azure" 
 	description="取得建議的學習資源流程以完整了解 HDInsight" 
 	services="hdinsight" 
@@ -18,13 +18,12 @@
 
 
 # HDInsight 的學習地圖
-在 HDInsight 中，您可以在雲端使用 Hadoop、HBase 和自訂的叢集處理巨量資料。請遵循本頁面上的指示，透過 HDInsight 文件獲得有效的學習路徑。
+在 HDInsight 中，您可以使用 Hadoop、HBase 和自訂叢集來運用雲端中的巨量資料。依照本頁的指示，能夠有效了解 HDInsight 文件中的內容：
 
-<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/HDI.Content.Flow.svg" width="100%" height="100%">
-</object>
-
+<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/HDI.Content.Flow.svg" width="100%" height="100%"> </object>
 
 
 
 
-<!--HONumber=42-->
+
+<!--HONumber=54-->

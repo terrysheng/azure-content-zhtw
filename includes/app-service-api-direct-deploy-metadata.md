@@ -1,4 +1,8 @@
-*apiapp.json* 檔案中的大部分屬性，以及 *Metadata* 資料夾中的檔案，會影響 API 應用程式封裝在 Azure Marketplace 中的呈現方式。下列各節說明在您直接部署程式碼，而非從 Marketplace 安裝 API 應用程式時，哪些屬性和檔案會影響 API 應用程式。
+## API 應用程式中繼資料
+
+本節提供您可自訂之 API 應用程式中繼資料的相關資訊。
+
+*apiapp.json* 檔案中的大部分屬性，以及 *Metadata* 資料夾中的檔案，會影響 API 應用程式封裝在 Azure Marketplace 中的呈現方式。下列各節說明當您在 Azure 訂閱中將程式碼部署到 API 應用程式時，哪些屬性和檔案會影響 API 應用程式。
 
 ### API 應用程式識別碼 
 
@@ -10,7 +14,7 @@
 
 ### 命名空間
 
-將 `namespace` 屬性設定為 Azure Active Directory 租用戶的網域。若要尋找您的網域，請將瀏覽器開啟到 [Azure 傳統入口網站](https://manage.windowsazure.com/)，並瀏覽 \[**Active Directory**\]，然後選取 \[**網域**\] 索引標籤。例如：
+將 `namespace` 屬性設定為 Azure Active Directory 租用戶的網域。若要尋找您的網域，請將瀏覽器開啟到 [Azure 傳統入口網站](https://manage.windowsazure.com/)，並瀏覽 [**Active Directory**]，然後選取 [**網域**] 索引標籤。例如：
 
 		"namespace": "contoso.onmicrosoft.com",
 
@@ -35,4 +39,4 @@
 如需 *apiapp.json* 檔案和 *Metadata* 資料夾的詳細資訊，請參閱[建立 API 應用程式封裝](app-service-api-create-package.md)。
 
 
-<!--HONumber=52-->
+<!--HONumber=54-->

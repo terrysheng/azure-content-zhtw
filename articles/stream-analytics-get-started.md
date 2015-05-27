@@ -1,304 +1,256 @@
-﻿<properties 
-	pageTitle="開始使用 Azure Stream Analytics | Azure" 
-	description="開始使用 Azure Stream Analytics 來處理和轉換 Azure 服務匯流排事件中樞內的事件，並且將結果儲存在 Azure SQL Database 中。" 
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="paulettm" 
+<properties
+	pageTitle="開始使用串流分析：即時詐騙偵測 | Microsoft Azure"
+	description="了解如何使用串流分析利用產生的電信資料建立即時詐騙偵測解決方案。"
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="2/17/2015" 
-	ms.author="jgao" />
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="04/28/2015"
+	ms.author="jeffstok" />
 
 
-# 開始使用 Azure 資料流分析
 
-Azure 資料流分析是完全受管理的服務，可用來對雲端中的串流資料進行低延遲、高可用性、可延展的複雜事件處理。如需詳細資訊，請參閱 [Azure 資料流分析簡介][stream.analytics.introduction]和 [Azure 資料流分析文件][stream.analytics.documentation]。
+# 開始使用 Azure 串流分析：即時詐騙偵測
 
-為了讓您快速開始使用資料流分析，本教學課程將說明如何從 [Azure 服務匯流排事件中心][azure.event.hubs.documentation]使用裝置溫度讀數資料並處理資料，接著將結果輸出至 [Azure SQL Database][azure.sql.database.documentation]。下圖顯示從輸入處理到輸出的事件流程：
-  
-![Azure Stream Analytics get started flow][img.get.started.flowchart]
+Azure 串流分析是完全受管理的服務，可用來對雲端中的串流資料進行低延遲、高可用性、可延展的複雜事件處理。如需詳細資訊，請參閱 [Azure 串流分析簡介](stream-analytics-introduction.md)。
 
-##產生事件中心範例資料
-本教學課程將會利用服務匯流排事件中心快速入門應用程式 (MSDN CodeGallery 中的程式碼範例) 建立新的事件中心、產生範例裝置溫度讀數，並將裝置讀數資料傳送至事件中心。
+了解如何利用串流分析建立即時詐騙偵測的端對端解決方案。將事件帶至 Azure 事件中樞、撰寫用於彙總或警示的串流分析查詢，以及將結果傳送到輸出接收器，以即時深入了解資料。
 
-###建立服務匯流排命名空間
-範例應用程式會以預先存在的服務匯流排命名空間建立事件中心。您可以使用已佈建的服務匯流排命名空間，或依照下列步驟來建立新的命名空間：
+##案例：電信與 SIM 詐騙
 
-1.	登入 [Azure 管理入口網站][azure.management.portal]。
-2.	在 [服務匯流排] 頁面底部按一下 [**建立**]，然後依照指示建立命名空間。以 [**傳訊**] 做為類型。
-3.	按一下新建立的命名空間，然後在頁面底部按一下 [**連線資訊**]。
-4.	複製連線字串。稍後在教學課程中將會用到這些資訊。
+電信公司有大量的資料都是來電。他們想要將此資料削減至可管理的數量，並深入了解在不同時間與地理區域的客戶使用情況。他們也對即時偵測 SIM 詐騙 (同時間來自相同身分識別但不同地理位置的多通來電) 非常感興趣，以便能輕鬆藉由通知客戶或關閉服務來回應。這些都是如同標準的物聯網 (IoT) 般會產生大量遙測或感應器資料的案例 – 而且客戶想要彙總這些資料或對異常發出警示。
 
-###建立 Azure 儲存體帳戶
+##必要條件
 
-使用此範例應用程式時，必須要有 Azure 儲存體帳戶或儲存體模擬器，以維護應用程式狀態。您可以使用現有的儲存體帳戶，或依照下列步驟建立新帳戶： 
+這個案例利用 GitHub 上的事件產生器。請到[這裡](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator)下載，然後按照本教學課程中的步驟設定您的解決方案。
 
-1.	在入口網站中依序按一下 [**新增**]、[**資料服務**]、[**儲存體**]、[**快速建立**]，然後依照指示操作。
-2.	選取新建立的儲存體帳戶，然後按一下頁面底部的 [**管理存取金鑰**]。
-3.	複製儲存體帳戶名稱和其中一個存取金鑰。
+## 建立事件中樞輸入與取用者群組
 
-###產生事件中心範例資料
+這個範例應用程式會產生事件並推送至事件中樞執行個體。服務匯流排事件中樞是串流分析慣用的事件擷取方法，而您能在 [Azure 服務匯流排文件](/documentation/services/service-bus/)中深入了解事件中樞。
 
-1.	將 [Service Bus Event Hubs Getting Started.zip](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Event-Hub-286fd097) 下載並解壓縮至您的工作站。
-2.	在 Visual Studio 中開啟 **EventHubSample.sln** 方案檔案。
-3.	開啟 **app.config**。
-4.	指定服務匯流排和儲存體帳戶連線字串。金鑰名稱為 **Microsoft.ServiceBus.ConnectionString** 和 **AzureStorageConnectionString**。儲存體帳戶連線字串會採用下列格式： 	
+請按照下列步驟建立事件中樞。
 
-		DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<yourAccountKey>;
-5.	建置方案。
-6.	從 bin 資料夾中執行應用程式。使用方式如下： 
+1.	在 [Azure 入門網站][](https://manage.windowsazure.com/) 中，按一下 [新增]**** > [應用程式服務]**** > [服務匯流排]**** > [事件中樞]**** > [快速建立]****。提供名稱、區域及新的或現有命名空間，以建立新的事件中樞。  
+2.	每個串流分析工作都應該從單一事件中樞取用者群組讀取資料，這才是最佳作法。我們會帶您逐步進行下方建立取用者群組的程序，您可以[深入了解取用者群組](https://msdn.microsoft.com/library/azure/dn836025.aspx)。若要建立取用者群組，請瀏覽至剛剛建立的事件中樞，然後依序按一下 [取用者群組]**** 索引標籤、頁面最下方的 [建立]****，然後提供取用者群組的名稱。
+3.	為了授權存取事件中樞，我們需要建立一個共用存取原則。按一下事件中樞的 [設定]**** 索引標籤。
+4.	在 [共用存取原則]**** 下方，建立一個擁有[管理]****權限的新原則。 
 
-		BasicEventHubSample <eventhubname> <NumberOfMessagesToSend> <NumberOfPartitions> 
+	![共用存取原則，您可以利用管理權限來建立原則。](./media/stream-analytics-get-started/stream-ananlytics-shared-access-policies.png)
 
-	下列範例會建立具有 **16** 個資料分割的新事件中心 **devicereadings**，然後將 **200** 個事件傳送至事件中心： 
+5.	按一下頁面底部的 [儲存]****。
+6.	移至 [儀表板]****，然後按一下頁面最下方的 [連線資訊]****，並複製和儲存連線資訊。
 
-		BasicEventHubSample devicereadings 200 16
+## 設定並啟動事件產生器應用程式
 
- 	![insert image here][img.stream.analytics.event.hub.client.output] 
- 	
+我們提供的用戶端應用程式將產生範例來電中繼資料，然後推播至事件中樞。請依照下列步驟來設定此應用程式。
 
-###建立事件中心共用存取原則
-雖然服務匯流排命名空間上已有共用存取原則可用來連接到命名空間內的所有項目，但根據最佳安全性作法，我們只會為事件中心建立個別原則。
+1.	從 [https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator) 下載 TelcoGenerator 解決方案。
+2.	將 App.Config 中的 Microsoft.ServiceBus.ConnectionString 與 EventHubName 值換成事件中樞連接字串與名稱。
+3.	建立解決方案以觸發下載所需的 nuget 封裝。
+4.	啟動應用程式。使用方式如下：
 
-1.	從入口網站上的 [服務匯流排] 工作區，按一下 [服務匯流排] 命名空間名稱。
-2.	按一下頁面頂端的 [**事件中心**]。
-3.	按一下 **devicereadings**，這是本教學課程的事件中心。
-4.	按一下頁面頂端的 [**設定**]。
-5.	在 [共用存取原則] 下，使用**管理**權限建立新原則。
+    	telcodatagen [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
 
-	![][img.stream.analytics.event.hub.shared.access.policy.config]
-6.	按一下頁面底部的 [**儲存**]。
-7.	如果事件中心位於與資料流分析工作不同的訂閱中，您必須複製並儲存連線資訊，以供後續使用。若要這樣做，請按一下 [**儀表板**]，然後按一下頁面底部的 [**連線資訊**]，並儲存連線字串。
+下列範例將在 2 小時的期間內產生 1000 個事件，當中的詐騙機率約為 20%：
+
+    TelcoDataGen.exe 1000 .2 2
+
+您將會看到傳到送事件中樞的記錄。一些將在此應用程式中使用的索引鍵欄位定義如下：
+
+| Record | 定義 |
+| ------------- | ------------- |
+| CallrecTime | 電話開始時間的時間戳記 |
+| SwitchNum | 用來接通電話的電話交換機 |
+| CallingNum | 來電者的電話號碼 |
+| CallingIMSI | 國際行動用戶識別碼 (IMSI)。來電者的唯一識別碼 |
+| CalledNum | 受話方的電話號碼 |
+| CalledIMSI | 國際行動用戶識別碼 (IMSI)。受話方的唯一識別碼 |
 
 
-##準備 Azure SQL Database 以儲存輸出資料
-Azure 資料流分析可以將資料輸出至 Azure SQL Database、Azure Blob 儲存體和 Azure 事件中心。在本教學課程中，您將定義輸出至 Azure SQL Database 的工作。如需詳細資訊，請參閱「開始使用 Microsoft Azure SQL Database」。
+## 建立 Stream Analytics 工作
+現在，我們已經有了一連串的電信事件，我們可以設定串流分析工作來即時分析這些事件。
 
-###建立 Azure SQL Database
-如果您已有 Azure SQL Database 可用於本教學課程，請略過本節。
+### 佈建資料流分析工作
 
-1.	在管理入口網站中，按一下 [**新增**]、[**資料服務**]、[**SQL 資料庫**]、[**快速建立**]。指定現有或新的 SQL Database 伺服器上的資料庫名稱。
-2.	選取新建的資料庫
-3.	按一下 [**儀表板**]、按一下位於頁面右窗格上的 [**顯示連線字串**]，然後複製 **ADO.NET** 連線字串。稍後在教學課程中將會用到這些資訊。  
-4.	確定伺服器層級防火牆設定可讓您連接到資料庫。您可以在伺服器的 [設定] 索引標籤下新增新的 IP 規則，以執行此動作。如需詳細資訊 (包括如何處理動態 IP)，請參閱 [http://msdn.microsoft.com/library/azure/ee621782.aspx](http://msdn.microsoft.com/library/azure/ee621782.aspx)。
+1.	從 Azure 入口網站依序按一下 [新增]**** > [資料服務]**** > [串流分析]**** > [快速建立]****。
+2.	指定下列的值，然後按一下 [建立串流分析工作]****：
 
-###建立輸出資料表
-1.	開啟 Visual Studio 或 SQL Server Management Studio。
-2.	連接到 Azure SQL Database。
-3.	使用下列 T-SQL 陳述式，建立資料庫的兩個資料表：
+	* **工作名稱**：輸入工作名稱。
 
-		CREATE TABLE [dbo].[PassthroughReadings] (
-		    [DeviceId]      BIGINT NULL,
-			[Temperature] BIGINT    NULL
-		);
+	* **區域**：選取要執行此工作的區域。請考慮將工作和事件中樞放在相同的區域以確保更好的效能，以及在區域之間傳輸資料時無須付費。
 
-		GO
-		CREATE CLUSTERED INDEX [PassthroughReadings]
-		    ON [dbo].[PassthroughReadings]([DeviceId] ASC);
-		GO
+	* **儲存體帳戶**：選擇您為在此區域內執行的所有串流分析工作儲存監視資料時所要使用的儲存體帳戶。您可以選擇現有的儲存體帳戶，或建立新帳戶。
 
-		CREATE TABLE [dbo].[AvgReadings] (
-		    [WinStartTime]   DATETIME2 (6) NULL,
-		    [WinEndTime]     DATETIME2 (6) NULL,
-		    [DeviceId]      BIGINT NULL,
-			[AvgTemperature] FLOAT (53)    NULL,
-			[EventCount] BIGINT null
-		);
-		
-		GO
-		CREATE CLUSTERED INDEX [AvgReadings]
-		    ON [dbo].[AvgReadings]([DeviceId] ASC);
+3.	按一下左窗格中的 [Stream Analytics]****，以列出 Stream Analytics 工作。
 
-	>[WACOM.NOTE] 所有 SQL 資料庫資料表上都必須有叢集索引，才能插入資料。
-	   
-##建立資料流分析工作
+	![Stream Analytics 服務圖示](./media/stream-analytics-get-started/stream-analytics-service-icon.png)
 
-在您建立 Azure 服務匯流排事件中心、Azure SQL 資料庫和輸出資料表之後，您就可以開始建立資料流分析工作。
+4.	新工作會以 [已建立]**** 的狀態列出。請注意，頁面底部的 [啟動]** ** 按鈕會停用。您必須先設定工作輸入、輸出、查詢等項目，才能啟動工作。
 
-###佈建資料流分析工作
-1.	在管理入口網站中，按一下 [**新增**]、[**資料服務**]、[**資料流分析**]、[**快速建立**]。 
-2.	指定下列值，然後按一下 [**建立資料流分析工作**]：
+### 指定工作輸入
+1.	在串流分析工作中，按一下頁面上方的 [輸入]****，然後按一下 [新增輸入]****。開啟的對話方塊會逐步引導您完成設定輸入。
+2.	選取 [資料流]****，然後按一下右鍵。
+3.	選取 [事件中樞]****，然後按一下右鍵。
+4.	在第三頁上輸入或選取下列值：
 
-	- **工作名稱**：輸入工作名稱。例如 **DeviceTemperatures**。
-	- **區域**：選取要執行此工作的區域。Azure 資料流分析目前在預覽期間僅適用於 2 個區域。如需詳細資訊，請參閱 [Azure 資料流分析限制和已知問題][stream.analytics.limitations]。請考慮將工作和事件中心放在相同的區域以確保更好的效能，以及在區域之間傳輸資料時無須付費。
-	- **儲存體帳戶**：選擇您為在此區域內執行的所有資料流分析工作儲存監視資料時所要使用的儲存體帳戶。您可以選擇現有的儲存體帳戶，或建立新帳戶。
-	
-3.	按一下左窗格中的 [**資料流分析**]，以列出資料流分析工作。
+	* **輸入別名**：輸入此工作輸入的易記名稱，例如 *CallStream*。請注意，此名稱將用於後續的查詢。
+	* **事件中樞**：如果您建立的事件中樞與串流分析工作位於相同的訂用帳戶中，請選取事件中樞所在的命名空間。
 
-	![][img.stream.analytics.portal.button]
- 
-	新工作會以 [**未啟動**] 的狀態列出。請注意，頁面底部的 [**啟動**] 按鈕會停用。您必須先設定工作輸入、輸出、查詢等項目，才能啟動工作。 
+	如果事件中樞位於不同的訂閱中，請選取 [使用其他訂閱中的事件中樞]****，並手動輸入 [服務匯流排命名空間]****、[事件中樞名稱]****、[事件中樞原則名稱]****、[事件中樞原則索引鍵]**** 和 [事件中樞資料分割計數]**** 的資訊。
 
-###指定工作輸入
+	* **事件中樞名稱**：選取事件中樞的名稱。
 
-1.	按一下工作名稱。
-2.	按一下頁面頂端的 [**輸入**]，然後按一下 [**新增輸入**]。開啟的對話方塊會逐步引導您完成設定輸入的若干步驟。
-3.	選取 [**資料流**]，然後按一下向右按鈕。
-4.	選取 [**事件中心**]，然後按一下右鍵。
-5.	在第三頁上輸入或選取下列值： 
+	* **事件中樞原則名稱**：選取稍早在本教學課程中建立的事件中樞原則。
 
-	- **輸入別名**：輸入此工作輸入的易記名稱。請注意，此名稱將用於後續的查詢。
-	- **事件中心**：如果您建立的事件中心與資料流分析工作位於相同的訂閱中，請選取事件中心所在的命名空間。
+	* **事件中樞取用者群組**：輸入稍早在本教學課程建立的取用者群組。
+5.	按一下向右按鈕。
+6.	指定下列值：
 
-		如果事件中心位於不同的訂閱中，請選取 [**使用其他訂閱中的事件中心**]，並手動輸入 [**服務匯流排命名空間**]、[**事件中心名稱**]、[**事件中心原則名稱**]、[**事件中心原則金鑰**] 和 [**事件中心資料分割計數**]。  
+	* **事件序列化程式格式**：JSON
+	* **編碼**：UTF8
+7.	按一下核取按鈕以新增此來源，並確認 Stream Analytics 可成功連接到事件中樞。
 
-		>[WACOM.NOTE] 此範例會使用預設的資料分割數目，即 16 個。
-		
-	- **事件中心名稱**：選取您建立之 Azure 事件中心的名稱。本教學課程使用 **devicereadings**。
-	- **事件中心原則名稱**：選取先前在本教學課程中建立的事件中心原則。
- 
-	![][img.stream.analytics.config.input]
+### 指定工作查詢
 
-6.	按一下向右按鈕。
-7.	指定下列值：
+資料流分析用來說明轉換的簡單、宣告式查詢模型。若要深入了解語言，請參閱 [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/dn834998.aspx)。本教學課程將協助您撰寫和測試數個呼叫資料流查詢。
 
-	- **事件序列化程式格式**：JSON
-	- **編碼**：UTF8
+#### 選擇性：範例輸入資料
+若要驗證對實際工作資料的查詢結果，您可以使用「範例資料」****功能，從資料流擷取事件並為這些事件建立 JSON 檔案進行測試。下列步驟說明執行方式，而我們提供範例 [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) 檔案以供測試之用。
 
-8.	按一下核取按鈕以新增此來源，並確認資料流分析可成功連接到事件中心。
+1.	選取事件中樞輸入，然後按一下頁面最下方的 [範例資料]**** 。
+2.	在出現的對話方塊中，指定開始收集資料的 [開始時間]****，以及表示要取用多少其他資料的 [持續時間]****。
+3.	按一下核取按鈕，以開始從輸入中的資料進行取樣。產生資料檔案可能需要一或兩分鐘的時間。完成此程序之後，按一下 [詳細資料]****，然後下載並儲存產生的 .JSON 檔案。
 
-###指定工作輸出
-1.	按一下頁面頂端的 [**輸出**]，然後按一下 [**新增輸出**]。
-2.	選取 [**SQL 資料庫**]，然後按一下向右按鈕。
-3.	輸入或選取下列值。從您的資料庫使用 ADO.NET 連線字串，以填入下列欄位：
+	![下載並將處理的資料儲存在 JSON 檔案中](./media/stream-analytics-get-started/stream-analytics-download-save-json-file.png)
 
-	- **SQL 資料庫**：選擇您先前在本教學課程中建立的 SQL 資料庫。如果在相同的訂閱中，請從下拉式功能表中選取資料庫。如果不是，請手動輸入 [伺服器名稱] 和 [資料庫] 欄位。 
-	- **使用者名稱**：輸入 SQL 資料庫登入名稱。
-	- **密碼**：輸入 SQL 資料庫登入密碼。
-	- **資料表**：指定您要將輸出傳送至哪個資料表。目前請使用 **PassthroughReadings**。
+#### 傳遞查詢
 
-	![][img.stream.analytics.config.output]
+如果您想要封存每一事件，您可以使用傳遞查詢，讀取事件或訊息承載中的所有欄位。一開始會執行一項投射事件中所有欄位的簡單傳遞查詢。
 
-4.	按一下核取按鈕以建立您的輸出，並確認資料流分析可成功連接到指定的 SQL 資料庫。
-
-###指定工作查詢
-資料流分析用來說明轉換的簡單、宣告式查詢模型。若要深入了解語言，請參閱「Azure 資料流分析查詢語言參考」。  
-
-本教學課程首先會說明將裝置溫度讀數輸出至 SQL 資料庫資料表的簡易通過查詢。
-
-1.	按一下頁面頂端的 [**查詢**]。
+1.	按一下 [串流分析工作] 頁面頂端的 [查詢]****。
 2.	在程式碼編輯器中新增下列程式碼：
 
-		SELECT DeviceId, Temperature FROM input
-請確定輸入來源的名稱符合您先前指定的輸入名稱。
-3.	按一下頁面底部的 [**儲存**]，然後按 [**是**] 加以確認。
+		SELECT * FROM CallStream
 
-##啟動工作
-根據預設，資料流分析工作會從工作啟動時開始讀取傳入事件。由於事件中心包含要處理得現有資料，因此我們必須設定取用此歷史資料的工作。  
+	> 請確定輸入來源的名稱符合您先前指定的輸入名稱。
 
-1.	按一下頁面頂端的 [**設定**]。
-2.	將 [**啟動輸出**] 值變更為 [**自訂時間**，然後指定開始時間。請確定開始時間是您執行 BasicEventHubSample 之前的時間。  
-3.	按一下頁面底部的 [**儲存**]，然後按 [**是**] 加以確認。
-3.	按一下頁面頂端的 [**儀表板**]，然後按一下頁面底部的 [**啟動**]，再按 [**是**] 加以確認。在 [**快速概覽**] 窗格中，[**狀態**] 會變更為 [**啟動中**]，並且可能需要幾分鐘來完成啟動程序，然後進入 [**執行中**] 狀態。   
+3.	在查詢編輯器中，按一下  [測試]****
+4.	提供一個測試檔案，您使用上述步驟建立的檔案或 [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) 均可
+5.	按一下核取按鈕，然後參閱查詢定義下方顯示的結果。
+
+	![查詢定義結果](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
 
 
-##檢視工作輸出
+### 資料行投影
 
-1.	在 Visual Studio 或 SQL Server Management Studio 中，連接到 SQL 資料庫，並執行下列查詢： 
+我們現在要削減傳回的欄位以成為更小的集合。
 
-		SELECT * FROM PassthroughReadings
+1.	在程式碼編輯器中，將查詢變更成：
 
-2.	您會在事件中心裡看到對應至讀取事件的記錄。   
+		SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum
+		FROM CallStream
 
-	![][img.stream.analytics.job.output1]
+2.	按一下查詢編輯器中的 [重新執行]****，即可看到查詢結果。
 
-	您可以重新執行 BasicEventHubSample 應用程式以產生新的事件，並重新執行 SELECT * 查詢，以將其即時傳播至輸出。
-	
-	如果您有任何輸出遺失或不符預期的問題，請檢視工作的作業記錄 (其連結位於 [儀表板] 頁面的右窗格)。
+	![查詢編輯器中的輸出。](./media/stream-analytics-get-started/stream-analytics-query-editor-output.png)
 
-##停止、更新和重新啟動工作
-現在我們要對資料進行更有趣的查詢。
-1.	在 [**儀表板**] 或 [**監視器**] 頁面上，按一下 [**停止**]。
-2.	在 [**查詢**] 頁面上，將現有查詢取代為下列查詢，然後按一下 [**儲存**]：
+### 各區域的來電計數：含彙總的輪轉視窗
 
-		SELECT DateAdd(second,-5,System.TimeStamp) as WinStartTime, system.TimeStamp as WinEndTime, DeviceId, Avg(Temperature) as AvgTemperature, Count(*) as EventCount 
-		FROM input
-		GROUP BY TumblingWindow(second, 5), DeviceId
+為比較各區域的來電數量，我們會利用 [TumblingWindow](https://msdn.microsoft.com/library/azure/dn835055.aspx) 每隔 5 秒取得依 SwitchNum 分組的來電計數。
 
-	這個新的查詢會使用事件發送至事件中心的時間做為時間戳記，尋找和預測每 5 秒的平均溫度讀數，和位於 5 秒時間範圍內的事件數目。
-3.	在 [**輸出**] 頁面上，按一下 [**編輯**]。將輸出資料表從 PassthroughReadings 變更為 AvgReadings，然後按一下 [核取] 圖示。
+1.	在程式碼編輯器中，將查詢變更成：
 
-4.	在 [**儀表板**] 頁面上，按一下 [**啟動**]。
+		SELECT System.Timestamp as WindowEnd, SwitchNum, COUNT(*) as CallCount
+		FROM CallStream TIMESTAMP BY CallRecTime
+		GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
 
-##檢視工作輸出
+	此查詢會使用 [Timestamp By]**** 關鍵字，在裝載中指定一個暫時運算時會用到的時間戳記欄位。如果未指定這個欄位，會根據事件到達事件中樞的時間，計算時間窗口。請參閱 [串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)中的＜到達時間與應用程式時間的比較＞。
 
-1.	在 Visual Studio 或 SQL Server Management Studio 中，連接到 SQL 資料庫，並執行下列查詢：
+	請注意，您可以使用 System.Timestamp 屬性存取每個視窗結束時的時間戳記。
 
-		SELECT * from AvgReadings
+2.	按一下查詢編輯器中的 [重新執行]****，即可看到查詢結果。
 
-2.	您會看到每 5 秒間隔的記錄顯示每個裝置的平均溫度和事件數目： 
+	![Timestand By 的查詢結果](./media/stream-analytics-get-started/stream-ananlytics-query-editor-rerun.png)
 
-	![][img.stream.analytics.job.output2]
- 
-3.	 若要繼續檢視執行中工作所處理的事件，請重新執行 BasicEventHubSample 應用程式。
+### 使用 Self-Join 識別 SIM 詐騙
 
+為了識別潛在的詐騙使用量，我們將尋找源自相同使用者卻在 5 秒內於不同位置撥出的電話。我們會[聯結](https://msdn.microsoft.com/library/azure/dn835026.aspx) 呼叫事件資料流本身，檢查是否有上述情況。
 
+1.	在程式碼編輯器中，將查詢變更成：
 
+		SELECT System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1,
+		CS2.CallingNum as CallingNum2, CS1.SwitchNum as Switch1, CS2.SwitchNum as Switch2
+		FROM CallStream CS1 TIMESTAMP BY CallRecTime
+		JOIN CallStream CS2 TIMESTAMP BY CallRecTime
+		ON CS1.CallingIMSI = CS2.CallingIMSI
+		AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+		WHERE CS1.SwitchNum != CS2.SwitchNum
 
+2.	按一下查詢編輯器中的 [重新執行]****，即可看到查詢結果。
 
+	![聯結的查詢結果](./media/stream-analytics-get-started/stream-ananlytics-query-editor-join.png)
 
+### 建立輸出接收
 
-##<a name="nextsteps"></a>後續步驟
-在本教學課程中，您已了解如何使用資料流分析來處理天氣資料。若要深入了解，請參閱下列文章：
+現在我們已經定義好一個事件資料流、一個負責擷取事件的事件中樞，以及一個進行資料流轉換處理的查詢，最後的步驟就是定義工作的輸出接收。我們會將詐騙行為事件撰寫到  Blob 儲存體。
 
+請按照下列步驟來建立 Blob 儲存體的容器 (如果沒有的話)。
 
-- [Azure 資料流分析簡介][stream.analytics.introduction]
-- [Azure 資料流分析開發人員指南][stream.analytics.developer.guide]
-- [調整 Azure 資料流分析工作][stream.analytics.scale]
-- [Azure 資料流分析的限制與已知問題][stream.analytics.limitations]
-- [Azure 資料流分析查詢語言參考][stream.analytics.query.language.reference]
-- [Azure 資料流分析管理 REST API 參考][stream.analytics.rest.api.reference]
+1.	使用現有的儲存體帳戶，或者依序按一下 [新增]****、[資料服務]****、[儲存體]****、[快速建立]**** 以建立新的儲存體帳戶，然後依照指示操作。
+2.	選取儲存體帳戶，然後按一下頁面上方的 [容器]****，然後按一下 [新增]****。
+3.	指定容器的 [名稱]**** 並將 [存取]**** 設定成公用 Blob。
 
+## 指定工作輸出
 
+1.	在串流分析工作中，按一下頁面上方的 [輸出]****，然後按一下 [新增輸出]****。開啟的對話方塊會逐步教您如何設定輸出。
+2.	選取 [BLOB 儲存體]****，然後按一下右鍵。
+3.	在第三頁上輸入或選取下列值：
 
+	* **輸出別名**：為這個工作輸出設定一個容易記的名稱。
+	* **訂閱**：如果建立的 Blob 儲存體與 Stream Analytics 工作屬於相同的訂閱，請選取 [從目前的訂用帳戶使用儲存體帳戶]****。如果儲存體屬於不同的訂閱，請選取 [從另一個訂用帳戶使用儲存體帳戶]****，然後手動輸入 [儲存體帳戶]****」[儲存體帳戶金鑰****、[容器]**** 等資訊。
+	* **儲存體帳戶名稱**：選取儲存體帳戶的名稱。
+	* **容器**：選取容器的名稱。
+	* **檔案名稱前置詞**：輸入當您填寫 Blob 輸出時所使用的檔案前置詞。
 
-[img.stream.analytics.event.hub.client.output]: .\media\stream-analytics-get-started\AzureStreamAnalyticsEHClientOuput.png
-[img.stream.analytics.event.hub.shared.access.policy.config]: .\media\stream-analytics-get-started\AzureStreamAnalyticsEHSharedAccessPolicyConfig.png
-[img.stream.analytics.job.output2]: .\media\stream-analytics-get-started\AzureStreamAnalyticsSQLOutput2.png
-[img.stream.analytics.job.output1]: .\media\stream-analytics-get-started\AzureStreamAnalyticsSQLOutput1.png
-[img.stream.analytics.config.output]: .\media\stream-analytics-get-started\AzureStreamAnalyticsConfigureOutput.png
-[img.stream.analytics.config.input]: .\media\stream-analytics-get-started\AzureStreamAnalyticsConfigureInput.png
+4.	按一下向右按鈕。
+5.	指定下列值：
 
+	* **事件序列化程式格式**：JSON
+	* **編碼**：UTF8
 
+6.	按一下核取按鈕即可新增這個來源，並確認 Stream Analytics 可以成功連接到儲存體帳戶。
 
-[img.get.started.flowchart]: ./media/stream-analytics-get-started/StreamAnalytics.get.started.flowchart.png
-[img.job.quick.create]: ./media/stream-analytics-get-started/StreamAnalytics.quick.create.png
-[img.stream.analytics.portal.button]: ./media/stream-analytics-get-started/StreamAnalyticsPortalButton.png
-[img.event.hub.policy.configure]: ./media/stream-analytics-get-started/StreamAnalytics.Event.Hub.policy.png
-[img.create.table]: ./media/stream-analytics-get-started/StreamAnalytics.create.table.png
-[img.stream.analytics.job.output]: ./media/stream-analytics-get-started/StreamAnalytics.job.output.png
-[img.stream.analytics.operation.logs]: ./media/stream-analytics-get-started/StreamAnalytics.operation.log.png
-[img.stream.analytics.operation.log.details]: ./media/stream-analytics-get-started/StreamAnalytics.operation.log.details.png
+## 開始工作
 
+因為工作輸入、查詢及輸出都已經指定好了，現在可以開始 Stream Analytics 工作了。
 
-[azure.sql.database.firewall]: http://msdn.microsoft.com/library/azure/ee621782.aspx
-[azure.event.hubs.documentation]: http://azure.microsoft.com/services/event-hubs/
-[azure.sql.database.documentation]: http://azure.microsoft.com/services/sql-database/
+1.	從 [儀表板]**** 工作，按一下頁面最下方的 [開始]**** 。
+2.	在出現的對話方塊中，選取 [工作開始時間]****，然後按一下對話方塊最下方的核取按鈕。作業狀態會變更為 [開始]**** 而且短時間內就會變成 [執行]****。
 
-[sql.database.introduction]: http://azure.microsoft.com/services/sql-database/
-[event.hubs.introduction]: http://azure.microsoft.com/services/event-hubs/
-[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
-[azure.sdk.net]: ../dotnet-sdk/
+## 檢視輸出
 
-[stream.analytics.introduction]: ../stream-analytics-introduction/
-[stream.analytics.limitations]: ../stream-analytics-limitations/
-[stream.analytics.scale]: ../stream-analytics-scale-jobs/
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide/
-[stream.analytics.documentation]: http://go.microsoft.com/fwlink/?LinkId=512093
+使用 [Azure 儲存體總管](https://azurestorageexplorer.codeplex.com/)或 [Azure 總管](http://www.cerebrata.com/products/azure-explorer/introduction)此類的工具，以即時檢視正在寫入您輸出的詐騙事件。
 
+![即時檢視的詐騙事件](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
+
+## 取得支援
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
 
 
+## 後續步驟
 
-[azure.management.portal]: https://manage.windowsazure.com
+- [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
+- [開始使用 Azure Stream Analytics](stream-analytics-get-started.md)
+- [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx) 
 
-
-<!--HONumber=46--> 
+<!--HONumber=54-->

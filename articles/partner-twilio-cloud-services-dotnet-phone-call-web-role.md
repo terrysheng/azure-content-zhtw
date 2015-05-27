@@ -25,17 +25,7 @@
 
 ![Azure call form using Twilio and ASP.NET][twilio_dotnet_basic_form]
 
-
-
-<h2>目錄</h2>
-- [先決條件](#twilio-prereqs)
-- [作法：建立用以撥打電話的 Web 表單](#howtocreateform)
-- [作法：建立用以撥打電話的程式碼](#howtocreatecode)
-- [後續步驟](#nextsteps)
-- [另請參閱](#seealso)
-
-
-<h2><a name="twilio-prereqs"></a>先決條件</h2>
+<h2><a name="twilio-prereqs"></a>必要條件</h2>
 
 您必須執行下列動作才能使用本主題中的程式碼：
 
@@ -49,11 +39,11 @@
 <h3><a id="use_nuget"></a>將 Twilio 程式庫新增至 Web 角色專案：</h3>
 
 1.  在 Visual Studio 中開啟方案。
-2.  以滑鼠右鍵按一下 **[參考]**。
-3.  按一下 **[管理 NuGet 封裝]**。
-4.  按一下 **[線上]**。
-5.  在搜尋線上方塊中，輸入  *twilio*。
-6.  在 Twilio 套件上按一下 **[安裝]**。
+2.  以滑鼠右鍵按一下 [參考]****。
+3.  按一下 [管理 NuGet 封裝]****。
+4.  按一下 [線上]****。
+5.  在搜尋線上方塊中，輸入 *twilio*。
+6.  在 Twilio 套件上按一下 [安裝]****。
 
 下列程式碼將說明如何建立 Web 表單，以擷取撥打電話所需的使用者資料。在此範例中，會建立名為 **TwilioCloud** 的 ASP.NET Web 角色。
 
@@ -79,7 +69,7 @@
         </div>
     </asp:Content>
 
-<h2><a id="howtocreatecode"></a>作法：建立用以撥打電話的程式碼</h2>
+<h2><a id="howtocreatecode"></a>建立用以撥打電話的程式碼</h2>
 下列程式碼會在使用者完成表單時受到呼叫，可用來建立通話訊息及產生通話。在此範例中，程式碼會在表單按鈕的 onclick 事件處理常式中執行。(在下方的程式碼中，請使用您的 Twilio 帳戶和驗證權杖，而不要使用指派給 **accountSID** 和 **authToken** 的預留位置值。)
 
     using System;
@@ -169,7 +159,7 @@
 此程式可說明在 Azure 上的 ASP.NET Web 角色中使用 Twilio 的基本功能。在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。例如：
 
 * 除了使用 Web 表單以外，您也可以使用 Azure Blob 儲存體或 Azure SQL Database 執行個體來儲存電話號碼和通話文字。如需在 Azure 中使用 Blob 的相關資訊，請參閱[如何在 .NET 中使用 Azure Blob 儲存體服務][howto_blob_storage_dotnet]。如需使用 SQL Database 的相關資訊，請參閱[如何在 .NET 應用程式中使用 Azure SQL Database][howto_sql_azure_dotnet]。
-* 您可以使用 RoleEnvironment.getConfigurationSettings，從部署的組態設定中擷取 Twilio 帳戶 ID 和驗證權杖，而不要在表單中進行值的硬式編碼。如需 RoleEnvironment 類別的相關資訊，請參閱 [Microsoft.WindowsAzure.ServiceRuntime Namespace][azure_runtime_ref_dotnet] 命名空間。
+* 您可以使用 RoleEnvironment.getConfigurationSettings，從部署的組態設定中擷取 Twilio 帳戶 ID 和驗證權杖，而不要在表單中進行值的硬式編碼。如需 RoleEnvironment 類別的相關資訊，請參閱 [Microsoft.WindowsAzure.ServiceRuntime 命名空間][azure_runtime_ref_dotnet]。
 * 閱讀 [https://www.twilio.com/docs/security][twilio_docs_security] 上的 Twilio 安全性指引。
 * 在 [https://www.twilio.com/docs][twilio_docs] 上深入了解 Twilio。
 
@@ -188,11 +178,11 @@
 
 
 
-[howto_twilio_voice_sms_dotnet]: /zh-tw/develop/net/how-to-guides/twilio/
+[howto_twilio_voice_sms_dotnet]: /develop/net/how-to-guides/twilio/
 
-[howto_blob_storage_dotnet]: https://www.windowsazure.com/zh-tw/develop/net/how-to-guides/blob-storage/
+[howto_blob_storage_dotnet]: https://www.windowsazure.com/develop/net/how-to-guides/blob-storage/
 
-[howto_sql_azure_dotnet]: https://www.windowsazure.com/zh-tw/develop/net/how-to-guides/sql-database/
+[howto_sql_azure_dotnet]: https://www.windowsazure.com/develop/net/how-to-guides/sql-database/
 
 
 [twilio_docs_security]: http://www.twilio.com/docs/security
@@ -202,6 +192,4 @@
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

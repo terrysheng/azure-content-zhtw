@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
    pageTitle="Twitter 連接器 API 應用程式" 
    description="如何使用 TwitterConnector" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="adgoda" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -19,7 +19,7 @@
 
 # 在邏輯應用程式中使用 Twitter 連接器 #
 
-邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。 
+邏輯應用程式可以根據各種資料來源和提供項目連接器觸發，以在流程中取得和處理資料。
 
 Twitter 連接器可讓您張貼推文，並從您 Twitter 帳戶的時間表、好友和粉絲中取得推文。
 
@@ -27,10 +27,10 @@ Twitter 連接器可讓您張貼推文，並從您 Twitter 帳戶的時間表、
 - Twitter 連接器動作可讓您「推文」、「搜尋推文」、「回推」、「取得使用者時間表」等等。這些動作會取得回應，並可供流程中的動作取用。
 
 ## 建立邏輯應用程式的 Twitter 連接器 ##
-若要使用 Twitter 連接器，您必須先建立 Twitter 連接器 API 應用程式的執行個體。以下步驟可以達到此目的：
+若要使用 Twitter 連接器，您必須先建立 Twitter 連接器 API 應用程式的執行個體。如下所示，完成此作業：
 
 1. 使用 Azure 入口網站左下方的 [+新增] 選項開啟 Azure Marketplace。
-1. 瀏覽至 [Web 與行動] > [API 應用程式]，並搜尋「Twitter 連接器」。
+1. 瀏覽至 [API 應用程式]，並搜尋「Twitter 連接器」。
 1. 設定 Twitter 連接器，如下所示：
 
 	![][1]
@@ -42,7 +42,7 @@ Twitter 連接器可讓您張貼推文，並從您 Twitter 帳戶的時間表、
 
 
 ## 在邏輯應用程式中使用 Twitter 連接器 ##
-建立 API 應用程式之後，您現在可以使用 Twitter 連接器做為邏輯應用程式的觸發程序/動作。若要這樣做，您需要：
+建立 API 應用程式之後，您現在可以使用 Twitter 連接器做為邏輯應用程式的觸發程序/動作。若要這麼做，您需要：
 
 1.	建立新的邏輯應用程式，並選擇具有 Twitter 連接器的相同資源群組。
  	
@@ -73,4 +73,4 @@ Twitter 連接器可讓您張貼推文，並從您 Twitter 帳戶的時間表、
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/img8.png
 
-<!--HONumber=49-->
+<!--HONumber=54-->

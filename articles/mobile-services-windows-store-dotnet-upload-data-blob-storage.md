@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="使用行動服務將影像上傳至 Blob 儲存體 (Windows 市集) | 行動服務" 
 	description="了解如何使用行動服務將影像上傳至 Azure Blob 儲存體並從 Windows 市集應用程式存取該影像。" 
-	services="mobile-services, storage" 
+	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,17 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/26/2014" 
+	ms.date="02/22/2015" 
 	ms.author="glenga"/>
 
 # 使用行動服務將影像上傳到 Azure 儲存體
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
-本主題說明如何使用 Azure 行動服務，讓您的應用程式能在 Azure 儲存體中上傳和存放使用者產生的影像。行動服務會使用 SQL Database 儲存資料。不過在 Azure Blob 儲存體服務中，二進位大型物件 (BLOB) 資料的儲存比較有效。 
+本主題說明如何使用 Azure 行動服務，讓您的應用程式能在 Azure 儲存體中上傳和存放使用者產生的影像。行動服務會使用 SQL Database 儲存資料。不過在 Azure Blob 儲存體服務中，二進位大型物件 (BLOB) 資料的儲存比較有效。
 
 您無法將資料安全上傳至 Blob 儲存體服務所需的認證，安全地散佈給用戶端應用程式。您必須在您的行動服務中儲存這些認證，並將其用於產生共用存取簽章 (SAS)，以便上傳新的影像。行動服務會安全地將 SAS (到期時間很短的認證，在此例中為 5 分鐘) 傳回給用戶端應用程式。應用程式會使用此暫存認證來上傳影像。在此範例中，來自 Blob 服務的下載是公開的。
 
@@ -31,21 +31,21 @@
 3. [更新用戶端應用程式以擷取影像]
 4. [上傳影像以測試應用程式]
 
-本教學課程需要下列項目：
+本教學課程需要下列各項：
 
 + Microsoft Visual Studio 2012 Express for Windows 8 或更新版本
-+ [Azure 儲存體帳戶][如何建立儲存體帳戶]
++ [Azure 儲存體帳戶][How To Create a Storage Account]
 + 連接到電腦的相機或其他影像擷取裝置。
 
-本教學課程會以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務]。 
+本教學課程是以行動服務快速入門為基礎。在開始本教學課程之前，您必須首先完成[開始使用行動服務]。
 
 ##<a name="install-storage-client"></a>安裝適用於 Windows 市集應用程式的儲存體用戶端
 
 若要使用 SAS 將影像上傳至 Blob 儲存體，您必須先新增 NuGet 封裝，以安裝適用於 Windows 市集應用程式的儲存體用戶端程式庫。
 
-1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下專案名稱，然後選取 [管理 NuGet 封裝]。
+1. 在 Visual Studio 的 [方案總管]**** 中以滑鼠右鍵按一下專案名稱，然後選取 [管理 NuGet 封裝]****。
 
-2. 在左側窗格中選取 [**線上**] 類別，搜尋  `WindowsAzure.Storage`，按一下 [**Azure 儲存體**] 封裝上的 [**安裝**]，然後接受授權協定。 
+2. 在左側窗格中選取 [線上]**** 類別，搜尋 `WindowsAzure.Storage`，按一下 [Azure 儲存體]**** 封裝上的 [安裝]****，然後接受授權協定。
 
   	![][2]
 
@@ -65,7 +65,7 @@
 
 + [使用 SendGrid 從行動服務傳送電子郵件]
  
-  了解如何使用 SendGrid 電子郵件服務將電子郵件功能新增到行動服務。本主題示範如何新增伺服器端指令碼，以使用 SendGrid 傳送電子郵件。
+  了解如何使用 SendGrid 電子郵件服務將電子郵件功能新增到行動服務本主題示範如何新增伺服器端指令碼，以使用 SendGrid 傳送電子郵件。
 
 + [在行動服務中排程後端工作]
 
@@ -75,7 +75,7 @@
 
   參考使用伺服器指令碼來執行伺服器端工作以及與其他 Azure 元件和外部資源整合的主題。
  
-+ [行動服務 .NET 做法概念性參考]
++ [行動服務 .NET 作法概念性參考]
 
   深入了解如何搭配使用行動服務與 .NET
   
@@ -85,7 +85,7 @@
 [更新用戶端應用程式以擷取影像]: #add-select-images
 [更新插入指令碼以產生 SAS]: #update-scripts
 [上傳影像以測試應用程式]: #test
-[後續步驟]:#next-steps
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 
@@ -93,17 +93,16 @@
 
 
 <!-- URLs. -->
-[使用 SendGrid 從行動服務傳送電子郵件]: /zh-tw/develop/mobile/tutorials/send-email-with-sendgrid/
-[在行動服務中排程後端工作]: /zh-tw/documentation/articles/mobile-services-schedule-recurring-tasks
-[從 .NET 後端使用服務匯流排將推播通知傳送至 Windows 市集應用程式]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
+[使用 SendGrid 從行動服務傳送電子郵件]: /develop/mobile/tutorials/send-email-with-sendgrid/
+[在行動服務中排程後端工作]: mobile-services-schedule-recurring-tasks.md
+[Send push notifications to Windows Store apps using Service Bus from a .NET back-end]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
 [行動服務伺服器指令碼參考]: http://go.microsoft.com/fwlink/p/?LinkId=262293
-[開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-windows-store-get-started
+[開始使用行動服務]: mobile-services-windows-store-get-started.md
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
-[如何建立儲存體帳戶]: /zh-tw/manage/services/storage/how-to-create-a-storage-account
-[市集應用程式的 Azure 儲存體用戶端程式庫]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
-[行動服務 .NET 做法概念性參考]: /zh-tw/develop/mobile/how-to-guides/work-with-net-client-library
-[應用程式設定]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Azure Management Portal]: https://manage.windowsazure.com/
+[How To Create a Storage Account]: /manage/services/storage/how-to-create-a-storage-account
+[Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
+[行動服務 .NET 作法概念性參考]: /develop/mobile/how-to-guides/work-with-net-client-library
+[App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-
-<!--HONumber=42-->
+<!--HONumber=54-->

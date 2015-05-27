@@ -1,26 +1,24 @@
-﻿<properties
+<properties
    pageTitle="HDInsight 中的叢集調整 | Azure"
    description="變更在 HDInsight 中執行的叢集所用的資料節點數目，而不需要刪除然後再重新建立叢集。"
    services="hdinsight"
    documentationCenter=""
-   authors="bradsev"
+   authors="mumian"
    manager="paulettm"
    editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
-   ms.author="bradsev"/>
+   ms.date="04/02/2015"
+   ms.author="jgao"/>
 
 #HDInsight 中的叢集調整
 
-叢集調整功能可讓您變更在 HDInsight 中執行的叢集所用的資料節點數目，而不需要刪除然後再重新建立叢集。您可以使用 PowerShell、HDInsight SDK 或從 Azure 入口網站執行此作業。
-
-> [WACOM.NOTE] 現行版本只支援 Hadoop 和 Storm 叢集類型。不久後會再加入 HBase 叢集的支援。 
+叢集調整功能可讓您變更在 Azure HDInsight 中執行的叢集所用的資料節點數目，而不需要刪除然後再重新建立叢集。您可以透過 Azure PowerShell、HDInsight SDK 或從 Azure 入口網站執行此作業。
 
 ## 功能詳細資料
 本節描述變更 HDInsight 支援的每一種叢集所用的資料節點數目會有何影響：
@@ -43,7 +41,7 @@
 您可以使用兩種方式來完成重新平衡作業：
 
 * Storm Web UI
-* CLI 工具 
+* 命令列介面 (CLI) 工具 
 
 如需詳細資訊，請參閱 [Apache Storm 文件](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)。
 
@@ -54,19 +52,23 @@ HDInsight 叢集上有提供 Storm Web UI：
 以下是如何使用 CLI 命令重新平衡 Storm 拓撲的範例：
 
 	## Reconfigure the topology "mytopology" to use 5 worker processes,
-	## the spout "blue-spout" to use 3 executors and
-	## the bolt "yellow-bolt" to use 10 executors.
+	## the spout "blue-spout" to use 3 executors, and
+	## the bolt "yellow-bolt" to use 10 executors
 
 	$ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 ##HBase
-HBase 類型的叢集目前不支援叢集調整作業。
+您可以順暢地在 HBase 叢集運作時對其新增或移除資料節點。區域伺服器會在完成調整作業的數分鐘之內自動取得平衡。但是，您也可以手動平衡區域伺服器，方法是登入叢集的前端節點，然後從命令提示字元視窗執行下列命令：
 
-## 必要條件：
+	>pushd %HBASE_HOME%\bin
+	>hbase shell
+	>balancer
 
-* 只支援使用 HDInsight 3.1.3 版或更高版本的叢集。如果您不確定您的叢集是什麼版本，您可以從 Azure 入口網站按一下 HDInsight 叢集名稱或從 Azure PowerShell 執行  `Get-AzureHDInsightCluster -name <clustername>` 命令，來檢查叢集的版本。
+## 必要條件
 
-* 必須是 Azure PowerShell 0.8.14 版或更高版本，才可從 PowerShell 執行此作業。您可以在 [Azure 下載](http://azure.microsoft.com/downloads/)網站上，從命令列工具區段下載最新版的 PowerShell。您可以從 PowerShell 視窗使用下列命令，檢查所安裝的 Azure PowerShell 版本： `(get-module Azure).Version`
+* 只支援使用 HDInsight 3.1.3 版或更高版本的叢集。如果您不確定您的叢集是什麼版本，您可以從 Azure 入口網站按一下 HDInsight 叢集名稱或從 Azure PowerShell 執行 `Get-AzureHDInsightCluster –name <clustername>` 命令，來檢查叢集的版本。
+
+* 必須是 Azure PowerShell 0.8.14 版或更高版本，才可從 Azure PowerShell 執行此作業。您可以在 [Azure 下載](http://azure.microsoft.com/downloads/)網站上，從**命令列工具**區段下載最新版的 Azure PowerShell。您可以從 Azure PowerShell 視窗使用下列命令，檢查所安裝的 Azure PowerShell 版本：`(get-module Azure).Version`
 
 ## 如何使用叢集調整
 
@@ -75,19 +77,19 @@ HBase 類型的叢集目前不支援叢集調整作業。
 
 ![](http://i.imgur.com/u5Mewwx.png)
 
-### PowerShell
-若要使用 PowerShell 變更 Hadoop 叢集大小，請從用戶端電腦執行下列命令：
+### Azure PowerShell
+若要使用 Azure PowerShell 變更 Hadoop 叢集大小，請從用戶端電腦執行下列命令：
 
 	Set-AzureHDInsightClusterSize -ClusterSizeInNodes <NewSize> -name <clustername>	
 
-> [WACOM.NOTE] 用戶端電腦必須安裝 Azure PowerShell 0.8.14 版或更高版本才能使用這個命令。
+> [AZURE.NOTE]用戶端電腦必須安裝 Azure PowerShell 0.8.14 版或更高版本才能使用這個命令。
 
 ### SDK
-若要使用 HDInsight SDK 變更 Hadoop 叢集大小，請使用下列兩種方法之一： 
+若要使用 HDInsight SDK 變更 Hadoop 叢集大小，請使用下列兩種方法之一：
 
 	ChangeClusterSize(string dnsName, string location, int newSize) 
 
-或 
+或
 
 	ChangeClusterSizeAsync(string dnsName, string location, int newSize) 
 
@@ -115,10 +117,10 @@ HBase 類型的叢集目前不支援叢集調整作業。
 	            string certfriendlyname = "<CertificateFriendlyName>";     
 	            string subscriptionid = "<SubscriptionID>";
 	            string clustername = "<ClusterDNSName>";
-	     		string location = "<ClusterLocation>"";
+	     		string location = "<ClusterLocation>”";
 				int newSize = <NewClusterSize>;
 	
-	            // Get the certificate object from certificate store using the friendly name to identify it
+	            // Get the certificate object from certificate store by using the friendly name to identify it
 	            X509Store store = new X509Store();
 	            store.Open(OpenFlags.ReadOnly);
 	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certfriendlyname);
@@ -129,7 +131,7 @@ HBase 類型的叢集目前不支援叢集調整作業。
 	
 	            Console.WriteLine("Rescaling HDInsight cluster ...");
 	
-	            // Change cluster size
+	            // Change the cluster size
 	     		ClusterDetails cluster = client.ChangeClusterSize(clustername, location, newSize);
 	            
 	            Console.WriteLine("Cluster Rescaled: {0} \n New Cluster Size = {1}", cluster.ConnectionUrl, cluster.ClusterSizeInNodes);
@@ -140,5 +142,6 @@ HBase 類型的叢集目前不支援叢集調整作業。
 	}
 
 
-請參閱[使用自訂選項在 HDInsight 上佈建 Hadoop 叢集](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/)主題，以取得如何使用 HDInsight .NET SDK 的詳細資訊。
-<!--HONumber=47-->
+請參閱[使用自訂選項在 HDInsight 上佈建 Hadoop 叢集](hdinsight-provision-clusters.md)主題，以取得如何使用 HDInsight .NET SDK 的詳細資訊。
+
+<!--HONumber=54-->

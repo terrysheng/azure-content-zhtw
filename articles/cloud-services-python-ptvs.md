@@ -28,24 +28,22 @@
  - Visual Studio 2012 或 2013
  - [Python Tools 2.1 for Visual Studio][]
  - [Azure SDK Tools for VS 2013][] 或 [Azure SDK Tools for VS 2012][]
- - [Python 2.7 (32 位元)][] 或 [Python 3.4 (32 位元)][]
+ - [Python 2.7 32 位元][]或 [Python 3.4 32 位元][]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## 什麼是 Python Web 和背景工作角色？
 
-Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][執行模型-網站]、[Azure 虛擬機器][執行模型-vms]和 [Azure 雲端服務][執行模型-雲端服務]。這三種模型都支援 Python。雲端服務包含 Web 角色和背景工作角色，可提供 *Platform as a Service (PaaS)*。在雲端服務中，Web 角色應用程式會提供專用的 Internet Information Services (IIS) Web 伺服器，用以代管前端 Web 應用程式，而背景工作角色則可執行獨立於使用者互動或輸入以外的非同步、長時間執行或持續性工作。
+Azure 提供三種運算模型來執行應用程式：[Azure 網站][execution model-web sites]、[Azure 虛擬機器][execution model-vms]和 [Azure 雲端服務][execution model-cloud services]。這三種模型都支援 Python。雲端服務 (包含 Web 和背景工作角色) 可提供*平台即服務 (PaaS)*。在雲端服務中，Web 角色應用程式會提供專用的 Internet Information Services (IIS) Web 伺服器，用以代管前端 Web 應用程式，而背景工作角色則可執行獨立於使用者互動或輸入以外的非同步、長時間執行或持續性工作。
 
-如需詳細資訊，請參閱[什麼是雲端服務？]。
+如需詳細資訊，請參閱[什麼是雲端服務？] (英文)。
 
-> [AZURE.NOTE] **想要建置簡單的網站？**
-如果您只需要簡單的網站前端，請考慮使用輕量型 Azure 網站。隨著網站擴大，以及需求改變，您可以很輕易地升級到雲端服務。請參閱 <a href="/zh-tw/develop/python/">Python 開發人員中心</a> 以取得與 Azure 網站的開發有關的文章。
-<br />
+> [AZURE.NOTE]**尋求建置簡單的網站？** 如果您只需要簡單的網站前端，請考慮使用輕量型 Azure 網站。隨著網站擴大，以及需求改變，您可以很輕易地升級到雲端服務。請參閱 <a href="/develop/python/">Python 開發人員中心</a>，尋找 Azure 網站開發的相關文章。<br />
 
 
 ## 建立專案
 
-在 Visual Studio 中，您可以在 [**新增專案**] 對話方塊的 [**Python**] 下選取 [**Azure 雲端服務**]。 
+在 Visual Studio 中，您可以在 [新增專案]**** 對話方塊的 [Python]**** 下選取 [Azure 雲端服務]****。
 
 ![New Project Dialog](./media/cloud-services-python-ptvs/new-project-cloud-service.png)
 
@@ -57,7 +55,7 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][�
 
 ![Cloud Service Solution](./media/cloud-services-python-ptvs/worker.png)
 
-您可以隨時將 Web 或背景工作角色加入至現有的雲端服務。您可以選擇加入方案中現有的專案，或建立新專案。 
+您可以隨時將 Web 或背景工作角色加入至現有的雲端服務。您可以選擇加入方案中現有的專案，或建立新專案。
 
 ![Add Role Command](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
@@ -69,13 +67,13 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][�
 
 雖然 PTVS 支援在模擬器中啟動，但無法使用偵錯 (中斷點等)。
 
-若要對 Web 和背景工作角色進行偵錯，您可以將角色專案設為啟始專案，然後偵錯。您也可以設定多個啟始專案。在方案上按一下滑鼠右鍵，然後選取 [**設定啟始專案**]。
+若要對 Web 和背景工作角色進行偵錯，您可以將角色專案設為啟始專案，然後偵錯。您也可以設定多個啟始專案。請在方案上按一下滑鼠右鍵，然後選取 [設定啟始專案]****。
 
 ![Solution Startup Project Properties](./media/cloud-services-python-ptvs/startup.png)
 
 ## 發佈至 Azure
 
-若要發行，請在方案中的雲端服務專案上按一下滑鼠右鍵，然後選取 [**發行**]。
+若要發行，請在方案中的雲端服務專案上按一下滑鼠右鍵，然後選取 [發行]****。
 
 ![Microsoft Azure Publish Sign In](./media/cloud-services-python-ptvs/publish-sign-in.png)
 
@@ -91,7 +89,7 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][�
 
 ![Remote Desktop Configuration Dialog](./media/cloud-services-python-ptvs/publish-remote-desktop-configuration.png)
 
-組態設定完成之後，按一下 [**發行**]。
+組態設定完成之後，按一下 [發行]****。
 
 輸出視窗中會顯示一些進度，接著會出現 [Microsoft Azure 活動記錄] 視窗。
 
@@ -116,29 +114,29 @@ Azure 對於執行的應用程式提供了三種計算模型：[Azure 網站][�
 
 <!--Link references-->
 
-[什麼是雲端服務？]: /zh-tw/manage/services/cloud-services/what-is-a-cloud-service/
-[執行模型-網站]: ../fundamentals-application-models/#WebSites
-[執行模型-vms]: ../fundamentals-application-models/#VMachine
-[執行模型-雲端服務]: ../fundamentals-application-models/#CloudServices
-[Python 開發人員中心]: /zh-tw/develop/python/
+[什麼是雲端服務？]: /manage/services/cloud-services/what-is-a-cloud-service/
+[execution model-web sites]: fundamentals-application-models.md#WebSites
+[execution model-vms]: fundamentals-application-models.md#VMachine
+[execution model-cloud services]: fundamentals-application-models.md#CloudServices
+[Python Developer Center]: /develop/python/
 
-[Blob 服務]: ../storage-python-how-to-use-blob-storage/
-[佇列服務]: ../storage-python-how-to-use-queue-storage/
-[資料表服務]: ../storage-python-how-to-use-table-storage/
-[服務匯流排佇列]: ../service-bus-python-how-to-use-queues/
-[服務匯流排主題]: ../service-bus-python-how-to-use-topics-subscriptions/
+[Blob 服務]: storage-python-how-to-use-blob-storage.md
+[佇列服務]: storage-python-how-to-use-queue-storage.md
+[資料表服務]: storage-python-how-to-use-table-storage.md
+[服務匯流排佇列]: service-bus-python-how-to-use-queues.md
+[服務匯流排主題]: service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
 
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools for Visual Studio 文件]: http://pytools.codeplex.com/documentation 
+[Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation
 [雲端服務專案]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
 [Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 (32 位元)]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python 3.4 (32 位元)]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Python 2.7 32 位元]: http://go.microsoft.com/fwlink/?LinkId=517190
+[Python 3.4 32 位元]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!--HONumber=45--> 
+<!--HONumber=54-->

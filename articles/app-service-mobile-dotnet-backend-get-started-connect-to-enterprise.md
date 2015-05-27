@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="將行動應用程式連接到企業 SaaS | 行動開發人員中心" 
 	description="了解如何呼叫 SharePoint Online 之類的企業資源" 
 	documentationCenter="" 
@@ -20,7 +20,7 @@
 
 在本教學課程中，您會將行動應用程式連接到企業的軟體即服務 (SaaS) 解決方案。您會從[使用 Active Directory Authentication Library 單一登入驗證您的應用程式]更新應用程式，以在每次新增 TodoItem 時，在 SharePoint Online 中建立 Word 文件。
 
-本教學課程需要下列項目：
+本教學課程需要下列各項：
 
 * 執行於 Windows 8.1 的 Visual Studio 2013
 * 作用中 [SharePoint Online] 訂閱
@@ -29,9 +29,9 @@
 ## <a name="configure-permissions"></a>針對 SharePoint 的委派存取設定您的應用程式
 根據預設，您從 AAD 取得的權杖僅具有有限權限。若要存取第三方資源或 SaaS 應用程式 (例如 SharePoint Online)，您必須明確允許此類存取。
 
-1. 在 [Azure 管理入口網站]的 [**Active Directory**] 區段中，選取您的租用戶。導覽至您為應用程式服務建立的 Web 應用程式。
+1. 在 **Azure 管理入口網站**的 [Active Directory][] 區段中，選取您的租用戶。導覽至您為應用程式服務建立的 Web 應用程式。
 
-2. 在 [**設定**] 索引標籤中，將頁面向下捲動至「其他應用程式的權限」區段。選取 [**Office 365 SharePoint Online**]，然後授與 [**編輯或刪除使用者的檔案**] 委派權限。然後按一下 [**儲存**]。
+2. 在 [設定]**** 索引標籤中，將頁面向下捲動至「其他應用程式的權限」區段。選取 [Office 365 SharePoint Online]****，然後授與 [編輯或刪除使用者的檔案]**** 委派權限。然後按一下 [儲存]****。
 
     ![][1]
 
@@ -47,11 +47,11 @@
 
 3. 在 [管理入口網站] 的 [行動應用程式程式碼] 區段中，導覽至 [設定] 索引標籤，然後向下捲動至 [應用程式設定]。在此處您可以提供金鑰值組，以便參考所需的認證。
 
-* 將 SP_Authority 設為 AAD 租用戶的授權端點。此項目應與您的用戶端應用程式所使用的授權值相同。其格式將是  `https://login.windows.net/contoso.onmicrosoft.com`
+* 將 SP_Authority 設為 AAD 租用戶的授權端點。此項目應與您的用戶端應用程式所使用的授權值相同。其格式將是 `https://login.windows.net/contoso.onmicrosoft.com`
 
 * 將 SP_ClientSecret 設為您先前取得的用戶端密碼值。
 
-* 將 SP_SharePointURL 設為 SharePoint 網站的 URL。其格式應為  `https://contoso-my.sharepoint.com`
+* 將 SP_SharePointURL 設為 SharePoint 網站的 URL。其格式應為 `https://contoso-my.sharepoint.com`
 
 您將可使用 ApiServices.Settings 在您的程式碼中再次取得這些值。
 
@@ -63,7 +63,9 @@
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-adal-install-nuget](../includes/app-service-mobile-dotnet-adal-install-nuget.md)]
 
-2. 在您的行動應用程式程式碼專案中，建立名為 SharePointUploadContext 的新類別。在其中新增下列項目：
+2. 在 NuGet 封裝管理員中，按一下 [**線上**]。輸入 **Microsoft.Azure.Mobile.Server.AppService** 作為搜尋字詞。然後按一下 [**安裝**] 以安裝 [Mobile Apps .NET Backend App Service Extension] 封裝。此封裝提供延伸方法，以便處理目前已登入使用者的相關資訊。
+
+2. 在您的行動應用程式程式碼專案中，建立名為 SharePointUploadContext 的新類別。將 `using Microsoft.Azure.Mobile.Server.AppService;` 陳述式新增至檔案。然後，在類別中新增下列程式碼：
 
         private String accessToken;
         private String mySiteApiPath;
@@ -178,9 +180,10 @@
 
 <!-- URLs. -->
 
-[預覽 Azure 管理入口網站]: https://portal.azure.com/
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Preview Azure Management Portal]: https://portal.azure.com/
+[]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/zh-tw/sharepoint/
 [使用 Active Directory Authentication Library 單一登入驗證您的應用程式]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!--HONumber=49-->
+<!--HONumber=54-->

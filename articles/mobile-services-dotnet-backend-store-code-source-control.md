@@ -2,7 +2,7 @@
 	pageTitle="在原始檔控制中儲存專案程式碼 - Azure 行動服務" 
 	description="了解如何儲存您的 .NET 後端專案，並從您的電腦上的本機 Git 儲存機制發佈。" 
 	services="mobile-services" 
-	documentationCenter="windows" 
+	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
@@ -10,46 +10,45 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/5/2014" 
+	ms.date="04/13/2015" 
 	ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/zh-tw/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend" class="current">.NET 後端</a> | <a href="/zh-tw/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend">JavaScript 後端</a>
+	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET 後端" class="current">.NET 後端</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript 後端">JavaScript 後端</a>
 </div>
 
 # 在原始檔控制中儲存專案碼
 
-本主題將示範如何使用 Azure 行動服務所提供的原始檔控制來儲存您的 .NET 後端服務專案。您可直接從本機 Git 儲存機制上傳專案至生產行動服務以發佈專案。 
+本主題將示範如何使用 Azure 行動服務所提供的原始檔控制來儲存您的 .NET 後端服務專案。您可直接從本機 Git 儲存機制上傳專案至生產行動服務以發佈專案。
 
 本教學課程將引導您完成下列步驟：
 
 1. [在行動服務中啟用原始檔控制]。
 2. [安裝 Git 與建立本機儲存機制]。
-3. [使用 Git 發佈專案]。
+3. [使用 Git 發佈專案]
 
-若要完成本教學課程，您必須先完成[開始使用行動服務]或[將行動服務新增至現有的應用程式]教學課程以建立行動服務。
+若要完成本教學課程，您必須已建立行動服務，方法是完成[開始使用行動服務]或[將行動服務新增至現有的應用程式]教學課程。
 
-## <a name="enable-source-control"></a>在行動服務中啟用原始檔控制
+##<a name="enable-source-control"></a>在行動服務中啟用原始檔控制
 
 [AZURE.INCLUDE [mobile-services-enable-source-control](../includes/mobile-services-enable-source-control.md)]
 
-## <a name="clone-repo"></a>安裝 Git 與建立本機儲存機制
+##<a name="clone-repo"></a>安裝 Git 與建立本機儲存機制
 
 1. 在您的本機電腦上安裝 Git。 
 
 	安裝 Git 所需的步驟會因作業系統而有所不同。如需作業系統特定的發佈和安裝指引，請參閱[安裝 Git]。
 
-	> [AZURE.NOTE]
-	> 在某些作業系統上，會同時提供例 Git 的命令列和 GUI 兩種版本。本文提供的指示將使用命令列版本。
+	> [AZURE.NOTE]在某些作業系統上，會同時提供例 Git 的命令列和 GUI 兩種版本。本文提供的指示將使用命令列版本。
 
-2. 開啟命令列，例如 **GitBash** (Windows) 或 **Bash** (Unix Shell)。在 OS X 系統上，您可以透過 [終端機] 應用程式存取命令列。
+2. 開啟命令列，例如 **GitBash** (Windows) 或 **Bash** (Unix Shell)。在 OS X 系統上，您可以透過 **[終端機]** 應用程式來存取命令列。
 
-3. 在命令列中，切換至您要儲存指令碼的目錄。例如， `cd SourceControl`.
+3. 在命令列中，切換至您要儲存指令碼的目錄。例如，`cd SourceControl`。
 
-4. 使用下列命令來建立新 Git 儲存機制的本機複本，以行動服務的 Git 儲存機制 URL 來取代 `<your_git_URL>` ：
+4. 使用下列命令來建立新 Git 儲存機制的本機複本，以行動服務的 Git 儲存機制 URL 來取代 `<your_git_URL>`：
 
 		git clone <your_git_URL>
 
@@ -60,11 +59,11 @@
 		remote: Total 8 (delta 1), reused 0 (delta 0)
 		Unpacking objects: 100% (8/8), done.
 
-6. 瀏覽至您執行  `git clone` 命令的目錄，注意有一個使用行動服務名稱建立的新目錄。對於 .NET 後端行動服務，git 儲存機制最初是空白的。 
+6. 瀏覽至您執行 `git clone` 命令的目錄，注意有一個使用行動服務名稱建立的新目錄。對於 .NET 後端行動服務，git 儲存機制最初是空白的。
 
 在建立本機儲存機制後，您可以從這個儲存機制發佈 .NET 後端服務專案。
 
-## <a name="deploy-scripts"></a>使用 Git 發佈專案
+##<a name="deploy-scripts"></a>使用 Git 發佈專案
 
 1. 在 Visual Studio 2013 中建立新的 .NET 後端行動服務專案，或將現有的專案移到新的本機儲存機制。  
 
@@ -72,7 +71,7 @@
 
 2. 移除所有 NuGet 封裝資料夾，保留 packages.config 檔案。
 
-	行動服務會依據 packages.confign 檔案自動還原 NuGet 封裝。您也可以定義 .gitignore 檔案以防止新增封裝目錄。 
+	行動服務會依據 packages.confign 檔案自動還原 NuGet 封裝。您也可以定義 .gitignore 檔案以防止新增封裝目錄。
  
 3. 在 Git 命令提示字元中，輸入下列命令以開始追蹤新的指令碼檔案：
 
@@ -90,19 +89,17 @@
 
 6. 瀏覽至 .NET 後端行動服務的 URL，您應該會看到：
 
-	![Mobile Services startup page](./media/mobile-services-dotnet-backend-store-code-source-control/mobile-service-startup.png)
+	![行動服務啟動頁面](./media/mobile-services-dotnet-backend-store-code-source-control/mobile-service-startup.png)
 
-現在，您的行動服務專案會保存在原始檔控制中，您可以直接從本機儲存機制發送更新以發佈服務更新。如需在使用 SQL Database 的 .NET 後端行動服務中變更資料模型的相關資訊，請參閱[如何對 .NET 後端行動服務進行資料模型變更]。
+現在，您的行動服務專案會保存在原始檔控制中，您可以直接從本機儲存機制發送更新以發佈服務更新。如需關於在使用 SQL Database 的 .NET 後端行動服務中變更資料模型的資訊，請參閱[如何對 .NET 後端行動服務進行資料模型變更]。
 
 ## <a name="next-steps"> </a>後續步驟
 
-現在，您已完成本教學課程，您知道如何在原始檔控制中儲存指令碼。請試著深入了解行動服務： 
+現在，您已完成本教學課程，您知道如何在原始檔控制中儲存指令碼。請試著深入了解行動服務：
 
-+ [如何對 .NET 後端行動服務進行資料模型變更]
-	<br/> 說明如何使用 Entity Framework Code First 移轉對現有的 Azure SQL Database 進行資料模型變更，以避免遺失現有的資料。 	
++ [如何對 .NET 後端行動服務進行資料模型變更] <br/>說明如何使用 Entity Framework Code First 移轉對現有的 Azure SQL Database 進行資料模型變更，以避免遺失現有的資料。 	
 
-+ [從用戶端呼叫自訂 API] 
-	<br/> 說明如何建立可從用戶端呼叫的自訂 API。
++ [從用戶端呼叫自訂 API] <br/>說明如何建立可從用戶端呼叫的自訂 API。
 
 <!-- Anchors. -->
 [在行動服務中啟用原始檔控制]: #enable-source-control
@@ -112,15 +109,13 @@
 <!-- Images. -->
 
 <!-- URLs. -->
-[Git 網站]: http://git-scm.com
-[原始檔控制]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Git website]: http://git-scm.com
+[Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [安裝 Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[開始使用行動服務]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
-[將行動服務新增至現有的應用程式]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/
-[Azure 管理入口網站]: https://manage.windowsazure.com/
-[從用戶端呼叫自訂 API]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api/
-[如何對 .NET 後端行動服務進行資料模型變更]: /zh-tw/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+[開始使用行動服務]: mobile-services-dotnet-backend-ios-get-started.md
+[將行動服務新增至現有的應用程式]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Azure Management Portal]: https://manage.windowsazure.com/
+[從用戶端呼叫自訂 API]: mobile-services-dotnet-backend-ios-call-custom-api.md
+[如何對 .NET 後端行動服務進行資料模型變更]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

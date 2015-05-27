@@ -1,56 +1,40 @@
-﻿<properties 
+<properties 
    pageTitle="Azure Mobile Engagement 使用者介面 - 瀏覽" 
-   description="Azure Mobile Engagement [瀏覽] 區段的使用者介面概觀" 
+   description="了解如何瀏覽 Azure Mobile Engagement 入口網站的使用者介面" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
-   authors="v-micada" 
-   manager="mattgre" 
+   documentationCenter="" 
+   authors="piyushjo" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
-   ms.workload="required" 
+   ms.tgt_pltfrm="mobile-multiple"
+   ms.workload="mobile" 
    ms.date="02/17/2015"
-   ms.author="v-micada"/>
+   ms.author="piyushjo"/>
 
-# Azure Mobile Engagement - 使用者介面
+# 如何瀏覽使用者介面
+位於 https://YourApp.portal.mobileengagementwindows.net/ 的 UI 前端入口網站包含以下瀏覽項目：頁首、頁尾、提要欄位、Cookie 連結瀏覽和應用程式專屬功能區。
+ 
+![Navigation1][1]
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introduction">簡介</a>
-<a href="../mobile-engagement-user-interface-navigation" title="Navigation">瀏覽</a>
-<a href="../mobile-engagement-user-interface-home/" title="Home">首頁</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">我的帳戶</a>
-<a href="../mobile-engagement-user-interface-analytics" title="Analytics">分析</a>
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">監視</a>
-<a href="../mobile-engagement-user-interface-reach" title="Reach">觸達</a>
-<a href="../mobile-engagement-user-interface-segments" title="Segments">使用者分佈</a>
-<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">儀表板</a>
-<a href="../mobile-engagement-user-interface-settings" title="Settings">設定</a>
-</div>
-
-# 瀏覽
+## 頁首
+- ****Azure Mobile Engagement (標誌)：Azure Mobile Engagement 應用程式的首頁
+- ****您的名稱：我的帳戶設定檔
+- ****文件：[Azure Mobile Engagement 文件][Link 10]
+- ****登出：登出 Azure Mobile Engagement
  
-UI 前端入口網站位於： https://YourApp.portal.mobileengagementwindows.net/ 包含下列瀏覽項目：頁首、頁尾、提要欄位、Cookie 連結瀏覽和應用程式專屬功能區。
+## 頁尾
+- ****服務條款 [http://azure.microsoft.com/support/legal/](http://azure.microsoft.com/support/legal/)
+- ****隱私權與 Cookie [http://www.microsoft.com/privacystatement/OnlineServices/Default.aspx](http://www.microsoft.com/privacystatement/OnlineServices/Default.aspx)
  
-![Navigation1][1] 
-
-## 頁首：
-- Azure Mobile Engagement (標誌)**** - Azure Mobile Engagement 應用程式的首頁
-- 您的名稱**** - 我的帳戶設定檔
-- 文件**** - [Azure Mobile Engagement 文件][Link 10]
-- 登出**** - 登出 Azure Mobile Engagement
- 
-## 頁尾：
-- 服務條款**** [http://azure.microsoft.com/support/legal/](http://azure.microsoft.com/support/legal/)
-- **隱私權與 Cookie** [http://www.microsoft.com/privacystatement/OnlineServices/Default.aspx](http://www.microsoft.com/privacystatement/OnlineServices/Default.aspx)
- 
-## Cookie 連結：
+## Cookie 連結
 - 快速瀏覽到通往您目前位置的先前頁面。
  
-## 功能區：
+## 功能區
 - [分析][Link 15]
 - [監視][Link 16]
 - [觸達][Link 17]
@@ -79,20 +63,20 @@ UI 前端入口網站位於： https://YourApp.portal.mobileengagementwindows.ne
 [17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
 [18]: ./media/mobile-engagement-user-interface-reach/reach1.png
 [19]: ./media/mobile-engagement-user-interface-reach/reach2.png
-[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[20]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png
 [34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
 [35]: ./media/mobile-engagement-user-interface-segments/segments1.png
 [36]: ./media/mobile-engagement-user-interface-segments/segments2.png
@@ -131,30 +115,27 @@ UI 前端入口網站位於： https://YourApp.portal.mobileengagementwindows.ne
 [Link 9]: http://azure.microsoft.com/services/mobile-engagement/
 [Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
 [Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: ../mobile-engagement-user-interface-navigation/
-[Link 13]: ../mobile-engagement-user-interface-home/
-[Link 14]: ../mobile-engagement-user-interface-my-account/
-[Link 15]: ../mobile-engagement-user-interface-analytics/
-[Link 16]: ../mobile-engagement-user-interface-monitor/
-[Link 17]: ../mobile-engagement-user-interface-reach/
-[Link 18]: ../mobile-engagement-user-interface-segments/
-[Link 19]: ../mobile-engagement-user-interface-dashboard/
-[Link 20]: ../mobile-engagement-user-interface-settings/
-[Link 21]: ../mobile-engagement-troubleshooting-guide-analytics/
-[Link 22]: ../mobile-engagement-troubleshooting-guide-apis/
-[Link 23]: ../mobile-engagement-troubleshooting-guide-push-reach/
-[Link 24]: ../mobile-engagement-troubleshooting-guide-service/
-[Link 25]: ../mobile-engagement-troubleshooting-guide-sdk/
-[Link 26]: ../mobile-engagement-troubleshooting-guide-sr-info/
-[Link 27]: ../mobile-engagement-how-tos-first-push/
-[Link 28]: ../mobile-engagement-how-tos-test-campaign/
-[Link 29]: ../mobile-engagement-how-tos-personalize-push/
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push/
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign/
-[Link 32]: ../mobile-engagement-how-tos-text-view/
-[Link 33]: ../mobile-engagement-how-tos-web-view/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-how-tos-first-push.md
+[Link 28]: mobile-engagement-how-tos-test-campaign.md
+[Link 29]: mobile-engagement-how-tos-personalize-push.md
+[Link 30]: mobile-engagement-how-tos-differentiate-push.md
+[Link 31]: mobile-engagement-how-tos-schedule-campaign.md
+[Link 32]: mobile-engagement-how-tos-text-view.md
+[Link 33]: mobile-engagement-how-tos-web-view.md
 
-
- 
-
-<!--HONumber=47-->
+<!--HONumber=54-->

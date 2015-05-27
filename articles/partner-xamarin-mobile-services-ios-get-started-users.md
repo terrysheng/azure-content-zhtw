@@ -16,41 +16,41 @@
 	ms.date="09/23/2014"
 	ms.author="donnam"/>
 
-# 將驗證加入至行動服務應用程式
+# 在您的行動服務應用程式中新增驗證
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-本主題顯示如何在 Azure 行動服務中從應用程式驗證使用者。在本教學課程中，您將使用行動服務支援的身分識別提供者，將驗證加入至快速入門專案。由行動服務成功驗證並授權之後，就會顯示使用者識別碼值。  
+本主題顯示如何在 Azure 行動服務中從應用程式驗證使用者。在本教學課程中，您將使用行動服務支援的身分識別提供者，將驗證加入至快速入門專案。由行動服務成功驗證並授權之後，就會顯示使用者識別碼值。
 
 本教學課程帶領您執行下列基本步驟，在您的應用程式中啟用驗證：
 
 1. [註冊應用程式進行驗證，並設定行動服務]
 2. [限制只有經驗證的使用者具有資料表的權限]
-3. [將驗證加入應用程式]
+3. [將驗證新增至應用程式]
 
-本教學課程會以行動服務快速入門為基礎。您也必須先完成教學課程[開始使用行動服務]。
+本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務]。
 
 完成本教學課程需使用 [Xamarin.iOS]、XCode 6.0 及 iOS 7.0 或更新版本。
 
-<h2><a name="register"></a>註冊應用程式進行驗證，並設定行動服務</h2>
+<h2><a name="register"></a>註冊您的應用程式以驗證與設定行動服務</h2>
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-<h2><a name="permissions"></a>限制只有經驗證的使用者具有權限</h2>
+<h2><a name="permissions"></a> 限制只有經驗證的使用者具有權限</h2>
 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-3. 在 Xcode 中，開啟您完成[開始使用行動服務]教學課程時所建立的專案。
+3. 在 Xcode 中，開啟您完成教學課程[開始使用行動服務]時建立的專案。
 
-4. 按下 [**執行**] 按鈕以建置專案並在 iPhone 模擬器中啟動應用程式。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。
+4. 按下 [執行]**** 按鈕以建置專案並在 iPhone 模擬器中啟動應用程式。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。
 
-   	這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 **TodoItem** 資料表現在需要驗證。
+   	這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 _TodoItem_ 資料表現在需要驗證。
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
-<h2><a name="add-authentication"></a>將驗證新增到應用程式</h2>
+<h2><a name="add-authentication"></a>將驗證新增至應用程式</h2>
 
 1. 開啟 **TodoService** 專案檔案，並新增下列變數。
 
@@ -72,7 +72,7 @@
             }
         }
 
-	> [AZURE.NOTE] 如果您使用的身分識別提供者不是 Microsoft 帳戶，請將傳給上述 **LoginAsync** 的值變更為下列其中一個：**Facebook**、**Twitter**、**Google** 或 **WindowsAzureActiveDirectory**。
+	> [AZURE.NOTE]如果您使用的身分識別提供者不是 Microsoft 帳戶，請將傳給上述 **LoginAsync** 的值變更為下列其中一個：_Facebook_、_Twitter_、_Google_ 或 _WindowsAzureActiveDirectory_。
 
 3. 將 **TodoItem** 的要求從 **TodoService** 建構函式移至名稱為 **CreateTable** 的新方法中：
 
@@ -82,7 +82,7 @@
             todoTable = client.GetTable<TodoItem>();
         }
 
-4.建立名稱為 LoginAndGetData 的新非同步公用方法，定義如下：
+4. 建立名稱為 **LoginAndGetData** 的新非同步公用方法，定義如下：
 
         public async Task LoginAndGetData(UIViewController view)
         {
@@ -111,22 +111,22 @@
         }
 6. 從 **TodoListViewController.ViewDidLoad** 移除 **RefreshAsync** 的原始呼叫。
 
-7. 按 [執行] 按鈕以建置專案並在 iPhone 模擬器中啟動應用程式，然後使用您選擇的身分識別提供者登入。
+7. 按 [執行]**** 按鈕以建置專案並在 iPhone 模擬器中啟動應用程式，然後使用您選擇的身分識別提供者登入。
 
    	成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
 
 ## 取得完成的範例
 下載[完成的範例專案]。務必以您自己的 Azure 設定更新 **applicationURL** 和 **applicationKey** 變數。
 
-## <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>接續步驟
 
 在下一堂教學課程[使用指令碼授權使用者]中，您將使用行動服務根據通過驗證使用者所提供的使用者 ID 值，並用它來篩選行動服務所傳回的資料。
 
 <!-- Anchors. -->
 [註冊應用程式進行驗證，並設定行動服務]: #register
 [限制只有經驗證的使用者具有資料表的權限]: #permissions
-[將驗證加入應用程式]: #add-authentication
-[後續步驟]:#next-steps
+[將驗證新增至應用程式]: #add-authentication
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [4]: ./media/partner-xamarin-mobile-services-ios-get-started-users/mobile-services-selection.png
@@ -136,20 +136,18 @@
 [15]: ./media/partner-xamarin-mobile-services-ios-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. TODO:: update completed example project link with project download -->
-[提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [開始使用行動服務]: /develop/mobile/tutorials/get-started-xamarin-ios
-[開始使用資料]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[開始使用驗證]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[開始使用推播通知]: /develop/mobile/tutorials/-get-started-with-push-xamarin-ios
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Get started with push notifications]: /develop/mobile/tutorials/-get-started-with-push-xamarin-ios
 [使用指令碼授權使用者]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!--HONumber=49--> 
-
-<!--HONumber=49-->
+<!--HONumber=54-->

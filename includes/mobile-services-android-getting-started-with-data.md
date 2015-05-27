@@ -1,6 +1,6 @@
-﻿您的行動服務已準備就緒，現在可以更新應用程式以便在行動服務 (而非本機收集) 中儲存項目。 
+您的行動服務已準備就緒，現在可以更新應用程式以便在行動服務 (而非本機收集) 中儲存項目。
 
-1. 請確定 *build.gradle (Module app)* 檔案中的 [相依性] 標記是否包含下列程式碼行，如果沒有，請將它們加入。這會將參考新增至行動服務 Android 用戶端 SDK。
+1. 請確定 *build.gradle (模組應用程式)* 檔案中的 [相依性]**** 標記是否包含下列程式碼行 (如果沒有，請將它們加入)。這會將參考新增至行動服務 Android 用戶端 SDK。
 
 		compile 'com.android.support:support-v4:21.0.3'
     	compile 'com.google.code.gson:gson:2.2.2'
@@ -8,18 +8,18 @@
 	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2-beta'
 
 
-2. 現在按一下 [同步處理專案與 Gradle 檔案] 以重新建置專案。
+2. 現在按一下 [同步處理專案與 Gradle 檔案]**** 以重新建置專案。
 
-3. 開啟 AndroidManifest.xml 檔案並加入下行，可讓應用程式存取 Azure 中的行動服務。
-
-		<uses-permission android:name="android.permission.INTERNET" />
-
-
-6. 開啟 AndroidManifest.xml 檔案並加入下行，可讓應用程式存取 Azure 中的行動服務。
+3. 開啟 AndroidManifest.xml 檔案並加入這一行，以便讓應用程式存取 Azure 中的行動服務。
 
 		<uses-permission android:name="android.permission.INTERNET" />
 
-5. 在 [專案總管] 中，開啟位於 **GetStartedWithData => app => src => java** 資料夾中的 TodoActivity.java 檔案，並取消註解下列程式碼行： 
+
+6. 開啟 AndroidManifest.xml 檔案並加入這一行，以便讓應用程式存取 Azure 中的行動服務。
+
+		<uses-permission android:name="android.permission.INTERNET" />
+
+5. 在 [專案總管] 中，開啟位於 **[GetStartedWithData] => [app] => [src] => [java]** 資料夾中的 TodoActivity.java 檔案，並取消註解下列程式碼行：
 
 
 
@@ -46,19 +46,19 @@
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-7. 儲存檔案，專案會指出建置錯誤。請搜尋其餘三個用到 `toDoItemList` 變數的地方，並將指出的區段變成註解。這會完全移除記憶體中的清單。 
+7. 儲存檔案，專案會指出建置錯誤。請搜尋其餘三個用到 `toDoItemList` 變數的位置，並將指出的區段變成註解。這會完全移除記憶體中的清單。
 
 8. 現在開始加入我們的行動服務。將下列幾行程式碼取消註解：
 
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
 
-9. 在檔案底部找出 *ProgressFilter* 類別並取消註解。此類別會在 *MobileServiceClient* 執行網路作業時顯示 [ 'loading'] 指示。
+9. 在檔案底部找出 *ProgressFilter* 類別並取消註解。此類別會在 *MobileServiceClient* 執行網路作業時顯示 'loading' 指示。
 
 
-10. 在「管理入口網站」中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
+10. 在管理入口網站中，按一下 [行動服務]****，然後按一下您剛剛建立的行動服務。
 
-11. 按一下 [儀表板] 索引標籤並記下 [網站 URL]，然後按一下 [管理金鑰] 並記下 [應用程式金鑰]。
+11. 按一下 [儀表板]**** 索引標籤並記下 [網站 URL]****，然後按一下 [管理金鑰]**** 並記下 [應用程式金鑰]****。
 
    	![](./media/download-android-sample-code/mobile-dashboard-tab.png)
 
@@ -80,7 +80,7 @@
 			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
 		}
 
-  	這會建立 *MobileServiceClient* 的新執行個體，可用來存取您的行動服務。這也會建立 *MobileServiceTable* 執行個體，用於代理行動服務中的資料儲存。
+  	這會建立用來存取行動服務的新 *MobileServiceClient* 執行個體。也會建立 *MobileServiceTable* 執行個體，用於代理行動服務中的資料儲存。
 
 13. 在上述程式碼中，依序將 `MobileServiceUrl` 和 `AppKey` 換成您的行動服務中的 URL 和應用程式金鑰。
 
@@ -164,6 +164,5 @@
 		
 
 <!-- URLs. -->
-[行動服務 Android SDK]: http://aka.ms/Iajk6q
-
-<!--HONumber=49-->
+[Mobile Services Android SDK]: http://aka.ms/Iajk6q
+<!--HONumber=54-->

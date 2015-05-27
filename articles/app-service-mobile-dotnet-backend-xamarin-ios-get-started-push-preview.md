@@ -3,7 +3,7 @@
 	description="了解如何使用 Azure 應用程式服務將推播通知傳送至 Xamarin iOS 應用程式。" 
 	services="app-service\mobile" 
 	documentationCenter="xamarin" 
-	authors="yuaxu"
+	authors="ysxu"
 	manager="dwrede" 
 	editor=""/>
 
@@ -22,16 +22,16 @@
 
 本主題說明如何使用 Azure 應用程式服務將推播通知傳送至 Xamarin iOS 8 應用程式。在本教學課程中，您會使用 Apple 推播通知服務 (APNS) 將推播通知新增至[開始使用應用程式服務行動應用程式]專案。完成後，行動後端就會在每次插入記錄時傳送推播通知。
 
-本教學課程需要下列項目：
+本教學課程需要下列各項：
 
 + iOS 8 裝置
 + iOS Developer Program 成員資格
 + [Xamarin.iOS Studio]
 + [Azure 行動服務元件]
 
-   > [AZURE.NOTE] 基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
+   >[AZURE.NOTE]基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
 
-Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動應用程式。遵循這些指示建立必要的憑證，並將憑證上傳至您的行動應用程式。如需正式的 APNS 功能文件，請參閱 [Apple 推播通知服務]。
+Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動應用程式。遵循這些指示建立必要的憑證，並將憑證上傳至您的行動應用程式。如需正式的 APNS 功能文件，請參閱 [Apple 推播通知服務] (英文)。
 
 ## <a name="certificates"></a>產生憑證簽署要求檔案
 
@@ -39,7 +39,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動應用程式。
 
 1. 在公用程式中，執行 [**Keychain Access 工具**]。
 
-2. 按一下 [**Keychain 存取**]，並展開 [**憑證助理**]，然後按一下 [**向憑證授權單位要求憑證...**]。
+2. 按一下 [Keychain Access]****，並展開 [Certificate Assistant]****，然後按一下 [Request a Certificate from a Certificate Authority...]****。
 
     ![][5]
 
@@ -47,7 +47,7 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動應用程式。
 
     ![][6]
 
-4. 在 [**另存新檔**] 中輸入憑證簽署要求 (CSR) 檔案的名稱，並且在 [**位置**] 中選取位置，然後按一下 [**儲存**]。
+4. 在 [另存新檔]**** 中輸入憑證簽署要求 (CSR) 檔案的名稱，並且在 [位置]**** 中選取位置，然後按一下 [儲存]****。
 
     ![][7]
   
@@ -57,53 +57,53 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動應用程式。
 
 ## <a name="register"></a>針對推播通知註冊應用程式
 
-若要從行動應用程式將推播通知傳送至 iOS 裝置，您必須向 Apple 註冊您的應用程式，並註冊推播通知。 
+若要從行動應用程式將推播通知傳送至 iOS 裝置，您必須向 Apple 註冊您的應用程式，並註冊推播通知。
 
-1. 如果您尚未註冊您的應用程式，請導覽至 iOS 佈建入口網站</a> (位於 Apple 開發人員中心)，以您的 Apple ID 登入，按一下 [**識別碼**]，然後按一下 [**App ID**]，最後按一下 **+** 號，為您的應用程式建立應用程式識別碼。
+1. 如果您尚未註冊應用程式，請瀏覽至 Apple 開發人員中心的 iOS 佈建入口網站</a>，然後使用您的 Apple ID 登入，並依序按一下 [**識別碼**]、[**App ID**] 及 **+** 號以建立應用程式的應用程式識別碼。
     
     ![][102]
 
-2. 在 [**描述**] 中輸入您的應用程式名稱，輸入並記住唯一的 [**Bundle Identifier**]，勾選 [應用程式服務] 區段中的 [推播通知] 選項，然後按一下 [**繼續**]。此範例會使用識別碼 **MobileServices.Quickstart**，但您可能不會重複使用此相同識別碼，因為應用程式識別碼在所有使用者中必須是唯一的。因此，建議您在應用程式名稱之後附加您的全名或縮寫。 
+2. 在 **描述**] 中輸入您的應用程式名稱，輸入並記住唯一的 [**套件組合識別碼**]，勾選 [應用程式服務] 區段中的 [推播通知] 選項，然後按一下 [**繼續**]。此範例會使用識別碼 **MobileServices.Quickstart**，但您可能不會重複使用此相同識別碼，因為應用程式識別碼在所有使用者中必須是唯一的。因此，建議您在應用程式名稱之後附加您的全名或縮寫。
 
     ![][103]
    
-    這將產生您的應用程式識別碼，並要求您 [**提交**] 這個資訊。按一下 [**提交**]。
+    這將產生您的應用程式識別碼，並要求您 [提交]**** 這個資訊。按一下 [提交]****。
    
-    ![][104] 
+    ![][104]
    
-    按一下 [**提交**] 之後，您將看見 [**註冊完成**] 畫面，如下所示。按一下 [**完成**]。
+    按一下 [提交]**** 之後，您將看見 [註冊完成]**** 畫面，如下所示。按一下 [完成]****。
    
-    ![][105]    
+    ![][105]
 
-3. 找出剛才建立的應用程式識別碼，並且按一下該資料列。 
+3. 找出剛才建立的應用程式識別碼，並且按一下該資料列。
 
     ![][106]
    
     按一下應用程式識別碼將顯示應用程式和應用程式識別碼的詳細資料。按一下 [**設定**] 按鈕。
    
-    ![][107] 
+    ![][107]
    
-4. 捲動到畫面底部，然後按一下 [**開發推播 SSL 憑證**] 區段下方的 [**建立憑證...**] 按鈕。
+4. 捲動到畫面底部，然後按一下 [Development Push SSL Certificate]**** 區段下方的 [Create Certificate...]**** 按鈕。
 
-    ![][108] 
+    ![][108]
 
     這將顯示 [Add iOS Certificate] 助理。
    
     注意：本教學課程使用開發憑證。註冊生產憑證時，將使用同一個程序。您將憑證上傳至行動應用程式時，請確定設定相同的憑證類型。
 
-5. 按一下 [**選擇檔案**]，瀏覽至您稍早儲存 CSR 檔案的位置，然後按一下 [**產生**]。 
+5. 按一下 [**選擇檔案**]，瀏覽至您稍早儲存 CSR 檔案的位置，然後按一下 [**產生**]。
 
     ![][110]
   
-6. 在入口網站建立憑證之後，依序按一下 [**下載**] 按鈕和 [**完成**]。
+6. 在入口網站建立憑證之後，依序按一下 [下載]**** 按鈕和 [完成]****。
  
-    ![][111]  
+    ![][111]
 
-    這會下載簽署憑證，並將它儲存到您電腦中的 [下載] 資料夾。 
+    這會下載簽署憑證，並將它儲存到您電腦中的 [下載] 資料夾。
 
-    ![][9] 
+    ![][9]
 
-    注意：依預設，下載的檔案 (開發憑證) 的名稱會是 <strong>aps_development.cer</strong>。
+    依預設，下載的檔案 (開發憑證) 的名稱會是 <strong>aps_development.cer</strong>。
 
 7. 按兩下下載的推播憑證 **aps_development.cer**。
 
@@ -117,13 +117,13 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動應用程式。
 
 ## <a name="profile"></a>建立應用程式的佈建設定檔
  
-1. 返回 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS 佈建入口網站</a>，選取 [**佈建設定檔**]，再選取 [**全部**]，然後按一下 [**+**] 按鈕建立新的設定檔。如此會啟動 **Add iOS Provisiong Profile** 精靈
+1. 返回 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS 佈建入口網站</a>，並依序選取 [**佈建設定檔**] 和 [**全部**]，然後按一下 [**+**] 按鈕建立新的設定檔。如此會啟動 [**新增 iOS 佈建設定檔**] 精靈。
 
     ![][112]
 
-2. 選取 [**開發**] 下的 [**iOS 應用程式開發**] 作為佈建設定檔類型，然後按一下 [**繼續**]。
+2. 將 [**開發**] 下方的 [**iOS App 開發]** 選為佈建設定檔類型，然後按一下 **[繼續]**。
 
-3. 接著，從 [**應用程式 ID**] 下拉式清單選取行動應用程式快速入門應用程式的應用程式 ID，然後按一下 [**繼續**]
+3. 接著，從 [**應用程式 ID**] 下拉式清單選取行動應用程式快速入門應用程式的應用程式 ID，然後按一下 [**繼續**]。
 
     ![][113]
 
@@ -131,11 +131,11 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動應用程式。
 
     ![][114]
 
-5. 然後在 [**裝置**] 選取要用來測試的裝置，然後按一下 [**繼續**]。
+5. 然後，在 [Devices]**** 選取要用來測試的裝置，然後按一下 [Continue]****。
   
     ![][115]
 
-6. 最後，在 [**設定檔名稱**] 中挑選一個設定檔名稱，按一下 [**產生**]，然後按一下 [**完成**]。
+6. 最後，在 [**設定檔名稱**] 中為設定檔挑選名稱，然後依序按一下 **[產生]** 和 [**完成**]。
 
     ![][116]
 
@@ -147,9 +147,9 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動應用程式。
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../includes/app-service-mobile-apns-configure-push-preview.md)]
 
-## <a id="update-server"></a>更新伺服器以傳送推播通知
+##<a id="update-server"></a>更新伺服器以傳送推播通知
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下方案，然後按一下 [**管理 NuGet 封裝**]。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下方案，然後按一下 [管理 NuGet 封裝]****。
 
 2. 搜尋 **Microsoft.Azure.NotificationHubs**，然後為方案中的所有專案按一下 [**安裝**]。
 
@@ -158,47 +158,40 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動應用程式。
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
 
-4. 將下列程式碼片段新增至 **InsertAsync** 呼叫後面的 `PostTodoItem`方法：  
+4. 將下列程式碼片段新增至 **InsertAsync** 呼叫後面的 `PostTodoItem` 方法：
 
         // get Notification Hubs credentials associated with this Mobile App
         string notificationHubName = this.Services.Settings.NotificationHubName;
         string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
         // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
+        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
         // iOS payload
-        var appleNotificationPayload = "{\"aps\":{\"alert\":\"" + item.Text + "\"}}";
+        var appleNotificationPayload = "{"aps":{"alert":"" + item.Text + ""}}";
 
-        try
-        {
-            await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
-        }
-        catch (System.Exception ex)
-        {
-            throw;
-        }
+        await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
 
     此程式碼會指示與此行動應用程式相關聯的通知中心，在 todo 項目插入後傳送推播通知。
 
 
-<h2><a name="publish-the-service"></a>將行動後端發佈至 Azure</h2>
+## <a name="publish-the-service"></a>將行動後端發佈至 Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
 ## <a name="configure-app"></a>設定您的 Xamarin.iOS 應用程式
 
-1. 在 Xamarin.Studio 中，開啟 [**Info.plist**]，然後使用您稍早建立的識別碼更新 [**Bundle Identifier**]。
+1. 在 xamarin.studio 中，開啟 **Info.plist**，然後使用您稍早建立的識別碼更新 [**套件組合識別碼**]。
 
     ![][121]
 
-2. 向下捲動到 [**背景模式**]，並勾選 [**啟用背景模式**] 方塊和 [**遠端通知**] 方塊。 
+2. 向下捲動到 [**背景模式**]，並勾選 [**啟用背景模式**] 方塊和 [**遠端通知**] 方塊。
 
     ![][122]
 
-3. 按兩下 [方案面板] 中的專案，以開啟 [**專案選項**]。
+3. 按兩下 [方案面板] 中的專案，以開啟 [ **專案選項**]。
 
-4.  選擇 [**建置**] 下的 [**iOS Bundle Signing**]，然後選取對應的 [**身分識別**] 以及您為此專案設定的 [**Provisioning profile**]。 
+4.  選擇 [**建置**] 下的 [**iOS 套件組合簽署**]，然後選取對應的 [**身分識別**] 以及您為此專案設定的 [**佈建設定檔**]。
 
     ![][120]
 
@@ -206,11 +199,11 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動應用程式。
 
 ## <a name="add-push"></a>將推播通知新增至應用程式
 
-1. 在 **QSTodoService** 覆寫現有的用戶端宣告，使 **AppDelegate** 可以取得行動用戶端：
+1. 在 **QSTodoService** 中覆寫現有的用戶端宣告，使 **AppDelegate** 可以取得行動用戶端：
         
         public MobileServiceClient client { get; private set; }
 
-2. 在 **AppDelegate** 中，覆寫 **FinishedLaunching** 事件： 
+2. 在 **AppDelegate** 中，覆寫 **FinishedLaunching** 事件：
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -259,19 +252,19 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動應用程式。
 您的應用程式現在已更新為支援推播通知。
 
 
-<h2><a name="publish-the-service"></a>將行動後端發佈至 Azure</h2>
+## <a name="publish-the-service"></a>將行動後端發佈至 Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
 ## <a name="test"></a>在應用程式中測試推播通知
 
-1. 按 [**執行**] 按鈕以建置專案並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [**確定**] 以接受推播通知。
+1. 按 [執行]**** 按鈕以建置專案並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [確定]**** 以接受推播通知。
 	
-	> [AZURE.NOTE] 您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
+	> [AZURE.NOTE]您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
 
 2. 在應用程式中輸入一項工作，然後按一下加號 (**+**) 圖示。
 
-3. 確認您已接收到通知，然後按一下 [**確定**] 以關閉通知。
+3. 確認您已接收到通知，然後按一下 [確定]**** 以關閉通知。
 
 4. 重複執行步驟 2 並立即關閉應用程式，接著確認通知已顯示。
 
@@ -318,28 +311,28 @@ Apple 推播通知服務 (APNS) 使用憑證來驗證您的行動應用程式。
 [116]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-16.png
 [117]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
-[120]:./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-20.png
-[121]:./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-21.png
-[122]:./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-22.png
+[120]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-20.png
+[121]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-21.png
+[122]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-22.png
 
 [Xamarin.iOS Studio]: http://xamarin.com/platform
-[安裝 Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[iOS 佈建入口網站]: http://go.microsoft.com/fwlink/p/?LinkId=272456
-[行動服務 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple 推播通知服務]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[開始使用行動服務]: /zh-tw/develop/mobile/tutorials/get-started-xamarin-ios
-[開始使用資料]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[開始使用驗證]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[開始使用推播通知]: /zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-ios
-[推播通知給應用程式使用者]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios
-[使用指令碼授權使用者]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Get started with Mobile Services]: /zh-tw/develop/mobile/tutorials/get-started-xamarin-ios
+[Get started with data]: /zh-tw/develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with authentication]: /zh-tw/develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Get started with push notifications]: /zh-tw/develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[Push notifications to app users]: /zh-tw/develop/mobile/tutorials/push-notifications-to-users-ios
+[Authorize users with scripts]: /zh-tw/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [Xamarin 裝置佈建]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
-[apns 物件]: http://go.microsoft.com/fwlink/p/?LinkId=272333
+[Azure Management Portal]: https://manage.windowsazure.com/
+[apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Azure 行動服務元件]: http://components.xamarin.com/view/azure-mobile-services/
-[完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331303
+[completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

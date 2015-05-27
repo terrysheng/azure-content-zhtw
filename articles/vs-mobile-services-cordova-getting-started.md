@@ -1,34 +1,34 @@
 <properties 
 	pageTitle="" 
-	description="" 
+	description="說明您該如何在 Cordova 專案中開始使用 Azure 行動服務" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
+	ms.workload="mobile" 
 	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# 開始使用行動服務 (Cordova 專案)
 
 > [AZURE.SELECTOR]
-> - [開始使用](vs-mobile-services-cordova-getting-started.md)
-> - [發生什麼情形](vs-mobile-services-cordova-what-happened.md)
-
-## 開始使用行動服務 (Cordova 專案)
+> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
+> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 依照這些範例中之程式碼執行的第一個步驟取決於您要連線的行動服務類型。
 
-對於 JavaScript 後端行動服務，請建立名為 TodoItem 的資料表。若要建立資料表，請在 [伺服器總管] 的 [Azure] 節點下尋找行動服務，在行動服務的節點上按一下滑鼠右鍵以開啟內容功能表，然後選擇 **[建立資料表]**。輸入 "TodoItem" 做為資料表名稱。
+對於 JavaScript 後端行動服務，請建立名為 TodoItem 的資料表。若要建立資料表，請在 [伺服器總管] 的 [Azure] 節點下尋找行動服務，在行動服務的節點上按一下滑鼠右鍵以開啟內容功能表，然後選擇 [建立資料表]****。輸入 "TodoItem" 做為資料表名稱。
 
-若使用 .NET 後端行動服務，則 Visual Studio 為您建立的預設專案範本中已有 TodoItem 資料表，但您必須將它發行到 Azure。若要發行它，請開啟行動服務專案的內容功能表，然後選擇 **[發行 Web]**。接受預設值，然後選擇 **[發行]** 按鈕。
+若使用 .NET 後端行動服務，則 Visual Studio 為您建立的預設專案範本中已有 TodoItem 資料表，但您必須將它發行到 Azure。若要發行它，請開啟行動服務專案的內容功能表，然後選擇 [發行 Web]****。接受預設值，然後選擇 [發行]**** 按鈕。
   
->[AZURE.NOTE]**在使用 Visual Studio 2015 Preview 建立的專案中，請使用此[因應措施](http://go.microsoft.com/fwlink/?LinkId=518765)來使用 Azure 行動服務。使用較新版 Visual Studio 2015 的專案則不需要此因應措施。**
+>[AZURE.NOTE]**在使用 Visual Studio 2015 預覽版建立的 Cordova 專案中，請將此[因應措施](http://go.microsoft.com/fwlink/?LinkId=518765)配合 Azure 行動服務使用。使用較新版本 Visual Studio 2015 的專案則不需要此因應措施。**
 
 #####取得資料表的參考
 
@@ -36,7 +36,7 @@
 
 	var todoTable = mobileServiceClient.getTable('TodoItem');
 
-資料表的權限必須設為**「具有應用程式金鑰的任何人」**，這些範例才能運作。稍後您可以設定驗證。請參閱[開始使用驗證](http://azure.microsoft.com/documentation/articles/mobile-services-html-get-started-users/)。
+資料表的權限必須設為「具有應用程式金鑰的任何人」****，這些範例才能運作。稍後您可以設定驗證。請參閱[開始使用驗證](mobile-services-html-get-started-users.md) (英文)。
 
 #####加入項目 
 
@@ -72,7 +72,7 @@
                 items = results.slice();
              });
 
-有關更多您可以使用的查詢範例，請參閱 [query]((http://msdn.microsoft.com/library/azure/jj613353.aspx)) 物件。
+有關更多您可以使用的查詢範例，請參閱 [query](http://msdn.microsoft.com/library/azure/jj613353.aspx) 物件。
 
 #####更新項目
 
@@ -92,6 +92,4 @@
 	});
 
 [深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

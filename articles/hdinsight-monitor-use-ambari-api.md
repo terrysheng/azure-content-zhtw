@@ -13,60 +13,51 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2014" 
+	ms.date="03/31/2015" 
 	ms.author="jgao"/>
 
 # 使用 Ambari API 監視 HDInsight 上的 Hadoop 叢集
  
-了解如何使用 Ambari API 監視 HDInsight 叢集 3.1 和 2.1 版。
+了解如何使用 Ambari API 監視 HDInsight 叢集 3.1 及 2.1 版。
 
-##本文內容
-
-- [什麼是 Ambari？](#whatisambari)
-- [必要條件](#prerequisites)
-- [快速啟動](#jumpstart)
-- [Ambari 監視 API](#monitor)
-- [後續步驟](#nextsteps)
 
 
 ## <a id="whatisambari"></a> 什麼是 Ambari？
 
-[Apache Ambari][ambari-home] 可用來佈建、管理及監視 Apache Hadoop 叢集。其中包含一組直接易懂的操作員工具和健全的 API 集，可消除 Hadoop 的複雜性，並簡化叢集作業。如需這些 API 的詳細資訊，請參閱 [Ambari API 參考資料][ambari-api-reference]。
+[Apache Ambari][ambari-home] 可用來佈建、管理及監視 Apache Hadoop 叢集。其中包含一組直接易懂的操作員工具和健全的 API 集，可消除 Hadoop 的複雜性，並簡化叢集作業。如需關於 API 的詳細資訊，請參閱 [Ambari API 參考資料][ambari-api-reference]。
 
 
-HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版可支援 Ambari API v1.0。本文涵蓋在 HDInsight 叢集 3.1 和 2.1 版上存取 Ambari API。兩者的主要差別在於某些元件已隨著新功能引進而變更 (例如工作歷程伺服器)。
+HDInsight 目前僅支援 Ambari 監視功能。HDInsight  3.0 及 2.1 版叢集可支援 Ambari API 1.0。本文涵蓋於 HDInsight 3.1 和 2.1 版叢集上存取 Ambari API。兩者的主要差別在於某些元件已隨著新功能引進而變更 (例如工作歷程伺服器)。
 
 
 ##<a id="prerequisites"></a>必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- 已安裝並設定 Azure PowerShell 的**工作站**。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install]。若要執行 PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[執行 Windows PowerShell 指令碼][powershell-script]。
+- 已安裝並設定 Azure PowerShell 的**工作站**。如需指示，請參閱[安裝並設定 Azure PowerShell][powershell-install]。若要執行 Azure PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。如需詳細資訊，請參閱[執行 Windows PowerShell 指令碼][powershell-script]。
 
-	[Curl][curl] 是選用項目。您可以從[這裡][curl-download]加以安裝。
+- (選擇性) [cURL][curl]。若要安裝此項目，請參閱 [cURL 版本和下載][curl-download]。
 
-	>[AZURE.NOTE] 在 Windows 上使用 curl 命令時，對選項值請使用雙引號，而不要使用單引號。
+	>[AZURE.NOTE]在 Windows 上使用 cURL 命令時，請針對選項值使用雙引號，而不要使用單引號。
 
 - **Azure HDInsight 叢集**。如需叢集佈建的指示，請參閱[開始使用 HDInsight][hdinsight-get-started] 或[佈建 HDInsight 叢集][hdinsight-provision]。進行教學課程時，您將需要下列資料：
 
 	<table border="1">
-	<tr><th>叢集屬性</th><th>PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
-	<tr><td>HDInsight 叢集名稱</td><td>$clusterName</td><td></td><td>您的 HDInsight 叢集名稱。</td></tr>
-	<tr><td>叢集使用者名稱</td><td>$clusterUsername</td><td></td><td>佈建時指定的叢集使用者名稱。</td></tr>
-	<tr><td>叢集密碼</td><td>$clusterPassword</td><td></td><td>叢集使用者密碼。</td></tr>
-	</table>
-
-	> [AZURE.NOTE] 將值填入資料表中。  這將有助於本教學課程的執行。
+<tr><th>叢集屬性</th><th>Azure PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
+<tr><td>HDInsight 叢集名稱</td><td>$clusterName</td><td></td><td>您的 HDInsight 叢集名稱。</td></tr>
+<tr><td>叢集使用者名稱</td><td>$clusterUsername</td><td></td><td>佈建時指定的叢集使用者名稱。</td></tr>
+<tr><td>叢集密碼</td><td>$clusterPassword</td><td></td><td>叢集使用者密碼。</td></tr>
+</table>> [AZURE.NOTE]將值填入資料表。這將有助於本教學課程的執行。
 
 
 
-##<a id="jumpstart"></a>快速啟動
+##<a id="jumpstart"></a>搶先使用
 
 您可以透過數種方式使用 Ambari 監視 HDInsight 叢集。
 
 **使用 Azure PowerShell**
 
-以下是用來取得 MapReduce Jobtracker 資訊的 PowerShell 指令碼 *on a 3.1 cluster.*  此處的主要差別在於我們現在要從 YARN 服務 (而非 Map Reduce) 提取這些詳細資料。
+以下是*在 HDInsight 3.1 叢集*取得 MapReduce 工作追蹤程式資訊的 Azure PowerShell 指令碼。 主要差別在於我們從 YARN 服務 (而非 MapReduce) 提取這些詳細資料。
 
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"
@@ -82,7 +73,7 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 	
 	$response.metrics.'yarn.queueMetrics'
 
-以下是用來取得 MapReduce Jobtracker 資訊的 PowerShell 指令碼 *on a 2.1 cluster*：
+以下是*在 HDInsight 2.1 叢集*取得 MapReduce 工作追蹤程式資訊的 Azure PowerShell 指令碼：
 
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"
@@ -102,9 +93,9 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 
 ![Jobtracker Output][img-jobtracker-output]
 
-**使用 curl**
+**使用 cURL**
 
-以下是使用 Curl 取得叢集資訊的範例：
+以下是使用 cURL 取得叢集資訊的範例：
 
 	curl -u <username>:<password> -k https://<ClusterName>.azurehdinsight.net:443/ambari/api/v1/clusters/<ClusterName>.azurehdinsight.net
 
@@ -125,8 +116,9 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 	    "Hosts":{"cluster_name":"hdi0211v2.azurehdinsight.net",
 	             "host_name":"headnode0.{ClusterDNS}.azurehdinsight.net"}}]}
 
-10/8/2014 版本的相關資訊：
-使用 Ambari 端點 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}" 時， *host_name* 欄位現在會傳回節點的完整網域名稱 (FQDN)，而不是主機名稱。在 2014/10/8 版本之前，此範例只會傳回 "**headnode0**"。在 2014/10/8 之後，您會取得 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**"，如以上範例所示。需要此變更，才能在一個虛擬網路 (VNET) 中部署多種叢集類型，例如 HBase 和 Hadoop。例如，使用 HBase 做為 Hadoop 的後端平台時就是這種情形。
+**2014/10/8 版本的相關資訊**：
+
+使用 Ambari 端點 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}" 時，*host_name* 欄位會傳回節點的完整網域名稱 (FQDN)，而不是主機名稱。在 2014/10/8 版本之前，此範例只會傳回 "**headnode0**"。在 2014/10/8 版本之後，您會得到 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**"，如先前範例所示。需要此變更，以便將多種叢集類型 (例如 HBase 和 Hadoop) 部屬至一個虛擬網路 (VNET) 中。例如，使用 HBase 做為 Hadoop 的後端平台時就是這種情形。
 
 ##<a id="monitor"></a>Ambari 監視 API
 
@@ -135,22 +127,18 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 <table border="1">
 <tr><th>監視 API 呼叫</th><th>URI</th><th>說明</th></tr>
 <tr><td>取得叢集</td><td><tt>/api/v1/clusters</tt></td><td></td></tr>
-<tr><td>取得叢集資訊。</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net</tt></td><td>叢集、服務、主機</td></tr>
-<tr><td>取得服務</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services</tt></td><td>服務包括：hdfs、mapreduce</td></tr>
-<tr><td>取得服務資訊</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;</tt></td><td></td></tr>
-<tr><td>取得服務元件</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components</tt></td><td>HDFS：namenode、datanode<br/>MapReduce：jobtracker；tasktracker</td></tr>
-<tr><td>取得元件資訊</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components/&lt;ComponentName&gt;</tt></td><td>ServiceComponentInfo、主機元件、度量</td></tr>
-<tr><td>取得主機</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts</tt></td><td>headnode0、workernode0</td></tr>
-<tr><td>取得主機資訊</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt; 
+<tr><td>取得叢集資訊。</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net</tt></td><td>叢集、服務、主機</td></tr>
+<tr><td>取得服務</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services</tt></td><td>服務包括：hdfs、mapreduce</td></tr>
+<tr><td>取得服務資訊</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services/&lt;ServiceName></tt></td><td></td></tr>
+<tr><td>取得服務元件</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services/&lt;ServiceName>/components</tt></td><td>HDFS：namenode、datanode<br/>MapReduce：jobtracker；tasktracker</td></tr>
+<tr><td>取得元件資訊</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services/&lt;ServiceName>/components/&lt;ComponentName></tt></td><td>ServiceComponentInfo、主機元件、度量</td></tr>
+<tr><td>取得主機</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts</tt></td><td>headnode0、workernode0</td></tr>
+<tr><td>取得主機資訊</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName> 
 </td><td></td></tr>
-<tr><td>取得主機元件</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components
-</tt></td><td>namenode、resourcemanager</td></tr>
-<tr><td>取得主機元件資訊</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components/&lt;ComponentName&gt;
-</tt></td><td>HostRoles、元件、主機、度量</td></tr>
-<tr><td>取得組態</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations 
-</tt></td><td>組態類型：core-site、hdfs-site、mapred-site、hive-site</td></tr>
-<tr><td>取得組態資訊</td><td><tt>/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations?type=&lt;ConfigType&gt;&tag=&lt;VersionName&gt; 
-</tt></td><td>組態類型：core-site、hdfs-site、mapred-site、hive-site</td></tr>
+<tr><td>取得主機元件</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>/host_components </tt></td><td>namenode、resourcemanager</td></tr>
+<tr><td>取得主機元件資訊</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>/host_components/&lt;ComponentName> </tt></td><td>HostRoles、元件、主機、度量</td></tr>
+<tr><td>取得組態</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/configurations </tt></td><td>組態類型：core-site、hdfs-site、mapred-site、hive-site</td></tr>
+<tr><td>取得組態資訊</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/configurations?type=&lt;ConfigType>&amp;tag=&lt;VersionName> </tt></td><td>組態類型：core-site、hdfs-site、mapred-site、hive-site</td></tr>
 </table>
 
 
@@ -174,17 +162,17 @@ HDInsight 目前僅支援 Ambari 監視功能。HDInsight 叢集 2.1 和 3.0 版
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
-[powershell-install]: ../install-configure-powershell/
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx 
+[Powershell-install]: install-configure-powershell.md
+[Powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
-[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
-[hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
-[hdinsight-admin-cli]: ../hdinsight-administer-use-command-line/
-[hdinsight-documentation]: /zh-tw/documentation/services/hdinsight/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-provision]: ../hdinsight-provision-clusters/
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
+[hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
+[hdinsight-documentation]: /documentation/services/hdinsight/
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
 
-<!--HONumber=42-->
+<!--HONumber=54-->

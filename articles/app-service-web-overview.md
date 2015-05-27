@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Web 應用程式概觀"
 	description="深入了解應用程式服務 Web 應用程式"
 	services="app-service\web"
@@ -16,7 +16,6 @@
 	ms.date="03/24/2015"
 	ms.author="jaime.espinosa"/>
 
->[AZURE.NOTE] 如果您想要在註冊 Azure 帳戶之前開始使用 Azure 應用程式服務，請移至[試用應用程式服務](http://go.microsoft.com/fwlink/?LinkId=523751)，您可以在其中於應用程式服務中立即建立存留較短的入門 Web 應用程式。不需要信用卡，無需承諾。
 
 #Web 應用程式概觀
 
@@ -26,7 +25,7 @@
 
 ![Web Marketplace](./media/app-service-web-overview/marketplace.png)
 
-## 不只是 Web 應用程式##
+## 不只是網站##
 
 現代企業使用比以前更複雜的方式與客戶互動。所有類型的公司都會將公司網站空間視為其業務的重要部分、其業務方案中的主要元件。為了符合此重要性，企業會尋求提供靈活度、安全性和延展性的平台。甚至還需要連結至其現有商務系統、可快速部署新的程式碼並運轉全球執行個體的能力。使用 Azure 應用程式服務和 Web 應用程式，組織可以快速並以符合成本效益方式來取悅其客戶。
 
@@ -41,25 +40,27 @@ Azure 應用程式服務 Web 應用程式是完全受管理的平台，可讓您
 ## Web 應用程式概念 ##
 
 - **Web 應用程式庫** - 從不斷成長的現有 Web 應用程式範本清單中進行選取。使用單鍵安裝封裝 (例如 Wordpress、Joomla 和 Drupal)，充分運用 OSS 應用程式社群。利用 .NET MVC、Django 和 CakePHP 這類架構，立即取得應用程式開發程序啟動權限。
-- **自動調整** - Web 應用程式可讓您快速地向上延展或向下延展以處理任何內送的客戶載入。手動選取 VM 數目和大小，或設定自動調整，根據負載或排程來調整伺服器。
-- **連續整合** - 使用 VSO、GitHub、TeamCity、Hudson 或 BitBucket 設定連續整合和部署工作流程 - 可讓您在每次成功程式碼簽入或整合測試時自動建置、測試和部署 Web 應用程式。
+- **自動調整** - Web 應用程式可讓您快速地向上延展或向下延展以處理任何內送的客戶載入。手動選取 VM 的數目和大小，或設定自動調整以根據負載或排程來調整您的伺服器。
+- **連續整合** - 使用 VSO、GitHub、TeamCity、Hudson 或 BitBucket 設定連續整合和部署工作流程 – 讓您在每次成功的程式碼簽入或整合測試中自動建置、測試及部署 Web 應用程式。
 - **部署位置** - 實作[分段部署][Slots]以在生產前環境中驗證程式碼，而此環境與 Azure 應用程式服務中的生產 Web 應用程式相同。符合時，執行交換作業，以發行零停機時間的應用程式新版本。 
-- **在生產環境中測試** - 將分段部署帶到下一個層級，並執行 [A/B 測試][Tip]以即時流量的可設定部分確認新的程式碼。 
+- **在生產環境中測試** - 將分段部署帶到下一個層級，並執行 A/B 測試以即時流量的可設定部分確認新的程式碼。 
 - **Webjobs** - 在 Web 應用程式 VM 上，執行任何程式或指令碼。在多個 VM 上，持續或依排程和規模執行工作。使用 Azure [WebJobs SDK][Webjobs] 以與 Azure 儲存體或服務匯流排整合。
 
 ## 開始使用 ##
-若要開始使用 Web 應用程式，請遵循[建立 ASP.NET Web 應用程式] [create]教學課程。
+若要開始使用 Web 應用程式，請遵循[建立 ASP.NET Web 應用程式][create]教學課程。
 
-如需有關 Azure 應用程式服務平台的詳細資訊，請參閱 [Azure 應用程式服務][appservice]。
+如需 Azure App Service 平台的詳細資訊，請參閱 [Azure App Service][appservice]。
 
-## 變更內容
-* 如需從網站變更為應用程式服務的指南，請參閱：[Azure 應用程式服務和它對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊入口網站變更為新入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+>[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+
+## 變更的項目
+* 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [appservice]: app-service-value-prop-what-is.md
 [create]: web-sites-dotnet-get-started.md
 [Webjobs]: websites-dotnet-webjobs-sdk-get-started.md
 [Slots]: web-sites-staged-publishing.md
-[Tip]: http://blogs.msdn.com/b/tomholl/archive/2014/11/10/a-b-testing-with-azure-websites.aspx 
 
-<!--HONumber=49-->
+
+<!--HONumber=54-->

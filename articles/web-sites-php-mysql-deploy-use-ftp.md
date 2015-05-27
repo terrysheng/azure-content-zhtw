@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
@@ -28,9 +28,9 @@
  
 依照本教學課程進行，您將使用 PHP 建置一個簡易的註冊 Web 應用程式。此應用程式將裝載於 Web 應用程式中。完成之應用程式的螢幕擷取畫面如下：
 
-![Azure PHP 網站][running-app]
+![Azure PHP Web Site][running-app]
 
->[AZURE.NOTE] 如果您想要在註冊 Azure 帳戶之前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，讓您能夠立即在應用程式服務中建立短期的入門 Web 應用程式。不需要信用卡，無需承諾。 
+>[AZURE.NOTE]如果您想要在註冊 Azure 帳戶之前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，讓您能夠立即在應用程式服務中建立短期的入門 Web 應用程式。不需要信用卡，無需承諾。
 
 
 ##建立 Web 應用程式並設定 FTP 發行
@@ -38,13 +38,13 @@
 請遵循以下步驟來建立 Web 應用程式與 MySQL 資料庫：
 
 1. 登入 [Azure 入口網站][management-portal]。
-2. 按一下入口網站左下方的 [+ 新增] 圖示。
+2. 按一下入口網站左下方的 [+ 新增] 圖示****。
 
-	![建立新的 Azure 網站][new-website]
+	![Create New Azure Web Site][new-website]
 
-3. 依序按一下 [Web + 行動] 和 [Web 應用程式 + MySQL]。
+3. 依序按一下 [Web + 行動]**** 和 [Web 應用程式 + MySQL]****。
 
-	![自訂建立新的網站][custom-create]
+	![Custom Create a new Web Site][custom-create]
 
 4. 輸入資源群組的有效名稱。
 
@@ -62,13 +62,13 @@
 
 	![開啟 Web 應用程式][go-to-webapp]
 
-6. 向下捲動，直到您找到 [設定部署認證] 為止。 
+6. 向下捲動，直到您找到 [設定部署認證]**** 為止。
 
 	![設定部署認證][set-deployment-credentials]
 
 7. 若要啟用 FTP 發行，您必須提供使用者名稱與密碼。儲存認證，並記下您建立的使用者名稱和密碼。
 
-	![建立發行認證][portal-ftp-username-password]
+	![Create publishing credentials][portal-ftp-username-password]
 
 ##在本機建置及測試您的應用程式
 
@@ -77,15 +77,15 @@
 * **index.php**：顯示註冊表單，以及內含註冊者資訊的資料表。
 * **createtable.php**：為應用程式建立 MySQL 資料表。只會使用一次此檔案。
 
-若要在本機建置與執行應用程式，請遵循下列步驟。請注意，這些步驟假定您已在本機電腦上安裝 PHP、MySQL 以及 Web 伺服器，而且您已經啟用[適用於 MySQL 的 PDO 擴充功能][pdo-mysql]。
+若要在本機建置與執行應用程式，請遵循下列步驟。請注意，這些步驟假定您已在本機電腦上安裝 PHP、MySQL 以及 Web 伺服器，而且您已經啟用了[適用 MySQL 的 PDO 延伸功能][pdo-mysql]。
 
-1. 建立名為  `registration` 的 MySQL 資料庫。您可以使用以下命令，從 MySQL 命令提示字元中完成此工作：
+1. 建立名為 `registration` 的 MySQL 資料庫。您可以使用以下命令，從 MySQL 命令提示字元中完成此工作：
 
 		mysql> create database registration;
 
-2. 在 Web 伺服器的根目錄中，建立名為  `registration` 的資料夾，並於其中建立兩個檔案，一個名為  `createtable.php`，另一個名為  `index.php`。
+2. 在 Web 伺服器的根目錄中，建立名為 `registration` 的資料夾，並於其中建立兩個檔案，一個名為 `createtable.php`，另一個名為 `index.php`。
 
-3. 在文字編輯器或 IDE 中開啟  `createtable.php` 檔案，加入下列程式碼。此程式碼將會在  `registration` 資料庫中用於建立  `registration_tbl` 資料表。
+3. 在文字編輯器或 IDE 中開啟 `createtable.php` 檔案，加入下列程式碼。此程式碼將會在 `registration` 資料庫中用於建立 `registration_tbl` 資料表。
 
 		<?php
 		// DB connection info
@@ -110,12 +110,11 @@
 		echo "<h3>Table created.</h3>";
 		?>
 
-	> [AZURE.NOTE] 
-	> 您需要使用您的本機 MySQL 使用者名稱和密碼，來更新 <code>$user</code> 和 <code>$pwd</code> 的值。
+	> [AZURE.NOTE]您需要將 <code>$user</code> 和 <code>$pwd</code> 的值，更新為您的本機 MySQL 使用者名稱和密碼。
 
-4. 開啟網頁瀏覽器並瀏覽至 [http://localhost/registration/createtable.php][localhost-createtable]。這會在資料庫中建立  `registration_tbl` 資料表。
+4. 開啟網頁瀏覽器並瀏覽至 [http://localhost/registration/createtable.php][localhost-createtable]。這會在資料庫中建立 `registration_tbl` 資料表。
 
-5. 在文字編輯器或 IDE 中開啟 **index.php** 檔案，並加入頁面的基本 HTML 和 CSS 程式碼 (在稍後的步驟中將加入 PHP 程式碼)。
+5. 在文字編輯器或 IDE 中開啟 **index.php** 檔案，加入頁面的基本 HTML 和 CSS 程式碼 (稍後的步驟中將加入 PHP 程式碼)。
 
 		<html>
 		<head>
@@ -164,8 +163,7 @@
 			die(var_dump($e));
 		}
 
-	> [AZURE.NOTE]
-	> 同樣地，您需要使用您的本機 MySQL 使用者名稱和密碼，來更新 <code>$user</code> 和 <code>$pwd</code> 的值。
+	> [AZURE.NOTE]同樣地，您需要將 <code>$user</code> 和 <code>$pwd</code> 的值，更新為您的本機 MySQL 使用者名稱和密碼。
 
 7. 在資料庫連接程式碼後面，加入可將登錄資訊插入至資料庫的程式碼。
 
@@ -210,7 +208,7 @@
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-您現在可以瀏覽至 [http://localhost/registration/index.php][localhost-index] 來測試應用程式。
+您現在可以瀏覽至 [http://localhost/registration/index.php][localhost-index] 並測試應用程式。
 
 ##取得 MySQL 與 FTP 連線資訊
 
@@ -220,31 +218,31 @@
 
 	![選取資料庫][select-database]
 
-2. 從資料庫摘要中，選取 [屬性]。
+2. 從資料庫摘要中，選取 [屬性]****。
 
     ![選取屬性][select-properties]
 	
-2. 請記下  `Database`、 `Host`、 `User Id` 和  `Password` 的值。
+2. 記下 `Database`、`Host`、`User Id` 及 `Password` 的值。
 
-    ![記下屬性][note-properties]
+    ![注意屬性][note-properties]
 
-3. 從 Web 應用程式中，按一下頁面右下角的 [下載發行設定檔] 連結：
+3. 從 Web 應用程式中，按一下頁面右下角的 [下載發行設定檔]**** 連結：
 
-	![下載發行設定檔][download-publish-profile]
+	![Download publish profile][download-publish-profile]
 
-4. 在 XML 編輯器中開啟  `.publishsettings` 檔案。 
+4. 在 XML 編輯器中開啟 `.publishsettings` 檔案。
 
-3. 尋找含有 `publishMethod="FTP"` 的 `<publishProfile >` 項目，其看起來如下：
+3. 尋找含 `<publishProfile >` 的 `publishMethod="FTP"` 元素，其看起來如下：
 
 		<publishProfile publishMethod="FTP" publishUrl="ftp://[mysite].azurewebsites.net/site/wwwroot" ftpPassiveMode="True" userName="[username]" userPWD="[password]" destinationAppUrl="http://[name].antdf0.antares-test.windows-int.net" 
 			...
 		</publishProfile>
 	
-請記下  `publishUrl`、 `userName` 和  `userPWD` 屬性。
+記下 `publishUrl`、`userName` 及 `userPWD` 屬性。
 
-##發行您的應用程式
+##發佈您的應用程式
 
-當您在本機完成應用程式測試之後，可以使用 FTP 將其發行至您的 Web 應用程式。不過，您必須先更新應用程式中的資料庫連接資訊。使用您稍早取得的資料庫連接資訊 (在＜取得 MySQL 和 FTP 連線資訊＞ 一節中)，將  `createdatabase.php` 和  `index.php` **兩者**檔案中的下列資訊都更新為適當的值：
+當您在本機完成應用程式測試之後，可以使用 FTP 將其發行至您的 Web 應用程式。不過，您必須先更新應用程式中的資料庫連接資訊。使用您稍早取得的資料庫連接資訊 (在＜取得 MySQL 和 FTP 連線資訊＞****一節中），將 `createdatabase.php` 和 `index.php` **兩者**檔案中的下列資訊都更新為適當的值：
 
 	// DB connection info
 	$host = "value of Data Source";
@@ -252,19 +250,19 @@
 	$pwd = "value of Password";
 	$db = "value of Database";
 
-現在您可以使用 FTP 來發行應用程式。
+現在您可以使用 FTP 來發佈應用程式。
 
 1. 開啟您選擇的 FTP 用戶端。
 
-2. 將您在以上步驟中  `publishUrl` 屬性記下的  *host name portion*，輸入到您的 FTP 用戶端。
+2. 將您在以上步驟中從 `publishUrl` 屬性記下的*主機名稱部分*輸入到您的 FTP 用戶端。
 
-3. 將您在以上步驟中記下的  `userName` 與  `userPWD` 屬性，原封不動地輸入到您的 FTP 用戶端。
+3. 將您在以上步驟中記下的 `userName` 與 `userPWD` 屬性，原封不動地輸入到您的 FTP 用戶端。
 
 4. 建立連線。
 
-連線建立之後，您就能視需要上傳與下載檔案。務必將檔案上傳至根目錄，亦即  `/site/wwwroot`。
+連線建立之後，您就能視需要上傳與下載檔案。務必將檔案上傳至根目錄，亦即 `/site/wwwroot`。
 
-上傳 `index.php` 和 `createtable.php` 之後，瀏覽至 **http://[網站名稱].azurewebsites.net/createtable.php** 以建立適用於應用程式的 MySQL 資料表，然後瀏覽至 **http://[網站名稱].azurewebsites.net/index.php**，開始使用應用程式。
+同時將 `index.php` 與 `createtable.php` 上傳完畢後，瀏覽至 **http://[site 名稱].azurewebsites.net/createtable.php** 為應用程式建立 MySQL 資料表，然後瀏覽至 **http://[site 名稱].azurewebsites.net/index.php** 開始使用該應用程式。
  
 
 [install-php]: http://www.php.net/manual/en/install.php
@@ -290,4 +288,4 @@
 [management-portal]: https://portal.azure.com
 [download-publish-profile]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/download_publish_profile_3.png
 
-<!--HONumber=49-->
+<!--HONumber=54-->

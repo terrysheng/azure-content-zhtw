@@ -1,19 +1,19 @@
-﻿<properties 
+<properties 
 	pageTitle="代表使用者存取 SharePoint | 行動開發人員中心" 
 	description="了解如何代表使用者電洽 SharePoint" 
-	documentationCenter="windows" 
+	documentationCenter="" 
 	authors="mattchenderson" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="04/13/2015" 
 	ms.author="mahender"/>
 
 # 代表使用者存取 SharePoint
@@ -23,7 +23,7 @@
 <p>本主題說明如何代表目前登入的使用者存取 SharePoint API。</p>
 <p>如果想要看影片，右邊片段播放的步驟與本教學課程相同。在此影片中，Mat Velloso 會引導您更新 Windows 市集應用程式，以與 SharePoint Online 互動。</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">觀看教學課程</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">播放影片</span></a> <span class="time">下午 12:51</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">觀看教學課程</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">播放影片</span></a> <span class="time">下午 12:51:00</span></div>
 </div>
 
 在本教學課程中，您會從「使用 Active Directory Authentication Library 單一登入驗證您的應用程式」教學課程更新應用程式，以在新增 TodoItem 時，在 SharePoint Online 中建立 Word 文件。
@@ -45,11 +45,11 @@
 ## <a name="configure-permissions"></a>針對 SharePoint 的委派存取設定您的應用程式
 根據預設，您從 AAD 取得的權杖僅具有有限權限。若要存取第三方資源或 SaaS 應用程式 (例如 SharePoint Online)，您必須明確允許此類存取。
 
-1. 在 [Azure 管理入口網站]的 [**Active Directory**] 區段中，選取您的租用戶。導覽至您為行動服務建立的 Web 應用程式。
+1. 在 **Azure 管理入口網站**的 [Active Directory][] 區段中，選取您的租用戶。導覽至您為行動服務建立的 Web 應用程式。
 
     ![][0]
 
-2. 在 [**設定**] 索引標籤中，將頁面向下捲動至「其他應用程式的權限」區段。選取 [**Office 365 SharePoint Online**]，然後授與 [**編輯或刪除使用者的檔案**] 委派權限。然後按一下 [**儲存**]。
+2. 在 [設定]**** 索引標籤中，將頁面向下捲動至「其他應用程式的權限」區段。選取 [Office 365 SharePoint Online]****，然後授與 [編輯或刪除使用者的檔案]**** 委派權限。然後按一下 [儲存]****。
 
     ![][1]
 
@@ -69,7 +69,7 @@
 
     ![][3]
 
-4. 將 SP_Authority 設為 AAD 租用戶的授權端點。此項目應與您的用戶端應用程式所使用的授權值相同。其格式將是 https://login.windows.net/contoso.onmicrosoft.com
+4. 將 SP_Authority 設為 AAD 租用戶的授權端點。此項目應與您的用戶端應用程式所使用的授權值相同。其格式會是 https://login.windows.net/contoso.onmicrosoft.com
 
 5. 將 SP_ClientSecret 設為您先前取得的用戶端密碼值。
 
@@ -214,9 +214,8 @@
 [測試應用程式]: #test-application
 
 <!-- URLs. -->
-[Azure 管理入口網站]: https://manage.windowsazure.com/
-[SharePoint Online]: http://office.microsoft.com/zh-tw/sharepoint/
+[]: https://manage.windowsazure.com/
+[SharePoint Online]: http://office.microsoft.com/sharepoint/
 [使用 Active Directory Authentication Library 單一登入驗證您的應用程式]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
 
-
-<!--HONumber=42-->
+<!--HONumber=54-->

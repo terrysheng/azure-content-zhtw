@@ -3,7 +3,7 @@
 	description="了解如何使用 Azure 應用程式服務將推播通知傳送至 Windows 通用應用程式。" 
 	services="app-service\mobile" 
 	documentationCenter="windows" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -35,56 +35,55 @@
 若要完成此教學課程，您需要下列項目：
 
 * 有效的 [Microsoft 市集帳戶](http://go.microsoft.com/fwlink/p/?LinkId=280045)。
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>.
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>。
 
-## <a id="register"></a>針對推播通知註冊應用程式
+##<a id="register"></a>針對推播通知註冊應用程式
 
 若要使用 Azure 應用程式服務將推播通知傳送至 Windows 通用應用程式，您必須將應用程式提交到 Windows 市集。接著，您必須設定行動應用程式推播通知服務認證，才能與 WNS 整合。
 
-1. 如果您尚未註冊您的應用程式，請瀏覽至 Windows 市集應用程式之開發人員中心的<a href=http://go.microsoft.com/fwlink/p/?LinkID=266582>提交應用程式頁面</a>，使用您的 Microsoft 帳戶登入，然後按一下 [**應用程式名稱**]。
+1. 如果您尚未註冊您的應用程式，請瀏覽至 Windows 市集應用程式之開發人員中心的<a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">提交應用程式頁面</a>，並使用您的 Microsoft 帳戶登入，然後按一下 [**應用程式名稱**]。
 
     ![][0]
 
-2. 在 [**應用程式名稱**] 中為您的應用程式輸入名稱，然後依序按一下 [**保留應用程式名稱**] 和 [**儲存**]。
+2. 在 **[應用程式名稱]** 中為您的應用程式輸入名稱，然後依序按一下 **[保留應用程式名稱]** 和 **[儲存]**。
 
     ![][1]
 
-    此舉會為您的應用程式建立新的 Windows 市集註冊。
+    This creates a new Windows Store registration for your app.
 
-4. 在 [方案總管] 中，以滑鼠右鍵按一下 Windows 市集應用程式專案，然後依序按一下 [**市集**] 和 [**將應用程式與市集建立關聯...**]。 
+4. 在 [方案總管] 中，以滑鼠右鍵按一下 Windows 市集應用程式專案，然後依序按一下 [市集]**** 和 [將應用程式與市集建立關聯...]****。
 
     ![][3]
 
-    隨即顯示 [**將您的應用程式與 Windows 市集建立關聯**] 精靈。
+    隨即顯示 [將您的應用程式與 Windows 市集建立關聯]**** 精靈。
 
-5. 在此精靈中，按一下 [**登入**]，然後使用您的 Microsoft 帳戶登入。
+5. 在此精靈中，按一下 [登入]****，然後使用您的 Microsoft 帳戶登入。
 
-6. 按一下您在步驟 2 中註冊的應用程式，按 [**下一步**]，然後按一下 [**關聯**]。
+6. 按一下您在步驟 2 中註冊的應用程式，按 [下一步]****，然後按一下 [關聯]****。
 
     ![][4]
 
-    如此會將必要的 Windows 市集註冊資訊新增至應用程式資訊清單。 
+    這會將所需的 Windows 市集註冊資訊新增至應用程式資訊清單。
 
-7. (選用) 針對 Windows Phone 市集應用程式專案重複步驟 4-6。  
+7. (選用) 針對 Windows Phone 市集應用程式專案重複步驟 4-6。
 
-7. 回到新應用程式的 Windows 開發人員中心頁面，按一下 [**服務**]。 
+7. 回到新應用程式的 Windows 開發人員中心頁面，按一下 **[服務]**。
 
-    ![][5] 
+    ![][5]
 
-8. 在 [**服務**] 頁面中，按一下 [**Microsoft Azure 行動服務**] 下的 [**Live 服務網站**]。
+8. 在 [服務]**** 頁面中，按一下 [Microsoft Azure 行動服務]**** 下的 [Live 服務網站]****。
 
     ![][17]
 
-9. 記下 [**應用程式設定**] 索引標籤中的 [**用戶端密碼**] 和 [封裝安全性識別碼 (SID)]*** 的值。 
+9. 記下 [應用程式設定]**** 索引標籤中的 [用戶端密碼]**** 和 [封裝安全性識別碼 (SID)]**** 的值。
 
     ![][6]
 
-    > [AZURE.NOTE] **安全性注意事項**
-    用戶端密碼和封裝 SID 是重要的安全性認證。請勿與任何人共用這些值，或與您的應用程式一起散發密碼。
+    > [AZURE.NOTE]**安全性提示**：用戶端密碼和封裝 SID 是重要的安全性認證。請勿與任何人共用這些值，或與您的應用程式一起散發密碼。
 
-## <a id="configure"></a>設定行動應用程式以傳送推播要求
+##<a id="configure"></a>設定行動應用程式以傳送推播要求
 
-1. 登入 [Azure 預覽入口網站][]，依序選取 [**瀏覽**]、[**行動應用程式**]，然後按一下您的應用程式。按一下 [推播通知] 服務。
+1. 登入 [Azure 預覽入口網站]，依序選取 [**瀏覽**]、[**行動應用程式**]，然後按一下您的應用程式。按一下 [推播通知] 服務。
 
 2. 在 Windows 通知服務中，輸入您的 [**用戶端密碼**] 和 [**封裝安全性識別碼 (SID)**]，並加以儲存。
 
@@ -93,58 +92,52 @@
 <!-- URLs. -->
 [Azure 預覽入口網站]: https://portal.azure.com/
 
-## <a id="update-service"></a>更新服務以傳送推播通知
+##<a id="update-service"></a>更新服務以傳送推播通知
 
-現在應用程式已經啟用了推播通知，您必須更新應用程式後端以傳送推播通知。 
+現在應用程式已經啟用了推播通知，您必須更新應用程式後端以傳送推播通知。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下方案，然後按一下 [**管理 NuGet 封裝**]。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下方案，然後按一下 [管理 NuGet 封裝]****。
 
 2. 搜尋 **Microsoft.Azure.NotificationHubs**，然後為方案中的所有專案按一下 [**安裝**]。
 
-3. 在 Visual Studio 的 [方案總管] 中，展開行動後端專案中的 **Controllers** 資料夾。開啟 TodoItemController.cs。在檔案的最上方，新增下列  `using` 陳述式：
+3. 在 Visual Studio 的 [方案總管] 中，展開行動後端專案中的 **Controllers** 資料夾。開啟 TodoItemController.cs。在檔案頂端新增下列 `using` 陳述式：
 
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
+        using Microsoft.Azure.Mobile.Server.Config;
 
-4. 將下列程式碼片段新增至 **InsertAsync** 呼叫後面的 `PostTodoItem`方法：  
+4. 將下列程式碼片段新增至 **InsertAsync** 呼叫後面的 `PostTodoItem` 方法：
 
         // get Notification Hubs credentials associated with this Mobile App
         string notificationHubName = this.Services.Settings.NotificationHubName;
         string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
         // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
+        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
         // windows payload
         var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" + item.Text + @"</text></binding></visual></toast>";
 
-        try
-        {
-            await Hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
-        }
-        catch (System.Exception ex)
-        {
-            throw ex;
-        }
+        await Hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
 
     此程式碼會指示與此行動應用程式相關聯的通知中心，在 todo 項目插入後傳送推播通知。
 
 
-<h2><a name="publish-the-service"></a>將行動後端發佈至 Azure</h2>
+## <a name="publish-the-service"></a>將行動後端發佈至 Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## <a id="update-service"></a>將推播通知新增至應用程式
+##<a id="update-service"></a>將推播通知新增至應用程式
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下方案，然後按一下 [**管理 NuGet 封裝**]。 
+1. 在 Visual Studio 中，以滑鼠右鍵按一下方案，然後按一下 [管理 NuGet 封裝]****。 
 
     此時會顯示 [管理 NuGet 封裝] 對話方塊。
 
-2. 在應用程式服務行動應用程式用戶端 SDK 中搜尋受管理的項目，然後按一下 [**安裝**]，選取方案中的所有專案，並接受使用條款。 
+2. 在應用程式服務行動應用程式用戶端 SDK 中搜尋受管理的項目，然後按一下 [**安裝**]，選取方案中的所有專案，並接受使用條款。
 
-    這會下載、安裝所有專案中的參考，並將其新增至適用於 Windows 的 Azure Mobile Push 程式庫。 
+    這會下載、安裝所有專案中的參考，並將其新增至適用於 Windows 的 Azure Mobile Push 程式庫。
 
-3. 開啟 **App.xaml.cs** 專案檔案並新增下列  `using` 陳述式：
+3. 開啟 **App.xaml.cs** 專案檔案，並新增下列 `using` 陳述式：
 
         using Windows.Networking.PushNotifications;
         using Microsoft.WindowsAzure.MobileServices;
@@ -157,7 +150,7 @@
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
             
-            var result = MobileService.GetPush().RegisterAsync(channel.Uri);
+            await MobileService.GetPush().RegisterAsync(channel.Uri);
         }
     
     此程式碼會從 WNS 中擷取應用程式的 ChannelURI，然後向您的應用程式服務行動應用程式註冊該 ChannelURI。
@@ -168,9 +161,9 @@
 
     這樣可保證在每次啟動應用程式時都會註冊存留期較短的 ChannelURI。
 
-6. 在 [方案總管] 中，按兩下 Windows 市集應用程式的 **Package.appxmanifest**，並將 [**通知**] 中的 [**支援快顯通知**] 設為 [**是**]。
+6. 在 [方案總管] 中，按兩下 Windows 市集應用程式的 **Package.appxmanifest**，並將 [**通知**] 中的 [**支援快顯通知**] 設為 [**是**]：
 
-    從 [**檔案**] 功能表中，按一下 [**全部儲存**]。
+    從 [檔案]**** 功能表中，按一下 [全部儲存]****。
 
 7. (選用) 針對 Windows Phone 市集應用程式專案重複上一個步驟。
 
@@ -178,7 +171,7 @@
 
 您的應用程式現在已能夠接收快顯通知。
 
-## <a id="test"></a>在應用程式中測試推播通知
+##<a id="test"></a>在應用程式中測試推播通知
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-windows-universal-test-push-preview](../includes/app-service-mobile-dotnet-backend-windows-universal-test-push-preview.md)]
 
@@ -196,6 +189,5 @@
 [17]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-edit2-app.png
 
 <!-- URLs. -->
-[提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-
-<!--HONumber=49-->
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+<!--HONumber=54-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Open Source Media Framework 的 Smooth Streaming 外掛程式" 
 	description="了解如何使用 Adobe Open Source Media Framework 的 Azure 媒體服務 Smooth Streaming 外掛程式。" 
 	services="media-services" 
@@ -43,7 +43,7 @@ SS for OSMF 包含兩個外掛程式版本：
 - 透過 OSMF 內建 API 的多重音訊語言切換
 - 透過 OSMF 內建 API 的最高播放品質選取
 - 透過 OSMF 字幕外掛程式的 Sidecar 隱藏式輔助字幕
-- Adobe&reg; Flash&reg; Player 10.2 或更高版本。
+- Adobe&reg; Flash&reg; Player 10.2 或更新版本。
 - 此版本僅支援 OSMF 2.0。
 
 以下是不受支援的功能：
@@ -55,14 +55,14 @@ SS for OSMF 包含兩個外掛程式版本：
 
 以下是已知問題清單：
 
-- 使用 48KHz 音軌播放 Smooth Streaming 內容時會發生問題。Flash 執行階段的 48KHz 音訊內容轉譯有已知問題。由於此問題，以 48Khz 設定編碼的 Smooth Streaming 內容可能無法如預期運作。請參閱：[使用 Flash Player](http://forums.adobe.com/message/4483498#4483498) 和 [Adobe Flash Player 11.3  -  錯誤 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964) 以取得詳細資訊。
+- 使用 48KHz 音軌播放 Smooth Streaming 內容時會發生問題。Flash 執行階段的 48KHz 音訊內容轉譯有已知問題。由於此問題，以 48Khz 設定編碼的 Smooth Streaming 內容可能無法如預期運作。請參閱：[使用 Flash Player](http://forums.adobe.com/message/4483498#4483498) (英文) 和 [Adobe Flash Player 11.3 - 錯誤 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964) (英文)，以取得詳細資訊。
 - 單一頁面上的多重 Smooth Streaming 內容播放可能會產生問題。這是 OSMF 的已知問題。
 - Stage Video 的播放可能會產生問題，且有些機器上無法播放視訊。若要解決此問題，您可以停用硬體加速或 Stage Video。
 
 ## 載入外掛程式
 OSMF 外掛程式可以靜態方式 (在編譯時) 或動態方式 (在執行階段) 載入。OSMF 的 Smooth Streaming 外掛程式下載，會同時包含動態和靜態版本。
 
-- 靜態下載：若要以靜態方式載入，必須要有靜態程式庫 (SWC) 檔案。靜態外掛程式會在編譯時新增為專案的參考，並合併到最終的輸出檔內。
+- 靜態載入：若要以靜態方式載入，必須要有靜態程式庫 (SWC) 檔案。靜態外掛程式會在編譯時新增為專案的參考，並合併到最終的輸出檔內。
 
 - 動態載入：若要以動態方式載入，必須要有預先編譯的 (SWF) 檔案。動態外掛程式會在執行階段載入，而不會包含在專案輸出中。(編譯的輸出) 動態外掛程式可使用 HTTP 和 FILE 通訊協定來載入。
 
@@ -165,7 +165,7 @@ package
 					break;
 				
 				case  MediaPlayerState.READY :   
-					// Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
+					// Add code to deal with Player Ready when it is hit the first load after a source is loaded.
 					
 					break;
 				
@@ -175,13 +175,13 @@ package
 				
 				case  MediaPlayerState.PAUSED :
 					break;      
-				// other states ...          
+				// other states ...         
 			}
 		}
 		
 		private function onPlayerFailed(event:MediaErrorEvent) : void
 		{
-			// Media Player is failed .           
+			// Media Player is failed .          
 		}
 		
 		private function loadMediaSource(sourceURL : String):void 
@@ -305,7 +305,7 @@ package
 					break;
 				
 				case  MediaPlayerState.READY :   
-					// Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
+					// Add code to deal with Player Ready when it is hit the first load after a source is loaded.
 					
 					break;
 				
@@ -315,13 +315,13 @@ package
 				
 				case  MediaPlayerState.PAUSED :
 					break;      
-				// other states ...          
+				// other states ...         
 			}
 		}
 		
 		private function onPlayerFailed(event:MediaErrorEvent) : void
 		{
-			// Media Player is failed .           
+			// Media Player is failed .          
 		}
 		
 		private function loadMediaSource(sourceURL : String):void 
@@ -349,7 +349,7 @@ Smooth Streaming for OSMF 動態外掛程式與 [Strobe Media Playback (SMP)](ht
 2.	將 src 設為 Smooth Streaming 來源 (例如 http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
 3.	進行所需的組態變更，然後按一下 [Preview and Update]。
  
-	**注意**：您的內容 Web 伺服器需要有效的 crossdomain.xml。
+	**注意** 您的內容 Web 伺服器需要有效的 crossdomain.xml。 
 4.	使用您慣用的文字編輯器，將程式碼複製並貼至簡單的 HTML 頁面，如下列範例所示：
 
 
@@ -400,8 +400,8 @@ Smooth Streaming for OSMF 動態外掛程式與 [Strobe Media Playback (SMP)](ht
 
 
 6. 	儲存您的 HTML 頁面，並發佈至 Web 伺服器。使用您慣用且具有 Flash&reg; Player 功能的網際網路瀏覽器 (Internet Explorer、Chrome、Firefox 等)，瀏覽至已發佈的網頁。
-7. 	在 Adobe &reg; Flash&reg; Player 內欣賞 Smooth Streaming 內容。
+7. 	在 Adobe&reg; Flash&reg; Player 內欣賞 Smooth Streaming 內容。
 
 如需一般 OSMF 開發的詳細資訊，請參閱官方 [OSMF 開發頁面](http://osmf.org/resources.html)。
 
-<!--HONumber=49-->
+<!--HONumber=54-->

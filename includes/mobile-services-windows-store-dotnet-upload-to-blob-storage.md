@@ -1,10 +1,10 @@
 ##<a name="add-select-images"></a>更新快速入門用戶端應用程式以擷取和上傳影像
 
-1. 在 Visual Studio 2012 中，開啟 Package.appxmanifest 檔案，並在 **[功能]** 索引標籤中啟用 **[網路攝影機]** 和 **[麥克風]** 功能。
+1. 在 Visual Studio 中，開啟 Package.appxmanifest 檔案，並在 [功能]**** 索引標籤中，啟用 [網路攝影機]**** 和 [麥克風]**** 功能。
 
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png)
  
-   	如此能確保您的應用程式可以使用連接至電腦的相機。第一次執行該應用程式時，系統會要求使用者允許相機進行存取。
+   	如此能確保您的應用程式可以使用連接至電腦的相機。Users will be requested to allow camera access the first time that the app is run.
 
 1. 開啟 MainPage.xaml 檔案，然後以下列程式碼取代第一個 **Task** 元素後面所緊接的 **StackPanel** 元素：
 
@@ -26,7 +26,7 @@
                     MaxHeight="250"/>
         </StackPanel> 
 
-   	這樣可以在 **ItemTemplate** 中新增一個映像，並將其繫結來源設定為 Blob 儲存體服務中已上傳映像的 URI。
+   	這樣可以在 **ItemTemplate** 中新增一個映像，並將其繫結來源設為 Blob 儲存體服務中已上傳映象的 URI。
 
 3. 開啟 MainPage.xaml.cs 專案檔案並新增下列 **using** 陳述式：
 	
@@ -50,7 +50,7 @@
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
-   	>[AZURE.NOTE]如果要在 TodoItem 物件中新增屬性，您必須在行動服務中啟用動態結構描述。啟用動態結構描述時，會在對應至這些新屬性的 TodoItem 資料表中自動新增資料欄。
+   	>[AZURE.NOTE]如果要在 TodoItem 物件中新增屬性，您必須在行動服務中啟用動態結構描述。When Dynamic Schema is enabled, new columns are automatically added to the TodoItem table that map to these new properties.
 
 5. 在 MainPage 類別中，新增下列程式碼：
 
@@ -67,7 +67,7 @@
 
   	此程式碼顯示相機 UI 來捕捉影像，並將影像儲存至儲存檔案。
 
-6. 以下列程式碼取代現有的  `InsertTodoItem` 方法：
+6. 以下列程式碼取代現有 `InsertTodoItem` 方法：
  
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -122,17 +122,17 @@
 
 1. 在 Visual Studio 中，按 F5 鍵以執行此應用程式。
 
-2. 在 **[Insert a TodoItem]** 下方的文字方塊中輸入文字，然後按一下 **[相片]**。
+2. 在 [Insert a TodoItem]**** 下方的文字方塊中輸入文字，然後按一下 [相片]****。
 
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar.png)
 
-  	這會顯示相機擷取 UI。 
+  	這會顯示相機擷取 UI。
 
-3. 按一下影像以拍照，然後按一下 **[確定]**。
+3. 按一下影像以拍照，然後按 [確定]****。
   
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-camera.png)
 
-4. 按一下 **[上傳]** 插入新項目並上傳影像。
+4. 按一下 [上傳]**** 插入新項目並上傳影像。
 
 	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar2.png)
 
@@ -143,4 +143,4 @@
    	>[AZURE.NOTE]將新項目的 <code>imageUri</code> 屬性繫結至 <strong>Image</strong> 控制項時，會從 Blob 儲存體服務自動下載影像。
 
 
-<!--HONumber=42-->
+<!--HONumber=54-->

@@ -26,9 +26,9 @@
 
 1.  [註冊應用程式進行驗證，並設定行動服務]
 2.  [限制只有經驗證的使用者具有資料表的權限]
-3.  [將驗證加入應用程式]
+3.  [將驗證新增至應用程式]
 
-本教學課程以行動服務快速入門為基礎。您也必須先完成教學課程[開始使用行動服務]。
+本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務]。
 
 若要完成本教學課程，您需要 Appcelerator Titanium Studio 3.2.1 或更新版本，及 iOS 7.0 和/或更新版本和 Android 4.3 或更新版本。
 
@@ -36,7 +36,7 @@
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-##<a name="permissions"></a> 限制只有經驗證的使用者具有權限
+##<a name="permissions"></a>限制只有通過驗證的使用者具有權限
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
@@ -48,24 +48,24 @@
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
-##<a name="add-authentication"></a>將驗證新增到應用程式
+##<a name="add-authentication"></a>將驗證新增至應用程式
 
-1.	開啟專案檔案 index.js，並在資料表事件接聽器方法中尋找 `case 2:`
+1.	開啟專案檔案 index.js，並在資料表事件 Lister 方法中尋找 `case 2:`
 
     在您的應用程式中，您可以提示使用者可用的身分識別提供者或自動提供任何其中一個身分識別提供者。
 
 2.	若要提供所有可用身分識別提供者，請使用下列程式碼：
 
-        	var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
-        	var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
-        	var appName = 'appctest';
-        	azureMobileServices.setAppName(appName);
-        	var authenticationClients = ['Google', 'Facebook', 'Twitter', 'Microsoft Account', 'Active Directory', 'Cancel'];
-       	 var dialog = Ti.UI.createOptionDialog({
+        var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
+        var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
+        var appName = 'appctest';
+        azureMobileServices.setAppName(appName);
+        var authenticationClients = ['Google', 'Facebook', 'Twitter', 'Microsoft Account', 'Active Directory', 'Cancel'];
+        var dialog = Ti.UI.createOptionDialog({
             options : authenticationClients,
             title : 'Select a client'
-       	 });
-        	dialog.addEventListener('click', function(evt) {
+        });
+        dialog.addEventListener('click', function(evt) {
             if (evt.index == 0 || evt.index == 1 || evt.index == 2 || evt.index == 3 || evt.index == 4) {
                 var str = authenticationClients[evt.index];
                 str = str.replace(/ /g, '');
@@ -79,22 +79,22 @@
             } else {
                 dialog.hide();
             }
-        	});
-        	dialog.show();
+        });
+        dialog.show();
 
 3.	若要提供特定身分識別提供者，請使用下列程式碼：
 
-        	var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
-        	var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
-        	var authorizeClient = "Google"; //Replace "Google" with identity provider.
-        	authorizeClient = authorizeClient.toLowerCase();
-        	azureMobileServices.authorizeClient(authorizeClient, function(result) {
+        var azureMobileServiceModule = require( 'com.winwire.azuremobileservices');
+        var azureMobileServices = new azureMobileServiceModule.AzureMobileServices();
+        var authorizeClient = "Google"; //Replace "Google" with identity provider.
+        authorizeClient = authorizeClient.toLowerCase();
+        azureMobileServices.authorizeClient(authorizeClient, function(result) {
             if (result == 'true') {
                 Alloy.createController('TableData');
             }
-        	});
+        });
 
->[AZURE.NOTE] 如果您使用的身分識別提供者不是 Google，請將傳給 **authorizeClient** 的值變更為下列其中一個： *microsoftaccount*、 *facebook*、 *twitter*或 *windowsazureactivedirectory*。
+>[AZURE.NOTE]如果您使用的身分識別提供者不是 Google，請將傳遞給 **authorizeClient** 的值變更為下列其中一個：*microsoftaccount*、*facebook*、*twitter* 或 *windowsazureactivedirectory*。
 
 4.	按 [執行] 按鈕以建置專案，並在 iPhone 模擬器或 Android 模擬器中啟動應用程式，然後按一下 [With Login] 選項以身分識別提供者的身分登入。
 
@@ -105,12 +105,10 @@
 
 [註冊應用程式進行驗證，並設定行動服務]: #register
 [限制只有經驗證的使用者具有資料表的權限]: #permissions
-[將驗證加入應用程式]: #add-authentication
+[將驗證新增至應用程式]: #add-authentication
 
 <!-- Images. -->
 
 <!-- URLs. -->
 [開始使用行動服務]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
-<!--HONumber=49--> 
-
-<!--HONumber=49-->
+<!--HONumber=54-->

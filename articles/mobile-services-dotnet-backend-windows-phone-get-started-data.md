@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="在現有的應用程式中加入行動服務 (Windows Phone) | 行動開發人員中心" 
 	description="了解如何開始使用行動服務，在您的 Windows Phone 應用程式中使用資料。" 
 	services="mobile-services" 
@@ -16,7 +16,7 @@
 	ms.date="02/20/2015" 
 	ms.author="wesmc"/>
 
-# 將行動服務新增至現有應用程式
+# 將行動服務新增至現有的應用程式
 
 ##概觀
 
@@ -29,14 +29,14 @@
 
 ##必要條件
 
-本教學課程需要下列項目：
+本教學課程需要下列各項：
 
 + Visual Studio 2013 Update 2 或更新版本。
 + Microsoft Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-tw%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 免費試用</a>。</p></div> 
 
 ##下載 GetStartedWithData 專案
 
-本教學課程以 [GetStartedWithMobileServices 應用程式][開發人員程式碼範例網站為基礎 (Visual Studio 2013 的 Windows Phone Silverlight 8.1 應用程式專案)。  
+本教學課程以 [GetStartedWithMobileServices 應用程式][Developer Code Samples site]，亦即以 Visual Studio 2013 的 Windows Phone Silverlight 8.1 應用程式專案為建立基礎。
 
 1. 從[開發人員程式碼範例網站]中下載 C# 版本的 GetStartedWithMobileServices 範例應用程式。 
 
@@ -44,7 +44,7 @@
 
 	>[AZURE.NOTE]若要建立 Windows Phone Silverlght 8.1 應用程式，只要將已下載之 Windows Phone Silverlight 8 應用程式專案的目標 OS 變更為 Windows Phone 8.1 即可。若要建立 Windows Phone 市集應用程式，請下載 GetStartedWithData 範例應用程式專案的 [Windows Phone 市集應用程式版本](http://go.microsoft.com/fwlink/p/?LinkId=397372)。
 
-2. 以滑鼠右鍵按一下 Visual Studio，然後按一下 [**以系統管理員身分執行**]，以系統管理權限來執行 Visual Studio。
+2. 以滑鼠右鍵按一下 Visual Studio，然後按一下 [以系統管理員身分執行]****，以系統管理權限來執行 Visual Studio。
 
 3. 在 Visual Studio 中，開啟下載的專案並檢查 MainPage.xaml.cs 檔案。
 
@@ -54,13 +54,13 @@
 
     ![][19]
 
-5. 按 **F5** 鍵。這會建置、部署及啟動用於偵錯的應用程式。
+5. 按 [F5]**** 鍵。這會建置、部署及啟動用於偵錯的應用程式。
 
-6. 在此應用程式的文字方塊中輸入文字，然後按一下 [**儲存**]，以將若干項目儲存在應用程式的記憶體內部。
+6. 在此應用程式的文字方塊中輸入文字，然後按一下 [儲存]****，以將若干項目儲存在應用程式的記憶體內部。
 
-   	![][0]  
+   	![][0]
 
-   	請注意每個  `TodoItem`  的文字會顯示在重新整理按鈕下方，並附有核取方塊，可讓您將該項目標示為已完成。
+   	請注意每個 `TodoItem` 的文字會顯示在重新整理按鈕下方，並附有核取方塊，可讓您將該項目標示為已完成。
 
 ##建立新的行動服務
 
@@ -73,13 +73,13 @@
 
     ![][2]
 
-2. 按一下 [**Windows Phone 8**] 平台。在 [**開始使用**] 區段下展開 [**連接現有的 Windows Phone 8 應用程式**]，然後按一下 [**下載**] 按鈕，以下載行動服務的個人化起始專案。 
+2. 按一下 [Windows Phone 8]**** 平台。在 [開始使用]**** 區段下展開 [Connect an existing Windows Phone 8 app]****，然後按一下 [下載]**** 按鈕，以下載行動服務的個人化起始專案。
 
     ![][3]
 
-3. 同時請在該區段下，按一下以下螢幕擷取畫面中顯示的連結，以下載您剛剛下載之行動服務的發佈設定檔。 
+3. 同時請在該區段下，按一下以下螢幕擷取畫面中顯示的連結，以下載您剛剛下載之行動服務的發佈設定檔。
 
-    > [AZURE.NOTE] 請將此檔案存放在安全位置，因為其中包含與您的 Azure 帳戶有關的敏感資訊。在本教學課程中，您將在發佈行動服務後刪除此檔案。 
+    > [AZURE.NOTE]請將此檔案存放在安全位置，因為其中包含與您的 Azure 帳戶有關的敏感資訊。在本教學課程中，您將在發佈行動服務後刪除此檔案。
 
     ![][5]
 
@@ -89,23 +89,23 @@
     ![][26]
 
 
-5. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下「開始使用資料」Windows 市集應用程式的方案。按一下 [**新增**]，然後按一下 [**現有專案**]。
+5. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下「開始使用資料」Windows 市集應用程式的方案。按一下 [新增]****，然後按一下 [現有專案]****。
 
     ![][4]
 
-6. 在 [新增現有專案] 對話方塊中，導覽至先前移入 **C#** 目錄中的行動服務專案資料夾。在服務子目錄中，選取 C# 專案檔案 (.csproj)。按一下 [**開啟**]，將專案新增至您的方案。
+6. 在 [新增現有專案] 對話方塊中，導覽至先前移入 **C#** 目錄中的行動服務專案資料夾。在服務子目錄中，選取 C# 專案檔案 (.csproj)。按一下 [開啟]****，將專案新增至您的方案。
 
     ![][6]
 
-7. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下您剛剛新增的服務專案，然後按一下 [**建置**]，以驗證專案可順利建置而不會產生錯誤。在建置期間，NuGet 封裝管理員可能必須還原某些在專案中受到參考的 NuGet 封裝。
+7. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下您剛剛新增的服務專案，然後按一下 [建置]****，以驗證專案可順利建置而不會產生錯誤。在建置期間，NuGet 封裝管理員可能必須還原某些在專案中受到參考的 NuGet 封裝。
 
     ![][20]
 
-8. 再次以滑鼠右鍵按一下服務專案。這次，請在 [**偵錯**] 內容功能表下按一下 [**開始新執行個體**]。
+8. 再次以滑鼠右鍵按一下服務專案。這次，請在 [偵錯]**** 內容功能表下按一下 [Start new instance]****。
 
     ![][21]
 
-    Visual Studio 會為您的服務開啟預設網頁。您可以按一下 [**立即試用**]，以從行動服務中的預設網頁測試方法。
+    Visual Studio 會為您的服務開啟預設網頁。您可以按一下 [try it now]****，以從行動服務中的預設網頁測試方法。
 
     ![][22]
 
@@ -119,7 +119,7 @@
 在本節中，您將會更新 Windows Phone 應用程式，以使用行動服務作為應用程式的後端服務。
 
 
-1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下 Windows Phone 應用程式專案，然後按一下 [**管理 NuGet 封裝**]。
+1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下 Windows Phone 應用程式專案，然後按一下 [管理 NuGet 封裝]****。
 
     ![][7]
 
@@ -127,24 +127,24 @@
 
     ![][8]
 
-3. 回到 Azure 管理入口網站，找出標示為「**連接應用程式並將資料儲存在服務中**」的步驟。複製用來建立  `MobileServiceClient` 連線的程式碼片段。
+3. 回到 Azure 管理入口網站，找出標示為「連接應用程式並將資料儲存在服務中」****的步驟。複製用來建立 `MobileServiceClient` 連線的程式碼片段。
 
     ![][9]
 
-4. 在 Visual Studio 中，開啟 App.xaml.cs。將程式碼片段貼到  `App` 類別定義的開頭處。並且在檔案頂端新增下列  `using` 陳述式，然後儲存檔案。
+4. 在 Visual Studio 中，開啟 App.xaml.cs。將程式碼片段貼到 `App` 類別定義的開頭處。並且在檔案頂端新增下列 `using` 陳述式，然後儲存檔案。
 
 		using Microsoft.WindowsAzure.MobileServices;
 
     ![][10]
 
 
-5. 在 Visual Studio 中開啟 MainPage.xaml.cs，然後將 using 陳述式新增至檔案頂端： 
+5. 在 Visual Studio 中開啟 MainPage.xaml.cs，然後將 using 陳述式新增至檔案頂端：
 
 		using Microsoft.WindowsAzure.MobileServices;
 
-6. 在 Visual Studio 中，將 MainPage.xaml.cs 中的  `MainPage` 類別定義取代為下列定義，並儲存檔案。
+6. 在 Visual Studio 中，將 MainPage.xaml.cs 中的 `MainPage` 類別定義替換為以下定義，並儲存檔案。
 
-    此程式碼會使用行動服務 SDK，使應用程式能夠將其資料儲存在服務提供的資料表中，而不儲存在本機的記憶體內部。主要的三種方法為  `InsertTodoItem`、 `RefreshTodoItems` 和  `UpdateCheckedTodoItem`。這三種方法可讓您以非同步方式插入、查詢資料集合，以及將其更新至 Azure 中的資料表。 
+    此程式碼會使用行動服務 SDK，使應用程式能夠將其資料儲存在服務提供的資料表中，而不儲存在本機的記憶體內部。主要的三種方法為 `InsertTodoItem`、`RefreshTodoItems`和 `UpdateCheckedTodoItem`。這三種方法可讓您以非同步方式插入、查詢資料集合，以及將其更新至 Azure 中的資料表。
 
         public sealed partial class MainPage : PhoneApplicationPage
         {
@@ -195,7 +195,7 @@
 
 
 
-##對本機代管的服務測試 Windows Phone 應用程式</h2>
+##以本機代管的服務測試 Windows Phone 應用程式</h2>
 
 在本節中，您將使用 Visual Studio 在本機的開發工作站中測試應用程式和行動服務。為了能夠從 Windows Phone 裝置或其中一個 Windows Phone 模擬器測試 IIS Express 本機代管的行動服務，您必須設定 IIS Express 和工作站，以允許連接到工作站的 IP 位址和連接埠。Windows Phone 裝置和模擬器會以非本機網路用戶端的形式連接。
 
@@ -205,7 +205,7 @@
 
 #### 對 IIS Express 中的行動服務測試應用程式
 
-6. 在 Visual Studio 中開啟 App.xaml.cs 檔案，將您最近貼在檔案中的  `MobileService` 定義註解化。新增新的定義，以根據您在工作站上設定的 IP 位址和連接埠建立連線。接著，請儲存檔案。程式碼應會如下所示：
+6. 在 Visual Studio 中開啟 App.xaml.cs 檔案，然後將您最近貼在檔案中的 `MobileService` 定義註解化。新增新的定義，以根據您在工作站上設定的 IP 位址和連接埠建立連線。接著，請儲存檔案。程式碼應會如下所示：
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
             "http://192.168.111.11:54321");
@@ -216,22 +216,22 @@
         //);        
 
 
-7. 在 Visual Studio 中按 F7 鍵，或從 [建置] 功能表中按一下 [**建置方案**]，以建置 Windows Phone 應用程式和行動服務。請在 Visual Studio 的輸出視窗中，驗證兩個專案都順利建置而未產生錯誤。
+7. 在 Visual Studio 中按 F7 鍵，或從 [建置] 功能表中按一下 [建置方案]****，以建置 Windows Phone 應用程式和行動服務。請在 Visual Studio 的輸出視窗中，驗證兩個專案都順利建置而未產生錯誤。
 
     ![][11]
 
-8. 在 Visual Studio 中按 F5 鍵，或從 [偵錯] 功能表中按一下 [**開始偵錯**]，以執行應用程式，並在 IIS Express 中本機代管行動服務。 
+8. 在 Visual Studio 中按 F5 鍵，或從 [偵錯] 功能表中按一下 [開始偵錯]****，以執行應用程式，並在 IIS Express 中本機代管行動服務。
 
-    >[AZURE.NOTE] 請確實使用 [**以系統管理員身分執行**] 選項。否則，IIS Express 可能無法載入您的 applicationhost.config 變更。
+    >[AZURE.NOTE]請確實使用 [以系統管理員身分執行]**** 選項執行 Visual Studio。否則，IIS Express 可能無法載入您的 applicationhost.config 變更。
 
     ![][12]
 
 
-9. 輸入新 todoitem 的文字。然後按一下 [**儲存**]。這會在 IIS Express 本機代管的行動服務所建立的資料庫中，插入新的 todoItem。按一下其中一個項目的核取方塊，將其標示為已完成。
+9. 輸入新 todoitem 的文字。然後按一下 [儲存]****。這會在 IIS Express 本機代管的行動服務所建立的資料庫中，插入新的 todoItem。按一下其中一個項目的核取方塊，將其標示為已完成。
 
     ![][15]
 
-10. 在 Visual Studio 中，停止對應用程式的偵錯。您可以開啟 [伺服器總管] 並展開 [資料連線]，以檢視您為後端服務建立之資料庫中的變更。以滑鼠右鍵按一下 **MS_TableConnectionString** 下的 TodoItems 資料表，然後按一下 [**顯示資料表資料**]。
+10. 在 Visual Studio 中，停止對應用程式的偵錯。您可以開啟 [伺服器總管] 並展開 [資料連線]，以檢視您為後端服務建立之資料庫中的變更。以滑鼠右鍵按一下 [MS_TableConnectionString]**** 下的 TodoItems 資料表，然後按一下 [顯示資料表資料]****。
 
     ![][14]
 
@@ -245,7 +245,7 @@
 
 ##<a name="test-azure-hosted"></a>測試發佈至 Azure 的行動服務
 
-1. 在 Visual Studio 中，開啟 App.xaml.cs。將建立  `MobileServiceClient` 以連接到本機代管之行動服務的程式碼註解化。將用來建立  `MobileServiceClient` 以連接到 Azure 中之服務的程式碼取消註解。儲存檔案的變更。
+1. 在 Visual Studio 中，開啟 App.xaml.cs。將建立 `MobileServiceClient` (連接到本機代管的行動服務) 的程式碼註解化。將建立 `MobileServiceClient` (連接到 Azure 中的服務) 的程式碼取消註解。儲存檔案的變更。
 
         sealed partial class App : Application
         {
@@ -259,11 +259,11 @@
             );        
             ....
 
-2. 在 Visual Studio 中按 F5 鍵，或從 [偵錯] 功能表中按一下 [**開始偵錯**]。這會使應用程式以先前的變更重新建置，然後再執行應用程式，以連接到 Azure 遠端代管的行動服務。 
+2. 在 Visual Studio 中按 F5 鍵，或從 [偵錯] 功能表中按一下 [開始偵錯]****。這會使應用程式以先前的變更重新建置，然後再執行應用程式，以連接到 Azure 遠端代管的行動服務。
 
     ![][12]
 
-3. 輸入新的 todoitem，然後為每個項目按一下 [**儲存**]。按一下核取方塊，以完成部分的新項目。每個新的 todoItem，都會儲存在您先前在 Azure 管理入口網站中為行動服務設定的 SQL Database 中，並進行更新。 
+3. 輸入新的 todoitem，然後為每個項目按一下 [儲存]****。按一下核取方塊，以完成部分的新項目。每個新的 todoItem，都會儲存在您先前在 Azure 管理入口網站中為行動服務設定的 SQL Database 中，並進行更新。
 
     ![][16]
 
@@ -274,7 +274,7 @@
 
     ![][17]
 
-5. 在管理入口網站中執行查詢，以檢視應用程式所做的變更。您的查詢會與下列查詢相類似，但將使用您的資料庫名稱，而非  `todolist`。
+5. 在管理入口網站中執行查詢，以檢視應用程式所做的變更。您的查詢會與下列查詢類似，但使用您的資料庫名稱，而非 `todolist`。
 
         SELECT * FROM [todolist].[todoitems]
 
@@ -286,24 +286,20 @@
 
 本教學課程將示範啟用 Windows Phone 8 應用程式，進而使用透過 .Net 執行階段而建置之行動服務資料的基本概念。接下來，考慮完成本教學課程中採用 GetStartedWithData 應用程式所建立的下列其中一個教學課程：
 
-* [使用指令碼驗證及修改資料]
-  <br/>深入了解在行動服務中使用伺服器指令碼，來驗證及變更從應用程式傳送出來的資料。
+* [使用指令檔驗證與修改資料] <br/>深入了解在行動服務中使用伺服器指令檔，來驗證並變更從應用程式傳送出來的資料。
 
-* [使用分頁縮小查詢範圍]
-  <br/>了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
+* [使用分頁縮小查詢範圍] <br/>了解如何在查詢中使用分頁，來控制單一要求中所處理的資料量。
 
 完成資料序列之後，請嘗試下列其中一個其他教學課程：
 
-* [開始使用驗證]
-  <br/>了解如何驗證應用程式的使用者。
+* [開始使用驗證] <br/>了解如何驗證應用程式的使用者。
 
 <!--
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 -->
 
-* [行動服務 .NET 做法概念性參考]
-  <br/>深入了解如何搭配使用行動服務與 .NET
+* [行動服務 .NET 作法概念參考資料] <br/>深入了解如何使用搭配 .NET 的行動服務。
   
 
 
@@ -337,23 +333,22 @@
 
 
 <!-- URLs. -->
-[使用指令碼驗證及修改資料]: /develop/mobile/tutorials/validate-modify-and-augment-data-wp8
+[使用指令檔驗證與修改資料]: /develop/mobile/tutorials/validate-modify-and-augment-data-wp8
 [使用分頁縮小查詢範圍]: /develop/mobile/tutorials/add-paging-to-data-wp8
-[開始使用行動服務]: mobile-services-dotnet-backend-windows-phone-get-started.md
-[開始使用資料]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
+[Get started with Mobile Services]: mobile-services-dotnet-backend-windows-phone-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
 [開始使用驗證]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
-[開始使用推播通知]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
-[JavaScript 和 HTML]: /develop/mobile/tutorials/get-started-with-data-js
+[Get started with push notifications]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-data-js
 [JavaScript 後端版本]: /develop/mobile/tutorials/get-started-with-data-wp8
 
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[管理入口網站]: https://manage.windowsazure.com/
-[行動服務 SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[開發人員程式碼範例網站]:  https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72
-[行動服務 .NET 做法概念性參考]: /develop/mobile/how-to-guides/work-with-net-client-library
-[MobileServiceClient 類別]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-[如何加入新的 Windows 防火牆連接埠規則]:  http://go.microsoft.com/fwlink/?LinkId=392240
-  
-
-<!--HONumber=49-->
+[Management Portal]: https://manage.windowsazure.com/
+[Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
+[Developer Code Samples site]: https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72
+[開發人員程式碼範例網站]: https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72
+[行動服務 .NET 作法概念參考資料]: /develop/mobile/how-to-guides/work-with-net-client-library
+[MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+[How to add a new Windows Firewall port rule]: http://go.microsoft.com/fwlink/?LinkId=392240
+<!--HONumber=54-->

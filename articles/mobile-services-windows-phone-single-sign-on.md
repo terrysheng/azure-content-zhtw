@@ -10,108 +10,60 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
+	ms.date="04/09/2015" 
 	ms.author="glenga"/>
 
-# 使用 Live Connect 單一登入驗證 Windows Phone 8 應用程式
+# 使用 Microsoft 帳戶以用戶端管理的驗證方式驗證您的 Windows Phone 應用程式
 
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">Windows 市集 C#</a><a href="/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">Windows 市集 JavaScript</a><a href="/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone" class="current">Windows Phone</a>
-</div>	
+[AZURE.INCLUDE [mobile-services-selector-single-signon](../includes/mobile-services-selector-single-signon.md)] 
+##概觀
+本主題示範如何使用 Live SDK 從 Windows Phone 8 或 Windows Phone 8.1 Silverlight 應用程式取得 Microsoft 帳戶的驗證權杖。然後您可以使用此權杖來驗證使用 Azure 行動服務的使用者。在本教學課程中，您將使用 Live SDK 將 Microsoft 帳戶驗證新增至現有的專案。成功驗證後，畫面會顯示名稱和使用者識別碼值來歡迎登入的使用者。
 
-本主題說明如何在 Windows Phone 8 應用程式的 Azure 行動服務中，使用 Live Connect 單一登入來驗證使用者。在本教學課程中，您會使用 Live Connect 將驗證新增至快速入門專案。經 Live Connect 成功驗證後，畫面會顯示名稱來歡迎登入使用者並顯示使用者識別碼。  
+>[AZURE.NOTE]本教學課程示範使用用戶端管理的驗證和 Live SDK 的優點。這可讓您更輕鬆地使用行動服務來驗證已登入使用者。您也可以要求額外的範圍，讓您的應用程式也能存取如 OneDrive 的資源。服務管理的驗證則提供更一般化的體驗，並支援多種驗證提供者。如需有關服務管理的驗證的詳細資訊，請參閱[將驗證新增至您的應用程式](mobile-services-windows-phone-get-started-users.md)主題。
 
->[AZURE.NOTE]本教學課程將示範使用由適用於 Windows Phone 應用程式的 Live Connect 所提供之單一登入經驗的優點。這可讓您更輕鬆地使用行動服務來驗證已登入使用者。如需支援多個驗證提供者的更一般化驗證經驗的詳細資訊，請參閱<a href="mobile-services-windows-phone-get-started-users.md">將驗證加入您的應用程式</a>主題。 
+本教學課程需要下列各項：
 
-本教學課程會逐步引導您完成啟用 Live Connect 驗證的基本步驟：
++ [Live SDK]
++ Microsoft Visual Studio 2013 Update 3 或更新版本
++ 您還必須先完成[將行動服務新增至現有的應用程式]教學課程。
 
-1. [註冊應用程式進行驗證，並設定行動服務]
-2. [限制只有經驗證的使用者具有資料表的權限]
-3. [將驗證加入應用程式]
+##註冊應用程式來使用 Microsoft 帳戶 
 
-本教學課程需要下列項目：
+若要能夠驗證使用者，您必須在 Microsoft 帳戶開發人員中心註冊您的應用程式。然後您必須將此註冊連接到您的行動服務。請完成下列主題中的步驟以建立 Microsoft 帳戶註冊，並將註冊連接到您的行動服務。
 
-+ [Live SDK for Windows and Windows Phone]
-+ Microsoft Visual Studio 2012 Express for Windows Phone
-+ 您還必須先完成教學課程[將行動服務新增至現有的應用程式]。
++ [註冊應用程式來使用 Microsoft 帳戶登入](mobile-services-how-to-register-microsoft-authentication.md) 
 
-<h2><a name="register"></a>使用 Live Connect 註冊您的應用程式</h2>
+##<a name="permissions"></a>限制只有通過驗證的使用者具有權限
 
-若要驗證使用者，您必須在 Live Connect 開發人員中心中註冊您的應用程式。接著您必須註冊用戶端密碼，以將 Live Connect 與行動服務進行整合。
+接著您必須限制資源的存取權，在此案例中，要確保 *TodoItems* 資料表只能被登入的使用者存取。
 
-1. 登入 [Azure 管理入口網站]，按一下 [**行動服務**]，然後按一下您的行動服務。
+[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../includes/mobile-services-restrict-permissions-windows.md)] 
 
-	![][4]
+##<a name="add-authentication"></a>將驗證新增至應用程式
 
-2. 按一下 [**儀表板**] 索引標籤，並記下 [**網站 URL**] 值。
+最後，您要新增 Live SDK 並用它來驗證您應用程式中的使用者。
 
-	![][5]
+1. 在 [方案總管]**** 中，以滑鼠右鍵按一下方案，然後選取 [管理 NuGet 封裝]****。
 
-    您將使用此值來定義重新導向網域。
+2. 在左窗格中選取 [線上]**** 類別、搜尋 **LiveSDK**，按一下 [Live SDK]**** 封裝上的 [安裝]****，然後接受授權合約。
 
-3. 瀏覽到 Live Connect 開發人員中心的 [<a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">我的應用程式</a>] 頁面，並視需要使用您的 Microsoft 帳戶登入。 
+  	這樣會將 Live SDK 新增至方案中。
 
-4. 按一下 [**建立應用程式**]、然後輸入 [**應用程式名稱**]，並按一下 [**我接受**]。
-
-	![][1] 
-
-   	這會向 Live Connect 註冊應用程式。
-
-5. 依序按一下 [**應用程式設定**] 頁面、[**API 設定**]，並記下 [**用戶端識別碼**] 和 [**用戶端密碼**] 的值。 
-
-	![][2]
-
- > [AZURE.NOTE] **安全性注意事項**用戶端密碼是重要的安全性認證。請勿將用戶端密碼與任何人分享，或與您的應用程式一起散發。
-
-6. 在 [**重新導向網域**] 中輸入步驟 2 中的行動服務 URL，按一下 [**行動用戶端應用程式**] 下的 [**是**]，然後按一下 [**儲存**]。
-
-7. 回到管理入口網站，按一下 [**身分識別**] 索引標籤，輸入從 Live Connect 取得的 [**用戶端密碼**]，然後按一下 [**儲存**]。
-
-	![][13]
-
-您的行動服務和您的應用程式現在都已設定成使用 Live Connect。
-
-<h2><a name="permissions"></a>限制只有經驗證的使用者具有權限</h2>
-
-1. 在管理入口網站中，按一下 [**資料**] 索引標籤，然後按一下 [**TodoItem**] 資料表。 
-
-	![][14]
-
-2. 按一下 [**權限**] 索引標籤，將所有權限設定為 [**僅限通過驗證的使用者**]，然後按一下 [**儲存**]。這可確保針對 **TodoItem** 資料表所做的所有操作都需要一位通過驗證的使用者。這亦可簡化下一堂教學課程的指令碼，因為他們將無需容許匿名使用者的可能性。
-
-	![][15]
-
-3. 在 Visual Studio 2012 Express for Windows Phone 中，開啟您在完成[將行動服務新增至現有的應用程式]教學課程時所建立的專案。 
-
-4. 按 F5 鍵執行此快速入門型應用程式；確認發生狀態代碼 401 (未經授權) 的例外狀況。 
-   
-   	因為應用程式以未驗證的使用者身分存取行動服務才會發生此情況，但 _TodoItem_ 資料表現在需要驗證。
-
-接下來，您將更新應用程式，先使用 Live Connect 驗證使用者再向行動服務要求資源。
-
-<h2><a name="add-authentication"></a>將驗證加入應用程式</h2>
-
-1. 下載並安裝 [Live SDK for Windows and Windows Phone]。
-
-2. 在 Visual Studio 的 [**專案**] 功能表中，按一下 [**新增參考**]，然後展開 [**組件**]，按一下 [**擴充功能**]，勾選 [**Microsoft.Live**]，然後按一下 [**確定**]。 
-
-   	![][16]
-
-  	這會在專案中新增 Live SDK 的參考。
-
-5. 開啟專案檔案 mainpage.xaml.cs，並新增下列 using 陳述式：
+5. 開啟專案檔案 mainpage.xaml.cs 並新增下列 using 陳述式：
 
         using Microsoft.Live;      
 
 6. 將下列程式碼片段新增至 MainPage 類別：
 	
         private LiveConnectSession session;
-        private async System.Threading.Tasks.Task Authenticate()
+        private static string clientId = "<microsoft-account-client-id>";
+        private async System.Threading.Tasks.Task AuthenticateAsync()
         {
-            LiveAuthClient liveIdClient = new LiveAuthClient("<< INSERT CLIENT ID HERE >>");
+            // Create the authentication client using the client ID of the registration.
+            LiveAuthClient liveIdClient = new LiveAuthClient(clientId);
 
             while (session == null)
             {
@@ -126,75 +78,67 @@
 
                     string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
                     var message = string.Format("You are now logged in - {0}", loginResult.UserId);
-                    MessageBox.Show(message, title, MessageBoxButton.OK);                    
+                    MessageBox.Show(message, title, MessageBoxButton.OK);
                 }
                 else
                 {
                     session = null;
-                    MessageBox.Show("You must log in.", "Login Required", MessageBoxButton.OK);                    
+                    MessageBox.Show("You must log in.", "Login Required", MessageBoxButton.OK);
                 }
             }
-         }
+        }
 
-    這會建立儲存目前 Live Connect 工作階段的成員變數，以及處理驗證程序的方法。
+    這會建立儲存目前 Live Connect 工作階段的成員變數，以及處理驗證程序的方法。LiveLoginResult 包含提供給行動服務用來驗證使用者的驗證權杖。
 
-7. 使用向 Live Connect 註冊應用程式時所產生的用戶端識別碼值，來更新上一個步驟中的字串 _<< INSERT CLIENT ID HERE >>_。
+7. 在上述的程式碼片段中，將預留位置 `<microsoft-account-client-id>` 取代為您為您的應用程式從 Microsoft 帳戶註冊取得的用戶端識別碼。
 
-    > [AZURE.NOTE] 在 Windows Phone 8 應用程式中，您可透過將此用戶端識別碼值傳遞至類別建構函式來建立 **LiveAuthClient** 類別的執行個體。在 [Windows 市集應用程式](/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)中，可藉由傳遞重新導向網域 URI 來具現化相同的類別。
+5. 將現有 **OnNavigatedTo** 方法覆寫中的 **RefreshTodoItems** 方法呼叫註解化或刪除。
 
-8. 刪除或註解化現有的 **OnNavigatedTo** 方法，這將會以下列處理頁面上 **Loaded** 事件的方法覆寫和取代該現有方法。 
+	如此能避免在使用者通過驗證之前載入資料。接著，您要新增按鈕以啟動登入程序。
 
-        async void MainPage_Loaded(object sender, RoutedEventArgs e)
+6. 將下列程式碼片段新增至 MainPage 類別：
+
+        private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
-            await Authenticate();
+            // Login the user and then load data from the mobile service.
+            await AuthenticateAsync();
+
+            // Hide the login button and load items from the mobile service.
+            this.ButtonLogin.Visibility = System.Windows.Visibility.Collapsed;
             RefreshTodoItems();
         }
-
-   	此方法會呼叫新的 **Authenticate** 方法。 
-
-9. 以下列程式碼取代 MainPage 建構函式：
-
-        // Constructor
-        public MainPage()
-        {
-            InitializeComponent();
-            this.Loaded += MainPage_Loaded;
-        }
-
-   	This constructor also registers the handler for the Loaded event.
 		
-9. 按 F5 鍵執行應用程式，並以您的 Microsoft 帳戶登入 Live Connect。 
+7. 在應用程式專案中，開啟 MainPage.xaml 專案檔案，然後在 **TitlePanel** 中 **TextBlock** 元素的後面新增 **Button** 元素：
 
-   	當您成功登入之後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
+		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
+                        Visibility="Visible">Sign in</Button>
+		
+9. 按 F5 鍵執行應用程式，並以您的 Microsoft 帳戶登入。
+
+   成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
+
+現在，由您其中一個註冊的識別提供者驗證的任何使用者都能存取 *TodoItem* 資料表。若要更善加保護使用者專屬的資料，您還必須實作授權。若要進行，您要取得指定使用者的使用者識別碼，然後用來判斷使用者對於指定資源具備何種層級的存取權。
 
 ## <a name="next-steps"> </a>後續步驟
 
-在下一堂教學課程[使用指令碼授權使用者]中，您將使用行動服務根據通過驗證使用者所提供的使用者 ID 值，並用它來篩選行動服務所傳回的資料。如需有關如何使用其他識別提供者以進行驗證的詳細資訊，請參閱[開始使用驗證]。 
+在下一堂教學課程[使用指令碼授權使用者]中，您將使用行動服務根據通過驗證使用者所提供的使用者 ID 值，並用它來篩選行動服務所傳回的資料。如需關於如何使用其他識別提供者以進行驗證的詳細資訊，請參閱[開始使用驗證]。
 
 <!-- Anchors. -->
-[註冊應用程式進行驗證，並設定行動服務]: #register
-[限制只有經驗證的使用者具有資料表的權限]: #permissions
-[將驗證加入應用程式]: #add-authentication
-[後續步驟]:#next-steps
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
+[Next Steps]: #next-steps
 
 <!-- Images. -->
-[1]: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-live-connect-add-app.png
-[2]: ./media/mobile-services-windows-phone-single-sign-on/mobile-live-connect-app-api-settings-mobile.png
-[4]: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-selection.png
-[5]: ./media/mobile-services-windows-phone-single-sign-on/mobile-service-uri.png
 
-[13]: ./media/mobile-services-windows-phone-single-sign-on/mobile-identity-tab-ma-only.png
-[14]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-perms.png
-[16]: ./media/mobile-services-windows-phone-single-sign-on/mobile-add-reference-live-wp8.png
 
 <!-- URLs. -->
-[我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows and Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [將行動服務新增至現有的應用程式]: mobile-services-windows-phone-get-started-data.md
 [開始使用驗證]: mobile-services-windows-phone-get-started-users.md
 [使用指令碼授權使用者]: mobile-services-windows-phone-authorize-users-in-scripts.md
 
-[Azure 管理入口網站]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 
-<!--HONumber=49-->
+<!--HONumber=54-->

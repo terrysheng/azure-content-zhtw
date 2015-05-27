@@ -1,30 +1,32 @@
-﻿<properties 
+<properties 
 	pageTitle="" 
-	description="" 
+	description="說明您在 Visual Studio 中的 Azure 行動服務 .NET 專案的情形 " 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-what-happened" 
-	ms.devlang="na" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="NA" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# 我的專案發生什麼情形？
 
 > [AZURE.SELECTOR]
-> - [入門](vs-mobile-services-dotnet-getting-started.md)
-> - [發生什麼情形](vs-mobile-services-dotnet-what-happened.md)
+> - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
+> - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
 ###<span id="whathappened">我的專案發生什麼情形？</span>
 
 #####加入參考
 
-Azure 行動服務 NuGet 封裝已加入至專案。因此，下列 .NET 參考已加入至專案：
+Azure 行動服務 NuGet 封裝加入至專案。因此，下列 .NET 參考已加入至專案：
 
 - `Microsoft.WindowsAzure.Mobile`
 - `Microsoft.WindowsAzure.Mobile.Ext`
@@ -34,9 +36,7 @@ Azure 行動服務 NuGet 封裝已加入至專案。因此，下列 .NET 參考�
 
 #####行動服務的連接字串值
 
-在 App.xaml.cs 檔案中，已使用所選行動服務的應用程式 URL 和應用程式金鑰建立 **MobileServiceClient** 物件。 
+在 App.xaml.cs 檔案中，已使用所選行動服務的應用程式 URL 和應用程式金鑰建立 **MobileServiceClient** 物件。
 
 [深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

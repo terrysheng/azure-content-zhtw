@@ -1,32 +1,32 @@
 <properties 
 	pageTitle="" 
-	description="" 
+	description="如何在 Visual Studio .NET 專案中開始使用 Azure 行動服務" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
+	ms.workload="mobile" 
 	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# 開始使用行動服務 (.NET 專案)
 
 > [AZURE.SELECTOR]
-> - [入門](vs-mobile-services-dotnet-getting-started.md)
-> - [發生什麼情形](vs-mobile-services-dotnet-what-happened.md)
-
-## 開始使用行動服務 (.NET 專案)
+> - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
+> - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
 依照這些範例中之程式碼執行的第一個步驟取決於您要連線的行動服務類型。
 
-對於 JavaScript 後端行動服務，請建立名為 TodoItem 的資料表。若要建立資料表，請在 [伺服器總管] 的 [Azure] 節點下尋找行動服務，在行動服務的節點上按一下滑鼠右鍵以開啟內容功能表，然後選擇 **[建立資料表]**。輸入 "TodoItem" 做為資料表名稱。
+對於 JavaScript 後端行動服務，請建立名為 TodoItem 的資料表。若要建立資料表，請在 [伺服器總管] 的 [Azure] 節點下尋找行動服務，在行動服務的節點上按一下滑鼠右鍵以開啟內容功能表，然後選擇 [建立資料表]****。輸入 "TodoItem" 做為資料表名稱。
 
-若使用 .NET 後端行動服務，則 Visual Studio 為您建立的預設專案範本中已有 TodoItem 資料表，但您必須將它發行到 Azure。若要發行它，請開啟行動服務專案的內容功能表，然後選擇 **[發行 Web]**。接受預設值，然後選擇 **[發行]** 按鈕。
+若使用 .NET 後端行動服務，則 Visual Studio 為您建立的預設專案範本中已有 TodoItem 資料表，但您必須將它發行到 Azure。若要發行它，請開啟行動服務專案的內容功能表，然後選擇 [發行 Web]****。接受預設值，然後選擇 [發行]**** 按鈕。
 
 #####取得資料表的參考
 
@@ -45,7 +45,7 @@
 
 	IMobileServiceTable<TodoItem> todoTable = App.<yourClient>.GetTable<TodoItem>();
 
-資料表的權限必須設為**「具有應用程式金鑰的任何人」**，此程式碼才能運作。如果您變更權限來保護行動服務，則需要加入使用者驗證支援。請參閱[開始使用驗證](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/)。
+資料表的權限必須設為「具有應用程式金鑰的任何人」****，此程式碼才能運作。如果您變更權限來保護行動服務，則需要加入使用者驗證支援。請參閱[開始使用驗證](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md) (英文)。
 
 #####加入項目 
 
@@ -84,6 +84,4 @@
 
 
 [深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

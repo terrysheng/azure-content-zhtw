@@ -19,7 +19,7 @@
 
 # 在行動服務中為週期性工作排程 
 
-> [AZURE.SELECTOR-LIST (平台 | 後端)]
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
 - [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
  
@@ -49,19 +49,19 @@
 
 <li><p>在相同的區段中新增下列應用程式設定，並將預留位置取代為您在入口網站中設為應用程式設定的 Twitter 存取權杖和存取權杖密碼值：</p>
 
-<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" /&gt;
-&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /&gt;</code></pre>
+<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
+&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /></code></pre>
 
-<p>行動服務在執行於本機電腦時會使用這些儲存的設定，讓您能夠先測試排定工作，再加以發佈。在 Azure 中執行時，行動服務會改用在入口網站中設定的值，並忽略這些專案設定。  </p></li>
+<p>行動服務在執行於本機電腦時會使用這些儲存的設定，讓您能夠先測試排定工作，再加以發佈。在 Azure 中執行時，行動服務會改用在入口網站中設定的值，並忽略這些專案設定。 </p></li>
 </ol>
 
 ##<a name="install-linq2twitter"></a>下載並安裝 LINQ to Twitter 程式庫
 
-1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下專案名稱，然後選取 [管理 NuGet 封裝]。
+1. 在 Visual Studio 的 [方案總管]**** 中以滑鼠右鍵按一下專案名稱，然後選取 [管理 NuGet 封裝]****。
 
-2. 在左窗格中選取 [**線上**] 類別、搜尋  `linq2twitter`，按一下 **linqtotwitter** 封裝上的 [**安裝**]，然後閱讀並接受授權合約。 
+2. 在左窗格中選取 [線上]**** 類別、搜尋 `linq2twitter`，按一下 **linqtotwitter** 封裝上的 [安裝]****，然後閱讀並接受授權合約。
 
-	![][1]
+  	![][1]
 
   	這會將 Linq to Twitter 程式庫新增至您的行動服務專案。
 
@@ -69,11 +69,11 @@
 
 ##<a name="create-table"></a>建立新的 Updates 資料表
 
-1. 在 Visual Studio [方案總管] 中以滑鼠右鍵按一下 DataObjects 資料夾，展開 [**新增**]，按一下 [**類別**]，   在 [**名稱**] 中輸入 `Updates` ，然後按一下 [**新增**]。
+1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下 DataObjects 資料夾，展開 [新增]****，按一下 [類別]****，在 [名稱]**** 中輸入 `Updates`，然後按一下 [新增]****。
 
 	這會為 Updates 類別建立新的專案檔案。
 
-2. 以滑鼠右鍵按一下 [**參考**]，按一下 [**加入參考...**]，選取 [**組件**] 下的 [**架構**]，核取 [**System.ComponentModel.DataAnnotations**]，然後按一下 [**確定**]。
+2. 以滑鼠右鍵按一下 [參考]****，按一下 [加入參考...]****，選取 [組件]**** 下的 [架構]****，核取 [System.ComponentModel.DataAnnotations]****，然後按一下 [確定]****。
 
 	![][7]
 
@@ -96,13 +96,13 @@
 	        public DateTime Date { get; set; }
     	}
 
-4. 展開 Models 資料夾、開啟資料模型內容檔案 (名為 <em>service_name</em> Context.cs)，然後新增下列會傳回類型為 **DbSet** 的屬性：
+4. 展開 Models 資料夾，開啟資料模型內容檔案 (名為 <em>service_name</em>Context.cs)，然後新增下列會傳回型別 **DbSet** 的屬性：
 
 		public DbSet<Updates> Updates { get; set; }
 
-	服務會使用 Updates 資料表 (在第一次存取 DbSet 時建立於資料庫中) 儲存推文資料。  
+	服務會使用 Updates 資料表 (在第一次存取 DbSet 時建立於資料庫中) 儲存推文資料。
 
-	>[AZURE.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First 移轉。無法針對 Azure 中的 SQL Database 使用預設的初始設定式。如需詳細資訊，請參閱[如何使用 Code First 移轉更新資料模型](mobile-services-dotnet-backend-use-code-first-migrations.md).  
+	>[AZURE.NOTE]使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。無法針對 Azure 中的 SQL Database 使用預設的初始設定式。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型](mobile-services-dotnet-backend-use-code-first-migrations.md) (英文)。
 
 接下來，請建立可存取 Twitter 並將推文資料儲存於全新 Updates 資料表中的排定工作。
 
@@ -110,7 +110,7 @@
 
 1. 展開 ScheduledJobs 資料夾，並開啟 SampleJob.cs 專案檔案。
 
-	在 Azure 管理入口網站中，此類別 (繼承自 ScheduledJob**) 代表可依排程定期執行或隨選執行的工作。
+	在 Azure 管理入口網站中，此類別 (繼承自 **ScheduledJob**) 代表可依排程定期執行或隨選執行的工作。
 
 2. 以下列程式碼取代 SampleJob.cs 的內容：
  
@@ -222,61 +222,61 @@
 		    }
 		}
 
-	在上述程式碼中，您必須以命名空間和下載專案的 DbContext 取代字串 _todolistService_ 和 _todolistContext_，也就是分別為 <em>mobile&#95;service&#95;name</em> 服務和 <em>mobile&#95;service&#95;name</em>內容。  
+	在上述程式碼中，您必須將字串 _todolistService_ 和 _todolistContext_ 替換為您已下載之專案的命名空間和 DbContext，分別是 <em>mobile&#95;service&#95;name</em>Service 和 <em>mobile&#95;service&#95;name</em>Context。
    	
-	在前述指令碼中，**ExecuteAsync** 覆寫方法會使用儲存的認證來呼叫 Twitter 查詢 API，以要求包含雜湊標記 `#mobileservices` 的最新推文。在重複的推文和回覆被儲存於資料表之前，系統會先將它們從結果中移除。
+	在上述程式碼中，**ExecuteAsync** 覆寫方法會使用儲存的認證來呼叫 Twitter 查詢 API，以要求包含 # 標籤 `#mobileservices` 的最新推文。在重複的推文和回覆被儲存於資料表之前，系統會先將它們從結果中移除。
 
 ##<a name="run-job-locally"></a>在本機測試排定工作
 
-排程工作可先在本機進行測試，再發佈至 Azure，以及在入口網站中註冊。 
+排程工作可先在本機進行測試，再發佈至 Azure，以及在入口網站中註冊。
 
 1. 在 Visual Studio 中，將行動服務專案設為起始專案，然後按 F5。
 
 	這會啟動行動服務專案，以及顯示歡迎使用頁面的新瀏覽器視窗。
 
-2. 按一下 [**立即試用**]，然後按一下 [**POST 工作/{jobName}**]。
+2. 按一下 [立即試用]****，然後按一下 [POST 工作/{jobName}]****。
 
 	![][8]
  
-4. 按一下 [**立即試用**]，輸入  `Sample`  做為 **{jobName}** 參數值，然後按一下 [**傳送**]。
+4. 按一下 [立即試用]****，輸入 `Sample` 作為 **{jobName}** 參數值，然後按一下 [傳送]****。
 
 	![][9]
 
 	這會將新的 POST 要求傳送至範例工作端點。在本機服務中，已啟動 **ExecuteAsync** 方法。您可以在這個方法中設定中斷點，對程式碼進行偵錯。
 
-3. 在 [伺服器總管] 中，依序展開 [**資料連線**]、[**MSTableConnectionString**] 和 [**資料表**]，以滑鼠右鍵按一下 [**更新**]，然後按一下 [**顯示資料表資料**]。
+3. 在 [伺服器總管] 中，依序展開 [資料連線]****、[MSTableConnectionString]**** 和 [資料表]****，以滑鼠右鍵按一下 [更新]****，然後按一下 [顯示資料表資料]****。
 
 	新的推文會以資料列的形式輸入資料表中。
 
 ##<a name="register-job"></a>發佈服務及註冊新工作 
 
-工作必須在 [**排程器**] 索引標籤中註冊，行動服務才能依據您定義的排程加以執行。
+工作必須在 [排程器]**** 索引標籤中註冊，行動服務才能依據您定義的排程加以執行。
 
 3. 將行動服務專案重新發佈至 Azure。 
 
-4. 在 [Azure 管理入口網站]中，按一下 [行動服務]，然後按一下您的應用程式。
+4. 在[Azure 管理入口網站]中，按一下 [行動服務]，然後按一下您的應用程式。
 
-2. 按一下 [**排程器**] 索引標籤，然後按一下 [**+建立**]。 
+2. 按一下 [排程器]**** 索引標籤，然後按一下 [建立]****。
 
-    >[AZURE.NOTE]當您在 <em>免費</em> 層執行您的行動服務時，您一次只能執行一個排程的工作。在付費層中，您一次可以執行多達十個排定工作。
+    >[AZURE.NOTE]當您在<em>免費</em>層中執行行動服務時，您一次只能執行一個排定工作。在付費層中，您一次可以執行多達十個排定工作。
 
-3. 在排程器對話方塊的 [**工作名稱**] 中輸入 _Sample_，設定排程間隔和單位，然後按一下核取按鈕。 
+3. 在排程器對話方塊的 [工作名稱]**** 中輸入 _Sample_，設定排程間隔和單位，然後按一下核取按鈕。
    
-	![][4]
+   	![][4]
 
-   	這會建立名為 **Sample** 的新工作。 
+   	這會建立名為 **Sample** 的新工作。
 
-4. 按一下您剛建立的新工作，然後按一下 [**執行一次**]，以測試指令碼。 
+4. 按一下您剛建立的新工作，然後按一下 [執行一次]****，以測試指令碼。
 
    	這會執行在排程器中仍處於停用狀態的工作。在此頁面上，您可以隨時啟用工作及變更其排程。
 
-	>[AZURE.NOTE]仍可使用 POST 要求來啟動排程工作。不過，授權預設會提供給使用者，表示要求必須在標頭中包含應用程式金鑰。
+	>[AZURE.NOTE]仍可使用 POST 要求來啟動排程工作。However, the authorization defaults to user, which means that the request must include the application key in the header.
 
 4. (選用)在 [Azure 管理入口網站]中，對您行動服務的相關資料庫按一下 [管理]。
 
     ![][6]
 
-5. 在管理入口網站中執行查詢，以檢視應用程式所做的變更。您的查詢會與下列查詢相類似，但將以您的行動服務名稱做為結構描述名稱，而非  `todolist`。
+5. 在管理入口網站中執行查詢，以檢視應用程式所做的變更。您的查詢會與下列查詢相類似，但將以您的行動服務名稱做為結構描述名稱，而非 `todolist`。
 
         SELECT * FROM [todolist].[Updates]
 
@@ -289,7 +289,7 @@
 [建立新的排定工作]: #add-job
 [在本機測試排定工作]: #run-job-locally
 [發佈服務及註冊工作]: #register-job
-[後續步驟]: #next-steps
+[Next steps]: #next-steps
 
 <!-- Images. -->
 [1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
@@ -304,9 +304,8 @@
 
 <!-- URLs. -->
 [Azure 管理入口網站]: https://manage.windowsazure.com/
-[在行動服務中註冊您的應用程式以進行 Twitter 登入]: mobile-services-how-to-register-twitter-authentication.md
-[Twitter 開發人員]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[應用程式設定]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Register your apps for Twitter login with Mobile Services]: mobile-services-how-to-register-twitter-authentication.md
+[Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex 專案]: http://linqtotwitter.codeplex.com/
-
-<!--HONumber=49-->
+<!--HONumber=54-->

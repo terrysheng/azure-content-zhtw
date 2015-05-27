@@ -1,10 +1,10 @@
-﻿<properties 
+<properties 
 	pageTitle="什麼是 Azure 應用程式服務" 
 	description="了解為何 Azure 應用程式服務是 Web 和行動應用程式開發的最佳平台。" 
 	services="app-service" 
 	documentationCenter="" 
 	authors="omarkmsft" 
-	manager="" 
+	manager="dwrede" 
 	editor="jimbe"/>
 
 <tags 
@@ -35,27 +35,27 @@ Azure 應用程式著重於 Web 和行動應用程式的快速開發以及商務
 - **為企業備妥** - 享受企業級的安全性和管理性，備感安心。提供委派和以角色為基礎的管理，讓您輕鬆地保護和管理流向行動應用程式的資料，並透過內建的備份和還原功能保護您的資產。得知應用程式服務符合 PCI，而可安心工作。透過專用的環境，以及跨公用和私用雲端部署的能力，得以掌控全局。透過 Microsoft 超過 25 年的經驗和我們的企業服務等級協議，享有保障的權益。
 
 
-## 應用程式服務概念
+##應用程式服務概念
 下列高階概念將說明應用程式服務有哪些功能。
 
 ### 應用程式類型
 應用程式服務可讓您從單一開發經驗建立下列應用程式類型：
 
-- [**Web 應用程式**](app-service-web-overview.md) - 快速建立和部署與您的企業同步調整的關鍵 Web 應用程式。
-- [**行動應用程式**](app-service-mobile-value-prop-preview.md) - 隨時透過任何裝置與員工、合作夥伴和客戶聯繫。
-- [**API 應用程式**](app-service-api-apps-why-best-platform.md) - 輕鬆建置及取用雲端 API 並利用 API 的經濟效益。
-- [**邏輯應用程式**](app-service-logic-what-are-logic-apps.md) - 將跨雲端的資料存取和使用自動化，而不需要撰寫程式碼。
+- [**Web 應用程式**](../app-service-web-overview) - 快速建立和部署與您的企業同步調整的關鍵 Web 應用程式。
+- [**行動應用程式**](../app-service-mobile-value-prop-preview) - 隨時透過任何裝置與員工、合作夥伴和客戶聯繫。
+- [**API 應用程式**](../app-service-api-apps-why-best-platform) - 輕鬆建置及取用雲端 API 並利用 API 的經濟效益。
+- [**邏輯應用程式**](../app-service-logic-what-are-logic-apps) - 將跨雲端的資料存取和使用自動化，而不需要撰寫程式碼。
 
 做為單一的整合式服務，應用程式服務可讓您輕鬆地將上述應用程式類型撰寫成單一方案，進而建置以使用相同後端的 Web 和行動用戶端為目標的應用程式，同時與內部部署系統和常用服務 (例如 Office 365 和 salesforce.com) 整合。
 
-### 應用程式服務計劃
+### App Service 方案
 應用程式服務計劃代表一組您可以在應用程式之間共用的特性和功能。應用程式服務計劃支援一些價格層 (例如，免費、共用、基本及標準)，每一層都有它自己的功能。您可以快速變更要由哪個應用程式服務計劃主控某個應用程式，不需要停止運作。[深入了解應用程式服務計劃](web-sites-web-hosting-plan-overview.md)。
 
-## 開始使用應用程式服務
-想體驗一下嗎？短短幾秒即可開始。
+##開始使用應用程式服務
+想體驗一下嗎？ 短短幾秒即可開始。
 
-使用 Azure 應用程式服務，只要選取語言就行了！ 
+使用 Azure 應用程式服務，只要選取語言就行了！
 
 立即免費[建立新的 Web 應用程式](http://go.microsoft.com/fwlink/?LinkId=523751)。不需要信用卡，無需承諾和繁複程序。
 
-<!--HONumber=49-->
+<!--HONumber=54-->

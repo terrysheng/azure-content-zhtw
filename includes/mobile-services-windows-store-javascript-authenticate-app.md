@@ -1,6 +1,6 @@
-﻿
 
-1. 開啟專案檔案 default.js，然後在 **app.OnActivated** 方法多載中，以下列程式碼取代對 **refreshTodoItems** 方法的最後呼叫： 
+
+1. 開啟專案檔案 default.js，然後在 **app.OnActivated** 方法多載中，以下列程式碼取代對 **refreshTodoItems** 方法最後的呼叫： 
 	
         var userId = null;
 
@@ -38,8 +38,7 @@
 
     >[AZURE.NOTE]如果您已向行動服務註冊您的 Windows 市集應用程式套件資訊，則應該為 <em>useSingleSignOn</em> 參數提供 <strong>true</strong> 值來呼叫 <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> 方法。若您沒有這麼做，您的使用者將在每次呼叫登入方法時都看到登入提示。
 
-2. 按 F5 鍵執行應用程式，並以您選擇的身分識別提供者登入應用程式。 
+2. 按 F5 鍵執行應用程式，並以您選擇的身分識別提供者登入應用程式。
 
    	成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
-
-<!--HONumber=49-->
+<!--HONumber=54-->

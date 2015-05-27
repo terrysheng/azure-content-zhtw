@@ -1,4 +1,4 @@
-﻿
+
 ## <a name="update-app"></a>從 iOS 應用程式呼叫自訂 API
 
 若要從 iOS 用戶端呼叫此自訂 API，請使用 `MSClient invokeAPI` 方法。此方法有兩個版本，一個適用於 JSON 格式的要求，另一個適用於任何資料類型：
@@ -35,5 +35,4 @@
 		
 
 
-
-<!--HONumber=52-->
+<!--HONumber=54-->

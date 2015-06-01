@@ -91,4 +91,5 @@
 	</pre>
     
 6. 將憑證 (.pfx) 匯入至已安裝 Visual Studio with Azure SDK for .NET 2.4 的電腦。
-<!--HONumber=54-->
+
+<!---HONumber=54-->

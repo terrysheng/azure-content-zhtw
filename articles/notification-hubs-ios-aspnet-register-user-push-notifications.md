@@ -43,7 +43,7 @@
 
 2. 在輔助編輯器中，為所有切換的控制項建立出口並加以呼叫、使用檢視控制器 (委派) 連接文字欄位，然後為 [**登入**] 按鈕建立 [**動作**]。
 
-   	![][1]
+   ![][1]
 
    	您的 BreakingNewsViewController.h 檔現在應該含有以下代碼：
 
@@ -112,13 +112,13 @@
 
 10.	在 PushToUserAppDelegate.m 檔案中，新增下列處理常式方法：
 
-		- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+			(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
 		    NSLog(@"%@", userInfo);
 		    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
 		                          [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
 		                          @"OK" otherButtonTitles:nil, nil];
 		    [alert show];
-		}
+		   }
 
 	 此方法會在您執行中的應用程式接收到通知時，在 UI 中顯示警示。
 
@@ -191,7 +191,7 @@
 			DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
 
 		    // build JSON
-		    NSString* json = [NSString stringWithFormat:@"{\"platform\":\"ios\", \"instId\":\"%@\", \"deviceToken\":\"%@\"}", deviceInfo.installationId, [deviceInfo getDeviceTokenInHex]];
+		    NSString* json = [NSString stringWithFormat:@"{"platform":"ios", "instId":"%@", "deviceToken":"%@"}", deviceInfo.installationId, [deviceInfo getDeviceTokenInHex]];
 
 		    // build auth string
 		    NSString* authString = [NSString stringWithFormat:@"%@:%@", self.User.text, self.Password.text];

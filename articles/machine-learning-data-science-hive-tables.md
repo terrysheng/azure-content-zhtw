@@ -23,7 +23,7 @@
  
 本文件會顯示泛型 Hive 查詢，這類查詢會建立 Hive 資料表，並從 Azure Blob 儲存體載入資料。在 GitHub 儲存機制中共用這些 Hive 查詢。[Github 儲存機制](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql)。 
 
-如果您依照＜使用 IPython Notebook 伺服器設定 Azure 虛擬機器＞中的指示執行，就已經將這個指令碼檔案下載至虛擬機器上的 `C:\Users\<user name>\Documents\Data Science Scripts` 目錄中。您需要在這些查詢的對應欄位中插入自己的資料結構描述和 Azure Blob 儲存體設定，而這些 Hive 查詢應已準備好可進行提交。 
+如果您依照＜使用 IPython Notebook 伺服器設定 Azure 虛擬機器＞中的指示執行，就已經將這個指令碼檔案下載至虛擬機器上的 `C:\Users<user name>\Documents\Data Science Scripts` 目錄中。您需要在這些查詢的對應欄位中插入自己的資料結構描述和 Azure Blob 儲存體設定，而這些 Hive 查詢應已準備好可進行提交。 
 
 我們假設 Hive 資料表的資料為**未壓縮**的表格格式，而且資料已上傳至 Hadoop 叢集所使用的儲存體帳戶的預設或其他容器。如果使用者想要練習_「NYC 計程車車程資料」_，就需要先[下載全部的 24 個檔案](http://www.andresmh.com/nyctaxitrips/) (12 個車程檔和 12 個費用檔)、將所有檔案**解壓縮**至 .csv 檔案，然後將它們上傳至在[自訂 Azure HDInsight Hadoop 叢集](machine-learning-data-science-customize-hadoop-cluster.html)時所使用的 Azure 儲存體帳戶的預設或其他容器。 
 
@@ -32,7 +32,7 @@ Hive 查詢可以在 Hadoop 叢集前端節點上的 Hadoop 命令列中提交�
 1. [啟用 Hadoop 叢集前端節點的遠端存取並登入前端節點](machine-learning-data-science-customize-hadoop-cluster.md)。
 2. [在前端節點的 Hadoop 命令列中提交 Hive 查詢](machine-learning-data-science-hive-queries.md)。
 
-使用者也可以在 Web 瀏覽器中輸入 URL `https://<Hadoop 叢集名稱>.azurehdinsight.net/Home/HiveEditor 來使用[查詢主控台 (Hive 編輯器)] \(系統將要求您輸入 Hadoop 叢集認證以進行登入)，或者可以[使用 PowerShell 提交 Hive 工作](hdinsight-submit-hadoop-jobs-programmatically.md)。 
+使用者也可以在 Web 瀏覽器中輸入 URL `https://<Hadoop 叢集名稱>.azurehdinsight.net/Home/HiveEditor 來使用[查詢主控台 (Hive 編輯器)] (系統將要求您輸入 Hadoop 叢集認證以進行登入)，或者可以[使用 PowerShell 提交 Hive 工作](hdinsight-submit-hadoop-jobs-programmatically.md)。 
 
 - [步驟 1：建立 Hive 資料庫和資料表](#create-tables)
 - [步驟 2：將資料載入 Hive 資料表](#load-data)

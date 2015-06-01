@@ -24,7 +24,7 @@
 AzureResourceManager 模組包括 Cmdlet，而從命令列中使用 Azure 資源時，用來收集可協助您進行工作的工具。Azure 資源群組範本為 JSON 文件，而且 Azure 資源管理 API 會接受並傳回 JSON，因此 JSON 剖析工具用來協助您瀏覽資源的相關資訊，以及設計範本和範本參數檔案或與之互動。
 
 ### Mac、Linux 和 Windows 工具
-如果您使用 Mac、Linux 和 Windows 的 Azure 命令列介面，則可能熟悉標準下載工具 \(例如 **[curl](http://curl.haxx.se/)** 和 **[wget](https://www.gnu.org/software/wget/)** 或 **[Resty](https://github.com/beders/Resty)**\) 和 JSON 公用程式 \(例如 **[jq](http://stedolan.github.io/jq/download/)**、**[jsawk](https://github.com/micha/jsawk)** 以及一併處理 JSON 的語言程式庫\) \(許多這些工具也具有 Windows 的連接埠，例如 [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)；事實上，有幾種方法可以取得 Linux 以及在 Windows 上執行的其他開放原始碼軟體工具\)。
+如果您使用 Mac、Linux 和 Windows 的 Azure 命令列介面，則可能熟悉標準下載工具 (例如 **[curl](http://curl.haxx.se/)** 和 **[wget](https://www.gnu.org/software/wget/)** 或 **[Resty](https://github.com/beders/Resty)**) 和 JSON 公用程式 (例如 **[jq](http://stedolan.github.io/jq/download/)**、**[jsawk](https://github.com/micha/jsawk)** 以及一併處理 JSON 的語言程式庫) (許多這些工具也具有 Windows 的連接埠，例如 [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)；事實上，有幾種方法可以取得 Linux 以及在 Windows 上執行的其他開放原始碼軟體工具)。
 
 本主題包括一些您可以與 **jq** 搭配使用的 Azure CLI 命令，以精確地取得您想要更有效率的資訊。您應該選擇熟悉的工具組，協助了解 Azure 資源使用。
 
@@ -32,14 +32,14 @@ AzureResourceManager 模組包括 Cmdlet，而從命令列中使用 Azure 資源
 
 Windows PowerShell 有幾個基本命令來執行相同的程序。
 
-- 使用 **[Invoke-WebRequest](https://technet.microsoft.com/library/hh849901%28v=wps.640%29)** Cmdlet 可下載檔案 \(例如資源群組範本或參數 JSON 檔案\)。
-- 使用 **[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)** Cmdlet 可將 JSON 字串轉換成自訂物件 \([PSCustomObject](https://msdn.microsoft.com/library/windows/desktop/system.management.automation.pscustomobject%28v=vs.85%29.aspx)\)，而自訂物件具有 JSON 字串中每個欄位的屬性。
+- 使用 **[Invoke-WebRequest](https://technet.microsoft.com/library/hh849901%28v=wps.640%29)** Cmdlet 可下載檔案 (例如資源群組範本或參數 JSON 檔案)。
+- 使用 **[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)** Cmdlet 可將 JSON 字串轉換成自訂物件 ([PSCustomObject](https://msdn.microsoft.com/library/windows/desktop/system.management.automation.pscustomobject%28v=vs.85%29.aspx))，而自訂物件具有 JSON 字串中每個欄位的屬性。
 
 ## 防止適用於 Mac、Linux 和 Windows 之 Azure CLI 中的錯誤
 
 Azure CLI 有數個命令，可協助防止錯誤，並偵測發生的問題。
 
-- **azure location list**。此命令會取得支援每種資源類型的位置 \(例如虛擬機器的提供者\)。在您輸入資源的位置之前，請使用此命令來確認該位置是否支援此資源類型。
+- **azure location list**。此命令會取得支援每種資源類型的位置 (例如虛擬機器的提供者)。在您輸入資源的位置之前，請使用此命令來確認該位置是否支援此資源類型。
 
     因為位置清單可能很長，而且有多個提供者，所以您可以先使用工具來檢查提供者和位置，再使用尚未使用的位置。下列指令碼使用 **jq** 探索 Azure 虛擬機器之資源提供者可用的位置。
 
@@ -207,11 +207,11 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 
 ## 驗證、訂用帳戶、角色和配額問題
 
-可能有一個或多個問題防止部署成功，包含驗證和授權以及 Azure Active Directory。不論您如何管理 Azure 資源群組，用來登入您帳戶的身分識別都必須是 Azure Active Directory 物件或服務主體 \(也稱為工作或學校帳戶或組織識別碼\)。
+可能有一個或多個問題防止部署成功，包含驗證和授權以及 Azure Active Directory。不論您如何管理 Azure 資源群組，用來登入您帳戶的身分識別都必須是 Azure Active Directory 物件或服務主體 (也稱為工作或學校帳戶或組織識別碼)。
 
-但是 Azure Active Directory 可讓您或您的系統管理員最精確地控制哪些身分識別可以存取哪些資源。如果您的部署失敗，請檢查要求本身是否有驗證或授權問題，以及檢查您資源群組的部署記錄檔。您可能會發現，當您擁有某些資源的權限時，就沒有其他資源的權限。使用 Azure CLI，您可以利用 `azure ad` 命令檢查 Azure Active Directory 租用戶和使用者 \(如需完整的 Azure CLI 命令清單，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](azure-cli-arm-commands.md)\)。
+但是 Azure Active Directory 可讓您或您的系統管理員最精確地控制哪些身分識別可以存取哪些資源。如果您的部署失敗，請檢查要求本身是否有驗證或授權問題，以及檢查您資源群組的部署記錄檔。您可能會發現，當您擁有某些資源的權限時，就沒有其他資源的權限。使用 Azure CLI，您可以利用 `azure ad` 命令檢查 Azure Active Directory 租用戶和使用者 (如需完整的 Azure CLI 命令清單，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](azure-cli-arm-commands.md))。
 
-部署達到預設配額 \(可能是根據資源群組、訂用帳戶、帳戶以及其他範圍\) 時，也可能會發生問題。確認您有可正確部署的資源。如需完整配額資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與限制](azure-subscription-service-limits.md)。
+部署達到預設配額 (可能是根據資源群組、訂用帳戶、帳戶以及其他範圍) 時，也可能會發生問題。確認您有可正確部署的資源。如需完整配額資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與限制](azure-subscription-service-limits.md)。
 
 
 ## Azure CLI 和 PowerShell 模式問題
@@ -222,7 +222,7 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 
 資源是由資源提供者所管理，而且啟用帳戶或訂用帳戶可以使用特定提供者。如果您可以使用某個提供者，則也必須註冊該提供者才能使用。Azure 入口網站或正在使用的命令列介面會自動註冊大部分的提供者；但非全部。
 
-若要使用 Azure CLI 查看是否註冊提供者以供使用，請使用 `azure provider list` 命令 \(下列是截斷的輸出範例\)。
+若要使用 Azure CLI 查看是否註冊提供者以供使用，請使用 `azure provider list` 命令 (下列是截斷的輸出範例)。
 
         azure provider list
         info:    Executing command provider list
@@ -278,7 +278,7 @@ AzureResourceManager 模組包含可協助您防止錯誤的 Cmdlet。
 
 不過，這不一定表示您的資源群組**作用中且準備好供使用者使用**。例如，大多數的部署都會要求部署下載升級、等候其他升級、非範本資源，或是安裝複雜的指令碼或 Azure 不知道的某個其他可執行活動，因為它不是提供者正在追蹤的活動。在這些情況下，可能需要一些時間，您的資源才能用於實際使用。因此，您應該預期部署狀態成功一段時間後，才能使用部署。
 
-不過，建立自訂範本的自訂指令碼 \(例如，使用 [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)\)，即可防止 Azure 報告部署成功，而此自訂指令碼知道如何監視整個部署以了解系統是否準備就緒，並只在使用者可以與整個部署互動時才會順利傳回。如果您想要確保最後才執行您的延伸模組，請在範本中使用 **dependsOn** 屬性。您可以在[這裡](https://msdn.microsoft.com/library/azure/dn790564.aspx)看到範例。
+不過，建立自訂範本的自訂指令碼 (例如，使用 [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/))，即可防止 Azure 報告部署成功，而此自訂指令碼知道如何監視整個部署以了解系統是否準備就緒，並只在使用者可以與整個部署互動時才會順利傳回。如果您想要確保最後才執行您的延伸模組，請在範本中使用 **dependsOn** 屬性。您可以在[這裡](https://msdn.microsoft.com/library/azure/dn790564.aspx)看到範例。
 
 ## 合併範本
 

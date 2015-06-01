@@ -36,7 +36,7 @@
 
 - [設定兩個虛擬網路之間的 VPN 連線][hdinsight-hbase-replication-vnet]
 - [設定虛擬網路的 DNS][hdinsight-hbase-replication-dns]
-- 設定 HBase 地理複寫 \(本教學課程\)
+- 設定 HBase 地理複寫 (本教學課程)
 
 下圖說明兩個虛擬網路和您在[設定兩個虛擬網路之間的 VPN 連線][hdinsight-hbase-geo-replication-vnet]和[設定虛擬網路的 DNS][hdinsight-hbase-replication-dns] 中建立的網路連線：
 
@@ -52,11 +52,11 @@
 - **兩個具備 VPN 連線且已設定 DNS 的 Azure 虛擬網路**。如需相關指示，請參閱[設定兩個 Azure 虛擬網路之間的 VPN 連線][hdinsight-hbase-replication-vnet]和[在兩個 Azure 虛擬網路之間設定 DNS][hdinsight-hbase-replication-dns]。
 
 
-	Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:
+	執行 PowerShell 指令碼之前，請確定您已使用下列 Cmdlet 連接到 Azure 訂用帳戶：
 
 		Add-AzureAccount
 
-	If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
+	如果您有多個 Azure 訂用帳戶，請使用下列 Cmdlet 設定目前的訂用帳戶：
 
 		Select-AzureSubscription <AzureSubscriptionName>
 
@@ -166,21 +166,21 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
  
 1.	RDP 到 **Contoso-DNS-EU**。 
 2.	按一下左下方的 Windows 鍵。
-2.	按一下 \[**系統管理工具**\]。
-3.	按一下 \[**DNS**\]。
+2.	按一下 [**系統管理工具**]。
+3.	按一下 [**DNS**]。
 4.	在左窗格中，展開 **DSN**，**Contoso-DNS-EU**。
-5.	以滑鼠右鍵按一下 \[**條件轉寄站**\]，然後按一下 \[**新的條件轉寄站**\]。 
+5.	以滑鼠右鍵按一下 [**條件轉寄站**]，然後按一下 [**新的條件轉寄站**]。 
 5.	輸入以下資訊：
 	- **DNS 網域**： 輸入 Contoso-HBase-US 的 DNS 尾碼。例如：Contoso-HBase-US.f5.internal.cloudapp.net。
 	- **主要伺服器的 IP 位址**：輸入 10.2.0.4，也就是 Contoso-DNS-US 的 IP 位址。請確認 IP。您的 DNS 伺服器可以有不同的 IP 位址。
-6.	按下 **ENTER**，然後按一下 \[**確定**\]。現在您可以從 Contoso-DNS-EU 解析 Contoso-DNS-US 的 IP 位址。
+6.	按下 **ENTER**，然後按一下 [**確定**]。現在您可以從 Contoso-DNS-EU 解析 Contoso-DNS-US 的 IP 位址。
 7.	重複這些步驟，以將 DNS 條件轉寄站新增至附帶下列值之 Contoso-DNS-US 上的虛擬機器：
 	- **DNS 網域**： 輸入 Contoso-HBase-EU 的 DNS 尾碼。 
 	- **主要伺服器的 IP 位址**：輸入 10.2.0.4，也就是 Contoso-DNS-EU 的 IP 位址。
 
 **測試網域名稱解析**
 
-1. 切換至 \[Contoso-HBase-EU RDP\] 視窗。
+1. 切換至 [Contoso-HBase-EU RDP] 視窗。
 2. 開啟命令提示字元。
 3. 執行 ping 命令：
 
@@ -203,8 +203,8 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 
 **在 Contoso-HBase-EU 上建立 HBase 資料表**
 
-1. 切換至 \[**Contoso-HBase-EU** RDP\] 視窗。
-2. 從桌面上，按一下 \[Hadoop 命令列\]****。
+1. 切換至 [**Contoso-HBase-EU** RDP] 視窗。
+2. 從桌面上，按一下 [Hadoop 命令列]。
 2. 將資料夾切換至 HBase 主目錄：
 
 		cd %HBASE_HOME%\bin
@@ -214,7 +214,7 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 4. 建立 HBase 資料表：
 
 		create 'Contacts', 'Personal', 'Office'
-5. 不要關閉 RDP 工作階段也不要關閉 \[Hadoop 命令列\] 視窗。稍後在教學課程中，您將會需要它們。
+5. 不要關閉 RDP 工作階段也不要關閉 [Hadoop 命令列] 視窗。稍後在教學課程中，您將會需要它們。
 	
 **在 Contoso-HBase-US 上建立 HBase 資料表**
 
@@ -223,8 +223,8 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 
 **新增 Contoso-HBase-US 做為複寫對等**
 
-1. 切換至 \[**Contoso-HBase\_EU** RDP\] 視窗。
-2. 從 \[HBase Shell\] 視窗，新增目的地叢集 \(Contoso-HBase-US\) 做為對等，例如：
+1. 切換至 [**Contoso-HBase_EU** RDP] 視窗。
+2. 從 [HBase Shell] 視窗，新增目的地叢集 (Contoso-HBase-US) 做為對等，例如：
 
 		add_peer '1', 'zookeeper0.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper1.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper2.contoso-hbase-us.d4.internal.cloudapp.net:2181:/hbase'
 
@@ -232,7 +232,7 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 
 **在來源叢集上設定複寫每個資料行系列**
 
-1. 從 **Contso-HBase-EU** RDP 工作階段的 \[HBase Shell\] 視窗，設定複寫每個資料行系列：
+1. 從 **Contso-HBase-EU** RDP 工作階段的 [HBase Shell] 視窗，設定複寫每個資料行系列：
 
 		disable 'Contacts'
 		alter 'Contacts', {NAME => 'Personal', REPLICATION_SCOPE => '1'}
@@ -260,8 +260,8 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 
 您可以將相同的資料檔案上傳至 HBase 叢集並從中匯入資料。
 
-1. 切換至 \[**Contoso-HBase-EU** RDP\] 視窗。
-2. 從桌面上，按一下 \[Hadoop 命令列\]****。
+1. 切換至 [**Contoso-HBase-EU** RDP] 視窗。
+2. 從桌面上，按一下 [Hadoop 命令列]
 3. 將資料夾切換至 HBase 主目錄：
 
 		cd %HBASE_HOME%\bin
@@ -290,7 +290,7 @@ Azure 入口網站不支援使用自訂組態選項佈建 HDInsight 叢集。例
 - [HDInsight HBase 概觀][hdinsight-hbase-overview]
 - [在 Azure 虛擬網路上佈建 HBase 叢集][hdinsight-hbase-provision-vnet]
 - [使用 HBase 分析即時 Twitter 情緒][hdinsight-hbase-twitter-sentiment]
-- [在 HDInsight \(Hadoop\) 中使用 Storm 和 HBase 分析感應器資料][hdinsight-sensor-data]
+- [在 HDInsight (Hadoop) 中使用 Storm 和 HBase 分析感應器資料][hdinsight-sensor-data]
 
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
 [hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-VNet.md

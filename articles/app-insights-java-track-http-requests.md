@@ -85,7 +85,7 @@
 
 在專案中找到並開啟 ApplicationInsights.xml 檔案，並合併 <TelemetryInitializers> 元素下的下列程式碼片段。
 
-如果此檔案中沒有 < TelemetryInitializers> 元素，請在 <ApplicationInsights> 元素下加入一個。
+如果此檔案中沒有 <TelemetryInitializers> 元素，請在 <ApplicationInsights> 元素下加入一個。
 
     <TelemetryInitializers>
       <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
@@ -99,7 +99,7 @@
 
 返回 Microsoft Azure 中的 Application Insights 資源。
 
-\[概觀\] 分頁上會顯示 HTTP 要求資料。\(如果沒有出現，請稍等片刻，然後按一下 \[重新整理\]。\)
+[概觀] 分頁上會顯示 HTTP 要求資料。(如果沒有出現，請稍等片刻，然後按一下 [重新整理]。)
 
 ![](./media/app-insights-java-track-http-requests/5-results.png)
  

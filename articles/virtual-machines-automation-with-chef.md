@@ -78,7 +78,7 @@ Chef 包含三個主要架構元件。**Chef 伺服器、Chef 用戶端 (節點)
 
 將 chef-starter.zip 的內容解壓縮到 **C:\chef**
 
-將 **chef-starter\chef-repo\.chef** 下的所有檔案複製到您的 **c:\chef**
+將 **chef-starter\chef-repo.chef** 下的所有檔案複製到您的 **c:\chef**
 
 您的目錄現在看起來應該會像這樣：
 
@@ -112,7 +112,7 @@ PEM 檔案包含可進行通訊的組織和管理員私密金鑰，而 **knife.r
 
 這一點都不難。就讓它安裝在 c:\opscode 預設位置。此安裝大約需要 10 分鐘的時間。
 
-確認您的 PATH 變數包含 C:\opscode\chefdk\bin、C:\opscode\chefdk\embedded\bin、c:\users\yourusername\.chefdk\gem\ruby\2.0.0\bin 等項目
+確認您的 PATH 變數包含 C:\opscode\chefdk\bin、C:\opscode\chefdk\embedded\bin、c:\users\yourusername.chefdk\gem\ruby\2.0.0\bin 等項目
 
 如果沒有，請確定您已加入這些路徑 ！
 

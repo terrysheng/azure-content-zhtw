@@ -18,7 +18,7 @@
 
 # 在 Azure Data Factory 中使用複製活動的進階案例 
 ## 概觀
-您可以在管線中使用 \[**複製活動**\]，以批次方式將資料從來源複製到接收器 \(目的地\)。本主題說明「複製活動」支援的進階案例。如需「複製活動」的詳細概觀及其支援的核心案例，請參閱[使用 Azure Data Factory 複製資料][adf-copyactivity]。
+您可以在管線中使用 [**複製活動**]，以批次方式將資料從來源複製到接收器 (目的地)。本主題說明「複製活動」支援的進階案例。如需「複製活動」的詳細概觀及其支援的核心案例，請參閱[使用 Azure Data Factory 複製資料][adf-copyactivity]。
 
 
 ## 使用結構定義的資料行篩選
@@ -136,9 +136,9 @@
 		}
 	}	
 
-如果您未指定**輸出資料表**的 **fileName**，**folderPath** 中產生的檔案會依照下列格式命名：<Guid>.txt \(例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.\)。
+如果您未指定**輸出資料表**的 **fileName**，**folderPath** 中產生的檔案會依照下列格式命名：<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.)。
 
-若要根據 **SliceStart** 時間動態設定 **folderPath** 和 **fileName**，請使用 **partitionedBy** 屬性。在下列範例中，**folderPath** 使用 SliceStart \(處理配量的開始時間\) 中的 Year、Month 和 Day，fileName 使用 SliceStart 中的 Hour。例如，如果配量產生於 2014-10-20T08:00:00，folderName 設定為 wikidatagateway/wikisampledataout/2014/10/20，而 fileName 設定為 08.csv。
+若要根據 **SliceStart** 時間動態設定 **folderPath** 和 **fileName**，請使用 **partitionedBy** 屬性。在下列範例中，**folderPath** 使用 SliceStart (處理配量的開始時間) 中的 Year、Month 和 Day，fileName 使用 SliceStart 中的 Hour。例如，如果配量產生於 2014-10-20T08:00:00，folderName 設定為 wikidatagateway/wikisampledataout/2014/10/20，而 fileName 設定為 08.csv。
 
   	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
     "fileName": "{Hour}.csv",
@@ -151,7 +151,7 @@
     ],
 
 #### 範例 – 定義資料行對應
-在此範例中，管線中的活動定義如下。來源的資料行使用 **Translator** 屬性，對應至接收器中的資料行 \(\*\*columnMappings\*\*\)。
+在此範例中，管線中的活動定義如下。來源的資料行使用 **Translator** 屬性，對應至接收器中的資料行 (**columnMappings**)。
 
 	{
 		"name": "CopyActivity",
@@ -180,7 +180,7 @@
 ![資料行對應][image-data-factory-column-mapping-1]
 
 ### 範例 2 – 透過 SQL 查詢從 SQL Server 至 Azure Blob 的資料行對應
-在此範例中，SQL 查詢 \(相對於前一個範例中的資料表\) 會用來從內部部署 SQL Server 擷取資料，且查詢結果中的資料行會對應至來源成品，然後對應至目的地成品。根據此範例的用途，查詢會傳回 5 個資料行。
+在此範例中，SQL 查詢 (相對於前一個範例中的資料表) 會用來從內部部署 SQL Server 擷取資料，且查詢結果中的資料行會對應至來源成品，然後對應至目的地成品。根據此範例的用途，查詢會傳回 5 個資料行。
 
 	{
 		"name": "CopyActivity",
@@ -193,7 +193,7 @@
 			"source":
 			{
 				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', SliceStart)"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = '{0:yyyyMMdd-HH}'', SliceStart)"
 			},
 			"sink":
 			{
@@ -263,7 +263,7 @@
 ## 叫用 SQL 接收器的預存程序
 將資料複製到 SQL Server 或 Azure SQL Database 時，可以設定指定的預存程序並搭配其他參數來叫用。
 ### 範例
-1. 定義輸出資料表的 JSON 如下 \(以 Azure SQL Database 資料表為例\)：
+1. 定義輸出資料表的 JSON 如下 (以 Azure SQL Database 資料表為例)：
 
     	{
     		"name": "MyAzureSQLTable",
@@ -320,7 +320,7 @@
 預存程序功能使用[資料表值參數][table-valued-parameters]。
 
 ## 指定文字檔的編碼。
-雖然 UTF-8 編碼很常用，但由於歷史因素，Azure Blob 中的文字檔經常採用其他編碼。**encodingName** 屬性可讓您使用字碼頁名稱，對 TextFormat 類型的資料表指定編碼。如需有效編碼名稱的清單，請參閱：Encoding.EncodingName 屬性。例如：windows-1250 或 shift\_jis。預設值為 UTF-8。關於有效的編碼名稱，請參閱 [Encoding 類別](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx\)。
+雖然 UTF-8 編碼很常用，但由於歷史因素，Azure Blob 中的文字檔經常採用其他編碼。**encodingName** 屬性可讓您使用字碼頁名稱，對 TextFormat 類型的資料表指定編碼。如需有效編碼名稱的清單，請參閱：Encoding.EncodingName 屬性。例如：windows-1250 或 shift_jis。預設值為 UTF-8。關於有效的編碼名稱，請參閱 [Encoding 類別](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx)。
 
 ## 另請參閱
 

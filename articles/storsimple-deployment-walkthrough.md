@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" /> 
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -39,9 +40,9 @@
 | 3 | 序列存取 | 初始裝置組態 | 是/否 |
 | 4 | DNS 伺服器 IP 位址 | 需要連接到 Microsoft Azure：總共需要 2 個以提供高可用性 | |
 | 5 | NTP 伺服器 IP 位址 | 需要與 Azure 同步處理時間：1 必要、1 選擇性 | |
-| 6 | Proxy 伺服器 \(選擇性\) | Proxy 伺服器的 IP 位址/完整網域名稱、要使用的連接埠 | |
+| 6 | Proxy 伺服器 (選擇性) | Proxy 伺服器的 IP 位址/完整網域名稱、要使用的連接埠 | |
 | 7 | Azure 儲存體帳戶 | 存取認證，例如帳戶名稱與存取金鑰，根據儲存體帳戶 | |
-| 8 | 雲端儲存體加密金鑰 \(建議選項\) | 根據磁碟區容器 | |
+| 8 | 雲端儲存體加密金鑰 (建議選項) | 根據磁碟區容器 | |
 | 9 | 主機的 IQN | 根據主機 | |
 
 ## 部署必要條件
@@ -155,7 +156,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 ## 步驟 8：進行備份
 
-備份可提供磁碟區的時間點保護，並改善復原能力，同時讓還原時間降至最低。您可以在 StorSimple 裝置上進行兩種備份類型： 本機快照與雲端快照。每一種備份類型都可以是 \[排程\]**** 或 \[手動\]****。
+備份可提供磁碟區的時間點保護，並改善復原能力，同時讓還原時間降至最低。您可以在 StorSimple 裝置上進行兩種備份類型： 本機快照與雲端快照。每一種備份類型都可以是 **[排程]** 或 **[手動]**。
 
 請在管理入口網站中執行下列步驟，以建立排程備份。
 
@@ -169,7 +170,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 如果您需要在不同區域建立 Azure 儲存體帳戶，請參閱[關於 Azure 儲存體帳戶](storage-create-storage-account.md)以取得逐步指示。
 
-請在管理入口網站上的 \[StorSimple Manager 服務\]**** 頁面，執行下列步驟。
+請在管理入口網站上的 [StorSimple Manager 服務] 頁面，執行下列步驟。
 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account](../includes/storsimple-configure-new-storage-account.md)]
 
@@ -182,7 +183,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 ## 取得 Windows Server 主機的 IQN
 
-請執行下列步驟，以取得正在執行 Windows Server® 2012 之 Windows 主機的 iSCSI 限定名稱 \(IQN\)。
+請執行下列步驟，以取得正在執行 Windows Server® 2012 之 Windows 主機的 iSCSI 限定名稱 (IQN)。
 
 [AZURE.INCLUDE [建立手動備份](../includes/storsimple-get-iqn.md)]
 
@@ -194,7 +195,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 ## 設定 MPIO
 
-多重路徑 I/O \(MPIO\) 是 Windows Server 預設不會安裝的選擇性功能。您應該透過伺服器管理員將它安裝為功能。
+多重路徑 I/O (MPIO) 是 Windows Server 預設不會安裝的選擇性功能。您應該透過伺服器管理員將它安裝為功能。
 
 > [AZURE.NOTE]StorSimple 虛擬裝置不支援 MPIO。
 

@@ -18,7 +18,7 @@
 
 # Ubuntu 資源管理員範本上的 DataStax
 
-DataStax 是知名的業界領導者，他們根據商用企業級 Apache Cassandra™ 開發以及提供各種解決方案，這是一種廣受市場認可、敏捷、永不停擺，並且可依照未來各種公司規模需要來進行調整的開放原始碼 NoSQL 分散式資料庫技術。DataStax 適用於企業 \(DSE\) 和社群 \(DSC\)，它提供的功能有記憶體內部運算、企業級安全性、快速且功能強大的整合式分析與企業搜尋。
+DataStax 是知名的業界領導者，他們根據商用企業級 Apache Cassandra™ 開發以及提供各種解決方案，這是一種廣受市場認可、敏捷、永不停擺，並且可依照未來各種公司規模需要來進行調整的開放原始碼 NoSQL 分散式資料庫技術。DataStax 適用於企業 (DSE) 和社群 (DSC)，它提供的功能有記憶體內部運算、企業級安全性、快速且功能強大的整合式分析與企業搜尋。
 
 除了提供 Azure Marketplace 已有的功能之外，現在您也可以使用 Azure PowerShell 或 Azure CLI 搭配 Resource Manager 範本，在 Ubuntu VM 上輕鬆部署新的 DataStax 叢集。
 
@@ -44,7 +44,7 @@ DataStax 是知名的業界領導者，他們根據商用企業級 Apache Cassan
 
 ### 步驟 1：下載範本和其他檔案的 JSON 檔案。
 
-指派一個本機資料夾，當做 JSON 範本和其他檔案的存放位置，然後建立這個資料夾 \(例如，C:\\Azure\\Templates\\DataStax\)。
+指派一個本機資料夾，當做 JSON 範本和其他檔案的存放位置，然後建立這個資料夾 (例如，C:\\Azure\\Templates\\DataStax)。
 
 填寫資料夾名稱，然後執行以下命令：
 
@@ -84,7 +84,7 @@ DataStax 是知名的業界領導者，他們根據商用企業級 Apache Cassan
 
 完成時，尋找 C:\\Azure\\Templates 中的 datastax-on-ubuntu 資料夾。
 
-### 步驟 2：\(選用\) 熟悉範本參數。
+### 步驟 2：(選用) 熟悉範本參數。
 
 部署重量級解決方案時，例如 DataStax 類型的 DataStax Apache Cassandra 叢集，您必須指定一組設定參數來處理一些必要的設定。您可以在範本定義中宣告這些參數，這樣一來當您透過外部檔案或者在命令列進行部署的時候，就可以指定每一個值。
 
@@ -167,7 +167,7 @@ DataStax 是知名的業界領導者，他們根據商用企業級 Apache Cassan
 		}
 	}
 
-透過描述必要的參數 \(包括像是資料類型、允許的值等詳細資料\) ，您在互動模式 \(例如 PowerShell 或 Azure CLI\) 執行範本時，這個區段可以幫助我們了解任何傳遞的參數值會涉及到的驗證工作。同樣地，分析必要的參數清單以及描述之後，我們也可以清楚掌握任何可以動態建立的自我發現 UI。
+透過描述必要的參數 (包括像是資料類型、允許的值等詳細資料) ，您在互動模式 (例如 PowerShell 或 Azure CLI) 執行範本時，這個區段可以幫助我們了解任何傳遞的參數值會涉及到的驗證工作。同樣地，分析必要的參數清單以及描述之後，我們也可以清楚掌握任何可以動態建立的自我發現 UI。
 
 ### 步驟 3：利用範本部署新的 DataStax 叢集。
 
@@ -221,20 +221,20 @@ DataStax 是知名的業界領導者，他們根據商用企業級 Apache Cassan
 
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 
-執行 **New-AzureResourceGroupDeployment** 命令時，會從 JSON 檔案中擷取參數值，然後開始執行範本。定義以及使用不同環境 \(例如測試、正式作業等\) 所需的參數檔案，有利範本的重複使用以及簡化複雜的多重環境解決方案。
+執行 **New-AzureResourceGroupDeployment** 命令時，會從 JSON 檔案中擷取參數值，然後開始執行範本。定義以及使用不同環境 (例如測試、正式作業等) 所需的參數檔案，有利範本的重複使用以及簡化複雜的多重環境解決方案。
 
-請記住，部署的時候需要建立新的 Azure 儲存體帳戶，所以您提供的名稱 \(當做儲存體帳戶參數\) 絕對不可以和其他名稱重複，同時還要符合 Azure 儲存體帳戶的所有要求。
+請記住，部署的時候需要建立新的 Azure 儲存體帳戶，所以您提供的名稱 (當做儲存體帳戶參數) 絕對不可以和其他名稱重複，同時還要符合 Azure 儲存體帳戶的所有要求。
 
 部署期間以及部署結束之後，您可以檢查所有佈建期間所進行的要求，包括任何發生的錯誤。
 
 若要這樣做，請移至 [Azure 入口網站](https://portal.azure.com)，然後執行下列動作：
 
-- 按一下左側導覽列上的 \[瀏覽\]、向下捲動後按一下 \[ 資源群組\]。  
-- 按一下剛才建立的資源群組後，系統會顯示 \[ 資源群組\] 分頁。  
-- 在 \[資源群組\] 分頁的 \[監視\] 部分，按一下 \[事件\] 長條圖，就會看到整個部署的事件：
+- 按一下左側導覽列上的 [瀏覽]、向下捲動後按一下 [ 資源群組]。  
+- 按一下剛才建立的資源群組後，系統會顯示 [ 資源群組] 分頁。  
+- 在 [資源群組] 分頁的 [監視] 部分，按一下 [事件] 長條圖，就會看到整個部署的事件：
 - 按一下個別事件之後，系統會詳細列出不是由範本親自進行的各項操作。
 
-測試之後，如果想移除這個資源群組和其所有資源 \(儲存體帳戶、虛擬機器和虛擬網路\)，請使用這個命令。
+測試之後，如果想移除這個資源群組和其所有資源 (儲存體帳戶、虛擬機器和虛擬網路)，請使用這個命令。
 
 	Remove-AzureResourceGroup –Name "<resource group name>" -Force
 
@@ -260,7 +260,7 @@ DataStax 是知名的業界領導者，他們根據商用企業級 Apache Cassan
 
 ![datastax-files](media/virtual-machines-datastax-template/datastax-files.png)
 
-我們已經提過 **azuredeploy-parameters.json** 的角色，當我們執行範本時，會利用它來傳遞一組指定的參數值，不過這種部署方法的核心部分是包含在 **azuredeploy.json** 裡面。如前文所述，跳過 parameters 區段，以下區段會用 **"variables"** 表示。基本上，這會包含數個欄位 \(JSON 資料類型或片段\)，它們會在執行階段被設定成常數或計算值，就像下列範例中看到的一樣：
+我們已經提過 **azuredeploy-parameters.json** 的角色，當我們執行範本時，會利用它來傳遞一組指定的參數值，不過這種部署方法的核心部分是包含在 **azuredeploy.json** 裡面。如前文所述，跳過 parameters 區段，以下區段會用 **"variables"** 表示。基本上，這會包含數個欄位 (JSON 資料類型或片段)，它們會在執行階段被設定成常數或計算值，就像下列範例中看到的一樣：
 
 	"variables": {
 	"templateBaseUrl": "https://raw.githubusercontent.com/trentmswanson/azure-quickstart-templates/master/datastax-on-ubuntu/",
@@ -315,7 +315,7 @@ DataStax 是知名的業界領導者，他們根據商用企業級 Apache Cassan
 	      },
 
 	 
-在第二個程式碼片段中，"scripts" 變數則是一個 JSON 陣列，在執行階段會使用範本語言函式 \(concat\) 以及另一個變數的值再加上字串常數，計算這個陣列中的每一個元素：
+在第二個程式碼片段中，"scripts" 變數則是一個 JSON 陣列，在執行階段會使用範本語言函式 (concat) 以及另一個變數的值再加上字串常數，計算這個陣列中的每一個元素：
 
 	      "scripts": [
 	        "[concat(variables('templateBaseUrl'), 'dsenode.sh')]",
@@ -323,7 +323,7 @@ DataStax 是知名的業界領導者，他們根據商用企業級 Apache Cassan
 	        "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
 	      ]
 
-絕大多數的動作就是在 **"resources"** 區段進行的。仔細看這個區段，您會立即找出兩個不同的案例：第一個是被定義為 `Microsoft.Resources/deployments` 類型的元素，基本上表示叫用第一個主要檔案裡面的巢狀部署。透過 `templateLink` 元素 \(和相關的版本屬性\)，就可以指定一個連結範本檔案，而且叫用這個檔案的時候，會傳遞一組參數當做輸入，就像您在這個片段中看到的一樣：
+絕大多數的動作就是在 **"resources"** 區段進行的。仔細看這個區段，您會立即找出兩個不同的案例：第一個是被定義為 `Microsoft.Resources/deployments` 類型的元素，基本上表示叫用第一個主要檔案裡面的巢狀部署。透過 `templateLink` 元素 (和相關的版本屬性)，就可以指定一個連結範本檔案，而且叫用這個檔案的時候，會傳遞一組參數當做輸入，就像您在這個片段中看到的一樣：
 
 	{
 	      "name": "shared",
@@ -355,12 +355,12 @@ DataStax 是知名的業界領導者，他們根據商用企業級 Apache Cassan
 
 -	**shared-resource.json**：包含所有會在部署時共用的資源定義。例如，儲存 VM 的作業系統磁碟或虛擬網路時會用到儲存體帳戶。
 -	**opscenter-resources.json**：部署 OpsCenter VM 和所有相關資源，例如網路介面、公用 IP 位址等。
--	**opscenter-install-resources.json**：部署 OpsCenter VM 延伸模組 \(適用於 Linux 的自訂指令碼\)，而且會叫用特定的 bash 指令碼檔案 \(\*\*opscenter.sh\*\*\)，用來在 VM 內安裝 OpsCenter 服務。
--	**ephemeral-nodes-resources.json**：部署所有叢集節點的 VM 和連接的資源 \(例如網路卡，私用 IP 等\)。此範本也會部署 VM 擴充功能 \(適用於 Linux 的自訂指令碼\)，並叫用 bash 指令碼 \(\*\*dsenode.sh\*\*\)，在每一個節點上安裝 Apache Cassandra 程式碼。
+-	**opscenter-install-resources.json**：部署 OpsCenter VM 延伸模組 (適用於 Linux 的自訂指令碼)，而且會叫用特定的 bash 指令碼檔案 (**opscenter.sh**)，用來在 VM 內安裝 OpsCenter 服務。
+-	**ephemeral-nodes-resources.json**：部署所有叢集節點的 VM 和連接的資源 (例如網路卡，私用 IP 等)。此範本也會部署 VM 擴充功能 (適用於 Linux 的自訂指令碼)，並叫用 bash 指令碼 (**dsenode.sh**)，在每一個節點上安裝 Apache Cassandra 程式碼。
 
 讓我們深入了解最後一個範本，因為從範本開發角度來看，這是最有趣的範本之一。在此要強調一個重要的概念，那就是一個範本檔案可以重複部署某一種資源類型，而且每一個執行個體都可以為必要的設定指定唯一的值。這個概念稱為**資源迴圈**。
 
-叫用主要 **azuredeploy.json** 檔案裡面的 **ephemeral-nodes-resources.json** 時，事實上會在參數清單中提供一個 **nodeCount** 參數。在子系範本中，那些需要部署到多個複本中的每一個資源，就會在 **"copy"** 元素使用這個參數，如下列程式碼片段標示的一樣。想了解當您為每一個部署的資源指定唯一的值時，哪些是必要的設定，那麼可以使用 **copyindex\(\)** 函數來取得一個數值，指出在建立的特殊資源迴圈中，現在的索引為何。在下列程式碼片段中，您會看到為叢集節點建立 VM 時，多次運用這種概念：
+叫用主要 **azuredeploy.json** 檔案裡面的 **ephemeral-nodes-resources.json** 時，事實上會在參數清單中提供一個 **nodeCount** 參數。在子系範本中，那些需要部署到多個複本中的每一個資源，就會在 **"copy"** 元素使用這個參數，如下列程式碼片段標示的一樣。想了解當您為每一個部署的資源指定唯一的值時，哪些是必要的設定，那麼可以使用 **copyindex()** 函數來取得一個數值，指出在建立的特殊資源迴圈中，現在的索引為何。在下列程式碼片段中，您會看到為叢集節點建立 VM 時，多次運用這種概念：
 
 			   {
 			      "apiVersion": "2015-05-01-preview",
@@ -421,15 +421,15 @@ DataStax 是知名的業界領導者，他們根據商用企業級 Apache Cassan
 			      }
 			    },
 
-建立資源時還有一個重要的概念，那就是指定資源之間的相依性和優先順序，如同您在 **dependsOn** JSON 陣列中看到的一樣。在這個特殊的範本中，每一個節點也會附加 1 TB 磁碟 \(請參閱 `dataDisks`\)，可以用來裝載 Apache Cassandra 執行個體的備份和快照。
+建立資源時還有一個重要的概念，那就是指定資源之間的相依性和優先順序，如同您在 **dependsOn** JSON 陣列中看到的一樣。在這個特殊的範本中，每一個節點也會附加 1 TB 磁碟 (請參閱 `dataDisks`)，可以用來裝載 Apache Cassandra 執行個體的備份和快照。
 
 當 **dsenode.sh** 指令碼檔執行時，會進行各種節點準備活動，其中之一就是格式化連接的磁碟。事實上，這個指令碼的第一列會呼叫另一個指令碼：
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh 是 **shared\_scripts\\ubuntu** 資料夾的一部分，就在 azure-quickstart-tempates github repo 裡面，而且包含實用的功能，例如磁碟裝載、格式化以及條分狀配置，每次建立範本的時候，就可以在執行相同工作時重複使用。
+vm-disk-utils-0.1.sh 是 **shared_scripts\\ubuntu** 資料夾的一部分，就在 azure-quickstart-tempates github repo 裡面，而且包含實用的功能，例如磁碟裝載、格式化以及條分狀配置，每次建立範本的時候，就可以在執行相同工作時重複使用。
 
-我們繼續探索另一個與 CustomScriptForLinux VM 擴充功能有關而且很有趣的程式碼片段。這些都是當做不同類型而安裝的資源，每一個叢集節點 \(以及 OpsCenter 執行個體\) 彼此存在相依性，利用描述虛擬機器時的相同資源迴圈機制：
+我們繼續探索另一個與 CustomScriptForLinux VM 擴充功能有關而且很有趣的程式碼片段。這些都是當做不同類型而安裝的資源，每一個叢集節點 (以及 OpsCenter 執行個體) 彼此存在相依性，利用描述虛擬機器時的相同資源迴圈機制：
 
 	{
 	"type": "Microsoft.Compute/virtualMachines/extensions",
@@ -464,10 +464,10 @@ vm-disk-utils-0.1.sh 是 **shared\_scripts\\ubuntu** 資料夾的一部分，就
 基本上，這種方法會建議：
 
 -	將您的核心範本檔案定義成所有特定部署活動的協調中心，利用範本連結功能來叫用子範本的執行。
--	建立特定的範本檔案，用來部署其他特定部署作業會共用的一切資源 \(例如儲存體帳戶、vnet 設定\)。如果不同的部署之間，其一般基礎結構的需求皆類似，就可以高度重複使用。
+-	建立特定的範本檔案，用來部署其他特定部署作業會共用的一切資源 (例如儲存體帳戶、vnet 設定)。如果不同的部署之間，其一般基礎結構的需求皆類似，就可以高度重複使用。
 -	包含選用資源範本，用於特定資源的場地需求
--	至於資源群組中的成員相同時 \(例如，叢集中的節點\)，可以建立一些會利用資源迴圈功能的範本，以便部署多個屬性皆不同的執行個體。
--	所有的張貼部署工作 \(例如產品安裝、設定等\) 都會利用指令碼部署擴充功能以及建立每一種技術獨有的指令碼
+-	至於資源群組中的成員相同時 (例如，叢集中的節點)，可以建立一些會利用資源迴圈功能的範本，以便部署多個屬性皆不同的執行個體。
+-	所有的張貼部署工作 (例如產品安裝、設定等) 都會利用指令碼部署擴充功能以及建立每一種技術獨有的指令碼
 
 如需詳細資訊，請參閱 [Azure Resource Manager 範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
 

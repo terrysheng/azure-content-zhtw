@@ -53,7 +53,7 @@
 
 ## 設定 Azure 儲存體連接
 
-Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORAGE\_ACCESS_KEY**，以取得連接到 Azure 儲存體帳戶所需的資訊。如果尚未設定這些環境變數，您必須使用下列程式碼，在使用 **Azure::QueueService** 之前指定帳戶資訊：
+Azure 模組會讀取環境變數 **AZURE_STORAGE_ACCOUNT** 和 **AZURE_STORAGE_ACCESS_KEY**，以取得連接到 Azure 儲存體帳戶所需的資訊。如果尚未設定這些環境變數，您必須使用下列程式碼，在使用 **Azure::QueueService** 之前指定帳戶資訊：
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your Azure storage access key>"
@@ -87,7 +87,7 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORA
 
 ## 作法：查看下一個訊息
 
-透過呼叫 **peek\_messages()** 方法，您可以在佇列前面查看訊息，而無需將它從佇列中移除。**peek\_messages()** 依預設會查看單一訊息。您也可以指定所要查看的訊息數。
+透過呼叫 **peek_messages()** 方法，您可以在佇列前面查看訊息，而無需將它從佇列中移除。**peek_messages()** 依預設會查看單一訊息。您也可以指定所要查看的訊息數。
 
 	result = azure_queue_service.peek_messages("test-queue",
 	  {:number_of_messages => 10})
@@ -96,11 +96,11 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORA
 
 您可以使用兩個步驟將訊息從佇列中移除。
 
-1. 呼叫 **list\_messages()** 時，依預設，您會取得佇列中的下一個訊息。您也可以指定您要取得的訊息數。對於從此佇列讀取訊息的任何其他程式碼而言，將無法看到從 **list\_messages()** 傳回的訊息。您可以傳入以秒為單位的可見性逾時，作為參數。
+1. 呼叫 **list_messages()** 時，依預設，您會取得佇列中的下一個訊息。您也可以指定您要取得的訊息數。對於從此佇列讀取訊息的任何其他程式碼而言，將無法看到從 **list_messages()** 傳回的訊息。您可以傳入以秒為單位的可見性逾時，作為參數。
 
 2. 若要完成從佇列中移除訊息，您還必須呼叫 **delete_message()**。
 
-這個移除訊息的兩步驟程序可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。您的程式碼會在處理完訊息之後立即呼叫 **delete\_message()**。
+這個移除訊息的兩步驟程序可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。您的程式碼會在處理完訊息之後立即呼叫 **delete_message()**。
 
 	messages = azure_queue_service.list_messages("test-queue", 30)
 	azure_queue_service.delete_message("test-queue", 
@@ -123,7 +123,7 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORA
 
 2. 您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完全處理每個訊息。
 
-下列程式碼範例將使用 **list\_messages()** 方法，在一次呼叫中取得 15 個訊息。接著，它會列出每個訊息，並加以刪除。它也會將可見度逾時設定為每個訊息五分鐘。
+下列程式碼範例將使用 **list_messages()** 方法，在一次呼叫中取得 15 個訊息。接著，它會列出每個訊息，並加以刪除。它也會將可見度逾時設定為每個訊息五分鐘。
 
 	azure_queue_service.list_messages("test-queue", 300
 	  {:number_of_messages => 15}).each do |m|
@@ -133,14 +133,14 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORA
 
 ## 作法：取得佇列長度
 
-您可以取得佇列中的估計訊息數目。**get\_queue\_metadata()** 方法會要求佇列服務傳回約略的訊息計數和佇列的相關中繼資料。
+您可以取得佇列中的估計訊息數目。**get_queue_metadata()** 方法會要求佇列服務傳回約略的訊息計數和佇列的相關中繼資料。
 
 	message_count, metadata = azure_queue_service.get_queue_metadata(
 	  "test-queue")
 
 ## 作法：刪除佇列
 
-若要刪除佇列及其內含的所有訊息，請在佇列物件上呼叫 **delete\_queue()** 方法。
+若要刪除佇列及其內含的所有訊息，請在佇列物件上呼叫 **delete_queue()** 方法。
 
 	azure_queue_service.delete_queue("test-queue")
 

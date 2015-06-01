@@ -46,7 +46,7 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
 
 	bus_service.create_topic('mytopic')
 
-**create\_topic** 也支援其他選項，讓您能夠覆寫預設主題設定，例如，訊息存留時間或主題大小上限。以下範例示範將主題大小上限設定為 5GB，將存留時間設定為 1 分鐘：
+**create_topic** 也支援其他選項，讓您能夠覆寫預設主題設定，例如，訊息存留時間或主題大小上限。以下範例示範將主題大小上限設定為 5GB，將存留時間設定為 1 分鐘：
 
 	topic_options = Topic()
 	topic_options.max_size_in_megabytes = '5120'
@@ -73,11 +73,11 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
 訂閱所支援的最具彈性篩選器類型是實作 SQL92 子集的
 **SqlFilter**。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用之運算式的詳細資訊，請檢閱 [SqlFilter.SqlExpression][] 語法。
 
-您可以使用 **ServiceBusService** 物件的 **create\_rule** 方法將篩選器新增至訂閱。此方法可讓您將篩選器新增至現有的訂閱中。
+您可以使用 **ServiceBusService** 物件的 **create_rule** 方法將篩選器新增至訂閱。此方法可讓您將篩選器新增至現有的訂閱中。
 
 **注意**：由於預設篩選器會自動套用至所有新訂閱，因此您必須先移除預設篩選器，否則
 **MatchAll** 會覆寫您指定的其他任何篩選器。您可以使用 **ServiceBusService** 物件的
-**delete\_rule** 方法移除預設規則。
+**delete_rule** 方法移除預設規則。
 
 以下範例將建立名為  'HighMessages' 並帶有
 **SqlFilter** 的訂閱，該篩選器只選取自訂
@@ -108,7 +108,7 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
 
 ## 如何傳送訊息至主題
 
-若要傳送訊息至服務匯流排主題，應用程式必須使用 **ServiceBusService** 物件的 **send\_topic\_message** 方法。
+若要傳送訊息至服務匯流排主題，應用程式必須使用 **ServiceBusService** 物件的 **send_topic_message** 方法。
 
 下列範例說明如何將五個測試訊息傳送至 'mytopic'。請注意迴圈反覆運算上每個訊息的 **messagenumber** 屬性值變化 (這可判斷接收訊息的訂閱為何)：
 
@@ -121,19 +121,19 @@ SAS 金鑰名稱和值的值可以在 Azure 入口網站連接資訊中找到，
 ## 如何自訂閱接收訊息
 
 從訂閱接收訊息
-**ServiceBusService** 物件的 **receive\_subscription\_message** 方法：
+**ServiceBusService** 物件的 **receive_subscription_message** 方法：
 
 	msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 	print(msg.body)
 
 當您讀取訊息後，訊息便會從訂閱中刪除，前提是將
-**peek\_lock** 參數設為 **False**。您可以讀取 (查看) 並鎖定訊息，以避免系統從佇列刪除訊息，方法是將
-**peek\_lock** 參數設為 **True**。
+**peek_lock** 參數設為 **False**。您可以讀取 (查看) 並鎖定訊息，以避免系統從佇列刪除訊息，方法是將
+**peek_lock** 參數設為 **True**。
 
 隨著接收作業讀取及刪除訊息之行為是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
 
-如果將 **peek\_lock** 參數設為 **True**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。
+如果將 **peek_lock** 參數設為 **True**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。
 在應用程式完成訊息處理 (或可靠地儲存此訊息以供未來處理) 之後，它會在 **Message** 物件上呼叫 **delete** 方法，以完成接收程序的第二個階段。
 **delete** 方法會將訊息標示為已取用，並將其從訂閱中移除。
 

@@ -25,7 +25,7 @@
 
 另一個例子則是，敏感性端點可能會在內部執行並透過[站台對站台][SiteToSite]或 [Azure ExpressRoute][ExpressRoute] 連線連接至 Azure。因此，只有虛擬網路中連接到站台對站台或 ExpressRoute 通道的資源能夠存取內部部署端點。
 
-在上述這些案例中，在 App Service 環境上執行的應用程式將能夠安全地連接到各種伺服器和資源。從 App Service 環境中執行之應用程式送至相同虛擬網路中私密端點 \(或連接到相同的虛擬網路\) 的輸出流量，只會透過虛擬網路傳送。送至私密端點的輸出流量不會透過公用網際網路傳送。
+在上述這些案例中，在 App Service 環境上執行的應用程式將能夠安全地連接到各種伺服器和資源。從 App Service 環境中執行之應用程式送至相同虛擬網路中私密端點 (或連接到相同的虛擬網路) 的輸出流量，只會透過虛擬網路傳送。送至私密端點的輸出流量不會透過公用網際網路傳送。
 
 
 ## 連接至 SQL Server
@@ -36,7 +36,7 @@
 有兩種方法可限制送至此端點的流量：
 
 
-- [網路存取控制清單][NetworkAccessControlLists] \(網路 ACL\)
+- [網路存取控制清單][NetworkAccessControlLists] (網路 ACL)
 
 - [網路安全性群組][NetworkSecurityGroups]
 

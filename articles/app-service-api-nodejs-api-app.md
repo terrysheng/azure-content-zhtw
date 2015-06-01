@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="在 Azure App Service 中建置和部署 Node.js API 應用程式" 
 	description="兩解如何建立 Node.js API 應用程式封裝並將其部署至 Azure App Service." 
 	services="app-service\api" 
@@ -30,29 +30,29 @@
 
 1. 登入 [Azure 預覽入口網站](https://portal.azure.com)。
 
-2. 按一下入口網站左下方的 \[**新增**\]。
+2. 按一下入口網站左下方的 [**新增**]。
 
-3. 按一下 **\[Web + 行動\] \> \[API 應用程式\]**。
+3. 按一下 **[Web + 行動] > [API 應用程式]**。
 
 	![][portal-quick-create]
 
-4. 輸入 \[**名稱**\] 的值，例如 NodejsAPIApp。
+4. 輸入 [**名稱**] 的值，例如 NodejsAPIApp。
 
 5. 選取 App Service 方案或建立新方案。如果您建立新方案，請選取定價層、位置和其他選項。
 
 	![][portal-create-api]
 
-6. 按一下 \[建立\]****。
+6. 按一下 **[建立]**。
 
 	![][api-app-blade]
 
-	如果您已選取 \[**新增到儀表板**\] 核取方塊，則入口網站會在 API 應用程式建立之後自動開啟其刀鋒視窗。如果您已清除此核取方塊，請按一下入口網站首頁上的 \[**通知**\]，以查看 API 應用程式建立狀態，然後按一下通知可移至新 API 應用程式的刀鋒視窗。
+	如果您已選取 [**新增到儀表板**] 核取方塊，則入口網站會在 API 應用程式建立之後自動開啟其刀鋒視窗。如果您已清除此核取方塊，請按一下入口網站首頁上的 [**通知**]，以查看 API 應用程式建立狀態，然後按一下通知可移至新 API 應用程式的刀鋒視窗。
 
-7. 按一下 **\[設定\] \> \[應用程式設定\]**。
+7. 按一下 **[設定] > [應用程式設定]**。
 
-9. 將存取權層級設定為 \[**公用 \(匿名\)**\]。
+9. 將存取權層級設定為 [**公用 (匿名)**]。
 
-11. 按一下 \[儲存\]****。
+11. 按一下 **[儲存]**。
 
 	![][set-api-app-access-level]
 
@@ -60,33 +60,33 @@
 
 [Git](http://git-scm.com/%20target="_blank) 是一個您可用來部署 Azure 網站的分散式版本控制系統。您將會在本機 Git 儲存機制中儲存您為 API 應用程式撰寫的程式碼，並藉由發送至遠端儲存機制，將您的程式碼部署至 Azure。此部署方法是您可以在 API 應用程式中使用的 App Service Web 應用程式功能，因為 API 應用程式是以 Web 應用程式為基礎：Azure App Service 中的 API 應用程式是具備其他用於裝載 Web 服務之功能 Web 應用程式。
 
-在入口網站中，您可以在 \[**API 應用程式**\] 刀鋒視窗中管理 API 應用程式的特定功能，而您可以在 \[**API 應用程式主機**\] 刀鋒視窗中管理與 Web 應用程式共用的功能。在本節中，您會前往 \[**API 應用程式主機**\] 刀鋒視窗以設定 Git 部署功能。
+在入口網站中，您可以在 [**API 應用程式**] 刀鋒視窗中管理 API 應用程式的特定功能，而您可以在 [**API 應用程式主機**] 刀鋒視窗中管理與 Web 應用程式共用的功能。在本節中，您會前往 [**API 應用程式主機**] 刀鋒視窗以設定 Git 部署功能。
 
-1. 在 \[API 應用程式\] 刀鋒視窗中，按一下 \[**API 應用程式主機**\]。
+1. 在 [API 應用程式] 刀鋒視窗中，按一下 [**API 應用程式主機**]。
 
 	![][api-app-host]
 
-2. 尋找 \[**API 應用程式**\] 刀鋒視窗的 \[**部署**\] 區段，然後按一下 \[**設定連續部署**\]。您可能需要向下捲動至刀鋒視窗的這個部分。
+2. 尋找 [**API 應用程式**] 刀鋒視窗的 [**部署**] 區段，然後按一下 [**設定連續部署**]。您可能需要向下捲動至刀鋒視窗的這個部分。
 
 	![][deployment-part]
 
-3. 按一下 **\[選擇來源\] \> \[本機 Git 儲存機制\]**。
+3. 按一下 **[選擇來源] > [本機 Git 儲存機制]**。
 
-5. 按一下 \[確定\]****。
+5. 按一下 [確定]****。
 
 	![][setup-git-publishing]
 
 6. 如果您先前尚未設定部署認證以供發佈 API 應用程式或其他 App Service 應用程式，請立即設定：
 
-	* 按一下 \[**設定部署認證**\]。
+	* 按一下 [**設定部署認證**]。
 
 	* 建立使用者名稱和密碼。
 
-	* 按一下 \[儲存\]****。
+	* 按一下 [儲存]****。
 
 	![][deployment-credentials]
 
-1. 在 \[**API 應用程式主機**\] 刀鋒視窗中，按一下 **\[設定\] \> \[屬性\]**。您將部署至的遠端 Git 儲存機制 URL 會顯示在 "GIT URL" 下方。
+1. 在 [**API 應用程式主機**] 刀鋒視窗中，按一下 **[設定] > [屬性]**。您將部署至的遠端 Git 儲存機制 URL 會顯示在 "GIT URL" 下方。
 
 2. 複製此 URL 以便稍後在教學課程中使用。
 
@@ -96,7 +96,7 @@
 
 在本節中，您將下載並查看作為 NodeAPIApp 範例的一部分提供的程式碼。
 
-1. 在[此 GitHub 儲存機制](http://go.microsoft.com/fwlink/?LinkID=534023&clcid=0x409)中下載程式碼。您可以複製儲存機制，或按一下 \[**下載 Zip**\] 以下載為 .zip 檔案。如果您下載.zip 檔案，請在本機磁碟中將它解壓縮。
+1. 在[此 GitHub 儲存機制](http://go.microsoft.com/fwlink/?LinkID=534023&clcid=0x409)中下載程式碼。您可以複製儲存機制，或按一下 [**下載 Zip**] 以下載為 .zip 檔案。如果您下載.zip 檔案，請在本機磁碟中將它解壓縮。
 
 2. 瀏覽至您將範例解壓縮的資料夾。
 
@@ -113,7 +113,7 @@
 
 	請注意 **apiDefinition** 屬性。此 URL 的路徑相對於您的 API 的 URL，而且會指向 Swagger 2.0 端點。Azure App Service 會使用這個屬性來探索 API 的定義，並啟用許多 App Service API 應用程式功能。
 
-	> [AZURE.NOTE]此端點必須是 Swagger 2.0 規格，因為平台不支援較舊的版本 \(例如 1.2\)。範例應用程式使用 swaggerize-express 來建立 Swagger 2.0 規格端點。
+	> [AZURE.NOTE]此端點必須是 Swagger 2.0 規格，因為平台不支援較舊的版本 (例如 1.2)。範例應用程式使用 swaggerize-express 來建立 Swagger 2.0 規格端點。
 
 4. 開啟 **server.js** 檔案並檢查程式碼。
 
@@ -127,7 +127,7 @@
 		    handlers: './handlers/'
 		}));
 
-	 `api` 屬性指向的 api.json 檔案包含我們的 API 的 Swagger 2.0 規格定義。您可以在文字編輯器中手動建立此檔案，或使用 [Swagger 的線上編輯器](http://editor.swagger.io)並從該處下載 JSON 檔案。\(*api.json* 檔案指定 `host` 屬性，但這個屬性的值已在執行階段動態決定和取代。\)
+	 `api` 屬性指向的 api.json 檔案包含我們的 API 的 Swagger 2.0 規格定義。您可以在文字編輯器中手動建立此檔案，或使用 [Swagger 的線上編輯器](http://editor.swagger.io)並從該處下載 JSON 檔案。(*api.json* 檔案指定 `host` 屬性，但這個屬性的值已在執行階段動態決定和取代。)
 
 	`docspath` 屬性會指向 Swagger 2.0 端點。此 URL 相對於您的 API 的基底路徑。基底路徑已在 api.json 檔案中宣告。在我們的範例中，基底路徑是 */api/data*，因此 swagger 端點的相對路徑是 */api/data/swagger*。
 
@@ -175,7 +175,7 @@
 		git add .
 		git commit -m "Initial commit of the API App"
 
-3. 使用您稍早複製的 Git URL，建立遠端參考，以便將更新發送至之前建立的 Web 應用程式 \(API 應用程式主機\)：
+3. 使用您稍早複製的 Git URL，建立遠端參考，以便將更新發送至之前建立的 Web 應用程式 (API 應用程式主機)：
 
 		git remote add azure [URL for remote repository]
 
@@ -189,31 +189,31 @@
 
 		remote: Deployment successful.
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
-	\* [new branch] master -\> master
+	* [new branch] master -> master
 
 ## 在 Azure 預覽入口網站中檢視 API 定義
 
 現已將 API 部署到您的 API 應用程式，您可在 Azure 預覽入口網站中查看 API 定義。一開始要先重新啟動*閘道*，這可讓 Azure 認可 API 應用程式的 API 定義已經變更。閘道是一個 Web 應用程式，可處理資源群組中 API 應用程式的 API 管理和授權。
 
-6. 在 Azure 預覽入口網站中，移至您稍早建立之 API 應用程式的 \[**API 應用程式**\] 刀鋒視窗，然後按一下 \[**閘道**\] 連結。
+6. 在 Azure 預覽入口網站中，移至您稍早建立之 API 應用程式的 [**API 應用程式**] 刀鋒視窗，然後按一下 [**閘道**] 連結。
 
 	![](./media/app-service-api-nodejs-api-app/clickgateway.png)
 
-7. 在 \[**閘道**\] 刀鋒視窗中，按一下 \[**重新啟動**\]。您現在可以關閉此刀鋒視窗。
+7. 在 [**閘道**] 刀鋒視窗中，按一下 [**重新啟動**]。您現在可以關閉此刀鋒視窗。
 
 	![](./media/app-service-api-nodejs-api-app/gatewayrestart.png)
 
-8. 在 \[**API 應用程式**\] 刀鋒視窗中，按一下 \[**API 定義**\]。
+8. 在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。
 
 	![](./media/app-service-api-nodejs-api-app/apidef.png)
 
-	 **API 定義**\] 刀鋒視窗會顯示兩個 Get 方法。
+	 **API 定義**] 刀鋒視窗會顯示兩個 Get 方法。
 
 	![](./media/app-service-api-nodejs-api-app/apidefblade.png)
 
 ## 在 Azure 中執行範例應用程式
 
-在 Azure 預覽入口網站中，移至 API 應用程式的 \[**API 應用程式主機**\] 刀鋒視窗，然後按一下 \[**瀏覽** \]。
+在 Azure 預覽入口網站中，移至 API 應用程式的 [**API 應用程式主機**] 刀鋒視窗，然後按一下 [**瀏覽** ]。
 
 ![][browse-api-app-page]
 

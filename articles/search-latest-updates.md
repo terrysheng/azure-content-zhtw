@@ -18,7 +18,7 @@
 
 #Azure 搜尋服務的最新更新事項#
 
-Azure 搜尋服務目前已正式推出，並為支援的 [2015-02-28 版本 API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 組態提供 99.9% 可用性的服務等級協定 \(SLA\)。
+Azure 搜尋服務目前已正式推出，並為支援的 [2015-02-28 版本 API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 組態提供 99.9% 可用性的服務等級協定 (SLA)。
 
 ##各版本的主要功能以及發行日期
 
@@ -44,9 +44,9 @@ Azure 搜尋服務目前已正式推出，並為支援的 [2015-02-28 版本 API
 
 不包含：
 
-- [索引子](http://go.microsoft.com/fwlink/p/?LinkId=528173) \(此功能不再被排除在 0.10.0-預覽版本外\)
+- [索引子](http://go.microsoft.com/fwlink/p/?LinkId=528173) (此功能不再被排除在 0.10.0-預覽版本外)
 - [管理 REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx)
-- [2015-02-28 預覽](search-api-2015-02-28-Preview.md)功能 \(目前僅供預覽的功能包含 Microsoft 自然語言處理器和 `moreLikeThis`\)。
+- [2015-02-28 預覽](search-api-2015-02-28-Preview.md)功能 (目前僅供預覽的功能包含 Microsoft 自然語言處理器和 `moreLikeThis`)。
 
 請造訪[如何在.NET 中使用 Azure 搜尋服務](http://go.microsoft.com/fwlink/p/?LinkId=528088)以瞭解有關安裝和使用 SDK 的指引。
 
@@ -68,9 +68,9 @@ Azure 搜尋服務目前已正式推出，並為支援的 [2015-02-28 版本 API
 
 - [索引子](http://go.microsoft.com/fwlink/p/?LinkID=528210) 這項新功能更大幅簡化從 Azure SQL Database、Azure DocumentDB 以及 Azure VM 的 SQL Server 上的資料來源編製索引的工作。
 
-- [建議工具](https://msdn.microsoft.com/library/azure/dn798936.aspx)透過新增中置比對支援，取代了上一個實作 \(僅比對字首\) 中限制較多的預先輸入查詢支援。此實作可以在詞彙的任何地方找到符合項目，並且支援模糊比對。
+- [建議工具](https://msdn.microsoft.com/library/azure/dn798936.aspx)透過新增中置比對支援，取代了上一個實作 (僅比對字首) 中限制較多的預先輸入查詢支援。此實作可以在詞彙的任何地方找到符合項目，並且支援模糊比對。
 
-- [標記提升](http://go.microsoft.com/fwlink/p/?LinkId=528212)啟用了新的評分設定檔案例。特別的是，此功能會運用保存的資料 \(如購物喜好設定\)，讓您可以依據個人化資訊提升個別使用者的搜尋結果品質。
+- [標記提升](http://go.microsoft.com/fwlink/p/?LinkId=528212)啟用了新的評分設定檔案例。特別的是，此功能會運用保存的資料 (如購物喜好設定)，讓您可以依據個人化資訊提升個別使用者的搜尋結果品質。
 
 請造訪 [Azure 搜尋服務現在已正式推出](http://go.microsoft.com/fwlink/p/?LinkId=528211)，以在專門討論所有這些功能的 Azure 部落格中查看服務公告。
 

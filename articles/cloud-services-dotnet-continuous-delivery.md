@@ -50,7 +50,7 @@
 
 1.  如果組建伺服器上已安裝 Visual Studio，請按一下 [開始]****、[所有程式]****，然後在 [Visual Studio Tools]**** 資料夾中找出並按一下 [Visual Studio Commmand Prompt]****。
 
-    如果組建伺服器上未安裝 Visual Studio，請開啟命令提示字元，並確定可在路徑上存取 MSBuild.exe。MSBuild 會與 .NET Framework 一起安裝在路徑 %WINDIR%\\Microsoft.NET\\Framework\\*Version* 中。例如，若要在已安裝 .NET Framework 4 時，將 MSBuild.exe 新增至 PATH 環境變數，請在命令提示字元中輸入下列命令：
+    如果組建伺服器上未安裝 Visual Studio，請開啟命令提示字元，並確定可在路徑上存取 MSBuild.exe。MSBuild 會與 .NET Framework 一起安裝在路徑 %WINDIR%\\Microsoft.NET\\Framework*Version* 中。例如，若要在已安裝 .NET Framework 4 時，將 MSBuild.exe 新增至 PATH 環境變數，請在命令提示字元中輸入下列命令：
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -64,7 +64,7 @@
 
     (選擇性) 您可以指定專案名稱作為 MSBuild 參數。如果未指定，則會使用目前目錄。如需 MSBuild 命令列選項的詳細資訊，請參閱 [MSBuild 命令列參考][1]。
 
-4.  尋找輸出。依預設，此命令會建立相對於專案根資料夾的目錄，例如 *ProjectDir*\\bin\\*Configuration*\\app.publish\\。當您建置 Azure 專案時，會產生兩個檔案，即套件檔本身及伴隨的組態檔：
+4.  尋找輸出。依預設，此命令會建立相對於專案根資料夾的目錄，例如 *ProjectDir*\\bin*Configuration*\\app.publish\\。當您建置 Azure 專案時，會產生兩個檔案，即套件檔本身及伴隨的組態檔：
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -99,7 +99,7 @@
 
 5.  按一下 [處理序]**** 索引標籤。在 [處理序] 索引標籤上選擇預設範本，於 [**組建**] 下，選擇專案 (若尚未選取)，然後展開格線 [**組建**] 區段中的 [**進階**]。
 
-6.  選擇 [MSBuild 引數]****，然後依上面步驟 2 所述，設定適當的 MSBuild 命令列引數。例如，輸入 **/t:Publish /p:PublishDir=\\\\myserver\\drops\** 以建置套件，並將套件檔複製至位置 \\\\myserver\\drops\\：
+6.  選擇 [MSBuild 引數]****，然後依上面步驟 2 所述，設定適當的 MSBuild 命令列引數。例如，輸入 **/t:Publish /p:PublishDir=\\\\myserver\\drops** 以建置套件，並將套件檔複製至位置 \\\\myserver\\drops\\：
 
     ![][2]
 
@@ -129,7 +129,7 @@
 
     如此會顯示訂閱的相關資訊。確認一切正確無誤。
 
-4.  將[本文結尾][]提供的指令碼範本儲存至您的指令碼資料夾，如 c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**。
+4.  將[本文結尾][]提供的指令碼範本儲存至您的指令碼資料夾，如 c:\\scripts\\WindowsAzure**PublishCloudService.ps1**。
 
 5.  檢閱指令碼的參數區段。新增或修改任何預設值。您永遠可以傳遞明確參數來覆寫這些值。
 

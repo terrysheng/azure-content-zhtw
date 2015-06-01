@@ -45,7 +45,7 @@
    
     > [AZURE.NOTE]您可能需要等候幾分鐘，以套用子網路遮罩和 DNS 設定。如果您收到「裝置尚未就緒。」的錯誤訊息，請檢查主動控制器之 DATA 0 網路介面上的實體網路連線。
 
-8. \(選用\) 設定 Web Proxy 伺服器。雖然 Web Proxy 設定是選用的，但**請注意，如果您使用 Web Proxy，就只能在此處設定它**。如需詳細資訊，請參閱[設定裝置的 Web Proxy](https://msdn.microsoft.com/library/azure/dn764937.aspx)。
+8. (選用) 設定 Web Proxy 伺服器。雖然 Web Proxy 設定是選用的，但**請注意，如果您使用 Web Proxy，就只能在此處設定它**。如需詳細資訊，請參閱[設定裝置的 Web Proxy](https://msdn.microsoft.com/library/azure/dn764937.aspx)。
  
 9. 基於安全性理由，裝置系統管理員密碼會在第一個工作階段之後過期，您必須變更該密碼，才能進行後續工作階段。出現提示時，請提供裝置系統管理員密碼。有效的裝置系統管理員密碼長度必須介於 8 到 15 個字元。密碼必須包含小寫字元、大寫字元、數字和特殊字元的組合。
 
@@ -68,13 +68,13 @@
 13. 結束序列主控台。
 
 14. 返回管理入口網站，並完成下列步驟：
-  1. 按兩下 StorSimple Manager 服務以存取 \[快速入門\] 頁面。
-  2. 按一下 \[檢視連接的裝置\]。
-  3. 在 \[裝置\] 頁面上，藉由查閱狀態來確認裝置已成功連接到服務。裝置狀態應該是 \[線上\]。
+  1. 按兩下 StorSimple Manager 服務以存取 [快速入門] 頁面。
+  2. 按一下 [檢視連接的裝置]。
+  3. 在 [裝置] 頁面上，藉由查閱狀態來確認裝置已成功連接到服務。裝置狀態應該是 [線上]。
    
     ![StorSimple 裝置頁面](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png)
   
-  \>[AZURE.NOTE]如果裝置狀態為 \[離線\]，請等待數分鐘，讓裝置上線。
+  > [AZURE.NOTE]如果裝置狀態為 [離線]，請等待數分鐘，讓裝置上線。
 
 
 <!--HONumber=52-->

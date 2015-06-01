@@ -45,15 +45,15 @@
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-聯結 trip\_data and trip\_fare 的唯一索引鍵是由下列欄位所組成：medallion、hack\_licence 和 pickup\_datetime。
+聯結 trip_data and trip_fare 的唯一索引鍵是由下列欄位所組成：medallion、hack_licence 和 pickup_datetime。
 
 ## <a name="mltasks"></a>預測工作的範例
 
-我們將根據 *tip\_amount* 來編寫三個預測問題的公式，如下：
+我們將根據 *tip_amount* 來編寫三個預測問題的公式，如下：
 
-1. 二進位分類：預測是否已針對某趟車程支付小費，例如，大於 $0 的 *tip\_amount* 為正面範例，而等於 $0 的 *tip\_amount* 為負面範例。
+1. 二進位分類：預測是否已針對某趟車程支付小費，例如，大於 $0 的 *tip_amount* 為正面範例，而等於 $0 的 *tip_amount* 為負面範例。
 
-2. 多類別分類：預測已針對該趟車程支付的小費金額範圍。我們會將 *tip\_amount* 區分為五個分類收納組或類別：
+2. 多類別分類：預測已針對該趟車程支付的小費金額範圍。我們會將 *tip_amount* 區分為五個分類收納組或類別：
 	
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -82,12 +82,12 @@
 3. [佈建資料科學虛擬機器](machine-learning-data-science-setup-sql-server-virtual-machine.md)，這將用來做為 SQL Server 以及 IPython Notebook 伺服器。
 
 	> [AZURE.NOTE] 指令碼範例和 IPython Notebook 將在安裝過程中下載到您的資料科學虛擬機器上。當 VM 後續安裝指令碼完成之後，範例將位於您的 VM 文件庫上。  
-	> - 指令碼範例： `C:\Users\<user_name>\Documents\Data Science Scripts`  
-	> - IPython Notebook 範例： `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
+	> - 指令碼範例： `C:\Users<user_name>\Documents\Data Science Scripts`  
+	> - IPython Notebook 範例： `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
 	> 其中 `<使用者名稱>` 是 VM 的 Windows 登入名稱。我們會將範例資料夾稱為「**指令碼範例**」和「**IPython Notebook 範例**」。
 
 
-根據資料集大小、資料來源位置，以及選取的 Azure 目標環境，此案例類似[案例 \#5：本機檔案中的大型資料集，Azure VM 中的目標 SQL Server](machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb)。
+根據資料集大小、資料來源位置，以及選取的 Azure 目標環境，此案例類似[案例 #5：本機檔案中的大型資料集，Azure VM 中的目標 SQL Server](machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb)。
 
 ## <a name="getdata"></a>從公用來源取得資料
 
@@ -103,9 +103,9 @@
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-	當 AzCopy 完成時，24 個壓縮的 CSV 檔 (12 個用於 trip\_data，12 個用於 trip\_fare) 應該全部都位於 [資料] 資料夾中。
+	當 AzCopy 完成時，24 個壓縮的 CSV 檔 (12 個用於 trip_data，12 個用於 trip_fare) 應該全部都位於 [資料] 資料夾中。
 
-4. 將下載的檔案解壓縮。請注意未壓縮檔案所在的資料夾。此資料夾將稱為 <path\_to\_data\_files\>。
+4. 將下載的檔案解壓縮。請注意未壓縮檔案所在的資料夾。此資料夾將稱為 <path_to_data_files>。
 
 ## <a name="dbload"></a>將資料大量匯入到 SQL Server 資料庫
 
@@ -117,7 +117,7 @@
 
 	![SSMS Connect][12]
 
-3. 如果您尚未變更 SQL Server 驗證模式並建立新的 SQL 登入使用者，請開啟 [**指令碼範例**] 資料夾中名為 **change\_auth.sql** 的指令碼檔案。變更預設的使用者名稱和密碼。按一下工具列中的 [**!執行**] 來執行指令碼。
+3. 如果您尚未變更 SQL Server 驗證模式並建立新的 SQL 登入使用者，請開啟 [**指令碼範例**] 資料夾中名為 **change_auth.sql** 的指令碼檔案。變更預設的使用者名稱和密碼。按一下工具列中的 [**!執行**] 來執行指令碼。
 
 	![Execute Script][13]
 
@@ -133,22 +133,22 @@
 	
 		![SQL Database Defaults][15]  
 
-5. 若要建立新資料庫與一組檔案群組來保留資料分割資料表，請開啟指令碼範例 **create\_db\_default.sql**。指令碼將會在預設資料位置中建立名為 **TaxiNYC** 的新資料庫和 12 個檔案群組。每個檔案群組都將保留一個月的 trip\_data 和 trip\_fare 資料。視需要修改資料庫名稱。按一下 [**!執行**] 來執行指令碼。
+5. 若要建立新資料庫與一組檔案群組來保留資料分割資料表，請開啟指令碼範例 **create_db_default.sql**。指令碼將會在預設資料位置中建立名為 **TaxiNYC** 的新資料庫和 12 個檔案群組。每個檔案群組都將保留一個月的 trip_data 和 trip_fare 資料。視需要修改資料庫名稱。按一下 [**!執行**] 來執行指令碼。
 
-6. 接下來，建立兩個資料分割資料表，一個用於 trip\_data，另一個用於 trip\_fare。開啟指令碼範例 **create\_partitioned\_table.sql**，這將會：
+6. 接下來，建立兩個資料分割資料表，一個用於 trip_data，另一個用於 trip_fare。開啟指令碼範例 **create_partitioned_table.sql**，這將會：
 
 	- 建立資料分割函式，以依月份分割資料。
 	- 建立資料分割配置，將每個月的資料對應至不同的檔案群組。
-	- 建立兩個對應至資料分割配置的資料分割資料表：**nyctaxi\_trip** 將保留 trip\_data，而 **nyctaxi\_fare** 將保留 trip\_fare 資料。
+	- 建立兩個對應至資料分割配置的資料分割資料表：**nyctaxi_trip** 將保留 trip_data，而 **nyctaxi_fare** 將保留 trip_fare 資料。
 
 	按一下 [**!執行**] 來執行指令碼，並建立資料分割資料表。
 
 7. 在 [**指令碼範例**] 資料夾中，提供兩個 PowerShell 指令碼範例，來示範將資料平行大量匯入 SQL Server 資料表。
 
-	- **bcp\_parallel\_generic.ps1** 是將資料平行大量匯入資料表的泛型指令碼。修改此指令碼來設定輸入與目標變數，如指令碼的註解行中所示。
-	- **bcp\_parallel\_nyctaxi.ps1** 是預先設定的泛型指令碼版本，可用來同時載入適用於「NYC 計程車車程」資料的兩個資料表。
+	- **bcp_parallel_generic.ps1** 是將資料平行大量匯入資料表的泛型指令碼。修改此指令碼來設定輸入與目標變數，如指令碼的註解行中所示。
+	- **bcp_parallel_nyctaxi.ps1** 是預先設定的泛型指令碼版本，可用來同時載入適用於「NYC 計程車車程」資料的兩個資料表。
 
-8. 以滑鼠右鍵按一下 **bcp\_parallel\_nyctaxi.ps1** 指令碼名稱，然後按一下 [**編輯**]，在 PowerShell 中開啟它。檢閱預先設定的變數，並根據您選取的資料庫名稱、輸入資料資料夾、目標記錄資料夾，以及格式檔案範例 **nyctaxi_trip.xml** 和 **nyctaxi\_fare.xml** (位於 [**指令碼範例**]資料夾中) 的路徑來修改。 
+8. 以滑鼠右鍵按一下 **bcp_parallel_nyctaxi.ps1** 指令碼名稱，然後按一下 [**編輯**]，在 PowerShell 中開啟它。檢閱預先設定的變數，並根據您選取的資料庫名稱、輸入資料資料夾、目標記錄資料夾，以及格式檔案範例 **nyctaxi_trip.xml** 和 **nyctaxi_fare.xml** (位於 [**指令碼範例**]資料夾中) 的路徑來修改。 
 
 	![Bulk Import Data][16]
 
@@ -156,22 +156,22 @@
 
 9. PowerShell 指令碼會報告開始和結束時間。完成所有大量匯入時，即會報告結束時間。檢查目標記錄資料夾，以確認大量匯入已成功，亦即，目標記錄資料夾中未報告任何錯誤。
 
-10. 您的資料庫已準備好進行探索、功能工程，以及所需的其他作業。由於已根據 [**pickup\_datetime**] 欄位對資料表進行資料分割，在 **WHERE** 子句中包括 [**pickup\_datetime**] 條件的查詢將可從資料分割配置中受益。
+10. 您的資料庫已準備好進行探索、功能工程，以及所需的其他作業。由於已根據 [**pickup_datetime**] 欄位對資料表進行資料分割，在 **WHERE** 子句中包括 [**pickup_datetime**] 條件的查詢將可從資料分割配置中受益。
 
-11. 在 [**SQL Server Management Studio**] 中，探索所提供的指令碼範例 **sample\_queries.sql**。若要執行任何查詢範例，請先將查詢行反白顯示，然後按一下工具列中的 [**!執行**]。
+11. 在 [**SQL Server Management Studio**] 中，探索所提供的指令碼範例 **sample_queries.sql**。若要執行任何查詢範例，請先將查詢行反白顯示，然後按一下工具列中的 [**!執行**]。
 
-12. 「NYC 計程車車程」資料會載入兩個不同的資料表。若要改善聯結作業，強烈建議您為資料表編製索引。指令碼範例 **create\_partitioned\_index.sql** 會在複合聯結索引鍵 **medallion、 hack\_license 和 pickup\_datetime** 上建立資料分割索引 。
+12. 「NYC 計程車車程」資料會載入兩個不同的資料表。若要改善聯結作業，強烈建議您為資料表編製索引。指令碼範例 **create_partitioned_index.sql** 會在複合聯結索引鍵 **medallion、 hack_license 和 pickup_datetime** 上建立資料分割索引 。
 
 ## <a name="dbexplore"></a>SQL Server 中的資料探索和功能工程
 
-在本節中，我們將使用先前建立的 SQL Server 資料庫，直接在 [**SQL Server Management Studio**] 中執行 SQL 查詢，藉以執行資料探索和功能工程。名為 **sample\_queries.sql** 的指令碼範例位於 [**指令碼範例**] 資料夾中。如果資料庫名稱與預設值：**TaxiNYC** 不同，請修改指令碼來變更該名稱。
+在本節中，我們將使用先前建立的 SQL Server 資料庫，直接在 [**SQL Server Management Studio**] 中執行 SQL 查詢，藉以執行資料探索和功能工程。名為 **sample_queries.sql** 的指令碼範例位於 [**指令碼範例**] 資料夾中。如果資料庫名稱與預設值：**TaxiNYC** 不同，請修改指令碼來變更該名稱。
 
 在這個練習中，我們將：
 
 - 使用 Windows 驗證，或者使用 SQL 驗證及 SQL 登入名稱和密碼，來連接到 [**SQL Server Management Studio**]。
 - 在變動的時間範圍中探索數個欄位的資料分佈。
 - 調查經度和緯度欄位的資料品質。
-- 根據 **tip\_amount** 來產生二進位和多類別分類標籤。
+- 根據 **tip_amount** 來產生二進位和多類別分類標籤。
 - 產生功能，並計算或比較車程距離。
 - 聯結這兩個資料表，並擷取將用來建置模型的隨機取樣。
 
@@ -192,7 +192,7 @@
 
 #### 探索：依據 medallion 的車程分佈
 
-此範例會識別在特定期間內超過 100 趟車程的圓形徽章 (計程車數目)。查詢可以從資料分割資料表存取中獲益，因為它的條件是以 [**pickup\_datetime**] 的資料分割配置為依據。查詢完整資料集也會使用資料分割資料表及 (或) 索引掃描。
+此範例會識別在特定期間內超過 100 趟車程的圓形徽章 (計程車數目)。查詢可以從資料分割資料表存取中獲益，因為它的條件是以 [**pickup_datetime**] 的資料分割配置為依據。查詢完整資料集也會使用資料分割資料表及 (或) 索引掃描。
 
 	SELECT medallion, COUNT(*)
 	FROM nyctaxi_fare
@@ -268,7 +268,7 @@
 
 #### 準備資料以進行模型建置
 
-下列查詢會聯結 [**nyctaxi\_trip**] 和 [**nyctaxi\_fare**] 資料表、產生二進位分類標籤 [**tipped**]、多類別分類標籤 [**tip\_class**]，並從完整聯結的資料集中擷取 1% 的隨機取樣。您可以複製此查詢，然後直接貼至 [Azure Machine Learning Studio](https://studio.azureml.net) 讀取程式模組，以便從 Azure 中的 SQL Server 資料庫執行個體中直接擷取資料。查詢會排除含有不正確 (0, 0) 座標的記錄。
+下列查詢會聯結 [**nyctaxi_trip**] 和 [**nyctaxi_fare**] 資料表、產生二進位分類標籤 [**tipped**]、多類別分類標籤 [**tip_class**]，並從完整聯結的資料集中擷取 1% 的隨機取樣。您可以複製此查詢，然後直接貼至 [Azure Machine Learning Studio](https://studio.azureml.net) 讀取程式模組，以便從 Azure 中的 SQL Server 資料庫執行個體中直接擷取資料。查詢會排除含有不正確 (0, 0) 座標的記錄。
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -367,7 +367,7 @@
 #### 描述性統計資料
 
 現在已經準備好來探索取樣的資料。我們一開始
-會查看 [**trip\_distance**] \(或任何其他) 欄位的描述性統計資料：
+會查看 [**trip_distance**] (或任何其他) 欄位的描述性統計資料：
 
     df1['trip_distance'].describe()
 
@@ -410,13 +410,13 @@
 
 #### 視覺化：散佈圖範例
 
-我們顯示 [**trip\_time\_in\_secs**] 和 [**trip\_distance**] 之間的散佈圖，查看是否有任何相互關聯性
+我們顯示 [**trip_time_in_secs**] 和 [**trip_distance**] 之間的散佈圖，查看是否有任何相互關聯性
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
 ![Plot #6][6]
 
-同樣地，可以檢查 [**rate\_code**] 和 [**trip\_distance**] 之間的關聯性。
+同樣地，可以檢查 [**rate_code**] 和 [**trip_distance**] 之間的關聯性。
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
@@ -424,13 +424,13 @@
 
 ### 針對 SQL 中的資料進行次取樣
 
-當您備妥資料可在 [Azure Machine Learning Studio](https://studio.azureml.net) 中進行模型建置時，可能會決定**要在讀取程式模組中直接使用的 SQL 查詢**，或者在新資料表中保存工程和取樣資料，而您可以在讀取程式模組中用來與簡單的 **SELECT * FROM <your\_new\_table\_name>** 搭配使用。
+當您備妥資料可在 [Azure Machine Learning Studio](https://studio.azureml.net) 中進行模型建置時，可能會決定**要在讀取程式模組中直接使用的 SQL 查詢**，或者在新資料表中保存工程和取樣資料，而您可以在讀取程式模組中用來與簡單的 **SELECT * FROM <your_new_table_name>** 搭配使用。
 
 在本節中，我們將建立新的資料表來保留取樣與工程資料。您可以在 [SQL Server 中的資料探索和功能工程](#dbexplore)一節中，找到可用來進行模型建置的直接 SQL 查詢範例。
 
 #### 建立取樣資料表並使用 1% 的聯結資料表來填入。如果資料表存在，請先卸除它。
 
-在本節中，我們會聯結資料表 [**nyctaxi\_trip**] 和 [**nyctaxi\_fare**]、擷取 1% 的隨機取樣，然後將取樣的資料保存於名為 **nyctaxi\_one\_percent** 的新資料表中：
+在本節中，我們會聯結資料表 [**nyctaxi_trip**] 和 [**nyctaxi_fare**]、擷取 1% 的隨機取樣，然後將取樣的資料保存於名為 **nyctaxi_one_percent** 的新資料表中：
 
     cursor = conn.cursor()
     
@@ -455,7 +455,7 @@
     
 ### 在 IPython Notebook 中使用 SQL 查詢進行資料探索
 
-在本節中，我們將使用前面所建立的新資料表中保存的 1% 取樣資料，來探索資料分佈。請注意，您可以使用原始資料表，以及選擇性地使用 **TABLESAMPLE** 來執行類似的探索，以限制探索範例，或是藉由使用 [**pickup\_datetime**] 資料分割來將結果限制為指定的期間，如 [SQL Server 中的資料探索和功能工程](#dbexplore)一節所示。
+在本節中，我們將使用前面所建立的新資料表中保存的 1% 取樣資料，來探索資料分佈。請注意，您可以使用原始資料表，以及選擇性地使用 **TABLESAMPLE** 來執行類似的探索，以限制探索範例，或是藉由使用 [**pickup_datetime**] 資料分割來將結果限制為指定的期間，如 [SQL Server 中的資料探索和功能工程](#dbexplore)一節所示。
 
 #### 探索：車程的每日分佈
 
@@ -486,7 +486,7 @@
 在下列範例中，我們會產生兩組標籤以用來進行模型化：
 
 1. 二進位類別標籤 **tipped** (預測是否將給予小費)
-2. 多類別標籤 **tip\_class** (預測小費的分類收納組或範圍)
+2. 多類別標籤 **tip_class** (預測小費的分類收納組或範圍)
 
 		nyctaxi_one_percent_add_col = '''
 			ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
@@ -656,7 +656,7 @@
 
 ![Azure ML Train][10]
 
-> [AZURE.IMPORTANT] 在前幾節中提供的模型化資料擷取和取樣查詢範例中，**這三個模型化練習的所有標籤都包含於此查詢中**。每一個模型化練習的重要 (必要) 步驟都是針對其他兩個問題**排除**不需要的標籤，以及任何其他的**目標流失**。例如，使用二進位分類時，請使用 [**tipped**] 標籤，並排除 [**tip\_class**]、[**tip\_amount**] 和 [**total\_amount**] 等欄位。後者為目標流失，因為它們意指支付的小費。
+> [AZURE.IMPORTANT] 在前幾節中提供的模型化資料擷取和取樣查詢範例中，**這三個模型化練習的所有標籤都包含於此查詢中**。每一個模型化練習的重要 (必要) 步驟都是針對其他兩個問題**排除**不需要的標籤，以及任何其他的**目標流失**。例如，使用二進位分類時，請使用 [**tipped**] 標籤，並排除 [**tip_class**]、[**tip_amount**] 和 [**total_amount**] 等欄位。後者為目標流失，因為它們意指支付的小費。
 >
 > 若要排除不必要的資料行和 (或) 目標流失，您可能會使用 [**專案資料行**] 模組或 [**中繼資料編輯器**]。如需詳細資訊，請參閱[專案資料行](https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223)和[中繼資料編輯器](https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66)參考頁面。
 

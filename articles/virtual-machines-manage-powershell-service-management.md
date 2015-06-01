@@ -49,7 +49,7 @@
 	$svcName="<cloud service name>"
 	$vmName="<virtual machine name>"
 	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
-	$localFile=$localPath + "\" + $vmname + ".rdp"
+	$localFile=$localPath + "" + $vmname + ".rdp"
 	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 
 ## 停止 VM
@@ -58,7 +58,7 @@
 
     Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
->[AZURE.IMPORTANT]萬一它是雲端服務的最後一個 VM，您可以使用 **StayProvisioned** 參數來保留雲端服務的虛擬 IP \(VIP\)。如果使用這個參數，還是需要支付 VM 的費用。
+>[AZURE.IMPORTANT]萬一它是雲端服務的最後一個 VM，您可以使用 **StayProvisioned** 參數來保留雲端服務的虛擬 IP (VIP)。如果使用這個參數，還是需要支付 VM 的費用。
 
 ## 啟動 VM
 

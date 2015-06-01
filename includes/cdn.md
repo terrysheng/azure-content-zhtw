@@ -42,7 +42,7 @@ Azure 儲存體服務](http://msdn.microsoft.com/library/azure/gg433040.aspx)。
 1.  登入 [Azure 管理入口網站]。
 2.  按一下左下角的 [新增]。在 [新增] 對話方塊中，選取 [資料服務]，然後依序按一下 [儲存體] 和 [快速建立]。
 
-    \[建立儲存體帳戶] 對話方塊隨即出現。
+    [建立儲存體帳戶] 對話方塊隨即出現。
 
     ![建立儲存體帳戶][create-new-storage-account]
 
@@ -106,7 +106,7 @@ Azure 儲存體服務](http://msdn.microsoft.com/library/azure/gg433040.aspx)。
 
 若要存取 CDN 上快取的內容，請使用入口網站中提供的 CDN URL。所快取 Blob 的位址將類似如下：
 
-http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
+http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 
 <a id="Step4"> </a>
 <h2>步驟 4：從 CDN 移除內容</h2>

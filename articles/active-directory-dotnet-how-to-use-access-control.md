@@ -116,7 +116,7 @@ Azure 即會建立並啟動命名空間。
 
 1. 在 [**名稱**] 中，輸入 **MvcACS**，然後按一下 [**確定**]。
 1. 在下一個對話方塊中，選取 [**網際網路應用程式**]，然後按一下 [**確定**]。
-1. 編輯  *Views\Shared\_LoginPartial.cshtml* 檔案，並將其內容取代為下列程式碼：
+1. 編輯  *Views\Shared_LoginPartial.cshtml* 檔案，並將其內容取代為下列程式碼：
 
         @if (Request.IsAuthenticated)
         {

@@ -208,15 +208,15 @@ Azure Machine Learning 中另一項吸引人的功能是可以將自訂模組加
 [傳送意見反應](mailto:sqlfback@microsoft.com)。
  
 ## 參考
-\[1\] 預測分析：Beyond the Predictions, W. McKnight, Information Management, July/August 2011, p.18-20.  
+[1] 預測分析：Beyond the Predictions, W. McKnight, Information Management, July/August 2011, p.18-20.  
 
-\[2\] 維基百科上的[正確性和準確度](http://en.wikipedia.org/wiki/Accuracy_and_precision) 
+[2] 維基百科上的[正確性和準確度](http://en.wikipedia.org/wiki/Accuracy_and_precision) 
  
-\[3\] [CRISP-DM 1.0：逐步資料採礦指南](http://www.the-modeling-agency.com/crisp-dm.pdf)   
+[3] [CRISP-DM 1.0：逐步資料採礦指南](http://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-\[4\] 巨量資料行銷  
+[4] 巨量資料行銷  
 
-\[5\] [巨量資料行銷：更有效地吸引您的客戶和促進價值](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[5] [巨量資料行銷：更有效地吸引您的客戶和促進價值](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
  
 ## 附錄
 

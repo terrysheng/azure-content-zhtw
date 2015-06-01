@@ -17,7 +17,7 @@
 
 # 在 Application Insights 中探索 Java 追蹤記錄
 
-如果您使用 Logback 或 Log4J \(v1.2 或 v2.0\) 進行追蹤，您可以將追蹤記錄自動傳送到 Application Insights，您可以在其中探索及搜尋記錄。
+如果您使用 Logback 或 Log4J (v1.2 或 v2.0) 進行追蹤，您可以將追蹤記錄自動傳送到 Application Insights，您可以在其中探索及搜尋記錄。
 
 安裝 [Java 適用的 Application Insights SDK][java]，如果您還未完成的話。
 
@@ -89,7 +89,7 @@
 ----|----|----
 Logback|[具有 Logback 附加器的 SDK](http://dl.msopentech.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
 Log4J v2.0|[具有 Log4J v2 附加器的 SDK](http://dl.msopentech.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4j v1.2|[具有 Log4J v1.2 附加器的 SDK](http://dl.msopentech.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
+Log4j v1.2|[具有 Log4J v1.2 附加器的 SDK](http://dl.msopentech.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
 
 
 
@@ -130,11 +130,11 @@ Log4j v1.2|[具有 Log4J v1.2 附加器的 SDK](http://dl.msopentech.com/applica
       <appender-ref ref="aiAppender" />
     </root>
 
-Application Insights 附加器可由任何設定的記錄器參考，而不一定是根記錄器 \(如以上程式碼範例所示\)。
+Application Insights 附加器可由任何設定的記錄器參考，而不一定是根記錄器 (如以上程式碼範例所示)。
 
 ## 在 Application Insights 入口網站中探索您的追蹤
 
-既然已將專案設定為傳送追蹤至 Application Insights，您可以在 Application Insights 入口網站的 \[[診斷搜尋][diagnostic]\] 分頁中檢視及搜尋這些追蹤。
+既然已將專案設定為傳送追蹤至 Application Insights，您可以在 Application Insights 入口網站的 [[診斷搜尋][diagnostic]] 分頁中檢視及搜尋這些追蹤。
 
 ![在 Application Insights 入口網站中，開啟診斷搜尋](./media/app-insights-java-get-started/10-diagnostics.png)
 

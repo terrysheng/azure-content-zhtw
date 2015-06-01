@@ -74,7 +74,7 @@ DocumentDB 中的索引利用 JSON 文法允許**以樹狀結構表示**文件�
 	           }                                                  
 	        ],                                                               
 	        "ExcludedPaths":[                                                
-	           "/\"nonIndexedContent\"/*"                                 
+	           "/"nonIndexedContent"/*"                                 
 	        ]                                                               
 	     }                                                                 
 	 }                                                                                                                                                
@@ -86,7 +86,7 @@ DocumentDB 中的索引利用 JSON 文法允許**以樹狀結構表示**文件�
 
 **注意**：集合的索引編製原則必須在建立時指定。不允許在建立集合之後修改索引編製原則，但未來的 DocumentDB 版本中將會支援。
 
-**注意**：根據預設，DocumentDB 會使用雜湊索引為文件內的所有路徑一致地編製索引。內部時間戳記 (\_ts) 路徑會與範圍索引儲存在一起。
+**注意**：根據預設，DocumentDB 會使用雜湊索引為文件內的所有路徑一致地編製索引。內部時間戳記 (_ts) 路徑會與範圍索引儲存在一起。
 
 ### 自動編製索引
 
@@ -285,7 +285,7 @@ DocumentDB 中的索引利用 JSON 文法允許**以樹狀結構表示**文件�
 	pathRange.IndexingPolicy.IncludedPaths.Add(
 								new IndexingPath { 
 										IndexType = IndexType.Range, 
-										Path = "/\"CreatedTimestamp\"/?",   
+										Path = "/"CreatedTimestamp"/?",   
 										NumericPrecision = 7   
 							 			}
 									);   
@@ -307,7 +307,7 @@ DocumentDB 中的索引利用 JSON 文法允許**以樹狀結構表示**文件�
   	excluded.IndexingPolicy.IncludedPaths.Add(
 	newIndexingPath {  Path = "/" });  
 
-	excluded.IndexingPolicy.ExcludedPaths.Add("/\" nonIndexedContent\"/*");    
+	excluded.IndexingPolicy.ExcludedPaths.Add("/" nonIndexedContent"/*");    
 	excluded = await client.CreateDocumentCollectionAsync(database.SelfLink,excluded);                                                               
 
 
@@ -316,7 +316,7 @@ DocumentDB 中的索引利用 JSON 文法允許**以樹狀結構表示**文件�
 
 評估不同的索引原則組態時，您應該測量 DocumentDB API 的原則的儲存體和輸送量含意。
 
-若要檢查集合的儲存體配額和使用量，請對集合資源執行 HEAD 或 GET 要求，並檢查 x-ms-request-quota 和 x-ms-request-usage 標頭。在 .NET SDK 中，[ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) 中的 [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) 和 [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) 屬性包含這些對應的值。
+若要檢查集合的儲存體配額和使用量，請對集合資源執行 HEAD 或 GET 要求，並檢查 x-ms-request-quota 和 x-ms-request-usage 標頭。在 .NET SDK 中，[ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) 中的 [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) 和 [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) 屬性包含這些對應的值。
 
 
  	// Measure the document size usage (which includes the index size) against   
@@ -325,7 +325,7 @@ DocumentDB 中的索引利用 JSON 文法允許**以樹狀結構表示**文件�
 	 Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentSizeQuota, collectionInfo.DocumentSizeUsage);                                       
 
 
-若要測量每一個寫入作業 (建立、更新或刪除) 的索引編製負荷，請檢查 x-ms-request-charge 標頭 (或 .NET SDK 的 [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) 中同等的 [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) 屬性) 來測量這些作業所耗用的要求單位數量。
+若要測量每一個寫入作業 (建立、更新或刪除) 的索引編製負荷，請檢查 x-ms-request-charge 標頭 (或 .NET SDK 的 [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) 中同等的 [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) 屬性) 來測量這些作業所耗用的要求單位數量。
 
 
  	// Measure the performance (request units) of writes.     

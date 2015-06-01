@@ -287,7 +287,7 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 #### 建立資料表
 
-1.	在 Azure PowerShell 中，從解壓縮範例的位置，瀏覽至 **Tables** 資料夾 (**C:\ADFWalkthrough\Tables\**)。 
+1.	在 Azure PowerShell 中，從解壓縮範例的位置，瀏覽至 **Tables** 資料夾 (**C:\ADFWalkthrough\Tables**)。 
 2.	使用 Cmdlet **New-AzureDataFactoryTable** 來建立資料表，如下所示 (針對 **RawGameEventsTable**.json	)
 
 

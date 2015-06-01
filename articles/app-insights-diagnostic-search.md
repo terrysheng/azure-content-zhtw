@@ -28,7 +28,7 @@
 
 在您逐一點選某些圖表和格線項目時，它也會開啟。在此情況中，其篩選器會預設為著重在您選取的項目類型。
 
-例如，如果您的應用程式是 Web 服務，\[概觀\] 分頁會顯示要求數量的圖表。按一下它便可取得更詳細的圖表，包含一分清單，顯示對每個 URL 進行的要求數量。按一下任何列，便可取得該 URL 的個別要求的清單：
+例如，如果您的應用程式是 Web 服務，[概觀] 分頁會顯示要求數量的圖表。按一下它便可取得更詳細的圖表，包含一分清單，顯示對每個 URL 進行的要求數量。按一下任何列，便可取得該 URL 的個別要求的清單：
 
 ![Open diagnostic search](./media/app-insights-diagnostic-search/07-open-from-filters.png)
 
@@ -42,11 +42,11 @@
 
 ![Open diagnostic search](./media/app-insights-diagnostic-search/10-detail.png)
 
-若要尋找欄位的完整集合，請使用純文字字串 \(不含萬用字元\)。可用的欄位因遙測類型而定。
+若要尋找欄位的完整集合，請使用純文字字串 (不含萬用字元)。可用的欄位因遙測類型而定。
 
 ## 篩選事件類型
 
-開啟 \[篩選器\] 分頁並選擇要查看的事件類型。\(如果之後想要還原您所開啟分頁的篩選器，請按一下 \[重設\]。\)
+開啟 [篩選器] 分頁並選擇要查看的事件類型。(如果之後想要還原您所開啟分頁的篩選器，請按一下 [重設]。)
 
 
 ![選擇篩選器並選取遙測類型](./media/app-insights-diagnostic-search/02-filter-req.png)
@@ -57,8 +57,8 @@
 * **追蹤** - 診斷記錄包括 TrackTrace、log4Net、NLog 和 System.Diagnostic.Trace 呼叫。
 * **要求** - 伺服器應用程式收到的 HTTP 要求，包括頁面、指令碼、影像、樣式檔案和資料。這些事件是用來建立要求和回應概觀圖表。
 * **頁面檢視** - 遙測是由 Web 用戶端傳送，用來建立頁面檢視報告。 
-* **自訂事件** - 如果您插入呼叫到 TrackEvent\(\) 來[監視使用量][track]，您可以在這裡搜尋它們。
-* **例外狀況** - 未在伺服器上捕捉到的例外狀況，以及您使用 TrackException\(\) 記錄的那些。
+* **自訂事件** - 如果您插入呼叫到 TrackEvent() 來[監視使用量][track]，您可以在這裡搜尋它們。
+* **例外狀況** - 未在伺服器上捕捉到的例外狀況，以及您使用 TrackException() 記錄的那些。
 
 ## 依據屬性值篩選
 
@@ -79,7 +79,7 @@
 
 ![展開屬性並選擇值](./media/app-insights-diagnostic-search/04-failingReq.png)
 
-此外，如果您也想要查看在這段時間其他事件發生的情況，可以勾選 \[**包含未定義屬性的事件**\]。
+此外，如果您也想要查看在這段時間其他事件發生的情況，可以勾選 [**包含未定義屬性的事件**]。
 
 ## 檢查個別出現次數
 
@@ -87,7 +87,7 @@
 
 ![選取值](./media/app-insights-diagnostic-search/05-reqDetails.png)
 
-針對 \[要求\] 事件，詳細資料顯示處理要求時發生的例外狀況。
+針對 [要求] 事件，詳細資料顯示處理要求時發生的例外狀況。
 
 逐一點選例外狀況來查看其詳細資料。
 
@@ -115,13 +115,13 @@
 
 ![Open diagnostic search](./media/appinsights/appinsights-311search.png)
 
-搜尋詞彙，而不是子字串。詞彙是英數字串，包含 '.' 和 '\_' 之類的標點符號。例如：
+搜尋詞彙，而不是子字串。詞彙是英數字串，包含 '.' 和 '_' 之類的標點符號。例如：
 
 詞彙|*不*符合|但這些符合
 ---|---|---
-HomeController.About|about<br/>home|h\*about<br/>home\*
-IsLocal|local<br/>is<br/>\*local|isl\*<br/>islocal<br/>i\*l\*
-New Delay|w d|new<br/>delay<br/>n\* AND d\*
+HomeController.About|about<br/>home|h*about<br/>home*
+IsLocal|local<br/>is<br/>*local|isl*<br/>islocal<br/>i*l*
+New Delay|w d|new<br/>delay<br/>n* AND d*
 
 
 以下是您可以使用搜尋運算式：
@@ -130,22 +130,22 @@ New Delay|w d|new<br/>delay<br/>n\* AND d\*
 ---|---
 slow|在日期範圍中尋找欄位含有詞彙 "slow" 的所有事件
 database??|比對 database01、databaseAB、...<br/>? 不允許出現在搜尋詞彙的開頭。
-database\*|比對 database、database01、databaseNNNN<br/>\* 不允許出現在搜尋詞彙的開頭
+database*|比對 database、database01、databaseNNNN<br/>* 不允許出現在搜尋詞彙的開頭
 apple AND banana|尋找同時含有這些詞彙的事件。請使用大寫 "AND"，而不是 "and"。
 apple OR banana<br/>apple banana|尋找含有任一詞彙的事件。請使用 "OR"，而不是 "or"。</br/>簡短格式。
 apple NOT banana<br/>apple -banana|尋找含有一個詞彙但不含另一個詞彙的事件。<br/>簡短格式。
-app\* AND banana -\(grape pear\)|邏輯運算子和括號。
-"Metric": 0 TO 500<br/>"Metric" : 500 TO \* | 尋找在值範圍內包含指定度量的事件。
+app* AND banana -(grape pear)|邏輯運算子和括號。
+"Metric": 0 TO 500<br/>"Metric" : 500 TO * | 尋找在值範圍內包含指定度量的事件。
 
 
 ## 儲存搜尋
 
 設定需要的所有篩選器之後，您可以將搜尋儲存為我的最愛。如果您使用組織帳戶，可以選擇是否要將它與他小組成員分享。
 
-![按一下 \[我的最愛\]，設定名稱，然後按一下 \[儲存\]](./media/app-insights-diagnostic-search/08-favorite-save.png)
+![按一下 [我的最愛]，設定名稱，然後按一下 [儲存]](./media/app-insights-diagnostic-search/08-favorite-save.png)
 
 
-若要再次查看搜尋，請**前往 \[概觀\] 分頁**，並開啟 \[我的最愛\]：
+若要再次查看搜尋，請**前往 [概觀] 分頁**，並開啟 [我的最愛]：
 
 ![我的最愛磚](./media/app-insights-diagnostic-search/09-favorite-get.png)
 

@@ -18,16 +18,16 @@
 
 # 如何在 App Service 環境中建立 Web 應用程式 #
 
-在 App Service 環境 \(ASE\) 中建立 Web 應用程式幾乎與往常一樣。如果您不熟悉 App Service 環境功能，請閱讀文件：[什麼是 App Service 環境][WhatisASE]。
+在 App Service 環境 (ASE) 中建立 Web 應用程式幾乎與往常一樣。如果您不熟悉 App Service 環境功能，請閱讀文件：[什麼是 App Service 環境][WhatisASE]。
 
 若要在 ASE 中建立 Web 應用程式，您必須先從擁有 ASE 開始。如需有關建立 ASE 的詳細資訊，請閱讀文件： [如何建立 App Service 環境][HowtoCreateASE]。
 
-建立 Web 應用程式的第一個步驟是建立或選取 App Service 方案 \(ASP\)。如同往常一樣，在 ASE 中建立 ASP 是經由從 \[新增\] -\> \[Web + 行動\] -\> \[Web 應用程式\] 開始的 Web 應用程式建立流程。
+建立 Web 應用程式的第一個步驟是建立或選取 App Service 方案 (ASP)。如同往常一樣，在 ASE 中建立 ASP 是經由從 [新增] -> [Web + 行動] -> [Web 應用程式] 開始的 Web 應用程式建立流程。
 
 ![][1]
 
 
-如果您使用的 App Service 方案已建立於 App Service 環境中，請選取該方案、輸入 Web 應用程式的名稱，然後選取 \[建立\]。此流程與您往常建立 Web 應用程式時一樣。主要的差別在於您的 Web 應用程式將位於：
+如果您使用的 App Service 方案已建立於 App Service 環境中，請選取該方案、輸入 Web 應用程式的名稱，然後選取 [建立]。此流程與您往常建立 Web 應用程式時一樣。主要的差別在於您的 Web 應用程式將位於：
 
 [*站台名稱*].[*App Service 環境的名稱*].p.azurewebsites.net
  
@@ -39,7 +39,7 @@
 
 ### App Service 方案 ###
 
-App Service 方案是一組受管理的 Web 應用程式。當您選取定價時，支付的價格會套用到 App Service 方案，而非個別的應用程式。若要相應增加 Web 應用程式的執行個體數目，您可相應增加 ASP 的執行個體，這會影響該方案中的所有 Web 應用程式。方案中的某些功能 \(例如網站位置或 VNET 整合\) 也有數量限制。您可以進一步從以下文件了解 App Service 方案： [了解 Azure App Service 方案][Appserviceplans]
+App Service 方案是一組受管理的 Web 應用程式。當您選取定價時，支付的價格會套用到 App Service 方案，而非個別的應用程式。若要相應增加 Web 應用程式的執行個體數目，您可相應增加 ASP 的執行個體，這會影響該方案中的所有 Web 應用程式。方案中的某些功能 (例如網站位置或 VNET 整合) 也有數量限制。您可以進一步從以下文件了解 App Service 方案： [了解 Azure App Service 方案][Appserviceplans]
 
 如果您正在制定新的 Azure App Service 方案，這與在 Azure App Service 環境中建立 ASP 有一些差異。此外，您的背景工作選擇不同，因為 App Service 環境中沒有共用的背景工作。您必須使用的背景工作也就是由系統管理員配置給 App Service 環境的背景工作。這表示若要建立新的 ASP，配置給 App Service 環境的背景工作必須超過 App Service 環境中所有 ASP 的執行個體總數。如果您的 App Service 環境中沒有足夠的背景工作可建立您的 ASP，您需要與 App Service 環境系統管理員合作，一起新增背景工作。
 

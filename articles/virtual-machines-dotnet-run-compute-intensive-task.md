@@ -109,10 +109,10 @@
 
 1. 在您的部署機器 (不一定是您建立的虛擬機器) 上，下載 [Azure SDK for .NET](http://www.windowsazure.com/develop/net/)。
 2. 利用名為 **TSPSolver** 的專案建立 .NET 主控台應用程式。確定已針對 .**NET Framework 4** 或更新版本 (而非 **.NET Framework 4 用戶端設定檔**) 設定目標 Framework。執行下列動作，即可在您建立專案後設定此目標 Framework：在 Visual Studio 的功能表中，依序按一下 [**專案**]、[**屬性**]、[**應用程式**] 索引標籤，然後設定 [**目標 Framework**] 的值。
-3. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [**TSPSolver**]，然後依序按一下 [**新增參考**] 和 [**瀏覽**] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
+3. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [**TSPSolver**]，然後依序按一下 [**新增參考**] 和 [**瀏覽**] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **C:\Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
 4. 加入 System Runtime Serialization 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [**TSPSolver**]，然後依序按一下 [**新增參考**] 和 [**.NET**] 索引標籤，再選取 **System.Runtime.Serialization** 做為參考。
 5. 將這一節結尾的範例程式碼使用於 **Program.cs** 的內容。
-6. 修改 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 和 **your\_service\_bus\_key** 預留位置，以分別使用您的服務匯流排 [**命名空間**]、[**預設核發者**] 和 [**預設金鑰**] 值。
+6. 修改 **your_service_bus_namespace**、**your_service_bus_owner** 和 **your_service_bus_key** 預留位置，以分別使用您的服務匯流排 [**命名空間**]、[**預設核發者**] 和 [**預設金鑰**] 值。
 7. 編譯應用程式。這會在您專案的 **bin** 資料夾 (**bin\release** 或 **bin\debug**，視您的目標為版本或偵錯組建而定) 中建立 **TSPSolver.exe**。您稍後會將此可執行檔和 Microsoft.ServiceBus.dll 複製到您的虛擬機器。
 
 <p/>
@@ -341,10 +341,10 @@
 <h2>如何建立 .NET 應用程式以便監控需密集運算之工作的進度</h2>
 
 1. 在開發電腦上，以 **TSPClient** 作為專案名稱來建立 .NET 主控台應用程式。確定已針對 .**NET Framework 4** 或更新版本 (而非 **.NET Framework 4 用戶端設定檔**) 設定目標 Framework。執行下列動作，即可在您建立專案後設定此目標 Framework：在 Visual Studio 的功能表中，依序按一下 [**專案**]、[**屬性**]、[**應用程式**] 索引標籤，然後設定 [**目標 Framework**] 的值。
-2. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [**TSPSolver**]，然後依序按一下 [**新增參考**] 和 [**瀏覽**] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
+2. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [**TSPSolver**]，然後依序按一下 [**新增參考**] 和 [**瀏覽**] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **C:\Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
 3. 加入 System Runtime Serialization 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [**TSPClient**]，然後依序按一下 [**新增參考**] 和 [**.NET**] 索引標籤，再選取 [**System.Runtime.Serialization**] 做為參考。
 4. 將這一節結尾的範例程式碼使用於 **Program.cs** 的內容。
-5. 修改 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 和 **your\_service\_bus\_key** 預留位置，以分別使用您的服務匯流排 [**命名空間**]、[**預設核發者**] 和 [**預設金鑰**] 值。
+5. 修改 **your_service_bus_namespace**、**your_service_bus_owner** 和 **your_service_bus_key** 預留位置，以分別使用您的服務匯流排 [**命名空間**]、[**預設核發者**] 和 [**預設金鑰**] 值。
 5. 編譯應用程式。這會在您專案的 **bin** 資料夾 (**bin\release** 或 **bin\debug**，視您的目標為版本或偵錯組建而定) 中建立 **TSPClient.exe**。您可以從部署機器執行此程式碼，或將此可執行檔和 Microsoft.ServiceBus.dll 複製到將執行用戶端應用程式的機器 (不一定要在您的虛擬機器上)。
 
 <p/>

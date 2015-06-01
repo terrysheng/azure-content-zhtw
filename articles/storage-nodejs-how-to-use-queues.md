@@ -60,7 +60,7 @@ API 撰寫。所涵蓋的案例包括「**插入**」、「**查看**」、
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
 3.  您可以手動執行 **ls** 命令，確認已建立
-    已建立 **node\_modules** 資料夾。在該資料夾內，
+    已建立 **node_modules** 資料夾。在該資料夾內，
     您會找到 **azure-storage** 封裝，其中包含您存取儲存體
     所需的程式庫。
 
@@ -73,7 +73,7 @@ API 撰寫。所涵蓋的案例包括「**插入**」、「**查看**」、
 
 ## 設定 Azure 儲存體連接
 
-Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 和 AZURE\_STORAGE\_ACCESS\_KEY 或 AZURE\_STORAGE\_CONNECTION\_STRING，以取得連接到 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則在呼叫 **createQueueService** 時必須指定帳戶資訊。
+Azure 模組會讀取環境變數 AZURE_STORAGE_ACCOUNT 和 AZURE_STORAGE_ACCESS_KEY 或 AZURE_STORAGE_CONNECTION_STRING，以取得連接到 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則在呼叫 **createQueueService** 時必須指定帳戶資訊。
 
 如需在 Azure 網站管理入口網站中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]。
 

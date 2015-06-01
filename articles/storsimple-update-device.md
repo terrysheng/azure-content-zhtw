@@ -24,7 +24,7 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 
 您可以套用兩種類型的裝置更新：
 
-- 一般 \(或標準模式\) 更新
+- 一般 (或標準模式) 更新
 - 維護模式更新
 
 您可以透過管理入口網站或 Windows PowerShell 安裝一般更新，不過，必須使用 Windows PowerShell 來安裝維護模式更新。
@@ -57,19 +57,19 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 
 ## 透過 Windows PowerShell for StorSimple 安裝一般更新
 
-或者，您可以使用 Windows PowerShell for StorSimple 來套用一般 \(標準模式\) 更新。
+或者，您可以使用 Windows PowerShell for StorSimple 來套用一般 (標準模式) 更新。
 
 [AZURE.INCLUDE [storsimple-install-regular-updates-powershell](../includes/storsimple-install-regular-updates-powershell.md)]
 
 ## 透過 Windows PowerShell for StorSimple 安裝維護模式
 
-您使用 Windows PowerShell for StorSimple，將維護模式更新套用到 StorSimple 裝置。在此模式中，所有的 I/O 要求都會暫停。靜態隨機存取記憶體 \(NVRAM\) 之類的服務或叢集服務也會停止。這兩個控制站會在您進入或結束此模式時重新啟動。當您結束此模式時，所有的服務都將繼續執行，而且應該是健康情況良好的\(這可能需要數分鐘的時間\)。
+您使用 Windows PowerShell for StorSimple，將維護模式更新套用到 StorSimple 裝置。在此模式中，所有的 I/O 要求都會暫停。靜態隨機存取記憶體 (NVRAM) 之類的服務或叢集服務也會停止。這兩個控制站會在您進入或結束此模式時重新啟動。當您結束此模式時，所有的服務都將繼續執行，而且應該是健康情況良好的(這可能需要數分鐘的時間)。
 
 如果您需要套用維護模式更新，將會透過管理入口網站收到警示，指出您有必須安裝的更新。這個警示將包含使用 Windows PowerShell for StorSimple 安裝更新的相關指示。更新裝置之後，請使用相同的程序來將裝置變更為一般模式。如需逐步指示，請參閱[結束維護模式](#to-exit-maintenance-mode)。
 
 > [AZURE.IMPORTANT] 
 > 
-> - 進入維護模式之前，請確認這兩個裝置控制站的健康情況良好，方法是檢查管理入口網站中 \[維護\]**** 頁面上的 \[硬體狀態\]****。如果控制站的健康情況不好，請連絡 Microsoft 支援服務以進行後續步驟。如需詳細資訊，請參閱＜連絡 Microsoft 支援服務＞。 
+> - 進入維護模式之前，請確認這兩個裝置控制站的健康情況良好，方法是檢查管理入口網站中 [維護]**** 頁面上的 [硬體狀態]****。如果控制站的健康情況不好，請連絡 Microsoft 支援服務以進行後續步驟。如需詳細資訊，請參閱＜連絡 Microsoft 支援服務＞。 
 > - 當您處於維護模式時，需要先在某一個控制站上套用更新，然後在另一個控制站上套用更新。
 
 首先，使用 PuTTY 之類的應用程式來存取序列主控台。下列程序說明如何使用 PuTTY 來連接到序列主控台。
@@ -103,7 +103,7 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 
 ## 如果您執行裝置的原廠重設，更新該怎麼辦？
 
-如果將裝置重設為原廠設定，則所有更新都會遺失。在註冊並設定原廠重設裝置之後，您必須透過管理入口網站和 \(或\) Windows PowerShell for StorSimple 手動安裝更新。如需原廠重設的詳細資訊，請參閱[將裝置重設為原廠預設設定](https://msdn.microsoft.com/library/azure/dn772373.aspx)。
+如果將裝置重設為原廠設定，則所有更新都會遺失。在註冊並設定原廠重設裝置之後，您必須透過管理入口網站和 (或) Windows PowerShell for StorSimple 手動安裝更新。如需原廠重設的詳細資訊，請參閱[將裝置重設為原廠預設設定](https://msdn.microsoft.com/library/azure/dn772373.aspx)。
 
 ## 後續步驟
 

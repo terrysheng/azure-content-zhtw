@@ -27,7 +27,7 @@ Azure 機器學習服務是強大的雲端型預測分析服務，讓快速建�
 
 您輕鬆就能探索和建立 [Web 服務](machine-learning-publish-a-machine-learning-web-service.md)、[透過 API 訓練和重新訓練您的模型](machine-learning-retrain-models-programmatically.md)、根據各客戶[管理端點](machine-learning-create-endpoint.md)和[延伸 Web 服務](machine-learning-scaling-endpoints.md)，以及設定服務監視和偵錯的診斷。最新的功能包括：
 
-- 建立可設定的自訂 R 模型、整合自己的訓練/預測 R 指令碼，以及使用龐大的程式庫 \(如 numpy、scipy、pandas 或 scikit-learn\) 生態系統新增 Python 指令碼。您現在可以使用[以計數學習][learning-with-counts]來透過數 TB 的資料進行訓練、使用 PCA 或單一類別 SVM 進行異常偵測，以及輕鬆地使用熟悉的 SQLite 修改、篩選和清理資料。 
+- 建立可設定的自訂 R 模型、整合自己的訓練/預測 R 指令碼，以及使用龐大的程式庫 (如 numpy、scipy、pandas 或 scikit-learn) 生態系統新增 Python 指令碼。您現在可以使用[以計數學習][learning-with-counts]來透過數 TB 的資料進行訓練、使用 PCA 或單一類別 SVM 進行異常偵測，以及輕鬆地使用熟悉的 SQLite 修改、篩選和清理資料。 
 - [機器學習社群展示庫](machine-learning-gallery-how-to-use-contribute-publish.md)可讓您探索和使用其他人製作的有趣實驗。您可以在[展示庫](http://gallery.azureml.net)中對實驗發問或張貼評論，或是發佈自己的實驗。您可以透過 LinkedIn 和 Twitter 等社交管道分享有趣實驗的連結。展示庫是使用者入門 Azure 機器學習服務，並從社群中其他人學習的好方法。 ![在 Azure 機器學習展示庫中試做預測分析範本或提供您自己的範本](./media/machine-learning-what-is-machine-learning/AzureMLGallery.png)
 - 您可以透過 Azure 訂閱購買 [Marketplace app](https://datamarket.azure.com/browse?query=machine+learning)，並直接從 Azure Marketplace 使用已完成的「建議」、「文字分析」及「異常偵測」 Web 服務。 
 - 「資料科學」之旅的逐步指南，從原始資料到實用的 Web 服務，讓前進雲端型資料科學的路程更輕鬆。我們在 Azure 機器學習服務加入可以使用  iPython Notebook 和 Python Tools for Visual Studio 等熱門工具的功能

@@ -41,27 +41,27 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 
 ### 新增 REDIS_HOST 應用程式設定
 
-您必須建立的第一個應用程式設定是 **REDIS\_HOST** 應用程式設定。此設定會設定目的地，供填充碼轉送快取資訊至此目的地。REDIS_HOST 應用程式設定所需要的值，可擷取自 Redis Cache 執行個體的 [屬性] 刀鋒視窗。
+您必須建立的第一個應用程式設定是 **REDIS_HOST** 應用程式設定。此設定會設定目的地，供填充碼轉送快取資訊至此目的地。REDIS_HOST 應用程式設定所需要的值，可擷取自 Redis Cache 執行個體的 [屬性] 刀鋒視窗。
 
 ![Azure Redis Cache Host Name](./media/web-sites-connect-to-redis-using-memcache-protocol/2-azure-redis-cache-hostname.png)
 
-將應用程式設定的索引鍵設定為 **REDIS\_HOST**，應用程式設定的值設定為 Redis Cache 執行個體的**主機名稱**。
+將應用程式設定的索引鍵設定為 **REDIS_HOST**，應用程式設定的值設定為 Redis Cache 執行個體的**主機名稱**。
 
 ![Web App AppSetting REDIS_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
 
 ### 新增 REDIS_KEY 應用程式設定
 
-您必須建立的第二個應用程式設定是 **REDIS\_KEY** 應用程式設定。此設定提供安全存取 Redis Cache 執行個體所需的驗證權杖。REDIS_KEY 應用程式設定所需要的值，可擷取自 Redis Cache 執行個體的 [存取索引鍵] 刀鋒視窗。
+您必須建立的第二個應用程式設定是 **REDIS_KEY** 應用程式設定。此設定提供安全存取 Redis Cache 執行個體所需的驗證權杖。REDIS_KEY 應用程式設定所需要的值，可擷取自 Redis Cache 執行個體的 [存取索引鍵] 刀鋒視窗。
 
 ![Azure Redis Cache Primary Key](./media/web-sites-connect-to-redis-using-memcache-protocol/4-azure-redis-cache-primarykey.png)
 
-將應用程式設定的索引鍵設定為 **REDIS\_KEY**，應用程式設定的值設定為 Redis Cache 執行個體的**主要索引鍵**。
+將應用程式設定的索引鍵設定為 **REDIS_KEY**，應用程式設定的值設定為 Redis Cache 執行個體的**主要索引鍵**。
 
 ![Azure Website AppSetting REDIS_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
 
 ### 新增 MEMCACHESHIM_REDIS_ENABLE 應用程式設定
 
-最後的應用程式設定可用來在 Web 應用程式中啟用 Memcache 填充碼，它將使用 REDIS_HOST 和 REDIS_KEY 來連線到 Azure Redis Cache 並轉送快取呼叫。將應用程式設定的索引鍵設定為 **MEMCACHESHIM\_REDIS\_ENABLE**，值設定為 **true**。
+最後的應用程式設定可用來在 Web 應用程式中啟用 Memcache 填充碼，它將使用 REDIS_HOST 和 REDIS_KEY 來連線到 Azure Redis Cache 並轉送快取呼叫。將應用程式設定的索引鍵設定為 **MEMCACHESHIM_REDIS_ENABLE**，值設定為 **true**。
 
 ![Web App AppSetting MEMCACHESHIM_REDIS_ENABLE](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
 
@@ -83,7 +83,7 @@ Web Apps Memcache 填充碼可以搭配任何應用程式，只要應用程式�
 
 ### 啟用 php_memcache 延伸模組
 
-下載檔案之後，解壓縮並上傳 **php\_memcache.dll** 至 **d:\\home\\site\\wwwroot\\bin\\ext\\** 目錄。php_memcache.dll 上傳至 Web 應用程式之後，延伸模組必須啟用至 PHP 執行階段。若要在 Azure 入口網站中啟用 Memcache 延伸模組，請開啟 Web 應用程式的 [應用程式設定] 刀鋒視窗，然後新增索引鍵為 **PHP\_EXTENSIONS** 且值為 **bin\\ext\\php_memcache.dll** 的應用程式設定。
+下載檔案之後，解壓縮並上傳 **php_memcache.dll** 至 **d:\\home\\site\\wwwroot\\bin\\ext** 目錄。php_memcache.dll 上傳至 Web 應用程式之後，延伸模組必須啟用至 PHP 執行階段。若要在 Azure 入口網站中啟用 Memcache 延伸模組，請開啟 Web 應用程式的 [應用程式設定] 刀鋒視窗，然後新增索引鍵為 **PHP_EXTENSIONS** 且值為 **bin\\ext\\php_memcache.dll** 的應用程式設定。
 
 
 > 如果 Web 應用程式需要載入多個 PHP 延伸模組，PHP_EXTENSIONS 的值應該是 DLL 檔案相對路徑以逗號分隔的清單。

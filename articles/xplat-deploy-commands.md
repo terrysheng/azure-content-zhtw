@@ -21,7 +21,7 @@
 ## 安裝 curl、wget 或其他下載工具
 本主題使用 **curl**。使用作業系統的封裝管理員，或從[這裡](http://curl.haxx.se/download.html)下載。
 
-## 下載範本參數檔案 \(或是視需要下載範本\)
+## 下載範本參數檔案 (或是視需要下載範本)
 
 下列步驟可讓您部署一個 Azure 範本，即使它是一個複雜的範本。本主題使用範本來建立已安裝 customscript VM 延伸模組的基本 Ubuntu 伺服器做為範例。主題結尾處也會包含檔案，以供參考。
 
@@ -33,7 +33,7 @@
     
 ## 輸入您的資源群組部署資訊
     
-使用您最愛的編輯器來開啟這個檔案。您將會看到您需要為數個索引鍵指定值，特別是 **adminUsername**、**adminPassword** \(請記住複雜性規則！\)，以及儲存體帳戶名稱和您想要的 DNS 名稱。
+使用您最愛的編輯器來開啟這個檔案。您將會看到您需要為數個索引鍵指定值，特別是 **adminUsername**、**adminPassword** (請記住複雜性規則！)，以及儲存體帳戶名稱和您想要的 DNS 名稱。
     
     {
       "newStorageAccountName": {
@@ -71,7 +71,7 @@
       }
     }
     
-加入新值 \(如果可以，Azure 將會為您建立新的儲存體和 DNS 資源\) 或是使用您已經建立的資源。下列 azuredeploy-parameters.json 檔案會示範範例：
+加入新值 (如果可以，Azure 將會為您建立新的儲存體和 DNS 資源) 或是使用您已經建立的資源。下列 azuredeploy-parameters.json 檔案會示範範例：
 
 
 
@@ -89,7 +89,7 @@
 如果您的範本直接包含它的參數，或者您想要自行擷取參數資料。如需範本結構的詳細資訊，請參閱 [Azure 資源管理員範本語言](https://msdn.microsoft.com/library/azure/dn835138.aspx)。
 
 
-https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy.json \(或只有 azuredeploy-parameters.json 檔案\) 您可以擷取範本的參數區段 -- 在這種情況下，您需要將它儲存回範本本身內部，或者儲存為個別的 azuredeploy-parameters.json 檔案。您需要取得要放入參數的值。
+https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy.json (或只有 azuredeploy-parameters.json 檔案) 您可以擷取範本的參數區段 -- 在這種情況下，您需要將它儲存回範本本身內部，或者儲存為個別的 azuredeploy-parameters.json 檔案。您需要取得要放入參數的值。
 
 ## 修改 azuredeploy-templates.json 檔案
 

@@ -47,7 +47,7 @@
 
 以加密、驗證公司使用者是現場或遠端使用者的方式保護資產，並授權他們使用資產。 
 
-使用 [HTTPS] 保護內部資產，以防止監聽者竊取資訊。**\*.azurewebsites.net** 網域名稱已經有 SSL 憑證，若您使用自訂網域，您可以將您的 SSL 憑證應用在 Azure 網站中。每個 SSL 憑證每月會有一筆相關費用 (以小時計)。如需詳細資訊，請參閱[網站定價詳細資料]。
+使用 [HTTPS] 保護內部資產，以防止監聽者竊取資訊。***.azurewebsites.net** 網域名稱已經有 SSL 憑證，若您使用自訂網域，您可以將您的 SSL 憑證應用在 Azure 網站中。每個 SSL 憑證每月會有一筆相關費用 (以小時計)。如需詳細資訊，請參閱[網站定價詳細資料]。
 
 針對公司目錄[驗證使用者]。Azure 網站可以向內部部署的身分識別提供者 (例如，Active Directory Federation Services (AD FS)) 驗證使用者，或向已和您公司的 Active Directory 部署同步的 Azure Active Directory 租用戶驗證使用者。當使用者在辦公室內或外出時，均可透過單一登入存取您在 Azure 網站的 Web 內容。現有的服務 (例如 Office 365 或 Windows Intune) 已在使用 Azure Active Directory。透過[簡單驗證]，以相同的 Azure Active Directory 租用戶開啟網站的驗證功能非常容易。 
 

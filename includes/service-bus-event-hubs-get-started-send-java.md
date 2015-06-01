@@ -5,7 +5,7 @@
 
 2. 從[這裡](http://qpid.apache.org/components/qpid-jms/index.html)下載最新版的 **Qpid JMS AMQP 1.0** 程式庫。
 
-3. 從封存中解壓縮檔案，並將下列 jars 從封存  `qpid-amqp-1-0-client-jms\<version>\lib` 目錄複製到 Eclipse **Sender** 專案。。
+3. 從封存中解壓縮檔案，並將下列 jars 從封存  `qpid-amqp-1-0-client-jms<version>\lib` 目錄複製到 Eclipse **Sender** 專案。。
 
 4. 在 Eclipse 封裝總管中，以滑鼠右鍵按一下 **Sender** 專案，然後選取 [**屬性**]。在對話方塊的左窗格中，按一下 [**Java 組建路徑**]，然後依序按一下 [**程式庫**] 索引標籤和 [**新增 JAR**] 按鈕。選取所有先前複製的 jar，然後按一下 [**確定**]。
 

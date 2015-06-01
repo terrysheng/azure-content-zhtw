@@ -92,7 +92,7 @@
 
 ## 設定 Azure 服務匯流排連接
 
-Azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_SERVICEBUS\_ACCESS_KEY**，找出連接 Azure 服務匯流排命名空間所需的資訊。若未設定這些環境變數，您必須使用下列程式碼，在使用 **Azure::ServiceBusService** 之前指定命名空間資訊：
+Azure 模組會讀取環境變數 **AZURE_SERVICEBUS_NAMESPACE** 和 **AZURE_SERVICEBUS_ACCESS_KEY**，找出連接 Azure 服務匯流排命名空間所需的資訊。若未設定這些環境變數，您必須使用下列程式碼，在使用 **Azure::ServiceBusService** 之前指定命名空間資訊：
 
     Azure.config.sb_namespace = "<your azure service bus namespace>"
     Azure.config.sb_access_key = "<your azure service bus access key>"
@@ -120,9 +120,9 @@ Azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 ## 如何傳送訊息至佇列
 
-若要傳送訊息至服務匯流排佇列，您的應用程式必須在 **Azure::ServiceBusService** 物件上呼叫 **send\_queue\_message()** 方法。傳送至服務匯排流 (以及服務匯流排接收) 的佇列是 **Azure::ServiceBus::BrokeredMessage** 物件，此類物件具有一組標準屬性 (例如 **label** 和 **time\_to\_live**)、一個用來保存自訂應用程式特定屬性的字典，以及一堆任意的應用程式資料。應用程式可用訊息的形式傳遞字串值以設定訊息內文，任何必要的標準屬性都將以預設值填入。
+若要傳送訊息至服務匯流排佇列，您的應用程式必須在 **Azure::ServiceBusService** 物件上呼叫 **send_queue_message()** 方法。傳送至服務匯排流 (以及服務匯流排接收) 的佇列是 **Azure::ServiceBus::BrokeredMessage** 物件，此類物件具有一組標準屬性 (例如 **label** 和 **time_to_live**)、一個用來保存自訂應用程式特定屬性的字典，以及一堆任意的應用程式資料。應用程式可用訊息的形式傳遞字串值以設定訊息內文，任何必要的標準屬性都將以預設值填入。
 
-下列範例示範如何使用 **send\_queue\_message()** 將測試訊息傳送至名為 "test-queue" 的佇列：
+下列範例示範如何使用 **send_queue_message()** 將測試訊息傳送至名為 "test-queue" 的佇列：
 
     message = Azure::ServiceBus::BrokeredMessage.new("test queue message")
     message.correlation_id = "test-correlation-id"
@@ -132,13 +132,13 @@ Azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 ## 如何從佇列接收訊息
 
-您可以使用 **Azure::ServiceBusService** 物件的 **receive\_queue\_message()** 方法接收來自佇列的訊息。根據預設，在讀取及鎖定訊息後並不會將其從佇列中刪除。但您可以將 **:peek_lock** 選項設為 **false**，而在讀取訊息後將其從佇列中刪除。
+您可以使用 **Azure::ServiceBusService** 物件的 **receive_queue_message()** 方法接收來自佇列的訊息。根據預設，在讀取及鎖定訊息後並不會將其從佇列中刪除。但您可以將 **:peek_lock** 選項設為 **false**，而在讀取訊息後將其從佇列中刪除。
 
-預設行為會使讀取和刪除變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可呼叫 **delete\_queue\_message()** 方法，並將要刪除的訊息提供做為參數，以完成接收程序的第二個階段。**delete\_queue\_message()** 方法會將訊息標示為已取用，並將它從佇列中移除。
+預設行為會使讀取和刪除變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可呼叫 **delete_queue_message()** 方法，並將要刪除的訊息提供做為參數，以完成接收程序的第二個階段。**delete_queue_message()** 方法會將訊息標示為已取用，並將它從佇列中移除。
 
-如果 **:peek\_lock** 參數設為 **false**，讀取和刪除訊息將會變成最簡單的模型，且最適用於應用程式容許在發生失敗時不處理訊息的案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
+如果 **:peek_lock** 參數設為 **false**，讀取和刪除訊息將會變成最簡單的模型，且最適用於應用程式容許在發生失敗時不處理訊息的案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
-下列範例將示範如何使用 **receive\_queue\_message()** 來接收與處理訊息。此範例會先使用設為 **false** 的 **:peek\_lock** 來接收及刪除訊息，然後再接收另一個訊息，接著使用 **delete\_queue\_message()** 刪除訊息：
+下列範例將示範如何使用 **receive_queue_message()** 來接收與處理訊息。此範例會先使用設為 **false** 的 **:peek_lock** 來接收及刪除訊息，然後再接收另一個訊息，接著使用 **delete_queue_message()** 刪除訊息：
 
     message = azure_service_bus_service.receive_queue_message("test-queue", 
 	  { :peek_lock => false })
@@ -147,11 +147,11 @@ Azure 模組會讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 ## 如何處理應用程式當機與無法讀取的訊息
 
-服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。如果接收者應用程式因故無法處理訊息，它可以呼叫 **Azure::ServiceBusService** 物件的 **unlock\_queue\_message()** 方法。這將導致服務匯流排將佇列中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
+服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。如果接收者應用程式因故無法處理訊息，它可以呼叫 **Azure::ServiceBusService** 物件的 **unlock_queue_message()** 方法。這將導致服務匯流排將佇列中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
 
 與在佇列內鎖定之訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
 
-如果應用程式在處理訊息之後，但在尚未呼叫 **delete\_queue\_message()** 方法之前當機，則會在應用程式重新啟動時，將訊息重新傳遞給該應用程式。這通常稱為「至少處理一次」****，也就是說，每個訊息至少會處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可以使用訊息的 **message\_id** 屬性來達到此目的，該屬性將在各個傳遞嘗試中保持不變。
+如果應用程式在處理訊息之後，但在尚未呼叫 **delete_queue_message()** 方法之前當機，則會在應用程式重新啟動時，將訊息重新傳遞給該應用程式。這通常稱為「至少處理一次」****，也就是說，每個訊息至少會處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可以使用訊息的 **message_id** 屬性來達到此目的，該屬性將在各個傳遞嘗試中保持不變。
 
 ## 後續步驟
 

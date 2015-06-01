@@ -325,10 +325,10 @@ Chrome 應用程式是使用 JavaScript 建立的，您可以使用任何慣用�
 		function sendNHRegistrationRequest()
 		{
 		  var registrationPayload = 
-		  "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-		  "<entry xmlns=\"http://www.w3.org/2005/Atom\">" + 
-		      "<content type=\"application/xml\">" + 
-		          "<GcmRegistrationDescription xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/netservices/2010/10/servicebus/connect\">" +
+		  "<?xml version="1.0" encoding="utf-8"?>" +
+		  "<entry xmlns="http://www.w3.org/2005/Atom">" + 
+		      "<content type="application/xml">" + 
+		          "<GcmRegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect">" +
 		              "<GcmRegistrationId>{GCMRegistrationId}</GcmRegistrationId>" +
 		          "</GcmRegistrationDescription>" +
 		      "</content>" +
@@ -391,7 +391,7 @@ Chrome 應用程式是使用 JavaScript 建立的，您可以使用任何慣用�
 
    	![][16]
 
-2. 按一下 [**載入解壓縮的延伸模組**]，並導覽至您建立檔案的資料夾。您也可以選擇性地使用 [**Chrome 應用程式和延伸模組開發人員工具**] \(這本身也是 Chrome 應用程式，且必須從 Chrome Web 市集安裝)，並提供您的 Chrome 應用程式開發所需的進階偵錯功能。 
+2. 按一下 [**載入解壓縮的延伸模組**]，並導覽至您建立檔案的資料夾。您也可以選擇性地使用 [**Chrome 應用程式和延伸模組開發人員工具**] (這本身也是 Chrome 應用程式，且必須從 Chrome Web 市集安裝)，並提供您的 Chrome 應用程式開發所需的進階偵錯功能。 
 
    	![][17]
 
@@ -433,7 +433,7 @@ Chrome 應用程式是使用 JavaScript 建立的，您可以使用任何慣用�
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            String message = "{\"data\":{\"message\":\"Hello Chrome from Azure Notification Hubs\"}}";
+            String message = "{"data":{"message":"Hello Chrome from Azure Notification Hubs"}}";
             await hub.SendGcmNativeNotificationAsync(message);
         }
 

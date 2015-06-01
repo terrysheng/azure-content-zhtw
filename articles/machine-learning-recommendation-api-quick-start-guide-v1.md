@@ -18,7 +18,8 @@
 
 # Machine Learning Recommendations API 的快速入門指南
 
-版本：1.0<br> 您可以在[這裡](machine-learning-recommendation-api-quick-start-guide.md)找到
+版本：1.0<br>
+您可以在[這裡](machine-learning-recommendation-api-quick-start-guide.md)找到
 
 本文件說明如何將裝載您的服務或應用程式才能使用 Azure ML Recommendations。
 
@@ -30,9 +31,9 @@
 
 * 建立模型 - 模型是使用資料、目錄資料和建議模型的容器。
 * 匯入目錄資料 - 這是選擇性步驟。目錄包含項目的中繼資料資訊。如果您未上傳目錄資料，則 Recommendations 服務將從使用資料隱含了解您的目錄。
-* 匯入使用資料 - 上傳使用資料的方式有 2 種 \(使用其中一種或兩種皆用\)：
+* 匯入使用資料 - 上傳使用資料的方式有 2 種 (使用其中一種或兩種皆用)：
 	* 上傳包含使用資料的檔案。
-	* 傳送資料擷取事件。通常您會上傳使用檔案以便建立初始建議模型 \(啟動程序\)，並在系統使用資料擷取格式蒐集足夠的資料之前使用它。
+	* 傳送資料擷取事件。通常您會上傳使用檔案以便建立初始建議模型 (啟動程序)，並在系統使用資料擷取格式蒐集足夠的資料之前使用它。
 * 建立建議模型 - 這是非同步作業，建議系統會接受所有使用資料並建立建議模型。視資料大小和組建組態參數而定，這項作業可能需要數分鐘或數小時的時間。在觸發您將取得組建 ID 的組建時，請在開始取用建議之前，使用它來檢查建置程序何時結束。 
 * 建議取用 - 取得特定項目或項目清單的建議。
 
@@ -42,9 +43,9 @@
 
 * 每個訂用帳戶的模型數上限：10
 * 一個目錄可保留的項目數上限：100,000
-* 保留的使用點數量上限是 \~5,000,000。如果將上傳或回報新的點，就會將最舊的點刪除。
-* 可以利用 POST 傳送 \(例如：匯入目錄資料、匯入使用資料\) 的資料大小上限為 200 MB。
-* 不在作用中的建議模型組建的每秒交易數是 \~2TPS；只有作用中的建議模型組建可以保留高達 20TPS。
+* 保留的使用點數量上限是 ~5,000,000。如果將上傳或回報新的點，就會將最舊的點刪除。
+* 可以利用 POST 傳送 (例如：匯入目錄資料、匯入使用資料) 的資料大小上限為 200 MB。
+* 不在作用中的建議模型組建的每秒交易數是 ~2TPS；只有作用中的建議模型組建可以保留高達 20TPS。
 
 ##整合
 
@@ -57,7 +58,7 @@
 完整服務 URI 是使用 OData 規格的元素來表示。
 
 ###API 版本
-每個 API 呼叫最後會有名為 apiVersion 的查詢參數 \(應設為 "1.0"\)
+每個 API 呼叫最後會有名為 apiVersion 的查詢參數 (應設為 "1.0")
 
 ###建立模型
 建立「建立模型」的要求：
@@ -68,9 +69,10 @@
 
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
-|	modelName |	只允許使用字母 \(A-Z、a-z\)、數字 \(0-9\)、連字號 \(-\) 及底線 \(\_\)。<br>最大長度：20 |
-|	apiVersion | 1\.0 |
-\|\|\| \| 要求主體 \| 無 \|
+|	modelName |	只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (_)。<br>最大長度：20 |
+|	apiVersion | 1.0 |
+|||
+| 要求主體 | 無 |
 
 
 **回應**：
@@ -121,9 +123,10 @@ OData XML
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼。 |
-| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 \(A-Z、a-z\)、數字 \(0-9\)、連字號 \(-\) 及底線 \(\_\)<br>最大長度：50 |
-|	apiVersion | 1\.0 |
-\|\|\| \| 要求本文 \| 目錄資料。格式：<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>項目識別碼</td><td>是</td><td>英數字元，最大長度 50</td><td>項目的唯一識別碼</td></tr><tr><td>項目名稱</td><td>是</td><td>英數字元，最大長度 255</td><td>項目名稱</td></tr><tr><td>項目類別</td><td>是</td><td>英數字元，最大長度 255</td><td>此項目所屬類別 \(例如烹飪書籍、劇本...\)</td></tr><tr><td>描述</td><td>否</td><td>英數字元，最大長度 4000</td><td>這個項目的描述</td></tr></table><br>檔案大小上限為 200MB<br><br>範例：<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction \(Byzantium Book\),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> \|
+| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (_)<br>最大長度：50 |
+|	apiVersion | 1.0 |
+|||
+| 要求本文 | 目錄資料。格式：<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>項目識別碼</td><td>是</td><td>英數字元，最大長度 50</td><td>項目的唯一識別碼</td></tr><tr><td>項目名稱</td><td>是</td><td>英數字元，最大長度 255</td><td>項目名稱</td></tr><tr><td>項目類別</td><td>是</td><td>英數字元，最大長度 255</td><td>此項目所屬類別 (例如烹飪書籍、劇本...)</td></tr><tr><td>描述</td><td>否</td><td>英數字元，最大長度 4000</td><td>這個項目的描述</td></tr></table><br>檔案大小上限為 200MB<br><br>範例：<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **回應**：
@@ -169,9 +172,10 @@ OData XML
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼。 |
-| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 \(A-Z、a-z\)、數字 \(0-9\)、連字號 \(-\) 及底線 \(\_\)<br>最大長度：50 |
-|	apiVersion | 1\.0 |
-\|\|\| \| 要求本文 \| 使用資料。格式：<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>使用者識別碼</td><td>是</td><td>英數字元</td><td>使用者的唯一識別碼</td></tr><tr><td>項目識別碼</td><td>是</td><td>英數字元，最大長度 50</td><td>項目的唯一識別碼</td></tr><tr><td>時間</td><td>否</td><td>日期格式：YYYY/MM/DDTHH:MM:SS \(例如 2013/06/20T10:00:00\)</td><td>資料的時間</td></tr><tr><td>事件</td><td>否；如果提供，也必須註明日期</td><td>下列其中之一：<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>檔案大小上限：200 MB<br><br>範例<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> \|
+| 檔名 | 目錄的文字識別碼。<br>只允許使用字母 (A-Z、a-z)、數字 (0-9)、連字號 (-) 及底線 (_)<br>最大長度：50 |
+|	apiVersion | 1.0 |
+|||
+| 要求本文 | 使用資料。格式：<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>名稱</th><th>強制</th><th>類型</th><th>描述</th></tr><tr><td>使用者識別碼</td><td>是</td><td>英數字元</td><td>使用者的唯一識別碼</td></tr><tr><td>項目識別碼</td><td>是</td><td>英數字元，最大長度 50</td><td>項目的唯一識別碼</td></tr><tr><td>時間</td><td>否</td><td>日期格式：YYYY/MM/DDTHH:MM:SS (例如 2013/06/20T10:00:00)</td><td>資料的時間</td></tr><tr><td>事件</td><td>否；如果提供，也必須註明日期</td><td>下列其中之一：<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>檔案大小上限：200 MB<br><br>範例<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **回應**：
 
@@ -208,7 +212,7 @@ OData XML
 
 
 ####使用資料擷取
-本節示範如何將事件即時傳送到 Azure ML Recommendations \(通常是從您的網站\)。
+本節示範如何將事件即時傳送到 Azure ML Recommendations (通常是從您的網站)。
 
 | HTTP 方法 | URI |
 |:--------|:--------|
@@ -216,9 +220,9 @@ OData XML
 
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 
-Request body
+要求本文
 
 	Event data entry for each event you want to send. You should send for the same user or browser session the same id in the SessionId field.
 
@@ -309,7 +313,8 @@ Request body
   	</EventData>
 	</Event>
 
-**回應**：HTTP 狀態碼：200
+**回應**：
+HTTP 狀態碼：200
 
 ###建立建議模型
 
@@ -321,8 +326,9 @@ Request body
 |:--------			|:--------								|
 | modelId |	模型的唯一識別碼。 |
 | userDescription | 目錄的文字識別碼。請注意，如果您使用空格，必須將其編碼改成 %20。請參閱上面的範例。<br>最大長度：50 |
-| apiVersion | 1\.0 |
-\|\|\| \| 要求主體 \| 無 \|
+| apiVersion | 1.0 |
+|||
+| 要求主體 | 無 |
 
 **回應**：
 
@@ -393,7 +399,7 @@ HTTP 狀態碼：200
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼。 |
 |	onlyLastBuild |	指出是要傳回模型的所有組建歷程記錄，還是只傳回最近一個組建的狀態。 |
-|	apiVersion |	1\.0 |
+|	apiVersion |	1.0 |
 
 
 **回應**：
@@ -455,10 +461,10 @@ HTTP 狀態碼：200
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 | modelId | 模型的唯一識別碼。 |
-| itemIds | 要建議之項目的清單 \(以逗號分隔\)。<br>最大長度：200 |
+| itemIds | 要建議之項目的清單 (以逗號分隔)。<br>最大長度：200 |
 | numberOfResults | 必要結果的數目。 |
 | includeMetatadata | 日後使用，永遠為 false。 |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **回應：**
 
@@ -621,7 +627,8 @@ HTTP 狀態碼：200
 	</feed>
 
 ###更新模型
-您可以更新模型描述或使用中組建 ID。*作用中組建識別碼* - 每個模型的每個組建都有「組建識別碼」。使用中「組建 Id」是每個新模型的第一個成功組建。一旦您有使用中的組建 Id，而且您進行相同模型的其他建置，您可以視需要將它明確地設定為預設組建 Id。當您取用建議時，如果您未指定想要使用的組建 Id，將會自動使用預設值。
+您可以更新模型描述或使用中組建 ID。
+*作用中組建識別碼* - 每個模型的每個組建都有「組建識別碼」。使用中「組建 Id」是每個新模型的第一個成功組建。一旦您有使用中的組建 Id，而且您進行相同模型的其他建置，您可以視需要將它明確地設定為預設組建 Id。當您取用建議時，如果您未指定想要使用的組建 Id，將會自動使用預設值。
 
 此機制可讓您在生產環境中有建議模型後建立新模型，並先加以測試，再提升至生產環境。
 
@@ -633,8 +640,9 @@ HTTP 狀態碼：200
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 | id | 模型的唯一識別碼。 |
-| apiVersion | 1\.0 |
-\|\|\| \| 要求本文 \| `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>請注意，xml 標記 Description 和 ActiveBuildId 為選擇性。如果您不想要設定 Description 或 ActiveBuildId，請移除整個標記。 \|
+| apiVersion | 1.0 |
+|||
+| 要求本文 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>請注意，xml 標記 Description 和 ActiveBuildId 為選擇性。如果您不想要設定 Description 或 ActiveBuildId，請移除整個標記。 |
 
 **回應**：
 
@@ -651,6 +659,9 @@ HTTP 狀態碼：200
 	</feed>
 
 ##法律
-這份文件係依 「現狀」提供。本文件中提供的資訊與畫面 \(包括 URL 及其他網際網路網站參考資料\) 如有變更，恕不另行通知。此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實的人、事、物。本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。© 2014 Microsoft.著作權所有，並保留一切權利。
+這份文件係依 「現狀」提供。本文件中提供的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更，恕不另行通知。
+此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實的人、事、物。
+本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。
+© 2014 Microsoft.著作權所有，並保留一切權利。
 
 <!--HONumber=54-->

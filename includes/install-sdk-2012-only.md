@@ -6,11 +6,11 @@
 
 	- [Azure SDK for Visual Studio 2012][]
 
-	**注意：**視您的電腦上有多少 SDK 相依性而定，安裝 SDK 可能需要很長的時間 \(從數分鐘到半小時以上不等\)。
+	**注意：**視您的電腦上有多少 SDK 相依性而定，安裝 SDK 可能需要很長的時間 (從數分鐘到半小時以上不等)。
 
-2. 當系統提示您執行或儲存安裝可執行檔時，請按一下 \[執行\]。
+2. 當系統提示您執行或儲存安裝可執行檔時，請按一下 [執行]。
 
-3. 在 \[Web Platform Installer\] 視窗中，按一下 \[安裝\] 並繼續進行安裝。
+3. 在 [Web Platform Installer] 視窗中，按一下 [安裝] 並繼續進行安裝。
 
 	![Web Platform Installer - Azure SDK for .NET][WebPIAzureSdk]
 

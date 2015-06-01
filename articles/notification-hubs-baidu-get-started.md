@@ -39,7 +39,7 @@
 
 若要使用百度，您必須建立帳戶。如果您已經有帳戶，請使用您的百度帳戶登入[百度入口網站]並跳到下一步；否則請參閱下方關於如何建立新的百度帳戶的指示。  
 
-1. 移至[百度入口網站]，然後按一下 [登录] \(登入) 連結。按一下 [立即注册] 以開始新的帳戶註冊程序。 
+1. 移至[百度入口網站]，然後按一下 [登录] (登入) 連結。按一下 [立即注册] 以開始新的帳戶註冊程序。 
 
    	![][1]
 
@@ -373,15 +373,15 @@
 		    @Override
 		    public void onNotificationClicked(Context context, String title,
 		            String description, String customContentString) {
-		        String notifyString = "title=\"" + title + "\" description=\""
-		                + description + "\" customContent=" + customContentString;
+		        String notifyString = "title="" + title + "" description=""
+		                + description + "" customContent=" + customContentString;
 		        Log.d(TAG, notifyString);
 		    }
 		
 		    @Override
 		    public void onMessage(Context context, String message,
 		            String customContentString) {
-		        String messageString = "message=\"" + message + "\" customContentString=" + customContentString;
+		        String messageString = "message="" + message + "" customContentString=" + customContentString;
 		        Log.d(TAG, messageString);
 		    }
 		}
@@ -417,7 +417,7 @@
 		private static async void SendNotificationAsync()
 		{
 			NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("DefaultFullSharedAccessSignatureSASConnectionString", "NotificationHubName");
-			string message = "{\"title\":\"((Notification title))\",\"description\":\"Hello from Azure\"}";
+			string message = "{"title":"((Notification title))","description":"Hello from Azure"}";
 			var result = await hub.SendBaiduNativeNotificationAsync(message);
 		}
 

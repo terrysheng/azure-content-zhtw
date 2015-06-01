@@ -32,7 +32,7 @@
 
 - 從[這裡](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)下載以及安裝 puttygen： 
 - 執行 puttygen.exe。
-- 按一下 \[產生\] 來產生金鑰。
+- 按一下 [產生] 來產生金鑰。
 
 
  ![image](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p01.png)
@@ -41,8 +41,8 @@
  
  ![image](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p02.png)
 
-- 複製公開金鑰，然後儲存在名為 "publicKey.pem" 的檔案中。不要只是按一下 \[儲存公開金鑰\] 按鈕，因為儲存的公開金鑰檔案格式與我們想要的公開金鑰不同。
-- 按一下 \[儲存私密金鑰\] 按鈕，然後儲存為 "privateKey.ppk"。 
+- 複製公開金鑰，然後儲存在名為 "publicKey.pem" 的檔案中。不要只是按一下 [儲存公開金鑰] 按鈕，因為儲存的公開金鑰檔案格式與我們想要的公開金鑰不同。
+- 按一下 [儲存私密金鑰] 按鈕，然後儲存為 "privateKey.ppk"。 
 
 ###登入 Azure 入口網站
 
@@ -50,7 +50,7 @@
 
 ###建立 Linux VM
 
-按一下左下方的 \[新增\]，依照下列操作方法建立映像，並根據實際需要選擇 Linux 映像。現在我選擇 Ubuntu 14.04 做為範例。
+按一下左下方的 [新增]，依照下列操作方法建立映像，並根據實際需要選擇 Linux 映像。現在我選擇 Ubuntu 14.04 做為範例。
 
   ![image](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p03.png)
 
@@ -62,7 +62,7 @@
   
 
 ##開啟 MySQL 預設連接埠
-Microsoft Azure 中的端點包含通訊協定以及公用連接埠和私用連接埠。私用連接埠是這個服務接聽本機電腦時會用到的連接埠。公用連接埠是服務接聽外部時會用到的連接埠。連接埠 3306 是 MySQL 會接聽的預設連接埠號碼。按一下 \[瀏覽\] ⇒ \[虛擬機器\]，然後按一下您建立的映像。
+Microsoft Azure 中的端點包含通訊協定以及公用連接埠和私用連接埠。私用連接埠是這個服務接聽本機電腦時會用到的連接埠。公用連接埠是服務接聽外部時會用到的連接埠。連接埠 3306 是 MySQL 會接聽的預設連接埠號碼。按一下 [瀏覽] ⇒ [虛擬機器]，然後按一下您建立的映像。
  
    ![image](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p05.png)
 
@@ -81,11 +81,11 @@ Microsoft Azure 中的端點包含通訊協定以及公用連接埠和私用連�
 
    ![image](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p06.png)
  
-- 選取 \[開啟\] 之前，先依序按一下 \[連線\] \> \[SSH\] \> \[驗證\] 索引標籤，然後找出 Puttygen 產生的檔案，裡面有一個私密金鑰。請參閱以下螢幕擷取畫面，以了解要填入的欄位。
+- 選取 [開啟] 之前，先依序按一下 [連線] > [SSH] > [驗證] 索引標籤，然後找出 Puttygen 產生的檔案，裡面有一個私密金鑰。請參閱以下螢幕擷取畫面，以了解要填入的欄位。
 
    ![image](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p07.png)
  
-- 然後按一下 \[開啟\]，您可能會看見警告訊息方塊，指出您連接的電腦可能不是真正想連接的電腦。如果您已正確設定 DNS 名稱和連接埠號碼，按一下 \[是\]。
+- 然後按一下 [開啟]，您可能會看見警告訊息方塊，指出您連接的電腦可能不是真正想連接的電腦。如果您已正確設定 DNS 名稱和連接埠號碼，按一下 [是]。
   
  ![image](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p08.png)
 
@@ -126,19 +126,19 @@ MySQL 支援 3 種安裝方法：二進位套件、rpm 套件和來源套件。�
     
     登入後，請確定 MySQL 服務正在執行中，您可以使用下列命令來啟動/重新啟動服務。
 
-    \(a\) 取得 MySQL 服務的狀態
+    (a) 取得 MySQL 服務的狀態
 
              #sudo service mysql status
 
-    \(b\) 啟動 MySQL 服務
+    (b) 啟動 MySQL 服務
 
              #sudo service mysql start
 
-    \(c\) 停止 MySQL 服務
+    (c) 停止 MySQL 服務
 
              #sudo service mysql stop
 
-    \(d\) 重新啟動 MySQL 服務
+    (d) 重新啟動 MySQL 服務
 
              #sudo service mysql restart
 
@@ -156,7 +156,7 @@ MySQL 支援 3 種安裝方法：二進位套件、rpm 套件和來源套件。�
 
     檔案一般會有發行數列的 subrepository 記錄：
 
-        \# *Enable to use MySQL 5.6*
+        # *Enable to use MySQL 5.6*
 
         [mysql56-community]
         name=MySQL 5.6 Community Server

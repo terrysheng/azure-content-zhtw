@@ -50,12 +50,12 @@
 具有相同 **PartitionKey** 的實體會儲存在相同節點上。這個
 **RowKey** 是實體在其所屬資料分割內的唯一識別碼。
 
-若要將實體新增至資料表，請將字典物件傳給 **insert\_entity** 方法。
+若要將實體新增至資料表，請將字典物件傳給 **insert_entity** 方法。
 
 	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
 	table_service.insert_entity('tasktable', task)
 
-您也可以將 **Entity** 類別的執行個體傳給 **insert\_entity** 方法。
+您也可以將 **Entity** 類別的執行個體傳給 **insert_entity** 方法。
 
 	task = Entity()
 	task.PartitionKey = 'tasksSeattle'
@@ -71,7 +71,7 @@
 	task = {'description' : 'Take out the garbage', 'priority' : 250}
 	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)
 
-如果正在更新的實體不存在，則更新操作便會失敗。如果您想要儲存實體 (不論它是否已存在)，請使用 **insert\_or\_replace_entity**。 
+如果正在更新的實體不存在，則更新操作便會失敗。如果您想要儲存實體 (不論它是否已存在)，請使用 **insert_or_replace_entity**。 
 在下列範例中，第一個呼叫將取代現有實體。第二個呼叫將插入新實體，因為資料表中沒有具有指定 **PartitionKey** 和 **RowKey** 的實體存在。
 
 	task = {'description' : 'Take out the garbage again', 'priority' : 250}
@@ -82,7 +82,7 @@
 
 ## 如何變更一組實體
 
-有時候批次提交多個操作是有意義的，可以確保伺服器會進行不可部分完成的處理。要達到此目的，請在 **TableService** 上使用 **begin\_batch** 方法，然後如常呼叫作業系列。當您真的想提交批次時，請呼叫 **commit\_batch**。請注意，所有實體都必須位於相同的資料分割中，才能以批次方式進行變更。以下範例在一個批次中同時新增兩個實體。
+有時候批次提交多個操作是有意義的，可以確保伺服器會進行不可部分完成的處理。要達到此目的，請在 **TableService** 上使用 **begin_batch** 方法，然後如常呼叫作業系列。當您真的想提交批次時，請呼叫 **commit_batch**。請注意，所有實體都必須位於相同的資料分割中，才能以批次方式進行變更。以下範例在一個批次中同時新增兩個實體。
 
 	task10 = {'PartitionKey': 'tasksSeattle', 'RowKey': '10', 'description' : 'Go grocery shopping', 'priority' : 400}
 	task11 = {'PartitionKey': 'tasksSeattle', 'RowKey': '11', 'description' : 'Clean the bathroom', 'priority' : 100}
@@ -93,7 +93,7 @@
 
 ## 如何查詢實體
 
-若要查詢資料表中的實體，請使用 **get\_entity** 方法，傳遞 **PartitionKey** 和 **RowKey**。
+若要查詢資料表中的實體，請使用 **get_entity** 方法，傳遞 **PartitionKey** 和 **RowKey**。
 
 	task = table_service.get_entity('tasktable', 'tasksSeattle', '1')
 	print(task.description)

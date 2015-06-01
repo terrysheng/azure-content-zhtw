@@ -26,13 +26,13 @@ API 管理支援多區域部署，可讓 API 發行者跨所需的任意數量 A
 
 ## <a name="add-region"> </a>部署 API 管理服務執行個體到新區域
 
-若要開始，請在 API 管理服務的 Azure 入口網站中按一下 \[**管理**\]。這會帶您前往 API 管理發行者入口網站。
+若要開始，請在 API 管理服務的 Azure 入口網站中按一下 [**管理**]。這會帶您前往 API 管理發行者入口網站。
 
 ![發行者入口網站][api-management-management-console]
 
 >如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][]教學課程中的[建立 API 管理服務執行個體][]。
 
-導覽至 API 管理服務執行個體的 Azure 入口網站中的 \[**調整**\] 索引標籤。
+導覽至 API 管理服務執行個體的 Azure 入口網站中的 [**調整**] 索引標籤。
 
 ![調整索引標籤][api-management-scale-service]
 
@@ -44,11 +44,11 @@ API 管理支援多區域部署，可讓 API 發行者跨所需的任意數量 A
 
 ![指定單位][api-management-select-units]
 
-設定需要的區域和單位之後，請按一下 \[**儲存**\]。
+設定需要的區域和單位之後，請按一下 [**儲存**]。
 
 ## <a name="remove-region"> </a>從區域刪除 API 管理服務執行個體
 
-若要從區域移除 API 管理服務執行個體，請導覽至 API 管理服務執行個體的 Azure 入口網站中的 \[**調整**\] 索引標籤。
+若要從區域移除 API 管理服務執行個體，請導覽至 API 管理服務執行個體的 Azure 入口網站中的 [**調整**] 索引標籤。
 
 ![調整索引標籤][api-management-scale-service]
 
@@ -56,7 +56,7 @@ API 管理支援多區域部署，可讓 API 發行者跨所需的任意數量 A
 
 ![移除區域][api-management-remove-region]
 
-移除所需區域之後，按一下 \[**儲存**\]。
+移除所需區域之後，按一下 [**儲存**]。
 
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png

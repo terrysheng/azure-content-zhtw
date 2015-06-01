@@ -152,7 +152,7 @@
     CREATE DATABASE azureha;
     CREATE TABLE things ( id SERIAL, name VARCHAR(255) );
     INSERT INTO things VALUES (1, "Yet another entity");
-    GRANT ALL ON things.\* TO root;
+    GRANT ALL ON things.* TO root;
 
 **警告**：最後一個陳述式會有效地停用此資料表中根使用者的驗證。這應由您的生產等級 GRANT 陳述式取代，這裡僅是為了說明的目的才包括此陳述式。
 

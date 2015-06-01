@@ -70,11 +70,11 @@ Azure 和 Azure 資源管理員模組並非設計用於相同的 Windows PowerSh
 
 若要切換至 AzureResoureManager 模組，請輸入：
 
-    PS C:PS C:\> Switch-AzureMode -Name AzureResourceManagergt; Switch-AzureMode -Name AzureResourceManager
+    PS C:PS C:> Switch-AzureMode -Name AzureResourceManagergt; Switch-AzureMode -Name AzureResourceManager
 
 若要切回至 Azure 模組，請輸入：
 
-    PS C:PS C:\> Switch-AzureMode -Name AzureServiceManagementgt; Switch-AzureMode -Name AzureServiceManagement
+    PS C:PS C:> Switch-AzureMode -Name AzureServiceManagementgt; Switch-AzureMode -Name AzureServiceManagement
 
 依預設，Switch-AzureMode 只會影響目前的工作階段。若要讓切換在所有的 Windows PowerShell 工作階段中生效，請使用 Switch-AzureMode 的 **Global** 參數。
 
@@ -82,7 +82,7 @@ Azure 和 Azure 資源管理員模組並非設計用於相同的 Windows PowerSh
 
 若要取得 AzureResourceManager 模組中的 Cmdlet 清單及說明概要，請輸入：
 
-    PS C:\> Get-Command -Module AzureResourceManager | Get-Help | Format-Table Name, Synopsis
+    PS C:> Get-Command -Module AzureResourceManager | Get-Help | Format-Table Name, Synopsis
 
     Name                                   Synopsis
     ----                                   --------
@@ -122,11 +122,11 @@ Azure 和 Azure 資源管理員模組並非設計用於相同的 Windows PowerSh
 
 2.  使用 **Switch-AzureMode** Cmdlet 來匯入 AzureResourceManager 和 AzureProfile 模組中的 Cmdlet。
 
-    `PS C:PS C:\>Switch-AzureMode AzureResourceManager`
+    `PS C:PS C:>Switch-AzureMode AzureResourceManager`
 
 3.  若要將您的 Azure 帳戶新增至 Windows PowerShell 工作階段，請使用 **Add-AzureAccount** Cmdlet。
 
-    `PS C:PS C:\> Add-AzureAccount`
+    `PS C:PS C:> Add-AzureAccount`
 
 此 Cmdlet 會提示您輸入電子郵件地址和密碼。接著，它會下載您的帳戶設定以供 Windows PowerShell 使用。
 
@@ -144,7 +144,7 @@ Azure 主控一個資源群組範本的組件庫，您也可以從頭開始或�
 
 在 Windows Powershell 提示字元中，請輸入：
 
-    PS C:PS C:\> Get-AzureResourceGroupGalleryTemplategt
+    PS C:PS C:> Get-AzureResourceGroupGalleryTemplategt
 
 此 Cmdlet 會傳回包含發行者和身分識別屬性的組件庫範本清單。您可以使用 **Identity** 屬性來識別命令中的範本。
 
@@ -162,7 +162,7 @@ Azure 主控一個資源群組範本的組件庫，您也可以從頭開始或�
 
 Microsoft.WebSiteSQLDatabase.0.1.0-preview1 範本看起來很有意思。若要取得組件庫範本的詳細資訊，請使用 **Identity** 參數。Identity 參數的值是範本的身分識別。
 
-    PS C:PS C:\> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1
+    PS C:PS C:> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1
 
 此 Cmdlet 會傳回包含此範本更多詳細資訊 (包括說明) 的物件。
 
@@ -179,7 +179,7 @@ Microsoft.WebSiteSQLDatabase.0.1.0-preview1 範本看起來很有意思。若要
 
 Save-AzureResourceGroupGalleryTemplate 會儲存範本，並傳回 JSON 範本檔案的檔案名稱路徑。
 
-    PS C:\> Save-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 -Path D:\Azure\Templates
+    PS C:> Save-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 -Path D:\Azure\Templates
 
     Path
     ----
@@ -285,7 +285,7 @@ Save-AzureResourceGroupGalleryTemplate 會儲存範本，並傳回 JSON 範本�
 
 此命令會使用 **Name** 參數來指定資源群組的名稱，並使用 **Location** 參數來指定其位置。使用 **Get-AzureLocation** 的輸出來選取資源群組的位置。它會使用 **GalleryTemplateIdentity** 參數來指定組件庫範本。
 
-    PS C:\> New-AzureResourceGroup ` 
+    PS C:> New-AzureResourceGroup ` 
             -Name TestRG1 `
             -Location "East Asia" `
             -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 `
@@ -297,30 +297,30 @@ Save-AzureResourceGroupGalleryTemplate 會儲存範本，並傳回 JSON 範本�
 
 若要取得參數，請輸入減號 (-) 以顯示參數名稱，然後按 TAB 鍵。或者，輸入參數名稱的前幾個字母，例如 siteName，然後按 TAB 鍵。
 
-        PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
+        PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
         -si<TAB>
 
 Windows PowerShell 會完成參數名稱。若要循環顯示參數名稱，請重複按 TAB 鍵。
 
-        PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
+        PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
         -siteName 
 
 輸入網站名稱，並針對每個參數重複 TAB 程序。具有預設值的參數為選擇性參數。若要接受預設值，請略過來自命令的參數。
 
 當範本參數具有列舉值時 (例如本範本中的 sku 參數)，若要循環顯示參數值，請按 TAB 鍵。
 
-        PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
+        PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
         -siteName TestSite -sku <TAB>
 
-        PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
+        PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
         -siteName TestSite -sku Free<TAB>
 
-        PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
+        PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 
         -siteName TestSite -sku Basic<TAB>
 
-以下是 New-AzureResourceGroup 命令的範例，將只指定必要範本參數和 **Verbose** 命令參數。請注意，將略過 **administratorLoginPassword**。(倒單引號 (\`) 是 Windows PowerShell 行接續字元。)
+以下是 New-AzureResourceGroup 命令的範例，將只指定必要範本參數和 **Verbose** 命令參數。請注意，將略過 **administratorLoginPassword**。(倒單引號 (`) 是 Windows PowerShell 行接續字元。)
 
-    PS C:\> New-AzureResourceGroup 
+    PS C:> New-AzureResourceGroup 
     -Name TestRG `
     -Location "East Asia" `
     -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 `
@@ -404,7 +404,7 @@ Windows PowerShell 會完成參數名稱。若要循環顯示參數名稱，請�
 
 -   若要取得資源群組中的資源，請使用 **GetAzureResource** Cmdlet 及其 ResourceGroupName 參數。在沒有使用參數的情況下，Get-AzureResource 會取得 Azure 訂閱中的所有資源。
 
-        PS C:\> Get-AzureResource -ResourceGroupName TestRG
+        PS C:> Get-AzureResource -ResourceGroupName TestRG
 
         Name                   ResourceType                          Location
         ----                   ------------                          --------
@@ -418,7 +418,7 @@ Windows PowerShell 會完成參數名稱。若要循環顯示參數名稱，請�
 
 -   若要將資源新增至資源群組，請使用 **New-AzureResource** Cmdlet。此命令會將新網站新增至 TestRG 資源群組。由於此命令沒有使用範本，所以稍微有點複雜。
 
-        PS C:\>New-AzureResource -Name TestSite2 `
+        PS C:>New-AzureResource -Name TestSite2 `
         -Location "North Europe" `
         -ResourceGroupName TestRG `
         -ResourceType "Microsoft.Web/sites" `
@@ -427,7 +427,7 @@ Windows PowerShell 會完成參數名稱。若要循環顯示參數名稱，請�
 
 -   若要將新的範本型部署新增至資源群組，請使用 **New-AzureResourceGroupDeployment** 命令。
 
-        PS C:\>New-AzureResourceGroupDeployment ` 
+        PS C:>New-AzureResourceGroupDeployment ` 
         -ResourceGroupName TestRG `
         -GalleryTemplateIdentity Microsoft.WebSite.0.1.0-preview1 `
         -siteName TestWeb2 `

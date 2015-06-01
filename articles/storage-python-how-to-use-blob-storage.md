@@ -59,9 +59,9 @@
 
 ## 作法：將 Blob 上傳至容器
 
-若要將資料上傳至 Blob，請使用 **put\_block\_blob\_from\_path**、**put\_block\_blob\_from\_file**、**put\_block\_blob\_from\_bytes** 或 **put\_block\_blob\_from\_text** 方法。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
+若要將資料上傳至 Blob，請使用 **put_block_blob_from_path**、**put_block_blob_from_file**、**put_block_blob_from_bytes** 或 **put_block_blob_from_text** 方法。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
 
-**put\_block\_blob\_from\_path** 會從指定的路徑上傳檔案的內容，**put\_block\_blob\_from\_file** 會從已開啟的檔案/串流上傳內容。**put\_block\_blob\_from\_bytes** 會上傳位元組陣列，**put\_block\_blob\_from\_text** 會使用指定的編碼 (預設為 UTF-8) 上傳指定的文字值。
+**put_block_blob_from_path** 會從指定的路徑上傳檔案的內容，**put_block_blob_from_file** 會從已開啟的檔案/串流上傳內容。**put_block_blob_from_bytes** 會上傳位元組陣列，**put_block_blob_from_text** 會使用指定的編碼 (預設為 UTF-8) 上傳指定的文字值。
 
 下列範例會將 **sunset.png**檔的內容上傳至 **myblob** 中。
 
@@ -74,7 +74,7 @@
 
 ## 作法：列出容器中的 Blob
 
-若要列出容器中的 Blob，請使用 **list\_blobs** 方法和
+若要列出容器中的 Blob，請使用 **list_blobs** 方法和
 **for** 迴圈，以顯示容器中每個 Blob 的名稱。下列程式碼將容器中每個 Blob 的 **name** 和 **url** 輸出到主控台。
 
 	blobs = blob_service.list_blobs('mycontainer')
@@ -84,9 +84,9 @@
 
 ## 作法：下載 Blob
 
-若要從 Blob 下載資料，請使用 **get\_blob\_to\_path**、**get\_blob\_to\_file**、**get\_blob\_to\_bytes** 或 **get\_blob\_to\_text**。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
+若要從 Blob 下載資料，請使用 **get_blob_to_path**、**get_blob_to_file**、**get_blob_to_bytes** 或 **get_blob_to_text**。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
 
-下列範例示範如何使用 **get\_blob\_to\_path** 下載 **myblob** Blob 的內容，並將其儲存至 **out-sunset.png** 檔案：
+下列範例示範如何使用 **get_blob_to_path** 下載 **myblob** Blob 的內容，並將其儲存至 **out-sunset.png** 檔案：
 
 	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 

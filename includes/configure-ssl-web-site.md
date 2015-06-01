@@ -5,11 +5,11 @@
 
 您可以透過採用安全通訊端層 (SSL) 加密的 HTTPS 來保護 Web 應用程式與瀏覽器之間的通訊。這是最常用來保護在網際網路上傳送之資料的方法，並可讓訪客安心知道其與您應用程式進行的交易正受到安全保護。本文討論如何在 Azure App Service 中設定 Web 應用程式的 HTTPS。 
 
-##<a name="bkmk_azurewebsites"></a>適用於 \*.azurewebsites.net 網域的 HTTPS
+##<a name="bkmk_azurewebsites"></a>適用於 *.azurewebsites.net 網域的 HTTPS
 
-如果您不打算使用自訂網域名稱，而是打算使用 Azure 指派給您 Web 應用程式的 \*.azurewebsites.net 網域 (例如，contoso.azurewebsites.net)，則系統已利用 Microsoft 提供的憑證在您的網站上啟用 HTTPS。您可以使用 **https://mywebsite.azurewebsites.net** 存取您的應用程式。不過，\*.azurewebsites.net 是萬用字元網域。如同[所有的萬用字元網域](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)，這並不像使用自訂網域搭配自己的憑證那麼安全。 
+如果您不打算使用自訂網域名稱，而是打算使用 Azure 指派給您 Web 應用程式的 *.azurewebsites.net 網域 (例如，contoso.azurewebsites.net)，則系統已利用 Microsoft 提供的憑證在您的網站上啟用 HTTPS。您可以使用 **https://mywebsite.azurewebsites.net** 存取您的應用程式。不過，*.azurewebsites.net 是萬用字元網域。如同[所有的萬用字元網域](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)，這並不像使用自訂網域搭配自己的憑證那麼安全。 
 
-本文件的其餘內容提供關於為自訂網域 (如 **contoso.com**、**www.contoso.com** 或 **\*.contoso.com**) 啟用 HTTPS 的詳細資訊。
+本文件的其餘內容提供關於為自訂網域 (如 **contoso.com**、**www.contoso.com** 或 ***.contoso.com**) 啟用 HTTPS 的詳細資訊。
 
 ##<a name="bkmk_domainname"></a>為自訂網域啟用 SSL
 
@@ -39,7 +39,7 @@
 - [使用 OpenSSL 取得 SubjectAltName 憑證](#bkmk_subjectaltname)
 - [產生自我簽署的憑證 (僅供測試)](#bkmk_selfsigned) 
 
-> [AZURE.NOTE] 遵循步驟時，系統會提示您輸入 [一般名稱]，例如 `www.contoso.com`。對於萬用字元憑證，這個值應該是 \*.domainname (例如，\*.contoso.com)。如果您需要同時支援萬用字元名稱 (如 \*.contoso.com) 和根網域名稱 (如 contoso.com)，則可以使用萬用字元 subjectAltName 憑證。
+> [AZURE.NOTE] 遵循步驟時，系統會提示您輸入 [一般名稱]，例如 `www.contoso.com`。對於萬用字元憑證，這個值應該是 *.domainname (例如，*.contoso.com)。如果您需要同時支援萬用字元名稱 (如 *.contoso.com) 和根網域名稱 (如 contoso.com)，則可以使用萬用字元 subjectAltName 憑證。
 >
 > Azure App Service 支援橢圓曲線密碼編譯 (ECC) 憑證；不過，它們相對而言比較新，您應該在具體步驟中使用 CA 來建立 CSR。
 

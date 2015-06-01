@@ -180,7 +180,7 @@ IPython 組態設定檔來封裝組態資訊：
 
 在 Windows 上：
 
-    cd \users\azureuser\.ipython\profile_nbserver
+    cd \users\azureuser.ipython\profile_nbserver
 
 建立 SSL 憑證，如下所示 (Linux 和 Windows)：
 
@@ -223,7 +223,7 @@ IPython 組態設定檔來封裝組態資訊：
     c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
     
     # And if using a Windows VM:
-    c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
+    c.NotebookApp.certfile = r'C:\Users\azureuser.ipython\profile_nbserver\mycert.pem'
     
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '

@@ -20,17 +20,17 @@
 
 本教學課程會在 Visual Studio 2013 或更高版本中建置自訂 Web 搜尋應用程式，並使用 Azure 搜尋服務提供搜尋體驗。本教學課程使用 [Azure 搜尋服務 .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) 為此範例中所用的物件和作業建置類別。
 
-您可以在[使用 USGS 資料的 Azure 搜尋服務示範](https://azsearchdemos.codeplex.com/SourceControl/latest)中下載 codeplex 的範例，即可依循本教學課程的步驟執行。此範例應用程式使用的[美國地理服務中心 \(USGS\)](http://geonames.usgs.gov/domestic/download_data.htm) 資料，已依據華盛頓州進行篩選。我們將使用此資料，並分別依據地標建築物 \(例如醫院和學校\) 及地理特徵 \(例如河流、湖泊和山峰\) 等相關資料，建置搜尋應用程式。
+您可以在[使用 USGS 資料的 Azure 搜尋服務示範](https://azsearchdemos.codeplex.com/SourceControl/latest)中下載 codeplex 的範例，即可依循本教學課程的步驟執行。此範例應用程式使用的[美國地理服務中心 (USGS)](http://geonames.usgs.gov/domestic/download_data.htm) 資料，已依據華盛頓州進行篩選。我們將使用此資料，並分別依據地標建築物 (例如醫院和學校) 及地理特徵 (例如河流、湖泊和山峰) 等相關資料，建置搜尋應用程式。
 
 若要執行此範例，必須要有 Azure Search 服務，您可以在 [Azure 入口網站](https://portal.azure.com)中註冊此服務。
 
 如果您需要佈建及驗證服務可用性的協助，可以從[在入口網站建立服務](../search-create-service-portal/)開始。此外，本文還說明了如何尋找在每個教學課程和含有 Azure 搜尋服務的方案中使用的服務名稱和系統管理金鑰。
 
-> [AZURE.TIP]建議先更新 NuGet 封裝，再建置任何專案，以避免建置發生錯誤。以滑鼠右鍵按一下方案，然後選擇 \[管理 NuGet 封裝\]****。更新在此方案中使用的所有封裝。
+> [AZURE.TIP]建議先更新 NuGet 封裝，再建置任何專案，以避免建置發生錯誤。以滑鼠右鍵按一下方案，然後選擇 [管理 NuGet 封裝]****。更新在此方案中使用的所有封裝。
 
 ##建置索引##
 
-1. 從 [Azure 入口網站](https://portal.azure.com)複製服務名稱和系統管理金鑰，然後貼入 **DataIndexer** \| **App.config**。
+1. 從 [Azure 入口網站](https://portal.azure.com)複製服務名稱和系統管理金鑰，然後貼入 **DataIndexer** | **App.config**。
 1. 以滑鼠右鍵按一下 **DataIndexer** 專案，將其設為起始專案。
 1. 建置並執行專案。
 
@@ -45,7 +45,7 @@
 ##建置應用程式##
 
 
-1. 從 [Azure 入口網站](https://portal.azure.com)複製服務名稱和系統管理金鑰，然後貼入 **SimpleSearchMVCApp** \| **Web.config**。
+1. 從 [Azure 入口網站](https://portal.azure.com)複製服務名稱和系統管理金鑰，然後貼入 **SimpleSearchMVCApp** | **Web.config**。
 1. 以滑鼠右鍵按一下 **SimpleSearchMVCApp** 專案，將其設為起始專案。
 1. 建置並執行專案。
 
@@ -55,7 +55,7 @@
 
 ##搜尋 USGS 資料##
 
-USGS 資料集包含與華盛頓州相關的記錄。如果您在空白的搜尋方塊中按一下 \[搜尋\]****，預設會出現前 50 個項目。
+USGS 資料集包含與華盛頓州相關的記錄。如果您在空白的搜尋方塊中按一下 [搜尋]****，預設會出現前 50 個項目。
 
 輸入搜尋字詞，讓搜尋引擎運作一下。試著輸入地區名稱。"Snoqualmie" 是華盛頓州的一座城市。同時也是河流、景觀瀑布、隘口和州立公園的名稱。
 
@@ -66,7 +66,7 @@ USGS 資料集包含與華盛頓州相關的記錄。如果您在空白的搜尋
 - Seattle
 - Rainier
 - Seattle and Rainier
-- Seattle +Rainier -Mount \(會取得包含 Rainier 街的地標或 Rainier 俱樂部的搜尋結果，這些結果均在 Seattle 市的限制內\)。
+- Seattle +Rainier -Mount (會取得包含 Rainier 街的地標或 Rainier 俱樂部的搜尋結果，這些結果均在 Seattle 市的限制內)。
 
 ##探索程式碼##
 
@@ -76,7 +76,7 @@ USGS 資料集包含與華盛頓州相關的記錄。如果您在空白的搜尋
 
 **DataIndexer 專案**
 
-為方便起見，會使用一個從[美國地理服務中心\(USGS\) 網站](http://geonames.usgs.gov/domestic/download_data.htm)資料產生的文字檔案，將資料內嵌在方案中
+為方便起見，會使用一個從[美國地理服務中心(USGS) 網站](http://geonames.usgs.gov/domestic/download_data.htm)資料產生的文字檔案，將資料內嵌在方案中
 
 內嵌資料的替代方法包含 [DocumentDB 的索引子](documentdb-search-indexer.md)或 [Azure SQL Database 的索引子](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)。索引子會將資料提取至您的 Azure 搜尋服務索引，這麼做可以簡化您必須撰寫及維護的程式碼。
 
@@ -96,7 +96,7 @@ MVC 專案使用檢視和控制器將輸入和輸出傳送至展示層。**Index
 
 這是第一個以 USGS 資料集為基礎的 Azure 搜尋服務教學課程。我們會漸漸擴充本教學課程，並建立新課程，以示範您可能會想用在自訂方案中的搜尋功能。
 
-如果您已有一些 Azure 搜尋服務的背景知識，可以利用此範例做為試用建議工具 \(預先輸入或自動完成查詢\)、篩選及多面向導覽的跳板。您也可以新增計數和批次處理文件，讓使用者可以逐頁查看結果，藉此改進搜尋結果頁面。
+如果您已有一些 Azure 搜尋服務的背景知識，可以利用此範例做為試用建議工具 (預先輸入或自動完成查詢)、篩選及多面向導覽的跳板。您也可以新增計數和批次處理文件，讓使用者可以逐頁查看結果，藉此改進搜尋結果頁面。
 
 不熟悉 Azure 搜尋服務嗎？ 建議您嘗試學習其他教學課程，深入了解您還可以建立哪些東西。請瀏覽我們的[文件頁面](http://azure.microsoft.com/documentation/services/search/)以尋找更多資源。您也可以查看我們[影片和教學課程清單](https://msdn.microsoft.com/library/azure/dn798933.aspx)中的連結，以存取更多資訊。
 

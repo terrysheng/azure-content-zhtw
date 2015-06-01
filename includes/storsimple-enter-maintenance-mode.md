@@ -6,6 +6,7 @@
    authors="SharS"
    manager="adinah"
    editor="tysonn" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -17,7 +18,7 @@
 
 ### 進入維護模式
 
-1. 在序列主控台功能表中，選擇選項 1 \[使用完整存取權登入\]。
+1. 在序列主控台功能表中，選擇選項 1 [使用完整存取權登入]。
 
 2. 輸入密碼。預設密碼為 **Password1**。
 

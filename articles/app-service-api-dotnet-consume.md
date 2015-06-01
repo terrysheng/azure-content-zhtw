@@ -20,10 +20,10 @@
 
 ## 概觀
 
-此教學課程展示如何使用 App Service SDK 撰寫程式碼，以呼叫針對 \[**公用 \(匿名\)**\] 或 \[**公用 \(驗證\)**\] 存取層級設定的 [API 應用程式](app-service-api-apps-why-best-platform.md)。本文涵蓋以下範例案例：
+此教學課程展示如何使用 App Service SDK 撰寫程式碼，以呼叫針對 [**公用 (匿名)**] 或 [**公用 (驗證)**] 存取層級設定的 [API 應用程式](app-service-api-apps-why-best-platform.md)。本文涵蓋以下範例案例：
 
-- 從主控台應用程式呼叫**公用 \(匿名\)** API 應用程式
-- 從 Windows 桌面應用程式呼叫**公用 \(驗證\)** API 應用程式 
+- 從主控台應用程式呼叫**公用 (匿名)** API 應用程式
+- 從 Windows 桌面應用程式呼叫**公用 (驗證)** API 應用程式 
 
 下列的教學課程章節各自獨立--您可以直接依照第二個案例的指示，而不需要完成的第一個案例的步驟。
 
@@ -49,9 +49,9 @@
 
 1. 如果您尚未這麼做，請依照[部署 API 應用程式](app-service-dotnet-deploy-api-app.md)來將 ContactsList 範例專案部署至 Azure 訂用中 API 應用程式。
 
-	該教學課程會引導您在 Visual Studio 發佈對話方塊中將存取層級設定為 \[**任何人皆可用**\]，這相當於入口網站中的 \[**公用 \(匿名\)**\]。然而，如果您在這之後進行[保護 API 應用程式](app-service-dotnet-add-authentication.md)教學課程，則存取層級已被設定為 \[**公用 \(驗證\)**\]。在此情況下，您需要依照下列步驟的引導進行變更。
+	該教學課程會引導您在 Visual Studio 發佈對話方塊中將存取層級設定為 [**任何人皆可用**]，這相當於入口網站中的 [**公用 (匿名)**]。然而，如果您在這之後進行[保護 API 應用程式](app-service-dotnet-add-authentication.md)教學課程，則存取層級已被設定為 [**公用 (驗證)**]。在此情況下，您需要依照下列步驟的引導進行變更。
 
-2. 在 [Azure Preview 入口網站](https://portal.azure.com/)，針對欲呼叫之 API 應用程式，在 \[**API 應用程式**\] 刀鋒視窗中移至 \[**設定 \> 應用程式設定**\]，並將 \[**存取層級**\] 設定為 \[**公用 \(匿名\)**\]。
+2. 在 [Azure Preview 入口網站](https://portal.azure.com/)，針對欲呼叫之 API 應用程式，在 [**API 應用程式**] 刀鋒視窗中移至 [**設定 > 應用程式設定**]，並將 [**存取層級**] 設定為 [**公用 (匿名)**]。
 
 	![](./media/app-service-api-dotnet-consume/setpublicanon.png)
  
@@ -59,15 +59,15 @@
  
 ### 加入 App Service SDK 產生的用戶端程式碼
 
-3. 在 \[**方案總管**\] 中，以滑鼠右鍵按一下專案 \(而非方案\)，並依序選取 \[**加入 \> Azure API 應用程式用戶端**\]。 
+3. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案 (而非方案)，並依序選取 [**加入 > Azure API 應用程式用戶端**]。 
 
 	![](./media/app-service-api-dotnet-consume/03-add-azure-api-client-v3.png)
 	
-3. 在 \[**加入 Azure API 應用程式用戶端**\] 對話方塊中，按一下 \[**從 Azure API 應用程式下載**\]。
+3. 在 [**加入 Azure API 應用程式用戶端**] 對話方塊中，按一下 [**從 Azure API 應用程式下載**]。
 
 5. 在下拉式清單中，選取要呼叫的 API 應用程式。
 
-7. 按一下 \[確定\]****。
+7. 按一下 [確定]****。
 
 	![產生畫面](./media/app-service-api-dotnet-consume/04-select-the-api-v3.png)
 
@@ -75,7 +75,7 @@
 
 	![產生中](./media/app-service-api-dotnet-consume/05-metadata-downloading-v3.png)
 
-	程式碼產生完成之後，您會在 \[**方案總管**\] 中看到該 API 應用程式名稱的新資料夾。此資料夾包含實作用戶端類別和資料模型的程式碼。
+	程式碼產生完成之後，您會在 [**方案總管**] 中看到該 API 應用程式名稱的新資料夾。此資料夾包含實作用戶端類別和資料模型的程式碼。
 
 	![產生完成](./media/app-service-api-dotnet-consume/06-code-gen-output-v3.png)
 
@@ -120,7 +120,7 @@ Azure API 應用程式也支援用戶端驗證流程。未來此教學課程中�
 
 ### 設定 API 應用程式並建立專案
 
-1. 請遵循[保護 API 應用程式](app-service-dotnet-add-authentication.md)教學課程，以設定存取層級為 \[**公用 \(驗證\)**\] 的 API 應用程式。
+1. 請遵循[保護 API 應用程式](app-service-dotnet-add-authentication.md)教學課程，以設定存取層級為 [**公用 (驗證)**] 的 API 應用程式。
 
 1. 在 Visual Studio 中，建立 Windows Forms 桌面專案。
 
@@ -138,11 +138,11 @@ Azure API 應用程式也支援用戶端驗證流程。未來此教學課程中�
 
 ### 加入 App Service SDK 產生的用戶端程式碼
 
-3. 在 \[**方案總管**\] 中，以滑鼠右鍵按一下專案 \(而非方案\)，並依序選取 \[**加入 \> Azure API 應用程式用戶端**\]。 
+3. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案 (而非方案)，並依序選取 [**加入 > Azure API 應用程式用戶端**]。 
 
-3. 在 \[**加入 Azure API 應用程式用戶端**\] 對話方塊中，按一下 \[**從 Azure API 應用程式下載**\]。
+3. 在 [**加入 Azure API 應用程式用戶端**] 對話方塊中，按一下 [**從 Azure API 應用程式下載**]。
 
-5. 在下拉式清單中，選取要呼叫的 API 應用程式，然後按一下 \[**確定**\]。
+5. 在下拉式清單中，選取要呼叫的 API 應用程式，然後按一下 [**確定**]。
 
 ### 加入呼叫 API 應用程式的程式碼
 
@@ -150,7 +150,7 @@ Azure API 應用程式也支援用戶端驗證流程。未來此教學課程中�
 
 	![](./media/app-service-api-dotnet-consume/gatewayurl.png)
 
-4. 在 *Form1.cs* 原始程式碼中，於 `Form1()` 建構函式之前加入下列程式碼，並使用您在上一個步驟複製的值取代 GATEWAY\_URL 值。請確定您包含結尾斜線 \(/\)。
+4. 在 *Form1.cs* 原始程式碼中，於 `Form1()` 建構函式之前加入下列程式碼，並使用您在上一個步驟複製的值取代 GATEWAY_URL 值。請確定您包含結尾斜線 (/)。
 
 		private const string GATEWAY_URL = "https://resourcegroupnameb4f3d966dfa43b6607f30.azurewebsites.net/";
 		private const string URL_TOKEN = "#token=";
@@ -198,7 +198,7 @@ Azure API 應用程式也支援用戶端驗證流程。未來此教學課程中�
 
 ## 後續步驟
 
-本文示範對於存取層級設為 \[**公用 \(驗證\)**\] 和 \[**公用 \(匿名\)**\] 的 API 應用程式，如何從 .NET 用戶端使用 API 應用程式。
+本文示範對於存取層級設為 [**公用 (驗證)**] 和 [**公用 (匿名)**] 的 API 應用程式，如何從 .NET 用戶端使用 API 應用程式。
 
 如需其他從 .NET 用戶端呼叫 API 應用程式的程式碼範例，請下載 [Azure Cards](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample) 範例應用程式。
 

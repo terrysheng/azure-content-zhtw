@@ -15,9 +15,9 @@ ms.tgt_pltfrm="na"
 ms.date="04/23/2015" 
 ms.author="heidist" />
 
-#索引子作業 \(Azure 搜尋服務 REST API：2015-02-28-Preview\)
+#索引子作業 (Azure 搜尋服務 REST API：2015-02-28-Preview)
 
-> [AZURE.NOTE]本文說明 [2015-02-28-Preview](search-api-2015-02-28-preview.md) 的索引子。目前， [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) 上記載的 `2015-02-28` 版本與此處所述的 `2015-02-28-Preview` 版本唯一差異是預覽版可提供 *fieldMappings* \(如[建立索引子](#CreateIndexer)當中所述\)。
+> [AZURE.NOTE]本文說明 [2015-02-28-Preview](search-api-2015-02-28-preview.md) 的索引子。目前， [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) 上記載的 `2015-02-28` 版本與此處所述的 `2015-02-28-Preview` 版本唯一差異是預覽版可提供 *fieldMappings* (如[建立索引子](#CreateIndexer)當中所述)。
 
 ## 概觀
 
@@ -31,7 +31,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 如果您想進行索引的一般更新， **索引子**就非常實用。您可在索引子定義中設定內嵌排程，或視需要使用[執行索引子](#RunIndexer)加以執行。
 
-**資料來源**指出要編製索引的資料、資料存取認證以及可讓 Azure 搜尋服務更有效識別資料變更 \(例如資料庫資料表中經修改或刪除的資料列\) 的原則。資料來源會被定義為獨立的資源，因此可供多個索引子使用。
+**資料來源**指出要編製索引的資料、資料存取認證以及可讓 Azure 搜尋服務更有效識別資料變更 (例如資料庫資料表中經修改或刪除的資料列) 的原則。資料來源會被定義為獨立的資源，因此可供多個索引子使用。
 
 目前支援下列資料來源：
 
@@ -44,7 +44,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 ## 一般使用流程
 
-您可針對特定的 `data source` 或 `indexer`，使用簡單的 HTTP 要求 \(POST、GET、PUT、DELETE\) 以建立與管理索引子和資料來源。
+您可針對特定的 `data source` 或 `indexer`，使用簡單的 HTTP 要求 (POST、GET、PUT、DELETE) 以建立與管理索引子和資料來源。
 
 一般來說，設定自動編製索引的程序有下列四個步驟：
 
@@ -81,7 +81,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 所有服務要求都需使用 HTTPS。**建立資料來源**要求可使用 POST 或 PUT 方法來建構。使用 POST 時，您必須在要求本文中提供資料來源名稱以及資料來源定義。使用 PUT 時，名稱為 URL 的一部分。如果資料來源不存在，系統將會加以建立。如果已有資料來源，則將其更新到最新定義。
 
-資料來源名稱必須小寫，開頭為字母或數字，不可有斜線或點，且上限為 128 個字元。將資料來源名稱的開頭設為字母或數字後，其他部分即可包含任意字母、數字及破折號 \(但不可為連續破折號\)。如需詳細資料，請參閱[命名規則](https://msdn.microsoft.com/library/azure/dn857353.aspx)。
+資料來源名稱必須小寫，開頭為字母或數字，不可有斜線或點，且上限為 128 個字元。將資料來源名稱的開頭設為字母或數字後，其他部分即可包含任意字母、數字及破折號 (但不可為連續破折號)。如需詳細資料，請參閱[命名規則](https://msdn.microsoft.com/library/azure/dn857353.aspx)。
 
 `api-version` 為必要項目。目前版本為 `2015-02-28`。[Azure 搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)中有提供替代版本的詳細資訊。
 
@@ -90,7 +90,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 下表說明必要及選用的要求標頭。
 
 - `Content-Type`：必要。請設為 `application/json`
-- `api-key`：必要。 `api-key` 可用來驗證搜尋服務的要求。其為服務的唯一字串值。**建立資料來源**要求必須包含管理員金鑰 \(相對於查詢金鑰\) 上所設的 `api-key` 標頭。 
+- `api-key`：必要。 `api-key` 可用來驗證搜尋服務的要求。其為服務的唯一字串值。**建立資料來源**要求必須包含管理員金鑰 (相對於查詢金鑰) 上所設的 `api-key` 標頭。 
  
 您也必須提供服務名稱才能建構要求 URL。您可透過 [Azure 管理入口網站](https://portal.azure.com/)的服務儀表板取得服務名稱與 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立搜尋服務](search-create-service-portal.md)。
 
@@ -124,7 +124,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 		- 若是 DocumentDB，則連接字串必須為下列格式：`"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`。所有值都是必要的。您可在 [Azure 管理入口網站](https://portal.azure.com/)中找到所有值。   
 		
 - `container`：
-	- 必要的 `name` 屬性可指定要編製索引的資料表、檢視表 \(若為 Azure SQL 資料來源\) 或集合 \(若為 DocumentDB 資料來源\)。 
+	- 必要的 `name` 屬性可指定要編製索引的資料表、檢視表 (若為 Azure SQL 資料來源) 或集合 (若為 DocumentDB 資料來源)。 
 	- DocumentDB 資料來源亦支援選用的 `query` 屬性，以讓您指定查詢，將任意 JSON 文件版面配置壓平合併為 Azure 搜尋服務可編製索引的一般結構描述。   
 - 以下說明選用的 `dataChangeDetectionPolicy` 與 `dataDeletionDetectionPolicy`。
 
@@ -158,7 +158,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 如果您的 SQL 資料庫支援[變更追蹤](https://msdn.microsoft.com/library/bb933875.aspx)，則建議您使用 SQL 整合式變更追蹤原則。這項原則可保障最高效的變更追蹤，並讓 Azure 搜尋服務識別出已刪除的資料列，而不需在結構描述中具備明確的「虛刪除」資料行。
 
-從下列 SQL Server 資料庫版本開始，即支援整合式變更追蹤：SQL Server 2008 R2 \(若您在 Azure VM 上使用 SQL Server\) 及 Azure SQL Database V12 \(若您使用 Azure SQL Database\)。
+從下列 SQL Server 資料庫版本開始，即支援整合式變更追蹤：SQL Server 2008 R2 (若您在 Azure VM 上使用 SQL Server) 及 Azure SQL Database V12 (若您使用 Azure SQL Database)。
 
 使用 SQL 整合式變更追蹤原則時，請不要指定個別的資料刪除偵測原則，因為本原則已內建支援刪除資料列的識別。
 
@@ -221,7 +221,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 `api-version` 為必要項目。目前版本為 `2015-02-28`。[Azure 搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)中有提供替代版本的詳細資訊。
 
-`api-key` 必須為管理員金鑰 \(相對於查詢金鑰\)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
+`api-key` 必須為管理員金鑰 (相對於查詢金鑰)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
 
 **要求**：要求本文的語法和[建立資料來源要求](#CreateDataSourceRequestSyntax)的語法相同。
 
@@ -239,7 +239,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 `api-version` 為必要項目。目前版本為 `2015-02-28`。[Azure 搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)中有提供替代版本的詳細資訊。
 
-`api-key` 必須為管理員金鑰 \(相對於查詢金鑰\)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
+`api-key` 必須為管理員金鑰 (相對於查詢金鑰)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
 
 **回應**
 
@@ -278,7 +278,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 `api-version` 為必要項目。目前版本為 `2015-02-28`。[Azure 搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)中有提供替代版本的詳細資訊。
 
-`api-key` 必須為管理員金鑰 \(相對於查詢金鑰\)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
+`api-key` 必須為管理員金鑰 (相對於查詢金鑰)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
 
 **回應**
 
@@ -315,7 +315,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 `api-version` 為必要項目。目前版本為 `2015-02-28`。[Azure 搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)中有提供替代版本的詳細資訊。
 
-`api-key` 必須為管理員金鑰 \(相對於查詢金鑰\)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
+`api-key` 必須為管理員金鑰 (相對於查詢金鑰)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
 
 **回應**
 
@@ -338,7 +338,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 `api-version` 為必要項目。目前版本為 `2015-02-28`。[Azure 搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)中有提供替代版本的詳細資訊。
 
-`api-key` 必須為管理員金鑰 \(相對於查詢金鑰\)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
+`api-key` 必須為管理員金鑰 (相對於查詢金鑰)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
 
 
 <a name="CreateIndexerRequestSyntax"></a> **要求本文的語法**
@@ -362,7 +362,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 索引子可以選擇性地指定排程。如有排程，索引子將會依照排程定期執行。排程具有下列屬性：
 
-- `interval`：必要。可用以指定索引子執行間隔或期間的持續時間值。允許的最小間隔為 5 分鐘；最長間隔為一天。其必須格式化為 XSD "dayTimeDuration" 值 \([ISO 8601 持續時間](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)值的受限子集\)。間隔的模式為：`P(nD)(T(nH)(nM))`。範例：`PT15M` 代表每隔 15 分鐘，`PT2H` 代表每隔 2 小時。 
+- `interval`：必要。可用以指定索引子執行間隔或期間的持續時間值。允許的最小間隔為 5 分鐘；最長間隔為一天。其必須格式化為 XSD "dayTimeDuration" 值 ([ISO 8601 持續時間](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)值的受限子集)。間隔的模式為：`P(nD)(T(nH)(nM))`。範例：`PT15M` 代表每隔 15 分鐘，`PT2H` 代表每隔 2 小時。 
 
 - `startTime`：必要。索引子應該開始執行的 UTC 日期時間。
 
@@ -395,7 +395,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 您也可以使用「對應函數」**，將欄位對應用來轉換來源欄位值。
 
-這類函數目前僅支援一種：`jsonArrayToStringCollection`。它會將格式化為 JSON 陣列的字串剖析為目標索引中的 Collection\(Edm.String\) 欄位。該函數主要用來搭配 Azure SQL 索引子，因為 SQL 不具備原生的集合資料類型。其用法如下：
+這類函數目前僅支援一種：`jsonArrayToStringCollection`。它會將格式化為 JSON 陣列的字串剖析為目標索引中的 Collection(Edm.String) 欄位。該函數主要用來搭配 Azure SQL 索引子，因為 SQL 不具備原生的集合資料類型。其用法如下：
 
 	"fieldMappings" : [ { "sourceFieldName" : "tags", "mappingFunction" : { "name" : "jsonArrayToStringCollection" } } ] 
 
@@ -405,7 +405,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 <a name="CreateIndexerRequestExamples"></a> **要求本文範例**
 
-下列範例會建立索引子，以將資料從 `ordersds` 資料來源所參考的資料表，依照排程 \(從 2015 年 1 月 1 日 UTC 開始，每小時執行一次\) 複製到 `orders` 索引。如果每個批次中無法編製索引的項目不超過 5 個，且無法編製索引的項目總數不超過 10 個的話，每個索引子的引動都將成功。
+下列範例會建立索引子，以將資料從 `ordersds` 資料來源所參考的資料表，依照排程 (從 2015 年 1 月 1 日 UTC 開始，每小時執行一次) 複製到 `orders` 索引。如果每個批次中無法編製索引的項目不超過 5 個，且無法編製索引的項目總數不超過 10 個的話，每個索引子的引動都將成功。
 
 	{
         "name" : "myindexer",
@@ -432,7 +432,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 `api-version` 為必要項目。目前版本為 `2015-02-28`。[Azure 搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)中有提供替代版本的詳細資訊。
 
-`api-key` 必須為管理員金鑰 \(相對於查詢金鑰\)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
+`api-key` 必須為管理員金鑰 (相對於查詢金鑰)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
 
 **要求**
 
@@ -454,7 +454,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 `api-version` 為必要項目。目前的預覽版本為 `2015-02-28-Preview`。[Azure 搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)中有提供替代版本的詳細資訊。
 
-`api-key` 必須為管理員金鑰 \(相對於查詢金鑰\)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
+`api-key` 必須為管理員金鑰 (相對於查詢金鑰)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
 
 **回應**
 
@@ -496,7 +496,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 `api-version` 為必要項目。目前的預覽版本為 `2015-02-28-Preview`。[Azure 搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)中有提供替代版本的詳細資訊。
 
-`api-key` 必須為管理員金鑰 \(相對於查詢金鑰\)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
+`api-key` 必須為管理員金鑰 (相對於查詢金鑰)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
 
 **回應**
 
@@ -526,7 +526,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
  
 `api-version` 為必要項目。目前的預覽版本為 `2015-02-28-Preview`。[Azure 搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)中有提供替代版本的詳細資訊。
 
-`api-key` 必須為管理員金鑰 \(相對於查詢金鑰\)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
+`api-key` 必須為管理員金鑰 (相對於查詢金鑰)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
 
 **回應**
 
@@ -542,7 +542,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 `api-version` 為必要項目。目前的預覽版本為 `2015-02-28-Preview`。[Azure 搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)中有提供替代版本的詳細資訊。
 
-`api-key` 必須為管理員金鑰 \(相對於查詢金鑰\)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
+`api-key` 必須為管理員金鑰 (相對於查詢金鑰)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
 
 **回應**
 
@@ -559,13 +559,13 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 `api-version` 為必要項目。目前的預覽版本為 `2015-02-28-Preview`。[Azure 搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)中有提供替代版本的詳細資訊。
 
-`api-key` 必須為管理員金鑰 \(相對於查詢金鑰\)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
+`api-key` 必須為管理員金鑰 (相對於查詢金鑰)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
 
 **回應**
 
 狀態碼：回應成功時會傳回「200 確定」。
 
-回應本文包含整體索引子健全狀態、最後索引子引動過程，以及最新索引子引動過程的歷程記錄 \(如果有\) 等相關資訊。
+回應本文包含整體索引子健全狀態、最後索引子引動過程，以及最新索引子引動過程的歷程記錄 (如果有) 等相關資訊。
 
 範例回應本文應如下所示：
 
@@ -605,7 +605,7 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 **索引子執行結果**
 
-索引子執行結果包含單一索引子執行的相關資訊。索引子狀態屬性 `lastResult` 表示最新的結果。索引子狀態屬性 `executionHistory` 會傳回其他最新的結果 \(如果有\)。
+索引子執行結果包含單一索引子執行的相關資訊。索引子狀態屬性 `lastResult` 表示最新的結果。索引子狀態屬性 `executionHistory` 會傳回其他最新的結果 (如果有)。
 
 索引子執行結果包含下列屬性：
 
@@ -617,15 +617,15 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 
 - `endTime`：這項執行結束的 UTC 時間。如果執行仍在進行中，則不會設定此值。
 
-- `errors`：項目層級的錯誤清單 \(如果有\)。
+- `errors`：項目層級的錯誤清單 (如果有)。
 
-- `itemsProcessed`：在這項執行期間，索引子嘗試編製索引的資料來源項目數 \(例如資料表的資料列\)。
+- `itemsProcessed`：在這項執行期間，索引子嘗試編製索引的資料來源項目數 (例如資料表的資料列)。
 
 - `itemsFailed`:此項執行期間失敗的項目數。
  
-- `initialTrackingState`：第一次執行索引子，或當所使用的資料來源未啟用資料變更追蹤原則時，一律為 `null`。如果啟用該原則，則在後續執行中，這個值就表示此執行處理的第一個 \(最低\) 變更追蹤值。
+- `initialTrackingState`：第一次執行索引子，或當所使用的資料來源未啟用資料變更追蹤原則時，一律為 `null`。如果啟用該原則，則在後續執行中，這個值就表示此執行處理的第一個 (最低) 變更追蹤值。
 
-- `finalTrackingState`：當所使用的資料來源未啟用資料變更追蹤原則時，一律為 `null`。否則，表示此執行成功處理的最新 \(最高\) 變更追蹤值。
+- `finalTrackingState`：當所使用的資料來源未啟用資料變更追蹤原則時，一律為 `null`。否則，表示此執行成功處理的最新 (最高) 變更追蹤值。
 
 <a name="IndexerExecutionStatus"></a> **索引子執行狀態**
 
@@ -636,23 +636,23 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 - `inProgress` 表示正在進行索引子的執行。
 
 - `transientFailure` 表示正在進行索引子的執行。如需詳細資料，請參閱 `errorMessage`。有些失敗可能需要使用者介入，有些則否 - 例如，修正
-- 資料來源與目標索引之間的結構描述不相容性，就需要使用者介入；暫時性的資料來源停止運作則不需要。索引子引動將繼續按照排程進行 \(若有排程的話\)。 
+- 資料來源與目標索引之間的結構描述不相容性，就需要使用者介入；暫時性的資料來源停止運作則不需要。索引子引動將繼續按照排程進行 (若有排程的話)。 
 
 - `persistentFailure` 表示索引子失敗，需要使用者介入。排程的索引子執行會停止。解決問題之後，您可使用重設索引子 API 來重新啟動排程的執行。
 
-- `reset` 表示索引子已被重設索引子 API 呼叫重設 \(請參閱下方\)。
+- `reset` 表示索引子已被重設索引子 API 呼叫重設 (請參閱下方)。
 
 <a name="ResetIndexer"></a>
 ## 重設索引子
 
-**重設索引子**作業可重設與索引子相關聯的變更追蹤狀態。這可讓您觸發從頭開始重新編製索引 \(例如，當您的資料來源結構描述已變更時\)，或變更與索引子相關聯之資料來源的資料變更偵測原則。
+**重設索引子**作業可重設與索引子相關聯的變更追蹤狀態。這可讓您觸發從頭開始重新編製索引 (例如，當您的資料來源結構描述已變更時)，或變更與索引子相關聯之資料來源的資料變更偵測原則。
 
 	POST https://[service name].search.windows.net/indexers/[indexer name]/reset?api-version=[api-version]
     api-key: [admin key]
 
 `api-version` 為必要項目。目前的預覽版本為 `2015-02-28-Preview`。[Azure 搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)中有提供替代版本的詳細資訊。
 
-`api-key` 必須為管理員金鑰 \(相對於查詢金鑰\)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
+`api-key` 必須為管理員金鑰 (相對於查詢金鑰)。如需金鑰的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 的驗證一節。[在入口網站中建立搜尋服務](search-create-service-portal.md)說明如何取得要求所需的服務 URL 與金鑰屬性。
 
 **回應**
 

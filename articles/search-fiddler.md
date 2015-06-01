@@ -18,7 +18,7 @@
 
 # 如何使用 Fiddler 評估及測試 Azure 搜尋服務 REST API
 
-此程序使用 Fiddler \([可從 Telerik 免費下載](http://www.telerik.com/fiddler)\)，並可在不必撰寫任何程式碼的情況下，透過 Azure 搜尋服務 REST API 發送 HTTP 要求以及檢視回應。[MSDN](https://msdn.microsoft.com/zh-tw/library/azure/dn798935.aspx) 中記載了 Azure 搜尋服務 REST API。
+此程序使用 Fiddler ([可從 Telerik 免費下載](http://www.telerik.com/fiddler))，並可在不必撰寫任何程式碼的情況下，透過 Azure 搜尋服務 REST API 發送 HTTP 要求以及檢視回應。[MSDN](https://msdn.microsoft.com/zh-tw/library/azure/dn798935.aspx) 中記載了 Azure 搜尋服務 REST API。
 
 在以下步驟中，您將建立索引、上傳文件、查詢索引，然後查詢系統以取得服務資訊。
 
@@ -26,13 +26,13 @@
 
 ## 建立索引
 
-1. 啟動 Fiddler。在 \[File \(檔案\)\] 功能表上，關閉 \[Capture Traffic \(擷取流量\)\] ****以隱藏與目前工作無關的 HTTP 活動。 
+1. 啟動 Fiddler。在 [File (檔案)] 功能表上，關閉 [Capture Traffic (擷取流量)] ****以隱藏與目前工作無關的 HTTP 活動。 
 
-3. 在 \[Composer \(編寫器\)\] 索引標籤上，您可以制定如下所示的要求：
+3. 在 [Composer (編寫器)] 索引標籤上，您可以制定如下所示的要求：
 
   	![][1]
 
-2. 選取 \[PUT\]****。
+2. 選取 [PUT]****。
 
 3. 輸入可指出服務 URL、要求屬性和 API 版本的 URL。請留意以下幾點：
    + 使用 HTTPS 作為首碼
@@ -50,11 +50,11 @@
         content-type: application/json
         api-key: 1111222233334444
 
-5.	在 \[Request Body \(要求本文\)\] 中，貼上構成索引定義的欄位。
+5.	在 [Request Body (要求本文)] 中，貼上構成索引定義的欄位。
 
-         {
-        "name": "hotels",  
-        "fields": [
+          {
+          "name": "hotels",  
+          "fields": [
           {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
           {"name": "baseRate", "type": "Edm.Double"},
           {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false,},
@@ -66,24 +66,24 @@
           {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
           {"name": "rating", "type": "Edm.Int32"},
           {"name": "location", "type": "Edm.GeographyPoint"}
-         ] 
-        }
+          ] 
+          }
 
-6.	按一下 \[Execute \(執行\)\]****。
+6.	按一下 [Execute (執行)]****。
 
 幾秒鐘後，您應該就會在工作階段清單中看見 HTTP 201 的回應，指出已成功建立索引。
 
-如果您收到 HTTP 504，請確認 URL 所指定的是 HTTPS。如果您看見 HTTP 400 或 404，請查看要求本文以確認並沒有「複製-貼上」錯誤。HTTP 403 通常表示 API 金鑰有問題 \(可能是金鑰無效或是用來指定 API 金鑰的語法有問題\)。
+如果您收到 HTTP 504，請確認 URL 所指定的是 HTTPS。如果您看見 HTTP 400 或 404，請查看要求本文以確認並沒有「複製-貼上」錯誤。HTTP 403 通常表示 API 金鑰有問題 (可能是金鑰無效或是用來指定 API 金鑰的語法有問題)。
 
 ## 載入文件
 
-在 \[Composer \(編寫器\)\] 索引標籤上，張貼文件的要求看起來會像下面這樣。要求本文包含 4 間飯店的搜尋資料。
+在 [Composer (編寫器)] 索引標籤上，張貼文件的要求看起來會像下面這樣。要求本文包含 4 間飯店的搜尋資料。
 
    ![][2]
 
-1. 選取 \[POST\]****。
+1. 選取 [POST]****。
 
-2.	輸入以 HTTPS 開頭的 URL，並於後面依序加上服務 URL 和 "/indexes/\<'indexname'\>/docs/index?api-version=2015-02-28"。完整 URL 應該會類似下列範例：
+2.	輸入以 HTTPS 開頭的 URL，並於後面依序加上服務 URL 和 "/indexes/<'indexname'>/docs/index?api-version=2015-02-28"。完整 URL 應該會類似下列範例：
 
         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
@@ -94,11 +94,11 @@
         content-type: application/json
         api-key: 1111222233334444
 
-4.	\[Request Body \(要求本文\)\] 包含 4 個要新增到飯店索引的文件。
+4.	[Request Body (要求本文)] 包含 4 個要新增到飯店索引的文件。
 
-        {
-        "value": [
-        {
+            {
+            "value": [
+            {
         	"@search.action": "upload",
         	"hotelId": "1",
         	"baseRate": 199.0,
@@ -153,23 +153,23 @@
         	"lastRenovationDate": null,
         	"rating": 4,
         	"location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
+            }
+          ]
           }
-         ]
-        }
 
-8.	按一下 \[Execute \(執行\)\]****。
+8.	按一下 [Execute (執行)]****。
 
 幾秒鐘後，您應該就會在工作階段清單中看見 HTTP 200 的回應。這表示已成功建立文件。如果您收到 207，表示至少有一個文件上傳失敗。如果您收到 404，則表示要求的標頭或本文有語法錯誤。
 
 ## 查詢索引
 
-現在已載入索引和文件，您可以對其發出查詢。在 \[Composer \(編寫器\)\] 索引標籤上，查詢服務的 GET 命令看起來會像下面這樣：
+現在已載入索引和文件，您可以對其發出查詢。在 [Composer (編寫器)] 索引標籤上，查詢服務的 GET 命令看起來會像下面這樣：
 
    ![][3]
 
-1.	選取 \[GET\]****。
+1.	選取 [GET]****。
 
-2.	輸入以 HTTPS 開頭，並於後面依序加上服務 URL、"/indexes/\<'indexname'\>/docs?" 和查詢參數的完整 URL。舉例來說，使用下列 URL，並以服務的有效值取代範例主機名稱。
+2.	輸入以 HTTPS 開頭，並於後面依序加上服務 URL、"/indexes/<'indexname'>/docs?" 和查詢參數的完整 URL。舉例來說，使用下列 URL，並以服務的有效值取代範例主機名稱。
 
         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
 
@@ -186,7 +186,7 @@
  
    ![][4]
 
-下列範例查詢來自 MSDN 上的[搜尋索引作業 \(Azure 搜尋 API\)](http://msdn.microsoft.com/library/dn798927.aspx) \(英文\)。此主題中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢：
+下列範例查詢來自 MSDN 上的[搜尋索引作業 (Azure 搜尋 API)](http://msdn.microsoft.com/library/dn798927.aspx) (英文)。此主題中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢：
 
 **取代空格之前：**
 
@@ -198,11 +198,11 @@
 
 ## 查詢系統
 
-您也可以查詢系統以取得文件計數和儲存體用量。在 \[Composer \(編寫器\)\] 索引標籤上，您的要求看起來會像下面這樣，而回應會傳回文件計數和空間的使用量。
+您也可以查詢系統以取得文件計數和儲存體用量。在 [Composer (編寫器)] 索引標籤上，您的要求看起來會像下面這樣，而回應會傳回文件計數和空間的使用量。
 
  ![][5]
 
-1.	選取 \[GET\]****。
+1.	選取 [GET]****。
 
 2.	輸入含有服務 URL 的 URL，並於後面加上 "/indexes/hotels/stats?api-version=2015-02-28"：
 
@@ -217,9 +217,9 @@
 
 4.	讓要求本文保持空白。
 
-5.	按一下 \[Execute \(執行\)\]****。您應該會在工作階段清單中看到 HTTP 200 的狀態碼。選取為命令張貼的項目。
+5.	按一下 [Execute (執行)]****。您應該會在工作階段清單中看到 HTTP 200 的狀態碼。選取為命令張貼的項目。
 
-6.	依序按一下 \[Inspectors \(檢測器\)\]**** 索引標籤 \| \[Headers \(標頭\)\]****，然後選取 \[JSON\] 格式。您應該會看到文件計數和儲存體大小 \(以 KB計算\)。
+6.	依序按一下 [Inspectors (檢測器)]**** 索引標籤 | [Headers (標頭)]****，然後選取 [JSON] 格式。您應該會看到文件計數和儲存體大小 (以 KB計算)。
 
 ## 後續步驟
 

@@ -18,13 +18,13 @@
 
 # 如何管理不同類型推播通知活動的指定內容
  
-您可以使用新觸達活動的 \[內容\] 區段修改通知、投票、資料推送和磚 \(僅限 Windows Phone\) 的內容。推播活動的內容設定與活動類型有關。
+您可以使用新觸達活動的 [內容] 區段修改通知、投票、資料推送和磚 (僅限 Windows Phone) 的內容。推播活動的內容設定與活動類型有關。
  
 ### 內容類型：
 - 通知
 - 投票
 - 資料推送
-- 磚 \(僅限 Windows Phone\)
+- 磚 (僅限 Windows Phone)
  
 ## 通知的內容
  ![Reach-Content1][30]
@@ -38,64 +38,64 @@
 - [觸達 - 作法 - 通知][Link 3] 
 
 ### 關於 Web 檢視通知：
-您在此處提供的每個 "{deviceid}" 字樣 \(在 HTML 程式碼或 JavaScript 程式碼中\) 將會自動取代為顯示通知的裝置識別碼。這個簡單的方法可以擷取您後端系統裝載的外部 Web 服務中的 Azure Mobile Engagement 裝置識別碼。如果您想要建立全螢幕的 Web 檢視 \(不含我們提供的預設 \[動作\] 和 \[離開\] 按鈕\)，您可以從 Web 檢視通知的 JavaScript 程式碼中使用下列函式：
+您在此處提供的每個 "{deviceid}" 字樣 (在 HTML 程式碼或 JavaScript 程式碼中) 將會自動取代為顯示通知的裝置識別碼。這個簡單的方法可以擷取您後端系統裝載的外部 Web 服務中的 Azure Mobile Engagement 裝置識別碼。如果您想要建立全螢幕的 Web 檢視 (不含我們提供的預設 [動作] 和 [離開] 按鈕)，您可以從 Web 檢視通知的 JavaScript 程式碼中使用下列函式：
 
--    執行通知動作：ReachContent.actionContent\(\)
--    離開通知：ReachContent.exitContent\(\)
+-    執行通知動作：ReachContent.actionContent()
+-    離開通知：ReachContent.exitContent()
  
 ### 選擇您的動作：
 
 ### 關於動作 URL：
-可由目標裝置的作業系統解譯的任何 URL 都可以用來做為動作 URL。應用程式可能支援的任何專用 URL \(例如讓使用者跳至特定畫面\) 也可用來做為動作 URL。每個 {deviceid} 字樣的項目都會自動取代為執行動作的裝置識別碼。透過您後端系統裝載的外部 Web 服務，這可用來輕鬆擷取 Azure Mobile Engagement 裝置識別碼。
+可由目標裝置的作業系統解譯的任何 URL 都可以用來做為動作 URL。應用程式可能支援的任何專用 URL (例如讓使用者跳至特定畫面) 也可用來做為動作 URL。每個 {deviceid} 字樣的項目都會自動取代為執行動作的裝置識別碼。透過您後端系統裝載的外部 Web 服務，這可用來輕鬆擷取 Azure Mobile Engagement 裝置識別碼。
 
 - **Android + iOS 動作**
     - 開啟網頁
-    - http://\[web-site-domain\\] 
+    - http://[web-site-domain] 
     - 範例：http://www.azure.com
     - 傳送電子郵件
-    - mailto:\[收件者\]?subject=\[主旨\]&body=\[訊息\] 
+    - mailto:[收件者]?subject=[主旨]&body=[訊息] 
     - 範例：mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
     - 傳送簡訊
-    - sms:\[電話號碼\] 
+    - sms:[電話號碼] 
     - 範例：sms:2125551212
     - 撥電話號碼
-    - tel:\[電話號碼\] 
+    - tel:[電話號碼] 
     - 範例：tel:2125551212
 - **僅限 Android 的動作**
     - 下載 Play 商店上的應用程式
-    - market://details?id=\[app 套件\] 
+    - market://details?id=[app 套件] 
     - 範例：market://details?id=com.microsoft.office.word
     - 開始地理當地化的搜尋
-    - geo:0,0?q=\[搜尋查詢\] 
+    - geo:0,0?q=[搜尋查詢] 
     - 範例：geo:0,0?q=starbucks,paris
 - **僅限 iOS 的動作**
     - 下載 App Store 上的應用程式
-    - http://itunes.apple.com/[country]/app/[app 名稱\]/id[app 識別碼]?mt=8 
+    - http://itunes.apple.com/[country]/app/[app 名稱]/id[app 識別碼]?mt=8 
     - 範例：http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Windows 動作
     - 開啟網頁
-    - http://\[web-site-domain\\] 
+    - http://[web-site-domain] 
     - 範例：http://www.azure.com
     - 傳送電子郵件
-    - mailto:\[收件者\]?subject=\[主旨\]&body=\[訊息\] 
+    - mailto:[收件者]?subject=[主旨]&body=[訊息] 
     - 範例：mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
-    - 傳送簡訊 \(需要 Skype 市集應用程式\)
-    - sms:\[電話號碼\] 
+    - 傳送簡訊 (需要 Skype 市集應用程式)
+    - sms:[電話號碼] 
     - 範例：sms:2125551212
-    - 撥電話號碼 \(需要 Skype 市集應用程式\)
-    - tel:\[電話號碼\] 
+    - 撥電話號碼 (需要 Skype 市集應用程式)
+    - tel:[電話號碼] 
     - 範例：tel:2125551212
     - 下載 Play 商店上的應用程式
-    - ms-windows-store:PDP?PFN=\[應用程式套件識別碼\] 
+    - ms-windows-store:PDP?PFN=[應用程式套件識別碼] 
     - 範例：ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
     - 開始 bingmaps 搜尋
-    - bingmaps:?q=\[搜尋查詢\] 
+    - bingmaps:?q=[搜尋查詢] 
     - 範例：bingmaps:?q=starbucks,paris
     - 使用自訂配置
-    - \[自訂配置\]://\[自訂配置參數\] 
+    - [自訂配置]://[自訂配置參數] 
     - 範例：myCustomProtocol://myCustomParams
-    - 使用套件資料 \(需要副檔名讀取的市集應用程式\)
-    - \[資料夾\]\[資料\].\[副檔名\] 
+    - 使用套件資料 (需要副檔名讀取的市集應用程式)
+    - [資料夾][資料].[副檔名] 
     - 範例：myfolderdata.txt
  
 ### 建置追蹤 URL：
@@ -122,18 +122,18 @@
 - Base64 資料
 
 ### 定義資料的內容
-- 如果您選取推送文字資料，請複製文字並貼到 \[內容\] 方塊。
-- 如果您選取推送二進位或 base64 資料，請使用 \[上傳您的檔案\] 按鈕上傳您的檔案。
+- 如果您選取推送文字資料，請複製文字並貼到 [內容] 方塊。
+- 如果您選取推送二進位或 base64 資料，請使用 [上傳您的檔案] 按鈕上傳您的檔案。
 - 您可以根據使用者如何回應此活動的觸達意見反應，找出未來的活動對象。選取目標對象時可以根據此活動是否已推送、回覆、採取動作或離開。
 
 ### 另請參閱
 - [UI 文件 - 觸達 - 新增推播準則][Link 28]
 
-## 磚的內容 \(僅限 Windows Phone\)
+## 磚的內容 (僅限 Windows Phone)
 ![Reach-Content4][33]
 
 ### 定義磚的內容
-磚承載是在 Windows Phone 裝置上應用程式磚中顯示的文字。磚推送是適用於 Windows Phone 之原生推送的 Microsoft 推播通知服務 \(MPNS\) 版本。磚推送類型是唯一沒有回應的推播類型，因此無法依據磚推播活動的結果建置未來活動的對象。
+磚承載是在 Windows Phone 裝置上應用程式磚中顯示的文字。磚推送是適用於 Windows Phone 之原生推送的 Microsoft 推播通知服務 (MPNS) 版本。磚推送類型是唯一沒有回應的推播類型，因此無法依據磚推播活動的結果建置未來活動的對象。
 
 ### 另請參閱
 - [API 文件 - 觸達 API - 原生推送][Link 4]

@@ -53,8 +53,8 @@
 
     public class StorageSample {
 
-在 **StorageSample** 類別中，宣告將包含預設端點通訊協定、儲存體帳戶名稱和儲存體存取金鑰 (如您 Azure 儲存體帳戶中所指定) 的字串變數。將預留位置值 **your\_account\_name** 和
-**your\_account\_key** 分別取代成您自己的帳戶名稱和帳戶金鑰。
+在 **StorageSample** 類別中，宣告將包含預設端點通訊協定、儲存體帳戶名稱和儲存體存取金鑰 (如您 Azure 儲存體帳戶中所指定) 的字串變數。將預留位置值 **your_account_name** 和
+**your_account_key** 分別取代成您自己的帳戶名稱和帳戶金鑰。
 
     public static final String storageConnectionString = 
            "DefaultEndpointsProtocol=http;" + 
@@ -211,8 +211,8 @@ Azure 儲存體中的 Blob。
 
 透過插入右括號來結束 **StorageSample**：**}**
 
-下列是此範例的完整程式碼。請記得將預留位置值 **your\_account\_name** 和
-**your\_account\_key** 分別修改成使用您的帳戶名稱和帳戶金鑰。
+下列是此範例的完整程式碼。請記得將預留位置值 **your_account_name** 和
+**your_account_key** 分別修改成使用您的帳戶名稱和帳戶金鑰。
 
     import com.microsoft.windowsazure.services.core.storage.*;
     import com.microsoft.windowsazure.services.blob.client.*;

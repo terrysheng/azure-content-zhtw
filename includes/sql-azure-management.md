@@ -183,11 +183,11 @@ Transact-SQL 與 SQL Database 的詳細資訊 (包括所支援命令的詳細資
 
             CREATE USER login1User FROM LOGIN login1;
 
--   使用 **sp\_addrolemember** 預存程序，
+-   使用 **sp_addrolemember** 預存程序，
     將資料庫的適當權限等級授與使用者帳戶。如需
     詳細資訊，請參閱 [sp_addrolemember (Transact-SQL)][]。以下陳述式會授與 **login1User** 資料庫的唯讀權限，
     方法是將 **login1User** 加入 
-    **db\_datareader** 角色。
+    **db_datareader** 角色。
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
@@ -213,7 +213,7 @@ Transact-SQL 與 SQL Database 的詳細資訊 (包括所支援命令的詳細資
 
         DROP LOGIN login1;
 
--   master 資料庫具有 **sys.sql\_logins** 檢視，而您可以使用此檢視
+-   master 資料庫具有 **sys.sql_logins** 檢視，而您可以使用此檢視
     來檢視登入。若要檢視所有現有的登入，請執行
     下列陳述式：
 
@@ -234,8 +234,8 @@ SQL Database 支援數個動態管理檢視，而您可以使用這些檢視
 
         GRANT VIEW DATABASE STATE TO login1User;
 
--   使用 **sys.dm\_db\_partition\_stats** 檢視來計算資料庫大小
-    。**sys.dm\_db\_partition\_stats** 檢視會傳回下列項目的頁面和
+-   使用 **sys.dm_db_partition_stats** 檢視來計算資料庫大小
+    。**sys.dm_db_partition_stats** 檢視會傳回下列項目的頁面和
     資料列計數資訊：資料庫中的每個資料分割，而您
     可以使用這些資訊來計算資料庫大小。下列查詢會傳回
     資料庫的大小 (MB)：
@@ -243,7 +243,7 @@ SQL Database 支援數個動態管理檢視，而您可以使用這些檢視
         SELECT SUM(reserved_page_count)*8.0/1024
         FROM sys.dm_db_partition_stats;   
 
--   使用 **sys.dm\_exec\_connections** 和 **sys.dm\_exec\_sessions**
+-   使用 **sys.dm_exec_connections** 和 **sys.dm_exec_sessions**
     檢視，以擷取下列項目的相關資訊：目前使用者連線以及
     與資料庫相關聯的內部工作。下列查詢
     會傳回目前連線的相關資訊：
@@ -259,7 +259,7 @@ SQL Database 支援數個動態管理檢視，而您可以使用這些檢視
             INNER JOIN sys.dm_exec_connections e
               ON s.session_id = e.session_id;
 
--   使用 **sys.dm\_exec\_query\_stats** 檢視來擷取彙總
+-   使用 **sys.dm_exec_query_stats** 檢視來擷取彙總
     已快取查詢計畫的效能統計資料。下列查詢
     會傳回依下列項目排名之前五項查詢的相關資訊：平均 CPU
     時間。

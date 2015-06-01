@@ -44,7 +44,7 @@
 
 您使用服務匯流排建立和執行 JMS 應用程式時，必須從 Apache Qpid JMS AMQP 1.0 散發封裝將下列 4 個 JAR 檔加入 Java CLASSPATH：
 
-*    geronimo-jms\_1.1\_spec-1.0.jar
+*    geronimo-jms_1.1_spec-1.0.jar
 *    qpid-amqp-1-0-client-[version].jar
 *    qpid-amqp-1-0-client-jms-[version].jar
 *    qpid-amqp-1-0-common-[version].jar
@@ -139,7 +139,7 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 
 	topic.[jndi_name] = [physical_name]
 
-其中，[jndi\_name] 和 [physical\_name] 具有下列意義：
+其中，[jndi_name] 和 [physical_name] 具有下列意義：
 
 <table>
   <tr>

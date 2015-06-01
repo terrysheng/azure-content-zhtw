@@ -25,7 +25,7 @@ Application Insights 可提供應用程式使用量的清楚檢視，幫助您�
  
 將 [Application Insights][start] 加入您的專案，不需多費力氣，便能獲得能顯示您擁有的使用者數量的圖表等等。
 
-![在 Azure 中，\[瀏覽\] \> \[Application Insights\] \> 您的專案，並向下捲動](./media/app-insights-overview-usage/01-overview.png)
+![在 Azure 中，[瀏覽] > [Application Insights] > 您的專案，並向下捲動](./media/app-insights-overview-usage/01-overview.png)
  
 將滑鼠移至圖形上的空白部分，以查看特定點的計數。否則，數字會顯示在一段期間的彙總值，例如一段期間的平均、總計或獨特使用者計數。
 
@@ -35,9 +35,9 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 
 逐一點選任何圖表以查看更詳細的資料。例如：
 
-![在 \[概觀\] 分頁上，按一下 \[工作階段\] 圖表](./media/app-insights-overview-usage/02-sessions.png)
+![在 [概觀] 分頁上，按一下 [工作階段] 圖表](./media/app-insights-overview-usage/02-sessions.png)
  
-\(此範例來自網站，但圖表看起來類似於在裝置上執行的應用程式。\)
+(此範例來自網站，但圖表看起來類似於在裝置上執行的應用程式。)
 
 與前一週比較，看看是否有任何項目變更：
 
@@ -47,7 +47,7 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 
 ![選取圖表，搜尋並勾選或取消勾選度量。](./media/app-insights-overview-usage/031-dual.png)
 
-依屬性 \(例如瀏覽器、作業系統或城市\) 群組 \(分段\) 資料：
+依屬性 (例如瀏覽器、作業系統或城市) 群組 (分段) 資料：
 
 ![選取顯示單一度量的圖表，將分組切換成開啟，並選擇屬性](./media/app-insights-overview-usage/03-browsers.png)
 
@@ -57,7 +57,7 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 逐一點選頁面檢視圖表以取得更放大的版本，以及最受歡迎頁面的分解：
 
 
-![從 \[概觀\] 分頁，按一下 \[頁面檢視\] 圖表](./media/app-insights-overview-usage/05-games.png)
+![從 [概觀] 分頁，按一下 [頁面檢視] 圖表](./media/app-insights-overview-usage/05-games.png)
  
 以上範例來自遊戲網站。透過它，我們可以立即看到：
 
@@ -77,26 +77,26 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 
 您可以透過許多方式使用遙測來了解使用應用程式的方式。但您不會想要總是將訊息與頁面檢視混雜在一起。改為使用自訂事件。您可以從裝置應用程式、網頁或 Web 伺服器傳送事件：
 
-\(JavaScript\)
+(JavaScript)
 
     telemetryClient.trackEvent("GameEnd");
 
-\(C\#\)
+(C#)
 
     var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
     tc.TrackEvent("GameEnd");
 
-\(VB\)
+(VB)
 
     Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
     tc.TrackEvent("GameEnd")
 
 
-最常見的自訂事件會列在 \[概觀\] 分頁上。
+最常見的自訂事件會列在 [概觀] 分頁上。
 
-![在 \[概觀\] 分頁上，向下捲動並按一下 \[自訂事件\]。](./media/app-insights-overview-usage/04-events.png)
+![在 [概觀] 分頁上，向下捲動並按一下 [自訂事件]。](./media/app-insights-overview-usage/04-events.png)
 
-按一下表格標題來查看事件數的總計。您可以依各種屬性 \(例如事件名稱\) 來分段圖表：
+按一下表格標題來查看事件數的總計。您可以依各種屬性 (例如事件名稱) 來分段圖表：
 
 ![選取僅顯示一個度量的圖表。將分組切換成開啟。選擇屬性。並非所有屬性都可供使用。](./media/app-insights-overview-usage/06-eventsSegment.png)
 
@@ -108,10 +108,10 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 
 在此範例中，我們編寫了自訂事件 "NoGame"，當使用者登出而實際上未啟動遊戲時會呼叫它。為什麼使用者要那麼做？ 也許我們深入一些特定的出現次數可獲得線索。
 
-從應用程式收到的自訂事件會依名稱列在 \[概觀\] 分頁上：
+從應用程式收到的自訂事件會依名稱列在 [概觀] 分頁上：
 
 
-![在 \[概觀\] 分頁上，按一下其中一個自訂事件類型。](./media/app-insights-overview-usage/07-clickEvent.png)
+![在 [概觀] 分頁上，按一下其中一個自訂事件類型。](./media/app-insights-overview-usage/07-clickEvent.png)
  
 逐一點選感興趣的事件，並選取最近的特定出現次數：
 
@@ -121,7 +121,7 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 讓我們查看工作階段的所有遙測，其中發生了特定 NoGame 事件。
 
 
-![按一下 \[工作階段的所有遙測\]](./media/app-insights-overview-usage/09-relatedTelemetry.png)
+![按一下 [工作階段的所有遙測]](./media/app-insights-overview-usage/09-relatedTelemetry.png)
  
 沒有例外狀況，因此沒有因為一些錯誤而防止使用者玩遊戲。
  
@@ -130,7 +130,7 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 
 ![](./media/app-insights-overview-usage/10-filter.png)
  
-而現在我們可以看到，這個使用者登入只是為了要查看最新的分數。也許我們應該考慮開發可讓這個動作更易於進行的使用者劇本。\(而我們應該實作自訂事件，在這個特定劇本發生時提出報告。\)
+而現在我們可以看到，這個使用者登入只是為了要查看最新的分數。也許我們應該考慮開發可讓這個動作更易於進行的使用者劇本。(而我們應該實作自訂事件，在這個特定劇本發生時提出報告。)
 
 ## 使用屬性來篩選、搜尋和分割您的資料
 您可以附加任意標記和數值到事件。
@@ -145,7 +145,7 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
         {Score: currentGame.score, Opponents: currentGame.opponentCount}
     );
 
-伺服器上的 C\#
+伺服器上的 C#
 
     // Set up some properties:
     var properties = new Dictionary <string, string> 
@@ -183,21 +183,21 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 
 ![在事件的清單中，開啟事件，然後按一下 '...' 來查看更多屬性](./media/app-insights-overview-usage/11-details.png)
  
-使用 \[搜尋\] 欄位來查看具有特定屬性值的事件出現次數。
+使用 [搜尋] 欄位來查看具有特定屬性值的事件出現次數。
 
 
-![在 \[搜尋\] 欄位中輸入值](./media/app-insights-overview-usage/12-searchEvents.png)
+![在 [搜尋] 欄位中輸入值](./media/app-insights-overview-usage/12-searchEvents.png)
 
 
-## A \| B 測試
+## A | B 測試
 
 如果您不知道哪個功能的變數將更可能成功，請兩者都釋出，讓兩者都可供不同使用者存取。測量每一個的成功，然後移至整合的版本。
 
 針對此技術，您會附加獨特的標記到每個應用程式版本所傳送的所有遙測。您可以在作用中 TelemetryContext 中定義屬性來執行該動作。這些預設屬性會加入到應用程式傳送的每個遙測訊息 - 不只是您的自訂訊息，還有標準遙測。
 
-在 Application Insights 入口網站中，您將可以依標記篩選並分組 \(分段\) 資料，以便比較不同版本。
+在 Application Insights 入口網站中，您將可以依標記篩選並分組 (分段) 資料，以便比較不同版本。
 
-伺服器上的 C\#
+伺服器上的 C#
 
     using Microsoft.ApplicationInsights.DataContracts;
 

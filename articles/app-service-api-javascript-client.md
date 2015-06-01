@@ -32,19 +32,19 @@
 
 ## 啟用 CORS
 
-一般而言，HTML 應用程式需要 CORS \(跨來源資源共用\)，其將由不同的主機而非 與 API 本身提供服務 。在 API 應用程式中，至少有兩個選項可啟用 CORS。本節將概述這些選項。
+一般而言，HTML 應用程式需要 CORS (跨來源資源共用)，其將由不同的主機而非 與 API 本身提供服務 。在 API 應用程式中，至少有兩個選項可啟用 CORS。本節將概述這些選項。
 
 ### 對 API 應用程式閘道啟用 CORS
 
-API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。藉由新增 **MS\_CrossDomainOrigins** *appSetting*，您可以指定允許呼叫 API 應用程式的 URL。本章將說明如何使用此 *appSetting* 在 API 閘道層級啟用 CORS。
+API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。藉由新增 **MS_CrossDomainOrigins** *appSetting*，您可以指定允許呼叫 API 應用程式的 URL。本章將說明如何使用此 *appSetting* 在 API 閘道層級啟用 CORS。
 
 1. 瀏覽至您要啟用 CORS 的 API 應用程式的 Azure 預覽入口網站刀鋒視窗。一旦抵達，請按一下  API 應用程式的*閘道* 圖示。 
 
-	![按一下 \[API 應用程式閘道\] 按鈕](./media/app-service-api-javascript-client/19-api-app-blade.png)
+	![按一下 [API 應用程式閘道] 按鈕](./media/app-service-api-javascript-client/19-api-app-blade.png)
 
 1. 按一下入口網站刀鋒視窗中的 **閘道主機**連結。
 
-	![按一下 \[API 應用程式閘道主機\] 連結](./media/app-service-api-javascript-client/20-gateway-host-blade.png)
+	![按一下 [API 應用程式閘道主機] 連結](./media/app-service-api-javascript-client/20-gateway-host-blade.png)
 
 1. 按一下入口網站刀鋒視窗中的 **所有設定**連結。
 
@@ -54,7 +54,7 @@ API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。�
 
 	![閘道應用程式設定](./media/app-service-api-javascript-client/22-gateway-app-settings-blade.png)
 
-1. 新增 **MS\_CrossDomainOrigins** 應用程式設定。讓此設定的值成為您要提供 API 應用程式存取權的 HTTP 主機清單 \(以逗號分隔\)。如果您要提供多部主機的存取權，則可將 *appSetting* 的值設定為類似下列的程式碼。
+1. 新增 **MS_CrossDomainOrigins** 應用程式設定。讓此設定的值成為您要提供 API 應用程式存取權的 HTTP 主機清單 (以逗號分隔)。如果您要提供多部主機的存取權，則可將 *appSetting* 的值設定為類似下列的程式碼。
 
 		http://foo.azurewebsites.net, https://foo.azurewebsites.net, http://contactlistwebapp.azurewebsites.net
 
@@ -66,7 +66,7 @@ API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。�
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
-部落格文章 [Azure 行動服務 .NET 更新](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/)中有 **MS\_CrossDomainOrigins** 應用程式設定的詳細討論，如需此設定的詳細資訊，請查看這篇文章。
+部落格文章 [Azure 行動服務 .NET 更新](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/)中有 **MS_CrossDomainOrigins** 應用程式設定的詳細討論，如需此設定的詳細資訊，請查看這篇文章。
 
 ### 在 Web API 程式碼中啟用 CORS
 
@@ -80,7 +80,7 @@ API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。�
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. 開啟 *App\_Start/WebApiConfig.cs* 檔案。將底下這行程式碼加入至檔案中 **WebApiConfig** 類別的 **Register** 方法。 
+1. 開啟 *App_Start/WebApiConfig.cs* 檔案。將底下這行程式碼加入至檔案中 **WebApiConfig** 類別的 **Register** 方法。 
 
 		config.EnableCors();
 
@@ -143,23 +143,23 @@ API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。�
 
 在本節中，將會建立新的空白 Web 應用程式、在其中安裝和使用 AngularJS，以及將簡單的 HTML 前端繫結至 APPI 應用程式。您會將使用中的 Web 應用程式部署至 Azure App Service。HTML Web 應用程式將繫結至並顯示從 API 應用程式擷取的資料，以及提供 Contacts API 的簡單 UI 給使用者。
 
-1. 以滑鼠右鍵按一下方案，然後選取 **\[新增\] -\> \[新增專案\]**
+1. 以滑鼠右鍵按一下方案，然後選取 **[新增] -> [新增專案]**
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/02-add-project.png)
 
-1. 選取 \[**ASP.NET Web 應用程式**\] 範本。
+1. 選取 [**ASP.NET Web 應用程式**] 範本。
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/03-new-web-project.png)
 
-1. 選取 One ASP.NET 對話方塊中的 \[**空白**\] 範本。
+1. 選取 One ASP.NET 對話方塊中的 [**空白**] 範本。
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/04-empty-web.png)
 
-1. 使用 \[**封裝管理員**\] 或使用 \[**管理 NuGet 封裝**\] 內容功能表項目，安裝 [AngularJS](https://www.nuget.org/packages/angularjs) NuGet 封裝。
+1. 使用 [**封裝管理員**] 或使用 [**管理 NuGet 封裝**] 內容功能表項目，安裝 [AngularJS](https://www.nuget.org/packages/angularjs) NuGet 封裝。
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/05-install-angular.png)
 
-1. 使用 \[**封裝管理員**\] 或使用 \[**管理 NuGet 封裝**\] 內容功能表項目，安裝 [Bootstrap](https://www.nuget.org/packages/bootstrap) NuGet 封裝。
+1. 使用 [**封裝管理員**] 或使用 [**管理 NuGet 封裝**] 內容功能表項目，安裝 [Bootstrap](https://www.nuget.org/packages/bootstrap) NuGet 封裝。
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/05-install-bootstrap.png)
 
@@ -171,7 +171,7 @@ API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。�
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/07-index-html.png)
 
-1. 將 Bootstrap CSS 和 AngularJS JavaScript 檔案新增至 HTML 網頁，以及使用簡單的 Bootstrap 範本 \([如同這一個](http://getbootstrap.com/examples/starter-template/)\) 並建立空的指令碼標記來準備網頁。
+1. 將 Bootstrap CSS 和 AngularJS JavaScript 檔案新增至 HTML 網頁，以及使用簡單的 Bootstrap 範本 ([如同這一個](http://getbootstrap.com/examples/starter-template/)) 並建立空的指令碼標記來準備網頁。
 	
 	> 注意：下列 HTML 和 JavaScript 程式碼中的註解是這一節中後續步驟的起頭。
 
@@ -252,7 +252,7 @@ API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。�
             </tfoot>
         </table>
 
-1. 以滑鼠右鍵按一下 *index.html* 檔案，然後選取 \[**設定為起始頁**\] 功能表項目。然後對 Web 專案進行偵錯，以便在預設瀏覽器中開啟。
+1. 以滑鼠右鍵按一下 *index.html* 檔案，然後選取 [**設定為起始頁**] 功能表項目。然後對 Web 專案進行偵錯，以便在預設瀏覽器中開啟。
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/08-run-the-web-app.png)
 
@@ -310,7 +310,7 @@ API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。�
 
 	> **注意**：通訊埠號碼可能有所不同，因此如果您的 API 專案是在不同的連接埠上執行，只需變更上述 JavaScript 以反映您自己的環境。
 
-1. 請確定 API 應用程式專案也在執行中，否則 JavaScript HTML 將無法正常運作。以滑鼠右鍵按一下方案，然後選取 \[**屬性**\]。然後將這兩個 Web 專案設定為 \[**啟動但不偵錯**\]，而且先執行 API 專案。
+1. 請確定 API 應用程式專案也在執行中，否則 JavaScript HTML 將無法正常運作。以滑鼠右鍵按一下方案，然後選取 [**屬性**]。然後將這兩個 Web 專案設定為 [**啟動但不偵錯**]，而且先執行 API 專案。
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/10-run-both-web-projects.png)
 
@@ -332,15 +332,15 @@ API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。�
 
 		$scope.baseUrl = 'https://microsoft-apiappf7e042ba8e5233ab4312021d2aae5d86.azurewebsites.net';
 
-1. 以滑鼠右鍵按一下 HTML/JavaScript Web 專案，然後選取 \[**發行**\] 內容功能表項目。
+1. 以滑鼠右鍵按一下 HTML/JavaScript Web 專案，然後選取 [**發行**] 內容功能表項目。
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/13-publish-web-app.png)
 
-1. 選取 \[發行 Web\] 對話方塊中的 \[**Microsoft Azure Web 應用程式**\] 選項。
+1. 選取 [發行 Web] 對話方塊中的 [**Microsoft Azure Web 應用程式**] 選項。
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/14-publish-web-dialog.png)
 
-1. 按一下 \[**新增** \] 按鈕以建立新的 Web 應用程式。
+1. 按一下 [**新增** ] 按鈕以建立新的 Web 應用程式。
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/15-new-web-app.png)
 
@@ -350,7 +350,7 @@ API 應用程式閘道可設定為使用 Azure 預覽入口網站啟用 CORS。�
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/16-new-web-app-creation-dialog.png)
 
-1. 完成 \[Web 發行\] 步驟，以將 HTML/JavaScript 用戶端部署至 App Service Web 應用程式。
+1. 完成 [Web 發行] 步驟，以將 HTML/JavaScript 用戶端部署至 App Service Web 應用程式。
 1. 一旦部署 Web 應用程式，就應該在 Web 瀏覽器中自動開啟並顯示來自 API 應用程式的資料。 
 
 	![方案總管中的 apiapp.json 和中繼資料](./media/app-service-api-javascript-client/17-web-app-running-in-ie.png)

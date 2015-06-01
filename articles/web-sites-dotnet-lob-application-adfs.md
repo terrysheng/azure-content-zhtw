@@ -253,7 +253,7 @@
 - AD FS 已成功驗證 AD 使用者，並將您重新導向回應用程式的首頁
 - AD FS 已將名稱宣告 (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) 成功傳送到您的應用程式，並在角落顯示使用者名稱。 
 
-如果缺少名稱宣告，您應該會看到**您好！**。如果您看一下 Views\Shared\_LoginPartial.cshtml，您會發現它使用  `User.Identity.Name` 來顯示使用者名稱。如前所述，若可在 SAML 權杖中取得，ASP.NET 會使用已驗證使用者的名稱宣告來產生這個屬性。若要查看 AD FS 傳送的所有宣告，請將中斷點放在索引動作方法的 Controllers\HomeController.cs 中。驗證使用者後，檢查  `System.Security.Claims.Current.Claims` 集合。
+如果缺少名稱宣告，您應該會看到**您好！**。如果您看一下 Views\Shared_LoginPartial.cshtml，您會發現它使用  `User.Identity.Name` 來顯示使用者名稱。如前所述，若可在 SAML 權杖中取得，ASP.NET 會使用已驗證使用者的名稱宣告來產生這個屬性。若要查看 AD FS 傳送的所有宣告，請將中斷點放在索引動作方法的 Controllers\HomeController.cs 中。驗證使用者後，檢查  `System.Security.Claims.Current.Claims` 集合。
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png) 
 

@@ -1,6 +1,6 @@
 #設定 Azure 網站的自訂網域名稱
 
-建立網站時，Azure 會在 azurewebsites.net 網域上提供好記的子網域，讓使用者以類似 http://&lt;mysite\>.azurewebsites.net 的 URL 來存取您的網站。不過，如果您將網站設定為共用或標準模式，則可以將網站對應到您自己的網域名稱。
+建立網站時，Azure 會在 azurewebsites.net 網域上提供好記的子網域，讓使用者以類似 http://&lt;mysite>.azurewebsites.net 的 URL 來存取您的網站。不過，如果您將網站設定為共用或標準模式，則可以將網站對應到您自己的網域名稱。
 
 您也可以選擇使用 Azure 流量管理員來負載平衡連入網站的流量。如需流量管理員如何與網站搭配使用的詳細資訊，請參閱[使用 Azure 流量管理員來控制 Azure 網站的流量][trafficmanager]。
 
@@ -18,17 +18,17 @@
 
 <h2><a name="understanding-records"></a>了解 CNAME 和 A 記錄</h2>
 
-CNAME \(或別名記錄\) 和 A 記錄都可讓您將網域名稱和網站產生關聯，但運作方式不同。
+CNAME (或別名記錄) 和 A 記錄都可讓您將網域名稱和網站產生關聯，但運作方式不同。
 
 ###CNAME 或別名記錄
 
-CNAME 記錄將*特定的*網域 \(例如 **contoso.com** 或 **www.contoso.com**\) 對應到正式網域名稱。在此案例中，正式網域名稱為 Azure 網站的 **&lt;myapp\>.azurewebsites.net** 網域名稱，或流量管理員設定檔的 **&lt;myapp\>.trafficmgr.com** 網域名稱。CNAME 在建立之後會建立 **&lt;myapp\>.azurewebsites.net** 或 **&lt;myapp\>.trafficmgr.com** 網域名稱的別名。CNAME 項目會自動解析為 **&lt;myapp\>.azurewebsites.net** 或 **&lt;myapp\>.trafficmgr.com** 網域名稱的 IP 位址，因此，即使網站的 IP 位址變更，您也不需採取任何動作。
+CNAME 記錄將*特定的*網域 (例如 **contoso.com** 或 **www.contoso.com**) 對應到正式網域名稱。在此案例中，正式網域名稱為 Azure 網站的 **&lt;myapp>.azurewebsites.net** 網域名稱，或流量管理員設定檔的 **&lt;myapp>.trafficmgr.com** 網域名稱。CNAME 在建立之後會建立 **&lt;myapp>.azurewebsites.net** 或 **&lt;myapp>.trafficmgr.com** 網域名稱的別名。CNAME 項目會自動解析為 **&lt;myapp>.azurewebsites.net** 或 **&lt;myapp>.trafficmgr.com** 網域名稱的 IP 位址，因此，即使網站的 IP 位址變更，您也不需採取任何動作。
 
-> [AZURE.NOTE]使用 CNAME 記錄時，某些網域註冊機構只允許您對應子網域 \(如 www.contoso.com\)，而不是根名稱 \(如 contoso.com\)。如需 CNAME 記錄的詳細資訊，請參閱註冊機構提供的文件、<a href="http://en.wikipedia.org/wiki/CNAME_record">維基百科 CNAME 記錄條目</a>，或 <a href="http://tools.ietf.org/html/rfc1035">IETF 網域名稱 - 實作與規格</a>文件。
+> [AZURE.NOTE]使用 CNAME 記錄時，某些網域註冊機構只允許您對應子網域 (如 www.contoso.com)，而不是根名稱 (如 contoso.com)。如需 CNAME 記錄的詳細資訊，請參閱註冊機構提供的文件、<a href="http://en.wikipedia.org/wiki/CNAME_record">維基百科 CNAME 記錄條目</a>，或 <a href="http://tools.ietf.org/html/rfc1035">IETF 網域名稱 - 實作與規格</a>文件。
 
 ###A 記錄
 
-A 記錄將網域 \(例如 **contoso.com** 或 **www.contoso.com**\) *或萬用字元網域* \(例如 **\*.contoso.com**\) 對應至 IP 位址。以 Azure 網站而言，就是指服務的虛擬 IP 或您為網站購買的特定 IP 位址。相較於 C0NAME 記錄，A 記錄的主要優點在於只需要有一個項目使用萬用字元，例如 ***.contoso.com**，即可處理多個子網域的要求，例如 **mail.contoso.com** 、**login.contoso.com** 或 **www.contso.com**。
+A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字元網域* (例如 ***.contoso.com**) 對應至 IP 位址。以 Azure 網站而言，就是指服務的虛擬 IP 或您為網站購買的特定 IP 位址。相較於 C0NAME 記錄，A 記錄的主要優點在於只需要有一個項目使用萬用字元，例如 ***.contoso.com**，即可處理多個子網域的要求，例如 **mail.contoso.com** 、**login.contoso.com** 或 **www.contso.com**。
 
 > [AZURE.NOTE]因為 A 記錄會對應至靜態 IP 位址，所以無法自動解析網站 IP 位址的變更。您在設定網站的自訂網域名稱設定時會提供 A 記錄所使用的 IP 位址。不過，如果您刪除又重新建立網站，或將網站模式變回免費，此值就可能改變。
 
@@ -39,29 +39,29 @@ A 記錄將網域 \(例如 **contoso.com** 或 **www.contoso.com**\) *或萬用�
 只有在 Azure 網站的共用和標準模式中，才能在網站上設定自訂網域名稱。將網站從免費網站模式切換到共用或標準網站模式之前，您必須先移除網站訂閱的支出上限。如需共用與標準模式定價的詳細資訊，請參閱[定價詳細資料][PricingDetails]。
 
 1. 在瀏覽器中開啟[管理入口網站][portal]。
-2. 在 \[網站\] 索引標籤中，按一下您網站的名稱。
+2. 在 [網站] 索引標籤中，按一下您網站的名稱。
 
 	![][standardmode1]
 
-3. 按一下 \[調整\] 索引標籤。
+3. 按一下 [調整] 索引標籤。
 
 	![][standardmode2]
 
 	
-4. 在 \[一般\] 區段中，按一下 \[共用\] 以設定網站模式。
+4. 在 [一般] 區段中，按一下 [共用] 以設定網站模式。
 
 	![][standardmode3]
 
 	> [AZURE.NOTE]如果您將對此網站使用流量管理員，必須選取標準模式而非共用模式。
 
-5. 按一下 \[儲存\]。
-6. 系統會指出共用模式 \(若選擇 \[標準\]，則為標準模式\) 將增加成本，如果同意，請按一下 \[是\]。
+5. 按一下 [儲存]。
+6. 系統會指出共用模式 (若選擇 [標準]，則為標準模式) 將增加成本，如果同意，請按一下 [是]。
 
 	<!--![][standardmode4]-->
 
 	**注意**<br /> 如果發生『設定網站「網站名稱」的規模失敗』錯誤，您可以利用詳細資料按鈕來取得詳細資訊。
 
-<a name="trafficmanager"></a><h2>\(選用\) 將網站新增至流量管理員</h2>
+<a name="trafficmanager"></a><h2>(選用) 將網站新增至流量管理員</h2>
 
 如果您要對網站使用流量管理員，請執行下列步驟。
 
@@ -79,7 +79,7 @@ A 記錄將網域 \(例如 **contoso.com** 或 **www.contoso.com**\) *或萬用�
 
 5. 您也必須提供主機名稱，做為此 CNAME 別名的正式網域名稱。這是您網站的 **.trafficmgr.com** 名稱。
 
-例如，下列 CNAME 記錄會將來自 **www.contoso.com** 的所有流量轉送至 **contoso.trafficmgr.com** \(網站的網域名稱\)：
+例如，下列 CNAME 記錄會將來自 **www.contoso.com** 的所有流量轉送至 **contoso.trafficmgr.com** (網站的網域名稱)：
 
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tr>
@@ -92,7 +92,7 @@ A 記錄將網域 \(例如 **contoso.com** 或 **www.contoso.com**\) *或萬用�
 </tr>
 </table>
 
-**www.contoso.com** 的訪客絕對看不到真正的主機 \(contoso.azurewebsite.net\)，所以使用者不會察覺到轉送過程。
+**www.contoso.com** 的訪客絕對看不到真正的主機 (contoso.azurewebsite.net)，所以使用者不會察覺到轉送過程。
 
 > [AZURE.NOTE]如果您正對某個網站使用流量管理員，則不需遵循後續各節中的步驟：＜新增自訂網域的 CNAME＞與＜新增自訂網域的 A 記錄＞。在前述步驟中建立的 CNAME 記錄，會將連入的流量路由傳送至流量管理員，然後將流量路由傳送至網站端點。
 
@@ -102,7 +102,7 @@ A 記錄將網域 \(例如 **contoso.com** 或 **www.contoso.com**\) *或萬用�
 
 1. 請利用下列其中一種方法，尋找指派給您網站的 **.azurewebsite.net** 網域名稱。
 
-	* 登入 [Azure 管理入口網站][portal]、選取您的網站、選取 \[儀表板\]，然後在 \[快速概覽\] 區段中尋找 \[網站 URL\] 項目。
+	* 登入 [Azure 管理入口網站][portal]、選取您的網站、選取 [儀表板]，然後在 [快速概覽] 區段中尋找 [網站 URL] 項目。
 
 	* 安裝並設定 [Azure Powershell](/manage/install-and-configure-windows-powershell/)，然後使用下列命令：
 
@@ -122,7 +122,7 @@ A 記錄將網域 \(例如 **contoso.com** 或 **www.contoso.com**\) *或萬用�
 
 5. 您也必須提供主機名稱，做為此 CNAME 別名的正式網域名稱。這是您網站的 **.azurewebsite.net** 名稱。
 
-例如，下列 CNAME 記錄會將來自 **www.contoso.com** 的所有流量轉送至 **contoso.azurewebsite.net** \(網站的網域名稱\)：
+例如，下列 CNAME 記錄會將來自 **www.contoso.com** 的所有流量轉送至 **contoso.azurewebsite.net** (網站的網域名稱)：
 
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tr>
@@ -135,9 +135,9 @@ A 記錄將網域 \(例如 **contoso.com** 或 **www.contoso.com**\) *或萬用�
 </tr>
 </table>
 
-**www.contoso.com** 的訪客絕對看不到真正的主機 \(contoso.azurewebsite.net\)，所以使用者不會察覺到轉送過程。
+**www.contoso.com** 的訪客絕對看不到真正的主機 (contoso.azurewebsite.net)，所以使用者不會察覺到轉送過程。
 
-> [AZURE.NOTE]上述範例僅適用於 __www__ 子網域的流量。因為 CNAME 記錄不能使用萬用字元，所以您必須為每一個網域/子網域建立一個 CNAME。如果要將來自子網域 \(例如 *.contoso.com\) 的流量導向您的 azurewebsite.net 位址，您可以在 DNS 設定中設定 \[__URL 重新導向__\] 或 \[__URL 轉送__\] 項目，或建立一筆 A 記錄。
+> [AZURE.NOTE]上述範例僅適用於 __www__ 子網域的流量。因為 CNAME 記錄不能使用萬用字元，所以您必須為每一個網域/子網域建立一個 CNAME。如果要將來自子網域 (例如 *.contoso.com) 的流量導向您的 azurewebsite.net 位址，您可以在 DNS 設定中設定 [__URL 重新導向__] 或 [__URL 轉送__] 項目，或建立一筆 A 記錄。
 
 > [AZURE.NOTE]需要一些時間，CNAME 才能傳播至整個 DNS 系統。必須等到 CNAME 傳播之後，您才能設定網站的 CNAME。您可以使用 <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> 之類的服務來驗證 CNAME 已生效。
 
@@ -165,17 +165,17 @@ A 記錄將網域 \(例如 **contoso.com** 或 **www.contoso.com**\) *或萬用�
 
 1. 在瀏覽器中開啟 [Azure 管理入口網站][portal]。
 
-2. 在 \[網站\] 索引標籤中，按一下網站名稱，選取 \[儀表板\]，然後從頁面底部選取 \[管理網域\]。
+2. 在 [網站] 索引標籤中，按一下網站名稱，選取 [儀表板]，然後從頁面底部選取 [管理網域]。
 
 	![][setcname2]
 
-6. 在 \[網域名稱\] 文字方塊中，輸入您已設定的網域名稱。
+6. 在 [網域名稱] 文字方塊中，輸入您已設定的網域名稱。
 
 	![][setcname3]
 
 6. 按一下核取記號以接受網域名稱。
 
-完成設定之後，自訂網域名稱會列在網站 \[設定\] 頁面的 \[網域名稱\] 區段中。
+完成設定之後，自訂網域名稱會列在網站 [設定] 頁面的 [網域名稱] 區段中。
 
 <a name="bkmk_configurearecord"></a><h2>新增自訂網域的 A 記錄</h2>
 
@@ -183,11 +183,11 @@ A 記錄將網域 \(例如 **contoso.com** 或 **www.contoso.com**\) *或萬用�
 
 1. 在瀏覽器中開啟 [Azure 管理入口網站][portal]。
 
-2. 在 \[網站\] 索引標籤中，按一下網站名稱、選取 \[儀表板\]，然後從畫面底部選取 \[管理網域\]。
+2. 在 [網站] 索引標籤中，按一下網站名稱、選取 [儀表板]，然後從畫面底部選取 [管理網域]。
 
 	![][setcname2]
 
-5. 在 [管理自訂網域] 對話方塊中，找出 \[The IP Address to use when configuring A records\]。複製 IP 位址。建立 A 記錄時會使用此位址。
+5. 在 [管理自訂網域] 對話方塊中，找出 [The IP Address to use when configuring A records]。複製 IP 位址。建立 A 記錄時會使用此位址。
 
 5. 在 [管理自訂網域] 對話方塊中，請注意對話方塊頂端的文字結尾的 awverify 網域名稱。應該是 **awverify.mysite.azurewebsites.net**，其中 **mysite** 是您的網站名稱。這是在建立驗證 CNAME 記錄時所使用的網域名稱，請複製下來。
 
@@ -261,17 +261,17 @@ A 記錄將網域 \(例如 **contoso.com** 或 **www.contoso.com**\) *或萬用�
 
 1. 在瀏覽器中開啟 [Azure 管理入口網站][portal]。
 
-2. 在 \[網站\] 索引標籤中，按一下網站名稱，選取 \[儀表板\]，然後從頁面底部選取 \[管理網域\]。
+2. 在 [網站] 索引標籤中，按一下網站名稱，選取 [儀表板]，然後從頁面底部選取 [管理網域]。
 
 	![][setcname2]
 
-6. 在 \[網域名稱\] 文字方塊中，輸入您已設定的網域名稱。
+6. 在 [網域名稱] 文字方塊中，輸入您已設定的網域名稱。
 
 	![][setcname3]
 
 6. 按一下核取記號以接受網域名稱。
 
-完成設定之後，自訂網域名稱會列在網站 \[設定\] 頁面的 \[網域名稱\] 區段中。
+完成設定之後，自訂網域名稱會列在網站 [設定] 頁面的 [網域名稱] 區段中。
 
 > [AZURE.NOTE]將 A 記錄所定義的自訂網域名稱新增至網站之後，您就可以使用註冊機構所提供的工具來移除 awverify CNAME 記錄。不過，如果未來想要新增另一筆 A 記錄，就必須重新建立 awverify 記錄，才能將新的 A 記錄所定義的新網域名稱與網站產生關聯。
 

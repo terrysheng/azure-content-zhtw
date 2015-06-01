@@ -43,7 +43,7 @@ SDK 包含用戶端程式庫 `Microsoft.Azure.Search`。該程式庫可讓您管
 
 2. 擁有 Azure Search 服務。為了使用 SDK，您需要為服務命名，還需要一或多個 API 金鑰。[在入口網站建立服務](../search-create-service-portal/)可協助您執行這些步驟。
 
-3. 使用 Visual Studio 中的 \[管理 NuGet 封裝\] 下載 Azure 搜尋服務 .NET SDK [NuGet 封裝](http://www.nuget.org/packages/Microsoft.Azure.Search)。只要在 NuGet.org 上搜尋封裝名稱 `Microsoft.Azure.Search` 即可。務必選取 \[包含發行前版本 \(Include Prerelease\)\]，確保 SDK 的發行前版本會出現在搜尋結果中。
+3. 使用 Visual Studio 中的 [管理 NuGet 封裝] 下載 Azure 搜尋服務 .NET SDK [NuGet 封裝](http://www.nuget.org/packages/Microsoft.Azure.Search)。只要在 NuGet.org 上搜尋封裝名稱 `Microsoft.Azure.Search` 即可。務必選取 [包含發行前版本 (Include Prerelease)]，確保 SDK 的發行前版本會出現在搜尋結果中。
 
 Azure 搜尋服務 .NET SDK 支援以 .NET Framework 4.0 或更新版為目標的應用程式，以及以 Windows 8.1 和 Windows Phone 8.1 為目標的 Windows 市集應用程式。不支援 Silverlight。
 
@@ -105,7 +105,7 @@ Azure 搜尋服務 .NET SDK 支援以 .NET Framework 4.0 或更新版為目標�
 
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 
-> [AZURE.NOTE]如果提供不正確的金鑰 \(例如，需要系統管理金鑰卻提供查詢金鑰\)，則 `SearchServiceClient` 會在您第一次用它呼叫作業方法時 \(例如 `Indexes.Create`\) 擲回 `CloudException`，並附上「禁止」的錯誤訊息。如果遇到此情況，請按兩下我們的 API 金鑰。
+> [AZURE.NOTE]如果提供不正確的金鑰 (例如，需要系統管理金鑰卻提供查詢金鑰)，則 `SearchServiceClient` 會在您第一次用它呼叫作業方法時 (例如 `Indexes.Create`) 擲回 `CloudException`，並附上「禁止」的錯誤訊息。如果遇到此情況，請按兩下我們的 API 金鑰。
 
 以下幾行程式碼會呼叫建立名為 "hotels" 索引的方法，如果索引已存在，請加以刪除。稍後我們會逐項執行這些方法。
 
@@ -162,7 +162,7 @@ Azure 搜尋服務 .NET SDK 支援以 .NET Framework 4.0 或更新版為目標�
 
 ### 建立索引 ###
 
-建立 `SearchServiceClient`後，`Main` 會接著刪除 "hotels" 索引 \(如果已經存在\)。刪除方法如下：
+建立 `SearchServiceClient`後，`Main` 會接著刪除 "hotels" 索引 (如果已經存在)。刪除方法如下：
 
     private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
     {
@@ -200,7 +200,7 @@ Azure 搜尋服務 .NET SDK 支援以 .NET Framework 4.0 或更新版為目標�
         serviceClient.Indexes.Create(definition);
     }
 
-此方法會以定義新索引結構描述的 `Field` 物件清單，建立新的 `Index` 物件。每個欄位均有一個名稱、資料類型和一些屬性，以用於定義欄位的搜尋行為。除了欄位之外，您還可以新增評分設定檔、建議工具或 CORS 選項到 Index \(基於簡化目的，範例已省略這些選項\)。如需 Index 物件以及其組成部分的詳細資訊，請參閱 [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx) 中的 SDK 參考和 [Azure 搜尋服務 REST API 參考](https://msdn.microsoft.com/library/azure/dn798935.aspx)。
+此方法會以定義新索引結構描述的 `Field` 物件清單，建立新的 `Index` 物件。每個欄位均有一個名稱、資料類型和一些屬性，以用於定義欄位的搜尋行為。除了欄位之外，您還可以新增評分設定檔、建議工具或 CORS 選項到 Index (基於簡化目的，範例已省略這些選項)。如需 Index 物件以及其組成部分的詳細資訊，請參閱 [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx) 中的 SDK 參考和 [Azure 搜尋服務 REST API 參考](https://msdn.microsoft.com/library/azure/dn798935.aspx)。
 
 ### 填入索引 ###
 
@@ -299,7 +299,7 @@ Azure 搜尋服務 .NET SDK 支援以 .NET Framework 4.0 或更新版為目標�
 
 #### .NET SDK 如何處理文件 ####
 
-您可能想知道 Azure 搜尋服務 .NET SDK 如何能夠將使用者定義的類別執行個體 \(例如 `Hotel` 上傳至索引。為了回答這問題，我們來看一下 `Hotel` 類別：
+您可能想知道 Azure 搜尋服務 .NET SDK 如何能夠將使用者定義的類別執行個體 (例如 `Hotel` 上傳至索引。為了回答這問題，我們來看一下 `Hotel` 類別：
 
     [SerializePropertyNamesAsCamelCase]
     public class Hotel
@@ -333,9 +333,9 @@ Azure 搜尋服務 .NET SDK 支援以 .NET Framework 4.0 或更新版為目標�
         }
     }
 
-首先要注意的是，每個 `Hotel` 的公用屬性會對應索引定義中的欄位，但這之中有一項關鍵的差異：每個欄位的名稱會以小寫字母 \(「駝峰式命名法」\) 為開頭，而每個 `Hotel` 的公用屬性名稱會以大小字母 \(「巴斯卡命名法」\) 為開頭。這在執行資料繫結、而目標結構描述在應用程式開發人員控制範圍之外的 .NET 應用程式中很常見。與其違反 .NET 命名方針，使屬性名稱為駝峰式命名法，您可以改用 `[SerializePropertyNamesAsCamelCase]` 屬性，告訴 SDK 自動將屬性名稱對應至駝峰式命名法。
+首先要注意的是，每個 `Hotel` 的公用屬性會對應索引定義中的欄位，但這之中有一項關鍵的差異：每個欄位的名稱會以小寫字母 (「駝峰式命名法」) 為開頭，而每個 `Hotel` 的公用屬性名稱會以大小字母 (「巴斯卡命名法」) 為開頭。這在執行資料繫結、而目標結構描述在應用程式開發人員控制範圍之外的 .NET 應用程式中很常見。與其違反 .NET 命名方針，使屬性名稱為駝峰式命名法，您可以改用 `[SerializePropertyNamesAsCamelCase]` 屬性，告訴 SDK 自動將屬性名稱對應至駝峰式命名法。
 
-第二個要注意的是，`Hotel` 類別為公用屬性的資料類型。這些屬性的 .NET 類型會對應至索引定義中，與其相當的欄位類型。例如，`Category` 字串屬性會對應至 `category` 欄位 \(此欄位屬於 `Edm.String` 類型\)。`bool?` 與 `Edm.Boolean`、`DateTimeOffset?` 與 `Edm.DateTimeOffset` 等，它們之間也有類似的類型對應。類型對應的特定規則和 `Documents.Get` 方法已一起記載於 [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx)。請注意，如 `bool` 和 `int` 之類的實值類型，在 `Hotel` 類別中均為 Null，因為所有基本欄位類型在 Azure 搜尋服務中均為 Null。
+第二個要注意的是，`Hotel` 類別為公用屬性的資料類型。這些屬性的 .NET 類型會對應至索引定義中，與其相當的欄位類型。例如，`Category` 字串屬性會對應至 `category` 欄位 (此欄位屬於 `Edm.String` 類型)。`bool?` 與 `Edm.Boolean`、`DateTimeOffset?` 與 `Edm.DateTimeOffset` 等，它們之間也有類似的類型對應。類型對應的特定規則和 `Documents.Get` 方法已一起記載於 [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx)。請注意，如 `bool` 和 `int` 之類的實值類型，在 `Hotel` 類別中均為 Null，因為所有基本欄位類型在 Azure 搜尋服務中均為 Null。
 
 這讓使用您的類別做為文件可雙向有效；您也可以擷取搜尋結果，然後讓 SDK 將結果自動還原序列化為您選擇的類型，我們會在下一節中看到這部分。
 
@@ -374,7 +374,7 @@ Azure 搜尋服務 .NET SDK 支援以 .NET Framework 4.0 或更新版為目標�
 
     SearchDocuments(indexClient, searchText: "*", filter: "category eq 'Luxury'");
 
-在第一個呼叫中，我們要尋找含有 "fancy" 或 "wifi" 查詢字詞的所有文件。在第二個呼叫中，搜尋字詞設為 "\*"，這表示「全部尋找」。如需搜尋查詢運算式語法的詳細資訊，請參閱[這裡](https://msdn.microsoft.com/library/azure/dn798920.aspx)。
+在第一個呼叫中，我們要尋找含有 "fancy" 或 "wifi" 查詢字詞的所有文件。在第二個呼叫中，搜尋字詞設為 "*"，這表示「全部尋找」。如需搜尋查詢運算式語法的詳細資訊，請參閱[這裡](https://msdn.microsoft.com/library/azure/dn798920.aspx)。
 
 第二個呼叫使用 OData `$filter` 運算式 `category eq 'Luxury'`。這會將搜尋限制為只傳回 `category` 欄位完全符合 "Luxury" 字串的文件。您可以在[這裡](https://msdn.microsoft.com/library/azure/dn798921.aspx)找到更多 Azure 搜尋服務支援的 OData 語法。
 

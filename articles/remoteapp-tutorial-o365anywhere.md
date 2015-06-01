@@ -32,23 +32,23 @@
 -------------
 首先，建立 Azure 帳戶之後，請按一下左側的連結，以瀏覽至 "RemoteApp"。![在 Azure 入口網站上顯示 Azure RemoteApp](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/1-menu.png)
 
-然後，按一下底部的 \[新增\] 並「快速建立」集合，以繼續進行。提供所提供的名稱、區域、訂用帳戶、計畫和映像 "Office Proffesional 2013"。![建立對話方塊](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/2-quickcreate.PNG)
+然後，按一下底部的 [新增] 並「快速建立」集合，以繼續進行。提供所提供的名稱、區域、訂用帳戶、計畫和映像 "Office Proffesional 2013"。![建立對話方塊](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/2-quickcreate.PNG)
 
 完成表單之後，應該會啟動集合建立程序。這可能需要一個小時左右。
 
 ![等候](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/3-waiting.PNG)
 
-完成程序之後，結果會與以下範例類似。如果按一下 \[發佈\]，可以看到已發佈大部分的 Office 應用程式。![已建立集合](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/4-done.PNG)
+完成程序之後，結果會與以下範例類似。如果按一下 [發佈]，可以看到已發佈大部分的 Office 應用程式。![已建立集合](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/4-done.PNG)
 
 ![已發佈的應用程式](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/5-publish.PNG)
 
-此時，按一下 \[使用者存取\] ![設定使用者存取](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/6-user.PNG)，也可以加入可存取此集合的更多使用者。
+此時，按一下 [使用者存取] ![設定使用者存取](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/6-user.PNG)，也可以加入可存取此集合的更多使用者。
 
 現在讓我們嘗試連接至 Office 365！
 
 連接至 Office 365
 -------------
-我們將會前往 https://www.remoteapp.windowsazure.com/，然後按一下 \[安裝用戶端\]，在您所在的裝置上安裝 Azure RemoteApp 用戶端。下面的螢幕擷取畫面適用於 Windows。
+我們將會前往 https://www.remoteapp.windowsazure.com/，然後按一下 [安裝用戶端]，在您所在的裝置上安裝 Azure RemoteApp 用戶端。下面的螢幕擷取畫面適用於 Windows。
 
 啟動應用程式之後，系統會要求您使用 Live ID 登入，請現在使用相同的 Live ID 做為您的 Azure 帳戶。登入時，您應該會看到有關新邀請的通知，而按一下該處，您應該會看到與下面類似的清單，並接受符合您 Azure 帳戶擁有者電子郵件的邀請。
 

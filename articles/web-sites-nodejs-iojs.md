@@ -20,7 +20,7 @@
 
 受歡迎的 Node 會將 [io.js] 功能的各種差異分散至 Joyent 的 Node.js 專案，包括更開放的控管模型、更快速的發行週期，以及更快速地採用全新和實驗性的 JavaScript 功能。
 
-雖然 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps 有許多預先安裝的 Node.js 版本，但它也允許使用者提供的 Node.js 二進位檔。本文討論兩種方法可用來啟用 App Service Web Apps 上的 io.js：使用擴充的部署指令碼\(其會自動設定 Azure 來使用最新的可用 io.js 版本\)，以及手動上傳 io.js 二進位檔。
+雖然 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps 有許多預先安裝的 Node.js 版本，但它也允許使用者提供的 Node.js 二進位檔。本文討論兩種方法可用來啟用 App Service Web Apps 上的 io.js：使用擴充的部署指令碼(其會自動設定 Azure 來使用最新的可用 io.js 版本)，以及手動上傳 io.js 二進位檔。
 
 <a id="deploymentscript"></a>
 ## 使用部署指令碼

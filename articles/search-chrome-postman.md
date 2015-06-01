@@ -38,11 +38,11 @@
 1. 請在「於此處輸入要求 URL」的位置，輸入 Azure 搜尋服務的 URL。  
 2. 將 `?api-version=2015-02-28` 附加至 URL。您還可以指定不同的 API 版本。如需詳細資訊，請參閱 [Azure 搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)。
 3. 請務必選擇 `GET`。
-4. 按一下 \[標頭\]**** 按鈕。
+4. 按一下 [標頭]**** 按鈕。
 5. 輸入下列項目的值：
 	- `api-key`：[管理員金鑰]
 	- `Content-Type`：`application/json; charset=utf-8`
-6. 按一下 \[傳送\]****，將 REST 呼叫發送至 Azure 搜尋服務並視覺化 JSON 回應。
+6. 按一下 [傳送]****，將 REST 呼叫發送至 Azure 搜尋服務並視覺化 JSON 回應。
 
 ![][3]
 
@@ -64,12 +64,12 @@
 	    {"name": "location", "type": "Edm.GeographyPoint"} ]
 	    }
 
-4. 按一下 \[傳送\]****。
+4. 按一下 [傳送]****。
 
 ![][4]
  
 ## 使用 Postman 將文件發佈至 Azure 搜尋服務的索引 ##
-建立好索引後，即可將文件載入其中。為了進行這項作業，我們會使用來自美國地質調查局 \(USGS \) 資料集的五個路線資料，批次發佈一組文件：
+建立好索引後，即可將文件載入其中。為了進行這項作業，我們會使用來自美國地質調查局 (USGS ) 資料集的五個路線資料，批次發佈一組文件：
 
 1. 將 URL 變更為：使用您的搜尋服務名稱的 `https://[SEARCH SERVICE].windows.net/indexes/trails/docs/index?api-version=2015-02-28`。請注意，這個 URL 應包含您剛建立的索引路徑。
 2. 將 HTTP 類型變更為：`POST`。
@@ -85,16 +85,16 @@
 	      ]
 	    }
     
-4. 按一下 \[傳送\]****。
+4. 按一下 [傳送]****。
 
 ![][5]
 
 ## 使用 Postman 查詢索引 ##
-最後一個步驟是查詢索引，並針對 *trail* \(路線\) 一詞發出簡單的全文檢索搜尋要求。
+最後一個步驟是查詢索引，並針對 *trail* (路線) 一詞發出簡單的全文檢索搜尋要求。
 
 1. 在 URL 中輸入下列項目：使用您的搜尋服務名稱的 `https://[SEARCH SERVICE].search.windows.net/indexes/trails/docs?api-version=2015-02-28&search=trail`。請注意，該 URL 應包含 `search` 查詢參數和搜尋詞彙 *trail*。
 2. 將 HTTP 要求類型變更為 `GET`。
-3. 按一下 \[傳送\]****。
+3. 按一下 [傳送]****。
  
 在回應中，您應可看到 Azure 搜尋服務傳回的 JSON 搜尋結果。
 
@@ -104,7 +104,7 @@
 現在，我們已逐步說明使用 Azure 搜尋服務與 Postman 的基本步驟，下列幾項重點有助您進行接下來的步驟：
 
 1. Postman 支援 `Collections`，可讓您輕鬆儲存經常發出的要求。您可和其他人共用集合；個別使用者可在自己的 Postman 複本中發出。
-2. 在 Azure 搜尋服務文件中，請務必記下與每個呼叫相關聯的 HTTP 要求類型 \(`GET`、`PUT` 等\)，並在 Postman 中做適當變更。
+2. 在 Azure 搜尋服務文件中，請務必記下與每個呼叫相關聯的 HTTP 要求類型 (`GET`、`PUT` 等)，並在 Postman 中做適當變更。
 
 如需 REST API 的文件，請參閱 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)。
 

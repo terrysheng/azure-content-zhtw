@@ -128,7 +128,7 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 
  ![New inbound rule name][NewRuleName]
 
-此時，您應該可以使用 **http://*your\_DNS\_name*.cloudapp.net** 格式的 URL (其中 ***your\_DNS\_name*** 代表在建立虛擬機器時指定的 DNS 名稱)，從外部瀏覽器檢視 Tomcat 網站。
+此時，您應該可以使用 **http://*your_DNS_name*.cloudapp.net** 格式的 URL (其中 ***your_DNS_name*** 代表在建立虛擬機器時指定的 DNS 名稱)，從外部瀏覽器檢視 Tomcat 網站。
 
 ## 應用程式生命週期考量
 * 您可以建立自己的應用程式網頁封存 (WAR)，然後再將它新增至 **webapps** 資料夾。例如，建立基本 Java Service Page (JSP) 動態 Web 專案並以 WAR 檔案形式將其匯入，將 WAR 複製到虛擬機器上的 Apache Tomcat **webapps** 資料夾，然後在瀏覽器中予以執行。

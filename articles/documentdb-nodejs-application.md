@@ -31,7 +31,7 @@
 
 依照本教學課程的指示，您將建置一個簡單的網頁型工作管理應用程式，可讓您建立、擷取和完成工作。在 Azure DocumentDB 中，這些工作將會儲存為 JSON 文件。
 
-![本教學課程所建立的 \[我的待辦事項清單\] 應用程式螢幕擷取畫面](./media/documentdb-nodejs-application/image1.png)
+![本教學課程所建立的 [我的待辦事項清單] 應用程式螢幕擷取畫面](./media/documentdb-nodejs-application/image1.png)
 
 是否沒有時間完成本教學課程，只是想要從 GitHub 取得完整的解決方案？ 這不是問題，您可以從[這裡](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo)取得。
 
@@ -43,7 +43,7 @@
 
 - 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](../../pricing/free-trial/)。
 - [Node.js][] v0.10.29 版或更高版本。
-- [Express 產生器](http://www.expressjs.com/starter/generator.html) \(您可以透過 `npm install express-generator -g` 進行安裝\)
+- [Express 產生器](http://www.expressjs.com/starter/generator.html) (您可以透過 `npm install express-generator -g` 進行安裝)
 - [Git][]。
 
 ## <a name="_Toc395637761"></a>步驟 1：建立 DocumentDB 資料庫帳戶
@@ -91,9 +91,9 @@
 
 3. 快速檢查應用程式的 **package.json** 檔案應該會顯示其他模組。這個檔案會告訴 Azure 在執行您的應用程式時要下載及安裝的封裝。它看起來應該類似下面的範例。
 
-	![\[package.json\] 索引標籤的螢幕擷取畫面](./media/documentdb-nodejs-application/image17.png)
+	![[package.json] 索引標籤的螢幕擷取畫面](./media/documentdb-nodejs-application/image17.png)
 
-這會讓 Node \(之後則是 Azure\) 知道您的應用程式需要仰賴這些額外模組。
+這會讓 Node (之後則是 Azure) 知道您的應用程式需要仰賴這些額外模組。
 
 ## <a name="_Toc395783180"></a>步驟 4：在節點應用程式中使用 DocumentDB 服務
 
@@ -311,7 +311,7 @@
 		
 		module.exports = TaskList;
 
-3. 繼續在 **tasklist.js** 檔案中加入用來 **showTasks \(顯示工作\)、addTask \(新增工作\)** 和 **completeTasks \(完成工作\)** 的方法：
+3. 繼續在 **tasklist.js** 檔案中加入用來 **showTasks (顯示工作)、addTask (新增工作)** 和 **completeTasks (完成工作)** 的方法：
 		
 		TaskList.prototype = {
 		    showTasks: function (req, res) {
@@ -389,7 +389,7 @@
 		
 		module.exports = config;
 
-3. 在 **config.js** 檔案中，使用在 [Microsoft Azure 入口網站](http://portal.azure.com) DocumentDB 帳戶的 \[金鑰\] 刀鋒視窗上找到的值來更新 \[主機\] 和 \[AUTH\_KEY\] 的值：
+3. 在 **config.js** 檔案中，使用在 [Microsoft Azure 入口網站](http://portal.azure.com) DocumentDB 帳戶的 [金鑰] 刀鋒視窗上找到的值來更新 [主機] 和 [AUTH_KEY] 的值：
 
 4. 儲存並關閉 **config.js** 檔案。
  
@@ -423,13 +423,13 @@
 		app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
-6. 這幾行會定義 **TaskDao** 物件的新執行個體，內含與 DocumentDB 的新連線 \(使用從 **config.js** 中讀取的值\)，初始化工作物件，然後將表單動作繫結至 **TaskList** 控制站上的方法。 
+6. 這幾行會定義 **TaskDao** 物件的新執行個體，內含與 DocumentDB 的新連線 (使用從 **config.js** 中讀取的值)，初始化工作物件，然後將表單動作繫結至 **TaskList** 控制站上的方法。 
 
 7. 最後，儲存並關閉 **app.js** 檔案，我們就差不多快完成了。
  
 ## <a name="_Toc395783181"></a>步驟 5：建置使用者介面
 
-現在，讓我們將注意力轉到建置使用者介面，以便使用者可以實際與我們的應用程式互動。我們建立的 Express 應用程式使用 **Jade** 做為檢視引擎。如需 Jade 的詳細資訊，請參閱 [http://jade-lang.com/](http://jade-lang.com/) \(英文\)。
+現在，讓我們將注意力轉到建置使用者介面，以便使用者可以實際與我們的應用程式互動。我們建立的 Express 應用程式使用 **Jade** 做為檢視引擎。如需 Jade 的詳細資訊，請參閱 [http://jade-lang.com/](http://jade-lang.com/) (英文)。
 
 1. **views** 目錄中的 **layout.jade** 檔是用來作為其他 **.jade** 檔案的全域範本。在此步驟中，您將修改它以使用 [Twitter Bootstrap](https://github.com/twbs/bootstrap)，這個工具組能夠方便設計美觀的網站。 
 2. 開啟在 **views** 資料夾中找到的 **layout.jade** 檔案，並將其中的內容取代為下列內容；
@@ -450,10 +450,10 @@
 
 
 
-	This effectively tells the **Jade** engine to render some HTML for our application and creates a **block** called **content** where we can supply the layout for our content pages.
-	Save and close this **layout.jade** file.
+	這個程式碼實際上會指示 Jade 引擎呈現我們應用程式的部分 HTML，並建立稱為 "content" 的 "block"，我們可以在其中提供內容頁面的配置。
+	儲存並關閉此 **layout.jade** 檔案。
 
-4. 現在，開啟 **index.jade** 檔案 \(應用程式即將使用的檢視\)，並將檔案中的內容取代為下列內容；
+4. 現在，開啟 **index.jade** 檔案 (應用程式即將使用的檢視)，並將檔案中的內容取代為下列內容；
 
 		extends layout
 		
@@ -525,16 +525,16 @@
 
 1. 若要在本機電腦上測試應用程式，請在終端機中執行 `npm start` 以啟動應用程式，並啟動顯示如下圖所示頁面的瀏覽器：
 
-	![\[我的待辦事項清單\] 應用程式在瀏覽器視窗中的螢幕擷取畫面](./media/documentdb-nodejs-application/image18.png)
+	![[我的待辦事項清單] 應用程式在瀏覽器視窗中的螢幕擷取畫面](./media/documentdb-nodejs-application/image18.png)
 
 
-2. 使用所提供的 \[項目\]、\[項目名稱\] 和 \[類別\] 等欄位來輸入資訊，然後按一下 \[**新增項目**\]。
+2. 使用所提供的 [項目]、[項目名稱] 和 [類別] 等欄位來輸入資訊，然後按一下 [**新增項目**]。
 
-3. 系統應該會更新此頁面，以在 \[待辦事項\] 清單中顯示新建立的項目。
+3. 系統應該會更新此頁面，以在 [待辦事項] 清單中顯示新建立的項目。
 
-	![\[待辦事項\] 清單中包含一個新項目的應用程式螢幕擷取畫面](./media/documentdb-nodejs-application/image19.png)
+	![[待辦事項] 清單中包含一個新項目的應用程式螢幕擷取畫面](./media/documentdb-nodejs-application/image19.png)
 
-4. 若要完成工作，您只需勾選 \[已完成\] 資料行中的核取方塊，然後按一下 \[更新工作\]****。
+4. 若要完成工作，您只需勾選 [已完成] 資料行中的核取方塊，然後按一下 **[更新工作]**。
 
 ## <a name="_Toc395783182"></a>步驟 7：將應用程式部署至 Azure 網站
 

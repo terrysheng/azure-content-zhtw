@@ -228,7 +228,7 @@
 `id` 的值必須是唯一的，且不可包含下列字元集中的字元：
 
 + 控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set) (英文)。
-+  可列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?** (0x003F)、**\** (0x005C)、**\`** (0x0060)
++  可列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?** (0x003F)、**\** (0x005C)、**`** (0x0060)
 +  識別碼 "." 和 ".."
 
 您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表](virtual-machines-command-line-tools.md#Mobile_Tables) (英文)。
@@ -537,7 +537,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
  
 在指令碼中，必須在主要函數後宣告協助程式函數。您必須在指令碼中宣告所有變數。未宣告的變數可能會導致錯誤。
 
-也可以定義協助程式函數一次，然後在伺服器指令碼之間共用。若要在指令碼之間共用函數，必須將函數匯出，而指令碼檔案必須在 `.\service\shared\` 目錄中。以下範本示範如何匯出 `.\services\shared\helpers.js` 檔案中的共用函數：
+也可以定義協助程式函數一次，然後在伺服器指令碼之間共用。若要在指令碼之間共用函數，必須將函數匯出，而指令碼檔案必須在 `.\service\shared` 目錄中。以下範本示範如何匯出 `.\services\shared\helpers.js` 檔案中的共用函數：
 
 		exports.handleUnapprovedItem = function (tables, user, callback) {
 		    
@@ -599,7 +599,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 
 請注意，此目錄結構和使用原始檔控制時的 git 儲存機制相同。
 
-從命令列工具上傳指令碼檔案時，必須先瀏覽至 `.\services\` 目錄。下列命令會從 `table` 子目錄上傳名為 `todoitem.insert.js` 的指令碼：
+從命令列工具上傳指令碼檔案時，必須先瀏覽至 `.\services` 目錄。下列命令會從 `table` 子目錄上傳名為 `todoitem.insert.js` 的指令碼：
 
 		~$azure mobile script upload todolist table/todoitem.insert.js
 		info:    Executing command mobile script upload

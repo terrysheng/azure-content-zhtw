@@ -21,7 +21,7 @@
 
 ## Azure CLI
 
-尋找要與 `azure vm quick-create` 搭配使用之映像或建立資源群組範本檔案的最簡單且最快速方式是呼叫 `azure vm image list` 命令，並傳遞位置、發佈者名稱 \(不區分大小寫！\) 和提供項目 \(如果您知道提供項目\)。例如，如果您知道 "Canonical" 是 "UbuntuServer" 提供項目的發佈者，則下列清單只是簡短範例 \(許多清單相當長\)。
+尋找要與 `azure vm quick-create` 搭配使用之映像或建立資源群組範本檔案的最簡單且最快速方式是呼叫 `azure vm image list` 命令，並傳遞位置、發佈者名稱 (不區分大小寫！) 和提供項目 (如果您知道提供項目)。例如，如果您知道 "Canonical" 是 "UbuntuServer" 提供項目的發佈者，則下列清單只是簡短範例 (許多清單相當長)。
 
     azure vm image list westus canonical ubuntuserver
     info:    Executing command vm image list
@@ -40,7 +40,7 @@
     
 **Urn** 資料行將是您傳遞給 `azure vm quick-create` 的表單。
     
-不過，您通常還不知道什麼可用。在此情況下，您可以瀏覽映像，方法是先使用 `azure vm image list-publishers` 探索發佈者，並以您預期用於資源群組的資料中心位置來回應位置提示字元。例如，下列清單是美國西部位置的所有映像發佈者 \(將位置設為小寫並移除標準位置中的空格，來傳遞 location 引數\)。
+不過，您通常還不知道什麼可用。在此情況下，您可以瀏覽映像，方法是先使用 `azure vm image list-publishers` 探索發佈者，並以您預期用於資源群組的資料中心位置來回應位置提示字元。例如，下列清單是美國西部位置的所有映像發佈者 (將位置設為小寫並移除標準位置中的空格，來傳遞 location 引數)。
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
@@ -54,7 +54,7 @@
     data:    AlertLogic.Extension                            westus  
 
     
-這些清單可能相當長，因此上述範例清單只是程式碼片段。假設我注意到 Canonical 事實上是美國西部位置的映像發佈者。您現在可以呼叫 azure vm image list-offers 來尋找其提供項目，並在提示字元中傳遞位置和發佈者 \(例如下列範例\)：
+這些清單可能相當長，因此上述範例清單只是程式碼片段。假設我注意到 Canonical 事實上是美國西部位置的映像發佈者。您現在可以呼叫 azure vm image list-offers 來尋找其提供項目，並在提示字元中傳遞位置和發佈者 (例如下列範例)：
 
     azure vm image list-offers           
     info:    Executing command vm image list-offers
@@ -149,8 +149,8 @@
 
 範例如下。
 
-	PS C:\> $locName="West US"
-	PS C:\> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
+	PS C:> $locName="West US"
+	PS C:> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
 	
 	PublisherName
 	-------------
@@ -168,8 +168,8 @@
 
 針對發佈者 "MicrosoftWindowsServer"：
 
-	PS C:\> $pubName="MicrosoftWindowsServer"
-	PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+	PS C:> $pubName="MicrosoftWindowsServer"
+	PS C:> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 	
 	Offer
 	-----
@@ -177,8 +177,8 @@
 
 針對提供項目 "WindowsServer"：
 
-	PS C:\> $offerName="WindowsServer"
-	PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+	PS C:> $offerName="WindowsServer"
+	PS C:> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 	
 	Skus
 	----

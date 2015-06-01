@@ -35,7 +35,7 @@ Blitline 是雲端影像處理服務，可提供企業級的影像處理，而�
 
 事實上，影像處理一再重複出現，通常需要從頭開始重新建置每個網站。我們了解這個情況，那是因為我們已經建立了上百萬次。有一天，我們決定或許是替所有人執行此動作的時候了。我們知道如何做、如何做得快以及做得有效率，並同時減輕每個人的工作。
 
-如需詳細資訊，請參閱 [http://www.blitline.com](http://www.blitline.com) \(英文\)。
+如需詳細資訊，請參閱 [http://www.blitline.com](http://www.blitline.com) (英文)。
 
 ## <a id="whatisnot"></a>Blitline 不是什麼...
 
@@ -47,7 +47,7 @@ Blitline 是雲端影像處理服務，可提供企業級的影像處理，而�
 
 - Blitline 不接受影像上傳，您無法將影像直接推送至 Blitline。您必須將影像推送至 Azure 儲存體或其他 Blitline 支援的位置，然後通知 Blitline 取得這些影像的位置。
 
-- Blitline 可大量平行處理，但無法執行任何同步處理。這表示您必須提供 postback\_url 給我們，我們會在處理完成時通知您。
+- Blitline 可大量平行處理，但無法執行任何同步處理。這表示您必須提供 postback_url 給我們，我們會在處理完成時通知您。
 
 ## <a id="createaccount"></a>建立 Blitline 帳戶
 
@@ -71,9 +71,9 @@ Blitline 使用 JSON 定義您要對影像採取的動作。此 JSON 是由幾�
 
 在此，我們要求 JSON 準備一個 "src" 影像 "...boys.jpeg"，然後將該影像大小調整為 240x140。
 
-您可以在 Azure 上的 \[連接資訊\]**** 或 \[管理\]**** 索引標籤中找到應用程式識別碼的資訊。應用程式識別碼是可讓您在 Blitline 上執行工作的密碼識別碼。
+您可以在 Azure 上的 [連接資訊]**** 或 [管理]**** 索引標籤中找到應用程式識別碼的資訊。應用程式識別碼是可讓您在 Blitline 上執行工作的密碼識別碼。
 
-"save" 參數可識別有關處理完影像時，您想要放置該影像的位置資訊。在這個簡單的案例中，我們尚未定義一個位置。如果沒有定義位置，Blitline 會將它儲存在本機 \(並暫時地\) 的唯一雲端位置。建立 Blitline 時，您將能夠從 Blitline 所傳回的 JSON 取得該位置。"image" 識別碼為必要欄位，並會在要識別此特定儲存影像時傳回。
+"save" 參數可識別有關處理完影像時，您想要放置該影像的位置資訊。在這個簡單的案例中，我們尚未定義一個位置。如果沒有定義位置，Blitline 會將它儲存在本機 (並暫時地) 的唯一雲端位置。建立 Blitline 時，您將能夠從 Blitline 所傳回的 JSON 取得該位置。"image" 識別碼為必要欄位，並會在要識別此特定儲存影像時傳回。
 
 您可以在下列連結中找到有關我們可支援的更多「函數」**相關資訊：<http://www.blitline.com/docs/functions> 
 
@@ -95,11 +95,11 @@ Blitline 使用 JSON 定義您要對影像採取的動作。此 JSON 是由幾�
     }
 
 
-這代表 Blitline 已收到您的要求，它已將您的要求置入處理佇列，以及當它完成影像時的影像位置：**https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
+這代表 Blitline 已收到您的要求，它已將您的要求置入處理佇列，以及當它完成影像時的影像位置：**https://s3.amazonaws.com/dev.blitline/2011110722/YOUR_APP_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
 ## <a id="saveazure"></a>如何將影像儲存至您的 Azure 儲存體帳戶
 
-如果您有 Azure 儲存體帳戶，您可以輕易地要求 Blitline 將已處理的影像推送到 Azure 容器。透過新增 "azure\_destination"，您可以定義 Blitline 要推送的位置和權限。
+如果您有 Azure 儲存體帳戶，您可以輕易地要求 Blitline 將已處理的影像推送到 Azure 容器。透過新增 "azure_destination"，您可以定義 Blitline 要推送的位置和權限。
 
 下列是一個範例：
 
@@ -130,7 +130,7 @@ SAS 必須包含整個 SAS URL，包括目的地檔案的檔案名稱。
     http://blitline.blob.core.windows.net/sample/image.jpg?sr=b&sv=2012-02-12&st=2013-04-12T03%3A18%3A30Z&se=2013-04-12T04%3A18%3A30Z&sp=w&sig=Bte2hkkbwTT2sqlkkKLop2asByrE0sIfeesOwj7jNA5o%3D
 
 
-您也可以參閱[此處](http://www.blitline.com/docs/azure_storage) \(英文\) 的最新版本 Blitline Azure 儲存體文件。
+您也可以參閱[此處](http://www.blitline.com/docs/azure_storage) (英文) 的最新版本 Blitline Azure 儲存體文件。
 
 
 ## <a id="nextsteps"></a>後續步驟

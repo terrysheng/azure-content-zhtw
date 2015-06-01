@@ -24,7 +24,7 @@
 
 ## 語言
 
-+ [C\#, VB](app-insights-start-monitoring-app-health-usage.md)
++ [C#, VB](app-insights-start-monitoring-app-health-usage.md)
 + [JavaScript web pages](app-insights-web-track-usage.md)
 + [Windows Store JavaScript apps](#cordova)
 + [Java](app-insights-java.md)
@@ -60,11 +60,11 @@
 
 ### <a name="cordova"></a>Cordova 和 Windows 市集 JavaScript 應用程式
 
-在 Visual Studio 中，以滑鼠右鍵按一下專案，然後選擇 \[**管理 NuGet 封裝**\]。
+在 Visual Studio 中，以滑鼠右鍵按一下專案，然後選擇 [**管理 NuGet 封裝**]。
 
-選取 \[**線上**\] 然後搜尋 Application Insights。
+選取 [**線上**] 然後搜尋 Application Insights。
 
-安裝 \[**JavaScript 應用程式適用的 Application Insights API**\]。
+安裝 [**JavaScript 應用程式適用的 Application Insights API**]。
 
 使用標準用戶端 [Web 應用程式指令碼](app-insights-web-track-usage.md)，但有一項變更。
 

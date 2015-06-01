@@ -89,7 +89,7 @@
 
 以下是您會在初始的 Git 儲存機制中找到的檔案概觀，我們將在下一節中複製。
 
-    \FlaskWebProject\__init__.py
+    \FlaskWebProject__init__.py
     \FlaskWebProject\views.py
     \FlaskWebProject\static\content\
     \FlaskWebProject\static\fonts\

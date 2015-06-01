@@ -124,7 +124,7 @@ SendGrid 是[雲端式電子郵件服務]，能提供可靠的[交易式電子�
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\\myfiles\\"; 
+    String attachmentPath = "c:\\myfiles"; 
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -142,11 +142,11 @@ SendGrid 提供了運用 *篩選器* 的其他電子郵件功能。這些設定�
     HTML 文字顯示在要傳送之電子郵件的下方。
 
         message.addHeader("X-SMTPAPI", 
-			"{\"filters\": 
-			{\"footer\": 
-			{\"settings\": 
-        	{\"enable\":1,\"text/html\": 
-			\"<html><b>Thank you</b> for your business.</html>\"}}}}");
+			"{"filters": 
+			{"footer": 
+			{"settings": 
+        	{"enable":1,"text/html": 
+			"<html><b>Thank you</b> for your business.</html>"}}}}");
 
 -   另一個篩選器範例就是點擊追蹤。假設您的電子郵件文字包含超連結 (如下所示)，而您想要追蹤點擊率：
 
@@ -160,10 +160,10 @@ SendGrid 提供了運用 *篩選器* 的其他電子郵件功能。這些設定�
 -   To enable the click tracking, use the following code:
 
         message.addHeader("X-SMTPAPI", 
-			"{\"filters\": 
-			{\"clicktrack\": 
-			{\"settings\": 
-        	{\"enable\":1}}}}");
+			"{"filters": 
+			{"clicktrack": 
+			{"settings": 
+        	{"enable":1}}}}");
 
 ## <a name="bkmk_HowToUpdateEmail"> </a>作法：更新電子郵件屬性
 

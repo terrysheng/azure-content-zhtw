@@ -57,7 +57,7 @@ Management Studio 具有目前無法在管理入口網站中使用的功能，�
 
 ## 連接到內部部署伺服器
 
-1. 在 Management Studio 的 [連接到伺服器] 中，確定已選取 Database Engine，然後輸入下列格式的邏輯執行個體名稱： *servername*\\*instancename*。如果伺服器是本機的預設執行個體，請輸入  *localhost*。
+1. 在 Management Studio 的 [連接到伺服器] 中，確定已選取 Database Engine，然後輸入下列格式的邏輯執行個體名稱： *servername**instancename*。如果伺服器是本機的預設執行個體，請輸入  *localhost*。
 
 2. 在 [驗證] 中選擇 [**Windows 驗證**]，然後輸入屬於 sysadmin 角色之成員的 Windows 帳戶。
 

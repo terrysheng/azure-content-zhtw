@@ -29,10 +29,10 @@
 ### 原因
 - 似乎是因為 Azure Mobile Engagement 服務中斷所造成的問題，可能由數種不同原因所造成：
     - 原本顯示為 Azure Mobile Engagement 系統問題的隔離問題
-    - 伺服器關閉所造成的已知問題 \(不一定會顯示在伺服器狀態中\)：
+    - 伺服器關閉所造成的已知問題 (不一定會顯示在伺服器狀態中)：
 	- 排程延遲、目標錯誤、徽章更新問題、統計資料停止收集、推播停止運作、API 停止運作、無法建立新的應用程式或使用者、DNS 錯誤，以及 UI、API 或裝置上應用程式中的逾時錯誤。
-    - 雲端相依性中斷 [Azure 服務狀態](http://status.azure.com/), [Amazon Web Services \(AWS\) 狀態](http://status.aws.amazon.com/) 
-    - 推送通知服務 \(PNS\) 相依性中斷 [Google - 服務](http://www.google.com/appsstatus#hl=en&v=status), [Apple - 服務](http://www.apple.com/support/systemstatus/), [Android - Google GCM](http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM](https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS][LinkMPNS], [Windows - WNS](https://developer.windows.com/)
+    - 雲端相依性中斷 [Azure 服務狀態](http://status.azure.com/), [Amazon Web Services (AWS) 狀態](http://status.aws.amazon.com/) 
+    - 推送通知服務 (PNS) 相依性中斷 [Google - 服務](http://www.google.com/appsstatus#hl=en&v=status), [Apple - 服務](http://www.apple.com/support/systemstatus/), [Android - Google GCM](http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM](https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS][LinkMPNS], [Windows - WNS](https://developer.windows.com/)
     - 應用程式商店中斷 [GooglePlay](https://play.google.com/), [iTunes](http://www.apple.com/itunes/charts/), [Windows Phone 市集](http://www.windowsphone.com/), [Windows 市集](http://windows.microsoft.com/)
 
 若要測試查看是否為系統性問題，您可以從下列不同的位置測試相同的函式：**
@@ -69,7 +69,7 @@
         - Download and use Apple Xcode (includes an iOS Simulator)
         - Download and use Windows Phone SDK (includes a Windows Phone 7, 8 and 8.1 Emulators)
 
-若要測試是否是使用者裝置的作業系統升級的問題 \(需要升級 SDK 才能解決\)：
+若要測試是否是使用者裝置的作業系統升級的問題 (需要升級 SDK 才能解決)：
 
     - Test your application on different devices with different versions of the OS.
     - Confirm that you are using the most recent version of the SDK.
@@ -91,8 +91,8 @@
     - 確認問題不是因為一部電腦或是因為您的區域網路而產生。
     - 確認 Azure Mobile Engagement 服務沒有報告中斷。
     - 確認您的應用程式資訊標記遵循以下所有規則：
-        - 僅使用 UTF8 字元集 \(不支援 ANSI 字元集\)。
-        - 使用逗號 "," 做為分隔字元 \(您可以開啟服務要求，來要求將 .csv 分隔字元從逗號變更為另一個字元，例如分號 ";"\)。
+        - 僅使用 UTF8 字元集 (不支援 ANSI 字元集)。
+        - 使用逗號 "," 做為分隔字元 (您可以開啟服務要求，來要求將 .csv 分隔字元從逗號變更為另一個字元，例如分號 ";")。
         - 使用全部小寫的布林值 "true" 和 "false"。
         - 使用小於 35MB 檔案大小上限的檔案。
 

@@ -22,13 +22,13 @@
 
 ##概觀
 
-本主題將說明如何使用 Azure 通知中心將推播通知傳送至 Kindle 應用程式。在本教學課程中，您將使用 Amazon Device Messaging \(ADM\)，建立可接收推播通知的空白 Kindle 應用程式。
+本主題將說明如何使用 Azure 通知中心將推播通知傳送至 Kindle 應用程式。在本教學課程中，您將使用 Amazon Device Messaging (ADM)，建立可接收推播通知的空白 Kindle 應用程式。
 
 ##必要條件
 
 本教學課程需要下列各項：
 
-+ Android SDK \(假設您將使用 Eclipse\)，您可以從<a href="http://go.microsoft.com/fwlink/?LinkId=389797">這裡</a>下載。
++ Android SDK (假設您將使用 Eclipse)，您可以從<a href="http://go.microsoft.com/fwlink/?LinkId=389797">這裡</a>下載。
 + 請依照<a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">這裡</a>提供的步驟，針對 Kindle 設定您的開發環境。
 
 ##將新的應用程式新增至開發人員入口網站
@@ -37,7 +37,7 @@
 
 	![][0]
 
-2. 複製 **[應用程式金鑰\]**。
+2. 複製 **[應用程式金鑰]**。
 
 	![][1]
 
@@ -45,11 +45,11 @@
 
 	![][2]
 
-4. 按一下 **[建立新的安全性設定檔\]**，然後建立新的安全性設定檔 (例如 **TestAdm 安全性設定檔**)。然後按一下 **[儲存]**。
+4. 按一下 **[建立新的安全性設定檔]**，然後建立新的安全性設定檔 (例如 **TestAdm 安全性設定檔**)。然後按一下 **[儲存]**。
 
 	![][3]
 
-5. 按一下 \[安全性設定檔\] 以檢視您剛建立的安全性設定檔。複製 **[用戶端 ID]** 和 **[用戶端密碼\]** 值，以供後續使用。
+5. 按一下 [安全性設定檔] 以檢視您剛建立的安全性設定檔。複製 **[用戶端 ID]** 和 **[用戶端密碼]** 值，以供後續使用。
 
 	![][4]
 
@@ -66,7 +66,7 @@
 4.  輸入 **android** 做為 **[金鑰存放區]** 密碼。
 
 5.  複製 **MD5** 指模。
-6.  返回開發人員入口網站，在 **[訊息]** 索引標籤中按一下 **[Android/Kindle\]**，然後輸入您的應用程式的封裝名稱 \(例如 **com.sample.notificationhubtest**\)、**[MD5]** 值，然後按一下 **[產生 API 金鑰]**。
+6.  返回開發人員入口網站，在 **[訊息]** 索引標籤中按一下 **[Android/Kindle]**，然後輸入您的應用程式的封裝名稱 (例如 **com.sample.notificationhubtest**)、**[MD5]** 值，然後按一下 **[產生 API 金鑰]**。
 
 ## 將認證新增至中心
 
@@ -79,7 +79,7 @@
 將 ADM 程式庫新增至您的 Eclipse 專案。
 
 1. 若要取得 ADM 程式庫，請[下載 SDK]。將 SDK zip 檔案解壓縮。
-2. 在 Eclipse 中，以滑鼠右鍵按一下您的專案，然後按一下 **[屬性]**。選取左側的 \[**Java 組建路徑**\]，然後選取頂端的 \[**程式庫**\] 索引標籤。按一下 \[**新增外部 Jar**\]，然後從您解壓縮 Amazon SDK 的目錄中選取 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 檔案。3. 下載 NotificationHubs Android SDK \(連結\)。
+2. 在 Eclipse 中，以滑鼠右鍵按一下您的專案，然後按一下 **[屬性]**。選取左側的 [**Java 組建路徑**]，然後選取頂端的 [**程式庫**] 索引標籤。按一下 [**新增外部 Jar**]，然後從您解壓縮 Amazon SDK 的目錄中選取 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 檔案。3. 下載 NotificationHubs Android SDK (連結)。
 4. 將封裝解壓縮，然後將 `notification-hubs-sdk.jar` 檔案拖曳到 Eclipse 的 `libs ` 資料夾中。
 
 編輯您支援 ADM 的應用程式資訊清單：
@@ -106,7 +106,7 @@
 		<!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
 		<uses-permission android:name="android.permission.WAKE_LOCK" />
 
-3. 插入下列元素，做為應用程式元素的第一個子項。請務必將 **[YOUR SERVICE NAME]** 取代為您在下一節中建立的 ADM 訊息處理常式的名稱 \(包括封裝\)，並將 **[YOUR PACKAGE NAME]** 取代為您用來建立應用程式的封裝名稱。
+3. 插入下列元素，做為應用程式元素的第一個子項。請務必將 **[YOUR SERVICE NAME]** 取代為您在下一節中建立的 ADM 訊息處理常式的名稱 (包括封裝)，並將 **[YOUR PACKAGE NAME]** 取代為您用來建立應用程式的封裝名稱。
 
 		<amazon:enable-feature
 		      android:name="com.amazon.device.messaging"
@@ -147,7 +147,7 @@
 		import com.amazon.device.messaging.ADMMessageReceiver;
 		import com.microsoft.windowsazure.messaging.NotificationHub
 
-3. 在您建立的類別中新增下列程式碼。請務必取代中心名稱和連接字串 \(接聽\)：
+3. 在您建立的類別中新增下列程式碼。請務必取代中心名稱和連接字串 (接聽)：
 
 		public static final int NOTIFICATION_ID = 1;
 		private NotificationManager mNotificationManager;
@@ -241,7 +241,7 @@
 
 ## 將您的 APIKey 新增至應用程式
 
-1. 在 Eclipse 中，在您專案的目錄資產中建立名為 **api\_key.txt** 的新檔案。
+1. 在 Eclipse 中，在您專案的目錄資產中建立名為 **api_key.txt** 的新檔案。
 2. 開啟該檔案，並複製您在 Amazon 開發人員入口網站中產生的 **[API 金鑰]**。
 
 ## 執行應用程式
@@ -250,7 +250,7 @@
 2. 在模擬器中從頂端撥動，然後按一下 **[設定]**，再按一下 **[我的帳戶]**，然後使用有效的 Amazon 帳戶進行註冊。
 3. 在 Eclipse 中執行應用程式。
 
-> [AZURE.NOTE]如果發生問題，請檢查模擬器 \(或裝置\) 的時間。時間值必須是正確的。若要變更 Kindle 模擬器的時間，您可以從 Android SDK platform-tools 目錄執行下列命令：
+> [AZURE.NOTE]如果發生問題，請檢查模擬器 (或裝置) 的時間。時間值必須是正確的。若要變更 Kindle 模擬器的時間，您可以從 Android SDK platform-tools 目錄執行下列命令：
 
 		adb shell  date -s "yyyymmdd.hhmmss"
 
@@ -262,7 +262,7 @@
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("[conn string]", "[hub name]");
 
-            hub.SendAdmNativeNotificationAsync("{\"data\":{\"msg\" : \"Hello from .NET!\"}}").Wait();
+            hub.SendAdmNativeNotificationAsync("{"data":{"msg" : "Hello from .NET!"}}").Wait();
         }
 
 ![][7]

@@ -1,38 +1,38 @@
 <properties
- pageTitle="Apache Storm on HDInsight 的範例 Storm 拓撲"
- description="利用 Apache Storm on HDInsight 建立和測試的範例 Storm 拓撲清單。"
- services="hdinsight"
- documentationCenter=""
- authors="Blackmist"
- manager="paulettm"
- editor="cgronlun"/>
+	pageTitle="Apache Storm on HDInsight 的範例 Storm 拓撲"
+	description="利用 Apache Storm on HDInsight 建立和測試的範例 Storm 拓撲清單。"
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
- ms.service="hdinsight"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="big-data"
- ms.date="04/28/2015"
- ms.author="larryfr"/>
+	ms.service="hdinsight"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="04/28/2015"
+	ms.author="larryfr"/>
 
 # Apache Storm on HDInsight 的範例 Storm 拓撲
 
-以下是 Microsoft 所建立和維護的範例清單，可搭配 Apache Storm on HDInsight 使用。這些範例涵蓋各種主題，從建立基本 C\# 和 Java 拓撲以使用 Azure 服務，例如事件中心、DocumentDB、Power BI、SQL Database、HBase on HDInsight 和 Azure 儲存體。一些範例也會示範如何使用非 Azure 或甚至非 Microsoft 的技術，例如 SignalR 和 Socket.IO
+以下是 Microsoft 所建立和維護的範例清單，可搭配 Apache Storm on HDInsight 使用。這些範例涵蓋各種主題，從建立基本 C# 和 Java 拓撲以使用 Azure 服務，例如事件中心、DocumentDB、Power BI、SQL Database、HBase on HDInsight 和 Azure 儲存體。一些範例也會示範如何使用非 Azure 或甚至非 Microsoft 的技術，例如 SignalR 和 Socket.IO
 
 | 說明 | 示範 | 語言/架構 |
 |:--------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:---------------------------|
 | [開發 Apache Storm on HDInsight 的 Java 型拓撲][5797064f] | Maven | Java |
-| [使用 Visual Studio 開發 Apache Storm on HDInsight 的 C\# 拓撲][16fce2d1] | HDInsight Tools for Visual Studio | C\#，Java |
-| [在 C\# Storm 拓樸中建立多個資料流][ec5a4064] | 多個資料流 | C\# |
+| [使用 Visual Studio 開發 Apache Storm on HDInsight 的 C# 拓撲][16fce2d1] | HDInsight Tools for Visual Studio | C#，Java |
+| [在 C# Storm 拓樸中建立多個資料流][ec5a4064] | 多個資料流 | C# |
 | [決定含 Apache Storm on HDInsight 的 Twitter 趨勢主題][3c86c7c8] | Trident | Java，Trident |
-| [利用 Storm on HDInsight 處理 Azure 事件中心的事件][844d1d81] | 事件中心 | C\# 和 Java |
-| [使用 Power Bi \(預覽\) 來視覺化 Storm 拓撲的資料][94d15238] | Power BI | C\# |
-| [在 HDInsight 中使用 Storm 和 HBase 分析感應器資料][ab894747] | 事件中心、HBase、Socket.IO、Web 儀表板 | C\#、Java、JavaScript、HTML |
-| [使用 Storm on HDInsight 處理事件中心的車輛感應器資料][246ee964] | 事件中心、DocumentDb、Azure 儲存體 Blob \(WASB\) | C\#，Java |
-| [使用 Storm on HDInsight，從 Azure 事件中心擷取、轉換及載入 \(ETL\) 至 HBase][b4b68194] | 事件中心，HBase | C\# |
-| [使用 Storm on HDInsight 之 Azure 服務的範本 C\# Storm 拓樸專案][ce0c02a2] | 事件中心、DocumentDb、SQL Database、HBase、SignalR | C\#，Java |
-| [使用 Storm on HDInsight 從 Azure 事件中心讀取的延展性效能評比][d6c540e3] | 訊息輸送量、事件中心、SQL Database | C\#，Java |
+| [利用 Storm on HDInsight 處理 Azure 事件中心的事件][844d1d81] | 事件中心 | C# 和 Java |
+| [使用 Power Bi (預覽) 來視覺化 Storm 拓撲的資料][94d15238] | Power BI | C# |
+| [在 HDInsight 中使用 Storm 和 HBase 分析感應器資料][ab894747] | 事件中心、HBase、Socket.IO、Web 儀表板 | C#、Java、JavaScript、HTML |
+| [使用 Storm on HDInsight 處理事件中心的車輛感應器資料][246ee964] | 事件中心、DocumentDb、Azure 儲存體 Blob (WASB) | C#，Java |
+| [使用 Storm on HDInsight，從 Azure 事件中心擷取、轉換及載入 (ETL) 至 HBase][b4b68194] | 事件中心，HBase | C# |
+| [使用 Storm on HDInsight 之 Azure 服務的範本 C# Storm 拓樸專案][ce0c02a2] | 事件中心、DocumentDb、SQL Database、HBase、SignalR | C#，Java |
+| [使用 Storm on HDInsight 從 Azure 事件中心讀取的延展性效能評比][d6c540e3] | 訊息輸送量、事件中心、SQL Database | C#，Java |
 
 ## 後續步驟
 

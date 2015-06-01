@@ -17,7 +17,7 @@
 
 ##<a id="createvirtualmachine"> </a>如何建立虛擬機器##
 
-本節說明如何在管理入口網站中使用 \[從組件庫\] 選項建立虛擬機器。此選項提供的組態選擇比 \[快速建立\] 選項還多。例如，如果您要將虛擬機器加入虛擬網路中，您必須使用 \[從組件庫\] 選項。
+本節說明如何在管理入口網站中使用 [從組件庫] 選項建立虛擬機器。此選項提供的組態選擇比 [快速建立] 選項還多。例如，如果您要將虛擬機器加入虛擬網路中，您必須使用 [從組件庫] 選項。
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
@@ -27,25 +27,25 @@
 
 1. 登入 Azure [管理入口網站](http://manage.windowsazure.com)。
 
-2. 按一下 \[虛擬機器\]，然後選取 \[MyTestVM\] 虛擬機器。
+2. 按一下 [虛擬機器]，然後選取 [MyTestVM] 虛擬機器。
 
 	![Select MyTestVM](./media/CreateVirtualMachineWindowsTutorial/selectvm.png)
 
-3. 按一下命令列上的 \[連接\]。
+3. 按一下命令列上的 [連接]。
 
 	![連接到 MyTestVM](./media/CreateVirtualMachineWindowsTutorial/commandbarconnect.png)
 	
-4. 按一下 \[開啟\] 以使用系統自動為虛擬機器建立的遠端桌面通訊協定檔案。
+4. 按一下 [開啟] 以使用系統自動為虛擬機器建立的遠端桌面通訊協定檔案。
 
 	![開啟 RDP 檔案](./media/CreateVirtualMachineWindowsTutorial/openrdp.png)
 	
-5. 按一下 \[連接\]。
+5. 按一下 [連接]。
 
 	![繼續連接](./media/CreateVirtualMachineWindowsTutorial/connectrdc.png)
 
-6. 在密碼方塊中，輸入您建立虛擬機器時指定的使用者名稱和密碼，然後按一下 \[確定\]。
+6. 在密碼方塊中，輸入您建立虛擬機器時指定的使用者名稱和密碼，然後按一下 [確定]。
 
-7. 按一下 \[是\] 以驗證虛擬機器的身分識別。
+7. 按一下 [是] 以驗證虛擬機器的身分識別。
 
 	![驗證機器的身分識別](./media/CreateVirtualMachineWindowsTutorial/certificate.png)
 
@@ -57,25 +57,25 @@
 
 1. 登入 Azure [管理入口網站](http://manage.windowsazure.com)。
 
-2. 按一下 \[虛擬機器\]，然後選取 \[MyTestVM\] 虛擬機器。
+2. 按一下 [虛擬機器]，然後選取 [MyTestVM] 虛擬機器。
 
 	![Select MyTestVM](./media/CreateVirtualMachineWindowsTutorial/selectvm.png)
 	
-3. 您可能會先進入 \[快速入門\] 頁面。若是如此，請選取頂端的 \[儀表板\]。
+3. 您可能會先進入 [快速入門] 頁面。若是如此，請選取頂端的 [儀表板]。
 
 	![Select Dashboard](./media/CreateVirtualMachineWindowsTutorial/dashboard.png)
 
-4. 在命令列上按一下 \[連接\]，然後在 \[連接空的磁碟\] 蹦現時加以點選。
+4. 在命令列上按一下 [連接]，然後在 [連接空的磁碟] 蹦現時加以點選。
 
 	![Select Attach from the command bar](./media/CreateVirtualMachineWindowsTutorial/commandbarattach.png)
 
-5. 系統已為您定義 \[虛擬機器名稱\]、\[儲存位置\]、\[檔案名稱\] 和 \[主機快取喜好設定\]。您只需要輸入想要的磁碟大小。在 \[大小\] 欄位中輸入 **5**。接著，按一下核取記號將空磁碟連接至虛擬機器。
+5. 系統已為您定義 [虛擬機器名稱]、[儲存位置]、[檔案名稱] 和 [主機快取喜好設定]。您只需要輸入想要的磁碟大小。在 [大小] 欄位中輸入 **5**。接著，按一下核取記號將空磁碟連接至虛擬機器。
 
 	![Specify the size of the empty disk](./media/CreateVirtualMachineWindowsTutorial/emptydisksize.png)
 	
-	>[AZURE.NOTE]所有磁碟都是從 Windows Azure 儲存體中的 VHD 檔案建立。在 \[檔案名稱\] 下，您可以為新增至儲存體的 VHD 檔案提供名稱，但是 Azure 會自動產生磁碟的名稱。
+	>[AZURE.NOTE]所有磁碟都是從 Windows Azure 儲存體中的 VHD 檔案建立。在 [檔案名稱] 下，您可以為新增至儲存體的 VHD 檔案提供名稱，但是 Azure 會自動產生磁碟的名稱。
 
-6. 返回儀表板，驗證空的資料磁碟已成功連接至虛擬機器。它會與 OS 磁碟並列為 \[磁碟\] 清單中的第二個磁碟。
+6. 返回儀表板，驗證空的資料磁碟已成功連接至虛擬機器。它會與 OS 磁碟並列為 [磁碟] 清單中的第二個磁碟。
 
 	![連接空的磁碟](./media/CreateVirtualMachineWindowsTutorial/disklistwithdatadisk.png)
 
@@ -83,27 +83,27 @@
 
 7. 使用上一節「如何在建立虛擬機器之後登入」[](#logon)中的步驟，連線至虛擬機器。
 
-8. 登入虛擬機器之後，開啟 \[伺服器管理員\]。在左窗格中，選取 \[檔案和存放服務\]。
+8. 登入虛擬機器之後，開啟 [伺服器管理員]。在左窗格中，選取 [檔案和存放服務]。
 
 	![Expand File and Storage Services in Server Manager](./media/CreateVirtualMachineWindowsTutorial/fileandstorageservices.png)
 
-9. 從展開的功能表中選取 \[磁碟\]。
+9. 從展開的功能表中選取 [磁碟]。
 
 	![Expand File and Storage Services in Server Manager](./media/CreateVirtualMachineWindowsTutorial/selectdisks.png)
 	
-10. 在 \[**磁碟**\] 區段中，清單中會有三個磁碟：磁碟 0、磁碟 1 和磁碟 2。磁碟 0 是 OS 磁碟、磁碟 1 是暫存資源磁碟 \(不應用於資料儲存體\)，磁碟 2 是您已連接至虛擬機器的資料磁碟。請注意，依據先前的指定，資料磁碟的容量為 5 GB。請以滑鼠右鍵按一下磁碟 2，然後選取 \[初始化\]。
+10. 在 [**磁碟**] 區段中，清單中會有三個磁碟：磁碟 0、磁碟 1 和磁碟 2。磁碟 0 是 OS 磁碟、磁碟 1 是暫存資源磁碟 (不應用於資料儲存體)，磁碟 2 是您已連接至虛擬機器的資料磁碟。請注意，依據先前的指定，資料磁碟的容量為 5 GB。請以滑鼠右鍵按一下磁碟 2，然後選取 [初始化]。
 
 	![開始初始化](./media/CreateVirtualMachineWindowsTutorial/initializedisk.png)
 
-11. 按一下 \[是\] 開始初始化程序。
+11. 按一下 [是] 開始初始化程序。
 
 	![Continue initialization](./media/CreateVirtualMachineWindowsTutorial/yesinitialize.png)
 
-12. 再次以滑鼠右鍵按一下磁碟 2，然後選取 \[新增磁碟區\]。
+12. 再次以滑鼠右鍵按一下磁碟 2，然後選取 [新增磁碟區]。
 
 	![建立磁碟區](./media/CreateVirtualMachineWindowsTutorial/initializediskvolume.png)
 
-13. 使用提供的預設值完成精靈。當精靈完成時，新磁碟區會列示在 \[磁碟區\] 區段中。
+13. 使用提供的預設值完成精靈。當精靈完成時，新磁碟區會列示在 [磁碟區] 區段中。
 
 	![建立磁碟區](./media/CreateVirtualMachineWindowsTutorial/newvolumecreated.png)
 

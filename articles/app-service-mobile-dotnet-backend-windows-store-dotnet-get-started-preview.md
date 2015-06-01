@@ -42,17 +42,17 @@
 
 在本節中，您將建立與行動應用程式後端連線的新通用 Windows 應用程式。
 
-1. 在 Azure 入口網站中，按一下 \[**行動應用程式**\]，然後按一下您剛建立的行動應用程式。
+1. 在 Azure 入口網站中，按一下 [**行動應用程式**]，然後按一下您剛建立的行動應用程式。
 
-2. 在刀鋒視窗頂端，按一下 \[**加入用戶端**\] 並展開 **Windows \(C\#\)**。
+2. 在刀鋒視窗頂端，按一下 [**加入用戶端**] 並展開 **Windows (C#)**。
 
    ![行動應用程式快速入門步驟](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
 
    這將顯示三個簡單步驟，可用來建立連接到您行動應用程式後端的 Windows 市集應用程式。
 
-3. 在您的本機電腦或虛擬機器下載並安裝 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> \(如果您尚未這麼做\)。
+3. 在您的本機電腦或虛擬機器下載並安裝 <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> (如果您尚未這麼做)。
 
-4. 在 \[Download and run your app and service locally\]**** 中，選取 Windows 市集應用程式的語言，然後按一下 \[下載\]****。
+4. 在 [Download and run your app and service locally]**** 中，選取 Windows 市集應用程式的語言，然後按一下 [下載]****。
 
    這會下載一個方案，其中包含行動應用程式後端的專案，以及與行動應用程式後端連接的範例_待辦事項_應用程式的專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 

@@ -22,7 +22,7 @@
 
 ##概觀
 
-本主題將示範如何使用 Azure 通知中心將推播通知傳送至 iOS 應用程式。在本教學課程中，您將使用 Apple 推播通知服務 \(APN\)，建立可接收推播通知的空白 iOS 應用程式。完成時，您便能夠使用通知中心，將推播通知廣播到所有正在執行您應用程式的裝置。
+本主題將示範如何使用 Azure 通知中心將推播通知傳送至 iOS 應用程式。在本教學課程中，您將使用 Apple 推播通知服務 (APN)，建立可接收推播通知的空白 iOS 應用程式。完成時，您便能夠使用通知中心，將推播通知廣播到所有正在執行您應用程式的裝置。
 
 本教學課程將示範使用通知中心的簡單廣播案例。
 
@@ -32,10 +32,10 @@
 
 + [行動服o務 iOS SDK]
 + [XCode 4.5][Install Xcode]
-+ iOS 5.0 \(或以上版本\) 功能裝置
++ iOS 5.0 (或以上版本) 功能裝置
 + iOS Developer Program 成員資格
 
->[AZURE.NOTE]基於推播通知組態需求，您必須在 iOS 功能裝置 \(iPhone 或 iPad\) 而非在模擬器上部署和測試推播通知。
+>[AZURE.NOTE]基於推播通知組態需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
 
 完成本教學課程是 iOS 應用程式所有其他通知中心教學課程的先決條件。
 
@@ -45,7 +45,7 @@
 
 ##設定您的通知中樞
 
-1. 在 Keychain Access 中，以滑鼠右鍵按一下快速入門應用程式的新憑證 **[我的憑證\]**。按一下 **[匯出\]**、為檔案命名、選取 **[.p12\]** 格式，然後按一下 **[儲存\]**。
+1. 在 Keychain Access 中，以滑鼠右鍵按一下快速入門應用程式的新憑證 **[我的憑證]**。按一下 **[匯出]**、為檔案命名、選取 **[.p12]** 格式，然後按一下 **[儲存]**。
 
     ![][26]
 
@@ -59,23 +59,23 @@
 
    ![][27]
 
-4. 為您的通知中心輸入名稱、選取所需的區域，然後按一下 **[Create a new Notification Hub\]**。
+4. 為您的通知中心輸入名稱、選取所需的區域，然後按一下 **[Create a new Notification Hub]**。
 
    ![][28]
 
-5. 按一下您剛才建立的命名空間 \(通常為 ***notification hub name*-ns**\)，然後按一下頂端的 **[設定\]** 索引標籤。
+5. 按一下您剛才建立的命名空間 (通常為 ***notification hub name*-ns**)，然後按一下頂端的 **[設定]** 索引標籤。
 
    ![][29]
 
-6. 按一下頂端的 **[Notification Hubs\]** 索引標籤，然後按一下您剛才建立的通知中心。
+6. 按一下頂端的 **[Notification Hubs]** 索引標籤，然後按一下您剛才建立的通知中心。
 
    ![][210]
 
-7. 選取頂端的 **[設定\]** 索引標籤，然後按一下 Apple 通知設定的 **[上傳\]**。然後選取稍早匯出的 **.p12** 憑證，以及憑證的密碼。**務必選擇要使用「生產」** (如果要傳送推播通知給在市集購買您應用程式的使用者) **或「沙箱」** (開發期間\) 推播服務。
+7. 選取頂端的 **[設定]** 索引標籤，然後按一下 Apple 通知設定的 **[上傳]**。然後選取稍早匯出的 **.p12** 憑證，以及憑證的密碼。**務必選擇要使用「生產」** (如果要傳送推播通知給在市集購買您應用程式的使用者) **或「沙箱」** (開發期間) 推播服務。
 
    ![][211]
 
-8. 按一下頂端的 **[儀表板\]** 索引標籤，然後按一下 **[連接資訊\]**。記下這兩個連接字串。
+8. 按一下頂端的 **[儀表板]** 索引標籤，然後按一下 **[連接資訊]**。記下這兩個連接字串。
 
    ![][212]
 
@@ -87,11 +87,11 @@
 
    ![][31]
 
-2. 在 **[目標\]** 下按一下您的專案名稱，然後展開 **[Code Signing Identity\]**，接著在 **[偵錯\]** 下選取程式碼簽署識別設定檔。另外，如果使用較新版本的 XCode，請將 **[層級\]** 從 **[基本\]** 切換成 **[全部\]**，並將 **[Provisioning Profile]** 行項目設定為佈建設定檔。
+2. 在 **[目標]** 下按一下您的專案名稱，然後展開 **[Code Signing Identity]**，接著在 **[偵錯]** 下選取程式碼簽署識別設定檔。另外，如果使用較新版本的 XCode，請將 **[層級]** 從 **[基本]** 切換成 **[全部]**，並將 **[Provisioning Profile]** 行項目設定為佈建設定檔。
 
    ![][32]
 
-3. 下載 Azure Mobile SDK for iOS。開啟 .zip 檔案，並將 WindowsAzureMessaging.framework 資料夾拖曳到 XCode 專案中的 Framework 資料夾。選取 **[Copy items in destination group's folder\]**，然後按一下 **[確定]**。
+3. 下載 Azure Mobile SDK for iOS。開啟 .zip 檔案，並將 WindowsAzureMessaging.framework 資料夾拖曳到 XCode 專案中的 Framework 資料夾。選取 **[Copy items in destination group's folder]**，然後按一下 **[確定]**。
 
    ![][33]
 
@@ -133,7 +133,7 @@
 	    	}];
 		}
 
-7. *\(選用\)* 同樣地，如果應用程式正在作用中時收到通知，您可以在相同檔案中新增下列方法以顯示 **UIAlert**：
+7. *(選用)* 同樣地，如果應用程式正在作用中時收到通知，您可以在相同檔案中新增下列方法以顯示 **UIAlert**：
 
 
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
@@ -148,17 +148,17 @@
 
 ##從後端傳送通知
 
-您可以使用 [REST 介面](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)，從任何後端使用通知中樞傳送通知。在本教學課程中，您將透過 .NET 主控台應用程式來傳送通知。如需從整合通知中心之 Azure 行動服務後端傳送通知的範例，請參閱**開始在行動服務中使用推播通知** \([.NET backend](mobile-services-javascript-backend-ios-get-started-push.md) \| [JavaScript backend](mobile-services-javascript-backend-ios-get-started-push.md)\)。如需使用 REST API 傳送通知的範例，請參閱**如何從 Java/PHP 使用通知中心** \([Java](notification-hubs-java-backend-how-to.md) \| [PHP](notification-hubs-php-backend-how-to.md)\)。
+您可以使用 [REST 介面](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)，從任何後端使用通知中樞傳送通知。在本教學課程中，您將透過 .NET 主控台應用程式來傳送通知。如需從整合通知中心之 Azure 行動服務後端傳送通知的範例，請參閱**開始在行動服務中使用推播通知** ([.NET backend](mobile-services-javascript-backend-ios-get-started-push.md) | [JavaScript backend](mobile-services-javascript-backend-ios-get-started-push.md))。如需使用 REST API 傳送通知的範例，請參閱**如何從 Java/PHP 使用通知中心** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md))。
 
-1. 在 Visual Studio 中，從 **[檔案\]** 功能表選取 **[開新檔案\]**、**[專案...\]**，然後按一下 **[Visual C\#\]** 下方的 **[Windows]** 和 **[主控台應用程式\]**，再按一下 \**[確定\]**。  
+1. 在 Visual Studio 中，從 **[檔案]** 功能表選取 **[開新檔案]**、**[專案...]**，然後按一下 **[Visual C#]** 下方的 **[Windows]** 和 **[主控台應用程式]**，再按一下 **[確定]**。  
 
    	![][20]
 
 	這會建立新的主控台應用程式專案。
 
-2. 在 **[工具\]** 功能表中，依序按一下 **[Library Package Manager]** 及 **[Package Manager Console]**。
+2. 在 **[工具]** 功能表中，依序按一下 **[Library Package Manager]** 及 **[Package Manager Console]**。
 
-	這會顯示 \[Package Manager Console\]。
+	這會顯示 [Package Manager Console]。
 
 6. 在主控台視窗中，執行下列命令：
 
@@ -175,13 +175,13 @@
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            var alert = "{\"aps\":{\"alert\":\"Hello from .NET!\"}}";
+            var alert = "{"aps":{"alert":"Hello from .NET!"}}";
             await hub.SendAppleNativeNotificationAsync(alert);
         }
 
 	請務必使用出現在入口網站 **[通知中心]** 索引標籤上的通知中心名稱，來取代 "hub name" 預留位置。此外，請將連接字串預留位置取代為您在「設定您的通知中心」一節中取得，且名為 **DefaultFullSharedAccessSignature** 的連接字串。
 
-	>[AZURE.NOTE]請確定您使用的連接字串具有 \[**完整**\] 存取權，而非 \[**接聽**\] 存取權。接聽存取權的字串沒有傳送通知的權限。
+	>[AZURE.NOTE]請確定您使用的連接字串具有 [**完整**] 存取權，而非 [**接聽**] 存取權。接聽存取權的字串沒有傳送通知的權限。
 
 5. 接著在 **Main** 方法中新增下列程式碼行。
 
@@ -192,7 +192,7 @@
 
 	您應該會在裝置上收到警示。如果您使用 Wi-fi，請確定連線正在運作。
 
-您可以在 Apple [本機和推播通知程式設計指南] \(英文\) 中找到所有可能的裝載。
+您可以在 Apple [本機和推播通知程式設計指南] (英文) 中找到所有可能的裝載。
 
 ##後續步驟
 

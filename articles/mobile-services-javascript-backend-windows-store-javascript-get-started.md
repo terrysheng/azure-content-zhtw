@@ -37,7 +37,7 @@
 
 ## 建立新的通用 Windows 應用程式
 
-在建立您的行動服務之後，您可以依照 \[管理入口網站] 中的簡易快速入門，來建立新的通用 Windows 應用程式或修改現有的 Windows 市集或 Windows Phone 應用程式專案，以連接到您的行動服務。 
+在建立您的行動服務之後，您可以依照 [管理入口網站] 中的簡易快速入門，來建立新的通用 Windows 應用程式或修改現有的 Windows 市集或 Windows Phone 應用程式專案，以連接到您的行動服務。 
 
 在本節中，您將建立與行動服務連線的新通用 Windows 應用程式。
 
@@ -46,7 +46,7 @@
    
 2. 在快速入門索引標籤中，按一下 [**選擇平台**] 下的 [**Windows**]，並展開 [**建立新的 Windows 市集應用程式**]。
 
-   	![](./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png)
+   ![](./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png)
 
    	這將顯示三個簡單步驟，可用來建立連接到您行動服務的 Windows 市集應用程式。
 

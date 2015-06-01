@@ -41,6 +41,6 @@ Azure 自動化提供高度可靠、高度可用的工作流程執行引擎，�
 了解 Azure 自動化的基本概念以及如何用它來管理 Azure API 管理之後，請參考下列連結以深入了解。
 
 * 請參閱 Azure 自動化[快速入門教學課程](automation-create-runbook-from-samples.md)。
-* 請參閱 [\#Azure API 管理 REST API 的 PowerShell 模組](https://alexandrebrisebois.wordpress.com/2014/08/17/powershell-module-for-the-azure-api-management-rest-apis/)社群部落格文章。
+* 請參閱 [#Azure API 管理 REST API 的 PowerShell 模組](https://alexandrebrisebois.wordpress.com/2014/08/17/powershell-module-for-the-azure-api-management-rest-apis/)社群部落格文章。
 
 <!--HONumber=54-->

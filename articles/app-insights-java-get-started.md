@@ -31,23 +31,23 @@
 您需要：
 
 * Oracle JRE 1.6 或更新版本，或 Zulu JRE 1.6 或更新版本
-* [Microsoft Azure](http://azure.microsoft.com/) 訂用帳戶。\(您可以從[免費試用](http://azure.microsoft.com/pricing/free-trial/)開始。\)
+* [Microsoft Azure](http://azure.microsoft.com/) 訂用帳戶。(您可以從[免費試用](http://azure.microsoft.com/pricing/free-trial/)開始。)
 
 
-## 1\.取得 Application Insights 檢測金鑰
+## 1.取得 Application Insights 檢測金鑰
 
 1. 登入 [Microsoft Azure 入口網站](https://portal.azure.com)
 2. 建立新 Application Insights 資源
 
-    ![按一下 + 並選擇 \[Application Insights\]](./media/app-insights-java-get-started/01-create.png)
+    ![按一下 + 並選擇 [Application Insights]](./media/app-insights-java-get-started/01-create.png)
 3. 將應用程式類型設定為 Java Web 應用程式。
 
-    ![填寫名稱，選擇 \[Java Web 應用程式\]，然後按一下 \[建立\]](./media/app-insights-java-get-started/02-create.png)
+    ![填寫名稱，選擇 [Java Web 應用程式]，然後按一下 [建立]](./media/app-insights-java-get-started/02-create.png)
 4. 尋找新資源的檢測金鑰。您很快需要將此資訊貼上到程式碼專案中。
 
-    ![在新資源概觀中，按一下 \[屬性\] 並複製檢測金鑰](./media/app-insights-java-get-started/03-key.png)
+    ![在新資源概觀中，按一下 [屬性] 並複製檢測金鑰](./media/app-insights-java-get-started/03-key.png)
 
-## 2\.將 Java 適用的 Application Insights SDK 加入至專案
+## 2.將 Java 適用的 Application Insights SDK 加入至專案
 
 *選擇適合您的專案的方式。*
 
@@ -121,7 +121,7 @@
 `applicationinsights-core` 提供不具自動遙測的單純 API。`applicationinsights-web` 則提供追蹤 HTTP 要求計數和回應時間的度量。
 
 
-## 3\.加入 Application Insights XML 檔案
+## 3.加入 Application Insights XML 檔案
 
 將 ApplicationInsights.xml 加入專案的 resources 資料夾。複製到下列 XML。
 
@@ -162,9 +162,9 @@
 * HTTP 要求元件是選用的。它會自動將要求和回應時間的遙測傳送到入口網站。
 * 事件相互關聯是 HTTP 要求元件的補充。它會指派識別碼給伺服器收到的每個要求，並將它加入為遙測的每個項目的屬性，作為 'Operation.Id' 屬性。它可讓您相互關聯與每個要求關聯的遙測，方法是在[診斷搜尋][diagnostic]中設定篩選器。
 
-## 4\.加入 HTTP 篩選器
+## 4.加入 HTTP 篩選器
 
-上一個組態步驟可讓 HTTP 要求元件記錄每個 Web 要求。\(如果您只需要單純的 API，則非必要。\)
+上一個組態步驟可讓 HTTP 要求元件記錄每個 Web 要求。(如果您只需要單純的 API，則非必要。)
 
 在專案中找到並開啟 web.xml 檔案，並合併 web-app 節點下的下列程式碼片段，在其中您可以設定應用程式篩選器。
 
@@ -196,22 +196,22 @@
 
 #### 如果您使用 Struts 2
 
-將此項目加入到 Struts 組態檔案 \(通常名稱為 struts.xml 或 struts-default.xml\)：
+將此項目加入到 Struts 組態檔案 (通常名稱為 struts.xml 或 struts-default.xml)：
 
      <interceptors>
        <interceptor name="ApplicationInsightsRequestNameInterceptor" class="com.microsoft.applicationinsights.web.struts.RequestNameInterceptor" />
      </interceptors>
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
 
-\(如果預設堆疊中定義了攔截器，可以將攔截器加入該堆疊。\)
+(如果預設堆疊中定義了攔截器，可以將攔截器加入該堆疊。)
 
-## 5\.在 Application Insights 中檢視遙測
+## 5.在 Application Insights 中檢視遙測
 
 執行您的應用程式。
 
 返回 Microsoft Azure 中的 Application Insights 資源。
 
-\[概觀\] 分頁上會顯示 HTTP 要求資料。\(如果沒有出現，請稍等片刻，然後按一下 \[重新整理\]。\)
+[概觀] 分頁上會顯示 HTTP 要求資料。(如果沒有出現，請稍等片刻，然後按一下 [重新整理]。)
 
 ![範例資料](./media/app-insights-java-track-http-requests/5-results.png)
  
@@ -239,9 +239,9 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 這可提供要求有意義的彙總，例如要求數量和要求的平均執行時間。
 
-## 5\.效能計數器
+## 5.效能計數器
 
-按一下 \[伺服器\] 磚，您就會看到一些效能計數器。
+按一下 [伺服器] 磚，您就會看到一些效能計數器。
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
@@ -258,7 +258,7 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 
 您可以指定要收集的其他效能計數器。
 
-#### JMX 計數器 \(由虛擬機器公開\)
+#### JMX 計數器 (由虛擬機器公開)
 
     <PerformanceCounters>
       <Jmx>
@@ -270,16 +270,16 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
 *	`displayName` – Application Insights 入口網站中顯示的名稱。
 *	`objectName` – JMX 物件名稱。
 *	`attribute` – 要提取的 JMX 物件名稱的屬性
-*	`type` \(選用\) - JMX 物件屬性的類型：
+*	`type` (選用) - JMX 物件屬性的類型：
  *	預設值：簡易類型，例如 int 或 long。
  *	`composite`：效能計數器資料的格式為 'Attribute.Data'
  *	`tabular`：效能計數器資料的格式為資料表列
 
 
 
-#### Windows \(64 位元\) 效能計數器 
+#### Windows (64 位元) 效能計數器 
 
-每個 [Windows 效能計數器](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx)是類別的成員 \(以欄位是類別成員的相同方式\)。類別可以是全域，或可以有一定數量或指定的執行個體。
+每個 [Windows 效能計數器](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx)是類別的成員 (以欄位是類別成員的相同方式)。類別可以是全域，或可以有一定數量或指定的執行個體。
 
     <PerformanceCounters>
       <Windows>
@@ -289,20 +289,20 @@ Application Insights 假設 MVC 應用程式的 HTTP 要求的格式為：`VERB 
     </PerformanceCounters>
 
 *	displayName – Application Insights 入口網站中顯示的名稱
-*	categoryName – 與此效能計數器有關聯的效能計數器類別 \(效能物件\)
+*	categoryName – 與此效能計數器有關聯的效能計數器類別 (效能物件)
 *	counterName – 效能計數器的名稱
-*	instanceName – 效能計數器類別執行個體的名稱，或如果類別包含單一執行個體，則為空白字串 \(""\)。如果 categoryName 為 Process，而您要收集的效能計數器來自應用程式執行所在的目前 JVM 處理程序，請指定 `"__SELF__"`。
+*	instanceName – 效能計數器類別執行個體的名稱，或如果類別包含單一執行個體，則為空白字串 ("")。如果 categoryName 為 Process，而您要收集的效能計數器來自應用程式執行所在的目前 JVM 處理程序，請指定 `"__SELF__"`。
 
 您的效能計數器會在[計量瀏覽器][metrics]中以自訂度量的形式顯示。
 
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
 
-## 6\.擷取記錄追蹤
+## 6.擷取記錄追蹤
 
 您可以使用 Application Insights 將來自 Log4J、Logback 或其他記錄架構的記錄分解。您可以將記錄與 HTTP 要求和其他遙測相互關聯。[了解作法][javalogs]。
 
-## 7\.傳送您自己的遙測
+## 7.傳送您自己的遙測
 
 既然您已安裝 SDK，您可以使用 API 來傳送自己的遙測。
 

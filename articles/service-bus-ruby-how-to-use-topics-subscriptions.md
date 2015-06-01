@@ -91,7 +91,7 @@
 
 ## 設定 Azure 服務匯流排連接
 
-azure 模組將讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_SERVICEBUS\_ACCESS\_KEY** 
+azure 模組將讀取環境變數 **AZURE_SERVICEBUS_NAMESPACE** 和 **AZURE_SERVICEBUS_ACCESS_KEY** 
 ，以取得連線至 Azure 服務匯流排命名空間的必要資訊。若未設定這些環境變數，您必須使用下列程式碼，在使用 **Azure::ServiceBusService** 之前指定命名空間資訊：
 
     Azure.config.sb_namespace = "<your azure service bus namespace>"
@@ -101,7 +101,7 @@ azure 模組將讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 ## 如何建立主題
 
-**Azure::ServiceBusService** 物件可讓您處理主題。下列程式碼將建立 **Azure::ServiceBusService** 物件。若要建立主題，請使用 **create\_topic()** 方法。下列範例將建立主題或列出錯誤 (若有的話)。
+**Azure::ServiceBusService** 物件可讓您處理主題。下列程式碼將建立 **Azure::ServiceBusService** 物件。若要建立主題，請使用 **create_topic()** 方法。下列範例將建立主題或列出錯誤 (若有的話)。
 
 	azure_service_bus_service = Azure::ServiceBusService.new
 	begin
@@ -137,11 +137,11 @@ azure 模組將讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 在訂閱支援的篩選器中，**Azure::ServiceBus::SqlFilter** 是最具彈性的類型，可用來實作 SQL92 的子集。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需可與 SQL 篩選器搭配使用之運算式的詳細資訊，請檢閱 [SqlFilter.SqlExpression](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx) 語法。
 
-您可以使用 **Azure::ServiceBusService** 物件的 **create\_rule()** 方法，將篩選器新增至訂閱。此方法可讓您將篩選器新增至現有的訂閱中。
+您可以使用 **Azure::ServiceBusService** 物件的 **create_rule()** 方法，將篩選器新增至訂閱。此方法可讓您將篩選器新增至現有的訂閱中。
 
-由於預設篩選器會自動套用至所有新訂閱，因此您必須先移除預設篩選器，否則 **MatchAll** 會覆寫您指定的其他任何篩選器。您可以使用 **Azure::ServiceBusService** 物件的 **delete\_rule()** 方法移除預設規則。
+由於預設篩選器會自動套用至所有新訂閱，因此您必須先移除預設篩選器，否則 **MatchAll** 會覆寫您指定的其他任何篩選器。您可以使用 **Azure::ServiceBusService** 物件的 **delete_rule()** 方法移除預設規則。
 
-以下範例將建立名為 "high-messages"、且其 **Azure::ServiceBus::SqlFilter** 只選取自訂 **message\_number** 屬性大於 3 之訊息的訂閱：
+以下範例將建立名為 "high-messages"、且其 **Azure::ServiceBus::SqlFilter** 只選取自訂 **message_number** 屬性大於 3 之訊息的訂閱：
 
 	subscription = azure_service_bus_service.create_subscription("test-topic", 
 	  "high-messages")
@@ -173,7 +173,7 @@ azure 模組將讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 ## 如何傳送訊息至主題
 
-若要傳送訊息至服務匯流排主題，應用程式必須使用 **Azure::ServiceBusService** 物件的 **send\_topic\_message()** 方法。傳送至服務匯流排主題的訊息是 **Azure::ServiceBus::BrokeredMessage** 物件。**Azure::ServiceBus::BrokeredMessage** 物件具有一組標準屬性 (例如 **label** 和 **time\_to\_live**)、一個用來保存自訂應用程式特定屬性的字典，以及大量的字串資料。應用程式可將字串值傳遞至 **send\_topic\_message()** 方法以設定訊息本文，任何必要的標準屬性都將以預設值填入。
+若要傳送訊息至服務匯流排主題，應用程式必須使用 **Azure::ServiceBusService** 物件的 **send_topic_message()** 方法。傳送至服務匯流排主題的訊息是 **Azure::ServiceBus::BrokeredMessage** 物件。**Azure::ServiceBus::BrokeredMessage** 物件具有一組標準屬性 (例如 **label** 和 **time_to_live**)、一個用來保存自訂應用程式特定屬性的字典，以及大量的字串資料。應用程式可將字串值傳遞至 **send_topic_message()** 方法以設定訊息本文，任何必要的標準屬性都將以預設值填入。
 
 下列範例說明如何將五個測試訊息傳送至 "test-topic"。請注意迴圈反覆運算上每個訊息的 **message_number** 自訂屬性值的變化 (這可判斷接收訊息的訂閱為何)：
 
@@ -187,13 +187,13 @@ azure 模組將讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 ## 如何自訂閱接收訊息
 
-您可以使用 **Azure::ServiceBusService** 物件的 **receive\_subscription\_message()** 方法接收來自訂閱的訊息。根據預設，在讀取 (查看) 及鎖定訊息後並不會將其從訂閱中刪除。您可以將 **peek\_lock** 選項設為 **false**，而在讀取訊息後將其從訂閱中刪除。
+您可以使用 **Azure::ServiceBusService** 物件的 **receive_subscription_message()** 方法接收來自訂閱的訊息。根據預設，在讀取 (查看) 及鎖定訊息後並不會將其從訂閱中刪除。您可以將 **peek_lock** 選項設為 **false**，而在讀取訊息後將其從訂閱中刪除。
 
-預設行為會使讀取和刪除變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可呼叫 **delete\_subscription\_message()** 方法，並將要刪除的訊息提供做為參數，以完成接收程序的第二個階段。**delete\_subscription\_message()** 方法會將訊息標示為已取用，並將其從訂閱中移除。
+預設行為會使讀取和刪除變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可呼叫 **delete_subscription_message()** 方法，並將要刪除的訊息提供做為參數，以完成接收程序的第二個階段。**delete_subscription_message()** 方法會將訊息標示為已取用，並將其從訂閱中移除。
 
-如果 **:peek\_lock** 參數設為 **false**，讀取和刪除訊息將會變成最簡單的模型，且最適用於應用程式容許在發生失敗時不處理訊息的案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
+如果 **:peek_lock** 參數設為 **false**，讀取和刪除訊息將會變成最簡單的模型，且最適用於應用程式容許在發生失敗時不處理訊息的案例。若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
-以下範例將示範如何使用 **receive\_subscription\_message()** 來接收與處理訊息。此範例會先使用設為 **false** 的 **:peek\_lock** 接收及刪除來自「low-messages」訂閱的訊息，然後接收另一個來自「high-messages」的訊息，接著使用 **delete\_subscription\_message()** 刪除該訊息：
+以下範例將示範如何使用 **receive_subscription_message()** 來接收與處理訊息。此範例會先使用設為 **false** 的 **:peek_lock** 接收及刪除來自「low-messages」訂閱的訊息，然後接收另一個來自「high-messages」的訊息，接著使用 **delete_subscription_message()** 刪除該訊息：
 
     message = azure_service_bus_service.receive_subscription_message(
 	  "test-topic", "low-messages", { :peek_lock => false })
@@ -203,11 +203,11 @@ azure 模組將讀取環境變數 **AZURE\_SERVICEBUS\_NAMESPACE** 和 **AZURE\_
 
 ## 如何處理應用程式當機與無法讀取的訊息
 
-服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。如果接收者應用程式因故無法處理訊息，它可以呼叫 **Azure::ServiceBusService** 物件的 **unlock\_subscription\_message()** 方法。這將使服務匯流排將訂閱中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
+服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。如果接收者應用程式因故無法處理訊息，它可以呼叫 **Azure::ServiceBusService** 物件的 **unlock_subscription_message()** 方法。這將使服務匯流排將訂閱中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
 
 與在訂閱內鎖定之訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
 
-如果應用程式在處理訊息之後，但在尚未呼叫 **delete\_subscription\_message()** 方法之前當機，則會在應用程式重新啟動時，將訊息重新傳遞給該應用程式。這通常稱為「至少處理一次」****，也就是說，每個訊息至少會處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可以使用訊息的 **message\_id** 屬性來達到此目的，該屬性將在各個傳遞嘗試中保持不變。
+如果應用程式在處理訊息之後，但在尚未呼叫 **delete_subscription_message()** 方法之前當機，則會在應用程式重新啟動時，將訊息重新傳遞給該應用程式。這通常稱為「至少處理一次」****，也就是說，每個訊息至少會處理一次，但在特定狀況下，可能會重新傳遞相同訊息。如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。通常您可以使用訊息的 **message_id** 屬性來達到此目的，該屬性將在各個傳遞嘗試中保持不變。
 
 ## 如何刪除主題和訂閱
 

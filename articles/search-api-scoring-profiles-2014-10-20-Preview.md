@@ -16,9 +16,9 @@
 	ms.date="02/12/2015" 
 	ms.author="heidist"/>
       
-#評分設定檔 \(Azure 搜尋服務 REST API 2014-10-20-Preview 版\)#
+#評分設定檔 (Azure 搜尋服務 REST API 2014-10-20-Preview 版)#
 
-> [AZURE.NOTE]本文說明 2014-10-20-Preview 版 REST API 的評分設定檔。您可在 MSDN 的[將評分設定檔新增至搜尋索引 \(Azure 搜尋服務 REST API\)](http://msdn.microsoft.com/library/azure/dn798928.aspx) 中找到此 API 的發行版本。如需 2014-10-20-Preview 版的詳細資訊，請參閱 [Azure 搜尋服務 REST API：2014-10-20-Preview](http://azure.microsoft.com/documentation/articles/search-api-2014-10-20-preview/)。
+> [AZURE.NOTE]本文說明 2014-10-20-Preview 版 REST API 的評分設定檔。您可在 MSDN 的[將評分設定檔新增至搜尋索引 (Azure 搜尋服務 REST API)](http://msdn.microsoft.com/library/azure/dn798928.aspx) 中找到此 API 的發行版本。如需 2014-10-20-Preview 版的詳細資訊，請參閱 [Azure 搜尋服務 REST API：2014-10-20-Preview](http://azure.microsoft.com/documentation/articles/search-api-2014-10-20-preview/)。
 
 計分是指對搜尋結果中傳回的每個項目所做的搜尋分數計算。分數是某個項目在目前搜尋作業的內容中有何相關性的指標。分數越高，該項目的相關性就愈高。在搜尋結果中，項目會根據為每個項目計算的搜尋分數由高至低排序。
 
@@ -52,15 +52,15 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2014-10-20-Preview
 
-此查詢會搜尋 'inn' 一詞，並傳入目前的位置。請注意這個查詢包括其他的參數，例如 `scoringParameter`。查詢參數說明於[搜尋文件 \(Azure 搜尋服務 API\)](search-api-2014-10-20-preview.md#SearchDocs) 中。
+此查詢會搜尋 'inn' 一詞，並傳入目前的位置。請注意這個查詢包括其他的參數，例如 `scoringParameter`。查詢參數說明於[搜尋文件 (Azure 搜尋服務 API)](search-api-2014-10-20-preview.md#SearchDocs) 中。
 
 按一下[範例](#example)，可檢閱更多評分設定檔的詳細範例。
 
 ## 什麼是預設計分？ ##
 
-計分會計算排名排序的結果集中每個項目的搜尋分數。搜尋結果集中的每個項目會被指派一個搜尋分數，然後從最高排名到最低。具有較高分數的項目會傳回給應用程式。依預設會傳回前 50 名，但您可以使用 `$top` 參數，以傳回較少或更多的項目數目 \(單一回應中最多 1000 個\)。
+計分會計算排名排序的結果集中每個項目的搜尋分數。搜尋結果集中的每個項目會被指派一個搜尋分數，然後從最高排名到最低。具有較高分數的項目會傳回給應用程式。依預設會傳回前 50 名，但您可以使用 `$top` 參數，以傳回較少或更多的項目數目 (單一回應中最多 1000 個)。
 
-根據預設，搜尋分數會根據資料和查詢的統計屬性來計算。Azure 搜尋服務會尋找包含查詢字串中的搜尋詞彙的文件 \(部分或全部，視 `searchMode` 而定\)，優先列出包含多個搜尋詞彙執行個體的文件。如果詞彙在資料主體間很少見，但在文件中很常見，搜尋分數會更高。這種計算相關性的方法基礎稱為 TF-IDF 或 \(term frequency-inverse document frequency\)。
+根據預設，搜尋分數會根據資料和查詢的統計屬性來計算。Azure 搜尋服務會尋找包含查詢字串中的搜尋詞彙的文件 (部分或全部，視 `searchMode` 而定)，優先列出包含多個搜尋詞彙執行個體的文件。如果詞彙在資料主體間很少見，但在文件中很常見，搜尋分數會更高。這種計算相關性的方法基礎稱為 TF-IDF 或 (term frequency-inverse document frequency)。
 
 假設沒有任何自訂排序，結果會先依搜尋分數排名，再傳回給呼叫的應用程式。若未指定 `$top`，則會傳回具有最高搜尋分數的 50 個項目。
 
@@ -77,7 +77,7 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
 如前所述，自訂計分是透過索引結構描述中定義的一或多個評分設定檔而實作的。
 
-此範例說明具有兩個評分設定檔 \(`boostGenre`、`newAndHighlyRated`\) 的索引結構描述。任何以其中一個設定檔做為查詢參數而對此索引所做的查詢，都將使用該設定檔為結果集評分。
+此範例說明具有兩個評分設定檔 (`boostGenre`、`newAndHighlyRated`) 的索引結構描述。任何以其中一個設定檔做為查詢參數而對此索引所做的查詢，都將使用該設定檔為結果集評分。
 
 [嘗試此範例](search-get-started-scoring-profiles.md)。
 
@@ -144,13 +144,13 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
 請從本主題所提供的[範本][#bkmk_template]開始作業。
 
-提供名稱。評分設定檔是選用的，但如果您新增了設定檔，就必須提供名稱。請務必遵循欄位的命名慣例 \(以字母開頭，避免使用特殊字元和保留文字\)。請參閱[命名規則 \(Azure 搜尋\)](http://msdn.microsoft.com/library/azure/dn857353.aspx) 以了解更多資訊。
+提供名稱。評分設定檔是選用的，但如果您新增了設定檔，就必須提供名稱。請務必遵循欄位的命名慣例 (以字母開頭，避免使用特殊字元和保留文字)。請參閱[命名規則 (Azure 搜尋)](http://msdn.microsoft.com/library/azure/dn857353.aspx) 以了解更多資訊。
 
 評分設定檔的主體是從加權欄位和函數建構的。
 
-<font> <table> <thead> <tr><td><b>項目</b></td><td><b>描述</b></td></tr></thead> \<tbody <tr> <td><b>權數</b></td> <td>指定將相對權數指派給欄位的名稱值組。在範例 [\#bkmk\_ex] 中，albumTitle、內容類型和 artistName 欄位分別會提升 1、5 和 null。為何內容類型提升的程度遠比其他多？ 如果是對帶有同質性的資料進行搜尋 \(如同 `musicstoreindex` 中的 'genre'\)，則相對權數可能需要較大的變異數。例如，在 `musicstoreindex` 中，'rock' 不僅以內容類型的形式出現，也出現在相同措詞的內容類型說明中。如果您要讓內容類型的權數高於類型說明，則內容類型欄位需要更高的相對權數。</td> </tr> <tr> <td><b>函數</b></td><td>在特定內容需要額外計算時使用。有效值為 `freshness`、`magnitude`、`distance` 和 `tag`。每個函數都有其獨特的參數。<br> - `freshness` 應使用於當您想要依項目的新舊程度進行提升時。此函數僅適用於 datetime 欄位 \(Edm.DataTimeOffset\)。請注意，`boostingDuration` 屬性僅適用於 freshness 函數。<br> - `magnitude` 應使用於當您想要依數值的高低程度進行提升時。呼叫此函數的案例，包含依毛利率、最高價格、最低價格或下載次數進行提升。此函數僅適用於雙精確度浮點數和整數欄位。<br> - `distance` 應使用於當您想要依鄰近性或地理位置進行提升時。此函數只能搭配使用 `Edm.GeographyPoint` 欄位。<br> - 您想要依據文件和搜尋查詢之間的共通標記進行提升時，應使用 `tag`。此函數只能搭配使用 `Edm.String` 和 \(Collection\(Edm.String\) 欄位。<br> <b>使用函數的規則</b> <br>函數類型 \(freshness、magnitude、distance、tag\) 必須是小寫。<br> 函數不可包含 null 或空值。明確而言，如果您包含欄位名稱，則必須加以設定。<br> 函數只能套用至可篩選的欄位。請參閱[建立索引 \(Azure 搜尋服務 API\)](search-api-2014-10-20-preview.md#createindex) 以了解更多有關可篩選欄位的相關資訊。<br> 函數只能套用至索引的欄位集合中定義的欄位。<td> </tr> </tbody> </table> </font>
+<font> <table> <thead> <tr><td><b>項目</b></td><td><b>描述</b></td></tr></thead> <tbody <tr> <td><b>權數</b></td> <td>指定將相對權數指派給欄位的名稱值組。在範例 [#bkmk_ex] 中，albumTitle、內容類型和 artistName 欄位分別會提升 1、5 和 null。為何內容類型提升的程度遠比其他多？ 如果是對帶有同質性的資料進行搜尋 (如同 `musicstoreindex` 中的 'genre')，則相對權數可能需要較大的變異數。例如，在 `musicstoreindex` 中，'rock' 不僅以內容類型的形式出現，也出現在相同措詞的內容類型說明中。如果您要讓內容類型的權數高於類型說明，則內容類型欄位需要更高的相對權數。</td> </tr> <tr> <td><b>函數</b></td><td>在特定內容需要額外計算時使用。有效值為 `freshness`、`magnitude`、`distance` 和 `tag`。每個函數都有其獨特的參數。<br> - `freshness` 應使用於當您想要依項目的新舊程度進行提升時。此函數僅適用於 datetime 欄位 (Edm.DataTimeOffset)。請注意，`boostingDuration` 屬性僅適用於 freshness 函數。<br> - `magnitude` 應使用於當您想要依數值的高低程度進行提升時。呼叫此函數的案例，包含依毛利率、最高價格、最低價格或下載次數進行提升。此函數僅適用於雙精確度浮點數和整數欄位。<br> - `distance` 應使用於當您想要依鄰近性或地理位置進行提升時。此函數只能搭配使用 `Edm.GeographyPoint` 欄位。<br> - 您想要依據文件和搜尋查詢之間的共通標記進行提升時，應使用 `tag`。此函數只能搭配使用 `Edm.String` 和 (Collection(Edm.String) 欄位。<br> <b>使用函數的規則</b> <br>函數類型 (freshness、magnitude、distance、tag) 必須是小寫。<br> 函數不可包含 null 或空值。明確而言，如果您包含欄位名稱，則必須加以設定。<br> 函數只能套用至可篩選的欄位。請參閱[建立索引 (Azure 搜尋服務 API)](search-api-2014-10-20-preview.md#createindex) 以了解更多有關可篩選欄位的相關資訊。<br> 函數只能套用至索引的欄位集合中定義的欄位。<td> </tr> </tbody> </table> </font>
 
-索引定義之後，請上傳索引結構描述 \(接著上傳文件\) 以建置索引。如需這些操作的指示，請參閱[建立索引 \(Azure 搜尋服務 API\)](search-api-2014-10-20-preview.md#createindex) 和[新增或更新文件 \(Azure 搜尋服務 API\)](search-api-2014-10-20-preview.md#AddOrUpdateDocuments)。索引建置後，您應會有可運作的評分設定檔可處理您的搜尋資料。
+索引定義之後，請上傳索引結構描述 (接著上傳文件) 以建置索引。如需這些操作的指示，請參閱[建立索引 (Azure 搜尋服務 API)](search-api-2014-10-20-preview.md#createindex) 和[新增或更新文件 (Azure 搜尋服務 API)](search-api-2014-10-20-preview.md#AddOrUpdateDocuments)。索引建置後，您應會有可運作的評分設定檔可處理您的搜尋資料。
 
 <a name="bkmk_template"></a>
 ##範本##
@@ -292,7 +292,7 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
 `boostingDuration` 是 freshness 函數的屬性。您可以用它來設定要開始停止對特定文件進行提升的到期時間。例如，若要在為期 10 天的促銷期間提升某個產品系列或品牌，您可以為這些文件指定 10 天的期間 "P10D"。
 
-`boostingDuration` 必須格式化為 XSD "dayTimeDuration" 值 \(ISO 8601 持續時間值的限定子集\)。其模式為："P[nD][T[nH][nM][nS]]"。
+`boostingDuration` 必須格式化為 XSD "dayTimeDuration" 值 (ISO 8601 持續時間值的限定子集)。其模式為："P[nD][T[nH][nM][nS]]"。
 
 下表提供數個範例。
 
@@ -315,11 +315,11 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 </tbody>
 </table>
 
-如需更多範例，請參閱 [XML 結構描述：資料類型 \(W3.org 網站\)](http://www.w3.org/TR/xmlschema11-2/)。
+如需更多範例，請參閱 [XML 結構描述：資料類型 (W3.org 網站)](http://www.w3.org/TR/xmlschema11-2/)。
 
 **另請參閱**
 
-MSDN 上的 [Azure 搜尋服務 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) MSDN 上的<br/>[建立索引 \(Azure 搜尋服務 API\)](http://msdn.microsoft.com/library/azure/dn798941.aspx) MSDN 上的<br/>[將評分設定檔新增至搜尋索引](http://msdn.microsoft.com/library/azure/dn798928.aspx)<br/>
+MSDN 上的 [Azure 搜尋服務 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) MSDN 上的<br/>[建立索引 (Azure 搜尋服務 API)](http://msdn.microsoft.com/library/azure/dn798941.aspx) MSDN 上的<br/>[將評分設定檔新增至搜尋索引](http://msdn.microsoft.com/library/azure/dn798928.aspx)<br/>
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2014-10-20-Preview/scoring_interpolations.png

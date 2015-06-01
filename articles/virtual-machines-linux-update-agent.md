@@ -43,12 +43,12 @@
 
 使用 SSH 登入 VM。
 
-在命令列輸入 `#sudo yum install wget` 來安裝 wget \(有一些散發版本基本上是不會安裝的，例如 Redhat、CentOS、Oracle Linux 6.4 和 6.5 版\)。
+在命令列輸入 `#sudo yum install wget` 來安裝 wget (有一些散發版本基本上是不會安裝的，例如 Redhat、CentOS、Oracle Linux 6.4 和 6.5 版)。
 
 
 ## 下載最新版本
 
-在在網頁上開啟 [Github 中的 Azure Linux 代理程式版本](https://github.com/Azure/WALinuxAgent/releases) ，然後查明最新的版本號碼，例如：2.0.12。\(您可以輸入 `#waagent --version`，即可找到目前的版本 \)。
+在在網頁上開啟 [Github 中的 Azure Linux 代理程式版本](https://github.com/Azure/WALinuxAgent/releases) ，然後查明最新的版本號碼，例如：2.0.12。(您可以輸入 `#waagent --version`，即可找到目前的版本 )。
 
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-[version]/waagent  
 

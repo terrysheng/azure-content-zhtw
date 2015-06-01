@@ -46,7 +46,7 @@
 	-------
 	0.9.0
 
-如果您沒有 0.9.0 或更新版本，則必須使用 \[控制台\] 中的 \[程式和功能\] 移除 Azure PowerShell，然後安裝最新版本。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
+如果您沒有 0.9.0 或更新版本，則必須使用 [控制台] 中的 [程式和功能] 移除 Azure PowerShell，然後安裝最新版本。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
 
 ### 步驟 2：設定 Azure 帳戶和訂用帳戶
 

@@ -31,7 +31,7 @@
 
 本文將概述本技術及其所支援的功能和案例。此處將不做深入的技術性討論。
 
-**作者：**David Chappell \(Chappell & Associates 公司負責人\)
+**作者：**David Chappell (Chappell & Associates 公司負責人)
 
 **更新：**2015 年 3 月
 
@@ -39,5 +39,5 @@
 
 **下載次數：**
 
-* <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">「Azure 搜尋簡介」\(PDF 檔案\)</a>
-* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">「Azure 搜尋簡介」\(Microsoft Word 檔案\)</a> <!--HONumber=52-->
+* <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">「Azure 搜尋簡介」(PDF 檔案)</a>
+* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">「Azure 搜尋簡介」(Microsoft Word 檔案)</a> <!--HONumber=52-->

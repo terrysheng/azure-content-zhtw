@@ -19,11 +19,11 @@
 
 在[Azure 入口網站](http://portal.azure.com)您可以設定監視的應用程式相依性，在您的 web 應用程式或虛擬機器中收集的統計資料和詳細資料。
 
-透過採用「擴充功能」，Azure 可支援應用程式效能監視 \(或「APM」\)。*APM*\) 利用*擴充功能*安裝 Node.js。這些擴充功能會安裝到您的應用程式，並會收集資料然後回報給監視服務。
+透過採用「擴充功能」，Azure 可支援應用程式效能監視 (或「APM」)。*APM*) 利用*擴充功能*安裝 Node.js。這些擴充功能會安裝到您的應用程式，並會收集資料然後回報給監視服務。
 
 ## 新增擴充程式
 
-1. 按一下**瀏覽**按一下 \[瀏覽\]，然後選取您要檢測的 Web 應用程式或虛擬機器。
+1. 按一下**瀏覽**按一下 [瀏覽]，然後選取您要檢測的 Web 應用程式或虛擬機器。
 
 2. 按一下連結**應用程式監視**在磚**監視**安裝 Node.js。
 
@@ -41,13 +41,13 @@
 使用您的應用程式來產生一些遙測一段時間。
 
 1. 接著，從您的 Web 應用程式或虛擬機器刀鋒視窗，您將會看到已安裝的擴充功能
-2. 按一下代表您的應用程式瀏覽至該提供者的資料列：![按一下 \[重新整理\]](./media/insights-perf-analytics/06-overview.png)
+2. 按一下代表您的應用程式瀏覽至該提供者的資料列：![按一下 [重新整理]](./media/insights-perf-analytics/06-overview.png)
 
 您也可以使用**瀏覽**若要直接移至 Application Insights 元件或您所用的 New Relic 帳戶。
 
 當您進入 Application Insights 的分頁，比方說，您可以：-開啟效能：
 
-![在 Application Insights 概觀 blade 中，按一下 \[效能\] 磚](./media/insights-perf-analytics/07-dependency.png)
+![在 Application Insights 概觀 blade 中，按一下 [效能] 磚](./media/insights-perf-analytics/07-dependency.png)
 
 - 鑽研以查看個別要求：
 
@@ -61,7 +61,7 @@
 
 New Relic 可以自動安裝而不需任何其他的檢測，但 Application Insights 有一個額外的需求。
 
-![在 \[新增專案\] 對話方塊中，選取 \[Application Insights\]。](./media/insights-perf-analytics/03-add.png)
+![在 [新增專案] 對話方塊中，選取 [Application Insights]。](./media/insights-perf-analytics/03-add.png)
 
 當系統要求您登入時，使用您的 Azure 帳戶的認證。
 

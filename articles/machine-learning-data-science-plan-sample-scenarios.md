@@ -33,15 +33,15 @@
 
 **下列各節提供了幾個範例案例。在每個案例中都會列出可能的資料科學流程及支援的 Azure 資源。**
 
-- [案例 \#1：本機檔案中的中小型表格式資料集](#smalllocal)
-- [案例 \#2：本機檔案中的中小型資料集，需要處理](#smalllocalprocess)
-- [案例 \#3：本機檔案中的大型資料集，目標 Azure Blob](#largelocal)
-- [案例 \#4：本機檔案中的中小型資料集，目標 Azure VM 中的 SQL Server](#smalllocaltodb)
-- [案例 \#5：本機檔案中的大型資料集，目標 Azure VM 中的 SQL Server](#largelocaltodb)
-- [案例 \#6：SQL Server 資料庫內部部署中的大型資料集，目標 Azure VM 中的 SQL Server](#largedbtodb)
-- [案例 \#7：本機檔案中的巨量資料，目標 Azure HDInsight Hadoop 叢集中的 Hive 資料庫](#largedbtohive)
+- [案例 #1：本機檔案中的中小型表格式資料集](#smalllocal)
+- [案例 #2：本機檔案中的中小型資料集，需要處理](#smalllocalprocess)
+- [案例 #3：本機檔案中的大型資料集，目標 Azure Blob](#largelocal)
+- [案例 #4：本機檔案中的中小型資料集，目標 Azure VM 中的 SQL Server](#smalllocaltodb)
+- [案例 #5：本機檔案中的大型資料集，目標 Azure VM 中的 SQL Server](#largelocaltodb)
+- [案例 #6：SQL Server 資料庫內部部署中的大型資料集，目標 Azure VM 中的 SQL Server](#largedbtodb)
+- [案例 #7：本機檔案中的巨量資料，目標 Azure HDInsight Hadoop 叢集中的 Hive 資料庫](#largedbtohive)
 
-## <a name="smalllocal"></a>案例 \#1：本機檔案中的中小型表格式資料集
+## <a name="smalllocal"></a>案例 #1：本機檔案中的中小型表格式資料集
 
 ![中小型本機檔案][1]
 
@@ -53,17 +53,17 @@
 
 3.  建置從上傳的資料集開始的 Azure 機器學習實驗流程。
 
-## <a name="smalllocalprocess"></a>案例 \#2：本機檔案中需要處理的中小型資料集
+## <a name="smalllocalprocess"></a>案例 #2：本機檔案中需要處理的中小型資料集
 
 ![需要處理的中小型本機檔案][2]
 
-#### 其他 Azure 資源：Azure 虛擬機器 \(IPython Notebook 伺服器\)
+#### 其他 Azure 資源：Azure 虛擬機器 (IPython Notebook 伺服器)
 
 1.  建立執行 IPython Notebook 的 Azure 虛擬機器。
 
 2.  將資料上傳至 Azure 儲存體容器。
 
-3.  前置處理和清除 IPython Notebook 中的資料 \(從 Azure 儲存體容器存取資料\)。
+3.  前置處理和清除 IPython Notebook 中的資料 (從 Azure 儲存體容器存取資料)。
 
 4.  將資料轉換為已清理的表格式格式。
 
@@ -75,17 +75,17 @@
 
 8. 建置從內嵌的資料集開始的 Azure 機器學習實驗流程。
 
-## <a name="largelocal"></a>案例 \#3：本機檔案的大型資料集，以 Azure Blob 為目標
+## <a name="largelocal"></a>案例 #3：本機檔案的大型資料集，以 Azure Blob 為目標
 
 ![大型本機檔案][3]
 
-#### 其他 Azure 資源：Azure 虛擬機器 \(IPython Notebook 伺服器\)
+#### 其他 Azure 資源：Azure 虛擬機器 (IPython Notebook 伺服器)
 
 1.  建立執行 IPython Notebook 的 Azure 虛擬機器。
 
 2.  將資料上傳至 Azure 儲存體容器。
 
-3.  前置處理和清除 IPython Notebook 中的資料 \(從 Azure Blob 存取資料\)。
+3.  前置處理和清除 IPython Notebook 中的資料 (從 Azure Blob 存取資料)。
 
 4.  若有需要，請將資料轉換為已清理的表格式格式。
 
@@ -102,11 +102,11 @@
 10. 建置從內嵌的資料集開始的 Azure ML 實驗流程。
 
 
-## <a name="smalllocaltodb"></a>案例 \#4：本機檔案的中小型資料集，以 Azure 虛擬機器中的 SQL Server 為目標
+## <a name="smalllocaltodb"></a>案例 #4：本機檔案的中小型資料集，以 Azure 虛擬機器中的 SQL Server 為目標
 
 ![中小型本機檔案至 Azure 中的 SQL DB][4]
 
-#### 其他 Azure 資源：Azure 虛擬機器 \(SQL Server / IPython Notebook 伺服器\)
+#### 其他 Azure 資源：Azure 虛擬機器 (SQL Server / IPython Notebook 伺服器)
 
 1.  建立執行 SQL Server + IPython Notebook 的 Azure 虛擬機器。
 
@@ -116,22 +116,22 @@
 
 4.  若有需要，請將資料轉換為已清理的表格式格式。
 
-5.  將資料儲存至 VM-local 檔案 \(IPython Notebook 會在 VM 上執行，本機磁碟是指 VM 磁碟機\)。
+5.  將資料儲存至 VM-local 檔案 (IPython Notebook 會在 VM 上執行，本機磁碟是指 VM 磁碟機)。
 
 6.  將資料載入執行於 Azure VM 的 SQL Server 資料庫。
 
-    a.選項 \#1：使用 SQL Server Management Studio。
+    a.選項 #1：使用 SQL Server Management Studio。
 
-		i.  Login to SQL Server VM
-        ii. Run SQL Server Management Studio.
-        iii. Create database and target tables.
-        iv. Use one of the bulk import methods to load the data from VM-local files.
+		i.  登入 SQL Server VM。
+        ii. 執行 SQL Server Management Studio。
+        iii. 建立資料庫和目標資料表。
+        iv. 使用其中一種大量匯入方法，從 VM 本機檔案載入資料。
 
-    b.選項 \#2：使用 IPython Notebook – 不建議用於中型和大型資料集
+    b.選項 #2：使用 IPython Notebook – 不建議用於中型和大型資料集
 
-        i.  Use ODBC connection string to access SQL Server on VM.
-        ii. Create database and target tables.
-        iii. Use one of the bulk import methods to load the data from VM-local files.
+        i.  使用 ODBC 連線字串，存取 VM 上的 SQL Server。
+        ii. 建立資料庫和目標資料表。
+        iii. 使用其中一種大量匯入方法，從 VM 本機檔案載入資料。
 
 7.  視需要瀏覽資料並建立功能。請注意，功能在資料庫資料表中無需具體化。僅注意建立這些功能的必要查詢。
 
@@ -143,23 +143,23 @@
 
 11. 建置從內嵌的資料集開始的 Azure ML 實驗流程。
 
-## <a name="largelocaltodb"></a>案例 \#5：本機資料中的大型資料集，目標 Azure VM 中的 SQL Server
+## <a name="largelocaltodb"></a>案例 #5：本機資料中的大型資料集，目標 Azure VM 中的 SQL Server
 
 ![大型本機檔案至 Azure 中的 SQL DB][5]
 
-#### 其他 Azure 資源：Azure 虛擬機器 \(SQL Server / IPython Notebook 伺服器\)
+#### 其他 Azure 資源：Azure 虛擬機器 (SQL Server / IPython Notebook 伺服器)
 
 1.  建立執行 SQL Server 和 IPython Notebook 伺服器的 Azure 虛擬機器。
 
 2.  將資料上傳至 Azure 儲存體容器。
 
-3.  \(選擇性\) 前置處理和清除資料。
+3.  (選擇性) 前置處理和清除資料。
 
-    a.前置處理和清除 IPython Notebook 中的資料 \(從 Azure Blob 存取資料\)。
+    a.前置處理和清除 IPython Notebook 中的資料 (從 Azure Blob 存取資料)。
 
     b.若有需要，請將資料轉換為已清理的表格式格式。
 
-    c.將資料儲存至 VM-local 檔案 \(IPython Notebook 會在 VM 上執行，本機磁碟是指 VM 磁碟機\)。
+    c.將資料儲存至 VM-local 檔案 (IPython Notebook 會在 VM 上執行，本機磁碟是指 VM 磁碟機)。
 
 4.  將資料載入執行於 Azure VM 的 SQL Server 資料庫。
 
@@ -175,7 +175,7 @@
 
     f.如果需要資料表聯結，請建立索引以加速聯結。
 
- \>[AZURE.NOTE]如需加快大型資料的載入速度，建議您建立分割資料表並大量平行匯入資料。如需詳細資訊，請參閱[平行資料匯入至 SQL 分割資料表](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)。
+ > [AZURE.NOTE]如需加快大型資料的載入速度，建議您建立分割資料表並大量平行匯入資料。如需詳細資訊，請參閱[平行資料匯入至 SQL 分割資料表](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)。
 
 5.  視需要瀏覽資料並建立功能。請注意，功能在資料庫資料表中無需具體化。僅注意建立這些功能的必要查詢。
 
@@ -187,17 +187,17 @@
 
 9. 從上傳的資料集開始的簡易 Azure ML 實驗流程
 
-## <a name="largedbtodb"></a>案例 \#6：SQL Server 資料庫內部部署中的大型資料集，以 Azure 虛擬機器中的 SQL Server 為目標
+## <a name="largedbtodb"></a>案例 #6：SQL Server 資料庫內部部署中的大型資料集，以 Azure 虛擬機器中的 SQL Server 為目標
 
 ![大型 SQL DB 內部部署至 Azure 中的 SQL DB][6]
 
-#### 其他 Azure 資源：Azure 虛擬機器 \(SQL Server / IPython Notebook 伺服器\)
+#### 其他 Azure 資源：Azure 虛擬機器 (SQL Server / IPython Notebook 伺服器)
 
 1.  建立執行 SQL Server 和 IPython Notebook 伺服器的 Azure 虛擬機器。
 
 2.  使用其中一個資料匯出方法來將資料從 SQL Server 匯出成傾印檔案。
 
-    a.注意：如果您決定從內部部署資料庫移動所有資料，一個替代 \(較快速\) 方法是將整個資料庫移到 Azure 中的 SQL Server 執行個體。略過匯出資料、建立資料庫，和將資料載入/匯入目標資料庫等步驟，並依照替代方法進行。
+    a.注意：如果您決定從內部部署資料庫移動所有資料，一個替代 (較快速) 方法是將整個資料庫移到 Azure 中的 SQL Server 執行個體。略過匯出資料、建立資料庫，和將資料載入/匯入目標資料庫等步驟，並依照替代方法進行。
 
 3.  將傾印檔案上傳至 Azure 儲存體容器。
 
@@ -231,33 +231,33 @@
 
 ![卸離本機 DB 和連結至 Azure 中的 SQL DB][7]
 
-#### 其他 Azure 資源：Azure 虛擬機器 \(SQL Server / IPython Notebook 伺服器\)
+#### 其他 Azure 資源：Azure 虛擬機器 (SQL Server / IPython Notebook 伺服器)
 
-若要在您的 SQL Server VM 中複寫整個 SQL Server 資料庫，您應將資料庫從一個位置/伺服器複製到另一個位置/伺服器 \(假設資料庫可以暫時設定離線\)。您可以在 SQL Server Management Studio Object Explorer GUI 中，或使用對等的 Transact-SQL 命令來執行此作業。
+若要在您的 SQL Server VM 中複寫整個 SQL Server 資料庫，您應將資料庫從一個位置/伺服器複製到另一個位置/伺服器 (假設資料庫可以暫時設定離線)。您可以在 SQL Server Management Studio Object Explorer GUI 中，或使用對等的 Transact-SQL 命令來執行此作業。
 
 1. 在來源位置卸離資料庫。如需詳細資訊，請參閱[卸離資料庫](https://technet.microsoft.com/library/ms191491(v=sql.110).aspx)。
 2. 在 Windows 檔案總管或 Windows 命令提示字元視窗中，將已卸離的資料庫檔案和記錄檔複製到位於 Azure 中 SQL Server VM 上的目標位置。
 3. 將複製檔案連結至目標 SQL Server 執行個體。如需詳細資訊，請參閱[連結資料庫](https://technet.microsoft.com/library/ms190209(v=sql.110).aspx)。 
 
-[使用卸離和連結來移動資料庫 \(Transact-SQL\)](https://technet.microsoft.com/library/ms187858(v=sql.110).aspx\)
+[使用卸離和連結來移動資料庫 (Transact-SQL)](https://technet.microsoft.com/library/ms187858(v=sql.110).aspx)
 
-## <a name="largedbtohive"></a>案例 \#7：本機檔案中的巨量資料，目標 Azure HDInsight Hadoop 叢集中的 Hive 資料庫
+## <a name="largedbtohive"></a>案例 #7：本機檔案中的巨量資料，目標 Azure HDInsight Hadoop 叢集中的 Hive 資料庫
 
 ![本機目標 Hive 中的巨量資料][9]
 
-#### 其他 Azure 資源：Azure HDInsight Hadoop 叢集和 Azure 虛擬機器 \(IPython Notebook 伺服器\)
+#### 其他 Azure 資源：Azure HDInsight Hadoop 叢集和 Azure 虛擬機器 (IPython Notebook 伺服器)
 
 1.  建立執行 IPython Notebook 伺服器的 Azure 虛擬機器。
 
 2.  建立 Azure HDInsight Hadoop 叢集。
 
-3.  \(選擇性\) 前置處理和清除資料。
+3.  (選擇性) 前置處理和清除資料。
 
-    a.前置處理和清除 IPython Notebook 中的資料 \(從 Azure Blob 存取資料\)。
+    a.前置處理和清除 IPython Notebook 中的資料 (從 Azure Blob 存取資料)。
 
     b.若有需要，請將資料轉換為已清理的表格式格式。
 
-    c.將資料儲存至 VM-local 檔案 \(IPython Notebook 會在 VM 上執行，本機磁碟是指 VM 磁碟機\)。
+    c.將資料儲存至 VM-local 檔案 (IPython Notebook 會在 VM 上執行，本機磁碟是指 VM 磁碟機)。
 
 4.  將資料上傳至步驟 2 中已選取 Hadoop 叢集的預設容器。
 
@@ -294,7 +294,7 @@
 範例案例摘要
 ------------------------
 
-下圖摘要說明上述案例，以及每個案例中所採取的雲端資料科學程序選擇。注意，資料處理、資料探索、功能工程和取樣可能發生在一或多個方法/環境中 \(在來源、中繼和/或目標環境\)，而且可能可以視需要反覆處理。此圖表僅作為部分可能流程的說明之用。
+下圖摘要說明上述案例，以及每個案例中所採取的雲端資料科學程序選擇。注意，資料處理、資料探索、功能工程和取樣可能發生在一或多個方法/環境中 (在來源、中繼和/或目標環境)，而且可能可以視需要反覆處理。此圖表僅作為部分可能流程的說明之用。
 
 ![範例 DS 程序逐步解說案例][8]
 

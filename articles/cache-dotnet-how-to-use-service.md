@@ -18,7 +18,7 @@
 
 # 如何使用 Azure 受管理快取服務
 
-本指南示範如何開始使用 **Azure 受管理快取服務**。這些範例均以 C\# 程式碼撰寫，並使用 .NET API。涵蓋的案例包括「建立和設定快取」、「設定快取用戶端」、「新增和移除快取中的物件」、「將 ASP.NET 工作階段狀態儲存在快取中」，以及「使用快取啟用 ASP.NET 頁面輸出快取」。如需有關使用「Azure 快取」的詳細資訊，請參閱[後續步驟][]一節。
+本指南示範如何開始使用 **Azure 受管理快取服務**。這些範例均以 C# 程式碼撰寫，並使用 .NET API。涵蓋的案例包括「建立和設定快取」、「設定快取用戶端」、「新增和移除快取中的物件」、「將 ASP.NET 工作階段狀態儲存在快取中」，以及「使用快取啟用 ASP.NET 頁面輸出快取」。如需有關使用「Azure 快取」的詳細資訊，請參閱[後續步驟][]一節。
 
 >如需為應用程式選擇正確「Azure 快取」提供項目的相關指引，請參閱[我適合使用哪個 Azure 快取服務？][]。
 
@@ -95,12 +95,12 @@ Azure 受管理快取服務是一種分散式、記憶體內的可擴充解決�
 
 您可以在 Azure PowerShell 視窗中監視建立進度。快取可供使用之後，[New-AzureManagedCache][] Cmdlet 會顯示快取資訊，如下列範例所示。
 
-	PS C:\> Add-AzureAccount
+	PS C:> Add-AzureAccount
 	VERBOSE: Account "user@domain.com" has been added.
 	VERBOSE: Subscription "MySubscription" is selected as the default subscription.
 	VERBOSE: To view all the subscriptions, please use Get-AzureSubscription.
 	VERBOSE: To switch to a different subscription, please use Select-AzureSubscription.
-	PS C:\> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
+	PS C:> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
 	VERBOSE: Intializing parameters...
 	VERBOSE: Creating prerequisites...
 	VERBOSE: Verify cache service name...
@@ -116,7 +116,7 @@ Azure 受管理快取服務是一種分散式、記憶體內的可擴充解決�
 
 
 
-	PS C:\>
+	PS C:>
 
 
 
@@ -259,7 +259,7 @@ NuGet 套件也會新增下列組件的參考：
 
 -	Microsoft.Web.DistributedCache.dll.
 
->這些組件位於 C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\[sdk version]\\ref\\Caching\\ 資料夾中。
+>這些組件位於 C:\\Program Files\\Microsoft SDKs\\Windows Azure.NET SDK[sdk version]\\ref\\Caching\\ 資料夾中。
 
 一旦設定用戶端專案的快取功能，您就可以使用下列幾節中描述的技術來使用快取。
 

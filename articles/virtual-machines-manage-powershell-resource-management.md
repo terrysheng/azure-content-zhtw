@@ -19,8 +19,8 @@
 # 在 Resource Manager 模式中使用 Azure PowerShell 時的一般 VM 工作
 
  > [AZURE.SELECTOR]
-    - [Resource Manager](virtual-machines-manage-powershell-resource-management.md)
-    - [Service Management](virtual-machines-manage-powershell-service-management.md)
+   - [Resource Manager](virtual-machines-manage-powershell-resource-management.md)
+   - [Service Management](virtual-machines-manage-powershell-service-management.md)
 
 當您進行 VM 的日常管理時，可以在 Azure Resource Manager 模式中使用 Azure PowerShell Cmdlet，許多的工作就會自動完成。這篇文章提供了幾個簡單工作的範例命令，另外也提供顯示用來完成更複雜的工作之命令的文章連結。
 
@@ -54,7 +54,7 @@ Run these commands:
 	$svcName="<cloud service name>"
 	$vmName="<virtual machine name>"
 	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
-	$localFile=$localPath + "\" + $vmname + ".rdp"
+	$localFile=$localPath + "" + $vmname + ".rdp"
 	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch 
 -->
 
@@ -70,7 +70,7 @@ Run these commands:
 
     Stop-AzureVM -ResourceGroupName "<resource group name>" -Name "<virtual machine name>"
 
->[AZURE.IMPORTANT]萬一它是雲端服務的最後一個 VM，您可以使用 **StayProvisioned** 參數來保留雲端服務的虛擬 IP \(VIP\)。如果使用這個參數，還是需要支付 VM 的費用。
+>[AZURE.IMPORTANT]萬一它是雲端服務的最後一個 VM，您可以使用 **StayProvisioned** 參數來保留雲端服務的虛擬 IP (VIP)。如果使用這個參數，還是需要支付 VM 的費用。
 
 ## 重新啟動 VM
 

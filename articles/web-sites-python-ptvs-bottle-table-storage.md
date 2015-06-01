@@ -164,7 +164,7 @@ PTVS 提供簡單的方法將 Web 應用程式部署至 Azure 網站。
 
   	![上方功能表](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteTopMenu.png)
 
-1.  向下捲動至 [應用程式設定] 區段，並如上一節所述設定 **REPOSITORY\_NAME**、**STORAGE\_NAME** 與 **STORAGE\_KEY** 的值。
+1.  向下捲動至 [應用程式設定] 區段，並如上一節所述設定 **REPOSITORY_NAME**、**STORAGE_NAME** 與 **STORAGE_KEY** 的值。
 
   	![應用程式設定](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png)
 

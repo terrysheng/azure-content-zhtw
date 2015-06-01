@@ -24,7 +24,7 @@
 ## 概觀
 
 本指南將示範如何使用
-Azure Blob 儲存體服務執行一般案例。這些範例均以 C\# 撰寫，並使用 Azure Storage Client Library for .NET。涵蓋的案例包括：
+Azure Blob 儲存體服務執行一般案例。這些範例均以 C# 撰寫，並使用 Azure Storage Client Library for .NET。涵蓋的案例包括：
 **上傳**、**列出**、**下載**和**刪除** Blob。
 
 > [AZURE.NOTE] 本指南以 Azure .NET Storage Client Library 2.x 和更新版本為對象。建議的版本是儲存體用戶端程式庫 4.x，可透過 [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) 或從 [Azure SDK for .NET](/downloads/) 中取得。請參閱 [以程式設計方式存取 Blob 儲存體](#programmatically-access-blob-storage) ，以詳細了解如何取得儲存體用戶端程式庫。
@@ -40,10 +40,10 @@ Azure Blob 儲存體服務執行一般案例。這些範例均以 C\# 撰寫，�
 ### 取得組件
 建議您使用 NuGet 來取得 `Microsoft.WindowsAzure.Storage.dll` 組件。在 [**方案總管**] 中以滑鼠右鍵按一下專案，然後選擇 [**管理 NuGet 封裝**]。在線上搜尋 "WindowsAzure.Storage"，再按一下 [**安裝**] 以安裝 Azure 儲存體封裝與相依性。
 
-`Microsoft.WindowsAzure.Storage.dll` 也隨附於 Azure SDK for .NET (可自 <a href="http://azure.microsoft.com/develop/net/#">.NET Developer Center</a> 下載)。此組件會安裝在 `%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\` 目錄。
+`Microsoft.WindowsAzure.Storage.dll` 也隨附於 Azure SDK for .NET (可自 <a href="http://azure.microsoft.com/develop/net/#">.NET Developer Center</a> 下載)。此組件會安裝在 `%Program Files%\Microsoft SDKs\Azure.NET SDK<sdk-version>\ref` 目錄。
 
 ### 命名空間宣告
-將下列命名空間宣告，新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 C\# 檔案內的頂端：
+將下列命名空間宣告，新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 C# 檔案內的頂端：
 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;

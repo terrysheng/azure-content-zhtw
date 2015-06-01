@@ -106,10 +106,10 @@ AzCopy 是上傳和下載資料的命令列公用程式。
 
 使用下列方法，將資料上傳至 Blob：
  
-1. put\_block\_blob\_from\_path (從特定路徑上傳檔案的內容)
-2. put\_block_blob\_from\_file (從任何已經開啟的檔案/資料流上傳內容)
-3. put\_block\_blob\_from\_bytes (上傳位元組陣列)
-4. put\_block\_blob\_from\_text (使用指定的編碼方式上傳指定的文字值)
+1. put_block_blob_from_path (從特定路徑上傳檔案的內容)
+2. put_block_blob_from_file (從任何已經開啟的檔案/資料流上傳內容)
+3. put_block_blob_from_bytes (上傳位元組陣列)
+4. put_block_blob_from_text (使用指定的編碼方式上傳指定的文字值)
  
 下列程式碼範例會將本機檔案上傳至容器：
 	
@@ -143,10 +143,10 @@ AzCopy 是上傳和下載資料的命令列公用程式。
 ### 從 Blob 下載資料
 
 使用下列方法，從 Blob 下載資料：
-1. get\_blob\_to\_path
-2. get\_blob\_to\_file
-3. get\_blob\_to\_bytes
-4. get\_blob\_to\_text 
+1. get_blob_to_path
+2. get_blob_to_file
+3. get_blob_to_bytes
+4. get_blob_to_text 
 
 這些方法可以在資料大小超過 64 MB 時執行必要的區塊化動作。 
 
@@ -154,7 +154,7 @@ AzCopy 是上傳和下載資料的命令列公用程式。
 
 	blob_service.get_blob_to_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
 
-下列程式碼範例會從容器下載所有 Blob。它會使用 list\_blobs 來取得容器中可用 Blob 的清單，並將它們下載至本機目錄。 
+下列程式碼範例會從容器下載所有 Blob。它會使用 list_blobs 來取得容器中可用 Blob 的清單，並將它們下載至本機目錄。 
 
 	from azure.storage import BlobService
 	from os.path import join

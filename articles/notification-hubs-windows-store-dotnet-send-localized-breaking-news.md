@@ -66,8 +66,8 @@
 
 	<toast>
 	  <visual>
-	    <binding template=\"ToastText01\">
-	      <text id=\"1\">$(News_English)</text>
+	    <binding template="ToastText01">
+	      <text id="1">$(News_English)</text>
 	    </binding>
 	  </visual>
 	</toast>

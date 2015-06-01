@@ -19,9 +19,9 @@
 # 設定兩個 Azure 虛擬網路之間的 VPN 連線  
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
+- [設定 VPN 連線](hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [設定 DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [設定 HBase 複寫](hdinsight-hbase-geo-replication.md) 
 
 Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IKE 的安全通道。VNet 可位於不同的訂用帳戶和不同的區域。您甚至可以使用多網站組態來結合 VNet 對 VNet 通訊。VNet 對 VNet 連線的原因有幾種：
 
@@ -33,7 +33,7 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 
 本教學課程是建立 HBase 異地複寫[系列][hdinsight-hbase-replication]的一部分。
 
-- 設定兩個虛擬網路之間的 VPN 連線 \(本教學課程\)
+- 設定兩個虛擬網路之間的 VPN 連線 (本教學課程)
 - [設定虛擬網路的 DNS][hdinsight-hbase-geo-replication-DNS]
 - [設定 HBase 異地複寫][hdinsight-hbase-geo-replication]
 
@@ -68,26 +68,26 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 **建立北歐名為 Contoso-VNet-EU 的虛擬網路**
 
 1.	登入 [Azure 入口網站][azure-portal]。
-2.	依序按一下 \[**新增**\]、\[**網路服務**\]、\[**虛擬網路**\]、\[**自訂建立**\]。
+2.	依序按一下 [**新增**]、[**網路服務**]、[**虛擬網路**]、[**自訂建立**]。
 3.	輸入：
 
 	- **名稱**：Contoso-VNet-EU
 	- **位置**：北歐
 
-		This tutorial uses North Europe and East US datacenters. You can choose your own datacenters.
+		此教學課程是使用北歐與美國東部數據中心。您可以選擇您自己的數據中心。
 4.	輸入：
 
-	- **DNS 伺服器**：\(保留為空白\) 
+	- **DNS 伺服器**：(保留為空白) 
 	
-		You will need your own DNS server for name resolution within virtual networks. For more information on when to use Azure-provided name resolution and when to use your own DNS server, see [Name Resolution (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx). For instructions to configure name resolution between VNets, see [Configure DNS between two Azure virtual networks][hdinsight-hbase-dns].
+		您將需要有自己的 DNS 伺服器以在虛擬網路內執行名稱解析。如需何時使用 Azure 提供的名稱解析，以及何時使用您自己的 DNS 伺服器的詳細資訊，請參閱 [名稱解析 (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx)。如需在 Vnet 之間設定名稱解析的指示，請參閱 [在兩個 Azure 虛擬網路之間設定 DNS][hdinsight-hbase-dns]。
   
-	- **設定點對站 VPN**：\(未核取\)
+	- **設定點對站 VPN**：(未核取)
 
-		Point-to-site doesn't apply to this scenario.
+		點對站不適用此案例。
 
- \- **設定站對站 VPN**：\(未核取\)
+	- **設定站對站 VPN**：(未核取)
  	
-		You will configure the site-to-site VPN connection to the Azure virtual network in the East U.S. datacenter.
+		您將設定站對站 VPN 連線以連線至美國東部數據中心的 Azure 虛擬網路。
 5.	輸入：
 
 	- 	**位址空間起始 IP**：10.1.0.0
@@ -104,9 +104,9 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 	- **名稱**：Contoso-VNet-US
 	- **位置**：美國東部
 	 
-	- **DNS 伺服器**：\(保留為空白\)
-	- **設定點對站 VPN**：\(未核取\)
-	- **設定站對站 VPN**：\(未核取\)
+	- **DNS 伺服器**：(保留為空白)
+	- **設定點對站 VPN**：(未核取)
+	- **設定站對站 VPN**：(未核取)
 	 
 	- **位址空間起始 IP**：10.2.0.0
 	- **位址空間 CIDR**：/16
@@ -140,13 +140,13 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 
 **建立符合 Contoso-VNet-EU 網路位址空間、名為 Contoso-LNet-EU 的區域網路**
 
-1. 從 Azure 入口網站，依序按一下 \[**新增**\]、\[**網路服務**\]、\[**虛擬網路**\]、\[**新增區域網路**\]。
+1. 從 Azure 入口網站，依序按一下 [**新增**]、[**網路服務**]、[**虛擬網路**]、[**新增區域網路**]。
 3. 輸入：
 
 	- **名稱**：Contoso-LNet-EU
-	- **VPN 裝置 IP 位址**：192.168.0.1 \(此位址將於稍後更新\)
+	- **VPN 裝置 IP 位址**：192.168.0.1 (此位址將於稍後更新)
 
-		Typically, you’d use the actual external IP address for a VPN device. For VNet to VNet configurations, you will use the VPN gateway IP address. Given that you have not created the VPN gateways for the two VNets yet, you enter an arbitary IP address and come back to fix it.
+		通常，您會針對 VPN 裝置使用實際的外部 IP 位址。針對 VNet 對 VNet 設定，您將會使用 VPN 閘道 IP 位址。由於您尚未替該兩個 VNet 建立 VPN 閘道，因此您可以輸入任何 IP 位址，然後再回來修正。
 4.	輸入：
 
 	- **位址空間起始 IP**：10.1.0.0
@@ -159,7 +159,7 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 - 使用下列參數重複上一個程序：
 
 	- **名稱**：Contoso-LNet-US
-	- **VPN 裝置 IP 位址**：192.168.0.1 \(此位址將於稍後更新\)
+	- **VPN 裝置 IP 位址**：192.168.0.1 (此位址將於稍後更新)
 	 
 	- **位址空間起始 IP**：10.2.0.0
 	- **位址空間 CIDR**：/16
@@ -171,23 +171,23 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 
 **將 Contoso-VNet-EU 站對站連線設定為 Contoso-LNet-US**
 
-1.	從 Azure 入口網站，按一下左側窗格上的 \[**網路**\]，
-2.	按一下 \[**Contoso-VNet-EU**\]。
-3.	按一下 **\[設定\]** 索引標籤。
-4.	核取 \[**連線到區域網路**\]。
-5.	在 \[**區域網路**\] 中，選取 \[**Contoso-LNet-US**\]。
-6.	在 \[虛擬網路位址空間\] 區段中，按一下 \[**新增閘道子網路**\]。
-7.	按一下 \[儲存\]****。
-8.	按一下 \[**確定**\] 以確認。
+1.	從 Azure 入口網站，按一下左側窗格上的 [**網路**]，
+2.	按一下 [**Contoso-VNet-EU**]。
+3.	按一下 **[設定]** 索引標籤。
+4.	核取 [**連線到區域網路**]。
+5.	在 [**區域網路**] 中，選取 [**Contoso-LNet-US**]。
+6.	在 [虛擬網路位址空間] 區段中，按一下 [**新增閘道子網路**]。
+7.	按一下 [儲存]。
+8.	按一下 [**確定**] 以確認。
 
 
 **建立 Contoso-VNet-EU 的 VPN 閘道**
 
-1.	從 Azure 入口網站，按一下 \[**儀表板**\] 索引標籤。
-4.	按一下頁面底部的 \[**建立閘道**\]，然後按一下 \[**動態路由**\]。
-5.	按一下 \[**是**\] 以確認。請注意，頁面上的閘道圖形會變更為黃色，並顯示 \[正在建立閘道\]。建立閘道通常需要大約 15 分鐘的時間。
+1.	從 Azure 入口網站，按一下 [**儀表板**] 索引標籤。
+4.	按一下頁面底部的 [**建立閘道**]，然後按一下 [**動態路由**]。
+5.	按一下 [**是**] 以確認。請注意，頁面上的閘道圖形會變更為黃色，並顯示 [正在建立閘道]。建立閘道通常需要大約 15 分鐘的時間。
 
-	當閘道狀態變更為 \[正在連線\] 時，將會在 \[儀表板\] 中看到每個閘道的 IP 位址。記下對應到每個 VNet 的 IP 位址，並小心不要混淆。這些是您在 \[區域網路\] 中為 VPN 裝置編輯預留位置 IP 位址時所使用的 IP 位址。
+	當閘道狀態變更為 [正在連線] 時，將會在 [儀表板] 中看到每個閘道的 IP 位址。記下對應到每個 VNet 的 IP 位址，並小心不要混淆。這些是您在 [區域網路] 中為 VPN 裝置編輯預留位置 IP 位址時所使用的 IP 位址。
 
 6.	建立一份**閘道 IP 位址**的副本。您將在下一節中使用它來設定 Contoso-VNet-EU 的 VPN 閘道 IP 位址。
 
@@ -201,10 +201,10 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 
 **設定 Contoso-LNet-EU 的 VPN 裝置 IP 位址**
 
-1.	從 Azure 入口網站，按一下左側窗格中的 \[**網路**\]。
-2.	按一下上方的 \[**區域網路**\]。
-3.	按一下 \[**Contoso-LNet-EU**\]，然後按一下底部的 \[**編輯**\]。
-4.	更新 \[**VPN 裝置 IP 位址**\]。這是您從 Contoso-VNET-EU 的 \[儀表板\] 索引標籤中取得的位址。
+1.	從 Azure 入口網站，按一下左側窗格中的 [**網路**]。
+2.	按一下上方的 [**區域網路**]。
+3.	按一下 [**Contoso-LNet-EU**]，然後按一下底部的 [**編輯**]。
+4.	更新 [**VPN 裝置 IP 位址**]。這是您從 Contoso-VNET-EU 的 [儀表板] 索引標籤中取得的位址。
 5.	按一下向右按鈕。
 6.	按一下核取按鈕。
 

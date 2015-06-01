@@ -421,7 +421,7 @@ Rails 用於開發的預設資料庫是 SQLite。您在實際執行環境中通�
 
 	Capistrano 會使用 SSH 連接到 VM，然後建立應用程式所將部署到的目錄 (~/apps)。如果這是第一次部署，則 capistrano-postgresql gem 也會在伺服器的 PostgreSQL 中建立角色和資料庫。此外也會建立 Rails 將用來連接到資料庫的 database.yml 組態檔。
 
-	> [AZURE.NOTE] 如果在部署時收到 [**從驗證通訊端讀取回應長度時發生錯誤**] 的錯誤，您可能必須使用 `ssh-agent` 命令，在開發環境上啟動 SSH 代理程式。例如，將 `eval $(ssh-agent)` 新增至您的 ~/.bash\_profile 檔案。
+	> [AZURE.NOTE] 如果在部署時收到 [**從驗證通訊端讀取回應長度時發生錯誤**] 的錯誤，您可能必須使用 `ssh-agent` 命令，在開發環境上啟動 SSH 代理程式。例如，將 `eval $(ssh-agent)` 新增至您的 ~/.bash_profile 檔案。
 	> 
 	> 您還可能必須使用 `ssh-add` 命令將 SSH 金鑰新增到代理程式快取中。
 

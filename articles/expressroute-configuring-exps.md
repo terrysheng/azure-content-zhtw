@@ -31,13 +31,13 @@
 - 最新版的 Azure PowerShell 
 - 下列虛擬網路需求： 
 	- Azure 中用於虛擬網路的一組 IP 位址首碼
-	- 內部部署的一組 IP 首碼 \(可包含公用 IP 位址\)
+	- 內部部署的一組 IP 首碼 (可包含公用 IP 位址)
 	- 必須以 /28 子網路建立虛擬網路閘道。
-	- 虛擬網路外的另一組 IP 首碼 \(/28\)。這用於設定 BGP 對等。
-	- 網路的 AS 編號。如需 AS 編號的詳細資訊，請參閱 [自發系統 \(AS\) 編號](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml)。
-	- MD5 雜湊 \(若需要已驗證的 BGP 工作階段\)
+	- 虛擬網路外的另一組 IP 首碼 (/28)。這用於設定 BGP 對等。
+	- 網路的 AS 編號。如需 AS 編號的詳細資訊，請參閱 [自發系統 (AS) 編號](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml)。
+	- MD5 雜湊 (若需要已驗證的 BGP 工作階段)
 	- 供傳送流量的 VLAN ID。每一個線路需要 2 個 VLAN ID：一個用於虛擬網路，另一個用於公用 IP 位址上裝載的服務。
-	- 網路的[自發系統 \(AS\) 編號](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml)。
+	- 網路的[自發系統 (AS) 編號](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml)。
 	- 兩個 1 Gbps / 10 Gbps 交叉連接至交換提供者的乙太網路交換中心。
 	- 一對支援 BGP 路由的路由器
 
@@ -59,7 +59,7 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 	建立線路之前，您需要有服務提供者、支援的位置和每個位置的頻寬選項等清單。下列 PowerShell Cmdlet 會傳回此資訊，在稍後的步驟中將會用到。
 
-    	PS C:\> Get-AzureDedicatedCircuitServiceProvider
+    	PS C:> Get-AzureDedicatedCircuitServiceProvider
 		**The information returned will look similar to the example below:**
 		
 		
@@ -116,7 +116,7 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 	您隨時可以使用 Get-AzureCircuit Cmdlet 擷取此資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。ServiceKey 欄位會列出您的服務金鑰。
 
-		PS C:\> Get-AzureDedicatedCircuit
+		PS C:> Get-AzureDedicatedCircuit
 				 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
@@ -135,7 +135,7 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 	這樣可讓您知道提供者已啟用您的線路。線路啟用之後，*ServiceProviderProvisioningState* 會顯示為 *Provisioned*，如下列範例所示。
 
-		PS C:\> Get-AzureDedicatedCircuit
+		PS C:> Get-AzureDedicatedCircuit
 				 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
@@ -169,7 +169,7 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 	下列回應提供後續步驟所需的資訊。請使用對等 ASN，在路由器的 VRF 上設定 BGP。
                     
-		PS C:\> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
+		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
 				
 		AzureAsn            : 12076
 		PeerAsn             : 65001
@@ -204,7 +204,7 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
 	下列回應提供後續步驟所需的資訊。請使用對等 ASN，在路由器的 VRF 上設定 BGP。
 
-		PS C:\> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
+		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
 		 
 		AzureAsn            : 12076
 		PeerAsn             : 65001
@@ -223,6 +223,6 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 	- ServiceProviderProvisioningState: Provisioned
 	- Status: Enabled
 	 
-			PS C:\> $Vnet = "MyTestVNet"
+			PS C:> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
 <!--HONumber=54-->

@@ -199,7 +199,7 @@ This command creates a new affinity group
 
 ![Azure Technical Diagram](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
 
-**create-new** 會在 Blob 儲存體 (也就是圖中的 e:\) 建立磁碟機；**attach** 會將已建立但未連接的磁碟連接至虛擬機器。
+**create-new** 會在 Blob 儲存體 (也就是圖中的 e:) 建立磁碟機；**attach** 會將已建立但未連接的磁碟連接至虛擬機器。
 
 **vm create [options] &lt;dns-name> &lt;image> &lt;userName> [password]**
 
@@ -348,7 +348,7 @@ info:   vm shutdown command OK
 
 此命令會將 Azure 虛擬機器映像匯出至檔案
 
-	~$ azure vm export "myvm" "C:\"
+	~$ azure vm export "myvm" "C:"
 	info:    Executing command vm export
 	+ Getting virtual machines
 	+ Exporting the VM

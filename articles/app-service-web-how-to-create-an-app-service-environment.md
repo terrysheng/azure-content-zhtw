@@ -18,14 +18,14 @@
 
 # 如何建立 App Service 環境 #
 
-App Service 環境 \(ASE\) 是目前預覽狀態下 Azure App Service 的 Premium 服務選項。它提供的增強設定功能並不適用於多租用戶戳記。若要更深入了解 App Service 環境所提供的功能，請閱讀[什麼是 App Service 環境][WhatisASE]文件。
+App Service 環境 (ASE) 是目前預覽狀態下 Azure App Service 的 Premium 服務選項。它提供的增強設定功能並不適用於多租用戶戳記。若要更深入了解 App Service 環境所提供的功能，請閱讀[什麼是 App Service 環境][WhatisASE]文件。
 
 ### 概觀 ###
 
 ASE 功能基本上會將 Azure App Service 部署到客戶的 VNET 中。若要這麼做，客戶需要：
 
-- 區域 VNET，有超過 512 \(/ 23\) 個或更多地址
-- 此 VNET 中的子網路，其中有 256 \(/ 24\) 個或更多地址
+- 區域 VNET，有超過 512 (/ 23) 個或更多地址
+- 此 VNET 中的子網路，其中有 256 (/ 24) 個或更多地址
 
 如果您尚未有想用來裝載 App Service 環境的 VNET，您可以在 App Service 環境建立期間建立一個 VNET。
 
@@ -33,12 +33,12 @@ ASE 功能基本上會將 Azure App Service 部署到客戶的 VNET 中。若要
 
 ## 建立 App Service 環境 ##
 
-存取 ASE 建立 UI 的方法有兩種。在 Azure Marketplace 中搜尋 ***App Service 環境***或經由 \[新增\] -\> \[Web + 行動\]，即可找到。
+存取 ASE 建立 UI 的方法有兩種。在 Azure Marketplace 中搜尋 ***App Service 環境***或經由 [新增] -> [Web + 行動]，即可找到。
 
 ### 快速建立 ###
 輸入建立 UI 之後，只要輸入部署的名稱，即可快速建立 ASE。接著會建立具有 512 個位址的 VNET、在該 VNET 中具有 256 個位址的子網路，以及在背景工作集區 1 中有 2 個前端和 2 個背景工作的 ASE 環境。請務必選取您要設置系統的位置，以及您要系統所屬的訂用帳戶。唯一可使用 ASE 來裝載內容的帳戶必須屬於用來建立帳戶的訂用帳戶。
 
-針對 ASE 指定的名稱將用於在 ASE 中建立的 Web 應用程式。如果 ASE 的名稱是 appsvcenvdemo，則網域名稱會是 .\*appsvcenvdemo.p.azurewebsites.net\*。如果您因此建立名為 mytestapp 的 Web 應用程式，則可定址於 *mytestapp.appsvcenvdemo.p.azurewebsites.net*。您無法在名稱中使用空白字元。如果您在名稱中使用大寫字元，則網域名稱會是該名稱的全小寫版本。
+針對 ASE 指定的名稱將用於在 ASE 中建立的 Web 應用程式。如果 ASE 的名稱是 appsvcenvdemo，則網域名稱會是 .*appsvcenvdemo.p.azurewebsites.net*。如果您因此建立名為 mytestapp 的 Web 應用程式，則可定址於 *mytestapp.appsvcenvdemo.p.azurewebsites.net*。您無法在名稱中使用空白字元。如果您在名稱中使用大寫字元，則網域名稱會是該名稱的全小寫版本。
 
 
 ![][1]
@@ -102,10 +102,10 @@ App Service 環境的定價是根據指派的計算資源。無論是否裝載�
 
 建立 ASE 之後，您可以調整：
 
-- 前端的數量 \(最小值：2\)
-- 背景工作的數量 \(最小值：2\)
+- 前端的數量 (最小值：2)
+- 背景工作的數量 (最小值：2)
 - IP 位址的數量
-- 前端或背景工作所使用的計算資源大小 \(前端大小下限為 P2\)
+- 前端或背景工作所使用的計算資源大小 (前端大小下限為 P2)
 
 您無法變更：
 

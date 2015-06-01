@@ -11,7 +11,7 @@
 
 ## 使用 xplat-cli
 
-下列步驟可協助您利用最新版本和正確的訂用帳戶，輕鬆使用 xplat-cli。如果您需要安裝 xplat-cli 並先將它連接到您的帳戶，請參閱 [Azure 命令列介面 \(xplat-cli\)](xplat-cli.md)。
+下列步驟可協助您利用最新版本和正確的訂用帳戶，輕鬆使用 xplat-cli。如果您需要安裝 xplat-cli 並先將它連接到您的帳戶，請參閱 [Azure 命令列介面 (xplat-cli)](xplat-cli.md)。
 
 ### 步驟 1：更新 xplat cli 版本
 

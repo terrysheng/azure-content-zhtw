@@ -34,7 +34,7 @@
 
     New-AzureRemoteAppCollection -Collectionname RAppO365Col1 -ImageName "Office 365 ProPlus (Subscription required)" -Plan Basic -Location "West US" - Description "Office 365 Collection."
 
-上述命令會自動發佈 Microsoft Office 365 應用程式 \(Excel、OneNote、Outlook、PowerPoint、Visio 和 Word\)。
+上述命令會自動發佈 Microsoft Office 365 應用程式 (Excel、OneNote、Outlook、PowerPoint、Visio 和 Word)。
 
 建立集合可能需要 30 分鐘或更久的時間才能完成。因此，此命令會傳回可使用的追蹤識別碼，如下所示：
 

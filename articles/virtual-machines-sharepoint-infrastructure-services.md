@@ -34,7 +34,7 @@
 
 ## 混合式雲端開發/測試伺服器陣列
 
-利用 [混合式雲端開發/測試環境中的 SharePoint 內部網路伺服器陣列](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), ，您可以建立模擬的混合式雲端設定 \(就可以架設簡易雙層式 SharePoint 伺服器陣列\)，用來從您在網際網路上的位置，測試 Azure 中架設的內部網路 SharePoint 伺服陣列。
+利用 [混合式雲端開發/測試環境中的 SharePoint 內部網路伺服器陣列](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), ，您可以建立模擬的混合式雲端設定 (就可以架設簡易雙層式 SharePoint 伺服器陣列)，用來從您在網際網路上的位置，測試 Azure 中架設的內部網路 SharePoint 伺服陣列。
 
 ## 高度可用內部網路 SharePoint 實際執行伺服器陣列
 

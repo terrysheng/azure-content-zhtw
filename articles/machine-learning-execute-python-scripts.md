@@ -39,11 +39,11 @@ Azure Machine Learning Studio 中 Python 的主要介面是透過「圖 1」中�
 
 圖 1.**執行 Python 指令碼**模組。
 
-[執行 Python 指令碼][execute-python-script]模組接受最多三個輸入，並且產生最多兩個輸出 \(在以下討論\)，就像其 R 類比，[執行 R 指令碼][execute-r-script]模組。要執行的 Python 程式碼會輸入至稱為 `azureml_main` 之特殊命名進入點函數的參數方塊。以下是用來實作此模組的關鍵設計原則：
+[執行 Python 指令碼][execute-python-script]模組接受最多三個輸入，並且產生最多兩個輸出 (在以下討論)，就像其 R 類比，[執行 R 指令碼][execute-r-script]模組。要執行的 Python 程式碼會輸入至稱為 `azureml_main` 之特殊命名進入點函數的參數方塊。以下是用來實作此模組的關鍵設計原則：
 
 1.	*必須是 Python 使用者慣用的。* 大部分 Python 使用者會將其程式碼歸因為模組內部的函數，所以在最上層模組中放置許多可執行陳述式的情形相對少見。因此，指令碼方塊也會採用特殊命名的 Python 函數，而不是採用一系列的陳述式。在函數中公開的物件是標準 Python 程式庫類型，例如 [Pandas](http://pandas.pydata.org/) 陣列。資料框架和 [NumPy](http://www.numpy.org/) 陣列。
 2.	*必須在本機和雲端執行之間具有高畫質。* 用來執行 Python 程式碼的後端是根據 [Anaconda](https://store.continuum.io/cshop/anaconda/) 2.1，在跨平台科學 Python 發佈中廣泛使用。它隨附將近 200 個最常見的 Python 封裝。因此，資料科學家可以在其本機 Azure Machine Learning 相容 Anaconda 環境中對程式碼進行偵錯或驗證是否合格，方法是使用如 [IPython](http://ipython.org/) Notebook 或 [Python Tools for Visual Studio](http://pytools.codeplex.com/) 的開發環境，並且以高度信賴程度做為 Azure Machine Learning 實驗的一部分執行。此外，`azureml_main` 進入點是 Vanilla Python 函數，不需要 Azure Machine Learning 特定程式碼或安裝 SDK 即可編寫。
-3.	*必須可以順暢地與其他 Azure Machine Learning 模組組合。* [執行 Python 指令碼][execute-python-script]模組接受標準 Azure Machine Learning 資料集做為輸入和輸出。基礎框架可以透明且有效地橋接 Azure Machine Learning 和 Python 執行階段 \(支援如遺漏值的功能\)。因此，Python 可以用於與現有 Azure Machine Learning 工作流程接合，包括呼叫至 R 和 SQLite 的那些工作流程。所以可以將工作流程設想為：
+3.	*必須可以順暢地與其他 Azure Machine Learning 模組組合。* [執行 Python 指令碼][execute-python-script]模組接受標準 Azure Machine Learning 資料集做為輸入和輸出。基礎框架可以透明且有效地橋接 Azure Machine Learning 和 Python 執行階段 (支援如遺漏值的功能)。因此，Python 可以用於與現有 Azure Machine Learning 工作流程接合，包括呼叫至 R 和 SQLite 的那些工作流程。所以可以將工作流程設想為：
   * 使用 Python 和 Pandas 進行前處理和清除、 
   * 將資料饋送至 SQL 轉換、連結多個資料集以形成功能、 
   * 在 Azure Machine Learning 中使用廣泛集合的演算法訓練模型，以及 
@@ -51,7 +51,7 @@ Azure Machine Learning Studio 中 Python 的主要介面是透過「圖 1」中�
 
 
 ## 基本用法
-在此章節中，我們會調查[執行 Python 指令碼][execute-python-script]模組的一些基本用法。如稍早所述，對 Python 模組的任何輸入都會公開為 Pandas 資料框架。如需 Pandas 的詳細資訊和如何用於有效處理資料的資訊，可以在 W. McKinney 撰寫的 *Python for Data Analysis* \(Sebastopol, CA.: O'Reilly, 2012\) 中找到。函數必須傳回在 Python [序列](https://docs.python.org/2/c-api/sequence.html) \(例如 tuple、清單或 NumPy 陣列\) 內封裝的單一 Pandas 資料框架。然後會在模組的第一個輸出連接埠中傳回此序列的第一個元素。此配置顯示在「圖 2」中。
+在此章節中，我們會調查[執行 Python 指令碼][execute-python-script]模組的一些基本用法。如稍早所述，對 Python 模組的任何輸入都會公開為 Pandas 資料框架。如需 Pandas 的詳細資訊和如何用於有效處理資料的資訊，可以在 W. McKinney 撰寫的 *Python for Data Analysis* (Sebastopol, CA.: O'Reilly, 2012) 中找到。函數必須傳回在 Python [序列](https://docs.python.org/2/c-api/sequence.html) (例如 tuple、清單或 NumPy 陣列) 內封裝的單一 Pandas 資料框架。然後會在模組的第一個輸出連接埠中傳回此序列的第一個元素。此配置顯示在「圖 2」中。
 
 ![image3](./media/machine-learning-execute-python-scripts/figure2.png) 圖 2.將輸入連接埠對應至參數，並且將值傳回至輸出連接埠。
 
@@ -61,14 +61,14 @@ Azure Machine Learning Studio 中 Python 的主要介面是透過「圖 1」中�
 
 表 1.將輸入連接埠對應至函數參數。
 
-請注意，輸入連接埠和函數參數之間的對應是有位置關係的，例如，第一個連接的輸入連接埠是對應至函數的第一個參數，而第二個輸入 \(如果連接\) 則是對應至函數的第二個參數。
+請注意，輸入連接埠和函數參數之間的對應是有位置關係的，例如，第一個連接的輸入連接埠是對應至函數的第一個參數，而第二個輸入 (如果連接) 則是對應至函數的第二個參數。
 
 ## 輸入和輸出類型的轉譯
 如前面所述，Azure Machine Learning 中的輸入資料集會轉換為 Pandas 中的資料框架，而輸出資料框架會轉換回 Azure Machine Learning 資料集。會執行下列轉換：
 
-1.	字串和數值資料行會如現狀轉換，資料集中的遺漏值則會在 Pandas 中轉換為 ‘NA’ 值。會在反向發生相同轉換 \(Pandas 中的 NA 值轉換為 Azure Machine Learning 中的遺漏值\)。
+1.	字串和數值資料行會如現狀轉換，資料集中的遺漏值則會在 Pandas 中轉換為 ‘NA’ 值。會在反向發生相同轉換 (Pandas 中的 NA 值轉換為 Azure Machine Learning 中的遺漏值)。
 2.	Azure Machine Learning 中不支援 Pandas 的索引向量，Python 函數中的所有輸入資料框架一律具有 64 位元數值索引，從 0 到資料列數減 1。 
-3.	Azure Machine Learning 資料集無法具有重複的資料行名稱或非字串的資料行名稱。如果輸出資料框架包含非數值資料行，則架構會在資料行名稱上呼叫 `str`。同樣地，任何重複的資料行名稱會自動錯位，以確保名稱是唯一的。後置詞 \(2\) 會新增至第一個重複項目，後置詞 \(3\) 新增至第二個重複項目等等。
+3.	Azure Machine Learning 資料集無法具有重複的資料行名稱或非字串的資料行名稱。如果輸出資料框架包含非數值資料行，則架構會在資料行名稱上呼叫 `str`。同樣地，任何重複的資料行名稱會自動錯位，以確保名稱是唯一的。後置詞 (2) 會新增至第一個重複項目，後置詞 (3) 新增至第二個重複項目等等。
 
 ## 運作 Python 指令碼
 當發佈為 Web 服務時，會呼叫計分實驗中的任何[執行 Python 指令碼][execute-python-script]模組。例如，「圖 3」顯示計分實驗，其中包含用以評估單一 Python 運算式的程式碼。
@@ -79,7 +79,7 @@ Azure Machine Learning Studio 中 Python 的主要介面是透過「圖 1」中�
 
 圖 3.用以評估 Python 運算式的 Web 服務。
 
-根據此實驗建立的 Web 服務會採用 Python 運算式的輸入 \(字串\)，將其傳送至 Python 解譯器，並且傳回包含運算式和評估結果的資料表。
+根據此實驗建立的 Web 服務會採用 Python 運算式的輸入 (字串)，將其傳送至 Python 解譯器，並且傳回包含運算式和評估結果的資料表。
 
 ## 匯入現有 Python 模組
 對於許多資料科學家，常見的使用案例是將現有 Python 指令碼併入 Azure Machine Learning 實驗。而不是將所有程式碼串連和貼上至單一指令碼方塊，[執行 Python 指令碼][execute-python-script]模組接受第三個輸入連接埠，可以連接包含 Python 模組的 zip 檔案。然後，該檔案由執行架構在執行階段解壓縮，將內容新增至 Python 解譯器的程式庫路徑。然後 `azureml_main` 進入點函數可以直接匯入這些模組。
@@ -118,7 +118,7 @@ Azure Machine Learning Studio 中 Python 的主要介面是透過「圖 1」中�
 * 取得軸並且對其產生所有繪圖 
 * 將圖表儲存為 PNG 檔案 
 
-此程序在以下的「圖 8」中說明，會使用 Pandas 中的 scatter\_matrix 函數建立散佈圖矩陣。
+此程序在以下的「圖 8」中說明，會使用 Pandas 中的 scatter_matrix 函數建立散佈圖矩陣。
  
 ![image1v](./media/machine-learning-execute-python-scripts/figure-v1-8.png)
 
@@ -155,8 +155,8 @@ Python 函數，用於根據以下顯示的功能計算重要性分數及排序�
 
 1.	*沙箱化執行。* Python 執行階段目前已沙箱化，因此，不允許以永續方式存取網路或本機檔案系統。所有本機儲存的文件都會被隔離，並且在模組結束時加以刪除。Python 程式碼無法在其執行的機器上存取大部分的目錄，例外是目前目錄及其子目錄。
 2.	*缺少精細的開發和偵錯支援。* Python 模組目前不支援 IDE 功能，例如 intellisense 和偵錯。此外，如果模組在執行階段時失敗，則可以使用完整的 Python 堆疊追蹤，但是必須在模組的輸出記錄中檢視。目前我們建議使用者在如 IPython 的環境中開發及偵錯其 Python 指令碼，然後將程式碼匯入模組。
-3.	*單一資料框架輸出。* Python 進入點是唯一獲得允許的位置，可以將單一資料框架傳回為輸出。目前無法直接將任意 Python 物件 \(例如訓練模型\) 傳回 Azure Machine Learning 執行階段。像是[執行 R 指令碼][execute-r-script]，其具有相同的限制，但是在許多案例中可以將物件揀選至位元組陣列，然後將其傳回資料框架內。
-4.	*無法自訂 Python 安裝*。目前，新增自訂 Python 模組的唯一方法是透過稍早所述的 zip 檔案機制。對於小模組可行，但是對於大模組 \(特別是具有原生 DLL 的模組\) 和大量模組而言則顯得繁瑣。 
+3.	*單一資料框架輸出。* Python 進入點是唯一獲得允許的位置，可以將單一資料框架傳回為輸出。目前無法直接將任意 Python 物件 (例如訓練模型) 傳回 Azure Machine Learning 執行階段。像是[執行 R 指令碼][execute-r-script]，其具有相同的限制，但是在許多案例中可以將物件揀選至位元組陣列，然後將其傳回資料框架內。
+4.	*無法自訂 Python 安裝*。目前，新增自訂 Python 模組的唯一方法是透過稍早所述的 zip 檔案機制。對於小模組可行，但是對於大模組 (特別是具有原生 DLL 的模組) 和大量模組而言則顯得繁瑣。 
 
 
 ##結論

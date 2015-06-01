@@ -59,7 +59,7 @@ Node.js API 撰寫。所涵蓋的案例包括「**上傳**」、「**列出**」
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
 3.  您可以手動執行 **ls** 命令，確認已建立
-    **node\_modules** 資料夾。在該資料夾內找出
+    **node_modules** 資料夾。在該資料夾內找出
     **azure-storage** 封裝，其中包含您存取儲存體所需的
     程式庫。
 

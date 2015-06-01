@@ -35,9 +35,9 @@
 
 
 ## 程式碼：請提供任何與您的問題有關的適當編碼資訊
-- 應用程式的 SDK 版本與平台 \(Android SDK 2.4.1、 iOS 1.16.2 等等\)
-- 應用程式產品的下載位置 \(或是您開發的 APK/TGZ 檔案\)
-- 「AndroidManifest.xm」和/或任何您的應用程式與 Azure Mobile Engagement 相關的程式碼片段 \(進階疑難排解\)
+- 應用程式的 SDK 版本與平台 (Android SDK 2.4.1、 iOS 1.16.2 等等)
+- 應用程式產品的下載位置 (或是您開發的 APK/TGZ 檔案)
+- 「AndroidManifest.xm」和/或任何您的應用程式與 Azure Mobile Engagement 相關的程式碼片段 (進階疑難排解)
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md

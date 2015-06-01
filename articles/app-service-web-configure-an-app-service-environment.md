@@ -20,7 +20,7 @@
 
 ## 概觀 ##
 
-App Service 環境是目前以預覽狀態提供的新 Premium 層次功能。它還提供新的調整和網路存取功能。這項新的調整功能可讓您將 Azure App Service 的執行個體放入 VNET 中。如果您不熟悉 App Service 環境 \(ASE\) 功能，請閱讀文件：[什麼是 App Service 環境][WhatisASE]。如需有關如何建立 ASE 的資訊，請讀取文件：[如何建立 App Service 環境][HowtoCreateASE]。
+App Service 環境是目前以預覽狀態提供的新 Premium 層次功能。它還提供新的調整和網路存取功能。這項新的調整功能可讓您將 Azure App Service 的執行個體放入 VNET 中。如果您不熟悉 App Service 環境 (ASE) 功能，請閱讀文件：[什麼是 App Service 環境][WhatisASE]。如需有關如何建立 ASE 的資訊，請讀取文件：[如何建立 App Service 環境][HowtoCreateASE]。
 
 App Service 環境是由數個主要元件所組成：
 
@@ -30,7 +30,7 @@ App Service 環境是由數個主要元件所組成：
 - 具有至少一個子網路的虛擬網路
 - 在其中執行 Azure App 環境託管服務的子網路
 
-為了協助管理和監視 App Service 環境，您可以從 Azure 入口網站中的 \[瀏覽\] -\> \[App Service 環境\] 存取該目的的 UI。初始版本有管理系統所需的功能，而且將會持續在未來幾週內藉由其他功能提供改善。
+為了協助管理和監視 App Service 環境，您可以從 Azure 入口網站中的 [瀏覽] -> [App Service 環境] 存取該目的的 UI。初始版本有管理系統所需的功能，而且將會持續在未來幾週內藉由其他功能提供改善。
 
 ![][1]
 
@@ -38,7 +38,7 @@ App Service 環境是由數個主要元件所組成：
 
 初始預覽版本中並沒有很多計量功能，但是會在近期內推出。這些計量功能將協助系統管理員做出系統調整和作業相關決策。
 
-即使現在，您可以在入口網站中列出 ASE 中的所有 App Service 方案，以及 App Service 環境中的所有 Web 應用程式。若要查看任何一份清單，請移至 \[設定\]，並選取您感興趣的項目。
+即使現在，您可以在入口網站中列出 ASE 中的所有 App Service 方案，以及 App Service 環境中的所有 Web 應用程式。若要查看任何一份清單，請移至 [設定]，並選取您感興趣的項目。
 
 ![][3]
 
@@ -69,7 +69,7 @@ App Service 環境是由數個主要元件所組成：
 - 每個集區中的計算資源大小
 - 可用的 IP 位址數目
 
-若要控制這些項目，請選取位於頂端的 \[調整\] 設定項目。
+若要控制這些項目，請選取位於頂端的 [調整] 設定項目。
 
 ![][2]
 
@@ -102,7 +102,7 @@ App Service 環境是由數個主要元件所組成：
 
 ## 刪除 App Service 環境 ##
 
-如果您要刪除 App Service 環境，只需使用 App Service 環境刀鋒視窗頂端的 \[刪除\] 動作。不過，您無法刪除有內容存在的 ASE。請務必移除所有的 Web 應用程式和 App Service 方案，以便刪除 App Service 環境。
+如果您要刪除 App Service 環境，只需使用 App Service 環境刀鋒視窗頂端的 [刪除] 動作。不過，您無法刪除有內容存在的 ASE。請務必移除所有的 Web 應用程式和 App Service 方案，以便刪除 App Service 環境。
 
 ## 開始使用
 

@@ -84,7 +84,7 @@ Cmdlet 需要有您的訂閱，才能用來管理您的服務。有兩種方法�
     > 如需有關安全性和使用認證的詳細資訊，請參閱[將密碼和其他機密資料部署到 ASP.NET 和 Azure 網站的最佳作法](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) (英文)。
 
 
-	> [AZURE.NOTE] 此非互動式登入方法僅適用於公司或學校帳戶。公司或學校帳戶是由您的公司或學校所管理的使用者，並為您的公司或學校定義於 Azure Active Directory 執行個體中。如果您目前沒有公司或學校帳戶，而是使用 Microsoft 帳戶登入您的 Azure 訂閱，則您可以透過下列步驟輕鬆地建立帳戶。
+> [AZURE.NOTE] 此非互動式登入方法僅適用於公司或學校帳戶。公司或學校帳戶是由您的公司或學校所管理的使用者，並為您的公司或學校定義於 Azure Active Directory 執行個體中。如果您目前沒有公司或學校帳戶，而是使用 Microsoft 帳戶登入您的 Azure 訂閱，則您可以透過下列步驟輕鬆地建立帳戶。
 	>
 	> 1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com)，然後按一下 **[Active Directory]**。
 	>
@@ -124,11 +124,11 @@ Azure 管理入口網站上開啟網頁，您可以從中下載訂閱資訊。�
 
 4. 出現提示時，下載並儲存發行設定檔，並記下 .publishsettings 檔案的路徑和名稱。當您執行 **Import-AzurePublishSettingsFile** Cmdlet 來匯入設定時，需要有這些資訊。預設位置和檔案名稱格式為：
 
-			C:\\Users\<UserProfile>\\Download\\[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
+			C:\\Users<UserProfile>\\Download[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
 
 5. 輸入類似如下的命令，將各預留位置替換成您的 Windows 帳戶名稱以及檔案路徑加名稱：
 
-		Import-AzurePublishSettingsFile C:\Users\<UserProfile>\Downloads\<SubscriptionName>-credentials.publishsettings
+		Import-AzurePublishSettingsFile C:\Users<UserProfile>\Downloads<SubscriptionName>-credentials.publishsettings
 
 > [AZURE.NOTE] 如果您在匯入自己的發行設定之後，被加到其他訂閱中成為共同管理員，則需要重複此程序來下載新的 .publish 設定檔，然後再匯入那些設定。如需加入共同管理員來協助管理訂閱服務的相關資訊，請參閱[加入及移除 Azure 訂用帳戶的共同管理員](http://msdn.microsoft.com/library/windowsazure/gg456328.aspx)。
 

@@ -25,7 +25,7 @@
 
 		# rcmysql stop
 
-5. 警告！安裝之後，MySQL 根密碼預設為空白。建議您執行 **mysql\_secure\_installation**，該指令碼有助於保護 MySQL 的安全。執行 **mysql\_secure\_installation** 時，系統會提示您變更 MySQL 根密碼、移除匿名使用者帳戶、停用遠端根登入、移除測試資料庫，以及重新載入權限資料表。建議您對所有的選項回答 [是] 並且變更根密碼。執行下列命令以執行指令碼：
+5. 警告！安裝之後，MySQL 根密碼預設為空白。建議您執行 **mysql_secure_installation**，該指令碼有助於保護 MySQL 的安全。執行 **mysql_secure_installation** 時，系統會提示您變更 MySQL 根密碼、移除匿名使用者帳戶、停用遠端根登入、移除測試資料庫，以及重新載入權限資料表。建議您對所有的選項回答 [是] 並且變更根密碼。執行下列命令以執行指令碼：
 
 		$ mysql_secure_installation
 

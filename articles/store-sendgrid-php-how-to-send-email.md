@@ -48,7 +48,7 @@ SendGrid 是[雲端式電子郵件服務]，能提供可靠的[交易式電子�
 
 ### SMTP API
 
-若要使用 SendGrid SMTP API 傳送電子郵件，請使用 *Swift Mailer*，它是元件型資料庫，可透過 PHP 應用程式傳送電子郵件。您可以從 [http://swiftmailer.org/download][] v5.3.0 ( 使用[編輯器]安裝 Swift Mailer) 下載 *Swift Mailer* 程式庫。使用程式庫傳送電子郵件牽涉到建立 <span class="auto-style2">Swift\_SmtpTransport</span>、 <span class="auto-style2">Swift\_Mailer</span>和 <span class="auto-style2">Swift\_Message</span> 類別的執行個體、設定適當的屬性和呼叫 <span class="auto-style2">Swift\_Mailer::send</span> 方法的定義。
+若要使用 SendGrid SMTP API 傳送電子郵件，請使用 *Swift Mailer*，它是元件型資料庫，可透過 PHP 應用程式傳送電子郵件。您可以從 [http://swiftmailer.org/download][] v5.3.0 ( 使用[編輯器]安裝 Swift Mailer) 下載 *Swift Mailer* 程式庫。使用程式庫傳送電子郵件牽涉到建立 <span class="auto-style2">Swift_SmtpTransport</span>、 <span class="auto-style2">Swift_Mailer</span>和 <span class="auto-style2">Swift_Message</span> 類別的執行個體、設定適當的屬性和呼叫 <span class="auto-style2">Swift_Mailer::send</span> 方法的定義。
 
     <?php
      include_once "vendor/autoload.php";
@@ -227,7 +227,7 @@ SendGrid 的 Web API 與 REST API 十分類似，但並非真的是 REST 型 API
 
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 
-這行程式碼會在 <span class="auto-style2">Swift\_Message</span> 物件上呼叫 attach 方法，並在 Swift\_Attachment 類別上使用靜態方法 <span class="auto-style2">fromPath</span> 以 <span class="auto-style2">取得</span> 並附加檔案至訊息。
+這行程式碼會在 <span class="auto-style2">Swift_Message</span> 物件上呼叫 attach 方法，並在 Swift_Attachment 類別上使用靜態方法 <span class="auto-style2">fromPath</span> 以 <span class="auto-style2">取得</span> 並附加檔案至訊息。
 
 ### Web API
 

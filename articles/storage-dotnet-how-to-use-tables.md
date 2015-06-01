@@ -24,7 +24,7 @@
 ## 概觀
 
 本指南將示範如何使用 Azure Blob 服務執行一般案例 
-Azure 佇列服務執行一般案例。這些範例均以 C\# 程式碼撰寫，並使用 Azure Storage Client Library for .NET。所涵蓋的案例包括「**建立和刪除資料表**」，以及「**使用資料表實體**」。
+Azure 佇列服務執行一般案例。這些範例均以 C# 程式碼撰寫，並使用 Azure Storage Client Library for .NET。所涵蓋的案例包括「**建立和刪除資料表**」，以及「**使用資料表實體**」。
 
 > [AZURE.NOTE] 本指南以 Azure .NET Storage Client Library 2.x 和更新版本為對象。建議的版本是儲存體用戶端程式庫 4.x，可透過 [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) 或從 [Azure SDK for .NET](/downloads/) 中取得。請參閱 [以程式設計方式存取資料表儲存體](#programmatically-access-table-storage) ，以詳細了解如何取得儲存體用戶端程式庫。
 
@@ -39,10 +39,10 @@ Azure 佇列服務執行一般案例。這些範例均以 C\# 程式碼撰寫，
 ### 取得組件
 您可以使用 NuGet 來取得 `Microsoft.WindowsAzure.Storage.dll` 組件。在 [**方案總管**] 中以滑鼠右鍵按一下專案，然後選擇 [**管理 NuGet 封裝**]。在線上搜尋 "WindowsAzure.Storage"，再按一下 [**安裝**] 以安裝 Azure 儲存體封裝與相依性。
 
-`Microsoft.WindowsAzure.Storage.dll` 也隨附於 Azure SDK for .NET (可自 <a href="http://azure.microsoft.com/develop/net/#">.NET Developer Center</a> 下載)。此組件會安裝在 `%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\` 目錄。
+`Microsoft.WindowsAzure.Storage.dll` 也隨附於 Azure SDK for .NET (可自 <a href="http://azure.microsoft.com/develop/net/#">.NET Developer Center</a> 下載)。此組件會安裝在 `%Program Files%\Microsoft SDKs\Azure.NET SDK<sdk-version>\ref` 目錄。
 
 ### 命名空間宣告
-將下列程式碼命名空間宣告，新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 C\# 檔案內的頂端：
+將下列程式碼命名空間宣告，新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 C# 檔案內的頂端：
 
     using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Auth;
@@ -86,7 +86,7 @@ Storage Client Library for .NET 中的 ODataLib 相依性現已透過 ODataLib (
 ## 將實體加入至資料表
 
 實體會使用衍生自 
-**TableEntity** 的自訂類別來對應至 C\# 物件。若要將實體新增至資料表，請建立一個類別來定義實體的屬性。下列程式碼會定義一個使用客戶名字做為資料列索引鍵、並使用姓氏做為資料分割索引鍵的實體類別。實體的資料分割索引鍵和資料列索引鍵共同唯一識別資料表中的實體。相較於查詢具有不同資料分割索引鍵的實體，查詢具有相同資料分割索引鍵的實體速度會較快，但使用不同的資料分割索引鍵可獲得更大的平行操作延展性。任何應該儲存於資料表服務中的屬性，都必須是屬於所支援類型 (其同時公開 `get` 和 `set`) 的公用屬性。
+**TableEntity** 的自訂類別來對應至 C# 物件。若要將實體新增至資料表，請建立一個類別來定義實體的屬性。下列程式碼會定義一個使用客戶名字做為資料列索引鍵、並使用姓氏做為資料分割索引鍵的實體類別。實體的資料分割索引鍵和資料列索引鍵共同唯一識別資料表中的實體。相較於查詢具有不同資料分割索引鍵的實體，查詢具有相同資料分割索引鍵的實體速度會較快，但使用不同的資料分割索引鍵可獲得更大的平行操作延展性。任何應該儲存於資料表服務中的屬性，都必須是屬於所支援類型 (其同時公開 `get` 和 `set`) 的公用屬性。
 此外，您的實體類型 *must*公開無參數建構函式。
 
     public class CustomerEntity : TableEntity

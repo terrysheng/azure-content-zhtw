@@ -211,7 +211,7 @@
 
 ### 建立輸入資料表
 
-1.	建立 Data Factory 資料表的 JSON 檔，代表來自 SQL Server 資料庫中的 **emp** 資料表的資料。啟動 [**記事本**]，複製下列 JSON 指令碼，並將它儲存至 C:\ADFGetStarted\**OnPrem** 資料夾中，命名為 **EmpOnPremSQLTable.json**。如果資料夾不存在，請在 **C:\ADFGetStarted** 資料夾中建立 **OnPrem** 子資料夾。 
+1.	建立 Data Factory 資料表的 JSON 檔，代表來自 SQL Server 資料庫中的 **emp** 資料表的資料。啟動 [**記事本**]，複製下列 JSON 指令碼，並將它儲存至 C:\ADFGetStarted**OnPrem** 資料夾中，命名為 **EmpOnPremSQLTable.json**。如果資料夾不存在，請在 **C:\ADFGetStarted** 資料夾中建立 **OnPrem** 子資料夾。 
 
 
         {
@@ -440,7 +440,7 @@
 	**範例命令和輸出**：
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -Location "West US" -ResourceGroupName ADF -Description "gateway for walkthrough"
+		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -Location "West US" -ResourceGroupName ADF -Description "gateway for walkthrough"
 
 		Name            : MyGateway
 		Location        : West US
@@ -462,12 +462,12 @@
 	**範例命令輸出：**
 
 
-		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. 在 Azure PowerShell 中，切換到資料夾：**C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript\**，然後執行與本機變數 **$Key** 相關聯的 **RegisterGateway.ps1** 指令碼，如以下命令所示，以註冊您電腦上使用邏輯閘道 (稍早建立) 安裝的用戶端代理程式。
+4. 在 Azure PowerShell 中，切換到資料夾：**C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript**，然後執行與本機變數 **$Key** 相關聯的 **RegisterGateway.ps1** 指令碼，如以下命令所示，以註冊您電腦上使用邏輯閘道 (稍早建立) 安裝的用戶端代理程式。
 
-		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 

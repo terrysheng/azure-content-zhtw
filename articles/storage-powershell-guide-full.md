@@ -295,7 +295,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。如需詳細資訊，請�
 
 下列範例會執行 [Get-ChildItem](http://technet.microsoft.com/library/hh849800.aspx) Cmdlet 來取得指定資料夾中的所有檔案，然後使用管線運算子將這些檔案傳遞至下一個 Cmdlet。[Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx) Cmdlet 會將本機檔案上傳至您的容器：
 
-    Get-ChildItem -Path C:\Images\* | Set-AzureStorageBlobContent -Container "yourcontainername"
+    Get-ChildItem -Path C:\Images* | Set-AzureStorageBlobContent -Container "yourcontainername"
 
 ### <a name="downblob"></a>如何從容器下載 Blob
 下列範例示範如何從容器下載 Blob。此範例會先使用儲存體帳戶內容建立 Azure 儲存體的連線，其中包含儲存體帳戶名稱及其主要存取金鑰 。然後，此範例會使用 [Get-AzureStorageBlob](http://msdn.microsoft.com/library/azure/dn806392.aspx) Cmdlet 來擷取 Blob 參考。接著，此範例會使用 [Get-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806418.aspx) Cmdlet 將 Blob 下載到本機目的地資料夾中。 

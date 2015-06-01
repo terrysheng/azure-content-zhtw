@@ -5,7 +5,8 @@
  documentationCenter=""
  authors="Blackmist"
  manager="paulettm"
- editor="cgronlun"/> <tags
+ editor="cgronlun"/>
+<tags
  ms.service="hdinsight"
  ms.devlang="na"
  ms.topic="article"
@@ -18,7 +19,7 @@
 
 Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。它提供簡潔的語法，並且可與 Scala 緊密整合。
 
-在本文件中，您將了解如何使用 Maven 來建立基本字數統計 MapReduce 工作 \(以 Scalding 撰寫\)。接著，您將學習如何在 HDInsight 叢集上部署與執行此工作。
+在本文件中，您將了解如何使用 Maven 來建立基本字數統計 MapReduce 工作 (以 Scalding 撰寫)。接著，您將學習如何在 HDInsight 叢集上部署與執行此工作。
 
 ## 必要條件
 
@@ -138,15 +139,15 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
 
     * **儲存機制**：包含此專案所使用之相依性檔案的儲存機制
 
-    * **scalding-core\_2.11** 和 **hadoop-core**：此專案仰賴於 Scalding 和 Hadoop 核心封裝
+    * **scalding-core_2.11** 和 **hadoop-core**：此專案仰賴於 Scalding 和 Hadoop 核心封裝
 
     * **maven-scala-plugin**：編譯 scala 應用程式的外掛程式
 
-    * **maven-shade-plugin**：建立陰影 \(fat\) jar 的外掛程式。此外掛程式適用於篩選和轉換；尤其是：
+    * **maven-shade-plugin**：建立陰影 (fat) jar 的外掛程式。此外掛程式適用於篩選和轉換；尤其是：
 
-        * **filters**: The filters applied modify the meta information included with in the jar file. To prevent signing exceptions at runtime, this excludes various signature files that may be included with dependencies.
+        * **篩選條件**: 套用的篩選條件會修改 Jar 檔案中包含的中繼資訊。為避免在執行階段發生登入例外狀況，這會排除相依性中可能包含的多種簽名檔。
 
-        * **executions**: The package phase execution configuration specifies the **com.twitter.scalding.Tool** class as the main class for the package. Without this, you would need to specify com.twitter.scalding.Tool, as well as the class that contains the application logic, when running the job with the hadoop command.
+        * **例外狀況**: 套件階段執行設定指定 com.twitter.scalding.Tool 類別作為套件的主類別。如果沒有指定，在使用 Hadoop 命令執行工作時，您需要指定 com.twitter.scalding.Tool，以及包含應用程式邏輯的類別。
 
 3. 刪除 **src/test** 目錄，因為您將不會在此範例中建立測試。
 

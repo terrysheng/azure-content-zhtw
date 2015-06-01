@@ -18,7 +18,7 @@
 # 開始使用 Azure 金鑰保存庫 #
 
 ## 簡介  
-使用本教學課程可協助您開始使用 Azure 金鑰保存庫 \(目前為預覽狀態\)，進而在 Azure 中建立強化的容器 \(保存庫\)，以儲存及管理 Azure 中的密碼編譯金鑰和密碼。本教學課程將逐步引導您完成使用 Windows PowerShell 建立包含金鑰或密碼 \(稍後可用於 Azure 應用程式\) 的保存庫程序。接著，它會說明應用程式後續可以如何使用該金鑰或密碼。
+使用本教學課程可協助您開始使用 Azure 金鑰保存庫 (目前為預覽狀態)，進而在 Azure 中建立強化的容器 (保存庫)，以儲存及管理 Azure 中的密碼編譯金鑰和密碼。本教學課程將逐步引導您完成使用 Windows PowerShell 建立包含金鑰或密碼 (稍後可用於 Azure 應用程式) 的保存庫程序。接著，它會說明應用程式後續可以如何使用該金鑰或密碼。
 
 **預估完成時間：**20 分鐘
 
@@ -37,7 +37,7 @@
 - 可設定使用您在本教學課程中所建立之金鑰或密碼的應用程式。您可以在 [Microsoft 下載中心](http://www.microsoft.com/zh-tw/download/details.aspx?id=45343)找到範例應用程式。如需相關指示，請參閱隨附的讀我檔案。
 
 
-本教學課程是專為 Windows PowerShell 初學者所設計的，但它會假設您已了解基本概念，例如模組、Cmdlet 和工作階段。如需 Windows PowerShell 的詳細資訊，請參閱[開始使用 Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx) \(英文\)。
+本教學課程是專為 Windows PowerShell 初學者所設計的，但它會假設您已了解基本概念，例如模組、Cmdlet 和工作階段。如需 Windows PowerShell 的詳細資訊，請參閱[開始使用 Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx) (英文)。
 
 若要取得您在本教學課程中任何所見 Cmdlet 的詳細說明，請使用 Get-Help Cmdlet。
 
@@ -154,22 +154,22 @@
 使用金鑰保存庫的應用程式必須使用 Azure Active Directory 的權杖進行驗證。若要達到此目的，應用程式擁有者首先必須在其 Azure Active Directory 中註冊該應用程式。註冊結束時，應用程式擁有者會取得下列值：
 
 
-- **應用程式識別碼** \(亦稱為用戶端識別碼\) 和**驗證金鑰** \(亦稱為共用密碼\)。應用程式必須向 Azure Active Directory 出示這兩個值才能取得權杖。如何設定應用程式執行此作業會取決於應用程式。在金鑰保存庫範例應用程式中，應用程式擁有者會在 app.config 檔案中設定這些值。
+- **應用程式識別碼** (亦稱為用戶端識別碼) 和**驗證金鑰** (亦稱為共用密碼)。應用程式必須向 Azure Active Directory 出示這兩個值才能取得權杖。如何設定應用程式執行此作業會取決於應用程式。在金鑰保存庫範例應用程式中，應用程式擁有者會在 app.config 檔案中設定這些值。
 
 
 
 在 Azure Active Directory 中註冊應用程式：
 
 1. 登入 Azure 入口網站。
-2. 按一下左側的 \[**Active Directory**\]，然後選取您將要註冊應用程式的目錄。<br> <br> 注意：您必須選取包含用來建立金鑰保存庫之 Azure 訂用帳戶的相同目錄。如果您不知道是哪個目錄，請按一下 \[**設定**\]，找出建立金鑰保存庫所用的訂用帳戶，並記下最後一欄中顯示的目錄名稱。
+2. 按一下左側的 [**Active Directory**]，然後選取您將要註冊應用程式的目錄。<br> <br> 注意：您必須選取包含用來建立金鑰保存庫之 Azure 訂用帳戶的相同目錄。如果您不知道是哪個目錄，請按一下 [**設定**]，找出建立金鑰保存庫所用的訂用帳戶，並記下最後一欄中顯示的目錄名稱。
 
-3. 按一下 \[**應用程式**\]。如果您的目錄中尚未新增任何應用程式，則此頁面將僅會顯示 \[**新增應用程式**\] 連結。按一下此連結，或者您可以按一下命令列上的 \[**新增**\]。
-4.	在 \[**新增應用程式**\] 精靈的 \[**您想做什麼？**\] 頁面上，按一下 \[**新增我的組織正在開發的應用程式**\]。
-5.	在 \[**告訴我們您的應用程式**\] 頁面上，指定您的應用程式名稱，並選取 \[**WEB 應用程式和/或 WEB API**\] \(預設值\)。按 \[下一步\] 圖示。
-6.	在 \[**應用程式屬性**\] 頁面上，為您的 Web 應用程式指定 \[**登入 URL**\] 和 \[**應用程式識別碼 URI**\]。如果您的應用程式沒有這些值，您可以在此步驟中虛構這些值 \(例如，您可以在這兩個方塊中指定 http://test1.contoso.com\)。這些網站是否存在並沒有影響；重要的是目錄中每個應用程式的應用程式識別碼 URI 都會有所不同。目錄會使用此字串來識別您的應用程式。
-7.	按一下 \[完成\] 圖示以在精靈中儲存變更。
-8.	在 \[快速入門\] 頁面上，按一下 \[**設定**\]。 
-9.	捲動到 \[**金鑰**\] 區段，選取持續時間，然後按一下 \[**儲存**\]。頁面會重新整理，並顯示金鑰值。您必須使用此金鑰值和 \[**用戶端識別碼**\] 值來設定您的應用程式。\(有關此設定的指示僅適用於特定應用程式。\)
+3. 按一下 [**應用程式**]。如果您的目錄中尚未新增任何應用程式，則此頁面將僅會顯示 [**新增應用程式**] 連結。按一下此連結，或者您可以按一下命令列上的 [**新增**]。
+4.	在 [**新增應用程式**] 精靈的 [**您想做什麼？**] 頁面上，按一下 [**新增我的組織正在開發的應用程式**]。
+5.	在 [**告訴我們您的應用程式**] 頁面上，指定您的應用程式名稱，並選取 [**WEB 應用程式和/或 WEB API**] (預設值)。按 [下一步] 圖示。
+6.	在 [**應用程式屬性**] 頁面上，為您的 Web 應用程式指定 [**登入 URL**] 和 [**應用程式識別碼 URI**]。如果您的應用程式沒有這些值，您可以在此步驟中虛構這些值 (例如，您可以在這兩個方塊中指定 http://test1.contoso.com)。這些網站是否存在並沒有影響；重要的是目錄中每個應用程式的應用程式識別碼 URI 都會有所不同。目錄會使用此字串來識別您的應用程式。
+7.	按一下 [完成] 圖示以在精靈中儲存變更。
+8.	在 [快速入門] 頁面上，按一下 [**設定**]。 
+9.	捲動到 [**金鑰**] 區段，選取持續時間，然後按一下 [**儲存**]。頁面會重新整理，並顯示金鑰值。您必須使用此金鑰值和 [**用戶端識別碼**] 值來設定您的應用程式。(有關此設定的指示僅適用於特定應用程式。)
 10.	複製此頁面的用戶端識別碼，您將在後續步驟中使用此識別碼來設定保存庫上的權限。
 
 
@@ -186,9 +186,9 @@
 
 
 
-## <a id="HSM"></a>如果您想要使用硬體安全模組 \(HSM\) ##
+## <a id="HSM"></a>如果您想要使用硬體安全模組 (HSM) ##
 
-為了加強保證，您可以在硬體安全模組 \(HSM\) 中匯入或產生無需離開 HSM 界限的金鑰。HSM 已獲得 FIPS 140-2 Level 2 認證。如果此需求對您不適用，請略過本節並移至[刪除金鑰保存庫及相關聯的金鑰和密碼](#delete)。
+為了加強保證，您可以在硬體安全模組 (HSM) 中匯入或產生無需離開 HSM 界限的金鑰。HSM 已獲得 FIPS 140-2 Level 2 認證。如果此需求對您不適用，請略過本節並移至[刪除金鑰保存庫及相關聯的金鑰和密碼](#delete)。
 
 若要建立這些受 HSM 保護的金鑰，您必須具備[支援受 HSM 保護之金鑰的保存庫訂用帳戶](../../../pricing/free-trial)。
 
@@ -197,7 +197,7 @@
 
 	New-AzureKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
 
-您可以將軟體防護金鑰 \(如稍早所示\) 和受 HSM 保護的金鑰新增至此保存庫。若要建立受 HSM 保護的金鑰，請將 \[目的地\] 參數設為 'HSM'：
+您可以將軟體防護金鑰 (如稍早所示) 和受 HSM 保護的金鑰新增至此保存庫。若要建立受 HSM 保護的金鑰，請將 [目的地] 參數設為 'HSM'：
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
@@ -205,7 +205,7 @@
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd -Destination 'HSM'
 
-下一個命令會匯入「自備金鑰」\(BYOK\) 封包。這可讓您在您的本機 HSM 中產生金鑰，且在金鑰無需離開 HSM 界限的情況下，即可將它傳輸到金鑰保存庫服務中的 HSM：
+下一個命令會匯入「自備金鑰」(BYOK) 封包。這可讓您在您的本機 HSM 中產生金鑰，且在金鑰無需離開 HSM 界限的情況下，即可將它傳輸到金鑰保存庫服務中的 HSM：
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
@@ -241,7 +241,7 @@
 
 如需 Azure 金鑰保存庫的 Windows PowerShell Cmdlet 清單，請參閱 [Azure 金鑰保存庫 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)。
 
-如需程式設計參考，請參閱 [Azure 金鑰保存庫 REST API 參考](https://msdn.microsoft.com/library/azure/dn903609.aspx)和 [Azure 金鑰保存庫 C\# 用戶端 API 參考](https://msdn.microsoft.com/library/azure/dn903628.aspx)。
+如需程式設計參考，請參閱 [Azure 金鑰保存庫 REST API 參考](https://msdn.microsoft.com/library/azure/dn903609.aspx)和 [Azure 金鑰保存庫 C# 用戶端 API 參考](https://msdn.microsoft.com/library/azure/dn903628.aspx)。
 
 
 

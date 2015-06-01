@@ -19,11 +19,11 @@
 
 [Application Insights][start] 中的度量為從您的應用程式傳送的遙測中的測量值和事件計數。它們幫助您偵測效能問題，並觀察使用應用程式方式的趨勢。標準度量的範圍很廣泛，而您也可以建立自己的自訂度量和事件。
 
-度量和事件計數會顯示在彙總值 \(例如總和、平均或計數\) 的圖表中。
+度量和事件計數會顯示在彙總值 (例如總和、平均或計數) 的圖表中。
 
 例如，如果您將 Application Insights 加入至 Web 應用程式，以下是您會在概觀接近最上方看到的內容：
 
-![開啟 Azure 入口網站中應用程式的 \[概觀\] 分頁](./media/app-insights-metrics-explorer/01-overview.png)
+![開啟 Azure 入口網站中應用程式的 [概觀] 分頁](./media/app-insights-metrics-explorer/01-overview.png)
 
 有些圖表經過分段：任何點的圖表高度總計為顯示的度量的總合。圖例預設會顯示最大數量。
 
@@ -46,12 +46,12 @@
 
 您可以在任何分頁上變更多數圖表或格線涵蓋的時間範圍。
 
-![開啟 Azure 入口網站中應用程式的 \[概觀\] 分頁](./media/app-insights-metrics-explorer/03-range.png)
+![開啟 Azure 入口網站中應用程式的 [概觀] 分頁](./media/app-insights-metrics-explorer/03-range.png)
 
 
-如果您預期的部分資料尚未出現，請按一下 \[重新整理\]。圖表不會自動更新。在發行模式中，資料從分析管線往圖表上顯示可能需要一些時間。
+如果您預期的部分資料尚未出現，請按一下 [重新整理]。圖表不會自動更新。在發行模式中，資料從分析管線往圖表上顯示可能需要一些時間。
 
-在 \[概觀\] 分頁中，在圖表上的一部分拖曳可在新圖表上放大到該處。
+在 [概觀] 分頁中，在圖表上的一部分拖曳可在新圖表上放大到該處。
 
 
 ![拖曳過圖表的一部分。](./media/app-insights-metrics-explorer/12-drag.png)
@@ -59,11 +59,11 @@
 
 ## 計量瀏覽器
 
-按一下 \[概觀\] 分頁上的任何圖表，可查看更詳細的一組相關圖表和格線。您可以編輯這些圖表和格線，以著重在感興趣的詳細資料。
+按一下 [概觀] 分頁上的任何圖表，可查看更詳細的一組相關圖表和格線。您可以編輯這些圖表和格線，以著重在感興趣的詳細資料。
 
 例如，逐一點選 Web 應用程式的「失敗的要求」圖表：
 
-![在 \[概觀\] 分頁上，按一下圖表](./media/app-insights-metrics-explorer/14-trix.png)
+![在 [概觀] 分頁上，按一下圖表](./media/app-insights-metrics-explorer/14-trix.png)
 
 
 ## 數據代表意義為何？
@@ -74,13 +74,13 @@
 
 不同的度量會以不同方式彙總：
 
- * 針對度量 \(例如：回應時間\)，值會隨著圖表的期間加以**平均**。
- * 針對事件計數 \(例如：失敗的要求\)，彙總是在這段期間的計數**總和**。
- * 針對使用者計數，彙總是這段期間的**唯一**使用者數量。\(如果在此期間追蹤了某個使用者超過一次，也只會將他們計入一次。\)
+ * 針對度量 (例如：回應時間)，值會隨著圖表的期間加以**平均**。
+ * 針對事件計數 (例如：失敗的要求)，彙總是在這段期間的計數**總和**。
+ * 針對使用者計數，彙總是這段期間的**唯一**使用者數量。(如果在此期間追蹤了某個使用者超過一次，也只會將他們計入一次。)
 
 若要了解值是總和、平均或唯一值，請按一下圖表並向下捲動到選取的值。您也可以取得度量的簡短描述。
 
-![滑鼠暫留 \(i\)](./media/app-insights-metrics-explorer/06-total.png)
+![滑鼠暫留 (i)](./media/app-insights-metrics-explorer/06-total.png)
  
 
 
@@ -88,7 +88,7 @@
 
 若要對分頁加入新圖表：
 
-![在 \[計量瀏覽器\] 中，選擇 \[加入圖表\]](./media/app-insights-metrics-explorer/04-add.png)
+![在 [計量瀏覽器] 中，選擇 [加入圖表]](./media/app-insights-metrics-explorer/04-add.png)
 
 選取現有或新圖表來編輯其顯示的內容：
 
@@ -96,13 +96,13 @@
 
 您可以在圖表上顯示一個以上的度量，不過，可以一起顯示的組合有一些限制。只要您選取一個度量，便會停用某些其他度量。
 
-如果您編寫[自訂度量][track]到您的應用程式 \(對 TrackMetric 和 TrackEvent 呼叫\)，會在這裡予以列出。
+如果您編寫[自訂度量][track]到您的應用程式 (對 TrackMetric 和 TrackEvent 呼叫)，會在這裡予以列出。
 
 ## 分段資料
 
 選取圖表或格線，將分組切換成開啟，並選取要分組依據的屬性：
 
-![選取 \[分組開啟\]，然後在 \[群組依據\] 中選取屬性](./media/app-insights-metrics-explorer/15-segment.png)
+![選取 [分組開啟]，然後在 [群組依據] 中選取屬性](./media/app-insights-metrics-explorer/15-segment.png)
 
 如果您將[自訂度量][track]編寫至您的應用程式，並且它們包含屬性值，將可以在清單中選取屬性。
 
@@ -116,7 +116,7 @@
 
 若只要查看選取的一組屬性值的度量：
 
-![按一下 \[篩選器\]，然後檢查一些值](./media/app-insights-metrics-explorer/19-filter.png)
+![按一下 [篩選器]，然後檢查一些值](./media/app-insights-metrics-explorer/19-filter.png)
 
 如果您不為特定屬性選取任何值，這與將它們全選相同：該屬性上沒有篩選器。
 
@@ -138,25 +138,25 @@
 
 建立一些圖表後，請將它們儲存為我的最愛。如果您使用組織帳戶，可以選擇是否要將它與他小組成員分享。
 
-![選擇 \[我的最愛\]](./media/app-insights-metrics-explorer/21-favorite-save.png)
+![選擇 [我的最愛]](./media/app-insights-metrics-explorer/21-favorite-save.png)
 
-若要再次查看分頁，請**前往 \[概觀\] 分頁**，並開啟 \[我的最愛\]：
+若要再次查看分頁，請**前往 [概觀] 分頁**，並開啟 [我的最愛]：
 
-![在 \[概觀\] 分頁中，選擇 \[我的最愛\]](./media/app-insights-metrics-explorer/22-favorite-get.png)
+![在 [概觀] 分頁中，選擇 [我的最愛]](./media/app-insights-metrics-explorer/22-favorite-get.png)
 
 如果儲存時選擇「相對」時間範圍，會以最新度量更新分頁。如果選擇「絕對」時間範圍，它會每次都顯示相同資料。
 
 ## 重設分頁
 
-如果您編輯分頁，但之後想要回到原始儲存的集合，只需要按一下 \[重設\]。
+如果您編輯分頁，但之後想要回到原始儲存的集合，只需要按一下 [重設]。
 
-![在 \[計量瀏覽器\] 上方的按鈕中](./media/app-insights-metrics-explorer/17-reset.png)
+![在 [計量瀏覽器] 上方的按鈕中](./media/app-insights-metrics-explorer/17-reset.png)
 
 ## 設定警示
 
 若要在任何度量有不尋常的值時收到電子郵件通知，請加入警示。您可以選擇將電子郵件傳送給帳戶管理員，或傳送給特定的電子郵件地址。
 
-![在 \[計量瀏覽器\] 中，選擇 \[警示規則\]，然後選擇 \[加入警示\]](./media/appinsights/appinsights-413setMetricAlert.png)
+![在 [計量瀏覽器] 中，選擇 [警示規則]，然後選擇 [加入警示]](./media/appinsights/appinsights-413setMetricAlert.png)
 
 [深入了解][alerts]。
 

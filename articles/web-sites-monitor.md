@@ -137,7 +137,7 @@ Web 應用程式可以從 Web 應用程式的 [調整規模]**** 管理頁面，
 
 - 儲存應用程式記錄的位置，相對於 Web 根目錄。
 
-- 預設值：..\..\\LogFiles\\Application
+- 預設值：....\\LogFiles\\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 

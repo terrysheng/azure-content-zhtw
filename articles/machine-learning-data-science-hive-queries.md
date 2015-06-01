@@ -257,7 +257,7 @@ Hive 會和一組 UDF 一起出現，用以處理日期時間欄位。在 Hive �
 
 本節中提供的查詢可直接在「NYC 計程車車程資料」上加以套用。此查詢的目的是示範如何在 Hive 中套用內嵌的數學函式來產生功能。 
 
-此查詢中所使用的欄位是上車與下車位置的 GPS 座標，其名稱為 pickup\_longitude、pickup\_latitude、dropoff\_longitude 及 dropoff\_latitude。計算上車與下車座標間之直線距離的查詢如下：
+此查詢中所使用的欄位是上車與下車位置的 GPS 座標，其名稱為 pickup_longitude、pickup_latitude、dropoff_longitude 及 dropoff_latitude。計算上車與下車座標間之直線距離的查詢如下：
 
 		set R=3959;
 		set pi=radians(180);

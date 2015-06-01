@@ -57,7 +57,7 @@
 	Get-AzureVM -Name FirewallAppliance1 `
 	| Get-AzureEffectiveRouteTable -NetworkInterfaceName backendnic
 
-若要在名稱為 *myRole* 的角色執行個體 \(屬於名稱為 *myservice* 的雲端服務的一部分\) 上查看與主要 NIC 相關聯的路由，執行下列 PowerShell 命令：
+若要在名稱為 *myRole* 的角色執行個體 (屬於名稱為 *myservice* 的雲端服務的一部分) 上查看與主要 NIC 相關聯的路由，執行下列 PowerShell 命令：
 
 	Get-AzureEffectiveRouteTable -ServiceName myservice `
 	-RoleInstanceName myRole
@@ -97,6 +97,6 @@
 
 [使用者定義的路由和 IP 轉送概觀](../virtual-networks-udr-overview)
 
-[執行個體層級公用 IP \(ILIP\)](../virtual-networks-instance-level-public-ip)
+[執行個體層級公用 IP (ILIP)](../virtual-networks-instance-level-public-ip)
 
 [虛擬網路概觀](https://msdn.microsoft.com/library/azure/jj156007.aspx) <!--HONumber=52-->

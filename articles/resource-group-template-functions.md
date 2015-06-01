@@ -22,7 +22,7 @@
 
 ## base64
 
-**base64 \(inputString\)**
+**base64 (inputString)**
 
 傳回輸入字串的 base64 表示法。
 
@@ -39,7 +39,7 @@
 
 ## concat
 
-**concat \(arg1, arg2, arg3, ...\)**
+**concat (arg1, arg2, arg3, ...)**
 
 結合多個字串值，並傳回產生的字串值。此函數可以接受任意數目的引數。
 
@@ -54,7 +54,7 @@
 
 ## listKeys
 
-**listKeys \(resourceName 或 resourceIdentifier, [apiVersion]\)**
+**listKeys (resourceName 或 resourceIdentifier, [apiVersion])**
 
 傳回儲存體帳戶的金鑰。使用 [resourceId](./#resourceid) 函數或使用格式 **providerNamespace/resourceType/resourceName**，即可指定 resourceId。您可以使用此函數來取得 primaryKey 和 secondaryKey。
   
@@ -74,7 +74,7 @@
 
 ## 參數
 
-**parameters \(parameterName\)**
+**parameters (parameterName)**
 
 傳回參數值。指定的參數名稱必須定義於範本的 parameters 區段中。
 
@@ -100,7 +100,7 @@
 
 ## provider
 
-**provider \(providerNamespace, [resourceType]\)**
+**provider (providerNamespace, [resourceType])**
 
 傳回資源提供者和其所支援資源類型的相關資訊。如果未提供類型，則會傳回所有支援的類型。
 
@@ -128,7 +128,7 @@
 
 ## reference
 
-**reference \(resourceName 或 resourceIdentifier, [apiVersion]\)**
+**reference (resourceName 或 resourceIdentifier, [apiVersion])**
 
 可讓運算式從另一個資源的執行階段狀態衍生其值。
 
@@ -150,7 +150,7 @@
 
 ## resourceGroup
 
-**resourceGroup\(\)**
+**resourceGroup()**
 
 傳回代表目前資源群組的結構化物件。物件的格式如下：
 
@@ -174,7 +174,7 @@
 
 ## resourceId
 
-**resourceId \([resourceGroupName], resourceType, resourceName1, [resourceName2]...\)**
+**resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
 傳回資源的唯一識別碼。如果資源名稱不確定或未佈建在相同的範本內，請使用此函數。識別碼會以下列格式傳回：
 
@@ -183,7 +183,7 @@
 | 參數 | 必要 | 說明
 | :---------------: | :------: | :----------
 | resourceGroupName | 否 | 選用資源群組名稱。預設值為目前資源群組。擷取另一個資源群組中的資源時，請指定此值。
-| resourceType | 是 | 資源的類型 \(包括資源提供者命名空間\)。
+| resourceType | 是 | 資源的類型 (包括資源提供者命名空間)。
 | resourceName1 | 是 | 資源的名稱。
 | resourceName2 | 否 | 如果是巢狀資源，則為下一個資源名稱區段。
 
@@ -236,9 +236,9 @@
     }
 
 
-## 訂用帳戶\)
+## 訂用帳戶)
 
-**subscription\(\)**
+**subscription()**
 
 以下列格式傳回訂用帳戶的詳細資料。
 
@@ -258,7 +258,7 @@
 
 ## variables
 
-**variables \(variableName\)**
+**variables (variableName)**
 
 傳回變數的值。指定的變數名稱必須定義於範本的 variables 區段中。
 

@@ -41,7 +41,7 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 
 #### ... 對於現有專案
 
-在 \[方案總管\] 中以滑鼠右鍵按一下專案，然後選擇 \[Add Application Insights\]。
+在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [Add Application Insights]。
 
 ![Choose Add Application Insights](./media/appinsights/appinsights-03-addExisting.png)
 
@@ -51,9 +51,9 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 
 #### 設定選項
 
-如果這是您第一次使用，系統會要求您登入或註冊 Microsoft Azure 預覽\(該帳戶與 Visual Studio Online 帳戶彼此獨立\)。
+如果這是您第一次使用，系統會要求您登入或註冊 Microsoft Azure 預覽(該帳戶與 Visual Studio Online 帳戶彼此獨立)。
 
-如果此應用程式是更大應用程式的一部分，您可以使用 \[**組態設定**\]，將它放在與其他元件相同的資源群組中。
+如果此應用程式是更大應用程式的一部分，您可以使用 [**組態設定**]，將它放在與其他元件相同的資源群組中。
 
 *沒有 Application Insights 選項嗎？ 對於某些專案類型，您可以[手動加入 SDK][windows] 來使用 Application Insights。*
 
@@ -74,7 +74,7 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 
 返回 [Azure 入口網站][portal]，瀏覽至您的 Application Insights 資源。
 
-在 \[概觀\] 圖表中尋找資料。剛開始的時候，您只會看見一或兩個資料點。例如：
+在 [概觀] 圖表中尋找資料。剛開始的時候，您只會看見一或兩個資料點。例如：
 
 ![Click through to more data](./media/app-insights-asp-net/12-first-perf.png)
 
@@ -88,9 +88,9 @@ Visual Studio 會在 Application Insights 中建立資源，將 SDK 加入至專
 
 #### 沒有資料？
 
-* 開啟 \[[診斷搜尋][diagnostic]\] 磚來查看個別事件。
+* 開啟 [[診斷搜尋][diagnostic]] 磚來查看個別事件。
 * 使用應用程式、開啟不同頁面，以產生一些遙測。
-* 請稍等片刻，然後按一下 \[重新整理\]。
+* 請稍等片刻，然後按一下 [重新整理]。
 * 請參閱[疑難排解][qna]。
 
 

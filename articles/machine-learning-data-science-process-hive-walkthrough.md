@@ -46,17 +46,17 @@
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-聯結 trip\_data and trip\_fare 的唯一索引鍵是由下列欄位所組成：medallion、hack\_licence 和 pickup\_datetime。
+聯結 trip_data and trip_fare 的唯一索引鍵是由下列欄位所組成：medallion、hack_licence 和 pickup_datetime。
 
 分別有 12 個車程 'trip_data' 和 'trip_fare' 檔案。在檔案名稱中，數字 1-12 表示產生車程的月份。 
 
 ## <a name="mltasks"></a>預測工作的範例
 處理資料時，根據分析來決定您想要進行的預測種類，有助於釐清您必須在程序中包含的工作。
-以下是三個預測問題的範例，我們將在此逐步解說中說明哪一個的構想是以 *tip\_amount* 為基礎：
+以下是三個預測問題的範例，我們將在此逐步解說中說明哪一個的構想是以 *tip_amount* 為基礎：
 
-1. **二進位分類**：預測是否已針對某趟車程支付小費，例如，大於 $0 的 *tip\_amount* 為正面範例，而等於 $0 的 *tip\_amount* 為負面範例。
+1. **二進位分類**：預測是否已針對某趟車程支付小費，例如，大於 $0 的 *tip_amount* 為正面範例，而等於 $0 的 *tip_amount* 為負面範例。
 
-2. **多類別分類**：預測已針對該趟車程支付的小費金額範圍。我們會將 *tip\_amount* 區分為五個分類收納組或類別：
+2. **多類別分類**：預測已針對該趟車程支付的小費金額範圍。我們會將 *tip_amount* 區分為五個分類收納組或類別：
 	
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -75,7 +75,7 @@
 - 將資料載入 SQL Server 資料庫，然後在 Azure Machine Learning 中模型化
 - 將資料載入 HDInsight Hive 資料表，然後在 Azure Machine Learning 中模型化
 
-根據資料集大小、資料來源位置，以及選取的 Azure 目標環境，此案例類似[案例 \#7：本機檔案中的大型資料集，Azure HDInsight Hadoop 叢集中的目標 Hive](machine-learning-data-science-plan-sample-scenarios.md#largedbtohive)。
+根據資料集大小、資料來源位置，以及選取的 Azure 目標環境，此案例類似[案例 #7：本機檔案中的大型資料集，Azure HDInsight Hadoop 叢集中的目標 Hive](machine-learning-data-science-plan-sample-scenarios.md#largedbtohive)。
 
 若要針對這個使用 Azure HDInsight Hadoop 叢集的方法來設定您的 Azure 資料科學環境，更具體的說法是使用 Hive 資料表和查詢來儲存及處理資料，請完成下列步驟。
 
@@ -85,7 +85,7 @@
 
 3. [佈建資料科學 **Windows** 虛擬機器](machine-learning-data-science-setup-virtual-machine.md).
 
-	> [AZURE.NOTE] 指令碼範例將會在虛擬機器安裝程序期間，下載到您的資料科學虛擬機器。當 VM 後續安裝指令碼完成之後，範例將會在您位於 *C:\Users\<user_name>\Documents\Data Science Scripts* 上的 VM 文件庫中。  此範例資料夾在後續內容中稱為**指令碼範例**。Hive 查詢範例會包含於 [**指令碼範例**] 資料夾內副檔名為 .hql 的檔案中。請注意，此資料夾路徑中所參考的 *<user_name>* 是 VM 的 Windows 登入名稱，而不是您的 Azure 使用者名稱。
+	> [AZURE.NOTE] 指令碼範例將會在虛擬機器安裝程序期間，下載到您的資料科學虛擬機器。當 VM 後續安裝指令碼完成之後，範例將會在您位於 *C:\Users<user_name>\Documents\Data Science Scripts* 上的 VM 文件庫中。  此範例資料夾在後續內容中稱為**指令碼範例**。Hive 查詢範例會包含於 [**指令碼範例**] 資料夾內副檔名為 .hql 的檔案中。請注意，此資料夾路徑中所參考的 *<user_name>* 是 VM 的 Windows 登入名稱，而不是您的 Azure 使用者名稱。
 
 4. [自訂適用於資料科學的 Azure HDInsight Hadoop 叢集](machine-learning-data-science-customize-hadoop-cluster.md)。這個步驟將會建立已在所有節點上安裝 64 位元 Anaconda Python 2.7 的 Azure HDInsight Hadoop 叢集。建立自訂的 Hadoop 叢集之後，請使用此自訂主題中概述的程序，在 Azure 入口網站中啟用 Hadoop 叢集前端節點的遠端存取。
 
@@ -106,7 +106,7 @@
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://getgoing.blob.core.windows.net/nyctaxifare /Dest:<path_to_data_folder> /S
 
-	When the AzCopy completes, a total of 24 zipped CSV files (12 for trip\_data and 12 for trip\_fare) should be in the data folder.
+	When the AzCopy completes, a total of 24 zipped CSV files (12 for trip_data and 12 for trip_fare) should be in the data folder.
 
 	>[AZURE.NOTE] *Source:https://getgoing.blob.core.windows.net/nyctaxitrip* 和 *Source:https://getgoing.blob.core.windows.net/nyctaxifare* 會指定兩個公用的 Azure 容器，以用來和使用者共用已經解壓縮的 NYC 計程車資料。從這兩個公用的 Azure 容器中進行讀取並不需要存取金鑰。 
 
@@ -211,7 +211,7 @@
 - 檢視這兩個資料表中的前 10 筆記錄。
 - 在變動的時間範圍中探索數個欄位的資料分佈。
 - 調查經度和緯度欄位的資料品質。
-- 根據 **tip\_amount** 來產生二進位和多類別分類標籤。
+- 根據 **tip_amount** 來產生二進位和多類別分類標籤。
 - 藉由計算車程的直線距離來產生功能。
 - 聯結這兩個資料表，並擷取將用來建置模型的隨機取樣。
 
@@ -363,7 +363,7 @@
 	
 ### 準備資料以進行模型建置
 
-本節中提供的查詢會聯結 **nyctaxidb.trip** 和 **nyctaxidb.fare** 資料表、產生二進位分類標籤 **tipped** 及多類別分類標籤 **tip\_class**。您可以複製此查詢，然後直接貼至 [Azure Machine Learning Studio](https://studio.azureml.net) 讀取程式模組，以便從 Azure 中的 **Hive 查詢**直接擷取資料。此查詢也會排除含有不正確緯度和 (或) 經度座標的記錄。
+本節中提供的查詢會聯結 **nyctaxidb.trip** 和 **nyctaxidb.fare** 資料表、產生二進位分類標籤 **tipped** 及多類別分類標籤 **tip_class**。您可以複製此查詢，然後直接貼至 [Azure Machine Learning Studio](https://studio.azureml.net) 讀取程式模組，以便從 Azure 中的 **Hive 查詢**直接擷取資料。此查詢也會排除含有不正確緯度和 (或) 經度座標的記錄。
 
 此查詢會直接套用 Hive 內嵌的 UDF，以便從 Hive 記錄產生數個功能，包括小時、年中的週，以及欄位 _pickup_datetime_ 的工作日 (1 代表星期一，而 7 代表星期日)。使用者可以參考 [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF)，以取得內嵌 Hive UDF 的完整清單。
 
@@ -496,7 +496,7 @@
 
 ![Create workspace][12]
 
-> [AZURE.IMPORTANT] 在前幾節中提供的模型化資料擷取和取樣查詢範例中，**這三個模型化練習的所有標籤都包含於此查詢中**。每一個模型化練習的重要 (必要) 步驟都是針對其他兩個問題**排除**不需要的標籤，以及任何其他的**目標流失**。例如，使用二進位分類時，請使用 [**tipped**] 標籤，並排除 [**tip\_class**]、[**tip\_amount**] 和 [**total\_amount**] 等欄位。後者為目標流失，因為它們意指支付的小費。
+> [AZURE.IMPORTANT] 在前幾節中提供的模型化資料擷取和取樣查詢範例中，**這三個模型化練習的所有標籤都包含於此查詢中**。每一個模型化練習的重要 (必要) 步驟都是針對其他兩個問題**排除**不需要的標籤，以及任何其他的**目標流失**。例如，使用二進位分類時，請使用 [**tipped**] 標籤，並排除 [**tip_class**]、[**tip_amount**] 和 [**total_amount**] 等欄位。後者為目標流失，因為它們意指支付的小費。
 
 > 在此實驗中，第一個 [**中繼資料編輯器**] 模組會將資料行名稱新增至讀取程式模組的輸出資料。因為從 Hive 查詢讀取資料的讀取程式模組不會為輸出資料建立資料行名稱，所以需要此模組。 
 

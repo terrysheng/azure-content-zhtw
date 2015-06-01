@@ -55,7 +55,7 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
 		|-- xml2js@0.2.6 (sax@0.4.2)
 		|-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
 
-3.  您可以手動執行 **ls** 或 **dir** 命令，確認已建立 **node\_modules** 資料夾。在該資料夾內找到 **azure** 封裝，其中包含您存取通知中樞所需的程式庫。
+3.  您可以手動執行 **ls** 或 **dir** 命令，確認已建立 **node_modules** 資料夾。在該資料夾內找到 **azure** 封裝，其中包含您存取通知中樞所需的程式庫。
 
 ### 匯入模組
 

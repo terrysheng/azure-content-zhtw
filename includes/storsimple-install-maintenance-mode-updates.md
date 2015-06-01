@@ -6,6 +6,7 @@
    authors="SharS"
    manager="adinah"
    editor="tysonn" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -17,7 +18,7 @@
 
 ### 透過 Windows PowerShell for StorSimple 安裝維護模式更新
 
-1. 如果您尚未這樣做，請存取裝置序列主控台並選取選項 1 \[使用完整存取權登入\]。 
+1. 如果您尚未這樣做，請存取裝置序列主控台並選取選項 1 [使用完整存取權登入]。 
 
 2. 輸入密碼。預設密碼為 **Password1**。
 

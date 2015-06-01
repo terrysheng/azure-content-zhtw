@@ -106,7 +106,7 @@ Microsoft Azure DocumentDB 可讓您在應用程式的生命週期內，隨著�
 
 ![](./media/documentdb-manage-account/image007.png)
 
-4.      按一下 [**儲存**] \(請注意，調整作業可能需要幾分鐘的時間才能完成，您可以透過 Azure 預覽入口網站通知中樞監視作業的進度)。
+4.      按一下 [**儲存**] (請注意，調整作業可能需要幾分鐘的時間才能完成，您可以透過 Azure 預覽入口網站通知中樞監視作業的進度)。
 
  *請注意，對於每個 DocumentDB 帳戶，DocumentDB 預覽最多支援 5 個容量
 單位。*

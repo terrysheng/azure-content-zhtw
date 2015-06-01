@@ -198,13 +198,13 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 
     <?php    
 		header("content-type: text/xml");    
-		echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		echo "<?xml version="1.0" encoding="UTF-8"?>\n";
 	?>
 	<Response>    
 		<Say>Hello world.</Say>
 	</Response>
 
-從以上範例中可知，TwiML 回應只是一份 XML 文件。適用於 PHP 的 Twilio 程式庫包含可為您產生 TwiML 的類別。下列範例會產生同上的回應，但改用適用於 PHP 的 Twilio 程式庫中的 **Services\_Twilio\_Twiml** 類別：
+從以上範例中可知，TwiML 回應只是一份 XML 文件。適用於 PHP 的 Twilio 程式庫包含可為您產生 TwiML 的類別。下列範例會產生同上的回應，但改用適用於 PHP 的 Twilio 程式庫中的 **Services_Twilio_Twiml** 類別：
 
 	require_once('Services/Twilio.php');
 	

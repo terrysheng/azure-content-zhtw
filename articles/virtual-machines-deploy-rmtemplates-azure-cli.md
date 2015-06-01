@@ -22,7 +22,7 @@
 
 ## 準備就緒
 
-在您能搭配 Azure 資源群組使用 Azure CLI 前，請您準備好正確的 Azure CLI 版本以及公司或學校識別碼 \(也稱為組織識別碼」\)。
+在您能搭配 Azure 資源群組使用 Azure CLI 前，請您準備好正確的 Azure CLI 版本以及公司或學校識別碼 (也稱為組織識別碼」)。
 
 ### 步驟 1：將 Azure CLI 版本升級至 0.9.0
 
@@ -56,11 +56,11 @@
 
 	`azure account set <subscription name or ID> true
 
-並加上訂閱帳戶名稱或識別碼 \(有您想管理的資源\)。
+並加上訂閱帳戶名稱或識別碼 (有您想管理的資源)。
 
 ### 步驟 3：切換至 Azure CLI 資源群組模式
 
-根據預設，Azure CLI 會在服務管理模式下啟動 \(\*\* asm \*\* 模式\)。類型
+根據預設，Azure CLI 會在服務管理模式下啟動 (** asm ** 模式)。類型
 
 	azure config mode arm
 
@@ -70,14 +70,14 @@
 
 ## 了解 Azure 資源範本和資源群組
 
-大部分的應用程式在建立時會使用不同資源類型的組合 \(例如一或多個 VM 和儲存體帳戶、SQL 資料庫、虛擬網路、內容傳遞網路或 *CDN*\)。預設 Azure 服務管理 API 與 Azure 傳統入口網站分別代表使用 service-by-service 方法的項目，如此一來您需要部署和管理每一個服務 \(或尋找其他具備相同功能的工具\)，而不是當做單一邏輯部署單元。
+大部分的應用程式在建立時會使用不同資源類型的組合 (例如一或多個 VM 和儲存體帳戶、SQL 資料庫、虛擬網路、內容傳遞網路或 *CDN*)。預設 Azure 服務管理 API 與 Azure 傳統入口網站分別代表使用 service-by-service 方法的項目，如此一來您需要部署和管理每一個服務 (或尋找其他具備相同功能的工具)，而不是當做單一邏輯部署單元。
 
 您可以利用 *Azure Resource Manager*，將這些不同的資源宣告為一個邏輯部署單元，然後就可以進行部署和管理。請不要以命令方式告訴 Azure 逐一部署命令，您應該在 JSON 檔案描述整個部署過程 -- 所有資源和相關設定以及部署參數 -- 然後告訴 Azure 將這些資源視為一個群組加以部署。
 
 然後您可以使用 Azure CLI 資源管理命令執行以下動作，即可管理群組的資源整體使用週期：
 
 - 一次性停止、啟動或刪除群組內的所有資源。 
-- 將角色型存取控制 \(RBAC\) 規則套用至鎖定它們的安全權限。 
+- 將角色型存取控制 (RBAC) 規則套用至鎖定它們的安全權限。 
 - 稽核作業。 
 - 利用其他中繼資料標記資源，方便追蹤。 
 
@@ -107,21 +107,21 @@
 
 | 發行者 | ImageOffer | ImageSku | ComputeImageVersion |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic | CentOS | 7 | 7\.0.201503 |
-| OpenLogic | CentOS | 7\.1 | 7\.1.201504 |
-| CoreOS | CoreOS | Beta | 647\.0.0 |
-| CoreOS | CoreOS | Stable | 633\.1.0 |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8\.0.40459 |
-| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1\.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | 標準 | 1\.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1\.0.0 |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW | 12\.0.2430 |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP | 12\.0.2430 |
-| Canonical | UbuntuServer | 14\.04.1-LTS | 14\.04.201501230 |
-| Canonical | UbuntuServer | 14\.04.2-LTS | 14\.04.201503090 |
-| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | 5\.0.201504 |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1\.0.141204 |
-| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4\.3.4665 |
+| OpenLogic | CentOS | 7 | 7.0.201503 |
+| OpenLogic | CentOS | 7.1 | 7.1.201504 |
+| CoreOS | CoreOS | Beta | 647.0.0 |
+| CoreOS | CoreOS | Stable | 633.1.0 |
+| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8.0.40459 |
+| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | 標準 | 1.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1.0.0 |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW | 12.0.2430 |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP | 12.0.2430 |
+| Canonical | UbuntuServer | 14.04.1-LTS | 14.04.201501230 |
+| Canonical | UbuntuServer | 14.04.2-LTS | 14.04.201503090 |
+| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | 5.0.201504 |
+| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1.0.141204 |
+| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4.3.4665 |
 
 只要輸入 `azure vm quick-create command`，然後根據系統提示執行，就可以建立 VM。您應該會看到類似下面的畫面：
 
@@ -216,9 +216,9 @@
  
 ### 步驟 1：檢查 JSON 檔案的範本參數。
 
-以下是範本的 JSON 檔案內容。\(這個範本也位於 GitHub [這裡](https://github.com/Azure/azure-quickstart-templates/blob/master/101-simple-linux-vm/azuredeploy.json)\)。
+以下是範本的 JSON 檔案內容。(這個範本也位於 GitHub [這裡](https://github.com/Azure/azure-quickstart-templates/blob/master/101-simple-linux-vm/azuredeploy.json))。
 
-範本可彈性運用，所以這位設計人員可能已經決定提供很多的參數給您，或者她決定建立一個更固定的範本，而只提供幾個參數給您。為了收集資訊，請您將這個範本以參數的形式傳遞，然後開啟範本檔案 \(這個主題內嵌一個範本\)，接下來檢查 \[參數\]**** 值。
+範本可彈性運用，所以這位設計人員可能已經決定提供很多的參數給您，或者她決定建立一個更固定的範本，而只提供幾個參數給您。為了收集資訊，請您將這個範本以參數的形式傳遞，然後開啟範本檔案 (這個主題內嵌一個範本)，接下來檢查 [參數]**** 值。
 
 在這個案例中，系統會要求您提供下列範本：
 
@@ -432,8 +432,8 @@
 
 現在要建立部署，請呼叫 `azure group deployment create` 並傳遞：
 
-- 範本檔案 \(如果您會將上述 JSON 範本儲存到本機檔案\) 
-- 範本 URI \(如果您想指向 Github 中的檔案或其他網址\)
+- 範本檔案 (如果您會將上述 JSON 範本儲存到本機檔案) 
+- 範本 URI (如果您想指向 Github 中的檔案或其他網址)
 - 部署的目標資源群組
 - 以及選用部署名稱。 
 
@@ -479,7 +479,7 @@
 
 ## 一般工作：建立自訂的 VM 映像
 
-您已基本了解上述範本的用法，那麼現在我們可以使用類似的操作方法，使用 Azure 的特定 .vhd 檔案搭配範本和 Azure CLI 建立自訌的範本。其中的差別就是這個範本會從指定的虛擬硬碟 \(VHD\) 建立單一虛擬機器。
+您已基本了解上述範本的用法，那麼現在我們可以使用類似的操作方法，使用 Azure 的特定 .vhd 檔案搭配範本和 Azure CLI 建立自訌的範本。其中的差別就是這個範本會從指定的虛擬硬碟 (VHD) 建立單一虛擬機器。
 
 ### 步驟 1：檢查範本的 JSON 檔案
 
@@ -693,7 +693,7 @@
     data:    
     info:    group create command OK
     
-然後使用 `--template-uri` 選項直接呼叫範本 \(或者使用 `--template-file` 選項，使用自己儲存在本機中的檔案\)，開始建立部署。請注意，因為範本已指定預設值，所以只會提示您只輸入幾項資料。如果將範本部署到幾個不同的地方，可能會發現某些名稱與預設值衝突 \(特別是您建立的 DNS 名稱\)。
+然後使用 `--template-uri` 選項直接呼叫範本 (或者使用 `--template-file` 選項，使用自己儲存在本機中的檔案)，開始建立部署。請注意，因為範本已指定預設值，所以只會提示您只輸入幾項資料。如果將範本部署到幾個不同的地方，可能會發現某些名稱與預設值衝突 (特別是您建立的 DNS 名稱)。
 
     azure group deployment create \
     > --template-uri https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-vm-from-user-image/azuredeploy.json \
@@ -1166,17 +1166,17 @@
     
 ## 顯示資源群組部署記錄檔
 
-建立或使用範本時，此種情況很常見。您可以使用 `azure group log show <groupname>` 呼叫來顯示群組的部署日誌，它會顯示相當多的實用資訊，幫助您了解為何發生某些狀況，或者為何未發生某些狀況。\(如需疑難排解部署以及其他問題的詳細資訊，請參閱[疑難排解 Azure 的資源群組部署](resource-group-deploy-debug.md)\)。
+建立或使用範本時，此種情況很常見。您可以使用 `azure group log show <groupname>` 呼叫來顯示群組的部署日誌，它會顯示相當多的實用資訊，幫助您了解為何發生某些狀況，或者為何未發生某些狀況。(如需疑難排解部署以及其他問題的詳細資訊，請參閱[疑難排解 Azure 的資源群組部署](resource-group-deploy-debug.md))。
 
 例如，為了查明某些異常狀況，您可以使用 **jq** 此類的工具，就可以更清楚掌握前因後果，例如您需要更正的異常狀況。下列範例會使用 **jq** 剖析 **lbgroup** 的部署記錄檔，找出各種異常狀況。
 
     azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties' 
 
-您可以快速發現問題出在哪裡，然後予以修正，最後再試一次。在下列情況中，範本已經同時建立兩個 VM，這樣會造成 .vhd 被鎖定。\(修改範本後，很快就部署成功\)。
+您可以快速發現問題出在哪裡，然後予以修正，最後再試一次。在下列情況中，範本已經同時建立兩個 VM，這樣會造成 .vhd 被鎖定。(修改範本後，很快就部署成功)。
 
     {
       "statusCode": "Conflict",
-      "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"AcquireDiskLeaseFailed\",\"message\":\"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd.\"}]}}"
+      "statusMessage": "{"status":"Failed","error":{"code":"ResourceDeploymentFailure","message":"The resource operation completed with terminal provisioning state 'Failed'.","details":[{"code":"AcquireDiskLeaseFailed","message":"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd."}]}}"
     }
     
 
@@ -1271,7 +1271,7 @@
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT]萬一它是雲端服務的最後一個 VM，您可以使用這個參數來保留雲端服務的虛擬 IP \(VIP\)。<br><br> 如果使用 StayProvisioned 參數，還是需要支付 VM 的費用。
+>[AZURE.IMPORTANT]萬一它是雲端服務的最後一個 VM，您可以使用這個參數來保留雲端服務的虛擬 IP (VIP)。<br><br> 如果使用 StayProvisioned 參數，還是需要支付 VM 的費用。
 
 ## 啟動 VM
 

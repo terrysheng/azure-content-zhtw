@@ -42,13 +42,13 @@
 	* 使用 **RestorableDropped** 切換及指定 **ServerName** (要從中刪除資料庫之伺服器的名稱)。
 	* 執行以下命令會將結果儲存在稱為 **$RecoverableDBs** 的變數中。
 	
-	`PS C:\>$RecoverableDBs = Get-AzureSqlDatabase -ServerName "myserver" -RestorableDropped`
+	`PS C:>$RecoverableDBs = Get-AzureSqlDatabase -ServerName "myserver" -RestorableDropped`
 
 2. 從已刪除之資料庫的清單中選擇您想要還原的已刪除資料庫。
 
 	* 輸入 **$RecoverableDBs** 清單中已刪除之資料庫的編號。  
 
-	`PS C:\>$Database = $RecoverableDBs[<deleted database number>]`
+	`PS C:>$Database = $RecoverableDBs[<deleted database number>]`
 
 	* 如需如何取得可還原之已刪除資料庫物件的相關詳細資訊，請參閱 [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/dn546735.aspx)。
 
@@ -58,14 +58,14 @@
 
 	將傳回的內容儲存至稱為 **$RestoreRequest** 的變數中。此變數包含用來監視還原狀態的還原要求識別碼。
 	
-	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database -TargetDatabaseName "myrestoredDB"`
+	`PS C:>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database -TargetDatabaseName "myrestoredDB"`
 
 還原可能需要一些時間來完成。若要監視還原狀態，請使用 [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) Cmdlet 並指定以下參數：
 
 * **ServerName**：您還原資料庫後之目標伺服器的名稱。
 * **OperationGuid**：於步驟 3 中儲存在 **$RestoreRequest** 變數中的還原要求識別碼。
 
-	`PS C:\>Get-AzureSqlDatabaseOperation -ServerName "myserver" -OperationGuid $RestoreRequest.RequestID`
+	`PS C:>Get-AzureSqlDatabaseOperation -ServerName "myserver" -OperationGuid $RestoreRequest.RequestID`
 
 **State** 與 **PercentComplete** 欄位會顯示還原狀態。
 

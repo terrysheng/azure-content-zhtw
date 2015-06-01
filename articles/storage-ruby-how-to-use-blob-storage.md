@@ -54,7 +54,7 @@
 
 ## 設定 Azure 儲存體連接
 
-Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORAGE\_ACCESS_KEY**， 
+Azure 模組會讀取環境變數 **AZURE_STORAGE_ACCOUNT** 和 **AZURE_STORAGE_ACCESS_KEY**， 
 以取得連接到 Azure 儲存體帳戶所需的資訊。如果尚未設定這些環境變數，您必須使用下列程式碼，在使用 **Azure::BlobService** 之前指定帳戶資訊：
 
 	Azure.config.storage_account_name = "<your azure storage account>"
@@ -70,7 +70,7 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORA
 
 ## 作法：建立容器
 
-**Azure::BlobService** 物件可讓您操作容器及 Blob。若要建立容器，請使用 **create\_container()** 方法。
+**Azure::BlobService** 物件可讓您操作容器及 Blob。若要建立容器，請使用 **create_container()** 方法。
 
 下列範例將建立容器或列印錯誤訊息 (若有的話)。
 
@@ -83,19 +83,19 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORA
 
 如果您想讓容器中的檔案成為公用性質，可以設定容器的權限。 
 
-您可以只修改 <strong>create\_container()</strong> 呼叫以傳遞 **:public\_access\_level** 選項：
+您可以只修改 <strong>create_container()</strong> 呼叫以傳遞 **:public_access_level** 選項：
 
 	container = azure_blob_service.create_container("test-container", 
 	  :public_access_level => "<public access level>")
 
 
-**:public\_access\_level** 選項的有效值為：
+**:public_access_level** 選項的有效值為：
 
 * **Blob：**指定容器和 Blob 資料的完整公用讀取權限。用戶端可以透過匿名要求列舉容器內的 Blob，但無法列舉儲存體帳戶內的容器。
 
 * **容器：**指定 Blob 的公用讀取權限。用戶端可以透過匿名要求讀取此容器中的 Blob 資料，但沒有可用的容器資料。用戶端無法透過匿名要求列舉容器內的 Blob。
 
-或者，您可以使用 **set\_container\_acl()** 方法指定公用存取等級，藉此修改容器的公用存取等級。
+或者，您可以使用 **set_container_acl()** 方法指定公用存取等級，藉此修改容器的公用存取等級。
  
 下列範例會將公用存取等級變更為 **container**：
 
@@ -103,7 +103,7 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORA
 
 ## 作法：將 Blob 上傳至容器
 
-若要將內容上傳至 Blob，請使用 **create\_block\_blob()** 方法建立 Blob，使用檔案或字串作為 Blob 的內容。 
+若要將內容上傳至 Blob，請使用 **create_block_blob()** 方法建立 Blob，使用檔案或字串作為 Blob 的內容。 
 
 下列程式碼將上傳檔案 **test.png** 作為容器中的新 Blob (名為 "image-blob")。
 
@@ -115,7 +115,7 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORA
 ## 作法：列出容器中的 Blob
 
 若要列出容器，請使用 **list_containers()** 方法。 
-若要列出容器中的 Blob，請使用 **list\_blobs()** 方法。 
+若要列出容器中的 Blob，請使用 **list_blobs()** 方法。 
 
 這會輸出該帳戶所有容器中所有 Blob 的 URL。
 
@@ -129,15 +129,15 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORA
 
 ## 作法：下載 Blob
 
-若要下載 Blob，請使用 **get\_blob()** 方法擷取內容。 
+若要下載 Blob，請使用 **get_blob()** 方法擷取內容。 
 
-下列範例示範使用 **get\_blob()** 來下載 "image-blob" 的內容，並將它寫入本機檔案。
+下列範例示範使用 **get_blob()** 來下載 "image-blob" 的內容，並將它寫入本機檔案。
 
 	blob, content = azure_blob_service.get_blob(container.name,"image-blob")
 	File.open("download.png","wb") {|f| f.write(content)}
 
 ## 作法：刪除 Blob
-最後，若要刪除 Blob，請使用 **delete\_blob()** 方法。下列範例示範如何刪除 Blob。
+最後，若要刪除 Blob，請使用 **delete_blob()** 方法。下列範例示範如何刪除 Blob。
 
 	azure_blob_service.delete_blob(container.name, "image-blob")
 

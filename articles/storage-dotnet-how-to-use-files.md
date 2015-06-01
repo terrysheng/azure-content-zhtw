@@ -146,11 +146,11 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 在遠端連線到虛擬機器後，您可以使用下列語法執行 `net use` 命令以掛接檔案共用。使用您的儲存體帳戶名稱來取代 `<storage-account>`，並使用您的檔案儲存體共用名稱來取代 `<share-name>`。
 
-	net use z: \\<storage-account>.file.core.windows.net\<share-name>
+	net use z: <storage-account>.file.core.windows.net<share-name>
 
 > [AZURE.NOTE] 由於您已在上一個步驟中保留儲存體帳戶認證，因此您無需使用 `net use` 命令提供這些認證。如果您尚未保留認證，則將他們作為傳送到 `net use` 命令的參數包括在其中。使用您的儲存體帳戶名稱來取代 `<storage-account>`，並使用您的檔案儲存體共用名稱來取代 `<share-name>`，以及使用您的儲存體帳戶金鑰來取代 `<account-key>`。
 	   
-	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
+	net use z: <storage-account>.file.core.windows.net<share-name> /u:<storage-account> <account-key>
 
 您現在可以從虛擬機器使用檔案儲存體共用，就好像操作任何其他磁碟機一樣。您可以從命令提示字元中發佈標準檔案命令，或從 [檔案總管] 中檢視掛接的共用及其內容。您也可以使用標準 Windows 檔案 I/O API (例如 .NET Framework 中 [System.IO namespaces](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) 所提供的那些 API)，在可存取檔案共用的虛擬機器內執行程式碼。 
 

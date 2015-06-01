@@ -3,27 +3,27 @@
 > [AZURE.IMPORTANT] MongoDB 安全性功能，例如驗證和 IP 位址繫結，均非預設為已啟用。安全性功能應該在將 MongoDB 部署到生產環境前加以啟用。請參閱 [安全性與驗證](http://www.mongodb.org/display/DOCS/Security+and+Authentication) 以取得詳細資訊。
 
 1. 使用遠端桌面連線到虛擬機器時，請從 [**開始**] 功能表開啟 Internet Explorer。
-2. 選取右上方的 [**工具**] 按鈕。在 [**網際網路選項**] 中，選取 [**安全性**] 索引標籤，接著選取 [**受信任的網站**] 圖示，最後按一下 [**網站**] 按鈕。將 *http://\*.mongodb.org* 新增至受信任的網站清單。
+2. 選取右上方的 [**工具**] 按鈕。在 [**網際網路選項**] 中，選取 [**安全性**] 索引標籤，接著選取 [**受信任的網站**] 圖示，最後按一下 [**網站**] 按鈕。將 *http://*.mongodb.org* 新增至受信任的網站清單。
 3. 移至 [[下載 - MongoDB] [MongoDownloads]]。
 4. 在＜**產品版本 (建議)**＞一節中尋找最新的版本，並按一下 Windows 64 位元欄中的 [***2008+**] 連結。按一下 [**另存新檔**]，並將壓縮檔案儲存到桌面。
-5. 在壓縮檔案上按一下滑鼠右鍵，並選取 [**解壓縮全部...**]指定 "C:\" 並按一下 [**解壓縮**]。檔案解壓縮之後，您可能希望重新命名並簡化安裝資料夾的名稱。例如 "MongoDB"。
+5. 在壓縮檔案上按一下滑鼠右鍵，並選取 [**解壓縮全部...**]指定 "C:" 並按一下 [**解壓縮**]。檔案解壓縮之後，您可能希望重新命名並簡化安裝資料夾的名稱。例如 "MongoDB"。
 6. 在您先前建立的資料磁碟中建立 MongoDB 資料和記錄目錄 (例如磁碟機 **F:**)。在 [**開始**] 功能表中，選取 [**命令提示字元**] 以開啟命令提示字元視窗。輸入：
 
-		C:\> F:
-		F:\> mkdir \MongoData
-		F:\> mkdir \MongoLogs
+		C:> F:
+		F:> mkdir \MongoData
+		F:> mkdir \MongoLogs
 
 7. 若要執行資料庫，執行： 
 
-		F:\> C:
-		C:\> cd \MongoDB\bin
+		F:> C:
+		C:> cd \MongoDB\bin
 		C:\my_mongo_dir\bin> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
 	在 mongod.exe 伺服器啟動和預先配置日誌檔案時，所有記錄檔訊息都會被導向至 *F:\MongoLogs\mongolog.log* 檔案。MongoDB 可能需要花費數分鐘來預先配置日誌檔案，並開始接聽連線。
 
 8. 若要啟動 MongoDB 管理殼層，請從 [**開始** ] 功能表中開啟另一個命令視窗，並輸入下列內容：
 
-		C:\> cd \my_mongo_dir\bin  
+		C:> cd \my_mongo_dir\bin  
 		C:\my_mongo_dir\bin> mongo  
 		>db  
 		test  	  

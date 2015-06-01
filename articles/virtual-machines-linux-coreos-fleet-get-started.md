@@ -31,7 +31,7 @@
 
 此為在單一 Docker 容器上執行的簡單 "Hello World" 應用程式。這會使用 [busybox Docker 中樞映像]。
 
-在 Linux 用戶端電腦上，使用您最愛的文字編輯器來建立下列 **systemd** 單位檔案，並將其命名為 `helloworld.service`。\(如需此語法的詳細資訊，請參閱[單位檔案]。\)
+在 Linux 用戶端電腦上，使用您最愛的文字編輯器來建立下列 **systemd** 單位檔案，並將其命名為 `helloworld.service`。(如需此語法的詳細資訊，請參閱[單位檔案]。)
 
 ```
 [Unit]
@@ -60,7 +60,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 start helloworld.service
 Unit helloworld.service launched on 62f0f66e.../100.79.86.62
 ```
 
->[AZURE.NOTE]若要執行遠端 **fleetctl** 命令，而不使用 **--tunnel** 參數，可選擇設定 FLEETCTL\_TUNNEL 環境變數，以通道傳送要求。例如：`export FLEETCTL_TUNNEL=coreos-cluster.cloudapp.net:22`。
+>[AZURE.NOTE]若要執行遠端 **fleetctl** 命令，而不使用 **--tunnel** 參數，可選擇設定 FLEETCTL_TUNNEL 環境變數，以通道傳送要求。例如：`export FLEETCTL_TUNNEL=coreos-cluster.cloudapp.net:22`。
 
 
 您可連接到容器以查看此服務的輸出：
@@ -92,7 +92,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload helloworld.service
 
 使用 CoreOS、Docker 和 **Fleet** 的優勢在於，這很容易以高可用性的方式執行服務。在此範例中，您將部署服務，這包含在 Apache Web 伺服器中的三個完全相同的容器。這些容器將在此叢集的三個 VM 中執行。此範例和[以 Fleet 啟動容器]的範例類似，並且使用 [CoreOS Apache Docker 中樞映像]。
 
->[AZURE.NOTE]若要執行高可用性的 Apache 伺服器，您將需要在虛擬機器上設定負載平衡的 HTTP 端點 \(公用連接埠 80、私用連接埠 80\)。您可以在建立 CoreOS 叢集後使用 Azure 管理入口網站或 **azure vm endpoint** 命令進行這項動作。如需詳細資訊，請參閱[設定負載平衡集]。
+>[AZURE.NOTE]若要執行高可用性的 Apache 伺服器，您將需要在虛擬機器上設定負載平衡的 HTTP 端點 (公用連接埠 80、私用連接埠 80)。您可以在建立 CoreOS 叢集後使用 Azure 管理入口網站或 **azure vm endpoint** 命令進行這項動作。如需詳細資訊，請參閱[設定負載平衡集]。
 
 在用戶端電腦上，請使用您最愛的文字編輯器來建立 **systemd** 範本單位檔案，名為 apache@.service。您將使用該範本來啟動三個個別的執行個體，名為 apache@1.service、apache@2.service 和 apache@3.service：
 
@@ -133,10 +133,10 @@ unit apache@2.service launched on df85f2d1.../100.78.126.15
 您會看到從 Apache 伺服器傳回的預設文字，類似於：
 
 ```
-\<htm\l>\<body\>\<h1\>It works!\</h1\>
-\<p\>This is the default web page for this server.\</p\>
-\<p\>The web server software is running but no content has been added, yet.\</p\>
-\</body\>\</html\>
+<htm\l><body><h1>It works!</h1>
+<p>This is the default web page for this server.</p>
+<p>The web server software is running but no content has been added, yet.</p>
+</body></html>
 ```
 
 您可以嘗試關閉叢集內的一部或多部虛擬機器，以確認 Apache 服務仍繼續執行。

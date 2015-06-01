@@ -32,7 +32,7 @@
 3. 建立憑證，如[建立 Azure 的服務憑證](http://msdn.microsoft.com/library/azure/gg432987.aspx)所述。保留 .pfx 和 RDP 憑證指紋，並將憑證上傳至目標雲端服務。
 4. 在 MSBuild 命令列中使用下列選項，指定啟用遠端偵測來建置和封裝(根據您的系統和專案檔案來更新路徑)。
 
-	/TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="C:\\Remote Debugger\\x64\";RemoteDebuggerConnectorCertificateThumbprint="56D7D1B25B472268E332F7FC0C87286458BFB6B2";RemoteDebuggerConnectorVersion="2.4" "C:\\Users\\yourusername\\Documents\\visual studio 2013\\Projects\\WindowsAzure1\\WindowsAzure1.sln"
+	/TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="C:\\Remote Debugger\\x64";RemoteDebuggerConnectorCertificateThumbprint="56D7D1B25B472268E332F7FC0C87286458BFB6B2";RemoteDebuggerConnectorVersion="2.4" "C:\\Users\\yourusername\\Documents\\visual studio 2013\\Projects\\WindowsAzure1\\WindowsAzure1.sln"
 
 5. 使用前一個步驟中產生的封裝和 .cscfg 檔案來發行至目標雲端服務。
 6. 將憑證 (.pfx 檔案) 匯入至已安裝 Visual Studio with Azure SDK 2.4 的電腦。
@@ -46,49 +46,49 @@
 5. 執行下列指令碼來啟用 RemoteDebug 延伸模組。換成您自己的個人資料，例如訂閱名稱、服務名稱和指紋。(注意：此指令碼設定用於 Visual Studio 2013。如果您使用 Visual Studio 2012，請在 ReferenceName 和 ExtensionName 使用 "RemoteDebugVS2013")。
 
 	<pre>
-Add-AzureAccount
-
-Select-AzureSubscription "My Microsoft Subscription"
-
-$vm = Get-AzureVM -ServiceName "mytestvm1" -Name "mytestvm1"
-
-$endpoints = @(
-,@{Name="RDConnVS2013"; PublicPort=30400; PrivatePort=30398}
-,@{Name="RDFwdrVS2013"; PublicPort=31400; PrivatePort=31398}
-)
-
-foreach($endpoint in $endpoints)
-{
-Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort
-}
-
-$referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2013"
-$publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"
-$extensionName = "RemoteDebugVS2013"
-$version = "1.*"
-$publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
-
-$vm | Set-AzureVMExtension `
--ReferenceName $referenceName `
--Publisher $publisher `
--ExtensionName $extensionName `
--Version $version `
--PublicConfiguration $publicConfiguration
-
-foreach($extension in $vm.VM.ResourceExtensionReferences)
-{   
-if(($extension.ReferenceName -eq $referenceName) `
--and ($extension.Publisher -eq $publisher) `
--and ($extension.Name -eq $extensionName) `
--and ($extension.Version -eq $version))
-{
-$extension.ResourceExtensionParameterValues[0].Key = 'config.txt'
-break
-}
-}
-
-$vm | Update-AzureVM 
-</pre>
+    Add-AzureAccount
+    
+    Select-AzureSubscription "My Microsoft Subscription"
+    
+    $vm = Get-AzureVM -ServiceName "mytestvm1" -Name "mytestvm1"
+    
+    $endpoints = @(
+    ,@{Name="RDConnVS2013"; PublicPort=30400; PrivatePort=30398}
+    ,@{Name="RDFwdrVS2013"; PublicPort=31400; PrivatePort=31398}
+    )
+    
+    foreach($endpoint in $endpoints)
+    {
+    Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort
+    }
+    
+    $referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2013"
+    $publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"
+    $extensionName = "RemoteDebugVS2013"
+    $version = "1.*"
+    $publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
+    
+    $vm | Set-AzureVMExtension `
+    -ReferenceName $referenceName `
+    -Publisher $publisher `
+    -ExtensionName $extensionName `
+    -Version $version `
+    -PublicConfiguration $publicConfiguration
+    
+    foreach($extension in $vm.VM.ResourceExtensionReferences)
+    {   
+    if(($extension.ReferenceName -eq $referenceName) `
+    -and ($extension.Publisher -eq $publisher) `
+    -and ($extension.Name -eq $extensionName) `
+    -and ($extension.Version -eq $version))
+    {
+    $extension.ResourceExtensionParameterValues[0].Key = 'config.txt'
+    break
+    }
+    }
+    
+    $vm | Update-AzureVM 
+	</pre>
     
 6. 將憑證 (.pfx) 匯入至已安裝 Visual Studio with Azure SDK for .NET 2.4 的電腦。
 <!--HONumber=54-->

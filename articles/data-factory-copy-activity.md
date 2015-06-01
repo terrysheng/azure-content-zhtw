@@ -16,15 +16,15 @@
 	ms.date="04/02/2015" 
 	ms.author="spelluru"/>
 
-# 使用 Azure Data Factory 複製資料 \(複製活動\)
+# 使用 Azure Data Factory 複製資料 (複製活動)
 ## 概觀
-您可以在管線中使用 \[**複製活動**\]，以批次方式將資料從來源複製到接收器 \(目的地\)。複製活動可以用於下列案例：
+您可以在管線中使用 [**複製活動**]，以批次方式將資料從來源複製到接收器 (目的地)。複製活動可以用於下列案例：
 
-- **輸入至 Azure**。在此案例中，資料會針對下列子案例，從內部部署資料來源 \(例如 SQL Server\) 複製到 Azure 資料存放區 \(例如 Azure Blob、Azure 資料表或 Azure SQL Database\)：
+- **輸入至 Azure**。在此案例中，資料會針對下列子案例，從內部部署資料來源 (例如 SQL Server) 複製到 Azure 資料存放區 (例如 Azure Blob、Azure 資料表或 Azure SQL Database)：
 	- 在 Azure 上的集中位置收集資料，以進一步處理。
 	- 將資料從內部部署上或非 Azure 雲端平台移轉至 Azure。
 	- 將資料封存或備份至 Azure，以進行符合成本效益的分層式儲存。
-- **從 Azure 輸出**。在此案例中，資料會針對下列子案例，從 Azure \(例如 Azure Blob、Azure 資料表或 Azure SQL Database\) 複製到內部部署資料超市和資料倉儲 \(例如 SQL Server\)：
+- **從 Azure 輸出**。在此案例中，資料會針對下列子案例，從 Azure (例如 Azure Blob、Azure 資料表或 Azure SQL Database) 複製到內部部署資料超市和資料倉儲 (例如 SQL Server)：
 	- 因缺乏雲端資料倉儲支援而將資料傳輸至內部部署。
 	- 將資料傳輸至內部部署，以利用現有的內部部署解決方案或報告基礎結構。
 	- 將資料封存或備份至內部部署，以進行分層式儲存
@@ -125,12 +125,12 @@
 
 </table>
 
-### 基礎架構即服務 \(IaaS\) 上的 SQL
-IaaS 上的 SQL 支援以 Azure 做為 laaS 提供者。下列網路和 VPN 拓撲可受支援。請注意，案例 \#2 和 \#3 需要「資料管理閘道」，但案例 \#1 則不需要。如需有關「資料管理閘道」的詳細資料，請參閱[讓您的管線使用內部部署資料][use-onpremises-datasources]。
+### 基礎架構即服務 (IaaS) 上的 SQL
+IaaS 上的 SQL 支援以 Azure 做為 laaS 提供者。下列網路和 VPN 拓撲可受支援。請注意，案例 #2 和 #3 需要「資料管理閘道」，但案例 #1 則不需要。如需有關「資料管理閘道」的詳細資料，請參閱[讓您的管線使用內部部署資料][use-onpremises-datasources]。
 
 1.	具有公用 DNS 名稱以及靜態公用連接埠：私用連接埠對應的 VM
 2.	具有公用 DNS 名稱、但未公開 SQL 端點的 VM
-3.	虛擬網路<ol type='a'> <li>在清單結尾處具有下列拓撲的 Azure 雲端 VPN。</li> <li>具有內部部署至雲端站對站 VPN \(使用 Azure 虛擬網路\) 的 VM。</li> </ol> ![使用複製活動的 Data Factory][image-data-factory-copy-actvity]
+3.	虛擬網路<ol type='a'> <li>在清單結尾處具有下列拓撲的 Azure 雲端 VPN。</li> <li>具有內部部署至雲端站對站 VPN (使用 Azure 虛擬網路) 的 VM。</li> </ol> ![使用複製活動的 Data Factory][image-data-factory-copy-actvity]
 
 ## 複製活動 - 元件
 複製活動包含下列元件：
@@ -142,7 +142,7 @@ IaaS 上的 SQL 支援以 Azure 做為 laaS 提供者。下列網路和 VPN 拓�
 一個複製活動可以有一個**輸入資料表**和一個**輸出資料表**。
 
 ## <a name="CopyActivityJSONSchema"></a>複製活動的 JSON
-管線由一或多個活動所組成。管線中的活動定義於 \[**活動[]**\] 區段中。管線的 JSON 如下所示：
+管線由一或多個活動所組成。管線中的活動定義於 [**活動[]**] 區段中。管線的 JSON 如下所示：
          
 	{
 		"name": "PipelineName",
@@ -156,7 +156,7 @@ IaaS 上的 SQL 支援以 Azure 做為 laaS 提供者。下列網路和 VPN 拓�
 		}
 	}
 
-\[**活動**\] 區段內的每個活動都有下列最上層結構。**type** 屬性應設為 **CopyActivity**。複製活動只可以有一個輸入資料表和一個輸出資料表。
+[**活動**] 區段內的每個活動都有下列最上層結構。**type** 屬性應設為 **CopyActivity**。複製活動只可以有一個輸入資料表和一個輸出資料表。
          
 
 	{
@@ -251,32 +251,69 @@ IaaS 上的 SQL 支援以 Azure 做為 laaS 提供者。下列網路和 VPN 拓�
 	{
 		"name": "MyOnPremTable",
     	"properties":
-	{ "location": { "type": "OnPremisesSqlServerTableLocation", "tableName": "MyTable", "linkedServiceName": "MyOnPremisesSQLDB" }, "availability": { "frequency": "Hour", "interval": 1 } } }
+   		{
+			"location":
+    		{
+    			"type": "OnPremisesSqlServerTableLocation",
+    			"tableName": "MyTable",
+    			"linkedServiceName": "MyOnPremisesSQLDB"
+    		},
+    		"availability":
+   			{
+    			"frequency": "Hour",
+    			"interval": 1
+   			}
+ 		}
+	}
 
-下列範例 Azure PowerShell 命令會使用 **New-AzureDataFactoryTable**，其中使用的 JSON 檔案會包含前述指令碼在 Azure Data Factory 中建立資料表 \(\*\*MyOnPremTable\*\*\)：**CopyFactory**。
+下列範例 Azure PowerShell 命令會使用 **New-AzureDataFactoryTable**，其中使用的 JSON 檔案會包含前述指令碼在 Azure Data Factory 中建立資料表 (**MyOnPremTable**)：**CopyFactory**。
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF –Name MyOnPremTable –DataFactoryName CopyFactory –File <Filepath>\MyOnPremTable.json.
 
 請參閱 [Cmdlet 參考][cmdlet-reference]，以取得 Data Factory Cmdlet 的相關詳細資料。
 
 ### 輸出資料表 JSON
-下列 JSON 指令碼會定義輸出資料表：**MyDemoBlob** \(這指的是 Azure Blob\)：**MyBlob** \(位於 blob 資料夾\)：**MySubFolder** \(位於 blob 容器\)：**MyContainer**。
+下列 JSON 指令碼會定義輸出資料表：**MyDemoBlob** (這指的是 Azure Blob)：**MyBlob** (位於 blob 資料夾)：**MySubFolder** (位於 blob 容器)：**MyContainer**。
          
 	{
-	"name": "MyDemoBlob", "properties": { "location": { "type": "AzureBlobLocation", "folderPath": "MyContainer/MySubFolder", "fileName": "MyBlob", "linkedServiceName": "MyAzureStorage", "format": { "type": "TextFormat", "columnDelimiter": ",", "rowDelimiter": ";", "EscapeChar": "$", "NullValue": "NaN" } }, "availability": { "frequency": "Hour", "interval": 1 } } }
+   		"name": "MyDemoBlob",
+	    "properties":
+    	{
+    		"location":
+    		{
+        		"type": "AzureBlobLocation",
+        		"folderPath": "MyContainer/MySubFolder",
+        		"fileName": "MyBlob",
+        		"linkedServiceName": "MyAzureStorage",
+        		"format":
+        		{
+            		"type": "TextFormat",
+            		"columnDelimiter": ",",
+            		"rowDelimiter": ";",
+             		"EscapeChar": "$",
+             		"NullValue": "NaN"
+        		}
+    		},
+        	"availability":
+      		{
+       			"frequency": "Hour",
+       			"interval": 1
+      		}
+   		}
+	}
 
-下列範例 Azure PowerShell 命令會使用 **New-AzureDataFactoryTable**，其中使用的 JSON 檔案會包含前述指令碼在 Azure Data Factory 中建立資料表 \(\*\*MyDemoBlob\*\*\)：**CopyFactory**。
+下列範例 Azure PowerShell 命令會使用 **New-AzureDataFactoryTable**，其中使用的 JSON 檔案會包含前述指令碼在 Azure Data Factory 中建立資料表 (**MyDemoBlob**)：**CopyFactory**。
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName CopyFactory –File <Filepath>
 
 
-### 管線 \(具有複製活動\) JSON
+### 管線 (具有複製活動) JSON
 在此範例中，管線：**CopyActivityPipeline** 使用下列屬性定義：
 
 - **type** 屬性設為 **CopyActivity**。
-- **MyOnPremTable** 指定為輸入 \(\*\*inputs\*\* 標記\)。
-- **MyAzureBlob** 指定為輸出 \(\*\*outputs\*\* 標記\)。
-- \[**轉換**\] 區段包含兩個子區段：\[**來源**\] 和 \[**接收器**\]。來源的類型設為 **SqlSource**，而接收器的類型設為 **BlobSink**。**sqlReaderQuery** 定義要在來源上執行的轉換 \(投射\)。如需有關所有屬性的詳細資料，請參閱 [JSON 指令碼參考][json-script-reference]。
+- **MyOnPremTable** 指定為輸入 (**inputs** 標記)。
+- **MyAzureBlob** 指定為輸出 (**outputs** 標記)。
+- [**轉換**] 區段包含兩個子區段：[**來源**] 和 [**接收器**]。來源的類型設為 **SqlSource**，而接收器的類型設為 **BlobSink**。**sqlReaderQuery** 定義要在來源上執行的轉換 (投射)。如需有關所有屬性的詳細資料，請參閱 [JSON 指令碼參考][json-script-reference]。
 
          
 		{
@@ -286,10 +323,31 @@ IaaS 上的 SQL 支援以 Azure 做為 laaS 提供者。下列網路和 VPN 拓�
 				"description" : "This is a sample pipeline to copy data from SQL Server to Azure Blob",
         		"activities":
         		[
-      { "name": "CopyActivity", "description": "description", "type": "CopyActivity", "inputs": [ { "name": "MyOnPremTable" } ], "outputs": [ { "name": "MyAzureBlob" } ], "transformation": { "source": { "type": "SqlSource", "sqlReaderQuery": "select \* from MyTable" }, "sink": { "type": "BlobSink" } } } \] } }
+      				{
+						"name": "CopyActivity",
+						"description": "description", 
+						"type": "CopyActivity",
+						"inputs":  [ { "name": "MyOnPremTable"  } ],
+						"outputs":  [ { "name": "MyAzureBlob" } ],
+						"transformation":
+	    				{
+							"source":
+							{
+								"type": "SqlSource",
+                    			"sqlReaderQuery": "select * from MyTable"
+							},
+							"sink":
+							{
+                        		"type": "BlobSink"
+							}
+	    				}
+      				}
+        		]
+    		}
+		}
 
 
- 下列範例 Azure PowerShell 命令會使用 **New-AzureDataFactoryPipeline**，其中使用的 JSON 檔案會包含前述指令碼在 Azure Data Factory 中建立管線 \(\*\*CopyActivityPipeline\*\*\)：**CopyFactory**。
+ 下列範例 Azure PowerShell 命令會使用 **New-AzureDataFactoryPipeline**，其中使用的 JSON 檔案會包含前述指令碼在 Azure Data Factory 中建立管線 (**CopyActivityPipeline**)：**CopyFactory**。
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
@@ -302,7 +360,7 @@ IaaS 上的 SQL 支援以 Azure 做為 laaS 提供者。下列網路和 VPN 拓�
 
 若是 **Azure SQL Database**，明確要求加密的連線，且不要信任伺服器憑證，以避免「攔截式」攻擊。若要達到此目的，請在連接字串中使用 **Encrypt = True** 和 **TrustServerCertificate = False**。如需詳細資訊，請參閱 Azure [SQL Database 方針和限制](https://msdn.microsoft.com/library/azure/ff394108.aspx)。
 
-若是傳統的資料庫 \(例如 **SQL Server**，尤其當執行個體位於 Azure 虛擬機器中時\)，可透過設定簽署的憑證，並在連接字串中設定 **Encrypt = True** 和 **TrustServerCertificate = False** 來啟用加密的連接選項。如需詳細資訊，請參閱[啟用 Database Engine 的加密連線]\(https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx\) 和[連接字串語法](https://msdn.microsoft.com/library/ms254500.aspx)。
+若是傳統的資料庫 (例如 **SQL Server**，尤其當執行個體位於 Azure 虛擬機器中時)，可透過設定簽署的憑證，並在連接字串中設定 **Encrypt = True** 和 **TrustServerCertificate = False** 來啟用加密的連接選項。如需詳細資訊，請參閱[啟用 Database Engine 的加密連線](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) 和[連接字串語法](https://msdn.microsoft.com/library/ms254500.aspx)。
 
 ## 進階案例
 - **使用結構定義的資料行篩選**。根據資料表的類型，您可以藉由在資料表定義的**結構**定義中指定比存在於基礎資料來源中的資料行還少的資料行，來指定資料行的子集。

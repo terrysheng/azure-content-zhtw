@@ -135,7 +135,7 @@
 		echo $code.": ".$error_message."<br />";
 	}
 
-呼叫 **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** 可讓容器和 Blob 資料開放透過匿名要求來存取。呼叫 **setPublicAccess(PublicAccessType::BLOBS_ONLY)** 可讓 Blob 資料開放透過匿名要求來存取。如需容器 ACL 的詳細資訊，請參閱 [設定容器 ACL (REST API)][container-acl] (英文)。
+呼叫 **setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS)** 可讓容器和 Blob 資料開放透過匿名要求來存取。呼叫 **setPublicAccess(PublicAccessType::BLOBS_ONLY)** 可讓 Blob 資料開放透過匿名要求來存取。如需容器 ACL 的詳細資訊，請參閱 [設定容器 ACL (REST API)][container-acl] (英文)。
 
 如需 Blob 服務錯誤碼的詳細資訊，請參閱 [Blob 服務錯誤碼][error-codes] (英文)。
 
@@ -168,7 +168,7 @@
 		echo $code.": ".$error_message."<br />";
 	}
 
-請注意，上述範例會以串流方式上傳 Blob。不過，也可以使用 [file\_get\_contents][file_get_contents] 之類的函數將 Blob 當作字串上傳。若要這麼做，請將上述範例中的 `$content = fopen("c:\myfile.txt", "r");` 變更為 `$content = file_get_contents("c:\myfile.txt");`。
+請注意，上述範例會以串流方式上傳 Blob。不過，也可以使用 [file_get_contents][file_get_contents] 之類的函數將 Blob 當作字串上傳。若要這麼做，請將上述範例中的 `$content = fopen("c:\myfile.txt", "r");` 變更為 `$content = file_get_contents("c:\myfile.txt");`。
 
 ## 作法：列出容器中的 Blob
 
@@ -230,7 +230,7 @@
 		echo $code.": ".$error_message."<br />";
 	}
 
-請注意，以上範例會以串流資源形式 (預設行為) 取得 Blob。不過，您可以使用 [stream\_get\_contents][stream-get-contents] 函數將傳回的串流轉換成字串。
+請注意，以上範例會以串流資源形式 (預設行為) 取得 Blob。不過，您可以使用 [stream_get_contents][stream-get-contents] 函數將傳回的串流轉換成字串。
 
 ## 作法：刪除 Blob
 

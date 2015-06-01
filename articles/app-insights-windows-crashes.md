@@ -21,14 +21,14 @@
 
 如果您的使用者在應用程式中遇到了損毀，您會想要快速得知，並且想知道發生的情況的詳細資料。利用 Application Insights，您可以監視損毀發生的頻率、在發生時收到警示，並且調查個別事件的報告。
 
-「損毀」表示應用程式因為未捕捉的例外狀況而終止。如果您的應用程式捕捉到例外狀況，您可以使用 TrackException\(\) API 來報告，但繼續執行。在該情況下，將不會記錄為損毀。
+「損毀」表示應用程式因為未捕捉的例外狀況而終止。如果您的應用程式捕捉到例外狀況，您可以使用 TrackException() API 來報告，但繼續執行。在該情況下，將不會記錄為損毀。
 
 
 ## 監視損毀頻率
 
-[將 Application Insights 加入至應用程式][windows]，並重新發行 \(如果尚未這樣做\)。
+[將 Application Insights 加入至應用程式][windows]，並重新發行 (如果尚未這樣做)。
 
-損毀會顯示在 [Application Insights 入口網站][portal]上應用程式的 \[概觀\] 分頁上。
+損毀會顯示在 [Application Insights 入口網站][portal]上應用程式的 [概觀] 分頁上。
 
 ![](./media/appinsights/appinsights-d018-oview.png)
 
@@ -37,7 +37,7 @@
 
 ## 設定警示以偵測損毀
 
-![從損毀圖表中按一下 \[警示規則\]，然後按一下 \[加入警示\]](./media/appinsights/appinsights-d023-alert.png)
+![從損毀圖表中按一下 [警示規則]，然後按一下 [加入警示]](./media/appinsights/appinsights-d023-alert.png)
 
 ## 診斷損毀
 
@@ -46,7 +46,7 @@
 ![](./media/appinsights/appinsights-d26crashSegment.png)
 
 
-若要探索造成損毀的例外狀況，請開啟 \[診斷搜尋\]。您可能想要移除其他類型的遙測以著重在例外狀況：
+若要探索造成損毀的例外狀況，請開啟 [診斷搜尋]。您可能想要移除其他類型的遙測以著重在例外狀況：
 
 ![](./media/appinsights/appinsights-d26crashExceptions.png)
 

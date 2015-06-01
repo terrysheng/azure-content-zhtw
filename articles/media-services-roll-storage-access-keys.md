@@ -60,9 +60,9 @@
 		
 		    using (var streamWriter = new StreamWriter(request.GetRequestStream()))
 		    {
-		        streamWriter.Write("\"");
+		        streamWriter.Write(""");
 		        streamWriter.Write(storageAccountKey);
-		        streamWriter.Write("\"");
+		        streamWriter.Write(""");
 		        streamWriter.Flush();
 		    }
 		

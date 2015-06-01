@@ -25,7 +25,7 @@
 
 Hive 查詢會在 [Github 儲存機制](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql)中共用，可從此處下載。
 
-如果您依照[設定適用於資料科學的 Azure 虛擬機器](machine-learning-data-science-setup-virtual-machine.md)中的指示來建立 Azure 虛擬機器，應該已將這個指令碼檔案下載至虛擬機器上的 *C:\Users\<user name>\Documents\Data Science Scripts* 目錄中。這些 Hive 查詢只要求您插入自己的資料結構描述，以及已準備好進行提交之適當欄位中的 Azure Blob 儲存體設定。
+如果您依照[設定適用於資料科學的 Azure 虛擬機器](machine-learning-data-science-setup-virtual-machine.md)中的指示來建立 Azure 虛擬機器，應該已將這個指令碼檔案下載至虛擬機器上的 *C:\Users<user name>\Documents\Data Science Scripts* 目錄中。這些 Hive 查詢只要求您插入自己的資料結構描述，以及已準備好進行提交之適當欄位中的 Azure Blob 儲存體設定。
 
 我們假設 Hive 資料表的資料為**未壓縮**的表格格式，而且資料已上傳至 Hadoop 叢集所使用的儲存體帳戶的預設 (或其他) 容器。如果使用者想要練習「NYC 計程車車程資料」__，就需要先[下載全部的 24 個檔案](http://www.andresmh.com/nyctaxitrips/) (12 個車程檔和 12 個費用檔)、將所有檔案**解壓縮**至 .csv 檔案，然後將它們上傳至[自訂適用於資料科學的 Azure HDInsight Hadoop 叢集](machine-learning-data-science-customize-hadoop-cluster.md)主題中概述之程序所使用的 Azure 儲存體帳戶的預設(或適當) 容器。 
 

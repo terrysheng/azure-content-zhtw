@@ -1,4 +1,10 @@
-<properties pageTitle="Azure 通知中樞豐富內容推播" description="了解如何從 Azure 將各種推播通知傳送至 iOS 應用程式。程式碼範例是以 Objective-C 及 C# 撰寫。" documentationCenter="ios" services="notification-hubs" authors="wesmc7777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Azure 通知中樞豐富內容推播" 
+	description="了解如何從 Azure 將各種推播通知傳送至 iOS 應用程式。程式碼範例是以 Objective-C 及 C# 撰寫。" documentationCenter="ios" 
+	services="notification-hubs" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -90,7 +96,7 @@
             }
         }
 
-> [AZURE.NOTE] \(選用) 如需如何新增和取得專案資源的詳細資訊，請參閱[如何使用 Visual C# 來內嵌和存取資源](http://support.microsoft.com/kb/319292)。
+> [AZURE.NOTE] (選用) 如需如何新增和取得專案資源的詳細資訊，請參閱[如何使用 Visual C# 來內嵌和存取資源](http://support.microsoft.com/kb/319292)。
 
 7. 在 **NotificationsController.cs** 中，使用下列程式碼片段重新定義 **NotificationsController**。這會將初始無訊息豐富內容通知識別碼傳送到裝置，並可讓用戶端擷取影像：
 
@@ -114,7 +120,7 @@
             var usernameTag = "username:" + HttpContext.Current.User.Identity.Name;
 
             // Silent notification with content available
-            var aboutUser = "{\"aps\": {\"content-available\": 1, \"sound\":\"\"}, \"richId\": \"" + richNotificationInTheBackend.Id.ToString() + "\",  \"richMessage\": \"" + richNotificationInTheBackend.Message + "\", \"richType\": \"" + richNotificationInTheBackend.RichType + "\"}";
+            var aboutUser = "{"aps": {"content-available": 1, "sound":""}, "richId": "" + richNotificationInTheBackend.Id.ToString() + "",  "richMessage": "" + richNotificationInTheBackend.Message + "", "richType": "" + richNotificationInTheBackend.RichType + ""}";
 
             // Send notification to apns
             await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(aboutUser, usernameTag);

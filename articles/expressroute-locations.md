@@ -5,7 +5,9 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" /> 
+
+<tags 
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="article"
@@ -17,10 +19,10 @@
 # ExpressRoute 合作夥伴和對等互連位置
 此表格提供下列詳細資料
 
-1. ExpressRoute 連線提供者 \(EXP 和 NSP\)
+1. ExpressRoute 連線提供者 (EXP 和 NSP)
 2. ExpressRoute 地理涵蓋範圍
 3. ExpressRoute 支援的 Microsoft 雲端服務
-4. ExpressRoute 系統整合 \(SI\)
+4. ExpressRoute 系統整合 (SI)
 
 ## ExpressRoute 連線提供者
 所有的 Azure 區域和位置都支援 ExpressRoute。以下地圖提供了 Azure 區域和 ExpressRoute 位置的清單。ExpressRoute 位置是指 Microsoft 與數個服務提供者對等互連的位置。
@@ -41,11 +43,11 @@
 不支援跨地緣政治區域的連線。您可以與您的連線提供者合作，使用其網路將連線延伸到不同的地緣政治區域。
 
 
-### Exchange 提供者 \(EXP\) 位置
+### Exchange 提供者 (EXP) 位置
 - 如需 Exchange 提供者及支援位置的清單，請參閱本[表格](https://msdn.microsoft.com/library/azure/4da69a0f-8f52-49ea-a990-dacd4202150a#BKMK_EXP)。
 -  如需設定連線的步驟，請造訪[設定 EXP 連線](expressroute-configuring-exps.md)。
 
-### 網路服務提供者 \(NSP\) 位置
+### 網路服務提供者 (NSP) 位置
 - 如需網路服務提供者及支援位置的清單，請參閱本[表格](https://msdn.microsoft.com/library/azure/4da69a0f-8f52-49ea-a990-dacd4202150a#BKMK_NSP)。
 - 如需設定連線的步驟，請造訪[設定 NSP 連線](expressroute-configuring-nsps.md)。
 
@@ -58,7 +60,7 @@
 	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 - 讓您的連線提供者將您的網路延伸到選擇的 Exchange 位置。
 	- 請確保您的連線提供者以高可用性的方式延伸您的連線，因此不會有單一失敗點。
-	- 為確保高可用性，連線提供者 \(尤其是乙太網路提供者\) 可能會要求您採購一對乙太網路 Exchange 的電路。 
+	- 為確保高可用性，連線提供者 (尤其是乙太網路提供者) 可能會要求您採購一對乙太網路 Exchange 的電路。 
 - 向 Exchange 提供者訂購 ExpressRoute 電路以連線至 Azure
 	- 依照[設定 EXP 連線](expressroute-configuring-exps.md)中的步驟來設定連線。
 
@@ -70,7 +72,7 @@
 ## ExpressRoute 和 Microsoft 雲端服務
 下表提供有關連線提供者的詳細資料及可支援的 Microsoft 雲端服務清單。連絡您的服務提供者
 
-**Exchange 提供者 \(EXP\)**
+**Exchange 提供者 (EXP)**
 
 |**服務提供者**|**Microsoft Azure 服務**|**Office 365 服務**|
 |---|---|---|
@@ -82,7 +84,7 @@
 |**TeleCity Group**|支援||
 |**Zayo Group**|支援||
 
-**網路服務提供者 \(NSP\)**
+**網路服務提供者 (NSP)**
 
 |**服務提供者**|**Microsoft Azure 服務**|**Office 365 服務**|
 |---|---|---|

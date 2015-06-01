@@ -6,6 +6,7 @@
    authors="SharS"
    manager="adinah"
    editor="tysonn" />
+
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -17,7 +18,7 @@
 
 ### 透過 Windows PowerShell for StorSimple 安裝一般更新
 
-1. 開啟裝置序列主控台，然後選取選項 1 \[使用完整存取權登入\]。輸入密碼。預設密碼為 *Password1*。 
+1. 開啟裝置序列主控台，然後選取選項 1 [使用完整存取權登入]。輸入密碼。預設密碼為 *Password1*。 
 
 2. 在命令提示字元中，輸入：
 

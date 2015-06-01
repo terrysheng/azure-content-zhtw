@@ -1,4 +1,4 @@
-﻿1.	登入 [Azure Preview 入口網站](https://portal.azure.com/)。
+1.	登入 [Azure Preview 入口網站](https://portal.azure.com/)。
 2.	在 Jumpbar，按一下 [新增]，然後選取 [資料 + 儲存體]，然後按一下 [DocumentDB]。 
 
 	![Azure 預覽入口網站的螢幕擷取畫面，反白顯示 [新增] 按鈕、[建立] 分頁中的 [資料 + 儲存體]，以及 [資料 + 儲存體] 分頁中的 **DocumentDB**][1]   
@@ -8,7 +8,7 @@
 	![Azure 預覽入口網站的螢幕擷取畫面，反白顯示 [DocumentDB] 磚時，顯示 [服務商場] 分頁，反白顯示 [建立] 按鈕時，顯示 [DocumentDB] 分頁][2]   
    
 
-3. 在 [新增 DocumentDB (預覽)]**** 刀鋒視窗中，指定想要的 DocumentDB 帳戶組態。 
+3. 在 [新增 DocumentDB (預覽)] 刀鋒視窗中，指定想要的 DocumentDB 帳戶組態。 
  
 	![新 DocumentDB (預覽) 分頁的螢幕擷取畫面][3] 
 
@@ -36,7 +36,7 @@
 
 4.	建立好的 DocumentDB 帳戶可立即以預設值來使用。
 
-	請注意，DocumentDB 帳戶的預設一致性會設定為 [工作階段]。您可以透過 [Preview 管理入口網站](https://portal.azure.com/#gallery/Microsoft.DocumentDB)調整預設一致性設定。  
+	*請注意，DocumentDB 帳戶的預設一致性會設定為 [工作階段]。您可以透過 [Preview 管理入口網站](https://portal.azure.com/#gallery/Microsoft.DocumentDB)調整預設一致性設定。*  
 	![[資源群組] 分頁的螢幕擷取畫面][7]  
 
 

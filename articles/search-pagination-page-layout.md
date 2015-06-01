@@ -90,13 +90,13 @@
 
 ## 頁面層級的篩選器 ##
 
-如果解決方案設計包含特定類型之內容的專用搜尋頁面 \(例如，線上零售應用程式具有列於頁面頂端的部門\)，則您可一起插入篩選運算式和 **onClick** 事件，在預先篩選的狀態下開啟頁面。
+如果解決方案設計包含特定類型之內容的專用搜尋頁面 (例如，線上零售應用程式具有列於頁面頂端的部門)，則您可一起插入篩選運算式和 **onClick** 事件，在預先篩選的狀態下開啟頁面。
 
 您可以傳送篩選器，但不一定要有搜尋運算式。例如，下列要求會篩選品牌名稱，只傳回符合該名稱的文件。
 
     	GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-如需 `$filter` 運算式的詳細資訊，請參閱[搜尋文件 \(Azure 搜尋 API\)](http://msdn.microsoft.com/library/azure/dn798927.aspx)。
+如需 `$filter` 運算式的詳細資訊，請參閱[搜尋文件 (Azure 搜尋 API)](http://msdn.microsoft.com/library/azure/dn798927.aspx)。
 
 ## 另請參閱 ##
 

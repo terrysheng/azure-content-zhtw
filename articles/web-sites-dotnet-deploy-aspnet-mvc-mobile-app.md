@@ -53,7 +53,7 @@
 -	[Google Chrome DevTools][EmulatorChrome] (英文) 中的瀏覽器模擬器。它包含許多 Android 裝置，以及 Apple iPhone、Apple iPad 和 Amazon Kindle Fire 的預設項目。它也會模擬觸控事件。
 -   [Opera Mobile 模擬器][EmulatorOpera]
 
-此處提供具有 C\\# 原始程式碼的 Visual Studio 專案來幫助您完成本主題：
+此處提供具有 C# 原始程式碼的 Visual Studio 專案來幫助您完成本主題：
 
 -   [入門專案下載][StarterProject]
 -   [完成專案下載][CompletedProject]
@@ -144,7 +144,7 @@ Bootstrap 並非專屬於 ASP.NET MVC 5，您也可以在所有 Web 應用程式
 
 本節將建立行動裝置專屬的配置檔案。
 
-一開始，請將 *Views\\Shared\\_Layout.cshtml* 複製到 *Views\\Shared\\_Layout.Mobile.cshtml*。開啟 *_Layout.Mobile.cshtml*，並將標題從 **MVC5 Application** 變更為 **MVC5 Application (Mobile)**。
+一開始，請將 *Views\\Shared\_Layout.cshtml* 複製到 *Views\\Shared\_Layout.Mobile.cshtml*。開啟 *_Layout.Mobile.cshtml*，並將標題從 **MVC5 Application** 變更為 **MVC5 Application (Mobile)**。
 
 在每個導覽列的 `Html.ActionLink` 呼叫當中，移除每個 *ActionLink* 連結中的「Browse by」。以下程式碼顯示行動配置檔案的已完成之 `<ul class="nav navbar-nav">` 標籤。
 
@@ -191,7 +191,7 @@ Bootstrap 並非專屬於 ASP.NET MVC 5，您也可以在所有 Web 應用程式
 
     using System.Web.WebPages;
 
-儲存變更。將 *Views\\Shared\\_Layout.Mobile.cshtml* 檔案複製到 *Views\\Shared\\_Layout.iPhone.cshtml*。開啟新檔案，然後將標題從 `MVC5 Application (Mobile)` 變更為 `MVC5 Application (iPhone)`。
+儲存變更。將 *Views\\Shared\_Layout.Mobile.cshtml* 檔案複製到 *Views\\Shared\_Layout.iPhone.cshtml*。開啟新檔案，然後將標題從 `MVC5 Application (Mobile)` 變更為 `MVC5 Application (iPhone)`。
 
 將 *Views\\Home\\AllTags.Mobile.cshtml* 檔案複製到 *Views\\Home\\AllTags.iPhone.cshtml*。在新檔案中，將 `<h2>` 元素從「Tags (M)」變更為「Tags (iPhone)」。
 
@@ -205,18 +205,18 @@ Bootstrap 並非專屬於 ASP.NET MVC 5，您也可以在所有 Web 應用程式
 
 ![][AllTagsIPhone_LayoutIPhone]
 
-在行動瀏覽器中，選取 [演講者]**** 連結。由於沒有行動檢視 (*AllSpeakers.Mobile.cshtml*)，預設的演講者檢視 (*AllSpeakers.cshtml*) 會透過行動配置檢視 (*\\_Layout.Mobile.cshtml*) 來呈現。如下所示，標題 **MVC5 Application(Mobile)** 定義於 *_Layout.Mobile.cshtml* 中。
+在行動瀏覽器中，選取 [演講者]**** 連結。由於沒有行動檢視 (*AllSpeakers.Mobile.cshtml*)，預設的演講者檢視 (*AllSpeakers.cshtml*) 會透過行動配置檢視 (*_Layout.Mobile.cshtml*) 來呈現。如下所示，標題 **MVC5 Application(Mobile)** 定義於 *_Layout.Mobile.cshtml* 中。
 
 ![][AllSpeakers_LayoutMobile]
 
-您可以在 *Views\\_ViewStart.cshtml* 檔案中，將 `RequireConsistentDisplayMode` 設為 `true` ，即可全域停用預設 (非行動) 檢視，使其無法在行動配置內呈現，如下所示：
+您可以在 *Views_ViewStart.cshtml* 檔案中，將 `RequireConsistentDisplayMode` 設為 `true` ，即可全域停用預設 (非行動) 檢視，使其無法在行動配置內呈現，如下所示：
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
         DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
     }
 
-當 `RequireConsistentDisplayMode` 設為 `true` 時，行動配置 (*\\_Layout.Mobile.cshtml*) 僅能用於行動檢視 (例如，檢視檔案的格式為 ***ViewName**.Mobile.cshtml*)。若行動配置不適用於您的非行動檢視，您可以將 `RequireConsistentDisplayMode` 設為 `true`。以下螢幕擷取畫面顯示當 `RequireConsistentDisplayMode` 設為 `true` 時，[*演講者*] 頁面的呈現方式 (頂端導覽列中沒有「(Mobile)」字串)。
+當 `RequireConsistentDisplayMode` 設為 `true` 時，行動配置 (*_Layout.Mobile.cshtml*) 僅能用於行動檢視 (例如，檢視檔案的格式為 ***ViewName**.Mobile.cshtml*)。若行動配置不適用於您的非行動檢視，您可以將 `RequireConsistentDisplayMode` 設為 `true`。以下螢幕擷取畫面顯示當 `RequireConsistentDisplayMode` 設為 `true` 時，[*演講者*] 頁面的呈現方式 (頂端導覽列中沒有「(Mobile)」字串)。
 
 ![][AllSpeakers_LayoutMobileOverridden]
 

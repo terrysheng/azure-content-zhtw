@@ -13,11 +13,11 @@
 若要從 [Azure 市集]建立 MySQL 資料庫，請執行下列動作：
 
 1. 登入 [Azure 管理入口網站][portal]。
-2. 按一下頁面底部的 \[**+新增**\]，然後選取 \[**Marketplace**\]。
+2. 按一下頁面底部的 [**+新增**]，然後選取 [**Marketplace**]。
 
 	![從市集中選取附加元件](./media/create-mysql-db/select-store.png)
 
-3. 選取 \[ClearDB MySQL 資料庫\]，然後按一下框架底部的箭頭。
+3. 選取 [ClearDB MySQL 資料庫]，然後按一下框架底部的箭頭。
 
 	![選取 ClearDB MySQL 資料庫](./media/create-mysql-db/select-cleardb-mysql.png)
 
@@ -29,11 +29,11 @@
 
 	![檢查並完成選購](./media/create-mysql-db/complete-mysql-purchase.png)
 
-6. 建立資料庫之後，您可以從管理入口網站的 \[附加元件\] 索引標籤加以管理。
+6. 建立資料庫之後，您可以從管理入口網站的 [附加元件] 索引標籤加以管理。
 
 	![在 Azure 入口網站中管理 MySQL 資料庫](./media/create-mysql-db/manage-mysql-add-on.png)
 
-7. 按一下頁面底部的 \[連接資訊\] \(如下所示\)，即可取得資料庫連接資訊。
+7. 按一下頁面底部的 [連接資訊] (如下所示)，即可取得資料庫連接資訊。
 
 	![MySql 連接資訊](./media/create-mysql-db/mysql-conn-info.png)
 
@@ -43,15 +43,15 @@
 若要在建立 [Azure 網站][waws]時建立 MySQL 資料庫作為連結的資源，請執行下列動作：
 
 1. 登入 [Azure 管理入口網站][portal]。
-2. 按一下頁面底部的 \[+新增\]，然後依序選取 \[運算\]、\[網站\] 和 \[和資料庫一起建立\]。
+2. 按一下頁面底部的 [+新增]，然後依序選取 [運算]、[網站] 和 [和資料庫一起建立]。
 
 	![和資料庫一起建立網站](./media/create-mysql-db/custom_create.png)
 
-3. 提供網站的 \[URL\]，選取網站的 \[區域\]，然後從 \[資料庫\] 下拉式清單中選擇 \[建立新的 MySQL 資料庫\]。\(選用\) 您可以取代連接字串的預設名稱。按一下頁面底部的箭頭。
+3. 提供網站的 [URL]，選取網站的 [區域]，然後從 [資料庫] 下拉式清單中選擇 [建立新的 MySQL 資料庫]。(選用) 您可以取代連接字串的預設名稱。按一下頁面底部的箭頭。
 
 	![提供網站詳細資料](./media/create-mysql-db/provide-website-details.png)
 
-4. 提供資料庫 \[名稱\]、選取資料庫的 \[區域\] \(這應該與網站的區域相同\)、同意 ClearDB 的法律條款，然後按一下框架底部的勾選記號。
+4. 提供資料庫 [名稱]、選取資料庫的 [區域] (這應該與網站的區域相同)、同意 ClearDB 的法律條款，然後按一下框架底部的勾選記號。
 
 	![提供 MySQL 詳細資料](./media/create-mysql-db/provide-mysql-details.png)
 
@@ -59,11 +59,11 @@
 
 	![移至網站儀表板](./media/create-mysql-db/go-to-website-dashboard.png)
 
-6. 按一下 \[設定\]。
+6. 按一下 [設定]。
 
 	![移至設定索引標籤](./media/create-mysql-db/go-to-configure-tab.png)
 
-7. 向下捲動到 \[連接字串\] 區段，然後按一下 \[顯示連接字串\]。
+7. 向下捲動到 [連接字串] 區段，然後按一下 [顯示連接字串]。
 
 	![顯示連接字串](./media/create-mysql-db/show-conn-string.png)
 

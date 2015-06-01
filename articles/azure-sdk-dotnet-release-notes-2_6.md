@@ -21,7 +21,7 @@
 
 本文件包含 Azure SDK for .NET 2.6 版的版本資訊。
 
-您可以使用 Azure SDK 2.6 開發以 .NET 4.5.2 或.NET 4.6 為目標的雲端服務應用程式 \(PaaS\)，前提是您必須在雲端服務角色上手動安裝目標 .NET Framework。請參閱[在雲端服務角色上安裝 .NET](http://go.microsoft.com/fwlink/?LinkID=309796)。
+您可以使用 Azure SDK 2.6 開發以 .NET 4.5.2 或.NET 4.6 為目標的雲端服務應用程式 (PaaS)，前提是您必須在雲端服務角色上手動安裝目標 .NET Framework。請參閱[在雲端服務角色上安裝 .NET](http://go.microsoft.com/fwlink/?LinkID=309796)。
 
 
 ##服務匯流排更新
@@ -36,7 +36,7 @@
 
 - **IntelliSense 的增強功能**：遠端中繼資料建議
 
-	HDInsight Tools for Visual Studio 現在支援在編輯 Hive 指令碼時取得遠端中繼資料。例如，您可以輸入 **SELECT \* FROM**，即可顯示所有的資料表名稱。此外，資料行名稱會在指定資料表之後顯示。
+	HDInsight Tools for Visual Studio 現在支援在編輯 Hive 指令碼時取得遠端中繼資料。例如，您可以輸入 **SELECT * FROM**，即可顯示所有的資料表名稱。此外，資料行名稱會在指定資料表之後顯示。
 
 - **HDInsight 模擬器支援**
 
@@ -44,7 +44,7 @@
 
 	如需詳細資訊，請參閱[本手冊](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409)。
 
-- **HDInsight Tools for Visual Studio 支援一般的 Hadoop 叢集** \(預覽\)
+- **HDInsight Tools for Visual Studio 支援一般的 Hadoop 叢集** (預覽)
 
 	HDInsight Tools for Visual Studio 現在支援一般的 Hadoop 叢集，因此您可以使用 HDInsight Tools for Visual Studio 來執行下列動作：
 
@@ -68,9 +68,9 @@ Azure SDK 2.6 版中已更新下列項目。
 
 - 已增強 Azure 發行的功能，以將 Azure API Apps 納為部署目標。
 - API Apps 佈建功能提供使用者 API 應用程式的建立和佈建功能。
-- 將 \[伺服器總管\] 使用按資源群組分組的 Web、行動及 API 應用程式加以變更，以反映新的應用程式服務節點。
-- 加入已新增至大部分 C\# 專案的 Azure API 應用程式用戶端手勢，將可自動產生啟用 Swagger 功能並可在使用者的 Azure 訂用帳戶中執行的 API Apps。
-- \[伺服器總管\] 中的 API Apps 工具和應用程式服務節點僅可以在 Visual Studio 2013 中使用。 
+- 將 [伺服器總管] 使用按資源群組分組的 Web、行動及 API 應用程式加以變更，以反映新的應用程式服務節點。
+- 加入已新增至大部分 C# 專案的 Azure API 應用程式用戶端手勢，將可自動產生啟用 Swagger 功能並可在使用者的 Azure 訂用帳戶中執行的 API Apps。
+- [伺服器總管] 中的 API Apps 工具和應用程式服務節點僅可以在 Visual Studio 2013 中使用。 
 
 ##Azure 資源管理員工具更新
 
@@ -78,16 +78,16 @@ Azure 資源管理員工具已經更新，以納入虛擬機器、網路和儲�
 
 ##雲端服務的診斷改良功能
 
-Azure SDK 2.6 重新提供針對收集 Azure 計算模擬器中的診斷記錄檔，並將它們傳送到開發儲存體的支援。在模擬器中執行應用程式時所產生的任何診斷記錄檔 \(包括應用程式追蹤記錄檔、Windows 事件追蹤 \(ETW\) 記錄檔、效能計數器、基礎結構記錄檔和 Windows 事件記錄檔\) 會被傳輸到開發儲存體，以確認診斷記錄功能可在本機電腦上運作。
+Azure SDK 2.6 重新提供針對收集 Azure 計算模擬器中的診斷記錄檔，並將它們傳送到開發儲存體的支援。在模擬器中執行應用程式時所產生的任何診斷記錄檔 (包括應用程式追蹤記錄檔、Windows 事件追蹤 (ETW) 記錄檔、效能計數器、基礎結構記錄檔和 Windows 事件記錄檔) 會被傳輸到開發儲存體，以確認診斷記錄功能可在本機電腦上運作。
 
-您現在可以在服務組態 \(.cscfg\) 檔中指定診斷儲存體帳戶，讓您輕而易舉便可在不同的環境中使用不同的診斷儲存體帳戶。連接字串在 Azure SDK 2.4 和 Azure SDK 2.6 中的運作方式有一些顯著的差異。如需有關如何使用診斷儲存體連接字串，以及它會如何影響您的專案等詳細資訊，請參閱[設定 Azure 雲端服務的診斷](http://go.microsoft.com/fwlink/?LinkID=532784)。
+您現在可以在服務組態 (.cscfg) 檔中指定診斷儲存體帳戶，讓您輕而易舉便可在不同的環境中使用不同的診斷儲存體帳戶。連接字串在 Azure SDK 2.4 和 Azure SDK 2.6 中的運作方式有一些顯著的差異。如需有關如何使用診斷儲存體連接字串，以及它會如何影響您的專案等詳細資訊，請參閱[設定 Azure 雲端服務的診斷](http://go.microsoft.com/fwlink/?LinkID=532784)。
 
 ##重大變更
 
 ###Azure 資源管理員工具 
 
-- Azure SDK 2.5 所提供的 \[**雲端部署專案**\] 專案類型已重新命名為 \[**Azure 資源群組**\]。
-- 在 Azure SDK 2.5 中建立的 \[**雲端部署專案**\] 專案類型仍然可以在 2.6 中使用，但從 Visual Studio 部署範本將會失敗。不過，使用 PowerShell 指令碼進行部署仍可像先前一樣運作。如需如何在 2.6 中使用**雲端部署專案**的相關資訊，請閱讀[本文](http://go.microsoft.com/fwlink/?LinkID=534086)。
+- Azure SDK 2.5 所提供的 [**雲端部署專案**] 專案類型已重新命名為 [**Azure 資源群組**]。
+- 在 Azure SDK 2.5 中建立的 [**雲端部署專案**] 專案類型仍然可以在 2.6 中使用，但從 Visual Studio 部署範本將會失敗。不過，使用 PowerShell 指令碼進行部署仍可像先前一樣運作。如需如何在 2.6 中使用**雲端部署專案**的相關資訊，請閱讀[本文](http://go.microsoft.com/fwlink/?LinkID=534086)。
  
 ##已知問題
 

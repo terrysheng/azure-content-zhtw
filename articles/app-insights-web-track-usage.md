@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="追蹤 Web 應用程式中的使用情況" 
 	description="記錄使用者活動。" 
 	services="application-insights" 
@@ -47,7 +47,7 @@
 
 ![](./media/appinsights/appinsights-06webcode.png)
 
-在您想要追蹤之每一個頁面的 &lt;/head&gt; 標記之前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。例如，在 ASP.NET MVC 專案中，可放在 View\Shared\_Layout.cshtml 中
+在您想要追蹤之每一個頁面的 &lt;/head&gt; 標記之前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。例如，在 ASP.NET MVC 專案中，可放在 View\Shared_Layout.cshtml 中
 
 ## <a name="usage"></a>流量分析
 
@@ -57,7 +57,7 @@
 
 ![](./media/appinsights/appinsights-47usage.png)
 
-還沒有資料嗎？請按一下頁面頂端的 [重新整理]****。
+還沒有資料嗎？請按一下頁面頂端的 **[重新整理]**。
 
 * **每一瀏覽器的工作階段**
 

@@ -105,7 +105,7 @@
 
 1.  在 [Azure 管理入口網站][]中，按一下 [附加元件]****，然後按一下您先前建立的 MongoLab 服務。
 
-1.  按一下 [連線資訊]****。您可以使用複製按鈕，將 **MONGOLAB\_URI** 的值放在剪貼簿上。
+1.  按一下 [連線資訊]****。您可以使用複製按鈕，將 **MONGOLAB_URI** 的值放在剪貼簿上。
 
   	![Connection Info Dialog](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonMongoLabConnectionInfo.png)
 
@@ -135,17 +135,17 @@
 
 您可以使用 [RoboMongo][] 之類的應用程式來查詢及編輯 MongoDB 資料庫。在這一節中，我們將使用 RoboMongo 來檢視民調應用程式資料庫的內容。
 
-1.  建立新連線。您會需要我們在上一節中擷取的 **MONGOLAB\_URI**。
+1.  建立新連線。您會需要我們在上一節中擷取的 **MONGOLAB_URI**。
 
     請注意 URI 的格式： `mongodb://<name>:<password>@<address>:<port>/<name>`
 
     此名稱符合您使用 Azure 建立服務時輸入的名稱。該名稱同時用於資料庫名稱和使用者名稱。
 
-1.  在連線頁面中，將 [名稱]**** 設定為任何您要用於連線的名稱。此外，將 [位址]**** 與 [連接埠]**** 欄位設定為 **MONGOLAB\_URI** 中的  *address* 與  *port*。
+1.  在連線頁面中，將 [名稱]**** 設定為任何您要用於連線的名稱。此外，將 [位址]**** 與 [連接埠]**** 欄位設定為 **MONGOLAB_URI** 中的  *address* 與  *port*。
 
   	![Connection Settings Dialog](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
-1.  在驗證頁面中，將 [資料庫]**** 與 [使用者名稱]**** 設定為 **MONGOLAB\_URI** 中的  *name*。此外，將 [密碼]**** 設定為 **MONGOLAB\_URI** 中的  *password*。
+1.  在驗證頁面中，將 [資料庫]**** 與 [使用者名稱]**** 設定為 **MONGOLAB_URI** 中的  *name*。此外，將 [密碼]**** 設定為 **MONGOLAB_URI** 中的  *password*。
 
   	![Connection Settings Dialog](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
@@ -185,7 +185,7 @@ PTVS 可讓您輕鬆地將 Web 應用程式部署至 Azure 網站。
 
   	![Top Menu](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonWebSiteTopMenu.png)
 
-1.  向下捲動至 [應用程式設定]**** 區段，並如上一節所述設定 **REPOSITORY\_NAME**、**MONGODB\_HOST** 與 **MONGODB\_DATABASE** 的值。
+1.  向下捲動至 [應用程式設定]**** 區段，並如上一節所述設定 **REPOSITORY_NAME**、**MONGODB_HOST** 與 **MONGODB_DATABASE** 的值。
 
   	![App Settings](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png)
 

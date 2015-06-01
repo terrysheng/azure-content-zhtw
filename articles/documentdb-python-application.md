@@ -58,7 +58,7 @@
 
 ## 步驟 2：建立新的 Python Flask Web 應用程式
 
-1. 開啟 Visual Studio，並依序按一下 [**檔案**] -\> [**新增專案**] -\> [**Python**] -\> [**Flask Web 專案**]，然後建立名為 **tutorial** 的新專案。 
+1. 開啟 Visual Studio，並依序按一下 [**檔案**] -> [**新增專案**] -> [**Python**] -> [**Flask Web 專案**]，然後建立名為 **tutorial** 的新專案。 
 
 	對於 Flask 的初學者而言，這個網路架構可協助我們在 Python 中更快速地建置 Web 應用程式。[按一下這裡可存取 Flask 教學課程][] (英文)。
 
@@ -272,12 +272,12 @@
     	{% endblock %}
 
 
-### 新增組態檔並變更 \_\_init\_\_.py
+### 新增組態檔並變更 __init__.py
 
 1. 以滑鼠右鍵按一下專案名稱 tutorial，並新增檔案 **config.py**。
 Flask 中的表單需要使用此組態。您也可以用它來提供秘密金鑰。但本教學課程不需要用到此資訊。 
 
-2. 將下列程式碼新增至 config.py。變更 **DOCUMENTDB\_HOST** 和 **DOCUMENTDB\_KEY** 的值。
+2. 將下列程式碼新增至 config.py。變更 **DOCUMENTDB_HOST** 和 **DOCUMENTDB_KEY** 的值。
 
     	CSRF_ENABLED = True
     	SECRET_KEY = 'you-will-never-guess'
@@ -289,7 +289,7 @@ Flask 中的表單需要使用此組態。您也可以用它來提供秘密金�
     	DOCUMENTDB_COLLECTION = 'voting collection'
     	DOCUMENTDB_DOCUMENT = 'voting document'
 
-3. 同樣地，使用下列資訊取代 **\_\_init\_\_.py** 的內容。
+3. 同樣地，使用下列資訊取代 **__init__.py** 的內容。
 
     	from flask import Flask
     	app = Flask(__name__)

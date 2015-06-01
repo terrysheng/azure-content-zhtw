@@ -26,9 +26,9 @@ Azure Resource Manager 可讓您輕鬆運用預先建立的應用程式範本，
 
 -	化繁為簡 -- 利用一個可共用的範本檔案來建立、整合及協調各種應用程式，它們可能包含整個範圍的 Azure 資源，例如網站、SQL 資料庫、虛擬機器或虛擬網路。
 -	當您使用相同的範本檔案時，可以彈性重複部署開發、devOps 和系統管理員
--	利用 Azure Resource Manager 將 VM 延伸模組 \(自訂指令碼、DSC、Chef、Puppet 等\) 與範本檔案進行深度整合，輕鬆協調 VM 內部的各項安裝設定
+-	利用 Azure Resource Manager 將 VM 延伸模組 (自訂指令碼、DSC、Chef、Puppet 等) 與範本檔案進行深度整合，輕鬆協調 VM 內部的各項安裝設定
 -	為運算、網路和儲存體資源的標記，定義標記和帳單傳送
--	使用 Azure 角色型存取控制 \(RBAC\)，輕鬆準確管理組織資源的取用
+-	使用 Azure 角色型存取控制 (RBAC)，輕鬆準確管理組織資源的取用
 -	修改原始範本，然後重新部署，讓整個升級/更新過程更加簡化
 
 
@@ -37,7 +37,7 @@ Azure Resource Manager 可讓您輕鬆運用預先建立的應用程式範本，
 除了上述優點之外，發行的 API 在效能方面還有一些重要的改善。
 
 -	大規模平行部署虛擬機器
--	可用性設定組 \(Availability Set\) 支援 3 個容錯網域
+-	可用性設定組 (Availability Set) 支援 3 個容錯網域
 -	改良的「自訂指令碼」延伸模組，允許從任何可公開存取的自訂 URL 指定指令碼
 - 虛擬機器結合 Azure Key Vault，可以實現儲存體的高度安全而且還可以從 [FIPS 驗證的](http://wikipedia.org/wiki/FIPS_140-2)[硬體安全模組](http://wikipedia.org/wiki/Hardware_security_module)部署私人密碼
 -	透過 API 提供基本的網路建置區塊，讓客戶建構複雜的應用程式，包括網路介面、負載平衡器，以及虛擬網路
@@ -49,15 +49,15 @@ Azure Resource Manager 可讓您輕鬆運用預先建立的應用程式範本，
 
 在本節中，我們會詳細解說時下流行的 XML 型 API 和透過適用於運算、網路和儲存體的 Azure Resource Manager 所提供的  JSON 型 API，二者之間存在的重大觀念差異。
 
- 項目 | Azure 服務管理 \(XML 型\) | 運算、網路和儲存提供者 \(JSON 型\)
+ 項目 | Azure 服務管理 (XML 型) | 運算、網路和儲存提供者 (JSON 型)
  ---|---|---
 | 虛擬機器的雲端服務 |	雲端服務是一種容器，專門保管那些要求平台和負載平衡可用性的虛擬機器。 | 使用新模型建立虛擬機器時，雲端服務已經不是必要的物件了。 |
-| 可用性設定組 \(Availability Sets\) | 在虛擬機器上設定相同的 "AvailabilitySetName" 之後，即表示平台的可用性。容錯網域的最大個數為 2。 | 「可用性設定組」是 Microsoft.Compute 提供者公開的資源。需要高可用性的虛擬機器必須包含在「可用性設定組」中。容錯網域的最大個數現在是 3。 |
-| \[同質群組\] |	建立虛擬網路時需要同質群組。不過，隨著區域虛擬網路引進，就再也不需要了。 |簡而言之，透過 Azure Resource Manager 而公開的 API，其實不存在同質群組這種概念。 |
+| 可用性設定組 (Availability Sets) | 在虛擬機器上設定相同的 "AvailabilitySetName" 之後，即表示平台的可用性。容錯網域的最大個數為 2。 | 「可用性設定組」是 Microsoft.Compute 提供者公開的資源。需要高可用性的虛擬機器必須包含在「可用性設定組」中。容錯網域的最大個數現在是 3。 |
+| [同質群組] |	建立虛擬網路時需要同質群組。不過，隨著區域虛擬網路引進，就再也不需要了。 |簡而言之，透過 Azure Resource Manager 而公開的 API，其實不存在同質群組這種概念。 |
 | 負載平衡 | 雲端服務的建立，為部署的虛擬機器提供隱含的負載平衡器。 | 負載平衡器是 Microsoft.Network 提供者所公開的資源。虛擬機器如果需要平衡負載，其主要網路介面應該參考負載平衡器。負載平衡器可以放在內部或外部。[閱讀更多。](resource-groups-networking.md) |
-|虛擬 IP 位址 | 將 VM 新增到雲端服務後，雲端服務會得到預設的 VIP \(虛擬 IP 位址\)。虛擬 IP 位址是隱含性負載平衡器的相關位址。 | 公用 IP 位址是 Microsoft.Network 提供者所公開的資源。公用 IP 位址可以是靜態 \(保留\) 或動態。動態公用 IP 可以指派至負載平衡器。使用安全性群組可以保護公用 IP。 |
+|虛擬 IP 位址 | 將 VM 新增到雲端服務後，雲端服務會得到預設的 VIP (虛擬 IP 位址)。虛擬 IP 位址是隱含性負載平衡器的相關位址。 | 公用 IP 位址是 Microsoft.Network 提供者所公開的資源。公用 IP 位址可以是靜態 (保留) 或動態。動態公用 IP 可以指派至負載平衡器。使用安全性群組可以保護公用 IP。 |
 |保留 IP 位址|	您可以將 IP 位址保留在 Azure 中，然後與雲端服務建立關聯，確保 IP 位址不會變動。 | 您可以在「靜態」模式中建立公用 IP 位址，然後它就具備「保留的 IP 位址」一樣的功能。靜態公用 IP 現在只能指派至負載平衡器。 |
-|每一個 VM 的公用 IP 位址 \(PIP\) | 公用 IP 位址也可以直接與 VM 建立關聯。 | 公用 IP 位址是 Microsoft.Network 提供者所公開的資源。公用 IP 位址可以是靜態 \(保留\) 或動態。不過，只有動態公用 IP 才可以指派至網路介面，以立即取得每一個 VM 的公用 IP。 |
+|每一個 VM 的公用 IP 位址 (PIP) | 公用 IP 位址也可以直接與 VM 建立關聯。 | 公用 IP 位址是 Microsoft.Network 提供者所公開的資源。公用 IP 位址可以是靜態 (保留) 或動態。不過，只有動態公用 IP 才可以指派至網路介面，以立即取得每一個 VM 的公用 IP。 |
 |端點| 輸入端點需要在開放特定連接埠連線的虛擬機器上設定。設定輸入端點之後，就能完成幾個常見的虛擬機器連線模式之一。| 您可以在負載平衡器上設定「傳入 NAT 規則」，以達到啟用特定連接埠上的端點以連線至 VM 的相同功能。 |
 |DNS 名稱| 雲端服務會取得隱含的全域唯一 DNS 名稱。例如：`mycoffeeshop.cloudapp.net`。 | DNS 名稱是可以在公用 IP 位址資源上指定的選用參數。FQDN 的格式如下 - `<domainlabel>.<region>.cloudapp.azure.com`。 |
 |網路介面 | 主要和次要網路介面與其屬性會定義為虛擬機器的網路組態。 | 網路介面是 Microsoft.Network 提供者所公開的資源。網路介面的生命週期與虛擬機器無關。 |
@@ -68,7 +68,7 @@ Azure Resource Manager 可讓您輕鬆運用預先建立的應用程式範本，
 
 ### Azure 入口網站
 
-Azure 入口網站會繼續允許使用者同時部署虛擬機器和虛擬機器 \(預覽\)。Azure 入口網站也允許部署自訂的範本。
+Azure 入口網站會繼續允許使用者同時部署虛擬機器和虛擬機器 (預覽)。Azure 入口網站也允許部署自訂的範本。
 
 ### Azure PowerShell
 
@@ -76,7 +76,7 @@ Azure PowerShell 有兩種部署模式 - **AzureServiceManagement** 模式和 **
 
 ### Azure CLI
 
-Azure 命令列介面 \(Azure CLI\) 有兩種部署模式 - **AzureServiceManagement** 模式和 **AzureResourceManager** 模式。AzureResourceManager 模式現在也包含管理虛擬機器、虛擬網路和儲存體帳戶的命令。您可以在[此處](xplat-cli-azure-resource-manager.md)閱讀相關資訊。
+Azure 命令列介面 (Azure CLI) 有兩種部署模式 - **AzureServiceManagement** 模式和 **AzureResourceManager** 模式。AzureResourceManager 模式現在也包含管理虛擬機器、虛擬網路和儲存體帳戶的命令。您可以在[此處](xplat-cli-azure-resource-manager.md)閱讀相關資訊。
 
 ### Visual Studio
 

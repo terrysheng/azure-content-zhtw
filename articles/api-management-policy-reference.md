@@ -299,7 +299,7 @@
 | exists-action="override" | 取代參數的值 (如果出現在要求中)        |
 | exists-action="skip"     | 如果參數出現在要求中，則不執行任何動作 |
 | exists-action="append"   | 將值附加至現有的要求參數               |
-| exists-action="delete"   | 從要求中移除參數\*                     |
+| exists-action="delete"   | 從要求中移除參數*                     |
 | value="值"               | 在括住的元素中設定參數的值             |
 
 ## <a name="caching-policies"> </a> 快取原則
@@ -390,9 +390,9 @@
 
 | 元素/屬性                                         | 說明                                                                                                                                               |
 |---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| vary-by-developer="true | false"                  | 設為 \*true\* 可根據開發人員金鑰開始快取回應；預設會設為 \*false\*                                                                                 |
-| vary-by-developer-groups="true | false"           | 設為 \*true\* 可根據使用者角色開始快取回應；預設會設為 \*false\*                                                                                   |
-| downstream-caching-type="none | private | public" | \*none\* - 不允許下游快取；預設值 | \*private\* - 允許下游私人快取 | \*public\* - 允許私人和共用下游快取。                                         |
+| vary-by-developer="true | false"                  | 設為 *true* 可根據開發人員金鑰開始快取回應；預設會設為 *false*                                                                                 |
+| vary-by-developer-groups="true | false"           | 設為 *true* 可根據使用者角色開始快取回應；預設會設為 *false*                                                                                   |
+| downstream-caching-type="none | private | public" | *none* - 不允許下游快取；預設值 | *private* - 允許下游私人快取 | *public* - 允許私人和共用下游快取。                                         |
 | vary-by-header:"Accept"                           | 根據 `Accept` 標頭的值開始快取回應                                                                                                                 |
 | vary-by-header:Accept-Charset"                    | 根據 `Accept-Charset` 標頭的值開始快取回應                                                                                                         |
 | vary-by-header:"標頭名稱"                         | 根據指定標頭的值開始快取回應，例如 `Accept | Accept-Charset | Accept-Encoding | Accept-Language | Authorization | Expect | From | Host | If-Match` |
@@ -537,7 +537,7 @@ CORS 可讓瀏覽器和伺服器互動，以決定是否允許特定的跨原始
 
 | 屬性                 | 說明                                                                                           |
 |----------------------|------------------------------------------------------------------------------------------------|
-| <origin>\*</origin>  | 允許任何「或」一或多個特定的 URI                                                               |
+| <origin>*</origin>  | 允許任何「或」一或多個特定的 URI                                                               |
 | <origin>URI</origin> | URI 必須包含配置、主機和連接埠。如果省略連接埠，則 http 會採用連接埠 80，而 https 會採用 443。 |
 
   [API 管理中的原則]: ../api-management-howto-policies

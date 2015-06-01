@@ -5,7 +5,9 @@
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" /> <tags 
+   editor="tysonn" /> 
+
+<tags 
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
@@ -34,7 +36,7 @@
 
 - System Center 2012 R2：Operations Manager 更新彙總套件 2，如果是更新彙總套件 3 更好。此更新必須套用到管理伺服器、代理程式以及 Operations 主控台，Operational Insights 才能作為附加服務。
 
-- 若要檢視產能管理資料，您必須啟用 Operations Manager 與 Virtual Machine Manager \(VMM\) 之間的連線。如需連接系統的詳細資訊，請參閱[如何連接 VMM 與 Operations Manager](https://technet.microsoft.com/zh-tw/library/hh882396.aspx)。
+- 若要檢視產能管理資料，您必須啟用 Operations Manager 與 Virtual Machine Manager (VMM) 之間的連線。如需連接系統的詳細資訊，請參閱[如何連接 VMM 與 Operations Manager](https://technet.microsoft.com/zh-tw/library/hh882396.aspx)。
 
 請參閱[檢視 Operational Insights 警示](http://go.microsoft.com/fwlink/?LinkID=293793)了解安裝和組態指示。
 
@@ -45,7 +47,7 @@
 
 - [為 Lync Server 設定執行身分帳戶](operational-insights-run-as.md)
 
-- [為 Virtual Machine Manager \(VMM\) 設定執行身分帳戶](operational-insights-run-as.md)
+- [為 Virtual Machine Manager (VMM) 設定執行身分帳戶](operational-insights-run-as.md)
 
 ### Operations Manager 作業系統
 

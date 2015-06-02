@@ -29,7 +29,7 @@ FTP 連接器可讓您從 FTP 伺服器移入/移出資料。FTP 連接器的主
 - 依照需求在 FTP 伺服器上刪除檔案的能力
 
 ##建立新的 FTP 連接器
-若要建新的 FTP 連接器，請遵循下面提到的步驟。- 啟動 Azure 入口網站 - 使用 [+ 新增] (位於頁面底部) -> [Web + 行動] --> [Azure Marketplace] 開啟 Azure Marketplace
+若要建新的 FTP 連接器，請遵循下面提到的步驟。- 啟動 Azure 入口網站 - 使用 [+ 新增] \(位於頁面底部) -> [Web + 行動] --> [Azure Marketplace] 開啟 Azure Marketplace
 
 ![啟動 Azure Marketplace][1] - 按一下 [API 應用程式] - 搜尋 FTP，然後選取 FTP 連接器
 

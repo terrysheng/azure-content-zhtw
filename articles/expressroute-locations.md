@@ -113,4 +113,6 @@
 - 驗證您是否達到 [ExpressRoute 必要條件](expressroute-prerequisites.md)。
 - 如需詳細資訊，請造訪[常見問題集](expressroute-faqs.md)。
 - 選取您的提供者並設定連線。如需組態資訊，請參閱[設定 EXP 連線](expressroute-configuring-exps.md)或[設定 NSP 連線](expressroute-configuring-nsps.md)。
-<!--HONumber=54-->
+
+
+<!---HONumber=54-->

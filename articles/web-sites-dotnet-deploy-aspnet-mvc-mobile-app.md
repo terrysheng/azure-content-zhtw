@@ -144,7 +144,7 @@ Bootstrap 並非專屬於 ASP.NET MVC 5，您也可以在所有 Web 應用程式
 
 本節將建立行動裝置專屬的配置檔案。
 
-一開始，請將 *Views\\Shared\_Layout.cshtml* 複製到 *Views\\Shared\_Layout.Mobile.cshtml*。開啟 *_Layout.Mobile.cshtml*，並將標題從 **MVC5 Application** 變更為 **MVC5 Application (Mobile)**。
+一開始，請將 *Views\\Shared\_Layout.cshtml* 複製到 *Views\\Shared\_Layout.Mobile.cshtml*。開啟 *\_Layout.Mobile.cshtml*，並將標題從 **MVC5 Application** 變更為 **MVC5 Application (Mobile)**。
 
 在每個導覽列的 `Html.ActionLink` 呼叫當中，移除每個 *ActionLink* 連結中的「Browse by」。以下程式碼顯示行動配置檔案的已完成之 `<ul class="nav navbar-nav">` 標籤。
 
@@ -159,11 +159,11 @@ Bootstrap 並非專屬於 ASP.NET MVC 5，您也可以在所有 Web 應用程式
 
     <h2>Tags (M)</h2>
 
-使用桌面瀏覽器及行動瀏覽器模擬器，瀏覽至標籤頁面。行動瀏覽器模擬器會顯示您執行的兩項變更 (*_Layout.Mobile.cshtml* 的標題及 *AllTags.Mobile.cshtml* 的標題)。
+使用桌面瀏覽器及行動瀏覽器模擬器，瀏覽至標籤頁面。行動瀏覽器模擬器會顯示您執行的兩項變更 (*\_Layout.Mobile.cshtml* 的標題及 *AllTags.Mobile.cshtml* 的標題)。
 
 ![][AllTagsMobile_LayoutMobile]
 
-相較之下，桌面顯示則沒有變更 (*_Layout.cshtml* 和 *AllTags.cshtml* 的標題)。
+相較之下，桌面顯示則沒有變更 (*\_Layout.cshtml* 和 *AllTags.cshtml* 的標題)。
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
@@ -205,7 +205,7 @@ Bootstrap 並非專屬於 ASP.NET MVC 5，您也可以在所有 Web 應用程式
 
 ![][AllTagsIPhone_LayoutIPhone]
 
-在行動瀏覽器中，選取 [演講者]**** 連結。由於沒有行動檢視 (*AllSpeakers.Mobile.cshtml*)，預設的演講者檢視 (*AllSpeakers.cshtml*) 會透過行動配置檢視 (*_Layout.Mobile.cshtml*) 來呈現。如下所示，標題 **MVC5 Application(Mobile)** 定義於 *_Layout.Mobile.cshtml* 中。
+在行動瀏覽器中，選取 [演講者]**** 連結。由於沒有行動檢視 (*AllSpeakers.Mobile.cshtml*)，預設的演講者檢視 (*AllSpeakers.cshtml*) 會透過行動配置檢視 (*\_Layout.Mobile.cshtml*) 來呈現。如下所示，標題 **MVC5 Application(Mobile)** 定義於 *\_Layout.Mobile.cshtml* 中。
 
 ![][AllSpeakers_LayoutMobile]
 
@@ -216,7 +216,7 @@ Bootstrap 並非專屬於 ASP.NET MVC 5，您也可以在所有 Web 應用程式
         DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
     }
 
-當 `RequireConsistentDisplayMode` 設為 `true` 時，行動配置 (*_Layout.Mobile.cshtml*) 僅能用於行動檢視 (例如，檢視檔案的格式為 ***ViewName**.Mobile.cshtml*)。若行動配置不適用於您的非行動檢視，您可以將 `RequireConsistentDisplayMode` 設為 `true`。以下螢幕擷取畫面顯示當 `RequireConsistentDisplayMode` 設為 `true` 時，[*演講者*] 頁面的呈現方式 (頂端導覽列中沒有「(Mobile)」字串)。
+當 `RequireConsistentDisplayMode` 設為 `true` 時，行動配置 (*\_Layout.Mobile.cshtml*) 僅能用於行動檢視 (例如，檢視檔案的格式為 ***ViewName**.Mobile.cshtml*)。若行動配置不適用於您的非行動檢視，您可以將 `RequireConsistentDisplayMode` 設為 `true`。以下螢幕擷取畫面顯示當 `RequireConsistentDisplayMode` 設為 `true` 時，[*演講者*] 頁面的呈現方式 (頂端導覽列中沒有「(Mobile)」字串)。
 
 ![][AllSpeakers_LayoutMobileOverridden]
 
@@ -262,7 +262,8 @@ Bootstrap [連結清單群組][] (英文) 樣式讓每個連結的整個方塊�
 
 ![][AllSpeakersFixedDesktop]
 
-雖然已經改善行動瀏覽器檢視，但要瀏覽冗長的演講者清單還是很不方便。Bootstrap 並沒有現成的搜尋篩選功能，但您可以用數行程式碼來新增此功能。首先要先將搜尋方塊新增至檢視，然後與 JavaScript 程式碼連結，以取得篩選功能。在 *Views\\Home\\AllSpeakers.cshtml* 中，在 <h2> 標籤後面加入 <form> 標籤，如下所示：
+雖然已經改善行動瀏覽器檢視，但要瀏覽冗長的演講者清單還是很不方便。Bootstrap 並沒有現成的搜尋篩選功能，但您可以用數行程式碼來新增此功能。首先要先將搜尋方塊新增至檢視，然後與 JavaScript 程式碼連結，以取得篩選功能。在 
+*Views\\Home\\AllSpeakers.cshtml* 中，在 \<h2>\ 標籤後面加入 \<form>\ 標籤，如下所示：
 
     @model IEnumerable<string>
 

@@ -18,7 +18,8 @@
 
 # Azure 資料流分析預覽版的限制與已知問題
 
-本文說明 [Azure 串流分析][stream.analytics.documentation]在預覽版本期間的限制與已知問題。大多數情況下，這些限制可根據您及早意見反應進行修改，或是根據目前的容量條件約束來實施。<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
+本文說明 [Azure 串流分析][stream.analytics.documentation]在預覽版本期間的限制與已知問題。大多數情況下，這些限制可根據您及早意見反應進行修改，或是根據目前的容量條件約束來實施。
+<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
 
 ## 限制

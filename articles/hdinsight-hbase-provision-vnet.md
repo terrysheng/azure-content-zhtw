@@ -129,7 +129,9 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 	<tr><td>前端節點大小</td><td><p>選取前端節點的 VM 大小。</p></td></tr>
 	<tr><td>資料節點大小</td><td><p>選取資料節點的 VM 大小。</p></td></tr>
 	<tr><td>Zookeeper 大小</td><td><p>選取 Zookeeper 節點的 VM 大小。</p></td></tr>
-</table>>[AZURE.NOTE]根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
+</table>
+
+	>[AZURE.NOTE]根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
 
 	按一下向右按鈕。
 

@@ -67,11 +67,13 @@
 
 8. 假設您尚未在 Azure 中建立應用程式服務，Visual Studio 可協助您建立它。在 [**設定 Microsoft Azure 網站**] 對話方塊中，請確定您的網站名稱是唯一的。然後按一下 **[確定]**。
 
-	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
+	<!--todo: need 2.5.1 screenshot-->
+	![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. 建立 ASP.NET 應用程式之後，在 [Web 發佈活動] 窗格中按一下 [**將 `<app name>` 立即發佈至此網站**]，將它發佈至 Azure。按一下 [**發佈**] 完成程序。
 
-	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
+	<!--todo: need 2.5.1 screenshot-->
+	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	當發佈完成時，您會在瀏覽器中看到您已發佈的 Web 應用程式。
 

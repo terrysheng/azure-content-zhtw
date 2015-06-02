@@ -28,7 +28,8 @@
 
 > [AZURE.NOTE]將 Web 應用程式從 [免費]**** 模式切換為 [基本]****、[標準]**** 或 [高階]**** 模式之前，您必須先適當地移除 Azure App Service 訂用帳戶的支出費用上限。若要檢視或變更 Microsoft Azure App Service 訂用帳戶的選項，請參閱 [Microsoft Azure 訂訂用帳戶][azuresubscriptions]。
 
-<a name="scalingsharedorbasic"></a> <!-- ===================================== -->
+<a name="scalingsharedorbasic"></a> 
+<!-- ===================================== -->
 ## 調整為共用或基本模式
 <!-- ===================================== -->
 

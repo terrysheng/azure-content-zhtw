@@ -348,4 +348,6 @@ VPN 閘道的重要屬性包括：
 
 [在 Azure 資源管理員中使用標記](https://msdn.microsoft.com/library/azure/dn848368.aspx)
 
-[範本部署](https://msdn.microsoft.com/library/azure/dn790549.aspx) <!--HONumber=52-->
+[範本部署](https://msdn.microsoft.com/library/azure/dn790549.aspx)
+
+<!---HONumber=52-->

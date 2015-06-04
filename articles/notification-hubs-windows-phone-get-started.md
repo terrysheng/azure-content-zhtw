@@ -77,7 +77,7 @@
 
 	在 Visual Studio 2013 Update 2 或更新版本中，您必須改為建立 Windows Phone Silverlight 應用程式。
 	
-	![][11]	
+	![][11]
 
 2. 在 Visual Studio 中，以滑鼠右鍵按一下方案，然後按一下 **[管理 NuGet 封裝]**。 
 

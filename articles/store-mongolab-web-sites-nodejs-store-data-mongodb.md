@@ -47,22 +47,22 @@
 ## 快速入門
 如果您已對 Azure 市集有一定的了解，請從本節著手快速開始。否則，請繼續前往到底下的[佈建資料庫][provision]。
  
-1. 按一下 [新增]**** > [Markeplace]**** 來開啟 Azure Marketplace。  
+1. 按一下 [新增] > [Markeplace] 來開啟 Azure Marketplace。  
 <!-- ![Store][button-store] -->
 2. 按一下 **MongoLab** 附加元件。  
 ![MongoLab][entry-mongolab]
-3. 在 [附加元件] 清單中按一下您的 **MongoLab** 附加元件，然後按一下 [連線資訊]****。  
+3. 在 [附加元件] 清單中按一下您的 **MongoLab** 附加元件，然後按一下 [連線資訊]。  
 ![ConnectionInfoButton][button-connectioninfo]  
 4. 將 **MONGOLAB_URI** 複製到剪貼簿。  
 ![ConnectionInfoScreen][screen-connectioninfo]
-  
+
 	>[AZURE.NOTE]此 URI 包含您的資料庫使用者名稱和密碼。這是機密資訊，請勿洩露。
 
-5. 在 Azure App Service 中 Web 應用程式的 [組態]**** 功能表中，將這個值新增到 [連接字串]**** 清單：  
+5. 在 Azure App Service 中 Web 應用程式的 [組態] 功能表中，將這個值新增到 [連接字串] 清單：  
 ![WebAppConnectionStrings][focus-website-connectinfo]
-6. 在 [名稱]**** 中，輸入 **MONGOLAB_URI**。
-7. 在 [值]**** 中，貼上我們在上一節取得的連接字串。
-8. 在 [類型] 下拉式清單中選取 [自訂]**** (取代預設的 [SQLAzure]****)。
+6. 在 [名稱] 中，輸入 **MONGOLAB_URI**。
+7. 在 [值] 中，貼上我們在上一節取得的連接字串。
+8. 在 [類型] 下拉式清單中選取 [自訂] (取代預設的 [SQLAzure])。
 9. 執行 `npm install mongoose` 以取得 Mongoose (MongoDB 節點驅動程式)。
 10. 在程式碼中設定勾點，以從環境變數取得 MongoLab 連線 URI 並進行連接：
 
@@ -574,4 +574,4 @@
 
 
 
-<!--HONumber=54-->
+<!----HONumber=54-->

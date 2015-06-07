@@ -67,15 +67,15 @@
 
 ##<a id="update-scripts"></a>在管理入口網站中更新已註冊的插入指令碼
 
-1. 在管理入口網站中，按一下 [資料]**** 索引標籤，然後按一下 [TodoItem]**** 資料表。 
+1. 在管理入口網站中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。 
 
    	![](./media/mobile-services-android-get-started-push/mobile-portal-data-tables.png)
 
-2. 在 [todoitem]**** 中，按一下 [指令碼]**** 索引標籤，然後選取 [插入]****。
+2. 在 [todoitem] 中，按一下 [指令碼] 索引標籤，然後選取 [插入]。
    
   	![](./media/mobile-services-android-get-started-push/mobile-insert-script-push2.png)
 
-   	這會顯示 [TodoItem]**** 資料表中發生插入時所叫用的函數。
+   	這會顯示 [TodoItem] 資料表中發生插入時所叫用的函數。
 
 3. 使用下列程式碼來取代 insert 函數，然後按一下 **[儲存]**：
 
@@ -117,17 +117,17 @@
 
 當您在模擬器中執行此應用程式時，請務必使用支援 Google API 的 Android 虛擬裝置 (AVD)。
 
-1. 重新啟動 Eclipse，然後在 Package Explorer 中以滑鼠右鍵按一下專案，按一下 [Properties]****，按一下 [Android]****，核取 [Google API]****，然後按一下 [OK]****。
+1. 重新啟動 Eclipse，然後在 Package Explorer 中以滑鼠右鍵按一下專案，按一下 [Properties]，按一下 [Android]，核取 [Google API]，然後按一下 [OK]。
 
 	![](./media/mobile-services-android-get-started-push/mobile-services-import-android-properties.png)
 
   	如此會使專案的目標變成 Google API。
 
-2. 從 [Window]**** 中選取 [Android Virtual Device Manager]****，選取您的裝置，按一下 [Edit]****。
+2. 從 [Window] 中選取 [Android Virtual Device Manager]，選取您的裝置，按一下 [Edit]。
 
 	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager.png)
 
-3. 在 [Target]**** 中選取 [Google API]****，然後按一下 [OK]。
+3. 在 [Target] 中選取 [Google API]，然後按一下 [OK]。
 
    	![](./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
 
@@ -135,9 +135,9 @@
 
 ###執行測試
 
-1. 在 Eclipse 的 [執行]**** 功能表中按一下 [執行]****，以啟動應用程式。
+1. 在 Eclipse 的 [執行] 功能表中按一下 [執行]，以啟動應用程式。
 
-2. 在應用程式中，輸入有意義的文字，例如「新的行動服務工作」__，然後按一下 [加入]**** 按鈕。
+2. 在應用程式中，輸入有意義的文字，例如_「新的行動服務工作」_，然後按一下 [加入] 按鈕。
 
   	![](./media/mobile-services-android-get-started-push/mobile-quickstart-push1-android.png)
 

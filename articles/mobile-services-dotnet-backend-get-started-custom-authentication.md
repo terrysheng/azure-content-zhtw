@@ -107,7 +107,7 @@
 
     如果必須收集和儲存註冊期間的其他資訊，您應該在此處進行。
 
-2. 在行動服務後端專案中，以滑鼠右鍵按一下 [控制器]****，再依序按一下 [加入]****、[控制器]****，以建立名為 `CustomRegistrationController` 的新 **Microsoft Azure 行動服務自訂控制器**，然後新增下列 `using` 陳述式：
+2. 在行動服務後端專案中，以滑鼠右鍵按一下 [控制器]，再依序按一下 [加入]、[控制器]，以建立名為 `CustomRegistrationController` 的新 **Microsoft Azure 行動服務自訂控制器**，然後新增下列 `using` 陳述式：
 
 		using Microsoft.WindowsAzure.Mobile.Service.Security;
 		using System.Text.RegularExpressions;
@@ -271,7 +271,7 @@
 
 	此類別代表以使用者識別碼和驗證權杖成功登入。請注意，此類別和用戶端的 MobileServiceUser 類別具有相同形式，所以此類別能夠輕易地將登入回應傳給強型別用戶端。
 
-2. 以滑鼠右鍵按一下 [控制器]****，再依序按一下 [加入]****、[控制器]****，以建立名為 `CustomLoginController` 的新 **Microsoft Azure 行動服務自訂控制器**，然後新增下列 `using` 陳述式：
+2. 以滑鼠右鍵按一下 [控制器]，再依序按一下 [加入]、[控制器]，以建立名為 `CustomLoginController` 的新 **Microsoft Azure 行動服務自訂控制器**，然後新增下列 `using` 陳述式：
 
 		using Microsoft.WindowsAzure.Mobile.Service.Security;
 		using System.Security.Claims;
@@ -331,17 +331,17 @@
 
 您必須在用戶端應用程式中開發自訂登入畫面，此畫面會擷取使用者名稱和密碼的，並將這些資訊以 JSON 裝載的形式傳送至註冊和登入端點。要完成此教學課程，您只需使用行動服務 .NET 後端的內建測試用戶端。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務專案，然後依序按一下 [偵錯]**** 和 [開始新執行個體]****。  
+1. 在 Visual Studio 中，以滑鼠右鍵按一下行動服務專案，然後依序按一下 [偵錯] 和 [開始新執行個體]。  
 
-	這麼做會啟動行動服務後端專案的新偵錯執行個體。成功啟動服務之後，您會看到說明****「此行動服務已啟動且在執行中」的起始頁。
+	這麼做會啟動行動服務後端專案的新偵錯執行個體。成功啟動服務之後，您會看到說明「此行動服務已啟動且在執行中」的起始頁。
 
-2. 在服務起始頁中，按一下 [試用]****，然後在驗證對話方塊中，輸入您於 web.config 檔案的 **MS_ApplicationKey** 應用程式設定中設定的密碼，並將使用者名稱保留空白。
+2. 在服務起始頁中，按一下 [試用]，然後在驗證對話方塊中，輸入您於 web.config 檔案的 **MS_ApplicationKey** 應用程式設定中設定的密碼，並將使用者名稱保留空白。
 
-3. 在說明頁面中，按一下 [CustomRegistration]**** 端點，然後按一下 [試用]****。
+3. 在說明頁面中，按一下 [CustomRegistration] 端點，然後按一下 [試用]。
 
     ![][2]
 
-4. 在本文中，使用與您先前指定的準則相符的使用者名稱和密碼取代範例字串，然後按一下 [傳送]****。
+4. 在本文中，使用與您先前指定的準則相符的使用者名稱和密碼取代範例字串，然後按一下 [傳送]。
 
     ![][3]
 
@@ -355,9 +355,9 @@
 
 	複製 *authenticationToken* 的值。您會用此值存取受限制的 TodoItem 端點。
 
-6. 按一下瀏覽器的上一頁按鈕，然後在 API 文件頁面中，依序按一下 [GetTables]****、[試用]****。
+6. 按一下瀏覽器的上一頁按鈕，然後在 API 文件頁面中，依序按一下 [GetTables]、[試用]。
 
-7. 在 GET 的要求對話方塊中，按一下 [標頭]**** 旁邊的加號，在左邊方塊中輸入 `X-ZUMO-AUTH` 值，並在右邊方塊中貼上複製的 *authenticationToken* 值，然後按一下 [傳送]****。
+7. 在 GET 的要求對話方塊中，按一下 [標頭] 旁邊的加號，在左邊方塊中輸入 `X-ZUMO-AUTH` 值，並在右邊方塊中貼上複製的 *authenticationToken* 值，然後按一下 [傳送]。
 
  	![](./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-access-endpoint.png)
 

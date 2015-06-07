@@ -41,7 +41,8 @@
 
 **使用 Maven 建立專案**
 
-1. 建立目錄 **C:\\Tutorials\\WordCountJava**。2. 從開發環境的命令列中，將目錄切換至您建立的位置。
+1. 建立目錄 **C:\Tutorials\WordCountJava\**。
+2. 從開發環境的命令列中，將目錄切換至您建立的位置。
 3. 使用隨 Maven 一起安裝的 __mvn__ 命令來產生專案的結構。
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false

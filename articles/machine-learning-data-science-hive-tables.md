@@ -67,6 +67,7 @@ Hive 查詢可以在 Hadoop 叢集前端節點上的 Hadoop 命令列中提交�
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
 - `<path to blob data>`：如果要上傳至 Hive 資料表的 Blob 檔案是在 HDInsight Hadoop 叢集的預設容器中，`<path to blob data>` 格式應該是 `'wasb:///<directory in this container>/<blob file name>'`。Blob 檔案也可以位於 HDInsight Hadoop 叢集的其他容器中。在此情況下，`<path to blob data>` 格式應該是 `'wasb://<container name>@<storage account name>.blob.windows.core.net/<blob file name>'`。
+
 >[AZURE.NOTE] 上傳至 Hive 資料表的 Blob 資料必須位於 Hadoop 叢集儲存體帳戶的預設或其他容器中。否則， `LOAD DATa` 查詢將會失敗並提報它無法存取資料。 
 
 

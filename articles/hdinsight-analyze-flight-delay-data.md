@@ -384,7 +384,7 @@ Hadoop MapReduce 是批次處理。執行 Hive 工作時，最具成本效益的
 
 
 
-\---
+---
 ##<a id="appendix-a"></a>附錄 A - 將航班誤點資料上傳至 Azure Blob 儲存體
 上傳資料檔案和 HiveQL 指令碼檔案之前 (請參閱[附錄 B](#appendix-b)) 需要一些規劃。作法是在佈建 HDInsight 叢集之前儲存資料檔案和 HiveQL 檔案，並執行 Hive 工作。您有兩個選擇：
 
@@ -405,7 +405,7 @@ Hadoop MapReduce 是批次處理。執行 Hive 工作時，最具成本效益的
 <tr><td>欄位</td><td>*Year*、*FlightDate*、*UniqueCarrier*、*Carrier*、*FlightNum*、*OriginAirportID*、*Origin*、*OriginCityName*、*OriginState*、*DestAirportID*、*Dest*、*DestCityName*、*DestState*、*DepDelayMinutes*、*ArrDelay*、*ArrDelayMinutes*、*CarrierDelay*、*WeatherDelay*、*NASDelay*、*SecurityDelay*、*LateAircraftDelay* (請清除其餘所有欄位)</td></tr>
 </table>
 
-3. 按一下 [下載]****。
+3. 按一下 [下載]。
 4. 將檔案解壓縮至 **C:\\Tutorials\\FlightDelays\\Data** 資料夾。每個檔案皆為 CSV 檔案，大小約為 60 GB。
 5.	將檔案重新命名為檔案資料所屬月份的名稱。例如，包含一月份資料的檔案，應命名為 *January.csv*。
 6. 重複步驟 2 到 5，以下載 2013 年 12 個月份的檔案。至少要有一個檔案，才能執行此教學課程。  
@@ -496,7 +496,7 @@ tutorials/flightdelays/data 路徑是您在上傳檔案時所建立的虛擬資�
 
 > 您必須設定容器存取權限，使其成為公用，或將儲存體帳戶繫結至 HDInsight 叢集。否則，Hive 查詢字串將無法存取資料檔案。
 
-\---
+---
 ##<a id="appendix-b"></a>附錄 B - 建立及上傳 HiveQL 指令碼
 
 使用 Azure PowerShell 可讓您逐一執行多個 HiveQL 陳述式，或將 HiveQL 陳述式封裝到指令碼檔案中。本節說明如何建立 HiveQL 指令碼，以及使用 Azure PowerShell 將指令碼上傳至 Azure Blob 儲存體。Hive 要求 HiveQL 指令碼必須儲存在 Azure Blob 儲存體中。
@@ -677,7 +677,7 @@ HiveQL 指令碼將執行下列作業：
 	- **$srcDataFolder** 和 **$dstDataFolder** - = "tutorials/flightdelays/data" = "tutorials/flightdelays/output"
 
 
-\---
+---
 ##<a id="appendix-c"></a>附錄 C - 針對 Sqoop 工作輸出準備 Azure SQL Database
 **準備 SQL 資料庫 (將這部分與 Sqoop 指令碼合併)**
 

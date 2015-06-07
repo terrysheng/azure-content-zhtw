@@ -26,13 +26,13 @@
 
 ## <a name="register-scripts"></a>註冊指令碼
 
-1. 登入 [Azure 管理入口網站]，按一下 [行動服務]****，然後按一下您的行動服務。按一下 [資料]**** 索引標籤，然後按一下 [TodoItem]**** 資料表。
+1. 登入 [Azure 管理入口網站]，按一下 [行動服務]，然後按一下您的行動服務。按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
-2. 按一下 [指令碼]****，然後選取 [插入]**** 作業。
+2. 按一下 [指令碼]，然後選取 [插入] 作業。
 
    	![][2]
 
-3. 以下列函數取代現有的指令碼，然後按一下 [儲存]****。這個指令碼會在插入之前，將已驗證使用者的使用者識別碼新增至項目。
+3. 以下列函數取代現有的指令碼，然後按一下 [儲存]。這個指令碼會在插入之前，將已驗證使用者的使用者識別碼新增至項目。
 
         function insert(item, user, request) {
           item.userId = user.userId;
@@ -40,7 +40,7 @@
         }
 
 
-    > [AZURE.NOTE] [Dynamic schema must be enabled]https://msdn.microsoft.com/library/azure/jj193175.aspx，上述才能運作。預設會針對新的行動服務啟用此設定。
+    > [AZURE.NOTE] [必須啟用動態結構描述](https://msdn.microsoft.com/library/azure/jj193175.aspx)，上述才能運作。預設會針對新的行動服務啟用此設定。
 
 5. 同樣地，以下列函數取代現有的 **Read** 作業。此指令碼會篩選傳回的 TodoItem 物件，因此使用者只會收到他們自己插入的項目。
 

@@ -28,25 +28,25 @@
 
 本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務]。
 
-##<a name="register"></a>註冊您的應用程式以驗證與設定行動服務
+## <a name="register"></a>註冊您的應用程式以驗證與設定行動服務
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
 
-##<a name="permissions"></a>限制只有通過驗證的使用者具有權限
+## <a name="permissions"></a>限制只有通過驗證的使用者具有權限
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
 3. 開啟您完成教學課程[開始使用行動服務]時建立的專案。 
 
-4. 在 [執行] ****功能表中，按一下 [執行應用程式] ****來啟動應用程式。確認應用程式啟動後是否會引發無法處理的例外狀況，狀態碼為 401 (未授權)。
+4. 在 [執行] 功能表中，按一下 [執行應用程式] 來啟動應用程式。確認應用程式啟動後是否會引發無法處理的例外狀況，狀態碼為 401 (未授權)。
 
 	 這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 _TodoItem_ 資料表現在需要驗證。
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
-##<a name="add-authentication"></a>將驗證新增至應用程式
+## <a name="add-authentication"></a>將驗證新增至應用程式
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
@@ -58,7 +58,7 @@
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../includes/mobile-services-android-authenticate-app-refresh-token.md)] 
 
-##<a name="next-steps"></a>接續步驟
+## <a name="next-steps"></a>接續步驟
 
 在下一個[行動服務使用者的伺服器端授權][Authorize users with scripts]教學課程中，您將使用由行動服務根據經驗證的使用者而提供的使用者識別碼值，來篩選行動服務傳回的資料。
 

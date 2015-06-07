@@ -1,5 +1,5 @@
 
-1. 在 Android Studio 的 [專案總管]**** 中，開啟 ToDoActivity.java 檔案，並新增下列 import 陳述式。
+1. 在 Android Studio 的 [專案總管] 中，開啟 ToDoActivity.java 檔案，並新增下列 import 陳述式。
 
 		import java.util.concurrent.ExecutionException;
 		import java.util.concurrent.atomic.AtomicBoolean;
@@ -62,7 +62,7 @@
 			refreshItemsFromTable();
 		}
 
-9. 在 [執行]**** 功能表中，按一下 [執行應用程式]**** 來啟動應用程式，並以您選擇的身分識別提供者登入。
+9. 在 [執行] 功能表中，按一下 [執行應用程式] 來啟動應用程式，並以您選擇的身分識別提供者登入。
 
    	成功登入後，應用程式應會正確無誤地執行，而且您應能夠查詢行動服務並更新資料。
 <!--HONumber=54-->

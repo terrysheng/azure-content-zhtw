@@ -5,11 +5,11 @@
 
 3. 將下載的檔案解壓縮並記下其位置。
 
-2. 在 Eclipse 中，依序按一下 [檔案]****、[匯入]****、展開 [Android]****，按一下 [匯入現有的 Android 程式碼至工作區]****，然後按 [下一步]****。
+2. 在 Eclipse 中，依序按一下 [檔案] 、[匯入] 、展開 [Android] ，按一下 [匯入現有的 Android 程式碼至工作區] ，然後按 [下一步] 。
 
  	![](./media/download-android-sample-code/mobile-services-import-android-workspace.png)
 
-3. 按一下 [Click **瀏覽**]，瀏覽至您先前記下展開的 gitHub 儲存機制位置。瀏覽至 `GetStartedWithData` 目錄，然後按一下 `Android` 目錄。按一下 [**確定**]，並確定已勾選 `GetStartedWithData` 專案。如果想要將專案複製到您的工作區 (建議)，請勾選 [**將專案複製到工作區**] 方塊。最後，按一下 [完成]****。
+3. 按一下 [Click **瀏覽**]，瀏覽至您先前記下展開的 gitHub 儲存機制位置。瀏覽至 `GetStartedWithData` 目錄，然後按一下 `Android` 目錄。按一下 [**確定**]，並確定已勾選 `GetStartedWithData` 專案。如果想要將專案複製到您的工作區 (建議)，請勾選 [**將專案複製到工作區**] 方塊。最後，按一下 [完成]。
 
  	![](./media/download-android-sample-code/mobile-services-import-android-project.png)
 

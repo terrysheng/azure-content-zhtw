@@ -34,7 +34,7 @@
 
 在建立服務定義的電腦中，執行下列步驟。
 
-1.  在 [開始]**** 功能表中，選取 [Azure PowerShell]****。
+1.  在 [開始] 功能表中，選取 [Azure PowerShell]。
 
 	![Azure PowerShell start menu entry][powershell-menu]
 
@@ -52,15 +52,15 @@
 
 您的部署已在 Azure 中啟動並執行，現在您可以連接到角色執行個體。
 
-1.  在 [Azure 管理入口網站]中選取 [雲端服務]****，然後選取先前在步驟 1 中部署的服務
+1.  在 [Azure 管理入口網站]中選取 [雲端服務]，然後選取先前在步驟 1 中部署的服務
 
 	![azure management portal][cloud-services]
 
-2.  按一下 [執行個體]****，然後按一下 [生產]**** 或 [執行]****，以檢視服務的執行個體。選取執行個體，然後按一下頁面底部的 [連接]****。
+2.  按一下 [執行個體]，然後按一下 [生產] 或 [執行]，以檢視服務的執行個體。選取執行個體，然後按一下頁面底部的 [連接]。
 
     ![The instances page][3]
 
-2.  當您按一下 [連接]**** 時，網頁瀏覽器會提示您儲存 .rdp 檔案。如果您使用的是 Internet Explorer，請按一下 [開啟]****。
+2.  當您按一下 [連接] 時，網頁瀏覽器會提示您儲存 .rdp 檔案。如果您使用的是 Internet Explorer，請按一下 [開啟]。
 
     ![prompt to open or save the .rdp file][4]
 
@@ -68,7 +68,7 @@
 
     ![Windows security prompt][5]
 
-4.  按一下 [連接]**** 時會出現安全性提示，要求您輸入存取執行個體所需的認證。請輸入您在[步驟 1][Step 1: Configure the service for Remote Desktop access using Azure PowerShell] 中建立的密碼，然後按一下 [確定]****。
+4.  按一下 [連接] 時會出現安全性提示，要求您輸入存取執行個體所需的認證。請輸入您在[步驟 1][Step 1: Configure the service for Remote Desktop access using Azure PowerShell] 中建立的密碼，然後按一下 [確定]。
 
     ![username/password prompt][6]
 
@@ -80,7 +80,7 @@
 
 當您不需要再透過遠端桌面連接到雲端中的角色執行個體時，請使用 [Azure PowerShell] 停用遠端桌面存取
 
-1.  在 [開始]**** 功能表中，選取 [Azure PowerShell]****。
+1.  在 [開始] 功能表中，選取 [Azure PowerShell]。
 
 2.  將目錄切換至服務目錄，然後輸入 **Disable-AzureServiceProjectRemoteDesktop**：
 

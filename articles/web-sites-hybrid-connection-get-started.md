@@ -90,11 +90,19 @@
 	
 	![Click OK][CreateBTScomplete]
 	
-6. 程序完成時，入口網站中的通知區域會通知您已成功建立連線。<!-- TODO
+6. 程序完成時，入口網站中的通知區域會通知您已成功建立連線。
+<!-- TODO
 
-    在這個步驟中，所有項目都會失敗。我無法在狗食入口網站中建立 BizTalk 服務。我切換到舊的入口網站 (完整入口網站) 並建立 BizTalk 服務，但似乎無法讓您連接它們 - 當您完成「建立混合式連線」步驟時，您看見下列錯誤：無法建立混合式連線 RelecIoudHC。資源類型無法在「適用於 API 版本 2014-06-01 的 Microsoft.BizTaIkServices」命名空間中找到。
+    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
+	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+	Create hybrid conn step, you get the following error
+	Failed to create hybrid connection RelecIoudHC. The 
+	resource type could not be found in the namespace 
+	'Microsoft.BizTaIkServices for api version 2014-06-01'.
 	
-	此錯誤表示找不到該類型，而不是該執行個體。![Success notification][CreateHCSuccessNotification] -->
+	The error indicates it couldn't find the type, not the instance.
+	![Success notification][CreateHCSuccessNotification]
+	-->
 7. 在 Web 應用程式的分頁上，[混合式連線]**** 圖示現在會顯示已建立 1 個混合式連線。
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]

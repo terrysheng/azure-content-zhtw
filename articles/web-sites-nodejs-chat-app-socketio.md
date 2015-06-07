@@ -111,19 +111,19 @@ Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時�
 
 您的應用程式現在已在 Azure 上執行，而且可以使用 Socket.IO 在不同用戶端之間轉送聊天訊息。
 
-##橫向擴充
+## 橫向擴充
 
 Socket.IO 應用程式可以使用__配接器__來橫向擴充，以在多個應用程式執行個體之間散佈訊息和事件。由於市面上已有數種配接器，因此可以輕鬆使用 [socket.io-redis](https://github.com/automattic/socket.io-redis) 配接器來搭配 Azure Redis 快取功能。
 
 > [AZURE.NOTE]橫向擴充 Socket.IO 解決方案的額外需求是支援黏性工作階段。Azure Web Apps 的黏性工作階段預設是透過 Azure 要求路由來啟用。如需詳細資訊，請參閱 [Azure 網站的執行個體同質性](http://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)。
 
-###建立 Redis 快取
+### 建立 Redis 快取
 
 執行[在 Azure Redis 快取中建立快取](http://go.microsoft.com/fwlink/p/?linkid=398592&clcid=0x409)中的步驟以建立新的快取。
 
 > [AZURE.NOTE]儲存快取的__主機名稱__和__主要金鑰__，因為後續步驟將會需要這些項目。
 
-###新增 redis 和 socket.io-redis 模組
+### 新增 redis 和 socket.io-redis 模組
 
 1. 從命令列中，切換至 __\\node\\cha__ 目錄，然後執行下列命令：
 
@@ -149,7 +149,7 @@ Socket.IO 應用程式可以使用__配接器__來橫向擴充，以在多個應
 
 3. 儲存已修改的 __app.js__
 
-###認可變更並重新部署
+### 認可變更並重新部署
 
 從 __\\node\\chat__ 目錄的命令列中，使用下列命令來認可變更並重新部署應用程式。
 
@@ -167,11 +167,11 @@ Socket.IO 應用程式可以使用__配接器__來橫向擴充，以在多個應
 
 ## 疑難排解
 
-###連線限制
+### 連線限制
 
 Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。這包含允許 WebSocket 連線的數目。如需詳細資訊，請參閱 [Web Apps 定價][pricing]頁面。
 
-###使用 WebSockets 而未傳送的訊息
+### 使用 WebSockets 而未傳送的訊息
 
 如果用戶端瀏覽器持續遞補長輪詢，而非使用 WebSockets，可能是下列原因所致。
 
@@ -264,7 +264,7 @@ Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
-##後續步驟
+## 後續步驟
 
 在本教學課程中，您學到如何建立裝載於 Azure Web 應用程式中的聊天應用程式。您也可以將此應用程式交由 Azure 雲端服務託管。如需相關作法的步驟，請參閱＜[在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 聊天應用程式][cloudservice]＞。
 

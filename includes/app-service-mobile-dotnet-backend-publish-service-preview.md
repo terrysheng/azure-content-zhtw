@@ -10,7 +10,7 @@
 
     ![選取現有的 Web 應用程式以發行至](./media/app-service-mobile-dotnet-backend-publish-service-preview/mobile-quickstart-publish-select-service.png)
 
-3. 按一下 [驗證連線]**** 以驗證發佈已正確設定，然後按一下 [發佈]****。
+3. 按一下 [驗證連線] 以驗證發佈已正確設定，然後按一下 [發佈]。
 
 	![發行設定精靈最後一頁](./media/app-service-mobile-dotnet-backend-publish-service-preview/dotnet-publish-settings.png)
 

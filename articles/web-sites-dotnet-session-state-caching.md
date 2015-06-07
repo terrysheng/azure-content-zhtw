@@ -44,7 +44,34 @@
 1. 輸入 `host`、`accessKey`、`port` (SSL 連接埠應為 6380)，然後將 `SSL` 設定為 `true`。這些值可以從快取執行個體的 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)分頁中取得。如需詳細資訊，請參閱[連線至快取](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache)。請注意，預設會為新的快取停用非 SSL 連接埠。如需啟用非 SSL 連接埠的詳細資訊，請參閱[在 Azure Redis 快取中設定快取](https://msdn.microsoft.com/library/azure/dn793612.aspx)主題中的[存取連接埠](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts)一節。下列標記顯示 *web.config* 檔案的變更。
 
 
-  <pre class="prettyprint"> &lt;system.web&gt; &lt;customErrors mode="Off" /&gt; &lt;authentication mode="None" /&gt; &lt;compilation debug="true" targetFramework="4.5" /&gt; &lt;httpRuntime targetFramework="4.5" /&gt; &lt;sessionState mode="Custom" customProvider="RedisSessionProvider"&gt; &lt;providers&gt; &lt;!--&lt;add name="RedisSessionProvider" host = "127.0.0.1" [String] port = "" [number] accessKey = "" [String] ssl = "false" [true|false] throwOnError = "true" [true|false] retryTimeoutInMilliseconds = "0" [number] databaseId = "0" [number] applicationName = "" [String] /&gt;--&gt; &lt;add name="RedisSessionProvider" type="Microsoft.Web.Redis.RedisSessionStateProvider" <mark>port="6380" host="movie2.redis.cache.windows.net" accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" ssl="true"</mark> /&gt; &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" /&gt;--&gt; &lt;/providers&gt; &lt;/sessionState&gt; &lt;/system.web&gt;</pre>
+  <pre class="prettyprint">  
+    &lt;system.web&gt;
+    &lt;customErrors mode="Off" /&gt;
+    &lt;authentication mode="None" /&gt;
+    &lt;compilation debug="true" targetFramework="4.5" /&gt;
+    &lt;httpRuntime targetFramework="4.5" /&gt;
+  &lt;sessionState mode="Custom" customProvider="RedisSessionProvider"&gt;
+      &lt;providers&gt;  
+          &lt;!--&lt;add name="RedisSessionProvider" 
+            host = "127.0.0.1" [String]
+            port = "" [number]
+            accessKey = "" [String]
+            ssl = "false" [true|false]
+            throwOnError = "true" [true|false]
+            retryTimeoutInMilliseconds = "0" [number]
+            databaseId = "0" [number]
+            applicationName = "" [String]
+          /&gt;--&gt;
+         &lt;add name="RedisSessionProvider" 
+              type="Microsoft.Web.Redis.RedisSessionStateProvider" 
+              <mark>port="6380"
+              host="movie2.redis.cache.windows.net" 
+              accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" 
+              ssl="true"</mark> /&gt;
+      &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" /&gt;--&gt;
+      &lt;/providers&gt;
+    &lt;/sessionState&gt;
+  &lt;/system.web&gt;</pre>
 
 
 <h2><a id="usesessionobject"></a>在程式碼中使用工作階段物件</h2>

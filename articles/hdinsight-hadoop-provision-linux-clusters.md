@@ -87,7 +87,7 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 **使用自訂建立選項建立 HDInsight 叢集**
 
 1. 登入 [Azure 入口網站][azure-management-portal]。
-2. 按一下頁面底部的 [+新增]****，然後依序按一下 [資料服務]****、[HDInsight]****、[自訂建立]****。
+2. 按一下頁面底部的 [+新增]，然後依序按一下 [資料服務]、[HDInsight]、[自訂建立]。
 3. 在 [**叢集詳細資料**] 頁面上，輸入或選取下列值：
 
 	![提供 Hadoop HDInsight 叢集詳細資料](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page1.png)
@@ -113,15 +113,17 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 	![提供 Hadoop HDInsight 叢集詳細資料](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page2.png)
 
 	<table border="1">
-<tr><th>名稱</th><th>值</th></tr>
-<tr><td>資料節點</td><td>您要部署的資料節點數。請建立單一節點叢集，以供測試之用。<br />叢集大小限制會隨著 Azure 訂用帳戶而不同。若要提高限制，請與 Azure 帳務支援人員連絡。</td></tr>
-<tr><td>區域/虛擬網路</td><td><p>選擇與您稍早建立的儲存體帳戶相同的區域。使用 HDInsight 叢集時，儲存體帳戶必須位於相同的區域中。後續進行設定時，您只能選擇此處指定之相同區域中的儲存體帳戶。</p></td></tr>
-<tr><td>前端節點大小</td><td><p>選取前端節點的虛擬機器 (VM) 大小。</p></td></tr>
-<tr><td>資料節點大小</td><td><p>選取資料節點的 VM 大小。</p></td></tr>
-</table>>[AZURE.NOTE]根據 VM 的選擇，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有的標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
+	<tr><th>名稱</th><th>值</th></tr>
+	<tr><td>資料節點</td><td>您要部署的資料節點數。請建立單一節點叢集，以供測試之用。<br />叢集大小限制會隨著 Azure 訂用帳戶而不同。若要提高限制，請與 Azure 帳務支援人員連絡。</td></tr>
+	<tr><td>區域/虛擬網路</td><td><p>選擇與您稍早建立的儲存體帳戶相同的區域。使用 HDInsight 叢集時，儲存體帳戶必須位於相同的區域中。後續進行設定時，您只能選擇此處指定之相同區域中的儲存體帳戶。</p></td></tr>
+	<tr><td>前端節點大小</td><td><p>選取前端節點的虛擬機器 (VM) 大小。</p></td></tr>
+	<tr><td>資料節點大小</td><td><p>選取資料節點的 VM 大小。</p></td></tr>
+	</table>
+
+	>[AZURE.NOTE]根據 VM 的選擇，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有的標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
 
 
-5. 在 [Configure Cluster User]**** 頁面上，提供下列值：
+5. 在 [Configure Cluster User] 頁面上，提供下列值：
 
     ![提供 Hadoop HDInsight 叢集使用者](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page3.png)
 
@@ -142,7 +144,9 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 	<tr><td>輸入 Hive/Oozie Metastore</td>
 		<td>勾選此核取方塊，在與叢集相同的資料中心上指定 SQL Database，以做為 Hive/Oozie Metastore 使用。如果您選取此核取方塊，則必須在精靈的後續頁面指定 Azure SQL Database 的詳細資料。即使在將叢集刪除之後，如果您想要保留 Hive/Oozie 工作的相關中繼資料，此選項將會很有幫助。</td></tr>
 	</td></tr>
-	</table>> [AZURE.NOTE]建議搭配 SSH 使用 SSH 公開金鑰驗證，因為它比密碼驗證安全。
+	</table>
+
+	> [AZURE.NOTE]建議搭配 SSH 使用 SSH 公開金鑰驗證，因為它比密碼驗證安全。
 
 	按一下向右箭頭。
 
@@ -276,7 +280,7 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 1.	瀏覽至 **www.nodejs.org**。
 2.	按一下 [**安裝**]，並依照指示使用預設設定操作。
-3.	從您的工作站開啟 [命令提示字元]**** (或是 **Azure 命令提示字元**或 **VS2012 開發人員命令提示字元**)。
+3.	從您的工作站開啟 [命令提示字元] \(或是 **Azure 命令提示字元**或 **VS2012 開發人員命令提示字元**)。
 4.	在命令提示字元視窗中執行下列命令：
 
 		npm install -g https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
@@ -297,7 +301,8 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 
 **使用 Windows Installer 安裝命令列介面**
 
-1.	瀏覽至 **http://azure.microsoft.com/downloads/**2.	向下捲動至 [命令列工具]**** 區段，然後按一下 [跨平台命令列介面]****，並依照 Web Platform Installer 精靈操作。
+1.	瀏覽至 **http://azure.microsoft.com/downloads/**
+2.	向下捲動至 [命令列工具] 區段，然後按一下 [跨平台命令列介面]，並依照 Web Platform Installer 精靈操作。
 
 **下載及匯入發佈設定**
 
@@ -319,7 +324,7 @@ HDInsight 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相�
 	此命令會開啟可下載發行設定檔案的網頁。
 
 
-3.	出現儲存檔案的提示時，請按一下 [儲存]**** 並提供檔案必須儲存的位置。
+3.	出現儲存檔案的提示時，請按一下 [儲存] 並提供檔案必須儲存的位置。
 5.	在命令提示字元視窗中執行下列命令，以匯入發佈設定檔案：
 
 		azure account import <path/to/the/file>
@@ -586,7 +591,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 
 1. 開啟 Visual Studio 2013。
 
-2. 從 [檔案]**** 功能表中，按一下 [新增]****，再按 [專案]****。
+2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
 
 3. 在 [**新增專案**] 中，輸入或選取下列值：
 
@@ -605,9 +610,9 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
 </table>
 
-4. 按一下 [確定]**** 以建立專案。
+4. 按一下 [確定] 以建立專案。
 
-5. 在 [工具]**** 功能表中按一下 [Nuget 套件管理員]****，然後按一下 [Package Manager Console]****。
+5. 在 [工具] 功能表中按一下 [Nuget 套件管理員]，然後按一下 [Package Manager Console]。
 
 6. 在主控台中執行下列命令，以安裝套件：
 
@@ -615,7 +620,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET Fram
 
 	此命令會將 .NET 程式庫及其參考加入至目前的 Visual Studio 專案。
 
-7. 從 [方案總管] 中，按兩下 [Program.cs]**** 將它開啟。
+7. 從 [方案總管] 中，按兩下 [Program.cs] 將它開啟。
 
 8. 在檔案頂端新增下列 using 陳述式：
 

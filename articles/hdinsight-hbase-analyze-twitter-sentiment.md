@@ -93,23 +93,25 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 
 **建立 Twitter 應用程式 ID 和密碼**
 
-1. 登入 [Twitter 應用程式](https://apps.twitter.com/)。如果您沒有 Twitter 帳戶，請按一下[立即註冊]**** 連結。
-2. 按一下 [建立新的應用程式]****。
-3. 輸入 [名稱]****、[描述]**** 和 [網站]****。我們實際上不會用到 [網站] 欄位。因此您不必輸入有效的 URL。下表列出部分要使用的範例值：
+1. 登入 [Twitter 應用程式](https://apps.twitter.com/)。如果您沒有 Twitter 帳戶，請按一下[立即註冊] 連結。
+2. 按一下 [建立新的應用程式]。
+3. 輸入 [名稱]、[描述] 和 [網站]。我們實際上不會用到 [網站] 欄位。因此您不必輸入有效的 URL。下表列出部分要使用的範例值：
 
 	<table border="1">
-<tr><th>欄位</th><th>值</th></tr>
-<tr><td>名稱</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>說明</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>網站</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-</table>> [AZURE.NOTE]Twitter 應用程式名稱必須是唯一的名稱。
+	<tr><th>欄位</th><th>值</th></tr>
+	<tr><td>名稱</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>說明</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>網站</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+	</table>
 
-4. 核取 [Yes, I agree]****然後按一下 [Create your Twitter application]****。
-5. 按一下 [權限]**** 索引標籤。預設權限為 [唯讀]****。本教學課程使用預設值即可。 
-6. 按一下 [金鑰和存取權杖]**** 索引標籤。
-7. 按一下 [Create my access token]****。
-8. 按一下位於頁面右上角的 [測試 OAuth]****。
-9. 複製 [消費者金鑰]****、[消費者密碼]****、[存取權杖]**** 和 [存取權杖密碼]**** 等值。稍後會在教學課程中使用這些值。
+	> [AZURE.NOTE]Twitter 應用程式名稱必須是唯一的名稱。
+
+4. 核取 [Yes, I agree]然後按一下 [Create your Twitter application]。
+5. 按一下 [權限] 索引標籤。預設權限為 [唯讀]。本教學課程使用預設值即可。 
+6. 按一下 [金鑰和存取權杖] 索引標籤。
+7. 按一下 [Create my access token]。
+8. 按一下位於頁面右上角的 [測試 OAuth]。
+9. 複製 [消費者金鑰]、[消費者密碼]、[存取權杖] 和 [存取權杖密碼] 等值。稍後會在教學課程中使用這些值。
 
 	![hdi.hbase.twitter.sentiment.twitter.app][img-twitter-app]
 
@@ -149,14 +151,14 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 **下載情緒字典檔案**
 
 1. 瀏覽到[即時社交情緒分析應用程式](https://github.com/maxluk/tweet-sentiment)。
-2. 按一下 [下載 ZIP]****。
+2. 按一下 [下載 ZIP]。
 3. 將檔案解壓縮到本機。
 4. 複製 **../tweet-sentiment/SimpleStreamingService/data/dictionary/dictionary.tsv** 檔案的路徑。您將需要在應用程式中使用它。
 
 **建立 Visual Studio 方案**
 
 1. 開啟 **Visual Studio**。
-2. 在 [檔案]**** 功能表中指向 [新增]****，然後按一下 [專案]****。
+2. 在 [檔案] 功能表中指向 [新增]，然後按一下 [專案]。
 3. 輸入或選取下列值：
 
 	- 範本：**Visual C# / Windows 桌面 / 主控台應用程式**
@@ -164,28 +166,28 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 	- 位置：**C:\\Tutorials**
 	- 方案名稱：**TweetSentimentStreaming**
 
-4. 按一下 [確定]**** 以繼續。
+4. 按一下 [確定] 以繼續。
  
 
 
 **安裝 NuGet 套件及加入 SDK 參考**
 
-1. 在 [工具]**** 功能表中按一下 [Nuget 套件管理員]****，然後按一下 [Package Manager Console]****。主控台面板會在頁面底部開啟。
+1. 在 [工具] 功能表中按一下 [Nuget 套件管理員]，然後按一下 [Package Manager Console]。主控台面板會在頁面底部開啟。
 2. 使用下列命令來安裝 [HBase .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/) 封裝 (存取 HBase 叢集的用戶端程式庫) 和 [Tweetinvi API](https://www.nuget.org/packages/TweetinviAPI/) 封裝 (用來存取 Twitter API)。
 
 		Install-Package Microsoft.HBase.Client
 		Install-Package TweetinviAPI
 	
-3. 在 [方案總管]**** 中，以滑鼠右鍵按一下 [參考]****，然後按一下 [加入參考]****。
-4. 在左窗格中，展開 [組件]****，然後按一下 [架構]****。
-5. 在右窗格中，選取 [System.Configuration]**** 前的核取方塊，然後按一下 [確定]****。
+3. 在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後按一下 [加入參考]。
+4. 在左窗格中，展開 [組件]，然後按一下 [架構]。
+5. 在右窗格中，選取 [System.Configuration] 前的核取方塊，然後按一下 [確定]。
 
 
 
 **定義 Tweeter 串流服務類別**
 
-1. 在 **方案總管** 中，以滑鼠右鍵按一下 [TweetSentimentStreaming]****、指向 [加入]****，然後按一下 [類別]****。
-2. 在 [名稱]**** 欄位中輸入 **HBaseWriter**，然後按一下 [加入]****。
+1. 在 **方案總管** 中，以滑鼠右鍵按一下 [TweetSentimentStreaming]、指向 [加入]，然後按一下 [類別]。
+2. 在 [名稱] 欄位中輸入 **HBaseWriter**，然後按一下 [加入]。
 3. 在 **HBaseWriter.cs** 中，於檔案頂端加入以下 **using** 陳述式：
 
 		using System.IO;		
@@ -418,7 +420,7 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 
 **完成 Program.cs**
 
-1. 在 [方案總管]**** 中，按兩下 **Program.cs** 加以開啟。
+1. 在 [方案總管] 中，按兩下 **Program.cs** 加以開啟。
 2. 在檔案開頭加入下列 **using** 陳述式：
 
 		using System.Configuration;
@@ -533,35 +535,35 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 **建立 ASP.NET MVC Web 應用程式**
 
 1. 開啟 Visual Studio。
-2. 依序按一下 [檔案]****、[新增]**** 及 [專案]****。
+2. 依序按一下 [檔案]、[新增] 及 [專案]。
 3. 輸入以下資訊：
 
 	- 範本類別：**Visual C#/Web**
 	- 範本：**ASP.NET Web 應用程式**
 	- 名稱：**TweetSentimentWeb**
 	- 位置：**C:\\Tutorials** 
-4. 按一下 [確定]****。
-5. 在 [選取範本]**** 中按一下 **MVC**。 
-6. 在 **Microsoft Azure** 中按一下 [管理訂用帳戶]****。
-7. 在 [管理 Microsoft Azure 訂用帳戶]**** 中按一下 [登入]****。
-8. 輸入您的 Azure 認證。系統會將您的 Azure 訂用帳戶資訊顯示在 [帳戶]**** 索引標籤。
-9. 按一下 [關閉]**** 以關閉 [管理 Microsoft Azure 訂用帳戶]**** 視窗。
-10. 在 [新增 ASP.NET 專案 - TweetSentimentWeb]**** 中按一下 [確定]****。
-11. 在 [設定 Microsoft Azure 網站設定]**** 中，選取與您最接近的 [區域]****。您不需要指定資料庫伺服器。 
-12. 按一下 [確定]****。
+4. 按一下 [確定]。
+5. 在 [選取範本] 中按一下 **MVC**。 
+6. 在 **Microsoft Azure** 中按一下 [管理訂用帳戶]。
+7. 在 [管理 Microsoft Azure 訂用帳戶] 中按一下 [登入]。
+8. 輸入您的 Azure 認證。系統會將您的 Azure 訂用帳戶資訊顯示在 [帳戶] 索引標籤。
+9. 按一下 [關閉] 以關閉 [管理 Microsoft Azure 訂用帳戶] 視窗。
+10. 在 [新增 ASP.NET 專案 - TweetSentimentWeb] 中按一下 [確定]。
+11. 在 [設定 Microsoft Azure 網站設定] 中，選取與您最接近的 [區域]。您不需要指定資料庫伺服器。 
+12. 按一下 [確定]。
 
 **安裝 NuGet 套件**
 
-1. 在 [工具]**** 功能表中按一下 [Nuget 套件管理員]****，然後按一下 [Package Manager Console]****。主控台面板會在頁面底部開啟。
+1. 在 [工具] 功能表中按一下 [Nuget 套件管理員]，然後按一下 [Package Manager Console]。主控台面板會在頁面底部開啟。
 2. 使用下列命令來安裝 [HBase .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/) 封裝 (存取 HBase 叢集的用戶端檔案庫)：
 
 		Install-Package Microsoft.HBase.Client 
 
 **加入 HBaseReader 類別**
 
-1. 在 [方案總管]**** 中展開 **TweetSentiment**。
-2. 以滑鼠右鍵按一下 [模型]****，然後依序按一下 [新增]**** 和 [類別]****。
-3. 在 [名稱]**** 欄位中輸入 **HBaseReader.cs**，然後按一下 [加入]****。
+1. 在 [方案總管] 中展開 **TweetSentiment**。
+2. 以滑鼠右鍵按一下 [模型]，然後依序按一下 [新增] 和 [類別]。
+3. 在 [名稱] 欄位中輸入 **HBaseReader.cs**，然後按一下 [加入]。
 4. 使用下列程式碼來取代此程式碼：
 
 		using System;
@@ -685,11 +687,11 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 
 **加入 TweetsController 控制器**
 
-1. 在 [方案總管]**** 中展開 **TweetSentimentWeb**。
-2. 以滑鼠右鍵按一下 [控制器]****，然後依序按一下 [新增]**** 和 [控制器]****。
-3. 按一下 **Web API 2 Controller - Empty**，然後按一下 [新增]****。
-4. 在 [控制器名稱]**** 中輸入 **TweetsController**，然後按一下 [加入]****。
-5. 在 [方案總管]**** 中，按兩下 TweetsController.cs 以開啟檔案。
+1. 在 [方案總管] 中展開 **TweetSentimentWeb**。
+2. 以滑鼠右鍵按一下 [控制器]，然後依序按一下 [新增] 和 [控制器]。
+3. 按一下 **Web API 2 Controller - Empty**，然後按一下 [新增]。
+4. 在 [控制器名稱] 中輸入 **TweetsController**，然後按一下 [加入]。
+5. 在 [方案總管] 中，按兩下 TweetsController.cs 以開啟檔案。
 5. 修改檔案，使其類似下列內容：
 
 		using System;
@@ -717,12 +719,12 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 
 **加入 heatmap.js**
 
-1. 在 [方案總管]**** 中展開 **TweetSentimentWeb**。
-2. 以滑鼠右鍵按一下 [指令碼]****，然後依序按一下 [新增]**** 和 [JavaScript 檔案]****。
-3. 在 [項目名稱]**** 欄位輸入 **heatmap.js**。
+1. 在 [方案總管] 中展開 **TweetSentimentWeb**。
+2. 以滑鼠右鍵按一下 [指令碼]，然後依序按一下 [新增] 和 [JavaScript 檔案]。
+3. 在 [項目名稱] 欄位輸入 **heatmap.js**。
 4. 將下列程式碼貼到檔案中。該程式碼由 Alastair Aitchison 所撰寫。如需詳細資訊，請參閱 [BBing 地圖 AJAX v7 HeatMap 程式庫](http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/)。
 
-		/*******************************************************************************
+		/***
 		* Author: Alastair Aitchison
 		* Website: http://alastaira.wordpress.com
 		* Date: 15th April 2011
@@ -973,9 +975,9 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 
 **加入 twitterStream.js**
 
-1. 在 [方案總管]**** 中展開 **TweetSentimentWeb**。
-2. 以滑鼠右鍵按一下 [指令碼]****，然後依序按一下 [新增]**** 和 [JavaScript 檔案]****。
-3. 在 [項目名稱]****欄位輸入 **twitterStream.js**。
+1. 在 [方案總管] 中展開 **TweetSentimentWeb**。
+2. 以滑鼠右鍵按一下 [指令碼]，然後依序按一下 [新增] 和 [JavaScript 檔案]。
+3. 在 [項目名稱]欄位輸入 **twitterStream.js**。
 4. 複製以下程式碼並貼到檔案中：
 
 		var liveTweetsPos = [];
@@ -1175,7 +1177,8 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 
 **修改 layout.cshtml**
 
-1. 在 **方案總管** 中，依序展開 [TweetSentimentWeb]****、[Views]**** 及 [Shared]****，然後按兩下 _[Layout.cshtml]****。2. 以下列內容取代原始內容：
+1. 在 **方案總管** 中，依序展開 [TweetSentimentWeb]、[Views] 及 [Shared]，然後按兩下 _[Layout.cshtml]。
+2. 以下列內容取代原始內容：
 
 		<!DOCTYPE html>
 		<html>
@@ -1239,7 +1242,7 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 
 **修改 Index.cshtml**
 
-1. 在 [方案總管]**** 中，依序展開 **TweetSentimentWeb**、**Views** 及 **Home**，然後按兩下 **Index.cshtml**。
+1. 在 [方案總管] 中，依序展開 **TweetSentimentWeb**、**Views** 及 **Home**，然後按兩下 **Index.cshtml**。
 2. 以下列內容取代原始內容：
 
 		@{
@@ -1252,7 +1255,7 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 
 **修改 site.css 檔案**
 
-1. 在 [方案總管]**** 中，依序展開 **TweetSentimentWeb** 和 **Content**，然後按兩下 **Site.css**。
+1. 在 [方案總管] 中，依序展開 **TweetSentimentWeb** 和 **Content**，然後按兩下 **Site.css**。
 2. 將下列程式碼附加至檔案。
 		
 		/* make container, and thus map, 100% width */
@@ -1275,7 +1278,7 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 
 **修改 global.asax 檔案**
 
-1. 在 [方案總管]**** 中展開 **TweetSentimentWeb**，然後按兩下 **Global.asax**。
+1. 在 [方案總管] 中展開 **TweetSentimentWeb**，然後按兩下 **Global.asax**。
 2. 加入下列 **using** 陳述式：
 
 		using System.Web.Http;
@@ -1293,7 +1296,7 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 2. 按 **F5** 以執行 Web 應用程式：
 
 	![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
-2. 在文字方塊中輸入關鍵字，然後按一下 [搜尋]****。您不一定能找到所有關鍵字，須視 HBase 資料表內收集到的資料而定。請嘗試一些常用的關鍵字，例如 "love"、"xbox" 和 "playstation"。 
+2. 在文字方塊中輸入關鍵字，然後按一下 [搜尋]。您不一定能找到所有關鍵字，須視 HBase 資料表內收集到的資料而定。請嘗試一些常用的關鍵字，例如 "love"、"xbox" 和 "playstation"。 
 3. 切換 **Positive**、**Neutral** 及 **Negative** 以比較投注在主題上的情緒。
 4. 讓串流服務再多執行一小時，然後搜尋相同的關鍵字並比較結果。
 

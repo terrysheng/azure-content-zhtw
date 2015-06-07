@@ -16,13 +16,13 @@
 	ms.date="03/31/2014"
 	ms.author="larryfr"/>
 
-#使用 Maven 建置搭配使用 HBase 和 HDInsight (Hadoop) 的 Java 應用程式 (英文)
+# 使用 Maven 建置搭配使用 HBase 和 HDInsight (Hadoop) 的 Java 應用程式 (英文)
 
 了解如何使用 Apache Maven 以 Java 建立和建置 [Apache HBase](http://hbase.apache.org/) 應用程式。然後在 Azure HDInsight (Hadoop) 中使用此應用程式。
 
 [Maven](http://maven.apache.org/) 是軟體專案管理和理解工具，可讓您建置 Java 專案的軟體、文件及報告。在本文中，您將了解如何用它來建立基本的 Java 應用程式，以便在 Azure HDInsight 叢集上建立、查詢和刪除 HBase 資料表。
 
-##需求
+## 需求
 
 * [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 或更新版本
 
@@ -30,7 +30,7 @@
 
 * [具有 HBase 的 Azure HDInsight 叢集](hdinsight-hbase-get-started.md#create-hbase-cluster)
 
-##建立專案
+## 建立專案
 
 1. 從開發環境的命令列中，將目錄變更至您想要建立專案的位置，例如 `cd code\hdinsight`
 
@@ -46,7 +46,7 @@
 
 3. 刪除 __src\\test\\java\\com\\microsoft\\examples\\apptest.java__ 檔案，因為此範例中不會用到。
 
-##更新專案物件模型
+## 更新專案物件模型
 
 1. 編輯 __pom.xml__ 檔案，並在 `<dependencies>` 區段內加入下列程式碼。
 
@@ -159,7 +159,7 @@
 
 3. 儲存 __hbase-site.xml__ 檔案。
 
-##建立應用程式
+## 建立應用程式
 
 1. 移至 __hbaseapp\\src\\main\\java\\com\\microsoft\\examples__ 目錄，並將 app.java 檔案重新命名為 __CreateTable.java__。
 
@@ -334,7 +334,7 @@
 
 7. 儲存 __DeleteTable.java__ 檔案。
 
-##建置和封裝應用程式
+## 建置和封裝應用程式
 
 1. 開啟命令提示字元，切換至 __hbaseapp__ 目錄。
 
@@ -348,7 +348,7 @@
 
 	> [AZURE.NOTE]__hbaseapp-1.0-SNAPSHOT.jar__ 檔案是一個 uber jar (有時稱為 fat jar)，內含執行應用程式所需的所有相依性。
 
-##上傳 JAR 檔案並啟動工作
+## 上傳 JAR 檔案並啟動工作
 
 > [AZURE.NOTE]有許多方法可將檔案上傳至 HDInsight 叢集，如[在 HDInsight 中將 Hadoop 工作的資料上傳](hdinsight-upload-data.md)中所述。下列步驟會使用 [Azure PowerShell](install-configure-powershell.md)。
 
@@ -577,7 +577,7 @@
 
 	使用 __fabrikam.com__ 做為 `-emailRegex` 值會傳回電子郵件欄位中含有 __fabrikam.com__ 的使用者。因為此搜尋是以規則運算式篩選器來實作，您也可以輸入像是 __^r__ 這樣的規則運算式，其將傳回電子郵件以字母 'r' 開頭的項目。
 
-##刪除資料表
+## 刪除資料表
 
 練習完範例之後，請從 Azure PowerShell 工作階段中使用下列命令，以刪除此範例所使用的 __people__ 資料表：
 
@@ -585,9 +585,9 @@
 
 將 __hdinsightclustername__ 換成您的 HDInsight 叢集名稱。
 
-##疑難排解
+## 疑難排解
 
-###使用 Start-HBaseExample 時沒有結果或傳回非預期的結果
+### 使用 Start-HBaseExample 時沒有結果或傳回非預期的結果
 
 請使用 `-showErr` 參數，以檢視執行工作時所產生的標準錯誤 (STDERR)。
 

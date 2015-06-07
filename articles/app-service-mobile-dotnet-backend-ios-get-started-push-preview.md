@@ -52,7 +52,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../includes/app-service-mobile-apns-configure-push-preview.md)]
 
-##<a id="update-server"></a>更新伺服器以傳送推播通知
+## <a id="update-server"></a>更新伺服器以傳送推播通知
 
 1. 在 Visual Studio 中，以滑鼠右鍵按一下方案，然後按一下 [管理 NuGet 封裝]****。
 

@@ -90,7 +90,7 @@
 
 您可以用下列方式之一定義註冊到資料表作業的伺服器指令碼：
 
-+ 使用 [Azure 管理入口網站][Management Portal]。可在指定資料表的 [指令碼]**** 索引標籤中存取資料表作業的指令碼。以下為註冊到 `TodoItem` 資料表之插入指令碼的預設程式碼。您可用自己的自訂業務邏輯覆寫此程式碼。
++ 使用 [Azure 管理入口網站][Management Portal]。可在指定資料表的 [指令碼] 索引標籤中存取資料表作業的指令碼。以下為註冊到 `TodoItem` 資料表之插入指令碼的預設程式碼。您可用自己的自訂業務邏輯覆寫此程式碼。
 
 	![1][1]
 	
@@ -228,7 +228,7 @@
 `id` 的值必須是唯一的，且不可包含下列字元集中的字元：
 
 + 控制字元：[0x0000-0x001F] 和 [0x007F-0x009F]如需詳細資訊，請參閱 [ASCII 控制碼 C0 和 C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set) (英文)。
-+  可列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?** (0x003F)、**\\** (0x005C)、**`** (0x0060)
++  可列印的字元：**"**(0x0022)、**+** (0x002B)、**/** (0x002F)、**?** (0x003F)、**\** (0x005C)、**`** (0x0060)
 +  識別碼 "." 和 ".."
 
 您也可以在資料表中使用整數識別碼。若要使用整數識別碼，您必須使用 `--integerId` 選項，以 `mobile table create` 命令建立資料表。此命令需要在 Azure 的命令列介面 (CLI) 中執行。如需關於使用 CLI 的詳細資訊，請參閱[使用 CLI 管理行動服務資料表](virtual-machines-command-line-tools.md#Mobile_Tables) (英文)。
@@ -337,7 +337,7 @@
 
 您可以用下列方式之一，定義註冊到自訂 API 端點中 HTTP 方法的伺服器指令碼：
 
-+ 使用 [Azure 管理入口網站][Management Portal]。在 [API]**** 索引標籤中建立及修改自訂 API 指令碼。伺服器指令碼位於指定自訂 API 的 [指令碼] **** 索引標籤下。以下是 POST 要求對 `CompleteAll` 自訂 API 端點叫用的指令碼。 
++ 使用 [Azure 管理入口網站][Management Portal]。在 [API] 索引標籤中建立及修改自訂 API 指令碼。伺服器指令碼位於指定自訂 API 的 [指令碼]  索引標籤下。以下是 POST 要求對 `CompleteAll` 自訂 API 端點叫用的指令碼。 
 
 	![2][2]
 	
@@ -454,7 +454,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 
 以下列方式之一定義排程工作：
 
-+ 在 [Azure 管理入口網站][Management Portal] 上排程器的 [指令碼]**** 索引標籤中：
++ 在 [Azure 管理入口網站][Management Portal] 上排程器的 [指令碼] 索引標籤中：
 
 	![3][3]
 
@@ -589,7 +589,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 		var accessToken= config.appSettings.TWITTER_ACCESS_TOKEN,
 		    accessTokenSecret = config.appSettings.TWITTER_ACCESS_TOKEN_SECRET;
 
-請注意，此程式碼也會擷取入口網站中 [身分識別]**** 索引標籤中的 Twitter 消費者金鑰值。因為資料表作業和排程工作指令碼中沒有 **config 物件**，您必須要求組態模組存取應用程式設定。如需完整範例，請參閱[在行動服務中排程後端工作]。
+請注意，此程式碼也會擷取入口網站中 [身分識別] 索引標籤中的 Twitter 消費者金鑰值。因為資料表作業和排程工作指令碼中沒有 **config 物件**，您必須要求組態模組存取應用程式設定。如需完整範例，請參閱[在行動服務中排程後端工作]。
 
 <h2><a name="command-prompt"></a>使用命令列工具</h2>
 
@@ -654,7 +654,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 
 若要從指令碼存取資料表，最簡單的作法是使用 [tables 物件]。**getTable** 函數會傳回 [table 物件]執行個體，此執行個體是存取要求之資料的 Proxy。然後您可以呼叫 Proxy 上的函數來存取及變更資料。
 
-同時註冊到資料表作業和排程工作的指令碼可以存取 [tables 物件]，如同全域物件。這一行程式碼會從全域 *tables 物件*取得 [TodoItems] 資料表的 Proxy：
+同時註冊到資料表作業和排程工作的指令碼可以存取 [tables 物件]，如同全域物件。這一行程式碼會從全域 [tables 物件]取得 *[TodoItems]* 資料表的 Proxy：
 
 		var todoItemsTable = tables.getTable('TodoItems');
 
@@ -947,7 +947,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 
 若要寫入記錄檔，使用全域 [console 物件]。使用 **log** 或 **info** 函數記錄資訊層級的警告。**warning** 和 **error** 函數會各自記錄其層級的資訊 (在記錄檔中呼叫層級)。
 
-> [AZURE.NOTE]若要檢視行動服務的記錄檔，請登入[管理入口網站](https://manage.windowsazure.com/)，選取您的行動服務，然後選擇 [記錄檔]**** 索引標籤。
+> [AZURE.NOTE]若要檢視行動服務的記錄檔，請登入[管理入口網站](https://manage.windowsazure.com/)，選取您的行動服務，然後選擇 [記錄檔] 索引標籤。
 
 您也可以使用 [console 物件]的登入函數，使用參數將您的訊息格式化。以下範例提供 JSON 物件做為訊息字串的參數：
 

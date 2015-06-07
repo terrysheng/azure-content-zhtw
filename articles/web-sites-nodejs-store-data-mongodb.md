@@ -38,7 +38,7 @@
 
 > [AZURE.NOTE]以下的許多步驟皆提到要使用命令列。針對這些步驟，請使用作業系統的命令列，如 **Windows PowerShell** (Windows) 或 **Bash** (Unix Shell)。在 OS X 系統上，您可以透過 [終端機] 應用程式來存取命令列。
 
-##必要條件
+## 必要條件
 
 本教學課程步驟使用的 Node.js，在您的開發環境中必須有最新版本的 [Node.js][node] (英文)。
 
@@ -48,7 +48,7 @@
 
 >[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
-##建立虛擬機器
+## 建立虛擬機器
 
 <!--
 After you have created the virtual machine in Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.-->
@@ -59,17 +59,17 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 1. 登入 [Azure 入口網站][azureportal]。
 
-3. 按一下 [新增]**** > [資料 + 儲存體]**** > [Marketplace]****。
+3. 按一下 [新增] > [資料 + 儲存體] > [Marketplace]。
 
 	![選取 VM Depot 的螢幕擷取畫面][selectdepo]
 
-2. 在頂端的搜尋方塊中，輸入 "mongodb"，然後選取 [MongoDB v2.2.3 on Hardened Ubuntu 12.04 LTS]****。按一下 [建立]**** 繼續作業。
+2. 在頂端的搜尋方塊中，輸入 "mongodb"，然後選取 [MongoDB v2.2.3 on Hardened Ubuntu 12.04 LTS]。按一下 [建立] 繼續作業。
 
 	![選取 mongodb v2.2.3 on hardened ubuntu 映像的螢幕擷取畫面][selectedimage]
 
 	按一下底部的箭頭前往下一個畫面。
 
-7. 設定 VM 的 [主機名稱]****、管理員 [使用者名稱]**** 與 [密碼]****，以及 [資源群組]****。然後，按一下 [選用組態]****。
+7. 設定 VM 的 [主機名稱]、管理員 [使用者名稱] 與 [密碼]，以及 [資源群組]。然後，按一下 [選用組態]。
 
 	![虛擬機器組態的螢幕擷取畫面][vmconfig]
 
@@ -89,7 +89,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 	
 	![端點組態的螢幕擷取畫面][vmendpoint]
 
-9. 按兩次 [確定]****，然後按一下 [建立]**** 以建立 VM。
+9. 按兩次 [確定]，然後按一下 [建立] 以建立 VM。
 
 	建立虛擬機器之後，您會在 [開始面板] 中看到它，而且您可以按一下它以開啟 VM 的分頁。您應該能夠開啟 Web 瀏覽器以連到 **http://&lt;YourVMDNSName&gt;.cloudapp.net:28017/** 確認 MongoDB 為執行中。頁面底部應該是一份記錄，會顯示服務的相關資訊，類似這樣：
 
@@ -105,11 +105,11 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 	如果記錄顯示錯誤，請查閱 [MongoDB 文件][mongodocs] (英文) 以了解疑難排解步驟。
 
 
-##安裝模組及產生樣板
+## 安裝模組及產生樣板
 
 在本節中，您將在開發環境上建立新的 Node 應用程式，並使用 npm 加入模組套件。針對工作清單應用程式，您將使用 [Express] (英文) 和 [Mongoose] (英文) 模組。Express 模組提供節點的模型檢視控制器架構，Mongoose 則是用來與 MongoDB 通訊的驅動程式。
 
-###安裝 Express 及產生樣板
+### 安裝 Express 及產生樣板
 
 1. 從命令列將目錄變更至 **tasklist** 目錄。如果 **tasklist** 目錄不存在，請予以建立。
 
@@ -173,7 +173,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 	這項作業是必須的，因為 **server.js** (先前為 **bin/www**) 現已位於與必要 **app.js** 檔案相同的資料夾中。
 
-###安裝其他模組
+### 安裝其他模組
 
 **package.json** 檔案是 **express** 命令建立的檔案之一。這個檔案包含 Express 應用程式的其他必要模組清單。之後，當您將此應用程式部署至 App Service Web Apps，此檔案將用於決定 Azure 上需要安裝哪些模組來支援您的應用程式。
 	
@@ -245,7 +245,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
     > [AZURE.NOTE]您可以放心忽略任何有關安裝 C++ bson 剖析器的訊息。
 
-##在節點應用程式中使用 MongoDB
+## 在節點應用程式中使用 MongoDB
 
 在本節中，您將藉著加入 **task.js** 檔案的方式擴充由 **express** 命令建立的基本應用程式 (task.js 檔案包含工作的模型)。您也將修改現有的 **app.js** 及建立新的 **tasklist.js** 控制器檔案，以使用模型。
 
@@ -273,7 +273,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 5. 儲存並關閉 **task.js** 檔案。
 
-###建立控制器
+### 建立控制器
 
 1. 在 **tasklist/routes** 目錄中建立新檔案 **tasklist.js**，然後在文字編輯器中開啟檔案。
 
@@ -356,7 +356,7 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 4. 儲存 **app.js** 檔案。
 
-###修改索引檢視
+### 修改索引檢視
 
 1. 將目錄變更為 **views** 目錄，在文字編輯器中開啟 **index.jade** 檔案。
 
@@ -435,7 +435,7 @@ To test the application on your local machine, perform the following steps:
 
 7. To stop the node process, go to the command-line and press the **CTRL** and **C** keys. -->
 
-##將應用程式部署至 Azure
+## 將應用程式部署至 Azure
 
 本節的步驟使用 Azure 命令列工具在 Azure App Service 中建立新的 Web 應用程式，然後使用 Git 部署應用程式。若要執行這些步驟，必須有 Azure 訂閱。
 
@@ -443,11 +443,11 @@ To test the application on your local machine, perform the following steps:
 
 > [AZURE.NOTE]如果這是您建立的第一個 App Service Web 應用程式，您必須使用 Azure 入口網站部署此應用程式。
 
-###安裝 Azure 跨平台命令列介面
+### 安裝 Azure 跨平台命令列介面
 
 Azure 跨平台命令列介面 (xplat-cli) 可讓您執行 Azure 服務的管理作業。若您的開發環境尚未安裝及設定 xplat-cli，請參閱[安裝及設定 Azure 跨平台命令列介面][xplatcli]中的說明。
 
-###建立 App Service Web 應用程式
+### 建立 App Service Web 應用程式
 
 1. 使用命令列變更目錄至 **tasklist** 目錄。
 
@@ -478,7 +478,7 @@ Azure 跨平台命令列介面 (xplat-cli) 可讓您執行 Azure 服務的管理
 
 	> [AZURE.NOTE> 如果這是您的訂用帳戶的第一個 App Service Web 應用程式，系統將指示您使用入口網站來建立 Web 應用程式。如需詳細資訊，請參閱[在 Azure App Service 中建置和部署 Node.js Web 應用程式](web-sites-nodejs-develop-deploy-mac.md)。
 
-###設定 MONGODB_URI 環境變數
+### 設定 MONGODB_URI 環境變數
 
 應用程式預期會在 MONGODB_URI 環境變數中找到 MongoDB 執行個體的連接字串。使用以下命令為 Web 應用程式設定此值：
 
@@ -486,7 +486,7 @@ Azure 跨平台命令列介面 (xplat-cli) 可讓您執行 Azure 服務的管理
 
 這將為 Web 應用程式建立新的應用程式設定，這些設定將用來填入 Web 應用程式讀取的 MONGODB_URI 環境變數。以 MongoDB 安裝所在的虛擬機器名稱取代 'mymongodb.cloudapp.net' 的值。
 
-###發佈應用程式
+### 發佈應用程式
 
 1. 若您尚未進入 **tasklist** 目錄，請在 [終端機] 視窗中變更目錄至此。
 
@@ -519,7 +519,7 @@ Azure 跨平台命令列介面 (xplat-cli) 可讓您執行 Azure 服務的管理
  
 4. 完成推播作業後，請使用 `azure site browse` 命令瀏覽至該 Web 應用程式以檢視您的應用程式。
 
-##後續步驟
+## 後續步驟
 
 本文的步驟會說明如何使用 MongoDB 存放資訊，不過，您也可以使用 Azure 資料表服務。如需詳細資訊，請參閱[使用 Azure Table Service 的 Node.js Web 應用程式]。
 
@@ -527,7 +527,7 @@ Azure 跨平台命令列介面 (xplat-cli) 可讓您執行 Azure 服務的管理
 
 若要了解如何保護 MongoDB，請參閱 [MongoDB 安全性][mongosecurity] (英文)。
 
-##其他資源
+## 其他資源
 
 [適用於 Mac 和 Linux 的 Azure 命令列工具][Build and deploy a Node.js web app in Azure App Service] [在 Azure App Service 中使用 GIT 連續部署]
 

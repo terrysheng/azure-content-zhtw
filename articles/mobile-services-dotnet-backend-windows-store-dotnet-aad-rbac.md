@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../includes/mobile-services-selector-rbac.md)]
 
-##概觀
+## 概觀
 
 角色型存取控制 (RBAC) 是針對使用者可擔任的角色指派權限的作法。它可妥善定義特定類別的使用者能夠與無法執行哪些動作的界線。本教學課程將逐步解說如何將基本 RBAC 新增至 Azure 行動服務。
 
@@ -29,7 +29,7 @@
 
 >[AZURE.NOTE]本教學課程的目的是要擴充驗證知識以加入授權實務作法。您應先使用 Azure Active Directory 驗證提供者完成[將驗證新增至您的應用程式]教學課程。本教學課程接著將更新[將驗證新增至您的應用程式]教學課程中使用的 TodoItem 應用程式。
 
-##必要條件
+## 必要條件
 
 本教學課程需要下列各項：
 
@@ -39,7 +39,7 @@
  
 
 
-##為整合的應用程式產生金鑰
+## 為整合的應用程式產生金鑰
 
 
 在進行[將驗證新增至您的應用程式]教學課程期間，您已在完成[註冊使用 Azure Active Directory 登入]步驟時，為整合的應用程式建立註冊。在本節中，您將產生在使用該整合的應用程式用戶端識別碼讀取目錄資訊時所將使用的金鑰。
@@ -50,13 +50,13 @@
 
 
 
-##建立具有成員資格的銷售群組
+## 建立具有成員資格的銷售群組
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 
 
-##在行動服務上建立自訂授權屬性 
+## 在行動服務上建立自訂授權屬性 
 
 在本節中，您將新建可用來對行動服務作業執行存取檢查的自訂授權屬性。屬性將會根據傳至 Active Directory 群組的角色名稱查閱該群組。接著，它會根據該群組的成員資格執行存取檢查。
 
@@ -324,7 +324,7 @@
 
 12. 將您的變更儲存至 AuthorizeAadRole.cs。
 
-##將角色型存取檢查新增至資料庫作業
+## 將角色型存取檢查新增至資料庫作業
 
 1. 在 Visual Studio 中，展開行動服務專案下的 **Controllers** 資料夾。開啟 TodoItemController.cs。
 
@@ -366,7 +366,7 @@
 5. 將行動服務發行至您的 Azure 帳戶。
 
 
-##測試用戶端的存取
+## 測試用戶端的存取
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 

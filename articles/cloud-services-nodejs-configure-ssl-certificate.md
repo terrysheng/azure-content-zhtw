@@ -37,7 +37,7 @@
 
 當 Node.js 應用程式部署至 Azure Web 角色之後，就會由 Internet Information Services (IIS) 來處理伺服器憑證和 SSL 連線，因此，可以將 Node.js 服務當做 http 服務來撰寫。您可以使用下列步驟在 Azure PowerShell 中建立簡單的 Node.js 'hello world' 服務：
 
-1. 從 [開始] 功能表**** 或 [開始畫面]**** 中，搜尋 **Azure PowerShell**。最後，以滑鼠右鍵按一下 [Azure PowerShell]****，然後選取 [以系統管理員身分執行]****。
+1. 從 [開始] 功能表 或 [開始畫面] 中，搜尋 **Azure PowerShell**。最後，以滑鼠右鍵按一下 [Azure PowerShell]，然後選取 [以系統管理員身分執行]。
 
 	![Azure PowerShell icon][powershell-menu]
 
@@ -58,7 +58,7 @@
 
 	> [AZURE.NOTE]如果您先前未匯入 Azure 訂閱的發行設定，則嘗試發行時會發生錯誤。如需有關下載和匯入訂閱之發行設定的詳細資訊，請參閱＜[如何使用 Azure PowerShell 來處理 Node.js](https://www.windowsazure.com/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings)＞(英文)
 
-**Publish-AzureServiceProject** Cmdlet 傳回的 [建立的網站 URL]**** 值包含受託管應用程式的完整網域名稱。您需要取得此特定完整網域名稱的 SSL 憑證並部署至 Azure。
+**Publish-AzureServiceProject** Cmdlet 傳回的 [建立的網站 URL] 值包含受託管應用程式的完整網域名稱。您需要取得此特定完整網域名稱的 SSL 憑證並部署至 Azure。
 
 ## <a name="step2"> </a>步驟 2：取得 SSL 憑證
 
@@ -83,9 +83,9 @@
 	
 	![憑證精靈][cert-wizard]
 
-2.   在 [存放區位置]**** 區段中，選取 [目前使用者]****，然後按 [下一步]****。這樣會將憑證安裝到您使用者帳戶的憑證存放區。
+2.   在 [存放區位置] 區段中，選取 [目前使用者]，然後按 [下一步]。這樣會將憑證安裝到您使用者帳戶的憑證存放區。
 
-3.   繼續執行精靈，接受預設值，一直到出現 [私密金鑰保護]**** 畫面為止。在這裡，您必須輸入憑證的密碼 (若有的話)。您也必須選取 [將這個金鑰設成可匯出]****。最後，按 [下一步]****。
+3.   繼續執行精靈，接受預設值，一直到出現 [私密金鑰保護] 畫面為止。在這裡，您必須輸入憑證的密碼 (若有的話)。您也必須選取 [將這個金鑰設成可匯出]。最後，按 [下一步]。
 
 	![私密金鑰保護][key-protection]
 
@@ -143,9 +143,9 @@
 
 您的部署已在 Azure 啟動並執行，現在您可以使用 HTTPS 來與其連線。
 
-1.  在 Azure 管理入口網站中，選取您的雲端服務，然後按一下 [儀表板]****。
+1.  在 Azure 管理入口網站中，選取您的雲端服務，然後按一下 [儀表板]。
 
-2. 向下捲動並按一下顯示為 [網站 URL]**** 的連結：
+2. 向下捲動並按一下顯示為 [網站 URL] 的連結：
 
     ![the site url][site-url]
 
@@ -176,6 +176,7 @@
 [3]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-03.png
 [Azure Management Portal]: http://manage.windowsazure.com
 [如何使憑證與服務產生關聯]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
+[將憑證與服務產生關聯]: http://msdn.microsoft.com/library/windowsazure/gg465718.aspx
 [site-url]: ./media/cloud-services-nodejs-configure-ssl-certificate/site-url.png
 [8]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-08.png
 [如何在 HTTPS 端點上設定 SSL 憑證]: http://msdn.microsoft.com/library/windowsazure/ff795779.aspx

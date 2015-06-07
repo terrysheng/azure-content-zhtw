@@ -1,14 +1,14 @@
 若要能夠在新行動服務中儲存應用程式資料，您必須先在相關聯的 SQL Database 執行個體中建立新的資料表。
 
-1. 在管理入口網站中，按一下 [行動服務]****，然後按一下您剛剛建立的行動服務。
+1. 在管理入口網站中，按一下 [行動服務]，然後按一下您剛剛建立的行動服務。
 
-2. 按一下 [資料] ****索引標籤，然後按一下 [建立]****。
+2. 按一下 [資料] 索引標籤，然後按一下 [建立]。
 	
    	![mobile-data-tab-empty](./media/mobile-services-create-new-service-data-2/mobile-data-tab-empty.png)
 
    	這樣做會顯示 [**建立新資料表**] 對話方塊。
 
-3. 在 [資料表名稱] ****中輸入 _TodoItem_，然後按一下打勾按鈕。
+3. 在 [資料表名稱] 中輸入 _TodoItem_，然後按一下打勾按鈕。
 
  	![mobile-create-todoitem-table](./media/mobile-services-create-new-service-data-2/mobile-create-todoitem-table.png)
 
@@ -19,7 +19,7 @@
 
 4. 按一下新的 **TodoItem** 資料表，並驗證其中不含資料列。
 
-5. 按一下 [資料行] ****索引標籤。驗證是否已為您自動建立下列預設資料行： 
+5. 按一下 [資料行] 索引標籤。驗證是否已為您自動建立下列預設資料行： 
 	
 	<table border="1" cellpadding="10">
  	<tr>

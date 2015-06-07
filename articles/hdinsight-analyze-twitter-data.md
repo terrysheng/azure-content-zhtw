@@ -91,8 +91,8 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 **建立 Twitter 應用程式**
 
 1. 登入 [https://apps.twitter.com/](https://apps.twitter.com/)。如果您沒有 Twitter 帳戶，請按一下 [**立即註冊**] 連結。
-2. 按一下 [建立新的應用程式]****。
-3. 輸入 [名稱]****、[說明]****、[網站]****。您可以在 [**網站**] 欄位中自行設定 URL。下表列出部分要使用的範例值：
+2. 按一下 [建立新的應用程式]。
+3. 輸入 [名稱]、[說明]、[網站]。您可以在 [**網站**] 欄位中自行設定 URL。下表列出部分要使用的範例值：
 
 	<table border="1">
 <tr><th>欄位</th><th>值</th></tr>
@@ -100,10 +100,10 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 <tr><td>說明</td><td>MyHDInsightApp</td></tr>
 <tr><td>網站</td><td>http://www.myhdinsightapp.com</td></tr>
 </table>
-4. 核取 [Yes, I agree]****然後按一下 [Create your Twitter application]****。
-5. 按一下 [權限]**** 索引標籤。預設權限為 [唯讀]****。本教學課程使用預設值即可。 
+4. 核取 [Yes, I agree]然後按一下 [Create your Twitter application]。
+5. 按一下 [權限] 索引標籤。預設權限為 [唯讀]。本教學課程使用預設值即可。 
 6. 按一下 **[金鑰和存取權杖**] 索引標籤。
-7. 按一下 [Create my access token]****。
+7. 按一下 [Create my access token]。
 8. 按一下位於頁面右上角的 [**測試 OAuth**]。
 9. 記下**消費者金鑰**、**消費者密碼**、**存取權杖**和**存取權杖密碼**。稍後在教學課程中會用到這些值。
 
@@ -243,16 +243,16 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 3. 設定指令碼中的前五到八個變數：
 
 	<table border="1">
-<tr><th>變數</th><th>說明</th></tr>
-<tr><td>$clusterName</td><td>這是您要執行應用程式的 HDInsight 叢集名稱。</td></tr><tr><td>$oauth_consumer_key</td><td>這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式<strong>消費者金鑰</strong>。</td></tr>
-<tr><td>$oauth_consumer_secret</td><td>這是您先前記下的 Twitter 應用程式<strong>消費者密碼</strong>。</td></tr>
-<tr><td>$oauth_token</td><td>這是您先前記下的 Twitter 應用程式<strong>存取權杖</strong>。</td></tr>
-<tr><td>$oauth_token_secret</td><td>這是您先前記下的 Twitter 應用程式<strong>存取權杖密碼</strong>。</td></tr>	
-<tr><td>$destBlobName</td><td>這是輸出 Blob 名稱。預設值為 <strong>tutorials/twitter/data/tweets.txt</strong>。如果您變更預設值，則 Windows PowerShell 指令碼也必須隨之變更。</td></tr>
-<tr><td>$trackString</td><td>Web 服務會傳回這些關鍵字的相關推文。預設值為 <strong>Azure, Cloud, HDInsight</strong>。如果您變更預設值，則 Windows PowerShell 指令碼也要隨之變更。</td></tr>
-<tr><td>$lineMax</td><td>此值會決定指令碼所將讀取的推文數。讀取 100 則推文大約需要三分鐘。您可以設定更大的數目，但下載時間將會較久。</td></tr>
+	<tr><th>變數</th><th>說明</th></tr>
+	<tr><td>$clusterName</td><td>這是您要執行應用程式的 HDInsight 叢集名稱。</td></tr><tr><td>$oauth_consumer_key</td><td>這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式<strong>消費者金鑰</strong>。</td></tr>
+	<tr><td>$oauth_consumer_secret</td><td>這是您先前記下的 Twitter 應用程式<strong>消費者密碼</strong>。</td></tr>
+	<tr><td>$oauth_token</td><td>這是您先前記下的 Twitter 應用程式<strong>存取權杖</strong>。</td></tr>
+	<tr><td>$oauth_token_secret</td><td>這是您先前記下的 Twitter 應用程式<strong>存取權杖密碼</strong>。</td></tr>	
+	<tr><td>$destBlobName</td><td>這是輸出 Blob 名稱。預設值為 <strong>tutorials/twitter/data/tweets.txt</strong>。如果您變更預設值，則 Windows PowerShell 指令碼也必須隨之變更。</td></tr>
+	<tr><td>$trackString</td><td>Web 服務會傳回這些關鍵字的相關推文。預設值為 <strong>Azure, Cloud, HDInsight</strong>。如果您變更預設值，則 Windows PowerShell 指令碼也要隨之變更。</td></tr>
+	<tr><td>$lineMax</td><td>此值會決定指令碼所將讀取的推文數。讀取 100 則推文大約需要三分鐘。您可以設定更大的數目，但下載時間將會較久。</td></tr>
 
-</table>
+	</table>
 
 5. 按 **F5** 以執行指令碼。如果發生問題，請選取所有程式碼行，然後按 **F8**，以解決問題。
 6. 輸出的結尾應會顯示「完成！」。錯誤訊息會顯示為紅色。

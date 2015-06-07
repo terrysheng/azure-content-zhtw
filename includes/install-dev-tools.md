@@ -1,4 +1,5 @@
-> [AZURE.NOTE]若要順利完成此區段，您的平台必須有運作中的 Node.js 安裝和 Azure SDK for Node.js。
+> [AZURE.NOTE]
+> 若要順利完成此區段，您的平台必須有運作中的 Node.js 安裝和 Azure SDK for Node.js。
 
 >* 安裝 Azure SDK for Node.js：<a href="http://go.microsoft.com/fwlink/?LinkId=254279">Windows 安裝程式</a> | <a href="http://go.microsoft.com/fwlink/?LinkId=253471">Mac 安裝程式</a> | <a href="http://go.microsoft.com/fwlink/?LinkId=253472">Linux 下載</a></li>
 

@@ -203,13 +203,13 @@ Azure 跨平台命令列介面 (xplat-cli) 提供您處理 Azure 的跨平台命
 
 -  若要列出 xplat-cli 中可供 Azure App Service 使用的命令，請呼叫 `azure site -h`。
 
-\----------
+----------
 ### azure site list
 如需目前訂用帳戶中 Web 應用程式的相關資訊，請呼叫 **azure site list**，如下列範例所示。
 
 `azure site list webappslotstest`
 
-\----------
+----------
 ### azure site create
 若要建立部署位置，請呼叫 **azure site create** 並指定現有 Web 應用程式的名稱與要建立之位置的名稱，如下列範例所示。
 
@@ -219,13 +219,13 @@ Azure 跨平台命令列介面 (xplat-cli) 提供您處理 Azure 的跨平台命
 
 `azure site create --git webappslotstest --slot staging`
 
-\----------
+----------
 ### azure site swap
 若要將已更新的部署位置轉變成生產應用程式，請使用 **azure site swap** 命令來執行交換作業，如下列範例所示。生產應用程式不會發生任何停機事件，也不會進行冷啟動。
 
 `azure site swap webappslotstest`
 
-\----------
+----------
 ### azure site delete
 若要刪除不再需要的部署位置，請使用 **azure site delete** 命令，如以下範例所示。
 

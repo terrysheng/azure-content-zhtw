@@ -10,13 +10,13 @@ DNS 系統是根據*記錄*。記錄會將特定的*名稱* (如 **contoso.com**
 
 ###位址記錄 (A 記錄)
 
-A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字元網域* (例如 ***.contoso.com**) 對應至 IP 位址。以 App Service 中的 Web 應用程式而言，就是指服務的虛擬 IP 或您為 Web 應用程式購買的特定 IP 位址。
+A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字元網域* (例如 **\*.contoso.com**) 對應至 IP 位址。以 App Service 中的 Web 應用程式而言，就是指服務的虛擬 IP 或您為 Web 應用程式購買的特定 IP 位址。
 
 相較於 CNAME 記錄，A 記錄的主要優點為：
 
 * 您可以將根網域 (如 **contoso.com**) 對應至 IP 位址；許多註冊機報僅允許使用 A 記錄執行此動作
 
-* 您可以擁有一個使用萬用字元的項目，例如 ***.contoso.com**，即可處理多個子網域的要求，例如 **mail.contoso.com**、**blogs.contoso.com** 或 **www.contso.com**。
+* 您可以擁有一個使用萬用字元的項目，例如 **\*.contoso.com**，即可處理多個子網域的要求，例如 **mail.contoso.com**、**blogs.contoso.com** 或 **www.contso.com**。
 
 > [AZURE.NOTE]因為 A 記錄會對應至靜態 IP 位址，所以無法自動解析 Web 應用程式 IP 位址的變更。您在設定 Web 應用程式的自訂網域名稱設定時會提供搭配 A 記錄所使用的 IP 位址。不過，如果您刪除後重新建立 Web 應用程式，或將 App Service 計劃模式變回 [**免費**]，此值就可能會變更。
 
@@ -46,7 +46,7 @@ CNAME 記錄將*特定的*網域 (例如 **mail.contoso.com** 或 **www.contoso.
 
 	> [AZURE.NOTE]如果未啟用 [**管理網域**]，您將使用 [**免費**]的 Web 應用程式。您無法搭配 [**免費**] 的 Web 應用程式使用自訂網域名稱，因此必須將 App Service 計劃升級到 [**共用**]、[**基本**] 或 [**標準**] 模式。如需有關 App Service 計劃模式的詳細資訊，包括如何變更 Web 應用程式的模式，請參閱[如何調整 Web 應用程式](../articles/web-sites-scale.md)。
 
-6. 在 [管理自訂網域]**** 對話方塊中，您會看到 **awverify** 資訊、目前指派的 **.azurewebsites.net** 網域名稱，以及虛擬 IP 位址。儲存此資訊，在建立 DNS 記錄時會用得到。
+6. 在 [管理自訂網域] 對話方塊中，您會看到 **awverify** 資訊、目前指派的 **.azurewebsites.net** 網域名稱，以及虛擬 IP 位址。儲存此資訊，在建立 DNS 記錄時會用得到。
 
 	![](./media/custom-dns-web-site/managecustomdomains.png)
 

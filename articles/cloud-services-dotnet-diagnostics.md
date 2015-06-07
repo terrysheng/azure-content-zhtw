@@ -95,7 +95,7 @@ Azure 診斷可收集下列類型的遙測資料：
 1.	啟動 **Visual Studio 2013**。
 2.	從以 .NET Framework 4.5 為目標的**雲端**範本，建立新的 **Azure 雲端服務**專案。將專案命名為 "WadExample" 並按一下 [確定]。
 3.	選取 [**背景工作角色**] 並按一下 [確定]。將會建立專案。 
-4.	在 [方案總管]**** 中，按兩下 **WorkerRole1** 屬性檔。
+4.	在 [方案總管] 中，按兩下 **WorkerRole1** 屬性檔。
 5.	在 [**組態**] 索引標籤中取消核取 [**啟用診斷**] 以停用診斷 1.0 (Azure SDK 2.4 和更早版本)。
 6.	建置您的解決方案以確認無誤。
 
@@ -185,21 +185,21 @@ Azure 診斷可收集下列類型的遙測資料：
 1.	在 [方案總管] 中選取 **WadExample** 專案，然後從 [**建置**] 功能表選取 [**發行**]，以從 Visual Studio 將背景工作角色部署至 Azure。
 2.	選擇您的訂用帳戶。
 3.	在 [**Microsoft Azure 發行設定**] 對話方塊中，選取 [**建立新的…**]。
-4.	在 [**建立雲端服務和儲存體帳戶**] 對話方塊中，輸入一個 [**名稱**] (例如 "WadExample") 並選取一個區域或同質群組。
-5.	將 [環境]**** 設為 [預備]****。
-6.	適當地修改其他任何**設定**，然後按一下 [發行]****。
-7.	部署完成之後，請在 Azure 入口網站中確認您的雲端服務是否處於 [執行中]**** 狀態。
+4.	在 [**建立雲端服務和儲存體帳戶**] 對話方塊中，輸入一個 \[**名稱**\] (例如 "WadExample") 並選取一個區域或同質群組。
+5.	將 [環境] 設為 [預備]。
+6.	適當地修改其他任何**設定**，然後按一下 [發行]。
+7.	部署完成之後，請在 Azure 入口網站中確認您的雲端服務是否處於 [執行中] 狀態。
 
 ### 步驟 4：建立您的診斷組態檔並安裝擴充功能
 1.	執行下列 PowerShell 命令，以下載公用組態檔結構描述定義：
 2.	
 		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
-2.	以滑鼠右鍵按一下 **WorkerRole1** 專案，然後選取 [加入]**** -> [新增項目...]**** -> [Visual C# 項目]**** -> [資料]**** -> [XML 檔]****，將 XML 檔加入您的 **WorkerRole1** 專案。將檔案命名為 "WadExample.xml"。
+2.	以滑鼠右鍵按一下 **WorkerRole1** 專案，然後選取 [加入] -> [新增項目...] -> [Visual C# 項目] -> [資料] -> [XML 檔]，將 XML 檔加入您的 **WorkerRole1** 專案。將檔案命名為 "WadExample.xml"。
 
 	![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 
-3.	將 WadConfig.xsd 與組態檔產生關聯。確定 WadExample.xml 編輯器視窗是使用中視窗。按 **F4** 鍵開啟 [屬性]**** 視窗。在 [屬性]**** 視窗中，按一下 [結構描述]**** 屬性。在 [結構描述]**** 屬性中，按一下 [...]****。按一下 [**加入...**] 按鈕並瀏覽至您儲存 XSD 檔的位置，然後選取檔案 WadConfig.xsd。按一下 [確定]****。
+3.	將 WadConfig.xsd 與組態檔產生關聯。確定 WadExample.xml 編輯器視窗是使用中視窗。按 **F4** 鍵開啟 [屬性] 視窗。在 [屬性] 視窗中，按一下 [結構描述] 屬性。在 [結構描述] 屬性中，按一下 [...]。按一下 [**加入...**] 按鈕並瀏覽至您儲存 XSD 檔的位置，然後選取檔案 WadConfig.xsd。按一下 [確定]。
 4.	以下列 XML 取代 WadExample.xml 組態檔的內容，然後儲存檔案。此組態檔可定義兩個要收集的效能計數器：一個用於 CPU 使用率，一個用於記憶體使用率。組態會接著定義四個事件，分別對應至 SampleEventSourceWriter 類別中的方法。
 
 		<?xml version="1.0" encoding="utf-8"?>
@@ -238,7 +238,8 @@ Azure 診斷可收集下列類型的遙測資料：
 
 
 ### 步驟 6：查看您的遙測資料
-在 Visual Studio 的 [伺服器總管]**** 中，瀏覽至 wadexample 儲存體帳戶。在雲端服務執行約 5 分鐘之後，您應該會看到資料表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。按兩下其中一個資料表以檢視收集的遙測資料。![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
+在 Visual Studio 的 [伺服器總管] 中，瀏覽至 wadexample 儲存體帳戶。在雲端服務執行約 5 分鐘之後，您應該會看到資料表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。按兩下其中一個資料表以檢視收集的遙測資料。
+	![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## 如何在虛擬機器中啟用診斷
 
@@ -250,11 +251,11 @@ Azure 診斷可收集下列類型的遙測資料：
 ### 步驟 1：建立虛擬機器
 1.	在您的開發電腦上，啟動 Visual Studio 2013。
 2.	在 Visual Studio [**伺服器總管**] 中展開 [**Azure**]，以滑鼠右鍵按一下 [**虛擬機器**]，然後選取 [**建立虛擬機器**]。
-3.	在 [選擇訂用帳戶]**** 對話方塊中，選取您的 Azure 訂用帳戶，然後按 [下一步]****。
+3.	在 [選擇訂用帳戶] 對話方塊中，選取您的 Azure 訂用帳戶，然後按 [下一步]。
 4.	在 [**選取虛擬機器映像**] 對話方塊中，選取 [**Windows Server 2012 R2 Datacenter，2014 年 11 月**]，然後按 [**下一步**]。
-5.	在 [**虛擬機器基本設定**] 中，將虛擬機器名稱設為 "wadexample"。設定您的系統管理員使用者名稱和密碼，然後按 [下一步]****。
+5.	在 [**虛擬機器基本設定**] 中，將虛擬機器名稱設為 "wadexample"。設定您的系統管理員使用者名稱和密碼，然後按 [下一步]。
 6.	在 [**雲端服務設定**] 對話方塊中，建立名為 "wadexampleVM" 的新雲端服務。建立名為 "wadexample" 的新儲存體帳戶，然後按 [**下一步**]。
-7.	按一下 [建立]****。
+7.	按一下 [建立]。
 
 ### 步驟 2：建立您的應用程式
 1.	在您的開發電腦上，啟動 Visual Studio 2013。
@@ -327,13 +328,13 @@ Azure 診斷可收集下列類型的遙測資料：
 		}
 
 
-4.	儲存檔案，然後從 [建置]**** 功能表選取 [建置方案]****，以建置您的程式碼。
+4.	儲存檔案，然後從 [建置] 功能表選取 [建置方案]，以建置您的程式碼。
 
 
 ### 步驟 3：部署應用程式
 1.	在 [**方案總管**] 中以滑鼠右鍵按一下 **WadExampleVM** 專案，然後選擇 [**在檔案總管中開啟資料夾**]。
 2.	瀏覽至 *bin\\Debug* 資料夾並複製所有檔案 (WadExampleVM.*)。
-3.	在 [伺服器總管]**** 中，以滑鼠右鍵按一下虛擬機器並選擇 [使用遠端桌面連線]****。
+3.	在 [伺服器總管] 中，以滑鼠右鍵按一下虛擬機器並選擇 [使用遠端桌面連線]。
 4.	連線至 VM 之後，建立名為 WadExampleVM 的資料夾，並將您的應用程式檔案貼到資料夾中。
 5.	啟動 WadExampleVM.exe 應用程式。您應該會看見空白的主控台視窗。
 
@@ -342,8 +343,8 @@ Azure 診斷可收集下列類型的遙測資料：
 
 		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
-2.	在已開啟專案的 Visual Studio 中，或在未開啟專案的 Visual Studio 執行個體中，開啟新的 XML 檔。在 Visual Studio 中，選取 [加入]**** -> [新增項目...]**** -> [Visual C# 項目]**** -> [資料]**** -> [XML 檔]****。將檔案命名為 "WadExample.xml"
-3.	將 WadConfig.xsd 與組態檔產生關聯。確定 WadExample.xml 編輯器視窗是使用中視窗。按 **F4** 鍵開啟 [屬性]**** 視窗。在 [屬性]**** 視窗中，按一下 [結構描述]**** 屬性。在 [結構描述]**** 屬性中，按一下 [...]****。按一下 [**加入...**] 按鈕並瀏覽至您儲存 XSD 檔的位置，然後選取檔案 WadConfig.xsd。按一下 [確定]****。
+2.	在已開啟專案的 Visual Studio 中，或在未開啟專案的 Visual Studio 執行個體中，開啟新的 XML 檔。在 Visual Studio 中，選取 [加入] -> [新增項目...] -> [Visual C# 項目] -> [資料] -> [XML 檔]。將檔案命名為 "WadExample.xml"
+3.	將 WadConfig.xsd 與組態檔產生關聯。確定 WadExample.xml 編輯器視窗是使用中視窗。按 **F4** 鍵開啟 [屬性] 視窗。在 [屬性] 視窗中，按一下 [結構描述] 屬性。在 [結構描述] 屬性中，按一下 [...]。按一下 [**加入...**] 按鈕並瀏覽至您儲存 XSD 檔的位置，然後選取檔案 WadConfig.xsd。按一下 [確定]。
 4.	以下列 XML 取代 WadExample.xml 組態檔的內容，然後儲存檔案。此組態檔可定義兩個要收集的效能計數器：一個用於 CPU 使用率，一個用於記憶體使用率。組態會接著定義四個事件，分別對應至 SampleEventSourceWriter 類別中的方法。
 
 		<?xml version="1.0" encoding="utf-8"?>
@@ -386,7 +387,8 @@ Azure 診斷可收集下列類型的遙測資料：
 
 
 ### 步驟 6：查看您的遙測資料
-在 Visual Studio 的 [伺服器總管]**** 中，瀏覽至 wadexample 儲存體帳戶。在 VM 執行約 5 分鐘之後，您應該會看到資料表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。按兩下其中一個資料表以檢視收集的遙測資料。![CloudServices_diag_wadexamplevm_tables](./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png)
+在 Visual Studio 的 [伺服器總管] 中，瀏覽至 wadexample 儲存體帳戶。在 VM 執行約 5 分鐘之後，您應該會看到資料表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。按兩下其中一個資料表以檢視收集的遙測資料。
+	![CloudServices_diag_wadexamplevm_tables](./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png)
 
 ## 組態檔結構描述
 
@@ -531,7 +533,10 @@ Azure 診斷可收集下列類型的遙測資料：
 
 **問：** 如何將我的 Visual Studio 解決方案從 Azure Diagnostics 1.0 升級至 Azure Diagnostics 1.1？
 
-**答：** 將 Visual Studio 解決方案從 Diagnostics 1.0 升級至 Diagnostics 1.1 (或更新版本) 是手動程序：- 請停用您的 Visual Studio 方案中的診斷，以防止 Diagnostics 1.0 隨您的角色部署 - 如果您的程式碼使用追蹤接聽項，則需要修改程式碼才能使用 .NET EventSource。Diagnostics 1.1 及更新版本不支援追蹤接聽項。- 請修改您的部署處理序，以安裝 Diagnostics 1.1 擴充功能。
+**答：** 將 Visual Studio 解決方案從 Diagnostics 1.0 升級至 Diagnostics 1.1 (或更新版本) 是手動程序：
+- 請停用您的 Visual Studio 方案中的診斷，以防止 Diagnostics 1.0 隨您的角色部署 
+- 如果您的程式碼使用追蹤接聽項，則需要修改程式碼才能使用 .NET EventSource。Diagnostics 1.1 及更新版本不支援追蹤接聽項。
+- 請修改您的部署處理序，以安裝 Diagnostics 1.1 擴充功能。
 
 **問：** 如果我已經在角色或 VM 上安裝診斷 1.1 擴充功能，如何才能升級至診斷 1.2 或 1.3？
 

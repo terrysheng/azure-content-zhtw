@@ -9,7 +9,7 @@
 若出現其中任一項，則 Eclipse 中安裝的 Android SDK 版本可能不符合下載專案的 SDK 目標。若要確認版本，請進行下列變更：
 
 
-1. 在 Eclipse 中，按一下 [視窗]****，然後按 [Android SDK Manager]****。若尚未安裝最新版的 SDK 平台，則按一下以安裝它。記下版本號碼。
+1. 在 Eclipse 中，按一下 [視窗]，然後按 [Android SDK Manager]。若尚未安裝最新版的 SDK 平台，則按一下以安裝它。記下版本號碼。
 
 2. 開啟專案檔案 **AndroidManifest.xml**。確定在 **uses-sdk** 元素中，將 **targetSdkVersion** 設定為安裝的最新版本。**uses-sdk** 標籤外觀如下：
  
@@ -17,5 +17,5 @@
 	 	        android:minSdkVersion="8"
 	 	        android:targetSdkVersion="21" />
 	
-3. 在 Eclipse [封裝總管] 中，以滑鼠右鍵按一下專案節點，選擇 [屬性]****，然後在左欄中選擇 [Android]****。確定將 [專案建置目標]**** 設為 **targetSdkVersion** 所具有的相同 SDK 版本。
+3. 在 Eclipse [封裝總管] 中，以滑鼠右鍵按一下專案節點，選擇 [屬性]，然後在左欄中選擇 [Android]。確定將 [專案建置目標] 設為 **targetSdkVersion** 所具有的相同 SDK 版本。
 <!--HONumber=54-->

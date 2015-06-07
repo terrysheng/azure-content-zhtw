@@ -34,8 +34,8 @@
 這些情況指出可能需要進行回復作業的問題：
 
 + 連線至行動服務的應用程式已經很久沒有與服務進行通訊。
-+ 行動服務狀態在 **Azure 入口網站**中會顯示為 [狀況不良][]。
-+ 在 Azure 入口網站中，行動服務的每個索引標籤頂端會顯示 [狀況不良]**** 旗幟，且管理作業會產生錯誤訊息。
++ 行動服務狀態在 [Azure 入口網站][]中會顯示為 **狀況不良**。
++ 在 Azure 入口網站中，行動服務的每個索引標籤頂端會顯示 [狀況不良] 旗幟，且管理作業會產生錯誤訊息。
 + [Azure 服務儀表板]指出發生可用性問題。
 
 ## <a name="recover"></a>從災害中回復
@@ -46,7 +46,7 @@
 
 在中斷之後回復行動服務：
 
-1. 在 Azure 入口網站中，請確定所報告的服務狀態為 [狀況不良]****。
+1. 在 Azure 入口網站中，請確定所報告的服務狀態為 [狀況不良]。
 
 2. 如果您已保留次要行動服務，則可以略過此步驟。
 
@@ -69,13 +69,13 @@
 		info:    mobile recover command OK
 
 
-	> [AZURE.NOTE] It may take a few minutes after the command completes until you can see the changes in the portal.
+	> [AZURE.NOTE] 指令完成後可能需要經過一些時間，才能在入口網站中看到變更。
 
 5. 與原始檔控制中的原始版本比較，以確認所有指令碼都已正確回復。在大部分情況下，指令碼會自動回復而不會遺失資料，但如果您發現有不一致之處，則可以手動回復該指令碼。
 
 6. 請確定回復後的服務開始與 Azure SQL Database 進行通訊。回復命令會回復行動服務，但會保留原始資料庫的連線。如果主要 Azure 區域中的問題也影響到資料庫，則已回復的服務可能仍然無法正確執行。您可以利用 Azure 服務儀表板來檢查特定區域的資料庫狀態。如果原始資料庫未執行時，您可以回復它：
 	+ 依照＜[Windows Azure SQL Database 的業務續航力]＞中的說明，將 Azure SQL Database 回復到您剛回復行動服務的 Azure 區域。
-	+ 在 Azure 入口網站中，在行動服務的 [設定]**** 索引標籤上選擇 [變更資料庫]，然後選取剛回復的資料庫。
+	+ 在 Azure 入口網站中，在行動服務的 [設定] 索引標籤上選擇 [變更資料庫]，然後選取剛回復的資料庫。
 
 現在的狀態應該是行動服務已回復到新的 Azure 區域，且現在正使用其原始 URL 接收來自您的市集應用程式的流量。
 
@@ -90,6 +90,7 @@
 [原始檔控制功能]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
 [使用 Azure 命令列工具]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 []: http://manage.windowsazure.com/
+[Azure 入口網站]: http://manage.windowsazure.com/
 [Azure 服務儀表板]: http://www.windowsazure.com/support/service-dashboard/
 [使用命令列工具來自動化行動服務]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 

@@ -55,7 +55,7 @@
 [AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 
-##<a id="update-server"></a>更新伺服器以傳送推播通知
+## <a id="update-server"></a>更新伺服器以傳送推播通知
 
 1. 在 Visual Studio 的 [方案總管] 中，展開行動服務專案中的 **Controllers** 資料夾。開啟 TodoItemController.cs。在檔案頂端新增下列 `using` 陳述式：
 
@@ -83,10 +83,10 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-    此程式碼會在插入 Todo 項目之後傳送推播通知 (含所插入項目的文字)。如果發生錯誤，程式碼將會新增可透過管理入口網站從行動服務的 [記錄檔]**** 索引標籤來檢視的錯誤記錄項目。
+    此程式碼會在插入 Todo 項目之後傳送推播通知 (含所插入項目的文字)。如果發生錯誤，程式碼將會新增可透過管理入口網站從行動服務的 [記錄檔] 索引標籤來檢視的錯誤記錄項目。
 
 
-##<a name="publish-the-service"></a>將行動服務發佈至 Azure
+## <a name="publish-the-service"></a>將行動服務發佈至 Azure
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
@@ -147,13 +147,13 @@
 
 您的應用程式現在已更新為支援推播通知。
 
-##<a id="local-testing"></a>啟用推播通知以進行本機測試
+## <a id="local-testing"></a>啟用推播通知以進行本機測試
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
 ## 在應用程式中測試推播通知
 
-1. 按 [執行]**** 按鈕以組建專案並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [確定]**** 以接受推播通知。
+1. 按 [執行] 按鈕以組建專案並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [確定] 以接受推播通知。
 
   	![][23]
 
@@ -163,7 +163,7 @@
 
   	![][24]
 
-3. 確認您已接收到通知，然後按一下 [確定]**** 以關閉通知。
+3. 確認您已接收到通知，然後按一下 [確定] 以關閉通知。
 
   	![][25]
 

@@ -38,7 +38,7 @@ Azure CLI 為開放原始碼。原始程式碼會在 GitHub 中受到管理 (<a 
 
 1.	瀏覽至 **www.nodejs.org**。
 2.	按一下 [**安裝**]，並依照指示使用預設設定操作。
-3.	從您的工作站開啟 [命令提示字元]**** (或是 **Azure 命令提示字元**或 **VS2012 開發人員命令提示字元**)。
+3.	從您的工作站開啟 [命令提示字元] \(或是 **Azure 命令提示字元**或 **VS2012 開發人員命令提示字元**)。
 4.	在命令提示字元視窗中執行下列命令：
 
 		npm install -g azure-cli
@@ -59,7 +59,8 @@ Azure CLI 為開放原始碼。原始程式碼會在 GitHub 中受到管理 (<a 
 
 **使用 Windows Installer 安裝命令列介面**
 
-1.	瀏覽至 **http://azure.microsoft.com/downloads/**2.	向下捲動至 [**命令列工具**] 區段，然後按一下 [**跨平台命令列介面**]，並依照 Web Platform Installer 精靈操作。
+1.	瀏覽至 **http://azure.microsoft.com/downloads/**
+2.	向下捲動至 [**命令列工具**] 區段，然後按一下 [**跨平台命令列介面**]，並依照 Web Platform Installer 精靈操作。
 
 ##下載和匯入 Azure 帳戶 publishsettings 檔案
 
@@ -80,7 +81,7 @@ Azure CLI 為開放原始碼。原始程式碼會在 GitHub 中受到管理 (<a 
 	此命令會顯示下載檔案的指示，包括 URL。
 
 3.	開啟 Internet Explorer，然後瀏覽至命令提示字元視窗中列出的 URL。
-4.	按一下 [儲存]****，將檔案儲存至工作站。
+4.	按一下 [儲存]，將檔案儲存至工作站。
 5.	在命令提示字元視窗中執行下列命令，以匯入 publishsettings 檔案：
 
 		azure account import <file>

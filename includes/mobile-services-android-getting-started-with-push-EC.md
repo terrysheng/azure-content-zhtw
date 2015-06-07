@@ -33,15 +33,15 @@
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-7. 將 *MobileServiceClient* 的定義從**** [私用] 變更為**** [公用靜態]，如下所示：
+7. 將 *MobileServiceClient* 的定義從 [私用] 變更為 [公用靜態]，如下所示：
 
 		public static MobileServiceClient mClient;
 
 
 
-9. 接下來我們需要加入新類別來處理通知。在 [封裝總管] 中，以滑鼠右鍵按一下封裝 (在 `src` 節點下)，按一下 [新增]****，再按一下 [類別]****。
+9. 接下來我們需要加入新類別來處理通知。在 [封裝總管] 中，以滑鼠右鍵按一下封裝 (在 `src` 節點下)，按一下 [新增]，再按一下 [類別]。
 
-10. 在 [名稱]**** 中，輸入 `MyHandler`；然後在 [超級類別]**** 中輸入 `com.microsoft.windowsazure.notifications.NotificationsHandler`，然後按一下 [完成]****。
+10. 在 [名稱] 中，輸入 `MyHandler`；然後在 [超級類別] 中輸入 `com.microsoft.windowsazure.notifications.NotificationsHandler`，然後按一下 [完成]。
 
 	![](./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png)
 

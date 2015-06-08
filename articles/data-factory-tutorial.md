@@ -1,14 +1,11 @@
-﻿<properties 
-	title="Tutorial: Move and process log files using Azure Data Factory" 
+<properties 
 	pageTitle="使用 Azure Data Factory 移動和處理記錄檔" 
-	description="此進階教學課程說明接近現實情況的案例，並補充說明使用 Azure Data Factory 服務的案例。" 
-	metaKeywords=""  
+	description="這個進階的教學課程說明幾近真實世界的實例，並實作使用 Azure 資料處理站服務和資料處理站編輯器的案例。" 
 	services="data-factory" 
-	solutions=""  
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar" />
+	editor="monicar"/>
 
 <tags 
 	ms.service="data-factory" 
@@ -16,86 +13,83 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/01/1900" 
-	ms.author="spelluru" />
+	ms.date="05/18/2015" 
+	ms.author="spelluru"/>
 
-# 教學課程：使用 Data Factory 移動和處理記錄檔
-本文章提供的端對端逐步解說，是有關使用 Azure Data Factory，將記錄檔的資料轉換成見解的記錄檔處理程序標準案例。 
+# 教學課程： 衡量的行銷活動的效果  
+Contoso 是建立多個平台遊戲的遊戲公司： 遊戲主控台、 手持裝置與個人電腦 (Pc)。這些遊戲會產生大量的記錄檔，Contoso 的目標是要收集並分析這些記錄檔，以深入瞭解客戶的喜好設定、 人口統計資料、 使用方式行為等向上銷售與交叉銷售機會、 開發新的強大功能，可以推動業務成長和識別為客戶提供更好的經驗。
 
-## 案例
-Contoso 是為多個平台建立遊戲的遊戲公司：平台包括遊戲主控台、手持裝置和個人電腦 (PC)。每個遊戲都會產生大量記錄檔。Contoso 的目標是要收集和分析這些遊戲所產生的記錄檔以取得使用量資訊、識別向上銷售與交叉銷售機會、開發新的強大功能等，以改善業務並為客戶提供更好的經驗。
- 
-在本逐步解說中，我們會收集範例記錄檔、處理並以參考資料加以充實，然後轉換資料以評估 Contoso 最近推出的行銷活動有效性。
+在本教學課程中，您將建立資料處理站管線，以評估 Contoso 最近收集範例記錄、 處理和豐富它們與參考資料和轉換資料所發動的行銷活動的有效性。它有下列三個管線：
+
+1.	 **PartitionGameLogsPipeline** 從 blob 儲存體讀取未經處理的遊戲事件，並建立依據年、 月和日的資料分割。
+2.	 **EnrichGameLogsPipeline** 聯結與地理區域的程式碼參考資料的資料分割遊戲事件，並透過將 IP 位址對應到相對應的地理位置來充實資料。
+3.	 **AnalyzeMarketingCampaignPipeline** 管線運用豐富的資料和處理與廣告資料來建立包含行銷活動成效的最終輸出。
 
 ## 準備開始教學課程
-1.	閱讀 [Azure Data Factory 的概觀][adfintroduction]，以取得 Azure Data Factory 的簡介並了解最頂層概念。
-2.	您必須擁有 Azure 訂閱，才能執行本教學課程。如需取得訂閱的相關資訊，請參閱[購買選項][azure-purchase-options]、[成員優惠][azure-member-offers]或[免費試用。][azure-free-trial]。
-3.	您必須在電腦上下載並安裝 [Azure PowerShell][download-azure-powershell]。 
-2.	**(建議)** 檢閱並練習[開始使用 Azure Data Factory][adfgetstarted] 文章中的教學課程，以取得用於熟悉入口網站和 Cmdlet 的簡易教學課程。
-3.	**(建議)** 檢閱並練習[對 Azure Data Factory 使用 Pig 和 Hive][usepigandhive] 文章中的逐步解說，以取得有關建立管線以將資料從內部部署資料來源移至 Azure Blob 存放區的逐步解說。
-4.	將 [ADFWalkthrough][adfwalkthrough-download] 檔案下載至 **C:\ADFWalkthrough** 資料夾，**並保留資料夾結構**：
-	- **Pipelines：**它包含   JSON 檔案，其中包含管線的定義。
-	- **Tables：**它包含   JSON 檔案，其中包含資料表的定義。
-	- **LinkedServices：** 它包含 JSON 檔案，其中包含您的儲存體和計算 (HDInsight) 叢集的定義 
-	- **Scripts：** 它包含Hive 和 Pig 的指令碼，用於處理資料並從管線叫用
-	- **SampleData：** 它包含此逐步解說的範例資料
-	- **OnPremises：** 它包含 JSON 檔案和指令碼，用於示範存取內部部署資料
-	- **AzureEnvironmentSetup.ps1：** 這是用於設定 Azure 環境的 PowerShell 指令碼
-	- **uploadSampleDataAndScripts.ps1：** 此指令碼會將範例資料和指令碼上傳至 Azure。
+1.	讀取 [簡介 Azure 資料 Factory][adfintroduction] 取得 Azure 資料 Factory 的概觀，以及最上層概念的了解。
+2.	您必須擁有 Azure 訂閱，才能執行本教學課程。如需取得訂用帳戶的詳細資訊，請參閱[購買選項](http://azure.microsoft.com/pricing/purchase-options/)、[成員優惠](http://azure.microsoft.com/pricing/member-offers/)或[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+3.	您必須下載並安裝 [Azure PowerShell][download-azure-powershell] 在電腦上。您將會執行資料處理站 cmdlet 來上傳範例資料和 pig/hive 指令碼至 blob 儲存體。 
+2.	**(建議選項)** 檢閱和練習的教學課程 [開始使用 Azure 資料 Factory][adfgetstarted] 簡單的教學課程中，若要熟悉的入口網站和 cmdlet 的發行項。
+3.	**(建議選項)** 檢閱和練習中的逐步解說 [使用 Pig 和 Hive 與 Azure 資料處理站][usepigandhive] 建立管線來將資料從內部部署資料來源移至 Azure blob 存放區的逐步解說的發行項。
+4.	下載 [ADFWalkthrough][adfwalkthrough-download] 檔案 **C:\ADFWalkthrough** 資料夾 **保留的資料夾結構**：
+	- **管線：** 它包含 JSON 檔案，其中包含管線的定義。
+	- **資料表：** 它包含 JSON 檔案，其中包含資料表的定義。
+	- **LinkedServices：** 它包含 JSON 檔案，其中包含定義您的儲存體和計算 (HDInsight) 的叢集 
+	- **指令碼：** 它包含用於處理資料並從管線叫用 Hive 和 Pig 的指令碼
+	- **SampleData：** 它包含在這個逐步解說的範例資料
+	- **與內部部署：** 它包含 JSON 檔案和指令碼，用於示範存取內部資料
+	- **uploadSampleDataAndScripts.ps1：** 這個指令碼將上傳範例資料 (& s) 指令碼至 Azure。
 5. 請確定您已建立下列 Azure 資源：			
 	- Azure 儲存體帳戶。
 	- Azure SQL Database
-	- Azure HDInsight 叢集 3.1 版或以上	
+	- Azure HDInsight 叢集 3.1 版或以上 (或使用隨選資料處理站服務將會自動建立的 HDInsight 叢集)	
 7. Azure 資源建立之後，請確定您有連接到每個資源所需的資訊。
- 	- **Azure 儲存體帳戶** - 帳戶名稱和帳戶金鑰。  
-	- **Azure SQL Database** - 伺服器、資料庫、使用者名稱和密碼。
-	- **Azure HDInsight 叢集** - HDInsight 叢集的名稱、使用者名稱、密碼以及與此叢集相關聯的 Azure 儲存體的帳戶名稱和帳戶金鑰。  
- 8. 啟動 **Azure PowerShell** 並導覽至 **C:\ADFWalkthrough** 然後執行準備指令碼 .**\AzureEnvironmentSetup.ps1**。
- 
-		執行指令碼之前，您應該有訂閱名稱和與訂閱相關聯的 Microsoft 帳戶。
-
-		每次啟動   Azure PowerShell，您都需要使用上述指令碼來設定 Azure 環境。組態不會在工作階段之間保存，即使同時使用多個工作階段，也必須分別執行。
-
-		或者，您可以使用 **Add-AzureAccount** 登入 Azure，並使用 **Select-AzureSubscription** Cmdlet 選取訂閱 (如果您有多個訂閱)。
-	
+ 	- **Azure 儲存體帳戶** -帳戶名稱和帳戶金鑰。  
+	- **Azure SQL Database** -伺服器、 資料庫、 使用者名稱和密碼。
+	- **Azure HDInsight 叢集**。-HDInsight 叢集的名稱、 使用者名稱、 密碼和帳戶名稱以及與此叢集相關聯的 Azure 儲存體帳戶金鑰。如果您想要使用隨選 HDInsight 叢集，而不是您自己的 HDInsight 叢集可以略過此步驟。  
+8. 啟動 **Azure PowerShell** 並執行下列命令。保持開啟 Azure PowerShell。如果您關閉並重新開啟，您需要再次執行這些命令。
+	- 執行 **Add-azureaccount** 並輸入使用者名稱和您用來登入 Azure 預覽入口網站的密碼。  
+	- 執行 **Get-azuresubscription** 若要檢視此帳戶的所有訂閱。
+	- 執行 **Select-azuresubscription** 來選取您想要使用的訂閱。此訂用帳戶應該與您在「Azure Preview 入口網站」中使用的相同。	
 
 ## 概觀
 端對端工作流程的說明如下：
-	![Tutorial End to End Flow][image-data-factory-tutorial-end-to-end-flow]
 
-1. **PartitionGameLogsPipeline** 會從 Blob 儲存體 (RawGameEventsTable) 讀取原始遊戲事件，並建立以年、月和日為基礎的資料分割 (PartitionedGameEventsTable)。
-2. **EnrichGameLogsPipeline** 會聯結分割的遊戲事件 (PartitionedGameEvents 資料表，其為 PartitionGameLogsPipeline 的輸出) 與地區代碼 (RefGetoCodeDictionaryTable) 並藉由將 IP 位址對應到相對應的地理位置 (EnrichedGameEventsTable) 的來充實資料。
-3. **AnalyzeMarketingCampaignPipeline** 管線運用充實的資料 (EnrichGameLogsPipeline 所產生的 EnrichedGameEventTable)，並將它與廣告資料 (RefMarketingCampaignnTable) 處理，以建立行銷活動有效性的最終輸出，該輸出會複製到 Azure SQL 資料庫 (MarketingCampainEffectivensessSQLTable) 和 Azure Blob 儲存體 (MarketingCampaignEffectivenessBlobTable) 供分析。
+![教學課程的端對端流程][image-data-factory-tutorial-end-to-end-flow]
+
+1.  **PartitionGameLogsPipeline** 讀取未經處理的遊戲事件從 blob 儲存體 (RawGameEventsTable)，並建立年、 月和日 (PartitionedGameEventsTable) 為基礎的資料分割。
+2.  **EnrichGameLogsPipeline** 地理區域的程式碼 (RefGetoCodeDictionaryTable) 與聯結資料分割的遊戲事件 (PartitionedGameEvents 資料表，也就是輸出 PartitionGameLogsPipeline) 並對應至相對應的地理位置 (EnrichedGameEventsTable) 的 IP 位址，藉以豐富資料。
+3.  **AnalyzeMarketingCampaignPipeline** 管線運用豐富的資料 (EnrichedGameEventTable EnrichGameLogsPipeline 所產生)，而且會處理與廣告資料 (RefMarketingCampaignnTable) 建立行銷活動成效的最終輸出複製到 Azure SQL database (MarketingCampainEffectivensessSQLTable) 和分析 Azure blob 儲存體 (MarketingCampaignEffectivenessBlobTable)。
     
-## 逐步介紹：建立、部署和監視工作流程
-1. [步驟 1：上傳範例資料和指令碼](#MainStep1)。在此步驟中，您將上傳所有範例資料 (包括所有記錄檔和參考資料) 和將由工作流程執行的 Hive/Pig 指令碼。您執行的指令碼也會建立 Azure SQL 資料庫 (名為 MarketingCampaigns)、資料表、使用者定義型別和預存程序。
-2. [步驟 2：建立 Azure Data Factory](#MainStep2)。在此步驟中，您將建立名為 LogProcessingFactory 的 Azure Data Factory。
-3. [步驟 3：建立連結的服務](#MainStep3)。在此步驟中，您將建立下列連結的服務： 
+## 逐步解說： 建立、 部署和監視工作流程
+1. [步驟 1： 上傳範例資料和指令碼](#MainStep1)。在此步驟中，您將上傳所有範例資料 (包括所有記錄檔和參考資料) 和將由工作流程執行的 Hive/Pig 指令碼。您執行的指令碼也會建立 Azure SQL 資料庫 (名為 MarketingCampaigns)、資料表、使用者定義型別和預存程序。
+2. [步驟 2： 建立 Azure 的資料處理站](#MainStep2)。在此步驟中，您將建立名為 LogProcessingFactory 的 Azure Data Factory。
+3. [步驟 3： 建立連結的服務](#MainStep3)。在此步驟中，您將建立下列連結的服務： 
 	
 	- 	**StorageLinkedService**。Azure 儲存體位置的連結，其中包含原始遊戲事件、分割的遊戲事件、充實的遊戲事件、行銷活動有效性資訊、參考資料的地區代碼，以及 LogProcessingFactory 行銷活動資料的參考資料   
 	- 	**AzureSqlLinkedService**。連結 Azure SQL 資料庫，其中包含行銷活動有效性資訊。 
 	- 	**HDInsightStorageLinkedService**。連結與 HDInsightLinkedService 所參照 HDInsight 叢集相關聯的 Azure Blob 儲存體。 
 	- 	**HDInsightLinkedService**。將Azure HDInsight 叢集與 LogProcessingFactory 連結。這個叢集用來對資料執行 pig/hive 處理。 
  		
-4. [步驟 4：建立資料表](#MainStep4)。在此步驟中，您將建立下列資料表：  	
+4. [步驟 4： 建立資料表](#MainStep4)。在此步驟中，您將建立下列資料表：
 	
 	- **RawGameEventsTable**。此資料表指定 StorageLinkedService 所定義的 Azure Blob 儲存體中，原始遊戲事件資料的位置 (adfwalkthrough/logs/rawgameevents/)。 
 	- **PartitionedGameEventsTable**。此資料表指定 StorageLinkedService 所定義的 Azure Blob 儲存體中分割的遊戲事件資料的位置 (adfwalkthrough/logs/partitionedgameevents/)。 
 	- **RefGeoCodeDictionaryTable**。此資料表指定 StorageLinkedService 所定義的 Azure Blob 儲存體中，參考資料地區代碼的位置 (adfwalkthrough/refdata/refgeocodedictionary/)。
 	- **RefMarketingCampaignTable**。此資料表指定 StorageLinkedService 所定義的 Azure Blob 儲存體中，參考行銷活動資料的位置 (adfwalkthrough/refdata/refmarketingcampaign/)。
 	- **EnrichedGameEventsTable**。此資料表指定 StorageLinkedService 所定義的 Azure Blob 儲存體中，充實遊戲事件資料的位置 (adfwalkthrough/logs/enrichedgameevents/)。
-	- **MarketingCampaignEffectivenessSQLTable**。此資料表指定 Azure SQL Database 中的 SQL 資料表 (MarketingCampaignEffectiveness)，其由 AzureSqlLinkedService 所定義，包含行銷活動有效性資料。 
+	- **MarketingCampaignEffectivenessSQLTable**。這份資料表，其中包含行銷促銷活動效率資料 AzureSqlLinkedService 所定義的 Azure SQL 資料庫中指定 SQL 資料表 (MarketingCampaignEffectiveness)。 
 	- **MarketingCampaignEffectivenessBlobTable**。此資料表指定 StorageLinkedService 所定義的 Azure Blob 儲存體中，行銷活動有效性資料的位置 (adfwalkthrough/marketingcampaigneffectiveness/)。 
 
 	
-5. [步驟 5：建立和排程管線](#MainStep5)。在此步驟中，您將建立下列管線：
+5. [步驟 5： 建立和排程管線](#MainStep5)。在此步驟中，您將建立下列管線：
 	- **PartitionGameLogsPipeline**。管線會從 Blob 儲存體 (RawGameEventsTable) 讀取原始遊戲事件，並建立以年、月和日為基礎的資料分割 (PartitionedGameEventsTable)。 
 
 
-		![PartitionGamesLogs pipeline][image-data-factory-tutorial-partition-game-logs-pipeline]
+		![PartitionGamesLogs 管線][image-data-factory-tutorial-partition-game-logs-pipeline]
 
 
-	- **EnrichGameLogsPipeline**。此管線會聯結分割的遊戲事件 (PartitionedGameEvents 資料表，其為 PartitionGameLogsPipeline 的輸出) 與地區代碼 (RefGetoCodeDictionaryTable) 並藉由將 IP 位址對應到相對應的地理位置 (EnrichedGameEventsTable) 的來充實資料。 
+	- **EnrichGameLogsPipeline**。此管線會聯結分割的遊戲事件 (PartitionedGameEvents 資料表，其為 PartitionGameLogsPipeline 的輸出) 與地區代碼 (RefGetoCodeDictionaryTable) 並藉由將 IP 位址對應到相對應的地理位置 (EnrichedGameEventsTable) 的來充實資料。
 
 		![EnrichedGameLogsPipeline][image-data-factory-tutorial-enrich-game-logs-pipeline]
 
@@ -105,14 +99,14 @@ Contoso 是為多個平台建立遊戲的遊戲公司：平台包括遊戲主控
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [步驟 6：監視管線和資料配量](#MainStep6)。在此步驟中，您將使用 Azure 入口網站來監視管線、資料表和資料配量。
+6. [步驟 6： 監視管線和資料配量](#MainStep6)。在此步驟中，您將使用 Azure 入口網站來監視管線、資料表和資料配量。
 
-### <a name="MainStep1"></a>步驟 1：上傳範例資料和指令碼
-在此步驟中，您將上傳所有範例資料 (包括所有記錄檔和參考資料) 和將由工作流程叫用的 Hive/Pig 指令碼。您執行的指令碼也會建立 Azure SQL 資料庫 (名為 **MarketingCampaigns**)、資料表、使用者定義型別和預存程序。 
+## <a name="MainStep1"></a> 步驟 1： 上傳範例資料和指令碼
+在此步驟中，您將上傳所有範例資料 (包括所有記錄檔和參考資料) 和將由工作流程叫用的 Hive/Pig 指令碼。您也執行這些指令碼建立呼叫 Azure SQL database **MarketingCampaigns**, 、 資料表、 使用者定義型別和預存程序。
 
 將行銷活動有效性結果從 Azure Blob 儲存體移至 Azure SQL 資料庫時，會使用資料表、使用者定義型別和預存程序。
 
-1. 在您喜好的編輯器中開啟 **uploadSampleDataAndScripts.ps1** (自 **C:\ADFWalkthrough** 資料夾，或包含解壓縮檔案的資料夾)，將反白顯示部分以您叢集的資訊取代，並儲存檔案。
+1. 開啟 **uploadSampleDataAndScripts.ps1** 從 **C:\ADFWalkthrough** 資料夾 (或包含所擷取的檔案的資料夾) 在您最愛的編輯器中，您的叢集資訊取代反白顯示並儲存檔案。
 
 
 		$storageAccount = <storage account name>
@@ -122,11 +116,9 @@ Contoso 是為多個平台建立遊戲的遊戲公司：平台包括遊戲主控
 		$azuresqlPassword = <sql azure password>
 
  
-	> [WACOM.NOTE] 此指令碼要求您在電腦上安裝 sqlcmd 公用程式。如果您已安裝 SQL Server，則已具備。否則，請[下載][sqlcmd-install]並安裝此公用程式。 
-	> 或者，您可以使用此資料夾中的檔案：C:\ADFWalkthrough\Scripts 以上傳 pig/hive 指令碼和範例檔案至 Blob 儲存體中的 adfwalkthrough 容器，並在 MarketingCamapaigns Azure SQL 資料庫中建立 MarketingCampaignEffectiveness 資料表。   
-2. 確認您的本機電腦可以存取 Azure SQL Database。若要啟用存取，使用 **Azure 管理入口網站**或主資料庫上的 **sp_set_firewall_rule**，為您的電腦的 IP 位址建立防火牆規則。可能需要五分鐘的時間，這項變更才會生效。請參閱 [設定 Azure SQL 的防火牆規則][azure-sql-firewall]。
-3. 啟動 **Azure PowerShell**。 
-4. 導覽至解壓縮範例所在的位置 (例如：**C:\ADFWalkthrough**)
+	> [AZURE.NOTE][下載][sqlcmd-install]   
+2. 確認您的本機電腦可以存取 Azure SQL Database。若要啟用存取，請使用 **Azure 管理入口網站** 或 **sp_set_firewall_rule** 上 master 資料庫才能建立的防火牆規則，您的電腦的 IP 位址。可能需要五分鐘的時間，這項變更才會生效。請參閱 [Azure sql 設定防火牆規則][azure-sql-firewall]。
+4. 在 Azure PowerShell 中，瀏覽至已解壓縮範例所在的位置 (例如： **C:\ADFWalkthrough**)
 5. 執行 **uploadSampleDataAndScripts.ps1** 
 6. 一旦指令碼執行成功，您會看到下列項目：
 
@@ -156,120 +148,131 @@ Contoso 是為多個平台建立遊戲的遊戲公司：平台包括遊戲主控
 		6/6/2014 11:54:36 AM Summary
 		6/6/2014 11:54:36 AM 1. Uploaded Sample Data Files to blob container.
 		6/6/2014 11:54:36 AM 2. Uploaded Sample Script Files to blob container.
-		6/6/2014 11:54:36 AM 3. Created 'MarketingCampaigns' Azure SQL database and tables.
+		6/6/2014 11:54:36 AM 3. Created ‘MarketingCampaigns’ Azure SQL database and tables.
 		6/6/2014 11:54:36 AM You are ready to deploy Linked Services, Tables and Pipelines. 
 
+## <a name="MainStep2"></a> 步驟 2： 建立 Azure 的資料處理站
+在此步驟中，您會建立名為 Azure 資料 factory **LogProcessingFactory**。
 
-### <a name="MainStep2"></a>步驟 2：建立 Azure Data Factory
-在此步驟中，您會建立名為 **LogProcessingFactory** 的 Azure Data Factory。
+1.	登入之後 [Azure 預覽入口網站][azure-preview-portal], ，按一下 **新增** 從左下角，按一下 **資料分析** 中 **建立** blade 中，然後按一下 [ **資料 Factory** 上 **資料分析** 分頁。 
 
-1.	登入 [[Azure 預覽入口網站][azure-preview-portal]] 後，按一下位於左下角的 [**新增**]，然後在 [**新增**] 分頁上按一下 [**Data Factory**]。 
+	![新-> DataFactory][image-data-factory-new-datafactory-menu]
 
-	![New->DataFactory][image-data-factory-new-datafactory-menu] 
+5. 在 **新的資料處理站** blade 中，輸入 **LogProcessingFactory** 的 **名稱**。
+
+	![資料處理站分頁][image-data-factory-tutorial-new-datafactory-blade]
+
+6. 如果您尚未建立名為 Azure 資源群組 **ADF** ，請執行下列動作：
+	1. 按一下 **資源群組名稱**, ，然後按一下 **建立新的資源群組**。
 	
-	如果沒有看見 **Data Factory** 出現在 [**新增**] 分頁上，請向下捲動。 
+		![資源群組分頁][image-data-factory-tutorial-resourcegroup-blade]
+	2. 在 **建立資源群組** blade 中，輸入 **ADF** 資源群組，然後按一下 [名稱 **確定**。
 	
-5. 在 [**新增 Data Factory**] 分頁中，輸入 **LogProcessingFactory** 做為 [**名稱**]。
+		![建立資源群組][image-data-factory-tutorial-create-resourcegroup]
+7. 選取 **ADF** 的 **資源群組名稱**。  
+8.	在 **新的資料處理站** blade 中，請注意， **新增到儀表板** 預設為選取狀態。這會將連結加入開始面板上的 Data Factory (登入 Azure 預覽入口網站時會看見)。
 
-	![Data Factory Blade][image-data-factory-tutorial-new-datafactory-blade]
+	![建立資料處理站分頁][image-data-factory-tutorial-create-datafactory]
 
-6. 如果您尚未建立名為 **ADF** 的 Azure 資源群組，請執行下列動作：
-	1. 按一下 [**資源群組名稱**]，然後按一下 [**建立新的資源群組**]。
-	
-		![Resource Group Blade][image-data-factory-tutorial-resourcegroup-blade]
-	2. 在 [**建立資源群組**] 分頁中，輸入 **ADF** 做為資源群組的名稱，然後按一下 [**確定**]。
-	
-		![Create Resource Group][image-data-factory-tutorial-create-resourcegroup]
-7. 選取 **ADF** 做為 [**資源群組名稱**]。  
-8.	在 [**新增 Data Factory**] 分頁中，請注意，預設會選取 [**新增至開始面板**]。這會將連結加入開始面板上的 Data Factory (登入 Azure 預覽入口網站時會看見)。
+9.	在 **新的資料處理站** blade 中，按一下 **建立** 建立資料處理站。
+10.	建立資料處理站之後，您應該會看到 **資料 FACTORY** 刀鋒標題為 **LogProcessingFactory**。
 
-	![Create Data Factory Blade][image-data-factory-tutorial-create-datafactory]
-
-9.	在 [**新增 Data Factory**] 分頁中，按一下 [**建立**] 以建立 Data Factory。
-10.	建立 Data Factory之後，您應該會看到 [**DATA FACTORY**] 分頁的標題為 **LogProcessingFactory**。
-
-	![Data Factory Homepage][image-data-factory-tutorial-datafactory-homepage]
+	![資料處理站首頁][image-data-factory-tutorial-datafactory-homepage]
 
 	
 	如果未看見，請執行下列其中一項動作：
 
-	- 按一下 **LogProcessingFactory** (在 [**開始面板**] 上，首頁)
-	- 在左側按一下 [**瀏覽**]，按一下 [**所有項目**]、[**Data Factory**]，再按一下 Data Factory。
+	- 按一下 **LogProcessingFactory** 上 **儀表板** (首頁)
+	- 按一下 **瀏覽** 的左側，按一下 **一切**, ，按一下 **資料處理站**, ，然後按一下 [資料處理站。
  
-
+	> [AZURE.NOTE]Azure Data Factory 的名稱在全域必須是唯一的。如果您收到錯誤： **資料 factory 名稱"LogProcessingFactory"不是使用**, ，變更名稱 (例如，yournameLogProcessingFactory)。使用此名稱來取代 LogProcessingFactory 時執行本教學課程中的步驟。
  
-### <a name="MainStep3"></a>步驟 3：建立連結的服務
+## <a name="MainStep3"></a> 步驟 3： 建立連結的服務
 
-在此步驟中，您將建立下列連結的服務：StorageLinkedService、AzureSqlLinkedService、HDInsightStorageLinkedService 和 HDInsightLinkedService。
+> [AZURE.NOTE]這篇文章會使用 Azure 入口網站中，特別是資料 Factory 編輯器，建立連結的服務、 表格和管線。請參閱 [教學課程使用 Azure PowerShell][adftutorial-using-powershell] 如果您想要執行本教學課程中使用 Azure PowerShell。
 
-1.	在 [**LogProcessingFactory**] 分頁中，按一下 [**連結的服務**] 磚。
+在此步驟中，您將建立下列連結的服務：
 
-	![Linked Services Tile][image-data-factory-tutorial-linkedservice-tile]
+- StorageLinkedService
+- AzureSqlLinkedService
+- HDInsightStorageLinkedService
+- HDInsightLinkedService。 
 
-2. 在 [**連結的服務**] 分頁，從命令列按一下 [**+ 資料存放區**]。	
+### 建立 StorageLinkedService 和 HDInsightStorageLinkedService
 
-	![Linked Services - Add Store][image-data-factory-tutorial-linkedservices-add-datstore]
+1.	在 **資料 FACTORY** blade 中，按一下 **作者和部署** 磚來啟動 **編輯器** 資料處理站。
 
-3. 在 [**新增資料存放區**] 分頁中，輸入 **StorageLinkedService** 做為 [**名稱**]，按一下 [**型別 (需要設定)**]，然後選取 [**Azure 儲存體帳戶**]。
+	![[製作和部署] 磚][image-author-deploy-tile]
 
-	![Data Store Type - Azure Storage][image-data-factory-tutorial-datastoretype-azurestorage]
+	> [AZURE.NOTE]請參閱 [資料 Factory 編輯器][data-factory-editor] 資料 Factory 編輯器的詳細概觀主題。
 
-4. 在 [**新增資料存放區**] 分頁中，您會看到兩個新的欄位：**帳戶名稱**和**帳戶金鑰**。輸入您的 **Azure 儲存體帳戶**的帳戶名稱和帳戶金鑰。
+2.  在 **編輯器**, ，按一下 **新的資料存放區** 按鈕工具列，然後選取 **Azure 儲存體** 從下拉式功能表。您應該會看到在右窗格中建立連結的 Azure 儲存體服務的 JSON 範本。
+	
+	![編輯器新增資料存放區] 按鈕][image-editor-newdatastore-button]
 
-	![Azure Storage Settings][image-data-factory-tutorial-azurestorage-settings]
+3. 取代 **accountname** 和 **accountkey** 帳戶名稱與 Azure 儲存體帳戶的帳戶金鑰值。
 
-	您可以從入口網站取得您的 Azure 儲存體帳戶的帳戶名稱和帳戶金鑰，如下所示：
+	![Blob 儲存體 JSON 編輯器][image-editor-blob-storage-json]
+	
+	> [AZURE.NOTE]請參閱 [JSON 指令碼參考](http://go.microsoft.com/fwlink/?LinkId=516971) 如需詳細資訊 JSON 內容。
 
-	![Storage Key][image-data-factory-tutorial-storage-key]
-  
-5. 在 [新增資料存放區] 分頁上按一下 [**確定**] 之後，您應該會看到 **StorageLinkedService** 出現在 [**資料存放區**] 的清單中 ([**連結的服務**] 分頁上。檢查**通知**中心 (左側) 中是否有任何訊息。
+4. 按一下 **部署** 部署 StorageLinkedService] 工具列上。確認您看到訊息 **連結服務建立成功** 標題列上。
 
-	![Linked Services Blade with Storage][image-data-factory-tutorial-linkedservices-blade-storage]
+	![部署編輯器 Blob 儲存體][image-editor-blob-storage-deploy]
+
+5. 重複執行步驟來建立另一個 Azure 儲存體連結服務名稱為： **HDInsightStorageLinkedService** 與 HDInsight 叢集相關聯的儲存體。連結服務 JSON 指令碼中的值變更 **名稱** 屬性設為 **HDInsightStorageLinkedService**。
+
+### 建立 AzureSqlLinkedService
+1. 在 **資料 Factory 編輯器** , ，按一下 **新的資料存放區** 按鈕工具列，然後選取 **Azure SQL database** 從下拉式功能表。您應該會看到在右窗格中建立連結的 Azure SQL 服務的 JSON 範本。
+2. 取代 **servername**, ，**username@servername**, ，和 **密碼** 與 Azure SQL server、 使用者帳戶和密碼的名稱。 3. 取代 **databasename** 與 **MarketingCampaigns**。這是您在步驟 1 中執行的指令碼所建立的 Azure SQL 資料庫。您應該確認此資料庫已確實建立由指令碼 (如果有錯誤)。 
+3. 按一下 **部署** 來建立及部署 AzureSqlLinkedService 工具列上。
+
+### 建立 HDInsightLinkedService
+Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來產生輸出資料。您也可以使用自己的叢集執行相同作業。當您使用隨選 HDInsight 叢集時，系統會為每個配量建立叢集。然而，當您使用自己的 HDInsight 叢集時，叢集就可以立即處理配量。因此，在使用隨選叢集時，可能無法像使用自己的叢集那麼快看到輸出資料。基於範例的目的，讓我們使用隨選叢集。
+
+#### 若要使用隨選 HDInsight 叢集
+1. 按一下 **新計算** 從命令列，然後選取 **隨選 HDInsight 叢集** 從功能表。
+2. 依下列方式在 JSON 指令碼中： 
+	1. 針對 **clusterSize** 屬性，指定 HDInsight 叢集的大小。
+	2. 針對 **jobsContainer** 屬性，指定將儲存的叢集記錄檔的預設容器的名稱。基於本教學課程的目的指定 **adfjobscontainer**。
+	3. 針對 **timeToLive** 屬性，指定多久之前將會刪除該客戶可以處於閒置狀態。 
+	4. 針對 **版本** 屬性，指定您想要使用的 HDInsight 版本。如果您排除此屬性時，會使用最新版本。  
+	5. 針對 **linkedServiceName**, ，指定 **HDInsightStorageLinkedService** 您必須建立在 Get 入門教學課程。 
+
+			{
+		    	"name": "HDInsightLinkedService",
+				    "properties": {
+		    	    "type": "HDInsightOnDemandLinkedService",
+		    	    "clusterSize": "4",
+		    	    "jobsContainer": "adfjobscontainer",
+		    	    "timeToLive": "00:05:00",
+		    	    "version": "3.1",
+		    	    "linkedServiceName": "HDInsightStorageLinkedService"
+		    	}
+			}
+
+		請注意， **類型** 連結服務會設定為 **HDInsightOnDemandLinkedService**。
+
+2. 按一下 **部署** 命令列上的部署連結的服務。
    
-6. 重複**步驟 2 到 5**，建立另一個連結的服務，名為：**HDInsightStorageLinkedService**。這是您的 HDInsight 叢集所使用的儲存體。
-7. 確認您看到 **StorageLinkedService** 和 **HDInsightStorageLinkedService** 出現在 [連結的服務] 分頁的清單中。
-8. 在 [**連結的服務**] 分頁，從命令列按一下 [**新增 (+) 資料存放區**]。
-9. 輸入 **AzureSqlLinkedService** 做為名稱。
-10. 按一下 [**類型 (需要設定)**]，選取 [**Azure SQL Database**]。
-11. 現在，您應該會在 [**新增資料存放區**] 分頁上看到下列額外的欄位。輸入 Azure SQL Database **伺服器**的名稱、**資料庫**名稱、**使用者名稱**和**密碼**，然後按一下 [**確定**]。
-	1. 輸入 **MarketingCampaigns** 做為 [**資料庫**]。這是您在步驟 1 中執行的指令碼所建立的 Azure SQL 資料庫。您應該確認此資料庫確實是由此指令碼建立 (以免發生錯誤)。
-		
- 		![Azure SQL Settings][image-data-factory-tutorial-azuresql-settings]
+   
+#### 若要使用您自己的 HDInsight 叢集： 
 
-		若要從 Azure 管理入口網站取得這些值：按一下 [檢視 MarketingCampaigns 資料庫的 SQL Database 連接字串]
+1. 按一下 **新計算** 從命令列，然後選取 **HDInsight 叢集** 從功能表。
+2. 依下列方式在 JSON 指令碼中： 
+	1. 針對 **clusterUri** 屬性中，輸入您的 HDInsight 的 URL。例如： https://<clustername>.azurehdinsight.net/     
+	2. 針對 **UserName** 屬性中，輸入能夠存取 HDInsight 叢集的使用者名稱。
+	3. 針對 **密碼** 屬性中，輸入使用者的密碼。 
+	4. 針對 **LinkedServiceName** 屬性中，輸入 **StorageLinkedService**。這是您必須在入門教學課程中建立連結的服務。 
 
-		![Azure SQL Database Connection String][image-data-factory-tutorial-azuresql-database-connection-string]
+	Nore， **類型** 連結服務會設定為 **HDInsightBYOCLinkedService** (BYOC 代表帶您自己的叢集)。
 
-12. 確認您看到您所建立的所有三個資料存放區：**StorageLinkedService**、**HDInsightStorageLinkedService** 和 **AzureSqlLinkedService**。
-13. 您必須建立另一個連結的服務，但這是計算服務，專用於 **Azure HDInsight 叢集**。入口網站尚不支援建立連結的運算服務。因此，您必須使用 Azure PowerShell 來建立此連結的服務。 
-14. 切換至 **Azure PowerShell** (如果您已開啟或啟動 **Azure PowerShell** 的話)。
-15. 切換至 **AzureResourceManager** 模式，因為 Azure Data Factory Cmdlet 在此模式中可供使用。
+2. 按一下 **部署** 命令列上的部署連結的服務。
 
-		Switch-AzureMode AzureResourceManager
 
-16. 導覽至 **LinkedServices** 子資料夾 ( **C:\ADFWalkthrough** 中或從您解壓縮檔案所在位置的資料夾)。
-17. 在您喜好的編輯器中開啟 **HDInsightLinkedService.json**，將反白顯示部分以您叢集的資訊取代，並儲存檔案。
-
-        "clusterUri": "https://<hdinsightclustername>.azurehdinsight.net/",
-        "userName": "<hdiusername>",
-        "location": "<hdiregion>",
-        "password": "<hdipassword>",
-
-18. 使用下列命令，將 $df 變數設定為 Data Factory 的名稱。
-
-		$df = "LogProcessingFactory"
-19. 使用 Cmdlet **New-AzureDataFactoryLinkedService** 來建立連結的服務，如下所示。開始使用儲存體帳戶：
-
-		New-AzureDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\HDInsightLinkedService.json
+## <a name="MainStep4"></a> 步驟 4： 建立資料表
  
-	如果您對 ResourceGroupName、DataFactoryName 或 LinkedService 名稱使用不同的名稱，請在上述 Cmdlet 加以參考。另外，只在找不到檔案時，才提供連結的服務 JSON 檔案的完整檔案路徑。
-20. 您應該會在 [**連結的服務**] 分頁中看到所有四個連結的服務，如下所示。如果未開啟 [連結的服務] 分頁，則按一下 [**DATA FACTORY**] 頁面中的 [連結的服務]，以取得 **LogProcessingFactory**。可能需要幾秒鐘的時間，[連結的服務] 分頁才能重新整理。
-
-	![Linked Services All][image-data-factory-tutorial-linkedservices-all]
- 
-
-### <a name="MainStep4"></a>步驟 4：建立資料表 
-在此步驟中，您將建立下列資料表： 
+在此步驟中，您將建立下表的資料處理站：
 
 - RawGameEventsTable
 - PartitionedGameEventsTable
@@ -279,344 +282,170 @@ Contoso 是為多個平台建立遊戲的遊戲公司：平台包括遊戲主控
 - MarketingCampaignEffectivenessSQLTable
 - MarketingCampaignEffectivenessBlobTable
 
-	![Tutorial End-to-End Flow][image-data-factory-tutorial-end-to-end-flow]
+	![教學課程的端對端流程][image-data-factory-tutorial-end-to-end-flow]
  
-上圖顯示的管線在中間資料列，而資料表在頂端和底部資料列。 
+上圖顯示的管線在中間資料列，而資料表在頂端和底部資料列。
 
-Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中，您必須使用 Azure PowerShell 來建立資料表。
-
-#### 建立資料表
-
-1.	在 Azure PowerShell 中，從解壓縮範例的位置，瀏覽至 **Tables** 資料夾 (**C:\ADFWalkthrough\Tables**)。 
-2.	使用 Cmdlet **New-AzureDataFactoryTable** 來建立資料表，如下所示 (針對 **RawGameEventsTable**.json	)
-
-
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df -File .\RawGameEventsTable.json
-
-	如果您對 ResourceGroupName 和 DataFactoryName 使用不同的名稱，請在上述 Cmdlet 加以參考。另外，只在 Cmdlet 找不到檔案時，才提供資料表 JSON 檔案的完整檔案路徑。
-
-3. 重複上述步驟來建立下列資料表：	
-		
-	- **PartitionedGameEventsTable**
-
-			
-			New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df -File .\PartitionedGameEventsTable.json
-
-	- **RefGeoCodeDictionaryTable**
-
-			
-			New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df -File .\RefGeoCodeDictionaryTable.json
-
-	- **RefMarketingCampaignTable**
-
-			
-			New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df -File .\RefMarketingCampaignTable.json
-
-	- **EnrichedGameEventsTable**
-
-			
-			New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df -File .\EnrichedGameEventsTable.json
-
-	- **MarketingCampaignEffectivenessSQLTable**
-
-			
-			New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df -File .\MarketingCampaignEffectivenessSQLTable.json
-
-	- **MarketingCampaignEffectivenessBlobTable**
-			
-			New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df -File .\MarketingCampaignEffectivenessBlobTable.json
-
-
-
-4. 在 **Azure 預覽入口網站**中，按一下 [**資料集]** (位於 **DATA FACTORY** 分頁，針對 **LogProcessingFactory**)，並確認您看的到所有資料集 (資料表為矩形的資料集)。 
-
-	![Data Sets All][image-data-factory-tutorial-datasets-all]
-
-	您也可以從 Azure PowerShell 使用下列命令：
-			
-		Get-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df
-
+### 建立資料表
+	
+1. 在 **編輯器** 資料處理站中，按一下 **新的資料集** 工具列上按一下按鈕 **Azure Blob 儲存體** 從下拉式功能表。 
+2. 在右窗格中的 JSON 取代 JSON 指令碼從 **RawGameEventsTable.json** 檔案從 **C:\ADFWalkthrough\Tables** 資料夾。
+3. 按一下 **部署** 來建立及部署資料表工具列上。確認您看到 **資料表成功建立** 編輯器的標題列上的訊息。
+4. 重複步驟 1-3 的下列檔案內容： 
+	1. PartitionedGameEventsTable.json
+	2. RefGeoCodeDictionaryTable.json
+	3. RefMarketingCampaignTable.json
+	4. EnrichedGameEventsTable.json
+	5. MarketingCampaignEffectivenessBlobTable.json 
+5. 重複步驟 1-3 的下列檔案內容。但選取 **Azure Sql** 按一下之後 **新的資料集**。
+	1. MarketingCampaignEffectivenessSQLTable.json
 	
 
+## <a name="MainStep5"></a> 步驟 5： 建立和排程管線
+在此步驟中，您將建立下列管線：
 
-### <a name="MainStep5"></a>步驟 5：建立和排程管線
-在此步驟中，您將建立下列管線：PartitionGameLogsPipeline、EnrichGameLogsPipeline 和 AnalyzeMarketingCampaignPipeline。
+- PartitionGameLogsPipeline
+- EnrichGameLogsPipeline
+- AnalyzeMarketingCampaignPipeline
 
-1. 在 **Windows 檔案總管**中，導覽至 **Pipelines** 子資料夾 (位於 **C:\ADFWalkthrough** 資料夾中或從您解壓縮範例所在位置)。
-2.	在您喜好的編輯器中開啟 **PartitionGameLogsPipeline.json**，將反白顯示部分以您資料儲存體帳戶的資訊取代，並儲存檔案。
-			
-		"RAWINPUT": "wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/logs/rawgameevents/",
-		"PARTITIONEDOUTPUT": "wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/logs/partitionedgameevents/",
+### 若要建立管線
 
-3. 重複步驟來建立下列管線：
-	1. **EnrichGameLogsPipeline**.json (3 個相符項目)
-	2. **AnalyzeMarketingCampaignPipeline**.json (3 個相符項目)
+1. 在 **Data Factory 編輯器**中，按一下工具列的 [**新增管線**] 按鈕。如果沒看到此按鈕，請按一下工具列 **...(省略符號)**。或者，您也可以在樹狀檢視中，以滑鼠右鍵按一下 [**管線**]，再按一下 [**新增管線**]。
+2. 在右窗格中的 JSON 取代 JSON 指令碼從 **PartitionGameLogsPipeline.json** 檔案從 **C:\ADFWalkthrough\Pipelines** 資料夾。
+3. 在 JSON 中，在**右方括弧 (']')** 尾端加上**逗點 (',')**，然後在右方括弧之後增加下列三行。 
 
-	**重要事項：** 確認您已用您的儲存體帳戶名稱取代所有 <storageaccountname>。 
+        "start": "2014-05-01T00:00:00Z",
+        "end": "2014-05-05T00:00:00Z",
+        "isPaused": false
+
+	[AZURE.NOTE]請注意，開始和結束時間設為 05/01/2014 和 05/05/2014，因為此逐步解說中的範例資料是從 05/01/2014 到 05/05/2014。
  
-4.  在 [**Azure PowerShell**] 中，導覽至 **Pipelines** 子資料夾 (位於 **C:\ADFWalkthrough** 資料夾中或從您解壓縮範例所在位置)。
-5.  使用 Cmdlet **New-AzureDataFactoryPipeline** 來建立管線，如下所示 (針對 **PartitionGameLogspeline**.json	 )
-			
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df -File .\PartitionGameLogsPipeline.json
+3. 按一下工具列的 [**部署**]，建立並部署管線。確認您在編輯器的標題列看到 [**已成功建立管線**] 訊息。
+4. 重複步驟 1-3 的下列檔案內容： 
+	1. EnrichGameLogsPipeline.json
+	2. AnalyzeMarketingCampaignPipeline.json
+4. 按下關閉資料 Factory 刀 **X** (右上角)，若要查看 [首頁] 頁面 (* * 資料 FACTORY **分頁) 資料處理站。 
+### 圖表檢視
 
-	如果您對 ResourceGroupName、DataFactoryName 或 Pipeline 名稱使用不同的名稱，請在上述 Cmdlet 加以參考。另外，提供管線 JSON 檔案的完整檔案路徑。
-6. 重複上述步驟來建立下列管線：
-	1. **EnrichGameLogsPipeline**
-			
-			New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df -File .\EnrichGameLogsPipeline.json
+1. 在 **資料 FACTORY** 刀鋒伺服器 **LogProcessingFactory**, ，按一下 **圖表**。 
 
-	2. **AnalyzeMarketingCampaignPipeline**
-				
-			New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df -File .\AnalyzeMarketingCampaignPipeline.json
+	![圖表連結][image-data-factory-tutorial-diagram-link]
 
-7. 使用 Cmdlet **Get-AzureDataFactoryPipeline** 來取得管線的清單。
-			
-		Get-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df
+2. 您可以重新排列所看見的圖表，這裡是重新排列的圖表，在頂端顯示直接輸入，在底端則是輸出。您可以看到的輸出 **PartitionGameLogsPipeline** 做為輸入至 EnrichGameLogsPipeline 和輸出的傳入 **EnrichGameLogsPipeline** 傳遞至 **AnalyzeMarketingCampaignPipeline**。按兩下某個標題，以查看分頁所代表之成品的詳細資訊。
 
-8. 管線建立之後，您可以指定將發生資料處理的持續時間。藉由指定管線的作用期間，依據對每個 ADF 資料表所定義之可用性屬性，您會定義將處理資料配量的持續時間。
+	![圖表檢視][image-data-factory-tutorial-diagram-view]
 
-若要指定管線的作用期間，您可以使用 Cmdlet Set-AzureDataFactoryPipelineActivePeriod。本逐步解說中，範例資料是從 05/01 到 05/05。使用 2014-05-01 為 StartDateTime。EndDateTime 是選擇性的。
-			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01 -EndDateTime 2014-05-05 -Name PartitionGameLogsPipeline
-  
-9. 確認以設定管線的作用期間。
-			
-			Confirm
-			Are you sure you want to set pipeline 'PartitionGameLogsPipeline' active period from '05/01/2014 00:00:00' to '05/05/2014 00:00:00'?
-			[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): n
+3. 以滑鼠右鍵按一下 **AnalyzeMarketingCampaignPipeline**, ，然後按一下 **開放的管線**。您應該會看到活動的輸入和輸出資料集以及管線中的所有活動。
+ 
+	![開啟管線](./media/data-factory-tutorial/AnalyzeMarketingCampaignPipeline-OpenPipeline.png)
 
-10. 重複上述的兩個步驟來設定下列管線的作用期間。
-	1. **EnrichGameLogsPipeline**
-			
-			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01 -EndDateTime 2014-05-05 -Name EnrichGameLogsPipeline
-
-	2. **AnalyzeMarketingCampaignPipeline** 
-			
-			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01 -EndDateTime 2014-05-05 -Name AnalyzeMarketingCampaignPipeline
-
-11. 在 **Azure 預覽入口網站**中，按一下 [**管線**] 磚 (不在管線的名稱上)，位於 [**DATA FACTORY**] 分頁 (**LogProcessingFactory** 中)，應該會看到您所建立的管線。
-
-	![All Pipelines][image-data-factory-tutorial-pipelines-all]
-
-12. 在 [**DATA FACTORY**] 分頁中，針對 **LogProcessingFactory**，按一下 [**圖表**]。
-
-	![Diagram Link][image-data-factory-tutorial-diagram-link]
-
-13. 您可以重新排列所看見的圖表，這裡是重新排列的圖表，在頂端顯示直接輸入，在底端則是輸出。您可以看到 **PartitionGameLogsPipeline** 的輸出，被傳回做為 EnrichGameLogsPipeline 的輸入，而 **EnrichGameLogsPipeline** 的輸出則傳遞至 **AnalyzeMarketingCampaignPipeline**。按兩下某個標題，以查看分頁所代表之成品的詳細資訊。
-
-	![Diagram View][image-data-factory-tutorial-diagram-view]
-
-	**恭喜！** 您已成功建立 Azure Data Factory、連結的服務、管線、資料表，並開始工作流程。 
+	按一下 **資料 factory** 軌跡中若要回到所有管線的圖表檢視的左上角。
 
 
-### <a name="MainStep6"></a>步驟 6：監視管線和資料配量 
+**恭喜！** 您已成功建立 Azure Data Factory、連結的服務、管線、資料表，並開始工作流程。
 
-1.	如果您的 LogProcessingFactory 的 Data Factory 分頁未開啟，您可以執行下列其中一項：
-	1.	按一下 **LogProcessingFactory** (在 [**開始面板**] 上)。在建立 Data Factory 時，會自動勾選 [**新增至開始面板**] 選項。
 
-		![Monitoring Startboard][image-data-factory-monitoring-startboard]
+## <a name="MainStep6"></a> 步驟 6： 監視管線和資料配量 
 
-	2. 按一下 [**瀏覽**] 中心，然後按一下 [**所有項目**]。
+1.	如果您沒有 **資料 FACTORY** 刀鋒伺服器 **LogProcessingFactory** 開啟時，您可以執行下列其中之一：
+	1.	按一下 **LogProcessingFactory** 上 **儀表板**。在建立資料處理站時 **新增到儀表板** 自動選取選項。
+
+		![監視儀表板][image-data-factory-monitoring-startboard]
+
+	2. 按一下 **瀏覽** 集線器，然後按一下 [ **一切**。
 	 	
-		![Monitoring Hub Everything][image-data-factory-monitoring-hub-everything]
+		![監視中樞所有項目][image-data-factory-monitoring-hub-everything]
 
-	3. 在 [**瀏覽**] 分頁中，選取 [**Data Factory**]，並選取 **LogProcessingFactory** (在 **Data Factory** 分頁中)。。
+		在 **瀏覽** blade 中，選取 **資料 factory** ，然後選取 **LogProcessingFactory** 中 **資料 factory** 分頁。
 
-	![Monitoring Browse Datafactories][image-data-factory-monitoring-browse-datafactories]
+		![監視瀏覽 Datafactories][image-data-factory-monitoring-browse-datafactories]
 2. 您可以以數種方式監視您的 Data Factory。您可以從管線或資料集開始。讓我們從管線開始，並進一步向下鑽研。 
-3.	按一下 [**管線**] (**DATA FACTORY** 分頁上)。 
-4.	按一下管線分頁中的 **PartitionGameLogsPipeline**。 
-5.	在 [**管線**] 分頁，針對 **PartitionGameLogsPipeline**，您會看見管線耗用 **RawGameEventsTable** 資料集。  按一下 [**RawGameEventsTable**]。
+3.	按一下 **管線** 上 **資料 FACTORY** 分頁。 
+4.	按一下 **PartitionGameLogsPipeline** 管線刀鋒伺服器中。 
+5.	在 **管線** 刀鋒伺服器 **PartitionGameLogsPipeline**, ，您會看到，管線會消耗 **RawGameEventsTable** 資料集。按一下 **RawGameEventsTable**。
 
-	![Pipeline Consumed and Produced][image-data-factory-monitoring-pipeline-consumed-produced]
+	![取用和生產資料的管線][image-data-factory-monitoring-pipeline-consumed-produced]
 
-6. 在 **RawGameEventsTable** 的資料表分頁中，您會看見所有配量。在下列螢幕擷取畫面中，所有的配量都處於**就緒**狀態，沒有任何有問題的配量。這表示資料已就緒可供處理。	
+6. 在資料表刀鋒伺服器 **RawGameEventsTable**, ，您會看到所有的扇區。在下列螢幕擷取畫面，所有的扇區是 **準備** 狀態有任何問題配量。這表示資料已就緒可供處理。
 
-	![RawGameEventsTable TABLE blade][image-data-factory-monitoring-raw-game-events-table]
+	![RawGameEventsTable 資料表分頁][image-data-factory-monitoring-raw-game-events-table]
+
+	同時 **最近更新配量** 和 **最近無法配量** 清單會依照 **上次更新時間**。配量的更新時間是在下列情況中變更。
+
+	-  您扇區的狀態手動更新，例如，使用 **組 AzureDataFactorySliceStatus** (或) 依序按一下 **執行** 上 **配量** 配量的分頁。
+	-  配量因為執行的狀態變更 (例如啟動測試回合、 結束，而且無法執行、 測試回合結束，而且已成功，等等)。
  
-7. 現在，在 [**管線**] 分頁中，針對 **PartiionGameLogsPipeline**，按一下 [**已產生**]。 
+	按一下標題的清單或 **...(橢圓形)** 若要查看較大配量的清單。按一下 **篩選** 篩選配量] 工具列上。
+	
+	若要檢視的資料配量，而是依照配量的開始/結束時間，請按一下 **(藉由配量的時間) 的資料配量** 並排顯示。
+
+	![依時間配量的資料配量][DataSlicesBySliceTime]
+ 
+7. 現在，在 **管線** 刀鋒伺服器 **PartiionGameLogsPipeline**, ，按一下 **Produced**。
 8. 您應該會看到這個管線產生的資料集的清單： 
-9. 按一下 **PartitionedGameEvents** 資料表 ([**產生的資料集**] 分頁上)。 
-10.	確認所有配量的 [**狀態**] 都已設為 [**就緒**]。 
-11.	按一下其中一個**就緒**的配量，以查看該配量的**資料配量**分頁。
+9. 按一下 **PartitionedGameEvents** 資料表中 **產生資料集** 分頁。 
+10.	確認已選取 **狀態** 所有配量會設定為 **準備**。 
+11.	按一下其中一個會將配量 **準備** 查看 **資料配量** 該扇區的分頁。
 
-	![RawGameEventsTable DATA SLICE blade][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
+	![RawGameEventsTable 資料配量分頁][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	如果有錯誤發生，您會在這裡看到 ** 失敗 ** 狀態。  您也可能會看到兩個配量的狀態為**就緒**，或兩個配量的狀態為 **PendingValidation**，根據處理配量的速度而定。
+	如果發生錯誤，您會看到 **失敗 **這裡的狀態。您也可能會看到狀態的其中一個這兩個配量 **準備**, ，或兩者皆擁有狀態 **PendingValidation**, ，端視配量處理的速度。
+
+	如果配量不在 **準備** 狀態，您可以看到，未就緒並封鎖目前的配量，從執行中的上游配量 **上游未就緒的配量** 清單。
  
-	請參閱 [Azure Data Factory 開發人員參考][developer-reference]，以了解所有可能的配量狀態。
+	請參閱 [Azure 資料工廠開發人員參考][developer-reference] 來了解所有可能的配量的狀態。
 
-12.	在 [**資料配量**] 分頁中，從 [**活動執行**] 清單中按一下執行。您應該會看到該配量的「活動執行」分頁。您應該會看到下列的**活動執行詳細資料**分頁。
+12.	在 **資料配量** blade 中，按一下 [從執行 **活動執行** 清單。您應該會看到該配量的「活動執行」分頁。您應該會看到下列 **活動執行詳細資料** 分頁。
 
-	![Activity Run Details blade][image-data-factory-monitoring-activity-run-details]
+	![活動執行詳細資料] 分頁][image-data-factory-monitoring-activity-run-details]
 
-13.	按一下 [**下載**] 以下載檔案。對 HDInsight 處理的錯誤進行疑難排解時，這個畫面會特別有用。 
+13.	按一下 **下載** 下載檔案。對 HDInsight 處理的錯誤進行疑難排解時，這個畫面會特別有用。
 	 
 	
-當所有管線都完成執行時，您可以查看 **MarketingCampaignEffectivenessTable** (位於 **MarketingCampaigns** Azure SQL 資料庫中)，以檢視結果。 
+當所有管線都完成執行時，您可以看看 **MarketingCampaignEffectivenessTable** 中 **MarketingCampaigns** Azure SQL 資料庫來檢視結果。
 
-**恭喜！**您現在可以監視和疑難排解工作流程。您已經學會如何使用 Azure Data Factory 來處理資料，並取得分析。
+**恭喜！** 您現在可以監視和疑難排解工作流程。您已經學會如何使用 Azure Data Factory 來處理資料，並取得分析。
 
-	 
-
-## 逐步介紹：使用內部部署資料
-
-**(建議)** 檢閱和練習[讓您的管線處理內部部署資料][useonpremisesdatasources]文章中的逐步解說，以取得建立管線，以將資料從內部部署 SQL Server 移至 Azure Blob 存放區的逐步解說。
-
-
-在此逐步解說中，您將學習如何設定環境以啟用管線，來處理您的內部部署資料。
+## 擴充本教學課程使用的內部資料
+在記錄處理程序從這份文件中的逐步解說的案例的最後一個步驟中，行銷促銷活動效率輸出已複製到 Azure SQL database。您也可以在組織內，將此資料移動到內部部署 SQL Server 以進行分析。
  
-在記錄檔處理案例中的最後一個步驟，從第一個逐步解說與分割 -> 充實 -> 分析工作流程，行銷活動有效性輸出已複製到 Azure SQL 資料庫。您也可以在組織內，將此資料移動到內部部署 SQL Server 以進行分析。
- 
-為了從 Azure Blob 將行銷活動有效性資料複製到內部部署 SQL Server，您需要使用與在第一個逐步解說中所使用的一組相同 Cmdlet 建立額外的內部部署連結的服務、資料表和管線。
+若要從 Azure Blob 複製行銷促銷活動效能資料的內部部署 SQL Server、 您需要建立額外的內部連結服務、 資料表和管線中導入這篇文章中的逐步解說。
 
-在本教學課程中，您將執行下列步驟： 
-
-1. [步驟 1：建立資料管理閘道](#OnPremStep1)。資料管理閘道  是可讓您從雲端存取組織中內部部署資料來源的用戶端代理程式。閘道可以讓您在內部部署 SQL Server 和 Azure 的資料存放區之間傳送資料。	
-
-	您必須在公司環境中至少安裝一個閘道，以及將它向其註冊 Azure Data Factory 註冊，之後才將內部部署 SQL Server 資料庫新增為 Azure Data Factory 的連結的服務。
-
-2. [步驟 2：為內部部署 SQL Server 建立連結的服務](#OnPremStep2)。在此步驟中，您可以先在內部部署 SQL Server 電腦上建立資料庫和資料表，然後再建立連結的服務：**OnPremSqlLinkedService**。  
-3. [步驟 3：建立資料表和管線](#OnPremStep3)。在此步驟中，您會建立資料表 **MarketingCampaignEffectivenessOnPremSQLTable** 和管線 **EgressDataToOnPremPipeline**。 
-
-4. [步驟 4：監視管線和檢視結果](#OnPremStep4)。在此步驟中，您將使用 Azure 入口網站來監視管線、資料表和資料配量。
+練習 [逐步解說： 使用內部部署資料來源][tutorial-onpremises] 以了解如何建立管線來行銷促銷活動的效率資料複製到一個在內部部署 SQL Server 資料庫。
 
 
-### <a name="OnPremStep1"></a>步驟 1：建立資料管理閘道
-
-資料管理閘道是可讓您從雲端存取組織中內部部署資料來源的用戶端代理程式。閘道可以讓您在內部部署 SQL Server 和 Azure 的資料存放區之間傳送資料。
-  
-您必須在公司環境中至少安裝一個閘道，以及將它向其註冊 Azure Data Factory 註冊，之後才將內部部署 SQL Server 資料庫新增為 Azure Data Factory 的連結的服務。
-
-如果您有可以使用的現有資料閘道，請略過此步驟。
-
-1.	建立邏輯資料閘道。在 **Azure 預覽入口網站**中，按一下 [**連結的服務** ](**DATA FACTORY**分頁上)。
-2.	按一下命令列上的 [**新增 (+) 資料閘道**]。  
-3.	在 [**新增資料閘道**] 分頁中，按一下 [**建立**]。
-4.	在 [**建立**] 分頁中，輸入 **MyGateway** 做為資料閘道的 [**名稱**]。
-5.	按一下 [**選擇區域**]，並視需要予以變更。 
-6.	按一下 [**確定**] (在 [**建立**] 分頁中)。 
-7.	您應該會看到 [**設定**] 分頁。 
-8.	在 [**設定**] 分頁中，按一下 [**直接安裝在此電腦上**]。這會在您的電腦上下載、安裝及設定閘道，並向服務註冊閘道。如果在您想要連結至這個邏輯閘道入口網站的電腦上已安裝現有的閘道，使用此分頁中的金鑰，使用資料管理閘道組態管理員 (預覽) 工具重新註冊您的閘道。
-
-	![Data Management Gateway Configuration Manager][image-data-factory-datamanagementgateway-configuration-manager]
-
-9. 按一下 [**確定**] 以關閉 [**設定**] 分頁及 [**確定**] 以關閉 [**建立**] 分頁。等候 **MyGateway** ([**連結的服務**] 分頁中) 的狀態變更為 **良好**。您也可以啟動 **資料管理閘道組態管理員 (預覽)** 工具來確認閘道的名稱符合入口網站中的名稱，以及 [**狀態**] 為 [**已註冊**]。您可能必須關閉再重新開啟 [連結的服務] 分頁，以查看最新狀態。可能需要幾分鐘的時間，畫面才會重新整理為最新狀態。	
-
-### <a name="OnPremStep2"></a>步驟 2：為內部部署 SQL Server 建立連結的服務
-
-在此步驟中，您可以先在內部部署 SQL Server 電腦上建立所需的資料庫和資料表，然後再建立連結的服務。
-
-#### 準備內部部署資料庫和資料表
-
-若要開始，您需要建立 SQL Server 資料庫、資料表、使用者定義型別和預存程序。這些將用於從 Azure Blob 移動 **MarketingCampaignEffectiveness** 結果到 SQL Server 資料庫。
-
-1.	在 **Windows 檔案總管**中，導覽至 **OnPremises** 子資料夾 (位於 **C:\ADFWalkthrough** 或從您解壓縮範例的所在位置)。
-2.	在您喜好的編輯器中開啟 **prepareOnPremDatabase&Table.ps1**，將反白顯示部分以您 SQL Server 的資訊取代，並儲存檔案 (請提供 **SQL 驗證** 詳細資訊)。針對教學課程的目的，為您的資料庫啟用 SQL 驗證。 
-			
-		$dbServerName = "<servername>"
-		$dbUserName = "<username>"
-		$dbPassword = "<password>"
-
-3. 在 **Azure PowerShell** 中，導覽至 **C:\ADFWalkthrough\OnPremises** 資料夾。
-4.	執行 **prepareOnPremDatabase&Table.ps1** ** (使用雙引號或如下所示)**。
-			
-		& '.\prepareOnPremDatabase&Table.ps1'
-
-5. Once the script executes successfully, you will see the following:	
-			
-		PS E:\ADF\ADFWalkthrough\OnPremises> & '.\prepareOnPremDatabase&Table.ps1'
-		6/10/2014 10:12:33 PM Script to create sample on-premises SQL Server Database and Table
-		6/10/2014 10:12:33 PM Creating the database [MarketingCampaigns], table and stored procedure on [.]...
-		6/10/2014 10:12:33 PM Connecting as user [sa]
-		6/10/2014 10:12:33 PM Summary:
-		6/10/2014 10:12:33 PM 1. Database 'MarketingCampaigns' created.
-		6/10/2014 10:12:33 PM 2. 'MarketingCampaignEffectiveness' table and stored procedure 
-
-
-#### 建立連結的服務
-
-1.	在 **Azure 預覽入口網站**中，按一下 [**連結的服務**] 磚 (**DATA FACTORY** 分頁上，針對 **LogProcessingFactory**。
-2.	在 [**連結的服務**] 分頁，按一下 [**新增 (+) 資料存放區**]。
-3.	在 [**新增資料存放區**] 分頁中，輸入 **OnPremSqlLinkedService** 做為 [**名稱**]。 
-4.	按一下 [**類型 (需要設定)**]，並選取 **SQL Server**。您現在應該會看到**資料閘道**、**伺服器**、**資料庫** 和**認證**設定 (於**新資料儲存區** 分頁)。 
-5.	按一下**資料閘道 (設定必要的設定)**，然後選取您先前建立的 **MyGateway**。 
-6.	輸入主控 ******MarketingCampaigns** 資料庫的資料庫伺服器名稱。 
-7.	輸入 **MarketingCampaigns** 做為資料庫。 
-8.	按一下 [**認證**]。 
-9.	在 [**認證**] 分頁上，按一下 [**按一下這裡安全地設定認證**。
-10.	它會在第一次時安裝按一次應用程式，並啟動 **設定認證** 對話方塊。 
-11.	在 [**設定認證**] 對話方塊中，輸入**使用者名稱**和**密碼**，然後按一下 [**確定**]。請等到對話方塊關閉。 
-12.	按一下 [**確定**] (在 [**新增資料存放區**] 分頁中)。 
-13.	在 [**連結的服務**] 分頁中，確認 **OnPremSqlLinkedService** 顯示在清單中，以及連結的服務的 [**狀態**]為 [**良好**]。
-
-### <a name="OnPremStep3"></a>步驟 3：建立資料表和管線
-
-#### 建立內部部署邏輯資料表
-
-1.	在 **Azure PowerShell** 中，切換至 **C:\ADFWalkthrough\OnPremises** 資料夾。 
-2.	使用 Cmdlet **New-AzureDataFactoryTable** 來建立資料表，如下所示 (針對 **MarketingCampaignEffectivenessOnPremSQLTable.json**。
-
-			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df -File .\MarketingCampaignEffectivenessOnPremSQLTable.json
-	 
-#### 建立將資料從 Azure Blob 複製到 SQL Server 的管線
-
-1.	使用 Cmdlet **New-AzureDataFactoryPipeline** 來建立管線，如下所示 (針對 **EgressDataToOnPremPipeline.json**。
-
-			
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df -File .\EgressDataToOnPremPipeline.json
-	 
-2. 使用 Cmdlet **Set-AzureDataFactoryPipelineActivePeriod** 來指定 **EgressDataToOnPremPipeline** 的作用期間。
-
-			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01 -EndDateTime 2014-05-05 -Name EgressDataToOnPremPipeline
-
-	請按 **'Y'** 繼續進行。
-	
-### <a name="OnPremStep4"></a>步驟 4：監視管線和檢視結果
-
-您現在可以使用與以下步驟中介紹的相同步驟[步驟 6：監視資料表和管線](#MainStep6)  來監視新的管線和新的內部部署 ADF 資料表的資料配量。
- 
-當您看到資料表 **MarketingCampaignEffectivenessOnPremSQLTable** 的配量狀態變成就緒時，這表示管線已完成配量的執行。若要檢視結果，請查詢 **MarketingCampaignEffectiveness** 資料表 (位於 SQL Server 的 **MarketingCampaigns** 資料庫中)。
- 
-恭喜！您已成功已經完成使用內部部署資料的逐步解說。 
- 
-## 另請參閱
-
-文章 | 描述
------- | ---------------
-[讓您的管線可能與內部部署資料搭配使用][useonpremisesdatasources] | 本文章的逐步解說示範如何將資料從內部部署 SQL Server 資料庫複製到 Azure Blob。
-[對 Data Factory 使用 Pig 和 Hive][usepigandhive] | 本文章的逐步解說示範如何使用 HDInsight 活動來執行 hive/pig 指令碼，以處理輸入資料來產生輸出資料。 
-[在 Data Factory 中使用自訂活動][use-custom-activities] | 本文章提供的逐步解說具有建立自訂活動並將它用於管線中的逐步指示。 
-[使用 PowerShell 監視和管理 Azure Data Factory][monitor-manage-using-powershell] | 此文章描述如何使用 Azure PowerShell Cmdlet 監視 Azure Data Factory。您可以在 ADFTutorialDataFactory 上嘗試文章中的範例。
-[Data Factory 的疑難排解][troubleshoot] | 本文說明如何對 Azure Data Factory 的問題進行疑難排解。您可以透過引用一個錯誤 (刪除 Azure SQL Database 中的資料表)，嘗試本文中針對 ADFTutorialDataFactory 所做的逐步解說。 
-[Azure Data Factory 開發人員參考][developer-reference] | 開發人員參考具有 Cmdlet、JSON 指令碼、函式等等的完整的參考內容
-[Azure Data Factory Cmdlet 參考][cmdlet-reference] | 此參考內容具有所有 Data Factory Cmdlet 的相關詳細資料。 
-
-[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
-[use-custom-activities]: ../data-factory-use-custom-activities
-[troubleshoot]: ../data-factory-troubleshoot
+[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+[data-factory-editor]: data-factory-editor.md
 
-
-[adfgetstarted]: ../data-factory-get-started
-[adfintroduction]: ../data-factory-introduction
-[useonpremisesdatasources]: ../data-factory-use-onpremises-datasources
-[usepigandhive]: ../data-factory-pig-hive-activities
+[adfsamples]: data-factory-samples.md
+[adfgetstarted]: data-factory-get-started.md
+[adftutorial-using-powershell]: data-factory-tutorial-using-powershell.md
+[adfintroduction]: data-factory-introduction.md
+[useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
+[usepigandhive]: data-factory-pig-hive-activities.md
+[tutorial-onpremises]: data-factory-tutorial-extend-onpremises.md
+[download-azure-powershell]: powershell-install-configure.md
 
 [azure-preview-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-[sqlcmd-install]: http://www.microsoft.com/zh-tw/download/details.aspx?id=35580
+[sqlcmd-install]: http://www.microsoft.com/download/details.aspx?id=35580
 [azure-sql-firewall]: http://msdn.microsoft.com/library/azure/jj553530.aspx
 
-[download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
+
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
+[DataSlicesBySliceTime]: ./media/data-factory-tutorial/DataSlicesBySliceTime.png
+[image-author-deploy-tile]: ./media/data-factory-tutorial/author-deploy-tile.png
+[image-editor-newdatastore-button]: ./media/data-factory-tutorial/editor-newdatastore-button.png
+[image-editor-blob-storage-json]: ./media/data-factory-tutorial/editor-blob-storage-json.png
+[image-editor-blob-storage-deploy]: ./media/data-factory-tutorial/editor-blob-storage-deploy.png
 
 [image-data-factory-tutorial-end-to-end-flow]: ./media/data-factory-tutorial/EndToEndWorkflow.png
 
@@ -693,4 +522,4 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!--HONumber=46--> 
+<!---HONumber=GIT-SubDir-->

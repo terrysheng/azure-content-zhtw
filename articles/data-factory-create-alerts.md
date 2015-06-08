@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="05/15/2015" 
 	ms.author="spelluru"/>
 
 # 針對 Azure 事件建立警示
@@ -147,24 +147,6 @@ StorageAccountName 指定儲存體帳戶來儲存已部署的警示 JSON 檔案�
 </tr>
 
 <tr>
-<td>CreateTablePublication</td>
-<td>Succeeded</td>
-<td></td>
-</tr>
-
-<tr>
-<td>UpdateTablePublication</td>
-<td>Succeeded</td>
-<td></td>
-</tr>
-
-<tr>
-<td>RemoveTablePublication</td>
-<td>Succeeded</td>
-<td></td>
-</tr>
-
-<tr>
 <td>OnDemandClusterCreateStarted</td>
 <td>已啟動</td>
 <td></td>
@@ -189,4 +171,4 @@ StorageAccountName 指定儲存體帳戶來儲存已部署的警示 JSON 檔案�
 
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
 
-<!--HONumber=54-->
+<!---HONumber=GIT-SubDir-->

@@ -288,7 +288,7 @@
 		"sink":
 	    {
 			"type": "SqlSink",
-	        "SqlWriterTableType": "MarketingType",
+	        "SqlWriterTableType": "MarketingType",
 		    "SqlWriterStoredProcedureName": "spOverwriteMarketing",	
 			"storedProcedureParameters":
 					{
@@ -313,8 +313,8 @@
 4. 在資料庫中，使用與 **SqlWriterTableType** 相同的名稱定義資料表類型。請注意，資料表類型的結構描述應該與輸入資料所傳回的結構描述相同。
 
 		CREATE TYPE [dbo].[MarketingType] AS TABLE(
-    	    [ProfileID] [varchar](256) NOT NULL,
-    	    [State] [varchar](256) NOT NULL,
+    	    [ProfileID] [varchar](256) NOT NULL,
+    	    [State] [varchar](256) NOT NULL,
     	)
 
 預存程序功能使用[資料表值參數][table-valued-parameters]。
@@ -341,10 +341,10 @@
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[azure-table-data-type]: https://msdn.microsoft.com/zh-tw/library/azure/dd179338.aspx
+[azure-table-data-type]: https://msdn.microsoft.com/en-us/library/azure/dd179338.aspx
 
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
 
-<!--HONumber=54-->
+<!---HONumber=GIT-SubDir-->

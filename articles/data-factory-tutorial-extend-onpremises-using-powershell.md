@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 
-# 逐步解說：將行銷活動有效性資料複製到內部部署 SQL Server 資料庫 
+# 逐步解說：將行銷活動有效性資料複製到內部部署 SQL Server 資料庫
 在此逐步解說中，您將學習如何設定環境以啟用管線，來處理您的內部部署資料。
  
 在記錄檔處理案例中的最後一個步驟，從第一個逐步解說與分割 -> 充實 -> 分析工作流程，行銷活動有效性輸出已複製到 Azure SQL 資料庫。您也可以在組織內，將此資料移動到內部部署 SQL Server 以進行分析。
@@ -51,7 +51,7 @@
 
 如果您有可以使用的現有資料閘道，請略過此步驟。
 
-1.	建立邏輯資料閘道。在 **Azure Preview 入口網站**中，按一下您的 Data Factory 的 [**DATA FACTORY**] 分頁上的 [**連結的服務**]。
+1.	建立邏輯資料閘道。在 **Azure 預覽入口網站**, ，按一下 **連結服務** 上 **資料 FACTORY** 分頁。
 2.	按一下命令列上的 [**新增 (+) 資料閘道**]。  
 3.	在 [**新增資料閘道**] 分頁中，按一下 [**建立**]。
 4.	在 [**建立**] 分頁中，輸入 **MyGateway** 做為資料閘道的 [**名稱**]。
@@ -97,45 +97,46 @@
 
 ### 建立連結的服務
 
-1.	在 **Azure Preview 入口網站**中，按一下 **LogProcessingFactory** 的 [**DATA FACTORY**] 分頁上的 [**製作和部署**] 磚。
-2.	在 **Data Factory 編輯器**中，按一下工具列的 [**新增資料存放區**]，選取 [**內部部署 SQL Server 資料庫**]。
-3.	在 JSON 指令碼中，執行下列動作： 
-	1.	將 **<servername>** 取代為裝載 SQL Server 資料庫的伺服器名稱。
-	2.	將 **<databasename>** 取代為 **MarketingCampaigns**。
-	3.	如果您使用 **SQL 驗證**
-		1.	在 **connectionString** 中指定 **<username>** 和 **<password>**。
-		2.	移除最後兩列 (僅當您使用 Windows 驗證時，才需要 **username** 和 **password** JSON 屬性)。 
-		3.	移除 **gatewayName** **列尾端的 **, (逗點)。
-		**如果您使用 Windows 驗證：**1.在 **connectionString** 中，將 **Integrated Security** 的值設為 **True**。從 connectionString 中移除 "**User ID=<username>;Password=<password>;**"。2.在 **username** 屬性中，指定具有資料庫存取權的使用者名稱。3.指定使用者帳戶的 **password**。   
-	4. 在 gatewayName 屬性中，指定閘道的名稱 (**MyGateway**)。 		  	 
-3.	按一下工具列的 [**部署**]，部署連結服務。 
+1.	在 **Azure 預覽入口網站**, ，按一下 **連結服務** 磚上 **資料 FACTORY** 刀鋒伺服器 **LogProcessingFactory**。
+2.	在 **連結服務** blade 中，按一下 **加號 (+) 資料存放區**。
+3.	在 **新的資料存放區** blade 中，輸入 **OnPremSqlLinkedService** 的 **名稱**。 
+4.	按一下 **型別 (所需的設定)** ，然後選取 **SQL Server**。您應該會看到 **資料閘道器**, ，**Server**, ，**資料庫**, ，和 **認證** 中的設定 **新的資料存放區** 現在分頁。 
+5.	按一下 **資料閘道器 (設定必要的設定)** ，然後選取 **MyGateway** 您先前建立。 
+6.	輸入 **名稱** 資料庫伺服器裝載的 **MarketingCampaigns** 資料庫。 
+7.	輸入 **MarketingCampaigns** 資料庫。 
+8.	按一下 **認證**。 
+9.	在 **認證** blade 中，按一下 **安全地設定認證，請按一下這裡**。
+10.	它會在第一次按一下應用程式安裝並啟動 **設定認證 **對話方塊。 11.	在 **設定認證** 對話方塊方塊中，輸入 **使用者名稱** 和 **密碼**, ，按一下 **確定**。請稍候，待對話方塊關閉。 
+12.	按一下 **確定** 中 **新的資料存放區** 分頁。 
+13.	在 **連結的服務** blade 中，確認已選取 **OnPremSqlLinkedService** 出現在清單中， **狀態** 連結服務是 **良好**。
 
 ## <a name="OnPremStep3"></a>步驟 3：建立資料表和管線
 
 ### 建立內部部署邏輯資料表
 
-1.	在 **Data Factory 編輯器**中，按一下工具列的 [**新增資料集**]，選取 [**內部部署 SQL**]。 
-2. 將右側窗格中的 JSON，取代為 **C:\ADFWalkthrough\OnPremises** 資料夾的 **MarketingCampaignEffectivenessOnPremSQLTable.json** 檔案中的 JSON 指令碼。
-3. 將連結服務的名稱 (**linkedServiceName** 屬性) 從 **OnPremSqlServerLinkedService** 變更為 **SqlServerLinkedService**。
-4. 按一下工具列的 [**部署**]，部署資料表。 
+1.	在 **Azure PowerShell**, ，切換到 **C:\ADFWalkthrough\OnPremises** 資料夾。 
+2.	使用 cmdlet **新增 AzureDataFactoryTable** 以建立資料表，如下所示的 **MarketingCampaignEffectivenessOnPremSQLTable.json**。
+
+			
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### 建立將資料從 Azure Blob 複製到 SQL Server 的管線
 
-1.	1. 在 **Data Factory 編輯器**中，按一下工具列的 [**新增管線**] 按鈕。如果沒看到此按鈕，請按一下工具列 **...(省略符號)**。或者，您也可以在樹狀檢視中，以滑鼠右鍵按一下 [**管線**]，再按一下 [**新增管線**]。
-2. 將右側窗格中的 JSON，取代為 **C:\ADFWalkthrough\OnPremises** 資料夾的 **EgressDataToOnPremPipeline.json** 檔案中的 JSON 指令碼。
-3. 在 JSON 中，在**右方括弧 (']')** 尾端加上**逗點 (',')**，然後在右方括弧之後增加下列三行。 
+1.	使用 cmdlet **新增 AzureDataFactoryPipeline** 建立管線，如下所示的 **EgressDataToOnPremPipeline.json**。
 
-        "start": "2014-05-01T00:00:00Z",
-        "end": "2014-05-05T00:00:00Z",
-        "isPaused": false
+			
+		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
+	 
+2. 使用 cmdlet **組 AzureDataFactoryPipelineActivePeriod** 到指定的作用中期間 **EgressDataToOnPremPipeline**。
 
-	[AZURE.NOTE]請注意，開始和結束時間設為 05/01/2014 和 05/05/2014，因為此逐步解說中的範例資料是從 05/01/2014 到 05/05/2014。
- 
-3. 按一下工具列的 [**部署**]，建立並部署管線。確認您在編輯器的標題列看到 [**已成功建立管線**] 訊息。
+			
+		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
+
+	按下 **'Y'** 才能繼續。
 	
 ## <a name="OnPremStep4"></a>步驟 4：監視管線和檢視結果
 
-現在，您可以使用[主要教學課程][datafactorytutorial]的**監視管線和資料配量**這一節所介紹的相同步驟，對新的內部部署 ADF 資料表監視新的管線和資料配量。
+您現在可以使用相同的步驟中導入 [步驟 6： 監視資料表和管線](#MainStep6) 監視新的管線和新的內部 ADF 資料表的資料配量。
  
 當您看到資料表 **MarketingCampaignEffectivenessOnPremSQLTable** 的配量狀態變成「就緒」時，這表示管線已完成配量的執行。若要檢視結果，請查詢 **MarketingCampaignEffectiveness** 資料表 (位於 SQL Server 的 **MarketingCampaigns** 資料庫中)。
  
@@ -147,7 +148,7 @@
 [troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-[datafactorytutorial]: data-factory-tutorial.md
+[datafactorytutorial]: data-factory-tutorial-using-powershell.md
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
@@ -165,6 +166,6 @@
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
-[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises/DataManagementGatewayConfigurationManager.png
+[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises-using-powershell/DataManagementGatewayConfigurationManager.png
 
 <!---HONumber=GIT-SubDir-->

@@ -1,14 +1,11 @@
-﻿<properties 
-	title="Monitor and manage Azure Data Factory using Azure PowerShell" 
-	pageTitle="使用 Azure PowerShell 監視和管理 Azure Data Factory" 
-	description="了解如何使用 Azure PowerShell 來監視及管理您已經建立的 Azure 資料處理站。" 
-	metaKeywords=""  
+<properties 
+	pageTitle="教學課程： 建立和監視使用 Azure PowerShell 的 Azure 資料 factory" 
+	description="了解如何使用 Azure PowerShell 來建立和監視 Azure 資料處理站。" 
 	services="data-factory" 
-	solutions=""  
 	documentationCenter="" 
 	authors="spelluru" 
 	manager="jhubbard" 
-	editor="monicar" />
+	editor="monicar"/>
 
 <tags 
 	ms.service="data-factory" 
@@ -16,417 +13,415 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2014" 
-	ms.author="spelluru" />
+	ms.date="05/04/2015" 
+	ms.author="spelluru"/>
 
-# 使用 Azure PowerShell 監視和管理 Azure Data Factory
-下表列出您可以用來使用 Azure PowerShell 監視和管理 Azure Data Factory 的 Cmdlet。 
+# 教學課程： 建立和監視的資料處理站使用 Azure PowerShell
+> [AZURE.SELECTOR]
+- [Tutorial Overview](data-factory-get-started.md)
+- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
+- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 
-> [WACOM.NOTE] 如需有關 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考][cmdlet-reference]。 
+ [開始使用 Azure 資料 Factory][adf-get-started] 教學課程會示範如何建立和監視 Azure 資料處理站使用 [Azure 預覽入口網站][azure-preview-portal]。在本教學課程中，您將建立和使用 Azure PowerShell cmdlet 來監視 Azure 資料處理站。您在本教學課程中建立的資料處理站中的管線會將資料從 Azure blob 用於 Azure SQL database。
+
+> [AZURE.NOTE]這篇文章並未涵蓋所有的資料處理站指令程式。請參閱 [資料 Factory 指令程式參考][cmdlet-reference] 資料 Factory 指令程式的完整文件。
+
+##必要條件
+除了教學課程概觀 ＞ 主題中所列的必要條件，您需要有 Azure PowerShell 安裝在電腦上。如果您沒有它已經，下載並安裝 [Azure PowerShell][download-azure-powershell] 在電腦上。
+
+##本教學課程內容
+下表列出本教學課程與及其描述的一部分，您將執行的步驟。
+
+步驟 | 說明
+-----| -----------
+[步驟 1： 建立 Azure 的資料處理站](#CreateDataFactory) | 在此步驟中，您將建立名為 Azure 資料 factory **ADFTutorialDataFactoryPSH**。 
+[步驟 2： 建立連結的服務](#CreateLinkedServices) | 在此步驟中，您將建立兩個連結的服務： **StorageLinkedService** 和 **AzureSqlLinkedService**。StorageLinkedService 連結 Azure 儲存體和 AzureSqlLinkedService 連結 ADFTutorialDataFactoryPSH Azure SQL database。
+[步驟 3： 建立輸入和輸出資料集](#CreateInputAndOutputDataSets) | 在此步驟中，您會定義兩個資料集 (* * EmpTableFromBlob * * 和 **EmpSQLTable**)，做為輸入和輸出資料表 **複製活動** 中您將在下一個步驟建立 ADFTutorialPipeline。
+[步驟 4： 建立和執行管線](#CreateAndRunAPipeline) | 在此步驟中，您將建立名為管線 **ADFTutorialPipeline** 資料 factory 中： **ADFTutorialDataFactoryPSH**...管線將會有 **複製活動** ，會將資料從 Azure blob 輸出 Azure 資料庫的資料表。
+[步驟 5： 監視資料集和管線](#MonitorDataSetsAndPipeline) | 在此步驟中，您將會監視資料集和管線，在此步驟中使用 Azure PowerShell。
+
+## <a name="CreateDataFactory"></a>步驟 1： 建立 Azure 的資料處理站
+在此步驟中，您可以使用 Azure PowerShell 建立名為 Azure 資料處理站 **ADFTutorialDataFactoryPSH**。
+
+1. 啟動 **Azure PowerShell** 並執行下列命令。保持開啟 Azure PowerShell 到本教學課程結束為止。如果您關閉並重新開啟，您需要再次執行這些命令。
+	- 執行 **Add-azureaccount** 並輸入使用者名稱和您用來登入 Azure 預覽入口網站的密碼。  
+	- 執行 **Get-azuresubscription** 若要檢視此帳戶的所有訂閱。
+	- 執行 **Select-azuresubscription** 來選取您想要使用的訂閱。此訂用帳戶應該與您在「Azure Preview 入口網站」中使用的相同。 
+2. 切換至 **AzureResourceManager** 模式為 Azure 資料 Factory 指令程式會在此模式中使用。
+
+		Switch-AzureMode AzureResourceManager 
+3. 建立名為 Azure 資源群組： **ADFTutorialResourceGroup** 藉由執行下列命令。
+   
+		New-AzureResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+
+	在本教學課程的步驟假設您使用資源群組名稱 **ADFTutorialResourceGroup**。如果您使用的不同資源群組，您必須取代 ADFTutorialResourceGroup 在本教學課程中使用它。 
+4. 執行 **新增 AzureDataFactory** 指令程式可建立名為資料處理站： **ADFTutorialDataFactoryPSH**。  
+
+		New-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
 
 
-- [Get-AzureDataFactory](#get-azuredatafactory)
-- [Get-AzureDataFactoryLinkedService](#get-azuredatafactorylinkedservice)
-- [Get-AzureDataFactoryTable](#get-azuredatafactorytable)
-- [Get-AzureDataFactoryPipeline](#get-azuredatafactorypipeline)
-- [Get-AzureDataFactorySlice](#get-azuredatafactoryslice)
-- [Get-AzureDataFactoryRun](#get-azuredatafactoryrun)
-- [Save-AzureDataFactoryLog](#save-azuredatafactorylog)
-- [Get-AzureDataFactoryGateway](#get-azuredatafactorygateway)
-- [Set-AzureDataFactoryPipelineActivePeriod](#set-azuredatafactorypipelineactiveperiod)
-- [Set-AzureDataFactorySliceStatus](#set-azuredatafactoryslicestatus)
-- [Suspend-AzureDataFactoryPipeline](#suspend-azuredatafactorypipeline)
-- [Resume-AzureDataFactoryPipeline](#resume-azuredatafactorypipeline)
+	> [AZURE.NOTE]Azure Data Factory 的名稱在全域必須是唯一的。如果您收到錯誤： **資料 factory 名稱"ADFTutorialDataFactoryPSH"不是使用**, ，變更名稱 (例如，yournameADFTutorialDataFactoryPSH)。使用此名稱來取代 ADFTutorialFactoryPSH 時執行本教學課程中的步驟。
 
+## <a name="CreateLinkedServices"></a>步驟 2： 建立連結的服務
+連結服務會將資料存放區或計算服務連結至 Azure Data Factory。資料存放區可以是 Azure 儲存體、 Azure SQL Database 或包含輸入的資料，或將資料處理站管線的輸出資料儲存在內部部署 SQL Server 資料庫。計算服務是處理輸入的資料和產生的輸出資料的服務。
 
-##<a name="get-azuredatafactory"></a>Get-AzureDataFactory
-在指定的資源群組內取得 Azure 訂閱中特定 Data Factory 或所有 Data Factories 的相關資訊。
- 
-###範例 1
+在此步驟中，您將建立兩個連結的服務： **StorageLinkedService** 和 **AzureSqlLinkedService**。StorageLinkedService 連結服務連結的 Azure 儲存體帳戶和 AzureSqlLinkedService 連結至資料處理站的 Azure SQL database： **ADFTutorialDataFactoryPSH**。將資料從 StorageLinkedService 中的 blob 容器中 AzureSqlLinkedService 的 SQL 資料表到本教學課程稍後，您將建立管線。
 
-    Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup
+### 建立 Azure 儲存體帳戶的連結服務
+1.	建立名為 JSON 檔案 **StorageLinkedService.json** 中 **C:\ADFGetStartedPSH** 含有下列內容。如果不存在，請建立 ADFGetStartedPSH 的資料夾。
 
-此命令會傳回 ADFTutorialResourceGroup 資源群組中的所有 Data Factory。
- 
-###範例 2
+		{
+		    "name": "StorageLinkedService",
+		    "properties":
+		    {
+		        "type": "AzureStorageLinkedService",
+		        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+		    }
+		}
+2.	在 **Azure PowerShell**, ，切換到 **ADFGetStartedPSH** 資料夾。 
+3.	您可以使用 **新增 AzureDataFactoryLinkedService** 指令程式來建立連結的服務。這個指令程式和您在本教學課程中使用其他資料處理站 cmdlet 需要您將值傳給 **ResourceGroupName** 和 **DataFactoryName** 參數。或者，您可以使用 **Get AzureDataFactory** 取得 DataFactory 物件，並傳遞物件，而不需要輸入 ResourceGroupName 和 DataFactoryName 每次您執行 cmdlet。執行下列命令，以指定的輸出 **Get AzureDataFactory** cmdlet 的變數： **$df**。 
 
-    Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactory
+		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoyPSH
 
-此命令會傳回 ADFTutorialResourceGroup 資源群組中 ADFTutorialDataFactory Data Factory 的詳細資料。 
+4.	現在，執行 **新增 AzureDataFactoryLinkedService** 指令程式來建立連結的服務： **StorageLinkedService**。
 
-## <a name="get-azuredatafactorylinkedservice"></a> Get-AzureDataFactoryLinkedService ##
-Get-AzureDataFactoryLinkedService Cmdlet 會取得 Azure Data Factory 中特定連結服務或所有連結服務的相關資訊。
+		New-AzureDataFactoryLinkedService $df -File .\StorageLinkedService.json
 
-### 範例 1 ###
+	如果您還沒執行 **Get AzureDataFactory** 指令程式，並指派至輸出 **$df** 變數時，您就必須指定 ResourceGroupName 和 DataFactoryName 參數的值，如下所示。
+		
+		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
 
-    Get-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
- 
-這個命令會傳回 Azure Data Factory ADFTutorialDataFactory 中所有連結服務的相關資訊。
+	如果您關閉 Azure PowerShell，在本教學課程，您將有執行 Get AzureDataFactory cmdlet 啟動 Azure PowerShell 來完成教學課程的下一次。
 
+### 建立 Azure SQL Database 的連結服務
+1.	建立名為 AzureSqlLinkedService.json 含有下列內容的 JSON 檔案。
 
-您可以使用-DataFactory 參數，而不使用 DataFactoryName 和 ResourceGroupName 參數。這可讓您只需輸入一次資源群組和 Factory 名稱，然後針對同時採用 ResourceGroupName 和 DataFactoryName 做為參數的所有 Cmdlet，使用 Data Factory 物件做為這些 Cmdlet 的參數即可。
-
-    $df = Get-AzureDataFactory -ResourceGroup ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
+		{
+		    "name": "AzureSqlLinkedService",
+		    "properties":
+		    {
+		        "type": "AzureSqlLinkedService",
+		        "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=user@server;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+		    }
+		}
+2.	執行下列命令以建立連結的服務。 
 	
-	Get-AzureDataFactoryLinkedService -DataFactory $df 
+		New-AzureDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
 
-### 範例 2
+	> [AZURE.NOTE]確認已選取 **允許 Azure 服務存取** 設定 Azure SQL server 已開啟。若要確認，並將它開啟，請執行下列動作：
+	>
+	> <ol>
+<li>按一下 <b>瀏覽</b> 中樞在左方和按一下 <b>SQL 伺服器</b>。</li>
+<li>選取您的伺服器，然後按一下 [ <b>設定</b> 上 <b>SQL SERVER</b> 分頁。</li>
+<li>在 <b>設定</b> blade 中，按一下 <b>防火牆</b>。</li>
+<li>在 <b>Firewalll 設定</b> blade 中，按一下 <b>ON</b> 的 <b>允許 Azure 服務存取</b>。</li>
+<li>按一下 <b>ACTIVE</b> 切換至左邊 」 中樞 <b>資料 Factory</b> 上的刀鋒。</li>
+</ol>
 
-    Get-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -Name MyBlobStore
+## <a name="CreateInputAndOutputDataSets"></a>步驟 3： 建立輸入和輸出資料表
 
-這個命令會傳回 Azure Data Factory ADFTutorialDataFactory 中連結服務 MyBlobStore 的相關資訊。 
+在上一個步驟中，您可以建立連結的服務 **StorageLinkedService** 和 **AzureSqlLinkedService** 連結至資料處理站的 Azure 儲存體帳戶和 Azure SQL database： **ADFTutorialDataFactoryPSH**。在此步驟中，您將建立代表輸入和輸出資料複製活動，您會在下一個步驟建立的管線中的資料表。
 
-您可以使用-DataFactory 參數，而不使用 -ResourceGroup 和 -DataFactoryName 參數，如下所示： 
+資料表是矩形的資料集，而且是目前唯一受支援的資料集類型。本教學課程中的輸入的資料表是指 blob 容器，在 Azure 儲存體該 StorageLinkedService 指向和 Azure SQL database 中的 SQL 資料表 AzureSqlLinkedService 指向輸出資料表參考。
+
+### 準備教學課程所需的 Azure Blob 儲存體和 Azure SQL 資料庫
+如果您已經完成從教學課程，請略過此步驟 [開始使用 Azure 資料 Factory][adf-get-started] 發行項。
+
+您需要執行下列步驟來準備此教學課程中的 Azure blob 儲存體和 Azure SQL database。
+ 
+* 建立 blob 容器，名為 **adftutorial** 在 Azure blob 儲存體， **StorageLinkedService** 指向。 
+* 建立及上傳文字檔， **emp.txt**, ，做為要 blob **adftutorial** 容器。 
+* 建立了名為 **emp** Azure SQL 資料庫中 Azure SQL 資料庫 **AzureSqlLinkedService** 指向。
 
 
-    $df = Get-AzureDataFactory -ResourceGroup ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
+1. 啟動 [記事本]，貼上下列文字，並將它儲存成 **emp.txt** 至 **C:\ADFGetStartedPSH** 硬碟機上的資料夾。 
+
+        John, Doe
+		Jane, Doe
+				
+2. 使用工具，例如 [Azure 儲存體總管](https://azurestorageexplorer.codeplex.com/) 建立 **adftutorial** 容器以及上傳 **emp.txt** 檔案的容器。
+
+    ![Azure 儲存體總管][image-data-factory-get-started-storage-explorer]
+3. 使用下列 SQL 指令碼來建立 **emp** Azure SQL 資料庫資料表中的。  
+
+
+        CREATE TABLE dbo.emp 
+		(
+			ID int IDENTITY(1,1) NOT NULL,
+			FirstName varchar(50),
+			LastName varchar(50),
+		)
+		GO
+
+		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
+
+	如果您必須在電腦上安裝 SQL Server 2014： 請遵循指示從 [步驟 2： 連接到 SQL Database 管理 Azure SQL Database 的使用 SQL Server Management Studio][sql-management-studio] 文件，以連線到您的 Azure SQL server 並執行 SQL 指令碼。
+
+	如果您必須在電腦上安裝 Visual Studio 2013： 在 Azure 預覽入口網站 ([http://portal.azure.com](http://portal.sazure.com))，按一下 **瀏覽** 中樞在左側，按一下 **SQL 伺服器**, ，選取您的資料庫，然後按一下 **在 Visual Studio 中開啟** 連接到您的 Azure SQL server 並執行指令碼的工具列上的按鈕。如果您的用戶端來存取 Azure SQL server 不允許，您必須設定防火牆以允許來自您的電腦 (IP 位址) 存取 Azure SQL server。請參閱上面的步驟來設定您的 Azure SQL server 的防火牆。
+		
+### 建立輸入資料表 
+資料表是矩形的資料集，並具有的結構描述。在此步驟中，您將建立一個名為資料表 **EmpBlobTable** ，它會指向所代表的 Azure 儲存體中的 blob 容器 **StorageLinkedService** 連結服務。這個 blob 容器 (* * adftutorial * *) 包含在檔案中的輸入的資料： **emp.txt**。
+
+1.	建立名為 JSON 檔案 **EmpBlobTable.json** 中 **C:\ADFGetStartedPSH** 資料夾含有下列內容：
+
+		{
+	    	"name": "EmpTableFromBlob",
+	        "properties":
+	        {
+	            "structure":  
+	                [ 
+	                { "name": "FirstName", "type": "String"},
+	                { "name": "LastName", "type": "String"}
+	            ],
+	            "location": 
+	            {
+	                "type": "AzureBlobLocation",
+	                "folderPath": "adftutorial/",
+	                "format":
+	                {
+	                    "type": "TextFormat",
+	                    "columnDelimiter": ","
+	                },
+	                "linkedServiceName": "StorageLinkedService"
+	            },
+	            "availability": 
+	            {
+	                "frequency": "hour",
+	                "interval": 1,
+	                "waitonexternal": {}
+	                }
+	        }
+		}
 	
-	Get-AzureDataFactoryLinkedService -DataFactory $df -Name MyBlobStore
-
-
-## <a name="get-azuredatafactorytable"></a> Get-AzureDataFactoryTable
-Get-AzureDataFactoryTable Cmdlet 會取得 Azure Data Factory 中特定資料表或所有資料表的相關資訊。 
-
-### 範例 1
-
-    Get-AzureDataFactoryTable -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
-
-這個命令會傳回 Azure Data Factory ADFTutorialDataFactory 中所有資料表的相關資訊。
-
-您可以使用-DataFactory 參數，而不使用 -ResourceGroup 和 -DataFactoryName 參數，如下所示： 
-
-
-    $df = Get-AzureDataFactory -ResourceGroup ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
+	請注意：
 	
-	Get-AzureDataFactoryTable -DataFactory $df
+	- 位置 **類型** 設為 **AzureBlobLocation**。
+	- **linkedServiceName** 設為 **StorageLinkedService**。 
+	- **folderPath** 設為 **adftutorial** 容器。您也可以指定資料夾內的 Blob 的名稱。由於您未指定 Blob 的名稱，容器中所有 Blob 的資料都會被視為輸入資料。  
+	- 格式 **類型** 設為 **TextFormat**
+	- 有兩個欄位中的文字檔案 – **FirstName** 和 **LastName** – 以逗號字元分隔 (* * [columnDelimiter * *)	
+	-  **可用性** 設為 **每小時** (* * 頻率 * * 會設定為 **小時** 和 **間隔** 設為 **1** )，因此資料處理站服務會尋找輸入資料每隔一小時在 blob 容器中的根資料夾中 (* * adftutorial * *) 指定。
 
-### 範例 2
-
-    Get-AzureDataFactoryTable -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -Name EmpTableFromBlob
-
-這個命令會傳回 Azure Data Factory ADFTutorialDataFactory 中資料表 EmpTableFromBlob 的相關資訊。
-
-
-
-## <a name="get-azuredatafactorypipeline"></a>Get-AzureDataFactoryPipeline
-Get-AzureDataFactoryPipeline Cmdlet 會取得 Azure Data Factory 中特定管線或所有管線的相關資訊。
-
-### 範例 1
-
-    Get-AzureDataFactoryPipeline -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
-
-這個命令會傳回 Azure Data Factory ADFTutorialDataFactory 中所有管線的相關資訊。
-
-### 範例 2
-
-    Get-AzureDataFactoryPipeline -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -Name ADFTutorialPipeline
-
-取得 Azure Data Factory ADFTutorialDataFactory 中管線 ADFTutorialPipeline 的相關資訊。
-
-## <a name="get-azuredatafactoryslice"> </a> Get-AzureDataFactorySlice
-Get-AzureDataFactorySlice Cmdlet 會取得 Azure Data Factory 中所有在 StartDateTime 之後以及在 EndDateTime 之前產生的資料表配量。狀態為 Ready 的資料配量表示已可供相依配量取用。
-
-下表列出配量的所有狀態及其描述。
-
-<table border="1">	
-	<tr>
-		<th align="left">Status</th>
-		<th align="left">描述</th>
-	</tr>	
-
-	<tr>
-		<td>PendingExecution</td>
-		<td>資料處理尚未啟動。</td>
-	</tr>	
-
-	<tr>
-		<td>InProgress</td>
-		<td>資料處理進行中。</td>
-	</tr>
-
-	<tr>
-		<td>Ready</td>
-		<td>資料處理已完成，而且資料配量就緒。</td>
-	</tr>
-
-	<tr>
-		<td>Failed</td>
-		<td>產生配量的執行無法執行。</td>
-	</tr>
-
-	<tr>
-		<td>Skip</td>
-		<td>略過配量處理。</td>
-	</tr>
-
-	<tr>
-		<td>Retry</td>
-		<td>重試產生配量的執行。</td>
-	</tr>
-
-	<tr>
-		<td>Timed Out</td>
-		<td>配量的資料處理逾時。</td>
-	</tr>
-
-	<tr>
-		<td>PendingValidation</td>
-		<td>在開始處理之前，資料配量正在等候依照驗證原則進行驗證。</td>
-	</tr>
-
-	<tr>
-		<td>Retry Validation</td>
-		<td>重試配量的驗證。</td>
-	</tr>
-
-	<tr>
-		<td>Failed Validation</td>
-		<td>配量的驗證失敗。</td>
-	</tr>
-
-	<tr>
-		<td>LongRetry</td>
-		<td>如果已在資料表 JSON 中指定 LongRetry，而且配量的一般重試失敗，則配量將會處於這個狀態。</td>
-	</tr>
-
-	<tr>
-		<td>ValidationInProgress</td>
-		<td>正在執行配量的驗證 (根據 JSON 資料表中定義的原則) 。</td>
-	</tr>
-
-</table>
-
-針對每個配量，您可以向下深入鑽研，並使用 Get-AzureDataFactoryRun 和 Save-AzureDataFactoryLog Cmdlet 查看正要產生配量之執行的相關資訊。
-
-### 範例
-
-    Get-AzureDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-05-20T10:00:00
-
-這個命令會取得 Azure Data Factory ADFTutorialDataFactory 中於 2014-05-20T10:00:00 (GMT) 之後產生的資料表 EmpSQLTable 的所有配量。以您執行 Set-AzureDataFactoryPipelineActivePeriod 時所指定的開始日期時間取代日期時間。
-
-## <a name="get-azuredatafactoryrun"></a> Get-AzureDataFactoryRun
-
-Get-AzureDataFactoryRun Cmdlet 會取得 Azure Data Factory 中資料表之資料配量的所有執行。Azure Data Factory 中的資料表由時間軸上的配量所組成。配量的寬度取決於排程 - 每小時/每日。執行是配量的處理單位。如果您重新嘗試，或是在失敗時重新執行配量，可能執行一次或多次配量。配量是由其開始時間識別。因此，針對 Get-AzureDataFactoryRun Cmdlet，您需要從 Get-AzureDataFactorySlice Cmdlet 的結果傳入配量的開始時間。
-
-例如，若要執行下列配量，請使用 2015-04-02T20:00:00。 
-
-    ResourceGroupName  	: ADFTutorialResourceGroup
-    DataFactoryName 	: ADFTutorialDataFactory
-    TableName 			: EmpSQLTable
-    Start 				: 5/2/2014 8:00:00 PM
-    End 				: 5/3/2014 8:00:00 PM
-    RetryCount 			: 0
-    Status 				: Ready
-    LatencyStatus 		:
-
-
-
-### 範例
-
-    Get-AzureDataFactoryRun -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -ResourceGroupName ADFTutorialResourceGroup -StartDateTime 2014-05-21T16:00:00
-
-這個命令會取得 Azure Data Factory ADFTutorialDataFactory 中資料表 EmpSQLTable 的所有配量執行，從 05/21/2014 的 4 PM GMT 開始。
-
-## <a name="save-azuredatafactorylog"></a> Save-AzureDataFactoryLog
-Save-AzureDataFactoryLog Cmdlet 會將與處理 Pig 或 Hive 專案的 Azure HDInsight 相關聯的記錄檔或自訂活動的記錄檔下載至本機硬碟。您將先執行 Get-AzureDataFactoryRun Cmdlet 以取得資料配量的活動執行識別碼，然後使用該識別碼從與 HDInsight 叢集關聯的二進位大型物件 (BLOB) 儲存體抓取記錄檔。 
-
-如果您未指定 **-DownloadLogs** 參數，Cmdlet 便只會傳回記錄檔的位置。 
-
-如果您指定 **-DownloadLogs** 參數但未指定輸出目錄 (**-Output** 參數)，記錄檔就會下載至預設的 [文件]**** 資料夾。 
-
-如果您指定 **-DownloadLogs** 參數連同輸出資料夾 (**-Output**)，則記錄檔會下載至指定的資料夾。 
-
-
-### 範例 1
-這個命令會儲存識別碼為 841b77c9-d56c-48d1-99a3-8c16c3e77d39 之活動執行的記錄檔，其中活動屬於資源群組 (名為 ADF) 中 Data Factory (名為 LogProcessingFactory) 內的管線。記錄檔會儲存至 C:\Test 資料夾。 
-
-	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
+	如果您沒有指定 **fileName** 的 **輸入** **資料表**, ，所有檔案/blob 從輸入資料夾 (* * folderPath * *) 會被視為輸入。如果您在 JSON 中指定 fileName，則只有指定的檔案/Blob 會被視為輸入。請參閱範例檔案 [教學課程][adf-tutorial] 範例。
  
+	如果您未指定 **檔名** 的 **輸出資料表**, ，則產生的檔案中的 **folderPath** 下列格式命名： 資料。 < Guid >.txt (範例: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt。)。
 
-### 範例 2
-這個命令會將記錄檔儲存至 Documents 資料夾 (預設值)。
+	若要根據 **SliceStart** 時間動態設定 **folderPath** 和 **fileName**，請使用 **partitionedBy** 屬性。在下列範例中，folderPath 使用 SliceStart (處理配量的開始時間) 中的年、月和日，fileName 使用 SliceStart 中的小時。例如，如果配量產生於 2014-10-20T08:00:00，folderName 設定為 wikidatagateway/wikisampledataout/2014/10/20，而 fileName 設定為 08.csv。
+
+	  	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+        "fileName": "{Hour}.csv",
+        "partitionedBy": 
+        [
+        	{ "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+            { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+            { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+            { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+        ],
+
+	> [AZURE.NOTE]請參閱 [JSON 指令碼參考](http://go.microsoft.com/fwlink/?LinkId=516971) 如需詳細資訊 JSON 內容。
+
+2.	執行下列命令以建立資料處理站資料表。
+
+		New-AzureDataFactoryTable $df -File .\EmpBlobTable.json
+
+### 建立輸出資料表
+在這段的步驟，您將建立的輸出資料表中名為 **EmpSQLTable** 指向 SQL 資料表 (* * emp * *) 由 Azure SQL database 中 **AzureSqlLinkedService** 連結服務。管線會將資料複製到輸入 blob **emp** 資料表。
+
+1.	建立名為 JSON 檔案 **EmpSQLTable.json** 中 **C:\ADFGetStartedPSH** 含有下列內容的資料夾。
+		
+		{
+		    "name": "EmpSQLTable",
+		    "properties":
+		    {
+		        "structure":
+		        [
+		            { "name": "FirstName", "type": "String"},
+		            { "name": "LastName", "type": "String"}
+		        ],
+		        "location":
+		        {
+		            "type": "AzureSQLTableLocation",
+		            "tableName": "emp",
+		            "linkedServiceName": "AzureSqlLinkedService"
+		        },
+		        "availability": 
+		        {
+		            "frequency": "Hour",
+		            "interval": 1            
+		        }
+		    }
+		}
+
+     請注意：
+	
+	* 位置 **類型** 設為 **AzureSQLTableLocation**。
+	* **linkedServiceName** 設為 **AzureSqlLinkedService**。
+	* **tablename** 設為 **emp**。
+	* 有三個資料行 – **識別碼**, ，**FirstName**, ，和 **LastName** – emp 資料表在資料庫中，但識別碼是識別資料行，因此您必須只指定 **FirstName** 和 **LastName** 這裡。
+	*  **可用性** 設為 **每小時** (* * 頻率 * * 設 **小時** 和 **間隔** 設 **1**)。資料處理站服務將會產生輸出的資料配量中的每個小時 **emp** Azure SQL database 中的資料表。
+
+2.	執行下列命令以建立資料處理站資料表。
+	
+		New-AzureDataFactoryTable $df -File .\EmpSQLTable.json
 
 
-	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs
+## <a name="CreateAndRunAPipeline"></a>步驟 4： 建立和執行管線
+在此步驟中，您會建立具有管線 **複製活動** 使用 **EmpTableFromBlob** 做為輸入和 **EmpSQLTable** 做為輸出。
+
+1.	建立名為 JSON 檔案 **ADFTutorialPipeline.json** 中 **C:\ADFGetStartedPSH** 資料夾含有下列內容： 
+
+		{
+		    "name": "ADFTutorialPipeline",
+		    "properties":
+		    {   
+		        "description" : "Copy data from an Azure blob to an Azure SQL table",
+		        "activities":   
+		        [
+		            {
+		                "name": "CopyFromBlobToSQL",
+		                "description": "Copy data from the adftutorial blob container to emp SQL table",
+		                "type": "CopyActivity",
+		                "inputs": [ {"name": "EmpTableFromBlob"} ],
+		                "outputs": [ {"name": "EmpSQLTable"} ],     
+		                "transformation":
+		                {
+		                    "source":
+		                    {                               
+		                        "type": "BlobSource"
+		                    },
+		                    "sink":
+		                    {
+		                        "type": "SqlSink"
+		                    }   
+		                },
+		                "Policy":
+		                {
+		                    "concurrency": 1,
+		                    "executionPriorityOrder": "NewestFirst",
+		                    "style": "StartOfInterval",
+		                    "retry": 0,
+		                    "timeout": "01:00:00"
+		                }       
+		            }
+		        ],
+		        "start": "2015-03-03T00:00:00Z",
+		        "end": "2015-03-04T00:00:00Z"
+		    }
+		}  
+
+	請注意：
+
+	- 在 [活動] 區段中，則只有一個活動其 **類型** 設為 **CopyActivity**。
+	- 輸入活動設定為 **EmpTableFromBlob** 和輸出活動設定為 **EmpSQLTable**。
+	- 在 **轉換** ] 區段中， **BlobSource** 指定做為來源類型和 **SqlSink** 指定為接收型別。
+
+	> [AZURE.NOTE]取代的值 **開始** 屬性與目前的日期和 **結束** 隔天的值。同時開始和結束日期時間必須在 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如： 2014年-10-14T16:32:41Z。 **結束** 時間是選擇性的但是我們將在本教學課程中使用它。如果您沒有指定值 **結束** 屬性，它會計算為"* * 啟動 + 48 小時 * *"。若要無限期地執行管線，請指定 **9/9/9999** 做為值 **結束** 屬性。在上述範例中，由於每小時即產生一個資料配量，共會有 24 個資料配量。
+	
+	> [JSON 指令碼參考](http://go.microsoft.com/fwlink/?LinkId=516971)
+2.	執行下列命令以建立資料處理站資料表。 
+		
+		New-AzureDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
+
+**恭喜！** 您已成功建立 Azure Data Factory、連結服務、資料表和管線，以及排定的管線。
+
+## <a name="MonitorDataSetsAndPipeline"></a>步驟 5： 監視的資料集和管線
+在此步驟中，您將使用 Azure PowerShell 來監視怎麼在 Azure 資料處理站。
+
+1.	執行 **Get AzureDataFactory** 和指派給變數 $df 的輸出。
+
+		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
  
+2.	執行 **Get AzureDataFactorySlice** 以取得詳細資料的所有配量 **EmpSQLTable**, ，這是輸出資料表的管線。
 
-### 範例 3
-這個命令會傳回記錄檔的位置。請注意，並未指定 -DownloadLogs 參數。 
-  
-	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39"
- 
+		Get-AzureDataFactorySlice $df -TableName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
 
+	> [AZURE.NOTE]取代年份、 月份和日期部分 **StartDateTime** 參數目前的年、 月和日。這應該符合 **開始** 管線 JSON 中的值。
 
+	您應該會看到 24 配量，一個用於從 12 AM 當天的每小時到隔天的上午 12。
+	
+	**第一個扇區：**
 
-## <a name="get-azuredatafactorygateway"></a> Get-AzureDataFactoryGateway
-Get-AzureDataFactoryGateway Cmdlet 會取得 Azure Data Factory 中特定閘道或所有閘道的相關資訊。您必須在內部部署電腦上安裝閘道，才能將內部部署 SQL Server 新增至 Data Factory 做為連結服務。
+		ResourceGroupName : ADFTutorialResourceGroup
+		DataFactoryName   : ADFTutorialDataFactoryPSH
+		TableName         : EmpSQLTable
+		Start             : 3/3/2015 12:00:00 AM
+		End               : 3/3/2015 1:00:00 AM
+		RetryCount        : 0
+		Status            : PendingExecution
+		LatencyStatus     :
+		LongRetryCount    : 0
 
-### 範例 1
-    Get-AzureDataFactoryGateway -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory
-這個命令會傳回 Azure Data Factory ADFTutorialDataFactory 中所有閘道的相關資訊。
+	**最後一個配量：**
 
-### 範例 2
+		ResourceGroupName : ADFTutorialResourceGroup
+		DataFactoryName   : ADFTutorialDataFactoryPSH
+		TableName         : EmpSQLTable
+		Start             : 3/4/2015 11:00:00 PM
+		End               : 3/4/2015 12:00:00 AM
+		RetryCount        : 0
+		Status            : PendingExecution
+		LatencyStatus     : 
+		LongRetryCount    : 0
 
-    Get-AzureDataFactoryGateway -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -Name ADFTutorialGateway
+3.	執行 **Get AzureDataFactoryRun** 以取得詳細資料的活動執行 **特定** 配量。值變更 **StartDateTime** 參數以符合 **開始** 上述輸出配量的時間。值 **StartDateTime** 必須在 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如： 2014年-03-03T22:00:00Z。
 
-這個命令會傳回 Azure Data Factory ADFTutorialDataFactory 中閘道 ADFTutorialGateway 的相關資訊。
+		Get-AzureDataFactoryRun $df -TableName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
 
-## <a name="set-azuredatafactorypipelineactiveperiod"></a> Set-AzureDataFactoryPipelineActivePeriod
-這個 cmdlet 會設定由管線處理之資料配量的作用中期間。如果您使用 Set-AzureDataFactorySliceStatus，請確定配量開始日期和結束日期是在管線的作用中期間內。
+	您應該會看到如下所示的輸出：
 
-管線建立之後，您可以指定將進行資料處理的期間。藉由指定管線的作用中期間，您將依據為每個 ADF 資料表定義的「可用性」屬性，定義將處理資料配量的持續時間。
+		Id                  : 3404c187-c889-4f88-933b-2a2f5cd84e90_635614488000000000_635614524000000000_EmpSQLTable
+		ResourceGroupName   : ADFTutorialResourceGroup
+		DataFactoryName     : ADFTutorialDataFactoryPSH
+		TableName           : EmpSQLTable
+		ProcessingStartTime : 3/3/2015 11:03:28 PM
+		ProcessingEndTime   : 3/3/2015 11:04:36 PM
+		PercentComplete     : 100
+		DataSliceStart      : 3/8/2015 10:00:00 PM
+		DataSliceEnd        : 3/8/2015 11:00:00 PM
+		Status              : Succeeded
+		Timestamp           : 3/8/2015 11:03:28 PM
+		RetryAttempt        : 0
+		Properties          : {}
+		ErrorMessage        :
+		ActivityName        : CopyFromBlobToSQL
+		PipelineName        : ADFTutorialPipeline
+		Type                : Copy
 
-### 範例
+> [AZURE.NOTE]請參閱 [資料 Factory 指令程式參考][cmdlet-reference] 資料 Factory 指令程式的完整文件。
 
-    Set-AzureDataFactoryPipelineActivePeriod  -Name ADFTutorialPipeline -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-22T16:00:00
+## 後續步驟
 
-這個命令會對管線 ADFTutoiralPipeline 所處理的資料配量設定作用中期間，從 5/21/2014 4 PM GMT 到 5/22/2014 4 PM GMT。
-
-## <a name="set-azuredatafactoryslicestatus"></a> Set-AzureDataFactorySliceStatus
-設資料表配量的狀態。配量開始日期和結束日期必須在管線的作用中期間內。
-
-### 支援的狀態值
-資料表的每個資料配量會經過不同階段。這些階段會依據是否指定驗證原則而稍有不同。
-
-
-- 如果未指定驗證原則：PendingExecution -> InProgress -> Ready
-- 如果已指定驗證原則：PendingExecution -> Pending Validation -> InProgress -> Ready
-
-下表提供配量可能狀態的描述，並告訴您是否可以使用 Set-AzureDataFactorySliceStatus 設定狀態。
-
-<table border="1">	
-	<tr>
-		<th>Status</th>
-		<th>描述</th>
-		<th>可以使用 cmdlet 這樣設定嗎 ></th>
-	</tr>	
-
-	<tr>
-		<td>PendingExecution</td>
-		<td>資料處理尚未啟動。</td>
-		<td>Y</td>
-	</tr>	
-
-	<tr>
-		<td>InProgress</td>
-		<td>資料處理進行中。</td>
-		<td>N</td>
-	</tr>
-
-	<tr>
-		<td>Ready</td>
-		<td>資料處理已完成，而且資料配量就緒。</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>Failed</td>
-		<td>產生配量的執行無法執行。</td>
-		<td>N</td>
-	</tr>
-
-	<tr>
-		<td>Skip</td>
-		<td>略過配量處理。</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>Retry</td>
-		<td>重試產生配量的執行。</td>
-		<td>N</td>
-	</tr>
-
-	<tr>
-		<td>Timed Out</td>
-		<td>資料處理逾時。</td>
-		<td>N</td>
-	</tr>
-
-	<tr>
-		<td>PendingValidation</td>
-		<td>在開始處理之前，資料配量正在等候依照驗證原則進行驗證。</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>Retry Validation</td>
-		<td>重試配量的驗證。</td>
-		<td>N</td>
-	</tr>
-
-	<tr>
-		<td>Failed Validation</td>
-		<td>配量的驗證失敗。</td>
-		<td>N</td>
-	</tr>
-	</table>
-
-
-### 支援的值 - 更新類型
-對於 Azure Data Factory 中每個資料表，當設定配量的狀態時，您需要指定狀態更新是否只套用至資料表，或狀態更新是否傳播到所有受影響的配量。
-
-<table border="1">	
-	<tr>
-		<th>更新類型</th>
-		<th>描述</th>
-		<th>可以使用 cmdlet 這樣設定嗎</th>
-	</tr>
-
-	<tr>
-		<td>Individual</td>
-		<td>在指定的時間範圍內指定資料表的每個配量的狀態</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>UpstreamInPipeline</td>
-		<td>設定資料表和所有相依 (上游) 資料表的每個配量的狀態，而這些相依資料表會做為管線中活動的輸入資料表。</td>
-		<td>Y</td>
-	</tr>
-
-</table>
-## <a name="suspend-azuredatafactorypipeline"></a> Suspend-AzureDataFactoryPipeline
-Suspend-AzureDataFactoryPipeline Cmdlet 會暫停 Azure Data Factory 中指定的管線。您可以稍後使用 Resume-AzureDataFactoryPipeline Cmdlet 來繼續執行管線。
-
-### 範例
-
-    Suspend-AzureDataFactoryPipeline -Name ADFTutorialPipeline -DataFactoryName ADFTutorialDataFactory -ResourceGroupName ADFTutorialResourceGroup
-
-這個命令會暫停 Azure Data Factory ADFTutorialDataFactory 中的管線 ADFTutorialPipeline。
-
-## <a name="resume-azuredatafactorypipeline"></a> Resume-AzureDataFactoryPipeline
-Resume-AzureDataFactoryPipeline Cmdlet 會繼續使用 Azure Data Factory 中目前處於暫停狀態的指定管線。 
-
-### 範例
-
-    Resume-AzureDataFactoryPipeline ADFTutorialPipeline -DataFactoryName ADFTutorialDataFactory -ResourceGroupName ADFTutorialResourceGroup
-
-這個命令會繼續使用 Azure Data Factory ADFTutorialDataFactory 中之前使用 Suspend-AzureDataFactoryPipeline 命令暫停的管線 ADFTutorialPipeline。
-
-## 另請參閱
-
-文章 | 描述
+文章 | 說明
 ------ | ---------------
-[使用 Azure Preview 入口網站來監視和管理 Azure Data Factory][monitor-manage-using-portal] | 本文描述如何使用「Azure Preview 入口網站」來監視和管理 Azure Data Factory。
-[讓您的管線能夠與內部部署資料搭配使用][use-onpremises-datasources] | 本文提供逐步解說，示範如何將資料從內部部署 SQL Server 資料庫複製到 Azure Blob。
-[使用 Pig 和 Hive 搭配 Data Factory][use-pig-and-hive-with-data-factory] | 本文提供逐步解說，示範如何使用「HDInsight 活動」來執行 hive/pig 指令碼，以處理輸入資料來產生輸出資料。
-[教學課程：使用 Data Factory 移動及處理記錄檔][adf-tutorial] | 本文提供端對端逐步解說，展示如何使用 Azure Data Factory 實作近乎真實世界的案例，將記錄檔中的資料轉換為見解。
-[在 Data Factory 中使用自訂活動][use-custom-activities] | 本文提供逐步解說，內含建立自訂活動並在管線中使用此活動的逐步指示。
-[Data Factory 問題疑難排解][troubleshoot] | 本文說明如何對 Azure Data Factory 問題進行疑難排解。
-[Azure Data Factory 開發人員參考][developer-reference] |＜開發人員參考＞提供 Cmdlet、JSON 指令碼、函式等等的完整參考內容。 
-[Azure Data Factory Cmdlet 參考][cmdlet-reference] | 本參考內容提供所有 **Data Factory Cmdlet** 的相關詳細資料。
+[複製資料與 Azure 資料 Factory 複製活動][copy-activity] | 這篇文章提供詳細的描述 **複製活動** 您在本教學課程中使用。 
+[讓您使用的內部資料的管線][use-onpremises-datasources] | 這篇文章已示範如何從其中複製資料的逐步解說 **在內部部署 SQL Server 資料庫** 至 Azure blob。 
+[使用 Pig 和 Hive 與資料處理站][use-pig-and-hive-with-data-factory] | 此發行項的逐步解說中，示範如何使用 **HDInsight 活動** 執行 **hive/pig** 指令碼來處理輸入的資料來產生輸出資料。
+[教學課程： 移動及處理序使用資料處理站的記錄檔][adf-tutorial] | 這篇文章提供 **端對端逐步解說** ，示範如何實作 **真實世界的案例** 使用 Azure 資料 Factory 從記錄檔的資料轉換成見解。
+[在資料處理站中使用自訂活動][use-custom-activities] | 本文章提供逐步解說中建立的逐步指示與 **自訂活動** 並在管線中使用它。 
+[資料處理站的問題進行疑難排解][troubleshoot] | 本文將說明如何 **疑難排解** Azure 資料處理站所發出。您可以透過引用一個錯誤 (刪除 Azure SQL Database 中的資料表)，嘗試本文中針對 ADFTutorialDataFactory 所做的逐步解說。 
+[Azure 資料 Factory 指令程式參考][cmdlet-reference] | 此參考內容有詳細介紹所有 **資料 Factory cmdlet**。
+[Azure 資料工廠開發人員參考資料][developer-reference] | 開發人員參考資料具有完整的參考內容 cmdlet、 JSON 指令碼、 函式等等... 
 
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
-[monitor-manage-using-portal]: ../data-factory-monitor-manage-using-management-portal
-
-[troubleshoot]: ../data-factory-troubleshoot
+[copy-activity]: data-factory-copy-activity.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-<!--HONumber=35.2-->
+[cmdlet-reference]: https://msdn.microsoft.com/library/dn820234.aspx
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[data-factory-create-storage]: storage-create-storage-account.md
 
-<!--HONumber=46--> 
+[adf-get-started]: data-factory-get-started.md
+[azure-preview-portal]: http://portal.azure.com
+[download-azure-powershell]: powershell-install-configure.md
+[data-factory-create-sql-database]: sql-database-create-configure.md
+[data-factory-introduction]: data-factory-introduction.md
+
+[image-data-factory-get-started-storage-explorer]: ./media/data-factory-monitor-manage-using-powershell/getstarted-storage-explorer.png
+
+[sql-management-studio]: sql-database-manage-azure-ssms.md#Step2
+
+<!---HONumber=GIT-SubDir-->

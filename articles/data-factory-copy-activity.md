@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 複製資料 (複製活動)
@@ -126,11 +126,15 @@
 </table>
 
 ### 基礎架構即服務 (IaaS) 上的 SQL
-IaaS 上的 SQL 支援以 Azure 做為 laaS 提供者。下列網路和 VPN 拓撲可受支援。請注意，案例 #2 和 #3 需要「資料管理閘道」，但案例 #1 則不需要。如需有關「資料管理閘道」的詳細資料，請參閱[讓您的管線使用內部部署資料][use-onpremises-datasources]。
+SQL Server IaaS 上也支援做為來源與接收。在 IaaS 上建立連結至 SQL Server 服務時，需要資料管理閘道器。您應該考慮安裝一個裝載 SQL Server，以避免效能降低，因為 SQL Server 和閘道競爭資源以外的虛擬機器中的資料管理閘道器。如需有關「資料管理閘道」的詳細資料，請參閱[讓您的管線使用內部部署資料][use-onpremises-datasources]。
 
 1.	具有公用 DNS 名稱以及靜態公用連接埠：私用連接埠對應的 VM
 2.	具有公用 DNS 名稱、但未公開 SQL 端點的 VM
-3.	虛擬網路<ol type='a'> <li>在清單結尾處具有下列拓撲的 Azure 雲端 VPN。</li> <li>具有內部部署至雲端站對站 VPN (使用 Azure 虛擬網路) 的 VM。</li> </ol> ![使用複製活動的 Data Factory][image-data-factory-copy-actvity]
+3.	虛擬網路
+	<ol type='a'>
+<li>在清單結尾處具有下列拓撲的 Azure 雲端 VPN。</li>	
+<li>具有內部部署至雲端站對站 VPN (使用 Azure 虛擬網路) 的 VM。</li>	
+</ol>![使用複製活動的 Data Factory][image-data-factory-copy-actvity]
 
 ## 複製活動 - 元件
 複製活動包含下列元件：
@@ -402,4 +406,4 @@ IaaS 上的 SQL 支援以 Azure 做為 laaS 提供者。下列網路和 VPN 拓�
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
 
-<!--HONumber=52-->
+<!---HONumber=GIT-SubDir-->

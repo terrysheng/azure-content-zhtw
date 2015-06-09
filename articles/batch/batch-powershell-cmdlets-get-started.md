@@ -25,11 +25,11 @@
 ## 必要條件
 
 * **批次預覽** - 請申請[批次預覽](https://account.windowsazure.com/PreviewFeatures)以使用服務 (如果您還沒有申請)。
-* **Azure PowerShell** - 請參閱＜[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)＞以了解必要條件、下載和安裝指示。自 0.8.10 起及後續版本導入批次 Cmdlet。
+* **Azure PowerShell** - 請參閱＜[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)＞以了解必要條件、下載和安裝指示。自 0.8.10 起及後續版本導入批次 Cmdlet。
 
 ## 使用批次 Cmdlet
 
-使用標準程序啟動 Azure PowerShell 並[連接到 Azure 訂用帳戶](powershell-install-configure.md#Connect)。此外：
+使用標準程序啟動 Azure PowerShell 並[連接到 Azure 訂用帳戶](../powershell-install-configure.md#Connect)。此外：
 
 * **選取 Azure 訂用帳戶** - 如果您有多個訂用帳戶，請選取您已新增「批次預覽」功能的訂用帳戶：
 
@@ -37,7 +37,7 @@
     Select-AzureSubscription -SubscriptionName <SubscriptionName>
     ```
 
-* **切換到 AzureResourceManage 模式** - Azure 資源管理員模組中隨附的批次 Cmdlet。請參閱＜[將 Windows PowerShell 與資源管理員搭配使用](powershell-azure-resource-manager.md)＞以獲取詳細資訊。若要使用此模組，請執行 [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx) Cmdlet：
+* **切換到 AzureResourceManage 模式** - Azure 資源管理員模組中隨附的批次 Cmdlet。請參閱＜[將 Windows PowerShell 與資源管理員搭配使用](../powershell-azure-resource-manager.md)＞以獲取詳細資訊。若要使用此模組，請執行 [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx) Cmdlet：
 
     ```
     Switch-AzureMode -Name AzureResourceManager

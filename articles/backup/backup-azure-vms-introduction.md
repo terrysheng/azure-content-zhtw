@@ -119,7 +119,7 @@
 - 不支援跨區域備份和還原。
 - Azure 備份服務只支援選取區域的虛擬機器備份。[支援區域](http://azure.microsoft.com/regions/#services)的檢查清單。如果您尋找的區域目前不受支援，就不會於建立保存庫期間出現在下拉式清單中。
 - 只有選取的作業系統版本能支援使用 Azure 備份服務為虛擬機器備份：
-  - **Linux**：由 Azure 背書的散發套件清單可以在[這裡](virtual-machines-linux-endorsed-distributions.md)取得。只要 VM 代理程式可以在虛擬機器上使用，其他「攜帶您自己的 Linux」散發套件也應該可以運作。
+  - **Linux**：由 Azure 背書的散發套件清單可以在[這裡](../virtual-machines-linux-endorsed-distributions.md)取得。只要 VM 代理程式可以在虛擬機器上使用，其他「攜帶您自己的 Linux」散發套件也應該可以運作。
   - **Windows Server**：不支援比 Windows Server 2008 R2 更舊的版本。
 
 如果您想要查看任何所包含功能，[傳送意見反應給我們](http://aka.ms/azurebackup_feedback)。
@@ -133,4 +133,4 @@
 
 + 監視備份工作
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

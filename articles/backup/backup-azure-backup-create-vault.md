@@ -63,4 +63,4 @@ GRS 可維護六個資料複本。有了 GRS，您的資料會在主要區域內
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

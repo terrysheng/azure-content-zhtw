@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 Resource Manager 範本和適用於 Mac、Linux 和 Windows 的 Microsoft Azure CLI 來部署和管理虛擬機器" 
-	description="使用 Azure Resource Manager 和 Azure CLI 輕鬆部署以及管理 Azure 虛擬機器最常用的設定。" 
+	pageTitle="使用資源管理員範本和適用於 Mac、Linux 和 Windows 的 Microsoft Azure CLI 來部署和管理虛擬機器" 
+	description="使用 Azure 資源管理員和 Azure CLI 輕鬆部署以及管理 Azure 虛擬機器最常用的設定。" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="squillace" 
@@ -13,33 +13,53 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/11/2015" 
 	ms.author="rasquill"/>
 
-# 使用 Azure Resource Manager 範本和 Azure CLI 部署和管理虛擬機器
+# 使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器
 
-本文章會教您如何使用 Azure Resource Manager 範本和 Azure CLI，讓部署和管理 Azure 虛擬機器時的一般工作可以自動執行。另外也提供虛擬機器自動化文件連結。
+本文會為您示範如何使用 Azure 資源管理員範本和 Azure CLI，進行下列部署和管理 Azure 虛擬機器的常見工作。如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)和[應用程式架構](virtual-machines-app-frameworks.md)。
+
+常見工作：
+
+- [在 Azure 中快速建立虛擬機器](#quick-create-a-vm-in-azure)
+- [在 Azure 中利用範本部署虛擬機器](#deploy-a-vm-in-azure-from-a-template)
+- [從自訂映像建立虛擬機器](#create-a-custom-vm-image) 
+- [使用虛擬網路和負載平衡器部署 VM](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
+- [移除資源群組](#remove-a-resource-group)
+- [顯示資源群組部署記錄檔](#show-the-log-for-a-resource-group-deployment)
+- [顯示虛擬機器的相關資訊](#display-information-about-a-virtual-machine)
+- [連線至 Linux 型虛擬機器](#log-on-to-a-linux-based-virtual-machine)
+- [停止虛擬機器](#stop-a-virtual-machine)
+- [啟動虛擬機器](#start-a-virtual-machine)
+- [連接資料磁碟](#attach-a-data-disk)
+
+
 
 ## 準備就緒
 
 在您能搭配 Azure 資源群組使用 Azure CLI 前，請您準備好正確的 Azure CLI 版本以及公司或學校識別碼 (也稱為組織識別碼」)。
 
-### 步驟 1：將 Azure CLI 版本升級至 0.9.0
+### 將 Azure CLI 版本更新為 0.9.0 或更新版本
 
-輸入 `azure --version`，即可以查看安裝的是否為 0.9.0 版。
+輸入 `azure --version`，即可以查看您是否已經安裝 0.9.0 版或更新版本
 
 	azure --version
     0.9.0 (node: 0.10.25)
 
-如果您的版本不是 0.9.0，則必須[安裝 Azure CLI](xplat-cli-install.md) 或使用原生安裝程式或輸入 `npm update -g azure-cli` 透過 **npm** ，進行版本的升級。
+如果您的版本不是 0.9.0 或更新版本，則必須[安裝 Azure CLI](xplat-cli-install.md) 或使用其中一個原生安裝程式或輸入 `npm update -g azure-cli` 透過 **npm**，進行版本的更新。
 
-### 步驟 2：設定 Azure 帳戶和訂閱帳戶
+您也可以使用下列 [Docker 映像](https://registry.hub.docker.com/u/microsoft/azure-cli/)，以 Docker 容器執行 Azure CLI。從 Docker 主機中，執行下列命令：
+
+	docker run -it microsoft/azure-cli
+
+### 設定 Azure 帳戶和訂用帳戶
 
 如果您還沒有 Azure 訂閱帳戶，但是有 MSDN 訂閱帳戶，請啟用 [MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。或者申請[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
 
 您必須要有公司或學校帳戶，才能使用 Azure 資源管理範本。如果有的話，請輸入 `azure login`，然後輸入使用者名稱和密碼，最後應該可以成功登入。
 
-> [AZURE.NOTE]如果您沒有帳戶，您會看到錯誤訊息，指出您需要不同類型的帳戶。若要從現有的 Azure 帳戶建立新帳戶，請參閱[連接到您的 Azure 帳戶](xplat-cli-connect.md)。
+> [AZURE.NOTE]如果您沒有帳戶，您會看到錯誤訊息，指出您需要不同類型的帳戶。若要從目前的 Azure 帳戶建立一個帳戶，請參閱[在 Azure Active Directory 中建立工作或學校身分識別](resource-group-create-work-id-from-personal.md)。
 
 您的帳戶可能會有一個以上的訂閱帳戶。您可以輸入 `azure account list`，即可列出訂閱帳戶，如以下所示：
 
@@ -54,11 +74,11 @@
     
 若要設定目前的 Azure 訂閱帳戶，請輸入
 
-	`azure account set <subscription name or ID> true
+	azure account set <subscription name or ID> true
 
 並加上訂閱帳戶名稱或識別碼 (有您想管理的資源)。
 
-### 步驟 3：切換至 Azure CLI 資源群組模式
+### 切換至 Azure CLI 資源群組模式
 
 根據預設，Azure CLI 會在服務管理模式下啟動 (** asm ** 模式)。類型
 
@@ -72,7 +92,7 @@
 
 大部分的應用程式在建立時會使用不同資源類型的組合 (例如一或多個 VM 和儲存體帳戶、SQL 資料庫、虛擬網路、內容傳遞網路或 *CDN*)。預設 Azure 服務管理 API 與 Azure 傳統入口網站分別代表使用 service-by-service 方法的項目，如此一來您需要部署和管理每一個服務 (或尋找其他具備相同功能的工具)，而不是當做單一邏輯部署單元。
 
-您可以利用 *Azure Resource Manager*，將這些不同的資源宣告為一個邏輯部署單元，然後就可以進行部署和管理。請不要以命令方式告訴 Azure 逐一部署命令，您應該在 JSON 檔案描述整個部署過程 -- 所有資源和相關設定以及部署參數 -- 然後告訴 Azure 將這些資源視為一個群組加以部署。
+您可以利用 *Azure 資源管理員*，將這些不同的資源宣告為一個邏輯部署單元，然後就可以進行部署和管理。請不要以命令方式告訴 Azure 逐一部署命令，您應該在 JSON 檔案描述整個部署過程 -- 所有資源和相關設定以及部署參數 -- 然後告訴 Azure 將這些資源視為一個群組加以部署。
 
 然後您可以使用 Azure CLI 資源管理命令執行以下動作，即可管理群組的資源整體使用週期：
 
@@ -81,9 +101,9 @@
 - 稽核作業。 
 - 利用其他中繼資料標記資源，方便追蹤。 
 
-如需深入了解 Azure 資源群組以及它們的功能，請參閱[這裡](resource-groups-overview.md)。如果您想了解如何設計範本，請參閱[設計 Azure Resource Manager 範本](resource-group-authoring-templates.md)。
+如需深入了解 Azure 資源群組以及它們的功能，請參閱[這裡](resource-groups-overview.md)。如果您想了解如何設計範本，請參閱[設計 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 
-## 一般工作：在 Azure 中快速建立 VM
+## 在 Azure 中快速建立 VM
 
 有時候您知道需要何種映像，而且您現在需要該映像的 VM，並且不太在意基礎結構 -- 或許您必須在全新的 VM 上進行某些測試。當您想要使用 `azure vm quick-create` 命令，然後傳遞必要引數來建立 VM 和基礎結構的時候。
 
@@ -105,7 +125,9 @@
 
 第二，您將需要映像。想利用 Azure CLI 尋找映像時，請參閱[利用 PowerShell 和 Azure CLI 瀏覽和選取 Azure 虛擬機器映像](resource-groups-vm-searching.md)。不過在這個快速入門中，以下是常用映像的簡要清單。我們會使用 CoreOS 的 Stable 映像，縮短整個建立流程。
 
-| 發行者 | ImageOffer | ImageSku | ComputeImageVersion |
+> [AZURE.NOTE]對於 ComputeImageVersion，您也可以只提供 'latest' 做為範本語言和 Azure CLI 中的參數。這可讓您永遠使用最新且經過修補的映像版本，而不必修改您的指令碼或範本。如下所示。
+
+| PublisherName | 提供項目 | SKU | 版本 |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
 | OpenLogic | CentOS | 7 | 7.0.201503 |
 | OpenLogic | CentOS | 7.1 | 7.1.201504 |
@@ -117,8 +139,10 @@
 | msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1.0.0 |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW | 12.0.2430 |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP | 12.0.2430 |
-| Canonical | UbuntuServer | 14.04.1-LTS | 14.04.201501230 |
+| Canonical | UbuntuServer | 12.04.5-LTS | 12.04.201504230 |
 | Canonical | UbuntuServer | 14.04.2-LTS | 14.04.201503090 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 3.0.201503 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 4.0.201503 |
 | MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview | 5.0.201504 |
 | MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1.0.141204 |
 | MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4.3.4665 |
@@ -131,7 +155,7 @@
     Virtual machine name: coreos
     Location name: westus
     Operating system Type [Windows, Linux]: linux
-    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:633.1.0
+    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:latest
     User name: ops
     Password: *********
     Confirm password: *********
@@ -208,7 +232,7 @@
     
 無論身在何處，新的 VM 就在您身邊。
 
-## 一般工作：在 Azure 中利用範本部署 VM
+## 在 Azure 中利用範本部署 VM
 
 請按照以下各節描述的操作方法，使用 Azure CLI 搭配範本來部署新的 Azure VM。這個範本會在只有單一子網路的新虛擬網路中建立單一虛擬機器，而不同於 `azure vm quick-create`，它可以讓您精確描述想要的內容，而且重複使用時也不會發生任何錯誤。以下是這個範本建立的內容：
 
@@ -218,7 +242,7 @@
 
 以下是範本的 JSON 檔案內容。(這個範本也位於 GitHub [這裡](https://github.com/Azure/azure-quickstart-templates/blob/master/101-simple-linux-vm/azuredeploy.json))。
 
-範本可彈性運用，所以這位設計人員可能已經決定提供很多的參數給您，或者她決定建立一個更固定的範本，而只提供幾個參數給您。為了收集資訊，請您將這個範本以參數的形式傳遞，然後開啟範本檔案 (這個主題內嵌一個範本)，接下來檢查 [參數]**** 值。
+範本可彈性運用，所以這位設計人員可能已經決定提供很多的參數給您，或者她決定建立一個更固定的範本，而只提供幾個參數給您。為了收集資訊，請您將這個範本以參數的形式傳遞，然後開啟範本檔案 (這個主題內嵌一個範本)，接下來檢查 [參數] 值。
 
 在這個案例中，系統會要求您提供下列範本：
 
@@ -437,7 +461,7 @@
 - 部署的目標資源群組
 - 以及選用部署名稱。 
 
-系統會提示您輸入 JSON 檔案的 **"參數"** 區段中的參數值。指定好所有的參數值後，就會開始部署。
+系統會提示您輸入 JSON 檔案的 **"parameters"** 區段中的參數值。指定好所有的參數值後，就會開始部署。
 
 下列是一個範例：
 
@@ -477,7 +501,7 @@
     
 
 
-## 一般工作：建立自訂的 VM 映像
+## 建立自訂的 VM 映像
 
 您已基本了解上述範本的用法，那麼現在我們可以使用類似的操作方法，使用 Azure 的特定 .vhd 檔案搭配範本和 Azure CLI 建立自訌的範本。其中的差別就是這個範本會從指定的虛擬硬碟 (VHD) 建立單一虛擬機器。
 
@@ -748,7 +772,7 @@
 
 ![](./media/virtual-machines-deploy-rmtemplates-azure-cli/multivmextlb.png)
  
-按照下列步驟部署一個多重 VM 應用程式，它會利用 Azure PowerShell 命令使用 Github 範本儲存機制中的 Resource Manager 範本，然後就可以使用虛擬網路和負載平衡器。
+按照下列步驟部署一個多重 VM 應用程式，它會利用 Azure PowerShell 命令使用 Github 範本儲存機制中的資源管理員範本，然後就可以使用虛擬網路和負載平衡器。
 
 ### 步驟 1：檢查範本的 JSON 檔案。
 
@@ -1198,7 +1222,7 @@
     info:    Executing command vm show
     + Looking up the VM "myVM1"                                                    
     + Looking up the NIC "nic1"                                                    
-    data:    Id                              :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
+    data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
     data:    ProvisioningState               :Failed
     data:    Name                            :myVM1
     data:    Location                        :westus
@@ -1232,7 +1256,7 @@
     data:    Network Profile:
     data:      Network Interfaces:
     data:        Network Interface #1:
-    data:          Id                        :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Network/networkInterfaces/nic1
+    data:          Id                        :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Network/networkInterfaces/nic1
     data:          Primary                   :false
     data:          Provisioning State        :Succeeded
     data:          Name                      :nic1
@@ -1241,25 +1265,11 @@
     data:            Private IP address      :10.0.0.5
     data:    
     data:    AvailabilitySet:
-    data:      Id                            :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
+    data:      Id                            :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
     info:    vm show command OK
     
 
 > [AZURE.NOTE]如果您想要以程式設計方式儲存和操作主控台命令的輸出，可以使用 JSON 剖析工具，例如 **[jq](https://github.com/stedolan/jq)**、**[jsawk](https://github.com/micha/jsawk)** 或工作適合的語言程式庫。
-
-## 顯示 VM 的相關資訊
-
-這是您會經常使用的基本工作。使用它來取得 VM 的相關資訊、在 VM 上執行工作，或取得輸出以儲存至變數中。
-
-若要取得 VM 的相關資訊，請執行這個命令並取代引號中的任何內容，包括 < and > 字元：
-
-     azure vm show -g <group name> -n <virtual machine name>
-
-若要將 $vm 變數中的輸出儲存為 JSON 文件，請執行：
-
-    vmInfo=$(azure vm show -g <group name> -n <virtual machine name> --json)
-    
-或者，您可以透過管道將 stdout 傳送至檔案。
 
 ## 登入 Linux 型虛擬機器
 
@@ -1275,7 +1285,7 @@
 
 ## 啟動 VM
 
-請執行這個命令：Azure Resource Manager 概觀 azure vm start <group name> <virtual machine name>
+請執行這個命令：Azure 資源管理員概觀 azure vm start <group name> <virtual machine name>
 
 ## 附加資料磁碟
 
@@ -1294,14 +1304,8 @@
 
 ## 後續步驟
 
-如需其他有關 Azure CLI 搭配 **arm** 模式使用的範例，請參閱[搭配 Azure 資源管理使用適用於 Mac、Linux 和 Windows 的 Microsoft Azure CLI](xplat-cli-resource-manager.md)。若要深入了解 Azure 資源和概念，請參閱 [Azure Resource Manager 概觀](resource-group-overview.md)。
+如需其他有關 Azure CLI 搭配 **arm** 模式使用的範例，請參閱[搭配 Azure 資源管理使用適用於 Mac、Linux 和 Windows 的 Microsoft Azure CLI](xplat-cli-azure-resource-manager.md)。若要深入了解 Azure 資源和概念，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
 
+如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)和[應用程式架構](virtual-machines-app-frameworks.md)。
 
-
-
-
-
-
-
-
-<!--HONumber=52-->
+<!---HONumber=58-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="串流分析監視工作 | Azure" 
-	description="以程式設計方式監視串流分析工作。" 
+	pageTitle="以程式設計方式監視串流分析的工作 | Microsoft Azure" 
+	description="了解如何以程式設計方式監視透過 REST API、Azure SDK 或 PowerShell 建立的串流分析工作。" 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,12 +13,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/07/2015" 
+	ms.date="05/21/2015" 
 	ms.author="jeffstok"/>
 
 
-# 以程式設計方式監視串流分析工作
-本文示範說明如何為串流分析工作啟用監視。透過 REST API、Azure SDK 或 PowerShell 建立的串流分析工作預設不會啟用監視。您可以在 Azure 入口網站中，瀏覽到該工作的 [監視] 頁面，然後按一下 [啟用] 按鈕來手動啟用，或是按照本文中的步驟執行，將此程序自動化。串流分析工作的監視資料將會顯示在 Azure 入口網站的 [監視] 索引標籤中。
+# 以程式設計方式監視串流分析工作 
+本文示範如何為串流分析工作啟用監視。透過 REST API、Azure SDK 或 PowerShell 建立的串流分析工作預設不會啟用監視。您可以在 Azure 入口網站中，瀏覽到該工作的 [監視] 頁面，然後按一下 [啟用] 按鈕來手動啟用，或是按照本文中的步驟執行，將此程序自動化。串流分析工作的監視資料將會顯示在 Azure 入口網站的 [監視] 索引標籤中。
 
 ![[監視工作] 索引標籤](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
 
@@ -45,6 +45,9 @@
     ```
     <appSettings>
     	<!--CSM Prod related values-->
+    	<add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
+    	<add key="JobName" value="YOUR JOB NAME" />
+    	<add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
     	<add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
     	<add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
     	<add key="WindowsManagementUri" value="https://management.core.windows.net/" />
@@ -133,9 +136,15 @@
 
 ## 為現有串流分析工作啟用監視
 
-下列程式碼將為「現有」****串流分析工作啟用監視。程式碼的第一部分會對串流分析服務執行 GET 要求，以擷取特定串流分析工作的相關資訊。在程式碼的第二部分使用  “Id” 屬性 (擷取自 GET 要求) 當成 Put 方法的參數，將 PUT 要求傳送至 Insights 服務，來為串流分析工作啟用監視。
+下列程式碼將為「現有」串流分析工作啟用監視。程式碼的第一部分會對串流分析服務執行 GET 要求，以擷取特定串流分析工作的相關資訊。在程式碼的第二部分使用  “Id” 屬性 (擷取自 GET 要求) 當成 Put 方法的參數，將 PUT 要求傳送至 Insights 服務，來為串流分析工作啟用監視。
 
-> [AZURE.WARNING]- 如果您先前已經透過 Azure 入口網站或透過下列程式碼以程式設計方式來為其他串流分析工作啟用監視，建議您提供和先前啟用監視時相同的儲存體帳戶。**** - 儲存體帳戶會連結到您在當中建立串流分析工作的區域，而不是特別連結到工作本身。 - 相同區域中的所有串流分析工作 (與所有其他 Azure 資源) 都會共用此儲存體帳戶來儲存監視資料。如果您提供不同的儲存體帳戶，監視其他串流分析工作和 (或) 其他 Azure 資源時可能會導致未預期的副作用。 - 用來取代下列 ```“<YOUR STORAGE ACCOUNT NAME>”``` 的儲存體帳戶名稱應為和您啟用監視的串流分析工作相同之訂用帳戶中的儲存體帳戶。
+> [AZURE.WARNING]如果您先前已經為不同的串流分析工作啟用監視 (不論是透過 Azure 入口網站，還是以程式設計方式透過以下的程式碼)，**建議您提供先前啟用監視時所提供的相同儲存體帳戶名稱。**
+> 
+> 儲存體帳戶會連結到您建立串流分析工作所在的區域，而不是明確地連結到工作本身。
+> 
+> 相同區域中的所有串流分析工作 (以及其他所有 Azure 資源) 都共用此儲存體帳戶儲存監視資料。如果您提供不同的儲存體帳戶，可能會對其他串流分析工作和 (或) 其他 Azure 資源的監視產生非預期的副作用。
+> 
+> 用來取代以下 ```“<YOUR STORAGE ACCOUNT NAME>”``` 的儲存體帳戶名稱應該是與您為其啟用監視的串流分析工作的相同訂用帳戶中的儲存體帳戶。
 
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
@@ -168,4 +177,4 @@
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=54-->
+<!---HONumber=58-->

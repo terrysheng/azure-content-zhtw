@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    authors="danielceckert" 
    documentationCenter="dev-center-name" 
    editor=""
@@ -10,17 +10,17 @@
 
 <tags
    ms.author="danecke"
-   ms.date="02/20/2015"
+   ms.date="05/27/2015"
    ms.devlang="na"
    ms.service="virtual-network"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   /> 
+   />
    
 # 管理虛擬網路：負載平衡器的 TCP 閒置逾時
 
-「TCP 閒置逾時」****讓開發人員可以在與 Azure 負載平衡器相關的用戶端-伺服器工作階段期間，指定保證無活動的閾值。4 分鐘的 TCP 閒置逾時值 (Azure 負載平衡器的預設值) 表示，如果在牽涉到 Azure 負載平衡器的用戶端-伺服器工作階段期間，有一段閒置時間長達超過 4 分鐘的期間，則將關閉連線。
+「TCP 閒置逾時」讓開發人員可以在與 Azure 負載平衡器相關的用戶端-伺服器工作階段期間，指定保證無活動的閾值。4 分鐘的 TCP 閒置逾時值 (Azure 負載平衡器的預設值) 表示，如果在牽涉到 Azure 負載平衡器的用戶端-伺服器工作階段期間，有一段閒置時間長達超過 4 分鐘的期間，則將關閉連線。
 
 當用戶端-伺服器連線關閉時，用戶端應用程式將收到如下的錯誤訊息：「基礎連接已關閉：應該保持運作的連接卻被伺服器關閉」。
 
@@ -32,11 +32,11 @@
 
 ## 實作
 
-您可以針對下列各項設定 TCP 閒置逾時： 
+您可以針對下列各項設定 TCP 閒置逾時：
 
 * [執行個體層級的公用 IP](http://msdn.microsoft.com/library/azure/dn690118.aspx)
 * [負載平衡的端點集](http://msdn.microsoft.com/library/azure/dn655055.aspx)
-* [虛擬機器端點](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/)
+* [虛擬機器端點](virtual-machines-set-up-endpoints.md)
 * [Web 角色](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [背景工作角色](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 
@@ -48,7 +48,7 @@
 
 ### 將執行個體層級公用 IP 的 TCP 逾時值設定為 15 分鐘
 
-    Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
+    Set-AzurePublicIP –PublicIPName webip –VM MyVM -IdleTimeoutInMinutes 15
 
 IdleTimeoutInMinutes 是選擇性的。若未設定，則預設的逾時為 4 分鐘。它的值現在可設為介於 4 到 30 分鐘之間。
 
@@ -58,7 +58,7 @@ IdleTimeoutInMinutes 是選擇性的。若未設定，則預設的逾時為 4 �
 
 ### 擷取閒置逾時設定
 
-    PS C:> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
+    PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -151,4 +151,4 @@ LoadBalancerDistribution 的值可以是 sourceIP (適用於 2-tuple 同質性)�
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-<!--HONumber=47-->
+<!---HONumber=58-->

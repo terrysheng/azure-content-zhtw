@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="05/15/2015" 
 	ms.author="szarkos"/>
 
 
 # 準備執行 Azure 的 Ubuntu 虛擬機器
 
-## 必要條件##
+##必要條件##
 
-本文假設您已將 Ubuntu Linux 作業系統安裝到虛擬硬碟。有多項工具可用來建立 .vhd 檔案，例如 Hyper-V 的虛擬化解決方案。如需相關指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。 
+本文假設您已將 Ubuntu Linux 作業系統安裝到虛擬硬碟。有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。如需指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
 
 **Ubuntu 安裝注意事項**
 
@@ -38,7 +38,7 @@
 
 1. 在 Hyper-V 管理員的中央窗格中，選取虛擬機器。
 
-2. 按一下 [**連接**]，以開啟虛擬機器的視窗。
+2. 按一下 **[連接]**，以開啟虛擬機器的視窗。
 
 3.	取代映像中的目前儲存機制，以使用 Ubuntu 的 Azure 儲存機制。此步驟會隨著 Ubuntu 版本而略有不同。
 
@@ -58,12 +58,12 @@
 		# sudo apt-add-repository 'http://archive.canonical.com/ubuntu quantal-backports main'
 		# sudo apt-get update
 
-	Ubuntu 14.04+：
+	Ubuntu 14+：
 
 		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		# sudo apt-get update
 
-4. 執行下列命令，將作業系統更新為最新的核心： 
+4. 執行下列命令，將作業系統更新為最新的核心：
 
 	Ubuntu 12.04：
 
@@ -81,7 +81,7 @@
 
 		# sudo reboot
 	
-	Ubuntu 14.04+：
+	Ubuntu 14+：
 
 		# sudo apt-get update
 		# sudo apt-get install hv-kvp-daemon-init
@@ -93,17 +93,17 @@
 
 	a) 開啟 /etc/grub.d/00_header 檔案。
 
-	b) 在函數 **make_timeout()** 中，搜尋 **if ["\${recordfail}" = 1 ]; then**
+	b) 在函式 **make_timeout()** 中，搜尋 **if ["\${recordfail}" = 1 ]; then**
 
 	c) 將此行下的陳述式變更為 **set timeout=5**。
 
-	d) 執行  'sudo update-grub'。
+	d) 執行 'sudo update-grub'。
 
-6. 修改 Grub 的核心開機程式行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 "/etc/default/grub"，找到名為  `GRUB_CMDLINE_LINUX_DEFAULT` 的變數 (或視需要自行加入)，然後加以編輯使其包含以下參數：
+6. 修改 Grub 的核心開機程式行，使其額外包含用於 Azure 的核心參數。若要執行這個動作，請在文字編輯器中開啟 "/etc/default/grub"，找到名為 `GRUB_CMDLINE_LINUX_DEFAULT` 的變數 (或視需要加入它)，然後進行編輯以使其包含以下參數：
 
-		GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+		GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
-	儲存並關閉此檔案，然後執行 '`sudo update-grub`'。這將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 技術支援團隊進行問題偵錯程序。 
+	儲存並關閉此檔案，然後執行 '`sudo update-grub`'。這將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 技術支援團隊進行問題偵錯程序。
 
 8.	確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。這通常是預設值。
 
@@ -112,7 +112,7 @@
 		# sudo apt-get update
 		# sudo apt-get install walinuxagent
 
-	請注意，若已安裝  `NetworkManager` 和  `NetworkManager-gnome` 套件，則在安裝  `walinuxagent` 套件時會將它們移除。
+	請注意，若已安裝 `NetworkManager` 和 `NetworkManager-gnome` 封裝，則會在安裝 `walinuxagent` 封裝時移除它們。
 
 10.	執行下列命令，以取消佈建虛擬機器，並準備將其佈建於 Azure 上：
 
@@ -120,8 +120,6 @@
 		# export HISTSIZE=0
 		# logout
 
-11. 在 Hyper-V 管理員中，依序按一下 [**動作] -> [關閉**]。您現在可以將 Linux VHD 上傳至 Azure。
+11. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-
-
-<!--HONumber=45--> 
+<!---HONumber=58-->

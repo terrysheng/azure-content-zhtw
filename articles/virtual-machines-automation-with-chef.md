@@ -1,66 +1,64 @@
 <properties 
-	pageTitle="使用 Chef 自動化 Azure 虛擬機器部署" 
-	description="了解使用 Chef 自動化 Azure 虛擬機器的藝術" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="diegoviso" 
-	manager="timlt" 
-	editor=""/>
+   pageTitle="使用 Chef 自動化 Azure 虛擬機器部署" 
+   description="了解使用 Chef 自動化 Azure 虛擬機器的藝術" 
+   services="virtual-machines" 
+   documentationCenter="" 
+   authors="diegoviso" 
+   manager="timlt" 
+   editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/29/2015" 
-	ms.author="diviso"/>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" 
+ms.tgt_pltfrm="vm-multiple" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="05/19/2015" 
+ms.author="diviso"/>
 
 # 使用 Chef 自動化 Azure 虛擬機器部署
 
-Chef 是個很棒的工具，可提供自動化和所需狀態組態。 
+Chef 是個很棒的工具，可提供自動化和所需狀態組態。
 
 在我們最新的雲端應用程式開發介面版本中，Chef 提供與 Azure 的緊密整合，您可以透過單一命令佈建和部署組態狀態。
 
-在本文中，您將了解如何設定可佈建 Azure 虛擬機器的 Chef 環境，並逐步指導您建立原則或  "CookBook"，然後將此操作手冊部署到 Azure VM 中。
+在本文中，您將了解如何設定可佈建 Azure 虛擬機器的 Chef 環境，並逐步指導您建立原則或 “CookBook”，然後將此操作手冊部署到 Azure VM 中。
 
 讓我們開始吧！
 
 ## Chef 基本概念
 
-開始之前，建議您多了解 Chef 的基本概念。您可以在以下位置找到有用資訊： <a href="http://www.chef.io/chef" target="_blank">這裡</a> 建議您在嘗試進行本逐步解說之前，請先快速閱讀此內容。不過，在開始之前，我會先複習一下基本概念。
+開始之前，建議您多了解 Chef 的基本概念。您可以在<a href="http://www.chef.io/chef" target="_blank">這裡</a>找到有用資訊，建議您在嘗試進行本逐步解說之前，先快速閱讀此內容。不過，在開始之前，我會先複習一下基本概念。
 
 下圖說明高層級的 Chef 架構。
 
 ![][2]
 
-Chef 包含三個主要架構元件。**Chef 伺服器、Chef 用戶端 (節點)** 和 **Chef 工作站**。
+Chef 包含三個主要架構元件。**Chef 伺服器、Chef 用戶端 (節點)** 和 **Chef 工作站。**
 
 **Chef 伺服器**是我們的管理重點，Chef 伺服器包含兩個選項：代管解決方案或內部部署解決方案。我們將使用代管解決方案。
 
-**Chef 用戶端 (節點)**是位於您所管理之伺服器上的代理程式。
+**Chef 用戶端 (節點)** 是位於您所管理之伺服器上的代理程式。
 
-**Chef 工作站**是我們的系統管理工作站，我們可以在這裡建立原則並執行管理命令。我們可以從 Chef 工作站執行管理基礎結構的 **"knife"** 命令。
+**Chef 工作站**是我們的系統管理工作站，我們可以在這裡建立原則並執行管理命令。我們可以從 Chef 工作站執行管理基礎結構的 **“knife”** 命令。
 
-此外還有 "Cookbooks" 和 "Recipes" 的概念。這些是我們有效定義並套用至服務的原則。
+此外還有 “Cookbooks” 和 “Recipes” 的概念。這些是我們有效定義並套用至服務的原則。
 
 ## 準備工作站
 
 首先準備工作站。使用標準的 Windows 工作站。我們需要建立可儲存組態檔和 cookbook 的目錄。
 
-首先，建立名為 **C:\chef** 的目錄。 
+首先，建立名為 **C:\chef** 的目錄。
 
-然後建立第二個目錄 **c:\chef\cookbooks**
+然後建立另一個目錄 **c:\chef\cookbooks**
 
 我們現在必須下載 Azure 設定檔，以便 Chef 與 Azure 訂閱進行通訊。
 
-從這裡下載您的發行設定： <a href="https://manage.windowsazure.com/publishsettings/" target="_blank">https://manage.windowsazure.com/publishsettings/</a>
+從這裡下載您發行設定：<a href="https://manage.windowsazure.com/publishsettings/" target="_blank">https://manage.windowsazure.com/publishsettings/</a>
 
 將發行設定檔儲存在 **C:\chef** 中
 
 ##建立受管理的 Chef 帳戶
 
-註冊代管的 Chef 帳戶： <a href="https://manage.chef.io/signup" target="_blank">https://manage.chef.io/signup</a>
+註冊代管的 Chef 帳戶：<a href="https://manage.chef.io/signup" target="_blank">https://manage.chef.io/signup</a>
 
 在註冊過程中，我們將要求您建立新的組織。
 
@@ -86,13 +84,13 @@ Chef 包含三個主要架構元件。**Chef 伺服器、Chef 用戶端 (節點)
 
 您現在應該會有 4 個檔案，包括 c:\chef 根目錄中的 Azure 發行檔案
 
-PEM 檔案包含可進行通訊的組織和管理員私密金鑰，而 **knife.rb**檔案則包含 knife 組態。我們將需要編輯 **knife.rb** 檔案。
+PEM 檔案包含可進行通訊的組織和管理員私密金鑰，而 **knife.rb** 檔案則包含 knife 組態。我們將需要編輯 **knife.rb** 檔案。
 
-在您選擇的編輯器中開啟此檔案，並修改  "cookbook_path" (移除其路徑中的 /../)，因此它會顯示如下：
+在您選擇的編輯器中開啟此檔案，並修改 “cookbook_path” (移除其路徑中的 /../)，因此它會顯示如下：
 
 	cookbook_path  ["#{current_dir}/cookbooks"]
 
-並新增下列反映 Azure 發行設定檔名稱的程式碼行。   
+並新增下列反映 Azure 發行設定檔名稱的程式碼行。
 
 	knife[:azure_publish_settings_file] = "yourfilename.publishsettings" 
 
@@ -116,7 +114,7 @@ PEM 檔案包含可進行通訊的組織和管理員私密金鑰，而 **knife.r
 
 如果沒有，請確定您已加入這些路徑 ！
 
-**請注意，路徑的順序很重要！**如果您的 opscode 路徑順序不正確，則會出現問題。
+**請注意，路徑的順序很重要！** 如果您的 opscode 路徑順序不正確，則會出現問題。
 
 在繼續之前，請重新啟動您的工作站。
 
@@ -124,9 +122,9 @@ PEM 檔案包含可進行通訊的組織和管理員私密金鑰，而 **knife.r
 
 執行以下命令：
 
-	chef gem install knife-azure --pre
+	chef gem install knife-azure ––pre
 
-**注意：**-pre 引數可確保您會收到最新的 knife azure 外掛程式 RC 版本，該版本可讓您存取最新的 API 組合。
+**注意：**–pre 引數可確保您會收到最新的 knife azure 外掛程式 RC 版本，該版本可讓您存取最新的 API 組合。
 
 同時也可能安裝多個相依性。
 
@@ -149,9 +147,9 @@ Chef 會使用 Cookbook 來定義一組您想在受管理的用戶端上執行�
 
 	chef generate cookbook webserver
 
-這會在 **C:\Chef\cookbooks\webserver** 目錄下產生一組檔案。我們現在需要定義一組需要 Chef 用戶端在受管理的 VM 上執行的命令。
+這會在 **C:\Chef\cookbooks\webserver** 目錄下產生一組檔案。 我們現在需要定義一組需要 Chef 用戶端在受管理的 VM 上執行的命令。
 
-這些命令會儲存在 **default.rb.** 檔案中在這個檔案中，請定義一組用來安裝 IIS、啟動 IIS 並將範本檔案複製到 wwwroot 資料夾的命令。
+這些命令會儲存在 **default.rb** 檔案中。 在這個檔案中，請定義一組用來安裝 IIS、啟動 IIS 並將範本檔案複製到 wwwroot 資料夾的命令。
 
 修改 **C:\chef\cookbooks\webserver\recipes\default.rb** 並加入下列幾行程式碼：
 
@@ -179,9 +177,9 @@ Chef 會使用 Cookbook 來定義一組您想在受管理的用戶端上執行�
 
 	chef generate template webserver Default.htm
 
-立即瀏覽至檔案 **C:\chef\cookbooks\webserver\templates\default\Default.htm.erb** 並編輯檔案。
+現在瀏覽至檔案 **C:\chef\cookbooks\webserver\templates\default\Default.htm.erb** 並編輯該檔案。
 
-加入一些簡單的 "Hello World" html 程式碼，然後儲存檔案。
+加入一些簡單的 “Hello World” html 程式碼，然後儲存檔案。
 
 ## 將 Cookbook 上傳到 Chef 伺服器
 
@@ -193,7 +191,7 @@ Chef 會使用 Cookbook 來定義一組您想在受管理的用戶端上執行�
 
 ## 使用 Knife Azure 部署虛擬機器
 
-我們現在要部署 Azure 虛擬機器，並套用 "Webserver" Cookbook，如此便會安裝 IIS Web 服務和預設網頁。
+我們現在要部署 Azure 虛擬機器，並套用 “Webserver” Cookbook，如此便會安裝 IIS Web 服務和預設網頁。
 
 若要這樣做，請使用 **knife azure server create** 命令。
 
@@ -203,7 +201,7 @@ Chef 會使用 Cookbook 來定義一組您想在受管理的用戶端上執行�
 
 這些參數一看就懂。替換特定變數並執行。
 
-**注意：**透過命令列，我還打算使用 -tcp-endpoints 參數將端點網路篩選器規則自動化。我已經開放連接埠 80 和 3389 以供網頁和 RDP 工作階段存取。
+**注意：**透過命令列，我還打算使用 –tcp-endpoints 參數將端點網路篩選器規則自動化。我已經開放連接埠 80 和 3389 以供網頁和 RDP 工作階段存取。
 
 執行命令後，跳到 Azure 入口網站，您會看到已經開始佈建您的機器。
 
@@ -221,9 +219,8 @@ Chef 會使用 Cookbook 來定義一組您想在受管理的用戶端上執行�
 
 別忘了我們也可以透過連接埠 3389，從 Azure 入口網站的 RDP 工作階段進行連線。
 
-我希望這對您有所幫助！現在就開始使用 Azure 來體驗基礎結構即程式碼！
+我希望這對您有所幫助！ 現在就開始使用 Azure 來體驗基礎結構即程式碼！
 
-Diego Viso [MSFT]
 
 <!--Image references-->
 [2]: ./media/virtual-machines-automation-with-chef/2.png
@@ -241,4 +238,4 @@ Diego Viso [MSFT]
 
 <!--Link references-->
 
-<!--HONumber=47-->
+<!---HONumber=58-->

@@ -26,6 +26,8 @@
 		    "apiDefinition": "/swagger/docs/v1"
 		}
 
+> **附註：**如果使用 Swashbuckle 來產生 Swagger API 定義，Web API 控制器中的 HTTP 方法多載會導致重複的作業識別碼。如需詳細資訊，請參閱[自訂 Swashbuckle 產生的作業識別碼](app-service-api-dotnet-swashbuckle-customize.md)。
+  
 ### 靜態 Swagger API 定義
 
 若要提供靜態 [Swagger](http://swagger.io/) 2.0 API 定義檔，請將檔案儲存在 *Metadata* 資料夾中，並將檔案命名為 *apiDefinition.swagger.json*
@@ -34,9 +36,5 @@
 
 將 `endpoints.apiDefinition` 保留在 *apiapp.json* 檔案外部，或將其值設定為 Null。如果您同時包含 `endpoints.apiDefinition` URL 和 *apiDefinition.swagger.json* 檔案，則會優先使用 URL，並忽略檔案。
  
-### 其他 API 應用程式中繼資料
 
-如需 *apiapp.json* 檔案和 *Metadata* 資料夾的詳細資訊，請參閱[建立 API 應用程式封裝](app-service-api-create-package.md)。
-
-
-<!--HONumber=54-->
+<!---HONumber=58-->

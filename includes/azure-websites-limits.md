@@ -1,4 +1,4 @@
-﻿<table cellspacing="0" border="1">
+<table cellspacing="0" border="1">
 <tr>
    <th align="left" valign="middle">資源</th>
    <th align="left" valign="middle">免費</th>
@@ -28,7 +28,7 @@
    <td valign="middle"><p>專用</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-scale/">向外擴充</a> (執行個體上限)</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-scale/">相應放大</a> (執行個體上限)</p></td>
    <td valign="middle"><p>1 個共用</p></td>
    <td valign="middle"><p>1 個共用</p></td>
    <td valign="middle"><p>3 個專用</p></td>
@@ -43,15 +43,15 @@
 </tr>
 <tr>
    <td valign="middle"><p>CPU 時間 (天)<sup>6</sup></p></td>
-   <td valign="middle"><p>60 分鐘</p></td>
-   <td valign="middle"><p>240 分鐘</p></td>
+   <td valign="middle"><p>60 Minuten</p></td>
+   <td valign="middle"><p>240 Minuten</p></td>
    <td valign="middle"><p>無限制，以標準費率付費</p></td>
    <td valign="middle"><p>無限制，以標準費率付費</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>記憶體 (1 小時)<sup>7</sup></p></td>
-   <td valign="middle"><p>1024 MB<sup>7</sup></p></td>
-   <td valign="middle"><p>1024 MB</p></td>
+   <td valign="middle"><p>記憶體 (1 個小時)<sup>7</sup></p></td>
+   <td valign="middle"><p>1,024 MB<sup>7</sup></p></td>
+   <td valign="middle"><p>1,024 MB</p></td>
    <td valign="middle"><p>N/A</p></td>
    <td valign="middle"><p>N/A</p></td>
 </tr>
@@ -75,7 +75,7 @@
    <td valign="middle"><p>350</p></td>
    <td valign="middle"><p>無限</p></td>
 </tr><tr>
-   <td valign="middle"><p>並行<a href="http://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/">偵錯工具連線數</a> (每個應用程式)</p></td>
+   <td valign="middle"><p>並行<a href="http://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/">偵錯工具連接數</a> (每個應用程式)</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>1</p></td>
@@ -97,7 +97,7 @@
    <td valign="middle"><p></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p>X</p></td>
-   <td valign="middle"><p>包含 5 個 SNI SSL 和 1 個 IP SSL 連線</p></td>
+   <td valign="middle"><p>包含 5 個 SNI SSL 和 1 個 IP SSL 連接</p></td>
 </tr><tr>
    <td valign="middle"><p>整合式負載平衡器</p></td>
    <td valign="middle"><p></p></td>
@@ -105,7 +105,7 @@
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
 </tr><tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-configure/">一律開啟</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-configure/">永遠開啟</a></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p>X</p></td>
@@ -137,7 +137,7 @@
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
 </tr><tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-monitor/">端點監控</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-monitor/">端點監視</a></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p>X</p></td>
@@ -168,9 +168,9 @@
 
 <sup>1</sup>除非另有指定，網站和儲存體配額是以每個 Web 主控方案計算。
 
-<sup>2</sup>基本和標準網站會在專用的機器上執行。您可以在這些機器上裝載的實際網站數目，會視網站的活動、機器執行個體的大小，及對應的資源使用率而定。
+<sup>2</sup>基本和標準網站會在專用的電腦上執行。您可以在這些電腦上裝載的實際網站數目，會視網站的活動、電腦執行個體的大小，及對應的資源使用率而定。
 
-<sup>3</sup>除了免費層以外，Web 主控方案的限制會以每個資源群組計算。如需建立與管理資源群組的詳細資訊，請參閱 [使用資源群組管理您的 Azure 資源][useresourcegroups].
+<sup>3</sup>除了免費層以外，Web 主控方案的限制會以每個資源群組計算。如需建立與管理資源群組的詳細資訊，請參閱[使用資源群組管理您的 Azure 資源][useresourcegroups]。
 
 <sup>4</sup>專用執行個體可以是小型、中型或大型。如需詳細資訊，請參閱 [Azure 網站定價頁面][websitespricing]。您可透過提出支援要求，來取得額外的執行個體。
 
@@ -180,9 +180,9 @@
 
 <sup>7</sup>Web 主控方案中的所有免費網站會共用免費層的記憶體限制。共用層的記憶體限制是以每個網站計算。
 
-<sup>8</sup>此值代表每個網站執行個體的並行 Web 通訊端連線數。例如，如果您將基本網站向外擴充成兩個執行個體，則您實際上會有 700 個並行連線 (350 x 2)。
+<sup>8</sup>此值代表每個網站執行個體的並行 Web 通訊端連接數。例如，如果您將基本網站相應放大成兩個執行個體，則您實際上會有 700 個並行連接 (350 x 2)。
 
-<sup>9</sup>基本層次中，標準的[SSL 定價適用於][sslpricing]。
+<sup>9</sup>基本層會套用標準的 [SSL 定價][sslpricing]。
 
 <sup>10</sup>在您的網站執行個體中，以背景工作的方式隨選、依照排程或連續執行自訂可執行檔和/或指令碼。若要連續執行 WebJobs，「永遠開啟」是必要選項。若是排程 WebJobs，則 Azure 排程器免費或標準版本是必要項目。
 
@@ -190,4 +190,4 @@
   [websitespricing]: http://azure.microsoft.com/pricing/details/web-sites/
   [sslpricing]: http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections
 
-<!--HONumber=47-->
+<!---HONumber=58-->

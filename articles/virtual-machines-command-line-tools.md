@@ -1,6 +1,6 @@
-﻿<properties
-	pageTitle="適用於 Mac 和 Linux 的 Azure 命令列工具"
-	description="了解如何在 Azure 中使用適用於 Mac 及 Linux 的命令列工具。"
+<properties
+	pageTitle="使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 服務管理"
+	description="了解如何使用適用於 Mac、Linux 和 Windows 的命令列工具，以便使用 Azure CLI asm 模式管理 Azure。"
 	services="web-sites, virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="squillace"
@@ -13,39 +13,20 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/20/2014" 
+	ms.date="04/23/2015"
 	ms.author="rasquill"/>
 
-#適用於 Mac 和 Linux 的 Azure 命令列工具
+# 使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 服務管理
 
-此工具可用來從 Mac 和 Linux 桌上型電腦建立、部署及管理虛擬機器、網站與 Azure 行動服務。此功能類似於隨 Azure SDK for .NET/Node.JS/PHP 安裝之 Windows PowerShell Cmdlet 所提供的功能。
+本主題說明如何在 **arm** 模式下使用 Azure CLI，在 Mac、Linux 和 Windows 電腦的命令列上建立、管理和刪除服務。此功能類似於隨 Azure SDK for .NET/Node.JS/PHP 安裝之 Windows PowerShell Cmdlet 所提供的功能。
 
-若要在 Mac 上安裝此工具，請下載並執行 [Azure SDK 安裝程式](http://go.microsoft.com/fwlink/?LinkId=252249)。
+> [AZURE.NOTE]使用 Azure 服務搭配 **asm** 模式在概念上類似於個別 Azure 概念和服務的思考模式，例如網站、虛擬機器、虛擬網路、儲存體等等。使用 **arm** 模式時，可以透過以邏輯方式分組的階層式資源模型，在命令列上使用更豐富的功能。若要切換到該模式，請參閱[搭配使用 Azure 命令列介面與資源管理員](xplat-cli-azure-resource-manager.md)。
 
-若要在 Linux 上安裝此工具，請安裝最新版 Node.JS，然後使用 NPM 進行安裝：
-
-    npm install azure-cli -g
+如需安裝指示，請參閱[安裝與設定 Azure 命令列介面](xplat-cli-install.md)。
 
 選用參數會以方括號括住 (例如，[parameter])。其他所有參數皆為必要參數。
 
 除了本文所述的命令特定選用參數，還有三個選用參數可用來顯示詳細輸出，例如要求選項和狀態碼。-v 參數提供詳細資訊輸出，而 -vv 參數提供更詳細的詳細資訊輸出。--json 選項將以原始 json 格式輸出結果。
-
-**目錄：**
-
-* [管理帳戶資訊及發佈設定](#Manage_your_account_information_and_publish_settings)
-* [管理 Azure 虛擬機器的命令](#Commands_to_manage_your_Azure_virtual_machines)
-* [管理 Azure 虛擬機器端點的命令](#Commands_to_manage_your_Azure_virtual_machine_endpoints)
-* [管理 Azure 虛擬機器映像的命令](#Commands_to_manage_your_Azure_virtual_machine_images)
-* [管理 Azure 虛擬機器資料磁碟的命令](#Commands_to_manage_your_Azure_virtual_machine_data_disks)
-* [管理 Azure 雲端服務的命令](#Commands_to_manage_your_Azure_cloud_services)
-* [管理 Azure 憑證的命令](#Commands_to_manage_your_Azure_certificates)
-* [管理網站的命令](#Commands_to_manage_your_web_sites)
-* [管理 Azure 行動服務的命令](#Commands_to_manage_mobile_services)
-* [管理工具本機設定](#Manage_tool_local_settings)
-* [管理服務匯流排的命令](#Commands_to_manage_service_bus)
-* [管理儲存體物件的命令](#Commands_to_manage_your_Storage_objects)
-* [管理 SQL Database 的命令](#Commands_to_manage_sql)
-* [管理虛擬網路的命令](#Commands_to_manage_vnet)
 
 ##<a name="Manage_your_account_information_and_publish_settings"></a>管理帳戶資訊及發佈設定
 此工具會使用您的 Azure 訂閱資訊來連線至您的帳戶。您可以從 Azure 入口網站取得這些資訊 (在發佈設定檔中，本文將有說明)。您可以匯入發行設定檔，作為這個工具後續作業所使用的持續性本機組態設定。您的發佈設定只需匯入一次即可。
@@ -75,8 +56,7 @@
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-> [AZURE.NOTE] publishsettings 檔可能包含多個訂閱的詳細資料 (也就是訂閱名稱和 ID)。當您匯入 publishsettings 檔時，第一個訂閱將作為預設訂閱。若要使用不同的訂閱，請執行下列命令。
-<code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
+> [AZURE.NOTE]publishsettings 檔可能包含多個訂閱的詳細資料 (也就是訂閱名稱和 ID)。當您匯入 publishsettings 檔時，第一個訂閱將作為預設訂閱。若要使用不同的訂用帳戶，請執行下列命令。<code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
 
 **account clear [options]**
 
@@ -171,7 +151,7 @@ This command creates a new affinity group
 	data:    AzureChinaCloud
 	info:    account env list command OK
 
-**account env show [options] [environment]**
+**account env show [options][environment]**
 
 顯示帳戶環境詳細資料
 
@@ -182,15 +162,15 @@ This command creates a new affinity group
 	data:    Environment portal  http://go.microsoft.com/fwlink/?LinkId=2544
 	info:    account env show command OK
 
-**account env add [options] [environment]**
+**account env add [options][environment]**
 
 此命令會將環境新增至帳戶
 
-**account env set [options] [environment]**
+**account env set [options][environment]**
 
 此命令會設定帳戶環境
 
-**account env delete [options] [environment]**
+**account env delete [options][environment]**
 
 此命令會從帳戶中刪除指定的環境
 
@@ -217,20 +197,7 @@ This command creates a new affinity group
 
 此命令可支援下列選用參數：
 
-**-c、--connect** 會於主機服務中已經建立的部署內建立虛擬機器。如果使用此選項時未加上 -vmname，則會自動產生新虛擬機器的名稱。<br />
-**-n、--vm-name** 指定虛擬機器的名稱。此參數預設使用主機服務名稱。如果未指定 -vmname，則會以 &lt;service-name>&lt;id> 格式產生新虛擬機器的名稱，其中 &lt;id> 是服務中現有虛擬機器的數目加 1。例如，如果您使用此命令，將新的虛擬機器新增至已有一個現有虛擬機器的主機服務 MyService，則新虛擬機器的名稱會是 MyService2。<br />
-**-u、--blob-url** 指定要從中建立虛擬機器系統磁碟的目標 Blob 儲存體 URL。 <br />
-**-z、--vm-size** 指定虛擬機器的大小。有效值為 "extrasmall"、"small"、"medium"、"large"、"extralarge"。預設值為 "small"。 <br />
-**-r** 將 RDP 連線功能新增至 Windows 虛擬機器。 <br />
-**-e、--ssh** 將 SSH 連線功能新增至 Windows 虛擬機器。 <br />
-**-t、--ssh-cert** 指定 SSH 憑證。 <br />
-**-s** 訂用帳戶 <br />
-**-o、--community** 指定的映像為社群映像 <br />
-**-w** 虛擬網路名稱 <br/>
-**-l、--location** 會指定位置 (例如，「美國中北部」)。 <br />
-**-a、--affinity-group** 會指定同質群組。<br />
-**-w、--virtual-network-name** 指定要新增虛擬機器的虛擬網路。您可以從 Azure 入口網站設定和管理虛擬網路。<br />
-**-b、--subnet-names** 指定要指派虛擬機器的子網路名稱。
+**-c, --connect** 於主機服務中已建立的部署內建立虛擬機器。如果使用這個選項時並未加上 -vmname，則會自動產生新虛擬機器的名稱。<br /> **-n, --vm-name** 指定虛擬機器的名稱。此參數預設使用主機服務名稱。如果未指定 -vmname，則會以 &lt;service-name>&lt;id> 格式產生新虛擬機器的名稱，其中 &lt;id> 是服務中現有虛擬機器的編號加 1。例如，如果您使用這個命令將新的虛擬機器加入至已有一個虛擬機器的主機服務 MyService，則新虛擬機器的名稱會是 MyService2。<br /> **-u, --blob-url** 指定要在其中建立虛擬機器系統磁碟的目標 Blob 儲存體 URL。<br /> **-z, --vm-size** 指定虛擬機器的大小。有效值為："ExtraSmall"、"Small"、"Medium"、"Large"、"ExtraLarge"、"A5"、"A6"、"A7"、"A8"、"A9"、"A10"、"A11"、"Basic_A0"、"Basic_A1"、"Basic_A2"、"Basic_A3"、"Basic_A4"、"Standard_D1"、"Standard_D2"、"Standard_D3"、"Standard_D4"、"Standard_D11"、"Standard_D12"、"Standard_D13"、"Standard_D14"、"Standard_DS1"、"Standard_DS2"、"Standard_DS3"、"Standard_DS4"、"Standard_DS11"、"Standard_DS12"、"Standard_DS13"、"Standard_DS14"、"Standard_G1"、"Standard_G2"、"Standard_G3"、"Standard_G4"、"Standard_G55"。預設值為 "Small"。<br /> **-r** 將 RDP 連線功能新增至 Windows 虛擬機器。<br /> **-e, --ssh** 將 SSH 連線功能新增至 Windows 虛擬機器。<br /> **-t, --ssh-cert** 指定 SSH 憑證。<br /> **-s** 訂用帳戶 <br /> **-o, --community** 所指定的影像為社群影像 <br /> **-w** 虛擬網路名稱 <br/> **-l, --location** 指定位置 (例如，「美國中北部」)。<br /> **-a, --affinity-group** 指定同質群組。<br /> **-w, --virtual-network-name** 指定要將虛擬機器新增到的虛擬網路。若要設定和管理虛擬網路，可以從 Azure 入口網站進行。<br /> **-b, --subnet-names** 指定要對虛擬機器指派的子網路名稱。
 
 在此範例中，MSFT__Win2K8R2SP1-120514-1520-141205-01-zh-tw-30GB 是由平台所提供的映像。如需作業系統映像的詳細資訊，請參閱 vm image list。
 
@@ -239,7 +206,7 @@ This command creates a new affinity group
 	Enter VM 'my-vm-name' password: ************
 	info:   vm create command OK
 
-**vm create-from &lt;dns-name> &lt;role-file **
+**vm create-from &lt;dns-name> &lt;role-file>**
 
 此命令會從 JSON 角色檔案建立新的 Azure 虛擬機器。
 
@@ -248,7 +215,7 @@ This command creates a new affinity group
 
 **vm list [options]**
 
-此命令會列出 Azure 虛擬機器。-json 選項指定要以原始 JSON 格式傳回結果。
+此命令會列出 Azure 虛擬機器。--json 選項會指定要以原始 JSON 格式傳回結果。
 
 	~$ azure vm list
 	info:   Executing command vm list
@@ -336,7 +303,7 @@ info:   vm shutdown command OK
 
 此命令會擷取 Azure 虛擬機器映像。
 
-如果虛擬機器狀態為 [已停止]****，就只能擷取虛擬機器映像。關閉虛擬機器，然後再繼續。
+只有在虛擬機器狀態為 [已停止] 時，才能擷取虛擬機器映像。關閉虛擬機器，然後再繼續。
 
 	~$ azure.cmd vm capture my-vm mycaptureimagename --delete
 	info:   Executing command vm capture
@@ -373,16 +340,16 @@ info:   vm shutdown command OK
 	+ Updating network configuration
 	info:   vm endpoint create command OK
 
-**vm endpoint create-multiple [options] &lt;vm-name> &lt;lb-port>[:&lt;vm-port>[:&lt;protocol>[:&lt;lb-set-name>[:&lt;prob-protocol>:&lt;lb-prob-port>[:&lt;prob-path>]]]]] ]{1-*}**
+**vm endpoint create-multiple [options] &lt;vm-name> &lt;lb-port>[:&lt;vm-port>[:&lt;protocol>[:&lt;enable-direct-server-return>[:&lt;lb-set-name>[:&lt;probe-protocol>[:&lt;probe-port>[:&lt;probe-path>[:&lt;internal-lb-name>]]]]]]]] {1-*}**
 
-建立多個 vm 端點。您也可以使用 -u 或 --enable-direct-server-return 指定是否在此端點上啟用直接伺服器傳回，預設為停用。
+建立多個 vm 端點。
 
-**vm endpoint delete &lt;vm-name> &lt;lb-port>**
+**vm endpoint delete [options] &lt;vm-name> &lt;endpoint-name>**
 
 此命令會刪除虛擬機器端點。
 
-	~$ azure vm endpoint delete my-vm 8888
-	azure vm endpoint delete my-vm 8888
+	~$ azure vm endpoint delete my-vm http
+	azure vm endpoint delete my-vm http
 	info:   Executing command vm endpoint delete
 	+ Fetching VM
 	+ Reading network configuration
@@ -391,7 +358,7 @@ info:   vm shutdown command OK
 
 **vm endpoint list &lt;vm-name>**
 
-此命令會列出所有虛擬機器端點。-json 選項指定要以原始 JSON 格式傳回結果。
+此命令會列出所有虛擬機器端點。--json 選項會指定要以原始 JSON 格式傳回結果。
 
 	~$ azure vm endpoint list my-linux-vm
 	data:   Name  External Port  Local Port
@@ -439,8 +406,7 @@ info:   vm shutdown command OK
 
 **vm image list [options]**
 
-此命令會取得虛擬機器映像的清單。映像類型可分為三種：Microsoft 建立的映像 (名稱開頭為 "MSFT")、協力廠商建立的映像 (名稱開頭通常為廠商的名稱)，以及您自己建立的映像。若要建立映像，您可以擷取現有的虛擬機器，也可以從上傳至 Blob 儲存體的自訂 .vhd 來建立映像。如需關於使用自訂 .vhd 的詳細資訊，請參閱 vm image create。
--json 選項指定要以原始 JSON 格式傳回結果。
+此命令會取得虛擬機器映像的清單。映像類型可分為三種：Microsoft 建立的映像 (名稱開頭為 "MSFT")、協力廠商建立的映像 (名稱開頭通常為廠商的名稱)，以及您自己建立的映像。若要建立映像，您可以擷取現有的虛擬機器，也可以從上傳至 Blob 儲存體的自訂 .vhd 來建立映像。如需關於使用自訂 .vhd 的詳細資訊，請參閱 vm image create。--json 選項會指定要以原始 JSON 格式傳回結果。
 
 	~$ azure vm image list
 	data:   Name                                                                   Category   OS
@@ -489,7 +455,7 @@ info:   vm shutdown command OK
 
 此命令會建立虛擬機器映像。您的自訂 .vhd 檔會上傳至 Blob 儲存體，而系統就會從中建立虛擬機器映像。然後，您便可以使用此虛擬機器映像來建立虛擬機器。需要 Location 與 OS 參數。
 
-某些系統會設有每一程序的檔案描述元限制。如果超過此限制，工具將顯示檔案描述元限制錯誤。您可以使用 -p &lt;number> 參數再次執行此命令，以減少平行上傳數上限。預設的平行上傳數上限為 96。
+某些系統會設有每一程序的檔案描述元限制。如果超過此限制，工具將顯示檔案描述元限制錯誤。您可以使用 -p &lt;number> 參數再次執行此命令，減少平行上傳數上限。預設的平行上傳數上限為 96。
 
 	~$ azure vm image create mytestimage ./Sample.vhd -o windows -l "West US"
 	info:   Executing command vm image create
@@ -506,9 +472,9 @@ info:   vm shutdown command OK
 
 連接資料磁碟的命令 (azure vm disk attach 及 azure vm disk attach-new) 會按照 SCSI 通訊協定的要求，將邏輯單元編號 (LUN) 指派給連接的資料磁碟。連接至虛擬機器的第一個資料磁碟將被指派 LUN 0，下一個將被指派 LUN 1，依此類推。
 
-使用 azure vm disk detach 命令卸離資料磁碟時，請使用 &lt;lun&gt; 參數來指出要卸離的磁碟。
+使用 azure vm disk detach 命令卸離資料磁碟時，請使用 &lt;lun&gt; 參數指出要卸離的磁碟。
 
-> [AZURE>NOTE] 請注意，請務必按照反向順序卸離資料磁碟，亦即從被指派最高編號 LUN 的資料磁碟開始。Linux SCSI 層不支援在較高編號的 LUN 仍然連接的情況下，將較低編號的 LUN 卸離。例如，如果 LUN 1 仍然連接，您就不應該卸離 LUN 0。
+> [AZURE>NOTE] 請注意，您應該務必按照反向順序卸離資料磁碟，亦即從被指派最高編號 LUN 的資料磁碟開始。Linux SCSI 層不支援在較高編號的 LUN 仍然連接的情況下，將較低編號的 LUN 卸離。例如，如果 LUN 1 仍然連接，您就不應該卸離 LUN 0。
 
 **vm disk show [options] &lt;name>**
 
@@ -527,7 +493,7 @@ info:   vm shutdown command OK
 	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-zh-tw-30GB.vhd"
 	info:   vm disk show command OK
 
-**vm disk list [options] [vm-name]**
+**vm disk list [options][vm-name]**
 
 這個命令會列出 Azure 磁碟 (或連接至指定虛擬機器的磁碟)。如果搭配虛擬機器名稱參數執行，則會傳回所有連接至虛擬機器的磁碟。Lun 1 會隨虛擬機器建立，而其他任何列出的磁碟則需另外連接。
 
@@ -560,9 +526,9 @@ info:   vm shutdown command OK
 
 **vm disk create &lt;name> [source-path]**
 
-此命令會上傳並註冊 Azure 磁碟。必須指定 --blob-url、--location 或 --affinity-group。如果您使用此命令並加上 [source-path]，則會上傳指定的 .vhd 檔，並建立新的映像。您可以接著使用 vm disk attach，將此映像連接至虛擬機器。
+此命令會上傳並註冊 Azure 磁碟。必須指定 --blob-url、--location，或 --affinity-group。如果您使用此命令並加上 [source-path]，則會上傳指定的 .vhd 檔，並建立新的映像。您可以接著使用 vm disk attach，將此映像連接至虛擬機器。
 
-某些系統會設有每一程序的檔案描述元限制。如果超過此限制，工具將顯示檔案描述元限制錯誤。您可以使用 -p &lt;number> 參數再次執行此命令，以減少平行上傳數上限。預設的平行上傳數上限為 96。
+某些系統會設有每一程序的檔案描述元限制。如果超過此限制，工具將顯示檔案描述元限制錯誤。您可以使用 -p &lt;number> 參數再次執行此命令，減少平行上傳數上限。預設的平行上傳數上限為 96。
 
 	~$ azure vm disk create my-data-disk ~/test.vhd --location "West US"
 	info:   Executing command vm disk create
@@ -599,7 +565,7 @@ info:   vm shutdown command OK
 
 **vm disk detach &lt;vm-name> &lt;lun>**
 
-此命令會卸離連接至 Azure 虛擬機器的資料磁碟。&lt;lun> 會識別要卸離的磁碟。若要在卸離磁碟前取得與磁碟相關聯的磁碟清單，請使用 vm disk-list &lt;vm-name>。
+此命令會卸離連接至 Azure 虛擬機器的資料磁碟。&lt;lun> 會識別要卸離的磁碟。若要在卸離磁碟前取得與磁碟相關聯之磁碟的清單，請使用 vm disk-list &lt;vm-name>。
 
 	~$ azure vm disk detach my-vm 2
 	info:   Executing command vm disk detach
@@ -705,13 +671,13 @@ Azure 服務憑證是與您 Azure 帳戶連線的 SSL 憑證。如需 Azure 憑�
 	info:   service cert delete command OK
 
 
-##<a name="Commands_to_manage_your_web_sites"></a>管理網站的命令
+##<a name="Commands_to_manage_your_web_sites"></a>管理 Web 應用程式的命令
 
-Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機器中託管，但您不需要親自考量虛擬機器的建立和部署細節。Azure 會為您處理這些細節。
+Azure Web 應用程式是一種可透過 URI 存取的 Web 組態。Web 應用程式是在虛擬機器中託管，但您不需要親自考量虛擬機器的建立和部署細節。Azure 會為您處理這些細節。
 
 **site list [options]**
 
-這個命令會列出您的網站。
+此命令會列出您的 Web 應用程式。
 
 	~$ azure site list
 	info:   Executing command site list
@@ -722,9 +688,9 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 	data:   mydrupalsite36  Running  mydrupalsite36.antdf0.antares.windows.net
 	info:   site list command OK
 
-**site set [options] [name]**
+**site set [options][name]**
 
-這個命令會設定您網站 [name] 的組態選項。
+此命令會設定您 Web 應用程式 [name] 的組態選項
 
 	~$ azure site set
 	info:    Executing command site set
@@ -743,9 +709,9 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 	info:    Generated deployment script files
 	info:    site deploymentscript command OK
 
-**site create [options] [name]**
+**site create [options][name]**
 
-這個命令會建立新的網站和本機目錄。
+此命令會建立新的 Web 應用程式和本機目錄。
 
 	~$ azure site create mysite
 	info:   Executing command site create
@@ -756,20 +722,20 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 	info:   Repository initialized
 	info:   site create command OK
 
-> [AZURE.NOTE] 網站名稱必須是唯一的。您無法建立與現有網站的 DNS 同名的網站。
+> [AZURE.NOTE]網站名稱必須是唯一的。您無法建立與現有網站的 DNS 同名的網站。
 
-**site browse [options] [name]**
+**site browse [options][name]**
 
-這個命令會在瀏覽器中開啟您的網站。
+此命令會在瀏覽器中開啟您的 Web 應用程式。
 
 	~$ azure site browse mysite
 	info:   Executing command site browse
 	info:   Launching browser to http://mysite.antdf0.antares-test.windows-int.net
 	info:   site browse command OK
 
-**site show [options] [name]**
+**site show [options][name]**
 
-這個命令會顯示網站的詳細資料。
+此命令會顯示 Web 應用程式的詳細資料。
 
 	~$ azure site show mysite
 	info:   Executing command site show
@@ -797,9 +763,9 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 	data:   Repository https://mysite.scm.antdf0.antares-test.windows-int.net/
 	info:   site show command OK
 
-**site delete [options] [name]**
+**site delete [options][name]**
 
-這個命令會刪除網站。
+此命令會刪除 Web 應用程式。
 
 	~$ azure site delete mysite
 	info:   Executing command site delete
@@ -807,18 +773,18 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 	info:   Site mysite has been deleted
 	info:   site delete command OK
 
- **site swap [options] [name]**
+ **site swap [options][name]**
 
-這個命令會交換兩個網站位置。
+這個命令會交換兩個 Web 應用程式位置。
 
 此命令還支援下列其他選項：
 
-**-q 或 **--quiet**：不顯示確認提示。請在自動化指令碼中使用此選項。
+**-q or **--quiet**：不顯示確認提示。請在自動化指令碼中使用此選項。
 
 
-**site start [options] [name]**
+**site start [options][name]**
 
-這個命令會啟動網站。
+此命令會啟動 Web 應用程式。
 
 	~$ azure site start mysite
 	info:   Executing command site start
@@ -826,9 +792,9 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 	info:   Site mysite has been started
 	info:   site start command OK
 
-**site stop [options] [name]**
+**site stop [options][name]**
 
-這個命令會停止網站。
+此命令會停止 Web 應用程式。
 
 	~$ azure site stop mysite
 	info:   Executing command site stop
@@ -836,9 +802,9 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-**site restart [options] [name]
+**site restart [options][name]
 
-這個命令會停止再啟動指定的網站。
+這個命令會停止再啟動指定的 Web 應用程式。
 
 此命令還支援下列其他選項：
 
@@ -847,7 +813,7 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 
 **site location list [options]**
 
-這個命令會列出您的網站位置。
+此命令會列出您的 Web 應用程式位置。
 
 	~$ azure site location list
 	info:    Executing command site location list
@@ -862,11 +828,11 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 	data:    East US
 	info:    site location list command OK
 
-###管理網站應用程式設定的命令
+###管理 Web 應用程式的應用程式設定的命令
 
-**site appsetting list [options] [name]**
+**site appsetting list [options][name]**
 
-這個命令會列出加入網站的應用程式設定。
+此命令會列出新增至 Web 應用程式的應用程式設定。
 
 	~$ azure site appsetting list
 	info:    Executing command site appsetting list
@@ -880,7 +846,7 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 
 **site appsetting add [options] &lt;keyvaluepair> [name]**
 
-這個命令會將應用程式設定加入您的網站作為金鑰值組。
+此命令會將應用程式設定新增至您的 Web 應用程式成為金鑰值組。
 
 	~$ azure site appsetting add test=value
 	info:    Executing command site appsetting add
@@ -892,7 +858,7 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 
 **site appsetting delete [options] &lt;key> [name]**
 
-這個命令會從網站中刪除指定的應用程式設定。
+這個命令會從 Web 應用程式中刪除指定的應用程式設定。
 
 	~$ azure site appsetting delete test
 	info:    Executing command site appsetting delete
@@ -915,11 +881,11 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 	data:    Value:  value
 	info:    site appsetting show command OK
 
-###管理網站憑證的命令
+###管理 Web 應用程式憑證的命令
 
-**site cert list [options] [name]**
+**site cert list [options][name]**
 
-這個命令會顯示網站憑證的清單。
+此命令會顯示 Web 應用程式憑證的清單。
 
 	~$ azure site cert list
 	info:    Executing command site cert list
@@ -955,9 +921,9 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 	data:    Certificate thumbprint CE1CD65852B38DC32001C2E0E8F7A526A29B541F
 	info:    site cert show command OK
 
-###管理網站連接字串的命令
+###管理 Web 應用程式連接字串的命令
 
-**site connectionstring list [options] [name]**
+**site connectionstring list [options][name]**
 
 **site connectionstring add [options] &lt;connectionname> &lt;value> &lt;type> [name]**
 
@@ -965,52 +931,51 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 
 **site connectionstring show [options] &lt;connectionname> [name]**
 
-###管理網站預設文件的命令
+###管理 Web 應用程式預設文件的命令
 
-**site defaultdocument list [options] [name]**
+**site defaultdocument list [options][name]**
 
 **site defaultdocument add [options] &lt;document> [name]**
 
 **site defaultdocument delete [options] &lt;document> [name]**
 
-###管理網站部署的命令
+###管理 Web 應用程式部署的命令
 
-**site deployment list [options] [name]**
+**site deployment list [options][name]**
 
 **site deployment show [options] &lt;commitId> [name]**
 
 **site deployment redeploy [options] &lt;commitId> [name]**
 
-**site deployment github [options] [name]**
+**site deployment github [options][name]**
 
-**site deployment user set [options] [username] [pass]**
+**site deployment user set [options][username] [pass]**
 
-###管理網站網域的命令
+###管理 Web 應用程式網域的命令
 
-**site domain list [options] [name]**
+**site domain list [options][name]**
 
 **site domain add [options] &lt;dn> [name]**
 
 **site domain delete [options] &lt;dn> [name]**
 
-###管理網站處理常式對應的命令
+###管理 Web 應用程式處理常式對應的命令
 
-**site handler list [options] [name]**
+**site handler list [options][name]**
 
 **site handler add [options] &lt;extension> &lt;processor> [name]**
 
 **site handler delete [options] &lt;extension> [name]**
 
-###管理網站 Web 工作的命令
+###管理 Web 工作的命令
 
-**site job list [options] [name]**
+**site job list [options][name]**
 
-這個命令會列出網站下的所有 Web 工作。
+此命令會列出 Web 應用程式下的所有 Web 工作。
 
 此命令還支援下列其他選項：
 
-+ **--job-type** &lt;job-type>：選用。Web 工作的類型。有效值為 "triggered" 或 "continuous"。預設傳回
-所有類型的 Web 工作。
++ **--job-type** &lt;job-type>：選用。Web 工作的類型。有效值為 "triggered" 或 "continuous"。預設會傳回所有類型的 Web 工作。
 + **--slot** &lt;slot>：要重新啟動之位置的名稱。
 
 **site job show [options] &lt;jobName> &lt;jobType> [name]**
@@ -1029,8 +994,8 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 
 此命令還支援下列其他選項：
 
-+ 需要 **--job-name** &lt;job-name>。Web 工作的名稱。
-+ 需要 **--job-type** &lt;job-type>。Web 工作的類型。有效值為 "triggered" 或 "continuous"。
++ **--job-name** &lt;job-name>：必要。Web 工作的名稱。
++ **--job-type** &lt;job-type>：必要。Web 工作的類型。有效值為 "triggered" 或 "continuous"。
 + **-q** 或 **--quiet**：不顯示確認提示。請在自動化指令碼中使用此選項。
 + **--slot** &lt;slot>：要重新啟動之位置的名稱。
 
@@ -1064,9 +1029,9 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 + **--job-name** &lt;job-name>：必要。Web 工作的名稱。
 + **--slot** &lt;slot>：要重新啟動之位置的名稱。
 
-###管理網站 Web 工作歷程記錄的命令
+###管理 Web 工作歷程記錄的命令
 
-**site job history list [options] [jobName] [name]**
+**site job history list [options][jobName] [name]**
 
 這個命令會顯示指定 Ｗeb 工作的執行歷程記錄。
 
@@ -1075,7 +1040,7 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 + **--job-name** &lt;job-name>：必要。Web 工作的名稱。
 + **--slot** &lt;slot>：要重新啟動之位置的名稱。
 
-**site job history show [options] [jobName] [runId] [name]**
+**site job history show [options][jobName] [runId][name]**
 
 這個命令會取得指定 Ｗeb 工作所執行之工作的詳細資料。
 
@@ -1085,11 +1050,11 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 + **--run-id** &lt;run-id>：選用。執行歷程記錄的 ID。如果未指定，則會顯示最近的執行。
 + **--slot** &lt;slot>：要重新啟動之位置的名稱。
 
-###管理網站診斷的命令
+###管理 Web 應用程式診斷的命令
 
-**site log download [options] [name]**
+**site log download [options][name]**
 
-下載包含網站診斷的 .zip 檔。
+下載包含 Web 應用程式診斷的 .zip 檔。
 
 	~$ azure site log download
 	info:    Executing command site log download
@@ -1099,7 +1064,7 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 	+ Downloading diagnostic log to diagnostics.zip
 	info:    site log download command OK
 
-**site log tail [options] [name]**
+**site log tail [options][name]**
 
 這個命令會將您的終端機連線至記錄檔串流服務。
 
@@ -1110,9 +1075,9 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 	+ Getting site information
 	2013-11-19T17:24:17  Welcome, you are now connected to log-streaming service.
 
-**site log set [options] [name]**
+**site log set [options][name]**
 
-這個命令會設定網站的診斷選項。
+此命令會設定 Web 應用程式的診斷選項。
 
 	~$ azure site log set -a
 	info:    Executing command site log set
@@ -1129,15 +1094,15 @@ Azure 網站是一種可透過 URI 存取的 Web 組態。網站是在虛擬機�
 	+ Updating diagnostic settings
 	info:    site log set command OK
 
-###管理網站儲存機制的命令
+###管理 Web 應用程式儲存機制的命令
 
 **site repository branch [options] &lt;branch> [name]**
 
-**site repository delete [options] [name]**
+**site repository delete [options][name]**
 
-**site repository sync [options] [name]**
+**site repository sync [options][name]**
 
-###管理網站調整的命令
+###管理 Web 應用程式調整的命令
 
 **site scale mode [options] &lt;mode> [name]**
 
@@ -1158,7 +1123,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 下列選項適用於大部分行動服務命令：
 
 + **-h** 或 **--help**：顯示輸出用法資訊。
-+ **-s `<id>`** 或 **--subscription `<id>`**：使用特定的訂用帳戶 (指定為 `<id>`)。
++ **-s `<id>`** 或 **--subscription `<id>`**：使用特定訂用帳戶 (以 `<id>` 形式指定)。
 + **-v** 或 **--verbose**：寫出詳細資訊輸出。
 + **--json**：寫出 JSON 輸出。
 
@@ -1174,7 +1139,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	info:    West US
 	info:    North Europe
 
-**mobile create [options] [servicename] [sqlAdminUsername] [sqlAdminPassword]**
+**mobile create [options][servicename] [sqlAdminUsername][sqlAdminPassword]**
 
 此命令會建立行動服務以及相關的 SQL Database 和伺服器。
 
@@ -1189,12 +1154,12 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 此命令還支援下列其他選項：
 
-+ **-r `<sqlServer>`** 或 **--sqlServer `<sqlServer>`**：使用現有的 SQL Database 伺服器 (指定為 '< sqlServer >')。
-+ **-d `<sqlDb>`** 或 **--sqlDb `<sqlDb>`**：使用現有的 SQL 資料庫 (指定為 '< sqlDb>')。
-+ **-l `<location>`** 或 **--location `<location>`**：在特定位置建立服務 (指定為 `<location>`)。請執行 azure mobile locations 取得可用的位置。
-+ **--sqlLocation `<location>`**：在特定 <location> 中建立 SQL Server；預設為行動服務的位置。
++ **-r `<sqlServer>`** 或 **--sqlServer `<sqlServer>`**：使用現有 SQL Database 伺服器 (以 `<sqlServer>` 形式指定)。
++ **-d `<sqlDb>`** 或 **--sqlDb `<sqlDb>`**：使用現有 SQL Database (以 `<sqlDb>` 形式指定)。
++ **-l `<location>`** 或 **--location `<location>`**：在特定位置 (以 `<location>` 形式指定) 建立服務。請執行 azure mobile locations 取得可用的位置。
++ **--sqlLocation `<location>`**：在特定 `<location>` 中建立 SQL Server；預設為行動服務的位置。
 
-**mobile delete [options] [servicename]**
+**mobile delete [options][servicename]**
 
 此命令會刪除行動服務以及相關的 SQL Database 和伺服器。
 
@@ -1229,7 +1194,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	data:    mymobileapp   Ready  https://mymobileapp.azure-mobile.net/
 	info:    mobile list command OK
 
-**mobile show [options] [servicename]**
+**mobile show [options][servicename]**
 
 此命令會顯示行動服務的詳細資料。
 
@@ -1255,7 +1220,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	data:    tables TodoItem
 	info:    mobile show command OK
 
-**mobile restart [options] [servicename]**
+**mobile restart [options][servicename]**
 
 此命令會重新啟動行動服務執行個體。
 
@@ -1265,9 +1230,9 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	info:    Service was restarted.
 	info:    mobile restart command OK
 
-**mobile log [options] [servicename]**
+**mobile log [options][servicename]**
 
-此命令會傳回行動服務記錄，其中已篩選出  `error` 以外的所有記錄類型。
+此命令會傳回行動服務記錄檔，其中已篩選掉 `error` 以外的所有記錄檔類型。
 
 	~$ azure mobile log todolist -t error
 	info:    Executing command mobile log
@@ -1282,13 +1247,13 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 此命令還支援下列其他選項：
 
 + **-r `<query>`** 或 **--query `<query>`**：執行指定的記錄查詢。
-+ **-t `<type>`** 或 **--type `<type>`**：使用項目 `<type>` 來篩選傳回的記錄，其可以是 `information`、`warning` 或 `error`。
-+ **-k `<skip>`** 或 **--skip `<skip>`**：略過 '<skip>' 所指定的資料列數。
-+ **-p `<top>`** 或 **--top `<top>`**：傳回 '<top>' 所指定的特定資料列數。
++ **-t `<type>`** 或 **--type `<type>`**：依 `<type>` 項目 (可以是 `information`、`warning` 或 `error`) 篩選傳回的記錄檔。
++ **-k `<skip>`** 或 **--skip `<skip>`**：略過 `<skip>` 指定的資料列數目。
++ **-p `<top>`** 或 **--top `<top>`**：傳回 `<top>` 指定的特定資料列數目。
 
-> [AZURE.NOTE] **--query** 參數的優先順序高於 **--type**、**--skip** 及 **--top**。
+> [AZURE.NOTE]**--query** 參數的優先順序高於 **--type**、**--skip** 和 **--top**。
 
-**mobile recover [options] [unhealthyservicename] [healthyservicename]**
+**mobile recover [options][unhealthyservicename] [healthyservicename]**
 
 這個命令會透過移至其他區域中健全的行動服務，來復原不健全的行動服務。
 
@@ -1296,7 +1261,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 **-q** 或 **--quiet**：隱藏確認復原的提示。
 
-**mobile key regenerate [options] [servicename] [type]**
+**mobile key regenerate [options][servicename] [type]**
 
 此命令會重新產生行動服務應用程式金鑰。
 
@@ -1305,18 +1270,18 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	info:    New application key is SmLorAWVfslMcOKWSsuJvuzdJkfUpt40
 	info:    mobile key regenerate command OK
 
-金鑰類型為 `master` 和 `application`。
+金鑰類型可分為 `master` 和 `application`。
 
-> [AZURE.NOTE] 當您重新產生金鑰時，使用舊金鑰的用戶端可能無法存取您的行動服務。重新產生應用程式金鑰時，您應該以新的金鑰值更新您的應用程式。
+> [AZURE.NOTE]當您重新產生金鑰時，使用舊金鑰的用戶端可能無法存取您的行動服務。重新產生應用程式金鑰時，您應該以新的金鑰值更新您的應用程式。
 
-**mobile key set [options] [servicename] [type] [value]**
+**mobile key set [options][servicename] [type][value]**
 
 這個命令會將行動服務金鑰設為特定值。
 
 
 ###<a name="Mobile_Configuration"></a>管理行動服務組態的命令
 
-**mobile config list [options] [servicename]**
+**mobile config list [options][servicename]**
 
 此命令會列出行動服務的組態選項。
 
@@ -1338,7 +1303,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	data:    apnsCertifcate Not configured
 	info:    mobile config list command OK
 
-**mobile config get [options] [servicename] [key]**
+**mobile config get [options][servicename] [key]**
 
 此命令會取得行動服務的特定組態選項 (在此例中為動態結構描述)。
 
@@ -1347,7 +1312,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	data:    dynamicSchemaEnabled true
 	info:    mobile config get command OK
 
-**mobile config set [options] [servicename] [key] [value]**
+**mobile config set [options][servicename] [key][value]**
 
 此命令會設定行動服務的特定組態選項 (在此例中為動態結構描述)。
 
@@ -1358,7 +1323,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 ###<a name="Mobile_Tables"></a>管理行動服務資料表的命令
 
-**mobile table list [options] [servicename]**
+**mobile table list [options][servicename]**
 
 此命令會列出您行動服務中的所有資料表。
 
@@ -1370,7 +1335,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	data:    TodoItem  1        0
 	info:    mobile table list command OK
 
-**mobile table show [options] [servicename] [tablename]**
+**mobile table show [options][servicename] [tablename]**
 
 此命令會顯示特定資料表的傳回詳細資料。
 
@@ -1394,7 +1359,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	data:    complete  boolean
 	info:    mobile table show command OK
 
-**mobile table create [options] [servicename] [tablename]**
+**mobile table create [options][servicename] [tablename]**
 
 此命令會建立資料表。
 
@@ -1405,9 +1370,9 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 此命令還支援下列其他選項：
 
-+ **-p `&lt;permissions>`** 或 **--permissions `&lt;permissions>`**：`<operation>`=`<permission>` 對組的逗號分隔清單，其中 `<operation>` 是 `insert`、 `read`、 `update` 或 `delete`，而 `&lt;permissions>` 是 `public`、 `application` (預設值)、 `user` 或 `admin`。
++ **-p `&lt;permissions>`** 或 **--permissions `&lt;permissions>`**：`<operation>`=`<permission>` 組的逗號分隔清單，其中 `<operation>` 是`insert`、`read`、`update` 或 `delete`，而 `&lt;permissions>` 是 `public`、`application` (預設值)、`user` 或 `admin`。
 
-**mobile data read [options] [servicename] [tablename] [query]**
+**mobile data read [options][servicename] [tablename][query]**
 
 此命令會讀取資料表的資料。
 
@@ -1423,11 +1388,11 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 此命令還支援下列其他選項：
 
-+ **-k `<skip>`** 或 **--skip `<skip>`**：略過 `<skip>` 指定的資料列數。
-+ **-t `<top>`** 或 **--top `<top>`**：傳回 `<top>` 指定的特定資料列數。
++ **-k `<skip>`** 或 **--skip `<skip>`**：略過 `<skip>` 指定的資料列數目。
++ **-t `<top>`** 或 **--top `<top>`**：傳回 `<top>` 指定的特定資料列數目。
 + **-l** 或 **--list**：以清單格式傳回資料。
 
-**mobile table update [options] [servicename] [tablename]**
+**mobile table update [options][servicename] [tablename]**
 
 此命令會將資料表的刪除權限變更為僅限管理員。
 
@@ -1439,13 +1404,13 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 此命令還支援下列其他選項：
 
-+ **-p `&lt;permissions>`** 或 **--permissions `&lt;permissions>`**：`<operation>`=`<permission>` 對組的逗號分隔清單，其中 `<operation>` 是 `insert`、 `read`、 `update` 或 `delete`，而 `&lt;permissions>` 是 `public`、 `application` (預設值)、 `user` 或 `admin`。
-+ **--deleteColumn `<columns>`**：要刪除之資料行的逗號分隔清單 (形式為 `<columns>`)。
++ **-p `&lt;permissions>`** 或 **--permissions `&lt;permissions>`**：`<operation>`=`<permission>` 組的逗號分隔清單，其中 `<operation>` 是`insert`、`read`、`update` 或 `delete`，而 `&lt;permissions>` 是 `public`、`application` (預設值)、`user` 或 `admin`。
++ **--deleteColumn `<columns>`**：要刪除之欄的逗號分隔清單 (`<columns>` 形式)。
 + **-q** 或 **--quiet**：刪除欄而不顯示確認提示。
-+ **--addIndex `<columns>`**：將要包含到索引中之欄列出的逗號分隔清單。
-+ **--deleteIndex `<columns>`**：將要排除在索引外之欄列出的逗號分隔清單。
++ **--addIndex `<columns>`**：要包含到索引中之欄的逗號分隔清單。
++ **--deleteIndex `<columns>`**：要從索引中排除之欄的逗號分隔清單。
 
-**mobile table delete [options] [servicename] [tablename]**
+**mobile table delete [options][servicename] [tablename]**
 
 此命令會刪除資料表。
 
@@ -1457,7 +1422,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 指定 -q 參數來刪除資料表而不顯示確認。這麼做可避免妨礙自動化指令碼執行。
 
-**mobile data truncate [options] [servicename] [tablename]**
+**mobile data truncate [options][servicename] [tablename]**
 
 此命令會從資料表中移除所有列。
 
@@ -1471,9 +1436,9 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 ###<a name="Mobile_Scripts"></a>管理指令碼的命令
 
-本節中的命令可用來管理屬於行動服務的伺服器指令碼。如需詳細資訊，請參閱[在行動服務中使用伺服器指令碼](http://www.windowsazure.com/develop/mobile/how-to-guides/work-with-server-scripts/)。
+本節中的命令可用來管理屬於行動服務的伺服器指令碼。如需詳細資訊，請參閱[在行動服務中使用伺服器指令碼](mobile-services-how-to-use-server-scripts.md)。
 
-**mobile script list [options] [servicename]**
+**mobile script list [options][servicename]**
 
 此命令會列出註冊的指令碼，包括資料表和排程器指令碼。
 
@@ -1493,9 +1458,9 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	data:    scheduler/undefined  undefined  undefined  undefined  undefined
 	info:    mobile script list command OK
 
-**mobile script download [options] [servicename] [scriptname]**
+**mobile script download [options][servicename] [scriptname]**
 
-這個命令會從 TodoItem 資料表將 insert 指令碼下載到 `table` 子資料夾中名為 `todoitem.insert.js` 的檔案。
+此命令會將 insert 指令碼從 TodoItem 資料表下載到 `table` 子資料夾中名為 `todoitem.insert.js` 的檔案。
 
 	~$azure mobile script download todolist table/todoitem.insert.js
 	info:    Executing command mobile script download
@@ -1505,22 +1470,22 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 此命令還支援下列其他選項：
 
 + **-p `<path>`** 或 **--path `<path>`**：檔案中要儲存指令碼的位置，其中以目前的工作目錄為預設目錄。
-+ **-f `<file>`** 或 **--file `<file>`**：儲存指令碼的檔案名稱。
-+ **-o** 或 **--override**：覆寫現有檔案。
-+ **-c** 或 **--console**：將指令碼寫出至主控台而非檔案。
++ **-f `<file>`** 或 **--file `<file>`**：儲存指令碼所在檔案的名稱。
++ **-o** 或 **--override**：覆寫現有的檔案。
++ **-c** 或 **--console**：將指令碼寫入至主控台而非檔案。
 
-**mobile script upload [options] [servicename] [scriptname]**
+**mobile script upload [options][servicename] [scriptname]**
 
-這個命令會從 `table` 子資料夾上傳名為 `todoitem.insert.js` 的新指令碼。
+此命令會從 `table` 子資料夾上傳名為 `todoitem.insert.js` 的新指令碼。
 
 	~$azure mobile script upload todolist table/todoitem.insert.js
 	info:    Executing command mobile script upload
 	info:    mobile script upload command OK
 
-檔案的名稱必須由資料表和作業名稱組成，而且必須位在與執行命令的位置相對的 table 子資料夾中。您也可以使用 **-f `<file>`** 或 **--file `<file>`** 參數，為包含要註冊之指令碼的檔案指定不同的檔案名稱和路徑。
+檔案的名稱必須由資料表和作業名稱組成，而且必須位在與執行命令的位置相對的 table 子資料夾中。您也可以使用 **-f `<file>`** 或 **--file `<file>`** 參數，指定不同的檔案名稱和路徑來指向含所要註冊指令碼的檔案。
 
 
-**mobile script delete [options] [servicename] [scriptname]**
+**mobile script delete [options][servicename] [scriptname]**
 
 此命令會從 TodoItem 資料表中移除現有的 insert 指令碼。
 
@@ -1532,7 +1497,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 本節中的命令可用來管理屬於行動服務的排程工作。如需詳細資訊，請參閱[排程作業](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx)。
 
-**mobile job list [options] [servicename]**
+**mobile job list [options][servicename]**
 
 此命令會列出排程工作。
 
@@ -1545,9 +1510,9 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	info:    You can manipulate scheduled job scripts using the 'azure mobile script' command.
 	info:    mobile job list command OK
 
-**mobile job create [options] [servicename] [jobname]**
+**mobile job create [options][servicename] [jobname]**
 
-此命令會建立名為 `getUpdates` 且排程在每小時執行一次的新工作。
+此命令會建立名為 `getUpdates` 且排定為每小時執行一次的新工作。
 
 	~$azure mobile job create -i 1 -u hour todolist getUpdates
 	info:    Executing command mobile job create
@@ -1564,11 +1529,11 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	+ **day**
 	+ **month**
 	+ **none** (隨選工作)
-+ **-t `<time>`** **--startTime `<time>`** 指令碼第一次執行的開始時間 (ISO 格式)；預設值為 `now`。
++ **-t `<time>`** **--startTime `<time>`** 指令碼第一次執行的開始時間 (以 ISO 格式表示)；預設值為 `now`。
 
-> [AZURE.NOTE] 建立的新工作會是停用狀態，因為仍然必須上傳指令碼。請使用 **mobile script upload** 命令上傳指令碼，並使用 **mobile job update** 命令啟用工作。
+> [AZURE.NOTE]建立的新工作會是停用狀態，因為仍然必須上傳指令碼。請使用 **mobile script upload** 命令上傳指令碼，並使用 **mobile job update** 命令啟用工作。
 
-**mobile job update [options] [servicename] [jobname]**
+**mobile job update [options][servicename] [jobname]**
 
 下列命令會將停用的 `getUpdates` 工作啟用。
 
@@ -1585,10 +1550,10 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	+ **day**
 	+ **month**
 	+ **none** (隨選工作)
-+ **-t `<time>`** **--startTime `<time>`** 指令碼第一次執行的開始時間 (ISO 格式)；預設值為 `now`。
++ **-t `<time>`** **--startTime `<time>`** 指令碼第一次執行的開始時間 (以 ISO 格式表示)；預設值為 `now`。
 + **-a `<status>`** 或 **--status `<status>`**：工作狀態，這可以是 `enabled` 或 `disabled`。
 
-**mobile job delete [options] [servicename] [jobname]**
+**mobile job delete [options][servicename] [jobname]**
 
 此命令會從 TodoList 伺服器中移除 getUpdates 排程工作。
 
@@ -1596,13 +1561,13 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	info:    Executing command mobile job delete
 	info:    mobile job delete command OK
 
-> [AZURE.NOTE] 刪除工作也會連上傳的指令碼一起刪除。
+> [AZURE.NOTE]刪除工作也會連上傳的指令碼一起刪除。
 
 ###<a name="Mobile_Scale"></a>調整行動服務的命令
 
-本節中的命令可用來調整行動服務。如需詳細資訊，請參閱[調整行動服務](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx)。
+本節中的命令可用來調整行動服務。如需詳細資訊，請參閱[調整行動服務](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx) (英文)。
 
-**mobile scale show [options] [servicename]**
+**mobile scale show [options][servicename]**
 
 此命令會顯示規模資訊，包括目前的運算模式和執行個體數目。
 
@@ -1613,7 +1578,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	data:    numberOfInstances 1
 	info:    mobile scale show command OK
 
-**mobile scale change [options] [servicename]**
+**mobile scale change [options][servicename]**
 
 此命令會將行動服務的規模從免費模式變更為進階模式。
 
@@ -1627,12 +1592,12 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 + **-c `<mode>`** 或 **--computeMode `<mode>`**：計算模式必須是 `Free` 或 `Reserved`。
 + **-i `<count>`** 或 **--numberOfInstances `<count>`**：以保留模式執行時使用的執行個體數目。
 
-> [AZURE.NOTE] 當您將計算模式設定為 `Reserved` 時，您在相同區域中的所有行動服務都會以進階模式執行。
+> [AZURE.NOTE]當您將計算模式設定為 `Reserved` 時，您在相同區域中的所有行動服務都會以進階模式執行。
 
 
 ###啟用行動服務預覽功能的命令
 
-**mobile preview list [options] [servicename]**
+**mobile preview list [options][servicename]**
 
 這個命令會顯示指定服務上可用的預覽功能，以及是否已啟用這些功能。
 
@@ -1646,13 +1611,13 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	info:    You can enable preview features using the 'azure mobile preview enable' command.
 	info:    mobile preview list command OK
 
-**mobile preview enable [options] [servicename] [featurename]**
+**mobile preview enable [options][servicename] [featurename]**
 
 這個命令會啟用行動服務的指定預覽功能。請注意，行動服務的預覽功能一旦啟用，便無法停用。
 
 ###管理行動服務 API 的命令
 
-**mobile api list [options] [servicename]**
+**mobile api list [options][servicename]**
 
 這個命令會顯示您為行動服務建立的行動服務自訂 API 清單。
 
@@ -1666,7 +1631,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	info:    You can manipulate API scripts using the 'azure mobile script' command.
 	info:    mobile api list command OK
 
-**mobile api create [options] [servicename] [apiname]**
+**mobile api create [options][servicename] [apiname]**
 
 建立行動服務自訂 API。
 
@@ -1678,9 +1643,9 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 此命令還支援下列其他選項：
 
-**-p** 或 **--permissions** &lt;permissions>：&lt;method>=&lt;permission> 對組的逗號分隔清單。
+**-p** 或 **--permissions** &lt;permissions>：&lt;method>=&lt;permission> 組的逗號分隔清單。
 
-**mobile api update [options] [servicename] [apiname]**
+**mobile api update [options][servicename] [apiname]**
 
 這個命令會更新指定的行動服務自訂 API。
 
@@ -1688,10 +1653,10 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 此命令還支援下列其他選項：
 
-+ **-p** 或 **--permissions** &lt;permissions>：&lt;method>=&lt;permission> 對組的逗號分隔清單。
++ **-p** 或 **--permissions** &lt;permissions>：&lt;method>=&lt;permission> 組的逗號分隔清單。
 + **-f** 或 **--force**：覆寫對權限中繼資料檔案所做的任何自訂變更。
 
-**mobile api delete [options] [servicename] [apiname]**
+**mobile api delete [options][servicename] [apiname]**
 
 	~$ azure mobile api delete mysite myCustomRetrieveAPI
 	info:    Executing command mobile api delete
@@ -1702,7 +1667,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 ###管理行動應用程式之應用程式設定的命令
 
-**mobile appsetting list [options] [servicename]**
+**mobile appsetting list [options][servicename]**
 
 這個命令會顯示指定服務之行動應用程式的應用程式設定。
 
@@ -1714,7 +1679,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	data:    enablebetacontent  true
 	info:    mobile appsetting list command OK
 
-**mobile appsetting add [options] [servicename] [name] [value]**
+**mobile appsetting add [options][servicename] [name][value]**
 
 這個命令會加入行動服務的自訂應用程式設定。
 
@@ -1724,7 +1689,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	+ Adding app setting
 	info:    mobile appsetting add command OK
 
-**mobile appsetting delete [options] [servicename] [name]**
+**mobile appsetting delete [options][servicename] [name]**
 
 這個命令會移除行動服務的指定應用程式設定。
 
@@ -1734,7 +1699,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	+ Removing app setting 'enablebetacontent'
 	info:    mobile appsetting delete command OK
 
-**mobile appsetting show [options] [servicename] [name]**
+**mobile appsetting show [options][servicename] [name]**
 
 這個命令會移除行動服務的指定應用程式設定。
 
@@ -1901,7 +1866,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 + **-e** 或 **--label** &lt;label>：儲存體帳戶的標籤。
 + **-d** 或 **--description** &lt;description>：儲存體帳戶的描述。
-+ **-l** 或 **--location** &lt;name>：要建立儲存體帳戶的地區。
++ **-l** 或 **--location** &lt;name>：要建立儲存體帳戶所在的地區。
 + **-a** 或 **--affinity-group** &lt;name>：要與儲存體帳戶相關聯的同質群組。
 + **--geoReplication**：指出是否啟用異地複寫。
 + **--disable-geoReplication**：指出是否停用異地複寫。
@@ -1919,7 +1884,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 + **-e** 或 **--label** &lt;label>：儲存體帳戶的標籤。
 + **-d** 或 **--description** &lt;description>：儲存體帳戶的描述。
-+ **-l** 或 **--location** &lt;name>：要建立儲存體帳戶的地區。
++ **-l** 或 **--location** &lt;name>：要建立儲存體帳戶所在的地區。
 + **--geoReplication**：指出是否啟用異地複寫。
 + **--disable-geoReplication**：指出是否停用異地複寫。
 
@@ -1941,7 +1906,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 ###管理儲存體容器的命令
 
-**storage container list [options] [prefix]**
+**storage container list [options][prefix]**
 
 這個命令會顯示指定儲存體帳戶的儲存體容器清單。這個儲存體帳戶是以連接字串，或儲存體帳戶名稱和帳戶金鑰來指定。
 
@@ -1953,40 +1918,39 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 + **-c** 或 **--connection-string** &lt;connectionString>：儲存體連接字串。
 + **--debug**：在偵錯模式中執行 storage 命令。
 
-**storage container show [options] [container]**
-**storage container create [options] [container]**
+**storage container show [options][container]** **storage container create [options][container]**
 
 這個命令會建立指定儲存體帳戶的儲存體容器。這個儲存體帳戶是以連接字串，或儲存體帳戶名稱和帳戶金鑰來指定。
 
 此命令還支援下列其他選項：
 
-+ **--container** &lt;container>：要建立的儲存體容器名稱。
++ **--container** &lt;container>：要建立的儲存體容器的名稱。
 + **-p** 或 **-prefix** &lt;prefix>：儲存體容器名稱前置詞。
-+ **-a** 或 **--account-name** &lt;accountName>：儲存體帳戶名稱。
-+ **-k** 或 **--account-key** &lt;accountKey>：儲存體帳戶金鑰。
-+ **-c** 或 **--connection-string** &lt;connectionString>：儲存體連接字串。
++ **-a** 或 **--account-name** &lt;accountName>：儲存體帳戶名稱
++ **-k** 或 **--account-key** &lt;accountKey>：儲存體帳戶金鑰
++ **-c** 或 **--connection-string** &lt;connectionString>：儲存體連接字串
 + **--debug**：在偵錯模式中執行 storage 命令。
 
-**storage container delete [options] [container]**
+**storage container delete [options][container]**
 
 這個命令會刪除指定的儲存體容器。這個儲存體帳戶是以連接字串，或儲存體帳戶名稱和帳戶金鑰來指定。
 
 此命令還支援下列其他選項：
 
-+ **--container** &lt;container>：要建立的儲存體容器名稱。
++ **--container** &lt;container>：要建立的儲存體容器的名稱。
 + **-p** 或 **-prefix** &lt;prefix>：儲存體容器名稱前置詞。
 + **-a** 或 **--account-name** &lt;accountName>：儲存體帳戶名稱。
 + **-k** 或 **--account-key** &lt;accountKey>：儲存體帳戶金鑰。
 + **-c** 或 **--connection-string** &lt;connectionString>：儲存體連接字串。
 + **--debug**：在偵錯模式中執行 storage 命令。
 
-**storage container set [options] [container]**
+**storage container set [options][container]**
 
 這個命令會設定儲存體容器的存取控制清單。這個儲存體帳戶是以連接字串，或儲存體帳戶名稱和帳戶金鑰來指定。
 
 此命令還支援下列其他選項：
 
-+ **--container** &lt;container>：要建立的儲存體容器名稱。
++ **--container** &lt;container>：要建立的儲存體容器的名稱。
 + **-p** 或 **-prefix** &lt;prefix>：儲存體容器名稱前置詞。
 + **-a** 或 **--account-name** &lt;accountName>：儲存體帳戶名稱。
 + **-k** 或 **--account-key** &lt;accountKey>：儲存體帳戶金鑰。
@@ -1995,53 +1959,53 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 ###管理儲存體 Blob 的命令
 
-**storage blob list [options] [container] [prefix]**
+**storage blob list [options][container] [prefix]**
 
 這個命令會傳回指定儲存體容器中的儲存體 Blob 清單。
 
 此命令還支援下列其他選項：
 
-+ **--container** &lt;container>：要建立的儲存體容器名稱。
++ **--container** &lt;container>：要建立的儲存體容器的名稱。
 + **-p** 或 **-prefix** &lt;prefix>：儲存體容器名稱前置詞。
 + **-a** 或 **--account-name** &lt;accountName>：儲存體帳戶名稱。
 + **-k** 或 **--account-key** &lt;accountKey>：儲存體帳戶金鑰。
 + **-c** 或 **--connection-string** &lt;connectionString>：儲存體連接字串。
 + **--debug**：在偵錯模式中執行 storage 命令。
 
-**storage blob show [options] [container] [blob]**
+**storage blob show [options][container] [blob]**
 
 這個命令會顯示指定儲存體 Blob 的詳細資料。
 
 此命令還支援下列其他選項：
 
-+ **--container** &lt;container>：要建立的儲存體容器名稱。
++ **--container** &lt;container>：要建立的儲存體容器的名稱。
 + **-p** 或 **-prefix** &lt;prefix>：儲存體容器名稱前置詞。
 + **-a** 或 **--account-name** &lt;accountName>：儲存體帳戶名稱。
 + **-k** 或 **--account-key** &lt;accountKey>：儲存體帳戶金鑰。
 + **-c** 或 **--connection-string** &lt;connectionString>：儲存體連接字串。
 + **--debug**：在偵錯中執行 storage 命令。
 
-**storage blob delete [options] [container] [blob]**
+**storage blob delete [options][container] [blob]**
 
 此命令還支援下列其他選項：
 
-+ **--container** &lt;container>：要建立的儲存體容器名稱。
-+ **-b** 或 **--blob** &lt;blobName>：要刪除的儲存體 Blob 名稱。
++ **--container** &lt;container>：要建立的儲存體容器的名稱。
++ **-b** 或 **--blob** &lt;blobName>：要刪除的儲存體 Blob 的名稱。
 + **-q** 或 **--quiet**：移除指定的儲存體 Blob 而不進行確認。
 + **-a** 或 **--account-name** &lt;accountName>：儲存體帳戶名稱。
 + **-k** 或 **--account-key** &lt;accountKey>：儲存體帳戶金鑰。
 + **-c** 或 **--connection-string** &lt;connectionString>：儲存體連接字串。
 + **--debug**：在偵錯中執行 storage 命令。
 
-**storage blob upload [options] [file] [container] [blob]**
+**storage blob upload [options][file] [container][blob]**
 
 這個命令會將指定的檔案上傳至指定的儲存體 Blob。
 
 此命令還支援下列其他選項：
 
-+ **--container** &lt;container>：要建立的儲存體容器名稱。
-+ **-b** 或 **--blob** &lt;blobName>：要上傳的儲存體 Blob 名稱。
-+ **-t** 或 **--blobtype** &lt;blobtype>：儲存體 Blob 類型：分頁或區塊。
++ **--container** &lt;container>：要建立的儲存體容器的名稱。
++ **-b** 或 **--blob** &lt;blobName>：要上傳的儲存體 Blob 的名稱。
++ **-t** 或 **--blobtype** &lt;blobtype>：儲存體 blob 類型：分頁或區塊。
 + **-p** 或 **--properties** &lt;properties>：已上傳檔案的儲存體 Blob 屬性。屬性為 key=value 組並以分號 (;) 分隔。可用的屬性為 contentType、contentEncoding、contentLanguage 和 cacheControl。
 + **-m** 或 **--metadata** &lt;metadata>：已上傳檔案的儲存體 Blob 中繼資料。中繼資料為 key=value 組並以分號 (;) 分隔。
 + **--concurrenttaskcount** &lt;concurrenttaskcount>：並行上傳要求的最大數目。
@@ -2051,17 +2015,17 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 + **-c** 或 **--connection-string** &lt;connectionString>：儲存體連接字串。
 + **--debug**：在偵錯中執行 storage 命令。
 
-**storage blob download [options] [container] [blob] [destination]**
+**storage blob download [options][container] [blob][destination]**
 
 這個命令會下載指定的儲存體 Blob。
 
 此命令還支援下列其他選項：
 
-+ **--container** &lt;container>：要建立的儲存體容器名稱。
++ **--container** &lt;container>：要建立的儲存體容器的名稱。
 + **-b** 或 **--blob** &lt;blobName>：儲存體 Blob 名稱。
 + **-d** 或 **--destination** [destination]：下載目的地檔案或目錄路徑。
 + **-m** 或 **--checkmd5**：已下載檔案的 check md5sum。
-+ **--concurrenttaskcount** &lt;concurrenttaskcount>  並行上傳要求的最大數目
++ **--concurrenttaskcount** &lt;concurrenttaskcount> 並行上傳要求的最大數目
 + **-q** 或 **--quiet**：複寫目的地檔案而不進行確認。
 + **-a** 或 **--account-name** &lt;accountName>：儲存體帳戶名稱。
 + **-k** 或 **--account-key** &lt;accountKey>：儲存體帳戶金鑰。
@@ -2336,7 +2300,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 **network export [file-path]**
 
-針對進階網路組態，您可以將網路組態匯出到本機。請注意，匯出的網路組態包括 DNS 伺服器設定、虛擬網路設定、本機網站設定和其他設定。
+對於進階網路組態，您可以將網路組態匯出到本機。請注意，匯出的網路組態包括 DNS 伺服器設定、虛擬網路設定、本機網站設定和其他設定。
 
 **network import [file-path]**
 
@@ -2376,4 +2340,4 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!--HONumber=47-->
+<!---HONumber=58-->

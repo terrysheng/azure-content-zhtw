@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="設定用於測試的混合式雲端環境" 
 	description="了解如何建立 IT 專業或開發測試的混合式雲端環境。" 
 	services="virtual-network" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="04/07/2015" 
 	ms.author="josephd"/>
 
-#設定用於測試的混合式雲端環境
+# 設定用於測試的混合式雲端環境
 
 本主題會引導您逐步建立 Microsoft Azure 的混合式雲端環境進行測試。以下是產生的組態。
 
@@ -42,26 +42,28 @@
 4.	建立站對站 VPN 連線。
 5.	設定 DC2。 
 
-如果您仍沒有 Azure 訂閱，可以在 [試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 上註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
+如果您仍沒有 Azure 訂用帳戶，可以在[試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 上註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
->[AZURE.NOTE] Azure 中的虛擬機器和虛擬網路閘道會在執行時持續耗用成本。這項成本是按照您的免費試用版、MSDN 訂閱或付費訂閱進行計算。若要在您不使用時降低執行這個測試環境的成本，請參閱此主題中的 [將這個環境的持續成本降至最低]，(#costs) 以了解詳細資訊。
+>[AZURE.NOTE]Azure 中的虛擬機器和虛擬網路閘道會在執行時持續耗用成本。這項成本是按照您的免費試用版、MSDN 訂閱或付費訂閱進行計算。若要在您不使用時降低執行這個測試環境的成本，請參閱此主題中的[將這個環境的持續成本降至最低](#costs)，以取得更多資訊。
 
-##第 1 階段：設定公司網路子網路上的電腦
+此設定要求一個測試子網路，其中最多包含四部使用公用 IP 位址直接連線到網際網路的電腦。如果您沒有這些資源，您也可以[設定用於測試的模擬混合式雲端環境](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)。模擬的混合式雲端測試環境僅要求 Azure 訂用帳戶。
 
-使用 [TestLab 指南：Windows Server 2012 R2 基底組態](http://www.microsoft.com/download/details.aspx?id=39638) 的「設定公司網路子網路的步驟」一節所提供的指示，設定稱為 Corpnet 的子網路上出現的 DC1、APP1 和 CLIENT1 電腦。**這個子網路必須與貴公司的網路香隔離，因為它會透過 RRAS1 電腦直接連線到網際網路。** 
+## 第 1 階段：設定 Corpnet 子網路上的電腦
+
+使用[測試實驗室指南：適用於 Windows Server 2012 R2 的基本組態](http://www.microsoft.com/download/details.aspx?id=39638)的＜設定 Corpnet 子網路的步驟＞一節中的指示，在名為 Corpnet 的子網路上設定 DC1、APP1 和 CLIENT1 電腦。**這個子網路必須與貴公司的網路隔離，因為它會透過 RRAS1 電腦直接連線到網際網路。**
 
 接著，使用 DC1 CORP\User1 認證登入。若要設定 CORP 網域，讓電腦和使用者使用其本機網域控制站進行驗證，請從系統管理員層級 Windows PowerShell 命令提示字元執行這些命令。
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
-	New-ADReplicationSubnet -Name "10.0.0.0/8" -Site "TestLab"
-	New-ADReplicationSubnet -Name "192.168.0.0/16" -Site "TestVNET
+	New-ADReplicationSubnet –Name "10.0.0.0/8" –Site "TestLab"
+	New-ADReplicationSubnet –Name "192.168.0.0/16" –Site "TestVNET
 
 這是您目前的組態。
 
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_1.png)
  
-##第 2 階段：設定 RRAS1
+## 第 2 階段：設定 RRAS1
 
 RRAS1 提供公司網路子網路上的電腦與 TestVNET 虛擬網路之間的流量路由和 VPN 裝置服務。RRAS1 必須安裝兩張網路介面卡。
 
@@ -74,7 +76,7 @@ RRAS1 提供公司網路子網路上的電腦與 TestVNET 虛擬網路之間的�
 
 接著，設定 RRAS1 的 TCP/IP 內容。您將需要公開的 IP 位址組態，包括位址、子網路遮罩 (或前置長度)，以及網際網路服務提供者 (ISP) 的預設閘道和 DNS 伺服器。
 
-在 RRAS1 上的系統管理員層級 Windows PowerShell 命令提示字元下使用下列命令。在執行這些命令之前，先填入變數值並移除 < 和 > 字元。您可以從 **Get NetAdapter** 命令的顯示得知目前的網路介面卡名稱。
+在 RRAS1 上的系統管理員層級 Windows PowerShell 命令提示字元下使用下列命令。在執行這些命令之前，先填入變數值並移除 < and > 字元。您可以從 **Get-NetAdapter** 命令的顯示，取得目前的網路介面卡名稱。
 
 	$corpnetAdapterName="<Name of the adapter attached to the Corpnet subnet>"
 	$internetAdapterName="<Name of the adapter attached to the Internet>"
@@ -82,15 +84,15 @@ RRAS1 提供公司網路子網路上的電腦與 TestVNET 虛擬網路之間的�
 	$publicIPpreflength=<Prefix length of your public IP address>
 	[IPAddress]$publicDG="<Your ISP default gateway>"
 	[IPAddress]$publicDNS="<Your ISP DNS server(s)>"
-	Rename-NetAdapter -Name $corpnetAdapterName -NewName Corpnet
-	Rename-NetAdapter -Name $internetAdapterName -NewName Internet
-	New-NetIPAddress -InterfaceAlias "Internet" -IPAddress $publicIP -PrefixLength $publicIPpreflength -DefaultGateway $publicDG
+	Rename-NetAdapter –Name $corpnetAdapterName –NewName Corpnet
+	Rename-NetAdapter –Name $internetAdapterName –NewName Internet
+	New-NetIPAddress -InterfaceAlias "Internet" -IPAddress $publicIP -PrefixLength $publicIPpreflength –DefaultGateway $publicDG
 	Set-DnsClientServerAddress -InterfaceAlias Internet -ServerAddresses $publicDNS
 	New-NetIPAddress -InterfaceAlias "Corpnet" -IPAddress 10.0.0.2 -AddressFamily IPv4 -PrefixLength 24
 	Set-DnsClientServerAddress -InterfaceAlias "Corpnet" -ServerAddresses 10.0.0.1
 	Set-DnsClient -InterfaceAlias "Corpnet" -ConnectionSpecificSuffix corp.contoso.com
-	New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
-	New-NetFirewallRule -DisplayName "Allow ICMPv4-Out" -Protocol ICMPv4 -Direction Outbound
+	New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+	New-NetFirewallRule –DisplayName “Allow ICMPv4-Out” –Protocol ICMPv4 –Direction Outbound
 	Disable-NetAdapterBinding -Name "Internet" -ComponentID ms_msclient
 	Disable-NetAdapterBinding -Name "Internet" -ComponentID ms_server
 	ping dc1.corp.contoso.com
@@ -101,30 +103,30 @@ RRAS1 提供公司網路子網路上的電腦與 TestVNET 虛擬網路之間的�
 
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_2.png)
 
-#第 3 階段：建立跨單位 Azure 虛擬網路
+## 第 3 階段：建立跨單位 Azure 虛擬網路。
 
-首先，使用您的 Azure 訂閱認證登入 [Azure 管理入口網站](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard)，並建立名為 TestVNET 的虛擬網路。
+首先，使用您的 Azure 訂用帳戶認證登入 [Azure 管理入口網站](https://manage.windowsazure.com/)，並建立名為 TestVNET 的虛擬網路。
 
-1.	在 Azure 管理入口網站的工作列上，按一下 [**新增 > 網路服務 > 虛擬網路 > 自訂建立**]。
-2.	在 [虛擬網路詳細資料] 頁面中的 [**名稱**] 中，輸入 **TestVNET**。
-3.	在 [**位置**] 中，選取對於您的所在位置適當的資料中心。
+1.	在 Azure 管理入口網站的工作列上，依序按一下 [新增] > [網路服務] > [虛擬網路] > [自訂建立]。
+2.	在 [虛擬網路詳細資料] 頁面上，於 [名稱] 中輸入 **TestVNET**。
+3.	在 [位置] 中，為您的所在位置選取適合的資料中心。
 4.	按 [下一步] 箭頭。
-5.	在 [DNS 伺服器和 VPN 連線] 頁面上，於 [**DNS 伺服器**] 的 [**選取或輸入名稱**] 中輸入 **DC1**，並且於 [**IP 位址**] 中輸入 **10.0.0.1**，然後選取 [**設定站對站 VPN**]。
-6.	在 [**區域網路**] 中，選取 [**指定新的區域網路**]。 
+5.	在 [DNS 伺服器和 VPN 連線] 頁面上，於 [DNS 伺服器] 的 [選取或輸入名稱] 中輸入 **DC1**，並於 [IP 位址] 中輸入 **10.0.0.1**，然後選取 [設定網站間 VPN]。
+6.	在 [區域網路] 中，選取 [指定新的區域網路]。 
 7.	按 [下一步] 箭頭。
 8.	在 [站台對站連線] 頁面上：
-	- 在 [**名稱**] 中，輸入 **Corpnet**。 
-	- 在 [**VPN 裝置 IP 位址**] 中，輸入指派給 RRAS1 網際網路介面的公用 IP 位址。
-	- 在 [**位址空間**] 的 [**起始 IP**] 欄中，輸入 **10.0.0.0**。在 [**CIDR (位址計數)**] 中，選取 **/8**，然後按一下 [**新增地址空間**]。
+	- 在 [名稱] 中，輸入 **Corpnet**。 
+	- 在 [VPN 裝置 IP 位址] 中，輸入指派給 RRAS1 網際網路介面的公用 IP 位址。
+	- 在 [位址空間] 的 [起始 IP] 欄中，輸入 **10.0.0.0**。在 [CIDR (位址計數)] 中，選取 [/8]，然後按一下 [新增位址空間]。
 9.	按 [下一步] 箭頭。
 10.	在 [虛擬網路位址空間] 頁面上：
-	- 在 [**位址空間**] 的 [**起始 IP**] 中，選取 **192.168.0.0**。
-	- 在 [**子網路**] 中，按一下 **subnet-1** 並將名稱取代為 **TestSubnet**。 
-	- 在 TestSubnet 的 [**CIDR (位址計數)**] 欄中，按一下 [**/24 (256)**]。
-	- 按一下 [**新增閘道子網路**]。
+	- 在 [位址空間] 的 [起始 IP] 中，選取 [192.168.0.0]。
+	- 在 [子網路] 中，按一下 [Subnet-1] 並使用 **TestSubnet** 來取代名稱。 
+	- 在 TestSubnet 的 [CIDR (位址計數)] 欄中，按一下 [/24 (256)]。
+	- 按一下 [新增閘道子網路]。
 11.	按一下 [完成] 圖示。等候虛擬網路建立後再繼續。
 
-接下來，使用 [如何安裝和設定 Azure PowerShell](install-configure-powershell.md) 中的指示，在本機電腦上安裝 Azure PowerShell。 
+接下來，按照[如何安裝和設定 Azure PowerShell](install-configure-powershell.md) 中的操作方法，在本機電腦安裝 Azure PowerShell。
 
 接著，建立 TestVNET 虛擬網路的新雲端服務。您必須選擇唯一的名稱。例如，您可以將它命名為 TestVNET-*UniqueSequence*，其中的 *UniqueSequence* 是貴公司的縮寫。例如，如果貴公司名稱為 Tailspin Toys，您可以將雲端服務命名為 TestVNET-Tailspin。
 
@@ -150,15 +152,15 @@ RRAS1 提供公司網路子網路上的電腦與 TestVNET 虛擬網路之間的�
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_3.png)
 
  
-#第 4 階段：建立站對站 VPN 連線
+## 第 4 階段：建立網站間 VPN 連線。
 
 首先，您將建立虛擬網路閘道。
 
-1.	在本機電腦上的 Azure 管理入口網站中，按一下左窗格中的 [**網路**]，然後確認 [TestVNET] 的 [**狀態**] 是設定為 [**已建立**]。
-2.	按一下 [**TestVNET**]。在 [儀表板] 頁面上，您應該會看到 [**未建立閘道**] 狀態。
-3.	在工作列中，按一下 [**建立閘道**]，然後按一下 [**動態路由**]。出現提示時，按一下 [**是**]。等候閘道完成且其狀態變更為 [正在連線]。這可能需要幾分鐘的時間。
-4.	從 [儀表板] 頁面中，記下 **閘道 IP 位址**。這是 TestVNET 虛擬網路的 Azure VPN 閘道公用 IP 位址。您需要這個 IP 位址才能設定 RRAS1。
-5.	在工作列上，按一下 [**管理金鑰**]，然後按一下金鑰旁邊的複製圖示將它複製到剪貼簿。將這個金鑰貼入文件並加以儲存。您需要這個金鑰值才能設定 RRAS1。 
+1.	在本機電腦的 Azure 管理入口網站中，按一下左窗格中的 [網路]，然後確認 TestVNET 的 [狀態] 已設定為 [已建立]。
+2.	按一下 [TestVNET]。在 [儀表板] 頁面上，您應該會看到 [尚未建立閘道] 的狀態。
+3.	在工作列中，按一下 [建立閘道]，然後按一下 [動態路由]。出現提示時，按一下 [是]。等候閘道完成且其狀態變更為 [正在連線]。這可能需要幾分鐘的時間。
+4.	記下 [儀表板] 頁面中的 [閘道 IP 位址]。這是 TestVNET 虛擬網路的 Azure VPN 閘道公用 IP 位址。您需要這個 IP 位址才能設定 RRAS1。
+5.	在工作列上，按一下 [管理金鑰]，然後按一下金鑰旁邊的複製圖示，將它複製到 [剪貼簿]。將這個金鑰貼入文件並加以儲存。您需要這個金鑰值才能設定 RRAS1。 
 
 接著，使用路由及遠端存取服務設定 RRAS1，做為公司網路子網路的 VPN 裝置。以本機系統管理員身分登入RRAS1，並在 Windows PowerShell 命令提示字元下執行這些命令。
 
@@ -177,31 +179,31 @@ RRAS1 提供公司網路子網路上的電腦與 TestVNET 虛擬網路之間的�
 	New-ItemProperty -Path HKLM:\System\CurrentControlSet\Services\RemoteAccess\Parameters\IKEV2 -Name SkipConfigPayload -PropertyType DWord -Value 1
 	Restart-Service RemoteAccess
 
-接著，移至您本機電腦上的 Azure 管理入口網站，等候 TestVNET 虛擬網路顯示 **連線** 狀態。
+接著，移至本機電腦上的 Azure 管理入口網站，等候 TestVNET 虛擬網路顯示 [已連線] 狀態。
 
 接著，設定 RRAS1 支援網際網路位置的轉譯流量。在 RRAS1：
 
-1.	從 [開始] 畫面中，輸入 **rras**，然後按一下 [**路由及遠端存取**]。 
-2.	在主控台樹狀結構中，開啟伺服器名稱，然後按一下 [**IPv4**]。
-3.	以滑鼠右鍵按一下 [**一般**]，然後按一下 [**新增路由通訊協定**]。
-4.	按一下 [**NAT**]，然後按一下 [**確定**]。
-5.	在主控台樹狀結構中，以滑鼠右鍵按一下 [**NAT**]，並按一下 [**新增介面**]，接著按一下 [**公司網路**]，然後按一下 [**確定**] 兩次。
-6.	以滑鼠右鍵按一下 [**NAT]**，並按一下 [**新增介面**]，接著按一下 [**網際網路**]，然後按一下 [**確定**]。
-7.	在 [**NAT**] 索引標籤上，按一下 [**連線到網際網路的公用介面**]，並選取 [**在此介面上啟用 NAT**]，然後按一下 **[確定]**。
+1.	從 [開始] 畫面，輸入 **rras**，然後按一下 [路由及遠端存取]。 
+2.	在主控台樹狀結構中，開啟伺服器名稱，然後按一下 [IPv4]。
+3.	以滑鼠右鍵按一下 [一般]，然後按一下 [新增路由通訊協定]。
+4.	按一下 [NAT]，然後按一下 [確定]。
+5.	在主控台樹狀結構中，以滑鼠右鍵按一下 [NAT]、依序按一下 [新增介面] 和 [Corpnet]，然後按一下 [確定] 兩次。
+6.	以滑鼠右鍵按一下 [NAT]，然後依序按一下 [新增介面]、[網際網路] 及 [確定]。
+7.	在 [NAT] 索引標籤上，按一下 [連線到網際網路的公用介面]、選取 [在此介面上啟用 NAT]，然後按一下 [確定]。
 
 
 接著，設定 DC1、APP1 和 CLIENT1 使用 RRAS1 作為其預設閘道。
  
 在 DC1 上，於系統管理員層級 Windows PowerShell 命令提示字元下執行下列命令。
 
-	New-NetRoute -DestinationPrefix "0.0.0.0/0" -InterfaceAlias "Ethernet" -NextHop 10.0.0.2
-	Set-DhcpServerv4OptionValue -Router 10.0.0.2
+	New-NetRoute –DestinationPrefix "0.0.0.0/0" –InterfaceAlias "Ethernet" –NextHop 10.0.0.2
+	Set-DhcpServerv4OptionValue –Router 10.0.0.2
 
-如果介面的名稱不是乙太網路，請使用 **Get NetAdapter** 命令決定介面名稱。
+如果介面的名稱不是乙太網路，請使用 **Get-NetAdapter** 命令來決定介面名稱。
 
 在 APP1 上，於系統管理員層級 Windows PowerShell 命令提示字元下執行下列命令。
 
-	New-NetRoute -DestinationPrefix "0.0.0.0/0" -InterfaceAlias "Ethernet" -NextHop 10.0.0.2
+	New-NetRoute –DestinationPrefix "0.0.0.0/0" –InterfaceAlias "Ethernet" –NextHop 10.0.0.2
 
 在 CLIENT1 上，於系統管理員層級 Windows PowerShell 命令提示字元下執行下列命令。
 
@@ -213,32 +215,32 @@ RRAS1 提供公司網路子網路上的電腦與 TestVNET 虛擬網路之間的�
 ![](./media/virtual-networks-set-up-hybrid-cloud-environment-for-testing/CreateHybridCloudVNet_4.png)
 
 
-#第 5 階段：設定 DC2
+## 第 5 階段：設定 DC2。
 
 首先，在本機電腦的 Azure PowerShell 命令提示字元下，使用下列命令建立 DC2 的 Azure 虛擬機器。
 
 	$ServiceName="<Your cloud service name from Phase 3>"
-	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<The password for the local administrator account>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
+	$cred=Get-Credential –Message "Type the name and password of the local administrator account for DC2."
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password 
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW	
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles -LUN 0 -HostCaching None
-	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles –LUN 0 -HostCaching None
+	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 
 接著，登入新的 DC2 虛擬機器。
 
-1.	在 Azure 管理入口網站的左窗格中，按一下 [**虛擬機器**]，然後按一下 DC2 [**狀態**] 欄中的 [**執行**]。
-2.	在工作列上，按一下 [**連接**]。 
-3.	提示開啟 DC2.rdp 時，按一下 [**開啟**]。
-4.	[遠端桌面連線] 訊息方塊顯示提示時，按一下 [**連接**]。
+1.	在 Azure 管理入口網站的左窗格中，按一下 [虛擬機器]，然後按一下 DC2 [狀態] 欄中的 [執行中]。
+2.	在工作列上，按一下 [連接]。 
+3.	當系統提示開啟 DC2.rdp 時，按一下 [開啟]。
+4.	顯示 [遠端桌面連線] 訊息方塊後，按一下 [連接]。
 5.	出現輸入認證的提示時，使用下列：
 	- 名稱：**DC2**[本機系統管理員帳戶名稱]
 	- 密碼：[本機系統管理員帳戶密碼]
-6.	參照憑證的 [遠端桌面連線] 訊息方塊顯示提示時，按一下 [**是**]。
+6.	顯示憑證相關的 [遠端桌面連線] 訊息方塊提示時，按一下 [是]。
 
 接著，設定 Windows 防火牆規則，允許基本連線測試的流量。從 DC2 的系統管理員層級 Windows PowerShell 命令提示字元下，執行：
 
@@ -249,16 +251,16 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。這�
 
 接著，將額外的資料磁碟新增為磁碟機代號 F: 的新磁碟區。
 
-1.	在 [伺服器管理員] 的左窗格中，按一下 [**檔案和存放服務**]，然後按一下 [**磁碟**]。
-2.	在 [內容] 窗格的 [**磁碟**] 群組中，按一下 [**磁碟 2**] ([**磁碟分割**] 設為 [**未知**])。
-3.	按一下 [**工作**]，然後按一下 [**新增磁碟區**]。
-4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [**下一步]**。
-5.	在 [選取伺服器和磁碟] 頁面上，按一下 [**磁碟 2**]，然後按 [**下一步**]。出現提示時，按一下 [**確定**]。
-6.	在 [指定磁碟區大小] 頁面上，按 [**下一步**]。
-7.	在 [指派成磁碟機代號或資料夾] 頁面上，按 [**下一步**]。
-8.	在 [選取檔案系統設定] 頁面上，按 [**下一步**]。
-9.	在 [確認選取項目] 頁面上，按一下 [**建立**]。
-10.	完成時，按一下 [**關閉**]。
+1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
+2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2]  ([磁碟分割] 設為 [不明])。
+3.	按一下 [工作]，然後按一下 [新增磁碟區]。
+4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]。
+5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 **[確定]**。
+6.	在 [指定磁碟區大小] 頁面上，按 [下一步]。
+7.	在 [指派成磁碟機代號或資料夾] 頁面上，按 [下一步]。
+8.	在 [選取檔案系統設定] 頁面上，按 [下一步]。
+9.	在 [確認選取項目] 頁面上，按一下 [建立]。
+10.	完成時，按一下 [關閉]。
 
 接著，將 DC2 設定為 corp.contoso.com 網域的複本網域控制站。從 DC2 的 Windows PowerShell 命令提示字元執行下列命令。
 
@@ -269,13 +271,13 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。這�
 
 由於 TestVNET 虛擬網路有自己的 DNS 伺服器 (DC2)，因此您必須設定 TestVNET 的虛擬網路使用這個 DNS 伺服器。
 
-1.	在 Azure 管理入口網站的左窗格中，按一下 [**網路**]，然後按一下 [**TestVNET**]。
-2.	按一下 [設定]****。
-3.	在 [**DNS 伺服器**]，移除 **10.0.0.1** 項目。
-4.	在 [**DNS 伺服器**]，加入含 **DC2** 的項目作為名稱，並加入 **192.168.0.4** 作為 IP 位址。 
-5.	在底部的命令列中，按一下 [**儲存**]。
-6.	在 Azure 管理入口網站的左窗格中，按一下 [**虛擬機器**]，然後按一下 DC2 旁邊的 [**狀態**] 欄。
-7.	在命令列中，按一下 [**重新啟動**]。等候 DC2 重新啟動。
+1.	在 Azure 管理入口網站的左窗格中，按一下 [網路]，然後按一下 [TestVNET]。
+2.	按一下 [設定]。
+3.	在 [DNS 伺服器] 中，移除 **10.0.0.1** 項目。
+4.	在 [DNS 伺服器] 中，加入含 **DC2** 的項目做為名稱，並加入 **192.168.0.4** 做為 IP 位址。 
+5.	在底部的命令列中按一下 [**儲存**]。
+6.	在 Azure 管理入口網站的左窗格中，按一下 [虛擬機器]，然後按一下 DC2 旁邊的 [狀態] 欄。
+7.	在命令列中按一下 [**重新啟動**]。等候 DC2 重新啟動。
 
 
 這是您目前的組態。
@@ -285,9 +287,9 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。這�
  
 混合式雲端環境到此準備就緒，可以進行測試。
 
-##其他資源
+## 其他資源
 
-[設定 SharePoint 內部網路伺服器陣列中的測試混合式雲端](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
+[在混合式雲端中設定用於測試的 SharePoint 內部網路伺服器陣列](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
 [在混合式雲端中設定 Web 型 LOB 應用程式進行測試](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
@@ -295,21 +297,24 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。這�
 
 [設定用於測試的模擬混合式雲端環境](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
-##將此環境的持續成本降至最低
+[Azure 混合式雲端測試環境](virtual-machines-hybrid-cloud-test-environments.md)
 
-若要將在此環境中執行虛擬機器的成本降至最低，請盡速執行所需的測試和示範，然後在不使用時予以刪除或關閉虛擬機器。例如，您可以使用 Azure 自動化和 Runbook 在每個營業日結束時自動關閉 Test_VNET 虛擬網路中的虛擬機器。如需詳細資訊，請參閱 [開始使用 Azure 自動化]。(automation-create-runbook-from-samples.md)。 
 
-Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機器。如需詳細資訊，請參閱 [價格 - 虛擬網路](http://azure.microsoft.com/pricing/details/virtual-network/)。若要將這個 VPN 閘道的成本降至最低，請使用這些步驟建立測試環境，並盡速執行所需的測試和示範或刪除閘道。 
+## 將此環境的持續成本降至最低
 
-1.	從本機電腦上的 Azure 管理入口網站中，按一下左窗格中的 [**網路**]，並按一下 [**TestVNET**]，然後按一下 [**儀表板**]。
-2.	在工作列中，按一下 [**刪除閘道**]。出現提示時，按一下 [**是**]。等候閘道刪除而且其狀態變更為 [**未建立閘道**]。
+若要將在此環境中執行虛擬機器的成本降至最低，請盡速執行所需的測試和示範，然後在不使用時予以刪除或關閉虛擬機器。例如，您可以使用 Azure 自動化和 Runbook 在每個營業日結束時自動關閉 Test_VNET 虛擬網路中的虛擬機器。如需詳細資訊，請參閱[開始使用 Azure 自動化](automation-create-runbook-from-samples.md)。
+
+Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機器。如需詳細資訊，請參閱[定價 - 虛擬網路](http://azure.microsoft.com/pricing/details/virtual-network/)。若要將這個 VPN 閘道的成本降至最低，請使用這些步驟建立測試環境，並盡速執行所需的測試和示範或刪除閘道。
+
+1.	從本機電腦的 Azure 管理入口網站中，依序按一下左窗格中的 [網路]、[TestVNET] 及 [儀表板]。
+2.	在工作列中，按一下 [刪除閘道]。出現提示時，按一下 [是]。等候閘道刪除而且其狀態變更為 [尚未建立閘道]。
 
 如果您刪除閘道，而且要還原測試環境，您必須先建立新的閘道。
 
-1.	從本機電腦上的 Azure 管理入口網站中，按一下左窗格中的 [**網路**]，然後按一下 [**TestVNET**]。在 [儀表板] 頁面上，您應該會看到 [**未建立閘道**] 狀態。
-2.	在工作列中，按一下 [**建立閘道**]，然後按一下 [**動態路由**]。出現提示時，按一下 [**是**]。等候閘道完成且其狀態變更為 [正在連線]。這可能需要幾分鐘的時間。
-3.	從 [儀表板] 頁面中，記下 **閘道 IP 位址**。這是 TestVNET 虛擬網路的 Azure VPN 閘道新公用 IP 位址。您需要這個 IP 位址才能重新設定 RRAS1。
-4.	在工作列上，按一下 [**管理金鑰**]，然後按一下金鑰旁邊的複製圖示將它複製到剪貼簿。將這個金鑰值貼入文件並加以儲存。您需要這個金鑰值才能重新設定 RRAS1。 
+1.	從本機電腦的 Azure 管理入口網站中，按一下左窗格中的 [網路]，然後按一下 [TestVNET]。在 [儀表板] 頁面上，您應該會看到 [尚未建立閘道] 的狀態。
+2.	在工作列中，按一下 [建立閘道]，然後按一下 [動態路由]。出現提示時，按一下 [是]。等候閘道完成且其狀態變更為 [正在連線]。這可能需要幾分鐘的時間。
+3.	記下 [儀表板] 頁面中的 [閘道 IP 位址]。這是 TestVNET 虛擬網路的 Azure VPN 閘道新公用 IP 位址。您需要這個 IP 位址才能重新設定 RRAS1。
+4.	在工作列上，按一下 [管理金鑰]，然後按一下金鑰旁邊的複製圖示，將它複製到 [剪貼簿]。將這個金鑰值貼入文件並加以儲存。您需要這個金鑰值才能重新設定 RRAS1。 
 
 接著，以本機系統管理員身分登入 RRAS1，並在系統管理員層級 Windows PowerShell 命令提示字元下執行這些命令，使用新的公用 IP 位址和預先共用金鑰重新設定 RRAS1。
 
@@ -318,4 +323,4 @@ Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機
 
 接著，移至您本機電腦上的 Azure 管理入口網站，等候 TestVNET 虛擬網路顯示連線狀態。
 
-<!--HONumber=47-->
+<!---HONumber=58-->

@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
    pageTitle="測試流量管理員設定"
    description="本文將協助您測試流量管理員設定"
    services="traffic-manager"
    documentationCenter=""
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/27/2015"
-   ms.author="cherylmc" />
+   ms.date="05/27/2015"
+   ms.author="joaoma;cherylmc" />
 
 # 測試流量管理員設定
 
@@ -23,15 +23,13 @@
 
 - **設定非常低的 DNS TTL**，方便快速傳播變更 - 例如 30 秒。
 - **知道正在測試的設定檔中您 Azure 雲端服務和網站的 IP 位址**。
-- **使用可讓您解析 IP 位址之 DNS 名稱的工具**並顯示該位址。您正查看公司網域名稱是否解析成設定檔中端點的 IP 位址。他們的解析方法應與流量管理員設定檔的負載平衡方法一致。如果您是使用執行 Windows 的電腦，您可以從命令或 Windows PowerShell 命令提示字元使用 Nslookup.exe 工具。可讓您「挖掘」IP 位址的其他公開可用工具在網際網路上隨手可得。
+- **使用可讓您將 DNS 名稱解析成 IP 位址的工具**，並顯示該位址。您正查看公司網域名稱是否解析成設定檔中端點的 IP 位址。他們的解析方法應與流量管理員設定檔的負載平衡方法一致。如果您是使用執行 Windows 的電腦，您可以從命令或 Windows PowerShell 命令提示字元使用 Nslookup.exe 工具。可讓您「挖掘」IP 位址的其他公開可用工具在網際網路上隨手可得。
 
 ### 使用 nslookup 檢查流量管理員設定檔
 
 1. 以系統管理員的身分開啟命令或 Windows PowerShell 命令提示字元。
 2. 輸入 `ipconfig /flushdns` 以排清 DNS 解析程式快取。
-3. 輸入 `nslookup <your Traffic Manager domain name>`。例如，下列命令會檢查前置詞為 *myapp.contoso* 的網域名稱：
-    nslookup myapp.contoso.trafficmanager.net
-   典型的結果顯示如下：
+3. 輸入 `nslookup <your Traffic Manager domain name>`。例如，下列命令會檢查包含 *myapp.contoso*: nslookup myapp.contoso.trafficmanager.net 前置詞的網域名稱。典型的結果顯示如下：
    - 正在存取 DNS 伺服器的 DNS 名稱和 IP 位址，藉此解析此流量管理員網域名稱。
    - 您在命令行上輸入在 "nslookup" 之後的流量管理員網域名稱，和流量管理員網域名稱解析的 IP 位址。第二個 IP 位址是要檢查的重點。它應符合正在測試流量管理員設定檔中其中一個雲端服務或網站的 虛擬 IP (VIP)。
 
@@ -61,7 +59,7 @@
 
 若要有效地測試效能負載平衡方法，您必須有位在世界各地的用戶端。您可以在 Azure 中建立嘗試透過公司網域名稱呼叫服務的用戶端。或者，如果您的公司是全球企業，您可以在世界各地遠端登入用戶端，並從這些用戶端中進行測試。
 
-您可以找到免費的 Web 型 DNS 查閱和挖掘服務。其中部分提供您從不同位置檢查 DNS 名稱解析的能力。例如，搜尋 "DNS lookup" 相關資料。另一個選項是使用協力廠商解決方案 (如 Gomez 或 Keynote)，確認您的設定檔正如預期般分配流量。
+您可以找到免費的 Web 型 DNS 查閱和挖掘服務。其中部分提供您從不同位置檢查 DNS 名稱解析的能力。例如，搜尋 “DNS lookup” 相關資料。另一個選項是使用協力廠商解決方案 (如 Gomez 或 Keynote)，確認您的設定檔正如預期般分配流量。
 
 ## 另請參閱
 
@@ -77,5 +75,4 @@
 
 [流量管理員的相關作業 (REST API 參考)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
-
-<!--HONumber=49-->
+<!---HONumber=58-->

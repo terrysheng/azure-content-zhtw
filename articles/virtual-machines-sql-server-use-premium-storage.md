@@ -3,7 +3,7 @@
 	description="本文提供如何利用在 Azure 虛擬機器上執行的 SQL Server，開始使用 Azure 高階儲存體的指導方針。其中包含新部署和移轉 IaaS 上現有 SQL Server 部署的範例。" 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="rothja" 
+	authors="danielsollondon" 
 	manager="jeffreyg"
 	editor=""/>
 
@@ -31,6 +31,8 @@
 - 完整的端對端範例，示範適用於移轉現有 AlwaysOn 實作的 Azure、Windows 及 SQL Server 步驟。
 
 如需更多關於 Azure 虛擬機器中 SQL Server 的背景資訊，請參閱 [Azure 虛擬機器中的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。
+
+**技術檢閱者：**Luis Carlos Vargas Herring、Sanjay Mishra、Pravin Mital、Juergen Thomas、Gonzalo Ruiz
 
 ## 適用於高階儲存體的必要條件
 
@@ -117,12 +119,12 @@
 
 	![DisknameAndLUN][2]
 
-1. 從遠端桌面連接到 VM。然後前往 [電腦管理]**** | [裝置管理員]**** | [磁碟機]****。查看每一個「Microsoft 虛擬磁碟」的屬性
+1. 從遠端桌面連接到 VM。然後前往 [電腦管理] | [裝置管理員] | [磁碟機]。查看每一個「Microsoft 虛擬磁碟」的屬性
 
 	![VirtualDiskProperties][3]
 
 1. 此處的 LUN 編號是您在將 VHD 連結到 VM 時所指定的 LUN 編號的參考。
-1. 針對「Microsoft 虛擬磁碟」，前往 [詳細資料]**** 索引標籤，然後在 [屬性]**** 清單中找到 [驅動程式機碼]****。記下 [值]**** 中的 [位移]****，在下列螢幕擷取畫面中為 0002。0002 表示儲存集區參考的 PhysicalDisk2。
+1. 針對「Microsoft 虛擬磁碟」，前往 [詳細資料] 索引標籤，然後在 [屬性] 清單中找到 [驅動程式機碼]。記下 [值] 中的 [位移]，在下列螢幕擷取畫面中為 0002。0002 表示儲存集區參考的 PhysicalDisk2。
 
 	![VirtualDiskPropertyDetails][4]
 
@@ -401,7 +403,7 @@
 1. 驗證成功之後，啟動所有 SQL Server 服務。
 1. 備份交易記錄，然後還原使用者資料庫。
 1. 將新節點新增到 AlwaysOn 可用性群組，並使複寫可以**同步**。 
-1. 根據[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)中的多站台範例，透過適用於 AlwaysOn 的 PowerShell，來新增新雲端服務 ILB/ELB 的 IP 位址資源。在 Windows 叢集中，將 [IP 位址]**** 資源的 [可能的擁有者]**** 設為之前的新節點。請參閱[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
+1. 根據[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)中的多站台範例，透過適用於 AlwaysOn 的 PowerShell，來新增新雲端服務 ILB/ELB 的 IP 位址資源。在 Windows 叢集中，將 [IP 位址] 資源的 [可能的擁有者] 設為之前的新節點。請參閱[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
 1. 容錯移轉到其中一個新節點。
 1. 使新節點成為自動容錯移轉夥伴並測試容錯移轉。
 1. 從可用性群組移除原始節點。
@@ -1140,4 +1142,4 @@
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!--HONumber=54-->
+<!---HONumber=58-->

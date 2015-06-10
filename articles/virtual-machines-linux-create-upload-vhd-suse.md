@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="05/15/2015" 
 	ms.author="szarkos"/>
 
 
@@ -22,14 +22,14 @@
 - [準備執行 Azure 的 SLES 11 SP3 虛擬機器](#sles11)
 - [準備執行 Azure 的 openSUSE 13.1+ 虛擬機器](#osuse)
 
-## 必要條件##
+##必要條件##
 
-本文假設您已將 SUSE 或 openSUSE Linux 作業系統安裝到虛擬硬碟。有多項工具可用來建立 .vhd 檔案，例如 Hyper-V 的虛擬化解決方案。如需相關指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。 
+本文假設您已將 SUSE 或 openSUSE Linux 作業系統安裝到虛擬硬碟。有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。如需指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
 
 
 **SLES / openSUSE 安裝注意事項**
 
- - [SUSE Studio](http://www.susestudio.com) 可讓您輕易地建立及管理 Azure 和 Hyper-V 的 SLES / openSUSE 映像。建議您使用此方法來自訂專屬的 SUSE 和 openSUSE 映像。您也可以將 SUSE Studio Gallery 中的下列正式映像下載或複製到您專屬的 SUSE Studio：
+ - [SUSE Studio](http://www.susestudio.com) 可讓您輕鬆建立及管理 Azure 和 Hyper-V 的 SLES / openSUSE 映像。這是建議用來自訂您自己的 SUSE 和 openSUSE 映像的方法。您也可以將 SUSE Studio Gallery 中的下列正式映像下載或複製到您專屬的 SUSE Studio：
 
   - [SUSE Studio Gallery 上的 SLES 11 SP3 for Azure](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
   - [SUSE Studio Gallery 上的 openSUSE 13.1 for Azure](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
@@ -47,7 +47,7 @@
 
 1. 在 Hyper-V 管理員的中央窗格中，選取虛擬機器。
 
-2. 按一下 [**連接**]，以開啟虛擬機器的視窗。
+2. 按一下 **[連接]**，以開啟虛擬機器的視窗。
 
 3. 註冊您的 SUSE Linux Enterprise 系統，以允許下載更新並安裝封裝。
 
@@ -65,7 +65,7 @@
 
 	這將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。
 
-7.	建議您編輯檔案 "/etc/sysconfig/network/dhcp"，並將  `DHCLIENT_SET_HOSTNAME` 參數變更如下：
+7.	建議您編輯檔案 "/etc/sysconfig/network/dhcp"，並將 `DHCLIENT_SET_HOSTNAME` 參數變更如下：
 
 		DHCLIENT_SET_HOSTNAME="no"
 
@@ -78,7 +78,7 @@
 
 10.	請不要在 OS 磁碟上建立交換空間
 
-	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是  *temporary* 磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
+	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是*暫存*磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -92,7 +92,7 @@
 		# export HISTSIZE=0
 		# logout
 
-12. 在 Hyper-V 管理員中，依序按一下 [**動作] -> [關閉**]。您現在可以將 Linux VHD 上傳至 Azure。
+12. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
 
 ----------
@@ -101,7 +101,7 @@
 
 1. 在 Hyper-V 管理員的中央窗格中，選取虛擬機器。
 
-2. 按一下 [**連接**]，以開啟虛擬機器的視窗。
+2. 按一下 [連接]，以開啟虛擬機器的視窗。
 
 3. 在 Shell 上執行命令 '`zypper lr`'。若此命令傳回類似以下的輸出 (請注意，版本號碼可能會不同)：
 
@@ -119,7 +119,7 @@
 		# sudo zypper ar -f http://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
 		# sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
 
-	您可以接著驗證已新增的儲存機制，方法是重新執行命令 '`zypper lr`'。如果有其中一個相關的更新儲存機制未啟用，請使用下列命令加以啟用：
+	您接著可以重新執行命令 '`zypper lr`' 來驗證已新增的儲存機制。如果有其中一個相關的更新儲存機制未啟用，請使用下列命令加以啟用：
 
 		# sudo zypper mr -e [NUMBER OF REPOSITORY]
 
@@ -144,7 +144,7 @@
 
 		libata.atapi_enabled=0 reserve=0x1f0,0x8
 
-7.	建議您編輯檔案 "/etc/sysconfig/network/dhcp"，並將  `DHCLIENT_SET_HOSTNAME` 參數變更如下：
+7.	建議您編輯檔案 "/etc/sysconfig/network/dhcp"，並將 `DHCLIENT_SET_HOSTNAME` 參數變更如下：
 
 		DHCLIENT_SET_HOSTNAME="no"
 
@@ -157,7 +157,7 @@
 
 10.	請不要在 OS 磁碟上建立交換空間
 
-	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是  *temporary* 磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
+	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是*暫存*磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -175,8 +175,6 @@
 
 		# sudo systemctl enable waagent.service
 
-13. 在 Hyper-V 管理員中，依序按一下 [**動作] -> [關閉**]。您現在可以將 Linux VHD 上傳至 Azure。
+13. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-
-
-<!--HONumber=45--> 
+<!---HONumber=58-->

@@ -1,10 +1,10 @@
-﻿<properties
+<properties
 	pageTitle="使用 Azure CustomScript 延伸模組部署 Linux 應用程式"
 	description="了解如何使用 Azure CustomScript 延伸模組，在 Linux 虛擬機器上部署應用程式。"
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	services=""
+	services="virtual-machines"
 	authors="gbowerman"/>
 
 <tags
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/23/2015"
+	ms.date="02/23/2015"
 	ms.author="guybo"/>
 
-#使用適用於 Linux# 的 Azure CustomScript 延伸模組部署 LAMP 應用程式
+#使用適用於 Linux 的 Azure CustomScript 延伸模組部署 LAMP 應用程式#
 
 適用於 Linux 的 Azure CustomScript 延伸模組提供一種方式，讓您可以執行使用該虛擬機器 (VM) 所支援的任何指令碼語言 (例如 Python、Bash 等) 所撰寫的任意程式碼來自訂 VM。這提供極具彈性的方式，自動將應用程式部署到多部電腦。
 
-您可以使用 Azure 入口網站、PowerShell 或 Azure 跨平台命令列介面 (xplat-cli)，來部署 CustomScript 延伸模組。
+您可以使用 Azure 入口網站、PowerShell 或 Azure 跨平台命令列介面 (Azure CLI)，來部署 CustomScript 延伸模組。
 
-此範例將使用 xplat-cli，將簡單的 LAMP 應用程式逐步部署到 Ubuntu。
+此範例將使用 Azure CLI，將簡單的 LAMP 應用程式逐步部署到 Ubuntu。
 
 ## 必要條件
 
-針對此逐步解說，建立兩個執行 Ubuntu 14.04 的 Azure VM。我在此將它們稱為 *script-vm* 和 *lamp-vm*。當您嘗試這麼做時，請使用唯一名稱。其中一個將執行 CLI 命令，而另一個則是要部署 LAMP 應用程式。
+針對此逐步解說，建立兩個執行 Ubuntu 14.04 的 Azure VM。我會在此處將它們稱為 *script-vm* 和 *lamp-vm*。當您嘗試這麼做時，請使用唯一名稱。其中一個將執行 CLI 命令，而另一個則是要部署 LAMP 應用程式。
 
 您也需要 Azure 儲存體帳戶和金鑰才能存取它 (您可以從 Azure 入口網站取得此資訊)。
 
@@ -34,7 +34,7 @@
 
 雖然特定的安裝命令將會假設 Ubuntu，但是您可以針對任何支援的發行版採用一般步驟。
 
- *script-vm* VM 需要安裝 xplat-cli，並且與 Azure 之間具有正常運作的連線。如需此動作的說明，請參閱[安裝與設定 Azure 跨平台命令列介面](xplat-cli.md)。
+*script-vm* VM 需要安裝 Azure CLI，並且與 Azure 之間具有正常運作的連線。如需此動作的說明，請參閱[安裝與設定 Azure 命令列介面](xplat-cli.md)。
 
 ## 上傳指令碼
 
@@ -64,18 +64,18 @@
 
 **上傳**
 
-將指令碼儲存為文字檔，例如 *lamp_install.sh*，然後將它上傳到 Azure 儲存體。您可以使用 xplat-cli，輕鬆執行這個動作。下列範例會將檔案上傳到名為 "scripts" 的儲存體容器中。注意：如果此容器不存在，您必須先建立它。
+將指令碼儲存為文字檔 (例如 *lamp_install.sh*)，然後將它上傳到 Azure 儲存體。您可以使用 Azure CLI，輕鬆執行這個動作。下列範例會將檔案上傳到名為 "scripts" 的儲存體容器中。注意：如果此容器不存在，您必須先建立它。
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
-此外，還會建立 JSON 檔案，此檔案會描述如何從 Azure 儲存體下載指令碼。將此檔案儲存為 *public_config.json* (使用您儲存體帳戶的名稱來取代 "mystorage")：
+此外，還會建立 JSON 檔案，此檔案會描述如何從 Azure 儲存體下載指令碼。將此檔案儲存為 *public_config.json* (使用您的儲存體帳戶名稱來取代 "mystorage")：
 
-    {fileUris":["https://mystorage.blob.core.windows.net/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
+    {"fileUris":["https://mystorage.blob.core.windows.net/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
 
 
 ## 部署延伸模組
 
-現在我們已經準備好使用 xplat-cli，來將 Linux CustomScript 延伸模組部署到遠端 VM：
+現在我們已經準備好使用 Azure CLI，來將 Linux CustomScript 延伸模組部署到遠端 VM：
 
     azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
 
@@ -92,13 +92,13 @@
     cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
     tail -f extension.log
 
-一旦完成執行 CustomScript 延伸模組之後，就可以瀏覽到您建立的 PHP 頁面，在此範例中為： *http://lamp-vm.cloudapp.net/phpinfo.php*。
+一旦完成執行 CustomScript 延伸模組之後，就可以瀏覽到您建立的 PHP 頁面，在此範例中為：*http://lamp-vm.cloudapp.net/phpinfo.php*。
 
 ## 其他資源
 
 您可以使用相同的基本步驟來部署更複雜的應用程式。此範例將安裝指令碼儲存為 Azure 儲存體中的公用 Blob。比較安全的選項是使用[安全存取簽章](https://msdn.microsoft.com/library/azure/ee395415.aspx) (SAS)，以安全 Blob 形式儲存安裝指令碼。
 
-以下是一些適用於 xplat-cli、Linux 與 CustomScript 延伸模組的其他資源：
+以下是一些適用於 Azure CLI、Linux 與 CustomScript 延伸模組的其他資源：
 
 [使用 CustomScript 延伸模組以將 Linux VM 自訂工作自動化](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
 
@@ -106,4 +106,4 @@
 
 [Azure 上的 Linux 和開放原始碼運算](virtual-machines-linux-opensource.md)
 
-<!--HONumber=47-->
+<!---HONumber=58-->

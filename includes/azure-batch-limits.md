@@ -1,4 +1,4 @@
-﻿<table cellspacing="0" border="1">
+<table cellspacing="0" border="1">
 <tr>
    <th align="left" valign="middle">資源</th>
    <th align="left" valign="middle">預設限制</th>
@@ -20,6 +20,6 @@
    <td valign="middle"><p>5000</p></td>
 </tr>
 </table>
-<sup>1</sup> 已達到每一 Batch 帳戶的核心數目，但未指定最大數目。請聯絡客戶支援以討論增加選項。
+<sup>1</sup> 可以增加每一 Batch 帳戶的核心數目，但未指定最大數目。請聯絡客戶支援以討論增加選項。
 
-<!--HONumber=47-->
+<!---HONumber=58-->

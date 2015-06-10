@@ -1,24 +1,25 @@
-﻿<properties 
-	pageTitle="在 Azure 中執行 OpenSUSE Linux 的虛擬機器上安裝 MySQL" 
-	description="了解如何在 Azure 的虛擬機器上安裝 MySQL。" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor=""/>
+<properties
+	pageTitle="在 Azure 中執行 OpenSUSE Linux 的虛擬機器上安裝 MySQL"
+	description="了解如何在 Azure 的虛擬機器上安裝 MySQL。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
+	editor=""
+	tags="mysql"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/12/2014" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/22/2015"
 	ms.author="kathydav"/>
 
 # 在 Azure 中執行 OpenSUSE Linux 的虛擬機器上安裝 MySQL
 
-[MySQL][MySQL] 是廣受使用的開放原始碼 SQL 資料庫。本教學課程將說明：
+[MySQL][MySQL] 是一種很受歡迎的開放原始碼 SQL 資料庫。本教學課程將說明：
 
 - 如何使用 [Azure 管理入口網站][AzurePortal]，從可透過 Azure 取得的映像建立 OpenSUSE Linux 虛擬機器。
 - 如何使用 SSH 或 PuTTY 來連線至虛擬機器。
@@ -41,4 +42,4 @@
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!--HONumber=45--> 
+<!---HONumber=58-->

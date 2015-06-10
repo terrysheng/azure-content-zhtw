@@ -75,9 +75,9 @@ Microsoft Azure 中的端點包含通訊協定以及公用連接埠和私用連�
 - 下載之後，按一下可執行檔 PUTTY.EXE。按照以下方式設定。
 
 
-     The “Host Name (or IP address)” is the URL as “DNS NAME” when you create an image.
+     當您建立映像時，[主機名稱 (或 IP 位址)] 是當成 [DNS 名稱] 的 URL。
      
-     The “Port” we can chose 22.  This is default port of SSH services.
+     我們可以為 [連接埠] 選擇 22。這是 SSH 服務的預設連接埠。
 
    ![image](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p06.png)
  
@@ -237,4 +237,5 @@ MySQL 支援 3 種安裝方法：二進位套件、rpm 套件和來源套件。�
     若要將 MySQL 設為在系統開機時啟動，請執行下列命令：
 
            #mysql-test:~ # insserv mysql
-<!--HONumber=52-->
+
+<!---HONumber=58-->

@@ -569,7 +569,7 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 
 
 
-[azure-data-factory-pig-hive]: data-factory-pig-hive-activities.md
+[azure-data-factory-pig-hive]: ./data-factory/data-factory-pig-hive-activities.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md

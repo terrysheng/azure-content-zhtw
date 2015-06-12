@@ -26,7 +26,7 @@ Azure 備份與 Azure 匯入/匯出服務密切整合，可讓您快速傳輸初
 
 ## 必要條件
 
-1. 請務必熟悉 Azure 匯入/匯出工作流程，相關資訊會在[這裡](storage-import-export-service.md)列出。
+1. 請務必熟悉 Azure 匯入/匯出工作流程，相關資訊會在[這裡](../storage-import-export-service.md)列出。
 
 2. 起始工作流程之前，請確定已建立 Azure 備份保存庫、已下載保存庫認證、Azure 備份代理程式已安裝於您的 Windows Server/Windows 用戶端或 System Center Data Protection Manager (SCDPM) 伺服器，且電腦已註冊 Azure 備份保存庫。
 
@@ -42,7 +42,7 @@ Azure 備份與 Azure 匯入/匯出服務密切整合，可讓您快速傳輸初
 
 
 ## 工作流程
-本章節提供的資訊可讓您完成**離線備份**工作流程，以便將您的資料傳遞至 Azure 資料中心，並上傳至 Azure 儲存體。若您有關於匯入服務或處理程序任何層面的問題，請參閱[上方](storage-import-export-service.md)參考的匯入服務概觀。
+本章節提供的資訊可讓您完成**離線備份**工作流程，以便將您的資料傳遞至 Azure 資料中心，並上傳至 Azure 儲存體。若您有關於匯入服務或處理程序任何層面的問題，請參閱[上方](../storage-import-export-service.md)參考的匯入服務概觀。
 
 ### 初始離線備份
 
@@ -119,7 +119,7 @@ SCDPM 中的對應工作流程可透過按一下 [**保護群組**]，然後選�
 一旦初始備份資料可供您的儲存體帳戶使用之後，Azure 備份代理程式會將此帳戶的資料內容複製至多個承租的備份儲存體帳戶中。在下一步的排程備份時間，Azure 備份代理程式會透過初始備份複本執行增量備份。
 
 ## 後續步驟
-+ 若您有關於 Azure 匯入/匯出工作流程的任何問題，請參閱此[文章](storage-import-export-service.md)。
++ 若您有關於 Azure 匯入/匯出工作流程的任何問題，請參閱此[文章](../storage-import-export-service.md)。
 
 + 若您有關於工作流程的任何問題，請參閱 Azure 備份[常見問題集](backup-azure-backup-faq.md)的＜離線備份＞章節
 
@@ -134,4 +134,4 @@ SCDPM 中的對應工作流程可透過按一下 [**保護群組**]，然後選�
 [8]: ./media/backup-azure-backup-import-export/dpmoffline.png
 [9]: ./media/backup-azure-backup-import-export/dpmbackupnow.png
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

@@ -38,7 +38,7 @@
 
 ## 替代架構：網站和 WebJob
 
-本教學課程示範如何在 Azure 雲端服務中執行前端與後端。替代方法是在 [Azure 網站](/services/web-sites/) 中執行前端，然後使用 [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) 功能 (目前為預覽版) 做為後端。如需有關使用 WebJobs 的教學課程，請參閱[開始使用 Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)。如需有關如何選擇最適合您案例之服務的資訊，請參閱 [Azure 網站、雲端服務與虛擬機器之比較](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/)。
+本教學課程示範如何在 Azure 雲端服務中執行前端與後端。替代方法是在 [Azure 網站](/services/web-sites/) 中執行前端，然後使用 [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) 功能 (目前為預覽版) 做為後端。如需有關使用 WebJobs 的教學課程，請參閱[開始使用 Azure WebJobs SDK](app-service-web/websites-dotnet-webjobs-sdk-get-started.md)。如需有關如何選擇最適合您案例之服務的資訊，請參閱 [Azure 網站、雲端服務與虛擬機器之比較](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/)。
 
 ## 您將學到什麼
 

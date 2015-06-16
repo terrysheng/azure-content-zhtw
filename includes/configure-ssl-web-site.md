@@ -1,4 +1,4 @@
-﻿#針對 Azure App Service 中的 Web 應用程式啟用 HTTPS
+#針對 Azure App Service 中的 Web 應用程式啟用 HTTPS
 
 > [AZURE.NOTE]
 > 快速完成啟用 -- 使用全新的 Azure [引導式逐步解說](http://support.microsoft.com/kb/2990804)！在彈指之間完成自訂網域名稱的關聯，以及與 Azure 雲端服務或 [Azure 服務](http://go.microsoft.com/fwlink/?LinkId=529714)之間的通訊 (SSL) 保護。
@@ -444,7 +444,7 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 
 Azure App Service  *not*強制使用 HTTPS。訪客可能仍會使用 HTTP 存取您的 Web 應用程式，這可能會危及您的 Web 應用程式安全性。如果想要強制您的 Web 應用程式使用 HTTPS，您可以使用 **URL Rewrite** 模組。Azure App Service 隨附 URL Rewrite 模組，此模組可讓您定義連入要求在送達應用程式之前要套用的規則。**它可用於以任何 Azure 支援的程式設計語言所撰寫的應用程式。** 
 
-> [AZURE.NOTE] .NET MVC 應用程式應使用 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 篩選，而非 URL Rewrite。如需有關使用 RequireHttps 的詳細資訊，請參閱[將安全的 ASP.NET MVC 5 應用程式部署至 Web 應用程式](../articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)。
+> [AZURE.NOTE] .NET MVC 應用程式應使用 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 篩選，而非 URL Rewrite。如需有關使用 RequireHttps 的詳細資訊，請參閱[將安全的 ASP.NET MVC 5 應用程式部署至 Web 應用程式](../article/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)。
 > 
 > 如需使用其他程式設計語言和架構的程式設計方式重新導向要求的相關資訊，請參閱這些技術的文件。
 
@@ -512,8 +512,8 @@ Azure App Service  *not*強制使用 HTTPS。訪客可能仍會使用 HTTP 存�
 ## 其他資源 ##
 - [Microsoft Azure 信任中心](/support/trust-center/security/)
 - [Azure 網站中解除鎖定的組態選項](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [啟用診斷記錄](../articles/web-sites-enable-diagnostic-log.md)
-- [設定網站](../articles/web-sites-configure.md)
+- [啟用診斷記錄](../article/app-service-web/web-sites-enable-diagnostic-log.md)
+- [設定網站](../article/app-service-web/web-sites-configure.md)
 - [Azure 管理入口網站](https://manage.windowsazure.com)
 
 >[AZURE.NOTE] 如果您想要在註冊 Azure 帳戶之前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，讓您能夠在 App Service 中立即建立短期的入門 Web 應用程式。不需要信用卡，無需承諾。
@@ -522,7 +522,7 @@ Azure App Service  *not*強制使用 HTTPS。訪客可能仍會使用 HTTP 存�
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊版入口網站變更為新版入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-[customdomain]: ../articles/web-sites-custom-domain-name.md
+[customdomain]: ../article/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx

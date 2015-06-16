@@ -51,7 +51,7 @@ CDN 為開發人員提供一套全球解決方案，以在全球實體節點上�
 
 ##從 Azure 網站快取內容
 
-您可以從網站啟用 CDN 來快取您的 Web 內容 (例如影像、指令碼和樣式表)。請參閱[整合 Azure 網站與 Azure CDN](cdn-websites-with-cdn.md)。
+您可以從網站啟用 CDN 來快取您的 Web 內容 (例如影像、指令碼和樣式表)。請參閱[整合 Azure 網站與 Azure CDN](app-service-web/cdn-websites-with-cdn.md)。
 
 啟用網站的 CDN 存取時，管理入口網站會提供下列格式的 CDN 網域名稱：http://<identifier>.vo.msecnd.net/。此網域名稱可用來從網站擷取物件。例如，如果提供名稱為 cdn 的公用容器和稱為 music.png 的影像檔，則使用者可以使用下列兩個 URL 中的任何一個來存取物件：
 

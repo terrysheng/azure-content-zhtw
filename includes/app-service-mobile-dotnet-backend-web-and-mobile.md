@@ -1,4 +1,4 @@
-﻿# 在 Azure App Service 中建立一個包含行動和 Web 用戶端的應用程式
+# 在 Azure App Service 中建立一個包含行動和 Web 用戶端的應用程式
 
 本主題將示範如何建立一個同時包含行動和 Web 用戶端的應用程式。您將建立一個行動應用程式和一個 Web 應用程式，並為兩者使用相同的基礎資料庫。
 
@@ -77,6 +77,6 @@
 <!-- Links -->
 
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
-[建立行動應用程式]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
+[建立行動應用程式]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
 <!--HONumber=49-->

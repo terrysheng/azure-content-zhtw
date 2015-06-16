@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="什麼是 Azure .NET SDK" 
 	description="了解 Azure .NET SDK 包含的項目。" 
 	documentationCenter=".net" 

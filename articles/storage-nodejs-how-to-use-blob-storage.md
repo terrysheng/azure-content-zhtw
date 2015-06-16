@@ -372,8 +372,8 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [建立 Node.js 應用程式並將其部署到 Azure 網站]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [使用儲存體的 Node.js 雲端服務]: storage-nodejs-use-table-storage-cloud-service-app.md
-[使用儲存體的 Node.js Web 應用程式]: storage-nodejs-use-table-storage-web-site.md
-[使用 WebMatrix 的網站]: web-sites-nodejs-use-webmatrix.md
+[使用儲存體的 Node.js Web 應用程式]: app-service-web/storage-nodejs-use-table-storage-web-site.md
+[使用 WebMatrix 的網站]: app-service-web/web-sites-nodejs-use-webmatrix.md
 [使用 REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure 管理入口網站]: http://manage.windowsazure.com
 [Node.js 雲端服務]: cloud-services-nodejs-develop-deploy-app.md

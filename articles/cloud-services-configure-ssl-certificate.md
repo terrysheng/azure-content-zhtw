@@ -25,7 +25,7 @@
 
 安全通訊端層 (SSL) 加密是最常用來保護在網際網路上傳送之資料的方法。此常見工作會討論如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。
 
-> [AZURE.NOTE]這項工作中的程序適用於 Azure 雲端服務；對於「網站」，請參閱[設定 Azure 網站的 SSL 憑證](web-sites-configure-ssl-certificate.md)。
+> [AZURE.NOTE]這項工作中的程序適用於 Azure 雲端服務；對於「網站」，請參閱[設定 Azure 網站的 SSL 憑證](app-service-web/web-sites-configure-ssl-certificate.md)。
 
 此工作將使用生產部署；本主題最後將提供關於如何使用預備部署的資訊。
 

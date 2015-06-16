@@ -1316,7 +1316,7 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 
 
 [hbase-get-started]: hdinsight-hbase-get-started.md
-[website-get-started]: web-sites-dotnet-get-started.md
+[website-get-started]: app-service-web/web-sites-dotnet-get-started.md
 
 
 

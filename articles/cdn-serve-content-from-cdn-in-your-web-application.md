@@ -255,12 +255,12 @@
 
 整合 Azure 網站或 Azure 雲端服務與 Azure CDN 提供下列優點：
 
-- 將內容部署 (影像、指令碼和樣式表) 整合到 Azure 網站的[連續部署](web-sites-publish-source-control.md) 程序中
+- 將內容部署 (影像、指令碼和樣式表) 整合到 Azure 網站的[連續部署](app-service-web/web-sites-publish-source-control.md) 程序中
 - 輕鬆地升級 CDN 提供的 NuGet 套件，例如 jQuery 或 Bootstrap 版本 
 - 從相同的 Visual Studio 介面來管理 Web 應用程式和 CDN 提供的內容
 
 相關教學課程，請參閱：
-- [整合 Azure 網站與 Azure CDN](cdn-websites-with-cdn.md)
+- [整合 Azure 網站與 Azure CDN](app-service-web/cdn-websites-with-cdn.md)
 - [整合雲端服務與 Azure CDN](cdn-cloud-service-with-cdn.md)
 
 即使沒有與 Azure 網站或 Azure 雲端服務整合，還是可以對指令碼套件組合使用 Azure CDN，但要注意下列幾點：
@@ -272,7 +272,7 @@
 
 # 其他資訊 #
 - [Azure 內容傳遞網路 (CDN) 概觀](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [整合 Azure 網站與 Azure CDN](cdn-websites-with-cdn.md)
+- [整合 Azure 網站與 Azure CDN](app-service-web/cdn-websites-with-cdn.md)
 - [整合雲端服務與 Azure CDN](cdn-cloud-service-with-cdn.md)
 - [如何將內容傳遞網路 (CDN) 內容對應至自訂網域](http://msdn.microsoft.com/library/azure/gg680307.aspx)
 - [使用 Azure 的 CDN](cdn-how-to-use.md)

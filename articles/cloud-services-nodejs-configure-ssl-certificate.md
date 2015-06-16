@@ -23,7 +23,7 @@
 
 安全通訊端層 (SSL) 加密是最常用來保護在網際網路上傳送之資料的方法。此常見工作討論如何為 Web 角色中裝載成 Azure 雲端服務的 Node.js 應用程式指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。
 
-> [AZURE.NOTE]本文中的步驟僅適用於 Web 角色中裝載為 Azure 雲端服務的節點應用程式；至於網站，請參閱[設定 Azure 網站的 SSL 憑證](web-sites-configure-ssl-certificate.md)。
+> [AZURE.NOTE]本文中的步驟僅適用於 Web 角色中裝載為 Azure 雲端服務的節點應用程式；至於網站，請參閱[設定 Azure 網站的 SSL 憑證](app-service-web/web-sites-configure-ssl-certificate.md)。
 
 此工作包含下列步驟：
 

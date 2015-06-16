@@ -89,7 +89,7 @@ Output:
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-[在 Azure 網站上使用 Socket.IO 建置 Node.js 聊天應用程式]: web-sites-nodejs-chat-app-socketio.md
+[在 Azure 網站上使用 Socket.IO 建置 Node.js 聊天應用程式]: app-service-web/web-sites-nodejs-chat-app-socketio.md
 
 
 <!--HONumber=49-->

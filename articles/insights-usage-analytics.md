@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="如何使用使用者分析" 
 	description="Microsoft Azure 網站的使用者分析。" 
 	services="application-insights" 

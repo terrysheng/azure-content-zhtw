@@ -2,7 +2,7 @@
 
 Visual Studio 中的 API 應用程式工具可讓您輕鬆地產生 C# 程式碼，而該程式碼可從桌面、存放區和行動應用程式呼叫 Azure API 應用程式。
 
-1. 在 Visual Studio 中，開啟方案，其中包含來自[建立 API 應用程式](app-service-dotnet-create-api-app.md)主題的 API 應用程式。 
+1. 在 Visual Studio 中，開啟方案，其中包含來自[建立 API 應用程式](../article/app-service-api/app-service-dotnet-create-api-app.md)主題的 API 應用程式。 
 
 2. 從 [**方案總管**中，以滑鼠右鍵按一下方案，然後選取 [**新增**] > [**新增專案**]。
 

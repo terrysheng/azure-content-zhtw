@@ -625,7 +625,7 @@ public ActionResult Show(string id)
 # 相關資訊 #
 - [Azure 內容傳遞網路 (CDN) 概觀](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 - [在 Web 應用程式中從 Azure CDN 提供內容](cdn-serve-content-from-cdn-in-your-web-application.md)
-- [整合 Azure 網站與 Azure CDN](cdn-websites-with-cdn.md)
+- [整合 Azure 網站與 Azure CDN](app-service-web/cdn-websites-with-cdn.md)
 - [ASP.NET 統合和縮製](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 - [使用 Azure 的 CDN](cdn-how-to-use.md)
 

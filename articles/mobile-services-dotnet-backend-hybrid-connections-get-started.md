@@ -49,7 +49,7 @@
 
 若要透過混合式連線使用內部部署 SQL Server 或 SQL Server Express 資料庫，必須在靜態連接埠上啟用 TCP/IP。SQL Server 上的預設執行個體會使用靜態連接埠 1433，但指定的執行個體則否。
 
-如需如何設定 SQL Server 而使其符合前述條件的詳細指示，請參閱[在內部部署中安裝 SQL Server Express、啟用 TCP/IP 及建立 SQL Server 資料庫](web-sites-hybrid-connection-connect-on-premises-sql-server.md#InstallSQL)。如果您已在組態和符合前述條件的環境中安裝 SQL Server，您可以直接開始[在內部部署中建立 SQL Server 資料庫](web-sites-hybrid-connection-connect-on-premises-sql-server.md#CreateSQLDB)。
+如需如何設定 SQL Server 而使其符合前述條件的詳細指示，請參閱[在內部部署中安裝 SQL Server Express、啟用 TCP/IP 及建立 SQL Server 資料庫](app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md#InstallSQL)。如果您已在組態和符合前述條件的環境中安裝 SQL Server，您可以直接開始[在內部部署中建立 SQL Server 資料庫](app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md#CreateSQLDB)。
 
 基於本教學課程的目的，我們會假設資料庫名稱為 **OnPremisesDB**、資料庫執行於連接埠 **1433**，而機器的主機名稱為 **onPremisesServer**。
 

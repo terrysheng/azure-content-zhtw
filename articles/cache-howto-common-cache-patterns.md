@@ -35,7 +35,7 @@
  
 - [Redis Azure 快取文件](http://azure.microsoft.com/documentation/services/cache/)：此頁面提供許多使用 Redis Azure 快取的不錯連結。
 - [15 分鐘學會包含 Azure Redis 快取的 MVC 影片應用程式](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/)：本部落格文章提供在 ASP.NET MVC 應用程式中使用 Azure Redis 快取的快速入門。
-- [如何搭配使用 ASP.NET 工作階段狀態與 Azure 網站](web-sites-dotnet-session-state-caching.md)：本主題說明如何將 Azure Redis 快取服務用於工作階段狀態。
+- [如何搭配使用 ASP.NET 工作階段狀態與 Azure 網站](app-service-web/web-sites-dotnet-session-state-caching.md)：本主題說明如何將 Azure Redis 快取服務用於工作階段狀態。
 
 
 

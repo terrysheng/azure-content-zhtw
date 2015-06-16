@@ -64,7 +64,7 @@ Azure 搜尋服務為我們的專案帶來重大突破。在 Azure 搜尋服務�
 
 - [Azure 搜尋服務](http://azure.microsoft.com/services/search/)
 - [使用 MVC 4 的 Azure 網站](http://azure.microsoft.com/services/websites/)
-- [用來排程工作的 Azure WebJobs](websites-webjobs-resources.md)
+- [用來排程工作的 Azure WebJobs](app-service-web/websites-webjobs-resources.md)
 - [Azure SQL Database](http://azure.microsoft.com/services/sql-database/)
 - [Azure Blob 儲存體](http://azure.microsoft.com/services/storage/)
 - [SendGrid 電子郵件傳遞](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
@@ -417,7 +417,7 @@ Azure 搜尋服務並不是唯一的驚喜。與我們先前的方式相比，�
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
 <!--HONumber=54-->

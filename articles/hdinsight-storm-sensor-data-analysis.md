@@ -254,7 +254,7 @@
 
 ### 發佈網站儀表板。
 
-1. 若要將儀表板部署至 Azure 網站，請依照[建置並部署 Node.js 網站至 Azure](web-sites-nodejs-develop-deploy-mac.md) 所述的步驟操作。記下網站的 URL，其樣式大致如下：**mywebsite.azurewebsites.net**。
+1. 若要將儀表板部署至 Azure 網站，請依照[建置並部署 Node.js 網站至 Azure](app-service-web/web-sites-nodejs-develop-deploy-mac.md) 所述的步驟操作。記下網站的 URL，其樣式大致如下：**mywebsite.azurewebsites.net**。
 
 2. 網站建立後，前往 Azure 入口網站找到該網站，然後選取 [設定] 索引標籤。****啟用 [Web 通訊端]****，然後按一下頁面底部的 [儲存]****。
 

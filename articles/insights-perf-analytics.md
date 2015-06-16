@@ -70,5 +70,5 @@ New Relic 可以自動安裝而不需任何其他的檢測，但 Application Ins
 * [監視服務的健全狀況度量](insights-how-to-customize-monitoring.md)確保您的 Web 服務可用且迅速回應。
 * [啟用監視和診斷](insights-how-to-use-diagnostics.md)您的服務收集詳細的頻率高的度量。
 * [接收警示通知](insights-receive-alert-notifications.md)每當操作事件發生的事件或超過臨界值標準。
-* 在 HDInsight 叢集 2.0 或 3.0 版上使用[適用於 JavaScript 應用程式和網頁 application Insights](app-insights-web-track-usage.md)若要取得有關造訪的網頁瀏覽器的用戶端分析。
-* [監視任何網站的可用性和回應性](app-insights-monitor-web-app-availability.md)使用 Application Insights，您可以查明您的頁面已關閉。
+* 在 HDInsight 叢集 2.0 或 3.0 版上使用[適用於 JavaScript 應用程式和網頁 application Insights](application-insights/app-insights-web-track-usage.md)若要取得有關造訪的網頁瀏覽器的用戶端分析。
+* [監視任何網站的可用性和回應性](application-insights/app-insights-monitor-web-app-availability.md)使用 Application Insights，您可以查明您的頁面已關閉。

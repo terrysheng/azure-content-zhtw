@@ -296,7 +296,7 @@ A 記錄將網域 (例如 **contoso.com** 或 **www.contoso.com**) *或萬用字
 [portal]: http://manage.windowsazure.com
 [digweb]: http://www.digwebinterface.com/
 [cloudservicedns]: ../articles/custom-dns.md
-[trafficmanager]: ../articles/web-sites-traffic-manager.md
+[trafficmanager]: ../article/app-service-web/web-sites-traffic-manager.md
 [addendpoint]: http://msdn.microsoft.com/library/windowsazure/hh744839.aspx
 [createprofile]: http://msdn.microsoft.com/library/windowsazure/dn339012.aspx
 

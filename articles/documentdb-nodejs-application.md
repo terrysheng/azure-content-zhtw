@@ -538,7 +538,7 @@
 
 ## <a name="_Toc395783182"></a>步驟 7：將應用程式部署至 Azure 網站
 
-1. 如果您還沒有這麼做，請為您的 Azure 網站提供一個 Git 儲存機制。您可以在[這裡](web-sites-publish-source-control-git.md#step4)找到如何執行這項作業的相關指示。
+1. 如果您還沒有這麼做，請為您的 Azure 網站提供一個 Git 儲存機制。您可以在[這裡](app-service-web/web-sites-publish-source-control-git.md#step4)找到如何執行這項作業的相關指示。
 
 2. 新增您的 Azure 網站做為 Git 遠端。
 

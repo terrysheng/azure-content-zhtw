@@ -58,7 +58,7 @@
 1. 在 Team Explorer 中，在 [方案] 區段中選擇 [新增] 連結，在本機儲存機制中建立新專案。<br/>
 ![][4]
 
-2. 您可以依照本逐步解說的步驟來部署網站或雲端服務 (Azure 應用程式)。建立新的 Azure 雲端服務專案，或建立新的 ASP.NET MVC 專案。請確定專案以 .NET Framework 4 或 4.5 為目標，如果是建立雲端服務專案，請加入 ASP.NET MVC Web 角色和背景工作角色。如果要建立網站，請選擇 ASP.NET Web 應用程式專案範本，然後選擇 MVC。請參閱[開始使用 Azure 網站和 ASP.NET](web-sites-dotnet-get-started.md)。
+2. 您可以依照本逐步解說的步驟來部署網站或雲端服務 (Azure 應用程式)。建立新的 Azure 雲端服務專案，或建立新的 ASP.NET MVC 專案。請確定專案以 .NET Framework 4 或 4.5 為目標，如果是建立雲端服務專案，請加入 ASP.NET MVC Web 角色和背景工作角色。如果要建立網站，請選擇 ASP.NET Web 應用程式專案範本，然後選擇 MVC。請參閱[開始使用 Azure 網站和 ASP.NET](app-service-web/web-sites-dotnet-get-started.md)。
 
 3. 開啟方案的捷徑功能表，選擇 [**認可**]。<br/>
 ![][7]
@@ -197,7 +197,7 @@
 
 11. 瀏覽至 [組建] 檢視，找出工作分支剛觸發的組建。
 
-如需詳細資訊，請參閱 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)。如需有關使用 Git 與 Visual Studio Online 的其他秘訣，請參閱[在 Git 中共用程式碼](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)，如需有關使用未受 Visual Studio Online 管理的 Git 儲存機制來發行至 Azure 的詳細資訊，請參閱[從原始檔控制發佈至 Azure 網站](web-sites-publish-source-control.md)。
+如需詳細資訊，請參閱 [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861)。如需有關使用 Git 與 Visual Studio Online 的其他秘訣，請參閱[在 Git 中共用程式碼](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx)，如需有關使用未受 Visual Studio Online 管理的 Git 儲存機制來發行至 Azure 的詳細資訊，請參閱[從原始檔控制發佈至 Azure 網站](app-service-web/web-sites-publish-source-control.md)。
 
 [步驟 1：建立 Git 儲存機制。]: #step1
 [步驟 2：建立專案並推送至 Git 儲存機制。]: #step2

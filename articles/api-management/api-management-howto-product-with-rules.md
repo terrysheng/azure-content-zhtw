@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="如何在 Azure API 管理中建立和設定進階產品設定" 
 	description="了解如何使用配額和速率限制等原則設定產品。" 
 	services="api-management" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/11/2015" 
+	ms.date="02/11/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中建立和設定進階產品設定

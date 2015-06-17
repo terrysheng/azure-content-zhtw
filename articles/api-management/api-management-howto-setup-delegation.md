@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="如何委派使用者註冊和產品訂閱" 
 	description="了解如何在 Azure API Management 中將使用者註冊和產品訂閱委派給第三方。" 
 	services="api-management" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/14/2015" 
+	ms.date="01/14/2015" 
 	ms.author="antonba"/>
 
 # 如何委派使用者註冊和產品訂閱

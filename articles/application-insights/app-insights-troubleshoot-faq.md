@@ -2,6 +2,7 @@
 	pageTitle="Application Insights 的疑難排解和問答集" 
 	description="有什麼不清楚的地方或無法操作的項目嗎？試試這裡。" 
 	services="application-insights" 
+documentationCenter=".net"
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-03" 
+	ms.date="02/03/2015" 
 	ms.author="awills"/>
  
 # 疑難排解及問與答 - Microsoft Azure 預覽的應用程式分析

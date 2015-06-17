@@ -2,6 +2,7 @@
 	pageTitle="搜尋診斷記錄" 
 	description="搜尋使用 Trace、NLog 或 Log4Net 產生的記錄檔。" 
 	services="application-insights" 
+documentationCenter=""
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-09" 
+	ms.date="01/09/2015" 
 	ms.author="awills"/>
  
 # Application Insights 中的診斷搜尋

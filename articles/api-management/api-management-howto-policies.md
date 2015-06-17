@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Azure API 管理中的原則" 
 	description="了解如何在 API 管理中建立、編輯和設定原則。" 
 	services="api-management" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/28/2015" 
+	ms.date="01/28/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 管理中的原則

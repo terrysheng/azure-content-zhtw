@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="使用 Application Insights 來監視應用程式的健康情況和流量" 
 	description="開始使用 Application Insights。分析內部部署或 Microsoft Azure 應用程式的使用情況、可用性和效能。" 
 	services="application-insights" 
@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2014-12-11" 
+	ms.date="12/11/2014" 
 	ms.author="awills"/>
  
 # 監視 Web 應用程式的效能

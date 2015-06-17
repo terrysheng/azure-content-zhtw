@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="使用 Application Insights API 追蹤 Web 應用程式中的使用狀況和事件" 
 	description="插入幾行程式碼來追蹤使用狀況及診斷問題。" 
 	services="application-insights" 
@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-06" 
+	ms.date="02/06/2015" 
 	ms.author="awills"/>
 
 # 追蹤 Web 應用程式中自訂使用量事件和度量

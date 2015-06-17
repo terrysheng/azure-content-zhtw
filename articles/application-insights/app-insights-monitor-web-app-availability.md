@@ -2,6 +2,7 @@
 	pageTitle="監視任何網站的可用性和回應性" 
 	description="在 Application Insights 中設定 Web 測試。如果網站無法使用或回應緩慢，將收到警示。" 
 	services="application-insights" 
+documentationCenter=""
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-27" 
+	ms.date="01/27/2015" 
 	ms.author="awills"/>
  
 # 監視任何網站的可用性和回應性

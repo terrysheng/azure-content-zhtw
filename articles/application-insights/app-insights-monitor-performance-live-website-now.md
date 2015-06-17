@@ -2,6 +2,7 @@
 	pageTitle="在執行中的網站上診斷效能問題" 
 	description="監視網站的效能而不重新部署網站。使用獨立或 Application Insights SDK" 
 	services="application-insights" 
+documentationCenter=".net"
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-23" 
+	ms.date="01/23/2015" 
 	ms.author="awills"/>
  
 

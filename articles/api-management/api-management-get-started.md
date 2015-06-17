@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="開始使用 Azure API 管理" 
 	description="了解如何建立 API、操作及開始使用 API 管理。" 
 	services="api-management" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/11/2015" 
+	ms.date="02/11/2015" 
 	ms.author="sdanie"/>
 
 # 開始使用 Azure API 管理

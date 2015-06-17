@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="如何使用 .NET 檢查工作進度" 
 	description="了解如何使用事件處理常式程式碼來追蹤工作進度及傳送狀態更新。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
 	services="media-services" 
@@ -105,7 +105,7 @@
 
 ## <a id="check_progress_with_queues"></a>使用 Azure 佇列儲存體監視媒體服務工作通知
 
-Microsoft Azure 媒體服務能夠傳送通知訊息給 [Azure 佇列儲存體](storage-dotnet-how-to-use-queues.md#what-is) (處理媒體工作時)。本主題示範如何從佇列儲存體取得這些通知訊息。
+Microsoft Azure 媒體服務能夠傳送通知訊息給 [Azure 佇列儲存體](storage/storage-dotnet-how-to-use-queues.md#what-is) (處理媒體工作時)。本主題示範如何從佇列儲存體取得這些通知訊息。
 
 使用者可以從世界各個角落存取之前已傳送至佇列儲存體的訊息。Azure 佇列訊息架構十分可靠，而且具有高擴充性。建議利用其他方法輪詢佇列儲存體。 
 

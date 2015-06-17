@@ -810,8 +810,8 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
 * [Azure 雲端服務第 1 部分：簡介](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Azure 雲端服務](/documentation/services/cloud-services/)
 * [Azure 儲存體](/documentation/services/storage/)
-* [如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)
-* [如何使用 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)
+* [如何使用 .NET 的 Blob 儲存體](storage/storage-dotnet-how-to-use-blobs.md)
+* [如何使用 .NET 的佇列儲存體](storage/storage-dotnet-how-to-use-queues.md)
 
 
 <!--HONumber=52-->

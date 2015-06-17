@@ -31,7 +31,7 @@ Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的�
 
 *   D 系列 VM 是為了執行要求更高計算能力和暫存磁碟效能的應用程式所設計。D 系列 VM 提供更快的處理器、較高的記憶體與核心比率，以及適用於暫存磁碟的固態硬碟 (SSD)。如需詳細資訊，請參閱 Azure 部落格的公告，[新 D 系列的虛擬機器大小](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)。  
 
-*   DS 系列 VM 可以使用高階儲存體，針對使用大量 I/O 的工作負載提供高效能、低延遲的儲存體。它會使用固態硬碟 (SSD) 來裝載虛擬機器的磁碟，並提供本機 SSD 磁碟快取。高階儲存體可在 Preview 版本中取得，並且可在特定區域中使用。如需詳細資訊，請參閱[高階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)。
+*   DS 系列 VM 可以使用高階儲存體，針對使用大量 I/O 的工作負載提供高效能、低延遲的儲存體。它會使用固態硬碟 (SSD) 來裝載虛擬機器的磁碟，並提供本機 SSD 磁碟快取。高階儲存體可在 Preview 版本中取得，並且可在特定區域中使用。如需詳細資訊，請參閱[高階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage/storage-premium-storage-preview-portal.md)。
 
 *   G 系列 VM 提供最大的大小和最佳效能，並且可在具有 Intel Xeon E5 V3 系列處理器的主機上執行。
 
@@ -103,7 +103,7 @@ Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的�
 |Standard_DS13(相同)|8|56|<p>作業系統 = 1023 GB</p><p>本機 SSD 磁碟 = 112 GB</p>|16|288|<p>25,600</p><p>每秒 256 MB</p>|
 |Standard_DS14(相同)|16|112|<p>作業系統 = 1023 GB</p><p>本機 SSD 磁碟 = 224 GB</p>|32|576|<p>50,000</p><p>每秒 512 MB</p>|
 
-*DS 系列 VM 可能的最大每秒輸入/輸出作業 (IOPS) 和輸送量 (頻寬) 會受到磁碟大小所影響。如需詳細資訊，請參閱[高階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)。
+*DS 系列 VM 可能的最大每秒輸入/輸出作業 (IOPS) 和輸送量 (頻寬) 會受到磁碟大小所影響。如需詳細資訊，請參閱[高階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage/storage-premium-storage-preview-portal.md)。
 
 ### 標準層級 - G 系列
 

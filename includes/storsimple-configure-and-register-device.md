@@ -59,7 +59,7 @@
 
     > [AZURE.NOTE]您可以隨時按 Ctrl + C 來結束安裝精靈。您在發出此命令之前套用的所有設定都將保留。
 
-12. 註冊裝置之後，隨即會出現服務資料加密金鑰。複製這個金鑰，並將它儲存在安全的位置。**這個金鑰需要與服務註冊金鑰搭配使用，來向 StorSimple Manager 服務註冊其他裝置。** 如需這個金鑰的詳細資訊，請參閱[StorSimple 安全性](storsimple-security.md)。
+12. 註冊裝置之後，隨即會出現服務資料加密金鑰。複製這個金鑰，並將它儲存在安全的位置。**這個金鑰需要與服務註冊金鑰搭配使用，來向 StorSimple Manager 服務註冊其他裝置。** 如需這個金鑰的詳細資訊，請參閱[StorSimple 安全性](../articles/storsimple/storsimple-security.md)。
 
      ![StorSimple 註冊裝置 6](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice6-include.png)
 

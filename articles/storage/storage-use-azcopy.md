@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/5/2015" 
+	ms.date="01/05/2015" 
 	ms.author="tamram"/>
 
 # 開始使用 AzCopy 命令列公用程式

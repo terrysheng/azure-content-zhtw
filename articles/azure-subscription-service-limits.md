@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Microsoft Azure 訂用帳戶和服務限制、配額與限制" 
 	description="提供通用的 Azure 訂用帳戶和服務限制、配額和條件約束的清單。這包括如何增加限制和最大值的詳細資訊。"
 	services="" 

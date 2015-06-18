@@ -78,7 +78,7 @@ USGS 資料集包含與華盛頓州相關的記錄。如果您在空白的搜尋
 
 為方便起見，會使用一個從[美國地理服務中心(USGS) 網站](http://geonames.usgs.gov/domestic/download_data.htm)資料產生的文字檔案，將資料內嵌在方案中
 
-內嵌資料的替代方法包含 [DocumentDB 的索引子](documentdb-search-indexer.md)或 [Azure SQL Database 的索引子](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)。索引子會將資料提取至您的 Azure 搜尋服務索引，這麼做可以簡化您必須撰寫及維護的程式碼。
+內嵌資料的替代方法包含 [DocumentDB 的索引子](documentdb/documentdb-search-indexer.md)或 [Azure SQL Database 的索引子](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)。索引子會將資料提取至您的 Azure 搜尋服務索引，這麼做可以簡化您必須撰寫及維護的程式碼。
 
 您也可以從內部部署的 SQL Server 資料庫載入資料。[此教學課程](http://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/)會教您如何操作。
 

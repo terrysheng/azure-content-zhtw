@@ -29,7 +29,7 @@
 
    [建立儲存體帳戶](storage-whatis-account.md)
 
-  [建立 Azure ML 工作區](machine-learning-create-workspace.md)
+  [建立 Azure ML 工作區](machine-learning/machine-learning-create-workspace.md)
 
 **下列各節提供了幾個範例案例。在每個案例中都會列出可能的資料科學流程及支援的 Azure 資源。**
 
@@ -175,7 +175,7 @@
 
     f.如果需要資料表聯結，請建立索引以加速聯結。
 
- > [AZURE.NOTE]如需加快大型資料的載入速度，建議您建立分割資料表並大量平行匯入資料。如需詳細資訊，請參閱[平行資料匯入至 SQL 分割資料表](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)。
+ > [AZURE.NOTE]如需加快大型資料的載入速度，建議您建立分割資料表並大量平行匯入資料。如需詳細資訊，請參閱[平行資料匯入至 SQL 分割資料表](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md)。
 
 5.  視需要瀏覽資料並建立功能。請注意，功能在資料庫資料表中無需具體化。僅注意建立這些功能的必要查詢。
 
@@ -215,7 +215,7 @@
 
 	f.如果需要資料表聯結，請建立索引以加速聯結。
 
-> [AZURE.NOTE]如需加快大型資料的載入速度，請建立分割資料表並大量平行匯入資料。如需詳細資訊，請參閱[平行資料匯入至 SQL 分割資料表](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)。
+> [AZURE.NOTE]如需加快大型資料的載入速度，請建立分割資料表並大量平行匯入資料。如需詳細資訊，請參閱[平行資料匯入至 SQL 分割資料表](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md)。
 
 5.  視需要瀏覽資料並建立功能。請注意，功能在資料庫資料表中無需具體化。僅注意建立這些功能的必要查詢。
 
@@ -300,7 +300,7 @@
 
 ### 作用中的 Azure 資料科學範例
 
-如需使用公用資料集之 Azure 資料科學程序的端對端逐步解說範例，請參閱[作用中的 Azure 資料科學範例](machine-learning-data-science-process-sql-walkthrough.md)。
+如需使用公用資料集之 Azure 資料科學程序的端對端逐步解說範例，請參閱[作用中的 Azure 資料科學範例](machine-learning/machine-learning-data-science-process-sql-walkthrough.md)。
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
 [2]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-with-processing.png

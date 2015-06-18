@@ -80,7 +80,7 @@
 BCP 是與 SQL Server 一起安裝的命令列公用程式，是最快速移動資料的其中一種方式。它的運作方式可跨越這三個 SQL Server 版本 (內部部署的 SQL Server、SQL Azure，以及 Azure 上的 SQL Server VM)。 
 
 > [AZURE.NOTE] **我應該針對 BCP 將資料儲存於何處？**  
-> 雖然並非必要，但是，擁有包含與目標 SQL Server 位於相同電腦上之來源資料的檔案可讓傳輸速度 (網路速度與本機磁碟 IO 速度) 變得更快。您可以使用像是 [AZCopy](storage-use-azcopy.md)、[Azure 儲存體總管](https://azurestorageexplorer.codeplex.com/) 或透過遠端桌面通訊協定 (RDP) 進行的 Windows 複製/貼上等各種檔案複製工具，將包含資料的一般檔案移到安裝 SQL Server 的電腦上。
+> 雖然並非必要，但是，擁有包含與目標 SQL Server 位於相同電腦上之來源資料的檔案可讓傳輸速度 (網路速度與本機磁碟 IO 速度) 變得更快。您可以使用像是 [AZCopy](storage/storage-use-azcopy.md)、[Azure 儲存體總管](https://azurestorageexplorer.codeplex.com/) 或透過遠端桌面通訊協定 (RDP) 進行的 Windows 複製/貼上等各種檔案複製工具，將包含資料的一般檔案移到安裝 SQL Server 的電腦上。
 
 1. 確定已在目標 SQL Server 資料庫上建立資料庫和資料表。以下是如何使用 `Create Database` 和 `Create Table` 命令來執行該動作的範例：
 

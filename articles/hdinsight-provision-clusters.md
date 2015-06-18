@@ -87,7 +87,7 @@ HDInsight 提供在 Azure 上設定 Linux 叢集的選項。如果您熟悉 Linu
 
 ##<a id="portal"></a> 使用 Azure 入口網站
 
-HDInsight 叢集會使用 Azure Blob 儲存體容器做為預設檔案系統。相同的資料中心上必須要有 Azure 儲存體帳戶，才能夠建立 HDInsight 叢集。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-use-blob-storage.md)。如需建立 Azure 儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](storage-create-storage-account.md)。
+HDInsight 叢集會使用 Azure Blob 儲存體容器做為預設檔案系統。相同的資料中心上必須要有 Azure 儲存體帳戶，才能夠建立 HDInsight 叢集。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-use-blob-storage.md)。如需建立 Azure 儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](storage/storage-create-storage-account.md)。
 
 
 > [AZURE.NOTE]目前只有「東亞」****、「東南亞」****、「北歐」****、「西歐」****、「美國東部」****、「美國西部」****、「美國中北部」****和「美國中南部」****等區域可以代管 HDInsight 叢集。
@@ -494,7 +494,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 	出現位置提示時，請選取可佈建 HDInsight 叢集的位置。儲存體必須與 HDInsight 叢集位於相同的位置。目前只有「東亞」****、「東南亞」****、「北歐」****、「西歐」****、「美國東部」****、「美國西部」****、「美國中北部」****和「美國中南部」****等區域可以代管 HDInsight 叢集。
 
-如需使用 Azure 入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[建立、管理或刪除儲存體帳戶](storage-create-storage-account.md)。
+如需使用 Azure 入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[建立、管理或刪除儲存體帳戶](storage/storage-create-storage-account.md)。
 
 如果您已經有儲存體帳戶，但不知道帳戶名稱和帳戶金鑰，則可使用下列命令來擷取資訊：
 
@@ -507,7 +507,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-如需使用 Azure 入口網站取得資訊的詳細資訊，請參閱[建立、管理或刪除儲存體帳戶](storage-create-storage-account.md)的*如何：檢視、複製及重新產生儲存體存取金鑰*一節。
+如需使用 Azure 入口網站取得資訊的詳細資訊，請參閱[建立、管理或刪除儲存體帳戶](storage/storage-create-storage-account.md)的*如何：檢視、複製及重新產生儲存體存取金鑰*一節。
 
 HDInsight 叢集同時要求儲存體帳戶內含有容器。如果您所提供的儲存體帳戶沒有容器，則 *azure hdinsight cluster create* 命令會提示您輸入容器名稱並建立容器。不過，如果您想要預先建立容器，您可以使用下列命令：
 
@@ -721,7 +721,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 
 [azure-command-line-tools]: xplat-cli.md
 
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]: storage/storage-create-storage-account.md
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

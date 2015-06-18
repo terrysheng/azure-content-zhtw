@@ -308,7 +308,7 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 下列文章提供有關使用 Azure 佇列或服務匯流排佇列的更多指引和資訊。
 
 - [如何使用服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)
-- [如何使用佇列儲存體服務](storage-dotnet-how-to-use-queues.md)
+- [如何使用佇列儲存體服務](storage/storage-dotnet-how-to-use-queues.md)
 - [使用服務匯流排代理傳訊的效能改進最佳作法](https://msdn.microsoft.com/library/hh528527.aspx)
 - [Azure 服務匯流排的佇列和主題簡介](http://www.code-magazine.com/article.aspx?quickid=1112041)
 - [服務匯流排的開發人員指南](http://www.cloudcasts.net/devguide/)

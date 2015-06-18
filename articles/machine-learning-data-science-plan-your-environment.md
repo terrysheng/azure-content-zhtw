@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="規劃雲端資料科學環境 |Azure" 
 	description="規劃雲端資料科學環境" 
 	metaKeywords="" 
@@ -62,7 +62,7 @@
 
 根據您的案例而定，您可能也需要下列各項：
 
-1.  Azure 工具：[Azure PowerShell SDK](install-configure-powershell.md)、[Azure 儲存體總管](http://azurestorageexplorer.codeplex.com/)、[AzCopy](storage-use-azcopy.md) 及其他工具
+1.  Azure 工具：[Azure PowerShell SDK](install-configure-powershell.md)、[Azure 儲存體總管](http://azurestorageexplorer.codeplex.com/)、[AzCopy](storage/storage-use-azcopy.md) 及其他工具
 2.  執行 SQL Server 的 Azure 虛擬機器
 3.  Azure HDInsight (Hadoop)
 4.  用以內部部署至 Azure 檔案共用的 Azure 虛擬網路

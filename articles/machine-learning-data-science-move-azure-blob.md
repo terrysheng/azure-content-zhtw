@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="來回移動資料  Azure Blob 儲存體" 
 	description="來回移動資料  Azure Blob 儲存體" 
 	services="machine-learning" 
@@ -26,9 +26,9 @@
 
 
 
-> [AZURE.NOTE] 如需 Azure Blob 儲存體的完整指示，請參閱 [Azure Blob 基本概念](storage-dotnet-how-to-use-blobs.md)和  [Azure Blob 服務](https://msdn.microsoft.com/library/azure/dd179376.aspx)。 
+> [AZURE.NOTE] 如需 Azure Blob 儲存體的完整指示，請參閱 [Azure Blob 基本概念](storage/storage-dotnet-how-to-use-blobs.md)和  [Azure Blob 服務](https://msdn.microsoft.com/library/azure/dd179376.aspx)。 
 
-上傳/下載資料之前，您必須知道 Azure 儲存體帳戶名稱和帳戶金鑰。有關取得此資訊的指示，請參閱[管理儲存體帳戶](storage-create-storage-account.md)的＜做法：檢視、複製和重新產生儲存體存取金鑰＞一節。本文件假設您擁有 Azure 儲存體帳戶和對應的儲存體金鑰。
+上傳/下載資料之前，您必須知道 Azure 儲存體帳戶名稱和帳戶金鑰。有關取得此資訊的指示，請參閱[管理儲存體帳戶](storage/storage-create-storage-account.md)的＜做法：檢視、複製和重新產生儲存體存取金鑰＞一節。本文件假設您擁有 Azure 儲存體帳戶和對應的儲存體金鑰。
 
 <a id="explorer"></a>
 ## 使用 Azure 儲存體總管 
@@ -52,7 +52,7 @@ Azure 儲存體總管是一個免費的 Windows 型工具，可用以檢查及�
 
 AzCopy 是上傳和下載資料的命令列公用程式。 
 
-**警告** 如果您使用的電腦與稍早在雲端資料科學程序中設定的 VM 不同，請使用下列的安裝指示來安裝 AzCopy：[下載並安裝 AzCopy](storage-use-azcopy.md#install)。
+**警告** 如果您使用的電腦與稍早在雲端資料科學程序中設定的 VM 不同，請使用下列的安裝指示來安裝 AzCopy：[下載並安裝 AzCopy](storage/storage-use-azcopy.md#install)。
 
 #### 將檔案上傳至 Blob或從 Blob 下載檔案的範例：
 
@@ -77,7 +77,7 @@ AzCopy 是上傳和下載資料的命令列公用程式。
 > 2.下載檔案時，/S 將以遞迴方式搜尋容器，直到下載了指定目錄及其子目錄中的所有檔案，或指定目錄及其子目錄中所有符合指定模式的所有檔案為止。  
 > 3.您無法使用 /Source 參數來指定要下載的特定 Blob 檔案。若要下載特定檔案，請使用 /Pattern 參數來指定要下載的 Blob 檔案名稱。/S 參數可以用來讓 AzCopy 以遞迴方式尋找檔案名稱模式。若未提供模式參數，AzCopy 將下載該目錄中的所有檔案。 
 
-如需 AzCopy 的詳細使用方式，請參閱[開始使用 AzCopy 命令列公用程式](storage-use-azcopy.md#install)。
+如需 AzCopy 的詳細使用方式，請參閱[開始使用 AzCopy 命令列公用程式](storage/storage-use-azcopy.md#install)。
 
 
 <a id="PythonSDK"></a>
@@ -91,7 +91,7 @@ AzCopy 是上傳和下載資料的命令列公用程式。
 - 列出容器中的 Blob
 - 刪除 Blob
 
-本節說明如何列出、上傳和下載 Blob。如需更多 Python API 使用方式的詳細資訊，請參閱[如何從 Python 使用 Blob 儲存體服務](storage-python-how-to-use-blob-storage.md)。 
+本節說明如何列出、上傳和下載 Blob。如需更多 Python API 使用方式的詳細資訊，請參閱[如何從 Python 使用 Blob 儲存體服務](storage/storage-python-how-to-use-blob-storage.md)。 
 
 > [AZURE.NOTE] 如果您使用的電腦與稍早在雲端資料科學程序中設定的 VM 不同，就需要安裝 [Python Azure SDK](python-how-to-install.md)，然後才能使用下列程式碼範例。
 

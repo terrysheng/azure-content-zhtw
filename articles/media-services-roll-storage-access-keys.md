@@ -33,7 +33,7 @@
 
 ## 步驟 1：重新產生次要儲存體存取金鑰
 
-請先重新產生次要儲存體金鑰。根據預設，媒體服務不會使用次要金鑰。如需瞭解如何復原儲存體金鑰，請參閱[做法：檢視、複製以及重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+請先重新產生次要儲存體金鑰。根據預設，媒體服務不會使用次要金鑰。如需瞭解如何復原儲存體金鑰，請參閱[做法：檢視、複製以及重新產生儲存體存取金鑰](storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
   
 ## <a id="step2"></a>步驟 2：更新媒體服務，開始使用新的次要儲存體金鑰
 
@@ -91,7 +91,7 @@
 
 ## 步驟 5：重新產生主要儲存體存取金鑰
 
-重新產生主要儲存體存取金鑰。如需瞭解如何復原儲存體金鑰，請參閱[做法：檢視、複製以及重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
+重新產生主要儲存體存取金鑰。如需瞭解如何復原儲存體金鑰，請參閱[做法：檢視、複製以及重新產生儲存體存取金鑰](storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
 
 ## 步驟 6：更新媒體服務，開始使用新的主要儲存體金鑰
 	

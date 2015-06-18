@@ -167,7 +167,7 @@ Microsoft 透過可下載的檔案，針對單一帳戶或企業合約中的所�
  
 Azure 中可供使用的儲存體帳戶分為兩種類型。標準儲存體可供您存取 Blob 儲存體、資料表儲存體、佇列儲存體及檔案儲存體。高階儲存體是設計來供高效能的應用程式使用 (例如，AlwaysOn 叢集中的 SQL Server)，目前僅支援 Azure 虛擬機器磁碟。
 
-儲存體帳戶會繫結至延展性目標。請參閱 [Microsoft Azure 訂用帳戶及服務限制、配額與限制](azure-subscription-service-limits.md#storage-limits)，以熟悉目前的 Azure 儲存體限制。另請參閱 [Azure 儲存體的延展性與效能目標](storage-scalability-targets.md)。
+儲存體帳戶會繫結至延展性目標。請參閱 [Microsoft Azure 訂用帳戶及服務限制、配額與限制](azure-subscription-service-limits.md#storage-limits)，以熟悉目前的 Azure 儲存體限制。另請參閱 [Azure 儲存體的延展性與效能目標](storage/storage-scalability-targets.md)。
 
 Azure 會建立含有一個作業系統磁碟、一個暫存磁碟，以及零或多個選用資料磁碟的虛擬機器。作業系統磁碟和資料磁碟是 Azure Blob，而暫存磁碟會依儲存體本機備份到該虛擬機器所在的節點。這會使得暫存磁碟不適合用於系統回收期間必須持續存在的資料，因為該虛擬機器可能會以無訊息模式從某個節點移轉到其他節點，因而遺失該磁碟上的所有資料。請勿在暫存磁碟機上儲存任何資料。
 
@@ -550,6 +550,6 @@ Contoso 決定為其 Azure 虛擬機器使用下列名稱：
 
 [Azure 的虛擬機器和雲端服務大小](https://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-[Azure 儲存體的延展性與效能目標](storage-scalability-targets.md)
+[Azure 儲存體的延展性與效能目標](storage/storage-scalability-targets.md)
 
 <!--HONumber=54-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="將儲存資料傳輸至雲端的選項 | Azure" 
 	description="提供將資料從非雲端來源的內部部署傳輸到 Microsoft Azure 以供進一步分析時，如何選擇最佳選項的指引。" 
 	services="data-factory, hdinsight, machine-learning, storage, sql-database" 

@@ -75,7 +75,7 @@
 
 設定您的 Azure 資料科學環境：
 
-1. [建立儲存體帳戶](storage-create-storage-account.md)
+1. [建立儲存體帳戶](storage/storage-create-storage-account.md)
 
 2. [建立 Azure ML 工作區](machine-learning-create-workspace.md)
 

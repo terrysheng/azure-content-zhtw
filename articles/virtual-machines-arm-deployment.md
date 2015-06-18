@@ -25,7 +25,7 @@
 若要完成本教學課程，您也需要：
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Azure 儲存體帳戶](storage-create-storage-account.md)
+- [Azure 儲存體帳戶](storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/zh-tw/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](http://www.microsoft.com/zh-tw/download/details.aspx?id=40855)
 - [Azure PowerShell](install-configure-powershell.md)
 

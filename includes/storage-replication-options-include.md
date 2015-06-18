@@ -16,7 +16,7 @@
 
 - *讀取存取地理區域備援儲存體 (RA-GRS)* 提供地理區域備援儲存體的上述所有好處，並在發生無法使用主要區域的情況下，允許次要區域的資料讀取存取。除了持久性之外若還需最大可用性，我們建議使用讀取存取地理區域備援儲存體。
 
-如需複寫選項的詳細資訊，請參閱 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文) 和 [Azure 儲存體備援選項](storage-redundancy.md)。
+如需複寫選項的詳細資訊，請參閱 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文) 和 [Azure 儲存體備援選項](../articles/storage/storage-redundancy.md)。
 	
 您可以在 [儲存體定價詳細資料][](http://azure.microsoft.com/pricing/details/storage/) 頁面上找到各個複寫選項之間的價格差異。
 

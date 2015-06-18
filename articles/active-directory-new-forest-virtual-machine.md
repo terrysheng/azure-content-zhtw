@@ -25,7 +25,7 @@
 您也可能對以下相關主題有興趣：
 
 - 如需顯示相關步驟的影片，請參閱[如何在 Azure 虛擬網路上安裝新的 Active Directory 樹系](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
-- 您可以選擇性地[設定站台對站台 VPN](https://msdn.microsoft.com/library/azure/dn133795.aspx)，然後安裝新樹系，或將內部部署樹系延伸至 Azure 虛擬網路。如需相關步驟，請參閱[在 Azure 虛擬網路中安裝複本 Active Directory 網域控制台](virtual-networks-install-replica-active-directory-domain-controller.md) (英文)。
+- 您可以選擇性地[設定站台對站台 VPN](https://msdn.microsoft.com/library/azure/dn133795.aspx)，然後安裝新樹系，或將內部部署樹系延伸至 Azure 虛擬網路。如需相關步驟，請參閱[在 Azure 虛擬網路中安裝複本 Active Directory 網域控制台](virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md) (英文)。
 -  如需在 Azure 虛擬網路上安裝 Active Directory 網域服務 (AD DS) 的概念指引，請參閱[在 Azure 虛擬機器上部署 Windows Server Active Directory 的方針](https://msdn.microsoft.com/library/azure/jj156090.aspx) (英文)。
 
 ## 案例圖表
@@ -63,7 +63,7 @@
  
 重複下列步驟，視需要建立裝載 DC 角色的 VM。您應該至少部署兩部虛擬網域控制站以提供容錯和冗餘。如果 Azure 虛擬網路包含至少兩個類似設定的 DC (亦即，它們都是 GC、執行 DNS 伺服器，並且未持有任何 FSMO 角色等等)，那麼可將執行這些 DC 的 VM 放在可用性集合以獲得改善的容錯。
 
-若要使用 Windows PowerShell 而非 UI 建立 VM，請參閱[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)。
+若要使用 Windows PowerShell 而非 UI 建立 VM，請參閱[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md)。
 
 1. 在傳統入口網站中，按一下 [**新增**] > [**計算**] > [**虛擬機器**] > [**從組件庫**]。使用下列值來完成精靈。除非建議或需要另一個值，否則請接受設定的預設值。
 
@@ -73,7 +73,7 @@
 	**虛擬機器組態** | <p>虛擬機器名稱：輸入單一標籤名稱 (例如 AzureDC1)。</p><p>新的使用者名稱：輸入使用者的名稱。此使用者將會是 VM 上本機 Administrators 群組的成員。第一次登入 VM 時，您將需要此名稱。內建的系統管理員帳戶會無法運作。</p><p>新密碼/確認：輸入密碼</p>
 	**虛擬機器組態** | <p>雲端服務：針對第一個 VM 選擇<b>建立新的雲端服務</b>，然後在建立更多將主控 DC 角色的 VM 時選取該相同雲端服務名稱。</p><p>雲端服務 DNS 名稱：指定全域唯一的名稱</p><p>區域/同質群組/虛擬網路：指定虛擬網路名稱 (例如 WestUSVNet)。</p><p>儲存體帳戶：針對第一個 VM 選擇<b>使用自動產生的儲存體帳戶</b>，然後在建立更多將主控 DC 角色的 VM 時選取該相同儲存體帳戶名稱。</p><p>可用性設定組：選擇<b>建立可用性設定組</b>。</p><p>可用性設定組名稱：在建立第一個 VM 時輸入可用性設定組的名稱，然後在建立更多 VM 時輸入該相同名稱。</p>
 	**虛擬機器組態** | <p>選取<b>安裝 VM 代理程式</b>以及您所需的任何其他延伸模組。</p>
-2. 將磁碟連接至將執行 DC 伺服器角色的每個 VM。需要額外的磁碟來儲存 AD 資料庫、記錄檔和 SYSVOL。指定磁碟的大小 (例如 10 GB) 並保留 [**主機快取喜好設定**] 設為 [**無**]。如需相關步驟，請參閱[如何將資料磁碟連接至 Windows 虛擬機器](storage-windows-attach-disk.md)。
+2. 將磁碟連接至將執行 DC 伺服器角色的每個 VM。需要額外的磁碟來儲存 AD 資料庫、記錄檔和 SYSVOL。指定磁碟的大小 (例如 10 GB) 並保留 [**主機快取喜好設定**] 設為 [**無**]。如需相關步驟，請參閱[如何將資料磁碟連接至 Windows 虛擬機器](virtual-machines/storage-windows-attach-disk.md)。
 3. 在您第一次登入 VM 之後，請開啟 [**伺服器管理員**] > [**檔案和儲存體服務**]，以在磁碟上使用 NTFS 建立磁碟區。
 4. 為將執行 DC 角色的 VM 保留靜態 IP 位址。若要保留靜態 IP 位址，請下載 Microsoft Web Platform Installer，[安裝 Azure PowerShell](powershell-install-configure.md) 並執行 Set-AzureStaticVNetIP Cmdlet。例如：
 
@@ -111,7 +111,7 @@
 	**虛擬機器組態** | <p>選取<b>安裝 VM 代理程式</b>以及您所需的任何其他延伸模組。</p>
 2. 佈建每個 VM 之後，登入並將 VM 加入網域。在 [**伺服器管理員**] 中，依序按一下 [**本機伺服器**] > [**WORKGROUP**] > [**變更...**]，然後選取 [**網域**] 並輸入您的內部部署網域名稱。提供網域使用者的認證，然後重新啟動 VM 以完成網域加入。
 
-若要使用 Windows PowerShell 而非 UI 建立 VM，請參閱[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)。
+若要使用 Windows PowerShell 而非 UI 建立 VM，請參閱[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md)。
 
 如需有關使用 Windows PowerShell 的詳細資訊，請參閱[開始使用 Azure Cmdlet](https://msdn.microsoft.com/library/azure/jj554332.aspx) 和 [Azure Cmdlet 參考](https://msdn.microsoft.com/library/azure/jj554330.aspx)。
 
@@ -122,7 +122,7 @@
 -  [在 Azure 虛擬機器上部署 Windows Server Active Directory 的方針](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [設定純雲端虛擬網路](https://msdn.microsoft.com/library/dn631643.aspx)
 -  [設定站台對站台 VPN](https://msdn.microsoft.com/library/dn133795.aspx)
--  [在 Azure 虛擬網路中安裝複本 Active Directory 網域控制台](virtual-networks-install-replica-active-directory-domain-controller.md)
+-  [在 Azure 虛擬網路中安裝複本 Active Directory 網域控制台](virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IT Pro IaaS：(01) 虛擬機器基本概念](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IT Pro IaaS：(05) 建立虛擬網路和跨單位連線](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 -  [虛擬網路概觀](https://msdn.microsoft.com/library/azure/jj156007.aspx)

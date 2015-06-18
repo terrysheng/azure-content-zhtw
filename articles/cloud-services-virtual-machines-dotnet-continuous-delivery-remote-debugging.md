@@ -39,7 +39,7 @@
 
 <h2> <a name="virtualmachine"></a>對虛擬機器啟用遠端偵錯</h2>
 
-1. 建立 Azure 虛擬機器。請參閱[建立執行 Windows Server 的虛擬機器](virtual-machines-windows-tutorial.md)或[在 Visual Studio 中建立 Azure 虛擬機器](http://msdn.microsoft.com/library/azure/dn569263.aspx)。
+1. 建立 Azure 虛擬機器。請參閱[建立執行 Windows Server 的虛擬機器](virtual-machines/virtual-machines-windows-tutorial.md)或[在 Visual Studio 中建立 Azure 虛擬機器](http://msdn.microsoft.com/library/azure/dn569263.aspx)。
 2. 在 [Azure 入口網站頁面](http://go.microsoft.com/fwlink/p/?LinkID=269851)，檢視虛擬機器儀表板來查看虛擬機器的「RDP 憑證指紋」。這用在延伸組態中的 ServerThumbprint 值。
 3. 建立用戶端憑證，如[建立 Azure 的服務憑證](http://msdn.microsoft.com/library/azure/gg432987.aspx)所述 (保留 .pfx 和 RDP 憑證指紋)。
 4. 從 Microsoft 下載中心下載 [Azure Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (0.7.4 版或更新版本)。

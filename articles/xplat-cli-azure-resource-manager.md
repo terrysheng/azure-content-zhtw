@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="搭配使用 Microsoft Azure 跨平台命令列介面與資源管理員" 
 	description="搭配使用 Microsoft Azure 跨平台命令列介面與資源管理員" 
 	editor="tysonn" 
@@ -185,3 +185,4 @@
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
 <!--HONumber=47-->
+ 

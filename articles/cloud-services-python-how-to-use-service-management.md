@@ -398,9 +398,9 @@ Azure SDK for Python 含有 [Azure 服務管理 API][svc-mgmt-rest-api]，這是
 		role_size='Small',
 		vm_image_name = image_name)
 
-若要深入了解如何擷取 Linux 虛擬機器，請參閱[如何擷取 Linux 虛擬機器](virtual-machines-linux-capture-image.md)。
+若要深入了解如何擷取 Linux 虛擬機器，請參閱[如何擷取 Linux 虛擬機器](virtual-machines/virtual-machines-linux-capture-image.md)。
 
-若要深入了解如何擷取 Windows 虛擬機器，請參閱[如何擷取 Windows 虛擬機器](virtual-machines-capture-image-windows-server.md)。
+若要深入了解如何擷取 Windows 虛擬機器，請參閱[如何擷取 Windows 虛擬機器](virtual-machines/virtual-machines-capture-image-windows-server.md)。
 
 ## <a name="What's Next"> </a>後續步驟
 

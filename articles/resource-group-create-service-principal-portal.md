@@ -98,17 +98,17 @@
 
 - [Azure 資源管理員概觀](./resource-group-overview.md)  
 - [搭配使用 Azure PowerShell 與 Azure 資源管理員](./powershell-azure-resource-manager.md)
-- [搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](./xplat-cli-azure-resource-manager.md)  
+- [搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](virtual-machines/xplat-cli-azure-resource-manager.md)  
 - [使用 Azure 入口網站管理 Azure 資源](./resource-group-portal.md)  
   
 建立和部署應用程式
   
 - [編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)  
 - [使用 Azure 資源管理員範本部署應用程式](./resource-group-template-deploy.md)  
-- [Azure 中的資源群組部署疑難排解](./resource-group-deploy-debug.md)  
+- [Azure 中的資源群組部署疑難排解](virtual-machines/resource-group-deploy-debug.md)  
 - [Azure 資源管理員範本函數](./resource-group-template-functions.md)  
 - [進階範本作業](./resource-group-advanced-template.md)  
-- [使用 .NET 程式庫和範本部署 Azure 資源](./arm-template-deployment.md)
+- [使用 .NET 程式庫和範本部署 Azure 資源](virtual-machines/arm-template-deployment.md)
   
 組織資源
   

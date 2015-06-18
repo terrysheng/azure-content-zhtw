@@ -205,7 +205,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 ### 必要條件
 若要執行本節中的某些診斷工作，您必須存取 SQL 資料庫的管理工具 (例如 **SQL Server Management Studio**) 或 **Azure 管理入口網站**的內建管理功能。
 
-SQL Server Management Studio 是一項免費的 Windows 應用程式，可提供最進階的功能。如果您無法存取 Windows 機器 (例如，如果您使用 Mac)，請考慮依照[建立執行 Windows Server 的虛擬機器](virtual-machines-windows-tutorial.md)中的說明在 Azure 中佈建虛擬機器，然後從遠端加以連接。如果您使用 VM 的主要目的是要執行 SQL Server Management Studio，則一個 [基本 A0] \(先前稱為「超小型」) 執行個體即應夠用。
+SQL Server Management Studio 是一項免費的 Windows 應用程式，可提供最進階的功能。如果您無法存取 Windows 機器 (例如，如果您使用 Mac)，請考慮依照[建立執行 Windows Server 的虛擬機器](virtual-machines/virtual-machines-windows-tutorial.md)中的說明在 Azure 中佈建虛擬機器，然後從遠端加以連接。如果您使用 VM 的主要目的是要執行 SQL Server Management Studio，則一個 [基本 A0] \(先前稱為「超小型」) 執行個體即應夠用。
 
 Azure 管理入口網站提供內建的管理功能，雖然功能有限，但不需本機安裝即可使用。
 

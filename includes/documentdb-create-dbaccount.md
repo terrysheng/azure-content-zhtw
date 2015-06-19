@@ -51,6 +51,6 @@
 
 [作法：建立 DocumentDB 帳戶]: #Howto
 [後續步驟]: #NextSteps
-[documentdb-manage]:../articles/documentdb-manage.md
+[documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 <!--HONumber=49-->

@@ -106,6 +106,6 @@
 </tr>
 </table>
 
-以星號 (*) 列出的配額[可以透過聯絡 Azure 支援人員來進行調整](../articles/documentdb-increase-limits.md)。
+以星號 (*) 列出的配額[可以透過聯絡 Azure 支援人員來進行調整](../articles/documentdb/documentdb-increase-limits.md)。
 
 <!---HONumber=58-->

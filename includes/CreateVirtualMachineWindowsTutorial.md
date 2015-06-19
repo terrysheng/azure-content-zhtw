@@ -53,7 +53,7 @@
 
 ## <a id="attachdisk"> </a>如何將資料磁碟連接至新的虛擬機器 ##
 
-本節說明如何將空的資料磁碟連接至虛擬機器。請參閱[連接資料磁碟教學課程](../articles/storage-windows-attach-disk.md)，以取得連接空磁碟和如何連接現有磁碟的詳細資訊。
+本節說明如何將空的資料磁碟連接至虛擬機器。請參閱[連接資料磁碟教學課程](../articles/virtual-machines/storage-windows-attach-disk.md)，以取得連接空磁碟和如何連接現有磁碟的詳細資訊。
 
 1. 登入 Azure [管理入口網站](http://manage.windowsazure.com)。
 
@@ -113,11 +113,11 @@
 
 若要深入了解在 Azure 上設定 Windows 虛擬機器，請參閱下列文章：
 
-[如何連接至雲端服務中的虛擬機器](../articles/cloud-services-connect-virtual-machine.md)
+[如何連接至雲端服務中的虛擬機器](../articles/virtual-machines/cloud-services-connect-virtual-machine.md)
 
-[如何建立和上傳包含 Windows Server 作業系統的個人虛擬硬碟](../articles/virtual-machines-create-upload-vhd-windows-server.md)
+[如何建立和上傳包含 Windows Server 作業系統的個人虛擬硬碟](../articles/virtual-machines/virtual-machines-create-upload-vhd-windows-server.md)
 
-[將資料磁碟連接至虛擬機器](../articles/storage-windows-attach-disk.md)
+[將資料磁碟連接至虛擬機器](../articles/virtual-machines/storage-windows-attach-disk.md)
 
 [管理虛擬機器的可用性](../articles/manage-availability-virtual-machines.md)
 

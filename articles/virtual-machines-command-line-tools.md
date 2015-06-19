@@ -20,7 +20,7 @@
 
 本主題說明如何在 **arm** 模式下使用 Azure CLI，在 Mac、Linux 和 Windows 電腦的命令列上建立、管理和刪除服務。此功能類似於隨 Azure SDK for .NET/Node.JS/PHP 安裝之 Windows PowerShell Cmdlet 所提供的功能。
 
-> [AZURE.NOTE]使用 Azure 服務搭配 **asm** 模式在概念上類似於個別 Azure 概念和服務的思考模式，例如網站、虛擬機器、虛擬網路、儲存體等等。使用 **arm** 模式時，可以透過以邏輯方式分組的階層式資源模型，在命令列上使用更豐富的功能。若要切換到該模式，請參閱[搭配使用 Azure 命令列介面與資源管理員](xplat-cli-azure-resource-manager.md)。
+> [AZURE.NOTE]使用 Azure 服務搭配 **asm** 模式在概念上類似於個別 Azure 概念和服務的思考模式，例如網站、虛擬機器、虛擬網路、儲存體等等。使用 **arm** 模式時，可以透過以邏輯方式分組的階層式資源模型，在命令列上使用更豐富的功能。若要切換到該模式，請參閱[搭配使用 Azure 命令列介面與資源管理員](virtual-machines/xplat-cli-azure-resource-manager.md)。
 
 如需安裝指示，請參閱[安裝與設定 Azure 命令列介面](xplat-cli-install.md)。
 

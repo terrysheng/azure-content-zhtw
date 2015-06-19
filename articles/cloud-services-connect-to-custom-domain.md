@@ -1,4 +1,4 @@
-﻿<properties
+<properties
   pageTitle="將 Azure 雲端服務角色連接到裝載於 Azure 中的自訂 AD 網域控制站"
   description="了解如何使用 Powershell 和 AD 網域延伸將 Web/背景工作角色連接到自訂 AD 網域"
   services="cloud-services"
@@ -30,7 +30,7 @@
 
 ## 建立虛擬網路
 
-您可以使用 Azure 入口網站或 Powershell 在 Azure 中建立虛擬網路。在本教學課程中，我們將使用 Powershell。若要使用 Azure 入口網站建立虛擬網路，請參閱[建立虛擬網路](create-virtual-network.md)。
+您可以使用 Azure 入口網站或 Powershell 在 Azure 中建立虛擬網路。在本教學課程中，我們將使用 Powershell。若要使用 Azure 入口網站建立虛擬網路，請參閱[建立虛擬網路](virtual-machines/create-virtual-network.md)。
 
     #Create Virtual Network
 

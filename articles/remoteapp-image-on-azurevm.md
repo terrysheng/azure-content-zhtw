@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
     pageTitle="建立以 Azure VM 為基礎的 RemoteApp 映像"
     description="了解如何從 Azure 虛擬機器建立 RemoteApp 映像。" 
     services="remoteapp" 
@@ -37,7 +37,7 @@
 
 3. 如果您打算使用 Windows Server 遠端桌面工作階段主機映像，它包含了可確保您的 VM 符合 RemoteApp 必要需求的驗證指令碼。若要執行指令碼，請按兩下桌面上的 **ValidateRemoteAppImage**。在繼續進行下一個步驟之前，請確定已修正指令碼所報告的所有錯誤。
 
-4. SYSPREP 一般化和擷取映像。如需相關指示，請參閱 [如何擷取 Windows 虛擬機器作為範本使用](virtual-machines-capture-image-windows-server.md)。
+4. SYSPREP 一般化和擷取映像。如需相關指示，請參閱 [如何擷取 Windows 虛擬機器作為範本使用](virtual-machines/virtual-machines-capture-image-windows-server.md)。
 
  
 

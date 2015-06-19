@@ -78,6 +78,6 @@ Azure 虛擬機器和雲端服務是 Azure 所提供數種計算資源類型的�
 
  ＜[關於 A8、A9、A10 和 A11 計算密集型執行個體](http://go.microsoft.com/fwlink/p/?linkid=328042)＞
 
- [虛擬機器的大小](virtual-machines-size-specs.md)
+ [虛擬機器的大小](virtual-machines/virtual-machines-size-specs.md)
 
 <!---HONumber=58-->

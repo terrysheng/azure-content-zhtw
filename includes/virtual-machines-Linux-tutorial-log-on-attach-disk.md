@@ -30,7 +30,7 @@
 
 應用程式可能需要儲存資料。若要進行此設定，請將資料磁碟連接至先前建立的虛擬機器。最簡單的方法是將空的資料磁碟連接至機器。
 
-在 Linux 上，資源磁碟通常由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的 **/mnt**)。換句話說，在 Linux 上，核心有可能將資料磁碟命名為 `/dev/sdc`，且使用者必須分割、格式化及掛接該資源。如需詳細資訊，請參閱＜[Azure Linux 代理程式使用者指南](virtual-machines-linux-agent-user-guide.md)＞(英文)。
+在 Linux 上，資源磁碟通常由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的 **/mnt**)。換句話說，在 Linux 上，核心有可能將資料磁碟命名為 `/dev/sdc`，且使用者必須分割、格式化及掛接該資源。如需詳細資訊，請參閱＜[Azure Linux 代理程式使用者指南](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md)＞(英文)。
 
 >[AZURE.NOTE]請勿在資源磁碟上儲存資料。此磁碟提供暫存儲存空間以供應用程式和程序使用，並可用來儲存您不需要保留的資料 (例如交換檔)。位於 Azure 儲存體中的資料磁碟如同分頁 Blob 中的 .vhd 檔案，可提供儲存體備援以保護您的資料安全。如需詳細資訊，請參閱[關於 Azure 中的磁碟和映像](http://msdn.microsoft.com/library/jj672979.aspx)。
 

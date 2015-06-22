@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	urldisplayname="Service Bus AMQP" 
 	headerexpose="" 
 	pageTitle="如何搭配使用 AMQP 1.0 與 Java 服務匯流排 API - Azure" 
@@ -370,3 +370,4 @@ JMS 使用 Java 命名及目錄介面 (JNDI) 建立邏輯名稱與實際名稱�
 * [如何使用服務匯流排佇列](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
 <!--HONumber=47-->
+ 

@@ -168,7 +168,7 @@
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-android-push-notifications-app-users.md
 
-[什麼是通知中樞？]: notification-hubs-overview.md
+[什麼是通知中樞？]: notification-hubs/notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: notification-hubs-android-send-localized-breaking-news.md
 

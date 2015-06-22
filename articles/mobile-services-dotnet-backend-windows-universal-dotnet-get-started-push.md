@@ -110,7 +110,7 @@ public static MobileServiceClient todolistClient = new MobileServiceClient(
 
 [將推播通知傳送給驗證的使用者]: mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md
 
-[什麼是通知中樞？]: notification-hubs-overview.md
+[什麼是通知中樞？]: notification-hubs/notification-hubs-overview.md
 
 [如何使用 Azure 行動服務的 .NET 用戶端]: mobile-services-windows-dotnet-how-to-use-client-library.md
 

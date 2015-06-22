@@ -117,9 +117,9 @@
 [將推播通知傳送給已驗證的使用者]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 [將推播通知傳送給驗證的使用者]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 
-[什麼是通知中心？]: notification-hubs-overview.md
-[將廣播通知傳送給訂閱者]: notification-hubs-windows-store-dotnet-send-breaking-news.md
-[將範本型通知傳送給訂閱者]: notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+[什麼是通知中心？]: notification-hubs/notification-hubs-overview.md
+[將廣播通知傳送給訂閱者]: notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md
+[將範本型通知傳送給訂閱者]: notification-hubs/notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 
 <!--HONumber=54-->

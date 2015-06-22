@@ -237,9 +237,9 @@
 
 [將推播通知傳送給驗證的使用者]: mobile-services-javascript-backend-ios-push-notifications-app-users.md
 
-[什麼是通知中樞？]: notification-hubs-overview.md
-[將廣播通知傳送給訂閱者]: notification-hubs-ios-send-breaking-news.md
-[將範本型通知傳送給訂閱者]: notification-hubs-ios-send-localized-breaking-news.md
+[什麼是通知中樞？]: notification-hubs/notification-hubs-overview.md
+[將廣播通知傳送給訂閱者]: notification-hubs/notification-hubs-ios-send-breaking-news.md
+[將範本型通知傳送給訂閱者]: notification-hubs/notification-hubs-ios-send-localized-breaking-news.md
 
 [行動服務 Objective-C 作法概念性參考]: mobile-services-windows-dotnet-how-to-use-client-library.md
 

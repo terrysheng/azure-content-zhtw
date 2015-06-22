@@ -1,6 +1,6 @@
 
 本節說明如何從 .NET 主控台應用程式和任何其他應用程式傳送通知。
-如果您使用的是行動服務，請參閱[開始使用推播](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) 教學課程。如果您想要使用 Java 或 PHP，請參閱[如何從 Java/PHP 使用通知中樞](notification-hubs-java-backend-how-to.md)。您可以使用[通知中樞 REST 介面]，從任何後端傳送通知。
+如果您使用的是行動服務，請參閱[開始使用推播](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) 教學課程。如果您想要使用 Java 或 PHP，請參閱[如何從 Java/PHP 使用通知中樞](../articles/notification-hubs/notification-hubs-java-backend-how-to.md)。您可以使用[通知中樞 REST 介面]，從任何後端傳送通知。
 
 下列程式碼會傳送通知給 Windows 市集、Windows Phone、iOS 和 Android 裝置。 
 
@@ -91,7 +91,7 @@
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[get-started]: ../articles/notification-hubs-windows-store-dotnet-get-started.md
+[get-started]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [通知中樞指引]: http://msdn.microsoft.com/library/jj927170.aspx

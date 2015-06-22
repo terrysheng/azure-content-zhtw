@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/13/2015" 
+	ms.date="02/13/2015" 
 	ms.author="stbaro"/>
 
 # 使用 [查詢總管]，針對 DocumentDB 集合建立、編輯和執行 SQL 查詢 #

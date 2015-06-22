@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/13/2015" 
+	ms.date="02/13/2015" 
 	ms.author="stbaro"/>
 
 # 使用 DocumentDB Document Explorer 檢視、編輯、建立和上傳 JSON 文件 #

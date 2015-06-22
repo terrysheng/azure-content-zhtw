@@ -254,7 +254,7 @@ Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網
 
 ## 後續步驟
 - [Azure 資源管理員範本函數](./resource-group-template-functions.md)
-- [使用 Azure 資源管理員範本部署應用程式](./resource-group-template-deploy.md)
+- [使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)
 - [進階範本作業](./resource-group-advanced-template.md)
 - [Azure 資源管理員概觀](./resource-group-overview.md)
 

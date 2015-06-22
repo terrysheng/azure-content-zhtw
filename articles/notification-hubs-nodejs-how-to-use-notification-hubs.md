@@ -209,7 +209,7 @@ Azure 通知中樞提供易用、多平台、可擴充的基礎結構，用以�
   [Azure 服務匯流排通知中樞]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [使用 WebMatrix 的網站]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Node.js 雲端服務]: cloud-services-nodejs-develop-deploy-app.md
+  [Node.js 雲端服務]: cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [先前的管理入口網站]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
   [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [使用儲存體的 Node.js 雲端服務]: /develop/nodejs/tutorials/web-app-with-storage/

@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="使用 Azure 自動化管理 Azure RemoteApp"
 	description="了解如何使用 Azure 自動化服務管理 Azure RemoteApp。"
 	services="remoteapp, automation"
@@ -40,7 +40,7 @@ Azure RemoteApp 可透過 [Azure PowerShell 工具](https://msdn.microsoft.com/l
 
 了解 Azure 自動化的基本概念以及如何用它來管理 Azure RemoteApp 之後，請參考下列連結，以深入了解 Azure 自動化。
 
-* 請參閱 Azure 自動化[入門教學課程](automation-create-runbook-from-samples.md)
+* 請參閱 Azure 自動化[入門教學課程](automation/automation-create-runbook-from-samples.md)
 
 
 <!--HONumber=52-->

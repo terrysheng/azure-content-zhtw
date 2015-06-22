@@ -203,4 +203,4 @@
 [如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者]: active-directory-java-authenticate-users-access-control-eclipse.md
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
 
-<!---HONumber=58-->
+<!---HONumber=58--> 

@@ -262,8 +262,8 @@
 
 [將推播通知傳送給驗證的使用者]: mobile-services-dotnet-backend-ios-push-notifications-app-users.md
 
-[什麼是通知中心？]: notification-hubs-overview.md
-[Send broadcast notifications to subscribers]: notification-hubs-ios-send-breaking-news.md
-[Send template-based notifications to subscribers]: notification-hubs-ios-send-localized-breaking-news.md
+[什麼是通知中心？]: notification-hubs/notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs/notification-hubs-ios-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs/notification-hubs-ios-send-localized-breaking-news.md
 
 <!--HONumber=54-->

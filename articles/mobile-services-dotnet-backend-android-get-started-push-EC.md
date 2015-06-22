@@ -248,9 +248,9 @@
 
 [Send push notifications to authenticated users]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 
-[什麼是通知中心？]: notification-hubs-overview.md
-[Send broadcast notifications to subscribers]: notification-hubs-windows-store-dotnet-send-breaking-news.md
-[Send template-based notifications to subscribers]: notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+[什麼是通知中心？]: notification-hubs/notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs/notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 
 <!--HONumber=54-->

@@ -757,7 +757,7 @@ Model-View-ViewModel (MVVM) 是 Model-View-Controller (MVC) 的變體。MVVM 模
 [深入了解 Azure 行動服務]: /develop/mobile/resources/
 [深入了解 Web API]: http://asp.net/web-api
 [處理資料庫寫入衝突]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
-[新增推播通知]: notification-hubs-windows-store-dotnet-get-started.md
+[新增推播通知]: notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
 [開始使用驗證]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
 

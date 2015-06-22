@@ -22,7 +22,7 @@
 
 
 ## 概念
-1. Azure Active Directory (AAD) - 雲端的身分識別與存取管理服務。如需詳細資訊，請參閱[什麼是 Azure Active Directory](./active-directory-whatis.md)。
+1. Azure Active Directory (AAD) - 雲端的身分識別與存取管理服務。如需詳細資訊，請參閱[什麼是 Azure Active Directory](active-directory/active-directory-whatis.md)。
 2. 服務主體 - 目錄中應用程式的執行個體。
 3. AD 應用程式 - 向 AAD 識別應用程式的目錄記錄。如需詳細資訊，請參閱 [Azure AD 中的驗證基本概念](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth)。
 
@@ -74,7 +74,7 @@
 
    您現在已在目錄中建立服務主體，但未將任何權限或範圍指派給服務。您必須明確地授與服務主體權限，才能在某個範圍執行作業。
 
-4. 授與服務主體對您訂用帳戶的權限。在此範例中，您會將讀取訂用帳戶中所有資源的權限授與服務主體。針對 **ServicePrincipalName** 參數，提供您在建立應用程式時所使用的 **ApplicationId** 或 **IdentifierUris**。如需角色存取控制的詳細資訊，請參閱[管理和稽核資源存取權](./resource-group-rbac.md)。
+4. 授與服務主體對您訂用帳戶的權限。在此範例中，您會將讀取訂用帳戶中所有資源的權限授與服務主體。針對 **ServicePrincipalName** 參數，提供您在建立應用程式時所使用的 **ApplicationId** 或 **IdentifierUris**。如需角色存取控制的詳細資訊，請參閱[管理和稽核資源存取權](azure-portal/resource-group-rbac.md)。
 
         PS C:> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
@@ -107,7 +107,7 @@
 
 您必須已經有 AD 應用程式和服務主體，才能執行這些步驟。如需如何透過 Azure 傳統入口網站設定 AD 應用程式和服務主體的詳細資訊，請參閱[使用 Azure 傳統入口網站建立新的 Azure 服務主體](./resource-group-create-service-principal-portal.md)。
 
-1. 授與服務主體對您訂用帳戶的權限。在此範例中，您會將讀取訂用帳戶中所有資源的權限授與服務主體。針對 **ServicePrincipalName** 參數，提供您在建立應用程式時所使用的 **ApplicationId** 或 **IdentifierUris**。如需角色存取控制的詳細資訊，請參閱[管理和稽核資源存取權](./resource-group-rbac.md)。
+1. 授與服務主體對您訂用帳戶的權限。在此範例中，您會將讀取訂用帳戶中所有資源的權限授與服務主體。針對 **ServicePrincipalName** 參數，提供您在建立應用程式時所使用的 **ApplicationId** 或 **IdentifierUris**。如需角色存取控制的詳細資訊，請參閱[管理和稽核資源存取權](azure-portal/resource-group-rbac.md)。
 
         azure role assignment create --objectId {service-principal-object-id} -o Reader -c /subscriptions/{subscriptionId}/
 
@@ -127,12 +127,12 @@
 - [Azure 資源管理員概觀](./resource-group-overview.md)  
 - [搭配使用 Azure PowerShell 與 Azure 資源管理員](./powershell-azure-resource-manager.md)
 - [搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [使用 Azure 入口網站管理 Azure 資源](./resource-group-portal.md)  
+- [使用 Azure 入口網站管理 Azure 資源](azure-portal/resource-group-portal.md)  
   
 建立和部署應用程式
   
 - [編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)  
-- [使用 Azure 資源管理員範本部署應用程式](./resource-group-template-deploy.md)  
+- [使用 Azure 資源管理員範本部署應用程式](azure-portal/resource-group-template-deploy.md)  
 - [Azure 中的資源群組部署疑難排解](virtual-machines/resource-group-deploy-debug.md)  
 - [Azure 資源管理員範本函數](./resource-group-template-functions.md)  
 - [進階範本作業](./resource-group-advanced-template.md)  
@@ -144,7 +144,7 @@
   
 管理和稽核存取權
   
-- [管理和稽核資源存取權](./resource-group-rbac.md)  
+- [管理和稽核資源存取權](azure-portal/resource-group-rbac.md)  
 - [使用 Azure 入口網站建立新的 Azure 服務主體](./resource-group-create-service-principal-portal.md)  
   
 

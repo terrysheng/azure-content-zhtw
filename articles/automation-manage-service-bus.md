@@ -40,7 +40,7 @@ Azure 自動化提供高度可靠、高度可用的工作流程執行引擎，�
 
 了解 Azure 自動化的基本概念以及如何用它來管理 Azure 服務匯流排之後，請參考下列連結，以深入了解 Azure 自動化。
 
-* 請參閱 Azure 自動化[入門指南](automation-create-runbook-from-samples.md)
+* 請參閱 Azure 自動化[入門指南](automation/automation-create-runbook-from-samples.md)
 * 請參閱[使用 PowerShell 管理服務匯流排](service-bus-powershell-how-to-provision.md)的相關文章
 
 <!---HONumber=58-->

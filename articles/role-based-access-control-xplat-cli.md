@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="使用 Azure 跨平台命令列介面管理角色存取控制" 
 	description="使用跨平台命令列介面管理角色存取控制" 
 	services="" 
@@ -148,3 +148,4 @@ Azure Preview 入口網站以及 Azure 資源管理員 API 裡的角色存取控
 - [為角色存取控制進行疑難排解](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
 
 <!--HONumber=46--> 
+ 

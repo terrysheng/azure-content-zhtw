@@ -5,6 +5,6 @@
 > [AZURE.NOTE]行動服務 Android SDK 已更新至 2.0 版。如果您之前就已完成上述兩個教學課程，但若不是使用更新後的 SDK，您就必須重新進行。若要確認您的應用程式所使用的 SDK 版本，請在 Android Studio 中開啟應用程式並檢查 **libs** 資料夾的內容。行動服務 jar 檔案上的版本號碼必須是 2.0 或更高版本。
 
 <!-- URLs. -->
-[開始使用行動服務]: ../articles/mobile-services-android-get-started.md
-[將行動服務新增至現有的應用程式]: ../articles/mobile-services-android-get-started-data.md
+[開始使用行動服務]: ../articles/mobile-services/mobile-services-android-get-started.md
+[將行動服務新增至現有的應用程式]: ../articles/mobile-services/mobile-services-android-get-started-data.md
 <!--HONumber=54-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="9/1/2014" 
+	ms.date="09/01/2014" 
 	ms.author="robb"/>
 
 # 提高 Azure 應用程式效能的最佳做法  #

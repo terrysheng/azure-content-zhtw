@@ -10,11 +10,11 @@
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
 	ms.date="02/26/2015" 
-	ms.author="wesmc,yuaxu"/>
+	ms.author="wesmc"/>
 # 使用 ASP.NET 來註冊目前使用者以取得推播通知
 
 <div class="dev-center-tutorial-selector sublanding">

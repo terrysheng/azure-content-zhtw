@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="3/5/2015"
+    ms.date="03/05/2015"
     ms.author="vmaker"/>
 
 # 將 Azure 雲端服務角色連接到裝載於 Azure 中的自訂 AD 網域控制站

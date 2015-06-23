@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="2/19/2015" 
+	ms.date="02/19/2015" 
 	ms.author="tdykstra"/>
 
 # 開始使用 Azure 雲端服務和 ASP.NET

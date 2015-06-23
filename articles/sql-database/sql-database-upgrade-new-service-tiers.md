@@ -9,12 +9,12 @@
 
 <tags 
 	ms.service="sql-database" 
-ms.devlang="NA"
+	ms.devlang="NA"
 	ms.date="02/23/2015" 
 	ms.author="jhubbard; sstein" 
 	ms.workload="data-services" 
 	ms.topic="article" 
-	ms.tgt_pltfrm=""/>
+	ms.tgt_pltfrm="NA"/>
 
 
 # 將 SQL Database Web 或 Business 資料庫升級至新的服務層
@@ -176,7 +176,7 @@ Azure SQL Database 服務會在管理入口網站和 [系統檢視] 中公開資
 
 圖示為一段時間的平均 DTU 百分比耗用趨勢。這裡提供多數時間處於 S2 層級之資料庫的範例圖表，而其中的某個尖峰活動暴衝至 P1 資料庫層級。一段時間後的 DTU 耗用量從「基本」限制攀升至 'P1' 限制。為使這個資料庫完全適應新的服務層，您需要 'P1' 效能層級的「高階」服務層資料庫。另一方面，如果這些暴衝至 P1 層級的突發高載情況並不常見，使用 S2 層級資料庫就已足夠。
 
-![DTU Usage](media/sql-database-upgrade-new-service-tiers/e4N4ay5.png)
+![DTU Usage](media/sql-database-upgrade-new-service-tiers/DTU_usage.png)
 
 **記憶體對效能的影響：**雖然記憶體是構成 DTU 評等的其中一項資源層面，但 SQL Database 的設計是要將所有可用的記憶體運用在資料庫作業上。基於這個原因，記憶體耗用量並未包含在上述查詢的平均 DTU 耗用量中。另一方面，如果您是要降級至較低的效能層級，資料庫可用的記憶體就會減少。這會導致較高的 IO 耗用量，進而影響使用的 DTU。因此，在降級至較低的效能層級時，請確定 IO 百分比有足夠的空間。您可以使用上述的 [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV 來監視。
 

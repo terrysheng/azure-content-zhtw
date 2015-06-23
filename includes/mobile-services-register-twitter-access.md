@@ -2,7 +2,7 @@
 
 新的 Twitter v1.1 API 會要求您的應用程式先進行驗證再存取資源。首先，您需要使用 OAuth 2.0 取得所需的認證以要求存取權。接著針對您的行動服務，將它們安全地儲存在應用程式設定中。
 
-1. 如果尚未執行此操作，請完成<a href="../articles/mobile-services-how-to-register-twitter-authentication.md/" target="_blank">在行動服務中註冊您的應用程式以進行 Twitter 登入</a>主題中的步驟。 
+1. 如果尚未執行此操作，請完成<a href="../articles/mobile-services/mobile-services-how-to-register-twitter-authentication.md/" target="_blank">在行動服務中註冊您的應用程式以進行 Twitter 登入</a>主題中的步驟。 
   
   	Twitter 會產生需要的認證，讓您可以存取 Twitter v1.1 API。您可以從 Twitter Developers 網站取得這些認證。
 
@@ -34,7 +34,7 @@
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure 管理入口網站]: https://manage.windowsazure.com/
-[Register your apps for Twitter login with Mobile Services]: ../articles/mobile-services-how-to-register-twitter-authentication.md
+[Register your apps for Twitter login with Mobile Services]: ../articles/mobile-services/mobile-services-how-to-register-twitter-authentication.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [應用程式設定]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 <!--HONumber=54-->

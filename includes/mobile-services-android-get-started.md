@@ -17,7 +17,7 @@
 	- 	在 **TodoActivity.java** 中找出 **OnCreate** 方法，然後找出具現化行動服務用戶端的程式碼。在前一個影像中可看到此程式碼。
 	- 	以您行動服務的實際 Url 取代 "MobileServiceUrl"。
 	- 	以您行動服務的金鑰取代 "AppKey"。
-	- 	如需詳細資訊，請參閱教學課程[將行動服務新增至現有的應用程式](../articles/mobile-services-android-get-started-data.md)。 
+	- 	如需詳細資訊，請參閱教學課程[將行動服務新增至現有的應用程式](../articles/mobile-services/mobile-services-android-get-started-data.md)。 
 
 6. 從 [執行]**** 功能表中，按一下 [執行]**** 在 Android 模擬器中啟動專案。
 
@@ -52,9 +52,9 @@
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Add Mobile Services to an existing app]: ../articles/mobile-services-android-get-started-data.md
-[Get started with authentication]: ../articles/mobile-services-android-get-started-users.md
-[Get started with push notifications]: ../articles/mobile-services-javascript-backend-android-get-started-push.md
+[Add Mobile Services to an existing app]: ../articles/mobile-services/mobile-services-android-get-started-data.md
+[Get started with authentication]: ../articles/mobile-services/mobile-services-android-get-started-users.md
+[Get started with push notifications]: ../articles/mobile-services/mobile-services-javascript-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533

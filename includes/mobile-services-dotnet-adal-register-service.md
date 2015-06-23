@@ -36,6 +36,6 @@
 6. 在 Azure 管理入口網站中，再次按一下應用程式的 [Manage Manifest]****，然後按一下 [Upload Manifest]****。瀏覽到您剛剛更新的應用程式資訊清單位置，並上傳此資訊清單。
 
 <!-- URLs. -->
-[如何註冊 Azure Active Directory]: ../articles/mobile-services-how-to-register-active-directory-authentication.md
+[如何註冊 Azure Active Directory]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
 [Azure 管理入口網站]: https://manage.windowsazure.com/
 <!--HONumber=54-->

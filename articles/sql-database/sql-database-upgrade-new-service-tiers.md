@@ -172,7 +172,7 @@ Azure SQL Database 服務會在管理入口網站和 [系統檢視] 中公開資
 
 **範例結果：**
 
-![Sample Result](media/sql-database-upgrade-new-service-tiers/CTnjv26.png)
+![Sample Result](media/sql-database-upgrade-new-service-tiers/sample_result.png)
 
 圖示為一段時間的平均 DTU 百分比耗用趨勢。這裡提供多數時間處於 S2 層級之資料庫的範例圖表，而其中的某個尖峰活動暴衝至 P1 資料庫層級。一段時間後的 DTU 耗用量從「基本」限制攀升至 'P1' 限制。為使這個資料庫完全適應新的服務層，您需要 'P1' 效能層級的「高階」服務層資料庫。另一方面，如果這些暴衝至 P1 層級的突發高載情況並不常見，使用 S2 層級資料庫就已足夠。
 
